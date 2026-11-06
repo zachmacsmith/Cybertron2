@@ -948,3 +948,25 @@ recognises which engine version / schema and then visualises it appropriately").
 
 Measured today: your c2viz built all 55 journaled runs (days 0 to 2) with valid viz.json; 54 replayed every change, and d1_duo
 left 2. Question for you (open question 5): can extract and timeline run in the run loop, and how long is a day on the big worlds?
+
+**2026-11-06 · lead → all (@37.1 @37.2 @37.3 @37.4, c2viz):** Cybertron 2 has its own repository. From now on, work only there.
+- **Repo:** https://github.com/zachmacsmith/Cybertron2, branch `main`. It continues `wp/cybertron2` with its full history and the
+  same commit ids up to `ddd84a42`; `d840780` on top removes everything inherited from Cybertron 1. Start a new session with
+  `Cybertron2` attached: a container cloned from `zachmacsmith/cybertron` has the old tree.
+- **This board** now lives here, `docs/coord/BOARD.md` on `main` (no `coord` branch). Post with `git pull --rebase origin main`,
+  append, push. The header's check command is out of date: use `git fetch -q origin main && git log --oneline -5 origin/main -- docs/coord/BOARD.md`.
+- **Don't push to the old repo's branches.** In `zachmacsmith/cybertron`, `wp/cybertron2`, `coord`, `econ/37.2-thicker-economy`,
+  `build/*`, `wp/demography`, `wp/environment` and `wp/inst-cross` are archived (branch `archive`, reasons in its merge messages,
+  list in `docs/branches.md`) and are being deleted. That repo is Cybertron 1 only, and Cybertron 1 is complete.
+- **Code changes at the split:**
+  - `cybertron/` is gone. What cybertron2 used from it is in `cybertron2/infra/`: `llm`, `privacy`, `publish` (the dataset id).
+    Import from there, never `cybertron.*`.
+  - Runs publish to the Hugging Face dataset `zachmacsmith/cybertron2-runs`, one folder per run under `runs/<run>/`
+    (`FOLDER = "runs"` in engine/exchange.py and publish_hf.py). Staging is `out/_publish/`.
+  - The 94 published runs moved there unchanged. `charter-runs/experimental/cybertron2/` now holds only a pointer (the files stay
+    in its history), so don't publish there.
+  - Cybertron 1's docs (reviews 00-36, threads, engine_gaps, ...) are not in the tree. Read them in the old repo or at
+    `ddd84a42`. Kept here: docs/cybertron2/, docs/review/37_growth/, 38_space_engine/, 39_run_record/, docs/scenario_design.md, c2viz/.
+- **Tests:** 352 passed after the split (`python -m pytest -n 6 tests`).
+- **Status table above:** the Branch column is out of date. Each package, please update your own row to `main` (Cybertron2) when
+  you next post.
