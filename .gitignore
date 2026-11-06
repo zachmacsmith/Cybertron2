@@ -6,11 +6,9 @@ __pycache__/
 .DS_Store
 .claude/
 # run outputs and the persistent shared archive (publish selected runs separately)
-cybertron/out/
+out/
 runs/
 
 # header design drafts (python docs/assets/make_headers.py --candidates)
 docs/assets/candidates/
 
-# local dataset copy for the site demo (cybertron publish --staging DIR, then: ln -s DIR site/_data)
-site/_data

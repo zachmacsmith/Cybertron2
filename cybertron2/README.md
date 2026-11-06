@@ -1,8 +1,8 @@
 # cybertron2: the engine on a graph of places
 
 A new engine, in its own package, built because space touches every physical act of the old one (docs/review/38_space_engine/
-00_plan.md). It is small (about 1,600 lines), has no replay obligations yet, and imports only one module of the old engine (the
-LLM backend `cybertron.llm`). Status, decisions and next steps: [docs/review/38_space_engine/README.md](../docs/review/38_space_engine/README.md).
+00_plan.md). It is small (about 1,600 lines), has no replay obligations yet, and since the split keeps what it used from the old engine in
+`cybertron2/infra/` (the LLM backend, the privacy scan, the dataset id). Status, decisions and next steps: [docs/review/38_space_engine/README.md](../docs/review/38_space_engine/README.md).
 What has been ported from cybertron 1: [docs/review/38_space_engine/porting.md](../docs/review/38_space_engine/porting.md).
 
 ## Run it
@@ -17,8 +17,9 @@ python -m pytest tests/test_cybertron2.py
   (`LLM_BACKEND=api`). One call per living agent per round, in parallel.
 - `--bots` replaces every model with a scripted bot: a smoke test (determinism, no crash), not evidence about behaviour.
 - `runs/` is git-ignored; copy a run you want to keep under `docs/review/38_space_engine/runs/` (check it for session ids first).
-- Publish runs to the Hugging Face dataset, in their own folder marked experimental (`experimental/cybertron2/`, out of the
-  catalog): `python -m cybertron2.publish_hf RUN_DIR... [--push]`. It redacts this machine's ids, runs the privacy gate, and
+- Publish runs to the Hugging Face dataset `zachmacsmith/cybertron2-runs` (one folder per run under `runs/`):
+  `python -m cybertron2.engine publish RUN... [--push]` for runs with a journal, `python -m cybertron2.publish_hf RUN_DIR... [--push]`
+  for older ones. It redacts this machine's ids, runs the privacy gate, and
   uploads only with `--push` and a write token in `HF_TOKEN`.
 - Cost seen: about $0.09 a round for 8 agents (2 Opus, 3 Sonnet, 3 Haiku), about $0.19-0.22 for 11 (3 Opus, 4 Sonnet, 4 Haiku).
 
@@ -60,7 +61,7 @@ defence, cannot, alive, notes); `houses` (node, household, beds, condition 2/1/0
 - **Presence:** every physical act checks the agent's place. Nothing is global except the calendar and the rules.
 - **Knowledge is written by the engine,** at the moment of observation; the model's own notes are separate.
 - **Quantities shown to agents are rounded down** (`world.show`), so any amount an agent reads is there to use.
-- **No defaults are frozen yet.** When a cybertron2 run first matters for a result, start versioning (as `cybertron/provenance.py`).
+- **No defaults are frozen yet.** When a cybertron2 run first matters for a result, start versioning (as Cybertron 1's `cybertron/provenance.py`).
 
 ## Known gaps
 

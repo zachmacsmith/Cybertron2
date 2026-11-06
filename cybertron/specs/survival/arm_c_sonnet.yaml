@@ -1,2 +1,0 @@
-# Review 24 arm C, all Sonnet.
-extends: [cybertron/specs/survival/arm_c.yaml, cybertron/specs/survival/models_sonnet.yaml]

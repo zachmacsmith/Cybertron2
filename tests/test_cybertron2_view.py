@@ -51,7 +51,7 @@ def test_the_opening_shows_the_whole_and_later_days_only_what_changed(tmp_path):
 
 
 def test_a_run_stops_cleanly_before_a_day_when_the_week_is_at_the_stop(tmp_path, monkeypatch):
-    from cybertron import llm
+    from cybertron2.infra import llm
     monkeypatch.setattr(llm, "USAGE", {"windows": {"seven_day": 0.5, "five_hour": 0.1}, "status": "allowed"})
     monkeypatch.setenv("CYBERTRON2_WEEK_STOP", "0.4")
     out = tmp_path / "run"

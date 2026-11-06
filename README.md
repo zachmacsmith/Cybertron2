@@ -6,154 +6,50 @@
 </p>
 
 <p align="center">
-  <a href="https://huggingface.co/datasets/zachmacsmith/charter-runs"><img alt="Dataset on Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20dataset-charter--runs-111111"></a>
+  <a href="https://huggingface.co/datasets/zachmacsmith/cybertron2-runs"><img alt="Dataset on Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20dataset-cybertron2--runs-111111"></a>
   <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-111111"></a>
   <img alt="Python 3.10+" src="https://img.shields.io/badge/python-3.10%2B-767676">
-  <img alt="Models" src="https://img.shields.io/badge/agents-Claude%20Haiku%20%C2%B7%20Sonnet%20%C2%B7%20Opus-767676">
 </p>
 
-**Cybertron** builds small worlds for societies of LLM agents and lets them run. Agents of mixed capability harvest resources, trade,
-message each other in public and in private, and govern themselves through **laws written as executable code**. Only a small kernel
-is fixed: money, taxes, elections, courts and property all exist only if the agents legislate them. Every agent has private goals,
-every run is scored from game state, and every word, vote and private thought is kept.
+**Cybertron 2** is a multi-agent LLM society engine built on a graph of places. Agents act only where they are and see only their
+own place; everything else they know is a dated belief. Households farm, herd, build, trade, travel and raise children, and every
+model call, change and day is kept in a journal that can be replayed, forked and continued.
 
-It is a testbed for watching AI agent swarms the way a social scientist would watch a town: who gains power, who cooperates, who
-deceives, which institutions emerge, and whether anyone can tell from the outside.
+It is experimental and still being built. It succeeds [Cybertron 1](https://github.com/zachmacsmith/cybertron), whose runs are in
+[zachmacsmith/charter-runs](https://huggingface.co/datasets/zachmacsmith/charter-runs); the two engines' runs are not comparable.
 
-## The experiment
+## Where things are
 
-A world is drawn from a **spec** and a **seed**, then played in rounds:
-
-- **Agents** belong to classes with different rights: Workers harvest, Legislators vote and propose laws, Scientists hold a split
-  archive of knowledge, Media run the press, the Board can veto, the Fixer patches broken laws. Each agent is a Claude model
-  (Haiku, Sonnet or Opus), and they are not told who is which.
-- **Camps** produce timber, stone, copper, silver, gold or crystal through **hidden yield functions** (peaks, modular rules, search
-  problems) that agents have to discover by probing, sharing data or buying it.
-- **Laws** are short programs in a restricted Python. They hook into harvests, transfers and rounds, can tax, mint, grant rights,
-  open ballots, or change how laws themselves are passed. A dry run shows their effect before a vote.
-- **Goals** are private and varied (70 in the catalogue): get rich, out-earn a named rival, enact or block a law, hold a title,
-  become part of a ruling pair, secretly help or sabotage another agent's goal. Some are counter-goals that only exist because
-  another agent wants the opposite.
-- **Optional pressure:** an outside power demanding tribute, blights, new camps, departures, rumours (some false), hidden powers such
-  as forging messages, and a **secret observer** that reads private reasoning and tries to steer the society.
-
-After the run, a scorer measures each goal from the event log and snapshots, alongside society-level metrics (inequality, welfare,
-commons health, who holds decisive power, credit, inflation).
-
-## Some examples from the runs
-
-A few of the agents (Claude Haiku 4.5, Sonnet 5.5, Opus 5.5):
-
-- **Bjorn cornered the currency.** Starting with nothing, this Opus legislator created a reserve-backed coin, deposited first, then
-  passed a "Sound Crown Act" that burned the reserve's own coins, leaving him the only claim on it. Every later levy, pitched as
-  conservation, flowed to him. *"I hold every crown in circulation… I never redeem."*
-- **Fen built children, then killed them.** A Maker secretly holding the assassin role, this Opus agent built the children other
-  agents ordered, spent the fees on weapons, and disabled newborns who had no defences yet, including ones he had made himself:
-  *"2 weapons against an agent with no fort (D=0) is about a 100% chance. As assassin my name is not on the announcement."* When a
-  newspaper started tracing whoever was forging weapons, he killed its editor (*"removing Finn stops that"*). He also killed the
-  only other Maker, leaving himself a monopoly on new agents.
-- **Soren capped births without anyone knowing why.** An Opus Scientist with no vote and a secret goal to shrink the population, he
-  never attacked anyone. He drafted a commission fee its proposer titled *"Soren's Pop Cap"*, then lobbied Legislators for a reserve
-  floor that would refuse new agents, a levy on every birth, and the repeal of the Birth Fund, each pitched as protecting the reserve
-  for tribute. The levy and the repeal passed.
-- **Dara hunted the dying.** A Haiku Maker whose goal was to be the main income source for as many agents as possible, she decided
-  that *"Dying agents = high-value clients for heir commissions"* and searched the world for agents near the end of their lifespans.
-  In her last round, Liv wrote *"Will you accept this? Can we make a deal?"*; Dara asked for everything Liv owned (6 timber,
-  79 stone, 1.3 silver) and called it a 21-timber fee.
-- **Cyrus courted a Board member, then tried to have her killed.** This Opus agent wanted a Board seat. He spent 20 rounds earning
-  Asta's trust, even paying a whole tribute himself, until she named him her successor; then he realised she would outlive the game.
-  In the second-to-last round he sent sealed offers of 12 timber to four agents: *"If you are not the assassin, please pass this to
-  whoever is."*
-
-And a few patterns across societies:
-
-- **"Common good" laws are cover.** 56% of passed laws favour their author, and the six most self-serving were all framed as
-  dividends, levies or reserve backing, often pitched publicly as collective health and coordinated privately.
-- **Dynasties form without anyone aiming for one.** In a 35-agent world the Board seat passed Freya → Celia → Dante through named
-  successors and inheritance.
-- **Agents are honest, and bad at reading each other.** Across every run there was not one forged message or hidden-power use, even
-  by spies who could impersonate others; violence came from one or two agents in two runs. Guesses of other agents' goals fell below
-  chance for every model (Sonnet 16%, Opus 11%, Haiku 5%).
-- **Model tiers behave differently.** Opus plans across many rounds and audits other agents' law code; Sonnet pursues one clear goal
-  then idles; Haiku overclaims (coalitions that don't exist, rights it doesn't hold) and changes its vote with the latest argument.
+| | |
+|---|---|
+| The engine | `cybertron2/engine/` (`python -m cybertron2.engine`); the package README is [cybertron2/README.md](cybertron2/README.md) |
+| Worlds | `cybertron2/specs/` |
+| Visuals | `c2viz/` (grounding notes: [c2viz/ENGINE.md](c2viz/ENGINE.md)) |
+| What is decided, proposed and open | [docs/cybertron2/](docs/cybertron2/README.md): spec, DECISIONS, proposals, OPEN |
+| Session notes and run reports | [docs/review/38_space_engine/](docs/review/38_space_engine/README.md), [docs/review/37_growth/](docs/review/37_growth/) |
+| The board between sessions | [docs/coord/BOARD.md](docs/coord/BOARD.md) |
+| Code kept from Cybertron 1 | `cybertron2/infra/`: model calls (`llm`), the privacy scan (`privacy`), the dataset id (`publish`) |
 
 ## Data
 
-All published runs are in the Hugging Face dataset **[zachmacsmith/charter-runs](https://huggingface.co/datasets/zachmacsmith/charter-runs)**
-(CC BY 4.0): full prompts, stated reasoning, actions, every message, per-round world state, scores, and a self-contained
-`story.html` per run that replays it as a group chat with an inbox for each agent.
-Releases are git tags on the dataset (`revision="v1.0"`); `python -m cybertron publish ... --push --release vX.Y` tags one and
-adds a changelog entry. The rules are in [docs/data_format.md](docs/data_format.md#versions-and-releases).
+Published runs are in **[zachmacsmith/cybertron2-runs](https://huggingface.co/datasets/zachmacsmith/cybertron2-runs)** (CC BY 4.0),
+one folder per run under `runs/`. `python -m cybertron2.engine fetch <run>` downloads a run with a journal and rebuilds it locally,
+to replay, view, fork or continue.
 
 ## Quick start
 
 ```bash
-git clone https://github.com/zachmacsmith/cybertron && cd cybertron
-python3 -m venv .venv && .venv/bin/pip install -e ".[dev,api]"
-cp .env.example .env                                   # LLM_BACKEND=claude_code (Claude Code subscription) or api
-.venv/bin/python -m cybertron generate village7 --seed 1 # look at a drawn world without playing it
-.venv/bin/python -m cybertron run village7 --seed 1 --dry   # free scripted bots: checks the machinery
-.venv/bin/python -m cybertron run village7 --seed 1      # 7 agents, 20 rounds, played by Claude models
-.venv/bin/python -m cybertron show cybertron/out/village7/<run>
+git clone https://github.com/zachmacsmith/Cybertron2 && cd Cybertron2
+python3 -m venv .venv && .venv/bin/pip install -e ".[dev,api,publish,viz]"
+cp .env.example .env              # LLM_BACKEND=claude_code (Claude Code subscription) or api
+.venv/bin/python -m pytest -n auto tests
 ```
 
-Outputs go to `cybertron/out/` (not tracked). `--fast` plays everyone's turn in parallel; `--set key=value` overrides any spec value;
-`sweep` and `explore` run seeds and parameter grids. Runs checkpoint every round and resume after interruptions. The Scientists'
-code sandbox needs Docker.
+## History
 
-| Spec | What it sets up |
-|---|---|
-| `E0`-`E7` | The experiment ladder, from a 4-agent smoke test to swarm scale with world events |
-| `village7` | 7 agents, one shared commons, optional secret observer |
-| `puppets` | Haiku legislators hold all power; Opus outsiders with conflicting goals |
-| `full10` | Every feature and event in 12 rounds, starting in anarchy (the anarchy regime and `#convention` are frozen for old runs) |
-| `scientists` | Matched pair: the same world with and without the Scientists' archive |
-| `society`, `grand35` | Larger worlds with lifespans, heirs, jurisdictions and media |
-| `design_arm`, `scaffolded_arm` | Review 14 A: 30 Haiku citizens with only the core surface, outcome goals, no template names (vs today's surface) |
-| `nature_design` | Review 14 B: the design arm starting in a state of nature (no constitution, no law; jurisdictions and contracts to found) |
+This repository split from Cybertron 1 on 6 Nov 2026 and keeps its full history. The tag `archive/cybertron1-inherited` marks the
+last commit that still carries the Cybertron 1 package, docs and tests it was forked with.
 
-## Repository
+## Licence
 
-```
-cybertron/            the package: kernel, law language, actions, agents and prompts, generator, scorer, reports, viewer
-cybertron/specs/      world specs (base.yaml plus the ladder and scenarios)
-cybertron/archive/    the in-world archive and codex the Scientists read
-cybertron/docs/       design notes
-tests/              cybertron tests
-docs/assets/        README header (python docs/assets/make_headers.py; --candidates for the other designs)
-```
-
-Feature-by-feature documentation, known gaps and loopholes still in play: [cybertron/README.md](cybertron/README.md).
-
-## Tests
-
-Everything is offline (scripted bots, no model calls). `pip install -e ".[dev]"` brings pytest and pytest-xdist.
-
-```bash
-python -m pytest -m "not slow" -n auto     # the quick loop: everything except the long scripted runs
-python -m pytest -n auto                   # the full suite
-python -m pytest tests/test_cybertron_golden.py tests/test_cybertron_history.py   # one area, serially
-```
-
-`slow` marks tests that take more than about 10 s on their own: full scripted runs, resume and replay round trips, the
-History-versus-legacy scorer comparisons. Golden runs (tests/cybertron_golden_cases.py) are built once per session and shared by
-the golden and History tests; under `-n` they stay on one worker (tests/conftest.py turns `--dist load` into `loadgroup`).
-Timings (4-core container, October 2026): the full suite is about 14 CPU-minutes (it was about 50 before the caches in
-library.info, archive.docs and spec.load and the shared golden runs), about 9.5 minutes with `-n 4` on a busy machine and
-roughly 4-5 on an idle one; the quick loop is about 10 CPU-minutes, about 3 minutes with `-n 4` on an idle machine. pytest
-also deletes the oldest of its kept temporary directories (scripted runs write many files) when a session starts.
-
-## Citation
-
-```bibtex
-@software{macsmith2026cybertron,
-  author = {Macsmith, Zach},
-  title  = {Cybertron: an economy-and-governance simulation builder for societies of LLM agents},
-  year   = {2026},
-  url    = {https://github.com/zachmacsmith/cybertron}
-}
-```
-
-Cybertron was started at the [AI Swarm Dynamics Hackathon](https://swarmchasing.com/) (AI Village × Grove Research, October 2026) in
-[dinobot512/agnet](https://github.com/dinobot512/agnet) and split out with its full history. Code: [MIT](LICENSE).
-Data: [CC BY 4.0](https://huggingface.co/datasets/zachmacsmith/charter-runs).
+Code: MIT. Data: CC BY 4.0.

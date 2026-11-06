@@ -161,7 +161,7 @@ def published_folder() -> str:
 
 
 def default_repo() -> str:
-    from cybertron import publish as _P
+    from cybertron2.infra import publish as _P
     return _P.default_repo()
 
 

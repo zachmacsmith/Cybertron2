@@ -3,7 +3,7 @@
     export RUN... --out DIR          DIR/<run>/journal/<table>.parquet (lossless, one to one with run.db), views/<table>.parquet
                                      (for analysis and a site), manifest.json (row counts and checksums), run.json
     import DIR --out RUN             rebuilds run.db exactly from the journal tables (checked against the manifest)
-    publish RUN... [--push]          stages the export under experimental/cybertron2/ with the dataset card, through the privacy
+    publish RUN... [--push]          stages the export under runs/ with the dataset card, through the privacy
                                      gate (this machine's session, container, account and organisation ids and the account email
                                      replaced, then every text and every compressed blob scanned); uploads only with --push
     fetch RUN_ID [--revision R] --out RUN   downloads a published run (pinned to a dataset revision) and imports it
@@ -23,7 +23,7 @@ from pathlib import Path
 
 from cybertron2.engine import farm as FM, journal as JN, views as VW
 
-FOLDER = "experimental/cybertron2"
+FOLDER = "runs"
 SQL_TYPES = {"TEXT": "string", "INTEGER": "int64", "REAL": "float64", "BLOB": "binary"}
 ID_VARS = ("CLAUDE_CODE_SESSION_ID", "CLAUDE_CODE_REMOTE_SESSION_ID", "CLAUDE_CODE_CONTAINER_ID", "CLAUDE_CODE_ACCOUNT_UUID",
            "CLAUDE_CODE_ORGANIZATION_UUID", "CLAUDE_CODE_USER_EMAIL")
@@ -199,7 +199,7 @@ def scan(root, strings) -> list:
 
 def publish(runs, staging=None, push=False, repo=None) -> Path:
     from cybertron2 import publish_hf as LEGACY
-    staging = Path(staging or f"cybertron/out/_publish/cybertron2_{time.strftime('%Y%m%dT%H%M%S', time.gmtime())}")
+    staging = Path(staging or f"out/_publish/cybertron2_{time.strftime('%Y%m%dT%H%M%S', time.gmtime())}")
     root = staging / FOLDER
     if root.exists():
         shutil.rmtree(root)
@@ -236,16 +236,16 @@ cybertron2.engine fetch <run>` downloads and rebuilds it as a local run that can
         return root
     if not os.environ.get("HF_TOKEN"):
         raise SystemExit("HF_TOKEN is not set: a token with write access to the dataset is needed to upload")
-    from cybertron import publish as P
+    from cybertron2.infra import publish as P
     from huggingface_hub import HfApi
     HfApi().upload_folder(repo_id=repo or P.default_repo(), repo_type="dataset", folder_path=str(staging),
-                          allow_patterns=[f"{FOLDER}/**"], commit_message=f"experimental: cybertron2 runs ({', '.join(Path(r).name for r in runs)})")
+                          allow_patterns=[f"{FOLDER}/**"], commit_message=f"runs ({', '.join(Path(r).name for r in runs)})")
     return root
 
 
 def fetch(run_id, out, revision=None, repo=None) -> Path:
     """A published run, downloaded at a pinned revision of the dataset and imported."""
-    from cybertron import publish as P
+    from cybertron2.infra import publish as P
     from huggingface_hub import snapshot_download
     local = snapshot_download(repo_id=repo or P.default_repo(), repo_type="dataset", revision=revision,
                               allow_patterns=[f"{FOLDER}/{run_id}/journal/*", f"{FOLDER}/{run_id}/manifest.json", f"{FOLDER}/{run_id}/run.json"])

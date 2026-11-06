@@ -179,7 +179,7 @@ def test_defending_wakes_the_house_and_a_hand_over_ends_the_raid_without_a_fight
 
 
 def test_the_urgent_call_is_appended_to_the_agents_conversation(tmp_path, monkeypatch):
-    from cybertron import llm
+    from cybertron2.infra import llm
     sent = []
 
     def fake_call(backend, model, system, user, schema, **kw):

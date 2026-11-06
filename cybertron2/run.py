@@ -3,7 +3,7 @@ the plans are carried out interleaved, one action from each agent in turn, in an
 or a raid takes two of an agent's actions); after every step everyone observes again and witnesses what was done where it stands;
 speech is heard by whoever is at the speaker's place when the round ends; then the night (world.end_of_round: hunts, fights,
 meals, the cold), which those present witness; then each agent's round moves into its memory (perceive.close_round). Models are
-called through the old engine's leaf backend (cybertron.llm: `claude -p` on the subscription, or the API).
+called through cybertron2.infra.llm, kept from Cybertron 1 ( `claude -p` on the subscription, or the API).
 
 Logs, in the run directory:
     run.json       the spec, each agent's model and system prompt
@@ -78,7 +78,7 @@ def decide(w: World, name: str, system: str, user: str, backend: str) -> tuple[d
     model = w.s["agents"][name]["model"]
     if model == "bot":
         return bot_plan(w, name), {"model": "bot"}
-    from cybertron import llm
+    from cybertron2.infra import llm
     attempts = []
     t0 = time.monotonic()
     out, reasoning, usage = llm.call(backend, model, system, user, prompt.SCHEMA, attempts=attempts)

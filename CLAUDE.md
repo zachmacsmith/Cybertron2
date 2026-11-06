@@ -1,22 +1,16 @@
-# Cybertron: notes for agents
+# Cybertron 2: notes for agents
 
-A multi-agent LLM society simulator (Python package `cybertron/`, worlds in `cybertron/specs/`, design reviews in `docs/review/`,
-running state of the project in `docs/threads.md`).
+A multi-agent LLM society engine on a graph of places (Python package `cybertron2/`, the engine in `cybertron2/engine/`, worlds in
+`cybertron2/specs/`, visuals in `c2viz/`). Runs are published to the Hugging Face dataset `zachmacsmith/cybertron2-runs`.
 
-**Before designing or building any world, scenario, benchmark arm or experiment batch, read `docs/scenario_design.md`.** The short
-version:
+This repository split from Cybertron 1 (https://github.com/zachmacsmith/cybertron) on 6 Nov 2026. The history before the split is
+kept; the tag `archive/cybertron1-inherited` marks the last commit that still carries the Cybertron 1 package, docs and tests.
+Model calls, the privacy scan and the dataset id that cybertron2 used from Cybertron 1 now live in `cybertron2/infra/`.
 
-- Design from leverage and dependence: restricted access so groups need each other, chokepoints, conversion chains, enforcement
-  that needs people, and several interlocking chokepoints rather than one.
-- Never an all-Haiku society: Opus at every pole of leverage, Sonnet in the middle tier, Haiku in the bulk; vary population strength.
-- Goals are in-world aims, never scoring proxies; keep "Any actions you do not use are wasted".
-- Food binds without dominating (≤ 30% of actions), material chains instead of dial puzzles, and every access gate verified in a dry
-  run.
-- Read any progress metric against the null arm and with a qualitative end-state reading.
-
-Engine gaps are tracked in `docs/engine_gaps.md`; add to it when a design needs something the engine lacks. The work packages for
-worlds that grow (demography, economy, institutions acting on each other, environment, frontier, generated populations,
-coordination problems) are in `docs/review/37_growth/`.
+**Before designing any world or experiment, read `docs/scenario_design.md`** (lessons carried over from Cybertron 1): design from
+leverage and dependence, never an all-Haiku society, goals as in-world aims and never scoring proxies, food binds without
+dominating, and read any metric against a null arm and a qualitative end-state reading. The work packages for worlds that grow
+are in `docs/review/37_growth/`.
 
 ## Visuals are drawn from the engine
 
@@ -36,7 +30,7 @@ senses, never an act or feeling the person did not choose), the checklist, and t
 
 ## cybertron2: where design work goes
 
-Everything about cybertron2 (code, spec, proposals, notes) lives on branch `wp/cybertron2`; other branches are for the old engine.
+Everything about cybertron2 (code, spec, proposals, notes) lives on `main` in this repository.
 Full rules: `docs/cybertron2/README.md`.
 
 | Layer | Holds | Where |
@@ -46,7 +40,7 @@ Full rules: `docs/cybertron2/README.md`.
 | **Proposals** | working thoughts: one file per idea, with a status and a dated history; kept after it is decided or rejected | `docs/cybertron2/proposals/` |
 | **Open** | open questions and conflicts between documents, each with an owner; and everything **flagged for later** (its own table) | `docs/cybertron2/OPEN.md` |
 | **Session notes** | long supporting material only: analyses, cost models, run reports, work logs | `docs/review/38_space_engine/` (37.4), `docs/review/37_growth/02*` (37.2) |
-| **Board** | talk between sessions, append only | `docs/coord/BOARD.md` on branch `coord` |
+| **Board** | talk between sessions, append only | `docs/coord/BOARD.md` |
 
 **The path of an idea:**
 1. **New idea:** write or extend a file in `proposals/` (status `discussion`; layout in `proposals/README.md`: Status, Owner,

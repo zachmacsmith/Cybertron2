@@ -127,7 +127,7 @@ def test_childhood_lines_add_places_up_to_the_limit_and_coming_of_age_counts_fro
 
 
 def test_in_a_run_the_memory_request_asks_and_the_opening_shows_what_is_kept(tmp_path, monkeypatch):
-    from cybertron import llm
+    from cybertron2.infra import llm
     calls = []
 
     def api(model, system, user, schema, thinking_budget, max_tokens):

@@ -17,7 +17,7 @@ import zlib
 
 class Conversations:
     def __init__(self, out_dir, chunk=3, backend="claude_code"):
-        from cybertron import llm
+        from cybertron2.infra import llm
         self.llm = llm
         self.sessions = llm.Sessions(out_dir) if backend == "claude_code" else None
         self.chunk = max(1, int(chunk))

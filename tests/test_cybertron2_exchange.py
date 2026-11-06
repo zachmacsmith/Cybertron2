@@ -15,7 +15,7 @@ SECRET = "SESSION-5ec2e7-id"
 @pytest.fixture(scope="module")
 def model_run(tmp_path_factory):
     """A 3-day run with a stubbed model whose usage carries a private id (as a CLI session id would)."""
-    from cybertron import llm
+    from cybertron2.infra import llm
     out = tmp_path_factory.mktemp("mrun")
     seen = []
     real = llm._api

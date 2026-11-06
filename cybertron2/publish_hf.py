@@ -1,4 +1,4 @@
-"""Publish cybertron2 runs to the Hugging Face dataset, in their own folder, marked experimental.
+"""Publish cybertron2 runs to the Hugging Face dataset zachmacsmith/cybertron2-runs, one folder per run under runs/.
 
 **For a run with a journal (run.db: every run since the run record, 24 Oct), use `python -m cybertron2.engine publish RUN...`
 instead** (engine/exchange.py, review 38.34). It also publishes the journal, which c2viz and replay need, as Parquet, and it
@@ -6,17 +6,16 @@ redacts and scans inside the compressed checkpoints. This publisher is for runs 
 
     python -m cybertron2.publish_hf RUN_DIR [RUN_DIR...] [--repo OWNER/NAME] [--staging DIR] [--push]
 
-Layout on the Hub (nothing else in the dataset is touched: no catalog row, no table, no card change, so the site and the main
-dataset's viewer are unaffected):
+Layout on the Hub (the dataset card at the root, README.md, is not touched):
 
-    experimental/cybertron2/README.md                 what this is, and that it is not comparable with the main runs
-    experimental/cybertron2/<run>/run.json            the spec, each agent's model and system prompt
-    experimental/cybertron2/<run>/turns.jsonl         one line per agent-round: the prompt, the reply (with `why`), the results
-    experimental/cybertron2/<run>/rounds.jsonl        one line per round: the end-of-round record
-    experimental/cybertron2/<run>/state.json          the final state, with every agent's knowledge store
-    experimental/cybertron2/<run>/report.md           the generated summary (cybertron2.report)
+    runs/README.md                                    an index of the runs published in this batch
+    runs/<run>/run.json            the spec, each agent's model and system prompt
+    runs/<run>/turns.jsonl         one line per agent-round: the prompt, the reply (with `why`), the results
+    runs/<run>/rounds.jsonl        one line per round: the end-of-round record
+    runs/<run>/state.json          the final state, with every agent's knowledge store
+    runs/<run>/report.md           the generated summary (cybertron2.report)
 
-Privacy, as the main publisher does (cybertron/specs/bench36/publish.sh, cybertron/privacy.py): this machine's Claude Code session,
+Privacy, as the main publisher does (cybertron2/infra/privacy.py, kept from Cybertron 1): this machine's Claude Code session,
 container, account and organisation ids and the account email are replaced with "<redacted>" in every staged file, then the
 privacy gate scans the staging and refuses to upload on any hit. Without --push nothing leaves the machine. --push needs
 huggingface_hub and a token with write access to the dataset in HF_TOKEN.
@@ -30,19 +29,19 @@ import shutil
 import time
 from pathlib import Path
 
-FOLDER = "experimental/cybertron2"
+FOLDER = "runs"
 FILES = ("run.json", "turns.jsonl", "rounds.jsonl", "days.jsonl", "perception.jsonl", "memory.jsonl", "state.json")   # those a run has
 ID_VARS = ("CLAUDE_CODE_SESSION_ID", "CLAUDE_CODE_REMOTE_SESSION_ID", "CLAUDE_CODE_CONTAINER_ID", "CLAUDE_CODE_ACCOUNT_UUID",
            "CLAUDE_CODE_ORGANIZATION_UUID", "CLAUDE_CODE_USER_EMAIL")
 
-CARD = """# Experimental: cybertron2, the engine on a graph of places
+CARD = """# Cybertron 2 runs: index
 
-**These runs come from a new, experimental engine and are not comparable with the rest of this dataset.** cybertron2 is a rewrite
+**These runs come from an experimental engine and are not comparable with the Cybertron 1 runs in zachmacsmith/charter-runs.** cybertron2 is a rewrite
 in progress: the world is a graph of places, agents act only where they are, and they see only their own place (everything else
 is a dated belief). Its physics, prompts and output format differ from the main engine's, it has no institutions or laws yet, and
 nothing here is in `catalog.parquet` or the site. Treat each run as a probe of the mechanics, not a measurement.
 
-Code and write-ups: the `wp/cybertron2` branch of the cybertron repository, `cybertron2/` and `docs/review/38_space_engine/`.
+Code and write-ups: https://github.com/zachmacsmith/Cybertron2 (`cybertron2/` and `docs/review/38_space_engine/`).
 
 ## Runs
 
@@ -110,7 +109,7 @@ def stage(runs, staging: Path) -> Path:
 
 
 def main(argv=None):
-    from cybertron import privacy as PV, publish as P
+    from cybertron2.infra import privacy as PV, publish as P
     ap = argparse.ArgumentParser(prog="python -m cybertron2.publish_hf")
     ap.add_argument("runs", nargs="+")
     ap.add_argument("--repo", default=None)
@@ -118,7 +117,7 @@ def main(argv=None):
     ap.add_argument("--push", action="store_true")
     a = ap.parse_args(argv)
     repo = a.repo or P.default_repo()
-    staging = Path(a.staging or f"cybertron/out/_publish/cybertron2_{time.strftime('%Y%m%dT%H%M%S', time.gmtime())}")
+    staging = Path(a.staging or f"out/_publish/cybertron2_{time.strftime('%Y%m%dT%H%M%S', time.gmtime())}")
     os.environ["CYBERTRON_PRIVATE_STRINGS"] = ",".join(v for v in (os.environ.get(x, "") for x in ID_VARS) if len(v) >= 6)
     root = stage(a.runs, staging)
     if PV.audit(str(staging), never=P.NEVER):
@@ -134,7 +133,7 @@ def main(argv=None):
         raise SystemExit("HF_TOKEN is not set: a token with write access to the dataset is needed to upload")
     from huggingface_hub import HfApi
     HfApi().upload_folder(repo_id=repo, repo_type="dataset", folder_path=str(staging), allow_patterns=[f"{FOLDER}/**"],
-                          commit_message=f"experimental: cybertron2 runs ({', '.join(Path(r).name for r in a.runs)})")
+                          commit_message=f"runs ({', '.join(Path(r).name for r in a.runs)})")
     print(f"uploaded to {repo}/{FOLDER}")
 
 

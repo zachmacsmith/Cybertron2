@@ -95,8 +95,8 @@ class UsageStop(Exception):
 
 
 def _week_stop(spec):
-    """Why to stop before a live day, or None: the claude CLI reports each window's use with every call (cybertron.llm.USAGE)."""
-    from cybertron import llm
+    """Why to stop before a live day, or None: the claude CLI reports each window's use with every call (cybertron2.infra.llm.USAGE)."""
+    from cybertron2.infra import llm
     v = os.environ.get("CYBERTRON2_WEEK_STOP")
     level = float(v) if v not in (None, "") else float(((spec.get("llm") or {}).get("week_stop")) or 0.9)
     wins = (llm.USAGE or {}).get("windows") or {}
@@ -171,7 +171,7 @@ def decide(w, name, text, opening, system, backend, conv, talk=None, schema=None
         c = ctx["conv"]
         J.request(key, name, kind, f"{name}@{c['day0']}", len(c["messages"]) // 2, c["system"], schema, ctx["text"], "human")
         raise HumanTurn([(key, name)])
-    from cybertron import llm
+    from cybertron2.infra import llm
     t0 = time.monotonic()
     attempts = []
     schema = schema or PR.schema_for(Here(w, name, transit=transit or fuse is not None), Mind(w, name))

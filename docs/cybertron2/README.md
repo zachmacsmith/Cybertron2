@@ -13,10 +13,10 @@ under the rules below. Set up 22 Oct 2026 by the 37.4 session at Zach's request.
 
 | Layer | What it holds | Where | Who writes |
 |---|---|---|---|
-| **The spec** | what is **decided** about how the world works: only current rules, their data, parameters and what agents see | `docs/cybertron2/spec/` on `wp/cybertron2` | each session in the areas it owns |
+| **The spec** | what is **decided** about how the world works: only current rules, their data, parameters and what agents see | `docs/cybertron2/spec/` | each session in the areas it owns |
 | **Proposals** | our **working thoughts**: every idea about how the world should work while it is being considered, with its status and dated history; kept after it is decided or rejected | `docs/cybertron2/proposals/` | any session |
 | **Session notes** | long supporting material only: analyses, cost models, run reports, work logs (linked from the proposals that use them) | `docs/review/38_space_engine/` (37.4), `docs/review/37_growth/02*` (37.2), others later | that session only |
-| **The board** | conversation between sessions: proposals, questions, replies, status | `docs/coord/BOARD.md` on branch `coord` | everyone, append only |
+| **The board** | conversation between sessions: proposals, questions, replies, status | `docs/coord/BOARD.md` | everyone, append only |
 
 **The path of an idea:** it is written up in `proposals/` (status: discussion), revised there with each round of thought (a dated
 history entry each time), then Zach decides. Accepted: the rule goes into the spec and DECISIONS.md in the same commit, and the
@@ -49,8 +49,8 @@ board. Something Zach asks to have built straight away is built first and writte
 
 ## Rules
 
-1. **Everything about cybertron2 lives on `wp/cybertron2`:** code, this spec, and every session's design notes about it. Other
-   branches stay for work on the old engine.
+1. **Everything about cybertron2 lives on `main` of github.com/zachmacsmith/Cybertron2:** code, this spec, and every session's
+   design notes about it (until 6 Nov 2026 it lived on `wp/cybertron2` in the Cybertron 1 repository).
 2. **When Zach decides,** the session he decided with adds the decision to [DECISIONS.md](DECISIONS.md) (its own number series:
    D4-n for 37.4, D2-n for 37.2, and so on, so two sessions never collide) and updates the spec sections it owns, in the same
    commit. If the decision touches another owner's section, it posts on the board (`@owner`, citing the decision's number); the

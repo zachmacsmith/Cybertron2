@@ -5,7 +5,7 @@ Modules:
              hearth, ration, hunger, the cold, spoilage, breaks)
     act      the actions agents take, each checked against where the agent is
     prompt   what an agent is told (system prompt, turn prompt, the reply schema)
-    run      the round loop, model calls (through the old engine's leaf backend cybertron.llm), the scripted smoke-test bot, logs
+    run      the round loop, model calls (through cybertron2.infra.llm, kept from Cybertron 1), the scripted smoke-test bot, logs
     report   a run's summary from its logs
 
 Physics ported from the old engine (cybertron/): the forest's logistic plants and the forage yield (camptypes/forest.py), the

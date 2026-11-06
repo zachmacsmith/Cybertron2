@@ -23,7 +23,7 @@ def test_a_memory_is_cut_back_only_when_well_over():
 
 
 def test_in_rewrite_mode_the_memory_is_replaced_and_shown_alone(tmp_path, monkeypatch):
-    from cybertron import llm
+    from cybertron2.infra import llm
     calls = []
 
     def api(model, system, user, schema, thinking_budget, max_tokens):

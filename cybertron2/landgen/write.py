@@ -135,7 +135,7 @@ class Describer:
         key = hashlib.sha256(json.dumps([kind, facts, self.model], sort_keys=True).encode()).hexdigest()[:16]
         if key in self.cache:
             return self.cache[key]
-        from cybertron import llm
+        from cybertron2.infra import llm
         length = "one sentence of at most 25 words" if kind != "node" else "two or three short sentences"
         system = ("You write short descriptions of places for a world of medieval villages, as a local would see them: plain and "
                   "concrete. Say only what is there: never mention what is absent, never give numbers or measurements, no names of "

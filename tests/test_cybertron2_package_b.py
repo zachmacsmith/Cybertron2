@@ -195,7 +195,7 @@ def test_traces_left_by_a_party_fade_and_are_read_by_a_later_traveller(monkeypat
 
 
 def test_a_meeting_on_the_road_calls_llm_agents_in_their_own_conversation(tmp_path, monkeypatch):
-    from cybertron import llm
+    from cybertron2.infra import llm
     sent = []
 
     def fake_call(backend, model, system, user, schema, **kw):

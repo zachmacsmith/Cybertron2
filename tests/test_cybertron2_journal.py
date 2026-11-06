@@ -53,7 +53,7 @@ def test_inputs_requests_events_and_changes_are_kept(bot_run):
 
 
 def test_a_models_request_records_what_it_was_given(tmp_path, monkeypatch):
-    from cybertron import llm
+    from cybertron2.infra import llm
     seen = []
 
     def api(model, system, user, schema, thinking_budget, max_tokens):
@@ -74,7 +74,7 @@ def test_a_models_request_records_what_it_was_given(tmp_path, monkeypatch):
 
 def test_a_day_with_half_its_calls_failed_is_abandoned_and_played_again_on_resume(tmp_path, monkeypatch):
     """cybertron 1's fail-stop: a usage limit drops the day and stops the run; resumed later, it ends as if nothing happened."""
-    from cybertron import llm
+    from cybertron2.infra import llm
     limited = {"on": False}
 
     def api(model, system, user, schema, thinking_budget, max_tokens):
@@ -123,7 +123,7 @@ def test_a_run_killed_mid_step_resumes_to_the_same_end(tmp_path, monkeypatch):
 
 
 def test_paused_and_resumed_a_models_answers_are_never_asked_twice(tmp_path, monkeypatch):
-    from cybertron import llm
+    from cybertron2.infra import llm
     asked = []
 
     def api(model, system, user, schema, thinking_budget, max_tokens):
