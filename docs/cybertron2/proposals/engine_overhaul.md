@@ -43,6 +43,35 @@ on its own clocks, added as rows, which the carrying-capacity model must read wi
 | Livestock kinds and transhumance | OPEN L-36 | Herds declared as stocks with needs and outputs; a sheep or a pig is a row. |
 | Harsher weather and camps built out | fire_levels_and_camps.md (L-47) | Weather as a state variable that risks read; extremes come with the environment scheduler, not here. |
 
+### Decided in the spec but not built (checked against the engine, 7 Nov)
+
+**Fold in:**
+
+| Decided, unbuilt | Spec | Why it belongs |
+|---|---|---|
+| **The environment scheduler beyond the day's weather:** eras, years' severity, spells drawn (not hand-written), incidents and their spreads, and the kinds (drought, river flood, gale, hail, late frost, blizzard, house fire, wildfire, blight, smut, rats in stores, murrain, wolves; windfalls: a bumper harvest, flood silt, storm-felled oaks, a mast year, a fish run) (D2-69 to D2-79) | environment/scheduler.md: "as built (5 Nov): only the day's weather within a spell is drawn" | The overhaul's outcome distributions need a source of variance, and this is the decided one. Bad-year capacity (38.61 hole 2) needs years' severity. Building risks need incidents (house fire, flood, rats). Take the economic kinds and the windfalls now; disease kinds (fen fever, winter cough, pestilence) as hooks only. |
+| **The periodic regime** ("a crop, a fish run: comes at its time and must be taken in its window", D4-7) | environment/resources.md | Crops have it in their own code; nothing else does. Declared once as a regime, it carries the fish run, the mast year, and the hay's summer. |
+| **Woods feeding game and forage:** game's capacity rises with trees and young growth; forage rises where the trees are thinned (D2-156) | environment/resources.md | Stocks that act on each other (process model, mechanism 3), decided and never built. Felling then changes hunting and foraging, as it should. |
+| **Drought dries dead wood; timber left out in rain is no fuel until dried** | resources.md; economy/buildings.md ("outside") | Weather acting on stores and stocks: the same triggers as building risks (damp fuel, the woodshed). |
+| **The night watch:** a watcher skips the night's sleep and eats more for it, detects first, can wake the others (D2-21) | conflict/defence.md: "not built (5 Nov)" | Its cost is "work costs food", already decided for one act. Build it with the energy model, and the defence effect (fuse events exist) comes almost free. |
+| **Skill fades without practice** | economy/production.md: "fading is not built" | The worker as input (mechanism 2): practice raises skill, disuse lowers it. |
+| **Salt from the shore or a spring** (D2-56) | economy/goods.md: "salt is a good with no source in any world yet" | Keeping fish and meat, and cheese. With fishing it closes a chain: catch, salt, keep, carry. |
+| **Carts:** the ox cart (300 to 400 on a track), and the merchant's cart (D2-2, D2-23, D2-135) | economy/transport.md; goods.md | Carrying as a process (mechanism 6). A cart is a row: a load, a track, a pace, an ox. |
+| **Traps** (D2-23) | goods.md | A gathering process on small game: a row once declared. |
+
+**Keep apart:**
+
+| Decided, unbuilt | Why not now |
+|---|---|
+| Blades and better weapons; joint attacks | the combat package you set aside ("not for now") |
+| Locks | the permission layer (who may take), not the physics |
+| The saddle, and horses | waits on livestock kinds (L-36) |
+| Parchment, documents, letters' later forms | the information system |
+| The felling axe and great trees | waits on worlds with great trees (the generator) |
+| Irrigation (D2-67, "later") | waits on water's hidden state; a hook only |
+| Care's effects on health and learning (L-26); disease (L-9) | life and health; hooks only |
+| Building on landmarks: bridges, wells, waystations (L-5, L-34) | waits on the generator's physical facts |
+
 ### Keep apart: not economic machinery, or not ready
 
 - **Social and institutional systems:** law.md, beliefs_and_values.md (L-25), gates.md, attacks_and_walls.md, households.md,
@@ -62,10 +91,12 @@ Each stage is replay-verified where it should change nothing. Each stage that ch
 | Stage | What | Changes behaviour? |
 |---|---|---|
 | 0 | Invariance checks with the capacity model: which measures move with the year's length and a plot's size | no (no engine change) |
-| 1 | The declaration format, with clocks: stocks and regimes, processes with outcome distributions, waiting processes, needs, durability. Every existing rule moved into it | no: exact replay of the 55 journaled runs, and the tests |
-| 2 | Calibration as data: the time scale; harvest windows; pulses; processing; work's food cost with overexertion and fatigue; distance; fittings' wear and upkeep; the fallback's limit | yes: version 1 |
-| 3 | New systems as data:<br>• fishing and water (the acceptance test);<br>• shelter, water and beasts' feed in the needs table;<br>• building risks (first: house fire from hearths and ovens, floods on low ground, snow load on wattle, rats in stores);<br>• levels of fire | yes: version 2, or with 1 |
-| 4 | Checks and experiments:<br>• capacity on every world;<br>• a scripted bot farming at "worked" for a year;<br>• the dependence ladder (designed, not run);<br>• a fishing village against a farming village;<br>• the sophistication experiment (38.60 §6) | runs |
+| 1 | The declaration format, with clocks: stocks and regimes (the periodic one included), processes with outcome distributions, waiting processes, needs, durability. Every existing rule moved into it | no: exact replay of the 55 journaled runs, and the tests |
+| 1b | **The acceptance test:** fishing, with salt and a fish run, added as rows only. The capacity model must report it with no change to its code | adds a system; marked as version 1 |
+| 2 | Calibration and labour:<br>• the time scale; harvest windows; pulses; processing;<br>• work's food cost, with the watch (D2-21), overexertion and fatigue (Q-2);<br>• skill fading; distance (L-35); the fallback's limit;<br>• fittings' wear and upkeep | yes: version 2 |
+| 3 | Variance and risk:<br>• the scheduler's years, spells and economic incidents and windfalls (D2-69 to D2-79);<br>• building risks (first: house fire, floods on low ground, snow load on wattle, rats in stores, damp fuel);<br>• woods feeding game and forage;<br>• bad-year capacity | yes: version 3 |
+| 4 | Needs and carrying: shelter, water (minimal), beasts' feed in the needs table; levels of fire; carts and traps as rows | yes: version 4, or with 3 |
+| 5 | Checks and experiments:<br>• capacity on every world;<br>• a scripted bot farming at "worked" for a year;<br>• the dependence ladder;<br>• a fishing village against a farming village;<br>• the sophistication experiment | runs |
 
 **Size:**
 - Stage 1 touches about 2,000 to 3,000 lines.
@@ -103,6 +134,8 @@ systems."
 - cybertron2/capacity: none by design (stage 3's acceptance test).
 
 ## History
+
+- 7 Nov (later): what the spec decides but the engine lacks, checked against the code and sorted (fold in: the scheduler's economic kinds, the periodic regime, woods feeding game, drought and wet fuel, the watch, skill fading, salt, carts, traps; keep apart: blades, locks, the saddle, documents, the felling axe, irrigation, disease, landmark works). Stages re-cut: fishing as the acceptance test right after the format.
 
 - 7 Nov: proposed (37.4) after Zach asked for an overhaul around the process model, with the benched proposals sorted into fold in,
   hooks only, and keep apart.
