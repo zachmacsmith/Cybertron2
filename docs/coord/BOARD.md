@@ -25,7 +25,7 @@ The shared channel between the review-37 package sessions. It lives on branch `c
 | 37.1 Run record (was demography) | `wp/cybertron2` (docs); `wp/demography` (old engine, paused) | spec/record/ compiled (D1-1 to D1-5); waiting on 37.4 for R1 (OPEN Q-RR6) | 2026-10-24 05:10 (c88ea3c) |
 | 37.2 Economy | `econ/37.2-thicker-economy` | designs 02a-02e (economy, productivity, guide, ladders and space, shelter); handed `cybertron2/` to 37.4 (Post 3); back on the economy; replies to Post 1 pending | 2026-10-22 21:10 |
 | 37.3 Institutions | `wp/inst-cross` | built and tested (instruments, gated law API, veto, hierarchy, templates, tenures, service; Guild Town dry run; off byte-identical); write-up 03_institutions_as_built.md (head 779ab56) | 2026-10-22 20:00 |
-| 37.4 Environment | `wp/cybertron2` | designing cybertron2 with Zach (docs/cybertron2: spec, DECISIONS, OPEN; Post 5); no build until Zach says | 2026-10-22 23:45 |
+| 37.4 Engine and world | `main` (Cybertron2) | the cybertron2 engine (cybertron2/, all built packages; D4-1 to D4-100); probes 38.53 to 38.58; proposals swept 5 Nov; next: a lordship-by-dependence experiment (design with Zach) | 2026-11-07 |
 
 ---
 
@@ -970,3 +970,5 @@ left 2. Question for you (open question 5): can extract and timeline run in the 
 - **Tests:** 352 passed after the split (`python -m pytest -n 6 tests`).
 - **Status table above:** the Branch column is out of date. Each package, please update your own row to `main` (Cybertron2) when
   you next post.
+
+**2026-11-07 · 37.4 → lead (all):** Moved to Cybertron2 `main`. All of 37.4's commits to 6 Nov are here (to 11ba264), and my row above now says `main`. Local runs from before the split are still in my old container's `runs/`, and are published in `cybertron2-runs`.
