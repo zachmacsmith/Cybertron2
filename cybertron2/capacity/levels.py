@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field, replace
 
-from cybertron2.engine.data import FITTINGS, TECHNIQUES
+from cybertron2.engine.data import FITTINGS, RESOURCES, TECHNIQUES
 
 COOK = ("raw", "boiled", "ground", "milled")          # fittings allowed for food: none; a hearth; + a hand mill; + mills and an oven
 STORE = ("open", "house", "bins", "cellar", "granary")
@@ -107,6 +107,7 @@ class Reach:
     cows: int
     seed: set
     dung: bool
+    systems: tuple = ()
 
     def fitting(self, f) -> bool:
         if f in self.fittings_built:
@@ -132,6 +133,9 @@ class Reach:
         return tr is None or tr in self.trades
 
     def knows(self, tech) -> bool:
+        from cybertron2.engine import systems as SY
+        if not SY.on(TECHNIQUES.get(tech, {}), self.systems):
+            return False
         return bool(TECHNIQUES.get(tech, {}).get("basic")) or tech in self.known
 
 
@@ -150,6 +154,14 @@ def reach(w) -> Reach:
             goods |= {"copper ore", "copper"}
         if res.get("game"):
             goods.add("hide")
+    from cybertron2.engine import systems as SY
+    for t, d in TECHNIQUES.items():                                           # what the land here gives to gathering (any system on)
+        if d.get("verb") != "gather" or not SY.on(d, SY.of(w)) or not isinstance(d.get("gives"), str):
+            continue
+        covers = (d.get("at") or {}).get("covers") or []
+        dr = d.get("draws")
+        if any(p["cover"] in covers and (dr not in RESOURCES or dr in (p.get("res") or {})) for p in w.s["parcels"].values()):
+            goods.add(d["gives"])
     if "copper ore" in goods:
         goods.add("copper")
     herds = list(w.s["herds"].values())
@@ -166,4 +178,5 @@ def reach(w) -> Reach:
     for p in w.s["parcels"].values():
         for _, _, c in FM.standing(p):
             seed.add({"grain": "grain", "winter grain": "rye", "legumes": "beans"}.get(c.get("crop"), "grain"))
-    return Reach(goods=goods, trades=trades, known=known, fittings_built=built, oxen=oxen, cows=cows, seed=seed, dung=bool(herds))
+    return Reach(goods=goods, trades=trades, known=known, fittings_built=built, oxen=oxen, cows=cows, seed=seed, dung=bool(herds),
+                 systems=SY.of(w))

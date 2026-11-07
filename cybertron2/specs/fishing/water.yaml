@@ -1,0 +1,438 @@
+# Written by cybertron2/specs/make_fishing_probe.py (D4-103 phase 1): the water arm.
+name: fishing_water
+seed: 811
+days: 14
+calendar:
+  season: summer
+  day: 1
+  season_days: 8
+children:
+  'on': false
+lifespan: 96
+view: beliefs
+evening: true
+tags: true
+ages: true
+llm:
+  week_stop: 0.9
+cold_days: []
+incidents: []
+herds: {}
+claims: []
+customs: []
+memory:
+  kept:
+    words: 50
+nodes:
+  ferrybank:
+    name: Ferrybank
+    parcels:
+      fb_green:
+        name: the Green
+        cover: built
+        size: 2
+        side: centre
+        height: 1
+        text: a green above the ferry with three houses on it
+        adj:
+        - fb_river
+        - fb_field
+        - fb_mead
+        - fb_copse
+      fb_river:
+        name: the Wen
+        cover: water
+        size: 1
+        side: west
+        height: 0
+        text: a broad slow river; in autumn the salmon come up it
+        state:
+          fish:
+            K: 10
+            S: 10
+            r: 0.3
+            run_K: 40
+            run_r: 0.35
+            run_seasons:
+            - autumn
+        adj:
+        - fb_marsh
+        - fb_mead
+      fb_mere:
+        name: Black Mere
+        cover: water
+        size: 1
+        side: north
+        height: 0
+        text: a dark mere among the reeds
+        state:
+          fish:
+            K: 8
+            S: 8
+            r: 0.3
+        adj:
+        - fb_copse
+      fb_marsh:
+        name: the Saltings
+        cover: saltmarsh
+        size: 2
+        side: south
+        height: 0
+        text: saltmarsh by the river's mouth, with old salt pans
+        state:
+          salt:
+            K: 1000
+            S: 1000
+            r: 0.0
+        adj:
+        - fb_river
+      fb_field:
+        name: the Ferry Field
+        cover: field
+        size: 2
+        side: east
+        height: 1
+        text: a field in strips
+        state:
+          crop:
+            kind: barley
+            left: 40
+            ripe_day: 12
+        adj:
+        - fb_mead
+      fb_mead:
+        name: the Mead
+        cover: meadow
+        size: 2
+        side: east
+        height: 0
+        text: a meadow by the river
+        state:
+          plants:
+            K: 4
+            S: 4
+            r: 0.3
+          grass:
+            K: 40
+            S: 40
+            r: 0.3
+      fb_copse:
+        name: Ferry Copse
+        cover: forest
+        size: 1
+        side: north
+        height: 1
+        text: a hazel copse
+        state:
+          wood:
+            kind: copse
+roads: []
+buildings:
+  tanner_house:
+    name: the Tanner house
+    parcel: fb_green
+    household: Tanner
+    structure: timber
+    rooms:
+    - kind: medium room
+    fittings:
+      beds: 3
+      hearth: 1
+      bins: 1
+    stock:
+      grain: 30
+      firewood: 30
+      timber: 4
+      hide: 1
+  reeve_house:
+    name: the Reeve house
+    parcel: fb_green
+    household: Reeve
+    structure: timber
+    rooms:
+    - kind: medium room
+    fittings:
+      beds: 3
+      hearth: 1
+      bins: 1
+    stock:
+      grain: 30
+      firewood: 30
+      timber: 4
+      hide: 1
+  ferry_house:
+    name: the Ferry house
+    parcel: fb_green
+    household: Ferry
+    structure: timber
+    rooms:
+    - kind: medium room
+    fittings:
+      beds: 3
+      hearth: 1
+      bins: 1
+    stock:
+      grain: 20
+      firewood: 30
+      timber: 4
+      hide: 1
+agents:
+  Roger:
+    household: Reeve
+    born: -40
+    stage: adult
+    sex: m
+    relations:
+      Maud: your wife
+    memories:
+    - The Reeves hold the Ferry Field.
+    - The Wen runs below the green; Black Mere lies past the copse.
+    knows:
+      sow:
+        level: known
+        skill: 1.0
+      reap:
+        level: known
+        skill: 1.0
+      hoe:
+        level: known
+        skill: 1.0
+      weed:
+        level: known
+        skill: 1.0
+    aware_of: {}
+    holdings: {}
+    concerns:
+    - food
+    - family
+    parents: []
+    partner: Maud
+    model: claude-opus-5-5
+    born_line: Reeve
+    kept: []
+  Maud:
+    household: Reeve
+    born: -38
+    stage: adult
+    sex: f
+    relations:
+      Roger: your husband
+    memories:
+    - You keep the Reeve house.
+    knows:
+      sow:
+        level: known
+        skill: 1.0
+      reap:
+        level: known
+        skill: 1.0
+      hoe:
+        level: known
+        skill: 1.0
+      weed:
+        level: known
+        skill: 1.0
+    aware_of: {}
+    holdings: {}
+    concerns:
+    - food
+    - family
+    parents: []
+    partner: Roger
+    model: claude-sonnet-5-5
+    born_line: Reeve
+    kept: []
+  Wat:
+    household: Reeve
+    born: -16
+    stage: youth
+    sex: m
+    relations:
+      Roger: your father
+    memories:
+    - You are the Reeves' son.
+    knows:
+      sow:
+        level: known
+        skill: 1.0
+      reap:
+        level: known
+        skill: 1.0
+      hoe:
+        level: known
+        skill: 1.0
+      weed:
+        level: known
+        skill: 1.0
+    aware_of: {}
+    holdings: {}
+    concerns:
+    - food
+    - family
+    parents: []
+    partner: null
+    model: claude-haiku-5-5
+    born_line: Reeve
+    kept: []
+  Simon:
+    household: Tanner
+    born: -35
+    stage: adult
+    sex: m
+    relations:
+      Avice: your wife
+    memories:
+    - The Tanners work hides and keep a strip of the Ferry Field.
+    knows:
+      sow:
+        level: known
+        skill: 1.0
+      reap:
+        level: known
+        skill: 1.0
+      hoe:
+        level: known
+        skill: 1.0
+      weed:
+        level: known
+        skill: 1.0
+    aware_of: {}
+    holdings: {}
+    concerns:
+    - food
+    - family
+    parents: []
+    partner: Avice
+    model: claude-sonnet-5-5
+    born_line: Tanner
+    kept: []
+  Avice:
+    household: Tanner
+    born: -33
+    stage: adult
+    sex: f
+    relations:
+      Simon: your husband
+    memories:
+    - You keep the Tanner house.
+    knows:
+      sow:
+        level: known
+        skill: 1.0
+      reap:
+        level: known
+        skill: 1.0
+      hoe:
+        level: known
+        skill: 1.0
+      weed:
+        level: known
+        skill: 1.0
+    aware_of: {}
+    holdings: {}
+    concerns:
+    - food
+    - family
+    parents: []
+    partner: Simon
+    model: claude-haiku-5-5
+    born_line: Tanner
+    kept: []
+  Ivo:
+    household: Ferry
+    born: -30
+    stage: adult
+    sex: m
+    relations:
+      Joan: your wife
+    memories:
+    - The Ferrys work the ferry across the Wen; few cross now.
+    knows:
+      sow:
+        level: known
+        skill: 1.0
+      reap:
+        level: known
+        skill: 1.0
+      hoe:
+        level: known
+        skill: 1.0
+      weed:
+        level: known
+        skill: 1.0
+    aware_of: {}
+    holdings: {}
+    concerns:
+    - food
+    - family
+    parents: []
+    partner: Joan
+    model: claude-opus-5-5
+    born_line: Ferry
+    kept: []
+  Joan:
+    household: Ferry
+    born: -28
+    stage: adult
+    sex: f
+    relations:
+      Ivo: your husband
+    memories:
+    - You keep the Ferry house.
+    knows:
+      sow:
+        level: known
+        skill: 1.0
+      reap:
+        level: known
+        skill: 1.0
+      hoe:
+        level: known
+        skill: 1.0
+      weed:
+        level: known
+        skill: 1.0
+    aware_of: {}
+    holdings: {}
+    concerns:
+    - food
+    - family
+    parents: []
+    partner: Ivo
+    model: claude-haiku-5-5
+    born_line: Ferry
+    kept: []
+  Agnes:
+    household: Ferry
+    born: -15
+    stage: youth
+    sex: f
+    relations:
+      Ivo: your father
+    memories:
+    - You are the Ferrys' daughter.
+    knows:
+      sow:
+        level: known
+        skill: 1.0
+      reap:
+        level: known
+        skill: 1.0
+      hoe:
+        level: known
+        skill: 1.0
+      weed:
+        level: known
+        skill: 1.0
+    aware_of: {}
+    holdings: {}
+    concerns:
+    - food
+    - family
+    parents: []
+    partner: null
+    model: claude-sonnet-5-5
+    born_line: Ferry
+    kept: []
+systems:
+- water

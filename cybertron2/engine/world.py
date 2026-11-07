@@ -101,6 +101,7 @@ class World:
                       "events": [], "acts": [], "log": [], "left": []}
         from cybertron2.engine.schema import WORLD_SCHEMA
         s["world_schema"] = WORLD_SCHEMA                                   # the shape of this record (spec/core/world_schema.md, D4-100)
+        from cybertron2.engine import systems as SY
         for nid, n in spec["nodes"].items():
             s["nodes"][nid] = {"name": n["name"], "text": n.get("text", ""), "unexplored": bool(n.get("unexplored"))}      # D4-47
             for pid, p in (n.get("parcels") or {}).items():
@@ -112,7 +113,7 @@ class World:
                 res = {k: {"S": float(v["S"]), "K": float(v["K"]), "r": float(v.get("r", 0.3)),
                            **{x: v[x] for x in ("run_K", "run_r", "run_seasons") if x in v}} if k != "seam" else
                        {"S": float(v.get("S", v.get("left", 0))), "K": float(v.get("K", v.get("S", v.get("left", 0)))), "r": 0.0}
-                       for k, v in st.items() if k in RESOURCES}
+                       for k, v in st.items() if k in RESOURCES and SY.on(RESOURCES[k], SY.of(self))}   # a system off: no stock (D4-103)
                 res.update(woods)
                 cp = self.p["cattle"]
                 share = float((cp.get("grazing") or {"pasture": 1.0, "meadow": 1.0}).get(p["cover"], 0.0))

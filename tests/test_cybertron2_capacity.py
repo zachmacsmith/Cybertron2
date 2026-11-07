@@ -125,3 +125,17 @@ def test_a_hunts_mean_is_its_samples_mean():
     n = 40000
     m = sum(OC.got(d.sample(rng)) for _ in range(n)) / n
     assert abs(m - OC.got(d.mean())) < 0.03
+
+
+def test_fishing_appears_in_capacity_with_no_capacity_code():
+    """The overhaul's acceptance test (D4-103): the water system, added as rows only, is read by the capacity model, which names
+    no stock of its own."""
+    import pathlib
+    src = "".join(p.read_text() for p in pathlib.Path("cybertron2/capacity").glob("*.py"))
+    assert '"fish"' not in src and "'fish'" not in src and '"salt"' not in src
+    water = M.analyse(yaml.safe_load(open("cybertron2/specs/fishing/water.yaml")), levels=("standing",))
+    dry = M.analyse(yaml.safe_load(open("cybertron2/specs/fishing/dry.yaml")), levels=("standing",))
+    w_food = water["nodes"]["(region)"]["levels"]["standing"]["food_a_year"]
+    d_food = dry["nodes"]["(region)"]["levels"]["standing"]["food_a_year"]
+    assert w_food.get("fish", 0) > 0 and "fish" not in d_food
+    assert water["nodes"]["(region)"]["levels"]["standing"]["supported"] > dry["nodes"]["(region)"]["levels"]["standing"]["supported"]
