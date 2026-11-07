@@ -2,7 +2,7 @@
 
 **Status:** discussion (8 Nov). Nothing decided, nothing to build. **Owner:** 37.2 (design, kinds and numbers: spec/environment/),
 with 37.4 (the engine: it sits on D4-103's process model and D4-104's renewal rules and packs). **Affects:** spec/environment/resources.md,
-spec/core/processes.md; data.py (RESOURCES, a new KINDS table); engine regimes.py, night.py, herds.py, environment.py, signs.py;
+spec/core/processes.md; data.py (RESOURCES, a new KINDS table); engine renewal.py, packs.py, night.py, herds.py, environment.py, signs.py;
 landgen/ecology.py (the starting populations); OPEN L-2, L-37, D2-77, D2-95.
 
 ## Summary
@@ -85,7 +85,7 @@ So:
   - wildlife by terrain (L-37).
 
 **What already exists to build on:**
-- the regime registry and outcome distributions (D4-103);
+- the renewal rules, response to density and outcome distributions (D4-103, D4-104);
 - the parcel graph and roads;
 - the river network (the generator records flow);
 - herds as moving counted groups (herds.py: wandering, drift, being found);
