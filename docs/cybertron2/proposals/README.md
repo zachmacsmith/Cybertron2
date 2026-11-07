@@ -128,6 +128,7 @@ Rebuilt from the files on 5 Nov (status and owner as each file states them; 37.2
 | [process_model.md](process_model.md) | A declared process model: the engine says what its economy is, as data an analysis can walk | 37.4 | agreed in principle (Zach, 7 Nov: parts 1 and 3 to 6 yes; part 2 revised to his version below); the build awaits his go |
 | [economic_calibration.md](economic_calibration.md) | Economic calibration: one time scale, and mechanics that make economic sense | 37.4 | discussion |
 | [engine_overhaul.md](engine_overhaul.md) | The engine overhaul: the process model, its calibration, and the benched systems it makes cheap | 37.4 | discussion (the plan; its parts carry their own statuses) |
+| [water_and_preservation.md](water_and_preservation.md) | water and wetland life, fishing, preservation, and boats | 37.2 | discussion (4-5 Nov conversation with Zach; written up 7 Nov). Nothing decided, nothing to build. |
 
 ## Log of ideas and their outcomes
 
@@ -369,3 +370,4 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 2 Nov | landscapes that make sense, within one environmental envelope | built (D2-191; Zach, 2 Nov: "build this out"); as built in §5, with what differs from the design. | [temperate_landscapes.md](temperate_landscapes.md) |
 | 23 Oct | modifiers on verbs (ways of doing an act that people know or learn) | accepted: D2-93, D2-94, D2-111, D2-112 (23 Oct); `searching` and `aim: burn` as modifiers still open. ... | [verb_modifiers.md](verb_modifiers.md) |
 | 23 Oct | visibility (what a place and the day let the senses reach) | accepted: D2-99 to D2-103 (23 Oct); numbers to calibrate; smell later. Design only. | [visibility.md](visibility.md) |
+| 7 Nov | water and wetland life, fishing, preservation, and boats | discussion (4-5 Nov conversation with Zach; written up 7 Nov). Nothing decided, nothing to build. | [water_and_preservation.md](water_and_preservation.md) |
