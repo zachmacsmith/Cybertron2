@@ -741,6 +741,24 @@ def _abandon(J, out, day, days, tally, why) -> str:
     return f"day {day + 1}: {why}; the day was abandoned and the run kept as of {kept}. Resume to play day {day + 1} again."
 
 
+def day0_capacity(spec) -> dict:
+    """The world's carrying capacity at its start, by this engine's own rules (cybertron2/capacity, D4-102): stored in the journal so
+    a run's baseline is its own, whatever the engine becomes. Never stops a run."""
+    try:
+        import copy as _copy
+        from cybertron2.capacity import model as CM
+        rep = CM.analyse(_copy.deepcopy(spec), levels=("bare", "standing", "worked", "best"))
+        keep = {}
+        for nid, r in rep["nodes"].items():
+            keep[nid] = {"people": r["people"], "buffer_days": r["buffer_days"], "first_harvest": r["first_harvest"]["first"],
+                         "lost_to_frost": len(r["first_harvest"]["lost_to_frost"]),
+                         "levels": {l: {"supported": v["supported"], "ratio": v["ratio"]} for l, v in r["levels"].items()},
+                         "fuel": {l: v["supported"] for l, v in r["fuel"]["levels"].items()}}
+        return {"year": rep["year"], "nodes": keep}
+    except Exception as e:                                                 # a world the model cannot read: say so, run on
+        return {"error": f"{type(e).__name__}: {str(e)[:200]}"}
+
+
 def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, seed=None, until=None, mode="start", responders=None):
     """mode "start": a new run from a world file; "resume": go on with the run in out_dir from its journal (every answered request
     reused, the first step not committed run again live); "replay": play the run in out_dir again from its record alone, in a
@@ -799,6 +817,7 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
     if mode == "start":
         J.start(spec, w.seed, {n: (a["model"] if a.get("model") in (None, "bot") else f"model:{a['model']}") for n, a in w.s["people"].items()})
         J.until = until
+        J.meta("capacity", day0_capacity(spec))                            # the run's own baseline (D4-103; economic_calibration G)
     elif mode == "continue":
         J.until = until
         if days:
