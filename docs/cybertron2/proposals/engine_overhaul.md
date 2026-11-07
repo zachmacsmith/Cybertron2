@@ -1,6 +1,6 @@
 # The engine overhaul: the process model, its calibration, and the benched systems it makes cheap
 
-**Status:** discussion (the plan; its parts carry their own statuses)
+**Status:** accepted: D4-103 (7 Nov: the phases below; levels of fire, water and shelter moved after the larger experiment)
 **Owner:** 37.4 (engine), with 37.2 (economy, environment and the generator: the specs most of the content lands in)
 
 ## Summary
@@ -84,19 +84,18 @@ on its own clocks, added as rows, which the carrying-capacity model must read wi
 - **layout.md's one model of structures on any land (Zach, 4 Nov):** occupancy and land changing kind are in the overhaul
   (mechanisms 4 and 5). The full rework of where structures stand is its own step after.
 
-## The stages
+## The phases (D4-103)
 
-Each stage is replay-verified where it should change nothing. Each stage that changes behaviour is one marked engine version.
+| Phase | What | Behaviour | Experiment while the next phase is built |
+|---|---|---|---|
+| **1** | **The format.**<br>• Invariance checks with the capacity model (year's length, plot size).<br>• The declaration format with clocks: stocks and regimes (the periodic one included), yields as outcome distributions, waiting processes (crops), the needs table, durability; every existing rule moved into it.<br>• The capacity model reads the registries, with no formulas of its own.<br>• **Acceptance test:** fishing as rows only (water stocks by water body, a salmon run, hand and rod, eel traps), salt from saltmarsh pans or a spring, salting as a keeping form (water_and_preservation.md §3 to §5, first steps). The capacity model must report it unchanged. | Existing rules: unchanged, proven by replaying every journaled run and the baseline bot runs. Fishing: new, version 1 | **E1:**<br>• replay of all runs (free);<br>• a scripted bot farming at "worked" for a year on Wenbridge, against capacity's "worked" (free);<br>• a small LLM probe, a river hamlet with and without fishing, about 12 days, about $10 |
+| **2** | **Calibration and labour.**<br>• The time scale by clocks; harvest windows; pulses below cereals; processing that saves work but makes no food.<br>• Work costing food, with the watch (D2-21), overexertion and fatigue (Q-2); skill fading; distance inside a node (L-35); the fallback's limit.<br>• Fittings' wear and upkeep (millstones, oven, leat). | changes: version 2 | **E2:**<br>• capacity and the invariance checks on every world (free);<br>• the scripted farm again (free);<br>• Wenbridge, 12 people, one full year, one seed, about $35: work's food cost, fatigue and storage in practice |
+| — | **Deep breakdown for Zach** before phase 3 | | |
+| **3** | **Variance and risk.**<br>• The scheduler's years, spells, economic incidents and windfalls (D2-69 to D2-79).<br>• Building risks (house fire, floods on low ground, snow load on wattle, rats in stores, damp fuel).<br>• Woods feeding game and forage; drought drying dead wood.<br>• Bad-year capacity. | changes: version 3 | **E3:** bad-year capacity against seeds of a world; one stormy-year LLM probe |
+| **4** | **The larger experiment:** the sophistication experiment (38.60 §6) on the overhauled engine; a fishing village against a farming village | runs | |
+| **5** | Levels of fire; water and shelter as needs; beasts' feed; carts and small-game traps | changes | |
 
-| Stage | What | Changes behaviour? |
-|---|---|---|
-| 0 | Invariance checks with the capacity model: which measures move with the year's length and a plot's size | no (no engine change) |
-| 1 | The declaration format, with clocks: stocks and regimes (the periodic one included), processes with outcome distributions, waiting processes, needs, durability. Every existing rule moved into it | no: exact replay of the 55 journaled runs, and the tests |
-| 1b | **The acceptance test:** fishing, with salt and a fish run, added as rows only (gear to the weir, salt, preservation: water_and_preservation.md §10's first steps). The capacity model must report it with no change to its code | adds a system; marked as version 1 |
-| 2 | Calibration and labour:<br>• the time scale; harvest windows; pulses; processing;<br>• work's food cost, with the watch (D2-21), overexertion and fatigue (Q-2);<br>• skill fading; distance (L-35); the fallback's limit;<br>• fittings' wear and upkeep | yes: version 2 |
-| 3 | Variance and risk:<br>• the scheduler's years, spells and economic incidents and windfalls (D2-69 to D2-79);<br>• building risks (first: house fire, floods on low ground, snow load on wattle, rats in stores, damp fuel);<br>• woods feeding game and forage;<br>• bad-year capacity | yes: version 3 |
-| 4 | Needs and carrying: shelter, water (minimal), beasts' feed in the needs table; levels of fire; carts and traps as rows | yes: version 4, or with 3 |
-| 5 | Checks and experiments:<br>• capacity on every world;<br>• a scripted bot farming at "worked" for a year;<br>• the dependence ladder;<br>• a fishing village against a farming village;<br>• the sophistication experiment | runs |
+A phase whose experiment reads oddly is revisited: its changes are edited or undone before the next goes further.
 
 **Size:**
 - Stage 1 touches about 2,000 to 3,000 lines.
@@ -134,6 +133,8 @@ systems."
 - cybertron2/capacity: none by design (stage 3's acceptance test).
 
 ## History
+
+- 7 Nov (later): Zach decided the plan (D4-103): phases 1 to 5 as above. Levels of fire, water and shelter as needs (with beasts' feed and carts) come after the larger experiment; the scheduler is phase 3; small experiments between phases; a deep breakdown after phase 2.
 
 - 7 Nov (later): 37.2 wrote the content for fishing and preservation (water_and_preservation.md); linked as stage 1b's content.
 

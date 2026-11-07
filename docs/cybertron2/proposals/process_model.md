@@ -1,6 +1,6 @@
 # A declared process model: the engine says what its economy is, as data an analysis can walk
 
-**Status:** agreed in principle (Zach, 7 Nov: parts 1 and 3 to 6 yes; part 2 revised to his version below); the build awaits his go
+**Status:** accepted: D4-103 (phase 1 of the engine overhaul; parts 1 to 6 with part 2 as outcome distributions and clocks)
 **Owner:** 37.4 (engine), with 37.2 (economy, the checker and the generator)
 
 ## Summary
@@ -133,6 +133,8 @@ It is wanted for other reasons too:
 - cybertron2/capacity (D4-102), landgen/economy.py (37.2).
 
 ## History
+
+- 7 Nov (later): accepted in the engine overhaul's plan (D4-103).
 
 - 7 Nov (later): clocks added (Zach: "I agree with this. Add this."): every rate names its clock (day, year, life); two exchange rates as named world settings; yields declared against need.
 

@@ -1,6 +1,6 @@
 # Economic calibration: one time scale, and mechanics that make economic sense
 
-**Status:** discussion
+**Status:** accepted in part: D4-103 (A to F are phase 2 of the engine overhaul; G with phase 1)
 **Owner:** 37.4 (engine), with 37.2 (economy)
 
 ## Summary
@@ -127,6 +127,8 @@ data.py (CROPS, ITEMS, PHYSICS, TECHNIQUES); farm.py; night.py; spec/economy/pro
 spec/environment/resources.md, calendar.md; the capacity model (no change: it follows the engine).
 
 ## History
+
+- 7 Nov (later): accepted in the engine overhaul's plan (D4-103).
 
 - 7 Nov (later): how the changes fit one redesign of labour, with Q-2, L-35 and D4-97, and the order of work.
 
