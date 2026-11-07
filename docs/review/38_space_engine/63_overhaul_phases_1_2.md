@@ -68,4 +68,19 @@ first values (calibrate), set against the capacity model and E2.
 - Wenbridge, 12 people, a full year (32 days), one seed, about $35: does work's food cost change who works, does storage now matter,
   does fatigue appear.
 
-*Current as of 7 Nov 2026 (phase 1 built; phase 2 designed, E1 under way).*
+## 5. E1a: the water system with agents (Ferrybank, 8 people, 14 days, one seed each; about $9.50 in all)
+
+| Arm | Deaths | Missed meals | What they did |
+|---|---|---|---|
+| water | 0 | 5 (all by day 9) | 95 fishing acts (50 with a rod, 45 by hand), 3 rods made, 10 days at the salt pans, one salting; spoke of the Wen being "crowded" and of resting Black Mere |
+| dry | 4 (Joan d8, Ivo d10, Avice and Wat d12) | 37 | foraging, hunting, weeding; the river gave nothing |
+
+**What it shows:**
+- The system works with agents: they found the new crafts, made the gear, and managed the commons in talk.
+- The capacity model's forecast held. "As it stands", the village fed 0.77 of its people with water and 0.16 without. The water arm
+  was short until the salmon run (autumn, day 8) and then fed; the dry arm starved from its poorest household (the Ferrys, 20
+  grain) outward.
+- **A caution for calibration:** fishing turned a famine into no deaths at all. It is a strong food source at these first values
+  (water_and_preservation.md's warning). Phase 2 should look at its yields beside the new grain values.
+
+*Current as of 7 Nov 2026 (phase 1 built; E1 done; phase 2 designed, its first four changes built on a branch and held for Zach's check).*
