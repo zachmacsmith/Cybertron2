@@ -113,6 +113,17 @@ Either long run can be stopped early, and resumed later from the journal.
   - **Takeover:** everyone dead by day 48 (the last three, Tom, Ellen and Will, on day 48).
   - **Orwell:** everyone dead by day 41 (Rob last).
 - There were no failed model calls.
+- **The food was short anyway; the field only brought the famine forward.**
+  - The economy check's 881 was: store 215, crops 294 (126 of them the Bottom Field), the wild's standing food 35, the woods' flow 131,
+    and 206 for every field resown and reaped in full within the run.
+  - What could actually be eaten was store and the Long Field: 383, about 29 days for 13 people, even shared perfectly. With the
+    Bottom Field ripening in time it would have been about 38 days, still short of 60.
+  - The 60-day run spans two winters (the year is 32 days). Resowing was small (plots of 15 to 18, sown by starving people short of
+    seed), and the last sowing was cleared by the second winter on day 46, a day before it ripened.
+  - I ignored the check's warning that the land keeps 8 people for good, against 12.
+- **Who died first was set by holdings.** The poor households spent their days working off debts to the Arderns (wheel days, stone,
+  repairs) for a few grain, while the hall held 90 to 130. The Newcomes and Masons died first (days 16 to 23); the hall emptied by
+  day 28 and the Arderns followed; the Hearnes lasted longest, on small spring harvests and foraging, until day 48.
 - **What is readable is days 0 to 19:**
   - **Takeover:** Wat built Gorse House to draw the Newcomes in ("join the Masons"), worked off his debts to Hugh and taught Alys
     walling. Then he turned to finding food.
