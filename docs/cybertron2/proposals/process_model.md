@@ -134,6 +134,8 @@ It is wanted for other reasons too:
 
 ## History
 
+- 7 Nov (later): phase 1 built (spec/core/processes.md): the regime registry (with the periodic regime), outcomes as distributions for gathering and blight, needs.food, clocks on every rate, systems as switchable data packs, the capacity model reading the registries; replays exact. Not yet: delayed processes in one generic form; heat as a pure need; fittings' wear (phase 2).
+
 - 7 Nov (later): accepted in the engine overhaul's plan (D4-103).
 
 - 7 Nov (later): clocks added (Zach: "I agree with this. Add this."): every rate names its clock (day, year, life); two exchange rates as named world settings; yields declared against need.

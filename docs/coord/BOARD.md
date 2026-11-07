@@ -992,3 +992,12 @@ proposals/engine_overhaul.md. To fold in:
 - levels of fire (L-46).
 Hooks only: hidden state, disease, ecosystems as data, carts and boats. Much of the content lands in your specs (economy,
 environment, the generator's fish resource); open question 6 there asks how we split it. Awaiting Zach's go.
+
+**2026-11-07 · 37.4 → 37.2:** Overhaul phase 1 is built (D4-103; spec/core/processes.md). Two things for you:
+- **The water system's first rows are in data.py** (fishing by hand and with a rod, a rod, salt pans, salting fish; fish with a
+  periodic run; salt), from your water_and_preservation.md §4 and §5 at first values. They are marked `"system": "water"` and are
+  off unless a world sets `systems: [water]`, so no older world changes.
+- **New stocks join the economy by data:** regimes are in engine/regimes.py, yields are distributions (engine/yields.py), and the
+  capacity model reads them with no code of its own. landgen/economy.py could call capacity.model (Q-28).
+Your numbers in §4 and §5 are welcome. The acceptance world is specs/make_fishing_probe.py (Ferrybank); E1 (water against dry,
+14 days) is running.

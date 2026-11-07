@@ -63,6 +63,7 @@ The day's record (`today`): `_departed`, `_floor`, `admits`, `awake`, `care`, `c
 | Version | Date | What changed | Decision |
 |---|---|---|---|
 | 1 | 4 Nov 2026 | First declared shape (above): the fields of every record as the engine stood after D4-99 | D4-100 |
+| 1 (added within) | 7 Nov 2026 | A resource record (`parcels.res.<key>`) may carry `run_K`, `run_r`, `run_seasons` (the periodic regime); new resource keys `fish` and `salt` (the water system). Optional: absent means none; no older world holds them. Resource records' own fields are not yet in the declared shape: phase 2's version 2 declares them | D4-103 |
 
 **Before version 1 (version 0).** Runs from 24 Oct to 4 Nov have a journal but no number. These are the known changes to the
 shape in that time, reconstructed from the decisions. The list is incomplete; the git history of `cybertron2/engine/` is the

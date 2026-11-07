@@ -134,6 +134,8 @@ systems."
 
 ## History
 
+- 7 Nov (later): phase 1 built and its acceptance test passed (spec/core/processes.md; review 38.63). Systems as switchable data packs were added on the way: new rows changed every prompt otherwise. E1 under way.
+
 - 7 Nov (later): Zach decided the plan (D4-103): phases 1 to 5 as above. Levels of fire, water and shelter as needs (with beasts' feed and carts) come after the larger experiment; the scheduler is phase 3; small experiments between phases; a deep breakdown after phase 2.
 
 - 7 Nov (later): 37.2 wrote the content for fishing and preservation (water_and_preservation.md); linked as stage 1b's content.
