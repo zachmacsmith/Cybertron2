@@ -20,12 +20,25 @@ Year 32 days; day 0 is spring day 1. turned to field: ashby_lea, bramley_lea, co
 
 **What each level costs (the whole region, at the people it feeds):**
 
-| Level | Fed | Food a plot a year | Food a unit of work | Work a head a year | Capital a head (with materials) | Waste |
-|---|---|---|---|---|---|---|
-| bare | 9.24 | - | 0.22 | 192.0 | - | 23% |
-| as it stands | 18 | - | 0.56 | 58.3 | 7.9 | 2% |
-| worked | 18.14 | - | 0.56 | 57.9 | 9.8 | 1% |
-| best | 18.23 | - | 0.56 | 57.6 | 9.8 | 0% |
-| ceiling | 237.95 | 286.5 | 1.26 | 25.6 | 9.1 | 0% |
+Work is in units (a person gives 5 to 7 a day). Equipment and houses are built once; their work includes their materials'.
+
+| Level | Fed | Food a plot a year | Food a unit of work | Food work a year | Equipment, once | Houses, once | Tools worn a year (work) | Waste |
+|---|---|---|---|---|---|---|---|---|
+| bare | 9.24 | - | 0.22 | 1774.1 | 0 | 0 | 0 | 23% |
+| as it stands | 18 | - | 0.56 | 1050.2 | 0 | 142 | 0 | 2% |
+| worked | 18.14 | - | 0.56 | 1050.2 | 4.3 (2 bins) | 172.7 | 0 | 1% |
+| best | 18.23 | - | 0.56 | 1050.2 | 6.3 (1 granary) | 172.7 | 0 | 0% |
+| ceiling | 237.95 | 286.5 | 1.26 | 6094.3 | 274.6 (5 hand mill, 17 granary, 1 clear Ashby Lea, 1 clear Bramley Lea, 1 clear Coldwell Lea, 1 clear Hartwood Glade, 1 clear Longmere Lea, 1 clear Oakhurst Glade, 1 clear Fernlea Lea, 1 clear Gorm Lea, 1 clear Blackmere Glade) | 1881 | 172.7 | 0% |
 
 Out of reach in this world: worked: manure (no herds); best: cook milled, copper tools, manure (no herds), rye (no seed), seed selection (nobody knows it); ceiling: cook milled, copper tools, manure (no herds), rye (no seed), seed selection (nobody knows it).
+
+**The ladder of practice (gormhold, 4 people):** from bare, one change at a time, each the most people fed for its cost.
+
+Capital is built once (units of work, with materials'); ongoing work is each year's running, tools worn and upkeep. Steps are ranked by people fed for the extra ongoing work plus the capital spread over one year; the two are reported apart.
+
+| Change | Fed | Ratio | Capital added, once | Equipment held | Ongoing work a year | Ongoing a head | Share of their work (at the people there) | Food a unit of work | Food a plot a year |
+|---|---|---|---|---|---|---|---|---|---|
+| nothing: wild food, raw, as gathered | 0.41 | 0.1 | - | 0 | 33.1 | 80.7 | 0.42 | 0.67 | None |
+| keep in: bins | 0.48 | 0.12 | 5.0 | 5 (1 bins) | 33.1 | 69.0 | 0.359 | 0.67 | None |
+| hunt | 0.9 | 0.23 | 0.0 | 5 (1 bins) | 180.6 | 200.7 | 1.045 | 0.18 | None |
+| cook: boiled | 1.42 | 0.35 | 0.0 | 5 (1 bins) | 208.6 | 146.9 | 0.765 | 0.23 | None |

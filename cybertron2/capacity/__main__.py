@@ -47,12 +47,16 @@ def summary(name, rep) -> str:
                      f"{r['buffer_days'] if r['buffer_days'] is not None else '-'} | {fh['first']} days{lost} |")
     reg = rep["nodes"]["(region)"]
     lines += ["", "**What each level costs (the whole region, at the people it feeds):**", "",
-              "| Level | Fed | Food a plot a year | Food a unit of work | Work a head a year | Capital a head (with materials) | Waste |",
-              "|---|---|---|---|---|---|---|"]
+              "Work is in units (a person gives 5 to 7 a day). Equipment and houses are built once; their work includes their materials'.", "",
+              "| Level | Fed | Food a plot a year | Food a unit of work | Food work a year | Equipment, once | Houses, once | Tools worn a year (work) | Waste |",
+              "|---|---|---|---|---|---|---|---|---|"]
     for l, v in reg["levels"].items():
         a = v["at_supported"]
+        c = a["capital"]
+        eq = ", ".join(f"{i['n']} {i['what']}" for i in c["items"] if i["what"] not in ("medium room (timber)", "hearth", "beds"))
         lines.append(f"| {WORDS[l]} | {v['supported']:g} | {a['land']['field_food_a_plot'] or '-'} | {a['recurring']['food_a_unit'] or '-'} | "
-                     f"{a['recurring']['a_head'] or '-'} | {a['capital']['with_materials_a_head'] or '-'} | {a['waste_share']:.0%} |")
+                     f"{a['recurring']['food_work']:g} | {c['equipment']:g}" + (f" ({eq})" if eq else "") +
+                     f" | {c['houses']:g} | {c['tool_work_a_year']:g} | {a['waste_share']:.0%} |")
     gave = {l: v["gave_up"] for l, v in reg["levels"].items() if v["gave_up"]}
     if gave:
         lines += ["", "Out of reach in this world: " + "; ".join(f"{WORDS[l]}: {', '.join(g)}" for l, g in gave.items()) + "."]
@@ -79,13 +83,30 @@ def main(argv=None):
         os.makedirs(d, exist_ok=True)
         with open(os.path.join(d, "report.json"), "w") as f:
             json.dump(rep, f, indent=1, default=str)
+        from cybertron2.capacity import ladder as LD
+        home = max((k for k in rep["nodes"] if k != "(region)"), key=lambda k: rep["nodes"][k]["people"])
+        rungs = LD.climb(w, {home})
+        rep["ladder"] = {"node": home, "rungs": rungs}
+        with open(os.path.join(d, "report.json"), "w") as f:
+            json.dump(rep, f, indent=1, default=str)
+        lines = ["", f"**The ladder of practice ({home}, {rep['nodes'][home]['people']} people):** from bare, one change at a time, "
+                 "each the most people fed for its cost.", "",
+                 "Capital is built once (units of work, with materials'); ongoing work is each year's running, tools worn and upkeep. "
+                 "Steps are ranked by people fed for the extra ongoing work plus the capital spread over one year; the two are reported apart.", "",
+                 "| Change | Fed | Ratio | Capital added, once | Equipment held | Ongoing work a year | Ongoing a head | Share of their work (at the people there) | Food a unit of work | Food a plot a year |",
+                 "|---|---|---|---|---|---|---|---|---|---|"]
+        for r in rungs:
+            lines.append(f"| {r['change']} | {r['supported']:g} | {r['ratio']} | {r.get('capital_added', '-')} | {r['equipment']:g}"
+                         + (f" ({', '.join(r['items'])})" if r["items"] else "") + f" | {r['ongoing']:g} | {r['ongoing_a_head']} | "
+                         f"{r['ongoing_share_here'] if r['ongoing_share_here'] is not None else '-'} | {r['food_a_unit']} | {r['food_a_plot']} |")
         with open(os.path.join(d, "summary.md"), "w") as f:
-            f.write(summary(name, rep))
+            f.write(summary(name, rep) + "\n".join(lines) + "\n")
         if a.figures:
             svgs = {"bounds": FG.bounds(rep, f"{name}: carrying capacity"), "costs": FG.costs(rep, f"{name}: what each level costs"),
                     "region": FG.region(w, rep, "standing", f"{name}: the land as it stands"),
                     "sensitivity": FG.sensitivity(FG.sensitivity_data(w), f"{name}: what moves capacity"),
-                    "frontier": FG.frontier(SP.frontier(w, rep, "worked"), f"{name}: expanding outward")}
+                    "frontier": FG.frontier(SP.frontier(w, rep, "worked"), f"{name}: expanding outward"),
+                    "ladder": FG.ladder(rungs, rep["nodes"][home]["people"], f"{name}: the ladder of practice at {home}")}
             for nid, r in rep["nodes"].items():
                 if nid != "(region)" and r["people"]:
                     svgs[f"node_{nid}"] = FG.node(w, rep, nid, "worked", f"{name}: {nid}, where the food comes from")

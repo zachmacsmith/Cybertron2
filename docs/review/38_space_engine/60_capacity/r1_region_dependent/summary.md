@@ -14,10 +14,34 @@ Year 24 days; day 0 is summer day 4. turned to field: aw_glade, bf_meadow, bf_pa
 
 **What each level costs (the whole region, at the people it feeds):**
 
-| Level | Fed | Food a plot a year | Food a unit of work | Work a head a year | Capital a head (with materials) | Waste |
-|---|---|---|---|---|---|---|
-| bare | 5.85 | - | 0.27 | 99.7 | - | 18% |
-| as it stands | 28.88 | 16.0 | 0.99 | 23.3 | 8.5 | 3% |
-| worked | 216.88 | 213.9 | 1.36 | 16.5 | 8.6 | 1% |
-| best | 453.96 | 465.3 | 2.13 | 10.5 | 6.9 | 0% |
-| ceiling | 977.79 | 478.4 | 2.27 | 9.9 | 7.1 | 0% |
+Work is in units (a person gives 5 to 7 a day). Equipment and houses are built once; their work includes their materials'.
+
+| Level | Fed | Food a plot a year | Food a unit of work | Food work a year | Equipment, once | Houses, once | Tools worn a year (work) | Waste |
+|---|---|---|---|---|---|---|---|---|
+| bare | 5.85 | - | 0.27 | 583.4 | 0 | 0 | 0 | 18% |
+| as it stands | 28.88 | 16.0 | 0.99 | 671.6 | 0 | 245 | 7.3 | 3% |
+| worked | 216.88 | 213.9 | 1.36 | 3575 | 121 (5 hand mill, 48 bins) | 1734.9 | 103.7 | 1% |
+| best | 453.96 | 465.3 | 2.13 | 4768.1 | 92.8 (1 millstones, 15 granary) | 3049.8 | 122.5 | 0% |
+| ceiling | 977.79 | 478.4 | 2.27 | 9637.4 | 354.9 (3 millstones, 32 granary, 1 clear the Glade, 1 clear Brook Meadow, 1 clear the Common, 1 clear High Pasture, 1 clear the Bottom, 1 clear the Moor, 1 clear Riverside Meadow, 1 clear Reed Close) | 6580.5 | 262.6 | 0% |
+
+**The ladder of practice (barleyfield, 21 people):** from bare, one change at a time, each the most people fed for its cost.
+
+Capital is built once (units of work, with materials'); ongoing work is each year's running, tools worn and upkeep. Steps are ranked by people fed for the extra ongoing work plus the capital spread over one year; the two are reported apart.
+
+| Change | Fed | Ratio | Capital added, once | Equipment held | Ongoing work a year | Ongoing a head | Share of their work (at the people there) | Food a unit of work | Food a plot a year |
+|---|---|---|---|---|---|---|---|---|---|
+| nothing: wild food, raw, as gathered | 0.59 | 0.03 | - | 0 | 29.3 | 49.7 | 0.524 | 0.68 | 0.0 |
+| herds: milk+offtake | 5.88 | 0.28 | 0.0 | 0 | 79.6 | 13.5 | 0.143 | 1.94 | 0.0 |
+| cook: boiled | 6.94 | 0.33 | 0.0 | 0 | 94.5 | 13.6 | 0.144 | 1.85 | 0.0 |
+| sow the fields | 16.22 | 0.77 | 0.0 | 0 | 362.2 | 22.3 | 0.235 | 1.2 | 15.9 |
+| break the soil | 24.02 | 1.14 | 0.0 | 0 | 438 | 18.2 | 0.192 | 1.55 | 29.5 |
+| crops a year: best | 82.72 | 3.94 | 0.0 | 0 | 1474.4 | 17.8 | 0.188 | 1.43 | 112.2 |
+| weed (units a plot): 8.0 | 115.09 | 5.48 | 0.0 | 0 | 2027.6 | 17.6 | 0.186 | 1.45 | 160.3 |
+| master farmers | 142.06 | 6.76 | 0.0 | 0 | 2062.9 | 14.5 | 0.153 | 1.79 | 200.3 |
+| keep in: house | 150.19 | 7.15 | 0.0 | 0 | 2074.6 | 13.8 | 0.146 | 1.79 | 200.3 |
+| cook: milled | 188.76 | 8.99 | 50.0 | 50 (1 millstones) | 2307 | 12.2 | 0.129 | 2.04 | 253.3 |
+| select seed | 224.28 | 10.68 | 0.0 | 50 (1 millstones) | 2804.1 | 12.5 | 0.132 | 1.99 | 302.4 |
+| manure | 276.35 | 13.16 | 0.0 | 50 (1 millstones) | 3236.6 | 11.7 | 0.123 | 2.16 | 377.6 |
+| rye over winter | 303.36 | 14.45 | 0.0 | 50 (1 millstones) | 3709.3 | 12.2 | 0.129 | 2.05 | 414.0 |
+| weed (units a plot): 16.0 | 334.1 | 15.91 | 0.0 | 50 (1 millstones) | 4431.6 | 13.3 | 0.14 | 1.87 | 456.9 |
+| keep in: granary | 338.89 | 16.14 | 132.0 | 182 (1 millstones, 11 granary) | 4437.5 | 13.1 | 0.138 | 1.87 | 456.9 |

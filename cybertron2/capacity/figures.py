@@ -356,3 +356,29 @@ def retro(rows, title) -> str:
             b.append(_t(x + rad + 3, y + 4, r["run"], 10, INK2))
             placed.append((x, y))
     return _svg(W, H, "".join(b), title)
+
+
+# ------------------------------------------------------------------------------------------------------------------- ladder
+def ladder(rungs, people, title) -> str:
+    """The ladder of practice: each rung's change, the people fed after it, and its cost."""
+    W, L, R, T, rh = 1000, 290, 260, 74, 28
+    H = T + rh * len(rungs) + 40
+    hi = nice(max(r["supported"] for r in rungs) * 1.05)[-1]
+    X = lambda v: L + (W - L - R) * v / hi
+    b = [_t(16, 26, title, 16, INK, weight=600),
+         _t(16, 46, "From bare, one change at a time, each the most people fed for its cost. Right: ongoing work a head a year, and capital the step adds once.", 12, INK2),
+         _t(16, 62, f"The black line is the {people} people there.", 12, INK2)]
+    for i, r in enumerate(rungs):
+        y = T + i * rh
+        b.append(_t(L - 10, y + 15, r["change"], 12, INK, "end"))
+        b.append(f'<rect x="{L}" y="{y + 4}" width="{max(2, X(r["supported"]) - L):.1f}" height="16" rx="4" fill="{FOOD["worked"]}">'
+                 f'<title>{_e(r["change"])}: {r["supported"]:g} fed</title></rect>')
+        b.append(_t(X(r["supported"]) + 6, y + 16, f"{r['supported']:g}", 11, INK2))
+        cap = r.get("capital_added") or 0
+        b.append(_t(W - R + 10, y + 16, f"{r['ongoing_a_head']} a head a year" + (f"; +{cap:g} once" if cap else ""), 11, MUTED))
+    if people:
+        x = X(people)
+        b.append(f'<line x1="{x:.1f}" y1="{T}" x2="{x:.1f}" y2="{T + rh * len(rungs)}" stroke="{INK}" stroke-width="2"/>')
+    for v in nice(hi):
+        b.append(_t(X(v), T + rh * len(rungs) + 18, f"{v:g}", 11, MUTED, "middle"))
+    return _svg(W, H, "".join(b), title)

@@ -116,10 +116,29 @@ def capital(ctx, ls, scale, P, sim) -> dict:
             u += trees / float(y["yield"]["base"]) * float(y["units"])
         build(f"clear {par['name']}", 1, {}, u, par["cover"])
     tool_work = worn * emb.get(f"{ctx.level.tools} tool", (0.0, ""))[0] if ctx.level.tools != "bare" else 0.0
+    houses = {"medium room (timber)", "hearth", "beds"}
+    rooms = sum(i["n"] for i in items if i["what"] == "medium room (timber)")
+    upkeep = rooms * upkeep_a_building(w, {"structure": "timber", "rooms": [{"kind": "medium room", "floor": ROOMS["medium room"]["floor"]}]}, emb)
+    equip = round(sum(i["with_materials"] for i in items if i["what"] not in houses), 1)
+    house = round(sum(i["with_materials"] for i in items if i["what"] in houses), 1)
     return {"items": items, "materials": mats, "units": round(units, 1), "units_a_head": round(units / P, 1) if P else None,
+            "equipment": equip, "houses": house, "upkeep_a_year": round(upkeep, 1),
             "with_materials": round(embodied_total, 1), "with_materials_a_head": round(embodied_total / P, 1) if P else None,
             "tools_a_year": round(worn, 1), "tool_materials_a_year": year_mats, "tool_work_a_year": round(tool_work, 1),
             "embodied": {g: round(v, 3) for g, (v, _) in emb.items() if g in FD.EDIBLE}}
+
+
+def upkeep_a_building(w, b, emb) -> float:
+    """Work a year to keep a building sound: its expected breaks a year (night.py: PHYSICS breaks by night, cold nights by world.cold,
+    by structure) x its repair (buildings.repair_need), with its materials' embodied work. Fittings themselves do not wear in the
+    engine; the buildings that hold them do (counted for houses only, for now)."""
+    from cybertron2.capacity import cal as CL
+    from cybertron2.engine import buildings as BU
+    p = PHYSICS["breaks"]
+    k = float(p["structure"].get(b.get("structure"), 1.0))
+    breaks = sum(float(p["cold"] if cold else p["p"]) * k for _, cold in CL.table(w))
+    need = BU.repair_need(b)
+    return breaks * (float(need["units"]) + sum(float(q) * emb.get(m_, (0.0, ""))[0] for m_, q in need["materials"].items()))
 
 
 def recurring(ctx, ls, scale, P, m) -> dict:

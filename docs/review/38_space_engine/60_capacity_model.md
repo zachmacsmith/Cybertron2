@@ -176,4 +176,77 @@ Not run; for Zach's decision.
   differ from their own engine's.
 - **The M1 runs** cannot be read.
 
+## 8. The ladder of practice, and capital kept apart from ongoing work (added later, 7 Nov)
+
+**The levels are bundles of dials and switches.**
+- Dials: cooking (raw, boiled, ground, milled); storage (open, house, bins, cellar, granary); weeding (0, 8, 16); tools; crops a
+  year; herds.
+- Switches: fields, breaking, manure, seed selection, master farmers, rye, hunting.
+
+`ladder.py` climbs from bare one change at a time. At each step it takes the change that feeds the most people for its cost. Each rung
+reports two costs, never added:
+- **Capital, once:** equipment with its materials' work. Houses are reported apart because they scale with the people fed.
+- **Ongoing work a year:** running the food work, tools worn, and the houses' upkeep (expected breaks × buildings.repair_need).
+
+Only to rank the steps is capital spread over one engine year and added to the extra ongoing work.
+
+**What the two measure:**
+- **Capital is a threshold and a stock.** Can the society reach a level at all? It needs a surplus, someone fed while they build,
+  coordination and time; once built it lasts and is leverage for whoever holds it (the mill).
+- **Ongoing work is a burden and a flow.** Can they keep the level up, and what share of their time does it leave free for building,
+  politics, fighting, children?
+
+**Wenbridge's ladder (takeover world), ongoing work a head a year:**
+
+| Step | Ongoing work a head | People fed |
+|---|---|---|
+| bare | 88 | |
+| boiling (eating raw is the costliest practice) | 38 | |
+| master farmers | 28 | |
+| breaking the soil | 39 (more work a head) | 64 (from 39) |
+| milling (1 water wheel and millstones, 460 units once) | 33 | 75 |
+
+Breaking the soil is intensification; milling takes labour back with capital.
+
+**Combe**, with oxen, mills by millstones for 50 units once: food a unit of work 1.44 → 1.93.
+
+## 9. A universal measure of a society's complexity? (Zach's question, 7 Nov)
+
+**The direction is sound and has a lineage:**
+- White's law and Morris's index: development as energy captured a head.
+- Boserup: intensification under population pressure.
+- Böhm-Bawerk: roundabout production (longer chains, more capital).
+- Tainter: complexity with diminishing returns.
+
+**Measures that do not depend on this engine's quirks** (each exists in any society with work, goods and time):
+1. **Subsistence share:** the share of the people's work that food, fuel and upkeep take. Its complement is the free labour a
+   society can spend on anything else. The most portable measure.
+2. **Capital depth:** the stock of built capital a head, in work-days embodied, and the capital-output ratio (capital ÷ a year's
+   output).
+3. **Roundaboutness:** the depth of the production chains actually used, in steps from the land to what is eaten (from the production
+   graph), and their breadth (distinct processes and fittings in use).
+4. **Intensity against productivity:** output a unit of land and output a unit of work, as two axes. A society's path through that
+   plane says whether it intensified (land up, work's yield down) or deepened capital (both up).
+5. **Realised reach:** where the society actually sits on its world's ladder, as a share (log scale) of the way from bare to the
+   reachable ceiling.
+
+**What is contingent, and what would mislead:**
+- **The ladder's absolute numbers are this engine's calibration.** Grain 3 times its seed, beans in 5 days, raw grain 0.2 of a meal:
+  the twentyfold rise is an artefact. Only comparisons within the engine mean anything.
+- **"Realised reach" depends on the model of potential.** It is only as complete as the mechanics the model knows. Trade, for one, is
+  missing. Measures 1 to 4 need no model of potential: they read what happened. They are the safer core.
+- **Confounds:**
+  - population and its mix of models;
+  - run length (capital needs time to pay back, and most runs are shorter than a year);
+  - the starting endowment;
+  - the menu effect (what the prompt lists is what gets done).
+  All need a null arm and normalising a head.
+- **Complexity is not efficiency.** A society can be roundabout and wasteful (Tainter). Report the axes apart, not as one index.
+- **If shown to the agents as a goal, it will be gamed (38.54).** Measure it; never score with it.
+- **The engine pays for capital only through yield and speed.** Capital has no other use yet (no trade, no specialist market), so
+  capital depth here measures food practice more than "society".
+
+**Proposed:** report measures 1 to 4 for every run, by day, from the journal. Use measure 5 for design (where to set a world's
+scarcity) and for the sophistication experiment (section 6).
+
 *Current as of 7 Nov 2026.*
