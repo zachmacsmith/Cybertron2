@@ -1,7 +1,7 @@
 # Proposal: living populations on the land (a generalised ecology layer)
 
 **Status:** discussion (8 Nov). Nothing decided, nothing to build. **Owner:** 37.2 (design, kinds and numbers: spec/environment/),
-with 37.4 (the engine: it sits on D4-103's regime registry and process model). **Affects:** spec/environment/resources.md,
+with 37.4 (the engine: it sits on D4-103's process model and D4-104's renewal rules and packs). **Affects:** spec/environment/resources.md,
 spec/core/processes.md; data.py (RESOURCES, a new KINDS table); engine regimes.py, night.py, herds.py, environment.py, signs.py;
 landgen/ecology.py (the starting populations); OPEN L-2, L-37, D2-77, D2-95.
 
@@ -21,8 +21,49 @@ growth, diet, movement and response to people.** One night step applies, in orde
 Today's stocks (plants, grass, game, fish) become the simplest cases: no diet, no movement. Large animals are counted whole, so
 "there is actually one wolf" is just a count of 1, and a single animal can be followed and remembered when it matters.
 
-It is built in three small steps, each switchable as a system (D4-103), and is worth building only for the effects it makes between
-villages: a commons, a river shared upstream and down, a forest whose loss is felt elsewhere.
+It is built in three small steps, each switchable as a pack (D4-103, D4-104), and is worth building for two things:
+- the effects it makes between villages: a commons, a river shared upstream and down, a forest whose loss is felt elsewhere;
+- the hidden, shifting state it gives the world, which people must infer and manage (§0).
+
+## 0. Why: a complex, partially observable environment (Zach, 8 Nov)
+
+Zach: "this fits into the 'complex, partially observable environment' that is a core aim of the simulation. Wildlife is core
+relation to carrying capacity, and also seasonal / long term shifts + how they are managed." Four consequences for the design.
+
+1. **The populations are hidden state; people infer them.** Nobody sees a number. They see:
+   - signs (tracks, howling, "few fish rising"), drawn by the noticing rule;
+   - **what their own work brings:** the catch for a day's fishing. D4-104's response to density already makes a take scale with
+     how full the stock is, so catch per effort is a real, noisy signal, as it is in real fisheries.
+   - **A hyperstable stock is the classic trap:** catches stay good while the stock collapses (D4-104's `hyperstable`). Which kinds
+     are hyperstable is a design choice with consequences.
+   - memory across seasons, and records: a forester's tally, the chronicle, a custom that says "the salmon fail if the weir stands
+     at the run".
+
+   So knowledge, records and those who keep them (a forester, a warden, an elder) gain value. That is the information economy
+   (information_economics.md) given something real to know.
+2. **Wildlife is part of carrying capacity, and capacity moves.**
+   - The capacity model (D4-102) must count each population's sustainable take, not its standing stock (02zl §1.3: people live off
+     flows).
+   - Taking more than that lowers next year's capacity. So capacity is a trajectory: the day-0 forecast each run stores becomes a
+     forecast under a harvest, which the model can simulate (D4-103 part 3).
+   - Overhunting, overfishing and clearing show as capacity lost, measurable against the run's own day-0 baseline.
+3. **Shifts on three clocks** (D4-103's clocks):
+   - **seasonal:** runs, breeding, winter hunger driving predators toward people, fowl arriving in winter;
+   - **year to year:** D2-76's ecology era family, "mast and bust", becomes concrete: a mast year swells boar and deer, and a bust
+     year sends them, and the wolves, hungry;
+   - **long term:** clearing, overhunting and recovery, over continued runs.
+4. **Management is the point.** Real societies managed wildlife with rules:
+   - closed seasons;
+   - who may fish which water or hunt which wood (forest law, the warren, the fishery as a held right);
+   - quotas and gear limits;
+   - husbandry instead of hunting (fishponds, warrens, the deer park);
+   - wardens to watch, and penalties.
+
+   All of these need people: monitoring and enforcement are work and institutions (scenario_design: "enforcement that needs
+   people"). The engine needs nothing new for the rules themselves: claims, customs as kept lines (D4-64) and agreements carry them.
+   **The experiment:** does a society discover restraint, monitoring and enforcement before the stock fails? Compare it against a
+   null arm with no shared stock. The stock's trajectory against its sustainable take is a clean outcome measure, read with the end
+   state as scenario_design asks.
 
 ## 1. What exists now (8 Nov)
 
@@ -62,7 +103,7 @@ So:
 | `scale` | the place it lives on: parcel, reach (a stretch of river), node (a home range), or region (a migration) | node |
 | `count` | `whole` (integers: one wolf is one) or `density` (a real number: fish, fowl, plants) | whole |
 | `habitat` | its K by ecosystem and depth band (ecology.py's palette, D2-191), per unit of size | old oak-ash core 0.02 a unit; edge 0.005 |
-| `growth` | a regime from the registry, on its clock (year or season) | breeds once a year, spring |
+| `growth` | a renewal rule from the registry (D4-104), on its clock (year or season) | breeds once a year, spring |
 | `diet` | what it eats (other kinds or stocks), how much, with a functional response (more when plentiful, saturating) | deer, then herds and carcasses when deer are scarce |
 | `moves` | `none`, `diffuse` (spreads toward space), `roam` (a group moves as one toward food), or `migrate` (seasonal, along a route) | roam |
 | `people` | how it meets people: hunted (which acts draw it), avoids people (K falls near busy places), raids (herds, crops, stores), dangerous | hunted; avoids; raids herds; dangerous in winter |
@@ -78,7 +119,7 @@ So:
 Claims and holdings mean nothing to it: a wolf does not ask whose parcel it is.
 
 **One night step** (or one a week, on the season clock, for slow kinds), applied to every population in a fixed order:
-1. **Grow** toward the habitat's K by the kind's regime. Today's regimes are kept, so today's stocks are this with no diet and no
+1. **Grow** toward the habitat's K by the kind's renewal rule. Today's rules are kept, so today's stocks are this with no diet and no
    movement.
 2. **Eat:** each consumer takes from its diet by its functional response. Prey and stocks are drawn down; a consumer that eats too
    little loses condition, then numbers.
@@ -187,7 +228,7 @@ Two to five kinds carry every case in §4.
 
 | Step | What | Size | Shows |
 |---|---|---|---|
-| 1 | **Populations generalise stocks:** game and fish become kinds with habitat K from the ecosystems, diffusion along the parcel graph and river reaches, and immigration from the map's edge. No predators. | S-M | hunted-out places refill from neighbours; fishing one reach is felt by the next |
+| 1 | **Populations generalise stocks:** game and fish become kinds with habitat K from the ecosystems, diffusion along the parcel graph and river reaches, and immigration from the map's edge. No predators. The catch reported as what the day's work brought (D4-104's response); the capacity model's sustainable take per population. | S-M | hunted-out places refill from neighbours; fishing one reach is felt by the next; capacity as a trajectory |
 | 2 | **The run migrates:** salmon along the river network in their season; the weir (water proposal §4) blocks or takes it | S | the upstream-downstream commons |
 | 3 | **One predator:** wolves, whole-counted at node scale, roaming; deer then herds and carcasses as diet; raids as incidents; individuals on demand | M | the forest's loss felt as wolves at the village; the watch and fences with a reason |
 
@@ -212,15 +253,21 @@ Each step is a system a world switches on (D4-103), so existing worlds and runs 
 3. Immigration from beyond the map's edge: yes (nothing stays empty for ever), or let places be emptied for good?
 4. Whether agents may ever see more than signs: a hunter's estimate ("a pack of five"), a tally kept by the lord's forester?
 5. When: after the engine overhaul's stage 3 (it is mostly rows on D4-103's registry), with the fishing acceptance test?
+6. Which kinds are hyperstable (catches hold up while the stock falls), and so most deceptive: the fish of a shoal or run, by D4-104?
+7. A first experiment on management: a shared fishery or wood between two villages, with and without a held right or custom, against
+   a null arm?
 
 ## History
 
 - 8 Nov: Zach asked for generalised ecosystems: populations that live on the land, interact and move, by terrain, at the right
   resolution, as a clean layer. 37.2 surveyed what exists (§1) and proposed this.
+- 8 Nov: Zach framed it as part of the core aim, "a complex, partially observable environment", tied to carrying capacity, seasonal
+  and long-term shifts, and their management. Added §0, step 1's catch signal and capacity trajectory, and questions 6 and 7. Terms
+  brought in line with D4-104 (renewal rules, packs, response to density).
 
 ## Sources
 
-- engine/regimes.py, night.py (regrow), forests.py, herds.py, data.py RESOURCES;
+- engine/renewal.py (D4-104; was regimes.py), packs.py, night.py (regrow), forests.py, herds.py, data.py RESOURCES;
 - spec/core/processes.md (D4-103);
 - proposals/process_model.md, engine_overhaul.md (37.4);
 - proposals/ecosystems.md §7 (guilds), temperate_landscapes.md (D2-191), water_and_preservation.md, environment_state.md;
