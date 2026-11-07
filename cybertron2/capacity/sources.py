@@ -99,7 +99,7 @@ def _gatherers(key):
             and (d.get("yield") or {}).get("kind") in YD.KINDS and d.get("gives") in EDIBLE]
 
 
-def _per_unit(ctx, t, d, S, K):
+def _per_unit(ctx, t, d, S, K, b=1.0):
     """Food a unit of work at stock S: the mean of the act's own outcome (yields.dist), with the best tool and weapon the level and
     the world reach."""
     from cybertron2.engine import yields as YD, outcomes as OC
@@ -108,7 +108,7 @@ def _per_unit(ctx, t, d, S, K):
     wpn = d.get("weapon") or {}
     armed = ctx.reach.tool("crude") and ("crude weapon" in ctx.reach.goods or "timber" in ctx.reach.goods) and ctx.level.tools != "bare"
     weapon = float(wpn.get("armed" if armed else "none", 1.0)) if wpn else 1.0
-    v = YD.dist(d["yield"], {"S": S, "K": K}, 1.0, tm, weapon=weapon, refuge=float(PHYSICS["refuge"])).mean()
+    v = YD.dist(d["yield"], {"S": S, "K": K}, 1.0, tm, weapon=weapon, refuge=float(PHYSICS["refuge"]), b=b).mean()
     return OC.got(v) / float(d.get("units", 1) or 1)
 
 
@@ -122,14 +122,14 @@ def _usable(ctx, t, d) -> bool:
 
 
 def _steady(ctx, key, res):
-    """The best steady take a night, and the stock it stands at, by the engine's own regime step, for each year day."""
-    from cybertron2.engine import regimes as RG, night as NI
+    """The best steady take a night, and the stock it stands at, by the engine's own renewal step, for each year day."""
+    from cybertron2.engine import renewal as RN, night as NI
     top = max(float(res["K"]), float(res.get("run_K", 0) or 0))
     out, memo = [], {}
     for season, cold in ctx.cal:
         if (season, cold) not in memo:
             c = {"winter": NI.slow_season(season), "season": season}
-            memo[(season, cold)] = msy(lambda S: RG.step(ctx.w.p, key, {**res, "S": S}, c), top)
+            memo[(season, cold)] = msy(lambda S: RN.step(ctx.w.p, key, {**res, "S": S}, c), top)
         out.append(memo[(season, cold)])
     return out
 
@@ -137,26 +137,27 @@ def _steady(ctx, key, res):
 @source("the wild")
 def wild(ctx, par):
     """Every renewable stock on the parcel that a known gathering technique takes for food: plants, game, fish and whatever the data
-    adds. Its steady take comes from the regime's own night (regimes.py), its yield a unit of work from the act's own outcome
+    adds. Its steady take comes from the stock's own renewal rule (renewal.py), its yield a unit of work from the act's own outcome
     (yields.py), at the stock it stands at each day. Nothing here is particular to a stock."""
-    from cybertron2.engine import regimes as RG
+    from cybertron2.engine import renewal as RN
     if par["id"] in ctx.as_field:
         return []
     out = []
     for key, res in (par.get("res") or {}).items():
-        if RG.of(key) not in RG.NIGHTLY or float(res.get("K", 0)) <= 0:
+        if RN.of(key, res) not in RN.NIGHTLY or float(res.get("K", 0)) <= 0:
             continue
         gs = [(t, d) for t, d in _gatherers(key) if _usable(ctx, t, d)]
         if not gs:
             continue
         K = float(res["K"])
+        b = RN.response(key, res)
         steady = _steady(ctx, key, res)
         prof = [g for g, _ in steady]
         units = 0.0
         best_t = None
         for take, S in steady:                                  # each day's take at that day's stock, by the best gatherer then
-            t, d = max(gs, key=lambda td: _per_unit(ctx, td[0], td[1], S, K))
-            pu = _per_unit(ctx, t, d, S, K)
+            t, d = max(gs, key=lambda td: _per_unit(ctx, td[0], td[1], S, K, b))
+            pu = _per_unit(ctx, t, d, S, K, b)
             units += take / pu if pu > 0 else 0.0
             best_t = best_t or (t, d)
         if units <= 0:

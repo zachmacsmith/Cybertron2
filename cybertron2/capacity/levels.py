@@ -107,7 +107,7 @@ class Reach:
     cows: int
     seed: set
     dung: bool
-    systems: tuple = ()
+    packs: tuple = ()
 
     def fitting(self, f) -> bool:
         if f in self.fittings_built:
@@ -133,8 +133,8 @@ class Reach:
         return tr is None or tr in self.trades
 
     def knows(self, tech) -> bool:
-        from cybertron2.engine import systems as SY
-        if not SY.on(TECHNIQUES.get(tech, {}), self.systems):
+        from cybertron2.engine import packs as PK
+        if not PK.on(TECHNIQUES.get(tech, {}), self.packs):
             return False
         return bool(TECHNIQUES.get(tech, {}).get("basic")) or tech in self.known
 
@@ -154,9 +154,9 @@ def reach(w) -> Reach:
             goods |= {"copper ore", "copper"}
         if res.get("game"):
             goods.add("hide")
-    from cybertron2.engine import systems as SY
-    for t, d in TECHNIQUES.items():                                           # what the land here gives to gathering (any system on)
-        if d.get("verb") != "gather" or not SY.on(d, SY.of(w)) or not isinstance(d.get("gives"), str):
+    from cybertron2.engine import packs as PK
+    for t, d in TECHNIQUES.items():                                           # what the land here gives to gathering (any pack on)
+        if d.get("verb") != "gather" or not PK.on(d, PK.of(w)) or not isinstance(d.get("gives"), str):
             continue
         covers = (d.get("at") or {}).get("covers") or []
         dr = d.get("draws")
@@ -179,4 +179,4 @@ def reach(w) -> Reach:
         for _, _, c in FM.standing(p):
             seed.add({"grain": "grain", "winter grain": "rye", "legumes": "beans"}.get(c.get("crop"), "grain"))
     return Reach(goods=goods, trades=trades, known=known, fittings_built=built, oxen=oxen, cows=cows, seed=seed, dung=bool(herds),
-                 systems=SY.of(w))
+                 packs=PK.of(w))

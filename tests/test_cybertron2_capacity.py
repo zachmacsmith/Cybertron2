@@ -31,9 +31,9 @@ def test_every_yield_kind_is_read_or_placed():
 
 def test_every_resource_has_its_dynamics():
     from cybertron2.capacity import fuel  # noqa: F401
-    from cybertron2.engine import regimes as RG
-    missing = {k for k, d in RESOURCES.items() if d.get("regime") not in RG.REGIMES}
-    assert not missing, f"resources whose regime has no registered dynamics: {missing}"
+    from cybertron2.engine import renewal as RN
+    missing = {k for k, d in RESOURCES.items() if d.get("renewal") not in RN.RULES}
+    assert not missing, f"resources whose renewal rule is not registered: {missing}"
 
 
 # ---------------------------------------------------------------------------------------------------------- agreement
@@ -139,3 +139,27 @@ def test_fishing_appears_in_capacity_with_no_capacity_code():
     d_food = dry["nodes"]["(region)"]["levels"]["standing"]["food_a_year"]
     assert w_food.get("fish", 0) > 0 and "fish" not in d_food
     assert water["nodes"]["(region)"]["levels"]["standing"]["supported"] > dry["nodes"]["(region)"]["levels"]["standing"]["supported"]
+
+
+def test_a_stock_may_name_its_own_renewal_and_response():
+    """Each ecosystem decides how its stock comes back and how the take answers its density (D4-103): a stock's own record overrides
+    its resource's row, the night follows it, the act draws by it and the capacity model reads it, with no code naming the stock."""
+    from cybertron2.engine import renewal as RN, yields as YD
+    assert RN.of("fish") == "periodic" and RN.of("fish", {"renewal": "threshold"}) == "threshold"
+    thin = {"S": 1.0, "K": 10.0, "r": 0.3}
+    assert RN.step(PHYSICS, "plants", thin, {}) > 1.0                                       # fast: comes back from anywhere
+    assert RN.step(PHYSICS, "plants", {**thin, "renewal": "threshold"}, {}) == 1.0          # below its threshold: does not
+    y = TECHNIQUES["fish by hand"]["yield"]
+    half = {"S": 5.0, "K": 10.0}
+    prop, hyper = (YD.dist(y, half, refuge=0.1, b=RN.response("fish", {"response": b})).mean() for b in ("proportional", "hyperstable"))
+    assert hyper > prop
+    spec = yaml.safe_load(open("cybertron2/specs/fishing/water.yaml"))
+    spec2 = copy.deepcopy(spec)
+    spec2["nodes"]["ferrybank"]["parcels"]["fb_mere"]["state"]["fish"]["response"] = "hyperstable"
+    w = M.world_of(spec2)
+    assert w.s["parcels"]["fb_mere"]["res"]["fish"]["response"] == "hyperstable"
+    work = {}
+    for name, sp in (("proportional", spec), ("hyperstable", spec2)):
+        fl = [f for f in M.flows(M.context(M.world_of(sp), "standing")) if f.where == "fb_mere"]
+        work[name] = sum(f.work for f in fl)
+    assert 0 < work["hyperstable"] < work["proportional"]          # the same steady take, for less work

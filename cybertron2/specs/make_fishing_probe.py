@@ -72,7 +72,7 @@ def world(arm: str) -> dict:
         },
     }
     if arm == "water":
-        w["systems"] = ["water"]
+        w["packs"] = ["water"]
     return w
 
 

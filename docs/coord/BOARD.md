@@ -1001,3 +1001,12 @@ environment, the generator's fish resource); open question 6 there asks how we s
   capacity model reads them with no code of its own. landgen/economy.py could call capacity.model (Q-28).
 Your numbers in §4 and §5 are welcome. The acceptance world is specs/make_fishing_probe.py (Ferrybank); E1 (water against dry,
 14 days) is running.
+
+### 37.4 → 37.2, 7 Nov: renamed (D4-104); stocks may carry their own rule
+- **regime → renewal** (engine/renewal.py; RESOURCES rows `"renewal"`), **systems → packs** (`"pack": "water"`, worlds
+  `packs: [water]`; `systems:` still read). Your spec/environment/resources.md still says "regime" for D4-7's word: yours to rename
+  if you want it to match; nothing breaks either way.
+- **For the ecosystem layer:** a stock's own record (parcel `state.<key>`) may now name `renewal` (any registered rule) and
+  `response` (the take's answer to density, (S/K) ** b: proportional 1, hyperstable 0.4, hyperdepleted 2, or a number), with its
+  parameters (K, r, run_K, run_r, run_seasons) beside it. So landgen can give a chalk stream's fish and a fen mere's different
+  dynamics per patch. The capacity model reads both. Spec: spec/core/processes.md; world_schema.md row for D4-104.

@@ -11,15 +11,21 @@ from cybertron2.engine.outcomes import Bern, Const, If, Joint, Scaled, Uniform
 KINDS = ("stock", "chance", "fixed", "pool")
 
 
-def dist(y, r, m=1.0, tm=1.0, weapon=1.0, refuge=0.1):
-    """The outcome of one act of this yield kind. r: the stock drawn on {S, K} (None for a kind that draws on none)."""
+def density(r, b=1.0) -> float:
+    """How the take answers the stock's density: (S/K) ** b (renewal.response)."""
+    return r["S"] / r["K"] if b == 1.0 else (r["S"] / r["K"]) ** b
+
+
+def dist(y, r, m=1.0, tm=1.0, weapon=1.0, refuge=0.1, b=1.0):
+    """The outcome of one act of this yield kind. r: the stock drawn on {S, K} (None for a kind that draws on none); b: the stock's
+    response to density (renewal.response)."""
     k = y["kind"]
     if k == "stock":                                                   # a share of a renewable stock, less as it thins (D4-7)
-        want = y["base"] * r["S"] / r["K"] * m * tm
+        want = y["base"] * density(r, b) * m * tm if b != 1.0 else y["base"] * r["S"] / r["K"] * m * tm
         return Const(round(max(0.0, min(want, r["S"] - refuge * r["K"])), 2))
     if k == "chance":                                                  # a hunt: a chance by the stock, a size by luck and the weapon
         catch = Scaled(Uniform(*y["range"]), m * weapon, cap=r["S"])
-        return If(y["p"] * r["S"] / r["K"], Joint(catch, {g: Bern(pr) for g, pr in (y.get("by") or {}).items()}))
+        return If(y["p"] * r["S"] / r["K"] if b == 1.0 else y["p"] * density(r, b), Joint(catch, {g: Bern(pr) for g, pr in (y.get("by") or {}).items()}))
     if k == "fixed":
         return Const(y["base"] * m * tm)
     if k == "pool":                                                    # dead wood: less to find as it thins (D2-156)

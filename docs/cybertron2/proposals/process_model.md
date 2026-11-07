@@ -1,6 +1,6 @@
 # A declared process model: the engine says what its economy is, as data an analysis can walk
 
-**Status:** accepted: D4-103 (phase 1 of the engine overhaul; parts 1 to 6 with part 2 as outcome distributions and clocks)
+**Status:** accepted: D4-103 (phase 1 of the engine overhaul; parts 1 to 6 with part 2 as outcome distributions and clocks); D4-104 (renewal, packs, each stock its own rule)
 **Owner:** 37.4 (engine), with 37.2 (economy, the checker and the generator)
 
 ## Summary
@@ -133,6 +133,24 @@ It is wanted for other reasons too:
 - cybertron2/capacity (D4-102), landgen/economy.py (37.2).
 
 ## History
+
+- 7 Nov (later still): **names and per-stock rules (D4-104).** Zach: "Why did you call it a regime? I feel like that will get
+  confused with societies? ... each environment / ecosystem should be able to decide its own regeneration / growth / population
+  mechanisms and how this relates to being fished. Was there not something like systems already before?" Built:
+  - regime → **renewal** (engine/renewal.py; `RESOURCES[key]["renewal"]`), since the project already uses "regime" for societies,
+    eras and health;
+  - systems → **packs** (engine/packs.py; `"pack": "water"` on a row, `packs: [...]` in a world, an older `systems:` read the same),
+    since "system" already meant landgen's landscape systems and the agents' system prompts; the world's own feature switches
+    (`children.on`, `evening`, `tags`, `ages`, `view`) existed before and stay as they are;
+  - a stock's own record may name its **renewal rule** (overriding its resource's), with its parameters beside it, so an ecosystem
+    that the generator writes decides how its stock comes back;
+  - a stock's **response to density**: the take scales by (S/K) ** b; b from the stock record, else the resource row, else 1
+    (proportional, as before); named values proportional 1, hyperstable 0.4, hyperdepleted 2 (calibrate). The capacity model
+    reads both with no stock named.
+  Alternatives: "dynamics" or "regrowth" for renewal (regrowth is wrong for finite and accruing stocks); "modules" or "content
+  packs" for packs. Replays exact (12 strict, 56 fingerprinted, both E1a runs); 367 tests. Open: whether the woods' three stocks
+  should take a per-stock rule too (forests.night calls their rules by name, as they depend on each other); response for the pool
+  kind (dead wood keeps its fixed exponent 0.5).
 
 - 7 Nov (later): phase 1 built (spec/core/processes.md): the regime registry (with the periodic regime), outcomes as distributions for gathering and blight, needs.food, clocks on every rate, systems as switchable data packs, the capacity model reading the registries; replays exact. Not yet: delayed processes in one generic form; heat as a pure need; fittings' wear (phase 2).
 

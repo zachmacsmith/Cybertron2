@@ -434,5 +434,5 @@ agents:
     model: claude-sonnet-5-5
     born_line: Ferry
     kept: []
-systems:
+packs:
 - water

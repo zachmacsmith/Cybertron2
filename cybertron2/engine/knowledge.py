@@ -12,9 +12,9 @@ from cybertron2.engine.data import RESOURCES, BLUEPRINTS, FITTINGS, ITEMS, LEVEL
 
 
 def basic(tech) -> bool:
-    """Known to everyone: a basic craft of a system the world has on (D4-103)."""
-    from cybertron2.engine import systems as SY
-    return bool(TECHNIQUES[tech].get("basic")) and SY.on(TECHNIQUES[tech])
+    """Known to everyone: a basic craft of a pack the world has on (D4-103)."""
+    from cybertron2.engine import packs as PK
+    return bool(TECHNIQUES[tech].get("basic")) and PK.on(TECHNIQUES[tech])
 
 
 def label(tech) -> str:
@@ -23,10 +23,10 @@ def label(tech) -> str:
 
 def resolve(x, verb=None):
     """A technique from what an agent wrote: its name, an alias, or a word of its label (one done by `verb` first); only those of
-    the world's systems (D4-103)."""
-    from cybertron2.engine import systems as SY
+    the world's packs (D4-103)."""
+    from cybertron2.engine import packs as PK
     x = str(x or "").strip().lower()
-    live = SY.techniques()
+    live = PK.techniques()
     order = sorted(live, key=lambda t: TECHNIQUES[t]["verb"] != verb) if verb else list(live)
     if x in live and (verb is None or TECHNIQUES[x]["verb"] == verb):
         return x
@@ -112,8 +112,8 @@ def rec(mind, tech):
 def level(mind, tech):
     if tech not in TECHNIQUES:
         return None
-    from cybertron2.engine import systems as SY
-    if not SY.on(TECHNIQUES[tech], getattr(mind, "systems", None)):          # not a craft of this world (D4-103)
+    from cybertron2.engine import packs as PK
+    if not PK.on(TECHNIQUES[tech], getattr(mind, "packs", None)):          # not a craft of this world (D4-103)
         return None
     if basic(tech):
         return "known"
