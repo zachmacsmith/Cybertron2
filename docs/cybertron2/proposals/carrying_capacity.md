@@ -73,11 +73,22 @@ killed crop and resowing within the run as food (OPEN Q-28).
 6. **Overharvest in a run** (standing stocks drawn down) is in the run horizon only through the stores and standing crops; drawing
    down the wild is not yet a level.
 
+7. **From the comparison with real analysis (review 38.61).**
+   - **Must fix before the measures are trusted:** entitlement by household (Sen); capacity in a bad year, not the mean, with wild
+     stocks taken below MSY (Halstead and O'Shea; fisheries); a least-drudgery ladder beside the frontier (Chayanov, Boserup).
+   - **Would sharpen:** shadow prices by linear programming; capital's payback and the subsistence fund; land-time beside work-time;
+     organisational axes beside metabolic ones (Seshat).
+   - **Engine choices it exposed, for Zach:** work costs no food; fittings do not wear; births too slow for a population to meet its
+     capacity within a run.
+
 ## Affects
 
 spec/measurement/capacity.md (new); engine: night.py, farm.py, forests.py (pure functions, no change in behaviour); 37.2: Q-28.
 
 ## History
+
+- 7 Nov (later): the ladder of practice; capital kept apart from ongoing work (running, tools worn, houses' upkeep); compared with
+  real societal and economic analysis (38.61), and the holes it found added as open question 7.
 
 - 7 Nov: built at Zach's request (retrospective). The engine refactor first (commit 5a85a95), then the package, tests, figures, the
   run over every world and past run (review 38.60).
