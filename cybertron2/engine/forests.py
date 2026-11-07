@@ -44,12 +44,32 @@ def seed(cover: str, size: int, state: dict) -> dict:
 
 
 # ---------------------------------------------------------------------- the night
+def trees_step(S, K, r, slow=1.0) -> float:
+    """A night's growth of the trees (D2-156): logistic at their rate, slowed in winter. Pure: the engine and the capacity model."""
+    return round(min(K, S + r * slow * S * (1 - S / K)), 4)
+
+
+def young_step(S, K, r, slow=1.0) -> float:
+    """A night's regrowth of young growth (D2-156): logistic from at least 5% of its capacity, slowed in winter."""
+    return round(min(K, S + r * slow * max(S, 0.05 * K) * (1 - S / K)), 4)
+
+
+def shed_a_night(trees, year) -> float:
+    """Dead wood the trees shed a night, in firewood (D2-156)."""
+    return FORESTS["shed"] / year * trees * FORESTS["per_timber"]
+
+
+def dead_step(S, trees, year) -> float:
+    """A night of dead wood: what the trees shed comes in, a share rots (D2-156)."""
+    return round(max(0.0, S + shed_a_night(trees, year) - FORESTS["rot"] / year * S), 4)
+
+
 def night(w) -> list:
     """Each night: trees grow, young growth regrows where no beasts are, trees shed dead wood and it rots, a gale throws trees; a
     forest thinned under 40% of its trees turns to scrub (and back above it). Returns the parcels whose cover changed."""
     year = float(w.year_days())
-    winter = w.calendar()["season"] == "winter"
-    slow = float(w.p["regrow_winter"]) if winter else 1.0
+    from cybertron2.engine import night as NI
+    slow = float(w.p["regrow_winter"]) if NI.slow_season(w.calendar()["season"]) else 1.0
     from cybertron2.engine import environment as EV
     gale = EV.weather(w) == "gale"
     grazed = {h.get("parcel") for h in w.s["herds"].values() if h.get("count", 0) > 0}
@@ -60,14 +80,13 @@ def night(w) -> list:
         node = par["node"]
         tS = t["S"] if t else None
         if t and t["K"] > 0:
-            tS = round(min(t["K"], tS + t["r"] * slow * tS * (1 - tS / t["K"])), 4)
+            tS = trees_step(tS, t["K"], t["r"], slow)
         if y and y["K"] > 0 and pid not in grazed:
-            yS = round(min(y["K"], y["S"] + y["r"] * slow * max(y["S"], 0.05 * y["K"]) * (1 - y["S"] / y["K"])), 4)
+            yS = young_step(y["S"], y["K"], y["r"], slow)
             if yS != y["S"]:
                 w.apply("set_res", node, parcel=pid, key="young", fields={"S": yS})
         if d is not None:
-            shed = FORESTS["shed"] / year * (tS if t else 0.0) * FORESTS["per_timber"]
-            dS = round(max(0.0, d["S"] + shed - FORESTS["rot"] / year * d["S"]), 4)
+            dS = dead_step(d["S"], tS if t else 0.0, year)
             if t and gale:
                 down = tS * FORESTS["gale"]
                 tS = round(tS - down, 4)

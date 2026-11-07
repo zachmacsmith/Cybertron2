@@ -248,24 +248,30 @@ def decay_rate(w, c, item) -> tuple:
     D2-58) in a store, the conditions of a thing at a spot (open, dry or wet; buried) and the season and the frost; and what the lost
     share becomes in the open. Hands keep the rate in hand. Returns (share, becomes)."""
     from cybertron2.engine import environment as EV, things as TH
-    p = w.p
-    base = float(ITEMS.get(item, {}).get("spoil", 0.0))
-    table = DECAY.get(ITEMS.get(item, {}).get("decay") or "default", DECAY["default"])
-    season = 1.0
-    if w.cold():
-        season *= float(table.get("frozen", 1.0))
-    elif w.calendar()["season"] == "summer":
-        season *= float(table.get("warm", 1.0))
+    season, cold = w.calendar()["season"], w.cold()
     if c["kind"] == "stock":
         bb = w.s["buildings"][c["of"]]
-        keep = min([1.0] + [float(FITTINGS[f_].get("spoil", 1.0)) for f_, n in bb["fittings"].items() if n and f_ in FITTINGS])
-        return base * float(p["house_spoil"]) * keep * season, None
+        return spoil_rate(w.p, item, "store", season, cold, fittings=[f_ for f_, n in bb["fittings"].items() if n]), None
     if c["kind"] in TH.KINDS:
         cond = "buried" if c.get("hidden") == "buried" or c.get("buried") is not None else ("open_wet" if EV.wet(w) else "open_dry")
-        if base <= 0:
-            return float((table.get("abs") or {}).get(cond, 0.0)), None
-        return base * float(p["house_spoil"]) * float(table.get(cond, 1.0)) * season, table.get("becomes")
-    return base * season, None
+        return spoil_rate(w.p, item, cond, season, cold), DECAY.get(ITEMS.get(item, {}).get("decay") or "default", DECAY["default"]).get("becomes")
+    return spoil_rate(w.p, item, "hand", season, cold), None
+
+
+def spoil_rate(p, item, where, season, cold, fittings=()) -> float:
+    """The share of a good lost a night (D2-87): `where` is "hand", "store" (a building's, kept by its best keeping fitting),
+    "open_dry", "open_wet" or "buried". Pure: the engine and the capacity model both use it."""
+    base = float(ITEMS.get(item, {}).get("spoil", 0.0))
+    table = DECAY.get(ITEMS.get(item, {}).get("decay") or "default", DECAY["default"])
+    s = float(table.get("frozen", 1.0)) if cold else (float(table.get("warm", 1.0)) if season == "summer" else 1.0)
+    if where == "store":
+        keep = min([1.0] + [float(FITTINGS[f_].get("spoil", 1.0)) for f_ in fittings if f_ in FITTINGS])
+        return base * float(p["house_spoil"]) * keep * s
+    if where == "hand":
+        return base * s
+    if base <= 0:
+        return float((table.get("abs") or {}).get(where, 0.0))
+    return base * float(p["house_spoil"]) * float(table.get(where, 1.0)) * s
 
 
 def _gear(w, name, where, tents):
@@ -411,15 +417,24 @@ def fire_goes_out(w, key, ring) -> bool:
     return q > 0 and w.rng("fire-out", w.d, *key).random() < q
 
 
+def eaten_worth(item, hearth=True) -> float:
+    """Food a unit gives eaten: what is better cooked gives its raw worth without a lit fire (D2-160). Pure."""
+    return float(ITEMS[item].get("raw", ITEMS[item]["food"])) if ITEMS[item].get("cook") and not hearth else float(ITEMS[item]["food"])
+
+
+def eat_order(items, hearth=True) -> list:
+    """The order food is eaten in: what needs no fire first, then the most perishable (D2-160). Pure."""
+    return sorted(items, key=lambda i: (eaten_worth(i, hearth) < ITEMS[i]["food"], -ITEMS[i]["spoil"]))
+
+
 def _eat(w, place, stores, need, hearth=True) -> float:
     """Up to `need` in food value, from the stores in order, most perishable first; what is better cooked is eaten raw, for less,
     without a lit fire (D2-160: grain 0.2, flour 0.5, beans nothing, fresh meat 0.8), after what needs no fire."""
     got = 0.0
-    raw = lambda i: float(ITEMS[i].get("raw", ITEMS[i]["food"])) if ITEMS[i].get("cook") and not hearth else ITEMS[i]["food"]
     for cid in stores:
         g = w.goods(cid)
-        for item in sorted(EDIBLE, key=lambda i: (raw(i) < ITEMS[i]["food"], -ITEMS[i]["spoil"])):
-            v = raw(item)
+        for item in eat_order(EDIBLE, hearth):
+            v = eaten_worth(item, hearth)
             if v <= 0:
                 continue
             if got + 1e-9 < need and g.get(item, 0.0) > 1e-9:
@@ -428,19 +443,35 @@ def _eat(w, place, stores, need, hearth=True) -> float:
     return round(got, 6)
 
 
+REGIMES = {"plants": "fast", "grass": "fast", "game": "threshold"}      # parcel resources that come back a night (woods: forests.py)
+
+
+def slow_season(season) -> bool:
+    """Whether stocks come back slowly in this season (regrow_winter): the winter."""
+    return season == "winter"
+
+
+def regrow(p, reg, S, K, r, winter) -> float:
+    """A night's regrowth of a stock by its regime (D4-7): logistic at its rate (slowed in winter), a fast stock also refilling 1% of
+    its gap, a threshold stock not at all below its threshold share. Pure: the engine and the capacity model both use it."""
+    if K <= 0:
+        return S
+    if reg == "threshold" and S < float(p["game_threshold"]) * K:
+        return S
+    rate = r * (float(p["regrow_winter"]) if winter else 1.0)
+    return round(min(K, S + rate * S * (1 - S / K) + (0.01 * (K - S) if reg == "fast" else 0)), 4)
+
+
 def _grow(w):
     """Resources come back by regime (D4-7); crops ripen from the sowing day and rot after the window (D2-12)."""
-    winter = w.calendar()["season"] == "winter"
+    winter = slow_season(w.calendar()["season"])
     p = w.p
     for pid, par in w.s["parcels"].items():
         for key, r in par["res"].items():
-            reg = {"plants": "fast", "grass": "fast", "game": "threshold"}.get(key)     # woods: forests.night (D2-156)
+            reg = REGIMES.get(key)                                                       # woods: forests.night (D2-156)
             if not reg or r["K"] <= 0:
                 continue
-            if reg == "threshold" and r["S"] < float(p["game_threshold"]) * r["K"]:
-                continue
-            rate = r["r"] * (float(p["regrow_winter"]) if winter else 1.0)
-            S = round(min(r["K"], r["S"] + rate * r["S"] * (1 - r["S"] / r["K"]) + (0.01 * (r["K"] - r["S"]) if reg == "fast" else 0)), 4)
+            S = regrow(p, reg, r["S"], r["K"], r["r"], winter)
             if S != r["S"]:
                 w.apply("set_res", par["node"], parcel=pid, key=key, fields={"S": S})
         # crops: farm.night (D2-53, D4-39)

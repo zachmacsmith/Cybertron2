@@ -63,6 +63,34 @@ def grow_days(year, fam) -> int:
     return max(2, round(year * float(CROPS[fam]["share"])))
 
 
+def crop_base(f, seed_eq, broken_share, fert, ground, skill_yield=1.0) -> float:
+    """What a sowing will give before weeding (D4-38, D2-64, D2-66): seed x (ratio + break_gain on broken soil) x the soil x the
+    ground x the sower's skill. Pure: the engine and the capacity model both use it."""
+    return seed_eq * (float(f["ratio"]) + float(f["break_gain"]) * broken_share) * fert * ground * skill_yield
+
+
+def fail_chance(f, last_crop, fam) -> float:
+    """The chance a sowing fails (D2-53): higher after the same crop."""
+    return float(f["fail"][1] if last_crop == fam else f["fail"][0])
+
+
+def frost_kills(c, season) -> bool:
+    """Whether the frost kills a crop still growing in this season (D2-53): winter, unless it is hardy."""
+    return season == "winter" and not c.get("hardy")
+
+
+def fallow_gain(f, fert, slot) -> float:
+    """A resting plot's night (D4-39): it comes back toward 1.0 so that a grain crop's slot of rest restores the fallow share."""
+    d = 1 - (1 - float(f["fallow"])) ** (1 / slot)
+    return round(fert + d * max(0.0, 1.0 - fert), 4)
+
+
+def manure_gain(f, fert, plots=1.0, of=1.0) -> float:
+    """Dung spread on `plots` of a holding's `of` plots (D4-39)."""
+    r, level = f["manure"]
+    return round(fert + float(r) * max(0.0, float(level) - fert) * plots / max(1.0, of), 4)
+
+
 def soil_step(f, fert, fam_or_state) -> float:
     """One crop slot's effect on the soil (02l §2): a crop takes its share, then the soil comes back toward a level."""
     if fam_or_state in CROPS:
@@ -610,9 +638,7 @@ def act(here, mind, tech, key, place_name, out, m, tm, a) -> tuple:
         rec = record(par, h)
         n = float(plots_of(par, h))
         plots = min(n, float(y["plots"]) * m)
-        fert = rec["fertility"]
-        r, level = f["manure"]
-        new = round(fert + float(r) * max(0.0, float(level) - fert) * plots / max(1.0, n), 4)
+        new = manure_gain(f, rec["fertility"], plots, n)
         _set(here, key, h, "fertility", new)
         return 0.0, None, f"You spread dung on {the_part(names, par, h)}: the soil will be the better for it.", ("parcel", key)
     if k == "crop":
@@ -797,8 +823,7 @@ def _sow(here, mind, tech, key, place_name, out, m, a, f):
         rec = record(par, h)
         c = rec.get("crop")
         if c is None:
-            last = rec.get("last_crop")
-            fail = f["fail"][1] if last == fam else f["fail"][0]
+            fail = fail_chance(f, rec.get("last_crop"), fam)
             salt = () if h is None or plots_of(par, h) >= int(par["size"]) else (h,)   # a field held whole draws as before
             failed = here.rng("blight", here.day, key, *salt).random() < float(fail)
             g = grow_days(year, fam)
@@ -814,13 +839,12 @@ def _sow(here, mind, tech, key, place_name, out, m, a, f):
         broken_here = min(float(rec.get("broken") or 0.0), area)
         if broken_here > 0:
             _set(here, key, h, "broken", round(float(rec.get("broken") or 0.0) - broken_here, 4))
-        ratio = float(f["ratio"]) + float(f["break_gain"]) * (broken_here / area)
         c["seed"] = round(c["seed"] + eq, 4)
         c["area"] = round(c["area"] + area, 4)
         c["area_left"] = round(c["area_left"] + area, 4)
         c["broken"] = round(c["broken"] + broken_here, 4)
         skill_yield = 1 + float(here.p["master_yield"]) * master_share(here, mind, tech)       # D2-64
-        c["base"] = round(c["base"] + eq * ratio * float(rec["fertility"]) * ground_mult(here.p, par) * skill_yield, 4)
+        c["base"] = round(c["base"] + crop_base(f, eq, broken_here / area, float(rec["fertility"]), ground_mult(here.p, par), skill_yield), 4)
         c["left"] = crop_left(f, c)
         _set(here, key, h, "crop", c)
         words.append((h, seed, area, broken_here, c))
@@ -1152,7 +1176,7 @@ def _crops(w, rec_):
                     w.event(node, "crop", f"{the} in {par['name']} has blight: it is withering and will bear nothing",
                             about=[f"parcel:{pid}"], salience=0.6, tags=["farming", "food"])
                     rec_["crops"].append((pid, "failed"))
-                if growing and winter and not c.get("hardy"):
+                if growing and frost_kills(c, w.calendar()["season"]):
                     c["area_left"] = 0.0
                     c["killed"] = True
                     w.event(node, "crop", f"the frost has killed {the} growing in {par['name']}", about=[f"parcel:{pid}"],
@@ -1174,8 +1198,7 @@ def _crops(w, rec_):
                 else:
                     w.apply("set_share", node, parcel=pid, holder=hd, field="crop", value=c)
             elif not grazed and plots_of(par, hd) > 0:                         # resting: fallow restores (grazed: in _herds)
-                d = 1 - (1 - float(f["fallow"])) ** (1 / slot)
-                fert = round(rec["fertility"] + d * max(0.0, 1.0 - rec["fertility"]), 4)
+                fert = fallow_gain(f, rec["fertility"], slot)
                 w.apply("set_share", node, parcel=pid, holder=hd, field="fertility", value=fert)
         if gone:
             w.apply("shares", node, parcel=pid)                                # a holding with no plots left and its crop gone
