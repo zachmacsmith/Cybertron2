@@ -109,8 +109,8 @@ Either long run can be stopped early, and resumed later from the journal.
 **Takeover and Orwell are void: the world starved from a design error.**
 - The Bottom Field (oats, ripe day 34) was cleared unripe when winter began on day 14. The economy check counted it anyway
   (OPEN Q-28). Harvested grain left out of doors also spoiled.
-- Wat starved on day 20 in both runs, before any merger. The remaining 37.2 and Opus heads died from day 21 on.
-  - **Takeover:** 4 of 13 alive on day 40.
+- Wat starved on day 20 in both runs, before any merger. Hugh died of illness on day 21; most of the rest starved over the next ten days.
+  - **Takeover:** 4 alive on day 40.
   - **Orwell:** 3 alive on day 35.
 - There were no failed model calls.
 - **What is readable is days 0 to 19:**
