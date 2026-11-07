@@ -311,3 +311,28 @@ def test_a_grave_is_dug_by_several_and_over_days_and_a_thaw_makes_the_rest_easie
     assert do(w, b, do="work", what="bury", at="Hamo", method="cairn").startswith("You raised a cairn of stones over the grave of Hamo")
     assert w.s["containers"][cid]["cairn"] and w.s["containers"][Here(w, b).hands]["goods"]["stone"] < 1e-9
     assert "already has a cairn" in do(w, b, do="work", what="bury", at="Hamo", method="cairn")
+
+
+def test_an_attack_on_a_house_to_hurt_breaks_in_and_sets_on_each_inside():
+    """D4-101: attacking a house with aim hurt is the raid's break-in, then a fight with each person inside in turn (a kill or a
+    wound each), until one drives the attacker out; nothing is taken. Aim rob is still a raid for food."""
+    from cybertron2.engine import settle as ST
+    w = world()
+    names = [n for n in w.living() if w.at(n) == "millbrook"]
+    bid, inside = next((b, [n for n in names if b in w.homes(n)]) for b in w.s["buildings"]
+                       if len([n for n in names if b in w.homes(n)]) >= 2)
+    attacker = next(n for n in names if bid not in w.homes(n))
+    w.s["containers"][Here(w, attacker).hands]["goods"]["blade"] = 3                   # strong enough to get in
+    w.s["people"][attacker]["attack"] = 9.0
+    store_before = dict(w.goods(w.s["buildings"][bid]["stock"]))
+    out = do(w, attacker, do="attack", target=w.s["buildings"][bid]["name"], aim="hurt")
+    assert "set on those inside" in out
+    rec = ST.settle_fights(w, w.s["today"])[0]
+    assert rec["kind"] == "raid" and rec["aim"] == "hurt" and rec["outcome"] == "broke in", rec
+    assert [x["target"] for x in rec["fights"]] == sorted(inside)[:len(rec["fights"])] and len(rec["fights"]) >= 1
+    assert all(x["outcome"] in ("killed", "wounded", "repelled") for x in rec["fights"])
+    if all(x["outcome"] != "repelled" for x in rec["fights"]):
+        assert len(rec["fights"]) == len(inside)                                       # set on every one inside
+    assert dict(w.goods(w.s["buildings"][bid]["stock"])) == store_before                # nothing taken
+    hit = [x["target"] for x in rec["fights"] if x["outcome"] in ("killed", "wounded")]
+    assert all(not w.s["people"][t]["alive"] or w.s["people"][t]["wounded"] for t in hit)

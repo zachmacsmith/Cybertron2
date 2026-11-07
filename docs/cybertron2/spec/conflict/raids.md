@@ -24,6 +24,7 @@ when it is. A raiding party states in advance what it will take and what it will
 | Kind | Target | How it resolves |
 |---|---|---|
 | raid a building | one building at the node | a break-in (work set by its structure), then a fight with whoever inside chose to defend; an empty building is the break-in only (D2-20) |
+| attack a house to hurt (`attack {target: a building, aim: hurt}`) | one building at the node | the same break-in; once in, the attacker sets on each person inside in turn, each a fight of its own (a kill or a wound), with the house's guards standing with them, until one drives the attacker out; nothing is taken. With aim rob, the attack is a raid for food (D4-101) |
 | raid a node | the whole node, by a party of any size | each raider's engagement draws a target weighted by exposure, value and hardness (D2-20, D2-22) |
 
 - **Orders:** a node raid is planned with its orders (take, burn, when); they hold for the whole raid (D2-51). Only the defenders
@@ -58,4 +59,4 @@ burned, who died.
 
 proposals/attacks_and_walls.md; 02k §3; 02g §5b.
 
-*Current as of 23 Oct 2026: D2-20, D2-22, D2-49, D2-50, D2-51.*
+*Current as of 7 Nov 2026: D2-20, D2-22, D2-49, D2-50, D2-51, D4-101.*

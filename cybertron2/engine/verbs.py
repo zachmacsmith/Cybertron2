@@ -58,7 +58,8 @@ VERB = {
     "watch": {"args": '{"person"}', "cost": ["watch", "units"], "doc": "spend the day working beside them: you see how they do things"},
     "teach": {"args": '{"to", "what"}', "cost": ["teach", "units_teacher"], "doc": "one session, if they set aside time to learn the same day"},
     "learn": {"args": '{"from", "what"}', "cost": ["teach", "units_learner"], "doc": "one session, if they set aside time to teach the same day"},
-    "attack": {"args": '{"target": person or building, "aim": rob | hurt}', "cost": ["combat", "units"], "doc": "settled tonight"},
+    "attack": {"args": '{"target": person or building, "aim": rob | hurt}', "cost": ["combat", "units"],
+               "doc": "settled tonight; a house with aim rob: break in for its food; with aim hurt: break in and set on those inside"},
     "guard": {"args": '{"at"?: building}', "cost": 1, "doc": "stand guard tonight over a building here and anyone set upon"},
     "fire": {"args": "", "cost": 0, "doc": "light a fire in the open tonight if you sleep out (on the road, or with no bed), from timber in your "
                                             "hands, so grain and flour can be boiled; say it before you set off"},
@@ -1665,7 +1666,9 @@ def _attack(here, mind, a, party):
     if bid:
         if bid in here.homes_here():
             raise Refused("that is your own house")
-        here.today()["fights"].append({"kind": "raid", "by": here.name, "building": bid, "node": here.node})
+        here.today()["fights"].append({"kind": "raid", "by": here.name, "building": bid, "node": here.node, "aim": aim})
+        if aim == "hurt":                                                      # D4-101: break in and set on those inside
+            return f"You make ready to break into {here.buildings()[bid]['name']} tonight and set on those inside."
         return f"You make ready to break into {here.buildings()[bid]['name']} tonight."
     raise Refused(f"no person or building called {tgt!r} here")
 

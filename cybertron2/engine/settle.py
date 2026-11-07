@@ -48,6 +48,13 @@ def settle_fights(w, today) -> list:
                         about=[f"building:{bid}"], salience=0.95, tags=["danger", "food"], concerns=holders)
                 out.append(rec)
                 continue
+            if f.get("aim") == "hurt":                                          # D4-101: break in, then set on each inside
+                rec = _break_in_to_hurt(w, node, by, bid, b, inside, gd, holders, P, X, rng)
+                for d in gd:
+                    wear_weapon(d)
+                w.apply("set", node, ref=("building", bid), field="raided", value={"day": w.d, "outcome": rec["outcome"]})
+                out.append(rec)
+                continue
             if rng.random() < P ** 2 / (P ** 2 + (X / 2) ** 2):
                 took = 0.0
                 for item in EDIBLE:
@@ -82,6 +89,33 @@ def settle_fights(w, today) -> list:
             w.apply("set", node, ref=("parcel", pid), field="fight", value={"day": w.d, "fights": fights})
         out.append(r)
     return out
+
+
+def _break_in_to_hurt(w, node, by, bid, b, inside, gd, holders, P, X, rng) -> dict:
+    """An attack on a house with aim hurt (D4-101): the break-in is the raid's contest (its walls, its door, those inside and its
+    guards); once in, the attacker sets on each person inside in turn, each a fight of its own (duel, aim hurt: a kill or a wound),
+    with the house's guards standing with them, until one drives the attacker out. Nothing is taken."""
+    if rng.random() >= P ** 2 / (P ** 2 + (X / 2) ** 2):
+        w.event(node, "raid", f"in the night someone tried to break into {b['name']} and was driven off", actor=by,
+                about=[f"building:{bid}"], salience=0.95, tags=["danger"], concerns=holders + gd)
+        return {"kind": "raid", "aim": "hurt", "by": by, "building": bid, "outcome": "repelled"}
+    w.event(node, "raid", f"in the night {b['name']} was broken into and those inside set upon", actor=by, about=[f"building:{bid}"],
+            salience=1.0, tags=["danger"], concerns=holders + gd)
+    fights = []
+    for t in sorted(inside):
+        if not w.s["people"][by]["alive"] or not w.s["people"][t]["alive"]:
+            continue
+        r = duel(w, node, by, t, "hurt", helpers=[g for g in gd if g != t], guarding=t in gd, rng=rng, wear_attacker=False)
+        fights.append({"by": by, "target": t, "outcome": r["outcome"]})
+        if r["outcome"] == "repelled":                                          # driven out of the house: no more tonight
+            break
+    pid = b["parcel"]
+    if pid in w.s["parcels"] and fights:                                        # where it happened, for its signs (D4-74)
+        prev = w.s["parcels"][pid].get("fight") or {}
+        old = list(prev.get("fights") or []) if prev.get("day") == w.d else []
+        w.apply("set", node, ref=("parcel", pid), field="fight", value={"day": w.d, "fights": old + fights})
+    return {"kind": "raid", "aim": "hurt", "by": by, "building": bid, "outcome": "broke in" if fights else "broke in, nobody inside",
+            "fights": fights}
 
 
 def duel(w, place, by, t, aim, helpers=(), guarding=False, rng=None, wear_attacker=True) -> dict:

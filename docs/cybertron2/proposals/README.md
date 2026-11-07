@@ -123,6 +123,7 @@ Rebuilt from the files on 5 Nov (status and owner as each file states them; 37.2
 | [speech_order.md](speech_order.md) | When people talk, and what it costs: by reach, with an evening at the hearth | 37.4 | accepted: D4-65, D4-66, D4-77 (2 Nov) |
 | [temperate_landscapes.md](temperate_landscapes.md) | landscapes that make sense, within one environmental envelope | 37.2 | built (D2-191; Zach, 2 Nov: "build this out"); as built in §5, with what differs from the design. |
 | [thefts_known.md](thefts_known.md) | Who knows of a theft | 37.4 | retrospective, accepted: D4-81 (2 Nov) |
+| [house_attacks.md](house_attacks.md) | An attack on a house to hurt sets on the people inside | 37.4 | retrospective, accepted: D4-101 (7 Nov) |
 
 ## Log of ideas and their outcomes
 
@@ -345,6 +346,7 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 3 Nov | A herd seen at the spec's own; presence next door 0.3 | retrospective, accepted: D4-98 | [herd_seen_next_door.md](herd_seen_next_door.md) |
 | 4 Nov | Graves dug by many over days; a cairn after burial; an unfinished grave's signs | retrospective, accepted: D4-99 | [graves.md](graves.md) |
 | 4 Nov | A fixed data interface for runs: the world record's shape versioned (built); upgrade chain, view tables as the read interface, derived logs, one published layout, converting pre-journal runs (discussion) | partly accepted: D4-100 | [run_data_interface.md](run_data_interface.md) |
+| 7 Nov | An attack on a house to hurt sets on the people inside | retrospective, accepted: D4-101 | [house_attacks.md](house_attacks.md) |
 | 2 Nov | What can happen to buildings and fittings, by weather and use | deferred (L-48) | [building_risks.md](building_risks.md) |
 | 2 Nov | Mills and ovens at scale; oven in stone; coppice held; fuel line; babies by shelter; refused acts not retried; stone walling | accepted: D4-97 | [mill_and_oven_scale.md](mill_and_oven_scale.md) |
 | 24 Oct | how buildings fit the other systems (before Package E is built) | mostly settled. Package E (02y) was deferred until this was worked out (Zach, 24 Oct), then replaced by the building package (02zh), built ... | [buildings_integration.md](buildings_integration.md) |

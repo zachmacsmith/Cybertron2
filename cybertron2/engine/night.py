@@ -23,6 +23,7 @@ def night(w) -> dict:
     from cybertron2.engine import settle as ST
     rec["fights"] = ST.settle_fights(w, today)
     rec["deaths"] += [f["killed"] for f in rec["fights"] if f.get("killed")]
+    rec["deaths"] += [x["target"] for f in rec["fights"] for x in f.get("fights") or [] if x.get("outcome") == "killed"]   # D4-101
     rec["departed"] = today["_departed"] if "_departed" in today else departures(w, today)
     where = sleeping_places(w, today)
     floor_ = set(today.get("_floor") or [])                                     # in a house without a bed: on its floor (D2-165)
