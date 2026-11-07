@@ -41,6 +41,23 @@ Six parts, each its own step, each leaving every past run replaying exactly.
 6. **Durability and throughput as data.** Tool life and wear (in ITEMS and TECHNIQUES now); buildings' breaks and upkeep (PHYSICS
    repair); what a fitting processes a day; what a store holds. Most of this is in the tables already.
 
+### Clocks: every declared rate names the clock it runs on (Zach, 7 Nov: agreed)
+
+Days stay the base unit and the tick: what agents decide, see and pay is in days. Each declared rate states its clock, and the
+engine converts:
+
+| Clock | Processes | Declared as |
+|---|---|---|
+| the day | eating, work units, travel, fatigue, fresh food spoiling, a fire's fuel | a day |
+| the year (by season) | crops, sowing windows, wild regrowth, grain keeping through the lean season, beasts' breeding, trees' growth | a share of the year or a season |
+| the life | ageing, lifespan, perhaps pregnancy | a share of a lifetime |
+
+- "Days a year" and "years a life" are the two exchange rates. They are named settings in the world, set once and shown, where
+  today they are implicit in dozens of nightly numbers.
+- Yields that feed people are declared against need: a plot feeds so many person-years. So a world's capacity in people does not move
+  with the year's length, and the year's length decides only how many daily decisions fall between harvests.
+- A guard test fails on any declared rate that does not name its clock.
+
 ### Mechanisms to design in from the start (else they become one-off patches)
 
 1. **Work by several at once:** a crew ditching, a yoked pair and a driver, joint attacks. A process may need several workers.
@@ -116,6 +133,8 @@ It is wanted for other reasons too:
 - cybertron2/capacity (D4-102), landgen/economy.py (37.2).
 
 ## History
+
+- 7 Nov (later): clocks added (Zach: "I agree with this. Add this."): every rate names its clock (day, year, life); two exchange rates as named world settings; yields declared against need.
 
 - 7 Nov (later): Zach: 1 "yes"; 2 "wouldn't it be that we just describe how to make things and the engine could programmatically
   calculate expected output per unit of work itself? ... The model should be a projection of the reality of the implementation, or

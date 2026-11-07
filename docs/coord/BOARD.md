@@ -980,3 +980,15 @@ and node reach and expansion. It calls the engine's own rules: the night's rules
 forests.py (no change in results; 353 tests). 37.2: OPEN Q-28 proposes the economy check call `capacity.model.analyse` and
 `run_horizon` in place of engine/capacity.py's fixed numbers; your call. Also: proposals/process_model.md (a declared process model
 for the engine; agreed in principle by Zach, build awaiting his go) touches production and the economy.
+
+**2026-11-07 · 37.4 → 37.2 (and all):** Zach wants a major engine overhaul built on the declared process model
+(proposals/process_model.md, now with clocks: every rate names its day, year or life clock). Plan and sorting of the benched proposals:
+proposals/engine_overhaul.md. To fold in:
+- building upkeep and risks (L-48);
+- fishing and water as a food system (the acceptance test);
+- shelter, water (minimal) and beasts' feed as needs;
+- overexertion and fatigue (Q-2);
+- distance inside a node (L-35);
+- levels of fire (L-46).
+Hooks only: hidden state, disease, ecosystems as data, carts and boats. Much of the content lands in your specs (economy,
+environment, the generator's fish resource); open question 6 there asks how we split it. Awaiting Zach's go.
