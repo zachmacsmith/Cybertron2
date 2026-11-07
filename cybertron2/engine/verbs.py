@@ -7,6 +7,7 @@ Each handler: (here, mind, a) -> result line. Refusals name what is short and co
 from __future__ import annotations
 
 import math
+from cybertron2.engine import yields as YD
 from cybertron2.engine import buildings as BL, farm as FM, knowledge as KN, modifiers as MOD, perceive as PC, things as TH
 from cybertron2.engine.data import BLUEPRINTS, COVERS, FITTINGS, ITEMS, LINES, MONUMENTS, ROOMS, SPACE, TECHNIQUES, TIERS, TRY
 from cybertron2.engine.here import Refused, show
@@ -516,16 +517,15 @@ def _technique(here, mind, a, party, verb):
     holding = None
     if y["kind"] == "stock":
         r = here.parcels()[key]["res"][t["draws"]]
-        want = y["base"] * r["S"] / r["K"] * m * tm
-        got = here.apply("draw", parcel=key, key=t["draws"], qty=round(max(0.0, min(want, r["S"] - here.p["refuge"] * r["K"])), 2))
+        got = here.apply("draw", parcel=key, key=t["draws"], qty=YD.dist(y, r, m, tm, refuge=here.p["refuge"]).sample(rng))
     elif y["kind"] == "chance":
         r = here.parcels()[key]["res"][t["draws"]]
         armed = here.weapon()
-        if rng.random() < y["p"] * r["S"] / r["K"]:
-            q = rng.uniform(*y["range"]) * m * (t["weapon"]["armed"] if armed else t["weapon"]["none"])
-            got = here.apply("draw", parcel=key, key=t["draws"], qty=round(min(r["S"], q), 2))
-            for by, pr in (y.get("by") or {}).items():
-                if rng.random() < pr:
+        v = YD.dist(y, r, m, weapon=t["weapon"]["armed"] if armed else t["weapon"]["none"]).sample(rng)
+        if isinstance(v, dict):                                                 # a catch (outcomes.If took its branch)
+            got = here.apply("draw", parcel=key, key=t["draws"], qty=round(v["got"], 2))
+            for by, n in v["by"].items():
+                if n:
                     here.apply("create", dst=out, item=by, qty=1, why=tech)
                     extra_got = f" and a {by}"
             if got > 0:                                                         # the day's kills on this ground, for its signs (D4-74)
@@ -536,7 +536,7 @@ def _technique(here, mind, a, party, verb):
         if armed and t.get("wear"):
             here.apply("wear", container=here.hands, item=armed, uses=t["wear"])
     elif y["kind"] == "fixed":
-        q = y["base"] * m * tm
+        q = YD.dist(y, None, m, tm).sample(rng)
         got = here.apply("draw", parcel=key, key=t["draws"], qty=round(q, 2)) if t["draws"] in here.parcels()[key]["res"] and \
             here.parcels()[key]["res"][t["draws"]]["K"] > 0 and t["draws"] != "quarry" else round(q, 2)
         if tech == "fell" and got > 0:                                         # its branches left as dead wood (D2-156)
@@ -545,8 +545,7 @@ def _technique(here, mind, a, party, verb):
         word = _clear(here, key, place_name, m * tm, party)
     elif y["kind"] == "pool":                                                 # dead wood: less to find as it thins (D2-156)
         r = here.parcels()[key]["res"][t["draws"]]
-        q = y["base"] * m * min(1.0, r["S"] / max(r["K"], 1e-9)) ** 0.5
-        got = here.apply("draw", parcel=key, key=t["draws"], qty=round(min(q, r["S"]), 2))
+        got = here.apply("draw", parcel=key, key=t["draws"], qty=round(YD.dist(y, r, m).sample(rng), 2))
     elif y["kind"] in FM_KINDS:                                                 # farming and cattle (farm.py)
         got, g, word, thing = FM.act(here, mind, tech, key, place_name, out, m, tm, a)
         gives = g or gives

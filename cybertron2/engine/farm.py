@@ -825,7 +825,8 @@ def _sow(here, mind, tech, key, place_name, out, m, a, f):
         if c is None:
             fail = fail_chance(f, rec.get("last_crop"), fam)
             salt = () if h is None or plots_of(par, h) >= int(par["size"]) else (h,)   # a field held whole draws as before
-            failed = here.rng("blight", here.day, key, *salt).random() < float(fail)
+            from cybertron2.engine.outcomes import Bern
+            failed = Bern(fail).sample(here.rng("blight", here.day, key, *salt)) == 1         # blight as an outcome (D4-103)
             g = grow_days(year, fam)
             if KN.level(mind, "select seed") == "known":                      # seed selection (D2-65)
                 g = max(2, round(g * float(here.p["seed_selection"])))

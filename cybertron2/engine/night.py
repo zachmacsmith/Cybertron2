@@ -7,7 +7,7 @@ may take from, the one slept in first (38.17 §9: to confirm).
 """
 from __future__ import annotations
 
-from cybertron2.engine import life as LF
+from cybertron2.engine import life as LF, needs as NE
 from cybertron2.engine.data import DECAY, EDIBLE, FITTINGS, ITEMS, THINGS
 
 FIRE = tuple(f for f, d in FITTINGS.items() if d.get("fire"))
@@ -78,14 +78,6 @@ def night(w) -> dict:
             state = p["beds"]["floor"]                                          # no bed, or the structure being rebuilt (02zh §2, §5)
         if cold and state == "housed" and not b["fire"]:
             state = "no_fuel"
-        need = float(p["ration"]) * float((p["shelter_cold"] if cold else p["shelter"]).get(state, 1.0))
-        if cold and state == "housed" and b["structure"] != "camp" and b.get("warm", 1.0) < 1.0:   # partly warmed (D2-159)
-            ww = b.get("warm", 1.0)
-            if not b["fittings"].get("hearth"):
-                need = float(p["ration"]) * float(hp["ring_cold"])
-            else:
-                need = float(p["ration"]) * (ww + float(p["shelter_cold"]["no_fuel"]) * (1 - ww))
-        fall = 1.0
         gear = None
         if state == "housed" and b["structure"] == "camp":                     # a camp (D2-68)
             gear = "camp"
@@ -95,21 +87,15 @@ def night(w) -> dict:
         if state == "unsheltered" and name in (road.get("camp") or {}):         # stopped at a good place: as in a camp (D2-109)
             gear = gear or "camp"
         if gear:
-            out_ = p["camping"][gear]
-            need = float(p["ration"]) * float(out_[1] if cold else out_[0])
-            fall = float(out_[2])
-            gone = name in (rec.get("fire_out") or [])                       # the fire went out in the night (D4-83)
-            if cold and name in fires and gear != "camp" and not gone:      # a fire in the open warms (D2-159)
-                need, fall = float(p["ration"]) * float(p["camping_fire"].get(gear, out_[1])), 0.0
-            if gear == "camp" and cold and b is not None and (not b["fire"] or gone):
-                need, fall = float(p["ration"]) * float(p["camping"]["out"][1]), 0.0
             rec.setdefault("camped", {})[name] = gear
-        if state == "unsheltered" and name in (road.get("fed") or {}):          # fed on the way at a good place (D2-109)
-            need = min(need, float(p["ration"]) * float(road["fed"][name]))
         mult, extra = LF.ration_factor(w, name)                                 # an infant, a child, a pregnancy (D2-141, D2-145)
-        need = need * mult + extra
-        if name in rec["care"]["fed"]:                                         # it eats all the largest care gave it (D4-64)
-            need = max(need, rec["care"]["fed"][name])
+        need, fall = NE.food(p, {"state": state, "cold": cold, "structure": b["structure"] if b is not None else None,
+                                 "warm": b.get("warm", 1.0) if b is not None else 1.0,
+                                 "hearth": bool(b["fittings"].get("hearth")) if b is not None else False,
+                                 "fire": bool(b["fire"]) if b is not None else False, "gear": gear,
+                                 "open_fire": name in fires, "fire_gone": name in (rec.get("fire_out") or []),
+                                 "fed_on_road": (road.get("fed") or {}).get(name), "mult": mult, "extra": extra,
+                                 "care_fed": rec["care"]["fed"].get(name)})
         place = w.place_of(("person", name))
         stores = [a["hands"]]
         if place in s["nodes"]:
