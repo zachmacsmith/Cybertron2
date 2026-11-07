@@ -11,12 +11,13 @@ Today wildlife is a number per parcel that regrows where it is. Zach, 8 Nov: pop
 evolve and interact, maybe they sometimes move, eg if a tree is felled then the wolves might attack villages, ... fish populations
 killed in one place could impact elsewhere", varying by terrain, at the right resolution, sitting cleanly on top of the world.
 
-The proposal, in one sentence: **every wild population is a count of one kind on one place in a habitat graph, with a declared
-growth, diet, movement and response to people.** One night step applies, in order:
+The proposal, in one sentence: **every wild population is one kind held as a distribution over the land (a coarse field beneath
+the graph), with a declared habitat, growth, diet, home range, seasons and response to people; it is resolved into actual animals
+only where someone looks.** One night step applies, in order:
 1. growth toward what its habitat holds;
 2. eating and being eaten;
-3. movement along the graph;
-4. people's take, through the existing acts.
+3. movement toward the land that suits it best, held back by home fidelity;
+4. people's take, through the existing acts, which collapse the field where they happen.
 
 Today's stocks (plants, grass, game, fish) become the simplest cases: no diet, no movement. Large animals are counted whole, so
 "there is actually one wolf" is just a count of 1, and a single animal can be followed and remembered when it matters.
@@ -94,59 +95,96 @@ So:
 
 ## 2. The abstraction
 
-**A population** is `{kind, place, n}`, plus whatever the kind's dynamics need (a condition, a hunger, a memory of where food was).
+**Revised 8 Nov (Zach): the animals live on the land, not on the graph.** The generator's land covers the whole region; only the
+villages and a few wild places are nodes. So mobile animals live on a coarse field over the land, and parcels and nodes are windows
+onto it. The graph version (each population on a parcel, node or river stretch) stays as the fallback for hand-made worlds, which
+have no land beneath them.
+
+### 2a. The substrate: a field over the land
+
+- **Patches:** the generator's land coarsened to about 1 km squares (2,500 for a 50 km region). Each patch has, for each kind, a
+  **habitat score**: its K, from the ecosystems and depth bands under it (D2-191), less what people have done there (felled,
+  cleared, busy). Rivers are chains of patches along their course, with direction; the coast is a band.
+- **Beyond the window:** the map's edges are a reservoir, the land beyond. Animals arrive from it and leave into it, so a place is
+  never sealed unless it is enclosed.
+- **Parcels and nodes are windows:**
+  - the deer "in" a wood parcel are the field summed over that parcel's land;
+  - felling a wood changes the land under that parcel, so its habitat score falls;
+  - cause and effect stay in one place.
+- **What stays on parcels:** plants, grass, trees, young growth and dead wood are sessile stocks, as now (D4-103, D4-104). The parcel
+  is their right scale.
+- **The run needs the land.** The engine has run on the graph alone (D2-177), and a run does not yet carry its land (G-33). This is
+  the first use of the land during a run; the coarse patches travel with the run's record.
+
+### 2b. Populations and kinds
+
+**A population** is one kind in a region, held as **a distribution over patches**: how many are expected where. It also holds what
+the kind's dynamics need (a condition, a hunger).
+- **Density kinds** (fish, fowl, hares) are just that distribution.
+- **Whole-counted kinds** (deer herds, wolf packs, a bear) are a set of groups. Each group is an object with a size and **a
+  distribution over where it is**: the "particle" Zach described.
 
 **A kind** is one row of data, the KINDS table:
 
 | Field | Meaning | Example (wolves) |
 |---|---|---|
-| `scale` | the place it lives on: parcel, reach (a stretch of river), node (a home range), or region (a migration) | node |
-| `count` | `whole` (integers: one wolf is one) or `density` (a real number: fish, fowl, plants) | whole |
-| `habitat` | its K by ecosystem and depth band (ecology.py's palette, D2-191), per unit of size | old oak-ash core 0.02 a unit; edge 0.005 |
-| `growth` | a renewal rule from the registry (D4-104), on its clock (year or season) | breeds once a year, spring |
-| `diet` | what it eats (other kinds or stocks), how much, with a functional response (more when plentiful, saturating) | deer, then herds and carcasses when deer are scarce |
-| `moves` | `none`, `diffuse` (spreads toward space), `roam` (a group moves as one toward food), or `migrate` (seasonal, along a route) | roam |
-| `people` | how it meets people: hunted (which acts draw it), avoids people (K falls near busy places), raids (herds, crops, stores), dangerous | hunted; avoids; raids herds; dangerous in winter |
-| `signs` | what it leaves to be sensed (the sign rules, guides/senses.md) | tracks, howling, a kill, a missing beast |
-
-**The habitat graph** is the world's own graphs, chosen per kind:
-- the parcel graph inside a node;
-- roads between nodes;
-- the river network, downstream and upstream (a reach is the water parcels of a river within a node, linked node to node as the
-  river runs);
-- the coast.
+| `count` | `whole` (groups of whole animals: one wolf is one) or `density` | whole: packs of 3 to 8 |
+| `habitat` | its K by ecosystem and depth band, per km² | large woods' cores |
+| `home` | how strongly it keeps to its range (home fidelity), and how far it wanders from it in a day | a pack ranges 100 to 300 km² |
+| `growth` | a renewal rule (D4-104), on its clock | breeds once a year, spring |
+| `diet` | what it eats (other kinds or stocks), with a functional response (more when plentiful, saturating) | deer and boar; herds and carcasses when they fail |
+| `season` | seasonal ranges or routes, if any | winter: down to lower ground |
+| `split` | how a group divides (a share peeling off) and joins | young disperse in autumn |
+| `people` | hunted (by which acts), avoids people, raids (herds, crops, stores), dangerous | hunted with a crew; raids herds; dangerous in winter |
+| `signs` | what it leaves to be sensed (guides/senses.md) | tracks, howling, a kill, a missing beast |
 
 Claims and holdings mean nothing to it: a wolf does not ask whose parcel it is.
 
-**One night step** (or one a week, on the season clock, for slow kinds), applied to every population in a fixed order:
-1. **Grow** toward the habitat's K by the kind's renewal rule. Today's rules are kept, so today's stocks are this with no diet and no
-   movement.
-2. **Eat:** each consumer takes from its diet by its functional response. Prey and stocks are drawn down; a consumer that eats too
-   little loses condition, then numbers.
-3. **Move** along the graph:
-   - **diffuse:** a share flows toward neighbours with more room (density against K);
-   - **roam:** a group goes to the neighbour where its food is best, or stays;
-   - **migrate:** in its season a run moves along its route, and what is taken or blocked on the way (a weir) does not arrive.
-4. **People's take** happens in the day's acts, as now: hunting, fishing and foraging draw on the place's population.
+### 2c. One movement rule
 
-Each step is a pure function, as D4-103 wants, so analyses simulate it and the capacity model can run the ecology forward.
+Each night, every distribution moves part of the way toward **where the land suits it best**, at the kind's own speed. Ecology
+calls the endpoint the ideal free distribution: animals spread in proportion to how good each place is, less the crowding. Every
+behaviour Zach named comes from this one rule and the kind's row:
 
-**Damping** (environment_state.md Q5): bounded steps, and no population below zero or above its habitat. Predator and prey models
-oscillate and crash; a little immigration from the edge of the map (the land beyond the window) keeps a hunted-out place from
-staying empty for ever, unless it is enclosed.
+| Behaviour | How it comes from the rule |
+|---|---|
+| **A resident range with wandering** | Home fidelity is a cost on leaving the range, so the distribution is concentrated at home, but not zero beside it. Deer live in the wood; on a given day a few are at its edge, and now and then one is in a village field. |
+| **Part of a herd going elsewhere** | A group splits when a draw says so: a share peels off, peaked at about a quarter (as domestic herds already do, D2-131). Density kinds simply spread. |
+| **Several destinations, gradually** | The distribution relaxes toward every good place in proportion to its quality, at the kind's speed. Animals don't all go to one place at once unless one place is far better. |
+| **Seasonal movement** | The kind has two target ranges that alternate by season: salmon up the river in autumn, fowl in for the winter, deer down to lower ground. |
+| **Permanent shifts, in response to people** | Felling, clearing, a busy road or heavy hunting lower the habitat score, so over the following nights the distribution moves to the next suitable land. Restoring the land draws it back, slowly. |
+| **Arriving and leaving** | The edge reservoir exchanges animals with the window: a run arrives from the sea; a hunted-out wood refills, slowly, from beyond the map. |
 
-## 3. Resolution: when one animal matters
+### 2d. One night step
 
-| Kind | Count | Scale | Why |
-|---|---|---|---|
-| plants, grass, trees | density | parcel | as now; nobody notices one plant |
-| fish, eels, fowl, small game (hares) | density | parcel, reach | catches are many and small |
-| deer | whole (a herd of 12) | node | a herd is seen; numbers in the tens |
-| wolves, a bear, boar | whole (a pack of 5; one bear) | node | **one matters**: a single wolf taking a calf is the story |
-| the salmon run | density | region, along the river | it passes through many places |
+Applied to every population in a fixed order:
+1. **Grow** toward the habitat's K by the kind's renewal rule.
+2. **Eat:** consumers take from their diet; prey and stocks are drawn down, and a consumer short of food loses condition, then
+   numbers.
+3. **Move** by the rule above.
+4. **People's take** happens in the day's acts, through observation (§3).
 
-**Individuals on demand.** When a whole-counted population meets people (a wolf seen, a deer shot, a calf taken), the engine names
-one of them for the event: "the grey bitch with the torn ear". It is kept only while it recurs:
+Each step is a pure function, so the capacity model can run the ecology forward under a harvest (D4-103 part 3).
+
+**Damping:** bounded steps, and no population below zero or above its habitat. Predator and prey models oscillate and crash; the
+edge reservoir and bounds keep them in hand. The step is tested over simulated years on its own before it goes in a run.
+
+## 3. Observation: the field collapses where someone looks
+
+- **The engine holds only expectations:** how many deer are likely in each patch, where a pack is likely to be.
+- **When someone is at a place** (hunting, fishing, minding the field, crossing the wood), the engine draws what is actually there,
+  from the expectation at that place: 3 deer at the wood's edge today; the pack, or not. That draw is the collapse, and it is
+  keyed, so runs replay.
+- **The take and the encounter update the field:**
+  - deer killed come off the count;
+  - a pack met is placed where it was met, and its distribution re-centres there.
+
+  Everywhere else stays expected.
+- **One animal matters when it is whole-counted.** A lone bear is a group of one whose place is a distribution until someone meets
+  it.
+
+**Individuals on demand.** When a whole-counted group meets people (a wolf seen, a deer shot, a calf taken), the engine names one of
+them for the event: "the grey bitch with the torn ear". It is kept only while it recurs:
 - the same pack raiding again is seen as the same animal;
 - people's memories can hold it;
 - killing it lowers the count by one.
@@ -154,8 +192,19 @@ one of them for the event: "the grey bitch with the torn ear". It is kept only w
 It is the level-of-detail pattern from games and simulations: aggregate by default, promoted to an individual at the moment of
 contact, demoted after.
 
-**People never see the numbers.** They see signs (tracks, howling, a kill, "few fish rising"), drawn from the population's state by
-the noticing rule, as today's game and fish signs already are.
+**People never see the numbers.** They see:
+- signs, drawn from the field near them by the noticing rule (tracks, howling, "few fish rising");
+- what their own work brings (D4-104's response to density).
+
+**Resolution by kind:**
+
+| Kind | Count | Where it is held | Why |
+|---|---|---|---|
+| plants, grass, trees | density | parcels (sessile stocks) | as now; nobody notices one plant |
+| fish, eels, fowl, hares | density | the field, along rivers for fish | catches are many and small |
+| deer, boar | whole (herds, sounders) | the field, as groups | a herd is seen |
+| wolves, a bear | whole (a pack; one bear) | the field, as groups | **one matters** |
+| the salmon run | density | the river's patches, by season | it passes through many places |
 
 ## 4. What it makes possible: the cases Zach named
 
@@ -179,6 +228,9 @@ problems (the commons, a shared river) are a research target in their own right 
 
 ## 5. Variety by terrain
 
+The first kinds, their purposes and their waves are designed in [wildlife.md](wildlife.md); the table below is the short
+version.
+
 Each landscape system's palette (D2-191) gives each kind its habitat:
 
 | Kind | Where it lives |
@@ -198,7 +250,8 @@ different animals without any code of their own.
 ## 6. Is it too much?
 
 **The framework is small:**
-- one store, one step and one data table, in about 400 to 700 lines of engine and data;
+- one store, one step and one data table: about 800 to 1,200 lines of engine and data with the field (400 to 700 for the graph
+  version alone);
 - each kind is a row.
 
 The risk is not size.
@@ -228,7 +281,7 @@ Two to five kinds carry every case in §4.
 
 | Step | What | Size | Shows |
 |---|---|---|---|
-| 1 | **Populations generalise stocks:** game and fish become kinds with habitat K from the ecosystems, diffusion along the parcel graph and river reaches, and immigration from the map's edge. No predators. The catch reported as what the day's work brought (D4-104's response); the capacity model's sustainable take per population. | S-M | hunted-out places refill from neighbours; fishing one reach is felt by the next; capacity as a trajectory |
+| 1 | **Populations generalise stocks:** the coarse field (2a), the movement rule (2c) and observation (§3); game and fish become kinds with habitat from the ecosystems, and the edge reservoir. No predators. The catch reported as what the day's work brought (D4-104's response); the capacity model's sustainable take per population. | S-M | hunted-out places refill from neighbours; fishing one reach is felt by the next; capacity as a trajectory |
 | 2 | **The run migrates:** salmon along the river network in their season; the weir (water proposal §4) blocks or takes it | S | the upstream-downstream commons |
 | 3 | **One predator:** wolves, whole-counted at node scale, roaming; deer then herds and carcasses as diet; raids as incidents; individuals on demand | M | the forest's loss felt as wolves at the village; the watch and fences with a reason |
 
@@ -261,6 +314,12 @@ Each step is a system a world switches on (D4-103), so existing worlds and runs 
 
 - 8 Nov: Zach asked for generalised ecosystems: populations that live on the land, interact and move, by terrain, at the right
   resolution, as a clean layer. 37.2 surveyed what exists (§1) and proposed this.
+- 8 Nov (later): Zach: "the animals should have resident places but still be able to wander ... a small number of the herd go
+  somewhere else ... migration could happen over time ... what if they wanted to migrate to different places? ... the environment
+  (from the terrain generator) does exist beyond the nodes ... populations as probability distributions over space ... that collapse
+  when observed". §2 and §3 revised: a coarse field over the land with parcels and nodes as windows; one movement rule (toward the
+  ideal free distribution, with home fidelity, splitting, seasons and the edge reservoir); observation as the collapse; the graph
+  version kept for hand-made worlds. The first kinds are designed in proposals/wildlife.md.
 - 8 Nov: Zach framed it as part of the core aim, "a complex, partially observable environment", tied to carrying capacity, seasonal
   and long-term shifts, and their management. Added §0, step 1's catch signal and capacity trajectory, and questions 6 and 7. Terms
   brought in line with D4-104 (renewal rules, packs, response to density).
