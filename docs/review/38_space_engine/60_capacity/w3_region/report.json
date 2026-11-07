@@ -1,0 +1,4100 @@
+{
+ "year": 24,
+ "season_len": 6,
+ "day": 0,
+ "calendar": {
+  "season": "summer",
+  "day": 4,
+  "left": 2,
+  "year_day": 9
+ },
+ "levels": {
+  "bare": "wild food only, eaten raw as gathered: no fields, no fire, no store",
+  "standing": "the fields as they are: one crop a year sown on unbroken ground, not weeded; grain boiled; kept in a house",
+  "worked": "the best crops and fallow the year allows; soil broken, weeded, manured where there are beasts; grain ground to meal; kept in bins",
+  "best": "everything the world's techniques reach: ploughing, full weeding, master farmers, seed selection, rye over the winter, milled flour and bread, a granary",
+  "ceiling": "best, and meadow, pasture, scrub and woods cleared to fields as far as the fuel the hearths need allows"
+ },
+ "nodes": {
+  "millford": {
+   "people": 15,
+   "levels": {
+    "bare": {
+     "supported": 0.45,
+     "ratio": 0.03,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 11.1,
+      "game": 1.9
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 37.4,
+       "a_head": 83.1,
+       "share": 0.683,
+       "food_a_unit": 0.35
+      },
+      "capital": {
+       "items": [],
+       "materials": {},
+       "units": 0.0,
+       "units_a_head": 0.0,
+       "with_materials": 0.0,
+       "with_materials_a_head": 0.0,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {},
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.684,
+        "meal": 1.018,
+        "flour": 0.694,
+        "bread": 0.778
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.189
+     },
+     "plan": [],
+     "by_parcel": {
+      "mf_meadow": 6.3,
+      "mf_copse": 6.7
+     }
+    },
+    "standing": {
+     "supported": 0.61,
+     "ratio": 0.04,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 11.1,
+      "game": 3.7
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 24.0,
+       "a_head": 39.3,
+       "share": 0.323,
+       "food_a_unit": 0.62
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 23.6,
+         "why": "1 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 5.7,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 1.4,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 16.0,
+        "stone": 8.0,
+        "straw": 2.0
+       },
+       "units": 19.0,
+       "units_a_head": 31.1,
+       "with_materials": 30.6,
+       "with_materials_a_head": 50.2,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "timber": 0.0,
+        "stone": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.48,
+        "meal": 0.813,
+        "flour": 0.49,
+        "bread": 0.536
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.018
+     },
+     "plan": [],
+     "by_parcel": {
+      "mf_meadow": 6.3,
+      "mf_copse": 8.5
+     }
+    },
+    "worked": {
+     "supported": 0.61,
+     "ratio": 0.04,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 11.1,
+      "game": 3.7
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 24.0,
+       "a_head": 39.3,
+       "share": 0.323,
+       "food_a_unit": 0.62
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "bins",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 2.2,
+         "why": "peak stock 4 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 23.6,
+         "why": "1 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 5.7,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 1.4,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 19.0,
+        "stone": 8.0,
+        "straw": 2.0
+       },
+       "units": 20.0,
+       "units_a_head": 32.8,
+       "with_materials": 32.8,
+       "with_materials_a_head": 53.8,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "timber": 0.0,
+        "stone": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.72,
+        "meal": 1.054,
+        "flour": 0.73,
+        "bread": 0.776
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.011
+     },
+     "plan": [],
+     "by_parcel": {
+      "mf_meadow": 6.3,
+      "mf_copse": 8.5
+     }
+    },
+    "best": {
+     "supported": 0.62,
+     "ratio": 0.04,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 11.1,
+      "game": 3.7
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 24.0,
+       "a_head": 38.6,
+       "share": 0.318,
+       "food_a_unit": 0.62
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "granary",
+         "n": 1,
+         "units": 4.0,
+         "with_materials": 5.2,
+         "why": "peak stock 3 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 19.9,
+         "why": "1 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 4.9,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 1.2,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 22.0,
+        "stone": 8.0,
+        "straw": 2.0
+       },
+       "units": 23.0,
+       "units_a_head": 37.1,
+       "with_materials": 31.2,
+       "with_materials_a_head": 50.3,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "copper": 0.0,
+        "timber": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.519,
+        "meal": 0.852,
+        "flour": 0.529,
+        "bread": 0.567
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.003
+     },
+     "plan": [],
+     "by_parcel": {
+      "mf_meadow": 6.3,
+      "mf_copse": 8.5
+     }
+    },
+    "ceiling": {
+     "supported": 44.32,
+     "ratio": 2.95,
+     "labour_share": 0.066,
+     "food_a_year": {
+      "fields": 1038.0,
+      "wild plants": 4.8,
+      "game": 3.7
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 430.4,
+       "a_head": 9.7,
+       "share": 0.08,
+       "food_a_unit": 2.43
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "millstones",
+         "n": 1,
+         "units": 10.0,
+         "with_materials": 14.7,
+         "why": "mill: 20 a day, 192 a fitting"
+        },
+        {
+         "what": "granary",
+         "n": 2,
+         "units": 8.0,
+         "with_materials": 10.4,
+         "why": "peak stock 592 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 10,
+         "units": 150.0,
+         "with_materials": 199.1,
+         "why": "44 people"
+        },
+        {
+         "what": "hearth",
+         "n": 10,
+         "units": 30.0,
+         "with_materials": 48.9,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 45,
+         "units": 45.0,
+         "with_materials": 54.1,
+         "why": "one a sleeper"
+        },
+        {
+         "what": "clear the Glade",
+         "n": 1,
+         "units": 6.0,
+         "with_materials": 6.0,
+         "why": "meadow"
+        },
+        {
+         "what": "clear Brook Meadow",
+         "n": 1,
+         "units": 12.0,
+         "with_materials": 12.0,
+         "why": "meadow"
+        },
+        {
+         "what": "clear the Common",
+         "n": 1,
+         "units": 24.0,
+         "with_materials": 24.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear High Pasture",
+         "n": 1,
+         "units": 6.0,
+         "with_materials": 6.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear the Moor",
+         "n": 1,
+         "units": 36.0,
+         "with_materials": 36.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear Riverside Meadow",
+         "n": 1,
+         "units": 12.0,
+         "with_materials": 12.0,
+         "why": "meadow"
+        }
+       ],
+       "materials": {
+        "stone": 90.0,
+        "timber": 207.0,
+        "straw": 90.0
+       },
+       "units": 339.0,
+       "units_a_head": 7.6,
+       "with_materials": 423.2,
+       "with_materials_a_head": 9.5,
+       "tools_a_year": 1.4,
+       "tool_materials_a_year": {
+        "copper": 1.4,
+        "timber": 0.7
+       },
+       "tool_work_a_year": 11.7,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.519,
+        "meal": 0.852,
+        "flour": 0.529,
+        "bread": 0.567
+       }
+      },
+      "land": {
+       "field_food_a_plot": 519.0,
+       "field_work_a_plot": 208.0
+      },
+      "waste_share": 0.004
+     },
+     "plan": [
+      "legumes 3d, grain 5d, legumes 3d, grain 5d, winter grain 7d; dung for 0% of its manuring"
+     ],
+     "by_parcel": {
+      "mf_meadow": 1038.1,
+      "mf_copse": 8.5
+     }
+    }
+   },
+   "stores_food": 133.6,
+   "first_harvest": {
+    "standing": null,
+    "sown": 6,
+    "first": 6,
+    "lost_to_frost": []
+   },
+   "buffer_days": 9.1,
+   "fuel": {
+    "need_a_head": 9.33,
+    "levels": {
+     "gathered": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "heat_a_year": 0.2,
+      "work_a_head": 6.2
+     },
+     "cut": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "heat_a_year": 0.3,
+      "work_a_head": 5.5
+     },
+     "managed": {
+      "supported": 0.3,
+      "ratio": 0.02,
+      "heat_a_year": 3.2,
+      "work_a_head": 3.3
+     }
+    },
+    "standing_years": 0.2,
+    "standing_heat": 22.0
+   },
+   "horizon": {
+    "standing": {
+     "level": "standing",
+     "people": 15,
+     "days": 20,
+     "first_short": 9,
+     "short_days": 11,
+     "short_meals": 151.8,
+     "seed_share": 1.0,
+     "store_food": 133.6
+    },
+    "worked": {
+     "level": "worked",
+     "people": 15,
+     "days": 20,
+     "first_short": 10,
+     "short_days": 10,
+     "short_meals": 135.0,
+     "seed_share": 1.0,
+     "store_food": 151.2
+    }
+   }
+  },
+  "barleyfield": {
+   "people": 18,
+   "levels": {
+    "bare": {
+     "supported": 0.39,
+     "ratio": 0.02,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 11.1
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 16.5,
+       "a_head": 42.2,
+       "share": 0.356,
+       "food_a_unit": 0.67
+      },
+      "capital": {
+       "items": [],
+       "materials": {},
+       "units": 0.0,
+       "units_a_head": 0.0,
+       "with_materials": 0.0,
+       "with_materials_a_head": 0.0,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {},
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.684,
+        "meal": 1.018,
+        "flour": 0.694,
+        "bread": 0.778
+       }
+      },
+      "land": {
+       "field_food_a_plot": 0.0,
+       "field_work_a_plot": 0.0
+      },
+      "waste_share": 0.185
+     },
+     "plan": [],
+     "by_parcel": {
+      "bf_pasture": 6.3,
+      "bf_meadow": 4.8
+     }
+    },
+    "standing": {
+     "supported": 15.04,
+     "ratio": 0.84,
+     "labour_share": null,
+     "food_a_year": {
+      "fields": 297.1,
+      "wild plants": 11.1,
+      "herds": 57.6
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 243.1,
+       "a_head": 16.2,
+       "share": 0.136,
+       "food_a_unit": 1.5
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "medium room (timber)",
+         "n": 4,
+         "units": 60.0,
+         "with_materials": 94.2,
+         "why": "15 people"
+        },
+        {
+         "what": "hearth",
+         "n": 4,
+         "units": 12.0,
+         "with_materials": 22.8,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 16,
+         "units": 16.0,
+         "with_materials": 22.3,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 76.0,
+        "stone": 32.0,
+        "straw": 32.0
+       },
+       "units": 88.0,
+       "units_a_head": 5.9,
+       "with_materials": 139.2,
+       "with_materials_a_head": 9.3,
+       "tools_a_year": 3.8,
+       "tool_materials_a_year": {
+        "timber": 3.8,
+        "stone": 1.9
+       },
+       "tool_work_a_year": 6.6,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.48,
+        "meal": 0.813,
+        "flour": 0.49,
+        "bread": 0.536
+       }
+      },
+      "land": {
+       "field_food_a_plot": 15.6,
+       "field_work_a_plot": 10.7
+      },
+      "waste_share": 0.046
+     },
+     "plan": [
+      "grain 6d"
+     ],
+     "by_parcel": {
+      "north_field": 81.8,
+      "bean_field": 32.7,
+      "rest_field": 32.7,
+      "east_field": 49.1,
+      "west_field": 32.7,
+      "south_field": 49.1,
+      "brook_field": 18.9,
+      "bf_pasture": 6.3,
+      "bf_meadow": 4.8,
+      "cattle": 57.6
+     }
+    },
+    "worked": {
+     "supported": 175.67,
+     "ratio": 9.76,
+     "labour_share": 0.12,
+     "food_a_year": {
+      "fields": 3992.2,
+      "wild plants": 11.1,
+      "herds": 102.2
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 2862.9,
+       "a_head": 16.3,
+       "share": 0.137,
+       "food_a_unit": 1.43
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "hand mill",
+         "n": 4,
+         "units": 8.0,
+         "with_materials": 13.4,
+         "why": "grind: 65 a day, 18 a fitting"
+        },
+        {
+         "what": "bins",
+         "n": 42,
+         "units": 42.0,
+         "with_materials": 91.3,
+         "why": "peak stock 2473 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 40,
+         "units": 600.0,
+         "with_materials": 942.2,
+         "why": "176 people"
+        },
+        {
+         "what": "hearth",
+         "n": 40,
+         "units": 120.0,
+         "with_materials": 227.6,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 176,
+         "units": 176.0,
+         "with_materials": 244.8,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "stone": 328.0,
+        "timber": 902.0,
+        "straw": 352.0
+       },
+       "units": 946.0,
+       "units_a_head": 5.4,
+       "with_materials": 1519.3,
+       "with_materials_a_head": 8.6,
+       "tools_a_year": 54.3,
+       "tool_materials_a_year": {
+        "timber": 54.3,
+        "stone": 27.15
+       },
+       "tool_work_a_year": 93.8,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.72,
+        "meal": 1.054,
+        "flour": 0.73,
+        "bread": 0.776
+       }
+      },
+      "land": {
+       "field_food_a_plot": 210.1,
+       "field_work_a_plot": 147.5
+      },
+      "waste_share": 0.007
+     },
+     "plan": [
+      "legumes 4d, legumes 4d, legumes 4d, grain 6d; dung for 21% of its manuring"
+     ],
+     "by_parcel": {
+      "north_field": 1085.0,
+      "bean_field": 434.0,
+      "rest_field": 434.0,
+      "east_field": 651.1,
+      "west_field": 434.0,
+      "south_field": 651.1,
+      "brook_field": 303.1,
+      "bf_pasture": 6.3,
+      "bf_meadow": 4.8,
+      "cattle": 102.2
+     }
+    },
+    "best": {
+     "supported": 384.56,
+     "ratio": 21.36,
+     "labour_share": 0.072,
+     "food_a_year": {
+      "fields": 8840.6,
+      "wild plants": 11.1,
+      "herds": 102.2
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 3951.5,
+       "a_head": 10.3,
+       "share": 0.087,
+       "food_a_unit": 2.27
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "millstones",
+         "n": 1,
+         "units": 10.0,
+         "with_materials": 14.7,
+         "why": "mill: 169 a day, 192 a fitting"
+        },
+        {
+         "what": "granary",
+         "n": 13,
+         "units": 52.0,
+         "with_materials": 67.7,
+         "why": "peak stock 5045 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 86,
+         "units": 1290.0,
+         "with_materials": 1712.1,
+         "why": "385 people"
+        },
+        {
+         "what": "hearth",
+         "n": 86,
+         "units": 258.0,
+         "with_materials": 420.4,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 385,
+         "units": 385.0,
+         "with_materials": 462.5,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "stone": 698.0,
+        "timber": 1753.0,
+        "straw": 770.0
+       },
+       "units": 1995.0,
+       "units_a_head": 5.2,
+       "with_materials": 2677.4,
+       "with_materials_a_head": 7.0,
+       "tools_a_year": 13.3,
+       "tool_materials_a_year": {
+        "copper": 13.32,
+        "timber": 6.66
+       },
+       "tool_work_a_year": 110.9,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.519,
+        "meal": 0.852,
+        "flour": 0.529,
+        "bread": 0.567
+       }
+      },
+      "land": {
+       "field_food_a_plot": 465.3,
+       "field_work_a_plot": 204.7
+      },
+      "waste_share": 0.004
+     },
+     "plan": [
+      "legumes 3d, grain 5d, legumes 3d, grain 5d, winter grain 7d; dung for 17% of its manuring"
+     ],
+     "by_parcel": {
+      "north_field": 2326.5,
+      "bean_field": 930.5,
+      "rest_field": 930.5,
+      "east_field": 1395.9,
+      "west_field": 930.5,
+      "south_field": 1395.9,
+      "brook_field": 930.5,
+      "bf_pasture": 6.3,
+      "bf_meadow": 4.8,
+      "cattle": 102.2
+     }
+    },
+    "ceiling": {
+     "supported": 508.59,
+     "ratio": 28.25,
+     "labour_share": 0.067,
+     "food_a_year": {
+      "fields": 11739.8,
+      "herds": 102.2
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 5170.0,
+       "a_head": 10.2,
+       "share": 0.086,
+       "food_a_unit": 2.29
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "millstones",
+         "n": 2,
+         "units": 20.0,
+         "with_materials": 29.4,
+         "why": "mill: 224 a day, 192 a fitting"
+        },
+        {
+         "what": "granary",
+         "n": 18,
+         "units": 72.0,
+         "with_materials": 93.7,
+         "why": "peak stock 6699 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 114,
+         "units": 1710.0,
+         "with_materials": 2269.5,
+         "why": "509 people"
+        },
+        {
+         "what": "hearth",
+         "n": 114,
+         "units": 342.0,
+         "with_materials": 557.2,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 509,
+         "units": 509.0,
+         "with_materials": 611.5,
+         "why": "one a sleeper"
+        },
+        {
+         "what": "clear the Glade",
+         "n": 1,
+         "units": 6.0,
+         "with_materials": 6.0,
+         "why": "meadow"
+        },
+        {
+         "what": "clear Brook Meadow",
+         "n": 1,
+         "units": 12.0,
+         "with_materials": 12.0,
+         "why": "meadow"
+        },
+        {
+         "what": "clear the Common",
+         "n": 1,
+         "units": 24.0,
+         "with_materials": 24.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear High Pasture",
+         "n": 1,
+         "units": 6.0,
+         "with_materials": 6.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear the Moor",
+         "n": 1,
+         "units": 36.0,
+         "with_materials": 36.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear Riverside Meadow",
+         "n": 1,
+         "units": 12.0,
+         "with_materials": 12.0,
+         "why": "meadow"
+        }
+       ],
+       "materials": {
+        "stone": 932.0,
+        "timber": 2327.0,
+        "straw": 1018.0
+       },
+       "units": 2749.0,
+       "units_a_head": 5.4,
+       "with_materials": 3657.5,
+       "with_materials_a_head": 7.2,
+       "tools_a_year": 17.5,
+       "tool_materials_a_year": {
+        "copper": 17.53,
+        "timber": 8.76
+       },
+       "tool_work_a_year": 145.9,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.519,
+        "meal": 0.852,
+        "flour": 0.529,
+        "bread": 0.567
+       }
+      },
+      "land": {
+       "field_food_a_plot": 469.6,
+       "field_work_a_plot": 205.0
+      },
+      "waste_share": 0.004
+     },
+     "plan": [
+      "legumes 3d, grain 5d, legumes 3d, grain 5d, winter grain 7d; dung for 13% of its manuring"
+     ],
+     "by_parcel": {
+      "north_field": 2326.5,
+      "bean_field": 930.5,
+      "rest_field": 930.5,
+      "east_field": 1395.9,
+      "west_field": 930.5,
+      "south_field": 1395.9,
+      "brook_field": 930.5,
+      "bf_pasture": 1861.2,
+      "bf_meadow": 1038.1,
+      "cattle": 102.2
+     }
+    }
+   },
+   "stores_food": 143.7,
+   "first_harvest": {
+    "standing": 2,
+    "sown": 6,
+    "first": 2,
+    "lost_to_frost": []
+   },
+   "buffer_days": 8.3,
+   "fuel": {
+    "need_a_head": 9.33,
+    "levels": {
+     "gathered": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "heat_a_year": 0.0,
+      "work_a_head": null
+     },
+     "cut": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "heat_a_year": 0.0,
+      "work_a_head": null
+     },
+     "managed": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "heat_a_year": 0.0,
+      "work_a_head": null
+     }
+    },
+    "standing_years": 0.0,
+    "standing_heat": 0.0
+   },
+   "horizon": {
+    "standing": {
+     "level": "standing",
+     "people": 18,
+     "days": 20,
+     "first_short": 0,
+     "short_days": 2,
+     "short_meals": 28.9,
+     "seed_share": 0.68,
+     "store_food": 0.0
+    },
+    "worked": {
+     "level": "worked",
+     "people": 18,
+     "days": 20,
+     "first_short": 0,
+     "short_days": 2,
+     "short_meals": 25.2,
+     "seed_share": 0.68,
+     "store_food": 0.0
+    }
+   }
+  },
+  "ashwood": {
+   "people": 9,
+   "levels": {
+    "bare": {
+     "supported": 1.37,
+     "ratio": 0.15,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 28.5,
+      "game": 23.4
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 138.8,
+       "a_head": 101.3,
+       "share": 1.0,
+       "food_a_unit": 0.27
+      },
+      "capital": {
+       "items": [],
+       "materials": {},
+       "units": 0.0,
+       "units_a_head": 0.0,
+       "with_materials": 0.0,
+       "with_materials_a_head": 0.0,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {},
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.684,
+        "meal": 1.018,
+        "flour": 0.694,
+        "bread": 0.778
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.184
+     },
+     "plan": [],
+     "by_parcel": {
+      "deep_wood": 45.6,
+      "aw_glade": 6.3
+     }
+    },
+    "standing": {
+     "supported": 3.18,
+     "ratio": 0.35,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 28.5,
+      "game": 43.9
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 131.6,
+       "a_head": 41.4,
+       "share": 0.408,
+       "food_a_unit": 0.55
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 23.6,
+         "why": "3 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 5.7,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 4,
+         "units": 4.0,
+         "with_materials": 5.6,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 19.0,
+        "stone": 8.0,
+        "straw": 8.0
+       },
+       "units": 22.0,
+       "units_a_head": 6.9,
+       "with_materials": 34.8,
+       "with_materials_a_head": 10.9,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "timber": 0.0,
+        "stone": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.48,
+        "meal": 0.813,
+        "flour": 0.49,
+        "bread": 0.536
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.014
+     },
+     "plan": [],
+     "by_parcel": {
+      "deep_wood": 66.1,
+      "aw_glade": 6.3
+     }
+    },
+    "worked": {
+     "supported": 3.2,
+     "ratio": 0.36,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 28.5,
+      "game": 43.9
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 131.6,
+       "a_head": 41.1,
+       "share": 0.406,
+       "food_a_unit": 0.55
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "bins",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 2.2,
+         "why": "peak stock 13 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 23.6,
+         "why": "3 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 5.7,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 4,
+         "units": 4.0,
+         "with_materials": 5.6,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 22.0,
+        "stone": 8.0,
+        "straw": 8.0
+       },
+       "units": 23.0,
+       "units_a_head": 7.2,
+       "with_materials": 37.0,
+       "with_materials_a_head": 11.6,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "timber": 0.0,
+        "stone": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.72,
+        "meal": 1.054,
+        "flour": 0.73,
+        "bread": 0.776
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.007
+     },
+     "plan": [],
+     "by_parcel": {
+      "deep_wood": 66.1,
+      "aw_glade": 6.3
+     }
+    },
+    "best": {
+     "supported": 3.22,
+     "ratio": 0.36,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 28.5,
+      "game": 43.9
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 131.6,
+       "a_head": 40.9,
+       "share": 0.403,
+       "food_a_unit": 0.55
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "granary",
+         "n": 1,
+         "units": 4.0,
+         "with_materials": 5.2,
+         "why": "peak stock 13 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 19.9,
+         "why": "3 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 4.9,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 4,
+         "units": 4.0,
+         "with_materials": 4.8,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 25.0,
+        "stone": 8.0,
+        "straw": 8.0
+       },
+       "units": 26.0,
+       "units_a_head": 8.1,
+       "with_materials": 34.8,
+       "with_materials_a_head": 10.8,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "copper": 0.0,
+        "timber": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.519,
+        "meal": 0.852,
+        "flour": 0.529,
+        "bread": 0.567
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.002
+     },
+     "plan": [],
+     "by_parcel": {
+      "deep_wood": 66.1,
+      "aw_glade": 6.3
+     }
+    },
+    "ceiling": {
+     "supported": 26.02,
+     "ratio": 2.89,
+     "labour_share": 0.076,
+     "food_a_year": {
+      "fields": 519.0,
+      "wild plants": 22.2,
+      "game": 43.9
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 330.1,
+       "a_head": 12.7,
+       "share": 0.125,
+       "food_a_unit": 1.77
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "millstones",
+         "n": 1,
+         "units": 10.0,
+         "with_materials": 14.7,
+         "why": "mill: 10 a day, 192 a fitting"
+        },
+        {
+         "what": "granary",
+         "n": 1,
+         "units": 4.0,
+         "with_materials": 5.2,
+         "why": "peak stock 305 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 6,
+         "units": 90.0,
+         "with_materials": 119.4,
+         "why": "26 people"
+        },
+        {
+         "what": "hearth",
+         "n": 6,
+         "units": 18.0,
+         "with_materials": 29.3,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 27,
+         "units": 27.0,
+         "with_materials": 32.4,
+         "why": "one a sleeper"
+        },
+        {
+         "what": "clear the Glade",
+         "n": 1,
+         "units": 6.0,
+         "with_materials": 6.0,
+         "why": "meadow"
+        },
+        {
+         "what": "clear Brook Meadow",
+         "n": 1,
+         "units": 12.0,
+         "with_materials": 12.0,
+         "why": "meadow"
+        },
+        {
+         "what": "clear the Common",
+         "n": 1,
+         "units": 24.0,
+         "with_materials": 24.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear High Pasture",
+         "n": 1,
+         "units": 6.0,
+         "with_materials": 6.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear the Moor",
+         "n": 1,
+         "units": 36.0,
+         "with_materials": 36.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear Riverside Meadow",
+         "n": 1,
+         "units": 12.0,
+         "with_materials": 12.0,
+         "why": "meadow"
+        }
+       ],
+       "materials": {
+        "stone": 58.0,
+        "timber": 123.0,
+        "straw": 54.0
+       },
+       "units": 245.0,
+       "units_a_head": 9.4,
+       "with_materials": 297.1,
+       "with_materials_a_head": 11.4,
+       "tools_a_year": 0.7,
+       "tool_materials_a_year": {
+        "copper": 0.7,
+        "timber": 0.35
+       },
+       "tool_work_a_year": 5.8,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.519,
+        "meal": 0.852,
+        "flour": 0.529,
+        "bread": 0.567
+       }
+      },
+      "land": {
+       "field_food_a_plot": 519.0,
+       "field_work_a_plot": 208.0
+      },
+      "waste_share": 0.003
+     },
+     "plan": [
+      "legumes 3d, grain 5d, legumes 3d, grain 5d, winter grain 7d; dung for 0% of its manuring"
+     ],
+     "by_parcel": {
+      "aw_glade": 519.1,
+      "deep_wood": 66.1
+     }
+    }
+   },
+   "stores_food": 34.4,
+   "first_harvest": {
+    "standing": null,
+    "sown": 6,
+    "first": 6,
+    "lost_to_frost": []
+   },
+   "buffer_days": 4.1,
+   "fuel": {
+    "need_a_head": 9.33,
+    "levels": {
+     "gathered": {
+      "supported": 0.5,
+      "ratio": 0.06,
+      "heat_a_year": 5.0,
+      "work_a_head": 6.2
+     },
+     "cut": {
+      "supported": 0.8,
+      "ratio": 0.08,
+      "heat_a_year": 7.1,
+      "work_a_head": 5.5
+     },
+     "managed": {
+      "supported": 8.9,
+      "ratio": 0.99,
+      "heat_a_year": 83.2,
+      "work_a_head": 3.3
+     }
+    },
+    "standing_years": 6.4,
+    "standing_heat": 539.0
+   },
+   "horizon": {
+    "standing": {
+     "level": "standing",
+     "people": 9,
+     "days": 20,
+     "first_short": 7,
+     "short_days": 13,
+     "short_meals": 76.5,
+     "seed_share": 1.0,
+     "store_food": 34.4
+    },
+    "worked": {
+     "level": "worked",
+     "people": 9,
+     "days": 20,
+     "first_short": 8,
+     "short_days": 12,
+     "short_meals": 70.3,
+     "seed_share": 1.0,
+     "store_food": 40.8
+    }
+   }
+  },
+  "coppergate": {
+   "people": 9,
+   "levels": {
+    "bare": {
+     "supported": 0.44,
+     "ratio": 0.05,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 12.7
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 18.7,
+       "a_head": 42.5,
+       "share": 0.362,
+       "food_a_unit": 0.68
+      },
+      "capital": {
+       "items": [],
+       "materials": {},
+       "units": 0.0,
+       "units_a_head": 0.0,
+       "with_materials": 0.0,
+       "with_materials_a_head": 0.0,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {},
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.684,
+        "meal": 1.018,
+        "flour": 0.694,
+        "bread": 0.778
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.195
+     },
+     "plan": [],
+     "by_parcel": {
+      "cg_scrub": 7.9,
+      "cg_pasture": 4.8
+     }
+    },
+    "standing": {
+     "supported": 0.48,
+     "ratio": 0.05,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 12.7
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 18.7,
+       "a_head": 38.9,
+       "share": 0.332,
+       "food_a_unit": 0.68
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 23.6,
+         "why": "0 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 5.7,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 1.4,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 16.0,
+        "stone": 8.0,
+        "straw": 2.0
+       },
+       "units": 19.0,
+       "units_a_head": 39.6,
+       "with_materials": 30.6,
+       "with_materials_a_head": 63.8,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "timber": 0.0,
+        "stone": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.48,
+        "meal": 0.813,
+        "flour": 0.49,
+        "bread": 0.536
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.122
+     },
+     "plan": [],
+     "by_parcel": {
+      "cg_scrub": 7.9,
+      "cg_pasture": 4.8
+     }
+    },
+    "worked": {
+     "supported": 0.52,
+     "ratio": 0.06,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 12.7
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 18.7,
+       "a_head": 35.9,
+       "share": 0.306,
+       "food_a_unit": 0.68
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "bins",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 2.2,
+         "why": "peak stock 2 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 23.6,
+         "why": "1 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 5.7,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 1.4,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 19.0,
+        "stone": 8.0,
+        "straw": 2.0
+       },
+       "units": 20.0,
+       "units_a_head": 38.5,
+       "with_materials": 32.8,
+       "with_materials_a_head": 63.1,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "timber": 0.0,
+        "stone": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.72,
+        "meal": 1.054,
+        "flour": 0.73,
+        "bread": 0.776
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.048
+     },
+     "plan": [],
+     "by_parcel": {
+      "cg_scrub": 7.9,
+      "cg_pasture": 4.8
+     }
+    },
+    "best": {
+     "supported": 0.53,
+     "ratio": 0.06,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 12.7
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 18.7,
+       "a_head": 35.2,
+       "share": 0.3,
+       "food_a_unit": 0.68
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "granary",
+         "n": 1,
+         "units": 4.0,
+         "with_materials": 5.2,
+         "why": "peak stock 3 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 19.9,
+         "why": "1 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 4.9,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 1.2,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 22.0,
+        "stone": 8.0,
+        "straw": 2.0
+       },
+       "units": 23.0,
+       "units_a_head": 43.4,
+       "with_materials": 31.2,
+       "with_materials_a_head": 58.9,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "copper": 0.0,
+        "timber": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.519,
+        "meal": 0.852,
+        "flour": 0.529,
+        "bread": 0.567
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.024
+     },
+     "plan": [],
+     "by_parcel": {
+      "cg_scrub": 7.9,
+      "cg_pasture": 4.8
+     }
+    },
+    "ceiling": {
+     "supported": 20.32,
+     "ratio": 2.26,
+     "labour_share": 0.073,
+     "food_a_year": {
+      "fields": 465.3,
+      "wild plants": 7.9
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 216.4,
+       "a_head": 10.7,
+       "share": 0.091,
+       "food_a_unit": 2.19
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "millstones",
+         "n": 1,
+         "units": 10.0,
+         "with_materials": 14.7,
+         "why": "mill: 9 a day, 192 a fitting"
+        },
+        {
+         "what": "granary",
+         "n": 1,
+         "units": 4.0,
+         "with_materials": 5.2,
+         "why": "peak stock 266 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 5,
+         "units": 75.0,
+         "with_materials": 99.5,
+         "why": "20 people"
+        },
+        {
+         "what": "hearth",
+         "n": 5,
+         "units": 15.0,
+         "with_materials": 24.4,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 21,
+         "units": 21.0,
+         "with_materials": 25.2,
+         "why": "one a sleeper"
+        },
+        {
+         "what": "clear the Glade",
+         "n": 1,
+         "units": 6.0,
+         "with_materials": 6.0,
+         "why": "meadow"
+        },
+        {
+         "what": "clear Brook Meadow",
+         "n": 1,
+         "units": 12.0,
+         "with_materials": 12.0,
+         "why": "meadow"
+        },
+        {
+         "what": "clear the Common",
+         "n": 1,
+         "units": 24.0,
+         "with_materials": 24.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear High Pasture",
+         "n": 1,
+         "units": 6.0,
+         "with_materials": 6.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear the Moor",
+         "n": 1,
+         "units": 36.0,
+         "with_materials": 36.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear Riverside Meadow",
+         "n": 1,
+         "units": 12.0,
+         "with_materials": 12.0,
+         "why": "meadow"
+        }
+       ],
+       "materials": {
+        "stone": 50.0,
+        "timber": 102.0,
+        "straw": 42.0
+       },
+       "units": 221.0,
+       "units_a_head": 10.9,
+       "with_materials": 265.1,
+       "with_materials_a_head": 13.0,
+       "tools_a_year": 0.7,
+       "tool_materials_a_year": {
+        "copper": 0.7,
+        "timber": 0.35
+       },
+       "tool_work_a_year": 5.8,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.519,
+        "meal": 0.852,
+        "flour": 0.529,
+        "bread": 0.567
+       }
+      },
+      "land": {
+       "field_food_a_plot": 465.3,
+       "field_work_a_plot": 204.7
+      },
+      "waste_share": 0.004
+     },
+     "plan": [
+      "legumes 3d, grain 5d, legumes 3d, grain 5d, winter grain 7d; dung for 0% of its manuring"
+     ],
+     "by_parcel": {
+      "cg_pasture": 465.3,
+      "cg_scrub": 7.9
+     }
+    }
+   },
+   "stores_food": 143.8,
+   "first_harvest": {
+    "standing": null,
+    "sown": 6,
+    "first": 6,
+    "lost_to_frost": []
+   },
+   "buffer_days": 16.5,
+   "fuel": {
+    "need_a_head": 9.33,
+    "levels": {
+     "gathered": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "heat_a_year": 0.0,
+      "work_a_head": null
+     },
+     "cut": {
+      "supported": 0.8,
+      "ratio": 0.09,
+      "heat_a_year": 7.3,
+      "work_a_head": 3.7
+     },
+     "managed": {
+      "supported": 0.8,
+      "ratio": 0.09,
+      "heat_a_year": 7.3,
+      "work_a_head": 3.7
+     }
+    },
+    "standing_years": 0.8,
+    "standing_heat": 70.0
+   },
+   "horizon": {
+    "standing": {
+     "level": "standing",
+     "people": 9,
+     "days": 20,
+     "first_short": 16,
+     "short_days": 4,
+     "short_meals": 25.6,
+     "seed_share": 1.0,
+     "store_food": 143.8
+    },
+    "worked": {
+     "level": "worked",
+     "people": 9,
+     "days": 20,
+     "first_short": null,
+     "short_days": 0,
+     "short_meals": 0.0,
+     "seed_share": 1.0,
+     "store_food": 184.3
+    }
+   }
+  },
+  "the_pass": {
+   "people": 0,
+   "levels": {
+    "bare": {
+     "supported": 0.22,
+     "ratio": null,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 6.3
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 9.5,
+       "a_head": 43.1,
+       "share": 0.371,
+       "food_a_unit": 0.67
+      },
+      "capital": {
+       "items": [],
+       "materials": {},
+       "units": 0.0,
+       "units_a_head": 0.0,
+       "with_materials": 0.0,
+       "with_materials_a_head": 0.0,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {},
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.684,
+        "meal": 1.018,
+        "flour": 0.694,
+        "bread": 0.778
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.197
+     },
+     "plan": [],
+     "by_parcel": {
+      "pass_scrub": 6.3
+     }
+    },
+    "standing": {
+     "supported": 0.25,
+     "ratio": null,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 6.3
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 9.5,
+       "a_head": 37.9,
+       "share": 0.326,
+       "food_a_unit": 0.67
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 23.6,
+         "why": "0 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 5.7,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 1.4,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 16.0,
+        "stone": 8.0,
+        "straw": 2.0
+       },
+       "units": 19.0,
+       "units_a_head": 76.0,
+       "with_materials": 30.6,
+       "with_materials_a_head": 122.5,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "timber": 0.0,
+        "stone": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.48,
+        "meal": 0.813,
+        "flour": 0.49,
+        "bread": 0.536
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.087
+     },
+     "plan": [],
+     "by_parcel": {
+      "pass_scrub": 6.3
+     }
+    },
+    "worked": {
+     "supported": 0.25,
+     "ratio": null,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 6.3
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 9.5,
+       "a_head": 37.9,
+       "share": 0.326,
+       "food_a_unit": 0.67
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "bins",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 2.2,
+         "why": "peak stock 1 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 23.6,
+         "why": "0 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 5.7,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 1.4,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 19.0,
+        "stone": 8.0,
+        "straw": 2.0
+       },
+       "units": 20.0,
+       "units_a_head": 80.0,
+       "with_materials": 32.8,
+       "with_materials_a_head": 131.2,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "timber": 0.0,
+        "stone": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.72,
+        "meal": 1.054,
+        "flour": 0.73,
+        "bread": 0.776
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.082
+     },
+     "plan": [],
+     "by_parcel": {
+      "pass_scrub": 6.3
+     }
+    },
+    "best": {
+     "supported": 0.27,
+     "ratio": null,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 6.3
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 9.5,
+       "a_head": 35.1,
+       "share": 0.302,
+       "food_a_unit": 0.67
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "granary",
+         "n": 1,
+         "units": 4.0,
+         "with_materials": 5.2,
+         "why": "peak stock 1 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 19.9,
+         "why": "0 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 4.9,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 1.2,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 22.0,
+        "stone": 8.0,
+        "straw": 2.0
+       },
+       "units": 23.0,
+       "units_a_head": 85.2,
+       "with_materials": 31.2,
+       "with_materials_a_head": 115.6,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "copper": 0.0,
+        "timber": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.519,
+        "meal": 0.852,
+        "flour": 0.529,
+        "bread": 0.567
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.016
+     },
+     "plan": [],
+     "by_parcel": {
+      "pass_scrub": 6.3
+     }
+    },
+    "ceiling": {
+     "supported": 0.27,
+     "ratio": null,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 6.3
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 9.5,
+       "a_head": 35.1,
+       "share": 0.302,
+       "food_a_unit": 0.67
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "granary",
+         "n": 1,
+         "units": 4.0,
+         "with_materials": 5.2,
+         "why": "peak stock 1 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 19.9,
+         "why": "0 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 4.9,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 1.2,
+         "why": "one a sleeper"
+        },
+        {
+         "what": "clear the Glade",
+         "n": 1,
+         "units": 6.0,
+         "with_materials": 6.0,
+         "why": "meadow"
+        },
+        {
+         "what": "clear Brook Meadow",
+         "n": 1,
+         "units": 12.0,
+         "with_materials": 12.0,
+         "why": "meadow"
+        },
+        {
+         "what": "clear the Common",
+         "n": 1,
+         "units": 24.0,
+         "with_materials": 24.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear High Pasture",
+         "n": 1,
+         "units": 6.0,
+         "with_materials": 6.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear the Moor",
+         "n": 1,
+         "units": 36.0,
+         "with_materials": 36.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear Riverside Meadow",
+         "n": 1,
+         "units": 12.0,
+         "with_materials": 12.0,
+         "why": "meadow"
+        }
+       ],
+       "materials": {
+        "timber": 22.0,
+        "stone": 8.0,
+        "straw": 2.0
+       },
+       "units": 119.0,
+       "units_a_head": 440.7,
+       "with_materials": 127.2,
+       "with_materials_a_head": 471.1,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "copper": 0.0,
+        "timber": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.519,
+        "meal": 0.852,
+        "flour": 0.529,
+        "bread": 0.567
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.016
+     },
+     "plan": [],
+     "by_parcel": {
+      "pass_scrub": 6.3
+     }
+    }
+   },
+   "stores_food": 0.0,
+   "first_harvest": {
+    "standing": null,
+    "sown": 6,
+    "first": 6,
+    "lost_to_frost": []
+   },
+   "buffer_days": null,
+   "fuel": {
+    "need_a_head": 9.33,
+    "levels": {
+     "gathered": {
+      "supported": 0.0,
+      "ratio": null,
+      "heat_a_year": 0.0,
+      "work_a_head": null
+     },
+     "cut": {
+      "supported": 0.8,
+      "ratio": null,
+      "heat_a_year": 7.3,
+      "work_a_head": 3.7
+     },
+     "managed": {
+      "supported": 0.8,
+      "ratio": null,
+      "heat_a_year": 7.3,
+      "work_a_head": 3.7
+     }
+    },
+    "standing_years": null,
+    "standing_heat": 70.0
+   },
+   "horizon": {
+    "standing": {
+     "level": "standing",
+     "people": 0,
+     "days": 20,
+     "first_short": null,
+     "short_days": 0,
+     "short_meals": 0.0,
+     "seed_share": 1.0,
+     "store_food": 0.0
+    },
+    "worked": {
+     "level": "worked",
+     "people": 0,
+     "days": 20,
+     "first_short": null,
+     "short_days": 0,
+     "short_meals": 0.0,
+     "seed_share": 1.0,
+     "store_food": 0.0
+    }
+   }
+  },
+  "grey_crag": {
+   "people": 0,
+   "levels": {
+    "bare": {
+     "supported": 0.22,
+     "ratio": null,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 6.3
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 9.5,
+       "a_head": 43.1,
+       "share": 0.371,
+       "food_a_unit": 0.67
+      },
+      "capital": {
+       "items": [],
+       "materials": {},
+       "units": 0.0,
+       "units_a_head": 0.0,
+       "with_materials": 0.0,
+       "with_materials_a_head": 0.0,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {},
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.684,
+        "meal": 1.018,
+        "flour": 0.694,
+        "bread": 0.778
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.197
+     },
+     "plan": [],
+     "by_parcel": {
+      "gc_scree": 6.3
+     }
+    },
+    "standing": {
+     "supported": 0.25,
+     "ratio": null,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 6.3
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 9.5,
+       "a_head": 37.9,
+       "share": 0.326,
+       "food_a_unit": 0.67
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 23.6,
+         "why": "0 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 5.7,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 1.4,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 16.0,
+        "stone": 8.0,
+        "straw": 2.0
+       },
+       "units": 19.0,
+       "units_a_head": 76.0,
+       "with_materials": 30.6,
+       "with_materials_a_head": 122.5,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "timber": 0.0,
+        "stone": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.48,
+        "meal": 0.813,
+        "flour": 0.49,
+        "bread": 0.536
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.087
+     },
+     "plan": [],
+     "by_parcel": {
+      "gc_scree": 6.3
+     }
+    },
+    "worked": {
+     "supported": 0.25,
+     "ratio": null,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 6.3
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 9.5,
+       "a_head": 37.9,
+       "share": 0.326,
+       "food_a_unit": 0.67
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "bins",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 2.2,
+         "why": "peak stock 1 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 23.6,
+         "why": "0 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 5.7,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 1.4,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 19.0,
+        "stone": 8.0,
+        "straw": 2.0
+       },
+       "units": 20.0,
+       "units_a_head": 80.0,
+       "with_materials": 32.8,
+       "with_materials_a_head": 131.2,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "timber": 0.0,
+        "stone": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.72,
+        "meal": 1.054,
+        "flour": 0.73,
+        "bread": 0.776
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.082
+     },
+     "plan": [],
+     "by_parcel": {
+      "gc_scree": 6.3
+     }
+    },
+    "best": {
+     "supported": 0.27,
+     "ratio": null,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 6.3
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 9.5,
+       "a_head": 35.1,
+       "share": 0.302,
+       "food_a_unit": 0.67
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "granary",
+         "n": 1,
+         "units": 4.0,
+         "with_materials": 5.2,
+         "why": "peak stock 1 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 19.9,
+         "why": "0 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 4.9,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 1.2,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 22.0,
+        "stone": 8.0,
+        "straw": 2.0
+       },
+       "units": 23.0,
+       "units_a_head": 85.2,
+       "with_materials": 31.2,
+       "with_materials_a_head": 115.6,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "copper": 0.0,
+        "timber": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.519,
+        "meal": 0.852,
+        "flour": 0.529,
+        "bread": 0.567
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.016
+     },
+     "plan": [],
+     "by_parcel": {
+      "gc_scree": 6.3
+     }
+    },
+    "ceiling": {
+     "supported": 0.27,
+     "ratio": null,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 6.3
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 9.5,
+       "a_head": 35.1,
+       "share": 0.302,
+       "food_a_unit": 0.67
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "granary",
+         "n": 1,
+         "units": 4.0,
+         "with_materials": 5.2,
+         "why": "peak stock 1 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 19.9,
+         "why": "0 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 4.9,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 1.2,
+         "why": "one a sleeper"
+        },
+        {
+         "what": "clear the Glade",
+         "n": 1,
+         "units": 6.0,
+         "with_materials": 6.0,
+         "why": "meadow"
+        },
+        {
+         "what": "clear Brook Meadow",
+         "n": 1,
+         "units": 12.0,
+         "with_materials": 12.0,
+         "why": "meadow"
+        },
+        {
+         "what": "clear the Common",
+         "n": 1,
+         "units": 24.0,
+         "with_materials": 24.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear High Pasture",
+         "n": 1,
+         "units": 6.0,
+         "with_materials": 6.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear the Moor",
+         "n": 1,
+         "units": 36.0,
+         "with_materials": 36.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear Riverside Meadow",
+         "n": 1,
+         "units": 12.0,
+         "with_materials": 12.0,
+         "why": "meadow"
+        }
+       ],
+       "materials": {
+        "timber": 22.0,
+        "stone": 8.0,
+        "straw": 2.0
+       },
+       "units": 119.0,
+       "units_a_head": 440.7,
+       "with_materials": 127.2,
+       "with_materials_a_head": 471.1,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "copper": 0.0,
+        "timber": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.519,
+        "meal": 0.852,
+        "flour": 0.529,
+        "bread": 0.567
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.016
+     },
+     "plan": [],
+     "by_parcel": {
+      "gc_scree": 6.3
+     }
+    }
+   },
+   "stores_food": 0.0,
+   "first_harvest": {
+    "standing": null,
+    "sown": 6,
+    "first": 6,
+    "lost_to_frost": []
+   },
+   "buffer_days": null,
+   "fuel": {
+    "need_a_head": 9.33,
+    "levels": {
+     "gathered": {
+      "supported": 0.0,
+      "ratio": null,
+      "heat_a_year": 0.0,
+      "work_a_head": null
+     },
+     "cut": {
+      "supported": 0.8,
+      "ratio": null,
+      "heat_a_year": 7.3,
+      "work_a_head": 3.7
+     },
+     "managed": {
+      "supported": 0.8,
+      "ratio": null,
+      "heat_a_year": 7.3,
+      "work_a_head": 3.7
+     }
+    },
+    "standing_years": null,
+    "standing_heat": 70.0
+   },
+   "horizon": {
+    "standing": {
+     "level": "standing",
+     "people": 0,
+     "days": 20,
+     "first_short": null,
+     "short_days": 0,
+     "short_meals": 0.0,
+     "seed_share": 1.0,
+     "store_food": 0.0
+    },
+    "worked": {
+     "level": "worked",
+     "people": 0,
+     "days": 20,
+     "first_short": null,
+     "short_days": 0,
+     "short_meals": 0.0,
+     "seed_share": 1.0,
+     "store_food": 0.0
+    }
+   }
+  },
+  "high_moor": {
+   "people": 0,
+   "levels": {
+    "bare": {
+     "supported": 1.1,
+     "ratio": null,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 22.2,
+      "game": 23.4
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 127.9,
+       "a_head": 116.2,
+       "share": 1.0,
+       "food_a_unit": 0.24
+      },
+      "capital": {
+       "items": [],
+       "materials": {},
+       "units": 0.0,
+       "units_a_head": 0.0,
+       "with_materials": 0.0,
+       "with_materials_a_head": 0.0,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {},
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.684,
+        "meal": 1.018,
+        "flour": 0.694,
+        "bread": 0.778
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.182
+     },
+     "plan": [],
+     "by_parcel": {
+      "hm_moor": 12.7,
+      "hm_cleugh": 32.9
+     }
+    },
+    "standing": {
+     "supported": 2.81,
+     "ratio": null,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 22.2,
+      "game": 43.9
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 122.2,
+       "a_head": 43.5,
+       "share": 0.374,
+       "food_a_unit": 0.54
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 23.6,
+         "why": "3 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 5.7,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 3,
+         "units": 3.0,
+         "with_materials": 4.2,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 18.0,
+        "stone": 8.0,
+        "straw": 6.0
+       },
+       "units": 21.0,
+       "units_a_head": 7.5,
+       "with_materials": 33.4,
+       "with_materials_a_head": 11.9,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "timber": 0.0,
+        "stone": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.48,
+        "meal": 0.813,
+        "flour": 0.49,
+        "bread": 0.536
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.013
+     },
+     "plan": [],
+     "by_parcel": {
+      "hm_moor": 12.7,
+      "hm_cleugh": 53.4
+     }
+    },
+    "worked": {
+     "supported": 2.83,
+     "ratio": null,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 22.2,
+      "game": 43.9
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 122.2,
+       "a_head": 43.2,
+       "share": 0.371,
+       "food_a_unit": 0.54
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "bins",
+         "n": 1,
+         "units": 1.0,
+         "with_materials": 2.2,
+         "why": "peak stock 12 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 23.6,
+         "why": "3 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 5.7,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 3,
+         "units": 3.0,
+         "with_materials": 4.2,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 21.0,
+        "stone": 8.0,
+        "straw": 6.0
+       },
+       "units": 22.0,
+       "units_a_head": 7.8,
+       "with_materials": 35.6,
+       "with_materials_a_head": 12.6,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "timber": 0.0,
+        "stone": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.72,
+        "meal": 1.054,
+        "flour": 0.73,
+        "bread": 0.776
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.006
+     },
+     "plan": [],
+     "by_parcel": {
+      "hm_moor": 12.7,
+      "hm_cleugh": 53.4
+     }
+    },
+    "best": {
+     "supported": 2.84,
+     "ratio": null,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 22.2,
+      "game": 43.9
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 122.2,
+       "a_head": 43.0,
+       "share": 0.37,
+       "food_a_unit": 0.54
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "granary",
+         "n": 1,
+         "units": 4.0,
+         "with_materials": 5.2,
+         "why": "peak stock 12 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 1,
+         "units": 15.0,
+         "with_materials": 19.9,
+         "why": "3 people"
+        },
+        {
+         "what": "hearth",
+         "n": 1,
+         "units": 3.0,
+         "with_materials": 4.9,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 3,
+         "units": 3.0,
+         "with_materials": 3.6,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 24.0,
+        "stone": 8.0,
+        "straw": 6.0
+       },
+       "units": 25.0,
+       "units_a_head": 8.8,
+       "with_materials": 33.6,
+       "with_materials_a_head": 11.8,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {
+        "copper": 0.0,
+        "timber": 0.0
+       },
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.519,
+        "meal": 0.852,
+        "flour": 0.529,
+        "bread": 0.567
+       }
+      },
+      "land": {
+       "field_food_a_plot": null,
+       "field_work_a_plot": null
+      },
+      "waste_share": 0.003
+     },
+     "plan": [],
+     "by_parcel": {
+      "hm_moor": 12.7,
+      "hm_cleugh": 53.4
+     }
+    },
+    "ceiling": {
+     "supported": 122.44,
+     "ratio": null,
+     "labour_share": null,
+     "food_a_year": {
+      "fields": 2791.8,
+      "wild plants": 9.5,
+      "game": 43.9
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 1331.9,
+       "a_head": 10.9,
+       "share": 0.094,
+       "food_a_unit": 2.14
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "millstones",
+         "n": 1,
+         "units": 10.0,
+         "with_materials": 14.7,
+         "why": "mill: 53 a day, 192 a fitting"
+        },
+        {
+         "what": "granary",
+         "n": 5,
+         "units": 20.0,
+         "with_materials": 26.0,
+         "why": "peak stock 1595 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 28,
+         "units": 420.0,
+         "with_materials": 557.4,
+         "why": "122 people"
+        },
+        {
+         "what": "hearth",
+         "n": 28,
+         "units": 84.0,
+         "with_materials": 136.9,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 123,
+         "units": 123.0,
+         "with_materials": 147.8,
+         "why": "one a sleeper"
+        },
+        {
+         "what": "clear the Glade",
+         "n": 1,
+         "units": 6.0,
+         "with_materials": 6.0,
+         "why": "meadow"
+        },
+        {
+         "what": "clear Brook Meadow",
+         "n": 1,
+         "units": 12.0,
+         "with_materials": 12.0,
+         "why": "meadow"
+        },
+        {
+         "what": "clear the Common",
+         "n": 1,
+         "units": 24.0,
+         "with_materials": 24.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear High Pasture",
+         "n": 1,
+         "units": 6.0,
+         "with_materials": 6.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear the Moor",
+         "n": 1,
+         "units": 36.0,
+         "with_materials": 36.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear Riverside Meadow",
+         "n": 1,
+         "units": 12.0,
+         "with_materials": 12.0,
+         "why": "meadow"
+        }
+       ],
+       "materials": {
+        "stone": 234.0,
+        "timber": 573.0,
+        "straw": 246.0
+       },
+       "units": 753.0,
+       "units_a_head": 6.1,
+       "with_materials": 978.8,
+       "with_materials_a_head": 8.0,
+       "tools_a_year": 4.2,
+       "tool_materials_a_year": {
+        "copper": 4.21,
+        "timber": 2.1
+       },
+       "tool_work_a_year": 35.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.519,
+        "meal": 0.852,
+        "flour": 0.529,
+        "bread": 0.567
+       }
+      },
+      "land": {
+       "field_food_a_plot": 465.3,
+       "field_work_a_plot": 204.7
+      },
+      "waste_share": 0.004
+     },
+     "plan": [
+      "legumes 3d, grain 5d, legumes 3d, grain 5d, winter grain 7d; dung for 0% of its manuring"
+     ],
+     "by_parcel": {
+      "hm_moor": 2791.8,
+      "hm_cleugh": 53.4
+     }
+    }
+   },
+   "stores_food": 0.0,
+   "first_harvest": {
+    "standing": null,
+    "sown": 6,
+    "first": 6,
+    "lost_to_frost": []
+   },
+   "buffer_days": null,
+   "fuel": {
+    "need_a_head": 9.33,
+    "levels": {
+     "gathered": {
+      "supported": 0.1,
+      "ratio": null,
+      "heat_a_year": 0.8,
+      "work_a_head": 6.2
+     },
+     "cut": {
+      "supported": 0.1,
+      "ratio": null,
+      "heat_a_year": 1.1,
+      "work_a_head": 5.5
+     },
+     "managed": {
+      "supported": 1.4,
+      "ratio": null,
+      "heat_a_year": 12.8,
+      "work_a_head": 3.3
+     }
+    },
+    "standing_years": null,
+    "standing_heat": 86.0
+   },
+   "horizon": {
+    "standing": {
+     "level": "standing",
+     "people": 0,
+     "days": 20,
+     "first_short": null,
+     "short_days": 0,
+     "short_meals": 0.0,
+     "seed_share": 1.0,
+     "store_food": 0.0
+    },
+    "worked": {
+     "level": "worked",
+     "people": 0,
+     "days": 20,
+     "first_short": null,
+     "short_days": 0,
+     "short_meals": 0.0,
+     "seed_share": 1.0,
+     "store_food": 0.0
+    }
+   }
+  },
+  "(region)": {
+   "people": 51,
+   "levels": {
+    "bare": {
+     "supported": 4.89,
+     "ratio": 0.1,
+     "labour_share": null,
+     "food_a_year": {
+      "wild plants": 98.3,
+      "game": 48.7
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 568.4,
+       "a_head": 116.2,
+       "share": 1.0,
+       "food_a_unit": 0.24
+      },
+      "capital": {
+       "items": [],
+       "materials": {},
+       "units": 0.0,
+       "units_a_head": 0.0,
+       "with_materials": 0.0,
+       "with_materials_a_head": 0.0,
+       "tools_a_year": 0.0,
+       "tool_materials_a_year": {},
+       "tool_work_a_year": 0.0,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.684,
+        "meal": 1.018,
+        "flour": 0.694,
+        "bread": 0.778
+       }
+      },
+      "land": {
+       "field_food_a_plot": 0.0,
+       "field_work_a_plot": 0.0
+      },
+      "waste_share": 0.18
+     },
+     "plan": [],
+     "by_parcel": {
+      "mf_meadow": 6.3,
+      "mf_copse": 6.7,
+      "bf_pasture": 6.3,
+      "bf_meadow": 4.8,
+      "deep_wood": 45.6,
+      "aw_glade": 6.3,
+      "cg_scrub": 7.9,
+      "cg_pasture": 4.8,
+      "pass_scrub": 6.3,
+      "gc_scree": 6.3,
+      "hm_moor": 12.7,
+      "hm_cleugh": 32.9
+     }
+    },
+    "standing": {
+     "supported": 22.75,
+     "ratio": 0.45,
+     "labour_share": null,
+     "food_a_year": {
+      "fields": 297.1,
+      "wild plants": 98.3,
+      "game": 91.4,
+      "herds": 57.6
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 558.5,
+       "a_head": 24.6,
+       "share": 0.211,
+       "food_a_unit": 0.97
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "medium room (timber)",
+         "n": 6,
+         "units": 90.0,
+         "with_materials": 141.3,
+         "why": "23 people"
+        },
+        {
+         "what": "hearth",
+         "n": 6,
+         "units": 18.0,
+         "with_materials": 34.1,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 23,
+         "units": 23.0,
+         "with_materials": 32.0,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "timber": 113.0,
+        "stone": 48.0,
+        "straw": 46.0
+       },
+       "units": 131.0,
+       "units_a_head": 5.8,
+       "with_materials": 207.5,
+       "with_materials_a_head": 9.1,
+       "tools_a_year": 3.8,
+       "tool_materials_a_year": {
+        "timber": 3.8,
+        "stone": 1.9
+       },
+       "tool_work_a_year": 6.6,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.48,
+        "meal": 0.813,
+        "flour": 0.49,
+        "bread": 0.536
+       }
+      },
+      "land": {
+       "field_food_a_plot": 15.6,
+       "field_work_a_plot": 10.7
+      },
+      "waste_share": 0.032
+     },
+     "plan": [
+      "grain 6d"
+     ],
+     "by_parcel": {
+      "north_field": 81.8,
+      "bean_field": 32.7,
+      "rest_field": 32.7,
+      "east_field": 49.1,
+      "west_field": 32.7,
+      "south_field": 49.1,
+      "brook_field": 18.9,
+      "mf_meadow": 6.3,
+      "mf_copse": 8.5,
+      "bf_pasture": 6.3,
+      "bf_meadow": 4.8,
+      "deep_wood": 66.1,
+      "aw_glade": 6.3,
+      "cg_scrub": 7.9,
+      "cg_pasture": 4.8,
+      "pass_scrub": 6.3,
+      "gc_scree": 6.3,
+      "hm_moor": 12.7,
+      "hm_cleugh": 53.4,
+      "cattle": 57.6
+     }
+    },
+    "worked": {
+     "supported": 183.72,
+     "ratio": 3.6,
+     "labour_share": 0.129,
+     "food_a_year": {
+      "fields": 3992.2,
+      "wild plants": 98.3,
+      "game": 91.4,
+      "herds": 102.2
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 3178.3,
+       "a_head": 17.3,
+       "share": 0.149,
+       "food_a_unit": 1.35
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "hand mill",
+         "n": 4,
+         "units": 8.0,
+         "with_materials": 13.4,
+         "why": "grind: 65 a day, 18 a fitting"
+        },
+        {
+         "what": "bins",
+         "n": 42,
+         "units": 42.0,
+         "with_materials": 91.3,
+         "why": "peak stock 2506 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 41,
+         "units": 615.0,
+         "with_materials": 965.7,
+         "why": "184 people"
+        },
+        {
+         "what": "hearth",
+         "n": 41,
+         "units": 123.0,
+         "with_materials": 233.3,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 184,
+         "units": 184.0,
+         "with_materials": 255.9,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "stone": 336.0,
+        "timber": 925.0,
+        "straw": 368.0
+       },
+       "units": 972.0,
+       "units_a_head": 5.3,
+       "with_materials": 1559.6,
+       "with_materials_a_head": 8.5,
+       "tools_a_year": 54.3,
+       "tool_materials_a_year": {
+        "timber": 54.3,
+        "stone": 27.15
+       },
+       "tool_work_a_year": 93.8,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.72,
+        "meal": 1.054,
+        "flour": 0.73,
+        "bread": 0.776
+       }
+      },
+      "land": {
+       "field_food_a_plot": 210.1,
+       "field_work_a_plot": 147.5
+      },
+      "waste_share": 0.007
+     },
+     "plan": [
+      "legumes 4d, legumes 4d, legumes 4d, grain 6d; dung for 21% of its manuring"
+     ],
+     "by_parcel": {
+      "north_field": 1085.0,
+      "bean_field": 434.0,
+      "rest_field": 434.0,
+      "east_field": 651.1,
+      "west_field": 434.0,
+      "south_field": 651.1,
+      "brook_field": 303.1,
+      "mf_meadow": 6.3,
+      "mf_copse": 8.5,
+      "bf_pasture": 6.3,
+      "bf_meadow": 4.8,
+      "deep_wood": 66.1,
+      "aw_glade": 6.3,
+      "cg_scrub": 7.9,
+      "cg_pasture": 4.8,
+      "pass_scrub": 6.3,
+      "gc_scree": 6.3,
+      "hm_moor": 12.7,
+      "hm_cleugh": 53.4,
+      "cattle": 102.2
+     }
+    },
+    "best": {
+     "supported": 393.05,
+     "ratio": 7.71,
+     "labour_share": 0.074,
+     "food_a_year": {
+      "fields": 8840.6,
+      "wild plants": 98.3,
+      "game": 91.4,
+      "herds": 102.2
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 4266.9,
+       "a_head": 10.9,
+       "share": 0.093,
+       "food_a_unit": 2.14
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "millstones",
+         "n": 1,
+         "units": 10.0,
+         "with_materials": 14.7,
+         "why": "mill: 169 a day, 192 a fitting"
+        },
+        {
+         "what": "granary",
+         "n": 13,
+         "units": 52.0,
+         "with_materials": 67.7,
+         "why": "peak stock 5069 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 88,
+         "units": 1320.0,
+         "with_materials": 1751.9,
+         "why": "393 people"
+        },
+        {
+         "what": "hearth",
+         "n": 88,
+         "units": 264.0,
+         "with_materials": 430.2,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 394,
+         "units": 394.0,
+         "with_materials": 473.3,
+         "why": "one a sleeper"
+        }
+       ],
+       "materials": {
+        "stone": 714.0,
+        "timber": 1792.0,
+        "straw": 788.0
+       },
+       "units": 2040.0,
+       "units_a_head": 5.2,
+       "with_materials": 2737.8,
+       "with_materials_a_head": 7.0,
+       "tools_a_year": 13.3,
+       "tool_materials_a_year": {
+        "copper": 13.32,
+        "timber": 6.66
+       },
+       "tool_work_a_year": 110.9,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.519,
+        "meal": 0.852,
+        "flour": 0.529,
+        "bread": 0.567
+       }
+      },
+      "land": {
+       "field_food_a_plot": 465.3,
+       "field_work_a_plot": 204.7
+      },
+      "waste_share": 0.004
+     },
+     "plan": [
+      "legumes 3d, grain 5d, legumes 3d, grain 5d, winter grain 7d; dung for 17% of its manuring"
+     ],
+     "by_parcel": {
+      "north_field": 2326.5,
+      "bean_field": 930.5,
+      "rest_field": 930.5,
+      "east_field": 1395.9,
+      "west_field": 930.5,
+      "south_field": 1395.9,
+      "brook_field": 930.5,
+      "mf_meadow": 6.3,
+      "mf_copse": 8.5,
+      "bf_pasture": 6.3,
+      "bf_meadow": 4.8,
+      "deep_wood": 66.1,
+      "aw_glade": 6.3,
+      "cg_scrub": 7.9,
+      "cg_pasture": 4.8,
+      "pass_scrub": 6.3,
+      "gc_scree": 6.3,
+      "hm_moor": 12.7,
+      "hm_cleugh": 53.4,
+      "cattle": 102.2
+     }
+    },
+    "ceiling": {
+     "supported": 723.21,
+     "ratio": 14.18,
+     "labour_share": 0.068,
+     "food_a_year": {
+      "fields": 16553.9,
+      "wild plants": 57.1,
+      "game": 91.4,
+      "herds": 102.2
+     },
+     "gave_up": [],
+     "at_supported": {
+      "recurring": {
+       "food_work": 7497.7,
+       "a_head": 10.4,
+       "share": 0.089,
+       "food_a_unit": 2.24
+      },
+      "capital": {
+       "items": [
+        {
+         "what": "millstones",
+         "n": 2,
+         "units": 20.0,
+         "with_materials": 29.4,
+         "why": "mill: 316 a day, 192 a fitting"
+        },
+        {
+         "what": "granary",
+         "n": 25,
+         "units": 100.0,
+         "with_materials": 130.2,
+         "why": "peak stock 9463 food"
+        },
+        {
+         "what": "medium room (timber)",
+         "n": 161,
+         "units": 2415.0,
+         "with_materials": 3205.2,
+         "why": "723 people"
+        },
+        {
+         "what": "hearth",
+         "n": 161,
+         "units": 483.0,
+         "with_materials": 787.0,
+         "why": "one a room"
+        },
+        {
+         "what": "beds",
+         "n": 724,
+         "units": 724.0,
+         "with_materials": 869.8,
+         "why": "one a sleeper"
+        },
+        {
+         "what": "clear the Glade",
+         "n": 1,
+         "units": 6.0,
+         "with_materials": 6.0,
+         "why": "meadow"
+        },
+        {
+         "what": "clear Brook Meadow",
+         "n": 1,
+         "units": 12.0,
+         "with_materials": 12.0,
+         "why": "meadow"
+        },
+        {
+         "what": "clear the Common",
+         "n": 1,
+         "units": 24.0,
+         "with_materials": 24.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear High Pasture",
+         "n": 1,
+         "units": 6.0,
+         "with_materials": 6.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear the Moor",
+         "n": 1,
+         "units": 36.0,
+         "with_materials": 36.0,
+         "why": "pasture"
+        },
+        {
+         "what": "clear Riverside Meadow",
+         "n": 1,
+         "units": 12.0,
+         "with_materials": 12.0,
+         "why": "meadow"
+        }
+       ],
+       "materials": {
+        "stone": 1308.0,
+        "timber": 3289.0,
+        "straw": 1448.0
+       },
+       "units": 3838.0,
+       "units_a_head": 5.3,
+       "with_materials": 5117.6,
+       "with_materials_a_head": 7.1,
+       "tools_a_year": 24.5,
+       "tool_materials_a_year": {
+        "copper": 24.54,
+        "timber": 12.27
+       },
+       "tool_work_a_year": 204.2,
+       "embodied": {
+        "wild food": 1.667,
+        "meat": 1.429,
+        "milk": 0.208,
+        "dried meat": 3.857,
+        "grain": 0.519,
+        "meal": 0.852,
+        "flour": 0.529,
+        "bread": 0.567
+       }
+      },
+      "land": {
+       "field_food_a_plot": 473.0,
+       "field_work_a_plot": 205.2
+      },
+      "waste_share": 0.004
+     },
+     "plan": [
+      "legumes 3d, grain 5d, legumes 3d, grain 5d, winter grain 7d; dung for 9% of its manuring"
+     ],
+     "by_parcel": {
+      "mf_meadow": 1038.1,
+      "north_field": 2326.5,
+      "bean_field": 930.5,
+      "rest_field": 930.5,
+      "east_field": 1395.9,
+      "west_field": 930.5,
+      "south_field": 1395.9,
+      "brook_field": 930.5,
+      "bf_pasture": 1861.2,
+      "bf_meadow": 1038.1,
+      "aw_glade": 519.1,
+      "cg_pasture": 465.3,
+      "hm_moor": 2791.8,
+      "mf_copse": 8.5,
+      "deep_wood": 66.1,
+      "cg_scrub": 7.9,
+      "pass_scrub": 6.3,
+      "gc_scree": 6.3,
+      "hm_cleugh": 53.4,
+      "cattle": 102.2
+     }
+    }
+   },
+   "stores_food": 455.5,
+   "first_harvest": {
+    "standing": 2,
+    "sown": 6,
+    "first": 2,
+    "lost_to_frost": []
+   },
+   "buffer_days": 9.3,
+   "fuel": {
+    "need_a_head": 9.33,
+    "levels": {
+     "gathered": {
+      "supported": 0.6,
+      "ratio": 0.01,
+      "heat_a_year": 6.0,
+      "work_a_head": 6.2
+     },
+     "cut": {
+      "supported": 3.3,
+      "ratio": 0.06,
+      "heat_a_year": 30.5,
+      "work_a_head": 4.2
+     },
+     "managed": {
+      "supported": 13.0,
+      "ratio": 0.25,
+      "heat_a_year": 121.1,
+      "work_a_head": 3.4
+     }
+    },
+    "standing_years": 1.8,
+    "standing_heat": 856.0
+   },
+   "horizon": {
+    "standing": {
+     "level": "standing",
+     "people": 51,
+     "days": 20,
+     "first_short": 13,
+     "short_days": 7,
+     "short_meals": 264.9,
+     "seed_share": 1.0,
+     "store_food": 242.7
+    },
+    "worked": {
+     "level": "worked",
+     "people": 51,
+     "days": 20,
+     "first_short": null,
+     "short_days": 0,
+     "short_meals": 0.0,
+     "seed_share": 1.0,
+     "store_food": 269.5
+    }
+   }
+  }
+ },
+ "people": {
+  "millford": 15,
+  "barleyfield": 18,
+  "ashwood": 9,
+  "coppergate": 9,
+  "the_pass": 0,
+  "grey_crag": 0,
+  "high_moor": 0,
+  "(region)": 51
+ },
+ "ceiling": "turned to field: aw_glade, bf_meadow, bf_pasture, cg_pasture, hm_moor, mf_meadow"
+}

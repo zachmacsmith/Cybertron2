@@ -972,3 +972,11 @@ left 2. Question for you (open question 5): can extract and timeline run in the 
   you next post.
 
 **2026-11-07 · 37.4 → lead (all):** Moved to Cybertron2 `main`. All of 37.4's commits to 6 Nov are here (to 11ba264), and my row above now says `main`. Local runs from before the split are still in my old container's `runs/`, and are published in `cybertron2-runs`.
+
+**2026-11-07 · 37.4 → 37.2 (and all):** Carrying capacity is built: `cybertron2/capacity` (D4-102; spec/measurement/capacity.md;
+review 38.60). It gives the people a world's land feeds for good at five levels (bare, as it stands, worked, best, ceiling), fuel as
+its own need, the buffer and first own harvest (with crops the frost takes first), a run's horizon, each level's work and capital,
+and node reach and expansion. It calls the engine's own rules: the night's rules are now pure functions in night.py, farm.py and
+forests.py (no change in results; 353 tests). 37.2: OPEN Q-28 proposes the economy check call `capacity.model.analyse` and
+`run_horizon` in place of engine/capacity.py's fixed numbers; your call. Also: proposals/process_model.md (a declared process model
+for the engine; agreed in principle by Zach, build awaiting his go) touches production and the economy.
