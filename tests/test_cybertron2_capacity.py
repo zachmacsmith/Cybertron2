@@ -16,7 +16,8 @@ WEN = yaml.safe_load(open("cybertron2/specs/wenbridge.yaml"))
 
 # ---------------------------------------------------------------------------------------------------------- guards
 def test_every_edible_good_has_a_source_or_a_route():
-    made = {"wild food", "meat", "milk"} | {CROPS[c]["gives"] for c in CROPS}
+    made = {d["gives"] for d in TECHNIQUES.values() if d.get("verb") == "gather" and isinstance(d.get("gives"), str)}
+    made |= {"milk", "meat"} | {CROPS[c]["gives"] for c in CROPS}                  # milking and slaughter (farm.py)
     for t in FD.FOOD_TECHS:
         made |= set(TECHNIQUES[t]["gives"])
     assert set(FD.EDIBLE) <= made, f"edible goods no source makes: {set(FD.EDIBLE) - made}"
@@ -40,9 +41,9 @@ def test_wild_take_at_the_models_rate_holds_the_stock():
     w = M.world_of(WEN)
     ctx = M.context(w, "standing")
     par = {**w.s["parcels"]["wb_mead"], "id": "wb_mead"}
-    f = SO.plants(ctx, par)[0]
+    f = [x for x in SO.wild(ctx, par) if x.where == "wb_mead" and x.good == "wild food"][0]
     K = w.s["parcels"]["wb_mead"]["res"]["plants"]["K"]
-    S = K * float(f.note.split("kept at ")[1].rstrip("%")) / 100
+    S = K * float(f.note.split("kept at ")[1].split("%")[0]) / 100
     w.s["parcels"]["wb_mead"]["res"]["plants"]["S"] = S
     from cybertron2.capacity import cal as CL
     now = CL.year_day_of(w, w.d)
@@ -95,3 +96,32 @@ def test_levels_rise_in_order_and_the_frost_is_seen():
     assert vals == sorted(vals) and vals[0] < vals[-1]
     lost = r["nodes"]["wenbridge"]["first_harvest"]["lost_to_frost"]
     assert any(x["parcel"] == "wb_bottom" for x in lost)          # the field 38.59 counted, which the frost takes first
+
+
+def test_gathering_draws_as_it_did():
+    """The distribution form of a hunt consumes the random stream as the hand-written code did (D4-103)."""
+    import random
+    from cybertron2.engine import yields as YD
+    y = TECHNIQUES["hunt"]["yield"]
+    r = {"S": 10.0, "K": 14.0}
+    for seed in range(300):
+        a, b = random.Random(seed), random.Random(seed)
+        got, hide = 0.0, 0
+        if a.random() < y["p"] * r["S"] / r["K"]:                              # the code before D4-103
+            got = round(min(r["S"], a.uniform(*y["range"]) * 1.0 * 1.0), 2)
+            for _, pr in (y.get("by") or {}).items():
+                hide += 1 if a.random() < pr else 0
+        v = YD.dist(y, r, 1.0, weapon=1.0).sample(b)
+        got2 = round(v["got"], 2) if isinstance(v, dict) else 0.0
+        hide2 = sum(v["by"].values()) if isinstance(v, dict) else 0
+        assert (got, hide) == (got2, hide2) and a.random() == b.random()
+
+
+def test_a_hunts_mean_is_its_samples_mean():
+    import random
+    from cybertron2.engine import yields as YD, outcomes as OC
+    d = YD.dist(TECHNIQUES["hunt"]["yield"], {"S": 3.0, "K": 14.0}, 1.0, weapon=1.0)
+    rng = random.Random(1)
+    n = 40000
+    m = sum(OC.got(d.sample(rng)) for _ in range(n)) / n
+    assert abs(m - OC.got(d.mean())) < 0.03

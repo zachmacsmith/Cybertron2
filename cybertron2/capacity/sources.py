@@ -91,44 +91,82 @@ def msy(step, K) -> tuple:
     return best
 
 
-def _regrow(ctx, key, K, r):
-    from cybertron2.engine import night as NI
+def _gatherers(key):
+    """The gathering techniques that take this stock and give a food (TECHNIQUES: draws, gives, a yield kind yields.py reads)."""
+    from cybertron2.engine import yields as YD
+    from cybertron2.capacity.food import EDIBLE
+    return [(t, d) for t, d in TECHNIQUES.items() if d.get("verb") == "gather" and d.get("draws") == key
+            and (d.get("yield") or {}).get("kind") in YD.KINDS and d.get("gives") in EDIBLE]
+
+
+def _per_unit(ctx, t, d, S, K):
+    """Food a unit of work at stock S: the mean of the act's own outcome (yields.dist), with the best tool and weapon the level and
+    the world reach."""
+    from cybertron2.engine import yields as YD, outcomes as OC
+    from cybertron2.capacity import rotation as RO
+    tm = RO.tool_mult(t, ctx.level.tools) if d.get("tools") else 1.0
+    wpn = d.get("weapon") or {}
+    armed = ctx.reach.tool("crude") and ("crude weapon" in ctx.reach.goods or "timber" in ctx.reach.goods) and ctx.level.tools != "bare"
+    weapon = float(wpn.get("armed" if armed else "none", 1.0)) if wpn else 1.0
+    v = YD.dist(d["yield"], {"S": S, "K": K}, 1.0, tm, weapon=weapon, refuge=float(PHYSICS["refuge"])).mean()
+    return OC.got(v) / float(d.get("units", 1) or 1)
+
+
+def _usable(ctx, t, d) -> bool:
+    if not ctx.reach.knows(t):
+        return False
+    if t == "hunt" and not ctx.level.hunt:
+        return False
+    tools = d.get("tools") or {}
+    return not (tools and "bare" not in tools and not any(ctx.reach.tool(g) for g in tools if g != "bare"))
+
+
+def _steady(ctx, key, res):
+    """The best steady take a night, and the stock it stands at, by the engine's own regime step, for each year day."""
+    from cybertron2.engine import regimes as RG, night as NI
+    top = max(float(res["K"]), float(res.get("run_K", 0) or 0))
+    out, memo = [], {}
+    for season, cold in ctx.cal:
+        if (season, cold) not in memo:
+            c = {"winter": NI.slow_season(season), "season": season}
+            memo[(season, cold)] = msy(lambda S: RG.step(ctx.w.p, key, {**res, "S": S}, c), top)
+        out.append(memo[(season, cold)])
+    return out
+
+
+@source("the wild")
+def wild(ctx, par):
+    """Every renewable stock on the parcel that a known gathering technique takes for food: plants, game, fish and whatever the data
+    adds. Its steady take comes from the regime's own night (regimes.py), its yield a unit of work from the act's own outcome
+    (yields.py), at the stock it stands at each day. Nothing here is particular to a stock."""
     from cybertron2.engine import regimes as RG
-    reg = RG.of(key)
-    def at(season, cold):
-        return msy(lambda S: NI.regrow(ctx.w.p, reg, S, K, r, NI.slow_season(season)), K)
-    return at
-
-
-@source("wild plants")
-def plants(ctx, par):
-    res = (par.get("res") or {}).get("plants")
-    if not res or float(res.get("K", 0)) <= 0 or par["id"] in ctx.as_field:
+    if par["id"] in ctx.as_field:
         return []
-    K, r = float(res["K"]), float(res.get("r", 0.3))
-    at = _regrow(ctx, "plants", K, r)
-    S = max((at(s_, c_) for s_, c_ in set(ctx.cal)), key=lambda x: x[0])[1]
-    per_unit = float(TECHNIQUES["forage"]["yield"]["base"]) * S / K
-    prof = _daily(ctx, lambda s_, c_: at(s_, c_)[0])
-    return [Flow("wild plants", par["node"], par["id"], "wild food", prof, sum(prof) / max(1e-9, per_unit),
-                 note=f"K {K:g}, kept at {S / K:.0%}", extra={"standing": float(res.get("S", K)) - S})]
-
-
-@source("game")
-def game(ctx, par):
-    res = (par.get("res") or {}).get("game")
-    if not res or float(res.get("K", 0)) <= 0 or not ctx.level.hunt or par["id"] in ctx.as_field:
-        return []
-    K, r = float(res["K"]), float(res.get("r", 0.25))
-    at = _regrow(ctx, "game", K, r)
-    S = max((at(s_, c_) for s_, c_ in set(ctx.cal)), key=lambda x: x[0])[1]
-    y = TECHNIQUES["hunt"]["yield"]
-    armed = ctx.reach.tool("crude") and ("crude weapon" in ctx.reach.goods or "timber" in ctx.reach.goods)
-    mult = float(TECHNIQUES["hunt"]["weapon"]["armed" if armed and ctx.level.tools != "bare" else "none"])
-    per_unit = float(y["p"]) * S / K * (sum(y["range"]) / 2) * mult / float(TECHNIQUES["hunt"]["units"])
-    prof = _daily(ctx, lambda s_, c_: at(s_, c_)[0])
-    return [Flow("game", par["node"], par["id"], "meat", prof, sum(prof) / max(1e-9, per_unit),
-                 note=f"K {K:g}, kept at {S / K:.0%}; {'armed' if mult >= 1 else 'unarmed'}", extra={"standing": float(res.get("S", K)) - S})]
+    out = []
+    for key, res in (par.get("res") or {}).items():
+        if RG.of(key) not in RG.NIGHTLY or float(res.get("K", 0)) <= 0:
+            continue
+        gs = [(t, d) for t, d in _gatherers(key) if _usable(ctx, t, d)]
+        if not gs:
+            continue
+        K = float(res["K"])
+        steady = _steady(ctx, key, res)
+        prof = [g for g, _ in steady]
+        units = 0.0
+        best_t = None
+        for take, S in steady:                                  # each day's take at that day's stock, by the best gatherer then
+            t, d = max(gs, key=lambda td: _per_unit(ctx, td[0], td[1], S, K))
+            pu = _per_unit(ctx, t, d, S, K)
+            units += take / pu if pu > 0 else 0.0
+            best_t = best_t or (t, d)
+        if units <= 0:
+            continue
+        S0 = max(steady, key=lambda x: x[0])[1]
+        name = {"plants": "wild plants", "game": "game"}.get(key, key)
+        out.append(Flow(name, par["node"], par["id"], best_t[1]["gives"], prof, units,
+                        note=f"{key}: K {K:g}, kept at {S0 / max(K, 1e-9):.0%}, by {best_t[0]}",
+                        extra={"standing": float(res.get("S", K)) - S0}))
+    return out
 
 
 # ---------------------------------------------------------------------------------------------------------------- herds
