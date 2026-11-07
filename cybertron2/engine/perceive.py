@@ -287,7 +287,7 @@ def eye(here, name) -> float:
     return TH.eye(here._w, name, on="bare")
 
 
-LAND_DRAWS = {"plants": "wild food", "wood": "timber", "game": "game", "dead": "firewood"}
+LAND_DRAWS = {"plants": "wild food", "wood": "timber", "game": "game", "dead": "firewood", "fish": "fish"}
 
 
 def remember_beasts(w, name, hid, how) -> None:

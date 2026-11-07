@@ -8,11 +8,13 @@ from __future__ import annotations
 
 import math
 
-from cybertron2.engine.data import BLUEPRINTS, FITTINGS, ITEMS, LEVELS, SKILL, SKILL_WORDS, TECHNIQUES, TRY
+from cybertron2.engine.data import RESOURCES, BLUEPRINTS, FITTINGS, ITEMS, LEVELS, SKILL, SKILL_WORDS, TECHNIQUES, TRY
 
 
 def basic(tech) -> bool:
-    return bool(TECHNIQUES[tech].get("basic"))
+    """Known to everyone: a basic craft of a system the world has on (D4-103)."""
+    from cybertron2.engine import systems as SY
+    return bool(TECHNIQUES[tech].get("basic")) and SY.on(TECHNIQUES[tech])
 
 
 def label(tech) -> str:
@@ -20,10 +22,13 @@ def label(tech) -> str:
 
 
 def resolve(x, verb=None):
-    """A technique from what an agent wrote: its name, an alias, or a word of its label (one done by `verb` first)."""
+    """A technique from what an agent wrote: its name, an alias, or a word of its label (one done by `verb` first); only those of
+    the world's systems (D4-103)."""
+    from cybertron2.engine import systems as SY
     x = str(x or "").strip().lower()
-    order = sorted(TECHNIQUES, key=lambda t: TECHNIQUES[t]["verb"] != verb) if verb else list(TECHNIQUES)
-    if x in TECHNIQUES and (verb is None or TECHNIQUES[x]["verb"] == verb):
+    live = SY.techniques()
+    order = sorted(live, key=lambda t: TECHNIQUES[t]["verb"] != verb) if verb else list(live)
+    if x in live and (verb is None or TECHNIQUES[x]["verb"] == verb):
         return x
     for t in order:
         d = TECHNIQUES[t]
@@ -107,6 +112,9 @@ def rec(mind, tech):
 def level(mind, tech):
     if tech not in TECHNIQUES:
         return None
+    from cybertron2.engine import systems as SY
+    if not SY.on(TECHNIQUES[tech], getattr(mind, "systems", None)):          # not a craft of this world (D4-103)
+        return None
     if basic(tech):
         return "known"
     r = rec(mind, tech)
@@ -158,7 +166,7 @@ def ready(here, tech, kind, key, a=None) -> str:
     if kind == "parcel":
         p = here.parcels()[key]
         d = t.get("draws")
-        if d in ("plants", "game", "wood", "seam", "quarry", "grass", "dung", "dead", "young") and d not in p["res"]:
+        if d in RESOURCES and d not in p["res"]:                              # any stock the data names (D4-103)
             return f"there is no {({'plants': 'wild food', 'grass': 'grass to cut', 'dead': 'dead wood', 'young': 'young growth'}).get(d, d)} at {p['name']}"
         if d in ("dead", "young") and p["res"][d]["S"] < 0.5:
             return f"there is no {'dead wood' if d == 'dead' else 'young growth'} left to take at {p['name']}"
@@ -170,6 +178,8 @@ def ready(here, tech, kind, key, a=None) -> str:
             return f"the seam at {p['name']} is worked out"
         if d == "plants" and p["res"][d]["S"] <= (here.p["refuge"] + 0.02) * p["res"][d]["K"]:
             return f"{p['name']} is picked bare"
+        if d == "fish" and p["res"][d]["S"] <= (here.p["refuge"] + 0.02) * p["res"][d]["K"]:
+            return f"the fish at {p['name']} are fished out for now"
         if d == "wood" and p["res"][d]["S"] <= 0.5:
             return f"there is no standing timber left in {p['name']}"
         if y == "sow" and p.get("crop") and p["crop"].get("left", 0) > 1e-9:

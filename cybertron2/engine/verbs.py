@@ -7,7 +7,7 @@ Each handler: (here, mind, a) -> result line. Refusals name what is short and co
 from __future__ import annotations
 
 import math
-from cybertron2.engine import yields as YD
+from cybertron2.engine import regimes as RG, yields as YD
 from cybertron2.engine import buildings as BL, farm as FM, knowledge as KN, modifiers as MOD, perceive as PC, things as TH
 from cybertron2.engine.data import BLUEPRINTS, COVERS, FITTINGS, ITEMS, LINES, MONUMENTS, ROOMS, SPACE, TECHNIQUES, TIERS, TRY
 from cybertron2.engine.here import Refused, show
@@ -236,8 +236,9 @@ def item_of(x) -> str:
     i = str(x or "").strip().lower()
     i = {"loaves": "bread", "loaf": "bread", "greens": "wild food", "food": "wild food", "weapon": "crude weapon", "tool": "crude tool",
          "tools": "crude tool", "wood": "timber", "ore": "copper ore", "hides": "hide", "stones": "stone"}.get(i, i)
-    if i not in ITEMS:
-        raise Refused(f"there is no such thing as {x!r} (goods: {', '.join(ITEMS)})")
+    from cybertron2.engine import systems as SY
+    if i not in ITEMS or not SY.on(ITEMS[i]):
+        raise Refused(f"there is no such thing as {x!r} (goods: {', '.join(SY.items())})")
     return i
 
 
@@ -490,7 +491,8 @@ def _work(here, mind, a, party):
 def _technique(here, mind, a, party, verb):
     tech = KN.resolve(a.get("what"), verb)
     if tech is None or TECHNIQUES[tech]["verb"] != verb:
-        names = [t for t, d in TECHNIQUES.items() if d["verb"] == verb]
+        from cybertron2.engine import systems as SY
+        names = SY.techniques(verb=verb)
         raise Refused(f"{a.get('what')!r} is not something you {verb} ({verb}: {', '.join(names)})")
     tech, a = _as_modified(tech, verb, a)
     t = TECHNIQUES[tech]
@@ -538,7 +540,7 @@ def _technique(here, mind, a, party, verb):
     elif y["kind"] == "fixed":
         q = YD.dist(y, None, m, tm).sample(rng)
         got = here.apply("draw", parcel=key, key=t["draws"], qty=round(q, 2)) if t["draws"] in here.parcels()[key]["res"] and \
-            here.parcels()[key]["res"][t["draws"]]["K"] > 0 and t["draws"] != "quarry" else round(q, 2)
+            here.parcels()[key]["res"][t["draws"]]["K"] > 0 and RG.of(t["draws"]) != "endless" else round(q, 2)
         if tech == "fell" and got > 0:                                         # its branches left as dead wood (D2-156)
             here.apply("add_res", parcel=key, key="dead", qty=got)
     elif y["kind"] == "clear":                                                # new ground for a field (CLEARING)
@@ -603,7 +605,8 @@ def _technique(here, mind, a, party, verb):
 def _make(here, mind, a, party):
     tech = KN.resolve(a.get("what"), "make")
     if tech is None or TECHNIQUES[tech]["verb"] != "make":
-        names = [t for t, d in TECHNIQUES.items() if d["verb"] == "make"]
+        from cybertron2.engine import systems as SY
+        names = SY.techniques(verb="make")
         raise Refused(f"{a.get('what')!r} is not something you make (recipes: {', '.join(names)})")
     lvl = _level(mind, tech)
     t = TECHNIQUES[tech]

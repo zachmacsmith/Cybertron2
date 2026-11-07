@@ -8,6 +8,7 @@ import copy
 import math
 
 from cybertron2.engine import buildings as BL, forests as FO, agreements as AG, farm as FM, knowledge as KN, modifiers as MOD, perceive as PC, verbs as V
+from cybertron2.engine import systems as SY
 from cybertron2.engine.data import BLUEPRINTS, FITTINGS, FUSE, HERDS, ITEMS, MODIFIERS, MONUMENTS, ROOMS, SPACE, TECHNIQUES, TIERS
 from cybertron2.engine.here import CONDITION, STAGES, show
 
@@ -67,14 +68,15 @@ def _known(mind):
 def schema_for(here, mind) -> dict:
     """The reply schema with closed arguments as enums of what the agent knows; free text stays free."""
     people, buildings, parcels, herds, nodes, holds = _known(mind)
-    techs = sorted(t for t in TECHNIQUES if KN.level(mind, t) is not None and t not in MODIFIERS) or sorted(t for t in TECHNIQUES if t not in MODIFIERS)
+    from cybertron2.engine import systems as SY
+    techs = sorted(t for t in TECHNIQUES if KN.level(mind, t) is not None and t not in MODIFIERS) or sorted(t for t in SY.techniques() if t not in MODIFIERS)
     s = copy.deepcopy(SCHEMA)
     a = s["properties"]["actions"]["items"]["properties"]
     a["do"]["enum"] = list(dict.fromkeys([v for v in V.VERBS if V.verb_here(here, v)] + sorted({c for d in FUSE.values() for c in d["choices"] + d.get("also", [])})))
     a["on trouble"]["enum"] = TECHNIQUES["on trouble"]["values"]
     a["meeting"] = {"type": "string", "enum": TECHNIQUES["meeting"]["values"]}
     # the night's choices are in the one schema, so an urgent call continues the agent's conversation (D2-84; a new schema restarts it)
-    a["item"]["enum"] = list(ITEMS)
+    a["item"]["enum"] = SY.items()
     a["what"]["enum"] = techs + [x for x in ("shelter", "shelter and food") if x not in techs]
     # "at" stays free text: a place, a building, or a child cared for (work care at <the child>); the verbs refuse what is not there
     # "to" stays free text: it names a place, a way as the roads name it (an unexplored one too: D4-47), a person, a household or a
@@ -313,7 +315,7 @@ def _place_lines(here, mind=None) -> list:
         what = sorted({t for t, d in TECHNIQUES.items() if p["cover"] in (d.get("at") or {}).get("covers", [])
                        and (d.get("draws") in (None, "plot", "crop") or d.get("draws") in p["res"] or (d.get("draws") == "herd" and herds))
                        and (d.get("yield") or {}).get("ground", p.get("ground")) == p.get("ground")
-                       and (mind is None or d.get("crew") or KN.level(mind, t) in ("rough", "capable", "known"))
+                       and (mind is None or d.get("crew") or KN.level(mind, t) in ("rough", "capable", "known")) and SY.on(d)
                        and ((d.get("yield") or {}).get("kind") != "gate" or not FM.ready(here, t, pid))})   # a gate only where one is
         shares = _share_words(here, pid, p)
         held = "" if any(x.startswith("held: ") for x in shares) else _holders(here, ("parcel", pid))
@@ -419,8 +421,10 @@ def _daystr(mind, d) -> str:
 
 def weights_text() -> str:
     from collections import Counter
-    common = Counter(v.get("weight", 1) for v in ITEMS.values()).most_common(1)[0][0]
-    odd = [f"{i} {v.get('weight', 1):g}" for i, v in ITEMS.items() if v.get("weight", 1) != common]
+    from cybertron2.engine import systems as SY
+    live = {i: ITEMS[i] for i in SY.items()}
+    common = Counter(v.get("weight", 1) for v in live.values()).most_common(1)[0][0]
+    odd = [f"{i} {v.get('weight', 1):g}" for i, v in live.items() if v.get("weight", 1) != common]
     return "weights: " + ", ".join(odd) + f", everything else {common:g}"
 
 
@@ -444,8 +448,8 @@ def system_prompt(here, mind) -> str:
               "they are (their household's, or a host's who feeds them). Without a sound, warm house you need more. Missed meals make "
               "you hungry, then starving; starving people work less and can die.",
               "- Food, in meals a unit: " + "; ".join(f"{i} {v['food']:g}" + (f" at a lit fire, {v.get('raw', 0):g} raw" if v.get("cook") else "")
-                                                      for i, v in ITEMS.items() if v["food"] > 0)
-              + ". Spoils fastest in your hands: " + ", ".join(i for i, v in sorted(ITEMS.items(), key=lambda kv: -kv[1]["spoil"])
+                                                      for i, v in ITEMS.items() if v["food"] > 0 and SY.on(v))
+              + ". Spoils fastest in your hands: " + ", ".join(i for i, v in sorted(((i, v) for i, v in ITEMS.items() if SY.on(v)), key=lambda kv: -kv[1]["spoil"])
                                                            if v["food"] > 0 and v["spoil"] >= 0.15)
               + f"; a store keeps food {1 / p['house_spoil']:.0f} times better.",
               "- Fuel, as heat: " + ", ".join(f"{i} {ITEMS[i]['heat']:g}" for i in p["heat"]["order"]) + " a unit (firewood is dead wood "

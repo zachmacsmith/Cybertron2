@@ -83,6 +83,8 @@ def load_spec(path) -> dict:
 class World:
     def __init__(self, spec: dict):
         self.spec = spec
+        from cybertron2.engine import systems as SY
+        SY.use(self)
         self.seed = int(spec.get("seed", 1))
         self.days = int(spec["days"])
         self.p = merge(PHYSICS, spec.get("physics") or {})
@@ -107,7 +109,8 @@ class World:
                 woods = FO.seed(p["cover"], int(p.get("size", 1)), st)                 # trees, young growth, dead wood (D2-156)
                 if isinstance(st.get("wood"), dict) and st["wood"].get("kind"):
                     st.pop("wood")
-                res = {k: {"S": float(v["S"]), "K": float(v["K"]), "r": float(v.get("r", 0.3))} if k != "seam" else
+                res = {k: {"S": float(v["S"]), "K": float(v["K"]), "r": float(v.get("r", 0.3)),
+                           **{x: v[x] for x in ("run_K", "run_r", "run_seasons") if x in v}} if k != "seam" else
                        {"S": float(v.get("S", v.get("left", 0))), "K": float(v.get("K", v.get("S", v.get("left", 0)))), "r": 0.0}
                        for k, v in st.items() if k in RESOURCES}
                 res.update(woods)

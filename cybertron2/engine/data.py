@@ -34,6 +34,10 @@ ITEMS = {
     "charcoal": {"weight": 2, "food": 0.0, "spoil": 0.0, "heat": 6.0},  # from 5 timber, made at the wood (D2-56); burns in a hearth (D2-157)
     "firewood": {"weight": 1, "food": 0.0, "spoil": 0.0, "heat": 0.5},  # dead wood or young growth; burns only (D2-157)
     "wild food": {"weight": 1, "food": 1.0, "spoil": 0.15},
+    # fishing and salt (D4-103's acceptance test; content: proposals/water_and_preservation.md, calibrate)
+    "fish": {"system": "water", "weight": 1, "food": 1.0, "spoil": 0.30, "cook": True, "raw": 0.6, "decay": "fresh fish"},   # fresh: spoils as meat does
+    "salt fish": {"system": "water", "weight": 1, "food": 1.0, "spoil": 0.01, "cook": True, "raw": 0.6, "decay": "dried meat"},   # keeps for months
+    "fishing rod": {"system": "water", "weight": 1, "food": 0.0, "spoil": 0.0, "life": 30, "seen": True},              # a rod, a line of hair or gut
     "meat": {"weight": 1, "food": 1.5, "spoil": 0.30, "cook": True, "raw": 0.8, "decay": "fresh meat"},                 # dense, spoils fresh (D2-41)
     "milk": {"weight": 1, "food": 0.5, "spoil": 1.0},                  # the same day (D2-42)
     "timber": {"weight": 2, "food": 0.0, "spoil": 0.0, "heat": 2.0},   # D2-24; 2 heat (D2-157)
@@ -64,6 +68,7 @@ DECAY = {
     "dried meat": {"open_dry": 2, "open_wet": 6, "buried": 2, "warm": 1.2, "frozen": 0.5},
     "cheese": {"open_dry": 3, "open_wet": 5, "buried": 1, "warm": 1.5, "frozen": 0.3},
     "hide": {"abs": {"open_dry": 0.01, "open_wet": 0.03, "buried": 0.02}},
+    "fresh fish": {"open_dry": 2, "open_wet": 2.5, "buried": 1, "warm": 1.5, "frozen": 0.1},       # as fresh meat (calibrate)
     "default": {"open_dry": 2, "open_wet": 4, "buried": 1, "warm": 1.2, "frozen": 0.5},   # goods the table does not name (37.4; calibrate)
 }
 
@@ -111,6 +116,9 @@ RESOURCES = {
     "seam": {"regime": "finite", "low": "the seam at {name} is nearly worked out", "high": "a green-stained seam in {name}"},
     "quarry": {"regime": "endless", "low": "", "high": "a face of good stone at {name}"},
     "grass": {"regime": "fast", "low": "{name} is grazed bare", "high": "good grass on {name}"},             # D4-45
+    # fish in a water parcel (D4-103; water_and_preservation.md §3): resident fish regrow; a river's run comes in its seasons
+    "fish": {"system": "water", "regime": "periodic", "low": "the water at {name} is quiet: few fish rising", "high": "fish rising all along {name}"},
+    "salt": {"system": "water", "regime": "endless", "low": "", "high": "white crusts of salt drying in the pans at {name}"},   # a saltmarsh's pans
     "dung": {"regime": "accrues", "low": "", "high": "dung lies thick where the beasts have been on {name}"},
 }
 
@@ -378,6 +386,21 @@ TECHNIQUES = {
     "oven bread": {"verb": "make", "label": "baking bread in a stone oven", "aliases": ["oven baking"], "basic": True,
                    "at": {"fittings": ["oven"]}, "inputs": {"flour": 100, "timber": 4}, "units": 3, "gives": {"bread": 100},   # one firing (D4-97)
                    "tags": ["food", "cooking"]},
+    # Fishing and salt (D4-103's acceptance test; water_and_preservation.md §4, §5: the gear ladder's first rungs; calibrate)
+    "fish by hand": {"system": "water", "verb": "gather", "label": "fishing by hand (tickling trout, groping under the banks)", "basic": True,
+                     "aliases": ["fish", "fishing", "tickle trout", "catch fish"], "at": {"covers": ["water"]}, "draws": "fish",
+                     "yield": {"kind": "stock", "base": 0.6}, "units": 1, "gives": "fish", "tags": ["food", "fishing"]},
+    "angle": {"system": "water", "verb": "gather", "label": "fishing with a rod and line", "basic": True,
+              "aliases": ["angling", "rod fishing", "fish with a rod", "fish with rod and line"], "at": {"covers": ["water"]},
+              "draws": "fish", "yield": {"kind": "stock", "base": 1.5}, "uses": {"fishing rod": 1}, "units": 1, "gives": "fish",
+              "tags": ["food", "fishing"]},
+    "fishing rod": {"system": "water", "verb": "make", "label": "making a fishing rod and line", "aliases": ["make a rod", "rod and line"], "basic": True,
+                    "inputs": {"timber": 0.5, "hide": 0.1}, "units": 1, "gives": {"fishing rod": 1}, "tags": ["fishing", "craft"]},
+    "salt pan": {"system": "water", "verb": "gather", "label": "making salt in the saltmarsh pans (dried by the sun)", "basic": True,
+                 "aliases": ["make salt", "salt pans", "gather salt"], "at": {"covers": ["saltmarsh"]}, "draws": "salt",
+                 "yield": {"kind": "fixed", "base": 1.0}, "seasons": ["summer"], "units": 1, "gives": "salt", "tags": ["salt"]},
+    "salt fish": {"system": "water", "verb": "make", "label": "salting fish to keep", "aliases": ["salting", "salt the fish"], "basic": True,
+                  "inputs": {"fish": 4, "salt": 1}, "units": 1, "gives": {"salt fish": 4}, "tags": ["food", "cooking", "fishing"]},
     "dry meat": {"verb": "make", "label": "drying meat over a fire", "aliases": ["drying meat", "cure meat"], "basic": True,
                  "at": {"fittings": ["hearth", "fire ring"]}, "inputs": {"meat": 2}, "units": 1, "gives": {"dried meat": 1}, "tags": ["food", "cooking"]},
     "cheese": {"verb": "make", "label": "making cheese", "aliases": ["cheesemaking"], "at": {"fittings": ["cellar"]},

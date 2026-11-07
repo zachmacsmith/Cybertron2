@@ -13,6 +13,8 @@ from cybertron2.engine.world import CONDITION, STAGES, Refused, show  # noqa: F4
 class Here:
     def __init__(self, w, name, transit=False):
         self._w = w
+        from cybertron2.engine import systems as SY
+        SY.use(w)                                                               # the world's switched-on systems (D4-103)
         self.name = name
         self.node = w.at(name)
         if self.node is None and not transit:                                  # on the road: only for an urgent call (D2-81)
@@ -500,6 +502,8 @@ class Mind:
     is the agent's own; reading it never reads the world."""
 
     def __init__(self, w, name):
+        from cybertron2.engine import systems as SY
+        self.systems = SY.use(w)                                           # the world's switched-on systems (D4-103)
         self.name = name
         self.know = w.s["know"].setdefault(name, {})
         self.store = w.s["mind"][name]
