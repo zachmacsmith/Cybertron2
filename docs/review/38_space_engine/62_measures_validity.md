@@ -18,7 +18,7 @@ Proposed changes are in proposals/economic_calibration.md. In order of how much 
 2. **Processing creates food.** Grain boiled is 0.7 a unit; milled and baked it is 1.3, from 1 grain to 1 flour to 1 bread at 1.3.
    Real milling loses mass; bread and porridge give about the same energy.
 3. **Beans dominate.** They are fastest, free to the soil and as productive as grain, so the best rotation is mostly beans.
-4. **Work costs no food.** The ration is fixed, so idleness is free and labour measures are time only.
+4. **Work costs no food.** The ration is fixed, so a unit of work has no food cost. Any work that yields anything pays, and an idle unit is pure loss. There is no break-even below which work is not worth doing, and labour measures are time only.
 5. **Fittings never wear.** Capital, once built, is free forever. This removes the maintenance problem real societies face.
 6. **Births are slow for the runs' length.** 22 births in 93 runs, so no population has met its capacity.
 

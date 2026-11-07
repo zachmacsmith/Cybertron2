@@ -117,7 +117,8 @@ raises intake by a third or more.
 **In the engine,** the ration is fixed (1 a night, by stage and shelter); work is a budget of units with no food cost. Three
 consequences:
 - food a unit of work is not an EROI;
-- idleness is free;
+- work has no food cost, so every yielding act pays and there is no break-even (idling saves nothing; its cost is only the
+  output forgone);
 - "subsistence share" measures only time.
 
 This is an engine idiosyncrasy, and it shapes every labour measure. Whether to give work a food cost is a design decision: it would

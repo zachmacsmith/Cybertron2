@@ -46,8 +46,9 @@ nights for crops and seasons, but regrowth, spoilage and eating stay at nightly 
 - Cooking against raw stays: raw grain is barely digestible, so 0.2 against 0.7 is defensible.
 
 **E. Work costs food.**
-- Today the ration is fixed: a person eats the same idle or at heavy work. So "food a unit of work" is not an energy return, and
-  idleness is free.
+- Today the ration is fixed: a person eats the same idle or at heavy work. So work has no food cost, "food a unit of work" is
+  not a net return, and there is no break-even below which work does not pay: foraging a picked-over meadow for 0.1 a unit is
+  still worth it.
 - Proposed: heavy work raises the night's need. For example, each unit of field, building or carrying work over a base adds a share
   of a meal (calibrate). Hunger and hard work then trade off as they do in life, and a labour-saving mill is worth food, not only
   time.
