@@ -63,6 +63,42 @@ nights for crops and seasons, but regrowth, spoilage and eating stay at nightly 
   version, as the run already records its provenance (run_data_interface.md item 7's idea).
 - Comparisons across runs then use each run's own numbers, and a later engine change cannot rewrite a past run's baseline.
 
+## How these fit one redesign of labour (added 7 Nov)
+
+**Labour in the engine today:**
+- a time budget: units a day by season, age and hunger (D4-17);
+- acts cost units by technique;
+- unused units are lost, or filled by the agent's fallback (D4-97);
+- skill by practice raises yield (D2-52);
+- hunger cuts units and yield.
+
+**Missing:** what work costs in food (E), when work stops paying (overexertion, Q-2, deferred "to revisit with fatigue"), what
+distance costs inside a village (L-35), and work by several at once.
+
+**One redesign would hold them together:**
+
+| Part | From | What it does |
+|---|---|---|
+| A time scale | A above | every rate a year; the year's compression one dial |
+| Energy | E above, with Q-2 | a day's work raises the night's need; work past a day's units costs more (×1.5, ×2) and builds fatigue that lowers tomorrow's units; rest restores |
+| The worker as input | process model, mechanism 2 | skill, hunger, fatigue and being untaught enter every yield; practice is an effect |
+| Distance | L-35, process model mechanism 6 | work on a far parcel costs walking units from where one slept; carrying costs units and food a load |
+| Crews and occupancy | process model, mechanisms 1 and 4 | ditching, ploughing and harvest as work by several; a fitting or ground held while used |
+| Outcomes as distributions | process model, part 2 | yield, blight and a hunt's luck from one function: the act draws, analysis averages |
+| Calibration | B, C, D, F above | harvest windows, pulses, processing, wear |
+
+**D4-97's fallback needs rethinking with energy.** If work costs food, filling every spare unit by default could starve a hungry
+household. The fallback should respect a limit the agent sets, or stop when the work's yield is below its food cost.
+
+**Order of work (each stage replay-verified; the stages that change behaviour raise the world schema and mark an engine version for
+comparisons):**
+1. Invariance checks with the capacity model. No engine change: find which measures move with the compression and the plot size.
+2. The time scale (A).
+3. Process model parts 3 and 2: regimes, and outcomes as distributions. No change in behaviour.
+4. Labour: energy and fatigue (E, Q-2); the worker as input; distance (L-35); crews and occupancy; the fallback.
+5. Calibration (B, C, D, F); the worlds re-checked with the capacity model.
+6. The needs table: food, heat, shelter, beasts' feed.
+
 ## Why
 
 Zach, 7 Nov: "Does it raise any weird questions about how the current mechanics are currently setup, anything that seem to not
@@ -91,6 +127,8 @@ data.py (CROPS, ITEMS, PHYSICS, TECHNIQUES); farm.py; night.py; spec/economy/pro
 spec/environment/resources.md, calendar.md; the capacity model (no change: it follows the engine).
 
 ## History
+
+- 7 Nov (later): how the changes fit one redesign of labour, with Q-2, L-35 and D4-97, and the order of work.
 
 - 7 Nov: proposed (37.4), from the capacity model's comparison with real analysis.
 
