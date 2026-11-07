@@ -30,8 +30,9 @@ def test_every_yield_kind_is_read_or_placed():
 
 def test_every_resource_has_its_dynamics():
     from cybertron2.capacity import fuel  # noqa: F401
-    covered = set(N.REGIMES) | {"wood", "young", "dead"} | {"seam", "quarry", "dung"}     # woods: fuel.py; the last three: no food
-    assert set(RESOURCES) <= covered, f"resources with no dynamics in the model: {set(RESOURCES) - covered}"
+    from cybertron2.engine import regimes as RG
+    missing = {k for k, d in RESOURCES.items() if d.get("regime") not in RG.REGIMES}
+    assert not missing, f"resources whose regime has no registered dynamics: {missing}"
 
 
 # ---------------------------------------------------------------------------------------------------------- agreement

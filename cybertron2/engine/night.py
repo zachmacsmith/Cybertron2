@@ -443,9 +443,6 @@ def _eat(w, place, stores, need, hearth=True) -> float:
     return round(got, 6)
 
 
-REGIMES = {"plants": "fast", "grass": "fast", "game": "threshold"}      # parcel resources that come back a night (woods: forests.py)
-
-
 def slow_season(season) -> bool:
     """Whether stocks come back slowly in this season (regrow_winter): the winter."""
     return season == "winter"
@@ -466,12 +463,14 @@ def _grow(w):
     """Resources come back by regime (D4-7); crops ripen from the sowing day and rot after the window (D2-12)."""
     winter = slow_season(w.calendar()["season"])
     p = w.p
+    from cybertron2.engine import regimes as RG
+    season = w.calendar()["season"]
     for pid, par in w.s["parcels"].items():
         for key, r in par["res"].items():
-            reg = REGIMES.get(key)                                                       # woods: forests.night (D2-156)
-            if not reg or r["K"] <= 0:
+            reg = RG.of(key)                                                             # woods: forests.night (D2-156)
+            if reg not in RG.NIGHTLY or r["K"] <= 0:
                 continue
-            S = regrow(p, reg, r["S"], r["K"], r["r"], winter)
+            S = RG.REGIMES[reg](p, r, {"winter": winter, "season": season})
             if S != r["S"]:
                 w.apply("set_res", par["node"], parcel=pid, key=key, fields={"S": S})
         # crops: farm.night (D2-53, D4-39)

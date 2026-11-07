@@ -93,7 +93,8 @@ def msy(step, K) -> tuple:
 
 def _regrow(ctx, key, K, r):
     from cybertron2.engine import night as NI
-    reg = NI.REGIMES[key]
+    from cybertron2.engine import regimes as RG
+    reg = RG.of(key)
     def at(season, cold):
         return msy(lambda S: NI.regrow(ctx.w.p, reg, S, K, r, NI.slow_season(season)), K)
     return at

@@ -68,7 +68,7 @@ def night(w) -> list:
     """Each night: trees grow, young growth regrows where no beasts are, trees shed dead wood and it rots, a gale throws trees; a
     forest thinned under 40% of its trees turns to scrub (and back above it). Returns the parcels whose cover changed."""
     year = float(w.year_days())
-    from cybertron2.engine import night as NI
+    from cybertron2.engine import night as NI, regimes as RG
     slow = float(w.p["regrow_winter"]) if NI.slow_season(w.calendar()["season"]) else 1.0
     from cybertron2.engine import environment as EV
     gale = EV.weather(w) == "gale"
@@ -80,13 +80,13 @@ def night(w) -> list:
         node = par["node"]
         tS = t["S"] if t else None
         if t and t["K"] > 0:
-            tS = trees_step(tS, t["K"], t["r"], slow)
+            tS = RG.REGIMES["slow"](w.p, t, {"slow": slow})
         if y and y["K"] > 0 and pid not in grazed:
-            yS = young_step(y["S"], y["K"], y["r"], slow)
+            yS = RG.REGIMES["young"](w.p, y, {"slow": slow})
             if yS != y["S"]:
                 w.apply("set_res", node, parcel=pid, key="young", fields={"S": yS})
         if d is not None:
-            dS = dead_step(d["S"], tS if t else 0.0, year)
+            dS = RG.REGIMES["dead"](w.p, d, {"trees": tS if t else 0.0, "year": year})
             if t and gale:
                 down = tS * FORESTS["gale"]
                 tS = round(tS - down, 4)
