@@ -110,8 +110,8 @@ Either long run can be stopped early, and resumed later from the journal.
 - The Bottom Field (oats, ripe day 34) was cleared unripe when winter began on day 14. The economy check counted it anyway
   (OPEN Q-28). Harvested grain left out of doors also spoiled.
 - Wat starved on day 20 in both runs, before any merger. Hugh died of illness on day 21; most of the rest starved over the next ten days.
-  - **Takeover:** 4 alive on day 40.
-  - **Orwell:** 3 alive on day 35.
+  - **Takeover:** everyone dead by day 48 (the last three, Tom, Ellen and Will, on day 48).
+  - **Orwell:** everyone dead by day 41 (Rob last).
 - There were no failed model calls.
 - **What is readable is days 0 to 19:**
   - **Takeover:** Wat built Gorse House to draw the Newcomes in ("join the Masons"), worked off his debts to Hugh and taught Alys
