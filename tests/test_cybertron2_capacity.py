@@ -78,6 +78,8 @@ def test_a_sowing_gives_what_the_model_expects():
     w = World(copy.deepcopy(spec))
     w.s["today"] = R.blank_today()
     w.s["parcels"]["long_field"]["crop"] = None
+    from cybertron2.engine.world import SEASONS
+    w.start = (SEASONS.index("spring"), -w.d)                                       # grain's sowing window
     w.s["containers"][w.hands("Edric")]["goods"]["grain"] = float(PHYSICS["farming"]["plot_seed"])
     V.do(Here(w, "Edric"), Mind(w, "Edric"), {"do": "work", "what": "sow", "at": "Long Field", "item": "grain"})
     c = w.s["parcels"]["long_field"]["crop"]

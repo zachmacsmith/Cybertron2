@@ -18,13 +18,13 @@ PHYSICS     the numbers of the day and the night
 from __future__ import annotations
 
 ITEMS = {
-    "grain": {"weight": 1, "food": 0.7, "spoil": 0.0167, "cook": True, "raw": 0.2, "decay": "grain"},  # boiled whole at a hearth (D2-60); seed (D2-17); spoils
+    "grain": {"weight": 1, "food": 0.85, "spoil": 0.0167, "cook": True, "raw": 0.2, "decay": "grain"},  # boiled whole at a hearth (D2-60); seed (D2-17); spoils
                                                                        # 0.5% a day in a house, less in bins, a cellar, a granary (D2-58)
-    "rye": {"weight": 1, "food": 0.7, "spoil": 0.0167, "cook": True, "raw": 0.2, "decay": "grain"},    # winter grain (D2-53)
-    "beans": {"weight": 1, "food": 0.6, "spoil": 0.0167, "cook": True, "raw": 0.0, "decay": "grain"},  # legumes: less food, restore the soil (D2-53)
-    "flour": {"weight": 1, "food": 1.0, "spoil": 0.0167, "cook": True, "raw": 0.5, "decay": "grain"},  # mill flour: porridge, and bread (D2-60, D2-167)
-    "meal": {"weight": 1, "food": 1.0, "spoil": 0.0167, "cook": True, "raw": 0.5, "decay": "grain"},   # hand-ground: porridge only, no bread (D2-167)
-    "bread": {"weight": 1, "food": 1.3, "spoil": 0.05, "decay": "bread"},                # keeps, eaten without a hearth (D2-60)
+    "rye": {"weight": 1, "food": 0.85, "spoil": 0.0167, "cook": True, "raw": 0.2, "decay": "grain"},    # winter grain (D2-53)
+    "beans": {"weight": 1, "food": 0.8, "spoil": 0.0167, "cook": True, "raw": 0.0, "decay": "grain"},  # legumes: less food, restore the soil (D2-53)
+    "flour": {"weight": 1, "food": 0.95, "spoil": 0.0167, "cook": True, "raw": 0.5, "decay": "grain"},  # mill flour: porridge, and bread (D2-60, D2-167)
+    "meal": {"weight": 1, "food": 0.95, "spoil": 0.0167, "cook": True, "raw": 0.5, "decay": "grain"},   # hand-ground: porridge only, no bread (D2-167)
+    "bread": {"weight": 1, "food": 1.0, "spoil": 0.05, "decay": "bread"},                # keeps, eaten without a hearth (D2-60)
     "dried meat": {"weight": 1, "food": 3.0, "spoil": 0.02, "decay": "dried meat"},           # meat dried to half its weight (D2-62)
     "cheese": {"weight": 1, "food": 2.5, "spoil": 0.02, "decay": "cheese"},               # 6 milk (D2-47, D2-56)
     "salt": {"weight": 1, "food": 0.0, "spoil": 0.0},                  # D2-24, D2-56
@@ -75,11 +75,11 @@ DECAY = {
 # Crops (D2-53, D4-38, D4-39; 02l §2-§3, calibrate): grow for a share of the year from the day sown; the cold kills what is still
 # growing unless it is hardy; each takes from the soil and restores it toward a level.
 CROPS = {
-    "grain": {"seed": "grain", "gives": "grain", "share": 0.25, "hardy": False, "takes": 0.15, "restores": [0.10, 1.0], "straw": True,
+    "grain": {"seed": "grain", "gives": "grain", "share": 0.25, "sow_seasons": ["spring"], "yield": 1.0, "hardy": False, "takes": 0.15, "restores": [0.10, 1.0], "straw": True,
               "names": ["barley", "oats", "wheat", "grain"]},
-    "winter grain": {"seed": "rye", "gives": "rye", "share": 0.33, "hardy": True, "takes": 0.15, "restores": [0.10, 1.0], "straw": True,
+    "winter grain": {"seed": "rye", "gives": "rye", "share": 0.33, "sow_seasons": ["autumn"], "yield": 1.0, "hardy": True, "takes": 0.15, "restores": [0.10, 1.0], "straw": True,
                      "names": ["rye", "winter grain"]},
-    "legumes": {"seed": "beans", "gives": "beans", "share": 0.17, "hardy": False, "takes": 0.0, "restores": [0.40, 1.0], "straw": False,
+    "legumes": {"seed": "beans", "gives": "beans", "share": 0.17, "sow_seasons": ["spring", "summer"], "yield": 0.6, "hardy": False, "takes": 0.0, "restores": [0.40, 1.0], "straw": False,
                 "names": ["beans", "peas", "legumes"]},
 }
 CROP_OF = {n: c for c, d in CROPS.items() for n in d["names"]}

@@ -781,6 +781,9 @@ def _sow(here, mind, tech, key, place_name, out, m, a, f):
     if fam is None:
         raise Refused(f"{seed_good!r} is not seed; one sows {', '.join(sorted(SEED_CROP))}")
     seed_good = CROPS[fam]["seed"]
+    season = here.calendar()["season"]
+    if CROPS[fam].get("sow_seasons") and season not in CROPS[fam]["sow_seasons"]:       # its sowing window (D4-103, phase 2)
+        raise Refused(f"{CROPS[fam]['names'][0]} is sown in {' and '.join(CROPS[fam]['sow_seasons'])}, not in {season}")
     mods = a.get("_mods") or {}
     y = {**TECHNIQUES[tech]["yield"], **(mods.get("yield") or {})}           # the sowing method (a modifier: D2-94)
     worth = float(y["worth"])
@@ -845,7 +848,8 @@ def _sow(here, mind, tech, key, place_name, out, m, a, f):
         c["area_left"] = round(c["area_left"] + area, 4)
         c["broken"] = round(c["broken"] + broken_here, 4)
         skill_yield = 1 + float(here.p["master_yield"]) * master_share(here, mind, tech)       # D2-64
-        c["base"] = round(c["base"] + crop_base(f, eq, broken_here / area, float(rec["fertility"]), ground_mult(here.p, par), skill_yield), 4)
+        c["base"] = round(c["base"] + crop_base(f, eq, broken_here / area, float(rec["fertility"]), ground_mult(here.p, par), skill_yield)
+                          * float(CROPS[fam].get("yield", 1.0)), 4)
         c["left"] = crop_left(f, c)
         _set(here, key, h, "crop", c)
         words.append((h, seed, area, broken_here, c))

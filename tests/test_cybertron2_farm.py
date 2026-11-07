@@ -34,6 +34,13 @@ def give(w, who, **goods):
     w.s["containers"][w.hands(who)]["goods"].update({k.replace("_", " "): float(v) for k, v in goods.items()})
 
 
+def in_season(w, season):
+    """Move the world's calendar so today is the first day of `season` (a sowing window: D4-103 phase 2)."""
+    from cybertron2.engine.world import SEASONS
+    w.start = (SEASONS.index(season), -w.d)
+    return w
+
+
 def clear(w, pid):
     w.s["parcels"][pid]["crop"] = None
 
@@ -41,12 +48,13 @@ def clear(w, pid):
 # ---------------------------------------------------------------------- crops
 def test_dibbling_uses_less_seed_for_the_same_ground():
     w = world()
+    in_season(w, "spring")
     clear(w, "long_field")
     give(w, "Edric", grain=40)
     do(w, "Edric", do="work", what="sow", at="Long Field", item="grain")
     c = w.s["parcels"]["long_field"]["crop"]
     used_b, area_b = 40 - w.goods(w.hands("Edric"))["grain"], c["area"]
-    w2 = world()
+    w2 = in_season(world(), "spring")
     clear(w2, "long_field")
     give(w2, "Edric", grain=40)
     w2.apply("learn", "millbrook", person="Edric", tech="method: dibble", level="known", source="test")    # a learned way (D2-94)
@@ -58,6 +66,7 @@ def test_dibbling_uses_less_seed_for_the_same_ground():
 
 def test_breaking_the_soil_raises_the_harvest_and_turns_up_stone():
     w = world()
+    in_season(w, "spring")
     clear(w, "long_field")
     give(w, "Edric", grain=10, crude_tool=1)
     for _ in range(16):
@@ -66,7 +75,7 @@ def test_breaking_the_soil_raises_the_harvest_and_turns_up_stone():
     assert w.goods(w.hands("Edric")).get("stone", 0) > 0.5                     # fieldstone (D2-56)
     do(w, "Edric", do="work", what="sow", at="Long Field", item="grain")
     broken = w.s["parcels"]["long_field"]["crop"]
-    w2 = world()
+    w2 = in_season(world(), "spring")
     clear(w2, "long_field")
     give(w2, "Edric", grain=10)
     do(w2, "Edric", do="work", what="sow", at="Long Field", item="grain")
@@ -95,7 +104,9 @@ def test_the_cold_kills_a_growing_crop_unless_hardy():
     clear(w, "long_field")
     clear(w, "brook_field")
     give(w, "Edric", grain=10, rye=10)
+    in_season(w, "spring")
     do(w, "Edric", do="work", what="sow", at="Long Field", item="grain")
+    in_season(w, "autumn")                                                    # each in its own sowing window
     do(w, "Edric", do="work", what="sow", at="Brook Field", item="rye", on="the Hales")   # the Hales' field: named (D2-172)
     while w.calendar()["season"] != "winter":
         w.s["day"] += 1
@@ -108,6 +119,7 @@ def test_the_cold_kills_a_growing_crop_unless_hardy():
 
 def test_a_failed_crop_shows_blight_and_gives_nothing():
     w = world(physics={"farming": {"fail": [1.0, 1.0]}})
+    in_season(w, "spring")
     clear(w, "long_field")
     give(w, "Edric", grain=10)
     do(w, "Edric", do="work", what="sow", at="Long Field", item="grain")
@@ -120,6 +132,7 @@ def test_a_failed_crop_shows_blight_and_gives_nothing():
 
 def test_seed_selection_ripens_sooner():
     w = world()
+    in_season(w, "spring")
     clear(w, "long_field")
     give(w, "Edric", grain=10)
     w.s["know"]["Edric"]["select seed"] = {"level": "known", "skill": 1.0, "seen": 0, "wins": 0, "fails": 0, "source": "", "since": -1}
@@ -308,6 +321,7 @@ def test_a_hired_worker_puts_the_work_into_the_employers_store():
     assert "into Reed House" in do(w, "Simkin", do="work", what="reap", at="Long Field", **{"for": "the Reeds"})   # a gift of work
     w.s["parcels"]["brook_field"]["crop"] = None
     w.s["containers"][w.s["buildings"]["reed_house"]["stock"]]["goods"]["grain"] = 20.0
+    in_season(w, "spring")
     assert "no grain to sow" in do(w, "Simkin", do="work", what="sow", at="Brook Field", item="grain", on="the Hales",
                                    **{"for": "the Reeds"})  # not their seed (the Hales' field, so named: D2-172)
     w.s["agreements"]["A1"] = {"node": "millbrook", "day": w.d, "status": "open", "parties": ["Fenn", "Reed"],

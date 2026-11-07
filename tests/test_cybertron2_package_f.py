@@ -6,6 +6,7 @@ from cybertron2.engine import capacity as CP, forests as FO, night as N, run as 
 from cybertron2.engine import verbs as V
 from cybertron2.engine.here import Here, Mind
 from cybertron2.engine.world import World, load_spec
+from cybertron2.engine.data import ITEMS
 
 SPEC = load_spec("cybertron2/specs/valley_s5.yaml")
 
@@ -122,7 +123,7 @@ def test_food_raw():
         w.s["containers"][h]["goods"] = {item: 100.0}
         assert abs(N._eat(w, "millbrook", [h], 1000.0, hearth=False) - fed) < 1e-6
     w.s["containers"][h]["goods"] = {"bread": 10.0}
-    assert abs(N._eat(w, "millbrook", [h], 1000.0, hearth=False) - 13.0) < 1e-6                             # bread full
+    assert abs(N._eat(w, "millbrook", [h], 1000.0, hearth=False) - 10.0 * ITEMS["bread"]["food"]) < 1e-6     # bread full
 
 
 def test_firewood_needs_no_tool_and_a_child_may_gather_it_felling_bare_handed_is_poor():
@@ -195,4 +196,6 @@ def test_clearing_turns_a_meadow_into_a_field_held_by_who_cleared_it():
     assert w.s["parcels"][pid]["cover"] == "field" and d + 1 >= 6 * size * 0.5
     assert any(c["grounds"] == "cleared" for c in w.claims_on(("parcel", pid)))
     w.s["containers"][w.hands(n)]["goods"]["grain"] = 20.0
+    from cybertron2.engine.world import SEASONS
+    w.start = (SEASONS.index("spring"), -w.d)                                       # grain's sowing window
     assert do(w, n, do="work", what="sow", at=w.s["parcels"][pid]["name"], item="grain").startswith("You")

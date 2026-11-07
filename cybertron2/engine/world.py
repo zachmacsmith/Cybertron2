@@ -107,7 +107,7 @@ class World:
             for pid, p in (n.get("parcels") or {}).items():
                 st = copy.deepcopy(p.get("state") or {})
                 from cybertron2.engine import forests as FO
-                woods = FO.seed(p["cover"], int(p.get("size", 1)), st)                 # trees, young growth, dead wood (D2-156)
+                woods = FO.seed(p["cover"], int(p.get("size", 1)), st, year=4 * self.season_len)                 # trees, young growth, dead wood (D2-156)
                 if isinstance(st.get("wood"), dict) and st["wood"].get("kind"):
                     st.pop("wood")
                 res = {k: {"S": float(v["S"]), "K": float(v["K"]), "r": float(v.get("r", 0.3)),

@@ -14,13 +14,13 @@ KINDS = FORESTS["kinds"]
 
 
 # ---------------------------------------------------------------------- seeding
-def seed(cover: str, size: int, state: dict) -> dict:
+def seed(cover: str, size: int, state: dict, year: float = 24.0) -> dict:
     """The forest stocks for a parcel from its world-file state: `wood: {kind, trees?: share standing, young?, dead?: shares}`, or an
     older world's `wood: {S, K, r}` read as its trees (young growth and dead wood in a copse's proportions); scrub with no wood
     state gets scrub's. Returns {key: {S, K, r, ...}} to merge into the parcel's resources."""
     w = state.get("wood")
     out = {}
-    year = 24.0
+    year = float(year)
     if isinstance(w, dict) and w.get("kind"):
         k = KINDS[w["kind"]]
         if k["trees"]:

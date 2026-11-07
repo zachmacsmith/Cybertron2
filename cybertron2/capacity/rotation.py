@@ -63,7 +63,7 @@ def grow(year, fam, level) -> int:
 
 def _sowing(fam, fert, level, ground, prev) -> float:
     skill = 1.0 + (float(PHYSICS["master_yield"]) if level.master else 0.0)
-    q = FM.crop_base(F, float(F["plot_seed"]), 1.0 if level.broken else 0.0, fert, ground, skill)
+    q = FM.crop_base(F, float(F["plot_seed"]), 1.0 if level.broken else 0.0, fert, ground, skill) * float(CROPS[fam].get("yield", 1.0))
     if level.weed > 0:
         q *= 1 + FM.weed_gain(F, level.weed)
     return q * (1 - FM.fail_chance(F, prev, fam))
@@ -93,8 +93,12 @@ def _steady(plan, year, level, ground):
     return harvests, gross, start
 
 
-def best_year(window, year, level, ground=1.0, worth=lambda g: 1.0, oxen_ok=False, crops_ok=("grain",)) -> Year:
-    """The level's field year for one plot; `window` is (start year day, length) of the frost-free run."""
+def best_year(window, year, level, ground=1.0, worth=lambda g: 1.0, oxen_ok=False, crops_ok=("grain",), seasons=None) -> Year:
+    """The level's field year for one plot; `window` is (start year day, length) of the frost-free run; `seasons` the season of each
+    year day (cal.table), so a crop is sown only in its sowing window (CROPS sow_seasons)."""
+    def sowable(fam, day):
+        ss = CROPS[fam].get("sow_seasons")
+        return not ss or seasons is None or seasons[day % year] in ss
     s0, L = window
     frost_len = year - L
     work_crop, dung_crop = crop_work(level, oxen_ok)
@@ -112,11 +116,22 @@ def best_year(window, year, level, ground=1.0, worth=lambda g: 1.0, oxen_ok=Fals
                     if sum(d for _, d in seq) <= room and (not seq or seq[-1][0] != "rest"):
                         cands.append((list(seq), over))
     best = None
+    if level.rotation == "once" and seasons is not None:               # one grain crop, sown at its window's first day
+        for d in range(year):
+            if sowable("grain", s0 + d) and d + grow(year, "grain", level) <= L:
+                cands = [(([("rest", d)] if d else []) + [("grain", grow(year, "grain", level))], False)]
+                break
     for seq, over in cands:
-        plan, t = [], 0
+        plan, t, ok = [], 0, True
         for kind, days in seq:
+            if kind != "rest" and not sowable(kind, s0 + t):
+                ok = False
             plan.append((kind, (s0 + t) % year, days))
             t += days
+        if over and not sowable(over, (s0 - grow(year, over, level)) % year):
+            ok = False
+        if not ok:
+            continue
         if over:
             g = grow(year, over, level)
             plan.append(("rest", (s0 + t) % year, max(0, year - g - t)))

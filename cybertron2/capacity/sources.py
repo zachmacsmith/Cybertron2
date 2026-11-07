@@ -61,7 +61,7 @@ def fields(ctx, par):
     if par["id"] in ctx.as_field:
         from cybertron2.engine.data import CLEARING
         ground = float(CLEARING.get("fertility", {}).get(par["cover"], 1.0))
-    yr = RO.best_year(ctx.window, ctx.year, lv, ground=ground, worth=ctx.worth_of, oxen_ok=ctx.reach.oxen >= 2
+    yr = RO.best_year(ctx.window, ctx.year, lv, ground=ground, seasons=[x[0] for x in ctx.cal], worth=ctx.worth_of, oxen_ok=ctx.reach.oxen >= 2
                       and ctx.reach.knows("plough"), crops_ok=tuple(ctx.reach.seed) or ("grain",))
     out = {}
     for day, good, q in yr.harvests:

@@ -266,6 +266,18 @@ REPLY_LINES = """Reply with JSON:
 - "memory", "keep", "drop": only when asked for at the end of a stretch of days."""
 
 
+def _crop_line(here) -> str:
+    """When each crop is sown and how long it grows (CROPS sow_seasons, share; D4-103 phase 2): known to anyone who farms."""
+    from cybertron2.engine import farm as FM
+    from cybertron2.engine.data import CROPS
+    year = here.year_days()
+    bits = [f"{d['names'][0]} sown in {' or '.join(d.get('sow_seasons') or ['any season'])}, ripe {FM.grow_days(year, c)} days later"
+            for c, d in CROPS.items()]
+    hardy = [d["names"][0] for d in CROPS.values() if d.get("hardy")]
+    return ("- Crops: " + "; ".join(bits) + ". The winter's cold kills a growing crop" + (f" unless it is hardy ({', '.join(hardy)})" if hardy else "")
+            + "; a field ripe and not reaped soon rots.")
+
+
 def _kin_lines(mind) -> list:
     out = []
     for x, k in sorted(mind.kin().items(), key=lambda kv: (kv[0] not in mind.members, kv[0])):
@@ -458,6 +470,7 @@ def system_prompt(here, mind) -> str:
               f"charcoal; it warms {p['heat']['hearth_spaces']} spaces of floor, a fire ring {p['heat']['ring_spaces']} and only half in "
               f"the cold. A camp's fire takes {p['heat']['camp']:g}; a fire in the open {p['heat']['open']:g}, from what you carry, and up "
               f"to {p['heat']['share']} sleeping there share it. A cold night without a fire is hard.",
+              _crop_line(here),
               "- Buildings are what is in them: beds, a hearth, bins, a quern, an anvil. Anyone can build a small room and put in beds and "
               "bins; a hearth or an anvil takes a trade. Buildings fall into disrepair; repair takes timber.",
               "- What is whose: land, buildings and herds are held by claims that people know of. Anyone can use anything they can reach, "
