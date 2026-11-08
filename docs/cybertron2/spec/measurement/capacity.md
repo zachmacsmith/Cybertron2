@@ -34,6 +34,10 @@ beasts, seed), and says what it gave up.
   young_step, shed_a_night) and the world's calendar. It keeps no formula of its own for what the engine decides (D4-102).
 - **Agreement tests:** tests/test_cybertron2_capacity.py runs the engine's rules on a real world and fails if the model differs
   (wild regrowth under the model's take, spoilage, eating raw, a sowing's yield).
+- **Work's food** (D4-103 phase 2): the food needed a year adds PHYSICS labour work_food for each unit of work the level's
+  allocation gives the people.
+- **The people supported** are found by a scan and then a refinement, not by assuming that being fed rises and falls once with the
+  people (a small people's work goes all to the flow that gives most a unit, which may be seasonal).
 - **Guard tests:** they fail when the engine gains an edible good, a yield kind or a resource the model does not read.
 - **Costs:** each level at the people it feeds:
   - its work a year, a head and as a share of all their work;
@@ -43,4 +47,4 @@ beasts, seed), and says what it gave up.
 - **Space:** each node on its own; the region pooled; a short node's reach (neighbours' surplus x e(d) = 1 - 2 d x ration / carry);
   expansion outward from home, settled or carried home.
 
-*Current as of 7 Nov 2026.*
+*Current as of 8 Nov 2026 (D4-103 phase 2).*

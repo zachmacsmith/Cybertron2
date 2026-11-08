@@ -83,4 +83,66 @@ first values (calibrate), set against the capacity model and E2.
 - **A caution for calibration:** fishing turned a famine into no deaths at all. It is a strong food source at these first values
   (water_and_preservation.md's warning). Phase 2 should look at its yields beside the new grain values.
 
-*Current as of 7 Nov 2026 (phase 1 built; E1 done; phase 2 designed, its first four changes built on a branch and held for Zach's check).*
+## 6. Between the phases: names, and each stock its own rule (D4-104)
+
+- **regime → renewal** (engine/renewal.py; RESOURCES `renewal`): "regime" already meant societies, eras and health in this project.
+- **systems → packs** (engine/packs.py; a row's `"pack": "water"`, a world's `packs: [water]`; `systems:` still read):
+  "system" already meant landgen's landscape systems and the agents' system prompts. The world's own switches (`children.on`,
+  `evening`, `tags`, `ages`, `view`) existed before and are a different thing: they turn rules on, packs turn data on.
+- **Each stock may carry its own rule.** A parcel's `state.<key>` may name `renewal` (any registered rule) and `response`: the take
+  scales by (S/K) ** b (proportional 1, hyperstable 0.4, hyperdepleted 2, or a number). So the generator's ecosystem layer (37.2) can
+  give a chalk stream and a fen mere different fish. Night, act and capacity model all read it; a test checks each.
+- Checks: 12 strict replays and the 56 fingerprints unchanged, both E1a runs replay exactly, 367 tests.
+
+## 7. Phase 2: built
+
+All ten items of §3 are built (E to I in engine/labour.py and wear.py; their values in PHYSICS `labour` and FITTINGS `wear`). The
+engine before phase 2 is commit 92cfdbf. Where building changed the design of §3:
+
+| Item | As built | Why it differs from §3 |
+|---|---|---|
+| E. Work costs food | as designed, and the work's share also raises the least one must eat not to go hungry | otherwise a starving worker's extra need was forgiven as a "short meal", and work was free again in a famine |
+| H. Pushing on | chosen by the reply's `overwork` (0 to 2); the fallback never pushes on | taking it from any plan longer than the day would overwork agents who list too much, by accident |
+| I. The walk | a quarter unit a parcel past two, carried until it makes a whole unit off a later day | the day's units are whole numbers |
+| G. Wear | millstones 600 grain (not 300); worn = takes and gives half; mending crafts basic (oven: 2 stone) | 300 meant dressing every 1.5 water-mill acts; halving both sides loses no grain |
+| B. Windows | grain and rye once a year; beans still twice (spring and summer, 5 days to ripen) | §3's "one main harvest a crop a year" holds for cereals only |
+
+**Checks.**
+- **Inert at zero.** 9 bot runs recorded after A to D, with the labour table at zero, replay on E to J with identical state. Three of
+  them differ in the prompt only: its "Everyone knows" list names the three mending crafts.
+- 373 tests pass (6 new: tests/test_cybertron2_labour.py).
+- A milling act through the real engine: 64 flour an act to 600 grain, then 32, and dressing sets it right.
+- **Found on the way:** the capacity model assumed that being fed rises and falls once with the people. It does not. A small people
+  puts all its work on the flow that gives most a unit (Ferrybank's river, whose catch comes with the run), and goes short out of
+  season. The search now scans before refining. Separately: **Wenbridge cannot mill at all.** It has millstones and no oxen.
+
+**Capacity, three engines** (people supported, region; v1 = before phase 2, AD = after A to D, EJ = after E to J):
+
+| World | People | As it stands | Worked | Best | Bare |
+|---|---|---|---|---|---|
+| Wenbridge | 12 | 4.07 / 4.46 / 4.26 | 25.1 / 16.5 / 15.7 | 44.6 / 27.6 / 26.6 | 1.23 / 1.23 / 0.90 |
+| Combe | 3 | 8.42 / 9.32 / 8.96 | 57.3 / 39.6 / 38.4 | 117 / 71.8 / 69.7 | 1.91 / 1.91 / 1.52 |
+| Hollins 2 | 20 | 28.3 / 30.1 / 28.5 | 137 / 93.8 / 89.9 | 224 / 149 / 143 | 8.12 / 8.12 / 6.28 |
+| Region C | 58 | 28.9 / 31.9 / 30.7 | 217 / 141 / 136 | 454 / 327 / 319 | 5.81 / 5.81 / 4.55 |
+| Two valleys | 26 | 14.0 / 15.4 / 14.8 | 119 / 72.6 / 69.5 | 286 / 196 / 192 | 2.22 / 2.22 / 1.75 |
+| Frontier camps | 10 | 18.0 / 18.0 / 16.7 | 18.1 / 18.1 / 16.8 | 18.2 / 18.2 / 16.9 | 9.16 / 9.16 / 6.46 |
+| Takeover | 12 | 5.48 / 6.19 / 5.94 | 42.3 / 27.2 / 25.9 | 76.3 / 46.7 / 45.0 | 1.23 / 1.23 / 0.90 |
+| Ferrybank, water | 8 | 6.14 / 6.37 / 6.13 | 10.4 / 8.55 / 8.20 | 12.8 / 9.97 / 9.60 | 1.53 / 1.53 / 1.39 |
+| Ferrybank, dry | 8 | 1.30 / 1.51 / 1.45 | 5.59 / 3.69 / 3.52 | 7.98 / 5.12 / 4.92 | 0.22 / 0.22 / 0.20 |
+| Valley s5 | 17 | 16.2 / 16.8 / 16.0 | 45.0 / 24.4 / 23.1 | 57.5 / 28.7 / 27.4 | 7.44 / 7.44 / 6.15 |
+| Goal probe | 8 | 2.26 / 2.57 / 2.49 | 16.5 / 11.4 / 11.0 | 22.8 / 16.1 / 15.5 | 0.56 / 0.56 / 0.52 |
+
+**What it shows:**
+- **A to D took a third to a half off the upper levels.** The inflation 38.62 found is gone: recropping in short years, beans, and
+  processing that made food. "As it stands" rose 5 to 15%, because boiled grain is now 0.85 a unit, not 0.7.
+- **E to J took 3 to 5% more off the farming levels.** It took 10 to 30% off "bare": foraging and hunting give little food a unit,
+  so the work's own food is a large share of what they give. That is the break-even 38.61 said was missing.
+- **The spread is now narrower.** Worked is about 3.7 times "as it stands" in Wenbridge, against 6.2 before. Best is 6.2 times,
+  against 11. Below "as it stands", every world but the frontier is still short of its people. That is the scenario's choice, not
+  the engine's.
+
+**E2b, the scripted farm under the windows** (30 seeds, two years): the model's worked year is beans in spring, grain, then beans
+in summer, 132 a plot-year. The engine gives 148 (sd 26). The gap is the same +12 to 17% from practice skill as in E1b, so the
+model still agrees with the engine.
+
+*Current as of 8 Nov 2026 (phase 1 built; E1 done; renames and per-stock rules, D4-104; phase 2 built; E2b done; E2 running).*

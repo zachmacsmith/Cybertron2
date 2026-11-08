@@ -1,6 +1,6 @@
 # Economic calibration: one time scale, and mechanics that make economic sense
 
-**Status:** accepted in part: D4-103 (A to F are phase 2 of the engine overhaul; G with phase 1)
+**Status:** accepted in part: D4-103 (A to F built 8 Nov as phase 2 of the engine overhaul; G with phase 1)
 **Owner:** 37.4 (engine), with 37.2 (economy)
 
 ## Summary
@@ -127,6 +127,19 @@ data.py (CROPS, ITEMS, PHYSICS, TECHNIQUES); farm.py; night.py; spec/economy/pro
 spec/environment/resources.md, calendar.md; the capacity model (no change: it follows the engine).
 
 ## History
+
+- 8 Nov: **phase 2 built** (spec/core/processes.md, "Calibration and labour"; review 38.63 §6). A to F of this proposal, with
+  Q-2 (pushing on and fatigue), L-35 (the walk) and wear (G, from phase 1's list). Choices made in building, against the design table
+  of 38.63 §3:
+  - the food for work also raises the least one must eat not to go hungry (else a famine's workers would work for nothing extra);
+  - pushing on is chosen (a reply's "overwork"), not taken from any plan longer than the day, and the fallback never pushes on;
+  - the walk is carried as a fraction until it makes a whole unit off a later day (the day's units are whole);
+  - millstones wear after 600 grain, not 300 (300 was dressing every one and a half water-mill acts); a worn fitting takes and gives
+    half, so no grain is lost to wear; the three mending crafts are basic (a miller dresses his own stones);
+  - beans are still sown twice a year (spring and summer, 5 days to ripen in a 32-day year): the windows give grain and rye one
+    harvest a year, not beans.
+  Verified: bot runs at A to D with the labour table at zero replay with identical state after E to J. Not done: fishing's yields
+  (E1a's caution) are unchanged.
 
 - 7 Nov (later): accepted in the engine overhaul's plan (D4-103).
 

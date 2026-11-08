@@ -1,0 +1,4 @@
+# E2 (D4-103, after phase 2): Wenbridge for a full year (32 days, summer to summer) with phase 2's labour rules on.
+base: cybertron2/specs/wenbridge.yaml
+name: e2_wenbridge_labour
+days: 32

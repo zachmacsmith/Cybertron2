@@ -1,0 +1,6 @@
+# E2 null arm: the same engine and world, phase 2's labour rules at zero (A to D still on).
+base: cybertron2/specs/wenbridge.yaml
+name: e2_wenbridge_nolabour
+days: 32
+physics:
+  labour: {work_food: 0, guard_food: 0, over_units: 0, fade_rate: 0, step: 0, wear: false}

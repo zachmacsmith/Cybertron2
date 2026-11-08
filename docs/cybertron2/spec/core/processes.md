@@ -8,6 +8,7 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
 
 - D4-103: the declared process model, built in phases; phase 1 changes no behaviour of any existing world.
 - D4-104: the names renewal and packs; a stock's own record may name its renewal rule and its response to density.
+- D4-103, phase 2: calibration and labour (below). Behaviour changes; the engine before it is commit 92cfdbf. All values calibrate.
 
 ## Mechanics
 
@@ -40,9 +41,33 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
 - **A missing stock is refused for any resource the data names**, and an endless stock is never drawn down.
 - **The run's own baseline:** each run stores its day-0 carrying capacity, by its own engine, in its journal (meta `capacity`).
 
+## Calibration and labour (phase 2, D4-103)
+
+- **The woods' clock.** forests.seed converts the woods' yearly rates by the world's year.
+- **Sowing windows** (CROPS `sow_seasons`): grain in spring, legumes in spring and summer, rye in autumn; a sowing out of its window is
+  refused. The agents' rules list the windows and growing days.
+- **Pulses below cereals:** a crop's `yield` factor multiplies what a sowing gives (legumes 0.6).
+- **Processing makes no food:** grain and rye 0.85 boiled, beans 0.8, meal and flour 0.95, bread 1.0 (raw as before).
+- **Labour** (engine/labour.py; PHYSICS `labour`; each at 0, `wear` false, is the engine before phase 2, and then nothing is written):
+  - **Work costs food:** `work_food` (0.04) a unit worked, a unit pushed on counting `over_food` (2) units, a night on guard
+    `guard_food` (0.3). It adds to the night's need and to the least one must eat not to go hungry.
+  - **Pushing on:** a reply's `overwork` (0 to `over_units`, 2) lets the plan run that many units past the day's; each leaves
+    `fatigue` (1) unit off the next day. The fallback never pushes on.
+  - **The walk:** each parcel on the day's route past the first `free_steps` (2) costs `step` (0.25) of a unit, carried until it
+    makes a whole unit, which comes off the next day.
+  - **Skill fades:** a craft unpractised for `fade_after` (8) days loses `fade_rate` (1%) a night of its skill above its floor.
+- **Fittings wear** (engine/wear.py; FITTINGS `wear`): millstones after 600 grain ground, an oven after 10 firings, a water wheel's
+  leat after a quarter year; a worn fitting works at half (an act there takes and gives half) until its mending craft (dress
+  millstones, reline oven with 2 stone, clear the leat; all basic) sets it right.
+- **The fallback's limit** (D4-97) is unchanged.
+- **The capacity model** counts work's food at the work its allocation gives, and finds the people supported by a scan, as fed is
+  not monotone in the people (a small people's work all goes to one seasonal flow).
+
 ## Checks
 
-- Every refactor step replays the overhaul's baseline exactly:
+- Phase 2: bot runs recorded after its first four changes with the labour table at zero replay with identical state after the
+  rest (9 worlds; three differ only in the prompt's list of crafts, which names the three mending crafts).
+- Every refactor step of phase 1 replays the overhaul's baseline exactly:
   - 8 bot runs recorded at the starting commit;
   - the 4 runs made on the engine of 7 Nov;
   - the replay reports of the 56 older journaled runs, unchanged.
@@ -54,6 +79,5 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
 - Delayed processes in one generic form (crops' timing is data and their hazards engine functions, but eel traps need the general
   form).
 - The heat need as a pure function beside food.
-- Fittings' wear (phase 2).
 
-*Current as of 7 Nov 2026 (D4-104).*
+*Current as of 8 Nov 2026 (D4-103 phase 2, D4-104).*
