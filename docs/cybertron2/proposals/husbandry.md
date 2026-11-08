@@ -207,6 +207,44 @@ structure, fed or feeding, with a take by a technique.
   - herbs (disease).
 - **Leave:** breeding for traits until a kept kind shows it matters.
 
+## 6. Does it add richness at the bottom of the economy? (Zach, 8 Nov)
+
+**The bottom layer today is thin** (38.57):
+- need produces hoarding and self-provision, not exchange;
+- "slack needs something worth wanting": on richer land, food stayed 85 to 90% of work and households stockpiled;
+- a chokepoint with cheap substitutes is not one (every house had a hand mill);
+- kin carried all the trade between villages.
+
+**These additions add richness by:**
+- things worth wanting beyond food, so slack has a use;
+- different places with different things;
+- different seasons with different plenty, so storing, carrying and credit across the year pay;
+- chains with tradable middle goods (bark and hides to the tanner, leather to the harness-maker);
+- capital that wears, so demand repeats;
+- skills that take time;
+- rights that earn rents and cause disputes.
+
+**It works only if:**
+1. **Specialisation pays:** a practised hand is far better than a novice, learning takes real time, and some trades need capital.
+   Otherwise every household does everything itself, which is the hand-mill lesson again.
+2. **Demand exists:** only goods with a use now (§5).
+3. **Place and season differ for real:** no village has everything.
+4. **Gear wears.**
+5. **It is visible:** what others make and offer, and what is going off.
+6. **The prompt stays small:** each agent sees only its place's techniques and its own knowledge.
+
+**The risks:**
+- more options can mean more self-provision, not more exchange, if condition 1 fails;
+- food may still dominate unless capacity allows slack (the 30% rule);
+- it does not fix how agents act (they use leverage more than they create it). It gives that behaviour more to act on.
+
+**The test:** the same world with these packs on and off. Compare:
+- the share of goods acquired by exchange against made at home;
+- how specialised households' work is (concentration of each household's work);
+- the number of distinct goods traded, and between which villages;
+- food's share of work against the 30% gate;
+- a reading of the end state.
+
 ## Open questions (for Zach)
 
 1. The rule that keeping is one general mechanism (a kept population in a held structure), generalising herds?
@@ -218,6 +256,8 @@ structure, fed or feeding, with a take by a technique.
 
 - 8 Nov: Zach asked (b) what economies come from wildlife and plants, and (c) how they could be domesticated, bred and used, with
   what tools and skills. 37.2 proposed this.
+- 8 Nov: Zach: "Could these add richness at the lower layer of the economy?" Added §6: how, the conditions it needs (from 38.57's
+  lessons), the risks, and the on/off test.
 
 ## Sources
 
