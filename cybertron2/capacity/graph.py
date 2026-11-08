@@ -26,7 +26,7 @@ ELSEWHERE = {"crop": "rotation.py (a plot's year)", "sow": "rotation.py", "tend"
              "manure": "rotation.py", "select": "levels (seed selection)", "slaughter": "sources.herds (calves)",
              "herd": "no goods (watching)", "care": "no goods (children)", "works": "ground (rotation: best levels assume done)",
              "clear": "model.ceiling_fields", "clear_built": "no food", "fence": "no food", "gate": "no food",
-             "repair": "costs (upkeep, not yet)", "bury": "no goods"}
+             "repair": "costs (upkeep, not yet)", "bury": "no goods", "mend": "costs (a fitting's upkeep: FITTINGS wear)"}
 
 
 @dataclass

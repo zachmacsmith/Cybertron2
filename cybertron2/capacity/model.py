@@ -219,9 +219,19 @@ def mix(w, names=None) -> dict:
     return {"eats": eats / len(names), "units": u / len(names), "n": len(names)}
 
 
+def need(ctx, ls, scale, P, m, days=None) -> float:
+    """The people's food a day: their rations, and the food their work costs (labour.work_need: PHYSICS labour work_food a unit, at
+    the work the allocation gives them; D4-103 phase 2)."""
+    wf = float((ctx.w.p.get("labour") or {}).get("work_food", 0) or 0)
+    if not wf:
+        return P * m["eats"]
+    used = sum(s * l.work for s, l in zip(scale, ls))
+    return P * m["eats"] + wf * used / float(days or ctx.year)
+
+
 def fed(ctx, ls, P, m, share=1.0) -> bool:
     scale = allocate(ls, P * m["units"] * share)
-    r = simulate(ctx, ls, scale, P * m["eats"])
+    r = simulate(ctx, ls, scale, need(ctx, ls, scale, P, m))
     return r["short"] <= 1e-6 * max(1.0, P * m["eats"] * ctx.year)
 
 
@@ -229,9 +239,15 @@ def people_supported(ctx, ls, m, share=None) -> float:
     share = ctx.level.labour_share if share is None else share
     total = sum(l.flow.qty * l.value for l in ls)
     hi = max(1.0, total / max(1e-9, m["eats"] * ctx.year) * 1.5)
-    if not fed(ctx, ls, 0.01, m, share):
-        return 0.0
-    lo = 0.0
+    # fed() need not rise and fall once: a small people puts all its work on the flow that gives most a unit, which may come in one
+    # season (a fish run), and go short out of it, while more people spread over the year. So scan, then refine above the largest
+    # people the scan found fed.
+    grid = [hi * k / 40 for k in range(1, 41)]
+    ok = [P for P in grid if fed(ctx, ls, P, m, share)]
+    if not ok:
+        return 0.0 if not fed(ctx, ls, 0.01, m, share) else 0.01
+    lo = ok[-1]
+    hi = min(hi * 1.5, lo + hi / 40) if lo >= grid[-1] else lo + hi / 40
     for _ in range(30):
         mid = (lo + hi) / 2
         if fed(ctx, ls, mid, m, share):
@@ -356,7 +372,7 @@ def run_horizon(w, level, days, nodes=None) -> dict:
     ls.append(Lot(SO.Flow("store", "", "", "grain", [0.0] * days, 0.0), "grain", 1.0,
                   [FD.rate("grain", "house", w.calendar(w.d + t)["season"], w.cold(w.d + t)) for t in range(days)], 0.0))
     scale = allocate(ls, P * m["units"] * ctx.level.labour_share * days / year)
-    r = simulate(ctx_h, ls, scale, P * m["eats"], horizon=days, start={len(ls) - 1: store})
+    r = simulate(ctx_h, ls, scale, need(ctx, ls, scale, P, m, days=days), horizon=days, start={len(ls) - 1: store})
     return {"level": ctx.level.name, "people": P, "days": days, "first_short": r["first_short"], "short_days": r["short_days"],
             "short_meals": round(r["short"], 1), "seed_share": round(seed_share, 2), "store_food": round(store, 1)}
 
@@ -429,7 +445,7 @@ def analyse(spec_or_world, levels=LV.ORDER, horizon=None) -> dict:
             from cybertron2.capacity import costs as CO
             at = sup if sup > 0 else 0.0
             scale = allocate(ls, at * m_here["units"] * ctx.level.labour_share)
-            sim = simulate(ctx, ls, scale, at * m_here["eats"])
+            sim = simulate(ctx, ls, scale, need(ctx, ls, scale, at, m_here))
             plots = sum(float(p_["size"]) for pid, p_ in w.s["parcels"].items() if p_["node"] in ns
                         and (p_["cover"] == "field" or pid in ctx.as_field))
             rec["levels"][lvl] = {"supported": sup, "ratio": round(sup / P_here, 2) if P_here else None, "labour_share": share,

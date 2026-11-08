@@ -167,6 +167,7 @@ FITTINGS = {
                   "does": "a fire in the open for warmth and cooking (burns timber)"},                              # D2-68: a camp's fire
     "oven": {"label": "a stone oven", "materials": {"stone": 20, "timber": 2}, "units": 12, "basic": False, "trade": "mason", "spaces": 2,
              "structure": "stone",                                                 # only in a stone building (D4-97)
+             "wear": {"life": 10, "count": "act", "mend": "reline oven"},           # firings; then half a batch (D4-103 phase 2)
              "does": "baking bread in batches"},                                                             # D2-60
     "anvil": {"label": "an anvil and bellows", "materials": {"stone": 6, "hide": 2, "timber": 1}, "units": 4, "needs": "hearth",
               "basic": False, "trade": "smith", "spaces": 2, "heavy": True, "does": "a smithy: smelting and smithing"},
@@ -174,9 +175,11 @@ FITTINGS = {
                "heavy": True, "holds": {"food": 40}, "by": "footprint",
                "does": "food keeps at a quarter of the house rate (40 a space of the building's ground)"},          # D2-45, D2-155
     "millstones": {"label": "dressed millstones", "materials": {"stone": 10}, "units": 10, "basic": False, "trade": "mason", "spaces": 3,
-                   "heavy": True, "does": "an ox mill: an ox turns them (D2-61)"},
+                   "heavy": True, "wear": {"life": 600, "count": "inputs", "mend": "dress millstones"},   # grain ground; then half as much
+                   "does": "an ox mill: an ox turns them (D2-61)"},
     "water wheel": {"label": "a water wheel and leat", "materials": {"timber": 60, "stone": 20, "copper": 2}, "units": 250,
                     "needs": "millstones", "site": "water", "basic": False, "trade": "carpenter", "spaces": 0, "heavy": True,
+                    "wear": {"years": 0.25, "mend": "clear the leat"},                  # a season; then half as much (D4-103 phase 2)
                     "does": "a water mill: the river turns the millstones (D2-61)"},                                  # D2-166
     "stalls": {"label": "stalls", "materials": {"timber": 1}, "units": 1, "per": "stall", "basic": True, "spaces": 2, "heavy": True,
                "fodder": 0.8, "dung": 1.5,
@@ -360,6 +363,16 @@ TECHNIQUES = {
                   "yield": {"kind": "slaughter", "gives": {"cows": {"meat": 40, "hide": 2}, "oxen": {"meat": 50, "hide": 2},
                                                           "bulls": {"meat": 50, "hide": 2}, "young": {"meat": 10, "hide": 1}}},
                   "units": 2, "gives": "meat", "tags": ["food", "animals"]},
+    # Mending a worn fitting (D4-103 phase 2; building_risks.md: capital has upkeep): it works at full again (calibrate)
+    "dress millstones": {"verb": "work", "label": "dressing worn millstones (recutting their furrows)", "aliases": ["dress the stones"],
+                         "basic": True, "at": {"fittings": ["millstones"]}, "yield": {"kind": "mend", "fitting": "millstones"},
+                         "units": 2, "gives": "", "tags": ["building", "food"]},
+    "reline oven": {"verb": "work", "label": "relining a cracked oven", "aliases": ["mend the oven"], "basic": True,
+                    "at": {"fittings": ["oven"]}, "yield": {"kind": "mend", "fitting": "oven", "inputs": {"stone": 2}}, "units": 2,
+                    "gives": "", "tags": ["building", "food"]},
+    "clear the leat": {"verb": "work", "label": "clearing the mill leat of silt and weed", "aliases": ["clear the mill race"],
+                       "basic": True, "at": {"fittings": ["water wheel"]}, "yield": {"kind": "mend", "fitting": "water wheel"},
+                       "units": 3, "gives": "", "tags": ["building", "food"]},
     "repair": {"verb": "work", "label": "repairing a building", "aliases": ["mend"], "basic": True, "at": {"building": True},
                "yield": {"kind": "repair"}, "units": 2, "gives": "", "tags": ["building", "shelter"]},
                # its materials and work by the building's size (D2-168: PHYSICS repair); each action does 2 units until it is mended
@@ -481,6 +494,18 @@ PHYSICS = {
     "youth_units": 4,
     "elder_units": 5,
     "ration": 1.0,
+    # Labour (D4-103 phase 2; proposals/economic_calibration.md E, F, Q-2, L-35; first values, calibrate). Each at 0 (wear false) is
+    # the engine before phase 2.
+    "labour": {"work_food": 0.04,          # food a unit worked adds to the night's need
+               "guard_food": 0.3,          # a night standing guard
+               "over_units": 2,            # units one may push on past the day's (an agent's "overwork")
+               "over_food": 2.0,           # their food, as units worked
+               "fatigue": 1,               # units off tomorrow for each unit pushed past the day's
+               "fade_after": 8,            # days a craft goes unpractised before its skill fades
+               "fade_rate": 0.01,          # then this share a night of the skill above its floor
+               "step": 0.25,               # a unit's walk for each parcel on the day's route past the first two (carried until whole)
+               "free_steps": 2,
+               "wear": True},              # fittings wear with use and time (FITTINGS wear)
     "shelter": {"housed": 1.0, "damaged": 1.2, "unsheltered": 1.5},     # D4-12, H-5
     "shelter_cold": {"housed": 1.0, "no_fuel": 1.3, "damaged": 1.5, "unsheltered": 2.0},
     "cold_starving": 0.3,                                                # H-5

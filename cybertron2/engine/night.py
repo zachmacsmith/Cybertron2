@@ -89,13 +89,15 @@ def night(w) -> dict:
         if gear:
             rec.setdefault("camped", {})[name] = gear
         mult, extra = LF.ration_factor(w, name)                                 # an infant, a child, a pregnancy (D2-141, D2-145)
+        from cybertron2.engine import labour as LA
+        wk = LA.work_need(p, today, name)                                       # work costs food (D4-103 phase 2)
         need, fall = NE.food(p, {"state": state, "cold": cold, "structure": b["structure"] if b is not None else None,
                                  "warm": b.get("warm", 1.0) if b is not None else 1.0,
                                  "hearth": bool(b["fittings"].get("hearth")) if b is not None else False,
                                  "fire": bool(b["fire"]) if b is not None else False, "gear": gear,
                                  "open_fire": name in fires, "fire_gone": name in (rec.get("fire_out") or []),
                                  "fed_on_road": (road.get("fed") or {}).get(name), "mult": mult, "extra": extra,
-                                 "care_fed": rec["care"]["fed"].get(name)})
+                                 "care_fed": rec["care"]["fed"].get(name), **({"work": wk} if wk else {})})
         place = w.place_of(("person", name))
         stores = [a["hands"]]
         if place in s["nodes"]:
@@ -114,6 +116,8 @@ def night(w) -> dict:
         if rawf and ate > 1e-9:
             w.apply("set", place, ref=me, field="ate_raw", value=w.d)        # seen on them tomorrow (signs.PERSON)
         full = float(p["ration"]) * mult + extra                                # a short meal is a ration's worth at least
+        if wk:
+            full += wk                                                          # and the day's work, eaten or paid for in hunger
         if ate + 1e-9 >= need:
             w.apply("harm", place, person=name, hunger=min(0, a["hunger"] + 1))
             w.apply("set", place, ref=me, field="missed", value=0)
@@ -182,6 +186,8 @@ def night(w) -> dict:
                                                        f"{b['name']} have faded away with the damp", "by": None}]
                 w.apply("set", b["node"], ref=("building", bid), field="changes", value=ch[-20:])
     _grow(w)
+    from cybertron2.engine import labour as LA
+    LA.fade(w)                                                                  # skill unpractised fades (D4-103 phase 2)
     from cybertron2.engine import farm as FM
     rec["farm"] = FM.night(w)
     for oid, o in s["offers"].items():                                          # offers lapse (money_and_markets.md)

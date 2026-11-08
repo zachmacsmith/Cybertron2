@@ -28,11 +28,13 @@ RATES = [
     ("PHYSICS.cattle.in_milk_share", "year"), ("PHYSICS.farming.fallow", "year"),
     # occasions and uses
     ("FORESTS.gale", "event"), ("PHYSICS.cattle.survive", "event"), ("PHYSICS.cattle.hungry_milk", "event"),
+    ("PHYSICS.labour.work_food", "use"), ("PHYSICS.labour.over_food", "use"), ("PHYSICS.labour.step", "use"),
+    ("PHYSICS.labour.guard_food", "event"), ("PHYSICS.labour.fade_rate", "day"), ("PHYSICS.labour.fade_after", "day"),
+    ("FITTINGS.*.wear.life", "use"), ("FITTINGS.*.wear.years", "year"),
+    ("FITTINGS.*.spoil", "day"), ("FITTINGS.*.dung", "year"),           # multipliers of a day's spoiling and a year's dung
     ("ITEMS.*.life", "use"), ("TECHNIQUES.*.wear", "use"), ("TECHNIQUES.*.yield.p", "use"), ("TECHNIQUES.*.inputs.*", "use"),
 ]
-KNOWN_LATER = {
-    "forests.seed converts the woods' year rates to nights by a year of 24, whatever the world's year (phase 2)",
-}
+KNOWN_LATER: set = set()             # forests.seed's fixed year of 24: converted by the world's year since phase 2 (A)
 
 
 def clock_of(path) -> str | None:

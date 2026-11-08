@@ -562,6 +562,15 @@ def _technique(here, mind, a, party, verb):
         word = _bury(here, key, "method: cairn" in a["_mods"]["_used"], a)
         c = here.thing(key)
         thing = ("parcel", c["parcel"]) if c.get("parcel") else thing
+    elif y["kind"] == "mend":                                                # a worn fitting set right (D4-103 phase 2)
+        from cybertron2.engine import wear as WE
+        need = y.get("inputs") or {}
+        short = {i: q for i, q in need.items() if here.carried().get(i, 0.0) + 1e-9 < q}
+        if short:
+            raise Refused(f"{KN.label(tech)} takes " + ", ".join(f"{q:g} {i}" for i, q in need.items()) + " in hand")
+        for i, q in need.items():
+            here.apply("destroy", src=here.hands, item=i, qty=q, why=tech)
+        word = f"You worked on the {y['fitting']} at {place_name}: {WE.mend(here, key, y['fitting'])}."
     elif y["kind"] == "repair":                                              # by its size and structure (D2-168)
         if here.buildings()[key]["structure"] == "stone":
             _mason(mind)                                                       # mending stone is walling (D4-97)
@@ -615,24 +624,33 @@ def _make(here, mind, a, party):
     extra = _src(here, party, out)
     qty = max(1, int(_qty(a.get("qty"), 1)))
     res = []
+    from cybertron2.engine import wear as WE
+    fits = (t.get("at") or {}).get("fittings") or []
     for i in range(qty):
-        why = KN.shortfall(here, mind, tech, TRY[lvl]["inputs"], extra=extra)
+        sites = KN.where(here, tech)                                           # one's own house's fitting first
+        site = sorted(sites, key=lambda x: (x[0] != "building" or x[1] not in here.homes_here(),
+                                            x[0] != "building" or not here.may_take(here.buildings()[x[1]]["stock"])))[0] if sites else None
+        b = here.buildings().get(site[1]) if site and site[0] == "building" else None
+        fac = WE.factor(here.p, b, fits, here.day, here.year_days()) if fits else 1.0    # a worn fitting works at half (D4-103)
+        mult = TRY[lvl]["inputs"] if fac == 1.0 else TRY[lvl]["inputs"] * fac
+        why = KN.shortfall(here, mind, tech, mult, extra=extra)
         if why:
             res.append(f"Refused: make {tech}: {why}")
             break
-        sites = KN.where(here, tech)                                           # one's own house's fitting first
-        site = sorted(sites, key=lambda x: (x[0] != "building" or x[1] not in here.homes_here(),
-                                            x[0] != "building" or not here.may_take(here.buildings()[x[1]]["stock"])))[0]
-        _consume(here, t.get("inputs") or {}, TRY[lvl]["inputs"], extra)
+        _consume(here, t.get("inputs") or {}, mult, extra)
+        if b is not None and fits and WE.on(here.p):
+            WE.use(here, site[1], fits, sum(v for v in (t.get("inputs") or {}).values() if isinstance(v, (int, float))) * fac)
         ok = here.rng("make", here.day, here.name, tech, i).random() < TRY[lvl]["chance"]
         rose = KN.tried(here, mind, tech, ok, units=t["units"])
         if ok:
             full = ""
-            for item, q in t["gives"].items():
+            gives = {item: (q if fac == 1.0 else round(q * fac, 2)) for item, q in t["gives"].items()}
+            for item, q in gives.items():
                 full += _full_note(here, out, item, q)
                 here.apply("create", dst=out, item=item, qty=q, why=tech)
-            res.append(f"You made {', '.join(f'{q:g} {it}' for it, q in t['gives'].items())}" + (f" at {site[2]}" if site[1] else "") + full + "."
-                       + (f" (You are now {rose} at it.)" if rose else ""))
+            worn = (" (" + WE.worn_words(here.p, b, fits, here.day, here.year_days()) + ")") if fac < 1.0 else ""
+            res.append(f"You made {', '.join(f'{q:g} {it}' for it, q in gives.items())}" + (f" at {site[2]}" if site and site[1] else "") + worn
+                       + full + "." + (f" (You are now {rose} at it.)" if rose else ""))
         else:
             res.append(f"Your try at {KN.label(tech)} failed and the materials are spoilt." + (f" (You are now {rose} at it.)" if rose else ""))
         here.event("make", f"{here.name} was {KN.label(tech)}" + ("" if ok else ", and it went wrong"), actor=here.name,

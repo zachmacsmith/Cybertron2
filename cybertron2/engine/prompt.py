@@ -104,6 +104,9 @@ def schema_for(here, mind) -> dict:
             a[k].pop("enum", None)
         s["properties"]["attend"].pop("enum", None)
     s["properties"]["fallback"] = copy.deepcopy(s["properties"]["actions"])    # units left over: what one does with them
+    over = int((here.p.get("labour") or {}).get("over_units", 0) or 0)
+    if over:                                                                   # pushing on past the day's units (Q-2, D4-103)
+        s["properties"]["overwork"] = {"type": "integer", "enum": list(range(over + 1))}
     if here.setting("evening"):
         a["when"] = {"type": "string", "enum": ["morning", "nightfall"]}
     _drop_empty_enums(s)                                                       # one who knows nobody: the name is free text
@@ -264,6 +267,39 @@ REPLY_LINES = """Reply with JSON:
   "forget": [titles].
 - "open": [note titles] and "look_up": [crafts]: shown to you before the day's work, when you may change your plan.
 - "memory", "keep", "drop": only when asked for at the end of a stretch of days."""
+
+
+def _labour_lines(p) -> list:
+    """Labour's costs, as everyone knows them (labour.py; D4-103 phase 2): shown only where they are on."""
+    from cybertron2.engine.data import FITTINGS
+    lb = p.get("labour") or {}
+    out = []
+    bits = []
+    if float(lb.get("work_food", 0) or 0):
+        bits.append(f"each unit you work adds {lb['work_food']:g} to your night's food" + (f", a night on guard {lb['guard_food']:g}"
+                    if float(lb.get("guard_food", 0) or 0) else "") + "; eat less than your ration and your work's share and you go hungry")
+    if int(lb.get("over_units", 0) or 0):
+        bits.append(f"you may push on up to {lb['over_units']} units past your day's (\"overwork\"): each costs {lb['over_food']:g} "
+                    f"units' food and {lb['fatigue']} unit off the next day")
+    if float(lb.get("step", 0) or 0):
+        bits.append(f"walking far tires: each place on your day's way past the first {lb.get('free_steps', 2)} costs "
+                    f"{lb['step']:g} of a unit, taken from a later day")
+    if bits:
+        out.append("- Work: " + "; ".join(bits) + ".")
+    if lb.get("wear"):
+        ws = []
+        for f, d in FITTINGS.items():
+            wr = d.get("wear")
+            if not wr:
+                continue
+            when = (f"after {wr['life']:g} " + ("grain" if wr.get("count") == "inputs" else "uses")) if wr.get("life") is not None \
+                else f"after {wr['years'] * 4:g} season" + ("s" if wr["years"] * 4 != 1 else "")
+            ws.append(f"{d['label']} {when} ({wr['mend']} sets it right)")
+        if ws:
+            out.append("- Fittings wear and then work at half: " + "; ".join(ws) + ".")
+    if float(lb.get("fade_rate", 0) or 0):
+        out.append(f"- A craft left unpractised for {lb['fade_after']} days slowly loses its edge.")
+    return out
 
 
 def _crop_line(here) -> str:
@@ -470,7 +506,7 @@ def system_prompt(here, mind) -> str:
               f"charcoal; it warms {p['heat']['hearth_spaces']} spaces of floor, a fire ring {p['heat']['ring_spaces']} and only half in "
               f"the cold. A camp's fire takes {p['heat']['camp']:g}; a fire in the open {p['heat']['open']:g}, from what you carry, and up "
               f"to {p['heat']['share']} sleeping there share it. A cold night without a fire is hard.",
-              _crop_line(here),
+              _crop_line(here)] + _labour_lines(p) + [
               "- Buildings are what is in them: beds, a hearth, bins, a quern, an anvil. Anyone can build a small room and put in beds and "
               "bins; a hearth or an anvil takes a trade. Buildings fall into disrepair; repair takes timber.",
               "- What is whose: land, buildings and herds are held by claims that people know of. Anyone can use anything they can reach, "
@@ -494,7 +530,11 @@ def system_prompt(here, mind) -> str:
                   f"{p['shelter']['unsheltered']:g} meals, {p['shelter_cold']['unsheltered']:g} in the cold, unless someone takes you in; "
                   f"on foot you carry at most {p['carry']['foot']:g} weight, more with a pack, more again with a cart on a road with a track; {weights_text()}):"] + _map_lines(mind)
     lines += ["", "What you know how to do:"] + KN.crafts_lines(mind)
-    lines += ["", "What you can do (each action is a verb and what it acts on):", verb_lines(here, mind), "", REPLY_LINES]
+    reply = REPLY_LINES
+    if int((p.get("labour") or {}).get("over_units", 0) or 0):
+        reply = reply.replace('''- "tell":''', f'''- "overwork": 0 to {p["labour"]["over_units"]}: units to push on past your day's if your plan needs them.
+- "tell":''')
+    lines += ["", "What you can do (each action is a verb and what it acts on):", verb_lines(here, mind), "", reply]
     return "\n".join(lines)
 
 

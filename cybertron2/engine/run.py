@@ -28,6 +28,13 @@ MAX_ACTIONS = 10
 WAVES = 2
 
 
+
+def _num(x) -> float:
+    try:
+        return float(x or 0)
+    except (TypeError, ValueError):
+        return 0.0
+
 def blank_today() -> dict:
     return {"worked": {}, "thefts": [], "left": [], "joins": [], "admits": [], "sleep": {}, "travel": {}, "watch": {}, "teach": [],
             "learn": [], "fights": [], "guards": {}, "fire": {}, "partner": [], "try": [], "care": {}, "care_by": {}, "care_gift": {}, "route": {}}
@@ -932,6 +939,9 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
             spoke = {n: sum(1 for y in results[n] if y.startswith("You said (")) * int(w.p["say_units"]) for n in names}
             budget = {n: max(0, w.units_for(n) - spoke[n]) for n in names}
             used = {n: 0 for n in names}
+            LB = w.p.get("labour") or {}
+            over_ok = {n: max(0, min(int(LB.get("over_units", 0) or 0), int(_num(replies[n].get("overwork")))))
+                       for n in names}                                          # pushing on past the day's units (Q-2, D4-103)
             rep = {n: {} for n in names}
             refused_sig = {}
             heavy = {}
@@ -952,9 +962,10 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                         rep[n][refused_sig[n][sig]] = rep[n].get(refused_sig[n][sig], 1) + 1
                         continue
                     c = V.cost(here, a)
-                    if used[n] + c > budget[n]:
-                        if c and used[n] < budget[n]:
-                            results[n].append(f"Not done: {a.get('do')} {a.get('what') or ''}".rstrip() + f": it takes {c} units and you had {budget[n] - used[n]} left")
+                    if used[n] + c > budget[n] + over_ok[n]:
+                        if c and used[n] < budget[n] + over_ok[n]:
+                            results[n].append(f"Not done: {a.get('do')} {a.get('what') or ''}".rstrip() + f": it takes {c} units and you had "
+                                              f"{budget[n] + over_ok[n] - used[n]} left")
                         continue
                     res = V.do(here, mind, a)
                     if res.startswith("Refused: travel: you carry"):
@@ -1015,6 +1026,9 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                               if x in rep[n] else x for x in results[n]]
                 if used[n] < budget[n]:
                     results[n].append(f"You left {budget[n] - used[n]} of your {budget[n]} units unused.")
+                elif used[n] > budget[n]:
+                    results[n].append(f"You pushed on {used[n] - budget[n]} unit{'s' if used[n] - budget[n] != 1 else ''} past your strength: "
+                                      "it costs double food tonight, and you will be tired tomorrow.")
             if today.get("travel_morning"):                                    # set off this morning: in by nightfall (D4-67)
                 morning_departures(w, today)
             from cybertron2.engine import layout as LY
@@ -1030,6 +1044,8 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                 for n, mrec in folded.items():
                     files["memory"].write(json.dumps({"day": day, **mrec}) + "\n")
                 J.commit(w.s, _runner(J, cost, conv, locals()))
+            from cybertron2.engine import labour as LA
+            LA.close_day(w, today, used, budget, names)                       # work's food, fatigue, the walk (D4-103 phase 2)
             J.open_step(day, "settle")
             today["partners"] = LF.settle(w, today)                             # partnerships both chose (D2-140)
             today["children_work"] = LF.children_work(w)                        # the head's standing order (D2-148)

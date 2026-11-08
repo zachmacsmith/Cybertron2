@@ -592,7 +592,8 @@ class World:
             base = max(1, base - 2)
         if a.get("arrived") == self.d and a.get("arrived_by") == "midday":     # in at midday from a night on the road (D4-67)
             base = max(1, base // 2)
-        from cybertron2.engine import life as LF
+        from cybertron2.engine import life as LF, labour as LA
+        base = base - LA.tired_units(self, name) if LA.tired_units(self, name) else base    # tired from yesterday (D4-103 phase 2)
         return max(1, base - LF.unit_penalty(self, name))                     # late in a pregnancy, a unit fewer (D2-141)
 
     def yield_mult(self, name) -> float:

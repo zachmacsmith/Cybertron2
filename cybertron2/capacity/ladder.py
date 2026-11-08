@@ -34,7 +34,7 @@ def evaluate(w, lv, nodes, m, P_here) -> dict:
     ls = M.lots(ctx, M.flows(ctx, nodes))
     sup = M.people_supported(ctx, ls, m)
     scale = M.allocate(ls, sup * m["units"] * lv.labour_share)
-    sim = M.simulate(ctx, ls, scale, sup * m["eats"])
+    sim = M.simulate(ctx, ls, scale, M.need(ctx, ls, scale, sup, m))
     cap = CO.capital(ctx, ls, scale, sup, sim)
     rec = CO.recurring(ctx, ls, scale, sup, m)
     plots = sum(float(p["size"]) for p in w.s["parcels"].values() if (nodes is None or p["node"] in nodes) and p["cover"] == "field")

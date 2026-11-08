@@ -4,7 +4,8 @@ import numbers
 from cybertron2.engine import clocks as CK, data as D
 
 RATE_NAMES = ("spoil", "r", "grow", "regrow", "rot", "shed", "births", "p", "cold", "rate", "fallow", "window", "nights", "gale",
-              "grass_r", "stray", "in_milk_share", "dung", "survive", "abs", "share", "life", "wear", "starve_nights", "hungry_milk")
+              "grass_r", "stray", "in_milk_share", "dung", "survive", "abs", "share", "life", "wear", "starve_nights", "hungry_milk", "years", "work_food",
+              "guard_food", "over_food", "fade_rate", "fade_after")
 
 
 def _walk(o, path):
@@ -17,7 +18,7 @@ def _walk(o, path):
 
 def test_every_rate_names_its_clock():
     missing = []
-    for t in ("ITEMS", "PHYSICS", "FORESTS", "CROPS", "DECAY", "RESOURCES", "TECHNIQUES"):
+    for t in ("ITEMS", "PHYSICS", "FORESTS", "CROPS", "DECAY", "RESOURCES", "TECHNIQUES", "FITTINGS"):
         for path in _walk(getattr(D, t), [t]):
             last = path.split(".")[-1]
             if last in RATE_NAMES and CK.clock_of(path) is None:

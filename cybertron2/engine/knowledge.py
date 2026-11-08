@@ -375,6 +375,8 @@ def tried(here, mind, tech, ok, units=1) -> str:
     if r is None:
         return ""
     r["wins" if ok else "fails"] = r.get("wins" if ok else "fails", 0) + 1
+    if float((here.p.get("labour") or {}).get("fade_rate", 0) or 0):
+        r["practised"] = here.day                                              # for skill's fading (D4-103 phase 2)
     r["skill"] = skill_of_practice(tech, practice_of_skill(tech, float(r.get("skill", curve(tech)[0]))) + float(units))
     if r["level"] == "known":
         return ""

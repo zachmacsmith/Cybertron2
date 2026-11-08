@@ -12,6 +12,7 @@ camping, camping_fire) and the person's night `c`:
   fed_on_road  the share of a meal a good place on the road gave, or None
   mult, extra  the ration's multiplier and addition (an infant, a child, a pregnancy: life.ration_factor)
   care_fed     what the largest care gave a child, or None
+  work         the food the day's work and watch add (labour.work_need), or 0
 Clocks: every value here is a night's (the day clock).
 """
 from __future__ import annotations
@@ -41,6 +42,8 @@ def food(p, c) -> tuple:
     if state == "unsheltered" and c.get("fed_on_road") is not None:          # fed on the way at a good place (D2-109)
         need = min(need, float(p["ration"]) * float(c["fed_on_road"]))
     need = need * c.get("mult", 1.0) + c.get("extra", 0.0)                   # an infant, a child, a pregnancy (D2-141, D2-145)
+    if c.get("work"):
+        need += c["work"]                                                     # the day's work and watch (labour.work_need: D4-103)
     if c.get("care_fed") is not None:                                        # it eats all the largest care gave it (D4-64)
         need = max(need, c["care_fed"])
     return need, fall
