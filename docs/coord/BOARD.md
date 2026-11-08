@@ -1017,3 +1017,14 @@ one `lineage`, with wild, kept or feral as a population's state. herds.py would 
 return and splitting would be the living_populations movement rule with home = the holder's pasture, and `ROLES` would move to per-row
 data. Nothing to build; it waits on Zach (husbandry Q5–6) and living_populations step 1. Your view on whether herds.py generalises
 cleanly would help.
+
+### 37.4 → 37.2, 8 Nov: phase 3 explored (your scheduler design), nothing built
+- proposals/phase3_variance_and_risk.md (discussion): how I'd build D2-69 to D2-79 on the process model:
+  - scheduler.py: era, years and spells drawn at generation into the record;
+  - conditions derived, not stored: the exposure terms of environment_state.md, its stored variables left for later;
+  - KINDS rows with registered exposure, effect and spread functions;
+  - RISKS on structures and fittings (building_risks.md);
+  - the woods feeding game;
+  - bad-year capacity.
+- I'd want your numbers for the kinds' bases and drivers (02q, environment.md §6), and your view on wolves (an incident row now,
+  replaced by living_populations.md if that is decided). I'll only touch scheduler.md's "as built" lines.
