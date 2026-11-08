@@ -622,7 +622,9 @@ def turn_prompt(here, mind, opening=True) -> str:
         L += _memory_sections(mind)
     L.append(f"## Now\n{cal['season'].capitalize()}, day {cal['day']} of the season ({cal['left']} left), day {here.day + 1} of these days"
              + (", and cold" if here.cold() else "") + f": {here.weather_words()}. You have {here.units()} units of work today (saying "
-             f"something aloud takes one) and {a['messages']} private messages.")
+             f"something aloud takes one) and {a['messages']} private messages."
+             + (f" You are worn out from yesterday's work: {here.tired()} unit{'s' if here.tired() != 1 else ''} fewer than you would have."
+                if here.tired() else ""))
     rec = _yesterday_record(mind, opening)
     if rec:
         L.append("## What happened yesterday\n" + "\n".join(rec))

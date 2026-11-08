@@ -12,6 +12,7 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
 - D4-105: sowing windows are lore, not rules; skill fades slowly and partly; wear in a village's terms.
 - D4-106: can apart from works; crops grow by the season; removing a crop; seed on turf; a crop's signs.
 - D4-107: processing keeps its food gain (phase 2's D rejected); food values as before phase 2.
+- D4-108: work and its hunger are felt.
 
 ## Mechanics
 
@@ -82,6 +83,9 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
   - **The walk** (D4-105): the day's route (the shortest path joining where one slept, each parcel worked in order, and where one
     sleeps; D4-62) costs `step` (0.1) of a unit for each leg past the first `free_steps` (2), carried until it makes a whole unit,
     which comes off the next day.
+  - **Felt** (D4-108): the night lines tell when the day's work made a ration a missed meal, when a hard day (6 units or more)
+    or pushing on left one ravenous (what one ate against a lighter day's need), and the morning tells the units yesterday's work
+    took from today.
   - **Skill fades** (D4-105): a craft unpractised for `fade_after` (half a year) loses `fade_rate` (half a year) of what can
     still be lost, and never more than 1 - `fade_keep` (40%) of its best gain over the craft's floor. Below one's best, practice
     counts `relearn` (3) times over.
@@ -110,4 +114,4 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
   form).
 - The heat need as a pure function beside food.
 
-*Current as of 8 Nov 2026 (D4-103 phase 2, D4-104 to D4-107).*
+*Current as of 8 Nov 2026 (D4-103 phase 2, D4-104 to D4-108).*

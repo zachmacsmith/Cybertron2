@@ -624,13 +624,24 @@ def night_lines(w, rec) -> dict:
             L.append(f"You lit a fire in the open ({float(w.p['heat']['open']):g} heat from what you carried); up to {w.p['heat']['share']} slept by it.")
         if n in rec.get("fire_out", []):
             L.append("The night's weather put the fire out: you lay cold till morning.")
-        if n in rec["missed"]:
+        wk = (rec.get("work") or {}).get(n)
+        if n in rec["missed"] and n in (rec.get("work_short") or []):         # the day's work made it a missed meal (D4-108)
+            L.append(f"You ate a ration's worth, but after the day's work it was not enough: you went to bed hungry, a missed meal. "
+                     f"A lighter day would have filled you.")
+        elif n in rec["missed"]:
             L.append("You went to bed without enough to eat: a missed meal.")
             raw = rec.get("uncooked", {}).get(n)
             if raw:
                 L.append(f"With no lit fire your {' and '.join(raw)} went down raw and fed you little.")
         elif n in rec["short"]:
             L.append(f"You ate {rec['ate'][n]:g}, less than a cold night asks.")
+        if wk and n not in rec["missed"] and (wk["over"] > 0 or wk["units"] >= 6):    # hard work felt in the body (D4-108)
+            ate = rec["ate"].get(n, 0)
+            if wk["over"] > 0:
+                L.append(f"You pushed past your strength today: you ate {ate:g}, where a lighter day would have needed {wk['base']:g}, "
+                         "and you will be worn out tomorrow.")
+            else:
+                L.append(f"Your hard day's work left you ravenous: you ate {ate:g}, where a lighter day would have needed {wk['base']:g}.")
         if n in rec["cold_falls"]:
             L.append("The night in the cold left you starving.")
         for b in (rec.get("life") or {}).get("births", []):                 # lived through, not merely seen (D2-141)

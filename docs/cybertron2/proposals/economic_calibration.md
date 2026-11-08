@@ -1,6 +1,6 @@
 # Economic calibration: one time scale, and mechanics that make economic sense
 
-**Status:** accepted in part: D4-103 (A to F built 8 Nov as phase 2 of the engine overhaul; G with phase 1); D4-105 (lore, fading, wear values); D rejected: D4-107
+**Status:** accepted in part: D4-103 (A to F built 8 Nov as phase 2 of the engine overhaul; G with phase 1); D4-105 (lore, fading, wear values); D rejected: D4-107; D4-108 (work felt)
 **Owner:** 37.4 (engine), with 37.2 (economy)
 
 ## Summary
@@ -127,6 +127,16 @@ data.py (CROPS, ITEMS, PHYSICS, TECHNIQUES); farm.py; night.py; spec/economy/pro
 spec/environment/resources.md, calendar.md; the capacity model (no change: it follows the engine).
 
 ## History
+
+- 8 Nov (latest, 2): **work and its hunger felt: D4-108**, built at Zach's request ("add the felt sign for hard work and hunger").
+  E2 had shown the labour rule acting only mechanically: in 296 agent-days no agent reasoned about work's food cost, and hungry
+  agents used more of their (fewer) units, not less. The rule was one line read at the start, with nothing felt that ties tonight's
+  hunger to today's work. Now:
+  - the night lines say when the work's share made a missed meal;
+  - they say when a hard day or pushing on left one ravenous;
+  - the morning says the units yesterday's work took.
+
+  Each line appears only when the work mattered, not every day.
 
 - 8 Nov (latest): **D (processing makes no food) rejected: D4-107.** Zach: "While mills increasing food is incorrect, I think we
   should keep it for now. I reject this change, and please fix the food numbers to match before." The food values are back to

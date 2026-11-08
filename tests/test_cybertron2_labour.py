@@ -138,3 +138,25 @@ def test_farming_families_start_with_the_sowing_lore_and_others_do_not():
     assert not any(x["source"] == "family lore" for n in w2.living() for x in MEM.kept(w2, n)["lines"])
     from cybertron2.engine import prompt as PR
     assert "sown in spring" not in PR.system_prompt(Here(w, "Tom"), Mind(w, "Tom"))   # the rules do not tell it (D4-105)
+
+
+def test_hard_work_and_the_hunger_it_brings_are_felt():
+    """D4-108: the body tells what the work cost: a ration eaten but not the work's share is felt as the work's doing; a hard day
+    leaves one ravenous; yesterday's pushing on shows in the morning's units."""
+    w = world()
+    n = "Edric"
+    for c in w.takeable(n, w.place_of(("person", n))):
+        w.s["containers"][c]["goods"] = {}
+    from cybertron2.engine.data import ITEMS
+    w.s["containers"][w.hands(n)]["goods"] = {"bread": 1.05 / ITEMS["bread"]["food"]}
+    w.s["today"]["units"] = {n: {"used": 7, "over": 0}}
+    rec = N.night(w)
+    assert n in rec["work_short"]
+    assert any("after the day's work it was not enough" in x for x in R.night_lines(w, rec)[n])
+    w2 = world()
+    w2.s["today"]["units"] = {n: {"used": 7, "over": 1}}
+    rec2 = N.night(w2)
+    assert any("pushed past your strength" in x for x in R.night_lines(w2, rec2)[n])
+    w2.s["people"][n]["tired"] = {"day": w2.d, "units": 1}
+    from cybertron2.engine import prompt as PR
+    assert "worn out from yesterday" in PR.turn_prompt(Here(w2, n), Mind(w2, n))

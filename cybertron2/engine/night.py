@@ -117,6 +117,11 @@ def night(w) -> dict:
             w.apply("set", place, ref=me, field="ate_raw", value=w.d)        # seen on them tomorrow (signs.PERSON)
         full = float(p["ration"]) * mult + extra                                # a short meal is a ration's worth at least
         if wk:
+            rec.setdefault("work", {})[name] = {"need": wk, "base": round(full, 2),
+                                                "units": int(((today.get("units") or {}).get(name) or {}).get("used", 0)),
+                                                "over": int(((today.get("units") or {}).get(name) or {}).get("over", 0))}
+            if full - 1e-9 <= ate < full + wk - 1e-9:
+                rec.setdefault("work_short", []).append(name)                  # a ration eaten, the work's share not: felt (D4-108)
             full += wk                                                          # and the day's work, eaten or paid for in hunger
         if ate + 1e-9 >= need:
             w.apply("harm", place, person=name, hunger=min(0, a["hunger"] + 1))

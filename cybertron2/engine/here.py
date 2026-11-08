@@ -100,6 +100,11 @@ class Here:
     def units(self) -> int:
         return self._w.units_for(self.name)
 
+    def tired(self) -> int:
+        """Units off today from yesterday's pushing on and walking (labour.py, D4-108)."""
+        from cybertron2.engine import labour as LA
+        return LA.tired_units(self._w, self.name)
+
     def yield_mult(self) -> float:
         return self._w.yield_mult(self.name)
 

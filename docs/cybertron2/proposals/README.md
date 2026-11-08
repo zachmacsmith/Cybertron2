@@ -367,6 +367,7 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 8 Nov | Sowing windows as families' lore, not rules; skill fades slowly and partly; wear in a village's terms | accepted: D4-105 | [economic_calibration.md](economic_calibration.md) |
 | 8 Nov | Can apart from works; crops grow by the season; reaping green and turning under; seed on turf; a crop's signs | accepted: D4-106 | [crop_growth.md](crop_growth.md) |
 | 8 Nov | Processing makes no food (phase 2's D) | rejected: D4-107 (food values as before) | [economic_calibration.md](economic_calibration.md) |
+| 8 Nov | Work and its hunger felt in the night lines and the morning | accepted: D4-108 (built) | [economic_calibration.md](economic_calibration.md) |
 | 2 Nov | What can happen to buildings and fittings, by weather and use | deferred (L-48) | [building_risks.md](building_risks.md) |
 | 2 Nov | Mills and ovens at scale; oven in stone; coppice held; fuel line; babies by shelter; refused acts not retried; stone walling | accepted: D4-97 | [mill_and_oven_scale.md](mill_and_oven_scale.md) |
 | 24 Oct | how buildings fit the other systems (before Package E is built) | mostly settled. Package E (02y) was deferred until this was worked out (Zach, 24 Oct), then replaced by the building package (02zh), built ... | [buildings_integration.md](buildings_integration.md) |
