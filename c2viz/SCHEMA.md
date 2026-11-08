@@ -4,7 +4,8 @@
 changes to keep this contract; if the contract itself must change, `c2viz/schema.py` `SCHEMA_VERSION` goes up and this file says
 what changed. `schema.validate` checks a viz.json (the build prints any problem; the tests require none).
 
-Schema version: **2** (2 added `land`, optional; nothing else changed).
+Schema version: **3** (2 added `land`, optional; 3 gave each day its weather by place, `places`, and dropped the top-level `words`:
+D4-111, 37.4).
 
 | Part | Holds | Built by |
 |---|---|---|
@@ -17,7 +18,8 @@ Schema version: **2** (2 added `land`, optional; nothing else changed).
 
 ## A day
 
-`day`, `calendar {season, day, left, year_day}`, `cold`, `weather`, `words`, `wet`, `snow`, and:
+`day`, `calendar {season, day, left, year_day}`, `places {node: {cold, weather, words, wet, snow}}` (each place's own, D4-111), and for
+the region's map `weather` (the commonest over the places, a presentation choice), `cold`, `wet`, `snow` (true if any place has them), and:
 
 | Key | Each record |
 |---|---|

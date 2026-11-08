@@ -4,12 +4,12 @@ this; when the engine changes, the model changes to keep it, or SCHEMA_VERSION g
 """
 from __future__ import annotations
 
-SCHEMA_VERSION = 2                       # 2: `land`, a generated world's ground truth (optional)
+SCHEMA_VERSION = 3                       # 2: `land` (optional); 3: each day's weather by place (`places`, D4-111), no top-level `words`
 
 TOP = {"meta": dict, "tables": dict, "static": dict, "days": list}
 META = ("name", "days", "seed", "people", "season_days", "schema")
 STATIC = ("nodes", "parcels", "roads", "layout")
-DAY = ("day", "calendar", "cold", "weather", "words", "wet", "snow", "parcels", "buildings", "herds", "things", "people", "roads", "traces",
+DAY = ("day", "calendar", "places", "cold", "weather", "wet", "snow", "parcels", "buildings", "herds", "things", "people", "roads", "traces",
        "events", "acts", "fights")
 PARCEL = ("cover", "res", "holders")
 BUILDING = ("node", "parcel", "name", "structure", "condition", "door", "fire", "fittings", "rooms", "footprint", "sleepers", "holders", "stock", "made")

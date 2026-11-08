@@ -139,3 +139,6 @@ engine's state and imports nothing it changes.
   on the engine (touchpoints whole, tests pass).
   - Actions in two frames (sprites.js POSES): fell, reap, dig, mine, make, hunt, forage, milk, herd, sow, carry, fish. The new
     techniques (fishing, salt, mending, drying fodder) mapped to tools.
+- 08 Nov 2026: 37.4's D4-111 (`3fc6d7f`) gave each day's record its weather by place and dropped the top-level `words`; the
+  contract (schema.py, SCHEMA.md) follows as version 3, and tests pass. CATALOGUE §1 now lists what is left: each place's weather
+  on the region map, the physical values, storms.

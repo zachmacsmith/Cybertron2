@@ -24,18 +24,20 @@ from the engine"), what c2viz shows now, and what it should show. The order is b
 - **Storms:** `climate.storms(w, day)` gives each storm abroad with its position (km on a plane laid out from road distances),
   radius and wind. `storm_coming` is true the day before a storm reaches a place, and is also a sign people can see.
 
-**c2viz now:** one weather and one snow for the whole world, read once a day (`touch.weather(w)`, `snow_lying(w)`). Close-ups take
-the region's temperature only for snow on generated land.
+**c2viz now** (D4-111, 37.4, 8 Nov: every weather query names its place):
+- each day's record has `places {node: {cold, weather, words, wet, snow}}`;
+- a place close up draws its own weather, and snow where its own place has it;
+- the region's map draws one sky, the commonest weather over the places (a presentation choice), with snow from each place it paints.
 
-**To support:**
-- **Each place's own weather, close up and on the region map.** Rain, heavy rain, fog, snow and gale where that place has them, so
-  one valley can be in fog while the next is clear. Per-node frost (white rime on fields and roofs) and per-node snow lying.
-  Rain drawn by amount, from a drizzle to a downpour, and wind by speed (trees and smoke leaning).
+**Still to support:**
+- **Each place's weather on the region map:** fog in one valley while the next is clear, rain over one village only.
+- **The physical values,** not only the label: rain by amount, from a drizzle to a downpour; wind by speed (trees and smoke
+  leaning); per-node frost as white rime on fields and roofs.
 - **Storms on the region map:** each storm as a dark mass at its position and radius, moving day to day along its track, with the
   places it passes darkened and their gale shown. A "storm coming" mark on a place the day before it arrives.
 - **The day's type and the era as words on the page** (a settled spell, a westerly; a cold era), not drawn into the land.
-- **Model change:** `touch.weather(w, node)`, `snow_lying(w, node)` and `climate.env`, `storms` and `storm_coming`; per-node
-  weather in each day's record; storms in the day's record. A schema addition, so the version goes up.
+- **Model change:** `climate.env` (temp, low, rain, wind, fog, storm) per place, and `climate.storms` and `storm_coming`, into
+  the day's record through touch.
 
 ## 2. Crops that grow by the season (D4-106; `engine/farm.py`, `data.CROPS`, `PHYSICS.farming`)
 
