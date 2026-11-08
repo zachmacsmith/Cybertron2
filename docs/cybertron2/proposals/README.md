@@ -139,6 +139,7 @@ Rebuilt from the files on 5 Nov (status and owner as each file states them; 37.2
 | [base_fertility.md](base_fertility.md) | the land's base fertility (multiplicative) | 37.4 | retrospective, accepted: D4-112 (8 Nov; built). |
 | [use_by_physics.md](use_by_physics.md) | what is physically possible is possible; the consequences are social | 37.4 | part 1 retrospective, accepted: D4-114 (8 Nov; built). Part 2 (the audit of claims) discussion. |
 | [node_ecology.md](node_ecology.md) | ecology designed from the node outward | 37.2 | discussion (8 Nov). Nothing decided, nothing built. |
+| [wild_systems.md](wild_systems.md) | wild systems, layered kinds that people can learn to read | 37.2 | discussion (8 Nov). Nothing decided, nothing built. |
 
 ## Log of ideas and their outcomes
 
@@ -402,3 +403,4 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | ? | crops grow by the season; "can" apart from "works"; what a crop shows | discussion (8 Nov). | [crop_growth.md](crop_growth.md) |
 | ? | phase 3 of the engine overhaul, variance and risk (the scheduler, building risks, the woods, bad years) | discussion (8 Nov); an exploration of what phase 3 builds, nothing built. | [phase3_variance_and_risk.md](phase3_variance_and_risk.md) |
 | ? | ecology designed from the node outward | discussion (8 Nov). Nothing decided, nothing built. | [node_ecology.md](node_ecology.md) |
+| ? | wild systems, layered kinds that people can learn to read | discussion (8 Nov). Nothing decided, nothing built. | [wild_systems.md](wild_systems.md) |

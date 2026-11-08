@@ -159,6 +159,8 @@ can use it directly.
 
 - 8 Nov: proposed after Zach's point that the ecology was designed for the land, not for the nodes. First model at village scale (02zp
   part three).
+- 8 Nov: the kinds themselves (layered rules, signs, lore, lags mostly inside a year) are designed in
+  [wild_systems.md](wild_systems.md), which builds on this proposal's scale, coarse layer and groups.
 
 ## Sources
 
