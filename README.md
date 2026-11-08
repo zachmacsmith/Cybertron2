@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/header_dark.svg">
-    <img src="docs/assets/header.svg" alt="Cybertron: societies of LLM agents" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/cybertron2_header_dark.png">
+    <img src="docs/assets/cybertron2_header.png" alt="Cybertron 2" width="100%">
   </picture>
 </p>
 
