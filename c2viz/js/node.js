@@ -1,7 +1,7 @@
 // c2viz/js/node.js: one place close up, at the end of a day; things lying about; the labels of hotspots.
 (function (X) {
   "use strict";
-  const { D, PAL, Px, QUIET_EVENTS, beast, bonesBig, drawBuilding, drawTrees, geom, graveBig, hstr, model, nodeRelief, noise, paintLand, paintPath, paintRoad, peaks, person, plan, rng, sackBig, smoke, toolFor, verges, villager, weatherOver } = X;
+  const { D, PAL, Px, QUIET_EVENTS, beast, bonesBig, drawBuilding, drawTrees, geom, graveBig, hstr, model, nodeRelief, noise, paintLand, paintPath, paintRoad, peaks, person, plan, rng, sackBig, smoke, toolFor, verges, villager, weatherOver, skyOver } = X;
   // ---------------------------------------------------------------------------------------------------- one place, close up
   function node(cv, V, nid, day, opts = {}) {
     const G = geom(V, nid), W = G.W, H = G.H, M = model(V), N = M.nodes[nid], d = D(V, day), ST = V.static, R = rng(hstr(nid) ^ M.seed ^ day);
@@ -54,6 +54,8 @@
     items.sort((a, b) => a.y - b.y).forEach((it) => it.f());
     const wx = (d.places || {})[nid] || d;                                                              // the place's own (D4-111)
     weatherOver(P, W, H, wx.weather, rng(hstr("weather|" + day)), false, { rain: wx.rain, wind: wx.wind, frost: wx.frost, storm: wx.storm });
+    { const v = { kind: wx.weather, rain: wx.rain, wind: wx.wind, storm: wx.storm || 0, fog: wx.weather === "fog" ? 1 : 0 };            // its sky
+      skyOver(P, W, H, () => v, rng(hstr("sky|" + nid + "|" + day)), false, { alpha: 0.72, low: (x, y) => Math.max(0.3, 1.4 - 0.4 * (ctx.LV[y * W + x] || 1)) }); }
     for (const e of d.events) {                                                                        // marks for what happened, by how far it reaches
       if (e.place !== nid || QUIET_EVENTS.includes(e.kind)) continue;
       let xy = null;

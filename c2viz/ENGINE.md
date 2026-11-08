@@ -518,6 +518,17 @@ Checked on every place of twin bays and w1:
 - **Storms still crossing** are dark masses on the region's map. The scheduler's plane is laid onto the map by the similarity
   (scale, rotation, maybe a mirror) that best fits its places to where the map has them. Most storms cross a region within a day,
   so they show as the places they darkened, not as a mass.
+- **The weather is drawn as things in the sky** (land.js `skyOver`), each casting a shadow:
+  - fair-weather puffs on a clear day;
+  - grey clouds for rain (more of them with more mm, with rain falling from them), darker for heavy rain;
+  - pale clouds for snow;
+  - torn scraps in a gale;
+  - low, flat fog banks that settle in the low ground;
+  - where a storm passes, a few towering storm cells with anvil tops, rain shafts and now and then lightning, with heavy-rain
+    cloud between them.
+
+  Clouds gather into systems by a slow noise, and on the region's map they keep off the villages. The even tint under them is
+  light: a little dim under a storm, a haze in fog.
 - **A place a storm reaches tomorrow** has a dark cloud by its name.
 - **On hover,** each place's weather in words and values. The day's type and era are on the page.
 

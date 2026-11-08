@@ -183,9 +183,9 @@
   function weatherField(P, W, H, at, R, small, seed = 0) {
     const nz = noise(77 + seed);
     for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { const v = at(x, y); if (!v) continue;
-      if (v.storm > 0.05) P.mix(x, y, "#2a3048", 0.4 * Math.min(1, Math.max(0, (v.storm - 0.05) / 0.6)));   // a storm passing darkens, by how near
+      if (v.storm > 0.05) P.mix(x, y, "#2a3048", 0.15 * Math.min(1, Math.max(0, (v.storm - 0.05) / 0.6)));   // a storm passing: a little dim
       if (v.frost > 0 && v.kind !== "snow" && nz(x / 4 + 3, y / 4, 2) > 1 - 0.45 * v.frost) P.mix(x, y, "#e8eef4", 0.28);   // rime, as thick as the frost's share
-      if (v.fog > 0) P.mix(x, y, "#e8ecf0", (0.28 + 0.22 * nz(x / 30, y / 18, 2)) * Math.min(1, v.fog));
+      if (v.fog > 0) P.mix(x, y, "#e8ecf0", 0.1 * Math.min(1, v.fog));                                // a fog's haze; its banks are drawn
       const wet = v.rain != null ? Math.min(0.16, 0.13 * v.rain / 7) : RAINY.has(v.kind) ? Math.min(0.16, 0.04 + 0.05 * heavyOf(v)) : 0;   // by the mm where given:
       if (wet > 0.005) P.dark(x, y, wet);                                                                  // no edge where the label flips
     }
@@ -197,6 +197,67 @@
       if (v.kind === "snow") { P.put(x, y, "#ffffff"); if (slant > 1) P.mix(x + 1, y, "#ffffff", 0.4); continue; }
       if (v.kind === "gale") { for (let j = 0; j < 4; j++) P.mix(x + j, y, "#ffffff", 0.35); continue; }
       const L_ = small ? 2 : 3; for (let j = 0; j < L_; j++) P.mix(x - j * (1 + slant) / 2, y + j, "#c8dcf0", 0.4); }
+  }
+  // ---------------------------------------------------------------------------------------------------- clouds
+  // The weather drawn as things in the sky (a presentation choice, ENGINE.md §14): fair-weather puffs on a clear day, grey clouds
+  // for rain and snow (darker for heavy rain), towering dark storm clouds with rain shafts and now and then lightning where a storm
+  // passes, low flat fog banks in the low ground, torn scraps in a gale. Each cloud casts its shadow on the land below.
+  const CLOUD = { fair: ["#f4f6fa", "#ffffff", "#c8d0dc"], rain: ["#a8b0bc", "#c4cad4", "#848c9a"], heavy: ["#8a92a0", "#a4acb8", "#6a7282"],
+    storm: ["#4c5266", "#6e7488", "#2e3244"], snow: ["#d4d8e0", "#eef0f4", "#aeb4c0"] };
+  function cloud(P, cx, cy, w, h, style, R, alpha) {
+    const C = CLOUD[style], n = Math.max(3, Math.ceil(w * 0.75 / (h * 0.55)) + 1 + ((R() * 2) | 0)), puffs = [];   // enough puffs to touch
+    for (let k = 0; k < n; k++) puffs.push([cx + (k / (n - 1) - 0.5) * w * 0.75 + (R() - 0.5) * w * 0.1, cy - R() * h * 0.25, h * (0.45 + 0.35 * R()) * (k === 0 || k === n - 1 ? 0.75 : 1)]);
+    if (style === "storm") {                                                                        // a storm cloud towers, to a flat anvil
+      for (let k = 0; k < 3; k++) puffs.push([cx + (R() - 0.5) * w * 0.25, cy - h * (0.55 + 0.35 * k), h * (0.5 - 0.06 * k)]);
+    }
+    const lean = (R() - 0.3) * 0.3, anvil = style === "storm" ? [cx + w * lean, cy - h * (1.4 + R() * 0.25), w * (0.5 + R() * 0.2), h * (0.22 + R() * 0.12)] : null;   // a flat top, spread downwind
+    const ns = noise((R() * 1e6) | 0), base0 = cy + h * 0.32, base = (x) => base0 + (ns(x / 7, 3) - 0.5) * h * 0.3;   // an underside, not ruled
+    for (let y = Math.floor(cy - h * 2.2); y <= base0 + h * 0.2; y++) for (let x = Math.floor(cx - w * 0.8); x <= cx + w * 0.8; x++) {
+      if (y > base(x)) continue;
+      const jr = 0.88 + 0.24 * ns(x / 5, y / 5);                                                     // ragged edges
+      let inside = false, top = 1e9; for (const [px, py, r0] of puffs) { const r = r0 * jr, dd = (x - px) ** 2 + (y - py) ** 2; if (dd <= r * r) { inside = true; top = Math.min(top, py - Math.sqrt(Math.max(0, r * r - (x - px) ** 2))); } }
+      if (anvil) { const e = ((x - anvil[0]) / anvil[2]) ** 2 + ((y - anvil[1]) / anvil[3]) ** 2; if (e <= 1) { inside = true; top = Math.min(top, anvil[1] - anvil[3] * Math.sqrt(Math.max(0, 1 - ((x - anvil[0]) / anvil[2]) ** 2))); } }
+      if (!inside) continue;
+      const c = y >= base(x) - 1 ? C[2] : y - top < 2 ? C[1] : C[0];
+      P.mix(x, y, c, alpha);
+    }
+  }
+  function shadow(P, cx, cy, w, h, t) { for (let y = Math.floor(cy - h * 0.4); y <= cy + h * 0.4; y++) for (let x = Math.floor(cx - w * 0.55); x <= cx + w * 0.55; x++)
+    if (((x - cx) / (w * 0.55)) ** 2 + ((y - cy) / (h * 0.4)) ** 2 <= 1) P.dark(x, y, t); }
+  function fogBank(P, cx, cy, w, h, R, nz) { for (let y = Math.floor(cy - h); y <= cy + h; y++) for (let x = Math.floor(cx - w); x <= cx + w; x++) {
+    const e = ((x - cx) / w) ** 2 + ((y - cy) / h) ** 2; if (e > 1) continue; P.mix(x, y, "#eef1f4", (1 - e) * (0.45 + 0.35 * nz(x / 9, y / 5, 2))); } }
+  function bolt(P, x, y, L, R) { for (let k = 0; k < L; k++) { P.put(x, y, k % 3 ? "#fff8c0" : "#ffffff"); y++; if (R() < 0.4) x += R() < 0.5 ? -1 : 1; } }
+  // the sky over the land: at points on a grid, the weather there (`at`) decides what is in the sky; `opts.avoid(x, y)` keeps
+  // clouds off what must stay seen (the region's villages), `opts.low(x, y)` is how low the ground lies (fog settles there)
+  function skyOver(P, W, H, at, R, small, opts = {}) {
+    const step = small ? 120 : 90, k = small ? 2.2 : 1.9, nz = noise(91 + (opts.seed || 0)), cov = noise(173 + (opts.seed || 0)), items = [];
+    for (let gy = -step / 2; gy < H + step; gy += step) for (let gx = -step / 2; gx < W + step; gx += step) {
+      const x = gx + (R() - 0.5) * step * 0.8, y = gy + (R() - 0.5) * step * 0.8, v = at(Math.max(0, Math.min(W - 1, x | 0)), Math.max(0, Math.min(H - 1, y | 0))); if (!v) continue;
+      if (opts.avoid && opts.avoid(x, y)) continue;
+      const storm = v.storm || 0, kind = v.kind || "clear", c = (cov(x / (step * 2.5), y / (step * 2.5), 2) - 0.5) * 1.1;   // clouds come in systems
+      const p = (q) => R() < Math.max(0, Math.min(1, q + c));
+      if (storm > 0.3) { if (p(0.2)) items.push({ t: "heavy", x, y, w: (36 + R() * 20) * k, h: (12 + R() * 5) * k, shaft: 2 }); }   // between the cells
+      else if (kind === "fog" || (v.fog || 0) > 0.5) { for (let b = 0; b < 3; b++) if (p(0.55 * Math.max(0.4, opts.low ? opts.low(x, y) : 1)))
+        items.push({ t: "fog", x: x + (R() - 0.5) * step * 0.6, y: y + (R() - 0.5) * step * 0.5, w: (30 + R() * 26) * k, h: (5 + R() * 3) * k }); }
+      else if (kind === "heavy rain") { if (p(0.55)) items.push({ t: "heavy", x, y, w: (40 + R() * 22) * k, h: (13 + R() * 5) * k, shaft: 2 }); }
+      else if (kind === "rain") { if (p(0.3 + 0.2 * Math.min(1, (v.rain || 3) / 8))) items.push({ t: "rain", x, y, w: (34 + R() * 20) * k, h: (11 + R() * 4) * k, shaft: 1 }); }
+      else if (kind === "snow") { if (p(0.4)) items.push({ t: "snow", x, y, w: (34 + R() * 20) * k, h: (11 + R() * 4) * k }); }
+      else if (kind === "gale") { for (let b = 0; b < 2; b++) if (p(0.25)) items.push({ t: "rain", x: x + (R() - 0.5) * step * 0.6, y: y + (R() - 0.5) * step * 0.6, w: (14 + R() * 10) * k, h: (5 + R() * 2) * k }); }
+      else if (kind === "clear") { if (p(0.18)) items.push({ t: "fair", x, y, w: (16 + R() * 14) * k, h: (7 + R() * 4) * k }); }
+    }
+    const cell = step * 2.2;                                                                      // storm cells: a few to a storm
+    for (let gy = -cell / 2; gy < H + cell; gy += cell) for (let gx = -cell / 2; gx < W + cell; gx += cell) {
+      const x = gx + (R() - 0.5) * cell * 0.7, y = gy + (R() - 0.5) * cell * 0.7, v = at(Math.max(0, Math.min(W - 1, x | 0)), Math.max(0, Math.min(H - 1, y | 0)));
+      if (!v || (v.storm || 0) < 0.3 || (opts.avoid && opts.avoid(x, y)) || R() > Math.min(0.85, 0.15 + v.storm * 0.6)) continue;
+      items.push({ t: "storm", x, y, w: (46 + R() * 30) * k, h: (17 + R() * 9) * k, bolt: R() < 0.5 }); }
+    for (const c of items) if (c.t !== "fog") shadow(P, c.x + c.w * 0.25, c.y + c.h * 1.4, c.w, c.h, c.t === "storm" ? 0.22 : c.t === "fair" ? 0.1 : 0.14);   // shadows first
+    for (const c of items) if (c.t === "fog") fogBank(P, c.x, c.y, c.w, c.h, R, nz);
+    items.sort((a, b) => a.y - b.y);
+    for (const c of items) { if (c.t === "fog") continue;
+      if (c.shaft || c.t === "storm") { const n = (c.t === "storm" ? 0.9 : 0.35 * c.shaft) * c.w; for (let j = 0; j < n; j++) {     // rain falling from it
+        const sx = c.x + (R() - 0.5) * c.w * 0.8, sy = c.y + c.h * 0.4 + R() * c.h * 1.8; for (let q = 0; q < 3; q++) P.mix(sx - q * 0.5, sy + q, "#c8dcf0", 0.5); } }
+      if (c.bolt) bolt(P, (c.x + (R() - 0.5) * c.w * 0.4) | 0, (c.y + c.h * 0.35) | 0, (c.h * 1.4) | 0, R);
+      cloud(P, c.x, c.y, c.w, c.h, c.t, R, opts.alpha ?? 0.9); }
   }
   // how much falls: the rain's mm (12 a heavy day) where the scheduler gives it, else the label's
   const heavyOf = (v) => v.rain != null ? Math.max(0.15, Math.min(1.8, v.rain / 7)) : v.kind === "heavy rain" ? 1.6 : 1;
@@ -214,5 +275,5 @@
       if (ok) tree(P, x, y, r, R, kind, ctx.season);
     }
   }
-  Object.assign(X, { snowLies, paintLand, paintField, weatherField, weatherOver, drawTrees });
+  Object.assign(X, { snowLies, paintLand, paintField, weatherField, weatherOver, skyOver, cloud, drawTrees });
 })(C2X);

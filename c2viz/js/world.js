@@ -1,7 +1,7 @@
 // c2viz/js/world.js: the region's map for a day.
 (function (X) {
   "use strict";
-  const { D, PAL, Px, drawBuilding, drawTrees, geom, hstr, model, node, noise, weatherField, paintLand, paintPath, paintRoad, peaks, person, personLabel, plan, regionPlan, rng, styleOf, verges, weatherOver } = X;
+  const { D, PAL, Px, drawBuilding, drawTrees, geom, hstr, model, node, noise, weatherField, skyOver, paintLand, paintPath, paintRoad, peaks, person, personLabel, plan, regionPlan, rng, styleOf, verges, weatherOver } = X;
   // ---------------------------------------------------------------------------------------------------- the region
   // each place's ground plan at one scale for all places (so a big place looks big), in its own territory; its buildings at their
   // footprint, smaller, its people as small figures, roads between places from their ends, travellers at the middle of the stretch
@@ -69,7 +69,9 @@
       out.hotspots.push({ kind: "person", id: name, x: (q[0] | 0) - 2 + k * 4, y: (q[1] | 0) - 7, w: 6, h: 8, label: `${name} on the road to ${ST.nodes[t.to]?.name || t.to}, day ${t.pos} of ${t.days}` });
     }
     // each place's own weather over its own ground (D4-111); a place's values where the weather scheduler gives them (D4-109)
-    if (WF) weatherField(P, W, H, WF.at, rng(hstr("weather|" + day)), true);
+    if (WF) { weatherField(P, W, H, WF.at, rng(hstr("weather|" + day)), true);
+      skyOver(P, W, H, WF.at, rng(hstr("sky|" + day)), true, { avoid: (x, y) => nids.some((n) => Math.hypot(x - pos[n][0], y - pos[n][1]) < RP.rad(n) * 0.9),
+        low: (x, y) => Math.max(0.3, 1.4 - 0.4 * (RP.level[(y | 0) * W + (x | 0)] || 1)) }); }
     else weatherOver(P, W, H, d.weather, rng(hstr("weather|" + day)), true);
     // storms still crossing the region (D4-110): on the scheduler's own plane of the places (km), laid onto this map by the
     // similarity that best fits its places to where the map has them (a presentation choice)
