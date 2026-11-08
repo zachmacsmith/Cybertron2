@@ -1,6 +1,6 @@
 # Proposal: the weather scheduler (eras, years, daily types, weather that varies in space)
 
-**Status:** retrospective, accepted: D4-109 (8 Nov; built). **Owner:** 37.4 (the engine). The scheduler's rules are 37.2's decided
+**Status:** retrospective, accepted: D4-109, D4-110 (8 Nov; built). **Owner:** 37.4 (the engine). The scheduler's rules are 37.2's decided
 design (spec/environment/scheduler.md, D2-69 to D2-79); this builds its weather part, with two changes Zach made in conversation
 (daily types in place of drawn spells; weather in space). **Affects:** engine/climate.py (new), environment.py, world.py, night.py,
 farm.py, forests.py, signs.py, here.py; data CLIMATE; spec/environment/scheduler.md ("as built" only); spec/core/processes.md.
@@ -84,7 +84,6 @@ without the block keeps the hand-written spells exactly, so older runs replay.
 
 ## Not built (next, in phase 3's order)
 
-- **Moving weather:** storms as objects on a track; a gale reaching the next village a day later.
 - **The climate map from the land:** a pass of moist air along the prevailing wind for rain shadows, coasts and the sea's distance.
   For now a node's height (from its parcels, or `elevation`) is the only land term.
 - **The land's response as stocks:** soil water, snow, rivers routed down the river parcels, fuel dryness.
@@ -106,6 +105,22 @@ without the block keeps the hand-written spells exactly, so older runs replay.
 3. Moving storms and the land's climate map: next, or after the land's response stocks?
 
 ## History
+
+- 8 Nov (later): **moving storms built (D4-110).** Zach: "Add moving storms."
+  - **What a storm is:** an object with a heading (toward the east, ±0.6 rad), a speed (150 to 400 km a day), a radius (30 to 80
+    km) and a wind (8 to 16 m/s at its centre).
+  - **Birth:** it is born upwind of the region, on a storm day with chance 0.7, a cyclonic day 0.15, a westerly 0.04; a stormy era
+    weights these.
+  - **What it does:** each day it moves along its track. Every node within its radius of the day's stretch of track gains wind and
+    rain, by nearness.
+  - **Where the nodes are:** from the spec's `xy`, else from their road distances (multidimensional scaling).
+  - **What it gives:** at real speeds a storm crosses a region of a day's walk between villages within a day or two. At a slow
+    setting (40 to 80 km a day) it takes 3 to 12 days, west first. The storm type's own regional wind was lowered (3.6 to 2.0), so
+    gales come mostly from the storms themselves.
+  - **Signs:** "the sky to windward is black and the wind is rising in gusts: a storm is coming", plain, for those it reaches
+    tomorrow. The sky's forecast, visibility and "days since heavy rain" now read the node's own weather.
+  - **Measured** (Region C, 10 years): 7 storms in a steady era, 19 in a stormy one; gale days by node 7 to 16 (steady) and 18 to 36
+    (stormy), most on the high ground.
 
 - 8 Nov: built at Zach's request after the discussion above (D4-109).
 

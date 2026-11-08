@@ -14,6 +14,7 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
 - D4-107: processing keeps its food gain (phase 2's D rejected); food values as before phase 2.
 - D4-108: work and its hunger are felt.
 - D4-109: the weather scheduler.
+- D4-110: moving storms.
 
 ## Mechanics
 
@@ -111,6 +112,9 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
   and frost (a low below 0 °C) are derived.
 - **Read where it falls:** the night (each house and sleeper), crops, the woods, decay and the signs read their own node's
   weather; a caller naming none reads the reference node.
+- **Moving storms** (D4-110): on stormy days a storm is born upwind and crosses the region on a track (CLIMATE storms: frequency
+  by type and era, heading, speed, radius, wind), adding wind and rain to nodes near its track on the day it passes. Nodes are
+  placed from the spec's `xy`, else from road distances.
 - **The truth:** each night's record holds every node's values.
 - **The same in every arm:** a pure function of the seed.
 - **Without the block,** the hand-written spells stay (D2-69 as built on 5 Nov).
@@ -132,4 +136,4 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
   form).
 - The heat need as a pure function beside food.
 
-*Current as of 8 Nov 2026 (D4-103 phase 2, D4-104 to D4-109).*
+*Current as of 8 Nov 2026 (D4-103 phase 2, D4-104 to D4-110).*
