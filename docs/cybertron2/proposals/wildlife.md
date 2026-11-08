@@ -1,7 +1,7 @@
 # Proposal: the first wild kinds (what lives on the land, what each is for)
 
 **Status:** partly accepted: D2-192 to D2-196 (8 Nov; spec/environment/wildlife.md). Not built. §11 (other kinds and niches) and §12 (the general mechanisms) are discussion. **Owner:** 37.2 (the kinds, their numbers and their goods), with
-37.4 (the engine). **Affects:** data (a KINDS table; new goods and techniques, as a `wildlife` pack, D4-104);
+37.4 (the engine). **Affects:** data (RESOURCES rows with population fields; new goods and techniques, as a `wildlife` pack, D4-104);
 spec/environment/resources.md, spec/economy/goods.md and production.md; landgen/ecology.py (habitats and starting populations);
 proposals/living_populations.md (the mechanism this content runs on).
 
@@ -275,7 +275,7 @@ already in D4-103's list of mechanisms to design in (process_model.md):
 | **7. Land changed by animals and people** | beaver dams making ponds; deer stopping coppice; felling moving the animals | designed (D4-103 mechanism 5) |
 
 **What stays a row, not code:**
-- every kind (the KINDS table);
+- every kind (a RESOURCES row with population fields);
 - every good (ITEMS);
 - every technique (TECHNIQUES, with skill and gear);
 - rights (claims, D2-194);

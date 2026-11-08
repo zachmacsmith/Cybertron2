@@ -182,7 +182,7 @@ households hold and trade.**
 
 | Need | General mechanism | Status |
 |---|---|---|
-| a kept population | **a kind's population whose habitat is a held place and whose food is a need someone meets.** Domestic herds already work so (herds.py); it generalises them to any kind in the KINDS table | proposed (generalises built herds) |
+| a kept population | **a kind's population whose habitat is a held place and whose food is a need someone meets.** Domestic herds already work so (herds.py); it generalises them to any kind (a RESOURCES row with population fields) | proposed (generalises built herds) |
 | a structure that keeps a kind | a building or fitting (warren, dovecote, skep, fishpond, pale, kennel, mews) whose capacity is a habitat | built mechanism: fittings with capacities (02zh) |
 | a trained animal as a tool | a led beast that multiplies techniques (hounds, hawks, ferrets; like the pack ox) | led beasts built (D4-58); the multiplier is general |
 | processes that take time | tanning, retting, training a hawk, a coppice cycle, a fishpond season, smoking | D4-103 part 4 (delayed processes), designed |
