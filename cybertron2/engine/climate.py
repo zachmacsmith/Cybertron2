@@ -320,6 +320,27 @@ def label(w, node=None, day=None) -> str:
     return "clear"
 
 
+def vis(w, node=None, sense="sight", day=None) -> float:
+    """How much the day's weather lets a sense through at a node, from its values (D4-111): sight dims with rain by the mm, with
+    falling snow and with fog; sound is masked by wind above a breeze and by rain."""
+    P = state(w).P["vis"]
+    e = env(w, node, day)
+    lab = label(w, node, day)
+    if sense == "sight":
+        v = 1.0 - min(float(P["sight"]["rain_max"]), float(P["sight"]["rain_per_mm"]) * e["rain"])
+        if lab == "snow":
+            v *= float(P["sight"]["snow"])
+        if e["fog"] and lab == "fog":
+            v *= float(P["sight"]["fog"])
+        return round(v, 4)
+    if sense == "sound":
+        s = P["sound"]
+        v = (1.0 - min(float(s["wind_max"]), float(s["wind_per_ms"]) * max(0.0, e["wind"] - float(s["wind_from"]))))
+        v *= 1.0 - min(float(s["rain_max"]), float(s["rain_per_mm"]) * e["rain"])
+        return round(v, 4)
+    return 1.0
+
+
 def frost(w, node=None, day=None) -> bool:
     """Whether the night freezes at a node: the night's low below zero."""
     return env(w, node, day)["low"] < 0.0

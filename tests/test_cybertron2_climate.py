@@ -88,3 +88,27 @@ def test_the_night_reads_each_places_own_weather_and_records_it():
     d = days[0]
     a, b = [n for n in CL._nodes(w) if CL.frost(w, n, d)][0], [n for n in CL._nodes(w) if not CL.frost(w, n, d)][0]
     assert w.cold(d, a) and not w.cold(d, b)
+
+
+def test_what_the_senses_get_follows_the_days_values():
+    """D4-111: rain dims sight by the mm, wind masks sound; the graded signs follow the values."""
+    from cybertron2.engine import signs as SG
+    from cybertron2.engine.here import Here
+    w = world(days=320)
+    ref = CL.reference(w)
+    days = range(320)
+    wet = [d for d in days if CL.env(w, ref, d)["rain"] >= 8 and CL.label(w, ref, d) != "snow"]
+    dry = [d for d in days if CL.env(w, ref, d)["rain"] == 0 and not CL.env(w, ref, d)["fog"]]
+    assert CL.vis(w, ref, "sight", wet[0]) < CL.vis(w, ref, "sight", dry[0]) == 1.0
+    windy = max(days, key=lambda d: CL.env(w, ref, d)["wind"])
+    calm = min(days, key=lambda d: CL.env(w, ref, d)["wind"])
+    assert CL.vis(w, ref, "sound", windy) < CL.vis(w, ref, "sound", calm)
+    w.s["day"] = wet[0]
+    from cybertron2.engine.data import COVERS
+    assert abs(EV.visibility(w, ref, None, "sight") - float(COVERS["built"]["sight"]) * CL.vis(w, ref, "sight", wet[0])) < 1e-9
+    hot = [d for d in days if CL.env(w, ref, d)["temp"] >= 22]
+    if hot:
+        w.s["day"] = hot[0]
+        name = next(n for n, a in w.s["people"].items() if a.get("at") == ref and a.get("alive", True))
+        x = SG.sky_context(Here(w, name))
+        assert any(r["when"](x) and "hot" in r["text"](x) for r in SG.SKY)

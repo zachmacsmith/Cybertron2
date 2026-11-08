@@ -129,8 +129,12 @@ def visibility(w, node, parcel=None, sense="sight", night=False, moon=False, qui
     base = float((COVERS.get(cov) or TERRAIN.get(cov) or {}).get(sense, 1.0))
     if sense == "sight" and parcel and not cover and felled(w, parcel):
         base = max(base, float(ENV["felled"]["sight"]))
-    wx = WEATHER[weather(w, None, node)]                                       # the place's own weather (D4-109)
-    v = base * float(wx[sense])
+    from cybertron2.engine import climate as CL
+    fixed = (w.spec.get("weather") or {}).get(w.d + 1) or (w.spec.get("weather") or {}).get(str(w.d + 1))
+    if CL.on(w) and not fixed and not any(int(sp["from"]) - 1 <= w.d <= int(sp["to"]) - 1 for sp in w.spec.get("spells") or []):
+        v = base * CL.vis(w, node, sense)                                       # from the day's values at the place (D4-111)
+    else:
+        v = base * float(WEATHER[weather(w, None, node)][sense])
     if sense == "sight" and parcel and not cover:
         if crop_high(w, parcel):
             v *= float(ENV["crop_high"])
