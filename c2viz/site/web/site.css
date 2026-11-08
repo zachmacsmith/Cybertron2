@@ -1,0 +1,50 @@
+/* Cybertron 2 site (direction E): the Atlas's page, maps and cards; the Ledger's runs, ridge and chart */
+:root { --bg: #fff; --surface: #f4f4f2; --text: #111; --muted: #6a6a6a; --border: #e2e2e2; --accent: #1f4e99; --rim: #c4507a;
+  --river: #4e94a8; --field: #7cb444; --grass: #74ad42; --spring: #b9d98c; --summer: #7cb444; --autumn: #d9a25e; --winter: #c8d4e6; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 "Source Serif 4", Georgia, serif; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+nav, .meta, .k, .cap, table, .legend, .stat { font-family: "IBM Plex Sans", system-ui, sans-serif; }
+header.site { display: flex; justify-content: space-between; align-items: center; padding: 22px 0 14px; gap: 16px; flex-wrap: wrap; }
+.mark { font: 600 18px "IBM Plex Sans", sans-serif; color: var(--text); letter-spacing: -0.01em; display: flex; align-items: center; } .mark:hover { text-decoration: none; }
+.mark i { width: 10px; height: 10px; background: var(--field); box-shadow: 10px 0 0 var(--river), 5px -8px 0 #d9a25e; display: inline-block; margin-right: 22px; }
+nav { display: flex; gap: 22px; font-size: 14px; } nav a { color: var(--muted); } nav a.on { color: var(--text); }
+.ridge { display: block; width: 100%; height: 16px; }
+h1 { font-size: 40px; line-height: 1.12; font-weight: 600; margin: 0 0 16px; letter-spacing: -0.015em; }
+.lede { font-size: 18px; color: #333; margin: 0 0 20px; }
+.meta { font-size: 13px; color: var(--muted); }
+.cap { font-size: 12.5px; color: var(--muted); margin-top: 8px; display: flex; justify-content: space-between; gap: 12px; }
+h2 { font: 600 13px "IBM Plex Sans", sans-serif; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 44px 0 14px; display: flex; justify-content: space-between; align-items: baseline; }
+h2 a { text-transform: none; letter-spacing: 0; font-weight: 400; }
+/* a map with its graph of places: hover and the map fades back while the graph comes up over it (hover only) */
+.atlas { position: relative; border: 1px solid var(--border); background: var(--grass); overflow: hidden; }
+/* a map fades in over the grass once it has loaded (the page marks it .ready) */
+.atlas img { display: block; width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; opacity: 0; transition: opacity .5s, filter .35s; }
+.atlas img.ready { opacity: 1; }
+.atlas svg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity .35s; pointer-events: none; }
+.atlas:hover img.ready { opacity: .28; filter: saturate(.5); } .atlas:hover svg { opacity: 1; }
+.atlas .hint { position: absolute; left: 10px; bottom: 8px; font: 12px "IBM Plex Sans", sans-serif; color: #fff; background: rgba(17,17,17,.55); padding: 2px 8px; transition: opacity .35s; }
+.atlas:hover .hint { opacity: 0; }
+.atlas svg .case { stroke: #fff; stroke-linecap: round; } .atlas svg .edge { stroke: #222; stroke-linecap: round; }
+.atlas svg .node { fill: #fff; stroke: #222; stroke-width: 1.6; vector-effect: non-scaling-stroke; } .atlas svg .node.on { fill: var(--rim); stroke: #fff; stroke-width: 2; }
+.atlas svg text { font-family: "IBM Plex Sans", sans-serif; paint-order: stroke; stroke: #fff; stroke-width: 3px; stroke-linejoin: round; }
+.atlas svg .nlab { fill: #111; font-weight: 500; } .atlas svg .elab { fill: #666; font-family: "IBM Plex Mono", monospace; }
+/* featured runs: the Atlas's cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 28px; }
+.card .atlas { aspect-ratio: 4 / 3; }
+.card { animation: rise .5s ease-out both; } .card:nth-child(2) { animation-delay: .06s; } .card:nth-child(3) { animation-delay: .12s; } .card:nth-child(4) { animation-delay: .18s; }
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } }
+.card h3 { font-size: 19px; margin: 12px 0 2px; font-weight: 600; } .card h3 a { color: var(--text); } .card p { margin: 0 0 8px; font-size: 15px; color: #333; line-height: 1.5; }
+.stat { display: flex; gap: 14px; font-size: 12.5px; color: var(--muted); } .stat b { font: 500 13px "IBM Plex Mono", monospace; color: var(--text); }
+/* the Ledger's days, one cell each */
+.legend { font-size: 12.5px; color: var(--muted); display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 8px; }
+.legend i { display: inline-block; width: 10px; height: 10px; vertical-align: -1px; margin-right: 4px; }
+.days { display: flex; gap: 1px; margin-top: 10px; flex-wrap: wrap; max-width: 520px; } .days i { width: 7px; height: 12px; position: relative; }
+.days i.death::before { content: ""; position: absolute; left: 2px; top: -5px; width: 3px; height: 3px; background: var(--rim); }
+.days.small i { width: 5px; height: 8px; } .days.small i.death::before { left: 1px; top: -4px; width: 3px; height: 2px; }
+.days.big i { width: 12px; height: 16px; } .days.big i.death::before { left: 4px; top: -6px; width: 4px; height: 4px; }
+.days i.todo { background: #eee !important; opacity: 1 !important; }
+svg .line { fill: none; stroke: var(--rim); stroke-width: 1.8; vector-effect: non-scaling-stroke; } svg .grid { stroke: #eee; } svg .tick { font: 10px "IBM Plex Mono", monospace; fill: #999; }
+svg .now { stroke: var(--text); stroke-width: 1; stroke-dasharray: 2 2; } svg .dot { fill: var(--rim); }
+.k { font: 12px "IBM Plex Sans", sans-serif; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin: 0 0 6px; }
+footer { margin-top: 56px; padding: 20px 0 48px; font: 13px "IBM Plex Sans", sans-serif; color: var(--muted); }

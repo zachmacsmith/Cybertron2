@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -1 20 20" shape-rendering="crispEdges">
+  <!-- the Cybertron 2 mark: field, river, and harvest above them (site.css .mark i) -->
+  <rect x="5" y="0" width="10" height="10" fill="#d9a25e"/>
+  <rect x="0" y="8" width="10" height="10" fill="#7cb444"/>
+  <rect x="10" y="8" width="10" height="10" fill="#4e94a8"/>
+</svg>

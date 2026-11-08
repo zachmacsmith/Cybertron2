@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Runs · Cybertron 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="site.css">
+<style>
+  h1 { margin-top: 40px; font-size: 34px; }
+  .tools { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin: 18px 0 22px; font: 14px "IBM Plex Sans", sans-serif; }
+  .tools input { flex: 1; min-width: 220px; font: inherit; padding: 8px 12px; border: 1px solid var(--border); }
+  .tools button { font: inherit; background: none; border: 1px solid var(--border); padding: 7px 12px; color: var(--muted); cursor: pointer; } .tools button.on { border-color: var(--text); color: var(--text); }
+  .count { font: 13px "IBM Plex Sans", sans-serif; color: var(--muted); margin: -10px 0 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; font-weight: 500; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--text); }
+  td { padding: 14px 12px 14px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr[hidden] { display: none; }
+  td.map { width: 140px; } td.map a { display: block; }
+  td.map .atlas { width: 140px; aspect-ratio: 4 / 3; }
+  .atlas img { image-rendering: auto; }                                   /* a small map, shrunk smoothly */
+  /* while a run's map is being built: three small hopping pixels on the grass */
+  .tl { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 6px; color: #fff; font: 11px "IBM Plex Sans", sans-serif; text-shadow: 0 1px 0 rgba(0,0,0,.25); }
+  .tl .px3 { display: flex; gap: 4px; } .tl .px3 i { width: 6px; height: 6px; background: #e8c060; animation: hop 1s steps(4) infinite; }
+  .tl .px3 i:nth-child(2) { background: #f6ead0; animation-delay: .15s; } .tl .px3 i:nth-child(3) { background: var(--rim); animation-delay: .3s; }
+  .tl.idle .px3 { visibility: hidden; } .tl.err { background: #eef3e6; color: var(--muted); text-shadow: none; }
+  @keyframes hop { 0%, 60%, 100% { transform: translateY(0) } 30% { transform: translateY(-6px) } }
+  td.n { font: 500 15px "IBM Plex Mono", monospace; text-align: right; width: 3.5em; }
+  td .t { font: 600 18px/1.3 "Source Serif 4", serif; } td .t a { color: var(--text); } td .t small { font: 12px "IBM Plex Mono", monospace; color: var(--muted); margin-left: 8px; }
+  td .tag { font: 11px "IBM Plex Sans", sans-serif; color: var(--muted); border: 1px solid var(--border); padding: 0 5px; margin-left: 6px; vertical-align: 2px; }
+  td .mods { color: var(--muted); font-size: 12.5px; margin-top: 2px; }
+  @media (max-width: 680px) { td.map, th.map, th.hide, td.hide { display: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="site"><a class="mark" href="./"><i></i>Cybertron 2</a><nav><a class="on" href="runs.html">Runs</a><a href="#">Method</a><a href="https://huggingface.co/datasets/zachmacsmith/charter-runs/tree/main/experimental/cybertron2">Data</a><a href="https://github.com/zachmacsmith/Cybertron2">Code</a><a href="https://cybertron.zachmacsmith.com">Cybertron 1</a></nav></header>
+  <h1>Runs</h1>
+  <p class="lede" style="max-width:40em">Every run, published and on this machine. Hover a map for its places and roads; the cells are its days. Open one to explore it day by day.</p>
+  <div class="tools"><input id="q" placeholder="Search by world, run or model" aria-label="Search runs">
+    <button class="on" data-f="all">All</button><button data-f="places">Many places</button><button data-f="long">Long</button><button data-f="deaths">Deaths</button></div>
+  <div class="count" id="count"></div>
+  <div class="legend"><span>Days, one cell each:</span><span><i style="background:var(--summer)"></i>summer</span><span><i style="background:var(--autumn)"></i>autumn</span><span><i style="background:var(--winter)"></i>winter</span><span><i style="background:var(--spring)"></i>spring</span><span>fainter as people die; <i style="background:var(--rim);width:4px;height:4px;vertical-align:2px"></i>a death</span></div>
+  <table><thead><tr><th class="map"></th><th>Run</th><th class="n">Places</th><th class="n">People</th><th class="n hide">Days</th></tr></thead><tbody id="rows"></tbody></table>
+  <footer>Cybertron 2 · <a href="https://zachmacsmith.com">Zach Macaskill-Smith</a> · code MIT, data CC BY 4.0</footer>
+</div>
+<script type="module">
+import * as Render from "./render.js";
+// Every run the server knows (GET api/runs). Each row's day cells come from the run's days (api/run/<id>/strip, which builds
+// nothing); its map is drawn by the renderer from the run's head and first day (built by the server the first time a row comes
+// into view, then cached), with its graph of places over it on hover.
+const SEASON = { spring: "var(--spring)", summer: "var(--summer)", autumn: "var(--autumn)", winter: "var(--winter)" };
+const api = (id, p) => `api/run/${encodeURIComponent(id)}/${p}`;
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const short = (m) => m.replace(/^claude-/, "").replace(/-(\d+)-(\d+)$/, " $1.$2").replace(/^\w/, (c) => c.toUpperCase());
+const json = async (u) => { const r = await fetch(u); if (!r.ok) throw new Error((await r.json().catch(() => ({}))).error || r.status); return r.json(); };
+// at most n at a time
+const queue = (n) => { let busy = 0; const q = []; const next = () => { if (busy >= n || !q.length) return; busy++; const [f, ok, ko] = q.shift(); f().then(ok, ko).finally(() => { busy--; next(); }); };
+  return (f) => new Promise((ok, ko) => { q.push([f, ok, ko]); next(); }); };
+const stripQ = queue(6);
+
+const { runs } = await json("api/runs");
+const rows = document.getElementById("rows"), R = [];
+for (const r of runs) {
+  const days = r.planned_days ?? r.days, href = `run.html?id=${encodeURIComponent(r.id)}`, tr = document.createElement("tr");
+  tr.innerHTML = `<td class="map"><a href="${href}" aria-label="Explore ${esc(r.title)}"><div class="atlas"><img alt=""><svg></svg><div class="tl idle"><div class="px3"><i></i><i></i><i></i></div><span></span></div></div></a></td>
+    <td><div class="t"><a href="${href}">${esc((r.title || r.name).replace(/_/g, " "))}</a><small>${esc(r.name)}</small>${r.source === "local" ? `<span class="tag">this machine</span>` : ""}</div>
+      <div class="mods">${(r.models || []).map(short).join(" · ")}</div><div class="days small">${'<i class="todo"></i>'.repeat(days || 0)}</div></td>
+    <td class="n">${r.places ?? "–"}</td><td class="n">${r.people ?? "–"}</td><td class="n hide">${days ?? "–"}</td>`;
+  rows.append(tr);
+  R.push({ r, tr, days, deaths: false, text: [r.title, r.name, ...(r.models || []).map(short)].join(" ").toLowerCase() });
+}
+
+// the day cells: every run's, a few at a time
+for (const x of R) stripQ(() => json(api(x.r.id, "strip"))).then((s) => {
+  if (!s.length) return;
+  const a0 = s[0].alive || 1; x.deaths = s.some((d) => d.died);
+  x.tr.querySelector(".days").innerHTML = s.map((d, i) => `<i style="background:${SEASON[d.season]};opacity:${0.35 + 0.65 * Math.min(1, d.alive / a0)}" class="${d.died ? "death" : ""}" title="Day ${i + 1}: ${d.alive} alive, ${d.season}"></i>`).join("")
+    + '<i class="todo"></i>'.repeat(Math.max(0, (x.days || 0) - s.length));
+  filter();
+}).catch(() => {});
+
+// the maps: drawn when a row comes near the screen
+const NS = "http://www.w3.org/2000/svg", el = (t, a, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); p.append(e); return e; };
+// the graph of places over a map: {w, h, nodes: [{id, cx, cy, pop}], roads: [{a, b, days}]} in the map's own pixels
+function graph(svg, g) {
+  const pos = Object.fromEntries(g.nodes.map((n) => [n.id, n])), S = g.w / 500;
+  svg.setAttribute("viewBox", `0 0 ${g.w} ${g.h}`); svg.setAttribute("preserveAspectRatio", "xMidYMid slice");
+  for (const r of g.roads) { const a = pos[r.a], b = pos[r.b]; if (!a || !b) continue;
+    for (const [cls, wd] of [["case", 4], ["edge", 1.6]]) el("line", { x1: a.cx, y1: a.cy, x2: b.cx, y2: b.cy, class: cls, "stroke-width": S * wd, "stroke-dasharray": r.days > 1 && cls === "edge" ? `${S * 5} ${S * 4}` : "" }, svg); }
+  for (const n of g.nodes) el("circle", { cx: n.cx, cy: n.cy, r: S * (4 + Math.sqrt(n.pop) * 4), class: "node" + (n.pop ? " on" : "") }, svg);
+}
+// a run's map of day 1: the copy the server keeps if anyone has drawn it, else drawn here by the renderer (slow for a big world),
+// shrunk to a small picture and sent to the server for the next visitor
+const TW = 280;                                            // twice the width it is shown at
+async function picture(x) {
+  const g = await fetch(api(x.r.id, "thumb.json")).then((r) => r.ok ? r.json() : null);
+  if (g) return { src: api(x.r.id, "thumb.img"), g };
+  const [head] = await Promise.all([json(api(x.r.id, "head")), Render.load(x.r.id, [api(x.r.id, "head"), api(x.r.id, "day/0")])]);
+  const out = await Render.draw(x.r.id, "world", null, 0);                            // on the renderer's own thread
+  const small = document.createElement("canvas"), k = Math.min(1, TW / out.width);
+  small.width = Math.round(out.width * k); small.height = Math.round(out.height * k);
+  const c = small.getContext("2d"); c.imageSmoothingQuality = "high"; c.drawImage(out.bitmap, 0, 0, small.width, small.height); out.bitmap.close();
+  const src = small.toDataURL("image/jpeg", 0.85);
+  const gr = { w: out.width, h: out.height, nodes: out.hotspots.filter((h) => h.kind === "node").map((h) => ({ id: h.id, cx: h.cx, cy: h.cy, pop: h.pop || 0 })),
+    roads: Object.values(head.static.roads || {}).map((r) => ({ a: r.a, b: r.b, days: r.days })) };
+  fetch(api(x.r.id, "thumb"), { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ image: src, graph: gr }) }).catch(() => {});
+  return { src, g: gr };
+}
+// only the rows on (or near) the screen are drawn, nearest the middle of the screen first, two at a time: scroll to a spot
+// and its maps come next, whatever was passed on the way
+const near = new Set(); let busy = 0;
+const draw = async (x) => {
+  const tl = x.tr.querySelector(".tl"); tl.classList.remove("idle"); tl.querySelector("span").textContent = "Building";
+  try {
+    if (x.days === 0) throw new Error("No days played");
+    const { src, g } = await picture(x), img = x.tr.querySelector("img");
+    graph(x.tr.querySelector("svg"), g);
+    await new Promise((ok, ko) => { img.onload = ok; img.onerror = ko; img.src = src; });
+    img.classList.add("ready"); tl.remove();
+  } catch (e) { tl.className = "tl err"; tl.querySelector("span").textContent = x.days === 0 ? "No days played" : "No map: " + String(e.message || e).slice(0, 40); }
+};
+function pump() {
+  while (busy < 2) {
+    const mid = innerHeight / 2, next = [...near].filter((x) => !x.state && !x.tr.hidden)
+      .sort((a, b) => Math.abs(a.tr.getBoundingClientRect().top - mid) - Math.abs(b.tr.getBoundingClientRect().top - mid))[0];
+    if (!next) return;
+    next.state = "drawing"; busy++;
+    draw(next).finally(() => { next.state = "done"; busy--; pump(); });
+  }
+}
+const io = new IntersectionObserver((es) => { for (const e of es) { const x = R.find((y) => y.tr === e.target); e.isIntersecting ? near.add(x) : near.delete(x); } pump(); }, { rootMargin: "200px 0px" });
+R.forEach((x) => io.observe(x.tr));
+
+// search and the filters
+let F = "all";
+const q = document.getElementById("q");
+function filter() {
+  const t = q.value.trim().toLowerCase(); let n = 0;
+  for (const x of R) {
+    const ok = (!t || x.text.includes(t)) && (F === "all" || (F === "places" && (x.r.places || 0) >= 4) || (F === "long" && (x.days || 0) >= 30) || (F === "deaths" && x.deaths));
+    x.tr.hidden = !ok; n += ok;
+  }
+  document.getElementById("count").textContent = `${n} of ${R.length} runs`;
+  pump();
+}
+q.addEventListener("input", filter);
+document.querySelectorAll(".tools button").forEach((b) => b.addEventListener("click", () => {
+  F = b.dataset.f; document.querySelectorAll(".tools button").forEach((o) => o.classList.toggle("on", o === b)); filter();
+}));
+filter();
+</script>
+</body>
+</html>

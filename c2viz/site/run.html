@@ -3,49 +3,90 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Run explorer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<title>Run · Cybertron 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="site.css">
 <style>
-  :root { --night: #1b2444; --night2: #202b50; --ink: #f6ead0; --muted: #9aa4c8; --gold: #e8c060; --rim: #c4507a; }
+  /* the explorer in the site's look (site.css): the run's name, a quiet row of controls, the map in a frame on the grass */
   * { box-sizing: border-box; }
-  html, body { margin: 0; background: var(--night); color: var(--ink); font: 15px/1.4 Nunito, system-ui, sans-serif; }
-  .px { font-family: "Pixelify Sans", ui-monospace, monospace; }
-  .top { display: flex; align-items: center; gap: 12px; padding: 10px 16px; flex-wrap: wrap; }
-  .top h1 { font: 600 22px "Pixelify Sans", monospace; margin: 0; }
-  .top .where { color: var(--gold); font: 16px "Pixelify Sans", monospace; }
-  .top button { background: var(--night2); color: var(--ink); border: 2px solid #3a4680; font: 14px "Pixelify Sans", monospace; padding: 4px 10px; cursor: pointer; box-shadow: 0 3px 0 #10162e; }
-  .top button:active { transform: translateY(2px); box-shadow: 0 1px 0 #10162e; }
-  .top input[type=range] { flex: 1; min-width: 160px; accent-color: var(--gold); }
-  .day { font: 16px "Pixelify Sans", monospace; min-width: 9em; }
-  .map { position: relative; margin: 0 16px 16px; border: 3px solid #10162e; box-shadow: 0 0 0 3px #3a4680; overflow: auto; max-height: calc(100vh - 78px); background: #10162e; }
-  .map.drag { cursor: grabbing; }
-  .stage { position: relative; }
-  .stage canvas { display: block; width: 100%; height: auto; image-rendering: pixelated; cursor: pointer; }
+  .runhead { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px 24px; flex-wrap: wrap; margin: 14px 0 10px; }
+  .runhead .back { font: 13px "IBM Plex Sans", sans-serif; color: var(--muted); } .runhead .back:hover { color: var(--text); }
+  .runhead h1 { font-size: 34px; line-height: 1.1; margin: 4px 0 0; }
+  .runhead .where { font: 14px "IBM Plex Sans", sans-serif; color: var(--muted); }
+  .controls { display: flex; align-items: center; gap: 10px 14px; flex-wrap: wrap; padding: 8px 0 10px; border-top: 1px solid var(--border); font: 14px "IBM Plex Sans", sans-serif; }
+  .controls button { font: 500 13px "IBM Plex Sans", sans-serif; color: var(--text); background: none; border: 1px solid var(--border); padding: 5px 10px; cursor: pointer; }
+  .controls button:hover { border-color: var(--text); }
+  /* the day buttons: green triangles, as on the home page */
+  .controls button.tri { width: 14px; height: 16px; padding: 0; border: 0; background: var(--grass); font-size: 0; clip-path: polygon(0 0, 100% 50%, 0 100%); }
+  .controls button.tri.left { clip-path: polygon(100% 0, 0 50%, 100% 100%); } .controls button.tri:hover { background: #4f8a2a; }
+  .controls #play { width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 0; background: var(--grass); color: #fff; font-size: 12px; }
+  .controls #play:hover { background: #4f8a2a; }
+  .controls #next { font-size: 0; }
+  .day { font: 500 14px "IBM Plex Mono", monospace; min-width: 11em; }
+  .controls input[type=range] { flex: 1; min-width: 160px; accent-color: var(--grass); }
   .hint { color: var(--muted); font-size: 13px; }
-  .lab { position: absolute; transform: translate(-50%, 0); font: 14px "Pixelify Sans", monospace; color: var(--ink); text-shadow: 2px 2px 0 #10162e, -1px -1px 0 #10162e;
-    white-space: nowrap; pointer-events: none; }
-  .lab.place { font-size: 17px; }
-  .lab small { display: block; font-size: 12px; color: var(--muted); text-align: center; }
-  .lab.exit { color: var(--gold); }
-  .mark { position: absolute; width: 14px; height: 14px; margin: -7px 0 0 -7px; border: 2px solid var(--rim); border-radius: 50%; pointer-events: none; animation: ping 1.4s ease-out infinite; }
+  .load { color: var(--muted); font-size: 13px; } .load.err { color: var(--rim); }
+  .load.busy::after { content: ""; animation: dots 1.2s steps(4) infinite; }
+  @keyframes dots { 0% { content: "" } 25% { content: "." } 50% { content: ".." } 75% { content: "..." } }
+  /* the page is the window: the white top (header, the run's name, the controls), then the map to the left, right and bottom
+     edges; the map scrolls inside itself, and white shows only when it is zoomed out past its own edges */
+  html, body { height: 100%; } body { display: flex; flex-direction: column; overflow: hidden; }
+  body > .wrap { flex: none; width: 100%; }
+  .map { position: relative; overflow: auto; flex: 1; min-height: 0; background: var(--bg); border-top: 1px solid var(--border); }
+  .controls .status { margin-left: auto; display: flex; gap: 14px; }
+  /* full screen: the window is the map, with the controls as one thin bar along the top */
+  .controls #fs { width: 28px; height: 26px; padding: 0; display: grid; place-items: center; border: 0; color: var(--muted); }
+  .controls #fs:hover { color: var(--text); } .controls #fs svg { width: 16px; height: 16px; }
+  .controls #fs .out, body.fs .controls #fs .in { display: none; } body.fs .controls #fs .out { display: block; }
+  body.fs header.site, body.fs .runhead { display: none; }
+  body.fs .controls { border-top: 0; padding: 5px 0; }
+  body.fs .controls .fsname { display: inline; }
+  .controls .fsname { display: none; font: 600 15px "Source Serif 4", serif; margin-right: 4px; }
+  .map.drag { cursor: grabbing; }
+  /* a map smaller than the frame sits in the middle of it; auto margins fall to nothing once it is larger, so it still scrolls */
+  .map:not(.loading) { display: flex; } .stage { position: relative; flex: none; margin: auto; }
+  .stage canvas { display: block; width: 100%; height: auto; image-rendering: pixelated; cursor: pointer; }
+  /* labels on the map: dark on a white halo */
+  .lab { position: absolute; transform: translate(-50%, 0); font: 500 13px "IBM Plex Sans", sans-serif; color: var(--text); white-space: nowrap; pointer-events: none;
+    text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 2px #fff, 1px 1px 0 #fff, -1px -1px 0 #fff; }
+  .lab.place { font-size: 15px; font-weight: 600; }
+  .lab small { display: block; font-size: 11.5px; font-weight: 400; color: var(--muted); text-align: center; }
+  .lab.exit { color: var(--accent); }
+  .ping { position: absolute; width: 14px; height: 14px; margin: -7px 0 0 -7px; border: 2px solid var(--rim); border-radius: 50%; pointer-events: none; animation: ping 1.4s ease-out infinite; }
   @keyframes ping { from { transform: scale(.6); opacity: 1 } to { transform: scale(2.2); opacity: 0 } }
-  .home { color: var(--muted); text-decoration: none; font-size: 14px; } .home:hover { color: var(--gold); }
-  .load { color: var(--gold); font-size: 13px; } .load.err { color: #ff8a8a; }
-  .tip { position: fixed; pointer-events: none; background: #10162e; color: var(--ink); border: 2px solid #3a4680; padding: 4px 8px; font: 13px Nunito, sans-serif; max-width: 340px; display: none; z-index: 5; }
+  /* while a run is being built: three hopping pixels on the grass */
+  .map.loading { display: grid; place-items: center; }
+  .map.loading .stage { display: none; }
+  .loader { display: none; text-align: center; color: var(--muted); font: 500 14px "IBM Plex Sans", sans-serif; }
+  .map.loading .loader { display: block; }
+  .loader .px3 { display: flex; gap: 8px; justify-content: center; margin-bottom: 14px; }
+  .loader .px3 i { width: 10px; height: 10px; background: var(--grass); animation: hop 1s steps(4) infinite; }               /* the logo's colours, on white */
+  .loader .px3 i:nth-child(2) { animation-delay: .15s; background: var(--river); } .loader .px3 i:nth-child(3) { animation-delay: .3s; background: #d9a25e; }
+  @keyframes hop { 0%, 60%, 100% { transform: translateY(0) } 30% { transform: translateY(-10px) } }
+  .tip { position: fixed; pointer-events: none; background: #fff; color: var(--text); border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    padding: 5px 9px; font: 13px "IBM Plex Sans", sans-serif; max-width: 340px; display: none; z-index: 5; }
 </style>
 </head>
 <body>
-<div class="top">
-  <a href="./" class="home px" title="all runs">← runs</a><h1 id="title">Loading</h1><span class="where" id="where"></span>
-  <button id="back" hidden>← the world</button>
-  <button id="prev">◀</button><button id="play">▶</button><button id="next">▶|</button>
-  <span class="day" id="day"></span>
-  <input type="range" id="slider" min="0" value="0" aria-label="Day">
-  <span id="dayctl" hidden><button id="dayplay" title="play the day: talk, the work as it happened, dusk, night">☀ the day</button>
-  <input type="range" id="clock" min="-10" max="115" value="115" aria-label="Time of day" style="width:160px"></span>
-  <span class="hint" id="hint"></span><span class="load px" id="load"></span>
+<div class="wrap">
+  <header class="site"><a class="mark" href="./"><i></i>Cybertron 2</a><nav><a class="on" href="runs.html">Runs</a><a href="#">Method</a><a href="https://huggingface.co/datasets/zachmacsmith/charter-runs/tree/main/experimental/cybertron2">Data</a><a href="https://github.com/zachmacsmith/Cybertron2">Code</a><a href="https://cybertron.zachmacsmith.com">Cybertron 1</a></nav></header>
+  <div class="runhead">
+    <div><a href="runs.html" class="back">← All runs</a><h1 id="title">Loading</h1></div>
+    <span class="where" id="where"></span>
+  </div>
+  <div class="controls">
+    <span class="fsname" id="fsname"></span><button id="back" hidden>← the whole world</button>
+    <button id="prev" class="tri left" aria-label="The day before">◀</button><button id="play" aria-label="Play the days">▶</button><button id="next" class="tri" aria-label="The next day">▶|</button>
+    <span class="day" id="day"></span>
+    <input type="range" id="slider" min="0" value="0" aria-label="Day">
+    <span id="dayctl" hidden><button id="dayplay" title="play the day: talk, the work as it happened, dusk, night">☀ the day</button>
+    <input type="range" id="clock" min="-10" max="115" value="115" aria-label="Time of day" style="width:160px;vertical-align:middle"></span>
+    <span class="status"><span class="hint" id="hint"></span><span class="load" id="load"></span></span>
+    <button id="fs" aria-label="Full screen" title="Full screen"><svg class="in" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 5V1h4M11 1h4v4M15 11v4h-4M5 15H1v-4"/></svg><svg class="out" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 1v4H1M15 5h-4V1M11 15v-4h4M1 11h4v4"/></svg></button>
+  </div>
 </div>
-<div class="map" id="map"><div class="stage" id="stage"><canvas id="cv"></canvas></div></div>
+<div class="map loading" id="map"><div class="loader" id="loader"><div class="px3"><i></i><i></i><i></i></div><span id="loadmsg">Fetching the run</span></div><div class="stage" id="stage"><canvas id="cv"></canvas></div></div>
 <div class="tip" id="tip"></div>
 <script src="c2pixel.js"></script>
 <script>
@@ -54,22 +95,30 @@
 // as the engine's model builds it; a day can be explored as soon as it has come
 (async () => {
 const q0 = new URLSearchParams(location.search), RID = q0.get("id"), api = (p) => `api/run/${encodeURIComponent(RID)}/${p}`;
-const loadEl = document.getElementById("load"), say = (t, err) => { loadEl.textContent = t; loadEl.classList.toggle("err", !!err); };
+const loadEl = document.getElementById("load"), mapEl = document.getElementById("map"), msgEl = document.getElementById("loadmsg");
+// the status line; `busy` adds the moving dots, and until the first day is drawn the same words show in the map
+const say = (t, err, busy = !err) => { if (busy) t = t.replace(/…$/, ""); loadEl.textContent = t; loadEl.classList.toggle("err", !!err); loadEl.classList.toggle("busy", busy);
+  if (mapEl.classList.contains("loading")) { msgEl.textContent = t; if (err) document.querySelector(".loader .px3").hidden = true; } };
 if (!RID) { say("no run chosen", true); return; }
 say("fetching the run and building its world…");
 const hr = await fetch(api("head")); if (!hr.ok) { say("could not load: " + ((await hr.json().catch(() => ({}))).error || hr.status), true); return; }
 const V = { ...(await hr.json()), days: [] }, ST = V.static, TOTAL = V.meta.days;
-document.title = V.meta.name + " · run explorer";
+document.title = String(V.meta.name).replace(/_/g, " ").replace(/^\w/, (c) => c.toUpperCase()) + " · Cybertron 2";
+say("building day 1…");
 const r0 = await fetch(api("day/0")); if (!r0.ok) { say("could not build day 1: " + ((await r0.json().catch(() => ({}))).error || r0.status), true); return; }
 V.days.push(await r0.json());
+mapEl.classList.remove("loading");
 const S = { day: 0, node: null, hot: [], playing: false, timer: null };
 const $ = (s) => document.querySelector(s), cv = $("#cv"), map = $("#map"), stage = $("#stage"), tip = $("#tip");
-$("#title").textContent = V.meta.name; $("#slider").max = V.days.length - 1;
+const nice = (n) => String(n || "").replace(/_/g, " ").replace(/^\w/, (c) => c.toUpperCase());   // "two_valleys" as "Two valleys"
+$("#title").textContent = $("#fsname").textContent = nice(V.meta.name); $("#slider").max = V.days.length - 1;
 const q = new URLSearchParams(location.search);
 const wantDay = q.get("day") ? +q.get("day") - 1 : 0;
 if (q.get("node")) S.node = q.get("node");
 S.t = q.has("t") ? +q.get("t") : null; S.dayAnim = null;
-S.zoom = +q.get("z") || 5; S.zoomW = +q.get("zw") || 0; S.full = q.has("full");
+S.zoom = +q.get("z") || 0; S.zoomW = +q.get("zw") || 0; S.full = q.has("full"); S.zoomFor = q.get("z") ? q.get("node") : null;
+// the least zoom at which a map covers the whole frame (in quarter steps): the default, so the world runs to the window's edges
+const cover = (r) => Math.max(1, Math.ceil(Math.max(map.clientWidth / r.width, map.clientHeight / r.height) * 4) / 4);
 let shown = null;
 function render() {
   const d = V.days[S.day], cal = d.calendar || {};
@@ -79,14 +128,15 @@ function render() {
   S.hot = r.hotspots;
   // a place close up is drawn at a fixed pixel size and panned (drag, or scroll); the region fits the page
   // both scales are drawn at a fixed pixel size and panned (drag, or scroll): a larger world is a larger map, not a smaller one
-  if (!S.zoomW) S.zoomW = Math.max(2, Math.min(4, Math.floor(map.clientWidth / r.width * 2) / 2));
+  if (!S.zoomW) S.zoomW = S.autoW = cover(r);
+  if (S.node && S.zoomFor !== S.node) { S.zoom = S.autoZ = cover(r); S.zoomFor = S.node; }   // each place opens covering the frame
   stage.style.width = S.full ? "100%" : r.width * (S.node ? S.zoom : S.zoomW) + "px";
   $("#hint").textContent = S.node ? "drag to pan · + / − to zoom · Esc for the region" : "drag to pan · + / − to zoom · click a place to go in";
   if (shown !== (S.node || "")) { shown = S.node || ""; const z = S.node ? S.zoom : S.zoomW, fc = r.focus || [r.width / 2, r.height / 2];
     map.scrollLeft = fc[0] * z - map.clientWidth / 2; map.scrollTop = fc[1] * z - map.clientHeight / 2; }
   $("#day").textContent = `Day ${d.day + 1}${cal.season ? " · " + cal.season : ""}${r.phase ? " · " + r.phase : ""}`;
   $("#slider").value = S.day; $("#back").hidden = !S.node; $("#where").textContent = S.node ? ST.nodes[S.node].name : `${Object.keys(ST.nodes).length} places`;
-  stage.querySelectorAll(".lab,.mark").forEach((e) => e.remove());
+  stage.querySelectorAll(".lab,.ping").forEach((e) => e.remove());
   const k = 100 / r.width, kh = 100 / r.height;
   const lab = (cls, x, y, html) => { const e = document.createElement("div"); e.className = "lab " + cls; e.style.left = x * k + "%"; e.style.top = y * kh + "%"; e.innerHTML = html;
     const f = x / r.width; e.style.transform = f < .14 ? "translate(0,0)" : f > .86 ? "translate(-100%,0)" : "translate(-50%,0)"; stage.appendChild(e); };
@@ -94,7 +144,7 @@ function render() {
     if (h.kind === "node") lab("place", h.cx, h.cy, `${h.label}<small>${h.pop} here${h.unexplored ? " · not yet found" : ""}</small>`);
     if (h.kind === "parcel") lab("", h.cx, h.cy - 4, h.label);
     if (h.kind === "exit") lab("exit", h.x + h.w / 2, Math.min(r.height - 12, h.y + h.w), h.label);
-    if (h.kind === "event" || (h.kind === "node" && h.deaths)) { const e = document.createElement("div"); e.className = "mark"; e.style.left = (h.cx ?? h.x + h.w / 2) * k + "%"; e.style.top = (h.cy ?? h.y + h.h / 2) * kh + "%"; stage.appendChild(e); }
+    if (h.kind === "event" || (h.kind === "node" && h.deaths)) { const e = document.createElement("div"); e.className = "ping"; e.style.left = (h.cx ?? h.x + h.w / 2) * k + "%"; e.style.top = (h.cy ?? h.y + h.h / 2) * kh + "%"; stage.appendChild(e); }
   }
 }
 function at(e) {
@@ -116,21 +166,28 @@ function play(on) { S.playing = on; $("#play").textContent = on ? "❚❚" : "�
 $("#prev").onclick = () => { play(false); setDay(S.day - 1); }; $("#next").onclick = () => { play(false); setDay(S.day + 1); };
 $("#play").onclick = () => play(!S.playing); $("#slider").oninput = (e) => { play(false); setDay(+e.target.value); };
 $("#back").onclick = () => { S.node = null; render(); };
+// when the frame changes size (full screen, a resized window), a map still at its own fitted zoom is fitted again
+const refit = () => { if (S.zoomW === S.autoW) S.zoomW = 0; if (S.node && S.zoom === S.autoZ) S.zoomFor = null; shown = null; render(); };
+let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(refit, 150); });
+const fsOn = (on) => { document.body.classList.toggle("fs", on); $("#fs").setAttribute("aria-label", on ? "Leave full screen" : "Full screen"); $("#fs").title = $("#fs").getAttribute("aria-label"); refit(); };
+$("#fs").onclick = () => {
+  const on = !document.body.classList.contains("fs"), el = document.documentElement;
+  if (on && el.requestFullscreen) el.requestFullscreen().catch(() => {}); else if (!on && document.fullscreenElement) document.exitFullscreen().catch(() => {});
+  fsOn(on);
+};
+document.addEventListener("fullscreenchange", () => { if (!document.fullscreenElement && document.body.classList.contains("fs")) fsOn(false); });
 // the day as it happened: talk, the work in the journal's order, dusk, night; then on to the next day if the days are playing
 function playDay(on) { S.dayAnim = on ? { last: performance.now() } : null; $("#dayplay").textContent = on ? "❚❚ the day" : "☀ the day";
   if (!on) return; if (S.t == null || S.t >= 1.15) S.t = -0.1;
   const step = (now) => { if (!S.dayAnim) return; const dt = Math.min(100, now - S.dayAnim.last); S.dayAnim.last = now; S.t += dt / 16000 * 1.25;
-    if (S.t >= 1.15) {                                                     // the day is over: on into the next one while it plays
-      if (S.day < V.days.length - 1) { S.day++; S.t = -0.1; $("#slider").value = S.day; }
-      else if (V.days.length < TOTAL) { if (S.t < 1.16) { S.t = 1.16; render(); } setTimeout(() => requestAnimationFrame(step), 400); return; }   // the next is still being built: wait for it
-      else { S.t = 1.15; render(); return playDay(false); } }
+    if (S.t >= 1.15) { if (S.playing && S.day < V.days.length - 1) { S.day++; S.t = -0.1; } else { S.t = 1.15; render(); return playDay(false); } }
     render(); requestAnimationFrame(step); };
   requestAnimationFrame(step); }
 $("#dayplay").onclick = () => playDay(!S.dayAnim);
 $("#clock").oninput = (e) => { playDay(false); S.t = +e.target.value / 100; render(); };
 document.addEventListener("keydown", (e) => { if (e.key === "ArrowRight") setDay(S.day + 1); else if (e.key === "ArrowLeft") setDay(S.day - 1); else if (e.key === "Escape") { S.node = null; render(); } else if (e.key === " ") { e.preventDefault(); play(!S.playing); }
   else if (e.key === "+" || e.key === "=" || e.key === "-") { const k = S.node ? "zoom" : "zoomW", z0 = S[k], cx = (map.scrollLeft + map.clientWidth / 2) / z0, cy = (map.scrollTop + map.clientHeight / 2) / z0;
-    S[k] = Math.max(1, Math.min(10, z0 + (e.key === "-" ? -0.5 : 0.5))); render(); map.scrollLeft = cx * S[k] - map.clientWidth / 2; map.scrollTop = cy * S[k] - map.clientHeight / 2; } });
+    S[k] = Math.max(0.5, Math.min(10, z0 + (e.key === "-" ? -0.5 : 0.5))); render(); map.scrollLeft = cx * S[k] - map.clientWidth / 2; map.scrollTop = cy * S[k] - map.clientHeight / 2; } });
 render();
 // the rest of the days, in order; the slider grows as they come, and a day asked for in the link is shown when it arrives
 (async () => {
@@ -140,7 +197,7 @@ render();
     V.days.push(await r.json()); $("#slider").max = V.days.length - 1;
     if (d === wantDay) setDay(d);
   }
-  say(`${TOTAL} day${TOTAL === 1 ? "" : "s"}`);
+  say(`${TOTAL} day${TOTAL === 1 ? "" : "s"}`, false, false);
 })();
 })();
 </script>

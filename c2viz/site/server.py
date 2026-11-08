@@ -25,6 +25,10 @@ from urllib.parse import unquote, urlparse
 
 HERE = Path(__file__).resolve().parent
 C2VIZ = HERE.parent
+WEB = HERE / "web"                                                          # the site's pages (home, runs); the explorer is run.html
+TYPES = {".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8",
+         ".json": "application/json", ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml"}
+SEASONS = ["spring", "summer", "autumn", "winter"]
 
 
 def code_key() -> str:
@@ -103,6 +107,33 @@ class Catalog:
     def all(self) -> dict:
         return {**self.hub_list(), **self.local()}
 
+    def strip(self, rid) -> list:
+        """A run's days in brief, from its days.jsonl and its spec's calendar, without building it: for each day the people
+        alive (those who slept somewhere that night), the season, and whether anyone died."""
+        runs = self.all()
+        if rid not in runs:
+            raise KeyError(rid)
+        r = runs[rid]
+        if r["source"] == "local":
+            days, spec = Path(r["path"]) / "days.jsonl", local_spec(Path(r["path"]))
+        else:
+            days = self.cache / "hub" / self.sha[:12] / r["name"] / "days.jsonl"
+            if not days.exists():
+                from huggingface_hub import hf_hub_download
+                p = hf_hub_download(repo_id=self.repo, filename=f"{self.folder}/{r['name']}/days.jsonl", repo_type="dataset", revision=self.sha)
+                days.parent.mkdir(parents=True, exist_ok=True)
+                days.write_bytes(Path(p).read_bytes())
+            f = self.cache / "hub" / self.sha[:12] / r["name"] / "run.json"
+            spec = json.loads(f.read_text()).get("spec", {}) if f.exists() else {}
+        cal = spec.get("calendar") or {}
+        s0, d0, sd = SEASONS.index(cal.get("season", "spring")) if cal.get("season") in SEASONS else 0, int(cal.get("day") or 1) - 1, int(cal.get("season_days") or 8)
+        out = []
+        for i, line in enumerate(x for x in days.read_text().splitlines() if x.strip()):
+            d = json.loads(line)
+            died = len(d.get("deaths") or []) + len((d.get("life") or {}).get("deaths") or [])
+            out.append({"alive": len(d.get("slept") or {}), "season": SEASONS[(s0 + (d0 + i) // sd) % 4], "died": died})
+        return out
+
     def path_of(self, rid) -> Path:
         """Where a run's journal is on this machine; a published run is fetched (at the pinned revision) and imported first."""
         runs = self.all()
@@ -112,6 +143,9 @@ class Catalog:
         if r["source"] == "local":
             return Path(r["path"])
         out = self.cache / "hub" / r["revision"][:12] / r["name"] / "run"
+        if (out / "run.db").exists() and not imported(out):               # an import cut short: start it again
+            import shutil
+            shutil.rmtree(out)
         if not (out / "run.db").exists():
             from huggingface_hub import snapshot_download
             from c2viz import touch as E
@@ -120,6 +154,28 @@ class Catalog:
                                                       f"{self.folder}/{r['name']}/run.json"])
             E.import_run(Path(local) / self.folder / r["name"], out)
         return out
+
+
+def imported(run: Path) -> bool:
+    """Whether an imported journal is whole: its meta table is there and holds the world's spec."""
+    import sqlite3
+    try:
+        con = sqlite3.connect(f"file:{run / 'run.db'}?mode=ro", uri=True)
+        try:
+            return bool(con.execute("SELECT 1 FROM meta WHERE key = 'spec'").fetchone())
+        finally:
+            con.close()
+    except sqlite3.Error:
+        return False
+
+
+def local_spec(run: Path) -> dict:
+    import sqlite3
+    con = sqlite3.connect(f"file:{run / 'run.db'}?mode=ro", uri=True)
+    try:
+        return json.loads(dict(con.execute("SELECT key, value FROM meta")).get("spec") or "{}")
+    finally:
+        con.close()
 
 
 def summary(run: Path) -> dict:
@@ -142,7 +198,8 @@ def summary(run: Path) -> dict:
 
 # ---------------------------------------------------------------------------------------------------- building a run's viz
 class Builder:
-    """A run's viz built in parts by c2viz.model, in order (the head, then day 0, 1, ...), each written to the cache when done."""
+    """A run's viz built in parts by c2viz.model, in order (the head, then day 0, 1, ...), each written to the cache when done.
+    Days are built only as far as a page has asked for (`want`), so a list of maps builds each run's head and first day only."""
 
     def __init__(self, rid, path, cache):
         self.rid, self.path = rid, path
@@ -151,7 +208,7 @@ class Builder:
         self.dir = cache / "viz" / key
         self.dir.mkdir(parents=True, exist_ok=True)
         self.cond = threading.Condition()
-        self.error, self.total, self.thread = None, None, None
+        self.error, self.total, self.thread, self.want, self.done = None, None, None, 0, False
 
     def part(self, name) -> Path:
         return self.dir / f"{name}.json"
@@ -177,8 +234,14 @@ class Builder:
                 head["meta"]["days"] = self.total
                 self._write("head", head)
             for d in RM.days:
+                with self.cond:
+                    while d > self.want:                                    # not asked for yet: wait until a page wants it
+                        self.cond.wait(timeout=5.0)
                 if not self.part(f"day_{d}").exists():
                     self._write(f"day_{d}", RM.day(d))
+            with self.cond:
+                self.done = True                                            # every day built: nothing more will come
+                self.cond.notify_all()
         except Exception as e:                                              # noqa: BLE001 (shown on the page)
             self.error = f"{type(e).__name__}: {e}"
             traceback.print_exc()
@@ -193,10 +256,14 @@ class Builder:
             self.cond.notify_all()
 
     def wait(self, name, timeout=600) -> Path | None:
+        if name.startswith("day_"):
+            with self.cond:
+                self.want = max(self.want, int(name[4:]))
+                self.cond.notify_all()
         self.start()
         end = time.time() + timeout
         with self.cond:
-            while not self.part(name).exists() and not self.error and time.time() < end:
+            while not self.part(name).exists() and not self.error and not self.done and time.time() < end:   # a day past the run's end never comes
                 self.cond.wait(timeout=1.0)
         return self.part(name) if self.part(name).exists() else None
 
@@ -236,18 +303,47 @@ def handler(site: Site):
             self.send_response(code)
             self.send_header("Content-Type", ctype)
             self.send_header("Content-Length", str(len(body)))
-            self.send_header("Cache-Control", "max-age=31536000, immutable" if cache else "no-store")
+            self.send_header("Cache-Control", "max-age=31536000, immutable" if cache is True else cache or "no-store")
             self.end_headers()
             self.wfile.write(body)
 
         def json(self, obj, code=200):
             self.send(code, json.dumps(obj, default=str).encode())
 
+        def do_POST(self):
+            """A page that has drawn a run's map sends a small copy (api/run/<id>/thumb: {image: a jpeg or png data URL, graph}), so the next
+            visitor gets the picture without drawing it; kept beside the run's built parts (so a changed renderer draws it again)."""
+            import base64
+            parts = [unquote(p) for p in urlparse(self.path).path.strip("/").split("/") if p]
+            try:
+                if parts[:2] != ["api", "run"] or len(parts) != 4 or parts[3] != "thumb":
+                    return self.json({"error": "not found"}, 404)
+                n = int(self.headers.get("Content-Length") or 0)
+                if n > 2_000_000:
+                    return self.json({"error": "too large"}, 413)
+                body = json.loads(self.rfile.read(n))
+                img = body.get("image", "")
+                ext = {"data:image/jpeg;base64": "jpg", "data:image/png;base64": "png"}.get(img.split(",", 1)[0])
+                if not ext:
+                    return self.json({"error": "a jpeg or png data URL is needed"}, 400)
+                d = site.builder(parts[2]).dir
+                for old in ("thumb.jpg", "thumb.png"):
+                    (d / old).unlink(missing_ok=True)
+                (d / f"thumb.{ext}").write_bytes(base64.b64decode(img.split(",", 1)[1]))
+                (d / "thumb.json").write_text(json.dumps(body.get("graph") or {}, separators=(",", ":")))
+                return self.json({"ok": True})
+            except KeyError:
+                return self.json({"error": "no such run"}, 404)
+            except Exception as e:                                          # noqa: BLE001
+                return self.json({"error": f"{type(e).__name__}: {e}"}, 500)
+
         def do_GET(self):
             u = urlparse(self.path)
             parts = [unquote(p) for p in u.path.strip("/").split("/") if p]
             try:
-                if not parts or parts[0] in ("index.html",):
+                if not parts:
+                    parts = ["index.html"]
+                if parts[0] == "all.html":                                  # the plain list of runs, from before the site
                     return self.send(200, (HERE / "index.html").read_bytes(), "text/html; charset=utf-8")
                 if parts[0] == "run.html":
                     return self.send(200, (HERE / "run.html").read_bytes(), "text/html; charset=utf-8")
@@ -263,6 +359,14 @@ def handler(site: Site):
                                               "enabled": site.catalog.hub, "error": site.catalog.hub_error}})
                 if parts[:2] == ["api", "run"] and len(parts) >= 4:
                     rid, what = parts[2], parts[3]
+                    if what == "strip":
+                        return self.json(site.catalog.strip(rid))
+                    if what in ("thumb.img", "thumb.json"):                 # a small map of day 1 and its graph of places, once drawn
+                        d = site.builder(rid).dir
+                        f = d / "thumb.json" if what == "thumb.json" else next((d / n for n in ("thumb.jpg", "thumb.png") if (d / n).exists()), d / "thumb.jpg")
+                        if not f.exists():
+                            return self.json({"error": "not drawn yet"}, 404)
+                        return self.send(200, f.read_bytes(), TYPES[f.suffix], cache="max-age=86400")   # a day: a redrawn map shows tomorrow
                     if what == "status":
                         b = site.builders.get(rid)
                         return self.json(b.status() if b else {"id": rid, "fetching": rid in site.fetching, "built": 0})
@@ -274,6 +378,9 @@ def handler(site: Site):
                     if f is None:
                         return self.json({"error": b.error or "not built", "status": b.status()}, 500 if b.error else 404)
                     return self.send(200, f.read_bytes(), cache=True)
+                f = (WEB / "/".join(parts)).resolve()                      # the site's own pages and files
+                if f.is_file() and WEB.resolve() in f.parents:
+                    return self.send(200, f.read_bytes(), TYPES.get(f.suffix, "application/octet-stream"))
                 return self.json({"error": "not found"}, 404)
             except KeyError:
                 return self.json({"error": f"no run {parts[2] if len(parts) > 2 else ''}"}, 404)
