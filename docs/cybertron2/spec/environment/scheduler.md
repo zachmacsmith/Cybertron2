@@ -35,7 +35,10 @@ edges, as the edge's terrain allows.
   the spell, the season, the land kind and the place's own state set the odds of **incidents**; an active incident can **spread**
   to neighbouring places with its own odds. Eras, years and spells read nothing agents do and are drawn for the whole run at
   generation. In the first worlds the era is a starting condition and does not change within a run (D2-73).
-- **As built (5 Nov):** only the day's weather within a spell is drawn (engine/environment.py). The spells themselves come from the
+- **As built (8 Nov, D4-109):** a world with a `climate:` block draws its weather in engine/climate.py: an era (climate only),
+  the year's anomaly, a daily weather type and local fields correlated between near villages (proposals/weather_scheduler.md). Its
+  spells are runs of a type. Incidents, spreads and risks are not built. Without the block, as built on 5 Nov: only the day's
+  weather within a spell is drawn (engine/environment.py). The spells themselves come from the
   world file's hand-written `spells` list (else "normal"); no scheduler draws eras, years or spells, and hazards, spreads and risks
   raised by neglect are not built. The rest of this section is decided design, not yet the engine.
 - **Eras** (D2-76) come in four families, one of each at a time: climate (steady, dry, wet, cold, warm, stormy; a sudden dark

@@ -13,6 +13,7 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
 - D4-106: can apart from works; crops grow by the season; removing a crop; seed on turf; a crop's signs.
 - D4-107: processing keeps its food gain (phase 2's D rejected); food values as before phase 2.
 - D4-108: work and its hunger are felt.
+- D4-109: the weather scheduler.
 
 ## Mechanics
 
@@ -97,6 +98,23 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
 - **The capacity model** counts work's food at the work its allocation gives, and finds the people supported by a scan, as fed is
   not monotone in the people (a small people's work all goes to one seasonal flow).
 
+## Weather (D4-109)
+
+- **A world with `climate:`** draws its weather from its seed (engine/climate.py; data CLIMATE; all values calibrate):
+  - an era: climate only (steady, warm, cold, wet, dry, stormy), held through the run unless `moves: true`, at `era_pace`, with
+    rare shocks if `shocks: true`;
+  - the year's anomaly of temperature and wetness;
+  - a daily weather type (settled, westerly, cyclonic, northerly, easterly, storm) that holds for days;
+  - at each node: the season's mean plus those shifts, less a lapse with height, plus local fields correlated between nodes by
+    distance and persistent in time.
+- **Out come** temperature, the night's low, rain, wind and fog at each node. The labels (snow, gale, heavy rain, rain, fog, clear)
+  and frost (a low below 0 °C) are derived.
+- **Read where it falls:** the night (each house and sleeper), crops, the woods, decay and the signs read their own node's
+  weather; a caller naming none reads the reference node.
+- **The truth:** each night's record holds every node's values.
+- **The same in every arm:** a pure function of the seed.
+- **Without the block,** the hand-written spells stay (D2-69 as built on 5 Nov).
+
 ## Checks
 
 - Phase 2: bot runs recorded after its first four changes with the labour table at zero replay with identical state after the
@@ -114,4 +132,4 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
   form).
 - The heat need as a pure function beside food.
 
-*Current as of 8 Nov 2026 (D4-103 phase 2, D4-104 to D4-108).*
+*Current as of 8 Nov 2026 (D4-103 phase 2, D4-104 to D4-109).*

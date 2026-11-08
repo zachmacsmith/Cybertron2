@@ -347,9 +347,16 @@ class World:
     def year_days(self) -> int:
         return 4 * self.season_len
 
-    def cold(self, day=None) -> bool:
+    def cold(self, day=None, node=None) -> bool:
+        """A cold night: a spec's cold day; with the weather scheduler (climate.py, D4-109) a night that freezes at the node (the
+        reference node's where none is named); without, every winter night."""
         day = self.d if day is None else day
-        return day in self.cold_days or self.calendar(day)["season"] == "winter"
+        if day in self.cold_days:
+            return True
+        from cybertron2.engine import climate as CL
+        if CL.on(self):
+            return CL.frost(self, node, day)
+        return self.calendar(day)["season"] == "winter"
 
     # ------------------------------------------------------------------ places
     def node_of(self, pid):

@@ -847,7 +847,7 @@ def context(here, pid, h=None, holder=_MAIN):
     seasons = ("spring", "summer", "autumn", "winter")
     from cybertron2.engine import environment as EV
     x = SimpleNamespace(here=here, pid=pid, p=p, c=c, h=h, nm=p["name"], day=here.day, season=cal["season"], cold=here.cold(),
-                        weather=EV.weather(here._w), snow=EV.snow_lying(here._w))
+                        weather=EV.weather(here._w, None, here.node), snow=EV.snow_lying(here._w, None, here.node))
     x.worked = {s.split(":", 1)[1] for e in here.events() if e.get("kind") == "work" for s in e.get("about") or [] if s.startswith("parcel:")}
     x.herds_on = lambda q: [k for k, g in here.herds().items() if g["parcel"] == q and FM.head(g) > 0]
     x.axes = {s.split(":", 1)[1] for e in here.events() if e.get("kind") == "work" and "fell" in str(e.get("tech") or e.get("text", ""))
@@ -949,7 +949,7 @@ def building_context(here, bid):
     from cybertron2.engine import environment as EV
     mended = any(e.get("kind") == "work" and e.get("tech") == "repair" and f"building:{bid}" in (e.get("about") or []) for e in here.events())
     x = SimpleNamespace(here=here, b=b, nm=b["name"], day=here.day, cold=here.cold(), stock=st, timber=st.get("timber", 0.0),
-                        weather=EV.weather(here._w), snow=EV.snow_lying(here._w), mended=mended,
+                        weather=EV.weather(here._w, None, here.node), snow=EV.snow_lying(here._w, None, here.node), mended=mended,
                         live=live, live_n=len(live), made=made, camp=b["structure"] == "camp",
                         was_cold=here.cold(here.day - 1 if here.day else 0),
                         fire_place=any(b["fittings"].get(f) for f in ("hearth", "fire ring")),
@@ -997,7 +997,7 @@ def person_context(here, who):
     x.led = w.s["herds"][led[0]]["name"] if led else None
     x.arrived = p.get("arrived") == here.day
     from cybertron2.engine import environment as EV
-    x.weather = EV.weather(w)
+    x.weather = EV.weather(w, None, here.node)
     d, L = LF.days_old(w, who), LF.lifespan(w)
     x.failing = x.stage == "elder" and d is not None and d - LF.elder_from(L) >= L // 4
     x.ate_raw = p.get("ate_raw") == here.day - 1
@@ -1011,7 +1011,7 @@ def person_context(here, who):
                                              and 0 <= here.day - int(q["born"]) <= 2 for q in w.s["people"].values())
     x.sat_up = (p.get("guarded") or {}).get("day") == here.day
     x.slept_out = p.get("slept_out") if (p.get("slept_out") or {}).get("day") == here.day else None
-    x.wet = EV.wet(w)
+    x.wet = EV.wet(w, None, here.node)
     x.cared = sorted(c for c, by in ((w.s.get("today") or {}).get("care_by") or {}).items() if who in by)
     x.gear = [i for i, q in a["carried"].items() if q >= 1 and ITEMS[i].get("seen") and not ITEMS[i].get("camp")]
     x.load = [(i, q) for i, q in a["carried"].items() if q >= 2 and ITEMS[i]["weight"] > 0]
@@ -1027,13 +1027,13 @@ def sky_context(here):
     cal = here.calendar()
     dry = 0
     for k in range(d - 1, max(-1, d - 11), -1):
-        if EV.wet(w, k):
+        if EV.wet(w, k, here.node):
             break
         dry += 1
     names = lambda cover: next((p["name"] for p in here.parcels().values() if p["cover"] == cover), None)   # noqa: E731
     return SimpleNamespace(cold=here.cold(), first_cold=here.cold() and (d == 0 or not here.cold(d - 1)), season=cal["season"], left=cal["left"],
-                           weather=EV.weather(w), snow=EV.snow_lying(w), since_heavy=EV.since_heavy_rain(w), tomorrow=EV.weather(w, d + 1),
-                           dry_before=dry if d >= 5 else 0, wet_days=sum(1 for k in range(max(0, d - 4), d + 1) if EV.wet(w, k)),
+                           weather=EV.weather(w, None, here.node), snow=EV.snow_lying(w, None, here.node), since_heavy=EV.since_heavy_rain(w), tomorrow=EV.weather(w, d + 1),
+                           dry_before=dry if d >= 5 else 0, wet_days=sum(1 for k in range(max(0, d - 4), d + 1) if EV.wet(w, k, here.node)),
                            water=names("water"), wood=names("forest"))
 
 
@@ -1548,7 +1548,7 @@ def thing_context(w, c):
     laid = int(c.get("died", c.get("day", w.d)))
     items = {i for i, q in c["goods"].items() if q > 1e-9}
     seed = [i for i in SEED_GOODS if i in items]
-    wx = EV.weather(w)
+    wx = EV.weather(w, None, c.get("node"))
     person = w.s["people"].get(c.get("of")) or {}
     x = SimpleNamespace(c=c, kind=c["kind"], of=c.get("of"), where=where, body=st,
                         at=(f"in {where}" if indoors else ("by the road" if on_road else f"at {where}")) + (f" ({c['tag']})" if c.get("tag") else ""),
@@ -1568,10 +1568,10 @@ def thing_context(w, c):
                         cause=str(person.get("cause") or "") if c.get("body") else "",
                         food=any(ITEMS.get(i, {}).get("food", 0) > 0 for i in items), meat="meat" in items,
                         seed=bool(seed), seed_words=" and ".join(seed[:2]),
-                        weather=wx, snow=EV.snow_lying(w), season=w.calendar()["season"], cold=w.cold(), day=w.d,
-                        rained=not indoors and _since(w, laid, lambda d: EV.wet(w, d) and EV.weather(w, d) != "snow"),
-                        snowed_over=not indoors and _since(w, laid + 1, lambda d: EV.weather(w, d) == "snow") and EV.snow_lying(w),
-                        snow_laid=EV.snow_lying(w, laid),
+                        weather=wx, snow=EV.snow_lying(w, None, c.get("node")), season=w.calendar()["season"], cold=w.cold(None, c.get("node")), day=w.d,
+                        rained=not indoors and _since(w, laid, lambda d: EV.wet(w, d, c.get("node")) and EV.weather(w, d, c.get("node")) != "snow"),
+                        snowed_over=not indoors and _since(w, laid + 1, lambda d: EV.weather(w, d, c.get("node")) == "snow") and EV.snow_lying(w, None, c.get("node")),
+                        snow_laid=EV.snow_lying(w, laid, c.get("node")),
                         dogs=not on_road and any(b["node"] == c.get("node") and b["fittings"].get("dog") for b in w.s["buildings"].values()))
     x.warm = not x.cold
     g = c.get("grave") or {}                                                   # a grave begun (D4-99)
@@ -1579,7 +1579,7 @@ def thing_context(w, c):
     x.grave_words = TH.grave_words(x.grave_done)
     x.grave_left = max(0, __import__("math").ceil(round(TH.bury_need(w, c) * (1.0 - x.grave_done), 3) - 1e-6)) if x.grave_done else 0
     x.grave_idle = w.d - int(g.get("day", w.d)) if g else 0
-    x.wet_now = EV.wet(w)
+    x.wet_now = EV.wet(w, None, c.get("node"))
     x.cairn_age = w.d - int(c["cairn_day"]) if c.get("cairn_day") is not None else 99
     return x
 
@@ -1650,8 +1650,8 @@ def carcass_context(w, c):
                            at=("by the road" if on_road else f"at {where}") + (f" ({c['tag']})" if c.get("tag") else ""), off_road=c.get("hidden") == "off the road",
                            age=age, fresh=TH.carcass_fresh(w, c) and not bones, rotten=not TH.carcass_fresh(w, c) and not bones,
                            bones=bones, starved=c.get("cause") == "starved", hide=c["goods"].get("hide", 0) > 0,
-                           meat=c["goods"].get("meat", 0) > 0, cold=w.cold(), warm=not w.cold(), weather=EV.weather(w),
-                           snow=EV.snow_lying(w), dogs=not on_road and any(b["node"] == c.get("node") and b["fittings"].get("dog")
+                           meat=c["goods"].get("meat", 0) > 0, cold=w.cold(None, c.get("node")), warm=not w.cold(None, c.get("node")), weather=EV.weather(w, None, c.get("node")),
+                           snow=EV.snow_lying(w, None, c.get("node")), dogs=not on_road and any(b["node"] == c.get("node") and b["fittings"].get("dog")
                                                                             for b in w.s["buildings"].values()))
 
 
@@ -1675,7 +1675,7 @@ def slaughter_context(here, pid):
                            was="was" if n == 1 else "were",
                            bellow=("a calf bawling" if beast == "calf" else f"a {beast} bellowing") if n == 1 else "beasts bellowing",
                            ground="the grass" if p["cover"] in ("pasture", "meadow") else "the ground",
-                           herd_here=herd_here, weather=EV.weather(w), snow=EV.snow_lying(w), warm=not here.cold(),
+                           herd_here=herd_here, weather=EV.weather(w, None, here.node), snow=EV.snow_lying(w, None, here.node), warm=not here.cold(),
                            dog_houses=sorted(bid for bid, b in here.buildings().items() if b["fittings"].get("dog")))
 
 
@@ -1697,9 +1697,9 @@ def event_context(here, nm, day, **kw):
     """The context of an event's bundle (D4-74): its place's name, how many days since, the weather and season on it now."""
     from cybertron2.engine import environment as EV
     w = here._w
-    wx = EV.weather(w)
-    x = SimpleNamespace(nm=nm, age=here.day - int(day), weather=wx, snow=EV.snow_lying(w), snowing=wx == "snow",
-                        wet=EV.wet(w), cold=here.cold(), warm=not here.cold(), season=here.calendar()["season"])
+    wx = EV.weather(w, None, here.node)
+    x = SimpleNamespace(nm=nm, age=here.day - int(day), weather=wx, snow=EV.snow_lying(w, None, here.node), snowing=wx == "snow",
+                        wet=EV.wet(w, None, here.node), cold=here.cold(), warm=not here.cold(), season=here.calendar()["season"])
     x.__dict__.update(kw)
     return x
 

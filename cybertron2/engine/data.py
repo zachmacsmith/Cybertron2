@@ -605,6 +605,50 @@ SPELLS = {
     "cold snap": {"clear": 0.50, "fog": 0.15, "snow": 0.30, "gale": 0.05},
     "storm": {"clear": 0.05, "rain": 0.25, "heavy rain": 0.40, "gale": 0.30},
 }
+# The weather scheduler (D4-109; engine/climate.py; proposals/weather_scheduler.md). A world with a `climate:` block draws its
+# weather here; one without keeps the hand-written spells. Temperate lowland first values (calibrate), on the day clock.
+CLIMATE = {
+    # the seasons' means at a node at height 0: temperature (°C), the chance a day is wet, a wet day's rain (mm)
+    "temp": {"spring": 9.0, "summer": 16.0, "autumn": 11.0, "winter": 4.0},
+    "temp_sd": 2.5,                  # the day's spread about its type's mean
+    "diurnal": {"clear": 6.0, "cloud": 3.0},    # how far the night falls below the day's mean: a clear night, a cloudy one
+    "wet_p": {"spring": 0.45, "summer": 0.40, "autumn": 0.55, "winter": 0.55},
+    "rain_mm": 4.5, "heavy_mm": 12.0,
+    "wind": 5.0, "gale": 17.0, "gust": 0.45,   # m/s: a day's mean wind; a gale at or above; the wind field's spread
+    "snow_below": 1.5,               # rain falls as snow at or below this temperature (or a little above it after a hard frost)
+    "fog_p": {"spring": 0.15, "summer": 0.03, "autumn": 0.30, "winter": 0.30},   # a settled, still day: fog in the low ground
+    "height_m": [20, 90, 200, 400],  # a parcel's height rank (0 to 3) as metres
+    "lapse": 0.0065,                 # °C a metre
+    "orographic": 0.0015,            # rain's chance x (1 + this x metres)
+    "corr_km": 100.0,                # how far apart places stop sharing weather (e-folding distance)
+    "km_a_day": 25.0,                # a day's travel on a road, as distance
+    "persist": {"temp": 0.7, "rain": 0.3, "wind": 0.5},   # day-to-day persistence of each local field (AR(1))
+    "year_sd": {"temp": 0.6, "wet": 0.12}, "year_persist": 0.4,   # a year's anomaly, and how much of it carries to the next
+    # daily weather types (after Lamb's British types): how often (base), how long they hold, what they do to the day
+    "types": {
+        "settled":   {"base": 0.30, "hold": 0.75, "temp": {"summer": 2.0, "winter": -2.0}, "rain": 0.2, "wind": 0.5, "clear": True},
+        "westerly":  {"base": 0.30, "hold": 0.60, "temp": {"summer": -0.5, "winter": 1.0}, "rain": 1.5, "wind": 1.2},
+        "cyclonic":  {"base": 0.18, "hold": 0.55, "temp": {}, "rain": 2.1, "wind": 1.5},
+        "northerly": {"base": 0.09, "hold": 0.50, "temp": {"spring": -3.0, "summer": -3.0, "autumn": -3.0, "winter": -3.5}, "rain": 0.8,
+                      "wind": 1.3, "clear": True},
+        "easterly":  {"base": 0.09, "hold": 0.60, "temp": {"summer": 1.5, "winter": -3.5}, "rain": 0.5, "wind": 1.0, "clear": True},
+        "storm":     {"base": 0.05, "hold": 0.35, "temp": {}, "rain": 2.8, "wind": 3.6},
+    },
+    # eras: regimes of the climate over years (weather only: disease and ecology are other systems, D4-109)
+    "eras": {
+        "steady": {"temp": 0.0, "wet": 0.0, "spread": 1.0, "types": {}, "years": 20, "next": {"dry": 0.3, "wet": 0.3, "cold": 0.2, "warm": 0.2}},
+        "warm":   {"temp": 0.5, "wet": 0.0, "spread": 1.0, "types": {"settled": 1.2}, "years": 25, "next": {"steady": 0.6, "dry": 0.4}},
+        "cold":   {"temp": -0.7, "wet": 0.05, "spread": 1.3, "types": {"northerly": 1.6, "easterly": 1.4, "storm": 1.3}, "years": 30,
+                   "next": {"steady": 0.6, "wet": 0.4}},
+        "wet":    {"temp": 0.0, "wet": 0.13, "spread": 1.0, "types": {"cyclonic": 1.2, "westerly": 1.15, "settled": 0.85}, "years": 6,
+                   "next": {"steady": 1.0}},
+        "dry":    {"temp": 0.3, "wet": -0.15, "spread": 1.3, "types": {"settled": 1.35, "easterly": 1.2, "cyclonic": 0.8, "westerly": 0.85}, "years": 6,
+                   "next": {"steady": 0.7, "warm": 0.3}},
+        "stormy": {"temp": 0.0, "wet": 0.0, "spread": 1.0, "types": {"storm": 2.2, "cyclonic": 1.15, "settled": 0.9}, "years": 5, "next": {"steady": 1.0}},
+    },
+    "shocks": {"dark year": {"p": 0.007, "temp": -1.5, "wet": 0.15, "years": [1, 2]}},     # a volcanic winter: rare, short
+}
+
 ENV = {
     "night": {"sight": 0.1, "moon": 0.25, "sound": 1.2},            # D2-99: light only for night events
     "snow_melt": 3,                                                 # snow lies until three days without frost

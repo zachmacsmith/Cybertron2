@@ -71,7 +71,7 @@ def night(w) -> list:
     from cybertron2.engine import night as NI, renewal as RN
     slow = float(w.p["regrow_winter"]) if NI.slow_season(w.calendar()["season"]) else 1.0
     from cybertron2.engine import environment as EV
-    gale = EV.weather(w) == "gale"
+    gale_at = {}                                                                # the gale where each wood stands (D4-109)
     grazed = {h.get("parcel") for h in w.s["herds"].values() if h.get("count", 0) > 0}
     changed = []
     for pid, par in w.s["parcels"].items():
@@ -85,6 +85,7 @@ def night(w) -> list:
             yS = RN.RULES["young"](w.p, y, {"slow": slow})
             if yS != y["S"]:
                 w.apply("set_res", node, parcel=pid, key="young", fields={"S": yS})
+        gale = gale_at.setdefault(node, EV.weather(w, None, node) == "gale")
         if d is not None:
             dS = RN.RULES["dead"](w.p, d, {"trees": tS if t else 0.0, "year": year})
             if t and gale:

@@ -13,21 +13,29 @@ WET = tuple(k for k, v in WEATHER.items() if v["wet"])
 
 
 def spell(w, day=None) -> str:
-    """The spell a day falls in: from the world's spec (`spells`, days counted from 1), else normal."""
+    """The spell a day falls in: from the world's spec (`spells`, days counted from 1), else the weather scheduler's (climate.py,
+    D4-109) where the world has one, else normal."""
     day = w.d if day is None else day
     for sp in w.spec.get("spells") or []:
         if int(sp["from"]) - 1 <= day <= int(sp["to"]) - 1:
             return sp["kind"]
+    from cybertron2.engine import climate as CL
+    if CL.on(w):
+        return CL.spell(w, day)
     return "normal"
 
 
-def weather(w, day=None) -> str:
-    """The day's weather for the region (keyed: weather, day). A spec may fix a day's weather (`weather`: {day: kind}) for a scripted
-    run. Rain falls as snow in winter and on cold days."""
+def weather(w, day=None, node=None) -> str:
+    """The day's weather (keyed: weather, day). With the weather scheduler (climate.py, D4-109) it is the node's own (the reference
+    node's where none is named); without, one draw for the region within the hand-written spell. A spec may fix a day's weather
+    (`weather`: {day: kind}) for a scripted run. Rain falls as snow in winter and on cold days."""
     day = w.d if day is None else day
     fixed = (w.spec.get("weather") or {}).get(day + 1) or (w.spec.get("weather") or {}).get(str(day + 1))
     if fixed:
         return fixed
+    from cybertron2.engine import climate as CL
+    if CL.on(w) and not any(int(sp["from"]) - 1 <= day <= int(sp["to"]) - 1 for sp in w.spec.get("spells") or []):
+        return CL.label(w, node, day)
     table = SPELLS[spell(w, day)]
     u = w.rng("weather", day).random()
     kind = next(iter(table))
@@ -42,18 +50,18 @@ def weather(w, day=None) -> str:
     return kind
 
 
-def wet(w, day=None) -> bool:
-    return weather(w, day) in WET
+def wet(w, day=None, node=None) -> bool:
+    return weather(w, day, node) in WET
 
 
-def snow_lying(w, day=None) -> bool:
-    """Snow lies after a snow day until three days without frost."""
+def snow_lying(w, day=None, node=None) -> bool:
+    """Snow lies after a snow day until three days without frost (at the node, with the weather scheduler)."""
     day = w.d if day is None else day
     thaw = 0
     for d in range(day, -1, -1):
-        if weather(w, d) == "snow":
+        if weather(w, d, node) == "snow":
             return thaw < int(ENV["snow_melt"])
-        if not w.cold(d):
+        if not w.cold(d, node):
             thaw += 1
             if thaw >= int(ENV["snow_melt"]):
                 return False

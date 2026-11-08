@@ -33,8 +33,8 @@ class Here:
     def calendar(self, day=None):
         return self._w.calendar(day)
 
-    def cold(self, day=None):
-        return self._w.cold(day)
+    def cold(self, day=None, node=None):
+        return self._w.cold(day, node if node is not None else self.node)
 
     def rng(self, *parts):
         return self._w.rng(*parts)

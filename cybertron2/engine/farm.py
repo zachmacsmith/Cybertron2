@@ -981,7 +981,7 @@ def _sow(here, mind, tech, key, place_name, out, m, a, f):
     word = f"You {how} {show(seed)} {seed_good} in {place_name}{soil} (about {show(area)} of a plot){where}."
     if par["cover"] != "field":
         word += " The seed lies on the turf among the grass."
-    if here.cold():                                                          # felt by the sower (D4-106): told, not why
+    if here.cold(node=par["node"]):                                          # felt by the sower (D4-106): told, not why
         word += " The soil is cold and hard under your feet: nothing will sprout in this yet."
     return 0.0, None, word, ("parcel", key)
 
@@ -1349,7 +1349,7 @@ def _crops(w, rec_):
                     rec_["crops"].append((pid, "failed"))
                 what = None
                 if growing:                                                     # a night's growth by the season (D4-106)
-                    c, what = grow_night(c, w.calendar()["season"], w.cold(), f)
+                    c, what = grow_night(c, w.calendar()["season"], w.cold(None, node), f)   # the field's own night (D4-109)
                     if what == "up":
                         c["up_day"] = w.d
                     elif what == "frost":
