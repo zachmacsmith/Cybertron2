@@ -33,8 +33,32 @@ class Here:
     def calendar(self, day=None):
         return self._w.calendar(day)
 
-    def cold(self, day=None, node=None):
-        return self._w.cold(day, node if node is not None else self.node)
+    # ------------------------------------------------------------------ the weather where one is (D4-111)
+    # Every weather query names its place; for one acting, the place is where they are (a node, or the road they are on). A call
+    # about somewhere else names it (`at`).
+    def cold(self, day=None, at=None):
+        return self._w.cold(at or self.place, day)
+
+    def weather(self, day=None, at=None) -> str:
+        from cybertron2.engine import environment as EV
+        return EV.weather(self._w, at or self.place, day)
+
+    def wet(self, day=None, at=None) -> bool:
+        from cybertron2.engine import environment as EV
+        return EV.wet(self._w, at or self.place, day)
+
+    def snow_lying(self, day=None, at=None) -> bool:
+        from cybertron2.engine import environment as EV
+        return EV.snow_lying(self._w, at or self.place, day)
+
+    def since_heavy_rain(self, day=None, at=None):
+        from cybertron2.engine import environment as EV
+        return EV.since_heavy_rain(self._w, at or self.place, day)
+
+    def weather_values(self, day=None, at=None) -> dict | None:
+        """The physical weather here (temp, low, rain, wind, fog, storm) where the scheduler gives it, else None."""
+        from cybertron2.engine import environment as EV
+        return EV.values(self._w, at or self.place, day)
 
     def rng(self, *parts):
         return self._w.rng(*parts)
@@ -353,9 +377,9 @@ class Here:
         lm = self._w.s["mind"][self.name].get("landmarks") or {}
         return [f"{v['words']} (crossed {v['crossed']} time{'s' if v['crossed'] != 1 else ''})" for v in lm.values() if v.get("road") == r]
 
-    def weather_words(self, day=None) -> str:
+    def weather_words(self, day=None, at=None) -> str:
         from cybertron2.engine import environment as EV
-        return EV.words(self._w, day)
+        return EV.words(self._w, at or self.place, day)
 
     def house_of(self, party):
         """A person's or a household's house here (where a give that cannot reach them is left at the door: D2-111)."""

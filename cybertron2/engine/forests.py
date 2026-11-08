@@ -80,14 +80,14 @@ def night(w) -> list:
         node = par["node"]
         tS = t["S"] if t else None
         if t and t["K"] > 0:
-            tS = RN.RULES["slow"](w.p, t, {"slow": slow})
+            tS = RN.RULES["slow"](w.p, t, RN.context(w, par, slow=slow))
         if y and y["K"] > 0 and pid not in grazed:
-            yS = RN.RULES["young"](w.p, y, {"slow": slow})
+            yS = RN.RULES["young"](w.p, y, RN.context(w, par, slow=slow))
             if yS != y["S"]:
                 w.apply("set_res", node, parcel=pid, key="young", fields={"S": yS})
-        gale = gale_at.setdefault(node, EV.weather(w, None, node) == "gale")
+        gale = gale_at.setdefault(node, EV.weather(w, node) == "gale")
         if d is not None:
-            dS = RN.RULES["dead"](w.p, d, {"trees": tS if t else 0.0, "year": year})
+            dS = RN.RULES["dead"](w.p, d, RN.context(w, par, trees=tS if t else 0.0, year=year))
             if t and gale:
                 down = tS * FORESTS["gale"]
                 tS = round(tS - down, 4)

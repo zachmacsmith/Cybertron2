@@ -30,7 +30,7 @@ def evaluate(w, lv, nodes, m, P_here) -> dict:
     r = LV.reach(w)
     lv = lv.within(r)
     from cybertron2.capacity import cal as CL
-    ctx = M.Ctx(w=w, level=lv, reach=r, year=w.year_days(), season_len=w.season_len, cal=CL.table(w), window=CL.growing_window(w))
+    ctx = M.Ctx(w=w, level=lv, reach=r, year=w.year_days(), season_len=w.season_len, window=CL.growing_window(w), nodes=nodes)
     ls = M.lots(ctx, M.flows(ctx, nodes))
     sup = M.people_supported(ctx, ls, m)
     scale = M.allocate(ls, sup * m["units"] * lv.labour_share)

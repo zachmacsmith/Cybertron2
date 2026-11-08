@@ -52,7 +52,7 @@
         speak: q.speaking && !q.a, tool: toolFor(q.a), pregnant: q.p.pregnant, load: (q.p.gear || []).length || Object.keys(q.p.carried || {}).some((i) => i !== "coin") });
       out.hotspots.push({ kind: "person", id: q.name, x: q.x - 1, y: q.y - 9, w: 7, h: 11, label: personLabel(q, d, V) }); } });
     items.sort((a, b) => a.y - b.y).forEach((it) => it.f());
-    weatherOver(P, W, H, d.weather, rng(hstr("weather|" + day)), false);
+    weatherOver(P, W, H, ((d.places || {})[nid] || d).weather, rng(hstr("weather|" + day)), false);   // the place's own (D4-111)
     for (const e of d.events) {                                                                        // marks for what happened, by how far it reaches
       if (e.place !== nid || QUIET_EVENTS.includes(e.kind)) continue;
       let xy = null;

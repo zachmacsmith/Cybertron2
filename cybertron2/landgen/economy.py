@@ -115,7 +115,8 @@ def run_balance(w, days: int, nid=None, folk=None) -> dict:
     hearths = max(1, -(-len(folk) // int(CAP.PEOPLE_A_HEARTH)))                # households keep a fire each; about 4.5 to a hearth
     homes = {h for n in folk for h in w.homes(n) if (w.s["buildings"][h].get("fittings") or {}).get("hearth")}
     hearths = max(hearths if not homes else 0, len(homes))
-    cold = sum(1 for d in range(w.d, w.d + days) if w.cold(d))
+    from cybertron2.capacity import cal as CL                                  # the cold where the people are (D4-111)
+    cold = sum(CL.cold_share(w, d, None if nid is None else {nid}) for d in range(w.d, w.d + days))
     hp = w.p["heat"]
     need_heat = hearths * ((days - cold) * float(hp["normal"]) + cold * float(hp["cold"]))
     have_heat = _stock(w, "heat") + sum(CAP.wood_flow(p) for p in w.s["parcels"].values()) * CAP.FIREWOOD_HEAT * days / year
@@ -187,8 +188,10 @@ def check(spec: dict) -> dict:
         return store + flow + stand
 
     hp = w.p["heat"]
-    cold_n = sum(1 for d in range(w.d, w.d + days) if w.cold(d))
-    night = ((days - cold_n) * float(hp["normal"]) + cold_n * float(hp["cold"])) / max(days, 1)
+
+    def night(nid):                                                            # a hearth's heat a night at the node (D4-111)
+        cold_n = sum(1 for d in range(w.d, w.d + days) if w.cold(nid, d))
+        return ((days - cold_n) * float(hp["normal"]) + cold_n * float(hp["cold"])) / max(days, 1)
     timber_weight = float(ITEMS["timber"]["weight"]) / float(ITEMS["timber"]["heat"])
     burdens = {}
     for nid, folk in people.items():
@@ -202,7 +205,7 @@ def check(spec: dict) -> dict:
         in_run = max(0.0, need - have) / max(days, 1)
         hearths = len({h for n in folk for h in w.homes(n) if (w.s["buildings"][h].get("fittings") or {}).get("hearth")}) \
             or -(-len(folk) // int(CAP.PEOPLE_A_HEARTH))
-        fuel_short = max(0.0, hearths * night * days - node_heat(nid)) / max(days, 1)       # heat a day to bring in
+        fuel_short = max(0.0, hearths * night(nid) * days - node_heat(nid)) / max(days, 1)       # heat a day to bring in
         if deficit < 0.5 and fuel_short <= 0:
             continue
         roads = [r["days"] for r in w.s["roads"].values() if nid in (r["a"], r["b"])]

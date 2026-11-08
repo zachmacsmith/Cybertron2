@@ -29,13 +29,13 @@ def give(w, who, **goods):
 # ---------------------------------------------------------------------- the day's weather and visibility (D2-99, D2-103)
 def test_the_days_weather_repeats_for_a_seed_differs_by_day_and_snow_lies_until_three_thaw_days():
     a, b = world(), world()
-    days = [EV.weather(a, d) for d in range(40)]
-    assert days == [EV.weather(b, d) for d in range(40)]
+    days = [EV.weather(a, "millbrook", d) for d in range(40)]
+    assert days == [EV.weather(b, "millbrook", d) for d in range(40)]
     assert len(set(days)) > 1
     w = world(weather={2: "snow"}, cold_days=[1, 2, 3])
     w.cold_days = {1, 2, 3}
-    assert EV.snow_lying(w, 2) and EV.snow_lying(w, 3)                  # frost on day 3: no thaw yet
-    assert EV.snow_lying(w, 5) and not EV.snow_lying(w, 6)              # thaw days 4, 5, 6: gone on the third
+    assert EV.snow_lying(w, "millbrook", 2) and EV.snow_lying(w, "millbrook", 3)      # frost on day 3: no thaw yet
+    assert EV.snow_lying(w, "millbrook", 5) and not EV.snow_lying(w, "millbrook", 6)  # thaw days 4, 5, 6: gone on the third
 
 
 def test_sight_in_fog_in_woodland_and_at_night_only_for_night_events():
@@ -280,7 +280,7 @@ def test_tracks_are_plain_in_snow_and_a_hunter_counts_them():
     w = world(weather={1: "snow", 2: "clear", 3: "clear"}, cold_days=[1, 2, 3])
     w.cold_days = {0, 1, 2}
     w.s["day"] = 2
-    tr = {"road": "r", "pos": 1, "day": 1, "kind": "tracks", "n": 3, "toward": "Ashwood", "by": []}
+    tr = {"road": next(iter(w.s["roads"])), "pos": 1, "day": 1, "kind": "tracks", "n": 3, "toward": "Ashwood", "by": []}
     x = SG.trace_context(w, tr)
     texts = {r.get("knows"): r["text"](x) for _, r in SG.true_rows(SG.TRACE, x)}
     assert "plain in the snow" in texts[None] and "three people" in texts["hunt"]

@@ -73,13 +73,13 @@ def challenge(w, road_id, pos, lm) -> str:
     """'' or the trouble this landmark gives tonight: a ford high, a bridge down, a pass snowed."""
     kind = LANDMARKS[lm["kind"]].get("challenge")
     if kind == "high":
-        since = EV.since_heavy_rain(w)
+        since = EV.since_heavy_rain(w, road_id)                               # the road's own weather (D4-111)
         wet_week = EV.spell(w) == "wet" and any(EV.spell(w, d) == "wet" for d in range(max(0, w.d - 7), w.d - 5))
         return "high" if (since is not None and since < 2) or wet_week or lm.get("state") == "high" else ""
     if kind == "down":
         return "down" if lm.get("state") == "down" else ""
     if kind == "snowed":
-        return "snowed" if (w.calendar()["season"] == "winter" and (EV.weather(w) == "snow" or EV.snow_lying(w))) \
+        return "snowed" if (w.calendar()["season"] == "winter" and (EV.weather(w, road_id) == "snow" or EV.snow_lying(w, road_id))) \
             or lm.get("state") == "snowed" else ""
     return ""
 
@@ -223,10 +223,10 @@ def _landmark(w, today, rec, members, t, pos, lm):
     choice = str((t.get("choices") or {}).get("on trouble") or d.get("default") or "wait").lower()
     lead = members[0]
     exp = experience(w, lead, lkey)
-    risk = _risk(w, members, lm, ch, exp)
+    risk = _risk(w, members, lm, ch, exp, road_id)
     serious = risk["death"] >= float(ROADS["call"]["death"]) or risk["loss"] >= float(ROADS["call"]["loss"])
     minor_call = w.rng("road-call", w.d, lead, lkey).random() < float(ROADS["call"]["minor"])
-    noticed = w.rng("road-notice", w.d, lead, lkey).random() < min(1.0, TH.eye(w, lead) * EV.visibility(w, None, sense="sight",
+    noticed = w.rng("road-notice", w.d, lead, lkey).random() < min(1.0, TH.eye(w, lead) * EV.visibility(w, road_id, sense="sight",
                                                                                                          cover=st_cover(w, road_id, pos)) + 0.5)
     if (serious or minor_call) and noticed:
         today["road"]["crossings"].append({"id": f"crossing:{lead}:{lkey}", "kind": "crossing", "road": road_id, "pos": pos, "lm": lm,
@@ -240,13 +240,13 @@ def st_cover(w, road_id, pos):
     return stretch(w, road_id, pos)["terrain"] or "plain"
 
 
-def _risk(w, members, lm, ch, exp) -> dict:
+def _risk(w, members, lm, ch, exp, road_id) -> dict:
     d = LANDMARKS[lm["kind"]]
     push = d.get("push") or {}
     loss = 0.0
     if "cart_loss" in push and any(w.goods(w.hands(n)).get("handcart", 0) >= 1 for n in members):
         loss = push["cart_loss"][0] * push["cart_loss"][1] * exp
-    blizzard = ch == "snowed" and EV.weather(w) == "snow"
+    blizzard = ch == "snowed" and EV.weather(w, road_id) == "snow"
     return {"death": float(push.get("death", 0.0)) * exp if blizzard else 0.0, "loss": loss}
 
 
@@ -290,7 +290,7 @@ def apply_choice(w, rec, members, t, pos, lm, ch, choice, exp=1.0, by_call=False
                 today_soaked = w.s["today"].setdefault("soaked", [])
                 today_soaked.append(n)
                 _note(w, n, f"{words}: you crossed anyway and were soaked to the skin", first=True)
-            if push.get("death") and EV.weather(w) == "snow" and w.rng("road-death", w.d, n).random() < float(push["death"]) * exp:
+            if push.get("death") and EV.weather(w, road_id) == "snow" and w.rng("road-death", w.d, n).random() < float(push["death"]) * exp:
                 w.apply("die", road_id, person=n, cause="the cold on the pass")
                 lost.append(n)
             _learn(w, n, road_id, pos, lm, crossed=True)
@@ -318,7 +318,7 @@ def _notices(w, members, t, pos, ps):
     from cybertron2.engine.data import NOTICING
     road_id = t["road"]
     cover = stretch(w, road_id, pos)["terrain"] or "plain"
-    sight = EV.visibility(w, None, sense="sight", cover=cover)
+    sight = EV.visibility(w, road_id, sense="sight", cover=cover)
     for n in members:
         know = PC.practised(PC.Mind(w, n))
         eye = TH.eye(w, n)
@@ -328,7 +328,7 @@ def _notices(w, members, t, pos, ps):
             sense = row.get("sense", "sight")                           # the terrain's and the weather's visibility for the sense,
             o = row.get("own")                                          # the eye for sight
             o = own if o is None else o
-            return float(o) * EV.visibility(w, None, sense=sense, cover=cover) * (eye if sense in NOTICING["eye_senses"] else 1.0)
+            return float(o) * EV.visibility(w, road_id, sense=sense, cover=cover) * (eye if sense in NOTICING["eye_senses"] else 1.0)
         for text in SG.roll(SG.ROAD, SG.road_context(w, n, t, pos), rng, know=know):   # the road underfoot: one is in it
             _note(w, n, text)
         for c in things_on(w, road_id, pos).values():
@@ -339,7 +339,7 @@ def _notices(w, members, t, pos, ps):
             if x["road"] != road_id or x["pos"] != pos or n in x["by"] or w.d - x["day"] < 1:
                 continue
             fade = 1 - (w.d - x["day"]) / float(ROADS["trace_days"][x["kind"]])
-            snow = 3.0 if EV.snow_lying(w) and x["kind"] == "tracks" else 1.0
+            snow = 3.0 if EV.snow_lying(w, road_id) and x["kind"] == "tracks" else 1.0
             for text in SG.roll(SG.TRACE, SG.trace_context(w, x), rng, mult=0.3 * fade * snow * sight * eye, know=know):
                 _note(w, n, text)
         if stretch_of(w, t) >= int(w.s["roads"][road_id]["days"]):        # the last stretch coming in: a grand building ahead (D2-171)
@@ -367,7 +367,7 @@ def things_on(w, road_id, pos) -> dict:
 # ---------------------------------------------------------------------- finds on the road (D2-86)
 def _finds(w, today, rec, members, t, pos):
     road_id = t["road"]
-    sight = EV.visibility(w, None, sense="sight", cover=st_cover(w, road_id, pos))
+    sight = EV.visibility(w, road_id, sense="sight", cover=st_cover(w, road_id, pos))
     for cid, c in things_on(w, road_id, pos).items():
         if c.get("by") in members or c.get("of") in members:
             continue
@@ -401,7 +401,7 @@ def searching_for(w, name, hid) -> bool:
 def herd_chance(w, name, hid, pos) -> float:
     """The noticing rule on a stretch (information/noticing.md): own x the terrain's sight x presence (1.0) x the eye, x5 searching."""
     h = w.s["herds"][hid]
-    sight = EV.visibility(w, None, sense="sight", cover=st_cover(w, h["node"], pos))
+    sight = EV.visibility(w, h["node"], sense="sight", cover=st_cover(w, h["node"], pos))
     from cybertron2.engine.data import HERDS
     att = float(HERDS["road"]["search"]) if searching_for(w, name, hid) else 1.0
     return min(1.0, float(HERDS["own"]) * sight * TH.eye(w, name) * att)
@@ -465,7 +465,7 @@ def _meetings(w, today, rec, ps):
             st = stretch(w, ka[0], pos)
             p = max([float(LANDMARKS[l["kind"]].get("meet", 0.0)) for l in st["landmarks"]] or [0.0]) or \
                 float(TERRAIN.get(st["terrain"] or "plain", {}).get("meet", 0.6))
-            if EV.weather(w) == "fog":
+            if EV.weather(w, ka[0]) == "fog":
                 p *= 0.5
             if w.rng("meet", w.d, ps[ka][0], ps[kb][0]).random() < p:
                 m = {"id": f"meeting:{ps[ka][0]}:{ps[kb][0]}:{w.d}", "kind": "meeting", "road": ka[0], "pos": pos,

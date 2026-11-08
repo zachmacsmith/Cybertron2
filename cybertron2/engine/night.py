@@ -17,13 +17,13 @@ from cybertron2.engine.world import Refused
 def night(w) -> dict:
     s, p = w.s, w.p
     today = s.get("today") or {}
-    cold = w.cold()
+    cold = any(w.cold(nid) for nid in sorted(s["nodes"]))                      # the record's flag: a cold night somewhere (D4-111)
     rec = {"day": w.d, "cold": cold, "ate": {}, "short": [], "missed": [], "deaths": [], "cold_falls": [], "breaks": [], "hearth": {},
            "spoiled": {}, "fights": [], "departed": [], "slept": {}}
     from cybertron2.engine import climate as CL
     if CL.on(w):                                                                # the day's weather at each node: the truth (D4-109)
-        rec["weather"] = {nid: {**{k: v for k, v in CL.env(w, nid).items() if k in ("temp", "low", "rain", "wind", "type", "era")},
-                                "label": CL.label(w, nid)} for nid in sorted(w.s["nodes"])}
+        rec["weather"] = {nid: {**{k: v for k, v in CL.env(w, nid, w.d).items() if k in ("temp", "low", "rain", "wind", "type", "era")},
+                                "label": CL.label(w, nid, w.d)} for nid in sorted(w.s["nodes"])}
     from cybertron2.engine import settle as ST
     rec["fights"] = ST.settle_fights(w, today)
     rec["deaths"] += [f["killed"] for f in rec["fights"] if f.get("killed")]
@@ -40,7 +40,7 @@ def night(w) -> dict:
             BL.read(w, n, b, "slept")
     for n, b in where.items():                                                  # who slept in the open, for its signs (D4-74)
         if b is None and s["people"][n]["at"] is not None:
-            w.apply("set", s["people"][n]["at"], ref=("person", n), field="slept_out", value={"day": w.d, "cold": w.cold(None, s["people"][n]["at"])})
+            w.apply("set", s["people"][n]["at"], ref=("person", n), field="slept_out", value={"day": w.d, "cold": w.cold(s["people"][n]["at"])})
     from cybertron2.engine import forests as FO
     hp = p["heat"]
     for bid, b in s["buildings"].items():                                     # fires in heat (D2-157, D2-159)
@@ -51,7 +51,7 @@ def night(w) -> dict:
             if b["structure"] == "camp":                                      # a camp's fire (D4-49), in the weather (D4-83)
                 heat = float(hp["camp"]) * weather_fuel(w, b["node"])
             else:
-                heat = house_heat(p, b, w.cold(None, b["node"]))               # one room, one fire (D4-93); the node's night (D4-109)
+                heat = house_heat(p, b, w.cold(b["node"]))               # one room, one fire (D4-93); the node's night (D4-109)
             piles = [cid for cid, c in s["containers"].items() if c.get("kind") == "pile" and c.get("door") == bid and not c.get("hidden")]
             if any(FO.burn(w, b["node"], cid, heat) for cid in [b["stock"]] + piles):   # its store, then its woodpile at the door (D4-89)
                 lit = True
@@ -77,7 +77,7 @@ def night(w) -> dict:
         a = s["people"][name]
         bid = where.get(name)
         b = s["buildings"][bid] if bid else None
-        cold = w.cold(None, b["node"] if b is not None else a.get("at"))         # the night where one sleeps (D4-109)
+        cold = w.cold(b["node"] if b is not None else w.place_of(("person", name)))         # the night where one sleeps (D4-109)
         state = "unsheltered" if b is None or b["condition"] == 0 else ("damaged" if b["condition"] == 1 else "housed")
         if state == "housed" and (name in floor_ or (b.get("works") or {}).get("kind") == "upgrade"):
             state = p["beds"]["floor"]                                          # no bed, or the structure being rebuilt (02zh §2, §5)
@@ -183,7 +183,7 @@ def night(w) -> dict:
             w.apply("set", b["node"], ref=("building", bid), field="broke", value={"day": w.d, "to": 0})
             w.event(b["node"], "build", f"{b['name']} has fallen in", about=[f"building:{bid}"], salience=0.3, tags=["shelter"])
     for bid, b in s["buildings"].items():                                       # breaks (H-5), by structure (D2-168)
-        q = float(p["breaks"]["cold" if w.cold(None, b["node"]) else "p"]) * float(p["breaks"]["structure"].get(b["structure"], 1.0))
+        q = float(p["breaks"]["cold" if w.cold(b["node"]) else "p"]) * float(p["breaks"]["structure"].get(b["structure"], 1.0))
         if not b.get("unfinished") and b["condition"] > 0 and w.rng("break", w.d, bid).random() < q:
             w.apply("set", b["node"], ref=("building", bid), field="condition", value=b["condition"] - 1)
             w.apply("set", b["node"], ref=("building", bid), field="broke", value={"day": w.d, "to": b["condition"]})
@@ -250,14 +250,13 @@ def decay_rate(w, c, item) -> tuple:
     D2-58) in a store, the conditions of a thing at a spot (open, dry or wet; buried) and the season and the frost; and what the lost
     share becomes in the open. Hands keep the rate in hand. Returns (share, becomes)."""
     from cybertron2.engine import environment as EV, things as TH
-    node = (w.s["buildings"][c["of"]]["node"] if c["kind"] == "stock" and c.get("of") in w.s["buildings"] else
-            c.get("node") or ((w.s["people"].get(str(c.get("of") or "")) or {}).get("at")))      # where it lies (D4-109)
-    season, cold = w.calendar()["season"], w.cold(None, node)
+    node = TH.where(w, c)                                                     # where it lies (D4-111)
+    season, cold = w.calendar()["season"], w.cold(node)
     if c["kind"] == "stock":
         bb = w.s["buildings"][c["of"]]
         return spoil_rate(w.p, item, "store", season, cold, fittings=[f_ for f_, n in bb["fittings"].items() if n]), None
     if c["kind"] in TH.KINDS:
-        cond = "buried" if c.get("hidden") == "buried" or c.get("buried") is not None else ("open_wet" if EV.wet(w, None, node) else "open_dry")
+        cond = "buried" if c.get("hidden") == "buried" or c.get("buried") is not None else ("open_wet" if EV.wet(w, node) else "open_dry")
         return spoil_rate(w.p, item, cond, season, cold), DECAY.get(ITEMS.get(item, {}).get("decay") or "default", DECAY["default"]).get("becomes")
     return spoil_rate(w.p, item, "hand", season, cold), None
 
@@ -405,19 +404,20 @@ def house_heat(p, b, cold) -> float:
     return float(hp["cold" if cold else "normal"]) * max(1, hearths if hearths else rings)
 
 
-def weather_fuel(w, node=None) -> float:
-    """What a fire under no roof burns tonight against the dry night's (D4-83): rain and wind wet it, lying snow wets the wood."""
+def weather_fuel(w, at) -> float:
+    """What a fire under no roof burns tonight at a place against the dry night's (D4-83): rain and wind wet it, lying snow wets
+    the wood."""
     from cybertron2.engine import environment as EV
     hp = w.p["heat"]
-    x = float((hp.get("weather") or {}).get(EV.weather(w, None, node), {}).get("fuel", 1.0))
-    return x * (float(hp.get("snow_lying_fuel", 1.0)) if EV.snow_lying(w) else 1.0)
+    x = float((hp.get("weather") or {}).get(EV.weather(w, at), {}).get("fuel", 1.0))
+    return x * (float(hp.get("snow_lying_fuel", 1.0)) if EV.snow_lying(w, at) else 1.0)
 
 
-def fire_goes_out(w, key, ring, node=None) -> bool:
+def fire_goes_out(w, key, ring, at) -> bool:
     """Whether a fire under no roof goes out in the night (D4-83): a chance in a downpour or a gale, less with a fire ring."""
     from cybertron2.engine import environment as EV
     hp = w.p["heat"]
-    q = float((hp.get("weather") or {}).get(EV.weather(w, None, node), {}).get("out", 0.0)) * (float(hp.get("ring_keeps", 1.0)) if ring else 1.0)
+    q = float((hp.get("weather") or {}).get(EV.weather(w, at), {}).get("out", 0.0)) * (float(hp.get("ring_keeps", 1.0)) if ring else 1.0)
     return q > 0 and w.rng("fire-out", w.d, *key).random() < q
 
 
@@ -474,7 +474,7 @@ def _grow(w):
             rule = RN.of(key, r)                                                         # woods: forests.night (D2-156)
             if rule not in RN.NIGHTLY or r["K"] <= 0:
                 continue
-            S = RN.RULES[rule](p, r, {"winter": winter, "season": season})
+            S = RN.RULES[rule](p, r, RN.context(w, par, winter=winter, season=season))   # with its place's weather (D4-113)
             if S != r["S"]:
                 w.apply("set_res", par["node"], parcel=pid, key=key, fields={"S": S})
         # crops: farm.night (D2-53, D4-39)

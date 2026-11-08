@@ -21,12 +21,20 @@ def world(era="steady", days=160, seed=None, **climate):
     return World(s)
 
 
+def home(w):
+    """A place to read the weather at in a test: the node with most people (named here, never an engine default: D4-111)."""
+    count = {}
+    for a in w.s["people"].values():
+        count[a.get("at")] = count.get(a.get("at"), 0) + 1
+    return max(sorted(w.s["nodes"]), key=lambda n: count.get(n, 0))
+
+
 def test_the_weather_is_the_seeds_alone_and_the_same_in_every_arm():
     a, b = world(), world()
     b.s["people"] = {}                                                           # an arm with nobody in it: the same weather
     assert [CL.env(a, n, d) for n in CL._nodes(a) for d in range(60)] == [CL.env(b, n, d) for n in CL._nodes(b) for d in range(60)]
     c = world(seed=REGION["seed"] + 1)
-    assert [CL.label(a, None, d) for d in range(60)] != [CL.label(c, None, d) for d in range(60)]
+    assert [CL.label(a, home(a), d) for d in range(60)] != [CL.label(c, home(a), d) for d in range(60)]
     json.dumps([CL.env(a, n, d) for n in CL._nodes(a) for d in range(5)])     # plain values: they go into the record
 
 
@@ -37,7 +45,7 @@ def test_labels_are_the_engines_and_off_is_the_old_weather():
     s.pop("climate", None)
     old = World(s)
     assert not CL.on(old) and EV.spell(old, 3) == "normal"
-    assert old.cold(0) == (old.calendar(0)["season"] == "winter")
+    assert all(old.cold(n, 0) == (old.calendar(0)["season"] == "winter") for n in old.s["nodes"])
 
 
 def test_near_places_share_weather_more_than_far_ones():
@@ -53,7 +61,7 @@ def test_near_places_share_weather_more_than_far_ones():
 
 def test_the_seasons_and_the_height_shape_it():
     w = world(days=320)
-    ref = CL.reference(w)
+    ref = home(w)
     frost = {s: [] for s in ("spring", "summer", "autumn", "winter")}
     for d in range(320):
         frost[w.calendar(d)["season"]].append(CL.frost(w, ref, d))
@@ -67,7 +75,7 @@ def test_eras_move_the_years_as_their_rows_say():
         out = []
         for s in (1, 2, 3, 4):
             w = world(era, 160, seed=s)
-            out.append(np.mean([CL.env(w, None, d)[key] for d in range(160)]))
+            out.append(np.mean([CL.env(w, home(w), d)[key] for d in range(160)]))
         return np.mean(out)
     rain = lambda era: year(era, "rain")                                         # noqa: E731
     temp = lambda era: year(era, "temp")                                         # noqa: E731
@@ -87,7 +95,7 @@ def test_the_night_reads_each_places_own_weather_and_records_it():
     assert days                                                                   # some nights freeze in one place and not another
     d = days[0]
     a, b = [n for n in CL._nodes(w) if CL.frost(w, n, d)][0], [n for n in CL._nodes(w) if not CL.frost(w, n, d)][0]
-    assert w.cold(d, a) and not w.cold(d, b)
+    assert w.cold(a, d) and not w.cold(b, d)
 
 
 def test_what_the_senses_get_follows_the_days_values():
@@ -95,7 +103,7 @@ def test_what_the_senses_get_follows_the_days_values():
     from cybertron2.engine import signs as SG
     from cybertron2.engine.here import Here
     w = world(days=320)
-    ref = CL.reference(w)
+    ref = home(w)
     days = range(320)
     wet = [d for d in days if CL.env(w, ref, d)["rain"] >= 8 and CL.label(w, ref, d) != "snow"]
     dry = [d for d in days if CL.env(w, ref, d)["rain"] == 0 and not CL.env(w, ref, d)["fog"]]
@@ -112,3 +120,57 @@ def test_what_the_senses_get_follows_the_days_values():
         name = next(n for n, a in w.s["people"].items() if a.get("at") == ref and a.get("alive", True))
         x = SG.sky_context(Here(w, name))
         assert any(r["when"](x) and "hot" in r["text"](x) for r in SG.SKY)
+
+
+def test_every_weather_query_names_its_place():
+    """D4-111: no region-wide default and no reference node; a road reads the mean of its ends; on or off the same rule."""
+    import pytest
+    for w in (world(days=40), World(REGION)):
+        for call in (lambda: EV.weather(w, None), lambda: EV.wet(w, 3), lambda: w.cold(None), lambda: w.cold(0),
+                     lambda: EV.snow_lying(w, None), lambda: EV.words(w, None)):
+            with pytest.raises(ValueError):
+                call()
+    w = world(days=40)
+    assert not hasattr(CL, "reference")
+    rid, r = next(iter(w.s["roads"].items()))
+    for d in range(10):
+        a, b, m = CL.env(w, r["a"], d), CL.env(w, r["b"], d), CL.env(w, rid, d)
+        assert abs(m["temp"] - (a["temp"] + b["temp"]) / 2) < 1e-2 and m["storm"] == max(a["storm"], b["storm"])
+        assert EV.weather(w, rid, d) in WEATHER
+
+
+def test_a_run_with_the_scheduler_reads_every_place_it_touches(tmp_path):
+    """Bots for some days with the scheduler on: every call site the day and the night reach names a place (a missed one raises)."""
+    import yaml
+    s = copy.deepcopy(REGION)
+    s["climate"] = {"era": "stormy"}
+    s["days"] = 6
+    p = tmp_path / "s.yaml"
+    p.write_text(yaml.safe_dump(s))
+    R.run(str(p), str(tmp_path / "out"), days=6, bots=True)                  # raises if any call site names no place
+
+
+def test_renewal_rules_get_the_weather_where_the_stock_is():
+    """D4-113: the night hands each stock's rule its parcel's weather (frost, snow, wet, values, the year's anomaly, the land); the
+    rules that exist read none of it, so the stocks come back as before."""
+    from cybertron2.engine import renewal as RN
+    w = world(days=40)
+    pid, par = next((k, p) for k, p in w.s["parcels"].items() if p["res"])
+    c = RN.context(w, par, winter=False, season="spring")
+    assert c["place"] == par["node"] and c["frost"] == w.cold(par["node"]) and c["weather"] == {
+        k: CL.env(w, par["node"], w.d)[k] for k in ("temp", "low", "rain", "wind", "storm")}
+    assert set(c["anomaly"]) == {"temp", "wet", "era"} and c["winter"] is False
+    seen = []
+    RN.RULES["_probe"] = lambda p, res, ctx: seen.append(ctx) or res["S"]
+    try:
+        key = next(iter(par["res"]))
+        par["res"][key]["renewal"] = "_probe"
+        RN.NIGHTLY += ("_probe",)
+        N._grow(w)
+        assert seen and seen[0]["place"] == par["node"] and "weather" in seen[0]
+    finally:
+        RN.RULES.pop("_probe")
+        RN.NIGHTLY = tuple(x for x in RN.NIGHTLY if x != "_probe")
+        par["res"][key].pop("renewal")
+    off = World(REGION)
+    assert RN.context(off, next(iter(off.s["parcels"].values())))["weather"] is None

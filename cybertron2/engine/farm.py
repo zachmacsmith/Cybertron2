@@ -171,16 +171,14 @@ def projected_ripe(c, season_of, cold_of, day, f, horizon=200):
     return None
 
 
-def set_projection(c, w_or_here, day, f) -> dict:
-    """ripe_day as the crop's own projection (never sooner than the day after tomorrow while it is growing), and `never` where the
-    cold will take it first."""
+def set_projection(c, w, at, day, f) -> dict:
+    """ripe_day as the crop's own projection at its field's place (never sooner than the day after tomorrow while it is growing),
+    and `never` where the cold there will take it first (D4-111)."""
     if c.get("progress", 0.0) >= 1.0:
         return c
-    cal = w_or_here.calendar
-    cold = w_or_here.cold
-    r = projected_ripe(c, lambda d: cal(d)["season"], cold, day, f)
+    r = projected_ripe(c, lambda d: w.calendar(d)["season"], lambda d: w.cold(at, d), day, f)
     c["never"] = r is None
-    c["ripe_day"] = max(day + 2, r if r is not None else day + 2 * w_or_here.year_days())
+    c["ripe_day"] = max(day + 2, r if r is not None else day + 2 * w.year_days())
     return c
 
 
@@ -971,7 +969,7 @@ def _sow(here, mind, tech, key, place_name, out, m, a, f):
         turf = float(f["turf"]) if par["cover"] != "field" else 1.0              # seed thrown on uncleared turf (D4-106)
         c["base"] = round(c["base"] + crop_base(f, eq, broken_here / area, float(rec.get("fertility", 1.0)), ground_mult(here.p, par), skill_yield)
                           * float(CROPS[fam].get("yield", 1.0)) * turf, 4)
-        c = set_projection(c, here, here.day, f)
+        c = set_projection(c, here._w, par["node"], here.day, f)
         c["left"] = crop_left(f, c)
         _set(here, key, h, "crop", c)
         words.append((h, seed, area, broken_here, c))
@@ -990,7 +988,7 @@ def _sow(here, mind, tech, key, place_name, out, m, a, f):
     word = f"You {how} {show(seed)} {seed_good} in {place_name}{soil} (about {show(area)} of a plot){where}."
     if par["cover"] != "field":
         word += " The seed lies on the turf among the grass."
-    if here.cold(node=par["node"]):                                          # felt by the sower (D4-106): told, not why
+    if here.cold(at=par["node"]):                                          # felt by the sower (D4-106): told, not why
         word += " The soil is cold and hard under your feet: nothing will sprout in this yet."
     return 0.0, None, word, ("parcel", key)
 
@@ -1358,7 +1356,7 @@ def _crops(w, rec_):
                     rec_["crops"].append((pid, "failed"))
                 what = None
                 if growing:                                                     # a night's growth by the season (D4-106)
-                    c, what = grow_night(c, w.calendar()["season"], w.cold(None, node), f)   # the field's own night (D4-109)
+                    c, what = grow_night(c, w.calendar()["season"], w.cold(node), f)   # the field's own night (D4-109)
                     if what == "up":
                         c["up_day"] = w.d
                     elif what == "frost":
@@ -1366,7 +1364,7 @@ def _crops(w, rec_):
                     elif what == "ripe":
                         c["ripe_day"] = w.d + 1
                     if what != "ripe":
-                        c = set_projection(c, w, w.d + 1, f)
+                        c = set_projection(c, w, node, w.d + 1, f)
                 if what == "killed":
                     c["killed"] = True
                     c["frost_day"] = w.d

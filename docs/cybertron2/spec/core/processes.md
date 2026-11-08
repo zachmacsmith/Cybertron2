@@ -15,7 +15,9 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
 - D4-108: work and its hunger are felt.
 - D4-109: the weather scheduler.
 - D4-110: moving storms.
+- D4-111: every weather query names its place; the senses read the day's values.
 - D4-112: the land's base fertility scales every soil level.
+- D4-113: renewal rules are handed the weather where the stock is.
 
 ## Mechanics
 
@@ -24,6 +26,10 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
   - The rules: fast, threshold, periodic, slow, young, dead, finite, endless, accrues.
   - Which rule a stock follows is data at two levels: the resource's row gives the default (`RESOURCES[key]["renewal"]`), and the
     stock's own record may name another (`renewal`), with its own parameters in the same record (D4-104).
+  - Each night a rule is handed, besides its own keys, the weather where the stock is (renewal.context, D4-113): the parcel's
+    node (`place`), whether the night freezes there (`frost`), snow lying, a wet day, the day's values there (`weather`: temp,
+    low, rain, wind, storm) and the year's anomaly (`anomaly`: temp, wet, era), each None without the weather scheduler, and the
+    parcel's `land`. The rules as built read none of them.
   - night._grow regrows the nightly ones; forests.night the woods' (by their fixed rules).
   - **Periodic** (new): a run comes in its seasons (`run_seasons`) toward `run_K` at `run_r` a night, leaves at the same rate, and
     the resident stock regrows as a fast one.
@@ -119,8 +125,15 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
     distance and persistent in time.
 - **Out come** temperature, the night's low, rain, wind and fog at each node. The labels (snow, gale, heavy rain, rain, fog, clear)
   and frost (a low below 0 °C) are derived.
-- **Read where it falls:** the night (each house and sleeper), crops, the woods, decay and the signs read their own node's
-  weather; a caller naming none reads the reference node.
+- **Every query names its place** (D4-111): the weather, wet, snow lying, days since heavy rain, the cold, the senses' share
+  and the words are read at a node or a road, never by default. One acting reads where they are (Here: their node, or the road
+  they are on); the night reads each house's, sleeper's and fire's place; crops, woods and decay read their field's, parcel's and
+  container's; signs read the place of what they show. A road reads the mean of its two ends' values. There is no reference node.
+  A model over several places at once (the capacity model's stores, fuel and upkeep) weights the places by who lives there. A
+  call without a place is an error, with the scheduler on or off.
+- **The senses read the values** (D4-111; CLIMATE vis, calibrate): with the scheduler, sight dims with rain by the mm (0.035 a
+  mm, at most 0.5), falling snow (x0.5) and fog (x0.3); sound is masked by wind above 4 m/s (0.03 a m/s, at most 0.6) and by
+  rain. Without it, by the day's label as before.
 - **Moving storms** (D4-110): on stormy days a storm is born upwind and crosses the region on a track (CLIMATE storms: frequency
   by type and era, heading, speed, radius, wind), adding wind and rain to nodes near its track on the day it passes. Nodes are
   placed from the spec's `xy`, else from road distances.
@@ -145,4 +158,4 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
   form).
 - The heat need as a pure function beside food.
 
-*Current as of 8 Nov 2026 (D4-103 phase 2, D4-104 to D4-110, D4-112).*
+*Current as of 8 Nov 2026 (D4-103 phase 2, D4-104 to D4-113).*

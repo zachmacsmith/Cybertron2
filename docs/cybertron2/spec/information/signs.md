@@ -101,4 +101,19 @@ devlog 37.4 #6; 38.04 §3.
 
   The doer feels it in the result line: the cold ground at sowing, soft and milky ears reaped green, ears light in the hand.
 
-*Current as of 8 Nov 2026: D4-6, D4-35, D4-71, D4-72, D4-74, D4-75, D4-98 (next door 0.3), D4-106.*
+- **The sky by the day's values** (D4-110, D4-111; with the weather scheduler; own `calibrate`), read at the place one is:
+
+  | State (the place's values) | Sign | Sense | Own |
+  |---|---|---|---|
+  | a storm reaches the place tomorrow, not here today (D4-110) | the sky to windward is black and the wind is rising in gusts: a storm is coming | sight | 1.5 |
+  | a night's low at or below -6 °C | a killing frost: the ground rings like iron; anything tender out of doors is lost | touch | 2.0 |
+  | 22 to 26 °C | a hot, close day: the beasts crowd the shade | touch | 1.2 |
+  | 26 °C or more | a burning heat: the old and the young wilt in it | touch | 2.0 |
+  | rain under 1.5 mm | a thin drizzle all day, soaking through slowly | touch | 0.5 |
+  | rain 20 mm or more | a downpour: water sheets off the roofs and the paths run like streams | sight | 2.0 |
+  | wind 11 m/s to a gale | a strong wind all day, the trees bending | sound | 0.8 |
+  | wind 7 m/s or more above a gale | a violent wind: thatch ripped loose, branches down | sound | 2.5 |
+  | 5 °C colder than yesterday | the weather has turned overnight: a raw wind and a bite in the air | touch | 1.2 |
+  | 5 °C milder than yesterday | the air has turned soft and mild overnight | touch | 0.8 |
+
+*Current as of 8 Nov 2026: D4-6, D4-35, D4-71, D4-72, D4-74, D4-75, D4-98 (next door 0.3), D4-106, D4-110, D4-111.*

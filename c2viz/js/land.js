@@ -10,7 +10,7 @@
   // pixel, the place (an index into nids) and the parcel (an index into that place's parcels, -1 the wild); `sc` is pixels per
   // close-up pixel (1 close up, smaller on the region's map)
   function paintLand(P, V, day, W, H, nids, cellNode, cellPar, sc, R, occ, opts) {
-    const M = model(V), d = D(V, day), season = (d.calendar || {}).season || "summer", snow = !!d.snow, sdays = V.meta.season_days || 6;
+    const M = model(V), d = D(V, day), season = (d.calendar || {}).season || "summer", snow = d.places ? nids.some((n) => (d.places[n] || {}).snow) : !!d.snow, sdays = V.meta.season_days || 6;
     const n2 = noise(M.seed ^ 2), n3 = noise(M.seed ^ 3), small = sc < 0.5, RL = opts.relief || null, cday = (d.calendar || {}).day || 1;
     const flowering = (season === "summer" && cday > sdays / 2) || (season === "autumn" && cday <= sdays / 2);   // heather: late summer
     const LV = new Int8Array(W * H), at = (x, y) => (x < 0 || y < 0 || x >= W || y >= H) ? -1 : (y | 0) * W + (x | 0);
@@ -172,7 +172,7 @@
         if (wk.ground === "hill" && u - s * sw < 1.2) P.put(x, y, "#b8b0a0"); }
     }
   }
-  // the day's weather over everything drawn (environment.weather; one for the whole world)
+  // the day's weather over everything drawn (environment.weather): a place's own close up; on the region's map, the commonest
   function weatherOver(P, W, H, kind, R, small) {
     if (!kind || kind === "clear") return;
     if (kind === "fog") { const nz = noise(77); for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) P.mix(x, y, "#e8ecf0", 0.28 + 0.22 * nz(x / 30, y / 18, 2)); return; }

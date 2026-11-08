@@ -33,11 +33,26 @@ class Ctx:
     year: int
     season_len: int
     as_field: set = field(default_factory=set)
-    cal: list = field(default_factory=list)          # [(season, cold)] a year day (cal.table)
     window: tuple = (0, 0)                           # the frost-free run (cal.growing_window)
+    nodes: object = None                             # the places in scope (None: all)
+    _cals: dict = field(default_factory=dict)
 
     def worth_of(self, good) -> float:
         return FD.worth(good, self.level.cook, self.reach)[0]
+
+    def cal(self, node) -> list:
+        """[(season, cold)] a year day at a place (cal.table; D4-111)."""
+        if node not in self._cals:
+            from cybertron2.capacity import cal as CL
+            self._cals[node] = CL.table(self.w, node)
+        return self._cals[node]
+
+    def cold_mix(self) -> list:
+        """The share of the people in scope whose night is cold, a year day (cal.cold_shares): for what is kept across places."""
+        if None not in self._cals:
+            from cybertron2.capacity import cal as CL
+            self._cals[None] = CL.cold_shares(self.w, self.nodes)
+        return self._cals[None]
 
 
 def world_of(spec_or_world):
@@ -49,12 +64,12 @@ def world_of(spec_or_world):
         return World(copy.deepcopy(spec_or_world))
 
 
-def context(w, level, as_field=()) -> Ctx:
+def context(w, level, as_field=(), nodes=None) -> Ctx:
     r = LV.reach(w)
     lv = (LV.LEVELS[level] if isinstance(level, str) else level).within(r)
     from cybertron2.capacity import cal as CL
-    return Ctx(w=w, level=lv, reach=r, year=w.year_days(), season_len=w.season_len, as_field=set(as_field), cal=CL.table(w),
-               window=CL.growing_window(w))
+    return Ctx(w=w, level=lv, reach=r, year=w.year_days(), season_len=w.season_len, as_field=set(as_field),
+               window=CL.growing_window(w), nodes=nodes)
 
 
 def flows(ctx, nodes=None) -> list:
@@ -93,12 +108,15 @@ class Lot:
     work: float               # units a year at full take, with processing
 
 
-def _season_of(ctx, d):
-    return ctx.cal[d % len(ctx.cal)][0]
-
-
-def _cold_of(ctx, d):
-    return ctx.cal[d % len(ctx.cal)][1]
+def _rate(ctx, form, store, d, node=None) -> float:
+    """A form's loss on a year day kept at a place (node), or across the places in scope by who is where (node None: stores)."""
+    if node:
+        season, cold = ctx.cal(node)[d % ctx.year]
+        return FD.rate(form, store, season, cold)
+    from cybertron2.capacity import cal as CL
+    season = CL.seasons(ctx.w)[d % ctx.year]
+    k = ctx.cold_mix()[d % ctx.year]
+    return k * FD.rate(form, store, season, True) + (1 - k) * FD.rate(form, store, season, False)
 
 
 def _hold(profile) -> float:
@@ -119,7 +137,7 @@ def lots(ctx, fl) -> list:
         gap = _hold(f.profile)
         best = None
         for form, k, v, u in FD.keeping_forms(f.good, ctx.level.cook, ctx.reach):
-            rates = [FD.rate(form, store, _season_of(ctx, d), _cold_of(ctx, d)) for d in range(ctx.year)]
+            rates = [_rate(ctx, form, store, d, f.node or None) for d in range(ctx.year)]
             r = sum(rates) / len(rates)
             keep = 1.0 if r * gap < 1e-9 else (1 - math.exp(-r * gap)) / (r * gap)
             score = k * v * keep
@@ -176,7 +194,17 @@ def simulate(ctx, ls, scale, need, years=YEARS, start=None, horizon=None, people
 
 
 def start_rate(ctx, d):
-    return FD.rate("grain", ctx.level.store, _season_of(ctx, d), _cold_of(ctx, d))
+    return _rate(ctx, "grain", ctx.level.store, d)
+
+
+def _day_rate(w, form, store, day, node, nodes) -> float:
+    """A form's loss on a day of the run kept at a place, or across the places in scope by who is where (node None)."""
+    from cybertron2.capacity import cal as CL
+    season = w.calendar(day)["season"]
+    if node:
+        return FD.rate(form, store, season, w.cold(node, day))
+    k = CL.cold_share(w, day, nodes)
+    return k * FD.rate(form, store, season, True) + (1 - k) * FD.rate(form, store, season, False)
 
 
 def allocate(ls, budget) -> list:
@@ -203,7 +231,7 @@ def mix(w, names=None) -> dict:
     units by season, youth and elder caps; children and infants none). With nobody, an adult's."""
     from cybertron2.capacity import cal as CL
     names = [n for n in (names if names is not None else w.living())]
-    seasons = [s_ for s_, _ in CL.table(w)]
+    seasons = CL.seasons(w)
     def units(stage):
         if stage in ("infant", "child"):
             return 0.0
@@ -295,13 +323,14 @@ def first_harvest(w, nodes=None, level=None) -> dict:
     cal = w.calendar()
     best, lost = None, []
     f = w.p["farming"]
-    season_of, cold_of = (lambda d: w.calendar(d)["season"]), w.cold
+    season_of = lambda d: w.calendar(d)["season"]                              # noqa: E731
+    at = lambda n: (lambda d: w.cold(n, d))                                    # noqa: E731  the cold where the field is (D4-111)
     for pid, par in w.s["parcels"].items():
         if nodes is not None and par["node"] not in nodes:
             continue
         for _, _, c in FM.standing(par):
             c = FM.started(c, w.d)                                             # its own nights from now (D4-106)
-            ripe = FM.projected_ripe(c, season_of, cold_of, w.d, f) if c.get("progress", 0.0) < 1.0 else w.d
+            ripe = FM.projected_ripe(c, season_of, at(par["node"]), w.d, f) if c.get("progress", 0.0) < 1.0 else w.d
             if ripe is None:
                 lost.append({"parcel": pid, "ripe_in": None, "frost_in": None, "left": round(float(c.get("left", 0)), 1)})
                 continue
@@ -309,11 +338,13 @@ def first_harvest(w, nodes=None, level=None) -> dict:
                 best = max(0, ripe - w.d)
     g = FM.grow_days(year, "grain")
     sown = None
-    for k in range(2 * year):                                                  # the first sowing that gives at least half a crop
-        days, mult, _ = FM.season_run("grain", w.d + k, season_of, g, f, cold_of=cold_of, horizon=year)
-        if days is not None and mult >= 0.5:
-            sown = k + days
-            break
+    field_nodes = sorted({p_["node"] for p_ in w.s["parcels"].values() if p_["cover"] == "field" and (nodes is None or p_["node"] in nodes)})
+    for n in field_nodes or sorted(n for n in w.s["nodes"] if nodes is None or n in nodes):
+        for k in range(2 * year):                                              # the first sowing that gives at least half a crop
+            days, mult, _ = FM.season_run("grain", w.d + k, season_of, g, f, cold_of=at(n), horizon=year)
+            if days is not None and mult >= 0.5:
+                sown = k + days if sown is None else min(sown, k + days)
+                break
     sown = sown if sown is not None else 2 * year
     return {"standing": best, "sown": sown, "first": min(x for x in (best, sown) if x is not None), "lost_to_frost": lost}
 
@@ -323,7 +354,7 @@ def run_horizon(w, level, days, nodes=None) -> dict:
     crops come in on their day unless the frost takes them first; the level's own sowing begins today (its harvests come no sooner
     than a crop sown today ripens), as far as the seed in store allows; the wild and the herds give from the first day. The seed
     is kept back from the store."""
-    ctx = context(w, level)
+    ctx = context(w, level, nodes=nodes)
     hb = homes_by_node(w)
     names = [n for k, v in hb.items() if nodes is None or k in nodes for n in v]
     m = mix(w, names)
@@ -352,19 +383,20 @@ def run_horizon(w, level, days, nodes=None) -> dict:
             continue
         for _, _, c in FM.standing(par):
             c = FM.started(c, w.d)                                             # its own nights from now (D4-106)
-            r = w.d if c.get("progress", 0.0) >= 1.0 else FM.projected_ripe(c, lambda d: w.calendar(d)["season"], w.cold, w.d, w.p["farming"])
+            r = w.d if c.get("progress", 0.0) >= 1.0 else FM.projected_ripe(c, lambda d: w.calendar(d)["season"],
+                                                                                 lambda d, n=par["node"]: w.cold(n, d), w.d, w.p["farming"])
             if r is None or r - w.d >= days:
                 continue
             ripe = r - w.d
             prof = [0.0] * days
             prof[max(0, ripe)] = float(c.get("left", 0))
             out_fl.append(SO.Flow("standing crop", par["node"], pid, CROPS.get(c.get("crop"), CROPS["grain"])["gives"], prof, 0.0))
-    ctx_h = Ctx(w=w, level=ctx.level, reach=ctx.reach, year=days, season_len=ctx.season_len, cal=ctx.cal, window=ctx.window)
+    ctx_h = Ctx(w=w, level=ctx.level, reach=ctx.reach, year=days, season_len=ctx.season_len, window=ctx.window, nodes=nodes)
     ls = []
     for f in out_fl:
         probe = SO.Flow(f.source, f.node, f.where, f.good, (f.profile + [0.0] * year)[:year], f.work)
         for l in lots(ctx, [probe]):
-            rates = [FD.rate(l.form, ctx.level.store, w.calendar(w.d + t)["season"], w.cold(w.d + t)) for t in range(days)]
+            rates = [_day_rate(w, l.form, ctx.level.store, w.d + t, f.node or None, nodes) for t in range(days)]
             ls.append(Lot(f, l.form, l.value, rates, l.work))
     reserve, left = 0.0, seed_need                      # the seed kept back, taken grain first, at each good's own worth
     for g_ in ("grain", "beans", "rye"):
@@ -375,7 +407,7 @@ def run_horizon(w, level, days, nodes=None) -> dict:
         left -= k
     store = max(0.0, stores_food(w, nodes, ctx.level.cook, ctx.reach) - reserve)
     ls.append(Lot(SO.Flow("store", "", "", "grain", [0.0] * days, 0.0), "grain", 1.0,
-                  [FD.rate("grain", "house", w.calendar(w.d + t)["season"], w.cold(w.d + t)) for t in range(days)], 0.0))
+                  [_day_rate(w, "grain", "house", w.d + t, None, nodes) for t in range(days)], 0.0))
     scale = allocate(ls, P * m["units"] * ctx.level.labour_share * days / year)
     r = simulate(ctx_h, ls, scale, need(ctx, ls, scale, P, m, days=days), horizon=days, start={len(ls) - 1: store})
     return {"level": ctx.level.name, "people": P, "days": days, "first_short": r["first_short"], "short_days": r["short_days"],
@@ -394,12 +426,12 @@ def ceiling_fields(w, nodes=None) -> tuple:
     cands.sort(key=lambda pid: FU.parcel_heat(w, w.s["parcels"][pid]))
     m = mix(w)
     turned = set()
-    npp = FU.need_per_person(w)
-    ctx = context(w, "best")
+    npp = FU.need_per_person(w, nodes)
+    ctx = context(w, "best", nodes=nodes)
     P = people_supported(ctx, lots(ctx, flows(ctx, nodes)), m)
     for pid in cands:
         trial = turned | {pid}
-        ctx_t = context(w, "best", as_field=trial)
+        ctx_t = context(w, "best", as_field=trial, nodes=nodes)
         P_t = people_supported(ctx_t, lots(ctx_t, flows(ctx_t, nodes)), m)
         heat = FU.supply(w, None, exclude=trial)["sustained"]
         if P_t > P and (FU.parcel_heat(w, w.s["parcels"][pid]) <= 0 or heat >= npp * P_t):
@@ -438,7 +470,7 @@ def analyse(spec_or_world, levels=LV.ORDER, horizon=None) -> dict:
         rec["first_harvest"] = fh
         rec["buffer_days"] = round(rec["stores_food"] / max(1e-9, P_here * m_here["eats"]), 1) if P_here else None
         for lvl in levels:
-            ctx = context(w, lvl, as_field=turned if lvl == "ceiling" else ())
+            ctx = context(w, lvl, as_field=turned if lvl == "ceiling" else (), nodes=ns)
             fl = flows(ctx, ns)
             ls = lots(ctx, fl)
             sup = people_supported(ctx, ls, m_here)

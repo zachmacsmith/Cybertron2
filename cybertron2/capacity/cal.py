@@ -6,22 +6,45 @@ lengths or cold days set by its file is read as it is.
 """
 from __future__ import annotations
 
-def table(w) -> list:
-    """[(season, cold)] for each year day."""
+def _day(w, yd) -> int:
     year = w.year_days()
-    now = int(w.calendar()["year_day"]) % year
-    out = []
-    for yd in range(year):
-        d = w.d + (yd - now) % year
-        out.append((w.calendar(d)["season"], bool(w.cold(d))))
-    return out
+    return w.d + (yd - int(w.calendar()["year_day"]) % year) % year
+
+
+def table(w, at) -> list:
+    """[(season, cold)] for each year day at a place (D4-111: the cold is a place's, as world.cold)."""
+    return [(w.calendar(_day(w, yd))["season"], bool(w.cold(at, _day(w, yd)))) for yd in range(w.year_days())]
+
+
+def seasons(w) -> list:
+    """The season of each year day: the calendar's, the same everywhere."""
+    return [w.calendar(_day(w, yd))["season"] for yd in range(w.year_days())]
+
+
+def homes(w, nodes=None) -> dict:
+    """{node: weight} for a model over several places at once (stores, fuel, upkeep): the living people at each node in scope, or
+    the nodes equally where nobody is. A weighting over named places, never a default place (D4-111)."""
+    scope = [n for n in sorted(w.s["nodes"]) if nodes is None or n in nodes]
+    count = {n: sum(1 for a in w.s["people"].values() if a.get("alive", True) and a.get("at") == n) for n in scope}
+    tot = sum(count.values())
+    return {n: c / tot for n, c in count.items() if c} if tot else {n: 1 / len(scope) for n in scope}
+
+
+def cold_share(w, day, nodes=None) -> float:
+    """The share of the people in scope (homes) whose night is cold on a day."""
+    return sum(k for n, k in homes(w, nodes).items() if w.cold(n, day))
+
+
+def cold_shares(w, nodes=None) -> list:
+    """cold_share for each year day."""
+    return [cold_share(w, _day(w, yd), nodes) for yd in range(w.year_days())]
 
 
 def frost_days(w, crop=None) -> set:
-    """Year days on which the frost kills a growing crop that is not hardy (farm.frost_kills)."""
+    """Year days on which the frost kills a growing crop that is not hardy (farm.frost_kills: by the season)."""
     from cybertron2.engine import farm as FM
     c = crop or {"hardy": False}
-    return {yd for yd, (season, _) in enumerate(table(w)) if FM.frost_kills(c, season)}
+    return {yd for yd, season in enumerate(seasons(w)) if FM.frost_kills(c, season)}
 
 
 def growing_window(w) -> tuple:
