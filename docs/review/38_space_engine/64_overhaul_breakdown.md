@@ -135,6 +135,38 @@ and the least productive work stops paying first.
 
 ## 9. E2 (after phase 2): Wenbridge, a full year, labour on against off
 
-(Running; results added when the two runs end.)
+Two arms, one seed each, 32 days from summer, on the engine as of D4-106. The labour arm has phase 2's labour rules on; the null
+arm has them at zero. Runs: runs/e2_labour, runs/e2_nolabour. Cost about $43; a first attempt stopped at day 14 cost $27.60
+(runs/e2a_*).
 
-*Current as of 8 Nov 2026 (E2 running).*
+| Arm | Deaths | Alive at day 32 |
+|---|---|---|
+| labour | 12 (Rob d13; Wat d18; Will d20; Hugh d21; Mary d22; Agnes, Joan d23; Tom d24; Odo d25; Kit d26; Eva d27; Alys d30) | 2 of 14 |
+| null | 9 (Tom, Wat d18; Kit, Will, Hugh d21; Ellen, Joan d22; Rob d24; Agnes d27) | 5 of 14 |
+
+**It does not answer its question.** The world could not feed them, and the launch did not check.
+- **The run's own day-0 capacity** (journal meta): as it stands 2.7 of 12; worked 11.8; stores 22 days.
+- **What happened:**
+  - the stores were gone by about day 18;
+  - wild food was 3 to 9 a season, none in winter;
+  - the first possible harvest was a spring sowing ripe at about day 30;
+  - nobody sowed in spring, because the seed was eaten.
+- **Why earlier Wenbridge runs lived:** they ran under rules phase 2 removed: summer resowing, milling and baking adding food, work
+  costing nothing.
+- **Three causes made it worse:**
+  - **The Hearnes sowed barley in autumn** (30 and 60 grain) from the lore's "rye in autumn", having no rye. The frost left 6%
+    of it.
+  - **The water wheel took 73 to 88 acts.** It is Hugh's in-world aim, worth +12% food since phase 2's D.
+  - **There is no way to ration.** Eating is automatic at the full ration until the food is gone.
+- **Labour against null cannot be read from one seed** in a famine. The labour arm ate about 6% more and worked a smaller share of
+  its units (74% against 79%); nobody pushed on; no fitting wore.
+
+**What it shows instead:**
+- **A launch check is needed:** the capacity model over the run's own days, warning when people run out before the first
+  harvest. Its absence is 37.4's error here.
+- **Phase 2's D took the mill's food gain away without giving back its real value** (work saved against grinding by hand). The
+  proposal for that is in the reply of 8 Nov.
+- **Summer-start worlds need recalibrating** (§8, question 5).
+- **Rationing, as a household's choice to eat less,** is missing before any famine test.
+
+*Current as of 8 Nov 2026 (E2 done: §9).*
