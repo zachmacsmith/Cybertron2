@@ -66,6 +66,21 @@
   @keyframes hop { 0%, 60%, 100% { transform: translateY(0) } 30% { transform: translateY(-10px) } }
   .tip { position: fixed; pointer-events: none; background: #fff; color: var(--text); border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,.08);
     padding: 5px 9px; font: 13px "IBM Plex Sans", sans-serif; max-width: 340px; display: none; z-index: 5; }
+  /* the day's words, streamed into a corner of the map: each reply's say (to a house or everyone) and tell (to one person) */
+  .talk { position: fixed; right: 16px; bottom: 16px; width: min(360px, calc(100vw - 32px)); max-height: 44vh; display: flex; flex-direction: column;
+    background: rgba(255,255,255,.95); border: 1px solid var(--border); border-radius: 6px; box-shadow: 0 6px 24px rgba(0,0,0,.12); z-index: 4;
+    font: 13.5px/1.45 "IBM Plex Sans", sans-serif; }
+  .talk .th { display: flex; align-items: center; gap: 8px; padding: 8px 10px 8px 12px; border-bottom: 1px solid var(--border); font-weight: 600; font-size: 13px; }
+  .talk .th small { color: var(--muted); font-weight: 400; margin-left: auto; }
+  .talk .th button { border: 0; background: none; color: var(--muted); font-size: 16px; line-height: 1; padding: 0 2px; cursor: pointer; }
+  .talk .tb { overflow-y: auto; padding: 4px 12px 10px; }
+  .talk .ph { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 10px 0 2px; }
+  .talk .m { margin: 6px 0 0; animation: rise .35s ease-out both; }
+  .talk .m .who { font-weight: 600; } .talk .m .to { color: var(--muted); font-size: 12px; }
+  .talk .m.priv .to { font-style: italic; color: var(--rim); }
+  .talk .m p { margin: 1px 0 0; font: 14px/1.45 "Source Serif 4", Georgia, serif; color: #222; }
+  .talk .none { color: var(--muted); padding: 8px 0 2px; }
+  .talk.shut { width: auto; } .talk.shut .tb { display: none; } .talk.shut .th { border-bottom: 0; }
 </style>
 </head>
 <body>
@@ -88,6 +103,7 @@
 </div>
 <div class="map loading" id="map"><div class="loader" id="loader"><div class="px3"><i></i><i></i><i></i></div><span id="loadmsg">Fetching the run</span></div><div class="stage" id="stage"><canvas id="cv"></canvas></div></div>
 <div class="tip" id="tip"></div>
+<div class="talk" id="talk" hidden><div class="th"><span id="talkday">What they said</span><small id="talkn"></small><button id="talkx" aria-label="Hide the messages" title="Hide">–</button></div><div class="tb" id="talkb"></div></div>
 <script src="c2pixel.js"></script>
 <script>
 "use strict";
@@ -191,6 +207,41 @@ $("#clock").oninput = (e) => { playDay(false); S.t = +e.target.value / 100; rend
 document.addEventListener("keydown", (e) => { if (e.key === "ArrowRight") setDay(S.day + 1); else if (e.key === "ArrowLeft") setDay(S.day - 1); else if (e.key === "Escape") { S.node = null; render(); } else if (e.key === " ") { e.preventDefault(); play(!S.playing); }
   else if (e.key === "+" || e.key === "=" || e.key === "-") { const k = S.node ? "zoom" : "zoomW", z0 = S[k], cx = (map.scrollLeft + map.clientWidth / 2) / z0, cy = (map.scrollTop + map.clientHeight / 2) / z0;
     S[k] = Math.max(0.5, Math.min(10, z0 + (e.key === "-" ? -0.5 : 0.5))); render(); map.scrollLeft = cx * S[k] - map.clientWidth / 2; map.scrollTop = cy * S[k] - map.clientHeight / 2; } });
+render();
+// the day's words, streamed into the corner: fetched once a day is shown, then let in one by one at a reading pace
+const T = { day: -1, all: {}, timer: null, shut: false }, talkEl = $("#talk"), talkB = $("#talkb");
+const PHASE = { decide: "Morning", talk: "Talk", evening: "Evening" };
+const hush = (t) => { const e = document.createElement("div"); e.className = "none"; e.textContent = t; talkB.replaceChildren(e); };
+async function talkFor(d) {
+  if (!T.all[d]) T.all[d] = fetch(api("talk/" + d)).then((r) => (r.ok ? r.json() : [])).catch(() => []);
+  return T.all[d];
+}
+async function stream(d) {
+  clearTimeout(T.timer); T.day = d; talkEl.hidden = false;
+  $("#talkday").textContent = `Day ${d + 1} · what they said`; $("#talkn").textContent = ""; hush("…");
+  const list = await talkFor(d); if (T.day !== d) return;
+  $("#talkn").textContent = list.length ? `${list.length} message${list.length === 1 ? "" : "s"}` : "";
+  if (!list.length) return hush("Nobody spoke today.");
+  talkB.replaceChildren();
+  const gap = Math.max(350, Math.min(1600, 14000 / list.length));   // a day's words fit about the length of the day played out
+  let i = 0, ph = null;
+  const next = () => {
+    if (T.day !== d || i >= list.length) return;
+    const m = list[i++], p = (m.phase || "").split(".")[0], stick = talkB.scrollHeight - talkB.scrollTop - talkB.clientHeight < 40;
+    if (p !== ph) { ph = p; const h = document.createElement("div"); h.className = "ph"; h.textContent = PHASE[p] || p; talkB.append(h); }
+    const e = document.createElement("div"); e.className = "m" + (m.private ? " priv" : "");
+    const who = document.createElement("span"); who.className = "who"; who.textContent = m.from;
+    const to = document.createElement("span"); to.className = "to"; to.textContent = m.private ? ` to ${m.to}, privately` : ` to ${m.to || "everyone"}`;
+    const t = document.createElement("p"); t.textContent = m.text;
+    e.append(who, to, t); talkB.append(e);
+    if (stick) talkB.scrollTop = talkB.scrollHeight;                  // follow the stream unless the reader has scrolled back
+    T.timer = setTimeout(next, gap);
+  };
+  next();
+}
+$("#talkx").onclick = () => { T.shut = !T.shut; talkEl.classList.toggle("shut", T.shut); $("#talkx").textContent = T.shut ? "+" : "–";
+  $("#talkx").title = T.shut ? "Show" : "Hide"; $("#talkx").setAttribute("aria-label", T.shut ? "Show the messages" : "Hide the messages"); };
+const _render = render; render = function () { _render(); if (S.day !== T.day) stream(S.day); };
 render();
 // the rest of the days, in order; the slider grows as they come, and a day asked for in the link is shown when it arrives
 (async () => {

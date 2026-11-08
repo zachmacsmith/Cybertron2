@@ -192,6 +192,34 @@ def journal_strip(run: Path) -> list:
     return out
 
 
+def day_talk(run: Path, day: int) -> list:
+    """What people said on a day, in the order the engine asked them: each reply's `say` (heard by a house or everyone) and `tell`
+    (to one person, privately), from the journal's committed attempt of each step. The words are the model's own."""
+    import sqlite3
+    con = sqlite3.connect(f"file:{run / 'run.db'}?mode=ro", uri=True)
+    try:
+        rows = con.execute(
+            "SELECT r.step, r.agent, p.parsed FROM requests r JOIN responses p ON p.key = r.key "
+            "JOIN steps s ON s.step = r.step AND s.attempt = r.attempt AND s.status = 'committed' "
+            "WHERE r.step LIKE ? ORDER BY s.started, r.rowid", (f"d{day}.%",)).fetchall()
+    finally:
+        con.close()
+    out = []
+    for step, agent, parsed in rows:
+        try:
+            j = json.loads(parsed or "{}")
+        except ValueError:
+            continue
+        if not isinstance(j, dict):
+            continue
+        phase = step.split(".")[1] if "." in step else step
+        for kind in ("say", "tell"):
+            for m in j.get(kind) or []:
+                if isinstance(m, dict) and str(m.get("text") or "").strip():
+                    out.append({"phase": phase, "from": agent, "to": m.get("to"), "text": m["text"], "private": kind == "tell"})
+    return out
+
+
 def local_spec_text(run: Path) -> str:
     import sqlite3
     con = sqlite3.connect(f"file:{run / 'run.db'}?mode=ro", uri=True)
@@ -306,7 +334,7 @@ class Site:
         self.cache = Path(args.cache)
         self.catalog = Catalog(args.runs, args.repo, args.folder, args.revision, not args.no_hub, self.cache)
         self.builders, self.lock = {}, threading.Lock()
-        self.fetching = {}
+        self.fetching, self.importing = {}, {}
         from c2viz.build import bundle
         self.js = bundle().encode()
 
@@ -316,8 +344,11 @@ class Site:
             if b is None:
                 self.fetching[rid] = True
         if b is None:
+            with self.lock:
+                one = self.importing.setdefault(rid, threading.Lock())
             try:
-                path = self.catalog.path_of(rid)
+                with one:                                                   # one import of a run at a time
+                    path = self.catalog.path_of(rid)
             finally:
                 self.fetching.pop(rid, None)
             with self.lock:
@@ -399,6 +430,8 @@ def handler(site: Site):
                         if not f.exists():
                             return self.json({"error": "not drawn yet"}, 404)
                         return self.send(200, f.read_bytes(), TYPES[f.suffix], cache="max-age=86400")   # a day: a redrawn map shows tomorrow
+                    if what == "talk" and len(parts) > 4:                     # a day's words, read straight from the journal
+                        return self.send(200, json.dumps(day_talk(site.builder(rid).path, int(parts[4]))).encode(), cache=True)
                     if what == "status":
                         b = site.builders.get(rid)
                         return self.json(b.status() if b else {"id": rid, "fetching": rid in site.fetching, "built": 0})
