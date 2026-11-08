@@ -120,7 +120,10 @@ class Catalog:
             days = self.cache / "hub" / self.sha[:12] / r["name"] / "days.jsonl"
             if not days.exists():
                 from huggingface_hub import hf_hub_download
-                p = hf_hub_download(repo_id=self.repo, filename=f"{self.folder}/{r['name']}/days.jsonl", repo_type="dataset", revision=self.sha)
+                try:
+                    p = hf_hub_download(repo_id=self.repo, filename=f"{self.folder}/{r['name']}/days.jsonl", repo_type="dataset", revision=self.sha)
+                except Exception:                                           # noqa: BLE001 (a run published without its days.jsonl)
+                    return journal_strip(self.path_of(rid))                 # from its journal instead (fetched and imported)
                 days.parent.mkdir(parents=True, exist_ok=True)
                 days.write_bytes(Path(p).read_bytes())
             f = self.cache / "hub" / self.sha[:12] / r["name"] / "run.json"
@@ -167,6 +170,35 @@ def imported(run: Path) -> bool:
             con.close()
     except sqlite3.Error:
         return False
+
+
+def journal_strip(run: Path) -> list:
+    """A run's days in brief from its journal, for a run with no days.jsonl: each day's end (its memory checkpoint), the people alive,
+    the season, the deaths that day."""
+    import sqlite3
+    from c2viz import touch as E
+    con = sqlite3.connect(f"file:{run / 'run.db'}?mode=ro", uri=True)
+    try:
+        steps = [r[0] for r in con.execute("SELECT step FROM steps WHERE status = 'committed' AND step LIKE '%.memory' ORDER BY rowid")]
+    finally:
+        con.close()
+    out, alive0 = [], None
+    for st in steps:
+        s = E.checkpoint(run / "run.db", st)["world"]
+        alive = sum(1 for p in s["people"].values() if p.get("alive", True))
+        w = E.world(json.loads(local_spec_text(run)), s)
+        out.append({"alive": alive, "season": w.calendar()["season"], "died": max(0, (alive0 if alive0 is not None else alive) - alive)})
+        alive0 = alive
+    return out
+
+
+def local_spec_text(run: Path) -> str:
+    import sqlite3
+    con = sqlite3.connect(f"file:{run / 'run.db'}?mode=ro", uri=True)
+    try:
+        return dict(con.execute("SELECT key, value FROM meta")).get("spec") or "{}"
+    finally:
+        con.close()
 
 
 def local_spec(run: Path) -> dict:
