@@ -2,7 +2,7 @@
 
 **Status:** discussion (8 Nov). Nothing decided, nothing to build. **Owner:** 37.2 (design, kinds and numbers: spec/environment/),
 with 37.4 (the engine: it sits on D4-103's process model and D4-104's renewal rules and packs). **Affects:** spec/environment/resources.md,
-spec/core/processes.md; data.py (RESOURCES, a new KINDS table); engine renewal.py, packs.py, night.py, herds.py, environment.py, signs.py;
+spec/core/processes.md; data.py (RESOURCES rows extended; no separate table); engine renewal.py, packs.py, night.py, herds.py, environment.py, signs.py;
 landgen/ecology.py (the starting populations); OPEN L-2, L-37, D2-77, D2-95.
 
 ## Summary
@@ -124,7 +124,8 @@ the kind's dynamics need (a condition, a hunger).
 - **Whole-counted kinds** (deer herds, wolf packs, a bear) are a set of groups. Each group is an object with a size and **a
   distribution over where it is**: the "particle" Zach described.
 
-**A kind** is one row of data, the KINDS table:
+**A kind** is one row of data: **a RESOURCES row with optional fields** (37.4, 8 Nov: one registry and one guard test, not a
+parallel KINDS table; a stock with none of these fields is today's case):
 
 | Field | Meaning | Example (wolves) |
 |---|---|---|
@@ -171,17 +172,19 @@ edge reservoir and bounds keep them in hand. The step is tested over simulated y
 
 ## 3. Observation: the field collapses where someone looks
 
-- **The engine holds only expectations:** how many deer are likely in each patch, where a pack is likely to be.
-- **When someone is at a place** (hunting, fishing, minding the field, crossing the wood), the engine draws what is actually there,
-  from the expectation at that place: 3 deer at the wood's edge today; the pack, or not. That draw is the collapse, and it is
-  keyed, so runs replay.
+- **Density kinds** (fish, fowl, hares) are held only as expectations. **When someone is at a place** (hunting, fishing, minding the
+  field), the engine draws what is actually there from the expectation at that place: that draw is the collapse, and it is keyed,
+  so runs replay.
+- **Whole-counted groups hold an actual place,** drawn once each night from their distribution (keyed). Their distribution is for
+  analysis and for signs only. (37.4, 8 Nov: with expectations alone, two people in different places could each meet the same pack
+  on the same day.) To the people it still looks the same: nobody knows where the pack is until they meet it or read its signs.
 - **The take and the encounter update the field:**
   - deer killed come off the count;
   - a pack met is placed where it was met, and its distribution re-centres there.
 
   Everywhere else stays expected.
-- **One animal matters when it is whole-counted.** A lone bear is a group of one whose place is a distribution until someone meets
-  it.
+- **One animal matters when it is whole-counted.** A lone bear is a group of one with one place each night, unknown to anyone until
+  they meet it or read its signs.
 
 **Individuals on demand.** When a whole-counted group meets people (a wolf seen, a deer shot, a calf taken), the engine names one of
 them for the event: "the grey bitch with the torn ear". It is kept only while it recurs:
@@ -279,16 +282,26 @@ Two to five kinds carry every case in §4.
 
 ## 7. Steps
 
+**Revised 8 Nov with 37.4's review (engine side).** The field over the land (§2a) is the large change: runs do not yet carry their
+land (G-33), and parcels as windows onto patches would be a second spatial model inside the engine. So the first steps run on the
+graph, and the field comes later, once a run carries its land. The graph covers every case in §4:
+- parcel adjacency within a node;
+- river parcels as directed chains, node to node;
+- an edge reservoir per node.
+
 | Step | What | Size | Shows |
 |---|---|---|---|
-| 1 | **Populations generalise stocks:** the coarse field (2a), the movement rule (2c) and observation (§3); game and fish become kinds with habitat from the ecosystems, and the edge reservoir. No predators. The catch reported as what the day's work brought (D4-104's response); the capacity model's sustainable take per population. | S-M | hunted-out places refill from neighbours; fishing one reach is felt by the next; capacity as a trajectory |
-| 2 | **The run migrates:** salmon along the river network in their season; the weir (water proposal §4) blocks or takes it | S | the upstream-downstream commons |
-| 3 | **One predator:** wolves, whole-counted at node scale, roaming; deer then herds and carcasses as diet; raids as incidents; individuals on demand | M | the forest's loss felt as wolves at the village; the watch and fences with a reason |
+| 1 | **Populations generalise stocks, on the graph:** RESOURCES rows gain optional `home`, `moves`, `season`, `diet` and `people` fields; game and fish get habitat from the ecosystems, diffuse along parcel adjacency and river chains, and exchange with an edge reservoir per node; the movement rule (§2c) on the graph. The catch is what the day's work brought (D4-104's response to density). No predators. | S-M | hunted-out places refill from neighbours; fishing one reach is felt by the next |
+| 2 | **The run migrates** along the river chains in its season; the weir (water_and_preservation §4) blocks or takes it | S | the upstream-downstream commons |
+| 2a | **Capacity as a regional simulation under a harvest**, and an allocation over days. Mobile and coupled stocks break the per-parcel steady take (capacity/sources.wild); the allocation is already greedy and ignores timing (38.64 §6.2), and being fed is not monotone in population (phase 2). This comes before predators. | M (37.4) | capacity as a trajectory |
+| 3 | **One predator:** wolves, whole-counted groups with a place drawn each night; deer, then herds and carcasses, as diet; raids as incidents from what happened; individuals on demand | M | the forest's loss felt as wolves at the village; the watch and fences with a reason |
+| 4 | **The field over the land** (§2a), once a run carries its land (G-33): parcels and nodes become windows onto patches; animals cross the land between villages | M-L | wandering and migration across unsettled land |
 
 Later, each as rows: deer and herds competing for young growth; boar and mast with pigs (L-36); scavengers on carcasses (L-2);
 wildfowl by season.
 
-Each step is a system a world switches on (D4-103), so existing worlds and runs are untouched.
+Each step is a pack a world switches on (D4-104), so existing worlds and runs are untouched. **Timing:** after the overhaul's phase 3;
+the scheduler's ecology era (mast and bust) is the year-to-year driver.
 
 ## Alternatives considered
 
@@ -314,6 +327,12 @@ Each step is a system a world switches on (D4-103), so existing worlds and runs 
 
 - 8 Nov: Zach asked for generalised ecosystems: populations that live on the land, interact and move, by terrain, at the right
   resolution, as a clean layer. 37.2 surveyed what exists (§1) and proposed this.
+- 8 Nov (latest): 37.4 reviewed the engine side: the shape fits the registry (grow as renewal rules, the take as response to density,
+  the collapse as outcome draws, packs, capacity by simulating forward). Four changes taken:
+  - step 1 runs on the graph, and the field over the land becomes step 4, once runs carry their land (G-33);
+  - whole-counted groups hold an actual place drawn each night (expectations alone let two people meet the same pack in two places);
+  - one registry: RESOURCES rows with optional fields, not a KINDS table;
+  - capacity as a regional simulation under a harvest, with an allocation over days, comes before predators (step 2a).
 - 8 Nov (later): Zach: "the animals should have resident places but still be able to wander ... a small number of the herd go
   somewhere else ... migration could happen over time ... what if they wanted to migrate to different places? ... the environment
   (from the terrain generator) does exist beyond the nodes ... populations as probability distributions over space ... that collapse
