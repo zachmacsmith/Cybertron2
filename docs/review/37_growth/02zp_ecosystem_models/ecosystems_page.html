@@ -211,6 +211,62 @@ a { color: var(--moss) }
   </ol>
 </section>
 
+<section class="col">
+  <div class="eyebrow">Part two · later on 8 Nov</div>
+  <h2>Webs designed by iteration</h2>
+  <p>The first part modelled four animals. This part tested 42 candidate kinds in a general food web on 48 generated worlds, 36 normal and 12 extreme. Each round was tested, cut, rebuilt and tested again. The model that came out of it treats food as a standing crop. Each animal eats what its body mass needs, with nothing fitted per kind. Small animals pick fine food and big ones live on coarse. Reserves and hibernation carry animals through lean seasons, and breeding matches each kind's real maximum growth. 37.4's climate drives the years.</p>
+</section>
+
+<section class="col">
+  <h3>Rules that came out of it</h3>
+  <ol class="qs">
+    <li>Food is a stock that grows and is eaten down, not a fixed slice.</li>
+    <li>Intake comes from the body. Calibrate only what is truly uncertain, once per food, against one well-known eater.</li>
+    <li>Kinds coexist through mechanisms, not hand-separated diets: fine and coarse food by body size, territory and disease, predators that switch, weather that favours different foods.</li>
+    <li>Check every kind's maximum growth against the real figure. The long-lived ones go wrong: bears, eagles and cranes came out 2 to 5 times too fast.</li>
+    <li>Stabilisers are needed but easy to overdo. Too strong, and nothing affects anything.</li>
+    <li>Variation comes from episodes: hard winters, snow over the forage, outbreaks, mast years.</li>
+    <li>Fragile to our guesses is a fault. Fragile to hunting or draining is the point.</li>
+    <li>Resolution by kind: parcels for small kinds, about 1 km for deer and boar, regional groups for wolves, lynx, bears and eagles.</li>
+  </ol>
+</section>
+
+<section>
+  <div class="col"><h3>How the kinds came out</h3><p class="small">Final run, 70 years, steady era. Density against a real figure in good habitat.</p></div>
+  <div class="tbl"><table><thead><tr><th>Kind</th><th>× real</th><th>Swings a year</th><th>Status</th></tr></thead><tbody>
+  <tr><td>red deer · roe deer</td><td class="num">1.15 · 1.17</td><td class="num">15 · 16%</td><td><span class="v ok">keep</span></td></tr>
+  <tr><td>brown hare · mountain hare</td><td class="num">1.06 · 1.12</td><td class="num">20 · 23%</td><td><span class="v ok">keep</span></td></tr>
+  <tr><td>voles and mice · water vole</td><td class="num">1.6 · 1.0</td><td class="num">33 · 32%</td><td><span class="v ok">keep</span> the prey base</td></tr>
+  <tr><td>brown bear</td><td class="num">0.93</td><td class="num">3%</td><td><span class="v ok">keep</span> rare; also as legendary individuals</td></tr>
+  <tr><td>wolf · lynx · fox</td><td class="num">1.08 · 0.91 · 0.78</td><td class="num">0 · 2 · 12%</td><td><span class="v ok">keep</span></td></tr>
+  <tr><td>red grouse · capercaillie · black grouse</td><td class="num">0.67 · 0.86 · 0.26</td><td class="num">22 · 27 · 17%</td><td><span class="v part">keep</span> the last two fragile</td></tr>
+  <tr><td>heron · otter · eel · golden and sea eagles</td><td class="num">1.4 · 0.5 · 0.5 · 1.2</td><td class="num">low</td><td><span class="v ok">keep</span></td></tr>
+  <tr><td>wild boar · red squirrel</td><td class="num">3.4 · 3.4</td><td class="num">11 · 37%</td><td><span class="v part">keep</span> too high: backlog</td></tr>
+  <tr><td>beaver · crane</td><td class="num">0.05 · dies</td><td class="num">—</td><td><span class="v part">fragile by design</span> hunted out, as in history</td></tr>
+  <tr><td>woodpigeon · seabirds · seals</td><td class="num">0.02 · 0.07 · 0.26</td><td class="num">—</td><td><span class="v no">backlog</span></td></tr>
+  <tr><td>aurochs · bison · elk · wild horse</td><td class="num">1.5 · 1.5 · 1.0 · 0.2</td><td class="num">—</td><td><span class="v part">wildwood era pack</span></td></tr>
+  <tr><td>rabbit · fallow deer</td><td class="num">pack · fails</td><td class="num">—</td><td><span class="v part">introduced packs</span></td></tr>
+  <tr><td>great bustard</td><td class="num">dies</td><td class="num">—</td><td><span class="v no">cut</span></td></tr>
+  </tbody></table></div>
+</section>
+
+<section>
+  <div class="col"><h3>What moves what</h3></div>
+  <div class="tbl"><table><thead><tr><th>Change</th><th>Result</th></tr></thead><tbody>
+  <tr><td>Rabbits brought in</td><td>brown hare falls to 0.42–0.59; grouse to 0.75</td></tr>
+  <tr><td>Fox removed</td><td>capercaillie up 1.44× (ground-nesters gain); hares do not respond yet</td></tr>
+  <tr><td>Wolves and lynx removed</td><td>capercaillie fall to 0.27–0.68 as more deer take their bilberry and browse</td></tr>
+  <tr><td>Wildwood megafauna, no people</td><td>aurochs and bison 1.3–1.6×; red deer pushed out (a remaining flaw); roe and lynx up</td></tr>
+  <tr><td>Heavy hunting near villages for 15 years, then stop</td><td>near villages: hares 1–2%, beaver 0, otter 8–14%, deer 28–53%. Most recover within a year from refuges; hares in 5; cranes in 24–26</td></tr>
+  <tr><td>Climate eras</td><td>little: swings stay at 11% a year; a dry era lowers water voles, capercaillie and bears by 15–25%</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="col">
+  <h3>The land and the climate</h3>
+  <p>On the branch <span class="mono">climate-calibration</span>, the generator now runs on absolute physics. Rain is in millimetres, moisture and wetness sit on fixed bounds, the sea comes from elevation, the tree line follows warmth, and river channels fall along their own course. Every parcel carries its land: water held, drainage, nutrients, rain factor, and where its water flows. 37.4's climate drives the web through a bridge. One question is open with Zach and 37.4: an engine year has 24 to 40 days, so yearly totals come out at about a tenth of real.</p>
+</section>
+
 <footer class="col small">
   <p>Limits: plant indicator values and yields are approximate, from memory and the general literature, and must be checked before anything is built. The animal model is annual on 1 km patches. The seasonal and goods models read the generator's cell map, which shows fewer village woods than its parcels do.</p>
 </footer>
