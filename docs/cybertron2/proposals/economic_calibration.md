@@ -133,6 +133,9 @@ spec/environment/resources.md, calendar.md; the capacity model (no change: it fo
   kept) and comes back three times faster; millstones wear after 2000 grain from either mill (600 was 9 ox-mill acts, about 16
   months of a 12-person village's grain; the water mill grinds 200 an act and in phase 2's build did not wear the stones at all,
   which was wrong, and counted against them would have been 3 acts), the leat in a year. E2 (stopped at day 14) is rerun on these rules.
+  Also fixed: the walk was counted along the day's route, which goes home between jobs, so three jobs next to home cost as much as
+  one far off (83 units lost in 14 days, half a unit a person a day). It is now each step beyond the next parcel from where one
+  slept, to each parcel worked, there and back.
 
 - 8 Nov: **phase 2 built** (spec/core/processes.md, "Calibration and labour"; review 38.63 §6). A to F of this proposal, with
   Q-2 (pushing on and fatigue), L-35 (the walk) and wear (G, from phase 1's list). Choices made in building, against the design table
