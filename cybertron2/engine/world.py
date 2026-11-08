@@ -122,9 +122,11 @@ class World:
                     res["grass"] = {"S": g_, "K": g_, "r": float(cp["grass_r"])}
                 par = {"node": nid, "name": p.get("name", pid), "cover": p["cover"], "size": int(p.get("size", 1)),
                        "adj": list(p.get("adj") or []), "text": p.get("text", ""), "res": res, "crop": None,
-                       "fertility": float(p.get("fertility", 1.0)), "broken": float(st.get("broken", 0.0)),
+                       "fertility": float(p.get("fertility", (p.get("land") or {}).get("base_fertility", 1.0))), "broken": float(st.get("broken", 0.0)),
                        "last_crop": st.get("last_crop"), "last_kind": st.get("last_kind"), "ground": p.get("ground"),
                        "works": None, "side": p.get("side", "centre"), "height": int(p.get("height", 1))}   # D2-114
+                if p.get("land"):                                                    # the land's fixed properties (D4-112)
+                    par["land"] = dict(p["land"])
                 if p.get("fence"):                                                   # a fence round it (D2-130): {kind, level, gate}
                     fz = p["fence"]
                     from cybertron2.engine import farm as FM

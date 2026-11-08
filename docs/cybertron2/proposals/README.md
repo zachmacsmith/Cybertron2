@@ -136,6 +136,7 @@ Rebuilt from the files on 5 Nov (status and owner as each file states them; 37.2
 | [crop_growth.md](crop_growth.md) | crops grow by the season; "can" apart from "works"; what a crop shows | 37.4 | accepted: D4-106 (8 Nov; built). |
 | [phase3_variance_and_risk.md](phase3_variance_and_risk.md) | phase 3 of the engine overhaul, variance and risk (the scheduler, building risks, the woods, bad years) | 37.4 | discussion (8 Nov); an exploration of what phase 3 builds, nothing built. |
 | [weather_scheduler.md](weather_scheduler.md) | the weather scheduler (eras, years, daily types, weather that varies in space) | 37.4 | retrospective, accepted: D4-109, D4-110 (8 Nov; built). |
+| [base_fertility.md](base_fertility.md) | the land's base fertility (multiplicative) | 37.4 | retrospective, accepted: D4-112 (8 Nov; built). |
 
 ## Log of ideas and their outcomes
 
@@ -371,6 +372,7 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 8 Nov | Work and its hunger felt in the night lines and the morning | accepted: D4-108 (built) | [economic_calibration.md](economic_calibration.md) |
 | 8 Nov | The weather scheduler: eras, years, daily types, weather that varies in space | retrospective, accepted: D4-109 | [weather_scheduler.md](weather_scheduler.md) |
 | 8 Nov | Moving storms on a track across the region | accepted: D4-110 (built) | [weather_scheduler.md](weather_scheduler.md) |
+| 8 Nov | The land's base fertility scales every soil level (multiplicative) | retrospective, accepted: D4-112 | [base_fertility.md](base_fertility.md) |
 | 2 Nov | What can happen to buildings and fittings, by weather and use | deferred (L-48) | [building_risks.md](building_risks.md) |
 | 2 Nov | Mills and ovens at scale; oven in stone; coppice held; fuel line; babies by shelter; refused acts not retried; stone walling | accepted: D4-97 | [mill_and_oven_scale.md](mill_and_oven_scale.md) |
 | 24 Oct | how buildings fit the other systems (before Package E is built) | mostly settled. Package E (02y) was deferred until this was worked out (Zach, 24 Oct), then replaced by the building package (02zh), built ... | [buildings_integration.md](buildings_integration.md) |

@@ -62,7 +62,7 @@ def fields(ctx, par):
         from cybertron2.engine.data import CLEARING
         ground = float(CLEARING.get("fertility", {}).get(par["cover"], 1.0))
     yr = RO.best_year(ctx.window, ctx.year, lv, ground=ground, cal=list(ctx.cal), worth=ctx.worth_of, oxen_ok=ctx.reach.oxen >= 2
-                      and ctx.reach.knows("plough"), crops_ok=tuple(ctx.reach.seed) or ("grain",))
+                      and ctx.reach.knows("plough"), crops_ok=tuple(ctx.reach.seed) or ("grain",), base=FM.base(par))
     out = {}
     for day, good, q in yr.harvests:
         prof = out.setdefault(good, [0.0] * ctx.year)

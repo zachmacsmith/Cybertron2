@@ -15,6 +15,7 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
 - D4-108: work and its hunger are felt.
 - D4-109: the weather scheduler.
 - D4-110: moving storms.
+- D4-112: the land's base fertility scales every soil level.
 
 ## Mechanics
 
@@ -99,6 +100,14 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
 - **The capacity model** counts work's food at the work its allocation gives, and finds the people supported by a scan, as fed is
   not monotone in the people (a small people's work all goes to one seasonal flow).
 
+## The land's base fertility (D4-112)
+
+- A parcel may carry `land: {base_fertility: b}` (default 1.0; calibrate). Every level a plot's fertility comes back toward (rest,
+  grazing, dung, a crop's restoring) and a new clearing's starting fertility are the table's level times b. Dung raises a soil by
+  a share of what that ground can be, never past its ceiling: poor ground stays poor relative to rich ground.
+- The capacity model's field year starts from b and runs the same rules.
+- Base fertility is the soil's nutrients only; the water a soil holds is a separate property.
+
 ## Weather (D4-109)
 
 - **A world with `climate:`** draws its weather from its seed (engine/climate.py; data CLIMATE; all values calibrate):
@@ -136,4 +145,4 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
   form).
 - The heat need as a pure function beside food.
 
-*Current as of 8 Nov 2026 (D4-103 phase 2, D4-104 to D4-110).*
+*Current as of 8 Nov 2026 (D4-103 phase 2, D4-104 to D4-110, D4-112).*
