@@ -405,6 +405,7 @@ Two halves, so that every rule stays in the engine:
 - **The model** (`model.timeline`): the world from the checkpoint just before the work step, then each act's changes replayed
   through `World.apply` (changes made inside another primitive are replayed with it), with the parcels, buildings, herds, things
   and hands each act changed; the route; the talk step's speech.
+- **Playing the day** ("the day") goes on into the next day when one ends, and on to the last; in the site it waits for a day still being built.
 - **Presentation choices:** an act starts where the actor's earlier acts' units end, against the units they had that day
   (`World.units_for`), and ends after its own units; the walk along the route to its site takes the first part of the act's time
   (at most 0.45 of it, 0.03 of the day a parcel); the way home after the last act 0.1 of the day; talk before work, dusk from 0.9,
