@@ -632,8 +632,11 @@ CLIMATE = {
         "northerly": {"base": 0.09, "hold": 0.50, "temp": {"spring": -3.0, "summer": -3.0, "autumn": -3.0, "winter": -3.5}, "rain": 0.8,
                       "wind": 1.3, "clear": True},
         "easterly":  {"base": 0.09, "hold": 0.60, "temp": {"summer": 1.5, "winter": -3.5}, "rain": 0.5, "wind": 1.0, "clear": True},
-        "storm":     {"base": 0.05, "hold": 0.35, "temp": {}, "rain": 2.8, "wind": 3.6},
+        "storm":     {"base": 0.05, "hold": 0.35, "temp": {}, "rain": 2.4, "wind": 2.0},
     },
+    # moving storms: born upwind on stormy days, crossing the region on a track, adding wind and rain where they pass (D4-110)
+    "storms": {"p": {"storm": 0.7, "cyclonic": 0.15, "westerly": 0.04}, "heading": 0.0, "heading_sd": 0.6,   # radians, 0 = toward the east
+               "speed": [150.0, 400.0], "radius": [30.0, 80.0], "wind": [8.0, 16.0], "rain": 1.0},  # km a day, km, m/s added at the centre
     # eras: regimes of the climate over years (weather only: disease and ecology are other systems, D4-109)
     "eras": {
         "steady": {"temp": 0.0, "wet": 0.0, "spread": 1.0, "types": {}, "years": 20, "next": {"dry": 0.3, "wet": 0.3, "cold": 0.2, "warm": 0.2}},

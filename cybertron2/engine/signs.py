@@ -561,6 +561,9 @@ SKY = [
          tags=["season", "farming"], knack="sow", text=lambda x: "the wind has backed and the cloud is thickening: rain tomorrow, likely"),
     dict(when=lambda x: x.tomorrow == "snow" and x.weather != "snow", sense="sight", p=0.12, tags=["season", "farming"], knack="sow",
          text=lambda x: "a heavy, yellow-grey sky: snow before long"),
+    # a storm on its way (D4-110): the moving storm itself, plain to anyone out of doors; the knack reads the sky earlier (below)
+    dict(when=lambda x: x.storm_coming, own=1.5, sense="sight", tags=["season", "shelter", "danger"],
+         text=lambda x: "the sky to windward is black and the wind is rising in gusts: a storm is coming"),
     dict(when=lambda x: x.tomorrow == "gale" and x.weather != "gale", sense="sight", p=0.12, tags=["season", "shelter"], knack="sow",
          text=lambda x: "high cloud streaming fast and the wind getting up: a gale coming"),
     dict(when=lambda x: x.tomorrow == "clear" and x.weather in ("rain", "heavy rain", "fog", "snow"), sense="sight", p=0.08,
@@ -1019,6 +1022,11 @@ def person_context(here, who):
     return x
 
 
+def _storm_coming(w, node, day) -> bool:
+    from cybertron2.engine import climate as CL
+    return CL.on(w) and CL.storm_coming(w, node, day)
+
+
 def sky_context(here):
     """The sky over a node: the cold and the season, today's weather and the days before it, tomorrow's (for one who reads the sky),
     and the water and wood here that show it."""
@@ -1032,7 +1040,8 @@ def sky_context(here):
         dry += 1
     names = lambda cover: next((p["name"] for p in here.parcels().values() if p["cover"] == cover), None)   # noqa: E731
     return SimpleNamespace(cold=here.cold(), first_cold=here.cold() and (d == 0 or not here.cold(d - 1)), season=cal["season"], left=cal["left"],
-                           weather=EV.weather(w, None, here.node), snow=EV.snow_lying(w, None, here.node), since_heavy=EV.since_heavy_rain(w), tomorrow=EV.weather(w, d + 1),
+                           weather=EV.weather(w, None, here.node), snow=EV.snow_lying(w, None, here.node), since_heavy=EV.since_heavy_rain(w, None, here.node),
+                           tomorrow=EV.weather(w, d + 1, here.node), storm_coming=_storm_coming(w, here.node, d),
                            dry_before=dry if d >= 5 else 0, wet_days=sum(1 for k in range(max(0, d - 4), d + 1) if EV.wet(w, k, here.node)),
                            water=names("water"), wood=names("forest"))
 

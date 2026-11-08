@@ -84,6 +84,22 @@ def _distances(w, P) -> np.ndarray:
     return d * float(P["km_a_day"])
 
 
+def _positions(dist) -> np.ndarray:
+    """Where the nodes lie, in km on a plane: from their distances by classical multidimensional scaling (two axes)."""
+    n = dist.shape[0]
+    if n == 1:
+        return np.zeros((1, 2))
+    J = np.eye(n) - np.ones((n, n)) / n
+    B = -0.5 * J @ (dist ** 2) @ J
+    vals, vecs = np.linalg.eigh(B)
+    order = np.argsort(vals)[::-1][:2]
+    pos = vecs[:, order] * np.sqrt(np.maximum(vals[order], 0.0))
+    for k in range(2):                                                      # a fixed orientation: the first node's side positive
+        if pos[0, k] < 0:
+            pos[:, k] = -pos[:, k]
+    return pos
+
+
 # ---------------------------------------------------------------------- the draws
 class _State:
     """The scheduler's draws for one world, computed day by day from day 0 and cached (never in the world's state)."""
@@ -94,6 +110,14 @@ class _State:
         self.nodes = _nodes(w)
         self.height = _heights(w, P)
         dist = _distances(w, P)
+        spec_n = w.spec.get("nodes") or {}
+        if self.nodes and all((spec_n.get(n) or {}).get("xy") for n in self.nodes):
+            self.pos = np.array([spec_n[n]["xy"] for n in self.nodes], dtype=float)
+        else:
+            self.pos = _positions(dist)
+        self.centre = self.pos.mean(axis=0)
+        self.span = float(max(10.0, np.max(np.linalg.norm(self.pos - self.centre, axis=1))))
+        self.storms = []                                                    # the storms abroad: {id, born, start, v, radius, wind}
         cov = np.exp(-dist / float(P["corr_km"]))
         self.chol = np.linalg.cholesky(cov + 1e-9 * np.eye(len(self.nodes)))
         self.days = []                                                      # [{type, nodes: {nid: values}}]
@@ -183,6 +207,31 @@ class _State:
         self.type = t
         T = types[t]
         n = len(self.nodes)
+        S = P["storms"]
+        p_spawn = float(S["p"].get(t, 0.0)) * float(era["types"].get("storm", 1.0))
+        if self.rng("storm", d).random() < p_spawn:                          # a storm is born upwind (D4-110)
+            g = self.rng("storm-make", d)
+            head = float(S["heading"]) + float(S["heading_sd"]) * g.standard_normal()
+            u = np.array([math.cos(head), math.sin(head)])
+            perp = np.array([-u[1], u[0]])
+            radius = float(g.uniform(*S["radius"]))
+            start = self.centre - u * (self.span + radius) + perp * float(g.uniform(-self.span, self.span))
+            self.storms.append({"id": f"storm-{d}", "born": d, "start": start, "v": u * float(g.uniform(*S["speed"])), "radius": radius,
+                                "wind": float(g.uniform(*S["wind"]))})
+        hit = np.zeros(n)                                                    # each node: how near a storm passed today, 0 to 1
+        alive = []
+        for st_ in self.storms:
+            a = st_["start"] + st_["v"] * (d - st_["born"])                   # the storm's track today: from a to b
+            b = a + st_["v"]
+            ab = b - a
+            for i in range(n):
+                t_ = float(np.clip(np.dot(self.pos[i] - a, ab) / max(1e-9, np.dot(ab, ab)), 0.0, 1.0))
+                gap = float(np.linalg.norm(self.pos[i] - (a + t_ * ab)))
+                if gap < st_["radius"]:
+                    hit[i] = max(hit[i], (1.0 - gap / st_["radius"]) * st_["wind"] / max(S["wind"]))
+            if np.dot(b - self.centre, st_["v"]) < (self.span + st_["radius"]) * np.linalg.norm(st_["v"]):   # still to cross
+                alive.append(st_)
+        self.storms = alive
         for k in self.fields:                                               # the local fields: alike when near, carried a while
             rho = float(P["persist"].get(k, 0.0))
             e = self.chol @ self.rng("field", k, d).standard_normal(n)
@@ -193,20 +242,25 @@ class _State:
             temp = (float(P["temp"][season]) + y["temp_total"] + float(T["temp"].get(season, 0.0)) - float(P["lapse"]) * h
                     + float(P["temp_sd"]) * self.fields["temp"][i])
             half = max(0.2, 1.0 + 0.5 * y["wet_total"])                          # wetness: half in how often, half in how much
-            p_wet = min(0.97, float(P["wet_p"][season]) * float(T["rain"]) * half * (1.0 + float(P["orographic"]) * h))
+            p_wet = min(0.97, float(P["wet_p"][season]) * float(T["rain"]) * half * (1.0 + float(P["orographic"]) * h)
+                        * (1.0 + 2.0 * hit[i]))
             uz = 0.5 * (1.0 + math.erf(self.fields["rain"][i] / math.sqrt(2.0)))   # the rain field as a share: wet where it is low
             rain = 0.0
             if uz < p_wet:
                 ua = 0.5 * (1.0 + math.erf(self.fields["amount"][i] / math.sqrt(2.0)))
-                rain = round(-float(P["rain_mm"]) * float(T["rain"]) ** 0.5 * half * math.log(max(1e-6, 1.0 - ua)), 2)
-            wind = round(max(0.0, float(P["wind"]) * float(T["wind"]) * (1.0 + h / 600.0) * (1.0 + float(P["gust"]) * self.fields["wind"][i])), 2)
+                rain = round(-float(P["rain_mm"]) * float(T["rain"]) ** 0.5 * half * (1.0 + float(S["rain"]) * hit[i])
+                             * math.log(max(1e-6, 1.0 - ua)), 2)
+            wind = round(max(0.0, float(P["wind"]) * float(T["wind"]) * (1.0 + h / 600.0) * (1.0 + float(P["gust"]) * self.fields["wind"][i])
+                             + hit[i] * max(S["wind"]) * (1.0 + h / 600.0)), 2)
             clear = bool(T.get("clear")) and rain <= 0
             low = round(temp - float(P["diurnal"]["clear" if clear else "cloud"]), 2)
             uf = 0.5 * (1.0 + math.erf(self.fields["fog"][i] / math.sqrt(2.0)))
             fog = rain <= 0 and wind < 0.7 * float(P["wind"]) and uf < float(P["fog_p"][season]) * (1.5 if h < 50 else 0.7)
             out[nid] = {"temp": round(float(temp), 2), "low": round(float(low), 2), "rain": round(float(rain), 2),
-                        "wind": round(float(wind), 2), "fog": bool(fog)}
-        return {"type": t, "season": season, "year": yi, "era": y["era"], "shock": y["shock"], "nodes": out}
+                        "wind": round(float(wind), 2), "fog": bool(fog), "storm": round(float(hit[i]), 3)}
+        storms = [{"id": s_["id"], "at": [round(float(x), 1) for x in s_["start"] + s_["v"] * (d - s_["born"] + 0.5)],
+                   "radius": round(s_["radius"], 1), "wind": round(s_["wind"], 1)} for s_ in self.storms]
+        return {"type": t, "season": season, "year": yi, "era": y["era"], "shock": y["shock"], "nodes": out, "storms": storms}
 
 
 def state(w) -> _State:
@@ -236,6 +290,17 @@ def env(w, node=None, day=None) -> dict:
     node = node if node in w.s["nodes"] else reference(w)
     dd = state(w).day(max(0, int(day)))
     return {**dd["nodes"][node], "type": dd["type"], "season": dd["season"], "era": dd["era"], "shock": dd["shock"]}
+
+
+def storms(w, day=None) -> list:
+    """The storms abroad on a day, for the truth record: {id, at (km), radius, wind}."""
+    return state(w).day(max(0, int(w.d if day is None else day)))["storms"]
+
+
+def storm_coming(w, node=None, day=None) -> bool:
+    """A storm will pass this node tomorrow that is not here today (for a sign: the sky to windward)."""
+    day = w.d if day is None else day
+    return env(w, node, day + 1)["storm"] > 0.3 and env(w, node, day)["storm"] < 0.1
 
 
 def label(w, node=None, day=None) -> str:

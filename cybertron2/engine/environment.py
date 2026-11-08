@@ -68,11 +68,12 @@ def snow_lying(w, day=None, node=None) -> bool:
     return False
 
 
-def since_heavy_rain(w, day=None, horizon=10):
-    """Days since the last heavy rain, or None within the horizon (a ford is high for a while after: world/roads.md)."""
+def since_heavy_rain(w, day=None, node=None, horizon=10):
+    """Days since the last heavy rain (at the node, with the weather scheduler), or None within the horizon (a ford is high for a
+    while after: world/roads.md)."""
     day = w.d if day is None else day
     for d in range(day, max(-1, day - horizon), -1):
-        if weather(w, d) == "heavy rain":
+        if weather(w, d, node) == "heavy rain":
             return day - d
     return None
 
@@ -128,7 +129,7 @@ def visibility(w, node, parcel=None, sense="sight", night=False, moon=False, qui
     base = float((COVERS.get(cov) or TERRAIN.get(cov) or {}).get(sense, 1.0))
     if sense == "sight" and parcel and not cover and felled(w, parcel):
         base = max(base, float(ENV["felled"]["sight"]))
-    wx = WEATHER[weather(w)]
+    wx = WEATHER[weather(w, None, node)]                                       # the place's own weather (D4-109)
     v = base * float(wx[sense])
     if sense == "sight" and parcel and not cover:
         if crop_high(w, parcel):
