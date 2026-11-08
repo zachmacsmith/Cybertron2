@@ -138,6 +138,7 @@ Rebuilt from the files on 5 Nov (status and owner as each file states them; 37.2
 | [weather_scheduler.md](weather_scheduler.md) | the weather scheduler (eras, years, daily types, weather that varies in space) | 37.4 | retrospective, accepted: D4-109, D4-110, D4-111 (8 Nov; built). |
 | [base_fertility.md](base_fertility.md) | the land's base fertility (multiplicative) | 37.4 | retrospective, accepted: D4-112 (8 Nov; built). |
 | [use_by_physics.md](use_by_physics.md) | what is physically possible is possible; the consequences are social | 37.4 | part 1 retrospective, accepted: D4-114 (8 Nov; built). Part 2 (the audit of claims) discussion. |
+| [node_ecology.md](node_ecology.md) | ecology designed from the node outward | 37.2 | discussion (8 Nov). Nothing decided, nothing built. |
 
 ## Log of ideas and their outcomes
 
@@ -400,3 +401,4 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 8 Nov | wild plants, and the slow ecosystems they make | discussion (8 Nov). Nothing decided, nothing to build. | [wild_plants.md](wild_plants.md) |
 | ? | crops grow by the season; "can" apart from "works"; what a crop shows | discussion (8 Nov). | [crop_growth.md](crop_growth.md) |
 | ? | phase 3 of the engine overhaul, variance and risk (the scheduler, building risks, the woods, bad years) | discussion (8 Nov); an exploration of what phase 3 builds, nothing built. | [phase3_variance_and_risk.md](phase3_variance_and_risk.md) |
+| ? | ecology designed from the node outward | discussion (8 Nov). Nothing decided, nothing built. | [node_ecology.md](node_ecology.md) |

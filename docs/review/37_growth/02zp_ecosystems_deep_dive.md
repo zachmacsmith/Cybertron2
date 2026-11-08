@@ -716,3 +716,38 @@ plain; a 4 °C world is moor above the tree line.
 4. **The year-length question** (§15), with 37.4.
 5. **Next:** the backlog against the fast stocks once built, or the write-up into living_populations.md and wildlife.md as
    proposals.
+
+---
+
+# Part three (8 Nov, later): the node first
+
+Zach: "maybe we should have designed everything first and foremost for the nodes ... you seemed to focus everything on [the land]
+without considering how it actually fits into the society." He was right.
+
+**The scale gap.** A generated village holds about 0.55 km², and the society about 0.1% of the window the web modelled. In a
+village's 10 ha wood, real densities give under one red deer and 0.002 wolves. The web's regional dynamics play out at a scale and
+over decades the society cannot touch.
+
+**A first model at village scale** ([02zp_ecosystem_models/node/](02zp_ecosystem_models/node/)):
+- villages from five generated worlds, with their own parcels and their reservoir (the land within 5 km);
+- 12 people;
+- real yields under one scaling principle: an engine day is 365/Y real days, and a food is 365/Y real person-days;
+- three kinds of year and five household choices.
+
+**Findings:**
+- **Wild food** is about 7 to 11% of a village's need in all, none of it 10% alone. Nuts are the most, about 11% of autumn's need.
+- **Losses are the lever:**
+  - boar in the crops about 19% of need, and up to 52% after a mast year near big woods;
+  - deer, pigeons and rats about 5% each;
+  - together 16 to 38%, and up to 70% in bad years.
+- **Guarding** costs about 4% of the village's work and cuts losses about four-fold.
+- **The damage figures are first values and probably high.** They still pass the test at a third.
+
+**Proposal:** [proposals/node_ecology.md](../../cybertron2/proposals/node_ecology.md).
+- parcel stocks people can change;
+- a reservoir per node that sets refill and visitor odds;
+- visitors as events with signs;
+- people's levers (watch, scare, fence, dogs, cats, fold, hunt where allowed, keep);
+- forest rights as the conflict between the lord's game and the villagers' crops;
+- the regional web offline;
+- a relevance test before anything is built.
