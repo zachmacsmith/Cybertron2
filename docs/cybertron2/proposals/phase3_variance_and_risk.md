@@ -235,6 +235,85 @@ So writing and keeping records gain a value they lack in a steady world.
 - 3a, then 3b (crops feel the weather), then 3c and 3e together (incidents and risks share the hazard machinery);
 - then 3f, 3d and 3g, with 3h written alongside each.
 
+## 10. Weather in space: the general design (8 Nov, later)
+
+Zach: "weather can vary regionally, no? ... explore ... the best general designs for this sort of system that would likely extend
+well." §2 had one regional weather, felt differently by the land. That leaves no spatial variance, and a village's bad year is
+then every village's, so exchange and holding land in several places can never insure anyone.
+
+**Designs in use elsewhere, and what they offer:**
+
+| Design | Used in | Gives | Lacks |
+|---|---|---|---|
+| one regional state, local response | most games; §2 | simple | no spatial variance |
+| independent draws per place | naive | variance | no correlation: neighbours unrelated, which is unreal |
+| multi-site stochastic weather generator: a Markov chain for wet and dry days, with draws correlated across sites by distance | climate impact work (Richardson's WGEN, Wilks's multi-site generators) | realistic correlation from one length scale; cheap; reproducible | nothing that moves |
+| a latent random field over the land, persistent in time, read at each place (a Gaussian field, thresholded to rain or snow) | the same, gridded | any resolution; one draw serves every place; fronts can be advected across it | needs land coordinates (or graph distance) |
+| weather objects (storm cells, fronts) with a track and a radius | storm and cyclone track models | things that travel: a gale that reaches the next village tomorrow | not a background on its own |
+| a land-surface bucket per place (soil water: rain in, drying out, a capacity by soil), and snow and river flow routed downstream | hydrology (Manabe's bucket) | drought, floods, crop water and fuel dryness as state that people's works change (drains, felling) | state to keep, one rule each |
+
+**The design that extends well combines them in four layers.** Each is one kind of rule, in the engine's own idioms:
+
+1. **Drivers, from the seed only** (D4-4: the same in every arm).
+   - era → year → each day's regional state (a spell chain, as decided);
+   - a latent field over the land, correlated in space by a length scale and persistent day to day;
+   - storm objects drawn with tracks.
+
+   All are keyed draws: a pure function of (seed, day, cell), which replays and can be asked about any day.
+2. **Physical variables, not labels.**
+   - Temperature: the regional value, less a lapse rate with height, plus a coast and valley correction.
+   - Precipitation: the field, through a threshold and an amount, times an orographic factor on hills.
+   - Wind: by exposure. Frost: from temperature and valley.
+
+   Today's categories (clear, rain, fog, snow, gale) are derived from these for prompts and signs, so a new consumer reads
+   quantities and old ones keep their labels.
+3. **The land's response as stocks**, on the renewal registry (D4-104), one registered rule each:
+   - soil water by the bucket;
+   - snow lying as a snowpack;
+   - river flow routed down the river parcels;
+   - fuel dryness.
+
+   These are endogenous: drainage, felling and irrigation change them, so they differ between arms. Hazards read them as exposure
+   (D2-69). Crops (D4-106, L-68), pasture and the capacity model read the same stocks.
+4. **Events on the graph:**
+   - storms travel by their tracks (D2-78's "track");
+   - floods go down the river ("flow");
+   - fires spread to neighbours ("adjacency").
+
+   They reach people as signs at places, and as news carried between nodes (D4-35).
+
+**One query for every consumer:** `env(place, day, variable)`. No system draws its own weather.
+
+**Resolution comes from the land, not the graph:**
+- the field lives on a coarse grid of the generator's land (the same substrate as living_populations' field);
+- nodes and parcels read it as windows;
+- a hand-made world with no land falls back to node coordinates, or to distance along the graph, with a high default
+  correlation.
+
+**How it extends:**
+- **New lands:** coasts, mountains, a rain shadow come from the land's height and its distance from the sea, with no new code.
+- **Eras and change in climate** move the field's mean and variance.
+- **Water as a need** (phase 5) reads soil water, springs and rivers.
+- **Wildlife** reads the same drivers (mast years, hard winters) and the same grid.
+- **Trade and storage** gain their value from how correlated neighbours' years are, which is now a parameter, not an accident.
+- **Bad-year capacity** samples the same generator for many seeds, per village and for the region pooled. The gap between the two
+  is what exchange is worth.
+
+**Avoid:**
+- each system drawing its own dice;
+- categories as the only state;
+- independent draws per place;
+- physics beyond buckets and routing;
+- weather by cellular automata over parcels.
+
+**The parameters, each with a real default:**
+- persistence of spells;
+- the correlation length (about 50 to 150 km for daily rain in temperate lowlands);
+- the lapse rate (about 6.5 °C a km);
+- the orographic factor;
+- the bucket's capacity by soil;
+- storm frequency and speed.
+
 ## Open questions (for Zach)
 
 1. **Scope.** All of 3a to 3h, or a first cut? My suggestion for the first cut:
@@ -266,6 +345,9 @@ So writing and keeping records gain a value they lack in a steady world.
 - **Bespoke code per incident:** the pattern D4-103 replaced; every kind is a row with registered rules.
 
 ## History
+
+- 8 Nov (later): §10, weather in space: the general design (drivers from the seed as a correlated field over the land; physical
+  variables with labels derived; the land's response as stocks on the renewal registry; events on the graph; one query).
 
 - 8 Nov: written (37.4) at Zach's request, while E2 runs: "explore what you will build for phase 3. Don't build it yet."
 
