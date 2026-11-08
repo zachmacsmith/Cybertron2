@@ -2,6 +2,7 @@
 (function (X) {
   "use strict";
   const { D, Px, geom, hstr, model, node, person, rng, toolFor, villager } = X;
+  const WORK_FPS = 38;    // work frames a day of the clock: about three a second at the preview's pace (a day in 12.8 s), a presentation choice
   // ---------------------------------------------------------------------------------------------------- a day, as it happened
   // The day's acts in the journal's order (c2viz/model.py: timeline): the land as it was before the work, each act's change landing
   // when the act ends; each person walking the engine's route (layout.route, D4-62) from where they slept, through the parcels of
@@ -63,7 +64,8 @@
       .filter((r) => !(t >= 1.02 && (r.q.indoors || (r.q.end.slept && r.q.end.slept !== "out") || r.q.end.alive === false || r.q.end.at !== nid))).sort((a, b) => a.y - b.y);   // night: the night log's beds, the dead as their bodies, those gone on the road
     for (const r of ppl) { const p = r.q.p, bob = r.moving && ((t * 400) | 0) % 2 ? 1 : 0;
       villager(P, r.x, r.y - bob, r.q.name, { child: p.stage === "child" || p.stage === "infant", wounded: p.wounded, hungry: p.hunger <= -1 ? -p.hunger : 0, speak: t < 0.02 && r.q.said,
-        tool: r.act ? toolFor(r.act) : null, pregnant: p.pregnant });
+        tool: r.act ? toolFor(r.act) : null, pregnant: p.pregnant,
+        frame: r.act ? Math.floor(t * WORK_FPS + (hstr(r.q.name) % 97) / 97 * 2) : 0 });                      // the act's two frames
       hot.push({ kind: "person", id: r.q.name, x: r.x - 1, y: r.y - 9, w: 7, h: 11, label: r.q.name + (r.act ? ` · ${r.act.verb}${r.act.tech ? " " + r.act.tech : ""}${r.act.for ? " for " + r.act.for : ""}` : r.moving ? " · walking" : t < 0 ? " · talking" : "") }); }
     if (dark > 0) { for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) P.mix(x, y, "#1b2444", dark);
       if (t >= 1) for (const b of Object.values(D(V, day).buildings)) { const pl_ = geom(V, nid).placeOf[Object.keys(D(V, day).buildings).find((k) => D(V, day).buildings[k] === b)]; if (!pl_ || !(b.sleepers || []).length) continue;

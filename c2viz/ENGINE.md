@@ -409,6 +409,10 @@ Two halves, so that every rule stays in the engine:
   (`World.units_for`), and ends after its own units; the walk along the route to its site takes the first part of the act's time
   (at most 0.45 of it, 0.03 of the day a parcel); the way home after the last act 0.1 of the day; talk before work, dusk from 0.9,
   night after 1 (the night's outcomes: beds from the night log, deaths, what was eaten). Each act's change lands when it ends.
+- **The work in two frames** (sprites.js POSES): a person at an act alternates two poses of its tool, about three a second at the
+  preview's pace, each person on their own phase: the stroke drawn back, then landing with what it throws up (chips, cut stalks, a
+  clod, sparks, flung seed, a ripple). Which tool is the engine's (the act's technique, vocab.js TECH_TOOL); the stroke is a
+  presentation choice. The end of a day shows the first frame.
 
 ## 12. A generated world's ground truth (cybertron2/landgen; c2viz/ground.py, js/ground.js)
 

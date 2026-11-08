@@ -72,6 +72,7 @@ cybertron2 engine ── touch.py ──► source.py ─► extract.py ─► m
 
 | File | What |
 |---|---|
+| `CATALOGUE.md` | what the engine has added that the visualiser should support next (weather by place, storms, crop growth, shares, wear, water) |
 | `ENGINE.md` | the engine model the visuals are built on; presentation choices; the audit of the first renderer |
 | `SCHEMA.md` | viz.json, the contract between the model and the renderer |
 | `touch.py` | every engine function, table and class c2viz uses; `check()` |
