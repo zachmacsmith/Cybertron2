@@ -1,0 +1,19 @@
+refit {'grass': 0.23, 'sward': 0.06, 'browse': 0.46, 'heather': 0.24, 'mast': 0.02, 'nuts': 0.02, 'seeds': 0.17, 'aquatic': 0.05, 'fish': 1.21}
+A done
+B steady
+B warm
+B cold
+B wet
+B dry
+B stormy
+C wildwood megafauna, no people {'w:ancient_wildwood': ({'aurochs': 1.49, 'bison': 1.34, 'wild horse': 0.28, 'elk': 1.0}, {'red deer': 0.0, 'roe deer': 1.37, 'mountain hare': 1.72, 'red grouse': 1.36, 'capercaillie': 1.25, 'woodpigeon': 29.82, 'lynx': 1.41, 'beaver': 0.34}), 'settled_lowland_and_frontier_1': ({'aurochs': 1.57, 'bison': 1.64, 'wild horse': 0.1, 'elk': 0.92}, {'red deer': 0.0, 'mountain hare': 1.45, 'red grouse': 1.3, 'woodpigeon': 38.32, 'lynx': 1.38, 'beaver': 0.72}), 'w:cold_north_moor': ({'aurochs': 0.84, 'bison': 2.66, 'wild horse': 0.16, 'elk': 3.92}, {'red deer': 0.01, 'red squirrel': 0.73, 'capercaillie': 1.62, 'woodpigeon': 2.85, 'beaver': 0.18})}
+C wildwood megafauna, hunted hard {'w:ancient_wildwood': ({'aurochs': 1.42, 'bison': 1.34, 'wild horse': 0.28, 'elk': 0.97}, {'red deer': 0.01, 'roe deer': 1.37, 'mountain hare': 1.71, 'red grouse': 1.36, 'woodpigeon': 28.65, 'lynx': 1.41, 'beaver': 0.34}), 'settled_lowland_and_frontier_1': ({'aurochs': 1.52, 'bison': 1.62, 'wild horse': 0.1, 'elk': 0.91}, {'red deer': 0.01, 'mountain hare': 1.45, 'water vole': 1.28, 'red grouse': 1.29, 'woodpigeon': 36.63, 'lynx': 1.38, 'beaver': 0.72}), 'w:cold_north_moor': ({'aurochs': 0.78, 'bison': 2.66, 'wild horse': 0.16, 'elk': 3.84}, {'red deer': 0.01, 'red squirrel': 0.73, 'capercaillie': 1.62, 'woodpigeon': 2.76, 'beaver': 0.46})}
+C rabbits introduced {'plain_1': ({'rabbit': 0.13}, {'brown hare': 0.47, 'red squirrel': 0.8, 'red grouse': 0.75, 'woodpigeon': 1.35, 'beaver': 1.28}), 'scarp_and_vale_1': ({'rabbit': 0.11}, {'brown hare': 0.59, 'mountain hare': 0.57, 'red squirrel': 0.7, 'woodpigeon': 4.77, 'beaver': 1.43}), 'sand_country_1': ({'rabbit': 0.15}, {'brown hare': 0.42, 'red grouse': 0.77, 'beaver': 1.33})}
+C fallow deer introduced {'plain_1': ({'fallow deer': 0.0}, {'red squirrel': 0.8}), 'settled_lowland_and_frontier_1': ({'fallow deer': 0.0}, {'red squirrel': 0.74, 'woodpigeon': 2.8})}
+C fox removed {'plain_1': ([], {'capercaillie': 1.44, 'woodpigeon': 0.75}), 'upland_and_moor_1': ([], {'woodpigeon': 0.78}), 'settled_lowland_and_frontier_1': ([], {'woodpigeon': 3.58})}
+C wolves and lynx removed {'settled_lowland_and_frontier_1': ([], {'capercaillie': 0.34, 'woodpigeon': 0.16}), 'w:ancient_wildwood': ([], {'mountain hare': 1.26, 'black grouse': 0.7, 'capercaillie': 0.27, 'woodpigeon': 0.13, 'beaver': 0.42}), 'upland_and_moor_1': ([], {'black grouse': 0.58, 'capercaillie': 0.68, 'woodpigeon': 0.65})}
+D plain_1 {'red deer': (0.33, 0.75, 1), 'roe deer': (0.28, 0.72, 1), 'wild boar': (0.46, 0.73, 1), 'brown hare': (0.02, 0.21, 5), 'red grouse': (0.15, 0.61, 1), 'beaver': (0.0, 0.55, 1), 'eel': (0.1, 0.77, 1), 'wildfowl': (0.49, 1.0, 1), 'otter': (0.08, 0.75, 4), 'crane': (0.28, 0.42, 25)}
+D settled_lowland_and_frontier_1 {'red deer': (0.43, 0.74, 1), 'roe deer': (0.31, 0.77, 1), 'wild boar': (0.53, 0.62, 1), 'brown hare': (0.02, 0.19, 5), 'red grouse': (0.22, 0.64, 1), 'beaver': (0.0, 0.62, 1), 'eel': (0.11, 0.83, 1), 'wildfowl': (0.5, 1.0, 1), 'otter': (0.14, 0.85, 2), 'crane': (0.35, 0.46, 24)}
+D fen_with_islands_1 {'red deer': (0.37, 0.78, 1), 'roe deer': (0.3, 0.74, 1), 'wild boar': (0.49, 0.72, 1), 'brown hare': (0.01, 0.19, 5), 'red grouse': (0.5, 0.63, 1), 'beaver': (0.0, 0.59, 1), 'eel': (0.28, 0.82, 1), 'wildfowl': (0.51, 1.0, 1), 'otter': (0.12, 0.86, 3), 'crane': (0.2, 0.34, 26)}
+all done
+exit 0

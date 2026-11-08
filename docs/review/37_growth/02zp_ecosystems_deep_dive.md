@@ -520,3 +520,199 @@ None ends in leverage within affordable runs.
   - Jędrzejewski et al. on Białowieża's wolves and red deer;
   - Vera (2000) on wood pasture;
   - Rackham on woodland history and Domesday meadow values.
+
+---
+
+# Part two (8 Nov, later): wildlife and plant webs designed by iteration
+
+Zach's brief:
+- explore different webs of animals and plants, and see which work well, which are too fragile or not worth it, and which give
+  interesting behaviour;
+- expand the first ideas, test them, cut them down;
+- treat fixing the land generator as part of the loop;
+- test on normal and deliberately extreme worlds.
+
+Part one had modelled only four animals and designed no webs. This part does that work. Models, results and logs are in
+`02zp_ecosystem_models/web/`. The generator work is on the branch `climate-calibration` (b4fb26c, 5ef36fe), as Zach asked, so it
+can be compared with 37.4's version.
+
+## 10. The loop, round by round
+
+| Round | Tried | What broke | What it taught |
+|---|---|---|---|
+| 0 | 40 candidates in one web (W), every kind's intake fitted to a real density | about half died out whatever their food | generalist predators eat rare prey out unless prey get harder to find as they thin (a refuge); small mammals need several broods a year |
+| 1 | a core of 15 | roe drove red deer out (both set as browsers); boar held badgers down 12× | each kind needs a food or place it is best at; territorial kinds (grouse, beaver) show up as intakes fitted 30 to 60× too high |
+| 1b | a soft self-limit on every kind; weather | without weather, populations barely moved | weather years and hard winters are what make populations vary |
+| 2 | each candidate group added to the core | aurochs, bison, horse, bear, fallow and bustard died out; small predators unsettled each other | (wrongly) "cut the slow breeders"; Zach: this is the model's weakness, not the animals' |
+| 3 | the refined list | red deer at 4% of target; rabbits grazed their sward; one grass for every grazer | grazers divide the sward: short turf (hares, rabbits, geese) against coarse grass (deer) |
+| W2 | rebuilt as consumers and resources | first aurochs dominated; then deer stalled at 97% of need | food as a standing crop; intake from body mass (Kleiber, nothing fitted per kind); fine and coarse food by body size (Jarman-Bell); reserves and hibernation; foraging for energy; need measured against ordinary 0.6-digestible forage, not 0.8 (my error) |
+| W2 calibration | one number per food, fitted against every eater | diverged; kinds that had died out had no say | calibrate one food against one well-known anchor (grass to red deer, sward to hare, browse to roe, heather to mountain hare, mast to boar, nuts to squirrel, seeds to voles, wetland plants to water vole, fish to eel) |
+| W2 levels | no stabilisers | red deer 36×, boar 22× | the standard stabilisers: disease and parasites with crowding (crowding measured by Damuth's body-size law), interference among predators, prey refuges, softer choice rules |
+| Round 4 | stabilisers as first set | frozen: no variation, nothing moved anything | stabilisers set too strong and too low make the crowding ceiling do all the work (over-correction) |
+| Sweep | weaker crowding, disease outbreaks, 37.4's climate | the stand-in weather gave 16% swings in small mammals | the climate brings deer and boar to 15% (real 10 to 30%) and small mammals to 25%; patch-level outbreaks average out |
+| Growth check | each kind's maximum growth against real | bears 33×; eagles, cranes, ravens, beaver grew 2 to 5× too fast | Zach: "wouldn't bears also just not have that many children?" Breeding set so each kind's maximum growth is real; bears get a spacing ceiling |
+| Final | the last pass (colonies, leks, store-bounded rats, flocking pigeons) | woodpigeons collapsed after their change | see §13 |
+
+## 11. Rules for a food web that come out of it
+
+1. **Food is a stock, not a slice.** It grows and is eaten down; shortage comes from grazing against growth and from the winter.
+2. **Intake comes from the body (Kleiber), not from fitting.** Calibrate what is truly uncertain (how much food grows and can be
+   reached) once per food, against one well-known eater.
+3. **Coexistence comes from mechanisms, not hand-separated diets:**
+   - fine and coarse food by body size;
+   - each kind limiting itself (territory, disease);
+   - predators that switch to what is common, with refuges for the rare;
+   - weather that favours different foods in different years.
+4. **Breeding must match real maximum growth.** Long-lived kinds are the ones that go wrong; check every kind.
+5. **Reserves and hibernation** decide who survives a lean season, so breeding follows condition, not that season's food.
+6. **Stabilisers are needed but easy to overdo.** Too strong, and every kind sits frozen under its own ceiling and nothing affects
+   anything. Calibrate the dynamics (year-to-year swings, responses to removals and introductions), not only the levels.
+7. **Variation comes from episodes:** hard winters, snow over the forage, disease outbreaks, mast years. Smooth rules never give it.
+8. **Fragility comes in two kinds:**
+   - fragile to our guesses: a ±25% change in numbers nobody can measure decides survival. That is a fault.
+   - fragile to pressure in the world: overhunting or draining wipes the kind out. That is the point; crane and beaver are the
+     examples.
+9. **Displacement is an outcome,** not an error, when the world or people cause it (rabbits brought in, megafauna in a wildwood).
+10. **Resolution by kind:** regional averages of common kinds do not depend on patch size (450 m to 2.25 km gave the same), but
+    edges, depletion near villages and rare patchy kinds do. Small kinds belong on parcels, deer and boar on about 1 km, wolves,
+    lynx, bears and eagles as regional groups or individuals.
+11. **A world should normally start at its ecology's settled state** (Zach), with named exceptions that give a run a trajectory:
+    wolves gone a generation ago, land abandoned after a plague.
+
+## 12. The model as it stands (W2)
+
+- **Foods:**
+  - standing stocks: coarse grass, sward, browse, heather, wetland plants (the bulk ones split into fine and coarse), roots, soil
+    animals, fish, sea fish;
+  - pulses in their seasons that rot: mast, nuts, fruit, seeds, cones;
+  - people's foods: crops, beasts, stores;
+  - carrion from deaths and kills.
+- **Kinds:** 42 rows (mass, diet class, breeding, deaths, habitat, diet, limits, territory, uses, damage). Nothing fitted per kind.
+- **The season's rule:**
+  1. foods grow by the weather;
+  2. animals ask for what their bodies need (more when lean), taking the food worth most to them in proportion to what stands;
+  3. reserves fill or drain;
+  4. death rises with hunger, crowding and outbreaks; breeding follows condition;
+  5. animals move toward better ground;
+  6. migrants come and go.
+- **Weather:** 37.4's climate (D4-109) through a bridge (`climate_bridge.py`). Season means of temperature, wet days, frost and
+  snow become:
+  - growth by food (drought cuts grass hardest);
+  - snow cover over the winter forage;
+  - mast odds from the previous summer.
+- **Calibration:** nine food scales against nine anchors, in the steady era, on reference worlds. Everything else emerges.
+
+## 13. The designed ecosystems: the kinds and how they came out
+
+Final run: 48 worlds (36 normal, 12 extreme), 70 years, steady era. Density is shown against a real density in good habitat; year
+variation is the median coefficient of variation.
+
+| Group | Kind | Density × real | Year variation | Limited by | Status |
+|---|---|---|---|---|---|
+| Deer and boar | red deer | 1.15 | 15% | coarse grass and heather; wolves a little | **keep** |
+| | roe deer | 1.17 | 16% | browse and fruit | **keep** |
+| | wild boar | 3.4 | 11% | mast, roots, crops | keep; too high (backlog) |
+| Big omnivore | brown bear | 0.93 | 3% | spacing; real slow breeding | **keep** (rare; also as legendary individuals) |
+| Small plant-eaters | brown hare | 1.06 | 20% | sward and crops; fox | **keep** |
+| | mountain hare | 1.12 | 23% | heather (uplands) | **keep** |
+| | voles and mice | 1.6 | 33% | seeds and grass; every small predator | **keep** (the prey base) |
+| | water vole | 1.0 | 32% | wetland plants; heron, otter | keep (fragile to herons) |
+| | red squirrel | 3.4 | 37% | nuts and cones | keep; too high (backlog) |
+| Moor and forest birds | red grouse | 0.67 | 22% | heather; fox | **keep** |
+| | black grouse | 0.26 | 17% | moor edge | keep, fragile |
+| | capercaillie | 0.86 | 27% | pine, bilberry; fox, lynx | keep, fragile |
+| Wetland and coast | wildfowl, grey geese, salmon | 1.0 | migrants | set by arrivals | **keep** |
+| | grey heron | 1.4 | 1% | colony sites | **keep** |
+| | otter | 0.51 | 8% | fish and eels | **keep** |
+| | eel | 0.52 | 12% | soil animals and fish | **keep** |
+| | beaver | 0.05 (dies in 58% of its worlds) | — | slow breeding against hunting | keep as **fragile by design**; its default hunting is too high |
+| | crane | dies over decades | — | slow breeding against hunting | **fragile by design**, hunted out (as in history) |
+| | seabirds, seal | 0.07, 0.26 | — | inshore sea food (thin in the model) | backlog: the sea's food |
+| Predators | wolf | 1.08 | ~0 | territory | **keep** |
+| | lynx | 0.91 | 2% | territory; roe | **keep** |
+| | fox | 0.78 | 12% | voles, hares, grouse | **keep** |
+| | wildcat, pine marten, stoat and polecat, buzzard, owls | 0.7 to 1.2 | 5 to 14% | voles | keep one or two; they are redundant on one prey |
+| | golden eagle, sea eagle | 1.24, 1.25 | ~0 | territory | **keep** (rare) |
+| | raven | 1.38 | 4% | carrion | keep (signs) |
+| Around people | rats | 0.93 | 2% | store size | **keep** |
+| | woodpigeon | collapsed (0.02) | — | lost to boar on shared seed and mast | backlog: the last change made it worse |
+| | badger | 1.84 | 17% | soil animals | keep |
+| Era packs | aurochs, bison, elk, wild horse | 1.5, 1.3–1.6, 1.0 (cold), 0.1–0.3 | — | grass and wetland; they push red deer out | a **wildwood era pack**, not a default |
+| Introduced packs | rabbit | about 0.13 where brought in | — | sward | a **pack**: displaces hares to 0.4–0.6, grouse to 0.75 |
+| | fallow deer | fails to establish | — | red and roe already there | cut as a population; a park beast for husbandry |
+| Cut | great bustard | dies | — | needs wider open country than exists | cut |
+
+## 14. How they interact (measured)
+
+| Change | What moved |
+|---|---|
+| **Rabbits introduced** | brown hare to 0.42–0.59; grouse 0.75; mountain hare 0.57 on the chalk |
+| **Fox removed** | capercaillie 1.44 (ground-nesters benefit, as under real predator control). Hares did not respond (backlog: real hares do) |
+| **Wolves and lynx removed** | capercaillie fell to 0.27–0.68 and black grouse to 0.6–0.7. More deer take the bilberry and browse they need, a cascade seen in Scottish pinewoods |
+| **Wildwood megafauna, no people** | aurochs 1.5×, bison 1.3–1.6×, elk 1.0 (cold); red deer driven out; roe and lynx up |
+| **Wildwood megafauna, hunted hard near villages** | barely changed: they live far from the villages. Real extirpation came with settlement spreading, not from hunting at home (and red deer coexisted with aurochs, so their exclusion is a remaining flaw) |
+| **Heavy hunting near villages for 15 years, then stop** | near the villages: hares 1–2% of before, beaver 0, otter 8–14%, eel 10–28%, grouse 15–50%, deer 28–53%. Regionally 0.2–0.8. Recovery: most within a year (immigration from refuges), hares 5 years, otter 2–4, **crane 24–26 years** |
+| **Eras** (steady, warm, cold, wet, dry, stormy) | little: year variation 11% in every era; a dry era lowers water voles, capercaillie and bears by 15–25% and raises beaver and cranes. The eras' climates differ modestly (dry: wet days 0.30 against 0.39), and the bridge's responses are modest. One to calibrate with 37.4 |
+
+## 15. The land and the climate (on `climate-calibration`)
+
+**What was wrong:**
+- Raising the sea drowned nothing: the shapes held every land cell 2 m above it.
+- Wetness and moisture were ranked within each world, so no world could be wetter or drier than another.
+- The ecosystem labels ignored temperature.
+- My first fixes (offsets) were patches. Zach: "these feel like patched over fixes"; they are kept unapplied in
+  `generator_interim.patch`.
+
+**Rebuilt (b4fb26c):**
+- **Rain** in millimetres (`rain_mm`, 900 a year on the windward lowland), raised on hills by the wind sweep.
+- **Moisture and wetness** on fixed bounds measured from the default worlds, plus the climate's water surplus and soil drainage.
+- **Sea from elevation:** land is held above a datum, so raising `sea_level` drowns low ground joined to the sea.
+- **A tree line set by warmth.**
+- **Wet ground anywhere** becomes carr or wet grassland.
+- **Laid river channels** fall along their own course (an old bug, hidden by a check that sampled the wrong place).
+
+Default worlds come out much as before. 1,600 mm of rain or a flat wet basin now give real wetland; a 60 m sea drowns 16% of a
+plain; a 4 °C world is moor above the tree line.
+
+**The land's fields (5ef36fe; names agreed with 37.4, D4-112, D4-113):**
+- each parcel's `land:` {elevation, exposure, texture, held_mm, drain_rate, depth, base_fertility (nutrients only), position,
+  rain_factor, sea_km, river, down};
+- each node's `xy`, `elevation` and `rain_mm`.
+
+37.4 builds the fast stocks (soil water, snow, river flow, fuel dryness) once Zach confirms with them.
+
+**The climate as calibrated so far:**
+- **Seasons:** spring 9 °C, summer 16, autumn 10, winter 2.7; wet days 33 to 51%; winter frost on 62% of nights and snow on 11% of
+  days.
+- **One issue for Zach** (37.4 has raised it as 38.64 §6.7): totals per engine year (rain, frost-night counts) are about a tenth of
+  a real year's, because an engine year is 24 to 40 days. Daily rates and seasonal shares are real, and the ecology reads only
+  those.
+
+## 16. Calibration backlog (for when the fast stocks exist)
+
+- **Too high:** boar 3.4× and squirrels 3.4× (mast and nut scales hit their floor, so something other than food holds them).
+- **Woodpigeons collapse:** shared seed and mast with boar. They forage over far wider ground than one patch.
+- **Hares ignore fox removal;** real hares rise when foxes are controlled.
+- **Small mammals** vary 33% against a real 30–70%; vole cycles need a predator lag.
+- **Outbreaks** need a regional footprint.
+- **Megafauna exclude red deer,** but they coexisted in reality (aurochs on coarse grass and fen, red deer on heather and edges).
+- **Beaver's default hunting** is too high for a slow breeder; cranes likewise. Fragile by design, but not lost by default.
+- **The sea's food** for seabirds and seals.
+- **Eras:** their effect on the ecology is small; calibrate the climate's eras and the bridge's responses together.
+- **Crowding by body size** gives omnivores a loose ceiling; keep the spacing limits from biology.
+
+## 17. Decisions for Zach
+
+1. **The kinds list in §13:**
+   - a default temperate web of about 30;
+   - wildwood megafauna as an era pack;
+   - rabbits and fallow deer as introduced packs;
+   - bustard cut;
+   - crane and beaver kept as fragile by design;
+   - bears as rare populations and legendary individuals.
+2. **The rules in §11** as the design rules for the live populations (living_populations.md).
+3. **Resolution by kind** (§11 rule 10) for the live engine: parcels for small kinds, about 1 km for deer and boar, regional groups
+   for the great predators.
+4. **The year-length question** (§15), with 37.4.
+5. **Next:** the backlog against the fast stocks once built, or the write-up into living_populations.md and wildlife.md as
+   proposals.
