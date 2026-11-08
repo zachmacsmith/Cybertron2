@@ -1,6 +1,6 @@
 # Proposal: the first wild kinds (what lives on the land, what each is for)
 
-**Status:** discussion (8 Nov). Nothing decided, nothing to build. **Owner:** 37.2 (the kinds, their numbers and their goods), with
+**Status:** partly accepted: D2-192 to D2-195 (8 Nov; spec/environment/wildlife.md). Not built. Still open: hounds and hawks (question 5). **Owner:** 37.2 (the kinds, their numbers and their goods), with
 37.4 (the engine). **Affects:** data (a KINDS table; new goods and techniques, as a `wildlife` pack, D4-104);
 spec/environment/resources.md, spec/economy/goods.md and production.md; landgen/ecology.py (habitats and starting populations);
 proposals/living_populations.md (the mechanism this content runs on).
@@ -225,10 +225,10 @@ would be trade goods only, which agents may not value.
 
 ## Open questions (for Zach)
 
-1. The four waves, and wave 1's seven kinds?
-2. Danger: may a boar hunt or a bear wound or kill the hunter (it makes crews matter)?
-3. Royal kinds and rights: should a world be able to give deer, swans or a fishery to a lord by law at the start?
-4. Legendary individuals (the white hart, the great boar): in, as rare named animals?
+1. ~~The four waves, and wave 1's seven kinds?~~ Decided: D2-192.
+2. ~~Danger~~ Decided: D2-193.
+3. ~~Royal kinds and rights~~ Decided: D2-194.
+4. ~~Legendary individuals~~ Decided: D2-195.
 5. Hounds and hawks as trained beasts: in wave 2 with the wolves, or with livestock kinds (L-36)?
 
 ## History
@@ -236,6 +236,8 @@ would be trade goods only, which agents may not value.
 - 8 Nov: Zach asked for the first key kinds, with diversity, value for different reasons, rarity, kinds hard to take without a
   specialist, richness that is not everywhere at once, the purposes they serve, and the roles wildlife played in real life. 37.2
   proposed 17 kinds in four waves.
+- 8 Nov: Zach: "Yes to all" to questions 1 to 4: decided as D2-192 to D2-195 and written into spec/environment/wildlife.md. Question 5
+  (hounds and hawks) asked again with what hounds do.
 
 ## Sources
 
