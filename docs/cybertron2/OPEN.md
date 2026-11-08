@@ -63,6 +63,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | ~~Q-K2~~ | Kept for good for weak models on D4-28's queue (Haiku) | spec/information/memory.md | 37.4 | flagged for later (Zach, 1 Nov); see the Flagged table |
 | ~~Q-K3~~ | Whether the memory request asks outright when a place opens | spec/information/memory.md | 37.4 | resolved 1 Nov (Zach): "it should be clear there is a place open, otherwise it is up to them" |
 | Q-29 | **scheduler.md and the weather scheduler (D4-109):** the spec's drawn spells are now runs of a daily weather type, its eras are climate only (Zach: disease and ecology are other systems), and weather varies by place. The spec's mechanics text is 37.2's to bring in line; 37.4 changed only its "as built" line **Since D4-111 (8 Nov):** every weather query names its place (no reference node; a road reads the mean of its ends), and with the scheduler visibility comes from the day's rain, snow, fog and wind values (CLIMATE vis): environment/visibility.md and scheduler.md's "for the region" text are 37.2's to align. D4-113 hands renewal rules the weather where the stock is. | D4-109; proposals/weather_scheduler.md | 37.2 |
+| Q-30 | **livestock.md's fence upkeep (D2-130) and D4-114:** the engine now wears a wood fence by the year (a level a year unless mended a quarter of its build that year; not in its first year; a fallen one keeps half its build), as Zach decided after the Brookend run's 137 fencing acts. The table's "loses a level each season unmended" is 37.2's to bring in line. | 37.2 | open |
 
 ## Flagged for later
 

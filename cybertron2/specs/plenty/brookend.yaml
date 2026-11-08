@@ -1,7 +1,7 @@
 # Written by cybertron2/specs/make_plenty.py: Brookend, a small well-provided village (a survival check).
 name: brookend
 seed: 4401
-days: 32
+days: 48
 calendar:
   season: spring
   day: 2
@@ -9,7 +9,7 @@ calendar:
 climate:
   era: steady
 children:
-  'on': false
+  'on': true
 lifespan: 96
 view: beliefs
 evening: true
@@ -35,7 +35,7 @@ nodes:
       bk_green:
         name: the Green
         cover: built
-        size: 2
+        size: 4
         side: centre
         height: 1
         text: a green with three houses about it and the mill house at its foot

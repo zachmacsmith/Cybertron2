@@ -164,7 +164,9 @@ def test_the_lore_is_the_engines_growth_and_the_rules_do_not_tell_it():
     best = LO.best_seasons()
     assert best["grain"] == ["spring"] and best["winter grain"] == ["autumn"]
     t = LO.text("sowing")
-    assert "barley in spring" in t and "rye in autumn" in t and len(t.split()) <= 25
+    assert "barley does best sown in spring" in t.lower() and "rye does best sown late in autumn" in t and len(t.split()) <= 60
+    times = LO.sowing_times()
+    assert ("early", "summer") in times["grain"][1]                              # a family knows a second window (D4-114)
     w = World(load_spec("cybertron2/specs/wenbridge.yaml"))
     assert "in spring" not in PR.system_prompt(Here(w, "Tom"), Mind(w, "Tom")).split("Your people:")[1].split("What you can do")[0]
 

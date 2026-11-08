@@ -137,6 +137,7 @@ Rebuilt from the files on 5 Nov (status and owner as each file states them; 37.2
 | [phase3_variance_and_risk.md](phase3_variance_and_risk.md) | phase 3 of the engine overhaul, variance and risk (the scheduler, building risks, the woods, bad years) | 37.4 | discussion (8 Nov); an exploration of what phase 3 builds, nothing built. |
 | [weather_scheduler.md](weather_scheduler.md) | the weather scheduler (eras, years, daily types, weather that varies in space) | 37.4 | retrospective, accepted: D4-109, D4-110, D4-111 (8 Nov; built). |
 | [base_fertility.md](base_fertility.md) | the land's base fertility (multiplicative) | 37.4 | retrospective, accepted: D4-112 (8 Nov; built). |
+| [use_by_physics.md](use_by_physics.md) | what is physically possible is possible; the consequences are social | 37.4 | part 1 retrospective, accepted: D4-114 (8 Nov; built). Part 2 (the audit of claims) discussion. |
 
 ## Log of ideas and their outcomes
 
@@ -374,6 +375,7 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 8 Nov | Moving storms on a track across the region | accepted: D4-110 (built) | [weather_scheduler.md](weather_scheduler.md) |
 | 8 Nov | Every weather query names its place (no reference node); the senses read the day's values; graded sky signs | accepted: D4-111 (built) | [weather_scheduler.md](weather_scheduler.md) |
 | 8 Nov | Renewal rules are handed the weather where the stock is (for 37.2's ecology) | accepted: D4-113 (built) | [weather_scheduler.md](weather_scheduler.md) |
+| 8 Nov | Beasts usable by whoever is with them; fences wear by the year; the lore names more than one window | retrospective, accepted: D4-114 | [use_by_physics.md](use_by_physics.md) |
 | 8 Nov | The land's base fertility scales every soil level (multiplicative) | retrospective, accepted: D4-112 | [base_fertility.md](base_fertility.md) |
 | 2 Nov | What can happen to buildings and fittings, by weather and use | deferred (L-48) | [building_risks.md](building_risks.md) |
 | 2 Nov | Mills and ovens at scale; oven in stone; coppice held; fuel line; babies by shelter; refused acts not retried; stone walling | accepted: D4-97 | [mill_and_oven_scale.md](mill_and_oven_scale.md) |

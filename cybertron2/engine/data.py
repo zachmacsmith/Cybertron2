@@ -694,7 +694,9 @@ THINGS = {
 # day a herd gets through by its level (whole, gappy; down is no fence), and its upkeep: a wood fence loses a level each season unless
 # a quarter of the build's work is spent mending it; a stone wall keeps.
 FENCES = {
-    "wood": {"inputs": {"timber": 4.0}, "units": 10.0, "through": {2: 0.3, 1: 0.6}, "decays": True, "mend": 0.25,
+    # a wood fence loses a level a year unless mended a quarter of its build that year (D4-114: a year, not a season); one that
+    # falls keeps `kept` of its build as posts and wattle to repair from
+    "wood": {"inputs": {"timber": 4.0}, "units": 10.0, "through": {2: 0.3, 1: 0.6}, "decays": True, "mend": 0.25, "kept": 0.5,
              "words": ("fence", "a wattle fence")},
     "stone": {"inputs": {"stone": 8.0}, "units": 20.0, "through": {2: 0.05, 1: 0.2}, "decays": False, "mend": 0.25, "led": "wall",
               "words": ("wall", "a dry-stone wall")},

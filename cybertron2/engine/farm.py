@@ -691,13 +691,34 @@ def herd_words(h) -> str:
     return ", ".join(bits) + (f" ({milk} in milk)" if milk else "") if bits else "no beasts"
 
 
+def _own_or_free(here, hid) -> bool:
+    return "access" in here.rights(("herd", hid)) or not here.claims(("herd", hid))
+
+
 def usable_herds(here, role, n=1) -> list:
-    """Herds here with at least n of a role that this person may use (access by a claim, D4-23; or ones nobody holds)."""
-    out = []
-    for hid, h in here.herds().items():
-        if int(h.get(role, 0)) >= n and ("access" in here.rights(("herd", hid)) or not here.claims(("herd", hid))):
-            out.append(hid)
-    return out
+    """Herds here with at least n of a role (D4-114): any beast that is here can be worked, as any land can (D4-23); a claim does
+    not stop it, it makes it seen (beasts_note). One's own, or nobody's, first."""
+    out = [hid for hid, h in here.herds().items() if int(h.get(role, 0)) >= n]
+    return sorted(out, key=lambda hid: (not _own_or_free(here, hid), hid))
+
+
+def beasts_note(here, t) -> str:
+    """Working beasts others hold (D4-114): allowed and seen, as using their land is (D4-23). The words for the result, and an
+    event at the place that those who hold the beasts are concerned in."""
+    used = [usable_herds(here, role, n)[0] for role, n in (t.get("animals") or {}).items() if usable_herds(here, role, n)]
+    hh = here.households()
+    notes = []
+    for hid in dict.fromkeys(used):
+        if _own_or_free(here, hid):
+            continue
+        holders = [c["claimant"] for c in here.claims(("herd", hid)) if c["claimant"] not in (here.name, here.household(), "anyone")]
+        names = " and ".join(hh[x]["name"] if x in hh else x for x in holders)
+        people = sorted({m for x in holders for m in (hh[x]["members"] if x in hh else [x])})
+        h = here.herds()[hid]
+        here.event("use", f"{here.name} worked {h['name']}'s beasts, which {names} hold", actor=here.name, about=[f"herd:{hid}"],
+                   salience=0.45, tags=["animals"], concerns=people)
+        notes.append(f"with {h['name']}'s beasts, which {names} hold{'s' if len(holders) == 1 else ''}")
+    return (" (" + "; ".join(notes) + ")") if notes else ""
 
 
 def team_shortfall(here, t) -> str:
@@ -738,7 +759,9 @@ def act(here, mind, tech, key, place_name, out, m, tm, a) -> tuple:
         _set(here, key, h, "crop", c)
         return 0.0, None, f"You went through {the_crop(names, par, h, c)} in {place_name}, marking the best ears to keep for seed.", ("parcel", key)
     if k == "break":
-        return _break(here, tech, key, place_name, out, m * tm, f, h)
+        got, g, word, thing = _break(here, tech, key, place_name, out, m * tm, f, h)
+        note = beasts_note(here, TECHNIQUES[tech]) if TECHNIQUES[tech].get("animals") else ""   # others' oxen: seen (D4-114)
+        return got, g, (word[:-1] + note + "." if note and word.endswith(".") else word + note), thing
     if k == "tend":
         c = started(dict(record(par, h)["crop"]), here.day)
         the = the_crop(names, par, h, c)
@@ -844,13 +867,16 @@ def fence_word(kind) -> str:
 
 def _fence(here, mind, tech, key, place_name, out, mult, a, y):
     """Fencing as a field work (D2-130): materials go in with the work, in proportion; a wall's work counts on a day one who knows
-    walling works on it. Work on a whole fence is mending (a quarter of the build a season keeps it); on a gappy one it restores it."""
+    walling works on it. Work on a whole fence is mending (a quarter of the build a year keeps it: D4-114); on a gappy one it restores it."""
     par = here.parcels()[key]
     kind = y["fence"]
     fc = dict(par.get("fence") or {})
-    if not fc or fc.get("kind") != kind or (fc.get("level", 0) <= 0 and fc.get("built")):
-        fc = {"kind": kind, "units": 0.0, "level": 0, "built": False, "gate": "shut", "mend": 0.0, "pending": {}}
     need = fence_need(par, kind)
+    if not fc or fc.get("kind") != kind:
+        fc = {"kind": kind, "units": 0.0, "level": 0, "built": False, "gate": "shut", "mend": 0.0, "pending": {}}
+    elif fc.get("level", 0) <= 0 and fc.get("built"):                          # fallen: repaired from what stands (D4-114)
+        fc = {"kind": kind, "units": round(float(FENCES[kind].get("kept", 0.0)) * need["units"], 3), "level": 0, "built": False,
+              "gate": "shut", "mend": 0.0, "pending": {}}
     from cybertron2.engine.verbs import _consume, _src
     _consume(here, {i: round(q / need["units"] * mult, 3) for i, q in need["inputs"].items()}, extra=_src(here, a.get("for") and here.household(), out))
     word = fence_word(kind)
@@ -1184,7 +1210,7 @@ def ready(here, tech, key, a=None) -> str:
         if fc.get("built") and fc.get("level", 0) > 0 and fc.get("kind") != kind:
             return f"there is already a {fence_word(fc['kind'])} round {p['name']}"
         if fc.get("built") and fc.get("level", 0) >= 2 and float(fc.get("mend", 0.0)) >= float(FENCES[kind]["mend"]) * fence_need(p, kind)["units"] - 1e-6:
-            return f"the {fence_word(kind)} round {p['name']} is whole and mended this season"
+            return f"the {fence_word(kind)} round {p['name']} is whole and mended this year"
     if y == "gate":
         fc = p.get("fence") or {}
         if not fc.get("built") or fc.get("level", 0) <= 0:

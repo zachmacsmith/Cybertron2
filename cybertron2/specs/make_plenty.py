@@ -9,8 +9,9 @@ Eight people in three households, each holding something the others need (docs/s
 - the Millers: the stone mill house, with millstones and the village's only oven, and the meadow; no field, and an ox to turn the
   stones is the Crofts'.
 
-So bread needs the Thornes' grain, the Millers' stones and the Crofts' ox. The wood and its game are common. A spring start, 32 days (a
-year), the weather scheduler in a steady era (D4-109). Its capacity is checked before any run (cybertron2/capacity): as it stands it
+So bread needs the Thornes' grain, the Millers' stones and the Crofts' ox. The wood and its game are common. A spring start, 48 days (a
+year and a half: the second spring's sowing and its harvest fall in the run), children on, the weather scheduler in a steady era
+(D4-109). The Green has room to build on (size 4: about 40 spaces free; p1 had it over-full). Its capacity is checked before any run (cybertron2/capacity): as it stands it
 must feed at least three times its people, and the run's own days must show no short day.
 """
 from __future__ import annotations
@@ -37,7 +38,7 @@ def person(hh, born, sex, model, rel, partner=None, memories=(), aim=None, knows
 
 def world() -> dict:
     p = {
-        "bk_green": {"name": "the Green", "cover": "built", "size": 2, "side": "centre", "height": 1,
+        "bk_green": {"name": "the Green", "cover": "built", "size": 4, "side": "centre", "height": 1,
                      "text": "a green with three houses about it and the mill house at its foot",
                      "adj": ["bk_east", "bk_west", "bk_mead", "bk_wood", "bk_pasture", "bk_brook"]},
         "bk_east": {"name": "the East Field", "cover": "field", "size": 18, "side": "east", "height": 1, "holder": "Thorne",
@@ -60,9 +61,9 @@ def world() -> dict:
         "name": name, "parcel": "bk_green", "household": hh, "structure": structure, "rooms": rooms or [{"kind": "medium room"}],
         "fittings": fittings, "stock": stock}
     w = {
-        "name": "brookend", "seed": 4401, "days": 32, "calendar": {"season": "spring", "day": 2, "season_days": 8},
+        "name": "brookend", "seed": 4401, "days": 48, "calendar": {"season": "spring", "day": 2, "season_days": 8},
         "climate": {"era": "steady"},
-        "children": {"on": False}, "lifespan": 96, "view": "beliefs", "evening": True, "tags": True, "ages": True,
+        "children": {"on": True}, "lifespan": 96, "view": "beliefs", "evening": True, "tags": True, "ages": True,
         "llm": {"week_stop": 0.9}, "cold_days": [], "incidents": [], "claims": [], "memory": {"kept": {"words": 50}},
         "customs": [{"text": "In Brookend the Thornes hold the East Field, the Crofts the West Field, the pasture and the herd, and the "
                              "Millers the mill and the meadow; the wood is common to all.", "nodes": "all"}],

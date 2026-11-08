@@ -3,7 +3,7 @@ D2-128, D2-130 to D2-132).
 
 Each night, before the herds eat (farm.py), this settles:
 - **fences** (D2-130): the day's work on a fence counts (a wall's only if one who knows walling worked on it); a wood fence loses a level
-  each season unless mended; mending a gappy one brings it back;
+  each year unless mended (D4-114; once a year old); mending a gappy one brings it back; a fallen one keeps half its build;
 - **splitting** (D2-128, D2-131) wherever a herd is held, by how many head the people with it hold together;
 - **wandering on the node** (D2-117, D2-123): a herd nobody herded and no shut fence holds takes 0 to 1 steps when fed on good pasture,
   up to 8 when hungry or drawn by a ripe crop, each toward the most attractive parcel near it; a fence is crossed at its odds; from a
@@ -58,7 +58,9 @@ def through(w, pid) -> float:
 
 
 def _fences(w, rec):
-    new_season = w.calendar(w.d + 1)["season"] != w.calendar()["season"]
+    year = w.year_days()
+    new_year = (int(w.calendar(w.d + 1)["year_day"]) % year) == 0                # the year turns tonight (D4-114: a fence wears by
+                                                                                 # the year, not the season)
     for pid, par in sorted(w.s["parcels"].items()):
         fc = par.get("fence")
         if not fc:
@@ -78,7 +80,7 @@ def _fences(w, rec):
         quarter = float(d["mend"]) * need
         if fc.get("built") and 0 < int(fc["level"]) < 2 and float(fc.get("mend", 0.0)) >= quarter - 1e-6:
             fc.update(level=int(fc["level"]) + 1, mend=round(float(fc["mend"]) - quarter, 3))
-        if new_season and fc.get("built") and d["decays"] and int(fc["level"]) > 0 and fc.get("since") != w.d:
+        if new_year and fc.get("built") and d["decays"] and int(fc["level"]) > 0 and w.d - int(fc.get("since", 0)) >= year:
             if float(fc.get("mend", 0.0)) + 1e-6 < quarter:
                 fc["level"] = int(fc["level"]) - 1
                 rec["herds"].append(("fence decayed", pid, fc["level"]))
@@ -418,16 +420,19 @@ def _merge(w, rec):
 
 # ---------------------------------------------------------------------- the pack ox (transport.md, D2-136)
 def pack_ox_for(w, name, want=None):
-    """A herd at one's node with an ox, held by one's household (or oneself), to lead as a pack ox; one must carry a harness."""
+    """A herd at one's node with an ox to lead as a pack ox; one must carry a harness. Any ox here will do (D4-114): one's own
+    household's (or nobody's) first; leading another's is allowed and seen (verbs.travel)."""
     node = w.at(name)
     if node is None or w.goods(w.hands(name)).get("harness", 0.0) < 1:
         return None
-    mine = {name, w.household_of(name)}
+    mine = {name, w.household_of(name), "anyone"}
     want = str(want or "").strip().lower().removeprefix("the ")
-    for hid, h in sorted(w.s["herds"].items()):
+
+    def others(hid):
+        holders = {c["claimant"] for c in w.claims_on(("herd", hid))}
+        return bool(holders) and not (mine & holders)
+    for hid, h in sorted(w.s["herds"].items(), key=lambda kv: (others(kv[0]), kv[0])):
         if h["node"] != node or int(h.get("oxen", 0)) < 1:
-            continue
-        if not mine & {c["claimant"] for c in w.claims_on(("herd", hid))}:
             continue
         names = {h["name"].lower().removeprefix("the "), str(h.get("base_name") or "").lower().removeprefix("the "), "ox", "the ox",
                  "pack ox", "oxen", hid}

@@ -18,6 +18,7 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
 - D4-111: every weather query names its place; the senses read the day's values.
 - D4-112: the land's base fertility scales every soil level.
 - D4-113: renewal rules are handed the weather where the stock is.
+- D4-114: the sowing lore names each crop's best and good times by halves of the seasons; fences wear by the year.
 
 ## Mechanics
 
@@ -79,7 +80,8 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
   (`by_season`).
 - **Lore** (engine/lore.py, data LORE; D4-105, D4-106): what families know from long practice, seeded at the start as a line kept
   for good (D4-64) and passed on as kept lines are. The sowing lore goes to the adults of each household (or person) holding a
-  field; its text is read from the engine's growth (each crop's best season to sow). A world turns a lore off with
+  field; its text is read from the engine's growth: for each crop the halves of the seasons in which a sowing does best (within
+  5% of its best) and those in which it still does well (at least three quarters of a full crop) (D4-114). A world turns a lore off with
   `lore: {sowing: false}`, or all with `lore: false`. The agents' rules state no sowing times.
 - **Pulses below cereals:** a crop's `yield` factor multiplies what a sowing gives (legumes 0.6).
 - **Processing keeps its food gain** (D4-107; phase 2's D rejected): grain and rye 0.7 boiled, beans 0.6, meal and flour 1.0, bread
@@ -113,6 +115,12 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
   a share of what that ground can be, never past its ceiling: poor ground stays poor relative to rich ground.
 - The capacity model's field year starts from b and runs the same rules.
 - Base fertility is the soil's nutrients only; the water a soil holds is a separate property.
+
+## Fences wear by the year (D4-114)
+
+- A wood fence loses a level at a year's turn unless it was mended a quarter of its build that year (FENCES mend, a year clock),
+  and not in its first year. A fallen fence keeps `kept` (half) of its build to repair from. Calibrate. (The fence rule itself is
+  D2-130, economy/livestock.md: 37.2's text says "a season"; OPEN Q-30.)
 
 ## Weather (D4-109)
 
@@ -158,4 +166,4 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
   form).
 - The heat need as a pure function beside food.
 
-*Current as of 8 Nov 2026 (D4-103 phase 2, D4-104 to D4-113).*
+*Current as of 8 Nov 2026 (D4-103 phase 2, D4-104 to D4-114).*

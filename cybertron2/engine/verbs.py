@@ -651,6 +651,8 @@ def _make(here, mind, a, party):
                 full += _full_note(here, out, item, q)
                 here.apply("create", dst=out, item=item, qty=q, why=tech)
             worn = (" (" + WE.worn_words(here.p, b, fits, here.day, here.year_days()) + ")") if fac < 1.0 else ""
+            if t.get("animals"):                                               # others' beasts: allowed and seen (D4-114)
+                worn += FM.beasts_note(here, t)
             res.append(f"You made {', '.join(f'{q:g} {it}' for it, q in gives.items())}" + (f" at {site[2]}" if site and site[1] else "") + worn
                        + full + "." + (f" (You are now {rose} at it.)" if rose else ""))
         else:
@@ -1617,7 +1619,9 @@ def _travel(here, mind, a, party):
     if a.get("lead") not in (None, "", False):                                # a pack ox (D2-136)
         ox = here.pack_ox(a.get("lead"))
         if ox is None:
-            raise Refused("to lead a pack ox you need an ox of your household's here and a harness in your hands")
+            raise Refused("to lead a pack ox you need an ox here and a harness in your hands")
+        if not FM._own_or_free(here, ox):                                       # another's ox: allowed and seen (D4-114)
+            FM.beasts_note(here, {"animals": {"oxen": 1}})
     load, cap = here.load(), here.capacity(track, oxen=1 if ox else None)
     if load > cap + 1e-9:
         cart = any(ITEMS[i].get("track") for i, q in here.carried().items() if q >= 1)

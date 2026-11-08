@@ -15,6 +15,7 @@ force, an arbiter or an institution above both.
 - D4-60: clearing new ground for fields.
 - D2-163: land is held in plot shares within a parcel.
 - D2-172: a field carries one crop for each holding on it.
+- D4-114: beasts, like land, can be worked by whoever is with them.
 
 ## Mechanics
 
@@ -24,6 +25,9 @@ force, an arbiter or an institution above both.
   The engine never refuses it for want of a right.
 - What is taken belongs physically to whoever carries it. A crop belongs to nobody until reaped; the reaper carries the harvest.
 - Every use is witnessed by those present (information/perception), so using land against a claim is seen and remembered.
+- **Beasts are the same** (D4-114): any beast at the place can be worked (an ox at the millstones or the plough, a pack ox led
+  away), whoever holds it; working another's is an event at the place that its holders are concerned in, and the doer's result
+  says whose they were. Lending a beast is bringing it, not a grant the engine checks.
 
 ### Claims
 
@@ -185,4 +189,4 @@ beasts." "Your land can feed about 3 of your 5."
 The 37.4 conversation with Zach, 22 Oct; Schlager and Ostrom (1992) on bundles of rights; 37.2 02f §6.5 ("plots whole, holdings
 divided"); 37.1's inheritance (`wp/demography`); 37.3's tenures (`wp/inst-cross`); cybertron 1's D-37 (consent binds members).
 
-*Current as of 3 Nov 2026: D4-23, D2-158, D4-60, D2-163, D2-172.*
+*Current as of 8 Nov 2026: D4-23, D2-158, D4-60, D2-163, D2-172, D4-114.*
