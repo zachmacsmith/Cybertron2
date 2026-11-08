@@ -11,6 +11,7 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
 - D4-103, phase 2: calibration and labour (below). Behaviour changes; the engine before it is commit 92cfdbf. All values calibrate.
 - D4-105: sowing windows are lore, not rules; skill fades slowly and partly; wear in a village's terms.
 - D4-106: can apart from works; crops grow by the season; removing a crop; seed on turf; a crop's signs.
+- D4-107: processing keeps its food gain (phase 2's D rejected); food values as before phase 2.
 
 ## Mechanics
 
@@ -71,7 +72,8 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
   field; its text is read from the engine's growth (each crop's best season to sow). A world turns a lore off with
   `lore: {sowing: false}`, or all with `lore: false`. The agents' rules state no sowing times.
 - **Pulses below cereals:** a crop's `yield` factor multiplies what a sowing gives (legumes 0.6).
-- **Processing makes no food:** grain and rye 0.85 boiled, beans 0.8, meal and flour 0.95, bread 1.0 (raw as before).
+- **Processing keeps its food gain** (D4-107; phase 2's D rejected): grain and rye 0.7 boiled, beans 0.6, meal and flour 1.0, bread
+  1.3.
 - **Labour** (engine/labour.py; PHYSICS `labour`; each at 0, `wear` false, is the engine before phase 2, and then nothing is written):
   - **Work costs food:** `work_food` (0.04) a unit worked, a unit pushed on counting `over_food` (2) units, a night on guard
     `guard_food` (0.3). It adds to the night's need and to the least one must eat not to go hungry.
@@ -108,4 +110,4 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
   form).
 - The heat need as a pure function beside food.
 
-*Current as of 8 Nov 2026 (D4-103 phase 2, D4-104, D4-105, D4-106).*
+*Current as of 8 Nov 2026 (D4-103 phase 2, D4-104 to D4-107).*

@@ -1,6 +1,6 @@
 # Economic calibration: one time scale, and mechanics that make economic sense
 
-**Status:** accepted in part: D4-103 (A to F built 8 Nov as phase 2 of the engine overhaul; G with phase 1); D4-105 (lore, fading, wear values)
+**Status:** accepted in part: D4-103 (A to F built 8 Nov as phase 2 of the engine overhaul; G with phase 1); D4-105 (lore, fading, wear values); D rejected: D4-107
 **Owner:** 37.4 (engine), with 37.2 (economy)
 
 ## Summary
@@ -127,6 +127,13 @@ data.py (CROPS, ITEMS, PHYSICS, TECHNIQUES); farm.py; night.py; spec/economy/pro
 spec/environment/resources.md, calendar.md; the capacity model (no change: it follows the engine).
 
 ## History
+
+- 8 Nov (latest): **D (processing makes no food) rejected: D4-107.** Zach: "While mills increasing food is incorrect, I think we
+  should keep it for now. I reject this change, and please fix the food numbers to match before." The food values are back to
+  grain and rye 0.7, beans 0.6, meal and flour 1.0, bread 1.3. Why it came up: E2 showed that D, as built, took the mill's food
+  gain away without giving back its real value (work saved against grinding by hand), so Wenbridge's mill (its lord's aim)
+  became nearly worthless. My proposed fix (whole grain 0.7, pottage 0.9, bread 0.95, the mill as labour saved) was not taken.
+  Still open: whether processing's gain should later come from work saved rather than food made.
 
 - 8 Nov (later): **D4-105**, from Zach's reading of phase 2: the sowing windows are not told (a crop sown out of season does not come
   up; farming households start with the windows as kept lore, lore.py); skill fades after half a year, partly (60% of one's best gain

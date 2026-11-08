@@ -41,7 +41,8 @@ def test_eating_the_ration_but_not_the_works_share_is_a_missed_meal():
     n = "Edric"
     for c in w.takeable(n, w.place_of(("person", n))):
         w.s["containers"][c]["goods"] = {}
-    w.s["containers"][w.hands(n)]["goods"] = {"bread": 1.05}                     # a ration and a little over
+    from cybertron2.engine.data import ITEMS
+    w.s["containers"][w.hands(n)]["goods"] = {"bread": 1.05 / ITEMS["bread"]["food"]}   # a ration and a little over
     w.s["today"]["units"] = {n: {"used": 7, "over": 0}}
     rec = N.night(w)
     assert n in rec["missed"]

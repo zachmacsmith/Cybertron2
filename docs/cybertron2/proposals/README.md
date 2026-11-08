@@ -126,7 +126,7 @@ Rebuilt from the files on 5 Nov (status and owner as each file states them; 37.2
 | [house_attacks.md](house_attacks.md) | An attack on a house to hurt sets on the people inside | 37.4 | retrospective, accepted: D4-101 (7 Nov) |
 | [carrying_capacity.md](carrying_capacity.md) | Carrying capacity: what a world's land feeds and keeps warm, by level, from the engine's own rules | 37.4 | retrospective, accepted: D4-102 |
 | [process_model.md](process_model.md) | A declared process model: the engine says what its economy is, as data an analysis can walk | 37.4 | accepted: D4-103 (phase 1 of the engine overhaul; parts 1 to 6 with part 2 as outcome distributions and clocks) ... |
-| [economic_calibration.md](economic_calibration.md) | Economic calibration: one time scale, and mechanics that make economic sense | 37.4 | accepted in part: D4-103 (A to F built 8 Nov as phase 2 of the engine overhaul; G with phase 1); D4-105 (lore, fading, wear values) |
+| [economic_calibration.md](economic_calibration.md) | Economic calibration: one time scale, and mechanics that make economic sense | 37.4 | accepted in part: D4-103 (A to F built 8 Nov as phase 2 of the engine overhaul; G with phase 1); D4-105 (lore, fading, wear values) ... |
 | [engine_overhaul.md](engine_overhaul.md) | The engine overhaul: the process model, its calibration, and the benched systems it makes cheap | 37.4 | accepted: D4-103 (7 Nov: the phases below; levels of fire, water and shelter moved after the larger experiment) |
 | [water_and_preservation.md](water_and_preservation.md) | water and wetland life, fishing, preservation, and boats | 37.2 | discussion (4-5 Nov conversation with Zach; written up 7 Nov). Nothing decided, nothing to build. |
 | [living_populations.md](living_populations.md) | living populations on the land (a generalised ecology layer) | 37.2 | discussion (8 Nov). Nothing decided, nothing to build. |
@@ -366,6 +366,7 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 7 Nov | Renewal (was regime) and packs (was systems); a stock's own renewal rule and response to density | accepted: D4-104 | [process_model.md](process_model.md) |
 | 8 Nov | Sowing windows as families' lore, not rules; skill fades slowly and partly; wear in a village's terms | accepted: D4-105 | [economic_calibration.md](economic_calibration.md) |
 | 8 Nov | Can apart from works; crops grow by the season; reaping green and turning under; seed on turf; a crop's signs | accepted: D4-106 | [crop_growth.md](crop_growth.md) |
+| 8 Nov | Processing makes no food (phase 2's D) | rejected: D4-107 (food values as before) | [economic_calibration.md](economic_calibration.md) |
 | 2 Nov | What can happen to buildings and fittings, by weather and use | deferred (L-48) | [building_risks.md](building_risks.md) |
 | 2 Nov | Mills and ovens at scale; oven in stone; coppice held; fuel line; babies by shelter; refused acts not retried; stone walling | accepted: D4-97 | [mill_and_oven_scale.md](mill_and_oven_scale.md) |
 | 24 Oct | how buildings fit the other systems (before Package E is built) | mostly settled. Package E (02y) was deferred until this was worked out (Zach, 24 Oct), then replaced by the building package (02zh), built ... | [buildings_integration.md](buildings_integration.md) |
