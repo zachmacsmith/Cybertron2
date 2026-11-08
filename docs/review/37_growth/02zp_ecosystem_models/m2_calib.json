@@ -1,0 +1,75 @@
+{
+ "E1 Broadbalk (base-rich, seed near)": {
+  "scrub": 12,
+  "wood": 26,
+  "target": "wood 25-40"
+ },
+ "E2 Geescroft (acid, seed far)": {
+  "T30": 0.19,
+  "wood": 46,
+  "target": "T<0.2 at 30; wood 60-80"
+ },
+ "E3 heath abandoned": {
+  "T>0.1": 21,
+  "wood": 43,
+  "labels": [
+   "scrub",
+   "scrub",
+   "scrub",
+   "birch and pine wood"
+  ],
+  "target": "invasion 10-15; birch wood 20-40"
+ },
+ "E4 chalk grazing stops": {
+  "scrub": 7,
+  "wood": 45,
+  "labels": [
+   "grassland",
+   "scrub",
+   "scrub",
+   "beech wood"
+  ],
+  "target": "scrub 10-20"
+ },
+ "E5 fen uncut": {
+  "wood": 45,
+  "labels": [
+   "reedbed",
+   "scrub",
+   "scrub",
+   "alder carr"
+  ],
+  "target": "carr 20-40"
+ },
+ "E6 wood pasture, no recruitment": {
+  "T": [
+   0.98,
+   0.71,
+   0.51,
+   0.38,
+   0.28
+  ],
+  "below 0.5": 104,
+  "target": "thins over a century or more"
+ },
+ "E7 felled wood, deer 0/km2": {
+  "wood": 44,
+  "T40": 0.44
+ },
+ "E7 felled wood, deer 3/km2": {
+  "wood": 51,
+  "T40": 0.35
+ },
+ "E7 felled wood, deer 6/km2": {
+  "wood": 71,
+  "T40": 0.27
+ },
+ "E7 felled wood, deer 10/km2": {
+  "wood": null,
+  "T40": 0.17
+ },
+ "E7 felled wood, deer 15/km2": {
+  "wood": null,
+  "T40": 0.0
+ }
+}

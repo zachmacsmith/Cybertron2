@@ -1,0 +1,5518 @@
+[
+{
+"world": "basin_in_a_ring_of_hills_1",
+"proposal": {
+"goods_in_region": 17,
+"specialties": [
+"venison"
+],
+"dep_edges": 4,
+"unmet_needs_region": 4,
+"dissimilarity": 0.3,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [
+"venison"
+],
+"dep_edges": 2,
+"unmet_needs_region": 4,
+"dissimilarity": 0.33,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "coast_1",
+"proposal": {
+"goods_in_region": 16,
+"specialties": [
+"oak bark",
+"venison"
+],
+"dep_edges": 3,
+"unmet_needs_region": 8,
+"dissimilarity": 0.33,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [
+"venison"
+],
+"dep_edges": 2,
+"unmet_needs_region": 4,
+"dissimilarity": 0.33,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+]
+]
+}
+},
+{
+"world": "coastal_strip_under_mountains_1",
+"proposal": {
+"goods_in_region": 19,
+"specialties": [
+"salt",
+"shellfish",
+"venison"
+],
+"dep_edges": 7,
+"unmet_needs_region": 0,
+"dissimilarity": 0.37,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"rushes",
+"salt",
+"shellfish",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+]
+]
+},
+"engine": {
+"goods_in_region": 6,
+"specialties": [
+"salt",
+"venison"
+],
+"dep_edges": 5,
+"unmet_needs_region": 0,
+"dissimilarity": 0.41,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"salt",
+"timber"
+]
+]
+}
+},
+{
+"world": "confluence_plain_1",
+"proposal": {
+"goods_in_region": 17,
+"specialties": [
+"lime",
+"venison",
+"winter fodder (hay)"
+],
+"dep_edges": 7,
+"unmet_needs_region": 4,
+"dissimilarity": 0.34,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"oak bark",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [
+"venison"
+],
+"dep_edges": 2,
+"unmet_needs_region": 4,
+"dissimilarity": 0.25,
+"per_village": [
+[
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+]
+]
+}
+},
+{
+"world": "estuary_and_fens_1",
+"proposal": {
+"goods_in_region": 17,
+"specialties": [
+"lime",
+"pannage",
+"winter fodder (hay)"
+],
+"dep_edges": 7,
+"unmet_needs_region": 4,
+"dissimilarity": 0.4,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"peat",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"peat",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 4,
+"specialties": [],
+"dep_edges": 4,
+"unmet_needs_region": 4,
+"dissimilarity": 0.33,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "fen_with_islands_1",
+"proposal": {
+"goods_in_region": 16,
+"specialties": [
+"oak bark",
+"pannage",
+"venison"
+],
+"dep_edges": 4,
+"unmet_needs_region": 4,
+"dissimilarity": 0.32,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"peat",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"peat",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"peat",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [
+"venison"
+],
+"dep_edges": 3,
+"unmet_needs_region": 4,
+"dissimilarity": 0.38,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+]
+]
+}
+},
+{
+"world": "gated_valley_1",
+"proposal": {
+"goods_in_region": 17,
+"specialties": [
+"winter fodder (hay)"
+],
+"dep_edges": 3,
+"unmet_needs_region": 4,
+"dissimilarity": 0.16,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [],
+"dep_edges": 0,
+"unmet_needs_region": 4,
+"dissimilarity": 0.1,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "isthmus_1",
+"proposal": {
+"goods_in_region": 18,
+"specialties": [
+"fowl, down",
+"salt"
+],
+"dep_edges": 3,
+"unmet_needs_region": 4,
+"dissimilarity": 0.26,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"salt",
+"shellfish",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"firewood",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"shellfish",
+"thatch",
+"timber",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 6,
+"specialties": [
+"salt"
+],
+"dep_edges": 3,
+"unmet_needs_region": 0,
+"dissimilarity": 0.31,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"salt",
+"timber"
+],
+[
+"firewood",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "plain_1",
+"proposal": {
+"goods_in_region": 16,
+"specialties": [
+"firewood",
+"oak bark",
+"pannage",
+"winter fodder (hay)"
+],
+"dep_edges": 7,
+"unmet_needs_region": 4,
+"dissimilarity": 0.37,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 4,
+"specialties": [
+"firewood"
+],
+"dep_edges": 4,
+"unmet_needs_region": 4,
+"dissimilarity": 0.28,
+"per_village": [
+[
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "plateau_with_few_ascents_1",
+"proposal": {
+"goods_in_region": 17,
+"specialties": [
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"venison"
+],
+"dep_edges": 5,
+"unmet_needs_region": 4,
+"dissimilarity": 0.35,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [
+"venison"
+],
+"dep_edges": 3,
+"unmet_needs_region": 4,
+"dissimilarity": 0.38,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "river_through_a_range_1",
+"proposal": {
+"goods_in_region": 16,
+"specialties": [
+"fowl, down",
+"lime"
+],
+"dep_edges": 5,
+"unmet_needs_region": 4,
+"dissimilarity": 0.35,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"nuts",
+"oak bark",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 4,
+"specialties": [],
+"dep_edges": 2,
+"unmet_needs_region": 4,
+"dissimilarity": 0.25,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "sand_country_1",
+"proposal": {
+"goods_in_region": 16,
+"specialties": [
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"winter fodder (hay)"
+],
+"dep_edges": 7,
+"unmet_needs_region": 4,
+"dissimilarity": 0.32,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"oak bark",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 4,
+"specialties": [],
+"dep_edges": 4,
+"unmet_needs_region": 4,
+"dissimilarity": 0.33,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+},
+{
+"world": "scarp_and_vale_1",
+"proposal": {
+"goods_in_region": 10,
+"specialties": [],
+"dep_edges": 2,
+"unmet_needs_region": 12,
+"dissimilarity": 0.21,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 2,
+"specialties": [],
+"dep_edges": 0,
+"unmet_needs_region": 12,
+"dissimilarity": 0.0,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+},
+{
+"world": "settled_lowland_and_frontier_1",
+"proposal": {
+"goods_in_region": 17,
+"specialties": [],
+"dep_edges": 3,
+"unmet_needs_region": 8,
+"dissimilarity": 0.35,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"honey, wax",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"honey, wax",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"honey, wax",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [],
+"dep_edges": 3,
+"unmet_needs_region": 4,
+"dissimilarity": 0.4,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+},
+{
+"world": "twin_bays_split_by_a_spur_1",
+"proposal": {
+"goods_in_region": 18,
+"specialties": [
+"pannage",
+"venison"
+],
+"dep_edges": 7,
+"unmet_needs_region": 0,
+"dissimilarity": 0.38,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"rushes",
+"salt",
+"shellfish",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"salt",
+"shellfish",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 6,
+"specialties": [
+"venison"
+],
+"dep_edges": 4,
+"unmet_needs_region": 0,
+"dissimilarity": 0.41,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"salt",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"salt",
+"timber",
+"venison"
+]
+]
+}
+},
+{
+"world": "two_valleys_over_a_pass_1",
+"proposal": {
+"goods_in_region": 15,
+"specialties": [
+"firewood",
+"nuts",
+"pannage",
+"timber"
+],
+"dep_edges": 10,
+"unmet_needs_region": 4,
+"dissimilarity": 0.4,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"oak bark",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 4,
+"specialties": [
+"firewood"
+],
+"dep_edges": 5,
+"unmet_needs_region": 4,
+"dissimilarity": 0.32,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "upland_and_moor_1",
+"proposal": {
+"goods_in_region": 11,
+"specialties": [],
+"dep_edges": 4,
+"unmet_needs_region": 12,
+"dissimilarity": 0.28,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 2,
+"specialties": [],
+"dep_edges": 0,
+"unmet_needs_region": 12,
+"dissimilarity": 0.0,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+},
+{
+"world": "watershed_divide_1",
+"proposal": {
+"goods_in_region": 16,
+"specialties": [
+"firewood",
+"nuts",
+"oak bark",
+"pannage"
+],
+"dep_edges": 8,
+"unmet_needs_region": 4,
+"dissimilarity": 0.35,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 4,
+"specialties": [
+"firewood"
+],
+"dep_edges": 5,
+"unmet_needs_region": 4,
+"dissimilarity": 0.32,
+"per_village": [
+[
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+},
+{
+"world": "basin_in_a_ring_of_hills_2",
+"proposal": {
+"goods_in_region": 16,
+"specialties": [
+"furze fuel",
+"lime"
+],
+"dep_edges": 0,
+"unmet_needs_region": 8,
+"dissimilarity": 0.2,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [],
+"dep_edges": 0,
+"unmet_needs_region": 4,
+"dissimilarity": 0.1,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "coast_2",
+"proposal": {
+"goods_in_region": 16,
+"specialties": [
+"firewood",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"winter fodder (hay)"
+],
+"dep_edges": 8,
+"unmet_needs_region": 4,
+"dissimilarity": 0.37,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [
+"venison"
+],
+"dep_edges": 3,
+"unmet_needs_region": 4,
+"dissimilarity": 0.38,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "coastal_strip_under_mountains_2",
+"proposal": {
+"goods_in_region": 19,
+"specialties": [
+"fowl, down",
+"salt",
+"shellfish"
+],
+"dep_edges": 10,
+"unmet_needs_region": 0,
+"dissimilarity": 0.47,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"salt",
+"shellfish",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 6,
+"specialties": [
+"salt"
+],
+"dep_edges": 7,
+"unmet_needs_region": 0,
+"dissimilarity": 0.45,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"salt",
+"timber",
+"venison"
+]
+]
+}
+},
+{
+"world": "confluence_plain_2",
+"proposal": {
+"goods_in_region": 15,
+"specialties": [],
+"dep_edges": 4,
+"unmet_needs_region": 4,
+"dissimilarity": 0.31,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"oak bark",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+]
+]
+},
+"engine": {
+"goods_in_region": 4,
+"specialties": [],
+"dep_edges": 2,
+"unmet_needs_region": 4,
+"dissimilarity": 0.25,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "estuary_and_fens_2",
+"proposal": {
+"goods_in_region": 16,
+"specialties": [
+"fowl, down",
+"furze fuel",
+"peat"
+],
+"dep_edges": 2,
+"unmet_needs_region": 4,
+"dissimilarity": 0.29,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"peat",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+]
+]
+},
+"engine": {
+"goods_in_region": 4,
+"specialties": [],
+"dep_edges": 2,
+"unmet_needs_region": 4,
+"dissimilarity": 0.25,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "fen_with_islands_2",
+"proposal": {
+"goods_in_region": 15,
+"specialties": [],
+"dep_edges": 4,
+"unmet_needs_region": 4,
+"dissimilarity": 0.3,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"peat",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"peat",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+]
+]
+},
+"engine": {
+"goods_in_region": 4,
+"specialties": [],
+"dep_edges": 4,
+"unmet_needs_region": 4,
+"dissimilarity": 0.33,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+},
+{
+"world": "gated_valley_2",
+"proposal": {
+"goods_in_region": 17,
+"specialties": [
+"fowl, down",
+"furze fuel"
+],
+"dep_edges": 0,
+"unmet_needs_region": 8,
+"dissimilarity": 0.15,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"stone",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"stone",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 6,
+"specialties": [],
+"dep_edges": 0,
+"unmet_needs_region": 4,
+"dissimilarity": 0.11,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"stone",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"stone",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+]
+]
+}
+},
+{
+"world": "isthmus_2",
+"proposal": {
+"goods_in_region": 19,
+"specialties": [
+"fowl, down",
+"venison",
+"winter fodder (hay)"
+],
+"dep_edges": 6,
+"unmet_needs_region": 0,
+"dissimilarity": 0.34,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"salt",
+"shellfish",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"rushes",
+"salt",
+"shellfish",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 6,
+"specialties": [
+"venison"
+],
+"dep_edges": 3,
+"unmet_needs_region": 0,
+"dissimilarity": 0.3,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"salt",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing",
+"salt",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "plain_2",
+"proposal": {
+"goods_in_region": 15,
+"specialties": [
+"pannage"
+],
+"dep_edges": 3,
+"unmet_needs_region": 4,
+"dissimilarity": 0.27,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"oak bark",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 4,
+"specialties": [],
+"dep_edges": 2,
+"unmet_needs_region": 4,
+"dissimilarity": 0.25,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+},
+{
+"world": "plateau_with_few_ascents_2",
+"proposal": {
+"goods_in_region": 17,
+"specialties": [
+"venison"
+],
+"dep_edges": 3,
+"unmet_needs_region": 4,
+"dissimilarity": 0.36,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [
+"venison"
+],
+"dep_edges": 2,
+"unmet_needs_region": 4,
+"dissimilarity": 0.33,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+},
+{
+"world": "river_through_a_range_2",
+"proposal": {
+"goods_in_region": 15,
+"specialties": [
+"oak bark",
+"pannage"
+],
+"dep_edges": 5,
+"unmet_needs_region": 4,
+"dissimilarity": 0.34,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 4,
+"specialties": [],
+"dep_edges": 4,
+"unmet_needs_region": 4,
+"dissimilarity": 0.33,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+},
+{
+"world": "sand_country_2",
+"proposal": {
+"goods_in_region": 11,
+"specialties": [
+"winter fodder (hay)"
+],
+"dep_edges": 3,
+"unmet_needs_region": 12,
+"dissimilarity": 0.22,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 2,
+"specialties": [],
+"dep_edges": 0,
+"unmet_needs_region": 12,
+"dissimilarity": 0.0,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+},
+{
+"world": "scarp_and_vale_2",
+"proposal": {
+"goods_in_region": 15,
+"specialties": [
+"fowl, down",
+"lime",
+"oak bark"
+],
+"dep_edges": 6,
+"unmet_needs_region": 4,
+"dissimilarity": 0.37,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"nuts",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 4,
+"specialties": [],
+"dep_edges": 4,
+"unmet_needs_region": 4,
+"dissimilarity": 0.33,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "settled_lowland_and_frontier_2",
+"proposal": {
+"goods_in_region": 17,
+"specialties": [
+"fowl, down",
+"lime"
+],
+"dep_edges": 8,
+"unmet_needs_region": 4,
+"dissimilarity": 0.48,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"honey, wax",
+"nuts",
+"oak bark",
+"pannage",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"honey, wax",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [],
+"dep_edges": 6,
+"unmet_needs_region": 4,
+"dissimilarity": 0.53,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"timber",
+"venison"
+]
+]
+}
+},
+{
+"world": "twin_bays_split_by_a_spur_2",
+"proposal": {
+"goods_in_region": 11,
+"specialties": [
+"winter fodder (hay)"
+],
+"dep_edges": 4,
+"unmet_needs_region": 12,
+"dissimilarity": 0.22,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 3,
+"specialties": [
+"timber"
+],
+"dep_edges": 3,
+"unmet_needs_region": 8,
+"dissimilarity": 0.17,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+},
+{
+"world": "two_valleys_over_a_pass_2",
+"proposal": {
+"goods_in_region": 17,
+"specialties": [
+"venison",
+"winter fodder (hay)"
+],
+"dep_edges": 5,
+"unmet_needs_region": 4,
+"dissimilarity": 0.37,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"lime",
+"nuts",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [
+"venison"
+],
+"dep_edges": 2,
+"unmet_needs_region": 4,
+"dissimilarity": 0.33,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+]
+]
+}
+},
+{
+"world": "upland_and_moor_2",
+"proposal": {
+"goods_in_region": 16,
+"specialties": [
+"furze fuel",
+"lime",
+"pannage"
+],
+"dep_edges": 5,
+"unmet_needs_region": 4,
+"dissimilarity": 0.38,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+]
+]
+},
+"engine": {
+"goods_in_region": 4,
+"specialties": [],
+"dep_edges": 4,
+"unmet_needs_region": 4,
+"dissimilarity": 0.33,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+},
+{
+"world": "watershed_divide_2",
+"proposal": {
+"goods_in_region": 15,
+"specialties": [
+"firewood",
+"furze fuel",
+"nuts",
+"oak bark",
+"timber"
+],
+"dep_edges": 7,
+"unmet_needs_region": 4,
+"dissimilarity": 0.29,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"nuts",
+"oak bark",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 4,
+"specialties": [
+"firewood"
+],
+"dep_edges": 5,
+"unmet_needs_region": 4,
+"dissimilarity": 0.32,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "basin_in_a_ring_of_hills_3",
+"proposal": {
+"goods_in_region": 15,
+"specialties": [
+"fowl, down"
+],
+"dep_edges": 1,
+"unmet_needs_region": 8,
+"dissimilarity": 0.1,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [],
+"dep_edges": 0,
+"unmet_needs_region": 4,
+"dissimilarity": 0.0,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+]
+]
+}
+},
+{
+"world": "coast_3",
+"proposal": {
+"goods_in_region": 14,
+"specialties": [
+"firewood",
+"fowl, down",
+"nuts",
+"oak bark",
+"shellfish"
+],
+"dep_edges": 5,
+"unmet_needs_region": 8,
+"dissimilarity": 0.33,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"oak bark",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"grazing",
+"nuts",
+"rushes",
+"shellfish",
+"thatch",
+"timber",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 4,
+"specialties": [
+"firewood"
+],
+"dep_edges": 5,
+"unmet_needs_region": 4,
+"dissimilarity": 0.32,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "coastal_strip_under_mountains_3",
+"proposal": {
+"goods_in_region": 18,
+"specialties": [
+"firewood",
+"furze fuel",
+"lime",
+"pannage"
+],
+"dep_edges": 8,
+"unmet_needs_region": 0,
+"dissimilarity": 0.43,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"grazing",
+"lime",
+"rushes",
+"salt",
+"shellfish",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"rushes",
+"salt",
+"shellfish",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [
+"firewood"
+],
+"dep_edges": 6,
+"unmet_needs_region": 0,
+"dissimilarity": 0.38,
+"per_village": [
+[
+"fish",
+"grazing",
+"salt"
+],
+[
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing",
+"salt",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "confluence_plain_3",
+"proposal": {
+"goods_in_region": 17,
+"specialties": [
+"lime",
+"pannage",
+"venison",
+"winter fodder (hay)"
+],
+"dep_edges": 7,
+"unmet_needs_region": 4,
+"dissimilarity": 0.39,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [
+"venison"
+],
+"dep_edges": 4,
+"unmet_needs_region": 4,
+"dissimilarity": 0.4,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "estuary_and_fens_3",
+"proposal": {
+"goods_in_region": 16,
+"specialties": [
+"pannage"
+],
+"dep_edges": 6,
+"unmet_needs_region": 4,
+"dissimilarity": 0.41,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"peat",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"peat",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+]
+]
+},
+"engine": {
+"goods_in_region": 4,
+"specialties": [],
+"dep_edges": 4,
+"unmet_needs_region": 4,
+"dissimilarity": 0.33,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+},
+{
+"world": "fen_with_islands_3",
+"proposal": {
+"goods_in_region": 17,
+"specialties": [
+"firewood",
+"furze fuel",
+"nuts",
+"oak bark",
+"pannage",
+"timber",
+"venison"
+],
+"dep_edges": 8,
+"unmet_needs_region": 4,
+"dissimilarity": 0.29,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"peat",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"peat",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"peat",
+"rushes",
+"thatch",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [
+"firewood",
+"timber",
+"venison"
+],
+"dep_edges": 6,
+"unmet_needs_region": 4,
+"dissimilarity": 0.3,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+},
+{
+"world": "gated_valley_3",
+"proposal": {
+"goods_in_region": 17,
+"specialties": [
+"fowl, down"
+],
+"dep_edges": 0,
+"unmet_needs_region": 8,
+"dissimilarity": 0.15,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"stone",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"stone",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 6,
+"specialties": [],
+"dep_edges": 0,
+"unmet_needs_region": 4,
+"dissimilarity": 0.11,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"stone",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"stone",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+]
+]
+}
+},
+{
+"world": "isthmus_3",
+"proposal": {
+"goods_in_region": 17,
+"specialties": [
+"furze fuel",
+"winter fodder (hay)"
+],
+"dep_edges": 3,
+"unmet_needs_region": 4,
+"dissimilarity": 0.25,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"oak bark",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"shellfish",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"shellfish",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [],
+"dep_edges": 0,
+"unmet_needs_region": 4,
+"dissimilarity": 0.13,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+]
+]
+}
+},
+{
+"world": "plain_3",
+"proposal": {
+"goods_in_region": 15,
+"specialties": [
+"firewood",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"timber"
+],
+"dep_edges": 6,
+"unmet_needs_region": 8,
+"dissimilarity": 0.3,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 4,
+"specialties": [
+"firewood",
+"timber"
+],
+"dep_edges": 6,
+"unmet_needs_region": 4,
+"dissimilarity": 0.25,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+},
+{
+"world": "plateau_with_few_ascents_3",
+"proposal": {
+"goods_in_region": 17,
+"specialties": [
+"lime"
+],
+"dep_edges": 3,
+"unmet_needs_region": 4,
+"dissimilarity": 0.35,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"lime",
+"nuts",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [],
+"dep_edges": 2,
+"unmet_needs_region": 4,
+"dissimilarity": 0.35,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+},
+{
+"world": "river_through_a_range_3",
+"proposal": {
+"goods_in_region": 17,
+"specialties": [
+"venison",
+"winter fodder (hay)"
+],
+"dep_edges": 5,
+"unmet_needs_region": 4,
+"dissimilarity": 0.37,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"lime",
+"nuts",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [],
+"dep_edges": 2,
+"unmet_needs_region": 4,
+"dissimilarity": 0.35,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "sand_country_3",
+"proposal": {
+"goods_in_region": 10,
+"specialties": [
+"fowl, down",
+"lime"
+],
+"dep_edges": 0,
+"unmet_needs_region": 16,
+"dissimilarity": 0.11,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 2,
+"specialties": [],
+"dep_edges": 0,
+"unmet_needs_region": 12,
+"dissimilarity": 0.0,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+},
+{
+"world": "scarp_and_vale_3",
+"proposal": {
+"goods_in_region": 13,
+"specialties": [
+"furze fuel",
+"nuts",
+"oak bark",
+"timber"
+],
+"dep_edges": 5,
+"unmet_needs_region": 8,
+"dissimilarity": 0.3,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"grazing",
+"nuts",
+"oak bark",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 3,
+"specialties": [
+"timber"
+],
+"dep_edges": 3,
+"unmet_needs_region": 8,
+"dissimilarity": 0.17,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "settled_lowland_and_frontier_3",
+"proposal": {
+"goods_in_region": 16,
+"specialties": [
+"fowl, down"
+],
+"dep_edges": 3,
+"unmet_needs_region": 8,
+"dissimilarity": 0.36,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"honey, wax",
+"nuts",
+"oak bark",
+"pannage",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"honey, wax",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"honey, wax",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [],
+"dep_edges": 3,
+"unmet_needs_region": 4,
+"dissimilarity": 0.4,
+"per_village": [
+[
+"firewood",
+"fish",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+]
+]
+}
+},
+{
+"world": "twin_bays_split_by_a_spur_3",
+"proposal": {
+"goods_in_region": 15,
+"specialties": [
+"firewood",
+"nuts",
+"oak bark",
+"pannage",
+"venison"
+],
+"dep_edges": 5,
+"unmet_needs_region": 8,
+"dissimilarity": 0.34,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [
+"firewood",
+"venison"
+],
+"dep_edges": 5,
+"unmet_needs_region": 4,
+"dissimilarity": 0.38,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"fish",
+"grazing"
+],
+[
+"fish",
+"grazing",
+"timber"
+]
+]
+}
+},
+{
+"world": "two_valleys_over_a_pass_3",
+"proposal": {
+"goods_in_region": 17,
+"specialties": [
+"fowl, down",
+"lime",
+"pannage",
+"venison",
+"winter fodder (hay)"
+],
+"dep_edges": 6,
+"unmet_needs_region": 4,
+"dissimilarity": 0.4,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"oak bark",
+"rushes",
+"thatch",
+"timber",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"lime",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [
+"venison"
+],
+"dep_edges": 3,
+"unmet_needs_region": 4,
+"dissimilarity": 0.38,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+]
+]
+}
+},
+{
+"world": "upland_and_moor_3",
+"proposal": {
+"goods_in_region": 16,
+"specialties": [
+"venison"
+],
+"dep_edges": 6,
+"unmet_needs_region": 4,
+"dissimilarity": 0.39,
+"per_village": [
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"eels",
+"firewood",
+"fish",
+"fowl, down",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"furze fuel",
+"grazing",
+"rushes",
+"thatch",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [
+"venison"
+],
+"dep_edges": 4,
+"unmet_needs_region": 4,
+"dissimilarity": 0.4,
+"per_village": [
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+},
+{
+"world": "watershed_divide_3",
+"proposal": {
+"goods_in_region": 17,
+"specialties": [
+"fowl, down",
+"furze fuel",
+"oak bark",
+"pannage",
+"venison",
+"winter fodder (hay)"
+],
+"dep_edges": 7,
+"unmet_needs_region": 4,
+"dissimilarity": 0.41,
+"per_village": [
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"furze fuel",
+"grazing",
+"nuts",
+"rushes",
+"thatch",
+"timber",
+"wattle rods",
+"winter fodder (hay)"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"fowl, down",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"firewood",
+"fish",
+"grazing",
+"nuts",
+"oak bark",
+"pannage",
+"rushes",
+"thatch",
+"timber",
+"venison",
+"wattle rods"
+],
+[
+"daub clay",
+"eels",
+"fish",
+"grazing",
+"lime",
+"rushes",
+"thatch",
+"wattle rods"
+]
+]
+},
+"engine": {
+"goods_in_region": 5,
+"specialties": [
+"venison"
+],
+"dep_edges": 4,
+"unmet_needs_region": 4,
+"dissimilarity": 0.4,
+"per_village": [
+[
+"firewood",
+"fish",
+"grazing",
+"timber"
+],
+[
+"fish",
+"grazing"
+],
+[
+"firewood",
+"fish",
+"grazing",
+"timber",
+"venison"
+],
+[
+"fish",
+"grazing"
+]
+]
+}
+}
+]

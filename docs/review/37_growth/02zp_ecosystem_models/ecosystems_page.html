@@ -1,0 +1,352 @@
+<title>Ecosystems on Generated Land</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,500..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a survey report. One reading column, with plates (charts) that run a little wider, and tables that scroll on their own. */
+:root {
+  --paper: #f3f5f1; --panel: #e7ebe3; --ink: #1d2a24; --muted: #5a6b62; --rule: #c9d1c6;
+  --moss: #2f5d46; --ochre: #b0761c;
+  --spring: #5f9e4a; --summer: #c2b033; --autumn: #c1772a; --winter: #6f8796;
+  --good: #2f7a4e; --warn: #a8661c; --bad: #a33a2f;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #121a17; --panel: #1b2622; --ink: #dfe7e1; --muted: #93a59b; --rule: #2e3c36;
+  --moss: #7fbf9a; --ochre: #e0a64e;
+  --spring: #86c46f; --summer: #d9c95a; --autumn: #e39a52; --winter: #95adbb;
+  --good: #6cc391; --warn: #e3a557; --bad: #e07a6d; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #121a17; --panel: #1b2622; --ink: #dfe7e1; --muted: #93a59b; --rule: #2e3c36;
+  --moss: #7fbf9a; --ochre: #e0a64e;
+  --spring: #86c46f; --summer: #d9c95a; --autumn: #e39a52; --winter: #95adbb;
+  --good: #6cc391; --warn: #e3a557; --bad: #e07a6d; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 64px }
+main { max-width: 980px; margin: 0 auto; display: grid; gap: 56px }
+.col { max-width: 68ch }
+header { padding-block: 48px 8px; border-bottom: 2px solid var(--ink); display: grid; gap: 12px }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted) }
+h1 { font-family: var(--display); font-stretch: 85%; font-weight: 800; font-size: clamp(34px, 6vw, 56px); line-height: 1.02; margin: 0; text-wrap: balance }
+h2 { font-family: var(--display); font-stretch: 90%; font-weight: 700; font-size: 26px; line-height: 1.15; margin: 0 0 6px; text-wrap: balance }
+h3 { font-family: var(--display); font-weight: 600; font-size: 17px; margin: 0 }
+p { margin: 0 }
+section { display: grid; gap: 16px }
+.lede { font-size: 19px; color: var(--ink) }
+.small { font-size: 14px; color: var(--muted) }
+.mono { font-family: var(--mono); font-size: 13px }
+.findings { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: f }
+.findings li { display: grid; grid-template-columns: 2.2em 1fr; gap: 8px; counter-increment: f }
+.findings li::before { content: counter(f); font-family: var(--display); font-weight: 800; font-size: 22px; color: var(--moss); line-height: 1.2 }
+.plate { background: var(--panel); border: 1px solid var(--rule); border-radius: 4px; padding: 16px; display: grid; gap: 10px; min-width: 0 }
+.plate figcaption { font-size: 14px; color: var(--muted) }
+.plates { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)) }
+.multi { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)) }
+.plate > * { min-width: 0 }
+svg { display: block; width: 100%; height: auto; overflow: visible }
+svg text { font-family: var(--mono); font-size: 10px; fill: var(--muted) }
+svg .lbl { fill: var(--ink); font-size: 11px }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-family: var(--mono); font-size: 12px; color: var(--muted) }
+.legend span { display: inline-flex; align-items: center; gap: 6px }
+.legend i { width: 14px; height: 3px; display: inline-block; border-radius: 2px }
+.legend i.sq { height: 10px; width: 10px }
+.tbl { overflow-x: auto; border-top: 1px solid var(--rule) }
+table { border-collapse: collapse; width: 100%; font-size: 15px; font-variant-numeric: tabular-nums }
+th, td { text-align: left; vertical-align: top; padding: 8px 10px 8px 0; border-bottom: 1px solid var(--rule) }
+th { font-family: var(--display); font-weight: 600; font-size: 13px; letter-spacing: .03em; color: var(--muted) }
+td.num { text-align: right; font-family: var(--mono); font-size: 13px }
+.chip { font-family: var(--mono); font-size: 11px; padding: 1px 6px; border-radius: 3px; border: 1px solid var(--rule); white-space: nowrap; display: inline-block; margin: 1px 2px 1px 0 }
+.chip.g1 { border-color: var(--moss); color: var(--moss) }
+.v { font-family: var(--mono); font-size: 12px; padding: 1px 6px; border-radius: 3px; white-space: nowrap }
+.v.ok { background: color-mix(in srgb, var(--good) 18%, transparent); color: var(--good) }
+.v.part { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn) }
+.v.no { background: color-mix(in srgb, var(--bad) 16%, transparent); color: var(--bad) }
+.clock { font-family: var(--mono); font-size: 12px; color: var(--ochre) }
+ol.order { margin: 0; padding-left: 1.4em; display: grid; gap: 10px }
+.qs { margin: 0; padding-left: 1.4em; display: grid; gap: 8px }
+footer { border-top: 2px solid var(--ink); padding-top: 16px }
+a { color: var(--moss) }
+@media (max-width: 520px) { body { font-size: 16px } .findings li { grid-template-columns: 1.8em 1fr } }
+</style>
+
+<main>
+<header>
+  <div class="eyebrow">Cybertron 2 · session 37.2 · 8 Nov 2026 · analysis, nothing decided</div>
+  <h1>Ecosystems on Generated Land</h1>
+  <p class="lede col">Seven models run on the terrain generator's own land: 18 configurations, 3 seeds, 144 villages. They ask what the ecology would have to do to serve the simulation's aims, calibrate it against real cases, and compare it with what the engine does now.</p>
+  <p class="small">Full note: <span class="mono">docs/review/37_growth/02zp_ecosystems_deep_dive.md</span> · models: <span class="mono">02zp_ecosystem_models/</span></p>
+</header>
+
+<section class="col">
+  <h2>What the models found</h2>
+  <ol class="findings">
+    <li><p><b>The engine's wild food is flat, uniform and too fast.</b> Forage gives about 4× a village's need in every season and every place. Game regrows each night at the rate red deer manage in a year, about 25× a real population's flow. Real yields give a lean winter and spring, and big differences between fen, wood and farmland.</p></li>
+    <li><p><b>The seasonal year is data only.</b> The built <span class="mono">periodic</span> rule gives a spring gap with the same yearly take. One catch: gathering is scored against the resident stock, so a seasonal pulse multiplies the yield of each unit of work.</p></li>
+    <li><p><b>Plants placed by conditions work.</b> Forty kinds on Ellenberg-style scales reproduce 69% of the generator's settled map from soil, water and height alone. Most disagreements are the generator's simplifications: open fen and low moor would really be carr and wood.</p></li>
+    <li><p><b>Succession is real and slow.</b> Calibrated on Broadbalk, Geescroft, heath, downland and Wicken Fen, it takes 10 to 45 years: 300 to 1,500 engine days. It belongs in the generator's history and in long cheap runs, never inside an LLM run.</p></li>
+    <li><p><b>The animal web behaves as described, on a decade scale.</b> Felling half a big wood raises wolf kills of stock 4 to 5× for a decade. Open-access hunting empties the woods near villages while refuges keep the catch going. Wolves slow the woods' loss to browsing from 20% to 6% a century.</p></li>
+    <li><p><b>Variety alone does not make villages need each other.</b> Goods per region rise from 5 to 16, but dependence links only from 3 to 5. Links come from a few scarce needs (salt, hay, wood) and from seasonal surpluses that keep.</p></li>
+    <li><p><b>Use decides who wins.</b> Draining a fen doubles a village's grazing and cuts its eels, fowl and rushes about tenfold. The cattle-keeper gains; the fowler, eel-trapper and reed-cutter lose.</p></li>
+  </ol>
+</section>
+
+<section>
+  <div class="col">
+    <h2>The wild year, by season</h2>
+    <p>Real wild food from the land within 2.5 km of a 12-person village, as a share of its need, by the kind of country it sits in (M4). The dashed line is what the engine gives now: the same in every season and nearly the same everywhere. Each panel has its own scale.</p>
+  </div>
+  <figure class="plate">
+    <div class="multi" id="seasons"></div>
+    <div class="legend"><span><i class="sq" style="background:var(--spring)"></i>spring</span><span><i class="sq" style="background:var(--summer)"></i>summer</span><span><i class="sq" style="background:var(--autumn)"></i>autumn</span><span><i class="sq" style="background:var(--winter)"></i>winter</span><span><i style="background:var(--ink);height:0;border-top:2px dashed var(--ink)"></i>engine now</span></div>
+    <figcaption>Medians over villages: river country 121, fen 7, wildwood 5, scarp and vale 8. Yields in person-days a hectare, after animals' share and what people reach; approximate.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <div class="col">
+    <h2>Slow change: succession held back by use</h2>
+    <p>Canopy cover on a plot after use stops (M2), with the real timescale each case should match. The model is a yearly step: the niche model gives the steady vegetation under this year's use, and the state moves toward it, limited by seed, light, browsing and fire.</p>
+  </div>
+  <figure class="plate">
+    <svg id="succ" viewBox="0 0 640 300" role="img" aria-label="Canopy cover over 60 years for five cases"></svg>
+    <div class="legend" id="succ-legend"></div>
+    <figcaption>Real: Broadbalk closed to wood in 25 to 40 years; Geescroft was still grass at 30; heath gets birch in 10 to 15 years; downland scrubbed over in 10 to 20 years after myxomatosis; Wicken Fen went to carr in 20 to 40. The model gives 26, 46, 43, 45 (scrub at 7) and 45.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <div class="col">
+    <h2>Animals and the wood</h2>
+    <p>Deer, boar, hares and wolves on 1 km patches of a frontier world (2,428 km², 1,878 km² of wood), coupled to the wood: old trees are replaced only where browsing lets a few saplings through (M3). A hundred years, one seed.</p>
+  </div>
+  <div class="plates">
+    <figure class="plate"><h3>Deer a km² of wood</h3><svg id="m3deer" viewBox="0 0 320 200"></svg><div class="legend" id="m3deer-l"></div><figcaption>Wolves hold deer about 25% below food limit.</figcaption></figure>
+    <figure class="plate"><h3>Wood left (canopy km²)</h3><svg id="m3wood" viewBox="0 0 320 200"></svg><div class="legend" id="m3wood-l"></div><figcaption>Without wolves, browsing above about 10 a km² stops regrowth: the wood loses a fifth in a century.</figcaption></figure>
+    <figure class="plate"><h3>Stock killed by wolves a year</h3><svg id="m3stock" viewBox="0 0 320 200"></svg><div class="legend" id="m3stock-l"></div><figcaption>Half the big wood felled in years 30 to 34 (shaded): wild prey falls and the wolves turn to herds.</figcaption></figure>
+    <figure class="plate"><h3>Open-access hunting: near and far</h3><svg id="m3halo" viewBox="0 0 320 200"></svg><div class="legend" id="m3halo-l"></div><figcaption>Deer within 8 km of villages against those beyond 15 km. Refuges keep the region's catch going.</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <h2>What a run sees</h2>
+    <p>A village wood holding about 9 deer, hunted at 0.2 a day for 64 days, which is two engine years (M3b). The engine now refills it every night. On the year clock an isolated copse is hunted out within a run; a wood joined to a large forest is not. This is the case for building movement between places before fixing game's clock.</p>
+  </div>
+  <figure class="plate">
+    <svg id="inrun" viewBox="0 0 640 260" role="img" aria-label="Stock as a share of capacity over 64 days under four rules"></svg>
+    <div class="legend" id="inrun-l"></div>
+    <figcaption>Stock as a share of the wood's capacity. Mixing is the rate at which deer move between the wood and land 20 times its size, a year.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <div class="col">
+    <h2>Variety, dependence and who wins</h2>
+    <p>Per village, a 4 km reach and 23 goods, 8 of them needs every village has (M5). Then three changes run for 20 to 30 years around one village (M7).</p>
+  </div>
+  <div class="plates">
+    <figure class="plate"><h3>Engine now against the proposal</h3><svg id="m5" viewBox="0 0 320 210"></svg><div class="legend"><span><i class="sq" style="background:var(--muted)"></i>engine now</span><span><i class="sq" style="background:var(--moss)"></i>proposal</span></div><figcaption>Medians over 54 regions. Needs most often lacked: salt 96% of villages, hay 62%, firewood 48%, timber 40%.</figcaption></figure>
+    <figure class="plate"><h3>Draining the fen, 20 years</h3><svg id="m7" viewBox="0 0 320 210"></svg><div class="legend"><span><i class="sq" style="background:var(--muted)"></i>before</span><span><i class="sq" style="background:var(--ochre)"></i>after</span></div><figcaption>Goods as multiples of the village's own use, log scale. Grazing doubles; everything the fen gave falls.</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <h2>How the pieces interact</h2>
+    <p>Five state layers (ground, conditions, vegetation, populations, uses and rights), each moved by one general rule. The loops below are what they produce together. The goals: <span class="chip">G1 dependence</span><span class="chip">G2 observability</span><span class="chip">G3 trajectory</span><span class="chip">G4 food binds</span><span class="chip">G5 commons</span><span class="chip">G6 economy</span>. The ones marked in green carry dependence, the society's first need.</p>
+  </div>
+  <div class="tbl"><table id="loops"><thead><tr><th>Loop</th><th>Real basis</th><th>Goals</th><th>Clock</th><th>Evidence here</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section>
+  <div class="col">
+    <h2>The key ecosystems, as complexes</h2>
+    <p>What each landscape system gives, lacks and fights over, from the vegetation model, the seasonal calendar and the goods.</p>
+  </div>
+  <div class="tbl"><table id="systems"><thead><tr><th>System</th><th>Vegetation</th><th>Wild year</th><th>Gives others</th><th>Lacks</th><th>Tension</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section>
+  <div class="col">
+    <h2>Hypotheses</h2>
+  </div>
+  <div class="tbl"><table id="hyp"><thead><tr><th></th><th>Hypothesis</th><th>Result</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section class="col">
+  <h2>What to build, in order</h2>
+  <ol class="order">
+    <li><b>The seasonal wild year, by kind and ecosystem.</b> Periodic stocks with real yields, and a yearly draw for mast, nuts and berries. Data, plus one small mechanism and the density cap. Visible in every run.</li>
+    <li><b>Scarce needs that create links:</b> hay through winter, salt for keeping, peat and furze where wood is short.</li>
+    <li><b>Movement between places</b> (living_populations step 1), with game on the year clock. Together only: the clock alone makes hunting useless.</li>
+    <li><b>Conditions and kinds in the generator:</b> split "grassland" by use, add wood pasture, hedges and water ecosystems, spread villages across systems, and check that day 0 is an equilibrium.</li>
+    <li><b>Use that holds vegetation</b> (grazing, mowing, cutting, burning, draining) as yearly parcel state, for long runs and the generator's history.</li>
+    <li><b>Mast and boar</b>: a yearly cycle a two-year run sees.</li>
+    <li><b>Wolves, deer and the wood</b>: decades, except the switch to herds after a felling, which a run can see.</li>
+  </ol>
+  <p class="small">Not worth it: competition dynamics between plant species, seed dispersal, soil formation, food webs deeper than three levels, succession inside runs.</p>
+</section>
+
+<section class="col">
+  <h2>The probe, prepared and not run</h2>
+  <p>Does a hungry gap change what people do? Two arms of the Ferrybank world, 28 days from late summer. They differ only in when the wild food comes: flat, or seasonal through the periodic rule. The engine's capacity model gives both the same year: wild food feeds 1.67 against 1.85 people, worked land 1.67× against 1.83× need. Both arms run clean with bots.</p>
+  <div class="tbl"><table><thead><tr><th>Cast</th><th>A day</th><th>A run (28 days)</th><th>Two arms</th><th>Two seeds each</th></tr></thead>
+  <tbody><tr><td>2 Opus, 3 Sonnet, 3 Haiku</td><td class="num">about $0.40</td><td class="num">about $11</td><td class="num">about $23</td><td class="num">about $45</td></tr></tbody></table></div>
+  <p class="small">Blocked on Zach's approval of the spend and an API key in the environment; this container has none.</p>
+</section>
+
+<section class="col">
+  <h2>Decisions for Zach</h2>
+  <ol class="qs">
+    <li>Recalibrate wild food to real per-hectare yields with seasons, before adding kinds?</li>
+    <li>Game on the year clock, only together with movement between places?</li>
+    <li>Scarce needs as the source of dependence: hay, salt, peat and furze. Which first?</li>
+    <li>In the generator: plants by conditions, grassland split by use, wood pasture, hedges, water ecosystems, villages spread across systems, a day-0 equilibrium check?</li>
+    <li>Succession only in the generator's history and long cheap runs?</li>
+    <li>Run the probe (about $23, or $45 with two seeds) once a key is available?</li>
+    <li>Raise the periodic rule's density response with 37.4 when board posting resumes?</li>
+  </ol>
+</section>
+
+<footer class="col small">
+  <p>Limits: plant indicator values and yields are approximate, from memory and the general literature, and must be checked before anything is built. The animal model is annual on 1 km patches. The seasonal and goods models read the generator's cell map, which shows fewer village woods than its parcels do.</p>
+</footer>
+</main>
+
+<script>
+const DATA = {"succession":{"Abandoned field, wood beside (Broadbalk)":{"T":[0.013,0.027,0.043,0.059,0.076,0.093,0.112,0.131,0.152,0.173,0.194,0.216,0.238,0.261,0.284,0.307,0.33,0.352,0.373,0.395,0.415,0.436,0.456,0.475,0.494,0.513,0.531,0.549,0.566,0.583,0.599,0.614,0.63,0.644,0.659,0.672,0.686,0.699,0.711,0.723,0.734,0.746,0.756,0.767,0.776,0.786,0.795,0.804,0.812,0.82,0.828,0.835,0.843,0.849,0.856,0.862,0.868,0.874,0.879,0.884],"B":[0.012,0.027,0.047,0.071,0.101,0.138,0.182,0.234,0.291,0.354,0.417,0.472,0.518,0.557,0.59,0.617,0.639,0.657,0.672,0.683,0.691,0.697,0.7,0.702,0.702,0.699,0.695,0.689,0.681,0.673,0.665,0.656,0.647,0.638,0.63,0.621,0.612,0.604,0.596,0.588,0.58,0.572,0.565,0.558,0.551,0.544,0.538,0.532,0.526,0.52,0.515,0.51,0.505,0.5,0.495,0.491,0.487,0.482,0.479,0.475]},"Abandoned field, acid, no wood near (Geescroft)":{"T":[0.001,0.002,0.003,0.005,0.006,0.008,0.01,0.012,0.015,0.017,0.02,0.024,0.027,0.032,0.036,0.041,0.047,0.053,0.06,0.067,0.076,0.085,0.094,0.105,0.116,0.129,0.142,0.157,0.172,0.188,0.205,0.223,0.242,0.262,0.282,0.303,0.324,0.346,0.368,0.389,0.41,0.431,0.451,0.471,0.49,0.509,0.527,0.545,0.562,0.579,0.595,0.611,0.626,0.641,0.656,0.67,0.683,0.696,0.709,0.721],"B":[0.012,0.027,0.046,0.07,0.101,0.139,0.185,0.24,0.303,0.373,0.441,0.5,0.552,0.597,0.636,0.67,0.699,0.724,0.746,0.765,0.781,0.794,0.805,0.814,0.821,0.826,0.83,0.833,0.834,0.834,0.832,0.828,0.822,0.815,0.807,0.798,0.788,0.777,0.765,0.752,0.738,0.724,0.71,0.695,0.68,0.664,0.649,0.634,0.618,0.603,0.588,0.574,0.56,0.546,0.533,0.521,0.509,0.498,0.488,0.478]},"Heath, grazing and burning stop":{"T":[0.005,0.006,0.008,0.01,0.012,0.015,0.018,0.021,0.024,0.028,0.032,0.037,0.042,0.047,0.054,0.06,0.068,0.076,0.085,0.095,0.106,0.117,0.13,0.143,0.158,0.173,0.189,0.206,0.224,0.243,0.263,0.283,0.304,0.325,0.347,0.369,0.39,0.411,0.432,0.452,0.471,0.491,0.509,0.527,0.545,0.562,0.579,0.595,0.611,0.626,0.641,0.655,0.669,0.683,0.695,0.708,0.72,0.732,0.743,0.753],"B":[0.368,0.437,0.498,0.552,0.599,0.64,0.676,0.707,0.734,0.758,0.779,0.797,0.812,0.825,0.837,0.846,0.854,0.86,0.865,0.869,0.872,0.873,0.874,0.873,0.871,0.867,0.862,0.856,0.849,0.841,0.832,0.823,0.813,0.803,0.792,0.78,0.768,0.755,0.741,0.727,0.713,0.699,0.684,0.668,0.652,0.636,0.62,0.603,0.585,0.567,0.548,0.529,0.509,0.489,0.469,0.448,0.427,0.405,0.384,0.363]},"Chalk down, grazing stops":{"T":[0.003,0.004,0.006,0.008,0.01,0.012,0.014,0.017,0.02,0.023,0.026,0.03,0.035,0.04,0.045,0.051,0.058,0.065,0.073,0.081,0.091,0.101,0.112,0.124,0.137,0.15,0.165,0.18,0.197,0.214,0.232,0.251,0.271,0.291,0.311,0.332,0.354,0.375,0.395,0.415,0.435,0.454,0.473,0.491,0.509,0.527,0.543,0.56,0.576,0.591,0.606,0.62,0.634,0.648,0.661,0.674,0.686,0.697,0.709,0.72],"B":[0.143,0.19,0.245,0.308,0.378,0.443,0.5,0.55,0.593,0.63,0.662,0.689,0.712,0.732,0.749,0.763,0.774,0.784,0.791,0.797,0.801,0.804,0.806,0.807,0.806,0.804,0.8,0.794,0.788,0.781,0.774,0.766,0.757,0.748,0.738,0.728,0.718,0.707,0.696,0.685,0.675,0.664,0.653,0.643,0.633,0.623,0.613,0.603,0.593,0.583,0.573,0.562,0.551,0.54,0.527,0.515,0.502,0.489,0.475,0.462]},"Fen, cutting stops":{"T":[0.003,0.004,0.006,0.008,0.01,0.012,0.014,0.017,0.02,0.023,0.026,0.03,0.035,0.04,0.045,0.051,0.058,0.065,0.073,0.081,0.091,0.101,0.112,0.124,0.137,0.151,0.165,0.181,0.198,0.215,0.233,0.252,0.272,0.293,0.313,0.335,0.356,0.378,0.399,0.419,0.439,0.458,0.477,0.496,0.514,0.532,0.549,0.566,0.582,0.597,0.613,0.627,0.642,0.655,0.669,0.682,0.694,0.706,0.718,0.729],"B":[0.026,0.041,0.059,0.08,0.105,0.135,0.168,0.206,0.247,0.291,0.337,0.382,0.422,0.456,0.486,0.512,0.534,0.553,0.569,0.583,0.594,0.604,0.611,0.617,0.622,0.626,0.628,0.629,0.629,0.627,0.624,0.62,0.614,0.608,0.601,0.594,0.586,0.578,0.57,0.561,0.552,0.544,0.535,0.527,0.519,0.51,0.502,0.494,0.485,0.475,0.466,0.455,0.445,0.433,0.422,0.41,0.398,0.385,0.373,0.36]}},"inrun":{"Engine now (r 0.25 a night)":[0.983,0.971,0.961,0.954,0.948,0.944,0.941,0.938,0.936,0.935,0.934,0.933,0.932,0.932,0.931,0.931,0.931,0.93,0.93,0.93,0.93,0.93,0.93,0.93,0.914,0.9,0.887,0.874,0.862,0.852,0.841,0.832,0.851,0.867,0.88,0.891,0.899,0.906,0.911,0.915,0.918,0.921,0.923,0.924,0.925,0.926,0.927,0.928,0.928,0.929,0.929,0.929,0.929,0.929,0.929,0.929,0.914,0.9,0.886,0.874,0.862,0.851,0.841,0.832],"Year clock, no movement":[0.978,0.957,0.936,0.916,0.896,0.877,0.858,0.84,0.823,0.806,0.789,0.773,0.757,0.742,0.727,0.712,0.698,0.684,0.671,0.658,0.645,0.632,0.62,0.608,0.597,0.585,0.574,0.563,0.553,0.542,0.532,0.522,0.513,0.503,0.494,0.485,0.476,0.468,0.459,0.451,0.443,0.435,0.427,0.42,0.412,0.405,0.398,0.391,0.384,0.377,0.371,0.364,0.358,0.352,0.346,0.34,0.334,0.328,0.323,0.317,0.312,0.307,0.301,0.296],"Year clock, mixing 2 a year":[0.979,0.961,0.943,0.928,0.914,0.901,0.889,0.878,0.868,0.859,0.851,0.843,0.836,0.83,0.824,0.819,0.814,0.809,0.805,0.801,0.798,0.794,0.791,0.789,0.786,0.784,0.781,0.779,0.777,0.776,0.774,0.772,0.771,0.77,0.768,0.767,0.766,0.765,0.764,0.763,0.762,0.761,0.76,0.759,0.759,0.758,0.757,0.757,0.756,0.755,0.755,0.754,0.753,0.753,0.752,0.752,0.751,0.751,0.75,0.75,0.749,0.749,0.748,0.748],"Year clock, mixing 6 a year":[0.982,0.968,0.957,0.948,0.941,0.935,0.93,0.926,0.923,0.92,0.918,0.916,0.914,0.913,0.912,0.91,0.909,0.908,0.907,0.906,0.906,0.905,0.904,0.903,0.902,0.902,0.901,0.9,0.899,0.899,0.898,0.897,0.897,0.896,0.895,0.895,0.894,0.893,0.893,0.892,0.891,0.891,0.89,0.889,0.889,0.888,0.888,0.887,0.886,0.886,0.885,0.885,0.884,0.883,0.883,0.882,0.882,0.881,0.881,0.88,0.88,0.879,0.879,0.878]},"m3":{"X1 wolves, light hunting":{"deer":[7.63,8.0,8.32,8.62,8.86,9.07,9.24,9.37,9.47,9.55,9.63,9.67,9.7,9.72,9.71,9.7,9.69,9.7,9.7,9.72,9.72,9.69,9.66,9.63,9.58,9.51,9.46,9.41,9.38,9.38,9.34,9.31,9.31,9.31,9.28,9.25,9.21,9.19,9.18,9.17,9.2,9.21,9.19,9.17,9.16,9.12,9.1,9.08,9.04,9.04,9.01,8.99,8.95,8.95,8.92,8.93,8.95,8.95,8.92,8.89,8.87,8.86,8.87,8.88,8.89,8.88,8.88,8.9,8.92,8.91,8.89,8.89,8.89,8.88,8.87,8.87,8.9,8.92,8.91,8.89,8.86,8.84,8.84,8.83,8.84,8.82,8.84,8.83,8.84,8.85,8.87,8.88,8.92,8.96,9.01,9.05,9.08,9.13,9.16,9.18],"wood":[1702.8,1701.12,1698.3,1694.41,1689.71,1684.36,1678.51,1672.36,1666.03,1659.58,1653.04,1646.57,1640.22,1634.0,1628.03,1622.31,1616.83,1611.51,1606.37,1601.33,1596.44,1591.87,1587.59,1583.56,1579.9,1576.62,1573.66,1570.98,1568.52,1566.17,1564.05,1562.11,1560.24,1558.45,1556.85,1555.4,1554.16,1553.02,1551.96,1550.96,1549.91,1548.86,1547.92,1547.08,1546.31,1545.7,1545.21,1544.79,1544.52,1544.28,1544.15,1544.09,1544.14,1544.21,1544.36,1544.5,1544.53,1544.6,1544.74,1545.0,1545.31,1545.65,1545.94,1546.18,1546.36,1546.58,1546.8,1546.95,1547.01,1547.11,1547.29,1547.45,1547.59,1547.78,1547.98,1548.19,1548.3,1548.33,1548.39,1548.53,1548.77,1549.06,1549.33,1549.64,1549.91,1550.2,1550.45,1550.73,1550.95,1551.12,1551.23,1551.28,1551.19,1550.99,1550.59,1550.06,1549.45,1548.68,1547.83,1546.95],"stock":[3.92,3.12,4.65,2.22,3.67,2.96,2.39,3.65,3.11,2.67,1.17,2.65,2.32,2.04,3.61,3.28,2.99,1.4,1.36,0.56,0.63,2.1,2.0,1.9,4.11,6.02,5.63,5.26,4.93,2.72,5.32,4.95,2.59,2.54,5.3,4.91,7.35,4.83,4.53,4.26,1.84,1.96,4.89,4.6,4.33,7.22,6.67,6.19,8.73,6.0,8.69,8.11,10.12,7.65,9.95,7.38,4.54,7.79,10.01,11.39,10.8,10.24,7.73,7.39,7.0,9.65,9.03,6.15,5.84,8.8,10.73,8.22,7.71,10.14,9.51,8.92,5.99,5.71,8.76,10.78,12.03,11.44,9.15,11.24,8.85,11.08,8.6,10.93,8.38,7.97,7.54,7.11,4.01,3.99,1.55,1.75,2.15,0.87,1.09,1.46],"near":[7.37,7.51,7.63,7.75,7.84,7.93,8.0,8.05,8.1,8.14,8.19,8.2,8.22,8.23,8.22,8.21,8.2,8.2,8.21,8.22,8.23,8.2,8.18,8.16,8.12,8.06,8.02,7.98,7.95,7.95,7.91,7.89,7.89,7.88,7.85,7.83,7.79,7.78,7.77,7.76,7.78,7.79,7.77,7.75,7.75,7.72,7.7,7.68,7.65,7.65,7.63,7.61,7.58,7.58,7.56,7.56,7.58,7.57,7.55,7.53,7.51,7.5,7.51,7.52,7.53,7.52,7.52,7.53,7.55,7.54,7.53,7.53,7.54,7.53,7.52,7.52,7.54,7.56,7.55,7.54,7.52,7.51,7.51,7.5,7.5,7.5,7.5,7.5,7.51,7.52,7.53,7.54,7.57,7.6,7.64,7.68,7.71,7.75,7.78,7.8],"far":[7.63,8.03,8.37,8.68,8.93,9.15,9.33,9.46,9.57,9.66,9.75,9.79,9.81,9.84,9.82,9.81,9.8,9.81,9.82,9.84,9.85,9.82,9.78,9.75,9.69,9.62,9.56,9.52,9.49,9.48,9.45,9.42,9.42,9.43,9.39,9.37,9.32,9.31,9.3,9.3,9.33,9.35,9.32,9.31,9.3,9.26,9.23,9.21,9.17,9.17,9.14,9.12,9.08,9.08,9.06,9.06,9.1,9.09,9.06,9.02,9.0,8.99,9.01,9.02,9.04,9.03,9.02,9.05,9.07,9.06,9.04,9.04,9.05,9.03,9.02,9.02,9.05,9.08,9.07,9.04,9.0,8.98,8.99,8.98,8.99,8.98,8.99,8.98,9.0,9.01,9.03,9.05,9.1,9.13,9.2,9.25,9.27,9.33,9.36,9.37]},"X2b no wolves, no hunting":{"deer":[7.7,8.37,8.99,9.55,10.04,10.45,10.78,11.05,11.26,11.42,11.54,11.63,11.7,11.75,11.77,11.79,11.8,11.81,11.82,11.82,11.82,11.83,11.82,11.83,11.82,11.82,11.82,11.82,11.81,11.81,11.81,11.8,11.8,11.79,11.79,11.78,11.78,11.77,11.76,11.76,11.75,11.75,11.74,11.74,11.73,11.72,11.72,11.71,11.71,11.7,11.7,11.69,11.69,11.68,11.68,11.67,11.67,11.66,11.66,11.66,11.65,11.65,11.64,11.64,11.64,11.63,11.63,11.63,11.62,11.62,11.62,11.62,11.62,11.61,11.61,11.61,11.6,11.6,11.6,11.6,11.6,11.6,11.6,11.6,11.59,11.59,11.59,11.59,11.59,11.59,11.59,11.59,11.58,11.58,11.59,11.58,11.59,11.58,11.58,11.58],"wood":[1702.7,1699.68,1694.33,1686.96,1678.03,1669.0,1659.95,1650.91,1641.89,1632.92,1623.99,1615.13,1606.34,1597.61,1588.98,1580.44,1571.96,1563.58,1555.34,1547.2,1539.17,1531.24,1523.44,1515.75,1508.19,1500.76,1493.46,1486.33,1479.31,1472.5,1465.83,1459.33,1453.03,1446.9,1440.97,1435.19,1429.61,1424.21,1418.98,1413.95,1409.07,1404.41,1399.87,1395.56,1391.38,1387.42,1383.57,1379.91,1376.38,1373.04,1369.83,1366.77,1363.85,1361.07,1358.41,1355.87,1353.47,1351.17,1348.98,1346.9,1344.92,1343.04,1341.25,1339.56,1337.96,1336.43,1335.0,1333.62,1332.31,1331.08,1329.9,1328.79,1327.74,1326.75,1325.8,1324.92,1324.07,1323.27,1322.51,1321.78,1321.09,1320.44,1319.81,1319.23,1318.67,1318.14,1317.64,1317.17,1316.72,1316.29,1315.89,1315.5,1315.15,1314.8,1314.48,1314.18,1313.9,1313.61,1313.36,1313.11],"stock":[3.92,0.04,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"near":[7.72,8.39,9.02,9.58,10.07,10.48,10.81,11.07,11.27,11.43,11.55,11.64,11.7,11.74,11.78,11.8,11.81,11.81,11.81,11.82,11.82,11.81,11.82,11.84,11.82,11.81,11.81,11.81,11.82,11.82,11.8,11.8,11.81,11.77,11.8,11.75,11.8,11.74,11.77,11.74,11.75,11.73,11.74,11.71,11.73,11.71,11.73,11.71,11.7,11.7,11.71,11.68,11.67,11.68,11.68,11.67,11.65,11.66,11.64,11.68,11.64,11.66,11.64,11.65,11.62,11.65,11.65,11.63,11.63,11.63,11.62,11.62,11.61,11.61,11.6,11.61,11.6,11.61,11.62,11.61,11.6,11.6,11.6,11.59,11.61,11.6,11.6,11.6,11.6,11.6,11.6,11.6,11.58,11.59,11.58,11.59,11.59,11.59,11.57,11.58],"far":[7.63,8.28,8.88,9.42,9.89,10.29,10.61,10.86,11.06,11.22,11.34,11.43,11.5,11.55,11.57,11.6,11.6,11.62,11.61,11.61,11.63,11.62,11.62,11.62,11.61,11.61,11.61,11.61,11.6,11.59,11.6,11.6,11.59,11.59,11.57,11.56,11.57,11.56,11.54,11.55,11.55,11.53,11.53,11.52,11.52,11.51,11.51,11.49,11.51,11.48,11.49,11.48,11.48,11.47,11.46,11.46,11.45,11.45,11.43,11.45,11.43,11.44,11.43,11.43,11.42,11.43,11.41,11.42,11.4,11.41,11.4,11.4,11.4,11.4,11.4,11.39,11.39,11.38,11.39,11.39,11.39,11.39,11.37,11.38,11.37,11.38,11.37,11.37,11.37,11.38,11.36,11.37,11.37,11.38,11.36,11.38,11.36,11.37,11.36,11.36]},"X3 half the big wood felled in years 30-34":{"deer":[7.63,8.0,8.32,8.62,8.86,9.07,9.24,9.37,9.47,9.55,9.63,9.67,9.7,9.72,9.71,9.7,9.69,9.7,9.7,9.72,9.72,9.69,9.66,9.63,9.58,9.51,9.46,9.41,9.38,9.38,10.1,10.63,11.01,11.22,11.25,10.45,9.85,9.42,9.1,8.86,8.7,8.58,8.45,8.35,8.29,8.21,8.16,8.13,8.09,8.09,8.07,8.07,8.05,8.07,8.07,8.1,8.15,8.17,8.17,8.17,8.18,8.2,8.24,8.27,8.31,8.32,8.34,8.39,8.42,8.44,8.44,8.46,8.48,8.48,8.5,8.51,8.55,8.58,8.59,8.58,8.57,8.57,8.58,8.58,8.6,8.6,8.62,8.62,8.64,8.67,8.69,8.71,8.76,8.8,8.86,8.91,8.95,9.0,9.04,9.07],"wood":[1702.8,1701.12,1698.3,1694.41,1689.71,1684.36,1678.51,1672.36,1666.03,1659.58,1653.04,1646.57,1640.22,1634.0,1628.03,1622.31,1616.83,1611.51,1606.37,1601.33,1596.44,1591.87,1587.59,1583.56,1579.9,1576.62,1573.66,1570.98,1568.52,1566.17,1414.67,1281.92,1166.33,1065.77,978.88,995.08,1011.76,1028.55,1045.24,1061.7,1077.79,1093.46,1108.76,1123.64,1138.07,1152.09,1165.67,1178.82,1191.55,1203.83,1215.71,1227.19,1238.29,1249.0,1259.35,1269.32,1278.89,1288.14,1297.08,1305.75,1314.15,1322.27,1330.1,1337.65,1344.94,1352.0,1358.84,1365.44,1371.8,1377.99,1384.01,1389.85,1395.51,1401.02,1406.38,1411.59,1416.62,1421.49,1426.23,1430.86,1435.38,1439.79,1444.04,1448.18,1452.15,1456.0,1459.68,1463.24,1466.63,1469.85,1472.89,1475.76,1478.4,1480.82,1482.97,1484.9,1486.66,1488.19,1489.54,1490.79],"stock":[3.92,3.12,4.65,2.22,3.67,2.96,2.39,3.65,3.11,2.67,1.17,2.65,2.32,2.04,3.61,3.28,2.99,1.4,1.36,0.56,0.63,2.1,2.0,1.9,4.11,6.02,5.63,5.26,4.93,2.72,5.32,5.62,4.17,5.71,11.27,13.38,18.22,16.48,17.04,17.29,13.78,14.32,18.92,18.45,17.91,21.22,20.31,19.41,21.8,18.44,20.96,19.93,21.54,18.63,20.53,17.55,13.95,17.29,19.06,19.96,19.0,18.11,15.36,14.75,14.1,16.39,15.52,12.41,11.87,14.58,16.09,13.53,12.83,14.87,14.07,13.32,10.25,9.81,12.66,14.3,15.24,14.51,12.25,14.04,11.7,13.62,11.22,13.23,10.78,10.29,9.78,9.26,5.98,5.85,2.84,3.02,3.38,1.2,1.58,2.16],"near":[7.37,7.51,7.63,7.75,7.84,7.93,8.0,8.05,8.1,8.14,8.19,8.2,8.22,8.23,8.22,8.21,8.2,8.2,8.21,8.22,8.23,8.2,8.18,8.16,8.12,8.06,8.02,7.98,7.95,7.95,8.59,9.14,9.59,9.95,10.04,9.32,8.75,8.33,8.0,7.75,7.57,7.43,7.28,7.17,7.09,7.0,6.93,6.89,6.84,6.82,6.79,6.78,6.76,6.76,6.75,6.77,6.8,6.81,6.81,6.81,6.82,6.83,6.86,6.89,6.92,6.93,6.95,6.98,7.01,7.03,7.03,7.05,7.07,7.08,7.09,7.1,7.14,7.17,7.17,7.17,7.17,7.17,7.18,7.18,7.2,7.2,7.22,7.22,7.24,7.26,7.27,7.29,7.33,7.36,7.41,7.46,7.49,7.54,7.57,7.6],"far":[7.63,8.03,8.37,8.68,8.93,9.15,9.33,9.46,9.57,9.66,9.75,9.79,9.81,9.84,9.82,9.81,9.8,9.81,9.82,9.84,9.85,9.82,9.78,9.75,9.69,9.62,9.56,9.52,9.49,9.48,10.23,10.78,11.21,11.41,11.4,10.55,9.91,9.47,9.15,8.9,8.74,8.62,8.49,8.39,8.33,8.25,8.2,8.17,8.13,8.14,8.12,8.12,8.11,8.13,8.13,8.16,8.22,8.24,8.25,8.25,8.25,8.27,8.32,8.36,8.4,8.41,8.43,8.48,8.53,8.54,8.53,8.56,8.58,8.58,8.6,8.61,8.66,8.7,8.7,8.69,8.67,8.66,8.68,8.68,8.71,8.7,8.73,8.73,8.75,8.78,8.81,8.83,8.89,8.93,9.0,9.06,9.1,9.16,9.21,9.23]},"X4 open-access deer hunting":{"deer":[7.68,8.08,8.41,8.69,8.89,9.04,9.15,9.2,9.22,9.23,9.23,9.18,9.14,9.08,9.0,8.93,8.85,8.8,8.75,8.72,8.68,8.6,8.53,8.46,8.37,8.28,8.2,8.13,8.07,8.04,7.99,7.94,7.92,7.91,7.86,7.82,7.76,7.74,7.72,7.7,7.71,7.72,7.68,7.66,7.64,7.6,7.56,7.54,7.5,7.49,7.46,7.43,7.4,7.39,7.36,7.36,7.38,7.37,7.34,7.31,7.29,7.27,7.28,7.29,7.3,7.28,7.28,7.3,7.31,7.3,7.28,7.28,7.28,7.26,7.25,7.25,7.27,7.29,7.28,7.26,7.23,7.21,7.22,7.2,7.21,7.2,7.21,7.2,7.21,7.22,7.24,7.25,7.29,7.32,7.37,7.41,7.44,7.49,7.52,7.53],"wood":[1702.76,1700.84,1697.74,1693.65,1688.9,1683.71,1678.14,1672.33,1666.37,1660.34,1654.27,1648.29,1642.45,1636.77,1631.35,1626.19,1621.26,1616.51,1611.93,1607.47,1603.16,1599.15,1595.41,1591.91,1588.75,1585.96,1583.45,1581.2,1579.14,1577.19,1575.43,1573.85,1572.32,1570.85,1569.55,1568.4,1567.45,1566.58,1565.77,1565.03,1564.22,1563.4,1562.7,1562.08,1561.54,1561.15,1560.87,1560.67,1560.62,1560.59,1560.66,1560.81,1561.07,1561.34,1561.69,1562.02,1562.24,1562.49,1562.82,1563.25,1563.75,1564.27,1564.73,1565.14,1565.49,1565.88,1566.26,1566.56,1566.79,1567.04,1567.37,1567.69,1567.97,1568.31,1568.66,1569.0,1569.24,1569.4,1569.58,1569.84,1570.19,1570.6,1570.98,1571.4,1571.77,1572.17,1572.52,1572.89,1573.2,1573.45,1573.63,1573.75,1573.73,1573.58,1573.23,1572.74,1572.16,1571.42,1570.6,1569.74],"stock":[3.92,3.03,4.47,2.1,3.53,2.9,2.42,3.83,3.4,3.08,1.43,3.38,3.16,2.98,5.0,4.77,4.58,2.57,2.61,0.87,1.09,4.1,4.03,3.97,7.01,9.36,9.01,8.66,8.34,5.55,8.97,8.57,5.55,5.54,9.18,8.74,11.66,8.7,8.36,8.04,4.7,4.93,8.97,8.61,8.28,11.87,11.26,10.69,13.69,10.49,13.7,13.03,15.39,12.53,15.22,12.23,8.7,12.77,15.37,16.99,16.3,15.65,12.71,12.32,11.89,15.03,14.32,10.88,10.53,14.11,16.36,13.44,12.84,15.68,14.94,14.24,10.72,10.4,14.08,16.4,17.84,17.13,14.46,16.9,14.12,16.7,13.83,16.52,13.56,13.09,12.59,12.07,8.28,8.25,4.66,5.02,5.63,2.6,3.41,4.29],"near":[7.63,7.91,8.03,8.05,7.94,7.76,7.51,7.21,6.89,6.56,6.24,5.91,5.58,5.27,4.96,4.67,4.4,4.15,3.92,3.72,3.52,3.32,3.14,2.97,2.81,2.65,2.5,2.37,2.25,2.15,2.05,1.96,1.88,1.81,1.73,1.66,1.6,1.54,1.49,1.44,1.4,1.37,1.32,1.29,1.25,1.22,1.18,1.16,1.12,1.1,1.07,1.05,1.02,1.01,0.98,0.97,0.96,0.94,0.92,0.91,0.89,0.88,0.87,0.86,0.85,0.84,0.83,0.83,0.82,0.81,0.8,0.8,0.79,0.78,0.78,0.77,0.77,0.76,0.76,0.75,0.74,0.74,0.73,0.73,0.72,0.72,0.72,0.71,0.71,0.71,0.71,0.71,0.71,0.71,0.72,0.72,0.72,0.73,0.73,0.73],"far":[7.63,8.03,8.37,8.69,8.94,9.15,9.33,9.46,9.57,9.65,9.74,9.77,9.8,9.82,9.8,9.79,9.77,9.78,9.79,9.81,9.82,9.78,9.74,9.71,9.65,9.57,9.51,9.46,9.43,9.43,9.39,9.36,9.36,9.36,9.33,9.3,9.25,9.24,9.23,9.23,9.26,9.28,9.25,9.24,9.22,9.18,9.15,9.13,9.09,9.08,9.05,9.03,8.99,8.99,8.96,8.97,9.0,8.99,8.96,8.92,8.9,8.88,8.9,8.92,8.93,8.92,8.91,8.94,8.96,8.95,8.92,8.92,8.93,8.91,8.9,8.9,8.93,8.96,8.94,8.91,8.88,8.86,8.86,8.85,8.86,8.84,8.86,8.85,8.87,8.88,8.9,8.92,8.97,9.01,9.08,9.13,9.16,9.22,9.25,9.27]}}};
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const NS = "http://www.w3.org/2000/svg";
+function el(tag, attrs, parent) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
+function txt(parent, x, y, s, attrs = {}) { const t = el("text", Object.assign({ x, y }, attrs), parent); t.textContent = s; return t; }
+function niceMax(v) { const p = Math.pow(10, Math.floor(Math.log10(v))); for (const m of [1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10]) if (m * p >= v) return m * p; return 10 * p; }
+function ticks(max, n = 4) { const s = max / n; return Array.from({ length: n + 1 }, (_, i) => +(i * s).toFixed(6)); }
+function fmt(v) { return v >= 100 ? Math.round(v).toString() : v >= 10 ? v.toFixed(0) : v >= 1 ? (+v.toFixed(1)).toString() : (+v.toFixed(2)).toString(); }
+
+function lineChart(svg, series, opt) {
+  const W = +svg.viewBox.baseVal.width, H = +svg.viewBox.baseVal.height;
+  const m = { l: 40, r: 12, t: 10, b: 26 };
+  const n = Math.max(...series.map(s => s.y.length));
+  const ymax = opt.ymax || niceMax(Math.max(...series.flatMap(s => s.y)) * 1.05);
+  const X = i => m.l + (W - m.l - m.r) * i / (n - 1), Y = v => H - m.b - (H - m.t - m.b) * v / ymax;
+  const g = el("g", {}, svg);
+  if (opt.shade) el("rect", { x: X(opt.shade[0]), y: m.t, width: X(opt.shade[1]) - X(opt.shade[0]), height: H - m.t - m.b, fill: css("--ochre"), "fill-opacity": 0.14 }, g);
+  for (const t of ticks(ymax)) { el("line", { x1: m.l, x2: W - m.r, y1: Y(t), y2: Y(t), stroke: css("--rule"), "stroke-width": 1 }, g); txt(g, m.l - 6, Y(t) + 3, fmt(t), { "text-anchor": "end" }); }
+  const xt = opt.xticks || [0, Math.round((n - 1) / 2), n - 1];
+  for (const i of xt) txt(g, X(i), H - m.b + 15, (opt.xlabel ? opt.xlabel(i) : i), { "text-anchor": "middle" });
+  if (opt.xname) txt(g, W - m.r, H - 2, opt.xname, { "text-anchor": "end" });
+  for (const s of series) {
+    el("polyline", { points: s.y.map((v, i) => `${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(" "), fill: "none", stroke: s.color, "stroke-width": s.w || 2, "stroke-dasharray": s.dash || "", "stroke-linejoin": "round" }, g);
+    const lv = s.y[s.y.length - 1]; el("circle", { cx: X(s.y.length - 1), cy: Y(lv), r: 2.6, fill: s.color }, g);
+  }
+}
+function legend(id, series) { const d = document.getElementById(id); d.className = "legend"; d.innerHTML = series.map(s => `<span><i style="background:${s.color}${s.dash ? ";height:0;border-top:2px dashed " + s.color : ""}"></i>${s.name}</span>`).join(""); }
+
+function draw() {
+  for (const n of ["seasons", "succ", "m3deer", "m3wood", "m3stock", "m3halo", "inrun", "m5", "m7"]) { const e = document.getElementById(n); if (e) e.innerHTML = ""; }
+  // seasons: small multiples
+  const S = [["River country", [0.55, 0.88, 1.87, 0.26], 4.0], ["Fen", [2.47, 5.24, 11.79, 3.99], 5.0], ["Wildwood", [0.36, 6.72, 72.95, 3.55], 4.8], ["Scarp and vale", [0.57, 0.68, 1.73, 0.22], 4.0]];
+  const cols = [css("--spring"), css("--summer"), css("--autumn"), css("--winter")], names = ["spr", "sum", "aut", "win"];
+  const host = document.getElementById("seasons");
+  for (const [name, v, eng] of S) {
+    const wrap = document.createElement("div"); wrap.style.minWidth = "0";
+    const h = document.createElement("h3"); h.textContent = name; wrap.appendChild(h);
+    const svg = el("svg", { viewBox: "0 0 220 150", role: "img", "aria-label": name + " wild food by season" }); wrap.appendChild(svg); host.appendChild(wrap);
+    const m = { l: 30, r: 8, t: 10, b: 22 }, W = 220, H = 150;
+    const ymax = niceMax(Math.max(...v, eng) * 1.08), Y = x => H - m.b - (H - m.t - m.b) * x / ymax;
+    for (const t of ticks(ymax, 3)) { el("line", { x1: m.l, x2: W - m.r, y1: Y(t), y2: Y(t), stroke: css("--rule") }, svg); txt(svg, m.l - 5, Y(t) + 3, fmt(t) + "×", { "text-anchor": "end" }); }
+    const bw = (W - m.l - m.r) / 4;
+    v.forEach((x, i) => { el("rect", { x: m.l + i * bw + 5, y: Y(x), width: bw - 10, height: Y(0) - Y(x), fill: cols[i] }, svg); txt(svg, m.l + i * bw + bw / 2, Y(x) - 3, fmt(x), { "text-anchor": "middle", class: "lbl" }); txt(svg, m.l + i * bw + bw / 2, H - 6, names[i], { "text-anchor": "middle" }); });
+    el("line", { x1: m.l, x2: W - m.r, y1: Y(eng), y2: Y(eng), stroke: css("--ink"), "stroke-dasharray": "4 3", "stroke-width": 1.5 }, svg);
+    el("line", { x1: m.l, x2: W - m.r, y1: Y(1), y2: Y(1), stroke: css("--muted"), "stroke-width": 0.8 }, svg);
+  }
+  // succession
+  const sc = [css("--moss"), css("--muted"), css("--ochre"), css("--summer"), css("--winter")];
+  const ss = Object.entries(DATA.succession).map(([k, v], i) => ({ name: k, y: v.T, color: sc[i] }));
+  lineChart(document.getElementById("succ"), ss, { ymax: 1, xticks: [0, 10, 20, 30, 40, 50, 59], xlabel: i => i + 1, xname: "years" });
+  legend("succ-legend", ss);
+  // m3
+  const M = DATA.m3;
+  const A = "X1 wolves, light hunting", Bn = "X2b no wolves, no hunting", C3 = "X3 half the big wood felled in years 30-34", D4 = "X4 open-access deer hunting";
+  const s1 = [{ name: "wolves", y: M[A].deer, color: css("--moss") }, { name: "no wolves", y: M[Bn].deer, color: css("--bad") }];
+  lineChart(document.getElementById("m3deer"), s1, { xticks: [0, 50, 99], xlabel: i => i + 1, xname: "years" }); legend("m3deer-l", s1);
+  const s2 = [{ name: "wolves", y: M[A].wood, color: css("--moss") }, { name: "no wolves", y: M[Bn].wood, color: css("--bad") }];
+  lineChart(document.getElementById("m3wood"), s2, { ymax: 2000, xticks: [0, 50, 99], xlabel: i => i + 1, xname: "years" }); legend("m3wood-l", s2);
+  const s3 = [{ name: "felled", y: M[C3].stock, color: css("--ochre") }, { name: "not felled", y: M[A].stock, color: css("--muted") }];
+  lineChart(document.getElementById("m3stock"), s3, { shade: [29, 34], xticks: [0, 50, 99], xlabel: i => i + 1, xname: "years" }); legend("m3stock-l", s3);
+  const s4 = [{ name: "beyond 15 km", y: M[D4].far, color: css("--moss") }, { name: "within 8 km", y: M[D4].near, color: css("--bad") }];
+  lineChart(document.getElementById("m3halo"), s4, { xticks: [0, 50, 99], xlabel: i => i + 1, xname: "years" }); legend("m3halo-l", s4);
+  // in-run
+  const ic = [css("--muted"), css("--bad"), css("--ochre"), css("--moss")];
+  const si = Object.entries(DATA.inrun).map(([k, v], i) => ({ name: k, y: v, color: ic[i], dash: i === 0 ? "5 3" : "" }));
+  lineChart(document.getElementById("inrun"), si, { ymax: 1, xticks: [0, 15, 31, 47, 63], xlabel: i => i + 1, xname: "days" }); legend("inrun-l", si);
+  // m5 bars
+  bars(document.getElementById("m5"), ["goods in a region", "specialties", "dependence links"], [[5, 16], [1, 2], [3, 5]], [css("--muted"), css("--moss")], false);
+  bars(document.getElementById("m7"), ["grazing", "eels", "fowl", "rushes", "peat", "hay"], [[31.5, 69.3], [588, 48.3], [192, 12.4], [733, 28.4], [375, 139], [15.1, 5.4]], [css("--muted"), css("--ochre")], true);
+}
+function bars(svg, labels, vals, colors, log) {
+  const W = 320, H = 210, m = { l: 34, r: 8, t: 14, b: 34 };
+  const vmax = Math.max(...vals.flat());
+  const ymax = log ? Math.pow(10, Math.ceil(Math.log10(vmax))) : niceMax(vmax * 1.1);
+  const ymin = log ? 1 : 0;
+  const Y = v => log ? H - m.b - (H - m.t - m.b) * (Math.log10(Math.max(v, 1)) - 0) / Math.log10(ymax) : H - m.b - (H - m.t - m.b) * v / ymax;
+  const tk = log ? Array.from({ length: Math.log10(ymax) + 1 }, (_, i) => Math.pow(10, i)) : ticks(ymax, 4);
+  for (const t of tk) { el("line", { x1: m.l, x2: W - m.r, y1: Y(t), y2: Y(t), stroke: css("--rule") }, svg); txt(svg, m.l - 5, Y(t) + 3, fmt(t), { "text-anchor": "end" }); }
+  const gw = (W - m.l - m.r) / labels.length, bw = (gw - 10) / 2;
+  labels.forEach((lab, i) => {
+    vals[i].forEach((v, j) => { const x = m.l + i * gw + 5 + j * bw; el("rect", { x, y: Y(v), width: bw - 2, height: Y(ymin) - Y(v), fill: colors[j] }, svg); txt(svg, x + (bw - 2) / 2, Y(v) - 3, fmt(v), { "text-anchor": "middle", class: "lbl" }); });
+    const words = lab.split(" "); const half = Math.ceil(words.length / 2);
+    txt(svg, m.l + i * gw + gw / 2, H - m.b + 14, words.slice(0, words.length > 2 ? half : words.length).join(" "), { "text-anchor": "middle" });
+    if (words.length > 2) txt(svg, m.l + i * gw + gw / 2, H - m.b + 26, words.slice(half).join(" "), { "text-anchor": "middle" });
+  });
+}
+const LOOPS = [
+  ["Grazing holds grassland; stop and scrub comes; heavy grazing turns heath to grass", "downland, commons", "G3 G5", "years to decades", "M2 chalk case; M1 heath knife-edge"],
+  ["The fold moves fertility from down to arable (sheep-corn)", "Wessex chalk", "G1 G6", "years", "M2 dung balance"],
+  ["Hay is the winter's limit; floodplain meadow is scarce", "Domesday meadow values", "G1 G4", "seasons, years", "M5: 62% lack hay"],
+  ["Mast, then a boar boom, then crops damaged in the bust year after", "European boar records", "G3 G5", "years", "M3 damage by mast year"],
+  ["Wolves, deer and the wood's regeneration", "Białowieża; deer thresholds", "G3 G5", "decades", "M3 wood −6% vs −20%"],
+  ["Felling, then wolves at the village's herds", "Zach's example", "G5 G1", "years", "M3: ×4 to 5 for a decade"],
+  ["Hunting halos and refuges; rights decide who takes", "forest law, poaching", "G1 G5", "days to years", "M3 open access; M3b"],
+  ["The fen's water: reed, eels and fowl against drained grazing", "the 17th-century Fens", "G1 G5 G6", "years", "M7 drainage"],
+  ["Heath kept by grazing, burning and cutting bracken and gorse", "lowland heath history", "G3 G6", "years to decades", "M7 heath; M2 heath"],
+  ["Coppice regrowth feeds deer; hurdles from its own rods keep them out", "coppice history", "G6 G3", "years", "M2 deer thresholds"],
+  ["The autumn pulse, the store, and the spring gap", "foraging ecology", "G1 G4 G2", "seasons", "M4; M6 periodic rule"],
+  ["Old house sites read in nettles and elder", "archaeology", "G2", "years to generations", "M7 abandonment"],
+  ["The river is shared: a weir downstream starves the run above", "weirs, fish rights", "G5", "seasons", "water proposal"],
+  ["Fuel substitutes where wood is short: peat, furze, dung", "upland and fen fuel", "G1 G6", "years", "M5: wood lacked by 40 to 48%"],
+  ["Bees follow flowers: heather, lime and clover honey; wax", "medieval honey and wax", "G6", "seasons", "not modelled"],
+  ["Rats follow stores; cats and staddle stones answer", "stored-grain losses", "G4 G6", "seasons", "not modelled"]];
+const SYS = [
+  ["River country", "rich grassland, rushy hollows, oak-ash and wet woods, scarce meadow", "lean winter and spring; a supplement", "grain; hay where it has meadow; timber", "salt; often hay and wood", "meadow and wood rights; boar in the crops"],
+  ["Fen", "reed, sedge, meadowsweet; carr at the edges", "rich all year, best in the lean season", "smoked eels, fowl and down, reed thatch, peat, rushes", "timber, firewood, grain", "draining: grazing against fowling, eels and reed"],
+  ["Wildwood frontier", "oak, beech, hazel; wild garlic and bluebell floors", "feast in autumn, famine in spring", "venison, nuts, pannage, bark, honey and wax, timber", "grain, grazing, salt", "wolves; clearing; who owns the forest"],
+  ["Sand country and heath", "heather against acid grass; gorse, bracken, birch and pine", "lean", "furze, bracken litter", "hay, fertility", "burning and cutting rights; bracken creep"],
+  ["Scarp and vale", "chalk turf, beech hangers, clay vale grassland", "lean", "the fold's dung, lime, flint", "wood on the down; water on the top", "the fold; scrub when grazing stops"],
+  ["Upland and moor", "heather moor, blanket bog, hill pasture, valley oak", "lean", "wool, peat, hill grazing", "grain, hay", "burning; overgrazing to grass; peat cutting"],
+  ["Coast and estuary", "saltmarsh, dunes", "shellfish in spring, fowl in winter", "salt, shellfish, samphire", "timber; sometimes grain", "salt pans; the shore's rights"]];
+const HYP = [
+  ["H1", "Plants placed by conditions reproduce the generator's labels and add variety within them", "ok", "69% settled, 64% natural; 14 to 38% mixes"],
+  ["H2", "About eight rates reproduce real succession timescales", "part", "5 of 7 within or near target; seed limitation too weak"],
+  ["H3", "Succession matters within LLM runs", "no", "300 to 1,800 days; only its fast parts do"],
+  ["H4", "Wolves, deer and woods form a cascade that matters", "ok", "at decades and modest; threshold-sensitive"],
+  ["H5", "Felling raises wolf attacks on stock", "ok", "×4 to 5 for a decade"],
+  ["H6", "Open-access hunting empties the woods", "ok", "locally: a halo; the regional catch holds"],
+  ["H7", "A seasonal wild year makes storage matter", "ok", "lean seasons 0.25 to 0.55×; data only via the periodic rule"],
+  ["H8", "Ecological variety makes villages depend on each other", "part", "goods ×3, links +2; scarce needs carry it"],
+  ["H9", "The engine's wild food is far too generous", "part", "forage 2 to 4× and flat; game about 25×"],
+  ["H10", "Management changes make winners and losers", "ok", "fen drainage, heath lapse, abandonment"]];
+function tables() {
+  const lb = document.querySelector("#loops tbody");
+  lb.innerHTML = LOOPS.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2].split(" ").map(g => `<span class="chip${g === "G1" ? " g1" : ""}">${g}</span>`).join("")}</td><td class="clock">${r[3]}</td><td class="small">${r[4]}</td></tr>`).join("");
+  document.querySelector("#systems tbody").innerHTML = SYS.map(r => `<tr><td><b>${r[0]}</b></td>${r.slice(1).map(c => `<td>${c}</td>`).join("")}</tr>`).join("");
+  const word = { ok: "supported", part: "partly", no: "rejected" };
+  document.querySelector("#hyp tbody").innerHTML = HYP.map(r => `<tr><td class="mono">${r[0]}</td><td>${r[1]}</td><td><span class="v ${r[2]}">${word[r[2]]}</span> <span class="small">${r[3]}</span></td></tr>`).join("");
+}
+tables(); draw();
+const mq = window.matchMedia("(prefers-color-scheme: dark)"); if (mq.addEventListener) mq.addEventListener("change", draw);
+new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+</script>

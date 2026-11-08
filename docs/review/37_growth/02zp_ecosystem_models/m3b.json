@@ -1,0 +1,62 @@
+{
+ "take 0.05/day | engine": {
+  "S_day32": 0.96,
+  "S_day64": 0.96,
+  "taken": 3.1
+ },
+ "take 0.05/day | year": {
+  "S_day32": 0.85,
+  "S_day64": 0.75,
+  "taken": 2.8
+ },
+ "take 0.05/day | year imm 2.0": {
+  "S_day32": 0.93,
+  "S_day64": 0.92,
+  "taken": 3.0
+ },
+ "take 0.05/day | year imm 6.0": {
+  "S_day32": 0.97,
+  "S_day64": 0.97,
+  "taken": 3.1
+ },
+ "take 0.1/day | engine": {
+  "S_day32": 0.91,
+  "S_day64": 0.91,
+  "taken": 6.1
+ },
+ "take 0.1/day | year": {
+  "S_day32": 0.73,
+  "S_day64": 0.56,
+  "taken": 4.8
+ },
+ "take 0.1/day | year imm 2.0": {
+  "S_day32": 0.88,
+  "S_day64": 0.86,
+  "taken": 5.7
+ },
+ "take 0.1/day | year imm 6.0": {
+  "S_day32": 0.95,
+  "S_day64": 0.94,
+  "taken": 6.1
+ },
+ "take 0.2/day | engine": {
+  "S_day32": 0.83,
+  "S_day64": 0.83,
+  "taken": 11.7
+ },
+ "take 0.2/day | year": {
+  "S_day32": 0.52,
+  "S_day64": 0.3,
+  "taken": 7.3
+ },
+ "take 0.2/day | year imm 2.0": {
+  "S_day32": 0.77,
+  "S_day64": 0.75,
+  "taken": 10.2
+ },
+ "take 0.2/day | year imm 6.0": {
+  "S_day32": 0.9,
+  "S_day64": 0.88,
+  "taken": 11.6
+ }
+}
