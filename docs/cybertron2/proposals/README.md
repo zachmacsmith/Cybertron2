@@ -130,7 +130,7 @@ Rebuilt from the files on 5 Nov (status and owner as each file states them; 37.2
 | [engine_overhaul.md](engine_overhaul.md) | The engine overhaul: the process model, its calibration, and the benched systems it makes cheap | 37.4 | accepted: D4-103 (7 Nov: the phases below; levels of fire, water and shelter moved after the larger experiment) |
 | [water_and_preservation.md](water_and_preservation.md) | water and wetland life, fishing, preservation, and boats | 37.2 | discussion (4-5 Nov conversation with Zach; written up 7 Nov). Nothing decided, nothing to build. |
 | [living_populations.md](living_populations.md) | living populations on the land (a generalised ecology layer) | 37.2 | discussion (8 Nov). Nothing decided, nothing to build. |
-| [wildlife.md](wildlife.md) | the first wild kinds (what lives on the land, what each is for) | 37.2 | partly accepted: D2-192 to D2-195 (8 Nov; spec/environment/wildlife.md). Not built. Still open: hounds and hawks (question 5). |
+| [wildlife.md](wildlife.md) | the first wild kinds (what lives on the land, what each is for) | 37.2 | partly accepted: D2-192 to D2-196 (8 Nov; spec/environment/wildlife.md). Not built. ... |
 
 ## Log of ideas and their outcomes
 
@@ -378,3 +378,4 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 8 Nov | living populations on the land (a generalised ecology layer) | discussion (8 Nov). Nothing decided, nothing to build. | [living_populations.md](living_populations.md) |
 | 8 Nov | the first wild kinds (what lives on the land, what each is for) | discussion (8 Nov). Nothing decided, nothing to build. | [wildlife.md](wildlife.md) |
 | 8 Nov | The first wild kinds: four waves, danger to the hunter, rights by law, legendary individuals | accepted in part: D2-192 to D2-195 | [wildlife.md](wildlife.md) |
+| 8 Nov | Hounds in wave 2, hawks in wave 3; other kinds and niches; the general mechanisms | accepted in part: D2-196 | [wildlife.md](wildlife.md) |

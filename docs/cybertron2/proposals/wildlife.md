@@ -1,6 +1,6 @@
 # Proposal: the first wild kinds (what lives on the land, what each is for)
 
-**Status:** partly accepted: D2-192 to D2-195 (8 Nov; spec/environment/wildlife.md). Not built. Still open: hounds and hawks (question 5). **Owner:** 37.2 (the kinds, their numbers and their goods), with
+**Status:** partly accepted: D2-192 to D2-196 (8 Nov; spec/environment/wildlife.md). Not built. §11 (other kinds and niches) and §12 (the general mechanisms) are discussion. **Owner:** 37.2 (the kinds, their numbers and their goods), with
 37.4 (the engine). **Affects:** data (a KINDS table; new goods and techniques, as a `wildlife` pack, D4-104);
 spec/environment/resources.md, spec/economy/goods.md and production.md; landgen/ecology.py (habitats and starting populations);
 proposals/living_populations.md (the mechanism this content runs on).
@@ -215,6 +215,82 @@ would be trade goods only, which agents may not value.
 | wildfowl | decoys held as rights; seasons | |
 | bees | a hollow tree marked as someone's | do claims on wild things appear? |
 
+## 11. Other kinds and niches considered (8 Nov)
+
+Zach: "Are there any others we would want to consider? Any other needs or niches in the world we could fill?" Each candidate below
+fills a niche the world lacks. Those marked **new purpose** add something the 17 kinds do not.
+
+| Candidate | Niche it fills | Why it is interesting | When |
+|---|---|---|---|
+| **Wild plants as kinds:** hazel nuts, berries, crab apples and sloes, mushrooms (some poisonous), herbs | foraging is one generic stock today | **new purpose: knowledge as safety.** A wrong mushroom harms, so who knows what is worth something. Seasons: nuts and fungi in autumn, berries in summer. | with wave 1 or 2 |
+| **Medicinal herbs** | no healing exists | the healer's materials, when disease comes (Q-16) | with disease |
+| **Crows and rooks on sown fields** | children have little work | **new purpose: children's work.** Bird-scaring was a child's job. A field watched loses less seed. | with wave 1 |
+| **Mosquitoes and the fen ague** | the fen is rich but has no cost | **new purpose: a place that feeds but sickens.** Malaria (ague) was real in the English fens. | with disease |
+| **Ticks** | deer bring a cost to people | a disease carrier from wild beasts | with disease |
+| **Mast** (acorns, beech nuts) as a stock | boar and pigs need it; mast years swing | pannage: the right to turn pigs into a wood (D2-76's mast eras) | with boar (wave 2) and pigs (L-36) |
+| **Seals** | the coast has no large game | meat, oil and skins from the shore | with the coast |
+| **Seabirds and their eggs** | the coast in spring | **new purpose: dangerous gathering:** climbing cliffs for eggs | with the coast |
+| **A stranded whale** | a windfall | **a rare event worth a fight:** meat and oil for a whole village, and the Crown's claim on "royal fish" | an incident, with the coast |
+| **Lampreys, crayfish** | river variety | a delicacy (lampreys were royal fare) | later |
+| **Wild materials:** withies and willow, rushes, bracken, heather, gorse | building, bedding, light and oven fuel come only from trees and straw | baskets and traps (withies); bedding (bracken); thatch (heather); gorse burns hot (ovens) | with the water proposal's reeds and peat |
+| **Oak galls** | writing has no ink | ink, for documents | with documents |
+
+**A chain worth noting: writing is made from wild things.**
+- parchment from hides (calf or deer);
+- quills from goose feathers;
+- ink from oak galls;
+- seals from beeswax.
+
+So the information economy (documents, letters, records) would depend on hunters, fowlers and honey-gatherers. That is a dependence
+the design guide likes, and a reason furs and feathers are not only trade goods.
+
+**Needs the world has no system for, and which wildlife would supply:**
+- **clothing and warmth:** furs, leather (L-14, parked);
+- **light:** tallow from fat, rushlights, wax candles (no light need exists);
+- **health:** herbs (Q-16);
+- **writing materials:** as above.
+
+Each waits for its need to exist; wildlife then supplies it without a mechanism of its own.
+
+**Domestic kin of wild kinds** (L-36):
+- dogs (hounds, watch and herd dogs, D2-196);
+- cats against rats;
+- poultry (eggs; foxes take them);
+- pigs on mast;
+- sheep (wool; foxes and wolves take lambs).
+
+## 12. Does this all work as data, or need one-off code?
+
+Almost all of it is data, on seven general mechanisms. Each mechanism serves many kinds; no kind needs code of its own. Most are
+already in D4-103's list of mechanisms to design in (process_model.md):
+
+| Mechanism | What it carries | Status |
+|---|---|---|
+| **1. The population field**, the movement rule and observation | where every kind lives and moves; resident ranges, seasons, migrations; the collapse | proposed (living_populations.md) |
+| **2. Diet**, between populations and stocks | predators and prey; grazers and young growth; pests on crops and stores; mast; otters at weirs | proposed (living_populations.md, "eat"); D4-103 mechanism 3 ("stocks that act on each other") |
+| **3. Acts as processes, with yields as distributions** | every technique and its skill; gear multipliers; the wrong mushroom as an outcome that harms; danger as a wound or death outcome (D2-193) | built in part (D4-103 parts 1 and 2; mechanism 7: hazards as distributions) |
+| **4. Work by several at once** | boar hunts, drives, weirs, a whale on the shore | designed (D4-103 mechanism 1), not built |
+| **5. Trained and led beasts as tools** | hounds, hawks, ferrets; like the pack ox they go with a person and multiply some techniques; their needs | led beasts exist (D4-58); beasts' needs designed (D4-103 mechanism 8); "a beast as a tool" is the general step |
+| **6. Presence that deters** | a watch, a scarecrow, a child bird-scaring, a fence, dogs: people's presence lowers a kind's habitat score or its take on a place | new, general: one term in the movement rule's habitat score |
+| **7. Land changed by animals and people** | beaver dams making ponds; deer stopping coppice; felling moving the animals | designed (D4-103 mechanism 5) |
+
+**What stays a row, not code:**
+- every kind (the KINDS table);
+- every good (ITEMS);
+- every technique (TECHNIQUES, with skill and gear);
+- rights (claims, D2-194);
+- signs (the sign rules);
+- rare events such as the whale (the scheduler's incidents, when built);
+- legendary individuals (individuals on demand);
+- seasons (clocks);
+- packs to switch any of it on or off (D4-104).
+
+**Where one-off code could creep in, and the general form to use instead:**
+- **A "wolf raid" handler.** Use the diet term plus the movement rule, with incidents raised from what happened, not scripted.
+- **A beaver-dam special case.** Use land change by an act or a population's effect on a patch.
+- **Per-kind hunting code.** Use techniques with yield distributions and hazards.
+- **Disease from fens.** Use hazards that read a place's state, when disease is designed.
+
 ## Cautions
 
 - **Seventeen kinds is a catalogue, not a first build.** Wave 1 has seven, and only four of them are taken in new ways.
@@ -229,7 +305,8 @@ would be trade goods only, which agents may not value.
 2. ~~Danger~~ Decided: D2-193.
 3. ~~Royal kinds and rights~~ Decided: D2-194.
 4. ~~Legendary individuals~~ Decided: D2-195.
-5. Hounds and hawks as trained beasts: in wave 2 with the wolves, or with livestock kinds (L-36)?
+5. ~~Hounds and hawks~~ Decided: D2-196 (hounds in wave 2 with the wolves; hawks in wave 3 with the falcon).
+6. Which of §11's candidates to add, and when? Wild plants as kinds (knowledge as safety) and bird-scaring (children's work) fit wave 1.
 
 ## History
 
@@ -238,6 +315,9 @@ would be trade goods only, which agents may not value.
   proposed 17 kinds in four waves.
 - 8 Nov: Zach: "Yes to all" to questions 1 to 4: decided as D2-192 to D2-195 and written into spec/environment/wildlife.md. Question 5
   (hounds and hawks) asked again with what hounds do.
+- 8 Nov: Zach: "Yes" to hounds in wave 2 and hawks in wave 3 (D2-196). Then: "Are there any others ... Any other needs or niches ...
+  would all of these work in the engine as data ... rather than one off fixes?" Added §11 (candidates and niches) and §12 (seven
+  general mechanisms; none per kind).
 
 ## Sources
 

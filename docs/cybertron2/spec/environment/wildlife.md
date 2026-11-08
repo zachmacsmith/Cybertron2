@@ -12,6 +12,7 @@ is, these rules wait for it.
 - D2-193: dangerous kinds can wound or kill the hunter.
 - D2-194: rights in wild kinds by law at a world's start; taking against them is poaching.
 - D2-195: legendary individuals, rare and named.
+- D2-196: hounds in wave 2, hawks in wave 3.
 
 ## Mechanics
 
@@ -33,13 +34,16 @@ is, these rules wait for it.
 - **Rights** (D2-194): a world file may give at its start a right in a wild kind or its place (deer and their cover in a wood,
   swans, a fishery or a weir on a stretch of river) to a lord, a household or a village, as a claim (world/holding.md). Taking
   against the right is poaching: possible, and seen by the noticing rule like any other taking.
+- **Hounds and hawks** (D2-196): trained beasts held by a household and led along. Hounds come in wave 2. A hound widens the ground
+  over which a hunt finds its kind, holds dangerous game at bay (lowering D2-193's danger), courses hares and deer, and guards a
+  house or a herd. It eats every day, is bred and trained (a skill), and can be killed by boar or wolves. Hawks come in wave 3: a
+  falcon taken young and trained by one person over months, which takes wildfowl and hares for its keeper.
 - **Legendary individuals** (D2-195): seldom, a kind present in a world has one named individual (the white hart, the great boar, the
   old dog-wolf), met and remembered as an individual on demand.
 
 ## Open
 
 - The mechanism (proposals/living_populations.md).
-- Hounds and hawks: with the wolves in wave 2, or with livestock kinds (L-36).
 - Every number (densities, group sizes, skill effects, danger chances): calibrate.
 
-*Current as of 8 Nov 2026: D2-192 to D2-195.*
+*Current as of 8 Nov 2026: D2-192 to D2-196.*
