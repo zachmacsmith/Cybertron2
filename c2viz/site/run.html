@@ -208,40 +208,47 @@ document.addEventListener("keydown", (e) => { if (e.key === "ArrowRight") setDay
   else if (e.key === "+" || e.key === "=" || e.key === "-") { const k = S.node ? "zoom" : "zoomW", z0 = S[k], cx = (map.scrollLeft + map.clientWidth / 2) / z0, cy = (map.scrollTop + map.clientHeight / 2) / z0;
     S[k] = Math.max(0.5, Math.min(10, z0 + (e.key === "-" ? -0.5 : 0.5))); render(); map.scrollLeft = cx * S[k] - map.clientWidth / 2; map.scrollTop = cy * S[k] - map.clientHeight / 2; } });
 render();
-// the day's words, streamed into the corner: fetched once a day is shown, then let in one by one at a reading pace
-const T = { day: -1, all: {}, timer: null, shut: false }, talkEl = $("#talk"), talkB = $("#talkb");
+// the day's words in the corner, up to where the day's clock is: the morning's plans and the talk come before the work (the clock
+// below 0, as "talk" in the day's phases), the evening's after it (from 1, dusk); within its stretch each message is placed in the
+// order the engine asked. With no clock (the whole world, or a day not being played) the day is over, and all its words show.
+const T = { day: -1, all: {}, list: null, shown: 0, shut: false }, talkEl = $("#talk"), talkB = $("#talkb");
 const PHASE = { decide: "Morning", talk: "Talk", evening: "Evening" };
+const SPAN = { decide: [-0.1, -0.05], talk: [-0.05, 0], evening: [1, 1.1] };      // a presentation choice: when on the clock each part's words fall
 const hush = (t) => { const e = document.createElement("div"); e.className = "none"; e.textContent = t; talkB.replaceChildren(e); };
-async function talkFor(d) {
-  if (!T.all[d]) T.all[d] = fetch(api("talk/" + d)).then((r) => (r.ok ? r.json() : [])).catch(() => []);
+function talkFor(d) {
+  if (!T.all[d]) T.all[d] = fetch(api("talk/" + d)).then((r) => (r.ok ? r.json() : [])).catch(() => []).then((list) => {
+    const by = {}; list.forEach((m) => { const p = (m.phase || "").split(".")[0]; (by[p] = by[p] || []).push(m); m.p = p; });
+    for (const [p, ms] of Object.entries(by)) { const [a, b] = SPAN[p] || [-0.05, 0]; ms.forEach((m, i) => (m.at = a + (b - a) * i / ms.length)); }
+    return list; });
   return T.all[d];
 }
-async function stream(d) {
-  clearTimeout(T.timer); T.day = d; talkEl.hidden = false;
-  $("#talkday").textContent = `Day ${d + 1} · what they said`; $("#talkn").textContent = ""; hush("…");
-  const list = await talkFor(d); if (T.day !== d) return;
-  $("#talkn").textContent = list.length ? `${list.length} message${list.length === 1 ? "" : "s"}` : "";
-  if (!list.length) return hush("Nobody spoke today.");
-  talkB.replaceChildren();
-  const gap = Math.max(350, Math.min(1600, 14000 / list.length));   // a day's words fit about the length of the day played out
-  let i = 0, ph = null;
-  const next = () => {
-    if (T.day !== d || i >= list.length) return;
-    const m = list[i++], p = (m.phase || "").split(".")[0], stick = talkB.scrollHeight - talkB.scrollTop - talkB.clientHeight < 40;
-    if (p !== ph) { ph = p; const h = document.createElement("div"); h.className = "ph"; h.textContent = PHASE[p] || p; talkB.append(h); }
+function words() {
+  const d = S.day; talkEl.hidden = false;
+  if (T.day !== d) { T.day = d; T.list = null; T.shown = 0; $("#talkday").textContent = `Day ${d + 1} · what they said`; $("#talkn").textContent = ""; hush("…");
+    talkFor(d).then((list) => { if (T.day !== d) return; T.list = list; T.shown = -1; words(); }); return; }
+  const list = T.list; if (!list) return;
+  const clock = S.node && V.days[d].timeline && S.t != null ? S.t : Infinity, upto = list.filter((m) => m.at <= clock).length;
+  $("#talkn").textContent = list.length ? `${upto} of ${list.length}` : "";
+  if (upto === T.shown) return;
+  if (!list.length) { T.shown = 0; return hush("Nobody spoke today."); }
+  if (upto < T.shown || T.shown <= 0) { talkB.replaceChildren(); T.shown = 0; }  // back in time, or a new day: start the list again
+  if (!upto) { T.shown = 0; return hush("Nothing said yet today."); }
+  const stick = talkB.scrollHeight - talkB.scrollTop - talkB.clientHeight < 40;
+  for (let i = T.shown; i < upto; i++) {
+    const m = list[i];
+    if (!i || list[i - 1].p !== m.p) { const h = document.createElement("div"); h.className = "ph"; h.textContent = PHASE[m.p] || m.p; talkB.append(h); }
     const e = document.createElement("div"); e.className = "m" + (m.private ? " priv" : "");
     const who = document.createElement("span"); who.className = "who"; who.textContent = m.from;
     const to = document.createElement("span"); to.className = "to"; to.textContent = m.private ? ` to ${m.to}, privately` : ` to ${m.to || "everyone"}`;
     const t = document.createElement("p"); t.textContent = m.text;
     e.append(who, to, t); talkB.append(e);
-    if (stick) talkB.scrollTop = talkB.scrollHeight;                  // follow the stream unless the reader has scrolled back
-    T.timer = setTimeout(next, gap);
-  };
-  next();
+  }
+  T.shown = upto;
+  if (stick) talkB.scrollTop = talkB.scrollHeight;                    // follow along unless the reader has scrolled back
 }
 $("#talkx").onclick = () => { T.shut = !T.shut; talkEl.classList.toggle("shut", T.shut); $("#talkx").textContent = T.shut ? "+" : "–";
   $("#talkx").title = T.shut ? "Show" : "Hide"; $("#talkx").setAttribute("aria-label", T.shut ? "Show the messages" : "Hide the messages"); };
-const _render = render; render = function () { _render(); if (S.day !== T.day) stream(S.day); };
+const _render = render; render = function () { _render(); words(); };
 render();
 // the rest of the days, in order; the slider grows as they come, and a day asked for in the link is shown when it arrives
 (async () => {
