@@ -3,7 +3,9 @@
   "use strict";
   const TECH_TOOL = { fell: "fell", reap: "reap", forage: "forage", hay: "reap", hunt: "hunt", mine: "mine", quarry: "mine", milk: "milk",
     ditch: "dig", bury: "dig", fence: "make", wall: "make", herd: "herd", sow: "sow", dibble: "sow", plough: "dig", hoe: "dig", weed: "dig",
-    dung: "carry", smelt: "make", charcoal: "make", coin: "make" };
+    dung: "carry", smelt: "make", charcoal: "make", coin: "make",
+    angle: "fish", "fish by hand": "forage", "salt pan": "dig", "salt fish": "make", "fishing rod": "make",                    // the water pack (D4-103)
+    "dress millstones": "make", "reline oven": "make", "clear the leat": "dig", "dry fodder": "carry" };                     // mending (D4-103), drying (D4-106)
   const toolFor = (a) => !a ? null : TECH_TOOL[a.tech] || (a.verb === "make" || a.verb === "build" ? "make" : a.verb === "gather" ? "forage" : a.verb === "work" ? "dig" : a.verb === "give" || a.verb === "take" ? "carry" : null);
   const RIVER = /river|brook|stream|leat|beck|burn|creek|race/i;
   const LOTS = { built: 6 }, STOPS = new Set(["built", "field", "rock"]);

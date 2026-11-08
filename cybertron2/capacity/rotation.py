@@ -69,9 +69,9 @@ def _sowing(fam, fert, level, ground, prev) -> float:
     return q * (1 - FM.fail_chance(F, prev, fam))
 
 
-def _steady(plan, year, level, ground, mults=None):
+def _steady(plan, year, level, ground, mults=None, base=1.0):
     slot = FM.grow_days(year, "grain")
-    fert, prev = 1.0, None
+    fert, prev = float(base), None
     mults = mults or {}
     for _ in range(80):
         start = fert
@@ -79,15 +79,15 @@ def _steady(plan, year, level, ground, mults=None):
         for j, (kind, s, days) in enumerate(plan):
             if kind == "rest":
                 for _ in range(int(days)):
-                    fert = FM.fallow_gain(F, fert, slot)
+                    fert = FM.fallow_gain(F, fert, slot, base)
                 continue
             if level.manure:
-                fert = FM.manure_gain(F, fert)
+                fert = FM.manure_gain(F, fert, base=base)
             q = _sowing(kind, fert, level, ground, prev) * mults.get(j, 1.0)
             good = CROPS[kind]["gives"]
             harvests.append(((s + days) % year, good, q - float(F["plot_seed"])))
             gross[good] = gross.get(good, 0.0) + q
-            fert = FM.soil_step(F, fert, kind)
+            fert = FM.soil_step(F, fert, kind, base)
             prev = kind
         if abs(fert - start) < 1e-6:
             break
@@ -102,7 +102,7 @@ def outcome(fam, start, year, level, cal) -> tuple | None:
     return (days, mult) if days is not None and days <= year and mult > 0.05 else None
 
 
-def best_year(window, year, level, ground=1.0, worth=lambda g: 1.0, oxen_ok=False, crops_ok=("grain",), cal=None) -> Year:
+def best_year(window, year, level, ground=1.0, worth=lambda g: 1.0, oxen_ok=False, crops_ok=("grain",), cal=None, base=1.0) -> Year:
     """The level's field year for one plot. `cal` is the world's year ([(season, cold)] a year day: cal.table). Each sowing is run
     through the engine's own growth (D4-106), so when to sow, and how much a late or early sowing gives, come from the engine: no
     sowing window is assumed. "once": one grain crop at its best day; "best": the sequence of sowings and rest that gives most food
@@ -158,7 +158,7 @@ def best_year(window, year, level, ground=1.0, worth=lambda g: 1.0, oxen_ok=Fals
                 plan.append(("rest", (s + d) % year, nxt - (s + d)))
         if not plan:
             plan = [("rest", 0, year)]
-        harvests, gross, fert = _steady(plan, year, level, ground, mults)
+        harvests, gross, fert = _steady(plan, year, level, ground, mults, base)
         food = sum(q * worth(g) for _, g, q in harvests)
         if best is None or food > best[0] + 1e-9:
             best = (food, plan, harvests, gross, fert)

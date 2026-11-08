@@ -649,6 +649,9 @@ CLIMATE = {
                    "next": {"steady": 0.7, "warm": 0.3}},
         "stormy": {"temp": 0.0, "wet": 0.0, "spread": 1.0, "types": {"storm": 2.2, "cyclonic": 1.15, "settled": 0.9}, "years": 5, "next": {"steady": 1.0}},
     },
+    # how much the day lets the senses through, from its values (D4-111): rain, falling snow and fog dim sight; wind and rain mask sound
+    "vis": {"sight": {"rain_per_mm": 0.035, "rain_max": 0.5, "snow": 0.5, "fog": 0.3},
+            "sound": {"wind_from": 4.0, "wind_per_ms": 0.03, "wind_max": 0.6, "rain_per_mm": 0.025, "rain_max": 0.3}},
     "shocks": {"dark year": {"p": 0.007, "temp": -1.5, "wet": 0.15, "years": [1, 2]}},     # a volcanic winter: rare, short
 }
 

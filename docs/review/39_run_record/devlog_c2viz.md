@@ -133,3 +133,9 @@ engine's state and imports nothing it changes.
   - The page streams the days in. Checked: published c1_combe fetched, imported and its world shown in 6.5 s, all 40 days
     built; local runs open; no page errors. The test says a run built in parts equals the whole.
   - Fixed on the way: a village river continued on the region map could circle (combe).
+- 08 Nov 2026: work moved to the Cybertron2 repository (Zach). `c2viz/CATALOGUE.md`: what the engine added since 4 Nov that the
+  visualiser should support (weather by place and moving storms, crops by the season, fields in shares, fitting wear, work's
+  food and tiredness, the water pack, renewal, break-ins; wild kinds decided, not built; 02zp analysis only). c2viz still runs
+  on the engine (touchpoints whole, tests pass).
+  - Actions in two frames (sprites.js POSES): fell, reap, dig, mine, make, hunt, forage, milk, herd, sow, carry, fish. The new
+    techniques (fishing, salt, mending, drying fodder) mapped to tools.

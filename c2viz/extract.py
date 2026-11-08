@@ -150,8 +150,13 @@ def day_record(w, rooms: Rooms) -> dict:
         if bid:
             slept_in.setdefault(bid, []).append(n)
     views = {nid: node_view(w, nid) for nid in w.s["nodes"]}
-    rec = {"day": d, "calendar": cal, "cold": w.cold(), "weather": E.weather(w), "words": E.words(w), "wet": E.wet(w),
-           "snow": E.snow_lying(w),
+    places = {nid: {"cold": w.cold(nid), "weather": E.weather(w, nid), "words": E.words(w, nid), "wet": E.wet(w, nid),
+                    "snow": E.snow_lying(w, nid)} for nid in sorted(w.s["nodes"])}       # each place's own weather (D4-111)
+    kinds = [v["weather"] for v in places.values()]
+    rec = {"day": d, "calendar": cal, "places": places,
+           # the region's map draws one sky: the commonest weather over the places (a presentation choice, named as one)
+           "weather": max(sorted(set(kinds)), key=kinds.count), "cold": any(v["cold"] for v in places.values()),
+           "wet": any(v["wet"] for v in places.values()), "snow": any(v["snow"] for v in places.values()),
            "parcels": {pid: parcel_day(w, views[p["node"]], pid) for pid, p in w.s["parcels"].items()},
            "buildings": {bid: building_day(w, views[b["node"]], bid, rooms, slept_in) for bid, b in w.s["buildings"].items()},
            "herds": {hid: x for hid in w.s["herds"] if (x := herd_day(w, hid))},

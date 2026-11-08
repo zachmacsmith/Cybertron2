@@ -294,6 +294,17 @@ def attention(w, name, parcel, target) -> float:
     return float(NOTICING["attention"]["search" if worked else "place"])
 
 
+def where(w, c):
+    """The place a thing is at (a node, or a road for one on it): its own, else its holder's (hands) or its building's (a store)."""
+    if c.get("node") is not None:
+        return c["node"]
+    if c.get("kind") == "hands":
+        return w.place_of(("person", c["of"]))
+    if c.get("kind") == "stock":
+        return w.s["buildings"][c["of"]]["node"]
+    return c.get("node")
+
+
 def hidden_factor(c) -> float:
     """How much hiding keeps a thing from being noticed (THINGS hidden, taught or untaught); 1 if not hidden. Part of own()."""
     how = c.get("hidden")
@@ -325,7 +336,7 @@ def spot_chance(w, name, node, parcel, own_x, target=None, sense="sight", inside
         att *= float(N["attention"]["close"])
     att *= focus
     if everyone or name in inside:
-        vis = 1.0 if (name in inside or (sky and not N["sky_weather"])) else EV.open_air(w, sense, night)
+        vis = 1.0 if (name in inside or (sky and not N["sky_weather"])) else EV.open_air(w, node, sense, night)
         x = own_x * vis * float(N["inside"]) * (att if (attending or focus != 1.0) else 1.0)
         return min(top, x * e if eye_on != "things" else x)
     if parcel not in w.s["parcels"]:
@@ -344,7 +355,7 @@ def chance(w, name, c, target=None, sense="sight", own_x=None, reach=None, night
     if x <= 0:
         return 0.0
     if own_x is None and sense == "sight" and (not c.get("body") or c.get("buried") is not None):
-        x *= EV.ground_factor(w)                                           # things on the ground under lying snow
+        x *= EV.ground_factor(w, where(w, c))                              # things on the ground under lying snow there
     pid = c.get("parcel")
     if pid not in w.s["parcels"]:
         pid = next((p for p, q in w.s["parcels"].items() if q["node"] == c.get("node") and q["cover"] == "built"), pid)
@@ -415,7 +426,7 @@ def search_chance(w, name, c) -> float:
     pid = c.get("parcel")
     vis = EV.visibility(w, c.get("node"), pid, "sight") if pid in w.s["parcels"] else 1.0
     if not c.get("body") or c.get("buried") is not None:
-        vis *= EV.ground_factor(w)
+        vis *= EV.ground_factor(w, where(w, c))
     return min(1.0, x * vis * float(NOTICING["attention"]["search"]) * eye(w, name))
 
 
@@ -475,7 +486,7 @@ def bury_units(w, cid, cairn=False) -> int:
 def bury_need(w, c) -> int:
     """The units a whole grave wants here today: soft, stony or frozen ground (D2-96)."""
     b = w.p["bury"]
-    if w.cold():
+    if w.cold(where(w, c)):
         return int(b["frozen"])
     cov = w.s["parcels"].get(c.get("parcel"), {}).get("cover", "field")
     hill = w.s["parcels"].get(c.get("parcel"), {}).get("ground") == "hill"

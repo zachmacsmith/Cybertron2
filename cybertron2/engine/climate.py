@@ -37,7 +37,7 @@ def on(w) -> bool:
 def params(w) -> dict:
     from cybertron2.engine.world import merge
     over = dict((w.spec.get("climate") or {}))
-    for k in ("era", "shocks", "reference", "moves", "era_pace"):
+    for k in ("era", "shocks", "moves", "era_pace", "reference"):       # `reference` is no longer read (D4-111)
         over.pop(k, None)
     return merge(CLIMATE, over)
 
@@ -270,26 +270,40 @@ def state(w) -> _State:
     return st
 
 
-def reference(w) -> str:
-    """The node read when a caller names none: the spec's `climate.reference`, else the node with most people, else the first."""
-    ref = (w.spec.get("climate") or {}).get("reference")
-    if ref in w.s["nodes"]:
-        return ref
-    count = {}
-    for n, a in (w.s.get("people") or {}).items():
-        if a.get("alive", True) and a.get("at") in w.s["nodes"]:
-            count[a["at"]] = count.get(a["at"], 0) + 1
-    homes = [nid for nid in sorted(w.s["nodes"]) if not w.s["nodes"][nid].get("unexplored")]
-    return max(homes or sorted(w.s["nodes"]), key=lambda nid: (count.get(nid, 0), -sorted(w.s["nodes"]).index(nid)))
+def place(w, at) -> tuple:
+    """The nodes a place's weather is read from (D4-111): a node is itself; a road is the mean of its two ends (a presentation of
+    weather between the points the scheduler draws: named as one). Anything else is an error: every caller must say where."""
+    if at in w.s["nodes"]:
+        return (at,)
+    r = (w.s.get("roads") or {}).get(at) if isinstance(at, str) else None
+    if r is not None:
+        return (r["a"], r["b"])
+    raise ValueError(f"the weather is read at a place (a node or a road), not {at!r}")
 
 
 # ---------------------------------------------------------------------- what the engine reads
-def env(w, node=None, day=None) -> dict:
-    """The physical weather at a node on a day: {temp, low, rain, wind, fog, type, season, era}."""
+def env(w, at, day=None) -> dict:
+    """The physical weather at a place on a day (D4-111: the place is required): {temp, low, rain, wind, fog, storm, type, season,
+    era, shock}. On a road, the mean of its ends' values (fog only where both ends have it; a storm's strength the greater)."""
     day = w.d if day is None else day
-    node = node if node in w.s["nodes"] else reference(w)
+    ns = place(w, at)
     dd = state(w).day(max(0, int(day)))
-    return {**dd["nodes"][node], "type": dd["type"], "season": dd["season"], "era": dd["era"], "shock": dd["shock"]}
+    if len(ns) == 1:
+        v = dict(dd["nodes"][ns[0]])
+    else:
+        a, b = dd["nodes"][ns[0]], dd["nodes"][ns[1]]
+        v = {k: (round((float(a[k]) + float(b[k])) / 2, 3) if isinstance(a[k], (int, float)) and not isinstance(a[k], bool) else a[k])
+             for k in a}
+        v["fog"] = bool(a.get("fog")) and bool(b.get("fog"))
+        if "storm" in a:
+            v["storm"] = max(float(a["storm"]), float(b["storm"]))
+    return {**v, "type": dd["type"], "season": dd["season"], "era": dd["era"], "shock": dd["shock"]}
+
+
+def region(w, day=None) -> dict:
+    """What is the region's, not a place's: the day's weather type, season, era and shock (the regional layers of D4-109)."""
+    dd = state(w).day(max(0, int(w.d if day is None else day)))
+    return {"type": dd["type"], "season": dd["season"], "era": dd["era"], "shock": dd["shock"]}
 
 
 def storms(w, day=None) -> list:
@@ -297,13 +311,13 @@ def storms(w, day=None) -> list:
     return state(w).day(max(0, int(w.d if day is None else day)))["storms"]
 
 
-def storm_coming(w, node=None, day=None) -> bool:
+def storm_coming(w, node, day=None) -> bool:
     """A storm will pass this node tomorrow that is not here today (for a sign: the sky to windward)."""
     day = w.d if day is None else day
     return env(w, node, day + 1)["storm"] > 0.3 and env(w, node, day)["storm"] < 0.1
 
 
-def label(w, node=None, day=None) -> str:
+def label(w, node, day=None) -> str:
     """The day's weather as the engine names it (environment.WEATHER): snow, gale, heavy rain, rain, fog, clear."""
     P = state(w).P
     e = env(w, node, day)
@@ -320,7 +334,28 @@ def label(w, node=None, day=None) -> str:
     return "clear"
 
 
-def frost(w, node=None, day=None) -> bool:
+def vis(w, node, sense="sight", day=None) -> float:
+    """How much the day's weather lets a sense through at a node, from its values (D4-111): sight dims with rain by the mm, with
+    falling snow and with fog; sound is masked by wind above a breeze and by rain."""
+    P = state(w).P["vis"]
+    e = env(w, node, day)
+    lab = label(w, node, day)
+    if sense == "sight":
+        v = 1.0 - min(float(P["sight"]["rain_max"]), float(P["sight"]["rain_per_mm"]) * e["rain"])
+        if lab == "snow":
+            v *= float(P["sight"]["snow"])
+        if e["fog"] and lab == "fog":
+            v *= float(P["sight"]["fog"])
+        return round(v, 4)
+    if sense == "sound":
+        s = P["sound"]
+        v = (1.0 - min(float(s["wind_max"]), float(s["wind_per_ms"]) * max(0.0, e["wind"] - float(s["wind_from"]))))
+        v *= 1.0 - min(float(s["rain_max"]), float(s["rain_per_mm"]) * e["rain"])
+        return round(v, 4)
+    return 1.0
+
+
+def frost(w, node, day=None) -> bool:
     """Whether the night freezes at a node: the night's low below zero."""
     return env(w, node, day)["low"] < 0.0
 
@@ -331,11 +366,12 @@ SPELL_OF = {"settled": "dry", "easterly": "dry", "westerly": "wet", "cyclonic": 
 def spell(w, day=None) -> str:
     """The day's spell in the old words (environment.spell's callers): from the region's type; a dry type in winter's cold is a cold
     snap, a settled day out of summer with no run of dry days is normal."""
-    e = env(w, None, day)
-    s = SPELL_OF.get(e["type"], "normal")
-    if s == "dry" and e["season"] == "winter" and e["low"] < 0:
-        return "cold snap"
-    if s == "wet" and e["rain"] <= 0:
+    r = region(w, day)
+    ns = _nodes(w)
+    s = SPELL_OF.get(r["type"], "normal")
+    if s == "dry" and r["season"] == "winter" and sum(env(w, n, day)["low"] for n in ns) / len(ns) < 0:
+        return "cold snap"                                                      # over the region (D4-111): a spell is the region's
+    if s == "wet" and not any(env(w, n, day)["rain"] > 0 for n in ns):
         return "normal"
     return s
 
@@ -344,7 +380,7 @@ def summary(w, days) -> dict:
     """A run's weather, for analysis: labels and values per node per day, and counts."""
     out = {"days": [], "counts": {}}
     for d in range(days):
-        row = {"day": d, "type": env(w, None, d)["type"], "nodes": {}}
+        row = {"day": d, "type": region(w, d)["type"], "nodes": {}}
         for nid in _nodes(w):
             lab = label(w, nid, d)
             row["nodes"][nid] = {**{k: v for k, v in env(w, nid, d).items() if k in ("temp", "low", "rain", "wind")}, "label": lab,

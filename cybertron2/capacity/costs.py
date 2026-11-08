@@ -22,8 +22,16 @@ from cybertron2.capacity import food as FD, rotation as RO
 
 def worker_day(w) -> float:
     from cybertron2.capacity import cal as CL
-    t = CL.table(w)
-    return sum(float(PHYSICS["units"][s]) for s, _ in t) / len(t)
+    t = CL.seasons(w)
+    return sum(float(PHYSICS["units"][s]) for s in t) / len(t)
+
+
+def _cold(w, b) -> list:
+    """Each year day's cold at a building's place, or (a building not yet placed) the share of the people whose night is cold."""
+    from cybertron2.capacity import cal as CL
+    if b.get("node"):
+        return [1.0 if c else 0.0 for _, c in CL.table(w, b["node"])]
+    return CL.cold_shares(w)
 
 
 def _add(d, k, q):
@@ -136,7 +144,7 @@ def upkeep_a_building(w, b, emb) -> float:
     from cybertron2.engine import buildings as BU
     p = PHYSICS["breaks"]
     k = float(p["structure"].get(b.get("structure"), 1.0))
-    breaks = sum(float(p["cold"] if cold else p["p"]) * k for _, cold in CL.table(w))
+    breaks = sum((float(p["cold"]) * c + float(p["p"]) * (1 - c)) * k for c in _cold(w, b))      # where it stands (D4-111)
     need = BU.repair_need(b)
     return breaks * (float(need["units"]) + sum(float(q) * emb.get(m_, (0.0, ""))[0] for m_, q in need["materials"].items()))
 

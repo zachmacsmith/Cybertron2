@@ -63,7 +63,7 @@ def test_spoilage_is_the_engines():
     b["fittings"]["bins"] = 1
     c = w.s["containers"][b["stock"]]
     rate, _ = N.decay_rate(w, c, "grain")
-    season, cold = w.calendar()["season"], w.cold()
+    season, cold = w.calendar()["season"], w.cold(b["node"])
     assert abs(rate - FD.rate("grain", "bins", season, cold)) < 1e-12
 
 

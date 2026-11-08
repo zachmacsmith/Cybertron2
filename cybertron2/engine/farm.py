@@ -171,16 +171,14 @@ def projected_ripe(c, season_of, cold_of, day, f, horizon=200):
     return None
 
 
-def set_projection(c, w_or_here, day, f) -> dict:
-    """ripe_day as the crop's own projection (never sooner than the day after tomorrow while it is growing), and `never` where the
-    cold will take it first."""
+def set_projection(c, w, at, day, f) -> dict:
+    """ripe_day as the crop's own projection at its field's place (never sooner than the day after tomorrow while it is growing),
+    and `never` where the cold there will take it first (D4-111)."""
     if c.get("progress", 0.0) >= 1.0:
         return c
-    cal = w_or_here.calendar
-    cold = w_or_here.cold
-    r = projected_ripe(c, lambda d: cal(d)["season"], cold, day, f)
+    r = projected_ripe(c, lambda d: w.calendar(d)["season"], lambda d: w.cold(at, d), day, f)
     c["never"] = r is None
-    c["ripe_day"] = max(day + 2, r if r is not None else day + 2 * w_or_here.year_days())
+    c["ripe_day"] = max(day + 2, r if r is not None else day + 2 * w.year_days())
     return c
 
 
@@ -189,20 +187,29 @@ def frost_kills(c, season) -> bool:
     return season == "winter" and not c.get("hardy")
 
 
-def fallow_gain(f, fert, slot) -> float:
-    """A resting plot's night (D4-39): it comes back toward 1.0 so that a grain crop's slot of rest restores the fallow share."""
+def base(par) -> float:
+    """The land's own fertility (D4-112): a parcel's `land.base_fertility`, 1.0 if the land does not say. Every level the soil
+    comes back toward (rest, grazing, dung, a crop's restoring, a new clearing) is the table's level times this, so dung cannot
+    make poor ground rich: it raises a soil by a share of what that ground can be."""
+    return float((par.get("land") or {}).get("base_fertility", 1.0))
+
+
+def fallow_gain(f, fert, slot, base=1.0) -> float:
+    """A resting plot's night (D4-39): it comes back toward the land's base (D4-112) so that a grain crop's slot of rest restores
+    the fallow share."""
     d = 1 - (1 - float(f["fallow"])) ** (1 / slot)
-    return round(fert + d * max(0.0, 1.0 - fert), 4)
+    return round(fert + d * max(0.0, float(base) - fert), 4)
 
 
-def manure_gain(f, fert, plots=1.0, of=1.0) -> float:
-    """Dung spread on `plots` of a holding's `of` plots (D4-39)."""
+def manure_gain(f, fert, plots=1.0, of=1.0, base=1.0) -> float:
+    """Dung spread on `plots` of a holding's `of` plots (D4-39), toward the dung level times the land's base (D4-112)."""
     r, level = f["manure"]
-    return round(fert + float(r) * max(0.0, float(level) - fert) * plots / max(1.0, of), 4)
+    return round(fert + float(r) * max(0.0, float(level) * float(base) - fert) * plots / max(1.0, of), 4)
 
 
-def soil_step(f, fert, fam_or_state) -> float:
-    """One crop slot's effect on the soil (02l §2): a crop takes its share, then the soil comes back toward a level."""
+def soil_step(f, fert, fam_or_state, base=1.0) -> float:
+    """One crop slot's effect on the soil (02l §2): a crop takes its share, then the soil comes back toward a level, times the
+    land's base (D4-112)."""
     if fam_or_state in CROPS:
         c = CROPS[fam_or_state]
         fert *= 1 - float(c["takes"])
@@ -211,7 +218,7 @@ def soil_step(f, fert, fam_or_state) -> float:
         r, level = f["grazed"]
     else:
         r, level = float(f["fallow"]), 1.0
-    return round(fert + float(r) * max(0.0, float(level) - fert), 4)
+    return round(fert + float(r) * max(0.0, float(level) * float(base) - fert), 4)
 
 
 def soil_word(fert) -> str:
@@ -748,7 +755,7 @@ def act(here, mind, tech, key, place_name, out, m, tm, a) -> tuple:
         rec = record(par, h)
         n = float(plots_of(par, h))
         plots = min(n, float(y["plots"]) * m)
-        new = manure_gain(f, rec["fertility"], plots, n)
+        new = manure_gain(f, rec["fertility"], plots, n, base(par))
         _set(here, key, h, "fertility", new)
         return 0.0, None, f"You spread dung on {the_part(names, par, h)}: the soil will be the better for it.", ("parcel", key)
     if k == "crop":
@@ -962,7 +969,7 @@ def _sow(here, mind, tech, key, place_name, out, m, a, f):
         turf = float(f["turf"]) if par["cover"] != "field" else 1.0              # seed thrown on uncleared turf (D4-106)
         c["base"] = round(c["base"] + crop_base(f, eq, broken_here / area, float(rec.get("fertility", 1.0)), ground_mult(here.p, par), skill_yield)
                           * float(CROPS[fam].get("yield", 1.0)) * turf, 4)
-        c = set_projection(c, here, here.day, f)
+        c = set_projection(c, here._w, par["node"], here.day, f)
         c["left"] = crop_left(f, c)
         _set(here, key, h, "crop", c)
         words.append((h, seed, area, broken_here, c))
@@ -981,7 +988,7 @@ def _sow(here, mind, tech, key, place_name, out, m, a, f):
     word = f"You {how} {show(seed)} {seed_good} in {place_name}{soil} (about {show(area)} of a plot){where}."
     if par["cover"] != "field":
         word += " The seed lies on the turf among the grass."
-    if here.cold(node=par["node"]):                                          # felt by the sower (D4-106): told, not why
+    if here.cold(at=par["node"]):                                          # felt by the sower (D4-106): told, not why
         word += " The soil is cold and hard under your feet: nothing will sprout in this yet."
     return 0.0, None, word, ("parcel", key)
 
@@ -1349,7 +1356,7 @@ def _crops(w, rec_):
                     rec_["crops"].append((pid, "failed"))
                 what = None
                 if growing:                                                     # a night's growth by the season (D4-106)
-                    c, what = grow_night(c, w.calendar()["season"], w.cold(None, node), f)   # the field's own night (D4-109)
+                    c, what = grow_night(c, w.calendar()["season"], w.cold(node), f)   # the field's own night (D4-109)
                     if what == "up":
                         c["up_day"] = w.d
                     elif what == "frost":
@@ -1357,7 +1364,7 @@ def _crops(w, rec_):
                     elif what == "ripe":
                         c["ripe_day"] = w.d + 1
                     if what != "ripe":
-                        c = set_projection(c, w, w.d + 1, f)
+                        c = set_projection(c, w, node, w.d + 1, f)
                 if what == "killed":
                     c["killed"] = True
                     c["frost_day"] = w.d
@@ -1374,7 +1381,7 @@ def _crops(w, rec_):
                 elif c["area_left"] <= 1e-6 or (c["left"] <= 0.05 and not withering):
                     if c.get("killed") or c.get("frost_day") == w.d:            # it stands dead until the ground is worked (D4-106)
                         w.apply("set_share", node, parcel=pid, holder=hd, field="dead", value={"kind": c["kind"], "day": w.d})
-                    fert = soil_step(f, rec["fertility"], c["crop"])           # the crop's slot ends (D4-39)
+                    fert = soil_step(f, rec["fertility"], c["crop"], base(par))   # the crop's slot ends (D4-39)
                     w.apply("set_share", node, parcel=pid, holder=hd, field="fertility", value=fert)
                     w.apply("set_share", node, parcel=pid, holder=hd, field="last_crop", value=c["crop"])
                     w.apply("set_share", node, parcel=pid, holder=hd, field="last_kind", value=c["kind"])
@@ -1384,7 +1391,7 @@ def _crops(w, rec_):
                 else:
                     w.apply("set_share", node, parcel=pid, holder=hd, field="crop", value=c)
             elif not turf and not grazed and plots_of(par, hd) > 0:            # resting: fallow restores (grazed: in _herds)
-                fert = fallow_gain(f, rec["fertility"], slot)
+                fert = fallow_gain(f, rec["fertility"], slot, base(par))
                 w.apply("set_share", node, parcel=pid, holder=hd, field="fertility", value=fert)
         if gone:
             w.apply("shares", node, parcel=pid)                                # a holding with no plots left and its crop gone
@@ -1482,5 +1489,5 @@ def _herds(w, rec):
             for hd, rc in records(par):
                 if not rc.get("crop") and plots_of(par, hd) > 0:
                     w.apply("set_share", node, parcel=pid, holder=hd, field="fertility",
-                            value=round(rc["fertility"] + dd * max(0.0, float(level) - rc["fertility"]), 4))
+                            value=round(rc["fertility"] + dd * max(0.0, float(level) * base(par) - rc["fertility"]), 4))
         w.apply("set", node, ref=("herd", hid), field="count", value=head(w.s["herds"][hid]))

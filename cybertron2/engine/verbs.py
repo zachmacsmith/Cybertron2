@@ -1791,7 +1791,7 @@ def _clear(here, pid, name, done, party) -> str:
         return f"You cleared ground at {name}: about {max(0, round(need - got))} units of work left before it is a field."
     cover = p["cover"]
     for f, v in (("cover", "field"), ("clearing", None), ("was", cover), ("crop", None), ("last_crop", "fallow"), ("broken", 0.0),
-                 ("fertility", p.get("fertility") if p.get("fertility", 1.0) != 1.0 else float(CLEARING["fertility"][cover]))):
+                 ("fertility", p.get("fertility") if p.get("fertility", 1.0) != FM.base(p) else float(CLEARING["fertility"][cover]) * FM.base(p))):
         here.apply("set", ref=("parcel", pid), field=f, value=v)
     who = party or here.household() or here.name
     held = bool(here.claims(("parcel", pid)))

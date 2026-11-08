@@ -25,17 +25,38 @@ def spell(w, day=None) -> str:
     return "normal"
 
 
-def weather(w, day=None, node=None) -> str:
-    """The day's weather (keyed: weather, day). With the weather scheduler (climate.py, D4-109) it is the node's own (the reference
-    node's where none is named); without, one draw for the region within the hand-written spell. A spec may fix a day's weather
-    (`weather`: {day: kind}) for a scripted run. Rain falls as snow in winter and on cold days."""
+def _fixed(w, day):
+    return (w.spec.get("weather") or {}).get(day + 1) or (w.spec.get("weather") or {}).get(str(day + 1))
+
+
+def scheduled(w, day=None) -> bool:
+    """Whether a day's weather comes from the weather scheduler (climate.py, D4-109): the world has one, and neither a fixed day
+    nor a hand-written spell overrides it."""
+    from cybertron2.engine import climate as CL
     day = w.d if day is None else day
-    fixed = (w.spec.get("weather") or {}).get(day + 1) or (w.spec.get("weather") or {}).get(str(day + 1))
+    return CL.on(w) and not _fixed(w, day) and not any(int(sp["from"]) - 1 <= day <= int(sp["to"]) - 1 for sp in w.spec.get("spells") or [])
+
+
+def place(w, at):
+    """Every weather query names its place (D4-111): a node or a road. There is no region-wide default; a caller with a place of its
+    own (an agent's Here, a building, a container, a field, a traveller) passes it. Checked with the scheduler on or off."""
+    if at in w.s["nodes"] or (isinstance(at, str) and at in (w.s.get("roads") or {})):
+        return at
+    raise ValueError(f"the weather is read at a place (a node or a road), not {at!r}")
+
+
+def weather(w, at, day=None) -> str:
+    """The day's weather at a place (keyed: weather, day). With the weather scheduler (climate.py, D4-109) it is the place's own;
+    without, one draw for the region within the hand-written spell. A spec may fix a day's weather (`weather`: {day: kind}) for a
+    scripted run. Rain falls as snow in winter and on cold days."""
+    place(w, at)
+    day = w.d if day is None else day
+    fixed = _fixed(w, day)
     if fixed:
         return fixed
     from cybertron2.engine import climate as CL
-    if CL.on(w) and not any(int(sp["from"]) - 1 <= day <= int(sp["to"]) - 1 for sp in w.spec.get("spells") or []):
-        return CL.label(w, node, day)
+    if scheduled(w, day):
+        return CL.label(w, at, day)
     table = SPELLS[spell(w, day)]
     u = w.rng("weather", day).random()
     kind = next(iter(table))
@@ -45,35 +66,41 @@ def weather(w, day=None, node=None) -> str:
         if u < acc:
             kind = k
             break
-    if kind in ("rain", "heavy rain") and w.cold(day):
+    if kind in ("rain", "heavy rain") and w.cold(at, day):
         kind = "snow"
     return kind
 
 
-def wet(w, day=None, node=None) -> bool:
-    return weather(w, day, node) in WET
+def values(w, at, day=None) -> dict | None:
+    """The day's physical weather at a place (temp, low, rain, wind, fog, storm) where the scheduler gives it, else None."""
+    from cybertron2.engine import climate as CL
+    place(w, at)
+    return CL.env(w, at, day) if scheduled(w, day) else None
 
 
-def snow_lying(w, day=None, node=None) -> bool:
-    """Snow lies after a snow day until three days without frost (at the node, with the weather scheduler)."""
+def wet(w, at, day=None) -> bool:
+    return weather(w, at, day) in WET
+
+
+def snow_lying(w, at, day=None) -> bool:
+    """Snow lies at a place after a snow day there until three days without frost there."""
     day = w.d if day is None else day
     thaw = 0
     for d in range(day, -1, -1):
-        if weather(w, d, node) == "snow":
+        if weather(w, at, d) == "snow":
             return thaw < int(ENV["snow_melt"])
-        if not w.cold(d, node):
+        if not w.cold(at, d):
             thaw += 1
             if thaw >= int(ENV["snow_melt"]):
                 return False
     return False
 
 
-def since_heavy_rain(w, day=None, node=None, horizon=10):
-    """Days since the last heavy rain (at the node, with the weather scheduler), or None within the horizon (a ford is high for a
-    while after: world/roads.md)."""
+def since_heavy_rain(w, at, day=None, horizon=10):
+    """Days since the last heavy rain at a place, or None within the horizon (a ford is high for a while after: world/roads.md)."""
     day = w.d if day is None else day
     for d in range(day, max(-1, day - horizon), -1):
-        if weather(w, d, node) == "heavy rain":
+        if weather(w, at, d) == "heavy rain":
             return day - d
     return None
 
@@ -108,7 +135,7 @@ def smoky(w, node, parcel) -> bool:
 
 def loudness(w, node, parcel=None) -> str:
     """'very', 'loud' or '' for what is making noise at a place today (D2-100)."""
-    level = WEATHER[weather(w)].get("loud", "")
+    level = WEATHER[weather(w, node)].get("loud", "")
     for e in _today_events(w, node):
         if parcel and e.get("about") and f"parcel:{parcel}" not in e["about"] and e.get("kind") not in ENV["loud_kinds"]:
             continue
@@ -122,15 +149,15 @@ def loudness(w, node, parcel=None) -> str:
 
 def visibility(w, node, parcel=None, sense="sight", night=False, moon=False, quiet=True, cover=None) -> float:
     """How much a place lets a sense through today (D2-99): the cover's base x the land's state x the day's weather (x night).
-    `cover` names a cover or road terrain directly (roads); `quiet` applies masking to a quiet sound (D2-100)."""
+    `node` is the place (a node, or a road for one on it); `cover` names a cover or road terrain directly (roads); `quiet` applies
+    masking to a quiet sound (D2-100)."""
     if sense not in ("sight", "sound"):
         return 1.0                                                          # smell: its own salience, no multipliers (D2-101)
     cov = cover or (w.s["parcels"][parcel]["cover"] if parcel else "built")
     base = float((COVERS.get(cov) or TERRAIN.get(cov) or {}).get(sense, 1.0))
     if sense == "sight" and parcel and not cover and felled(w, parcel):
         base = max(base, float(ENV["felled"]["sight"]))
-    wx = WEATHER[weather(w, None, node)]                                       # the place's own weather (D4-109)
-    v = base * float(wx[sense])
+    v = base * weather_lets(w, node, sense)
     if sense == "sight" and parcel and not cover:
         if crop_high(w, parcel):
             v *= float(ENV["crop_high"])
@@ -138,18 +165,30 @@ def visibility(w, node, parcel=None, sense="sight", night=False, moon=False, qui
             v *= float(ENV["smoke"])
     if night:
         v *= float(ENV["night"]["moon"] if moon else ENV["night"]["sight"]) if sense == "sight" else float(ENV["night"]["sound"])
-    if sense == "sound" and quiet and node:
+    if sense == "sound" and quiet and node in w.s["nodes"]:
         m = loudness(w, node, parcel)
         if m:
             v *= float(ENV["mask"][m])
     return round(v, 4)
 
 
-def open_air(w, sense="sight", night=False) -> float:
+def weather_lets(w, at, sense="sight") -> float:
+    """How much the day's weather at a place lets a sense through: from its values with the scheduler (rain by the mm, falling snow,
+    fog; wind and rain masking sound: D4-111), else from the day's label."""
+    from cybertron2.engine import climate as CL
+    if sense not in ("sight", "sound"):
+        return 1.0
+    place(w, at)
+    if scheduled(w):
+        return CL.vis(w, at, sense)
+    return float(WEATHER[weather(w, at)][sense])
+
+
+def open_air(w, at, sense="sight", night=False) -> float:
     """What the day's weather (and the dark) let a sense through anywhere at a place (D4-75): for signs open to everyone there."""
     if sense not in ("sight", "sound"):
         return 1.0
-    v = float(WEATHER[weather(w)][sense])
+    v = weather_lets(w, at, sense)
     if night:
         v *= float(ENV["night"]["sight"]) if sense == "sight" else float(ENV["night"]["sound"])
     return round(v, 4)
@@ -161,10 +200,11 @@ def felled(w, parcel) -> bool:
     return bool(wood and wood["K"] > 0 and wood["S"] / wood["K"] < float(ENV["felled"]["below"]))
 
 
-def ground_factor(w) -> float:
-    """Things lying on the ground under snow (D2-99)."""
-    return float(ENV["snow_ground"]) if snow_lying(w) else 1.0
+def ground_factor(w, at) -> float:
+    """Things lying on the ground under snow at a place (D2-99)."""
+    return float(ENV["snow_ground"]) if snow_lying(w, at) else 1.0
 
 
-def words(w, day=None) -> str:
-    return WEATHER[weather(w, day)]["words"] + ("; snow lies on the ground" if snow_lying(w, day) and weather(w, day) != "snow" else "")
+def words(w, at, day=None) -> str:
+    wx = weather(w, at, day)
+    return WEATHER[wx]["words"] + ("; snow lies on the ground" if wx != "snow" and snow_lying(w, at, day) else "")

@@ -1,6 +1,6 @@
 # Proposal: the weather scheduler (eras, years, daily types, weather that varies in space)
 
-**Status:** retrospective, accepted: D4-109, D4-110 (8 Nov; built). **Owner:** 37.4 (the engine). The scheduler's rules are 37.2's decided
+**Status:** retrospective, accepted: D4-109, D4-110, D4-111 (8 Nov; built). **Owner:** 37.4 (the engine). The scheduler's rules are 37.2's decided
 design (spec/environment/scheduler.md, D2-69 to D2-79); this builds its weather part, with two changes Zach made in conversation
 (daily types in place of drawn spells; weather in space). **Affects:** engine/climate.py (new), environment.py, world.py, night.py,
 farm.py, forests.py, signs.py, here.py; data CLIMATE; spec/environment/scheduler.md ("as built" only); spec/core/processes.md.
@@ -105,6 +105,31 @@ without the block keeps the hand-written spells exactly, so older runs replay.
 3. Moving storms and the land's climate map: next, or after the land's response stocks?
 
 ## History
+
+- 8 Nov (last): **the renewal hook (D4-113).** 37.2 asked for each node's weather inside the renewal rules, for its ecology and
+  the land's fast stocks (soil water, snow, river flow, fuel dryness). `renewal.context(w, par, **keys)` builds a rule's context
+  from the parcel's place through D4-111's queries: place, frost, snow, wet, the day's values, the year's anomaly (the era's,
+  the year's draw and any shock), and the parcel's land. The night's regrowth and the woods' three rules take it. Cached by
+  (day, node). No existing rule reads it: stocks come back exactly as before (a probe rule in the test sees it). Field names
+  for the land are to be settled with 37.2 before either relies on them.
+
+- 8 Nov (later still): **every query names its place; the senses read the values (D4-111).**
+  - **Why.** Moving the night's and the signs' reads to each place's own weather had been done call site by call site, with
+    a region-wide default (the reference node) for any caller that named none. Zach: "this seems to point at a patched over fix
+    somewhere? if this is going through a proper system, it should have only naturally read local weather"; "shouldn't every
+    caller usually have a place, so the default should fall back to whatever 'here' is for them". Then: "and do these".
+  - **What changed.** The place is a required argument of every weather query (environment.weather, wet, snow_lying,
+    since_heavy_rain, words, ground_factor, open_air, weather_lets, values; World.cold; climate.env, label, frost, vis,
+    storm_coming); `climate.reference` is gone. Here carries the queries for one acting, at `here.place` (their node, or the
+    road they are on). A thing reads `things.where` (its node or road, else its holder's or its building's). A road reads the
+    mean of its two ends. A spell (environment.spell) is the region's by nature and reads the region's type and means. The
+    capacity model reads each field's place (a calendar a place, `Ctx.cal(node)`) and weights stores, fuel and upkeep by who
+    lives where (`cal.homes`, `cal.cold_shares`). c2viz writes each place's weather; a close-up draws its own.
+  - **Folded in** (the wip-weather-senses branch): visibility from the values (CLIMATE vis), the graded sky signs, and camp
+    and open fires reading their own place (now through the required argument, not a patch).
+  - **Checks.** A call with no place raises, on and off; a bot run with the scheduler on (stormy, Region C) reaches every call
+    site the day and night do; the first run of that check found two sites the sweep had missed (the crop projection's cold, a
+    test's made-up road). With the scheduler off, bot runs of the valley and Region C replay exactly against main.
 
 - 8 Nov (later): **moving storms built (D4-110).** Zach: "Add moving storms."
   - **What a storm is:** an object with a heading (toward the east, ±0.6 rad), a speed (150 to 400 km a day), a radius (30 to 80

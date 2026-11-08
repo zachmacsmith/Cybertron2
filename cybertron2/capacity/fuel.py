@@ -18,15 +18,16 @@ LEVELS = ("gathered", "cut", "managed")
 HEAT = {"firewood": float(ITEMS["firewood"]["heat"]), "timber": float(ITEMS["timber"]["heat"])}
 
 
-def hearth_heat(w) -> float:
-    """A hearth's heat a year by the engine's calendar: PHYSICS heat cold on cold nights (world.cold), normal on the rest."""
+def hearth_heat(w, nodes=None) -> float:
+    """A hearth's heat a year by the engine's calendar: PHYSICS heat cold on cold nights (world.cold), normal on the rest; over
+    several places, by the share of the people whose night is cold (cal.cold_shares; D4-111)."""
     from cybertron2.capacity import cal as CL
     hp = PHYSICS["heat"]
-    return sum(float(hp["cold"]) if cold else float(hp["normal"]) for _, cold in CL.table(w))
+    return sum(float(hp["cold"]) * k + float(hp["normal"]) * (1 - k) for k in CL.cold_shares(w, nodes))
 
 
-def need_per_person(w) -> float:
-    return hearth_heat(w) / float(CAP.PEOPLE_A_HEARTH)
+def need_per_person(w, nodes=None) -> float:
+    return hearth_heat(w, nodes) / float(CAP.PEOPLE_A_HEARTH)
 
 
 def _msy(step, K):
@@ -44,8 +45,8 @@ def parcel_flows(w, par) -> dict:
     from cybertron2.engine import forests as FO, night as NI
     res = par.get("res") or {}
     year = float(w.year_days())
-    days = CL.table(w)
-    slow = [float(PHYSICS["regrow_winter"]) if NI.slow_season(s_) else 1.0 for s_, _ in days]
+    days = CL.seasons(w)
+    slow = [float(PHYSICS["regrow_winter"]) if NI.slow_season(s_) else 1.0 for s_ in days]
     t, y, d = res.get("wood"), res.get("young"), res.get("dead")
     out = {"dead": 0.0, "young": 0.0, "trees": 0.0, "standing": 0.0}
     if t and float(t["K"]) > 0:
@@ -93,7 +94,7 @@ def supply(w, nodes=None, exclude=(), level="managed") -> dict:
 
 
 def report(w, nodes, P) -> dict:
-    npp = need_per_person(w)
+    npp = need_per_person(w, nodes)
     out = {"need_a_head": round(npp, 2), "levels": {}}
     for lvl in LEVELS:
         s = supply(w, nodes, level=lvl)

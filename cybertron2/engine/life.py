@@ -395,7 +395,7 @@ def _birth(w, mother, where, rec, out):
     a = w.s["people"][mother]
     bid = where.get(mother)
     housed = bid is not None and w.s["buildings"][bid]["condition"] > 0 and mother not in rec["missed"] \
-        and not (w.cold() and not w.s["buildings"][bid].get("fire"))
+        and not (w.cold(w.s["buildings"][bid]["node"]) and not w.s["buildings"][bid].get("fire"))
     camp = housed and w.s["buildings"][bid]["structure"] == "camp"           # a camp is partly housed (D4-97)
     risk = b["camp" if camp else "housed" if housed else "out"]
     helped = any(n != mother and where.get(n) == bid and w.s["people"][n]["stage"] in ("adult", "elder") and
@@ -439,7 +439,8 @@ def _young(w, today, rec, where, out):
             bid = where.get(name)
             shelter = "out" if bid is None else ("camp" if w.s["buildings"][bid]["structure"] == "camp" else "house")
             p *= float((inf.get("shelter") or {}).get(shelter, 1.0))             # by where it sleeps (D4-97)
-            if w.cold() and (bid is None or not w.s["buildings"][bid].get("fire") or w.s["buildings"][bid].get("fire_out") == w.d):
+            if w.cold(w.place_of(("person", name))) and (bid is None or not w.s["buildings"][bid].get("fire")
+                                                         or w.s["buildings"][bid].get("fire_out") == w.d):
                 p *= float(inf["cold"])
         else:
             p = float(LIFE["child"]["dies"])

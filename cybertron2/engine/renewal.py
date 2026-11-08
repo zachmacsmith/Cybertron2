@@ -2,7 +2,8 @@
 one registry the engine's nights and any analysis both use.
 
 A renewal rule is a pure function `rule(p, res, ctx) -> S`: tomorrow's stock from today's record {S, K, r, ...} and the night's
-context {winter, slow, trees, year, grazed, season}. The engine calls it each night (night._grow, forests.night); the capacity model
+context {winter, slow, trees, year, grazed, season} with the weather where the stock is (renewal.context: place, frost, snow, wet,
+weather, anomaly, land; D4-113). The engine calls it each night (night._grow, forests.night); the capacity model
 calls the same function to find a stock's best steady take.
 
 Which rule a stock follows is data, at two levels: the resource's row gives the default (RESOURCES[key]["renewal"]), and a stock's own
@@ -93,6 +94,34 @@ def endless(p, res, ctx):
 @rule("accrues")
 def accrues(p, res, ctx):
     return res["S"]                                        # dung: added by the beasts where they stand (farm.py), not by the night
+
+
+def context(w, par, **base) -> dict:
+    """The night's context for a stock's rule on a parcel (D4-113): the caller's own keys (winter, slow, trees, year, season), and
+    the weather where the parcel is, through the place's own queries (D4-111):
+      place    the parcel's node
+      frost    the night freezes there (world.cold)
+      snow     snow lies there; wet: the day is wet there
+      weather  the day's values there {temp, low, rain, wind, storm} with the weather scheduler, else None
+      anomaly  the year's {temp, wet, era} (the totals: the era's plus the year's draw plus any shock) with the scheduler, else None
+      land     the parcel's fixed properties (its `land` block, D4-112), {} if none
+    The rules that exist read none of these, so they change nothing; a rule that wants the weather reads it here."""
+    node = par["node"]
+    cache = w.__dict__.setdefault("_renewal_ctx", {})
+    key = (w.d, node)
+    if key not in cache:
+        from cybertron2.engine import climate as CL, environment as EV
+        v = EV.values(w, node)
+        anomaly = None
+        if CL.on(w):
+            y = CL.state(w).year(CL.state(w).day(w.d)["year"])
+            anomaly = {"temp": round(float(y["temp_total"]), 3), "wet": round(float(y["wet_total"]), 3), "era": y["era"]}
+        if len(cache) > 4096:
+            cache.clear()
+        cache[key] = {"place": node, "frost": w.cold(node), "snow": EV.snow_lying(w, node), "wet": EV.wet(w, node),
+                      "weather": None if v is None else {k: v[k] for k in ("temp", "low", "rain", "wind", "storm") if k in v},
+                      "anomaly": anomaly}
+    return {**cache[key], "land": dict(par.get("land") or {}), **base}
 
 
 def of(key, res=None) -> str | None:

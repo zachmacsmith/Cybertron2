@@ -43,9 +43,9 @@ class Flow:
         return sum(self.profile)
 
 
-def _daily(ctx, by_season) -> list:
-    """A daily flow by the engine's calendar: by_season(season, cold) for each year day."""
-    return [by_season(season, cold) for season, cold in ctx.cal]
+def _daily(ctx, node, by_season) -> list:
+    """A daily flow by the engine's calendar at a place: by_season(season, cold) for each year day."""
+    return [by_season(season, cold) for season, cold in ctx.cal(node)]
 
 
 # ---------------------------------------------------------------------------------------------------------------- fields
@@ -61,8 +61,8 @@ def fields(ctx, par):
     if par["id"] in ctx.as_field:
         from cybertron2.engine.data import CLEARING
         ground = float(CLEARING.get("fertility", {}).get(par["cover"], 1.0))
-    yr = RO.best_year(ctx.window, ctx.year, lv, ground=ground, cal=list(ctx.cal), worth=ctx.worth_of, oxen_ok=ctx.reach.oxen >= 2
-                      and ctx.reach.knows("plough"), crops_ok=tuple(ctx.reach.seed) or ("grain",))
+    yr = RO.best_year(ctx.window, ctx.year, lv, ground=ground, cal=list(ctx.cal(par["node"])), worth=ctx.worth_of, oxen_ok=ctx.reach.oxen >= 2
+                      and ctx.reach.knows("plough"), crops_ok=tuple(ctx.reach.seed) or ("grain",), base=FM.base(par))
     out = {}
     for day, good, q in yr.harvests:
         prof = out.setdefault(good, [0.0] * ctx.year)
@@ -125,12 +125,13 @@ def _steady(ctx, key, res):
     """The best steady take a night, and the stock it stands at, by the engine's own renewal step, for each year day."""
     from cybertron2.engine import renewal as RN, night as NI
     top = max(float(res["K"]), float(res.get("run_K", 0) or 0))
+    from cybertron2.capacity import cal as CL
     out, memo = [], {}
-    for season, cold in ctx.cal:
-        if (season, cold) not in memo:
+    for season in CL.seasons(ctx.w):                                           # renewal reads the season (its ctx), not the frost
+        if season not in memo:
             c = {"winter": NI.slow_season(season), "season": season}
-            memo[(season, cold)] = msy(lambda S: RN.step(ctx.w.p, key, {**res, "S": S}, c), top)
-        out.append(memo[(season, cold)])
+            memo[season] = msy(lambda S: RN.step(ctx.w.p, key, {**res, "S": S}, c), top)
+        out.append(memo[season])
     return out
 
 
