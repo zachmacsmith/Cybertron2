@@ -9,3 +9,4 @@ The world changing over time. Owner: 37.2 (D2-75, 23 Oct; 37.4 builds).
 | [visibility.md](visibility.md) | what a place and the day let sight and sound through, computed from the environment; masking | proposals/visibility.md | **written** (D2-99 to D2-103) |
 | climate_and_eras.md | the two climate axes, eras, regional response by land kind | 38.04 §3 | to compile |
 | [resources.md](resources.md) | regeneration regimes and internal consequences (depletion, soil, game thresholds) | D4-7, 38.04 §5 | **written** (D4-4, D4-7) |
+| [wildlife.md](wildlife.md) | the wild kinds, taking, rights; time in the wild; answers to scares | proposals/wildlife.md, wild_systems.md | **written** (D2-192 to D2-198) |

@@ -1,6 +1,7 @@
 # Proposal: wild systems, layered kinds that people can learn to read
 
-**Status:** discussion (8 Nov). Nothing decided, nothing built. **Owner:** 37.2; engine changes with 37.4.
+**Status:** partly accepted: D2-197 (lead times in engine days), D2-198 (answers to scares by kind); the rest discussion (8 Nov).
+Nothing built. **Owner:** 37.2; engine changes with 37.4.
 
 **Affects:**
 - spec/information/signs.md, noticing.md (readings by skill; misreads; lore as tested belief);
@@ -169,7 +170,7 @@ the event; levers are what people can do.
 - **L2 (conditional):**
   - **Fast (nights to two weeks): the learned field.** Once a sounder has found a field it comes back each night until it is met. A
     watch or a scare turns it for a few nights; after a week or two of the same scare with no harm done, it learns the scare and
-    comes anyway. A new scare, a dog, or a boar killed resets it.
+    comes anyway (it gets used to scares, D2-198). A new scare, a dog, or a boar killed resets it.
   - **Fast (days): a hard frost** seals the ground; the rooting stops and the boar go to the ricks and the clamps.
   - **Seasonal (the same autumn): mast or no mast.** When the acorns fall, the sounders stay in the oak woods and the fields are
     quiet; when they fail, the boar are in the stubbles, the late crops and the stores within weeks of the usual fall.
@@ -578,7 +579,7 @@ only to watch.
 (node_ecology.md), a sign that leads its event by a few real nights (rooting nearer the field, plovers ahead of a freeze, queen cells
 before a swarm) falls into the same engine day as the event and leads nothing. The proposal: **lead times and creature memory are
 set in engine days, never less than one,** not scaled from real days; stocks and rates keep the scaling principle. This departs from
-the scaling principle on purpose (principle 10).
+the scaling principle on purpose (principle 10). Decided: D2-197.
 
 Depth beyond a run's length reaches people as **lore and history**: what the elders say happened, which may be wrong, and the world's
 seeded state (a chafer year is due; the boar boomed last year).
@@ -615,8 +616,23 @@ to groups (D4-105).
      - lore from another place (timing off);
      - ambiguous wording ("till May be out");
      - a rule that held before the land changed.
-6. **Creature memory.** Wariness by wood and by weapon, habituation to scarecrows and watches, learned raid routes, a fold once raided.
-   This is state the engine does not hold today.
+6. **Creature memory.** Wariness by wood and by weapon, learned raid routes, a fold once raided, a field found. This is state the
+   engine does not hold today. It builds and fades over engine days (D2-197).
+7. **Answers to scares differ by kind** (D2-198; Zach, 8 Nov: "not all creatures should get used to scares. Some of them should just
+   get scared off"):
+
+   | Answer | What happens | Kinds |
+   |---|---|---|
+   | **gets used to it** | the scare works for a few days, then less, then not at all; a new scare works again | wild boar, woodpigeons, rooks, red deer at the ricks |
+   | **scared off** | the scare drives them off for some days; they come back, and the same scare works again | roe, hares, wildfowl, fox, wolves while the fold is kept, a bear (except a hungry one in spring) |
+   | **leaves for good** | a scare at the wrong time drives them off for years | a heronry in spring, a beaver family trapped, a bear's den disturbed |
+   | **does not answer** | scares do nothing; only traps, cats, stores and timing | rats and mice, voles, insects, slugs |
+
+   Real harm (a beast killed or hurt, a dog that bites) works on every kind and makes it wary of that place for longer than a scare.
+   What this gives people: against the kinds that get used to scares, a watch must be varied or backed by harm; against the kinds
+   that are scared off, a steady watch is enough but must be kept up; against those that leave for good, restraint; against those
+   that do not answer, other levers altogether. Which kind is which is itself something to learn, and lore carried from one kind
+   to another goes wrong ("the scarecrow kept the hares off, so it will keep the boar off").
 
 ## 10. Representation and general rules
 
@@ -723,7 +739,7 @@ to groups (D4-105).
    Deer, wolves and bees as groups next; beaver and bear as era or rare.
 4. Rare regimes (rabies, murrain, a vole plague, a locust rumour): in, as lore and rare events?
 5. How much seeded lore should be wrong, and in which ways?
-6. Compressed time (§8): lead times and creature memory set in engine days (never less than one), rather than scaled from real days?
+6. ~~Compressed time~~: decided, D2-197 (lead times and creature memory in engine days, never less than one).
 
 ## History
 
@@ -734,6 +750,8 @@ to groups (D4-105).
   middling or deep kind now has fast (nights to weeks) and seasonal arms, with the yearly lags on top. Fast arms added to boar, the
   mast, voles, chafers, wasps, slugs, red deer, wolves, fox, rats and wireworm; new entries for aphids and ladybirds (a predator lag
   of one to two weeks) and liver fluke (a wet autumn to the winter's rot); §7 grouped by lag; compressed time as open question 6.
+- 8 Nov: Zach decided open question 6 ("yeah set lead times in engine days"): D2-197. And "not all creatures should get used to
+  scares. Some of them should just get scared off": D2-198, four answers to a scare by kind (§9 item 7). Status partly accepted.
 
 ## Sources
 

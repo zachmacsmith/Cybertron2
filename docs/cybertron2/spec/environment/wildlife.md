@@ -13,6 +13,8 @@ is, these rules wait for it.
 - D2-194: rights in wild kinds by law at a world's start; taking against them is poaching.
 - D2-195: legendary individuals, rare and named.
 - D2-196: hounds in wave 2, hawks in wave 3.
+- D2-197: lead times and creature memory in engine days, never less than one.
+- D2-198: kinds answer scares in different ways: get used to them, are scared off, leave for good, or do not answer.
 
 ## Mechanics
 
@@ -41,9 +43,24 @@ is, these rules wait for it.
 - **Legendary individuals** (D2-195): seldom, a kind present in a world has one named individual (the white hart, the great boar, the
   old dog-wolf), met and remembered as an individual on demand.
 
+- **Time in the wild** (D2-197): a sign leads its event by at least one engine day. A creature's learned response (a field found,
+  a scare learned, a fold that fed it, a wood where it was hunted) builds and fades over engine days. Stocks and rates follow the
+  year clock (calibrate).
+- **Answers to scares** (D2-198): each kind has one of four answers to a harmless scare (a watch, a scarecrow, noise, a light):
+
+  | Answer | What happens | Kinds (first set) |
+  |---|---|---|
+  | gets used to it | the scare works for a few days, then less, then not at all; a new scare works again | wild boar, woodpigeons, rooks, red deer at the ricks |
+  | scared off | the scare drives them off for some days; they come back and the same scare works again | roe deer, hares, wildfowl, fox, wolves while the fold is kept |
+  | leaves for good | a scare at the wrong time drives them off for years | a heronry in spring, a beaver family trapped |
+  | does not answer | scares do nothing; only traps, cats, stores and timing do | rats and mice, voles, insects, slugs |
+
+  Real harm (a beast killed or hurt, a dog that bites) works on every kind, and makes the kind wary of that place for longer than a
+  scare does (calibrate).
+
 ## Open
 
 - The mechanism (proposals/living_populations.md).
 - Every number (densities, group sizes, skill effects, danger chances): calibrate.
 
-*Current as of 8 Nov 2026: D2-192 to D2-196.*
+*Current as of 8 Nov 2026: D2-192 to D2-198.*

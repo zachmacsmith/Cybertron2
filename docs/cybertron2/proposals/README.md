@@ -403,4 +403,5 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | ? | crops grow by the season; "can" apart from "works"; what a crop shows | discussion (8 Nov). | [crop_growth.md](crop_growth.md) |
 | ? | phase 3 of the engine overhaul, variance and risk (the scheduler, building risks, the woods, bad years) | discussion (8 Nov); an exploration of what phase 3 builds, nothing built. | [phase3_variance_and_risk.md](phase3_variance_and_risk.md) |
 | ? | ecology designed from the node outward | discussion (8 Nov). Nothing decided, nothing built. | [node_ecology.md](node_ecology.md) |
-| ? | wild systems, layered kinds that people can learn to read | discussion (8 Nov). Nothing decided, nothing built. | [wild_systems.md](wild_systems.md) |
+| 8 Nov | wild systems, layered kinds that people can learn to read | discussion (8 Nov). | [wild_systems.md](wild_systems.md) |
+| 8 Nov | Lead times and creature memory in engine days; kinds answer scares in four ways | accepted in part: D2-197, D2-198 | [wild_systems.md](wild_systems.md) |
