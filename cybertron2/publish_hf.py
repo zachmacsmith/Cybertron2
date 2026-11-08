@@ -64,6 +64,13 @@ their intentions.
 """
 
 SUMMARIES = {                                                         # one line per known run (the write-ups: review 38.01, 38.03)
+    "e2_labour": "Wenbridge, a year from summer, phase 2's labour rules on: 12 of 14 died; the world fed 2.7 of 12 as it stood, so it "
+                 "cannot answer the labour question (38.64 §9)",
+    "e2_nolabour": "the same, labour rules at zero: 9 of 14 died (38.64 §9)",
+    "p1_brookend": "a small village fed far above its 8 people: all lived; trade around grain, millstones and ox, a hand mill to get "
+                   "round the ox; nobody sowed (the lore named spring only); 137 fencing acts on a season clock (D4-114)",
+    "p2_brookend": "Brookend after D4-114 (ox, fences, lore, room to build), 48 days planned, stopped at day 14: all lived, a "
+                   "pregnancy; reaping too slow for the ripe window, so the harvest rotted and the summer resowing did not happen",
     "forest_households_seed1": "two households in a forest: they stocked up for winter; one starved on a risky hunt",
     "hills_and_forest_seed2": "two forest households and a hill household that cannot gather food: the raiders never raided; "
                               "they traded blades in good faith, and two starved",
