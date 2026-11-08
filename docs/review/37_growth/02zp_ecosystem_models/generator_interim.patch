@@ -1,0 +1,134 @@
+diff --git a/cybertron2/landgen/ecology.py b/cybertron2/landgen/ecology.py
+index 2e6598a..5bfab34 100644
+--- a/cybertron2/landgen/ecology.py
++++ b/cybertron2/landgen/ecology.py
+@@ -102,6 +102,12 @@ def natural(L) -> None:
+     eco[tidal] = "saltmarsh"
+     eco[tn == "saltmarsh"] = "saltmarsh"
+     eco[tn == "rock"] = "bare rock"
++    # waterlogged ground anywhere grows wet wood, not the terrain's dry wood (02zp: the niche model's carr)
++    soak = np.isin(eco, ["oak-ash wood", "beech wood", "birch and pine wood"]) & (wet >= float(L.conf.get("carr_wet", 0.85)))
++    eco[soak] = "alder carr"
++    # the tree line follows warmth (02zp): too cold for wood, the tops are moor, or bog where wet and flat
++    cold = (L.temp < float(L.conf.get("treeline_c", 4.6))) & np.isin(eco, FORESTS)
++    eco[cold] = np.where((wet[cold] >= 0.7) & (sl[cold] < 4), "blanket bog", "moor")
+     eco[(tn == "water") | L.sea | L.lake] = "water"
+     L.eco = eco
+     L.band = np.zeros(L.g.shape, dtype=np.int8)
+@@ -163,6 +169,11 @@ def settled(L, sites: list) -> None:
+     # wet cleared grass by rivers stays wet grassland; the floodplain's meadow wetter than this is rushy
+     hm = (L.eco == "hay meadow") & (L.wet >= 0.85)
+     L.eco[hm] = "wet grassland"
++    # cleared ground that lies wet is rushy wet grassland wherever it is, and the wettest flats stay fen (02zp)
++    wg = np.isin(L.eco, ["grassland", "hill pasture", "chalk grassland"]) & (L.wet >= float(conf.get("wet_grass", 0.75)))
++    L.eco[wg] = "wet grassland"
++    fl = (L.eco == "wet grassland") & (L.wet >= 0.95) & (L.slope < 1)
++    L.eco[fl] = "fen"
+     moorish = (L.eco == "hill pasture") & (L.h >= 300) & (L.moist >= 0.65)
+     L.eco[moorish] = "moor"
+     _set_cover(L)
+diff --git a/cybertron2/landgen/physical.py b/cybertron2/landgen/physical.py
+index b0dfda4..158b60d 100644
+--- a/cybertron2/landgen/physical.py
++++ b/cybertron2/landgen/physical.py
+@@ -85,6 +85,20 @@ def elevation(g: Grid, conf: dict, mf: dict) -> np.ndarray:
+     return h
+ 
+ 
++def _flood_low(g: Grid, h: np.ndarray, sea_level: float, flood_m: float) -> np.ndarray:
++    """Drown ground below sea_level + flood_m where it joins the sea or the window's edge; keep closed hollows inland as land."""
++    low = h < sea_level + flood_m
++    lab, n = F.components(low)
++    edge = np.zeros(g.shape, dtype=bool)
++    edge[0, :] = edge[-1, :] = edge[:, 0] = edge[:, -1] = True
++    seaward = set(np.unique(lab[edge & low]).tolist()) | set(np.unique(lab[h < sea_level]).tolist())
++    seaward.discard(0)
++    drown = np.isin(lab, list(seaward)) & low
++    out = h - flood_m
++    out = np.where(drown, np.minimum(out, sea_level - 1.0), np.maximum(out, sea_level + 0.5))
++    return out
++
++
+ def climate(g: Grid, conf: dict, h: np.ndarray, sea: np.ndarray, mf: dict) -> tuple[np.ndarray, np.ndarray]:
+     """Temperature by height and a north-south gradient; moisture from one sweep along the prevailing wind: rain on windward
+     slopes, a shadow beyond, recharge over the sea."""
+@@ -104,7 +118,7 @@ def climate(g: Grid, conf: dict, h: np.ndarray, sea: np.ndarray, mf: dict) -> tu
+     rain = np.rot90(rain, -k)
+     lo, hi = np.percentile(rain, 2), np.percentile(rain, 98)
+     m = 0.4 + 0.4 * np.clip((rain - lo) / max(hi - lo, 1e-9), 0, 1) + 0.12 * F.fbm(g.seed, "moist", g.x, g.y, 15.0, octaves=3)
+-    return temp, np.clip(m + mf["moist"], 0, 1)
++    return temp, np.clip(m + mf["moist"] + float(conf.get("moisture", 0.0)), 0, 1)
+ 
+ 
+ def flood(g: Grid, h: np.ndarray, outlet: np.ndarray) -> tuple[np.ndarray, np.ndarray, list]:
+@@ -185,6 +199,8 @@ def _spread(g: Grid, src: np.ndarray, val: np.ndarray, steps: int, how="max"):
+ def build(conf: dict, g: Grid, prims: list) -> Land:
+     mf = M.compose(g, prims)
+     h = elevation(g, conf, mf)
++    if float(conf.get("flood_m", 0.0)) > 0:                                # the sea higher against the land (02zp): drown the low
++        h = _flood_low(g, h, conf["sea_level"], float(conf["flood_m"]))    # ground joined to the sea or the window's edge
+     sea = h < conf["sea_level"]
+     temp, moist = climate(g, conf, h, sea, mf)
+     area = g.km * g.km
+@@ -238,6 +254,8 @@ def build(conf: dict, g: Grid, prims: list) -> Land:
+     lo, hi = np.percentile(twi[~sea], 2), np.percentile(twi[~sea], 99.5)
+     wet = np.clip((twi - lo) / max(hi - lo, 1e-9), 0, 1)
+     wet = np.clip(np.maximum(wet, mf["wet"]), 0, 1)
++    if float(conf.get("wetness", 0.0)):                                    # a wetter or drier world than its own ranking (02zp)
++        wet = np.clip(wet + float(conf["wetness"]), 0, 1)
+     wet[lake | (river >= 2) | sea] = 1.0
+     rh, rd = _spread(g, river >= 2, Z, 20, how="near")
+     f = np.where(np.isfinite(rd), h - np.nan_to_num(rh), 99.0)
+diff --git a/cybertron2/landgen/vocab.py b/cybertron2/landgen/vocab.py
+index 2389936..bb7efc7 100644
+--- a/cybertron2/landgen/vocab.py
++++ b/cybertron2/landgen/vocab.py
+@@ -12,6 +12,13 @@ DEFAULTS = {
+     "configuration": None,        # a named configuration (CONFIGS), or none: plain land with noise
+     "wind": "west",               # the prevailing wind (wet windward, rain shadow lee)
+     "sea_level": 0.0,
++    "flood_m": 0.0,               # the sea stands this much higher against the land: low ground joined to the sea or the window's
++                                  # edge is drowned (a drowned coast, islands); a closed hollow inland stays land (02zp)
++    "wetness": 0.0,               # a world wetter (+) or drier (-) than the land's own wetness ranking: added to every cell's wetness
++    "moisture": 0.0,              # the climate wetter (+) or drier (-): added to every cell's moisture (rain), after the wind sweep
++    "carr_wet": 0.85,             # wood on ground this wet is alder carr, whatever the terrain (02zp)
++    "wet_grass": 0.75,            # cleared ground this wet is rushy wet grassland (02zp)
++    "treeline_c": 4.6,            # no wood where a year's mean is below this (C): the tree line follows warmth, not height (02zp)
+     "base_m": 60.0,               # lowland height
+     "relief_m": 100.0,            # the noise's height range
+     "temperature_c": 9.0,         # a year's mean at sea level
+diff --git a/tests/test_cybertron2_landgen.py b/tests/test_cybertron2_landgen.py
+index a0836e2..968d3fd 100644
+--- a/tests/test_cybertron2_landgen.py
++++ b/tests/test_cybertron2_landgen.py
+@@ -264,3 +264,30 @@ def test_a_generated_world_has_no_gate_shut_for_everyone():
+     for k, n in w["nodes"].items():
+         if n.get("unexplored"):
+             assert any(k in (a.get("places") or []) for a in w["agents"].values()), k
++
++
++def _land(**over):
++    conf = dict(V.DEFAULTS); conf.update(SMALL); conf.update(over); conf["seed"] = 5
++    g = F.grid(5, conf["size_km"], conf["km"])
++    return P.build(conf, g, M.primitives(conf))
++
++
++def test_a_higher_sea_drowns_low_ground_joined_to_it_and_keeps_inland_hollows():
++    """flood_m (02zp): the sea stands higher against the land; a drowned coast and islands, never an inland sea."""
++    dry, wet = _land(), _land(flood_m=70.0)
++    assert dry.sea.mean() == 0.0 and 0.1 < wet.sea.mean() < 0.95
++    from cybertron2.landgen.field import components
++    lab, n = components(wet.sea)
++    edge = np.zeros(wet.sea.shape, bool); edge[0, :] = edge[-1, :] = edge[:, 0] = edge[:, -1] = True
++    assert all(edge[lab == k].any() for k in range(1, n + 1))               # every sea reaches the window's edge
++
++
++def test_wetness_and_moisture_make_a_wetter_world_and_cold_makes_a_tree_line():
++    """wetness, moisture, treeline_c (02zp): absolute climate, not only the land's own ranking."""
++    from cybertron2.landgen import ecology as EC
++    base, wetter = _land(), _land(wetness=0.35, moisture=0.25)
++    assert wetter.wet.mean() > base.wet.mean() + 0.2 and wetter.moist.mean() > base.moist.mean() + 0.15
++    wet_ecos = ["fen", "reedbed", "alder carr", "wet grassland", "blanket bog"]
++    assert np.isin(wetter.eco, wet_ecos).mean() > np.isin(base.eco, wet_ecos).mean() + 0.05
++    cold = _land(temperature_c=3.0)
++    assert np.isin(cold.eco, EC.FORESTS).mean() < np.isin(base.eco, EC.FORESTS).mean() * 0.5
