@@ -38,9 +38,42 @@ The Brookend run (p1) found places where the engine broke that, and others where
   best sown early in summer, and well in spring; rye wants a winter; sown at other times, crops come up poor or not at all."
 - Brookend (specs/make_plenty.py): the Green at size 4 (room to build), 48 days, children on.
 
-## Part 2: the audit of claims (discussion)
+## Part 2: the audit of claims (discussion, 8 Nov)
 
-To come: every place the engine still refuses an act for want of a right, and what each should become under the principle.
+**How claims work now.** A claim is a record {thing, claimant, rights, grounds, since, until} (world.add_claim). Rights are any of
+access, withdrawal, management, exclusion, alienation. `World.rights(name, thing)` is the union of the claims that name the person,
+"anyone", or their household (a member gets access and withdrawal; the head everything the household holds). The spec (D4-23) and
+the prompt both say the engine enforces only possession: "Anyone can use anything they can reach, but using what others hold is
+seen and remembered." Most of the engine does that: sowing, reaping, grazing, felling and drawing from others' land go ahead with a
+note and an event (verbs._against); claiming land another holds is allowed (a dispute); sleeping in another's house is allowed and
+noted; taking from another's store goes ahead as a theft that may be seen (settle.settle_thefts).
+
+**Where the engine still refuses for want of a right** (each against the principle unless marked keep):
+
+| # | Act | Now | Under the principle |
+|---|---|---|---|
+| 1 | `move` goods between one's hands and a store one does not hold (verbs._store_here) | refused: "not yours to use (to take without the right is theft; to put, leave)" | as `take` and `give` already are: allowed; taking without the right is a theft, seen or not. Today `take` allows it and `move` does not, and `give` puts into any store one can enter while `move` cannot |
+| 2 | Goods kept in another's store | the goods become the building's: nothing records whose they are, so the Thornes taking back their own grain from the Mill House was a "theft" (p1) | goods carry a keeper's mark (a lot kept for X), or a storage agreement leg gives withdrawal of those goods; taking one's own back is not theft, and the store's holder taking them is |
+| 3 | Opening or barring a door (verbs._set) | only those with management (the head) | anyone at it can; seen. Who may is social (a member barring the head out is a quarrel) |
+| 4 | A barred door (world.can_enter) | stops all without access; there is no way to force it | a barred door is a real barrier; add forcing it (work, noise, damage to the door), seen and heard. Access through a barred door stands for being let in |
+| 5 | Talking in a building (run.py, say) | refused without access; only those with access hear | who hears is who is there (inside it, or at the place for the open air) |
+| 6 | Acting `for` a household one is not of (verbs._give) | refused | keep as a clarity rule (acting for a party is a social role), but say it plainly: take it, then give it |
+| 7 | Selling land one does not hold (agreements: alienation) | refused | allow; the buyer's claim records "bought from X", and whether anyone recognises it is social (a fraud is a dispute) |
+| 8 | Letting others into a house (host, grant: exclusion) | refused without exclusion | keep: a grant is a record that means something only from one who may give it; physically letting someone in is opening the door (3) |
+| 9 | Household offices: admitting, naming an heir, setting children's work (head only) | refused | keep for now: an institution's own rules bind its members (D4-23); flag for the institutions work |
+| 10 | Night defaults: sleeping and eating where one has access and withdrawal | defaults, not blocks (`sleep` elsewhere is allowed) | keep: the automatic choice should be one's own; using another's is an act |
+
+**Physical gaps the same audit found** (things the engine allows that are not physically possible):
+- Beasts are at the node, not on a parcel, for working them: an ox grazing on the pasture can turn the millstones without being
+  brought, and two people can work one ox on the same day.
+- A store's goods are counted by the building, so who put what in is lost (2 above).
+
+**Does the social side carry the weight?** Uses against a claim are events that concern the holders, reach their morning
+"what concerned you", and become memories; agents decide what to do. Nothing more is enforced. Whether that is enough to make a
+claim mean something is the experiment: in p1 nobody broke a claim on purpose; the conflicts came from the engine (the ox, the
+stored grain).
+
+**Proposed order:** 1 and 3 and 5 (small: they only stop refusing), then 2 (the storage design), then 4 (forcing a door), then 7.
 
 ## Alternatives considered
 
@@ -57,6 +90,7 @@ To come: every place the engine still refuses an act for want of a right, and wh
 ## History
 
 - 8 Nov: part 1 built at Zach's request after the p1 Brookend run (D4-114).
+- 8 Nov: part 2, the audit of claims, written (discussion): ten places the engine refuses for want of a right, two physical gaps.
 
 ## Sources
 
