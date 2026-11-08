@@ -223,7 +223,7 @@ def test_a_household_that_notices_its_open_gate_shuts_it():
     assert any("you shut the gate of West Field" in w.s["mind"][n]["today"]["notice"] for n in barrows)
 
 
-def test_a_wood_fence_unmended_loses_a_level_a_season_and_a_finished_fence_needs_its_materials():
+def test_a_wood_fence_unmended_loses_a_level_a_year_and_a_finished_fence_needs_its_materials():
     from cybertron2.engine import farm as FM, herds as HD
     w = barleyfield()
     w.s["containers"][w.hands("Bennet")]["goods"]["timber"] = 20.0
@@ -235,11 +235,18 @@ def test_a_wood_fence_unmended_loses_a_level_a_season_and_a_finished_fence_needs
     HD._fences(w, {"herds": []})
     assert w.s["parcels"]["west_field"]["fence"]["units"] > 0
     _fence(w, "west_field")
-    w.s["day"] = w.calendar()["left"] - 1 + w.d if False else w.s["day"]
-    while w.calendar(w.d + 1)["season"] == w.calendar()["season"]:
-        w.s["day"] += 1
+    year = w.year_days()
+
+    def to_year_turn():
+        while int(w.calendar(w.d + 1)["year_day"]) % year != 0:
+            w.s["day"] += 1
+    to_year_turn()
     HD._fences(w, {"herds": []})
-    assert w.s["parcels"]["west_field"]["fence"]["level"] == 1                      # a season unmended
+    assert w.s["parcels"]["west_field"]["fence"]["level"] == 2                      # no loss in its first year (D4-114)
+    w.s["day"] += 1
+    to_year_turn()
+    HD._fences(w, {"herds": []})
+    assert w.s["parcels"]["west_field"]["fence"]["level"] == 1                      # a year unmended (D4-114)
 
 
 def test_a_hungry_unherded_herd_crosses_several_parcels_and_tramples_a_field_while_a_fed_one_stays():
