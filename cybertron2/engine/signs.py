@@ -561,6 +561,25 @@ SKY = [
          tags=["season", "farming"], knack="sow", text=lambda x: "the wind has backed and the cloud is thickening: rain tomorrow, likely"),
     dict(when=lambda x: x.tomorrow == "snow" and x.weather != "snow", sense="sight", p=0.12, tags=["season", "farming"], knack="sow",
          text=lambda x: "a heavy, yellow-grey sky: snow before long"),
+    # graded by the day's values (D4-111): the extremes plain, the slight ones faint
+    dict(when=lambda x: x.climate and x.low <= -6, own=2.0, sense="touch", tags=["season", "farming", "shelter"],
+         text=lambda x: "a killing frost: the ground rings like iron and the water is frozen through; anything tender out of doors is lost"),
+    dict(when=lambda x: x.climate and 22 <= x.temp < 26, own=1.2, sense="touch", tags=["season"],
+         text=lambda x: "a hot, close day: the beasts crowd the shade and the work goes slowly"),
+    dict(when=lambda x: x.climate and x.temp >= 26, own=2.0, sense="touch", tags=["season", "danger"],
+         text=lambda x: "a burning heat: the ground is baked hard, and the old and the young wilt in it"),
+    dict(when=lambda x: x.climate and 0 < x.rain < 1.5 and x.weather == "rain", own=0.5, sense="touch", tags=["season"],
+         text=lambda x: "a thin drizzle all day, soaking through slowly"),
+    dict(when=lambda x: x.climate and x.rain >= 20 and x.weather != "snow", own=2.0, sense="sight", tags=["season", "shelter", "farming"],
+         text=lambda x: "a downpour: water sheets off the roofs and the paths run like streams"),
+    dict(when=lambda x: x.climate and 11 <= x.wind < x.gale, own=0.8, sense="sound", tags=["season"],
+         text=lambda x: "a strong wind all day, the trees bending and the smoke torn from the roofs"),
+    dict(when=lambda x: x.climate and x.wind >= x.gale + 7, own=2.5, sense="sound", tags=["season", "shelter", "danger"],
+         text=lambda x: "a violent wind: thatch ripped loose, branches down, and nobody out who can help it"),
+    dict(when=lambda x: x.climate and x.turned <= -5, own=1.2, sense="touch", tags=["season"],
+         text=lambda x: "the weather has turned overnight: a raw wind and a bite in the air"),
+    dict(when=lambda x: x.climate and x.turned >= 5, own=0.8, sense="touch", tags=["season"],
+         text=lambda x: "the air has turned soft and mild overnight"),
     # a storm on its way (D4-110): the moving storm itself, plain to anyone out of doors; the knack reads the sky earlier (below)
     dict(when=lambda x: x.storm_coming, own=1.5, sense="sight", tags=["season", "shelter", "danger"],
          text=lambda x: "the sky to windward is black and the wind is rising in gusts: a storm is coming"),
@@ -1039,7 +1058,14 @@ def sky_context(here):
             break
         dry += 1
     names = lambda cover: next((p["name"] for p in here.parcels().values() if p["cover"] == cover), None)   # noqa: E731
-    return SimpleNamespace(cold=here.cold(), first_cold=here.cold() and (d == 0 or not here.cold(d - 1)), season=cal["season"], left=cal["left"],
+    from cybertron2.engine import climate as CL
+    on = CL.on(w)
+    e = CL.env(w, here.node, d) if on else {}
+    e0 = CL.env(w, here.node, d - 1) if on and d > 0 else e
+    return SimpleNamespace(climate=on, temp=e.get("temp", 10.0), low=e.get("low", 5.0), rain=e.get("rain", 0.0), wind=e.get("wind", 0.0),
+                           turned=round(e.get("temp", 0.0) - e0.get("temp", 0.0), 2) if on else 0.0,
+                           gale=float(CL.state(w).P["gale"]) if on else 99.0,
+                           cold=here.cold(), first_cold=here.cold() and (d == 0 or not here.cold(d - 1)), season=cal["season"], left=cal["left"],
                            weather=EV.weather(w, None, here.node), snow=EV.snow_lying(w, None, here.node), since_heavy=EV.since_heavy_rain(w, None, here.node),
                            tomorrow=EV.weather(w, d + 1, here.node), storm_coming=_storm_coming(w, here.node, d),
                            dry_before=dry if d >= 5 else 0, wet_days=sum(1 for k in range(max(0, d - 4), d + 1) if EV.wet(w, k, here.node)),
