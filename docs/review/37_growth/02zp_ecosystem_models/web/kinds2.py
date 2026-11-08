@@ -106,3 +106,21 @@ KINDS = {
 }
 CORE_ANCHORS = ["red deer", "roe deer", "wild boar", "brown hare", "voles and mice", "red grouse", "badger", "beaver", "eel",
                 "mountain hare", "woodpigeon"]
+
+# 02zp, after the growth check (Zach, 8 Nov: "wouldn't bears also just not have that many children?"): young a head a year set so
+# each kind's best growth, ln((1 + b) e^-m), matches its real maximum (Caughley; Sinclair; approximate). Long-lived kinds were 2 to 5
+# times too fast; boar too slow. Bears also get a spacing ceiling at real home-range density.
+import math as _m
+REAL_R = {"brown bear": 0.08, "crane": 0.12, "great bustard": 0.15, "seabirds": 0.15, "wolf": 0.35, "golden eagle": 0.06,
+          "sea eagle": 0.07, "buzzard": 0.30, "raven": 0.25, "beaver": 0.25, "wild boar": 1.0, "seal": 0.12, "otter": 0.25}
+for _n, _r in REAL_R.items():
+    KINDS[_n]["b"] = round(_m.exp(_r + KINDS[_n]["m"]) - 1, 3)
+KINDS["brown bear"]["terr"] = 0.03
+
+# 02zp, the last quick pass: each misfit's real limit. Herons nest in colonies, so their numbers are capped by colony sites; capercaillie
+# hold leks and spaced ranges; rats are bounded by the stores they live in; woodpigeons forage over wide farmland in flocks.
+KINDS["grey heron"]["terr"] = 0.8
+KINDS["capercaillie"]["terr"] = 4.0
+KINDS["rats"]["terr"] = 200.0
+KINDS["woodpigeon"]["move"] = 0.4
+KINDS["woodpigeon"]["hab"] = {"farm": 0.8, "wood": 0.4, "open": 0.3}

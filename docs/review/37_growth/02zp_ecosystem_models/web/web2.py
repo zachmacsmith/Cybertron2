@@ -137,9 +137,13 @@ def run(feat, res, kinds, years=60, seed=0, scale=None, people=True, policy=None
             u = rng.random(); draw[f] = xg if u < pg else (xb if u > 1 - pb else 1.0)
         wx = {f: float(np.exp(rng.normal(0, sd * knobs.get("weather", 1.0)))) for f, sd in GROWTH_SD.items()}
         hard = rng.random() < 0.15 * knobs.get("weather", 1.0)
+        snow = 0.6 if hard else 0.0
         if knobs.get("weather_fn"):                                   # an external weather system drives the year (02zp:
-            ext = knobs["weather_fn"](y)                              # 37.4's, when it arrives): {growth: {food: x}, hard: bool}
-            wx.update(ext.get("growth", {})); hard = bool(ext.get("hard", hard))
+            ext = knobs["weather_fn"](y)                              # 37.4's climate): {growth: {food: x}, hard, snow, mast_p}
+            wx.update(ext.get("growth", {})); hard = bool(ext.get("hard", hard)); snow = float(ext.get("snow", snow))
+            if "mast_p" in ext:                                       # mast follows last summer's warmth
+                u = rng.random(); mp = ext["mast_p"]
+                draw["mast"] = 3.0 if u < mp else (0.1 if u > 1 - max(0.05, 0.5 - mp) else 1.0)
         rec["mast"].append(draw["mast"])
         dmg = stk = sto = 0.0; taken = {n: 0.0 for n in names}; mig_seen = {}
         for si, season in enumerate(SEASONS):
@@ -193,6 +197,8 @@ def run(feat, res, kinds, years=60, seed=0, scale=None, people=True, policy=None
             for key, lst in want.items():
                 tot = sum(x for _, x in lst)
                 cap_ = np.maximum(avail.get(key, 0.0), 0) * (0.6 if key in stock else 0.8)   # never eaten to the ground
+                if season == "winter" and snow > 0 and key.split("~")[0] in ("grass", "sward", "heather", "seeds", "roots", "inverts", "browse"):
+                    cap_ = cap_ * (1 - (0.8 if key.split("~")[0] != "browse" else 0.4) * snow)   # snow buries forage
                 f_ = np.where(tot > cap_, cap_ / np.maximum(tot, 1e-12), 1.0)
                 for n, x in lst:
                     g = x * f_
@@ -229,10 +235,15 @@ def run(feat, res, kinds, years=60, seed=0, scale=None, people=True, policy=None
                 short = np.clip(-E[n], 0, None) * R                                # need not covered by fat
                 E[n] = np.clip(E[n], 0, 1)
                 crowd = N[n] / np.maximum(crowd_at[n] * suit[n], 1e-9)
-                surv = np.exp(-k["m"] / 4 - k["starve"] * short - 0.15 * crowd ** 2)     # disease and parasites
+                dis = knobs.get("disease", 0.15)
+                surv = np.exp(-k["m"] / 4 - k["starve"] * short - dis * crowd ** 2)     # disease and parasites
                 if k["terr"]:
                     tc = N[n] / np.maximum(k["terr"] * suit[n], 1e-9)
                     surv = surv * np.exp(-0.5 * np.clip(tc - 1, 0, None))
+                if season == "summer" and knobs.get("epi_p0", 0.0) > 0 and k["migrant"] is None:
+                    p_out = np.clip(knobs["epi_p0"] * crowd ** 2, 0, 0.5)              # an outbreak, likelier when crowded
+                    hit = rng.random(shape) < p_out
+                    surv = np.where(hit, surv * (1 - knobs.get("epi_kill", 0.45)), surv)
                 dead = N[n] * (1 - surv)
                 if knobs.get("debug") and n == knobs["debug"]:
                     wts = N[n] * land; W_ = max(float(wts.sum()), 1e-12)
@@ -241,14 +252,14 @@ def run(feat, res, kinds, years=60, seed=0, scale=None, people=True, policy=None
                 carrion = carrion + dead * k["mass"] * 0.6
                 N[n] = N[n] - dead
                 if season in k["breed"] and k["migrant"] is None:
-                    cond = np.clip(0.2 + 0.8 * E[n], 0, 1) / (1.0 + crowd ** 2)
+                    cond = np.clip(0.2 + 0.8 * E[n], 0, 1) / (1.0 + (dis / 0.15) * crowd ** 2)
                     N[n] = N[n] * (1 + k["b"] / len(k["breed"]) * cond)
                 if people and k["people"] > 0:
                     t = N[n] * k["people"] / 4 * near * (policy.get(n, 1.0) if policy else 1.0)
                     N[n] = N[n] - t; taken[n] += float(t.sum())
                 if k["move"] > 0 and k["migrant"] is None:
                     att = suit[n] * (0.3 + E[n])
-                    N[n] = _disperse(N[n], att, k["move"])
+                    N[n] = _disperse(N[n], att, min(0.6, k["move"] * knobs.get("move_scale", 1.0)))   # per km, not per patch
                 N[n] = N[n] + 0.002 * suit[n] * (k["ref"] or 1.0) * _edge(shape)
         for n in names:
             out[n].append(mig_seen.get(n, 0.0) if kinds[n]["migrant"] is not None else float((N[n] * land).sum() / L))
