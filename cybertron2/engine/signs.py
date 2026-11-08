@@ -15,6 +15,7 @@ from __future__ import annotations
 from types import SimpleNamespace
 
 from cybertron2.engine import farm as FM
+from cybertron2.engine.data import CROPS as CROPS_
 
 
 def _k(n) -> str:
@@ -31,15 +32,15 @@ CROP = [
     dict(when=lambda x: x.c is not None and x.pid in x.reaping and x.weather in ("rain", "heavy rain"), reach="near", own=0.8,
          sense="sight", tags=["farming", "harvest", "food"], text=lambda x: f"wet sheaves lying in {x.nm}: {x.the} cut in the rain"),
     # growing
-    dict(when=lambda x: x.growing and not x.failed, sense="sight", p=0.10, tags=["farming"],
+    dict(when=lambda x: x.growing and not x.failed and not x.lying and x.stand >= 0.6, sense="sight", p=0.10, tags=["farming"],
          text=lambda x: f"{x.the} in {x.nm} {x.be} up in green rows"),
-    dict(when=lambda x: x.growing and not x.failed, sense="sight", p=0.12, tags=["farming", "harvest"], knack="reap",
-         text=lambda x: f"you judge {x.the} in {x.nm} will be fit to reap in about {_k(x.c['ripe_day'] - x.day)}"),
+    dict(when=lambda x: x.growing and not x.failed and not x.lying and not x.never, sense="sight", p=0.12, tags=["farming", "harvest"],
+         knack="reap", text=lambda x: f"you judge {x.the} in {x.nm} will be fit to reap in about {_k(x.c['ripe_day'] - x.day)}"),
     dict(when=lambda x: x.growing and not x.failed and x.weeds and x.day - x.c["sown"] >= 2, sense="sight", p=0.2,
          tags=["farming"], knack="weed", text=lambda x: f"thistle and dock are coming up among {x.the} in {x.nm}"),
     dict(when=lambda x: x.growing and not x.failed and not x.weeds, sense="sight", p=0.08, tags=["farming"],
          text=lambda x: f"{x.part} is clean of weeds"),
-    dict(when=lambda x: x.growing and not x.failed and x.progress < 0.25, sense="sight", p=0.08, tags=["farming"],
+    dict(when=lambda x: x.growing and not x.failed and not x.lying and x.progress < 0.25, sense="sight", p=0.08, tags=["farming"],
          text=lambda x: f"{x.the} in {x.nm} {x.be} just through, a green haze on the soil"),
     dict(when=lambda x: x.growing and not x.failed and x.c.get("crop") == "legumes" and 0.35 <= x.progress < 0.75 and not x.cold,
          sense="sight", p=0.1, tags=["farming"], text=lambda x: f"{x.the} in {x.nm} {x.be} in flower, bees working along the rows"),
@@ -58,6 +59,30 @@ CROP = [
          text=lambda x: f"{x.the} in {x.nm} {x.be} withering, the leaves spotted and brown"),
     dict(when=lambda x: x.growing and x.failed and not x.cold, sense="smell", p=0.2, tags=["farming"],
          text=lambda x: f"a sour smell off {x.nm}"),
+    # growth by the season (D4-106; proposals/crop_growth.md §4): plain when bad, subtle when slight; the farmer's eye reads more
+    dict(when=lambda x: x.c is not None and x.pid in x.sowing and x.since == 0, own=1.2, sense="sight", tags=["farming"],
+         text=lambda x: f"seed being broadcast across {x.nm}, rooks following the sower"),
+    dict(when=lambda x: x.lying and x.since >= 2, own=1.2, sense="sight", tags=["farming", "food"],
+         text=lambda x: f"nothing has come up yet in {x.nm}, though {x.the} was sown {_k(x.since)} ago"),
+    dict(when=lambda x: x.lying and x.stand < 0.85, own=1.2, sense="sight", tags=["farming", "food"],
+         text=lambda x: f"pigeons working the sown ground in {x.nm}, pecking up the seed"),
+    dict(when=lambda x: x.growing and not x.lying and x.stand < 0.6 and not x.frost_recent, own=2.0, sense="sight", tags=["farming", "food"],
+         text=lambda x: f"only a scattering of {x.c['kind']} has come up in {x.nm}, bare soil between the plants"),
+    dict(when=lambda x: x.growing and not x.lying and not x.failed and x.rate < 0.7 and not (x.c.get("hardy") and x.season == "winter"),
+         own=0.8, sense="sight", tags=["farming"], knack="sow",
+         text=lambda x: f"{x.the} in {x.nm} {x.be} short and pale for {'their' if x.be == 'are' else 'its'} age: slow to come on"),
+    dict(when=lambda x: x.growing and x.frost_recent and x.stand >= 0.5, own=2.0, sense="sight", tags=["farming", "season", "food"],
+         text=lambda x: f"the frost has blackened the tips of {x.the} in {x.nm}"),
+    dict(when=lambda x: x.growing and x.frost_recent and x.stand < 0.5, own=2.0, sense="sight", tags=["farming", "season", "food"],
+         text=lambda x: f"half {x.the} in {x.nm} lies dead after the frosts, the rest blackened"),
+    dict(when=lambda x: x.growing and x.no_winter and x.progress >= 0.5, own=0.8, sense="sight", tags=["farming", "food"], knack="sow",
+         text=lambda x: f"{x.the} in {x.nm} has run up thin and is setting few ears"),
+    dict(when=lambda x: x.poor and not x.rotting, own=1.0, sense="sight", tags=["farming", "harvest", "food"],
+         text=lambda x: f"{x.the} in {x.nm} {x.stands} sparse and short in the ear"),
+    dict(when=lambda x: x.poor and not x.rotting, own=0.5, sense="touch", tags=["farming", "harvest", "food"], knack="reap",
+         text=lambda x: f"the ears in {x.nm} are light and thin: there will be little in them"),
+    dict(when=lambda x: x.pid in x.green_cut, own=1.2, sense="sight", tags=["farming", "harvest"],
+         text=lambda x: f"{x.the} in {x.nm} being cut green, before {'their' if x.be == 'are' else 'its'} time"),
     # ripe
     dict(when=lambda x: x.ripe and not x.rotting, sense="sight", p=0.35, tags=["farming", "harvest", "food"],
          text=lambda x: f"{x.the} in {x.nm} {x.stands} ripe and ready for the sickle"),
@@ -92,6 +117,10 @@ FIELD = [
          text=lambda x: f"rooks and gulls following the plough down {x.nm}"),
     dict(when=lambda x: x.pid in x.hoed, own=0.6, sense="sound", tags=["farming"],
          text=lambda x: f"the chop of hoes in {x.nm}"),
+    dict(when=lambda x: x.c is None and x.dead is not None, own=2.0, sense="sight", tags=["farming", "food", "season"],
+         text=lambda x: f"the {x.dead['kind']} in {x.nm} is dead and black, nothing left standing"),           # D4-106
+    dict(when=lambda x: x.pid in x.turned, own=1.2, sense="sight", tags=["farming"],
+         text=lambda x: f"{x.nm} being turned over, the green {x.turned[x.pid]} going under"),                  # D4-106
     dict(when=lambda x: x.c is None and x.p.get("broken", 0) > 0.1, sense="sight", p=0.15, tags=["farming"],
          text=lambda x: f"{x.nm} is dug over, the soil turned dark and ready for seed"),
     dict(when=lambda x: x.c is None and x.p.get("broken", 0) <= 0.1 and x.p.get("last_crop"), sense="sight", p=0.06, tags=["farming"],
@@ -843,17 +872,31 @@ def context(here, pid, h=None, holder=_MAIN):
     x.part = FM.the_part(names, par, holder) if par["cover"] == "field" else p["name"]
     plural = bool(c) and str(c.get("kind", "")).endswith("s")
     x.be, x.stands = ("are", "stand") if plural else ("is", "stands")
+    x.sowing = worked_by({"sow"})
+    x.green_cut = set((here.today().get("green_cut") or {}).keys()) if hasattr(here, "today") else set()
+    x.turned = (here.today().get("turned") or {}) if hasattr(here, "today") else {}
+    x.dead = p.get("dead") if p.get("dead") and here.day - int(p["dead"].get("day", 0)) <= 8 else None
     if c:
-        x.growing = here.day < int(c["ripe_day"])
-        x.ripe = not x.growing and c["area_left"] > 1e-6
+        c = FM.started(c, here.day)
+        x.c = c
+        x.growing = c.get("progress", 0.0) < 1.0 and c["area_left"] > 1e-6
+        x.ripe = not x.growing and c["area_left"] > 1e-6 and here.day >= int(c["ripe_day"])
+        x.lying = bool(c.get("lying")) and x.growing
+        x.stand = float(c.get("stand", 1.0))
+        x.rate = FM.rate(c["crop"], cal["season"])
+        x.since = here.day - int(c.get("sown", here.day))
+        x.frost_recent = c.get("frost_day") is not None and here.day - int(c["frost_day"]) <= 1
+        x.never = bool(c.get("never")) and x.growing
+        x.no_winter = CROPS_.get(c["crop"], {}).get("needs_winter") is not None and (c.get("no_winter") or int(c.get("stalled", 0)) > 0)
+        x.poor = x.ripe and float(c.get("quality", 1.0)) * x.stand < 0.6
         x.rotting = bool(c.get("rotting")) and c["area_left"] > 1e-6
         x.failed = bool(c.get("failed") and c.get("shown_failed"))
         x.weeds = FM.weed_gain(f, c.get("weeded", 0.0) / max(1e-9, c["area"])) < 0.2
         x.window_left = int(c["ripe_day"]) + int(c.get("window", 2)) - 1 - here.day
         left_in_season = cal["left"]
         winter_next = seasons[(seasons.index(cal["season"]) + 1) % 4] == "winter"
-        x.frost_first = winter_next and int(c["ripe_day"]) - here.day > left_in_season
-        x.progress = (here.day - int(c.get("sown", here.day))) / max(1, int(c["ripe_day"]) - int(c.get("sown", here.day)))
+        x.frost_first = x.never or (winter_next and int(c["ripe_day"]) - here.day > left_in_season and not c.get("hardy"))
+        x.progress = float(c.get("progress", 0.0))                              # its own growth (D4-106)
         tr = c.get("trampled") or {}
         x.trampled_days = here.day - int(tr["day"]) if tr.get("day") is not None else None
         x.trampled_qty = float(tr.get("qty", 0.0))
@@ -1048,6 +1091,8 @@ def facts(here, add) -> None:
     for pid, p in here.parcels().items():
         x = context(here, pid)
         emit(WILD, x, [f"parcel:{pid}"], parcel=pid)
+        if p["cover"] != "field" and p.get("crop"):                            # seed sown on turf (D4-106)
+            emit(CROP, x, [f"parcel:{pid}"], parcel=pid)
         if p["cover"] == "field":
             for hd, _, _ in FM.standing(p):                                   # a crop for each holding (D2-172)
                 emit(CROP, context(here, pid, holder=hd), [f"parcel:{pid}"], parcel=pid)

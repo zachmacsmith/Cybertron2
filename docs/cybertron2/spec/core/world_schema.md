@@ -38,17 +38,17 @@ Readers (views, c2viz, analyses) can then tell which shape a checkpoint has with
     checkpoint, and carry the version.
 - **Not covered here.** Each person's `mind` and `know` stores are versioned with the memory and knowledge code, not here.
 
-## Data: version 2 (8 Nov 2026)
+## Data: version 3 (8 Nov 2026)
 
 Top level: `acts`, `agreements`, `buildings`, `claims`, `containers`, `day`, `events`, `fuse_calls`, `herds`, `institutions`, `know`, `left`, `life`, `log`, `mind`, `nodes`, `offers`, `parcels`, `people`, `roads`, `seq`, `tag_seq`, `today`, `traces`, `world_schema`.
 
-The day's record (`today`): `_departed`, `_floor`, `admits`, `awake`, `care`, `care_by`, `care_gift`, `children_work`, `day_seen`, `drawn`, `fights`, `fire`, `fled`, `fuse`, `guards`, `heard`, `joins`, `learn`, `left`, `memory_done`, `partner`, `partners`, `road`, `route`, `skipped_morning`, `sleep`, `soaked`, `teach`, `thefts`, `travel`, `travel_choices`, `travel_morning`, `try`, `units`, `watch`, `worked`.
+The day's record (`today`): `_departed`, `_floor`, `admits`, `awake`, `care`, `care_by`, `care_gift`, `children_work`, `day_seen`, `drawn`, `fights`, `fire`, `fled`, `fuse`, `green_cut`, `guards`, `heard`, `joins`, `learn`, `left`, `memory_done`, `partner`, `partners`, `road`, `route`, `skipped_morning`, `sleep`, `soaked`, `teach`, `thefts`, `travel`, `travel_choices`, `travel_morning`, `try`, `turned`, `units`, `watch`, `worked`.
 
 | Table | Fields a record may hold |
 |---|---|
 | `nodes` | `name`, `text`, `unexplored` |
 | `roads` | `a`, `b`, `days`, `ends`, `stretches`, `terrain`, `track`, `way` |
-| `parcels` | `adj`, `broken`, `clearing`, `clearing_built`, `cover`, `crop`, `fallow_since`, `fence`, `fertility`, `fight`, `ground`, `height`, `held_whole`, `hunted`, `last_crop`, `last_kind`, `meeting`, `name`, `node`, `res`, `shares`, `side`, `size`, `slaughter`, `text`, `was`, `works` |
+| `parcels` | `adj`, `broken`, `clearing`, `clearing_built`, `cover`, `crop`, `dead`, `fallow_since`, `fence`, `fertility`, `fight`, `ground`, `height`, `held_whole`, `hunted`, `last_crop`, `last_kind`, `meeting`, `name`, `node`, `res`, `shares`, `side`, `size`, `slaughter`, `text`, `was`, `works` |
 | `buildings` | `broke`, `built_day`, `changes`, `condition`, `description`, `door`, `fire`, `fire_hit`, `fire_out`, `fitting_work`, `fittings`, `lasts_until`, `lines`, `mending`, `monument`, `name`, `node`, `parcel`, `raided`, `rooms`, `size`, `stock`, `structure`, `theft`, `tier`, `unfinished`, `warm`, `works`, `worn` |
 | `herds` | `ate`, `base_name`, `births`, `bulls`, `count`, `cows`, `driven`, `gone`, `herders`, `home`, `hungry`, `in_milk`, `kind`, `last_calf`, `lost`, `milked`, `name`, `node`, `oxen`, `pack`, `parcel`, `pos`, `split_day`, `split_of`, `strayed_in`, `tag`, `watched`, `with`, `young` |
 | `containers` | `beast`, `body`, `buried`, `by`, `cairn`, `cairn_by`, `cairn_day`, `cause`, `day`, `died`, `door`, `goods`, `grave`, `hidden`, `holders`, `in`, `kind`, `node`, `of`, `on_road`, `parcel`, `rot`, `stretch`, `tag`, `thing`, `untaught`, `wear` |
@@ -66,6 +66,7 @@ The day's record (`today`): `_departed`, `_floor`, `admits`, `awake`, `care`, `c
 | 1 (added within) | 7 Nov 2026 | A resource record (`parcels.res.<key>`) may carry `run_K`, `run_r`, `run_seasons` (the periodic renewal rule); new resource keys `fish` and `salt` (the water pack). Optional: absent means none; no older world holds them. Resource records' own fields are not yet in the declared shape: phase 2's version 2 declares them | D4-103 |
 | 1 (added within) | 7 Nov 2026 | A resource record may also carry `renewal` (a renewal rule's name, overriding its resource's) and `response` (a number or a name: the take's answer to density); a world may name `packs: [...]` (`systems: [...]` read the same way). Optional; absent means the resource's defaults | D4-104 |
 | 2 | 8 Nov 2026 | Phase 2 of the engine overhaul (labour): `today.units` (each one's units worked and pushed on, for the night's food); `people.tired` ({day, units}: units off that day, from pushing on and the walk) and `people.walked` (the walk carried, under a unit); `buildings.worn` ({fitting: {used, since}}: wear). A `know` record may carry `practised` (the day a craft was last done, for its fading) and `peak` (its best skill, D4-105); a crop record `cause` ("season": sown out of its window, D4-105). All absent where PHYSICS labour is at zero | D4-103 |
+| 3 | 8 Nov 2026 | Crops grow by the season (D4-106): `today.green_cut` and `today.turned` (a crop reaped green, turned under: for their signs); `parcels.dead` (a crop the cold killed, standing until the ground is worked). A crop record (`parcels.crop`, a holding's `crop`) may carry `g`, `progress`, `q`, `n`, `lying`, `stand`, `wintered`, `winter_n`, `stalled`, `no_winter`, `quality`, `never`, `up_day`, `frost_day`; a crop record without `progress` is read as growing at the full rate toward its `ripe_day` | D4-106 |
 
 **Before version 1 (version 0).** Runs from 24 Oct to 4 Nov have a journal but no number. These are the known changes to the
 shape in that time, reconstructed from the decisions. The list is incomplete; the git history of `cybertron2/engine/` is the
@@ -97,4 +98,4 @@ authority.
 proposals/run_data_interface.md; cybertron2/engine/schema.py; spec/record/journal.md (the journal's own `schema`, which versions
 its tables, not the world inside them).
 
-*Current as of 8 Nov 2026: D4-100, D4-103 (version 2), D4-104.*
+*Current as of 8 Nov 2026: D4-100, D4-103 (version 2), D4-104, D4-106 (version 3).*

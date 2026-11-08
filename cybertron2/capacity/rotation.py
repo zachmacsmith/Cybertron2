@@ -1,8 +1,8 @@
 """A field's year under a level (D4-102): the sequence of crops and rest, its steady-state soil, harvests and work.
 
-Everything about the year comes from the engine: the growing window is the longest run of days on which farm.frost_kills spares a
-tender crop (cal.growing_window, from world.calendar); a crop grows farm.grow_days (seed selection: x seed_selection); a hardy
-crop (rye) may stand through the frost, sown to ripen as the window opens. The soil follows the engine's rules a crop and a night
+Everything about the year comes from the engine: each sowing is run night by night through farm.grow_night (D4-106) by the
+world's calendar, so when a crop ripens, how much a late sowing gives and whether the cold takes it are the engine's own; a crop's
+growing days are farm.grow_days (seed selection: x seed_selection); a hardy crop (rye) may stand through the winter. The soil follows the engine's rules a crop and a night
 (farm.soil_step, farm.fallow_gain, farm.manure_gain); a sowing gives farm.crop_base x (1 + farm.weed_gain) x (1 - farm.fail_chance),
 net of its seed. "once" sows one grain crop as the window opens and rests the rest of the year; "best" searches every sequence of
 crops and rest that fits the window for the most food a plot a year at steady state.
@@ -69,20 +69,21 @@ def _sowing(fam, fert, level, ground, prev) -> float:
     return q * (1 - FM.fail_chance(F, prev, fam))
 
 
-def _steady(plan, year, level, ground):
+def _steady(plan, year, level, ground, mults=None):
     slot = FM.grow_days(year, "grain")
     fert, prev = 1.0, None
+    mults = mults or {}
     for _ in range(80):
         start = fert
         harvests, gross = [], {}
-        for kind, s, days in plan:
+        for j, (kind, s, days) in enumerate(plan):
             if kind == "rest":
                 for _ in range(int(days)):
                     fert = FM.fallow_gain(F, fert, slot)
                 continue
             if level.manure:
                 fert = FM.manure_gain(F, fert)
-            q = _sowing(kind, fert, level, ground, prev)
+            q = _sowing(kind, fert, level, ground, prev) * mults.get(j, 1.0)
             good = CROPS[kind]["gives"]
             harvests.append(((s + days) % year, good, q - float(F["plot_seed"])))
             gross[good] = gross.get(good, 0.0) + q
@@ -93,52 +94,71 @@ def _steady(plan, year, level, ground):
     return harvests, gross, start
 
 
-def best_year(window, year, level, ground=1.0, worth=lambda g: 1.0, oxen_ok=False, crops_ok=("grain",), seasons=None) -> Year:
-    """The level's field year for one plot; `window` is (start year day, length) of the frost-free run; `seasons` the season of each
-    year day (cal.table), so a crop is sown only in its sowing window (CROPS sow_seasons)."""
-    def sowable(fam, day):
-        ss = CROPS[fam].get("sow_seasons")
-        return not ss or seasons is None or seasons[day % year] in ss
-    s0, L = window
-    frost_len = year - L
+def outcome(fam, start, year, level, cal) -> tuple | None:
+    """A sowing of `fam` on year day `start`, by the engine's own nights (farm.season_run, D4-106): (nights to ripe, what it gives
+    as a share of a full crop). None if it never ripens within the year."""
+    g = grow(year, fam, level)
+    days, mult, _ = FM.season_run(fam, start, lambda d: cal[d % year][0], g, F, cold_of=lambda d: cal[d % year][1], horizon=year)
+    return (days, mult) if days is not None and days <= year and mult > 0.05 else None
+
+
+def best_year(window, year, level, ground=1.0, worth=lambda g: 1.0, oxen_ok=False, crops_ok=("grain",), cal=None) -> Year:
+    """The level's field year for one plot. `cal` is the world's year ([(season, cold)] a year day: cal.table). Each sowing is run
+    through the engine's own growth (D4-106), so when to sow, and how much a late or early sowing gives, come from the engine: no
+    sowing window is assumed. "once": one grain crop at its best day; "best": the sequence of sowings and rest that gives most food
+    a plot a year at steady state."""
+    if cal is None:                                                     # a year of seasons in order, from spring (tests, old callers)
+        sl = max(1, year // 4)
+        cal = [(("spring", "summer", "autumn", "winter")[min(3, d // sl)], d // sl >= 3) for d in range(year)]
     work_crop, dung_crop = crop_work(level, oxen_ok)
-    cands = []
+    step = max(1, year // 16)
+    starts = list(range(0, year, step))
+    fams = [fam for fam in CROPS if CROPS[fam]["seed"] in crops_ok and (level.winter_crop or not CROPS[fam]["hardy"])]
     if level.rotation == "once":
-        cands.append(([("grain", grow(year, "grain", level))], False))
-    else:
-        opts = [(fam, grow(year, fam, level)) for fam in CROPS if not CROPS[fam]["hardy"] and CROPS[fam]["seed"] in crops_ok]
-        opts.append(("rest", FM.grow_days(year, "grain")))
-        hardy = [fam for fam in CROPS if CROPS[fam]["hardy"] and CROPS[fam]["seed"] in crops_ok] if level.winter_crop else []
-        for over in [None] + hardy:
-            room = L - (max(0, grow(year, over, level) - frost_len) if over else 0)
-            for n in range(0, 8):
-                for seq in itertools.product(opts, repeat=n):
-                    if sum(d for _, d in seq) <= room and (not seq or seq[-1][0] != "rest"):
-                        cands.append((list(seq), over))
+        fams = [f_ for f_ in fams if f_ == "grain"] or fams[:1]
+    memo = {}
+
+    def oc(fam, s):
+        if (fam, s) not in memo:
+            memo[(fam, s)] = outcome(fam, s, year, level, cal)
+        return memo[(fam, s)]
+
+    seqs = [[]]
+    most = 1 if level.rotation == "once" else 4
+
+    def extend(seq, first, free_from):
+        for s in starts:
+            if s < free_from:
+                continue
+            for fam in fams:
+                o = oc(fam, s)
+                if o is None or s + o[0] > first + year:
+                    continue
+                new = seq + [(fam, s, o[0], o[1])]
+                seqs.append(new)
+                if len(new) < most:
+                    extend(new, first, s + o[0])
+
+    for s in starts:
+        for fam in fams:
+            o = oc(fam, s)
+            if o is not None:
+                seqs.append([(fam, s, o[0], o[1])])
+                if most > 1:
+                    extend([(fam, s, o[0], o[1])], s, s + o[0])
+    rough = sorted(seqs, key=lambda q: -sum(worth(CROPS[k]["gives"]) * m for k, _, _, m in q))[:40]
     best = None
-    if level.rotation == "once" and seasons is not None:               # one grain crop, sown at its window's first day
-        for d in range(year):
-            if sowable("grain", s0 + d) and d + grow(year, "grain", level) <= L:
-                cands = [(([("rest", d)] if d else []) + [("grain", grow(year, "grain", level))], False)]
-                break
-    for seq, over in cands:
-        plan, t, ok = [], 0, True
-        for kind, days in seq:
-            if kind != "rest" and not sowable(kind, s0 + t):
-                ok = False
-            plan.append((kind, (s0 + t) % year, days))
-            t += days
-        if over and not sowable(over, (s0 - grow(year, over, level)) % year):
-            ok = False
-        if not ok:
-            continue
-        if over:
-            g = grow(year, over, level)
-            plan.append(("rest", (s0 + t) % year, max(0, year - g - t)))
-            plan.append((over, (s0 - g) % year, g))
-        else:
-            plan.append(("rest", (s0 + t) % year, year - t))
-        harvests, gross, fert = _steady(plan, year, level, ground)
+    for seq in rough:
+        plan, mults = [], {}
+        for j, (kind, s, d, m) in enumerate(seq):
+            nxt = seq[j + 1][1] if j + 1 < len(seq) else (seq[0][1] + year if seq else year)
+            mults[len(plan)] = m
+            plan.append((kind, s % year, d))
+            if nxt - (s + d) > 0:
+                plan.append(("rest", (s + d) % year, nxt - (s + d)))
+        if not plan:
+            plan = [("rest", 0, year)]
+        harvests, gross, fert = _steady(plan, year, level, ground, mults)
         food = sum(q * worth(g) for _, g, q in harvests)
         if best is None or food > best[0] + 1e-9:
             best = (food, plan, harvests, gross, fert)

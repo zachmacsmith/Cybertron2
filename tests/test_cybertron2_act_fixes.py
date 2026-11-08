@@ -88,7 +88,8 @@ def test_refusals_say_the_next_step_who_did_it_where_it_is_and_why():
     out = do(w, "Alys", do="set", thing="door", to="barred", at="the Ardern Hall")
     assert out.startswith("Refused: set: only those who manage the Ardern Hall set its door")
     # a refused act at a place still puts one there to see it
-    out = do(w, "Tom", do="work", what="reap", at="the Long Field")              # not ripe on day 0: refused, but he was there
+    w.s["containers"][w.hands("Tom")]["goods"].pop("rye", None)
+    out = do(w, "Tom", do="work", what="sow", item="rye", at="the Long Field")  # no rye to sow: refused, but he was there
     assert out.startswith("Refused") and "wb_field" in w.s["today"]["worked"].get("Tom", [])
 
 

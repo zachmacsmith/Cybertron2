@@ -294,23 +294,27 @@ def first_harvest(w, nodes=None, level=None) -> dict:
     sl, year = w.season_len, w.year_days()
     cal = w.calendar()
     best, lost = None, []
+    f = w.p["farming"]
+    season_of, cold_of = (lambda d: w.calendar(d)["season"]), w.cold
     for pid, par in w.s["parcels"].items():
         if nodes is not None and par["node"] not in nodes:
             continue
         for _, _, c in FM.standing(par):
-            ripe = int(c.get("ripe_day", w.d)) - w.d
-            frost = next((k for k in range(0, max(ripe, 0) + 1) if FM.frost_kills(c, w.calendar(w.d + k)["season"])), None)
-            if frost is not None and frost < ripe:
-                lost.append({"parcel": pid, "ripe_in": ripe, "frost_in": frost, "left": round(float(c.get("left", 0)), 1)})
+            c = FM.started(c, w.d)                                             # its own nights from now (D4-106)
+            ripe = FM.projected_ripe(c, season_of, cold_of, w.d, f) if c.get("progress", 0.0) < 1.0 else w.d
+            if ripe is None:
+                lost.append({"parcel": pid, "ripe_in": None, "frost_in": None, "left": round(float(c.get("left", 0)), 1)})
                 continue
-            if c.get("left", 0) > 0 and (best is None or max(0, ripe) < best):
-                best = max(0, ripe)
+            if c.get("left", 0) > 0 and (best is None or max(0, ripe - w.d) < best):
+                best = max(0, ripe - w.d)
     g = FM.grow_days(year, "grain")
-    tender = {"hardy": False}
-    k = 0
-    while k < 2 * year and any(FM.frost_kills(tender, w.calendar(w.d + k + j)["season"]) for j in range(g + 1)):
-        k += 1
-    sown = k + g
+    sown = None
+    for k in range(2 * year):                                                  # the first sowing that gives at least half a crop
+        days, mult, _ = FM.season_run("grain", w.d + k, season_of, g, f, cold_of=cold_of, horizon=year)
+        if days is not None and mult >= 0.5:
+            sown = k + days
+            break
+    sown = sown if sown is not None else 2 * year
     return {"standing": best, "sown": sown, "first": min(x for x in (best, sown) if x is not None), "lost_to_frost": lost}
 
 
@@ -347,10 +351,11 @@ def run_horizon(w, level, days, nodes=None) -> dict:
         if nodes is not None and par["node"] not in nodes:
             continue
         for _, _, c in FM.standing(par):
-            ripe = int(c.get("ripe_day", w.d)) - w.d
-            frost = next((k for k in range(0, max(ripe, 0) + 1) if FM.frost_kills(c, w.calendar(w.d + k)["season"])), None)
-            if (frost is not None and frost < ripe) or ripe >= days:
+            c = FM.started(c, w.d)                                             # its own nights from now (D4-106)
+            r = w.d if c.get("progress", 0.0) >= 1.0 else FM.projected_ripe(c, lambda d: w.calendar(d)["season"], w.cold, w.d, w.p["farming"])
+            if r is None or r - w.d >= days:
                 continue
+            ripe = r - w.d
             prof = [0.0] * days
             prof[max(0, ripe)] = float(c.get("left", 0))
             out_fl.append(SO.Flow("standing crop", par["node"], pid, CROPS.get(c.get("crop"), CROPS["grain"])["gives"], prof, 0.0))

@@ -1,6 +1,6 @@
 # Proposal: crops grow by the season; "can" apart from "works"; what a crop shows
 
-**Status:** discussion (8 Nov). **Owner:** 37.4. **Affects:** engine/farm.py (sowing, the night, reaping, hoeing and ploughing),
+**Status:** accepted: D4-106 (8 Nov; built). **Owner:** 37.4. **Affects:** engine/farm.py (sowing, the night, reaping, hoeing and ploughing),
 signs.py (CROP, FIELD), data.py (CROPS, ITEMS, TECHNIQUES hay and salt pan), lore.py, capacity/rotation.py;
 spec/core/processes.md, spec/environment (crops), information/signs.md.
 
@@ -195,6 +195,36 @@ Traces last a day or two (kind 3). Snow, frost and rain are conditions (kind 4).
   - a bot run and its replay.
 
 ## History
+
+- 8 Nov (later): **accepted and built (D4-106).** Zach: "Build this"; green crop dried becomes hay, "yes"; no quality in the
+  threshed grain, "I agree". Built as proposed, with these changes found in building:
+  - **Values:**
+    - seed lying loses 8% a night (4% left winter-sown barley at 0.72, not about half);
+    - frost takes 30% a night (15% let half-grown barley through a 6-night winter at 38%).
+  - **Quality** leaves out a hardy crop's winter nights. Otherwise rye sown in autumn came out at 0.53, punished for its normal
+    winter rest.
+  - **Winter grain:**
+    - it does not head until it has had 3 winter nights;
+    - after a whole growing time without them, it heads at 0.4;
+    - a single winter night no longer counts as a winter.
+  - **Sowing results:** the result of a sowing no longer says when it will ripen or warn of the winter. The rules told that before;
+    signs and lore carry it now.
+  - **Plainness:** set through the noticing rule.
+    - Working the field: 1.0 for all of them.
+    - Passing it: 0.10 to 0.30 at the first values, so plain rows went to own 2.0 and clear rows to 1.2.
+  - **A crop sown on a meadow** stands on the parcel as a field's would, outside the holdings of D2-172.
+  - **Removal:** turning under goes at the hoe's pace (0.07 of a plot an act), like breaking ground.
+  - **Not built:**
+    - the sign of green crop heating in a store (it spoils at 0.2 a night; the sign needs a container bundle);
+    - the trace of green swathes on the next day.
+
+  Checks:
+  - 384 tests;
+  - two bot runs (Wenbridge and the valley, 32 days) replay with no mismatch;
+  - the bots die as they did on the engine before phase 2.
+
+  Capacity: the farming levels fall 10 to 30% on most worlds; Ferrybank and the valley rise, where late or winter sowings now give
+  part of a crop.
 
 - 8 Nov: proposed (37.4) from Zach's "the can should be decoupled from the works" and his answers of 8 Nov (1 yes, with clear signs
   when very bad; 2 by season for now, the weather flagged; 3 asked; 4 green crop, worth much less, its own signs, fodder).

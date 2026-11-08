@@ -11,6 +11,8 @@ kept apart from the change it signals.
 - D4-71: a slaughter shows itself as a bundle of signs on its parcel, that day and the next (its chances: D4-75).
 - D4-74: the events and states of review 38.43 show themselves as bundles in the same pattern (below).
 - D4-75: a sign row sets how plain it is, its sense, its conditions and its scope; the one noticing rule gives the chance.
+- D4-106: a crop shows how it is growing; very bad states are plain to anyone working or passing it, slight ones need a close look
+  or the knack.
 
 ## Mechanics
 
@@ -80,4 +82,23 @@ Per sign: day, place, sense, text, salience, what it bears on.
 
 devlog 37.4 #6; 38.04 §3.
 
-*Current as of 3 Nov 2026: D4-6, D4-35, D4-71, D4-72, D4-74, D4-75, D4-98 (next door 0.3).*
+- **A crop's growth** (D4-106; proposals/crop_growth.md §4), own `calibrate`. Chances: working the field 1.0 for all of these
+  (attention x working); passing it about 0.3 to 0.6 for the plain ones; from elsewhere at the place, a glimpse:
+
+  | State | Sign | Sense | Own (knack) |
+  |---|---|---|---|
+  | sown today | seed broadcast across the field, rooks following | sight | 1.2 |
+  | seed lying 2 nights or more | nothing has come up yet, though it was sown N days ago | sight | 1.2 |
+  | seed lying and being lost | pigeons working the sown ground | sight | 1.2 |
+  | a thin stand | only a scattering has come up, bare soil between | sight | 2.0 |
+  | growing slowly (the season) | short and pale for its age: slow to come on | sight | 0.8 (sow) |
+  | frost on a tender crop | the frost has blackened the tips; half of it lies dead after the frosts | sight | 2.0 |
+  | killed | dead and black, nothing left standing (until the ground is worked, 8 days) | sight | 2.0 |
+  | winter grain without its winter | run up thin, setting few ears | sight | 0.8 (sow) |
+  | ripe but poor | sparse and short in the ear; the ears light and thin in the hand | sight; touch | 1.0; 0.5 (reap) |
+  | cut green | being cut green, before its time | sight | 1.2 |
+  | turned under | being turned over, the green crop going under | sight | 1.2 |
+
+  The doer feels it in the result line: the cold ground at sowing, soft and milky ears reaped green, ears light in the hand.
+
+*Current as of 8 Nov 2026: D4-6, D4-35, D4-71, D4-72, D4-74, D4-75, D4-98 (next door 0.3), D4-106.*

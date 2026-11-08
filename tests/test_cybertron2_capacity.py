@@ -17,7 +17,7 @@ WEN = yaml.safe_load(open("cybertron2/specs/wenbridge.yaml"))
 # ---------------------------------------------------------------------------------------------------------- guards
 def test_every_edible_good_has_a_source_or_a_route():
     made = {d["gives"] for d in TECHNIQUES.values() if d.get("verb") == "gather" and isinstance(d.get("gives"), str)}
-    made |= {"milk", "meat"} | {CROPS[c]["gives"] for c in CROPS}                  # milking and slaughter (farm.py)
+    made |= {"milk", "meat"} | {CROPS[c]["gives"] for c in CROPS} | {CROPS[c]["green"] for c in CROPS}   # milking, slaughter, reaping
     for t in FD.FOOD_TECHS:
         made |= set(TECHNIQUES[t]["gives"])
     assert set(FD.EDIBLE) <= made, f"edible goods no source makes: {set(FD.EDIBLE) - made}"

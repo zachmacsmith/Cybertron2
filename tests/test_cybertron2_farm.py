@@ -106,15 +106,38 @@ def test_the_cold_kills_a_growing_crop_unless_hardy():
     give(w, "Edric", grain=10, rye=10)
     in_season(w, "spring")
     do(w, "Edric", do="work", what="sow", at="Long Field", item="grain")
-    in_season(w, "autumn")                                                    # each in its own sowing window
+    in_season(w, "autumn")
     do(w, "Edric", do="work", what="sow", at="Brook Field", item="rye", on="the Hales")   # the Hales' field: named (D2-172)
     while w.calendar()["season"] != "winter":
         w.s["day"] += 1
-    w.s["parcels"]["long_field"]["crop"]["ripe_day"] = w.d + 3
-    w.s["parcels"]["brook_field"]["crop"]["ripe_day"] = w.d + 3
+    for pid in ("long_field", "brook_field"):
+        c = dict(w.s["parcels"][pid]["crop"])
+        c.update({"progress": 0.5, "lying": False, "g": 8, "q": 4.0, "n": 4, "stand": 1.0})   # half grown when the winter comes
+        w.s["parcels"][pid]["crop"] = c
+    rye_area = w.s["parcels"]["brook_field"]["crop"]["area_left"]
+    a0 = w.s["parcels"]["long_field"]["crop"]["area_left"]
     FM.night(w)
-    assert w.s["parcels"]["long_field"]["crop"] is None                       # barley killed by the frost (D2-53)
-    assert w.s["parcels"]["brook_field"]["crop"]["crop"] == "winter grain"    # rye is hardy
+    a1 = w.s["parcels"]["long_field"]["crop"]["area_left"]
+    assert abs(a1 - a0 * (1 - w.p["farming"]["frost_loss"])) < 1e-6           # the cold thins a tender crop night by night (D4-106)
+    while w.calendar(w.d + 1)["season"] == "winter":
+        w.s["day"] += 1
+        FM.night(w)
+    c = w.s["parcels"]["long_field"]["crop"]
+    assert c is None or c["area_left"] < 0.15 * a0                            # a winter takes most of it
+    rye = w.s["parcels"]["brook_field"]["crop"] or {}
+    assert rye.get("crop") == "winter grain" and rye["area_left"] == rye_area   # rye is hardy
+    w2 = world()
+    in_season(w2, "spring")
+    clear(w2, "long_field")
+    give(w2, "Edric", grain=10)
+    do(w2, "Edric", do="work", what="sow", at="Long Field", item="grain")
+    in_season(w2, "winter")
+    c = dict(w2.s["parcels"]["long_field"]["crop"])
+    c.update({"lying": False, "area_left": c["area"] * 0.025})
+    w2.s["parcels"]["long_field"]["crop"] = c
+    FM.night(w2)
+    assert w2.s["parcels"]["long_field"]["crop"] is None and w2.s["parcels"]["long_field"]["dead"]["kind"] == "barley"
+    assert any("the frost has killed" in e["text"] for e in w2.s["events"])
 
 
 def test_a_failed_crop_shows_blight_and_gives_nothing():
@@ -123,8 +146,7 @@ def test_a_failed_crop_shows_blight_and_gives_nothing():
     clear(w, "long_field")
     give(w, "Edric", grain=10)
     do(w, "Edric", do="work", what="sow", at="Long Field", item="grain")
-    c = w.s["parcels"]["long_field"]["crop"]
-    w.s["day"] = c["sown"] + (c["ripe_day"] - c["sown"]) // 2
+    w.s["parcels"]["long_field"]["crop"] = {**w.s["parcels"]["long_field"]["crop"], "progress": 0.5, "lying": False}
     FM.night(w)
     assert w.s["parcels"]["long_field"]["crop"]["shown_failed"]
     assert any("blight" in e["text"] for e in w.s["events"])

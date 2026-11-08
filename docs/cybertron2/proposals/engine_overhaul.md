@@ -134,6 +134,10 @@ systems."
 
 ## History
 
+- 8 Nov (later): **phase 2 finished** with D4-105 (sowing lore, skill fading, wear in a village's terms, the walk's price) and
+  D4-106 (crops grow by the season; can apart from works; a crop's signs), which replaces phase 2's sowing windows (B). Next: E2
+  (Wenbridge, a year, labour against none), then the breakdown (38.64) before phase 3.
+
 - 8 Nov: **phase 2 built** (calibration and labour; spec/core/processes.md; review 38.63 §6; economic_calibration.md History).
   Its rules are a PHYSICS table whose zeros are the engine before it; the engine before phase 2 is commit 92cfdbf. E2 running.
 

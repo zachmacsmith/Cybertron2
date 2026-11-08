@@ -34,6 +34,8 @@ beasts, seed), and says what it gave up.
   young_step, shed_a_night) and the world's calendar. It keeps no formula of its own for what the engine decides (D4-102).
 - **Agreement tests:** tests/test_cybertron2_capacity.py runs the engine's rules on a real world and fails if the model differs
   (wild regrowth under the model's take, spoilage, eating raw, a sowing's yield).
+- **The crop year** (D4-106): each sowing in the model's search runs through the engine's own night step (farm.grow_night) on the
+  world's calendar, so when to sow and what a late sowing gives come from the engine; no sowing window is assumed.
 - **Work's food** (D4-103 phase 2): the food needed a year adds PHYSICS labour work_food for each unit of work the level's
   allocation gives the people.
 - **The people supported** are found by a scan and then a refinement, not by assuming that being fed rises and falls once with the

@@ -29,6 +29,10 @@ ITEMS = {
     "cheese": {"weight": 1, "food": 2.5, "spoil": 0.02, "decay": "cheese"},               # 6 milk (D2-47, D2-56)
     "salt": {"weight": 1, "food": 0.0, "spoil": 0.0},                  # D2-24, D2-56
     "hay": {"weight": 1, "food": 0.0, "spoil": 0.0, "fodder": 1.0},    # cut from pasture in summer (D4-42)
+    # A crop reaped green (D4-106): little food (the green ears roasted), good fodder; heats and spoils unless dried to hay
+    "green grain": {"weight": 1, "food": 0.15, "spoil": 0.2, "fodder": 0.8, "decay": "green crop"},
+    "green rye": {"weight": 1, "food": 0.15, "spoil": 0.2, "fodder": 0.8, "decay": "green crop"},
+    "green beans": {"weight": 1, "food": 0.3, "spoil": 0.2, "fodder": 0.6, "decay": "green crop"},
     "straw": {"weight": 1, "food": 0.0, "spoil": 0.0, "fodder": 1.0},  # from the grain harvest (D4-42)
     "dung": {"weight": 1, "food": 0.0, "spoil": 0.0},                  # manure (D2-18, D4-39)
     "charcoal": {"weight": 2, "food": 0.0, "spoil": 0.0, "heat": 6.0},  # from 5 timber, made at the wood (D2-56); burns in a hearth (D2-157)
@@ -62,6 +66,7 @@ ITEMS = {
 # (open, dry or wet; buried), and for the season and the frost; `abs` is a share lost a day where the house rate is none (hides);
 # `becomes` is what the lost share turns into in the open.
 DECAY = {
+    "green crop": {"open_dry": 1.0, "open_wet": 3, "buried": 2, "warm": 1.5, "frozen": 0.2},          # heats in a heap, wet (D4-106)
     "grain": {"open_dry": 4, "open_wet": 10, "buried": 2, "warm": 1.2, "frozen": 0.5},
     "bread": {"open_dry": 3, "open_wet": 8, "buried": 3, "warm": 1.5, "frozen": 0.2},
     "fresh meat": {"open_dry": 2, "open_wet": 2.5, "buried": 1, "warm": 1.5, "frozen": 0.1, "becomes": "rotting meat"},
@@ -72,17 +77,25 @@ DECAY = {
     "default": {"open_dry": 2, "open_wet": 4, "buried": 1, "warm": 1.2, "frozen": 0.5},   # goods the table does not name (37.4; calibrate)
 }
 
-# Crops (D2-53, D4-38, D4-39; 02l §2-§3, calibrate): grow for a share of the year from the day sown; the cold kills what is still
+# Crops (D2-53, D4-38, D4-39; 02l §2-§3, calibrate). Since D4-106 (proposals/crop_growth.md): a crop grows by its `growth` rate in
+# each season, `share` of the year at full rate; what it gives is scaled by the mean rate it grew at; a tender crop loses a share
+# to each winter or cold night; sown seed lies until the season lets it come up, and is lost a little each night meanwhile;
+# winter grain that meets no winter gives `needs_winter` of a crop. Reaped before it is ripe, a crop gives its `green` good.
+# Before D4-106: grow for a share of the year from the day sown; the cold kills what is still
 # growing unless it is hardy; each takes from the soil and restores it toward a level.
 CROPS = {
-    "grain": {"seed": "grain", "gives": "grain", "share": 0.25, "sow_seasons": ["spring"], "yield": 1.0, "hardy": False, "takes": 0.15, "restores": [0.10, 1.0], "straw": True,
+    "grain": {"seed": "grain", "gives": "grain", "share": 0.25, "growth": {"spring": 1.0, "summer": 1.0, "autumn": 0.5, "winter": 0.0},
+              "green": "green grain", "yield": 1.0, "hardy": False, "takes": 0.15, "restores": [0.10, 1.0], "straw": True,
               "names": ["barley", "oats", "wheat", "grain"]},
-    "winter grain": {"seed": "rye", "gives": "rye", "share": 0.33, "sow_seasons": ["autumn"], "yield": 1.0, "hardy": True, "takes": 0.15, "restores": [0.10, 1.0], "straw": True,
+    "winter grain": {"seed": "rye", "gives": "rye", "share": 0.33, "growth": {"spring": 1.0, "summer": 1.0, "autumn": 0.6, "winter": 0.1},
+                     "needs_winter": 0.4, "green": "green rye", "yield": 1.0, "hardy": True, "takes": 0.15, "restores": [0.10, 1.0], "straw": True,
                      "names": ["rye", "winter grain"]},
-    "legumes": {"seed": "beans", "gives": "beans", "share": 0.17, "sow_seasons": ["spring", "summer"], "yield": 0.6, "hardy": False, "takes": 0.0, "restores": [0.40, 1.0], "straw": False,
+    "legumes": {"seed": "beans", "gives": "beans", "share": 0.17, "growth": {"spring": 0.8, "summer": 1.0, "autumn": 0.4, "winter": 0.0},
+                "green": "green beans", "yield": 0.6, "hardy": False, "takes": 0.0, "restores": [0.40, 1.0], "straw": False,
                 "names": ["beans", "peas", "legumes"]},
 }
 CROP_OF = {n: c for c, d in CROPS.items() for n in d["names"]}
+TURF = ["meadow", "pasture", "heath", "scrub"]     # ground with turf: seed thrown on it takes poorly (D4-106: PHYSICS farming turf)
 
 # Lore (D4-105): what a family knows from long practice and is never told by the rules: seeded as lines kept for good (D4-64) to
 # those it fits, passed on as kept lines are. `to`: "farmers" (the adults of a household, or a person, holding a field). The text
@@ -305,7 +318,7 @@ TECHNIQUES = {
                "gives": "stone", "tags": ["building", "craft"], "trade": "mason"},
     # Farming (D2-53, D2-54, D2-59, D4-38 to D4-40; 02l §2 scaled to the plot of about 16 seed, calibrate)
     "sow": {"verb": "work", "label": "sowing a field broadcast (seed thrown)", "aliases": ["sowing", "plant", "broadcast"], "basic": True,
-            "at": {"covers": ["field"]}, "draws": "plot", "yield": {"kind": "sow", "seed": 6.0, "worth": 1.0}, "units": 1, "gives": "",
+            "at": {"covers": ["field", "meadow", "pasture", "heath", "scrub"]}, "draws": "plot", "yield": {"kind": "sow", "seed": 6.0, "worth": 1.0}, "units": 1, "gives": "",
             "tags": ["farming"]},
     "hoe": {"verb": "work", "label": "breaking the soil with a hoe", "aliases": ["hoeing", "dig", "break the soil"], "basic": True,
             "at": {"covers": ["field"]}, "draws": "plot", "yield": {"kind": "break", "plots": 0.0625, "stone": 1.0},
@@ -324,17 +337,19 @@ TECHNIQUES = {
     "select seed": {"verb": "work", "label": "selecting seed from the best of a ripe crop", "aliases": ["seed selection"],
                     "at": {"covers": ["field"]}, "draws": "crop", "yield": {"kind": "select"}, "units": 1, "gives": "", "tags": ["farming"],
                     "trade": "farmer"},                               # D2-65: one who knows it sows crops that ripen 15% sooner
-    "weed": {"verb": "work", "label": "weeding a growing crop", "aliases": ["weeding", "tend"], "basic": True, "at": {"covers": ["field"]},
+    "weed": {"verb": "work", "label": "weeding a growing crop", "aliases": ["weeding", "tend"], "basic": True,
+             "at": {"covers": ["field", "meadow", "pasture", "heath", "scrub"]},
              "draws": "crop", "yield": {"kind": "tend"}, "units": 1, "gives": "", "tags": ["farming"]},
     "manure": {"verb": "work", "label": "manuring a field", "aliases": ["manuring", "spread dung"], "basic": True, "at": {"covers": ["field"]},
                "draws": "plot", "yield": {"kind": "manure", "plots": 0.1875}, "inputs": {"dung": 1.9}, "units": 1, "gives": "",
                "tags": ["farming", "animals"]},
-    "reap": {"verb": "work", "label": "reaping a crop", "aliases": ["reaping", "harvest"], "basic": True, "at": {"covers": ["field"]},
+    "reap": {"verb": "work", "label": "reaping a crop", "aliases": ["reaping", "harvest"], "basic": True,
+             "at": {"covers": ["field", "meadow", "pasture", "heath", "scrub"]},
              "draws": "crop", "yield": {"kind": "crop", "plots": 0.125, "straw": 4.7}, "tools": {"bare": 0.6, "crude": 1.0, "copper": 1.5},
              "wear": 0.25, "units": 1, "gives": "grain", "tags": ["food", "farming", "harvest"]},
     "hay": {"verb": "gather", "label": "cutting hay", "aliases": ["cut hay", "haymaking", "mow"], "basic": True, "at": {"covers": ["pasture", "meadow"]},
                 "draws": "grass", "yield": {"kind": "fixed", "base": 3.0}, "tools": {"bare": 0.3, "crude": 1.0, "copper": 1.5}, "wear": 0.5,
-                "seasons": ["summer"], "units": 1, "gives": "hay", "tags": ["animals", "farming"]},
+                "by_season": {"spring": 0.5, "summer": 1.0, "autumn": 0.3, "winter": 0.0}, "units": 1, "gives": "hay", "tags": ["animals", "farming"]},
     # Cattle (D2-63, D4-41, D4-44, D4-45; 02o, calibrate)
     "herd": {"verb": "work", "label": "herding (watching the beasts)", "aliases": ["herding", "watch the herd", "tend the herd"], "basic": True,
              "at": {"covers": ["pasture", "meadow", "field", "heath", "moor", "fen", "saltmarsh"]}, "draws": "herd", "yield": {"kind": "herd"}, "units": 1, "gives": "",
@@ -395,6 +410,9 @@ TECHNIQUES = {
              "tags": ["food", "cooking"]},
     "water mill": {"verb": "make", "label": "milling grain at a water mill", "aliases": ["water milling"], "basic": True,
                    "at": {"fittings": ["water wheel"]}, "inputs": {"grain": 200}, "units": 2, "gives": {"flour": 200}, "tags": ["food", "cooking"]},   # D4-97
+    "dry fodder": {"verb": "make", "label": "drying a green crop into hay", "aliases": ["dry hay", "make hay of", "dry green crop"],
+                   "basic": True, "inputs": {"green crop": {"green grain": 10, "green rye": 10, "green beans": 10}}, "units": 1,
+                   "gives": {"hay": 8}, "tags": ["animals", "farming"]},                                  # D4-106 (calibrate)
     "pack": {"verb": "make", "label": "making a pack", "aliases": ["backpack"], "basic": True, "inputs": {"hide": 1, "timber": 1},
              "units": 1, "gives": {"pack": 1}, "tags": ["travel"]},                                                    # recipes.md §2
     "handcart": {"verb": "make", "label": "making a handcart", "aliases": ["cart"], "inputs": {"timber": 6}, "tools": {"crude": 1.0, "copper": 1.0},
@@ -416,7 +434,7 @@ TECHNIQUES = {
                     "inputs": {"timber": 0.5, "hide": 0.1}, "units": 1, "gives": {"fishing rod": 1}, "tags": ["fishing", "craft"]},
     "salt pan": {"pack": "water", "verb": "gather", "label": "making salt in the saltmarsh pans (dried by the sun)", "basic": True,
                  "aliases": ["make salt", "salt pans", "gather salt"], "at": {"covers": ["saltmarsh"]}, "draws": "salt",
-                 "yield": {"kind": "fixed", "base": 1.0}, "seasons": ["summer"], "units": 1, "gives": "salt", "tags": ["salt"]},
+                 "yield": {"kind": "fixed", "base": 1.0}, "by_season": {"spring": 0.4, "summer": 1.0, "autumn": 0.2, "winter": 0.0}, "units": 1, "gives": "salt", "tags": ["salt"]},
     "salt fish": {"pack": "water", "verb": "make", "label": "salting fish to keep", "aliases": ["salting", "salt the fish"], "basic": True,
                   "inputs": {"fish": 4, "salt": 1}, "units": 1, "gives": {"salt fish": 4}, "tags": ["food", "cooking", "fishing"]},
     "dry meat": {"verb": "make", "label": "drying meat over a fire", "aliases": ["drying meat", "cure meat"], "basic": True,
@@ -552,6 +570,8 @@ PHYSICS = {
     "camping": {"out": [1.5, 2.0, 1.0], "bedroll": [1.35, 1.75, 0.5], "tent": [1.2, 1.4, 0.0], "camp": [1.2, 1.5, 0.0]},
                                                                          # D2-68: food a night, in the cold, the cold's fall (share)
     "farming": {"plot_seed": 16.0, "ratio": 3.0, "break_gain": 1.5, "weed_max": 0.5, "weed_tau": 8.0, "window": 2, "rot": 0.25,
+                "lie_loss": 0.08, "frost_loss": 0.3, "green": [0.3, 0.7], "turned_under": 0.02, "turf": 0.1,   # D4-106 (calibrate)
+                "vernal": 3,                                    # winter nights winter grain needs before it heads (D4-106)
                 "fail": [0.05, 0.15], "fallow": 0.40, "grazed": [0.50, 1.15], "manure": [0.35, 1.15], "dung_per_plot": 10.0},
                 # D2-59 (16 seed a plot), D4-38 (02l: harvest 3x the seed, +1.5 broken, weeding to +50% on a curve of tau 1.5 small
                 # plots = 8 units a plot), D4-39 (soil), D2-53 (failure 5%, 15% the same crop twice); calibrate

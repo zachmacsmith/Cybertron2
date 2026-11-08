@@ -10,6 +10,7 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
 - D4-104: the names renewal and packs; a stock's own record may name its renewal rule and its response to density.
 - D4-103, phase 2: calibration and labour (below). Behaviour changes; the engine before it is commit 92cfdbf. All values calibrate.
 - D4-105: sowing windows are lore, not rules; skill fades slowly and partly; wear in a village's terms.
+- D4-106: can apart from works; crops grow by the season; removing a crop; seed on turf; a crop's signs.
 
 ## Mechanics
 
@@ -45,12 +46,30 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
 ## Calibration and labour (phase 2, D4-103)
 
 - **The woods' clock.** forests.seed converts the woods' yearly rates by the world's year.
-- **Sowing windows** (CROPS `sow_seasons`): grain in spring, legumes in spring and summer, rye in autumn. A sowing out of its window
-  is not refused: it does not come up, and half way to its day it is seen that nothing has come up (D4-105). The agents' rules do
-  not state the windows.
-- **Lore** (engine/lore.py, data LORE; D4-105): what families know from long practice, seeded at the start as a line kept for good
-  (D4-64) and passed on as kept lines are. The sowing lore goes to the adults of each household (or person) holding a field. A world
-  turns a lore off with `lore: {sowing: false}`, or all with `lore: false`.
+- **Can apart from works** (D4-106): an act is refused only when it cannot be done (no seed, no soil, no room, no beasts, no idea
+  how); otherwise it is done, costs its units and works by its conditions.
+- **Crops grow by the season** (D4-106; farm.grow_night, one pure night step the engine and the capacity model call; CROPS
+  `growth`, `needs_winter`; PHYSICS farming `lie_loss`, `frost_loss`, `vernal`, `green`, `turned_under`, `turf`; all calibrate):
+  - a crop grows each night by its rate for the season (barley 1, 1, 0.5, 0 from spring; beans 0.8, 1, 0.4, 0; rye 1, 1, 0.6,
+    0.1), ripening when its growth reaches its growing days at full rate; what it gives is scaled by the mean rate it grew at (a
+    hardy crop's winter rest not counted);
+  - seed lies in ground too cold to sprout, losing `lie_loss` (8%) a night, and comes up when it can;
+  - a tender crop loses `frost_loss` (30%) of its stand each winter or cold night, and is killed when under 2% is left;
+  - winter grain will not head until it has had `vernal` (3) winter nights; after a whole growing time without them it heads,
+    at `needs_winter` (0.4) of a crop;
+  - the crop's ripe day is its own projection, renewed each night.
+- **Removing a crop** (D4-106): reaping before ripe gives the crop's green good (`green grain`, `green rye`, `green beans`: little
+  food, good fodder, quick to spoil; "dry fodder" makes hay of it) at 0.3 + 0.7 x its growth of the ripe weight, and frees the
+  ground; a hoe or plough over a standing crop turns it under (the soil gains 0.02 x its growth; the ground is broken). A plot
+  holding another crop refuses a sowing, saying how to clear it.
+- **Seed on turf** (D4-106): meadow, pasture, heath and scrub take seed at `turf` (0.1) of a field's yield; the ground stays as
+  it is. Clearing is what makes a field.
+- **By the season, never refused** (D4-106): weeding a clean or ripe crop gains nothing; hay and salt pans give by the season
+  (`by_season`).
+- **Lore** (engine/lore.py, data LORE; D4-105, D4-106): what families know from long practice, seeded at the start as a line kept
+  for good (D4-64) and passed on as kept lines are. The sowing lore goes to the adults of each household (or person) holding a
+  field; its text is read from the engine's growth (each crop's best season to sow). A world turns a lore off with
+  `lore: {sowing: false}`, or all with `lore: false`. The agents' rules state no sowing times.
 - **Pulses below cereals:** a crop's `yield` factor multiplies what a sowing gives (legumes 0.6).
 - **Processing makes no food:** grain and rye 0.85 boiled, beans 0.8, meal and flour 0.95, bread 1.0 (raw as before).
 - **Labour** (engine/labour.py; PHYSICS `labour`; each at 0, `wear` false, is the engine before phase 2, and then nothing is written):
@@ -89,4 +108,4 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
   form).
 - The heat need as a pure function beside food.
 
-*Current as of 8 Nov 2026 (D4-103 phase 2, D4-104).*
+*Current as of 8 Nov 2026 (D4-103 phase 2, D4-104, D4-105, D4-106).*

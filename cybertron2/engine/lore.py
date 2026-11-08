@@ -2,8 +2,8 @@
 a line kept for good (memory.seed_line, D4-64) to those it fits; it passes on as any kept line does (a carer to a child, talk).
 Those without it learn by trying, by being told, or by watching others.
 
-- sowing: when each crop goes in (CROPS sow_seasons) and which stands the winter. Sown out of its season a crop does not come up
-  (farm._sow), and nobody is told why.
+- sowing: the season each crop does best sown in, read from the engine's own growth (farm.season_run, D4-106), and that winter
+  grain wants a winter. Sown at another time a crop grows as the season lets it, and nobody is told why.
 """
 from __future__ import annotations
 
@@ -12,11 +12,30 @@ from cybertron2.engine.data import CROPS, LORE
 
 def text(key) -> str:
     if key == "sowing":
-        bits = [f"{d['names'][0]} in {' or '.join(d['sow_seasons'])}" for d in CROPS.values() if d.get("sow_seasons")]
-        hardy = [d["names"][0] for d in CROPS.values() if d.get("hardy")]
-        return ("Sow " + ", ".join(bits) + (f"; {' and '.join(hardy)} stands the winter" if hardy else "")
-                + "; sown out of season, nothing comes up.")
+        bits = [f"{CROPS[fam]['names'][0]} in {' or '.join(s)}" for fam, s in best_seasons().items()]
+        wants = [d["names"][0] for d in CROPS.values() if d.get("needs_winter") is not None]
+        return ("Sow " + ", ".join(bits) + (f"; {' and '.join(wants)} wants a winter" if wants else "")
+                + "; sown late, crops come up poor.")
     raise KeyError(key)
+
+
+def best_seasons(season_days=8) -> dict:
+    """Each crop's best season to sow in: the seasons whose sowings give within 5% of its best, by the engine's own nights over a
+    year of `season_days` seasons (farm.season_run). The lore is the engine, as a family has learnt it."""
+    from cybertron2.engine import farm as FM
+    from cybertron2.engine.data import PHYSICS
+    order = ("spring", "summer", "autumn", "winter")
+    year = 4 * season_days
+    season_of = lambda d: order[(d // season_days) % 4]                 # noqa: E731
+    out = {}
+    for fam in CROPS:
+        g = FM.grow_days(year, fam)
+        mean = {s: sum(FM.season_run(fam, i * season_days + k, season_of, g, PHYSICS["farming"],
+                                     cold_of=lambda d: season_of(d) == "winter")[1] for k in range(season_days)) / season_days
+                for i, s in enumerate(order)}
+        top = max(mean.values())
+        out[fam] = [s for s in order if mean[s] >= 0.95 * top]
+    return out
 
 
 def farmers(w) -> set:

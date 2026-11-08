@@ -133,7 +133,7 @@ Rebuilt from the files on 5 Nov (status and owner as each file states them; 37.2
 | [wildlife.md](wildlife.md) | the first wild kinds (what lives on the land, what each is for) | 37.2 | partly accepted: D2-192 to D2-196 (8 Nov; spec/environment/wildlife.md). Not built. ... |
 | [husbandry.md](husbandry.md) | what people make of wild things: economies, husbandry, tools and skills | 37.2 | discussion (8 Nov). Nothing decided, nothing to build. |
 | [wild_plants.md](wild_plants.md) | wild plants, and the slow ecosystems they make | 37.2 | discussion (8 Nov). Nothing decided, nothing to build. |
-| [crop_growth.md](crop_growth.md) | crops grow by the season; "can" apart from "works"; what a crop shows | 37.4 | discussion (8 Nov). |
+| [crop_growth.md](crop_growth.md) | crops grow by the season; "can" apart from "works"; what a crop shows | 37.4 | accepted: D4-106 (8 Nov; built). |
 
 ## Log of ideas and their outcomes
 
@@ -364,6 +364,7 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 7 Nov | The engine overhaul in five phases (process model, calibration and labour, variance and risk, a larger experiment, then fire, water and shelter) | accepted: D4-103 | [engine_overhaul.md](engine_overhaul.md), [process_model.md](process_model.md), [economic_calibration.md](economic_calibration.md) |
 | 7 Nov | Renewal (was regime) and packs (was systems); a stock's own renewal rule and response to density | accepted: D4-104 | [process_model.md](process_model.md) |
 | 8 Nov | Sowing windows as families' lore, not rules; skill fades slowly and partly; wear in a village's terms | accepted: D4-105 | [economic_calibration.md](economic_calibration.md) |
+| 8 Nov | Can apart from works; crops grow by the season; reaping green and turning under; seed on turf; a crop's signs | accepted: D4-106 | [crop_growth.md](crop_growth.md) |
 | 2 Nov | What can happen to buildings and fittings, by weather and use | deferred (L-48) | [building_risks.md](building_risks.md) |
 | 2 Nov | Mills and ovens at scale; oven in stone; coppice held; fuel line; babies by shelter; refused acts not retried; stone walling | accepted: D4-97 | [mill_and_oven_scale.md](mill_and_oven_scale.md) |
 | 24 Oct | how buildings fit the other systems (before Package E is built) | mostly settled. Package E (02y) was deferred until this was worked out (Zach, 24 Oct), then replaced by the building package (02zh), built ... | [buildings_integration.md](buildings_integration.md) |

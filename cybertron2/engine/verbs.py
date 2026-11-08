@@ -540,6 +540,8 @@ def _technique(here, mind, a, party, verb):
             here.apply("wear", container=here.hands, item=armed, uses=t["wear"])
     elif y["kind"] == "fixed":
         q = YD.dist(y, None, m, tm).sample(rng)
+        if t.get("by_season"):                                                  # what the season gives (D4-106), never refused
+            q *= float(t["by_season"].get(here.calendar()["season"], 1.0))
         got = here.apply("draw", parcel=key, key=t["draws"], qty=round(q, 2)) if t["draws"] in here.parcels()[key]["res"] and \
             here.parcels()[key]["res"][t["draws"]]["K"] > 0 and RN.of(t["draws"], here.parcels()[key]["res"][t["draws"]]) != "endless" else round(q, 2)
         if tech == "fell" and got > 0:                                         # its branches left as dead wood (D2-156)

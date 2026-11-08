@@ -18,7 +18,7 @@ from __future__ import annotations
 import math
 
 from cybertron2.engine import knowledge as KN
-from cybertron2.engine.data import CROP_OF, CROPS, FENCES, FITTINGS, ITEMS, SEED_CROP, TECHNIQUES
+from cybertron2.engine.data import CROP_OF, CROPS, FENCES, FITTINGS, ITEMS, SEED_CROP, TECHNIQUES, TURF
 from cybertron2.engine.here import Refused, show
 
 ROLES = ("cows", "oxen", "bulls", "young")
@@ -72,6 +72,116 @@ def crop_base(f, seed_eq, broken_share, fert, ground, skill_yield=1.0) -> float:
 def fail_chance(f, last_crop, fam) -> float:
     """The chance a sowing fails (D2-53): higher after the same crop."""
     return float(f["fail"][1] if last_crop == fam else f["fail"][0])
+
+
+# ---------------------------------------------------------------------- growth by the season (D4-106; proposals/crop_growth.md)
+def rate(fam, season) -> float:
+    """A crop's growth in a season, as a share of its full rate (CROPS growth)."""
+    return float((CROPS[fam].get("growth") or {}).get(season, 1.0))
+
+
+def started(c, day=None) -> dict:
+    """A crop record with its growth fields: an older record (or a world file's {kind, left, ripe_day}) is read as growing at its
+    full rate toward its ripe day, already up."""
+    if c.get("progress") is not None:
+        return c
+    c = dict(c)
+    g = max(1, int(c["ripe_day"]) - int(c.get("sown", c["ripe_day"])))
+    d = int(c.get("sown", 0)) if day is None else day
+    left = int(c["ripe_day"]) - d                                               # what it has still to grow, at the full rate
+    if left > g:
+        g, progress = left, 0.0
+    else:
+        progress = min(1.0, max(0.0, 1 - left / g))
+    c.update({"g": g, "progress": round(progress, 4), "q": 0.0, "n": 0, "lying": False, "stand": 1.0, "wintered": False})
+    return c
+
+
+def grow_night(c, season, cold, f) -> tuple:
+    """One night of a crop (pure: the engine's night and the capacity model both call it). Returns (crop, what happened): "lost"
+    (seed lying in cold ground, a share lost), "up" (it came up), "frost" (a tender crop thinned by the cold), "killed", "ripe"."""
+    c = dict(c)
+    fam = c["crop"]
+    r = rate(fam, season)
+    if c.get("progress", 0.0) >= 1.0:
+        return c, None
+    if c.get("lying"):
+        if r > 0 and not cold:
+            c["lying"] = False
+            happened = "up"
+        else:
+            k = 1 - float(f["lie_loss"])
+            c["base"], c["stand"] = round(c["base"] * k, 4), round(c.get("stand", 1.0) * k, 4)
+            return c, "lost"
+    else:
+        happened = None
+    if not c.get("hardy") and (season == "winter" or cold):
+        k = 1 - float(f["frost_loss"])
+        c["area_left"], c["stand"] = round(c["area_left"] * k, 6), round(c.get("stand", 1.0) * k, 4)
+        if c["area_left"] < 0.02 * max(1e-9, c["area"]):
+            c["area_left"] = 0.0
+            return c, "killed"
+        happened = "frost"
+    if season == "winter":
+        c["winter_n"] = int(c.get("winter_n", 0)) + 1
+        c["wintered"] = c["winter_n"] >= int(f["vernal"])
+    c["progress"] = round(c.get("progress", 0.0) + r / max(1, int(c["g"])), 6)
+    if CROPS[fam].get("needs_winter") is not None and not c.get("wintered") and c["progress"] >= 0.9:
+        c["stalled"] = int(c.get("stalled", 0)) + 1                           # winter grain will not head without its winter
+        if c["stalled"] < max(2, int(c["g"])):                               # a whole growing time without one: it heads, poorly
+            c["progress"] = 0.9
+        else:
+            c["no_winter"] = True
+    if not (season == "winter" and c.get("hardy")):                          # a hardy crop's winter rest is no harm to it
+        c["q"], c["n"] = round(c.get("q", 0.0) + r, 4), int(c.get("n", 0)) + 1
+    if c["progress"] >= 1.0 - 1e-9:
+        qual = c["q"] / c["n"] if c["n"] else 1.0
+        if CROPS[fam].get("needs_winter") is not None and (not c.get("wintered") or c.get("no_winter")):
+            qual *= float(CROPS[fam]["needs_winter"])
+        c["quality"] = round(qual, 4)
+        c["base"] = round(c["base"] * qual, 4)
+        c["progress"] = 1.0
+        return c, "ripe"
+    return c, happened
+
+
+def season_run(fam, start, season_of, g, f, cold_of=None, horizon=None) -> tuple:
+    """A sowing of `fam` on day `start`, run night by night by grow_night: (nights to ripe or None, what a unit of base gives then,
+    its quality). `season_of(day)` and `cold_of(day)` read the calendar. The capacity model's crop year and the lore read this."""
+    c = {"crop": fam, "base": 1.0, "area": 1.0, "area_left": 1.0, "hardy": bool(CROPS[fam]["hardy"]), "g": g, "progress": 0.0,
+         "q": 0.0, "n": 0, "lying": True, "stand": 1.0, "wintered": False}
+    for k in range(int(horizon or 4 * g + 64)):
+        d = start + k
+        c, what = grow_night(c, season_of(d), bool(cold_of(d)) if cold_of else season_of(d) == "winter", f)
+        if what == "killed":
+            return None, 0.0, 0.0
+        if what == "ripe":
+            return k + 1, c["base"] * c["area_left"], c.get("quality", 1.0)
+    return None, 0.0, 0.0
+
+
+def projected_ripe(c, season_of, cold_of, day, f, horizon=200):
+    """The day a growing crop will be ripe, by its own nights from `day` on (None: the cold will take it first)."""
+    for k in range(horizon):
+        c, what = grow_night(c, season_of(day + k), cold_of(day + k), f)
+        if what == "killed":
+            return None
+        if c.get("progress", 0.0) >= 1.0:
+            return day + k + 1
+    return None
+
+
+def set_projection(c, w_or_here, day, f) -> dict:
+    """ripe_day as the crop's own projection (never sooner than the day after tomorrow while it is growing), and `never` where the
+    cold will take it first."""
+    if c.get("progress", 0.0) >= 1.0:
+        return c
+    cal = w_or_here.calendar
+    cold = w_or_here.cold
+    r = projected_ripe(c, lambda d: cal(d)["season"], cold, day, f)
+    c["never"] = r is None
+    c["ripe_day"] = max(day + 2, r if r is not None else day + 2 * w_or_here.year_days())
+    return c
 
 
 def frost_kills(c, season) -> bool:
@@ -483,8 +593,8 @@ def _why(here, par, holder, y, f) -> str:
     part = the_part(names, par, holder)
     n = plots_of(par, holder)
     if y == "break":
-        if c and (here.day >= int(c["ripe_day"]) or c["area"] >= n - 1e-6):
-            return f"{part} has a crop in it"
+        if c and c.get("area_left", 0.0) > 1e-6:
+            return ""                                                          # it is turned under (D4-106)
         if float(rec.get("broken") or 0.0) + (c["area"] if c else 0.0) >= n - 1e-6:
             return f"{part} is broken and ready for sowing" if not c else f"the rest of {part} is broken and ready for sowing"
         return ""
@@ -501,13 +611,7 @@ def _why(here, par, holder, y, f) -> str:
         return ""
     if c.get("failed") and c.get("shown_failed"):
         return f"{the} in {par['name']} has failed"
-    if y == "crop" and here.day < int(c["ripe_day"]):
-        return f"{the} in {par['name']} is not ripe yet"
-    if y == "tend" and here.day >= int(c["ripe_day"]):
-        return f"{the} in {par['name']} is ripe: past weeding"
-    if y == "tend" and weed_gain(f, c.get("weeded", 0.0) / max(1e-9, c["area"])) >= float(f["weed_max"]) * 0.95:
-        return f"{the} in {par['name']} is as clean as weeding makes it"
-    return ""
+    return ""                                                                  # green, ripe, clean: all done, and work by what is there
 
 
 def target(here, key, y, a, f):
@@ -629,11 +733,17 @@ def act(here, mind, tech, key, place_name, out, m, tm, a) -> tuple:
     if k == "break":
         return _break(here, tech, key, place_name, out, m * tm, f, h)
     if k == "tend":
-        c = dict(record(par, h)["crop"])
+        c = started(dict(record(par, h)["crop"]), here.day)
+        the = the_crop(names, par, h, c)
+        if c.get("progress", 0.0) >= 1.0:                                      # done, and to no purpose (D4-106)
+            return 0.0, None, f"You weeded {the} in {place_name}, but it is ripe: weeding now does it no good.", ("parcel", key)
+        clean = weed_gain(f, c.get("weeded", 0.0) / max(1e-9, c["area"])) >= float(f["weed_max"]) * 0.95
         c["weeded"] = round(c.get("weeded", 0.0) + m, 4)
         c["left"] = crop_left(f, c)
         _set(here, key, h, "crop", c)
-        return 0.0, None, f"You weeded {the_crop(names, par, h, c)} in {place_name}: it will bear more.", ("parcel", key)
+        if clean:
+            return 0.0, None, f"You weeded {the} in {place_name}, but it was as clean as weeding makes it: your work gained nothing.", ("parcel", key)
+        return 0.0, None, f"You weeded {the} in {place_name}: it will bear more.", ("parcel", key)
     if k == "manure":
         rec = record(par, h)
         n = float(plots_of(par, h))
@@ -781,8 +891,6 @@ def _sow(here, mind, tech, key, place_name, out, m, a, f):
     if fam is None:
         raise Refused(f"{seed_good!r} is not seed; one sows {', '.join(sorted(SEED_CROP))}")
     seed_good = CROPS[fam]["seed"]
-    season = here.calendar()["season"]
-    off = bool(CROPS[fam].get("sow_seasons")) and season not in CROPS[fam]["sow_seasons"]   # out of its window: it will not come up
     mods = a.get("_mods") or {}
     y = {**TECHNIQUES[tech]["yield"], **(mods.get("yield") or {})}           # the sowing method (a modifier: D2-94)
     worth = float(y["worth"])
@@ -800,7 +908,8 @@ def _sow(here, mind, tech, key, place_name, out, m, a, f):
         rec = record(par, h)
         c = rec.get("crop")
         if c and (c["crop"] != fam or here.day >= c["ripe_day"]):
-            why = why or f"{the_part(names, par, h)} already has {c['kind']} in it"
+            why = why or (f"{the_part(names, par, h)} has {c['kind']} in it: reap it, or turn it under with a hoe or plough, "
+                          f"before sowing {seed_good}")
             continue
         if plots_of(par, h) <= 0 and not c:
             continue
@@ -834,8 +943,11 @@ def _sow(here, mind, tech, key, place_name, out, m, a, f):
                 g = max(2, round(g * float(here.p["seed_selection"])))
             name = next((n for n in CROPS[fam]["names"] if n == str(rec.get("last_kind", "")).lower()), CROPS[fam]["names"][0])
             c = {"kind": name, "crop": fam, "sown": here.day, "ripe_day": here.day + g, "window": int(f["window"]), "seed": 0.0, "area": 0.0,
-                 "area_left": 0.0, "broken": 0.0, "weeded": 0.0, "base": 0.0, "rot": 1.0, "failed": failed or off, "hardy": CROPS[fam]["hardy"],
-                 "sower": a.get("for") or here.name, **({"cause": "season"} if off else {})}   # D4-105: nobody is told why
+                 "area_left": 0.0, "broken": 0.0, "weeded": 0.0, "base": 0.0, "rot": 1.0, "failed": failed, "hardy": CROPS[fam]["hardy"],
+                 "sower": a.get("for") or here.name,
+                 "g": g, "progress": 0.0, "q": 0.0, "n": 0, "lying": True, "stand": 1.0, "wintered": False}   # D4-106: by the season
+            if rec.get("dead"):
+                _set(here, key, h, "dead", None)
         c = dict(c)
         eq = seed * worth
         area = eq / ps
@@ -847,8 +959,10 @@ def _sow(here, mind, tech, key, place_name, out, m, a, f):
         c["area_left"] = round(c["area_left"] + area, 4)
         c["broken"] = round(c["broken"] + broken_here, 4)
         skill_yield = 1 + float(here.p["master_yield"]) * master_share(here, mind, tech)       # D2-64
-        c["base"] = round(c["base"] + crop_base(f, eq, broken_here / area, float(rec["fertility"]), ground_mult(here.p, par), skill_yield)
-                          * float(CROPS[fam].get("yield", 1.0)), 4)
+        turf = float(f["turf"]) if par["cover"] != "field" else 1.0              # seed thrown on uncleared turf (D4-106)
+        c["base"] = round(c["base"] + crop_base(f, eq, broken_here / area, float(rec.get("fertility", 1.0)), ground_mult(here.p, par), skill_yield)
+                          * float(CROPS[fam].get("yield", 1.0)) * turf, 4)
+        c = set_projection(c, here, here.day, f)
         c["left"] = crop_left(f, c)
         _set(here, key, h, "crop", c)
         words.append((h, seed, area, broken_here, c))
@@ -864,10 +978,11 @@ def _sow(here, mind, tech, key, place_name, out, m, a, f):
         own = set(own_records(here, key, a))
         where = " (" + ", ".join(f"{show(x[2])} on " + ("your plots" if x[0] in own else "the unclaimed plots" if owner(par, x[0]) is None
                                                          else f"{possessive(names, owner(par, x[0]))} plots") for x in words) + ")"
-    word = (f"You {how} {show(seed)} {seed_good} in {place_name}{soil} (about {show(area)} of a plot){where}; the {c['kind']} should be "
-            f"ready to reap in about {c['ripe_day'] - here.day} days.")
-    if not c["hardy"]:
-        word += " It is not hardy: winter will kill it if it is still growing."
+    word = f"You {how} {show(seed)} {seed_good} in {place_name}{soil} (about {show(area)} of a plot){where}."
+    if par["cover"] != "field":
+        word += " The seed lies on the turf among the grass."
+    if here.cold():                                                          # felt by the sower (D4-106): told, not why
+        word += " The soil is cold and hard under your feet: nothing will sprout in this yet."
     return 0.0, None, word, ("parcel", key)
 
 
@@ -893,11 +1008,13 @@ def _sow_why(here, key, a) -> str:
     except Refused as e:
         return str(e)
     why = ""
+    fam = SEED_CROP.get(str(a.get("item") or "").lower())
     for h in targets:
         c = record(par, h).get("crop")
         n = plots_of(par, h)
-        if c and here.day >= c["ripe_day"]:
-            why = why or f"{the_part(names, par, h)} has {c['kind']} standing in it"
+        if c and ((fam and c["crop"] != fam) or here.day >= c["ripe_day"]):
+            why = why or (f"{the_part(names, par, h)} has {c['kind']} in it: reap it, or turn it under with a hoe or plough, "
+                          f"before sowing {a.get('item')}" if fam else f"{the_part(names, par, h)} has {c['kind']} standing in it")
             continue
         if n <= 0 and not c:
             continue
@@ -912,10 +1029,43 @@ def _sow_why(here, key, a) -> str:
             if held else f"{par['name']} is sown as thick as it will take")
 
 
+def _turn_under(here, tech, key, place_name, mult, f, h, y):
+    """A hoe or plough over a standing crop turns it under (D4-106): the crop is gone from the ground worked, the soil gains a
+    little by how far it had grown, and that ground is broken and free for seed."""
+    par = here.parcels()[key]
+    rec = record(par, h)
+    c = started(dict(rec["crop"]), here.day)
+    t = round(min(c["area_left"], float(y["plots"]) * mult), 4)
+    share = t / max(1e-9, c["area_left"])
+    n = max(1.0, float(plots_of(par, h)))
+    fert = round(float(rec.get("fertility", 1.0)) + float(f["turned_under"]) * min(1.0, c.get("progress", 0.0)) * t / n, 4)
+    _set(here, key, h, "fertility", fert)
+    _set(here, key, h, "broken", round(float(rec.get("broken") or 0.0) + t, 4))
+    kind = c["kind"]
+    for fld in ("seed", "area", "base"):
+        c[fld] = round(c[fld] * (1 - share) if fld != "area" else c["area"] - t, 4)
+    c["area_left"] = round(c["area_left"] - t, 6)
+    c["broken"] = round(min(c.get("broken", 0.0), c["area"]), 4)
+    if c["area_left"] <= 1e-6 or c["area"] <= 1e-6:
+        _set(here, key, h, "crop", None)
+        rest = " It is all turned under: the ground is broken and ready for seed."
+    else:
+        c["left"] = crop_left(f, c)
+        _set(here, key, h, "crop", c)
+        rest = f" {show(c['area_left'])} of a plot of it still stands."
+    here.today().setdefault("turned", {})[key] = kind
+    how = "ploughed" if tech == "plough" else "hoed"
+    return 0.0, None, f"You {how} {t:.2g} of a plot of the {kind} in {place_name} under.{rest}", ("parcel", key)
+
+
 def _break(here, tech, key, place_name, out, mult, f, h=None):
     par = here.parcels()[key]
     rec = record(par, h)
     y = TECHNIQUES[tech]["yield"]
+    if (rec.get("crop") or {}).get("area_left", 0.0) > 1e-6:                  # a standing crop: turned under (D4-106)
+        return _turn_under(here, tech, key, place_name, mult, f, h, y)
+    if rec.get("dead"):
+        _set(here, key, h, "dead", None)
     sown = float((rec.get("crop") or {}).get("area", 0.0))                     # break only the ground not yet sown
     room = float(plots_of(par, h)) - float(rec.get("broken") or 0.0) - sown
     plots = round(min(room, float(y["plots"]) * mult), 4)
@@ -946,9 +1096,23 @@ def _reap(here, tech, key, place_name, out, mult, f, y, h=None):
     c = dict(record(par, h)["crop"])
     if c.get("failed") and c.get("shown_failed"):
         raise Refused(f"{the_crop(names, par, h, c)} in {place_name} has failed: there is nothing to reap")
+    c = started(c, here.day)
     plots = min(c["area_left"], float(y["plots"]) * mult)
     left = crop_left(f, c)
     got = round(left * plots / max(1e-9, c["area_left"]), 2)
+    if c.get("progress", 1.0) < 1.0:                                            # reaped green (D4-106): fodder, little food
+        _set(here, key, h, "crop", c)
+        here.apply("draw", parcel=key, key="crop", qty=got, **({"holder": h} if h is not None else {}))
+        g0, g1 = (float(x) for x in f["green"])
+        green = round(got * (g0 + g1 * c["progress"]), 2)
+        c = dict(record(here.parcels()[key], h)["crop"])
+        c["left"] = crop_left(f, c)
+        _set(here, key, h, "crop", c)
+        here.today().setdefault("green_cut", {})[key] = c["kind"]
+        word = " The ears are soft and milky: it was not ready."
+        if c["area_left"] <= 1e-6:
+            word += f" {the_part(names, par, h)} is cut." if named(par) else f" {place_name} is cut."
+        return green, CROPS[c["crop"]]["green"], word, ("parcel", key)
     here.apply("draw", parcel=key, key="crop", qty=got, **({"holder": h} if h is not None else {}))
     c = dict(record(here.parcels()[key], h)["crop"])                           # the draw took its ground with it (world.p_draw)
     c["left"] = crop_left(f, c)
@@ -958,8 +1122,10 @@ def _reap(here, tech, key, place_name, out, mult, f, y, h=None):
     if straw > 0:
         here.apply("create", dst=out, item="straw", qty=straw, why="reap")
     word = ""
+    if c.get("quality", 1.0) * c.get("stand", 1.0) < 0.6:                       # felt in the hand (D4-106)
+        word += " The ears are light in your hand and thin in the grain."
     if c["area_left"] <= 1e-6:
-        word = f" {the_part(names, par, h)} is reaped." if named(par) else f" {place_name} is reaped."
+        word += f" {the_part(names, par, h)} is reaped." if named(par) else f" {place_name} is reaped."
     return got, gives, word, ("parcel", key)
 
 
@@ -994,9 +1160,9 @@ def ready(here, tech, key, a=None) -> str:
     a = a or {}
     if t.get("seasons") and here.calendar()["season"] not in t["seasons"]:
         return f"{KN.label(tech)} is done in {' and '.join(t['seasons'])}"
-    if y == "sow" and p["cover"] == "field":
+    if y == "sow" and (p["cover"] == "field" or p["cover"] in TURF):
         return _sow_why(here, key, a)
-    if y in ("break", "crop", "tend", "manure") and p["cover"] == "field":
+    if y in ("break", "crop", "tend", "manure") and (p["cover"] == "field" or (p["cover"] in TURF and y in ("crop", "tend"))):
         try:
             target(here, key, y, a, f)
         except Refused as e:
@@ -1162,38 +1328,52 @@ def _crops(w, rec_):
     slot = grow_days(year, "grain")
     names = names_of(w)
     for pid, par in w.s["parcels"].items():
-        if par["cover"] != "field":
+        turf = par["cover"] != "field"                                          # seed sown on uncleared ground (D4-106)
+        if turf and not par.get("crop"):
             continue
         node = par["node"]
-        if layout(w.claims_on(("parcel", pid)), par["size"]) != (whole(par), {r["holder"]: int(r["plots"]) for r in shares(par) if int(r["plots"]) > 0}):
+        if not turf and layout(w.claims_on(("parcel", pid)), par["size"]) != (whole(par), {r["holder"]: int(r["plots"]) for r in shares(par) if int(r["plots"]) > 0}):
             w.apply("shares", node, parcel=pid)                                # a claim ran out: the holdings follow (D2-163)
         grazed = any(h["parcel"] == pid and head(h) > 0 for h in w.s["herds"].values())
         gone = False
         for hd, rec in records(par):                                           # a crop for each holding (D2-172)
             c = rec.get("crop")
             if c:
-                c = dict(c)
+                c = started(dict(c), w.d)
                 the = the_crop(names, par, hd, c)
-                growing = w.d < int(c["ripe_day"])
-                if growing and c.get("failed") and not c.get("shown_failed") and w.d >= c["sown"] + (c["ripe_day"] - c["sown"]) // 2:
+                growing = c.get("progress", 0.0) < 1.0 and c["area_left"] > 1e-6
+                if growing and c.get("failed") and not c.get("shown_failed") and c.get("progress", 0.0) >= 0.5:
                     c["shown_failed"] = True
-                    w.event(node, "crop", (f"nothing has come up where {the} was sown in {par['name']}: it will bear nothing"
-                                           if c.get("cause") == "season" else
-                                           f"{the} in {par['name']} has blight: it is withering and will bear nothing"),
+                    w.event(node, "crop", f"{the} in {par['name']} has blight: it is withering and will bear nothing",
                             about=[f"parcel:{pid}"], salience=0.6, tags=["farming", "food"])
                     rec_["crops"].append((pid, "failed"))
-                if growing and frost_kills(c, w.calendar()["season"]):
-                    c["area_left"] = 0.0
+                what = None
+                if growing:                                                     # a night's growth by the season (D4-106)
+                    c, what = grow_night(c, w.calendar()["season"], w.cold(), f)
+                    if what == "up":
+                        c["up_day"] = w.d
+                    elif what == "frost":
+                        c["frost_day"] = w.d
+                    elif what == "ripe":
+                        c["ripe_day"] = w.d + 1
+                    if what != "ripe":
+                        c = set_projection(c, w, w.d + 1, f)
+                if what == "killed":
                     c["killed"] = True
+                    c["frost_day"] = w.d
                     w.event(node, "crop", f"the frost has killed {the} growing in {par['name']}", about=[f"parcel:{pid}"],
                             salience=0.7, tags=["farming", "food", "season"])
                     rec_["crops"].append((pid, "frost"))
-                elif w.d >= int(c["ripe_day"]) + int(c.get("window", f["window"])):
+                elif not growing and w.d >= int(c["ripe_day"]) + int(c.get("window", f["window"])):
                     c["rot"] = round(c.get("rot", 1.0) * (1 - float(f["rot"])), 4)
                     c["rotting"] = True
                 c["left"] = crop_left(f, c)
-                withering = c.get("failed") and growing                         # a blighted crop stands until its day
-                if c["area_left"] <= 1e-6 or (c["left"] <= 0.05 and not withering):
+                withering = c.get("failed") and growing and what != "ripe"     # a blighted crop stands until its day
+                if (c["area_left"] <= 1e-6 or (c["left"] <= 0.05 and not withering)) and turf:
+                    w.apply("set_share", node, parcel=pid, holder=hd, field="crop", value=None)
+                elif c["area_left"] <= 1e-6 or (c["left"] <= 0.05 and not withering):
+                    if c.get("killed") or c.get("frost_day") == w.d:            # it stands dead until the ground is worked (D4-106)
+                        w.apply("set_share", node, parcel=pid, holder=hd, field="dead", value={"kind": c["kind"], "day": w.d})
                     fert = soil_step(f, rec["fertility"], c["crop"])           # the crop's slot ends (D4-39)
                     w.apply("set_share", node, parcel=pid, holder=hd, field="fertility", value=fert)
                     w.apply("set_share", node, parcel=pid, holder=hd, field="last_crop", value=c["crop"])
@@ -1203,7 +1383,7 @@ def _crops(w, rec_):
                     gone = gone or (hd is not None and int(rec["plots"]) <= 0)
                 else:
                     w.apply("set_share", node, parcel=pid, holder=hd, field="crop", value=c)
-            elif not grazed and plots_of(par, hd) > 0:                         # resting: fallow restores (grazed: in _herds)
+            elif not turf and not grazed and plots_of(par, hd) > 0:            # resting: fallow restores (grazed: in _herds)
                 fert = fallow_gain(f, rec["fertility"], slot)
                 w.apply("set_share", node, parcel=pid, holder=hd, field="fertility", value=fert)
         if gone:
@@ -1255,7 +1435,7 @@ def _herds(w, rec):
         if g and got < need:
             got += w.apply("draw", node, parcel=pid, key="grass", qty=round(min(need - got, max(0.0, g["S"] - 0.05 * g["K"])), 4))
         for cid in _fodder_stores(w, hid):                                     # then fodder from the holders' stores (D4-42)
-            for item in ("hay", "straw"):
+            for item in sorted((i for i, d in ITEMS.items() if d.get("fodder")), key=lambda i: (-float(ITEMS[i].get("spoil", 0)), i)):   # the perishable first
                 if got + 1e-9 < need:
                     have = w.goods(cid).get(item, 0.0)
                     if have > 1e-9:
