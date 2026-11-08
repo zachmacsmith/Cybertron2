@@ -134,6 +134,7 @@ Rebuilt from the files on 5 Nov (status and owner as each file states them; 37.2
 | [husbandry.md](husbandry.md) | what people make of wild things: economies, husbandry, tools and skills | 37.2 | discussion (8 Nov). Nothing decided, nothing to build. |
 | [wild_plants.md](wild_plants.md) | wild plants, and the slow ecosystems they make | 37.2 | discussion (8 Nov). Nothing decided, nothing to build. |
 | [crop_growth.md](crop_growth.md) | crops grow by the season; "can" apart from "works"; what a crop shows | 37.4 | accepted: D4-106 (8 Nov; built). |
+| [phase3_variance_and_risk.md](phase3_variance_and_risk.md) | phase 3 of the engine overhaul, variance and risk (the scheduler, building risks, the woods, bad years) | 37.4 | discussion (8 Nov); an exploration of what phase 3 builds, nothing built. |
 
 ## Log of ideas and their outcomes
 
@@ -387,3 +388,4 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 8 Nov | what people make of wild things: economies, husbandry, tools and skills | discussion (8 Nov). Nothing decided, nothing to build. | [husbandry.md](husbandry.md) |
 | 8 Nov | wild plants, and the slow ecosystems they make | discussion (8 Nov). Nothing decided, nothing to build. | [wild_plants.md](wild_plants.md) |
 | ? | crops grow by the season; "can" apart from "works"; what a crop shows | discussion (8 Nov). | [crop_growth.md](crop_growth.md) |
+| ? | phase 3 of the engine overhaul, variance and risk (the scheduler, building risks, the woods, bad years) | discussion (8 Nov); an exploration of what phase 3 builds, nothing built. | [phase3_variance_and_risk.md](phase3_variance_and_risk.md) |
