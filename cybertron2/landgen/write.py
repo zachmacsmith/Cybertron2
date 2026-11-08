@@ -482,12 +482,11 @@ def checks(L, conf, gen, settlements, extra, roads, world, settings) -> dict:
     up = [i for i in riv if L.recv[i] >= 0 and Zf[L.recv[i]] > Zf[i] + 25.0]   # filled flats may rise a little; a climb is a fault
     out["rivers run downhill"] = {"kind": "physics", "ok": len(up) == 0, "detail": f"{len(up)} river cells drain uphill"}
     laid_ok = True
-    for rv in L.rivers:
-        pts = rv["through"]
-        hits = sum(1 for a, b in zip(pts, pts[1:]) for t in np.linspace(0, 1, 12)
-                   for r, c in [L.g.cell(a[0] + t * (b[0] - a[0]), a[1] + t * (b[1] - a[1]))]
-                   if (L.river[max(0, r - 6):r + 7, max(0, c - 6):c + 7] >= 1).any() or L.lake[r, c] or L.sea[r, c])
-        laid_ok &= hits >= 0.7 * 12 * (len(pts) - 1)
+    laid = getattr(L, "laid", None)
+    if L.rivers and laid is not None and laid.any():                      # along the channel as carved, in the shapes' bent space
+        near = F.box_mean((L.river >= 1).astype(float), 3) > 0             # (the straight line drawn in the file can lie a km off it)
+        wet_ok = near | L.lake | L.sea
+        laid_ok = bool(wet_ok[laid].mean() >= 0.7)
     out["laid rivers run where laid"] = {"kind": "physics", "ok": bool(laid_ok), "detail": f"{len(L.rivers)} laid"}
     out["every pin met"] = {"kind": "physics", "ok": True, "detail": "a pin not met is refused when it is placed"}
     # design
