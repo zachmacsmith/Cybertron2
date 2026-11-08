@@ -282,9 +282,8 @@ def _labour_lines(p) -> list:
         bits.append(f"you may push on up to {lb['over_units']} units past your day's (\"overwork\"): each costs {lb['over_food']:g} "
                     f"units' food and {lb['fatigue']} unit off the next day")
     if float(lb.get("step", 0) or 0):
-        fs = int(lb.get("free_steps", 1))
-        bits.append(f"walking far tires: working a place more than {fs} step{'s' if fs != 1 else ''} from where you slept costs "
-                    f"{lb['step']:g} of a unit for each further step each way, taken from a later day")
+        bits.append(f"walking tires: each step from one place to the next on your day's way, past the first "
+                    f"{int(lb.get('free_steps', 2))}, costs {lb['step']:g} of a unit, taken from a later day")
     if bits:
         out.append("- Work: " + "; ".join(bits) + ".")
     if lb.get("wear"):

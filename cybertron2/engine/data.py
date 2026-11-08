@@ -510,8 +510,8 @@ PHYSICS = {
                "fade_rate": 0.5,           # then this share a year of what can still be lost
                "fade_keep": 0.6,           # the share of one's best gain over the craft's floor that is never lost
                "relearn": 3.0,             # practice counts this many times over while below one's best
-               "step": 0.25,               # a unit's walk, each way, for each step beyond the next parcel to each parcel worked
-               "free_steps": 1,            # (carried until whole; D4-105)
+               "step": 0.1,                # a unit's walk for each leg of the day's route past the free ones (carried until whole)
+               "free_steps": 2,            # legs free: to the next parcel and back (D4-105)
                "wear": True},              # fittings wear with use and time (FITTINGS wear)
     "shelter": {"housed": 1.0, "damaged": 1.2, "unsheltered": 1.5},     # D4-12, H-5
     "shelter_cold": {"housed": 1.0, "no_fuel": 1.3, "damaged": 1.5, "unsheltered": 2.0},

@@ -58,8 +58,9 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
     `guard_food` (0.3). It adds to the night's need and to the least one must eat not to go hungry.
   - **Pushing on:** a reply's `overwork` (0 to `over_units`, 2) lets the plan run that many units past the day's; each leaves
     `fatigue` (1) unit off the next day. The fallback never pushes on.
-  - **The walk** (D4-105): for each parcel worked, each step from where one slept beyond `free_steps` (1: the next parcel is free)
-    costs `step` (0.25) of a unit each way, carried until it makes a whole unit, which comes off the next day.
+  - **The walk** (D4-105): the day's route (the shortest path joining where one slept, each parcel worked in order, and where one
+    sleeps; D4-62) costs `step` (0.1) of a unit for each leg past the first `free_steps` (2), carried until it makes a whole unit,
+    which comes off the next day.
   - **Skill fades** (D4-105): a craft unpractised for `fade_after` (half a year) loses `fade_rate` (half a year) of what can
     still be lost, and never more than 1 - `fade_keep` (40%) of its best gain over the craft's floor. Below one's best, practice
     counts `relearn` (3) times over.

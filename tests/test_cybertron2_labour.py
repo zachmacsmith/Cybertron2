@@ -47,37 +47,27 @@ def test_eating_the_ration_but_not_the_works_share_is_a_missed_meal():
     assert n in rec["missed"]
 
 
-def _at_distance(w, n, d):
-    from cybertron2.engine import layout as LY
-    start = LY.slept_at(w, n)
-    for pid in w.s["parcels"]:
-        w.s["today"]["worked"] = {n: [pid]}
-        if LA.walk_steps(w, n, 0) == d:
-            return pid
-    return None
-
-
 def test_pushing_on_tires_the_next_day_and_the_walk_adds_up():
     w = world()
     n = "Edric"
+    L = PHYSICS["labour"]
     base = w.units_for(n)
-    far = _at_distance(w, n, 2)                                                  # a step past the next parcel: half a unit there and back
-    assert far
-    w.s["today"]["worked"] = {n: [far]}
-    LA.close_day(w, w.s["today"], {n: base}, {n: base}, [n])
-    assert w.s["people"][n]["walked"] == 0.5 and "tired" not in w.s["people"][n]
-    w.s["today"]["worked"] = {n: [far]}                                           # the next day, again: now a whole unit
+    legs = L["free_steps"] + round(1 / L["step"])                               # enough legs past the free ones for a whole unit
+    w.s["today"]["route"] = {n: ["p%d" % i for i in range(legs + 1)]}
     LA.close_day(w, w.s["today"], {n: base + 2}, {n: base}, [n])
-    assert w.s["people"][n]["tired"] == {"day": w.d + 1, "units": 2 * PHYSICS["labour"]["fatigue"] + 1}
+    assert w.s["people"][n]["tired"] == {"day": w.d + 1, "units": 2 * L["fatigue"] + 1}
     w.s["day"] += 1
     assert w.units_for(n) == max(1, base - 3)
     w2 = world()
-    near = _at_distance(w2, n, 1)
-    w2.s["today"]["worked"] = {n: [near, near, near]}                             # many jobs next door: free
+    w2.s["today"]["route"] = {n: ["a", "b", "a"]}                                  # to the next parcel and back: free
     LA.close_day(w2, w2.s["today"], {n: base}, {n: base}, [n])
     assert "tired" not in w2.s["people"][n] and "walked" not in w2.s["people"][n]
+    w3 = world()
+    w3.s["today"]["route"] = {n: ["a", "b", "a", "c", "a"]}                        # two jobs next door: two legs past the free
+    LA.close_day(w3, w3.s["today"], {n: base}, {n: base}, [n])
+    assert abs(w3.s["people"][n]["walked"] - 2 * L["step"]) < 1e-9
     w0 = world(ZERO)
-    w0.s["today"]["worked"] = {n: [far]}
+    w0.s["today"]["route"] = {n: ["p%d" % i for i in range(legs + 1)]}
     LA.close_day(w0, w0.s["today"], {n: base}, {n: base}, [n])
     assert "tired" not in w0.s["people"][n] and "units" not in w0.s["today"] and "walked" not in w0.s["people"][n]
 

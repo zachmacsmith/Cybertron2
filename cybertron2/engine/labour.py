@@ -5,9 +5,9 @@
   famine's last workers pay for their work.
 - **Pushing on (Q-2):** one may work up to `over_units` past the day's units (the reply's "overwork"); each leaves `fatigue` units
   off tomorrow.
-- **The walk (L-35; D4-105):** for each parcel worked today, each step from where one slept beyond the first `free_steps` (the
-  next parcel is free) costs `step` of a unit there and back, carried until it makes a whole unit, which comes off tomorrow. So
-  outfields cost and infields do not, however many jobs one does near home.
+- **The walk (L-35; D4-105):** the day's route (layout.route, D4-62: the shortest path joining where one slept, each parcel worked
+  in order, and where one sleeps) costs `step` of a unit for each leg past the first `free_steps`, carried until it makes a whole
+  unit, which comes off a later day.
 - **Skill fades (F; D4-105):** a craft unpractised for `fade_after` of a year loses `fade_rate` a year of what can still be lost,
   but never more than (1 - `fade_keep`) of its best gain over the craft's floor; below one's best, practice counts `relearn` times
   over (knowledge.tried), so a skill once held comes back quickly.
@@ -50,8 +50,9 @@ def close_day(w, today, used, budget, names) -> None:
             units[n] = {"used": int(used.get(n, 0)), "over": over}
         off = over * fatigue
         if step:
-            extra = walk_steps(w, n, int(lb.get("free_steps", 1)))
-            walked = round(float(a.get("walked", 0.0)) + 2 * extra * step, 4)
+            r = (today.get("route") or {}).get(n) or []
+            extra = max(0, len(r) - 1 - int(lb.get("free_steps", 2)))           # legs walked past the free ones
+            walked = round(float(a.get("walked", 0.0)) + extra * step, 4)
             whole = int(walked + 1e-9)
             if whole:
                 off += whole
@@ -62,23 +63,6 @@ def close_day(w, today, used, budget, names) -> None:
             w.apply("set", w.place_of(("person", n)), ref=("person", n), field="tired", value={"day": w.d + 1, "units": off})
     if eat:
         today["units"] = units
-
-
-def walk_steps(w, name, free) -> int:
-    """Steps beyond `free` from where one slept to each parcel one worked today, by the parcel graph (D2-115)."""
-    from cybertron2.engine import layout as LY
-    start = LY.slept_at(w, name)
-    work = LY.worked_parcels(w, name)
-    if start is None or not work:
-        return 0
-    dist, todo = {start: 0}, [start]
-    while todo:
-        x = todo.pop(0)
-        for y in w.s["parcels"][x]["adj"]:
-            if y in w.s["parcels"] and y not in dist:
-                dist[y] = dist[x] + 1
-                todo.append(y)
-    return sum(max(0, dist.get(p, 0) - free) for p in work)
 
 
 def tired_units(w, name) -> int:
