@@ -152,11 +152,19 @@ def day_record(w, rooms: Rooms) -> dict:
     views = {nid: node_view(w, nid) for nid in w.s["nodes"]}
     places = {nid: {"cold": w.cold(nid), "weather": E.weather(w, nid), "words": E.words(w, nid), "wet": E.wet(w, nid),
                     "snow": E.snow_lying(w, nid)} for nid in sorted(w.s["nodes"])}       # each place's own weather (D4-111)
+    sky = None
+    if E.climate_on(w):                                                         # the weather scheduler's values (D4-109, D4-110)
+        for nid, v in places.items():
+            e = E.climate_env(w, nid, d)
+            v.update({k: e[k] for k in ("temp", "low", "rain", "wind", "fog", "storm")}, frost=E.frost(w, nid, d),
+                     coming=E.storm_coming(w, nid, d))
+        sky = {**E.climate_region(w, d), "storms": E.climate_storms(w, d)}
     kinds = [v["weather"] for v in places.values()]
     rec = {"day": d, "calendar": cal, "places": places,
            # the region's map draws one sky: the commonest weather over the places (a presentation choice, named as one)
            "weather": max(sorted(set(kinds)), key=kinds.count), "cold": any(v["cold"] for v in places.values()),
            "wet": any(v["wet"] for v in places.values()), "snow": any(v["snow"] for v in places.values()),
+           **({"sky": sky} if sky else {}),
            "parcels": {pid: parcel_day(w, views[p["node"]], pid) for pid, p in w.s["parcels"].items()},
            "buildings": {bid: building_day(w, views[b["node"]], bid, rooms, slept_in) for bid, b in w.s["buildings"].items()},
            "herds": {hid: x for hid in w.s["herds"] if (x := herd_day(w, hid))},

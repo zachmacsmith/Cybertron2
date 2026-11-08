@@ -55,6 +55,8 @@ class RunModel:
         w0 = world_at(R, "d0.dawn")
         st = static(w0, R["seed"])
         st["buildings_ever"] = self.buildings_ever()
+        if E.climate_on(w0):
+            st["climate_layout"] = E.climate_layout(w0)                       # where the weather scheduler lays the places (km)
         people = {n: {"household": w0.household_of(n), "model": p.get("model")} for n, p in w0.s["people"].items()}
         meta = {"name": R["spec"].get("name") or Path(self.run).name, "days": len(self.days), "seed": R["seed"],
                 "source": str(Path(self.run).resolve()), "people": people, "season_days": w0.season_len, "schema": SCHEMA_VERSION}

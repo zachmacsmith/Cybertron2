@@ -80,3 +80,17 @@ def test_the_site_builds_a_run_in_parts_the_same_as_whole(short_run):
     assert set(head["static"]["buildings_ever"]) >= {b for d in whole["days"] for b in d["buildings"]}
     for d in RM.days:
         assert json.dumps(RM.day(d), sort_keys=True, default=str) == json.dumps(whole["days"][d], sort_keys=True, default=str)
+
+
+def test_weather_by_place_with_the_scheduler(tmp_path):
+    """A world with the weather scheduler (D4-109) gives each place its values and the region its sky, and the contract holds."""
+    out = tmp_path / "run"
+    subprocess.run([sys.executable, "-m", "cybertron2.engine", "run", str(ROOT / "cybertron2/specs/plenty/brookend.yaml"), "--out", str(out),
+                    "--bots", "--days", "2"], check=True, cwd=ROOT, capture_output=True)
+    viz = json.loads(MD.build(out, timelines=False).read_text())
+    assert schema.validate(viz) == []
+    assert viz["static"]["climate_layout"]
+    for d in viz["days"]:
+        assert d["sky"]["type"] and "storms" in d["sky"]
+        for v in d["places"].values():
+            assert {"temp", "low", "rain", "wind", "fog", "storm", "frost", "coming"} <= set(v)

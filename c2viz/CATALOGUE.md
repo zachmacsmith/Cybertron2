@@ -29,15 +29,14 @@ from the engine"), what c2viz shows now, and what it should show. The order is b
 - a place close up draws its own weather, and snow where its own place has it;
 - the region's map draws one sky, the commonest weather over the places (a presentation choice), with snow from each place it paints.
 
-**Still to support:**
-- **Each place's weather on the region map:** fog in one valley while the next is clear, rain over one village only.
-- **The physical values,** not only the label: rain by amount, from a drizzle to a downpour; wind by speed (trees and smoke
-  leaning); per-node frost as white rime on fields and roofs.
-- **Storms on the region map:** each storm as a dark mass at its position and radius, moving day to day along its track, with the
-  places it passes darkened and their gale shown. A "storm coming" mark on a place the day before it arrives.
-- **The day's type and the era as words on the page** (a settled spell, a westerly; a cold era), not drawn into the land.
-- **Model change:** `climate.env` (temp, low, rain, wind, fog, storm) per place, and `climate.storms` and `storm_coming`, into
-  the day's record through touch.
+**Done (8 Nov, ENGINE.md §14):**
+- each place's weather and values on both scales, blended between places on the region's map;
+- rain by mm, slanted by the wind; frost rime; a passing storm darkens;
+- storms still crossing drawn as masses, and a cloud mark on a place a storm reaches tomorrow;
+- the day's type and era on the page, and each place's weather on hover.
+
+**Still open:** wind in the land itself (trees and smoke leaning), and a storm's track across days for slow storms, which the
+engine's storms list holds only while a storm is still crossing.
 
 ## 2. Crops that grow by the season (D4-106; `engine/farm.py`, `data.CROPS`, `PHYSICS.farming`)
 

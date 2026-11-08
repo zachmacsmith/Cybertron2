@@ -494,3 +494,30 @@ Checked on every place of twin bays and w1:
 - no road crosses open water, except a few points where Wealdmere's two roads skirt the mere they leave by;
 - a few points cut a field's corner where a road must leave by that field.
 
+## 14. Weather by place (D4-109, D4-110, D4-111; climate.py)
+
+**What is read:**
+- **Each place's own weather, every day** (D4-111): its label, cold, wet and lying snow.
+- **With the weather scheduler,** each place also has its values (`climate.env`): temperature, the night's low, rain in mm, wind in
+  m/s, fog, how near a storm passed, and frost. Also whether a storm reaches it tomorrow (`storm_coming`).
+- **For the region:** the day's weather type, the era, any shock, and the storms still crossing it, with their place on the
+  scheduler's own plane of the places (km, from road distances; `climate_layout`).
+
+**Presentation choices:**
+- **A place close up** draws its own weather:
+  - rain as dense as its mm (12 mm a heavy day), slanted by its wind;
+  - snow drifting, gale streaks, fog;
+  - rime on a frost morning;
+  - the sky darkened by how near a storm passed.
+- **The region's map** draws one field, each place's values weighted by nearness to it. This is a soft edge, as the scheduler's own
+  fields are alike between near places. Each weight is taken against the nearest place, so far ground keeps its nearest's and
+  nothing jumps.
+  - Rain's darkening follows the mm, storm darkening and rime ramp with their share, and lying snow follows its share with a ragged
+    edge, so no threshold draws a straight line between two places.
+  - A streak is rain or snow by the places' weighted vote.
+- **Storms still crossing** are dark masses on the region's map. The scheduler's plane is laid onto the map by the similarity
+  (scale, rotation, maybe a mirror) that best fits its places to where the map has them. Most storms cross a region within a day,
+  so they show as the places they darkened, not as a mass.
+- **A place a storm reaches tomorrow** has a dark cloud by its name.
+- **On hover,** each place's weather in words and values. The day's type and era are on the page.
+

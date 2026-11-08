@@ -11,14 +11,17 @@ D4-111, 37.4).
 |---|---|---|
 | `meta` | `name`, `days`, `seed`, `source`, `people {name: {household, model}}`, `season_days`, `schema` | model.build |
 | `tables` | the engine's tables the renderer may read (covers, crops, fittings, blueprints, fences, weather, seen, height, things, terrain, landmarks, event_extent) and `spec` (the space model: spaces, ground, rooms) | touch.tables, spec_rooms |
-| `static` | `nodes {id: {name, text, unexplored}}`, `parcels {id: {node, name, cover, size, side, height, adj, text, ground}}`, `roads {id: {a, b, days, track, way, terrain, stretches, ends {node: {side, parcels, hidden}}}}`, `layout {world, nodes}` (presentation positions, layout.py) | model.static |
+| `static` | `nodes {id: {name, text, unexplored}}`, `parcels {id: {node, name, cover, size, side, height, adj, text, ground}}`, `roads {id: {a, b, days, track, way, terrain, stretches, ends {node: {side, parcels, hidden}}}}`, `layout {world, nodes}` (presentation positions, layout.py), `buildings_ever` (each building's first day and its record then
+and at its last), `climate_layout {node: [x, y] km}` (where the weather scheduler lays the places, with one) | model.static |
 | `days[]` | one record a day, the state after its night (below) | extract.day_record |
 | `days[].timeline` | the day as it happened (below), when built with timelines | timeline.timeline |
 | `land` | a generated world's ground truth, when it has one (below) | ground.pack |
 
 ## A day
 
-`day`, `calendar {season, day, left, year_day}`, `places {node: {cold, weather, words, wet, snow}}` (each place's own, D4-111), and for
+`day`, `calendar {season, day, left, year_day}`, `places {node: {cold, weather, words, wet, snow}}` (each place's own, D4-111; with the weather scheduler also `temp`, `low`,
+`rain` mm, `wind` m/s, `fog`, `storm` 0-1, `frost`, `coming`: D4-109, D4-110), `sky {type, season, era, shock, storms [{id, at
+(km), radius, wind}]}` with the scheduler, and for
 the region's map `weather` (the commonest over the places, a presentation choice), `cold`, `wet`, `snow` (true if any place has them), and:
 
 | Key | Each record |

@@ -78,6 +78,14 @@ def fresh_world(spec) -> _World:
 parcel_signs = _SG.context                         # (here, pid): what a parcel is like, as its signs are derived
 building_signs = _SG.building_context              # (here, bid)
 weather, words, wet, snow_lying = _EV.weather, _EV.words, _EV.wet, _EV.snow_lying
+from cybertron2.engine import climate as _CL                                # the weather scheduler (D4-109, D4-110, D4-111)
+climate_on, climate_env, climate_region, climate_storms, storm_coming, frost = _CL.on, _CL.env, _CL.region, _CL.storms, _CL.storm_coming, _CL.frost
+
+
+def climate_layout(w) -> dict:
+    """Where the weather scheduler lays the places out (km on a plane, from their road distances): storms move on this plane."""
+    st = _CL.state(w)
+    return {n: [round(float(x), 2) for x in st.pos[i]] for i, n in enumerate(st.nodes)}
 felled, smoky, crop_high, visibility = _EV.felled, _EV.smoky, _EV.crop_high, _EV.visibility
 soil_word, herd_head = _FM.soil_word, _FM.head
 showing = _LF.showing
@@ -172,7 +180,8 @@ TOUCHPOINTS = {
     "functions": [(_SG, "context"), (_SG, "building_context"), (_EV, "weather"), (_EV, "words"), (_EV, "wet"), (_EV, "snow_lying"), (_EV, "felled"),
                   (_EV, "smoky"), (_EV, "crop_high"), (_EV, "visibility"), (_FM, "soil_word"), (_FM, "head"), (_LF, "showing"), (_TH, "spot_of"),
                   (_TH, "at_node"), (_TH, "body_state"), (_TH, "rotting"), (_TH, "carcass_fresh"), (_TH, "KINDS"), (_RD, "position"), (_RD, "challenge"),
-                  (_VB, "verb_units"), (_VB, "VERB"), (_JN, "checkpoint"), (_LY, "route")],
+                  (_VB, "verb_units"), (_VB, "VERB"), (_JN, "checkpoint"), (_LY, "route"),
+                  (_CL, "on"), (_CL, "env"), (_CL, "region"), (_CL, "storms"), (_CL, "storm_coming"), (_CL, "frost"), (_CL, "state")],
     "world": ["apply", "calendar", "cold", "units_for", "agents_acting", "present", "holders", "household_of", "homes"],
     "state": ["parcels", "buildings", "herds", "containers", "people", "nodes", "roads", "events", "acts", "log", "today"],
 }

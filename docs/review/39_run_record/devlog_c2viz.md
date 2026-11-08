@@ -142,3 +142,10 @@ engine's state and imports nothing it changes.
 - 08 Nov 2026: 37.4's D4-111 (`3fc6d7f`) gave each day's record its weather by place and dropped the top-level `words`; the
   contract (schema.py, SCHEMA.md) follows as version 3, and tests pass. CATALOGUE §1 now lists what is left: each place's weather
   on the region map, the physical values, storms.
+- 08 Nov 2026: weather by place drawn (CATALOGUE §1, ENGINE.md §14).
+  - Each place's scheduler values in the record (temp, low, rain, wind, fog, storm, frost, coming), and the region's sky (type,
+    era, storms abroad) with the scheduler's layout of places.
+  - Close up: the place's own weather by its values. The region's map: one field blended between places, with no threshold
+    edges; storms crossing as masses; storm-coming marks.
+  - Snow lies by place on the region's map (it lay everywhere if any place had it). Checked on a stormy 12-day bot run of a
+    generated world.

@@ -13,6 +13,7 @@
     const M = model(V), d = D(V, day), season = (d.calendar || {}).season || "summer", snow = d.places ? nids.some((n) => (d.places[n] || {}).snow) : !!d.snow, sdays = V.meta.season_days || 6;
     const n2 = noise(M.seed ^ 2), n3 = noise(M.seed ^ 3), small = sc < 0.5, RL = opts.relief || null, cday = (d.calendar || {}).day || 1;
     const flowering = (season === "summer" && cday > sdays / 2) || (season === "autumn" && cday <= sdays / 2);   // heather: late summer
+    const snowAt = opts.snowAt || (() => snow);                                            // where snow lies (the region: by place, D4-111)
     const LV = new Int8Array(W * H), at = (x, y) => (x < 0 || y < 0 || x >= W || y >= H) ? -1 : (y | 0) * W + (x | 0);
     const parcelOf = (i) => { const n = cellNode[i]; if (n < 0 || cellPar[i] < 0) return null; return M.nodes[nids[n]].pids[cellPar[i]]; };
     const cov = (pid) => (d.parcels[pid] || {}).cover || V.static.parcels[pid].cover;
@@ -71,7 +72,7 @@
     const face = new Uint8Array(W * H), fh = RL ? 4 : 3;
     if (!small) for (let y = 0; y < H - 1; y++) for (let x = 0; x < W; x++) {
       const l = LV[y * W + x]; if (l <= 1) continue;
-      if (lv(x, y + 1) < l && lv(x, y + 1) > 0) { P.put(x, y, snow ? PAL.snow[0] : PAL.rim); for (let k = 1; k <= fh; k++) { if (lv(x, y + k) >= l || y + k >= H) break; P.put(x, y + k, PAL.face[Math.min(3, k - 1 + (x % 3 === 0 ? 1 : 0))]); face[(y + k) * W + x] = 1; } }
+      if (lv(x, y + 1) < l && lv(x, y + 1) > 0) { P.put(x, y, snowAt(y * W + x) ? PAL.snow[0] : PAL.rim); for (let k = 1; k <= fh; k++) { if (lv(x, y + k) >= l || y + k >= H) break; P.put(x, y + k, PAL.face[Math.min(3, k - 1 + (x % 3 === 0 ? 1 : 0))]); face[(y + k) * W + x] = 1; } }
       else if (RL && ((lv(x + 1, y) < l && lv(x + 1, y) > 0) || (lv(x - 1, y) < l && lv(x - 1, y) > 0))) P.put(x, y, "#5a9030");
     }
     const trees = [], marks = [];
@@ -121,9 +122,9 @@
           if (gate && Math.abs(x - gate[0]) + Math.abs(y - gate[1]) < 3) { if (dp.fence.gate === "open") continue; P.put(x, y, "#a0703a"); continue; }
           P.put(x, y, col[(x + y) & 1]); }
       }
-      if (snow) for (const [x, y] of land) P.mix(x, y, PAL.snow[(x + y) % 3 === 0 ? 1 : 0], n3(x / 4 + 7, y / 4) > 0.3 ? 0.82 : 0.55);
+      if (snow) for (const [x, y] of land) if (snowAt(y * W + x)) P.mix(x, y, PAL.snow[(x + y) % 3 === 0 ? 1 : 0], n3(x / 4 + 7, y / 4) > 0.3 ? 0.82 : 0.55);
     }
-    if (snow) for (let i = 0; i < W * H; i++) if (cellPar[i] < 0 && LV[i] > 0) { const x = i % W, y = (i / W) | 0; P.mix(x, y, PAL.snow[(x + y) % 3 === 0 ? 1 : 0], n3(x / 4 + 7, y / 4) > 0.3 ? 0.8 : 0.5); }
+    if (snow) for (let i = 0; i < W * H; i++) if (cellPar[i] < 0 && LV[i] > 0 && snowAt(i)) { const x = i % W, y = (i / W) | 0; P.mix(x, y, PAL.snow[(x + y) % 3 === 0 ? 1 : 0], n3(x / 4 + 7, y / 4) > 0.3 ? 0.8 : 0.5); }
     // the wild country's trees, by each place's character
     const wildStep = small ? 2 : 4;
     for (let gy = 0; gy < H; gy += wildStep) for (let gx = 0; gx < W; gx += wildStep) {
@@ -173,15 +174,36 @@
     }
   }
   // the day's weather over everything drawn (environment.weather): a place's own close up; on the region's map, the commonest
-  function weatherOver(P, W, H, kind, R, small) {
-    if (!kind || kind === "clear") return;
-    if (kind === "fog") { const nz = noise(77); for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) P.mix(x, y, "#e8ecf0", 0.28 + 0.22 * nz(x / 30, y / 18, 2)); return; }
-    const n = (W * H) / (kind === "heavy rain" ? 30 : kind === "snow" ? 40 : kind === "gale" ? 90 : 70);
-    if (kind === "heavy rain" || kind === "rain") for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) P.dark(x, y, kind === "heavy rain" ? 0.12 : 0.06);
-    for (let k = 0; k < n; k++) { const x = (R() * W) | 0, y = (R() * H) | 0;
-      if (kind === "snow") { P.put(x, y, "#ffffff"); continue; }
-      if (kind === "gale") { for (let j = 0; j < 4; j++) P.mix(x + j, y, "#ffffff", 0.35); continue; }
-      const L = small ? 2 : 3; for (let j = 0; j < L; j++) P.mix(x - j, y + j, "#c8dcf0", 0.4); }
+  // weather over what is drawn: per pixel, `at(x, y)` gives {kind, rain, wind, frost, storm, fog} (the engine's label, environment.
+  // weather, and with the weather scheduler its values, climate.env: rain in mm, wind in m/s); one place close up gives the same
+  // everywhere, the region's map a field blended between its places. Rain falls as dense as it is and slanted by the wind, snow
+  // drifts, a gale streaks, fog lies, rime on a frost morning, a passing storm darkens. How it is drawn is a presentation choice
+  // (ENGINE.md §12)
+  const RAINY = new Set(["rain", "heavy rain"]);
+  function weatherField(P, W, H, at, R, small, seed = 0) {
+    const nz = noise(77 + seed);
+    for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { const v = at(x, y); if (!v) continue;
+      if (v.storm > 0.05) P.mix(x, y, "#2a3048", 0.4 * Math.min(1, Math.max(0, (v.storm - 0.05) / 0.6)));   // a storm passing darkens, by how near
+      if (v.frost > 0 && v.kind !== "snow" && nz(x / 4 + 3, y / 4, 2) > 1 - 0.45 * v.frost) P.mix(x, y, "#e8eef4", 0.28);   // rime, as thick as the frost's share
+      if (v.fog > 0) P.mix(x, y, "#e8ecf0", (0.28 + 0.22 * nz(x / 30, y / 18, 2)) * Math.min(1, v.fog));
+      const wet = v.rain != null ? Math.min(0.16, 0.13 * v.rain / 7) : RAINY.has(v.kind) ? Math.min(0.16, 0.04 + 0.05 * heavyOf(v)) : 0;   // by the mm where given:
+      if (wet > 0.005) P.dark(x, y, wet);                                                                  // no edge where the label flips
+    }
+    const n = (W * H) / 25;                                                                      // candidates, kept by each spot's own density
+    for (let k = 0; k < n; k++) { const x = (R() * W) | 0, y = (R() * H) | 0, v = at(x, y); if (!v || !v.kind || v.kind === "clear" || v.kind === "fog") continue;
+      const wind = v.wind ?? (v.kind === "gale" ? 18 : 4), dens = v.kind === "snow" ? 25 / 40 * Math.min(1.5, heavyOf(v)) : v.kind === "gale" ? 25 / 90 * Math.max(1, wind / 17) : 25 / 70 * heavyOf(v);
+      if (R() > dens) continue;
+      const slant = Math.max(0, Math.min(3, Math.round(wind / 6)));                                   // the wind leans the rain
+      if (v.kind === "snow") { P.put(x, y, "#ffffff"); if (slant > 1) P.mix(x + 1, y, "#ffffff", 0.4); continue; }
+      if (v.kind === "gale") { for (let j = 0; j < 4; j++) P.mix(x + j, y, "#ffffff", 0.35); continue; }
+      const L_ = small ? 2 : 3; for (let j = 0; j < L_; j++) P.mix(x - j * (1 + slant) / 2, y + j, "#c8dcf0", 0.4); }
+  }
+  // how much falls: the rain's mm (12 a heavy day) where the scheduler gives it, else the label's
+  const heavyOf = (v) => v.rain != null ? Math.max(0.15, Math.min(1.8, v.rain / 7)) : v.kind === "heavy rain" ? 1.6 : 1;
+  // one place's weather everywhere (close up)
+  function weatherOver(P, W, H, kind, R, small, o = {}) {
+    const v = { kind, rain: o.rain, wind: o.wind, frost: o.frost ? 1 : 0, storm: o.storm || 0, fog: kind === "fog" ? 1 : 0 };
+    weatherField(P, W, H, o.mask ? (x, y) => (o.mask(x, y) ? v : null) : () => v, R, small, o.seed || 0);
   }
 
   function drawTrees(P, trees, ctx, occ, W, H, R) {
@@ -192,5 +214,5 @@
       if (ok) tree(P, x, y, r, R, kind, ctx.season);
     }
   }
-  Object.assign(X, { snowLies, paintLand, paintField, weatherOver, drawTrees });
+  Object.assign(X, { snowLies, paintLand, paintField, weatherField, weatherOver, drawTrees });
 })(C2X);
