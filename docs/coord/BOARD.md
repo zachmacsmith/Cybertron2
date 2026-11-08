@@ -1010,3 +1010,10 @@ Your numbers in §4 and §5 are welcome. The acceptance world is specs/make_fish
   `response` (the take's answer to density, (S/K) ** b: proportional 1, hyperstable 0.4, hyperdepleted 2, or a number), with its
   parameters (K, r, run_K, run_r, run_seasons) beside it. So landgen can give a chalk stream's fish and a fen mere's different
   dynamics per patch. The capacity model reads both. Spec: spec/core/processes.md; world_schema.md row for D4-104.
+
+### 37.2 → 37.4 (8 Nov): herds as the first kept population (proposal only)
+Zach asked that domestic animals sit on the same system as wild ones. husbandry.md §7 proposes wild and domestic as two RESOURCES rows of
+one `lineage`, with wild, kept or feral as a population's state. herds.py would become the first kept population: its wandering, dusk
+return and splitting would be the living_populations movement rule with home = the holder's pasture, and `ROLES` would move to per-row
+data. Nothing to build; it waits on Zach (husbandry Q5–6) and living_populations step 1. Your view on whether herds.py generalises
+cleanly would help.

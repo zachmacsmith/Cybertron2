@@ -245,12 +245,88 @@ structure, fed or feeding, with a take by a technique.
 - food's share of work against the 30% gate;
 - a reading of the end state.
 
+## 7. Wild and domestic as one lineage (Zach, 8 Nov)
+
+Zach: the domestic animals should be special cases of wild ones, built on the same wildlife system, so that taming a new wild kind
+works like the herds that exist.
+
+### 7a. History: most stock came already domesticated
+
+| Domestic | Wild ancestor | In the temperate envelope (medieval Britain) |
+|---|---|---|
+| cattle | aurochs | **imported domesticated** (Neolithic, from the Near East); the aurochs was gone from Britain by the Bronze Age |
+| sheep, goats | Asian mouflon, bezoar | **imported**; no wild ancestor in northern Europe |
+| horses | wild horse | **imported**; the native wild horse had died out early |
+| hens | junglefowl (Asia) | **imported** |
+| cats | Near Eastern wildcat | **imported**; the native wildcat interbreeds with them |
+| pigs | wild boar | **both:** imported stock, crossed with local boar; sows in pannage are served by wild boars |
+| geese | greylag | **native wild**; goslings caught and kept |
+| ducks | mallard | **native wild** |
+| doves (dovecotes) | rock dove | **native** on the coast |
+| bees | honey bee | **native**; hives are filled with caught swarms |
+| dogs | wolf | domesticated long before; the wolf is still there |
+| ferrets | polecat | kept domestic form; the polecat is wild beside it |
+
+So a world needs no aurochs to have cattle: the herds arrive with people, as they did. But **the habitats that support them are the
+same ones**: cattle eat what the aurochs ate (grassland, wood pasture, fen edges). What domestic forms add is **dependence**: they need
+hay in winter, a byre, protection from wolves, and milking.
+
+### 7b. The model: a lineage, a state, a few traits
+
+1. **Kind = a RESOURCES row**, as in living_populations.md. A wild kind and its domestic form are **two rows of one `lineage`** (boar
+   and pig; aurochs and cattle; greylag and goose). They interbreed where they meet: the young join the mother's population, with
+   the traits mixed.
+2. **State = wild, kept or feral**, a property of a population, not of a kind:
+   - **wild:** its own habitat, nobody's;
+   - **kept:** its habitat is a held place (§4): pasture with a fence, a byre, a sty, a park, a warren, a pond, a hive. A kept wild
+     kind (park deer, warren rabbits, a hawk, a swarm) is the same state;
+   - **feral:** a kept population that nobody holds for long enough (pigs gone wild in the wood, ponies on the common).
+3. **Traits = a few numbers per row:**
+   - docility (how close it lets people come; flight);
+   - dependence (the share of its winter food and shelter people must give);
+   - growth and yield (milk, wool, eggs, meat, draught);
+   - size;
+   - generation length.
+
+   A domestic row is just a lineage with its traits far toward docile and dependent.
+4. **Domestication = traits drifting in a kept population**, by which parents breed (§4, "breeding for type"):
+   - It is slow, so it shows only in fast breeders under deliberate choice. Geese, ducks and pigs breed every year; cattle every 4
+     or 5. A 30-year run is 6 to 30 generations. Belyaev's foxes were markedly tamer within about 10.
+   - Nothing is scripted. A long run that keeps and selects boar could make them tamer. A short run never will, and taming in it
+     means keeping wild stock (park, warren, pond, hive) or taming one individual (a hawk, a hand-raised fawn).
+
+### 7c. What it does to the built herds
+
+herds.py is already most of the general mechanism, written for cattle:
+
+| Built for cattle | General form |
+|---|---|
+| wandering toward the most attractive parcel (D2-117, D2-123) | the movement rule (living_populations §2c) with home = the holder's pasture |
+| the walk home at dusk (D4-54) | home fidelity |
+| splitting by how many head the people with it hold (D2-128) | splitting (§2c) |
+| roles cows, oxen, bulls, young | **per-row data:** females, castrated males, males, young (ewes, wethers, rams, lambs; sows, hogs, boars, piglets) |
+| fences crossed at their odds | a held place's hold on a population, by state |
+| lost on the road, or found | a population with no held place: astray, then feral |
+
+So the order is: **herds become the first kept population**, and wild kinds use the same rule with no held place. Their roles move
+from code (herds.py `ROLES`) into data. That change is in 37.4's code, so it waits for a board agreement and for living_populations
+step 1. It is a generalisation of built behaviour, and the built tests are its check: cattle must behave exactly as now.
+
+### 7d. What a world sets
+
+- **Which lineages exist and in which states:** a medieval world has cattle, sheep, pigs, hens and geese kept, with boar, greylag
+  and wolves wild; an earlier frontier world could have aurochs wild and cattle few.
+- **Where the stock came from:** in the start state, or by trade (L-36). Nothing needs a local wild ancestor.
+
 ## Open questions (for Zach)
 
 1. The rule that keeping is one general mechanism (a kept population in a held structure), generalising herds?
 2. First: withies, tanning and pannage, because their goods have uses now?
 3. The common rights (pannage, turbary, estovers, piscary) as named rights a world can seed and agents can create?
 4. Breeding for traits: later, as proposed?
+5. Wild and domestic as two rows of one lineage, with state (wild, kept, feral) on the population and a few traits per row (§7b)?
+6. Herds generalised into the first kept population, roles as per-row data, with the built herd tests as the check (§7c)? This is
+   37.4's code, so it is a board item.
 
 ## History
 
@@ -258,6 +334,10 @@ structure, fed or feeding, with a take by a technique.
   what tools and skills. 37.2 proposed this.
 - 8 Nov: Zach: "Could these add richness at the lower layer of the economy?" Added §6: how, the conditions it needs (from 38.57's
   lessons), the risks, and the on/off test.
+- 8 Nov: Zach asked whether domestic animals should be special cases of wild ones that could be found and tamed, whether that needs
+  environments that support cattle or whether cattle were imported, and whether it should all run on the wildlife system. Added §7:
+  most stock was imported domesticated, but on the same habitats; wild and domestic as two rows of one lineage; wild, kept and feral
+  as a population's state; traits that drift under breeding; herds.py as the first kept population. Questions 5 and 6.
 
 ## Sources
 
