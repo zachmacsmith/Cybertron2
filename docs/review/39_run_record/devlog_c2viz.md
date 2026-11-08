@@ -149,6 +149,6 @@ engine's state and imports nothing it changes.
     edges; storms crossing as masses; storm-coming marks.
   - Snow lies by place on the region's map (it lay everywhere if any place had it). Checked on a stormy 12-day bot run of a
     generated world.
-- 08 Nov 2026: weather drawn as things (Zach: storms as storm clouds, fog as fog banks, not a dimming): fair puffs, rain and snow
+- 08 Nov 2026: weather drawn as things (Zach: storms as storm clouds, fog as fog banks, not a dimming; then fewer, real-looking, streaming clouds with low cover so storms stay readable): first as puffs, then as a streaming cloud field; rain and snow
   clouds with what falls, storm cells with anvils, shafts and lightning, fog banks in the low ground, gale scraps, shadows. A
   sheet of one village under each weather, and the region on three days.

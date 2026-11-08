@@ -518,17 +518,17 @@ Checked on every place of twin bays and w1:
 - **Storms still crossing** are dark masses on the region's map. The scheduler's plane is laid onto the map by the similarity
   (scale, rotation, maybe a mirror) that best fits its places to where the map has them. Most storms cross a region within a day,
   so they show as the places they darkened, not as a mass.
-- **The weather is drawn as things in the sky** (land.js `skyOver`), each casting a shadow:
-  - fair-weather puffs on a clear day;
-  - grey clouds for rain (more of them with more mm, with rain falling from them), darker for heavy rain;
-  - pale clouds for snow;
-  - torn scraps in a gale;
-  - low, flat fog banks that settle in the low ground;
-  - where a storm passes, a few towering storm cells with anvil tops, rain shafts and now and then lightning, with heavy-rain
-    cloud between them.
+- **Clouds as a streaming field** (land.js `skyOver`): layered noise, warped and stretched along the wind. Each point's share of
+  sky that is cloud comes from its values, never a label:
+  - a few wisps on a clear day;
+  - more with more rain;
+  - a little more in a strong wind;
+  - more where a storm passes, with dense cores and now and then lightning.
 
-  Clouds gather into systems by a slow noise, and on the region's map they keep off the villages. The even tint under them is
-  light: a little dim under a storm, a haze in fog.
+  The noise is turned to ranks, so a cover of 0.2 is a fifth of the sky. Cover is kept low (at most 0.3), and even the thickest
+  cloud lets the land show through, so what goes on under a storm stays visible (Zach, 8 Nov). Cloud is white where thin, grey as
+  the place is wetter, dark in a storm, lit on its upwind edge, and casts its shadow to the south-east. Fog lies in soft banks,
+  thicker in the low ground. The even tint under it all is light.
 - **A place a storm reaches tomorrow** has a dark cloud by its name.
 - **On hover,** each place's weather in words and values. The day's type and era are on the page.
 
