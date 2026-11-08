@@ -83,6 +83,11 @@ CROPS = {
                 "names": ["beans", "peas", "legumes"]},
 }
 CROP_OF = {n: c for c, d in CROPS.items() for n in d["names"]}
+
+# Lore (D4-105): what a family knows from long practice and is never told by the rules: seeded as lines kept for good (D4-64) to
+# those it fits, passed on as kept lines are. `to`: "farmers" (the adults of a household, or a person, holding a field). The text
+# is made from the data (lore.py). A world turns one off with `lore: {sowing: false}`.
+LORE = {"sowing": {"to": "farmers"}}
 SEED_CROP = {d["seed"]: c for c, d in CROPS.items()}
 EDIBLE = tuple(i for i, v in ITEMS.items() if v["food"] > 0)
 TOOLS = tuple(sorted((i for i, v in ITEMS.items() if v.get("tool")), key=lambda i: -("crude", "copper").index(ITEMS[i]["tool"])))
@@ -175,11 +180,11 @@ FITTINGS = {
                "heavy": True, "holds": {"food": 40}, "by": "footprint",
                "does": "food keeps at a quarter of the house rate (40 a space of the building's ground)"},          # D2-45, D2-155
     "millstones": {"label": "dressed millstones", "materials": {"stone": 10}, "units": 10, "basic": False, "trade": "mason", "spaces": 3,
-                   "heavy": True, "wear": {"life": 600, "count": "inputs", "mend": "dress millstones"},   # grain ground; then half as much
+                   "heavy": True, "wear": {"life": 2000, "count": "inputs", "mend": "dress millstones"},  # grain ground, by an ox or the river (D4-105)
                    "does": "an ox mill: an ox turns them (D2-61)"},
     "water wheel": {"label": "a water wheel and leat", "materials": {"timber": 60, "stone": 20, "copper": 2}, "units": 250,
                     "needs": "millstones", "site": "water", "basic": False, "trade": "carpenter", "spaces": 0, "heavy": True,
-                    "wear": {"years": 0.25, "mend": "clear the leat"},                  # a season; then half as much (D4-103 phase 2)
+                    "wear": {"years": 1.0, "mend": "clear the leat"},                   # silts in a year; then half as much (D4-105)
                     "does": "a water mill: the river turns the millstones (D2-61)"},                                  # D2-166
     "stalls": {"label": "stalls", "materials": {"timber": 1}, "units": 1, "per": "stall", "basic": True, "spaces": 2, "heavy": True,
                "fodder": 0.8, "dung": 1.5,
@@ -501,10 +506,12 @@ PHYSICS = {
                "over_units": 2,            # units one may push on past the day's (an agent's "overwork")
                "over_food": 2.0,           # their food, as units worked
                "fatigue": 1,               # units off tomorrow for each unit pushed past the day's
-               "fade_after": 8,            # days a craft goes unpractised before its skill fades
-               "fade_rate": 0.01,          # then this share a night of the skill above its floor
-               "step": 0.25,               # a unit's walk for each parcel on the day's route past the first two (carried until whole)
-               "free_steps": 2,
+               "fade_after": 0.5,          # years a craft goes unpractised before its skill fades (D4-105)
+               "fade_rate": 0.5,           # then this share a year of what can still be lost
+               "fade_keep": 0.6,           # the share of one's best gain over the craft's floor that is never lost
+               "relearn": 3.0,             # practice counts this many times over while below one's best
+               "step": 0.25,               # a unit's walk, each way, for each step beyond the next parcel to each parcel worked
+               "free_steps": 1,            # (carried until whole; D4-105)
                "wear": True},              # fittings wear with use and time (FITTINGS wear)
     "shelter": {"housed": 1.0, "damaged": 1.2, "unsheltered": 1.5},     # D4-12, H-5
     "shelter_cold": {"housed": 1.0, "no_fuel": 1.3, "damaged": 1.5, "unsheltered": 2.0},

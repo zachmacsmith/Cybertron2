@@ -625,7 +625,7 @@ def _make(here, mind, a, party):
     qty = max(1, int(_qty(a.get("qty"), 1)))
     res = []
     from cybertron2.engine import wear as WE
-    fits = (t.get("at") or {}).get("fittings") or []
+    fits = WE.worked((t.get("at") or {}).get("fittings") or [])
     for i in range(qty):
         sites = KN.where(here, tech)                                           # one's own house's fitting first
         site = sorted(sites, key=lambda x: (x[0] != "building" or x[1] not in here.homes_here(),

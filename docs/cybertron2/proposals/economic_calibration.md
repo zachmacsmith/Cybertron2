@@ -1,6 +1,6 @@
 # Economic calibration: one time scale, and mechanics that make economic sense
 
-**Status:** accepted in part: D4-103 (A to F built 8 Nov as phase 2 of the engine overhaul; G with phase 1)
+**Status:** accepted in part: D4-103 (A to F built 8 Nov as phase 2 of the engine overhaul; G with phase 1); D4-105 (lore, fading, wear values)
 **Owner:** 37.4 (engine), with 37.2 (economy)
 
 ## Summary
@@ -127,6 +127,12 @@ data.py (CROPS, ITEMS, PHYSICS, TECHNIQUES); farm.py; night.py; spec/economy/pro
 spec/environment/resources.md, calendar.md; the capacity model (no change: it follows the engine).
 
 ## History
+
+- 8 Nov (later): **D4-105**, from Zach's reading of phase 2: the sowing windows are not told (a crop sown out of season does not come
+  up; farming households start with the windows as kept lore, lore.py); skill fades after half a year, partly (60% of one's best gain
+  kept) and comes back three times faster; millstones wear after 2000 grain from either mill (600 was 9 ox-mill acts, about 16
+  months of a 12-person village's grain; the water mill grinds 200 an act and in phase 2's build did not wear the stones at all,
+  which was wrong, and counted against them would have been 3 acts), the leat in a year. E2 (stopped at day 14) is rerun on these rules.
 
 - 8 Nov: **phase 2 built** (spec/core/processes.md, "Calibration and labour"; review 38.63 §6). A to F of this proposal, with
   Q-2 (pushing on and fatigue), L-35 (the walk) and wear (G, from phase 1's list). Choices made in building, against the design table

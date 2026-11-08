@@ -137,7 +137,16 @@ def test_farming_sow_ripen_reap_and_rot():
     w = world()
     w.s["parcels"]["brook_field"]["crop"] = None
     w.s["containers"][w.hands("Hamo")]["goods"]["grain"] = 6
-    assert do(w, "Hamo", do="work", what="sow", at="Brook Field", item="grain").startswith("Refused")    # summer: out of its window
+    r = do(w, "Hamo", do="work", what="sow", at="Brook Field", item="grain")
+    assert r.startswith("You sowed") and "season" not in r                     # summer: out of its window, and nobody says so (D4-105)
+    c = w.s["parcels"]["brook_field"]["crop"]
+    assert c["failed"] and c["cause"] == "season"
+    w.s["day"] = c["sown"] + (c["ripe_day"] - c["sown"]) // 2
+    FM.night(w)
+    assert any("nothing has come up" in e["text"] for e in w.s["events"])
+    w = world()
+    w.s["parcels"]["brook_field"]["crop"] = None
+    w.s["containers"][w.hands("Hamo")]["goods"]["grain"] = 6
     from cybertron2.engine.world import SEASONS
     w.start = (SEASONS.index("spring"), -w.d)
     assert do(w, "Hamo", do="work", what="sow", at="Brook Field", item="grain").startswith("You sowed")

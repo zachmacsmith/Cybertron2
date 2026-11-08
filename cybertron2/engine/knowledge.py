@@ -375,9 +375,15 @@ def tried(here, mind, tech, ok, units=1) -> str:
     if r is None:
         return ""
     r["wins" if ok else "fails"] = r.get("wins" if ok else "fails", 0) + 1
-    if float((here.p.get("labour") or {}).get("fade_rate", 0) or 0):
+    lb = here.p.get("labour") or {}
+    sk0 = float(r.get("skill", curve(tech)[0]))
+    if float(lb.get("fade_rate", 0) or 0):
         r["practised"] = here.day                                              # for skill's fading (D4-103 phase 2)
-    r["skill"] = skill_of_practice(tech, practice_of_skill(tech, float(r.get("skill", curve(tech)[0]))) + float(units))
+        if r.get("peak") is not None and sk0 < float(r["peak"]) - 1e-9:         # coming back to a skill once held (D4-105)
+            units = float(units) * float(lb.get("relearn", 1.0))
+    r["skill"] = skill_of_practice(tech, practice_of_skill(tech, sk0) + float(units))
+    if r.get("peak") is not None and r["skill"] > float(r["peak"]):
+        r["peak"] = r["skill"]
     if r["level"] == "known":
         return ""
     score = r.get("wins", 0) + 0.5 * r.get("fails", 0)

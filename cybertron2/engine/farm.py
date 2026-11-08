@@ -782,8 +782,7 @@ def _sow(here, mind, tech, key, place_name, out, m, a, f):
         raise Refused(f"{seed_good!r} is not seed; one sows {', '.join(sorted(SEED_CROP))}")
     seed_good = CROPS[fam]["seed"]
     season = here.calendar()["season"]
-    if CROPS[fam].get("sow_seasons") and season not in CROPS[fam]["sow_seasons"]:       # its sowing window (D4-103, phase 2)
-        raise Refused(f"{CROPS[fam]['names'][0]} is sown in {' and '.join(CROPS[fam]['sow_seasons'])}, not in {season}")
+    off = bool(CROPS[fam].get("sow_seasons")) and season not in CROPS[fam]["sow_seasons"]   # out of its window: it will not come up
     mods = a.get("_mods") or {}
     y = {**TECHNIQUES[tech]["yield"], **(mods.get("yield") or {})}           # the sowing method (a modifier: D2-94)
     worth = float(y["worth"])
@@ -835,8 +834,8 @@ def _sow(here, mind, tech, key, place_name, out, m, a, f):
                 g = max(2, round(g * float(here.p["seed_selection"])))
             name = next((n for n in CROPS[fam]["names"] if n == str(rec.get("last_kind", "")).lower()), CROPS[fam]["names"][0])
             c = {"kind": name, "crop": fam, "sown": here.day, "ripe_day": here.day + g, "window": int(f["window"]), "seed": 0.0, "area": 0.0,
-                 "area_left": 0.0, "broken": 0.0, "weeded": 0.0, "base": 0.0, "rot": 1.0, "failed": failed, "hardy": CROPS[fam]["hardy"],
-                 "sower": a.get("for") or here.name}
+                 "area_left": 0.0, "broken": 0.0, "weeded": 0.0, "base": 0.0, "rot": 1.0, "failed": failed or off, "hardy": CROPS[fam]["hardy"],
+                 "sower": a.get("for") or here.name, **({"cause": "season"} if off else {})}   # D4-105: nobody is told why
         c = dict(c)
         eq = seed * worth
         area = eq / ps
@@ -1178,7 +1177,9 @@ def _crops(w, rec_):
                 growing = w.d < int(c["ripe_day"])
                 if growing and c.get("failed") and not c.get("shown_failed") and w.d >= c["sown"] + (c["ripe_day"] - c["sown"]) // 2:
                     c["shown_failed"] = True
-                    w.event(node, "crop", f"{the} in {par['name']} has blight: it is withering and will bear nothing",
+                    w.event(node, "crop", (f"nothing has come up where {the} was sown in {par['name']}: it will bear nothing"
+                                           if c.get("cause") == "season" else
+                                           f"{the} in {par['name']} has blight: it is withering and will bear nothing"),
                             about=[f"parcel:{pid}"], salience=0.6, tags=["farming", "food"])
                     rec_["crops"].append((pid, "failed"))
                 if growing and frost_kills(c, w.calendar()["season"]):

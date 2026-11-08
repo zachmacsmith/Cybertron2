@@ -11,6 +11,16 @@ from __future__ import annotations
 from cybertron2.engine.data import FITTINGS
 
 
+def worked(fittings) -> list:
+    """The fittings an act wears: those it is done at and what they need to work (a water wheel turns the millstones)."""
+    out = []
+    for f in fittings:
+        while f and f not in out:
+            out.append(f)
+            f = (FITTINGS.get(f) or {}).get("needs")
+    return out
+
+
 def on(p) -> bool:
     return bool((p.get("labour") or {}).get("wear"))
 

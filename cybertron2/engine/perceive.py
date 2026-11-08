@@ -75,6 +75,8 @@ def seed_knowledge(w) -> None:
                 continue
             if c.get("nodes") in (None, "all") or home in c["nodes"]:
                 MEM.seed_line(w, name, c["text"], "a custom", c.get("fixed"))
+        from cybertron2.engine import lore as LO
+        LO.seed(w, name)                                                        # what one's family knows (D4-105)
         for wy in ((w.spec.get("agents") or {}).get(name) or {}).get("ways") or []:  # hidden ways one knows from the start (D2-187):
             a_, b_ = wy["road"]                                                      # {road: [a, b], end: node}
             rid = f"road:{a_}-{b_}" if f"road:{a_}-{b_}" in w.s["roads"] else f"road:{b_}-{a_}"

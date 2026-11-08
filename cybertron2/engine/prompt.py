@@ -282,8 +282,9 @@ def _labour_lines(p) -> list:
         bits.append(f"you may push on up to {lb['over_units']} units past your day's (\"overwork\"): each costs {lb['over_food']:g} "
                     f"units' food and {lb['fatigue']} unit off the next day")
     if float(lb.get("step", 0) or 0):
-        bits.append(f"walking far tires: each place on your day's way past the first {lb.get('free_steps', 2)} costs "
-                    f"{lb['step']:g} of a unit, taken from a later day")
+        fs = int(lb.get("free_steps", 1))
+        bits.append(f"walking far tires: working a place more than {fs} step{'s' if fs != 1 else ''} from where you slept costs "
+                    f"{lb['step']:g} of a unit for each further step each way, taken from a later day")
     if bits:
         out.append("- Work: " + "; ".join(bits) + ".")
     if lb.get("wear"):
@@ -293,25 +294,14 @@ def _labour_lines(p) -> list:
             if not wr:
                 continue
             when = (f"after {wr['life']:g} " + ("grain" if wr.get("count") == "inputs" else "uses")) if wr.get("life") is not None \
-                else f"after {wr['years'] * 4:g} season" + ("s" if wr["years"] * 4 != 1 else "")
+                else (f"after {wr['years']:g} year" + ("s" if wr["years"] != 1 else "") if wr["years"] >= 1
+                      else f"after {wr['years'] * 4:g} season" + ("s" if wr["years"] * 4 != 1 else ""))
             ws.append(f"{d['label']} {when} ({wr['mend']} sets it right)")
         if ws:
             out.append("- Fittings wear and then work at half: " + "; ".join(ws) + ".")
     if float(lb.get("fade_rate", 0) or 0):
-        out.append(f"- A craft left unpractised for {lb['fade_after']} days slowly loses its edge.")
+        out.append("- A craft left unpractised for a long while loses some of its edge, never all, and comes back quickly with practice.")
     return out
-
-
-def _crop_line(here) -> str:
-    """When each crop is sown and how long it grows (CROPS sow_seasons, share; D4-103 phase 2): known to anyone who farms."""
-    from cybertron2.engine import farm as FM
-    from cybertron2.engine.data import CROPS
-    year = here.year_days()
-    bits = [f"{d['names'][0]} sown in {' or '.join(d.get('sow_seasons') or ['any season'])}, ripe {FM.grow_days(year, c)} days later"
-            for c, d in CROPS.items()]
-    hardy = [d["names"][0] for d in CROPS.values() if d.get("hardy")]
-    return ("- Crops: " + "; ".join(bits) + ". The winter's cold kills a growing crop" + (f" unless it is hardy ({', '.join(hardy)})" if hardy else "")
-            + "; a field ripe and not reaped soon rots.")
 
 
 def _kin_lines(mind) -> list:
@@ -506,7 +496,7 @@ def system_prompt(here, mind) -> str:
               f"charcoal; it warms {p['heat']['hearth_spaces']} spaces of floor, a fire ring {p['heat']['ring_spaces']} and only half in "
               f"the cold. A camp's fire takes {p['heat']['camp']:g}; a fire in the open {p['heat']['open']:g}, from what you carry, and up "
               f"to {p['heat']['share']} sleeping there share it. A cold night without a fire is hard.",
-              _crop_line(here)] + _labour_lines(p) + [
+              ] + _labour_lines(p) + [
               "- Buildings are what is in them: beds, a hearth, bins, a quern, an anvil. Anyone can build a small room and put in beds and "
               "bins; a hearth or an anvil takes a trade. Buildings fall into disrepair; repair takes timber.",
               "- What is whose: land, buildings and herds are held by claims that people know of. Anyone can use anything they can reach, "

@@ -29,7 +29,7 @@ RATES = [
     # occasions and uses
     ("FORESTS.gale", "event"), ("PHYSICS.cattle.survive", "event"), ("PHYSICS.cattle.hungry_milk", "event"),
     ("PHYSICS.labour.work_food", "use"), ("PHYSICS.labour.over_food", "use"), ("PHYSICS.labour.step", "use"),
-    ("PHYSICS.labour.guard_food", "event"), ("PHYSICS.labour.fade_rate", "day"), ("PHYSICS.labour.fade_after", "day"),
+    ("PHYSICS.labour.guard_food", "event"), ("PHYSICS.labour.fade_rate", "year"), ("PHYSICS.labour.fade_after", "year"),
     ("FITTINGS.*.wear.life", "use"), ("FITTINGS.*.wear.years", "year"),
     ("FITTINGS.*.spoil", "day"), ("FITTINGS.*.dung", "year"),           # multipliers of a day's spoiling and a year's dung
     ("ITEMS.*.life", "use"), ("TECHNIQUES.*.wear", "use"), ("TECHNIQUES.*.yield.p", "use"), ("TECHNIQUES.*.inputs.*", "use"),

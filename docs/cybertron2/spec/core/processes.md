@@ -9,6 +9,7 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
 - D4-103: the declared process model, built in phases; phase 1 changes no behaviour of any existing world.
 - D4-104: the names renewal and packs; a stock's own record may name its renewal rule and its response to density.
 - D4-103, phase 2: calibration and labour (below). Behaviour changes; the engine before it is commit 92cfdbf. All values calibrate.
+- D4-105: sowing windows are lore, not rules; skill fades slowly and partly; wear in a village's terms.
 
 ## Mechanics
 
@@ -44,8 +45,12 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
 ## Calibration and labour (phase 2, D4-103)
 
 - **The woods' clock.** forests.seed converts the woods' yearly rates by the world's year.
-- **Sowing windows** (CROPS `sow_seasons`): grain in spring, legumes in spring and summer, rye in autumn; a sowing out of its window is
-  refused. The agents' rules list the windows and growing days.
+- **Sowing windows** (CROPS `sow_seasons`): grain in spring, legumes in spring and summer, rye in autumn. A sowing out of its window
+  is not refused: it does not come up, and half way to its day it is seen that nothing has come up (D4-105). The agents' rules do
+  not state the windows.
+- **Lore** (engine/lore.py, data LORE; D4-105): what families know from long practice, seeded at the start as a line kept for good
+  (D4-64) and passed on as kept lines are. The sowing lore goes to the adults of each household (or person) holding a field. A world
+  turns a lore off with `lore: {sowing: false}`, or all with `lore: false`.
 - **Pulses below cereals:** a crop's `yield` factor multiplies what a sowing gives (legumes 0.6).
 - **Processing makes no food:** grain and rye 0.85 boiled, beans 0.8, meal and flour 0.95, bread 1.0 (raw as before).
 - **Labour** (engine/labour.py; PHYSICS `labour`; each at 0, `wear` false, is the engine before phase 2, and then nothing is written):
@@ -53,11 +58,14 @@ declarations. Phase 1 of the engine overhaul (D4-103; proposals/process_model.md
     `guard_food` (0.3). It adds to the night's need and to the least one must eat not to go hungry.
   - **Pushing on:** a reply's `overwork` (0 to `over_units`, 2) lets the plan run that many units past the day's; each leaves
     `fatigue` (1) unit off the next day. The fallback never pushes on.
-  - **The walk:** each parcel on the day's route past the first `free_steps` (2) costs `step` (0.25) of a unit, carried until it
-    makes a whole unit, which comes off the next day.
-  - **Skill fades:** a craft unpractised for `fade_after` (8) days loses `fade_rate` (1%) a night of its skill above its floor.
-- **Fittings wear** (engine/wear.py; FITTINGS `wear`): millstones after 600 grain ground, an oven after 10 firings, a water wheel's
-  leat after a quarter year; a worn fitting works at half (an act there takes and gives half) until its mending craft (dress
+  - **The walk** (D4-105): for each parcel worked, each step from where one slept beyond `free_steps` (1: the next parcel is free)
+    costs `step` (0.25) of a unit each way, carried until it makes a whole unit, which comes off the next day.
+  - **Skill fades** (D4-105): a craft unpractised for `fade_after` (half a year) loses `fade_rate` (half a year) of what can
+    still be lost, and never more than 1 - `fade_keep` (40%) of its best gain over the craft's floor. Below one's best, practice
+    counts `relearn` (3) times over.
+- **Fittings wear** (engine/wear.py; FITTINGS `wear`; values D4-105): millstones after 2000 grain ground (by an ox or a water
+  wheel: an act wears its fitting and what that fitting needs), an oven after 10 firings, a water wheel's leat after a year; a worn
+  fitting works at half (an act there takes and gives half) until its mending craft (dress
   millstones, reline oven with 2 stone, clear the leat; all basic) sets it right.
 - **The fallback's limit** (D4-97) is unchanged.
 - **The capacity model** counts work's food at the work its allocation gives, and finds the people supported by a scan, as fed is

@@ -5,9 +5,12 @@
   famine's last workers pay for their work.
 - **Pushing on (Q-2):** one may work up to `over_units` past the day's units (the reply's "overwork"); each leaves `fatigue` units
   off tomorrow.
-- **The walk (L-35):** each parcel on the day's route past the first `free_steps` costs `step` of a unit, carried until it makes a
-  whole unit, which comes off tomorrow.
-- **Skill fades (F):** a craft unpractised for `fade_after` days loses `fade_rate` a night of its skill above its floor.
+- **The walk (L-35; D4-105):** for each parcel worked today, each step from where one slept beyond the first `free_steps` (the
+  next parcel is free) costs `step` of a unit there and back, carried until it makes a whole unit, which comes off tomorrow. So
+  outfields cost and infields do not, however many jobs one does near home.
+- **Skill fades (F; D4-105):** a craft unpractised for `fade_after` of a year loses `fade_rate` a year of what can still be lost,
+  but never more than (1 - `fade_keep`) of its best gain over the craft's floor; below one's best, practice counts `relearn` times
+  over (knowledge.tried), so a skill once held comes back quickly.
 
 Every value at 0 is the engine before phase 2, and then nothing here writes to the world.
 """
@@ -47,9 +50,8 @@ def close_day(w, today, used, budget, names) -> None:
             units[n] = {"used": int(used.get(n, 0)), "over": over}
         off = over * fatigue
         if step:
-            r = (today.get("route") or {}).get(n) or []
-            extra = max(0, len(r) - int(lb.get("free_steps", 2)))
-            walked = round(float(a.get("walked", 0.0)) + extra * step, 4)
+            extra = walk_steps(w, n, int(lb.get("free_steps", 1)))
+            walked = round(float(a.get("walked", 0.0)) + 2 * extra * step, 4)
             whole = int(walked + 1e-9)
             if whole:
                 off += whole
@@ -62,27 +64,49 @@ def close_day(w, today, used, budget, names) -> None:
         today["units"] = units
 
 
+def walk_steps(w, name, free) -> int:
+    """Steps beyond `free` from where one slept to each parcel one worked today, by the parcel graph (D2-115)."""
+    from cybertron2.engine import layout as LY
+    start = LY.slept_at(w, name)
+    work = LY.worked_parcels(w, name)
+    if start is None or not work:
+        return 0
+    dist, todo = {start: 0}, [start]
+    while todo:
+        x = todo.pop(0)
+        for y in w.s["parcels"][x]["adj"]:
+            if y in w.s["parcels"] and y not in dist:
+                dist[y] = dist[x] + 1
+                todo.append(y)
+    return sum(max(0, dist.get(p, 0) - free) for p in work)
+
+
 def tired_units(w, name) -> int:
     t = w.s["people"][name].get("tired")
     return int(t["units"]) if t and t.get("day") == w.d else 0
 
 
 def fade(w) -> None:
-    """Each night: crafts unpractised for long lose skill toward their floor (F)."""
+    """Each night: crafts unpractised for long lose some skill, toward a floor that keeps most of one's best (F; D4-105)."""
     lb = L(w.p)
     rate = float(lb.get("fade_rate", 0) or 0)
     if not rate:
         return
     from cybertron2.engine import knowledge as KN
-    after = int(lb.get("fade_after", 8))
+    year = float(w.year_days())
+    after = float(lb.get("fade_after", 0.5)) * year
+    keep = float(lb.get("fade_keep", 0.6))
     for name in w.living():
         for tech, r in sorted((w.s["know"].get(name) or {}).items()):
             if not isinstance(r, dict) or r.get("skill") is None:
                 continue
             lo = KN.curve(tech)[0]
             sk = float(r["skill"])
-            if sk <= lo + 1e-9:
+            best = max(float(r.get("peak", sk)), sk)
+            floor = lo + keep * (best - lo)
+            if sk <= floor + 1e-6:
                 continue
             last = int(r.get("practised", max(0, int(r.get("since", 0) or 0))))
             if w.d - last >= after:
-                r["skill"] = round(lo + (sk - lo) * (1 - rate), 4)
+                r["peak"] = round(best, 4)
+                r["skill"] = round(floor + (sk - floor) * (1 - rate / year), 4)
