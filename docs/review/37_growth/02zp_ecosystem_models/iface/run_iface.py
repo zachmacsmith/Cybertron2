@@ -1,5 +1,5 @@
 import sys, time, json, numpy as np
-sys.path.insert(0, "/home/user/cyb-climate")
+sys.path.insert(0, "../../../../..")   # the repository root, on branch climate-calibration (5ef36fe or later)
 from cybertron2.landgen import write as W
 import iface as I
 OUT = {}

@@ -751,3 +751,148 @@ over decades the society cannot touch.
 - forest rights as the conflict between the lord's game and the villagers' crops;
 - the regional web offline;
 - a relevance test before anything is built.
+
+# Part four (8 Nov, later): the interface between villages and the land, and the research behind wild_systems.md
+
+Superseded as design by [wild_systems.md](../../cybertron2/proposals/wild_systems.md) (partly accepted: D2-197, D2-198). This part
+keeps the experiments and the sources. Models: [02zp_ecosystem_models/iface/](02zp_ecosystem_models/iface/).
+
+## 18. The question
+
+Zach asked two things:
+- whether the ecology could keep a proper regional level and only make the villages' footprint and exposure outsized;
+- what the best overlap of coarse and fine would be (coarse away from villages, finer near them), and what the system is for in the
+  world.
+
+## 19. The experiment
+
+One lean ecology (hares, deer, boar with mast, wolves on deer; real rates; four seasons) on the generator's land, laid on five
+structures:
+
+| Structure | Zones | What it is |
+|---|---|---|
+| S1 grid 1 km | about 2,300 | uniform 1 km blocks |
+| S2 grid 1 km, × k | about 2,300 | the same, with the village's take (footprint) and the raids it meets (exposure) multiplied by k = 5, 15, 30 |
+| S3 nested | 1,150 to 1,700 | 300 m blocks within 2 km of a village, 1 km to 6 km, 5 km beyond |
+| S4 graph, ring 5 km | about 60 | per village: its own land, a ring out to 5 km, the rest in wild regions of about 8 km; links by shared edge |
+| S5 graph, ring 2.5 km | about 60 | the same with a 2.5 km ring |
+
+**Three worlds:**
+- settled lowland and frontier (villages 17 km apart);
+- plain at 17 km;
+- plain at 8 km.
+
+**The tests:**
+- one village hunts hard (effort 3) for two years, then stops;
+- what is left near it after one and two years, as a share of the steady stock;
+- whether its neighbour feels it;
+- crop losses;
+- meat as a share of need;
+- every village hunting hard for 40 years.
+
+## 20. What it showed
+
+| Finding | Evidence |
+|---|---|
+| **Resolution alone changes nothing.** | S1 and S3 give the same depletion, losses and meat to two decimals; S3 has half the zones. |
+| **Footprint multipliers are blunt.** | At × 5, local deer fall to 0.3 of steady in a year. At × 15 to × 30, every hunted kind near the village is gone within a year, and crop losses fall to nothing because the raiders are gone. There is no setting between "no effect" and "nothing left". |
+| **A node graph with a small ring gives natural depletion, and it is cheap.** | S5 (2.5 km ring) on the plain: deer near a hard-hunting village fall to 0.25 of steady in a year, and those near its neighbour 8 km away to 0.8. About 60 zones, 0.2 s against 7 s for the grid (about 30× cheaper). |
+| **A wide ring dilutes the village into its surroundings.** | S4 (5 km ring): deer stay at 0.93 to 0.97 of steady; the village's take is spread over too much land. |
+| **Regional collapse never happens.** | With every village hunting hard for 40 years, regional deer, boar and wolves stay at 0.9 to 1.1 of steady in every structure. Four to six villages take too little from 2,500 km². |
+| **Villages far apart share nothing locally.** | At 17 km, a neighbour's deer are at 0.97 to 1.0 after two years of hard hunting next door. Only at 8 km with the small ring does the neighbour feel it. |
+| **Boar follow the mast, not the hunting.** | Local boar run above steady (1.0 to 1.6) through the hard years in most structures: the mast pulse outweighs the take. |
+| **Losses come where the woods meet the fields.** | Crop losses are 4.6 to 5% (90th percentile about 6%) in the wooded frontier, and near 0 on the open plain. |
+
+## 21. What it means for the design
+
+- **A regional ecology at real scale cannot be what people affect.** Four villages hold about 0.1% of the land. Any multiplier large
+  enough to make them matter destroys the local kinds outright. This confirms part three.
+- **The cheap structure with the right local behaviour is a graph:** each village's own land, a small ring, and coarse wild regions.
+  It becomes the two-layer representation of wild_systems.md §10: a coarse layer per area for numbers and drivers, with discrete
+  groups near people.
+- **Zach on purpose** (8 Nov):
+  - "beyond partial observability, it is also something to observe, model and make inferences about ... something that pushes back,
+    but also responds";
+  - "treating populations of things as rarer, but more sensitive/discrete things might make more sense";
+  - "somewhere between rain world and a full proper ecosystem".
+
+  The experiment shows why. The smooth regional numbers neither respond to people nor give them anything to read. Discrete groups
+  (this sounder, this pack, this herd in this wood) do both. The coarse layer only sets the odds of groups appearing, leaving and
+  returning.
+- **The design that followed is wild_systems.md:**
+  - shared hidden drivers;
+  - kinds as layered rule machines of differing depth;
+  - signs with readings by skill;
+  - lore as tested belief;
+  - creature memory;
+  - lags mostly inside a year (Zach: "I want some lags less than years");
+  - D2-197: lead times in engine days;
+  - D2-198: answers to scares differ by kind.
+
+## 22. The research note behind wild_systems.md
+
+A research pass covered three fields: games with ecological or learnable systems, folk ecological knowledge, and real phenomena with
+triggers, lags and signs. Its conclusions are in wild_systems.md §12; the sources follow. A search agent gathered them, and the URLs
+are as it reported them; each has not been re-read.
+
+**Games:**
+- Breath of the Wild's chemistry engine (GDC 2017): https://www.thumbsticks.com/gdc-17-breath-of-the-wild-science-lies
+- Rain World's ecosystem:
+  - https://gamedeveloper.com/design/crafting-the-complex-chaotic-ecosystem-of-i-rain-world-i-
+  - https://unity.com/blog/exploring-procedural-design-rain-world
+- Dwarf Fortress (the drunk cats):
+  https://www.pcgamer.com/how-cats-get-drunk-in-dwarf-fortress-and-why-its-creators-havent-figured-out-time-travel-yet
+- RimWorld and Dwarf Fortress on generated story:
+  https://gamedeveloper.com/design/rimworld-dwarf-fortress-and-procedurally-generated-story-telling
+- Caves of Qud's histories (Grinblat and Bucklew 2017): https://pcgworkshop.com/archive/grinblat2017subverting.pdf
+- Outer Wilds: https://www.gdconf.com/news/attend-gdc-and-learn-how-outer-wilds-nailed-curiosity-driven-game-design
+- Return of the Obra Dinn: https://en.wikipedia.org/wiki/Return_of_the_Obra_Dinn
+
+**Folk knowledge and expertise:**
+- Liebenberg, tracking and the origin of science:
+  https://archive.cybertracker.org/downloads/tracking/Liebenberg-2013-The-Origin-of-Science.pdf
+- Stander et al. 1998, spoor counts by Ju/'hoan trackers:
+  https://www.originalwisdom.com/wp-content/uploads/bsk-pdf-manager/2019/03/Stander_1998_SpoorCountsAsIndicesOfLargeCarnivorePopulations.pdf
+- Berkes, Colding and Folke, lore learned in crises: https://www.ecologyandsociety.org/vol8/iss1/art5/main.html
+- Lore that works unexplained (Mercier on Henrich): https://cognitionandculture.net/blogs/hugo-mercier/a-matter-of-taste/index.html
+- Weather lore: https://www.wikipedia.org/wiki/Weather_lore
+- Oak before ash:
+  - https://www.rmets.org/metmatters/oak-and-ash-can-trees-predict-weather
+  - https://naturescalendar.woodlandtrust.org.uk/blog/2019/oak-before-ash-in-for-a-splash/
+  - https://www.yorkshirepost.co.uk/news/uk-news/warm-days-end-race-trees-1934346
+
+**Real phenomena:**
+- Mast, mice and the cascade (Cary Institute, 35-year study):
+  https://www.caryinstitute.org/news-insights/press-release/35-year-study-reshapes-our-understanding-lyme-disease-ecology
+- Vole cycles and their predators:
+  - https://abdn.elsevierpure.com/files/40433014/Dampening_Prey_Cycle_overrides.pdf
+  - https://www.frontiersin.org/articles/10.3389/fevo.2022.783027
+- Cockchafers:
+  - https://woodlandtrust.org.uk/trees-woods-and-wildlife/animals/beetles/cockchafer-beetle
+  - https://www.ages.at/en/plant/plant-health/pests-from-a-to-z/cockchafer
+  - https://library.hungaricana.hu/en/view/MEGY_VASM_Sk_2003_Zoological/?pg=113
+- Wasp years:
+  - https://www.countryfile.com/wildlife/insects-invertebrates/what-is-causing-the-wasp-boom
+  - https://www.ucl.ac.uk/news/2022/aug/opinion-plagues-wasps-why-you-shouldnt-panic-about-rumours-rising-populations
+- Slugs (AHDB): https://archive.ahdb.org.uk/knowledge-library/what-conditions-favour-slugs
+- Ladybirds: https://www.countryfile.com/wildlife/insects-invertebrates/ladybird-swarms-uk
+- Eel migration timing:
+  - https://energiforsk.se/media/18395/understanding-downstream-migration-timing-of-european-eel-energiforskrapport-2014-51.pdf
+  - https://openpolar.no/Record/crwiley:10.1111%2Feff.12346
+- Salmon and river flow: https://openpolar.no/Record/crcansciencepubl:10.1139%2Ff86-236
+- Hard-weather birds:
+  - https://hub.jncc.gov.uk/our-work/severe-weather-scheme
+  - https://gwct.org.uk/blogs/news/2018/march/using-science-to-inform-shooting-policy-during-adverse-weather-conditions/
+- Wolves and livestock: https://pmc.ncbi.nlm.nih.gov/articles/PMC4497731
+- The red deer's year on Rum: https://biology.ed.ac.uk/rumdeer/deer-year
+- Bee swarming triggers:
+  - https://bjb211.github.io/bee-study-guide/journeyman/swarming/signs-and-triggers.html
+  - https://extension.umaine.edu/publications/wp-content/uploads/sites/52/2020/03/1014.pdf
+- Fox predation and mange: https://publish.csiro.au/wr/WR02060 ; PubMed 10955890
+- Beavers (Exeter, the River Otter trial): https://www.exeter.ac.uk/v8media/research/creww/ROBT_Chapter_3_-_Ecosystem_services.pdf
+- Ergot: https://cropwatch.unl.edu/2017/has-ergot-altered-events-world-history
+- Wireworm after grass:
+  - https://cotswoldseeds.com/articles/628/considering-a-grass-reseed-beware-of-wireworms
+  - https://archive.rhass.org.uk/archive/transactions-of-rhass-1790-1969/transactions-of-rhass-1940-1949/transactions-of-rhass-volume-1940/609072-transactions-of-rhass-volume-1940-page-053
+- Wild boar crop damage, liver fluke, and the aphid predator lag: from general sources; to be checked against the primary literature
+  before calibration.
