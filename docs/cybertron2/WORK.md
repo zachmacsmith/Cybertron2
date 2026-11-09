@@ -50,7 +50,7 @@ next number; 37.2 and 37.4 share the series (check before adding).
 
 | # | Work | Owner | Done |
 |---|---|---|---|
-| W-1 | Build brief 1: general methods (D2-204, D2-207) | 37.4 | done 9 Nov | 9 Nov | 9 Nov | branch `ecology-methods`; docs/review/37_growth/02zx_wild_build_log.md | built; gate passed but four cells (02zx); deviations as defaults (OPEN Q-36) |
+| W-1 | Build brief 1: general methods (D2-204, D2-207); branch `ecology-methods`; gate and deviations in 02zx, defaults in OPEN Q-36 | 37.4 | 9 Nov |
 
 ## Size of unfinished work
 
