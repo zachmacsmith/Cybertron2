@@ -530,7 +530,7 @@ TAKEN = {
                    "goods": {"meat": 3.9, "hide": 1},
                    "calibrate": {"drive": 0.15}},   # a drive is made for the sounder: deer break back through the beaters (D2-204 §4)
     "roe deer":   {"family": ["deer", "roe", "roe deer", "venison", "game"], "detect": 0.3, "flee": 0.5, "goods": {"meat": 1.1, "hide": 1},
-                   "calibrate": {"snare": 0.1}},    # a hare's noose seldom holds a roe (D2-204 §4)
+                   "calibrate": {"snare": 0.03}},   # a hare's noose seldom holds a roe (D2-204 §4)
     "wild boar":  {"family": ["boar", "wild boar", "pig", "swine", "sounder", "big game", "game"], "detect": 0.3, "flee": 0.35,
                    "danger": {"wound": 0.3, "kill": 0.03}, "goods": {"meat": 3.5, "hide": 1},
                    "calibrate": {"stalk": 0.12}},   # a sounder in the thicket is not stalked as a deer is (D2-204 §4)

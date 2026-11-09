@@ -344,8 +344,9 @@ def options(here, mind, limit=10):
         if t.get("modifies"):                                                  # modifiers show on their verbs' lines
             continue
         lvl = level(mind, tech)
-        if t.get("crew") and lvl not in ("rough", "capable", "known"):
-            lvl = "known"                                                     # anyone can work on a crew (D2-66)
+        from cybertron2.engine import packs as PK
+        if t.get("crew") and lvl not in ("rough", "capable", "known") and PK.on(t, getattr(mind, "packs", None)):
+            lvl = "known"                                                     # anyone can work on a crew (D2-66), of this world's packs
         if lvl not in ("rough", "capable", "known") or t["verb"] == "build" or (t.get("yield") or {}).get("kind") == "clear_built":
             continue                                                          # building: the build verb's own line (02zh §9)
         why = shortfall(here, mind, tech, TRY[lvl]["inputs"])
