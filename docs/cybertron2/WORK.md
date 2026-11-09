@@ -29,7 +29,6 @@ next number; 37.2 and 37.4 share the series (check before adding).
 | W-3 | Records restructure: WORK.md, OPEN.md's kinds, CLAUDE.md's rule, hygiene's stale checks, the sorting draft (02zz) | 37.2 (session "Thicker economy exploration") | active | 9 Nov | 9 Nov | main: docs/cybertron2/WORK.md, OPEN.md, CLAUDE.md, tools/hygiene.py, docs/review/37_growth/02zz_open_sorting.md | in this commit; left: Zach checks 02zz's sorting, then the rows move |
 | W-4 | wild_behaviour.md v3 (the per-kind designs, from 02zv, 02zw and the briefs) | 37.2 | waiting | 9 Nov | 9 Nov | docs/cybertron2/proposals/wild_behaviour.md | waits on Q-32 (02zv §6, items still open) |
 | W-5 | 37.2's own hygiene items: D2-199 to D2-203 into the spec; the scratchpad path in 02zp's sim.py | 37.2 | queued | 9 Nov | 9 Nov | spec/environment/wildlife.md; docs/review/37_growth/02zp_ecosystem_models/wildsys/sim.py | not begun |
-| W-18 | Small paired probes, Fable 5.2 against Opus 5.5: run 6's Meadcombe, 4 days, Ivy and Petronel as the test seats (swapped between arms), everyone else a bot; three situations (lean stores with a rich neighbour to bargain with; raiders at the door; a full store next door and no one to bargain with) | 37.2 (session "Thicker economy exploration") | active | 9 Nov | 9 Nov | branch `ecology`; specs and runs outside the repository (37.2's scratchpad: pair_*.json, pair_runs/) | started; left: 6 runs (about $10), then a short report to Zach |
 
 ## Paused
 
@@ -51,6 +50,7 @@ next number; 37.2 and 37.4 share the series (check before adding).
 
 | # | Work | Owner | Done |
 |---|---|---|---|
+| W-18 | Small paired probes, Fable 5.2 against Opus 5.5, three situations (docs/review/37_growth/02zzb_fable_opus_pairs.md) | 37.2 | 9 Nov: six runs ($5.33) and reported |
 | W-17 | A Fable 5.2 probe in run 6's world (docs/review/37_growth/02zza_fable_probe.md) | 37.2 | 9 Nov: run ($10.81) and reported |
 | W-1 | Build brief 1: general methods (D2-204, D2-207); branch `ecology-methods`; gate and deviations in 02zx, defaults in OPEN Q-36 | 37.4 | 9 Nov |
 
