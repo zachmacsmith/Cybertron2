@@ -139,7 +139,8 @@ Rebuilt from the files on 5 Nov (status and owner as each file states them; 37.2
 | [base_fertility.md](base_fertility.md) | the land's base fertility (multiplicative) | 37.4 | retrospective, accepted: D4-112 (8 Nov; built). |
 | [use_by_physics.md](use_by_physics.md) | what is physically possible is possible; the consequences are social | 37.4 | part 1 retrospective, accepted: D4-114 (8 Nov; built). Part 2 (the audit of claims) discussion. |
 | [node_ecology.md](node_ecology.md) | ecology designed from the node outward | 37.2 | discussion (8 Nov). Nothing decided, nothing built. |
-| [wild_systems.md](wild_systems.md) | wild systems, layered kinds that people can learn to read | 37.2 | discussion (8 Nov). Nothing decided, nothing built. |
+| [wild_systems.md](wild_systems.md) | wild systems, layered kinds that people can learn to read | 37.2 | partly accepted: D2-197 (lead times in engine days), D2-198 (answers to scares by kind); the rest discussion (8 Nov). Nothing built. |
+| [wild_layer.md](wild_layer.md) | the wild layer, one general system for ecosystems and wildlife, built from the generated land into the engine | 37.2 | discussion (9 Nov). Nothing decided, nothing built in the engine. |
 
 ## Log of ideas and their outcomes
 
@@ -405,3 +406,4 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | ? | ecology designed from the node outward | discussion (8 Nov). Nothing decided, nothing built. | [node_ecology.md](node_ecology.md) |
 | 8 Nov | wild systems, layered kinds that people can learn to read | discussion (8 Nov). | [wild_systems.md](wild_systems.md) |
 | 8 Nov | Lead times and creature memory in engine days; kinds answer scares in four ways | accepted in part: D2-197, D2-198 | [wild_systems.md](wild_systems.md) |
+| 9 Nov | the wild layer, one general system for ecosystems and wildlife, built from the generated land into the engine | discussion (9 Nov). Nothing decided, nothing built in the engine. | [wild_layer.md](wild_layer.md) |

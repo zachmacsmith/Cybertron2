@@ -160,6 +160,10 @@ The guard test, as living_populations asked: each row's fields name only known m
 - **A pure function of the state and the day,** so the capacity model can run it forward under a harvest (living_populations step 2a).
 
 ### 3.4 Beasts: one entity for kept and wild (the meso layer)
+- **In two steps** (§4: cattle are hard-coded through farm.py, herds.py and two primitives):
+  1. first, wild groups in a table of their own, using herds' movement, fence and trampling functions made to read a kind's row, so
+     cattle are untouched;
+  2. then, with husbandry (sheep, pigs, poultry, dogs; L-36), cattle move onto the same entity.
 - **Generalise herds into beast groups:** a kind (a RESOURCES row), a count by role, a node and parcel, a home, an owner or none,
   and memory fields. Cows are rows on it, behaving exactly as today. The sounder, the deer herd, the wolf pack, later sheep, pigs,
   poultry and hounds are rows on it too.
@@ -223,7 +227,58 @@ Events are raised from what happened, never scripted ("a wolf raid" is a group e
 
 ## 4. The bridge to the engine
 
-(Written from a survey of the engine's code; see §4 table.)
+From a survey of the engine's code (9 Nov, main). Paths are under `cybertron2/engine/` unless stated.
+
+**What the layer reads and writes through:**
+
+| System | Engine mechanism it uses | Where | Additive or a change |
+|---|---|---|---|
+| 3.1 land summary | the generator's world file; the parcel's `land` and `ecosystem` | `landgen/write.py`; `World.__init__` (world.py:113-136) | **change:** init drops `ecosystem`, `terrain`, `soil`, `depth` and any stock parameter beyond five; main's generator writes no `land` or node `xy` (those are on `climate-calibration`, 5ef36fe, unmerged); a new top-level key bumps `WORLD_SCHEMA` (schema.py; D4-100) |
+| 3.2 kinds | RESOURCES rows with optional fields; packs | data.py:128-141; packs.py | additive (rows with `"pack": "wild"`); the guard test is new |
+| 3.3 store and step | keyed `w.rng`; `w.apply`; the journal; renewal rules with `context` (weather, anomaly, land, D4-113) | world.py:335, 422-442; renewal.py:23-137 | additive module (`wild.py`), with a one-line call after `FM.night` (night.py:202), output in `rec["wild"]`, pack-checked |
+| 3.3 eating stocks | `draw`, `set_res`, `add_res` on parcel stocks (grass, young growth, fish); the trees for mast | world.py:1038-1075; forests.py | additive; tying mast and game to the trees closes an existing gap (resources.md:48) |
+| 3.3 capacity | the capacity model reads every declared stock | capacity/ | **change (37.4):** moving, coupled stocks need capacity as a regional simulation under a harvest (living_populations step 2a) |
+| 3.4 groups | herds' `through`, `target`, `wander`, `trample`; claims (none for wild) | herds.py:52-217 | additive at first (a wild-groups table using those functions on kind rows); **change** later (cattle onto one entity: ROLES, `head`, split, merge, `_herds`, `PHYSICS.cattle`, `new_herd`/`split_herd`) |
+| 3.4 a group from nothing | — | world.py PRIMITIVES | **change:** no primitive makes a herd or group from nothing, or removes one |
+| 3.5 traces | parcel records read for N days, aged (`_aftermath`); `trace_context` (rained, snowed over) | signs.py:1749-1819, 1849 | additive (traces on parcels); road traces' `trace_days` raises on an unknown kind |
+| 3.6 signs | sign rows through `spot_rows`; `knows`/`lay` pairs for readers who have and have not practised a craft; `knack`; the eye; presence | signs.py:1662, 1877, 1903; perceive.py:215-292; things.py:239-347 | mostly additive: the `knows`/`lay` pairs already give texts by skill (two levels); a third level and misreads are a small change; `LAND_DRAWS`, `presence`, `eye_practice` gain keys |
+| 3.6 lore | lore lines seeded at world build | lore.py:89-103 | **change:** `text` and `fits` know only sowing and farmers |
+| 3.7 takes | techniques (`chance`, `stock` yields; skill by practice; weapon; wear) | data.py:289-466; verbs.py:491-613; yields.py | additive for plain takes; **change** for a drive or crew (work by several has no general form, D4-103 mechanism 1) and for danger outcomes, with the capacity graph |
+| 3.7 deterrence | a flag an act sets and the night reads (herding sets `watched`) | farm.py:786-793; herds.py:92 | additive (a watch at a parcel with a scare, a fold, a pen) |
+| 3.8 crops | `draw(key="crop", holder)` plus a `set_share` mark, as herds trample | herds.py:194-217; farm.py:282-300 | additive |
+| 3.8 stores | spoilage over containers | night.py:163-179, 248-277 | additive as a separate `destroy` step; a true multiplier is a change to `decay_rate` |
+| 3.8 carcasses | carcass things (made only by herd deaths today) | things.py:173-191 | additive (scavengers, kills) |
+| 3.8 events | `w.event(place, kind, text, ...)` | world.py:444-455 | additive |
+| rare events | keyed hazards (D2-69, D2-70) | not built (scheduler.md:38-43) | waits for phase 3 |
+
+**What exists already and is replaced or extended:**
+- the `game` stock (a threshold stock in meat units, forest parcels only) and the `hunt` technique: replaced in worlds with the wild
+  pack; worlds without it keep them;
+- fish and eels (phase 1's water pack): extended, as density kinds on the store, not duplicated (wave 1 duplicated them);
+- dogs (a building fitting read by raids and signs): kept until dogs are beasts;
+- the wolves incident row (37.4's phase 3 exploration): replaced.
+
+## 4a. Where it fits with the other work
+
+**With the engine overhaul (D4-103; engine_overhaul.md):**
+- **Phase 3 (variance and risk, next) plans** "woods feeding game and forage", "rats in stores" and a wolves incident. These are the
+  wild layer's.
+- **Proposed:** phase 3 builds the scheduler, the building risks and bad-year capacity, and leaves those three to the wild layer,
+  so nothing is built twice.
+- **The overhaul lists ecosystems as "hooks only",** and living_populations said "after phase 3". The wild layer is its own work after
+  phase 3. Whether it goes before or after phase 4 (the larger experiment) is Zach's call.
+- **Fits the format:** stocks with renewal rules, yields as distributions, the capacity model reading declared rows, packs.
+
+**With other proposals:**
+- **living_populations.md:** this is its design carried out, with the land as areas from the generator (its step 4 made cheap) and
+  W2's rules for eating.
+- **environment_state.md and phase 3:** conditions are derived, not stored. The store keeps only what must persist (counts,
+  condition, the mast's budget, memory, traces); frost runs and wetness are read from the climate.
+- **The ecology era** (D2-76, the scheduler): the era sets the odds of mast years; the trees' budget sets each year.
+- **wildlife.md (D2-192 to D2-198)** gives the kinds and their techniques and rights; wild_systems.md gives their layers, signs,
+  lore and the waves (§13, to confirm); husbandry.md and wild_plants.md give keeping and the plants. Their mechanism sections would
+  point here.
+- **node_ecology.md** gives the relevance test this must pass.
 
 ## 5. Experiments: what was wrong with wave 1's, and how they should be designed
 
@@ -249,7 +304,26 @@ Events are raised from what happened, never scripted ("a wolf raid" is a group e
 
 ## 6. Scope
 
-(Phases, sizes and who builds what: below.)
+**Phases** (sizes: S under 300 lines, M 300 to 1,000, L over 1,000; each phase with its tests):
+
+| Phase | What | Who | Size | Shows |
+|---|---|---|---|---|
+| **0. Foundations** | merge the generator's land fields and node `xy` (`climate-calibration`); the engine keeps `ecosystem`, `land` and stock parameters (schema bump); the land summary (areas) written with each world; **the climate calibrated** against real spell lengths, frost runs and seasons under compressed time, with its eras | 37.2 (generator, calibration); 37.4 (init, schema, climate) | M | the environment the rest builds on |
+| **1. The ecology, offline** | the store and the step as pure functions (W2's rules) on 12 to 15 kinds; history before the run; calibrated on generated worlds (densities, years, eras, chains) | 37.2 | M | the coarse ecosystem, varying by land and era, with the chains appearing under their conditions |
+| **2. The ecology in the engine** | the step in the night (pack `wild`); eating parcel stocks; mast from the trees; fish and eels extended; takes from the store in place of `game`; capacity under a harvest | 37.4 (hooks, capacity); 37.2 (rows) | M | replays exact; pack off unchanged; counts conserved |
+| **3. Groups near people** | the wild-groups table; condensing; the drive, lead, memory and answers (D2-197, D2-198); fences and trampling through herds' functions; traces; signs with readings by skill; watches, scares, hunts, crews at the weir; the stores' pest step | 37.4 and 37.2 | M-L | wave 1 as a system |
+| **4. Wave 1 tested** | the system tests (§5); an engine experiment with agents: generated worlds, the pack on and off, an arm with invented kinds; Haiku, Sonnet and Opus | 37.2 | S + runs | whether it matters to a society and can be learned |
+| **5. Husbandry** | cattle onto the beasts entity; sheep, pigs, poultry, dogs and hounds as rows; beasts' needs (D4-103 mechanism 8; L-36) | 37.4 | L | kept and wild as one |
+| **6. Wave 2** | wolves, the fox with the lambs and hens, voles with owls, ravens on carcasses, hounds; drives and bounties (work by several) | both | M | chains between kinds reaching the fold |
+| **7. Wave 3** | phenology; fast kinds on crops; bees and wasps; ergot; fungi; calendar markers; lore lines for every trade (lore.py) | both | M | the weather year; lore that fails |
+| **8. Wave 4** | disease by host and area, between kinds and villages | both, after phase 3's hazards | M | what travels |
+| **9. Wave 5** | colonies, engineers, rare kinds, individuals | both | M | the land that changes |
+
+**The first slice worth building** is phases 0 and 1. They touch almost nothing of 37.4's (one schema change and the generator
+merge), and they settle whether the coarse ecosystem behaves on the generated land before any engine work.
+
+**What happens to wave 1 as built (02zp part six):** it stays as a prototype of the micro layer (raids, memory, answers, signs by
+skill). Its tests are read as tests of that layer only.
 
 ## 7. Alternatives considered
 
@@ -265,7 +339,21 @@ Events are raised from what happened, never scripted ("a wolf raid" is a group e
 
 ## Open questions (for Zach)
 
-(below)
+1. **The design:** ten systems; areas from the generated land; kinds as RESOURCES rows; one ecology step on W2's rules for 12 to 15
+   kinds; groups near people; everything through the engine's primitives, senses and verbs. Right?
+2. **Beasts:** wild groups in their own table first (cattle untouched), and one entity with husbandry later? Or one entity from the
+   start (a large change to tested code)?
+3. **Where in the overhaul:** after phase 3, and before or after phase 4? Should phase 3 leave "woods feeding game", "rats in
+   stores" and the wolves incident to this?
+4. **Who builds what:**
+   - 37.2: the generator, the ecology's pure functions and the rows;
+   - 37.4: the engine hooks, schema, herds and capacity.
+
+   This needs agreement with 37.4, so it needs the board, which is closed to me for now.
+5. **Phase 0 now:** merge the generator's land fields into main, and calibrate the climate (with 37.4)?
+6. **The merged waves** (wild_systems.md §13), amending D2-192's order?
+7. **Consolidate the proposals:** the mechanism sections of living_populations, wild_systems, node_ecology, husbandry and
+   wild_plants point here, and they keep their content?
 
 ## History
 
