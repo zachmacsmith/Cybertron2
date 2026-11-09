@@ -691,7 +691,7 @@ def _sites_night(w, m, st) -> dict:
         if e.get("kind") == "work":
             for ab in e.get("about") or []:
                 if str(ab).startswith("parcel:"):
-                    worked.setdefault(ab[7:], set()).add(e.get("actor"))
+                    worked.setdefault(ab[7:], set()).add(e.get("tech"))
     out = {}
     for sid, site in sorted(sites.items()):
         sp = SITES[site["kind"]]
@@ -714,7 +714,8 @@ def _sites_night(w, m, st) -> dict:
             if site["kind"] in (rg.get("site_crash") or {}) and name in REGIMES_ON(w, node) and site.get("froze") != w.d - 1:
                 site["size"] = round(float(site["size"]) * (1 - float(rg["site_crash"][site["kind"]])), 2)
                 site["froze"], site["why"] = w.d, "freeze"
-        if float(sp.get("leaves", 0)) > 0 and _season_window(w, w.d, win) and worked.get(pid):
+        trouble = (worked.get(pid) or set()) & set(sp.get("troubled_by") or []) if sp.get("troubled_by") else worked.get(pid)
+        if float(sp.get("leaves", 0)) > 0 and _season_window(w, w.d, win) and trouble:
             if w.rng("wild-site-leave", w.d, sid).random() < float(sp["leaves"]):
                 site["gone"] = w.d                                          # troubled at the nests: gone for years (D2-198)
                 out[sid] = {"gone": True}

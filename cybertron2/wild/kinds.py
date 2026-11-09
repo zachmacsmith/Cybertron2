@@ -375,6 +375,7 @@ SPRING = {0: (0, 7)}
 SITES = {
     "heronry": {"where": {"covers": ["forest"], "beside": ["water"], "or_river": True}, "p": 0.6, "size": (6, 24), "cap": 24, "grow": 0.25,
                 "season": SPRING, "leaves": 0.35, "hard_winter": {"frozen": 3, "crash": 0.5},
+                "troubled_by": ["fell", "hunt the wild", "stalk deer", "boar hunt", "take the young herons"],   # at the nests, not the quiet work
                 "eats": {"res": "fish", "covers": ["water"], "share": 0.0004},
                 "take": {"season": {0: (3, 7)}, "item": "meat", "each": 0.3, "most": 4, "words": "young herons from the nests"}},
     "rookery": {"where": {"covers": ["forest", "scrub"], "beside": ["field"]}, "p": 0.8, "size": (20, 70), "cap": 80, "grow": 0.2,

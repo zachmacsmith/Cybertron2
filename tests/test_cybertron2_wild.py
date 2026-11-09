@@ -989,8 +989,13 @@ def test_a_heronry_troubled_in_spring_leaves_for_good_and_a_hard_winter_halves_i
     w = build(world, history=2)
     from cybertron2.engine import wild as WL
     sid, pid = _a_site(w, "heronry")
-    for _ in range(8):
+    for _ in range(6):                                                                 # quiet work: they stay
         w.s["events"] = [{"kind": "work", "actor": "x", "about": [f"parcel:{pid}"], "tech": "firewood"}]
+        N.night(w); w.s["day"] += 1
+    assert w.s["wild"]["sites"][sid].get("gone") is None
+    w.s["day"] -= 6
+    for _ in range(8):                                                                 # felling at the nests: they go
+        w.s["events"] = [{"kind": "work", "actor": "x", "about": [f"parcel:{pid}"], "tech": "fell"}]
         N.night(w); w.s["day"] += 1
         if w.s["wild"]["sites"][sid].get("gone") is not None:
             break
