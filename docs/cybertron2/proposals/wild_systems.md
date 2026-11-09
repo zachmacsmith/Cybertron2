@@ -854,6 +854,10 @@ Moving it into the engine is for 37.4, by agreement on the board.
   - they read eel nights well from prior knowledge; a seeded wrong saying costs them 16 to 31 food and is overturned only slowly;
   - they do not learn in two seasons that birds get used to a scarecrow while hares are scared off by it (D2-198).
 
+- 10 Nov: §10's "no kind has code of its own" replaced by D2-203: each kind's behaviour is designed first and built as a
+  module of its own, acting only through the animal interface and the engine's primitives (wild_behaviour.md). The rule had been
+  meant to stop one-off handlers; in the build it flattened the kinds' behaviour into settings of one machine (02zq).
+
 ## Sources
 
 - node_ecology.md;

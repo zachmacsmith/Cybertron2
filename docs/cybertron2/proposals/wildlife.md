@@ -319,6 +319,10 @@ already in D4-103's list of mechanisms to design in (process_model.md):
   would all of these work in the engine as data ... rather than one off fixes?" Added §11 (candidates and niches) and §12 (seven
   general mechanisms; none per kind).
 
+- 10 Nov: §12's "no kind has code of its own" replaced by D2-203: each kind's behaviour is designed first and built as a
+  module of its own, acting only through the animal interface and the engine's primitives (wild_behaviour.md). The rule had been
+  meant to stop one-off handlers; in the build it flattened the kinds' behaviour into settings of one machine (02zq).
+
 ## Sources
 
 - proposals/living_populations.md (the mechanism), water_and_preservation.md, ecosystems.md, temperate_landscapes.md (D2-191);

@@ -482,6 +482,10 @@ Code on the branch, not on main. All 433 tests pass there, including 35 for the 
     field watch now costs the guard's food and leaves the watcher tired the next day (world schema 6, `today.night_watch`). Whether
     `guard` itself becomes the watch stays with 37.4 (02zo A2).
 
+- 10 Nov: Zach asked whether the kinds had the depth and variety of behaviour the spec wanted; they did not (most kinds were
+  settings of one group machine, much of the catalogue present only as signs: 02zq). D2-203: each kind designed first, then a
+  module of its own; the per-kind behaviour specs are in `wild_behaviour.md`, for Zach to check before building.
+
 ## Sources
 
 - living_populations.md, wild_systems.md, node_ecology.md, wildlife.md, husbandry.md, wild_plants.md;
