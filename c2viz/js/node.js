@@ -1,7 +1,7 @@
 // c2viz/js/node.js: one place close up, at the end of a day; things lying about; the labels of hotspots.
 (function (X) {
   "use strict";
-  const { D, PAL, Px, QUIET_EVENTS, beast, bonesBig, drawBuilding, drawTrees, geom, graveBig, hstr, model, nodeRelief, noise, paintLand, paintPath, paintRoad, peaks, person, plan, rng, sackBig, smoke, toolFor, verges, villager, weatherOver, skyOver } = X;
+  const { D, PAL, Px, QUIET_EVENTS, beast, bonesBig, drawBuilding, drawTrees, geom, graveBig, hstr, model, nodeRelief, noise, paintLand, paintPath, paintRoad, peaks, person, plan, rng, sackBig, smoke, toolFor, verges, villager, weatherOver, skyOver, wildNode } = X;
   // ---------------------------------------------------------------------------------------------------- one place, close up
   function node(cv, V, nid, day, opts = {}) {
     const G = geom(V, nid), W = G.W, H = G.H, M = model(V), N = M.nodes[nid], d = D(V, day), ST = V.static, R = rng(hstr(nid) ^ M.seed ^ day);
@@ -51,7 +51,9 @@
       villager(P, q.x, q.y, q.name, { child: q.p.stage === "child" || q.p.stage === "infant", wounded: q.p.wounded, hungry: q.p.hunger <= -1 ? -q.p.hunger : 0,
         speak: q.speaking && !q.a, tool: toolFor(q.a), pregnant: q.p.pregnant, load: (q.p.gear || []).length || Object.keys(q.p.carried || {}).some((i) => i !== "coin") });
       out.hotspots.push({ kind: "person", id: q.name, x: q.x - 1, y: q.y - 9, w: 7, h: 11, label: personLabel(q, d, V) }); } });
+    const wildHot = wildNode(P, V, d, nid, G, ctx, items);                                          // the wild layer (D2-199)
     items.sort((a, b) => a.y - b.y).forEach((it) => it.f());
+    out.hotspots.push(...wildHot);
     const wx = (d.places || {})[nid] || d;                                                              // the place's own (D4-111)
     weatherOver(P, W, H, wx.weather, rng(hstr("weather|" + day)), false, { rain: wx.rain, wind: wx.wind, frost: wx.frost, storm: wx.storm });
     { const v = { kind: wx.weather, rain: wx.rain, wind: wx.wind, storm: wx.storm || 0, fog: wx.weather === "fog" ? 1 : 0 };            // its sky

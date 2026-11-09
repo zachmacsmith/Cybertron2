@@ -5,6 +5,8 @@
     ditch: "dig", bury: "dig", fence: "make", wall: "make", herd: "herd", sow: "sow", dibble: "sow", plough: "dig", hoe: "dig", weed: "dig",
     dung: "carry", smelt: "make", charcoal: "make", coin: "make",
     angle: "fish", "fish by hand": "forage", "salt pan": "dig", "salt fish": "make", "fishing rod": "make",                    // the water pack (D4-103)
+    "hunt the wild": "hunt", "stalk deer": "hunt", "boar hunt": "hunt", "snare hares": "dig", fowling: "forage",          // the wild pack (D2-192, D2-199)
+    "watch the field (fire)": "herd", "watch the field (clapper)": "herd", "watch the field (horn)": "herd", "watch the field (dog)": "herd",
     "dress millstones": "make", "reline oven": "make", "clear the leat": "dig", "dry fodder": "carry" };                     // mending (D4-103), drying (D4-106)
   const toolFor = (a) => !a ? null : TECH_TOOL[a.tech] || (a.verb === "make" || a.verb === "build" ? "make" : a.verb === "gather" ? "forage" : a.verb === "work" ? "dig" : a.verb === "give" || a.verb === "take" ? "carry" : null);
   const RIVER = /river|brook|stream|leat|beck|burn|creek|race/i;

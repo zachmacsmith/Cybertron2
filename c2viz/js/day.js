@@ -1,7 +1,7 @@
 // c2viz/js/day.js: one place close up through a day as it happened (ENGINE.md §11): talk, the acts in the journal's order, routes, dusk and night.
 (function (X) {
   "use strict";
-  const { D, Px, geom, hstr, model, node, person, rng, toolFor, villager } = X;
+  const { D, Px, geom, hstr, model, node, person, rng, toolFor, villager, wildNight } = X;
   const WORK_FPS = 38;    // work frames a day of the clock: about three a second at the preview's pace (a day in 12.8 s), a presentation choice
   // ---------------------------------------------------------------------------------------------------- a day, as it happened
   // The day's acts in the journal's order (c2viz/model.py: timeline): the land as it was before the work, each act's change landing
@@ -62,6 +62,7 @@
     const hot = o.hotspots.filter((h) => h.kind !== "person"), dark = t >= 1 ? Math.min(0.55, 0.25 + (t - 1) * 3) : t > 0.9 ? (t - 0.9) * 2.5 : 0;
     const ppl = A.people.map((q) => { const [x, y, moving] = posAt(q.keys, t), w_ = q.work.find(([a, b]) => t >= a && t < b); return { q, x: x | 0, y: y | 0, moving, act: w_ && w_[2] }; })
       .filter((r) => !(t >= 1.02 && (r.q.indoors || (r.q.end.slept && r.q.end.slept !== "out") || r.q.end.alive === false || r.q.end.at !== nid))).sort((a, b) => a.y - b.y);   // night: the night log's beds, the dead as their bodies, those gone on the road
+    wildNight(P, V, D(V, day), nid, geom(V, nid), t);                                                // the night's raid (D2-199)
     for (const r of ppl) { const p = r.q.p, bob = r.moving && ((t * 400) | 0) % 2 ? 1 : 0;
       villager(P, r.x, r.y - bob, r.q.name, { child: p.stage === "child" || p.stage === "infant", wounded: p.wounded, hungry: p.hunger <= -1 ? -p.hunger : 0, speak: t < 0.02 && r.q.said,
         tool: r.act ? toolFor(r.act) : null, pregnant: p.pregnant,

@@ -13,7 +13,7 @@ import json
 from pathlib import Path
 
 from c2viz import ground as GR
-from c2viz.extract import day_record
+from c2viz.extract import day_record, wild_areas
 from c2viz.layout import node_layout, world_layout
 from c2viz.schema import SCHEMA_VERSION, validate
 from c2viz.source import open_run, world_at
@@ -55,6 +55,8 @@ class RunModel:
         w0 = world_at(R, "d0.dawn")
         st = static(w0, R["seed"])
         st["buildings_ever"] = self.buildings_ever()
+        if (wa := wild_areas(w0)):
+            st["wild_areas"] = wa                                               # the wild layer's areas (D2-199)
         if E.climate_on(w0):
             st["climate_layout"] = E.climate_layout(w0)                       # where the weather scheduler lays the places (km)
         people = {n: {"household": w0.household_of(n), "model": p.get("model")} for n, p in w0.s["people"].items()}

@@ -135,6 +135,29 @@ def person_day(w, name, slept: dict) -> dict:
     return out
 
 
+def wild_day(w) -> dict | None:
+    """The wild layer's day (D2-199): each kind's head count in each area (density x the area's km2, in the engine's area order), the
+    groups near people, their traces and the watches kept, and what the night took of crops and stores. None without the pack."""
+    s = E.wild_state(w)
+    if not s:
+        return None
+    ids, areas = E.wild_ids(w), s["land"]["areas"]
+    km = [float(areas[a]["km2"]) for a in ids]
+    counts = {k: [round(float(p) * km[i], 2) for i, p in enumerate(v)] for k, v in (s["state"].get("pop") or {}).items()}
+    night = ((w.s.get("log") or [{}])[-1] or {}).get("wild") or {}
+    return {"counts": counts, "groups": s.get("groups") or {}, "traces": s.get("traces") or {}, "watch": s.get("watch") or {},
+            "ate": {k: night.get(k) or {} for k in ("crops", "stores")}, "nights": night.get("groups") or {}, "mast": s["state"].get("mast_now")}
+
+
+def wild_areas(w) -> dict | None:
+    """The land summary's areas (the generator's, D2-199) in the engine's order: kind (home, ring, wild), node, where (km), size, cover."""
+    s = E.wild_state(w)
+    if not s:
+        return None
+    areas = s["land"]["areas"]
+    return {"ids": E.wild_ids(w), "areas": {a: {k: areas[a].get(k) for k in ("kind", "node", "xy_km", "km2", "cover", "parcels")} for a in areas}}
+
+
 def day_record(w, rooms: Rooms) -> dict:
     d, cal = w.d, w.calendar()
     log = (w.s.get("log") or [{}])[-1] if w.s.get("log") else {}
@@ -164,6 +187,7 @@ def day_record(w, rooms: Rooms) -> dict:
            # the region's map draws one sky: the commonest weather over the places (a presentation choice, named as one)
            "weather": max(sorted(set(kinds)), key=kinds.count), "cold": any(v["cold"] for v in places.values()),
            "wet": any(v["wet"] for v in places.values()), "snow": any(v["snow"] for v in places.values()),
+           **({"wild": wd} if (wd := wild_day(w)) else {}),
            **({"sky": sky} if sky else {}),
            "parcels": {pid: parcel_day(w, views[p["node"]], pid) for pid, p in w.s["parcels"].items()},
            "buildings": {bid: building_day(w, views[b["node"]], bid, rooms, slept_in) for bid, b in w.s["buildings"].items()},

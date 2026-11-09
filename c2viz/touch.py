@@ -34,7 +34,7 @@ def tables() -> dict:
             "fences": pick(_DT.FENCES, ("words",)), "weather": _DT.WEATHER, "seen": SEEN, "height": _DT.LAYOUT["height"],
             "things": {k: v for k, v in THINGS.items() if not isinstance(v, dict)}, "terrain": _DT.TERRAIN,
             "landmarks": {k: {kk: vv for kk, vv in v.items() if isinstance(vv, (str, int, float, bool))} for k, v in _DT.LANDMARKS.items()},
-            "event_extent": EVENT_EXTENT}
+            "event_extent": EVENT_EXTENT, **({"wild": wild_kinds()} if _WL is not None else {})}
 
 
 # ---------------------------------------------------------------------------------------------------- the world at a step
@@ -154,6 +154,37 @@ def road_reach(L, H, src, limit):
 
 def road_path(prev, src, dst):
     return _LGR.path_to(prev, src, dst)
+
+
+# ---------------------------------------------------------------------------------------------------- the wild layer (D2-199)
+# The wild pack (37.2's wild layer, proposals/wild_layer.md): populations of wild kinds in the generator's areas, groups near people,
+# their traces, watches. Optional: an engine without it (or a world without the pack) has none.
+try:
+    from cybertron2.engine import wild as _WL
+except ImportError:                                                         # an engine before the wild layer
+    _WL = None
+
+
+def wild_state(w):
+    """The world's wild state (`s["wild"]`) when the pack is on and it has populations, else None."""
+    s = w.s.get("wild") or {}
+    return s if (_WL is not None and s.get("state")) else None
+
+
+def wild_ids(w) -> list:
+    """The engine's own order of the land summary's areas (each population is a list in this order)."""
+    return list(_WL.model(w).ids)
+
+
+def wild_kinds() -> dict:
+    """The wild kinds as the engine registers them (RESOURCES rows with renewal "population"): what the renderer may read of each."""
+    out = {}
+    for name, row in _DT.RESOURCES.items():
+        p = row.get("population") if isinstance(row, dict) else None
+        if row.get("renewal") == "population" and p:
+            out[name] = {"mass": p.get("mass"), "cls": p.get("cls"), "hab": p.get("hab"), "count": p.get("count"), "group": p.get("group"),
+                         "migrant": p.get("migrant"), "hibernate": p.get("hibernate"), "uses": p.get("uses"), "near_people": bool(row.get("near_people"))}
+    return out
 
 
 # ---------------------------------------------------------------------------------------------------- published runs (the site)
