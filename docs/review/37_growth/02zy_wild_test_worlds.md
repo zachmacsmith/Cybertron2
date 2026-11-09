@@ -19,7 +19,7 @@ python3 cybertron2/specs/make_wild_tests.py
 python3 -c "import sys; sys.path.insert(0,'.'); from cybertron2.engine import run as R; R.run('cybertron2/specs/wild_tests/<world>.json', '<out dir outside the repo>', days=<the world's days>, bots=True, seed=<7, 8 or 9>, workers=4)"
 ```
 
-Run every arm on seeds 7, 8 and 9 (T8 on 7 and 9: seed 8 seeds no rookery). The worlds use brief 1's method names (`guard`,
+Run every arm on seeds 7, 8 and 9 (T8 on 7 and 9: seed 8 seeds no rookery). The worlds use brief 1's method names (`guard the field`,
 `shut`, `snare`, `trap in water`, `net`, `stalk`, `pest work`, `gather young`) and brief 2's fittings (`cat`, `owl hole`), so they
 run as tests only once both are built. Before then, the scripted acts are refused (checked on today's `ecology`: a two-day run of
 T2 runs cleanly and refuses `shut`).
@@ -52,8 +52,7 @@ and kind, familiarity records, and each person's system text and refusals.
   T2 and T3 measure the actors' own houses by design.
 - If a seed gives a world without the kind a test needs (no stoat near Meadcombe, no deer in East Wood), say so in the build log
   and use the next seed; the land, not the test, decides what lives there.
-- `EEL_GOOD` at the top of the script is the eel trap's catch (`fish`); set it to the eel's `taken.goods` once brief 2 gives the
-  eel one.
+- `EEL_GOOD` at the top of the script is the eel trap's catch: `meat` (37.4: the eel's taken goods, 0.1 a lift).
 - The live runs need the live backend as for runs 5 and 6 (`LLM_BACKEND=claude_code`, `bots=False`, `workers=12`, about $10); its
   outputs stay outside the repository.
 
