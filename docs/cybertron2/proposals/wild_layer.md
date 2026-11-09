@@ -327,7 +327,7 @@ skill). Its tests are read as tests of that layer only.
 
 ## 6a. As built on the `ecology` branch (9 Nov; D2-199)
 
-Code on the branch, not on main. All 428 tests pass there, including 30 for the layer.
+Code on the branch, not on main. All 433 tests pass there, including 35 for the layer.
 
 | Phase | Built | Where | Not yet |
 |---|---|---|---|
@@ -339,6 +339,7 @@ Code on the branch, not on main. All 428 tests pass there, including 30 for the 
 | **6 (wave 2)** | wolves (a pack gathered from the land beyond the ring) at the herds, leaving a carcass read as a kill; the fox at the **hens, kept as a house's stock** (six a house with beds; they lay); shutting the hens in; ravens over carrion; voles' numbers as signs | `engine/wild.py`, `wild/kinds.py`, data rows | sheep, pigs, poultry and hounds as beasts (husbandry, 37.4) |
 | **signs** | every mechanism with its bundle by the four kinds of sense, from the kinds' data: a group's edge, raid, try (a raid that took nothing) and turn; a watch's own night (to the watcher only); what the kinds ate, on the fields and in the stores; the mast in flower and fallen; a kill by a wild kind; **a hunt as a noticing process of its own** (as the road's), remembered of the place; a technique's `reads_as`, so every way of hunting reads a hunter's signs | `engine/signs.py`, `wild/kinds.py`, `engine/perceive.py` | calibration of `own` against the guide's evidence |
 | **7 (wave 3)** | **loads**: slugs, aphids with ladybirds following, fungi, as a level an area moved by the weather on the area's ground (`wild/loads.py`); harm to crops of a family at an age, cut by a guard (picking slugs by lantern, topping the beans); a fungus flush filling the woods' wild food. **The year's markers** from degree days (blackthorn, swallows, oak and ash, the may, the first frost), with lore that holds and lore that fails, measured on the climate | `wild/loads.py`, `engine/wild.py`, `engine/signs.py` | wasps (with bees, after husbandry); ergot (needs a grain's quality and illness from eating it, engine gaps) |
+| **8 (wave 4)** | **disease by host and area** (`wild/diseases.py`): each disease's prevalence among its wild hosts by area, rising with crowding among the not immune, spreading along the land's links, burning out into immunity; murrain in the deer, mange in foxes and wolves, a hare sickness. **Murrain in kept cattle**: caught from sick herds on the same parcel (most), beside it, in the village, from the deer, now and then from beyond; carried between villages by a herd driven there; carcasses read as a sickness, and by a herder as murrain | `wild/diseases.py`, `engine/wild.py`, `engine/signs.py` | rabies (bites need illness in people); a disease of people; milk lost to sickness (the herd's milk is set by farm.py) |
 
 **Calibration backlog** (offline, five worlds, 24 years):
 - **boar barely follow the mast:** 3% variation between years, because crowding holds them below the food limit;
@@ -422,6 +423,17 @@ Code on the branch, not on main. All 428 tests pass there, including 30 for the 
   blackthorn in 15 to 18 of 60 village-years (so its reading says a cold snap often follows), after the may in none, so "the frosts
   are done" holds; "oak before ash" has no tie to the summer's rain and is kept as lore that fails. On the way, the ecology's soil
   wetness became a slow bucket (it halved on every dry day, so grass "drought" came every few days).
+- 9 Nov (later): agent run 3 (spring start, 8 days, about $11), after the sweep and wave 3. Slugs grazed four fields; one head of
+  household (Opus) read "the young corn grazed off to stumps" and picked slugs by lantern on two evenings, and asked her father to
+  "keep the slugs off the barley"; another (Opus) asked his herdsman (Haiku) to watch the barley against the boar, the fire watch
+  set that night turned the sounder; the wolves took a calf and a cow; a fox took all six of one house's hens (no one shut them in,
+  in this run either); a herd of 13 deer raided one field twice. The run's own trouble is not the wild layer's: two elders die of old
+  age by day 5 in every run (bots too), and others starve in a cold spring.
+- 9 Nov (later): wave 4 built (above). Calibrated offline (16 years; the land of a four-village world): murrain in the deer in 2
+  years of 16, local; mange one wave across the land, foxes 15% down in its year and about 8% below the disease-free run after;
+  the hare sickness local in 7 years of 16. In the herds (3 years, four villages of 12 beasts): outbreaks in three villages, 5
+  beasts dead, milder than the great murrains (calibrate). A fix on the way: without immunity every disease that spread faster
+  than it cleared stayed in every area for ever.
 
 ## Sources
 
