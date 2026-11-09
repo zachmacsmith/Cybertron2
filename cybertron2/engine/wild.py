@@ -15,6 +15,7 @@ from __future__ import annotations
 
 from cybertron2.engine import packs as PK
 
+KG_PER_FOOD = 10.0             # an engine food (365/Y real person-days, node_ecology.md) as kg of grain or forage (calibrate)
 DRY_STORES = ("grain", "rye", "oats", "beans", "meal", "flour")   # what wild kinds get at in a store (calibrate)
 HISTORY_YEARS = 10              # the history before the run (calibrate)
 HISTORY_AHEAD_YEARS = 200       # the climate's days used for it: this many years past the run's start
@@ -28,7 +29,8 @@ def model(w):
     m = w.__dict__.get("_wild_model")                                     # not state: rebuilt from the land summary on demand
     if m is None:
         from cybertron2.wild import ecology as EC
-        m = EC.Model(w.s["wild"]["land"], Y=w.year_days(), knobs=(w.spec.get("wild") or {}).get("knobs"))
+        knobs = dict((w.spec.get("wild") or {}).get("knobs") or {})
+        m = EC.Model(w.s["wild"]["land"], Y=w.year_days(), knobs=knobs)
         w.__dict__["_wild_model"] = m
     return m
 
@@ -85,11 +87,19 @@ def night(w, rec) -> None:
     """The ecology's day, then what wild kinds took of the people's crops and stores in each home area."""
     if not on(w) or not (w.s.get("wild") or {}).get("state"):
         return
-    from cybertron2.wild import ecology as EC
+    from cybertron2.wild import ecology as EC, kinds as WK
     import copy
     m = model(w)
     st = copy.deepcopy(w.s["wild"]["state"])
-    before = {f: list(st["pulse"].get(f, [])) for f in ("crops", "stores")}
+    real = {"crops": {}, "stores": {}}
+    for i, aid in enumerate(m.ids):                                       # the wild kinds see a real field and a real store (the
+        if m.home[i]:                                                     # food web's crop at real yield); none when the engine
+            nd = m.nodes[i]                                               # has none standing or stored
+            real["crops"][i], real["stores"][i] = _crop_food(w, nd), _store_food(w, nd)
+            for food in ("crops", "stores"):
+                if real[food][i] <= 1e-9:
+                    st["pulse"][food][i] = 0.0
+    before = {f: list(st["pulse"][f]) for f in ("crops", "stores")}
     eff = EC.step(m, st, w.d, weather(w, sorted(set(m.nodes)), w.d), draws(w, w.d))
     place = m.nodes[0]
     w.apply("set_wild", place, path=["state"], value=st)
@@ -99,14 +109,26 @@ def night(w, rec) -> None:
             continue
         node = m.nodes[i]
         for food in ("crops", "stores"):
-            avail = float(before[food][i]) if before[food] else 0.0
-            ate = float((eff["eaten"].get(food) if eff["eaten"].get(food) is not None else [0.0] * m.n)[i]) / max(m.km2[i], 1e-9)
-            share = min(0.5, ate / avail) if avail > 1e-9 else 0.0
+            year_kg = float(m.res[food][i]) * WK.FOOD[food]["prod"] * WK.SCALE.get(food, 1.0) * m.km2[i]   # the model's year of it
+            ate = float((eff["eaten"].get(food) if eff["eaten"].get(food) is not None else [0.0] * m.n)[i])
+            share = min(0.5, ate / year_kg) if year_kg > 1e-9 and real[food].get(i, 0.0) > 1e-9 else 0.0   # the year's share, drawn
+                                                                                  # from the real crop or store, which is a year's
             if share > 1e-6:
                 lost = (_crops if food == "crops" else _stores)(w, node, share)
                 if lost > 1e-6:
                     out[food][node] = round(lost, 4)
     rec["wild"] = out
+
+
+def _crop_food(w, node) -> float:
+    from cybertron2.engine import farm as FM
+    return sum(float(c.get("left", 0.0)) for pid, par in w.s["parcels"].items() if par["node"] == node
+               for _, _, c in FM.standing(par) if c.get("area_left", 0) > 1e-6)
+
+
+def _store_food(w, node) -> float:
+    return sum(float(q) for b in w.s["buildings"].values() if b["node"] == node and b.get("stock")
+               for item, q in (w.s["containers"].get(b["stock"], {}).get("goods") or {}).items() if item in DRY_STORES)
 
 
 def _crops(w, node, share) -> float:

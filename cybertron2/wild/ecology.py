@@ -128,6 +128,15 @@ class Model:
         self.nodes = [land["areas"][a]["node"] for a in self.ids]
         self.home = np.array([land["areas"][a]["kind"] == "home" for a in self.ids])
         self.n = len(self.ids)
+        self.cap_stock = 1 - (1 - 0.6) ** (1.0 / self.S)                    # a season's share never eaten (0.6, 0.8), as a day's
+        self.cap_other = 1 - (1 - 0.8) ** (1.0 / self.S)
+        self.provided = set(self.knobs.get("provided") or ())              # foods the engine supplies (its crops, its stores)
+        kind_of = np.array([land["areas"][a]["kind"] for a in self.ids])
+        near = {"home": 1.0, "ring": 0.4, "wild": 0.0}                     # people's presence (living_populations §2a: busy land)
+        self.busy = np.array([near.get(k, 0.0) for k in kind_of])
+        for n_ in self.names:                                              # a shy kind finds busy land worth less
+            shy = float(self.kinds[n_].get("shy", 0.8))
+            self.suit[n_] = self.suit[n_] * (1 - 0.75 * shy * self.busy)
 
     def cap(self, food):
         return self.res[food] * WK.FOOD[food]["cap"] * WK.SCALE.get(food.split("~")[0], 1.0)
@@ -207,7 +216,7 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
         boost = mast if fd == "mast" else (np.clip(1 + 0.12 * (temp - SEASON_T[si]), 0.4, 1.8) if fd in ("fruit", "nuts", "seeds") else 1.0)
         if fd == "seeds":
             boost = boost * np.clip(1.25 - 0.25 * soil, 0.6, 1.2)            # a wet summer spoils seed
-        prod = m.res[fd] * sp["prod"] * WK.SCALE.get(fd, 1.0) * sp["season"][si] / S * boost
+        prod = m.res[fd] * sp["prod"] * WK.SCALE.get(fd, 1.0) * sp["season"][si] / S * boost * (0.0 if fd in m.provided else 1.0)
         pulse[fd] = P * (1 - sp["rot"]) ** (1.0 / S) + prod * np.where(frozen, 0.4, 1.0)
     avail = {**stock, **pulse, "carrion": carrion}
     present = {k: m.kinds[k]["migrant"] is None or SEASONS_OF[si] in m.kinds[k]["migrant"] for k in m.names}
@@ -249,7 +258,7 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
     eff = {"eaten": {}, "killed": {}, "dead": {}}
     for key, lst in want.items():
         tot = sum(x for _, x in lst)
-        cap_ = np.maximum(avail.get(key, 0.0), 0) * (0.6 if key in stock else 0.8)
+        cap_ = np.maximum(avail.get(key, 0.0), 0) * (m.cap_stock if key in stock else m.cap_other)   # a season's 0.6 or 0.8, a day at a time
         if si == 3 and key.split("~")[0] in ("grass", "sward", "heather", "seeds", "roots", "inverts", "browse"):
             cap_ = cap_ * (1 - (0.8 if key.split("~")[0] != "browse" else 0.4) * snow)
         f_ = np.where(tot > cap_, cap_ / np.maximum(tot, 1e-12), 1.0)
