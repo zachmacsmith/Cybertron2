@@ -96,13 +96,21 @@ Its gaps are large in every state: walls never keep anything out at a camp.
     gale or a storm passing over **flattens a standing camp outright** about half the time (calibrate). It has no fixed life:
     unmended it lasts about two weeks of fair weather and three to five nights of a wet, windy spell; a gale often ends it.
   - **Upkeep:** mending a damaged camp takes brush and a quarter of a unit; one blown down is built again (1 timber of poles, if
-    its own are lost, and a unit). Its fire burns 1 timber a night (D4-49, against a hut's ring at 0.5), and it shelters worse (a
-    night's food 1.2 against a house's 1.0, lodging.md).
-  - **So the choice turns on the stay:** against a small wattle room (8 timber, 6 units, then a fire at 0.5 a night and rare mending),
-    a camp saves about 7 timber and 5 units at the start and costs about 0.6 timber, a little work and 0.2 food a sleeper more each
-    night (0.8 food for a camp of four): cheaper for a few nights, about even after one to one and a half seasons for a full camp
-    (later for one or two), dearer beyond. The economics rest mostly on the fire and the food; wear decides how often a gale makes
-    you start again. A long stay is a reason to build a hut, which is how a camp becomes a place to live.
+    its own are lost, and a unit). Its open fire under a lean-to burns wastefully: **1.5 timber a night** (against D4-49's 1, and a hut's ring at
+    0.5), and it shelters worse (a night's food 1.2 against a house's 1.0; in the cold, 1.5 with the fire lit against a hearth's
+    1.0, lodging.md).
+  - **So the choice turns on the stay** (a season is 8 days, a year 32). Against a small wattle room (8 timber, 6 units, then a
+    fire at 0.5 a night and rare mending), a camp saves about 7 timber and 5 units at the start, about 12 in work and materials,
+    and costs more each night in fuel, food and mending. For a full camp of four:
+
+    | When | The camp's extra cost a night | The hut pays after |
+    |---|---|---|
+    | winter, or a wet spell | 1 timber of fuel (more in rain, D4-83), 2 food (0.5 a sleeper), more mending | about 5 to 6 nights |
+    | summer, fair weather | 1 timber of fuel, 0.8 food (0.2 a sleeper), little mending | about 8 to 10 nights |
+    | one or two people | the same fuel, less food | later than both |
+
+    So a camp suits a short trip or a summer's hunting; a stay of more than about a season, or any stay into winter, is a reason
+    to build a hut, which is how a camp becomes a place to live. All `calibrate`.
 - **Animals:** a camp's gaps are large from the start (as built on `ecology-raiders`): walls keep nothing out. Its defences are
   the **fire** (lit, it scares what fire scares, D2-198), **a watcher** (the night watch, D2-21), **a dog**, and **where the food
   is**: food in the camp's store is open to the fox, rats, a dog, a boar or a bear (brief 2's raid targets and brief 3's
@@ -150,3 +158,6 @@ proposals/building_risks.md, camps in spec/economy/lodging.md (D2-68, D4-49, D4-
   fall. Serious damage now takes a building down as many levels as its cause is severe; camps have three states (standing,
   damaged, down), calm wear 0.08 and 0.05, and a gale flattens a standing camp about half the time; 37.2's earlier camp numbers
   (0.25 a calm night; "four to six nights") were too harsh and did not follow from its own rates.
+- 9 Nov 2026: Zach: a hut should pay within about a season, not later. The camp's fire raised to 1.5 timber a night (an open fire
+  under a lean-to burns wastefully; D4-49 has 1), so a hut pays after about 8 to 10 nights for a full camp in summer and 5 to 6 in
+  winter or a wet spell (a season is 8 days); this changes D4-49 as well as D2-68, for Zach to decide.
