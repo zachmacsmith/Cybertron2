@@ -198,12 +198,18 @@ def t8_soil_and_markers():
 
 # ---------------------------------------------------------------------- the live run (after brief 2's gate; D2-207)
 def live():
-    """The one live run: run 6's village and season, unchanged and unscripted, its seed (7) and cast, so it reads against run 6
-    (the same world before briefs 1 and 2). Real days are LLM agents; read what people do with the new methods, displacement,
-    the fox's tries, set snares and eel traps, shut doors, the cat, and the new kinds' signs."""
-    w = base("live_after_brief2")
-    w.pop("script")
-    return [write(w, "seed7")]
+    """The LLM worlds (D2-207 allows one after brief 2's gate; the second needs Zach's go). About $10 each (19 agents, 8 days).
+    - `live_spring`: run 6's village and season, unchanged and unscripted, its seed (7) and cast, so it reads against run 6 (the same
+      world before briefs 1 and 2): deer and the pigeon flock at the young corn, the fox at the hens, the stoat, snares, the cat.
+    - `live_late_summer`: the same village from late summer into autumn: boar at the ripening corn, cattle gadding on hot still
+      days (the Holt herd on Cow Close, with no water or shade), the eel run at Brookford, the harvest drawing rats and mice into the
+      stores. Read what people do with the new methods, a raider moving to the neighbour's field, the fox's tries, set snares and eel
+      traps, shut doors, the cat and the new kinds' signs, and whether anyone acts on a neighbour's loss (never forced)."""
+    a = base("live_spring")
+    a.pop("script")
+    b = base("live_late_summer", season="summer", day=5)
+    b.pop("script")
+    return [write(a, "seed7"), write(b, "seed7")]
 
 
 def main():
