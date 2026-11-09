@@ -127,6 +127,14 @@ Owners: code under `cybertron2/` is 37.4's (CLAUDE.md); 37.2 owns the kinds' dat
   sign rows' `read`), spec production.md (skill), information/noticing.md.
 - **Owner:** 37.4 (code), 37.2 (method data). **Size:** S to M.
 - **Test:** skill earned stalking deer raises stalking roe; a netter's readings of flocks improve with netting practice only.
+- **Second layer, by target (Zach, 9 Nov: "skill can still vary within a technique based on target as another layer"):** on top
+  of the method family's skill, a person's familiarity with a kind (or a sort: deer, fowl, small game) grows with practice on it,
+  being taught about it, and reading its signs; it raises chance and yield for that kind within the method, and carries in part to
+  kinds with similar traits (C1), never to the whole family. The built per-kind expert readings ("expert:t", 02zq) become this
+  layer's readings. So a snarer is good at snaring, and better at snaring the hares they know than the rabbits they do not. It also
+  keeps the part of D2-192 that gives each kind its own skill, as a layer rather than as its own technique.
+- **Test (second layer):** two snarers of equal method skill, one practised on hares, the other on rabbits: each does better on its
+  own kind; both do better than an unpractised snarer on either.
 
 ### C4. Shared perception, and wind direction
 - **What:** animals notice people by the engine's one noticing rule run from their side (senses x visibility x presence x a person's
@@ -958,3 +966,4 @@ run 6's recorded system text (scratchpad `wild_run6/run.json`, not re-read here)
 - 9 Nov: 37.2's review of the proposed cuts (Zach asked that content be lost only by an explicit decision): the corncrake, plague and
   poisons moved from cuts to deferred (K7, K10), since none was cut on principle; the other 28 cuts stand as proposed, each
   keeping its physical substrate, for Zach to confirm.
+- 9 Nov: Zach added a second layer of skill within a method, by target (C3); recorded there.
