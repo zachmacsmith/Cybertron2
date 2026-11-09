@@ -434,6 +434,19 @@ Code on the branch, not on main. All 433 tests pass there, including 35 for the 
   the hare sickness local in 7 years of 16. In the herds (3 years, four villages of 12 beasts): outbreaks in three villages, 5
   beasts dead, milder than the great murrains (calibrate). A fix on the way: without immunity every disease that spread faster
   than it cleared stayed in every area for ever.
+- 9 Nov (later): Zach asked for an audit against wild_systems.md, every specced layer for the kinds built so far, the plants
+  ("Yes to all build this": D2-200 to D2-202) and an audit of one-offs. Audit and results: `docs/review/37_growth/02zq_wild_audit.md`.
+  Built on the branch: the plant kinds with one stock for the wild kinds and people; the animals' layers by general rules
+  (conditions and effects, targets as data, fences, the gap, hunting pressure, wounds, the expert's reading, the layers' signs as
+  they begin, weather leads, notices while working, litters, a take's nights, the harvest's vermin, migrants' return). Not built,
+  with the reason: the vole cycle (the rule does not cycle them), individuals (wave 5), what needs husbandry or illness in people.
+- 9 Nov (later): agent run 4 (autumn start, 8 days, $11.63). Gathering wild food was the most common act (84): 27 acorns, 26
+  mushrooms, 23 hazel nuts, 9 hedge fruit. One untaught gatherer (Opus) was made ill by mushrooms; the same head of household then
+  leached acorns into meal twice. Agents moved between woods as one was "picked clean" ("try Hazelden Moor: berries, hedge fruit,
+  roots"). The wolves took a calf and a cow; the night's sign ("something bellowed on West Pasture last night and then went quiet")
+  and the tracks ("about two of them") had heads of household telling their herders to count the beasts and bring them in at dusk.
+  One shut the hens in "because there are foxes and wolves about". Murrain came from beyond on the last night. The rut, plovers
+  before the freeze and the first frost reached three agent-days each and drew no comment.
 
 ## Sources
 
