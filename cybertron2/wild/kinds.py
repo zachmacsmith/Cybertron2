@@ -532,7 +532,8 @@ TAKEN = {
     "roe deer":   {"family": ["deer", "roe", "roe deer", "venison", "game"], "detect": 0.3, "flee": 0.5, "goods": {"meat": 1.1, "hide": 1},
                    "calibrate": {"snare": 0.1}},    # a hare's noose seldom holds a roe (D2-204 §4)
     "wild boar":  {"family": ["boar", "wild boar", "pig", "swine", "sounder", "big game", "game"], "detect": 0.3, "flee": 0.35,
-                   "danger": {"wound": 0.3, "kill": 0.03}, "goods": {"meat": 3.5, "hide": 1}},
+                   "danger": {"wound": 0.3, "kill": 0.03}, "goods": {"meat": 3.5, "hide": 1},
+                   "calibrate": {"stalk": 0.12}},   # a sounder in the thicket is not stalked as a deer is (D2-204 §4)
     "brown hare": {"family": ["hare", "hares", "small game", "game"], "detect": 0.5, "flee": 0.5, "goods": {"meat": 0.18}},
     "woodpigeon": {"family": ["pigeon", "pigeons", "birds", "small game"], "detect": 0.4, "flee": 0.75, "goods": {"meat": 0.05},
                    "calibrate": {"net": 0.1}},      # pigeons seldom come down to the fowler's nets and decoys (D2-204 §4)
