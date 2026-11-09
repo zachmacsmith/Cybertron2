@@ -722,6 +722,83 @@ to groups (D4-105).
   - wireworm.
 - **Sources:** the research note's URLs, kept with this proposal's session note (02zp part four).
 
+## 13. Waves: D2-192 compared, and the merged wave system (9 Nov)
+
+Zach, 9 Nov: "Compare the D2-192 waves and wildlife to your current ones. They also considered how they sit in the supply chains /
+economics etc. then decide a final current wave system and build the first wave."
+
+**What each set of waves was built from:**
+
+| | D2-192 (wildlife.md) | wild_systems.md (8 Nov) |
+|---|---|---|
+| **The question** | what the land gives, and who can take it | what the land does to a village, and what people can learn about it |
+| **The test for going early** | its goods have a use now (food, hides for bedrolls, tents, packs, harness, rods), or it makes a pressure now | it moves some household's food or work by about 10%, it has a fast arm and a sign, and it adds a mechanic not yet tested |
+| **What it builds** | techniques with skills (stalking, a boar hunt, snaring, eel traps, fowling, honey-gathering): specialisation and trades | signs read by skill, lore as tested belief, creature memory, answers to scares (D2-198) |
+| **Economics** | goods and chains: meat, hide, fish, feathers, honey now; furs, wax, antler wait for clothing and documents; the writing chain (parchment, quills, ink, seals) | losses to crops, stores and beasts; the work of watching and guarding |
+| **The commons and rights** | weirs and runs (upstream against downstream), forest law, swans, wolf bounties | the forest-law conflict (the lord's game eats the villagers' crops) |
+| **Order** | wave 1 red deer, hare, trout, eel, salmon, wildfowl, raven; wave 2 wolf, boar, fox, bees; wave 3 beaver, otter, marten, bear, falcon, swan; later rats, rabbits, pigeons | A boar and mast, fox, wildfowl, eels, slugs, wasps, voles; then stores, beasts, disease, colonies, rare |
+
+**What each misses:**
+- **D2-192** has no pests at all before "later". Rats in the stores and birds at the corn act in every village and were about 5% of
+  need each in node_ecology.md. And the boar, the strongest pressure at village scale (02zp parts three and five), comes only in wave 2.
+- **wild_systems.md** gives almost nothing a use. Slugs, wasps and voles give no goods, and the prototype built no techniques. A kind
+  that only takes makes losses but no trades, chains or specialists, and scenario_design asks for dependence.
+
+**The merged rule for going early.** A kind goes early if it meets two of these three tests, and each wave as a whole meets all three:
+1. **pressure:** it moves food or work by about 10% somewhere, sometimes;
+2. **use:** its goods have a use now, or it needs a skill, gear or a crew (a trade);
+3. **reading:** it has a fast arm and leading signs that pay.
+
+Each wave also adds one mechanic the earlier waves lack, and its kinds live in some places and not others.
+
+**The waves:**
+
+| Wave | Kinds | Pressure | Use (goods, techniques, chains) | New mechanics | Where |
+|---|---|---|---|---|---|
+| **1. The wood's edge, the river and the barn** | wild boar with the mast; red deer; hare; eels; wildfowl; rats and mice; birds at the corn (woodpigeons, rooks, sparrows) | boar and deer in the crops, deer at the ricks; rats in the stores; birds at the seed and the ripening corn | meat, fat and hide (hides into the built bedrolls, tents, packs); smoked eels and fowl for the lean season; feathers and down; stalking, a boar hunt (crew, D2-193), snaring, eel traps and a crew at the weir, fowling; cats and staddle stones; bird-scaring as children's work | groups that set out and come back; loads; a run; a flock; a pulse; signs read by skill; D2-197 leads; D2-198 answers (boar, deer at the ricks and birds get used to scares; hares, fowl and deer in a hunted wood are scared off; rats and eels do not answer); forest law and the weir as rights (D2-194) | boar and deer by big woods; eels by rivers; fowl by fen and water; hares on open land; rats and birds wherever there are stores and fields |
+| **2. The fold and the hungry year** | wolves; fox with lambs and poultry; voles with owls and kestrels; ravens; hounds (D2-196) | beasts at the fold, lambs and hens | pelts; hounds as trained beasts; a drive and a bounty | chains between kinds (a hunted-out wood sends wolves to the fold; a vole crash sends the fox to the hens); danger to people; collective action against a common threat | wolves by deep wood and by era; the fox nearly everywhere, densest at wood edges; voles in rough grass |
+| **3. The weather year** | slugs; wasps with wild bees; aphids and ladybirds; leatherjackets, chafers and wireworm with rooks; ergot; fungi; calendar markers | seedlings, fruit, honey, roots; ergot in the bread | honey (and wax, waiting for documents and light); mushrooms as knowledge that keeps people safe (wildlife.md §11) | outbreaks by soil and weather; true signs with false forecasts (oak and ash); seeded wrong lore | slugs on heavy wet soils; wasps where it is warm, by banks and wood edges; bees by old wood, heather and lime |
+| **4. What travels** | murrain and swine fever (boar and pigs), liver fluke (sheep), fox mange; rumours from abroad | herds lost | | spread between villages by contact and carcass as well as shared weather; late signs; quarantine as a collective choice | by density, wetness and contact |
+| **5. Prestige, furs and the land that changes** | beaver, otter, pine marten, falcon (hawks, D2-196), swan, heronry, brown bear; legendary individuals (D2-195); rare regimes | | furs, castoreum, a trained hawk, a claimed bird; waits for demand for furs, wax and antler (clothing, documents) as D2-192 said | leaving for good (D2-198); a kind that changes the land (the beaver's dam); restraint over years | slow brooks, cliffs, wildwood; by era |
+
+**Kept from D2-192:** red deer, hare, eels and wildfowl in the first wave; the techniques and their skills; the goods-have-a-use rule
+for furs and wax; the river commons; hounds with the wolves and hawks with the falcon.
+
+**Changed:**
+- **Boar moves up to wave 1.** It is the strongest pressure, and its mast pulse drives other kinds.
+- **Rats and birds at the corn come into wave 1** from "later". They are the kinds every village meets.
+- **Trout and salmon stay on the fish stock and its run that the engine already has** (the water pack), so nothing new is built for
+  them in wave 1. The salmon's upstream-downstream rules come with the river commons.
+- **The raven moves to wave 2,** as the sign of a kill or a carcass, with the wolves.
+- **Wild bees move to wave 3,** with the wasps that rob them.
+
+**Status:** chosen by 37.2 at Zach's request (9 Nov). It amends D2-192's order, so it is recorded as a decision when Zach confirms it
+(open question 8).
+
+## 14. How it fits the engine (9 Nov)
+
+**Nothing of this is in the engine yet.** The prototype (02zp part five) and the wave 1 build (02zp part six) are models in the
+session notes. Code under `cybertron2/` is 37.4's (CLAUDE.md).
+
+**What the engine has that this builds on:**
+- a single `game` stock on each forest parcel (renewal `threshold`), taken by the `hunt` technique;
+- sign rows with `knack` and `eye` (skill-gated noticing), read through `readable(row, know)`;
+- lore lines seeded to groups (D4-105);
+- the climate by place and day (D4-109, D4-111);
+- the land fields per parcel (D4-112, D4-113);
+- fish with a periodic run;
+- packs (D4-104).
+
+**What it needs** (wild_systems.md §9 and §10):
+- a population layer per area with groups condensed near people (node_ecology.md);
+- the five general rules, with kinds as data rows on them;
+- creature memory;
+- readings by skill (today only the chance of noticing differs);
+- traces that age;
+- acts: watch with a scare at a place, scare birds, fold, pen, cats, staddles, a crew at the weir.
+
+Moving it into the engine is for 37.4, by agreement on the board.
+
 ## Open questions (for Zach)
 
 1. The approach: a few shared drivers; kinds as layered rule machines with depth that differs; signs with readings by skill;
@@ -742,6 +819,8 @@ to groups (D4-105).
 6. ~~Compressed time~~: decided, D2-197 (lead times and creature memory in engine days, never less than one).
 7. The fox fails the relevance test at village scale (02zp §25). Keep it as a simple kind (shut the hens; den control in a hungry
    spring), or join it to the lambs at lambing so that it matters?
+8. The merged wave system (§13): confirm it as a decision amending D2-192's order?
+9. Moving the general rules into the engine (§14): when, and with 37.4 on the board?
 
 ## History
 
@@ -764,6 +843,10 @@ to groups (D4-105).
   - about three kinds show a lead and its event in any 12-day window.
 
   Open question 7 added.
+- 9 Nov: Zach asked for a comparison with D2-192's waves (which weighed supply chains and economics), a final wave system, and the
+  first wave built with targeted LLM tests. Added §13 (the comparison; a merged rule for going early: pressure, use and reading; five
+  waves, with boar, rats and birds at the corn moved into wave 1 beside D2-192's red deer, hare, eels and wildfowl) and §14 (how it
+  fits the engine: nothing is in it yet). Open questions 8 and 9.
 
 ## Sources
 
