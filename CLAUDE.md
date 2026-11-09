@@ -12,6 +12,22 @@ leverage and dependence, never an all-Haiku society, goals as in-world aims and 
 dominating, and read any metric against a null arm and a qualitative end-state reading. The work packages for worlds that grow
 are in `docs/review/37_growth/`.
 
+## Work in progress, asks and what is left
+
+Zach (9 Nov): "every time we start on something new it has to be added to the currently working and we can track how large the
+unfinished work goes."
+
+- **Starting anything new** (a task, a brief, a phase, a build, a review, a run): first add a row to `docs/cybertron2/WORK.md`, "In
+  progress" (owner and session, started, where, what it is), then begin.
+- **Stopping before it is done** (Zach turns to something else, a phase or a brief is left part-way, the session ends): update the
+  row (state, last touched, what is done, what is left, where the work is), and move it to "Paused" if no one is on it.
+- **Finished:** move the row to "Done" with the date. Dropped or deferred: say so there, and add a deferred row to OPEN.md.
+- **A question for Zach** (a decision, an uncertainty, a choice made while building): a row in OPEN.md's open questions (asks). Going
+  ahead on a default, write "default taken: ..." on the row and tell him.
+- **A mechanic or system to flesh out later:** a row in OPEN.md's "Flagged for later (deferred)", with what it waits on.
+- **Before designing in an area:** read its rows in OPEN.md and WORK.md, and the code that already does it; cite both.
+- **Before ending a session:** run `python3 tools/hygiene.py`, fix what is yours, then `python3 tools/hygiene.py --record`.
+
 ## Visuals are drawn from the engine
 
 Zach (24 Oct): any visualisation (maps, scenes, sprites, charts of a world) must be grounded in how the engine actually works.
@@ -38,8 +54,9 @@ Full rules: `docs/cybertron2/README.md`.
 | **Spec** | only what Zach has **decided**, as current rules; never stale | `docs/cybertron2/spec/<area>/` |
 | **Decisions** | every decision, numbered by session (D2-n, D4-n, ...), with what it replaces | `docs/cybertron2/DECISIONS.md` |
 | **Proposals** | working thoughts: one file per idea, with a status and a dated history; kept after it is decided or rejected | `docs/cybertron2/proposals/` |
-| **Open** | open questions and conflicts between documents, each with an owner; and everything **flagged for later** (its own table) | `docs/cybertron2/OPEN.md` |
+| **Open** | **asks**: open questions, decisions and uncertainties for Zach or an owner, and conflicts between documents; and **deferred** work: everything **flagged for later** (its own table), each with what it waits on | `docs/cybertron2/OPEN.md` |
 | **Session notes** | long supporting material only: analyses, cost models, run reports, work logs | `docs/review/38_space_engine/` (37.4), `docs/review/37_growth/02*` (37.2) |
+| **Work** | what is being worked on now, and what was started and left (in progress, paused, done) | `docs/cybertron2/WORK.md` |
 | **Board** | talk between sessions, append only | `docs/coord/BOARD.md` |
 
 **The path of an idea:**

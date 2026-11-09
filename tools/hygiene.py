@@ -13,12 +13,19 @@ gaps, so they are found at the end of a session instead of by accident:
   6. paths into a session's scratchpad (files no other session can reach) in the repository;
   7. dates later than today;
   8. relative links to files that do not exist;
-  9. the board's last post.
+  9. the board's last post;
+ 10. WORK.md: work in progress left untouched, waiting on an ask too long, queued and not begun, paused too long, or without
+     where it is and what is left;
+ 11. asks (OPEN.md's open questions and conflicts) left unanswered, and deferred rows that name nothing they wait on.
 
-Run from the repository root:  python3 tools/hygiene.py [--all] [--days N] [--today YYYY-MM-DD] [--strict]
+It also counts the unfinished work (in progress, paused, asks, deferred, chores); `--record` writes today's counts into WORK.md's
+size table, so the size of what is left can be followed over time.
+
+Run from the repository root:  python3 tools/hygiene.py [--all] [--days N] [--today YYYY-MM-DD] [--strict] [--record]
   --all     list every item (default: the first 12 of each)
   --days N  what counts as left long (default 3 for proposals in discussion, 4N for flagged rows and spec files)
   --strict  exit 1 if any check finds something (for a hook or CI)
+  --record  write today's counts into docs/cybertron2/WORK.md's size table
 
 A decision row that is deliberately not a spec rule (a process choice, a permission) can carry "[no spec]" anywhere in its text to
 be left out of check 1. Stdlib only; reads files and `git log`; changes nothing.
@@ -247,6 +254,94 @@ def check_board(today):
     return [f"docs/coord/BOARD.md last changed {d} ({(today - d).days} days ago)"] if d else []
 
 
+WORK = os.path.join(C2, "WORK.md")
+
+
+def section(text, head):
+    """The text of a `## head` section (to the next `## `)."""
+    m = re.search(r"^## " + re.escape(head) + r"[^\n]*\n(.*?)(?=^## |\Z)", text, re.M | re.S)
+    return m.group(1) if m else ""
+
+
+def work_rows():
+    if not os.path.exists(WORK):
+        return {}
+    text = read(WORK)
+    return {name: table_rows(section(text, name), r"^W-\d+") for name in ("In progress", "Paused", "Done")}
+
+
+def check_work(today, days):
+    found = []
+    rows = work_rows()
+    if not rows:
+        return ["docs/cybertron2/WORK.md is missing"]
+    for name in ("In progress", "Paused"):
+        for c in rows.get(name, []):
+            if len(c) < 8:
+                found.append(f"{c[0]}: a row of {len(c)} cells (8 expected)")
+                continue
+            wid, what, owner, state, started, touched, where, notes = c[:8]
+            t = day_month(touched, today.year) or day_month(started, today.year)
+            age = (today - t).days if t else None
+            label = f"{wid} ({owner}; {state}): {re.sub(r'[*]', '', what)[:70]}"
+            if not where.strip() or not notes.strip():
+                found.append(f"{label}: says nothing of where it is or what is left")
+            if age is None:
+                found.append(f"{label}: no date")
+            elif name == "In progress" and state.startswith("active") and age > days:
+                found.append(f"{label}: untouched {age} days: carry on, or move it to Paused")
+            elif name == "In progress" and state.startswith("waiting") and age > days:
+                found.append(f"{label}: waiting {age} days: raise the ask again, or take its default")
+            elif name == "In progress" and state.startswith("queued") and age > 2 * days:
+                found.append(f"{label}: queued {age} days and not begun")
+            elif name == "Paused" and age > 5 * days:
+                found.append(f"{label}: paused {age} days: resume, defer or drop it")
+    return found
+
+
+def asks_and_deferred(today):
+    """(open asks [(id, text)], open deferred [cells])."""
+    text = read(os.path.join(C2, "OPEN.md"))
+    asks, deferred = [], []
+    for c in table_rows(section(text, "Conflicts between documents") + section(text, "Open questions"), r"^[A-Z]+-[A-Z0-9-]+"):
+        body = " | ".join(c)
+        if c[0].startswith("~~") or re.search(r"\(Closed\b|\*\*Done\b|\(Deferred\b", body):
+            continue
+        asks.append((c[0], body))
+    for c in table_rows(section(text, "Flagged for later"), r"^L-\d+"):
+        if re.search(r"\b(Closed|Done)\b", " | ".join(c)):
+            continue
+        deferred.append(c)
+    return asks, deferred
+
+
+def check_asks(today, days):
+    asks, deferred = asks_and_deferred(today)
+    found, undated = [], 0
+    for rid, body in asks:
+        dates = [d for d in (day_month(x, today.year) for x in re.findall(r"\d{1,2} (?:Oct|Nov|Dec|Jan|Feb|Sep)\w*", body)) if d]
+        if not dates:
+            undated += 1
+            continue
+        age = (today - max(dates)).days
+        if age > days and "default taken" not in body.lower():
+            found.append(f"{rid}: last touched {age} days ago, no answer recorded: {re.sub(r'[*]', '', body.split(' | ')[1])[:80]}")
+    if undated:
+        found.append(f"{undated} open asks carry no date, so their age cannot be told")
+    for c in deferred:
+        if len(c) > 4 and not c[4].strip():
+            found.append(f"{c[0]}: deferred with nothing named that it waits on")
+    return found
+
+
+def record(today, counts):
+    text = read(WORK)
+    line = f"| {today} | {counts['in progress']} | {counts['paused']} | {counts['asks']} | {counts['deferred']} | {counts['chores']} |"
+    lines = [l for l in text.rstrip("\n").split("\n") if not l.startswith(f"| {today} |")]
+    with open(WORK, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines + [line]) + "\n")
+
+
 # ---------------------------------------------------------------------- the report
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
@@ -254,6 +349,7 @@ def main(argv=None) -> int:
     ap.add_argument("--days", type=int, default=3)
     ap.add_argument("--today", type=str, default=None)
     ap.add_argument("--strict", action="store_true")
+    ap.add_argument("--record", action="store_true")
     a = ap.parse_args(argv)
     today = dt.date.fromisoformat(a.today) if a.today else dt.date.today()
     rows = decisions(today)
@@ -267,8 +363,16 @@ def main(argv=None) -> int:
         ("7. Dates later than today", check_future_dates(today)),
         ("8. Links to missing files", check_links()),
         ("9. The board", check_board(today)),
+        ("10. WORK.md: work left", check_work(today, a.days)),
+        ("11. Asks unanswered, deferred rows without a trigger", check_asks(today, a.days)),
     ]
+    wr = work_rows()
+    asks, deferred = asks_and_deferred(today)
+    chores = sum(len(f) for t, f in checks if t[:2] in ("1.", "2.", "5.", "6.", "8."))
+    counts = {"in progress": len(wr.get("In progress", [])), "paused": len(wr.get("Paused", [])), "asks": len(asks),
+              "deferred": len(deferred), "chores": chores}
     print(f"# Record hygiene, {today} ({len(rows)} decisions)\n")
+    print("Unfinished: " + ", ".join(f"{v} {k}" for k, v in counts.items()) + "\n")
     print("| Check | Found |\n|---|---|")
     for title, found in checks:
         print(f"| {title} | {len(found)} |")
@@ -280,6 +384,9 @@ def main(argv=None) -> int:
             print(f"- {x}")
         if not a.all and len(found) > 12:
             print(f"- ... and {len(found) - 12} more (--all)")
+    if a.record:
+        record(today, counts)
+        print(f"\nRecorded in {rel(WORK)}.")
     serious = sum(len(f) for t, f in checks if not t.startswith("9."))
     return 1 if a.strict and serious else 0
 

@@ -3,6 +3,12 @@
 Each item has an owner (README "Who owns what") who resolves it, with Zach where it needs a decision. Resolved items move to
 [DECISIONS.md](DECISIONS.md) or into the spec, and are struck through here. Compiled 22 Oct 2026.
 
+**What goes here, and what does not (9 Nov):** this file holds **asks** (open questions, decisions and uncertainties for Zach or an
+owner, and conflicts between documents that need a ruling) and **deferred** work ("Flagged for later": mechanics and systems to flesh
+out properly later, not started; each row names what it waits on). Work **in progress** or **paused** (started, with something already
+made) is in [WORK.md](WORK.md). Chores (spec write-ups owed, rows done but not struck through) are listed by `python3 tools/hygiene.py`.
+An agent that goes ahead on a default writes "default taken: ..." on the ask's row, so Zach can still change it.
+
 **Numbering new rows (agreed 2 Nov, after three collisions):** "Flagged for later" rows are numbered in blocks: 37.4 takes L-60 to L-99, 37.2
 takes L-100 and up. Rows below L-60 keep their numbers.
 
@@ -21,7 +27,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | C-9 | **(Closed 2 Nov: settled by D4-19, D2-139 and D4-69: all time in days; ages shown.)** Ages: calendar years | 38.09 §2a-2b vs D4-19 | D4-19 wins | 37.4 |
 | ~~C-10~~ | Run files, checkpoints, replay, versioning | spec/core/README `records.md` (37.4, to compile) vs spec/record/ (37.1, D1-4) | `core/records.md` becomes a pointer to spec/record/; `core/events.md` keeps what an event is, record/journal.md how events are stored | 37.4 to confirm | resolved 24 Oct: confirmed by 37.4; spec/core/README points to spec/record/ |
 
-## Open questions
+## Open questions (asks)
 
 | # | Question | Where | Owner |
 |---|---|---|---|
@@ -64,8 +70,13 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | ~~Q-K3~~ | Whether the memory request asks outright when a place opens | spec/information/memory.md | 37.4 | resolved 1 Nov (Zach): "it should be clear there is a place open, otherwise it is up to them" |
 | Q-29 | **scheduler.md and the weather scheduler (D4-109):** the spec's drawn spells are now runs of a daily weather type, its eras are climate only (Zach: disease and ecology are other systems), and weather varies by place. The spec's mechanics text is 37.2's to bring in line; 37.4 changed only its "as built" line **Since D4-111 (8 Nov):** every weather query names its place (no reference node; a road reads the mean of its ends), and with the scheduler visibility comes from the day's rain, snow, fog and wind values (CLIMATE vis): environment/visibility.md and scheduler.md's "for the region" text are 37.2's to align. D4-113 hands renewal rules the weather where the stock is. | D4-109; proposals/weather_scheduler.md | 37.2 |
 | Q-30 | **livestock.md's fence upkeep (D2-130) and D4-114:** the engine now wears a wood fence by the year (a level a year unless mended a quarter of its build that year; not in its first year; a fallen one keeps half its build), as Zach decided after the Brookend run's 137 fencing acts. The table's "loses a level each season unmended" is 37.2's to bring in line. | 37.2 | open |
+| Q-31 | **Does `guard the field` become D2-21's watch?** (02zo A2): the wild layer's night guard of a field and D2-21's watch are two acts; 02zq's one-off 1 merged their costs (568f971), not the acts | docs/review/37_growth/02zo_open_decisions.md A2 | 37.4 with 37.2, Zach to decide (open since 8 Nov) |
+| Q-32 | **02zv §6's decisions still open** (9 Nov): (1) the core list and its order beyond briefs 1 to 3; (2) the first packs K0 to K4 in that order; (3) D2-194 and forest law as world options only; (4) the 28 proposed cuts, item by item; (8) which husbandry pieces 37.4 takes on for K6, dogs first; (9) K4 first only in worlds with water. Items 5 to 7 are decided (D2-204, D2-205) | docs/review/37_growth/02zv_wild_consolidation.md §6 | Zach (blocks WORK W-4) |
+| Q-33 | **forays.md's open questions** (9 Nov): the story's wording (templates or the small model); names recorded by the engine or memory only; features per area; units a step; the turn-home rule; the morning after a night out; one interpreter call for all forays | docs/cybertron2/proposals/forays.md | Zach with 37.2 (blocks WORK W-12) |
+| Q-34 | **Defaults taken under D2-207** (9 Nov), for Zach to confirm or change: a target name resolves whether or not the kind is here; the basic methods are hunt the wild, gather wild food, guard the field, shut, pest work and burn the stubble; a turned raider goes to the next field the same night. Default taken: all three, in briefs 1 and 2 | proposals/methods_and_encounters.md, wild_raiders_and_works.md | Zach |
+| Q-35 | **Run findings with no owner yet** (9 Nov): elders dying of old age within 8-day runs (runs 5 and 6: the life model at the compressed year); scripted bots feeding themselves poorly (six missed a meal on day 2 of a dry run of run 6's village), which weakens dry-run comparisons | proposals/wild_layer.md History (runs 5, 6); docs/review/37_growth/02zy_wild_test_worlds.md | to assign: 37.1 (life), 37.4 (bots) |
 
-## Flagged for later
+## Flagged for later (deferred)
 
 Things Zach decided to add later, or parked, with where each is designed and what it waits on. Add a row whenever something is
 flagged; strike it through when it is built or decided.
