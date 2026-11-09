@@ -478,6 +478,9 @@ Code on the branch, not on main. All 433 tests pass there, including 35 for the 
     in tonight": a door does not keep rats out, a misbelief the world can correct). An expert herder read "about 40 red deer by
     Hazel Copse" and made a weapon to go after one; another reaped a field early "or the deer will finish it" (the lever "reap
     early"). No one hunted far enough to meet a legend. Three deaths of old age again (the life model, not the wild layer).
+  - **one-off 1 for the wild watches**: D2-21 is decided (the watch gives up the night's sleep, eats more, detects first), so a
+    field watch now costs the guard's food and leaves the watcher tired the next day (world schema 6, `today.night_watch`). Whether
+    `guard` itself becomes the watch stays with 37.4 (02zo A2).
 
 ## Sources
 

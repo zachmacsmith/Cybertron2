@@ -194,7 +194,7 @@ the shared ones): autumn's peak 15, spring's gap 7, summer 8, winter 10 (what au
 ### 4d. One-off pieces: done and still open
 | # | Status |
 |---|---|
-| 1 night acts and the lantern | open: needs the night commitment (D2-21, Zach); "pick slugs by lantern" still claims a lantern |
+| 1 night acts and the lantern | done for the wild watches (10 Nov): a field watch follows D2-21 (the night's sleep given up, the guard's food, `watch_tired` units off tomorrow; world schema 6); slug picking moved to dusk. Open: `guard` itself becoming the watch (37.4; 02zo A2) |
 | 2 scares from what is there | done (10 Nov): fire burns firewood, clappers and horn made and carried, the dog kept at home |
 | 3 hens as beasts | open (husbandry) |
 | 4 the door | done: a store's door, read by any target |
