@@ -30,6 +30,7 @@ next number; 37.2 and 37.4 share the series (check before adding).
 | W-4 | wild_behaviour.md v3 (the per-kind designs, from 02zv, 02zw and the briefs) | 37.2 | waiting | 9 Nov | 9 Nov | docs/cybertron2/proposals/wild_behaviour.md | waits on Q-32 (02zv §6, items still open) |
 | W-5 | 37.2's own hygiene items: D2-199 to D2-203 into the spec; the scratchpad path in 02zp's sim.py | 37.2 | queued | 9 Nov | 9 Nov | spec/environment/wildlife.md; docs/review/37_growth/02zp_ecosystem_models/wildsys/sim.py | not begun |
 | W-21 | Proposals for Q-37 (a) and (d): graded damage to houses and camps by structure and weather, camps' shelter, growth and animals (proposals/shelter_damage.md); cats that choose where to live (proposals/cats.md) | 37.2 (session "Thicker economy exploration") | waiting | 9 Nov | 9 Nov | main: docs/cybertron2/proposals/ | written and sent to 37.4; waiting on Zach's decision (Q-37 a and d) |
+| W-22 | Hunting against farming and gathering in generated worlds: food per unit of work by method, range, skill, familiarity and season (37.4's code on `ecology-raiders`), against the targets of 9 Nov; what needs calibrating | 37.2 (session "Thicker economy exploration") | active | 9 Nov | 9 Nov | a read-only worktree of `ecology-raiders` and scripts in 37.2's scratchpad; the report in docs/review/37_growth/ | started |
 
 ## Paused
 
