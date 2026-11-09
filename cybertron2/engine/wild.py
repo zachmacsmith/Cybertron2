@@ -71,6 +71,11 @@ def draws(w, day, tag="run") -> dict:
         for k in m.names:
             r = w.rng("wild-epi", tag, y, k)
             out["epi"][k] = [r.random() for _ in range(m.n)]
+    from cybertron2.wild.kinds import DISEASES
+    for name, d in sorted(DISEASES.items()):                              # a disease's season's first day: its seeds are drawn
+        if day % w.year_days() == int(d.get("season", 1)) * (w.year_days() // 4):
+            r = w.rng("wild-dis", tag, y, name)
+            out.setdefault("dis", {})[name] = [r.random() for _ in range(m.n)]
     return out
 
 
@@ -142,6 +147,7 @@ def night(w, rec) -> None:
     if eaten or (w.s["wild"].get("eaten") or {}):
         w.apply("set_wild", place, path=["eaten"], value=eaten)
     out["loads"] = _loads(w, m, st)
+    out["sick"] = _herds_sick(w, m, st)
     out["groups"] = _groups(w, m, st)
     out["near"] = {gid: {"n": g["n"], "pos": g["pos"], "what": g.get("what")} for gid, g in sorted((w.s["wild"].get("groups") or {}).items())}
     _hens_lay(w)
@@ -200,11 +206,81 @@ def _loads(w, m, st) -> dict:
     return {"hits": hits, "fed": fed}
 
 
+def _herds_sick(w, m, st) -> dict:
+    """Disease in kept herds (kinds.DISEASES with `kept`): each night a herd's healthy beasts are infected from the sick share of
+    the herds on its parcel, beside it and in its village, from the wild hosts' prevalence on its village's land, and now and then
+    from beyond; after its course a sick beast dies (a carcass that reads as the disease's) or recovers, immune. A herd carries its
+    sickness where it is driven, so it travels between villages with the beasts. All through `set` and the engine's carcasses."""
+    from cybertron2.engine import farm as FM, things as TH
+    from cybertron2.engine.data import TECHNIQUES
+    from cybertron2.wild.kinds import DISEASES
+    land = w.s["wild"]["land"]
+    dis = st.get("dis") or {}
+    out = {}
+    herds = {hid: h for hid, h in sorted(w.s["herds"].items()) if FM.head(h) > 0 and h.get("node") in w.s["nodes"]}
+    for name, d in sorted(DISEASES.items()):
+        if not d.get("kept"):
+            continue
+        hosts = {hid: h for hid, h in herds.items() if h.get("kind") in d["kept"]}
+        sick = {hid: sum(int(c["n"]) for c in ((h.get("ill") or {}).get(name) or {}).get("sick", [])) for hid, h in hosts.items()}
+        share = lambda pick: (sum(sick[x] for x in pick) / max(1, sum(FM.head(hosts[x]) for x in pick))) if pick else 0.0
+        for hid, h in hosts.items():
+            node, par = h["node"], h.get("parcel")
+            rec = dict(((h.get("ill") or {}).get(name)) or {"sick": [], "immune": 0})
+            rng = w.rng("wild-sick", w.d, hid, name)
+            same = [x for x, o in hosts.items() if o["node"] == node and o.get("parcel") == par]
+            near = [x for x, o in hosts.items() if o["node"] == node and o.get("parcel") in (w.s["parcels"].get(par) or {}).get("adj", [])]
+            town = [x for x, o in hosts.items() if o["node"] == node]
+            ai = land.get("home", {}).get(node)
+            wild_i = float((dis.get(name) or [0.0] * m.n)[m.ids.index(ai)]) if ai in m.ids else 0.0
+            press = float(d["beta"]) * share(same) + float(d["near"]) * share(near) + float(d["node"]) * share(town) + float(d["wild_beta"]) * wild_i
+            n = FM.head(h)
+            healthy = max(0, n - sick[hid] - int(rec["immune"]))
+            new = sum(1 for _ in range(healthy) if rng.random() < 1 - math.exp(-press))
+            if not any(sick[x] for x in town) and not new and hid == town[0] and rng.random() < float(d["arrive"]) / w.year_days():
+                new = 1 if healthy else 0                                      # from beyond: a beast bought, a drove passing
+            cohorts, died = [], 0
+            for c in rec["sick"]:
+                if w.d - int(c["day"]) >= int(d["course"]):
+                    k = sum(1 for _ in range(int(c["n"])) if rng.random() < float(d["mortality"]))
+                    died += k
+                    rec["immune"] = int(rec["immune"]) + int(c["n"]) - k
+                else:
+                    cohorts.append(c)
+            if new:
+                cohorts.append({"day": w.d, "n": new})
+            for _ in range(died):
+                h = w.s["herds"][hid]
+                roles = [r for r in ("young", "cows", "oxen", "bulls") if int(h.get(r, 0)) > 0]
+                if not roles:
+                    break
+                role = roles[int(rng.random() * len(roles))]
+                w.apply("set", node, ref=("herd", hid), field=role, value=int(h[role]) - 1)
+                w.apply("set", node, ref=("herd", hid), field="count", value=FM.head(w.s["herds"][hid]))
+                TH.leave_carcass(w, node, FM.ROLE_WORD[role][0], h["name"], [c["claimant"] for c in w.claims_on(("herd", hid))], "sick",
+                                 TECHNIQUES["slaughter"]["yield"]["gives"][role], parcel=h.get("parcel"), by=name)
+            rec["immune"] = min(int(rec["immune"]), FM.head(w.s["herds"][hid]))
+            rec["sick"] = cohorts
+            if new:
+                rec["new"] = w.d
+            ill = dict(w.s["herds"][hid].get("ill") or {})
+            if rec["sick"] or rec["immune"] or name in ill:
+                ill[name] = rec
+                if ill != (w.s["herds"][hid].get("ill") or {}):
+                    w.apply("set", node, ref=("herd", hid), field="ill", value=ill)
+            if new or died:
+                out[hid] = {"disease": name, "new": new, "died": died}
+                if died:
+                    w.event(node, "herd", f"{died} of {h['name']} died of a sickness in the night", about=[f"herd:{hid}"], salience=0.6,
+                            tags=["animals", "danger"])
+    return out
+
+
 def guard(here, pid, y, place_name) -> str:
     """A guard on a field against a load (picking slugs by lantern, topping the beans): cuts its harm there for some days."""
     here.apply("set_wild", path=["guard", pid], value={"load": y["load"], "cut": float(y["cut"]), "until": here.day + int(y["days"]) - 1,
                                                         "by": here.name})
-    return f"You worked over {place_name} against the {y['load']}."
+    return y.get("done", "You worked over {place}.").format(place=place_name)
 
 
 def _shares(out, real, m) -> dict:
@@ -499,12 +575,12 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
     """A hunt: what the hunter comes on is drawn from the kinds in the areas the range covers, by their numbers, how easy each is to
     find and what this way of hunting takes; looking for one thing makes it likelier and the rest less likely, never impossible, so a
     deer stalker may come on the sounder. What is found may flee, be taken (off its area's count, and its group's), or hurt the
-    hunter (D2-193). Returns (food taken, a line for the hunter)."""
+    hunter (D2-193). Returns (food taken, a line for the hunter, what they noticed on the way)."""
     from cybertron2.engine.data import RESOURCES, TECHNIQUES
     import numpy as np
     w = here._w
     if not on(w) or not (w.s.get("wild") or {}).get("state"):
-        return 0.0, f"You found nothing to take at {place_name}."
+        return 0.0, f"You found nothing to take at {place_name}.", ""
     m = model(w)
     land = w.s["wild"]["land"]
     st = w.s["wild"]["state"]
@@ -532,7 +608,7 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
     seen = _notices(here, mind, m, st, areas, key, effort)
     tail = (" On the way you saw " + "; and ".join(seen) + ".") if seen else ""
     if total <= 0 or rng.random() >= 1 - math.exp(-0.03 * total * effort):
-        return 0.0, f"You hunted {where}{looked} and came on nothing.{tail}"
+        return 0.0, f"You hunted {where}{looked} and came on nothing.", tail
     u, acc = rng.random() * total, 0.0
     for k, i, wgt in cand:
         acc += wgt
@@ -547,15 +623,15 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
     if danger and rng.random() < float(danger["wound"]) / crew:
         if rng.random() < float(danger.get("kill", 0.0)) / crew:
             here.apply("die", person=here.name, cause=f"killed by {_a(k)} while hunting")
-            return 0.0, f"Hunting {where}, {found}; it turned on you."
+            return 0.0, f"Hunting {where}, {found}; it turned on you.", ""
         here.apply("harm", person=here.name, wounded=True)
         hurt = " It turned on you and you were hurt before it broke away."
-        return 0.0, f"Hunting {where}, {found}.{hurt}{tail}"
+        return 0.0, f"Hunting {where}, {found}.{hurt}", tail
     armed = here.weapon()
     wpn = float(TECHNIQUES[tech]["weapon"]["armed" if armed else "none"])
     p_take = float(np.clip(0.55 * m_skill * wpn * (1 - float(tk.get("flee", 0.5))) * (1 + 0.25 * (crew - 1)), 0, 0.95))
     if rng.random() >= p_take:
-        return 0.0, f"Hunting {where}, {found}, but it got away.{tail}"
+        return 0.0, f"Hunting {where}, {found}, but it got away.", tail
     pop = [float(x) for x in st["pop"][k]]
     pop[i] = max(0.0, pop[i] - 1.0 / float(m.km2[i]))                      # one head off its area's count
     here.apply("set_wild", path=["state", "pop", k], value=pop)
@@ -574,7 +650,7 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
         kills = list(rec.get("kills") or []) if rec.get("day") == here.day else []
         kills.append({"by": here.name, "meat": food, "hide": "hide" in (tk.get("goods") or {}), "kind": k})
         here.apply("set", ref=("parcel", key), field="hunted", value={"day": here.day, "kills": kills})
-    return food, f"Hunting {where}, {found} and took it: " + ", ".join(f"{q:g} {it}" for it, q in sorted((tk.get('goods') or {}).items())) + "." + tail
+    return food, f"Hunting {where}, {found} and took it: " + ", ".join(f"{q:g} {it}" for it, q in sorted((tk.get('goods') or {}).items())) + ".", tail
 
 
 NOTICE_MOST = 2

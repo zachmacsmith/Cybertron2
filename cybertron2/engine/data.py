@@ -392,11 +392,11 @@ TECHNIQUES = {
                  "weapon": {'none': 1.0, 'armed': 1.0}, "wear": 0.3, "units": 2, "gives": "meat", "tags": ["food", "hunting", "animals"], **({"untaught": "tryable"} if not False else {})},
     "pick slugs by lantern": {"verb": "work", "label": "picking slugs off the young crop by lantern at dusk", "basic": True, "pack": "wild",
                               "aliases": ["pick slugs", "slug the field", "go slugging", "pick off the slugs"], "at": {"covers": ["field"]},
-                              "draws": "guard", "yield": {"kind": "wild_guard", "load": "slugs", "cut": 0.6, "days": 1}, "units": 2, "gives": "",
+                              "draws": "guard", "yield": {"kind": "wild_guard", "load": "slugs", "cut": 0.6, "days": 1, "done": "You picked the slugs off the young crop in {place} by lantern at dusk."}, "units": 2, "gives": "",
                               "tags": ["farming"]},
     "top the beans": {"verb": "work", "label": "pinching out the bean tops where the fly gathers", "basic": True, "pack": "wild",
                       "aliases": ["top beans", "pinch out the beans", "pinch the bean tops"], "at": {"covers": ["field"]},
-                      "draws": "guard", "yield": {"kind": "wild_guard", "load": "aphids", "cut": 0.5, "days": 8}, "units": 1, "gives": "",
+                      "draws": "guard", "yield": {"kind": "wild_guard", "load": "aphids", "cut": 0.5, "days": 8, "done": "You pinched out the bean tops in {place}, where the fly gathers."}, "units": 1, "gives": "",
                       "tags": ["farming"]},
     "shut the hens in": {"verb": "work", "label": "shutting the hens in for the night (the door wedged, the gaps stopped)", "basic": True,
                          "pack": "wild", "aliases": ["shut in the hens", "close up the hens", "shut the hens"], "at": {"covers": ["built"]},
@@ -745,7 +745,7 @@ THINGS = {
     # road. Meat by how it died, as a share of slaughter's (calibrate)
     "carcass": 0.9, "carcass_bones": 0.3, "carcass_bones_after": 6, "carcass_fresh_days": 1,
     "carcass_road": {"none": 0.3, "hidden": 0.3},
-    "carcass_meat": {"starved": 0.25, "road": 0.5, "other": 0.5, "killed": 0.3},
+    "carcass_meat": {"starved": 0.25, "road": 0.5, "other": 0.5, "killed": 0.3, "sick": 0.6},
     "hidden": {"under brush": [0.2, 0.4], "buried": [0.03, 0.06], "off the road": [0.2, 0.2]},
 }
 # Fences round a parcel (livestock.md, D2-130; calibrate): what a build takes for a parcel of size s (x the square root of s), the chance a

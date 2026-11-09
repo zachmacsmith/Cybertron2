@@ -517,6 +517,7 @@ def _technique(here, mind, a, party, verb):
     note = _against(here, thing) if kind == "parcel" and t.get("draws") != "dead" else ""   # dead wood is anyone's (D2-158)
     got, gives, word, extra_got, suffix = 0.0, t.get("gives"), "", "", ""
     holding = None
+    after = ""                                                                 # what was noticed on the way, after the outcome
     if y["kind"] == "stock":
         r = here.parcels()[key]["res"][t["draws"]]
         got = here.apply("draw", parcel=key, key=t["draws"], qty=YD.dist(y, r, m, tm, refuge=here.p["refuge"],
@@ -580,7 +581,7 @@ def _technique(here, mind, a, party, verb):
         thing = ("building", key)
     elif y["kind"] == "wild_take":                                           # a hunt in the wild layer (wild_layer.md, D2-199)
         from cybertron2.engine import wild as WL
-        _, word = WL.take(here, mind, tech, key, place_name, out, m, y, a)
+        _, word, after = WL.take(here, mind, tech, key, place_name, out, m, y, a)
         gives = None                                                            # its goods are made by the hunt, by kind
     elif y["kind"] == "wild_shut":                                           # hens shut in for the night (wild_layer.md, wave 2)
         from cybertron2.engine import wild as WL
@@ -618,7 +619,7 @@ def _technique(here, mind, a, party, verb):
         if y["kind"] == "slaughter":                                          # where the meat and hide went (D4-70)
             word = word.rstrip(".") + (" (now in your hands)." if out == here.hands else
                                        f" (put into {here.buildings()[out[len('stock:'):]]['name']})." if out.startswith("stock:") else ".")
-        return word if not for_txt else word.rstrip(".") + for_txt + "."
+        return (word if not for_txt else word.rstrip(".") + for_txt + ".") + after
     if y["kind"] == "chance" and got <= 0:
         return f"You hunted in {place_name}{note} and caught nothing{extra_got}."
     via = f" with your {tool}" if tool else (" with your bare hands" if t.get("tools") else "")

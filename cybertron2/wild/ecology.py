@@ -288,6 +288,9 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
     carrion = carrion * 0.5 ** (1.0 / S)
     # 3-4. condition, death, birth, people's take
     dis = knobs.get("disease", 0.15)
+    from cybertron2.wild import diseases as DS
+    extra = DS.step(m, st, day, N, draws)                                 # named diseases spreading by host and area (wave 4)
+    named = DS.hosts_of()
     for k in m.names:
         kd = m.kinds[k]
         if not present[k]:
@@ -299,7 +302,9 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
         E[k] = np.clip(E[k], 0, 1)
         crowd = N[k] / np.maximum(m.crowd_at[k] * m.suit[k], 1e-9)
         surv = np.exp(-kd["m"] / 4 / S - kd["starve"] * short - dis * crowd ** 2 / S)
-        if si == 1 and sd == 0 and kd["migrant"] is None and "epi" in draws:      # an outbreak, likelier when crowded (02zp §11)
+        if k in extra:
+            surv = surv * np.exp(-extra[k])
+        if si == 1 and sd == 0 and kd["migrant"] is None and "epi" in draws and k not in named:   # a background outbreak (02zp §11)
             p_out = np.clip(knobs.get("epi_p0", 0.12) * crowd ** 2, 0, 0.5)
             u = np.asarray(draws["epi"].get(k, np.ones(n)), float)
             surv = np.where(u < p_out, surv * (1 - knobs.get("epi_kill", 0.4)), surv)

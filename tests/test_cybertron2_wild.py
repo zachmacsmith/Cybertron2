@@ -527,3 +527,88 @@ def test_a_marker_shows_on_the_day_it_comes_with_the_sowers_lore(generated):
     assert any("frosts are done" in t for t in ann)
     w.s["day"] += 1                                                                  # gone the next day: a change, not a fact
     assert not _read(w, "Tom", "#wildmark")
+
+
+# ---------------------------------------------------------------------- wave 4: disease by host and area
+def _sicken(w, hid, name="murrain"):
+    from cybertron2.engine import farm as FM
+    h = w.s["herds"][hid]
+    w.apply("set", h["node"], ref=("herd", hid), field="ill", value={name: {"sick": [{"day": w.d, "n": FM.head(h)}], "immune": 0, "new": w.d}})
+
+
+def _sick_n(w, hid, name="murrain"):
+    return sum(int(c["n"]) for c in ((w.s["herds"][hid].get("ill") or {}).get(name) or {}).get("sick", []))
+
+
+def _herd_world(generated):
+    w, WL = _summer_world(generated)
+    hs = {h["parcel"]: [] for h in w.s["herds"].values() if h["node"] == "s4"}
+    for hid, h in sorted(w.s["herds"].items()):
+        if h["node"] == "s4":
+            hs[h["parcel"]].append(hid)
+    shared = next(p for p, l in sorted(hs.items()) if len(l) >= 2)
+    other = next(hid for p, l in sorted(hs.items()) if p != shared and p not in w.s["parcels"][shared]["adj"] for hid in l)
+    return w, WL, hs[shared][0], hs[shared][1], other
+
+
+def test_murrain_goes_through_a_shared_pasture_far_more_than_to_a_herd_kept_apart(generated):
+    from cybertron2.engine import night as N
+    w, WL, sick, mate, apart = _herd_world(generated)
+    _sicken(w, sick)
+    N.night(w); w.s["day"] += 1
+    assert _sick_n(w, mate) > _sick_n(w, apart)
+
+
+def test_a_herd_carries_its_sickness_to_another_village(generated):
+    from cybertron2.engine import night as N
+    w, WL, sick, mate, apart = _herd_world(generated)
+    there = next(h for h in w.s["herds"].values() if h["node"] == "s3")
+    _sicken(w, sick)
+    w.s["herds"][sick].update(node="s3", parcel=there["parcel"], home=there["parcel"])           # driven there
+    N.night(w); w.s["day"] += 1
+    assert any(_sick_n(w, hid) for hid, h in w.s["herds"].items() if h["node"] == "s3" and hid != sick)
+
+
+def test_beasts_dead_of_the_murrain_leave_carcasses_read_as_sickness_and_by_a_herder_as_murrain(generated, monkeypatch):
+    from cybertron2.engine import night as N, signs as SG
+    from cybertron2.wild import kinds as K
+    monkeypatch.setitem(K.DISEASES["murrain"], "mortality", 1.0)
+    w, WL, sick, mate, apart = _herd_world(generated)
+    _sicken(w, sick)
+    w.s["herds"][sick]["ill"]["murrain"]["sick"][0]["day"] = w.d - 2                    # its course run
+    before = sum(1 for c in w.s["containers"].values() if c.get("kind") == "carcass")
+    N.night(w); w.s["day"] += 1
+    cs = [c for c in w.s["containers"].values() if c.get("kind") == "carcass" and c.get("cause") == "sick"]
+    assert len(cs) >= 1 and sum(1 for c in w.s["containers"].values() if c.get("kind") == "carcass") > before
+    rows, x = SG.bundle(w, cs[0])
+    true = [r["text"](x) for _, r in SG.true_rows(rows, x)]
+    assert any("a sickness took it" in t for t in true) and any("died of the murrain" in t for t in true)
+    assert not any("no mark" in t for t in true)
+
+
+def test_a_sick_herd_reads_two_ways_by_the_practice_of_herding(generated):
+    world = _two(generated)
+    for a in world["agents"].values():
+        a["at"] = "s4"
+    world["agents"]["Ann"]["knows"] = {"herd": {"level": "known", "skill": 1.6}}
+    w, WL, sick, mate, apart = _herd_world(world)
+    _sicken(w, sick)
+    ann, tom = _read(w, "Ann", "#wildsick"), _read(w, "Tom", "#wildsick")
+    assert any("murrain in" in t for t in ann) and not any("off their feed" in t for t in ann)
+    assert any("off their feed" in t for t in tom) and not any("murrain" in t for t in tom)
+
+
+def test_a_wild_disease_spreads_along_the_lands_links_and_burns_out_into_immunity(generated):
+    from cybertron2.wild import diseases as DS
+    w, WL = _summer_world(generated)
+    m = WL.model(w)
+    st = {"dis": {"mange": [0.0] * m.n}}
+    a = int(m.la[0])
+    st["dis"]["mange"][a] = 0.3
+    N_ = {k: np.asarray(v, float) * 3 for k, v in w.s["wild"]["state"]["pop"].items()}       # crowded
+    seen = set()
+    for d in range(40):
+        DS.step(m, st, 40 + d, N_, {})
+        seen |= {i for i, x in enumerate(st["dis"]["mange"]) if x > 0.01}
+    assert len(seen) > 1                                                             # it travelled
+    assert max(st["dis_immune"]["mange"]) > 0                                       # and left immunity behind

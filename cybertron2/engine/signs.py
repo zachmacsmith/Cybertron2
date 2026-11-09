@@ -316,11 +316,15 @@ CARCASS = [
          text=lambda x: f"{x.of} lies dead {x.at}, not long dead: the meat would still be good today"),
     dict(when=lambda x: x.fresh and x.starved, sense="sight", p=0.8, reach="near", tags=["animals", "food"], knack="herd",
          text=lambda x: f"the dead {x.beast} {x.at} is all hide and bone: it starved, and there is little meat on it"),
-    dict(when=lambda x: x.fresh and not x.starved and not x.killed, sense="sight", p=0.5, reach="near", tags=["animals"], knack="herd",
+    dict(when=lambda x: x.fresh and not x.starved and not x.killed and not x.sick, sense="sight", p=0.5, reach="near", tags=["animals"], knack="herd",
          text=lambda x: f"no mark on the dead {x.beast} {x.at}: it went down where it stood"),
     dict(when=lambda x: (x.fresh or x.rotten) and x.killed, sense="sight", p=1.0, reach="near", tags=["animals", "danger"],
          text=lambda x: f"the dead {x.beast} {x.at} is torn at the throat and flank, and much of it eaten"),
     dict(when=lambda x: (x.fresh or x.rotten) and x.killed and x.kill_reading, sense="sight", p=1.0, reach="near", knows="hunt",
+         tags=["animals", "danger"], text=lambda x: x.kill_reading.format(beast=x.beast, at=x.at)),
+    dict(when=lambda x: x.fresh and x.sick, sense="sight", p=1.0, reach="near", tags=["animals", "danger"],
+         text=lambda x: f"the dead {x.beast} {x.at} is wasted and filthy with scour: a sickness took it"),
+    dict(when=lambda x: (x.fresh or x.rotten) and x.sick and x.kill_reading, sense="sight", p=1.0, reach="near", knows="herd",
          tags=["animals", "danger"], text=lambda x: x.kill_reading.format(beast=x.beast, at=x.at)),
     dict(when=lambda x: (x.fresh or x.rotten) and x.weather != "fog", sense="sight", p=0.5, tags=["animals"],
          text=lambda x: f"crows going down {x.at}, where something lies dead"),
@@ -1691,16 +1695,16 @@ def carcass_context(w, c):
                            at=("by the road" if on_road else f"at {where}") + (f" ({c['tag']})" if c.get("tag") else ""), off_road=c.get("hidden") == "off the road",
                            age=age, fresh=TH.carcass_fresh(w, c) and not bones, rotten=not TH.carcass_fresh(w, c) and not bones,
                            bones=bones, starved=c.get("cause") == "starved", killed=c.get("cause") == "killed",
-                           kill_reading=_kill_reading(c.get("by")), hide=c["goods"].get("hide", 0) > 0,
+                           sick=c.get("cause") == "sick", kill_reading=_kill_reading(c.get("by")), hide=c["goods"].get("hide", 0) > 0,
                            meat=c["goods"].get("meat", 0) > 0, cold=w.cold(TH.where(w, c)), warm=not w.cold(TH.where(w, c)), weather=EV.weather(w, TH.where(w, c)),
                            snow=EV.snow_lying(w, TH.where(w, c)), dogs=not on_road and any(b["node"] == c.get("node") and b["fittings"].get("dog")
                                                                             for b in w.s["buildings"].values()))
 
 
 def _kill_reading(kind):
-    """How one who has hunted reads a kill by a wild kind (kinds.KILL_READINGS)."""
-    from cybertron2.wild.kinds import KILL_READINGS
-    return KILL_READINGS.get(kind) if kind else None
+    """How the practised read a beast a wild kind killed (kinds.KILL_READINGS) or a disease (kinds.DISEASE_SIGNS)."""
+    from cybertron2.wild.kinds import KILL_READINGS, DISEASE_SIGNS
+    return (KILL_READINGS.get(kind) or (DISEASE_SIGNS.get(kind) or {}).get("carcass")) if kind else None
 
 
 def slaughter_context(here, pid):
@@ -1805,6 +1809,7 @@ def _aftermath(here, add) -> None:
     _wild_eaten(here, add)                                                     # what they ate of the crops and stores
     _wild_mast(here, add)                                                      # the oaks' mast as it comes
     _wild_loads(here, add)                                                     # the fast kinds and the year's markers (wave 3)
+    _wild_sick(here, add)                                                      # disease in the herds and the wild (wave 4)
     for bid, b in here.buildings().items():
         sub, live = [f"building:{bid}"], _dwellers(here, bid)
         for field, rows, most, extra in (("fire_hit", FIRE, 3, {}), ("raided", RAID, 1, {}), ("theft", THEFT, 1, {}),
@@ -1882,7 +1887,7 @@ def _wild_presence(here, add) -> None:
                 spot_rows(here, [row], x, [f"parcel:{spot}"], here.node, spot, add, name=f"wildp{i}{key}", **{key: "hunt"})
 
 
-def _wild_emit(here, rows, x, sub, pid, add, name, fmt, age, who=None, tags=("animals", "farming")) -> None:
+def _wild_emit(here, rows, x, sub, pid, add, name, fmt, age, who=None, tags=("animals", "farming"), key="hunt") -> None:
     """A bundle of wild signs from the kinds' data (kinds.SIGNS and the like): each row in its ages and conditions, read by the
     practised (`knows`), by the rest (`lay`) or by anyone, a watcher's row only by the one who watched; the one rule gives the chance."""
     for j, r in enumerate(rows):
@@ -1899,7 +1904,7 @@ def _wild_emit(here, rows, x, sub, pid, add, name, fmt, age, who=None, tags=("an
             row["knack"] = r["knack"]
         if r.get("cond") == "night":
             row["night"] = True
-        kw = {r["read"]: "hunt"} if r["read"] in ("lay", "knows") else {}
+        kw = {r["read"]: key} if r["read"] in ("lay", "knows") else {}
         spot_rows(here, [row], x, sub, here.node, pid, add, name=f"{name}{j}", only=only, **kw)
 
 
@@ -2038,6 +2043,41 @@ def _wild_loads(here, add) -> None:
         d0 = ((L.get("marks") or {}).get(name) or [None] * m.n)[i]
         if d0 is not None and 0 <= day - int(d0) <= 0:
             emit(mk["rows"], spot(["scrub", "forest", "pasture", "meadow", "field"]), f"wildmark{name[:4]}", mk.get("read"))
+
+
+def _wild_sick(here, add) -> None:
+    """Disease (wild/diseases.py): a herd's new sick beasts the day they fall ill and the next, read by the practised in herding and
+    by anyone; a disease rising past its mark among the wild hosts on the village's land, read by its practice (kinds.DISEASE_SIGNS)."""
+    from cybertron2.engine import wild as WL
+    from cybertron2.wild.kinds import DISEASE_SIGNS
+    w = here._w
+    for hid, h in sorted(here.herds().items()):
+        for name, rec in sorted((h.get("ill") or {}).items()):
+            sg = DISEASE_SIGNS.get(name) or {}
+            if not sg.get("herd") or rec.get("new") is None or not rec.get("sick") or not 0 <= here.day - int(rec["new"]) <= 1:
+                continue
+            pid = h.get("parcel")
+            if pid not in here.parcels():
+                continue
+            x = event_context(here, here.parcels()[pid]["name"], rec["new"])
+            _wild_emit(here, sg["herd"], x, [f"herd:{hid}", f"parcel:{pid}"],
+                       pid, add, f"wildsick{name[:4]}", dict(herd=h["name"]), 0, tags=("animals", "danger"), key=sg["read"])
+    wild = w.s.get("wild") or {}
+    st, land = wild.get("state") or {}, wild.get("land") or {}
+    if not st.get("dis") or here.node not in land.get("home", {}):
+        return
+    m = WL.model(w)
+    i = m.ids.index(land["home"][here.node])
+    spot = next((pid for pid, p in sorted(here.parcels().items()) if p["cover"] in ("forest", "scrub", "pasture", "field")), None)
+    if spot is None:
+        return
+    for name, sg in sorted(DISEASE_SIGNS.items()):
+        now = float((st["dis"].get(name) or [0.0] * m.n)[i])
+        was = float(((st.get("dis_prev") or {}).get(name) or [now] * m.n)[i])
+        if sg.get("wild") and now >= float(sg["least"]) and (was < float(sg["least"]) or now > 1.15 * was):
+            x = event_context(here, here.parcels()[spot]["name"], here.day)
+            _wild_emit(here, sg["wild"], x, [f"parcel:{spot}"], spot, add, f"wilddis{name[:4]}", dict(place=here.parcels()[spot]["name"]), 0,
+                       tags=("animals",), key=sg.get("wild_read", sg["read"]))
 
 
 def road_context(w, name, t, pos):

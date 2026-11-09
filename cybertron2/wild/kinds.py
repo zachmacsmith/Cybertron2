@@ -336,6 +336,40 @@ MARKERS = {
 GDD_BASE, REAL_DAYS = 5.0, 91.0                                                  # degree days over 5 C; real days a season
 
 
+# ---------------------------------------------------------------------- wave 4: disease by host and area (wild_layer.md §6 phase 8)
+# A disease's prevalence in each area among its wild hosts (a share infected), rising with the hosts' crowding (each host's density
+# against its crowding level, weighted) among those not immune, and falling as the sick recover (immune, losing it at `wane` a
+# day) or die; it spreads along the land's links (`mix`, a share a
+# day of the difference) and is seeded in its season by a keyed draw (`seed`: the chance an area is seeded, times crowding squared).
+# `kill`: the hosts' extra death rate a day at full prevalence. Kept hosts (a herd kind): infection a night from the sick in herds on
+# the same parcel (`beta`, by the sick share), less from a parcel beside it (`near`) or the same village (`node`), from the wild
+# hosts' prevalence on the village's land (`wild`), and from beyond the world (`arrive`: a chance a year at each village, a keyed
+# draw); a beast sick for `course` days dies (`mortality`) or recovers, and is then immune. `milk`: what the sick share costs in milk.
+# Kinds that are hosts to no disease here keep the ecology's background outbreak.
+DISEASES = {
+    "murrain": {"wild": {"red deer": 0.5, "roe deer": 0.3}, "kept": ["cattle"], "beta": 1.6, "near": 0.3, "node": 0.08,
+                "wild_beta": 0.4, "arrive": 0.06, "course": 2, "mortality": 0.45, "milk": 0.8,
+                "rise": 0.5, "recover": 0.3, "wane": 0.01, "kill": 0.03, "mix": 0.06, "seed": 0.04, "season": 1},
+    "mange": {"wild": {"fox": 1.0, "wolf": 0.4}, "rise": 0.45, "recover": 0.2, "wane": 0.03, "kill": 0.08, "mix": 0.05, "seed": 0.15, "season": 2},
+    "hare sickness": {"wild": {"brown hare": 1.0}, "rise": 0.6, "recover": 0.3, "wane": 0.02, "kill": 0.05, "mix": 0.04, "seed": 0.06, "season": 1},
+}
+# the signs of a disease: in a herd (`herd`), in the wild hosts on the village's land when the prevalence passes `least` (`wild`),
+# and how one who knows herding reads a beast it killed (`carcass`)
+DISEASE_SIGNS = {
+    "murrain": {"herd": [R("lay", "sight", 0.9, (0, 0), "beasts of {herd} off their feed, running at the eyes and nose, their dung loose"),
+                         R("knows", "sight", 0.9, (0, 0), "murrain in {herd}: keep them off the common grass and away from every other herd, or it will go through them all")],
+                "wild": [R("knows", "sight", 0.5, (0, 0), "a deer lying dead at the wood's edge, wasted and scoured: the murrain is among the deer")],
+                "carcass": "the {beast} {at} died of the murrain: wasted, the mouth raw, filthy with scour; keep the others away from it",
+                "least": 0.15, "read": "herd", "wild_read": "hunt"},
+    "mange": {"wild": [R("lay", "sight", 0.5, (0, 0), "a thin fox seen by day near the houses, half its coat gone grey and bare"),
+                       R("knows", "sight", 0.6, (0, 0), "mange among the foxes: a bare, scratching fox by day; there will be fewer of them at the hens")],
+              "least": 0.25, "read": "hunt"},
+    "hare sickness": {"wild": [R("all", "sight", 0.6, (0, 0), "hares lying dead in the open fields, untouched"),
+                               R("knows", "sight", 0.5, (0, 0), "a sickness among the hares: dead ones in the open; leave them lie")],
+                      "least": 0.2, "read": "hunt"},
+}
+
+
 # what a technique the wild pack switches off was practice for (the old generic hunt): those who knew it know these
 SKILL_CARRY = {"hunt": ["hunt the wild", "snare hares"]}
 
