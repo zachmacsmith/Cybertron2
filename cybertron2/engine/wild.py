@@ -1407,7 +1407,7 @@ def _dead_from_pool(w, m, st, eff, lent) -> None:
         share = min(1.0, float(eaten[i]) / pool) if eaten is not None and pool > 1e-9 else 0.0
         for cid, f in dead:
             q = TH.eat_flesh(w, cid, f * share, "eaten by carrion birds and beasts")
-            if q >= 0.2:
+            if q >= 0.05:                                                     # birds at it: their sign (a quarter kg and more)
                 w.apply("set_thing", TH.where(w, w.s["containers"][cid]), cid=cid, field="birds", value=w.d)
         st["carrion"][i] = round(max(0.0, float(st["carrion"][i]) - kg * (1.0 - share) * 0.5 ** (1.0 / float(m.S))), 2)
 

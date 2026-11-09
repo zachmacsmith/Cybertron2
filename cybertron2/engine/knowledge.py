@@ -216,8 +216,10 @@ def ready(here, tech, kind, key, a=None) -> str:
                 return "there are no beasts left"
     if kind == "thing":
         c = here.thing(key)
-        if not c or not c.get("body"):
+        if not c or not (c.get("body") or c.get("beast")):                    # a body, or a dead beast (brief 3 §4)
             return "there is no body there"
+        if c.get("burnt") is not None:
+            return "it has been burned; ash and bone are left"
         if c.get("buried") is not None:
             if str((a or {}).get("method", "")).lower() == "cairn":            # a cairn over the grave, after the burial (D4-99)
                 return f"the grave of {c['of']} already has a cairn" if c.get("cairn") else ""

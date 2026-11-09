@@ -770,7 +770,7 @@ THINGS = {
     "carcass_size": {"cow": "large", "ox": "large", "bull": "large", "calf": "medium", "body": "medium", "hen": "small", "hare": "small"},
     "carcass_sizes": {"small": {"fresh": 1, "rot": 0.6, "burn": {"units": 1, "firewood": 2}},
                       "medium": {"fresh": 1, "rot": 0.4, "burn": {"units": 2, "firewood": 6}},
-                      "large": {"fresh": 2, "rot": 0.25, "burn": {"units": 4, "firewood": 12}}},
+                      "large": {"fresh": 2, "rot": 0.3, "burn": {"units": 4, "firewood": 12}}},
     "carcass_rot_season": {"spring": 1.0, "summer": 1.5, "autumn": 1.0, "winter": 0.5}, "carcass_gone": 0.05,
     "carcass_offal": 0.25, "body_mass": 30, "carcass_kg": 5.0,      # offal as a share of the meat; a unit of meat as kg of carrion
     "hidden": {"under brush": [0.2, 0.4], "buried": [0.03, 0.06], "off the road": [0.2, 0.2]},
