@@ -1,166 +1,128 @@
 # Methods and encounters: people answer the wild by general methods, not one action per animal
 
-**Status:** ready for a decision (9 Nov). Nothing here is decided or built. It is the **build brief for stage 0 and stage 1 of the
-wild layer's core, and pack K0** (docs/review/37_growth/02zv_wild_consolidation.md §2.1, §4): written so that a builder can work
-from this file alone, with the files in §1 for reference.
-**Owner:** 37.2 (author; the wild methods' data). The code it changes outside the wild pack (`verbs.py`, `knowledge.py`,
-`prompt.py`, `perceive.py`) is 37.4's: building it needs their agreement on the board (CLAUDE.md), which waits on Zach.
-**Affects:** spec/environment/wildlife.md (D2-192's "each taken by its own technique and skill"), spec/agents/actions.md,
-spec/information/prompts.md and noticing.md (readings by skill), spec/economy/production.md (skill); code on branch `ecology`:
-engine/data.py (TECHNIQUES, RESOURCES `taken`), engine/wild.py (`take`, `forage`, `site_work`, `guard`, `watch`, `shut`),
-engine/verbs.py (`_technique`), engine/knowledge.py, engine/perceive.py (`practised`), engine/prompt.py (`verb_lines`),
-wild/kinds.py (`SKILL_CARRY`, sign rows' `read`).
+**Status:** ready for a decision (9 Nov). Nothing here is decided or built. **Build brief 1 of 3** for the wild layer's core:
+stage 0 and stage 1 and pack K0 (docs/review/37_growth/02zv_wild_consolidation.md §2.1, §4, as corrected against the engine by
+02zw_wild_engine_comparison.md). Brief 2 is [wild_raiders_and_works.md](wild_raiders_and_works.md) (stages 2 and 3, pack K1);
+brief 3 is [carcass_and_decay.md](carcass_and_decay.md) (stage 4, pack K2). Each is built and its gate passed before the next.
+**Owner:** 37.2 (author; the wild pack's data and `engine/wild.py`, D2-199). Two small edits fall in 37.4's files (§7): they need
+37.4's agreement on the board, which waits on Zach.
+**Affects:** spec/environment/wildlife.md (D2-192's "each taken by its own technique and skill"); code on branch `ecology`:
+`engine/data.py` (wild technique rows; RESOURCES `taken.traits`), `engine/wild.py` (`take`, `site_work`, `guard`, `watch`, `shut`,
+seeding), `engine/knowledge.py` (familiarity), `engine/perceive.py` (`practised`), `engine/prompt.py` (`_craft_note`),
+`engine/verbs.py` (`_technique`'s refusal), `wild/kinds.py` (`SKILL_CARRY`).
 
 ## Summary
 
-Today each wild kind is met by techniques of its own (`stalk deer`, `boar hunt`, `snare hares`, `take the young herons`, `trap
-beavers`, `dig out the fox earth`, four `watch the field` variants, `pick slugs at dusk`, `top the beans`), each with its own table
-of what it takes, its own skill, and all of them seeded to everyone. This replaces them with **a small catalogue of general
-methods** (stalk, drive, snare, trap, net, gather young, den work, pest work, guard, shut), each with **properties**, and gives
-each wild kind **traits**; **one encounter rule** settles what a method meets and takes from the method's and gear's properties
-against the traits of what is there. **Skill has two layers:** the method's (a good snarer snares well), and the person's
-familiarity with a kind (better with the hares one knows than the rabbits one does not). **Targets are determinate:** the
-existing `looking for` names a kind or a sort. **Methods are known by upbringing and by what the land holds**, not by everyone;
-the system text describes each known method as a way of doing, with no multipliers and no lists of kinds; refusals no longer list
-the catalogue. Each kind's behaviour stays in its own module (D2-203); only how people meet it becomes general.
+The wild pack today gives people a technique per kind (`stalk deer`, `boar hunt`, `snare hares`, `take the young herons`, `trap
+beavers`, `dig out the fox earth`, four `watch the field` variants, `pick slugs at dusk`, `top the beans`), each with a hand-written
+table of what it takes, and seeds all of them to everyone. This brief replaces them **inside the engine's existing technique
+system**: general method rows (hunt, stalk, drive, snare, net, trap in water, den work, gather young, pest work, guard, shut) of the
+same shape as today's rows; each kind gains a few **traits**; each method's take table is **generated at load** from the method's
+needs and favours against the kinds' traits, so `wild.take` is unchanged. **Skill has two layers:** the method's (the existing
+per-technique skill) and a new **familiarity by kind**. Methods are **known by upbringing and by what the land holds**. The system
+text describes known methods without multipliers; refusals stop listing the catalogue. Agents see the same verbs, the same grammar
+and the same results; only the technique names, which ones they know, and a line on the kinds they know change.
 
-## 1. For the builder: what to read, what holds, what to ignore
+## 1. For the builder
 
-**This file is the single source for this stage.** Where another document differs, this file holds.
+**This file holds for this stage** wherever another document differs (read 02zw for why).
 
-Read, in this order:
-1. `CLAUDE.md` (both repositories' notes; the rules on spec, proposals, ownership, commits).
-2. `docs/scenario_design.md` (why the wild layer exists) and `docs/review/37_growth/02zr_wild_purpose_brief.md`.
-3. `docs/review/37_growth/02zv_wild_consolidation.md` §1, §2 (C1, C2, C3, C14, C15) and §4 K0: the plan this stage belongs to.
-4. `docs/cybertron2/guides/senses.md` (any sign you touch).
-5. The code on branch `ecology` listed under Affects, and `tests/test_cybertron2_wild.py`.
+Read first: `CLAUDE.md` (both); `docs/scenario_design.md`; `docs/review/37_growth/02zr_wild_purpose_brief.md`; 02zw (the
+comparison: how each piece already works); `docs/cybertron2/guides/senses.md` (any sign you touch); on branch `ecology`:
+`engine/data.py` (TECHNIQUES, RESOURCES), `engine/wild.py` (`take`, `forage`, `site_work`, `guard`, `watch`, `shut`, `_reach`,
+`_wanted`), `engine/verbs.py` (`_technique`), `engine/knowledge.py`, `engine/prompt.py` (`verb_lines`, `_craft_note`),
+`engine/perceive.py` (`practised`), `wild/kinds.py`, `tests/test_cybertron2_wild.py`.
 
-Ignore for this stage (they are superseded or belong to later stages): `wild_behaviour.md` v2's facets (§3) and per-kind designs
-(§4); 02zr's conversion of acts into real days, its attention budget and its institutions; 02zr to 02zu's build orders (02zv's
-replaces them); forays (stage 5), standing works (stage 3), decay (stage 4), shared perception and wind (stage 2).
+Ignore for this stage: `wild_behaviour.md` v2's facets and per-kind designs; 02zr to 02zu's build orders and their redesigns of
+the verbs (02zw §1 explains why they are not needed); forays, set traps, decay, shared perception (later briefs).
 
-**Do not:** build anything social into the engine (no offices, customs, closed seasons, bounties, rights, standing effects);
-filter or cap signs for attention; convert acts into real days; put kind names in method code; run live LLM runs (dry runs only,
-unless Zach allows one); write run logs into the repository (the session's scratchpad only).
+**Do not:** add a new verb or change the reply grammar; change `take`'s structure; build anything social (offices, customs, closed
+seasons, bounties, rights, standing effects); cap or filter signs; convert acts into real days; put kind names in method rows; run
+live LLM runs (dry runs only unless Zach allows); write run logs into the repository.
 
-## 2. Traits on kinds (C1)
+**Branch:** work on a branch from `ecology` (`ecology-methods`); small commits with the session trailers; `git pull --rebase`
+before pushing; the existing tests stay green.
 
-Each wild kind (RESOURCES rows with `pack: wild`, and the site and load kinds) gains a `traits` row. A trait is a physical fact
-about the animal, never about a method. The vocabulary (values `calibrate`):
+## 2. Traits on kinds
 
-| Trait | Values | Meaning |
-|---|---|---|
-| `size` | tiny, small, medium, large | body size; a method's size range selects on it |
-| `runs` | true, false | uses fixed runs, racks or paths (a snare or a trap can be set on them) |
-| `social` | solitary, group, flock | lives alone; in a group that moves together (a herd, a sounder, a pack); in a flock that lands where its kind feeds |
-| `home` | none, den, burrow, lodge, colony, form | a fixed home it returns to (den work, gathering young, a lodge trap) |
-| `water` | true, false | lives or moves in water (traps in water, angling) |
-| `mover` | false, cue | moves on a cue in a run (the eel night) |
-| `scent` | weak, strong | how much scent it leaves (a hound follows it) |
-| `senses` | nose, eyes, ears (any of) | what it notices people by (stage 2 reads it; this stage stores it) |
-| `active` | day, dusk, night | when it is about |
-| `danger` | none, low, high | turns on a taker (D2-193; the existing `danger` rows stay as its numbers) |
+RESOURCES rows of the wild pack gain `taken.traits` (values `calibrate`); the existing `taken.detect`, `flee`, `danger`, `goods`
+and `family` stay and keep their meaning.
 
-The existing per-kind numbers stay where they are and keep their meaning: `taken.detect`, `taken.flee`, `taken.danger`,
-`taken.goods`, `taken.family` (the names and sorts that `looking for` resolves).
-
-**The first rows** (values `calibrate`; the builder fills the rest of the wild kinds the same way and lists them in the test):
-
-| Kind | size | runs | social | home | water | scent | active | danger |
-|---|---|---|---|---|---|---|---|---|
-| red deer | large | true | group | none | false | strong | dusk | low |
-| roe deer | medium | true | solitary | none | false | strong | dusk | none |
-| wild boar | large | true | group | none | false | strong | night | high |
-| brown hare | small | true | solitary | form | false | weak | night | none |
-| woodpigeon | small | false | flock | none | false | weak | day | none |
-| fox | medium | true | solitary | den | false | strong | night | low |
-| wolf | large | true | group | den | false | strong | night | low |
-| brown bear | large | false | solitary | den | false | strong | dusk | high |
-| wildfowl | small | false | flock | none | true | weak | dusk | none |
-| eel | small | false | solitary | none | true | weak | night | none |
-| heron (the heronry) | medium | false | group | colony | false | weak | day | none |
-| rook (the rookery) | small | false | flock | colony | false | weak | day | none |
-| beaver (the lodge) | medium | false | group | lodge | true | weak | night | none |
-
-Eel also carries `mover: cue`. The crop loads (slugs, aphids, the bean grubs) carry `on_crop: true` and `size: tiny`.
-
-## 3. Methods with properties (C1, C3)
-
-A method is a TECHNIQUES row of a new shape. Fields:
-
-| Field | Holds |
+| Trait | Values |
 |---|---|
-| `verb` | gather or work (unchanged verbs) |
-| `label`, `aliases` | how people name it; its words in the system text (§7) |
-| `needs` | traits a target must have, or the method cannot take it (e.g. snare: `runs: true` and `size` in small to medium) |
-| `favours` | traits that raise the match (e.g. net: `social: flock`), each with a factor |
-| `size` | the size range it takes |
-| `at` | where it can be done (covers, a site, water), as now |
-| `units`, `crew` | its units; whether it is crew work and how a crew changes it (more hands raise the take and, from stage 2, the noise) |
-| `gear` | gear it needs or that helps, by property (§4) |
-| `skill` | its skill family (the first layer, §5) |
-| `untaught` | tryable or not (D2-93), as now |
-| `basic` | true only for methods anyone could do without being shown (§6) |
+| `size` | tiny, small, medium, large |
+| `runs` | true or false: uses fixed runs or paths |
+| `social` | solitary, group, flock |
+| `home` | none, den, burrow, lodge, colony, form |
+| `water` | true or false |
+| `mover` | false or cue (moves on a cue in a run) |
 
-**The first catalogue** (replacing the techniques in §8; numbers `calibrate`):
+| Kind | size | runs | social | home | water |
+|---|---|---|---|---|---|
+| red deer | large | true | group | none | false |
+| roe deer | medium | true | solitary | none | false |
+| wild boar | large | true | group | none | false |
+| brown hare | small | true | solitary | form | false |
+| woodpigeon | small | false | flock | none | false |
+| fox | medium | true | solitary | den | false |
+| wolf | large | true | group | den | false |
+| brown bear | large | false | solitary | den | false |
+| wildfowl | small | false | flock | none | true |
+| eel | small | false | solitary | none | true (`mover: cue`) |
 
-| Method | Verb | Needs | Favours | Gear |
-|---|---|---|---|---|
-| **hunt** (search on foot and take what comes) | gather | size small to large | | a weapon helps |
-| **stalk** | gather | size medium to large; `runs` or `social: solitary` | `active: dusk` | a bow or spear helps much |
-| **drive** (a crew beats toward standers) | gather | size medium to large; `social: group` | `danger` met by a crew | spears; a crew needed |
-| **snare** | gather | `runs: true`; size small to medium | `home: form` | cord or snares needed |
-| **net** | gather | size small; `social: flock` | `water: true` (at water) | a net needed |
-| **trap in water** | gather | `water: true`; size small | `mover: cue` on its nights (the existing `when` rows) | traps needed |
-| **den work** (dig out a den, burrow or lodge) | gather | `home` in den, burrow, lodge | | spades help; a dog helps |
-| **gather young** (from nests or a colony) | gather | `home: colony` | | |
-| **gather wild food** | gather | (the plant stocks, unchanged) | | a basket helps |
-| **pest work** (pick, top or clear a crop's pests) | work | `on_crop: true` | | |
-| **break a dam** | work | a dam at the place | | spades help |
-| **burn stubble** | work | (a field after harvest; unchanged) | | firewood |
-| **guard** (watch a place by night) | work | (no target: the raiders' rules read it, unchanged) | | deterrents held: a fire, clappers, a horn, a dog |
-| **shut** (a door on a building or pen) | work | (no target; a door state, already general for stores) | | |
+Sites (kinds.SITES: heronry, rookery, beaver lodge) carry `home: colony` or `home: lodge` on the site row. Crop loads (slugs,
+aphids, ladybirds' larvae) carry `on_crop: true`. Further traits (scent, senses, when active) wait for the stage that reads them.
 
-`gather young` and `den work` keep the site rules that exist (the heronry's and rookery's tolerance and the lodge's state,
-`site_work`); the method only replaces the per-site technique names. `pest work` takes the action by the load's own row (what
-removing it does: pick, top or clear), so one method answers every crop load.
+## 3. Method rows
 
-## 4. Gear by property
+Each method is a TECHNIQUES row of today's shape (verb, label, aliases, `at`, units, `crew`, `uses`, `weapon`, `untaught`,
+`reads_as`, `yield`), with two new fields read only at load: `needs` (traits a target must have) and `favours` (traits that raise
+the match, with a factor). The loader builds `yield.takes` from them (§4); a guard test forbids hand-written `takes` on these rows.
 
-Gear carried (in hands or led) contributes properties the encounter rule reads; the method's `gear` says which it needs and which
-help. This replaces the techniques' `weapon: {none, armed}` and, for these methods, the tool multipliers.
+| Method (row) | Verb | Needs | Favours | Gear (`uses` / `weapon`) | Units | Replaces |
+|---|---|---|---|---|---|---|
+| `hunt` | gather | size small to large | | weapon helps | 2 | hunt the wild |
+| `stalk` | gather | size medium to large; `runs` | solitary x1.5 | weapon helps much | 3 | stalk deer |
+| `drive` | gather (crew) | size medium to large; `social: group` | | weapon helps; crew | 4 | boar hunt |
+| `snare` | gather | `runs`; size small to medium | `home: form` x1.5 | (cord or snares when they exist, brief 2) | 1 | snare hares |
+| `net` | gather | size small; `social: flock` | `water` x1.5 at water | (a net when it exists) | 2 | fowling |
+| `trap in water` | gather | `water`; size small | `mover: cue` on its nights (the existing `when` rows) | | 1 | set eel traps |
+| `den work` | gather | `home` in den, burrow, lodge | | weapon helps; spades help | 3 | dig out the fox earth, trap beavers |
+| `gather young` | gather | a site with `home: colony` | | | 1 to 2 | take the young herons, take the young rooks |
+| `pest work` | work | a load with `on_crop` | | | 1 to 2 | pick slugs at dusk, top the beans, clear the grubs off the beans |
+| `break a dam` | work | a dam at the site | | | 2 | break the beaver dam |
+| `guard` | work | (a place; the scare is what is held) | | firewood, clappers, a horn, the dog fitting | 2 | watch the field (fire, clapper, horn, dog) |
+| `shut` | work | (a building) | | | 1 | shut the hens in |
 
-| Gear | Property | Used by |
-|---|---|---|
-| a weapon (spear, bow; the engine's weapons) | `strike` by its strength | hunt, stalk, drive |
-| cord or snares | `noose` | snare |
-| a net | `mesh` | net |
-| traps (wicker) | `trap` | trap in water |
-| a spade (a tool) | `dig` | den work, break a dam |
-| a dog led (D4-58) | `scent`, `scare` | hunt, den work, guard |
-| a fire, clappers, a horn | `scare` by kind (the existing D2-198 rows) | guard |
+Unchanged (they name goods or a field work, not a kind): `gather wild food`, `burn the stubble`, `make clappers`, `make a horn`,
+`leach acorns`, and the modifiers `range` and `looking for`.
 
-Where a needed gear is missing the method cannot be done and the refusal says what is missing ("you have no net"); help gear
-missing lowers the take.
+**How the merged rows keep today's behaviour:**
+- `den work` at a lodge runs today's `site_work` trap branch; at a fox earth, today's `take` with the fox's litter rule (the litter
+  row moves onto the fox's RESOURCES row, keyed to `home: den`).
+- `gather young` runs today's `site_work` take branch for whichever colony site is at the parcel.
+- `pest work` runs today's `guard` with the load named by the field's worst load present, or by `looking for` (the load's row says
+  its cut and days, as now: `yield.load`, `cut`, `days`, `thin` move from the technique rows onto the load rows).
+- `guard` runs today's `watch`; the scare is read from what the person holds (firewood, clappers, a horn) or the house's dog, in
+  that order unless `looking for` names one (the four rows' `scare` and `uses` become a table on the method).
+- Old names stay as `aliases` of the new rows for one release, so recorded runs replay exactly and older worlds resolve.
 
-## 5. The encounter rule and skill (C1, C3)
+## 4. The generated take table
 
-**One rule for every take** (generalising `wild.take`, whose structure it keeps): for each kind `k` in the areas the act reaches,
+At load, for each method with `needs`, and each wild kind `k` with `taken.traits`:
 
 ```
-weight(k, area) = count(k, area) x detect(k) x effects(k) x quiet(pressure) x match(method, gear, k) x focus(target, k) x when x reach_falloff
-match(method, gear, k) = 0 if any `needs` fails, else  product(favour factors met) x size_fit(method, k) x calibration(method, k)
+takes[k] = 0                                  if any need fails
+takes[k] = base(method) x product(favour factors met) x size_fit(method, k) x calibrate(k, method)
 ```
 
-The rest of `take` stays: one draw among the candidates, then danger (D2-193), flight, the take, the wounded beast, legends,
-leaders, pressure, the litter. `calibration(method, k)` is 1.0 unless a row on the **kind** says otherwise: per-pair numbers are
-allowed only as audited calibration rows on the kind's data (`taken.calibrate: {method: x}`), each with a comment saying why, and
-a guard test counts them (at most one per kind for this stage).
+`size_fit` is 1.0 inside the method's size range and 0 outside. `calibrate(k, method)` is 1.0 unless the kind's row carries
+`taken.calibrate: {method: x}` with a comment saying why; a guard test counts these (at most one per kind at this stage). `take`
+then runs exactly as today with this table.
 
-**Calibration target for K0:** with the new rule, the share of each kind among takes, per old technique, on fixed seeds, lands
-within about a third of the old tables:
+**Calibration target (fixed seeds, scripted bots, the share of each kind among takes per old technique):** within about a third of
 
-| Old technique | Old weights (what each took) |
+| Old technique | Old weights |
 |---|---|
 | hunt the wild | red deer 1.0, roe deer 1.0, boar 0.6, hare 0.8, woodpigeon 0.3, fox 0.3, wolf 0.2, bear 0.1 |
 | stalk deer | red deer 2.5, roe deer 2.5, boar 0.3, wolf 0.1 |
@@ -168,137 +130,97 @@ within about a third of the old tables:
 | snare hares | hare 3.0, fox 0.2 |
 | fowling | wildfowl 3.0, woodpigeon 0.2 |
 | set eel traps | eel 3.0 (x2 on eel nights) |
-| dig out the fox earth | fox 4.0 (and the cubs in spring) |
+| dig out the fox earth | fox 4.0, with cubs in spring |
 
-**Skill in two layers** (Zach, 9 Nov):
-- **The method's skill:** the existing knowledge record and multiplier (knowledge.py `skill`, D2-52), kept per method (so per
-  family: stalking, snaring, netting), earned by practice and teaching as now. It carries to every target the method can take.
-  `SKILL_CARRY` is no longer needed.
-- **Familiarity with a kind:** `Mind.know` gains a record per kind or sort met by the person (`familiar: {kind: x}`, 0 to 1), raised
-  by taking it, by seeing its signs while working (the noticing rule's events), and by being taught about it; it carries in part to
-  kinds that share most traits (deer to deer, `calibrate`), never to a whole method. It multiplies the take for that kind (about
-  1.0 unfamiliar to 1.5 well known, `calibrate`), and it gates the per-kind expert readings that exist today (`expert:t`,
-  `reads_as`): one reads a kind's expert signs when familiar with it, and its ordinary signs by the method family one practises.
-- Both are told in words, never numbers (agent_view.md): "you snare well; you know the hares of these fields".
+## 5. Skill in two layers (Zach, 9 Nov)
 
-## 6. Who knows what (seeding)
+- **The method's skill** is the existing per-technique record (`knowledge.skill`, levels aware, rough, capable, known; D2-52,
+  D4-24): since a method is one technique, a good stalker stalks red deer and roe alike. `SKILL_CARRY` is removed.
+- **Familiarity by kind** (new): `Mind.know` gains `familiar: {kind: x}` (0 to 1). It rises when the person takes the kind (+0.15),
+  notices one of its signs while working (+0.03), or is taught about it (to at least 0.4); it carries at half to kinds sharing the
+  method's needed traits (red deer to roe), never to the whole method; it fades slowly when unused (calibrate). In `take`, the
+  candidate weight and the take chance for `k` are multiplied by `1 + 0.5 x familiar[k]` (calibrate). It also gates the existing
+  per-kind expert readings: a reading marked `expert` for kind `k` is shown to a person whose `familiar[k]` is at least 0.6 (today
+  it is the technique's level, `perceive.practised`).
+- Both are told in words: the method's level as now; familiarity in the know-how lines ("you know the hares and roe of these
+  parts"), never as numbers.
 
-- **Basic** (known to everyone, D4-103): only what anyone could do without being shown: `hunt`, `gather wild food`, `guard`,
-  `shut`, `pest work`, `burn stubble`.
-- **By upbringing and the land** (D4-21): at a world's start each household knows the methods whose targets its land holds within
-  the ring (wild/areas.py), and its members carry familiarity with those kinds; a household by water knows `trap in water` and
-  `net`; one by a wood with deer knows `stalk`; one by a heronry or rookery knows `gather young`; one with a fox earth near knows
-  `den work`; `drive` is known where a wood holds a group kind. The generator's experts (run 5's expert heads) keep their levels.
-- **Not known:** a method nobody's land calls for is known by nobody at the start; it can be learnt as any craft (D4-24: watching,
-  being told, being taught, trying where tryable).
-- Methods that need being shown (`drive`, `den work`) are not tryable untaught; the rest are tryable at the lowest level.
+## 6. Who knows what
 
-## 7. What the agent sees
+- **Basic** (known to all, D4-103): `hunt`, `gather wild food`, `guard`, `shut`, `pest work`, `burn the stubble`.
+- **By the land** (D4-21), at world build: a household knows a method if its node's land within the ring (wild/areas.py) holds a
+  kind or site the method can take (from §4's table): water with eels or fowl gives `trap in water` and `net`; a wood with deer
+  gives `stalk`; a wood with a group kind gives `drive` to the household heads; a colony site gives `gather young`; a den or lodge
+  gives `den work`. Its members start familiar with those kinds (0.3 to 0.6 by age, calibrate). The generator's experts keep their
+  levels.
+- **Otherwise unknown**, learnt as any craft (watching, being told, being taught, trying where tryable). `drive` and `den work`
+  are not tryable untaught.
+- A world setting `wild.methods_known` (a household to methods map) overrides this for experimental arms (stage 0).
 
-- **Method lines in the system text**, for methods the person knows only (as now, `prompt.verb_lines` filters by level): each as a
-  way of doing, in a sentence, with its gear and its place, at the person's level, and no multipliers and no kinds:
-  "snare: set nooses of cord where beasts run (you need cord or snares); you snare well".
-- **Familiarity lines**, in the person's know-how: "You know the hares and the roe of these parts" (from `familiar`).
-- **The target** is the existing `looking for` slot ("name it, a kind or a sort"): it resolves against `taken.family` names of the
-  world's kinds; a name that resolves is accepted whether or not the kind is here (finding out is the act); a word that names no
-  kind is refused with "you know of no beast called that", **without listing the catalogue**.
-- **Refusals** for an unknown method say so without listing the verb's techniques (today `verbs._technique` lists them all);
-  a method whose gear is missing says what is missing.
-- **Results** say what happened in the world's terms and name the kind and, where it failed, why ("a covey rose before the net";
-  "nothing uses runs on this ground").
+## 7. What agents see
 
-## 8. K0: converting what is built
+- **Method notes** in the system text (`prompt._craft_note`, 37.4's file): a sentence of what the method is, its gear and place, no
+  multipliers and no kinds: "stalk: go quietly after a beast that keeps to its paths, and take it with a weapon".
+- **Familiarity** in "What you know how to do": one line of the kinds the person knows.
+- **Targets:** the existing `looking for` (a kind or a sort, resolved against `taken.family`); a name that resolves is accepted
+  whether or not the kind is here; an unknown word is refused with "you know of no beast called that".
+- **Refusals** (`verbs._technique`, 37.4's file): an unknown method is refused without listing the verb's techniques.
+- **Results** keep today's lines (`take`, `site_work`, `guard`, `watch`).
 
-| Built technique | Becomes |
-|---|---|
-| `hunt the wild` | `hunt` |
-| `stalk deer` | `stalk`; `looking for: deer` where the agent says so |
-| `boar hunt` | `drive`; `looking for: boar` |
-| `snare hares` | `snare` |
-| `fowling` | `net` |
-| `set eel traps` | `trap in water` |
-| `dig out the fox earth` | `den work` (any den, burrow or lodge; the fox's litter rule stays on the fox) |
-| `take the young herons`, `take the young rooks` | `gather young` at the site |
-| `trap beavers` | `den work` at a lodge |
-| `break the beaver dam` | `break a dam` |
-| `pick slugs at dusk`, `top the beans`, `clear the grubs off the beans` | `pest work` (the load's row says how) |
-| `burn the stubble` | `burn stubble` (unchanged; it names no kind) |
-| `watch the field (fire / clapper / horn / dog)` | `guard`, with the deterrents held as gear |
-| `shut the hens in` | `shut` |
-| `make clappers`, `make a horn`, `leach acorns` | unchanged (recipes that name goods, not kinds) |
-| `range: near / the wood around / far`, `looking for` | unchanged modifiers (reach is the forays' later) |
+## 8. Stage 0 alongside
 
-Old names stay as aliases of the new methods for one release, so replayed and older worlds still resolve; the journal's recorded
-acts replay unchanged.
+- **Diagnostics** (in the scratchpad's `analyse_run.py`, never read by the engine): takes by method and kind; distinct methods per
+  household; familiarity gained; refusals by reason; wild sign lines per agent-day.
+- **The world setting** `wild.methods_known` (§6).
 
-## 9. Diagnostics and world options (C15, C14: stage 0)
+## 9. Tests (the gate)
 
-- **Diagnostics** (measured, never acted on): per run, takes by method and kind; distinct methods used per household; familiarity
-  gained; refusals by reason; wild sign lines per agent-day; written to the run's analysis, never read by the engine.
-- **World options:** a `world.wild.methods_known` override (which households know which methods), so arms can start a world with
-  more or fewer methods known; forest law and D2-194 rights wait for later stages.
-
-## 10. Tests
-
-**Guard tests:**
-- no TECHNIQUES row of the wild pack names a wild kind in its label, needs, favours or yield (the kind names come from RESOURCES);
-- calibration rows on kinds are counted and at most one per kind;
-- the system text for any person contains no tool multipliers for these methods and no list of kinds;
-- a refusal never lists the catalogue.
-
-**Unit tests:**
-- `match` is zero when a need fails (a snare on ground with no runs takes nothing; a net takes no deer);
-- one method answers several kinds: the snare takes hares and, rarely, a fox; the net takes fowl and pigeons; den work answers a
-  fox earth and a beaver lodge;
-- skill: practice at stalking raises the take of red deer and roe alike; familiarity with hares raises the snare's take of hares
-  and not of foxes; two snarers of equal method skill, one familiar with hares and one with rabbits (when rabbits exist), each does
-  better on its own kind; both beat an unpractised snarer;
-- seeding: a household with no water in its ring does not know `trap in water`; one by a heronry knows `gather young`;
-- old names resolve as aliases; replay of a recorded run with the old names is exact.
-
-**Regression (dry runs, no LLM):** the scripted-bot runs used for waves 1 to 5 (the wild_year probes in the scratchpad's
-`eco/probe`) on fixed seeds: food from wild takes per household-season within about a third of before; the calibration table in §5;
-the 467 existing tests pass (amended only where a technique was renamed).
+- Guard: no wild method row names a kind or carries hand-written `takes`; calibration rows counted (at most one per kind); the
+  system text has no tool multipliers for these methods and no list of kinds; a refusal never lists the catalogue.
+- Unit: a need that fails gives zero (a snare where nothing uses runs; a net on deer); one method answers several kinds (the snare,
+  hares and now and then a fox; den work, a fox earth and a lodge); method skill earned on red deer raises roe; familiarity with
+  hares raises the snare's hares and not its foxes; seeding (no `trap in water` without water in the ring; `gather young` by a
+  heronry); old names resolve as aliases; replay of a recorded run is exact.
+- Regression (dry, scripted bots on fixed seeds, the wild_year probes in the scratchpad's `eco/probe`): §4's shares within about a
+  third; food from wild takes per household-season within about a third of before; all 467 existing tests pass, amended only for
+  renames.
+- **Gate to brief 2:** all of the above, and a short dry-run report to Zach.
 
 ## Why
 
-- Zach (9 Nov): "bespoke single actions should in general usually instead be using general methods in a specific way"; "we don't
-  want to entrench the nature of villages and societies in their current methods because each animal requires the action 'do this
-  thing at this time'"; "skill can still vary within a technique based on target as another layer"; "someone should only ever know
-  the things they know"; "they should know enough to at least know how to use the different techniques"; targets "need to be
-  determinate".
-- 02zs §7 and §8.1, 02zu §C.5 and C.7, 02zv C1 to C3: one rule over traits and properties lets new kinds be answered by existing
-  methods, and better gear or skill answer more of them.
-- Run 6's recorded system text: every agent was seeded about 60 crafts, including taking young herons and trapping beavers in
-  villages with neither; the know-how list grew from about 1,700 to 2,750 characters with the pack.
+- Zach (9 Nov): "bespoke single actions should in general usually instead be using general methods in a specific way"; "skill can
+  still vary within a technique based on target as another layer"; "someone should only ever know the things they know"; "they
+  should know enough to at least know how to use the different techniques"; targets "need to be determinate"; and that the reviews
+  lacked the engine's context, so everything is built from how the engine already works.
+- Run 6's recorded system text: every agent was seeded about 60 crafts, including taking young herons and trapping beavers where
+  there were none; the know-how list grew from about 1,700 to 2,750 characters with the pack.
 
 ## Alternatives considered
 
-- **Keep per-kind techniques, fix only the seeding:** cheaper, but every new kind needs a new technique, and skill never transfers.
-- **Skill per method only (no familiarity):** simpler, but it loses the hunter who knows these hares, and D2-192's own skill.
-- **Free-text targets:** not feasible outside forays (Zach); the determinate `looking for` is kept.
-- **A trait-property rule with no calibration rows:** cleaner, but the old tables hold real asymmetries (the bear rarely met);
-  audited rows keep them without growing back into tables.
+- **New verbs with shared slots and a new encounter function** (02zu C.5): not needed; the engine's verbs and `take` already have
+  that shape (02zw §1).
+- **Keep per-kind rows, fix only the seeding:** cheaper, but each new kind needs a new technique and skill never carries.
+- **Skill per method only:** loses the hunter who knows these hares, and D2-192's own skill.
 
 ## Open questions (for Zach)
 
-1. Adopt this as stage 1 (02zv §6, items 1, 2, 5, 6), replacing D2-192's "each taken by its own technique and skill" with
-   "general methods, with skill by method and familiarity by kind"?
-2. May 37.2 raise the changes to `verbs.py`, `knowledge.py`, `prompt.py` and `perceive.py` with 37.4 on the board, and build them on a
-   branch of `ecology` once agreed?
-3. A target name resolves whether or not the kind is here (finding out is the act): agreed, or only kinds the person has met?
-4. Which methods are basic (§6): is the list right?
+1. Adopt this as stage 1, replacing D2-192's "each taken by its own technique and skill" with "general methods, with skill by
+   method and familiarity by kind"?
+2. May 37.2 raise the two edits in 37.4's files (`prompt._craft_note`, `verbs._technique`'s refusal) and the familiarity record in
+   `knowledge.py` with 37.4 on the board?
+3. A target name resolves whether or not the kind is here: agreed?
+4. The basic list (§6): right?
 
 ## History
 
-- 9 Nov 2026: written as the build brief for stages 0 and 1 and pack K0 of 02zv, after Zach asked whether everything was written up
-  well enough for another agent to build it without doing things wrong (it was not: the spec's D2-192 points the other way, the
-  notes disagree, nothing was decided, and the design lacked the details a builder needs). With Zach's answers of 9 Nov: targets
-  determinate on `looking for`; the system text lists only what one knows, as ways of doing; a second layer of skill by target.
+- 9 Nov 2026: first written as the build brief for stages 0 and 1 and pack K0 of 02zv.
+- 9 Nov 2026: rewritten after Zach asked why stage 1 read as an overhaul and pointed out that the reviews lacked the engine's
+  context: checked against the code (02zw), the brief now works inside the existing technique system (rows of today's shape, a take
+  table generated at load, `take` unchanged), with familiarity as the only new mechanism; split into three briefs.
 
 ## Sources
 
-docs/review/37_growth/02zv_wild_consolidation.md (C1 to C3, C14, C15, K0), 02zu_wild_chains_capital_actions.md §C, 02zs_wild_development.md
-§7 and §8.1, 02zq_wild_audit.md; proposals/knowledge.md, agent_view.md, use_by_physics.md, wild_behaviour.md; spec/environment/wildlife.md;
-branch `ecology`: cybertron2/engine/data.py, wild.py, verbs.py, knowledge.py, prompt.py, perceive.py, wild/kinds.py; the scratchpad's
-wild_run6/run.json (system text sizes); D2-52, D2-93, D2-192, D2-193, D2-198, D2-203, D4-21, D4-24, D4-58, D4-103.
+docs/review/37_growth/02zw_wild_engine_comparison.md, 02zv_wild_consolidation.md (C1 to C3, C14, C15, K0); proposals/knowledge.md,
+agent_view.md; spec/environment/wildlife.md; branch `ecology`: `engine/data.py`, `wild.py`, `verbs.py`, `knowledge.py`, `prompt.py`,
+`perceive.py`, `wild/kinds.py`; the scratchpad's `wild_run6/run.json`; D2-52, D2-93, D2-192, D2-198, D2-199, D2-203, D4-21, D4-24,
+D4-78, D4-103.

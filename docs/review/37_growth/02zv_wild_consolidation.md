@@ -1,5 +1,7 @@
 # 02zv: the wild layer consolidated: core engine changes, content ledger and packs (9 Nov)
 
+> **Corrected against the engine (9 Nov):** [02zw_wild_engine_comparison.md](02zw_wild_engine_comparison.md) checks each core change here against the code and the spec; much of C1 to C3, C6, C7 and C10 already exists, C4, C5, C8, C11, C12 move later. The build briefs are proposals/methods_and_encounters.md, wild_raiders_and_works.md and carcass_and_decay.md; where they differ from this file, they hold.
+
 Zach (9 Nov): "do a consolidation of what it has suggested into what are the core mechanism / engine changes vs content changes and
 then triage all the content changes (kinda like how you already ranked them) and organise into packs. This shouldn't lose content
 unless you explicitly decide it shouldn't be added, but can add some of the content to less important packs and the core ones to
