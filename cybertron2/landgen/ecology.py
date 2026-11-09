@@ -102,6 +102,12 @@ def natural(L) -> None:
     eco[tidal] = "saltmarsh"
     eco[tn == "saltmarsh"] = "saltmarsh"
     eco[tn == "rock"] = "bare rock"
+    # waterlogged ground anywhere grows wet wood, not the terrain's dry wood (02zp: the plant model's carr)
+    soak = np.isin(eco, ["oak-ash wood", "beech wood", "birch and pine wood"]) & (wet >= float(L.conf.get("carr_wet", 0.85)))
+    eco[soak] = "alder carr"
+    # the tree line follows warmth (02zp): too cold for wood, the tops are moor, or bog where wet and flat
+    cold = (L.temp < float(L.conf.get("treeline_c", 4.6))) & np.isin(eco, FORESTS)
+    eco[cold] = np.where((wet[cold] >= 0.7) & (sl[cold] < 4), "blanket bog", "moor")
     eco[(tn == "water") | L.sea | L.lake] = "water"
     L.eco = eco
     L.band = np.zeros(L.g.shape, dtype=np.int8)
@@ -163,6 +169,11 @@ def settled(L, sites: list) -> None:
     # wet cleared grass by rivers stays wet grassland; the floodplain's meadow wetter than this is rushy
     hm = (L.eco == "hay meadow") & (L.wet >= 0.85)
     L.eco[hm] = "wet grassland"
+    # cleared ground that lies wet is rushy wet grassland wherever it is, and the wettest flats stay fen (02zp)
+    wg = np.isin(L.eco, ["grassland", "hill pasture", "chalk grassland"]) & (L.wet >= float(conf.get("wet_grass", 0.75)))
+    L.eco[wg] = "wet grassland"
+    fl = (L.eco == "wet grassland") & (L.wet >= 0.95) & (L.slope < 1)
+    L.eco[fl] = "fen"
     moorish = (L.eco == "hill pasture") & (L.h >= 300) & (L.moist >= 0.65)
     L.eco[moorish] = "moor"
     _set_cover(L)

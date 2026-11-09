@@ -59,9 +59,11 @@ def elevation(g: Grid, conf: dict, mf: dict) -> np.ndarray:
     h = h + mf["add"] * (1 + 0.08 * F.fbm(s, "rough", g.x, g.y, 2.0, octaves=3))
     tilt = conf["tilt_m_km"] * {"west": g.x, "east": g.size_km - g.x, "south": g.y, "north": g.size_km - g.y}[conf["wind"]]
     h = h + tilt                                                           # land rises away from the windward side: rivers run to it
-    h = mf["land"] * np.maximum(h, conf["sea_level"] + 2) + (1 - mf["land"]) * (conf["sea_level"] - 30 + 8 * F.fbm(s, "seabed", g.x, g.y, 6.0))
+    datum = float(conf.get("datum", 0.0))                                 # the shapes hold land above this, not above the sea
+    h = mf["land"] * np.maximum(h, datum + 2) + (1 - mf["land"]) * (datum - 30 + 8 * F.fbm(s, "seabed", g.x, g.y, 6.0))
     fen_floor = conf["sea_level"] + 1.2 + 1.0 * F.fbm(s, "fen", g.x, g.y, 2.0, octaves=3)         # just above the sea, so a fen
     h = h * (1 - mf["flat"]) + mf["flat"] * np.maximum(fen_floor, conf["sea_level"] + 0.4)       # drains to it, not into a pit
+    mf["laid"] = np.zeros(g.shape, dtype=bool)                            # the channels as carved (in the shapes' bent space)
     for rv in mf["rivers"]:                                                # a laid river: a channel that runs downhill all the way
         pts = [[a / g.size_km, b / g.size_km] for a, b in rv["through"]]
         d, along = M._poly_dist(mf["px"], mf["py"], pts)                    # in the same bent space as the shapes
@@ -81,8 +83,35 @@ def elevation(g: Grid, conf: dict, mf: dict) -> np.ndarray:
         prof = np.minimum(prof, np.interp(along, A, run))
         floor = conf["sea_level"] + 0.5                                   # a channel never below the sea inland: rivers meeting
         h = np.where(dk < 0.25, np.minimum(h, np.maximum(prof - 2, floor)), h)    # must not dig a sea where they join
+        ch = np.flatnonzero((dk < 0.25).ravel())                           # then the channel falls along its own course (the
+        if ch.size:                                                        # profile above is read at the straight points; the
+            o = ch[np.argsort(along.ravel()[ch], kind="stable")]           # channel lies in the shapes' bent space)
+            hf = h.ravel().copy()
+            hf[o] = np.maximum(np.minimum.accumulate(hf[o]), floor)
+            h = hf.reshape(h.shape)
+        mf["laid"] |= dk < 0.25
         h = np.where((dk >= 0.25) & (dk < 1.5), np.minimum(h, prof + (h - prof).clip(0) * (dk / 1.5)), h)
     return h
+
+
+# absolute bounds (02zp): measured as the medians over the default configurations (10 configurations x 3 seeds) of what each world
+# used to stretch to its own range; a default world comes out much as before, and a different climate or land now differs
+RAIN_MEAN = 0.0458                 # the sweep's mean rain over land, in its own units
+MM_LO, MM_HI = 707.0, 3260.0       # the rain (mm) that used to be each world's 2nd and 98th percentile
+TWI_LO, TWI_HI = 7.29, 15.79       # the wetness index's 2nd and 99.5th percentile
+SURPLUS_REF = 290.0                # the default lowland cell's water surplus, mm a year (about 740 rain less 450 evaporation)
+
+
+def _sea(g: Grid, h: np.ndarray, sea_level: float, mf: dict) -> np.ndarray:
+    """The sea: ground below sea level that joins the ocean (the shapes' sea, or the window's edge); a closed hollow is not sea."""
+    low = h < sea_level
+    lab, n = F.components(low)
+    if n == 0:
+        return low
+    edge = np.zeros(g.shape, dtype=bool)
+    edge[0, :] = edge[-1, :] = edge[:, 0] = edge[:, -1] = True
+    ocean = set(np.unique(lab[low & (edge | (mf["land"] < 0.5))]).tolist()) - {0}
+    return np.isin(lab, list(ocean)) & low
 
 
 def climate(g: Grid, conf: dict, h: np.ndarray, sea: np.ndarray, mf: dict) -> tuple[np.ndarray, np.ndarray]:
@@ -102,8 +131,11 @@ def climate(g: Grid, conf: dict, h: np.ndarray, sea: np.ndarray, mf: dict) -> tu
         v = np.where(ss[:, j], np.minimum(1.3, v + 0.08), np.clip(v - 0.35 * r + 0.004, 0.2, 1.3))
         prev = smooth[:, j]
     rain = np.rot90(rain, -k)
-    lo, hi = np.percentile(rain, 2), np.percentile(rain, 98)
-    m = 0.4 + 0.4 * np.clip((rain - lo) / max(hi - lo, 1e-9), 0, 1) + 0.12 * F.fbm(g.seed, "moist", g.x, g.y, 15.0, octaves=3)
+    # rain in millimetres a year (02zp): the world's windward lowland rainfall, scaled by the sweep (fixed bounds measured on the
+    # default worlds, so a hilly or wet world is wetter than a flat or dry one, not stretched to the same range)
+    mm = float(conf.get("rain_mm", 900.0)) * np.clip(rain / RAIN_MEAN, 0.5, 4.0)
+    mf["rain_mm"] = mm
+    m = 0.4 + 0.4 * np.clip((mm - MM_LO) / (MM_HI - MM_LO), 0, 1.2) + 0.12 * F.fbm(g.seed, "moist", g.x, g.y, 15.0, octaves=3)
     return temp, np.clip(m + mf["moist"], 0, 1)
 
 
@@ -185,7 +217,8 @@ def _spread(g: Grid, src: np.ndarray, val: np.ndarray, steps: int, how="max"):
 def build(conf: dict, g: Grid, prims: list) -> Land:
     mf = M.compose(g, prims)
     h = elevation(g, conf, mf)
-    sea = h < conf["sea_level"]
+    sea = _sea(g, h, conf["sea_level"], mf)                                # below sea level and joined to the ocean (02zp)
+    h = np.where((h < conf["sea_level"]) & ~sea, conf["sea_level"] + 0.5, h)  # a closed hollow inland stays dry ground
     temp, moist = climate(g, conf, h, sea, mf)
     area = g.km * g.km
     rain = moist / 0.6 * area
@@ -235,8 +268,10 @@ def build(conf: dict, g: Grid, prims: list) -> Land:
     edge[0, :] = edge[-1, :] = edge[:, 0] = edge[:, -1] = True
     spring &= ~edge
     twi = np.log(np.maximum(acc, 1e-6) * 1e6 / (g.km * 1000.0) / (np.tan(np.radians(slope)) + 0.0005))
-    lo, hi = np.percentile(twi[~sea], 2), np.percentile(twi[~sea], 99.5)
-    wet = np.clip((twi - lo) / max(hi - lo, 1e-9), 0, 1)
+    wet = (twi - TWI_LO) / (TWI_HI - TWI_LO)                                # fixed bounds (02zp), not this world's own range
+    et = 450.0 + 30.0 * (temp - 9.0)                                        # evaporation a year, mm, by warmth
+    surplus = np.maximum(mf["rain_mm"] - et, 100.0)
+    wet = np.clip(wet + 0.08 * np.log2(surplus / SURPLUS_REF), 0, 1)        # a wetter climate lies wetter (flow already carries rain)
     wet = np.clip(np.maximum(wet, mf["wet"]), 0, 1)
     wet[lake | (river >= 2) | sea] = 1.0
     rh, rd = _spread(g, river >= 2, Z, 20, how="near")
@@ -254,6 +289,9 @@ def build(conf: dict, g: Grid, prims: list) -> Land:
     tex = np.where((n2 > conf["chalk_n"]) & (h > 80) & (n >= conf["sand_n"]), V.CHALK, tex)
     tex = np.where(mf["tex"] >= 0, mf["tex"], tex)
     tex = np.where((mf["systems"]["fen"] > 0.5) & (wet > 0.6) & ~sea, V.PEAT, tex)              # a fen's ground is peat
+    drain = np.select([tex == V.SAND, tex == V.CHALK, tex == V.CLAY, tex == V.PEAT], [-0.08, -0.12, 0.06, 0.08], 0.0)
+    wet = np.where(sea | lake, wet, np.clip(wet + drain, 0, 1))             # sand and chalk drain; clay and peat hold water (02zp)
+    wet[lake | (river >= 2) | sea] = 1.0
     depth = np.clip(1 - slope / 25.0, 0.1, 1.0)
     base = np.select([tex == V.SAND, tex == V.CLAY, tex == V.CHALK, tex == V.PEAT], [0.7, 1.1, 0.75, 1.15], 1.0)
     silt = np.where((f < 2) & (near >= 2), 1.25, 1.0)
@@ -262,6 +300,8 @@ def build(conf: dict, g: Grid, prims: list) -> Land:
                 np.round(fert, 3), f, near.astype(int), c, mf["wild"], np.zeros(g.shape, dtype=bool), np.zeros(g.shape, dtype=int),
                 np.zeros(g.shape, dtype=object), mf["anchors"], mf["rivers"])
     land.lake_ok = mf["lake_ok"]
+    land.rain_mm = mf["rain_mm"]                                           # rain a year, mm (02zp): for the climate map
+    land.laid = mf["laid"]                                                 # where laid rivers were carved (for the check)
     land._sys = mf["systems"]
     terrains(land)
     systems(land)
