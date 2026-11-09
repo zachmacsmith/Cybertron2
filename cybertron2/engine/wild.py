@@ -804,7 +804,8 @@ def _seed_legends(w) -> None:
         if kind not in st["pop"]:
             continue
         counts = [float(st["pop"][kind][i]) * float(m.km2[i]) for i in range(m.n)]
-        if sum(counts) < 1.0 or w.rng("wild-legend", kind).random() >= float(lg["p"]):
+        scale = float((w.spec.get("wild") or {}).get("legend_scale", 1.0))   # an experiment's knob: how seldom
+        if sum(counts) < 1.0 or w.rng("wild-legend", kind).random() >= float(lg["p"]) * scale:
             continue
         i = max(range(m.n), key=lambda j: (counts[j] * (0.0 if m.home[j] else 1.0), -j))
         out[kind] = {"name": lg["name"], "area": m.ids[i], "alive": True}
