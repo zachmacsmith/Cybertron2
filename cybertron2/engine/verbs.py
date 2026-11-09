@@ -428,7 +428,10 @@ def _site(here, mind, tech, at, a=None):
         if key is None:
             raise Refused(f"there is no place called {at!r} here")
         where = [s for s in sites if s[0] == "parcel"]
-        sites = [s for s in sites if s[1] == key]
+        on = [s for s in sites if s[1] == key]
+        if not on and key in here.buildings():                                # work done on the ground, named by a building on it:
+            on = [s for s in where if s[1] == here.buildings()[key].get("parcel")]   # the parcel it stands on
+        sites = on
         if not sites:                                                          # where here it is done, by the land (D4-95)
             names = list(dict.fromkeys(here.parcels()[s[1]]["name"] for s in where if s[1] in here.parcels()))
             raise Refused(f"{KN.label(tech)} is not done at {at}" + (f"; here it is done at {', '.join(names)}" if names else

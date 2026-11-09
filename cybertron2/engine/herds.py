@@ -142,7 +142,8 @@ def gadding(w, h) -> bool:
     if par.get("cover") not in ("pasture", "meadow"):
         return False
     v = EV.values(w, h["node"])
-    if not v or float(v["temp"]) < float(gd["temp"]) or float(v["wind"]) > float(gd["wind"]):
+    if not v or float(v["temp"]) < float(gd["temp"]) or float(v["wind"]) > float(gd["wind"]) \
+            or float(v.get("rain", 0.0)) > float(gd.get("rain", 99.0)):
         return False
     near = [par] + [w.s["parcels"][a] for a in par.get("adj") or [] if a in w.s["parcels"]]
     return not any(p_.get("cover") in ("water", "forest", "scrub") for p_ in near)

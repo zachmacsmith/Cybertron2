@@ -46,6 +46,12 @@ def bot_plan(w, name, talk=None) -> dict:
     can, _ = KN.options(here, mind)
     acts = []
     can = sorted(can, key=lambda x: (not x.startswith(("work reap", "work milk")), x))
+    if w.spec.get("bot_reap") == "ripe":                                  # a world's test bots leave a green crop standing
+        from cybertron2.engine import farm as FM
+
+        ripe = any(float(c.get("progress", 0) or 0) >= 1.0 for par in here.parcels().values() for _, _, c in FM.standing(par))
+        can = [x for x in can if ripe or not x.startswith("work reap")]
+    scripted = any(int(sc["day"]) - 1 == w.d and sc["who"] == name for sc in w.spec.get("script") or [])
     for line in can[:4]:
         verb, tech = line.split(" ", 1)
         tech = tech.split(" at ")[0].split(" (")[0]
@@ -53,7 +59,7 @@ def bot_plan(w, name, talk=None) -> dict:
     for item in ("wild food", "grain", "timber", "meat", "milk"):
         acts.append({"do": "move", "item": item, "qty": 2, "to": "store"})
     roads = here.roads()
-    if roads and w.spec.get("bot_travel", True) and w.d % 4 == 1 and len(name) % 2 == 0:
+    if roads and w.spec.get("bot_travel", True) and w.d % 4 == 1 and len(name) % 2 == 0 and not scripted:   # a scripted person stays
         acts = acts[:2] + [{"do": "travel", "to": roads[0][1]}]
     others = here.people(me=False)
     out = {"why": "bot", "actions": acts, "attend": others[(w.d + len(name)) % len(others)] if others else "the place in general",

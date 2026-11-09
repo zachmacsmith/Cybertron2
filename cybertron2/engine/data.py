@@ -766,7 +766,8 @@ FENCES = {
 
 # Herds that are not held (livestock.md: D2-117, D2-123, D2-124, D2-128, D2-131; calibrate where the spec says so).
 HERDS = {
-    "gad": {"temp": 22.0, "wind": 3.0, "through": 0.7},   # cattle gadding: a hot, still summer day; a fence's odds at least this (brief 2 K1)
+    "gad": {"temp": 18.0, "wind": 3.0, "rain": 0.5, "through": 0.7},   # cattle gadding: a warm, still, dry summer day (the flies
+                                                          # work in sun from about 18 degrees); a fence's odds at least this (brief 2 K1; calibrate)
     "steps": {"fed": 1, "drawn": 8},             # a day: a fed herd on good pasture 0 to 1 steps; hungry or drawn up to 8 (D2-123)
     "good_grass": 0.3,                           # grazing above this share of the pasture's best counts as good
     "draw": {"ripe": 1.0, "water": 0.3},         # beyond the food a parcel offers: a ripe crop's pull, water when hungry

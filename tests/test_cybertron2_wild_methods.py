@@ -73,8 +73,10 @@ def test_methods_are_known_by_the_land_and_basic_ones_by_all(generated):  # noqa
     present = MT._present(w, m, w.s["wild"]["state"], w.s["wild"]["land"], "s1")
     k = w.s["know"]["Ann"]
     water = present & {"eel", "wildfowl"}
-    assert ("trap in water" in k) == bool(present & {"eel"})                  # no trap in water without water kinds in the ring
-    assert ("stalk" in k) == bool(present & {"red deer", "roe deer", "wild boar"})
+    covers = {p["cover"] for p in w.s["parcels"].values() if p["node"] == "s1"}
+    assert ("trap in water" in k) == bool(present & {"eel"} and covers & {"water", "fen"})   # eels about and water to set in
+    assert ("stalk" in k) == bool(present & {"red deer", "roe deer"} and covers & {"forest", "scrub", "heath", "moor"})   # its
+    assert "net" not in k or "wildfowl" in present                            # main kinds (a side weight, pigeons to a net, is not)
     heronry = any(s["node"] == "s1" and s["kind"] in ("heronry", "rookery") for s in (w.s["wild"].get("sites") or {}).values())
     assert ("gather young" in k) == heronry
     for b in MT.BASIC:

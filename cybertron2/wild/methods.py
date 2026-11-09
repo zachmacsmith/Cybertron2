@@ -272,8 +272,13 @@ def seed_by_land(w) -> None:
             methods = set((over or {}).get(hh) or [])
         else:
             methods = set()
-            for meth in TAKE_METHODS:
-                if any(k in present for k in TECHNIQUES[meth]["yield"].get("takes") or {}):
+            here_covers = {p["cover"] for p in w.s["parcels"].values() if p.get("node") == node}
+            for meth in TAKE_METHODS:                                          # a method its land holds: one of its main kinds
+                tk = TECHNIQUES[meth]["yield"].get("takes") or {}              # (at least half its largest weight) about, and
+                top = max(tk.values(), default=0.0)                            # ground of the kind it is worked on at the village
+                main = {k for k, x in tk.items() if float(x) >= 0.5 * float(top) and float(x) > 0}
+                covers = set((TECHNIQUES[meth].get("at") or {}).get("covers") or [])
+                if main & present and (not covers or covers & here_covers):
                     methods.add(meth)
             if any(s.get("node") == node and s.get("gone") is None and s["kind"] in ("heronry", "rookery") for s in sites.values()):
                 methods.add("gather young")

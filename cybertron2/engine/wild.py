@@ -336,8 +336,9 @@ def _thin(here, pid, load, share) -> None:
     if aid not in m.ids or load not in (L.get("level") or {}):
         return
     i = m.ids.index(aid)
-    fields = [p for p in here.parcels().values() if p["cover"] == "field"]
-    part = float(here.parcels()[pid]["size"]) / max(1.0, sum(float(p["size"]) for p in fields))
+    cover = here.parcels()[pid]["cover"]                                 # its part of the village's ground of its kind
+    fields = [p for p in here.parcels().values() if p["cover"] == cover]
+    part = min(1.0, float(here.parcels()[pid]["size"]) / max(1.0, sum(float(p["size"]) for p in fields)))
     lv = list(L["level"][load])
     lv[i] = round(float(lv[i]) * (1 - share * part), 4)
     here.apply("set_wild", path=["state", "loads", "level", load], value=lv)
@@ -945,7 +946,16 @@ def pest(here, key, place_name, a) -> str:
         aid = (w.s["wild"].get("land") or {}).get("home", {}).get(here.node) if m else None
         L = ((w.s["wild"].get("state") or {}).get("loads") or {}).get("level") or {}
         i = m.ids.index(aid) if m and aid in m.ids else None
-        harm = [k for k in crop if LOADS[k].get("harm")]                   # the worst of those that harm: never the ladybirds unasked
+        from cybertron2.engine import farm as FM
+        par = w.s["parcels"].get(key) or {}
+        kinds = {c.get("crop") for _, _, c in FM.standing(par)}
+
+        def fits(k):                                                       # a pest of this ground: of its standing crop, or of
+            r = LOADS[k]                                                   # its grass (moles on a meadow)
+            return any(set(h.get("crops") or []) & kinds for h in r.get("harm") or []) \
+                or any(par.get("cover") in (h.get("covers") or []) for h in r.get("harm_res") or [])
+        harm = [k for k in crop if LOADS[k].get("harm") or LOADS[k].get("harm_res")]   # never the ladybirds unasked
+        harm = [k for k in harm if fits(k)] or harm                        # the worst of those that harm here
         load = max(harm, key=lambda k: float(L.get(k, [0.0])[i]) if i is not None and k in L else 0.0) if harm else crop[0]
     return guard(here, key, {"load": load, **LOADS[load]["guard"]}, place_name)
 
@@ -1409,16 +1419,17 @@ def _groups(w, m, st) -> dict:
                 probe = int(t.get("probe") or 0) if t.get("what") in ("items", "hens") else 0
                 if probe:                                                       # the lapse probe (D2-207, brief 2 §2): the doors of
                     order = sorted(tg, key=lambda b: (b != g.get("target"), w.rng("wild-probe", w.d, gid, b).random()))   # the hamlet,
-                    res = None                                                  # the one it fed at first, then the rest, keyed
+                    res, tried = None, []                                       # the one it fed at first, then the rest, keyed
                     for b in order[:probe]:
                         r, _ = attempt(b)
+                        tried.append(b)
                         res = res or r
                         if not r.get("turned") and _did(r):
                             res = r
                             g["target"], g["parcel"] = b, tg[b]
                             g["found"] = w.d
                             break
-                    out[gid] = dict(res or {}, tried=[b for b in order[:probe]])
+                    out[gid] = dict(res or {}, tried=tried)
                     continue
                 res, gap = attempt(tgt)
                 if not res.get("turned"):

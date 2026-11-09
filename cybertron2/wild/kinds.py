@@ -608,7 +608,8 @@ LOADS = {
                       "cover": {"meadow": 1.0, "pasture": 1.0, "field": 0.3}},
               "seasons": (0, 2), "rest": 0.7, "rate": 0.15, "drivers": {"wet": 1.0}, "frost": 0.02, "most": 3.0,
               "harm_res": [{"res": "grass", "covers": ["meadow", "pasture"], "share": 0.004, "over": 0.6}],
-              "on_crop": True, "guard": {"cut": 0.7, "days": 8, "done": "You set traps in the mole runs in {place} and took the moles out."}},
+              "on_crop": True, "guard": {"cut": 0.7, "days": 8, "thin": {"moles": 0.3},          # traps kill moles (calibrate)
+                                            "done": "You set traps in the mole runs in {place} and took the moles out."}},
     # the rooks' grubs (leatherjackets; brief 2 K1): in fields and pasture, raised by a wet autumn; they eat the young corn's roots; the
     # rookery's birds work them off the parcels within reach of the site
     "leatherjackets": {"hab": {"cover": {"field": 1.0, "pasture": 1.0, "meadow": 0.6}},
