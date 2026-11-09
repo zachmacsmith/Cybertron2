@@ -156,7 +156,7 @@ what was built, every deviation from a brief with its reason, and each gate's re
 18. **Gadding at 18 degrees, still and dry** (calibrate; was 22). Found running T6: this climate's summer never reached 22.
 
 ### Gate results (9 Nov)
-- **Tests:** 491 pass on the branch (): brief 1's 478, brief 2's 13, two existing tests isolated (stoats; sound houses), the
+- **Tests:** 491 pass on the branch (`f290e2c`): brief 1's 478, brief 2's 13, two existing tests isolated (stoats; sound houses), the
   method-knowledge test changed to deviation 16's rule, and the clocks guard (deviation 15).
 - **Older worlds replay exactly:** bot runs of the valley and Region C (no wild pack), 10 days, have the same state and days as
   brief 1's tip, apart from the schema number.
