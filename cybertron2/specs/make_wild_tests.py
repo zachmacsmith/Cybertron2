@@ -17,6 +17,9 @@ import os
 HERE = os.path.dirname(os.path.abspath(__file__))
 BASE = os.path.join(HERE, "wild_probe6.json")
 OUT = os.path.join(HERE, "wild_tests")
+# Found by 37.4 running these arms after brief 2 (9 Nov; 02zx, brief 2): T3's stoat goes for neither village on seeds 7 to 9;
+# T5's owl takes a hole only in spring (T5 runs late summer into autumn); T6's boar live near neither village in this land
+# (T6 tests gadding only); these need another world or season to test.
 SEEDS = [7, 8, 9]                   # run each arm on each seed: the wild layer's nights depend mostly on the seed (run 6)
 EEL_GOOD = "meat"                   # an eel trap's catch (37.4: the eel's taken goods are meat, 0.1 a lift)
 
@@ -32,6 +35,7 @@ def base(name, season="spring", day=2, days=8):
     w["days"] = days
     w["calendar"] = {"season": season, "day": day, "season_days": 8}
     w["script"] = []
+    w["bot_reap"] = "ripe"               # test bots leave green corn standing (37.4, brief 2 gate)
     return w
 
 
@@ -56,11 +60,14 @@ def t1_displacement():
     every night. Arm `watch_both`: both are. Expect: with only Middle watched, East loses more than in `none` (the raiders and the
     pigeon flock turned at Middle go to East); with both watched, both lose less (the shared problem has a shared answer)."""
     out = []
-    for arm in ("none", "watch_middle", "watch_both"):
+    for arm in ("none", "watch_middle", "watch_east", "watch_both"):
         w = base("t1_displacement")
+        crop = {"kind": "barley", "left": 240, "ripe_day": 20}          # both fields young corn through the test (37.4)
+        for pid in ("s1_1", "s1_8"):
+            w["nodes"]["s1"]["parcels"][pid]["state"] = {"crop": dict(crop)}
         if arm in ("watch_middle", "watch_both"):
             every_day(w, "Thomasin", {"do": "work", "what": "guard the field", "at": "Middle Field"})
-        if arm == "watch_both":
+        if arm in ("watch_east", "watch_both"):
             every_day(w, "Osric", {"do": "work", "what": "guard the field", "at": "East Field"})
         out.append(write(w, arm))
     return out
@@ -74,6 +81,7 @@ def t2_lapse_probe():
     out = []
     for arm in ("all_shut", "one_lax", "none_shut"):
         w = base("t2_lapse_probe")
+        w["physics"] = {"breaks": {"p": 0, "cold": 0}}   # D2-168 breaks most wattle houses in a frosty spring (Q-37)
         shut = {"all_shut": ["Holt", "Wood", "Carter"], "one_lax": ["Holt", "Wood"], "none_shut": []}[arm]
         for hh in shut:
             every_day(w, MEADCOMBE_HEADS[hh], {"do": "work", "what": "shut", "at": HOUSES[hh]})
@@ -89,6 +97,7 @@ def t3_gaps():
     out = []
     for arm in ("wattle", "stone", "damaged"):
         w = base("t3_gaps")
+        w["physics"] = {"breaks": {"p": 0, "cold": 0}}
         if arm == "stone":
             for b in ("holt_house", "wood_house"):
                 w["buildings"][b]["structure"] = "stone"
@@ -134,7 +143,7 @@ def t5_stores_allies():
         w = base("t5_stores_allies", season="summer", day=5, days=16)
         if arm == "kept":
             w["buildings"]["wood_house"]["fittings"]["granary"] = 1
-            w["buildings"]["carter_house"]["fittings"]["cat"] = 1
+            w["buildings"]["carter_house"]["stock"]["cat"] = 1         # the cat is goods in the store (37.4, brief 2)
             w["buildings"]["holt_byre"]["fittings"]["owl hole"] = 1
         out.append(write(w, arm))
     return out
@@ -166,18 +175,19 @@ def t7_methods():
     out = []
     for arm in ("as_seeded", "taught"):
         w = base("t7_methods")
-        every_day(w, "Petronel", {"do": "gather", "what": "stalk", "at": "East Wood", "looking for": "deer", "range": "the wood around"})
+        every_day(w, "Petronel", {"do": "gather", "what": "stalk", "at": "East Wood", "looking for": "deer"})
         every_day(w, "Denise", {"do": "gather", "what": "snare", "at": "the Leaze"})
         every_day(w, "Alys", {"do": "gather", "what": "net", "at": "Brookford Water"})
         if arm == "taught":
             w["script"].insert(0, {"day": 1, "who": "Denise", "do": {"do": "teach", "what": "snare", "to": "Petronel"}})
+            w["script"].insert(1, {"day": 1, "who": "Petronel", "do": {"do": "learn", "what": "snare", "from": "Denise"}})
         out.append(write(w, arm))
     return out
 
 
 # ---------------------------------------------------------------------- T8: moles, the rooks' grubs and markers (brief 2 K1)
 def t8_soil_and_markers():
-    """Sixteen days of a wet autumn into winter at Brookford, whose Middle Wood holds a rookery on seeds 7 and 9 (seed 8 seeds none:
+    """Sixteen days of spring into summer at Brookford (spring: rook young and the marker signs; 37.4 found autumn has neither), whose Middle Wood holds a rookery on seeds 7 and 9 (seed 8 seeds none:
     run this test on 7 and 9 only). Arm `left`: nobody works Leven Meadow (beside Middle Wood) for moles; the rookery as seeded.
     Arm `worked`: Gilbert does pest work on Leven Meadow every other day; Jordan takes the young rooks (gather young) at Middle Wood
     on days 1 to 4. Expect: the meadow's mole load rises when left and falls when worked; parcels within the rookery's reach carry
@@ -185,7 +195,7 @@ def t8_soil_and_markers():
     family lore."""
     out = []
     for arm in ("left", "worked"):
-        w = base("t8_soil_and_markers", season="autumn", day=1, days=16)
+        w = base("t8_soil_and_markers", season="spring", day=1, days=16)
         w["seeds"] = [7, 9]
         if arm == "worked":
             for d in range(1, 17, 2):
