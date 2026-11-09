@@ -25,7 +25,7 @@ next number; 37.2 and 37.4 share the series (check before adding).
 
 | # | Work | Owner | State | Started | Last touched | Where | Done so far; what is left |
 |---|---|---|---|---|---|---|---|
-| W-1 | Build brief 1: general methods (proposals/methods_and_encounters.md; D2-204, D2-207) | 37.4 (session "Environment variations over time") | active | 9 Nov | 9 Nov | a branch from `ecology` (37.4's naming) | started; methods renamed where taken (`hunt the wild`, `guard the field`); the eel's catch is meat. Left: the gate, the dry-run report |
+| W-1 | Build brief 1: general methods (proposals/methods_and_encounters.md; D2-204, D2-207) | 37.4 (session "Environment variations over time") | active | 9 Nov | 9 Nov | branch `ecology-methods` (from `ecology`, main merged in); cybertron2/wild/methods.py; tests/test_cybertron2_wild_methods.py | built and pushed; gate: own tests pass, older worlds replay exactly (a crew-work bug fixed), wild runs deterministic; take shares within a third but stalk's red deer in one world; wild food within a third but hunt x1.42 and drive x2.40 in one world each (drive unexplained). Left: the full suite, the build log 02zx on main, the dry-run report to Zach |
 | W-2 | Build briefs 2 and 3, the 20 dry test arms, the spring live run (wild_raiders_and_works.md, carcass_and_decay.md, 02zy) | 37.4 | queued | 9 Nov | 9 Nov | after W-1 | waits on W-1's gate; the late-summer live run needs Zach's go |
 | W-3 | Records restructure: WORK.md, OPEN.md's kinds, CLAUDE.md's rule, hygiene's stale checks, the sorting draft (02zz) | 37.2 (session "Thicker economy exploration") | active | 9 Nov | 9 Nov | main: docs/cybertron2/WORK.md, OPEN.md, CLAUDE.md, tools/hygiene.py, docs/review/37_growth/02zz_open_sorting.md | in this commit; left: Zach checks 02zz's sorting, then the rows move |
 | W-4 | wild_behaviour.md v3 (the per-kind designs, from 02zv, 02zw and the briefs) | 37.2 | waiting | 9 Nov | 9 Nov | docs/cybertron2/proposals/wild_behaviour.md | waits on Q-32 (02zv §6, items still open) |
@@ -42,6 +42,10 @@ next number; 37.2 and 37.4 share the series (check before adding).
 | W-10 | 37.2's spec write-ups owed since 2 and 3 Nov (OPEN L-32, L-44, L-45, L-61) | 37.2 | paused | 2 Nov | 3 Nov | spec/economy/lodging.md, agreements.md, production.md, buildings.md | not begun |
 | W-11 | Landscapes still to tune (OPEN L-100); the generator's `_spread` reach (L-51) | 37.2 | paused | 3 Nov | 3 Nov | cybertron2/landgen/ | not begun |
 | W-12 | Forays (proposals/forays.md): the design's open questions; building after the core stages | 37.2 | paused | 9 Nov | 9 Nov | docs/cybertron2/proposals/forays.md | designed (discussion); waits on Q-33 and on briefs 1 to 3 |
+| W-13 | Brookend survival world, rerun p2 (specs/make_plenty.py; D4-114's fixes) | 37.4 | paused | 8 Nov | 8 Nov | runs/p2_brookend (stopped at day 14, Zach); on the Hub | all lived to day 14; the harvest rotted unreaped (reaping 1/8 plot a unit). Left: rerun after the work costs fit the year (OPEN L-69, an ask) |
+| W-14 | Claims and ownership by physics, part 2 (proposals/use_by_physics.md part 2) | 37.4 | waiting | 8 Nov | 8 Nov | docs/cybertron2/proposals/use_by_physics.md | the audit written (ten refusals, two physical gaps). Left: Zach's go on the small fixes (OPEN L-70) |
+| W-15 | The land's fast stocks: soil water, snow, river flow, fuel dryness (D4-113's hook; 37.2's land fields) | 37.4 with 37.2 | waiting | 8 Nov | 8 Nov | names agreed with 37.2; land fields on `climate-calibration` | not begun. Left: Zach's go (OPEN L-71) |
+| W-16 | The engine overhaul: phase 2's open decisions and phase 3's rest (review 38.64 §8; phase3_variance_and_risk.md) | 37.4 | paused | 8 Nov | 8 Nov | docs/review/38_space_engine/64_overhaul_breakdown.md | phases 1 and 2 built; phase 3: the weather scheduler, storms, place-required weather, base fertility, the renewal hook (D4-109 to D4-113). Left: OPEN L-72, L-73 |
 
 ## Done
 
