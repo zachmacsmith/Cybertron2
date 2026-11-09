@@ -48,7 +48,7 @@ already "a world may give", so it stays a world option); no bespoke one-kind act
 4. **Forays and the land carry knowledge and reach:** **C11** forays with land features and places in memory; **C12** works on
    parcels and edges with visibility from position; **C13** evidence and marks. **C14** world options and **C15** diagnostics
    complete the set.
-5. **The content ledger has 344 rows** (§3), each mapped to a pack and a rank, from every source. Nothing is dropped silently: 31
+5. **The content ledger has 346 rows** (§3), each mapped to a pack and a rank, from every source. Nothing is dropped silently: 31
    items go to proposed cuts (§3.9) with reasons, 38 rows are marked recast (to their physical substrate or a general method),
    and 32 duplicates point to one canonical row.
 6. **Thirteen packs and a world-options set** (§4). **First** (right after the core): K0 the built kinds converted to the core; K1
@@ -498,9 +498,9 @@ Rows are numbered for reference; numbers run through the whole ledger.
 | 167 | voles: mowing to the ricks; pellets read | C1 | K1 | 14 | keep |
 | 168 | rats: the cat | C5 | K1 | 7 | keep |
 | 169 | rats: the rat-catcher with terriers | C3, C8 | K1 | 17 | recast: a skill and gear, hired if people hire |
-| 170 | rats: poison | | | | cut for now (§3.9 no. 27) |
+| 170 | rats: poison | | K10 | | deferred to K10 (37.2 review; was §3.9 no. 27) |
 | 171 | rats: black rats in thatch | C1 | K11 | 3 | defer |
-| 172 | rats: plague | | | | cut (§3.9 no. 26) |
+| 172 | rats: plague | | K10 | | deferred to K10 (37.2 review; was §3.9 no. 26) |
 | 173 | wildfowl: the decoy pond and its quiet zone | C7, C4 | K4 | 8 | keep |
 | 174 | wildfowl: feathers and down to bedding | C9 | K8 | 6 | defer |
 | 175 | eel: the river's lag by catchment | C11 | K4 | 1 | keep |
@@ -560,7 +560,7 @@ Rows are numbered for reference; numbers run through the whole ledger.
 | 224 | 8 rabbit and the warren | C8 | K6 | 4 | defer (husbandry); rent and free warren cut or option (§3.9 no. 14) |
 | 225 | 9 mole and the mole-catcher | C3, C7 | K1 | 11 | keep; pooled payment cut (§3.9 no. 15) |
 | 226 | 10 grey partridge and quail | C3, C8 | K3 | 15 | keep (setting dog in K6) |
-| 227 | 11 corncrake | | | | cut (§3.9 no. 24) |
+| 227 | 11 corncrake | | K7 | | deferred to K7 (37.2 review; was §3.9 no. 24) |
 | 228 | 12 lapwing and the egg harvest | C3 | K3 | 13 | keep; the custom recast to relaying physics |
 | 229 | 13 adder | illness | K10 | 3 | defer |
 | 230 | 14 warble and horse-flies (gadding) | C1 | K1 | 15 | keep |
@@ -635,7 +635,7 @@ Rows are numbered for reference; numbers run through the whole ledger.
 | 294 | tools: stores with properties | C1 | K1 | 4 | keep |
 | 295 | tools: fire and light | C9 | K2 | 6 | dup 256 |
 | 296 | tools: preservation (dry, salt, smoke, pot in fat) | C9 | K2 | 7 | keep |
-| 297 | tools: poisons | | | | cut for now (§3.9 no. 27) |
+| 297 | tools: poisons | | K10 | | deferred to K10 (37.2 review; was §3.9 no. 27) |
 | 298 | scale responses (§5.1: household, materials, village, landscape for each problem) | C7, C12 | K1, K7 | as each | keep |
 | 299 | what scale unlocks (§5.2): buildings, trades, chains; institutions only as possibilities | C7 | K7 | as each | recast: institutions removed as content |
 | 300 | development trade-offs (§5.4) | C6 | K7 | 9 | keep (as consequences, measured) |
@@ -693,6 +693,8 @@ Rows are numbered for reference; numbers run through the whole ledger.
 | 342 | evidence: a poached deer's leavings; a body found by the crows | C10, C13 | K2 | 11 | dup 212 |
 | 343 | windfalls: a wolf's kill found | C10 | K2 | 11 | dup 212 |
 | 344 | the "unit is about two real days" reading | | | | cut (§3.9 no. 29) |
+| 345 | burial depth as a property of the burial (units against the ground); shallow or hasty graves dug by foxes, badgers, dogs (Zach, 10 Nov) | C10 | K2 | 4 | keep |
+| 346 | spillover: a scavenger or predator fed at a carcass returns and raids what is near (hens, the fold, a calf; a person at a cache); the carcass, wolf, kill loop (Zach, 10 Nov) | C10, C5 | K2 | 4 | keep (falls out of the rules) |
 
 ### 3.9 Proposed cuts (for Zach to review)
 
@@ -721,15 +723,238 @@ Rows are numbered for reference; numbers run through the whole ledger.
 | 21 | swan upping and the swan master (191) | an institution | marks as tags (C13) |
 | 22 | hawk theft "a grave crime"; hawk ranks (190) | social | theft is taking (built) |
 | 23 | "telling the bees" as engine content (187) | a custom | may be a seeded lore line in a world |
-| 24 | the corncrake as a kind (227) | low value: its only lever is a mowing pattern the hay work lacks | revisit if hay work gets a pattern |
+| ~~24~~ | ~~the corncrake as a kind (227)~~ | **not cut (37.2 review):** deferred to K7, low rank, for when hay work has a mowing pattern | |
 | 25 | trout as a separate kind (116) | adds nothing to the water pack's fish stock | the fish stock and tickling as a method |
-| 26 | plague (172) | too large for the engine's people and the runs' purpose | |
-| 27 | poisons (170, 297) | danger to dogs, cats and people needs illness; easy to make dominant | revisit with illness (K10) |
+| ~~26~~ | ~~plague (172)~~ | **not cut (37.2 review):** deferred to K10 as a rare regime once illness in people exists; whether to build it at all is Zach's call then | |
+| ~~27~~ | ~~poisons (170, 297)~~ | **not cut (37.2 review):** deferred to K10, as the reason itself says | |
 | 28 | firearms (287) | an era change | economy_later.md's era list |
 | 29 | the "unit is about two real days" reading (344) | Zach: units are parts of a day | |
 | 30 | the search game as steps of a stalk across acts; "spots as engine knowledge items" (51, 142) | replaced by forays and memory | forays (C11) |
 | 31 | the stretch semantics "share of the stretch watched" (132, 196) | the watch is one night's act | the per-night contest |
 
-**Counts:** 344 ledger rows; 31 proposed cuts; recast rows are marked in the Status column (about 35); 26 rows are duplicates of
-earlier rows; the rest keep or defer.
+**Counts:** 346 ledger rows; 28 proposed cuts (31 less three moved to deferred by 37.2's review: corncrake, plague, poisons); 38 rows marked recast; 32 duplicates of earlier rows; 54 deferred; the rest keep.
 
+## 4. The packs
+
+Ordered by value for cost, as 02zr §6.8 ranked kinds: presence across generated worlds, the brief's purposes served (dependence,
+problems no one solves alone, information, commons), a fast arm inside a run, novelty of the lesson, build cost, and what it waits
+on. Ranks inside each pack are the ledger's. Every pack is tested against a **null arm** (the same worlds and seeds with the pack
+off, D4-104), with several seeds and a strong cast (scenario_design §2), and read with a qualitative end state. Sizes are rough
+(S, M, L as §2).
+
+**First** (built and tested right after the core): K0, K1, K2, K3, K4. **Later:** K5 to K11. **Placeholder:** K12. **Options:** W.
+
+### K0. The built kinds on the core (first; conversion, no new content)
+- **Contents:** ledger rows 1 to 31 and their duplicates: kind-named techniques to methods; watches to `guard` with gear; shutting to
+  `set`; crop work against loads; range as a take's reach; readings and skill by method family (three levels); traits replacing take
+  tables; NEAR_PEOPLE as module data; the built signs, conditions, pressure, wounds, litters, followers, migrants, plants, mast,
+  loads, markers, diseases, sites, leaders, legends, regimes, vole clock, history; hens and the dog kept as they are until K6; data
+  hygiene; boar calibrated to 3 to 10% of need.
+- **Core:** C1, C2, C3, C15. **Other dependencies:** none.
+- **Tests:** dry: guard tests (no kind named in verbs, techniques, targets or barriers; calibration rows counted); the branch's wave-1
+  outcomes reproduced within tolerance on the same seeds; refusal audit; system text size with the wild pack on below run 6's.
+  Live: one short run against run 6's world to show agents use the methods (method diversity, refusals).
+- **Size:** M (mostly deletion and data). **Why first:** every pack builds on it; it removes the bespoke parts.
+
+### K1. Every village: fields, stores and hens (first)
+- **Contents (by rank):** 1 birds at the corn as social followers with displacement (woodpigeon, rook, sparrow; 98, 159, 160, 220);
+  2 attribution signs naming kind and deterrent (210); 3 traps and snares as goods and standing works, robbable (95, 282, 283);
+  4 stores with properties against rats, mice and damp (58, 107, 294); 5 the fox as a lapse prober with the hamlet externality,
+  the treadmill and den work (85, 87, 153, 154); 6 stoats, weasels and polecats by gap size, gap-tight coops (238, 308); 7 the cat
+  (168); 8 boar and deer at the field: the per-night contest, the spatial adversary, displacement (wooded villages; 52, 65, 132,
+  133, 140); 9 loads worked against (192); 10 rooks' trade-off both ways and the grub years (100, 162, 163, 231); 11 the mole and
+  trapping (225); 12 markers with sowing rules (63, 193, 255); 13 the owl hole and barn owl (105, 166, 204); 14 mowing drives voles
+  to the ricks (45, 167); 15 the gadding herd (230); 16 noise makers and light as held deterrents (305); 17 the rat-catcher as skill
+  and gear (169); 18 the mast and vole cascades reaching fields and hens (46, 86, 131).
+- **Core:** C1 to C7, C13. **Other dependencies:** hens stay store goods until K6; terriers wait on K6.
+- **Tests:** dry: displacement (the unscared neighbour loses more); one lax household raises its neighbours' hen losses; a cull
+  refills from the ring; raised stores cut rat losses and a door does not; traps beat foraging only as a line. Live: against the null
+  arm, read watch and scaring arrangements, shared hedging, traps set and robbed, disputes over damage, method diversity; losses as a
+  share of need.
+- **Size:** M. **Why first:** present in every generated village; the strongest externalities; fast arms every run.
+
+### K2. The carcass, the store and decay (first)
+- **Contents (by rank):** 1 the butcher step and kit (302, 304); 2 decay stages by size class on the act clock (337); 3 scavengers
+  by traits (338); 4 handling: hang, bury at a depth, burn, feed to dogs or pigs, carry or leave; grave depth; spillover predation
+  (339, 345, 346); 5 the midden and kites (218); 6 fat to tallow; rushlights, candles, a horn lantern; light for the watch (256, 273,
+  295, 314); 7 the smokehouse, salting, drying at scale (296, 310); 8 a salt source (303; D2-56); 9 barrels (312); 10 store insects
+  (223); 11 the carcass as evidence and windfall (212, 342, 343); 12 the black bane field (252); 13 the bear's cache (156); 14 bones
+  (341); 15 disease moved with a carcass; quarantine and burning as choices (194, 340); 16 ravens over carrion and following wolves
+  (84, 102, 165); 17 commensal niches by waste (203).
+- **Core:** C1, C4, C5, C7, C9, C10, C13. **Other dependencies:** a salt source (D2-56, not built); illness in people only for
+  human effects of rot (not needed for the rest).
+- **Tests:** dry: a deer stripped in about two nights with scavengers near; a frozen carcass keeps; graves by depth; a carcass near
+  the fold raises the fold's losses against one burned or buried; the midden's place moves rats and kites. Live: butchering, burying
+  and burning choices; light made and used; preserved stores; scavengers near houses; evidence found and used.
+- **Size:** M. **Why first:** every village slaughters and every death leaves a body; it adds light (a real need) and preservation
+  (bulk takes worth having).
+
+### K3. Forays, methods and knowing (first)
+- **Contents (by rank):** 1 forays (51, 142, 301); 2 places in memory and names; 3 land features; 4 the methods catalogue (take
+  family); 5 cord and the coppice's products (withies, poles, bark, bast) (281); 6 nets (284); 7 bow, arrows, boar spear (285);
+  8 stalking into the wind; 9 jays, roe bark and other sentinels (60, 146, 201, 234, 272); 10 crows and magpies that remember
+  people (202, 219); 11 poisonous lookalikes (232); 12 the nutting race and the squirrel (211, 235); 13 lapwing eggs and the
+  display (228, 261); 14 woodcock flight lines (237); 15 partridge and quail with nets (226); 16 hares' forms, runs, refill (94, 96,
+  157); 17 roe patches, the call, the kid at mowing (77 to 79); 18 red deer stalk, slots and lies by wind (71); 19 quirks and places
+  that remember; seeded folklore lines (158, 164, 209); 20 legends emergent (24, 62); 21 personality and selective harvest (199);
+  22 culture in animals (200); 23 decoys, calls, lures (99, 205, 291); 24 records people write: tallies, counts, year-books, maps,
+  marked trees; teaching (144, 326 to 328); 25 gathering wild plants on forays; 26 gathering young and eggs at colonies (101, 119);
+  27 drives with crews (83); 28 the harbourer's knowledge; gifts (141, 143); 29 lore as tested belief (43, 44; waits on 37.4's
+  belief store); 30 traces that age; heads and evidence read by skill (49, 150).
+- **Core:** C1 to C5, C11, C13. **Other dependencies:** the foray interpreter's model call (forays.md); 37.4's belief store for
+  rank 29; dogs for setting and coursing wait on K6.
+- **Tests:** dry: forays.md §7; skill carries across a method's targets; an upwind approach is noticed; a jay's alarm lowers deer
+  found. Live: places named and revisited; spots told or kept; method diversity; cord, nets and bows made and traded; teaching of
+  methods; against the null arm, specialists by method and trade in wild goods.
+- **Size:** L. **Why first:** it carries the take and know ladders and makes local, particular knowledge (the learning a model
+  cannot recall) the person's own.
+
+### K4. River and fen (first, in worlds with water)
+- **Contents (by rank):** 1 the eel run with the catchment's lag (54, 111, 175); 2 traps in water as standing works, robbable (177);
+  3 the weir as a structure with a gap and a downstream take (112, 178, 322); 4 salmon on the same module (114, 115); 5 the lamprey
+  (245); 6 wildfowl pushed by cold, flight lines, nets, weakness, return by survivors (108 to 110); 7 punts and coracles (307);
+  8 the decoy pond and its quiet zone (173, 248); 9 the heronry and the reading of its size (120); 10 the otter at weir and pond
+  (117); 11 crayfish and retting downstream (246); 12 the beaver's dam and the meadow below (56, 121, 122, 183); 13 crane, bittern
+  and drainage (247); 14 the pearl mussel (180, 243); 15 eel spearing in winter (113); 16 the water pack's fish and tickling (116).
+- **Core:** C1, C3, C6, C7, C9, C11. **Other dependencies:** smoking and salt from K2; flax for retting; a trained dog (K6) for the
+  decoy; boats stage A (water_and_preservation.md).
+- **Tests:** dry: the run reaches each weir on its lag day; an upstream weir's shut gap lowers the downstream catch; a local who has
+  seen two runs beats a newcomer who knows only the rule. Live: crews on run nights, weirs built and kept, preserved catches,
+  upstream and downstream disputes against the null arm.
+- **Size:** M. **Why first:** eels mattered in 13 of 20 villages (02zp §27); the strongest commons between villages.
+
+### K5. Wood and frontier (later)
+- **Contents (by rank):** 1 the sounder: route graph, the matriarch and splitting, the wallow, later at night under pressure, rooting
+  (66, 69, 134, 136, 137); 2 the mast's two years and the race with pannage pigs (67, 135); 3 the boar hunt and the bear hunt with
+  crews (68, 92); 4 red deer: the herd's make-up, browse on coppice, winter at the ricks (72, 74, 75); 5 the wolf: circuit,
+  switching, dispersers, the persecuted pack, the dangerous yearling (47, 53, 80 to 82, 148, 152); 6 the bear's year and hungry
+  spring (89 to 91, 93); 7 wild bees, bee trees marked, bee-lining, raids (123, 124, 126, 184, 185); 8 hawks' eyries and eyasses
+  (188); 9 the badger (236); 10 the veteran tree (240); 11 oak caterpillar years (239); 12 the jay planting oaks (234); 13 bracken,
+  gorse, blackthorn (233); 14 the deer park and the leap (241, 321); 15 the pine marten (127); 16 roe browse on coppice (147);
+  17 clearing's trade-offs; 18 wasps (39); 19 the starling roost (254).
+- **Core:** C1 to C7, C11, C12. **Other dependencies:** pigs and pannage (K6) for rank 2; bees kept (K6) for skeps.
+- **Tests:** dry: the matriarch's death splits the sounder; deer hunted out raise wolves' kills of stock within a season; a bare
+  autumn makes a hungry spring. Live: crews, drives across villages, hedging and parks, against the null arm.
+- **Size:** L. **Why later:** boar and deer are present in few generated villages (3 of 20); high value where present.
+
+### K6. Keeping: bridges and husbandry (later; waits on 37.4)
+- **Contents (by rank):** 1 dogs as kept beasts with types, training bonds and the kennel; hounds, sighthounds, terriers, mastiffs,
+  setters, the decoy dog (29, 97, 271, 288, 315, 323); 2 hens, ducks and geese as kept beasts; coops; geese as watchers (28, 37,
+  155); 3 pigs on pannage (33); 4 the warren, ferrets and purse nets; feral rabbits (224, 289, 317, 318); 5 the dovecote and its
+  dung (319); 6 the fishpond (242); 7 the apiary, skeps, bee boles, driving bees (38, 125, 186, 320); 8 hawks in the mews, falconry,
+  the bond; heron-hawking (128, 181, 189, 290, 316); 9 tame decoy ducks; 10 breeding traits; 11 tamed young (61, 70, 76); 12 feral
+  transitions and mixing (64); 13 sheep, folds and lambs (34, 35, 151, 270); 14 swans pinioned and marked (129, 191); 15 oxen and
+  ponies carrying bulk takes (324); 16 swine fever in kept pigs (36).
+- **Core:** C7, C8, C9. **Other dependencies:** 37.4's herds generalised into beasts (husbandry.md §7c, a board item); L-36
+  (sheep, pigs, poultry, horses).
+- **Tests:** dry: cattle unchanged; a lent hound works at half; a broken warren bank leaks rabbits. Live: kept populations started,
+  specialists bound to beasts (the falconer, the warrener, the kennel-keeper), trade in pups and kits, against the null arm.
+- **Size:** L.
+
+### K7. Land works and infrastructure (later)
+- **Contents (by rank):** 1 barriers with properties on parcel edges: hedges, banks, walls, pales, mesh; fences on borders (L-24)
+  (293); 2 raised stone granaries and stone floors (309); 3 rides; 4 high seats and hides; 5 lookouts; 6 cart tracks into woods;
+  7 landings and fords made good (329); 8 coppice rotation and hedge-laying as management (325); 9 draining and clearing at scale, and
+  development's trade-offs (277, 300, 333); 10 visibility from position; what scale unlocks (298, 299); 11 the corncrake and the
+  mowing pattern (227; low rank, when hay work has a pattern).
+- **Core:** C7, C12. **Other dependencies:** L-24 (fences on borders).
+- **Tests:** dry: a high seat's watcher notices a sounder next door; a handcart reaches the wood by its track. Live: works built,
+  their upkeep, who builds and who uses them, against the null arm.
+- **Size:** M.
+
+### K8. Crafts and wild goods (later)
+- **Contents (by rank):** 1 tanning and leather (257, 313); 2 parchment, wax seals, quills (258); 3 sinew, gut, glue, bowstrings;
+  bowyer and fletcher (265, 266); 4 horn and bone crafts; antler (263, 264); 5 furs and pelts with quality; the winter pelt (88,
+  259); 6 feathers and down (174, 260); 7 castoreum (268); 8 oil (267); 9 honey and wax as goods (262); 10 the crossbow (286);
+  11 (firearms: cut); 12 dung and bone meal for fields (269).
+- **Core:** C7, C9. **Other dependencies:** documents built (D2-24, decided); clothing parked (D2-10) for furs and wool; bees (K6).
+- **Tests:** dry: chains complete and their intermediate goods trade; tanning takes its days. Live: specialists (tanner, chandler,
+  fletcher) and trade between villages that differ by land, against the null arm.
+- **Size:** M.
+
+### K9. Coast and cliff (later, coastal worlds)
+- **Contents:** 1 seabird cliffs, the climber and the rope-holder, climbing rope (249, 306); 2 seals and the stranded whale
+  (250); 3 (the Crown's claim to W.4); 4 shore salt pans (311); 5 shellfish on the foreshore (water_and_preservation.md).
+- **Core:** C3, C7, C10. **Other dependencies:** coastal worlds; the tide (water_and_preservation.md §6).
+- **Tests:** dry: the climb's danger by the holder's skill. Live: pairs formed, the whale divided, against the null arm.
+- **Size:** S.
+
+### K10. Illness and the hidden (later; waits on illness in people)
+- **Contents:** 1 rabies (40, 251); 2 the fen ague (253); 3 the adder (229); 4 murrain meat and milk (32, 42); 5 ergot (41);
+  6 liver fluke; 7 flies carrying disease; 8 leeches and remedies (244, 268); 9 disease travelling between villages (wave 4); 10 poisons for rats, with their risk to dogs,
+  cats and people (170, 297); 11 plague as a rare regime (172; whether to build it is Zach's call).
+- **Core:** C10. **Other dependencies:** illness in people (OPEN Q-16, L-9).
+- **Size:** M.
+
+### K11. Lodgers of buildings (later)
+- **Contents:** 1 jackdaws in chimneys (221); 2 deathwatch beetle, woodworm, dry rot (222); 3 black rats in thatch (171).
+- **Core:** C1, C7. **Other dependencies:** chimneys in the building catalogue; building wear (built).
+- **Size:** S.
+
+### K12. Discovery and crafting new things (placeholder; OPEN L-103)
+- **Not designed here.** Content that would depend on it: inventing a new method (a new trap or net design, a decoy pipe), new
+  recipes from wild goods, new breeds named by people beyond traits drifting (C8), new crops from beyond the frontier, improving a
+  structure's design. Until then, methods and recipes come from the world's catalogue (knowledge.md §6: no blind crafting).
+
+### W. World options (experimental arms, off by default)
+- **Contents:** W.1 the forest-law arm (the lord's deer and boar; lawed dogs; fence height; the fence month) (139, 208); W.2 rights in
+  wild kinds (D2-194), including roe as a lesser beast and free warren (72, 145, 224); W.3 a licence to empark (241); W.4 claims on
+  whales and swans; W.5 seeded structures from history; W.6 method-seeding arms (which households know which methods); W.7 invented
+  or masked kinds and quirks for learning tests (216).
+- **Core:** C14. **Tests:** every access gate verified in a dry run (scenario_design §4).
+
+### X. Design and analysis items (not packs)
+The whole-economy map (334), the learning problems as coding categories (214), society-level tests (215), and the diagnostics (C15).
+
+## 5. What changes in the existing files (for Zach and 37.2 to act on)
+
+1. **`proposals/wild_behaviour.md` (v2):** facets become views over constitution modules (02zr §1.3); F1's search game is replaced by
+   forays; F2's P12 learner is cut (spatial adversary instead); F5's claims, customs and holders move to world options; F12 becomes
+   emergent; per-kind take lists give way to traits and properties (C1); red deer keep a modest raid by default, with forest law only
+   in W.1; the wolf's bounty is cut; swan marking is recast to tags; §7's build list follows §2.1's order here; a History entry.
+2. **`proposals/forays.md`:** add that takes along a route resolve by C1's encounter rule with the gear carried; that forays are the
+   only place free-word targets are read; that land features are shared with animals' modules (as it says); and that scavenging and
+   carcasses left on a foray follow C10 (the carcass "hanging in the brake").
+3. **02zq:** its "not built" list is mapped in §3.2 here; its one-off pieces 6 to 10 go into K0.
+4. **The ecology branch's code (37.4's, by agreement on the board):** remove the wild yield kinds (`wild_take`'s per-technique
+   `takes`, `wild_site`, `wild_shut`, `wild_guard`, `wild_watch`) and the kind-named techniques in favour of methods (C1 to C3);
+   seed wild methods by upbringing and land, not to everyone; drop tool multipliers from the manual; stop refusals listing every
+   technique of a verb; generalise `reads_as` and `SKILL_CARRY`; the field watch becomes `guard`; `shut` becomes `set`.
+5. **02zr, 02zs, 02zt, 02zu:** each gets one line at its top pointing here (the CLAUDE.md rule for superseded session notes); 02zu Part
+   D's timings are replaced by Zach's frame (§0 answer 1); 02zu C.8 is corrected (the menu is already gone, D4-78; the change is the
+   manual's content); "a unit is about two real days" is withdrawn in all four.
+6. **`spec/world/things_in_places.md` and `proposals/carcasses.md`, `graves.md`:** when K2 is decided, D2-95's "scavengers later"
+   becomes C10, and burial depth becomes a property of the burial.
+7. **`docs/cybertron2/OPEN.md`:** wind direction in the climate (C4) as an engine gap under 37.4; the D2-194 reading (decision 3
+   below) under 37.2.
+
+## 6. Decisions needed from Zach
+
+1. The core list and its build order (§2.1), with C1, C2, C3 and C15 built and tested on the built kinds (K0) before any content.
+2. The first packs (K0 to K4) and their order; K5 to K11 later.
+3. D2-194 and the forest-law material as world options only (W.1, W.2); confirm D2-194 reads "a world may give".
+4. The proposed cuts (§3.9), item by item.
+5. Determinate targets on `looking for`, with free words only in forays (§2, C2).
+6. Methods seeded by upbringing and land, and the manual without multipliers or kind lists (C2).
+7. The decay frame as given, with burial depth and spillover as stated (C10).
+8. Which husbandry pieces (dogs first) 37.4 takes on for K6, and when.
+9. Whether K4 counts as first in worlds without water (proposed: first only where rivers or fen exist).
+
+## Sources
+
+The four session notes this consolidates and their sources: `docs/review/37_growth/02zr_wild_behaviour_critique.md`,
+`02zs_wild_development.md`, `02zt_wild_dependences.md`, `02zu_wild_chains_capital_actions.md`; `02zr_wild_purpose_brief.md`;
+`02zq_wild_audit.md`; `02zp_ecosystems_deep_dive.md` §23 to §31; `docs/cybertron2/proposals/wild_behaviour.md` (v2),
+`forays.md`, `husbandry.md`, `graves.md`, `carcasses.md`, `verbs.md`, `agent_view.md`, `knowledge.md`, `water_and_preservation.md`;
+`docs/scenario_design.md`; the ecology branch's `cybertron2/engine/verbs.py` (`VERB`, `_technique`), `knowledge.py` (`resolve`),
+`packs.py` (`techniques`), `prompt.py` (`verb_lines`), `engine/wild.py` (`_wanted`, `take`, `watch`, `shut`, `guard`), `data.py`
+(TECHNIQUES, ITEMS, THINGS, DECAY), `wild/kinds.py`, `wild/plants.py`, `wild/loads.py`, `wild/diseases.py`; the coordinator's check of
+run 6's recorded system text (scratchpad `wild_run6/run.json`, not re-read here).
+
+## History
+- 10 Nov: written at Zach's request (9 Nov) to consolidate 02zr to 02zu into core engine changes and content, with every content item
+  triaged into packs; with Zach's answers of 10 Nov on decay, calibration rows, determinate targets, the menu and the manual, and
+  discovery (L-103), and his corrections on graves, spillover predation and known methods.
+- 9 Nov: 37.2's review of the proposed cuts (Zach asked that content be lost only by an explicit decision): the corncrake, plague and
+  poisons moved from cuts to deferred (K7, K10), since none was cut on principle; the other 28 cuts stand as proposed, each
+  keeping its physical substrate, for Zach to confirm.
