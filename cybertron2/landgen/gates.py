@@ -41,7 +41,9 @@ def probe(spec: dict) -> dict:
     agents = spec.get("agents") or {}
     knows = lambda n, t: t in ((agents.get(n) or {}).get("knows") or {})
     grown = lambda w, n: w.s["people"][n].get("stage") in ("adult", "elder", "youth") and w.s["people"][n].get("alive", True)
-    techs = sorted(k for k, t in TECHNIQUES.items() if t.get("verb") in ("gather", "work") and k not in SKIP)
+    from cybertron2.engine import packs as PK
+    techs = sorted(k for k, t in TECHNIQUES.items() if t.get("verb") in ("gather", "work") and k not in SKIP
+                   and PK.on(t, PK.of(base)))                                 # only what the world's packs switch on (D4-103)
 
     def attempt(w, who, a):
         try:

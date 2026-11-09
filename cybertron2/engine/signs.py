@@ -1775,6 +1775,7 @@ def _aftermath(here, add) -> None:
             x = event_context(here, p["name"], rec["day"], by=" and ".join(doers))
             spot_rows(here, HUNTED, x, sub, here.node, pid, add, name="hunted",
                       who={"others": [m for m in people if m not in doers], "doer": doers})
+        _wild_traces(here, pid, p, sub, add)                                    # what wild groups left (wild_layer.md, D2-199)
         diggers = sorted({e["actor"] for e in here.events() if e.get("kind") == "work" and e.get("tech") == "bury"
                           and f"parcel:{pid}" in (e.get("about") or []) and e.get("actor")})
         if diggers:
@@ -1817,6 +1818,24 @@ def _aftermath(here, add) -> None:
                               frm=here.parcels()[rec["from"]]["name"], to=here.parcels()[rec["to"]]["name"])
             spot_rows(here, DRIVEN, x, [f"herd:{hid}", f"parcel:{rec['to']}"], here.node, rec["to"], add, name="driven",
                       who={"others": [m for m in people if m != rec.get("by")]})
+
+
+def _wild_traces(here, pid, p, sub, add) -> None:
+    """Traces wild groups left on this parcel (wild_layer.md §3.5-3.6, D2-197): each read two ways, by one who has practised hunting
+    and by anyone else (`knows`/`lay`); a practised reader tells old traces from fresh. The texts are the kinds' data."""
+    from cybertron2.engine.data import RESOURCES
+    for i, tr in enumerate(((here._w.s.get("wild") or {}).get("traces") or {}).get(pid, [])):
+        age = here.day - int(tr["day"])
+        texts = (((RESOURCES.get(tr["kind"]) or {}).get("near_people") or {}).get("traces") or {}).get(tr["what"])
+        if not texts or not 0 <= age <= 3:
+            continue
+        x = event_context(here, p["name"], tr["day"], n=tr["n"])
+        known = texts["knows_old"] if age >= 2 and texts.get("knows_old") else texts["knows"]
+        for key, text in (("lay", texts["lay"]), ("knows", known)):
+            t = text.format(n=tr["n"], place=p["name"])
+            row = dict(when=lambda x: True, own=0.9 if tr["what"] == "raid" else 0.7, sense="sight", tags=["animals", "farming"],
+                       text=lambda x, t=t: t)
+            spot_rows(here, [row], x, sub, here.node, pid, add, name=f"wild{i}{key}", **{key: "hunt"})
 
 
 def road_context(w, name, t, pos):

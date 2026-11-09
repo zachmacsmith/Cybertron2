@@ -122,3 +122,73 @@ def test_movement_keeps_the_count():
     imm = 3 * 0.002 / m.S * m.suit["roe deer"] * 15.0 * 10.0                  # the thin immigration from beyond
     assert abs(after.sum() - before - imm.sum()) < 0.01 * before
     assert after[1] > 0 or after[2] > 0
+
+
+def _summer_world(generated, kind="wild boar"):
+    """A wooded village in summer with a group of the kind near it and a standing crop on its fields."""
+    w = build(generated, history=2)
+    from cybertron2.engine import wild as WL
+    m = WL.model(w)
+    st = w.s["wild"]["state"]
+    land = w.s["wild"]["land"]
+    ring = next(i for i, a in enumerate(m.ids) if land["areas"][a]["kind"] == "ring" and land["areas"][a]["node"] == "s1")
+    st["pop"][kind][ring] = 2.0 * 20.0 / m.km2[ring] * 3
+    st["cond"][kind][ring] = 0.2                                                     # hungry
+    from cybertron2.engine import farm as FM
+    for pid, par in w.s["parcels"].items():
+        if par["node"] == "s1" and par["cover"] == "field" and not FM.standing(par):
+            par["crop"] = {"kind": "barley", "crop": "grain", "sown": -10, "ripe_day": 40, "window": 20, "seed": 1, "area": par["size"],
+                           "area_left": par["size"], "broken": 0, "weeded": 0, "base": 10.0 * par["size"], "rot": 1.0, "left": 10.0 * par["size"]}
+    return w, WL
+
+
+def test_a_group_condenses_near_a_wooded_village_sets_out_leaves_traces_and_raids(generated):
+    w, WL = _summer_world(generated)
+    raids, edges = 0, 0
+    for _ in range(12):
+        rec = N.night(w); w.s["day"] += 1
+        g = (rec.get("wild") or {}).get("groups", {})
+        raids += sum(1 for v in g.values() if not v.get("turned"))
+        edges += sum(1 for lst in (w.s["wild"].get("traces") or {}).values() for t in lst if t["what"] == "edge")
+    assert "wild boar@s1" in w.s["wild"]["groups"]
+    assert raids >= 1 and edges >= 1
+
+
+def test_the_same_scare_wears_off_on_a_kind_that_gets_used_to_it(generated):
+    """D2-198: boar get used to a harmless scare: night after night the same fire turns them less."""
+    w, WL = _summer_world(generated)
+    g = {"kind": "wild boar", "node": "s1", "pos": "home", "t": -1, "raid": -1, "found": -99, "habit": {}, "wary": -1, "rest": -1,
+         "pref": None, "target": None}
+    turned = []
+    fields = WL._fields(w, "s1")
+    for k in range(10):
+        st = w.s["wild"]
+        st.setdefault("groups", {})["wild boar@s1"] = dict(st.get("groups", {}).get("wild boar@s1") or g, pos="ready", raid=w.d, target=fields[0],
+                                                           pref=fields[0], rest=-1, wary=-1)
+        st.setdefault("watch", {})[fields[0]] = {"day": w.d, "by": "x", "scare": "fire"}
+        rec = N.night(w); w.s["day"] += 1
+        v = (rec.get("wild") or {}).get("groups", {}).get("wild boar@s1")
+        if v:
+            turned.append(bool(v.get("turned")))
+    habit = w.s["wild"]["groups"]["wild boar@s1"]["habit"].get("fire", 0.0)
+    assert habit > 0.5 and turned and sum(turned[:4]) >= sum(turned[-4:])
+
+
+def test_a_trace_reads_one_way_to_a_practised_hunter_and_another_to_anyone_else(generated):
+    """wild_layer.md §3.6: the same rooting is 'the turf turned over' to one who has not hunted, and 'fresh rooting: a sounder of
+    about n' to one who has (the senses' knows/lay rows)."""
+    from cybertron2.engine import here as HR, perceive as PC, run as R, signs as SG
+    world = copy.deepcopy(generated)
+    world["agents"] = {"Ann": {"household": "Ash", "stage": "adult", "sex": "f", "at": "s1", "knows": {"hunt": {"level": "known", "skill": 1.6}}},
+                       "Tom": {"household": "Ash", "stage": "adult", "sex": "m", "at": "s1", "knows": {}}}
+    w, WL = _summer_world(world)
+    edge = WL._edge_of(w, WL._fields(w, "s1")[0])
+    w.apply("set_wild", "s1", path=["traces"], value={edge: [{"kind": "wild boar", "what": "edge", "day": w.d, "n": 9}]})
+    w.s["day"] += 1
+    w.s["today"] = R.blank_today()
+    read = {}
+    for who in ("Ann", "Tom"):
+        pr = PC.practised(HR.Mind(w, who))
+        read[who] = [f["text"] for f in PC.facts(HR.Here(w, who)) if (f.get("knows") or f.get("lay")) == "hunt" and SG.readable(f, pr)]
+    assert any("sounder of about 9" in t for t in read["Ann"]) and not any("turf" in t for t in read["Ann"])
+    assert any("turf" in t for t in read["Tom"]) and not any("sounder" in t for t in read["Tom"])

@@ -361,6 +361,18 @@ TECHNIQUES = {
              "aliases": ["mind", "minding", "look after", "nurse", "tend the child"], "at": {"children": True}, "draws": "child",
              "yield": {"kind": "care"}, "units": 1, "gives": "", "tags": ["family"]},                                       # D2-142, D2-150
     # Fences round a parcel and gates (livestock.md "Fences and gates": D2-130, D2-132): a field work on the parcel; FENCES has the numbers
+    "watch the field (fire)": {"verb": "work", "label": "watching a field by night with a fire", "basic": True, "pack": "wild",
+                     "aliases": ['watch the field with a fire', 'watch the corn with a fire', 'a fire watch'], "at": {"covers": ["field"]}, "draws": "watch",
+                     "yield": {"kind": "wild_watch", "scare": "fire", "with": "a fire"}, "units": 2, "gives": "", "tags": ["farming", "animals"]},
+    "watch the field (clapper)": {"verb": "work", "label": "watching a field by night with clappers", "basic": True, "pack": "wild",
+                     "aliases": ['watch the field with clappers', 'watch the corn with clappers', 'clap them off'], "at": {"covers": ["field"]}, "draws": "watch",
+                     "yield": {"kind": "wild_watch", "scare": "clapper", "with": "clappers"}, "units": 2, "gives": "", "tags": ["farming", "animals"]},
+    "watch the field (horn)": {"verb": "work", "label": "watching a field by night with a horn", "basic": True, "pack": "wild",
+                     "aliases": ['watch the field with a horn', 'watch the corn with a horn', 'blow a horn at them'], "at": {"covers": ["field"]}, "draws": "watch",
+                     "yield": {"kind": "wild_watch", "scare": "horn", "with": "a horn"}, "units": 2, "gives": "", "tags": ["farming", "animals"]},
+    "watch the field (dog)": {"verb": "work", "label": "watching a field by night with the dog", "basic": True, "pack": "wild",
+                     "aliases": ['watch the field with the dog', 'watch the corn with the dog', 'set the dog on them'], "at": {"covers": ["field"]}, "draws": "watch",
+                     "yield": {"kind": "wild_watch", "scare": "dog", "with": "the dog"}, "units": 2, "gives": "", "tags": ["farming", "animals"]},
     "fence": {"verb": "work", "label": "fencing a parcel round (wattle or post and rail)", "basic": True,
               "aliases": ["fencing", "put up a fence", "wattle fence", "mend the fence", "build a fence", "a fence"],
               "at": {"covers": ["pasture", "meadow", "field", "scrub"]}, "draws": "plot", "yield": {"kind": "fence", "fence": "wood"},

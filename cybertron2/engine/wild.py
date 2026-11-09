@@ -117,7 +117,157 @@ def night(w, rec) -> None:
                 lost = (_crops if food == "crops" else _stores)(w, node, share)
                 if lost > 1e-6:
                     out[food][node] = round(lost, 4)
+    out["groups"] = _groups(w, m, st)
     rec["wild"] = out
+
+
+# ---------------------------------------------------------------------- groups near people (wild_layer.md §3.4, D2-197, D2-198)
+def _near(kind):
+    from cybertron2.engine.data import RESOURCES
+    return (RESOURCES.get(kind) or {}).get("near_people")
+
+
+def _season_window(w, day, seasons) -> bool:
+    cal = w.calendar(day)
+    si = ["spring", "summer", "autumn", "winter"].index(cal["season"])
+    sd = int(cal["day"]) - 1
+    return si in seasons and seasons[si][0] <= sd <= seasons[si][1]
+
+
+def _fields(w, node) -> list:
+    """The node's fields with a standing crop, the parcel ids in order."""
+    from cybertron2.engine import farm as FM
+    return [pid for pid, par in sorted(w.s["parcels"].items()) if par["node"] == node and any(
+        c.get("area_left", 0) > 1e-6 and float(c.get("left", 0)) > 1e-9 for _, _, c in FM.standing(par))]
+
+
+def _edge_of(w, pid) -> str:
+    """The parcel a group comes out of on its way to a field: a wood or scrub beside it, else the field itself."""
+    par = w.s["parcels"][pid]
+    for q in par.get("adj") or []:
+        if w.s["parcels"].get(q, {}).get("cover") in ("forest", "scrub"):
+            return q
+    return pid
+
+
+def _trace(traces, pid, kind, what, day, n):
+    lst = [t for t in traces.get(pid, []) if day - int(t["day"]) <= 3]
+    lst.append({"kind": kind, "what": what, "day": day, "n": int(n)})
+    traces[pid] = lst
+
+
+def _groups(w, m, st) -> dict:
+    """Whole-counted kinds with a group near a village: condense from the ring's count, set out on a drive, leave traces, raid a
+    field unless a watch turns them by the kind's answer to scares, remember. All changes through set_wild."""
+    import copy
+    from cybertron2.engine import farm as FM
+    import numpy as np
+    wild = w.s["wild"]
+    groups = copy.deepcopy(wild.get("groups") or {})
+    traces = {pid: [t for t in lst if w.d - int(t["day"]) <= 3] for pid, lst in copy.deepcopy(wild.get("traces") or {}).items()}
+    traces = {pid: lst for pid, lst in traces.items() if lst}
+    watch = {pid: v for pid, v in (wild.get("watch") or {}).items() if int(v.get("day", -9)) == w.d}
+    out = {}
+    land = wild["land"]
+    ix = {a: i for i, a in enumerate(m.ids)}
+    rings = {a["node"]: ix[aid] for aid, a in land["areas"].items() if a["kind"] == "ring"}
+    for node, ri in sorted(rings.items()):
+        for kind in m.names:
+            np_ = _near(kind)
+            spec = m.kinds[kind]
+            if not np_ or spec.get("count") != "whole":
+                continue
+            gid = f"{kind}@{node}"
+            count = float(np.asarray(st["pop"][kind])[ri]) * float(m.km2[ri])
+            lo, hi = (spec.get("group") or {}).get("size", [2, 10])
+            if count < lo:
+                groups.pop(gid, None)
+                continue
+            g = groups.get(gid) or {"kind": kind, "node": node, "pos": "home", "t": -1, "raid": -1, "found": -99, "habit": {},
+                                    "wary": -1, "rest": -1, "pref": None, "target": None}
+            g["n"] = int(np.clip(round(0.3 * count), lo, hi))
+            groups[gid] = g
+            rng = w.rng("wild-group", w.d, gid)
+            fields = _fields(w, node)
+            if not fields:
+                g["pos"] = "home"
+                continue
+            if g["pref"] not in fields:
+                g["pref"] = next((f for f in fields if _edge_of(w, f) != f), fields[0])
+            ans = np_["answer"]
+            if ans["type"] == "habituate":
+                g["habit"] = {k: max(0.0, v - float(ans["decay"])) for k, v in g["habit"].items() if v > float(ans["decay"])}
+            attr = max([t["attr"] for t in np_["targets"] if _season_window(w, w.d, t["seasons"])] or [0.0])
+            trample = max([t["trample"] for t in np_["targets"] if _season_window(w, w.d, t["seasons"])] or [0.0])
+            hunger = 1.0 - float(np.asarray(st["cond"][kind])[ri])
+            if g["pos"] == "ready" and w.d >= g["raid"]:
+                g["pos"] = "home"
+                tgt = g["target"] if g["target"] in fields else g["pref"]
+                seen = watch.get(tgt)
+                scare = seen.get("scare") if seen else None
+                if scare is not None:
+                    harm = (np_.get("harm") or {}).get(scare)
+                    if harm:
+                        turned = rng.random() < float(harm["turn_p"])
+                        if turned and rng.random() < float(harm["harm_p"]):
+                            g["wary"], g["habit"] = w.d + int(np_["wary_after_harm"]), {}
+                    elif ans["type"] == "habituate":
+                        turned = rng.random() < float(ans["turn_p"]) * (1 - float(g["habit"].get(scare, 0.0)))
+                        if turned:
+                            g["habit"][scare] = min(1.0, float(g["habit"].get(scare, 0.0)) + float(ans["gain"]))
+                    elif ans["type"] == "scared_off":
+                        turned = rng.random() < float(ans["turn_p"])
+                    else:
+                        turned = False
+                    if turned:
+                        g["rest"] = w.d + int(ans.get("rest", 2))
+                        _trace(traces, tgt, kind, "turned", w.d, g["n"])
+                        out[gid] = {"raid": tgt, "turned": True, "scare": scare}
+                        continue
+                share = min(0.5, trample * g["n"] * (float(np_["met_share"]) if scare is not None else 1.0))
+                lost = 0.0
+                par = w.s["parcels"][tgt]
+                for hd, _, c in FM.standing(par):
+                    q = round(float(c.get("left", 0.0)) * share, 4)
+                    if c.get("area_left", 0) > 1e-6 and q > 1e-9:
+                        w.apply("draw", node, parcel=tgt, key="crop", qty=q, **({"holder": hd} if hd is not None else {}))
+                        lost += q
+                g["found"] = w.d
+                _trace(traces, tgt, kind, "raid", w.d, g["n"])
+                out[gid] = {"raid": tgt, "turned": False, "scare": scare, "lost": round(lost, 4)}
+            elif g["pos"] == "edge":
+                if rng.random() < float(np_["lead_sign_p"]):
+                    _trace(traces, _edge_of(w, g["target"]), kind, "edge", w.d, g["n"])
+                if w.d - g["t"] >= int(np_["lead_nights"]) - 1:
+                    g["pos"], g["raid"] = "ready", w.d + 1
+            elif g["pos"] == "home" and w.d >= g["rest"] and w.d >= g["wary"] and attr > 0:
+                p = attr * (float(np_["drive"]["base"]) + float(np_["drive"]["hunger"]) * hunger)
+                knows = 1 <= w.d - int(g["found"]) <= int(np_["memory_days"])
+                if knows:
+                    p = max(p, float(np_["return_p"]) * attr)
+                if rng.random() < p:
+                    g["target"] = g["pref"] if rng.random() < 0.75 else fields[int(rng.random() * len(fields))]
+                    if knows:
+                        g["pos"], g["raid"] = "ready", w.d + 1                  # straight back; the damage was the sign
+                    else:
+                        g["pos"], g["t"] = "edge", w.d
+                        if rng.random() < float(np_["lead_sign_p"]):
+                            _trace(traces, _edge_of(w, g["target"]), kind, "edge", w.d, g["n"])
+    place = m.nodes[0]
+    kept = {pid: v for pid, v in (wild.get("watch") or {}).items() if int(v.get("day", -9)) >= w.d}
+    if kept != (wild.get("watch") or {}):
+        w.apply("set_wild", place, path=["watch"], value=kept)
+    if groups != (wild.get("groups") or {}):
+        w.apply("set_wild", place, path=["groups"], value=groups)
+    if traces != (wild.get("traces") or {}):
+        w.apply("set_wild", place, path=["traces"], value=traces)
+    return out
+
+
+def watch(here, pid, y, place_name) -> str:
+    """A night watch over a field with a scare (the technique's row names it): read by the night's groups (D2-198)."""
+    here.apply("set_wild", path=["watch", pid], value={"day": here.day, "by": here.name, "scare": y["scare"]})
+    return f"You set yourself to watch {place_name} tonight with {y.get('with', y['scare'])}."
 
 
 def _crop_food(w, node) -> float:

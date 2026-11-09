@@ -99,6 +99,41 @@ KLEIBER = {"herb": 0.075, "gran": 0.065, "omni": 0.07, "carn": 0.11}        # kg
 MAST = {"every": (2, 5), "ordinary_p": 0.6, "levels": {"heavy": 3.0, "ordinary": 1.0, "poor": 0.4, "fail": 0.15}}
 
 
+# near people (wild_layer.md §3.4; wild_systems.md §6): how a whole-counted kind's group behaves by a village. Seasons are
+# {season index: (first day, last day)}; trample is the share of a field's standing crop a head takes in a raid; the answer to a
+# harmless scare is D2-198's; leads are in engine days (D2-197). Traces name what a group leaves where, read by the senses with a
+# reading for the practised hunter and one for anyone else.
+NEAR_PEOPLE = {
+    "wild boar": {
+        "targets": [{"seasons": {1: (3, 7), 2: (0, 1)}, "attr": 1.0, "trample": 0.012},     # milk-ripe to harvest
+                    {"seasons": {0: (0, 5)}, "attr": 0.3, "trample": 0.006}],              # the sown corn
+        "drive": {"base": 0.12, "hunger": 0.6}, "memory_days": 3, "return_p": 0.85, "lead_nights": 2, "lead_sign_p": 0.9,
+        "answer": {"type": "habituate", "turn_p": 0.9, "gain": 0.3, "decay": 0.01, "rest": 2},
+        "harm": {"dog": {"turn_p": 0.95, "harm_p": 0.25}}, "wary_after_harm": 8, "met_share": 0.5,
+        "traces": {"edge": {"lay": "the turf by the wood's edge turned over in long strips",
+                            "knows": "fresh rooting at the wood's edge: a sounder of about {n}, nearer the corn each night",
+                            "knows_old": "old rooting at the wood's edge, two or three nights old"},
+                   "raid": {"lay": "the corn in {place} trampled and rooted in the night, a strip of it flattened",
+                            "knows": "a sounder of about {n} was in the corn of {place} in the night: rooted and trampled"},
+                   "turned": {"lay": "beasts turned back from {place} in the night", "knows": "the sounder turned back from {place}"}},
+    },
+    "red deer": {
+        "targets": [{"seasons": {0: (2, 7)}, "attr": 0.5, "trample": 0.006},                # the young corn
+                    {"seasons": {1: (3, 7)}, "attr": 0.4, "trample": 0.004}],              # the ripening corn
+        "drive": {"base": 0.08, "hunger": 0.5}, "memory_days": 3, "return_p": 0.6, "lead_nights": 2, "lead_sign_p": 0.8,
+        "answer": {"type": "habituate", "turn_p": 0.85, "gain": 0.25, "decay": 0.01, "rest": 2},
+        "harm": {"dog": {"turn_p": 0.9, "harm_p": 0.15}}, "wary_after_harm": 5, "met_share": 0.5,
+        "traces": {"edge": {"lay": "deer slots in the soft ground along the hedge",
+                            "knows": "fresh slots along the hedge: a herd of about {n}, hinds and calves",
+                            "knows_old": "old slots along the hedge, rained on"},
+                   "raid": {"lay": "something grazed and trod the corn in {place} in the night",
+                            "knows": "a herd of about {n} deer was at the corn in {place} in the night"},
+                   "turned": {"lay": "beasts turned back from {place} in the night", "knows": "the deer turned back from {place}"}},
+    },
+}
+
+
 def rows() -> dict:
     """The kinds as RESOURCES rows (merged into data.RESOURCES; pack "wild")."""
-    return {name: {"renewal": "population", "pack": "wild", "population": k} for name, k in KINDS.items()}
+    return {name: {"renewal": "population", "pack": "wild", "population": k, **({"near_people": NEAR_PEOPLE[name]} if name in NEAR_PEOPLE else {})}
+            for name, k in KINDS.items()}
