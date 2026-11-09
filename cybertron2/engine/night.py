@@ -163,10 +163,12 @@ def night(w) -> dict:
     for cid, c in list(s["containers"].items()):                              # spoilage, by condition (D2-58, D2-87)
         if c["kind"] == "hands" and not s["people"][c["of"]]["alive"]:
             continue
-        if c["kind"] == "carcass" and c.get("beast"):                          # a dead beast by its size (D4-52, brief 3 §2)
-            _carcass_night(w, cid, c)
-            continue
+        flesh_by_size = c["kind"] == "carcass" and c.get("beast")
+        if flesh_by_size:                                                      # a dead beast's flesh by its size (D4-52, brief 3 §2);
+            _carcass_night(w, cid, c)                                          # its hide and tallow as goods are
         for item, q in list(c["goods"].items()):
+            if flesh_by_size and item in ("meat", "rotting meat", "offal"):
+                continue
             if c["kind"] == "carcass" and item == "meat":                      # a dead beast's meat keeps a day, then goes off (D4-52)
                 if q > 1e-9 and w.d - int(c.get("died", w.d)) >= int(THINGS["carcass_fresh_days"]):
                     place = w.place_of(("container", cid))
