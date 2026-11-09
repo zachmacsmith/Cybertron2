@@ -29,8 +29,6 @@ next number; 37.2 and 37.4 share the series (check before adding).
 | W-3 | Records restructure: WORK.md, OPEN.md's kinds, CLAUDE.md's rule, hygiene's stale checks, the sorting draft (02zz) | 37.2 (session "Thicker economy exploration") | active | 9 Nov | 9 Nov | main: docs/cybertron2/WORK.md, OPEN.md, CLAUDE.md, tools/hygiene.py, docs/review/37_growth/02zz_open_sorting.md | in this commit; left: Zach checks 02zz's sorting, then the rows move |
 | W-4 | wild_behaviour.md v3 (the per-kind designs, from 02zv, 02zw and the briefs) | 37.2 | waiting | 9 Nov | 9 Nov | docs/cybertron2/proposals/wild_behaviour.md | waits on Q-32 (02zv §6, items still open) |
 | W-5 | 37.2's own hygiene items: D2-199 to D2-203 into the spec; the scratchpad path in 02zp's sim.py | 37.2 | queued | 9 Nov | 9 Nov | spec/environment/wildlife.md; docs/review/37_growth/02zp_ecosystem_models/wildsys/sim.py | not begun |
-| W-19 | Paired probes, round 2: the same three situations with every other agent an LLM (Haiku 5.5; Osric Sonnet 5.5 with an aim to hire labour for grain), 6 days (two of the fox's raid nights on Carter House at seed 7) | 37.2 (session "Thicker economy exploration") | active | 9 Nov | 9 Nov | branch `ecology`; 37.2's scratchpad: pair2_*.json, pair2_runs/ | started; left: 6 runs (about $10), a report to Zach |
-| W-20 | Paired probes, round 3: round 2's six worlds with the Fable seat on Fable 5.1 (`claude-fable-5-1`) instead of 5.2, everything else the same, for a three-way comparison (Fable 5.2, Fable 5.1, Opus 5.5) | 37.2 (session "Thicker economy exploration") | active | 9 Nov | 9 Nov | branch `ecology`; 37.2's scratchpad: pair3_*.json, pair3_runs/ | started; left: 6 runs (about $14), the comparison with round 2 |
 
 ## Paused
 
@@ -52,6 +50,8 @@ next number; 37.2 and 37.4 share the series (check before adding).
 
 | # | Work | Owner | Done |
 |---|---|---|---|
+| W-20 | Paired probes, round 3: Fable 5.1 (docs/review/37_growth/02zzc_fable_versions.md) | 37.2 | 9 Nov: six runs ($24.71) and reported |
+| W-19 | Paired probes, round 2: a full LLM cast, Fable 5.2 (02zzc) | 37.2 | 9 Nov: six runs ($16.86) and reported |
 | W-18 | Small paired probes, Fable 5.2 against Opus 5.5, three situations (docs/review/37_growth/02zzb_fable_opus_pairs.md) | 37.2 | 9 Nov: six runs ($5.33) and reported |
 | W-17 | A Fable 5.2 probe in run 6's world (docs/review/37_growth/02zza_fable_probe.md) | 37.2 | 9 Nov: run ($10.81) and reported |
 | W-1 | Build brief 1: general methods (D2-204, D2-207); branch `ecology-methods`; gate and deviations in 02zx, defaults in OPEN Q-36 | 37.4 | 9 Nov |
