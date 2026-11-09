@@ -185,3 +185,54 @@ def test_cattle_gad_on_a_hot_still_day_far_from_water_and_shade(generated):  # n
         assert HD.gadding(w, h) == (par["cover"] in ("pasture", "meadow") and not shade and par["cover"] not in ("water",))
     finally:
         EV.values = orig
+
+
+def test_society_a_watched_field_sends_the_loss_next_door(generated):  # noqa: F811
+    """§7, society-level (dry): two neighbouring fields, one watched each night: the unwatched one loses more than when neither is."""
+    def loss(watch_a):
+        tot = 0.0
+        for k in range(10):
+            w, _ = _summer_world(generated)
+            fields = _fields(w)
+            if len(fields) < 2:
+                return None
+            a, b = fields[0], fields[1]
+            w.s["day"] = 22 + k
+            _ready(w, "wild boar", a, dict(WK.NEAR_PEOPLE["wild boar"]["targets"][0], what="crop"))
+            if watch_a:
+                w.s["wild"]["watch"] = {a: {"day": w.d, "by": "x", "scare": "fire"}}
+            before = sum(float(c.get("left", 0)) for _, _, c in __import__("cybertron2.engine.farm", fromlist=["x"]).standing(w.s["parcels"][b]))
+            N.night(w)
+            after = sum(float(c.get("left", 0)) for _, _, c in __import__("cybertron2.engine.farm", fromlist=["x"]).standing(w.s["parcels"][b]))
+            tot += before - after
+        return tot
+    neither, watched = loss(False), loss(True)
+    if neither is None:
+        return
+    assert watched > neither
+
+
+def test_society_one_lax_house_draws_the_fox_to_its_neighbours(generated):  # noqa: F811
+    """§7, society-level (dry): a hamlet with one house left open loses more hens in its other houses than one with every house shut."""
+    def others_lost(lax):
+        w, _ = _summer_world(generated, kind="fox")
+        m, ri = _ring(w, WL)
+        w.s["wild"]["state"]["pop"]["fox"][ri] = 4.0 / m.km2[ri]
+        w.s["wild"]["state"]["pop"]["stoat"] = [0.0] * len(w.s["wild"]["state"]["pop"]["stoat"])
+        houses = [b for b, x in sorted(w.s["buildings"].items()) if x["node"] == "s1" and x.get("stock")
+                  and w.s["containers"][x["stock"]]["goods"].get("hen")]
+        if len(houses) < 2:
+            return None, None
+        rest = houses[1:] if lax else houses
+        h0 = sum(w.s["containers"][w.s["buildings"][b]["stock"]]["goods"].get("hen", 0) for b in houses[1:])
+        for _ in range(30):
+            for b in houses:
+                w.s["buildings"][b]["condition"] = 2
+            w.s["wild"]["shut"] = {b: {"day": w.d, "by": "x"} for b in rest}
+            N.night(w); w.s["day"] += 1
+        return h0 - sum(w.s["containers"][w.s["buildings"][b]["stock"]]["goods"].get("hen", 0) for b in houses[1:]), h0
+    shut_all, _ = others_lost(False)
+    one_lax, h0 = others_lost(True)
+    if h0 is None:
+        return
+    assert one_lax >= shut_all

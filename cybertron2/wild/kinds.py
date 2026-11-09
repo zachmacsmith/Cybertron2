@@ -388,8 +388,6 @@ PHASES = {"voles and mice": {"order": ["low", "increase", "peak", "crash"],
                              "breed": {"low": 0.4, "increase": 1.6, "peak": 1.0, "crash": 0.1},
                              "die": {"low": 0.08, "increase": 0.0, "peak": 0.04, "crash": 0.5},
                              "hard_winter": 3, "mast_ahead": True}}
-# fittings that keep a store from the vermin (wild_systems.md §6 followers: a terrier, a raised floor), what of their loss they leave
-STORE_KEEP = {"dog": 0.5, "granary": 0.3}
 # kinds that follow the harvest into the stores: how far a full barn can raise what they find there (engine/wild._follow_harvest)
 FOLLOW_HARVEST = {"rats": 1.0, "voles and mice": 0.5}
 # hunted kinds leaving a hunted area (a share a day for each unit of pressure); pressure added by a hunt, a kill, a crew; its fading
