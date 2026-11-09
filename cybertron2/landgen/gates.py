@@ -27,7 +27,7 @@ ARGS = {"sow": {"item": "grain", "qty": 2}}  # what a technique needs said to be
 # refusals that are the moment or the inputs, not a shut gate: a crop not ripe or standing, no seed or dung to hand, no such ground
 SITUATIONAL = ("not ripe", "has a crop in it", "say which", "you have 0.0 to hand", "there is no dung", "nowhere here",
                "sown as thick", "say whose", "needs", "no gate", "no fence", "nothing to", "no one lying", "not wet ground",
-               "not hill ground", "is sound", "no ripe crop", "need a tool")
+               "not hill ground", "is sound", "no ripe crop", "need a tool", "no dead beast")
 
 
 def _ok(out: str) -> bool:

@@ -946,6 +946,12 @@ def pest(here, key, place_name, a) -> str:
     if want:
         named = [k for k in crop if want == k or want in LOAD_NAMES.get(k, ())]
         if not named:
+            from cybertron2.engine.data import RESOURCES                       # a raider, not a pest of the crop: say what answers it
+            raider = next((k for k, r in sorted(RESOURCES.items()) if r.get("near_people") and (want.rstrip("s") in k
+                           or want in (r.get("taken") or {}).get("family", []))), None)
+            if raider:
+                raise Refused(f"{a.get('looking for')} are not worked off a crop like a pest: a watch on the field (guard the field) "
+                              "or something to scare them keeps them off")
             raise Refused(f"you know of no pest called {a.get('looking for')!r} on a crop")
         load = named[0]
     else:
