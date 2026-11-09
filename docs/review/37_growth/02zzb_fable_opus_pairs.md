@@ -34,8 +34,9 @@ share, and (Opus once, Fable once) a member set to watch the field.
 **What the probes could not show, and why:**
 - **The bargaining scenario failed as designed.** Osric (Sonnet) never engaged: his days ran mostly on fallbacks (firewood,
   dung), so there was no willing counterpart, and s1 became much like s3.
-- **The raiders did not come.** In 4 days on this seed no fox or deer raid reached the houses or fields, so s2 tested nothing
-  about defence; a raid test needs longer runs, a season of more pressure, or a forced raid (a scripted group state).
+- **The raiders came once and took nothing.** On this seed the fox came to Carter House on night 2 in every run and caught nothing
+  (in run 6 it came on nights 2, 4 and 6 and took all six hens on night 6); neither head answered it, and 4 days hold one raid
+  night only, so s2 tested little about defence. (Corrected 9 Nov: the first version said no raid came.)
 - **The bots set the agenda.** Scripted bots reaped other households' green barley in every run, and both models spent their
   messages on it. That is a bot behaviour to fix before bots are used as the population in probes (OPEN Q-35).
 - **One seed, 4 days, two seats a model a scenario:** the stylistic differences hold in all six seats; the rest is suggestive.
