@@ -465,6 +465,19 @@ Code on the branch, not on main. All 433 tests pass there, including 35 for the 
     rare regimes (a great freeze, a vole plague, two bare masts) with what the elders remember, read by the old.
   - **one-off 2 done**: a watch's scare is made of what is there (a fire burns firewood; clappers and a horn are made and carried; a
     dog watch needs a dog at home); picking slugs moved to dusk so it claims no lantern. The night itself (one-off 1) waits for D2-21.
+  - **the vole cycle, built as the design specced it** (02zp §23: the vole phase, a pulse shared by a world's villages, like the
+    mast): a phase clock, low, increase, peak, crash a year each, set ahead by a mast, held once by a hard winter. Voles now cycle
+    three to four years, sevenfold peak to trough, the owls a year behind (0.7 down to 0.37). The emergent route failed: a specialist
+    predator (weasels and stoats, tried offline) and a delayed crowding both leave the voles flat (cv 0.01 to 0.06), because the food
+    web's stabilisers (a day's eating capped, prey refuges, crowding) damp any predator-prey swing.
+  - **live run 6** (spring, 8 days, $11.56; a generated world with a heronry and a rookery, 19 people, legends made likely for the
+    run by an experiment's knob): the heronry left on night 1, troubled by people gathering firewood in its wood; a head of household
+    went for the young herons on day 3 and found it gone. Fixed: only felling, hunting and robbing at the nests trouble it. The rooks
+    took about 2.5 a night of the young corn for four nights; one head of household made clappers and watched the field. Hens shut
+    in nine times (once in earlier runs), after "wolf tracks by the wood's edge" and rats in the store ("shut the hens and the store
+    in tonight": a door does not keep rats out, a misbelief the world can correct). An expert herder read "about 40 red deer by
+    Hazel Copse" and made a weapon to go after one; another reaped a field early "or the deer will finish it" (the lever "reap
+    early"). No one hunted far enough to meet a legend. Three deaths of old age again (the life model, not the wild layer).
 
 ## Sources
 

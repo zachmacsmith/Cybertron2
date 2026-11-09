@@ -183,7 +183,7 @@ the shared ones): autumn's peak 15, spring's gap 7, summer 8, winter 10 (what au
 ### 4c. Still not built, and why
 | Item | Why |
 |---|---|
-| the vole cycle | the rule (a cycler's delayed crowding) is in, but at strengths 2 and 6 it lowers the voles' level and does not cycle them (cv 0.03-0.06 over 20 years): the owls do not answer the voles (they hold at 0.7); a cycle needs a predator that does, or weaker crowding within the year. Off |
+| the vole cycle | built 10 Nov as the specced phase clock (02zp §23): three to four years, sevenfold, the owls a year behind; the emergent routes (delayed crowding, a specialist predator) stay flat under the food web's stabilisers |
 | the old sow, the dangerous yearling, individuals | built in wave 5 (10 Nov): leaders on demand and legends (D2-195); the yearling not |
 | pannage, the fold, lambs, swine fever in pigs, geese as watchers, hives and the bear at them, wasps | husbandry (37.4): no pigs, sheep, folds, geese or bees |
 | rabies, ergot, murrain meat and milk | illness in people and a herd's milk (37.4) |
