@@ -389,6 +389,15 @@ Code on the branch, not on main. All 408 tests pass there, including 10 for the 
   - shyness near people;
   - the bridge measured against the model's year of crop, not its day's standing pulse (first versions ate half the crop in 16
     nights).
+- 9 Nov (later): Zach: "hunting could vary: they could look specifically for something, or just hunt in general ... sometimes find
+  something they weren't expecting ... hunts should be able to target some things, a range". Built on the branch as the general
+  taking system, not a wave:
+  - five ways of hunting as technique rows (taking what comes, stalking deer, a boar hunt, snaring hares, fowling);
+  - a range (near, the wood around, far) and a quarry to look for, as modifiers;
+  - what is met is drawn from the areas covered, by numbers, how easy each kind is to find, and focus;
+  - flight, danger divided by a crew (D2-193), a kill off its area's count and its group.
+
+  Wave 2 waits: its fox and wolves at the fold need sheep and poultry (husbandry).
 
 ## Sources
 
