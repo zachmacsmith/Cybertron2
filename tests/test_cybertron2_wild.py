@@ -1143,3 +1143,17 @@ def test_the_vole_phase_clock_steps_a_year_at_a_time_in_order():
     order = K.PHASES["voles and mice"]["order"]
     steps = [(order.index(b) - order.index(a)) % len(order) for a, b in zip(seen, seen[1:])]
     assert all(s_ in (0, 1, 2) for s_ in steps) and len(set(seen)) >= 3
+
+
+def test_a_night_on_watch_costs_food_and_tomorrows_work(generated):
+    """D2-21: a field watch gives up the night's sleep: it eats the guard's food and leaves one tired tomorrow."""
+    from cybertron2.engine import run as R, labour as LB
+    w, WL = _summer_world(_two(generated))
+    w.s["today"] = R.blank_today()
+    field = w.s["parcels"][WL._fields(w, "s1")[0]]["name"]
+    w.apply("create", "s1", dst=w.hands("Tom"), item="firewood", qty=3)
+    _do(w, "Tom", {"do": "work", "what": "watch the field (fire)", "at": field})
+    assert "Tom" in w.s["today"]["night_watch"]
+    assert LB.work_need(w.p, w.s["today"], "Tom") >= float(w.p["labour"]["guard_food"])
+    LB.close_day(w, w.s["today"], {"Tom": 2}, {"Tom": 6}, ["Tom"])
+    assert (w.s["people"]["Tom"].get("tired") or {}).get("units", 0) >= int(w.p["labour"]["watch_tired"])

@@ -651,6 +651,7 @@ PHYSICS = {
                "over_units": 2,            # units one may push on past the day's (an agent's "overwork")
                "over_food": 2.0,           # their food, as units worked
                "fatigue": 1,               # units off tomorrow for each unit pushed past the day's
+               "watch_tired": 2,           # units off tomorrow after a night on watch, its sleep given up (D2-21; calibrate)
                "fade_after": 0.5,          # years a craft goes unpractised before its skill fades (D4-105)
                "fade_rate": 0.5,           # then this share a year of what can still be lost
                "fade_keep": 0.6,           # the share of one's best gain over the craft's floor that is never lost

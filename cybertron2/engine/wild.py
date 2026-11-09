@@ -1532,7 +1532,8 @@ def watch(here, pid, y, place_name) -> str:
         from cybertron2.engine.verbs import _consume
         _consume(here, y["burns"])
     here.apply("set_wild", path=["watch", pid], value={"day": here.day, "by": here.name, "scare": y["scare"]})
-    return f"You set yourself to watch {place_name} tonight with {y.get('with', y['scare'])}."
+    here.today().setdefault("night_watch", {})[here.name] = pid           # D2-21: the night given up, more food, tired tomorrow
+    return f"You set yourself to watch {place_name} tonight with {y.get('with', y['scare'])}, and will lose the night's sleep."
 
 
 def _crop_food(w, node) -> float:
