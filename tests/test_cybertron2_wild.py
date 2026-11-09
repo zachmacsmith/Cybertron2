@@ -1117,3 +1117,24 @@ def test_a_watchs_scare_is_made_of_what_is_there(generated):
     w.apply("create", "s1", dst=w.hands("Tom"), item="firewood", qty=3)
     r = _do(w, "Tom", {"do": "work", "what": "watch the field (fire)", "at": field})
     assert "efused" not in r and w.goods(w.hands("Tom")).get("firewood", 0) < 3
+
+
+def test_the_vole_phase_clock_steps_a_year_at_a_time_in_order():
+    from cybertron2.wild import ecology as EC, kinds as K
+    from cybertron2.landgen import write as W_
+    world = W_.generate({"name": "t", "seed": 7, "days": 10, "calendar": {"season": "spring", "day": 1, "season_days": 8},
+                         "generate": {"seed": 7, "configuration": "settled lowland and frontier", "spacing_km": 8.0, "settlements": 4}})[0]
+    world.setdefault("agents", {})
+    w = build(world, history=1)
+    from cybertron2.engine import wild as WL
+    m = WL.model(w)
+    st = copy.deepcopy(w.s["wild"]["state"])
+    Y = w.year_days()
+    seen = []
+    for y in range(6):
+        for d in range(Y):
+            EC.step(m, st, y * Y + d, WL.weather(w, sorted(set(m.nodes)), 300 * Y + y * Y + d), WL.draws(w, y * Y + d, "t"))
+        seen.append(st["phase"]["voles and mice"])
+    order = K.PHASES["voles and mice"]["order"]
+    steps = [(order.index(b) - order.index(a)) % len(order) for a, b in zip(seen, seen[1:])]
+    assert all(s_ in (0, 1, 2) for s_ in steps) and len(set(seen)) >= 3

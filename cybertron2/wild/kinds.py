@@ -352,6 +352,13 @@ WORK_NOTICES = {
 # cyclers (wild_systems.md §5, rule 4): last year's crowding holds this year's breeding (a delayed density dependence), so numbers rise
 # and crash over years; the strength by kind (calibrate: voles 3 to 4 years)
 CYCLE = {"voles and mice": 0.0}     # off: tried 2 and 6 (9 Nov, 20 years): it lowers the level, does not cycle (cv 0.03-0.06; 02zq)
+# a phase clock (02zp §23: the vole phase, a pulse shared by a world's villages, like the mast): a year in each phase, in order; a
+# mast autumn sets it ahead (low to increase), a hard winter holds it (no step); each phase multiplies the kind's breeding and adds
+# deaths a day (calibrate: peak to trough about tenfold, three to four years round)
+PHASES = {"voles and mice": {"order": ["low", "increase", "peak", "crash"],
+                             "breed": {"low": 0.4, "increase": 1.6, "peak": 1.0, "crash": 0.1},
+                             "die": {"low": 0.08, "increase": 0.0, "peak": 0.04, "crash": 0.5},
+                             "hard_winter": 3, "mast_ahead": True}}
 # fittings that keep a store from the vermin (wild_systems.md §6 followers: a terrier, a raised floor), what of their loss they leave
 STORE_KEEP = {"dog": 0.5, "granary": 0.3}
 # kinds that follow the harvest into the stores: how far a full barn can raise what they find there (engine/wild._follow_harvest)

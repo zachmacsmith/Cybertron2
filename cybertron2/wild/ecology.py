@@ -326,8 +326,13 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
         carrion = carrion + dead * kd["mass"] * 0.6
         eff["dead"][k] = dead * m.km2
         N[k] = N[k] - dead
+        ph = (st.get("phase") or {}).get(k)
+        if ph is not None and k in WK.PHASES:                             # the phase clock's deaths (the crash)
+            surv = surv * np.exp(-float(WK.PHASES[k]["die"][ph]))
         if sd == 0 and SEASONS_OF[si] in kd["breed"] and kd["migrant"] is None:
             cond = np.clip(0.2 + 0.8 * E[k], 0, 1) / (1.0 + (dis / 0.15) * crowd ** 2)
+            if ph is not None and k in WK.PHASES:
+                cond = cond * float(WK.PHASES[k]["breed"][ph])
             if WK.CYCLE.get(k):                                               # a cycler: last year's crowding holds this year's breeding
                 lag = np.asarray((st.get("lag") or {}).get(k, N[k]), float) / np.maximum(m.crowd_at[k] * m.suit[k], 1e-9)
                 cond = cond / (1.0 + float(WK.CYCLE[k]) * lag ** 2)
@@ -371,6 +376,22 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
         kd = m.kinds[k]
         if kd["migrant"] is None:
             N[k] = N[k] + 0.002 / S * m.suit[k] * (kd["ref"] or 1.0) * (~m.home)
+    if sd == 0 and si == 0:                                               # the phase clocks step a year (02zp §23)
+        P_ = st.setdefault("phase", {})
+        for k, pc in WK.PHASES.items():
+            order = pc["order"]
+            cur = P_.get(k, order[int(float(draws.get("mast", 0.5)) * len(order)) % len(order)])
+            frosty = float(np.mean(st.get("winter_frozen", [0]))) >= float(pc.get("hard_winter", 99))
+            prev = ((st.get("mast") or {}).get("years") or {}).get(str(year - 1))
+            held = (st.get("phase_held") or {}).get(k, False)
+            step_ = 0 if frosty and cur == "increase" and not held else 1
+            st.setdefault("phase_held", {})[k] = step_ == 0
+            if pc.get("mast_ahead") and prev is not None and float(prev) >= float(WK.MAST["levels"]["heavy"]) and cur == "low":
+                step_ = 2 if order.index(cur) + 2 < len(order) else 1
+            P_[k] = order[(order.index(cur) + step_) % len(order)]
+        st["winter_frozen"] = [0] * n
+    if si == 3:
+        st["winter_frozen"] = [int(x) + int(bool(f_)) for x, f_ in zip(st.get("winter_frozen", [0] * n), frozen)]
     if sd == 0 and si == 0:                                               # the year's mean crowding, kept for the cyclers
         st["lag"] = {k: [round(float(x), 6) for x in (0.5 * np.asarray((st.get("lag_acc") or {}).get(k, N[k]), float) + 0.5 * N[k])]
                      for k in WK.CYCLE if k in N}
