@@ -152,3 +152,10 @@ engine's state and imports nothing it changes.
 - 08 Nov 2026: weather drawn as things (Zach: storms as storm clouds, fog as fog banks, not a dimming; then fewer, real-looking, streaming clouds with low cover so storms stay readable): first as puffs, then as a streaming cloud field; rain and snow
   clouds with what falls, storm cells with anvils, shafts and lightning, fog banks in the low ground, gale scraps, shadows. A
   sheet of one village under each weather, and the region on three days.
+- 09 Nov 2026: the wild layer drawn (37.2's ecology branch, D2-199; ENGINE.md §15, CATALOGUE §9), at Zach's request.
+  - Model: each day's counts by area, groups, traces, watches, raids and takes; the areas; the kinds' rows. All optional: none
+    without the pack.
+  - Renderer: `js/wild.js`: kinds by count on the region's map, a village's own wild close up, groups at the edge, raids by night,
+    traces, watch fires.
+  - c2viz tests pass on main and on the ecology engine. Seen on twin bays with the pack in summer.
+  - Found: the ecology branch's run cannot write state.json at its end (a numpy bool in the wild state); the journal is whole.

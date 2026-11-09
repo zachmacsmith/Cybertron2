@@ -132,7 +132,12 @@ Rebuilt from the files on 5 Nov (status and owner as each file states them; 37.2
 | [living_populations.md](living_populations.md) | living populations on the land (a generalised ecology layer) | 37.2 | discussion (8 Nov). Nothing decided, nothing to build. |
 | [wildlife.md](wildlife.md) | the first wild kinds (what lives on the land, what each is for) | 37.2 | partly accepted: D2-192 to D2-196 (8 Nov; spec/environment/wildlife.md). Not built. ... |
 | [husbandry.md](husbandry.md) | what people make of wild things: economies, husbandry, tools and skills | 37.2 | discussion (8 Nov). Nothing decided, nothing to build. |
-| [wild_plants.md](wild_plants.md) | wild plants, and the slow ecosystems they make | 37.2 | discussion (8 Nov). Nothing decided, nothing to build. |
+| [wild_behaviour.md](wild_behaviour.md) | wild behaviour: kinds composed of facets (quarry, raider, predator, run, site, engineer, taming, ...), each a module of its own | 37.2 | partly accepted: D2-203 (modules per kind); the behaviour specs per kind in discussion (9 Nov), superseded in part by 02zr to 02zv; v3 to follow |
+| [wild_plants.md](wild_plants.md) | wild plants, and the slow ecosystems they make | 37.2 | partly accepted: D2-200 to D2-202 (9 Nov: the food kinds, poisonous plants, one stock shared with the wild kinds); succession and the rest in discussion |
+| [forays.md](forays.md) | forays: going out and back, described in one's own words and translated into a route by a small model call; places kept in memory | 37.2 | discussion (9 Nov) |
+| [methods_and_encounters.md](methods_and_encounters.md) | build brief 1: general methods inside the existing technique system (traits, take tables generated at load, skill by method and familiarity by kind, seeding by land); stage 1 and K0 | 37.2 | accepted: D2-204, D2-207 (9 Nov) |
+| [wild_raiders_and_works.md](wild_raiders_and_works.md) | build brief 2: displacement, the fox's lapse probe, birds as a flock, set traps, doors and stores by gap size; pack K1 (stoat, cat, owl hole, moles, rooks' grubs, markers, gadding) | 37.2 | accepted: D2-206, D2-207 (9 Nov) |
+| [carcass_and_decay.md](carcass_and_decay.md) | build brief 3: carcasses as food for the wild kinds through the raid targets and the carrion pool, stages by size, spillover, the bear's cache, burial depth, burning, tallow and light; pack K2 | 37.2 | accepted: D2-205, D2-207 (9 Nov) |
 | [crop_growth.md](crop_growth.md) | crops grow by the season; "can" apart from "works"; what a crop shows | 37.4 | accepted: D4-106 (8 Nov; built). |
 | [phase3_variance_and_risk.md](phase3_variance_and_risk.md) | phase 3 of the engine overhaul, variance and risk (the scheduler, building risks, the woods, bad years) | 37.4 | discussion (8 Nov); an exploration of what phase 3 builds, nothing built. |
 | [weather_scheduler.md](weather_scheduler.md) | the weather scheduler (eras, years, daily types, weather that varies in space) | 37.4 | retrospective, accepted: D4-109, D4-110, D4-111 (8 Nov; built). |
@@ -401,6 +406,11 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 8 Nov | Hounds in wave 2, hawks in wave 3; other kinds and niches; the general mechanisms | accepted in part: D2-196 | [wildlife.md](wildlife.md) |
 | 8 Nov | what people make of wild things: economies, husbandry, tools and skills | discussion (8 Nov). Nothing decided, nothing to build. | [husbandry.md](husbandry.md) |
 | 8 Nov | wild plants, and the slow ecosystems they make | discussion (8 Nov). Nothing decided, nothing to build. | [wild_plants.md](wild_plants.md) |
+| 9 Nov | wild plant kinds in pack worlds; poisonous plants; the wild kinds and people share the stocks | partly accepted: D2-200 to D2-202 | [wild_plants.md](wild_plants.md) |
+| 9 Nov | each wild kind designed first, then a module of its own through the animal interface | partly accepted: D2-203 | [wild_behaviour.md](wild_behaviour.md) |
+| 9 Nov | forays: hunting and gathering as a route of events over the places one knows, beyond the village's edges | discussion (9 Nov). Nothing decided, nothing to build. | [forays.md](forays.md) |
+| 9 Nov | general methods instead of one technique per wild kind; the build brief for the wild core's first stage | ready for a decision (9 Nov). Nothing decided, nothing to build. | [methods_and_encounters.md](methods_and_encounters.md) |
+| 9 Nov | raiders displaced, set traps, doors and stores by size; carcasses and decay; the briefs rewritten from how the engine works (02zw) | ready for a decision (9 Nov). Nothing decided, nothing to build. | [wild_raiders_and_works.md](wild_raiders_and_works.md), [carcass_and_decay.md](carcass_and_decay.md) |
 | ? | crops grow by the season; "can" apart from "works"; what a crop shows | discussion (8 Nov). | [crop_growth.md](crop_growth.md) |
 | ? | phase 3 of the engine overhaul, variance and risk (the scheduler, building risks, the woods, bad years) | discussion (8 Nov); an exploration of what phase 3 builds, nothing built. | [phase3_variance_and_risk.md](phase3_variance_and_risk.md) |
 | ? | ecology designed from the node outward | discussion (8 Nov). Nothing decided, nothing built. | [node_ecology.md](node_ecology.md) |
@@ -408,3 +418,4 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 8 Nov | Lead times and creature memory in engine days; kinds answer scares in four ways | accepted in part: D2-197, D2-198 | [wild_systems.md](wild_systems.md) |
 | 9 Nov | the wild layer, one general system for ecosystems and wildlife, built from the generated land into the engine | discussion (9 Nov). Nothing decided, nothing built in the engine. | [wild_layer.md](wild_layer.md) |
 | 9 Nov | The wild layer built on 37.2's ecology branch | accepted in part: D2-199 | [wild_layer.md](wild_layer.md) |
+| 9 Nov | the three wild build briefs: general methods with two-layer skill; raiders, set works, K1; carcasses and decay, K2 | accepted: D2-204 to D2-207 | [methods_and_encounters.md](methods_and_encounters.md), [wild_raiders_and_works.md](wild_raiders_and_works.md), [carcass_and_decay.md](carcass_and_decay.md) |

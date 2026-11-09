@@ -533,3 +533,34 @@ Checked on every place of twin bays and w1:
 - **A place a storm reaches tomorrow** has a dark cloud by its name.
 - **On hover,** each place's weather in words and values. The day's type and era are on the page.
 
+## 15. The wild layer (D2-199; 37.2's `ecology` branch, the `wild` pack)
+
+**What the engine holds** (`s["wild"]`, only with the pack):
+- **The land summary:** the generator's areas, a home area for each village, a ring around it and coarse wild areas beyond, each
+  with its place (km), size and cover.
+- **Each kind's density in each area:** the kinds are RESOURCES rows with renewal "population": red and roe deer, wild boar,
+  hare, woodpigeon, rats, wildfowl, eel, voles and mice, owls, fox, wolf, raven, brown bear.
+- **Groups near people:** whole-counted kinds (red deer, boar) condensed at a village. A group goes from its home in the wood,
+  to the edge of the field it means to raid, to the raid, and may be turned back.
+- **Traces** on parcels, kept three days: rooting at the edge, a raid, a turn back.
+- **Watches** kept over fields, and the night's take of crops and stores.
+
+**What is read:** each day's head count per kind and area (density × km², in the engine's area order), the groups, traces,
+watches and the night's raids and takes (extract `wild_day`); the areas (`wild_areas`); each kind's registry row (tables `wild`).
+Without the pack, or on an engine before it, nothing is read and nothing is drawn.
+
+**Presentation choices:**
+- **The region's map:**
+  - each ring and wild area's kinds, as many sprites as their count (a head a sprite for a dozen deer, eight boar, two wolves, one
+    bear; a flock for hundreds of pigeons; capped per area);
+  - placed on the ground nearest the area's own point where that ground suits the kind's habitat row: wood, shrub, open, heath,
+    wet, water for fowl;
+  - the larger beasts drawn whole, the small ones as marks.
+- **Close up:**
+  - the village's own area's kinds (hares, pigeons on the corn, rats at the houses, roe, a fox), as many as each parcel's share of
+    the area's ground, on parcels that suit them;
+  - a group on its way stands in the wood at the field's edge (the engine's own edge rule);
+  - traces on the ground, fading over their three days; a watch fire.
+- **The day as it happened:** the group is in the corn by night when it raided, or at the edge when it was turned back.
+- **Not drawn:** eels and voles (too small or under water). Each beast has two frames, head up and head down (grazing).
+

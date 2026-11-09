@@ -152,27 +152,22 @@ grass, game and dung by stock.
 - **A broken door** on the building that day, and the fight inside marked at it. c2viz's records hold each building's door and
   the day's fights; it draws no break-in.
 
-## 9. Wild kinds (D2-192 to D2-196; spec environment/wildlife.md)
+## 9. Wild kinds (D2-192 to D2-199)
 
-**Status:** decided 8 Nov, not built.
+**Status:** being built on 37.2's `ecology` branch (D2-199), not on main. Phases 0 to 3 are there: populations by area, groups
+near people, traces, watches, hunting from the populations.
 
-**What is decided:**
-- **The waves:**
-  - wave 1: red deer, hare, trout, eel, salmon, wildfowl, raven;
-  - wave 2: wolf, wild boar, fox, wild bees, with hounds;
-  - wave 3: beaver, otter, pine marten, brown bear, falcon, swan, with hawks.
-- **Danger:** some hunts can wound or kill the hunter.
-- **Rights in game by law:** deer and their cover, swans, a fishery or weir; taking against them is poaching.
-- **Legendary named animals:** the white hart, the great boar.
+**Done in c2viz (9 Nov, ENGINE.md §15):**
+- kinds by count on the region's map;
+- the village's own wild close up;
+- groups at the wood's edge, raids by night, traces, watch fires;
+- the hunting and watching techniques' tools.
 
-**To support, once built:**
-- **Each kind as its own sprite at its parcels,** by count, and by season where it moves (wildfowl in winter, salmon in their run).
-- **Hounds led by a person;** a hunt's crew.
-- **The legendary animal** as a marked individual.
-- **Rights shown on hover:** whose deer, whose weir.
-- **Wounds from a hunt,** drawn as other wounds are.
+Optional: on main, without the pack, nothing changes. Checked on a bot run of twin bays with the pack, in summer: a sounder of
+three boar at Northby goes to the edge on day 2 and raids the corn on night 4.
 
-The present "game" stock is one number a parcel; nothing should be drawn per animal until the engine holds animals.
+**Still to support:** a hunt's outcome at its place (a carcass, a wounded hunter); kept beasts once husbandry moves onto the beasts
+entity (phase 5); the later waves' kinds (hounds, wolves at the fold).
 
 ## 10. Ecosystems in motion (02zp, 37.2's deep dive)
 

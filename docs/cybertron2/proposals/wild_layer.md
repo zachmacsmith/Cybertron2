@@ -325,6 +325,32 @@ merge), and they settle whether the coarse ecosystem behaves on the generated la
 **What happens to wave 1 as built (02zp part six):** it stays as a prototype of the micro layer (raids, memory, answers, signs by
 skill). Its tests are read as tests of that layer only.
 
+## 6a. As built on the `ecology` branch (9 Nov; D2-199)
+
+Code on the branch, not on main. All 433 tests pass there, including 35 for the layer.
+
+| Phase | Built | Where | Not yet |
+|---|---|---|---|
+| **0** | the generator's land fields merged in; a **land summary** written with every world (59 areas for four villages and a wild node, 104 links, rivers' flow, about 33 kB); world schema 5: `s.wild` and a parcel's `ecosystem`, held only with the `wild` pack; the `set_wild` primitive | `cybertron2/wild/areas.py`, `landgen/write.py`, `engine/schema.py`, `engine/world.py` | **the climate's calibration** (spell lengths and frost runs under compressed time, the eras) |
+| **1** | 14 kinds as RESOURCES rows (pack `wild`, renewal `population`); the **ecology step** on the food web's rules, a day at a time, with the climate by place, soil wetness, summer warmth, an irregular mast and keyed outbreaks; a history before the run; an offline runner on five generated worlds | `cybertron2/wild/kinds.py`, `ecology.py`; `docs/review/.../wildlayer/offline.py` | calibration backlog (below) |
+| **2** | the step in the engine's night, with the pack only; the **bridge**: wild kinds eat a real-yield crop and store, and the year's share eaten is drawn from the engine's crops and stores (4 to 10% of the standing crop and 3 to 5% of dry stores over 16 nights); shyness near people (busy land lowers a kind's habitat, by the kind's data) | `engine/wild.py`, `engine/night.py` | takes from the store in place of `game` and `hunt`; capacity under a harvest (37.4) |
+| **3** | **groups near people** for whole-counted kinds (boar, red deer): condensed from their ring's count; a drive from the area's hunger; a lead of engine days leaving traces (D2-197); raids on a field; a **night watch with a scare** (fire, clapper, horn, the dog) answered by the kind, getting used to it or harmed by the dog (D2-198); memory of a field. **Traces** on parcels, read by the senses two ways: a practised hunter reads "fresh rooting at the wood's edge: a sounder of about 14", anyone else "the turf by the wood's edge turned over" | `engine/wild.py`, `engine/signs.py`, `engine/verbs.py`, data rows | deer at the ricks in frost; raids on stores; the fox and the wolves at the fold (wave 2, after husbandry) |
+| **4** | three small agent runs on one generated world (17 people, Opus at each household's head, Sonnet and Haiku); see History | scratchpad runs, not committed | the experiment proper: the pack on and off, invented kinds, several worlds |
+| **6 (wave 2)** | wolves (a pack gathered from the land beyond the ring) at the herds, leaving a carcass read as a kill; the fox at the **hens, kept as a house's stock** (six a house with beds; they lay); shutting the hens in; ravens over carrion; voles' numbers as signs | `engine/wild.py`, `wild/kinds.py`, data rows | sheep, pigs, poultry and hounds as beasts (husbandry, 37.4) |
+| **signs** | every mechanism with its bundle by the four kinds of sense, from the kinds' data: a group's edge, raid, try (a raid that took nothing) and turn; a watch's own night (to the watcher only); what the kinds ate, on the fields and in the stores; the mast in flower and fallen; a kill by a wild kind; **a hunt as a noticing process of its own** (as the road's), remembered of the place; a technique's `reads_as`, so every way of hunting reads a hunter's signs | `engine/signs.py`, `wild/kinds.py`, `engine/perceive.py` | calibration of `own` against the guide's evidence |
+| **7 (wave 3)** | **loads**: slugs, aphids with ladybirds following, fungi, as a level an area moved by the weather on the area's ground (`wild/loads.py`); harm to crops of a family at an age, cut by a guard (picking slugs by lantern, topping the beans); a fungus flush filling the woods' wild food. **The year's markers** from degree days (blackthorn, swallows, oak and ash, the may, the first frost), with lore that holds and lore that fails, measured on the climate | `wild/loads.py`, `engine/wild.py`, `engine/signs.py` | wasps (with bees, after husbandry); ergot (needs a grain's quality and illness from eating it, engine gaps) |
+| **8 (wave 4)** | **disease by host and area** (`wild/diseases.py`): each disease's prevalence among its wild hosts by area, rising with crowding among the not immune, spreading along the land's links, burning out into immunity; murrain in the deer, mange in foxes and wolves, a hare sickness. **Murrain in kept cattle**: caught from sick herds on the same parcel (most), beside it, in the village, from the deer, now and then from beyond; carried between villages by a herd driven there; carcasses read as a sickness, and by a herder as murrain | `wild/diseases.py`, `engine/wild.py`, `engine/signs.py` | rabies (bites need illness in people); a disease of people; milk lost to sickness (the herd's milk is set by farm.py) |
+
+**Calibration backlog** (offline, five worlds, 24 years):
+- **boar barely follow the mast:** 3% variation between years, because crowding holds them below the food limit;
+- **voles do not cycle;**
+- **densities off:**
+  - red deer at 0.2 to 0.3 of real;
+  - foxes about 0.3;
+  - bears 4 to 6 times too many;
+- **eels and wildfowl live only in the fen world** (the others' water is small rivers);
+- **what does vary:** deer 4 to 13% between years, hares about 12%, woodpigeons 10 to 18%.
+
 ## 7. Alternatives considered
 
 - **A separate wild world beside the engine** (wave 1 as built). Fast to try, but the society can only reach it through bridges, and
@@ -361,6 +387,104 @@ skill). Its tests are read as tests of that layer only.
   generated environment; reconciles living_populations.md (and 37.4's review of it), W2, node_ecology.md, the interface experiments
   and wild_systems.md.
 - 9 Nov: Zach: "build it on your own ecology branch" (D2-199). Building there, engine code included, for review before main.
+- 9 Nov (later): phases 0 to 3 built on the branch (§6a), with the climate's calibration, the takes from the store, capacity under a
+  harvest and the engine experiment still to do. Three fixes on the way:
+  - the food web's seasonal eating caps taken a day at a time;
+  - shyness near people;
+  - the bridge measured against the model's year of crop, not its day's standing pulse (first versions ate half the crop in 16
+    nights).
+- 9 Nov (later): Zach: "hunting could vary: they could look specifically for something, or just hunt in general ... sometimes find
+  something they weren't expecting ... hunts should be able to target some things, a range". Built on the branch as the general
+  taking system, not a wave:
+  - five ways of hunting as technique rows (taking what comes, stalking deer, a boar hunt, snaring hares, fowling);
+  - a range (near, the wood around, far) and a quarry to look for, as modifiers;
+  - what is met is drawn from the areas covered, by numbers, how easy each kind is to find, and focus;
+  - flight, danger divided by a crew (D2-193), a kill off its area's count and its group.
+
+  Wave 2 waits: its fox and wolves at the fold need sheep and poultry (husbandry).
+- 9 Nov (later): wave 2 built without waiting for husbandry: the hens as a house's stock (an item) and the wolves at the cattle
+  herds the engine already has. Sheep, pigs and hounds still wait.
+- 9 Nov (later): agent runs 1 and 2 (8 days each, about $8 and $11). Run 1: the agents kept to the old generic hunt (fixed: the pack
+  turns it off, `off_with`) and no raid came (the drive raised). Run 2: 30 hunts taking what comes, 16 deer stalks and 17 snarings,
+  ranges used, a quarry named twice; five night watches; raids by the fox (three, none took a hen), the wolves (two calves) and the
+  deer (one field); the boar turned once by the dog. Opus heads read the signs and acted on them in words ("a wolf pack, about four,
+  prowling the edge of South Wood ... bring them in nearer the Green at dusk"; "Feathers and blood by the hen house ... shut the hens
+  in at dusk"), but no one shut the hens in.
+- 9 Nov (later): Zach: "do a sweep of all the various wildlife and other systems added and if all the relevant mechanisms have
+  appropriately accompanying bundles of signs ... There may be new types: just as seeing signs on the road is a specific process so
+  too might be going out to hunt". The sweep (above, "signs") found and fixed four signs not grounded in state:
+  - a fox raid that took no hen still read "feathers and blood" (now a try's signs: the earth scraped under the door);
+  - a beast the wolves killed read "no mark on it: it went down where it stood" (now torn and half eaten, and to a hunter, wolves);
+  - every wild sign was gated on the old hunt, which the pack turns off, so a deer stalker read them as a layperson (`reads_as`);
+  - the ecology stepped its seasons from day 0 while the calendar began in summer: one season apart in every run so far.
+- 9 Nov (later): wave 3 built (above). Calibrated offline on the steady, cold and wet climates over 12 years: slugs take 1 to 2% of a
+  young crop in a median year, 11 to 15% at the 90th percentile and up to 26% (02zp §24: 4%, 12%, 27%); blackfly 2 to 3% of the beans
+  (9% at the 90th); fungi flush in about 40% of autumns, more in the wet era. The markers' lore measured: a frost after the
+  blackthorn in 15 to 18 of 60 village-years (so its reading says a cold snap often follows), after the may in none, so "the frosts
+  are done" holds; "oak before ash" has no tie to the summer's rain and is kept as lore that fails. On the way, the ecology's soil
+  wetness became a slow bucket (it halved on every dry day, so grass "drought" came every few days).
+- 9 Nov (later): agent run 3 (spring start, 8 days, about $11), after the sweep and wave 3. Slugs grazed four fields; one head of
+  household (Opus) read "the young corn grazed off to stumps" and picked slugs by lantern on two evenings, and asked her father to
+  "keep the slugs off the barley"; another (Opus) asked his herdsman (Haiku) to watch the barley against the boar, the fire watch
+  set that night turned the sounder; the wolves took a calf and a cow; a fox took all six of one house's hens (no one shut them in,
+  in this run either); a herd of 13 deer raided one field twice. The run's own trouble is not the wild layer's: two elders die of old
+  age by day 5 in every run (bots too), and others starve in a cold spring.
+- 9 Nov (later): wave 4 built (above). Calibrated offline (16 years; the land of a four-village world): murrain in the deer in 2
+  years of 16, local; mange one wave across the land, foxes 15% down in its year and about 8% below the disease-free run after;
+  the hare sickness local in 7 years of 16. In the herds (3 years, four villages of 12 beasts): outbreaks in three villages, 5
+  beasts dead, milder than the great murrains (calibrate). A fix on the way: without immunity every disease that spread faster
+  than it cleared stayed in every area for ever.
+- 9 Nov (later): Zach asked for an audit against wild_systems.md, every specced layer for the kinds built so far, the plants
+  ("Yes to all build this": D2-200 to D2-202) and an audit of one-offs. Audit and results: `docs/review/37_growth/02zq_wild_audit.md`.
+  Built on the branch: the plant kinds with one stock for the wild kinds and people; the animals' layers by general rules
+  (conditions and effects, targets as data, fences, the gap, hunting pressure, wounds, the expert's reading, the layers' signs as
+  they begin, weather leads, notices while working, litters, a take's nights, the harvest's vermin, migrants' return). Not built,
+  with the reason: the vole cycle (the rule does not cycle them), individuals (wave 5), what needs husbandry or illness in people.
+- 9 Nov (later): agent run 4 (autumn start, 8 days, $11.63). Gathering wild food was the most common act (84): 27 acorns, 26
+  mushrooms, 23 hazel nuts, 9 hedge fruit. One untaught gatherer (Opus) was made ill by mushrooms; the same head of household then
+  leached acorns into meal twice. Agents moved between woods as one was "picked clean" ("try Hazelden Moor: berries, hedge fruit,
+  roots"). The wolves took a calf and a cow; the night's sign ("something bellowed on West Pasture last night and then went quiet")
+  and the tracks ("about two of them") had heads of household telling their herders to count the beasts and bring them in at dusk.
+  One shut the hens in "because there are foxes and wolves about". Murrain came from beyond on the last night. The rut, plovers
+  before the freeze and the first frost reached three agent-days each and drew no comment.
+- 9 to 9 Nov (overnight, Zach: "Then the filling out of the expert details for all the wildlife. Then continue the phases as you
+  see fit adding a test (you can do two live runs at appropriate times) to investigate"):
+  - **expert readings (L3) for every kind, load, marker, disease and plant**, read from the state: in a hunt, about how many, their
+    condition, their wariness and hunger; owl pellets in a vole year; rats breeding in the thatch; what a kill means for the herd;
+    markers early or late; oak before ash as a warm spring only (the lore's truth); a heavy or light year in the plant gathered.
+  - **live run 5** (winter into spring, 8 days, $9.35; six heads of household given expert skill): the experts used what only an
+    expert reads. Gervase (Opus): "hunt the woods around for the unwary red deer"; Jocelin (Opus): "About 20 roe hold South Wood
+    ... I'll stalk a roe", later "Hares are fat and plentiful on our land ... I'll hunt them all day"; Susanna (Opus) to her
+    household: "There are fat hares lying out on the open ground, about 7 of them. Try for them today". Deer took hay from the ricks
+    in the snow twice; the wolves again took a calf and a cow (the same keyed nights as run 4: the wild layer's nights depend on the
+    world's seed far more than on the agents).
+  - **wave 5 built**: sites (heronries, rookeries, beaver lodges) placed where the land suits them, back each season grown or crashed,
+    a heronry troubled in spring leaving for good, herons at the fish, rooks at the young corn unless watched, a beaver dam flooding
+    the meadow and raising the fish, the young taken, beavers trapped; individuals (D2-195): leaders named on demand (the old sow,
+    the old dog-wolf), a group scattering when its leader is killed, legendary beasts seldom (the great boar, the white hart);
+    rare regimes (a great freeze, a vole plague, two bare masts) with what the elders remember, read by the old.
+  - **one-off 2 done**: a watch's scare is made of what is there (a fire burns firewood; clappers and a horn are made and carried; a
+    dog watch needs a dog at home); picking slugs moved to dusk so it claims no lantern. The night itself (one-off 1) waits for D2-21.
+  - **the vole cycle, built as the design specced it** (02zp §23: the vole phase, a pulse shared by a world's villages, like the
+    mast): a phase clock, low, increase, peak, crash a year each, set ahead by a mast, held once by a hard winter. Voles now cycle
+    three to four years, sevenfold peak to trough, the owls a year behind (0.7 down to 0.37). The emergent route failed: a specialist
+    predator (weasels and stoats, tried offline) and a delayed crowding both leave the voles flat (cv 0.01 to 0.06), because the food
+    web's stabilisers (a day's eating capped, prey refuges, crowding) damp any predator-prey swing.
+  - **live run 6** (spring, 8 days, $11.56; a generated world with a heronry and a rookery, 19 people, legends made likely for the
+    run by an experiment's knob): the heronry left on night 1, troubled by people gathering firewood in its wood; a head of household
+    went for the young herons on day 3 and found it gone. Fixed: only felling, hunting and robbing at the nests trouble it. The rooks
+    took about 2.5 a night of the young corn for four nights; one head of household made clappers and watched the field. Hens shut
+    in nine times (once in earlier runs), after "wolf tracks by the wood's edge" and rats in the store ("shut the hens and the store
+    in tonight": a door does not keep rats out, a misbelief the world can correct). An expert herder read "about 40 red deer by
+    Hazel Copse" and made a weapon to go after one; another reaped a field early "or the deer will finish it" (the lever "reap
+    early"). No one hunted far enough to meet a legend. Three deaths of old age again (the life model, not the wild layer).
+  - **one-off 1 for the wild watches**: D2-21 is decided (the watch gives up the night's sleep, eats more, detects first), so a
+    field watch now costs the guard's food and leaves the watcher tired the next day (world schema 6, `today.night_watch`). Whether
+    `guard` itself becomes the watch stays with 37.4 (02zo A2).
+
+- 9 Nov: Zach asked whether the kinds had the depth and variety of behaviour the spec wanted; they did not (most kinds were
+  settings of one group machine, much of the catalogue present only as signs: 02zq). D2-203: each kind designed first, then a
+  module of its own; the per-kind behaviour specs are in `wild_behaviour.md`, for Zach to check before building.
 
 ## Sources
 

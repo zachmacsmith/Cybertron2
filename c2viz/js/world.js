@@ -1,7 +1,7 @@
 // c2viz/js/world.js: the region's map for a day.
 (function (X) {
   "use strict";
-  const { D, PAL, Px, drawBuilding, drawTrees, geom, hstr, model, node, noise, weatherField, skyOver, paintLand, paintPath, paintRoad, peaks, person, personLabel, plan, regionPlan, rng, styleOf, verges, weatherOver } = X;
+  const { D, PAL, Px, drawBuilding, drawTrees, geom, hstr, model, node, noise, weatherField, skyOver, wildRegion, paintLand, paintPath, paintRoad, peaks, person, personLabel, plan, regionPlan, rng, styleOf, verges, weatherOver } = X;
   // ---------------------------------------------------------------------------------------------------- the region
   // each place's ground plan at one scale for all places (so a big place looks big), in its own territory; its buildings at their
   // footprint, smaller, its people as small figures, roads between places from their ends, travellers at the middle of the stretch
@@ -61,6 +61,7 @@
     }
     drawTrees(P, ctx.trees, ctx, occ, W, H, R);
     peaks(P, RP, cellPar, occ, W, H, ctx.snow || ctx.season === "winter", 1);
+    wildRegion(P, V, d, RP, items, (x, y) => occ[(y | 0) * W + (x | 0)] >= 3);                   // the wild layer's kinds (D2-199)
     items.sort((a, b) => a.y - b.y).forEach((it) => it.f());
     for (const [name, p] of Object.entries(d.people)) {                                             // travellers, at the middle of their stretch
       const t = p.transit; if (!t || !p.alive) continue; const r = ST.roads[t.road], pts = roadPts[t.road]; if (!r || !pts || !pts.length) continue;
