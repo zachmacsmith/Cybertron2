@@ -740,6 +740,8 @@ to groups (D4-105).
 4. Rare regimes (rabies, murrain, a vole plague, a locust rumour): in, as lore and rare events?
 5. How much seeded lore should be wrong, and in which ways?
 6. ~~Compressed time~~: decided, D2-197 (lead times and creature memory in engine days, never less than one).
+7. The fox fails the relevance test at village scale (02zp §25). Keep it as a simple kind (shut the hens; den control in a hungry
+   spring), or join it to the lambs at lambing so that it matters?
 
 ## History
 
@@ -752,6 +754,16 @@ to groups (D4-105).
   of one to two weeks) and liver fluke (a wet autumn to the winter's rot); §7 grouped by lag; compressed time as open question 6.
 - 8 Nov: Zach decided open question 6 ("yeah set lead times in engine days"): D2-197. And "not all creatures should get used to
   scares. Some of them should just get scared off": D2-198, four answers to a scare by kind (§9 item 7). Status partly accepted.
+- 9 Nov: a prototype at village scale (02zp part five: five generated worlds, the engine's climate, the first set as data on five
+  general rules). Findings:
+  - the expert reads better than the novice on every event; the gap is large where lore joins signs (eels, the mast, voles, freezes,
+    slugs) and thin for boar and fox, whose strongest sign is yesterday's damage;
+  - boar pass the relevance test by far, and their expert edge is D2-198's answer to scares more than the reading;
+  - eels pass where there is a river (once the act the forecast pays for, a crew at the weir, was added); slugs pass in wet years;
+    fowl only in the fen in a hard winter; wasps and voles barely; the fox fails;
+  - about three kinds show a lead and its event in any 12-day window.
+
+  Open question 7 added.
 
 ## Sources
 

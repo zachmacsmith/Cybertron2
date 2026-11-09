@@ -896,3 +896,182 @@ are as it reported them; each has not been re-read.
   - https://archive.rhass.org.uk/archive/transactions-of-rhass-1790-1969/transactions-of-rhass-1940-1949/transactions-of-rhass-volume-1940/609072-transactions-of-rhass-volume-1940-page-053
 - Wild boar crop damage, liver fluke, and the aphid predator lag: from general sources; to be checked against the primary literature
   before calibration.
+
+# Part five (9 Nov): a prototype of the layered wild systems at village scale
+
+The design is [wild_systems.md](../../cybertron2/proposals/wild_systems.md) (partly accepted: D2-197, D2-198). Models:
+[02zp_ecosystem_models/wild/](02zp_ecosystem_models/wild/):
+- `prep.py`: the worlds and the weather;
+- `wild.py`: the general rules and the kinds;
+- `run_wild.py`: observers, readers and the inference test;
+- `tests.py`: actions, scares, relevance, lags and conditions;
+- `results.json` and `tests.log`.
+
+## 23. What was built
+
+**Land and weather:**
+- five generated worlds (settled lowland and frontier, fen with islands, upland and moor, plain, sand country) at 8 km spacing, four
+  villages each;
+- each village's own parcels and the land within 2.5 km by cover;
+- ten years of daily weather from the engine's climate (D4-109) at the village's node, under five eras (steady, cold, wet, warm,
+  dry);
+- Y = 32.
+
+**Drivers** (from the weather): hard frost and its run, the dry spell, soil wetness, the river a day behind the rain, moonless
+nights, and anomalies by season. Two pulses are shared by a world's villages: the oak mast (a budget that builds over 2 to 4 years,
+spoiled by frost at flowering, with failure the year after a heavy mast) and the vole phase (low, increase, peak, crash).
+
+**General rules, with the kinds as data on them:**
+
+| Rule | Kinds | What it does |
+|---|---|---|
+| Group | boar (a sounder), fox | sets out on a drive; a lead stage of two nights leaves signs; a raid at the target; remembers a success and comes back; answers scares by its kind (D2-198) |
+| Flock | hard-weather birds | come with a freeze, weaken as it runs, scared off by fowling for a day and back; over-taking thins next winter's flock |
+| Run | silver eels | an autumn run, heavy on dark nights with rising water after a dry spell; taken at a weir |
+| Load | slugs, wasps, voles | an area-level number set by the season's weather; active on conditions; damage in windows |
+| Pulse | mast, the vole phase | yearly, with a lag |
+
+**Signs:**
+- Each sign has a chance of being noticed and a reading per level: novice, systematic, expert.
+- Traces age. Old rooting reads to the novice exactly like fresh (a misread); the systematic reader tells old from fresh; the expert
+  also reads the gap the sounder uses.
+- Every lead is at least one engine day (D2-197).
+
+**Readers:** at each level, a tally learner over the features that level attends to (what it can notice and read, plus the lore it
+holds). It is trained on half the villages and scored on the other half. This tests whether the signs carry information and what it
+is worth. It does not test whether agents learn it: the features each level attends to are chosen by hand, so part of the gradient
+is built in.
+
+**Households** act on their reader's forecasts. The policies:
+- none;
+- calendar (by the season alone);
+- novice, systematic and expert, each acting on its reader's forecasts.
+
+## 24. What it showed
+
+**Inference by skill** (Brier skill against a reader using the calendar alone; AUC in brackets; scored on the test villages):
+
+| Event | Rate | Novice | Systematic | Expert |
+|---|---|---|---|---|
+| boar at the field tonight | 0.20 | 0.16 (0.78) | 0.19 (0.78) | 0.20 (0.79) |
+| fox at the hens tonight | 0.39 | 0.42 (0.82) | 0.44 (0.83) | 0.45 (0.84) |
+| a freeze starts tonight | 0.06 | 0.05 (0.89) | 0.25 (0.92) | 0.26 (0.93) |
+| an eel night | 0.09 | 0.11 (0.80) | 0.16 (0.81) | **0.58 (0.94)** |
+| a slug night at the seedlings | 0.24 | 0.00 (0.60) | 0.36 (0.88) | 0.43 (0.91) |
+| a wasp year (asked in summer) | 0.37 | 0.00 (0.53) | 0.49 (0.87) | 0.54 (0.90) |
+| a vole peak (asked in autumn) | 0.22 | 0.38 (0.86) | 0.57 (0.94) | 0.76 (0.97) |
+| a heavy mast (asked at the start of summer) | 0.31 | 0 | 0 | **0.92 (1.00)** |
+
+- Every reader beats the calendar, and the expert beats the novice on every event.
+- The gap is large where the expert's lore joins two signs: eels (rain after the dry weeks, and the dark of the moon) and the mast
+  read from the catkins a season ahead.
+- The gap is small for boar and the fox. For both, the strongest sign is visible to everyone: yesterday's damage means they come
+  back. That is their L1 rule.
+
+**What reading is worth** (net for the kind as a share of a village's food need a year; work at 0.5 food a unit; villages where the
+kind applies):
+
+| Kind | None | Calendar | Novice | Systematic | Expert |
+|---|---|---|---|---|---|
+| boar (wooded villages) | −21.7% | −14.4% | −16.9% | −15.8% | **−9.2%** |
+| eels (river villages) | 0 | +4.5% | +6.6% | +6.5% | +6.7% |
+| slugs | −5.8% | −5.8% | −5.8% | −5.3% | −4.9% |
+| wasps | −2.8% | −2.6% | −2.7% | −2.7% | −2.1% |
+| voles | −1.8% | −1.8% | −1.9% | −0.9% | −1.1% |
+| fox | −2.9% | −1.0% | −0.7% | −0.5% | −0.5% |
+| hard-weather birds | 0 | +0.2% | +0.2% | +0.2% | +0.2% |
+
+- **Boar: the expert's edge is the answer to scares, more than the reading.**
+  - The novice and the systematic reader watch with one scare, which the sounder gets used to. Both do worse than a calendar watch
+    at every gap.
+  - The expert varies the scare, brings a dog after two turns, and watches the gap it read: about 9% of need against 22% unwatched.
+  - The real lesson people would learn: "they got used to the fire".
+- **Eels: reading pays** (+2% of need over the calendar), but the levels barely differ. The act that pays is a crew at the weir on
+  big nights; even a novice's forecast is good enough to call it.
+- **Fox: shutting the hens is everything.** Reading adds nothing beyond it.
+
+**Answers to scares** (D2-198; the same scare every night, or varied; share of encounters turned away, by the encounter's order
+within the year):
+
+| | 1st | 2nd | 3rd | 4th | 5th+ |
+|---|---|---|---|---|---|
+| boar, the same scare | 0.35 | 0.26 | 0.29 | 0.23 | 0.25 |
+| boar, varied | 0.72 | 0.75 | 0.80 | 0.71 | 0.58 |
+| fox, the same scare | 0.83 | 0.87 | 0.91 | 0.83 | |
+
+- Boar get used to a scare; habituation fades at 0.01 a day, so it carries into the next year.
+- The fox is scared off and comes back, and the same scare works again.
+
+**Relevance** (loss or yield as a share of need in a village-year; the test is about 10% in some year or choice):
+
+| Kind | Median | 90th percentile | Max | Passes? |
+|---|---|---|---|---|
+| boar, unwatched | 22% | 31% | 42% | yes; probably high against real damage (1–10% near woods, 20–50% locally in bad years) |
+| eels, with a river | 11% | 12% | 17% | yes, where there is a river |
+| slugs, nothing done | 4% | 12% | 27% | yes, in wet years |
+| hard-weather birds | 0.3% | 1% | 22% | yes, but only in the fen in a hard winter |
+| wasps, nothing done | 1.6% | 4% | 11% | barely, in a wasp year with hives and fruit |
+| voles, nothing done | 1.3% | 4% | 10% | barely |
+| fox, nothing done | 3% | 3% | 3% | no |
+
+**Lags a run can see** (12-day windows on the test villages under steady, cold and wet eras):
+- On average, 2.8 kinds show a sign followed by its event within one to three days (10th percentile 2; some windows show none).
+- By kind, the share of windows: fox 94%, voles 67%, wasps 55%, fowl 22%, boar 17% (only 3 of the 20 villages have a sounder),
+  eels 15% (an autumn run), slugs 12% (the sowing windows).
+- Acting within the window changes the outcome within the window in this share of windows: boar 91%, eels 74%, fowl 69%, fox 43%.
+
+**Conditions** (share of years, five worlds, ten years each):
+
+| Condition | Steady | Cold | Wet | Warm | Dry |
+|---|---|---|---|---|---|
+| heavy mast | 0.30 | 0.28 | 0.32 | 0.38 | 0.26 |
+| the bust (fail after heavy) | 0.28 | 0.26 | 0.26 | 0.32 | 0.24 |
+| bust then a hard winter | 0.10 | 0.14 | 0.14 | 0.22 | 0.14 |
+| hard winter | 0.50 | 0.50 | 0.40 | 0.50 | 0.70 |
+| frost at flowering | 0.02 | **0.28** | 0.02 | 0 | 0.02 |
+| vole peak / crash | 0.22 / 0.24 | 0.22 / 0.26 | 0.22 / 0.26 | 0.22 / 0.24 | 0.22 / 0.26 |
+| wet winter (slugs) | 0.40 | 0.40 | 0.40 | 0.40 | 0.20 |
+| warm spring (wasps) | 0.40 | 0.40 | 0.40 | 0.60 | 0.60 |
+
+The conditional layers all show within ten years. The eras move the temperature conditions (frost at flowering in the cold era,
+warm springs) more than the wet ones.
+
+## 25. What it means for wild_systems.md
+
+1. **The kinds that pass the relevance test at village scale:**
+   - boar: by far the strongest; its expert layer is mostly D2-198's answer to scares;
+   - eels where there is a river;
+   - slugs in wet years;
+   - fowl in the fen in a hard winter;
+   - wasps and voles barely;
+   - the fox fails.
+
+   This matches node_ecology.md (the land matters as threat more than food). The fox could stay a simple kind (L1: shut the hens; L3:
+   den control in a hungry spring) or be joined to the lambs at lambing to matter.
+2. **The reading gradient is real where a kind's lore joins signs** (eels, the mast, voles, freezes, slugs). It is thin where yesterday's
+   damage tells everyone (boar, fox). For those, the depth must sit in the acts (which gap, which scare, a dog), not the forecast.
+3. **Principle 4 holds only with the right act.** The eel forecast was worthless until the act it pays for was named: hands at the
+   weir on the big night. Each leading sign needs its act designed with it.
+4. **The fast arms carry a run.** About three kinds show a lead-and-event pair in any 12-day window, and acting changes the outcome
+   within the window for boar, eels and fowl in most windows.
+5. **D2-198 works as intended in the model:**
+   - against boar, a steady scare fails and variety or harm works;
+   - against the fox, a steady watch is enough;
+   - which kind is which is itself learnable.
+
+## 26. Problems found on the way
+
+- **The engine's winters freeze too long.** With a hard frost taken as a night below −3 °C on a day below 3 °C, a run of two or
+  more frozen engine days (three weeks or more of real time) comes in 40–70% of winters. Long freezes in a temperate lowland come
+  perhaps once in five to ten years.
+  - The cause looks structural: a weather type holds for some engine days, and each engine day stands for about 11 real days, so a
+    spell of three days is a month.
+  - This belongs to the climate's calibration (37.4, D4-109), and it is part of the year-length question.
+- **Boar damage is probably high** (22% of need unwatched in wooded villages). It is kept at that level to show the mechanics.
+- **The generated land is mostly cleared.** Only 3 of 20 villages have a big wood within 2.5 km (frontier, upland), so boar matter in
+  few places. This follows from the generator's settled land, and it is consistent with node_ecology.md.
+- **The engine's calendar breaks on `day: 0`.** A spec with `calendar: {day: 0}` gives a year index of −1, and the climate's
+  `year()` then recurses without end. The calendar's days start at 1, so this is a malformed spec, but the failure is a hang rather
+  than an error. For 37.4 when convenient.
+- **The readers are tally learners over hand-chosen features.** Part of the skill gradient is built in. The test shows that the
+  signs carry the information and what acting on it is worth, not that agents will learn it. That needs the LLM probe.
