@@ -25,8 +25,7 @@ next number; 37.2 and 37.4 share the series (check before adding).
 
 | # | Work | Owner | State | Started | Last touched | Where | Done so far; what is left |
 |---|---|---|---|---|---|---|---|
-| W-1 | Build brief 1: general methods (proposals/methods_and_encounters.md; D2-204, D2-207) | 37.4 (session "Environment variations over time") | active | 9 Nov | 9 Nov | branch `ecology-methods` (from `ecology`, main merged in); cybertron2/wild/methods.py; tests/test_cybertron2_wild_methods.py | built and pushed; gate: own tests pass, older worlds replay exactly (a crew-work bug fixed), wild runs deterministic; take shares within a third but stalk's red deer in one world; wild food within a third but hunt x1.42 and drive x2.40 in one world each (drive unexplained). Left: the full suite, the build log 02zx on main, the dry-run report to Zach |
-| W-2 | Build briefs 2 and 3, the 20 dry test arms, the spring live run (wild_raiders_and_works.md, carcass_and_decay.md, 02zy) | 37.4 | queued | 9 Nov | 9 Nov | after W-1 | waits on W-1's gate; the late-summer live run needs Zach's go |
+| W-2 | Build briefs 2 and 3, the 20 dry test arms, the spring live run (wild_raiders_and_works.md, carcass_and_decay.md, 02zy) | 37.4 | active | 9 Nov | 9 Nov | branch `ecology-raiders` (from `ecology-methods`) | brief 2 begun. Left: brief 2 and its gate, the 20 dry arms, the spring live run (D2-207); brief 3; the late-summer live run needs Zach's go |
 | W-3 | Records restructure: WORK.md, OPEN.md's kinds, CLAUDE.md's rule, hygiene's stale checks, the sorting draft (02zz) | 37.2 (session "Thicker economy exploration") | active | 9 Nov | 9 Nov | main: docs/cybertron2/WORK.md, OPEN.md, CLAUDE.md, tools/hygiene.py, docs/review/37_growth/02zz_open_sorting.md | in this commit; left: Zach checks 02zz's sorting, then the rows move |
 | W-4 | wild_behaviour.md v3 (the per-kind designs, from 02zv, 02zw and the briefs) | 37.2 | waiting | 9 Nov | 9 Nov | docs/cybertron2/proposals/wild_behaviour.md | waits on Q-32 (02zv §6, items still open) |
 | W-5 | 37.2's own hygiene items: D2-199 to D2-203 into the spec; the scratchpad path in 02zp's sim.py | 37.2 | queued | 9 Nov | 9 Nov | spec/environment/wildlife.md; docs/review/37_growth/02zp_ecosystem_models/wildsys/sim.py | not begun |
@@ -51,6 +50,7 @@ next number; 37.2 and 37.4 share the series (check before adding).
 
 | # | Work | Owner | Done |
 |---|---|---|---|
+| W-1 | Build brief 1: general methods (D2-204, D2-207) | 37.4 | done 9 Nov | 9 Nov | 9 Nov | branch `ecology-methods`; docs/review/37_growth/02zx_wild_build_log.md | built; gate passed but four cells (02zx); deviations as defaults (OPEN Q-36) |
 
 ## Size of unfinished work
 
