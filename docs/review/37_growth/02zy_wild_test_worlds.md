@@ -4,7 +4,9 @@ Zach (9 Nov) asked for test worlds for the building session (37.4) to run after 
 (proposals/wild_raiders_and_works.md), exploring and testing the new mechanics. They complement the briefs' unit tests: each world
 puts one mechanic into a whole village, with arms that differ in one thing only, so its effect can be read against a control.
 
-**The worlds are made by a script** on branch `ecology`: `python3 cybertron2/specs/make_wild_tests.py` writes 21 worlds to
+**Cost.** The 20 test arms are dry: scripted bots, no model calls, a minute or two each and no money. Only the two live worlds call models, about $10 each (19 agents, 8 days): D2-207 allows one after brief 2's gate; the second needs Zach's go.
+
+**The worlds are made by a script** on branch `ecology`: `python3 cybertron2/specs/make_wild_tests.py` writes 22 worlds (20 dry arms and 2 live worlds) to
 `cybertron2/specs/wild_tests/` (generated, not committed: about 2.4 MB). Every world is the generated village of live run 6
 (`wild_probe6.json`: Meadcombe and Brookford, East Wood between Middle Field and East Field, Brookford Water, 19 people, 6
 households, 6 herds, a hen flock in each house). Named people do **scripted acts** (the world's `script`, done first each day, in
@@ -41,7 +43,8 @@ and kind, familiarity records, and each person's system text and refusals.
 | **T6 summer** | `open`; `herded` | summer, 8 | in `herded`, Lettice herds the Holt cattle on Cow Close daily | unwatched boar loss of corn about 3 to 10% of need (brief 2's calibration); on hot still days the Holt herd (Cow Close: no water, no wood beside it) breaks into East Field and the Leaze herds (Hazel Copse beside them) do not; herded, it does not; read across all three seeds, since hot still days depend on the weather |
 | **T7 methods and familiarity** | `as_seeded`; `taught` | spring, 8 | Petronel stalks in East Wood looking for deer, Denise snares on the Leaze, Alys nets on Brookford Water, daily; in `taught`, Denise teaches Petronel to snare on day 1 | takes by method follow brief 1's generated tables; Petronel's familiarity with red and roe deer rises and her take with it; Brookford's households know `net` and `trap in water` and Meadcombe's do not (until taught); no system text lists a kind or a tool multiplier; no refusal lists the catalogue |
 | **T8 moles, grubs, markers** | `left`; `worked` | autumn into winter, 16 (seeds 7, 9) | in `worked`, Gilbert does pest work on Leven Meadow every other day and Jordan takes the young rooks at Middle Wood on days 1 to 4 | Leven Meadow's mole load rises when left and falls when worked; parcels within the rookery's reach carry fewer grubs in `left` than in `worked`; marker signs naming a sowing window reach people with family lore |
-| **Live, after brief 2** | `seed7` | spring, 8 | none (LLM agents) | the one live run (D2-207): run 6's world, season, seed and cast, unchanged, read against run 6 (the same world before briefs 1 and 2): what people do with the new methods, a raider moving to the neighbour's field, the fox's tries, set snares and eel traps, shut doors, the cat and the new kinds' signs; and whether anyone acts on a neighbour's loss (a shared watch, a request, a quarrel), which is never forced |
+| **Live 1: spring** (`live_spring_seed7`) | none | spring, 8 | none (LLM agents) | run 6's world, season, seed and cast, unchanged, read against run 6: deer and the pigeon flock at the young corn, the fox's tries, the stoat, set snares, shut doors, the cat, the new kinds' signs |
+| **Live 2: late summer** (`live_late_summer_seed7`) | none | late summer into autumn, 8 | none (LLM agents) | boar at the ripening corn, cattle gadding on hot still days, the eel run, the harvest drawing rats into the stores; in both: what people do with the new methods, a raider moving to the neighbour's field, and whether anyone acts on a neighbour's loss (never forced) |
 
 ## Notes for the builder
 
@@ -51,9 +54,10 @@ and kind, familiarity records, and each person's system text and refusals.
   and use the next seed; the land, not the test, decides what lives there.
 - `EEL_GOOD` at the top of the script is the eel trap's catch (`fish`); set it to the eel's `taken.goods` once brief 2 gives the
   eel one.
-- The live run needs the live backend as for runs 5 and 6 (`LLM_BACKEND=claude_code`, `bots=False`, `workers=12`, about $10); its
+- The live runs need the live backend as for runs 5 and 6 (`LLM_BACKEND=claude_code`, `bots=False`, `workers=12`, about $10); its
   outputs stay outside the repository.
 
 ## History
 - 9 Nov: written by 37.2 at Zach's request, with `cybertron2/specs/make_wild_tests.py` on branch `ecology`; the worlds load on
   today's `ecology`, and a two-day dry run of T2 runs cleanly.
+- 9 Nov: two live worlds in place of one (Zach wanted one or two LLM worlds); the cost of the dry arms made plain (none).
