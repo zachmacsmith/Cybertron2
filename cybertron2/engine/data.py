@@ -139,6 +139,9 @@ RESOURCES = {
     "salt": {"pack": "water", "renewal": "endless", "low": "", "high": "white crusts of salt drying in the pans at {name}"},   # a saltmarsh's pans
     "dung": {"renewal": "accrues", "low": "", "high": "dung lies thick where the beasts have been on {name}"},
 }
+# the wild kinds (wild_layer.md §3.2, D2-199): RESOURCES rows with population fields, in the `wild` pack; one registry
+from cybertron2.wild import kinds as _WILD_KINDS                       # noqa: E402
+RESOURCES.update(_WILD_KINDS.rows())
 
 # Forests (environment/resources.md "Forests", D2-156): three stocks a unit of size, as timber (trees) and firewood (young growth,
 # dead wood); yearly rates. A world file gives `wood: {kind, ...}` on a forest or scrub parcel; an older world's `wood` stock is

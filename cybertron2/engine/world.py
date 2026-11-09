@@ -127,6 +127,8 @@ class World:
                        "works": None, "side": p.get("side", "centre"), "height": int(p.get("height", 1))}   # D2-114
                 if p.get("land"):                                                    # the land's fixed properties (D4-112)
                     par["land"] = dict(p["land"])
+                if p.get("ecosystem") and "wild" in PK.of(self):                     # what grows there, for the wild layer
+                    par["ecosystem"] = p["ecosystem"]                                # (wild_layer.md §3.1, D2-199); only with its pack
                 if p.get("fence"):                                                   # a fence round it (D2-130): {kind, level, gate}
                     fz = p["fence"]
                     from cybertron2.engine import farm as FM
@@ -243,6 +245,9 @@ class World:
             TH.remember(self, who, cid, "put")
         from cybertron2.engine import buildings as BL
         BL.install(self)                                                       # what does not fit in a store lies at its door (D2-155)
+        if "wild" in PK.of(self):                                              # the wild layer (wild_layer.md, D2-199): its land
+            from cybertron2.engine import wild as WL                           # summary and starting populations; no other world
+            WL.seed(self)                                                      # holds the key
 
     def _person(self, name, a):
         """A person's record and hands (D2-139: `born` a day, negative before the run; the stage follows it when given)."""
@@ -677,6 +682,19 @@ def p_set(w, ref, field, value):
     return value
 
 
+def p_set_wild(w, path, value):
+    """The wild layer's state (wild_layer.md §3.3, D2-199): set the value at a path of keys under s["wild"] (an area's populations, a
+    group, a trace), so the journal records every change of it."""
+    d = w.s["wild"]
+    for k in path[:-1]:
+        d = d.setdefault(k, {})
+    if value is None:
+        d.pop(path[-1], None)
+    else:
+        d[path[-1]] = value
+    return value
+
+
 def p_new_herd(w, like, parcel):
     """A herd split off another (beasts driven apart: D4-44), at a parcel of the same node, with no beasts yet."""
     h = w.s["herds"][like]
@@ -1072,4 +1090,5 @@ PRIMITIVES = {
     "set_res": (p_set_res, _r("parcel", "parcel")),
     "transit": (p_transit, _r("person", "person")),
     "traces": (p_traces, lambda kw: []),                                   # at the road the party is on (checked by the caller)
+    "set_wild": (p_set_wild, lambda kw: []),                               # the wild layer's state (D2-199), at the area's node
 }

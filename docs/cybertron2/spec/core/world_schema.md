@@ -38,6 +38,14 @@ Readers (views, c2viz, analyses) can then tell which shape a checkpoint has with
     checkpoint, and carry the version.
 - **Not covered here.** Each person's `mind` and `know` stores are versioned with the memory and knowledge code, not here.
 
+## Data: version 5 (9 Nov 2026, on the ecology branch; D2-199)
+
+As version 4, and:
+- top level `wild`: the wild layer's state (proposals/wild_layer.md), held only by a world with the `wild` pack: `land` (the land
+  summary the generator writes: areas, links, rivers' flow, each node's home area) and the populations and groups the ecology step
+  keeps; changed only by the `set_wild` primitive;
+- `parcels` gain `ecosystem` (what grows there, from the generator), kept only with the `wild` pack.
+
 ## Data: version 4 (8 Nov 2026)
 
 Top level: `acts`, `agreements`, `buildings`, `claims`, `containers`, `day`, `events`, `fuse_calls`, `herds`, `institutions`, `know`, `left`, `life`, `log`, `mind`, `nodes`, `offers`, `parcels`, `people`, `roads`, `seq`, `tag_seq`, `today`, `traces`, `world_schema`.

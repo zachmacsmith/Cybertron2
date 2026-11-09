@@ -406,6 +406,8 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
     world["roads"] = roads
     world["buildings"] = buildings
     world["herds"] = herds
+    from cybertron2.wild import areas as WA                                 # the land summary for the wild layer (wild_layer.md
+    world["wild"] = {"land": WA.build(L, allnodes, float(conf["km"]))}       # §3.1, D2-199); read only by a world with the wild pack
     world.setdefault("claims", [])
     world["lines"] = lines
     n = len(lines)

@@ -86,6 +86,13 @@ def finite(p, res, ctx):
     return res["S"]
 
 
+@rule("population")
+def population(p, res, ctx):
+    """A wild kind (wild_layer.md §3.2, D2-199): it lives in the wild layer's store, moved by the ecology step, never as a parcel's
+    stock; as a parcel stock it would not change (and is not run nightly)."""
+    return res["S"]
+
+
 @rule("endless")
 def endless(p, res, ctx):
     return res["S"]

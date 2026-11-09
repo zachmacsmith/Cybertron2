@@ -200,6 +200,8 @@ def night(w) -> dict:
     LA.fade(w)                                                                  # skill unpractised fades (D4-103 phase 2)
     from cybertron2.engine import farm as FM
     rec["farm"] = FM.night(w)
+    from cybertron2.engine import wild as WL                                    # the wild layer, with its pack only (D2-199)
+    WL.night(w, rec)
     for oid, o in s["offers"].items():                                          # offers lapse (money_and_markets.md)
         if not o["open"]:
             continue
