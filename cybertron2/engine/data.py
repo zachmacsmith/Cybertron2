@@ -44,7 +44,8 @@ ITEMS = {
     "fishing rod": {"pack": "water", "weight": 1, "food": 0.0, "spoil": 0.0, "life": 30, "seen": True},              # a rod, a line of hair or gut
     "meat": {"weight": 1, "food": 1.5, "spoil": 0.30, "cook": True, "raw": 0.8, "decay": "fresh meat"},                 # dense, spoils fresh (D2-41)
     "milk": {"weight": 1, "food": 0.5, "spoil": 1.0},                  # the same day (D2-42)
-    "hen": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # kept hens in a house's store: they lay (wild_layer.md, wave 2)
+    "hen": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},
+    "cat": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # a cat in a store keeps the mice down (D2-206; brief 2 K1)   # kept hens in a house's store: they lay (wild_layer.md, wave 2)
     "egg": {"weight": 0.1, "food": 0.6, "spoil": 0.05, "cook": True, "raw": 0.5, "pack": "wild"},
     # wild plants' goods (wild_plants.md §2, D2-200): fresh ones spoil fast, nuts keep for months; acorns are bitter until leached
     "greens": {"weight": 1, "food": 0.6, "spoil": 0.3, "pack": "wild"},
@@ -200,6 +201,8 @@ FITTINGS = {
              "does": "housed when sleeping here, one a bed"},                                                  # D2-56; 02zh §4 (proposed)
     "hearth": {"label": "a hearth", "materials": {"stone": 4}, "units": 3, "basic": False, "trade": "mason", "fire": True, "spaces": 1,
                "does": "warmth (burns timber), porridge and baking"},
+    "owl hole": {"label": "an owl hole (a gap left high in a barn's gable)", "materials": {"timber": 1}, "units": 1, "basic": True,
+                 "spaces": 0, "pack": "wild", "does": "a way in for a barn owl, which keeps the mice in the store down"},   # brief 2 K1
     "bins": {"label": "bins", "materials": {"timber": 3}, "units": 1, "basic": True, "does": "a store for food (60)", "spoil": 0.5,
              "spaces": 1, "holds": {"food": 60}},
     "hand mill": {"label": "a hand mill", "materials": {"stone": 2}, "units": 2, "basic": True, "spaces": 1,

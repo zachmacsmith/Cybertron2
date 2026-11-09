@@ -168,6 +168,7 @@ def night(w, rec) -> None:
     out["groups"] = _groups(w, m, st)
     out["sites"] = _sites_night(w, m, st)
     out["set"] = _set_night(w, m, w.s["wild"]["state"])                   # snares and traps set and left (brief 2 §4)
+    out["cats"] = _cats_and_owls(w, m, w.s["wild"]["state"])              # cats and owls (D2-206; brief 2 K1)
     out["near"] = {gid: {"n": g["n"], "pos": g["pos"], "what": g.get("what")} for gid, g in sorted((w.s["wild"].get("groups") or {}).items())}
     _hens_lay(w)
     rec["wild"] = out
@@ -189,8 +190,29 @@ def _loads(w, m, st) -> dict:
             for pid, par in sorted(w.s["parcels"].items()):
                 if par["node"] != nd:
                     continue
-                for h in spec.get("harm") or []:
+                rook = 1.0
+                se = spec.get("site_eats")                                    # a colony that works the load off near it (brief 2 K1)
+                if se:
+                    from cybertron2.wild.kinds import SITES
+                    for s_ in (w.s["wild"].get("sites") or {}).values():
+                        d_ = layout_steps(w, s_["parcel"], pid) if s_.get("kind") == se["site"] and s_.get("gone") is None else None
+                        if d_ is not None and d_ <= int(se["reach"]):
+                            rook *= 1 - float(se["share"]) * min(1.0, float(s_["size"]) / float(SITES[se["site"]]["cap"]))
+                for h in spec.get("harm_res") or []:                          # a load on a parcel's stock (moles in the hay grass)
+                    r = (par.get("res") or {}).get(h["res"])
+                    if not r or par["cover"] not in h["covers"]:
+                        continue
                     share = min(0.5, float(h["share"]) * max(0.0, L - float(h["over"])))
+                    g = guard.get(pid)
+                    if g and g.get("load") == k:
+                        share *= 1 - float(g["cut"])
+                    q = round(float(r["S"]) * share, 4)
+                    if q > 1e-6:
+                        w.apply("draw", nd, parcel=pid, key=h["res"], qty=q)
+                        was = hits.setdefault(pid, {}).get(k, {}).get("lost", 0.0)
+                        hits[pid][k] = {"day": w.d, "share": round(share, 4), "lost": round(q + was, 4)}
+                for h in spec.get("harm") or []:
+                    share = min(0.5, float(h["share"]) * max(0.0, L - float(h["over"]))) * rook
                     g = guard.get(pid)
                     if g and g.get("load") == k:
                         share *= 1 - float(g["cut"])
@@ -1804,7 +1826,7 @@ def _crops(w, node, share) -> float:
     return total
 
 
-def _stops(b, kind) -> float:
+def _stops(b, kind, w=None) -> float:
     """What a building's fittings leave of a kind's take from its store (STORE_STOPS: a granary against what climbs and is tiny, bins
     against the tiny, a dog against all, a cat against the tiny), by the kind's body (brief 2 §4)."""
     from cybertron2.engine.data import RESOURCES
@@ -1812,9 +1834,54 @@ def _stops(b, kind) -> float:
     body = (RESOURCES.get(kind) or {}).get("body") or {}
     keep = 1.0
     for f_, row in STORE_STOPS.items():
-        if (b.get("fittings") or {}).get(f_) and (kind is None or all(body.get(t) == v for t, v in (row.get("for") or {}).items())):
+        if row.get("in_store"):                                            # a cat: a beast in the store, not a fitting (D2-206)
+            have = w is not None and float((w.s["containers"].get(b.get("stock"), {}).get("goods") or {}).get(f_, 0)) >= 1
+        elif row.get("occupied"):                                          # an owl in its hole
+            have = w is not None and ((w.s["wild"].get("owls") or {}).get(b.get("_id")) is not None)
+        else:
+            have = bool((b.get("fittings") or {}).get(f_))
+        if have and (kind is None or all(body.get(t) == v for t, v in (row.get("for") or {}).items())):
             keep *= float(row["keep"])
     return keep
+
+
+def _cats_and_owls(w, m, st) -> dict:
+    """At a season's turn (D2-206; brief 2 K1): a cat settles at a store with dry food and mice about (no dog), or leaves one with none
+    or with a dog; in spring a barn owl takes an empty owl hole in a building nobody sleeps in."""
+    from cybertron2.wild.kinds import CAT, OWL
+    out = {}
+    if w.calendar(w.d + 1)["season"] == w.calendar()["season"]:
+        return out
+    land = w.s["wild"]["land"]
+    sleeping = set((w.s.get("today") or {}).get("sleep", {}).values())
+    owls = dict(w.s["wild"].get("owls") or {})
+    for bid, b in sorted(w.s["buildings"].items()):
+        cid = b.get("stock")
+        if not cid or cid not in w.s["containers"]:
+            continue
+        goods = w.s["containers"][cid].get("goods") or {}
+        dry = sum(float(goods.get(i, 0)) for i in DRY_STORES)
+        dog = bool((b.get("fittings") or {}).get("dog"))
+        cat = float(goods.get("cat", 0)) >= 1
+        aid = land.get("home", {}).get(b["node"])
+        i = m.ids.index(aid) if aid in m.ids else None
+        mice = float(st["pop"]["voles and mice"][i]) * float(m.km2[i]) if i is not None and "voles and mice" in st["pop"] else 0.0
+        rng = w.rng("wild-cat", w.d, bid)
+        if cat and (dry <= 1e-6 or dog):
+            w.apply("destroy", b["node"], src=cid, item="cat", qty=float(goods["cat"]), why="the cat went off")
+            out[bid] = "cat left"
+        elif not cat and not dog and dry > 1e-6 and mice >= float(CAT["mice_least"]) and rng.random() < float(CAT["settle_p"]):
+            w.apply("create", b["node"], dst=cid, item="cat", qty=1.0, why="a cat came in to the mice")
+            w.event(b["node"], "cat", f"a cat has taken up at {b['name']}, after the mice", about=[f"building:{bid}"], salience=0.3,
+                    tags=["animals"])
+            out[bid] = "cat came"
+        if (b.get("fittings") or {}).get("owl hole") and owls.get(bid) is None and w.calendar(w.d + 1)["season"] == "spring" \
+                and bid not in sleeping and w.rng("wild-owl", w.d, bid).random() < float(OWL["take_p"]):
+            owls[bid] = w.d
+            out[bid] = "owl came"
+    if owls != (w.s["wild"].get("owls") or {}):
+        w.apply("set_wild", m.nodes[0], path=["owls"], value=owls)
+    return out
 
 
 def _stores(w, node, share) -> float:
@@ -1825,7 +1892,7 @@ def _stores(w, node, share) -> float:
         if b["node"] != node or not b.get("stock"):
             continue
         cid = b["stock"]
-        keep = sum(sh * _stops(b, k) for k, sh in shares.items()) / max(1e-12, sum(shares.values()))   # what this store's fittings let
+        keep = sum(sh * _stops(dict(b, _id=bid), k, w) for k, sh in shares.items()) / max(1e-12, sum(shares.values()))   # what this store's fittings let
         share = sum(shares.values())                                         # through, kind by kind
         plague = 1.0 + sum(float(r.get("stores", 0.0)) for name, r in REGIMES_ON(w, node).items())
         for item, q in sorted((w.s["containers"].get(cid, {}).get("goods") or {}).items()):

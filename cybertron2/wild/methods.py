@@ -99,7 +99,7 @@ METHODS.update({
                                               "pick slugs by lantern", "top the beans", "top beans", "pinch out the beans",
                                               "pinch the bean tops", "clear the grubs off the beans", "clear the grubs",
                                               "pick off the grubs", "kill the grubs", "pests", "pest the field"],
-                  "at": {"covers": ["field"]}, "draws": "guard", "needs": {"on_crop": True}, "yield": {"kind": "wild_pest"},
+                  "at": {"covers": ["field", "meadow", "pasture"]}, "draws": "guard", "needs": {"on_crop": True}, "yield": {"kind": "wild_pest"},
                   "units": 1, "gives": "", "tags": ["farming"],
                   "note": "go over a crop and take off what is eating it; name the pest with \"looking for\", else the worst there"},
     "break a dam": {"verb": "work", "label": "breaking open a dam to drain a flooded meadow", "basic": False, "pack": "wild",
@@ -126,7 +126,8 @@ METHODS.update({
              "note": "shut up your house, store and hens for the night against whatever comes"},
 })
 
-LOAD_NAMES = {"slugs": ("slugs", "slug", "snails"), "aphids": ("aphids", "fly", "blackfly", "greenfly", "the fly", "bean fly"),
+LOAD_NAMES = {"moles": ("moles", "mole", "molehills"), "leatherjackets": ("leatherjackets", "the rooks' grubs", "root grubs"),
+              "slugs": ("slugs", "slug", "snails"), "aphids": ("aphids", "fly", "blackfly", "greenfly", "the fly", "bean fly"),
               "ladybirds": ("grubs", "the grubs", "spiny grubs", "grey grubs", "ladybirds", "ladybird grubs")}   # a pest's names (§7)
 
 TAKE_METHODS = [m for m, r in METHODS.items() if (r.get("yield") or {}).get("kind") in ("wild_take", "wild_den")]

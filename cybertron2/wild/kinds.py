@@ -55,6 +55,10 @@ KINDS = {
     "fox": K(6, "carn", 2.0, 0.6, {"open": 0.5, "wood": 0.5, "farm": 0.3},
              {"voles and mice": 3, "brown hare": 2, "wildfowl": 1, "livestock": 0.5, "carrion": 1, "fruit": 1, "inverts": 1}, terr=3,
              people=0.2, ref=2, wave=2, count="whole", group={"size": [1, 2]}, uses="pelt; a hunt", damage="hens, lambs", shy=0.5),
+    # the stoat (brief 2, pack K1): small enough for a wattle hen-house's gaps; voles its living, hens and eggs when it can
+    "stoat": K(0.25, "carn", 3.0, 0.7, {"open": 0.4, "wood": 0.4, "farm": 0.3}, {"voles and mice": 4, "brown hare": 0.3, "livestock": 0.2,
+               "inverts": 0.5}, terr=2, people=0.1, ref=4, wave=2, count="whole", group={"size": [1, 2]},
+               uses="ermine in winter", damage="hens, eggs", shy=0.4),
     "wolf": K(40, "carn", 1.5, 0.30, {"wood": 0.5, "open": 0.2, "heath": 0.3},
               {"red deer": 3, "roe deer": 2, "wild boar": 2, "brown hare": 0.5, "livestock": 1, "carrion": 1}, terr=0.03, people=0.05,
               move=0.25, ref=0.025, wave=2, count="whole", group={"size": [3, 8]}, uses="pelt; bounty", damage="herds; fear"),
@@ -144,6 +148,13 @@ NEAR_PEOPLE = {
         "answer": {"type": "habituate", "turn_p": 0.9, "gain": 0.35, "decay": 0.05, "rest": 1},
         "harm": {"dog": {"turn_p": 0.8, "harm_p": 0.0}}, "wary_after_harm": 2, "met_share": 0.5, "fence": 9.0,   # over any fence
         "displace": True,
+    },
+    "stoat": {
+        "targets": [{"what": "items", "items": ["hen"], "door": True, "heads": 1, "all_p": 0.15, "attr": 0.6, "probe": 3,
+                     "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}}],
+        "drive": {"base": 0.08, "hunger": 0.4}, "memory_days": 2, "return_p": 0.7, "lead_nights": 1, "lead_sign_p": 0.3,
+        "answer": {"type": "scared_off", "turn_p": 0.7, "off_days": 2},
+        "harm": {"dog": {"turn_p": 0.8, "harm_p": 0.2}}, "wary_after_harm": 6, "met_share": 1.0,
     },
     "fox": {
         "targets": [{"what": "items", "items": ["hen"], "door": True, "heads": 2, "all_p": 0.3, "seasons": {0: (2, 7), 1: (0, 3)},
@@ -356,7 +367,9 @@ WORK_NOTICES = {
              {"kind": "fox", "if": {"seasons": {0: (0, 7)}}, "rows": [R("knows", "sight", 0.6, (0, 0), "a fox earth in the bank, fresh-dug, with feathers at its mouth")]},
              {"kind": "wild boar", "if": {"wounded": True}, "rows": [R("knows", "sight", 0.8, (0, 0), "a blood trail into the thicket"),
                                                                      R("expert", "sight", 0.8, (0, 0), "a wounded boar lying up in the thicket: the most dangerous beast in the wood; go in with others or not at all")]},
-             {"kind": "wolf", "if": {}, "rows": [R("expert", "sight", 0.4, (0, 0), "ravens wheeling over the far wood: a kill there")]}],
+             {"kind": "wolf", "if": {}, "rows": [R("expert", "sight", 0.4, (0, 0), "ravens wheeling over the far wood: a kill there")]},
+             {"kind": "voles and mice", "if": {}, "find": {"item": "cat", "p": 0.5},          # a stray to bring home (D2-206)
+              "rows": [R("all", "sight", 0.08, (0, 0), "a lean half-wild cat hunting mice along the hedge; it came to your hand")]}],
     "gather wild food": [{"kind": None, "if": {"seasons": {1: (5, 7)}}, "mast_coming": True,
                           "rows": [R("expert", "sight", 0.5, (0, 0), "the acorns setting thick on the old oaks: a mast year this autumn")]},
                          {"kind": None, "if": {"seasons": {2: (0, 2)}}, "berries_heavy": True,
@@ -555,6 +568,7 @@ TAKEN = {
                    "calibrate": {"net": 0.1}},      # pigeons seldom come down to the fowler's nets and decoys (D2-204 §4)
     "wildfowl":   {"family": ["fowl", "duck", "ducks", "geese", "birds", "wildfowl"], "detect": 0.5, "flee": 0.6, "goods": {"meat": 0.2},
                    "calibrate": {"trap in water": 0.1}},   # a duck drowned in an eel trap now and then, no more (D2-204 §4)
+    "stoat":      {"family": ["stoat", "stoats", "weasel", "ermine", "vermin"], "detect": 0.1, "flee": 0.7, "goods": {"hide": 1}},
     "fox":        {"family": ["fox", "foxes", "vermin"], "detect": 0.15, "flee": 0.6, "goods": {"hide": 1},
                    "litter": {"home": "den", "if": {"seasons": {0: (0, 7)}}, "n": 3}},       # cubs at the earth in spring (D2-204: on the kind)
     # D2-204 (brief 1): an eel trap took eels that gave nothing (no row); a night's lift is several eels (calibrate)
@@ -590,6 +604,20 @@ LOADS = {
                   "seasons": (0, 1), "rest": 0.4, "rate": 0.2, "follows": {"aphids": 1.0}, "frost": 0.05, "most": 3.0, "cold_stall": 0.8,
                   "on_crop": True, "guard": {"cut": 0.0, "days": 1, "thin": {"ladybirds": 0.5},
                                              "done": "You picked the grey spiny grubs off the beans in {place}."}},
+    # moles (brief 2 K1): in meadow and pasture, raised by a wet spring and autumn; they spoil the grass the hay is cut from; pest work
+    # traps them in their runs
+    "moles": {"hab": {"texture": {"loam": 1.0, "clay": 0.8, "sand": 0.9, "chalk": 0.7, "peat": 0.6},
+                      "cover": {"meadow": 1.0, "pasture": 1.0, "field": 0.3}},
+              "seasons": (0, 2), "rest": 0.7, "rate": 0.15, "drivers": {"wet": 1.0}, "frost": 0.02, "most": 3.0,
+              "harm_res": [{"res": "grass", "covers": ["meadow", "pasture"], "share": 0.004, "over": 0.6}],
+              "on_crop": True, "guard": {"cut": 0.7, "days": 8, "done": "You set traps in the mole runs in {place} and took the moles out."}},
+    # the rooks' grubs (leatherjackets; brief 2 K1): in fields and pasture, raised by a wet autumn; they eat the young corn's roots; the
+    # rookery's birds work them off the parcels within reach of the site
+    "leatherjackets": {"hab": {"cover": {"field": 1.0, "pasture": 1.0, "meadow": 0.6}},
+              "seasons": (2, 3, 0), "rest": 0.5, "rate": 0.2, "drivers": {"wet": 1.5}, "frost": 0.03, "most": 3.0,
+              "harm": [{"crops": ["grain", "winter grain"], "age": (0, 8), "share": 0.008, "over": 0.8}],
+              "site_eats": {"site": "rookery", "reach": 2, "share": 0.6},
+              "on_crop": True, "guard": {"cut": 0.4, "days": 4, "done": "You turned the ground and picked the grey grubs out of {place}."}},
     "fungi": {"hab": {"cover": {"forest": 1.0, "scrub": 0.5, "pasture": 0.6, "meadow": 0.6, "heath": 0.4}},
               "seasons": (2,), "rest": 0.0, "start": 0.0, "rate": 0.4, "drivers": {"wet": 1.5, "warm": 0.08}, "frost": 0.5, "most": 3.0},                                                                  # the mushrooms' year (wild/plants.py)
 }
@@ -615,7 +643,7 @@ LOAD_SIGNS = {
                         R("knows", "sight", 0.7, (0, 0), "a flush of ceps and field mushrooms in {place}: good picking for a few days"),
                         R("expert", "sight", 0.6, (0, 0), "among the good ones in {place} the pale caps with white gills and a cup at the foot: those kill")], "least": 1.3},
 }
-LOAD_READ = {"slugs": "sow", "aphids": "sow", "ladybirds": "sow", "fungi": "forage"}     # whose practice reads a load's `knows` rows
+LOAD_READ = {"slugs": "sow", "aphids": "sow", "ladybirds": "sow", "fungi": "forage", "moles": "hay", "leatherjackets": "sow"}     # whose practice reads a load's `knows` rows
 # phenology (calendar markers): each comes when the year's warmth (degree days over 5 C from the start of spring, real days) passes
 # its mark, so a warm spring brings it early; `lore`, the practised reading, says whether it holds in this world ("holds") or is a
 # saying with nothing behind it ("fails", D2-199: lore that fails). `after` for autumn markers: the first night below `low`.
@@ -693,13 +721,18 @@ DISEASE_SIGNS = {
 # what a technique the wild pack switches off was practice for (the old generic hunt): those who knew it know these
 # A kind's body against barriers (brief 2 §4; calibrate): `gap`, the smallest gap it passes; `climbs`. Read by doors, stores, fences.
 BODY = {"voles and mice": {"gap": "tiny", "climbs": True}, "rats": {"gap": "tiny", "climbs": True},
-        "fox": {"gap": "medium", "climbs": False}, "wolf": {"gap": "large", "climbs": False},
+        "fox": {"gap": "medium", "climbs": False}, "stoat": {"gap": "small", "climbs": True}, "wolf": {"gap": "large", "climbs": False},
         "wild boar": {"gap": "large", "climbs": False}, "red deer": {"gap": "large", "climbs": False},
         "brown bear": {"gap": "large", "climbs": True}, "woodpigeon": {"gap": "small", "climbs": True}}
 GAPS = {"structure": {"wattle": "small", "timber": "small", "stone": "tiny", "camp": "large"}, "damaged": 1}   # a building's own gaps
 # What stops which kinds in a store (brief 2 §4): each fitting cuts the share the kinds it stops eat there (keep), by their body
 STORE_STOPS = {"granary": {"keep": 0.3, "for": {"climbs": True, "gap": "tiny"}}, "bins": {"keep": 0.5, "for": {"gap": "tiny"}},
-               "dog": {"keep": 0.5, "for": {}}, "cat": {"keep": 0.4, "for": {"gap": "tiny"}}}
+               "dog": {"keep": 0.5, "for": {}}, "cat": {"keep": 0.4, "for": {"gap": "tiny"}, "in_store": True},
+               "owl": {"keep": 0.6, "for": {"gap": "tiny"}, "occupied": True}}
+# a cat comes by itself to a store with mice (D2-206): a chance each season (no dog), and leaves an empty store or a dog's house;
+# a barn owl takes an owl hole in spring with a chance if nobody sleeps in that building (calibrate)
+CAT = {"settle_p": 0.25, "mice_least": 50.0, "stray_p": 0.08}
+OWL = {"take_p": 0.4}
 
 # What a kind is like to those who hunt it (D2-204, methods_and_encounters.md §2; calibrate): the methods' needs and favours are read
 # against these at load to build each method's take table (engine/methods.py). A kind without traits is no method's target.
@@ -710,6 +743,7 @@ TRAITS = {
     "brown hare": {"size": "small", "runs": True, "social": "solitary", "home": "form", "water": False},
     "woodpigeon": {"size": "small", "runs": False, "social": "flock", "home": "none", "water": False},
     "fox":        {"size": "medium", "runs": True, "social": "solitary", "home": "den", "water": False},
+    "stoat":      {"size": "small", "runs": True, "social": "solitary", "home": "burrow", "water": False},
     "wolf":       {"size": "large", "runs": True, "social": "group", "home": "den", "water": False},
     "brown bear": {"size": "large", "runs": False, "social": "solitary", "home": "den", "water": False},
     "wildfowl":   {"size": "small", "runs": False, "social": "flock", "home": "none", "water": True},
