@@ -111,12 +111,6 @@ NEAR_PEOPLE = {
         "drive": {"base": 0.35, "hunger": 0.5}, "memory_days": 3, "return_p": 0.85, "lead_nights": 2, "lead_sign_p": 0.9,
         "answer": {"type": "habituate", "turn_p": 0.9, "gain": 0.3, "decay": 0.01, "rest": 2},
         "harm": {"dog": {"turn_p": 0.95, "harm_p": 0.25}}, "wary_after_harm": 8, "met_share": 0.5,
-        "traces": {"edge": {"lay": "the turf by the wood's edge turned over in long strips",
-                            "knows": "fresh rooting at the wood's edge: a sounder of about {n}, nearer the corn each night",
-                            "knows_old": "old rooting at the wood's edge, two or three nights old"},
-                   "raid": {"lay": "the corn in {place} trampled and rooted in the night, a strip of it flattened",
-                            "knows": "a sounder of about {n} was in the corn of {place} in the night: rooted and trampled"},
-                   "turned": {"lay": "beasts turned back from {place} in the night", "knows": "the sounder turned back from {place}"}},
     },
     "red deer": {
         "targets": [{"seasons": {0: (2, 7)}, "attr": 0.5, "trample": 0.006},                # the young corn
@@ -124,12 +118,6 @@ NEAR_PEOPLE = {
         "drive": {"base": 0.2, "hunger": 0.5}, "memory_days": 3, "return_p": 0.6, "lead_nights": 2, "lead_sign_p": 0.8,
         "answer": {"type": "habituate", "turn_p": 0.85, "gain": 0.25, "decay": 0.01, "rest": 2},
         "harm": {"dog": {"turn_p": 0.9, "harm_p": 0.15}}, "wary_after_harm": 5, "met_share": 0.5,
-        "traces": {"edge": {"lay": "deer slots in the soft ground along the hedge",
-                            "knows": "fresh slots along the hedge: a herd of about {n}, hinds and calves",
-                            "knows_old": "old slots along the hedge, rained on"},
-                   "raid": {"lay": "something grazed and trod the corn in {place} in the night",
-                            "knows": "a herd of about {n} deer was at the corn in {place} in the night"},
-                   "turned": {"lay": "beasts turned back from {place} in the night", "knows": "the deer turned back from {place}"}},
     },
     "wolf": {
         "gather": "far",                                                                     # a pack ranges far beyond one ring
@@ -138,13 +126,6 @@ NEAR_PEOPLE = {
         "drive": {"base": 0.03, "hunger": 0.9}, "memory_days": 4, "return_p": 0.7, "lead_nights": 2, "lead_sign_p": 0.7,
         "answer": {"type": "scared_off", "turn_p": 0.8, "off_days": 3},
         "harm": {"dog": {"turn_p": 0.9, "harm_p": 0.15}}, "wary_after_harm": 10, "met_share": 1.0,
-        "traces": {"edge": {"lay": "great tracks along the wood's edge, like a big dog's",
-                            "knows": "wolf tracks along the wood's edge, a pack of about {n}, and the beasts restless at dusk",
-                            "knows_old": "old wolf tracks along the wood's edge"},
-                   "raid": {"lay": "a beast of the herd on {place} killed and torn in the night",
-                            "knows": "wolves took a beast of the herd on {place} in the night: a pack of about {n}"},
-                   "turned": {"lay": "something drove at the herd on {place} in the night and was driven off",
-                              "knows": "the watch drove wolves off the herd on {place}"}},
     },
     "fox": {
         "targets": [{"what": "hens", "seasons": {0: (2, 7), 1: (0, 3)}, "attr": 1.0},           # cubs to feed
@@ -152,13 +133,109 @@ NEAR_PEOPLE = {
         "drive": {"base": 0.1, "hunger": 0.4}, "memory_days": 2, "return_p": 0.8, "lead_nights": 2, "lead_sign_p": 0.6,
         "answer": {"type": "scared_off", "turn_p": 0.85, "off_days": 3},
         "harm": {"dog": {"turn_p": 0.9, "harm_p": 0.1}}, "wary_after_harm": 10, "met_share": 1.0,
-        "traces": {"edge": {"lay": "the blackbirds chinking at the hedge at dusk",
-                            "knows": "a fox about the hedge at dusk: the blackbirds chinking at it, a musky smell on the path"},
-                   "raid": {"lay": "feathers and blood by the hen house at {place}", "knows": "a fox was at the hens at {place} in the night"},
-                   "turned": {"lay": "the dog barked at something by the hen house in the night",
-                              "knows": "the dog drove a fox off the hens in the night"}},
     },
 }
+
+# the signs of what wild groups do (wild_layer.md §3.5-3.6; guides/senses.md): a bundle for each thing a group leaves, by the four
+# kinds of sense (to the doer, nearby as it happens, lingering, conditional). Each row: read ("lay": one who has not practised
+# hunting, "knows": one who has, "all": anyone), sense, own (how plain: the one noticing rule gives the chance), ages (days since,
+# inclusive), cond ("snow", "night": sensed in the dark as it happens), who ("watcher": only the one who watched), knack, text ({n}
+# heads, {place}, {scare}).
+R = lambda read, sense, own, ages, text, cond=None, who=None, knack=None: {k: v for k, v in dict(read=read, sense=sense, own=own,
+                                                                         ages=list(ages), text=text, cond=cond, who=who, knack=knack).items() if v is not None}
+SIGNS = {
+    "wild boar": {
+        "edge": [R("lay", "sight", 0.7, (1, 3), "the turf by the wood's edge turned over in long strips"),
+                 R("knows", "sight", 0.85, (1, 1), "fresh rooting at the wood's edge: a sounder of about {n}, nearer the corn each night"),
+                 R("knows", "sight", 0.7, (2, 3), "old rooting at the wood's edge, two or three nights old"),
+                 R("all", "sound", 1.2, (0, 0), "grunting and the crack of undergrowth at the wood's edge in the night", cond="night"),
+                 R("all", "sight", 1.3, (1, 2), "the snow at the wood's edge ploughed up and full of deep slots", cond="snow")],
+        "raid": [R("lay", "sight", 0.95, (1, 2), "the corn in {place} trampled and rooted in the night, a strip of it flattened"),
+                 R("knows", "sight", 0.95, (1, 2), "a sounder of about {n} was in the corn of {place} in the night: rooted and trampled"),
+                 R("all", "sound", 1.6, (0, 0), "a crashing and squealing in {place} in the night", cond="night"),
+                 R("all", "smell", 1.0, (1, 1), "a rank pig-smell over the trampled corn in {place}")],
+        "turned": [R("all", "sight", 0.6, (1, 1), "the ground churned at the edge of {place} where beasts turned back in the night"),
+                   R("all", "sight", 2.0, (0, 0), "near midnight something heavy came crashing to the edge of {place} and broke away from the {scare}", who="watcher")],
+    },
+    "red deer": {
+        "edge": [R("lay", "sight", 0.6, (1, 3), "deer slots in the soft ground along the hedge"),
+                 R("knows", "sight", 0.8, (1, 1), "fresh slots along the hedge: a herd of about {n}, hinds and calves"),
+                 R("knows", "sight", 0.6, (2, 3), "old slots along the hedge, rained on"),
+                 R("all", "sound", 0.6, (0, 0), "hooves on the ride and a stag's cough in the dark", cond="night"),
+                 R("all", "sight", 1.3, (1, 2), "a line of slots plain in the snow along the hedge", cond="snow")],
+        "raid": [R("lay", "sight", 0.85, (1, 2), "something grazed and trod the corn in {place} in the night"),
+                 R("knows", "sight", 0.9, (1, 2), "a herd of about {n} deer was at the corn in {place} in the night: tops bitten, slots between the rows")],
+        "turned": [R("all", "sight", 2.0, (0, 0), "in the dark a herd of deer came to the edge of {place}; at the {scare} they wheeled and were gone", who="watcher")],
+    },
+    "wolf": {
+        "edge": [R("lay", "sight", 0.6, (1, 3), "great tracks along the wood's edge, like a big dog's"),
+                 R("knows", "sight", 0.8, (1, 2), "wolf tracks along the wood's edge, a pack of about {n}"),
+                 R("all", "sound", 2.5, (0, 0), "howling in the night from the woods, nearer than before", cond="night"),
+                 R("all", "sight", 0.6, (1, 1), "the cattle bunched and restless at dusk, heads up to the wood", knack="herd"),
+                 R("all", "sight", 1.4, (1, 2), "a line of great tracks in the snow along the wood's edge, straight as a string", cond="snow")],
+        "raid": [R("all", "sound", 2.2, (0, 0), "a beast bellowing in terror in the night, out on {place}, then silence", cond="night"),
+                 R("lay", "sight", 0.95, (1, 2), "a beast of the herd on {place} killed and torn in the night"),
+                 R("knows", "sight", 0.95, (1, 2), "wolves took a beast of the herd on {place} in the night: a pack of about {n}, by the tracks"),
+                 R("all", "sight", 1.4, (1, 2), "blood and great tracks trodden into the snow of {place}", cond="snow")],
+        "tried": [R("all", "sight", 0.6, (1, 1), "the herd on {place} scattered and bunched in the night, the ground cut up by hooves")],
+        "turned": [R("all", "sight", 0.6, (1, 1), "the herd on {place} scattered and bunched in the night, the ground cut up by hooves"),
+                   R("all", "sight", 2.0, (0, 0), "in the dark you saw eyes beyond the herd on {place}; the {scare} held them off", who="watcher")],
+    },
+    "fox": {
+        "edge": [R("lay", "sound", 0.6, (1, 1), "the blackbirds chinking at the hedge at dusk"),
+                 R("knows", "sound", 0.7, (1, 1), "a fox about the hedge at dusk: the blackbirds chinking at it"),
+                 R("knows", "smell", 0.6, (1, 2), "a musky fox-smell along the path to the houses")],
+        "raid": [R("all", "sound", 1.6, (0, 0), "the hens shrieking in the night at {place}", cond="night"),
+                 R("lay", "sight", 0.95, (1, 2), "feathers and blood by the hen house at {place}"),
+                 R("knows", "sight", 0.95, (1, 2), "a fox was at the hens at {place} in the night: feathers, and one dragged off"),
+                 R("all", "sight", 1.3, (1, 1), "small neat tracks in the snow to the hen-house door at {place}", cond="snow")],
+        "turned": [R("all", "sound", 1.5, (0, 0), "the dog barking hard at something by the hen house in the night", cond="night")],
+        "tried": [R("all", "sound", 1.2, (0, 0), "the hens clucking in alarm at {place} in the night", cond="night"),
+                  R("lay", "sight", 0.8, (1, 1), "the earth scraped away under the hen-house door at {place}"),
+                  R("knows", "sight", 0.8, (1, 1), "a fox dug at the hen-house door at {place} in the night and did not get in")],
+    },
+}
+# signs for a watch whatever the kind: the night passed quiet, or the scare did not turn what came
+WATCH_SIGNS = {
+    "watched": [R("all", "sight", 2.0, (0, 0), "you watched {place} through the night with the {scare}; nothing came near it", who="watcher")],
+    "failed": [R("all", "sight", 2.0, (0, 0), "in the dark something came at {place} for all the {scare}, and you could not turn it", who="watcher")],
+}
+SCARE_WORDS = {"fire": "fire", "clapper": "clappers", "horn": "horn", "dog": "dog", "herding": "herders"}
+# signs of what the wild kinds ate of the people's crops and stores (the bridge): on the fields and in the stores
+EATEN_SIGNS = {
+    "crops": [R("lay", "sight", 0.6, (0, 1), "the corn in {place} pecked and nibbled along its edges"),
+              R("knows", "sight", 0.7, (0, 1), "pigeons, hares and mice at the corn in {place}: the edges thinned, ears stripped")],
+    "stores": [R("lay", "sight", 0.7, (0, 1), "droppings and gnawed sacks in the store of {place}"),
+               R("knows", "sight", 0.8, (0, 1), "rats in the store of {place}: the sacks gnawed through at the bottom, runs along the wall")],
+}
+# the oaks' mast in its seasons, on a village's woods: a reading, and for the practised a lore of what follows
+MAST_SIGNS = {
+    "flowering": {"heavy": [R("knows", "sight", 0.5, (0, 0), "the oaks in {place} hang heavy with catkins this spring: a mast year coming")],
+                  "frost": [R("all", "sight", 0.6, (0, 0), "the oak flowers in {place} blackened by the late frost"),
+                            R("knows", "sight", 0.6, (0, 0), "the frost has taken the oak flowers in {place}: there will be few acorns this autumn")]},
+    "fallen": {"heavy": [R("all", "sight", 0.8, (0, 0), "acorns lie thick under the oaks in {place}; jays and pigeons everywhere"),
+                         R("knows", "sight", 0.6, (0, 0), "a mast year in {place}: the swine could be turned into the wood, and the boar will stay in it")],
+               "fail": [R("all", "sight", 0.6, (0, 0), "hardly an acorn under the oaks in {place} this autumn"),
+                        R("knows", "sight", 0.6, (0, 0), "a bare year under the oaks in {place}: the boar will be out at the fields and the stores")]},
+}
+# the mast's windows, by season index and the season's days (a sign of a change: shown as it comes)
+MAST_WINDOWS = {"flowering": (0, 5, 7), "fallen": (2, 0, 2)}
+# what a hunter notices while hunting a range (a process of its own, as a traveller's notices on the road): the kinds there, by how
+# many and how easy to read, whether or not one is met
+HUNT_NOTICES = {
+    "wild boar": [R("lay", "sight", 0.5, (0, 0), "rooted ground and a wallow in the wood"),
+                  R("knows", "sight", 0.7, (0, 0), "boar sign through the wood: a fresh wallow, rubbed trees, a sounder's rooting")],
+    "red deer": [R("lay", "sight", 0.4, (0, 0), "slots in the soft ground of the rides"),
+                 R("knows", "sight", 0.6, (0, 0), "red deer slots on the rides and fraying on the young trees: a herd uses this wood")],
+    "roe deer": [R("knows", "sight", 0.5, (0, 0), "roe slots and browsed bramble tips: roe in the thicket")],
+    "brown hare": [R("all", "sight", 0.5, (0, 0), "a hare going away over the open ground")],
+    "wolf": [R("lay", "sight", 0.4, (0, 0), "big dog-like tracks crossing the ride"),
+             R("knows", "sight", 0.6, (0, 0), "wolf tracks crossing the ride, and an old kill picked clean")],
+    "fox": [R("knows", "smell", 0.4, (0, 0), "a fox's musk on a stile")],
+    "wildfowl": [R("all", "sight", 0.6, (0, 0), "duck and geese on the open water")],
+    "brown bear": [R("knows", "sight", 0.7, (0, 0), "great claw marks high on a beech, and a stone rolled over")],
+}
+
 
 # what a kind's numbers near a village show (wild_layer.md §3.6): the highest row its density reaches, read two ways. `where`: the
 # village's own land or the ring around; `per`: density a km2 (`count` for heads in the ring and the land beyond, for packs).

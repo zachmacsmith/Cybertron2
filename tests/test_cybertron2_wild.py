@@ -270,9 +270,11 @@ def test_a_hungry_pack_takes_a_beast_from_the_herd_and_leaves_its_carcass(genera
     before = sum(FM.head(w.s["herds"][h]) for h in herds)
     carcasses = lambda: sum(1 for c in w.s["containers"].values() if c.get("kind") == "carcass")
     c0 = carcasses()
+    formed = False
     for _ in range(16):
         N.night(w); w.s["day"] += 1
-    assert "wolf@s1" in w.s["wild"]["groups"]
+        formed |= "wolf@s1" in w.s["wild"]["groups"]
+    assert formed
     assert sum(FM.head(w.s["herds"][h]) for h in herds) < before and carcasses() > c0
 
 
@@ -318,3 +320,87 @@ def test_the_voles_numbers_show_as_signs_read_two_ways(generated):
         pr = PC.practised(HR.Mind(w, who))
         read[who] = [f["text"] for f in PC.facts(HR.Here(w, who)) if "#wildp" in (f.get("sign") or "") and SG.readable(f, pr)]
     assert any("thick with voles" in t for t in read["Ann"]) and any("kestrels" in t for t in read["Tom"])
+
+
+# ---------------------------------------------------------------------- the signs sweep (wild_layer.md §3.6, guides/senses.md)
+def _two(generated):
+    world = copy.deepcopy(generated)
+    world["agents"] = {"Ann": {"household": "Ash", "stage": "adult", "sex": "f", "at": "s1", "knows": {"hunt": {"level": "known", "skill": 1.6}}},
+                       "Tom": {"household": "Ash", "stage": "adult", "sex": "m", "at": "s1", "knows": {}}}
+    return world
+
+
+def _read(w, who, mark):
+    from cybertron2.engine import here as HR, perceive as PC, run as R, signs as SG
+    w.s["today"] = R.blank_today()
+    pr = PC.practised(HR.Mind(w, who))
+    return [f["text"] for f in PC.facts(HR.Here(w, who)) if mark in (f.get("sign") or "") and SG.readable(f, pr)
+            and (not f.get("only") or who in f["only"])]
+
+
+def test_the_ecology_keeps_the_calendars_seasons(generated):
+    """A world that starts in summer steps the ecology in summer (its seasons begin with spring)."""
+    w, WL = _summer_world(generated)
+    Y, S = w.year_days(), w.year_days() // 4
+    assert (WL.eco_day(w) % Y) // S == ["spring", "summer", "autumn", "winter"].index(w.calendar()["season"])
+
+
+def test_a_raid_that_took_nothing_leaves_the_signs_of_a_try_not_of_a_kill(generated):
+    w, WL = _summer_world(_two(generated))
+    house = next(b for b, x in w.s["buildings"].items() if x["node"] == "s1" and x.get("stock"))
+    pid = w.s["buildings"][house]["parcel"]
+    w.apply("set_wild", "s1", path=["traces"], value={pid: [{"kind": "fox", "what": "tried", "day": w.d, "n": 2}]})
+    w.s["day"] += 1
+    seen = _read(w, "Ann", "#wild") + _read(w, "Tom", "#wild")
+    assert any("did not get in" in t or "scraped away" in t for t in seen) and not any("feathers" in t for t in seen)
+
+
+def test_a_quiet_watch_is_known_to_the_watcher_only(generated):
+    from cybertron2.engine import night as N
+    w, WL = _summer_world(_two(generated))
+    for k in ("wild boar", "red deer", "wolf", "fox"):                                # nothing comes tonight
+        w.s["wild"]["state"]["pop"][k] = [0.0] * len(w.s["wild"]["state"]["pop"][k])
+    field = WL._fields(w, "s1")[0]
+    w.apply("set_wild", "s1", path=["watch", field], value={"day": w.d, "by": "Tom", "scare": "fire"})
+    N.night(w)
+    assert any(t["what"] == "watched" and t.get("by") == "Tom" for t in w.s["wild"]["traces"][field])
+    assert any("nothing came near" in t and "fire" in t for t in _read(w, "Tom", "#wild"))
+    assert not any("nothing came near" in t for t in _read(w, "Ann", "#wild"))
+
+
+def test_hunting_a_range_shows_its_kinds_signs_read_two_ways_and_remembered(generated):
+    """A hunt is a noticing process of its own: the kinds in the range show their signs, met or not; one practised in any way of
+    hunting (`reads_as`) reads them as a hunter, the rest as anyone; what was seen is remembered of the place."""
+    from cybertron2.engine.here import Mind
+    from cybertron2.wild.kinds import HUNT_NOTICES
+    w, WL, wood = _hunters(generated, n=80, knows=("stalk deer",))
+    m, ri = _ring(w, WL)
+    w.s["wild"]["state"]["pop"]["wild boar"][ri] = 60.0 / m.km2[ri]
+    for i in range(40, 80):                                                           # half have never hunted
+        w.s["know"][f"H{i}"] = {}
+    go = lambda i: _do(w, f"H{i}", {"do": "gather", "what": "hunt the wild", "at": wood, "range": "the wood around"})
+    known, lay = [go(i) for i in range(40)], [go(i) for i in range(40, 80)]
+    texts = lambda read: [r["text"] for rs in HUNT_NOTICES.values() for r in rs if r["read"] == read]
+    hit = lambda rs, read: sum(any(t in r for t in texts(read)) for r in rs)
+    assert hit(known, "knows") > 0 and hit(known, "lay") == 0
+    assert hit(lay, "lay") > 0 and hit(lay, "knows") == 0
+    pid = next(p for p, x in w.s["parcels"].items() if x["name"] == wood)
+    assert any(k.startswith(pid) and v["how"] == "hunted" for i in range(80) for k, v in (Mind(w, f"H{i}").store.get("land") or {}).items())
+
+
+def test_what_the_wild_kinds_ate_shows_on_the_fields_and_in_the_stores(generated):
+    w, WL = _summer_world(_two(generated))
+    w.apply("set_wild", "s1", path=["eaten"], value={"s1": {"crops": 0.02, "stores": 0.02, "day": w.d}})
+    seen = _read(w, "Tom", "#wildeat") + _read(w, "Ann", "#wildeat")
+    assert any("nibbled" in t or "ears stripped" in t for t in seen)
+
+
+def test_a_mast_year_shows_under_the_oaks_in_the_autumn(generated):
+    from cybertron2.wild.kinds import MAST
+    w, WL = _summer_world(_two(generated))
+    if not any(p["node"] == "s1" and p["cover"] == "forest" for p in w.s["parcels"].values()):
+        pytest.skip("no wood at s1")
+    w.s["day"] += next(d for d in range(40) if w.calendar(w.d + d)["season"] == "autumn" and w.calendar(w.d + d)["day"] == 1)
+    w.s["wild"]["state"]["mast_now"] = MAST["levels"]["heavy"]
+    seen = _read(w, "Tom", "#wildmast") + _read(w, "Ann", "#wildmast")
+    assert any("acorns lie thick" in t for t in seen)

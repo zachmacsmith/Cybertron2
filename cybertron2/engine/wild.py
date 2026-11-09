@@ -56,6 +56,11 @@ def weather(w, nodes, day) -> dict:
     return out
 
 
+def eco_day(w, day=None) -> int:
+    """The ecology's day count: the calendar's (its seasons begin with spring), so a world that starts in summer steps in summer."""
+    return int(w.calendar(day)["year_day"])
+
+
 def draws(w, day, tag="run") -> dict:
     """Keyed draws for the day's step: the year's mast and the summer's outbreaks per kind and area (replays exactly)."""
     m = model(w)
@@ -81,8 +86,9 @@ def seed(w) -> None:
     Y = w.year_days()
     years = int((w.spec.get("wild") or {}).get("history_years", HISTORY_YEARS))
     off = HISTORY_AHEAD_YEARS * Y
-    for d in range(years * Y):                                            # the history before the run
-        EC.step(m, st, d, weather(w, sorted(set(m.nodes)), off + d), draws(w, d, "history"))
+    k0 = eco_day(w, 0)
+    for d in range(years * Y):                                            # the history before the run, ending on the run's season
+        EC.step(m, st, k0 + d, weather(w, sorted(set(m.nodes)), off + d), draws(w, k0 + d, "history"))
     st["day"] = -1
     st["mast"]["years"] = {}                                              # the trees' budget carries over; the run's years are its own
     w.s["wild"]["state"] = st
@@ -115,7 +121,7 @@ def night(w, rec) -> None:
                 if real[food][i] <= 1e-9:
                     st["pulse"][food][i] = 0.0
     before = {f: list(st["pulse"][f]) for f in ("crops", "stores")}
-    eff = EC.step(m, st, w.d, weather(w, sorted(set(m.nodes)), w.d), draws(w, w.d))
+    eff = EC.step(m, st, eco_day(w), weather(w, sorted(set(m.nodes)), w.d), draws(w, eco_day(w)))
     place = m.nodes[0]
     w.apply("set_wild", place, path=["state"], value=st)
     out = {"mast": st.get("mast_now"), "crops": {}, "stores": {}}
@@ -132,10 +138,26 @@ def night(w, rec) -> None:
                 lost = (_crops if food == "crops" else _stores)(w, node, share)
                 if lost > 1e-6:
                     out[food][node] = round(lost, 4)
+    eaten = {nd: dict(v, day=w.d) for nd, v in _shares(out, real, m).items()}
+    if eaten or (w.s["wild"].get("eaten") or {}):
+        w.apply("set_wild", place, path=["eaten"], value=eaten)
     out["groups"] = _groups(w, m, st)
     out["near"] = {gid: {"n": g["n"], "pos": g["pos"], "what": g.get("what")} for gid, g in sorted((w.s["wild"].get("groups") or {}).items())}
     _hens_lay(w)
     rec["wild"] = out
+
+
+def _shares(out, real, m) -> dict:
+    """What share of each home's standing crop and store the wild kinds ate tonight, for the signs (signs._wild_eaten)."""
+    res = {}
+    for i, nd in enumerate(m.nodes):
+        if not m.home[i]:
+            continue
+        for food in ("crops", "stores"):
+            lost, have = float(out[food].get(nd, 0.0)), float(real[food].get(i, 0.0))
+            if lost > 1e-6 and have > 1e-9:
+                res.setdefault(nd, {})[food] = round(lost / have, 4)
+    return res
 
 
 # ---------------------------------------------------------------------- groups near people (wild_layer.md §3.4, D2-197, D2-198)
@@ -167,9 +189,9 @@ def _edge_of(w, pid) -> str:
     return pid
 
 
-def _trace(traces, pid, kind, what, day, n):
+def _trace(traces, pid, kind, what, day, n, scare=None, by=None):
     lst = [t for t in traces.get(pid, []) if day - int(t["day"]) <= 3]
-    lst.append({"kind": kind, "what": what, "day": day, "n": int(n)})
+    lst.append({k: v for k, v in dict(kind=kind, what=what, day=day, n=int(n), scare=scare, by=by).items() if v is not None})
     traces[pid] = lst
 
 
@@ -312,12 +334,13 @@ def _groups(w, m, st) -> dict:
                         g["wary"], g["habit"] = w.d + int(np_["wary_after_harm"]), {}
                     if turned:
                         g["rest"] = w.d + int(np_["answer"].get("rest", np_["answer"].get("off_days", 2)))
-                        _trace(traces, parcel, kind, "turned", w.d, g["n"])
+                        _trace(traces, parcel, kind, "turned", w.d, g["n"], scare, (seen or {}).get("by"))
                         out[gid] = {"at": tgt, "what": what, "turned": True, "scare": scare}
                         continue
                 res = _raid(w, g, np_, kind, what, tgt, parcel, scare, rng)
                 g["found"] = w.d
-                _trace(traces, parcel, kind, "raid", w.d, g["n"])
+                did = res.get("lost", 0) > 1e-6 or res.get("killed") or res.get("hens", 0) >= 1
+                _trace(traces, parcel, kind, "raid" if did else "tried", w.d, g["n"], scare, (seen or {}).get("by"))
                 out[gid] = {"at": tgt, "what": what, "turned": False, "scare": scare, **res}
             elif g["pos"] == "edge":
                 if rng.random() < float(np_["lead_sign_p"]):
@@ -344,6 +367,9 @@ def _groups(w, m, st) -> dict:
                         g["pos"], g["t"] = "edge", w.d
                         if rng.random() < float(np_["lead_sign_p"]):
                             _trace(traces, _edge_of(w, pick[1]), kind, "edge", w.d, g["n"])
+    for pid, v in sorted(watch.items()):                                 # a watch nothing came to: a quiet night
+        if not any(t["day"] == w.d and t["what"] in ("turned", "raid", "tried") for t in traces.get(pid, [])):
+            _trace(traces, pid, None, "watched", w.d, 0, v.get("scare"), v.get("by"))
     place = m.nodes[0]
     kept = {pid: v for pid, v in (wild.get("watch") or {}).items() if int(v.get("day", -9)) >= w.d}
     if kept != (wild.get("watch") or {}):
@@ -443,8 +469,10 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
     effort = float(TECHNIQUES[tech]["units"]) / 2.0
     looked = f" looking for {a.get('looking for')}" if want else ""
     where = {"near": place_name, "the wood around": f"the woods and wastes around {place_name}", "far": "the wild land far beyond"}[rng_word]
+    seen = _notices(here, mind, m, st, areas, key, effort)
+    tail = (" On the way you saw " + "; and ".join(seen) + ".") if seen else ""
     if total <= 0 or rng.random() >= 1 - math.exp(-0.03 * total * effort):
-        return 0.0, f"You hunted {where}{looked} and came on nothing."
+        return 0.0, f"You hunted {where}{looked} and came on nothing.{tail}"
     u, acc = rng.random() * total, 0.0
     for k, i, wgt in cand:
         acc += wgt
@@ -462,12 +490,12 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
             return 0.0, f"Hunting {where}, {found}; it turned on you."
         here.apply("harm", person=here.name, wounded=True)
         hurt = " It turned on you and you were hurt before it broke away."
-        return 0.0, f"Hunting {where}, {found}.{hurt}"
+        return 0.0, f"Hunting {where}, {found}.{hurt}{tail}"
     armed = here.weapon()
     wpn = float(TECHNIQUES[tech]["weapon"]["armed" if armed else "none"])
     p_take = float(np.clip(0.55 * m_skill * wpn * (1 - float(tk.get("flee", 0.5))) * (1 + 0.25 * (crew - 1)), 0, 0.95))
     if rng.random() >= p_take:
-        return 0.0, f"Hunting {where}, {found}, but it got away."
+        return 0.0, f"Hunting {where}, {found}, but it got away.{tail}"
     pop = [float(x) for x in st["pop"][k]]
     pop[i] = max(0.0, pop[i] - 1.0 / float(m.km2[i]))                      # one head off its area's count
     here.apply("set_wild", path=["state", "pop", k], value=pop)
@@ -481,7 +509,52 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
     for item, q in sorted((tk.get("goods") or {}).items()):
         here.apply("create", dst=out, item=item, qty=float(q), why=tech)
         food += float(q) if item == "meat" else 0.0
-    return food, f"Hunting {where}, {found} and took it: " + ", ".join(f"{q:g} {it}" for it, q in sorted((tk.get('goods') or {}).items())) + "."
+    if rng_word == "near" and key in here.parcels():                       # gutted where it fell: the kill's signs (signs.HUNTED)
+        rec = here.parcels()[key].get("hunted") or {}
+        kills = list(rec.get("kills") or []) if rec.get("day") == here.day else []
+        kills.append({"by": here.name, "meat": food, "hide": "hide" in (tk.get("goods") or {}), "kind": k})
+        here.apply("set", ref=("parcel", key), field="hunted", value={"day": here.day, "kills": kills})
+    return food, f"Hunting {where}, {found} and took it: " + ", ".join(f"{q:g} {it}" for it, q in sorted((tk.get('goods') or {}).items())) + "." + tail
+
+
+NOTICE_MOST = 2
+
+
+def _notices(here, mind, m, st, areas, key, effort) -> list:
+    """What a hunter notices of the kinds in the range they hunt, met or not (kinds.HUNT_NOTICES): a process of its own, as a
+    traveller's notices on the road. Each row by the one rule (D4-75): its own plainness x how likely the kind's sign is there (its
+    numbers and how easily found) x the place's visibility for the sense x the eye; read by the practised or the rest (`knows`/`lay`).
+    What was seen is remembered of the place (perceive.remember_land)."""
+    from cybertron2.engine import environment as EV, perceive as PC, signs as SG, things as TH
+    from cybertron2.engine.data import NOTICING, RESOURCES
+    from cybertron2.wild.kinds import HUNT_NOTICES
+    from types import SimpleNamespace
+    rng = here.rng("wild-notice", here.day, here.name)
+    eye = TH.eye(here._w, here.name)
+    par = here.parcels().get(key) or {}
+    rows, pres = [], {}
+    for k, rs in sorted(HUNT_NOTICES.items()):
+        if k not in st["pop"]:
+            continue
+        count = sum(float(st["pop"][k][i]) * float(m.km2[i]) for i in areas)
+        if count < 1.0:
+            continue
+        detect = float(((RESOURCES.get(k) or {}).get("taken") or {}).get("detect", 0.2))
+        pres[k] = 1.0 - math.exp(-0.15 * count * detect * effort)
+        for r in rs:
+            row = dict(when=lambda x: True, own=float(r["own"]) * pres[k], sense=r["sense"], text=lambda x, t=r["text"]: t, kind=k)
+            if r["read"] in ("lay", "knows"):
+                row[r["read"]] = "hunt"
+            rows.append(row)
+
+    def rule(row):
+        sense = row.get("sense", "sight")
+        vis = EV.visibility(here._w, here.node, parcel=key, sense=sense, cover=par.get("cover"))
+        return float(row["own"]) * vis * (eye if sense in NOTICING["eye_senses"] else 1.0)
+    got = SG.roll(rows, SimpleNamespace(), rng, know=PC.practised(mind), rule=rule)[:NOTICE_MOST]
+    if got and key in here.parcels():
+        PC.remember_land(mind, here.day, key, "the wild", "; ".join(got), "hunted")
+    return got
 
 
 def _a(kind) -> str:

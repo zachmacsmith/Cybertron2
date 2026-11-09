@@ -1791,6 +1791,8 @@ def _aftermath(here, add) -> None:
             spot_rows(here, BURIAL, x, sub, here.node, pid, add, name="burial",
                       who={"others": [m for m in people if m not in diggers], "doer": diggers})
     _wild_presence(here, add)                                                  # what the wild kinds' numbers show (D2-199)
+    _wild_eaten(here, add)                                                     # what they ate of the crops and stores
+    _wild_mast(here, add)                                                      # the oaks' mast as it comes
     for bid, b in here.buildings().items():
         sub, live = [f"building:{bid}"], _dwellers(here, bid)
         for field, rows, most, extra in (("fire_hit", FIRE, 3, {}), ("raided", RAID, 1, {}), ("theft", THEFT, 1, {}),
@@ -1868,22 +1870,109 @@ def _wild_presence(here, add) -> None:
                 spot_rows(here, [row], x, [f"parcel:{spot}"], here.node, spot, add, name=f"wildp{i}{key}", **{key: "hunt"})
 
 
+def _wild_emit(here, rows, x, sub, pid, add, name, fmt, age, who=None, tags=("animals", "farming")) -> None:
+    """A bundle of wild signs from the kinds' data (kinds.SIGNS and the like): each row in its ages and conditions, read by the
+    practised (`knows`), by the rest (`lay`) or by anyone, a watcher's row only by the one who watched; the one rule gives the chance."""
+    for j, r in enumerate(rows):
+        lo, hi = r["ages"]
+        if not lo <= age <= hi or (r.get("cond") == "snow" and not x.snow):
+            continue
+        only = None
+        if r.get("who") == "watcher":
+            if not who:
+                continue
+            only = [who]
+        row = dict(when=lambda x: True, own=r["own"], sense=r["sense"], tags=list(tags), text=lambda x, t=r["text"].format(**fmt): t)
+        if r.get("knack"):
+            row["knack"] = r["knack"]
+        if r.get("cond") == "night":
+            row["night"] = True
+        kw = {r["read"]: "hunt"} if r["read"] in ("lay", "knows") else {}
+        spot_rows(here, [row], x, sub, here.node, pid, add, name=f"{name}{j}", only=only, **kw)
+
+
 def _wild_traces(here, pid, p, sub, add) -> None:
-    """Traces wild groups left on this parcel (wild_layer.md §3.5-3.6, D2-197): each read two ways, by one who has practised hunting
-    and by anyone else (`knows`/`lay`); a practised reader tells old traces from fresh. The texts are the kinds' data."""
-    from cybertron2.engine.data import RESOURCES
+    """What wild groups left on this parcel (wild_layer.md §3.5-3.6, D2-197): the kind's bundle for each trace (at the wood's edge,
+    a raid, turned by a watch), and a watch's own night; read two ways by `knows`/`lay`, in the kinds' data."""
+    from cybertron2.wild.kinds import SIGNS, WATCH_SIGNS, SCARE_WORDS
     for i, tr in enumerate(((here._w.s.get("wild") or {}).get("traces") or {}).get(pid, [])):
         age = here.day - int(tr["day"])
-        texts = (((RESOURCES.get(tr["kind"]) or {}).get("near_people") or {}).get("traces") or {}).get(tr["what"])
-        if not texts or not 0 <= age <= 3:
+        if not 0 <= age <= 3:
             continue
         x = event_context(here, p["name"], tr["day"], n=tr["n"])
-        known = texts["knows_old"] if age >= 2 and texts.get("knows_old") else texts["knows"]
-        for key, text in (("lay", texts["lay"]), ("knows", known)):
-            t = text.format(n=tr["n"], place=p["name"])
-            row = dict(when=lambda x: True, own=0.9 if tr["what"] == "raid" else 0.7, sense="sight", tags=["animals", "farming"],
-                       text=lambda x, t=t: t)
-            spot_rows(here, [row], x, sub, here.node, pid, add, name=f"wild{i}{key}", **{key: "hunt"})
+        scare = SCARE_WORDS.get(tr.get("scare"), tr.get("scare") or "watch")
+        fmt = dict(n=tr["n"], place=p["name"], scare=scare)
+        rows = (SIGNS.get(tr.get("kind")) or {}).get(tr["what"]) or WATCH_SIGNS.get(tr["what"]) or []
+        _wild_emit(here, rows, x, sub, pid, add, f"wild{i}", fmt, age, who=tr.get("by"))
+        if tr["what"] in ("raid", "tried") and tr.get("by"):
+            _wild_emit(here, WATCH_SIGNS["failed"], x, sub, pid, add, f"wild{i}f", fmt, age, who=tr.get("by"))
+
+
+def _wild_eaten(here, add) -> None:
+    """What the wild kinds ate of this village's crops and stores in the night (the bridge's losses, kept in `wild.eaten`): on its
+    fields and in its stores, plainer the more was lost."""
+    from cybertron2.engine import wild as WL
+    from cybertron2.wild.kinds import EATEN_SIGNS
+    rec = ((here._w.s.get("wild") or {}).get("eaten") or {}).get(here.node)
+    if not rec:
+        return
+    age = here.day - int(rec["day"])
+    for food in ("crops", "stores"):
+        share = float(rec.get(food, 0.0))
+        if share < 0.002:
+            continue
+        scale = min(1.5, share / 0.01)
+        rows = [dict(r, own=r["own"] * scale) for r in EATEN_SIGNS[food]]
+        if food == "crops":
+            for pid in WL._fields(here._w, here.node)[:2]:
+                p = here.parcels()[pid]
+                x = event_context(here, p["name"], rec["day"])
+                _wild_emit(here, rows, x, [f"parcel:{pid}"], pid, add, "wildeat", dict(place=p["name"]), age)
+        else:
+            for bid, b in sorted(here.buildings().items()):
+                if b.get("stock") and WL._store_food(here._w, here.node) > 0 and any(
+                        it in WL.DRY_STORES and q > 0 for it, q in (here._w.s["containers"].get(b["stock"], {}).get("goods") or {}).items()):
+                    x = event_context(here, b["name"], rec["day"])
+                    _wild_emit(here, rows, x, [f"building:{bid}"], b["parcel"], add, "wildeat", dict(place=b["name"]), age)
+
+
+def _wild_mast(here, add) -> None:
+    """The oaks' mast on this village's woods, as it comes (kinds.MAST_WINDOWS): heavy catkins or frost-blackened flowers in the
+    spring, acorns thick or none in the autumn; the practised read what follows for the boar and the swine."""
+    from cybertron2.wild.kinds import MAST_SIGNS, MAST_WINDOWS, MAST
+    w = here._w
+    wild = w.s.get("wild") or {}
+    st, land = wild.get("state"), wild.get("land") or {}
+    if not st or here.node not in land.get("home", {}):
+        return
+    wood = next((pid for pid, p in sorted(here.parcels().items()) if p["cover"] == "forest"), None)
+    if wood is None:
+        return
+    cal = here.calendar()
+    si, sd = ["spring", "summer", "autumn", "winter"].index(cal["season"]), int(cal["day"]) - 1
+    from cybertron2.engine import wild as WL
+    m = WL.model(w)
+    i = m.ids.index(land["home"][here.node])
+    L = MAST["levels"]
+    year = int(cal.get("year", 0))
+    level = None
+    if si == MAST_WINDOWS["flowering"][0] and MAST_WINDOWS["flowering"][1] <= sd <= MAST_WINDOWS["flowering"][2]:
+        M = st.get("mast") or {}
+        if bool((st.get("flower_frost") or [False] * m.n)[i]):
+            level, rows = "frost", MAST_SIGNS["flowering"]["frost"]
+        elif M.get("years", {}).get(str(year - 1)) != L["heavy"] and int(M.get("budget", 0)) + 1 >= int(M.get("th", 3)):
+            level, rows = "heavy", MAST_SIGNS["flowering"]["heavy"]
+    elif si == MAST_WINDOWS["fallen"][0] and MAST_WINDOWS["fallen"][1] <= sd <= MAST_WINDOWS["fallen"][2]:
+        now = st.get("mast_now")
+        if now is not None and float(now) >= L["heavy"]:
+            level, rows = "heavy", MAST_SIGNS["fallen"]["heavy"]
+        elif now is not None and float(now) <= L["fail"]:
+            level, rows = "fail", MAST_SIGNS["fallen"]["fail"]
+    if level is None:
+        return
+    p = here.parcels()[wood]
+    x = event_context(here, p["name"], here.day)
+    _wild_emit(here, rows, x, [f"parcel:{wood}"], wood, add, f"wildmast{level}", dict(place=p["name"]), 0, tags=("animals", "land"))
 
 
 def road_context(w, name, t, pos):

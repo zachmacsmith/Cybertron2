@@ -423,6 +423,8 @@ def _fence_words(fc) -> str:
 
 
 def _land_words(what, v) -> str:
+    if v["how"] == "hunted":                                                   # what a hunt from here showed of the wild (wild.py)
+        return f"hunting from here you saw {v['state']}"
     saw = v["how"] == "saw"
     return {"bare": f"you {'saw' if saw else 'found'} it picked bare of {what}" if what != "timber" else
                     f"you {'saw' if saw else 'found'} no standing timber left",
