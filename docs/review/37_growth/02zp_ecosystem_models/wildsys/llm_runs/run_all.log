@@ -1,1 +1,3 @@
 28 runs
+[   95s] T1_settled_s1_expert_named_nolore_sonnet: net -41.3 | none -91.3 calendar -69.6 scripted -39.6 | {"raid_nights": 3, "watched_nights": 17, "raids_met_at_the_right_gap": 3, "watch_nights_without_raid": 14, "scare_changes": 6, "scares_used": ["clapper", "dog", "fire", "horn"], "brier": 0.16774999999999998} | $0.00
+[  108s] T1_settled_s3_novice_named_nolore_haiku: net -98.8 | none -173.5 calendar -87.5 scripted -78.7 | {"raid_nights": 5, "watched_nights": 8, "raids_met_at_the_right_gap": 2, "watch_nights_without_raid": 6, "scare_changes": 2, "scares_used": ["clapper", "dog", "horn"], "brier": 0.22737500000000002} | $0.00
