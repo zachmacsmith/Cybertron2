@@ -130,6 +130,24 @@ def target(w, h, pid) -> str:
     return best
 
 
+def gadding(w, h) -> bool:
+    """Cattle gadding in the heat (brief 2 K1): a hot, still summer day (the place's weather values, D4-109) with the herd on open
+    grazing and no water or wood on its parcel or next to it: the flies drive them through their fence."""
+    from cybertron2.engine import environment as EV
+    from cybertron2.engine.data import HERDS
+    gd = HERDS.get("gad")
+    if not gd or h.get("kind", "cattle") != "cattle" or w.calendar()["season"] != "summer":
+        return False
+    par = w.s["parcels"].get(h.get("parcel")) or {}
+    if par.get("cover") not in ("pasture", "meadow"):
+        return False
+    v = EV.values(w, h["node"])
+    if not v or float(v["temp"]) < float(gd["temp"]) or float(v["wind"]) > float(gd["wind"]):
+        return False
+    near = [par] + [w.s["parcels"][a] for a in par.get("adj") or [] if a in w.s["parcels"]]
+    return not any(p_.get("cover") in ("water", "forest", "scrub") for p_ in near)
+
+
 def wander(w, hid, rec) -> list:
     """A day's wandering; returns the parcels it crossed."""
     h = w.s["herds"][hid]
@@ -137,9 +155,13 @@ def wander(w, hid, rec) -> list:
         return []
     node, pid = h["node"], h["parcel"]
     rng = w.rng("herd-wander", w.d, hid)
-    if through(w, pid) < 1.0 and rng.random() >= through(w, pid):
+    gad = gadding(w, h)
+    over = (lambda p_: max(through(w, p_), float(HERDS["gad"]["through"]))) if gad else (lambda p_: through(w, p_))   # gadding: the
+    if over(pid) < 1.0 and rng.random() >= over(pid):                         # fence is a smaller thing to them
         return []                                                             # the fence held them
-    hungry = int(h.get("hungry", 0)) > 0
+    if gad:
+        rec["herds"].append((hid, "gadding", pid))
+    hungry = int(h.get("hungry", 0)) > 0 or gad
     g = w.s["parcels"][pid]["res"].get("grass")
     good = bool(g and g["K"] > 0 and g["S"] / g["K"] >= float(HERDS["good_grass"]))
     far = hungry or drawn(w, h) or not good
@@ -156,7 +178,7 @@ def wander(w, hid, rec) -> list:
             onto_road(w, hid, road_at[pid][0], node, rec)
             return way
         step = LY.path(w, pid, goal, (hid,))[1]
-        if through(w, step) < 1.0 and rng.random() >= through(w, step):
+        if over(step) < 1.0 and rng.random() >= over(step):
             break                                                             # the fence round it kept them out
         pid = step
         way.append(pid)

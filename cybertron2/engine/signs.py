@@ -2062,7 +2062,17 @@ def _wild_loads(here, add) -> None:
             off = (int(d0) % w.year_days()) - int(mk.get("usual", int(d0) % w.year_days()))
             when = "early" if off <= -2 else "late" if off >= 2 else "at its usual time"
             when2 = "sooner than most years" if off <= -2 else "later than most years" if off >= 2 else "as in most years"
-            emit(mk["rows"], spot(["scrub", "forest", "pasture", "meadow", "field"]), f"wildmark{name[:4]}", mk.get("read"),
+            rows = list(mk["rows"])
+            if mk.get("times"):                                             # the saying it times, from the families' lore (brief 2 K1)
+                from cybertron2.engine import lore as LO
+                from cybertron2.engine.data import CROPS
+                cal = here.calendar()
+                half = ("early" if int(cal["day"]) <= max(1, w.season_len // 2) else "late", cal["season"])
+                best, good = LO.sowing_times(w.season_len).get(mk["times"], ([], []))
+                if half in best or half in good:
+                    rows.append({"read": "knows", "sense": rows[0]["sense"], "own": 0.7, "ages": [0, 0],
+                                 "text": mk["say"].format(crop=CROPS[mk["times"]]["names"][0])})
+            emit(rows, spot(["scrub", "forest", "pasture", "meadow", "field"]), f"wildmark{name[:4]}", mk.get("read"),
                  fmt={"when": when, "when2": when2})
 
 
