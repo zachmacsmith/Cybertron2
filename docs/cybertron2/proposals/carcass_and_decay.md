@@ -114,7 +114,7 @@ Each is an existing act, or an existing act on a carcass:
   slaughter; a tallow light lets night pest work be done.
 - Society-level (dry, scripted): a dead cow left by the fold raises the fold's losses over the next nights against one burned or
   buried; leaving bodies unburied draws scavengers where burying them does not.
-- Regression: the wild_year probes; total carrion eaten and the carrion eaters' numbers within about a third of before (the carcass
+- Regression: the wild-pack worlds `cybertron2/specs/wild_probe5.json` and `wild_probe6.json` on branch `ecology` (runs 5 and 6's generated villages), run with scripted bots (`run.run(spec, out, days=8, bots=True)`); total carrion eaten and the carrion eaters' numbers within about a third of before (the carcass
   link adds food, so check the fox and the wolf do not boom; calibrate the attraction down if they do); all tests pass.
 - **Gate:** the above, and a short dry-run report to Zach; then a small live run if he allows one, read against the pack off.
 

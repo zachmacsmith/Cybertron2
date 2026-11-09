@@ -58,7 +58,7 @@ from the rookery's site, stopped by any watch on the field (`watch_stops`). Chan
 - **Woodpigeon gains a `near_people` row** (data, as red deer have): targets `crop` in sowing and young-corn seasons, and greens and
   winter corn when the mast fails (the existing `WHEN` vocabulary: `mast: low`); `answer: habituate` with a fast decay (a still
   scare is soon a post: D2-198), `displace: true`; group size from the flock (calibrate); its share of crops through the ecology's
-  diet near home is cut by the same amount, so the total is not counted twice (calibrate on the wild_year probes).
+  diet near home is cut by the same amount, so the total is not counted twice (calibrate on the wild-pack worlds `cybertron2/specs/wild_probe5.json` and `wild_probe6.json`).
 - **"Lands where others feed"** is the flock's choice of target: it picks the field it fed at last if that field still has the crop
   (its memory, as now), else the field with the most of its crop; a displaced flock lands on the next field of the same crop (§2).
 - The rookery stays as it is (it already works and answers any watch).
@@ -120,7 +120,7 @@ Both are small and keep the files' rules; they need agreement on the board.
   ends after its life; eel traps fish the night they are set); doors by gap (fox, stoat, rats against wattle, stone, damaged); stores
   by property; each K1 item's test above.
 - Guard: no kind name in rule code (all in data rows); every new sign follows the senses guide (a change, grounded, worth acting on).
-- Regression: the wild_year probes on fixed seeds: total wild losses per household-season within about a third of before except where
+- Regression: the wild-pack worlds `cybertron2/specs/wild_probe5.json` and `wild_probe6.json` on branch `ecology` (runs 5 and 6's generated villages), run with scripted bots (`run.run(spec, out, days=8, bots=True)`) on fixed seeds: total wild losses per household-season within about a third of before except where
   this brief means them to move (boar down to its target; pigeon losses now answerable); all tests pass.
 - Society-level (dry, scripted): two neighbouring fields, one watched and one not: the unwatched loses more than if neither were
   watched; a hamlet with one lax house loses more hens in its other houses than a hamlet with none.

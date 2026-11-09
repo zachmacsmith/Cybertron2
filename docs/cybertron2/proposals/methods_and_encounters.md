@@ -169,7 +169,7 @@ then runs exactly as today with this table.
 
 ## 8. Stage 0 alongside
 
-- **Diagnostics** (in the scratchpad's `analyse_run.py`, never read by the engine): takes by method and kind; distinct methods per
+- **Diagnostics** (in a run-analysis script kept outside the engine, never read by it): takes by method and kind; distinct methods per
   household; familiarity gained; refusals by reason; wild sign lines per agent-day.
 - **The world setting** `wild.methods_known` (§6).
 
@@ -181,7 +181,7 @@ then runs exactly as today with this table.
   hares and now and then a fox; den work, a fox earth and a lodge); method skill earned on red deer raises roe; familiarity with
   hares raises the snare's hares and not its foxes; seeding (no `trap in water` without water in the ring; `gather young` by a
   heronry); old names resolve as aliases; replay of a recorded run is exact.
-- Regression (dry, scripted bots on fixed seeds, the wild_year probes in the scratchpad's `eco/probe`): §4's shares within about a
+- Regression (dry, scripted bots on fixed seeds, the wild-pack worlds `cybertron2/specs/wild_probe5.json` and `wild_probe6.json` on branch `ecology` (runs 5 and 6's generated villages), run with scripted bots (`run.run(spec, out, days=8, bots=True)`)): §4's shares within about a
   third; food from wild takes per household-season within about a third of before; all 467 existing tests pass, amended only for
   renames.
 - **Gate to brief 2:** all of the above, and a short dry-run report to Zach.
