@@ -359,6 +359,79 @@ FOLLOW_HARVEST = {"rats": 1.0, "voles and mice": 0.5}
 # hunted kinds leaving a hunted area (a share a day for each unit of pressure); pressure added by a hunt, a kill, a crew; its fading
 HUNTED = {"flee": {"red deer": 0.3, "roe deer": 0.2, "wild boar": 0.15}, "hunt": 0.25, "kill": 0.3, "crew": 0.5, "fade": 0.75}
 
+# ---------------------------------------------------------------------- wave 5: sites, individuals, rare regimes (wild_layer.md §6 phase 9)
+# Sites (wild_systems.md §5, colony and engineer): held on a parcel for generations, placed at world build where the land suits
+# (a cover beside another, or on a river), seldom where it does not; a size (nests, a family) that grows toward its cap at the start
+# of its season and crashes after a hard winter; `leaves`: worked or hunted on in its season it may go for good (D2-198); what it does
+# to the village's land each night (eats a stock, harms a crop, floods and feeds through a dam); what may be taken from it, and when.
+SPRING = {0: (0, 7)}
+SITES = {
+    "heronry": {"where": {"covers": ["forest"], "beside": ["water"], "or_river": True}, "p": 0.6, "size": (6, 24), "cap": 24, "grow": 0.25,
+                "season": SPRING, "leaves": 0.35, "hard_winter": {"frozen": 3, "crash": 0.5},
+                "eats": {"res": "fish", "covers": ["water"], "share": 0.0004},
+                "take": {"season": {0: (3, 7)}, "item": "meat", "each": 0.3, "most": 4, "words": "young herons from the nests"}},
+    "rookery": {"where": {"covers": ["forest", "scrub"], "beside": ["field"]}, "p": 0.8, "size": (20, 70), "cap": 80, "grow": 0.2,
+                "season": SPRING, "leaves": 0.0, "hard_winter": {"frozen": 4, "crash": 0.2},
+                "harm": {"crops": ["grain", "winter grain"], "age": (0, 6), "share": 0.00015, "beside": True, "watch_stops": True},
+                "take": {"season": {0: (4, 7)}, "item": "meat", "each": 0.12, "most": 10, "words": "young rooks from the nests"}},
+    "lodge": {"where": {"covers": ["forest", "scrub", "meadow"], "river": True}, "p": 0.15, "size": (2, 6), "cap": 6, "grow": 0.15,
+              "season": {1: (0, 7)}, "leaves": 0.0, "rare": True,
+              "dam": {"floods": {"covers": ["meadow", "pasture"], "res": "grass", "K": 0.6}, "fish": 1.3, "dead": 20.0, "rebuild_days": 3},
+              "trap": {"item": "beaver pelt", "also": {"castoreum": 1}}},
+}
+SITE_SIGNS = {
+    "heronry": {"back": [R("all", "sight", 0.9, (0, 0), "the herons are back at the tall trees in {place}, standing on their nests"),
+                         R("expert", "sight", 0.6, (0, 0), "about {n} nests at the heronry in {place}, {change} than last year: {why}")],
+                "gone": [R("all", "sight", 0.9, (0, 0), "the heronry in {place} stands empty this spring"),
+                         R("knows", "sight", 0.6, (0, 0), "the herons have left {place}: they were troubled at the nests, and won't be back for years")],
+                "here": [R("knows", "sight", 0.5, (0, 0), "grey herons standing in the shallows, a heronry near: a lord's feast in spring")]},
+    "rookery": {"back": [R("all", "sound", 1.2, (0, 0), "the rooks building in the trees at {place}, cawing all day"),
+                         R("expert", "sight", 0.5, (0, 0), "about {n} nests at the rookery in {place}: rooks mean grubs in the fields, and they pull the young corn")],
+                "harm": [R("all", "sight", 0.8, (0, 1), "rooks pulling at the young corn in {place}, a black crowd of them")],
+                "here": []},
+    "lodge": {"back": [R("lay", "sight", 0.7, (0, 0), "trees cut to points by the water at {place}, chips all round them"),
+                       R("knows", "sight", 0.7, (0, 0), "beaver: pencil-point stumps and a lodge of sticks on the brook at {place}"),
+                       R("expert", "sight", 0.6, (0, 0), "a beaver family of about {n} at {place}: the pond holds fish and fowl, the dam floods the meadow; trap them and they're gone for good")],
+              "dam": [R("all", "sight", 0.9, (0, 0), "the low meadow at {place} under water again behind a dam of sticks")],
+              "broken": [R("all", "sight", 0.8, (0, 0), "the dam at {place} broken open, the water running out of the meadow")],
+              "here": []},
+}
+# individuals (D2-195): a group's leader, named on demand when a group forms (`p`), with what it changes while it lives and when it
+# dies; and the legendary beasts of a kind present in the world, seldom (`p` at world build), hard to find and dangerous
+LEADERS = {"wild boar": {"name": "the old sow", "p": 0.6, "least": 5, "drive": 1.3, "return": 1.2, "kill_odds": 2.0,
+                         "dead": {"drive": 0.4, "days": 16},
+                         "rows": [R("expert", "sight", 0.6, (1, 2), "the old sow leads them, a torn ear and a great slot: she knows the gap and the fields")],
+                         "dead_rows": [R("knows", "sight", 0.6, (0, 2), "the sounder without its old sow: they scatter and keep to the wood")]},
+           "wolf": {"name": "the old dog-wolf", "p": 0.5, "least": 3, "drive": 1.2, "return": 1.2, "kill_odds": 1.5,
+                    "dead": {"drive": 0.5, "days": 16},
+                    "rows": [R("expert", "sight", 0.6, (1, 2), "the pack's leader is a big old dog-wolf: his track wider than the rest, and he takes the herds")],
+                    "dead_rows": [R("knows", "sight", 0.6, (0, 2), "the pack has lost its old leader: they keep off now")]}}
+LEGENDS = {"wild boar": {"name": "the great boar", "p": 0.15, "detect": 0.3, "flee": 1.3, "danger": 3.0, "goods": 2.0,
+                         "rows": [R("expert", "sight", 0.5, (0, 0), "slots twice the size of any boar's in the deep wood: the great boar the old ones tell of")],
+                         "tale": "the old ones tell of a great boar in the deep woods, that no hound will face"},
+           "red deer": {"name": "the white hart", "p": 0.1, "detect": 0.3, "flee": 1.5, "danger": 1.0, "goods": 1.0,
+                        "rows": [R("expert", "sight", 0.5, (0, 0), "a white hair caught on a thorn, and a great hart's slot: the white hart is real")],
+                        "tale": "the old ones tell of a white hart in the far woods, and that ill luck follows its killer"},
+           "wolf": {"name": "the great grey wolf", "p": 0.1, "detect": 0.4, "flee": 1.2, "danger": 2.5, "goods": 1.5,
+                    "rows": [R("expert", "sight", 0.5, (0, 0), "a wolf's track as broad as a man's hand: the great grey wolf"),],
+                    "tale": "the old ones tell of a great grey wolf that has taken beasts for twenty winters"},
+           "brown bear": {"name": "the great bear", "p": 0.2, "detect": 0.4, "flee": 1.0, "danger": 2.0, "goods": 2.0,
+                          "rows": [R("expert", "sight", 0.5, (0, 0), "claw marks higher than a man can reach: the great bear"),],
+                          "tale": "the old ones tell of a great bear in the mountains that once came down to the village"}}
+# rare regimes (L4): a condition held, its effects on the night (a share added to the stores' loss, a kill among a kind), and its
+# signs, with the elders' memory of the last time (read by those of an elder's age)
+REGIMES = {
+    "great freeze": {"if": {"frozen_run": 4}, "kill": {"wildfowl": 0.15, "owls": 0.05}, "site_crash": {"heronry": 0.3},
+                     "rows": [R("all", "sight", 1.2, (0, 0), "the river frozen from bank to bank; birds lying dead on the ice"),
+                              R("elder", "sight", 0.9, (0, 0), "it was like this in the great freeze of your youth, when the fowl fell from the sky and the herons died")]},
+    "vole plague": {"if": {}, "of": "voles and mice", "least": 6000, "stores": 1.0,
+                    "rows": [R("all", "sight", 1.2, (0, 0), "voles everywhere: the stacks gnawed through and the grass clipped to the roots"),
+                             R("elder", "sight", 0.9, (0, 0), "a vole plague, like the one the old ones remember: after it, owls and foxes everywhere, and then none")]},
+    "bare years": {"if": {"mast": ["fail", "poor"], "mast_last": ["fail", "poor"], "seasons": {2: (0, 7), 3: (0, 7)}},
+                   "rows": [R("all", "sight", 0.8, (0, 0), "a second bare autumn under the oaks; the boar thin and bold at the fields"),
+                            R("elder", "sight", 0.9, (0, 0), "two bare years of mast: the old ones say in such years the boar came into the very houses")]},
+}
+
 # signs for a watch whatever the kind: the night passed quiet, or the scare did not turn what came
 WATCH_SIGNS = {
     "watched": [R("all", "sight", 2.0, (0, 0), "you watched {place} through the night with the {scare}; nothing came near it", who="watcher")],

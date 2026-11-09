@@ -59,6 +59,8 @@ ITEMS = {
     "acorns": {"weight": 1, "food": 0.1, "spoil": 0.01, "pack": "wild"},
     "acorn meal": {"weight": 1, "food": 1.0, "spoil": 0.02, "cook": True, "raw": 0.3, "pack": "wild"},
     "antler": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # a cast antler: horn for handles and combs
+    "beaver pelt": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # a fine fur for trade
+    "castoreum": {"weight": 0.2, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # the beaver's scent glands: a physician's good
     "timber": {"weight": 2, "food": 0.0, "spoil": 0.0, "heat": 2.0},   # D2-24; 2 heat (D2-157)
     "stone": {"weight": 3, "food": 0.0, "spoil": 0.0},                 # D2-3, D2-24
     "hide": {"weight": 1, "food": 0.0, "spoil": 0.0, "decay": "hide"},                  # D2-24
@@ -435,6 +437,20 @@ TECHNIQUES = {
                          "aliases": ["burn stubble", "fire the stubble"], "at": {"covers": ["field"]}, "draws": "guard",
                          "yield": {"kind": "wild_guard", "load": "slugs", "cut": 0.3, "days": 16, "thin": {"slugs": 0.3},
                                    "done": "You burned off the stubble in {place}."}, "units": 2, "gives": "", "tags": ["farming"]},
+    "take the young herons": {"verb": "gather", "label": "taking the young herons from the heronry (a lord's dish)", "basic": True, "pack": "wild",
+                              "aliases": ["take herons", "take the herons", "rob the heronry"], "at": {"covers": ["forest"]}, "draws": "site",
+                              "yield": {"kind": "wild_site", "site": "heronry", "do": "take"}, "units": 2, "gives": "", "tags": ["food", "hunting"]},
+    "take the young rooks": {"verb": "gather", "label": "shooting or knocking down the young rooks as they branch (rook pie)", "basic": True,
+                             "pack": "wild", "aliases": ["take rooks", "take the rooks", "rook shooting"], "at": {"covers": ["forest", "scrub"]},
+                             "draws": "site", "yield": {"kind": "wild_site", "site": "rookery", "do": "take"}, "units": 1, "gives": "",
+                             "tags": ["food", "hunting"]},
+    "trap beavers": {"verb": "gather", "label": "trapping beavers at their lodge (pelt and castoreum)", "basic": True, "pack": "wild",
+                     "aliases": ["trap the beavers", "trap beaver"], "at": {"covers": ["forest", "scrub", "meadow"]}, "draws": "site",
+                     "yield": {"kind": "wild_site", "site": "lodge", "do": "trap"}, "units": 2, "gives": "", "tags": ["hunting", "trade"]},
+    "break the beaver dam": {"verb": "work", "label": "breaking open a beaver dam to drain the meadow", "basic": True, "pack": "wild",
+                             "aliases": ["break the dam", "pull down the dam", "drain the meadow"], "at": {"covers": ["forest", "scrub", "meadow"]},
+                             "draws": "site", "yield": {"kind": "wild_site", "site": "lodge", "do": "break"}, "units": 2, "gives": "",
+                             "tags": ["farming"]},
     "pick slugs by lantern": {"verb": "work", "label": "picking slugs off the young crop by lantern at dusk", "basic": True, "pack": "wild",
                               "aliases": ["pick slugs", "slug the field", "go slugging", "pick off the slugs"], "at": {"covers": ["field"]},
                               "draws": "guard", "yield": {"kind": "wild_guard", "load": "slugs", "cut": 0.6, "days": 1, "done": "You picked the slugs off the young crop in {place} by lantern at dusk."}, "units": 2, "gives": "",

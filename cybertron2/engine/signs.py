@@ -1819,6 +1819,8 @@ def _aftermath(here, add) -> None:
     _wild_loads(here, add)                                                     # the fast kinds and the year's markers (wave 3)
     _wild_sick(here, add)                                                      # disease in the herds and the wild (wave 4)
     _wild_when(here, add)                                                      # the kinds' conditional layers and phases as they start
+    _wild_sites(here, add)                                                     # heronries, rookeries, lodges (wave 5)
+    _wild_rare(here, add)                                                      # rare regimes and the elders' tales (L4)
     for bid, b in here.buildings().items():
         sub, live = [f"building:{bid}"], _dwellers(here, bid)
         for field, rows, most, extra in (("fire_hit", FIRE, 3, {}), ("raided", RAID, 1, {}), ("theft", THEFT, 1, {}),
@@ -1915,7 +1917,8 @@ def _wild_emit(here, rows, x, sub, pid, add, name, fmt, age, who=None, tags=("an
             row["knack"] = r["knack"]
         if r.get("cond") == "night":
             row["night"] = True
-        kw = {r["read"]: key} if r["read"] in ("lay", "knows") else ({"knows": f"expert:{key}"} if r["read"] == "expert" else {})
+        kw = {r["read"]: key} if r["read"] in ("lay", "knows") else ({"knows": f"expert:{key}"} if r["read"] == "expert" else
+                                                                       ({"knows": "elder"} if r["read"] == "elder" else {}))
         spot_rows(here, [row], x, sub, here.node, pid, add, name=f"{name}{j}", only=only, **kw)
 
 
@@ -1934,6 +1937,12 @@ def _wild_traces(here, pid, p, sub, add) -> None:
         rows = ((RAID_SIGNS.get(sort) or {}).get(tr.get("kind")) if sort else None) or (SIGNS.get(tr.get("kind")) or {}).get(what) \
             or WATCH_SIGNS.get(what) or []
         rows = list(rows) + list((EXPERT_SIGNS.get(tr.get("kind")) or {}).get(what) or [])
+        g = ((here._w.s.get("wild") or {}).get("groups") or {}).get(f"{tr.get('kind')}@{here.node}") or {}
+        from cybertron2.wild.kinds import LEADERS
+        ld = LEADERS.get(tr.get("kind"))
+        if ld and what in ("edge", "raid"):
+            lr = g.get("leader") or {}
+            rows += list(ld["rows"]) if lr.get("alive") else (list(ld["dead_rows"]) if lr.get("died") is not None else [])
         _wild_emit(here, rows, x, sub, pid, add, f"wild{i}", fmt, age, who=tr.get("by"))
         if what in ("raid", "tried") and tr.get("by"):
             _wild_emit(here, WATCH_SIGNS["failed"], x, sub, pid, add, f"wild{i}f", fmt, age, who=tr.get("by"))
@@ -2096,6 +2105,69 @@ def _wild_when(here, add) -> None:
         if WL.cond(w, here.node, lead["if"], None, m, st, ri):
             _wild_emit(here, lead["rows"], x, [f"parcel:{spot}"], spot, add, f"wildlead{j}", dict(place=here.parcels()[spot]["name"]), 0,
                        tags=("weather", "animals"), key=lead.get("read", "hunt"))
+
+
+def _wild_sites(here, add) -> None:
+    """A village's sites (kinds.SITE_SIGNS): back at the start of their season (an expert reads the size against last year's and
+    why), gone (empty that season), a dam standing (on a run's first day and when rebuilt) or broken, a rookery at the young corn."""
+    from cybertron2.wild.kinds import SITE_SIGNS
+    w = here._w
+    for sid, site in sorted(((w.s.get("wild") or {}).get("sites") or {}).items()):
+        if site["node"] != here.node or site["parcel"] not in here.parcels():
+            continue
+        sg = SITE_SIGNS.get(site["kind"]) or {}
+        pid = site["parcel"]
+        p = here.parcels()[pid]
+        last, n = site.get("last"), float(site.get("size", 0))
+        change = "more" if last is not None and n > float(last) + 0.5 else ("fewer" if last is not None and n < float(last) - 0.5 else "as many")
+        why = {"crash": "the hard winter took many of them", "freeze": "the great freeze took many of them",
+               "grew": "the fish are good"}.get(site.get("why"), "")
+        fmt = dict(place=p["name"], n=int(round(n)), change=change, why=why or "as in other years")
+        x = event_context(here, p["name"], here.day)
+        def emit(key, age=0, at=pid):
+            rows = sg.get(key) or []
+            if rows:
+                _wild_emit(here, rows, x, [f"parcel:{at}"], at, add, f"wildsite{site['kind'][:4]}{key}", dict(fmt, place=here.parcels()[at]["name"]), age,
+                           tags=("animals",), key="hunt")
+        if site.get("gone") is not None:
+            if here.day == int(site["gone"]) + 1 or (site.get("back") == here.day):
+                emit("gone")
+            continue
+        if site.get("back") == here.day or here.day == 0:
+            emit("back")
+            if here.day == 0:
+                emit("here")
+        if site.get("dam") and (here.day == 0 or site.get("rebuilt") == here.day - 1):
+            emit("dam")
+        if site.get("broken") is not None and here.day - int(site["broken"]) == 0:
+            emit("broken")
+        if site.get("harm_day") is not None and 0 <= here.day - int(site["harm_day"]) <= 1 and site.get("harm_at") in here.parcels():
+            emit("harm", at=site["harm_at"])
+
+
+def _wild_rare(here, add) -> None:
+    """A rare regime the day it begins (and on a run's first day), with what the elders remember; and the legends' tales the old tell,
+    on a run's first day, of a legendary beast alive in the world (D2-195)."""
+    from cybertron2.engine import wild as WL
+    from cybertron2.wild.kinds import REGIMES, LEGENDS
+    w = here._w
+    if not (w.s.get("wild") or {}).get("state"):
+        return
+    spot = next((pid for pid, p in sorted(here.parcels().items()) if p["cover"] in ("forest", "scrub", "water", "field")),
+                next(iter(sorted(here.parcels())), None))
+    if spot is None:
+        return
+    x = event_context(here, here.parcels()[spot]["name"], here.day)
+    on = WL.REGIMES_ON(w, here.node)
+    for name, rg in sorted(on.items()):
+        if here.day == 0 or not WL.cond(w, here.node, rg.get("if"), day=here.day - 1):
+            _wild_emit(here, rg["rows"], x, [f"parcel:{spot}"], spot, add, f"wildrare{name[:4]}", {"place": here.parcels()[spot]["name"]}, 0,
+                       tags=("animals", "danger"), key="hunt")
+    if here.day == 0:
+        for k, lg in sorted(((w.s.get("wild") or {}).get("legends") or {}).items()):
+            if lg.get("alive") and LEGENDS.get(k, {}).get("tale"):
+                row = dict(when=lambda x: True, own=1.0, sense="sound", tags=["animals"], text=lambda x, t=LEGENDS[k]["tale"]: t)
+                spot_rows(here, [row], x, [f"parcel:{spot}"], here.node, spot, add, name=f"wildtale{k[:4]}", knows="elder")
 
 
 def _wild_sick(here, add) -> None:

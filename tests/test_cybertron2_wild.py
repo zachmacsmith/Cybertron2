@@ -957,3 +957,149 @@ def test_an_expert_gatherer_reads_a_heavy_year_in_the_hazels(generated):
             p["res"]["hazel nuts"].update(f=1.6, S=p["res"]["hazel nuts"]["K"])
     rs = [_do(w, f"G{i}", {"do": "gather", "what": "gather wild food", "at": wood["name"]}) for i in range(30)]
     assert any("hazels here are heavy" in r for r in rs)
+
+
+# ---------------------------------------------------------------------- wave 5: sites, individuals, rare regimes
+def test_sites_are_placed_where_the_land_suits_them(generated):
+    w, WL = _summer_world(generated)
+    sites = w.s["wild"]["sites"]
+    assert sites
+    for sid, st_ in sites.items():
+        par = w.s["parcels"][st_["parcel"]]
+        if st_["kind"] == "rookery":
+            assert any(w.s["parcels"][q]["cover"] == "field" for q in par["adj"])
+        if st_["kind"] == "lodge":
+            assert (par.get("land") or {}).get("river") not in (None, "none")
+
+
+def _a_site(w, kind, node="s1"):
+    from cybertron2.wild.kinds import SITES
+    cover = SITES[kind]["where"]["covers"][0]
+    pid = next(p for p, x in sorted(w.s["parcels"].items()) if x["node"] == node and x["cover"] == cover)
+    w.s["wild"].setdefault("sites", {})[f"{kind}@{pid}"] = {"kind": kind, "node": node, "parcel": pid, "size": 20.0, "last": None, "gone": None,
+                                                           "back": None, "dam": False, "k0": {}}
+    return f"{kind}@{pid}", pid
+
+
+def test_a_heronry_troubled_in_spring_leaves_for_good_and_a_hard_winter_halves_it(generated, monkeypatch):
+    from cybertron2.engine import night as N
+    world = copy.deepcopy(generated)
+    world["calendar"] = {"season": "spring", "day": 2, "season_days": 8}
+    world["agents"] = {}
+    w = build(world, history=2)
+    from cybertron2.engine import wild as WL
+    sid, pid = _a_site(w, "heronry")
+    for _ in range(8):
+        w.s["events"] = [{"kind": "work", "actor": "x", "about": [f"parcel:{pid}"], "tech": "firewood"}]
+        N.night(w); w.s["day"] += 1
+        if w.s["wild"]["sites"][sid].get("gone") is not None:
+            break
+    assert w.s["wild"]["sites"][sid].get("gone") is not None
+    w2 = build(world, history=2)
+    sid2, pid2 = _a_site(w2, "heronry")
+    real = WL.cond
+    monkeypatch.setattr(WL, "cond", lambda w_, node, c, *a, **k: True if "hard_winter" in (c or {}) else real(w_, node, c, *a, **k))
+    w2.s["day"] = next(d for d in range(1, 40) if w2.calendar(d)["season"] == "spring" and w2.calendar(d)["day"] == 1)
+    WL._sites_night(w2, WL.model(w2), w2.s["wild"]["state"])
+    assert w2.s["wild"]["sites"][sid2]["size"] < 20.0 and w2.s["wild"]["sites"][sid2]["why"] == "crash"
+
+
+def test_rooks_pull_the_young_corn_beside_the_rookery_and_a_watch_keeps_them_off(generated):
+    from cybertron2.engine import farm as FM
+    def lost(watched):
+        world = copy.deepcopy(generated)
+        world["calendar"] = {"season": "spring", "day": 2, "season_days": 8}
+        world["agents"] = {}
+        w = build(world, history=2)
+        from cybertron2.engine import wild as WL
+        sid, site = next((k, v) for k, v in w.s["wild"]["sites"].items() if v["kind"] == "rookery")
+        field = next(q for q in w.s["parcels"][site["parcel"]]["adj"] if w.s["parcels"][q]["cover"] == "field")
+        par = w.s["parcels"][field]
+        par["crop"] = {"kind": "barley", "crop": "grain", "sown": w.d - 1, "ripe_day": w.d + 8, "window": 4, "seed": 1, "area": par["size"],
+                       "area_left": par["size"], "broken": 0, "weeded": 0, "base": 10.0 * par["size"], "rot": 1.0, "left": 10.0 * par["size"]}
+        if watched:
+            w.apply("set_wild", site["node"], path=["watch", field], value={"day": w.d, "by": "x", "scare": "clapper"})
+        out = WL._sites_night(w, WL.model(w), w.s["wild"]["state"])
+        return (out.get(sid) or {}).get("harm", 0.0)
+    assert lost(False) > 0 and lost(True) == 0
+
+
+def test_a_beaver_dam_floods_the_meadow_breaking_it_drains_it_and_the_beavers_rebuild(generated):
+    from cybertron2.engine import run as R
+    world = copy.deepcopy(generated)
+    world["agents"] = {"Bo": {"household": "Ash", "stage": "adult", "sex": "m", "at": "s4", "knows": {}}}
+    w = build(world, history=2)
+    from cybertron2.engine import wild as WL, night as N
+    w.s["today"] = R.blank_today()
+    sid, site = next(((k, v) for k, v in w.s["wild"]["sites"].items() if v["kind"] == "lodge"), (None, None))
+    if sid is None:
+        pytest.skip("no lodge in this world")
+    flooded = {k.split("|")[0]: v for k, v in site["k0"].items() if k.endswith("|grass")}
+    assert flooded and all(w.s["parcels"][q]["res"]["grass"]["K"] < v for q, v in flooded.items())
+    r = _do(w, "Bo", {"do": "work", "what": "break the beaver dam", "at": w.s["parcels"][site["parcel"]]["name"]})
+    assert "broke open" in r, r
+    assert all(abs(w.s["parcels"][q]["res"]["grass"]["K"] - v) < 1e-6 for q, v in flooded.items())
+    for _ in range(4):
+        N.night(w); w.s["day"] += 1
+    assert w.s["wild"]["sites"][sid]["dam"]                                                    # rebuilt while the family lives
+
+
+def test_trapping_the_last_beaver_ends_the_lodge_for_good(generated):
+    from cybertron2.engine import run as R
+    world = copy.deepcopy(generated)
+    world["agents"] = {"Bo": {"household": "Ash", "stage": "adult", "sex": "m", "at": "s4", "knows": {}}}
+    w = build(world, history=2)
+    w.s["today"] = R.blank_today()
+    sid, site = next(((k, v) for k, v in w.s["wild"]["sites"].items() if v["kind"] == "lodge"), (None, None))
+    if sid is None:
+        pytest.skip("no lodge in this world")
+    name = w.s["parcels"][site["parcel"]]["name"]
+    rs = [_do(w, "Bo", {"do": "gather", "what": "trap beavers", "at": name}) for _ in range(int(site["size"]) + 1)]
+    assert any("last of them" in r for r in rs) and w.s["wild"]["sites"][sid]["gone"] is not None
+    assert w.goods(w.s["people"]["Bo"]["hands"]).get("beaver pelt", 0) >= 1
+
+
+def test_killing_the_old_sow_scatters_the_sounder(generated):
+    """A kill from a group with a leader may be the leader (odds by the group's size); the group then drives less for a while."""
+    w, WL, wood = _hunters(generated, n=60, knows=("boar hunt",))
+    from cybertron2.engine import night as N
+    m, ri = _ring(w, WL)
+    w.s["wild"]["state"]["pop"]["wild boar"][ri] = 60.0 / m.km2[ri]
+    N.night(w)
+    gid = "wild boar@s1"
+    g = w.s["wild"]["groups"][gid]
+    w.s["wild"]["groups"][gid] = dict(g, n=1, leader={"name": "the old sow", "alive": True})      # one beast: the kill is she
+    rs = []
+    for i in range(60):
+        rs.append(_do(w, f"H{i}", {"do": "gather", "what": "boar hunt", "at": wood, "range": "the wood around", "looking for": "boar"}))
+        if (w.s["wild"]["groups"][gid].get("leader") or {}).get("died") is not None:
+            break
+    assert any("the old sow that led them" in r for r in rs)
+    assert w.s["wild"]["groups"][gid]["leader"]["died"] is not None
+
+
+def test_a_legend_is_rare_hard_to_take_and_told_of_by_the_old(generated, monkeypatch):
+    from cybertron2.wild import kinds as K
+    monkeypatch.setitem(K.LEGENDS["wild boar"], "p", 1.0)
+    world = _two(generated)
+    world["agents"]["Tom"]["stage"] = "elder"
+    w, WL = _summer_world(world)
+    assert (w.s["wild"].get("legends") or {}).get("wild boar", {}).get("alive")
+    w.s["day"] = 0
+    assert any("great boar" in t for t in _read(w, "Tom", "#wildtale")) and not _read(w, "Ann", "#wildtale")
+
+
+def test_a_great_freeze_kills_the_fowl_and_the_old_remember_the_last(generated, monkeypatch):
+    world = _two(generated)
+    world["agents"]["Tom"]["stage"] = "elder"
+    w, WL = _summer_world(world)
+    monkeypatch.setattr(WL, "frozen_run", lambda w_, node, day=None, most=6: 5)
+    m = WL.model(w)
+    st = w.s["wild"]["state"]
+    st["pop"]["wildfowl"] = [10.0] * m.n
+    WL._regime_kills(w, m, st)
+    assert max(st["pop"]["wildfowl"]) < 10.0
+    w.s["day"] = 0
+    tom, ann = _read(w, "Tom", "#wildrare"), _read(w, "Ann", "#wildrare")
+    assert any("great freeze of your youth" in t for t in tom) and not any("great freeze of your youth" in t for t in ann)
+    assert any("frozen from bank to bank" in t for t in ann)

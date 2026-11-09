@@ -274,9 +274,9 @@ def knack(mind, f) -> float:
 def practised(mind) -> set:
     """The techniques one reads signs by (a row's `knows`): trades one knows, and basic work long practised, with the work a
     technique `reads_as` (one who stalks deer reads a hunter's signs)."""
-    out = set()
+    out = {"elder"} if (getattr(mind, "person", None) or {}).get("stage") == "elder" else set()   # the old remember (L4)
     for t, r in mind.know.items():
-        if t not in TECHNIQUES or r.get("level") != "known":
+        if t not in TECHNIQUES or not isinstance(r, dict) or r.get("level") != "known":
             continue
         if not KN.basic(t) or float(r.get("skill", KN.curve(t)[0])) >= KN.curve(t)[0] + 0.1:
             out.add(t)

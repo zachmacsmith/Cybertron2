@@ -100,6 +100,8 @@ def seed(w) -> None:
     st["mast"]["years"] = {}                                              # the trees' budget carries over; the run's years are its own
     w.s["wild"]["state"] = st
     _seed_plants(w)                                                       # the wild plant kinds in place of `plants` (D2-200)
+    _seed_sites(w)                                                        # heronries, rookeries, beaver lodges (wave 5)
+    _seed_legends(w)                                                      # the legendary beasts, seldom (D2-195)
     from cybertron2.wild.kinds import SKILL_CARRY
     for name, k in w.s["know"].items():                                   # the old hunt's practice carries to the wild ones
         for old, new in SKILL_CARRY.items():
@@ -133,6 +135,7 @@ def night(w, rec) -> None:
     scale, pools = _shared_pre(w, m, st)                                  # what the land's plants hold for the wild kinds (D2-202)
     scale["stores"] = harvest
     eff = EC.step(m, st, eco_day(w), weather(w, sorted(set(m.nodes)), w.d), draws(w, eco_day(w)), scale=scale)
+    _regime_kills(w, m, st)                                               # a great freeze (L4)
     place = m.nodes[0]
     w.apply("set_wild", place, path=["state"], value=st)
     out = {"mast": st.get("mast_now"), "crops": {}, "stores": {}}
@@ -157,6 +160,7 @@ def night(w, rec) -> None:
     out["loads"] = _loads(w, m, st)
     out["sick"] = _herds_sick(w, m, st)
     out["groups"] = _groups(w, m, st)
+    out["sites"] = _sites_night(w, m, st)
     out["near"] = {gid: {"n": g["n"], "pos": g["pos"], "what": g.get("what")} for gid, g in sorted((w.s["wild"].get("groups") or {}).items())}
     _hens_lay(w)
     rec["wild"] = out
@@ -603,6 +607,239 @@ def _follow_harvest(w, m, st, real) -> dict:
     return a
 
 
+# ---------------------------------------------------------------------- wave 5: sites, individuals, rare regimes
+def _site_candidates(w, node, where) -> list:
+    out = []
+    for pid, par in sorted(w.s["parcels"].items()):
+        if par["node"] != node or par["cover"] not in where["covers"]:
+            continue
+        river = (par.get("land") or {}).get("river") not in (None, "none")
+        beside = any((w.s["parcels"].get(q) or {}).get("cover") in (where.get("beside") or []) for q in par.get("adj") or [])
+        if where.get("river") and not river:
+            continue
+        if where.get("beside") and not (beside or (where.get("or_river") and river)):
+            continue
+        out.append(pid)
+    return out
+
+
+def _seed_sites(w) -> None:
+    """At world build: each village's sites where its land suits them (kinds.SITES), by a keyed draw; a beaver's dam is standing."""
+    from cybertron2.wild.kinds import SITES
+    sites = {}
+    for node in sorted({p["node"] for p in w.s["parcels"].values()}):
+        if node not in ((w.s["wild"].get("land") or {}).get("home") or {}):
+            continue
+        for kind, sp in sorted(SITES.items()):
+            cand = _site_candidates(w, node, sp["where"])
+            r = w.rng("wild-site", node, kind)
+            if not cand or r.random() >= float(sp["p"]):
+                continue
+            pid = cand[int(r.random() * len(cand))]
+            lo, hi = sp["size"]
+            sites[f"{kind}@{pid}"] = {"kind": kind, "node": node, "parcel": pid, "size": float(lo + int(r.random() * (hi - lo + 1))),
+                                      "last": None, "gone": None, "back": None, "dam": bool(sp.get("dam")), "k0": {}}
+    w.s["wild"]["sites"] = sites
+    for sid, site in sorted(sites.items()):
+        if site["dam"]:
+            _dam(w, sid, site, True, direct=True)
+
+
+def _dam(w, sid, site, up, direct=False) -> None:
+    """A beaver's dam up or down: the low ground beside it flooded (its grass's capacity cut), the water's fish raised, the drowned
+    trees dead wood; down, all as it was."""
+    from cybertron2.wild.kinds import SITES
+    d = SITES[site["kind"]]["dam"]
+    par = w.s["parcels"][site["parcel"]]
+    near = [q for q in [site["parcel"]] + list(par.get("adj") or []) if q in w.s["parcels"]]
+    k0 = dict(site.get("k0") or {})
+    for q in near:
+        p_ = w.s["parcels"][q]
+        for key, mult, covers in ((d["floods"]["res"], d["floods"]["K"], d["floods"]["covers"]), ("fish", d["fish"], ["water"])):
+            r = (p_.get("res") or {}).get(key)
+            if not r or p_["cover"] not in covers:
+                continue
+            base = float(k0.get(f"{q}|{key}", r["K"]))
+            k0[f"{q}|{key}"] = base
+            K = round(base * (float(mult) if up else 1.0), 4)
+            fields = {"K": K, "S": round(min(float(r["S"]), K), 4)} if K < float(r["K"]) else {"K": K}
+            if direct:
+                r.update(fields)
+            else:
+                w.apply("set_res", site["node"], parcel=q, key=key, fields=fields)
+    if up and "dead" in (par.get("res") or {}):
+        if direct:
+            par["res"]["dead"]["S"] = round(float(par["res"]["dead"]["S"]) + float(d["dead"]), 4)
+        else:
+            w.apply("add_res", site["node"], parcel=site["parcel"], key="dead", qty=float(d["dead"]))
+    site["k0"], site["dam"] = k0, bool(up)
+
+
+def _sites_night(w, m, st) -> dict:
+    """Each site's night (kinds.SITES): at the start of its season it comes back grown toward its cap, or crashed after a hard winter
+    (or a great freeze); worked or hunted on in its season it may leave for good; it eats or harms the land about it; a broken dam
+    is rebuilt in days while the family lives."""
+    from cybertron2.engine import farm as FM
+    from cybertron2.wild.kinds import SITES, REGIMES
+    import copy
+    sites = copy.deepcopy(w.s["wild"].get("sites") or {})
+    if not sites:
+        return {}
+    watch = {pid for pid, v in (w.s["wild"].get("watch") or {}).items() if int(v.get("day", -9)) == w.d}
+    worked = {}
+    for e in w.s.get("events") or []:
+        if e.get("kind") == "work":
+            for ab in e.get("about") or []:
+                if str(ab).startswith("parcel:"):
+                    worked.setdefault(ab[7:], set()).add(e.get("actor"))
+    out = {}
+    for sid, site in sorted(sites.items()):
+        sp = SITES[site["kind"]]
+        if site.get("gone") is not None:
+            continue
+        node, pid = site["node"], site["parcel"]
+        si, sd = _season_of(w, w.d)
+        win = sp["season"]
+        if si in win and sd == win[si][0]:                                # its season begins: back, grown or crashed
+            site["last"] = site["size"]
+            hw = sp.get("hard_winter")
+            if hw and cond(w, node, {"hard_winter": int(hw["frozen"])}):
+                site["size"] = round(float(site["size"]) * (1 - float(hw["crash"])), 2)
+                site["why"] = "crash"
+            else:
+                site["size"] = round(float(site["size"]) + float(sp["grow"]) * (float(sp["cap"]) - float(site["size"])), 2)
+                site["why"] = "grew"
+            site["back"] = w.d
+        for name, rg in REGIMES.items():                                   # a great freeze takes the herons
+            if site["kind"] in (rg.get("site_crash") or {}) and name in REGIMES_ON(w, node) and site.get("froze") != w.d - 1:
+                site["size"] = round(float(site["size"]) * (1 - float(rg["site_crash"][site["kind"]])), 2)
+                site["froze"], site["why"] = w.d, "freeze"
+        if float(sp.get("leaves", 0)) > 0 and _season_window(w, w.d, win) and worked.get(pid):
+            if w.rng("wild-site-leave", w.d, sid).random() < float(sp["leaves"]):
+                site["gone"] = w.d                                          # troubled at the nests: gone for years (D2-198)
+                out[sid] = {"gone": True}
+                continue
+        if sp.get("eats"):
+            e_ = sp["eats"]
+            for q, par in sorted(w.s["parcels"].items()):
+                r = (par.get("res") or {}).get(e_["res"])
+                if par["node"] == node and par["cover"] in e_["covers"] and r and float(r["S"]) > 0:
+                    qty = round(float(r["S"]) * min(0.2, float(e_["share"]) * float(site["size"])), 4)
+                    if qty > 1e-6:
+                        w.apply("draw", node, parcel=q, key=e_["res"], qty=qty)
+        if sp.get("harm") and _season_window(w, w.d, win):
+            h = sp["harm"]
+            near = set(w.s["parcels"][pid].get("adj") or []) if h.get("beside") else {q for q, p_ in w.s["parcels"].items() if p_["node"] == node}
+            for q in sorted(near):
+                par = w.s["parcels"].get(q) or {}
+                if par.get("node") != node or par.get("cover") != "field" or (h.get("watch_stops") and q in watch):
+                    continue
+                for hd, _, c in FM.standing(par):
+                    age = w.d - int(c.get("sown", w.d))
+                    qty = round(float(c.get("left", 0.0)) * min(0.2, float(h["share"]) * float(site["size"])), 4)
+                    if c.get("crop") in h["crops"] and h["age"][0] <= age <= h["age"][1] and qty > 1e-9 and c.get("area_left", 0) > 1e-6:
+                        w.apply("draw", node, parcel=q, key="crop", qty=qty, **({"holder": hd} if hd is not None else {}))
+                        site["harm_day"], site["harm_at"] = w.d, q
+                        out.setdefault(sid, {})["harm"] = round(out.get(sid, {}).get("harm", 0.0) + qty, 4)
+        if sp.get("dam") and not site.get("dam") and float(site["size"]) >= 1 and w.d - int(site.get("broken", w.d)) >= int(sp["dam"]["rebuild_days"]):
+            _dam(w, sid, site, True)
+            site["rebuilt"] = w.d
+    if sites != (w.s["wild"].get("sites") or {}):
+        w.apply("set_wild", m.nodes[0], path=["sites"], value=sites)
+    return out
+
+
+def site_work(here, key, y, place_name, mult) -> str:
+    """Taking from a site (the young from a heronry or rookery, in their season), trapping at a lodge, or breaking a dam."""
+    from cybertron2.wild.kinds import SITES
+    import copy
+    w = here._w
+    sid, site = next(((k, v) for k, v in sorted((w.s["wild"].get("sites") or {}).items()) if v["parcel"] == key and v["kind"] == y["site"]
+                      and v.get("gone") is None), (None, None))
+    if site is None:
+        return f"There is no {y['site']} at {place_name}."
+    site = copy.deepcopy(site)
+    sp = SITES[site["kind"]]
+    if y["do"] == "take":
+        t = sp["take"]
+        if not _season_window(w, here.day, t["season"]):
+            return f"There are no young in the nests at {place_name} now."
+        k = int(min(float(t["most"]), max(1.0, round(float(site["size"]) * 0.15 * mult))))
+        k = min(k, int(site["size"]))
+        if k < 1:
+            return f"You found nothing to take at {place_name}."
+        site["size"] = round(float(site["size"]) - k, 2)
+        here.apply("create", dst=here.hands, item=t["item"], qty=round(k * float(t["each"]), 2), why="taken from the nests")
+        word = f"You took {k} {t['words']} at {place_name}: {round(k * float(t['each']), 2):g} {t['item']}."
+    elif y["do"] == "trap":
+        if float(site["size"]) < 1:
+            return f"There are no beavers left at {place_name}."
+        site["size"] = round(float(site["size"]) - 1, 2)
+        tr = sp["trap"]
+        here.apply("create", dst=here.hands, item=tr["item"], qty=1, why="trapped")
+        for it, q in (tr.get("also") or {}).items():
+            here.apply("create", dst=here.hands, item=it, qty=float(q), why="trapped")
+        if float(site["size"]) < 1:
+            site["gone"] = here.day
+        word = f"You trapped a beaver at {place_name}: a pelt and the castoreum." + (" That was the last of them." if site.get("gone") is not None else "")
+    else:
+        if not site.get("dam"):
+            return f"The dam at {place_name} is already down."
+        _dam(w, sid, site, False)
+        site["broken"] = here.day
+        word = f"You broke open the beaver dam at {place_name}; the water runs out of the meadow."
+    here.apply("set_wild", path=["sites", sid], value=site)
+    return word
+
+
+def _seed_legends(w) -> None:
+    """At world build, seldom: a legendary beast of a kind present in the world (D2-195), in the area its kind is thickest."""
+    from cybertron2.wild.kinds import LEGENDS
+    st = w.s["wild"].get("state") or {}
+    if not st.get("pop"):
+        return
+    m = model(w)
+    out = {}
+    for kind, lg in sorted(LEGENDS.items()):
+        if kind not in st["pop"]:
+            continue
+        counts = [float(st["pop"][kind][i]) * float(m.km2[i]) for i in range(m.n)]
+        if sum(counts) < 1.0 or w.rng("wild-legend", kind).random() >= float(lg["p"]):
+            continue
+        i = max(range(m.n), key=lambda j: (counts[j] * (0.0 if m.home[j] else 1.0), -j))
+        out[kind] = {"name": lg["name"], "area": m.ids[i], "alive": True}
+    w.s["wild"]["legends"] = out
+
+
+def REGIMES_ON(w, node) -> dict:
+    """The rare regimes holding at a village today (kinds.REGIMES)."""
+    from cybertron2.wild.kinds import REGIMES
+    st = (w.s.get("wild") or {}).get("state") or {}
+    land = (w.s.get("wild") or {}).get("land") or {}
+    out = {}
+    for name, rg in REGIMES.items():
+        if not cond(w, node, rg.get("if")):
+            continue
+        if rg.get("of"):
+            m = model(w)
+            ri = next((i for i, a in enumerate(m.ids) if land["areas"][a]["kind"] == "ring" and land["areas"][a]["node"] == node), None)
+            if ri is None or float(st["pop"][rg["of"]][ri]) < float(rg["least"]):
+                continue
+        out[name] = rg
+    return out
+
+
+def _regime_kills(w, m, st) -> None:
+    """A rare regime's kill among kinds (a great freeze: the fowl, the owls), in each area of a village where it holds."""
+    from cybertron2.wild.kinds import REGIMES
+    for node in sorted(set(m.nodes)):
+        on_ = REGIMES_ON(w, node) if node in w.s["nodes"] else {}
+        for name, rg in on_.items():
+            for k, share in (rg.get("kill") or {}).items():
+                if k in st["pop"]:
+                    st["pop"][k] = [float(x) * (1 - float(share)) if m.nodes[i] == node else float(x) for i, x in enumerate(st["pop"][k])]
+
+
 def _shares(out, real, m) -> dict:
     """What share of each home's standing crop and store the wild kinds ate tonight, for the signs (signs._wild_eaten)."""
     res = {}
@@ -883,6 +1120,10 @@ def _raid(w, g, np_, kind, t, tgt, parcel, scare, rng) -> dict:
     return {}
 
 
+def rng_l(w, gid) -> float:
+    return w.rng("wild-leader", gid, w.d).random()
+
+
 def _did(res) -> bool:
     return res.get("lost", 0) > 1e-6 or bool(res.get("killed")) or res.get("took", 0) > 0 or res.get("stripped", 0) > 1e-6
 
@@ -917,8 +1158,18 @@ def _groups(w, m, st) -> dict:
             if count < lo:
                 groups.pop(gid, None)
                 continue
+            new = gid not in groups
             g = groups.get(gid) or {"kind": kind, "node": node, "pos": "home", "t": -1, "raid": -1, "found": -99, "habit": {},
                                     "wary": -1, "rest": -1, "target": None, "what": None}
+            from cybertron2.wild.kinds import LEADERS
+            ld = LEADERS.get(kind)
+            if new and ld and count >= float(ld["least"]) and rng_l(w, gid) < float(ld["p"]):
+                g["leader"] = {"name": ld["name"], "alive": True}                 # named on demand (D2-195)
+            lmul = 1.0
+            if ld and (g.get("leader") or {}).get("alive"):
+                lmul = float(ld["drive"])
+            elif ld and (g.get("leader") or {}).get("died") is not None and w.d - int(g["leader"]["died"]) <= int(ld["dead"]["days"]):
+                lmul = float(ld["dead"]["drive"])
             g["n"] = int(np.clip(round((0.3 if np_.get("gather") != "far" else 0.6) * count), lo, hi))
             groups[gid] = g
             rng = w.rng("wild-group", w.d, gid)
@@ -980,7 +1231,7 @@ def _groups(w, m, st) -> dict:
                 tg = _targets(w, node, trow)
                 if not tg:
                     continue
-                p = min(1.0, attr * (float(np_["drive"]["base"]) + float(np_["drive"]["hunger"]) * hunger) * ef["drive"])
+                p = min(1.0, attr * (float(np_["drive"]["base"]) + float(np_["drive"]["hunger"]) * hunger) * ef["drive"] * lmul)
                 knows = 1 <= w.d - int(g["found"]) <= int(np_["memory_days"])
                 if knows:
                     p = max(p, float(np_["return_p"]) * attr)
@@ -1123,9 +1374,21 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
         acc += wgt
         if u < acc:
             break
-    tk = (RESOURCES.get(k) or {}).get("taken") or {}
+    tk = dict((RESOURCES.get(k) or {}).get("taken") or {})
+    from cybertron2.wild.kinds import LEGENDS, LEADERS
+    lg = (w.s["wild"].get("legends") or {}).get(k)
+    legend = None
+    if lg and lg.get("alive") and lg["area"] == m.ids[i]:
+        cnt = max(1.0, float(st["pop"][k][i]) * float(m.km2[i]))
+        if rng.random() < min(0.5, 3.0 / cnt):
+            legend = LEGENDS[k]
+            tk["flee"] = min(0.97, float(tk.get("flee", 0.5)) * float(legend["flee"]))
+            if tk.get("danger"):
+                tk["danger"] = {kk: float(v) * float(legend["danger"]) for kk, v in tk["danger"].items()}
+            tk["goods"] = {it: round(float(q) * float(legend["goods"]), 2) for it, q in (tk.get("goods") or {}).items()}
     surprise = bool(want) and k not in want
-    found = f"you came on {_a(k)}" + (f" instead of the {a.get('looking for')} you were after" if surprise else "")
+    found = (f"you came on {legend['name']} itself" if legend else f"you came on {_a(k)}") + \
+        (f" instead of the {a.get('looking for')} you were after" if surprise and not legend else "")
     crew = 1 + sum(1 for e in here.events() if e.get("kind") == "work" and e.get("tech") == tech and e.get("actor") != here.name
                    and f"parcel:{key}" in (e.get("about") or []))
     danger = tk.get("danger")
@@ -1158,10 +1421,19 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
     here.apply("set_wild", path=["state", "pop", k], value=pop)
     gid = f"{k}@{here.node}"
     g = (w.s["wild"].get("groups") or {}).get(gid)
+    extra = ""
+    if legend:
+        here.apply("set_wild", path=["legends", k], value=dict(lg, alive=False, died=here.day, by=here.name))
+        here.event("hunt", f"{here.name} killed {legend['name']}", salience=0.9, tags=["hunting", "danger"])
+        extra = f" It was {legend['name']} the old ones tell of."
     if g:                                                                   # its group is one fewer, and wary of the village
         np_ = _near(k) or {}
-        here.apply("set_wild", path=["groups", gid], value=dict(g, n=max(0, int(g["n"]) - 1), habit={},
-                                                                 wary=here.day + int(np_.get("wary_after_harm", 5))))
+        g2 = dict(g, n=max(0, int(g["n"]) - 1), habit={}, wary=here.day + int(np_.get("wary_after_harm", 5)))
+        ld = LEADERS.get(k)
+        if ld and (g.get("leader") or {}).get("alive") and rng.random() < min(1.0, float(ld["kill_odds"]) / max(1, int(g["n"]))):
+            g2["leader"] = dict(g["leader"], alive=False, died=here.day)     # the leader herself: the group scatters
+            extra += f" It was {ld['name']} that led them."
+        here.apply("set_wild", path=["groups", gid], value=g2)
     food = 0.0
     for item, q in sorted((tk.get("goods") or {}).items()):
         here.apply("create", dst=out, item=item, qty=float(q), why=tech)
@@ -1171,7 +1443,7 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
         kills = list(rec.get("kills") or []) if rec.get("day") == here.day else []
         kills.append({"by": here.name, "meat": food, "hide": "hide" in (tk.get("goods") or {}), "kind": k})
         here.apply("set", ref=("parcel", key), field="hunted", value={"day": here.day, "kills": kills})
-    return food, f"Hunting {where}, {found} and took it: " + ", ".join(f"{q:g} {it}" for it, q in sorted((tk.get('goods') or {}).items())) + ".", tail
+    return food, f"Hunting {where}, {found} and took it: " + ", ".join(f"{q:g} {it}" for it, q in sorted((tk.get('goods') or {}).items())) + "." + extra, tail
 
 
 NOTICE_MOST = 2
@@ -1222,6 +1494,13 @@ def _notices(here, mind, m, st, areas, key, effort) -> list:
             elif r["read"] == "expert":
                 row["knows"] = "expert:hunt"
             rows.append(row)
+
+    from cybertron2.wild.kinds import LEGENDS
+    for k, lg in sorted((here._w.s["wild"].get("legends") or {}).items()):
+        if lg.get("alive") and lg["area"] in [m.ids[i] for i in areas]:
+            for r in LEGENDS[k]["rows"]:
+                rows.append(dict(when=lambda x: True, own=float(r["own"]), sense=r["sense"], text=lambda x, t=r["text"]: t, kind=k,
+                                 knows="expert:hunt"))
 
     def rule(row):
         sense = row.get("sense", "sight")
@@ -1293,9 +1572,10 @@ def _stores(w, node, share) -> float:
         for f_, x in STORE_KEEP.items():                                    # a terrier, a raised granary floor
             if (b.get("fittings") or {}).get(f_):
                 keep *= float(x)
+        plague = 1.0 + sum(float(r.get("stores", 0.0)) for name, r in REGIMES_ON(w, node).items())
         for item, q in sorted((w.s["containers"].get(cid, {}).get("goods") or {}).items()):
             if item in DRY_STORES and q > 0:
-                take = round(float(q) * share * keep, 4)
+                take = round(float(q) * share * keep * plague, 4)
                 if take > 1e-6:
                     w.apply("destroy", node, src=cid, item=item, qty=take, why="eaten in store by wild kinds")
                     total += take
