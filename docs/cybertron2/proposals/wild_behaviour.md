@@ -1,639 +1,570 @@
-# Proposal: wild behaviour, a design for each kind and a module of its own
+# Proposal: wild behaviour, kinds composed of facets, each a module of its own
 
-**Status:** partly accepted: D2-203 (each kind's behaviour designed first, then built as a module of its own that acts only through
-the animal interface and the engine's primitives; replaces "no kind has code of its own"). The behaviour specs per kind (§4) are
-in **discussion (10 Nov), for Zach to check before anything is built.** **Owner:** 37.2 (design; the `ecology` branch, D2-199).
+**Status:** partly accepted: D2-203 (each kind's behaviour designed first, then built as modules of its own that act only through the
+animal interface and the engine's primitives; replaces "no kind has code of its own"). The facets (§3) and the kinds' designs (§4)
+are in **discussion (10 Nov), for Zach to check before anything is built.** **Owner:** 37.2 (design; the `ecology` branch, D2-199).
 
 **Affects:**
 - proposals: wild_layer.md (the system this sits on), wild_systems.md (the catalogue it revises), wildlife.md (the kinds and their
-  economy), node_ecology.md, living_populations.md, wild_plants.md, husbandry.md;
-- code on the `ecology` branch: `cybertron2/wild/` (a new `behaviour/` package and the animal interface), `engine/wild.py`;
-- spec/information/signs.md (signs from behaviour), spec/conflict/ (danger, the watch).
+  economy), husbandry.md (where taming leads), node_ecology.md, living_populations.md, wild_plants.md;
+- code on the `ecology` branch: `cybertron2/wild/` (a `behaviour/` package of facet modules, the animal interface), `engine/wild.py`;
+- spec/information/signs.md (signs from behaviour); spec/conflict/ (danger, the watch); rights (D2-194).
 
-**Builds on:** the audit of what was built (`docs/review/37_growth/02zq_wild_audit.md`), which found most kinds' behaviour to be
-numbers fed to one shared machine, with much of the catalogue present only as signs.
+**Builds on:** the audit of what was built (`docs/review/37_growth/02zq_wild_audit.md`): most kinds' behaviour was settings of one
+group machine, and much of the catalogue was present only as signs.
 
 ## Summary
 
 Zach, 10 Nov:
 - "Animals can add specific mechanisms / code but it should just be cleanly modular so they are easily acting within the broader
   system and only through the normal ways of acting with the world through the engine";
-- "Yes, I do want the design per wildlife and then each has modules";
-- "The first thing to nail down is to ensure the behavioral specs are actually what we would want."
+- "Not all animals are about types of scares. They should fundamentally different types of behaviors. Like maybe some you just find
+  if out searching etc. I don't think they should just be varying five dials but should be multivariate, constitutionally
+  different some of them";
+- "could not animals be multiple versions of these combinations, eh something you have to seek but can also domesticate";
+- "Go through and redesign all of them trying to think of what behavior is most interesting according to our criteria."
 
-Earlier, 8 Nov: "These mechanics etc. are more important than realistic population dynamics", and "Each should have different
-layers ... maybe even the simpler ones have some deeper more nuance so experts actually have more to learn."
+Earlier, 8 Nov: "These mechanics etc. are more important than realistic population dynamics."
 
-What this proposal does:
-1. **Sets the architecture (D2-203):** each kind, or each pattern several kinds share, is a behaviour module. It perceives through a
-   narrow animal interface and acts only through the engine's primitives, as agents act through verbs. The food web stays the
-   population base; modules run the groups and individuals on it (§3).
-2. **States what the wildlife are for**, and the tests a behaviour must pass to be worth building: a mechanism with state, a pattern
-   people can come to expect, a sign and a lever, a learning problem other kinds do not pose, a consequence that travels, and a
-   response to what people do (§1).
-3. **Traces where the current designs came from**, and what was lost on the way (§2).
-4. **Examines every specced kind** against those tests, says what is right, wrong or missing, and gives a behaviour spec for each:
-   numbered behaviours, each with its state, its rule, what people see, what they can do, and the test that shows it working
-   (§4).
-5. **Draws the web between kinds**: the consequences that travel, with their lags (§5).
-6. **Checks diversity**: which learning problem each kind brings, the gaps and the overlaps (§6).
+The design in brief:
+1. **A facet is one way people and a kind can meet** (a quarry you seek, a raider at your door, a run that passes, a site you
+   steward, something you take and tame, ...). Each facet is a module with **its own core mechanism**, not a setting of a shared
+   one (§3).
+2. **A kind is a composition of facets**, as many as fit it, all sharing the kind's one state (position, condition, memory,
+   make-up), so what happens in one shows in the others: a hunted sounder raids warier; a captured piglet is a sow fewer in the wood.
+3. **Transitions** move animals between facets and out of the wild: wild to kept (taming), kept to feral, a site to gone, an ordinary
+   beast to a legend (§3.14). They are where the wild joins husbandry, the economy, rights and stories.
+4. **Each kind is redesigned** for the behaviour that is most interesting by the criteria (§1): what people must learn, what it
+   connects to, what decisions it makes, what it does to the society. Behaviour that teaches nothing new is cut (§4).
 
-## 1. What the wildlife are for, and what a behaviour must do
+## 1. What the wildlife are for, and what makes a behaviour interesting
 
-### 1.1 The purposes (from wildlife.md §1, node_ecology.md, wild_systems.md §1-2)
-- **A world that holds hidden, changing state** that people must infer from signs, catches and lore (partial observability).
-- **A land that is a threat as much as a food** (node_ecology.md's finding): crops, stores and beasts lost, so watching, fencing and
-  hunting matter.
-- **Learnable regularities at several depths**: a base rule anyone learns, conditions that only some notice, an expert's reading,
-  a rare regime (the L0-L4 layers).
-- **Dependence and specialisation**: skills, gear, crews, trained beasts; trades worth having.
-- **Commons and management**: stocks that can be overdrawn, rights (D2-194), restraint.
-- **Danger and collective action**: threats that need many hands.
-- **Land that changes and is changed**: what people do to the land moves the animals, and some animals change the land.
-- **Consequences that travel**: between kinds, between villages, across seasons.
+### 1.1 The purposes (wildlife.md §1; node_ecology.md; wild_systems.md §1-2)
+A world that holds hidden, changing state; a land that is a threat as much as a food; regularities learnable at several depths;
+dependence and specialisation; commons, rights and restraint; danger and collective action; land that changes and is changed;
+consequences that travel between kinds, villages and seasons.
 
-### 1.2 What makes a behaviour worth building (the tests for every row in §4)
-1. **It is a mechanism with state.** Something the module holds and changes (a position, a memory, a den, a make-up, a condition),
-   not a multiplier on a shared rule and not a sign alone. (The audit's main finding is that most "depth" failed this.)
-2. **It makes a pattern a person can come to expect**, within a run where possible (a fast arm, a night to two weeks; a short arm,
-   two weeks to two months: wild_systems.md §8), with slower arms carried by lore and history.
-3. **The pattern shows in signs, and a lever answers it**, and the outcome differs by what people do (principle 4 of
-   wild_systems.md: a forecast is worth nothing without the act it pays for).
-4. **It poses a learning problem** (§1.3) that another kind does not already pose in the same way.
-5. **It connects**: through a shared driver (weather, the mast, the vole phase) or another kind, so consequences travel (§5).
-6. **People's acts change it**: hunting, felling, clearing, watching, fencing, storing, shutting a door. The land is to be managed,
-   not watched.
-7. **It passes the relevance test** (node_ecology.md): it moves some household's food, work or safety by about a tenth in some year
-   or under some choice; or it is plainly marked as a sign-giver (an information kind, like the raven) whose value is in what it
-   tells about others.
+### 1.2 The tests a behaviour must pass
+1. **A mechanism with state**, not a multiplier and not a sign alone.
+2. **A pattern people can come to expect**, inside a run where possible (wild_systems.md §8: fast and short arms), with slow arms
+   carried by lore and history.
+3. **A sign and a lever**, and an outcome that differs by what people do.
+4. **A learning problem** (§1.3) the kind poses in its own way.
+5. **It connects** through a shared driver or another kind (§5).
+6. **People's acts change it.**
+7. **Relevance**: it moves some household's food, work, safety, wealth or standing by about a tenth in some year or choice, or it is
+   an informant whose worth is in what it tells.
 
-### 1.3 The learning problems
-The kinds should differ less in what they are than in **what a person has to learn to deal with them**. The problems this design
-uses:
+### 1.3 What makes it interesting (how the behaviours below were chosen)
+Beyond passing the tests, a behaviour was chosen over another when it:
+- **creates a decision with a trade-off** (go now or wait; take all or some; guard this or that; spend a child's day scaring rooks
+  or weeding);
+- **rewards learning at more than one depth** (anyone sees the base rule; the expert reads the condition behind it);
+- **involves other people** (a crew, a right, a theft, a neighbour downstream, a quarrel, a gift, a feast);
+- **makes stories and differences** between villages and between runs (one village has a boar problem, another a heronry and a weir);
+- **is legible**: it shows through signs a person can learn to read.
 
-| # | Problem | What has to be learned |
-|---|---|---|
-| P1 | **Timing** | which nights, which week of the year |
-| P2 | **Place** | where: the gap, the run, the earth, the flight line, the patch |
-| P3 | **Varying the answer** | the animal gets used to the same scare; vary it or back it with harm |
-| P4 | **Keeping it up** | the animal is scared off but returns; the answer must be kept, not varied |
-| P5 | **Restraint** | taking less now keeps more for later |
-| P6 | **No way back** | a mistake that cannot be undone (a site deserted, a slow breeder trapped out) |
-| P7 | **Many hands** | a crew, a drive, a weir, a bounty: one person cannot |
-| P8 | **A consequence through another kind, with a lag** | hunting the deer brings the wolves to the herds |
-| P9 | **A season foretells the next** | a bare autumn means a hungry bear in spring |
-| P10 | **A trade-off** | the same animal helps and harms |
-| P11 | **A misread** | the obvious reading is wrong (a wolf's track as a dog's; the ladybird's grub as a pest) |
-| P12 | **An adversary that learns you** | it learns your pattern (the unwatched nights) |
-| P13 | **Reading its state** | fat or lean, few or many, wary or not: what it will do next |
-| P14 | **When not to go near** | a sow with young, a wounded boar, a bear in spring |
-| P15 | **Emptied and refilled** | taking one empties its place until another moves in |
-| P16 | **Reading others through it** | an information kind: ravens over a kill, a heronry's size and the fish |
+### 1.4 The learning problems
+| # | Problem | | # | Problem |
+|---|---|---|---|---|
+| P1 | timing: which nights, which weeks | | P9 | a season foretells the next |
+| P2 | place: the gap, the run, the lie, the flight line | | P10 | a trade-off: it helps and harms |
+| P3 | varying the answer (it gets used to a scare) | | P11 | a misread: the obvious reading is wrong |
+| P4 | keeping it up (scared off, comes back) | | P12 | an adversary that learns your pattern |
+| P5 | restraint: less now, more later | | P13 | reading its state: few or many, fat or lean |
+| P6 | no way back | | P14 | when not to go near |
+| P7 | many hands | | P15 | emptied and refilled |
+| P8 | a consequence through another kind, with a lag | | P16 | reading others through it |
+| P17 | patience and craft over weeks (taming, training) | | P18 | property in a wild thing (marks, claims, theft) |
 
 ## 2. Where the current designs came from
-
-| Source (date) | What it gave | What was lost or bent on the way |
+| Source | What it gave | What was lost or bent |
 |---|---|---|
-| **wildlife.md** (8 Nov; D2-192 waves, D2-193 danger, D2-194 rights, D2-195 legends, D2-196 hounds) | the kinds by habitat and use: what each gives, how it is taken, its role (food, danger, rights, trade, land change), the waves by economy; §12: "no kind needs code of its own" | the economy half (furs, wax, rights, hounds, weirs) is mostly unbuilt; §12's rule, meant to stop one-off handlers, became the reason behaviour was flattened (now replaced: D2-203) |
-| **living_populations.md** (8 Nov) | populations as distributions over the land: growth, diet, movement toward good land with home fidelity, people's take collapsing the field where they look | built as the food web on coarse areas; the "resolved into actual animals where someone looks" half became groups condensed at villages, with no ranging |
-| **02zp, the ecosystem deep dive** (parts one to six) | the W2 food web (Kleiber eating, condition, crowding, movement); the reader models (novice, systematic, expert) showing reading pays where lore joins signs (eels, the mast, voles) and little where yesterday's damage tells everyone (boar, fox); the relevance numbers (boar 22% of need unwatched, eels 11%, slugs 4%, fox 3%) | the finding that "for boar and the fox the depth must sit in the acts, not the forecast" (§25.2) was not carried into the build: the acts got one shared machine |
-| **node_ecology.md** (8 Nov) | design from the village outward; the land matters as threat more than food; the 10% relevance test | the reservoir and visits became the ring and its groups; the "visitors as events" became the group state machine |
-| **wild_systems.md** (8 Nov; D2-197 leads in engine days, D2-198 answers to scares) | the catalogue: each kind's L0-L4 layers, signs, levers and couplings; the archetypes; the interconnection tables; the lags; the needs (readings by skill, misreads, lore as tested belief, creature memory); §10: "no kind has code of its own" | rich prose, but not written as mechanisms with tests, so the build could satisfy it with multipliers and signs |
-| **wild_layer.md and the `ecology` branch** (9 to 10 Nov; D2-199, D2-200 to D2-202) | the general system: land summary, kinds as data, the ecology step, groups near people, traces, signs by skill, takes, loads, diseases, plants, sites, legends | per-kind behaviour reduced to settings of one group machine plus windows of multipliers; the catalogue's rows ticked when only a sign or a multiplier existed (02zq §1, §4) |
-| **Research grounding** (wild_systems.md §12; 02zp's sources) | the real phenomena: mast cycles and pannage, vole cycles and their predators, the eel run, heronry censuses, wolf and livestock conflict, boar damage | sound; the behaviour below keeps to well-established natural history and marks where it simplifies |
-
-## 3. The architecture (D2-203)
-
-### 3.1 Modules
-- A package `cybertron2/wild/behaviour/`, one module per kind (`boar.py`, `red_deer.py`, `wolf.py`, ...) or per pattern several
-  kinds share (`denning.py`, `flocks.py`, `colonies.py`, `runs.py`). A kind's data row names its module(s).
-- A module holds the kind's own logic: what it decides, when, and from what. Its numbers stay in its data row, so calibration is
-  data.
-- **Shared building blocks** that modules compose rather than copy: ranging over parcels (§3.4), memory maps, habituation by the
-  kind of scare (light, noise, a person, a dog), group make-up and ageing, the activity calendar.
-- **Scales:** a kind counted by density stays in the food web, and a module may hook it (the eel run, fowl arriving with the frost,
-  the vole phase); a kind counted whole has groups or individuals the module runs (a sounder, a herd, a pack, a pair of foxes, a
-  bear); a site (a heronry, a rookery, a lodge, a bee tree) is a place-bound group.
-
-### 3.2 The animal interface (what a module may see and do)
-Like the `Here` and `Mind` agents get, and checked the same way (a test that modules touch nothing else).
-
-**Perceive:**
-- its own group: size and make-up (age and sex), condition (from its area's food in the ecology), memory, position, den or site;
-- the land it can reach tonight: the parcels near its position (cover, standing crops and their stage, stocks it eats, fences and
-  gates, doors of stores, carcasses), the area beyond;
-- what is physically there tonight: a watch's light or noise, a dog, people working or sleeping out, other kinds' groups near (a
-  pack, a herd);
-- the weather and snow now (not tomorrow: animals do not forecast; signs that lead the weather are the climate's, not theirs);
-- what happened to it: harmed, chased, fed, where.
-
-It does **not** perceive people's plans, the engine's other state, or anything a real animal could not sense from where it is.
-
-**Act** (each through an existing engine primitive, so the journal, replay, perception and signs work unchanged):
-- move: to a parcel or an area (`set_wild`);
-- eat: draw a stock (`draw`), trample or root a crop or turf (`draw`), take from a store (`destroy`);
-- kill: a beast of a herd (the herd's count and a carcass: `set`, `leave_carcass`), another kind's member (the ecology's counts);
-- den, leave a den, found or leave a site (`set_wild`);
-- give birth, die, disperse (its group's make-up; the area's count kept by the conservation rule);
-- leave a trace or make a sound (a trace record or an event; signs read them by the senses guide);
-- remember (its memory, `set_wild`).
-
-**Keyed randomness** through the interface (`rng(day, group, purpose)`), so every run replays exactly.
-
-### 3.3 Order of the night
-The ecology step (populations, foods, condition, breeding, disease); then each kind's module for its groups, in a fixed order by
-kind; then the signs read the traces and events at dawn. A module never acts in the day phase: animals act at night or at dusk
-and dawn; people meet the results.
-
-### 3.4 Ranging and memory (the core shared blocks)
-- **Position:** a group near a village holds a parcel (or the area beyond) as its position each night.
-- **Choice of where to go:** a value for each reachable parcel: food there (by the kind's diet and the crop's stage), cover (woods,
-  scrub, high crops), distance from its lie-up, minus remembered danger and disturbance, plus remembered food; the group goes to
-  the best, with a keyed draw among near-equals. Routes emerge from cover and the land's shape: the gap is where the cover meets
-  the field, found by the sounder, not set by code.
-- **Memory maps:** fed here, harmed here, met a watch here, disturbed here (people at work, a hunt); each fading over engine days at
-  the kind's rate (D2-197).
-- **Habituation by the kind of scare:** light, noise, a person, a dog, harm; a new scare of a kind already learned wears off faster.
-- **People's patterns:** a group remembers which nights a place was watched; a kind that learns (P12) tests a watched place on
-  another night and comes when it was unwatched.
-
-### 3.5 Guards and tests
-- Only behaviour modules name a kind; engine code names none (the existing guard test, moved to the modules' boundary).
-- Modules import the interface only (a test like the agent-facing modules' one).
-- Every behaviour in §4 has its test: the rule as an outcome a test can check on a generated world.
-- The conservation test (counts kept between areas, groups and takes) holds with the modules.
-
-## 4. The kinds, examined
-
-Each kind: where its design came from; what is right and wrong with it; its role and its learning problems; the behaviour spec
-(B rows: the mechanism, what people see, what they can do, the test); and the changes from the current spec. Real behaviour is kept
-to well-established natural history; simplifications are marked. Engine time: Y = 32, a season of 8 days, an engine day about 11
-real days (wild_systems.md §8).
-
-### 4.1 Wild boar (deep)
-**From:** wildlife.md (a crew hunt, crop damage, mast-driven); wild_systems.md §6 (the learned field, frost to the stores, mast to the
-fields, the two-year sequence, the gap, the old sow, swine fever); 02zp's readers (yesterday's damage tells everyone; the expert's edge
-is in varying the scare).
-
-**What is right:** the learned field and habituation (P3) is a good problem and true to boar. Frost sending them to stores, a failed
-mast sending them out, are real.
-
-**What is wrong or missing:**
-- **Damage is too big and too uniform.** The deep dive's 22% of need unwatched is above real damage (1-10% near woods, more locally
-  in bad years). It should depend on the cover beside a field, the mast and the sounder's learning, so some villages have a boar
-  problem and others none.
-- **Boar barely follow the mast** in the ecology (3% between years). The strongest real effect is on breeding: after a heavy mast
-  more sows breed and litters are larger, so the next year has many more boar. This is the cross-season arm (P9) and it is absent.
-- **The gap is fixed by code**, not found. The old sow is a multiplier.
-- **Rooting of pasture and meadow** (boar as an engineer: turf turned over, hay lost) is missing, though it is the commonest boar
-  damage on grassland.
-- **The sounder is shapeless:** no sows, young and boars; no farrowing that changes it; no lone boar.
-
-**Role and problems:** crop and turf damage near woods (the strongest wild threat); P3 varying the answer, P2 the gap, P12 a learner
-of watches, P9 the mast to next year's numbers, P14 sows with young and a wounded boar, P7 the crew hunt, P13 reading the sounder.
-
-**Behaviour spec:**
-- **B1 A sounder and its range.** Sows, their young of the year and yearlings, led by the eldest sow (the matriarch); adult boars apart,
-  joining in the rut (autumn's end into winter). The sounder has a lie-up in the densest cover of its range by day. *Test:* a
-  sounder's make-up has a matriarch, sows and young; boars alone except in the rut.
-- **B2 Night foraging by value.** Each night the sounder goes to the best parcel by its value (§3.4): mast in the woods in a mast autumn
-  beats any crop; milk-ripe corn and newly sown corn beat roots; pasture and meadow are rooted for grubs and roots when wet. *Signs:*
-  rooting where they fed, slots, wallows. *Test:* in a heavy mast autumn the sounder stays in the woods; in a failed one it goes to the
-  fields; a field with no cover beside it is seldom reached.
-- **B3 Routes and the gap.** It reaches fields by the cover that touches them, the same way each night while nothing goes wrong there.
-  *Signs:* a run worn through the hedge (lingering). *Lever:* a watch at the gap meets them before the field; a fence or hedge mended
-  there turns them to the next way in. *Test:* with two ways in, a watch at one moves them to the other.
-- **B4 Learning the field and the watch.** It remembers a field that fed it and comes back nightly; it gets used to a scare of one
-  kind (light, noise) in a few nights; harm (a dog's bite, a boar killed) makes it wary of that place for longer; it remembers which
-  nights a field was watched and comes on the others. *Lever:* vary the scare, back it with harm, watch on unpredictable nights.
-  *Test:* the same fire every night stops working within about a week; a fire on alternate nights is beaten by coming on the off
-  nights; a dog's bite keeps them off for longer than any harmless scare.
-- **B5 Frost and snow.** Frozen ground stops rooting; the sounder goes to clamps, stores and ricks it can reach. *Lever:* a shut,
-  sound store. *Test:* in a frozen run a sounder near a village raids an open store.
-- **B6 Rooting the grass (an engineer).** On wet pasture and meadow in spring and autumn they root for grubs and roots, turning the
-  turf: the parcel's grass is cut back for a season. *Signs:* turf turned in strips. *Lever:* a fence; hunting. *Test:* a rooted
-  meadow gives less hay.
-- **B7 The mast and next year.** After a heavy mast more sows farrow and litters are larger (breeding from condition and the mast); after
-  a failed one few. *Signs:* many striped piglets in spring after a mast year. *Test:* the year after a heavy mast the sounder is
-  larger than after a failure.
-- **B8 Danger.** A sow with young charges in spring; a wounded boar lies up and charges whoever follows; a boar at bay wounds hunters
-  (D2-193). *Lever:* hunt with a crew and a hound (D2-196); leave a wounded boar or go in with others. *Test:* a lone hunter is hurt
-  more often than a crew; following a blood trail alone is the most dangerous act in the wood.
-- **B9 The matriarch.** The eldest sow carries the sounder's memory (its fields, its routes, its fear of places). Kill her and the
-  sounder breaks up: its memory is lost, the young scatter and raid less, more erratically. *Test:* after the matriarch is killed the
-  group's remembered field and route are gone.
-- **B10 Swine fever** (wave 4's disease): runs through crowded sounders and through village pigs (husbandry); worst in cold weather.
-
-**Changes from the current spec:** damage made local and learnable (B2, B3); breeding from the mast (B7) as the cross-season arm;
-rooting the grass (B6); the matriarch carries memory (B9); a run on unpredictable nights is beaten by a learner (B4, P12).
-
-### 4.2 Red deer (middling)
-**From:** wildlife.md (herds, the rut, stalking, the noble's beast, forest law); wild_systems.md (dusk grazing, the rut, hard winter to
-the ricks, the hunted wood, snow, the slot readings).
-
-**What is right:** the rut and the hard winter are true and give timing (P1) and a seasonal arm.
-
-**What is wrong:** the current build makes red deer **a second boar** (raids on the corn with the same machine). That wastes the kind.
-Red deer are mostly grazers and browsers of the wood's edge and of young trees; their real conflict is with coppice and young
-woodland, and with hay in hard winters; and they are above all **a resource with rights and with restraint** (forest law, D2-194), and
-a test of how a herd answers hunting.
-
-**Role and problems:** P5 restraint (hinds are next year's calves), P1 the rut and the winter, P13 reading the herd, P15 a hunted wood
-emptied and slowly refilled, P10 trade-off (deer and coppice), rights and poaching (D2-194).
-
-**Behaviour spec:**
-- **B1 Herds by sex.** Outside the rut, hinds with their calves and yearlings in a herd led by an old hind; stags apart in small groups.
-  *Test:* a herd near a village is hinds and calves; stags elsewhere.
-- **B2 Dusk to the edges.** They graze the wood's edge, pasture and young corn at dusk and dawn, and browse young growth; by day they lie
-  in the wood. Their damage is grazing (a share of a field's young crop) and **browsing the coppice regrowth**, which kills young growth
-  for a season. *Lever:* a fence round the coppice; hunting the edges. *Test:* a coppice cut beside a deer wood regrows slower unfenced.
-- **B3 The rut.** In early autumn the stags gather hinds; they roar (a sound that carries), are careless and bold, and a stag at bay is
-  dangerous. *Signs:* roaring; rutting stands. *Lever:* the rut is when stags are easy to approach; a stag's meat is rank then (lower
-  value). *Test:* stags are found more easily in the rut.
-- **B4 Winter yards and the ricks.** In snow and hard frost they come down to sheltered low woods, strip bark, and come to ricks; the
-  weakest (calves, old hinds, stags spent from the rut) die in late winter. *Lever:* fence the ricks. *Test:* in a hard late winter the
-  herd loses mostly calves and old animals.
-- **B5 The hunted wood.** Hunting disturbs the herd: it moves to the far side of its range or the next wood within days, and drifts back
-  after weeks of quiet; a drive with many keeps it away longer than a lone stalk. *Lever:* leave the wood quiet to keep them; hunt hard
-  to drive them from the fields. *Test:* after a drive the herd's position is out of the village's land for longer than after a stalk.
-- **B6 What the herd is.** Each herd has a make-up; killing hinds lowers next year's calves; killing stags does not. *Lever:* take
-  stags, spare hinds (restraint). *Test:* a herd hunted of hinds shrinks the next year; one hunted of stags holds.
-- **B7 Calving and the hidden calf.** Calves are born in early summer and lie hidden; a hind will not go far. *Signs:* a hind alone and
-  restless at the edge.
-
-**Changes:** red deer stop being crop raiders like boar (B2: edge grazing and coppice browsing instead); herd make-up and sex-selective
-hunting (B1, B6) as restraint; the rut's value trade (B3); winter mortality by age (B4).
-
-### 4.3 Roe deer (middling; a niche rule)
-**From:** wildlife.md (not in the tables), wild_systems.md (single and small groups, the summer rut, roe rings, barking, the hidden kid).
-
-**What is wrong:** built as red deer with smaller numbers, so it teaches nothing new. Its niche is the point: **small, territorial,
-each to its own patch.**
-
-**Role and problems:** P15 emptied and refilled (a patch is empty until another moves in), P11 the misread (red-deer lore gets the roe
-rut wrong), P2 place (each patch), coppice browsing (P10 with the woodward).
-
-**Behaviour spec:**
-- **B1 Patches.** Each roe (a buck's territory with does in it, in summer) holds a patch of thicket and edge; they do not gather in
-  herds except loosely in winter on open fields. *Test:* roe near a village are spread one or two to a parcel of cover.
-- **B2 Emptied and refilled.** Killing the roe of a patch leaves it empty until a young roe disperses into it (spring and autumn).
-  *Lever:* hunting one patch hard empties it; spreading the hunt keeps all. *Test:* after a patch's roe is killed, no roe is met there
-  until the next dispersal.
-- **B3 The summer rut** (July-August), not autumn: rings trodden round a bush; bucks bark. Kids born in May lie hidden in long grass and
-  the mower finds them. *Signs:* rings, barking. *Misread:* one carrying red-deer lore looks for a rut in autumn.
-- **B4 Browsing.** Roe browse buds and young shoots: coppice and young hedges suffer where roe are many. *Lever:* a fence.
-
-**Changes:** territorial patches and refilling (B1, B2) in place of a red-deer copy.
-
-### 4.4 Wolf (deep; a territorial predator)
-**From:** wildlife.md (danger and collective action, deer then herds, the bounty); wild_systems.md (a fold that fed them, deer hunted out
-makes them bold, crusted snow, dispersing young, surplus killing, wolves returning, the track misread, ravens over kills, rabies).
-
-**What is right:** a fold that fed them; the deer-to-herds link; dispersing young; surplus killing in a fold; the track misread.
-
-**What is wrong:** the current wolves never hunt deer as a pack. They "gather from far" and come at herds by a probability. So the
-cross-kind consequence (P8: hunt out the deer and the wolves come to the herds) exists only through the ecology's hunger, untested.
-A lone disperser behaves exactly like a pack. Ravens do not follow wolves.
-
-**Role and problems:** P8 the deer-to-herds consequence, P7 a drive or a bounty, P4 a kept fold, P11 the track misread, P14 a wolf at
-bay, P16 read through the ravens, P9 a hard late winter.
-
-**Behaviour spec:**
-- **B1 A pack and its territory.** A pack (a breeding pair and their young of one to two years) holds a large territory around deep
-  wood, spanning the land beyond several villages; it travels a circuit of it, a few areas a night. *Signs:* howling (strongest in late
-  winter, a territorial call), tracks on rides and in snow. *Test:* a pack's position moves along its territory over nights.
-- **B2 Hunting deer.** The pack hunts where the deer are, as groups: it follows the herds of its territory, kills the weak (calves, the
-  old, the starved in late winter), and its kills feed ravens and foxes. *Test:* deer killed by wolves are mostly calves and the weak;
-  a pack's position follows the deer.
-- **B3 To the herds when the deer fail.** When the deer of its territory are few (hunted out, or a hard winter), or crusted snow tires
-  them, the pack comes to the village herds at night. *Lever:* do not hunt the deer out; fold and watch the herds; dogs. *Test:* after
-  the deer of a territory are hunted down, herd losses to wolves rise within a season.
-- **B4 A fold that fed them.** A kill at an unwatched fold or herd brings the pack back within days, until the fold is closed or watched
-  or a wolf is hurt. An open fold is surplus-killed (several beasts in a night). *Lever:* fold, watch, dog (P4: keep it up). *Test:* a
-  herd raided once is raided again within days unless watched.
-- **B5 Pups and the den.** In spring the pair dens; the pack hunts hard near it all summer (rendezvous places). *Signs:* a worn path to
-  a den (an expert's). *Lever:* den-hunting (historic, cruel, effective): killing pups ends the next generation.
-- **B6 Dispersers.** Young wolves leave in autumn to spring; a lone disperser crosses farmland where no pack lives, and takes stock more
-  readily than a pack (it cannot hunt deer well alone). *Test:* a lone wolf's kills are more often stock than a pack's.
-- **B7 Fear of people, and boldness.** Wolves avoid people, and come close only hungry; they are wary of a watched place for days after
-  a wolf is hurt. A wolf at bay wounds (D2-193). *Test:* a watched herd is taken far less often.
-- **B8 Ravens.** Ravens follow the pack and gather at its kills (§4.13). *Test:* ravens over the far wood mean a kill there.
-- **B9 Rabies (rare; blocked):** a rabid wolf, the one true danger to people, needs illness in people.
-
-**Changes:** wolves hunt deer as groups (B2) and turn to herds when the deer fail (B3), the cross-kind arm made a mechanism; dispersers
-behave differently (B6); ravens follow them (B8); the territory is a circuit (B1).
-
-### 4.5 Fox (middling)
-**From:** wildlife.md (a pest, lambs, a scavenger); wild_systems.md (back the next night, cubs April-June, vole-crash years, surplus
-killing, mange, the earth, den control, scent, birds mobbing).
-
-**What is right:** the fox at the hens is the simplest P4 lesson (shut the hens, keep it up), and the deep dive found it is mostly that.
-Back the next night, surplus killing, and mange are true.
-
-**What is wrong or missing:** the fox is a sign and a probability, not a fox in a place. The earth is a sign; den control is a hunt
-bonus. The vole link (P8) is through hunger only.
-
-**Role and problems:** P4 shut and keep shut, P2 the earth, P1 spring provisioning, P8 the vole crash, P5 or not (a winter cull is worse
-than den control in spring: an interesting problem about *when*, not whether).
-
-**Behaviour spec:**
-- **B1 A pair and its earth.** A pair holds a territory of fields and edges near a village, with an earth in a bank or wood. *Signs:*
-  the earth (fresh earth, bones, feathers in spring). *Test:* a fox pair has an earth on a parcel.
-- **B2 Hunting voles and hares; the hens when it pays.** Each night it hunts what is easiest: voles in a vole year, hares, then the
-  hens if a door is open or the run is unfenced. *Test:* in a vole peak the hens are taken less; in a crash, more.
-- **B3 Back the next night.** A fox that found an open hen house comes back the next night to the same place; a shut door turns it, and
-  it tries again a few nights later (scared off, not used to it: D2-198). *Lever:* shut the hens every night. *Test:* hens shut on the
-  night after a raid are not taken.
-- **B4 Surplus killing.** Once inside it kills all it can.
-- **B5 Spring provisioning.** With cubs (April to June) it hunts by day too and comes to the hens more. *Lever:* dig out the earth in
-  spring (the cubs are there); a winter cull kills foxes whose territories are refilled by spring. *Test:* den control in spring lowers
-  the hen losses of that year more than the same number killed in winter.
-- **B6 Mange** sweeps a crowded fox population (wave 4).
-
-**Changes:** a pair with an earth on a parcel (B1); what it hunts depends on voles (B2, P8); spring provisioning and den control as
-timing (B5).
-
-### 4.6 Brown bear (deep; rare)
-**From:** wildlife.md (rarity, legend, danger); wild_systems.md (sleeps through winter, wakes hungry, a poor autumn and a hard late winter
-bring it to hives, calves and carrion; a sow with cubs; claw marks; the legendary bear, D2-195).
-
-**What is wrong:** hibernation is only "does not eat in winter", and hunters can meet a sleeping bear. The hungry spring is a scripted
-window, not the result of a bear's autumn.
-
-**Role and problems:** P9 the autumn foretells the spring, P14 when not to go near, P7 a hunt of many, rarity and legend.
-
-**Behaviour spec:**
-- **B1 The activity calendar.** A bear fattens through late summer and autumn on fruit, nuts and mast (its condition rising with the
-  year's fruit and mast); dens in late autumn in a den in deep wood or rock; sleeps until spring; wakes by its condition (a fat bear
-  later, a thin one early). A sow with cubs dens earliest and wakes latest. While it sleeps it cannot be met. *Signs:* a den (an
-  expert's); claw marks and turned stones in autumn. *Test:* no hunter meets a denned bear; a thin bear wakes earlier.
-- **B2 The hungry spring.** A bear that went in thin (a poor fruit and mast autumn) wakes hungry and comes to carrion, calves and hives
-  in late spring, near villages if the deep wood offers nothing. *Lever:* guard the calves and hives in late spring; burn carrion.
-  *Test:* after a poor autumn, spring losses to the bear rise; after a good one, none.
-- **B3 Danger.** A sow with cubs attacks; a wounded bear is deadly; a hunt needs many and hounds (D2-193, D2-196). *Test:* a lone hunter
-  meeting a bear is hurt more often than any other meeting.
-- **B4 Rarity.** A bear is present in few worlds (wildwood, upland cores), one or two at most; the legendary bear (D2-195) is one of
-  them.
-
-**Changes:** a real calendar with denning and waking by condition (B1); the hungry spring from the autumn (B2, P9).
-
-### 4.7 Brown hare (simple, with an expert layer)
-**From:** wildlife.md (the poor man's food, snaring, coursing, young crops); wild_systems.md (scared off).
-
-**What is wrong:** nothing of its own: a density eaten and snared.
-
-**Role and problems:** P2 place (the runs where snares take), P15 a field snared out and refilled, food for the poor, coursing with
-hounds (D2-196).
-
-**Behaviour spec:**
-- **B1 Forms and runs.** Hares lie by day in forms on open ground and feed at night; they cross hedges and banks by the same runs.
-  *Lever:* a snare set on a run takes far more than one set anywhere. *Signs:* runs through the hedge (a practised reader); forms.
-  *Test:* snares set where the runs are take more.
-- **B2 Snared out and refilled.** Snaring a field hard empties it; hares from the land around refill it over weeks. *Test:* a field's
-  hares fall after heavy snaring and recover.
-- **B3 Boxing in spring** (does fending off bucks; a sign of the season and of numbers).
-- **B4 Hard winters** kill many; the hare sickness (wave 4).
-
-### 4.8 Woodpigeon (simple)
-**From:** wild_systems.md (the mast; winter corn and greens when the mast fails).
-
-**Role and problems:** P8 the mast's failure sends them to the young winter corn, P3 they get used to a scarecrow, children bird-scaring.
-
-**Behaviour spec:**
-- **B1 Flocks that go where the food is.** In a mast autumn the flocks feed in the woods; when it fails they come to the young winter
-  corn and peas, in flocks that strip patches. *Test:* winter corn losses to pigeons rise after a failed mast.
-- **B2 Getting used to scares** (D2-198): a scarecrow or a clapper works for a few days, a child moving about longer.
-
-### 4.9 Rats and mice (followers of people)
-**From:** wildlife.md (raise a store's spoilage; cats, dogs, staddles); wild_systems.md (to the barns after the harvest; a mast failure
-brings mice in).
-
-**Note:** in a medieval setting the rat of the houses is the black rat (in thatch and roofs); the brown rat came much later. The
-behaviour does not depend on which.
-
-**Role and problems:** P10 how a store is built (a raised floor, stone, a terrier or a cat), P1 the harvest in.
-
-**Behaviour spec:**
-- **B1 To the barns after the harvest.** Mice and rats move from the hedges and fields into the stores within weeks of the harvest;
-  they breed in full stores through a mild winter. *Test:* store losses rise after the harvest.
-- **B2 What keeps them out.** A raised granary floor (staddles), a stone floor, a cat or terrier cut losses; a door does not. *Test:* a
-  store with a granary floor loses less; a shut door changes nothing (the misread run 6 showed).
-- **B3 A mast failure** brings mice into houses and stores.
-
-### 4.10 Voles, owls and kestrels (deep; a cycler)
-**From:** wild_systems.md (the cycle, owls and kestrels moving to the voles, pellets, the low year's hungry predators, a vole plague).
-
-**What was done:** the cycle is a phase clock (the deep dive's vole phase, a pulse shared by a world's villages); owls follow it a year
-behind. The emergent routes failed (02zq §4c).
-
-**Assessment:** a clock is acceptable here (the mechanics matter more than realistic dynamics: Zach, 8 Nov), and is what the deep dive
-designed. What matters is what follows from it.
-
-**Behaviour spec:**
-- **B1 The phase** (low, increase, peak, crash, a year each; a mast sets it ahead, a hard winter holds it).
-- **B2 Predators move to it.** Owls and kestrels come to land where voles are many (within weeks) and breed well in the peak; in the
-  crash they are silent and few. *Signs:* kestrels over every field; owls silent.
-- **B3 The hungry gap** after the crash: foxes and owls turn to hens and nests (the fox's B2).
-- **B4 Peak damage:** voles strip grass and young crops and get into the stacks in a peak; a plague (rare) gnaws stores through.
-- **B5 Mowing and floods** drive voles to the ricks and banks (a sign and a store loss).
-
-### 4.11 Raven (an information kind)
-**From:** wildlife.md ("pure information"); wild_systems.md (over a kill).
-
-**Role:** P16: ravens tell where something is dead (a wolf kill, a carcass, a battle); a pair holds the crags.
-
-**Behaviour spec:**
-- **B1 Ravens go to carrion.** They gather over a carcass within a day, and follow wolf packs (§4.4 B8). *Signs:* ravens wheeling over
-  a place. *Test:* ravens are over the area where a kill lies.
-
-### 4.12 Wildfowl and the hard-weather birds (middling; migrants)
-**From:** wildlife.md (winter flocks, fowling, feathers); wild_systems.md (frost brings them, plovers ahead of a freeze, weak a week in,
-restraint, woodcock).
-
-**What is wrong:** arrival is by the calendar, not the frost.
-
-**Role and problems:** P1 the freeze brings them, P2 the flight lines where nets are set, P5 restraint in a long freeze.
-
-**Behaviour spec:**
-- **B1 Arrive with the cold.** Flocks arrive in autumn and are pushed in by freezes from beyond (a freeze brings many more within a
-  day or two); they leave in spring. *Test:* a freeze raises the fowl on the water within days.
-- **B2 Flight lines.** They fly at dawn and dusk between roosting water and feeding grounds by the same lines. *Lever:* nets set on a
-  flight line take far more. *Test:* fowling on the line beats fowling elsewhere.
-- **B3 Weak in a long freeze.** About a week into a freeze they come tame and die; taking many then thins next winter's flocks (they
-  return by how many left). *Test:* heavy taking in a freeze lowers the next winter's arrival.
-
-### 4.13 Eel (middling; a run)
-**From:** wildlife.md (the run at traps and weirs, rent, a held right); wild_systems.md (dark, wet nights with rising water; a dry autumn
-holds it back; the eel night).
-
-**What is wrong:** there is no run: only the traps' yield changes.
-
-**Role and problems:** P1 timing (the eel night), P13 reading the leads (rain after the dry weeks), P7 a crew at the weir, rights
-(D2-194), the upstream-downstream commons.
-
-**Behaviour spec:**
-- **B1 The silver run.** In autumn a share of the eels turns silver and runs downstream on dark, wet nights with rising water; a dry
-  autumn holds them back, so the first heavy rain after the dry weeks brings a great run. The run moves from area to area down the
-  river chain. *Test:* the eels at a downstream weir rise on the night after heavy rain after dry weeks.
-- **B2 Traps and weirs.** A trap or weir across the run takes a share of what passes; what is taken upstream does not arrive below.
-  *Lever:* a crew at the weir on the big night; rights. *Test:* a weir upstream lowers the take at one downstream.
-- **B3 Resident eels** in pools and dykes all year, taken by spearing and small traps.
-
-### 4.14 Heronry (a colony)
-**From:** wild_systems.md (the same trees for generations, a hard winter crashes them, disturbance in spring deserts the site, the size
-shows the fish, a lord's feast).
-
-**Built:** a site that grows, crashes and leaves. Fixed after run 6: only felling, hunting and robbing at the nests trouble it.
-
-**Role and problems:** P5 and P6 restraint and no way back, P16 the size shows the fish, P1 the young taken at the right time (a
-feast).
-
-**Behaviour spec:** B1 nesting in the same trees each spring; B2 a hard winter halves it and it recovers over years; B3 trouble at the
-nests in spring deserts it for years; B4 herons fish the river and meres (a rival at the weir); B5 the young taken late in spring.
-
-### 4.15 Rookery (followers of people)
-**From:** wild_systems.md (rooks follow the plough for grubs and pull the young corn; bird-scaring as children's work; rook pie).
-
-**Role and problems:** P10 the trade-off (grubs eaten, corn pulled), children's work, P1 rook pie in May.
-
-**Behaviour spec:** B1 nest in the same trees; B2 follow the plough and work pasture for grubs (lowering the grub loads: leatherjackets,
-wireworm when built); B3 pull sown and sprouting corn beside the rookery (a watch, a child with a clapper turns them, P3); B4 young taken
-as they branch.
-
-### 4.16 Beaver (deep; an engineer; rare)
-**From:** wildlife.md (fells trees, dams, ponds, fur and castoreum, the open-access extinction); wild_systems.md (the pond holds water and
-fish, flooded trees die, the meadow floods, trapping empties a slow breeder for good).
-
-**Built:** a lodge with a dam that floods the meadow and raises the fish; breaking it; rebuilding; trapping out for good.
-
-**Role and problems:** P10 the trade-off (fish, fowl and a summer's water against the hay meadow), P6 trapping out for good, land that
-changes.
-
-**Behaviour spec:** B1 a family (a pair and young of two years) on a slow brook with willow and aspen; B2 felling trees by the water
-(young growth and timber drawn); B3 the dam and pond: the pond holds water through a dry summer and cuts floods, holds more fish and
-fowl, floods the meadow beside it; drowned trees become standing deadwood; B4 a broken dam is rebuilt within days while the family
-lives; B5 slow breeding (two or three kits a year, the young leaving at two): trapped hard, the family ends for good.
-
-### 4.17 Wild bees (deep; specced in wildlife.md, not built)
-**From:** wildlife.md (colonies in hollow old trees; honey and wax; honey-gathering as a knack); wild_systems.md (swarms in May and June;
-the flow; wasps rob weak hives; the bear at the hives).
-
-**Role and problems:** P2 finding the tree (lining the bees home), P1 swarms and the flow, P8 wasps and the bear, P5 taking all the honey
-kills the colony.
-
-**Behaviour spec (for wave 2's husbandry link):** B1 colonies in old trees; B2 swarms in May and June found and taken; B3 honey by the
-flowers' year (the warm spring); B4 taking all the honey kills a colony over winter; B5 robbed by wasps in a wasp year, raided by a bear.
-
-### 4.18 The smaller loads (slugs, aphids and ladybirds), diseases, plants and markers
-These are built as general rules and are mostly sound as designed:
-- **slugs:** P1 timing (the first rain after dry, the young crop's window), with a lever (picking at dusk, burning the stubble);
-- **aphids and ladybirds:** P11 the misread (the ladybird's grub killed as a pest prolongs it), a lag of a week;
-- **diseases:** spread by contact and shared grass; the lever is keeping apart (P7 when herds share a common);
-- **plants:** pulses and seasons; restraint where they are shared with the wild kinds (D2-202);
-- **markers:** lore that holds and lore that fails (P11).
-
-**Changes:** none of behaviour; their modules are the existing rules.
-
-### 4.19 Specced in wildlife.md, not yet designed here
-Salmon (the upstream run and the weir, like the eel's B2 with the run upstream), trout (resident, steady), otter (a rival at the weir),
-pine marten (a fur), falcon (an eyass taken and trained, D2-196's hawks), swan (a claimed bird, D2-194). Each needs its spec when its
-economy (furs, falconry, rights) arrives.
+| wildlife.md (8 Nov; D2-192 to D2-196) | the kinds by habitat and use; how each is taken; goods; rights; hounds; §12 "no kind needs code of its own" | the economy half mostly unbuilt; §12 flattened behaviour (replaced: D2-203) |
+| living_populations.md (8 Nov) | populations on the land; diet; movement; resolved into animals where someone looks | resolution into animals became condensed groups with no ranging |
+| 02zp deep dive | the food web; the readers (reading pays where lore joins signs; for boar and fox the depth is in the acts); relevance numbers | "the depth is in the acts" not carried into the build |
+| node_ecology.md (8 Nov) | design from the village outward; land as threat; the 10% test | visitors became one state machine |
+| wild_systems.md (8 Nov; D2-197, D2-198) | the catalogue: layers L0-L4, archetypes, interconnections, lags, needs | prose, not mechanisms with tests; §10 "no kind has code" |
+| wild_layer.md, the `ecology` branch (9-10 Nov) | the general system and its foundations | kinds reduced to settings of one machine (02zq) |
+| this proposal's first version (10 Nov) | behaviour specs per kind | still one skeleton (a raider turned by scares) for most deep kinds; replaced by this version |
+
+## 3. The facets (each a module with its own core mechanism)
+
+All facets of a kind share its state: **position** (a parcel near a village, or an area beyond), **condition** (from the ecology's
+food), **memory** (places fed, harmed, disturbed; people's patterns), **make-up** (age and sex, a leader, the young of the year),
+and its **calendar** (what it is doing this week of the year). Each facet reads and writes that state through the animal
+interface (§3.15), and acts through the engine's primitives.
+
+### 3.1 F1 Quarry you seek: the search game
+The animal is somewhere you cannot see; you must find it.
+- **The lie.** Each animal or group chooses where it lies by day by its own rules: cover, the wind's direction (lying where the wind
+  brings it scent from its back trail), weather, disturbance, time of year (red deer in the wind's lee of thick wood; a hare in a
+  form on open ground facing the wind; a sounder in bramble; a roe in its patch).
+- **Searching.** A searcher works a place (a parcel) for a time; the place gives **clues** by what passed or lies there and how
+  long ago: fresh slots, beds, droppings, fraying, browse, a run; how many clues a searcher reads depends on skill and eye, the
+  weather (snow shows everything for a day or two; rain erases), and the ground. A clue can **point**: a fresh trail leads to the
+  parcel the animal went to. The searcher (an agent) decides where to go next; following a trail is the next act at the parcel it
+  points to.
+- **Finding and the approach.** Being on the lie's parcel gives a chance to find it, by skill, cover and the wind: approaching
+  downwind finds it unaware; upwind it scents you and goes. Then the take (skill, weapon, crew); a wound sends it away bleeding (a
+  trail to follow, and danger for dangerous kinds: F9).
+- **Spooked.** A spooked animal moves far (an area away) and is wary for days: the place is spoiled for a while.
+- **Knowledge.** A searcher remembers where game lay, in which wind and weather; over a run this becomes a map of good places
+  (and lore: "in an east wind the hinds lie in the Hanger").
+- **Help.** A hound finds over more ground and holds dangerous game at bay (D2-196); a **drive** sends beaters through cover to
+  push game past standers (many hands, P7).
+- **Traps and snares (passive gear):** set at places (on runs, at earths, by water), they work overnight and are checked the next
+  day; they take what passes, sometimes the wrong thing (a fox in a hare's snare, a neighbour's dog), and can be robbed.
+
+*What it teaches:* place (P2), reading its state (P13), the wind and the weather (P1), patience; and with traps, property and theft
+(P18). *Test:* a searcher who follows trails and works downwind finds more than one who searches at random; snow raises finding;
+a spooked animal is not found again at that place for days.
+
+### 3.2 F2 Raider at your door
+It comes to your fields, stores and ricks by night.
+- **Ranging by value** (wild_behaviour's shared block): each night the group goes to the best reachable parcel by food, cover and
+  distance, less remembered danger, plus remembered food. Routes and gaps emerge where cover meets fields.
+- **Defences** work physically: a fence by its level, a shut door, a watch's light, noise, a person, a dog; each kind answers by the
+  scare's kind (D2-198: gets used to it, scared off, leaves for good, none).
+- **Memory of people's pattern:** which nights a place was watched; a learner (P12) comes on the others.
+*Teaches:* varying the scare (P3), keeping it up (P4), the gap (P2), the watch rhythm (P12). *Test:* the same scare wears off for a
+habituating kind; a rotated watch is beaten by a learner; a fence at the gap turns them to the next way in.
+
+### 3.3 F3 Predator of your beasts
+It hunts animals, and your beasts are among them.
+- **Prey-following:** it hunts its wild prey where they are on its territory (a circuit over nights).
+- **Switching:** when its wild prey fail (hunted out, a hard winter, crusted snow), or a kept beast is easy (an unwatched fold, a
+  calf apart), it takes kept beasts; a place that fed it brings it back within days.
+- **Surplus killing** in an enclosure.
+*Teaches:* the consequence through its prey (P8), keeping the fold (P4), restraint with its prey (P5). *Test:* hunting its wild prey
+down raises its kills of kept beasts within a season; a watched fold loses far less.
+
+### 3.4 F4 The run or the pulse
+It passes a place for a few days, set off by conditions.
+- **A flow:** a share of the population moves along the river chain or the flyway on its triggers (dark wet nights with rising
+  water after dry weeks; a freeze to the east; warm still evenings), area to area over nights.
+- **Gear at points:** a weir, traps, nets on a flight line take a share of what passes; what is taken upstream does not arrive
+  downstream.
+- **The window:** being there with the gear and a crew on the right night is everything.
+*Teaches:* timing (P1), reading the leads (P13), many hands (P7), the commons between villages (P5, rights). *Test:* the run reaches
+a downstream point the night after its trigger; a weir upstream lowers the catch below.
+
+### 3.5 F5 The site you steward
+A fixed place held for years: a heronry, rookery, bee tree, eyrie, lodge, warren, earth.
+- **A stock at a place** that grows, crashes and recovers over years; what is taken from it and what disturbs it in its season.
+- **Claims and inheritance:** a site can be claimed, marked, held, passed on, poached (D2-194).
+- **Leaving:** troubled at the wrong time it is deserted for years (D2-198).
+*Teaches:* restraint (P5), no way back (P6), property in a wild thing (P18). *Test:* a site taken lightly yields every year; taken
+heavily it shrinks; troubled in its season it is deserted.
+
+### 3.6 F6 The engineer
+It changes the land, which moves other kinds and people's work.
+- **Lasting changes to land state:** a dam floods a meadow and makes a pond; rooting turns the turf; browsing stops a wood regrowing.
+*Teaches:* the trade-off (P10), the long run. *Test:* the change persists while the cause stays, and reverses slowly when it goes.
+
+### 3.7 F7 The outbreak
+It erupts from the weather, area by area; scares mean nothing to it.
+- **A load** (wave 3, built): a level by conditions, harm in windows, natural enemies following.
+*Teaches:* timing (P1), the misread (P11), cultivation as defence. *Test:* built (wave 3).
+
+### 3.8 F8 The lodger
+It lives inside your buildings and stores.
+- **Attrition set by structure:** how a store is built (raised floor, stone, a cat, a terrier), what is in it, the season.
+*Teaches:* design (P10), the misread (a door does nothing). *Test:* a raised floor or a terrier cuts losses; a door does not.
+
+### 3.9 F9 Danger
+It can hurt or kill people.
+- **Encounter risk by state and situation:** a sow with young, a boar at bay or wounded, a bear in spring, a stag in the rut, a wolf
+  at bay; less with a crew and hounds (D2-193).
+*Teaches:* when not to go near (P14). *Test:* the risky meetings are where and when the rows say.
+
+### 3.10 F10 The informant
+Its behaviour answers another kind's state, visibly: ravens over a kill, kestrels over voles, a heronry's size and the fish, rooks
+on a field and the grubs, swallows low and the rain, jays scolding at a fox. *Teaches:* reading others (P16). *Test:* its sign
+appears where and when the other's state is.
+
+### 3.11 F11 Taking and taming
+A wild animal taken and made into something kept, over weeks.
+- **Capture** of the right animal at the right time (striped piglets in spring; an eyass from the eyrie before it flies; a swarm in
+  May; a red deer calf; geese and ducks for decoys).
+- **Taming or training** as a process: work over weeks, with skill; failure (it dies, escapes, never takes); the result is a
+  **beast of the husbandry entity** (a pig, a tame deer in a park, a hive) or a **trained asset** (a hawk).
+*Teaches:* patience and craft (P17); timing of the capture (P1); what to spare (taking the young costs the wild stock). *Test:* a
+capture at the wrong time fails; training takes its weeks; a tamed beast is husbandry's from then on.
+
+### 3.12 F12 The legend
+A unique individual with a name and a story (D2-195): rumour, prestige, taboo, a feat to kill.
+*Teaches:* the social side of the wild. *Test:* built in wave 5 (to be moved onto a kind's shared state).
+
+### 3.13 F13 The calendar-giver
+It marks the season by the year's warmth, with lore true and false (built: markers). *Teaches:* the misread (P11).
+
+### 3.14 Transitions
+- **Wild to kept** (F11): the animal leaves the wild kind's state and becomes a husbandry beast or an asset.
+- **Kept to feral:** beasts that stray or escape join the wild (pigs into the woods, bees swarming off, a hawk lost).
+- **Mixing:** kept sows at pannage in a wood with wild boar bear wilder litters (later, with husbandry).
+- **Site to gone:** deserted or destroyed (F5).
+- **Ordinary to legend:** a beast that survives many hunts, or a famous kill, becomes known (F12).
+
+### 3.15 The animal interface and the engine
+As in the first version of this proposal (D2-203): a module perceives only its own state, the land it can reach tonight, what is
+physically there (a watch, a dog, people, other kinds' groups), the weather now; and acts only through the engine's primitives
+(move, eat, take, kill, den, breed, die, disperse, leave a trace, make a sound, remember), with keyed randomness. People meet
+everything through the usual ways: their acts (techniques with places and gear), signs, events. Guards: only modules name kinds;
+modules use only the interface; each facet's tests and each kind's tests.
+
+## 4. The kinds, redesigned
+
+For each kind: its **facets**; the **behaviours chosen** (the most interesting by §1.3), each with what it does, what people see, what
+they can do, and its test; what is **cut or deferred** and why; and **why this design**.
+
+### 4.1 Wild boar
+**Facets:** raider (F2), quarry (F1), danger (F9), engineer (F6), taking and taming (F11), legend (F12).
+
+**Chosen behaviours:**
+1. **The learning sounder (F2).** A sounder (sows, their young, led by the matriarch; boars apart except in the rut) ranges by value
+   from its lie-up. It finds a field through the cover that touches it, comes back nightly, gets used to one kind of scare in about a
+   week, learns which nights a field is watched and comes on the others, and is made wary for longer only by harm (a dog's bite, a
+   boar killed). *Lever:* vary the scare's kind, back it with a dog, watch the gap, watch on unpredictable nights, fence the gap.
+   *Why:* the deep dive found boar the strongest wild threat and the expert's edge to be in the acts; this is a real contest.
+2. **The matriarch's memory.** The routes, the fields and the fears are the matriarch's; kill her and the sounder scatters and loses
+   them. *Lever:* the boar hunt aimed at the old sow. *Why:* turns a hunt into a decision about which animal.
+3. **The mast's two years (F2, with the mast).** In a mast autumn the sounder stays in the woods; when the mast fails it is out at the
+   fields and stores; after a heavy mast more sows farrow and litters are larger, so the next year has many more boar; a failed mast
+   after a heavy one is the worst year. *Signs:* catkins, acorns setting, striped piglets. *Why:* the best cross-season arm (P9), and
+   lore with real truth.
+4. **The boar hunt (F1, F9).** Finding the sounder's lie-up in thick cover by its sign, then a crew with spears and a hound to hold it
+   at bay; a wounded boar lies up and charges whoever follows. *Why:* collective action with real risk (P7, P14), and prestige.
+5. **Rooting the turf (F6).** On wet pasture and meadow in spring and autumn it turns the turf for grubs; that ground gives little hay
+   that year. *Why:* boar damage where there is no corn, and a reason to fence the hay meadow.
+6. **Striped piglets (F11).** Piglets caught in spring can be raised as pigs (a cheap start of a herd, with risk from the sow); a
+   piglet too young dies. *Why:* a link to husbandry, and a choice in spring between hunting the sow and taking her young.
+
+**Cut or deferred:** frost to the stores stays as the raider's frost rule (simple, real). Swine fever (wave 4) stays. Kept sows mixing
+with wild boar waits for husbandry.
+
+### 4.2 Red deer
+**Facets:** quarry (F1, primary), site to steward (F5, a herd under rights or a deer park), engineer (F6), danger (F9, a stag at bay),
+taking and taming (F11, calves to a park), legend (the white hart).
+
+**Chosen behaviours:**
+1. **Stalking (F1).** Hinds and calves in a herd led by an old hind, stags apart; by day they lie in thick cover on the lee of the
+   wind; at dusk they come to the edges. A stalker reads slots (age and sex from their size and depth), beds, fraying; works into the
+   wind; is winded and loses them if upwind. In the rut the stags roar, a sound that points to them across a wood. In snow they are
+   found by their lines. *Why:* the richest search game; the expert's depth is real (wind, slot-reading, where they lie in which
+   weather).
+2. **The herd as a stock with a make-up (F5).** Taking hinds lowers next year's calves; taking stags does not; a herd hunted of its
+   hinds dwindles in two years. Under a right (D2-194) the herd is the lord's; poaching is a crime; the villagers' crops pay for the
+   lord's deer. *Why:* restraint (P5) and rights (P18), and a conflict between people, not between people and deer.
+3. **The hunted wood (F1).** Hunting moves the herd to the far side or the next wood within days; it drifts back after weeks of quiet;
+   a drive keeps it away longer. *Why:* hunting near the fields is a defence, hunting far is a supply: a choice.
+4. **The wood that does not regrow (F6).** Where deer are many, coppice and young trees are browsed back: a cut coppice regrows
+   slowly unless fenced. *Why:* ties the deer to the woodward's work and to fuel.
+5. **Winter (F2 minor, F6).** In snow the herd comes to the ricks and strips bark; in a hard late winter the calves, the old and the
+   spent stags die. *Why:* a seasonal arm with a lever (fence the ricks) and a reading (a herd thin in March).
+6. **A calf to a park (F11).** A calf found lying hidden in early summer can be raised tame (a park deer later). *Deferred* until parks
+   exist.
+
+**Cut:** red deer as raiders of the corn like boar (the first build): they graze edges and young corn a little, but their story is the
+stalk, the herd and the woods.
+
+### 4.3 Roe deer
+**Facets:** quarry (F1) with patches; engineer (F6, browse).
+
+**Chosen behaviours:**
+1. **One to a patch (F1).** Each roe holds a patch of thicket and edge (a buck's territory with a doe or two in summer). A searcher who
+   knows the patches knows where roe are; one killed leaves its patch empty until a young roe disperses into it in spring or autumn.
+   *Why:* a map to learn, and P15: hunt one patch out and it stays empty; spread the hunt and they last.
+2. **Calling the buck in the summer rut.** In July and August a buck comes to a call that imitates a doe (a leaf or a reed): a knack
+   that works only then. Red-deer lore looks for a rut in autumn (P11). *Why:* a technique tied to a window and a misread.
+3. **The kid in the long grass.** Kids lie hidden in May and June; the mower finds them. *Sign only*, with the doe's distress.
+
+### 4.4 Wolf
+**Facets:** predator of beasts (F3, primary), quarry (F1: the den, a drive), danger (F9), informant (F10, through the ravens and its
+howls), legend.
+
+**Chosen behaviours:**
+1. **A pack on its circuit (F3).** A pack (a pair and their young) holds a territory of deep wood and the land around several villages;
+   it travels a circuit, a few areas a night, hunting deer where the herds are. Its howls carry, and their direction tells where it is
+   tonight. *Why:* a predator people can track by sound and sign, to know which nights are dangerous where (P1, P2).
+2. **Deer first, herds when the deer fail (F3).** It kills the weak deer of its territory; when the deer are hunted out or a hard late
+   winter and crusted snow tire them, it comes to the herds; a herd that fed it is visited again within days; an open fold is
+   surplus-killed. *Why:* the clearest consequence through another kind (P8), and a reason for villages to hunt the deer with
+   restraint or pay in calves.
+3. **Dispersers.** In autumn to spring a young wolf travels alone across farmland where no pack lives, takes stock readily, and is
+   easy to trap or kill. *Why:* a different problem from a pack: an individual with no territory.
+4. **The drive and the bounty (F1, P7).** A pack is taken by a drive of many (beaters and standers) or at the den in spring (the pups);
+   a world may pay a bounty in heads. *Why:* collective action against a common threat, with free-riders.
+5. **Ravens follow the pack (F10).** Ravens gather at its kills; ravens over the far wood mean a kill there. *Why:* reading one kind
+   through another.
+**Cut:** the wolf "gathering from far" by a probability (the first build).
+
+### 4.5 Fox
+**Facets:** raider (F2: hens), quarry (F1: the earth, hounds), informant (via jays and blackbirds mobbing it), fur in winter.
+
+**Chosen behaviours:**
+1. **One fox, one territory, its habits (F2).** A pair holds a territory with an earth; the dog fox hunts it by the same ways at dusk;
+   it finds an open hen house and comes back the next night; a shut door turns it, and it **tries the doors on other nights**,
+   learning which are left open (P12). Once in, it kills them all. *Why:* the simplest lesson (shut every night), with an adversary
+   that finds your lapses.
+2. **What it hunts depends on the voles (F2 with F7).** In a vole year it hunts voles and leaves the hens; in the crash it comes for
+   them. *Why:* the vole cycle reaches the hen house (P8).
+3. **The earth in spring (F1, F5).** In spring the cubs are at the earth; digging it out then ends that year's trouble; a winter cull
+   kills foxes whose places are refilled by spring. *Why:* timing of control (P1), against intuition.
+4. **The winter pelt.** A fox taken in winter gives a prime pelt (a good for trade when furs have uses).
+
+### 4.6 Brown bear
+**Facets:** danger (F9, primary), quarry (F1: a great hunt), raider (F2: hives, calves in spring), a sleeper (its calendar), legend,
+taking and taming (F11: a cub trained as a dancing bear, deferred).
+
+**Chosen behaviours:**
+1. **The bear's year.** It fattens in autumn on fruit, nuts and mast; dens in late autumn in deep wood or rock; sleeps until spring
+   and cannot be met; wakes by its condition (thin wakes early and hungry), a sow with cubs late. *Signs:* claw marks, turned stones,
+   the den (an expert's). *Why:* a year legible from the autumn (P9).
+2. **The hungry spring (F2).** A bear that went in thin comes to carrion, calves and hives near villages in late spring. *Lever:*
+   guard the calves and hives after a bare autumn. *Why:* the autumn's mast and fruit foretell the spring's danger.
+3. **Meeting a bear (F9).** A sow with cubs attacks; a wounded bear is deadly; a bear surprised at close range charges. The meeting is
+   where and when it ranges (its den and its feeding places by season). *Why:* when not to go (P14).
+4. **The great hunt (F1, P7).** Many with spears and hounds; a feat (prestige, a legend if it is one).
+5. **Rarity.** Present in few worlds (wildwood, upland), one or two.
+
+### 4.7 Brown hare
+**Facets:** quarry (F1 with traps: snares), raider (minor: young crops), taking (the warren: deferred to husbandry, as rabbits).
+
+**Chosen behaviours:**
+1. **Forms and runs (F1).** Hares lie by day in forms on open ground and cross hedges and banks by the same runs. A snare on a run
+   takes; one set elsewhere seldom does. A practised eye reads the runs. *Why:* a map of places (P2) for the poorest food.
+2. **Snares are property (F1).** Snares are set at dusk and checked at dawn; they can be robbed, and sometimes take a fox, a cat or a
+   neighbour's dog. *Why:* property and quarrels (P18) from a small act.
+3. **Snared out and refilled.** A field snared hard is empty for weeks until hares from around refill it (P15).
+4. **Coursing** with a hound (D2-196) on open ground: a sport and a status.
+
+### 4.8 Woodpigeon
+**Facets:** raider (F2: flocks), quarry (F1: decoyed, netted).
+
+**Chosen behaviours:**
+1. **Flocks follow the food across the land.** In a mast autumn they are in the woods; when it fails, the whole flock comes to the
+   young winter corn and the peas and strips patches (P8). They get used to a scarecrow in days; a child moving about lasts longer
+   (children's work).
+2. **Decoyed (F1).** Shooting or netting over decoys on a field they are using. *Deferred* until gear exists.
+**Note:** the dovecote pigeon is a different bird (the rock dove), kept as a lord's privilege: husbandry.
+
+### 4.9 Rook and the rookery
+**Facets:** site (F5), raider (F2: seed and sprouting corn), ally (they eat the grubs), informant (F10: rooks working a field show grubs),
+quarry (the young: rook pie).
+
+**Chosen behaviours:**
+1. **The trade-off.** Rooks follow the plough and work pasture for grubs (leatherjackets, wireworm: lowering those loads), and pull
+   sown and sprouting corn near the rookery. A child with a clapper keeps them off a sown field for the days that matter. *Why:* a
+   real trade-off (P10) and children's work.
+2. **The rookery.** Nests in the same trees for generations; young taken as they branch in May; shooting the old birds empties it.
+
+### 4.10 Raven
+**Facets:** informant (F10).
+1. **Ravens to carrion and to the wolves.** They gather over a carcass within a day and follow the packs. *Why:* the purest information
+   kind; worth having because wolves and kills are worth knowing.
+
+### 4.11 Voles and mice, owls and kestrels
+**Facets:** outbreak (F7, the cycle), lodger (F8: mice in the stores), informant (F10: owls and kestrels), site (F5: a barn owl's barn).
+
+**Chosen behaviours:**
+1. **The vole years** (built: the phase clock, three to four years, sevenfold). *Why:* a multi-year pattern carried by lore and elders.
+2. **Kestrels and owls follow them.** Kestrels hang over every field in a vole year; owls breed well and then fall silent in the crash.
+3. **The barn owl in the barn (F5).** A barn owl nesting in a barn keeps the mice of that barn down; it leaves if the barn is disturbed in
+   spring. *Why:* an ally you steward, cheaper than a cat (P10).
+4. **The crash reaches the hens** through the fox (§4.5).
+
+### 4.12 Rats and mice in the stores
+**Facets:** lodger (F8).
+1. **To the barns after the harvest; held by how stores are built.** A raised granary floor, stone, a cat or a terrier cut losses; a
+   door does nothing (the misread run 6 showed). In the era the rat of the houses is the black rat, in thatch and roofs. *Why:* design
+   as defence.
+
+### 4.13 Wildfowl
+**Facets:** run (F4: pushed in by freezes), quarry (F1: flight lines, nets), taking (F11: geese and decoy ducks, deferred).
+
+**Chosen behaviours:**
+1. **Pushed in by the cold.** Flocks come in autumn and many more within days of a freeze to the east; ahead of a freeze, plovers and
+   redwings fly west all day (a lead the climate gives). *Why:* a run read from the weather (P1, P13).
+2. **Flight lines.** At dawn and dusk they fly the same lines between water and feeding; nets on a line, worked by several, take far
+   more. *Why:* place (P2) and many hands (P7).
+3. **Weak in a long freeze, and the next winter.** A week into a freeze they come tame; many taken then means fewer next winter (they
+   return by how many left). *Why:* restraint (P5) against an easy harvest.
+
+### 4.14 Eel
+**Facets:** run (F4: the silver eels), quarry (F1: spearing in the mud in winter), site (F5: a weir as a held right).
+
+**Chosen behaviours:**
+1. **The silver run.** In autumn a share of the eels turns silver and runs downstream on dark, wet nights with the water rising; a dry
+   autumn holds them, so the first heavy rain after dry weeks brings a great run. The run passes down the river chain over nights.
+   *Why:* the eel night (P1) read from the weather; the deep dive's strongest case of reading paying.
+2. **The weir and the river below.** A weir (a work by many, a held right) takes a share of what passes; a village downstream gets
+   what the weir leaves. *Why:* the commons between villages (P5, rights), Domesday's eel rents.
+3. **Spearing in winter.** Resident eels lie in the mud of pools and dykes; a spear probing the mud finds them (a search, F1). *Why:* a
+   winter food for the fen.
+
+### 4.15 Salmon (wildlife.md wave 1; not yet built)
+**Facets:** run (F4, upstream), site (the weir), quarry (the pools).
+1. **Up on the spate.** After autumn rain they run upstream; low warm water holds them in the pools below; cold stops them.
+2. **The weir and the spawning upstream.** A weir below takes the run; what passes spawns upstream, and a run fished out below is a
+   poor run in later years (Magna Carta's weirs). *Why:* the strongest commons between villages (upstream against downstream) with a
+   lag of years.
+**Recommendation:** build with the eel's run module, since it is the same facet run the other way.
+
+### 4.16 Trout
+**Facets:** quarry (F1: resident, tickled by hand or taken by rod). **Chosen:** each pool holds its fish; tickling is a knack; a pool
+fished out refills slowly (P15). Simple, a steady small catch.
+
+### 4.17 Otter (deferred)
+**Facets:** raider (F2: fish at the weir and the fishpond), quarry (F1: hunted with hounds; fur). A rival at the weir; a fur.
+
+### 4.18 Heron and the heronry
+**Facets:** site (F5), informant (F10: its size shows the fish), quarry (the young: a lord's feast), raider (fish at the weir).
+1. **The heronry** (built): same trees for generations; a hard winter halves it and it recovers over years; troubled at the nests in
+   spring it is deserted for years. **2. The young taken** as a feast (a right). **3. Its size shows the fish** (to an expert).
+*Why:* restraint and no way back (P5, P6), and a lord's claim.
+
+### 4.19 Beaver
+**Facets:** engineer (F6, primary), site (F5: the lodge), quarry (F1: trapping for pelt and castoreum).
+1. **The dam's trade-off** (built): the pond holds water in a dry summer, cuts floods, holds fish and fowl; floods the meadow; drowned
+   trees become deadwood; broken, it is rebuilt within days while the family lives. **2. Slow to breed:** trapped out, gone for good
+   (P6). *Why:* the clearest trade-off on land, and the classic open-access extinction.
+
+### 4.20 Wild bees
+**Facets:** site (F5: the bee tree) found by search (F1: lining the bees home), run (F4: swarms in May and June), taking and taming
+(F11: a swarm into a skep), raided (by a bear, by wasps).
+
+**Chosen behaviours:**
+1. **Lining the bees home (F1).** Bees working flowers fly straight home; a hunter who watches their line from two places finds the
+   tree where the lines cross. *Why:* a search procedure unlike any other (a skill, a knack).
+2. **The bee tree as property (F5, P18).** A found tree is marked as someone's; its honey and wax taken in late summer; taking all of it
+   kills the colony over winter (P5).
+3. **The swarm (F4, F11).** In May and June a strong colony swarms; a swarm taken into a skep is a hive (husbandry); "a swarm in May"
+   is worth more than one in July (lore with truth: the flow left).
+4. **Raided** by a hungry bear in spring and by wasps in a wasp year.
+**Recommendation:** wave 2 with husbandry, as wildlife.md planned.
+
+### 4.21 Pine marten (deferred)
+**Facets:** quarry (F1: traplines in old wood cores; winter fur). Rare, a fine fur; waits for furs to have uses.
+
+### 4.22 Falcon
+**Facets:** site (F5: the eyrie, used for generations), taking and training (F11: an eyass taken before it flies, then months of
+manning and training), quarry for the hawk (fowl, hares).
+1. **The eyass and its training.** Taken at the right age; trained over weeks with skill; the result is a hawk that takes fowl and
+   hares with its keeper; it can be lost. *Why:* patience and craft (P17), prestige, rights (the lord's hawks).
+**Recommendation:** with D2-196's hawks (wave 3).
+
+### 4.23 Swan
+**Facets:** site (F5: a pair's water), property (P18: marked on the beak by its owner), quarry (easy).
+1. **Marking.** Swans are owned by marks cut on the beak; the year's cygnets are marked at a gathering; an unmarked swan is the
+   lord's. *Why:* property in a wild thing, made visible; a social institution from a bird. *Deferred* with rights.
+
+### 4.24 The loads, diseases, plants, markers (built)
+Their facets are the outbreak (slugs, aphids and ladybirds), the calendar-giver (markers), the site and the pulse (plants, the
+mast, fungi), and disease (wave 4). Kept as built.
 
 ## 5. The web between kinds (consequences that travel)
 
-| Chain | Mechanism (behaviour rows) | Lag | What people can learn |
-|---|---|---|---|
-| hunt out the deer → wolves at the herds | wolf B2, B3; deer B5, B6 | a season | restraint with the deer protects the herds (P8) |
-| a heavy mast → more boar next year → more raids the year after if the mast fails | boar B2, B7 | one to two years | read the oaks two years ahead (P9) |
-| a heavy mast → pigeons and boar in the woods, the fields quiet; a failure → pigeons on the winter corn, boar out | boar B2, pigeon B1 | the same autumn | watch the corn in a failed mast year |
-| the vole phase → owls and foxes breed → the crash → foxes at the hens | voles B1-B3, fox B2 | a year | shut the hens hard in the crash year |
-| a poor autumn → a thin bear → calves and hives in spring | bear B1, B2 | a season | guard the calves after a bare autumn |
-| wolves kill → ravens gather → a fox and a bear come to the carrion | wolf B8, raven B1 | a day | ravens show the pack |
-| beaver dam → more fish and fowl, a flooded meadow | beaver B3 | a season | the dam's trade-off |
-| heronry and otters → fewer fish at the weir | heronry B4 | a season | (a rival, and the size shows the fish) |
-| rooks eat the grubs → less root damage, but pull the corn | rookery B2, B3 | a season | where to scare them, where to leave them |
-| felling a wood → the deer and boar move; less mast; the bear's den lost | deer B5, boar B1, bear B1 | a season to years | the land changes the animals |
-| shared commons → murrain through the herds | diseases | days | keep the herds apart in an outbreak |
-| a long freeze → fowl weak and many → over-taken → fewer next winter | wildfowl B1, B3 | a year | restraint (P5) |
-| the first rain after dry → the eel run, slugs out, mushrooms later | eel B1, slugs, fungi | days to weeks | one weather sign, three answers |
-
-## 6. Diversity: the learning problems by kind
-
-| Kind | Main problems | Secondary |
+| Chain | Through | Lag |
 |---|---|---|
-| boar | P3 varying, P2 the gap, P12 learns your nights | P9 the mast, P14 danger, P7 the crew |
-| red deer | P5 restraint (hinds), P1 the rut and winter | P15 the hunted wood, P10 coppice, rights |
-| roe | P15 patches emptied and refilled | P11 the summer rut misread |
-| wolf | P8 deer to herds, P7 drive or bounty | P4 the fold, P11 the track, P16 ravens |
-| fox | P4 shut and keep shut | P1 spring provisioning, P8 voles, timing of control |
-| bear | P9 the autumn foretells the spring | P14 danger, rarity |
-| hare | P2 the runs | P15 snared out and refilled |
-| woodpigeon | P8 the mast to the winter corn | P3 scarecrows wear off |
-| rats and mice | P10 how a store is built | P1 the harvest in, a misread (the door) |
-| voles and owls | P9 the cycle (lore) | P8 the crash to the hens |
-| raven | P16 information | |
-| wildfowl | P1 the freeze, P2 flight lines | P5 restraint |
-| eel | P1 the eel night, P13 reading the leads | P7 the weir crew, rights |
-| heronry | P6 no way back | P5, P16 |
-| rookery | P10 trade-off | P3 |
-| beaver | P10 trade-off, P6 no way back | land change |
-| bees (later) | P2 finding the tree | P1, P5 |
-| slugs, aphids | P1 timing, P11 the misread | |
+| hunt out the deer → wolves at the herds | wolf 2; red deer 2 | a season |
+| a heavy mast → more boar next year → a failed mast after it: the worst year | boar 3 | one to two years |
+| a failed mast → pigeons on the winter corn, boar at the fields, mice in the stores | boar 3, pigeon 1, mice | weeks |
+| the vole crash → foxes and owls at the hens and nests | voles 1-2, fox 2 | a year |
+| a bare autumn → a thin bear → calves and hives in spring | bear 1-2 | a season |
+| a wolf kill → ravens → a fox and a bear at the carrion | raven 1, wolf 5 | a day |
+| a beaver dam → fish and fowl up, the meadow flooded | beaver 1 | a season |
+| a weir upstream → less below (eels this year; salmon in later years) | eel 2, salmon 2 | nights; years |
+| rooks eat the grubs → less root damage; they pull the corn | rook 1 | a season |
+| deer browse → the coppice does not regrow → less fuel | red deer 4 | years |
+| felling a wood → deer, boar and the bear move; less mast | the ranging and the sites | a season to years |
+| a long freeze → fowl many and weak → over-taken → fewer next winter | wildfowl 3 | a year |
+| the first rain after dry weeks → the eel run, slugs out, mushrooms later | eel 1, slugs, fungi | days to weeks |
+| a barn owl in the barn → fewer mice in that barn | owls 3 | a season |
 
-**Gaps:** P12 (an adversary that learns your pattern) only in the boar; it could also be the fox (testing the door on different nights)
-and the wolf (the unwatched nights), cheaply, from the same memory block. P7 (many hands) waits on work by several (D4-103 mechanism
-1), which exists as the crew bonus only.
+## 6. Diversity
 
-**Overlaps removed by this design:** red deer no longer copy the boar (they graze and browse, and teach restraint); roe no longer copy
-red deer (patches); the fox stops being a probability at the hens and becomes a pair with an earth.
+**Facets by kind:**
+
+| Kind | F1 quarry | F2 raider | F3 predator | F4 run | F5 site | F6 engineer | F8 lodger | F9 danger | F10 informant | F11 take/tame | F12 legend |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| wild boar | x | **x** | | | | x | | x | | x | x |
+| red deer | **x** | (x) | | | x | x | | x | | x | x |
+| roe | **x** | | | | | x | | | | | |
+| wolf | x | | **x** | | | | | x | x | | x |
+| fox | x | **x** | | | x | | | | | | |
+| bear | x | x | | | | | | **x** | | (x) | x |
+| hare | **x** | (x) | | | | | | | | (x) | |
+| woodpigeon | x | **x** | | | | | | | | | |
+| rook | x | x | | | **x** | | | | x | | |
+| raven | | | | | | | | | **x** | | |
+| voles, owls | | | | | x | | x | | **x** | | |
+| rats, mice | | | | | | | **x** | | | | |
+| wildfowl | x | | | **x** | | | | | | (x) | |
+| eel | x | | | **x** | x | | | | | | |
+| salmon | x | | | **x** | x | | | | | | |
+| heron | x | (x) | | | **x** | | | | x | | |
+| beaver | x | | | | x | **x** | | | | | |
+| wild bees | **x** | | | x | x | | | | | x | |
+| falcon | | | | | x | | | | | **x** | |
+| swan | (x) | | | | **x** | | | | | | |
+
+(bold: the kind's main facet; (x): minor or deferred)
+
+**The learning problems are now spread:** the search game (P2, P13) belongs mainly to deer, roe, hare and bees; varying the scare (P3)
+and the learning adversary (P12) to the boar, the fox and the pigeon; the consequence through another kind (P8) to the wolf, the
+pigeon and the fox; the season's foretelling (P9) to the boar and the bear; the run (P1, P7) to the eel, salmon and fowl; restraint
+and no way back (P5, P6) to the deer herd, the heronry, the beaver, the bees and the fowl; property (P18) to snares, the bee tree,
+the weir and the swan; patience and craft (P17) to the falcon, the bees and the piglets.
+
+**What the first build taught nobody:** red deer as raiders; roe as small red deer; the wolf as a probability at the herds; the hare,
+pigeon and eel with nothing of their own. Each now has a distinct facet and problem.
 
 ## 7. What changes in what is built
-- The group state machine, conditions, targets and pressure become shared blocks; each deep kind gets a module: boar, red deer, roe,
-  wolf, fox, bear first; then hare, pigeon, wildfowl, eel; the sites (heronry, rookery, lodge) move into a `colonies` and an `engineer`
-  module.
-- Signs that claim what nothing does are removed until the behaviour exists (the old sow "knows the gap"; the wolves' leader "takes the
-  herds"); the expert readings are rewritten from the modules' state.
-- The immediate fixes: a denned bear cannot be met (bear B1); the readings above cut.
-- Each B row gets its test, and a kind is done when its tests pass.
+- The shared blocks become: the shared state (position, condition, memory, make-up, calendar), ranging by value, habituation by the
+  scare's kind, and the facets' modules: F1 search game (new, the biggest), F2 raider (from the group machine), F3 predator (new:
+  prey-following and switching), F4 run (new: flows on the river chain and flyway), F5 site (from wave 5's sites), F6 engineer, F7
+  outbreak (the loads), F8 lodger (from the store bridge), F9 danger, F10 informant, F11 taking and taming (new, needs the husbandry
+  entity), F12 legend, F13 calendar.
+- **Hunting** for quarry kinds becomes the search game in place of the draw by density; traps and snares as gear left at places.
+- **Immediate fixes:** a denned bear cannot be met; the readings that claim behaviour nothing implements are cut until their behaviour
+  exists.
 
 ## 8. Steps
-1. **Zach checks these behaviour specs** (this proposal), kind by kind: keep, change, cut.
-2. The animal interface and the shared blocks (position, value, memory, habituation by kind of scare, make-up, calendar), with the
-   guard tests.
-3. The deep kinds' modules in order: boar, wolf with red deer (they are one chain), bear, fox, roe.
-4. A run on two generated worlds with the pack on and off (the null arm), and the expert and lay readers, to see whether the patterns
-   are learned.
-5. The middling and simple kinds; then the kinds waiting on husbandry, hounds and rights.
-
-## Alternatives considered
-- **Keep one general machine and add parameters** (the current build): it cannot express denning, patches, herd make-up, prey-following
-  or emergent routes without becoming a module system by another name, and it flattened the kinds.
-- **A module per kind with free access to the world:** quickest, but breaks replay, signs and the separation of concerns; the interface
-  costs little and is how agents already work.
-- **Emergent behaviour from one learning agent per animal group** (a small policy each): rich, but unpredictable, expensive and hard to
-  calibrate; the rules here keep each behaviour testable.
+1. **Zach checks the facets and the kinds' designs** (this proposal).
+2. The shared state and the interface, with the guard tests; F1 (the search game) and F2 (the raider with ranging and memory).
+3. Red deer (the search game, the herd), boar (the learning sounder, the mast's two years, the hunt), wolf (F3 with the deer).
+4. A run on generated worlds with the pack on and off.
+5. The runs (F4: eels, fowl, then salmon); the bear's year; the fox; roe; hare; pigeon; rook.
+6. F11 and the kinds waiting on husbandry, hounds, hawks, rights and furs (bees, falcon, swan, marten, otter).
 
 ## Open questions (for Zach)
-1. **Red deer:** move them from crop raiders to edge grazers and coppice browsers, with restraint (sparing hinds) as their main lesson?
-2. **Boar damage:** aim at real levels (a few percent near woods, a bad local year at a tenth or more) rather than the deep dive's 22%?
-3. **The wolves' circuit:** a pack's territory spanning several villages (so one village's deer-hunting brings wolves to its
-   neighbours' herds too)?
-4. **Learning animals (P12):** boar, fox and wolves learning which nights are watched: wanted, or too adversarial?
-5. **Den-hunting wolf pups and digging out foxes:** keep as levers (historically real, effective, cruel)?
-6. **The vole phase as a clock:** acceptable, given that the mechanics matter more than realistic dynamics?
-7. **Black rat:** name the house rat as the black rat for the era?
-8. **Order of building:** boar, then wolves with red deer, then the bear, the fox and roe?
+1. **The facets** (§3): the right set? Anything missing (for example the animal as a companion, or as a sacred or taboo thing)?
+2. **The search game** (F1): agents choosing where to look and following trails, with the wind deciding the approach. Is this the
+   level of detail wanted, or should a hunt stay one act with the search inside it?
+3. **Red deer** as quarry, herd and woods (not corn raiders); **roe** as patches.
+4. **The learning adversary** (P12): the boar and the fox learning which nights and doors are watched or left open?
+5. **Taming** (F11): piglets to pigs, swarms to skeps, eyasses to hawks, calves to a park, in the order husbandry allows?
+6. **Property in wild things** (P18): snares that can be robbed, marked bee trees, swans marked on the beak, weirs held as rights?
+7. **Cruel but real levers:** digging out a fox earth with cubs, killing wolf pups at the den. Keep?
+8. **Order:** the search game and the raider first, with red deer, boar and wolf?
 
 ## History
 - 10 Nov: written at Zach's request after the audit (02zq) showed most kinds' behaviour to be settings of one machine and much of the
-  catalogue present only as signs. D2-203 recorded (modules per kind, through the animal interface). The behaviour specs are for Zach to
-  check first.
+  catalogue present only as signs. D2-203 recorded (modules per kind, through the animal interface).
+- 10 Nov (later): rewritten after Zach's points that kinds should be "constitutionally different", not dials, and can combine several
+  ways of being met ("something you have to seek but can also domesticate"). The first version still gave most deep kinds one
+  skeleton (a raider turned by scares). Now: thirteen facets with their own core mechanisms (§3), transitions between wild, kept,
+  feral and legend (§3.14), and every specced kind redesigned for its most interesting behaviour by the criteria (§1.3, §4), with
+  what was cut and why.
 
 ## Sources
-- proposals: wildlife.md (§1, §4, §8-§12), wild_systems.md (§4-§10, §12), node_ecology.md, living_populations.md, wild_layer.md,
-  wild_plants.md; the audit `docs/review/37_growth/02zq_wild_audit.md`; the deep dive `02zp_ecosystems_deep_dive.md` (§23-§25).
+- proposals: wildlife.md (§1-§12), wild_systems.md (§4-§10, §12), node_ecology.md, living_populations.md, wild_layer.md,
+  wild_plants.md, husbandry.md; the audit `docs/review/37_growth/02zq_wild_audit.md`; the deep dive `02zp_ecosystems_deep_dive.md`
+  (§23-§25).
 - decisions D2-192 to D2-203.
-- natural history as summarised in wild_systems.md §12 and 02zp's sources (mast and pannage; vole cycles and their predators; the
-  silver eel run; heronry censuses and hard winters; wolf predation on livestock when wild prey is scarce; boar damage to crops and
-  grassland; red deer herd structure and the rut; roe territoriality and the summer rut with delayed implantation; brown bear denning
-  and autumn hyperphagia; fox territories, cubs and surplus killing).
+- natural history as summarised in wild_systems.md §12 and 02zp's sources, and well-established practice: mast cycles and pannage;
+  vole cycles and their predators; the silver eel run and eel weirs; salmon runs and weirs (Magna Carta clause 33); heronry censuses
+  and hard winters; wolf predation on livestock when wild prey is scarce; boar damage to crops and grassland; red deer herd structure,
+  the rut and stalking into the wind; roe territories, the summer rut and calling the buck; brown bear denning and autumn feeding;
+  fox territories, cubs and surplus killing; hare forms and runs; bee-lining and skeps; falconry's eyasses; swan-marking.
