@@ -263,7 +263,7 @@ class Group:
 
     def _take(self, c, tk):
         st, v = self.st, self.v
-        v.work(self.name, tk["units"])
+        pass                                                           # the act's work is booked once, by the act (sim.charge)
         sk = c.acts.get("skill", "novice")
         if self.rng.random() < tk["p"][sk]:
             st["n"] -= 1
@@ -308,7 +308,7 @@ class Load:
             for sc in R.get("scares", ()):
                 if c.acts.get(sc):
                     scare = sc
-                    v.work(self.name, R["scare_units"].get(sc, 0.0), who=R.get("scare_by", {}).get(sc, "adults"))
+                    pass                                                           # the act's work is booked once, by the act (sim.charge)
             if scare is not None:
                 if c.d < st["off_until"]:
                     a *= R["answer"].get("while_off", 0.2)
@@ -332,7 +332,7 @@ class Load:
                     v.emit(c.d + 1, self.name, m["sign"], level=a)
         tk = R.get("take")
         if tk and c.acts.get(tk["act"]):
-            v.work(self.name, tk["units"])
+            pass                                                           # the act's work is booked once, by the act (sim.charge)
             got = tk["yield"](self.scale * self.level, c)
             for g, q in tk["goods"].items():
                 v.gain(self.name, g, q * got)
@@ -376,7 +376,7 @@ class Run:
         if c.acts.get(tk["act"]):
             crew = c.acts.get(tk["crew_act"])
             share = tk["crew_share"] if crew else tk["share"]
-            v.work(self.name, tk["units"] + (tk["crew_units"] if crew else 0.0))
+            pass                                                           # the act's work is booked once, by the act (sim.charge)
             for g, q in tk["goods"].items():
                 v.gain(self.name, g, q * run * share)
             if run * share >= tk["full_at"]:
@@ -424,7 +424,7 @@ class Flock:
         R, D, d, v = self.row, c.D, c.d, self.v
         ready = d - 3 <= self.nets < d
         if c.acts.get(R["prepare_act"]) and not ready:
-            v.work(self.name, R["prepare_units"])
+            pass                                                           # the act's work is booked once, by the act (sim.charge)
             self.nets = d
         if c.acts.get(R["take_act"]) and ready:
             self.nets = d
@@ -432,7 +432,7 @@ class Flock:
             present = self.size * (R["while_off"] if d < self.off_until else 1.0) * (1.0 if in_windows(d, R["windows"]) else 0.1)
             got = present * R["rate"][fr]
             self.taken += got
-            v.work(self.name, R["take_units"])
+            pass                                                           # the act's work is booked once, by the act (sim.charge)
             for g, q in R["goods"].items():
                 v.gain(self.name, g, q * got)
             v.event(d, self.name, "taken", got)

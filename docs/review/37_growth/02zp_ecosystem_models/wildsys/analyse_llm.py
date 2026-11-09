@@ -16,4 +16,4 @@ for key in sorted(by):
           f"(none {n(lambda r: r['baselines']['none']['net']):+6.1f}, calendar {n(lambda r: r['baselines']['calendar']['net']):+6.1f}, "
           f"scripted {n(lambda r: r['baselines']['scripted expert']['net']):+6.1f}) loss {n(lambda r: r['score']['loss']):5.1f} "
           f"work {n(lambda r: r['score']['work']):5.1f} child {n(lambda r: r['score']['child']):4.1f} | "
-          + " ".join(f"{k}={np.mean(v):.2f}" for k, v in beh.items()) + f" | ${sum(r['cost_usd'] for r in rs):.2f} calls {sum(r['calls'] for r in rs)}")
+          + " ".join(f"{k}={np.mean(v):.2f}" for k, v in beh.items()) + f" | ${sum(r.get('cost_usd', 0) for r in rs):.2f} calls {sum(r['calls'] for r in rs)}")

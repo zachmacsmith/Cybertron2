@@ -29,7 +29,7 @@ import kinds as K
 from rules import Y, S, season, sday, in_windows
 from village import FOOD_NEED
 
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "llm_runs")
+OUT = os.environ.get("WILD_LLM_OUT") or os.path.join(os.path.dirname(os.path.abspath(__file__)), "llm_runs")
 MODELS = {"haiku": "claude-haiku-5-5", "sonnet": "claude-sonnet-5-5"}
 SEASONS = ["spring", "summer", "autumn", "winter"]
 _lock = threading.Lock()
