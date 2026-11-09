@@ -6,10 +6,10 @@ Tests:
   T1 boar   the field by the wood (boar and deer; groups that set out with a lead, a learned field, getting used to scares)
   T2 eels   the weir in autumn (a run on dark nights with rising water after dry weeks; seeded lore that is wrong)
   T3 sowing birds and hares at the seed (birds get used to a scarecrow, hares are scared off by it; seeded lore that is wrong)
-Arms: model (Haiku, Sonnet), skill (novice or expert readings), names (named, or masked so prior knowledge of the species helps
+Arms: model (Haiku, Sonnet, Opus), skill (novice or expert readings), names (named, or masked so prior knowledge of the species helps
 less), lore (none, or a wrong saying).
 
-Usage: python3 llm_tests.py [T1 T2 T3] [--dry]   (--dry runs the scripted stand-in instead of a model, to check the harness)
+Usage: python3 llm_tests.py [T1 T2 T3] [--dry] [--models=opus,sonnet]   (--dry runs the scripted stand-in instead of a model, to check the harness)
 """
 from __future__ import annotations
 
@@ -30,7 +30,7 @@ from rules import Y, S, season, sday, in_windows
 from village import FOOD_NEED
 
 OUT = os.environ.get("WILD_LLM_OUT") or os.path.join(os.path.dirname(os.path.abspath(__file__)), "llm_runs")
-MODELS = {"haiku": "claude-haiku-5-5", "sonnet": "claude-sonnet-5-5"}
+MODELS = {"haiku": "claude-haiku-5-5", "sonnet": "claude-sonnet-5-5", "opus": "claude-opus-5-5"}
 SEASONS = ["spring", "summer", "autumn", "winter"]
 _lock = threading.Lock()
 
@@ -288,21 +288,21 @@ def run_cell(name, T, r, level, named, lore, mkey, dry):
         v, obs = sim.simulate(r, hh, level=level, masked=(named == "masked"), days=end, kinds={k: K.KINDS[k] for k in T["kinds"]})
     res = {"test": name, "tag": tag, "world": r["world"], "village": r["village"], "level": level, "named": named,
            "lore": bool(lore), "model": mkey, "dry": dry, "score": score(v, T), "behaviour": behaviour(name, v, hh, T),
-           "cost_usd": sum(float((c["usage"] or {}).get("cost_usd") or (c["usage"] or {}).get("total_cost_usd") or 0) for c in hh.calls), "calls": len(hh.calls)}
+           "cost_usd": sum(float((c["usage"] or {}).get("cc_equiv_usd") or (c["usage"] or {}).get("cost_usd") or 0) for c in hh.calls), "calls": len(hh.calls)}
     for bname, pol in (("none", B.none), ("calendar", B.calendar), ("scripted expert", B.expert())):
         vb, _ = sim.simulate(r, restrict(pol, T), level="expert", days=end, kinds={k: K.KINDS[k] for k in T["kinds"]})
         res.setdefault("baselines", {})[bname] = score(vb, T)
     return res
 
 
-def main(names, dry=False, workers=8):
+def main(names, dry=False, workers=8, models=None):
     jobs = []
     for name in names:
         T = TESTS[name]
         rs = [r for r in sim.runs(eras=T["eras"]) if (r["world"], r["village"]) in T["villages"]]
         for r in rs:
             for level, named, lore in T["arms"]:
-                for mkey in MODELS:
+                for mkey in (models or MODELS):
                     jobs.append((name, T, r, level, named, lore, mkey, dry))
                     if dry:
                         break
@@ -329,4 +329,5 @@ def main(names, dry=False, workers=8):
 
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    main(args or ["T1", "T2", "T3"], dry="--dry" in sys.argv)
+    ms = next((a.split("=", 1)[1].split(",") for a in sys.argv if a.startswith("--models=")), None)
+    main(args or ["T1", "T2", "T3"], dry="--dry" in sys.argv, models=ms)
