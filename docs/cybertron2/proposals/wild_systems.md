@@ -847,6 +847,12 @@ Moving it into the engine is for 37.4, by agreement on the board.
   first wave built with targeted LLM tests. Added §13 (the comparison; a merged rule for going early: pressure, use and reading; five
   waves, with boar, rats and birds at the corn moved into wave 1 beside D2-192's red deer, hare, eels and wildfowl) and §14 (how it
   fits the engine: nothing is in it yet). Open questions 8 and 9.
+- 9 Nov: wave 1 built on the general rules (02zp part six: five rules with no kind named in their code; seven kinds as data with
+  signs, goods and acts). Targeted LLM tests (Haiku and Sonnet, 28 runs, 704 calls):
+  - models meet boar raids at the right gap with expert readings, and lose 20 to 25 food more with novice readings;
+  - they over-watch: work about three times the scripted expert's;
+  - they read eel nights well from prior knowledge; a seeded wrong saying costs them 16 to 31 food and is overturned only slowly;
+  - they do not learn in two seasons that birds get used to a scarecrow while hares are scared off by it (D2-198).
 
 ## Sources
 

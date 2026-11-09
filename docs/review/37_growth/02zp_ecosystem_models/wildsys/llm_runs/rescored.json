@@ -1,0 +1,1613 @@
+[
+ {
+  "test": "T1",
+  "tag": "T1_settled_s1_expert_masked_nolore_haiku",
+  "world": "settled lowland and frontier",
+  "village": "s1",
+  "level": "expert",
+  "named": "masked",
+  "lore": false,
+  "model": "haiku",
+  "calls": 20,
+  "complete": true,
+  "score": {
+   "loss": 21.407232,
+   "yield": 0.0,
+   "work": 32.0,
+   "child": 0.0,
+   "net": -37.407232,
+   "net_share_of_need": -0.04870733333333333
+  },
+  "behaviour": {
+   "raid_nights": 4,
+   "watched_nights": 8,
+   "raids_met_at_the_right_gap": 4,
+   "watch_nights_without_raid": 4,
+   "scare_changes": 4,
+   "scares_used": [
+    "clapper",
+    "dog",
+    "horn"
+   ],
+   "brier": 0.12813999999999998
+  },
+  "baselines": {
+   "none": {
+    "loss": 91.291143718656,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -91.291143718656,
+    "net_share_of_need": -0.11886867671700001
+   },
+   "calendar": {
+    "loss": 27.611136000000002,
+    "yield": 0.0,
+    "work": 84.0,
+    "child": 0.0,
+    "net": -69.611136,
+    "net_share_of_need": -0.0906395
+   },
+   "scripted expert": {
+    "loss": 27.611136000000002,
+    "yield": 0.0,
+    "work": 24.0,
+    "child": 0.0,
+    "net": -39.611136,
+    "net_share_of_need": -0.051577000000000005
+   }
+  }
+ },
+ {
+  "test": "T1",
+  "tag": "T1_settled_s1_expert_masked_nolore_sonnet",
+  "world": "settled lowland and frontier",
+  "village": "s1",
+  "level": "expert",
+  "named": "masked",
+  "lore": false,
+  "model": "sonnet",
+  "calls": 20,
+  "complete": true,
+  "score": {
+   "loss": 21.407232,
+   "yield": 0.0,
+   "work": 58.0,
+   "child": 0.0,
+   "net": -50.407232,
+   "net_share_of_need": -0.06563441666666667
+  },
+  "behaviour": {
+   "raid_nights": 4,
+   "watched_nights": 20,
+   "raids_met_at_the_right_gap": 4,
+   "watch_nights_without_raid": 16,
+   "scare_changes": 8,
+   "scares_used": [
+    "dog",
+    "fire",
+    "horn"
+   ],
+   "brier": 0.13162500000000002
+  },
+  "baselines": {
+   "none": {
+    "loss": 91.291143718656,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -91.291143718656,
+    "net_share_of_need": -0.11886867671700001
+   },
+   "calendar": {
+    "loss": 27.611136000000002,
+    "yield": 0.0,
+    "work": 84.0,
+    "child": 0.0,
+    "net": -69.611136,
+    "net_share_of_need": -0.0906395
+   },
+   "scripted expert": {
+    "loss": 27.611136000000002,
+    "yield": 0.0,
+    "work": 24.0,
+    "child": 0.0,
+    "net": -39.611136,
+    "net_share_of_need": -0.051577000000000005
+   }
+  }
+ },
+ {
+  "test": "T1",
+  "tag": "T1_settled_s1_expert_named_nolore_haiku",
+  "world": "settled lowland and frontier",
+  "village": "s1",
+  "level": "expert",
+  "named": "named",
+  "lore": false,
+  "model": "haiku",
+  "calls": 20,
+  "complete": true,
+  "score": {
+   "loss": 21.407232,
+   "yield": 0.0,
+   "work": 40.0,
+   "child": 0.0,
+   "net": -41.407232,
+   "net_share_of_need": -0.05391566666666667
+  },
+  "behaviour": {
+   "raid_nights": 4,
+   "watched_nights": 13,
+   "raids_met_at_the_right_gap": 4,
+   "watch_nights_without_raid": 9,
+   "scare_changes": 6,
+   "scares_used": [
+    "clapper",
+    "dog",
+    "fire",
+    "horn"
+   ],
+   "brier": 0.110945
+  },
+  "baselines": {
+   "none": {
+    "loss": 91.291143718656,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -91.291143718656,
+    "net_share_of_need": -0.11886867671700001
+   },
+   "calendar": {
+    "loss": 27.611136000000002,
+    "yield": 0.0,
+    "work": 84.0,
+    "child": 0.0,
+    "net": -69.611136,
+    "net_share_of_need": -0.0906395
+   },
+   "scripted expert": {
+    "loss": 27.611136000000002,
+    "yield": 0.0,
+    "work": 24.0,
+    "child": 0.0,
+    "net": -39.611136,
+    "net_share_of_need": -0.051577000000000005
+   }
+  }
+ },
+ {
+  "test": "T1",
+  "tag": "T1_settled_s1_expert_named_nolore_sonnet",
+  "world": "settled lowland and frontier",
+  "village": "s1",
+  "level": "expert",
+  "named": "named",
+  "lore": false,
+  "model": "sonnet",
+  "calls": 20,
+  "complete": true,
+  "score": {
+   "loss": 21.407232,
+   "yield": 0.0,
+   "work": 66.0,
+   "child": 0.0,
+   "net": -54.407232,
+   "net_share_of_need": -0.07084275
+  },
+  "behaviour": {
+   "raid_nights": 4,
+   "watched_nights": 19,
+   "raids_met_at_the_right_gap": 4,
+   "watch_nights_without_raid": 15,
+   "scare_changes": 8,
+   "scares_used": [
+    "clapper",
+    "dog",
+    "fire",
+    "horn"
+   ],
+   "brier": 0.181875
+  },
+  "baselines": {
+   "none": {
+    "loss": 91.291143718656,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -91.291143718656,
+    "net_share_of_need": -0.11886867671700001
+   },
+   "calendar": {
+    "loss": 27.611136000000002,
+    "yield": 0.0,
+    "work": 84.0,
+    "child": 0.0,
+    "net": -69.611136,
+    "net_share_of_need": -0.0906395
+   },
+   "scripted expert": {
+    "loss": 27.611136000000002,
+    "yield": 0.0,
+    "work": 24.0,
+    "child": 0.0,
+    "net": -39.611136,
+    "net_share_of_need": -0.051577000000000005
+   }
+  }
+ },
+ {
+  "test": "T1",
+  "tag": "T1_settled_s1_novice_named_nolore_haiku",
+  "world": "settled lowland and frontier",
+  "village": "s1",
+  "level": "novice",
+  "named": "named",
+  "lore": false,
+  "model": "haiku",
+  "calls": 20,
+  "complete": true,
+  "score": {
+   "loss": 71.17756800000001,
+   "yield": 0.0,
+   "work": 70.0,
+   "child": 0.0,
+   "net": -106.17756800000001,
+   "net_share_of_need": -0.1382520416666667
+  },
+  "behaviour": {
+   "raid_nights": 6,
+   "watched_nights": 13,
+   "raids_met_at_the_right_gap": 4,
+   "watch_nights_without_raid": 8,
+   "scare_changes": 4,
+   "scares_used": [
+    "clapper",
+    "dog",
+    "fire",
+    "horn"
+   ],
+   "brier": 0.199625
+  },
+  "baselines": {
+   "none": {
+    "loss": 91.291143718656,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -91.291143718656,
+    "net_share_of_need": -0.11886867671700001
+   },
+   "calendar": {
+    "loss": 27.611136000000002,
+    "yield": 0.0,
+    "work": 84.0,
+    "child": 0.0,
+    "net": -69.611136,
+    "net_share_of_need": -0.0906395
+   },
+   "scripted expert": {
+    "loss": 27.611136000000002,
+    "yield": 0.0,
+    "work": 24.0,
+    "child": 0.0,
+    "net": -39.611136,
+    "net_share_of_need": -0.051577000000000005
+   }
+  }
+ },
+ {
+  "test": "T1",
+  "tag": "T1_settled_s1_novice_named_nolore_sonnet",
+  "world": "settled lowland and frontier",
+  "village": "s1",
+  "level": "novice",
+  "named": "named",
+  "lore": false,
+  "model": "sonnet",
+  "calls": 20,
+  "complete": true,
+  "score": {
+   "loss": 54.842592,
+   "yield": 0.0,
+   "work": 80.0,
+   "child": 0.0,
+   "net": -94.842592,
+   "net_share_of_need": -0.12349295833333333
+  },
+  "behaviour": {
+   "raid_nights": 6,
+   "watched_nights": 20,
+   "raids_met_at_the_right_gap": 3,
+   "watch_nights_without_raid": 14,
+   "scare_changes": 10,
+   "scares_used": [
+    "clapper",
+    "dog",
+    "fire",
+    "horn"
+   ],
+   "brier": 0.20275000000000004
+  },
+  "baselines": {
+   "none": {
+    "loss": 91.291143718656,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -91.291143718656,
+    "net_share_of_need": -0.11886867671700001
+   },
+   "calendar": {
+    "loss": 27.611136000000002,
+    "yield": 0.0,
+    "work": 84.0,
+    "child": 0.0,
+    "net": -69.611136,
+    "net_share_of_need": -0.0906395
+   },
+   "scripted expert": {
+    "loss": 27.611136000000002,
+    "yield": 0.0,
+    "work": 24.0,
+    "child": 0.0,
+    "net": -39.611136,
+    "net_share_of_need": -0.051577000000000005
+   }
+  }
+ },
+ {
+  "test": "T1",
+  "tag": "T1_settled_s3_expert_masked_nolore_haiku",
+  "world": "settled lowland and frontier",
+  "village": "s3",
+  "level": "expert",
+  "named": "masked",
+  "lore": false,
+  "model": "haiku",
+  "calls": 20,
+  "complete": true,
+  "score": {
+   "loss": 60.1254864,
+   "yield": 0.0,
+   "work": 80.0,
+   "child": 0.0,
+   "net": -100.1254864,
+   "net_share_of_need": -0.13037172708333333
+  },
+  "behaviour": {
+   "raid_nights": 5,
+   "watched_nights": 19,
+   "raids_met_at_the_right_gap": 4,
+   "watch_nights_without_raid": 14,
+   "scare_changes": 6,
+   "scares_used": [
+    "dog",
+    "fire",
+    "horn"
+   ],
+   "brier": 0.201375
+  },
+  "baselines": {
+   "none": {
+    "loss": 173.46987941829707,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -173.46987941829707,
+    "net_share_of_need": -0.22587223882590765
+   },
+   "calendar": {
+    "loss": 45.513944249556786,
+    "yield": 0.0,
+    "work": 84.0,
+    "child": 0.0,
+    "net": -87.51394424955679,
+    "net_share_of_need": -0.1139504482416104
+   },
+   "scripted expert": {
+    "loss": 69.71424254645758,
+    "yield": 0.0,
+    "work": 18.0,
+    "child": 0.0,
+    "net": -78.71424254645758,
+    "net_share_of_need": -0.10249250331569998
+   }
+  }
+ },
+ {
+  "test": "T1",
+  "tag": "T1_settled_s3_expert_masked_nolore_sonnet",
+  "world": "settled lowland and frontier",
+  "village": "s3",
+  "level": "expert",
+  "named": "masked",
+  "lore": false,
+  "model": "sonnet",
+  "calls": 20,
+  "complete": true,
+  "score": {
+   "loss": 60.1254864,
+   "yield": 0.0,
+   "work": 86.0,
+   "child": 0.0,
+   "net": -103.1254864,
+   "net_share_of_need": -0.13427797708333333
+  },
+  "behaviour": {
+   "raid_nights": 5,
+   "watched_nights": 20,
+   "raids_met_at_the_right_gap": 4,
+   "watch_nights_without_raid": 15,
+   "scare_changes": 10,
+   "scares_used": [
+    "clapper",
+    "dog",
+    "fire",
+    "horn"
+   ],
+   "brier": 0.21125
+  },
+  "baselines": {
+   "none": {
+    "loss": 173.46987941829707,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -173.46987941829707,
+    "net_share_of_need": -0.22587223882590765
+   },
+   "calendar": {
+    "loss": 45.513944249556786,
+    "yield": 0.0,
+    "work": 84.0,
+    "child": 0.0,
+    "net": -87.51394424955679,
+    "net_share_of_need": -0.1139504482416104
+   },
+   "scripted expert": {
+    "loss": 69.71424254645758,
+    "yield": 0.0,
+    "work": 18.0,
+    "child": 0.0,
+    "net": -78.71424254645758,
+    "net_share_of_need": -0.10249250331569998
+   }
+  }
+ },
+ {
+  "test": "T1",
+  "tag": "T1_settled_s3_expert_named_nolore_haiku",
+  "world": "settled lowland and frontier",
+  "village": "s3",
+  "level": "expert",
+  "named": "named",
+  "lore": false,
+  "model": "haiku",
+  "calls": 20,
+  "complete": true,
+  "score": {
+   "loss": 60.1254864,
+   "yield": 0.0,
+   "work": 76.0,
+   "child": 0.0,
+   "net": -98.1254864,
+   "net_share_of_need": -0.12776756041666668
+  },
+  "behaviour": {
+   "raid_nights": 5,
+   "watched_nights": 18,
+   "raids_met_at_the_right_gap": 4,
+   "watch_nights_without_raid": 13,
+   "scare_changes": 5,
+   "scares_used": [
+    "clapper",
+    "dog",
+    "horn"
+   ],
+   "brier": 0.19587499999999997
+  },
+  "baselines": {
+   "none": {
+    "loss": 173.46987941829707,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -173.46987941829707,
+    "net_share_of_need": -0.22587223882590765
+   },
+   "calendar": {
+    "loss": 45.513944249556786,
+    "yield": 0.0,
+    "work": 84.0,
+    "child": 0.0,
+    "net": -87.51394424955679,
+    "net_share_of_need": -0.1139504482416104
+   },
+   "scripted expert": {
+    "loss": 69.71424254645758,
+    "yield": 0.0,
+    "work": 18.0,
+    "child": 0.0,
+    "net": -78.71424254645758,
+    "net_share_of_need": -0.10249250331569998
+   }
+  }
+ },
+ {
+  "test": "T1",
+  "tag": "T1_settled_s3_expert_named_nolore_sonnet",
+  "world": "settled lowland and frontier",
+  "village": "s3",
+  "level": "expert",
+  "named": "named",
+  "lore": false,
+  "model": "sonnet",
+  "calls": 20,
+  "complete": true,
+  "score": {
+   "loss": 40.54425728955678,
+   "yield": 0.0,
+   "work": 74.0,
+   "child": 0.0,
+   "net": -77.54425728955678,
+   "net_share_of_need": -0.10096908501244373
+  },
+  "behaviour": {
+   "raid_nights": 4,
+   "watched_nights": 20,
+   "raids_met_at_the_right_gap": 4,
+   "watch_nights_without_raid": 16,
+   "scare_changes": 12,
+   "scares_used": [
+    "clapper",
+    "dog",
+    "fire",
+    "horn"
+   ],
+   "brier": 0.201125
+  },
+  "baselines": {
+   "none": {
+    "loss": 173.46987941829707,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -173.46987941829707,
+    "net_share_of_need": -0.22587223882590765
+   },
+   "calendar": {
+    "loss": 45.513944249556786,
+    "yield": 0.0,
+    "work": 84.0,
+    "child": 0.0,
+    "net": -87.51394424955679,
+    "net_share_of_need": -0.1139504482416104
+   },
+   "scripted expert": {
+    "loss": 69.71424254645758,
+    "yield": 0.0,
+    "work": 18.0,
+    "child": 0.0,
+    "net": -78.71424254645758,
+    "net_share_of_need": -0.10249250331569998
+   }
+  }
+ },
+ {
+  "test": "T1",
+  "tag": "T1_settled_s3_novice_named_nolore_haiku",
+  "world": "settled lowland and frontier",
+  "village": "s3",
+  "level": "novice",
+  "named": "named",
+  "lore": false,
+  "model": "haiku",
+  "calls": 20,
+  "complete": true,
+  "score": {
+   "loss": 45.513944249556786,
+   "yield": 0.0,
+   "work": 78.0,
+   "child": 0.0,
+   "net": -84.51394424955679,
+   "net_share_of_need": -0.1100441982416104
+  },
+  "behaviour": {
+   "raid_nights": 3,
+   "watched_nights": 18,
+   "raids_met_at_the_right_gap": 2,
+   "watch_nights_without_raid": 16,
+   "scare_changes": 4,
+   "scares_used": [
+    "clapper",
+    "dog",
+    "fire"
+   ],
+   "brier": 0.222875
+  },
+  "baselines": {
+   "none": {
+    "loss": 173.46987941829707,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -173.46987941829707,
+    "net_share_of_need": -0.22587223882590765
+   },
+   "calendar": {
+    "loss": 45.513944249556786,
+    "yield": 0.0,
+    "work": 84.0,
+    "child": 0.0,
+    "net": -87.51394424955679,
+    "net_share_of_need": -0.1139504482416104
+   },
+   "scripted expert": {
+    "loss": 69.71424254645758,
+    "yield": 0.0,
+    "work": 18.0,
+    "child": 0.0,
+    "net": -78.71424254645758,
+    "net_share_of_need": -0.10249250331569998
+   }
+  }
+ },
+ {
+  "test": "T1",
+  "tag": "T1_settled_s3_novice_named_nolore_sonnet",
+  "world": "settled lowland and frontier",
+  "village": "s3",
+  "level": "novice",
+  "named": "named",
+  "lore": false,
+  "model": "sonnet",
+  "calls": 20,
+  "complete": true,
+  "score": {
+   "loss": 35.3664864,
+   "yield": 0.0,
+   "work": 90.0,
+   "child": 0.0,
+   "net": -80.3664864,
+   "net_share_of_need": -0.1046438625
+  },
+  "behaviour": {
+   "raid_nights": 5,
+   "watched_nights": 20,
+   "raids_met_at_the_right_gap": 5,
+   "watch_nights_without_raid": 15,
+   "scare_changes": 3,
+   "scares_used": [
+    "clapper",
+    "dog",
+    "fire",
+    "horn"
+   ],
+   "brier": 0.275125
+  },
+  "baselines": {
+   "none": {
+    "loss": 173.46987941829707,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -173.46987941829707,
+    "net_share_of_need": -0.22587223882590765
+   },
+   "calendar": {
+    "loss": 45.513944249556786,
+    "yield": 0.0,
+    "work": 84.0,
+    "child": 0.0,
+    "net": -87.51394424955679,
+    "net_share_of_need": -0.1139504482416104
+   },
+   "scripted expert": {
+    "loss": 69.71424254645758,
+    "yield": 0.0,
+    "work": 18.0,
+    "child": 0.0,
+    "net": -78.71424254645758,
+    "net_share_of_need": -0.10249250331569998
+   }
+  }
+ },
+ {
+  "test": "T2",
+  "tag": "T2_fen_s1_expert_named_lore_haiku",
+  "world": "fen with islands",
+  "village": "s1",
+  "level": "expert",
+  "named": "named",
+  "lore": true,
+  "model": "haiku",
+  "calls": 30,
+  "complete": true,
+  "score": {
+   "loss": 0.0,
+   "yield": 110.02831789945215,
+   "work": 88.0,
+   "child": 0.0,
+   "net": 66.02831789945215,
+   "net_share_of_need": 0.05731624817660777
+  },
+  "behaviour": {
+   "big_nights": 3,
+   "crew_nights": 7,
+   "crew_on_big": 1,
+   "crew_on_dark_nights": 1,
+   "crew_on_bright_nights": 6,
+   "brier": 0.10687666666666666,
+   "crew_bright_first_half": 3,
+   "crew_bright_second_half": 3
+  },
+  "baselines": {
+   "none": {
+    "loss": 0,
+    "yield": 0,
+    "work": 0,
+    "child": 0,
+    "net": 0.0,
+    "net_share_of_need": 0.0
+   },
+   "calendar": {
+    "loss": 0.0,
+    "yield": 85.40708164710978,
+    "work": 60.0,
+    "child": 0.0,
+    "net": 55.40708164710978,
+    "net_share_of_need": 0.048096425040893905
+   },
+   "scripted expert": {
+    "loss": 0.0,
+    "yield": 116.08755341423795,
+    "work": 72.0,
+    "child": 0.0,
+    "net": 80.08755341423795,
+    "net_share_of_need": 0.06952044567208154
+   }
+  }
+ },
+ {
+  "test": "T2",
+  "tag": "T2_fen_s1_expert_named_lore_sonnet",
+  "world": "fen with islands",
+  "village": "s1",
+  "level": "expert",
+  "named": "named",
+  "lore": true,
+  "model": "sonnet",
+  "calls": 30,
+  "complete": true,
+  "score": {
+   "loss": 0.0,
+   "yield": 108.68401242133078,
+   "work": 92.0,
+   "child": 0.0,
+   "net": 62.68401242133078,
+   "net_share_of_need": 0.054413205226849636
+  },
+  "behaviour": {
+   "big_nights": 3,
+   "crew_nights": 10,
+   "crew_on_big": 1,
+   "crew_on_dark_nights": 3,
+   "crew_on_bright_nights": 7,
+   "brier": 0.16690333333333332,
+   "crew_bright_first_half": 4,
+   "crew_bright_second_half": 3
+  },
+  "baselines": {
+   "none": {
+    "loss": 0,
+    "yield": 0,
+    "work": 0,
+    "child": 0,
+    "net": 0.0,
+    "net_share_of_need": 0.0
+   },
+   "calendar": {
+    "loss": 0.0,
+    "yield": 85.40708164710978,
+    "work": 60.0,
+    "child": 0.0,
+    "net": 55.40708164710978,
+    "net_share_of_need": 0.048096425040893905
+   },
+   "scripted expert": {
+    "loss": 0.0,
+    "yield": 116.08755341423795,
+    "work": 72.0,
+    "child": 0.0,
+    "net": 80.08755341423795,
+    "net_share_of_need": 0.06952044567208154
+   }
+  }
+ },
+ {
+  "test": "T2",
+  "tag": "T2_fen_s1_expert_named_nolore_haiku",
+  "world": "fen with islands",
+  "village": "s1",
+  "level": "expert",
+  "named": "named",
+  "lore": false,
+  "model": "haiku",
+  "calls": 30,
+  "complete": true,
+  "score": {
+   "loss": 0.0,
+   "yield": 116.08755341423795,
+   "work": 72.0,
+   "child": 0.0,
+   "net": 80.08755341423795,
+   "net_share_of_need": 0.06952044567208154
+  },
+  "behaviour": {
+   "big_nights": 3,
+   "crew_nights": 3,
+   "crew_on_big": 2,
+   "crew_on_dark_nights": 3,
+   "crew_on_bright_nights": 0,
+   "brier": 0.07794000000000002,
+   "crew_bright_first_half": 0,
+   "crew_bright_second_half": 0
+  },
+  "baselines": {
+   "none": {
+    "loss": 0,
+    "yield": 0,
+    "work": 0,
+    "child": 0,
+    "net": 0.0,
+    "net_share_of_need": 0.0
+   },
+   "calendar": {
+    "loss": 0.0,
+    "yield": 85.40708164710978,
+    "work": 60.0,
+    "child": 0.0,
+    "net": 55.40708164710978,
+    "net_share_of_need": 0.048096425040893905
+   },
+   "scripted expert": {
+    "loss": 0.0,
+    "yield": 116.08755341423795,
+    "work": 72.0,
+    "child": 0.0,
+    "net": 80.08755341423795,
+    "net_share_of_need": 0.06952044567208154
+   }
+  }
+ },
+ {
+  "test": "T2",
+  "tag": "T2_fen_s1_expert_named_nolore_sonnet",
+  "world": "fen with islands",
+  "village": "s1",
+  "level": "expert",
+  "named": "named",
+  "lore": false,
+  "model": "sonnet",
+  "calls": 30,
+  "complete": true,
+  "score": {
+   "loss": 0.0,
+   "yield": 120.08909756692397,
+   "work": 78.0,
+   "child": 0.0,
+   "net": 81.08909756692397,
+   "net_share_of_need": 0.07038984163795484
+  },
+  "behaviour": {
+   "big_nights": 3,
+   "crew_nights": 7,
+   "crew_on_big": 2,
+   "crew_on_dark_nights": 6,
+   "crew_on_bright_nights": 1,
+   "brier": 0.11445666666666668,
+   "crew_bright_first_half": 1,
+   "crew_bright_second_half": 0
+  },
+  "baselines": {
+   "none": {
+    "loss": 0,
+    "yield": 0,
+    "work": 0,
+    "child": 0,
+    "net": 0.0,
+    "net_share_of_need": 0.0
+   },
+   "calendar": {
+    "loss": 0.0,
+    "yield": 85.40708164710978,
+    "work": 60.0,
+    "child": 0.0,
+    "net": 55.40708164710978,
+    "net_share_of_need": 0.048096425040893905
+   },
+   "scripted expert": {
+    "loss": 0.0,
+    "yield": 116.08755341423795,
+    "work": 72.0,
+    "child": 0.0,
+    "net": 80.08755341423795,
+    "net_share_of_need": 0.06952044567208154
+   }
+  }
+ },
+ {
+  "test": "T2",
+  "tag": "T2_upland_s1_expert_named_lore_haiku",
+  "world": "upland and moor",
+  "village": "s1",
+  "level": "expert",
+  "named": "named",
+  "lore": true,
+  "model": "haiku",
+  "calls": 30,
+  "complete": true,
+  "score": {
+   "loss": 0.0,
+   "yield": 105.11995051853383,
+   "work": 92.0,
+   "child": 0.0,
+   "net": 59.11995051853383,
+   "net_share_of_need": 0.05131940149178284
+  },
+  "behaviour": {
+   "big_nights": 3,
+   "crew_nights": 8,
+   "crew_on_big": 1,
+   "crew_on_dark_nights": 1,
+   "crew_on_bright_nights": 7,
+   "brier": 0.1444666666666667,
+   "crew_bright_first_half": 4,
+   "crew_bright_second_half": 3
+  },
+  "baselines": {
+   "none": {
+    "loss": 0,
+    "yield": 0,
+    "work": 0,
+    "child": 0,
+    "net": 0.0,
+    "net_share_of_need": 0.0
+   },
+   "calendar": {
+    "loss": 0.0,
+    "yield": 85.40708164710978,
+    "work": 60.0,
+    "child": 0.0,
+    "net": 55.40708164710978,
+    "net_share_of_need": 0.048096425040893905
+   },
+   "scripted expert": {
+    "loss": 0.0,
+    "yield": 116.08755341423795,
+    "work": 72.0,
+    "child": 0.0,
+    "net": 80.08755341423795,
+    "net_share_of_need": 0.06952044567208154
+   }
+  }
+ },
+ {
+  "test": "T2",
+  "tag": "T2_upland_s1_expert_named_lore_sonnet",
+  "world": "upland and moor",
+  "village": "s1",
+  "level": "expert",
+  "named": "named",
+  "lore": true,
+  "model": "sonnet",
+  "calls": 30,
+  "complete": true,
+  "score": {
+   "loss": 0.0,
+   "yield": 97.23362128869564,
+   "work": 96.0,
+   "child": 0.0,
+   "net": 49.233621288695645,
+   "net_share_of_need": 0.042737518479770524
+  },
+  "behaviour": {
+   "big_nights": 3,
+   "crew_nights": 11,
+   "crew_on_big": 0,
+   "crew_on_dark_nights": 2,
+   "crew_on_bright_nights": 9,
+   "brier": 0.22911333333333334,
+   "crew_bright_first_half": 5,
+   "crew_bright_second_half": 4
+  },
+  "baselines": {
+   "none": {
+    "loss": 0,
+    "yield": 0,
+    "work": 0,
+    "child": 0,
+    "net": 0.0,
+    "net_share_of_need": 0.0
+   },
+   "calendar": {
+    "loss": 0.0,
+    "yield": 85.40708164710978,
+    "work": 60.0,
+    "child": 0.0,
+    "net": 55.40708164710978,
+    "net_share_of_need": 0.048096425040893905
+   },
+   "scripted expert": {
+    "loss": 0.0,
+    "yield": 116.08755341423795,
+    "work": 72.0,
+    "child": 0.0,
+    "net": 80.08755341423795,
+    "net_share_of_need": 0.06952044567208154
+   }
+  }
+ },
+ {
+  "test": "T2",
+  "tag": "T2_upland_s1_expert_named_nolore_haiku",
+  "world": "upland and moor",
+  "village": "s1",
+  "level": "expert",
+  "named": "named",
+  "lore": false,
+  "model": "haiku",
+  "calls": 30,
+  "complete": true,
+  "score": {
+   "loss": 0.0,
+   "yield": 111.6960202217897,
+   "work": 68.0,
+   "child": 0.0,
+   "net": 77.6960202217897,
+   "net_share_of_need": 0.06744446199808134
+  },
+  "behaviour": {
+   "big_nights": 3,
+   "crew_nights": 3,
+   "crew_on_big": 2,
+   "crew_on_dark_nights": 2,
+   "crew_on_bright_nights": 1,
+   "brier": 0.09381,
+   "crew_bright_first_half": 0,
+   "crew_bright_second_half": 1
+  },
+  "baselines": {
+   "none": {
+    "loss": 0,
+    "yield": 0,
+    "work": 0,
+    "child": 0,
+    "net": 0.0,
+    "net_share_of_need": 0.0
+   },
+   "calendar": {
+    "loss": 0.0,
+    "yield": 85.40708164710978,
+    "work": 60.0,
+    "child": 0.0,
+    "net": 55.40708164710978,
+    "net_share_of_need": 0.048096425040893905
+   },
+   "scripted expert": {
+    "loss": 0.0,
+    "yield": 116.08755341423795,
+    "work": 72.0,
+    "child": 0.0,
+    "net": 80.08755341423795,
+    "net_share_of_need": 0.06952044567208154
+   }
+  }
+ },
+ {
+  "test": "T2",
+  "tag": "T2_upland_s1_expert_named_nolore_sonnet",
+  "world": "upland and moor",
+  "village": "s1",
+  "level": "expert",
+  "named": "named",
+  "lore": false,
+  "model": "sonnet",
+  "calls": 30,
+  "complete": true,
+  "score": {
+   "loss": 0.0,
+   "yield": 135.73531182518252,
+   "work": 86.0,
+   "child": 0.0,
+   "net": 92.73531182518252,
+   "net_share_of_need": 0.08049940262602649
+  },
+  "behaviour": {
+   "big_nights": 3,
+   "crew_nights": 9,
+   "crew_on_big": 3,
+   "crew_on_dark_nights": 7,
+   "crew_on_bright_nights": 2,
+   "brier": 0.09771333333333336,
+   "crew_bright_first_half": 1,
+   "crew_bright_second_half": 1
+  },
+  "baselines": {
+   "none": {
+    "loss": 0,
+    "yield": 0,
+    "work": 0,
+    "child": 0,
+    "net": 0.0,
+    "net_share_of_need": 0.0
+   },
+   "calendar": {
+    "loss": 0.0,
+    "yield": 85.40708164710978,
+    "work": 60.0,
+    "child": 0.0,
+    "net": 55.40708164710978,
+    "net_share_of_need": 0.048096425040893905
+   },
+   "scripted expert": {
+    "loss": 0.0,
+    "yield": 116.08755341423795,
+    "work": 72.0,
+    "child": 0.0,
+    "net": 80.08755341423795,
+    "net_share_of_need": 0.06952044567208154
+   }
+  }
+ },
+ {
+  "test": "T3",
+  "tag": "T3_plain_s1_expert_named_lore_haiku",
+  "world": "plain",
+  "village": "s1",
+  "level": "expert",
+  "named": "named",
+  "lore": true,
+  "model": "haiku",
+  "calls": 28,
+  "complete": true,
+  "score": {
+   "loss": 16.029776814909244,
+   "yield": 6.248947005709062,
+   "work": 30.8,
+   "child": 32.0,
+   "net": -28.380829809200183,
+   "net_share_of_need": -0.036954205480729405
+  },
+  "behaviour": {
+   "bird_days": 16,
+   "children_on_bird_days": 8,
+   "scarecrow_on_bird_days": 16,
+   "hare_only_days": 12,
+   "children_on_hare_only_days": 8,
+   "scarecrow_on_hare_only_days": 12,
+   "children_first_year": 9,
+   "children_second_year": 7
+  },
+  "baselines": {
+   "none": {
+    "loss": 29.82662654355952,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -29.82662654355952,
+    "net_share_of_need": -0.03883675331192646
+   },
+   "calendar": {
+    "loss": 21.606224233628758,
+    "yield": 0.0,
+    "work": 1.5999999999999999,
+    "child": 0.0,
+    "net": -22.40622423362876,
+    "net_share_of_need": -0.029174771137537445
+   },
+   "scripted expert": {
+    "loss": 17.635620315281468,
+    "yield": 0.0,
+    "work": 0.8,
+    "child": 16.0,
+    "net": -19.635620315281468,
+    "net_share_of_need": -0.025567213952189412
+   }
+  }
+ },
+ {
+  "test": "T3",
+  "tag": "T3_plain_s1_expert_named_lore_sonnet",
+  "world": "plain",
+  "village": "s1",
+  "level": "expert",
+  "named": "named",
+  "lore": true,
+  "model": "sonnet",
+  "calls": 28,
+  "complete": true,
+  "score": {
+   "loss": 15.467344483823391,
+   "yield": 4.521103330054559,
+   "work": 21.8,
+   "child": 40.0,
+   "net": -25.84624115376883,
+   "net_share_of_need": -0.033653959835636495
+  },
+  "behaviour": {
+   "bird_days": 16,
+   "children_on_bird_days": 10,
+   "scarecrow_on_bird_days": 16,
+   "hare_only_days": 12,
+   "children_on_hare_only_days": 10,
+   "scarecrow_on_hare_only_days": 12,
+   "children_first_year": 11,
+   "children_second_year": 9
+  },
+  "baselines": {
+   "none": {
+    "loss": 29.82662654355952,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -29.82662654355952,
+    "net_share_of_need": -0.03883675331192646
+   },
+   "calendar": {
+    "loss": 21.606224233628758,
+    "yield": 0.0,
+    "work": 1.5999999999999999,
+    "child": 0.0,
+    "net": -22.40622423362876,
+    "net_share_of_need": -0.029174771137537445
+   },
+   "scripted expert": {
+    "loss": 17.635620315281468,
+    "yield": 0.0,
+    "work": 0.8,
+    "child": 16.0,
+    "net": -19.635620315281468,
+    "net_share_of_need": -0.025567213952189412
+   }
+  }
+ },
+ {
+  "test": "T3",
+  "tag": "T3_plain_s1_expert_named_nolore_haiku",
+  "world": "plain",
+  "village": "s1",
+  "level": "expert",
+  "named": "named",
+  "lore": false,
+  "model": "haiku",
+  "calls": 28,
+  "complete": true,
+  "score": {
+   "loss": 16.827011759533562,
+   "yield": 4.395867271554531,
+   "work": 21.8,
+   "child": 22.0,
+   "net": -25.53114448797903,
+   "net_share_of_need": -0.0332436777187227
+  },
+  "behaviour": {
+   "bird_days": 16,
+   "children_on_bird_days": 6,
+   "scarecrow_on_bird_days": 16,
+   "hare_only_days": 12,
+   "children_on_hare_only_days": 5,
+   "scarecrow_on_hare_only_days": 12,
+   "children_first_year": 7,
+   "children_second_year": 4
+  },
+  "baselines": {
+   "none": {
+    "loss": 29.82662654355952,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -29.82662654355952,
+    "net_share_of_need": -0.03883675331192646
+   },
+   "calendar": {
+    "loss": 21.606224233628758,
+    "yield": 0.0,
+    "work": 1.5999999999999999,
+    "child": 0.0,
+    "net": -22.40622423362876,
+    "net_share_of_need": -0.029174771137537445
+   },
+   "scripted expert": {
+    "loss": 17.635620315281468,
+    "yield": 0.0,
+    "work": 0.8,
+    "child": 16.0,
+    "net": -19.635620315281468,
+    "net_share_of_need": -0.025567213952189412
+   }
+  }
+ },
+ {
+  "test": "T3",
+  "tag": "T3_plain_s1_expert_named_nolore_sonnet",
+  "world": "plain",
+  "village": "s1",
+  "level": "expert",
+  "named": "named",
+  "lore": false,
+  "model": "sonnet",
+  "calls": 28,
+  "complete": true,
+  "score": {
+   "loss": 16.029776814909244,
+   "yield": 6.248947005709062,
+   "work": 30.8,
+   "child": 30.0,
+   "net": -28.180829809200183,
+   "net_share_of_need": -0.03669378881406274
+  },
+  "behaviour": {
+   "bird_days": 16,
+   "children_on_bird_days": 8,
+   "scarecrow_on_bird_days": 16,
+   "hare_only_days": 12,
+   "children_on_hare_only_days": 7,
+   "scarecrow_on_hare_only_days": 12,
+   "children_first_year": 9,
+   "children_second_year": 6
+  },
+  "baselines": {
+   "none": {
+    "loss": 29.82662654355952,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -29.82662654355952,
+    "net_share_of_need": -0.03883675331192646
+   },
+   "calendar": {
+    "loss": 21.606224233628758,
+    "yield": 0.0,
+    "work": 1.5999999999999999,
+    "child": 0.0,
+    "net": -22.40622423362876,
+    "net_share_of_need": -0.029174771137537445
+   },
+   "scripted expert": {
+    "loss": 17.635620315281468,
+    "yield": 0.0,
+    "work": 0.8,
+    "child": 16.0,
+    "net": -19.635620315281468,
+    "net_share_of_need": -0.025567213952189412
+   }
+  }
+ },
+ {
+  "test": "T3",
+  "tag": "T3_sand_s2_expert_named_lore_haiku",
+  "world": "sand country",
+  "village": "s2",
+  "level": "expert",
+  "named": "named",
+  "lore": true,
+  "model": "haiku",
+  "calls": 28,
+  "complete": true,
+  "score": {
+   "loss": 22.125189085136643,
+   "yield": 2.4782097650607353,
+   "work": 12.8,
+   "child": 38.0,
+   "net": -29.846979320075906,
+   "net_share_of_need": -0.0388632543230155
+  },
+  "behaviour": {
+   "bird_days": 16,
+   "children_on_bird_days": 9,
+   "scarecrow_on_bird_days": 16,
+   "hare_only_days": 12,
+   "children_on_hare_only_days": 10,
+   "scarecrow_on_hare_only_days": 12,
+   "children_first_year": 10,
+   "children_second_year": 9
+  },
+  "baselines": {
+   "none": {
+    "loss": 35.2108378416311,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -35.2108378416311,
+    "net_share_of_need": -0.04584744510629049
+   },
+   "calendar": {
+    "loss": 27.0181551696302,
+    "yield": 0.0,
+    "work": 1.5999999999999999,
+    "child": 0.0,
+    "net": -27.818155169630202,
+    "net_share_of_need": -0.036221556210455995
+   },
+   "scripted expert": {
+    "loss": 24.223202451672876,
+    "yield": 0.0,
+    "work": 0.8,
+    "child": 16.0,
+    "net": -26.223202451672876,
+    "net_share_of_need": -0.03414479485894906
+   }
+  }
+ },
+ {
+  "test": "T3",
+  "tag": "T3_sand_s2_expert_named_lore_sonnet",
+  "world": "sand country",
+  "village": "s2",
+  "level": "expert",
+  "named": "named",
+  "lore": true,
+  "model": "sonnet",
+  "calls": 28,
+  "complete": true,
+  "score": {
+   "loss": 22.108188327514227,
+   "yield": 3.0941873722072764,
+   "work": 15.8,
+   "child": 34.0,
+   "net": -30.314000955306952,
+   "net_share_of_need": -0.03947135541055593
+  },
+  "behaviour": {
+   "bird_days": 16,
+   "children_on_bird_days": 9,
+   "scarecrow_on_bird_days": 16,
+   "hare_only_days": 12,
+   "children_on_hare_only_days": 8,
+   "scarecrow_on_hare_only_days": 12,
+   "children_first_year": 7,
+   "children_second_year": 10
+  },
+  "baselines": {
+   "none": {
+    "loss": 35.2108378416311,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -35.2108378416311,
+    "net_share_of_need": -0.04584744510629049
+   },
+   "calendar": {
+    "loss": 27.0181551696302,
+    "yield": 0.0,
+    "work": 1.5999999999999999,
+    "child": 0.0,
+    "net": -27.818155169630202,
+    "net_share_of_need": -0.036221556210455995
+   },
+   "scripted expert": {
+    "loss": 24.223202451672876,
+    "yield": 0.0,
+    "work": 0.8,
+    "child": 16.0,
+    "net": -26.223202451672876,
+    "net_share_of_need": -0.03414479485894906
+   }
+  }
+ },
+ {
+  "test": "T3",
+  "tag": "T3_sand_s2_expert_named_nolore_haiku",
+  "world": "sand country",
+  "village": "s2",
+  "level": "expert",
+  "named": "named",
+  "lore": false,
+  "model": "haiku",
+  "calls": 28,
+  "complete": true,
+  "score": {
+   "loss": 21.707375935052376,
+   "yield": 6.248947005709062,
+   "work": 30.8,
+   "child": 22.0,
+   "net": -33.058428929343314,
+   "net_share_of_need": -0.04304482933508244
+  },
+  "behaviour": {
+   "bird_days": 16,
+   "children_on_bird_days": 6,
+   "scarecrow_on_bird_days": 16,
+   "hare_only_days": 12,
+   "children_on_hare_only_days": 5,
+   "scarecrow_on_hare_only_days": 12,
+   "children_first_year": 7,
+   "children_second_year": 4
+  },
+  "baselines": {
+   "none": {
+    "loss": 35.2108378416311,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -35.2108378416311,
+    "net_share_of_need": -0.04584744510629049
+   },
+   "calendar": {
+    "loss": 27.0181551696302,
+    "yield": 0.0,
+    "work": 1.5999999999999999,
+    "child": 0.0,
+    "net": -27.818155169630202,
+    "net_share_of_need": -0.036221556210455995
+   },
+   "scripted expert": {
+    "loss": 24.223202451672876,
+    "yield": 0.0,
+    "work": 0.8,
+    "child": 16.0,
+    "net": -26.223202451672876,
+    "net_share_of_need": -0.03414479485894906
+   }
+  }
+ },
+ {
+  "test": "T3",
+  "tag": "T3_sand_s2_expert_named_nolore_sonnet",
+  "world": "sand country",
+  "village": "s2",
+  "level": "expert",
+  "named": "named",
+  "lore": false,
+  "model": "sonnet",
+  "calls": 28,
+  "complete": true,
+  "score": {
+   "loss": 20.33022916647989,
+   "yield": 5.487656360800177,
+   "work": 26.8,
+   "child": 38.0,
+   "net": -32.04257280567971,
+   "net_share_of_need": -0.04172210000739546
+  },
+  "behaviour": {
+   "bird_days": 16,
+   "children_on_bird_days": 9,
+   "scarecrow_on_bird_days": 16,
+   "hare_only_days": 12,
+   "children_on_hare_only_days": 10,
+   "scarecrow_on_hare_only_days": 12,
+   "children_first_year": 10,
+   "children_second_year": 9
+  },
+  "baselines": {
+   "none": {
+    "loss": 35.2108378416311,
+    "yield": 0.0,
+    "work": 0.0,
+    "child": 0.0,
+    "net": -35.2108378416311,
+    "net_share_of_need": -0.04584744510629049
+   },
+   "calendar": {
+    "loss": 27.0181551696302,
+    "yield": 0.0,
+    "work": 1.5999999999999999,
+    "child": 0.0,
+    "net": -27.818155169630202,
+    "net_share_of_need": -0.036221556210455995
+   },
+   "scripted expert": {
+    "loss": 24.223202451672876,
+    "yield": 0.0,
+    "work": 0.8,
+    "child": 16.0,
+    "net": -26.223202451672876,
+    "net_share_of_need": -0.03414479485894906
+   }
+  }
+ }
+]

@@ -1075,3 +1075,134 @@ warm springs) more than the wet ones.
   than an error. For 37.4 when convenient.
 - **The readers are tally learners over hand-chosen features.** Part of the skill gradient is built in. The test shows that the
   signs carry the information and what acting on it is worth, not that agents will learn it. That needs the LLM probe.
+
+# Part six (9 Nov): the general wild system, wave 1, and targeted LLM tests
+
+Design: [wild_systems.md](../../cybertron2/proposals/wild_systems.md) §13 (the merged waves) and §14 (how it fits the engine).
+Models: [02zp_ecosystem_models/wildsys/](02zp_ecosystem_models/wildsys/) (README there).
+
+## 27. What was built
+
+**The general system** (`rules.py`, `village.py`): five rules, Pulse, Group, Load, Run and Flock. `check.py` confirms that no kind is
+named anywhere in the rule code.
+
+**Wave 1 as data** (`kinds.py`): seven kinds; each kind's signs (a reading per level); goods (meat, fat, hide, pelt, antler, eels,
+fowl, feathers); and acts with their costs.
+
+| Kind | Rule | Answer to scares (D2-198) | Lives in (of 20 villages) |
+|---|---|---|---|
+| wild boar (with the mast) | Group | gets used to them | 3 |
+| red deer | Group | gets used to them | 3 |
+| hare | Load | scared off | 18 |
+| birds at the corn | Load | gets used to them (a scarecrow fast, children slowly) | 20 |
+| rats and mice | Load | does not answer | 20 |
+| eels | Run | does not answer | 13 |
+| wildfowl | Flock | scared off | 14 |
+
+**Scripted households, as a share of food need, across all villages and eras** (`survey.py`; work valued at 0.5 food a unit):
+- doing nothing costs 9.8%;
+- watching by the calendar costs 4.9%;
+- the scripted expert costs 2.5%.
+
+## 28. The targeted LLM tests
+
+**Setup:**
+- A model plays one household, morning by morning. Each morning it gets the day and stage, the weather, what it noticed (signs at
+  its level, as prose), what happened in the night, its losses or catches so far, the last three days, and its own notes. It then
+  chooses tonight's acts.
+- Models: Haiku and Sonnet (5.5) through `claude -p`.
+- Villages: two per test, from the generated worlds, with the steady era's weather from the engine's climate.
+- Scoring: net food (yield − loss − work at 0.5 food a unit, children's units at 0.1), against three scripted households on the same
+  land, weather and draws.
+- Size: 28 runs, 704 calls.
+
+| Test | Days | Arms |
+|---|---|---|
+| T1 boar and deer at the field | summer to harvest, two years (20 decisions) | novice or expert readings; names real or masked |
+| T2 eels at the weir | autumn, three years (30) | no lore, or a wrong saying: "the eels run on bright moonlit nights" |
+| T3 birds and hares at the sowing | spring and autumn sowings, two years (28) | no lore, or a wrong saying: "a good scarecrow keeps every bird and beast off the corn" |
+
+**The first run was withdrawn, and all of it was rerun.** It had two faults:
+- each act's work was booked twice, once by the rule and once by the act;
+- commits made during the run cut its logs short.
+
+The rerun's logs are complete: `replay.py` replays every call's acts and reproduces the scores.
+
+## 29. Results (rerun; net food, the mean of two villages)
+
+**T1, boar and deer at the field.** Scripted households: doing nothing −132, the calendar watch −79, the scripted expert −59.
+
+| Arm | Haiku | Sonnet | Raids met at the right gap | Nights watched (of 20) / with no raid |
+|---|---|---|---|---|
+| expert readings, named | −70 | −66 | 4 of 4.5 | 15–20 / 11–16 |
+| expert readings, masked | −69 | −77 | 4 of 4.5 | 14–20 / 9–16 |
+| novice readings | −95 | −88 | 3–4 of 4.5 | 16–20 / 12–15 |
+
+- **The models read the expert signs and meet the raids:** about 4 of 4.5 raids met at the gap the sign pointed to, with names masked
+  as well as named.
+- **Reading pays:**
+  - expert readings beat novice readings by about 20 to 25 food;
+  - every arm beats doing nothing by 40 to 65;
+  - the expert arms are a little better than the calendar watch.
+- **They over-watch.** Most nights they watch, and most watched nights have no raid. Haiku, for example, covered all three gaps "while
+  the sounder is near" even when the trail pointed to one. Work was 56–85 units, against 21 for the scripted expert, and that gap is
+  why none reached it.
+- **They vary the scare** (5 to 10 changes), though partly by habit. Their notes rarely state that the boar got used to a scare.
+- **Noise:** the villages differ by more than the arms. At s3 the expert arms ran −78 to −103; at s1, −37 to −54. With two villages
+  and one weather draw each, differences under about 15 food are noise.
+
+**T2, eels at the weir.** Scripted households: doing nothing 0, traps every night +55, the scripted expert +80.
+
+| Arm | Haiku | Sonnet | Crews on the 3 big nights | Crews on bright nights (first half → second half) |
+|---|---|---|---|---|
+| no lore | +79 | **+87** | 2 / 2.5 | 0 → 0.5 / 1 → 0.5 |
+| wrong lore | +63 | +56 | 1 / 0.5 | 3.5 → 3 / 4.5 → 3.5 |
+
+- **Without lore, both models do as well as the scripted expert;** Sonnet does better. They already know that eels run on dark nights
+  after rain: prior knowledge, not learning.
+- **The wrong saying costs 16 to 31 food** and pulls Sonnet down to the calendar's level. The feedback corrects it only slowly.
+  - Crews on bright nights fall a little between the first and second half.
+  - In the third autumn Sonnet writes "the moon lore is unreliable", and sets its own reactive rule instead: "if the traps ever show
+    30 or more, send the crew". That rule acts on the day after a run starts, not on the leading signs.
+- This is the behaviour wild_systems.md §9 wanted: wrong lore survives weak feedback, and a careful reader overturns it slowly.
+
+**T3, birds and hares at the sowing.** Scripted households: doing nothing −32.5, a scarecrow always −25.1, the scripted expert −22.9.
+
+| Arm | Haiku | Sonnet | Children on bird days (of 16) | Children on hare-only days (of 12) |
+|---|---|---|---|---|
+| no lore | −29.3 | −30.1 | 6 / 8.5 | 5 / 8.5 |
+| wrong lore | −29.1 | −28.1 | 8.5 / 9.5 | 9 / 9 |
+
+- **All arms beat doing nothing but lose to a plain scarecrow.** The losses are about the same as the scarecrow's (18–19 against 24);
+  the extra cost is children's days and snares.
+- **The models do not learn the split between the kinds.**
+  - The design's lesson: birds get used to the scarecrow, so send the children on the bird days; hares are scared off by it, so a
+    scarecrow is enough on the hare days.
+  - The models send the children on about as many hare-only days as bird days. Their notes say "the scarecrow alone failed on day 4"
+    without telling which kind came. The feedback signs do name the kind ("the birds came down ..."; "fresh hare nibbling ..."), but
+    the models generalise across kinds.
+- **The wrong saying did not make them trust the scarecrow.** They used more children with it, not fewer.
+
+## 30. What the tests say about the design
+
+1. **Readings by skill matter to real models.** With expert readings, models meet raids at the right gap; with novice readings they
+   lose 20 to 25 food more. The skill gradient is not only built in by hand.
+2. **Prior knowledge carries the real-world rules** (eels on dark nights after rain; boar coming back to a field). Masking names did
+   not change T1, because the expert reading itself says where the trail goes. To test learning rather than knowing, the kinds or
+   rules must differ from what the models already know: invented kinds, or rules that change by place.
+3. **Seeded wrong lore persists and is overturned only slowly.** That makes lore as tested belief (§9) a working mechanic with real
+   models. It also argues for keeping wrong lore rare and costly enough to matter.
+4. **Models over-act on threats.** They watch most nights and use children and snares freely. A real work budget is needed, with the
+   cost of tonight's watch felt in tomorrow's day's work, not stated in units. Otherwise "watch everything" is a safe default and
+   reading the signs is worth less than it should be.
+5. **Telling kinds apart by their answer to scares (D2-198) is not learned in two seasons.** If that is to be learnable, either the
+   feedback must be sharper (a sign that says which kind ignored which scare, put plainly), or the lesson must come through lore and
+   teaching.
+
+## 31. Limits
+
+- Two villages per test, one weather draw each: small samples.
+- Each arm was run once per village.
+- No Opus.
+- No arm that reads the signs with no notes.
+- The models' cost per call was not reported by the CLI path.
