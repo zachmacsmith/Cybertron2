@@ -325,6 +325,28 @@ merge), and they settle whether the coarse ecosystem behaves on the generated la
 **What happens to wave 1 as built (02zp part six):** it stays as a prototype of the micro layer (raids, memory, answers, signs by
 skill). Its tests are read as tests of that layer only.
 
+## 6a. As built on the `ecology` branch (9 Nov; D2-199)
+
+Code on the branch, not on main. All 408 tests pass there, including 10 for the layer.
+
+| Phase | Built | Where | Not yet |
+|---|---|---|---|
+| **0** | the generator's land fields merged in; a **land summary** written with every world (59 areas for four villages and a wild node, 104 links, rivers' flow, about 33 kB); world schema 5: `s.wild` and a parcel's `ecosystem`, held only with the `wild` pack; the `set_wild` primitive | `cybertron2/wild/areas.py`, `landgen/write.py`, `engine/schema.py`, `engine/world.py` | **the climate's calibration** (spell lengths and frost runs under compressed time, the eras) |
+| **1** | 14 kinds as RESOURCES rows (pack `wild`, renewal `population`); the **ecology step** on the food web's rules, a day at a time, with the climate by place, soil wetness, summer warmth, an irregular mast and keyed outbreaks; a history before the run; an offline runner on five generated worlds | `cybertron2/wild/kinds.py`, `ecology.py`; `docs/review/.../wildlayer/offline.py` | calibration backlog (below) |
+| **2** | the step in the engine's night, with the pack only; the **bridge**: wild kinds eat a real-yield crop and store, and the year's share eaten is drawn from the engine's crops and stores (4 to 10% of the standing crop and 3 to 5% of dry stores over 16 nights); shyness near people (busy land lowers a kind's habitat, by the kind's data) | `engine/wild.py`, `engine/night.py` | takes from the store in place of `game` and `hunt`; capacity under a harvest (37.4) |
+| **3** | **groups near people** for whole-counted kinds (boar, red deer): condensed from their ring's count; a drive from the area's hunger; a lead of engine days leaving traces (D2-197); raids on a field; a **night watch with a scare** (fire, clapper, horn, the dog) answered by the kind, getting used to it or harmed by the dog (D2-198); memory of a field. **Traces** on parcels, read by the senses two ways: a practised hunter reads "fresh rooting at the wood's edge: a sounder of about 14", anyone else "the turf by the wood's edge turned over" | `engine/wild.py`, `engine/signs.py`, `engine/verbs.py`, data rows | deer at the ricks in frost; raids on stores; the fox and the wolves at the fold (wave 2, after husbandry) |
+| **4** | — | — | the engine experiment with agents (Haiku, Sonnet, Opus; pack on and off; invented kinds) |
+
+**Calibration backlog** (offline, five worlds, 24 years):
+- **boar barely follow the mast:** 3% variation between years, because crowding holds them below the food limit;
+- **voles do not cycle;**
+- **densities off:**
+  - red deer at 0.2 to 0.3 of real;
+  - foxes about 0.3;
+  - bears 4 to 6 times too many;
+- **eels and wildfowl live only in the fen world** (the others' water is small rivers);
+- **what does vary:** deer 4 to 13% between years, hares about 12%, woodpigeons 10 to 18%.
+
 ## 7. Alternatives considered
 
 - **A separate wild world beside the engine** (wave 1 as built). Fast to try, but the society can only reach it through bridges, and
@@ -361,6 +383,12 @@ skill). Its tests are read as tests of that layer only.
   generated environment; reconciles living_populations.md (and 37.4's review of it), W2, node_ecology.md, the interface experiments
   and wild_systems.md.
 - 9 Nov: Zach: "build it on your own ecology branch" (D2-199). Building there, engine code included, for review before main.
+- 9 Nov (later): phases 0 to 3 built on the branch (§6a), with the climate's calibration, the takes from the store, capacity under a
+  harvest and the engine experiment still to do. Three fixes on the way:
+  - the food web's seasonal eating caps taken a day at a time;
+  - shyness near people;
+  - the bridge measured against the model's year of crop, not its day's standing pulse (first versions ate half the crop in 16
+    nights).
 
 ## Sources
 
