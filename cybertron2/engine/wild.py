@@ -476,29 +476,36 @@ def _shared_pre(w, m, st):
 
 
 def _shared_post(w, m, scale, pools, eff) -> dict:
-    """What the wild kinds ate of a shared food at a village tonight, as a share of what was there for them, drawn from the
-    parcels' stocks (D2-202), a fence keeping out its share (FENCES' through)."""
+    """What the wild kinds ate of the shared foods at a village tonight, as a share of what was there for them, drawn from the
+    parcels' stocks (D2-202): foods that are the same stock (grass and sward are both the pasture) drawn once, at most SHARED_MOST a
+    night (a village's land is busy: its wild grazers are few and shy), a fence keeping out its share (FENCES' through)."""
     from cybertron2.engine.data import FENCES
+    from cybertron2.wild import plants as PL
     out = {}
-    for food, a in scale.items():
-        if food not in pools:                                              # the stores' scale: drawn by the store bridge
-            continue
-        ate = sum(np.asarray(eff["eaten"].get(key, np.zeros(m.n)), float) for key in (food, food + "~coarse"))
+    stocks = {}
+    for food in pools:
+        stocks.setdefault(tuple(PL.SHARED[food]), []).append(food)
+    for keys, foods in sorted(stocks.items()):
+        ate = sum(np.asarray(eff["eaten"].get(k, np.zeros(m.n)), float) for f in foods for k in (f, f + "~coarse"))
         for i, nd in enumerate(m.nodes):
-            if not m.home[i] or a[i] <= 0:
+            if not m.home[i]:
                 continue
-            there = float(np.asarray(pools[food])[i]) * float(a[i]) * float(m.km2[i])
-            share = min(0.3, float(np.asarray(ate)[i]) / there) if there > 1e-9 else 0.0
+            there = sum(float(np.asarray(pools[f])[i]) * float(scale[f][i]) for f in foods) * float(m.km2[i])
+            share = min(SHARED_MOST, float(np.asarray(ate)[i]) / there) if there > 1e-9 else 0.0
             if share <= 1e-5:
                 continue
-            for pid, par, k, r in _food_stocks(w, nd, food):
+            for pid, par, k, r in _food_stocks(w, nd, foods[0]):
                 fc = par.get("fence") or {}
                 through = float(FENCES[fc["kind"]]["through"].get(int(fc.get("level", 0)), 1.0)) if fc.get("built") and fc.get("kind") in FENCES else 1.0
                 q = round(float(r["S"]) * share * through, 4)
                 if q > 1e-6:
                     w.apply("draw", nd, parcel=pid, key=k, qty=q)
-                    out.setdefault(nd, {}).setdefault(food, {})[pid] = round(out.get(nd, {}).get(food, {}).get(pid, 0.0) + q, 4)
+                    for f in foods[:1]:
+                        out.setdefault(nd, {}).setdefault(f, {})[pid] = round(out.get(nd, {}).get(f, {}).get(pid, 0.0) + q, 4)
     return out
+
+
+SHARED_MOST = 0.03
 
 
 def _wanted_plants(target, kinds) -> set:

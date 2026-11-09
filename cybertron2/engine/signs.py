@@ -2045,7 +2045,8 @@ def _wild_loads(here, add) -> None:
 
 def _wild_when(here, add) -> None:
     """The signs of a kind's conditional layers and phases (kinds.WHEN rows with rows: the rut, the frost, the young dispersing),
-    shown the day a row starts to hold (a change, not a standing fact), for kinds about the village; and the signs that lead the
+    shown the day a row starts to hold (a change, not a standing fact; on a run's first day all that holds is news), for kinds
+    about the village; and the signs that lead the
     weather (kinds.WEATHER_LEADS) on the day they hold."""
     from cybertron2.engine import wild as WL
     from cybertron2.wild.kinds import WHEN, WEATHER_LEADS
@@ -2071,7 +2072,8 @@ def _wild_when(here, add) -> None:
         for j, row in enumerate(rows):
             if not row.get("rows"):
                 continue
-            if WL.cond(w, here.node, row.get("if"), kind, m, st, ri) and not WL.cond(w, here.node, row.get("if"), kind, m, st, ri, day=here.day - 1):
+            if WL.cond(w, here.node, row.get("if"), kind, m, st, ri) and (here.day == 0 or not WL.cond(w, here.node, row.get("if"), kind,
+                                                                                                      m, st, ri, day=here.day - 1)):   # news on the first day too
                 _wild_emit(here, row["rows"], x, [f"parcel:{spot}"], spot, add, f"wildwhen{kind[:4]}{j}", dict(place=here.parcels()[spot]["name"]),
                            0, tags=("animals",), key="hunt")
     for j, lead in enumerate(WEATHER_LEADS):
