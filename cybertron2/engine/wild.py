@@ -257,8 +257,8 @@ def _raid(w, g, np_, kind, what, tgt, parcel, scare, rng) -> dict:
             return {"killed": None}
         w.apply("set", node, ref=("herd", tgt), field=role, value=int(h[role]) - 1)
         w.apply("set", node, ref=("herd", tgt), field="count", value=FM.head(w.s["herds"][tgt]))
-        TH.leave_carcass(w, node, FM.ROLE_WORD[role][0], h["name"], [c["claimant"] for c in w.claims_on(("herd", tgt))], "other",
-                         TECHNIQUES["slaughter"]["yield"]["gives"][role], parcel=parcel)
+        TH.leave_carcass(w, node, FM.ROLE_WORD[role][0], h["name"], [c["claimant"] for c in w.claims_on(("herd", tgt))], "killed",
+                         TECHNIQUES["slaughter"]["yield"]["gives"][role], parcel=parcel, by=kind)
         w.event(node, "herd", f"a {FM.ROLE_WORD[role][0]} of {h['name']} was killed in the night", about=[f"herd:{tgt}"], salience=0.6,
                 tags=["animals", "danger"])
         return {"killed": role}

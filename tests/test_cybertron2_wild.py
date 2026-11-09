@@ -270,12 +270,22 @@ def test_a_hungry_pack_takes_a_beast_from_the_herd_and_leaves_its_carcass(genera
     before = sum(FM.head(w.s["herds"][h]) for h in herds)
     carcasses = lambda: sum(1 for c in w.s["containers"].values() if c.get("kind") == "carcass")
     c0 = carcasses()
-    formed = False
+    from cybertron2.engine import signs as SG
+    formed, true = False, None
     for _ in range(16):
-        N.night(w); w.s["day"] += 1
+        N.night(w)
         formed |= "wolf@s1" in w.s["wild"]["groups"]
+        c = next((c for c in w.s["containers"].values() if c.get("kind") == "carcass" and c.get("cause") == "killed"), None)
+        if c is not None and true is None:                                         # the morning after the kill
+            w.s["day"] += 1
+            rows, x = SG.bundle(w, c)
+            true = [r["text"](x) for _, r in SG.true_rows(rows, x)]
+        else:
+            w.s["day"] += 1
     assert formed
     assert sum(FM.head(w.s["herds"][h]) for h in herds) < before and carcasses() > c0
+    assert any("torn at the throat" in t for t in true) and not any("no mark" in t for t in true)
+    assert any("wolves killed" in t for t in true)                                  # the hunter's reading, from the kinds' data
 
 
 def test_a_fox_takes_hens_left_out_and_fewer_shut_in(generated):

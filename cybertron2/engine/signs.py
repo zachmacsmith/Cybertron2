@@ -316,8 +316,12 @@ CARCASS = [
          text=lambda x: f"{x.of} lies dead {x.at}, not long dead: the meat would still be good today"),
     dict(when=lambda x: x.fresh and x.starved, sense="sight", p=0.8, reach="near", tags=["animals", "food"], knack="herd",
          text=lambda x: f"the dead {x.beast} {x.at} is all hide and bone: it starved, and there is little meat on it"),
-    dict(when=lambda x: x.fresh and not x.starved, sense="sight", p=0.5, reach="near", tags=["animals"], knack="herd",
+    dict(when=lambda x: x.fresh and not x.starved and not x.killed, sense="sight", p=0.5, reach="near", tags=["animals"], knack="herd",
          text=lambda x: f"no mark on the dead {x.beast} {x.at}: it went down where it stood"),
+    dict(when=lambda x: (x.fresh or x.rotten) and x.killed, sense="sight", p=1.0, reach="near", tags=["animals", "danger"],
+         text=lambda x: f"the dead {x.beast} {x.at} is torn at the throat and flank, and much of it eaten"),
+    dict(when=lambda x: (x.fresh or x.rotten) and x.killed and x.kill_reading, sense="sight", p=1.0, reach="near", knows="hunt",
+         tags=["animals", "danger"], text=lambda x: x.kill_reading.format(beast=x.beast, at=x.at)),
     dict(when=lambda x: (x.fresh or x.rotten) and x.weather != "fog", sense="sight", p=0.5, tags=["animals"],
          text=lambda x: f"crows going down {x.at}, where something lies dead"),
     dict(when=lambda x: x.rotten and x.warm, sense="smell", own=2.0, tags=["animals", "danger"],
@@ -1686,10 +1690,17 @@ def carcass_context(w, c):
     return SimpleNamespace(beast=c.get("beast", "beast"), of=c.get("of", "a beast"), where=where, on_road=on_road,
                            at=("by the road" if on_road else f"at {where}") + (f" ({c['tag']})" if c.get("tag") else ""), off_road=c.get("hidden") == "off the road",
                            age=age, fresh=TH.carcass_fresh(w, c) and not bones, rotten=not TH.carcass_fresh(w, c) and not bones,
-                           bones=bones, starved=c.get("cause") == "starved", hide=c["goods"].get("hide", 0) > 0,
+                           bones=bones, starved=c.get("cause") == "starved", killed=c.get("cause") == "killed",
+                           kill_reading=_kill_reading(c.get("by")), hide=c["goods"].get("hide", 0) > 0,
                            meat=c["goods"].get("meat", 0) > 0, cold=w.cold(TH.where(w, c)), warm=not w.cold(TH.where(w, c)), weather=EV.weather(w, TH.where(w, c)),
                            snow=EV.snow_lying(w, TH.where(w, c)), dogs=not on_road and any(b["node"] == c.get("node") and b["fittings"].get("dog")
                                                                             for b in w.s["buildings"].values()))
+
+
+def _kill_reading(kind):
+    """How one who has hunted reads a kill by a wild kind (kinds.KILL_READINGS)."""
+    from cybertron2.wild.kinds import KILL_READINGS
+    return KILL_READINGS.get(kind) if kind else None
 
 
 def slaughter_context(here, pid):

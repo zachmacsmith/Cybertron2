@@ -737,7 +737,7 @@ THINGS = {
     # road. Meat by how it died, as a share of slaughter's (calibrate)
     "carcass": 0.9, "carcass_bones": 0.3, "carcass_bones_after": 6, "carcass_fresh_days": 1,
     "carcass_road": {"none": 0.3, "hidden": 0.3},
-    "carcass_meat": {"starved": 0.25, "road": 0.5, "other": 0.5},
+    "carcass_meat": {"starved": 0.25, "road": 0.5, "other": 0.5, "killed": 0.3},
     "hidden": {"under brush": [0.2, 0.4], "buried": [0.03, 0.06], "off the road": [0.2, 0.2]},
 }
 # Fences round a parcel (livestock.md, D2-130; calibrate): what a build takes for a parcel of size s (x the square root of s), the chance a

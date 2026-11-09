@@ -175,7 +175,7 @@ def carcass_fresh(w, c) -> bool:
     return w.d - int(c.get("died", w.d)) <= int(THINGS["carcass_fresh_days"]) and c["goods"].get("meat", 0.0) > 1e-9
 
 
-def leave_carcass(w, place, beast, herd_name, holders, cause, role_meat, parcel=None, stretch=None, hidden=None) -> str:
+def leave_carcass(w, place, beast, herd_name, holders, cause, role_meat, parcel=None, stretch=None, hidden=None, by=None) -> str:
     """A beast that died leaves its carcass where it fell (D4-52): meat by how it died (a share of slaughter's), its hide."""
     share = float(THINGS["carcass_meat"].get(cause, THINGS["carcass_meat"]["other"]))
     fields = {"beast": beast, "of": f"a {beast} of {herd_name}", "holders": list(holders), "cause": cause, "died": w.d}
@@ -183,6 +183,8 @@ def leave_carcass(w, place, beast, herd_name, holders, cause, role_meat, parcel=
         fields["stretch"] = stretch
     if hidden:
         fields["hidden"] = hidden
+    if by:
+        fields["by"] = by                                                    # the kind that killed it (wild.py)
     cid = w.apply("new_thing", place, node=place, parcel=parcel, kind="carcass", **fields)
     for item, q in role_meat.items():
         q = round(q * share, 2) if item == "meat" else q

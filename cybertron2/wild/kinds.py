@@ -195,6 +195,9 @@ SIGNS = {
                   R("knows", "sight", 0.8, (1, 1), "a fox dug at the hen-house door at {place} in the night and did not get in")],
     },
 }
+# how one who has hunted reads a beast a wild kind killed (signs.CARCASS)
+KILL_READINGS = {"wolf": "wolves killed the {beast} {at}: the throat bitten through from behind, great tracks trodden all round",
+                 "fox": "a fox's kill {at}: the head bitten off, the rest dragged"}
 # signs for a watch whatever the kind: the night passed quiet, or the scare did not turn what came
 WATCH_SIGNS = {
     "watched": [R("all", "sight", 2.0, (0, 0), "you watched {place} through the night with the {scare}; nothing came near it", who="watcher")],
