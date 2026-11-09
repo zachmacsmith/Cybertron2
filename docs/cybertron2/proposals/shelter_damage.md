@@ -41,8 +41,8 @@ fail; calibrate):
 
 | A night's chance of | wattle | timber | stone | camp |
 |---|---|---|---|---|
-| minor wear (sound to worn, worn to gappy), calm | 0.03 | 0.015 | 0.003 | 0.08 |
-| serious damage (gappy to holed, holed to failing; or worn to holed in a storm), calm | 0.002 | 0.001 | 0.0002 | 0.02 |
+| minor wear (sound to worn, worn to gappy), calm | 0.03 | 0.015 | 0.003 | 0.25 |
+| serious damage (gappy to holed, holed to failing; or worn to holed in a storm), calm | 0.002 | 0.001 | 0.0002 | 0.05 |
 
 | Weather that night | minor wear | serious damage |
 |---|---|---|
@@ -69,8 +69,18 @@ mason's skill above holed. A gappy house mended before winter is the lesson; a h
 
 A camp (D2-68: a lean-to and a fire ring, 3 timber, sleeps 4, lasts about 10 nights) is the weakest shelter:
 
-- **Shelter:** as now (the night's food and the cold as in lodging.md). Its life of about 10 nights stays; under §2 it wears fast
-  and a gale is likely to flatten it (serious x20 on 0.02: a 40% chance a gale night).
+- **Cheap to put up, dear to keep** (Zach, 9 Nov: "cheaper to build but cost more to upkeep and get damage more often so the longer
+  you are staying somewhere the less they become economical"):
+  - **Build:** 1 timber (poles) and brush cut on the spot, 1 unit (against 3 timber now, D2-68, D4-49).
+  - **Wear:** the fastest of any shelter (§2: minor 0.25 a calm night, serious 0.05; a gale flattens it more often than not). It has
+    no fixed life: unmended it falls apart in about four to six nights; mended it lasts as long as it is kept.
+  - **Upkeep:** mending a camp a level takes 0.5 timber (or brush) and part of a unit (a unit mends two levels); its fire burns 1
+    timber a night (D4-49, against a hut's ring at 0.5); and it shelters worse (a night's food 1.2 against a house's 1.0, lodging.md).
+  - **So the choice turns on the stay:** against a small wattle room (8 timber, 6 units, then a fire at 0.5 a night and rare mending),
+    a camp saves about 7 timber and 5 units at the start and costs about 0.8 timber, 0.3 units and 0.2 food a sleeper more each
+    night: cheaper for a few nights, about even near a season (8 nights), dearer beyond. A long stay is a reason to build a hut,
+    which is how a camp becomes a place to live.
+- **Shelter:** as now (the night's food and the cold as in lodging.md).
 - **Animals:** a camp's gaps are large from the start (as built on `ecology-raiders`): walls keep nothing out. Its defences are
   the **fire** (lit, it scares what fire scares, D2-198), **a watcher** (the night watch, D2-21), **a dog**, and **where the food
   is**: food in the camp's store is open to the fox, rats, a dog, a boar or a bear (brief 2's raid targets and brief 3's
@@ -107,6 +117,9 @@ A camp (D2-68: a lean-to and a fire ring, 3 timber, sleeps 4, lasts about 10 nig
 
 ## History
 - 9 Nov 2026: written by 37.2 at Zach's request, answering OPEN Q-37 (a), with camps (L-47) and animals at camps.
+- 9 Nov 2026: Zach: camps cheaper to build, dearer to keep, damaged more often, so they lose to a hut the longer one stays. The
+  camp's build cut to 1 timber and 1 unit, its wear raised (0.25 and 0.05 a calm night), its fixed life replaced by wear and
+  mending; the break-even with a small wattle room set near a season. This changes D2-68 and D4-49's camp, for Zach to decide.
 
 ## Sources
 proposals/building_risks.md, camps in spec/economy/lodging.md (D2-68, D4-49, D4-84, D4-92), buildings.md (D2-168); docs/review/37_growth/02zx
