@@ -327,7 +327,7 @@ WEATHER_LEADS = [
     {"if": {"rain_after_dry": 2, "seasons": {2: (0, 7)}}, "kind": "eel",
      "rows": [R("all", "sight", 0.6, (0, 0), "the first heavy rain after the dry weeks: the river rising and dark"),
               R("expert", "sight", 0.6, (0, 0), "an eel night: dark, wet and the water rising after the dry weeks; set the traps tonight")],
-     "read": "set eel traps"},
+     "read": "trap in water"},
 ]
 # what one notices while working, by the technique (the hunt's own are HUNT_NOTICES): each with the kind that must be about (in the
 # village's ring), a condition, its rows, and a find (a good one may pick up)
@@ -373,16 +373,16 @@ HUNTED = {"flee": {"red deer": 0.3, "roe deer": 0.2, "wild boar": 0.15}, "hunt":
 # to the village's land each night (eats a stock, harms a crop, floods and feeds through a dam); what may be taken from it, and when.
 SPRING = {0: (0, 7)}
 SITES = {
-    "heronry": {"where": {"covers": ["forest"], "beside": ["water"], "or_river": True}, "p": 0.6, "size": (6, 24), "cap": 24, "grow": 0.25,
+    "heronry": {"home": "colony", "where": {"covers": ["forest"], "beside": ["water"], "or_river": True}, "p": 0.6, "size": (6, 24), "cap": 24, "grow": 0.25,
                 "season": SPRING, "leaves": 0.35, "hard_winter": {"frozen": 3, "crash": 0.5},
-                "troubled_by": ["fell", "hunt the wild", "stalk deer", "boar hunt", "take the young herons"],   # at the nests, not the quiet work
+                "troubled_by": ["fell", "hunt the wild", "stalk", "drive", "gather young"],   # at the nests, not the quiet work (D2-204 names)
                 "eats": {"res": "fish", "covers": ["water"], "share": 0.0004},
                 "take": {"season": {0: (3, 7)}, "item": "meat", "each": 0.3, "most": 4, "words": "young herons from the nests"}},
-    "rookery": {"where": {"covers": ["forest", "scrub"], "beside": ["field"]}, "p": 0.8, "size": (20, 70), "cap": 80, "grow": 0.2,
+    "rookery": {"home": "colony", "where": {"covers": ["forest", "scrub"], "beside": ["field"]}, "p": 0.8, "size": (20, 70), "cap": 80, "grow": 0.2,
                 "season": SPRING, "leaves": 0.0, "hard_winter": {"frozen": 4, "crash": 0.2},
                 "harm": {"crops": ["grain", "winter grain"], "age": (0, 6), "share": 0.00015, "beside": True, "watch_stops": True},
                 "take": {"season": {0: (4, 7)}, "item": "meat", "each": 0.12, "most": 10, "words": "young rooks from the nests"}},
-    "lodge": {"where": {"covers": ["forest", "scrub", "meadow"], "river": True}, "p": 0.15, "size": (2, 6), "cap": 6, "grow": 0.15,
+    "lodge": {"home": "lodge", "where": {"covers": ["forest", "scrub", "meadow"], "river": True}, "p": 0.15, "size": (2, 6), "cap": 6, "grow": 0.15,
               "season": {1: (0, 7)}, "leaves": 0.0, "rare": True,
               "dam": {"floods": {"covers": ["meadow", "pasture"], "res": "grass", "K": 0.6}, "fish": 1.3, "dead": 20.0, "rebuild_days": 3},
               "trap": {"item": "beaver pelt", "also": {"castoreum": 1}}},
@@ -527,14 +527,21 @@ RAVENS_OVER = {"min_carrion": 20.0, "lay": "ravens wheeling over the wood", "kno
 # by; goods, what a kill gives (engine food for meat: real content x Y/365, node_ecology.md).
 TAKEN = {
     "red deer":   {"family": ["deer", "red deer", "stag", "hind", "venison", "big game", "game"], "detect": 0.35, "flee": 0.55,
-                   "goods": {"meat": 3.9, "hide": 1}},
-    "roe deer":   {"family": ["deer", "roe", "roe deer", "venison", "game"], "detect": 0.3, "flee": 0.5, "goods": {"meat": 1.1, "hide": 1}},
+                   "goods": {"meat": 3.9, "hide": 1},
+                   "calibrate": {"drive": 0.15}},   # a drive is made for the sounder: deer break back through the beaters (D2-204 §4)
+    "roe deer":   {"family": ["deer", "roe", "roe deer", "venison", "game"], "detect": 0.3, "flee": 0.5, "goods": {"meat": 1.1, "hide": 1},
+                   "calibrate": {"snare": 0.1}},    # a hare's noose seldom holds a roe (D2-204 §4)
     "wild boar":  {"family": ["boar", "wild boar", "pig", "swine", "sounder", "big game", "game"], "detect": 0.3, "flee": 0.35,
                    "danger": {"wound": 0.3, "kill": 0.03}, "goods": {"meat": 3.5, "hide": 1}},
     "brown hare": {"family": ["hare", "hares", "small game", "game"], "detect": 0.5, "flee": 0.5, "goods": {"meat": 0.18}},
-    "woodpigeon": {"family": ["pigeon", "pigeons", "birds", "small game"], "detect": 0.4, "flee": 0.75, "goods": {"meat": 0.05}},
-    "wildfowl":   {"family": ["fowl", "duck", "ducks", "geese", "birds", "wildfowl"], "detect": 0.5, "flee": 0.6, "goods": {"meat": 0.2}},
-    "fox":        {"family": ["fox", "foxes", "vermin"], "detect": 0.15, "flee": 0.6, "goods": {"hide": 1}},
+    "woodpigeon": {"family": ["pigeon", "pigeons", "birds", "small game"], "detect": 0.4, "flee": 0.75, "goods": {"meat": 0.05},
+                   "calibrate": {"net": 0.1}},      # pigeons seldom come down to the fowler's nets and decoys (D2-204 §4)
+    "wildfowl":   {"family": ["fowl", "duck", "ducks", "geese", "birds", "wildfowl"], "detect": 0.5, "flee": 0.6, "goods": {"meat": 0.2},
+                   "calibrate": {"trap in water": 0.1}},   # a duck drowned in an eel trap now and then, no more (D2-204 §4)
+    "fox":        {"family": ["fox", "foxes", "vermin"], "detect": 0.15, "flee": 0.6, "goods": {"hide": 1},
+                   "litter": {"home": "den", "if": {"seasons": {0: (0, 7)}}, "n": 3}},       # cubs at the earth in spring (D2-204: on the kind)
+    # D2-204 (brief 1): an eel trap took eels that gave nothing (no row); a night's lift is several eels (calibrate)
+    "eel":        {"family": ["eel", "eels", "fish"], "detect": 0.4, "flee": 0.3, "goods": {"meat": 0.1}},
     "wolf":       {"family": ["wolf", "wolves", "big game"], "detect": 0.12, "flee": 0.5, "danger": {"wound": 0.25, "kill": 0.04},
                    "goods": {"hide": 1}},
     "brown bear": {"family": ["bear", "big game"], "detect": 0.1, "flee": 0.3, "danger": {"wound": 0.5, "kill": 0.12},
@@ -554,14 +561,18 @@ LOADS = {
                       "cover": {"field": 1.0, "pasture": 0.8, "meadow": 0.9, "forest": 0.6, "fen": 0.8}},
               "seasons": (0, 1, 2), "rest": 0.6, "rate": 0.3, "base": 1.4, "drivers": {"wet": 2.0, "warm": 0.03}, "frost": 0.15, "most": 4.0,
               "flush": 1.4, "flood": 0.3,
-              "harm": [{"crops": ["grain", "winter grain", "legumes"], "age": (0, 5), "share": 0.02, "over": 0.5}]},
+              "harm": [{"crops": ["grain", "winter grain", "legumes"], "age": (0, 5), "share": 0.02, "over": 0.5}],
+              "on_crop": True, "guard": {"cut": 0.6, "days": 1, "done": "You picked the slugs off the young crop in {place} at dusk as they came out."}},
     "aphids": {"hab": {"cover": {"field": 1.0, "meadow": 0.4, "pasture": 0.3, "scrub": 0.3}},
                "seasons": (0, 1), "rest": 0.3, "rate": 0.35, "drivers": {"warm": 0.12, "dry": 1.0}, "frost": 0.1, "most": 4.0,
                "eaten_by": {"ladybirds": 0.12},
                "harm": [{"crops": ["legumes"], "age": (3, 40), "share": 0.015, "over": 0.8},
-                        {"crops": ["grain"], "age": (6, 40), "share": 0.004, "over": 1.2}]},
+                        {"crops": ["grain"], "age": (6, 40), "share": 0.004, "over": 1.2}],
+               "on_crop": True, "guard": {"cut": 0.5, "days": 8, "done": "You pinched out the bean tops in {place}, where the fly gathers."}},
     "ladybirds": {"hab": {"cover": {"field": 0.8, "meadow": 0.8, "pasture": 0.6, "scrub": 1.0, "forest": 0.5}},
-                  "seasons": (0, 1), "rest": 0.4, "rate": 0.2, "follows": {"aphids": 1.0}, "frost": 0.05, "most": 3.0, "cold_stall": 0.8},
+                  "seasons": (0, 1), "rest": 0.4, "rate": 0.2, "follows": {"aphids": 1.0}, "frost": 0.05, "most": 3.0, "cold_stall": 0.8,
+                  "on_crop": True, "guard": {"cut": 0.0, "days": 1, "thin": {"ladybirds": 0.5},
+                                             "done": "You picked the grey spiny grubs off the beans in {place}."}},
     "fungi": {"hab": {"cover": {"forest": 1.0, "scrub": 0.5, "pasture": 0.6, "meadow": 0.6, "heath": 0.4}},
               "seasons": (2,), "rest": 0.0, "start": 0.0, "rate": 0.4, "drivers": {"wet": 1.5, "warm": 0.08}, "frost": 0.5, "most": 3.0},                                                                  # the mushrooms' year (wild/plants.py)
 }
@@ -663,11 +674,25 @@ DISEASE_SIGNS = {
 
 
 # what a technique the wild pack switches off was practice for (the old generic hunt): those who knew it know these
-SKILL_CARRY = {"hunt": ["hunt the wild", "snare hares"]}
+# What a kind is like to those who hunt it (D2-204, methods_and_encounters.md §2; calibrate): the methods' needs and favours are read
+# against these at load to build each method's take table (engine/methods.py). A kind without traits is no method's target.
+TRAITS = {
+    "red deer":   {"size": "large", "runs": True, "social": "group", "home": "none", "water": False},
+    "roe deer":   {"size": "medium", "runs": True, "social": "solitary", "home": "none", "water": False},
+    "wild boar":  {"size": "large", "runs": True, "social": "group", "home": "none", "water": False},
+    "brown hare": {"size": "small", "runs": True, "social": "solitary", "home": "form", "water": False},
+    "woodpigeon": {"size": "small", "runs": False, "social": "flock", "home": "none", "water": False},
+    "fox":        {"size": "medium", "runs": True, "social": "solitary", "home": "den", "water": False},
+    "wolf":       {"size": "large", "runs": True, "social": "group", "home": "den", "water": False},
+    "brown bear": {"size": "large", "runs": False, "social": "solitary", "home": "den", "water": False},
+    "wildfowl":   {"size": "small", "runs": False, "social": "flock", "home": "none", "water": True},
+    "eel":        {"size": "small", "runs": False, "social": "solitary", "home": "none", "water": True, "mover": "cue"},
+}
 
 
 def rows() -> dict:
     """The kinds as RESOURCES rows (merged into data.RESOURCES; pack "wild")."""
     return {name: {"renewal": "population", "pack": "wild", "population": k, **({"near_people": NEAR_PEOPLE[name]} if name in NEAR_PEOPLE else {}),
-                   **({"taken": TAKEN[name]} if name in TAKEN else {}), **({"presence": PRESENCE[name]} if name in PRESENCE else {})}
+                   **({"taken": {**TAKEN[name], **({"traits": TRAITS[name]} if name in TRAITS else {})}} if name in TAKEN else {}),
+                   **({"presence": PRESENCE[name]} if name in PRESENCE else {})}
             for name, k in KINDS.items()}

@@ -181,6 +181,8 @@ def settle_teaching(w, today) -> dict:
             continue
         node = w.at(t["by"])
         w.apply("learn", node, person=t["to"], tech=t["tech"], level=target, source=f"taught by {t['by']}")
+        from cybertron2.wild import methods as MT                           # taught a method: the kinds the teacher knows by it (D2-204 §5)
+        MT.teach_familiar(w, t["by"], t["to"], t["tech"])
         tk = w.s["know"].get(t["by"], {}).get(t["tech"], {})
         r = k[t["tech"]]
         share = float(w.p["teach"]["skill_share"]) * (2 if w.s["people"][t["to"]]["stage"] == "youth" else 1)

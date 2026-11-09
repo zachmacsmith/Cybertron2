@@ -285,6 +285,9 @@ def practised(mind) -> set:
             if float(r.get("skill", lo)) >= lo + float(NOTICING.get("expert_at", 0.8)) * (hi - lo):   # the expert's reading (L3)
                 out.add(f"expert:{t}")
                 out.update(f"expert:{x}" for x in (TECHNIQUES[t].get("reads_as") or []))
+    from cybertron2.wild import methods as MT                                  # a kind one knows well: its expert readings (D2-204 §5)
+    out.update(f"familiar:{k}" for k, x in MT.familiar_of(getattr(mind, "store", None)).items()
+               if not k.startswith("_") and float(x) >= float(MT.FAMILIAR["expert"]))
     return out
 
 

@@ -182,6 +182,7 @@ def test_a_trace_reads_one_way_to_a_practised_hunter_and_another_to_anyone_else(
     world = copy.deepcopy(generated)
     world["agents"] = {"Ann": {"household": "Ash", "stage": "adult", "sex": "f", "at": "s1", "knows": {"hunt": {"level": "known", "skill": 1.6}}},
                        "Tom": {"household": "Ash", "stage": "adult", "sex": "m", "at": "s1", "knows": {}}}
+    world.setdefault("wild", {})["methods_known"] = {}                              # nobody raised to the wild methods (D2-204 §6)
     w, WL = _summer_world(world)
     edge = WL._edge_of(w, WL._fields(w, "s1")[0])
     w.apply("set_wild", "s1", path=["traces"], value={edge: [{"kind": "wild boar", "what": "edge", "day": w.d, "n": 9}]})
@@ -195,7 +196,7 @@ def test_a_trace_reads_one_way_to_a_practised_hunter_and_another_to_anyone_else(
     assert any("turf" in t for t in read["Tom"]) and not any("sounder" in t for t in read["Tom"])
 
 
-def _hunters(generated, n=30, knows=("hunt the wild", "boar hunt", "stalk deer")):
+def _hunters(generated, n=30, knows=("hunt the wild", "drive", "stalk")):
     world = copy.deepcopy(generated)
     world["agents"] = {f"H{i}": {"household": "Ash", "stage": "adult", "sex": "m", "at": "s1",
                                  "knows": {t: {"level": "known", "skill": 1.4} for t in knows}} for i in range(n)}
@@ -219,7 +220,7 @@ def _do(w, who, a):
 def test_a_kill_comes_off_the_population_and_gives_its_goods(generated):
     w, WL, wood = _hunters(generated)
     before = sum(np.asarray(w.s["wild"]["state"]["pop"]["roe deer"]) * WL.model(w).km2)
-    took = [r for i in range(30) for r in [_do(w, f"H{i}", {"do": "gather", "what": "stalk deer", "at": wood, "range": "the wood around",
+    took = [r for i in range(30) for r in [_do(w, f"H{i}", {"do": "gather", "what": "stalk", "at": wood, "range": "the wood around",
                                                               "looking for": "roe deer"})] if "took it" in r]
     after = sum(np.asarray(w.s["wild"]["state"]["pop"]["roe deer"]) * WL.model(w).km2)
     roe = sum(1 for r in took if "came on a roe deer" in r)                    # (not "instead of the roe deer you were after")
@@ -245,11 +246,11 @@ def test_looking_for_something_makes_it_likelier_but_not_certain(generated):
 def test_boar_hunted_alone_hurt_more_often_than_with_a_crew(generated):
     """D2-193: a boar hunt alone is dangerous; others hunting with you at the same place that day share the danger."""
     w, WL, wood = _hunters(generated, n=80)
-    alone = [_do(w, f"H{i}", {"do": "gather", "what": "boar hunt", "at": wood, "looking for": "boar"}) for i in range(40)]
+    alone = [_do(w, f"H{i}", {"do": "gather", "what": "drive", "at": wood, "looking for": "boar"}) for i in range(40)]
     w2, _, wood2 = _hunters(generated, n=80)
     together = []
     for i in range(40, 80):                                                     # hunters in fours, each four at the same wood
-        together.append(_do(w2, f"H{i}", {"do": "gather", "what": "boar hunt", "at": wood2, "looking for": "boar"}))
+        together.append(_do(w2, f"H{i}", {"do": "gather", "what": "drive", "at": wood2, "looking for": "boar"}))
     hurt = lambda rs: sum("turned on you" in r for r in rs) / max(1, sum("came on" in r for r in rs))
     assert hurt(alone) >= hurt(together[4:])
 
@@ -386,7 +387,7 @@ def test_hunting_a_range_shows_its_kinds_signs_read_two_ways_and_remembered(gene
     hunting (`reads_as`) reads them as a hunter, the rest as anyone; what was seen is remembered of the place."""
     from cybertron2.engine.here import Mind
     from cybertron2.wild.kinds import HUNT_NOTICES
-    w, WL, wood = _hunters(generated, n=80, knows=("stalk deer",))
+    w, WL, wood = _hunters(generated, n=80, knows=("stalk",))
     m, ri = _ring(w, WL)
     w.s["wild"]["state"]["pop"]["wild boar"][ri] = 60.0 / m.km2[ri]
     for i in range(40, 80):                                                           # half have never hunted
@@ -760,7 +761,7 @@ def test_a_hunted_wood_empties_of_deer_and_keeps_their_group_off_the_fields(gene
     w, WL, wood = _hunters(generated, n=12)
     m, ri = _ring(w, WL)
     for i in range(12):
-        _do(w, f"H{i}", {"do": "gather", "what": "stalk deer", "at": wood, "range": "the wood around"})
+        _do(w, f"H{i}", {"do": "gather", "what": "stalk", "at": wood, "range": "the wood around"})
     p = w.s["wild"]["state"]["pressure"]["red deer"][ri]
     assert p > 1.0
     before = float(w.s["wild"]["state"]["pop"]["red deer"][ri])
@@ -831,7 +832,7 @@ def test_digging_out_the_earth_in_spring_takes_the_cubs(generated):
     w.s["wild"]["state"]["pop"]["fox"][ri] = 30.0 / m.km2[ri]
     wood = next(p["name"] for p in w.s["parcels"].values() if p["node"] == "s1" and p["cover"] in ("forest", "scrub"))
     before = sum(np.asarray(w.s["wild"]["state"]["pop"]["fox"]) * m.km2)
-    took = [r for i in range(20) for r in [_do(w, f"D{i}", {"do": "gather", "what": "dig out the fox earth", "at": wood, "range": "the wood around"})]
+    took = [r for i in range(20) for r in [_do(w, f"D{i}", {"do": "gather", "what": "den work", "at": wood, "range": "the wood around"})]
             if "took it" in r]
     after = sum(np.asarray(w.s["wild"]["state"]["pop"]["fox"]) * m.km2)
     assert took and before - after >= 4 * len(took) - 1e-6                                       # the vixen and her cubs
@@ -883,7 +884,7 @@ def test_the_ladybird_grubs_misread_and_picked_off_leave_the_fly(generated):
     L = w.s["wild"]["state"]["loads"]
     L["level"]["ladybirds"][i] = 2.0
     pid, par = _young_field(w, fam="legumes", age=6)
-    _do(w, "Tom", {"do": "work", "what": "clear the grubs off the beans", "at": par["name"]})
+    _do(w, "Tom", {"do": "work", "what": "pest work", "looking for": "grubs", "at": par["name"]})
     assert w.s["wild"]["state"]["loads"]["level"]["ladybirds"][i] < 2.0
 
 
@@ -902,14 +903,17 @@ def test_the_first_rain_after_a_dry_spell_brings_the_slugs_out():
 
 
 # ---------------------------------------------------------------------- the expert's readings (L3) for every kind
+TAKEN_KINDS = ("red deer", "roe deer", "wild boar", "brown hare", "woodpigeon", "fox", "wolf", "brown bear", "wildfowl", "eel")
 def test_an_expert_hunter_reads_how_many_and_in_what_condition(generated):
     w, WL, wood = _hunters(generated, n=60, knows=())
     m, ri = _ring(w, WL)
     w.s["wild"]["state"]["pop"]["wild boar"][ri] = 40.0 / m.km2[ri]
     for i in range(30):
-        w.s["know"][f"H{i}"] = {"hunt the wild": {"level": "known", "skill": 1.5}}                 # experts
+        w.s["know"][f"H{i}"] = {"hunt the wild": {"level": "known", "skill": 1.5}}                 # experts: they know the
+        w.s["mind"].setdefault(f"H{i}", {})["familiar"] = {k: 0.8 for k in TAKEN_KINDS}           # kinds well (D2-204 §5)
     for i in range(30, 60):
         w.s["know"][f"H{i}"] = {"hunt the wild": {"level": "known", "skill": 1.2}}                 # practised
+        w.s["mind"].setdefault(f"H{i}", {})["familiar"] = {k: 0.3 for k in TAKEN_KINDS}
     go = lambda i: _do(w, f"H{i}", {"do": "gather", "what": "hunt the wild", "at": wood, "range": "the wood around"})
     exp, prac = [go(i) for i in range(30)], [go(i) for i in range(30, 60)]
     pat = re.compile(r"about \d+ [a-z ]+?(use this ground|hold the thickets|on this land|over this land|ranges this land)[^.;]*?(fat|fair|lean|starving)")
@@ -1041,7 +1045,7 @@ def test_a_beaver_dam_floods_the_meadow_breaking_it_drains_it_and_the_beavers_re
         pytest.skip("no lodge in this world")
     flooded = {k.split("|")[0]: v for k, v in site["k0"].items() if k.endswith("|grass")}
     assert flooded and all(w.s["parcels"][q]["res"]["grass"]["K"] < v for q, v in flooded.items())
-    r = _do(w, "Bo", {"do": "work", "what": "break the beaver dam", "at": w.s["parcels"][site["parcel"]]["name"]})
+    r = _do(w, "Bo", {"do": "work", "what": "break a dam", "at": w.s["parcels"][site["parcel"]]["name"]})
     assert "broke open" in r, r
     assert all(abs(w.s["parcels"][q]["res"]["grass"]["K"] - v) < 1e-6 for q, v in flooded.items())
     for _ in range(4):
@@ -1059,14 +1063,14 @@ def test_trapping_the_last_beaver_ends_the_lodge_for_good(generated):
     if sid is None:
         pytest.skip("no lodge in this world")
     name = w.s["parcels"][site["parcel"]]["name"]
-    rs = [_do(w, "Bo", {"do": "gather", "what": "trap beavers", "at": name}) for _ in range(int(site["size"]) + 1)]
+    rs = [_do(w, "Bo", {"do": "gather", "what": "den work", "at": name}) for _ in range(int(site["size"]) + 1)]
     assert any("last of them" in r for r in rs) and w.s["wild"]["sites"][sid]["gone"] is not None
     assert w.goods(w.s["people"]["Bo"]["hands"]).get("beaver pelt", 0) >= 1
 
 
 def test_killing_the_old_sow_scatters_the_sounder(generated):
     """A kill from a group with a leader may be the leader (odds by the group's size); the group then drives less for a while."""
-    w, WL, wood = _hunters(generated, n=60, knows=("boar hunt",))
+    w, WL, wood = _hunters(generated, n=60, knows=("drive",))
     from cybertron2.engine import night as N
     m, ri = _ring(w, WL)
     w.s["wild"]["state"]["pop"]["wild boar"][ri] = 60.0 / m.km2[ri]
@@ -1076,7 +1080,7 @@ def test_killing_the_old_sow_scatters_the_sounder(generated):
     w.s["wild"]["groups"][gid] = dict(g, n=1, leader={"name": "the old sow", "alive": True})      # one beast: the kill is she
     rs = []
     for i in range(60):
-        rs.append(_do(w, f"H{i}", {"do": "gather", "what": "boar hunt", "at": wood, "range": "the wood around", "looking for": "boar"}))
+        rs.append(_do(w, f"H{i}", {"do": "gather", "what": "drive", "at": wood, "range": "the wood around", "looking for": "boar"}))
         if (w.s["wild"]["groups"][gid].get("leader") or {}).get("died") is not None:
             break
     assert any("the old sow that led them" in r for r in rs)
@@ -1116,11 +1120,11 @@ def test_a_watchs_scare_is_made_of_what_is_there(generated):
     w, WL = _summer_world(_two(generated))
     w.s["today"] = R.blank_today()
     field = w.s["parcels"][WL._fields(w, "s1")[0]]["name"]
-    assert "needs 1 clappers" in _do(w, "Tom", {"do": "work", "what": "watch the field (clapper)", "at": field})
-    assert "keep no dog" in _do(w, "Tom", {"do": "work", "what": "watch the field (dog)", "at": field}) or any(
+    assert "needs 1 clappers" in _do(w, "Tom", {"do": "work", "what": "guard the field", "looking for": "clappers", "at": field})
+    assert "keep no dog" in _do(w, "Tom", {"do": "work", "what": "guard the field", "looking for": "dog", "at": field}) or any(
         (b.get("fittings") or {}).get("dog") for b in w.s["buildings"].values())
     w.apply("create", "s1", dst=w.hands("Tom"), item="firewood", qty=3)
-    r = _do(w, "Tom", {"do": "work", "what": "watch the field (fire)", "at": field})
+    r = _do(w, "Tom", {"do": "work", "what": "guard the field", "looking for": "fire", "at": field})
     assert "efused" not in r and w.goods(w.hands("Tom")).get("firewood", 0) < 3
 
 
@@ -1152,7 +1156,7 @@ def test_a_night_on_watch_costs_food_and_tomorrows_work(generated):
     w.s["today"] = R.blank_today()
     field = w.s["parcels"][WL._fields(w, "s1")[0]]["name"]
     w.apply("create", "s1", dst=w.hands("Tom"), item="firewood", qty=3)
-    _do(w, "Tom", {"do": "work", "what": "watch the field (fire)", "at": field})
+    _do(w, "Tom", {"do": "work", "what": "guard the field", "looking for": "fire", "at": field})
     assert "Tom" in w.s["today"]["night_watch"]
     assert LB.work_need(w.p, w.s["today"], "Tom") >= float(w.p["labour"]["guard_food"])
     LB.close_day(w, w.s["today"], {"Tom": 2}, {"Tom": 6}, ["Tom"])

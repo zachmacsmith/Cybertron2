@@ -127,6 +127,8 @@ def _drop_empty_enums(node) -> None:
 
 def _craft_note(tech) -> str:
     t = TECHNIQUES[tech]
+    if t.get("note"):                                                          # a wild method: what it is, no multipliers, no kinds (D2-204)
+        return f"{tech} ({t['note']})"
     bits = []
     at = t.get("at") or {}
     if at.get("fittings"):
@@ -520,7 +522,8 @@ def system_prompt(here, mind) -> str:
         lines += ["", f"Other places, as you know them (only what is carried goes between them; a night out costs "
                   f"{p['shelter']['unsheltered']:g} meals, {p['shelter_cold']['unsheltered']:g} in the cold, unless someone takes you in; "
                   f"on foot you carry at most {p['carry']['foot']:g} weight, more with a pack, more again with a cart on a road with a track; {weights_text()}):"] + _map_lines(mind)
-    lines += ["", "What you know how to do:"] + KN.crafts_lines(mind)
+    from cybertron2.wild import methods as MT
+    lines += ["", "What you know how to do:"] + KN.crafts_lines(mind) + [x for x in [MT.familiar_line(mind)] if x]   # D2-204 §7
     reply = REPLY_LINES
     if int((p.get("labour") or {}).get("over_units", 0) or 0):
         reply = reply.replace('''- "tell":''', f'''- "overwork": 0 to {p["labour"]["over_units"]}: units to push on past your day's if your plan needs them.

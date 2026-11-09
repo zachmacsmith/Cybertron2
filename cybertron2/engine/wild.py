@@ -102,12 +102,11 @@ def seed(w) -> None:
     _seed_plants(w)                                                       # the wild plant kinds in place of `plants` (D2-200)
     _seed_sites(w)                                                        # heronries, rookeries, beaver lodges (wave 5)
     _seed_legends(w)                                                      # the legendary beasts, seldom (D2-195)
-    from cybertron2.wild.kinds import SKILL_CARRY
-    for name, k in w.s["know"].items():                                   # the old hunt's practice carries to the wild ones
-        for old, new in SKILL_CARRY.items():
-            if old in k:
-                for t in new:
-                    k.setdefault(t, dict(k[old]))
+    for name, k in w.s["know"].items():                                   # the old hunt is the wild one's basic hunt, renamed (D2-204)
+        if "hunt" in k:
+            k.setdefault("hunt the wild", dict(k["hunt"]))
+    from cybertron2.wild import methods as MT
+    MT.seed_by_land(w)                                                     # methods by upbringing and the land (D2-204 §6)
     for bid, b in w.s["buildings"].items():                               # each household's hens, in its house's store
         if (b.get("fittings") or {}).get("beds") and b.get("stock") and b["stock"] in w.s["containers"]:
             g = w.s["containers"][b["stock"]].setdefault("goods", {})
@@ -359,7 +358,7 @@ def work_notices(here, mind, tech, key) -> str:
             if r["read"] in ("lay", "knows"):
                 row[r["read"]] = "hunt" if group == "hunt" else tech
             elif r["read"] == "expert":
-                row["knows"] = f"expert:{'hunt' if group == 'hunt' else tech}"
+                row["knows"] = f"familiar:{k}" if k is not None else f"expert:{'hunt' if group == 'hunt' else tech}"
             rows.append((row, n_.get("find")))
 
     if tech == "gather wild food":                                         # an expert gatherer reads each kind's year here
@@ -791,6 +790,52 @@ def site_work(here, key, y, place_name, mult) -> str:
         word = f"You broke open the beaver dam at {place_name}; the water runs out of the meadow."
     here.apply("set_wild", path=["sites", sid], value=site)
     return word
+
+
+def _site_at(w, key, homes) -> tuple:
+    from cybertron2.wild.kinds import SITES
+    return next(((k, v) for k, v in sorted((w.s["wild"].get("sites") or {}).items()) if v["parcel"] == key and v.get("gone") is None
+                 and SITES[v["kind"]].get("home") in homes), (None, None))
+
+
+def den_work(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
+    """Den work (D2-204): at a lodge, the site's trap; elsewhere a take of the den-dwellers (the fox and her cubs in spring)."""
+    sid, site = _site_at(here._w, key, ("lodge",))
+    if site is not None:
+        return 0.0, site_work(here, key, {"site": site["kind"], "do": "trap"}, place_name, m_skill), ""
+    return take(here, mind, tech, key, place_name, out, m_skill, y, a)
+
+
+def young(here, key, place_name, mult) -> str:
+    """Gathering young (D2-204): the young from whichever colony is at the parcel (a heronry or a rookery), in its season."""
+    sid, site = _site_at(here._w, key, ("colony",))
+    if site is None:
+        return f"There is no heronry or rookery at {place_name}."
+    return site_work(here, key, {"site": site["kind"], "do": "take"}, place_name, mult)
+
+
+def pest(here, key, place_name, a) -> str:
+    """Pest work (D2-204): the pest named with `looking for`, else the worst on this field's village's land: its guard row (on the
+    load: cut, days, what it kills) as the old rows had it."""
+    from cybertron2.wild.kinds import LOADS
+    from cybertron2.wild.methods import LOAD_NAMES
+    from cybertron2.engine.here import Refused
+    w = here._w
+    crop = [k for k, r in LOADS.items() if r.get("on_crop") and r.get("guard")]
+    want = str(a.get("looking for") or "").strip().lower()
+    if want:
+        named = [k for k in crop if want == k or want in LOAD_NAMES.get(k, ())]
+        if not named:
+            raise Refused(f"you know of no pest called {a.get('looking for')!r} on a crop")
+        load = named[0]
+    else:
+        m = model(w) if (w.s.get("wild") or {}).get("state") else None
+        aid = (w.s["wild"].get("land") or {}).get("home", {}).get(here.node) if m else None
+        L = ((w.s["wild"].get("state") or {}).get("loads") or {}).get("level") or {}
+        i = m.ids.index(aid) if m and aid in m.ids else None
+        harm = [k for k in crop if LOADS[k].get("harm")]                   # the worst of those that harm: never the ladybirds unasked
+        load = max(harm, key=lambda k: float(L.get(k, [0.0])[i]) if i is not None and k in L else 0.0) if harm else crop[0]
+    return guard(here, key, {"load": load, **LOADS[load]["guard"]}, place_name)
 
 
 def _seed_legends(w) -> None:
@@ -1334,15 +1379,25 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
     rng_word = (mods.get("range") if isinstance(mods.get("range"), str) else None) or "near"
     areas = _reach(m, land, here.node, rng_word)
     takes = dict(y["takes"])
+    from cybertron2.wild import methods as MT
+    if a.get("looking for") and str(a.get("looking for")).strip().lower() not in ("anything", "whatever comes", "game", "any") \
+            and not _wanted(a.get("looking for"), [k for k, r in RESOURCES.items() if r.get("taken")]):
+        from cybertron2.engine.here import Refused
+        raise Refused(f"you know of no beast called {a.get('looking for')!r}")      # a target resolves whether or not it is here (D2-207)
     want = _wanted(a.get("looking for"), takes)
     rng = here.rng("wild-take", here.day, here.name, tech)
     cand = []
     ring_i = next((i for i in areas if land["areas"][m.ids[i]]["kind"] == "ring"), areas[0] if areas else None)
     efx = {k: effects(w, here.node, k, m, st, ring_i) for k in sorted(takes)}
-    when = 1.0
-    for row in (y.get("when") or []):                                     # a way of taking that pays on its nights (an eel night)
-        if cond(w, here.node, row.get("if"), None, m, st, ring_i):
-            when *= float(row.get("x", 1.0))
+    when_rows = [row for row in (y.get("when") or []) if cond(w, here.node, row.get("if"), None, m, st, ring_i)]
+
+    def when_for(k):                                                      # a way of taking that pays on its nights, for the kinds that
+        tr = ((RESOURCES.get(k) or {}).get("taken") or {}).get("traits") or {}     # move on that cue (an eel night: D2-204)
+        x = 1.0
+        for row in when_rows:
+            if all(tr.get(t) == v for t, v in (row.get("for") or {}).items()):
+                x *= float(row.get("x", 1.0))
+        return x
     pressure = {k: [float(x) for x in ((st.get("pressure") or {}).get(k) or [0.0] * m.n)] for k in takes if k in st["pop"]}
     pressure0 = {k: list(v) for k, v in pressure.items()}
     from cybertron2.wild.kinds import HUNTED
@@ -1356,6 +1411,7 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
             continue
         tk = (RESOURCES.get(k) or {}).get("taken") or {}
         focus = (3.0 if k in want else 0.4) if want else 1.0
+        when = when_for(k) * MT.factor(mind, k)                            # familiarity with the kind (D2-204 §5)
         for i in areas:
             count = float(st["pop"][k][i]) * float(m.km2[i])
             wgt = count * float(tk.get("detect", 0.2)) * efx[k]["detect"] / (1.0 + 0.5 * min(4.0, pressure0[k][i])) * float(tw) * focus * when \
@@ -1406,7 +1462,7 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
     armed = here.weapon()
     wpn = float(TECHNIQUES[tech]["weapon"]["armed" if armed else "none"])
     flee = min(0.95, float(tk.get("flee", 0.5)) * efx[k]["flee"])
-    p_take = float(np.clip(0.55 * m_skill * wpn * (1 - flee) * (1 + 0.25 * (crew - 1)), 0, 0.95))
+    p_take = float(np.clip(0.55 * m_skill * wpn * (1 - flee) * (1 + 0.25 * (crew - 1)) * MT.factor(mind, k), 0, 0.95))
     if rng.random() >= p_take:
         _put_pressure(here, pressure)
         if armed and tk.get("danger") and rng.random() < 0.3:              # hit but not down: a wounded beast lying up
@@ -1417,9 +1473,12 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
     _put_pressure(here, pressure)
     pop = [float(x) for x in st["pop"][k]]
     pop[i] = max(0.0, pop[i] - 1.0 / float(m.km2[i]))                      # one head off its area's count
-    for kk, lit in sorted((y.get("litter") or {}).items()):              # young taken with it (cubs at the earth in spring)
-        if kk == k and cond(w, here.node, lit.get("if"), k, m, st, ring_i):
-            pop[i] = max(0.0, pop[i] - float(lit["n"]) / float(m.km2[i]))
+    lit = tk.get("litter")                                                 # young taken with it (cubs at the earth in spring): the kind's
+    home_need = (TECHNIQUES[tech].get("needs") or {}).get("home")           # own row, by a method that works its home (D2-204)
+    if lit and home_need and lit.get("home") in (home_need if isinstance(home_need, list) else [home_need]) \
+            and cond(w, here.node, lit.get("if"), k, m, st, ring_i):
+        pop[i] = max(0.0, pop[i] - float(lit["n"]) / float(m.km2[i]))
+    MT.raise_familiar(here, mind, k, MT.FAMILIAR["take"], tech)              # taking it teaches one the kind (§5)
     here.apply("set_wild", path=["state", "pop", k], value=pop)
     gid = f"{k}@{here.node}"
     g = (w.s["wild"].get("groups") or {}).get(gid)
@@ -1494,7 +1553,7 @@ def _notices(here, mind, m, st, areas, key, effort) -> list:
             if r["read"] in ("lay", "knows"):
                 row[r["read"]] = "hunt"
             elif r["read"] == "expert":
-                row["knows"] = "expert:hunt"
+                row["knows"] = f"familiar:{k}"                                    # one who knows this kind well (D2-204 §5)
             rows.append(row)
 
     from cybertron2.wild.kinds import LEGENDS
@@ -1502,13 +1561,16 @@ def _notices(here, mind, m, st, areas, key, effort) -> list:
         if lg.get("alive") and lg["area"] in [m.ids[i] for i in areas]:
             for r in LEGENDS[k]["rows"]:
                 rows.append(dict(when=lambda x: True, own=float(r["own"]), sense=r["sense"], text=lambda x, t=r["text"]: t, kind=k,
-                                 knows="expert:hunt"))
+                                 knows=f"familiar:{k}"))
 
     def rule(row):
         sense = row.get("sense", "sight")
         vis = EV.visibility(here._w, here.node, parcel=key, sense=sense, cover=par.get("cover"))
         return float(row["own"]) * vis * (eye if sense in NOTICING["eye_senses"] else 1.0)
     got = SG.roll(rows, SimpleNamespace(), rng, know=PC.practised(mind), rule=rule)[:NOTICE_MOST]
+    from cybertron2.wild import methods as MT
+    for k in sorted({r["kind"] for r in rows if r["text"](None) in got}):  # a sign noticed while working teaches a little (§5)
+        MT.raise_familiar(here, mind, k, MT.FAMILIAR["notice"])
     if got and key in here.parcels():
         PC.remember_land(mind, here.day, key, "the wild", "; ".join(got), "hunted")
     return got
@@ -1526,8 +1588,37 @@ def _a(kind) -> str:
     return ("an " if kind[0] in "aeiou" else "a ") + kind
 
 
-def watch(here, pid, y, place_name) -> str:
-    """A night watch over a field with a scare (the technique's row names it): read by the night's groups (D2-198)."""
+def pick_scare(here, y, a=None) -> dict:
+    """A guard's scare (D2-204): the one named with `looking for`, else the first of the method's scares one has (wood for a fire, clappers
+    or a horn to hand, a dog at home)."""
+    from cybertron2.engine import knowledge as KN
+    from cybertron2.engine.here import Refused
+    want = str((a or {}).get("looking for") or "").strip().lower()
+    scares = y.get("scares") or []
+    named = [s for s in scares if want and (want in s["names"] or want == s["scare"])]
+
+    def have(s):
+        if s.get("home_fittings"):
+            return any(any(here._w.s["buildings"][b]["fittings"].get(f) for f in s["home_fittings"]) for b in here._w.homes(here.name)
+                       if here._w.s["buildings"][b]["node"] == here.node)
+        return all(KN.available(here, i) + 1e-9 >= float(q) for i, q in (s.get("uses") or {}).items())
+    if named:                                                             # the scare one named, or why not
+        s = named[0]
+        if have(s):
+            return s
+        if s.get("home_fittings"):
+            raise Refused(f"a watch with {s['with']} needs a dog at home, and you keep no dog")
+        raise Refused(f"a watch with {s['with']} needs " + ", ".join(f"{q:g} {i}" for i, q in s["uses"].items()) + " to hand")
+    for s in scares:
+        if have(s):
+            return s
+    raise Refused("you have nothing to scare them off with: wood for a fire, clappers, a horn, or a dog at home")
+
+
+def watch(here, pid, y, place_name, a=None) -> str:
+    """A night watch over a field with a scare (the method's scares, or an older row's own): read by the night's groups (D2-198)."""
+    if y.get("scares"):
+        y = {**y, **pick_scare(here, y, a)}
     if y.get("burns"):                                                    # a fire burns its wood (one-off 2 in 02zq)
         from cybertron2.engine.verbs import _consume
         _consume(here, y["burns"])

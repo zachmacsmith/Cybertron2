@@ -492,6 +492,8 @@ def _technique(here, mind, a, party, verb):
     tech = KN.resolve(a.get("what"), verb)
     if tech is None or TECHNIQUES[tech]["verb"] != verb:
         from cybertron2.engine import packs as PK
+        if "wild" in PK.CURRENT:                                               # the catalogue is not listed (D2-204 §7)
+            raise Refused(f"{a.get('what')!r} is not a way of working you know; you {verb} by the ways your crafts list names")
         names = PK.techniques(verb=verb)
         raise Refused(f"{a.get('what')!r} is not something you {verb} ({verb}: {', '.join(names)})")
     tech, a = _as_modified(tech, verb, a)
@@ -583,6 +585,16 @@ def _technique(here, mind, a, party, verb):
         from cybertron2.engine import wild as WL
         _, word, after = WL.take(here, mind, tech, key, place_name, out, m, y, a)
         gives = None                                                            # its goods are made by the hunt, by kind
+    elif y["kind"] == "wild_den":                                            # den work: a den's take or a lodge's trap (D2-204)
+        from cybertron2.engine import wild as WL
+        _, word, after = WL.den_work(here, mind, tech, key, place_name, out, m, y, a)
+        gives = None
+    elif y["kind"] == "wild_young":                                          # gather young: a colony's (D2-204)
+        from cybertron2.engine import wild as WL
+        word = WL.young(here, key, place_name, m * tm)
+    elif y["kind"] == "wild_pest":                                           # pest work: the pest named, else the worst (D2-204)
+        from cybertron2.engine import wild as WL
+        word = WL.pest(here, key, place_name, a)
     elif y["kind"] == "wild_forage":                                         # wild plants in season (D2-200, D2-201)
         from cybertron2.engine import wild as WL
         got, word = WL.forage(here, mind, tech, key, place_name, out, m * tm, y, a)
@@ -598,7 +610,7 @@ def _technique(here, mind, a, party, verb):
         word = WL.guard(here, key, y, place_name)
     elif y["kind"] == "wild_watch":                                          # a night watch over a field (wild_layer.md, D2-199)
         from cybertron2.engine import wild as WL
-        word = WL.watch(here, key, y, place_name)
+        word = WL.watch(here, key, y, place_name, a)
     elif y["kind"] == "clear_built":                                          # new ground for building (02zh §8)
         word = _clear_built(here, key, place_name, m * tm, party)
     what = PC.LAND_DRAWS.get(t.get("draws")) if kind == "parcel" and y["kind"] in ("stock", "chance") else None
@@ -613,7 +625,8 @@ def _technique(here, mind, a, party, verb):
     if tool and t.get("wear"):
         here.apply("wear", container=here.hands, item=tool, uses=t["wear"])
     KN.tried(here, mind, tech, got > 0 or y["kind"] in ("sow", "tend", "repair", "slaughter", "break", "manure", "herd", "bury", "fence", "gate",
-                                                       "wild_watch", "wild_take", "wild_shut", "wild_guard", "wild_forage", "wild_site"),
+                                                       "wild_watch", "wild_take", "wild_shut", "wild_guard", "wild_forage", "wild_site",
+                                                       "wild_den", "wild_young", "wild_pest"),
              units=t["units"])
     MOD.practise(here, mind, a["_mods"])
     for_txt = f" for {here.households()[party]['name'] if party in here.households() else party}" if party and party != here.name else ""
