@@ -165,7 +165,7 @@ def build(TECHNIQUES, RESOURCES) -> None:
 
 
 # ---------------------------------------------------------------------- familiarity by kind (§5; calibrate)
-FAMILIAR = {"take": 0.15, "notice": 0.03, "taught": 0.4, "carry": 0.5, "fade": 0.002, "factor": 0.5, "expert": 0.6,
+FAMILIAR = {"take": 0.15, "notice": 0.03, "taught": 0.4, "carry": 0.5, "fade": 0.002, "factor": 0.35, "expert": 0.6,
             "start": {"youth": 0.3, "adult": 0.35, "elder": 0.5}}
 
 
