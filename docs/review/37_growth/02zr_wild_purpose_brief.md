@@ -1,6 +1,8 @@
 # 02zr brief: what the wildlife are for in Cybertron's societies
 
-Session 37.2, 10 Nov. Everything known about why the wild layer exists and how it is meant to improve the societies Cybertron runs,
+> **Read with Zach's principles (9 Nov):** the institutions in §3 and §6 (watch rotas, bounties, closed seasons, wardens, rights) are what an experiment watches for, never things the engine builds or seeds; and the wild is answered by general methods used in a specific way, not by one action per animal. See 02zv §1 and [proposals/methods_and_encounters.md](../../cybertron2/proposals/methods_and_encounters.md).
+
+Session 37.2, 9 Nov. Everything known about why the wild layer exists and how it is meant to improve the societies Cybertron runs,
 gathered for the outside critique (`02zr_wild_behaviour_critique.md`) and for Zach. Sources are cited inline.
 
 ## 1. What Cybertron is for
@@ -40,7 +42,7 @@ growth, and institutions that could not act on each other. The growth packages (
 - "maybe we should have designed everything first and foremost for the nodes ... how it actually fits into the society."
   (node_ecology.md)
 - "everything should build up from the environment that is generated." (wild_layer.md)
-- 10 Nov: kinds should be "constitutionally different", not "varying five dials"; they can combine ways of being met ("something you
+- 9 Nov: kinds should be "constitutionally different", not "varying five dials"; they can combine ways of being met ("something you
   have to seek but can also domesticate"); behaviour chosen for what is "most interesting according to our criteria".
 
 ## 3. What the wildlife should do for the society
@@ -126,7 +128,7 @@ season.
 - **Cost:** a small live run (17 agents, 8 days) costs about $10; experiments need several seeds, a null arm (the pack off) and a
   strong cast (Opus at the poles).
 
-## 5. What the runs have shown so far (`ecology` branch, runs 1 to 6, 9 to 10 Nov)
+## 5. What the runs have shown so far (`ecology` branch, runs 1 to 6, 9 to 9 Nov)
 
 - **Agents do read wild signs and act on them**, mostly Opus heads of household: they told their herders to bring the cows in at dusk
   after wolf tracks and a night's bellowing ("Wolves, maybe. Count our cows"); picked slugs off the barley after seeing it "grazed to

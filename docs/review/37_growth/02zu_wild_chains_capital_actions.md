@@ -1,4 +1,6 @@
-# 02zu: chains, capital and actions; decay and scavenging (10 Nov)
+# 02zu: chains, capital and actions; decay and scavenging (9 Nov)
+
+> **Superseded in part (9 Nov):** consolidated in [02zv_wild_consolidation.md](02zv_wild_consolidation.md), whose ledger places every item here in a pack, a deferral or a proposed cut; where they differ, 02zv holds, and the build brief for the first stage is [proposals/methods_and_encounters.md](../../cybertron2/proposals/methods_and_encounters.md). Withdrawn readings are listed in 02zv §3.9 (among them: real-day conversions of acts, the attention budget, institutions written into the wildlife).
 
 The fourth outside note, after 02zr (behaviour), 02zs (development) and 02zt (dependences). Zach asked for four things: (A) supply
 chains and progression across a society's core needs and qualities, as one economy; (B) labour against capital; (C) a deep dig into
@@ -232,7 +234,7 @@ Yes, and it has the same drivers everywhere:
 
 ## Part C. Actions: verbs, techniques, skills, modifiers and gear
 
-### C.1 What exists (ecology branch and the spec, surveyed 10 Nov)
+### C.1 What exists (ecology branch and the spec, surveyed 9 Nov)
 
 **The verbs.** `verbs.py VERB` holds 38: accept, admit, attack, build, claim, come, drive, erase, fire, found, gather, give, grant,
 guard, host, join, learn, leave_household, make, meet, move, name, order, part, partner, release, rest, revoke, set, sleep, take,
@@ -614,5 +616,5 @@ the burying beetles' role on small carcasses in this climate; the fuel to burn a
 season and place in the studies.
 
 ## History
-- 10 Nov: written at Zach's request as the third pass (chains, capital, actions), with Part D (decay and scavenging) added the same
+- 9 Nov: written at Zach's request as the third pass (chains, capital, actions), with Part D (decay and scavenging) added the same
   day; after forays.md (9 Nov).

@@ -1,4 +1,6 @@
-# 02zs: the wild in a society's economy and development (10 Nov)
+# 02zs: the wild in a society's economy and development (9 Nov)
+
+> **Superseded in part (9 Nov):** consolidated in [02zv_wild_consolidation.md](02zv_wild_consolidation.md), whose ledger places every item here in a pack, a deferral or a proposed cut; where they differ, 02zv holds, and the build brief for the first stage is [proposals/methods_and_encounters.md](../../cybertron2/proposals/methods_and_encounters.md). Withdrawn readings are listed in 02zv §3.9 (among them: real-day conversions of acts, the attention budget, institutions written into the wildlife).
 
 A second outside deep dive, at Zach's request after reading 02zr (`02zr_wild_behaviour_critique.md`). It asks how every wild kind
 fits a society's economy and its development: what each supplies and what needs it creates; the ladders a society climbs in dealing
@@ -759,5 +761,5 @@ resources_and_goods.md, carcasses.md, fences.md, clearing.md, forests.md, wild_b
 marked "guess".
 
 ## History
-- 10 Nov: written at Zach's request after reading 02zr, under his two principles (no forced social mechanisms; no bespoke
+- 9 Nov: written at Zach's request after reading 02zr, under his two principles (no forced social mechanisms; no bespoke
   checklists) and his decision against filtering perception.

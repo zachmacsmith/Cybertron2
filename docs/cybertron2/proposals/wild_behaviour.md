@@ -2,7 +2,7 @@
 
 **Status:** partly accepted: D2-203 (each kind's behaviour designed first, then built as modules of its own that act only through the
 animal interface and the engine's primitives; replaces "no kind has code of its own"). The facets (§3) and the kinds' designs (§4)
-are in **discussion (10 Nov), for Zach to check before anything is built.** **Owner:** 37.2 (design; the `ecology` branch, D2-199).
+are in **discussion (9 Nov), for Zach to check before anything is built**, and **superseded in part** by the outside review (docs/review/37_growth/02zr to 02zv): the facets become views over each kind's constitution, behaviour is written on the day's clock, people's responses are general methods (proposals/methods_and_encounters.md), nothing social is built in; a v3 will follow Zach's decisions on 02zv §6. Until then, read 02zv for what holds. **Owner:** 37.2 (design; the `ecology` branch, D2-199).
 
 **Affects:**
 - proposals: wild_layer.md (the system this sits on), wild_systems.md (the catalogue it revises), wildlife.md (the kinds and their
@@ -15,7 +15,7 @@ group machine, and much of the catalogue was present only as signs.
 
 ## Summary
 
-Zach, 10 Nov:
+Zach, 9 Nov:
 - "Animals can add specific mechanisms / code but it should just be cleanly modular so they are easily acting within the broader
   system and only through the normal ways of acting with the world through the engine";
 - "Not all animals are about types of scares. They should fundamentally different types of behaviors. Like maybe some you just find
@@ -85,8 +85,8 @@ Beyond passing the tests, a behaviour was chosen over another when it:
 | 02zp deep dive | the food web; the readers (reading pays where lore joins signs; for boar and fox the depth is in the acts); relevance numbers | "the depth is in the acts" not carried into the build |
 | node_ecology.md (8 Nov) | design from the village outward; land as threat; the 10% test | visitors became one state machine |
 | wild_systems.md (8 Nov; D2-197, D2-198) | the catalogue: layers L0-L4, archetypes, interconnections, lags, needs | prose, not mechanisms with tests; §10 "no kind has code" |
-| wild_layer.md, the `ecology` branch (9-10 Nov) | the general system and its foundations | kinds reduced to settings of one machine (02zq) |
-| this proposal's first version (10 Nov) | behaviour specs per kind | still one skeleton (a raider turned by scares) for most deep kinds; replaced by this version |
+| wild_layer.md, the `ecology` branch (9-9 Nov) | the general system and its foundations | kinds reduced to settings of one machine (02zq) |
+| this proposal's first version (9 Nov) | behaviour specs per kind | still one skeleton (a raider turned by scares) for most deep kinds; replaced by this version |
 
 ## 3. The facets (each a module with its own core mechanism)
 
@@ -550,9 +550,9 @@ pigeon and eel with nothing of their own. Each now has a distinct facet and prob
 8. **Order:** the search game and the raider first, with red deer, boar and wolf?
 
 ## History
-- 10 Nov: written at Zach's request after the audit (02zq) showed most kinds' behaviour to be settings of one machine and much of the
+- 9 Nov: written at Zach's request after the audit (02zq) showed most kinds' behaviour to be settings of one machine and much of the
   catalogue present only as signs. D2-203 recorded (modules per kind, through the animal interface).
-- 10 Nov (later): rewritten after Zach's points that kinds should be "constitutionally different", not dials, and can combine several
+- 9 Nov (later): rewritten after Zach's points that kinds should be "constitutionally different", not dials, and can combine several
   ways of being met ("something you have to seek but can also domesticate"). The first version still gave most deep kinds one
   skeleton (a raider turned by scares). Now: thirteen facets with their own core mechanisms (§3), transitions between wild, kept,
   feral and legend (§3.14), and every specced kind redesigned for its most interesting behaviour by the criteria (§1.3, §4), with
@@ -568,3 +568,4 @@ pigeon and eel with nothing of their own. Each now has a distinct facet and prob
   and hard winters; wolf predation on livestock when wild prey is scarce; boar damage to crops and grassland; red deer herd structure,
   the rut and stalking into the wind; roe territories, the summer rut and calling the buck; brown bear denning and autumn feeding;
   fox territories, cubs and surplus killing; hare forms and runs; bee-lining and skeps; falconry's eyasses; swan-marking.
+- 9 Nov: superseded in part by the outside review (02zr critique, 02zs development, 02zt dependences, 02zu chains, capital, actions and decay, 02zv consolidation) and Zach's principles (nothing social forced; general methods, not one action per animal; no attention filtering; a day is a day for acts; places in memory). Status line updated; v3 to follow his decisions on 02zv §6.

@@ -1,4 +1,6 @@
-# 02zt: dependences, and things that help other things (10 Nov)
+# 02zt: dependences, and things that help other things (9 Nov)
+
+> **Superseded in part (9 Nov):** consolidated in [02zv_wild_consolidation.md](02zv_wild_consolidation.md), whose ledger places every item here in a pack, a deferral or a proposed cut; where they differ, 02zv holds, and the build brief for the first stage is [proposals/methods_and_encounters.md](../../cybertron2/proposals/methods_and_encounters.md). Withdrawn readings are listed in 02zv §3.9 (among them: real-day conversions of acts, the attention budget, institutions written into the wildlife).
 
 The third outside note on the wild layer, after 02zr (the behaviour critique) and 02zs (the wild in a society's economy and
 development). Zach asked: from the new goods, tools, buildings and ladders of 02zs, what new dependences could emerge, and how can
@@ -357,5 +359,5 @@ dovecote saltpetre dating; whether the smokehouse batch of water_and_preservatio
 in engine days.
 
 ## History
-- 10 Nov: written at Zach's request after 02zs, as its second pass: the dependences and the layers of improvements that the wild's
+- 9 Nov: written at Zach's request after 02zs, as its second pass: the dependences and the layers of improvements that the wild's
   new goods, tools, buildings and ladders create, and how they interlock with the engine's other ladders.

@@ -1,4 +1,6 @@
-# 02zr: wild behaviour, an outside critique (10 Nov)
+# 02zr: wild behaviour, an outside critique (9 Nov)
+
+> **Superseded in part (9 Nov):** consolidated in [02zv_wild_consolidation.md](02zv_wild_consolidation.md), whose ledger places every item here in a pack, a deferral or a proposed cut; where they differ, 02zv holds, and the build brief for the first stage is [proposals/methods_and_encounters.md](../../cybertron2/proposals/methods_and_encounters.md). Withdrawn readings are listed in 02zv §3.9 (among them: real-day conversions of acts, the attention budget, institutions written into the wildlife).
 
 An independent critique of `docs/cybertron2/proposals/wild_behaviour.md` (the 13 facets, the transitions, the kinds redesigned), read
 with the audit (`02zq_wild_audit.md`), the catalogue (`wild_systems.md`), the kinds and their economy (`wildlife.md`), the system as
@@ -1890,5 +1892,5 @@ they enter any spec. The claim that killing wolf breeders raises livestock losse
 not a rule.
 
 ## History
-- 10 Nov: written as an outside critique at the coordinator's request, after reading the proposal, the audit, the catalogue, the
+- 9 Nov: written as an outside critique at the coordinator's request, after reading the proposal, the audit, the catalogue, the
   kinds, the built system, the deep dive's prototype and LLM tests, the senses guide, scenario_design and the purpose brief.

@@ -1,4 +1,4 @@
-# 02zv: the wild layer consolidated: core engine changes, content ledger and packs (10 Nov)
+# 02zv: the wild layer consolidated: core engine changes, content ledger and packs (9 Nov)
 
 Zach (9 Nov): "do a consolidation of what it has suggested into what are the core mechanism / engine changes vs content changes and
 then triage all the content changes (kinda like how you already ranked them) and organise into packs. This shouldn't lose content
@@ -10,7 +10,7 @@ with `proposals/wild_behaviour.md` (v2), `proposals/forays.md`, the audit 02zq a
 separates **core engine changes** (§2) from **content** (§3, the ledger), groups content into **packs** (§4), lists **changes to
 existing files** (§5) and **decisions for Zach** (§6). It is a session note; nothing is decided by it.
 
-**Binding answers from Zach (10 Nov), applied throughout:**
+**Binding answers from Zach (9 Nov), applied throughout:**
 1. **Decay runs on the act clock** (a day is a day), soft stages over a few days at least, sized by the thing (calibrate): small
    things (a hen, a hare, a gut pile) mostly gone in 1 to 2 days; medium (a deer, a sheep, a pig, a human body) fresh 1 day, soft
    stages to about day 4 to 6, dry by about 6 to 8, bones lingering about a season; large (a cow, a horse) soft stages to about day
@@ -701,8 +701,8 @@ Rows are numbered for reference; numbers run through the whole ledger.
 | 342 | evidence: a poached deer's leavings; a body found by the crows | C10, C13 | K2 | 11 | dup 212 |
 | 343 | windfalls: a wolf's kill found | C10 | K2 | 11 | dup 212 |
 | 344 | the "unit is about two real days" reading | | | | cut (§3.9 no. 29) |
-| 345 | burial depth as a property of the burial (units against the ground); shallow or hasty graves dug by foxes, badgers, dogs (Zach, 10 Nov) | C10 | K2 | 4 | keep |
-| 346 | spillover: a scavenger or predator fed at a carcass returns and raids what is near (hens, the fold, a calf; a person at a cache); the carcass, wolf, kill loop (Zach, 10 Nov) | C10, C5 | K2 | 4 | keep (falls out of the rules) |
+| 345 | burial depth as a property of the burial (units against the ground); shallow or hasty graves dug by foxes, badgers, dogs (Zach, 9 Nov) | C10 | K2 | 4 | keep |
+| 346 | spillover: a scavenger or predator fed at a carcass returns and raids what is near (hens, the fold, a calf; a person at a cache); the carcass, wolf, kill loop (Zach, 9 Nov) | C10, C5 | K2 | 4 | keep (falls out of the rules) |
 
 ### 3.9 Proposed cuts (for Zach to review)
 
@@ -960,8 +960,8 @@ The four session notes this consolidates and their sources: `docs/review/37_grow
 run 6's recorded system text (scratchpad `wild_run6/run.json`, not re-read here).
 
 ## History
-- 10 Nov: written at Zach's request (9 Nov) to consolidate 02zr to 02zu into core engine changes and content, with every content item
-  triaged into packs; with Zach's answers of 10 Nov on decay, calibration rows, determinate targets, the menu and the manual, and
+- 9 Nov: written at Zach's request (9 Nov) to consolidate 02zr to 02zu into core engine changes and content, with every content item
+  triaged into packs; with Zach's answers of 9 Nov on decay, calibration rows, determinate targets, the menu and the manual, and
   discovery (L-103), and his corrections on graves, spillover predation and known methods.
 - 9 Nov: 37.2's review of the proposed cuts (Zach asked that content be lost only by an explicit decision): the corncrake, plague and
   poisons moved from cuts to deferred (K7, K10), since none was cut on principle; the other 28 cuts stand as proposed, each

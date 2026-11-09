@@ -183,8 +183,8 @@ the shared ones): autumn's peak 15, spring's gap 7, summer 8, winter 10 (what au
 ### 4c. Still not built, and why
 | Item | Why |
 |---|---|
-| the vole cycle | built 10 Nov as the specced phase clock (02zp §23): three to four years, sevenfold, the owls a year behind; the emergent routes (delayed crowding, a specialist predator) stay flat under the food web's stabilisers |
-| the old sow, the dangerous yearling, individuals | built in wave 5 (10 Nov): leaders on demand and legends (D2-195); the yearling not |
+| the vole cycle | built 9 Nov as the specced phase clock (02zp §23): three to four years, sevenfold, the owls a year behind; the emergent routes (delayed crowding, a specialist predator) stay flat under the food web's stabilisers |
+| the old sow, the dangerous yearling, individuals | built in wave 5 (9 Nov): leaders on demand and legends (D2-195); the yearling not |
 | pannage, the fold, lambs, swine fever in pigs, geese as watchers, hives and the bear at them, wasps | husbandry (37.4): no pigs, sheep, folds, geese or bees |
 | rabies, ergot, murrain meat and milk | illness in people and a herd's milk (37.4) |
 | lore as tested belief; misreads as beliefs | the belief store (37.4); misreads are lay texts for now |
@@ -194,8 +194,8 @@ the shared ones): autumn's peak 15, spring's gap 7, summer 8, winter 10 (what au
 ### 4d. One-off pieces: done and still open
 | # | Status |
 |---|---|
-| 1 night acts and the lantern | done for the wild watches (10 Nov): a field watch follows D2-21 (the night's sleep given up, the guard's food, `watch_tired` units off tomorrow; world schema 6); slug picking moved to dusk. Open: `guard` itself becoming the watch (37.4; 02zo A2) |
-| 2 scares from what is there | done (10 Nov): fire burns firewood, clappers and horn made and carried, the dog kept at home |
+| 1 night acts and the lantern | done for the wild watches (9 Nov): a field watch follows D2-21 (the night's sleep given up, the guard's food, `watch_tired` units off tomorrow; world schema 6); slug picking moved to dusk. Open: `guard` itself becoming the watch (37.4; 02zo A2) |
+| 2 scares from what is there | done (9 Nov): fire burns firewood, clappers and horn made and carried, the dog kept at home |
 | 3 hens as beasts | open (husbandry) |
 | 4 the door | done: a store's door, read by any target |
 | 5 targets in code | done: target rows as data |
@@ -206,4 +206,4 @@ the shared ones): autumn's peak 15, spring's gap 7, summer 8, winter 10 (what au
 ## History
 - 9 Nov: written before the round (sections 1-3).
 - 9 Nov (later): section 4 after the round: the plants (D2-200 to D2-202) and the animals' layers by general rules.
-- 10 Nov: expert readings for every kind (L3); wave 5 (sites, individuals, rare regimes); one-off 2 done.
+- 9 Nov: expert readings for every kind (L3); wave 5 (sites, individuals, rare regimes); one-off 2 done.

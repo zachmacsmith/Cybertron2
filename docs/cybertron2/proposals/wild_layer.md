@@ -447,7 +447,7 @@ Code on the branch, not on main. All 433 tests pass there, including 35 for the 
   and the tracks ("about two of them") had heads of household telling their herders to count the beasts and bring them in at dusk.
   One shut the hens in "because there are foxes and wolves about". Murrain came from beyond on the last night. The rut, plovers
   before the freeze and the first frost reached three agent-days each and drew no comment.
-- 9 to 10 Nov (overnight, Zach: "Then the filling out of the expert details for all the wildlife. Then continue the phases as you
+- 9 to 9 Nov (overnight, Zach: "Then the filling out of the expert details for all the wildlife. Then continue the phases as you
   see fit adding a test (you can do two live runs at appropriate times) to investigate"):
   - **expert readings (L3) for every kind, load, marker, disease and plant**, read from the state: in a hunt, about how many, their
     condition, their wariness and hunger; owl pellets in a vole year; rats breeding in the thatch; what a kill means for the herd;
@@ -482,7 +482,7 @@ Code on the branch, not on main. All 433 tests pass there, including 35 for the 
     field watch now costs the guard's food and leaves the watcher tired the next day (world schema 6, `today.night_watch`). Whether
     `guard` itself becomes the watch stays with 37.4 (02zo A2).
 
-- 10 Nov: Zach asked whether the kinds had the depth and variety of behaviour the spec wanted; they did not (most kinds were
+- 9 Nov: Zach asked whether the kinds had the depth and variety of behaviour the spec wanted; they did not (most kinds were
   settings of one group machine, much of the catalogue present only as signs: 02zq). D2-203: each kind designed first, then a
   module of its own; the per-kind behaviour specs are in `wild_behaviour.md`, for Zach to check before building.
 
