@@ -1810,6 +1810,7 @@ def _aftermath(here, add) -> None:
     _wild_mast(here, add)                                                      # the oaks' mast as it comes
     _wild_loads(here, add)                                                     # the fast kinds and the year's markers (wave 3)
     _wild_sick(here, add)                                                      # disease in the herds and the wild (wave 4)
+    _wild_when(here, add)                                                      # the kinds' conditional layers and phases as they start
     for bid, b in here.buildings().items():
         sub, live = [f"building:{bid}"], _dwellers(here, bid)
         for field, rows, most, extra in (("fire_hit", FIRE, 3, {}), ("raided", RAID, 1, {}), ("theft", THEFT, 1, {}),
@@ -1904,14 +1905,14 @@ def _wild_emit(here, rows, x, sub, pid, add, name, fmt, age, who=None, tags=("an
             row["knack"] = r["knack"]
         if r.get("cond") == "night":
             row["night"] = True
-        kw = {r["read"]: key} if r["read"] in ("lay", "knows") else {}
+        kw = {r["read"]: key} if r["read"] in ("lay", "knows") else ({"knows": f"expert:{key}"} if r["read"] == "expert" else {})
         spot_rows(here, [row], x, sub, here.node, pid, add, name=f"{name}{j}", only=only, **kw)
 
 
 def _wild_traces(here, pid, p, sub, add) -> None:
     """What wild groups left on this parcel (wild_layer.md §3.5-3.6, D2-197): the kind's bundle for each trace (at the wood's edge,
     a raid, turned by a watch), and a watch's own night; read two ways by `knows`/`lay`, in the kinds' data."""
-    from cybertron2.wild.kinds import SIGNS, WATCH_SIGNS, SCARE_WORDS
+    from cybertron2.wild.kinds import SIGNS, WATCH_SIGNS, SCARE_WORDS, RAID_SIGNS, EXPERT_SIGNS
     for i, tr in enumerate(((here._w.s.get("wild") or {}).get("traces") or {}).get(pid, [])):
         age = here.day - int(tr["day"])
         if not 0 <= age <= 3:
@@ -1919,9 +1920,12 @@ def _wild_traces(here, pid, p, sub, add) -> None:
         x = event_context(here, p["name"], tr["day"], n=tr["n"])
         scare = SCARE_WORDS.get(tr.get("scare"), tr.get("scare") or "watch")
         fmt = dict(n=tr["n"], place=p["name"], scare=scare)
-        rows = (SIGNS.get(tr.get("kind")) or {}).get(tr["what"]) or WATCH_SIGNS.get(tr["what"]) or []
+        what, _, sort = tr["what"].partition(":")
+        rows = ((RAID_SIGNS.get(sort) or {}).get(tr.get("kind")) if sort else None) or (SIGNS.get(tr.get("kind")) or {}).get(what) \
+            or WATCH_SIGNS.get(what) or []
+        rows = list(rows) + list((EXPERT_SIGNS.get(tr.get("kind")) or {}).get(what) or [])
         _wild_emit(here, rows, x, sub, pid, add, f"wild{i}", fmt, age, who=tr.get("by"))
-        if tr["what"] in ("raid", "tried") and tr.get("by"):
+        if what in ("raid", "tried") and tr.get("by"):
             _wild_emit(here, WATCH_SIGNS["failed"], x, sub, pid, add, f"wild{i}f", fmt, age, who=tr.get("by"))
 
 
@@ -2014,16 +2018,10 @@ def _wild_loads(here, add) -> None:
         if pid is None:
             return
         p = here.parcels()[pid]
-        rows = [dict(r, read=read) if r["read"] == "knows" else r for r in rows if r["read"] != "knows" or read]
+        rows = [r for r in rows if r["read"] == "all" or read]                 # a reading needs a practice to read it by
         x = event_context(here, p["name"], here.day - age)
-        for j, r in enumerate(rows):
-            lo, hi = r["ages"]
-            if not lo <= age <= hi:
-                continue
-            row = dict(when=lambda x: True, own=r["own"], sense=r["sense"], tags=["animals", "farming", "season"],
-                       text=lambda x, t=r["text"].format(place=p["name"]): t)
-            kw = {"knows": r["read"]} if r["read"] not in ("lay", "all") else ({"lay": read} if r["read"] == "lay" and read else {})
-            spot_rows(here, [row], x, [f"parcel:{pid}"], here.node, pid, add, name=f"{name}{j}", **kw)
+        _wild_emit(here, rows, x, [f"parcel:{pid}"], pid, add, name, dict(place=p["name"]), age, tags=("animals", "farming", "season"),
+                   key=read or "hunt")
     prev = L.get("prev") or {}
     for k, spec in sorted(LOADS.items()):
         sg = LOAD_SIGNS.get(k)
@@ -2043,6 +2041,45 @@ def _wild_loads(here, add) -> None:
         d0 = ((L.get("marks") or {}).get(name) or [None] * m.n)[i]
         if d0 is not None and 0 <= day - int(d0) <= 0:
             emit(mk["rows"], spot(["scrub", "forest", "pasture", "meadow", "field"]), f"wildmark{name[:4]}", mk.get("read"))
+
+
+def _wild_when(here, add) -> None:
+    """The signs of a kind's conditional layers and phases (kinds.WHEN rows with rows: the rut, the frost, the young dispersing),
+    shown the day a row starts to hold (a change, not a standing fact), for kinds about the village; and the signs that lead the
+    weather (kinds.WEATHER_LEADS) on the day they hold."""
+    from cybertron2.engine import wild as WL
+    from cybertron2.wild.kinds import WHEN, WEATHER_LEADS
+    w = here._w
+    wild = w.s.get("wild") or {}
+    st, land = wild.get("state") or {}, wild.get("land") or {}
+    if not st.get("pop") or here.node not in land.get("home", {}):
+        return
+    m = WL.model(w)
+    ri = next((i for i, a in enumerate(m.ids) if land["areas"][a]["kind"] == "ring" and land["areas"][a]["node"] == here.node), None)
+    if ri is None:
+        return
+    spot = next((pid for pid, p in sorted(here.parcels().items()) if p["cover"] in ("forest", "scrub")),
+                next(iter(sorted(here.parcels())), None))
+    if spot is None:
+        return
+    far = [i for i in WL._reach(m, land, here.node, "far") if land["areas"][m.ids[i]]["kind"] != "home"]
+    about = lambda k: k in st["pop"] and sum(float(st["pop"][k][i]) * float(m.km2[i]) for i in (far if (WL._near(k) or {}).get("gather") == "far" else [ri])) >= 1.0
+    x = event_context(here, here.parcels()[spot]["name"], here.day)
+    for kind, rows in sorted(WHEN.items()):
+        if not about(kind):
+            continue
+        for j, row in enumerate(rows):
+            if not row.get("rows"):
+                continue
+            if WL.cond(w, here.node, row.get("if"), kind, m, st, ri) and not WL.cond(w, here.node, row.get("if"), kind, m, st, ri, day=here.day - 1):
+                _wild_emit(here, row["rows"], x, [f"parcel:{spot}"], spot, add, f"wildwhen{kind[:4]}{j}", dict(place=here.parcels()[spot]["name"]),
+                           0, tags=("animals",), key="hunt")
+    for j, lead in enumerate(WEATHER_LEADS):
+        if lead.get("kind") and not about(lead["kind"]):
+            continue
+        if WL.cond(w, here.node, lead["if"], None, m, st, ri):
+            _wild_emit(here, lead["rows"], x, [f"parcel:{spot}"], spot, add, f"wildlead{j}", dict(place=here.parcels()[spot]["name"]), 0,
+                       tags=("weather", "animals"), key=lead.get("read", "hunt"))
 
 
 def _wild_sick(here, add) -> None:

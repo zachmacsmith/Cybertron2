@@ -281,6 +281,10 @@ def practised(mind) -> set:
         if not KN.basic(t) or float(r.get("skill", KN.curve(t)[0])) >= KN.curve(t)[0] + 0.1:
             out.add(t)
             out.update(TECHNIQUES[t].get("reads_as") or [])                     # a way of a work reads its signs (the wild hunts: "hunt")
+            lo, hi = KN.curve(t)
+            if float(r.get("skill", lo)) >= lo + float(NOTICING.get("expert_at", 0.8)) * (hi - lo):   # the expert's reading (L3)
+                out.add(f"expert:{t}")
+                out.update(f"expert:{x}" for x in (TECHNIQUES[t].get("reads_as") or []))
     return out
 
 

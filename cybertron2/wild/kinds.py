@@ -117,7 +117,7 @@ NEAR_PEOPLE = {
                     {"seasons": {1: (3, 7)}, "attr": 0.4, "trample": 0.004}],              # the ripening corn
         "drive": {"base": 0.2, "hunger": 0.5}, "memory_days": 3, "return_p": 0.6, "lead_nights": 2, "lead_sign_p": 0.8,
         "answer": {"type": "habituate", "turn_p": 0.85, "gain": 0.25, "decay": 0.01, "rest": 2},
-        "harm": {"dog": {"turn_p": 0.9, "harm_p": 0.15}}, "wary_after_harm": 5, "met_share": 0.5,
+        "harm": {"dog": {"turn_p": 0.9, "harm_p": 0.15}}, "wary_after_harm": 5, "met_share": 0.5, "fence": 2.0,   # deer leap fences
     },
     "wolf": {
         "gather": "far",                                                                     # a pack ranges far beyond one ring
@@ -127,9 +127,17 @@ NEAR_PEOPLE = {
         "answer": {"type": "scared_off", "turn_p": 0.8, "off_days": 3},
         "harm": {"dog": {"turn_p": 0.9, "harm_p": 0.15}}, "wary_after_harm": 10, "met_share": 1.0,
     },
+    "brown bear": {
+        "gather": "far", "targets": [],                                                    # only in a hungry spring (WHEN)
+        "drive": {"base": 0.05, "hunger": 0.5}, "memory_days": 2, "return_p": 0.6, "lead_nights": 1, "lead_sign_p": 0.8,
+        "answer": {"type": "scared_off", "turn_p": 0.7, "off_days": 3},
+        "harm": {"dog": {"turn_p": 0.8, "harm_p": 0.05}}, "wary_after_harm": 10, "met_share": 1.0,
+    },
     "fox": {
-        "targets": [{"what": "hens", "seasons": {0: (2, 7), 1: (0, 3)}, "attr": 1.0},           # cubs to feed
-                    {"what": "hens", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.35}],
+        "targets": [{"what": "items", "items": ["hen"], "door": True, "heads": 2, "all_p": 0.3, "seasons": {0: (2, 7), 1: (0, 3)},
+                     "attr": 1.0},                                                                # cubs to feed
+                    {"what": "items", "items": ["hen"], "door": True, "heads": 2, "all_p": 0.3,
+                     "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.35}],
         "drive": {"base": 0.1, "hunger": 0.4}, "memory_days": 2, "return_p": 0.8, "lead_nights": 2, "lead_sign_p": 0.6,
         "answer": {"type": "scared_off", "turn_p": 0.85, "off_days": 3},
         "harm": {"dog": {"turn_p": 0.9, "harm_p": 0.1}}, "wary_after_harm": 10, "met_share": 1.0,
@@ -198,6 +206,151 @@ SIGNS = {
 # how one who has hunted reads a beast a wild kind killed (signs.CARCASS)
 KILL_READINGS = {"wolf": "wolves killed the {beast} {at}: the throat bitten through from behind, great tracks trodden all round",
                  "fox": "a fox's kill {at}: the head bitten off, the rest dragged"}
+# ---------------------------------------------------------------------- the conditional layers (wild_systems.md §6, L0-L3; 02zq)
+# Conditions (engine/wild.cond): seasons {si: (first day, last)}; frozen_run n (engine days frozen in a row); snow; mast [levels]
+# (this autumn's; mast_last: last autumn's); hungry x (1 - condition in the ring); pressure x (hunting on the ring); hard_winter n
+# (frozen days last winter); rain_after_dry; tomorrow {frozen | rain}; wet; not {...}. Effects while true: drive (x), bold (scares
+# turn them that much less), danger and flee and detect (x, in a hunt), lone (a group of one may form), targets (more to raid,
+# each a target row), and rows (the signs of it, shown the day it starts: the change).
+AUT_WIN = {2: (0, 7), 3: (0, 7)}
+DRY = "dry"                                                                                   # the engine's dry stores
+WHEN = {
+    "wild boar": [
+        {"if": {"frozen_run": 1}, "drive": 1.6, "targets": [{"what": "items", "items": DRY, "door": True, "share": 0.004, "attr": 0.8,
+                                                              "sign": "stores", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}}],
+         "rows": [R("knows", "sight", 0.7, (0, 0), "the ground frozen hard: the boar can't root, and will come to the clamps and the stores")]},
+        {"if": {"mast": ["fail", "poor"], "seasons": AUT_WIN}, "drive": 2.0,
+         "targets": [{"what": "items", "items": DRY, "door": True, "share": 0.004, "attr": 0.7, "sign": "stores", "seasons": AUT_WIN},
+                     {"what": "crop", "seasons": AUT_WIN, "attr": 0.8, "trample": 0.01}]},
+        {"if": {"mast": ["heavy"], "seasons": {2: (0, 7)}}, "drive": 0.3},
+        {"if": {"pressure": 0.5}, "drive": 0.3},
+        {"name": "rut", "if": {"seasons": {2: (5, 7), 3: (0, 3)}}, "danger": 1.5,
+         "rows": [R("knows", "sound", 0.6, (0, 0), "boars come in to the sounders now, fighting in the wood: dangerous to meet")]},
+        {"name": "farrowing", "if": {"seasons": {0: (0, 5)}}, "danger": 1.5,
+         "rows": [R("all", "sight", 0.6, (0, 0), "striped piglets trotting after a sow at the wood's edge"),
+                  R("knows", "sight", 0.6, (0, 0), "the sows have farrowed: a sow with young will charge; more boar by the autumn")]},
+    ],
+    "red deer": [
+        {"if": {"snow": True}, "drive": 2.0, "targets": [{"what": "items", "items": ["hay"], "door": False, "share": 0.01, "attr": 1.0,
+                                                          "sign": "hay", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}},
+                                                         {"what": "res", "res": "young", "covers": ["forest", "scrub"], "share": 0.003,
+                                                          "attr": 0.6, "sign": "bark", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}}],
+         "rows": [R("knows", "sight", 0.7, (0, 0), "the first lying snow: the deer will be down at the ricks and the young trees")]},
+        {"if": {"frozen_run": 2}, "drive": 1.5, "targets": [{"what": "res", "res": "young", "covers": ["forest", "scrub"], "share": 0.003,
+                                                             "attr": 0.6, "sign": "bark", "seasons": {3: (0, 7), 0: (0, 2)}}]},
+        {"if": {"pressure": 0.4}, "drive": 0.2},
+        {"name": "rut", "if": {"seasons": {2: (0, 5)}}, "bold": 0.4, "detect": 1.5, "danger": 1.3,
+         "rows": [R("all", "sound", 1.5, (0, 0), "stags roaring in the woods at dusk and through the night"),
+                  R("knows", "sound", 0.8, (0, 0), "the rut is on: the stags are bold and careless, easier to come on, and a stag at bay is dangerous")]},
+        {"name": "calving", "if": {"seasons": {1: (0, 3)}},
+         "rows": [R("knows", "sight", 0.5, (0, 0), "hinds with new calves in the clearings")]},
+        {"name": "antlers cast", "if": {"seasons": {0: (0, 3)}},
+         "rows": [R("expert", "sight", 0.5, (0, 0), "the stags are casting their antlers: a cast antler in the wood is worth finding")]},
+    ],
+    "roe deer": [
+        {"if": {"pressure": 0.4}, "drive": 0.2},
+        {"name": "rut", "if": {"seasons": {1: (3, 7)}},
+         "rows": [R("all", "sound", 0.8, (0, 0), "a roe barking hoarsely in the dusk"),
+                  R("knows", "sight", 0.6, (0, 0), "roe rings trodden round the bushes in the meadow: the roe rut in summer, not autumn")]},
+        {"name": "kids", "if": {"seasons": {0: (5, 7), 1: (0, 2)}},
+         "rows": [R("expert", "sight", 0.5, (0, 0), "a roe doe hanging about the long grass: her kid lies hidden there, and the mower will find it")]},
+    ],
+    "wolf": [
+        {"if": {"snow": True}, "bold": 0.4, "drive": 1.5},
+        {"if": {"hungry": 0.5}, "bold": 0.3, "drive": 1.8},
+        {"name": "dispersing", "if": {"seasons": {2: (4, 7), 3: (0, 7), 0: (0, 3)}}, "lone": True,
+         "rows": [R("expert", "sight", 0.5, (0, 0), "the young wolves leave the packs now: a lone one crosses the farmland, and takes stock where none were taken")]},
+        {"name": "howling", "if": {"seasons": {3: (0, 7)}},
+         "rows": [R("all", "sound", 1.2, (0, 0), "wolves howling in the long nights, a chorus from the high wood")]},
+        {"name": "pups", "if": {"seasons": {0: (2, 7)}},
+         "rows": [R("expert", "sight", 0.4, (0, 0), "a worn path to a den under the roots in the high wood: the pack has pups, and will hunt hard all summer")]},
+    ],
+    "fox": [
+        {"if": {"hungry": 0.5}, "drive": 1.6},
+        {"name": "screaming", "if": {"seasons": {3: (2, 7)}},
+         "rows": [R("all", "sound", 1.0, (0, 0), "a vixen screaming in the night, a sound like a woman's cry")]},
+        {"name": "cubs", "if": {"seasons": {0: (0, 7)}}, "detect": 2.0, "flee": 0.3,                 # an earth is found by its signs
+         "rows": [R("knows", "sight", 0.5, (0, 0), "an earth in the bank with fresh earth and feathers at its mouth: cubs"),
+                  R("expert", "sight", 0.5, (0, 0), "a fox earth with cubs: dig it out now and there are fewer at the hens all year, more than any winter cull")]},
+        {"name": "dispersing", "if": {"seasons": {2: (0, 7)}}, "lone": True},
+    ],
+    "brown bear": [
+        {"name": "hungry spring", "if": {"seasons": {0: (2, 7)}, "hard_winter": 3, "mast_last": ["fail", "poor"]}, "drive": 1.0,
+         "danger": 2.0, "targets": [{"what": "herd", "seasons": {0: (2, 7)}, "attr": 1.0}],
+         "rows": [R("knows", "sight", 0.7, (0, 0), "great claw marks fresh on the beech by the ford, and stones rolled over"),
+                  R("expert", "sight", 0.6, (0, 0), "a thin bear out of its den after a hard winter and a bare autumn: it will come for the calves")]},
+    ],
+    "wildfowl": [
+        {"if": {"frozen_run": 2}, "flee": 0.5, "detect": 1.5,
+         "rows": [R("all", "sight", 0.8, (0, 0), "the fowl crowded on the last open water, weak with the long frost"),
+                  R("expert", "sight", 0.5, (0, 0), "birds so weak you could pick them up: take too many now and next winter's flocks are thin")]},
+    ],
+    "voles and mice": [
+        {"if": {"mast": ["heavy"], "seasons": {3: (0, 7)}},
+         "rows": [R("expert", "sight", 0.5, (0, 0), "mouse runs and gnawed nuts everywhere in the hedge bottoms after the mast: a mouse year coming")]},
+    ],
+}
+# a group's target sort by what it raids, for the signs of a raid on it (kinds' SIGNS "raid:<sign>")
+RAID_SIGNS = {
+    "stores": {"wild boar": [R("all", "sound", 1.4, (0, 0), "a crashing and grunting at the store at {place} in the night", cond="night"),
+                             R("all", "sight", 0.95, (1, 2), "the store at {place} broken into in the night: sacks torn, grain trampled into the mud")]},
+    "hay": {"red deer": [R("all", "sight", 0.9, (1, 2), "the hay at {place} pulled out and trampled, deer slots all round it in the snow")]},
+    "bark": {"red deer": [R("lay", "sight", 0.8, (1, 2), "the bark stripped from the young trees in {place}"),
+                          R("knows", "sight", 0.8, (1, 2), "deer have stripped the young ash in {place}: the coppice regrowth will die back")]},
+}
+# the expert's readings (L3) of a group's traces, beyond the practised hunter's
+EXPERT_SIGNS = {
+    "wild boar": {"edge": [R("expert", "sight", 0.6, (1, 2), "the sounder's run comes out of {place} by one gap in the thorn: watch the gap and you meet them")]},
+    "red deer": {"edge": [R("expert", "sight", 0.6, (1, 2), "the deer come through a rack broken in the hedge by {place}: hinds and calves by the slots, one big stag")]},
+    "wolf": {"edge": [R("lay", "sight", 0.5, (1, 2), "a big dog's tracks along the wood's edge"),
+                      R("expert", "sight", 0.6, (1, 2), "wolf tracks, not a dog's: four toes in a straight line and the scat full of hair and bone")],
+             "raid": [R("expert", "sight", 0.6, (1, 2), "the wolves will come back to the herd that fed them: watch it or bring it in")]},
+    "fox": {"raid": [R("expert", "sight", 0.6, (1, 2), "a fox that found the hens will be back tomorrow night, to the same place")]},
+}
+# signs that lead the weather (the visible face of the climate's coming day; wild_systems.md §7: plovers before a freeze, swallows
+# low before rain, the river rising dark after the dry weeks)
+WEATHER_LEADS = [
+    {"if": {"tomorrow": {"frozen": True}, "not": {"frozen_run": 1}, "seasons": {2: (4, 7), 3: (0, 7), 0: (0, 2)}},
+     "rows": [R("all", "sight", 0.8, (0, 0), "lines of plovers going west all day, high and fast"),
+              R("knows", "sight", 0.6, (0, 0), "plovers and redwings flying west ahead of hard weather: a freeze coming")], "read": "hunt"},
+    {"if": {"tomorrow": {"rain": True}, "seasons": {1: (0, 7), 0: (4, 7)}},
+     "rows": [R("all", "sight", 0.6, (0, 0), "the swallows flying low over the grass"),
+              R("knows", "sight", 0.6, (0, 0), "the swallows low over the grass: the flies are down, and rain is coming")], "read": "sow"},
+    {"if": {"rain_after_dry": 2, "seasons": {2: (0, 7)}}, "kind": "eel",
+     "rows": [R("all", "sight", 0.6, (0, 0), "the first heavy rain after the dry weeks: the river rising and dark"),
+              R("expert", "sight", 0.6, (0, 0), "an eel night: dark, wet and the water rising after the dry weeks; set the traps tonight")],
+     "read": "set eel traps"},
+]
+# what one notices while working, by the technique (the hunt's own are HUNT_NOTICES): each with the kind that must be about (in the
+# village's ring), a condition, its rows, and a find (a good one may pick up)
+WORK_NOTICES = {
+    "hay": [{"kind": "roe deer", "if": {"seasons": {0: (5, 7), 1: (0, 3)}}, "find": None,
+             "rows": [R("all", "sight", 0.6, (0, 0), "a roe kid lying flat in the long grass ahead of the scythe")]},
+            {"kind": "voles and mice", "if": {}, "least": 2400, "rows": [R("all", "sight", 0.6, (0, 0), "voles running from the swathes as you mow")]}],
+    "hunt": [{"kind": "red deer", "if": {"seasons": {0: (0, 4)}}, "find": {"item": "antler", "p": 0.15},
+              "rows": [R("all", "sight", 0.5, (0, 0), "a cast antler lying in the leaves")]},
+             {"kind": "fox", "if": {"seasons": {0: (0, 7)}}, "rows": [R("knows", "sight", 0.6, (0, 0), "a fox earth in the bank, fresh-dug, with feathers at its mouth")]},
+             {"kind": "wild boar", "if": {"wounded": True}, "rows": [R("knows", "sight", 0.8, (0, 0), "a blood trail into the thicket"),
+                                                                     R("expert", "sight", 0.8, (0, 0), "a wounded boar lying up in the thicket: the most dangerous beast in the wood; go in with others or not at all")]},
+             {"kind": "wolf", "if": {}, "rows": [R("expert", "sight", 0.4, (0, 0), "ravens wheeling over the far wood: a kill there")]}],
+    "gather wild food": [{"kind": None, "if": {"seasons": {1: (5, 7)}}, "mast_coming": True,
+                          "rows": [R("expert", "sight", 0.5, (0, 0), "the acorns setting thick on the old oaks: a mast year this autumn")]},
+                         {"kind": None, "if": {"seasons": {2: (0, 2)}}, "berries_heavy": True,
+                          "rows": [R("all", "sight", 0.6, (0, 0), "the hedges red with haws and hips"),
+                                   R("knows", "sight", 0.5, (0, 0), "berries thick on every hedge: a hard winter coming, they say")]},
+                         {"kind": None, "if": {"seasons": {2: (0, 7)}}, "cover": ["pasture"],
+                          "rows": [R("expert", "sight", 0.4, (0, 0), "a fairy ring of mushrooms on the pasture: old grass, never ploughed")]}],
+}
+# cyclers (wild_systems.md §5, rule 4): last year's crowding holds this year's breeding (a delayed density dependence), so numbers rise
+# and crash over years; the strength by kind (calibrate: voles 3 to 4 years)
+CYCLE = {"voles and mice": 0.0}     # off: tried 2 and 6 (9 Nov, 20 years): it lowers the level, does not cycle (cv 0.03-0.06; 02zq)
+# fittings that keep a store from the vermin (wild_systems.md §6 followers: a terrier, a raised floor), what of their loss they leave
+STORE_KEEP = {"dog": 0.5, "granary": 0.3}
+# kinds that follow the harvest into the stores: how far a full barn can raise what they find there (engine/wild._follow_harvest)
+FOLLOW_HARVEST = {"rats": 1.0, "voles and mice": 0.5}
+# hunted kinds leaving a hunted area (a share a day for each unit of pressure); pressure added by a hunt, a kill, a crew; its fading
+HUNTED = {"flee": {"red deer": 0.3, "roe deer": 0.2, "wild boar": 0.15}, "hunt": 0.25, "kill": 0.3, "crew": 0.5, "fade": 0.75}
+
 # signs for a watch whatever the kind: the night passed quiet, or the scare did not turn what came
 WATCH_SIGNS = {
     "watched": [R("all", "sight", 2.0, (0, 0), "you watched {place} through the night with the {scare}; nothing came near it", who="watcher")],
@@ -285,14 +438,15 @@ LOADS = {
     "slugs": {"hab": {"texture": {"clay": 1.3, "loam": 1.0, "chalk": 0.5, "sand": 0.4, "peat": 1.1},
                       "cover": {"field": 1.0, "pasture": 0.8, "meadow": 0.9, "forest": 0.6, "fen": 0.8}},
               "seasons": (0, 1, 2), "rest": 0.6, "rate": 0.3, "base": 1.4, "drivers": {"wet": 2.0, "warm": 0.03}, "frost": 0.15, "most": 4.0,
+              "flush": 1.4, "flood": 0.3,
               "harm": [{"crops": ["grain", "winter grain", "legumes"], "age": (0, 5), "share": 0.02, "over": 0.5}]},
     "aphids": {"hab": {"cover": {"field": 1.0, "meadow": 0.4, "pasture": 0.3, "scrub": 0.3}},
-               "seasons": (0, 1), "rest": 0.3, "rate": 0.35, "drivers": {"warm": 0.12, "dry": 1.0}, "frost": 0.3, "most": 4.0,
+               "seasons": (0, 1), "rest": 0.3, "rate": 0.35, "drivers": {"warm": 0.12, "dry": 1.0}, "frost": 0.1, "most": 4.0,
                "eaten_by": {"ladybirds": 0.12},
                "harm": [{"crops": ["legumes"], "age": (3, 40), "share": 0.015, "over": 0.8},
                         {"crops": ["grain"], "age": (6, 40), "share": 0.004, "over": 1.2}]},
     "ladybirds": {"hab": {"cover": {"field": 0.8, "meadow": 0.8, "pasture": 0.6, "scrub": 1.0, "forest": 0.5}},
-                  "seasons": (0, 1), "rest": 0.4, "rate": 0.2, "follows": {"aphids": 1.0}, "frost": 0.05, "most": 3.0},
+                  "seasons": (0, 1), "rest": 0.4, "rate": 0.2, "follows": {"aphids": 1.0}, "frost": 0.05, "most": 3.0, "cold_stall": 0.8},
     "fungi": {"hab": {"cover": {"forest": 1.0, "scrub": 0.5, "pasture": 0.6, "meadow": 0.6, "heath": 0.4}},
               "seasons": (2,), "rest": 0.0, "start": 0.0, "rate": 0.4, "drivers": {"wet": 1.5, "warm": 0.08}, "frost": 0.5, "most": 3.0},                                                                  # the mushrooms' year (wild/plants.py)
 }
@@ -300,14 +454,18 @@ LOADS = {
 # field where it fell). `level`: the least level a row needs (and `below` the most).
 LOAD_SIGNS = {
     "slugs": {"level": [R("lay", "sight", 0.7, (0, 0), "silver slime trails across the paths in the morning, and slugs out on the wet grass", cond=None),
-                        R("knows", "sight", 0.8, (0, 0), "slugs thick on the wet ground: a slug year, and the young corn will suffer where the ground is heavy")],
+                        R("knows", "sight", 0.8, (0, 0), "slugs thick on the wet ground: a slug year, and the young corn will suffer where the ground is heavy"),
+                        R("all", "sight", 0.5, (0, 0), "the thrushes' anvil stones littered with broken snail shells"),
+                        R("expert", "sight", 0.6, (0, 0), "after a wet mild winter like this, sow later, when the ground dries, or burn the stubble first")],
               "harm": [R("all", "sight", 0.9, (0, 1), "the young corn in {place} grazed off to stumps in patches, slime on what is left")],
               "least": 1.6},
     "aphids": {"level": [R("lay", "sight", 0.6, (0, 0), "the bean tops black with fly"),
+                         R("all", "sight", 0.4, (0, 0), "ants running up and down the bean stems"),
                          R("knows", "sight", 0.7, (0, 0), "blackfly thick on the bean tops: the beans will be poor unless the tops come off or the ladybirds come")],
                "harm": [R("all", "sight", 0.8, (0, 1), "the crop in {place} sticky and curled, black with fly")], "least": 1.5},
     "ladybirds": {"level": [R("all", "sight", 0.6, (0, 0), "ladybirds everywhere on the beans and the nettles"),
-                            R("knows", "sight", 0.6, (0, 0), "the ladybirds are on the beans: the fly will be gone in a few days")], "least": 1.2},
+                            R("lay", "sight", 0.6, (0, 0), "grey spiny grubs crawling among the fly on the beans: some new pest"),
+                            R("knows", "sight", 0.6, (0, 0), "the ladybirds are on the beans, their spiny grey grubs among the fly: leave them, the fly will be gone in a few days")], "least": 1.2},
     "fungi": {"level": [R("all", "sight", 0.8, (0, 0), "mushrooms pushing up all through {place} after the rain"),
                         R("knows", "sight", 0.7, (0, 0), "a flush of ceps and field mushrooms in {place}: good picking for a few days")], "least": 1.3},
 }
@@ -322,6 +480,11 @@ MARKERS = {
                                        R("knows", "sight", 0.7, (0, 0), "the blackthorn in flower: the ground is warming for the spring corn, but a cold snap often follows the blackthorn")],
                    "read": "sow", "lore": "holds"},
     "swallows": {"gdd": 140, "rows": [R("all", "sight", 0.8, (0, 0), "the first swallows over the village")], "lore": None},
+    "cuckoo": {"gdd": 160, "rows": [R("all", "sound", 1.0, (0, 0), "the first cuckoo calling from the wood")], "lore": None},
+    "frogspawn": {"after": {"season": 0, "until": 0, "soil": 1.2, "temp": 6.0},
+                  "rows": [R("all", "sight", 0.7, (0, 0), "frogspawn in the ditches after the first mild wet night"),
+                           R("expert", "sight", 0.4, (0, 0), "the toads walking back to their own pond, the same one every year")],
+                  "read": "sow", "lore": None},
     "oak and ash": {"gdd": 220, "rows": [R("all", "sight", 0.6, (0, 0), "the oaks in leaf before the ash this year"),
                                          R("knows", "sight", 0.6, (0, 0), "oak before ash: only a splash, they say; a dry summer to come")],
                     "read": "sow", "lore": "fails"},
@@ -350,6 +513,9 @@ DISEASES = {
                 "wild_beta": 0.4, "arrive": 0.06, "course": 2, "mortality": 0.45, "milk": 0.8,
                 "rise": 0.5, "recover": 0.3, "wane": 0.01, "kill": 0.03, "mix": 0.06, "seed": 0.04, "season": 1},
     "mange": {"wild": {"fox": 1.0, "wolf": 0.4}, "rise": 0.45, "recover": 0.2, "wane": 0.03, "kill": 0.08, "mix": 0.05, "seed": 0.15, "season": 2},
+    "swine fever": {"wild": {"wild boar": 1.0}, "kept": ["pigs"], "beta": 1.4, "near": 0.3, "node": 0.08, "wild_beta": 0.4,
+                    "arrive": 0.03, "course": 2, "mortality": 0.6, "rise": 0.5, "recover": 0.3, "wane": 0.01, "kill": 0.04, "mix": 0.05,
+                    "seed": 0.03, "season": 3},
     "hare sickness": {"wild": {"brown hare": 1.0}, "rise": 0.6, "recover": 0.3, "wane": 0.02, "kill": 0.05, "mix": 0.04, "seed": 0.06, "season": 1},
 }
 # the signs of a disease: in a herd (`herd`), in the wild hosts on the village's land when the prevalence passes `least` (`wild`),
@@ -363,6 +529,9 @@ DISEASE_SIGNS = {
     "mange": {"wild": [R("lay", "sight", 0.5, (0, 0), "a thin fox seen by day near the houses, half its coat gone grey and bare"),
                        R("knows", "sight", 0.6, (0, 0), "mange among the foxes: a bare, scratching fox by day; there will be fewer of them at the hens")],
               "least": 0.25, "read": "hunt"},
+    "swine fever": {"wild": [R("all", "sight", 0.6, (0, 0), "a dead boar in the wood, untouched by the crows"),
+                             R("knows", "sight", 0.6, (0, 0), "dead boar in the wood: a sickness in the sounders; keep any pigs out of the wood")],
+                    "least": 0.15, "read": "hunt"},
     "hare sickness": {"wild": [R("all", "sight", 0.6, (0, 0), "hares lying dead in the open fields, untouched"),
                                R("knows", "sight", 0.5, (0, 0), "a sickness among the hares: dead ones in the open; leave them lie")],
                       "least": 0.2, "read": "hunt"},

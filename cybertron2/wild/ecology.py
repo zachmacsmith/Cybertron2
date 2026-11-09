@@ -204,11 +204,12 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
     mast = mast_level(st, year, bool(np.mean(st["flower_frost"]) > 0.3) if si >= 2 else False, draws.get("mast", 0.5)) if si >= 2 else 1.0
     # 1. foods grow and rot: warmth beyond the season's mean speeds growth, frost stops it, a dry ground holds grass back
     rain = np.array([weather[nd].get("rain", 1.0) for nd in m.nodes])
+    soil_prev = np.asarray(st.get("soil", [1.0] * n), float)
     soil = 0.75 * np.asarray(st.get("soil", [1.0] * n), float) + 0.25 * np.clip(rain / RAIN_MEAN, 0, 3)   # a slow bucket (an
                                                                           # engine day is about 11 real days): 1 at the mean rain
     st["soil"] = [round(float(x), 3) for x in soil]
     from cybertron2.wild import loads as LD
-    LD.step(m, st, day, temp, low, frozen, soil)                          # the fast kinds and the year's warmth (wave 3)
+    LD.step(m, st, day, temp, low, frozen, soil, soil_prev)                          # the fast kinds and the year's warmth (wave 3)
     warm = np.clip(1 + 0.08 * (temp - SEASON_T[si]), 0.4, 1.6) * np.where(frozen, 0.3, 1.0)
     dry = np.clip(0.35 + 0.65 * np.minimum(soil / 0.8, 1.2), 0.3, 1.25)
     WATERED = ("grass", "grass~coarse", "sward", "browse", "browse~coarse", "inverts", "roots")
@@ -233,10 +234,15 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
         for k in m.names:
             kd = m.kinds[k]
             if kd["migrant"] is not None:
+                ret = st.setdefault("returns", {})
                 if not present[k]:
+                    if float(np.sum(N[k])) > 0 and k in ret:                    # how many leave of those that came: next year's flocks
+                        ret[k]["back"] = round(float(np.clip(np.sum(N[k]) / max(ret[k]["came"], 1e-9), 0.3, 1.2)), 4)
                     N[k] = N[k] * 0.0
                 elif SEASONS_OF[si] == kd["migrant"][0]:
-                    N[k] = kd["arrive"] * m.suit[k] * knobs.get("arrive", 1.0)
+                    back = float((ret.get(k) or {}).get("back", 1.0))
+                    N[k] = kd["arrive"] * m.suit[k] * knobs.get("arrive", 1.0) * (0.5 + 0.5 * back)
+                    ret[k] = {"came": round(float(np.sum(N[k])), 4), "back": back}
     for k in m.names:
         kd = m.kinds[k]
         refuge = 0.1 * m.crowd_at[k] / 3.0 * m.suit[k]
@@ -322,6 +328,9 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
         N[k] = N[k] - dead
         if sd == 0 and SEASONS_OF[si] in kd["breed"] and kd["migrant"] is None:
             cond = np.clip(0.2 + 0.8 * E[k], 0, 1) / (1.0 + (dis / 0.15) * crowd ** 2)
+            if WK.CYCLE.get(k):                                               # a cycler: last year's crowding holds this year's breeding
+                lag = np.asarray((st.get("lag") or {}).get(k, N[k]), float) / np.maximum(m.crowd_at[k] * m.suit[k], 1e-9)
+                cond = cond / (1.0 + float(WK.CYCLE[k]) * lag ** 2)
             N[k] = N[k] * (1 + kd["b"] / len(kd["breed"]) * cond)
         if take is None:
             if kd["people"] > 0:
@@ -346,10 +355,30 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
             np.add.at(out_, m.lb, fb); np.add.at(inn, m.la, fb)
             C = C - out_ + inn
             N[k] = np.maximum(C / m.km2, 0)
+    P = st.get("pressure") or {}                                          # hunted areas: the shy leave, and come back as it fades
+    for k, share in WK.HUNTED["flee"].items():
+        if k in N and k in P and len(m.la):
+            p_ = np.asarray(P[k], float)
+            go = N[k] * m.km2 * np.clip(float(share) * p_, 0, 0.5)
+            deg = np.zeros(n)
+            np.add.at(deg, m.la, 1.0); np.add.at(deg, m.lb, 1.0)
+            inn = np.zeros(n)
+            np.add.at(inn, m.lb, go[m.la] / np.maximum(deg[m.la], 1)); np.add.at(inn, m.la, go[m.lb] / np.maximum(deg[m.lb], 1))
+            N[k] = np.maximum((N[k] * m.km2 - go + inn) / m.km2, 0)
+    if P:
+        st["pressure"] = {k: [round(float(x) * float(WK.HUNTED["fade"]), 3) for x in v] for k, v in P.items()}
     for k in m.names:
         kd = m.kinds[k]
         if kd["migrant"] is None:
             N[k] = N[k] + 0.002 / S * m.suit[k] * (kd["ref"] or 1.0) * (~m.home)
+    if sd == 0 and si == 0:                                               # the year's mean crowding, kept for the cyclers
+        st["lag"] = {k: [round(float(x), 6) for x in (0.5 * np.asarray((st.get("lag_acc") or {}).get(k, N[k]), float) + 0.5 * N[k])]
+                     for k in WK.CYCLE if k in N}
+        st["lag_acc"] = {}
+    acc = st.setdefault("lag_acc", {})
+    for k in WK.CYCLE:
+        if k in N:
+            acc[k] = [round(float(x), 6) for x in (0.9 * np.asarray(acc.get(k, N[k]), float) + 0.1 * N[k])]
     st["pop"] = {k: [round(float(x), 6) for x in v] for k, v in N.items()}
     st["cond"] = {k: [round(float(x), 4) for x in v] for k, v in E.items()}
     st["stock"] = {k: [round(float(x), 2) for x in v] for k, v in stock.items()}

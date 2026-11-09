@@ -619,17 +619,20 @@ def _technique(here, mind, a, party, verb):
                tech=tech, concerns=(_holding_people(here, holding) if holding is not None else _holders_people(here, thing)) if note else [],
                **({"holding": holding} if holding is not None else {}))
     here.record(verb, tech, party, site=key)
+    if kind == "parcel":                                                      # what the work showed of the wild about it (02zq)
+        from cybertron2.engine import wild as WL
+        after += WL.work_notices(here, mind, tech, key)
     if word:
         if y["kind"] == "slaughter":                                          # where the meat and hide went (D4-70)
             word = word.rstrip(".") + (" (now in your hands)." if out == here.hands else
                                        f" (put into {here.buildings()[out[len('stock:'):]]['name']})." if out.startswith("stock:") else ".")
         return (word if not for_txt else word.rstrip(".") + for_txt + ".") + after
     if y["kind"] == "chance" and got <= 0:
-        return f"You hunted in {place_name}{note} and caught nothing{extra_got}."
+        return f"You hunted in {place_name}{note} and caught nothing{extra_got}." + after
     via = f" with your {tool}" if tool else (" with your bare hands" if t.get("tools") else "")
     dest = "" if out == here.hands else f" into {here.buildings()[out[len('stock:'):]]['name']}" if out.startswith("stock:") else f" to {party}"
     return (f"You {verb}ed {show(got)} {gives}{extra_got} at {place_name}{note}{via}{dest}.{suffix}".replace("You gathered", "You took")
-            .replace("You worked", "You got"))
+            .replace("You worked", "You got")) + after
 
 
 # ---------------------------------------------------------------------- making

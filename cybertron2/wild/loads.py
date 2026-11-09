@@ -36,7 +36,7 @@ def initial(m) -> dict:
     return {"level": {k: [float(v.get("start", 1.0))] * m.n for k, v in WK.LOADS.items()}, "gdd": [0.0] * m.n, "marks": {}}
 
 
-def step(m, st: dict, day: int, temp: np.ndarray, low: np.ndarray, frozen: np.ndarray, soil: np.ndarray) -> None:
+def step(m, st: dict, day: int, temp: np.ndarray, low: np.ndarray, frozen: np.ndarray, soil: np.ndarray, soil_prev=None) -> None:
     """One engine day of the loads and the year's warmth (in place on st["loads"])."""
     from cybertron2.wild.ecology import SEASON_T
     L = st.setdefault("loads", initial(m))
@@ -63,12 +63,17 @@ def step(m, st: dict, day: int, temp: np.ndarray, low: np.ndarray, frozen: np.nd
                 if "warm" in d:
                     f = f * np.clip(1 + float(d["warm"]) * warm, 0.3, 2.5)
                 target = float(spec.get("base", 1.0)) * m.load_hab[k] * f
-            x = x + float(spec["rate"]) * (target - x)
+            rate = float(spec["rate"]) * np.where(warm < -2.0, 1 - float(spec.get("cold_stall", 0.0)), 1.0)   # a cold snap stalls it
+            x = x + rate * (target - x)
+            if spec.get("flush") and soil_prev is not None:               # the first rain after a dry spell brings them out that night
+                x = np.where(soil - np.asarray(soil_prev, float) >= 0.4, x * float(spec["flush"]), x)
         else:
             x = x + float(spec["rate"]) * (float(spec["rest"]) * np.minimum(m.load_hab[k], 1.0) - x)
         for eater, rate in (spec.get("eaten_by") or {}).items():
             x = x * np.clip(1 - float(rate) * lv[eater], 0.3, 1.0)
         x = np.where(frozen, x * (1 - float(spec.get("frost", 0.0))), x)
+        if spec.get("flood"):                                                  # flooding kills the eggs
+            x = np.where(soil >= 2.2, x * (1 - float(spec["flood"])), x)
         new[k] = np.clip(x, 0.0, float(spec.get("most", 4.0)))
     L["prev"] = L.get("level") or {}                                           # yesterday's, for the signs of a change
     L["level"] = {k: [round(float(v), 4) for v in x] for k, x in new.items()}
@@ -85,5 +90,11 @@ def step(m, st: dict, day: int, temp: np.ndarray, low: np.ndarray, frozen: np.nd
             hit = gdd >= float(mk["gdd"])
         else:
             a = mk["after"]
-            hit = (si >= int(a["season"])) & (low < float(a["low"]))
+            hit = np.full(m.n, si >= int(a["season"]) and si <= int(a.get("until", 3)))
+            if "low" in a:
+                hit = hit & (low < float(a["low"]))
+            if "soil" in a:
+                hit = hit & (soil >= float(a["soil"]))
+            if "temp" in a:
+                hit = hit & (temp >= float(a["temp"]))
         L["marks"][name] = [g if g is not None else (day if bool(h) else None) for g, h in zip(got, hit)]

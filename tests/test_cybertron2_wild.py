@@ -231,9 +231,11 @@ def test_looking_for_something_makes_it_likelier_but_not_certain(generated):
     """A hunter who names a quarry meets it more often than one taking what comes, and sometimes meets something else."""
     w, WL, wood = _hunters(generated, n=60)
     met = lambda r, k: f"came on a {k}" in r or f"came on an {k}" in r
-    general = [_do(w, f"H{i}", {"do": "gather", "what": "hunt the wild", "at": wood, "range": "the wood around"}) for i in range(30)]
-    aimed = [_do(w, f"H{i}", {"do": "gather", "what": "hunt the wild", "at": wood, "range": "the wood around", "looking for": "boar"})
-             for i in range(30, 60)]
+    general, aimed = [], []
+    for i in range(30):                                                         # in turn: the wood grows wary of both alike
+        general.append(_do(w, f"H{i}", {"do": "gather", "what": "hunt the wild", "at": wood, "range": "the wood around"}))
+        aimed.append(_do(w, f"H{30 + i}", {"do": "gather", "what": "hunt the wild", "at": wood, "range": "the wood around",
+                                          "looking for": "boar"}))
     g_boar = sum(met(r, "wild boar") for r in general) / max(1, sum("came on" in r for r in general))
     a_boar = sum(met(r, "wild boar") for r in aimed) / max(1, sum("came on" in r for r in aimed))
     assert a_boar > g_boar
@@ -708,3 +710,192 @@ def test_acorns_are_leached_into_meal_at_a_hearth(generated):
     w.apply("create", "s1", dst=w.hands("G0"), item="acorns", qty=6)
     r = _do(w, "G0", {"do": "make", "what": "leach acorns", "at": w.s["buildings"][hearth]["name"]})
     assert "acorn meal" in r, r
+
+
+# ---------------------------------------------------------------------- the full layers (02zq): conditions, phases, the hunted wood
+def _group_ready(w, WL, kind, node="s1"):
+    from cybertron2.engine import night as N
+    for _ in range(12):
+        g = (w.s["wild"].get("groups") or {}).get(f"{kind}@{node}")
+        if g and g["pos"] == "ready":
+            return g
+        N.night(w); w.s["day"] += 1
+    return (w.s["wild"].get("groups") or {}).get(f"{kind}@{node}")
+
+
+def test_a_hard_frost_sends_the_boar_to_the_stores_and_a_shut_door_keeps_most_out(generated, monkeypatch):
+    from cybertron2.engine import night as N
+    def store_lost(shut):
+        w, WL = _summer_world(generated)
+        monkeypatch.setattr(WL, "frozen_run", lambda w_, node, day=None, most=6: 3)
+        for pid, par in w.s["parcels"].items():                                      # no field to go to: only the stores
+            for _, _, c in __import__("cybertron2.engine.farm", fromlist=["x"]).standing(par):
+                c["left"], c["area_left"] = 0.0, 0.0
+        houses = [b for b, x in w.s["buildings"].items() if x["node"] == "s1" and x.get("stock")]
+        for b in houses:
+            w.s["containers"][w.s["buildings"][b]["stock"]]["goods"]["grain"] = 50.0
+        before = sum(w.s["containers"][w.s["buildings"][b]["stock"]]["goods"].get("grain", 0) for b in houses)
+        for _ in range(16):
+            if shut:
+                for b in houses:
+                    w.apply("set_wild", "s1", path=["shut", b], value={"day": w.d, "by": "x"})
+            N.night(w); w.s["day"] += 1
+        return before - sum(w.s["containers"][w.s["buildings"][b]["stock"]]["goods"].get("grain", 0) for b in houses)
+    open_, shut_ = store_lost(False), store_lost(True)
+    assert open_ > 0 and shut_ < open_
+
+
+def test_the_rut_makes_red_deer_bold_and_easier_to_come_on(generated):
+    w, WL = _summer_world(generated)
+    m, ri = _ring(w, WL)
+    st = w.s["wild"]["state"]
+    autumn = next(d for d in range(40) if w.calendar(w.d + d)["season"] == "autumn")
+    e0 = WL.effects(w, "s1", "red deer", m, st, ri)
+    e1 = WL.effects(w, "s1", "red deer", m, st, ri, day=w.d + autumn)
+    assert e1["bold"] > e0["bold"] and e1["detect"] > e0["detect"]
+
+
+def test_a_hunted_wood_empties_of_deer_and_keeps_their_group_off_the_fields(generated):
+    from cybertron2.engine import night as N
+    w, WL, wood = _hunters(generated, n=12)
+    m, ri = _ring(w, WL)
+    for i in range(12):
+        _do(w, f"H{i}", {"do": "gather", "what": "stalk deer", "at": wood, "range": "the wood around"})
+    p = w.s["wild"]["state"]["pressure"]["red deer"][ri]
+    assert p > 1.0
+    before = float(w.s["wild"]["state"]["pop"]["red deer"][ri])
+    N.night(w)
+    assert float(w.s["wild"]["state"]["pop"]["red deer"][ri]) < before                   # they moved out
+    assert WL.effects(w, "s1", "red deer", m, w.s["wild"]["state"], ri)["drive"] < 1.0       # and keep off the fields
+
+
+def test_a_watch_at_the_gap_meets_the_sounder_before_it_reaches_the_field(generated):
+    from cybertron2.engine import night as N
+    w, WL = _summer_world(generated)
+    g = _group_ready(w, WL, "wild boar")
+    assert g and g["pos"] == "ready"
+    gap = WL._edge_of(w, g["parcel"])
+    assert gap != g["parcel"]
+    w.apply("set_wild", "s1", path=["watch", gap], value={"day": w.d, "by": "x", "scare": "fire"})
+    w.s["groups_raid_day"] = None
+    g["raid"] = w.d
+    rec = N.night(w)
+    r = rec["wild"]["groups"].get("wild boar@s1") or {}
+    assert r.get("turned") and r.get("gap")
+
+
+def test_a_fence_round_the_field_keeps_a_group_out(generated):
+    from cybertron2.engine import night as N
+    w, WL = _summer_world(generated)
+    g = _group_ready(w, WL, "wild boar")
+    assert g
+    w.s["parcels"][g["parcel"]]["fence"] = {"kind": "stone", "level": 2, "built": True, "units": 20, "gate": "shut", "mend": 0, "pending": {}}
+    g["raid"] = w.d
+    rec = N.night(w)
+    r = rec["wild"]["groups"].get("wild boar@s1") or {}
+    assert r.get("turned") and r.get("scare") == "fence" or not r.get("lost")
+
+
+def test_an_expert_reads_the_gap_the_practised_reads_the_sounder(generated):
+    world = _two(generated)
+    world["agents"]["Ann"]["knows"] = {"hunt the wild": {"level": "known", "skill": 1.5}}             # expert in basic work
+    world["agents"]["Tom"]["knows"] = {"hunt the wild": {"level": "known", "skill": 1.2}}             # practised
+    w, WL = _summer_world(world)
+    edge = WL._edge_of(w, WL._fields(w, "s1")[0])
+    w.apply("set_wild", "s1", path=["traces"], value={edge: [{"kind": "wild boar", "what": "edge", "day": w.d, "n": 9}]})
+    w.s["day"] += 1
+    ann, tom = _read(w, "Ann", "#wild"), _read(w, "Tom", "#wild")
+    assert any("gap in the thorn" in t for t in ann) and not any("gap in the thorn" in t for t in tom)
+    assert any("sounder of about 9" in t for t in tom)
+
+
+def test_a_phase_shows_the_day_it_begins(generated):
+    world = _two(generated)
+    w, WL = _summer_world(world)
+    m, ri = _ring(w, WL)
+    w.s["wild"]["state"]["pop"]["red deer"][ri] = 20.0 / m.km2[ri]
+    w.s["day"] += next(d for d in range(40) if w.calendar(w.d + d)["season"] == "autumn" and w.calendar(w.d + d)["day"] == 1)
+    assert any("stags roaring" in t for t in _read(w, "Tom", "#wildwhen"))
+    w.s["day"] += 1
+    assert not any("stags roaring" in t for t in _read(w, "Tom", "#wildwhen"))
+
+
+def test_digging_out_the_earth_in_spring_takes_the_cubs(generated):
+    world = copy.deepcopy(generated)
+    world["calendar"] = {"season": "spring", "day": 3, "season_days": 8}
+    world["agents"] = {f"D{i}": {"household": "Ash", "stage": "adult", "sex": "m", "at": "s1", "knows": {}} for i in range(20)}
+    w = build(world, history=2)
+    from cybertron2.engine import run as R, wild as WL
+    w.s["today"] = R.blank_today()
+    m, ri = _ring(w, WL)
+    w.s["wild"]["state"]["pop"]["fox"][ri] = 30.0 / m.km2[ri]
+    wood = next(p["name"] for p in w.s["parcels"].values() if p["node"] == "s1" and p["cover"] in ("forest", "scrub"))
+    before = sum(np.asarray(w.s["wild"]["state"]["pop"]["fox"]) * m.km2)
+    took = [r for i in range(20) for r in [_do(w, f"D{i}", {"do": "gather", "what": "dig out the fox earth", "at": wood, "range": "the wood around"})]
+            if "took it" in r]
+    after = sum(np.asarray(w.s["wild"]["state"]["pop"]["fox"]) * m.km2)
+    assert took and before - after >= 4 * len(took) - 1e-6                                       # the vixen and her cubs
+
+
+def test_mowing_in_early_summer_may_turn_up_a_roe_kid(generated):
+    from cybertron2.engine import wild as WL0
+    world = copy.deepcopy(generated)
+    world["calendar"] = {"season": "spring", "day": 7, "season_days": 8}
+    world["agents"] = {f"M{i}": {"household": "Ash", "stage": "adult", "sex": "m", "at": "s1", "knows": {}} for i in range(30)}
+    w = build(world, history=2)
+    from cybertron2.engine import run as R, wild as WL
+    w.s["today"] = R.blank_today()
+    m, ri = _ring(w, WL)
+    w.s["wild"]["state"]["pop"]["roe deer"][ri] = 60.0 / m.km2[ri]
+    meadow = next((p["name"] for p in w.s["parcels"].values() if p["node"] == "s1" and p["cover"] in ("meadow", "pasture")), None)
+    if meadow is None:
+        pytest.skip("no grass to mow at s1")
+    rs = [_do(w, f"M{i}", {"do": "gather", "what": "hay", "at": meadow}) for i in range(30)]
+    assert any("roe kid" in r for r in rs)
+
+
+def test_the_vermin_follow_the_harvest_in_and_a_terrier_keeps_the_store(generated):
+    from cybertron2.engine import night as N
+    def share(harvest, dog):
+        w, WL = _summer_world(generated)
+        houses = [b for b, x in w.s["buildings"].items() if x["node"] == "s1" and x.get("stock")]
+        for b in houses:
+            w.s["containers"][w.s["buildings"][b]["stock"]]["goods"]["grain"] = 40.0
+            if dog:
+                w.s["buildings"][b]["fittings"]["dog"] = 1
+        for _ in range(3):
+            N.night(w); w.s["day"] += 1
+        if harvest:
+            for b in houses:
+                w.s["containers"][w.s["buildings"][b]["stock"]]["goods"]["grain"] = 160.0
+        have = sum(w.s["containers"][w.s["buildings"][b]["stock"]]["goods"].get("grain", 0) for b in houses)
+        rec = N.night(w)
+        return float((rec["wild"].get("stores") or {}).get("s1", 0.0)) / have
+    assert share(True, False) > share(False, False)
+    assert share(True, True) < share(True, False)
+
+
+def test_the_ladybird_grubs_misread_and_picked_off_leave_the_fly(generated):
+    from cybertron2.engine import run as R
+    w, WL = _summer_world(_two(generated))
+    w.s["today"] = R.blank_today()
+    m, i = _home_i(w, WL)
+    L = w.s["wild"]["state"]["loads"]
+    L["level"]["ladybirds"][i] = 2.0
+    pid, par = _young_field(w, fam="legumes", age=6)
+    _do(w, "Tom", {"do": "work", "what": "clear the grubs off the beans", "at": par["name"]})
+    assert w.s["wild"]["state"]["loads"]["level"]["ladybirds"][i] < 2.0
+
+
+def test_the_first_rain_after_a_dry_spell_brings_the_slugs_out():
+    from cybertron2.wild import loads as LD
+    from types import SimpleNamespace
+    m = SimpleNamespace(n=1, Y=32, S=8, land={"areas": {"a0": {"kind": "home", "km2": 1.0, "cover": {"field": 1.0}, "texture": {"clay": 1.0}}}},
+                        ids=["a0"])
+    def run(jump):
+        st = {}
+        for d in range(4):
+            LD.step(m, st, d, np.array([10.0]), np.array([5.0]), np.array([False]), np.array([0.6]), np.array([0.6]))
+        LD.step(m, st, 4, np.array([10.0]), np.array([5.0]), np.array([False]), np.array([1.2]), np.array([1.2 - jump]))
+        return st["loads"]["level"]["slugs"][0]
+    assert run(0.6) > run(0.0)
