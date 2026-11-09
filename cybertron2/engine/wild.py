@@ -133,7 +133,9 @@ def night(w, rec) -> None:
     harvest = _follow_harvest(w, m, st, real)                             # the vermin come in to full stores
     scale, pools = _shared_pre(w, m, st)                                  # what the land's plants hold for the wild kinds (D2-202)
     scale["stores"] = harvest
+    lent = _dead_to_pool(w, m, st)                                        # the dead lying open feed the carrion eaters (brief 3 §3)
     eff = EC.step(m, st, eco_day(w), weather(w, sorted(set(m.nodes)), w.d), draws(w, eco_day(w)), scale=scale)
+    _dead_from_pool(w, m, st, eff, lent)
     _regime_kills(w, m, st)                                               # a great freeze (L4)
     place = m.nodes[0]
     w.apply("set_wild", place, path=["state"], value=st)
@@ -319,11 +321,16 @@ def _herds_sick(w, m, st) -> dict:
 
 def guard(here, pid, y, place_name) -> str:
     """A guard on a field against a load (picking slugs by lantern, topping the beans): cuts its harm there for some days."""
-    here.apply("set_wild", path=["guard", pid], value={"load": y["load"], "cut": float(y["cut"]), "until": here.day + int(y["days"]) - 1,
+    from cybertron2.wild.kinds import LIGHT
+    lit = bool(y.get("night")) and here.carried().get(LIGHT["item"], 0.0) >= 1          # work at night by a tallow light (brief 3
+    if lit:                                                                               # §5): it does more, and the light is used
+        here.apply("destroy", src=here.hands, item=LIGHT["item"], qty=1, why="burned down")
+    cut = min(0.95, float(y["cut"]) * (float(LIGHT["night_work"]) if lit else 1.0))
+    here.apply("set_wild", path=["guard", pid], value={"load": y["load"], "cut": cut, "until": here.day + int(y["days"]) - 1,
                                                         "by": here.name})
     for k, share in sorted((y.get("thin") or {}).items()):              # it kills some outright: the load on the land falls
         _thin(here, pid, k, float(share))
-    return y.get("done", "You worked over {place}.").format(place=place_name)
+    return y.get("done", "You worked over {place}.").format(place=place_name) + (" You worked on into the dark by a tallow light." if lit else "")
 
 
 def _thin(here, pid, load, share) -> None:
@@ -1191,6 +1198,8 @@ def _targets(w, node, t) -> list:
     if what == "res":
         return [(pid, pid) for pid, par in sorted(w.s["parcels"].items()) if par["node"] == node and par["cover"] in (t.get("covers") or [])
                 and float(((par.get("res") or {}).get(t["res"]) or {}).get("S", 0)) > 1.0]
+    if what == "carcass":                                                 # the dead lying open, or shallow for a digger (brief 3 §3)
+        return [(cid, c["parcel"]) for cid, c in _dead_at(w, node, t if isinstance(t, dict) else {})]
     return []
 
 
@@ -1279,6 +1288,25 @@ def _raid(w, g, np_, kind, t, tgt, parcel, scare, rng) -> dict:
         w.event(node, "herd", f"a {FM.ROLE_WORD[role][0]} of {h['name']} was killed in the night", about=[f"herd:{tgt}"], salience=0.6,
                 tags=["animals", "danger"])
         return {"killed": role}
+    if what == "carcass":                                                 # the dead: eat a share by the group's size (brief 3 §3)
+        c = w.s["containers"].get(tgt)
+        if not c:
+            return {"ate": 0.0}
+        out = {}
+        if c.get("depth") == "shallow" and c.get("dug") is None:          # a shallow grave dug open: what is left of it lies open
+            w.apply("set_thing", node, cid=tgt, field="dug", value=w.d)
+            w.apply("set_thing", node, cid=tgt, field="buried", value=None)
+            w.apply("set_thing", node, cid=tgt, field="depth", value="dug")
+            w.event(node, "death", f"something dug into the grave at {TH.parcel_name(w, c)} in the night", about=[f"parcel:{parcel}"],
+                    salience=0.5, tags=["animals", "death"])
+            out["dug"] = True
+        ate = TH.eat_flesh(w, tgt, float(t.get("eat", 1.0)) * g["n"] * met, f"eaten by {_a(kind)}")
+        if t.get("cache") and ate > 0:                                    # a bear covers its find and lies up near (brief 3 §3)
+            lo, hi = t["cache"]
+            w.apply("set_thing", node, cid=tgt, field="cached",
+                    value={"kind": kind, "until": w.d + int(lo + rng.random() * (int(hi) - int(lo) + 1))})
+        g["fed_at"] = {"node": node, "day": w.d}
+        return {"ate": round(ate, 4), **out}
     if what in ("items", "hens"):
         b = w.s["buildings"][tgt]
         if t.get("door", False):
@@ -1319,8 +1347,109 @@ def rng_l(w, gid) -> float:
     return w.rng("wild-leader", gid, w.d).random()
 
 
+def cache_meet(here, pid):
+    """Taking at or working the parcel of a carcass a beast has cached and lies up near (brief 3 §3): it is met by the hunters'
+    danger rule (D2-193) with that kind's danger, the more for one alone. Returns the line for the one who met it, else None."""
+    from cybertron2.engine.data import RESOURCES
+    from cybertron2.engine import things as TH
+    w = here._w
+    if not pid:
+        return None
+    for cid, c in sorted(TH.at_node(w, here.node).items()):
+        cc = c.get("cached") or {}
+        if c.get("parcel") != pid or int(cc.get("until", -1)) < here.day:
+            continue
+        kind = cc["kind"]
+        dg = ((RESOURCES.get(kind) or {}).get("taken") or {}).get("danger") or {}
+        others = sum(1 for e in here.events() if e.get("day") == here.day and e.get("actor") not in (here.name, None)
+                     and f"parcel:{pid}" in (e.get("about") or []))
+        alone = 1.5 if others == 0 else 1.0 / (1 + others)
+        rng = w.rng("wild-cache", here.day, here.name, cid)
+        place = TH.parcel_name(w, c)
+        if rng.random() < min(0.95, float(dg.get("wound", 0.3)) * alone):
+            if rng.random() < min(0.5, float(dg.get("kill", 0.0)) * alone):
+                here.apply("die", person=here.name, cause=f"killed by {_a(kind)} at its kill")
+                return f"At {place}, {_a(kind)} rose from where it lay by its kill and was on you."
+            here.apply("harm", person=here.name, wounded=True)
+            return f"At {place}, {_a(kind)} rose from where it lay by its kill; it struck you before it went back to cover. You were hurt."
+        return f"At {place}, {_a(kind)} rose from where it lay by its kill and stood over it; you backed away and did nothing there."
+    return None
+
+
+def _dead_to_pool(w, m, st) -> dict:
+    """Lend the dead lying open at each village to its home area's carrion for the night (brief 3 §3): their flesh as kg a km2
+    (THINGS carcass_kg a unit). Returns {area index: (kg a km2 lent, the pool before, [(thing id, flesh)])}."""
+    from cybertron2.engine import things as TH
+    from cybertron2.engine.data import THINGS
+    land = w.s["wild"]["land"]
+    ix = {a: i for i, a in enumerate(m.ids)}
+    lent = {}
+    for node, aid in sorted((land.get("home") or {}).items()):
+        if aid not in ix or node not in w.s["nodes"]:
+            continue
+        i = ix[aid]
+        dead = [(cid, TH.flesh(w, c)) for cid, c in sorted(TH.open_dead(w, node).items()) if c.get("depth") != "shallow"]
+        kg = sum(f for _, f in dead) * float(THINGS["carcass_kg"]) / max(1e-9, float(m.km2[i]))
+        if kg > 1e-9:
+            before = float(st["carrion"][i])
+            st["carrion"][i] = before + kg
+            lent[i] = (kg, before, dead)
+    return lent
+
+
+def _dead_from_pool(w, m, st, eff, lent) -> None:
+    """What the carrion eaters ate of an area's pool comes off the dead lent to it in proportion; birds were over those that lost
+    enough to show (`birds`, for the ravens' sign); what is left of the loan is taken back out of the pool."""
+    from cybertron2.engine import things as TH
+    eaten = eff["eaten"].get("carrion")
+    for i, (kg, before, dead) in sorted(lent.items()):
+        pool = (kg + before) * float(m.km2[i])
+        share = min(1.0, float(eaten[i]) / pool) if eaten is not None and pool > 1e-9 else 0.0
+        for cid, f in dead:
+            q = TH.eat_flesh(w, cid, f * share, "eaten by carrion birds and beasts")
+            if q >= 0.2:
+                w.apply("set_thing", TH.where(w, w.s["containers"][cid]), cid=cid, field="birds", value=w.d)
+        st["carrion"][i] = round(max(0.0, float(st["carrion"][i]) - kg * (1.0 - share) * 0.5 ** (1.0 / float(m.S))), 2)
+
+
 def _did(res) -> bool:
-    return res.get("lost", 0) > 1e-6 or bool(res.get("killed")) or res.get("took", 0) > 0 or res.get("stripped", 0) > 1e-6
+    return res.get("lost", 0) > 1e-6 or bool(res.get("killed")) or res.get("took", 0) > 0 or res.get("stripped", 0) > 1e-6 \
+        or res.get("ate", 0) > 1e-6
+
+
+def _dead_stage(w, c) -> str:
+    """fresh, rotting or bones (brief 3 §2); a body fresh its first day, then rotting."""
+    from cybertron2.engine import things as TH
+    if c.get("body"):
+        return "fresh" if w.d - int(c.get("died", w.d)) <= 1 else "rotting"
+    return "bones" if TH.carcass_bones(w, c) else ("fresh" if TH.carcass_fresh(w, c) else "rotting")
+
+
+def _dead_at(w, node, t) -> list:
+    """The dead a carcass row can come to at a node (brief 3 §3): open or, for a kind that digs, shallow; in the row's stages."""
+    from cybertron2.engine import things as TH
+    out = []
+    for cid, c in sorted(TH.open_dead(w, node).items()):
+        if c.get("depth") == "shallow" and c.get("dug") is None and not t.get("digs"):
+            continue
+        if t.get("stages") and _dead_stage(w, c) not in t["stages"]:
+            continue
+        out.append((cid, c))
+    return out
+
+
+def _carcass_pull(w, node, t) -> float:
+    """How strongly the dead at a node draw a carcass row (brief 3 §3): the most flesh there against kinds.CARCASS_PULL's ref, a
+    shallow grave its `dig` share of that."""
+    from cybertron2.engine import things as TH
+    from cybertron2.wild.kinds import CARCASS_PULL
+    best = 0.0
+    for cid, c in _dead_at(w, node, t):
+        x = min(1.0, TH.flesh(w, c) / float(CARCASS_PULL["ref"]))
+        if c.get("depth") == "shallow" and c.get("dug") is None:
+            x *= float(CARCASS_PULL["dig"])
+        best = max(best, x)
+    return best
 
 
 def _groups(w, m, st) -> dict:
@@ -1372,6 +1501,7 @@ def _groups(w, m, st) -> dict:
                 dec = float(np_["answer"]["decay"])
                 g["habit"] = {k: max(0.0, v - dec) for k, v in g["habit"].items() if v > dec}
             rows = [t for t in list(np_["targets"]) + ef["targets"] if _season_window(w, w.d, t["seasons"])]
+            rows = [dict(t, attr=float(t["attr"]) * _carcass_pull(w, node, t)) if t.get("what") == "carcass" else t for t in rows]
             attr = max([t["attr"] for t in rows] or [0.0])
             hunger = 1.0 - float(np.asarray(st["cond"][kind])[ri])
             if g["pos"] == "ready" and w.d >= g["raid"]:
@@ -1451,11 +1581,24 @@ def _groups(w, m, st) -> dict:
                 if w.d - g["t"] >= int(np_["lead_nights"]) - 1:
                     g["pos"], g["raid"] = "ready", w.d + 1
             elif g["pos"] == "home" and w.d >= g["rest"] and w.d >= g["wary"] and attr > 0:
+                from cybertron2.wild.kinds import CARCASS_PULL
+                fed = g.get("fed_at") or {}                                    # fed at the dead here lately: bolder, and any of its
+                spill = fed.get("node") == node and 0 <= w.d - int(fed.get("day", -99)) <= int(CARCASS_PULL["spill_nights"])   # rows
                 trow = max(rows, key=lambda t: t["attr"])
+                if spill:                                                      # (brief 3 §3: the fox at the dead calf tries the hens)
+                    live = [t for t in rows if t["attr"] > 0 and _targets(w, node, t)]
+                    if live:
+                        u, acc = rng.random() * sum(t["attr"] for t in live), 0.0
+                        for t in live:
+                            acc += t["attr"]
+                            if u < acc:
+                                trow = t
+                                break
                 tg = _targets(w, node, trow)
                 if not tg:
                     continue
-                p = min(1.0, attr * (float(np_["drive"]["base"]) + float(np_["drive"]["hunger"]) * hunger) * ef["drive"] * lmul)
+                p = min(1.0, attr * (float(np_["drive"]["base"]) + float(np_["drive"]["hunger"]) * hunger) * ef["drive"] * lmul
+                        * (float(CARCASS_PULL["spill_drive"]) if spill else 1.0))
                 knows = 1 <= w.d - int(g["found"]) <= int(np_["memory_days"])
                 if knows:
                     p = max(p, float(np_["return_p"]) * attr)

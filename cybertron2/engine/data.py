@@ -67,6 +67,10 @@ ITEMS = {
     "timber": {"weight": 2, "food": 0.0, "spoil": 0.0, "heat": 2.0},   # D2-24; 2 heat (D2-157)
     "stone": {"weight": 3, "food": 0.0, "spoil": 0.0},                 # D2-3, D2-24
     "hide": {"weight": 1, "food": 0.0, "spoil": 0.0, "decay": "hide"},                  # D2-24
+    "tallow": {"weight": 1, "food": 0.0, "spoil": 0.0},                                  # a beast's fat, rendered or not (brief 3 §5)
+    "offal": {"weight": 1, "food": 0.0, "spoil": 0.0},                                   # what is left in a carcass taken from: the
+                                                                                          # night's rot by its size (night.py, brief 3 §2)
+    "tallow light": {"weight": 0.2, "food": 0.0, "spoil": 0.0},                          # a rush or rag dipped in tallow: night work by it
     "copper ore": {"weight": 3, "food": 0.0, "spoil": 0.0},
     "copper": {"weight": 1, "food": 0.0, "spoil": 0.0},                # D2-19, D2-24
     "coin": {"weight": 0, "food": 0.0, "spoil": 0.0},                  # copper coin, carried (D2-1, D2-28)
@@ -393,6 +397,9 @@ TECHNIQUES = {
                          "yield": {"kind": "wild_forage", "base": 1.2}, "units": 1, "gives": "", "tags": ["food"]},
     "make clappers": {"verb": "make", "label": "making clappers (two boards on a cord) for scaring beasts off a field", "basic": True, "pack": "wild",
                       "aliases": ["clappers", "make a clapper"], "inputs": {"timber": 0.5}, "units": 1, "gives": {"clappers": 1}, "tags": ["farming"]},
+    "make tallow lights": {"verb": "make", "label": "dipping rushes in tallow for lights to work by at night", "basic": True,
+                           "aliases": ["tallow lights", "make lights", "make a light", "rushlights", "dip rushes"],
+                           "inputs": {"tallow": 1}, "units": 1, "gives": {"tallow light": 4}, "tags": ["light"]},   # brief 3 §5
     "make a horn": {"verb": "make", "label": "making a horn to blow from a cast antler's base", "basic": True, "pack": "wild",
                     "aliases": ["horn", "make horn"], "inputs": {"antler": 1}, "units": 2, "gives": {"horn": 1}, "tags": ["farming"]},
     "leach acorns": {"verb": "make", "label": "boiling acorns in changes of water at a hearth till the bitterness is gone", "basic": True,
@@ -440,8 +447,9 @@ TECHNIQUES = {
              "trade": "herder"},
     "slaughter": {"verb": "work", "label": "slaughtering a beast", "aliases": ["butcher", "kill a cow"], "basic": True,
                   "at": {"covers": ["pasture", "meadow", "field", "heath", "moor", "fen", "saltmarsh", "built"]}, "draws": "herd",
-                  "yield": {"kind": "slaughter", "gives": {"cows": {"meat": 40, "hide": 2}, "oxen": {"meat": 50, "hide": 2},
-                                                          "bulls": {"meat": 50, "hide": 2}, "young": {"meat": 10, "hide": 1}}},
+                  "yield": {"kind": "slaughter", "gives": {"cows": {"meat": 40, "hide": 2, "tallow": 4}, "oxen": {"meat": 50, "hide": 2, "tallow": 4},
+                                                          "bulls": {"meat": 50, "hide": 2, "tallow": 4},
+                                                          "young": {"meat": 10, "hide": 1, "tallow": 1}}},   # tallow: brief 3 §5 (calibrate)
                   "units": 2, "gives": "meat", "tags": ["food", "animals"]},
     # Mending a worn fitting (D4-103 phase 2; building_risks.md: capital has upkeep): it works at full again (calibrate)
     "dress millstones": {"verb": "work", "label": "dressing worn millstones (recutting their furrows)", "aliases": ["dress the stones"],
@@ -555,7 +563,14 @@ TECHNIQUES.update({
                    "aliases": ["grandly"], "basic": True, "modifies": ["build"], "key": "how", "value": "grand", "changes": {"tier": "grand"},
                    "units": 0, "gives": "", "tags": ["building"]},
     "bury": {"verb": "work", "label": "burying the dead", "aliases": ["burial", "bury the dead", "bury the body"], "basic": True,
-             "at": {"things": "body"}, "yield": {"kind": "bury"}, "units": 2, "units_by": "bury", "gives": "", "tags": ["death"]},   # D2-96
+             "at": {"things": ["body", "carcass"]}, "yield": {"kind": "bury"}, "units": 2, "units_by": "bury", "gives": "",
+             "tags": ["death"]},                                                  # D2-96; a dead beast too (brief 3 §4)
+    "method: shallow": {"verb": "modifier", "label": "burying it shallow (half the digging; beasts may dig it up)", "aliases": ["shallow"],
+                        "basic": True, "modifies": ["work:bury"], "key": "method", "value": "shallow", "changes": {}, "units": 0,
+                        "gives": "", "tags": ["death"]},
+    "burn": {"verb": "work", "label": "burning a carcass (firewood and work by its size)", "aliases": ["burn the carcass", "burn it",
+             "burn the dead beast", "burn the beast"], "basic": True, "at": {"things": ["carcass"]}, "yield": {"kind": "burn"}, "units": 2,
+             "units_by": "burn", "gives": "", "tags": ["death"]},                 # brief 3 §4
 })
 MODIFIERS = {t for t, d in TECHNIQUES.items() if d.get("modifies")}
 
@@ -749,6 +764,15 @@ THINGS = {
     "carcass": 0.9, "carcass_bones": 0.3, "carcass_bones_after": 6, "carcass_fresh_days": 1,
     "carcass_road": {"none": 0.3, "hidden": 0.3},
     "carcass_meat": {"starved": 0.25, "road": 0.5, "other": 0.5, "killed": 0.3, "sick": 0.6},
+    # a carcass's stages by its size on the day's clock (brief 3 §2, calibrate): fresh this many days, then its rotting meat and offal
+    # lose `rot` of themselves a night (x the season; nothing on a frozen night or under snow) until under `gone` of the first flesh,
+    # when only bones are left. A person's body is a medium carcass for what comes to it (`body_mass` of flesh, D2-205)
+    "carcass_size": {"cow": "large", "ox": "large", "bull": "large", "calf": "medium", "body": "medium", "hen": "small", "hare": "small"},
+    "carcass_sizes": {"small": {"fresh": 1, "rot": 0.6, "burn": {"units": 1, "firewood": 2}},
+                      "medium": {"fresh": 1, "rot": 0.4, "burn": {"units": 2, "firewood": 6}},
+                      "large": {"fresh": 2, "rot": 0.25, "burn": {"units": 4, "firewood": 12}}},
+    "carcass_rot_season": {"spring": 1.0, "summer": 1.5, "autumn": 1.0, "winter": 0.5}, "carcass_gone": 0.05,
+    "carcass_offal": 0.25, "body_mass": 30, "carcass_kg": 5.0,      # offal as a share of the meat; a unit of meat as kg of carrion
     "hidden": {"under brush": [0.2, 0.4], "buried": [0.03, 0.06], "off the road": [0.2, 0.2]},
     "set": {"own": 0.12, "sprung": 0.05},                                  # a set snare or trap, seen (brief 2 §4; calibrate)
 }

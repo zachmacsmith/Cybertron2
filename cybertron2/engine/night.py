@@ -163,6 +163,9 @@ def night(w) -> dict:
     for cid, c in list(s["containers"].items()):                              # spoilage, by condition (D2-58, D2-87)
         if c["kind"] == "hands" and not s["people"][c["of"]]["alive"]:
             continue
+        if c["kind"] == "carcass" and c.get("beast"):                          # a dead beast by its size (D4-52, brief 3 §2)
+            _carcass_night(w, cid, c)
+            continue
         for item, q in list(c["goods"].items()):
             if c["kind"] == "carcass" and item == "meat":                      # a dead beast's meat keeps a day, then goes off (D4-52)
                 if q > 1e-9 and w.d - int(c.get("died", w.d)) >= int(THINGS["carcass_fresh_days"]):
@@ -482,3 +485,34 @@ def _grow(w):
         # crops: farm.night (D2-53, D4-39)
     from cybertron2.engine import forests as FO
     FO.night(w)
+
+
+def _carcass_night(w, cid, c) -> None:
+    """A dead beast's night (brief 3 §2): its meat fresh for its size's days, then rotting meat; rotting meat and offal lose the
+    size's `rot` a night times the season's, none on a frozen night or under snow (a buried or burnt one keeps or is gone); below
+    `carcass_gone` of its first flesh, the rest is gone and only bones lie. Its hide and tallow keep as goods do."""
+    from cybertron2.engine import environment as EV, things as TH
+    place = w.place_of(("container", cid))
+    if c.get("burnt") is not None:
+        return
+    size = THINGS["carcass_sizes"][TH.carcass_size(c)]
+    q = float(c["goods"].get("meat", 0.0))
+    if q > 1e-9 and w.d - int(c.get("died", w.d)) >= int(size["fresh"]):
+        w.apply("destroy", place, src=cid, item="meat", qty=q, why="went off")
+        w.apply("create", place, dst=cid, item="rotting meat", qty=q, why="rot")
+    if c.get("buried") is not None:
+        return
+    at = TH.where(w, c)
+    if w.cold(at) or EV.snow_lying(w, at):
+        return                                                                # frost stalls it; a carcass in the snow keeps
+    r = min(1.0, float(size["rot"]) * float(THINGS["carcass_rot_season"].get(w.calendar()["season"], 1.0)))
+    for item in ("rotting meat", "offal"):
+        x = float(c["goods"].get(item, 0.0))
+        if x > 1e-9:
+            w.apply("destroy", place, src=cid, item=item, qty=round(x * r, 6), why="rotted")
+    m0 = float(c.get("mass0") or 0.0)
+    if m0 > 0 and TH.flesh(w, w.s["containers"][cid]) < float(THINGS["carcass_gone"]) * m0:
+        for item in TH.FLESH:
+            x = float(w.s["containers"][cid]["goods"].get(item, 0.0))
+            if x > 1e-9:
+                w.apply("destroy", place, src=cid, item=item, qty=x, why="rotted to the bones")

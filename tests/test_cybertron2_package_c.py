@@ -420,6 +420,8 @@ def test_a_beast_that_starves_leaves_a_carcass_fit_to_eat_for_a_day_then_gone_of
     assert cs[0]["kind"] in TH.KINDS and TH.carcass_fresh(w, cs[0])
     w.s["day"] += 1
     assert TH.carcass_fresh(w, cs[0])                                               # the next day: still good
+    w.s["day"] += 1                                                                 # a cow is large: fresh two days (brief 3 §2)
+    assert TH.carcass_fresh(w, cs[0])
     N.night(w)
     assert cs[0]["goods"].get("meat", 0) == 0 and cs[0]["goods"].get("rotting meat", 0) > 0 and not TH.carcass_fresh(w, cs[0])
 

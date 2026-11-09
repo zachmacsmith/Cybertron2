@@ -111,6 +111,7 @@ MAST = {"every": (2, 5), "ordinary_p": 0.6, "levels": {"heavy": 3.0, "ordinary":
 NEAR_PEOPLE = {
     "wild boar": {
         "targets": [{"seasons": {1: (3, 7), 2: (0, 1)}, "attr": 1.0, "trample": 0.012},     # milk-ripe to harvest
+                    {"what": "carcass", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.5, "stages": ["rotting"], "eat": 2.0},   # rooting at the dead (brief 3)
                     {"seasons": {0: (0, 5)}, "attr": 0.3, "trample": 0.006}],              # the sown corn
         "drive": {"base": 0.35, "hunger": 0.5}, "memory_days": 3, "return_p": 0.85, "lead_nights": 2, "lead_sign_p": 0.9,
         "answer": {"type": "habituate", "turn_p": 0.9, "gain": 0.3, "decay": 0.01, "rest": 2},
@@ -128,13 +129,14 @@ NEAR_PEOPLE = {
     "wolf": {
         "gather": "far",                                                                     # a pack ranges far beyond one ring
         "targets": [{"what": "herd", "seasons": {3: (0, 7), 0: (0, 2)}, "attr": 1.0},          # late winter: hunger at the fold
+                    {"what": "carcass", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 1.0, "stages": ["fresh", "rotting"], "eat": 3.0, "digs": True},
                     {"what": "herd", "seasons": {0: (3, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.35}],
         "drive": {"base": 0.03, "hunger": 0.9}, "memory_days": 4, "return_p": 0.7, "lead_nights": 2, "lead_sign_p": 0.7,
         "answer": {"type": "scared_off", "turn_p": 0.8, "off_days": 3},
         "harm": {"dog": {"turn_p": 0.9, "harm_p": 0.15}}, "wary_after_harm": 10, "met_share": 1.0,
     },
     "brown bear": {
-        "gather": "far", "targets": [],                                                    # only in a hungry spring (WHEN)
+        "gather": "far", "targets": [{"what": "carcass", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 1.0, "stages": ["fresh"], "eat": 8.0, "cache": [2, 4]}],                                                    # only in a hungry spring (WHEN)
         "drive": {"base": 0.05, "hunger": 0.5}, "memory_days": 2, "return_p": 0.6, "lead_nights": 1, "lead_sign_p": 0.8,
         "answer": {"type": "scared_off", "turn_p": 0.7, "off_days": 3},
         "harm": {"dog": {"turn_p": 0.8, "harm_p": 0.05}}, "wary_after_harm": 10, "met_share": 1.0,
@@ -160,7 +162,9 @@ NEAR_PEOPLE = {
         "targets": [{"what": "items", "items": ["hen"], "door": True, "heads": 2, "all_p": 0.3, "seasons": {0: (2, 7), 1: (0, 3)},
                      "attr": 1.0, "probe": 3},                                                    # cubs to feed; tries the doors (D2-207)
                     {"what": "items", "items": ["hen"], "door": True, "heads": 2, "all_p": 0.3,
-                     "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.35, "probe": 3}],
+                     "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.35, "probe": 3},
+                    {"what": "carcass", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.8,     # the dead (brief 3)
+                     "stages": ["fresh", "rotting"], "eat": 0.6, "digs": True}],
         "drive": {"base": 0.1, "hunger": 0.4}, "memory_days": 2, "return_p": 0.8, "lead_nights": 2, "lead_sign_p": 0.6,
         "answer": {"type": "scared_off", "turn_p": 0.85, "off_days": 3},
         "harm": {"dog": {"turn_p": 0.9, "harm_p": 0.1}}, "wary_after_harm": 10, "met_share": 1.0,
@@ -591,7 +595,7 @@ LOADS = {
               "seasons": (0, 1, 2), "rest": 0.6, "rate": 0.3, "base": 1.4, "drivers": {"wet": 2.0, "warm": 0.03}, "frost": 0.15, "most": 4.0,
               "flush": 1.4, "flood": 0.3,
               "harm": [{"crops": ["grain", "winter grain", "legumes"], "age": (0, 5), "share": 0.02, "over": 0.5}],
-              "on_crop": True, "guard": {"cut": 0.6, "days": 1, "done": "You picked the slugs off the young crop in {place} at dusk as they came out."}},
+              "on_crop": True, "guard": {"cut": 0.6, "days": 1, "night": True, "done": "You picked the slugs off the young crop in {place} at dusk as they came out."}},
     "aphids": {"hab": {"cover": {"field": 1.0, "meadow": 0.4, "pasture": 0.3, "scrub": 0.3}},
                "seasons": (0, 1), "rest": 0.3, "rate": 0.35, "drivers": {"warm": 0.12, "dry": 1.0}, "frost": 0.1, "most": 4.0,
                "eaten_by": {"ladybirds": 0.12},
@@ -731,6 +735,12 @@ STORE_STOPS = {"granary": {"keep": 0.3, "for": {"climbs": True, "gap": "tiny"}},
                "owl": {"keep": 0.6, "for": {"gap": "tiny"}, "occupied": "nests"}}
 # a cat comes by itself to a store with mice (D2-206): a chance each season (no dog), and leaves an empty store or a dog's house;
 # a barn owl takes an owl hole in spring with a chance if nobody sleeps in that building (calibrate)
+# The dead and what comes to them (brief 3 §3, calibrate): a carcass row's attraction is its attr times the most flesh at the node
+# against `ref` (units of meat), a shallow grave `dig` of that; a group that fed at the dead there has, for `spill_nights` nights,
+# its drive times `spill_drive` and may pick any of its rows (the fox at the dead calf tries the hens)
+# a tallow light (brief 3 §5, calibrate): night work at a load by it does this much more, and burns the light down
+LIGHT = {"item": "tallow light", "night_work": 1.3}
+CARCASS_PULL = {"ref": 20.0, "dig": 0.1, "spill_nights": 3, "spill_drive": 1.5}
 CAT = {"settle_p": 0.25, "prey": "voles and mice", "prey_least": 50.0, "stray_p": 0.08, "item": "cat"}
 OWL = {"take_p": 0.4, "fitting": "owl hole", "season": "spring", "record": "nests"}
 

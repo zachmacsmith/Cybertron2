@@ -140,8 +140,11 @@ def where(here, tech, graves=False) -> list:
     if not at:
         return [("anywhere", None, "anywhere")]
     out = []
-    if at.get("things"):                                                       # work on a thing at a spot: the dead (D2-96)
-        out = [("thing", cid, f"the body of {c['of']} at {here.spot_name(c)}") for cid, c in here.bodies().items()]
+    if at.get("things"):                                                       # work on a thing at a spot: the dead (D2-96), a dead
+        kinds = at["things"] if isinstance(at["things"], list) else [at["things"]]   # beast (brief 3 §4)
+        out = [("thing", cid, f"the body of {c['of']} at {here.spot_name(c)}") for cid, c in here.bodies().items()] if "body" in kinds else []
+        if "carcass" in kinds:
+            out += [("thing", cid, f"the dead {c['beast']} at {here.spot_name(c)}") for cid, c in here.carcasses().items()]
         if graves:                                                             # a cairn over a grave already dug (D4-99)
             out += [("thing", cid, f"the grave of {c['of']} at {here.spot_name(c)}") for cid, c in here.graves().items()]
         return out

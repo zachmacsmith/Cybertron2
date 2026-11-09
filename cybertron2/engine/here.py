@@ -403,6 +403,14 @@ class Here:
         from cybertron2.engine import things as TH
         return TH.bodies(self._w, self.node)
 
+    def carcasses(self) -> dict:
+        from cybertron2.engine import things as TH
+        return TH.carcasses(self._w, self.node)
+
+    def carcass_size(self, cid) -> str:
+        from cybertron2.engine import things as TH
+        return TH.carcass_size(self._w.s["containers"][cid])
+
     def grave_left(self, cid) -> int:
         """Units of digging a grave still wants, by the ground and the cold now (D2-96, D4-99)."""
         from cybertron2.engine import things as TH

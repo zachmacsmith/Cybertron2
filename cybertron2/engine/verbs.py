@@ -9,7 +9,7 @@ from __future__ import annotations
 import math
 from cybertron2.engine import renewal as RN, yields as YD
 from cybertron2.engine import buildings as BL, farm as FM, knowledge as KN, modifiers as MOD, perceive as PC, things as TH
-from cybertron2.engine.data import BLUEPRINTS, COVERS, FITTINGS, ITEMS, LINES, MONUMENTS, ROOMS, SPACE, TECHNIQUES, TIERS, TRY
+from cybertron2.engine.data import BLUEPRINTS, COVERS, FITTINGS, ITEMS, LINES, MONUMENTS, ROOMS, SPACE, TECHNIQUES, THINGS, TIERS, TRY
 from cybertron2.engine.here import Refused, show
 
 # The registry (cybertron 1's action_registry): arguments, cost (units, a physics path, or "craft"), the line in the manual, and
@@ -128,12 +128,15 @@ def cost(here, a) -> int:
     n = int(TECHNIQUES[tech]["units"])
     if TECHNIQUES[tech].get("units_by") == "bury":                            # by the ground and the cold (D2-96)
         cairn = str(a.get("method", "")).lower() == "cairn"
-        cid = _thing_site(here, a.get("at"), graves=cairn)
+        cid = _thing_site(here, a.get("at"), graves=cairn, kinds=_dead_kinds(tech))
         if cid and cairn:
             n = here.bury_units(cid, cairn=True)
         elif cid:                                                              # a grave is dug a share at a time, by anyone, over days
-            from cybertron2.engine import things as TH                         # (D4-99): an act puts in up to its units
-            n = max(1, min(n, here.grave_left(cid)))
+            n = max(1, min(n, _grave_left(here, cid, a)))                      # (D4-99): an act puts in up to its units
+    elif TECHNIQUES[tech].get("units_by") == "burn":                          # by the carcass's size (brief 3 §4)
+        cid = _thing_site(here, a.get("at"), kinds=_dead_kinds(tech))
+        if cid:
+            n = int(THINGS["carcass_sizes"][here.carcass_size(cid)]["burn"]["units"])
     elif v == "make":
         n *= max(1, int(_qty(a.get("qty"), 1)))
     return n + MOD.units(a, v, tech)
@@ -168,15 +171,18 @@ def _bury(here, cid, cairn, a) -> str:
         return f"You buried {c['of']} at {spot} under a cairn of stones."
     need = here.bury_units(cid)
     g = dict(c.get("grave") or {})
-    put = max(1, min(int(TECHNIQUES["bury"]["units"]), here.grave_left(cid)))
+    shallow = str(a.get("method", "")).lower() == "shallow"                   # half the digging: beasts may dig it up (brief 3 §4)
+    put = max(1, min(int(TECHNIQUES["bury"]["units"]), _grave_left(here, cid, a)))
     done = min(1.0, round(float(g.get("done", 0.0)) + put / need, 6))
     by = list(dict.fromkeys(list(g.get("by") or []) + [here.name]))
     others = [x for x in by if x != here.name]
-    if done >= 1.0 - 1e-6:
+    if done >= (0.5 if shallow else 1.0) - 1e-6:
         here.apply("set_thing", cid=cid, field="buried", value=here.day)
         here.apply("set_thing", cid=cid, field="cairn", value=False)
         here.apply("set_thing", cid=cid, field="grave", value=None)
+        here.apply("set_thing", cid=cid, field="depth", value="shallow" if done < 1.0 - 1e-6 else "deep")
         return (f"You finished the grave and buried {c['of']} at {spot}" + (f"; {', '.join(others)} dug it with you" if others else "")
+                + (", shallow: beasts may dig it up" if done < 1.0 - 1e-6 else "")
                 + ". A cairn of stones can be raised over it later (3 stone).")
     here.apply("set_thing", cid=cid, field="grave", value={"done": done, "by": by, "day": here.day, "began": g.get("began", here.day)})
     left = here.grave_left(cid)
@@ -184,14 +190,52 @@ def _bury(here, cid, cairn, a) -> str:
             f"of digging{' in the frozen ground' if here.cold() else ''}). Anyone can help dig it, and the work keeps for another day.")
 
 
-def _thing_site(here, at, graves=False):
+def _dead_kinds(tech) -> tuple:
+    """Which of the dead a technique works on: bodies, dead beasts (brief 3 §4)."""
+    t = (TECHNIQUES[tech].get("at") or {}).get("things") or "body"
+    return tuple(t) if isinstance(t, list) else (t,)
+
+
+def _grave_left(here, cid, a) -> int:
+    """Units a grave still wants: a shallow one half the whole (brief 3 §4)."""
+    import math
+    left = here.grave_left(cid)
+    if str((a or {}).get("method", "")).lower() == "shallow":
+        c = here.thing(cid)
+        need = math.ceil(here.bury_units(cid) / 2)
+        done = float((c.get("grave") or {}).get("done", 0.0)) * here.bury_units(cid)
+        left = max(0, math.ceil(need - done - 1e-6))
+    return left
+
+
+def _burn(here, cid) -> str:
+    """Burning a carcass (brief 3 §4): firewood by its size, from hand or a store one may take from; its flesh, hide and tallow
+    burn, and nothing comes to it after; the smoke is seen."""
+    c = here.thing(cid)
+    size = THINGS["carcass_sizes"][here.carcass_size(cid)]["burn"]
+    _consume(here, {"firewood": float(size["firewood"])})
+    for item, q in sorted(c["goods"].items()):
+        if q > 1e-9:
+            here.apply("destroy", src=cid, item=item, qty=q, why="burned")
+    here.apply("set_thing", cid=cid, field="burnt", value=here.day)
+    spot = here.spot_name(c)
+    here.event("work", f"{here.name} burned the dead {c['beast']} at {spot}; the smoke of it went up", salience=0.4,
+               tags=["animals"], about=[f"parcel:{c['parcel']}"] if c.get("parcel") else [])
+    return f"You burned the dead {c['beast']} at {spot} on a pyre of {size['firewood']:g} firewood: nothing will come to it now."
+
+
+def _thing_site(here, at, graves=False, kinds=("body",)):
     """A body here by its person's name or its place's name (for burying); with `graves`, a grave with no cairn yet as well (a
-    cairn raised after the burial, D4-99), an unburied body first."""
+    cairn raised after the burial, D4-99), an unburied body first; with kinds holding "carcass", a dead beast by its beast's name
+    too (brief 3 §4)."""
     from cybertron2.engine import things as TH
     low = str(at or "").strip().lower()
-    pool = list(here.bodies().items()) + (list(here.graves().items()) if graves else [])
+    pool = (list(here.bodies().items()) if "body" in kinds else []) + (list(here.carcasses().items()) if "carcass" in kinds else []) \
+        + (list(here.graves().items()) if graves else [])
     for cid, c in pool:
         names = {c["of"].lower(), here.spot_name(c).lower(), here.spot_name(c).lower().removeprefix("the ")}
+        if c.get("beast"):
+            names |= {c["beast"], f"the {c['beast']}", f"the dead {c['beast']}", f"dead {c['beast']}", "the carcass", "carcass"}
         pid = c.get("parcel")
         if pid in here.parcels():                                             # the ground it lies on, or a building on that ground
             names |= {here.parcels()[pid]["name"].lower()} | {b["name"].lower() for b in here.buildings().values() if b["parcel"] == pid}
@@ -417,12 +461,14 @@ def _site(here, mind, tech, at, a=None):
         return "thing", cid, (f"the grave of {c['of']} at {here.spot_name(c)}" if c.get("buried") is not None
                               else f"the body of {c['of']} at {here.spot_name(c)}")
     if sites and sites[0][0] == "thing":
-        cid = _thing_site(here, at)
+        kinds = _dead_kinds(tech)
+        cid = _thing_site(here, at, kinds=kinds)
+        what = "body or dead beast" if len(kinds) > 1 else ("dead beast" if kinds == ("carcass",) else "body")
         if cid is None:
-            raise Refused(f"there is no body to bury here called {at!r}" if at else "there is no body here to bury")
+            raise Refused(f"there is no {what} here called {at!r}" if at else f"there is no {what} here")
         return "thing", cid, next(s[2] for s in sites if s[1] == cid)
     if not sites and (TECHNIQUES[tech].get("at") or {}).get("things"):
-        raise Refused("there is no one lying unburied here")
+        raise Refused("there is no dead beast lying here" if _dead_kinds(tech) == ("carcass",) else "there is no one lying unburied here")
     if at:
         key = here.parcel(at) or here.building(at)
         if key is None:
@@ -505,6 +551,11 @@ def _technique(here, mind, a, party, verb):
         _level(mind, tech)
     a = {**a, "_mods": MOD.resolve(here, mind, verb, a, tech=tech)}           # ways of doing it (D2-93)
     kind, key, place_name = _site(here, mind, tech, a.get("at"), a)
+    if kind in ("parcel", "thing"):                                           # a bear lying up by its kill there (brief 3 §3)
+        from cybertron2.engine import wild as WL
+        met = WL.cache_meet(here, key if kind == "parcel" else (here.thing(key) or {}).get("parcel"))
+        if met:
+            return met
     why = KN.shortfall(here, mind, tech, 1.0, key, a=a)
     if why:
         if kind == "parcel":                                                   # one went and tried: one sees the place (D4-95)
@@ -568,6 +619,10 @@ def _technique(here, mind, a, party, verb):
             suffix, word = word, ""                                             # a note to the plain result, below
     elif y["kind"] == "bury":                                                 # D2-96; a grave dug by many, over days (D4-99)
         word = _bury(here, key, "method: cairn" in a["_mods"]["_used"], a)
+        c = here.thing(key)
+        thing = ("parcel", c["parcel"]) if c.get("parcel") else thing
+    elif y["kind"] == "burn":                                                 # a carcass burned (brief 3 §4)
+        word = _burn(here, key)
         c = here.thing(key)
         thing = ("parcel", c["parcel"]) if c.get("parcel") else thing
     elif y["kind"] == "mend":                                                # a worn fitting set right (D4-103 phase 2)
@@ -1321,6 +1376,10 @@ def _take(here, mind, a, party):
             raise Refused(f"you looked over {here.parcels()[here.parcel(src_name)]['name']} and found no {item} lying there")
     if rem:
         c = here.thing(rem)
+        from cybertron2.engine import wild as WL
+        met = WL.cache_meet(here, c.get("parcel")) if c.get("cached") else None   # a bear lying up by its kill (brief 3 §3)
+        if met:
+            return met
         door = c.get("door") if c.get("door") in here.buildings() else None         # left at a door: the house's (D4-89)
         src, theft = rem, bool(door) and not here.may_take(here.buildings()[door]["stock"])
         bid = door

@@ -124,9 +124,10 @@ def own(w, c) -> float:
     x = 0.0
     if c.get("kind") == "set":                                              # a set snare or trap: hard to see, the more once sprung
         x = float(THINGS["set"]["sprung" if (c.get("set") or {}).get("sprung") is not None else "own"])
-    if c.get("beast") and c.get("buried") is None:                         # a dead beast (D4-52)
-        old = w.d - int(c.get("died", w.d)) >= int(THINGS["carcass_bones_after"])
-        x = float(THINGS["carcass_bones" if old else "carcass"])
+    if c.get("beast") and c.get("buried") is None and c.get("burnt") is None:   # a dead beast (D4-52), birds over it more (brief 3)
+        x = float(THINGS["carcass_bones" if carcass_bones(w, c) else "carcass"])
+        if c.get("birds") is not None and w.d - int(c["birds"]) <= 1:
+            x = min(1.0, x * 1.5)
     if c.get("body") and c.get("buried") is None:
         built = w.s["parcels"].get(c.get("parcel"), {}).get("cover") == "built"
         x = float(THINGS["body_built"] if built else THINGS["body"])
@@ -177,9 +178,67 @@ def _describe(w, c) -> str:
     return (f"a heap of {g} lies at {where}" if qty >= float(THINGS["heap_min"]) else f"a pack lies at {where}, with {g} in it")
 
 
+def carcass_size(c) -> str:
+    """A carcass's size row (brief 3 §2): by the beast, a person's body medium."""
+    return THINGS["carcass_size"].get("body" if c.get("body") else c.get("beast"), "medium")
+
+
 def carcass_fresh(w, c) -> bool:
-    """A dead beast is fit to eat for about a day after it died (D4-52)."""
-    return w.d - int(c.get("died", w.d)) <= int(THINGS["carcass_fresh_days"]) and c["goods"].get("meat", 0.0) > 1e-9
+    """A dead beast is fit to eat for a day or two after it died, by its size (D4-52, brief 3 §2)."""
+    days = int(THINGS["carcass_sizes"][carcass_size(c)]["fresh"]) if c.get("beast") else int(THINGS["carcass_fresh_days"])
+    return w.d - int(c.get("died", w.d)) <= days and c["goods"].get("meat", 0.0) > 1e-9
+
+
+FLESH = ("meat", "rotting meat", "offal")
+
+
+def flesh(w, c) -> float:
+    """What of a dead beast or a body is left for what comes to it (brief 3 §3): its meat, rotting meat and offal; a body's share
+    of its `body_mass` not yet eaten or rotted (bodies have no goods)."""
+    if c.get("body"):
+        return float(THINGS["body_mass"]) * max(0.0, 1.0 - float(c.get("eaten", 0.0)))
+    return sum(float(c["goods"].get(i, 0.0)) for i in FLESH)
+
+
+def carcass_bones(w, c) -> bool:
+    """Only bones left: a dead beast's flesh gone below `carcass_gone` of what it had (brief 3 §2); one that had none, by its age."""
+    m0 = float(c.get("mass0") or 0.0)
+    if c.get("beast") and m0 > 0:
+        return flesh(w, c) < float(THINGS["carcass_gone"]) * m0 + 1e-9
+    return w.d - int(c.get("died", w.d)) >= int(THINGS["carcass_bones_after"])
+
+
+def open_dead(w, node) -> dict:
+    """The dead lying open or shallow at a node, for what comes to them (brief 3 §3): carcasses and bodies with flesh left, not
+    burnt, not deep in a grave or under a cairn. Each with its `depth`: open, or shallow (a grave dug at half, `method: shallow`)."""
+    out = {}
+    for cid, c in at_node(w, node).items():
+        if not (c.get("beast") or c.get("body")) or c.get("burnt") is not None or c.get("cairn"):
+            continue
+        if c.get("buried") is not None and c.get("depth") != "shallow":
+            continue
+        if flesh(w, c) <= 1e-6 or not c.get("parcel"):
+            continue
+        out[cid] = c
+    return out
+
+
+def eat_flesh(w, cid, q, why) -> float:
+    """What comes to the dead eats q of its flesh: off a beast's goods in proportion, off a body's share; returns what was eaten."""
+    c = w.s["containers"][cid]
+    place = where(w, c)
+    have = flesh(w, c)
+    q = min(float(q), have)
+    if q <= 1e-9:
+        return 0.0
+    if c.get("body"):
+        w.apply("set_thing", place, cid=cid, field="eaten", value=round(float(c.get("eaten", 0.0)) + q / float(THINGS["body_mass"]), 4))
+        return q
+    for item in FLESH:
+        x = float(c["goods"].get(item, 0.0))
+        if x > 1e-9:
+            w.apply("destroy", place, src=cid, item=item, qty=round(q * x / have, 6), why=why)
+    return q
 
 
 def leave_carcass(w, place, beast, herd_name, holders, cause, role_meat, parcel=None, stretch=None, hidden=None, by=None) -> str:
@@ -192,9 +251,12 @@ def leave_carcass(w, place, beast, herd_name, holders, cause, role_meat, parcel=
         fields["hidden"] = hidden
     if by:
         fields["by"] = by                                                    # the kind that killed it (wild.py)
+    meat = round(float(role_meat.get("meat", 0.0)) * share, 2)
+    offal = round(meat * float(THINGS["carcass_offal"]), 2)
+    fields["mass0"] = round(meat + offal, 2)                                  # its first flesh, for when only bones are left (brief 3)
     cid = w.apply("new_thing", place, node=place, parcel=parcel, kind="carcass", **fields)
-    for item, q in role_meat.items():
-        q = round(q * share, 2) if item == "meat" else q
+    for item, q in list(role_meat.items()) + [("offal", offal)]:
+        q = meat if item == "meat" else q
         if q > 0:
             w.apply("create", place, dst=cid, item=item, qty=q, why=f"a dead {beast}")
     return cid
@@ -461,6 +523,12 @@ def search(w, name, where, item=None):
 # ---------------------------------------------------------------------- burying (D2-96)
 def bodies(w, node) -> dict:
     return {cid: c for cid, c in at_node(w, node).items() if c.get("body") and c.get("buried") is None}
+
+
+def carcasses(w, node) -> dict:
+    """Dead beasts lying here, not buried or burnt and not yet bones (brief 3 §4: to burn or bury)."""
+    return {cid: c for cid, c in at_node(w, node).items() if c.get("beast") and c.get("buried") is None and c.get("burnt") is None
+            and not carcass_bones(w, c)}
 
 
 def graves(w, node) -> dict:

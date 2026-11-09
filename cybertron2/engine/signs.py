@@ -337,6 +337,17 @@ CARCASS = [
     dict(when=lambda x: x.rotten and x.dogs, sense="sight", own=2.0, tags=["animals"],
          text=lambda x: f"the dogs keep going off to {x.where}, where a dead beast lies"),
     dict(when=lambda x: x.bones, sense="sight", p=1.0, tags=["animals"], text=lambda x: f"the bones of a {x.beast} {x.at}, picked clean"),
+    # what comes to it (brief 3 §3, §4): birds over it last night or today, a bear's cache, a grave dug open, the ash of a burning
+    dict(when=lambda x: x.birds_over and not x.bones, sense="sight", own=2.0, tags=["animals"],
+         text=lambda x: f"ravens and kites over {x.where}, dropping to something dead there"),
+    dict(when=lambda x: x.cached, sense="sight", p=1.0, reach="near", tags=["animals", "danger"],
+         text=lambda x: f"the dead {x.beast} {x.at} has been dragged and half covered with earth and leaves"),
+    dict(when=lambda x: x.cached, sense="sight", p=1.0, reach="near", knows="expert:hunt", tags=["animals", "danger"],
+         text=lambda x: f"a bear has covered the {x.beast} {x.at} to come back to: it is lying up near, and will not leave its kill"),
+    dict(when=lambda x: x.dug, sense="sight", p=1.0, reach="near", tags=["animals", "death"],
+         text=lambda x: f"the shallow grave {x.at} has been dug into in the night, the earth thrown out and the dead laid open"),
+    dict(when=lambda x: x.burnt, sense="sight", p=1.0, reach="near", tags=["animals"],
+         text=lambda x: f"a heap of ash and charred bone {x.at}, where a dead {x.beast} was burned"),
 ]
 
 
@@ -1692,10 +1703,14 @@ def carcass_context(w, c):
     where = TH.parcel_name(w, c)
     on_road = c.get("node") not in w.s["nodes"]
     age = w.d - int(c.get("died", w.d))
-    bones = age >= int(THINGS["carcass_bones_after"])
-    return SimpleNamespace(beast=c.get("beast", "beast"), of=c.get("of", "a beast"), where=where, on_road=on_road,
+    burnt = c.get("burnt") is not None
+    bones = TH.carcass_bones(w, c) and not burnt
+    fresh = TH.carcass_fresh(w, c) and not bones and not burnt
+    return SimpleNamespace(birds_over=c.get("birds") is not None and w.d - int(c["birds"]) <= 1,
+                           cached=(c.get("cached") or {}).get("until", -1) >= w.d, dug=c.get("dug") is not None, burnt=burnt,
+                           beast=c.get("beast", "beast"), of=c.get("of", "a beast"), where=where, on_road=on_road,
                            at=("by the road" if on_road else f"at {where}") + (f" ({c['tag']})" if c.get("tag") else ""), off_road=c.get("hidden") == "off the road",
-                           age=age, fresh=TH.carcass_fresh(w, c) and not bones, rotten=not TH.carcass_fresh(w, c) and not bones,
+                           age=age, fresh=fresh, rotten=not fresh and not bones and not burnt,
                            bones=bones, starved=c.get("cause") == "starved", killed=c.get("cause") == "killed",
                            sick=c.get("cause") == "sick", kill_reading=_kill_reading(c.get("by")),
                            expert_reading=_expert_kill(c.get("by")), hide=c["goods"].get("hide", 0) > 0,
