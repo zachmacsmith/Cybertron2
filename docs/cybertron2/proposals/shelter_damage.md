@@ -10,11 +10,13 @@ the engine and signs are 37.4's (proposals/building_risks.md, deferred, OPEN L-4
 
 A building has one of five levels of condition instead of three (sound, damaged, ruined): **sound, worn, gappy, holed,
 failing**. Each level costs warmth, lets damp into the store, and opens gaps only animals of that size or smaller pass, so a shut
-wattle house that is merely worn still keeps the fox out, and only a holed one lets it in. Damage comes one level a night at most:
-**minor wear** (to worn and gappy) often, from frost, wet and use; **serious damage** (to holed and failing) only from a cause: a
+wattle house that is merely worn still keeps the fox out, and only a holed one lets it in. **Minor wear** comes often, a level at
+a time, from frost, wet and use; **serious damage** comes only from a cause, and can take a building down **several levels in one
+night**, as far as flattening a weak one: a
 strong wind, a gale or a storm passing over, heavy snow on the roof, a flood on low ground, fire, a raid, or a building left worn
 and unmended. **Wind and storms raise both, and serious damage most.** Wattle wears often and is mended cheaply; timber less;
-stone hardly at all: that is why better houses are worth building. A **camp** is a lean-to round a fire: it keeps the rain and
+stone hardly at all: that is why better houses are worth building. A **camp** has only three states (standing, damaged, down), so
+there is little to fall and a gale often simply flattens it. It is a lean-to round a fire: it keeps the rain and
 wind off a little and keeps no animal out; its defence is its fire, a watcher, a dog and where its food is kept, and it can be
 **built out** (more lean-tos, a windbreak, a thorn ring, a raised rack for food, tents pitched in it) toward a hut.
 
@@ -35,14 +37,22 @@ ruined; worlds without the new levels behave as now.
 
 ### 2. How damage comes
 
-Each night a building may drop **one** level. Two chances, both by structure, multiplied by the night's weather (the climate's
-values at its node, D4-109, D4-111) and by its size (the square root of its floor in spaces over a cottage's: more roof and wall to
-fail; calibrate):
+Each night a building has two chances, both by structure, multiplied by the night's weather (the climate's values at its node,
+D4-109, D4-111) and by its size (the square root of its floor in spaces over a cottage's: more roof and wall to fail; calibrate).
+**Minor wear** takes it down one level (sound to worn, worn to gappy). **Serious damage** takes it down **as many levels as the
+cause is severe**, drawn by the cause and the structure (below): a strong wind usually one, a gale or a storm one to three, heavy
+snow on a roof or a flood two or more; so a gale can hole a sound wattle house in a night, or flatten an already gappy one.
 
-| A night's chance of | wattle | timber | stone | camp |
-|---|---|---|---|---|
-| minor wear (sound to worn, worn to gappy), calm | 0.03 | 0.015 | 0.003 | 0.25 |
-| serious damage (gappy to holed, holed to failing; or worn to holed in a storm), calm | 0.002 | 0.001 | 0.0002 | 0.05 |
+| A night's chance of | wattle | timber | stone |
+|---|---|---|---|
+| minor wear, calm | 0.03 | 0.015 | 0.003 |
+| serious damage, calm | 0.002 | 0.001 | 0.0002 |
+
+| Levels a serious damage takes (wattle; timber one fewer; stone one, at most two) | 1 | 2 | 3 |
+|---|---|---|---|
+| a strong wind, heavy rain, left unmended | 0.8 | 0.2 | 0 |
+| a gale, or a storm passing over | 0.4 | 0.4 | 0.2 |
+| heavy snow on a roof, a flood on low ground | 0.2 | 0.5 | 0.3 |
 
 | Weather that night | minor wear | serious damage |
 |---|---|---|
@@ -54,33 +64,45 @@ fail; calibrate):
 | a flood on low ground (height 0) | x1 | x20 (wattle and timber) |
 | left unmended at worn or gappy for a season | x1 | x3 |
 
-So a calm night barely touches a wattle house beyond a crack; a frosty week wears it to gappy; a gale can hole it in a night, and
-a stone house rides out all but the worst. Fire, a raid's breaking in (conflict/raids.md) and a beast breaking out are already their
+So a calm night barely touches a wattle house beyond a crack; a frosty week wears it to gappy; a gale can hole it in a night or
+bring down one already gappy, and a stone house rides out all but the worst. Fire, a raid's breaking in (conflict/raids.md) and a beast breaking out are already their
 own causes and set the level they reach. All numbers `calibrate`: the test is that a wattle village through an ordinary winter
 needs mending every week or two (cheap), and a gale shows which houses were worth building better.
 
 ### 3. Mending
 
-Mending raises a building one level for each repair, at a cost by structure and size (D2-168's rule kept: materials and work in
+Mending raises a building one level for each repair (a building flattened to failing takes several), at a cost by structure and size (D2-168's rule kept: materials and work in
 proportion to floor): wattle, earth or daub and a unit (cheap, often); timber, timber and a unit; stone, stone and a unit, and a
 mason's skill above holed. A gappy house mended before winter is the lesson; a holed house in a hard winter is the cost.
 
 ### 4. Camps
 
-A camp (D2-68: a lean-to and a fire ring, 3 timber, sleeps 4, lasts about 10 nights) is the weakest shelter:
+A camp (D2-68: a lean-to and a fire ring, 3 timber, sleeps 4, lasts about 10 nights) is the weakest shelter, with **fewer states**,
+so there is less to fall (Zach, 9 Nov):
+
+| State | Shelter | Its store | |
+|---|---|---|---|
+| standing | a camp's (a night's food 1.2; the cold as in lodging.md) | under cover | |
+| damaged | a bedroll's (1.35; the cold's fall halved) | wet: spoils 3 times as fast | "the lean-to sagging, rain through the brush" |
+| down | none (as sleeping out) | as outdoors; its goods lie there | "the camp blown flat in the night" |
+
+Its gaps are large in every state: walls never keep anything out at a camp.
+
 
 - **Cheap to put up, dear to keep** (Zach, 9 Nov: "cheaper to build but cost more to upkeep and get damage more often so the longer
   you are staying somewhere the less they become economical"):
   - **Build:** 1 timber (poles) and brush cut on the spot, 1 unit (against 3 timber now, D2-68, D4-49).
-  - **Wear:** the fastest of any shelter (§2: minor 0.25 a calm night, serious 0.05; a gale flattens it more often than not). It has
-    no fixed life: unmended it falls apart in about four to six nights; mended it lasts as long as it is kept.
-  - **Upkeep:** mending a camp a level takes 0.5 timber (or brush) and part of a unit (a unit mends two levels); its fire burns 1
-    timber a night (D4-49, against a hut's ring at 0.5); and it shelters worse (a night's food 1.2 against a house's 1.0, lodging.md).
+  - **Wear:** a calm night: standing to damaged 0.08, damaged to down 0.05; the weather multiplies both as for houses (§2), and a
+    gale or a storm passing over **flattens a standing camp outright** about half the time (calibrate). It has no fixed life:
+    unmended it lasts about two weeks of fair weather and three to five nights of a wet, windy spell; a gale often ends it.
+  - **Upkeep:** mending a damaged camp takes brush and a quarter of a unit; one blown down is built again (1 timber of poles, if
+    its own are lost, and a unit). Its fire burns 1 timber a night (D4-49, against a hut's ring at 0.5), and it shelters worse (a
+    night's food 1.2 against a house's 1.0, lodging.md).
   - **So the choice turns on the stay:** against a small wattle room (8 timber, 6 units, then a fire at 0.5 a night and rare mending),
-    a camp saves about 7 timber and 5 units at the start and costs about 0.8 timber, 0.3 units and 0.2 food a sleeper more each
-    night: cheaper for a few nights, about even near a season (8 nights), dearer beyond. A long stay is a reason to build a hut,
-    which is how a camp becomes a place to live.
-- **Shelter:** as now (the night's food and the cold as in lodging.md).
+    a camp saves about 7 timber and 5 units at the start and costs about 0.6 timber, a little work and 0.2 food a sleeper more each
+    night (0.8 food for a camp of four): cheaper for a few nights, about even after one to one and a half seasons for a full camp
+    (later for one or two), dearer beyond. The economics rest mostly on the fire and the food; wear decides how often a gale makes
+    you start again. A long stay is a reason to build a hut, which is how a camp becomes a place to live.
 - **Animals:** a camp's gaps are large from the start (as built on `ecology-raiders`): walls keep nothing out. Its defences are
   the **fire** (lit, it scares what fire scares, D2-198), **a watcher** (the night watch, D2-21), **a dog**, and **where the food
   is**: food in the camp's store is open to the fox, rats, a dog, a boar or a bear (brief 2's raid targets and brief 3's
@@ -124,3 +146,7 @@ A camp (D2-68: a lean-to and a fire ring, 3 timber, sleeps 4, lasts about 10 nig
 ## Sources
 proposals/building_risks.md, camps in spec/economy/lodging.md (D2-68, D4-49, D4-84, D4-92), buildings.md (D2-168); docs/review/37_growth/02zx
 (brief 2's gate); branch `ecology-raiders` (`wild.GAPS`, `night.py` breaks); D2-21, D2-198, D4-109 to D4-111.
+- 9 Nov 2026: Zach: the one-level-a-night rule is wrong (a gale can flatten), and camps should have fewer levels so there is less to
+  fall. Serious damage now takes a building down as many levels as its cause is severe; camps have three states (standing,
+  damaged, down), calm wear 0.08 and 0.05, and a gale flattens a standing camp about half the time; 37.2's earlier camp numbers
+  (0.25 a calm night; "four to six nights") were too harsh and did not follow from its own rates.
