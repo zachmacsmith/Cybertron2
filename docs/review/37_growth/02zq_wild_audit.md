@@ -139,7 +139,70 @@ regime; then the levers (acts) and the couplings.
 
 ## 3. This round
 
-Built by general rules, then the kinds' data on them (results in §4 when done). Blocked items stay blocked and are listed.
+Built by general rules, then the kinds' data on them. Blocked items stay blocked and are listed. Zach, 9 Nov, on the plants (D2-200
+to D2-202): "Yes to all build this", so the plant kinds came first (§4a) and the animals' layers on top (§4b).
+
+## 4. After this round (9 Nov; `ecology` branch, 451 tests)
+
+### 4a. Plants (wild_plants.md step 1; D2-200 to D2-202)
+| What | Built? |
+|---|---|
+| ten food kinds as parcel stocks (greens, roots, mushrooms, watercress, samphire, berries, hedge fruit, hazel nuts, acorns, beech mast) in place of `plants` in pack worlds | built: placed by conditions (cover, ecosystem, wet ground, the coast, coppice, fertility), layers split by suitability squared, a year's mean keeping the generator's total as food (canopy on top) |
+| seasons and years | built: renewal `seasonal`; each kind's year from a keyed draw, the mast, the fungus load or the spring's warmth |
+| gathering | built: "gather wild food" takes what is in season, more of what one looks for; acorns leached at a hearth |
+| poisonous plants (D2-201) | built for mushrooms: an untaught gatherer may be made ill (rarely killed), a practised one seldom, an expert never |
+| one stock for the wild kinds and people (D2-202) | built: mast, nuts, fruit, roots, browse (young growth) and grass on a village's land; drawn once per stock, at most 3% a night, a fence keeping out its share |
+| materials, herbs, succession (steps 2-4) | no (still in discussion) |
+| capacity of a seasonal stock under a take | no (37.4's capacity model) |
+
+Through a year on the probe world, the plant food standing is about 10 a village against the old constant 12 (the wild kinds now eat
+the shared ones): autumn's peak 15, spring's gap 7, summer 8, winter 10 (what autumn left).
+
+### 4b. The animals, by the general rules this round added
+| Rule (engine/wild.py) | What it gives, by the kinds' data (wild/kinds.py WHEN and others) |
+|---|---|
+| **conditions** (seasons, frost runs, snow, this or last autumn's mast, hunger, hunting pressure, a hard winter, rain after dry, tomorrow's weather, a wounded beast) with **effects** (drive, boldness, danger, flight, finding, more targets, a lone group) | boar to the stores in a frost and after a failed mast, quiet in a mast autumn; deer to the ricks and the bark in snow; the rut (deer bold, careless, dangerous); farrowing and the sow's danger; wolves bold in snow and hunger, young dispersing alone; the fox in the vole crash; the bear's hungry spring at the calves; weak fowl in a long frost |
+| **targets as data** (a field, a herd, a store's goods, a parcel's stock) | the raids above; hens as a store's goods (one-off 5 done) |
+| **a shut door** for any store (one-off 4 done) | shutting up the house and store keeps the fox from the hens and the boar from the grain |
+| **fences** keep groups out (FENCES' through, a leaping kind more often over) | the levers "fence the gap", "fence the ricks", "protect the coppice" |
+| **a watch at the gap** | the boar-wise L3: watch the gap and meet them, with a chance of harm (wary) |
+| **hunting pressure** (a hunt, a kill, a crew add; it fades; the shy leave a hunted area) | the hunted wood empties of deer, its group stays off the fields, they drift back; a drive (a crew) presses more |
+| **a wounded beast** | a blood trail, and danger doubled for two days |
+| **an expert's reading** (past four fifths of a work's skill) | the gap in the thorn; the rack through the hedge; wolf against dog tracks; the fold that fed them; the fox's return; cast antlers, the den, a doe's hidden kid; the mast setting; "sow later" after a wet winter |
+| **the layers' signs the day they begin** (and on a run's first day) | stags roaring, vixens screaming, howling, piglets, hinds with calves, roe barking and rings, a lone wolf |
+| **weather leads** | plovers before a freeze, swallows low before rain, an eel night |
+| **notices while working** (any technique; a process of its own) | a roe kid before the scythe, voles from the swathes, a cast antler (picked up), a fox earth, a blood trail, ravens over a kill, the acorns setting, the hedges red (and the false hard-winter lore), a fairy ring |
+| **litters** in a take | digging out a fox earth in spring takes the vixen and her cubs |
+| **a take's nights** | eel traps pay on autumn nights, most on an eel night |
+| **followers of the harvest** | a full barn after the harvest feeds and draws more vermin; a terrier or a granary floor keeps a store |
+| **migrants return by how many left** | restraint with the weak fowl |
+| **loads**: flush, flood, cold stall | slugs out on the first rain after dry; floods kill their eggs; a cold snap stalls the ladybirds more than the fly; the misread grubs (an act that prolongs it); burning the stubble |
+| **markers** | the cuckoo; frogspawn on the first mild wet night, and the toads' own pond |
+| **diseases** | swine fever in the boar (the kept pigs blocked) |
+
+### 4c. Still not built, and why
+| Item | Why |
+|---|---|
+| the vole cycle | the rule (a cycler's delayed crowding) is in, but at strengths 2 and 6 it lowers the voles' level and does not cycle them (cv 0.03-0.06 over 20 years): the owls do not answer the voles (they hold at 0.7); a cycle needs a predator that does, or weaker crowding within the year. Off |
+| the old sow, the dangerous yearling, individuals | wave 5 (individuals) |
+| pannage, the fold, lambs, swine fever in pigs, geese as watchers, hives and the bear at them, wasps | husbandry (37.4): no pigs, sheep, folds, geese or bees |
+| rabies, ergot, murrain meat and milk | illness in people and a herd's milk (37.4) |
+| lore as tested belief; misreads as beliefs | the belief store (37.4); misreads are lay texts for now |
+| mowing driving voles to the ricks | only its sign |
+| the cascade (a mast year's rodents, then the predators' hungry year) | only as the mast's effects through hunger; not seen in runs (a year's lag) |
+
+### 4d. One-off pieces: done and still open
+| # | Status |
+|---|---|
+| 1 night acts and the lantern | open: needs the night commitment (D2-21, Zach); "pick slugs by lantern" still claims a lantern |
+| 2 scares from what is there | open |
+| 3 hens as beasts | open (husbandry) |
+| 4 the door | done: a store's door, read by any target |
+| 5 targets in code | done: target rows as data |
+| 6 numbers in code | part: STORE_KEEP, HUNTED, NOTICING expert_at, SHARED_MOST added as data or named constants; RAIN_MEAN still repeats the climate |
+| 7 the mast's signs | open (still its own function) |
+| 8-10 | open |
 
 ## History
 - 9 Nov: written before the round (sections 1-3).
+- 9 Nov (later): section 4 after the round: the plants (D2-200 to D2-202) and the animals' layers by general rules.
