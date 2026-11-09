@@ -384,7 +384,7 @@ HUNT_NOTICES = {
     "red deer": [R("lay", "sight", 0.4, (0, 0), "slots in the soft ground of the rides"),
                  R("knows", "sight", 0.6, (0, 0), "red deer slots on the rides and fraying on the young trees: a herd uses this wood")],
     "roe deer": [R("knows", "sight", 0.5, (0, 0), "roe slots and browsed bramble tips: roe in the thicket")],
-    "brown hare": [R("all", "sight", 0.5, (0, 0), "a hare going away over the open ground")],
+    "brown hare": [R("all", "sight", 0.25, (0, 0), "a hare going away over the open ground")],         # common: plain but seldom worth saying
     "wolf": [R("lay", "sight", 0.4, (0, 0), "big dog-like tracks crossing the ride"),
              R("knows", "sight", 0.6, (0, 0), "wolf tracks crossing the ride, and an old kill picked clean")],
     "fox": [R("knows", "smell", 0.4, (0, 0), "a fox's musk on a stile")],
