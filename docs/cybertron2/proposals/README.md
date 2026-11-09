@@ -134,6 +134,7 @@ Rebuilt from the files on 5 Nov (status and owner as each file states them; 37.2
 | [husbandry.md](husbandry.md) | what people make of wild things: economies, husbandry, tools and skills | 37.2 | discussion (8 Nov). Nothing decided, nothing to build. |
 | [wild_behaviour.md](wild_behaviour.md) | wild behaviour: kinds composed of facets (quarry, raider, predator, run, site, engineer, taming, ...), each a module of its own | 37.2 | partly accepted: D2-203 (modules per kind); the behaviour specs per kind in discussion (10 Nov), for Zach to check |
 | [wild_plants.md](wild_plants.md) | wild plants, and the slow ecosystems they make | 37.2 | partly accepted: D2-200 to D2-202 (9 Nov: the food kinds, poisonous plants, one stock shared with the wild kinds); succession and the rest in discussion |
+| [forays.md](forays.md) | forays: going out and back, described in one's own words and translated into a route by a small model call; places kept in memory | 37.2 | discussion (9 Nov) |
 | [crop_growth.md](crop_growth.md) | crops grow by the season; "can" apart from "works"; what a crop shows | 37.4 | accepted: D4-106 (8 Nov; built). |
 | [phase3_variance_and_risk.md](phase3_variance_and_risk.md) | phase 3 of the engine overhaul, variance and risk (the scheduler, building risks, the woods, bad years) | 37.4 | discussion (8 Nov); an exploration of what phase 3 builds, nothing built. |
 | [weather_scheduler.md](weather_scheduler.md) | the weather scheduler (eras, years, daily types, weather that varies in space) | 37.4 | retrospective, accepted: D4-109, D4-110, D4-111 (8 Nov; built). |
@@ -404,6 +405,7 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 8 Nov | wild plants, and the slow ecosystems they make | discussion (8 Nov). Nothing decided, nothing to build. | [wild_plants.md](wild_plants.md) |
 | 9 Nov | wild plant kinds in pack worlds; poisonous plants; the wild kinds and people share the stocks | partly accepted: D2-200 to D2-202 | [wild_plants.md](wild_plants.md) |
 | 10 Nov | each wild kind designed first, then a module of its own through the animal interface | partly accepted: D2-203 | [wild_behaviour.md](wild_behaviour.md) |
+| 9 Nov | forays: hunting and gathering as a route of events over the places one knows, beyond the village's edges | discussion (9 Nov). Nothing decided, nothing to build. | [forays.md](forays.md) |
 | ? | crops grow by the season; "can" apart from "works"; what a crop shows | discussion (8 Nov). | [crop_growth.md](crop_growth.md) |
 | ? | phase 3 of the engine overhaul, variance and risk (the scheduler, building risks, the woods, bad years) | discussion (8 Nov); an exploration of what phase 3 builds, nothing built. | [phase3_variance_and_risk.md](phase3_variance_and_risk.md) |
 | ? | ecology designed from the node outward | discussion (8 Nov). Nothing decided, nothing built. | [node_ecology.md](node_ecology.md) |
