@@ -184,7 +184,7 @@ the shared ones): autumn's peak 15, spring's gap 7, summer 8, winter 10 (what au
 | Item | Why |
 |---|---|
 | the vole cycle | the rule (a cycler's delayed crowding) is in, but at strengths 2 and 6 it lowers the voles' level and does not cycle them (cv 0.03-0.06 over 20 years): the owls do not answer the voles (they hold at 0.7); a cycle needs a predator that does, or weaker crowding within the year. Off |
-| the old sow, the dangerous yearling, individuals | wave 5 (individuals) |
+| the old sow, the dangerous yearling, individuals | built in wave 5 (10 Nov): leaders on demand and legends (D2-195); the yearling not |
 | pannage, the fold, lambs, swine fever in pigs, geese as watchers, hives and the bear at them, wasps | husbandry (37.4): no pigs, sheep, folds, geese or bees |
 | rabies, ergot, murrain meat and milk | illness in people and a herd's milk (37.4) |
 | lore as tested belief; misreads as beliefs | the belief store (37.4); misreads are lay texts for now |
@@ -195,7 +195,7 @@ the shared ones): autumn's peak 15, spring's gap 7, summer 8, winter 10 (what au
 | # | Status |
 |---|---|
 | 1 night acts and the lantern | open: needs the night commitment (D2-21, Zach); "pick slugs by lantern" still claims a lantern |
-| 2 scares from what is there | open |
+| 2 scares from what is there | done (10 Nov): fire burns firewood, clappers and horn made and carried, the dog kept at home |
 | 3 hens as beasts | open (husbandry) |
 | 4 the door | done: a store's door, read by any target |
 | 5 targets in code | done: target rows as data |
@@ -206,3 +206,4 @@ the shared ones): autumn's peak 15, spring's gap 7, summer 8, winter 10 (what au
 ## History
 - 9 Nov: written before the round (sections 1-3).
 - 9 Nov (later): section 4 after the round: the plants (D2-200 to D2-202) and the animals' layers by general rules.
+- 10 Nov: expert readings for every kind (L3); wave 5 (sites, individuals, rare regimes); one-off 2 done.

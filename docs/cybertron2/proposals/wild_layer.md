@@ -447,6 +447,24 @@ Code on the branch, not on main. All 433 tests pass there, including 35 for the 
   and the tracks ("about two of them") had heads of household telling their herders to count the beasts and bring them in at dusk.
   One shut the hens in "because there are foxes and wolves about". Murrain came from beyond on the last night. The rut, plovers
   before the freeze and the first frost reached three agent-days each and drew no comment.
+- 9 to 10 Nov (overnight, Zach: "Then the filling out of the expert details for all the wildlife. Then continue the phases as you
+  see fit adding a test (you can do two live runs at appropriate times) to investigate"):
+  - **expert readings (L3) for every kind, load, marker, disease and plant**, read from the state: in a hunt, about how many, their
+    condition, their wariness and hunger; owl pellets in a vole year; rats breeding in the thatch; what a kill means for the herd;
+    markers early or late; oak before ash as a warm spring only (the lore's truth); a heavy or light year in the plant gathered.
+  - **live run 5** (winter into spring, 8 days, $9.35; six heads of household given expert skill): the experts used what only an
+    expert reads. Gervase (Opus): "hunt the woods around for the unwary red deer"; Jocelin (Opus): "About 20 roe hold South Wood
+    ... I'll stalk a roe", later "Hares are fat and plentiful on our land ... I'll hunt them all day"; Susanna (Opus) to her
+    household: "There are fat hares lying out on the open ground, about 7 of them. Try for them today". Deer took hay from the ricks
+    in the snow twice; the wolves again took a calf and a cow (the same keyed nights as run 4: the wild layer's nights depend on the
+    world's seed far more than on the agents).
+  - **wave 5 built**: sites (heronries, rookeries, beaver lodges) placed where the land suits them, back each season grown or crashed,
+    a heronry troubled in spring leaving for good, herons at the fish, rooks at the young corn unless watched, a beaver dam flooding
+    the meadow and raising the fish, the young taken, beavers trapped; individuals (D2-195): leaders named on demand (the old sow,
+    the old dog-wolf), a group scattering when its leader is killed, legendary beasts seldom (the great boar, the white hart);
+    rare regimes (a great freeze, a vole plague, two bare masts) with what the elders remember, read by the old.
+  - **one-off 2 done**: a watch's scare is made of what is there (a fire burns firewood; clappers and a horn are made and carried; a
+    dog watch needs a dog at home); picking slugs moved to dusk so it claims no lantern. The night itself (one-off 1) waits for D2-21.
 
 ## Sources
 
