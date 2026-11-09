@@ -62,6 +62,7 @@ METHODS = {
         ["snaring", "set snares", "snare hares", "snare the runs"],
         ["pasture", "meadow", "heath", "field", "scrub"], {"runs": True, "size": ("small", "medium")}, [({"home": "form"}, 1.5)],
         2.0, {"none": 1.0, "armed": 1.0}, 1, "set nooses where small beasts run, and come back for what is caught", basic=True),
+    # set and left (brief 2 §4): a snare line catches by night for some nights; whoever finds it takes the catch
     "net": _take_row(
         "netting birds with nets and decoys",
         ["fowling", "fowl", "net fowl", "catch fowl", "wildfowling", "netting", "net birds"],
@@ -79,7 +80,12 @@ METHODS = {
         ["forest", "scrub", "heath", "pasture", "meadow"], {"home": ["den", "burrow", "lodge"]}, [], 4.0, {"none": 0.8, "armed": 1.0},
         3, "dig out a beast's den, or trap at a lodge, where you know one to be", untaught=False),
 }
-METHODS["den work"]["yield"]["kind"] = "wild_den"                      # at a den, a take; at a lodge, the site's trap (wild.den_work)
+METHODS["den work"]["yield"]["kind"] = "wild_den"
+SETS = {"snare": {"life": 4, "base": 0.5}, "trap in water": {"life": 8, "base": 0.5}}     # nights it lasts; its chance against a hunter's
+for _k, _v in SETS.items():
+    METHODS[_k]["set"] = dict(_v)
+METHODS["snare"]["note"] = "set a line of nooses where small beasts run; it catches by night for a few nights, and the catch is whoever's finds it"
+METHODS["trap in water"]["note"] = "set wicker traps in the water at dusk; they fish by night for some nights, best when things run, and lifting them is whoever's finds them"                      # at a den, a take; at a lodge, the site's trap (wild.den_work)
 
 METHODS.update({
     "gather young": {"verb": "gather", "label": "taking the young from the nests of a colony", "basic": False, "pack": "wild",

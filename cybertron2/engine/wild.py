@@ -149,7 +149,14 @@ def night(w, rec) -> None:
             ate = float((eff["eaten"].get(food) if eff["eaten"].get(food) is not None else [0.0] * m.n)[i])
             share = min(0.5, ate / year_kg) if year_kg > 1e-9 and real[food].get(i, 0.0) > 1e-9 else 0.0   # the year's share, drawn
                                                                                   # from the real crop or store, which is a year's
-            if share > 1e-6:
+            if share > 1e-6 and food == "stores":                          # by kind: what each fitting stops (brief 2 §4)
+                by = (eff.get("eaten_by") or {}).get("stores") or {}
+                tot_k = sum(float(v[i]) for v in by.values()) or 0.0
+                shares = {k: share * float(v[i]) / tot_k for k, v in by.items() if float(v[i]) > 0} if tot_k > 0 else {None: share}
+                lost = _stores(w, node, shares)
+                if lost > 1e-6:
+                    out[food][node] = round(lost, 4)
+            elif share > 1e-6:
                 lost = (_crops if food == "crops" else _stores)(w, node, share)
                 if lost > 1e-6:
                     out[food][node] = round(lost, 4)
@@ -160,6 +167,7 @@ def night(w, rec) -> None:
     out["sick"] = _herds_sick(w, m, st)
     out["groups"] = _groups(w, m, st)
     out["sites"] = _sites_night(w, m, st)
+    out["set"] = _set_night(w, m, w.s["wild"]["state"])                   # snares and traps set and left (brief 2 §4)
     out["near"] = {gid: {"n": g["n"], "pos": g["pos"], "what": g.get("what")} for gid, g in sorted((w.s["wild"].get("groups") or {}).items())}
     _hens_lay(w)
     rec["wild"] = out
@@ -798,6 +806,88 @@ def _site_at(w, key, homes) -> tuple:
                  and SITES[v["kind"]].get("home") in homes), (None, None))
 
 
+def set_work(here, mind, tech, key, place_name) -> str:
+    """Setting a snare line or traps (brief 2 §4): a thing at the parcel that catches by night for its life; the setter knows it."""
+    from cybertron2.engine.data import TECHNIQUES
+    sp = TECHNIQUES[tech]["set"]
+    cid = here.apply("new_thing", node=here.node, parcel=key, kind="set", by=here.name,
+                     set={"method": tech, "life": int(sp["life"]), "base": float(sp["base"]), "set_day": here.day})
+    here.remember_thing(cid, "put")
+    what = "traps in the water" if tech == "trap in water" else "a line of snares"
+    return f"You set {what} at {place_name}; they will catch by night for about {int(sp['life'])} nights, for whoever comes to them."
+
+
+def _set_night(w, m, st) -> dict:
+    """Each set thing draws once a night by the take's rule (brief 2 §4): the kinds in its village's home area and ring, the method's
+    table and cue rows, the setter's skill and familiarity, at a lower chance than a hunter there; a catch goes into it as the kind's
+    goods; a spent one is sprung."""
+    from cybertron2.engine import knowledge as KN
+    from cybertron2.engine.data import RESOURCES, TECHNIQUES
+    from cybertron2.wild import methods as MT
+    land = w.s["wild"]["land"]
+    out = {}
+    pop = {k: [float(x) for x in v] for k, v in st["pop"].items()}
+    for cid, c in sorted(w.s["containers"].items()):
+        sp = c.get("set")
+        if c.get("kind") != "set" or not sp or sp.get("sprung") is not None:
+            continue
+        node = c["node"]
+        if w.d - int(sp["set_day"]) >= int(sp["life"]):
+            w.apply("set_thing", node, cid=cid, field="set", value=dict(sp, sprung=w.d))
+            continue
+        tech = sp["method"]
+        y = TECHNIQUES[tech]["yield"]
+        areas = [i for i, a in enumerate(m.ids) if land.get("home", {}).get(node) == a
+                 or (land["areas"][a]["kind"] == "ring" and land["areas"][a].get("node") == node)]
+        ri = next((i for i in areas if land["areas"][m.ids[i]]["kind"] == "ring"), areas[0] if areas else None)
+        if ri is None:
+            continue
+        rows = [r for r in (y.get("when") or []) if cond(w, node, r.get("if"), None, m, st, ri)]
+        mind = SimpleMind(w, c.get("by"))
+        cand = []
+        for k, tw in sorted((y.get("takes") or {}).items()):
+            if k not in pop:
+                continue
+            tk = (RESOURCES.get(k) or {}).get("taken") or {}
+            tr = tk.get("traits") or {}
+            x = 1.0
+            for r in rows:
+                if all(tr.get(t) == v for t, v in (r.get("for") or {}).items()):
+                    x *= float(r.get("x", 1.0))
+            for i in areas:
+                cnt = pop[k][i] * float(m.km2[i])
+                wgt = cnt * float(tk.get("detect", 0.2)) * float(tw) * x * MT.factor(mind, k)
+                if wgt > 0 and cnt >= 1.0:
+                    cand.append((k, i, wgt))
+        total = sum(x[2] for x in cand)
+        rng = w.rng("wild-set", w.d, cid)
+        effort = float(TECHNIQUES[tech]["units"]) / 2.0 * float(sp["base"])
+        if total <= 0 or rng.random() >= 1 - math.exp(-0.03 * total * effort):
+            continue
+        u, acc = rng.random() * total, 0.0
+        for k, i, wgt in cand:
+            acc += wgt
+            if u < acc:
+                break
+        tk = (RESOURCES.get(k) or {}).get("taken") or {}
+        skill = float(((w.s["know"].get(c.get("by")) or {}).get(tech) or {}).get("skill", KN.curve(tech)[0]))
+        p = min(0.95, 0.55 * skill * float(sp["base"]) * (1 - float(tk.get("flee", 0.5))) * MT.factor(mind, k))
+        if rng.random() >= p:
+            continue
+        pop[k][i] = max(0.0, pop[k][i] - 1.0 / float(m.km2[i]))
+        w.apply("set_wild", node, path=["state", "pop", k], value=pop[k])
+        for item, q in sorted((tk.get("goods") or {}).items()):
+            w.apply("create", node, dst=cid, item=item, qty=float(q), why="caught in a set")
+        out[cid] = k
+    return out
+
+
+class SimpleMind:
+    """A setter's mind store, for familiarity read away from them (a set thing catching by night)."""
+    def __init__(self, w, name):
+        self.store = (w.s.get("mind") or {}).get(name) or {}
+
+
 def den_work(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
     """Den work (D2-204): at a lodge, the site's trap; elsewhere a take of the den-dwellers (the fox and her cubs in spring)."""
     sid, site = _site_at(here._w, key, ("lodge",))
@@ -1098,9 +1188,29 @@ def _answer(rng, g, np_, scare, bold=0.0):
     return False, False
 
 
-def _fenced(w, pid, np_, rng) -> bool:
-    """A fence round the parcel keeps the group out by its level (FENCES' through, as for herds), a leaping kind more often over."""
-    from cybertron2.engine.data import FENCES
+SIZE_ORDER = ("tiny", "small", "medium", "large")
+
+
+def gaps_pass(b, kind) -> bool:
+    """Whether a kind gets through a building's own gaps (brief 2 §4): its structure's gaps (wattle and timber small, stone tiny; a
+    damaged building one size larger) against the smallest gap the kind passes."""
+    from cybertron2.engine.data import RESOURCES
+    from cybertron2.wild.kinds import GAPS
+    kg = ((RESOURCES.get(kind) or {}).get("body") or {}).get("gap")
+    if kg not in SIZE_ORDER:
+        return False
+    bg = GAPS["structure"].get(b.get("structure"), "small")
+    if int(b.get("condition", 2)) < 2:
+        bg = SIZE_ORDER[min(len(SIZE_ORDER) - 1, SIZE_ORDER.index(bg) + int(GAPS["damaged"]))]
+    return SIZE_ORDER.index(kg) <= SIZE_ORDER.index(bg)
+
+
+def _fenced(w, pid, np_, rng, kind=None) -> bool:
+    """A fence round the parcel keeps the group out by its level (FENCES' through, as for herds), a leaping kind more often over; a
+    kind small enough for its gaps passes any fence (brief 2 §4)."""
+    from cybertron2.engine.data import FENCES, RESOURCES
+    if ((RESOURCES.get(kind) or {}).get("body") or {}).get("gap") in ("tiny", "small"):
+        return False
     fc = (w.s["parcels"].get(pid) or {}).get("fence") or {}
     if not fc.get("built") or fc.get("kind") not in FENCES or int(fc.get("level", 0)) <= 0:
         return False
@@ -1141,8 +1251,9 @@ def _raid(w, g, np_, kind, t, tgt, parcel, scare, rng) -> dict:
         b = w.s["buildings"][tgt]
         if t.get("door", False):
             shut = int(((w.s["wild"].get("shut") or {}).get(tgt) or {}).get("day", -9)) == w.d
-            if rng.random() >= (0.02 if shut else 0.6):                       # shut in, a door is seldom left open; left, often
-                return {"took": 0}
+            passes = gaps_pass(b, kind)                                       # the building's own gaps against the kind's (§4)
+            if rng.random() >= (0.9 if passes else (0.02 if shut else 0.6)):  # shut in, a door is seldom left open; left, often;
+                return {"took": 0}                                            # through its gaps, shut or not
         goods = w.s["containers"][b["stock"]].get("goods") or {}
         took = 0.0
         for item in _items_of(t.get("items")):
@@ -1165,6 +1276,11 @@ def _raid(w, g, np_, kind, t, tgt, parcel, scare, rng) -> dict:
             w.apply("draw", node, parcel=tgt, key=t["res"], qty=q)
         return {"stripped": q}
     return {}
+
+
+def layout_steps(w, a, b):
+    from cybertron2.engine import layout as LY
+    return 0 if a == b else LY.steps(w, a, b)
 
 
 def rng_l(w, gid) -> float:
@@ -1195,12 +1311,12 @@ def _groups(w, m, st) -> dict:
         for kind in m.names:
             np_ = _near(kind)
             spec = m.kinds[kind]
-            if not np_ or spec.get("count") != "whole":
+            if not np_ or (spec.get("count") != "whole" and not np_.get("flock")):   # a flock of a counted-by-density kind (D2-207)
                 continue
             gid = f"{kind}@{node}"
             ef = effects(w, node, kind, m, st, ri)
             count = _count(m, st, kind, land, node, ri, np_.get("gather"))
-            lo, hi = (spec.get("group") or {}).get("size", [2, 10])
+            lo, hi = np_.get("flock") or (spec.get("group") or {}).get("size", [2, 10])
             lo = 1 if ef["lone"] else lo
             if count < lo:
                 groups.pop(gid, None)
@@ -1234,40 +1350,68 @@ def _groups(w, m, st) -> dict:
                 tgt = g["target"] if g["target"] in tg else (next(iter(tg)) if tg else None)
                 if tgt is None:
                     continue
-                parcel = tg[tgt]
-                gap = _edge_of(w, parcel)
-                seen = watch.get(parcel)
-                scare = seen.get("scare") if seen else None
-                if scare is None and t.get("what") == "herd" and w.s["herds"][tgt].get("watched") == w.d:
-                    scare = "herding"                                          # people with the herd: a watch of a kind
-                if scare is None and t.get("what") in ("items", "hens") and (w.s["buildings"][tgt].get("fittings") or {}).get("dog"):
-                    scare = "dog"
-                if gap != parcel and watch.get(gap):                           # met at the gap they come through (L3)
-                    gw = watch[gap]
-                    g["rest"] = w.d + int(np_["answer"].get("rest", np_["answer"].get("off_days", 2)))
-                    if rng.random() < 0.3:
-                        g["wary"], g["habit"] = w.d + int(np_["wary_after_harm"]), {}
-                    _trace(traces, gap, kind, "turned", w.d, g["n"], gw.get("scare"), gw.get("by"))
-                    out[gid] = {"at": tgt, "what": t.get("what"), "turned": True, "scare": gw.get("scare"), "gap": True}
-                    continue
-                if t.get("what") in ("crop", "herd", "res") and _fenced(w, parcel, np_, rng):
-                    _trace(traces, parcel, kind, "turned", w.d, g["n"], "fence", None)
-                    out[gid] = {"at": tgt, "what": t.get("what"), "turned": True, "scare": "fence"}
-                    continue
-                if scare is not None:
-                    turned, harmed = _answer(rng, g, np_, scare, ef["bold"])
-                    if harmed:
-                        g["wary"], g["habit"] = w.d + int(np_["wary_after_harm"]), {}
-                    if turned:
+
+                def attempt(tgt, first=True):
+                    """One target tonight: met at its gap, kept out by a fence, turned by a scare, or raided (D2-198)."""
+                    parcel = tg[tgt]
+                    gap = _edge_of(w, parcel)
+                    seen = watch.get(parcel)
+                    scare = seen.get("scare") if seen else None
+                    if scare is None and t.get("what") == "herd" and w.s["herds"][tgt].get("watched") == w.d:
+                        scare = "herding"                                      # people with the herd: a watch of a kind
+                    if scare is None and t.get("what") in ("items", "hens") and (w.s["buildings"][tgt].get("fittings") or {}).get("dog"):
+                        scare = "dog"
+                    if gap != parcel and watch.get(gap):                       # met at the gap they come through (L3)
+                        gw = watch[gap]
                         g["rest"] = w.d + int(np_["answer"].get("rest", np_["answer"].get("off_days", 2)))
-                        _trace(traces, parcel, kind, "turned", w.d, g["n"], scare, (seen or {}).get("by"))
-                        out[gid] = {"at": tgt, "what": t.get("what"), "turned": True, "scare": scare}
-                        continue
-                res = _raid(w, g, np_, kind, t, tgt, parcel, scare, rng)
-                g["found"] = w.d
-                tr = ("raid" if _did(res) else "tried") + (f":{t['sign']}" if t.get("sign") and _did(res) else "")
-                _trace(traces, parcel, kind, tr, w.d, g["n"], scare, (seen or {}).get("by"))
-                out[gid] = {"at": tgt, "what": t.get("what"), "turned": False, "scare": scare, **res}
+                        if rng.random() < 0.3:
+                            g["wary"], g["habit"] = w.d + int(np_["wary_after_harm"]), {}
+                        _trace(traces, gap, kind, "turned", w.d, g["n"], gw.get("scare"), gw.get("by"))
+                        return {"at": tgt, "what": t.get("what"), "turned": True, "scare": gw.get("scare"), "gap": True}, gap
+                    if t.get("what") in ("crop", "herd", "res") and _fenced(w, parcel, np_, rng, kind):
+                        _trace(traces, parcel, kind, "turned", w.d, g["n"], "fence", None)
+                        return {"at": tgt, "what": t.get("what"), "turned": True, "scare": "fence"}, gap
+                    if scare is not None:
+                        turned, harmed = _answer(rng, g, np_, scare, ef["bold"])
+                        if harmed:
+                            g["wary"], g["habit"] = w.d + int(np_["wary_after_harm"]), {}
+                        if turned:
+                            g["rest"] = w.d + int(np_["answer"].get("rest", np_["answer"].get("off_days", 2)))
+                            _trace(traces, parcel, kind, "turned", w.d, g["n"], scare, (seen or {}).get("by"))
+                            return {"at": tgt, "what": t.get("what"), "turned": True, "scare": scare}, gap
+                    res = _raid(w, g, np_, kind, t, tgt, parcel, scare, rng)
+                    tr = ("raid" if _did(res) else "tried") + (f":{t['sign']}" if t.get("sign") and _did(res) else "")
+                    _trace(traces, parcel, kind, tr, w.d, g["n"], scare, (seen or {}).get("by"))
+                    return {"at": tgt, "what": t.get("what"), "turned": False, "scare": scare, **res}, gap
+
+                probe = int(t.get("probe") or 0) if t.get("what") in ("items", "hens") else 0
+                if probe:                                                       # the lapse probe (D2-207, brief 2 §2): the doors of
+                    order = sorted(tg, key=lambda b: (b != g.get("target"), w.rng("wild-probe", w.d, gid, b).random()))   # the hamlet,
+                    res = None                                                  # the one it fed at first, then the rest, keyed
+                    for b in order[:probe]:
+                        r, _ = attempt(b)
+                        res = res or r
+                        if not r.get("turned") and _did(r):
+                            res = r
+                            g["target"], g["parcel"] = b, tg[b]
+                            g["found"] = w.d
+                            break
+                    out[gid] = dict(res or {}, tried=[b for b in order[:probe]])
+                    continue
+                res, gap = attempt(tgt)
+                if not res.get("turned"):
+                    g["found"] = w.d
+                elif np_.get("displace"):                                       # turned: one more target the same night, the
+                    near = [(b, layout_steps(w, gap, p)) for b, p in tg.items()  # nearest unwatched one from the edge it came out of
+                            if b != tgt and p != tg[tgt] and not watch.get(p)]  # (D2-207, brief 2 §2)
+                    near = [(b, d) for b, d in near if d is not None]
+                    if near:
+                        b2 = min(near, key=lambda x: (x[1], x[0]))[0]
+                        res2, _ = attempt(b2, first=False)
+                        res = dict(res, displaced_to=b2, then=res2)
+                        if not res2.get("turned"):
+                            g["target"], g["parcel"], g["found"], g["rest"] = b2, tg[b2], w.d, -1
+                out[gid] = res
             elif g["pos"] == "edge":
                 if rng.random() < float(np_["lead_sign_p"]):
                     _trace(traces, _edge_of(w, g.get("parcel") or g.get("target")), kind, "edge", w.d, g["n"])
@@ -1283,6 +1427,9 @@ def _groups(w, m, st) -> dict:
                 if knows:
                     p = max(p, float(np_["return_p"]) * attr)
                 if rng.random() < p:
+                    if trow.get("pick") == "most":                             # a flock lands where the most of its crop stands (§3)
+                        from cybertron2.engine import farm as FM
+                        tg = sorted(tg, key=lambda x: -sum(float(c.get("left", 0.0)) for _, _, c in FM.standing(w.s["parcels"][x[1]])))
                     pick = tg[0] if (g.get("target") in dict(tg) or rng.random() < 0.75) else tg[int(rng.random() * len(tg))]
                     if g.get("target") in dict(tg) and knows:
                         pick = (g["target"], dict(tg)[g["target"]])
@@ -1657,18 +1804,29 @@ def _crops(w, node, share) -> float:
     return total
 
 
+def _stops(b, kind) -> float:
+    """What a building's fittings leave of a kind's take from its store (STORE_STOPS: a granary against what climbs and is tiny, bins
+    against the tiny, a dog against all, a cat against the tiny), by the kind's body (brief 2 §4)."""
+    from cybertron2.engine.data import RESOURCES
+    from cybertron2.wild.kinds import STORE_STOPS
+    body = (RESOURCES.get(kind) or {}).get("body") or {}
+    keep = 1.0
+    for f_, row in STORE_STOPS.items():
+        if (b.get("fittings") or {}).get(f_) and (kind is None or all(body.get(t) == v for t, v in (row.get("for") or {}).items())):
+            keep *= float(row["keep"])
+    return keep
+
+
 def _stores(w, node, share) -> float:
-    """Destroy a share of the grain and other dry food in the node's stores: what wild kinds took there."""
+    """Destroy a share of the grain and other dry food in the node's stores: what wild kinds took there, kind by kind ({kind: share})."""
+    shares = share if isinstance(share, dict) else {None: share}
     total = 0.0
     for bid, b in sorted(w.s["buildings"].items()):
         if b["node"] != node or not b.get("stock"):
             continue
         cid = b["stock"]
-        from cybertron2.wild.kinds import STORE_KEEP
-        keep = 1.0
-        for f_, x in STORE_KEEP.items():                                    # a terrier, a raised granary floor
-            if (b.get("fittings") or {}).get(f_):
-                keep *= float(x)
+        keep = sum(sh * _stops(b, k) for k, sh in shares.items()) / max(1e-12, sum(shares.values()))   # what this store's fittings let
+        share = sum(shares.values())                                         # through, kind by kind
         plague = 1.0 + sum(float(r.get("stores", 0.0)) for name, r in REGIMES_ON(w, node).items())
         for item, q in sorted((w.s["containers"].get(cid, {}).get("goods") or {}).items()):
             if item in DRY_STORES and q > 0:

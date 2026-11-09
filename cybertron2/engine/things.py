@@ -13,7 +13,7 @@ import math
 from cybertron2.engine import environment as EV, knowledge as KN
 from cybertron2.engine.data import COVERS, ITEMS, NOTICING, TECHNIQUES, THINGS
 
-KINDS = ("pile", "remains", "carcass")
+KINDS = ("pile", "remains", "carcass", "set")                       # a set snare or trap (brief 2 §4, D2-207)
 
 
 # ---------------------------------------------------------------------- where things are
@@ -122,6 +122,8 @@ def rotting(w, c) -> bool:
 def own(w, c) -> float:
     """A thing's own conspicuousness (information/noticing.md), times how it is hidden (taught, or tried untaught)."""
     x = 0.0
+    if c.get("kind") == "set":                                              # a set snare or trap: hard to see, the more once sprung
+        x = float(THINGS["set"]["sprung" if (c.get("set") or {}).get("sprung") is not None else "own"])
     if c.get("beast") and c.get("buried") is None:                         # a dead beast (D4-52)
         old = w.d - int(c.get("died", w.d)) >= int(THINGS["carcass_bones_after"])
         x = float(THINGS["carcass_bones" if old else "carcass"])
@@ -150,6 +152,11 @@ def _describe(w, c) -> str:
     g = goods_words(c["goods"])
     if c.get("beast"):
         return f"a dead {c['beast']} lies at {where}" + (": past eating" if not carcass_fresh(w, c) else "")
+    if c.get("kind") == "set":
+        what = "wicker traps set in the water" if (c.get("set") or {}).get("method") == "trap in water" else "a line of snares set"
+        if (c.get("set") or {}).get("sprung") is not None:
+            return f"{what} at {where}, sprung and rotten" + (f", with {g} in them" if g else "")
+        return f"{what} at {where}" + (f", with {g} caught in them" if g else ", empty")
     if c.get("hidden") == "buried" and not c.get("body"):
         return f"a patch of turned earth at {where}, as if something were buried there"
     if c.get("hidden") == "under brush":

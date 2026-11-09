@@ -294,6 +294,8 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
             elif key in pulse:
                 pulse[key] = np.maximum(pulse[key] - g, 0)
                 eff["eaten"][key] = eff["eaten"].get(key, 0) + g * m.km2
+                by = eff.setdefault("eaten_by", {}).setdefault(key, {})       # by kind, for what stops which (brief 2 §4)
+                by[k] = by.get(k, 0) + g * m.km2
             elif key == "carrion":
                 carrion = np.maximum(carrion - g, 0)
     carrion = carrion * 0.5 ** (1.0 / S)

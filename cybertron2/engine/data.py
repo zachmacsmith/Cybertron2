@@ -747,6 +747,7 @@ THINGS = {
     "carcass_road": {"none": 0.3, "hidden": 0.3},
     "carcass_meat": {"starved": 0.25, "road": 0.5, "other": 0.5, "killed": 0.3, "sick": 0.6},
     "hidden": {"under brush": [0.2, 0.4], "buried": [0.03, 0.06], "off the road": [0.2, 0.2]},
+    "set": {"own": 0.12, "sprung": 0.05},                                  # a set snare or trap, seen (brief 2 §4; calibrate)
 }
 # Fences round a parcel (livestock.md, D2-130; calibrate): what a build takes for a parcel of size s (x the square root of s), the chance a
 # day a herd gets through by its level (whole, gappy; down is no fence), and its upkeep: a wood fence loses a level each season unless

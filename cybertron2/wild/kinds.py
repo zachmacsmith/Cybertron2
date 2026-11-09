@@ -39,7 +39,7 @@ KINDS = {
                    people=0.15, ref=4, wave=1, count="whole", group={"size": [3, 14]}, uses="pork, fat, hide", damage="roots up crops"),
     "brown hare": K(3.5, "herb", 4.0, 0.9, {"grassy": 1.0, "farm": 0.4, "open": 0.2}, {"sward": 3, "seeds": 1, "crops": 2},
                     breed=("spring", "summer"), people=0.3, ref=25, wave=1, uses="meat; coursing", damage="young crops", shy=0.6),
-    "woodpigeon": K(0.5, "gran", 3.0, 0.6, {"wood": 0.5, "farm": 0.5}, {"seeds": 2, "mast": 2, "crops": 3, "browse": 1}, people=0.2,
+    "woodpigeon": K(0.5, "gran", 3.0, 0.6, {"wood": 0.5, "farm": 0.5}, {"seeds": 2, "mast": 2, "crops": 1.5, "browse": 1}, people=0.2,   # crops 3 to 1.5: the flock takes the rest (brief 2 §3; calibrate)
                     ref=50, wave=1, damage="seed and young corn", shy=0.5),
     "rats": K(0.25, "omni", 10.0, 2.0, {"farm": 1.0}, {"stores": 3, "crops": 2, "seeds": 1, "carrion": 1},
               breed=("spring", "summer", "autumn"), move=0.05, ref=100, wave=1, damage="stores", shy=0.0),
@@ -111,6 +111,7 @@ NEAR_PEOPLE = {
         "drive": {"base": 0.35, "hunger": 0.5}, "memory_days": 3, "return_p": 0.85, "lead_nights": 2, "lead_sign_p": 0.9,
         "answer": {"type": "habituate", "turn_p": 0.9, "gain": 0.3, "decay": 0.01, "rest": 2},
         "harm": {"dog": {"turn_p": 0.95, "harm_p": 0.25}}, "wary_after_harm": 8, "met_share": 0.5,
+        "displace": True,                                                                # turned, the next field (D2-207)
     },
     "red deer": {
         "targets": [{"seasons": {0: (2, 7)}, "attr": 0.5, "trample": 0.006},                # the young corn
@@ -118,6 +119,7 @@ NEAR_PEOPLE = {
         "drive": {"base": 0.2, "hunger": 0.5}, "memory_days": 3, "return_p": 0.6, "lead_nights": 2, "lead_sign_p": 0.8,
         "answer": {"type": "habituate", "turn_p": 0.85, "gain": 0.25, "decay": 0.01, "rest": 2},
         "harm": {"dog": {"turn_p": 0.9, "harm_p": 0.15}}, "wary_after_harm": 5, "met_share": 0.5, "fence": 2.0,   # deer leap fences
+        "displace": True,
     },
     "wolf": {
         "gather": "far",                                                                     # a pack ranges far beyond one ring
@@ -133,11 +135,21 @@ NEAR_PEOPLE = {
         "answer": {"type": "scared_off", "turn_p": 0.7, "off_days": 3},
         "harm": {"dog": {"turn_p": 0.8, "harm_p": 0.05}}, "wary_after_harm": 10, "met_share": 1.0,
     },
+    # a flock of woodpigeons at the corn (brief 2 §3): counted by density, raiding as a flock; a still scare is soon a post
+    "woodpigeon": {
+        "flock": [20, 120],
+        "targets": [{"seasons": {0: (0, 7)}, "attr": 0.6, "trample": 0.0004, "pick": "most"},     # the sowing and the young corn
+                    {"seasons": {2: (0, 7)}, "attr": 0.3, "trample": 0.0003, "pick": "most"}],    # the autumn sowing
+        "drive": {"base": 0.4, "hunger": 0.5}, "memory_days": 3, "return_p": 0.9, "lead_nights": 1, "lead_sign_p": 0.5,
+        "answer": {"type": "habituate", "turn_p": 0.9, "gain": 0.35, "decay": 0.05, "rest": 1},
+        "harm": {"dog": {"turn_p": 0.8, "harm_p": 0.0}}, "wary_after_harm": 2, "met_share": 0.5, "fence": 9.0,   # over any fence
+        "displace": True,
+    },
     "fox": {
         "targets": [{"what": "items", "items": ["hen"], "door": True, "heads": 2, "all_p": 0.3, "seasons": {0: (2, 7), 1: (0, 3)},
-                     "attr": 1.0},                                                                # cubs to feed
+                     "attr": 1.0, "probe": 3},                                                    # cubs to feed; tries the doors (D2-207)
                     {"what": "items", "items": ["hen"], "door": True, "heads": 2, "all_p": 0.3,
-                     "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.35}],
+                     "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.35, "probe": 3}],
         "drive": {"base": 0.1, "hunger": 0.4}, "memory_days": 2, "return_p": 0.8, "lead_nights": 2, "lead_sign_p": 0.6,
         "answer": {"type": "scared_off", "turn_p": 0.85, "off_days": 3},
         "harm": {"dog": {"turn_p": 0.9, "harm_p": 0.1}}, "wary_after_harm": 10, "met_share": 1.0,
@@ -234,6 +246,10 @@ WHEN = {
         {"name": "farrowing", "if": {"seasons": {0: (0, 5)}}, "danger": 1.5,
          "rows": [R("all", "sight", 0.6, (0, 0), "striped piglets trotting after a sow at the wood's edge"),
                   R("knows", "sight", 0.6, (0, 0), "the sows have farrowed: a sow with young will charge; more boar by the autumn")]},
+    ],
+    "woodpigeon": [
+        {"if": {"mast": ["fail", "poor"], "seasons": AUT_WIN}, "drive": 1.5,
+         "targets": [{"what": "crop", "seasons": AUT_WIN, "attr": 0.6, "trample": 0.0004, "pick": "most"}]},   # greens, winter corn
     ],
     "red deer": [
         {"if": {"snow": True}, "drive": 2.0, "targets": [{"what": "items", "items": ["hay"], "door": False, "share": 0.01, "attr": 1.0,
@@ -675,6 +691,16 @@ DISEASE_SIGNS = {
 
 
 # what a technique the wild pack switches off was practice for (the old generic hunt): those who knew it know these
+# A kind's body against barriers (brief 2 §4; calibrate): `gap`, the smallest gap it passes; `climbs`. Read by doors, stores, fences.
+BODY = {"voles and mice": {"gap": "tiny", "climbs": True}, "rats": {"gap": "tiny", "climbs": True},
+        "fox": {"gap": "medium", "climbs": False}, "wolf": {"gap": "large", "climbs": False},
+        "wild boar": {"gap": "large", "climbs": False}, "red deer": {"gap": "large", "climbs": False},
+        "brown bear": {"gap": "large", "climbs": True}, "woodpigeon": {"gap": "small", "climbs": True}}
+GAPS = {"structure": {"wattle": "small", "timber": "small", "stone": "tiny", "camp": "large"}, "damaged": 1}   # a building's own gaps
+# What stops which kinds in a store (brief 2 §4): each fitting cuts the share the kinds it stops eat there (keep), by their body
+STORE_STOPS = {"granary": {"keep": 0.3, "for": {"climbs": True, "gap": "tiny"}}, "bins": {"keep": 0.5, "for": {"gap": "tiny"}},
+               "dog": {"keep": 0.5, "for": {}}, "cat": {"keep": 0.4, "for": {"gap": "tiny"}}}
+
 # What a kind is like to those who hunt it (D2-204, methods_and_encounters.md §2; calibrate): the methods' needs and favours are read
 # against these at load to build each method's take table (engine/methods.py). A kind without traits is no method's target.
 TRAITS = {
@@ -695,5 +721,5 @@ def rows() -> dict:
     """The kinds as RESOURCES rows (merged into data.RESOURCES; pack "wild")."""
     return {name: {"renewal": "population", "pack": "wild", "population": k, **({"near_people": NEAR_PEOPLE[name]} if name in NEAR_PEOPLE else {}),
                    **({"taken": {**TAKEN[name], **({"traits": TRAITS[name]} if name in TRAITS else {})}} if name in TAKEN else {}),
-                   **({"presence": PRESENCE[name]} if name in PRESENCE else {})}
+                   **({"presence": PRESENCE[name]} if name in PRESENCE else {}), **({"body": BODY[name]} if name in BODY else {})}
             for name, k in KINDS.items()}

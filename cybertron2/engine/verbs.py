@@ -581,6 +581,10 @@ def _technique(here, mind, a, party, verb):
             _mason(mind)                                                       # mending stone is walling (D4-97)
         word = _repair(here, key, m)
         thing = ("building", key)
+    elif y["kind"] == "wild_take" and t.get("set"):                           # set and left: it catches by night (brief 2 §4)
+        from cybertron2.engine import wild as WL
+        word = WL.set_work(here, mind, tech, key, place_name)
+        gives = None
     elif y["kind"] == "wild_take":                                           # a hunt in the wild layer (wild_layer.md, D2-199)
         from cybertron2.engine import wild as WL
         _, word, after = WL.take(here, mind, tech, key, place_name, out, m, y, a)
@@ -1343,6 +1347,10 @@ def _take(here, mind, a, party):
         here.record("take", None, None, theft=True)
         return f"You took {show(q)} {item} from {label}, which is not yours to take from. Whether anyone saw, you will learn."
     c = here.thing(src) or {"kind": "stock"}
+    if c["kind"] == "set" and c.get("by") not in (here.name, None):            # another's snare robbed: seen, and theirs to know
+        here.event("take", f"{here.name} took {item} from the {'traps' if (c.get('set') or {}).get('method') == 'trap in water' else 'snares'} "
+                           f"{c['by']} set at {here.spot_name(c)}", actor=here.name, salience=0.55, about=[f"parcel:{c['parcel']}"],
+                   tags=["food", "hunting"], concerns=[c["by"]])
     here.event("take", f"{here.name} took {item} from {label}", actor=here.name, salience=0.4 if c["kind"] in TH.KINDS else 0.3,
                about=[f"parcel:{c['parcel']}"] if c.get("parcel") else [], tags=["food"] if ITEMS[item]["food"] else [])
     if c["kind"] in TH.KINDS:
