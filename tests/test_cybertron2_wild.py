@@ -298,11 +298,14 @@ def test_a_fox_takes_hens_left_out_and_fewer_shut_in(generated):
         w, WL = _summer_world(generated)
         m, ri = _ring(w, WL)
         w.s["wild"]["state"]["pop"]["fox"][ri] = 4.0 / m.km2[ri]
-        houses = [b for b, x in w.s["buildings"].items() if x["node"] == "s1" and x.get("stock")
+        w.s["wild"]["state"]["pop"]["stoat"] = [0.0] * len(w.s["wild"]["state"]["pop"]["stoat"])   # the fox alone (brief 2: a
+        houses = [b for b, x in w.s["buildings"].items() if x["node"] == "s1" and x.get("stock")             # stoat's gaps are not shut)
                   and w.s["containers"][x["stock"]]["goods"].get("hen")]
         hens = lambda: sum(w.s["containers"][w.s["buildings"][b]["stock"]]["goods"].get("hen", 0) for b in houses)
         h0 = hens()
         for _ in range(40):
+            for b in houses:                                                     # kept sound: a damaged house's gaps let a fox in
+                w.s["buildings"][b]["condition"] = 2                             # shut or not (brief 2 §4)
             if shut:
                 for b in houses:
                     w.apply("set_wild", "s1", path=["shut", b], value={"day": w.d, "by": "x"})

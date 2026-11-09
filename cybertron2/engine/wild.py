@@ -168,7 +168,7 @@ def night(w, rec) -> None:
     out["groups"] = _groups(w, m, st)
     out["sites"] = _sites_night(w, m, st)
     out["set"] = _set_night(w, m, w.s["wild"]["state"])                   # snares and traps set and left (brief 2 §4)
-    out["cats"] = _cats_and_owls(w, m, w.s["wild"]["state"])              # cats and owls (D2-206; brief 2 K1)
+    out["store_beasts"] = _store_beasts(w, m, w.s["wild"]["state"])      # a cat at a store, a barn owl in its hole (D2-206; K1)
     out["near"] = {gid: {"n": g["n"], "pos": g["pos"], "what": g.get("what")} for gid, g in sorted((w.s["wild"].get("groups") or {}).items())}
     _hens_lay(w)
     rec["wild"] = out
@@ -1837,7 +1837,7 @@ def _stops(b, kind, w=None) -> float:
         if row.get("in_store"):                                            # a cat: a beast in the store, not a fitting (D2-206)
             have = w is not None and float((w.s["containers"].get(b.get("stock"), {}).get("goods") or {}).get(f_, 0)) >= 1
         elif row.get("occupied"):                                          # an owl in its hole
-            have = w is not None and ((w.s["wild"].get("owls") or {}).get(b.get("_id")) is not None)
+            have = w is not None and ((w.s["wild"].get(row["occupied"]) or {}).get(b.get("_id")) is not None)
         else:
             have = bool((b.get("fittings") or {}).get(f_))
         if have and (kind is None or all(body.get(t) == v for t, v in (row.get("for") or {}).items())):
@@ -1845,16 +1845,17 @@ def _stops(b, kind, w=None) -> float:
     return keep
 
 
-def _cats_and_owls(w, m, st) -> dict:
-    """At a season's turn (D2-206; brief 2 K1): a cat settles at a store with dry food and mice about (no dog), or leaves one with none
-    or with a dog; in spring a barn owl takes an empty owl hole in a building nobody sleeps in."""
+def _store_beasts(w, m, st) -> dict:
+    """At a season's turn (D2-206; brief 2 K1): a cat (kinds.CAT) settles at a store with dry food and its prey about (no dog), or
+    leaves one with none or with a dog; in its season a barn owl (kinds.OWL) takes an empty owl hole in a building nobody sleeps in."""
     from cybertron2.wild.kinds import CAT, OWL
     out = {}
     if w.calendar(w.d + 1)["season"] == w.calendar()["season"]:
         return out
     land = w.s["wild"]["land"]
     sleeping = set((w.s.get("today") or {}).get("sleep", {}).values())
-    owls = dict(w.s["wild"].get("owls") or {})
+    nests = dict(w.s["wild"].get(OWL["record"]) or {})
+    beast = CAT["item"]
     for bid, b in sorted(w.s["buildings"].items()):
         cid = b.get("stock")
         if not cid or cid not in w.s["containers"]:
@@ -1862,25 +1863,24 @@ def _cats_and_owls(w, m, st) -> dict:
         goods = w.s["containers"][cid].get("goods") or {}
         dry = sum(float(goods.get(i, 0)) for i in DRY_STORES)
         dog = bool((b.get("fittings") or {}).get("dog"))
-        cat = float(goods.get("cat", 0)) >= 1
+        have = float(goods.get(beast, 0)) >= 1
         aid = land.get("home", {}).get(b["node"])
         i = m.ids.index(aid) if aid in m.ids else None
-        mice = float(st["pop"]["voles and mice"][i]) * float(m.km2[i]) if i is not None and "voles and mice" in st["pop"] else 0.0
+        prey = float(st["pop"][CAT["prey"]][i]) * float(m.km2[i]) if i is not None and CAT["prey"] in st["pop"] else 0.0
         rng = w.rng("wild-cat", w.d, bid)
-        if cat and (dry <= 1e-6 or dog):
-            w.apply("destroy", b["node"], src=cid, item="cat", qty=float(goods["cat"]), why="the cat went off")
-            out[bid] = "cat left"
-        elif not cat and not dog and dry > 1e-6 and mice >= float(CAT["mice_least"]) and rng.random() < float(CAT["settle_p"]):
-            w.apply("create", b["node"], dst=cid, item="cat", qty=1.0, why="a cat came in to the mice")
-            w.event(b["node"], "cat", f"a cat has taken up at {b['name']}, after the mice", about=[f"building:{bid}"], salience=0.3,
-                    tags=["animals"])
-            out[bid] = "cat came"
-        if (b.get("fittings") or {}).get("owl hole") and owls.get(bid) is None and w.calendar(w.d + 1)["season"] == "spring" \
-                and bid not in sleeping and w.rng("wild-owl", w.d, bid).random() < float(OWL["take_p"]):
-            owls[bid] = w.d
-            out[bid] = "owl came"
-    if owls != (w.s["wild"].get("owls") or {}):
-        w.apply("set_wild", m.nodes[0], path=["owls"], value=owls)
+        if have and (dry <= 1e-6 or dog):
+            w.apply("destroy", b["node"], src=cid, item=beast, qty=float(goods[beast]), why="it went off")
+            out[bid] = "left"
+        elif not have and not dog and dry > 1e-6 and prey >= float(CAT["prey_least"]) and rng.random() < float(CAT["settle_p"]):
+            w.apply("create", b["node"], dst=cid, item=beast, qty=1.0, why="it came in after the prey in the store")
+            w.event(b["node"], beast, f"a {beast} has taken up at {b['name']}", about=[f"building:{bid}"], salience=0.3, tags=["animals"])
+            out[bid] = "came"
+        if (b.get("fittings") or {}).get(OWL["fitting"]) and nests.get(bid) is None and w.calendar(w.d + 1)["season"] == OWL["season"] \
+                and bid not in sleeping and w.rng("wild-nest", w.d, bid).random() < float(OWL["take_p"]):
+            nests[bid] = w.d
+            out[bid] = "nested"
+    if nests != (w.s["wild"].get(OWL["record"]) or {}):
+        w.apply("set_wild", m.nodes[0], path=[OWL["record"]], value=nests)
     return out
 
 

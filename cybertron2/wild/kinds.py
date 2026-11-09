@@ -729,11 +729,11 @@ GAPS = {"structure": {"wattle": "small", "timber": "small", "stone": "tiny", "ca
 # What stops which kinds in a store (brief 2 §4): each fitting cuts the share the kinds it stops eat there (keep), by their body
 STORE_STOPS = {"granary": {"keep": 0.3, "for": {"climbs": True, "gap": "tiny"}}, "bins": {"keep": 0.5, "for": {"gap": "tiny"}},
                "dog": {"keep": 0.5, "for": {}}, "cat": {"keep": 0.4, "for": {"gap": "tiny"}, "in_store": True},
-               "owl": {"keep": 0.6, "for": {"gap": "tiny"}, "occupied": True}}
+               "owl": {"keep": 0.6, "for": {"gap": "tiny"}, "occupied": "nests"}}
 # a cat comes by itself to a store with mice (D2-206): a chance each season (no dog), and leaves an empty store or a dog's house;
 # a barn owl takes an owl hole in spring with a chance if nobody sleeps in that building (calibrate)
-CAT = {"settle_p": 0.25, "mice_least": 50.0, "stray_p": 0.08}
-OWL = {"take_p": 0.4}
+CAT = {"settle_p": 0.25, "prey": "voles and mice", "prey_least": 50.0, "stray_p": 0.08, "item": "cat"}
+OWL = {"take_p": 0.4, "fitting": "owl hole", "season": "spring", "record": "nests"}
 
 # What a kind is like to those who hunt it (D2-204, methods_and_encounters.md §2; calibrate): the methods' needs and favours are read
 # against these at load to build each method's take table (engine/methods.py). A kind without traits is no method's target.
