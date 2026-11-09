@@ -1,0 +1,280 @@
+# Proposal: the wild layer, one general system for ecosystems and wildlife, built from the generated land into the engine
+
+**Status:** discussion (9 Nov). Nothing decided, nothing built in the engine. **Owner:** 37.2 (the layer's design, the generator
+side, the kinds' data); the engine changes are 37.4's (CLAUDE.md), so §8 names who would build what.
+
+**Affects:**
+- the generator (`cybertron2/landgen`): a land summary written with each world (§3.1), starting populations and history (§3.9);
+- engine data: RESOURCES rows with population fields, TECHNIQUES, ITEMS, sign rows, packs (D4-104);
+- the engine: a population store and an ecology step, beasts generalised from herds, traces, readings by skill, acts (§4);
+- spec/environment/wildlife.md, resources.md; spec/economy/livestock.md; spec/information/signs.md;
+- proposals: living_populations.md (the base of this), wild_systems.md, node_ecology.md, wildlife.md, husbandry.md, wild_plants.md.
+
+**Builds on, and reconciles:**
+- **living_populations.md** (8 Nov, reviewed by 37.4):
+  - kinds as optional fields on RESOURCES rows (one registry, one guard test);
+  - one night step (grow, eat, move);
+  - observation as the collapse;
+  - whole-counted groups with an actual place each night;
+- **02zp part two:** the food web's rules (W2, §11 there);
+- **node_ecology.md and 02zp parts three and four:** the village's scale, losses as the lever, the area graph;
+- **wild_systems.md:** drivers, layered kinds, signs read by skill, lore as tested belief, creature memory, D2-197, D2-198, the waves
+  (§13).
+
+## Summary
+
+Zach, 9 Nov:
+- "You were supposed to design general systems. Go through each of the waves, considering the different ecosystem mechanisms, and
+  how to build the general system to support them that bridges that with the actual engine itself."
+- "Everything should build up from the environment that is generated."
+
+**What went wrong in wave 1 (02zp part six).**
+- I built per-kind machines and called them rules: a boar-shaped "group", an eel-shaped "run", a fowl-shaped "flock".
+- I built them in a parallel village beside the engine.
+- I made a separate kinds table, which 37.4's review of living_populations.md had already ruled out.
+- I dropped the coarse ecosystem: a number per village took the place of the food web, so kinds never ate each other.
+- The tests mostly measured my own scripted readings, on real species the models already knew.
+
+**This proposal starts from the mechanisms instead.**
+1. It lists what every wave needs (§2).
+2. It factors that into ten general systems (§3).
+3. It maps each onto the engine's own places, primitives, senses and verbs (§4).
+4. It builds everything up from the generated land: habitats, capacities, starting numbers and history all come from the
+   generator's world, not from hand-set numbers.
+
+**The shape in one paragraph.** The generator writes a coarse summary of its land (areas, fine near villages and coarse away, as the
+interface experiments found). Each kind is a RESOURCES row whose habitat, diet, clock, movement and behaviour are read against that
+land. One ecology step moves the population of every kind in every area each night, on the food web's rules (grow, eat, move); kinds
+interact by eating each other and the parcels' stocks. Near people, whole-counted kinds condense into beast groups on the engine's
+parcels: the same entity as the cattle, generalised. Those groups raid, remember and answer scares, and leave traces that people
+read by their skill. Everything they do to the world goes through `w.apply`, so it replays exactly. The world's history is the same
+step run with no people before the run starts.
+
+## 1. The constraints it must meet
+
+| Constraint | From |
+|---|---|
+| Everything builds from the generated land and climate | Zach, 9 Nov; living_populations §2a ("the animals live on the land") |
+| One registry: RESOURCES rows with optional fields, one guard test; no parallel kinds table | 37.4's review of living_populations (8 Nov) |
+| Every change through `w.apply` and the journal; replays exact; a pack off leaves old worlds unchanged | core/architecture.md; D4-104 |
+| Whole-counted groups hold one actual place a night | 37.4's review (two people must not meet the same pack in two places) |
+| The village's scale decides what matters: losses and threats, not wild food | node_ecology.md; 02zp parts three and five |
+| A coarse ecosystem for odds and emergence, discrete groups near people ("between rain world and a full proper ecosystem") | Zach, 8 Nov |
+| Mechanics before realistic dynamics, but real tempo and real interactions | Zach, 8 Nov; W2 |
+| Leads and memory in engine days (D2-197); answers to scares by kind (D2-198) | decided |
+| Signs for every hidden thing, read by skill, with an act that pays for each leading sign | wild_systems.md §2; guides/senses.md |
+| Domestic beasts are special cases of the wild system | Zach, earlier; husbandry.md ("husbandry generalises herds.py") |
+| Runs carry little of their land (G-33) | living_populations §7 |
+
+## 2. What each wave needs: the mechanisms
+
+| Mechanism | W1 (wood's edge, river, barn) | W2 (fold, hungry year) | W3 (weather year) | W4 (what travels) | W5 (prestige, furs, the land that changes) |
+|---|---|---|---|---|---|
+| **M1 habitat and capacity from the land** | boar and deer by wood, hares by open land, eels by river, fowl by fen and water | wolves by deep wood; voles by rough grass | slugs by heavy wet soil; wasps by warmth and banks; bees by old wood, heather, lime | wet ground for fluke snails | slow brooks (beaver), cliffs (falcon), wildwood (bear) |
+| **M2 numbers by area, with clocks** (breeding season, condition, winter deaths, real maximum rates) | all | all | fast clocks (insects, slugs) | hosts | slow breeders (beaver, bear) |
+| **M3 feeding: a diet over sources** (parcel stocks, other kinds, beasts by role, carcasses, stores), with intake and reserves | boar on mast, roots and crops; deer on browse, crops and ricks; rats on stores; birds on seed | wolves on deer, then calves and sheep; fox on voles, then hens and lambs; owls on voles; ravens on carcasses | slugs and wasps on crops and fruit; aphids on beans, ladybirds on aphids | | otters at the weir; bears at hives |
+| **M4 movement** (toward the best land, with home fidelity; seasons; dispersal; an edge reservoir) | herds shift from a hunted wood; fowl come with a freeze; eels run down river chains | dispersing young wolves cross farmland | | spread between villages | |
+| **M5 groups condense near people** (count kept, an actual place a night, individuals on demand) | sounder, deer herd | pack, fox pair | | | bear, legendary individuals (D2-195) |
+| **M6 behaviour near people** (a drive toward targets; a lead with traces; memory; answers to scares; wariness after harm) | the learned field; habituation; the dog | the fold that fed them; the open henhouse | | | hungry bear at the hives |
+| **M7 shared drivers** (weather by place; pulses; cycles; cohorts) | mast; frost runs; rising water; dark nights | the rodent phase | warmth sums, wet spells, chafer cohorts | disease load | |
+| **M8 phenology** (by accumulated warmth and day length, with offsets by place) | | | calendar markers, flowering, swarming, hatching, chafer flights, ergot at flowering | | |
+| **M9 outbreaks** (fast density kinds on crops, under weather) | | | slugs, aphids with ladybirds, leatherjackets, wireworm after ploughing | | |
+| **M10 disease** (load by host and area; contact, carcass, wetness; between kinds and villages) | | | ergot (a plant disease) | murrain and swine fever (boar and pigs), fluke, mange | rabies |
+| **M11 colonies and sites** (an all-or-nothing site; founded or abandoned on conditions; leaving for good) | | | wild bee colonies | | heronry, rookery, warren |
+| **M12 engineering** (a kind changes the land) | boar rooting turf | | | | beaver dams: water, flooded meadow, fish, deadwood |
+| **M13 people's acts** (takes with skill, gear, crew and danger; deterrence; restraint; keeping) | watch with a scare, dog, boar hunt, stalking, snares, traps and a crew at the weir, nets, cats, staddles, bird-scaring | fold, pen, hounds, drives and bounties (work by several) | sow later, roll the seed bed, take nests, narrow the hives | quarantine, burning carcasses | trapping, claims on swans and herons |
+| **M14 traces, signs and readings by skill** | rooting, slots, trampled corn, plovers, the moon and rain | tracks, howling, ravens over a kill, owls silent | catkins, queens, slime, black spurs | sick beasts, carcasses | stumps cut to points, dams |
+| **M15 beasts kept and wild as one** | boar is the pig's kin | sheep, poultry, dogs and hounds as rows | hives as held colonies | disease shared by boar and pigs | warrens, dovecotes, fishponds |
+| **M16 goods and chains** | meat, fat, hide (into built goods), eels and fowl to store, feathers | pelts | honey; wax waiting for documents and light | | furs, castoreum, a trained hawk |
+| **M17 history before the run** | woods cleared by settlement; the boar's last mast years | wolves gone a generation ago | | | the beaver trapped out |
+
+**Two findings from this table:**
+1. **Most of the archetypes in wild_systems.md §5 are not separate mechanisms.**
+   - A run, a flock and an outbreak are numbers by area (M2) with a diet (M3) and movement with triggers (M4).
+   - A cycle is mostly predators eating prey with a lag (M3); a pulse is a driver (M7).
+   - Only groups near people (M5, M6), colonies (M11) and engineering (M12) need machinery of their own.
+
+   That is why wave 1's five "rules" were wrong.
+2. **The engine already has half of it under other names:** stocks with renewal rules, herds that wander and trample, fences, crops,
+   spoilage, techniques, sign rows, packs (§4).
+
+## 3. The general systems
+
+Ten systems. Each is written once; kinds are rows on them.
+
+### 3.1 The land summary (from the generator)
+- **Areas:** the generated land cut into areas, about 300 m blocks on each village's own land, 1 km out to a ring around it, and
+  5 to 8 km across the wild land between. Each area holds what its land cells say:
+  - cover and ecosystem shares;
+  - soil texture, wetness, held water, fertility;
+  - water, and the river chain with its direction;
+  - elevation and exposure;
+  - the nearest node (for the climate, D4-111);
+  - the parcels that are windows onto it.
+- **Links** between areas carry the length of their shared edge; river areas are chained downstream.
+- **The interface experiments (02zp part four) back this cut:** resolution away from villages changes nothing; what matters is a
+  small ring around each village; about 60 areas for four villages run about 30× faster than a 1 km grid.
+- **Written with the world,** so a run carries it (a few kilobytes). That meets G-33 for the wild layer without the full land.
+
+### 3.2 The kinds registry (data)
+RESOURCES rows with optional population fields (living_populations §2b), extended:
+
+| Field | Holds |
+|---|---|
+| `count` | `density` or `whole` (groups of whole animals), with group sizes |
+| `habitat` | K per km², as a function of the area's land: covers, ecosystem, soil, wetness, water, elevation, warmth |
+| `body` | mass, from which intake and the maximum rates follow (Kleiber; W2) |
+| `clock` | breeding season and litter, maturity, lifespan; or phenology by warmth for fast kinds (M8) |
+| `diet` | sources, each a parcel stock key, a kind, a beast role, carcasses or stores, with a preference and a functional response |
+| `moves` | home fidelity, speed, seasonal targets, triggers (a freeze; dark nights with rising water), dispersal |
+| `near_people` | targets with seasons (crops, stores, ricks, folds, hives), drive, lead nights (D2-197), memory, answer to scares (D2-198), harm |
+| `site` | for colonies: what a site needs, founding and abandonment |
+| `engineers` | what it writes to the land (water level, turf, deadwood) |
+| `hosts` | diseases it carries and spreads |
+| `signs` | its sign rows (§3.6) |
+| `taken_by` | the techniques that take it; `goods` it gives |
+| `pack` | the wave's pack |
+
+The guard test, as living_populations asked: each row's fields name only known mechanisms, and no code names a kind.
+
+### 3.3 The population store and the ecology step (the macro layer)
+- **State:** for every area and kind, a count and a condition (reserves); for every area, its drivers (the mast's budget and fall,
+  cohorts, disease loads). Weather is not stored: it is read from the climate by place and day.
+- **The step,** each night, for every area and kind, in a fixed order:
+  1. **Clock:** breeding in its season, by condition; deaths by age, cold and hunger.
+  2. **Eat:** intake by body and food. Food comes from parcel stocks (through the primitives), from prey kinds (their counts fall),
+     from beasts (§3.4), carcasses and stores. A consumer short of food loses condition, then numbers.
+  3. **Move:** toward the best areas with home fidelity, crowding counted; seasonal targets; triggered runs; the edge reservoir.
+- **The rules are W2's** (02zp part two §11):
+  - food as stock, intake by body size, coarse and fine food;
+  - reserves and hibernation;
+  - foraging by value;
+  - crowding scaled by body size;
+  - predator interference, refuges;
+  - episodes for variation;
+  - real maximum growth rates;
+  - one calibration anchor per food.
+- **Kinds set:** about 12 to 15 kinds over waves 1 to 3, not W2's 37.
+- **Chains between kinds come out of it, not out of scripts:** the mast cascade, the vole cycle with predators lagging, wolves
+  following deer, a hunted-out wood sending wolves to the herds.
+- **A pure function of the state and the day,** so the capacity model can run it forward under a harvest (living_populations step 2a).
+
+### 3.4 Beasts: one entity for kept and wild (the meso layer)
+- **Generalise herds into beast groups:** a kind (a RESOURCES row), a count by role, a node and parcel, a home, an owner or none,
+  and memory fields. Cows are rows on it, behaving exactly as today. The sounder, the deer herd, the wolf pack, later sheep, pigs,
+  poultry and hounds are rows on it too.
+- **Condensing:** where people are near and a whole-counted kind is in the area, a group forms from the area's count: its head is
+  taken out of the count while it exists and returned when it dissolves. It holds one actual place each night.
+- **Behaviour near people,** one step for every group:
+  - **the drive:** a target's value comes from the kind's diet and seasons, and its hunger from the macro layer's food per head in
+    the area. A mast failure in the area web is what sends the sounder out; no table says so.
+  - **the lead:** groups setting out pass through the parcels between, leaving traces (D2-197).
+  - **fences:** the engine's existing odds of getting through.
+  - **eating and trampling:** the engine's existing primitives.
+  - **watches:** resolved by the kind's answer to scares, with memory (D2-198).
+  - **after harm:** wariness.
+  - **individuals on demand** (D2-195).
+- This is what husbandry.md says: kept is when the habitat is a held place and the food a need someone meets. Domestic and wild
+  share one mechanism.
+
+### 3.5 Traces
+- Marks on parcels with a kind, what left them, an age, and facts: rooting, slots, droppings, a trampled strip, feathers, a kill.
+- They age each night and fade by the weather (rain erases, snow shows all).
+- They are what the senses read for animals that have passed (wild_systems §9.3).
+
+### 3.6 Signs read by skill
+- **Sign rows,** in the engine's existing format, read the population store (as density signs, like today's `game` rows), the beast
+  groups, the traces and the drivers (catkins, plovers ahead of a freeze, queens at the wall).
+- **One engine improvement: a reading per level** of the matching knack (novice, systematic, expert). Today the knack changes only
+  the chance of noticing. A row may also carry a likely misread for the untaught.
+- **Lore as tested belief** (wild_systems §9.5) comes later, on the engine's lore lines (D4-105).
+
+### 3.7 Acts
+- **Takes** are techniques: draws from the population store or from a group, with skill, gear, crew and danger outcomes (D2-193).
+  They replace the one generic `game` stock and the `hunt` technique.
+- **Deterrence and keeping** are acts that set what the night reads: a watch at a parcel with a scare, a fold, a pen, cats in a
+  granary, scaring birds, a crew at the weir. These are like herding marking a herd as watched today.
+- **Work by several** (D4-103 mechanism 1) carries hunts, drives and crews.
+
+### 3.8 Effects on the world (the bridge out)
+Every effect is one of the engine's own changes, through `w.apply`:
+- crops eaten or trampled (as herds do now);
+- stores lost (a pest term on a container's spoilage);
+- beasts killed (a herd's head);
+- carcasses left (things);
+- stocks drawn (fish, grass, young growth, mast);
+- land changed by engineers.
+
+Events are raised from what happened, never scripted ("a wolf raid" is a group eating at a fold, written up as an event).
+
+### 3.9 History before the run (from the generator)
+- The same ecology step, run with no people for some decades over the world's land and era, under its settlement history (woods
+  cleared by how long settled, D2-191), sets the starting counts, the groups by the villages, the traces, and the drivers' phases.
+- The record of that history seeds the world's lore: what the elders say happened, true or not (wild_systems §9.5).
+- A hand-made world without land gets areas from its parcels (the graph fallback, living_populations §2).
+
+### 3.10 The climate and the fast stocks (the foundation)
+- Everything reads the climate by place. Wave 1's work showed it needs calibration first:
+  - long freezes in 40 to 70% of winters, against real lowland winters that have one perhaps every five to ten years;
+  - era effects modest;
+  - a year's totals about a tenth of a real year's.
+- Spell lengths in engine days must be set against compressed time.
+- The fast stocks (soil water, snow, river flow), agreed in principle with 37.4, are what slugs, eel runs and frozen ground read.
+
+## 4. The bridge to the engine
+
+(Written from a survey of the engine's code; see §4 table.)
+
+## 5. Experiments: what was wrong with wave 1's, and how they should be designed
+
+| Wave 1 did | Instead |
+|---|---|
+| a standalone village with my own acts and costs | **engine runs:** real agents in worlds generated with the pack on, the work of a watch felt in the next day's hunger (D4-108) |
+| hand-written kinds with no web | kinds on the ecology step; tests that the chains appear under their conditions and not otherwise |
+| scripted readers over features I chose | the information in the signs measured from the state (what a reader could know), separately from what agents do with it |
+| real species the models already knew | an arm with **invented kinds and rules** (renamed, with rules unlike any real animal's), so learning is separated from knowing |
+| no null arm | the same world with the pack off (D4-104) |
+| two villages, one weather draw | several generated worlds and seeds per arm, sized for the effect |
+
+**The tests of the system itself, before any agent:**
+1. **No kind in code** (the guard test).
+2. **Replays exact,** with the pack on and off; cattle behave exactly as before.
+3. **Counts conserved** between areas, groups and takes.
+4. **Calibration** on generated worlds: densities near real anchors; years and eras varying as real ones do (W2's tests).
+5. **Chains appear only under their conditions:** a mast failure after a heavy mast sends boar to the fields; a hunted-out wood
+   sends wolves to the herds.
+6. **Responds to people within a run:** a watch, a hunt or a felling changes what happens within 12 days (wild_systems §8).
+7. **Relevance by village:** each kind moves some household's food or work by about 10% somewhere (node_ecology.md).
+8. **Variety by land:** villages differ in which kinds matter to them.
+
+## 6. Scope
+
+(Phases, sizes and who builds what: below.)
+
+## 7. Alternatives considered
+
+- **A separate wild world beside the engine** (wave 1 as built). Fast to try, but the society can only reach it through bridges, and
+  it drifts from the real world. Rejected.
+- **Kinds spread across parcels, herds, renewal, spoilage and forests, each where it touches.** Chains between kinds have no home,
+  and adding a kind means edits in five places. Rejected; this is how the generic `game` stock grew.
+- **The full W2 web of 37 kinds.** It was built for regional realism; a run needs the 12 to 15 kinds that the waves use.
+- **The field on a uniform 1 km grid** (living_populations §2a). The interface experiments show the area cut gives the same answers
+  far more cheaply.
+- **No coarse ecosystem, groups only** (pure Rain World). It loses the chains between kinds and the odds that make a group appear,
+  leave or return.
+
+## Open questions (for Zach)
+
+(below)
+
+## History
+
+- 9 Nov: proposed after Zach's points that wave 1 was not built as general systems and that everything should build up from the
+  generated environment; reconciles living_populations.md (and 37.4's review of it), W2, node_ecology.md, the interface experiments
+  and wild_systems.md.
+
+## Sources
+
+- living_populations.md, wild_systems.md, node_ecology.md, wildlife.md, husbandry.md, wild_plants.md;
+- 02zp parts two to six;
+- the engine's code (§4).
