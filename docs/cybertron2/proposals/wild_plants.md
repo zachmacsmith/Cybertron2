@@ -1,6 +1,7 @@
 # Proposal: wild plants, and the slow ecosystems they make
 
-**Status:** discussion (8 Nov). Nothing decided, nothing to build. **Owner:** 37.2, with 37.4 (the engine). **Affects:** data
+**Status:** partly accepted: D2-200 (step 1, the food kinds), D2-201 (poisonous plants), D2-202 (one stock for the wild kinds and
+people); succession, materials and herbs (steps 2 to 4) still in discussion. **Owner:** 37.2, with 37.4 (the engine). **Affects:** data
 (RESOURCES, ITEMS, TECHNIQUES as a `wild plants` pack, D4-104); landgen/ecology.py (where each grows); spec/environment/resources.md;
 proposals/wildlife.md §11, living_populations.md, temperate_landscapes.md; husbandry.md (what people make of them).
 
@@ -237,6 +238,10 @@ second choice when the first runs short.
   wildlife should live off particular plants or animals. Added §6: niches on five conditions with soft dominance per layer (the only
   plant interaction, replacing "no competition"), with the ladder kept for the cover; ruins joining succession; diets with a few
   specialists, and wild grazing holding succession. Questions 5 to 7.
+
+- 9 Nov: Zach answered open questions 1 and 2 "yes", and a third (the wild kinds eat the parcels' stocks) "yes" (D2-200 to
+  D2-202): step 1 is being built on the `ecology` branch (wild_layer.md §6a), with the food kinds of §2 placed by §6a's conditions.
+  Questions 3 to 7 (succession, wattle from withies, ruins, wild grazers holding succession) stay open.
 
 ## Sources
 
