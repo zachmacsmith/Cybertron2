@@ -358,6 +358,18 @@ def work_notices(here, mind, tech, key) -> str:
                 row["knows"] = f"expert:{'hunt' if group == 'hunt' else tech}"
             rows.append((row, n_.get("find")))
 
+    if tech == "gather wild food":                                         # an expert gatherer reads each kind's year here
+        from cybertron2.wild.plants import EXPERT as PEX
+        season = here.calendar()["season"]
+        for k, r in sorted(par["res"].items()):
+            ex = PEX.get(k)
+            if not ex or float((r.get("seasons") or {}).get(season, 0.0)) <= 0:
+                continue
+            f = float(r.get("f", 1.0))
+            txt = ex["heavy"] if f >= 1.3 else (ex["light"] if f <= 0.6 else None)
+            if txt:
+                rows.append((dict(when=lambda x: True, own=0.7, sense="sight", text=lambda x, t=txt: t, knows=f"expert:{tech}"), None))
+
     def rule(row):
         sense = row.get("sense", "sight")
         return float(row["own"]) * EV.visibility(w, here.node, parcel=key, sense=sense, cover=par.get("cover")) * (eye if sense in NOTICING["eye_senses"] else 1.0)
@@ -1165,6 +1177,22 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
 NOTICE_MOST = 2
 
 
+def _word(table, x) -> str:
+    return next(w_ for t, w_ in table if x >= t)
+
+
+def _state_words(m, st, k, areas, count) -> dict:
+    """What an expert reads of a kind in the areas hunted: about how many, its condition, its wariness, its hunger (kinds' words)."""
+    from cybertron2.wild.kinds import FAT_WORDS, WARY_WORDS, HUNGER_WORDS
+    import numpy as np
+    w8 = [float(st["pop"][k][i]) * float(m.km2[i]) for i in areas]
+    tot = sum(w8) or 1.0
+    cond_ = sum(float(np.asarray(st["cond"][k])[i]) * w_ for i, w_ in zip(areas, w8)) / tot
+    pres = sum(float(((st.get("pressure") or {}).get(k) or [0.0] * m.n)[i]) * w_ for i, w_ in zip(areas, w8)) / tot
+    n = int(round(count)) if count < 20 else int(round(count, -1))
+    return {"n": n, "fat": _word(FAT_WORDS, cond_), "wary": _word(WARY_WORDS, pres), "hunger": _word(HUNGER_WORDS, 1.0 - cond_)}
+
+
 def _notices(here, mind, m, st, areas, key, effort) -> list:
     """What a hunter notices of the kinds in the range they hunt, met or not (kinds.HUNT_NOTICES): a process of its own, as a
     traveller's notices on the road. Each row by the one rule (D4-75): its own plainness x how likely the kind's sign is there (its
@@ -1186,10 +1214,13 @@ def _notices(here, mind, m, st, areas, key, effort) -> list:
             continue
         detect = float(((RESOURCES.get(k) or {}).get("taken") or {}).get("detect", 0.2))
         pres[k] = 1.0 - math.exp(-0.15 * count * detect * effort)
+        fmt = _state_words(m, st, k, areas, count)
         for r in rs:
-            row = dict(when=lambda x: True, own=float(r["own"]) * pres[k], sense=r["sense"], text=lambda x, t=r["text"]: t, kind=k)
+            row = dict(when=lambda x: True, own=float(r["own"]) * pres[k], sense=r["sense"], text=lambda x, t=r["text"].format(**fmt): t, kind=k)
             if r["read"] in ("lay", "knows"):
                 row[r["read"]] = "hunt"
+            elif r["read"] == "expert":
+                row["knows"] = "expert:hunt"
             rows.append(row)
 
     def rule(row):

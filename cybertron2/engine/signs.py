@@ -322,6 +322,8 @@ CARCASS = [
          text=lambda x: f"the dead {x.beast} {x.at} is torn at the throat and flank, and much of it eaten"),
     dict(when=lambda x: (x.fresh or x.rotten) and x.killed and x.kill_reading, sense="sight", p=1.0, reach="near", knows="hunt",
          tags=["animals", "danger"], text=lambda x: x.kill_reading.format(beast=x.beast, at=x.at)),
+    dict(when=lambda x: (x.fresh or x.rotten) and (x.killed or x.sick) and x.expert_reading, sense="sight", p=1.0, reach="near",
+         knows="expert:hunt", tags=["animals", "danger"], text=lambda x: x.expert_reading),
     dict(when=lambda x: x.fresh and x.sick, sense="sight", p=1.0, reach="near", tags=["animals", "danger"],
          text=lambda x: f"the dead {x.beast} {x.at} is wasted and filthy with scour: a sickness took it"),
     dict(when=lambda x: (x.fresh or x.rotten) and x.sick and x.kill_reading, sense="sight", p=1.0, reach="near", knows="herd",
@@ -1695,7 +1697,8 @@ def carcass_context(w, c):
                            at=("by the road" if on_road else f"at {where}") + (f" ({c['tag']})" if c.get("tag") else ""), off_road=c.get("hidden") == "off the road",
                            age=age, fresh=TH.carcass_fresh(w, c) and not bones, rotten=not TH.carcass_fresh(w, c) and not bones,
                            bones=bones, starved=c.get("cause") == "starved", killed=c.get("cause") == "killed",
-                           sick=c.get("cause") == "sick", kill_reading=_kill_reading(c.get("by")), hide=c["goods"].get("hide", 0) > 0,
+                           sick=c.get("cause") == "sick", kill_reading=_kill_reading(c.get("by")),
+                           expert_reading=_expert_kill(c.get("by")), hide=c["goods"].get("hide", 0) > 0,
                            meat=c["goods"].get("meat", 0) > 0, cold=w.cold(TH.where(w, c)), warm=not w.cold(TH.where(w, c)), weather=EV.weather(w, TH.where(w, c)),
                            snow=EV.snow_lying(w, TH.where(w, c)), dogs=not on_road and any(b["node"] == c.get("node") and b["fittings"].get("dog")
                                                                             for b in w.s["buildings"].values()))
@@ -1705,6 +1708,11 @@ def _kill_reading(kind):
     """How the practised read a beast a wild kind killed (kinds.KILL_READINGS) or a disease (kinds.DISEASE_SIGNS)."""
     from cybertron2.wild.kinds import KILL_READINGS, DISEASE_SIGNS
     return (KILL_READINGS.get(kind) or (DISEASE_SIGNS.get(kind) or {}).get("carcass")) if kind else None
+
+
+def _expert_kill(kind):
+    from cybertron2.wild.kinds import EXPERT_KILL
+    return EXPERT_KILL.get(kind) if kind else None
 
 
 def slaughter_context(here, pid):
@@ -1872,7 +1880,8 @@ def _wild_presence(here, add) -> None:
                 v = sum(float(st["pop"][kind][i]) * float(m.km2[i]) for i in far)
                 hit = v >= float(pr.get("count", 1))
             else:
-                v = float(st["pop"][kind][ring])
+                at = m.ids.index(land["home"][here.node]) if pr["where"] == "home" and here.node in land.get("home", {}) else ring
+                v = float(st["pop"][kind][at])
                 hit = ("min" in pr and v >= float(pr["min"])) or ("max" in pr and v <= float(pr["max"]))
             if hit:
                 rows.append((kind, pr))
@@ -1881,11 +1890,12 @@ def _wild_presence(here, add) -> None:
         rows.append(("raven", RAVENS_OVER))
     x = event_context(here, here.parcels()[spot]["name"], here.day)
     for i, (kind, pr) in enumerate(rows):
-        for key in ("lay", "knows"):
+        for key in ("lay", "knows", "expert"):
             if pr.get(key):
                 row = dict(when=lambda x: True, own=0.5, sense="sound" if "calling" in pr[key] or "howling" in pr[key] else "sight",
                            tags=["animals"], text=lambda x, t=pr[key]: t)
-                spot_rows(here, [row], x, [f"parcel:{spot}"], here.node, spot, add, name=f"wildp{i}{key}", **{key: "hunt"})
+                kw = {"knows": "expert:hunt"} if key == "expert" else {key: "hunt"}
+                spot_rows(here, [row], x, [f"parcel:{spot}"], here.node, spot, add, name=f"wildp{i}{key}", **kw)
 
 
 def _wild_emit(here, rows, x, sub, pid, add, name, fmt, age, who=None, tags=("animals", "farming"), key="hunt") -> None:
@@ -2014,14 +2024,14 @@ def _wild_loads(here, add) -> None:
     pars = sorted(here.parcels().items())
     spot = lambda covers: next((pid for pid, p in pars if p["cover"] in covers), pars[0][0] if pars else None)
 
-    def emit(rows, pid, name, read, age=0):
+    def emit(rows, pid, name, read, age=0, fmt=None):
         if pid is None:
             return
         p = here.parcels()[pid]
         rows = [r for r in rows if r["read"] == "all" or read]                 # a reading needs a practice to read it by
         x = event_context(here, p["name"], here.day - age)
-        _wild_emit(here, rows, x, [f"parcel:{pid}"], pid, add, name, dict(place=p["name"]), age, tags=("animals", "farming", "season"),
-                   key=read or "hunt")
+        _wild_emit(here, rows, x, [f"parcel:{pid}"], pid, add, name, dict(place=p["name"], **(fmt or {})), age,
+                   tags=("animals", "farming", "season"), key=read or "hunt")
     prev = L.get("prev") or {}
     for k, spec in sorted(LOADS.items()):
         sg = LOAD_SIGNS.get(k)
@@ -2040,7 +2050,11 @@ def _wild_loads(here, add) -> None:
     for name, mk in sorted(MARKERS.items()):
         d0 = ((L.get("marks") or {}).get(name) or [None] * m.n)[i]
         if d0 is not None and 0 <= day - int(d0) <= 0:
-            emit(mk["rows"], spot(["scrub", "forest", "pasture", "meadow", "field"]), f"wildmark{name[:4]}", mk.get("read"))
+            off = (int(d0) % w.year_days()) - int(mk.get("usual", int(d0) % w.year_days()))
+            when = "early" if off <= -2 else "late" if off >= 2 else "at its usual time"
+            when2 = "sooner than most years" if off <= -2 else "later than most years" if off >= 2 else "as in most years"
+            emit(mk["rows"], spot(["scrub", "forest", "pasture", "meadow", "field"]), f"wildmark{name[:4]}", mk.get("read"),
+                 fmt={"when": when, "when2": when2})
 
 
 def _wild_when(here, add) -> None:

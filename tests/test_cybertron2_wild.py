@@ -899,3 +899,61 @@ def test_the_first_rain_after_a_dry_spell_brings_the_slugs_out():
         LD.step(m, st, 4, np.array([10.0]), np.array([5.0]), np.array([False]), np.array([1.2]), np.array([1.2 - jump]))
         return st["loads"]["level"]["slugs"][0]
     assert run(0.6) > run(0.0)
+
+
+# ---------------------------------------------------------------------- the expert's readings (L3) for every kind
+def test_an_expert_hunter_reads_how_many_and_in_what_condition(generated):
+    w, WL, wood = _hunters(generated, n=60, knows=())
+    m, ri = _ring(w, WL)
+    w.s["wild"]["state"]["pop"]["wild boar"][ri] = 40.0 / m.km2[ri]
+    for i in range(30):
+        w.s["know"][f"H{i}"] = {"hunt the wild": {"level": "known", "skill": 1.5}}                 # experts
+    for i in range(30, 60):
+        w.s["know"][f"H{i}"] = {"hunt the wild": {"level": "known", "skill": 1.2}}                 # practised
+    go = lambda i: _do(w, f"H{i}", {"do": "gather", "what": "hunt the wild", "at": wood, "range": "the wood around"})
+    exp, prac = [go(i) for i in range(30)], [go(i) for i in range(30, 60)]
+    pat = re.compile(r"about \d+ [a-z ]+?(use this ground|hold the thickets|on this land|over this land|ranges this land)[^.;]*?(fat|fair|lean|starving)")
+    assert any(pat.search(r) for r in exp) and not any(pat.search(r) for r in prac)
+
+
+def test_an_expert_reads_the_voles_in_the_owl_pellets(generated):
+    world = _two(generated)
+    world["agents"]["Ann"]["knows"] = {"hunt the wild": {"level": "known", "skill": 1.5}}
+    world["agents"]["Tom"]["knows"] = {"hunt the wild": {"level": "known", "skill": 1.2}}
+    w, WL = _summer_world(world)
+    m, ri = _ring(w, WL)
+    w.s["wild"]["state"]["pop"]["voles and mice"][ri] = 4000.0
+    assert any("pellets" in t for t in _read(w, "Ann", "#wildp")) and not any("pellets" in t for t in _read(w, "Tom", "#wildp"))
+
+
+def test_an_expert_reads_what_a_kill_means_for_the_herd(generated):
+    from cybertron2.engine import signs as SG, things as TH
+    w, WL = _summer_world(generated)
+    pid = next(p for p, x in w.s["parcels"].items() if x["node"] == "s1" and x["cover"] == "pasture")
+    cid = TH.leave_carcass(w, "s1", "cow", "the Ash cattle", [], "killed", {"meat": 4.0, "hide": 1}, parcel=pid, by="wolf")
+    rows, x = SG.bundle(w, w.s["containers"][cid])
+    exp = [r for _, r in SG.true_rows(rows, x) if r.get("knows") == "expert:hunt"]
+    assert exp and "back to this herd" in exp[0]["text"](x)
+
+
+def test_an_expert_knows_oak_before_ash_says_nothing_of_the_summer(generated):
+    world = _two(generated)
+    world["agents"]["Ann"]["knows"] = {"sow": {"level": "known", "skill": 1.5}}
+    world["agents"]["Tom"]["knows"] = {"sow": {"level": "known", "skill": 1.2}}
+    w, WL = _summer_world(world)
+    m, i = _home_i(w, WL)
+    L = w.s["wild"]["state"]["loads"]
+    L["marks"] = {"oak and ash": [None] * m.n}
+    L["marks"]["oak and ash"][i] = WL.eco_day(w)
+    ann, tom = _read(w, "Ann", "#wildmark"), _read(w, "Tom", "#wildmark")
+    assert any("nothing of the summer" in t for t in ann) and not any("nothing of the summer" in t for t in tom)
+    assert any("only a splash" in t for t in tom)                                               # the practised hold the saying
+
+
+def test_an_expert_gatherer_reads_a_heavy_year_in_the_hazels(generated):
+    w, WL, wood = _autumn_wood(generated, people=30, knows={"gather wild food": {"level": "known", "skill": 1.5}})
+    for p in w.s["parcels"].values():
+        if "hazel nuts" in p["res"]:
+            p["res"]["hazel nuts"].update(f=1.6, S=p["res"]["hazel nuts"]["K"])
+    rs = [_do(w, f"G{i}", {"do": "gather", "what": "gather wild food", "at": wood["name"]}) for i in range(30)]
+    assert any("hazels here are heavy" in r for r in rs)

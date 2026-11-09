@@ -205,7 +205,12 @@ SIGNS = {
 }
 # how one who has hunted reads a beast a wild kind killed (signs.CARCASS)
 KILL_READINGS = {"wolf": "wolves killed the {beast} {at}: the throat bitten through from behind, great tracks trodden all round",
-                 "fox": "a fox's kill {at}: the head bitten off, the rest dragged"}
+                 "fox": "a fox's kill {at}: the head bitten off, the rest dragged",
+                 "brown bear": "a bear killed the {beast} {at}: the neck broken by one blow, the carcass half dragged toward the wood"}
+EXPERT_KILL = {"wolf": "by the tracks a pack of four or five; they will be back to this herd within days unless it is watched or brought in",
+               "brown bear": "a bear will come back to its kill; it is lying up near, and the carcass is best left or burned",
+               "murrain": "the murrain: the beasts that live through it will not take it again; burn this one and keep the rest from it",
+               "swine fever": "swine fever: the carcass keeps it; burn it, and keep the pigs from the wood"}
 # ---------------------------------------------------------------------- the conditional layers (wild_systems.md §6, L0-L3; 02zq)
 # Conditions (engine/wild.cond): seasons {si: (first day, last)}; frozen_run n (engine days frozen in a row); snow; mast [levels]
 # (this autumn's; mast_last: last autumn's); hungry x (1 - condition in the ring); pressure x (hunting on the ring); hard_winter n
@@ -300,8 +305,11 @@ RAID_SIGNS = {
 }
 # the expert's readings (L3) of a group's traces, beyond the practised hunter's
 EXPERT_SIGNS = {
-    "wild boar": {"edge": [R("expert", "sight", 0.6, (1, 2), "the sounder's run comes out of {place} by one gap in the thorn: watch the gap and you meet them")]},
-    "red deer": {"edge": [R("expert", "sight", 0.6, (1, 2), "the deer come through a rack broken in the hedge by {place}: hinds and calves by the slots, one big stag")]},
+    "wild boar": {"edge": [R("expert", "sight", 0.6, (1, 2), "the sounder's run comes out of {place} by one gap in the thorn: watch the gap and you meet them")],
+                  "raid": [R("expert", "sight", 0.7, (1, 2), "the sounder will be back tonight, by the same gap: a new scare or a dog turns them; the same fire won't for long")],
+                  "turned": [R("expert", "sight", 0.6, (1, 1), "turned once by the {scare}; they get used to the same scare in a few nights")]},
+    "red deer": {"edge": [R("expert", "sight", 0.6, (1, 2), "the deer come through a rack broken in the hedge by {place}: hinds and calves by the slots, one big stag")],
+                 "raid": [R("expert", "sight", 0.6, (1, 2), "they'll be back to the young corn while it's tender; hunting the wood by day keeps them off it")]},
     "wolf": {"edge": [R("lay", "sight", 0.5, (1, 2), "a big dog's tracks along the wood's edge"),
                       R("expert", "sight", 0.6, (1, 2), "wolf tracks, not a dog's: four toes in a straight line and the scat full of hair and bone")],
              "raid": [R("expert", "sight", 0.6, (1, 2), "the wolves will come back to the herd that fed them: watch it or bring it in")]},
@@ -380,29 +388,55 @@ MAST_WINDOWS = {"flowering": (0, 5, 7), "fallen": (2, 0, 2)}
 # many and how easy to read, whether or not one is met
 HUNT_NOTICES = {
     "wild boar": [R("lay", "sight", 0.5, (0, 0), "rooted ground and a wallow in the wood"),
-                  R("knows", "sight", 0.7, (0, 0), "boar sign through the wood: a fresh wallow, rubbed trees, a sounder's rooting")],
+                  R("knows", "sight", 0.7, (0, 0), "boar sign through the wood: a fresh wallow, rubbed trees, a sounder's rooting"),
+                  R("expert", "sight", 0.6, (0, 0), "by the lie-ups and the prints, about {n} boar use this ground, {fat}; they are {wary}")],
     "red deer": [R("lay", "sight", 0.4, (0, 0), "slots in the soft ground of the rides"),
-                 R("knows", "sight", 0.6, (0, 0), "red deer slots on the rides and fraying on the young trees: a herd uses this wood")],
-    "roe deer": [R("knows", "sight", 0.5, (0, 0), "roe slots and browsed bramble tips: roe in the thicket")],
-    "brown hare": [R("all", "sight", 0.25, (0, 0), "a hare going away over the open ground")],         # common: plain but seldom worth saying
+                 R("knows", "sight", 0.6, (0, 0), "red deer slots on the rides and fraying on the young trees: a herd uses this wood"),
+                 R("expert", "sight", 0.6, (0, 0), "about {n} red deer use this ground by the slots and the beds, {fat}; they are {wary}")],
+    "roe deer": [R("knows", "sight", 0.5, (0, 0), "roe slots and browsed bramble tips: roe in the thicket"),
+                 R("expert", "sight", 0.5, (0, 0), "about {n} roe hold the thickets here, each to its own patch, {fat}; they are {wary}")],
+    "brown hare": [R("all", "sight", 0.25, (0, 0), "a hare going away over the open ground"),
+                   R("expert", "sight", 0.4, (0, 0), "hares lying out in their forms on the open ground, about {n} on this land, {fat}")],
+    "woodpigeon": [R("knows", "sight", 0.4, (0, 0), "woodpigeons in flocks along the wood's edge"),
+                   R("expert", "sight", 0.4, (0, 0), "about {n} woodpigeons feeding here, {fat}: when the mast fails they go to the young corn")],
     "wolf": [R("lay", "sight", 0.4, (0, 0), "big dog-like tracks crossing the ride"),
-             R("knows", "sight", 0.6, (0, 0), "wolf tracks crossing the ride, and an old kill picked clean")],
-    "fox": [R("knows", "smell", 0.4, (0, 0), "a fox's musk on a stile")],
-    "wildfowl": [R("all", "sight", 0.6, (0, 0), "duck and geese on the open water")],
-    "brown bear": [R("knows", "sight", 0.7, (0, 0), "great claw marks high on a beech, and a stone rolled over")],
+             R("knows", "sight", 0.6, (0, 0), "wolf tracks crossing the ride, and an old kill picked clean"),
+             R("expert", "sight", 0.6, (0, 0), "a pack of about {n} ranges this land, {fat}: {hunger}")],
+    "fox": [R("knows", "smell", 0.4, (0, 0), "a fox's musk on a stile"),
+            R("expert", "sight", 0.4, (0, 0), "about {n} foxes over this land by the earths and the scats, {fat}: {hunger}")],
+    "wildfowl": [R("all", "sight", 0.6, (0, 0), "duck and geese on the open water"),
+                 R("expert", "sight", 0.5, (0, 0), "about {n} fowl on the water, {fat}")],
+    "eel": [R("expert", "sight", 0.4, (0, 0), "eels in the mud of the pools and the dykes, about {n}: they run on the dark wet nights of autumn")],
+    "brown bear": [R("knows", "sight", 0.7, (0, 0), "great claw marks high on a beech, and a stone rolled over"),
+                   R("expert", "sight", 0.7, (0, 0), "one bear ranges these woods, {fat}: {hunger}")],
 }
+# the state an expert reads in a hunt's notices: a kind's condition, its wariness, its hunger (engine/wild._notices)
+FAT_WORDS = ((0.75, "fat and in good fettle"), (0.45, "in fair condition"), (0.25, "lean"), (0.0, "starving"))
+WARY_WORDS = ((1.0, "wary from the hunting, lying up by day"), (0.3, "a little wary"), (0.0, "unwary"))
+HUNGER_WORDS = ((0.5, "hungry enough to come in to the herds and the hens"), (0.0, "with game enough out here not to come near"))
 
 
 # what a kind's numbers near a village show (wild_layer.md §3.6): the highest row its density reaches, read two ways. `where`: the
 # village's own land or the ring around; `per`: density a km2 (`count` for heads in the ring and the land beyond, for packs).
 PRESENCE = {
     "voles and mice": [{"where": "ring", "min": 2400, "lay": "kestrels hanging in the wind over the grass, owls calling at night",
-                        "knows": "the long grass is thick with voles: runways everywhere, kestrels over every field"},
-                       {"where": "ring", "max": 900, "lay": "", "knows": "no owl calling these nights, and few runways in the grass: the voles are few"}],
-    "owls": [{"where": "ring", "min": 1.2, "lay": "owls calling round the village at night", "knows": "owls calling all round at night: good hunting for them"}],
-    "wolf": [{"where": "far", "count": 3, "lay": "howling far off in the night", "knows": "wolves howling from the woods at night: a pack ranging near"}],
-    "wild boar": [{"where": "ring", "min": 1.0, "lay": "", "knows": "boar sign all through the wood: wallows, rubbed trees, rooted rides"}],
-    "red deer": [{"where": "ring", "min": 0.5, "lay": "", "knows": "deer slots along the rides and hinds with calves in the clearings"}],
+                        "knows": "the long grass is thick with voles: runways everywhere, kestrels over every field",
+                        "expert": "owl pellets thick with vole skulls under the barn beam: a vole year; the owls and foxes will breed well"},
+                       {"where": "ring", "max": 900, "lay": "", "knows": "no owl calling these nights, and few runways in the grass: the voles are few",
+                        "expert": "the voles have crashed: the owls are silent, and the foxes will turn to the hens and the nests"}],
+    "owls": [{"where": "ring", "min": 1.2, "lay": "owls calling round the village at night", "knows": "owls calling all round at night: good hunting for them",
+              "expert": "a barn owl working the rick-yard every dusk: it keeps the mice from the stores, worth its keep"}],
+    "rats": [{"where": "home", "min": 60, "lay": "droppings along the walls and something scuttling in the thatch at night",
+              "knows": "rat runs along the walls and gnawed holes at the foot of the doors",
+              "expert": "rats breeding in the thatch and under the floors: full barns and a mild winter will double them by spring; a terrier or a raised floor"}],
+    "wolf": [{"where": "far", "count": 3, "lay": "howling far off in the night", "knows": "wolves howling from the woods at night: a pack ranging near",
+              "expert": "the howls come from two places and answer each other: one pack, its range taking in this valley"}],
+    "wild boar": [{"where": "ring", "min": 1.0, "lay": "", "knows": "boar sign all through the wood: wallows, rubbed trees, rooted rides",
+                   "expert": "the rubbing trees muddied to the height of a big boar: a sounder of sows and young, with a boar coming in for the rut"}],
+    "red deer": [{"where": "ring", "min": 0.5, "lay": "", "knows": "deer slots along the rides and hinds with calves in the clearings",
+                  "expert": "the deer keep to the far side of the wood by day and come to the edges at dusk"}],
+    "raven": [{"where": "ring", "min": 0.15, "lay": "", "knows": "a raven pair croaking over the crags",
+               "expert": "the ravens hold the crags all year; where they gather is where something lies dead"}],
 }
 RAVENS_OVER = {"min_carrion": 20.0, "lay": "ravens wheeling over the wood", "knows": "ravens over the wood: something lies dead there, a kill or a carcass"}
 
@@ -461,13 +495,16 @@ LOAD_SIGNS = {
               "least": 1.6},
     "aphids": {"level": [R("lay", "sight", 0.6, (0, 0), "the bean tops black with fly"),
                          R("all", "sight", 0.4, (0, 0), "ants running up and down the bean stems"),
-                         R("knows", "sight", 0.7, (0, 0), "blackfly thick on the bean tops: the beans will be poor unless the tops come off or the ladybirds come")],
+                         R("knows", "sight", 0.7, (0, 0), "blackfly thick on the bean tops: the beans will be poor unless the tops come off or the ladybirds come"),
+                         R("expert", "sight", 0.6, (0, 0), "the fly is up with the warm spell; the ladybirds come a week behind it: top only the worst of the beans")],
                "harm": [R("all", "sight", 0.8, (0, 1), "the crop in {place} sticky and curled, black with fly")], "least": 1.5},
     "ladybirds": {"level": [R("all", "sight", 0.6, (0, 0), "ladybirds everywhere on the beans and the nettles"),
                             R("lay", "sight", 0.6, (0, 0), "grey spiny grubs crawling among the fly on the beans: some new pest"),
-                            R("knows", "sight", 0.6, (0, 0), "the ladybirds are on the beans, their spiny grey grubs among the fly: leave them, the fly will be gone in a few days")], "least": 1.2},
+                            R("knows", "sight", 0.6, (0, 0), "the ladybirds are on the beans, their spiny grey grubs among the fly: leave them, the fly will be gone in a few days"),
+                            R("expert", "sight", 0.5, (0, 0), "the ladybirds have caught up with the fly; a cold snap now would hold them back more than the fly")], "least": 1.2},
     "fungi": {"level": [R("all", "sight", 0.8, (0, 0), "mushrooms pushing up all through {place} after the rain"),
-                        R("knows", "sight", 0.7, (0, 0), "a flush of ceps and field mushrooms in {place}: good picking for a few days")], "least": 1.3},
+                        R("knows", "sight", 0.7, (0, 0), "a flush of ceps and field mushrooms in {place}: good picking for a few days"),
+                        R("expert", "sight", 0.6, (0, 0), "among the good ones in {place} the pale caps with white gills and a cup at the foot: those kill")], "least": 1.3},
 }
 LOAD_READ = {"slugs": "sow", "aphids": "sow", "ladybirds": "sow", "fungi": "forage"}     # whose practice reads a load's `knows` rows
 # phenology (calendar markers): each comes when the year's warmth (degree days over 5 C from the start of spring, real days) passes
@@ -476,22 +513,24 @@ LOAD_READ = {"slugs": "sow", "aphids": "sow", "ladybirds": "sow", "fungi": "fora
 # Measured on the steady, cold and wet climates (12 years, five villages): a frost after the blackthorn in 15-18 of 60 years, after
 # the may in none, after oak-and-ash leafing in 1; oak before ash has no tie to the summer's rain here.
 MARKERS = {
-    "blackthorn": {"gdd": 60, "rows": [R("all", "sight", 0.9, (0, 0), "the blackthorn white along the hedges"),
+    "blackthorn": {"gdd": 60, "usual": 2, "rows": [R("expert", "sight", 0.6, (0, 0), "the blackthorn is {when} this year: the ground is warming {when2}"),R("all", "sight", 0.9, (0, 0), "the blackthorn white along the hedges"),
                                        R("knows", "sight", 0.7, (0, 0), "the blackthorn in flower: the ground is warming for the spring corn, but a cold snap often follows the blackthorn")],
                    "read": "sow", "lore": "holds"},
-    "swallows": {"gdd": 140, "rows": [R("all", "sight", 0.8, (0, 0), "the first swallows over the village")], "lore": None},
-    "cuckoo": {"gdd": 160, "rows": [R("all", "sound", 1.0, (0, 0), "the first cuckoo calling from the wood")], "lore": None},
+    "swallows": {"gdd": 140, "usual": 4, "rows": [R("all", "sight", 0.8, (0, 0), "the first swallows over the village"),
+                                                  R("expert", "sight", 0.5, (0, 0), "the swallows are back {when}")], "read": "hunt", "lore": None},
+    "cuckoo": {"gdd": 160, "usual": 5, "rows": [R("all", "sound", 1.0, (0, 0), "the first cuckoo calling from the wood"),
+                                                R("expert", "sound", 0.5, (0, 0), "the cuckoo {when} this year")], "read": "hunt", "lore": None},
     "frogspawn": {"after": {"season": 0, "until": 0, "soil": 1.2, "temp": 6.0},
                   "rows": [R("all", "sight", 0.7, (0, 0), "frogspawn in the ditches after the first mild wet night"),
                            R("expert", "sight", 0.4, (0, 0), "the toads walking back to their own pond, the same one every year")],
                   "read": "sow", "lore": None},
-    "oak and ash": {"gdd": 220, "rows": [R("all", "sight", 0.6, (0, 0), "the oaks in leaf before the ash this year"),
+    "oak and ash": {"gdd": 220, "usual": 7, "rows": [R("expert", "sight", 0.6, (0, 0), "oak before ash shows a warm spring, nothing more: it tells you nothing of the summer's rain"),R("all", "sight", 0.6, (0, 0), "the oaks in leaf before the ash this year"),
                                          R("knows", "sight", 0.6, (0, 0), "oak before ash: only a splash, they say; a dry summer to come")],
                     "read": "sow", "lore": "fails"},
-    "may": {"gdd": 330, "rows": [R("all", "sight", 0.9, (0, 0), "the may in blossom on every hawthorn"),
+    "may": {"gdd": 330, "usual": 8, "rows": [R("expert", "sight", 0.6, (0, 0), "the may is out {when} this year: the tender crops can go in"),R("all", "sight", 0.9, (0, 0), "the may in blossom on every hawthorn"),
                                  R("knows", "sight", 0.7, (0, 0), "the may is out: the frosts are done with, and the tender crops are safe")],
             "read": "sow", "lore": "holds"},
-    "first frost": {"after": {"season": 2, "low": 0.0}, "rows": [R("all", "sight", 0.9, (0, 0), "the first white frost on the grass this morning"),
+    "first frost": {"after": {"season": 2, "low": 0.0}, "usual": 24, "rows": [R("expert", "sight", 0.6, (0, 0), "the first frost has come {when}"),R("all", "sight", 0.9, (0, 0), "the first white frost on the grass this morning"),
                                                                  R("knows", "sight", 0.7, (0, 0), "the first frost: get in what is left in the fields before the hard ones")],
                     "read": "reap", "lore": "holds"},
 }
@@ -522,18 +561,22 @@ DISEASES = {
 # and how one who knows herding reads a beast it killed (`carcass`)
 DISEASE_SIGNS = {
     "murrain": {"herd": [R("lay", "sight", 0.9, (0, 0), "beasts of {herd} off their feed, running at the eyes and nose, their dung loose"),
-                         R("knows", "sight", 0.9, (0, 0), "murrain in {herd}: keep them off the common grass and away from every other herd, or it will go through them all")],
+                         R("knows", "sight", 0.9, (0, 0), "murrain in {herd}: keep them off the common grass and away from every other herd, or it will go through them all"),
+                         R("expert", "sight", 0.8, (0, 0), "murrain in {herd}: a beast that lives through it won't take it again; it goes worst where herds share the grass")],
                 "wild": [R("knows", "sight", 0.5, (0, 0), "a deer lying dead at the wood's edge, wasted and scoured: the murrain is among the deer")],
                 "carcass": "the {beast} {at} died of the murrain: wasted, the mouth raw, filthy with scour; keep the others away from it",
                 "least": 0.15, "read": "herd", "wild_read": "hunt"},
     "mange": {"wild": [R("lay", "sight", 0.5, (0, 0), "a thin fox seen by day near the houses, half its coat gone grey and bare"),
-                       R("knows", "sight", 0.6, (0, 0), "mange among the foxes: a bare, scratching fox by day; there will be fewer of them at the hens")],
+                       R("knows", "sight", 0.6, (0, 0), "mange among the foxes: a bare, scratching fox by day; there will be fewer of them at the hens"),
+                       R("expert", "sight", 0.5, (0, 0), "mange sweeps the foxes when they are many; it burns out in a season and they stay fewer a year or two")],
               "least": 0.25, "read": "hunt"},
     "swine fever": {"wild": [R("all", "sight", 0.6, (0, 0), "a dead boar in the wood, untouched by the crows"),
-                             R("knows", "sight", 0.6, (0, 0), "dead boar in the wood: a sickness in the sounders; keep any pigs out of the wood")],
+                             R("knows", "sight", 0.6, (0, 0), "dead boar in the wood: a sickness in the sounders; keep any pigs out of the wood"),
+                             R("expert", "sight", 0.5, (0, 0), "swine fever in the boar, worst in the cold: the sounders will be thin next year, and the fields quieter")],
                     "least": 0.15, "read": "hunt"},
     "hare sickness": {"wild": [R("all", "sight", 0.6, (0, 0), "hares lying dead in the open fields, untouched"),
-                               R("knows", "sight", 0.5, (0, 0), "a sickness among the hares: dead ones in the open; leave them lie")],
+                               R("knows", "sight", 0.5, (0, 0), "a sickness among the hares: dead ones in the open; leave them lie"),
+                               R("expert", "sight", 0.4, (0, 0), "the hare sickness comes when they are thick; there will be few to snare till next spring")],
                       "least": 0.2, "read": "hunt"},
 }
 

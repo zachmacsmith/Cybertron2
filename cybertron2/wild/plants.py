@@ -61,6 +61,20 @@ PLANTS = {
                                                         "alder carr": 0.0, "birch and pine wood": 0.0}, "swing": ("mast", 1.0), "ease": 0.8,
                    "words": "beech nuts"},
 }
+# what an expert gatherer reads of a kind's year on the parcel being worked (its `f`: heavy at or over 1.3, light at or under 0.6)
+EXPERT = {
+    "hazel nuts": {"heavy": "the hazels here are heavy this year: gather now before the squirrels and the mice have them",
+                   "light": "a light year for nuts in these hazels: better ground elsewhere"},
+    "acorns": {"heavy": "a mast year: acorns enough here to fatten pigs, and the boar will stay in the woods",
+               "light": "hardly any acorns: the boar and the pigeons will be out at the fields"},
+    "beech mast": {"heavy": "the beech is masting: nuts thick under the trees, this comes only every few years",
+                   "light": "no beech mast this year"},
+    "berries": {"heavy": "a heavy year for berries after the warm spring", "light": "the berries poor after a cold spring"},
+    "hedge fruit": {"heavy": "the hedges heavy with sloes and crabs: they keep, gather them for the winter",
+                    "light": "little hedge fruit this year"},
+    "mushrooms": {"heavy": "a flush after the rain: they last only days", "light": "too dry for mushrooms"},
+    "wild greens": {"heavy": "the nettles and sorrel thick on this rich ground", "light": "the greens thin here"},
+}
 # the ecology's foods that are these stocks on a village's own land (D2-202): what the wild kinds eat there is drawn from them, and
 # what people take leaves less for the wild kinds; "young" and "grass" are the engine's own stocks (young growth; grazing)
 SHARED = {"mast": ["acorns", "beech mast"], "nuts": ["hazel nuts"], "fruit": ["berries", "hedge fruit"], "roots": ["roots"],
