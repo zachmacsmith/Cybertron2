@@ -18,7 +18,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 BASE = os.path.join(HERE, "wild_probe6.json")
 OUT = os.path.join(HERE, "wild_tests")
 SEEDS = [7, 8, 9]                   # run each arm on each seed: the wild layer's nights depend mostly on the seed (run 6)
-EEL_GOOD = "fish"                   # what an eel trap's catch is; set it to the eel's `taken.goods` once brief 2 gives it one
+EEL_GOOD = "meat"                   # an eel trap's catch (37.4: the eel's taken goods are meat, 0.1 a lift)
 
 MEADCOMBE_HEADS = {"Holt": "Ivy", "Wood": "Osric", "Carter": "Petronel"}
 BROOKFORD_HEADS = {"Moor": "Everard", "Dyer": "Alys", "Cotter": "Matthew"}
@@ -59,9 +59,9 @@ def t1_displacement():
     for arm in ("none", "watch_middle", "watch_both"):
         w = base("t1_displacement")
         if arm in ("watch_middle", "watch_both"):
-            every_day(w, "Thomasin", {"do": "work", "what": "guard", "at": "Middle Field"})
+            every_day(w, "Thomasin", {"do": "work", "what": "guard the field", "at": "Middle Field"})
         if arm == "watch_both":
-            every_day(w, "Osric", {"do": "work", "what": "guard", "at": "East Field"})
+            every_day(w, "Osric", {"do": "work", "what": "guard the field", "at": "East Field"})
         out.append(write(w, arm))
     return out
 
