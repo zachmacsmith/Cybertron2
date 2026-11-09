@@ -1,6 +1,6 @@
 # Carcasses, decay and what comes to them
 
-**Status:** ready for a decision (9 Nov). Nothing here is decided or built. **Build brief 3 of 3** for the wild layer's core:
+**Status:** accepted: D2-205, D2-207 (9 Nov); to be built after brief 2's gate. **Build brief 3 of 3** for the wild layer's core:
 stage 4 and pack K2 (docs/review/37_growth/02zv_wild_consolidation.md C9, C10, K2, as corrected against the engine by
 02zw_wild_engine_comparison.md). It starts after brief 2 ([wild_raiders_and_works.md](wild_raiders_and_works.md)) has passed its
 gate.
@@ -136,7 +136,7 @@ Each is an existing act, or an existing act on a carcass:
 
 ## Open questions (for Zach)
 
-1. Bodies scavenged as carcasses are (as here), with their signs told plainly: agreed?
+1. ~~Bodies scavenged~~ decided: D2-205.
 2. May 37.2 raise the touches in 37.4's files (§6) on the board?
 3. The sizes and timings (§2): right as a first calibration?
 
@@ -150,3 +150,4 @@ Each is an existing act, or an existing act on a carcass:
 docs/review/37_growth/02zw_wild_engine_comparison.md, 02zv_wild_consolidation.md (C9, C10, K2), 02zu_wild_chains_capital_actions.md
 Part D; proposals/carcasses.md, graves.md, things_in_places.md; branch `ecology`: `engine/things.py`, `night.py`, `signs.py`,
 `verbs.py`, `data.py`, `wild.py`, `wild/ecology.py`; D2-4, D2-21, D2-85, D2-96, D2-193, D2-199, D4-23, D4-52, D4-70, D4-99, D4-109.
+- 9 Nov 2026: Zach decided D2-205, D2-207 (bodies scavenged: yes; the cat by itself or found; one small live run after brief 2's gate) and asked for the briefs to be built; open points take the briefs' defaults.

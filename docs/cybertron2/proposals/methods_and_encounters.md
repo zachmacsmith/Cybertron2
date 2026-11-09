@@ -1,6 +1,6 @@
 # Methods and encounters: people answer the wild by general methods, not one action per animal
 
-**Status:** ready for a decision (9 Nov). Nothing here is decided or built. **Build brief 1 of 3** for the wild layer's core:
+**Status:** accepted: D2-204, D2-207 (9 Nov); to be built. **Build brief 1 of 3** for the wild layer's core:
 stage 0 and stage 1 and pack K0 (docs/review/37_growth/02zv_wild_consolidation.md §2.1, §4, as corrected against the engine by
 02zw_wild_engine_comparison.md). Brief 2 is [wild_raiders_and_works.md](wild_raiders_and_works.md) (stages 2 and 3, pack K1);
 brief 3 is [carcass_and_decay.md](carcass_and_decay.md) (stage 4, pack K2). Each is built and its gate passed before the next.
@@ -224,3 +224,4 @@ docs/review/37_growth/02zw_wild_engine_comparison.md, 02zv_wild_consolidation.md
 agent_view.md; spec/environment/wildlife.md; branch `ecology`: `engine/data.py`, `wild.py`, `verbs.py`, `knowledge.py`, `prompt.py`,
 `perceive.py`, `wild/kinds.py`; the scratchpad's `wild_run6/run.json`; D2-52, D2-93, D2-192, D2-198, D2-199, D2-203, D4-21, D4-24,
 D4-78, D4-103.
+- 9 Nov 2026: Zach decided D2-204, D2-207 (bodies scavenged: yes; the cat by itself or found; one small live run after brief 2's gate) and asked for the briefs to be built; open points take the briefs' defaults.

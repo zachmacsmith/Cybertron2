@@ -8,7 +8,11 @@ is, these rules wait for it.
 
 ## Decided
 
-- D2-192: the first wild kinds in four waves; each taken by its own technique and skill.
+- D2-192: the first wild kinds in four waves.
+- D2-204: people take and answer the wild by general methods, with skill by method and familiarity by kind (replaces D2-192's
+  own technique and skill per kind).
+- D2-205: carcasses and bodies are scavenged; a deep grave draws nothing.
+- D2-206: the cat comes by itself or is found.
 - D2-193: dangerous kinds can wound or kill the hunter.
 - D2-194: rights in wild kinds by law at a world's start; taking against them is poaching.
 - D2-195: legendary individuals, rare and named.
@@ -28,9 +32,11 @@ is, these rules wait for it.
   | later | rats and mice in stores; rabbits and warrens; pigeons and dovecotes; fishponds, deer parks, hives |
 
   Each kind's habitat, movement, season, count, goods and rarity are data (proposals/wildlife.md §4; calibrate).
-- **Taking** (D2-192): each kind is taken by its own technique with its own skill (stalking, a boar hunt, a drive, snaring,
-  trapping, eel trapping, fishing, fowling, honey-gathering, taking and training a hawk, and tracking to find a kind), so skill in
-  one does not make a person good at another. Gear, a crew or a trained beast multiply some (proposals/wildlife.md §5; calibrate).
+- **Taking** (D2-204): by general methods (hunt, stalk, drive, snare, net, trap in water, den work, gather young; pest work, guard
+  and shut for what raids), each taking what its needs and favours allow among the kinds' traits (size, runs, social, home, water,
+  a cue to move); skill is the method's, and a person's familiarity with a kind adds to it for that kind and gates its expert
+  readings; methods are known by upbringing and by what the land holds, and learnt as any craft (proposals/methods_and_encounters.md;
+  calibrate). Gear, a crew or a trained beast multiply some.
 - **Danger** (D2-193): a boar hunt without a crew or hounds, a bear, and a wolf at bay can wound or kill the hunter, by a chance
   that a crew, hounds and gear lower (calibrate).
 - **Rights** (D2-194): a world file may give at its start a right in a wild kind or its place (deer and their cover in a wood,
@@ -63,4 +69,8 @@ is, these rules wait for it.
 - The mechanism (proposals/living_populations.md).
 - Every number (densities, group sizes, skill effects, danger chances): calibrate.
 
-*Current as of 8 Nov 2026: D2-192 to D2-198.*
+- **Carcasses and bodies** (D2-205): a carcass, and a body unburied or shallowly buried, is food for the wild kinds that scavenge,
+  in stages by its size on the day's clock (proposals/carcass_and_decay.md; calibrate); a grave dug to its full units draws nothing.
+- **The cat** (D2-206): settles by itself at a building with mice, or is found and brought.
+
+*Current as of 9 Nov 2026: D2-192 to D2-198, D2-204 to D2-206.*

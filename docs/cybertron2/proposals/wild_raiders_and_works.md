@@ -1,6 +1,6 @@
 # Raiders, displacement and set works: what every village meets
 
-**Status:** ready for a decision (9 Nov). Nothing here is decided or built. **Build brief 2 of 3** for the wild layer's core:
+**Status:** accepted: D2-206, D2-207 (9 Nov); to be built after brief 1's gate. **Build brief 2 of 3** for the wild layer's core:
 stages 2 and 3 and pack K1 (docs/review/37_growth/02zv_wild_consolidation.md, as corrected against the engine by
 02zw_wild_engine_comparison.md). It starts only after brief 1 ([methods_and_encounters.md](methods_and_encounters.md)) has passed
 its gate.
@@ -99,7 +99,7 @@ Each is data on the rules above unless said.
 | **the fox** | raids hens and stores; `shut`; refill | `probe: 3` (§2); winter dispersal's faster refill is the ecology's (check) | one lax house raises its neighbours' tries and its own losses |
 | **birds at the corn** | rooks (site); pigeons as a density | the woodpigeon row (§3) | clappers turn the flock for a few nights, then it habituates; a displaced flock lands next door |
 | **stoat and weasel** | none | a kind: RESOURCES and ecology KINDS rows (in the ring; diet voles, rabbits when they exist, eggs, hens), `gap: small`, `climbs: true`, `near_people` targets `hens` (`probe: 3`, `answer: scared_off`), `taken.goods: hide` (ermine in winter, a goods quality later) | a shut wattle hen-house loses hens to the stoat and not the fox; mending it (stone or repair) stops both |
-| **the cat** | the dog fitting halves store loss (`STORE_KEEP`) | a fitting `cat` (no one builds it): each season a building with a store and mice in its area gains a cat with a keyed chance, unless it has a dog; it keeps tiny kinds off that store (STORE_KEEP cat, calibrate) and leaves if the store is empty for a season | a barn with a cat loses less to mice and rats; a dog keeps cats away |
+| **the cat** | the dog fitting halves store loss (`STORE_KEEP`) | a fitting `cat` (no one builds it; D2-206): each season a building with a store and mice in its area gains a cat with a keyed chance, unless it has a dog; or a person working near the village finds a stray (a find, keyed) and may bring it to a building they may use; it keeps tiny kinds off that store (STORE_KEEP cat, calibrate) and leaves if the store is empty for a season | a barn with a cat loses less to mice and rats; a dog keeps cats away |
 | **the owl hole** | owls are a kind | a fitting `owl hole` built in a barn (a build like other fittings, timber and a unit); a barn owl takes it with a keyed chance in spring if no one worked in that building at night; mice in that building's store fall by a share | a barn with an owl loses less to mice |
 | **moles** | loads (slugs, aphids, ladybirds, fungi) | a load `moles` on meadow and pasture (wet spring and autumn raise it); its harm is a cut of hay from that parcel at mowing; `pest work` answers it (the load's row: trapped in its runs, a cut for some days) | an untended meadow gives less hay in a mole year; one worked by someone familiar with moles loses little |
 | **the rooks' grubs** | the rookery's site and corn pulls | a load `grubs` (leatherjackets) on fields and pasture, raised by a wet autumn; the rookery's birds lower it on parcels within reach of the site each night (a share, calibrate); taking many young (gather young) or felling the rookery's wood lowers that share | a parcel near a rookery has fewer grubs; a rookery destroyed raises grub harm in its radius the next season |
@@ -144,8 +144,8 @@ Both are small and keep the files' rules; they need agreement on the board.
 
 ## Open questions (for Zach)
 
-1. Displacement on the same night (as here) or the next night?
-2. The cat as a fitting that arrives by itself (as here), or something a household must bring and keep?
+1. Displacement on the same night (as here, the default under D2-207) or the next night?
+2. ~~The cat~~ decided: D2-206 (by itself, or found and brought).
 3. May 37.2 raise the two touches in 37.4's files (§6) on the board?
 
 ## History
@@ -158,3 +158,4 @@ Both are small and keep the files' rules; they need agreement on the board.
 docs/review/37_growth/02zw_wild_engine_comparison.md, 02zv_wild_consolidation.md (C5 to C7, K1), 02zr_wild_behaviour_critique.md §1.2,
 §4.1, §4.5, §4.8, §4.12, M3, §6 nos. 1, 9, 14, 15, 22, 39; branch `ecology`: `engine/wild.py`, `engine/data.py`, `wild/kinds.py`,
 `wild/ecology.py`, `engine/things.py`, `engine/herds.py`; D2-21, D2-123, D2-198, D2-199, D2-203, D4-23, D4-70, D4-109, D4-114.
+- 9 Nov 2026: Zach decided D2-206, D2-207 (bodies scavenged: yes; the cat by itself or found; one small live run after brief 2's gate) and asked for the briefs to be built; open points take the briefs' defaults.
