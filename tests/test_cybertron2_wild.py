@@ -35,8 +35,9 @@ def build(world, packs=("wild",), era="steady", history=2):
 
 def test_no_kind_is_named_in_the_rule_code():
     """One registry, rules written once (wild_layer.md §3.2): the step, the engine's side and the land summary name no kind."""
-    words = {w for name in WK.KINDS for w in re.findall(r"[a-z]+", name) if len(w) > 3 and w not in ("wild", "mice", "brown")}
-    for path in ("cybertron2/wild/ecology.py", "cybertron2/engine/wild.py", "cybertron2/wild/areas.py"):
+    words = {w for name in list(WK.KINDS) + list(WK.LOADS) + list(WK.MARKERS) for w in re.findall(r"[a-z]+", name)
+             if len(w) > 3 and w not in ("wild", "mice", "brown", "first", "frost")}
+    for path in ("cybertron2/wild/ecology.py", "cybertron2/engine/wild.py", "cybertron2/wild/areas.py", "cybertron2/wild/loads.py"):
         tree = ast.parse(open(path).read())
         for node in ast.walk(tree):
             if isinstance(node, (ast.Module, ast.FunctionDef, ast.ClassDef)) and node.body and isinstance(node.body[0], ast.Expr) \
@@ -414,3 +415,115 @@ def test_a_mast_year_shows_under_the_oaks_in_the_autumn(generated):
     w.s["wild"]["state"]["mast_now"] = MAST["levels"]["heavy"]
     seen = _read(w, "Tom", "#wildmast") + _read(w, "Ann", "#wildmast")
     assert any("acorns lie thick" in t for t in seen)
+
+
+# ---------------------------------------------------------------------- wave 3: loads and the year's markers
+def _home_i(w, WL, node="s1"):
+    m = WL.model(w)
+    return m, m.ids.index(w.s["wild"]["land"]["home"][node])
+
+
+def _young_field(w, fam="grain", age=1):
+    from cybertron2.engine import farm as FM
+    pid = next(p for p, x in sorted(w.s["parcels"].items()) if x["node"] == "s1" and x["cover"] == "field")
+    par = w.s["parcels"][pid]
+    for _, _, c in FM.standing(par):
+        c.update(crop=fam, sown=w.d - age, left=10.0 * par["size"], area_left=par["size"])
+    return pid, par
+
+
+def test_a_slug_year_grazes_the_young_corn_and_picking_by_lantern_saves_some(generated):
+    from cybertron2.engine import farm as FM, night as N
+    from cybertron2.wild.kinds import LOADS
+    lost = {}
+    for guarded in (False, True):
+        w, WL = _summer_world(generated)
+        m, i = _home_i(w, WL)
+        pid, par = _young_field(w)
+        st = w.s["wild"]["state"]
+        st["loads"]["level"]["slugs"][i] = 3.5
+        st["soil"] = [2.5] * m.n                                                    # wet
+        if guarded:
+            w.apply("set_wild", "s1", path=["guard", pid], value={"load": "slugs", "cut": 0.6, "until": w.d, "by": "x"})
+        rec = N.night(w)
+        assert "slugs" in rec["wild"]["loads"]["hits"][pid] and "slugs" in w.s["wild"]["hits"][pid]
+        lost[guarded] = rec["wild"]["loads"]["hits"][pid]["slugs"]["lost"]
+    assert lost[False] > 0 and 0 < lost[True] < 0.6 * lost[False]
+
+
+def test_an_old_crop_is_out_of_the_slugs_window(generated):
+    from cybertron2.engine import farm as FM, night as N
+    w, WL = _summer_world(generated)
+    m, i = _home_i(w, WL)
+    pid, par = _young_field(w, age=20)
+    w.s["wild"]["state"]["loads"]["level"]["slugs"][i] = 3.5
+    w.s["wild"]["state"]["loads"]["level"]["aphids"][i] = 0.0
+    rec = N.night(w)
+    assert "slugs" not in rec["wild"]["loads"]["hits"].get(pid, {})
+
+
+def test_a_flush_of_fungi_fills_the_woods_wild_food_up_to_its_cap(generated):
+    from cybertron2.engine import night as N
+    w, WL = _summer_world(generated)
+    m, i = _home_i(w, WL)
+    woods = [p for p, x in w.s["parcels"].items() if x["node"] == "s1" and x["cover"] == "forest" and x["res"].get("plants")]
+    if not woods:
+        pytest.skip("no wood with wild food at s1")
+    for p in woods:
+        w.s["parcels"][p]["res"]["plants"]["S"] = 0.1
+    w.s["wild"]["state"]["loads"]["level"]["fungi"][i] = 2.5
+    N.night(w)
+    r = w.s["parcels"][woods[0]]["res"]["plants"]
+    assert r["S"] > 0.1 and r["S"] <= r["K"] + 1e-9
+
+
+def test_a_rising_slug_load_reads_two_ways_by_the_practice_of_sowing(generated):
+    world = _two(generated)
+    world["agents"]["Ann"]["knows"] = {"sow": {"level": "known", "skill": 1.6}}
+    w, WL = _summer_world(world)
+    m, i = _home_i(w, WL)
+    L = w.s["wild"]["state"]["loads"]
+    L["prev"] = {k: list(v) for k, v in L["level"].items()}
+    L["prev"]["slugs"][i], L["level"]["slugs"][i] = 0.8, 2.5
+    ann, tom = _read(w, "Ann", "#wildload"), _read(w, "Tom", "#wildload")
+    assert any("a slug year" in t for t in ann) and not any("silver slime" in t for t in ann)
+    assert any("silver slime" in t for t in tom) and not any("a slug year" in t for t in tom)
+    L["prev"]["slugs"][i] = 2.5                                                      # a standing level is not a change
+    assert not _read(w, "Tom", "#wildload")
+
+
+def test_the_years_markers_come_earlier_in_a_warm_spring():
+    from cybertron2.wild import loads as LD, kinds as K
+    from types import SimpleNamespace
+    m = SimpleNamespace(n=1, Y=32, S=8, land={"areas": {"a0": {"kind": "home", "km2": 1.0, "cover": {"field": 1.0}, "texture": {"loam": 1.0}}}},
+                        ids=["a0"])
+    def day_of(t):
+        st = {}
+        for d in range(16):
+            LD.step(m, st, d, np.array([t]), np.array([t - 5]), np.array([False]), np.array([1.0]))
+        return st["loads"]["marks"]["blackthorn"][0], st["loads"]["marks"]["may"][0]
+    cool, warm = day_of(8.0), day_of(12.0)
+    assert warm[0] < cool[0] and warm[1] < cool[1]
+
+
+def test_the_harm_of_a_load_shows_on_the_field_it_fell_on(generated):
+    w, WL = _summer_world(_two(generated))
+    pid, par = _young_field(w)
+    w.apply("set_wild", "s1", path=["hits"], value={pid: {"slugs": {"day": w.d, "share": 0.05, "lost": 1.0}}})
+    w.s["day"] += 1
+    assert any("grazed off to stumps" in t and par["name"] in t for t in _read(w, "Tom", "#wildhit") + _read(w, "Ann", "#wildhit"))
+
+
+def test_a_marker_shows_on_the_day_it_comes_with_the_sowers_lore(generated):
+    world = _two(generated)
+    world["agents"]["Ann"]["knows"] = {"sow": {"level": "known", "skill": 1.6}}
+    w, WL = _summer_world(world)
+    m, i = _home_i(w, WL)
+    L = w.s["wild"]["state"]["loads"]
+    L["marks"] = {"may": [None] * m.n}
+    L["marks"]["may"][i] = WL.eco_day(w)
+    ann, tom = _read(w, "Ann", "#wildmark"), _read(w, "Tom", "#wildmark")
+    assert any("may in blossom" in t for t in tom) and not any("frosts are done" in t for t in tom)
+    assert any("frosts are done" in t for t in ann)
+    w.s["day"] += 1                                                                  # gone the next day: a change, not a fact
+    assert not _read(w, "Tom", "#wildmark")

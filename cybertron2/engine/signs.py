@@ -1804,6 +1804,7 @@ def _aftermath(here, add) -> None:
     _wild_presence(here, add)                                                  # what the wild kinds' numbers show (D2-199)
     _wild_eaten(here, add)                                                     # what they ate of the crops and stores
     _wild_mast(here, add)                                                      # the oaks' mast as it comes
+    _wild_loads(here, add)                                                     # the fast kinds and the year's markers (wave 3)
     for bid, b in here.buildings().items():
         sub, live = [f"building:{bid}"], _dwellers(here, bid)
         for field, rows, most, extra in (("fire_hit", FIRE, 3, {}), ("raided", RAID, 1, {}), ("theft", THEFT, 1, {}),
@@ -1984,6 +1985,59 @@ def _wild_mast(here, add) -> None:
     p = here.parcels()[wood]
     x = event_context(here, p["name"], here.day)
     _wild_emit(here, rows, x, [f"parcel:{wood}"], wood, add, f"wildmast{level}", dict(place=p["name"]), 0, tags=("animals", "land"))
+
+
+def _wild_loads(here, add) -> None:
+    """The fast kinds round this village (wild/loads.py): a load's level as it rises past its mark, read by the practised in the
+    work it bears on (kinds.LOAD_READ) and by anyone; its harm on the field it fell on; and the year's markers on the day each comes,
+    with the lore the practised hold of it (some of which holds and some not: kinds.MARKERS)."""
+    from cybertron2.engine import wild as WL
+    from cybertron2.wild.kinds import LOADS, LOAD_SIGNS, LOAD_READ, MARKERS
+    w = here._w
+    wild = w.s.get("wild") or {}
+    st, land = wild.get("state"), wild.get("land") or {}
+    if not st or not st.get("loads") or here.node not in land.get("home", {}):
+        return
+    m = WL.model(w)
+    i = m.ids.index(land["home"][here.node])
+    L = st["loads"]
+    si = (WL.eco_day(w) % w.year_days()) // (w.year_days() // 4)
+    pars = sorted(here.parcels().items())
+    spot = lambda covers: next((pid for pid, p in pars if p["cover"] in covers), pars[0][0] if pars else None)
+
+    def emit(rows, pid, name, read, age=0):
+        if pid is None:
+            return
+        p = here.parcels()[pid]
+        rows = [dict(r, read=read) if r["read"] == "knows" else r for r in rows if r["read"] != "knows" or read]
+        x = event_context(here, p["name"], here.day - age)
+        for j, r in enumerate(rows):
+            lo, hi = r["ages"]
+            if not lo <= age <= hi:
+                continue
+            row = dict(when=lambda x: True, own=r["own"], sense=r["sense"], tags=["animals", "farming", "season"],
+                       text=lambda x, t=r["text"].format(place=p["name"]): t)
+            kw = {"knows": r["read"]} if r["read"] not in ("lay", "all") else ({"lay": read} if r["read"] == "lay" and read else {})
+            spot_rows(here, [row], x, [f"parcel:{pid}"], here.node, pid, add, name=f"{name}{j}", **kw)
+    prev = L.get("prev") or {}
+    for k, spec in sorted(LOADS.items()):
+        sg = LOAD_SIGNS.get(k)
+        if not sg or si not in spec["seasons"]:
+            continue
+        now = float(L["level"][k][i])
+        was = float((prev.get(k) or L["level"][k])[i])
+        if now >= float(sg["least"]) and (was < float(sg["least"]) or now > 1.15 * was):     # a change: rising past its mark
+            covers = (spec.get("feeds") or {}).get("covers") or ["field"]
+            emit(sg["level"], spot(covers), f"wildload{k[:4]}", LOAD_READ.get(k))
+    for pid, ks in sorted((wild.get("hits") or {}).items()):
+        for k, hit in sorted(ks.items()):
+            if pid in here.parcels() and k in LOAD_SIGNS and hit["share"] >= 0.005:
+                emit(LOAD_SIGNS[k]["harm"], pid, f"wildhit{k[:4]}", LOAD_READ.get(k), age=here.day - int(hit["day"]))
+    day = WL.eco_day(w)
+    for name, mk in sorted(MARKERS.items()):
+        d0 = ((L.get("marks") or {}).get(name) or [None] * m.n)[i]
+        if d0 is not None and 0 <= day - int(d0) <= 0:
+            emit(mk["rows"], spot(["scrub", "forest", "pasture", "meadow", "field"]), f"wildmark{name[:4]}", mk.get("read"))
 
 
 def road_context(w, name, t, pos):

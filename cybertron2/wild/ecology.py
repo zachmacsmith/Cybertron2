@@ -24,6 +24,7 @@ from cybertron2.wild import kinds as WK
 
 SEASON_T = (9.0, 16.0, 10.0, 3.0)        # the climate's seasonal means (02zp §15): warmth beyond them speeds plant growth
 SEASON_DAYS_REAL = 91.0
+RAIN_MEAN = 3.4                          # the climate's mean rain a day (calibrate with the climate, task P0)
 
 
 # ------------------------------------------------------------------ the land as the food web sees it
@@ -202,8 +203,11 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
     mast = mast_level(st, year, bool(np.mean(st["flower_frost"]) > 0.3) if si >= 2 else False, draws.get("mast", 0.5)) if si >= 2 else 1.0
     # 1. foods grow and rot: warmth beyond the season's mean speeds growth, frost stops it, a dry ground holds grass back
     rain = np.array([weather[nd].get("rain", 1.0) for nd in m.nodes])
-    soil = 0.6 * np.asarray(st.get("soil", [1.0] * n), float) + 0.4 * np.clip(rain / 3.0, 0, 2)
+    soil = 0.75 * np.asarray(st.get("soil", [1.0] * n), float) + 0.25 * np.clip(rain / RAIN_MEAN, 0, 3)   # a slow bucket (an
+                                                                          # engine day is about 11 real days): 1 at the mean rain
     st["soil"] = [round(float(x), 3) for x in soil]
+    from cybertron2.wild import loads as LD
+    LD.step(m, st, day, temp, low, frozen, soil)                          # the fast kinds and the year's warmth (wave 3)
     warm = np.clip(1 + 0.08 * (temp - SEASON_T[si]), 0.4, 1.6) * np.where(frozen, 0.3, 1.0)
     dry = np.clip(0.35 + 0.65 * np.minimum(soil / 0.8, 1.2), 0.3, 1.25)
     WATERED = ("grass", "grass~coarse", "sward", "browse", "browse~coarse", "inverts", "roots")

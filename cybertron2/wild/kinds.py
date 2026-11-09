@@ -274,6 +274,68 @@ TAKEN = {
 }
 
 
+# ---------------------------------------------------------------------- wave 3: loads, phenology (wild_layer.md §6 phase 7)
+# Loads (02zp §23 "Load"): fast kinds counted as a level an area (1 an ordinary year), moving each day toward a target the weather
+# sets on the area's ground, and following or eaten by another load; harm in windows to crops of a family at an age (days since
+# sown), a share of the standing crop a day for each unit of the level over `over`; `cut` by a guard (a technique's wild_guard).
+# hab: the ground (soil textures, covers: shares of the area); drivers: wet (soil wetness, 1 at the mean rain, to a power), warm (degrees
+# over the season's mean), dry (the reverse of wet); frost: the share killed a frozen night; seasons: when it is active (else it
+# falls to `rest`); base: the target's scale (1 if not given). Calibrate against: slugs 4% of need in a median year, 12% at the 90th, 27% at worst (02zp §24).
+LOADS = {
+    "slugs": {"hab": {"texture": {"clay": 1.3, "loam": 1.0, "chalk": 0.5, "sand": 0.4, "peat": 1.1},
+                      "cover": {"field": 1.0, "pasture": 0.8, "meadow": 0.9, "forest": 0.6, "fen": 0.8}},
+              "seasons": (0, 1, 2), "rest": 0.6, "rate": 0.3, "base": 1.4, "drivers": {"wet": 2.0, "warm": 0.03}, "frost": 0.15, "most": 4.0,
+              "harm": [{"crops": ["grain", "winter grain", "legumes"], "age": (0, 5), "share": 0.02, "over": 0.5}]},
+    "aphids": {"hab": {"cover": {"field": 1.0, "meadow": 0.4, "pasture": 0.3, "scrub": 0.3}},
+               "seasons": (0, 1), "rest": 0.3, "rate": 0.35, "drivers": {"warm": 0.12, "dry": 1.0}, "frost": 0.3, "most": 4.0,
+               "eaten_by": {"ladybirds": 0.12},
+               "harm": [{"crops": ["legumes"], "age": (3, 40), "share": 0.015, "over": 0.8},
+                        {"crops": ["grain"], "age": (6, 40), "share": 0.004, "over": 1.2}]},
+    "ladybirds": {"hab": {"cover": {"field": 0.8, "meadow": 0.8, "pasture": 0.6, "scrub": 1.0, "forest": 0.5}},
+                  "seasons": (0, 1), "rest": 0.4, "rate": 0.2, "follows": {"aphids": 1.0}, "frost": 0.05, "most": 3.0},
+    "fungi": {"hab": {"cover": {"forest": 1.0, "scrub": 0.5, "pasture": 0.6, "meadow": 0.6, "heath": 0.4}},
+              "seasons": (2,), "rest": 0.0, "start": 0.0, "rate": 0.4, "drivers": {"wet": 1.5, "warm": 0.08}, "frost": 0.5, "most": 3.0,
+              "feeds": {"res": "plants", "covers": ["forest", "scrub", "pasture", "meadow"], "over": 1.0, "share": 0.12}},
+}
+# the signs of a load's level and of its harm, by the four kinds (the level: lingering, as it stands that morning; the harm: on the
+# field where it fell). `level`: the least level a row needs (and `below` the most).
+LOAD_SIGNS = {
+    "slugs": {"level": [R("lay", "sight", 0.7, (0, 0), "silver slime trails across the paths in the morning, and slugs out on the wet grass", cond=None),
+                        R("knows", "sight", 0.8, (0, 0), "slugs thick on the wet ground: a slug year, and the young corn will suffer where the ground is heavy")],
+              "harm": [R("all", "sight", 0.9, (0, 1), "the young corn in {place} grazed off to stumps in patches, slime on what is left")],
+              "least": 1.6},
+    "aphids": {"level": [R("lay", "sight", 0.6, (0, 0), "the bean tops black with fly"),
+                         R("knows", "sight", 0.7, (0, 0), "blackfly thick on the bean tops: the beans will be poor unless the tops come off or the ladybirds come")],
+               "harm": [R("all", "sight", 0.8, (0, 1), "the crop in {place} sticky and curled, black with fly")], "least": 1.5},
+    "ladybirds": {"level": [R("all", "sight", 0.6, (0, 0), "ladybirds everywhere on the beans and the nettles"),
+                            R("knows", "sight", 0.6, (0, 0), "the ladybirds are on the beans: the fly will be gone in a few days")], "least": 1.2},
+    "fungi": {"level": [R("all", "sight", 0.8, (0, 0), "mushrooms pushing up all through {place} after the rain"),
+                        R("knows", "sight", 0.7, (0, 0), "a flush of ceps and field mushrooms in {place}: good picking for a few days")], "least": 1.3},
+}
+LOAD_READ = {"slugs": "sow", "aphids": "sow", "ladybirds": "sow", "fungi": "forage"}     # whose practice reads a load's `knows` rows
+# phenology (calendar markers): each comes when the year's warmth (degree days over 5 C from the start of spring, real days) passes
+# its mark, so a warm spring brings it early; `lore`, the practised reading, says whether it holds in this world ("holds") or is a
+# saying with nothing behind it ("fails", D2-199: lore that fails). `after` for autumn markers: the first night below `low`.
+# Measured on the steady, cold and wet climates (12 years, five villages): a frost after the blackthorn in 15-18 of 60 years, after
+# the may in none, after oak-and-ash leafing in 1; oak before ash has no tie to the summer's rain here.
+MARKERS = {
+    "blackthorn": {"gdd": 60, "rows": [R("all", "sight", 0.9, (0, 0), "the blackthorn white along the hedges"),
+                                       R("knows", "sight", 0.7, (0, 0), "the blackthorn in flower: the ground is warming for the spring corn, but a cold snap often follows the blackthorn")],
+                   "read": "sow", "lore": "holds"},
+    "swallows": {"gdd": 140, "rows": [R("all", "sight", 0.8, (0, 0), "the first swallows over the village")], "lore": None},
+    "oak and ash": {"gdd": 220, "rows": [R("all", "sight", 0.6, (0, 0), "the oaks in leaf before the ash this year"),
+                                         R("knows", "sight", 0.6, (0, 0), "oak before ash: only a splash, they say; a dry summer to come")],
+                    "read": "sow", "lore": "fails"},
+    "may": {"gdd": 330, "rows": [R("all", "sight", 0.9, (0, 0), "the may in blossom on every hawthorn"),
+                                 R("knows", "sight", 0.7, (0, 0), "the may is out: the frosts are done with, and the tender crops are safe")],
+            "read": "sow", "lore": "holds"},
+    "first frost": {"after": {"season": 2, "low": 0.0}, "rows": [R("all", "sight", 0.9, (0, 0), "the first white frost on the grass this morning"),
+                                                                 R("knows", "sight", 0.7, (0, 0), "the first frost: get in what is left in the fields before the hard ones")],
+                    "read": "reap", "lore": "holds"},
+}
+GDD_BASE, REAL_DAYS = 5.0, 91.0                                                  # degree days over 5 C; real days a season
+
+
 # what a technique the wild pack switches off was practice for (the old generic hunt): those who knew it know these
 SKILL_CARRY = {"hunt": ["hunt the wild", "snare hares"]}
 

@@ -141,10 +141,70 @@ def night(w, rec) -> None:
     eaten = {nd: dict(v, day=w.d) for nd, v in _shares(out, real, m).items()}
     if eaten or (w.s["wild"].get("eaten") or {}):
         w.apply("set_wild", place, path=["eaten"], value=eaten)
+    out["loads"] = _loads(w, m, st)
     out["groups"] = _groups(w, m, st)
     out["near"] = {gid: {"n": g["n"], "pos": g["pos"], "what": g.get("what")} for gid, g in sorted((w.s["wild"].get("groups") or {}).items())}
     _hens_lay(w)
     rec["wild"] = out
+
+
+def _loads(w, m, st) -> dict:
+    """The loads' harm on each home's fields tonight (crops of a family at an age, a share for each unit of the level over its
+    mark, cut by a guard on the field) and what a load feeds (a parcel resource, up to its cap). Hits kept for the signs."""
+    from cybertron2.engine import farm as FM
+    from cybertron2.wild.kinds import LOADS
+    lv = (st.get("loads") or {}).get("level") or {}
+    guard = {pid: v for pid, v in ((w.s["wild"].get("guard")) or {}).items() if int(v.get("until", -9)) >= w.d}
+    hits, fed = {}, {}
+    for i, nd in enumerate(m.nodes):
+        if not m.home[i]:
+            continue
+        for k, spec in sorted(LOADS.items()):
+            L = float((lv.get(k) or [0.0] * m.n)[i])
+            for pid, par in sorted(w.s["parcels"].items()):
+                if par["node"] != nd:
+                    continue
+                for h in spec.get("harm") or []:
+                    share = min(0.5, float(h["share"]) * max(0.0, L - float(h["over"])))
+                    g = guard.get(pid)
+                    if g and g.get("load") == k:
+                        share *= 1 - float(g["cut"])
+                    if share <= 1e-6:
+                        continue
+                    for hd, _, c in FM.standing(par):
+                        age = w.d - int(c.get("sown", w.d))
+                        q = round(float(c.get("left", 0.0)) * share, 4)
+                        if c.get("crop") in h["crops"] and h["age"][0] <= age <= h["age"][1] and c.get("area_left", 0) > 1e-6 and q > 1e-9:
+                            w.apply("draw", nd, parcel=pid, key="crop", qty=q, **({"holder": hd} if hd is not None else {}))
+                            was = hits.setdefault(pid, {}).get(k, {}).get("lost", 0.0)
+                            hits[pid][k] = {"day": w.d, "share": round(share, 4), "lost": round(q + was, 4)}
+            fd = spec.get("feeds")
+            if fd and L > float(fd["over"]):
+                for pid, par in sorted(w.s["parcels"].items()):
+                    r = (par.get("res") or {}).get(fd["res"])
+                    if par["node"] == nd and par["cover"] in fd["covers"] and r:
+                        q = round(min(float(r["K"]) - float(r["S"]), float(fd["share"]) * (L - float(fd["over"])) * float(r["K"])), 4)
+                        if q > 1e-6:
+                            w.apply("add_res", nd, parcel=pid, key=fd["res"], qty=q)
+                            fed[pid] = round(q, 4)
+    place = m.nodes[0]
+    old = w.s["wild"].get("hits") or {}
+    keep = {pid: {k: v for k, v in ks.items() if w.d - int(v["day"]) <= 1} for pid, ks in old.items()}
+    for pid, ks in hits.items():
+        keep.setdefault(pid, {}).update(ks)
+    keep = {pid: ks for pid, ks in keep.items() if ks}
+    if keep != old:
+        w.apply("set_wild", place, path=["hits"], value=keep)
+    if guard != (w.s["wild"].get("guard") or {}):
+        w.apply("set_wild", place, path=["guard"], value=guard)
+    return {"hits": hits, "fed": fed}
+
+
+def guard(here, pid, y, place_name) -> str:
+    """A guard on a field against a load (picking slugs by lantern, topping the beans): cuts its harm there for some days."""
+    here.apply("set_wild", path=["guard", pid], value={"load": y["load"], "cut": float(y["cut"]), "until": here.day + int(y["days"]) - 1,
+                                                        "by": here.name})
+    return f"You worked over {place_name} against the {y['load']}."
 
 
 def _shares(out, real, m) -> dict:
