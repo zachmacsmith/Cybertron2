@@ -914,6 +914,8 @@ off, D4-104), with several seeds and a strong cast (scenario_design §2), and re
 ### X. Design and analysis items (not packs)
 The whole-economy map (334), the learning problems as coding categories (214), society-level tests (215), and the diagnostics (C15).
 
+**Waits on a general design, not a pack:** acting at different times of the day (OPEN L-102: evening, night and dawn acts, and their cost in sleep, food and units). It bears on guard by night (K1), forays that start at dawn or end after dark (C11, K3), the decoy and the eel night (K4), and a night out (forays.md §6); until it is designed, those keep today's rules (D2-21's watch, D4-8 and D4-67's departures).
+
 ## 5. What changes in the existing files (for Zach and 37.2 to act on)
 
 1. **`proposals/wild_behaviour.md` (v2):** facets become views over constitution modules (02zr §1.3); F1's search game is replaced by
@@ -967,3 +969,4 @@ run 6's recorded system text (scratchpad `wild_run6/run.json`, not re-read here)
   poisons moved from cuts to deferred (K7, K10), since none was cut on principle; the other 28 cuts stand as proposed, each
   keeping its physical substrate, for Zach to confirm.
 - 9 Nov: Zach added a second layer of skill within a method, by target (C3); recorded there.
+- 9 Nov: 37.2 checked the ledger's coverage against every kind, tool, good, trade and mechanism discussed (02zr to 02zu, forays.md, the conversation); all present but OPEN L-102, now added under X.
