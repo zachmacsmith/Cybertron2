@@ -46,6 +46,18 @@ ITEMS = {
     "milk": {"weight": 1, "food": 0.5, "spoil": 1.0},                  # the same day (D2-42)
     "hen": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # kept hens in a house's store: they lay (wild_layer.md, wave 2)
     "egg": {"weight": 0.1, "food": 0.6, "spoil": 0.05, "cook": True, "raw": 0.5, "pack": "wild"},
+    # wild plants' goods (wild_plants.md §2, D2-200): fresh ones spoil fast, nuts keep for months; acorns are bitter until leached
+    "greens": {"weight": 1, "food": 0.6, "spoil": 0.3, "pack": "wild"},
+    "roots": {"weight": 1, "food": 0.8, "spoil": 0.05, "cook": True, "raw": 0.4, "pack": "wild"},
+    "mushrooms": {"weight": 1, "food": 0.6, "spoil": 0.3, "cook": True, "raw": 0.3, "pack": "wild"},
+    "watercress": {"weight": 1, "food": 0.4, "spoil": 0.3, "pack": "wild"},
+    "samphire": {"weight": 1, "food": 0.5, "spoil": 0.2, "cook": True, "raw": 0.4, "pack": "wild"},
+    "berries": {"weight": 1, "food": 0.8, "spoil": 0.25, "pack": "wild"},
+    "hedge fruit": {"weight": 1, "food": 0.6, "spoil": 0.03, "cook": True, "raw": 0.3, "pack": "wild"},
+    "hazel nuts": {"weight": 1, "food": 1.6, "spoil": 0.004, "pack": "wild"},
+    "beech nuts": {"weight": 1, "food": 1.2, "spoil": 0.006, "pack": "wild"},
+    "acorns": {"weight": 1, "food": 0.1, "spoil": 0.01, "pack": "wild"},
+    "acorn meal": {"weight": 1, "food": 1.0, "spoil": 0.02, "cook": True, "raw": 0.3, "pack": "wild"},
     "timber": {"weight": 2, "food": 0.0, "spoil": 0.0, "heat": 2.0},   # D2-24; 2 heat (D2-157)
     "stone": {"weight": 3, "food": 0.0, "spoil": 0.0},                 # D2-3, D2-24
     "hide": {"weight": 1, "food": 0.0, "spoil": 0.0, "decay": "hide"},                  # D2-24
@@ -144,6 +156,9 @@ RESOURCES = {
 # the wild kinds (wild_layer.md §3.2, D2-199): RESOURCES rows with population fields, in the `wild` pack; one registry
 from cybertron2.wild import kinds as _WILD_KINDS                       # noqa: E402
 RESOURCES.update(_WILD_KINDS.rows())
+from cybertron2.wild import plants as _WILD_PLANTS                     # noqa: E402
+RESOURCES.update({k: {"renewal": "seasonal", "pack": "wild", "plant": True, "low": f"{{name}} has been picked over: few {v['words']} left",
+                      "high": f"{{name}} is thick with {v['words']}"} for k, v in _WILD_PLANTS.PLANTS.items()})   # wild plants (D2-200)
 
 # Forests (environment/resources.md "Forests", D2-156): three stocks a unit of size, as timber (trees) and firewood (young growth,
 # dead wood); yearly rates. A world file gives `wood: {kind, ...}` on a forest or scrub parcel; an older world's `wood` stock is
@@ -292,7 +307,7 @@ LINES = {
 # Techniques: one handler reads these (38.17 §5). Tool multipliers by grade (recipes.md §8); "bare" is bare hands; a grade missing
 # from `tools` means the work cannot be done with it (no mining bare-handed).
 TECHNIQUES = {
-    "forage": {"verb": "gather", "label": "foraging (greens, roots, berries, nuts)", "aliases": ["foraging", "gather food"], "basic": True,
+    "forage": {"verb": "gather", "label": "foraging (greens, roots, berries, nuts)", "aliases": ["foraging", "gather food"], "basic": True, "off_with": ["wild"],
                "at": {"covers": ["forest", "meadow", "pasture", "scrub", "heath", "moor", "fen", "saltmarsh"]}, "draws": "plants", "yield": {"kind": "stock", "base": 1.2},
                "units": 1, "gives": "wild food", "tags": ["food"]},
     "hunt": {"verb": "gather", "label": "hunting game", "aliases": ["hunting"], "basic": True, "at": {"covers": ["forest"]}, "off_with": ["wild"],
@@ -390,6 +405,14 @@ TECHNIQUES = {
     "fowling": {"verb": "gather", "label": "fowling with nets and decoys", "aliases": ['fowl', 'net fowl', 'catch fowl', 'wildfowling'], "basic": False, "pack": "wild",
                  "at": {"covers": ['fen', 'water', 'meadow', 'saltmarsh']}, "draws": "wild", "reads_as": ["hunt"], "yield": {"kind": "wild_take", "takes": {'wildfowl': 3.0, 'woodpigeon': 0.2}},
                  "weapon": {'none': 1.0, 'armed': 1.0}, "wear": 0.3, "units": 2, "gives": "meat", "tags": ["food", "hunting", "animals"], **({"untaught": "tryable"} if not False else {})},
+    "gather wild food": {"verb": "gather", "label": "gathering wild food (what is in season where you are: greens, berries, nuts, fungi, roots)",
+                         "aliases": ["forage", "foraging", "gather food", "gather", "pick", "gather nuts", "gather berries", "gather mushrooms",
+                                     "gather acorns", "pick berries", "pick mushrooms"], "basic": True, "pack": "wild",
+                         "at": {"covers": ["forest", "meadow", "pasture", "scrub", "heath", "moor", "fen", "saltmarsh"]}, "draws": "wild plants",
+                         "yield": {"kind": "wild_forage", "base": 1.2}, "units": 1, "gives": "", "tags": ["food"]},
+    "leach acorns": {"verb": "make", "label": "boiling acorns in changes of water at a hearth till the bitterness is gone", "basic": True,
+                     "aliases": ["leach", "leaching acorns", "acorn meal"], "pack": "wild", "at": {"fittings": ["hearth"]},
+                     "inputs": {"acorns": 3}, "units": 1, "gives": {"acorn meal": 2}, "tags": ["food", "cooking"]},
     "pick slugs by lantern": {"verb": "work", "label": "picking slugs off the young crop by lantern at dusk", "basic": True, "pack": "wild",
                               "aliases": ["pick slugs", "slug the field", "go slugging", "pick off the slugs"], "at": {"covers": ["field"]},
                               "draws": "guard", "yield": {"kind": "wild_guard", "load": "slugs", "cut": 0.6, "days": 1, "done": "You picked the slugs off the young crop in {place} by lantern at dusk."}, "units": 2, "gives": "",
@@ -414,7 +437,8 @@ TECHNIQUES = {
                      "key": "range", "value": "far", "untaught": "tryable", "changes": {"range": "far", "units": 3}, "units": 3,
                      "gives": "", "tags": ["hunting"]},
     "looking for": {"verb": "modifier", "label": "looking for one thing in particular: name it, a kind or a sort (boar, deer, hares, fowl, small game)", "aliases": [], "basic": True, "pack": "wild",
-                    "modifies": ["gather:hunt the wild", "gather:stalk deer", "gather:boar hunt", "gather:snare hares", "gather:fowling"],
+                    "modifies": ["gather:hunt the wild", "gather:stalk deer", "gather:boar hunt", "gather:snare hares", "gather:fowling",
+                                 "gather:gather wild food"],
                     "key": "looking for", "value": "*", "untaught": "tryable", "changes": {}, "units": 0, "gives": "", "tags": ["hunting"]},
     "fence": {"verb": "work", "label": "fencing a parcel round (wattle or post and rail)", "basic": True,
               "aliases": ["fencing", "put up a fence", "wattle fence", "mend the fence", "build a fence", "a fence"],

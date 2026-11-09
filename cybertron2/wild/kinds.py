@@ -294,8 +294,7 @@ LOADS = {
     "ladybirds": {"hab": {"cover": {"field": 0.8, "meadow": 0.8, "pasture": 0.6, "scrub": 1.0, "forest": 0.5}},
                   "seasons": (0, 1), "rest": 0.4, "rate": 0.2, "follows": {"aphids": 1.0}, "frost": 0.05, "most": 3.0},
     "fungi": {"hab": {"cover": {"forest": 1.0, "scrub": 0.5, "pasture": 0.6, "meadow": 0.6, "heath": 0.4}},
-              "seasons": (2,), "rest": 0.0, "start": 0.0, "rate": 0.4, "drivers": {"wet": 1.5, "warm": 0.08}, "frost": 0.5, "most": 3.0,
-              "feeds": {"res": "plants", "covers": ["forest", "scrub", "pasture", "meadow"], "over": 1.0, "share": 0.12}},
+              "seasons": (2,), "rest": 0.0, "start": 0.0, "rate": 0.4, "drivers": {"wet": 1.5, "warm": 0.08}, "frost": 0.5, "most": 3.0},                                                                  # the mushrooms' year (wild/plants.py)
 }
 # the signs of a load's level and of its harm, by the four kinds (the level: lingering, as it stands that morning; the harm: on the
 # field where it fell). `level`: the least level a row needs (and `below` the most).

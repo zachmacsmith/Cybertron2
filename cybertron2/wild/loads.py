@@ -77,6 +77,8 @@ def step(m, st: dict, day: int, temp: np.ndarray, low: np.ndarray, frozen: np.nd
         L["gdd"], L["marks"] = [0.0] * m.n, {}
     gdd = np.asarray(L["gdd"], float) + np.maximum(0.0, temp - WK.GDD_BASE) * (WK.REAL_DAYS / S)
     L["gdd"] = [round(float(v), 1) for v in gdd]
+    if si == 1 and sd == 0:
+        L["spring_gdd"] = list(L["gdd"])                                     # the spring's warmth, for what it sets (berries)
     for name, mk in WK.MARKERS.items():
         got = L["marks"].get(name) or [None] * m.n
         if "gdd" in mk:

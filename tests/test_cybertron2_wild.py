@@ -462,19 +462,15 @@ def test_an_old_crop_is_out_of_the_slugs_window(generated):
     assert "slugs" not in rec["wild"]["loads"]["hits"].get(pid, {})
 
 
-def test_a_flush_of_fungi_fills_the_woods_wild_food_up_to_its_cap(generated):
+def test_a_flush_of_fungi_brings_up_the_mushrooms_in_the_woods(generated):
     from cybertron2.engine import night as N
     w, WL = _summer_world(generated)
     m, i = _home_i(w, WL)
-    woods = [p for p, x in w.s["parcels"].items() if x["node"] == "s1" and x["cover"] == "forest" and x["res"].get("plants")]
-    if not woods:
-        pytest.skip("no wood with wild food at s1")
-    for p in woods:
-        w.s["parcels"][p]["res"]["plants"]["S"] = 0.1
-    w.s["wild"]["state"]["loads"]["level"]["fungi"][i] = 2.5
+    woods = [p for p, x in w.s["parcels"].items() if x["node"] == "s1" and "mushrooms" in x["res"]]
+    assert woods
+    w.s["wild"]["state"]["loads"]["level"]["fungi"][i] = 2.2
     N.night(w)
-    r = w.s["parcels"][woods[0]]["res"]["plants"]
-    assert r["S"] > 0.1 and r["S"] <= r["K"] + 1e-9
+    assert all(w.s["parcels"][p]["res"]["mushrooms"]["f"] > 1.0 for p in woods)        # the load out of its season falls; still above
 
 
 def test_a_rising_slug_load_reads_two_ways_by_the_practice_of_sowing(generated):
@@ -612,3 +608,103 @@ def test_a_wild_disease_spreads_along_the_lands_links_and_burns_out_into_immunit
         seen |= {i for i, x in enumerate(st["dis"]["mange"]) if x > 0.01}
     assert len(seen) > 1                                                             # it travelled
     assert max(st["dis_immune"]["mange"]) > 0                                       # and left immunity behind
+
+
+# ---------------------------------------------------------------------- wild plants (D2-200 to D2-202)
+def test_plant_kinds_take_the_place_of_plants_where_their_conditions_are(generated):
+    from cybertron2.wild import plants as PL
+    w, WL = _summer_world(generated)
+    pars = w.s["parcels"].values()
+    assert not any("plants" in p["res"] and p["cover"] in PL.LAYERS for p in pars)        # replaced wherever a kind suits
+    oak = [p for p in pars if p.get("ecosystem") == "oak-ash wood" and p["cover"] == "forest"]
+    beech = [p for p in pars if p.get("ecosystem") == "beech wood" and p["cover"] == "forest"]
+    assert oak and all("acorns" in p["res"] and "hazel nuts" in p["res"] for p in oak)
+    if beech:
+        b = beech[0]["res"]
+        assert b.get("beech mast", {}).get("K", 0) > b.get("acorns", {}).get("K", 0)
+    for p in pars:
+        if "watercress" in p["res"]:
+            assert PL.suit("watercress", p) > 0
+        assert "samphire" not in p["res"] or float((p.get("land") or {}).get("sea_km", 99)) <= 3.0
+    w2 = build(generated, packs=())
+    assert any("plants" in p["res"] for p in w2.s["parcels"].values())                   # without the pack, as before
+
+
+def test_a_plant_comes_in_its_season_and_goes_after():
+    from cybertron2.engine import renewal as RN
+    r = {"S": 0.0, "K": 2.0, "r": 0.4, "rot": 0.3, "seasons": {"spring": 1.0, "summer": 0.5}, "f": 1.0}
+    for _ in range(8):
+        r["S"] = RN.RULES["seasonal"]({}, r, {"season": "spring"})
+    assert r["S"] > 1.8
+    for _ in range(8):
+        r["S"] = RN.RULES["seasonal"]({}, r, {"season": "winter"})
+    assert r["S"] < 0.2
+
+
+def _autumn_wood(generated, people=6, knows=None):
+    world = copy.deepcopy(generated)
+    world["calendar"] = {"season": "autumn", "day": 2, "season_days": 8}
+    world["agents"] = {f"G{i}": {"household": "Ash", "stage": "adult", "sex": "f", "at": "s1", "knows": dict(knows or {})} for i in range(people)}
+    w = build(world, history=2)
+    from cybertron2.engine import run as R, wild as WL
+    w.s["today"] = R.blank_today()
+    wood = next(p for p in w.s["parcels"].values() if p["node"] == "s1" and p["cover"] == "forest" and "hazel nuts" in p["res"])
+    return w, WL, wood
+
+
+def test_gathering_in_autumn_takes_whats_in_season_and_more_of_what_one_looks_for(generated):
+    w, WL, wood = _autumn_wood(generated, people=8)
+    any_ = [_do(w, f"G{i}", {"do": "gather", "what": "gather wild food", "at": wood["name"]}) for i in range(4)]
+    nuts = [_do(w, f"G{i}", {"do": "gather", "what": "gather wild food", "at": wood["name"], "looking for": "nuts"}) for i in range(4, 8)]
+    assert all("You gathered" in r for r in any_), any_
+    assert not any("greens" in r and "hazel" not in r for r in any_)
+    def share(rs):
+        tot = sum(float(x) for r in rs for x in re.findall(r"([\d.]+) [a-z]", r.split(" at ")[0]))
+        nut = sum(float(x) for r in rs for x in re.findall(r"([\d.]+) hazel nuts", r))
+        return nut / max(tot, 1e-9)
+    assert share(nuts) > share(any_)
+
+
+def test_mushrooms_harm_the_gatherer_who_does_not_know_them_and_never_the_expert(generated, monkeypatch):
+    from cybertron2.wild import plants as PL
+    monkeypatch.setitem(PL.PLANTS["mushrooms"], "poison", 1.0)
+    w, WL, wood = _autumn_wood(generated, people=12)
+    for p in w.s["parcels"].values():
+        if "mushrooms" in p["res"]:
+            p["res"]["mushrooms"]["S"] = p["res"]["mushrooms"]["K"]
+    for i in range(6, 12):
+        w.s["know"][f"G{i}"] = {"gather wild food": {"level": "known", "skill": 1.5}}             # the top of basic work: expert
+    lay = [_do(w, f"G{i}", {"do": "gather", "what": "gather wild food", "at": wood["name"], "looking for": "mushrooms"}) for i in range(6)]
+    exp = [_do(w, f"G{i}", {"do": "gather", "what": "gather wild food", "at": wood["name"], "looking for": "mushrooms"}) for i in range(6, 12)]
+    assert any("bad" in r or "deadly" in r for r in lay)
+    assert not any("bad" in r or "deadly" in r for r in exp)
+
+
+def test_the_wild_kinds_eat_the_same_acorns_people_gather(generated):
+    """D2-202: boar on a village's land eat its woods' acorns; what they eat is gone from the parcels' stocks."""
+    from cybertron2.engine import night as N
+    def acorns_after(boar):
+        w, WL, wood = _autumn_wood(generated, people=1)
+        m = WL.model(w)
+        i = m.ids.index(w.s["wild"]["land"]["home"]["s1"])
+        w.s["wild"]["state"]["pop"]["wild boar"][i] = boar / m.km2[i]
+        for p in w.s["parcels"].values():
+            if "acorns" in p["res"]:
+                p["res"]["acorns"].update(S=p["res"]["acorns"]["K"], f=1.0)
+        before = sum(p["res"]["acorns"]["S"] for p in w.s["parcels"].values() if p["node"] == "s1" and "acorns" in p["res"])
+        rec = N.night(w)
+        after = sum(p["res"]["acorns"]["S"] for p in w.s["parcels"].values() if p["node"] == "s1" and "acorns" in p["res"])
+        return before - after, rec
+    none_, _ = acorns_after(0.0)
+    many, rec = acorns_after(40.0)
+    assert many > none_ and "mast" in (rec["wild"]["shared"].get("s1") or {})
+
+
+def test_acorns_are_leached_into_meal_at_a_hearth(generated):
+    w, WL, wood = _autumn_wood(generated, people=1)
+    hearth = next((b for b, x in w.s["buildings"].items() if x["node"] == "s1" and (x.get("fittings") or {}).get("hearth")), None)
+    if hearth is None:
+        pytest.skip("no hearth at s1")
+    w.apply("create", "s1", dst=w.hands("G0"), item="acorns", qty=6)
+    r = _do(w, "G0", {"do": "make", "what": "leach acorns", "at": w.s["buildings"][hearth]["name"]})
+    assert "acorn meal" in r, r

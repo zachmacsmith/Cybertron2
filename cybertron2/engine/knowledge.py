@@ -176,6 +176,10 @@ def ready(here, tech, kind, key, a=None) -> str:
             return f"there is little dung on {p['name']}"
         if d in ("seam",) and p["res"][d]["S"] <= 1e-9:
             return f"the seam at {p['name']} is worked out"
+        if d == "wild plants":                                                # the wild plants in season here (D2-200)
+            from cybertron2.engine import wild as WL
+            if not WL.in_season(here, key):
+                return f"there is nothing in season to gather at {p['name']}"
         if d == "plants" and p["res"][d]["S"] <= (here.p["refuge"] + 0.02) * p["res"][d]["K"]:
             return f"{p['name']} is picked bare"
         if d == "fish" and p["res"][d]["S"] <= (here.p["refuge"] + 0.02) * p["res"][d]["K"]:

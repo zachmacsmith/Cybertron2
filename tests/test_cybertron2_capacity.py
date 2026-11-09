@@ -19,6 +19,8 @@ def test_every_edible_good_has_a_source_or_a_route():
     made = {d["gives"] for d in TECHNIQUES.values() if d.get("verb") == "gather" and isinstance(d.get("gives"), str)}
     made |= {"milk", "meat"} | {CROPS[c]["gives"] for c in CROPS} | {CROPS[c]["green"] for c in CROPS}   # milking, slaughter, reaping
     made |= {"egg"}                                     # kept hens laying (the wild pack, wild_layer.md; not yet in the capacity model)
+    from cybertron2.wild import plants as PL
+    made |= {v["item"] for v in PL.PLANTS.values()}      # the wild plant kinds' goods, gathered (D2-200; not yet in the capacity model)
     for t in FD.FOOD_TECHS:
         made |= set(TECHNIQUES[t]["gives"])
     assert set(FD.EDIBLE) <= made, f"edible goods no source makes: {set(FD.EDIBLE) - made}"

@@ -180,9 +180,10 @@ def mast_level(st: dict, year: int, frost: bool, draw: float) -> float:
     return lvl
 
 
-def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | None = None) -> dict:
+def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | None = None, scale: dict | None = None) -> dict:
     """One engine day. weather: {node: {temp, low, rain, snow}} for this day; draws: keyed uniform numbers {"mast": u for the year};
-    take: {kind: [per-area share taken today by people]} (the acts), or None for the background take. Returns the day's effects:
+    take: {kind: [per-area share taken today by people]} (the acts), or None for the background take; scale: {food: [per area]}, how
+    much of a food the land's stocks hold for the wild kinds where the engine keeps them (D2-202). Returns the day's effects:
     {"eaten": {food: [kg per area]}, "killed": {kind: [head per area]}, "dead": {...}} for the engine's bridge."""
     Y, S, n = m.Y, m.S, m.n
     si, sd = (day % Y) // S, day % S
@@ -223,6 +224,10 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
         prod = m.res[fd] * sp["prod"] * WK.SCALE.get(fd, 1.0) * sp["season"][si] / S * boost * (0.0 if fd in m.provided else 1.0)
         pulse[fd] = P * (1 - sp["rot"]) ** (1.0 / S) + prod * np.where(frozen, 0.4, 1.0)
     avail = {**stock, **pulse, "carrion": carrion}
+    for fd, a_ in (scale or {}).items():                                  # the land's own stocks on a village's land (D2-202)
+        for key in (fd, fd + "~coarse"):
+            if key in avail:
+                avail[key] = avail[key] * np.asarray(a_, float)
     present = {k: m.kinds[k]["migrant"] is None or SEASONS_OF[si] in m.kinds[k]["migrant"] for k in m.names}
     if sd == 0:                                                            # migrants come and go with their seasons
         for k in m.names:
@@ -279,10 +284,10 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
                 carrion = carrion + 0.2 * g
             elif key in stock:
                 stock[key] = np.maximum(stock[key] - g, 0)
+                eff["eaten"][key] = eff["eaten"].get(key, 0) + g * m.km2      # every food: the shared stocks (D2-202)
             elif key in pulse:
                 pulse[key] = np.maximum(pulse[key] - g, 0)
-                if key in ("crops", "stores", "livestock"):
-                    eff["eaten"][key] = eff["eaten"].get(key, 0) + g * m.km2
+                eff["eaten"][key] = eff["eaten"].get(key, 0) + g * m.km2
             elif key == "carrion":
                 carrion = np.maximum(carrion - g, 0)
     carrion = carrion * 0.5 ** (1.0 / S)

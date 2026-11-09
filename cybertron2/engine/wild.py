@@ -15,6 +15,8 @@ from __future__ import annotations
 
 import math
 
+import numpy as np
+
 from cybertron2.engine import packs as PK
 
 KG_PER_FOOD = 10.0             # an engine food (365/Y real person-days, node_ecology.md) as kg of grain or forage (calibrate)
@@ -97,6 +99,7 @@ def seed(w) -> None:
     st["day"] = -1
     st["mast"]["years"] = {}                                              # the trees' budget carries over; the run's years are its own
     w.s["wild"]["state"] = st
+    _seed_plants(w)                                                       # the wild plant kinds in place of `plants` (D2-200)
     from cybertron2.wild.kinds import SKILL_CARRY
     for name, k in w.s["know"].items():                                   # the old hunt's practice carries to the wild ones
         for old, new in SKILL_CARRY.items():
@@ -126,10 +129,13 @@ def night(w, rec) -> None:
                 if real[food][i] <= 1e-9:
                     st["pulse"][food][i] = 0.0
     before = {f: list(st["pulse"][f]) for f in ("crops", "stores")}
-    eff = EC.step(m, st, eco_day(w), weather(w, sorted(set(m.nodes)), w.d), draws(w, eco_day(w)))
+    scale, pools = _shared_pre(w, m, st)                                  # what the land's plants hold for the wild kinds (D2-202)
+    eff = EC.step(m, st, eco_day(w), weather(w, sorted(set(m.nodes)), w.d), draws(w, eco_day(w)), scale=scale)
     place = m.nodes[0]
     w.apply("set_wild", place, path=["state"], value=st)
     out = {"mast": st.get("mast_now"), "crops": {}, "stores": {}}
+    out["shared"] = _shared_post(w, m, scale, pools, eff)
+    _plant_year(w, m, st)
     for i, aid in enumerate(m.ids):
         if not m.home[i]:
             continue
@@ -281,6 +287,199 @@ def guard(here, pid, y, place_name) -> str:
     here.apply("set_wild", path=["guard", pid], value={"load": y["load"], "cut": float(y["cut"]), "until": here.day + int(y["days"]) - 1,
                                                         "by": here.name})
     return y.get("done", "You worked over {place}.").format(place=place_name)
+
+
+# ---------------------------------------------------------------------- wild plants (wild_plants.md; D2-200, D2-202)
+def _seed_plants(w) -> None:
+    """At world build: each parcel's single `plants` capacity becomes the wild plant kinds that suit it (wild/plants.niche), each
+    at its season's level now. A parcel no kind suits keeps its `plants`."""
+    from cybertron2.wild import plants as PL
+    season = w.calendar()["season"]
+    for pid, par in sorted(w.s["parcels"].items()):
+        pr = par["res"].get("plants")
+        if not pr or float(pr.get("K", 0) or 0) <= 0:
+            continue
+        from cybertron2.engine.data import ITEMS
+        kinds = PL.niche(par, float(pr["K"]), food={k: v.get("food", 1.0) for k, v in ITEMS.items()})
+        if not kinds:
+            continue
+        del par["res"]["plants"]
+        for k, K in sorted(kinds.items()):
+            sp = PL.PLANTS[k]
+            par["res"][k] = {"S": round(K * float(sp["seasons"].get(season, 0.0)), 4), "K": K, "r": float(sp["r"]), "rot": float(sp["rot"]),
+                             "seasons": dict(sp["seasons"]), "f": 1.0}
+
+
+def _plant_target(r, season) -> float:
+    return float(r["K"]) * float((r.get("seasons") or {}).get(season, 0.0)) * float(r.get("f", 1.0))
+
+
+def in_season(here, pid) -> bool:
+    """Whether a parcel has any wild plant to gather now (above what is always left: the refuge), through the place's own view."""
+    from cybertron2.engine.data import RESOURCES
+    par = here.parcels()[pid]
+    season = here.calendar()["season"]
+    return any(float(r["S"]) > (float(here.p["refuge"]) + 0.02) * float(r["K"]) * max(0.05, float((r.get("seasons") or {}).get(season, 0.0)))
+               and float(r["S"]) > 1e-3 for k, r in par["res"].items() if (RESOURCES.get(k) or {}).get("plant"))
+
+
+def _plant_year(w, m, st) -> None:
+    """Each plant kind's year at each village (its `f`): a keyed draw, the trees' mast, the fungus load or the spring's warmth, by
+    the kind's data; written to the parcels' stocks when it changes."""
+    from cybertron2.wild import plants as PL
+    Y = w.year_days()
+    k0 = eco_day(w)
+    year, si = k0 // Y, (k0 % Y) // (Y // 4)
+    land = w.s["wild"]["land"]
+    L = st.get("loads") or {}
+    for node, aid in sorted((land.get("home") or {}).items()):
+        if aid not in m.ids:
+            continue
+        i = m.ids.index(aid)
+        fs = {}
+        for k, sp in PL.PLANTS.items():
+            src, amt = sp["swing"]
+            if src == "draw":
+                f = 1.0 + float(amt) * (2 * w.rng("wild-plant", year, node, k).random() - 1)
+            elif src == "mast":
+                f = min(2.5, float(st.get("mast_now") or 1.0)) if si >= 2 else 1.0
+            elif src == "load":
+                f = min(2.5, float(((L.get("level") or {}).get(amt) or [1.0] * m.n)[i]))
+            else:
+                g = (L.get("spring_gdd") or [None] * m.n)[i]
+                f = 1.0 if g is None else 1.0 + float(amt) * 2 * (float(g) / PL.SPRING_GDD - 1)
+            fs[k] = round(max(0.0, min(2.5, f)), 3)
+        for pid, par in sorted(w.s["parcels"].items()):
+            if par["node"] != node:
+                continue
+            for k, f in fs.items():
+                r = par["res"].get(k)
+                if r is not None and abs(float(r.get("f", 1.0)) - f) > 0.005:
+                    w.apply("set_res", node, parcel=pid, key=k, fields={"f": f})
+
+
+def _food_stocks(w, nd, food):
+    from cybertron2.wild import plants as PL
+    for pid, par in sorted(w.s["parcels"].items()):
+        if par["node"] != nd:
+            continue
+        for k in PL.SHARED.get(food, []):
+            r = par["res"].get(k)
+            if r and float(r.get("K", 0)) > 0:
+                yield pid, par, k, r
+
+
+def _shared_pre(w, m, st):
+    """D2-202: on a village's own land the wild kinds eat the parcels' stocks. Each shared food's availability there is the share
+    of its stocks standing against their level for the season (gathered or grazed down, it is less; none on the land, none): it
+    scales what the ecology lets them eat. Returns that scale and the ecology's pools before the step."""
+    from cybertron2.wild import plants as PL
+    season = w.calendar()["season"]
+    scale, pools = {}, {}
+    for food in PL.SHARED:
+        a = np.ones(m.n)
+        for i, nd in enumerate(m.nodes):
+            if not m.home[i]:
+                continue
+            S = T = 0.0
+            for pid, par, k, r in _food_stocks(w, nd, food):
+                S += float(r["S"])
+                T += _plant_target(r, season) if (r.get("seasons")) else float(r["K"])
+            a[i] = 0.0 if T <= 1e-9 and S <= 1e-9 else min(1.5, S / max(T, 1e-9))
+        scale[food] = a
+        pools[food] = sum(np.asarray((st["stock"].get(key) if key in st["stock"] else st["pulse"].get(key)) or np.zeros(m.n), float)
+                          for key in (food, food + "~coarse") if key in st["stock"] or key in st["pulse"])
+    return scale, pools
+
+
+def _shared_post(w, m, scale, pools, eff) -> dict:
+    """What the wild kinds ate of a shared food at a village tonight, as a share of what was there for them, drawn from the
+    parcels' stocks (D2-202), a fence keeping out its share (FENCES' through)."""
+    from cybertron2.engine.data import FENCES
+    out = {}
+    for food, a in scale.items():
+        ate = sum(np.asarray(eff["eaten"].get(key, np.zeros(m.n)), float) for key in (food, food + "~coarse"))
+        for i, nd in enumerate(m.nodes):
+            if not m.home[i] or a[i] <= 0:
+                continue
+            there = float(np.asarray(pools[food])[i]) * float(a[i]) * float(m.km2[i])
+            share = min(0.3, float(np.asarray(ate)[i]) / there) if there > 1e-9 else 0.0
+            if share <= 1e-5:
+                continue
+            for pid, par, k, r in _food_stocks(w, nd, food):
+                fc = par.get("fence") or {}
+                through = float(FENCES[fc["kind"]]["through"].get(int(fc.get("level", 0)), 1.0)) if fc.get("built") and fc.get("kind") in FENCES else 1.0
+                q = round(float(r["S"]) * share * through, 4)
+                if q > 1e-6:
+                    w.apply("draw", nd, parcel=pid, key=k, qty=q)
+                    out.setdefault(nd, {}).setdefault(food, {})[pid] = round(out.get(nd, {}).get(food, {}).get(pid, 0.0) + q, 4)
+    return out
+
+
+def _wanted_plants(target, kinds) -> set:
+    """The plant kinds a gatherer's words name: a kind, its good, or a word of what it is (nuts, berries, mushrooms); none for any."""
+    from cybertron2.wild import plants as PL
+    t = str(target or "").strip().lower()
+    if not t or t in ("anything", "whatever", "food", "any", "wild food"):
+        return set()
+    out = set()
+    for k in kinds:
+        sp = PL.PLANTS.get(k) or {}
+        words = {k, sp.get("item", ""), *[x.strip() for x in sp.get("words", "").replace(" and ", ", ").split(",")]}
+        if any(t == x or t.rstrip("s") == x.rstrip("s") or (x and t in x.split()) or (x and x in t) for x in words if x):
+            out.add(k)
+    return out
+
+
+def forage(here, mind, tech, key, place_name, out, mult, y, a) -> tuple:
+    """Gathering wild food (D2-200): what is in season on the parcel, by how much stands and how easy each is, more of what one looks
+    for; each kind into its good. Mushrooms gathered by one who does not know them may make one ill (D2-201): by a practised gatherer
+    seldom, an expert never."""
+    from cybertron2.engine import perceive as PC
+    from cybertron2.engine.data import RESOURCES
+    from cybertron2.wild import plants as PL
+    par = here.parcels()[key]
+    kinds = {k: r for k, r in sorted(par["res"].items()) if (RESOURCES.get(k) or {}).get("plant")}
+    want = _wanted_plants(a.get("looking for"), kinds)
+    floor = float(here.p["refuge"])
+    avail = {k: max(0.0, float(r["S"]) - floor * float(r["K"]) * float((r.get("seasons") or {}).get(here.calendar()["season"], 0.0)))
+             for k, r in kinds.items()}
+    total = sum(avail.values())
+    budget = sum(float(r["K"]) * PL.mean_season(k) for k, r in kinds.items())
+    rng = here.rng("wild-forage", here.day, here.name, key)
+    if total <= 1e-6 or budget <= 1e-9:
+        return 0.0, f"You found nothing in season to gather at {place_name}."
+    q = min(0.5 * total, float(y["base"]) * mult * min(1.5, total / budget) * (0.7 + 0.6 * rng.random()))
+    wt = {k: v * float(PL.PLANTS[k]["ease"]) * ((3.0 if k in want else 0.4) if want else 1.0) for k, v in avail.items()}
+    tw = sum(wt.values())
+    got, food = {}, 0.0
+    from cybertron2.engine.data import ITEMS
+    for k, v in sorted(wt.items()):
+        take = round(min(avail[k], q * v / tw), 2)
+        if take <= 1e-6:
+            continue
+        here.apply("draw", parcel=key, key=k, qty=take)
+        item = PL.PLANTS[k]["item"]
+        here.apply("create", dst=out, item=item, qty=take, why=tech)
+        got[item] = round(got.get(item, 0.0) + take, 2)
+        food += take * float(ITEMS[item]["food"])
+    PC.remember_land(mind, here.day, key, "wild food", "good" if total / budget > 0.5 else "thin", "found")
+    if not got:
+        return 0.0, f"You found nothing in season to gather at {place_name}."
+    word = f"You gathered {', '.join(f'{v:g} {k}' for k, v in sorted(got.items()))} at {place_name}"
+    sick = ""
+    for k, take in ((k, got.get(PL.PLANTS[k]["item"], 0.0)) for k in kinds if PL.PLANTS[k].get("poison")):
+        if take <= 0:
+            continue
+        know = PC.practised(mind)
+        p = 0.0 if f"expert:{tech}" in know else float(PL.PLANTS[k]["poison"]) * (0.25 if tech in know else 1.0)
+        if rng.random() < p * min(1.0, take):
+            here.apply("harm", person=here.name, hunger=max(-2, int(here._w.s["people"][here.name].get("hunger", 0)) - 1))
+            sick = " Some of them were bad: your belly cramped and you brought up what you had eaten."
+            if tech not in know and rng.random() < 0.08:
+                here.apply("die", person=here.name, cause=f"poisoned by {PL.PLANTS[k]['item']} gathered at {place_name}")
+                sick = " Some of them were deadly."
+    return food, word + "." + sick
 
 
 def _shares(out, real, m) -> dict:
