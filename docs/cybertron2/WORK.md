@@ -29,6 +29,7 @@ next number; 37.2 and 37.4 share the series (check before adding).
 | W-3 | Records restructure: WORK.md, OPEN.md's kinds, CLAUDE.md's rule, hygiene's stale checks, the sorting draft (02zz) | 37.2 (session "Thicker economy exploration") | active | 9 Nov | 9 Nov | main: docs/cybertron2/WORK.md, OPEN.md, CLAUDE.md, tools/hygiene.py, docs/review/37_growth/02zz_open_sorting.md | in this commit; left: Zach checks 02zz's sorting, then the rows move |
 | W-4 | wild_behaviour.md v3 (the per-kind designs, from 02zv, 02zw and the briefs) | 37.2 | waiting | 9 Nov | 9 Nov | docs/cybertron2/proposals/wild_behaviour.md | waits on Q-32 (02zv §6, items still open) |
 | W-5 | 37.2's own hygiene items: D2-199 to D2-203 into the spec; the scratchpad path in 02zp's sim.py | 37.2 | queued | 9 Nov | 9 Nov | spec/environment/wildlife.md; docs/review/37_growth/02zp_ecosystem_models/wildsys/sim.py | not begun |
+| W-17 | A Fable 5.2 probe: run 6's world, seed and cast, with Petronel (the Carter head, Opus 5.5 in run 6) played by `claude-fable-5-2`; compared with run 6's Petronel (same seat and seed) and with Ivy (the Holt head, Opus 5.5, same village and run) | 37.2 (session "Thicker economy exploration") | active | 9 Nov | 9 Nov | branch `ecology`; the spec and run outside the repository (37.2's scratchpad: fable_probe.json, fable_run) | started; left: the run (8 days, about $12), then a short report to Zach |
 
 ## Paused
 
