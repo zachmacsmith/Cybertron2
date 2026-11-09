@@ -235,3 +235,105 @@ was a bot. Run logs and the reader are outside the repository. Each arm is read 
 2. **Hunting yields little per day.** In 8 days no scripted hunter took anything, which is consistent with brief 1's tables:
    about one take in ten stalking days.
 3. **Cats come quickly**: half the stores at the first season's turn.
+
+### The live run after brief 2's gate (D2-207): `live_spring_seed7`, 9 Nov
+
+Run 6's village, season, seed and cast, unchanged and unscripted. LLM agents, 8 days, $9.87, branch `ecology-raiders` at `f290e2c`.
+The output is outside the repository (scratchpad `wild/live_spring_seed7`).
+
+- **Who lived:** 16 of 19. Odo, Ivy and Alys died of old age on days 5 to 7. Nobody missed a meal, and there were no errors.
+- **What came at night:**
+  - the fox took hens 4 times, at the Holts', the Carters', the Dyers' and the Cotters';
+  - it tried shut houses and was kept out (night 6: the Carters' and the Woods' houses, nothing taken);
+  - pigeons came to the fields on 4 nights, but small (0.09 to 0.65 a night);
+  - red deer took 13.2 of Broad Field on night 5, and were turned by a fire on night 7;
+  - set snares caught 5 hares and the eel traps 3 eels;
+  - cats settled at three stores at the season's turn.
+- **What people did with the new works** (of about 600 acts):
+  - pest work 48, hunting 33, shutting up 13 (mostly after the fox's raids: Denise 7, Petronel 4), snares 7, eel traps 6, the
+    drive 2, den work 1;
+  - burial 4 (the elders);
+  - Matthew took from his snares three times;
+  - of 33 hunts, 2 took a beast, 14 came on one that got away and 13 found nothing.
+- **Refusals:** 33 of 898 results (3.7%). The repeated ones were asks for pest work against pigeons and hares, which are raiders and
+  not loads. That refusal now says what answers a raider (brief 3's branch).
+- **Against run 6:** the same world before briefs 1 and 2. Run 6's acts are in 37.2's notes; the side-by-side is 37.2's to make. On
+  this run alone, people used the methods the land gives them, answered the fox by shutting up, and set snares and traps.
+  Nobody watched a field for pigeons. Nobody acted on a neighbour's loss.
+
+## Brief 3: carcasses, decay and what comes to them (stage 4, pack K2). Branch `ecology-carcass` (from `ecology-raiders`).
+
+### What was built
+- **Stages by size** (THINGS `carcass_size`, `carcass_sizes`, calibrate):
+  - small: fresh 1 day, rot 0.6 a night;
+  - medium: fresh 1 day, rot 0.4;
+  - large: fresh 2 days, rot 0.3.
+  The rot runs ×1.5 in summer and ×0.5 in winter; there is none on a frozen night or under snow. Bones are left when the flesh
+  (meat, rotting meat and offal) is under 5% of the first (`night._carcass_night`, `things.carcass_bones`).
+- **The dead as targets** (`what: carcass` rows): the fox (fresh and rotting, digs), the wolf (fresh and rotting, digs), the boar
+  (rotting) and the bear (fresh; caches).
+  - Attraction is the row's `attr` times the most flesh at the node against `CARCASS_PULL.ref` (20 units); a shallow grave counts
+    a tenth of that.
+  - A group eats its size times the row's `eat`, and remembers `fed_at`.
+- **The carrion pool:** each night the open dead's flesh is lent to the home area's carrion (5 kg a unit), and what the carrion
+  eaters ate comes off them in proportion. The rest of the loan is taken back out. Birds are marked over a carcass that lost a
+  quarter kg or more.
+- **Spillover:** for 3 nights after feeding at the dead of a node, a group has its drive ×1.5 and picks among all its rows by their
+  attraction.
+- **The bear's cache:** the bear marks a fresh carcass cached for 2 to 4 nights.
+  - Anyone who takes from it, or works its parcel, meets the bear by its `danger` (D2-193), ×1.5 alone. They are hurt or killed,
+    or back away; the act is not done.
+  - Signs: the dragged and covered carcass; for an expert, the bear lying up near.
+- **People's handling:**
+  - `burn` (work at a dead beast): firewood 2, 6 or 12 and units 1, 2 or 4 by size. Everything in it burns and nothing comes after.
+    The smoke is an event; ash and bone are its sign.
+  - `bury` reaches a dead beast as well as a body. A finished grave is `deep`.
+  - The new `method: shallow` digs half the grave. It is `shallow`: only diggers find it, at a tenth of the pull. One dug into lies
+    open again, with its sign.
+- **Tallow:** slaughter gives it (cows, oxen and bulls 4, calves 1), so a fresh carcass holds it. `make tallow lights` turns 1
+  tallow and 1 unit into 4 lights. Night pest work (slugs) by a light does ×1.3 and burns one.
+- **Signs** (carcass context): birds over the dead, the bear's cache (lay and expert), a shallow grave dug open, ash. Each is a
+  change in state and worth acting on (`guides/senses.md`).
+- Tests: `tests/test_cybertron2_wild_carcass.py`, 12 tests.
+
+### Deviations from the brief
+1. **Sizes by the engine's beasts:** only cattle die as carcasses (cow, ox and bull large; calf medium). A person's body is medium,
+   with `body_mass` 30 units of flesh kept as an `eaten` share. The small row is there for hens and hares, though nothing leaves
+   those yet.
+2. **Large carcasses rot 0.3 a night** (the brief's "to about day 10" in mild weather). Frosty springs keep them much longer, as the
+   brief's frost rule says.
+3. **Offal is made with the carcass**, a quarter of its meat. Taking the meat leaves it.
+4. **Bones by flesh, not by age.** How long bones lie is unchanged (the existing window, 18 days).
+5. **Targets at the village's own parcels**, not the ring, for far-ranging kinds too.
+6. **Shallow graves by a modifier,** `method: shallow`. In the engine, burial finishes only when the grave is whole, so "a grave not
+   finished, or dug in frozen or stony ground at fewer units" has no form. Only a finished grave is deep.
+7. **The carrion pool link removes little.** The village's home area already holds about 460 kg/km² of carrion against its eaters'
+   1 to 2 kg a night, so a cow loses about 0.3% a night that way. Rot and the groups do the visible work. The birds' sign shows at
+   any real feeding (0.05 units). Lending to the ring instead was not done, since the brief names the area.
+8. **The bear's cache stops the act** even when nobody is hurt: one backs away.
+9. **Tallow for cattle only:** the engine has no pigs or sheep.
+10. **The night watch is unchanged by a light** (its fire, D2-21). Only night pest work reads it.
+11. **Fixes found on the way:**
+    - the gate probe counts "no dead beast" as situational;
+    - the readiness check accepts a dead beast;
+    - the pest-work refusal for raiders (found in the live run above).
+
+### Gate results (9 Nov)
+- **Tests:** 503 pass on the branch (`cc4d342`): brief 2's 491; brief 3's 12; one existing test changed (a cow is now fresh two days).
+- **Older worlds replay:** the valley is identical to brief 2's tip. Region C is identical in every day's record; its state differs only in two
+  calves' carcasses, which now hold tallow and offal (intended).
+- **Regression** (wild_probe5 and wild_probe6, scripted bots, 8 days, seeds 7, 8, 9; brief 2's tip against brief 3):
+  - carrion eaters' numbers unchanged: fox 16,198 against 16,198, wolf 257.4, raven 2,531, boar 24,503, rats 34,087, bear 162.5;
+  - the carrion pool 2,320,929 kg against 2,320,924;
+  - groups ate 57.8 units at the dead across the six runs.
+  Nothing booms. **Pass.**
+- **Society-level:**
+  - Bodies left unburied draw scavengers and buried ones draw none. **Pass.**
+  - A dead cow left by the herd draws the wolves, and a burned one does not. **Pass.**
+  - The brief's further expectation, that the herd then loses more, **does not hold as built.** The wolves feed on the carcass
+    instead of a cow while it lasts, and the spillover after does not make it up. Kills were 14 against 16 over 6 nights and 30
+    against 33 over 12 (20 seeds each, wolves not hungry). The carcass first spares the herd, then draws the pack back.
+- **For Zach:**
+  - (a) Should a carcass's draw outweigh the meal it gives? That would need a lower `eat` for wolves, a stronger spillover, or the
+    wolves remembering the herd they saw while feeding.
+  - (b) Should the carrion pool's balance (37.2's ecology) be checked, since it holds far more carrion than its eaters take?
