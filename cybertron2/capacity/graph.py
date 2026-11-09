@@ -24,7 +24,8 @@ from cybertron2.engine.data import FITTINGS, ITEMS, ROOMS, TECHNIQUES
 KINDS = ("fixed", "pool", "stock", "chance", "milk", "break")     # yield kinds read here as processes
 ELSEWHERE = {"crop": "rotation.py (a plot's year)", "sow": "rotation.py", "tend": "rotation.py (weeding)",
              "manure": "rotation.py", "select": "levels (seed selection)", "slaughter": "sources.herds (calves)",
-             "herd": "no goods (watching)", "wild_watch": "no goods (watching a field by night; wild_layer.md)", "care": "no goods (children)", "works": "ground (rotation: best levels assume done)",
+             "herd": "no goods (watching)", "wild_watch": "no goods (watching a field by night; wild_layer.md)",
+             "wild_take": "the wild layer's populations (capacity under a harvest: living_populations step 2a, not yet)", "care": "no goods (children)", "works": "ground (rotation: best levels assume done)",
              "clear": "model.ceiling_fields", "clear_built": "no food", "fence": "no food", "gate": "no food",
              "repair": "costs (upkeep, not yet)", "bury": "no goods", "mend": "costs (a fitting's upkeep: FITTINGS wear)"}
 

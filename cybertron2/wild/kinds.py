@@ -133,7 +133,27 @@ NEAR_PEOPLE = {
 }
 
 
+# how a kind is taken (wild_layer.md §3.7; D2-192, D2-193): detect, the chance a searcher in good habitat comes on one; flee, the
+# chance it gets away once found; danger to the taker found alone (a crew or a dog divides it); family, the words people look for it
+# by; goods, what a kill gives (engine food for meat: real content x Y/365, node_ecology.md).
+TAKEN = {
+    "red deer":   {"family": ["deer", "red deer", "stag", "hind", "venison", "big game", "game"], "detect": 0.35, "flee": 0.55,
+                   "goods": {"meat": 3.9, "hide": 1}},
+    "roe deer":   {"family": ["deer", "roe", "roe deer", "venison", "game"], "detect": 0.3, "flee": 0.5, "goods": {"meat": 1.1, "hide": 1}},
+    "wild boar":  {"family": ["boar", "wild boar", "pig", "swine", "sounder", "big game", "game"], "detect": 0.3, "flee": 0.35,
+                   "danger": {"wound": 0.3, "kill": 0.03}, "goods": {"meat": 3.5, "hide": 1}},
+    "brown hare": {"family": ["hare", "hares", "small game", "game"], "detect": 0.5, "flee": 0.5, "goods": {"meat": 0.18}},
+    "woodpigeon": {"family": ["pigeon", "pigeons", "birds", "small game"], "detect": 0.4, "flee": 0.75, "goods": {"meat": 0.05}},
+    "wildfowl":   {"family": ["fowl", "duck", "ducks", "geese", "birds", "wildfowl"], "detect": 0.5, "flee": 0.6, "goods": {"meat": 0.2}},
+    "fox":        {"family": ["fox", "foxes", "vermin"], "detect": 0.15, "flee": 0.6, "goods": {"hide": 1}},
+    "wolf":       {"family": ["wolf", "wolves", "big game"], "detect": 0.12, "flee": 0.5, "danger": {"wound": 0.25, "kill": 0.04},
+                   "goods": {"hide": 1}},
+    "brown bear": {"family": ["bear", "big game"], "detect": 0.1, "flee": 0.3, "danger": {"wound": 0.5, "kill": 0.12},
+                   "goods": {"meat": 6.0, "hide": 2}},
+}
+
+
 def rows() -> dict:
     """The kinds as RESOURCES rows (merged into data.RESOURCES; pack "wild")."""
-    return {name: {"renewal": "population", "pack": "wild", "population": k, **({"near_people": NEAR_PEOPLE[name]} if name in NEAR_PEOPLE else {})}
-            for name, k in KINDS.items()}
+    return {name: {"renewal": "population", "pack": "wild", "population": k, **({"near_people": NEAR_PEOPLE[name]} if name in NEAR_PEOPLE else {}),
+                   **({"taken": TAKEN[name]} if name in TAKEN else {})} for name, k in KINDS.items()}

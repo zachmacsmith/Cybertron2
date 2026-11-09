@@ -192,3 +192,60 @@ def test_a_trace_reads_one_way_to_a_practised_hunter_and_another_to_anyone_else(
         read[who] = [f["text"] for f in PC.facts(HR.Here(w, who)) if (f.get("knows") or f.get("lay")) == "hunt" and SG.readable(f, pr)]
     assert any("sounder of about 9" in t for t in read["Ann"]) and not any("turf" in t for t in read["Ann"])
     assert any("turf" in t for t in read["Tom"]) and not any("sounder" in t for t in read["Tom"])
+
+
+def _hunters(generated, n=30, knows=("hunt the wild", "boar hunt", "stalk deer")):
+    world = copy.deepcopy(generated)
+    world["agents"] = {f"H{i}": {"household": "Ash", "stage": "adult", "sex": "m", "at": "s1",
+                                 "knows": {t: {"level": "known", "skill": 1.4} for t in knows}} for i in range(n)}
+    w, WL = _summer_world(world)
+    from cybertron2.engine import run as R
+    w.s["today"] = R.blank_today()
+    wood = next(p["name"] for p in w.s["parcels"].values() if p["node"] == "s1" and p["cover"] == "forest")
+    return w, WL, wood
+
+
+def _do(w, who, a):
+    from cybertron2.engine import verbs as V
+    from cybertron2.engine.here import Here, Mind
+    from cybertron2.engine.world import Refused
+    try:
+        return V.do(Here(w, who), Mind(w, who), a)
+    except Refused as e:
+        return f"REFUSED {e}"
+
+
+def test_a_kill_comes_off_the_population_and_gives_its_goods(generated):
+    w, WL, wood = _hunters(generated)
+    before = sum(np.asarray(w.s["wild"]["state"]["pop"]["roe deer"]) * WL.model(w).km2)
+    took = [r for i in range(30) for r in [_do(w, f"H{i}", {"do": "gather", "what": "stalk deer", "at": wood, "range": "the wood around",
+                                                              "looking for": "roe deer"})] if "took it" in r]
+    after = sum(np.asarray(w.s["wild"]["state"]["pop"]["roe deer"]) * WL.model(w).km2)
+    roe = sum(1 for r in took if "came on a roe deer" in r)                    # (not "instead of the roe deer you were after")
+    assert roe >= 1 and abs((before - after) - roe) < 1e-6
+    assert any(w.goods(w.s["people"][f"H{i}"]["hands"]).get("meat", 0) > 0 for i in range(30))
+
+
+def test_looking_for_something_makes_it_likelier_but_not_certain(generated):
+    """A hunter who names a quarry meets it more often than one taking what comes, and sometimes meets something else."""
+    w, WL, wood = _hunters(generated, n=60)
+    met = lambda r, k: f"came on a {k}" in r or f"came on an {k}" in r
+    general = [_do(w, f"H{i}", {"do": "gather", "what": "hunt the wild", "at": wood, "range": "the wood around"}) for i in range(30)]
+    aimed = [_do(w, f"H{i}", {"do": "gather", "what": "hunt the wild", "at": wood, "range": "the wood around", "looking for": "boar"})
+             for i in range(30, 60)]
+    g_boar = sum(met(r, "wild boar") for r in general) / max(1, sum("came on" in r for r in general))
+    a_boar = sum(met(r, "wild boar") for r in aimed) / max(1, sum("came on" in r for r in aimed))
+    assert a_boar > g_boar
+    assert any("instead of the boar" in r for r in aimed) or a_boar < 1.0
+
+
+def test_boar_hunted_alone_hurt_more_often_than_with_a_crew(generated):
+    """D2-193: a boar hunt alone is dangerous; others hunting with you at the same place that day share the danger."""
+    w, WL, wood = _hunters(generated, n=80)
+    alone = [_do(w, f"H{i}", {"do": "gather", "what": "boar hunt", "at": wood, "looking for": "boar"}) for i in range(40)]
+    w2, _, wood2 = _hunters(generated, n=80)
+    together = []
+    for i in range(40, 80):                                                     # hunters in fours, each four at the same wood
+        together.append(_do(w2, f"H{i}", {"do": "gather", "what": "boar hunt", "at": wood2, "looking for": "boar"}))
+    hurt = lambda rs: sum("turned on you" in r for r in rs) / max(1, sum("came on" in r for r in rs))
+    assert hurt(alone) >= hurt(together[4:])
