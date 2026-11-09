@@ -1,6 +1,6 @@
 # Proposal: the wild layer, one general system for ecosystems and wildlife, built from the generated land into the engine
 
-**Status:** discussion (9 Nov). Nothing decided, nothing built in the engine. **Owner:** 37.2 (the layer's design, the generator
+**Status:** accepted to build on the `ecology` branch: D2-199 (9 Nov); open questions 2 to 7 still open. Nothing on main. **Owner:** 37.2 (the layer's design, the generator
 side, the kinds' data); the engine changes are 37.4's (CLAUDE.md), so §8 names who would build what.
 
 **Affects:**
@@ -360,6 +360,7 @@ skill). Its tests are read as tests of that layer only.
 - 9 Nov: proposed after Zach's points that wave 1 was not built as general systems and that everything should build up from the
   generated environment; reconciles living_populations.md (and 37.4's review of it), W2, node_ecology.md, the interface experiments
   and wild_systems.md.
+- 9 Nov: Zach: "build it on your own ecology branch" (D2-199). Building there, engine code included, for review before main.
 
 ## Sources
 
