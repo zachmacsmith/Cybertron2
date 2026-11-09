@@ -1526,6 +1526,9 @@ def _a(kind) -> str:
 
 def watch(here, pid, y, place_name) -> str:
     """A night watch over a field with a scare (the technique's row names it): read by the night's groups (D2-198)."""
+    if y.get("burns"):                                                    # a fire burns its wood (one-off 2 in 02zq)
+        from cybertron2.engine.verbs import _consume
+        _consume(here, y["burns"])
     here.apply("set_wild", path=["watch", pid], value={"day": here.day, "by": here.name, "scare": y["scare"]})
     return f"You set yourself to watch {place_name} tonight with {y.get('with', y['scare'])}."
 

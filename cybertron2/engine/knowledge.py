@@ -270,6 +270,9 @@ def shortfall(here, mind, tech, mult=1.0, at=None, extra=None, a=None) -> str:
             near = next((cid for cid in here.takeable() if cid != here.hands and any(here.contents(cid).get(x, 0) >= 1 for x in TOOLS)), None)
             return f"you need a tool in your hands for {label(tech)}" + (
                 f"; there is one in {here.buildings()[near[len('stock:'):]]['name']}'s store: take it into your hands (move)" if near else "; you have none")
+    for f_ in t.get("home_fittings") or []:                                   # kept at one's home (a dog for a watch)
+        if not any((here.buildings()[b].get("fittings") or {}).get(f_) for b in here.homes_here() if b in here.buildings()):
+            return f"you keep no {f_} at your home here"
     if t.get("animals") or t.get("uses"):
         from cybertron2.engine import farm as FM
         why = FM.team_shortfall(here, t)

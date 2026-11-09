@@ -1103,3 +1103,17 @@ def test_a_great_freeze_kills_the_fowl_and_the_old_remember_the_last(generated, 
     tom, ann = _read(w, "Tom", "#wildrare"), _read(w, "Ann", "#wildrare")
     assert any("great freeze of your youth" in t for t in tom) and not any("great freeze of your youth" in t for t in ann)
     assert any("frozen from bank to bank" in t for t in ann)
+
+
+def test_a_watchs_scare_is_made_of_what_is_there(generated):
+    """One-off 2 (02zq): a fire watch burns firewood, clappers and a horn must be in hand, a dog watch needs a dog at home."""
+    from cybertron2.engine import run as R
+    w, WL = _summer_world(_two(generated))
+    w.s["today"] = R.blank_today()
+    field = w.s["parcels"][WL._fields(w, "s1")[0]]["name"]
+    assert "needs 1 clappers" in _do(w, "Tom", {"do": "work", "what": "watch the field (clapper)", "at": field})
+    assert "keep no dog" in _do(w, "Tom", {"do": "work", "what": "watch the field (dog)", "at": field}) or any(
+        (b.get("fittings") or {}).get("dog") for b in w.s["buildings"].values())
+    w.apply("create", "s1", dst=w.hands("Tom"), item="firewood", qty=3)
+    r = _do(w, "Tom", {"do": "work", "what": "watch the field (fire)", "at": field})
+    assert "efused" not in r and w.goods(w.hands("Tom")).get("firewood", 0) < 3

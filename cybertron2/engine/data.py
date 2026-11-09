@@ -60,6 +60,8 @@ ITEMS = {
     "acorn meal": {"weight": 1, "food": 1.0, "spoil": 0.02, "cook": True, "raw": 0.3, "pack": "wild"},
     "antler": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # a cast antler: horn for handles and combs
     "beaver pelt": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # a fine fur for trade
+    "clappers": {"weight": 0.5, "food": 0.0, "spoil": 0.0, "pack": "wild"},
+    "horn": {"weight": 0.5, "food": 0.0, "spoil": 0.0, "pack": "wild"},
     "castoreum": {"weight": 0.2, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # the beaver's scent glands: a physician's good
     "timber": {"weight": 2, "food": 0.0, "spoil": 0.0, "heat": 2.0},   # D2-24; 2 heat (D2-157)
     "stone": {"weight": 3, "food": 0.0, "spoil": 0.0},                 # D2-3, D2-24
@@ -383,16 +385,16 @@ TECHNIQUES = {
     # Fences round a parcel and gates (livestock.md "Fences and gates": D2-130, D2-132): a field work on the parcel; FENCES has the numbers
     "watch the field (fire)": {"verb": "work", "label": "watching a field by night with a fire", "basic": True, "pack": "wild",
                      "aliases": ['watch the field with a fire', 'watch the corn with a fire', 'a fire watch'], "at": {"covers": ["field", "pasture", "meadow", "forest", "scrub"]}, "draws": "watch",
-                     "yield": {"kind": "wild_watch", "scare": "fire", "with": "a fire"}, "units": 2, "gives": "", "tags": ["farming", "animals"]},
+                     "yield": {"kind": "wild_watch", "scare": "fire", "with": "a fire", "burns": {"firewood": 2}}, "uses": {"firewood": 2}, "units": 2, "gives": "", "tags": ["farming", "animals"]},
     "watch the field (clapper)": {"verb": "work", "label": "watching a field by night with clappers", "basic": True, "pack": "wild",
                      "aliases": ['watch the field with clappers', 'watch the corn with clappers', 'clap them off'], "at": {"covers": ["field", "pasture", "meadow", "forest", "scrub"]}, "draws": "watch",
-                     "yield": {"kind": "wild_watch", "scare": "clapper", "with": "clappers"}, "units": 2, "gives": "", "tags": ["farming", "animals"]},
+                     "yield": {"kind": "wild_watch", "scare": "clapper", "with": "clappers"}, "uses": {"clappers": 1}, "units": 2, "gives": "", "tags": ["farming", "animals"]},
     "watch the field (horn)": {"verb": "work", "label": "watching a field by night with a horn", "basic": True, "pack": "wild",
                      "aliases": ['watch the field with a horn', 'watch the corn with a horn', 'blow a horn at them'], "at": {"covers": ["field", "pasture", "meadow", "forest", "scrub"]}, "draws": "watch",
-                     "yield": {"kind": "wild_watch", "scare": "horn", "with": "a horn"}, "units": 2, "gives": "", "tags": ["farming", "animals"]},
+                     "yield": {"kind": "wild_watch", "scare": "horn", "with": "a horn"}, "uses": {"horn": 1}, "units": 2, "gives": "", "tags": ["farming", "animals"]},
     "watch the field (dog)": {"verb": "work", "label": "watching a field by night with the dog", "basic": True, "pack": "wild",
                      "aliases": ['watch the field with the dog', 'watch the corn with the dog', 'set the dog on them'], "at": {"covers": ["field", "pasture", "meadow", "forest", "scrub"]}, "draws": "watch",
-                     "yield": {"kind": "wild_watch", "scare": "dog", "with": "the dog"}, "units": 2, "gives": "", "tags": ["farming", "animals"]},
+                     "yield": {"kind": "wild_watch", "scare": "dog", "with": "the dog"}, "home_fittings": ["dog"], "units": 2, "gives": "", "tags": ["farming", "animals"]},
     "hunt the wild": {"verb": "gather", "label": "hunting in the wild, taking what comes", "aliases": ["hunt", "hunting", "go hunting", "hunt the wood", "hunting the wild", "hunt in the wild"], "basic": True, "pack": "wild",
                  "at": {"covers": ['forest', 'scrub', 'heath', 'moor', 'fen', 'pasture', 'meadow']}, "draws": "wild", "reads_as": ["hunt"], "yield": {"kind": "wild_take", "takes": {'red deer': 1.0, 'roe deer': 1.0, 'wild boar': 0.6, 'brown hare': 0.8, 'woodpigeon': 0.3, 'fox': 0.3, 'wolf': 0.2, 'brown bear': 0.1}},
                  "weapon": {'none': 0.3, 'armed': 1.0}, "wear": 0.3, "units": 2, "gives": "meat", "tags": ["food", "hunting", "animals"], **({"untaught": "tryable"} if not True else {})},
@@ -413,6 +415,10 @@ TECHNIQUES = {
                                      "gather acorns", "pick berries", "pick mushrooms"], "basic": True, "pack": "wild",
                          "at": {"covers": ["forest", "meadow", "pasture", "scrub", "heath", "moor", "fen", "saltmarsh"]}, "draws": "wild plants",
                          "yield": {"kind": "wild_forage", "base": 1.2}, "units": 1, "gives": "", "tags": ["food"]},
+    "make clappers": {"verb": "make", "label": "making clappers (two boards on a cord) for scaring beasts off a field", "basic": True, "pack": "wild",
+                      "aliases": ["clappers", "make a clapper"], "inputs": {"timber": 0.5}, "units": 1, "gives": {"clappers": 1}, "tags": ["farming"]},
+    "make a horn": {"verb": "make", "label": "making a horn to blow from a cast antler's base", "basic": True, "pack": "wild",
+                    "aliases": ["horn", "make horn"], "inputs": {"antler": 1}, "units": 2, "gives": {"horn": 1}, "tags": ["farming"]},
     "leach acorns": {"verb": "make", "label": "boiling acorns in changes of water at a hearth till the bitterness is gone", "basic": True,
                      "aliases": ["leach", "leaching acorns", "acorn meal"], "pack": "wild", "at": {"fittings": ["hearth"]},
                      "inputs": {"acorns": 3}, "units": 1, "gives": {"acorn meal": 2}, "tags": ["food", "cooking"]},
@@ -451,9 +457,9 @@ TECHNIQUES = {
                              "aliases": ["break the dam", "pull down the dam", "drain the meadow"], "at": {"covers": ["forest", "scrub", "meadow"]},
                              "draws": "site", "yield": {"kind": "wild_site", "site": "lodge", "do": "break"}, "units": 2, "gives": "",
                              "tags": ["farming"]},
-    "pick slugs by lantern": {"verb": "work", "label": "picking slugs off the young crop by lantern at dusk", "basic": True, "pack": "wild",
-                              "aliases": ["pick slugs", "slug the field", "go slugging", "pick off the slugs"], "at": {"covers": ["field"]},
-                              "draws": "guard", "yield": {"kind": "wild_guard", "load": "slugs", "cut": 0.6, "days": 1, "done": "You picked the slugs off the young crop in {place} by lantern at dusk."}, "units": 2, "gives": "",
+    "pick slugs at dusk": {"verb": "work", "label": "picking slugs off the young crop at dusk, as they come out", "basic": True, "pack": "wild",
+                              "aliases": ["pick slugs", "slug the field", "go slugging", "pick off the slugs", "pick slugs by lantern"], "at": {"covers": ["field"]},
+                              "draws": "guard", "yield": {"kind": "wild_guard", "load": "slugs", "cut": 0.6, "days": 1, "done": "You picked the slugs off the young crop in {place} at dusk as they came out."}, "units": 2, "gives": "",
                               "tags": ["farming"]},
     "top the beans": {"verb": "work", "label": "pinching out the bean tops where the fly gathers", "basic": True, "pack": "wild",
                       "aliases": ["top beans", "pinch out the beans", "pinch the bean tops"], "at": {"covers": ["field"]},
