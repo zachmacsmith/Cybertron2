@@ -65,4 +65,4 @@ chores the report finds).
 
 | Date | In progress | Paused | Asks | Deferred | Chores |
 |---|---|---|---|---|---|
-| 2026-11-09 | 5 | 7 | 27 | 62 | 122 |
+| 2026-11-09 | 6 | 11 | 30 | 62 | 122 |
