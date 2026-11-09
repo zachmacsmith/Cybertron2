@@ -12,3 +12,4 @@ runs/
 # header design drafts (python docs/assets/make_headers.py --candidates)
 docs/assets/candidates/
 
+cybertron2/specs/wild_tests/
