@@ -582,6 +582,9 @@ def _technique(here, mind, a, party, verb):
         from cybertron2.engine import wild as WL
         _, word = WL.take(here, mind, tech, key, place_name, out, m, y, a)
         gives = None                                                            # its goods are made by the hunt, by kind
+    elif y["kind"] == "wild_shut":                                           # hens shut in for the night (wild_layer.md, wave 2)
+        from cybertron2.engine import wild as WL
+        word = WL.shut(here)
     elif y["kind"] == "wild_watch":                                          # a night watch over a field (wild_layer.md, D2-199)
         from cybertron2.engine import wild as WL
         word = WL.watch(here, key, y, place_name)
@@ -599,7 +602,7 @@ def _technique(here, mind, a, party, verb):
     if tool and t.get("wear"):
         here.apply("wear", container=here.hands, item=tool, uses=t["wear"])
     KN.tried(here, mind, tech, got > 0 or y["kind"] in ("sow", "tend", "repair", "slaughter", "break", "manure", "herd", "bury", "fence", "gate",
-                                                       "wild_watch", "wild_take"),
+                                                       "wild_watch", "wild_take", "wild_shut"),
              units=t["units"])
     MOD.practise(here, mind, a["_mods"])
     for_txt = f" for {here.households()[party]['name'] if party in here.households() else party}" if party and party != here.name else ""

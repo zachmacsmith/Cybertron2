@@ -99,7 +99,8 @@ KLEIBER = {"herb": 0.075, "gran": 0.065, "omni": 0.07, "carn": 0.11}        # kg
 MAST = {"every": (2, 5), "ordinary_p": 0.6, "levels": {"heavy": 3.0, "ordinary": 1.0, "poor": 0.4, "fail": 0.15}}
 
 
-# near people (wild_layer.md §3.4; wild_systems.md §6): how a whole-counted kind's group behaves by a village. Seasons are
+# near people (wild_layer.md §3.4; wild_systems.md §6): how a whole-counted kind's group behaves by a village. The drive is a chance
+# an engine day (about 11 real nights) of setting out toward a target in season: a sounder works ripening corn most such stretches. Seasons are
 # {season index: (first day, last day)}; trample is the share of a field's standing crop a head takes in a raid; the answer to a
 # harmless scare is D2-198's; leads are in engine days (D2-197). Traces name what a group leaves where, read by the senses with a
 # reading for the practised hunter and one for anyone else.
@@ -107,7 +108,7 @@ NEAR_PEOPLE = {
     "wild boar": {
         "targets": [{"seasons": {1: (3, 7), 2: (0, 1)}, "attr": 1.0, "trample": 0.012},     # milk-ripe to harvest
                     {"seasons": {0: (0, 5)}, "attr": 0.3, "trample": 0.006}],              # the sown corn
-        "drive": {"base": 0.12, "hunger": 0.6}, "memory_days": 3, "return_p": 0.85, "lead_nights": 2, "lead_sign_p": 0.9,
+        "drive": {"base": 0.35, "hunger": 0.5}, "memory_days": 3, "return_p": 0.85, "lead_nights": 2, "lead_sign_p": 0.9,
         "answer": {"type": "habituate", "turn_p": 0.9, "gain": 0.3, "decay": 0.01, "rest": 2},
         "harm": {"dog": {"turn_p": 0.95, "harm_p": 0.25}}, "wary_after_harm": 8, "met_share": 0.5,
         "traces": {"edge": {"lay": "the turf by the wood's edge turned over in long strips",
@@ -120,7 +121,7 @@ NEAR_PEOPLE = {
     "red deer": {
         "targets": [{"seasons": {0: (2, 7)}, "attr": 0.5, "trample": 0.006},                # the young corn
                     {"seasons": {1: (3, 7)}, "attr": 0.4, "trample": 0.004}],              # the ripening corn
-        "drive": {"base": 0.08, "hunger": 0.5}, "memory_days": 3, "return_p": 0.6, "lead_nights": 2, "lead_sign_p": 0.8,
+        "drive": {"base": 0.2, "hunger": 0.5}, "memory_days": 3, "return_p": 0.6, "lead_nights": 2, "lead_sign_p": 0.8,
         "answer": {"type": "habituate", "turn_p": 0.85, "gain": 0.25, "decay": 0.01, "rest": 2},
         "harm": {"dog": {"turn_p": 0.9, "harm_p": 0.15}}, "wary_after_harm": 5, "met_share": 0.5,
         "traces": {"edge": {"lay": "deer slots in the soft ground along the hedge",
@@ -130,7 +131,47 @@ NEAR_PEOPLE = {
                             "knows": "a herd of about {n} deer was at the corn in {place} in the night"},
                    "turned": {"lay": "beasts turned back from {place} in the night", "knows": "the deer turned back from {place}"}},
     },
+    "wolf": {
+        "gather": "far",                                                                     # a pack ranges far beyond one ring
+        "targets": [{"what": "herd", "seasons": {3: (0, 7), 0: (0, 2)}, "attr": 1.0},          # late winter: hunger at the fold
+                    {"what": "herd", "seasons": {0: (3, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.35}],
+        "drive": {"base": 0.03, "hunger": 0.9}, "memory_days": 4, "return_p": 0.7, "lead_nights": 2, "lead_sign_p": 0.7,
+        "answer": {"type": "scared_off", "turn_p": 0.8, "off_days": 3},
+        "harm": {"dog": {"turn_p": 0.9, "harm_p": 0.15}}, "wary_after_harm": 10, "met_share": 1.0,
+        "traces": {"edge": {"lay": "great tracks along the wood's edge, like a big dog's",
+                            "knows": "wolf tracks along the wood's edge, a pack of about {n}, and the beasts restless at dusk",
+                            "knows_old": "old wolf tracks along the wood's edge"},
+                   "raid": {"lay": "a beast of the herd on {place} killed and torn in the night",
+                            "knows": "wolves took a beast of the herd on {place} in the night: a pack of about {n}"},
+                   "turned": {"lay": "something drove at the herd on {place} in the night and was driven off",
+                              "knows": "the watch drove wolves off the herd on {place}"}},
+    },
+    "fox": {
+        "targets": [{"what": "hens", "seasons": {0: (2, 7), 1: (0, 3)}, "attr": 1.0},           # cubs to feed
+                    {"what": "hens", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.35}],
+        "drive": {"base": 0.1, "hunger": 0.4}, "memory_days": 2, "return_p": 0.8, "lead_nights": 2, "lead_sign_p": 0.6,
+        "answer": {"type": "scared_off", "turn_p": 0.85, "off_days": 3},
+        "harm": {"dog": {"turn_p": 0.9, "harm_p": 0.1}}, "wary_after_harm": 10, "met_share": 1.0,
+        "traces": {"edge": {"lay": "the blackbirds chinking at the hedge at dusk",
+                            "knows": "a fox about the hedge at dusk: the blackbirds chinking at it, a musky smell on the path"},
+                   "raid": {"lay": "feathers and blood by the hen house at {place}", "knows": "a fox was at the hens at {place} in the night"},
+                   "turned": {"lay": "the dog barked at something by the hen house in the night",
+                              "knows": "the dog drove a fox off the hens in the night"}},
+    },
 }
+
+# what a kind's numbers near a village show (wild_layer.md §3.6): the highest row its density reaches, read two ways. `where`: the
+# village's own land or the ring around; `per`: density a km2 (`count` for heads in the ring and the land beyond, for packs).
+PRESENCE = {
+    "voles and mice": [{"where": "ring", "min": 2400, "lay": "kestrels hanging in the wind over the grass, owls calling at night",
+                        "knows": "the long grass is thick with voles: runways everywhere, kestrels over every field"},
+                       {"where": "ring", "max": 900, "lay": "", "knows": "no owl calling these nights, and few runways in the grass: the voles are few"}],
+    "owls": [{"where": "ring", "min": 1.2, "lay": "owls calling round the village at night", "knows": "owls calling all round at night: good hunting for them"}],
+    "wolf": [{"where": "far", "count": 3, "lay": "howling far off in the night", "knows": "wolves howling from the woods at night: a pack ranging near"}],
+    "wild boar": [{"where": "ring", "min": 1.0, "lay": "", "knows": "boar sign all through the wood: wallows, rubbed trees, rooted rides"}],
+    "red deer": [{"where": "ring", "min": 0.5, "lay": "", "knows": "deer slots along the rides and hinds with calves in the clearings"}],
+}
+RAVENS_OVER = {"min_carrion": 20.0, "lay": "ravens wheeling over the wood", "knows": "ravens over the wood: something lies dead there, a kill or a carcass"}
 
 
 # how a kind is taken (wild_layer.md §3.7; D2-192, D2-193): detect, the chance a searcher in good habitat comes on one; flee, the
@@ -153,7 +194,12 @@ TAKEN = {
 }
 
 
+# what a technique the wild pack switches off was practice for (the old generic hunt): those who knew it know these
+SKILL_CARRY = {"hunt": ["hunt the wild", "snare hares"]}
+
+
 def rows() -> dict:
     """The kinds as RESOURCES rows (merged into data.RESOURCES; pack "wild")."""
     return {name: {"renewal": "population", "pack": "wild", "population": k, **({"near_people": NEAR_PEOPLE[name]} if name in NEAR_PEOPLE else {}),
-                   **({"taken": TAKEN[name]} if name in TAKEN else {})} for name, k in KINDS.items()}
+                   **({"taken": TAKEN[name]} if name in TAKEN else {}), **({"presence": PRESENCE[name]} if name in PRESENCE else {})}
+            for name, k in KINDS.items()}

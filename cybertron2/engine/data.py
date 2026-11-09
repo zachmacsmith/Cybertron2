@@ -44,6 +44,8 @@ ITEMS = {
     "fishing rod": {"pack": "water", "weight": 1, "food": 0.0, "spoil": 0.0, "life": 30, "seen": True},              # a rod, a line of hair or gut
     "meat": {"weight": 1, "food": 1.5, "spoil": 0.30, "cook": True, "raw": 0.8, "decay": "fresh meat"},                 # dense, spoils fresh (D2-41)
     "milk": {"weight": 1, "food": 0.5, "spoil": 1.0},                  # the same day (D2-42)
+    "hen": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # kept hens in a house's store: they lay (wild_layer.md, wave 2)
+    "egg": {"weight": 0.1, "food": 0.6, "spoil": 0.05, "cook": True, "raw": 0.5, "pack": "wild"},
     "timber": {"weight": 2, "food": 0.0, "spoil": 0.0, "heat": 2.0},   # D2-24; 2 heat (D2-157)
     "stone": {"weight": 3, "food": 0.0, "spoil": 0.0},                 # D2-3, D2-24
     "hide": {"weight": 1, "food": 0.0, "spoil": 0.0, "decay": "hide"},                  # D2-24
@@ -127,7 +129,7 @@ COVERS = {
 # How each resource comes back (D4-7) and how it is seen (in words, never numbers: environment/resources.md).
 RESOURCES = {
     "plants": {"renewal": "fast", "low": "{name} has been picked over: little wild food left", "high": "{name} is thick with berries, nuts and greens"},
-    "game": {"renewal": "threshold", "low": "few fresh tracks in {name}: the game is thin", "high": "fresh deer slots and droppings along the rides of {name}"},
+    "game": {"renewal": "threshold", "off_with": ["wild"], "low": "few fresh tracks in {name}: the game is thin", "high": "fresh deer slots and droppings along the rides of {name}"},
     "wood": {"renewal": "slow", "low": "{name} is thinned out: stumps where the big trees stood", "high": ""},     # the trees (D2-156)
     "young": {"renewal": "young", "low": "", "high": ""},                 # young growth: cut for firewood (D2-156)
     "dead": {"renewal": "dead", "low": "", "high": ""},                   # dead wood: gathered for firewood (D2-156)
@@ -293,7 +295,7 @@ TECHNIQUES = {
     "forage": {"verb": "gather", "label": "foraging (greens, roots, berries, nuts)", "aliases": ["foraging", "gather food"], "basic": True,
                "at": {"covers": ["forest", "meadow", "pasture", "scrub", "heath", "moor", "fen", "saltmarsh"]}, "draws": "plants", "yield": {"kind": "stock", "base": 1.2},
                "units": 1, "gives": "wild food", "tags": ["food"]},
-    "hunt": {"verb": "gather", "label": "hunting game", "aliases": ["hunting"], "basic": True, "at": {"covers": ["forest"]},
+    "hunt": {"verb": "gather", "label": "hunting game", "aliases": ["hunting"], "basic": True, "at": {"covers": ["forest"]}, "off_with": ["wild"],
              "draws": "game", "yield": {"kind": "chance", "p": 0.35, "range": [2, 6], "by": {"hide": 0.25}},
              "weapon": {"none": 0.3, "armed": 1.0}, "wear": 0.3, "units": 2, "gives": "meat", "tags": ["food", "hunting", "animals"]},
     "fell": {"verb": "gather", "label": "felling timber", "aliases": ["felling", "chop timber", "cut wood"], "basic": True,
@@ -362,18 +364,18 @@ TECHNIQUES = {
              "yield": {"kind": "care"}, "units": 1, "gives": "", "tags": ["family"]},                                       # D2-142, D2-150
     # Fences round a parcel and gates (livestock.md "Fences and gates": D2-130, D2-132): a field work on the parcel; FENCES has the numbers
     "watch the field (fire)": {"verb": "work", "label": "watching a field by night with a fire", "basic": True, "pack": "wild",
-                     "aliases": ['watch the field with a fire', 'watch the corn with a fire', 'a fire watch'], "at": {"covers": ["field"]}, "draws": "watch",
+                     "aliases": ['watch the field with a fire', 'watch the corn with a fire', 'a fire watch'], "at": {"covers": ["field", "pasture", "meadow"]}, "draws": "watch",
                      "yield": {"kind": "wild_watch", "scare": "fire", "with": "a fire"}, "units": 2, "gives": "", "tags": ["farming", "animals"]},
     "watch the field (clapper)": {"verb": "work", "label": "watching a field by night with clappers", "basic": True, "pack": "wild",
-                     "aliases": ['watch the field with clappers', 'watch the corn with clappers', 'clap them off'], "at": {"covers": ["field"]}, "draws": "watch",
+                     "aliases": ['watch the field with clappers', 'watch the corn with clappers', 'clap them off'], "at": {"covers": ["field", "pasture", "meadow"]}, "draws": "watch",
                      "yield": {"kind": "wild_watch", "scare": "clapper", "with": "clappers"}, "units": 2, "gives": "", "tags": ["farming", "animals"]},
     "watch the field (horn)": {"verb": "work", "label": "watching a field by night with a horn", "basic": True, "pack": "wild",
-                     "aliases": ['watch the field with a horn', 'watch the corn with a horn', 'blow a horn at them'], "at": {"covers": ["field"]}, "draws": "watch",
+                     "aliases": ['watch the field with a horn', 'watch the corn with a horn', 'blow a horn at them'], "at": {"covers": ["field", "pasture", "meadow"]}, "draws": "watch",
                      "yield": {"kind": "wild_watch", "scare": "horn", "with": "a horn"}, "units": 2, "gives": "", "tags": ["farming", "animals"]},
     "watch the field (dog)": {"verb": "work", "label": "watching a field by night with the dog", "basic": True, "pack": "wild",
-                     "aliases": ['watch the field with the dog', 'watch the corn with the dog', 'set the dog on them'], "at": {"covers": ["field"]}, "draws": "watch",
+                     "aliases": ['watch the field with the dog', 'watch the corn with the dog', 'set the dog on them'], "at": {"covers": ["field", "pasture", "meadow"]}, "draws": "watch",
                      "yield": {"kind": "wild_watch", "scare": "dog", "with": "the dog"}, "units": 2, "gives": "", "tags": ["farming", "animals"]},
-    "hunt the wild": {"verb": "gather", "label": "hunting in the wild, taking what comes", "aliases": ["go hunting", "hunt the wood", "hunting the wild", "hunt in the wild"], "basic": True, "pack": "wild",
+    "hunt the wild": {"verb": "gather", "label": "hunting in the wild, taking what comes", "aliases": ["hunt", "hunting", "go hunting", "hunt the wood", "hunting the wild", "hunt in the wild"], "basic": True, "pack": "wild",
                  "at": {"covers": ['forest', 'scrub', 'heath', 'moor', 'fen', 'pasture', 'meadow']}, "draws": "wild", "yield": {"kind": "wild_take", "takes": {'red deer': 1.0, 'roe deer': 1.0, 'wild boar': 0.6, 'brown hare': 0.8, 'woodpigeon': 0.3, 'fox': 0.3, 'wolf': 0.2, 'brown bear': 0.1}},
                  "weapon": {'none': 0.3, 'armed': 1.0}, "wear": 0.3, "units": 2, "gives": "meat", "tags": ["food", "hunting", "animals"], **({"untaught": "tryable"} if not True else {})},
     "stalk deer": {"verb": "gather", "label": "stalking deer (slow, downwind, close in for the shot)", "aliases": ['stalking', 'stalk', 'stalk the deer'], "basic": False, "pack": "wild",
@@ -388,6 +390,9 @@ TECHNIQUES = {
     "fowling": {"verb": "gather", "label": "fowling with nets and decoys", "aliases": ['fowl', 'net fowl', 'catch fowl', 'wildfowling'], "basic": False, "pack": "wild",
                  "at": {"covers": ['fen', 'water', 'meadow', 'saltmarsh']}, "draws": "wild", "yield": {"kind": "wild_take", "takes": {'wildfowl': 3.0, 'woodpigeon': 0.2}},
                  "weapon": {'none': 1.0, 'armed': 1.0}, "wear": 0.3, "units": 2, "gives": "meat", "tags": ["food", "hunting", "animals"], **({"untaught": "tryable"} if not False else {})},
+    "shut the hens in": {"verb": "work", "label": "shutting the hens in for the night (the door wedged, the gaps stopped)", "basic": True,
+                         "pack": "wild", "aliases": ["shut in the hens", "close up the hens", "shut the hens"], "at": {"covers": ["built"]},
+                         "draws": "hens", "yield": {"kind": "wild_shut"}, "units": 1, "gives": "", "tags": ["animals"]},
     "range: near": {"verb": "modifier", "label": "hunting on the village's own land", "aliases": [], "basic": True, "pack": "wild",
                      "modifies": ["gather:hunt the wild", "gather:stalk deer", "gather:boar hunt", "gather:snare hares", "gather:fowling"],
                      "key": "range", "value": "near", "untaught": "tryable", "changes": {"range": "near", "units": 0}, "units": 0,
@@ -400,7 +405,7 @@ TECHNIQUES = {
                      "modifies": ["gather:hunt the wild", "gather:stalk deer", "gather:boar hunt", "gather:snare hares", "gather:fowling"],
                      "key": "range", "value": "far", "untaught": "tryable", "changes": {"range": "far", "units": 3}, "units": 3,
                      "gives": "", "tags": ["hunting"]},
-    "looking for": {"verb": "modifier", "label": "looking for one thing in particular (name it)", "aliases": [], "basic": True, "pack": "wild",
+    "looking for": {"verb": "modifier", "label": "looking for one thing in particular: name it, a kind or a sort (boar, deer, hares, fowl, small game)", "aliases": [], "basic": True, "pack": "wild",
                     "modifies": ["gather:hunt the wild", "gather:stalk deer", "gather:boar hunt", "gather:snare hares", "gather:fowling"],
                     "key": "looking for", "value": "*", "untaught": "tryable", "changes": {}, "units": 0, "gives": "", "tags": ["hunting"]},
     "fence": {"verb": "work", "label": "fencing a parcel round (wattle or post and rail)", "basic": True,

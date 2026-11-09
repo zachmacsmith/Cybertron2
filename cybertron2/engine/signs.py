@@ -1790,6 +1790,7 @@ def _aftermath(here, add) -> None:
                                       and c.get("cairn_day") != here.day) for c in here_bodies))
             spot_rows(here, BURIAL, x, sub, here.node, pid, add, name="burial",
                       who={"others": [m for m in people if m not in diggers], "doer": diggers})
+    _wild_presence(here, add)                                                  # what the wild kinds' numbers show (D2-199)
     for bid, b in here.buildings().items():
         sub, live = [f"building:{bid}"], _dwellers(here, bid)
         for field, rows, most, extra in (("fire_hit", FIRE, 3, {}), ("raided", RAID, 1, {}), ("theft", THEFT, 1, {}),
@@ -1818,6 +1819,53 @@ def _aftermath(here, add) -> None:
                               frm=here.parcels()[rec["from"]]["name"], to=here.parcels()[rec["to"]]["name"])
             spot_rows(here, DRIVEN, x, [f"herd:{hid}", f"parcel:{rec['to']}"], here.node, rec["to"], add, name="driven",
                       who={"others": [m for m in people if m != rec.get("by")]})
+
+
+def _wild_presence(here, add) -> None:
+    """What the wild kinds' numbers round this village show (wild_layer.md §3.6): each kind's presence rows (kestrels over the grass,
+    howling at night, ravens over a kill), the highest its numbers reach, read two ways (`knows`/`lay`). Data in the kinds' rows."""
+    w = here._w
+    wild = w.s.get("wild") or {}
+    if not wild.get("state"):
+        return
+    from cybertron2.engine import wild as WL
+    from cybertron2.engine.data import RESOURCES
+    from cybertron2.wild.kinds import RAVENS_OVER
+    import numpy as np
+    m = WL.model(w)
+    land = wild["land"]
+    ring = next((i for i, a in enumerate(m.ids) if land["areas"][a]["kind"] == "ring" and land["areas"][a]["node"] == here.node), None)
+    if ring is None:
+        return
+    spot = next((pid for pid, p in sorted(here.parcels().items()) if p["cover"] in ("forest", "scrub", "heath")),
+                next(iter(sorted(here.parcels())), None))
+    if spot is None:
+        return
+    st = wild["state"]
+    far = [i for i in WL._reach(m, land, here.node, "far") if land["areas"][m.ids[i]]["kind"] != "home"]
+    rows = []
+    for kind, row in sorted(RESOURCES.items()):
+        for pr in row.get("presence") or []:
+            if kind not in st["pop"]:
+                continue
+            if pr["where"] == "far":
+                v = sum(float(st["pop"][kind][i]) * float(m.km2[i]) for i in far)
+                hit = v >= float(pr.get("count", 1))
+            else:
+                v = float(st["pop"][kind][ring])
+                hit = ("min" in pr and v >= float(pr["min"])) or ("max" in pr and v <= float(pr["max"]))
+            if hit:
+                rows.append((kind, pr))
+                break
+    if float(np.asarray(st["carrion"])[ring]) >= float(RAVENS_OVER["min_carrion"]):
+        rows.append(("raven", RAVENS_OVER))
+    x = event_context(here, here.parcels()[spot]["name"], here.day)
+    for i, (kind, pr) in enumerate(rows):
+        for key in ("lay", "knows"):
+            if pr.get(key):
+                row = dict(when=lambda x: True, own=0.5, sense="sound" if "calling" in pr[key] or "howling" in pr[key] else "sight",
+                           tags=["animals"], text=lambda x, t=pr[key]: t)
+                spot_rows(here, [row], x, [f"parcel:{spot}"], here.node, spot, add, name=f"wildp{i}{key}", **{key: "hunt"})
 
 
 def _wild_traces(here, pid, p, sub, add) -> None:

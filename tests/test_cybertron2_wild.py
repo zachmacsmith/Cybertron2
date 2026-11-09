@@ -249,3 +249,72 @@ def test_boar_hunted_alone_hurt_more_often_than_with_a_crew(generated):
         together.append(_do(w2, f"H{i}", {"do": "gather", "what": "boar hunt", "at": wood2, "looking for": "boar"}))
     hurt = lambda rs: sum("turned on you" in r for r in rs) / max(1, sum("came on" in r for r in rs))
     assert hurt(alone) >= hurt(together[4:])
+
+
+# ---------------------------------------------------------------------- wave 2: the fold and the hungry year
+def _ring(w, WL, node="s1"):
+    m = WL.model(w)
+    land = w.s["wild"]["land"]
+    return m, next(i for i, a in enumerate(m.ids) if land["areas"][a]["kind"] == "ring" and land["areas"][a]["node"] == node)
+
+
+def test_a_hungry_pack_takes_a_beast_from_the_herd_and_leaves_its_carcass(generated):
+    w, WL = _summer_world(generated)
+    m, ri = _ring(w, WL)
+    st = w.s["wild"]["state"]
+    st["pop"]["wolf"][ri] = 8.0 / m.km2[ri]
+    st["cond"]["wolf"][ri] = 0.0
+    from cybertron2.engine import farm as FM
+    herds = [hid for hid, h in w.s["herds"].items() if h["node"] == "s1"]
+    assert herds
+    before = sum(FM.head(w.s["herds"][h]) for h in herds)
+    carcasses = lambda: sum(1 for c in w.s["containers"].values() if c.get("kind") == "carcass")
+    c0 = carcasses()
+    for _ in range(16):
+        N.night(w); w.s["day"] += 1
+    assert "wolf@s1" in w.s["wild"]["groups"]
+    assert sum(FM.head(w.s["herds"][h]) for h in herds) < before and carcasses() > c0
+
+
+def test_a_fox_takes_hens_left_out_and_fewer_shut_in(generated):
+    from cybertron2.engine import run as R
+    def lost(shut):
+        w, WL = _summer_world(generated)
+        m, ri = _ring(w, WL)
+        w.s["wild"]["state"]["pop"]["fox"][ri] = 4.0 / m.km2[ri]
+        houses = [b for b, x in w.s["buildings"].items() if x["node"] == "s1" and x.get("stock")
+                  and w.s["containers"][x["stock"]]["goods"].get("hen")]
+        hens = lambda: sum(w.s["containers"][w.s["buildings"][b]["stock"]]["goods"].get("hen", 0) for b in houses)
+        h0 = hens()
+        for _ in range(40):
+            if shut:
+                for b in houses:
+                    w.apply("set_wild", "s1", path=["shut", b], value={"day": w.d, "by": "x"})
+            N.night(w); w.s["day"] += 1
+        return h0 - hens(), h0
+    out, h0 = lost(False)
+    inn, _ = lost(True)
+    assert h0 > 0 and out > 0 and inn < out
+
+
+def test_kept_hens_lay(generated):
+    w, WL = _summer_world(generated)
+    house = next(b for b, x in w.s["buildings"].items() if x.get("stock") and w.s["containers"][x["stock"]]["goods"].get("hen"))
+    N.night(w)
+    assert w.s["containers"][w.s["buildings"][house]["stock"]]["goods"].get("egg", 0) > 0
+
+
+def test_the_voles_numbers_show_as_signs_read_two_ways(generated):
+    from cybertron2.engine import here as HR, perceive as PC, run as R, signs as SG
+    world = copy.deepcopy(generated)
+    world["agents"] = {"Ann": {"household": "Ash", "stage": "adult", "sex": "f", "at": "s1", "knows": {"hunt": {"level": "known", "skill": 1.6}}},
+                       "Tom": {"household": "Ash", "stage": "adult", "sex": "m", "at": "s1", "knows": {}}}
+    w, WL = _summer_world(world)
+    m, ri = _ring(w, WL)
+    w.s["wild"]["state"]["pop"]["voles and mice"][ri] = 4000.0
+    w.s["today"] = R.blank_today()
+    read = {}
+    for who in ("Ann", "Tom"):
+        pr = PC.practised(HR.Mind(w, who))
+        read[who] = [f["text"] for f in PC.facts(HR.Here(w, who)) if "#wildp" in (f.get("sign") or "") and SG.readable(f, pr)]
+    assert any("thick with voles" in t for t in read["Ann"]) and any("kestrels" in t for t in read["Tom"])

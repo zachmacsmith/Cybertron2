@@ -196,7 +196,7 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
     snow = np.array([1.0 if weather[nd].get("snow") else 0.0 for nd in m.nodes])
     frozen = (low < -3.0) & (temp < 3.0)
     if si == 0 and 5 <= sd <= 7:                                          # frost at the oaks' flowering spoils the year's mast
-        st["flower_frost"] = list(np.asarray(st["flower_frost"], bool) | (low < -1.5))
+        st["flower_frost"] = [bool(x) for x in (np.asarray(st["flower_frost"], bool) | (low < -1.5))]
     if si == 0 and sd == 0:
         st["flower_frost"] = [False] * n
     mast = mast_level(st, year, bool(np.mean(st["flower_frost"]) > 0.3) if si >= 2 else False, draws.get("mast", 0.5)) if si >= 2 else 1.0
