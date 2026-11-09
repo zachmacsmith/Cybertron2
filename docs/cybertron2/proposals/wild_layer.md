@@ -327,7 +327,7 @@ skill). Its tests are read as tests of that layer only.
 
 ## 6a. As built on the `ecology` branch (9 Nov; D2-199)
 
-Code on the branch, not on main. All 408 tests pass there, including 10 for the layer.
+Code on the branch, not on main. All 428 tests pass there, including 30 for the layer.
 
 | Phase | Built | Where | Not yet |
 |---|---|---|---|
@@ -335,7 +335,10 @@ Code on the branch, not on main. All 408 tests pass there, including 10 for the 
 | **1** | 14 kinds as RESOURCES rows (pack `wild`, renewal `population`); the **ecology step** on the food web's rules, a day at a time, with the climate by place, soil wetness, summer warmth, an irregular mast and keyed outbreaks; a history before the run; an offline runner on five generated worlds | `cybertron2/wild/kinds.py`, `ecology.py`; `docs/review/.../wildlayer/offline.py` | calibration backlog (below) |
 | **2** | the step in the engine's night, with the pack only; the **bridge**: wild kinds eat a real-yield crop and store, and the year's share eaten is drawn from the engine's crops and stores (4 to 10% of the standing crop and 3 to 5% of dry stores over 16 nights); shyness near people (busy land lowers a kind's habitat, by the kind's data) | `engine/wild.py`, `engine/night.py` | takes from the store in place of `game` and `hunt`; capacity under a harvest (37.4) |
 | **3** | **groups near people** for whole-counted kinds (boar, red deer): condensed from their ring's count; a drive from the area's hunger; a lead of engine days leaving traces (D2-197); raids on a field; a **night watch with a scare** (fire, clapper, horn, the dog) answered by the kind, getting used to it or harmed by the dog (D2-198); memory of a field. **Traces** on parcels, read by the senses two ways: a practised hunter reads "fresh rooting at the wood's edge: a sounder of about 14", anyone else "the turf by the wood's edge turned over" | `engine/wild.py`, `engine/signs.py`, `engine/verbs.py`, data rows | deer at the ricks in frost; raids on stores; the fox and the wolves at the fold (wave 2, after husbandry) |
-| **4** | — | — | the engine experiment with agents (Haiku, Sonnet, Opus; pack on and off; invented kinds) |
+| **4** | three small agent runs on one generated world (17 people, Opus at each household's head, Sonnet and Haiku); see History | scratchpad runs, not committed | the experiment proper: the pack on and off, invented kinds, several worlds |
+| **6 (wave 2)** | wolves (a pack gathered from the land beyond the ring) at the herds, leaving a carcass read as a kill; the fox at the **hens, kept as a house's stock** (six a house with beds; they lay); shutting the hens in; ravens over carrion; voles' numbers as signs | `engine/wild.py`, `wild/kinds.py`, data rows | sheep, pigs, poultry and hounds as beasts (husbandry, 37.4) |
+| **signs** | every mechanism with its bundle by the four kinds of sense, from the kinds' data: a group's edge, raid, try (a raid that took nothing) and turn; a watch's own night (to the watcher only); what the kinds ate, on the fields and in the stores; the mast in flower and fallen; a kill by a wild kind; **a hunt as a noticing process of its own** (as the road's), remembered of the place; a technique's `reads_as`, so every way of hunting reads a hunter's signs | `engine/signs.py`, `wild/kinds.py`, `engine/perceive.py` | calibration of `own` against the guide's evidence |
+| **7 (wave 3)** | **loads**: slugs, aphids with ladybirds following, fungi, as a level an area moved by the weather on the area's ground (`wild/loads.py`); harm to crops of a family at an age, cut by a guard (picking slugs by lantern, topping the beans); a fungus flush filling the woods' wild food. **The year's markers** from degree days (blackthorn, swallows, oak and ash, the may, the first frost), with lore that holds and lore that fails, measured on the climate | `wild/loads.py`, `engine/wild.py`, `engine/signs.py` | wasps (with bees, after husbandry); ergot (needs a grain's quality and illness from eating it, engine gaps) |
 
 **Calibration backlog** (offline, five worlds, 24 years):
 - **boar barely follow the mast:** 3% variation between years, because crowding holds them below the food limit;
@@ -398,6 +401,27 @@ Code on the branch, not on main. All 408 tests pass there, including 10 for the 
   - flight, danger divided by a crew (D2-193), a kill off its area's count and its group.
 
   Wave 2 waits: its fox and wolves at the fold need sheep and poultry (husbandry).
+- 9 Nov (later): wave 2 built without waiting for husbandry: the hens as a house's stock (an item) and the wolves at the cattle
+  herds the engine already has. Sheep, pigs and hounds still wait.
+- 9 Nov (later): agent runs 1 and 2 (8 days each, about $8 and $11). Run 1: the agents kept to the old generic hunt (fixed: the pack
+  turns it off, `off_with`) and no raid came (the drive raised). Run 2: 30 hunts taking what comes, 16 deer stalks and 17 snarings,
+  ranges used, a quarry named twice; five night watches; raids by the fox (three, none took a hen), the wolves (two calves) and the
+  deer (one field); the boar turned once by the dog. Opus heads read the signs and acted on them in words ("a wolf pack, about four,
+  prowling the edge of South Wood ... bring them in nearer the Green at dusk"; "Feathers and blood by the hen house ... shut the hens
+  in at dusk"), but no one shut the hens in.
+- 9 Nov (later): Zach: "do a sweep of all the various wildlife and other systems added and if all the relevant mechanisms have
+  appropriately accompanying bundles of signs ... There may be new types: just as seeing signs on the road is a specific process so
+  too might be going out to hunt". The sweep (above, "signs") found and fixed four signs not grounded in state:
+  - a fox raid that took no hen still read "feathers and blood" (now a try's signs: the earth scraped under the door);
+  - a beast the wolves killed read "no mark on it: it went down where it stood" (now torn and half eaten, and to a hunter, wolves);
+  - every wild sign was gated on the old hunt, which the pack turns off, so a deer stalker read them as a layperson (`reads_as`);
+  - the ecology stepped its seasons from day 0 while the calendar began in summer: one season apart in every run so far.
+- 9 Nov (later): wave 3 built (above). Calibrated offline on the steady, cold and wet climates over 12 years: slugs take 1 to 2% of a
+  young crop in a median year, 11 to 15% at the 90th percentile and up to 26% (02zp §24: 4%, 12%, 27%); blackfly 2 to 3% of the beans
+  (9% at the 90th); fungi flush in about 40% of autumns, more in the wet era. The markers' lore measured: a frost after the
+  blackthorn in 15 to 18 of 60 village-years (so its reading says a cold snap often follows), after the may in none, so "the frosts
+  are done" holds; "oak before ash" has no tie to the summer's rain and is kept as lore that fails. On the way, the ecology's soil
+  wetness became a slow bucket (it halved on every dry day, so grass "drought" came every few days).
 
 ## Sources
 
