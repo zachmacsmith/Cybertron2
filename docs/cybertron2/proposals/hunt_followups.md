@@ -1,6 +1,6 @@
 # The hunt after brief 4: game that remembers, slow recovery, and bringing a kill home: build brief 4b
 
-**Status:** sent to 37.4 to build (10 Nov), on Zach's go ("If brief 4b is good then send to the other agent"). No DECISIONS row yet: for Zach to confirm with brief 4's (OPEN Q-39). **Build brief 4b**, between brief 4 ([hunt_and_fixes.md](hunt_and_fixes.md), built on
+**Status:** built and gated (10 Nov) by 37.4 on `ecology-hunt2` (`8158674`, 538 tests; older worlds replay; 02zx brief 4b; OPEN Q-41). Not merged: waits on Zach.
 `ecology-calibrate`) and brief 5 ([river_and_water.md](river_and_water.md)). It answers what brief 4's gate and 37.2's check found:
 - 02zzd's addendum;
 - OPEN Q-40 (a) to (c).
@@ -235,6 +235,8 @@ Dry runs only.
 - 10 Nov 2026: Zach: members hunt with the party for as many units as they have, then split off and head back; X accepts followers by default and may choose to hunt alone; a circle (X with Y, Y with X) is led by the better hunter. §3.1 and its tests updated.
 
 - 10 Nov 2026: Zach: members know the order of events (who turned back, what was caught); caching in the far land is flagged for forays (L-105); send to the other agent. §3.1 adds what members learn, §3.3 leaves the far cache to forays; sent to 37.4, who builds both stages (stage A in 37.2's ecology, as for brief 4).
+
+- 10 Nov 2026: built and gated by 37.4 (`8158674`). Recovery of a halved ring 15, 32, 48, 50, 77, 92 and 97% back at days 4 to 28 (cut off from the wild, 46% by day 32); hunting every other day settles at 0.80 to 0.87; rats swing at most 1.18 times in a season; lone hunter near on target (master 1.01, novice 0.08), far master 1.45 (carry), a party of three with an ox about 4.4 a person-unit. Not met: a left carcass does not raise the herd's losses (16 against 16; Q-41 c). Deviation: people's background take only in the history.
 
 ## Sources
 
