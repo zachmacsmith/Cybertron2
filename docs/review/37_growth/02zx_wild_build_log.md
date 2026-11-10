@@ -462,3 +462,170 @@ brief's four open questions took its defaults.
   - (b) A carcass raising the herd's losses needs a world where the pack does not already know the herd. Should its draw be
     stronger?
   - (c) `wild_tame` is a new factor.
+
+## Brief 4b: game that remembers, slow recovery, and bringing a kill home (hunt_followups.md). Branch `ecology-hunt2` (from `ecology-calibrate`).
+
+Built on Zach's go, relayed by 37.2 (10 Nov: "If brief 4b is good then send to the other agent"). Both stages were built by 37.4.
+Stage A is in 37.2's ecology, as for brief 4. The brief's open question 1 took its default: one wariness, read by both the hunt and
+the raiders.
+
+### What was built
+- **Stage A, wariness** (`wild/ecology.py`, `wild/kinds.py` WARY; `engine/wild.py`):
+  - New state: `wary` for each kind and area.
+  - It fades with a half-life of 32 days.
+  - The history's take adds 30 × the share of the kind taken there. In the run, a hunt adds 0.5 × the share of the area it
+    searched, and a kill adds 30 × one head's share of the area's count.
+  - What wariness does tops out: its effect is wary / (1 + wary / 8). It divides how easily the kind is come on
+    (1 + effect), raises flight (1 - (1 - flee) / (1 + 0.15 × effect)), and dulls a group's drive at the fields
+    (1 + 0.1 × effect).
+  - `wild_tame` and `home_shy` are gone. The hunt's constants were recalibrated: meet 0.16, take_k 0.25.
+- **Stage A, people's presence by distance** (`ecology.presence`):
+  - Each village's presence in an area is exp(-d / 2.5 km), where d combines the distance between the two areas' middles with
+    two-thirds of the area's radius.
+  - Presences add, up to 1.
+  - Presence replaces busy's label table (home 1.0, ring 0.4, wild 0). The result: a village's own land about 0.95, the ring
+    about 0.55, wild land nearby about 0.13, far wild land about 0.01.
+  - The history's take is the kind's `people` share × presence, and it raises wariness.
+- **Stage A, home ranges** (a `K` trait `fidelity`: red and roe deer 0.8, boar 0.7, the wolf 0.6):
+  - Such a kind wanders only (1 - fidelity) of its `move`.
+  - It also drifts across each link toward land that has been emptier than its own. The drift is 0.03 a day of its numbers ×
+    the link's share of its border × how much emptier the land is, read from a density smoothed over 6 days.
+  - The breeding season's young (0.3 of those born) disperse over the season the same way.
+- **Stage A, births and carrion:**
+  - Rats, voles and mice, and hares (`litters: "through"`) give birth a share each day of their breeding seasons.
+  - Rats breed in all four seasons (in the barns).
+  - Carrion lying in an area raises its attraction for the kinds that eat it: × (1 + 3 × the kind's carrion share of its diet ×
+    c / (c + 200)), where c is the area's carrion in kg a km².
+- **Stage B, declared parties** (`engine/parties.py`, new):
+  - The day's plans are read before the acts. `with: X` joins X's party: the follower's hunting act is rewritten to X's, and its
+    own is kept as `_own`.
+  - Chains go to the root. A circle is led by the better hunter: skill at its own method, then familiarity with what it named,
+    then the elder, then a keyed draw.
+  - A leader takes followers unless it chose `alone: true` or named them in `only: ...`.
+  - A follower with fewer units goes out for what it has: at least the walk and one unit of search.
+  - A party's acts are recorded, practised and paid for when done. The hunt is settled once, after the day's acts and before the
+    evening.
+  - The crew counted from the day's events is gone. A drive (`crew`) needs a party.
+- **Stage B, the hunt as a party's search** (`wild.hunt`; `take` is a party of one):
+  - The ground is the sweep × each member's units.
+  - Each meeting falls at a keyed time in the search. Only members still out at that time count.
+  - The best hunter out takes the shot, with the crew bonus as built: × (1 + 0.25 per other member out).
+  - Danger is divided by the number out, and the one in front is the one hurt.
+  - At most 8 meetings a hunter.
+  - Each kill is split across the hands out, up to each one's carry. The offal (a quarter of the meat) is left with what could not
+    be carried.
+  - Each member's result tells the events in order, from where that member stood: who turned back and when, and what each
+    carried home. One who turned back knows nothing after.
+- **Stage B, a led ox** (`lead on the hunt`, a modifier on stalk, hunt the wild and the drive): it needs an ox here and a harness
+  in hand. The leader's carry rises by 60, at a cost of 1 unit; meetings × 0.85 and flight + 0.15 (LEAD, calibrate).
+- **Fixes found on the way:**
+  - The carrion loan was taken back at brief 3's decay, not brief 4's half-life, so a carcass emptied its home area's carrion pool.
+  - The wolf's count for its pack now includes the village's own land.
+- **Schema 9:** today's `parties` and `party_acts`.
+- **Tests:** `tests/test_cybertron2_wild_hunt2.py`, 17 tests. Five existing tests changed (deviation 9).
+
+### Deviations from the brief
+1. **People's background take is the history's only.** In the run, people hunt for themselves, so the old take would count them
+   twice. Without it, game near a village that nobody hunts slowly loses its wariness over a run.
+2. **People's presence is by distance alone.** Each village counts the same: the land summary holds no headcount when the history
+   runs.
+3. **Wariness's effect tops out** (`most` 8). Linear, a wood hunted every other day reached wary 15, and the game there became about
+   50 times harder to take.
+4. **Rats breed all year.** Spread over three seasons, their winter decline alone was 1.68 times.
+5. **The pack's size already followed its area's count every night.** The season's-turn rule was not needed; the count now
+   includes the village's land.
+6. **The led beast is the leader's.** Followers do not copy `lead`, and the ox's unit is the leader's.
+7. **If the leader's own hunt was not done** (refused, or out of units), each follower hunts alone as it set out. Its own settings
+   are used only when the leader has no hunt in the plans.
+8. **A follower who does not know the method** goes along, led, and does not learn it by going.
+9. **Existing tests changed:**
+   - because the crew counted from events is gone:
+     - the kill test's hunters are armed and practised;
+     - the hunted wood is emptied by one party of 12;
+     - the old sow is taken by drives of two;
+   - two wolf tests (brief 3's dead cow and brief 4's remembered herd): they crowded about 120 wolves into the ring, and the step's
+     territorial deaths emptied it in a night, leaving too few for a pack. The pack is now spread over its range, and the dead cow's
+     pack is held well fed over nights spaced apart.
+10. **The gather verb's ways list shows up to 8** (range, quarry, party, led beast), against 4 for other verbs.
+
+### Gate results (10 Nov)
+- **Tests:** 538 pass on the branch (`8158674`): brief 4's 521 and brief 4b's 17, with five existing tests changed (deviation 9).
+- **Older worlds replay exactly:** the valley and Region C are identical to brief 4's tip in state and days.
+- **Stage A, recovery** (`recover.py`, world 7, the ring's roe halved, the gap closed against the control):
+
+  | Day | 4 | 8 | 12 | 16 | 20 | 24 | 28 |
+  |---|---|---|---|---|---|---|---|
+  | Autumn cull | 15% | 32% | 48% | 50% | 77% | 92% | 97% |
+  | Spring cull (the young disperse) | 22% | 48% | 65% | 77% | 86% | 90% | 92% |
+  | The ring cut off from the wild | 11% | 19% | 26% | 2% | 21% | 33% | 40% |
+
+  - In the cut-off row, 2% at day 16 is not a typo: the gap reopens at the spring births, which grow both counts in proportion. It
+    stands at 46% at day 32 and 64% at day 60: clearly slower.
+  - Red deer in the same wood: 11%, 25% and 41% at days 4, 8 and 12.
+  - Part of the first days' closing is the halved wood's lower crowding deaths, not inflow: with no drift at all it closes 9% in
+    4 days.
+- **Stage A, hunting and stopping** (`hunt_lag.py`, 3% of the ring's roe taken a hunting day):
+  - Eight days of hunting, then none: the roe stand at 0.81 of the unhunted wood at day 8, then 0.89, 0.94 and 0.98 at days 16,
+    20 and 28.
+  - Every other day for two years: they settle at 0.80 to 0.87 of it.
+- **Stage A, wariness:**
+  - At day 0, in all four test worlds (red deer, roe, boar), the game near a village is thinner per km² of its own habitat (roe
+    13.2 to 13.7 against 18.4 to 18.7) and warier (about 2.4 against 0.05).
+  - Wariness fades by about half in 32 days.
+  - Every other day's hunting raises the ring roe's wariness from 2.2 to 15. The cap on its effect (deviation 3) keeps such a wood
+    huntable.
+- **Stage A, births:**
+  - Rats now swing at most 1.18 times within a season, against 1.68 in winter before.
+  - Hares swing at most 1.34 times.
+  - Foxes and deer keep their yearly burst: foxes 1,314 to 3,169 at spring's turn.
+  - Voles still swing 1.6 to 2.4 times within a season. That is the vole cycle's crash (PHASES), not their births.
+- **Stage A, carrion:**
+  - A carcass raises its area's attraction for its eaters: the test sees more ravens and wolves where carrion lies.
+  - A dead cow raises its village's own wolves by under 1% (0.00468 against 0.00466), and the pack's size does not change.
+  - **Not met: a cow left by the fold does not raise the herd's losses.** Over 14 nights and 20 seeds, with the pack spread over its
+    range and not hungry, the herd lost 16 beasts whether the cow was left or burned. The pack came to the carcass on as many
+    nights either way.
+  - The reason: the ecology's wolves move a share a day between areas of tens of km², so one carcass in a village's 0.4 km² cannot
+    gather a pack in days. The pack is the group, and the group's own choice of target is unchanged.
+- **Stage B** (the tests):
+  - A party of three brings a red deer home whole (20 meat). One alone brings 9 meat and a hide and leaves 11.
+  - Plans for two in one wood with no `with` make no party, and the first's hunt raises the pressure the second meets.
+  - `with`, chains, circles, `alone` and `only` resolve as the brief says.
+  - A follower with fewer units turns back and knows only what came before.
+  - A party's hunt is settled once, after the day's acts, and replays exactly.
+  - A drive needs a party.
+  - A led ox costs a unit and lets one hunter bring a red deer home.
+- **Two hunting one wood without a party** (`pair_ev.py`, paired draws, 100 tries): the second takes 0.90 (world 7) and 0.97
+  (world 11) of what it would take alone in the wood around, and 0.97 to 0.99 far.
+- **Food a unit, a lone hunter** (02zzd's sweep, four worlds, four seasons, 60 tries, armed):
+
+  | Hunter | The wood around | Far |
+  |---|---|---|
+  | Novice | 0.08 a unit, 4% of trips (brief 4: 0.08) | 0.19 (brief 4: 0.39; target about 0.5) |
+  | Master | 1.01, 41% (brief 4: 1.03, 43%) | 1.45 (brief 4: 1.93) |
+
+  Far, the carry of 10 caps a 6-unit trip at about 1.67 a unit.
+- **Food a person-unit, parties and a led ox** (`party_ev.py`, four worlds, autumn, masters, 40 tries, stalking deer):
+
+  | Who | The wood around | Far |
+  |---|---|---|
+  | Alone | 0.76 to 1.36 | 1.39 to 1.90 |
+  | Alone with an ox | 0.62 to 1.19 | 1.42 to 3.31 |
+  | Three | 2.19 to 2.47 | 2.12 to 2.25 |
+  | Three with an ox | 1.61 to 2.21 | 3.34 to 5.09 (mean 4.4; target about 4) |
+
+- **Regression** (wild_probe5 and wild_probe6, bots, 8 days, seeds 7, 8, 9; brief 4's tip against brief 4b): wild losses x0.82 (167
+  to 138).
+  - Crops eaten 73.8 to 60.4; raids on fields 21.6 to 17.2; stores 19.7 to 15.3; hens 30 to 24.
+  - The loads are unchanged.
+  - The fall is wariness dulling the raiders' drive, and the history's take reaching the wild land near the villages.
+  - Within a third.
+- **For Zach:**
+  - (a) **A lone hunter far out stays under 2 a unit**: the carry caps it. A party of three with an ox reaches about 4.4 a
+    person-unit, so the far master's 4 to 5 is now a party's, as the brief meant.
+  - (b) **A party of three takes about 1.9 times a lone hunter's food a person-unit in the wood around**, from the crew's bonus as
+    built (x1.25 a member). Is that intended, or should the bonus apply to the drive only?
+  - (c) **A carcass does not raise the herd's losses** (16 against 16). The area-scale ecology cannot gather wolves to one carcass in
+    days. A stronger effect needs the group itself: a longer memory of the herd it saw, or the carcass drawing the pack's
+    neighbours. That choice is 37.2's or Zach's.
+  - (d) The far novice is at 0.19 against about 0.5: the far land is now naive by history, not by a factor.
