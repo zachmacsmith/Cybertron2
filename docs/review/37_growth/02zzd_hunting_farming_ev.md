@@ -143,3 +143,38 @@ reliability, not food per unit, and autumn gathering matching farming per unit f
 - Per land is not measured. Using the capacity model's plot (64 grain from 16 seed, a cell of about 2 ha), the ring's big game, rescaled
   and taken sustainably, is about 15 to 20 plots' worth of food from about 1,900 ha. That rests on an assumed yearly offtake of about
   a fifth of the roe.
+
+## Addendum, 10 Nov: brief 4 as built (`ecology-calibrate`, `58bb2d3`), checked by 37.2
+
+**`wild_tame` (x8)** multiplies the density a hunter meets in any area the generator labelled `wild`: the blocks of unheld land,
+about 8 km across, beyond the 2.5 km ring round each village. It is a label, not a history. `home_shy` (x0.3 on a village's own
+area) is the same kind of factor, applied when the hunt reads density and nowhere else in the state. The ecology has one more
+label of this kind: `busy` lowers a shy kind's suitability by area kind (home 1.0, ring 0.4, wild 0). People's background take in
+the history is the same share everywhere, weighted by farmland, and not by how far an area is from a village.
+
+**Recovery from hunting** (`recover.py`; seed 7, autumn; the ring's roe and red deer halved, then the pure ecology run for two
+years):
+- the halved ring had closed 38% of its gap at 12 days, 77% at 32 days (one year) and 97% at two years;
+- the control's own yearly swing, a birth pulse and then deaths, is 169 to 259 roe;
+- immigration fills the gap: deer move a share a day toward better land (`move` 0.15 a season, daily).
+
+A hunted-out wood is therefore mostly full again within a year, and inside a single year the effect of hunting is smaller than
+the natural swing.
+
+**Rats** (`rat_check.py`, `rat_check2.py`):
+- In the first 8 nights of a run, rats fall about 60% on brief 2's branch (5,813 to 2,286) and on brief 4's (5,432 to 2,217).
+  The ecology alone, with no engine at all, does the same.
+- The cause is the ecology's demography. All births come on the first day of each breeding season and deaths run through the
+  season, so rats swing about threefold within a season, and foxes about 2.4 times over a year.
+- That is realistic for once-a-year breeders (deer, foxes, wolves). It is wrong for rats, mice, voles and hares, which breed
+  through their seasons.
+- The 21% in 02zx compares two points of this sawtooth, not an effect of brief 4: carrion fell 4.5 times, while rats differ by
+  about 3%.
+
+**The cow left by the herd** (19 kills against 19 over a week): the raid loop does what brief 4 asked. A group fed at the carcass
+remembers the herd it saw and comes back for it, but in that world the pack already raids the herd every night, so there is
+nothing to add. The model also has no way for a carcass to draw more animals:
+- each village has one group per kind, and its size does not follow the food;
+- the ecology's movement draws animals by suitability and condition, not by carrion lying there.
+
+So a carcass can redirect the village's own pack, but cannot bring a second one in.
