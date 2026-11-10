@@ -32,10 +32,10 @@ PLOT_SEED = 16                              # seed a plot (data.PHYSICS["farming
 PLACES = {                                  # food_share is the generator's measure, which counts broken and weeded fields; the engine's
                                             # capacity ladder at "standing" (the fields as they are) comes to about 0.6 of it, so the pins
                                             # are set to give, at standing: Corneby about 2.5, the rest 0.5 to 0.8, the region about 1.2
-    "Corneby": {"households": 3, "food_share": 0.17, "heat_share": 0.3, "soil": "rich"},
-    "Weirford": {"households": 2, "food_share": 0.75, "on": "river"},
-    "Holtham": {"households": 2, "food_share": 0.85, "plenty_of": ["wood"], "at": [38.0, 10.0]},   # the frontier's woods, north of the hills
-    "Stanmoor": {"households": 2, "food_share": 1.2, "resources": ["stone", "copper"], "at": "frontier_hills"},
+    "Corneby": {"households": 4, "food_share": 0.17, "heat_share": 0.3, "soil": "rich"},
+    "Weirford": {"households": 3, "food_share": 0.55, "on": "river"},
+    "Holtham": {"households": 2, "food_share": 0.6, "plenty_of": ["wood"], "at": [38.0, 10.0]},   # the frontier's woods, north of the hills
+    "Stanmoor": {"households": 2, "food_share": 0.65, "resources": ["stone", "copper"], "at": "frontier_hills"},
 }
 
 
@@ -51,6 +51,8 @@ def spec(seed: int) -> dict:
                  "sonnet_extra": 6},           # scenario_design: Opus at every head, a Sonnet middle tier, Haiku in the bulk
         "generate": {
             "seed": seed, "configuration": "settled lowland and frontier", "settlements": 4, "wild_shore": True,
+            "household_size": 3,                               # small households, nearly all working adults (Zach, 10 Nov)
+            "bounds": {"children_max": 2, "per_min": 2, "per_spread": 2}, "sim": {"fertility": 0.1, "start": -30},
             "features": [
                 {"kind": "ore", "name": "lode", "box": [0.7, 0.45, 0.98, 0.8]},              # copper in the east's hills only
                 # the south-west: a wild coast of saltmarsh and fen round a tidal inlet (the region's only salt)
@@ -144,11 +146,92 @@ def horizon(world: dict) -> dict:
             for k, v in r["nodes"].items() if v.get("people") and (v.get("horizon") or {}).get("standing")}
 
 
+def _households(world: dict, node: str) -> dict:
+    """{household: [its people]} for a village, by its houses."""
+    hh = sorted({b["household"] for b in world["buildings"].values() if (b.get("fittings") or {}).get("beds")
+                 and str(b.get("parcel", "")).startswith(node + "_")})
+    return {h: sorted(n for n, a in world["agents"].items() if a.get("household") == h) for h in hh}
+
+
+TRADER_AIM = ("Keep your household by carrying goods along the roads between the villages and the wild places and trading them; "
+              "the oxen are your living.")
+def trader_knows(world: dict) -> list:
+    """What years on the roads taught a carrier: true of this world, with its own names."""
+    wild = {k: v for k, v in world["nodes"].items() if k.startswith("w")}
+    def named(cover):
+        return [v["name"] for v in wild.values() if any(p.get("cover") == cover for p in v["parcels"].values())]
+    salt, rock, wood = named("saltmarsh"), named("rock"), named("forest")
+    out = [
+        "From years on the roads: Corneby's barns hold more grain than its people eat, and every road in the region runs through it.",
+        "From years on the roads: Stanmoor in the eastern hills has copper and stone and a forge, but its fields are poor.",
+        "From years on the roads: Holtham, in the south-eastern woods, has timber, hides and game, and little grain to spare.",
+        "From years on the roads: Weirford, on the river below the fells, has fish, eels and wildfowl, and the only water mill.",
+        "From years on the roads: a pack ox carries 60 on any road and eats hay where there is no grass on the way.",
+    ]
+    if salt:
+        out.append(f"From years on the roads: salt is panned only on the saltmarsh at {salt[0]}, on the coast beyond Weirford; no one "
+                   "lives there, and the way is little known.")
+    if rock:
+        out.append(f"From years on the roads: there is open rock for stone at {', '.join(rock)}, up in the fells; no one lives there.")
+    if wood:
+        out.append(f"From years on the roads: the deep woods at {', '.join(wood)} hold the most game; no one lives there.")
+    return out
+
+
+def seed_traders_and_mill(world: dict) -> dict:
+    """Edits after generation, said here (Zach, 10 Nov: "seed a few people that have the pack oxes etc. to travel around and trade
+    things"; "did you seed one of the villages with a mill?"):
+    - a carrier household at Corneby (the crossroads) and one at Weirford (on the way to the coast): each the village's smallest
+      household, with pack oxen and harness, goods to start on, the carrier's trade and aim, and what years on the roads taught them
+      (memories, all true of the world);
+    - a water mill at Weirford (millstones and a water wheel on its green, beside the river), held by its largest household, whose
+      people know how to work and keep it."""
+    out = {}
+    for node, oxen, goods in (("Corneby", 2, {"coin": 30, "hide": 4}), ("Weirford", 1, {"coin": 10, "salt": 10, "salt fish": 12})):
+        hhs = _households(world, node)
+        hh = min(hhs, key=lambda h: (len(hhs[h]), h))
+        pasture = next(pid for pid, p in sorted(world["nodes"][node]["parcels"].items()) if p.get("cover") in ("pasture", "meadow"))
+        world["herds"][f"{hh.lower()}_oxen"] = {"name": f"the {hh} oxen", "kind": "cattle", "parcel": pasture, "cows": 0, "oxen": oxen,
+                                                "bulls": 0, "young": 0, "in_milk": 0, "holder": hh}
+        house = next(b for b in world["buildings"].values() if b.get("household") == hh and (b.get("fittings") or {}).get("beds"))
+        for g_, q in {"harness": oxen, **goods}.items():
+            house["stock"][g_] = house["stock"].get(g_, 0) + q
+        for n in hhs[hh]:
+            a = world["agents"][n]
+            if a.get("stage") in ("adult", "youth", "elder"):
+                a["trade"] = "carrying goods along the roads with a pack ox, and trading them"
+                a["concerns"] = sorted(set(a.get("concerns") or []) | {"trade", "travel", "animals"})
+                a["memories"] = list(a.get("memories") or []) + trader_knows(world)
+                pl = a.setdefault("places", [])                   # the ways to the wild places: carriers know them all
+                for k in sorted(world["nodes"]):
+                    if world["nodes"][k].get("unexplored") and k not in pl:
+                        pl.append(k)
+                if a.get("stage") == "adult":
+                    a["aim"] = TRADER_AIM
+        out[node] = {"carriers": hh, "people": hhs[hh], "oxen": oxen, "goods": goods}
+    hhs = _households(world, "Weirford")
+    miller = max((h for h in hhs if h != out["Weirford"]["carriers"]), key=lambda h: (len(hhs[h]), h))
+    green = next(pid for pid, p in sorted(world["nodes"]["Weirford"]["parcels"].items()) if p.get("cover") == "built")
+    world["buildings"]["weirford_mill"] = {"name": "Weirford Mill", "parcel": green, "household": miller, "structure": "timber",
+                                           "size": 4, "fittings": {"millstones": 1, "water wheel": 1}, "stock": {}}
+    for n in hhs[miller]:
+        a = world["agents"][n]
+        if a.get("stage") in ("adult", "youth", "elder"):
+            k = a.setdefault("knows", {})
+            for t in ("water mill", "dress millstones", "clear the leat"):
+                k.setdefault(t, {"level": "known", "skill": 1.5})
+            a["memories"] = list(a.get("memories") or []) + ["Your household keeps the water mill on the river at Weirford: it grinds "
+                                                              "200 of grain to flour in two units' work, where a hand mill grinds 3."]
+    out["mill"] = {"at": "Weirford", "held_by": miller}
+    return out
+
+
 def make(seed: int):
     s = spec(seed)
     with contextlib.redirect_stdout(io.StringIO()):
         world, cells, report = W.generate(copy.deepcopy(s), people=True)
     if world.get("agents") and not report.get("refused"):
+        report["traders_and_mill"] = seed_traders_and_mill(world)
         report["stores_by_land"] = stores_by_land(world)
     return s, world, cells, report
 
@@ -172,6 +255,7 @@ def main():
         os.makedirs(out, exist_ok=True)
         W.write(world, cells, report, os.path.join(out, "wild_region.yaml"), picture=os.path.join(out, "wild_region.png"))
         json.dump({"seed": seed, "capacity": capacity(world), "stores": report.get("stores_by_land"), "horizon": horizon(world),
+                   "traders_and_mill": report.get("traders_and_mill"),
                    "wild": wild_summary(world),
                    "checks": {k: v for k, v in report["checks"].items()}}, open(os.path.join(out, "wild_region.summary.json"), "w"),
                   indent=1, default=str)

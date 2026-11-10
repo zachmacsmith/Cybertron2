@@ -339,8 +339,9 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
     world.setdefault("claims", [])
     world["lines"] = lines
     n = len(lines)
-    world.setdefault("bounds", {"acting": [2 * n, 5 * n], "children_max": 3 * n, "youths_min": 0, "per_min": 1, "per_spread": 5})
-    world.setdefault("sim", {"start": -36, "fertility": 0.24, "leave": 0.5})   # as the generated wide world: a short past
+    world.setdefault("bounds", {"acting": [2 * n, 5 * n], "children_max": 3 * n, "youths_min": 0, "per_min": 1, "per_spread": 5,
+                                **(gen.get("bounds") or {})})       # a world may narrow them (Zach, 10 Nov: most start working adults)
+    world.setdefault("sim", {"start": -36, "fertility": 0.24, "leave": 0.5, **(gen.get("sim") or {})})   # as the generated wide world
     describer.save()
     report["descriptions"] = {"model": model, "written": describer.calls, "failed": describer.failed}
     report["checks"] = checks(L, conf, gen, settlements, extra, roads, world, settings)

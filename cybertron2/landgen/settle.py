@@ -278,7 +278,9 @@ def allocate(L: Land, conf: dict, base: dict, s: Settlement, claimed: np.ndarray
         return len(got)
 
     hh = s.households
-    take("built", max(1, math.ceil(hh / 3)), lambda rc: tn(rc) in V.BUILT_OK)
+    take("built", max(2, math.ceil(1.5 * hh)), lambda rc: tn(rc) in V.BUILT_OK)   # a household's house and byre take about 18 of a
+                                                                                 # cell's 24 spaces: about half the ground left to build
+                                                                                 # on (Zach, 10 Nov; it was a cell for three households)
     for res in s.pin.get("resources") or []:                                # a pinned seam or quarry first, as it cannot move: the nearest such ground
         want = (lambda rc: bool(L.ore[rc])) if res == "copper" else (lambda rc: tn(rc) in ("hills", "rock", "chalk down"))
         s.facts[f"mine_{res}"] = take("mine", 2, want)
