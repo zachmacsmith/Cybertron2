@@ -44,7 +44,6 @@ def spec(seed: int) -> dict:
         "name": "wild_region", "seed": seed, "days": DAYS,
         "calendar": {"season": "winter", "day": 1, "season_days": 8},
         "children": {"on": True, "dial": "low"},
-        "lifespan": 96,
         "packs": ["wild"],
         "bot_travel": False, "bot_reap": "ripe",    # dry runs only: scripted bots stay at home and reap only ripe corn (OPEN Q-35)
         "cast": {"head": "claude-opus-5-5", "middle": "claude-sonnet-5-5", "rest": "claude-haiku-5-5", "youth": "claude-haiku-5-5",
