@@ -904,9 +904,10 @@ def _set_night(w, m, st) -> dict:
             for r in rows:
                 if all(tr.get(t) == v for t, v in (r.get("for") or {}).items()):
                     x *= float(r.get("x", 1.0))
-            for i in areas:
-                cnt = pop[k][i] * float(m.km2[i])
-                wgt = cnt * float(tk.get("detect", 0.2)) * float(tw) * x * MT.factor(mind, k)
+            for i in areas:                                                # by density on the ground the sets cover (brief 4 §2.10):
+                cnt = pop[k][i] * float(m.km2[i])                          # the village's own land, and half that from the ring
+                gr = min(float(m.km2[i]), float(sp.get("ground", 0.2)) * (1.0 if m.home[i] else 0.5))
+                wgt = pop[k][i] * gr * float(tk.get("detect", 0.2)) * float(tw) * x * MT.factor(mind, k)
                 if wgt > 0 and cnt >= 1.0:
                     cand.append((k, i, wgt))
         total = sum(x[2] for x in cand)

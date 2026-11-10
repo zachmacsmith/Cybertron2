@@ -82,8 +82,8 @@ METHODS = {
 }
 METHODS["den work"]["yield"]["kind"] = "wild_den"
 # nights a set lasts; its chance against a hunter's; how many sets one act lays (a snare line, brief 4 §2.10); what one set holds
-SETS = {"snare": {"life": 4, "base": 0.5, "line": 5, "holds": 1, "meet": 0.004},
-        "trap in water": {"life": 8, "base": 0.5, "line": 1, "holds": 6, "meet": 0.02}}     # meet: a night's meetings (calibrate)
+SETS = {"snare": {"life": 4, "base": 0.5, "line": 5, "holds": 1, "meet": 0.08},
+        "trap in water": {"life": 8, "base": 0.5, "line": 1, "holds": 6, "meet": 0.3}}     # meet: a night's meetings (calibrate)
 for _k, _v in SETS.items():
     METHODS[_k]["set"] = dict(_v)
 # the take as a search over time (brief 4 §2.2, §2.6; calibrate): km2 searched a unit of the method's own work, and the hunt's
