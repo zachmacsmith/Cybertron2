@@ -23,6 +23,7 @@ def test_every_edible_good_has_a_source_or_a_route():
     made |= {v["item"] for v in PL.PLANTS.values()}      # the wild plant kinds' goods, gathered (D2-200; not yet in the capacity model)
     for t in FD.FOOD_TECHS:
         made |= set(TECHNIQUES[t]["gives"])
+    made |= {d["rack"]["into"] for d in TECHNIQUES.values() if d.get("rack")}   # dried on a rack after its nights (brief 4 §5)
     assert set(FD.EDIBLE) <= made, f"edible goods no source makes: {set(FD.EDIBLE) - made}"
 
 

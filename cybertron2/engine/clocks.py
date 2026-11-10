@@ -21,6 +21,7 @@ RATES = [
     ("ITEMS.*.spoil", "day"), ("DECAY.*.abs.*", "day"), ("PHYSICS.breaks.p", "day"), ("PHYSICS.breaks.cold", "day"),
     ("PHYSICS.farming.rot", "day"), ("PHYSICS.farming.window", "day"), ("PHYSICS.cattle.grass_r", "day"),
     ("TECHNIQUES.*.set.life", "day"),                                     # a set snare or trap lasts so many nights (brief 2)
+    ("TECHNIQUES.*.rack.nights", "day"),                                  # meat dries on a rack so many nights (brief 4)
     ("PHYSICS.cattle.stray", "day"), ("PHYSICS.cattle.starve_nights", "day"), ("PHYSICS.fuel.*", "day"), ("PHYSICS.heat.*", "day"),
     ("RESOURCES.*.r", "day"),
     # the year clock
