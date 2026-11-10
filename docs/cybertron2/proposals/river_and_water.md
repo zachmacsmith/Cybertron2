@@ -1,7 +1,7 @@
 # River and water: the runs, the weir and what lives by the water: build brief 5
 
-**Status:** draft (10 Nov), for Zach's go after brief 4. **Build brief 5** for the wild layer: pack K4 (02zv §4) without its fen-only
-and boat parts, on the engine as built by briefs 1 to 4.
+**Status:** draft (10 Nov), for Zach's go after brief 4b. **Build brief 5** for the wild layer: pack K4 (02zv §4) without its fen-only
+and boat parts, on the engine as built by briefs 1 to 4b.
 **Owner:** 37.2 (author; the wild pack's data, `engine/wild.py`, the ecology; the test worlds from the generator). Works on a water
 parcel, their condition and the manual are 37.4's (§6).
 **Affects:** spec/environment/wildlife.md; spec/economy/buildings.md (the weir as a work); on the branch: `wild/kinds.py`,
@@ -24,7 +24,7 @@ traps, and the beaver's dam floods one meadow and fills a pond. This brief build
 ## 1. For the builder
 
 **This file holds for this brief.** Read:
-- briefs 1 to 4 and their tests;
+- briefs 1 to 4b and their tests (4b: hunt_followups.md);
 - 02zv K4;
 - 02zp §27 (the eel analysis);
 - on the branch:
@@ -39,7 +39,7 @@ traps, and the beaver's dam floods one meadow and fills a pond. This brief build
 **Do not** name kinds in rule code (a run is a mover's rule over any kind with `mover: run`); invent rivers the land does not have;
 cap signs. Dry runs only.
 
-**Branch:** `ecology-water`, from brief 4's branch.
+**Branch:** `ecology-water`, from brief 4b's branch (`ecology-hunt2`).
 
 **Worlds:** 37.2 supplies two generated worlds with the land kept (D2-208): two villages on one river, one upstream of the other;
 and a lowland village with a lake. They are made with `cybertron2/specs/make_wild_tests.py`.
@@ -69,6 +69,7 @@ and a lowland village with a lake. They are made with `cybertron2/specs/make_wil
 1. **Built** at a water parcel on a river by a crew: stakes and wattle (timber) and units. It is a work with a condition (brief 4's
    levels): floods and ice wear it, and it is mended like a building.
 2. **The gap:** open or shut, set by an act at the weir (`set` with a gap, as shutting is built).
+   - A weir is crew work: built and worked by a declared party (brief 4b's `with`), not by people who happen to be there.
    - **Shut:** the weir's traps take a share of every run passing (about half when sound; less as it wears; calibrate), into the
      weir's set things.
    - **Open:** it takes little and lets the run pass.
@@ -163,6 +164,8 @@ pack off: crews on run nights, weirs built and kept, the gap disputed between th
 
 - 10 Nov 2026: written by 37.2 as brief 5 at Zach's request ("rewrite the briefs to address the other aspects of wildlife in the
   first briefs before any foraging").
+
+- 10 Nov 2026: rebased on brief 4b (hunt_followups.md): its branch, declared parties for crew work, wariness and recovery in the ecology the runs move through.
 
 ## Sources
 
