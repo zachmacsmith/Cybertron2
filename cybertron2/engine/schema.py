@@ -14,7 +14,7 @@ stores) are versioned with the memory and knowledge code, not here; `today` is t
 import hashlib
 import json
 
-WORLD_SCHEMA = 7
+WORLD_SCHEMA = 8
 
 TOP = ["acts", "agreements", "buildings", "claims", "containers", "day", "events", "fuse_calls", "herds", "institutions", "know", "left", "life", "log", "mind", "nodes", "offers", "parcels", "people", "roads", "seq", "tag_seq", "today", "traces", "wild", "world_schema"]
 
@@ -24,9 +24,9 @@ FIELDS = {
     "nodes": ["name", "text", "unexplored"],
     "roads": ["a", "b", "days", "ends", "stretches", "terrain", "track", "way"],
     "parcels": ["adj", "broken", "clearing", "clearing_built", "cover", "crop", "dead", "ecosystem", "fallow_since", "fence", "fertility", "fight", "ground", "height", "held_whole", "hunted", "land", "last_crop", "last_kind", "meeting", "name", "node", "res", "shares", "side", "size", "slaughter", "text", "was", "works"],
-    "buildings": ["broke", "built_day", "changes", "condition", "description", "door", "fire", "fire_hit", "fire_out", "fitting_work", "fittings", "lasts_until", "lines", "mending", "monument", "name", "node", "parcel", "raided", "rooms", "size", "stock", "structure", "theft", "tier", "unfinished", "warm", "works", "worn"],
+    "buildings": ["broke", "built_day", "changes", "condition", "description", "door", "fire", "fire_hit", "fire_out", "fitting_work", "fittings", "lasts_until", "level", "level_since", "lines", "mending", "monument", "name", "node", "parcel", "raided", "rooms", "size", "stock", "structure", "theft", "tier", "unfinished", "warm", "works", "worn"],
     "herds": ["ate", "base_name", "births", "bulls", "count", "cows", "driven", "gone", "herders", "home", "hungry", "in_milk", "kind", "last_calf", "lost", "milked", "name", "node", "oxen", "pack", "parcel", "pos", "split_day", "split_of", "strayed_in", "tag", "watched", "with", "young"],
-    "containers": ["beast", "body", "buried", "by", "cairn", "cairn_by", "cairn_day", "cause", "day", "died", "door", "goods", "grave", "hidden", "holders", "in", "kind", "node", "of", "on_road", "parcel", "rot", "set", "stretch", "tag", "thing", "untaught", "wear"],
+    "containers": ["beast", "birds", "body", "buried", "burnt", "by", "cached", "cairn", "cairn_by", "cairn_day", "caught", "cause", "day", "depth", "died", "door", "dug", "eaten", "goods", "grave", "hidden", "holders", "in", "kind", "mass0", "node", "of", "on_road", "parcel", "rack", "rot", "set", "stretch", "tag", "thing", "untaught", "wear"],
     "people": ["aim", "alive", "arrived", "arrived_by", "at", "ate_raw", "attack", "born", "born_line", "came_from", "cared", "cause", "concerns", "defence", "died", "father", "frailty", "gap_until", "guarded", "hands", "home_seen", "hunger", "interests", "messages", "missed", "model", "notes", "order", "parents", "partner", "pinned", "plan_next", "pregnant", "relations", "role", "sex", "slept_out", "stage", "tired", "trade", "transit", "walked", "widowed_of", "wounded"],
     "institutions": ["heir", "kind", "members", "name", "offices", "order", "rules", "succession"],
     "claims": ["by", "claimant", "grounds", "joint", "of", "over", "plots", "rights", "since", "thing", "until"],
@@ -41,7 +41,7 @@ def fingerprint() -> str:
     return hashlib.sha256(text.encode()).hexdigest()[:16]
 
 
-FINGERPRINTS = {1: "e1d55a118a64e158", 2: "a421982d8386594d", 3: "c601af88f077aa24", 4: "b08305180595888d", 5: "9c6e6d410f57a40c", 6: "6597e0afc9349ad3", 7: "7fefb87aabce2038"}                                                    # the declared shape of each version
+FINGERPRINTS = {1: "e1d55a118a64e158", 2: "a421982d8386594d", 3: "c601af88f077aa24", 4: "b08305180595888d", 5: "9c6e6d410f57a40c", 6: "6597e0afc9349ad3", 7: "7fefb87aabce2038", 8: "aba44cca82e7403d"}                                                    # the declared shape of each version
 
 
 def unknown(s) -> list:

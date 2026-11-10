@@ -82,13 +82,13 @@ METHODS = {
 }
 METHODS["den work"]["yield"]["kind"] = "wild_den"
 # nights a set lasts; its chance against a hunter's; how many sets one act lays (a snare line, brief 4 §2.10); what one set holds
-SETS = {"snare": {"life": 4, "base": 0.5, "line": 5, "holds": 1, "meet": 0.009},
-        "trap in water": {"life": 8, "base": 0.5, "line": 1, "holds": 6, "meet": 0.015}}     # meet: a night's meetings (calibrate)
+SETS = {"snare": {"life": 4, "base": 0.5, "line": 5, "holds": 1, "meet": 0.004},
+        "trap in water": {"life": 8, "base": 0.5, "line": 1, "holds": 6, "meet": 0.02}}     # meet: a night's meetings (calibrate)
 for _k, _v in SETS.items():
     METHODS[_k]["set"] = dict(_v)
 # the take as a search over time (brief 4 §2.2, §2.6; calibrate): km2 searched a unit of the method's own work, and the hunt's
 # hard curve of skill; methods with no sweep search at SWEEP_DEFAULT
-SWEEP = {"stalk": 0.4, "hunt the wild": 1.0, "drive": 2.0, "net": 0.3, "den work": 0.2}
+SWEEP = {"stalk": 0.4, "hunt the wild": 1.0, "drive": 2.0, "net": 0.3, "den work": 3.0}   # an earth one knows is soon found
 for _k, _v in SWEEP.items():
     METHODS[_k]["sweep"] = _v
 for _k in ("stalk", "hunt the wild", "drive"):

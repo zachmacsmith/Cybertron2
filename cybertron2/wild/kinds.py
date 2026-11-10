@@ -406,7 +406,7 @@ HUNTED = {"flee": {"red deer": 0.18, "roe deer": 0.12, "wild boar": 0.09}, "hunt
 # at most `most`; a kill at `take_k` x skill x weapon x (1 - flee) x familiarity; the areas crossed on the way searched at `cross`;
 # a method with no sweep of its own searches `sweep` km2 a unit; deer and boar keep off a village's own land (`home_shy`); game in
 # the wild land, never hunted, is easier to come on (`wild_tame`)
-HUNT = {"meet": 0.045, "wild_tame": 8.0, "take_k": 0.19, "cross": 0.2, "sweep": 0.5, "most": 8, "set_meet": 0.03,   # a set's night: Poisson, as before at low
+HUNT = {"meet": 0.055, "wild_tame": 8.0, "take_k": 0.19, "cross": 0.2, "sweep": 0.5, "most": 8, "set_meet": 0.03,   # a set's night: Poisson, as before at low
         "home_shy": {"red deer": 0.3, "roe deer": 0.3, "wild boar": 0.3}}
 
 # ---------------------------------------------------------------------- wave 5: sites, individuals, rare regimes (wild_layer.md §6 phase 9)

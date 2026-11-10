@@ -223,7 +223,7 @@ def test_a_kill_comes_off_the_population_and_gives_its_goods(generated):
     took = [r for i in range(30) for r in [_do(w, f"H{i}", {"do": "gather", "what": "stalk", "at": wood, "range": "the wood around",
                                                               "looking for": "roe deer"})] if "took it" in r]
     after = sum(np.asarray(w.s["wild"]["state"]["pop"]["roe deer"]) * WL.model(w).km2)
-    roe = sum(1 for r in took if "came on a roe deer" in r)                    # (not "instead of the roe deer you were after")
+    roe = sum(r.count("roe deer and took it") for r in took)                    # every roe taken on a trip (brief 4: several met)
     assert roe >= 1 and abs((before - after) - roe) < 1e-6
     assert any(w.goods(w.s["people"][f"H{i}"]["hands"]).get("meat", 0) > 0 for i in range(30))
 
@@ -802,7 +802,7 @@ def test_a_fence_round_the_field_keeps_a_group_out(generated):
 
 def test_an_expert_reads_the_gap_the_practised_reads_the_sounder(generated):
     world = _two(generated)
-    world["agents"]["Ann"]["knows"] = {"hunt the wild": {"level": "known", "skill": 1.5}}             # expert in basic work
+    world["agents"]["Ann"]["knows"] = {"hunt the wild": {"level": "known", "skill": 2.6}}             # expert on the hunt's curve             # expert in basic work
     world["agents"]["Tom"]["knows"] = {"hunt the wild": {"level": "known", "skill": 1.2}}             # practised
     w, WL = _summer_world(world)
     edge = WL._edge_of(w, WL._fields(w, "s1")[0])
@@ -925,7 +925,7 @@ def test_an_expert_hunter_reads_how_many_and_in_what_condition(generated):
 
 def test_an_expert_reads_the_voles_in_the_owl_pellets(generated):
     world = _two(generated)
-    world["agents"]["Ann"]["knows"] = {"hunt the wild": {"level": "known", "skill": 1.5}}
+    world["agents"]["Ann"]["knows"] = {"hunt the wild": {"level": "known", "skill": 2.6}}             # expert on the hunt's curve
     world["agents"]["Tom"]["knows"] = {"hunt the wild": {"level": "known", "skill": 1.2}}
     w, WL = _summer_world(world)
     m, ri = _ring(w, WL)

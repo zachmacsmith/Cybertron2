@@ -1282,8 +1282,8 @@ def gaps_pass(b, kind) -> bool:
             return True
         if lv == 2:
             bg = "large"
-        elif lv == 3:
-            bg = SIZE_ORDER[min(len(SIZE_ORDER) - 1, SIZE_ORDER.index(bg) + 1)]
+        elif lv == 3:                                                       # gappy: a size larger, never fox-sized (only holed is)
+            bg = SIZE_ORDER[min(SIZE_ORDER.index("small"), SIZE_ORDER.index(bg) + 1)]
     elif int(b.get("condition", 2)) < 2:
         bg = SIZE_ORDER[min(len(SIZE_ORDER) - 1, SIZE_ORDER.index(bg) + int(GAPS["damaged"]))]
     return SIZE_ORDER.index(kg) <= SIZE_ORDER.index(bg)
@@ -1865,7 +1865,7 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
         return 0.0, f"You hunted {where}{looked} and came on nothing.", tail
     armed = here.weapon()
     wpn = float(TECHNIQUES[tech]["weapon"]["armed" if armed else "none"])
-    cap = (float(PHYSICS["carry"]["foot"]) + float((ITEMS.get("pack") or {}).get("carry", 0.0)) * (1 if here.carried().get("pack", 0) >= 1 else 0)) * crew
+    cap = float(PHYSICS["carry"]["foot"]) + float((ITEMS.get("pack") or {}).get("carry", 0.0)) * (1 if here.carried().get("pack", 0) >= 1 else 0)   # one's own
     load, food, lines, left, left_kind = 0.0, 0.0, [], {}, None
     pops = {}
     extra = ""
@@ -2237,6 +2237,6 @@ def _stores(w, node, share) -> float:
             q = float((c.get("goods") or {}).get(item, 0.0))
             take = round(q * min(1.0, 2.0 * sum(shares.values())), 4)
             if take > 1e-6:
-                w.apply("destroy", node, src=pid_, item=item, qty=take, why="eaten by rats and mice at the door")
+                w.apply("destroy", node, src=pid_, item=item, qty=take, why="eaten by vermin at the door")
                 total += take
     return total
