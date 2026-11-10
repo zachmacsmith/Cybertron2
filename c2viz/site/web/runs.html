@@ -33,10 +33,11 @@
 </style>
 </head>
 <body>
+<div class="building" role="note"><div class="wrap"><i aria-hidden="true"></i><span><b>Cybertron 2 is under construction.</b> The engine is still being built and the runs here are early tests; the full site, with every run to explore, is coming. <a href="https://cybertron.zachmacsmith.com">Cybertron 1</a> is finished and open now.</span></div></div>
 <div class="wrap">
-  <header class="site"><a class="mark" href="./"><i></i>Cybertron 2</a><nav><a class="on" href="runs.html">Runs</a><a href="#">Method</a><a href="https://huggingface.co/datasets/zachmacsmith/charter-runs/tree/main/experimental/cybertron2">Data</a><a href="https://github.com/zachmacsmith/Cybertron2">Code</a><a href="https://cybertron.zachmacsmith.com">Cybertron 1</a></nav></header>
+  <header class="site"><a class="mark" href="./"><i></i>Cybertron 2</a><nav><a class="on" href="runs.html">Runs</a><a href="#">Method</a><a href="https://huggingface.co/datasets/zachmacsmith/cybertron2-runs">Data</a><a href="https://github.com/zachmacsmith/Cybertron2">Code</a><a href="https://cybertron.zachmacsmith.com">Cybertron 1</a></nav></header>
   <h1>Runs</h1>
-  <p class="lede" style="max-width:40em">Every run, published and on this machine. Hover a map for its places and roads; the cells are its days. Open one to explore it day by day.</p>
+  <p class="lede" style="max-width:40em">Every run so far. Hover a map for its places and roads; the cells are its days. Open one to explore it day by day.</p>
   <div class="tools"><input id="q" placeholder="Search by world, run or model" aria-label="Search runs">
     <button class="on" data-f="all">All</button><button data-f="places">Many places</button><button data-f="long">Long</button><button data-f="deaths">Deaths</button></div>
   <div class="count" id="count"></div>
@@ -59,7 +60,13 @@ const queue = (n) => { let busy = 0; const q = []; const next = () => { if (busy
   return (f) => new Promise((ok, ko) => { q.push([f, ok, ko]); next(); }); };
 const stripQ = queue(6);
 
-const { runs } = await json("api/runs");
+// with the site's server, the runs it knows (published and on this machine); without one (the static site), the published runs
+// whose viewer files are on the Hub (c2viz/site/viewer_publish.py: viewer/catalog.json, each run's days in brief included)
+const HF = "https://huggingface.co/datasets/zachmacsmith/cybertron2-runs/resolve/main";
+const SERVER = await fetch("api/ping").then((r) => r.ok).catch(() => false);
+const BASE = (new URLSearchParams(location.search).get("data") || self.C2_DATA || HF).replace(/\/$/, "");
+const file = (r, p) => `${BASE}/runs/${r.name}/viewer/${p}`;
+const { runs } = SERVER ? await json("api/runs") : await json(`${BASE}/viewer/catalog.json`);
 const rows = document.getElementById("rows"), R = [];
 for (const r of runs) {
   const days = r.planned_days ?? r.days, href = `run.html?id=${encodeURIComponent(r.id)}`, tr = document.createElement("tr");
@@ -72,7 +79,7 @@ for (const r of runs) {
 }
 
 // the day cells: every run's, a few at a time
-for (const x of R) stripQ(() => json(api(x.r.id, "strip"))).then((s) => {
+for (const x of R) stripQ(() => (SERVER ? json(api(x.r.id, "strip")) : Promise.resolve(x.r.strip || []))).then((s) => {
   if (!s.length) return;
   const a0 = s[0].alive || 1; x.deaths = s.some((d) => d.died);
   x.tr.querySelector(".days").innerHTML = s.map((d, i) => `<i style="background:${SEASON[d.season]};opacity:${0.35 + 0.65 * Math.min(1, d.alive / a0)}" class="${d.died ? "death" : ""}" title="Day ${i + 1}: ${d.alive} alive, ${d.season}"></i>`).join("")
@@ -94,9 +101,10 @@ function graph(svg, g) {
 // shrunk to a small picture and sent to the server for the next visitor
 const TW = 280;                                            // twice the width it is shown at
 async function picture(x) {
-  const g = await fetch(api(x.r.id, "thumb.json")).then((r) => r.ok ? r.json() : null);
-  if (g) return { src: api(x.r.id, "thumb.img"), g };
-  const [head] = await Promise.all([json(api(x.r.id, "head")), Render.load(x.r.id, [api(x.r.id, "head"), api(x.r.id, "day/0")])]);
+  const g = SERVER ? await fetch(api(x.r.id, "thumb.json")).then((r) => r.ok ? r.json() : null) : x.r.thumb ? await json(file(x.r, "thumb.json")).catch(() => null) : null;
+  if (g) return { src: SERVER ? api(x.r.id, "thumb.img") : file(x.r, "thumb.jpg"), g };
+  const urls = SERVER ? [api(x.r.id, "head"), api(x.r.id, "day/0")] : [file(x.r, "head.json"), file(x.r, "day/0.json")];
+  const [head] = await Promise.all([json(urls[0]), Render.load(x.r.id, urls)]);
   const out = await Render.draw(x.r.id, "world", null, 0);                            // on the renderer's own thread
   const small = document.createElement("canvas"), k = Math.min(1, TW / out.width);
   small.width = Math.round(out.width * k); small.height = Math.round(out.height * k);
@@ -104,7 +112,7 @@ async function picture(x) {
   const src = small.toDataURL("image/jpeg", 0.85);
   const gr = { w: out.width, h: out.height, nodes: out.hotspots.filter((h) => h.kind === "node").map((h) => ({ id: h.id, cx: h.cx, cy: h.cy, pop: h.pop || 0 })),
     roads: Object.values(head.static.roads || {}).map((r) => ({ a: r.a, b: r.b, days: r.days })) };
-  fetch(api(x.r.id, "thumb"), { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ image: src, graph: gr }) }).catch(() => {});
+  if (SERVER) fetch(api(x.r.id, "thumb"), { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ image: src, graph: gr }) }).catch(() => {});
   return { src, g: gr };
 }
 // only the rows on (or near) the screen are drawn, nearest the middle of the screen first, two at a time: scroll to a spot

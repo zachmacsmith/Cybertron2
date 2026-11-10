@@ -412,6 +412,8 @@ def handler(site: Site):
                     return self.send(200, (HERE / "run.html").read_bytes(), "text/html; charset=utf-8")
                 if parts[0] == "c2pixel.js":
                     return self.send(200, site.js, "text/javascript; charset=utf-8")
+                if parts[:2] == ["api", "ping"]:                            # the pages ask whether there is a server behind them
+                    return self.json({"ok": True})
                 if parts[:2] == ["api", "runs"]:
                     runs = site.catalog.all()
                     for rid, r in runs.items():

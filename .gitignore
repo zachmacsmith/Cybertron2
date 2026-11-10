@@ -12,3 +12,6 @@ runs/
 # header design drafts (python docs/assets/make_headers.py --candidates)
 docs/assets/candidates/
 
+
+# the static site (python3 c2viz/site/static.py _site)
+_site/

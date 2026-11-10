@@ -84,8 +84,9 @@
 </style>
 </head>
 <body>
+<div class="building" role="note"><div class="wrap"><i aria-hidden="true"></i><span><b>Cybertron 2 is under construction.</b> The engine is still being built and the runs here are early tests; the full site, with every run to explore, is coming. <a href="https://cybertron.zachmacsmith.com">Cybertron 1</a> is finished and open now.</span></div></div>
 <div class="wrap">
-  <header class="site"><a class="mark" href="./"><i></i>Cybertron 2</a><nav><a class="on" href="runs.html">Runs</a><a href="#">Method</a><a href="https://huggingface.co/datasets/zachmacsmith/charter-runs/tree/main/experimental/cybertron2">Data</a><a href="https://github.com/zachmacsmith/Cybertron2">Code</a><a href="https://cybertron.zachmacsmith.com">Cybertron 1</a></nav></header>
+  <header class="site"><a class="mark" href="./"><i></i>Cybertron 2</a><nav><a class="on" href="runs.html">Runs</a><a href="#">Method</a><a href="https://huggingface.co/datasets/zachmacsmith/cybertron2-runs">Data</a><a href="https://github.com/zachmacsmith/Cybertron2">Code</a><a href="https://cybertron.zachmacsmith.com">Cybertron 1</a></nav></header>
   <div class="runhead">
     <div><a href="runs.html" class="back">← All runs</a><h1 id="title">Loading</h1></div>
     <span class="where" id="where"></span>
@@ -111,17 +112,28 @@
 // as the engine's model builds it; a day can be explored as soon as it has come
 (async () => {
 const q0 = new URLSearchParams(location.search), RID = q0.get("id"), api = (p) => `api/run/${encodeURIComponent(RID)}/${p}`;
+// with the site's server, a run's parts come from it (built on demand); without one (the static site), from the viewer files
+// published beside each run's journal on the Hub (c2viz/site/viewer_publish.py), or from ?data=<base> holding the same layout
+const HF = "https://huggingface.co/datasets/zachmacsmith/cybertron2-runs/resolve/main";
+const SERVER = await fetch("api/ping").then((r) => r.ok).catch(() => false);
+const BASE = (q0.get("data") || self.C2_DATA || HF).replace(/\/$/, ""), RUN = `${BASE}/runs/${String(RID).replace(/^hub:/, "")}/viewer`;
+const hub = (p) => {                                                  // "head", "day/<d>", "talk/<d>" as files
+  const [k, d] = p.split("/"), u = k === "head" ? `${RUN}/head.json` : `${RUN}/day/${d}.json`;
+  if (k !== "talk") return fetch(u);
+  return fetch(u).then(async (r) => (r.ok ? new Response(JSON.stringify((await r.json()).words || [])) : r));
+};
+const pull = (p) => (SERVER ? fetch(api(p)) : hub(p));
 const loadEl = document.getElementById("load"), mapEl = document.getElementById("map"), msgEl = document.getElementById("loadmsg");
 // the status line; `busy` adds the moving dots, and until the first day is drawn the same words show in the map
 const say = (t, err, busy = !err) => { if (busy) t = t.replace(/…$/, ""); loadEl.textContent = t; loadEl.classList.toggle("err", !!err); loadEl.classList.toggle("busy", busy);
   if (mapEl.classList.contains("loading")) { msgEl.textContent = t; if (err) document.querySelector(".loader .px3").hidden = true; } };
 if (!RID) { say("no run chosen", true); return; }
 say("fetching the run and building its world…");
-const hr = await fetch(api("head")); if (!hr.ok) { say("could not load: " + ((await hr.json().catch(() => ({}))).error || hr.status), true); return; }
+const hr = await pull("head"); if (!hr.ok) { say("could not load: " + ((await hr.json().catch(() => ({}))).error || hr.status), true); return; }
 const V = { ...(await hr.json()), days: [] }, ST = V.static, TOTAL = V.meta.days;
 document.title = String(V.meta.name).replace(/_/g, " ").replace(/^\w/, (c) => c.toUpperCase()) + " · Cybertron 2";
 say("building day 1…");
-const r0 = await fetch(api("day/0")); if (!r0.ok) { say("could not build day 1: " + ((await r0.json().catch(() => ({}))).error || r0.status), true); return; }
+const r0 = await pull("day/0"); if (!r0.ok) { say("could not build day 1: " + ((await r0.json().catch(() => ({}))).error || r0.status), true); return; }
 V.days.push(await r0.json());
 mapEl.classList.remove("loading");
 const S = { day: 0, node: null, hot: [], playing: false, timer: null };
@@ -216,7 +228,7 @@ const PHASE = { decide: "Morning", talk: "Talk", evening: "Evening" };
 const SPAN = { decide: [-0.1, -0.05], talk: [-0.05, 0], evening: [1, 1.1] };      // a presentation choice: when on the clock each part's words fall
 const hush = (t) => { const e = document.createElement("div"); e.className = "none"; e.textContent = t; talkB.replaceChildren(e); };
 function talkFor(d) {
-  if (!T.all[d]) T.all[d] = fetch(api("talk/" + d)).then((r) => (r.ok ? r.json() : [])).catch(() => []).then((list) => {
+  if (!T.all[d]) T.all[d] = pull("talk/" + d).then((r) => (r.ok ? r.json() : [])).catch(() => []).then((list) => {
     const by = {}; list.forEach((m) => { const p = (m.phase || "").split(".")[0]; (by[p] = by[p] || []).push(m); m.p = p; });
     for (const [p, ms] of Object.entries(by)) { const [a, b] = SPAN[p] || [-0.05, 0]; ms.forEach((m, i) => (m.at = a + (b - a) * i / ms.length)); }
     return list; });
@@ -254,7 +266,7 @@ render();
 (async () => {
   for (let d = 1; d < TOTAL; d++) {
     say(`building day ${d + 1} of ${TOTAL}…`);
-    const r = await fetch(api("day/" + d)); if (!r.ok) { say(`day ${d + 1}: ` + ((await r.json().catch(() => ({}))).error || r.status), true); return; }
+    const r = await pull("day/" + d); if (!r.ok) { say(`day ${d + 1}: ` + ((await r.json().catch(() => ({}))).error || r.status), true); return; }
     V.days.push(await r.json()); $("#slider").max = V.days.length - 1;
     if (d === wantDay) setDay(d);
   }

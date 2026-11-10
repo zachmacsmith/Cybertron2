@@ -48,3 +48,10 @@ svg .line { fill: none; stroke: var(--rim); stroke-width: 1.8; vector-effect: no
 svg .now { stroke: var(--text); stroke-width: 1; stroke-dasharray: 2 2; } svg .dot { fill: var(--rim); }
 .k { font: 12px "IBM Plex Sans", sans-serif; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin: 0 0 6px; }
 footer { margin-top: 56px; padding: 20px 0 48px; font: 13px "IBM Plex Sans", sans-serif; color: var(--muted); }
+
+/* the notice that the site is still being built: a strip above every page, with a band of hazard stripes */
+.building { background: #fbf5ea; border-bottom: 1px solid #ecdcc0; font: 14px/1.5 "IBM Plex Sans", system-ui, sans-serif; color: #5a4a30; }
+.building .wrap { display: flex; align-items: center; gap: 14px; padding-top: 9px; padding-bottom: 9px; }
+.building i { flex: none; width: 34px; height: 14px; border-radius: 2px; background: repeating-linear-gradient(-45deg, #d9a25e 0 6px, #2b2a28 6px 12px); }
+.building b { color: #2b2a28; font-weight: 600; } .building a { color: var(--accent); }
+body.fs .building { display: none; }

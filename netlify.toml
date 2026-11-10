@@ -1,0 +1,4 @@
+# The Cybertron 2 site as static files (c2viz/site/static.py); the runs pages read the viewer files published on the Hub
+[build]
+  command = "python3 c2viz/site/static.py _site"
+  publish = "_site"
