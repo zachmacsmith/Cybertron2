@@ -181,16 +181,25 @@ def test_slaughter_gives_tallow_and_tallow_makes_lights_that_light_night_pest_wo
     assert w.s["containers"][here.hands]["goods"]["tallow light"] == 1
 
 
-def test_society_a_dead_cow_left_by_the_herd_draws_the_wolves_and_one_burned_does_not(generated):  # noqa: F811
+def test_society_a_dead_cow_left_by_the_herd_draws_the_wolves_and_one_burned_does_not(generated, monkeypatch):  # noqa: F811
     """§7 society-level (dry): a dead cow left where the herd grazes draws the wolves to it; burned, nothing comes. (The brief's
     further expectation, that the herd then loses more, does not hold in this world as built: the wolves feed on the carcass
     instead of a cow while it lasts, and the spillover after does not make it up; 14 kills against 16 over 6 nights, 30 against
     33 over 12; reported at the gate, 02zx.)"""
+    from cybertron2.wild import ecology as EC
+    step = EC.step
+
+    def held(m, st, *a, **k):                                                    # the pack held well fed, not hungry, night after
+        eff = step(m, st, *a, **k)                                               # night (the step would fatten the few it leaves)
+        st["cond"]["wolf"] = [0.9] * m.n
+        return eff
+    monkeypatch.setattr(EC, "step", held)
+
     def came(left):
         n = 0
-        for k in range(20):
+        for k in range(12):
             w, _ = _summer_world(generated, kind="wolf")
-            w.s["day"] = 12 + k
+            w.s["day"] = 12 + 9 * k                                                 # nights apart: each its own draws
             m = WL.model(w)
             w.s["wild"]["state"]["cond"]["wolf"] = [0.9] * m.n                     # not hungry: they come for the dead
             reach = WL._reach(m, w.s["wild"]["land"], "s1", "far")                 # a pack spread over its range (brief 4b): crowded
@@ -204,8 +213,7 @@ def test_society_a_dead_cow_left_by_the_herd_draws_the_wolves_and_one_burned_doe
                 w.s["containers"][cid]["burnt"] = w.d
                 for i in list(w.s["containers"][cid]["goods"]):
                     w.s["containers"][cid]["goods"][i] = 0.0
-            for night in range(6):
-                w.s["wild"]["state"]["cond"]["wolf"] = [0.9] * m.n                 # held: a pack well fed, not hungry (the step fattens it)
+            for night in range(9):
                 rec = N.night(w)
                 w.s["day"] += 1
                 n += sum(1 for g, v in ((rec.get("wild") or {}).get("groups") or {}).items() if g.startswith("wolf") and v.get("ate", 0) > 0)
