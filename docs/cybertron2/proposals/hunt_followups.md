@@ -1,13 +1,13 @@
 # The hunt after brief 4: game that remembers, slow recovery, and bringing a kill home: build brief 4b
 
-**Status:** draft (10 Nov), for Zach's go. **Build brief 4b**, between brief 4 ([hunt_and_fixes.md](hunt_and_fixes.md), built on
+**Status:** sent to 37.4 to build (10 Nov), on Zach's go ("If brief 4b is good then send to the other agent"). No DECISIONS row yet: for Zach to confirm with brief 4's (OPEN Q-39). **Build brief 4b**, between brief 4 ([hunt_and_fixes.md](hunt_and_fixes.md), built on
 `ecology-calibrate`) and brief 5 ([river_and_water.md](river_and_water.md)). It answers what brief 4's gate and 37.2's check found:
 - 02zzd's addendum;
 - OPEN Q-40 (a) to (c).
 
 **Owner:** 37.2:
 - the author;
-- stage A is 37.2's ecology, which 37.2 can build itself (`wild/ecology.py`, `wild/kinds.py`).
+- stage A is 37.2's ecology (`wild/ecology.py`, `wild/kinds.py`); 37.4 builds it, as for brief 4.
 
 Stage B (the hunt's code, the act's party, led beasts, caching) is 37.4's (§5).
 
@@ -128,21 +128,24 @@ Dry runs only.
      replaces brief 4's deviation 4. Each member spends its units and practises the method; the one whose shot took the beast gains
      the familiarity.
    - **A drive** (`crew: true`) needs a party.
+   - **What the members learn.** Each member's result tells the hunt's events in order, worded as signs are (guides/senses.md):
+     setting out together, each meeting and how it ended (taken, fled, wounded, turned on them), who turned back and when, and what
+     each carried.
+     - A member who turned back learns the events up to when it left. What came after it knows only if someone tells it, or by
+       what it sees come home.
+     - Those who stayed to the end learn all of it.
 2. **A led beast carries.**
    - The `lead` modifier (built, for travel: a pack ox, carry 60, D2-133) applies to `gather` as well: a beast led on a hunt adds its
      carry.
    - It costs the party: about +1 unit, and the party is easier for game to notice (`detect` of the party's approach raised; game
      flees more readily; calibrate).
    - A pony (the beast bred for this) comes with horses (OPEN L-36). Until then the pack ox stands in.
-3. **Caching and fetching.**
-   - What cannot be carried is cut and left, not lost.
-   - **Near:** it is a carcass at the parcel (built), and it can be hung or hidden under brush (`hidden: under brush`, built) to slow
-     the scavengers.
-   - **The wood around and far:** it becomes a carcass thing at the area where it fell, recorded with who left it. A `fetch` the next
-     days (the range's travel units and a unit to find it) brings it home, less what the area's carrion eaters took meanwhile (brief
-     3's rules and the carrion flow above).
-   - Only the one who left it, or someone they lead there, can fetch it.
-   - Real places to cache at in the far land come with forays (OPEN L-105).
+3. **What cannot be carried.**
+   - **Near:** it is a carcass at the parcel (built). It can be hung, or hidden under brush (`hidden: under brush`, built), to slow
+     the scavengers, and fetched later by anyone who finds it.
+   - **The wood around and far:** it is left, into the area's carrion pool (as brief 4 built).
+   - Caching it at a place in the far land and fetching it later waits on forays, which give the far land places to go back to
+     (OPEN L-105; Zach, 10 Nov).
 4. **Dressing in the field:** gutting where it fell is part of the kill. Only the dressed meat counts against the carry, and the
    offal is left (brief 3 makes it), drawing ravens.
 
@@ -155,11 +158,10 @@ Dry runs only.
 
 ## 5. Touches in 37.4's files
 
-- **`engine/wild.py`:** `take` drops `wild_tame` and `home_shy` and reads `wary`; the party's take; the cache thing at an area;
+- **`engine/wild.py`:** `take` drops `wild_tame` and `home_shy` and reads `wary`; the party's take and its ordered events;
   `_groups`' size by season.
-- **`engine/verbs.py`:** the party resolved once; `fetch`.
-- **`engine/data.py`:** `lead` modifying `gather`; `fetch`; a `cached` thing.
-- **`engine/things.py`:** a carcass at an area (not a parcel), scavenged by the area's carrion eaters.
+- **`engine/verbs.py`:** the party resolved once, after the day's acts.
+- **`engine/data.py`:** `lead` modifying `gather`.
 - **37.2's own:** `wild/ecology.py` (wariness, the history's take by distance, fidelity and dispersal, births through the season,
   carrion attraction); `wild/kinds.py` (`fidelity`, the litters, the constants).
 
@@ -175,13 +177,13 @@ Dry runs only.
   pack did not yet raid the herd, the herd loses more than when the cow is burned.
 
 **Stage B:**
-- A party of three brings a red deer home whole; a lone hunter brings about 8 meat and leaves the rest cached.
+- A party of three brings a red deer home whole; a lone hunter brings about 8 meat, and the rest is left.
 - Two people hunting the same wood without a party do no better than alone, and each does a little worse.
 - `hunt with X` follows X's method, range, target and units; with X not hunting, the follower hunts alone by its own settings;
   a chain resolves to its leader, and a circle to its better hunter; X accepts followers unless it chose otherwise; a follower with
   fewer units searches with the party for what it has and turns back, counting only at the meetings while it is out, and takes its
   share home; the party's hunt is settled once, after the day's acts, and replays exactly.
-- A cache fetched the next day is mostly there in winter and partly eaten in summer.
+- Each member's result lists the hunt's events in order. One who turned back learns only those before it left.
 - A led ox lets one hunter bring a red deer home, and costs a unit and some kills.
 
 **Food a unit** (02zzd's harness extended to parties and a led beast):
@@ -213,14 +215,14 @@ Dry runs only.
 
 - **Tune `wild_tame` down:** it is still a label.
 - **A bigger pack item:** it reads oddly as the way to bring a deer home, and it makes no reason to hunt together.
-- **Caching only with forays:** it leaves the far hunt without an answer until forays are built. An area-level cache is enough for
+- **An area-level cache now, before forays:** considered, and left for forays (Zach, 10 Nov). Places in the far land are what make a cache findable; until then parties and led beasts answer the far hunt. (Earlier text: an area-level cache is enough for
   now.
 
 ## Open questions (for Zach)
 
 1. Wariness's half-life (about a year), and whether it also makes raiders bolder or shyer at the fields (proposed: the same
    variable, read by both).
-2. Whether 37.2 builds stage A itself (proposed) while 37.4 builds stage B.
+2. ~~Whether 37.2 builds stage A itself.~~ Answered: the brief goes to 37.4 whole (Zach, 10 Nov).
 
 ## History
 
@@ -231,6 +233,8 @@ Dry runs only.
 - 10 Nov 2026: Zach: a party is declared, not inferred: hunting the same place makes no crew; "hunt with X" joins X's party and follows X's pattern; if X is not hunting, one hunts alone. This answers whose settings a party uses. §3.1 rewritten (chains, circles, refusing followers, units, settling after the day's acts like partner and try, the best skill for a kill, the catch shared).
 
 - 10 Nov 2026: Zach: members hunt with the party for as many units as they have, then split off and head back; X accepts followers by default and may choose to hunt alone; a circle (X with Y, Y with X) is led by the better hunter. §3.1 and its tests updated.
+
+- 10 Nov 2026: Zach: members know the order of events (who turned back, what was caught); caching in the far land is flagged for forays (L-105); send to the other agent. §3.1 adds what members learn, §3.3 leaves the far cache to forays; sent to 37.4, who builds both stages (stage A in 37.2's ecology, as for brief 4).
 
 ## Sources
 
