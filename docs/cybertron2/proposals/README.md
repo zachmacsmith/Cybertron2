@@ -140,6 +140,7 @@ Rebuilt from the files on 5 Nov (status and owner as each file states them; 37.2
 | [carcass_and_decay.md](carcass_and_decay.md) | build brief 3: carcasses as food for the wild kinds through the raid targets and the carrion pool, stages by size, spillover, the bear's cache, burial depth, burning, tallow and light; pack K2 | 37.2 | accepted: D2-205, D2-207 (9 Nov) |
 | [shelter_damage.md](shelter_damage.md) | damage to shelter in five levels by structure and weather (wind and storms raise it most); camps that keep nothing out, defended by fire, watch and where food is kept, and built out toward a hut | 37.2 | discussion (9 Nov) |
 | [cats.md](cats.md) | cats that choose where to live (the wood or a house), drawn by mice and food left out, leaving when it no longer suits | 37.2 | discussion (9 Nov) |
+| [descendants_benchmark.md](descendants_benchmark.md) | a benchmark scored by living descendants over 100 to 200 days, on a ladder of worlds by carrying capacity, models rotated through households | 37.2 | discussion (10 Nov) |
 | [crop_growth.md](crop_growth.md) | crops grow by the season; "can" apart from "works"; what a crop shows | 37.4 | accepted: D4-106 (8 Nov; built). |
 | [phase3_variance_and_risk.md](phase3_variance_and_risk.md) | phase 3 of the engine overhaul, variance and risk (the scheduler, building risks, the woods, bad years) | 37.4 | discussion (8 Nov); an exploration of what phase 3 builds, nothing built. |
 | [weather_scheduler.md](weather_scheduler.md) | the weather scheduler (eras, years, daily types, weather that varies in space) | 37.4 | retrospective, accepted: D4-109, D4-110, D4-111 (8 Nov; built). |
@@ -423,3 +424,4 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 9 Nov | the three wild build briefs: general methods with two-layer skill; raiders, set works, K1; carcasses and decay, K2 | accepted: D2-204 to D2-207 | [methods_and_encounters.md](methods_and_encounters.md), [wild_raiders_and_works.md](wild_raiders_and_works.md), [carcass_and_decay.md](carcass_and_decay.md) |
 
 | 9 Nov | damage to shelter in levels; camps as weak shelter that grows; cats that choose where to live | discussion (9 Nov). Nothing decided, nothing to build. | [shelter_damage.md](shelter_damage.md), [cats.md](cats.md) |
+| 10 Nov | a benchmark by living descendants on a ladder of worlds | discussion (10 Nov). Nothing decided, nothing to build. | [descendants_benchmark.md](descendants_benchmark.md) |
