@@ -168,6 +168,14 @@ def night(w) -> dict:
     for cid, c in list(s["containers"].items()):                              # spoilage, by condition (D2-58, D2-87)
         if c["kind"] == "hands" and not s["people"][c["of"]]["alive"]:
             continue
+        rk = c.get("rack")
+        if rk and not rk.get("done") and w.d - int(rk["day"]) >= int(rk["nights"]):   # dried on the rack (brief 4 §5)
+            place = w.place_of(("container", cid))
+            for item in [i for i, q in c["goods"].items() if q > 1e-9 and ITEMS.get(i, {}).get("decay") == "drying meat"]:
+                q = float(c["goods"][item])
+                w.apply("destroy", place, src=cid, item=item, qty=q, why="dried")
+                w.apply("create", place, dst=cid, item=rk["into"], qty=round(q * float(rk["ratio"]), 4), why="dried on the rack")
+            w.apply("set_thing", place, cid=cid, field="rack", value=dict(rk, done=w.d))
         flesh_by_size = c["kind"] == "carcass" and c.get("beast")
         if flesh_by_size:                                                      # a dead beast's flesh by its size (D4-52, brief 3 §2);
             _carcass_night(w, cid, c)                                          # its hide and tallow as goods are
@@ -282,7 +290,10 @@ def decay_rate(w, c, item) -> tuple:
         return r, None
     if c["kind"] in TH.KINDS:
         cond = "buried" if c.get("hidden") == "buried" or c.get("buried") is not None else ("open_wet" if EV.wet(w, node) else "open_dry")
-        return spoil_rate(w.p, item, cond, season, cold), DECAY.get(ITEMS.get(item, {}).get("decay") or "default", DECAY["default"]).get("becomes")
+        table = DECAY.get(ITEMS.get(item, {}).get("decay") or "default", DECAY["default"])
+        if (c.get("rack") or {}).get("smoke"):                                  # in the hearth's smoke: dry, the flies kept off (brief 4 §5)
+            return spoil_rate(w.p, item, "open_dry", season, cold) * float(table.get("smoke", 1.0)), table.get("becomes")
+        return spoil_rate(w.p, item, cond, season, cold), table.get("becomes")
     return spoil_rate(w.p, item, "hand", season, cold), None
 
 

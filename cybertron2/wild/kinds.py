@@ -758,7 +758,7 @@ CARCASS_PULL = {"ref": 20.0, "dig": 0.1, "spill_nights": 3, "spill_drive": 1.5}
 CAT = {"settle_p": 0.15, "fed_p": 0.4, "prey": "voles and mice", "prey_least": 50.0, "stray_p": 0.08, "item": "cat",
        "fed_days": 3}                         # cats.md §3 (brief 4 §4.1): fed lately (food left out at the house), it settles likelier
 # food left out at a house's door (D2-85 things there): what draws a cat, and the fox and rats too (brief 4 §4.1)
-LEFT_OUT = {"items": ["milk", "meat", "offal", "fresh fish", "rotting meat"], "record": "food_out"}
+LEFT_OUT = {"items": ["milk", "meat", "offal", "fresh fish", "rotting meat", "drying meat"], "record": "food_out"}   # a rack too
 OWL = {"take_p": 0.4, "fitting": "owl hole", "season": "spring", "record": "nests"}
 
 # What a kind is like to those who hunt it (D2-204, methods_and_encounters.md §2; calibrate): the methods' needs and favours are read

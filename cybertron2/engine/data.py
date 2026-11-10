@@ -68,6 +68,8 @@ ITEMS = {
     "stone": {"weight": 3, "food": 0.0, "spoil": 0.0},                 # D2-3, D2-24
     "hide": {"weight": 1, "food": 0.0, "spoil": 0.0, "decay": "hide"},                  # D2-24
     "tallow": {"weight": 1, "food": 0.0, "spoil": 0.0},                                  # a beast's fat, rendered or not (brief 3 §5)
+    "drying meat": {"weight": 1, "food": 1.5, "spoil": 0.15, "cook": True, "raw": 0.8, "decay": "drying meat"},   # on a rack: the flies
+    "salt meat": {"weight": 1, "food": 1.4, "spoil": 0.003, "cook": True, "raw": 0.6, "decay": "dried meat"},     # keeps for months
     "offal": {"weight": 1, "food": 0.0, "spoil": 0.0},                                   # what is left in a carcass taken from: the
                                                                                           # night's rot by its size (night.py, brief 3 §2)
     "tallow light": {"weight": 0.2, "food": 0.0, "spoil": 0.0},                          # a rush or rag dipped in tallow: night work by it
@@ -95,6 +97,7 @@ DECAY = {
     "bread": {"open_dry": 3, "open_wet": 8, "buried": 3, "warm": 1.5, "frozen": 0.2},
     "fresh meat": {"open_dry": 2, "open_wet": 2.5, "buried": 1, "warm": 1.5, "frozen": 0.1, "becomes": "rotting meat"},
     "dried meat": {"open_dry": 2, "open_wet": 6, "buried": 2, "warm": 1.2, "frozen": 0.5},
+    "drying meat": {"open_dry": 1.0, "open_wet": 3.0, "buried": 1, "warm": 1.5, "frozen": 0.2, "smoke": 0.25},   # rain spoils it; smoke keeps flies off
     "cheese": {"open_dry": 3, "open_wet": 5, "buried": 1, "warm": 1.5, "frozen": 0.3},
     "hide": {"abs": {"open_dry": 0.01, "open_wet": 0.03, "buried": 0.02}},
     "fresh fish": {"open_dry": 2, "open_wet": 2.5, "buried": 1, "warm": 1.5, "frozen": 0.1},       # as fresh meat (calibrate)
@@ -505,8 +508,11 @@ TECHNIQUES = {
                  "yield": {"kind": "fixed", "base": 1.0}, "by_season": {"spring": 0.4, "summer": 1.0, "autumn": 0.2, "winter": 0.0}, "units": 1, "gives": "salt", "tags": ["salt"]},
     "salt fish": {"pack": "water", "verb": "make", "label": "salting fish to keep", "aliases": ["salting", "salt the fish"], "basic": True,
                   "inputs": {"fish": 4, "salt": 1}, "units": 1, "gives": {"salt fish": 4}, "tags": ["food", "cooking", "fishing"]},
+    "salt meat": {"verb": "make", "label": "salting meat in a tub to keep", "aliases": ["salting meat", "salt the meat", "brine the meat"],
+                  "basic": True, "inputs": {"meat": 4, "salt": 1}, "units": 1, "gives": {"salt meat": 4}, "tags": ["food", "cooking"]},   # brief 4 §5.2
     "dry meat": {"verb": "make", "label": "drying meat over a fire", "aliases": ["drying meat", "cure meat"], "basic": True,
-                 "at": {"fittings": ["hearth", "fire ring"]}, "inputs": {"meat": 2}, "units": 1, "gives": {"dried meat": 1}, "tags": ["food", "cooking"]},
+                 "at": {"fittings": ["hearth", "fire ring"]}, "inputs": {"meat": 8}, "units": 1, "gives": {"drying meat": 8},
+                 "rack": {"nights": 3, "into": "dried meat", "ratio": 0.5}, "tags": ["food", "cooking"]},   # cut and hung in a batch (brief 4 §5.1)
     "cheese": {"verb": "make", "label": "making cheese", "aliases": ["cheesemaking"], "at": {"fittings": ["cellar"]},
                "inputs": {"milk": 6, "salt": 0.2}, "units": 1, "gives": {"cheese": 1}, "tags": ["food", "animals"], "trade": "herder"},
     "charcoal": {"verb": "make", "label": "burning charcoal", "aliases": ["charcoal burning"], "at": {"covers": ["forest"]},

@@ -747,7 +747,17 @@ def _make(here, mind, a, party):
         if ok:
             full = ""
             gives = {item: (q if fac == 1.0 else round(q * fac, 2)) for item, q in t["gives"].items()}
-            for item, q in gives.items():
+            rk = t.get("rack")
+            if rk and b is not None:                                           # hung on a rack at the fire, for its nights (brief 4 §5)
+                smoke = bool((b.get("fittings") or {}).get("hearth"))
+                dst = here.apply("new_thing", node=here.node, parcel=b["parcel"], kind="pile", door=site[1], by=here.name,
+                                 rack={"day": here.day, "nights": int(rk["nights"]), "into": rk["into"], "ratio": float(rk["ratio"]),
+                                       "smoke": smoke})
+                here.remember_thing(dst, "put")
+                for item, q in gives.items():
+                    here.apply("create", dst=dst, item=item, qty=q, why=tech)
+                full = f"; it hangs on a rack {'in the smoke of the hearth' if smoke else 'by the fire'} at {b['name']} for {int(rk['nights'])} nights"
+            for item, q in ({} if rk and b is not None else gives).items():
                 full += _full_note(here, out, item, q)
                 here.apply("create", dst=out, item=item, qty=q, why=tech)
             worn = (" (" + WE.worn_words(here.p, b, fits, here.day, here.year_days()) + ")") if fac < 1.0 else ""
