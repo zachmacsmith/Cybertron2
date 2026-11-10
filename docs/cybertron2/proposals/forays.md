@@ -173,6 +173,9 @@ The order of events is state; the words for the time of day are a presentation c
   out), with camps, moving out and new sites later (latent nodes with some choice in setting up a camp); hunting and gathering
   both in the first version; naming supported; it replaces 02zr's search inside one act. Written up (this file).
 
+- 10 Nov 2026: Zach on the route: not followed exactly but explored, "kinda like a Markov chain or probabilistic graph exploration with some imposed constraints about nodes to visit and actions to do there", the next step depending on (a) the person's tendencies (uphill, greener land, following only deer), (b) the signs seen at each step, (c) what the land makes easy or hard, (d) the animals met; signs along the way should show actual world state, so that hunting's skill ceiling is learning how the world works and planning a hunt, not raw chances; this needs land with real features at a fine grain. 37.2 proposed splitting brief 4 (hunt_and_forays.md): stage A as written, stage B redesigned as a route module over a land grid with animals placed on it (awaiting Zach).
+- 10 Nov 2026: Zach: the story can be partly templates, but a large part of it is the signs along the way, what was met, the outcomes (of a hunt and the rest), and why the person went where it went, with the paths it saw and did not take. **All forays return home for now** (no night out in the first version; replaces §6's night out for now).
+
 ## Sources
 
 docs/review/37_growth/02zr_wild_behaviour_critique.md §1.2, §3.5 F1, M1, M15; 02zs_wild_development.md §3.6, §8.2, §10;

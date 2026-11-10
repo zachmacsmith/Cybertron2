@@ -172,11 +172,11 @@ Dry runs only.
 
 ## 4. Defaults for forays.md's open questions (OPEN Q-33; Zach may change any)
 
-1. **The story:** templates from events. They are replayable and add no bias; the small model only translates the intent.
+1. **The story:** templates from events, replayable. Zach (10 Nov): a large part of it is the signs along the way, what was met, the outcomes, and why the person went where it did, with the paths it saw and did not take. Those come from the walk's own state: the options it weighed at each step and the signs that tipped them.
 2. **Names:** memory only. The engine keeps the intent's words, so analysis sees the names.
 3. **Features:** 3 to 8 an area, from the land, with the pack's sites placed at them. Features made by people (a hide, a cairn)
    come with K7.
-4. **Travel:** about 4 km a unit on mixed ground, by terrain as in §3.2. The turn-home rule is on by default and can be waived.
+4. **Travel:** about 4 km a unit on mixed ground, by terrain as in §3.2. **Every foray returns home (Zach, 10 Nov):** the turn-home rule always holds and cannot be waived; there is no night out in the first version.
 5. **The morning after:** the place's acts (search, gather, a foray, wait). Fire wants a fire act at a place, which comes later
    with L-102 and camps.
 6. **Times of day (L-102):** no night forays and no dawn starts. A foray is part of a day, and a night out follows from running
@@ -270,6 +270,7 @@ Also, at stage A's gate:
 
 ## History
 
+- 10 Nov 2026: Zach: the story's content (signs, encounters, outcomes, reasons and paths not taken); every foray returns home for now (§3.6 and §3.8 give way: no night out). His route module (forays.md History) may move stage B into its own design; awaiting his answer.
 - 10 Nov 2026: written by 37.2 as brief 4, from 02zzd's measurements, forays.md and 02zv's K3, at Zach's request ("of the phases /
   stages / packs to develop, which should be the next briefs ... Write up the next brief").
 
