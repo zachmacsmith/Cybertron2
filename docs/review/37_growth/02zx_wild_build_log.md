@@ -337,3 +337,128 @@ The output is outside the repository (scratchpad `wild/live_spring_seed7`).
   - (a) Should a carcass's draw outweigh the meal it gives? That would need a lower `eat` for wolves, a stronger spillover, or the
     wolves remembering the herd they saw while feeding.
   - (b) Should the carrion pool's balance (37.2's ecology) be checked, since it holds far more carrion than its eaters take?
+
+## Brief 4: the hunt over time and the gates' fixes (hunt_and_fixes.md). Branch `ecology-calibrate` (from `ecology-carcass`, with `ecology` 6132861 merged).
+
+Built at Zach's go, 10 Nov ("Build the new brief"), which accepts shelter_damage.md and cats.md as far as the brief uses them. The
+brief's four open questions took its defaults.
+
+### What was built
+- **Stage A, the take as a search** (`engine/wild.take`):
+  - The method's units search; the range's are travel.
+  - Ground is the units times the method's `sweep` (stalk 0.4 km² a unit, hunt the wild 1.0, the drive 2.0 with its crew, net
+    0.3, den work 3.0). It is spent in the farthest area the range reaches; the areas crossed are searched at a fifth.
+  - Meetings are drawn by Poisson from density x detect x the kind's WHEN detect x focus x the table's weight x familiarity /
+    pressure x ground x `meet`.
+  - Each meeting in turn goes through danger, flee, and the kill at `take_k` (0.19) x skill x weapon x (1 - flee) x familiarity,
+    until the hunter can carry no more (10 on foot, 20 with a pack).
+  - What cannot be carried is cut and left: a carcass at the parcel when hunted near, else it goes to the carrion pool.
+- **Stage A, the rest:**
+  - meat on the cow's scale: red deer 20, roe 4.5, boar 15, bear 40, hare 0.7, fowl 0.3, pigeon 0.1, eel 0.2;
+  - the hunt's hard curve (0.4 to 3, tau 150) for stalk, hunt the wild and the drive;
+  - snow tracks (x1.5 for deer and boar) and the summer leaf (x0.8 for deer);
+  - pressure from both the search and a kill, scaled by the ground's share of the area, with lower flee shares;
+  - deer and boar thin on a village's own land (x0.3) and easier to come on in the wild land (x8);
+  - a snare line of 5 that holds 5;
+  - set works drawn by Poisson on the density over the ground they cover.
+- **Stage B, shelter in levels:**
+  - levels: sound, worn, gappy, holed, failing, ruined (`buildings.level`); camps: standing, damaged, down;
+  - worlds with the wild pack, or `shelter_levels`, only;
+  - minor wear and serious damage each night, by structure, the night's weather where the building stands (frost, heavy rain, a
+    strong wind, a gale or storm, snow, flood, left unmended) and the root of its floor;
+  - by level: warmth (via the shelter rows), the store's damp and the gaps;
+  - mending a level at a time;
+  - a camp built of 1 timber, its fire at 1.5 timber a night, a damaged camp sheltering as a bedroll, a gale flattening a
+    standing one about half the time;
+  - the levels' signs.
+- **Stage C, the fixes:**
+  - cats settle at 0.15 a season with mice, 0.4 where food was left out lately, and leave a store with neither for a season;
+  - food left out at a door is a target for the fox and is eaten by the rats;
+  - the fox's probe is 2;
+  - a flock's raid takes its part of the night's grazing instead of adding to it (diet back at 3);
+  - bins keep 0.7;
+  - a group fed at the dead remembers the herd it saw from there and comes back for it;
+  - the carrion pool is a flow (a half-life of 2 days).
+- **Stage D, keeping meat:**
+  - `dry meat` hangs 8 meat a unit on a rack at the fire, a thing at the house's door. After 3 nights it is dried meat.
+  - While it hangs it spoils at half fresh meat's rate, rain spoils it, and it is food left out; at a hearth the smoke takes the
+    flies and rain off.
+  - `salt meat`: 4 meat and 1 salt make 4.
+- **Schema 8:**
+  - buildings: `level`, `level_since`;
+  - containers: `rack`, `caught`, and brief 3's carcass fields, which were missing.
+- Tests: `tests/test_cybertron2_wild_calibrate.py`, 18 tests.
+
+### Deviations from the brief
+1. **The far master's 4 to 5 a unit cannot be reached on foot.**
+   - The carry limit is 10 on foot, so a trip brings home about 15 food: 1.9 a unit over its 6 units.
+   - The target needs the whole red deer carried home, which takes a pack (carry 20).
+   - The harness hunts without a pack.
+2. **Wild land made easier to hunt by a factor of its own**, `wild_tame` x8 (calibrate). The pressure term alone left far land no
+   richer than the ring.
+3. **Game near people is applied where the hunt reads density** (x0.3 on the home area), not in the ecology's state. The ecology
+   already thins shy kinds' suitability there, and movement evens the density back out.
+4. **Each hunter carries their own load.** A crew does not pool its carry; sharing a kill across a crew is later.
+5. **A kill's pressure is scaled by the ground's share too.** The brief scaled only the search's; with a flat 0.3 a kill one hunter
+   emptied the ring.
+6. **A snare line is one set thing** holding 5, not five things.
+7. **The eel run's cause:** a set caught at most one beast a night, and the catch chance was already saturated, so the run's x2
+   could not show. Sets now draw catches by Poisson up to what they hold, on the density over the ground they cover (snare line 0.2
+   km², home land whole and ring half). Their constants are their own: snare 0.08, trap 0.3.
+8. **Den work searches 3 km² a unit**: an earth one knows is soon found.
+9. **Gappy is never fox-sized.** shelter_damage §1's table makes a gappy wattle house one gap size larger than sound wattle's
+   "small", which is the fox's size. That contradicts its own point, that only holed lets the fox in, so gappy is capped at small.
+10. **Weather causes from the values:**
+    - a strong wind at 11 m/s and more;
+    - a gale by the label, or a passing storm at 0.5 or more;
+    - a flood as heavy rain on height-0 ground, since the engine has no flood state.
+11. **Mending wattle takes no material** (earth is on hand), and stone mending above holed takes no mason. Building camps out (brush,
+    lean-tos, a windbreak) is not built (L-47).
+12. **The dog's part of food left out is not built**: there are no dogs as animals.
+13. **Schema 8 is on the branch.** The spec on main stops at version 4: versions 5 (37.2's), 6 (37.2's), 7 (brief 2) and 8 get
+    their lines when the branches merge.
+14. **Existing tests changed for intended effects:**
+    - the experts' skill on the hard curve (2.6, not 1.5);
+    - a kill test that counts every roe taken on a trip;
+    - a cow is fresh for two days.
+
+### Gate results (10 Nov)
+- **Tests:** 521 pass on the branch (`58bb2d3`): brief 3's 503, brief 4's 18, four existing tests changed (deviation 14), and the
+  capacity and clocks guards for the rack.
+- **Older worlds replay exactly:** the valley and Region C are identical to brief 3's tip in state and days (levels are off
+  without the wild pack).
+- **Stage A** (02zzd's harness: four worlds, four seasons, 60 tries; armed):
+
+  | Hunter | The wood around | Far |
+  |---|---|---|
+  | Novice | 0.08 a unit, 4% of trips (target 0.1 to 0.2, under 10%) | 0.39 (target about 0.5) |
+  | Master | 1.03 a unit, 43% of trips (target 1 to 1.5, about 40%) | 1.93, capped by the carry (target 4 to 5: deviation 1) |
+
+  - Seasons: a master in the wood around takes 0.83 in summer and 1.13 in autumn (x1.36).
+  - Pressure: one master stalking daily moves about 1.2% of the ring's roe a night. The roe fall from 220 to 155 in 16 days,
+    against 180 with no hunting.
+  - Set works (seed 7, spring and autumn, 20 tries): snare lines 0.2 to 0.5 a unit for a novice and 0.4 to 1.1 for a skilled
+    setter. Eel traps for a skilled setter take 0.15 in spring and 0.37 in autumn: the run shows.
+  - Farming and gathering are unchanged.
+- **Stage B:** the tests show that a frosty season wears most wattle a level, that a gale can hole sound wattle in a night, that a
+  shut worn house keeps the fox out and a holed one does not, that a gale flattens about half the standing camps, and that mending
+  raises a level.
+- **Stage C:**
+  - Hens in the regression rise to 30 against brief 1's 24 (+25%; target under half).
+  - Bins keep 0.7.
+  - The flock's raids take its grazing: crop lost to raids fell from 49.6 to 21.6 with diffuse eating unchanged.
+  - A carcass is now about two-thirds of its home area's carrion: the pool fell from 2.32 to 0.88 million kg, with fox, raven,
+    wolf and bear numbers unchanged and rats down 21%.
+  - **A cow left by the herd** no longer lowers its losses (19 kills against 19 over a week, from brief 3's 14 against 16), but
+    does not raise them in this world either: the pack already finds the herd without the carcass.
+- **Regression** (wild_probe5 and wild_probe6, bots, 8 days, seeds 7, 8, 9; brief 3's tip against brief 4):
+  - all food lost x0.86 (158.8 to 137.2);
+  - stores x1.53 (bins);
+  - raids x0.43 (pigeons);
+  - hens x0.65 (the probe at 2, and sound houses).
+  Within a third except where the brief moves them.
+- **For Zach:**
+  - (a) Is the far target meant with a pack? On foot the carry caps it.
+  - (b) A carcass raising the herd's losses needs a world where the pack does not already know the herd. Should its draw be
+    stronger?
+  - (c) `wild_tame` is a new factor.
