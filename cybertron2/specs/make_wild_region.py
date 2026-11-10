@@ -52,7 +52,7 @@ def spec(seed: int) -> dict:
         "generate": {
             "seed": seed, "configuration": "settled lowland and frontier", "settlements": 4, "wild_shore": True,
             "household_size": 3,                               # small households, nearly all working adults (Zach, 10 Nov)
-            "bounds": {"children_max": 2, "per_min": 2, "per_spread": 2}, "sim": {"fertility": 0.1, "start": -30},
+            "bounds": {"children_max": 8, "per_min": 2, "per_spread": 3}, "sim": {"fertility": 0.2, "start": -26},
             "features": [
                 {"kind": "ore", "name": "lode", "box": [0.7, 0.45, 0.98, 0.8]},              # copper in the east's hills only
                 # the south-west: a wild coast of saltmarsh and fen round a tidal inlet (the region's only salt)
