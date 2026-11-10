@@ -349,7 +349,8 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
                                "parcels": len(s.parcels)} for s in allnodes}
     report["anchors"] = {k: [round(v[0], 2), round(v[1], 2)] for k, v in L.anchors.items()}
     failed = [k for k, v in report["checks"].items() if v["kind"] == "physics" and not v["ok"]]
-    required = set(gen.get("require") or []) | {"capacity", "access gates"}
+    required = (set(gen.get("require") or []) | {"capacity", "access gates"}) - set(gen.get("warn_only") or [])   # a world may
+                                                                           # make a default check a warning (its own check stands in)
     if not provisional:                                                    # a first pass, sized for planned people, refuses only on physics
         failed += [k for k, v in report["checks"].items() if v["kind"] == "design" and not v["ok"] and k in required]
     report["refused"] = failed

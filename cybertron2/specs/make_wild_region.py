@@ -32,8 +32,8 @@ PLOT_SEED = 16                              # seed a plot (data.PHYSICS["farming
 PLACES = {                                  # food_share is the generator's measure, which counts broken and weeded fields; the engine's
                                             # capacity ladder at "standing" (the fields as they are) comes to about 0.6 of it, so the pins
                                             # are set to give, at standing: Corneby about 2.5, the rest 0.5 to 0.8, the region about 1.2
-    "Corneby": {"households": 4, "food_share": 0.17, "heat_share": 0.3, "soil": "rich"},
-    "Weirford": {"households": 3, "food_share": 0.55, "on": "river"},
+    "Corneby": {"households": 3, "food_share": 0.17, "soil": "rich"},
+    "Weirford": {"households": 2, "food_share": 0.55, "on": "river"},
     "Holtham": {"households": 2, "food_share": 0.6, "plenty_of": ["wood"], "at": [38.0, 10.0]},   # the frontier's woods, north of the hills
     "Stanmoor": {"households": 2, "food_share": 0.65, "resources": ["stone", "copper"], "at": "frontier_hills"},
 }
@@ -51,8 +51,8 @@ def spec(seed: int) -> dict:
                  "sonnet_extra": 6},           # scenario_design: Opus at every head, a Sonnet middle tier, Haiku in the bulk
         "generate": {
             "seed": seed, "configuration": "settled lowland and frontier", "settlements": 4, "wild_shore": True,
-            "household_size": 3,                               # small households, nearly all working adults (Zach, 10 Nov)
-            "bounds": {"children_max": 8, "per_min": 2, "per_spread": 3}, "sim": {"fertility": 0.2, "start": -26},
+            "household_size": 3, "warn_only": ["capacity"],   # the capacity ladder (D4-102), run below, is this world's check                               # small households, nearly all working adults (Zach, 10 Nov)
+            "bounds": {"per_min": 2, "per_spread": 3, "children_max": 5}, "sim": {"start": -26},   # a shorter past: few elders; children as they come
             "features": [
                 {"kind": "ore", "name": "lode", "box": [0.7, 0.45, 0.98, 0.8]},              # copper in the east's hills only
                 # the south-west: a wild coast of saltmarsh and fen round a tidal inlet (the region's only salt)
@@ -153,6 +153,9 @@ def _households(world: dict, node: str) -> dict:
     return {h: sorted(n for n, a in world["agents"].items() if a.get("household") == h) for h in hh}
 
 
+CARRIER_MEMORY = ("You have lived by the roads since you were young, carrying goods between the villages and the wild places with your "
+                  "oxen, buying where a thing is plentiful and selling where it is wanted. It is the life you chose, and you mean to do well "
+                  "at it.")
 TRADER_AIM = ("Keep your household by carrying goods along the roads between the villages and the wild places and trading them; "
               "the oxen are your living.")
 def trader_knows(world: dict) -> list:
@@ -206,8 +209,7 @@ def seed_traders_and_mill(world: dict) -> dict:
                 for k in sorted(world["nodes"]):
                     if world["nodes"][k].get("unexplored") and k not in pl:
                         pl.append(k)
-                if a.get("stage") == "adult":
-                    a["aim"] = TRADER_AIM
+                a["memories"].append(CARRIER_MEMORY)
         out[node] = {"carriers": hh, "people": hhs[hh], "oxen": oxen, "goods": goods}
     hhs = _households(world, "Weirford")
     miller = max((h for h in hhs if h != out["Weirford"]["carriers"]), key=lambda h: (len(hhs[h]), h))
@@ -226,12 +228,68 @@ def seed_traders_and_mill(world: dict) -> dict:
     return out
 
 
+GROWTH_MEMORY = ("Your grandmother bore nine children and outlived half the village, and she raised you to believe that a family which "
+                 "does not grow dies out. You want a large family: many children, and their children after them. You mean to see your "
+                 "blood spread out beyond the village and settle new land, more of you every year.")
+MODELS = {"opus": "claude-opus-5-5", "haiku": "claude-haiku-5-5", "fable": "claude-fable-5-2"}
+
+
+def cast_and_memories(world: dict) -> dict:
+    """Edits after generation, said here (Zach, 10 Nov):
+    - the frontier household with the youngest couple is given a planted long-term memory of wanting a large family spreading
+      onto new land (a memory, as every seeded line is; aims are not shown to agents, D4-29);
+    - the other Holtham household is played by Haiku alone; Corneby's largest farming household by Opus alone; the Corneby carriers'
+      head by Fable 5.2;
+    - each person's stated trade names what they actually know of their village's own work (mining at Stanmoor, the woods at
+      Holtham, the water at Weirford), where they know it."""
+    out = {}
+    hol = _households(world, "Holtham")
+    def youngest_couple(h):
+        ages = [-world["agents"][n]["born"] for n in hol[h] if world["agents"][n].get("partner") and world["agents"][n]["stage"] == "adult"]
+        return min(ages) if ages else 999
+    grow = min(hol, key=lambda h: (youngest_couple(h), h))
+    for n in hol[grow]:
+        if world["agents"][n]["stage"] in ("adult", "youth", "elder"):
+            world["agents"][n]["memories"] = list(world["agents"][n].get("memories") or []) + [GROWTH_MEMORY]
+    out["growth"] = {"household": grow, "people": hol[grow]}
+    haiku = next((h for h in sorted(hol) if h != grow), None)
+    if haiku:
+        for n in hol[haiku]:
+            if world["agents"][n].get("model"):
+                world["agents"][n]["model"] = MODELS["haiku"]
+        out["haiku_only"] = {"household": haiku, "people": hol[haiku]}
+    cor = _households(world, "Corneby")
+    carriers = next(h for h, ps in cor.items() if any("carrying goods" in (world["agents"][n].get("trade") or "") for n in ps))
+    opus = max((h for h in cor if h != carriers), key=lambda h: (len(cor[h]), h))
+    for n in cor[opus]:
+        if world["agents"][n].get("model"):
+            world["agents"][n]["model"] = MODELS["opus"]
+    out["opus_only"] = {"household": opus, "people": cor[opus]}
+    head = next((n for n in cor[carriers] if world["agents"][n].get("role") == "head"),
+                max(cor[carriers], key=lambda n: -world["agents"][n]["born"]))
+    world["agents"][head]["model"] = MODELS["fable"]
+    out["fable"] = head
+    work = {"Stanmoor": ["mine", "smelt", "quarry"], "Holtham": ["hunt the wild", "fell", "stalk"], "Weirford": ["fish by hand", "net", "angle"]}
+    from cybertron2.engine.data import TECHNIQUES
+    for node, techs in work.items():
+        for h, ps in _households(world, node).items():
+            for n in ps:
+                a = world["agents"][n]
+                if a["stage"] not in ("adult", "elder") or "carrying goods" in (a.get("trade") or ""):
+                    continue
+                own = [t for t in techs if t in (a.get("knows") or {})]
+                if own:
+                    a["trade"] = " and ".join(TECHNIQUES[t]["label"].split(" (")[0] for t in own[:2])
+    return out
+
+
 def make(seed: int):
     s = spec(seed)
     with contextlib.redirect_stdout(io.StringIO()):
         world, cells, report = W.generate(copy.deepcopy(s), people=True)
     if world.get("agents") and not report.get("refused"):
         report["traders_and_mill"] = seed_traders_and_mill(world)
+        report["cast"] = cast_and_memories(world)
         report["stores_by_land"] = stores_by_land(world)
     return s, world, cells, report
 
@@ -255,7 +313,7 @@ def main():
         os.makedirs(out, exist_ok=True)
         W.write(world, cells, report, os.path.join(out, "wild_region.yaml"), picture=os.path.join(out, "wild_region.png"))
         json.dump({"seed": seed, "capacity": capacity(world), "stores": report.get("stores_by_land"), "horizon": horizon(world),
-                   "traders_and_mill": report.get("traders_and_mill"),
+                   "traders_and_mill": report.get("traders_and_mill"), "cast": report.get("cast"),
                    "wild": wild_summary(world),
                    "checks": {k: v for k, v in report["checks"].items()}}, open(os.path.join(out, "wild_region.summary.json"), "w"),
                   indent=1, default=str)
