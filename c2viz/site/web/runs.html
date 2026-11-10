@@ -10,6 +10,8 @@
   h1 { margin-top: 40px; font-size: 34px; }
   .tools { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin: 18px 0 22px; font: 14px "IBM Plex Sans", sans-serif; }
   .tools input { flex: 1; min-width: 220px; font: inherit; padding: 8px 12px; border: 1px solid var(--border); }
+  .tools select { font: inherit; padding: 7px 8px; border: 1px solid var(--border); background: #fff; color: var(--text); }
+  .mods .when { color: var(--muted); }
   .tools button { font: inherit; background: none; border: 1px solid var(--border); padding: 7px 12px; color: var(--muted); cursor: pointer; } .tools button.on { border-color: var(--text); color: var(--text); }
   .count { font: 13px "IBM Plex Sans", sans-serif; color: var(--muted); margin: -10px 0 12px; }
   table { width: 100%; border-collapse: collapse; font-size: 14px; }
@@ -39,7 +41,8 @@
   <h1>Runs</h1>
   <p class="lede" style="max-width:40em">Every run so far. Hover a map for its places and roads; the cells are its days. Open one to explore it day by day.</p>
   <div class="tools"><input id="q" placeholder="Search by world, run or model" aria-label="Search runs">
-    <button class="on" data-f="all">All</button><button data-f="places">Many places</button><button data-f="long">Long</button><button data-f="deaths">Deaths</button></div>
+    <button class="on" data-f="all">All</button><button data-f="places">Many places</button><button data-f="long">Long</button><button data-f="deaths">Deaths</button>
+    <select id="sort" aria-label="Order"><option value="new">Newest first</option><option value="az">A to Z</option></select></div>
   <div class="count" id="count"></div>
   <div class="legend"><span>Days, one cell each:</span><span><i style="background:var(--summer)"></i>summer</span><span><i style="background:var(--autumn)"></i>autumn</span><span><i style="background:var(--winter)"></i>winter</span><span><i style="background:var(--spring)"></i>spring</span><span>fainter as people die; <i style="background:var(--rim);width:4px;height:4px;vertical-align:2px"></i>a death</span></div>
   <table><thead><tr><th class="map"></th><th>Run</th><th class="n">Places</th><th class="n">People</th><th class="n hide">Days</th></tr></thead><tbody id="rows"></tbody></table>
@@ -68,11 +71,14 @@ const BASE = (new URLSearchParams(location.search).get("data") || self.C2_DATA |
 const file = (r, p) => `${BASE}/runs/${r.name}/viewer/${p}`;
 const { runs } = SERVER ? await json("api/runs") : await json(`${BASE}/viewer/catalog.json`);
 const rows = document.getElementById("rows"), R = [];
+// when a run was played (its journal's first step), else when it was published
+const when = (r) => r.played || r.exported || "";
+const date = (t) => t ? new Date(t).toLocaleDateString(undefined, { day: "numeric", month: "short" }) : "";
 for (const r of runs) {
   const days = r.planned_days ?? r.days, href = `run.html?id=${encodeURIComponent(r.id)}`, tr = document.createElement("tr");
   tr.innerHTML = `<td class="map"><a href="${href}" aria-label="Explore ${esc(r.title)}"><div class="atlas"><img alt=""><svg></svg><div class="tl idle"><div class="px3"><i></i><i></i><i></i></div><span></span></div></div></a></td>
     <td><div class="t"><a href="${href}">${esc((r.title || r.name).replace(/_/g, " "))}</a><small>${esc(r.name)}</small>${r.source === "local" ? `<span class="tag">this machine</span>` : ""}</div>
-      <div class="mods">${(r.models || []).map(short).join(" · ")}</div><div class="days small">${'<i class="todo"></i>'.repeat(days || 0)}</div></td>
+      <div class="mods">${(r.models || []).map(short).join(" · ")}${when(r) ? `<span class="when"> · ${date(when(r))}</span>` : ""}</div><div class="days small">${'<i class="todo"></i>'.repeat(days || 0)}</div></td>
     <td class="n">${r.places ?? "–"}</td><td class="n">${r.people ?? "–"}</td><td class="n hide">${days ?? "–"}</td>`;
   rows.append(tr);
   R.push({ r, tr, days, deaths: false, text: [r.title, r.name, ...(r.models || []).map(short)].join(" ").toLowerCase() });
@@ -153,6 +159,16 @@ function filter() {
   pump();
 }
 q.addEventListener("input", filter);
+// the order: newest first (by when played), or by name
+const sortSel = document.getElementById("sort");
+function order() {
+  const az = (a, b) => (a.r.title || a.r.name).localeCompare(b.r.title || b.r.name) || a.r.name.localeCompare(b.r.name);
+  const by = sortSel.value === "az" ? az : (a, b) => when(b.r).localeCompare(when(a.r)) || az(a, b);
+  [...R].sort(by).forEach((x) => rows.append(x.tr));
+  pump();
+}
+sortSel.addEventListener("change", order);
+order();
 document.querySelectorAll(".tools button").forEach((b) => b.addEventListener("click", () => {
   F = b.dataset.f; document.querySelectorAll(".tools button").forEach((o) => o.classList.toggle("on", o === b)); filter();
 }));

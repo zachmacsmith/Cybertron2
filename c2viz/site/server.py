@@ -102,7 +102,8 @@ class Catalog:
         steps = ((out.get("manifest.json") or {}).get("journal") or {}).get("steps", {}).get("rows")
         return {"title": spec.get("name") or name, "planned_days": spec.get("days"), "seed": spec.get("seed"), "people": len(spec.get("agents") or {}),
                 "places": len(spec.get("nodes") or {}), "generated": bool((spec.get("generated") or {}).get("by")), "journal_steps": steps,
-                "models": sorted({a.get("model") for a in (spec.get("agents") or {}).values() if a.get("model")})}
+                "models": sorted({a.get("model") for a in (spec.get("agents") or {}).values() if a.get("model")}),
+                "exported": (out.get("manifest.json") or {}).get("exported")}
 
     def all(self) -> dict:
         return {**self.hub_list(), **self.local()}
@@ -238,6 +239,21 @@ def local_spec(run: Path) -> dict:
         con.close()
 
 
+def stamp(t) -> str | None:
+    """A journal's time (seconds) as an ISO date and time, UTC."""
+    return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(t)) if t else None
+
+
+def played(run: Path) -> str | None:
+    """When a run was played: its journal's first step."""
+    import sqlite3
+    con = sqlite3.connect(f"file:{run / 'run.db'}?mode=ro", uri=True)
+    try:
+        return stamp(con.execute("SELECT MIN(started) FROM steps").fetchone()[0])
+    finally:
+        con.close()
+
+
 def summary(run: Path) -> dict:
     """A local run's journal, briefly: its world, seed, days, people, whether it ended and whether it is a generated world."""
     import sqlite3
@@ -245,13 +261,14 @@ def summary(run: Path) -> dict:
         con = sqlite3.connect(f"file:{run / 'run.db'}?mode=ro", uri=True)
         meta = dict(con.execute("SELECT key, value FROM meta"))
         days = con.execute("SELECT COUNT(*) FROM steps WHERE status = 'committed' AND step LIKE '%.memory'").fetchone()[0]
+        t0 = con.execute("SELECT MIN(started) FROM steps").fetchone()[0]
         con.close()
         spec = json.loads(meta.get("spec") or "{}")
         ended = json.loads(meta["ended"]) if meta.get("ended") else None
         models = sorted({a.get("model") for a in (spec.get("agents") or {}).values() if a.get("model")})
         return {"name": run.name, "title": spec.get("name") or run.name, "seed": json.loads(meta.get("seed") or "null"), "days": days,
                 "people": len(spec.get("agents") or {}), "places": len(spec.get("nodes") or {}), "ended": ended,
-                "generated": bool((spec.get("generated") or {}).get("by")), "models": models}
+                "generated": bool((spec.get("generated") or {}).get("by")), "models": models, "played": stamp(t0)}
     except Exception as e:                                                  # noqa: BLE001
         return {"name": run.name, "title": run.name, "error": str(e)[:200]}
 

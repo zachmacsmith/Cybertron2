@@ -29,7 +29,10 @@ import sys
 import time
 from pathlib import Path
 
-from c2viz.site.server import Builder, Catalog, code_key, day_talk
+from c2viz.site.server import Builder, Catalog, code_key, day_talk, played
+
+
+SUMMARY = ("name", "title", "planned_days", "seed", "people", "places", "generated", "models", "exported")
 
 
 def dump(path: Path, obj) -> None:
@@ -62,7 +65,8 @@ def local_runs(cache: Path) -> dict:
         out["hub:" + name] = {"id": "hub:" + name, "name": name, "path": run, "revision": None, "title": spec.get("name") or name,
                               "planned_days": spec.get("days"), "seed": spec.get("seed"), "people": len(spec.get("agents") or {}),
                               "places": len(spec.get("nodes") or {}), "generated": bool((spec.get("generated") or {}).get("by")),
-                              "models": sorted({a.get("model") for a in (spec.get("agents") or {}).values() if a.get("model")})}
+                              "models": sorted({a.get("model") for a in (spec.get("agents") or {}).values() if a.get("model")}),
+                              "exported": (meta.get("manifest.json") or {}).get("exported")}
         sha = run.parent.parent.name                                         # the revision it was fetched at (its first 12 characters)
         out["hub:" + name]["revision"] = sha
     return out
@@ -96,7 +100,7 @@ def build_run(r: dict, path: Path, cache: Path, folder: str, out: Path) -> tuple
         if (thumbs / n).exists():
             shutil.copy(thumbs / n, dest / n)
     index = {"run": r["name"], "journal_revision": r["revision"], "code_key": code_key(), "built": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-             "days": len(RM.days), "thumb": (dest / "thumb.jpg").exists()}
+             "days": len(RM.days), "thumb": (dest / "thumb.jpg").exists(), "played": played(path)}
     dump(dest / "index.json", index)
     return index, strip
 
@@ -129,6 +133,7 @@ def main(argv=None) -> None:
             sys.exit(f"could not list the published runs: {cat.hub_error}")
     key = code_key()
     built, catalog = [], {}
+    mine = local_runs(cache)
     if not a.local:                                                         # the published list: kept for the runs not rebuilt now
         from huggingface_hub import hf_hub_download
         try:
@@ -143,6 +148,9 @@ def main(argv=None) -> None:
             old = published_index(repo, folder, r["name"], cat.sha)
             if old and old.get("code_key") == key:
                 print(f"  {r['name']}: up to date", flush=True)
+                if r["name"] in catalog:                                    # its summary and dates, fresh; the journal's own date
+                    have = mine.get(rid)                                    # if it is on this machine
+                    catalog[r["name"]] |= {k: r.get(k) for k in SUMMARY} | {"played": old.get("played") or (played(have["path"]) if have else None)}
                 continue
         t = time.time()
         try:
@@ -153,13 +161,12 @@ def main(argv=None) -> None:
             continue
         built.append(r["name"])
         print(f"  {r['name']}: {idx['days']} days in {time.time() - t:.0f}s", flush=True)
-        catalog[r["name"]] = ({k: r.get(k) for k in ("name", "title", "planned_days", "seed", "people", "places", "generated", "models")}
-                              | {"id": rid, "days": idx["days"], "thumb": idx["thumb"], "strip": strip})
+        catalog[r["name"]] = ({k: r.get(k) for k in SUMMARY} | {"id": rid, "days": idx["days"], "thumb": idx["thumb"], "strip": strip, "played": idx["played"]})
     if built or not a.only:
         dump(out / "viewer" / "catalog.json", {"repo": repo, "folder": folder, "code_key": key, "built": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
                                                "runs": sorted(catalog.values(), key=lambda x: x["name"])})
     print(f"built {len(built)} run(s) in {out}", flush=True)
-    if a.no_upload or a.local or not built:
+    if a.no_upload or a.local or (a.only and not built):
         return
     upload(repo, folder, out, f"viewer files for {len(built)} run(s) (c2viz {key})")
 
