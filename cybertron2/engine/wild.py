@@ -896,7 +896,8 @@ def _set_night(w, m, st) -> dict:
         effort = float(TECHNIQUES[tech]["units"]) / 2.0 * float(sp["base"]) * int(sp.get("line", 1))
         held = int(c.get("caught", 0) or 0) if any(float(q) > 1e-9 for q in c["goods"].values()) else 0   # emptied: room again
         room = int(sp.get("holds", 1)) - held                               # a snare holds one beast, a wicker trap several
-        tries = _poisson(rng, float(HUNT["set_meet"]) * total * effort, max(0, room)) if total > 0 else 0   # (brief 4 §2.10:
+        meet = float(TECHNIQUES[tech].get("set", {}).get("meet", HUNT["set_meet"]))
+        tries = _poisson(rng, meet * total * effort, max(0, room)) if total > 0 else 0   # (brief 4 §2.10:
         skill = float(((w.s["know"].get(c.get("by")) or {}).get(tech) or {}).get("skill", KN.curve(tech)[0]))   # the run shows)
         got = []
         for _ in range(tries):
@@ -1852,7 +1853,7 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
                 lines.append(found + ", but it got away")
             continue
         took_any = True
-        pressure[k][i] = round(pressure[k][i] + float(HUNTED["kill"]), 4)
+        pressure[k][i] = round(pressure[k][i] + float(HUNTED["kill"]) * min(1.0, ground[i] / float(m.km2[i])), 4)   # on the ground hunted
         pop = pops.setdefault(k, [float(v) for v in st["pop"][k]])
         pop[i] = max(0.0, pop[i] - 1.0 / float(m.km2[i]))                  # one head off its area's count
         lit = tk.get("litter")                                             # young taken with it (cubs at the earth in spring): the kind's

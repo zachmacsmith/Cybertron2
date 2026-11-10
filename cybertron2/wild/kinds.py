@@ -400,7 +400,7 @@ PHASES = {"voles and mice": {"order": ["low", "increase", "peak", "crash"],
 # kinds that follow the harvest into the stores: how far a full barn can raise what they find there (engine/wild._follow_harvest)
 FOLLOW_HARVEST = {"rats": 1.0, "voles and mice": 0.5}
 # hunted kinds leaving a hunted area (a share a day for each unit of pressure); pressure added by a hunt, a kill, a crew; its fading
-HUNTED = {"flee": {"red deer": 0.3, "roe deer": 0.2, "wild boar": 0.15}, "hunt": 0.25, "kill": 0.3, "crew": 0.5, "fade": 0.75}
+HUNTED = {"flee": {"red deer": 0.18, "roe deer": 0.12, "wild boar": 0.09}, "hunt": 0.25, "kill": 0.3, "crew": 0.5, "fade": 0.75}   # brief 4 §2.8
 # the take as a search over time (brief 4 §2, calibrate): meetings a trip ~ Poisson(sum of density x detect x ... x ground x `meet`),
 # at most `most`; a kill at `take_k` x skill x weapon x (1 - flee) x familiarity; the areas crossed on the way searched at `cross`;
 # a method with no sweep of its own searches `sweep` km2 a unit; deer and boar keep off a village's own land (`home_shy`); game in
