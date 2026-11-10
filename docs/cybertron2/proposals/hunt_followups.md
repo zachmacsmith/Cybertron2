@@ -105,10 +105,17 @@ Dry runs only.
      counts from the day's events is removed.
    - **`hunt with X`** (any hunting method's act with `with: X`) joins X's party. The party hunts X's way: X's method, place, range,
      target (`looking for`) and units. The follower's own settings are only its fallback.
-   - **If X does not hunt that day,** the follower hunts alone with its own settings. Also, if X refused followers (`alone: true`,
-     or a list of whom X will take), or if the follower is not at X's node.
-   - **A follower without the units X's hunt needs** cannot keep up: it hunts alone with what it has.
-   - **Chains** (A with B, B with C) follow to the one who leads (C). A circle (A with B, B with A) has no leader: each hunts alone.
+   - **X accepts followers by default.** X can choose to hunt alone (`alone: true`) or to take only those it names.
+   - **If X does not hunt that day,** or refused this follower, or the follower is not at X's node, the follower hunts alone with
+     its own settings.
+   - **A follower with fewer units than X's hunt** goes out with the party and searches with it for as many units as it has left
+     after the walk home, then splits off and heads back.
+     - The party's search runs over time: each meeting falls at a time in the search, a keyed draw.
+     - At each meeting, only the members still out count: their sweep, eyes, skill and carry.
+     - A member who leaves carries home its share of what was taken before it left.
+   - **Chains** (A with B, B with C) follow to the one who leads (C).
+   - **A circle** (A with B and B with A, or longer) is led by the better hunter: the highest skill in its own chosen method, then
+     the familiarity with what it named, then the elder, then a keyed draw. The rest follow that hunter's pattern.
    - **When it is settled:** a party's hunt is settled after the day's acts. This is the pattern of `partner` and `try`, which are
      recorded during the day and settled when both have chosen. The leader and the followers then learn the outcome together in the
      day's results; a hunter alone learns it at once, as now.
@@ -171,7 +178,9 @@ Dry runs only.
 - A party of three brings a red deer home whole; a lone hunter brings about 8 meat and leaves the rest cached.
 - Two people hunting the same wood without a party do no better than alone, and each does a little worse.
 - `hunt with X` follows X's method, range, target and units; with X not hunting, the follower hunts alone by its own settings;
-  a chain resolves to its leader, and a circle to each alone; the party's hunt is settled once, after the day's acts, and replays exactly.
+  a chain resolves to its leader, and a circle to its better hunter; X accepts followers unless it chose otherwise; a follower with
+  fewer units searches with the party for what it has and turns back, counting only at the meetings while it is out, and takes its
+  share home; the party's hunt is settled once, after the day's acts, and replays exactly.
 - A cache fetched the next day is mostly there in winter and partly eaten in summer.
 - A led ox lets one hunter bring a red deer home, and costs a unit and some kills.
 
@@ -220,6 +229,8 @@ Dry runs only.
 - 10 Nov 2026: Zach: recovery not too slow ("Shouldn't last a full run. Just not too fast. A reasonable amount of restraint should make it be repopulated, if there are surrounding forests for them to drift in from, but with lag"). §2.3 rewritten: inflow by a smoothed density (a lag of days), half back in one to two seasons and most within a year, slower without forest around, a lower steady level under steady hunting; the three-year target dropped.
 
 - 10 Nov 2026: Zach: a party is declared, not inferred: hunting the same place makes no crew; "hunt with X" joins X's party and follows X's pattern; if X is not hunting, one hunts alone. This answers whose settings a party uses. §3.1 rewritten (chains, circles, refusing followers, units, settling after the day's acts like partner and try, the best skill for a kill, the catch shared).
+
+- 10 Nov 2026: Zach: members hunt with the party for as many units as they have, then split off and head back; X accepts followers by default and may choose to hunt alone; a circle (X with Y, Y with X) is led by the better hunter. §3.1 and its tests updated.
 
 ## Sources
 
