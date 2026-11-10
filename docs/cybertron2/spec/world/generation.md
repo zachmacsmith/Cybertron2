@@ -9,6 +9,9 @@ terrain, then settlement. Every layer can be set by hand instead.
 
 - D4-22: the landscape is generated physical-first (elevation, moisture, rivers by drainage, kinds from terrain), every layer
   overridable by hand.
+- D2-208: the world keeps the land it runs on: the generated land at its full grain (the cells and every field made of them)
+  goes with the world, into each run's record and its publication; the engine loads it, keeps the run's changes to it on top, and
+  a run is reproduced from what it kept, never by regenerating.
 
 ## Mechanics
 
@@ -26,4 +29,4 @@ in.
 
 38.04 §5-§6.
 
-*Current as of 23 Oct 2026: D4-22.*
+*Current as of 10 Nov 2026: D4-22, D2-208.*

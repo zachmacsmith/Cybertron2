@@ -270,6 +270,7 @@ Also, at stage A's gate:
 
 ## History
 
+- 10 Nov 2026: D2-208, the world keeps the land it runs on (land_kept.md): stage B's land grid rests on it.
 - 10 Nov 2026: Zach: the story's content (signs, encounters, outcomes, reasons and paths not taken); every foray returns home for now (§3.6 and §3.8 give way: no night out). His route module (forays.md History) may move stage B into its own design; awaiting his answer.
 - 10 Nov 2026: written by 37.2 as brief 4, from 02zzd's measurements, forays.md and 02zv's K3, at Zach's request ("of the phases /
   stages / packs to develop, which should be the next briefs ... Write up the next brief").
