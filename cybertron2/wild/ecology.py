@@ -299,7 +299,7 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
             elif key == "carrion":
                 carrion = np.maximum(carrion - g, 0)
                 eff["eaten"]["carrion"] = eff["eaten"].get("carrion", 0) + g * m.km2   # what the dead in it lose (brief 3 §3)
-    carrion = carrion * 0.5 ** (1.0 / S)
+    carrion = carrion * 0.5 ** (1.0 / float(WK.CARRION.get("half_life_days", S)))   # a flow, gone within days (brief 4 §4.6)
     # 3-4. condition, death, birth, people's take
     dis = knobs.get("disease", 0.15)
     from cybertron2.wild import diseases as DS

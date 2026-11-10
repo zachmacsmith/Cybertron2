@@ -140,6 +140,7 @@ def night(w, rec) -> None:
     place = m.nodes[0]
     w.apply("set_wild", place, path=["state"], value=st)
     out = {"mast": st.get("mast_now"), "crops": {}, "stores": {}}
+    flock_budget = {}
     out["shared"] = _shared_post(w, m, scale, pools, eff)
     _plant_year(w, m, st)
     for i, aid in enumerate(m.ids):
@@ -158,6 +159,15 @@ def night(w, rec) -> None:
                 lost = _stores(w, node, shares)
                 if lost > 1e-6:
                     out[food][node] = round(lost, 4)
+            elif share > 1e-6 and food == "crops":                        # a flock's part is kept for its raid (brief 4 §4.3): a
+                by = (eff.get("eaten_by") or {}).get("crops") or {}            # raid takes it where the flock lands, not on top of it
+                tot_k = sum(float(v[i]) for v in by.values()) or 0.0
+                fl = sum(float(v[i]) for k, v in by.items() if (_near(k) or {}).get("flock")) / tot_k if tot_k > 0 else 0.0
+                standing = _crop_food_qty(w, node)
+                flock_budget[node] = {"qty": share * fl * standing, "standing": standing}
+                lost = _crops(w, node, share * (1.0 - fl))
+                if lost > 1e-6:
+                    out[food][node] = round(lost, 4)
             elif share > 1e-6:
                 lost = (_crops if food == "crops" else _stores)(w, node, share)
                 if lost > 1e-6:
@@ -167,9 +177,17 @@ def night(w, rec) -> None:
         w.apply("set_wild", place, path=["eaten"], value=eaten)
     out["loads"] = _loads(w, m, st)
     out["sick"] = _herds_sick(w, m, st)
+    w._flock_budget = flock_budget
     out["groups"] = _groups(w, m, st)
+    for node, fb in sorted(flock_budget.items()):                         # what the flock did not take in a raid it grazed as before
+        if fb["qty"] > 1e-6 and fb["standing"] > 1e-9:
+            lost = _crops(w, node, min(0.5, fb["qty"] / fb["standing"]))
+            if lost > 1e-6:
+                out["crops"][node] = round(out["crops"].get(node, 0.0) + lost, 4)
+    w._flock_budget = {}
     out["sites"] = _sites_night(w, m, st)
     out["set"] = _set_night(w, m, w.s["wild"]["state"])                   # snares and traps set and left (brief 2 §4)
+    _food_out_night(w)                                                    # food left out at the doors (brief 4 §4.1)
     out["store_beasts"] = _store_beasts(w, m, w.s["wild"]["state"])      # a cat at a store, a barn owl in its hole (D2-206; K1)
     out["near"] = {gid: {"n": g["n"], "pos": g["pos"], "what": g.get("what")} for gid, g in sorted((w.s["wild"].get("groups") or {}).items())}
     _hens_lay(w)
@@ -1213,6 +1231,8 @@ def _targets(w, node, t) -> list:
     if what == "res":
         return [(pid, pid) for pid, par in sorted(w.s["parcels"].items()) if par["node"] == node and par["cover"] in (t.get("covers") or [])
                 and float(((par.get("res") or {}).get(t["res"]) or {}).get("S", 0)) > 1.0]
+    if what == "left out":                                                # food left out at a house's door (brief 4 §4.1)
+        return [(cid, w.s["buildings"][c["door"]]["parcel"]) for cid, c in _left_out(w, node)]
     if what == "carcass":                                                 # the dead lying open, or shallow for a digger (brief 3 §3)
         return [(cid, c["parcel"]) for cid, c in _dead_at(w, node, t if isinstance(t, dict) else {})]
     return []
@@ -1292,12 +1312,18 @@ def _raid(w, g, np_, kind, t, tgt, parcel, scare, rng) -> dict:
     met = float(np_["met_share"]) if scare is not None else 1.0
     if what == "crop":
         share = min(0.5, float(t.get("trample", 0.0)) * g["n"] * met)
+        fb = (getattr(w, "_flock_budget", None) or {}).get(node) if np_.get("flock") else None
+        if fb is not None:                                                # a flock eats its night's part here (brief 4 §4.3)
+            here_left = sum(float(c.get("left", 0.0)) for _, _, c in FM.standing(w.s["parcels"][tgt]))
+            share = min(share, fb["qty"] / here_left) if here_left > 1e-9 else 0.0
         lost = 0.0
         for hd, _, c in FM.standing(w.s["parcels"][tgt]):
             q = round(float(c.get("left", 0.0)) * share, 4)
             if c.get("area_left", 0) > 1e-6 and q > 1e-9:
                 w.apply("draw", node, parcel=tgt, key="crop", qty=q, **({"holder": hd} if hd is not None else {}))
                 lost += q
+        if fb is not None:
+            fb["qty"] = max(0.0, fb["qty"] - lost)
         return {"lost": round(lost, 4)}
     if what == "herd":
         h = w.s["herds"][tgt]
@@ -1311,6 +1337,17 @@ def _raid(w, g, np_, kind, t, tgt, parcel, scare, rng) -> dict:
         w.event(node, "herd", f"a {FM.ROLE_WORD[role][0]} of {h['name']} was killed in the night", about=[f"herd:{tgt}"], salience=0.6,
                 tags=["animals", "danger"])
         return {"killed": role}
+    if what == "left out":                                                # food at a door: taken as it lies (brief 4 §4.1)
+        from cybertron2.wild.kinds import LEFT_OUT
+        c = w.s["containers"].get(tgt) or {}
+        took = 0.0
+        for item in LEFT_OUT["items"]:
+            q = float((c.get("goods") or {}).get(item, 0.0))
+            if q > 1e-9:
+                k = round(q * min(1.0, float(t.get("share", 0.5)) * met), 4)
+                w.apply("destroy", node, src=tgt, item=item, qty=k, why=f"taken by {_a(kind)}")
+                took += k
+        return {"took": round(took, 4)}
     if what == "carcass":                                                 # the dead: eat a share by the group's size (brief 3 §3)
         c = w.s["containers"].get(tgt)
         if not c:
@@ -1329,6 +1366,14 @@ def _raid(w, g, np_, kind, t, tgt, parcel, scare, rng) -> dict:
             w.apply("set_thing", node, cid=tgt, field="cached",
                     value={"kind": kind, "until": w.d + int(lo + rng.random() * (int(hi) - int(lo) + 1))})
         g["fed_at"] = {"node": node, "day": w.d}
+        herd_rows = [r for r in (np_.get("targets") or []) if r.get("what") == "herd"]
+        if herd_rows and ate > 0:                                         # the herd seen from the dead: remembered (brief 4 §4.5)
+            from cybertron2.engine import layout as LY
+            herds = _targets(w, node, {"what": "herd"})
+            if herds:
+                cp = (w.s["containers"].get(tgt) or {}).get("parcel")
+                hid, hp = min(herds, key=lambda x: (LY.steps(w, cp, x[1]) if cp and LY.steps(w, cp, x[1]) is not None else 99, x[0]))
+                g["seen_herd"] = {"hid": hid, "parcel": hp, "day": w.d}
         return {"ate": round(ate, 4), **out}
     if what in ("items", "hens"):
         b = w.s["buildings"][tgt]
@@ -1608,7 +1653,13 @@ def _groups(w, m, st) -> dict:
                 fed = g.get("fed_at") or {}                                    # fed at the dead here lately: bolder, and any of its
                 spill = fed.get("node") == node and 0 <= w.d - int(fed.get("day", -99)) <= int(CARCASS_PULL["spill_nights"])   # rows
                 trow = max(rows, key=lambda t: t["attr"])
-                if spill:                                                      # (brief 3 §3: the fox at the dead calf tries the hens)
+                sh = g.get("seen_herd") or {}
+                herd_row = next((t for t in rows if t.get("what") == "herd"), None)
+                if spill and herd_row and sh and w.d - int(sh["day"]) <= int(np_["memory_days"]) \
+                        and sh["hid"] in dict(_targets(w, node, herd_row)):
+                    trow = herd_row                                            # back for the herd seen from the dead (brief 4 §4.5)
+                    g["target"], g["found"] = sh["hid"], int(sh["day"])
+                elif spill:                                                    # (brief 3 §3: the fox at the dead calf tries the hens)
                     live = [t for t in rows if t["attr"] > 0 and _targets(w, node, t)]
                     if live:
                         u, acc = rng.random() * sum(t["attr"] for t in live), 0.0
@@ -2054,6 +2105,13 @@ def _store_food(w, node) -> float:
                for item, q in (w.s["containers"].get(b["stock"], {}).get("goods") or {}).items() if item in DRY_STORES)
 
 
+def _crop_food_qty(w, node) -> float:
+    """The standing crop on a node's fields, in its own units (what `_crops` draws a share of)."""
+    from cybertron2.engine import farm as FM
+    return sum(float(c.get("left", 0.0)) for pid, par in w.s["parcels"].items() if par["node"] == node
+               for _, _, c in FM.standing(par) if c.get("area_left", 0) > 1e-6)
+
+
 def _crops(w, node, share) -> float:
     """Draw a share of every standing crop on the node's fields (as herds trample, D2-123): what wild kinds ate in the night."""
     from cybertron2.engine import farm as FM
@@ -2092,10 +2150,32 @@ def _stops(b, kind, w=None) -> float:
     return keep
 
 
+def _left_out(w, node) -> list:
+    """Food lying at the doors of a node's houses (D2-85 things there, D4-89): [(thing id, thing)] (brief 4 §4.1)."""
+    from cybertron2.wild.kinds import LEFT_OUT
+    out = []
+    for cid, c in sorted(w.s["containers"].items()):
+        if c.get("kind") == "pile" and c.get("node") == node and c.get("door") in w.s["buildings"] and not c.get("hidden") \
+                and any(float((c.get("goods") or {}).get(i, 0.0)) > 1e-9 for i in LEFT_OUT["items"]):
+            out.append((cid, c))
+    return out
+
+
+def _food_out_night(w) -> None:
+    """Which houses had food left out at the door tonight, for the cats that come to it (brief 4 §4.1)."""
+    from cybertron2.wild.kinds import LEFT_OUT
+    rec = dict(w.s["wild"].get(LEFT_OUT["record"]) or {})
+    for node in sorted(w.s["nodes"]):
+        for cid, c in _left_out(w, node):
+            rec[c["door"]] = w.d
+    if rec != (w.s["wild"].get(LEFT_OUT["record"]) or {}):
+        w.apply("set_wild", sorted(w.s["nodes"])[0], path=[LEFT_OUT["record"]], value=rec)
+
+
 def _store_beasts(w, m, st) -> dict:
     """At a season's turn (D2-206; brief 2 K1): a cat (kinds.CAT) settles at a store with dry food and its prey about (no dog), or
     leaves one with none or with a dog; in its season a barn owl (kinds.OWL) takes an empty owl hole in a building nobody sleeps in."""
-    from cybertron2.wild.kinds import CAT, OWL
+    from cybertron2.wild.kinds import CAT, LEFT_OUT, OWL
     out = {}
     if w.calendar(w.d + 1)["season"] == w.calendar()["season"]:
         return out
@@ -2115,10 +2195,13 @@ def _store_beasts(w, m, st) -> dict:
         i = m.ids.index(aid) if aid in m.ids else None
         prey = float(st["pop"][CAT["prey"]][i]) * float(m.km2[i]) if i is not None and CAT["prey"] in st["pop"] else 0.0
         rng = w.rng("wild-cat", w.d, bid)
-        if have and (dry <= 1e-6 or dog):
+        fed = w.d - int(((w.s["wild"].get(LEFT_OUT["record"]) or {}).get(bid) or -99)) <= int(CAT["fed_days"])   # food left out lately
+        mice = dry > 1e-6 and prey >= float(CAT["prey_least"])
+        S = w.year_days() // 4
+        if have and (dog or (not mice and w.d - int(((w.s["wild"].get(LEFT_OUT["record"]) or {}).get(bid) or -99)) > S)):
             w.apply("destroy", b["node"], src=cid, item=beast, qty=float(goods[beast]), why="it went off")
-            out[bid] = "left"
-        elif not have and not dog and dry > 1e-6 and prey >= float(CAT["prey_least"]) and rng.random() < float(CAT["settle_p"]):
+            out[bid] = "left"                                               # no mice and no food left out for a season (cats.md §3)
+        elif not have and not dog and (mice or fed) and rng.random() < float(CAT["fed_p" if fed else "settle_p"]):
             w.apply("create", b["node"], dst=cid, item=beast, qty=1.0, why="it came in after the prey in the store")
             w.event(b["node"], beast, f"a {beast} has taken up at {b['name']}", about=[f"building:{bid}"], salience=0.3, tags=["animals"])
             out[bid] = "came"
@@ -2148,4 +2231,12 @@ def _stores(w, node, share) -> float:
                 if take > 1e-6:
                     w.apply("destroy", node, src=cid, item=item, qty=take, why="eaten in store by wild kinds")
                     total += take
+    from cybertron2.wild.kinds import LEFT_OUT                              # and what is left out at the doors, in the open: as much
+    for pid_, c in _left_out(w, node):                                    # again, nothing stopping them (brief 4 §4.1)
+        for item in LEFT_OUT["items"]:
+            q = float((c.get("goods") or {}).get(item, 0.0))
+            take = round(q * min(1.0, 2.0 * sum(shares.values())), 4)
+            if take > 1e-6:
+                w.apply("destroy", node, src=pid_, item=item, qty=take, why="eaten by rats and mice at the door")
+                total += take
     return total

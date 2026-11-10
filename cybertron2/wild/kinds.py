@@ -39,7 +39,7 @@ KINDS = {
                    people=0.15, ref=4, wave=1, count="whole", group={"size": [3, 14]}, uses="pork, fat, hide", damage="roots up crops"),
     "brown hare": K(3.5, "herb", 4.0, 0.9, {"grassy": 1.0, "farm": 0.4, "open": 0.2}, {"sward": 3, "seeds": 1, "crops": 2},
                     breed=("spring", "summer"), people=0.3, ref=25, wave=1, uses="meat; coursing", damage="young crops", shy=0.6),
-    "woodpigeon": K(0.5, "gran", 3.0, 0.6, {"wood": 0.5, "farm": 0.5}, {"seeds": 2, "mast": 2, "crops": 1.5, "browse": 1}, people=0.2,   # crops 3 to 1.5: the flock takes the rest (brief 2 §3; calibrate)
+    "woodpigeon": K(0.5, "gran", 3.0, 0.6, {"wood": 0.5, "farm": 0.5}, {"seeds": 2, "mast": 2, "crops": 3, "browse": 1}, people=0.2,   # a raid takes its part of this (brief 4 §4.3)
                     ref=50, wave=1, damage="seed and young corn", shy=0.5),
     "rats": K(0.25, "omni", 10.0, 2.0, {"farm": 1.0}, {"stores": 3, "crops": 2, "seeds": 1, "carrion": 1},
               breed=("spring", "summer", "autumn"), move=0.05, ref=100, wave=1, damage="stores", shy=0.0),
@@ -160,11 +160,12 @@ NEAR_PEOPLE = {
     },
     "fox": {
         "targets": [{"what": "items", "items": ["hen"], "door": True, "heads": 2, "all_p": 0.3, "seasons": {0: (2, 7), 1: (0, 3)},
-                     "attr": 1.0, "probe": 3},                                                    # cubs to feed; tries the doors (D2-207)
+                     "attr": 1.0, "probe": 2},                                                    # cubs to feed; tries the doors (D2-207)
                     {"what": "items", "items": ["hen"], "door": True, "heads": 2, "all_p": 0.3,
-                     "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.35, "probe": 3},
+                     "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.35, "probe": 2},
                     {"what": "carcass", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.8,     # the dead (brief 3)
-                     "stages": ["fresh", "rotting"], "eat": 0.6, "digs": True}],
+                     "stages": ["fresh", "rotting"], "eat": 0.6, "digs": True},
+                    {"what": "left out", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.5, "share": 0.6}],  # food at a door
         "drive": {"base": 0.1, "hunger": 0.4}, "memory_days": 2, "return_p": 0.8, "lead_nights": 2, "lead_sign_p": 0.6,
         "answer": {"type": "scared_off", "turn_p": 0.85, "off_days": 3},
         "harm": {"dog": {"turn_p": 0.9, "harm_p": 0.1}}, "wary_after_harm": 10, "met_share": 1.0,
@@ -741,7 +742,7 @@ BODY = {"voles and mice": {"gap": "tiny", "climbs": True}, "rats": {"gap": "tiny
         "brown bear": {"gap": "large", "climbs": True}, "woodpigeon": {"gap": "small", "climbs": True}}
 GAPS = {"structure": {"wattle": "small", "timber": "small", "stone": "tiny", "camp": "large"}, "damaged": 1}   # a building's own gaps
 # What stops which kinds in a store (brief 2 §4): each fitting cuts the share the kinds it stops eat there (keep), by their body
-STORE_STOPS = {"granary": {"keep": 0.3, "for": {"climbs": True, "gap": "tiny"}}, "bins": {"keep": 0.5, "for": {"gap": "tiny"}},
+STORE_STOPS = {"granary": {"keep": 0.3, "for": {"climbs": True, "gap": "tiny"}}, "bins": {"keep": 0.7, "for": {"gap": "tiny"}},
                "dog": {"keep": 0.5, "for": {}}, "cat": {"keep": 0.4, "for": {"gap": "tiny"}, "in_store": True},
                "owl": {"keep": 0.6, "for": {"gap": "tiny"}, "occupied": "nests"}}
 # a cat comes by itself to a store with mice (D2-206): a chance each season (no dog), and leaves an empty store or a dog's house;
@@ -751,8 +752,13 @@ STORE_STOPS = {"granary": {"keep": 0.3, "for": {"climbs": True, "gap": "tiny"}},
 # its drive times `spill_drive` and may pick any of its rows (the fox at the dead calf tries the hens)
 # a tallow light (brief 3 §5, calibrate): night work at a load by it does this much more, and burns the light down
 LIGHT = {"item": "tallow light", "night_work": 1.3}
+# the carrion pool is a flow: what dies or is left goes in, and eaters and decay take it within days (brief 4 §4.6; calibrate)
+CARRION = {"half_life_days": 2.0}
 CARCASS_PULL = {"ref": 20.0, "dig": 0.1, "spill_nights": 3, "spill_drive": 1.5}
-CAT = {"settle_p": 0.25, "prey": "voles and mice", "prey_least": 50.0, "stray_p": 0.08, "item": "cat"}
+CAT = {"settle_p": 0.15, "fed_p": 0.4, "prey": "voles and mice", "prey_least": 50.0, "stray_p": 0.08, "item": "cat",
+       "fed_days": 3}                         # cats.md §3 (brief 4 §4.1): fed lately (food left out at the house), it settles likelier
+# food left out at a house's door (D2-85 things there): what draws a cat, and the fox and rats too (brief 4 §4.1)
+LEFT_OUT = {"items": ["milk", "meat", "offal", "fresh fish", "rotting meat"], "record": "food_out"}
 OWL = {"take_p": 0.4, "fitting": "owl hole", "season": "spring", "record": "nests"}
 
 # What a kind is like to those who hunt it (D2-204, methods_and_encounters.md §2; calibrate): the methods' needs and favours are read
