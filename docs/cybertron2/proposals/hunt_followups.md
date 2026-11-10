@@ -99,12 +99,28 @@ Dry runs only.
 
 ## 3. Stage B: bringing a kill home (37.4's code)
 
-1. **A party hunts together and shares the carry.**
-   - People who hunt together (the same method at the same place and range on the same day, as crew work already counts them) are
-     resolved as one take.
-   - The crew's sweep and kill bonus are as built.
-   - A kill's goods are split across the party's hands up to each person's carry. Three hunters bring a red deer home whole.
-   - This replaces brief 4's deviation 4 (the whole catch into the acting hunter's hands).
+1. **A hunting party is declared, never inferred (Zach, 10 Nov).**
+   - **Hunting alone near others makes no crew.** Two people who hunt the same wood on the same day hunt separately. They share
+     the game and add to each other's disturbance, so hunting near others without a plan is worse, not better. The crew that brief 4
+     counts from the day's events is removed.
+   - **`hunt with X`** (any hunting method's act with `with: X`) joins X's party. The party hunts X's way: X's method, place, range,
+     target (`looking for`) and units. The follower's own settings are only its fallback.
+   - **If X does not hunt that day,** the follower hunts alone with its own settings. Also, if X refused followers (`alone: true`,
+     or a list of whom X will take), or if the follower is not at X's node.
+   - **A follower without the units X's hunt needs** cannot keep up: it hunts alone with what it has.
+   - **Chains** (A with B, B with C) follow to the one who leads (C). A circle (A with B, B with A) has no leader: each hunts alone.
+   - **When it is settled:** a party's hunt is settled after the day's acts. This is the pattern of `partner` and `try`, which are
+     recorded during the day and settled when both have chosen. The leader and the followers then learn the outcome together in the
+     day's results; a hunter alone learns it at once, as now.
+   - **How the party hunts:**
+     - its ground is the sum of its members' sweeps;
+     - it notices with the best eyes among them;
+     - each meeting's kill uses the best skill and familiarity in the party for that kind, with the crew's bonus as built;
+     - danger is spread across the party.
+   - **The catch** is split across the party's hands up to each person's carry, so three hunters bring a red deer home whole. This
+     replaces brief 4's deviation 4. Each member spends its units and practises the method; the one whose shot took the beast gains
+     the familiarity.
+   - **A drive** (`crew: true`) needs a party.
 2. **A led beast carries.**
    - The `lead` modifier (built, for travel: a pack ox, carry 60, D2-133) applies to `gather` as well: a beast led on a hunt adds its
      carry.
@@ -153,6 +169,9 @@ Dry runs only.
 
 **Stage B:**
 - A party of three brings a red deer home whole; a lone hunter brings about 8 meat and leaves the rest cached.
+- Two people hunting the same wood without a party do no better than alone, and each does a little worse.
+- `hunt with X` follows X's method, range, target and units; with X not hunting, the follower hunts alone by its own settings;
+  a chain resolves to its leader, and a circle to each alone; the party's hunt is settled once, after the day's acts, and replays exactly.
 - A cache fetched the next day is mostly there in winter and partly eaten in summer.
 - A led ox lets one hunter bring a red deer home, and costs a unit and some kills.
 
@@ -199,6 +218,8 @@ Dry runs only.
 - 10 Nov 2026: written by 37.2 from 02zzd's addendum and Zach's answers on the label, recovery and carrying.
 
 - 10 Nov 2026: Zach: recovery not too slow ("Shouldn't last a full run. Just not too fast. A reasonable amount of restraint should make it be repopulated, if there are surrounding forests for them to drift in from, but with lag"). §2.3 rewritten: inflow by a smoothed density (a lag of days), half back in one to two seasons and most within a year, slower without forest around, a lower steady level under steady hunting; the three-year target dropped.
+
+- 10 Nov 2026: Zach: a party is declared, not inferred: hunting the same place makes no crew; "hunt with X" joins X's party and follows X's pattern; if X is not hunting, one hunts alone. This answers whose settings a party uses. §3.1 rewritten (chains, circles, refusing followers, units, settling after the day's acts like partner and try, the best skill for a kill, the catch shared).
 
 ## Sources
 
