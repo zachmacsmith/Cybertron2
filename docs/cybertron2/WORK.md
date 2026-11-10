@@ -31,7 +31,7 @@ next number; 37.2 and 37.4 share the series (check before adding).
 | W-5 | 37.2's own hygiene items: D2-199 to D2-203 into the spec; the scratchpad path in 02zp's sim.py | 37.2 | queued | 9 Nov | 9 Nov | spec/environment/wildlife.md; docs/review/37_growth/02zp_ecosystem_models/wildsys/sim.py | not begun |
 | W-21 | Proposals for Q-37 (a) and (d): graded damage to houses and camps by structure and weather, camps' shelter, growth and animals (proposals/shelter_damage.md); cats that choose where to live (proposals/cats.md) | 37.2 (session "Thicker economy exploration") | waiting | 9 Nov | 9 Nov | main: docs/cybertron2/proposals/ | written and sent to 37.4; waiting on Zach's decision (Q-37 a and d) |
 | W-22 | Hunting against farming and gathering in generated worlds: food per unit of work by method, range, skill, familiarity and season (37.4's code on `ecology-raiders`), against the targets of 9 Nov; what needs calibrating | 37.2 (session "Thicker economy exploration") | waiting | 9 Nov | 10 Nov | docs/review/37_growth/02zzd_hunting_farming_ev.md | measured in four generated worlds (unarmed) and three (armed), with depletion runs; written up with seven calibration changes. Left: Zach's go on the changes (02zzd table), then 37.4's code and 37.2's ecology (pressure, game near people), then a rerun |
-| W-23 | A benchmark by living descendants, on a ladder of worlds (Zach, 10 Nov): the design, then the ladder's worlds from the generator and the capacity ladder | 37.2 (session "Thicker economy exploration") | waiting | 10 Nov | 10 Nov | docs/cybertron2/proposals/descendants_benchmark.md | proposal written (discussion) with the risks. Left: Zach on the open questions (cost, lifespan, framing, the competitive variant); then candidate worlds for each rung, checked with cybertron2/capacity/ |
+| W-24 | Build brief 4: the hunt over time (02zzd's calibration) and forays (C11, K3's first ranks) | 37.2 (session "Thicker economy exploration") | waiting | 10 Nov | 10 Nov | docs/cybertron2/proposals/hunt_and_forays.md; harness docs/review/37_growth/02zzd_ev/ | brief written (draft). Left: Zach's go and his answers to its open questions (Q-33 defaults, meat scale); then send to 37.4; 37.2 supplies features and forage by area (landgen/ecology.py) and the pressure fix |
 
 ## Paused
 
@@ -53,6 +53,7 @@ next number; 37.2 and 37.4 share the series (check before adding).
 
 | # | Work | Owner | Done |
 |---|---|---|---|
+| W-23 | A benchmark by living descendants on a ladder of worlds (proposals/descendants_benchmark.md) | 37.2 | 10 Nov: proposal written; deferred by Zach as a major item to come back to (OPEN L-104) |
 | W-20 | Paired probes, round 3: Fable 5.1 (docs/review/37_growth/02zzc_fable_versions.md) | 37.2 | 9 Nov: six runs ($24.71) and reported |
 | W-19 | Paired probes, round 2: a full LLM cast, Fable 5.2 (02zzc) | 37.2 | 9 Nov: six runs ($16.86) and reported |
 | W-18 | Small paired probes, Fable 5.2 against Opus 5.5, three situations (docs/review/37_growth/02zzb_fable_opus_pairs.md) | 37.2 | 9 Nov: six runs ($5.33) and reported |

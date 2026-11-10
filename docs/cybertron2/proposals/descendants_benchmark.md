@@ -1,6 +1,6 @@
 # A benchmark by living descendants, on a ladder of worlds
 
-**Status:** discussion (10 Nov). Nothing decided or built.
+**Status:** deferred (10 Nov): a major item to come back to (OPEN L-104). Nothing decided or built.
 **Owner:** 37.2 (the design and the worlds: the generator and the capacity check). The runs and the engine's parts are 37.4's.
 **Affects:** landgen (the worlds), cybertron2/capacity/ (the rungs' capacity), the life rules (D2-138 to D2-153, D2-162), the cast and
 `household_models` (generate.py, life.py), docs/scenario_design.md.
@@ -98,6 +98,7 @@ from one small village to a sprawling region, and each run is read as a graph of
 ## History
 
 - 10 Nov 2026: written by 37.2 from Zach's description, with 37.2's reading and risks.
+- 10 Nov 2026: Zach: people reproducing fast will hit the limits; "they can only reproduce as fast as their society can actually support, which becomes a challenge in managing resources, developing, expanding to new lands" (open question 2 answered: fast demography is intended). "Definite no" to a household head with the rest on orders, and "these runs will just have to be expensive" (open question 1 answered: every youth and adult is an agent). Not for now: deferred as a major thing to come back to (OPEN L-104).
 
 ## Sources
 
