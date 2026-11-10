@@ -67,6 +67,9 @@ SUMMARIES = {                                                         # one line
     "e2_labour": "Wenbridge, a year from summer, phase 2's labour rules on: 12 of 14 died; the world fed 2.7 of 12 as it stood, so it "
                  "cannot answer the labour question (38.64 §9)",
     "e2_nolabour": "the same, labour rules at zero: 9 of 14 died (38.64 §9)",
+    "live_spring_seed7": "run 6's wild-pack village (Meadcombe and Brookford) after wild briefs 1 and 2, spring, 8 days: 16 of 19 "
+                         "lived (3 elders of old age); snares, eel traps, shutting up against the fox, a deer drive, a snare-robbing "
+                         "apology, a public appeal over green-cut barley (02zx)",
     "p1_brookend": "a small village fed far above its 8 people: all lived; trade around grain, millstones and ox, a hand mill to get "
                    "round the ox; nobody sowed (the lore named spring only); 137 fencing acts on a season clock (D4-114)",
     "p2_brookend": "Brookend after D4-114 (ox, fences, lore, room to build), 48 days planned, stopped at day 14: all lived, a "
