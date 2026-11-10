@@ -235,6 +235,11 @@ class Here:
     def setting(self, key):
         return (self._w.spec or {}).get(key)
 
+    def levels_on(self) -> bool:
+        """Shelter in levels in this world (brief 4 §3)."""
+        from cybertron2.engine import buildings as BL
+        return BL.levels_on(self._w)
+
     def place_name(self, nid) -> str:
         return self._w.s["nodes"][nid]["name"] if nid in self._w.s["nodes"] else str(nid)
 

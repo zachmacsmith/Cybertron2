@@ -161,6 +161,10 @@ class World:
         for bid, b in (spec.get("buildings") or {}).items():
             self._new_building(bid, b)
         self._fit_seed_free(spec.get("buildings") or {})
+        from cybertron2.engine import buildings as BL
+        if BL.levels_on(self):                                                  # shelter in levels (brief 4 §3): from the coarse condition
+            for bid, b in s["buildings"].items():
+                b.setdefault("level", int((spec.get("buildings") or {}).get(bid, {}).get("level", BL.LEVEL_OF_COND.get(int(b["condition"]), 5))))
         for hid, h in (spec.get("herds") or {}).items():                       # cattle by role (D2-63); a bare count is cows
             roles = {r: int(h.get(r, 0)) for r in ("cows", "oxen", "bulls", "young")}
             if not any(roles.values()):

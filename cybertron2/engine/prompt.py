@@ -577,7 +577,8 @@ def _house_lines(here, mind) -> list:
         food = sum(st.get(i, 0) * ITEMS[i]["food"] for i in ITEMS if ITEMS[i]["food"])
         beds = int(b['fittings'].get('beds', 0))
         need = sum(float(here.p["beds"].get(here.person_stage(x), 1.0)) for x in [here.name] + who)
-        out.append(f"{b['name']} is {CONDITION[b['condition']]}; door {b['door']}" + ((f"; fire {'lit' if b['fire'] else 'out'} last night" if here.day else "")
+        from cybertron2.engine import buildings as BL
+        out.append(f"{b['name']} is {BL.level_word(b) if b.get('level') is not None else CONDITION[b['condition']]}; door {b['door']}" + ((f"; fire {'lit' if b['fire'] else 'out'} last night" if here.day else "")
                    if b['fittings'].get('hearth') else "; no hearth")
                    + f". Sleeping there: you{', ' + ', '.join(who) if who else ''} ({beds} beds"
                    + (f": too few, so {math.ceil(need - beds - 1e-9)} must sleep on the floor, as in a damaged house" if need > beds + 1e-9 else "")

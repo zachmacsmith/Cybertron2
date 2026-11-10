@@ -35,6 +35,7 @@ def night(w) -> dict:
     if floor_:
         rec["floor"] = sorted(floor_)
     from cybertron2.engine import buildings as BL
+    levelled = BL.levels_on(w)                                                 # shelter in levels (brief 4 §3)
     for n, b in sorted(where.items()):                                          # those inside read what is written there (D2-169)
         if b:
             BL.read(w, n, b, "slept")
@@ -49,7 +50,7 @@ def night(w) -> dict:
         if sleepers and any(b["fittings"].get(f_) for f_ in FIRE):
             hearths, rings = int(b["fittings"].get("hearth") or 0), int(b["fittings"].get("fire ring") or 0)
             if b["structure"] == "camp":                                      # a camp's fire (D4-49), in the weather (D4-83)
-                heat = float(hp["camp"]) * weather_fuel(w, b["node"])
+                heat = float(hp["camp"]) * weather_fuel(w, b["node"]) * (float(p["wear"]["camp_fire"]) if levelled else 1.0)
             else:
                 heat = house_heat(p, b, w.cold(b["node"]))               # one room, one fire (D4-93); the node's night (D4-109)
             piles = [cid for cid, c in s["containers"].items() if c.get("kind") == "pile" and c.get("door") == bid and not c.get("hidden")]
@@ -79,6 +80,8 @@ def night(w) -> dict:
         b = s["buildings"][bid] if bid else None
         cold = w.cold(b["node"] if b is not None else w.place_of(("person", name)))         # the night where one sleeps (D4-109)
         state = "unsheltered" if b is None or b["condition"] == 0 else ("damaged" if b["condition"] == 1 else "housed")
+        if b is not None and levelled and b.get("structure") != "camp":       # in levels: worn and gappy cost warmth too (brief 4 §3)
+            state = {5: "housed", 4: "worn", 3: "gappy", 2: "damaged", 1: "unsheltered", 0: "unsheltered"}[BL.level(b)]
         if state == "housed" and (name in floor_ or (b.get("works") or {}).get("kind") == "upgrade"):
             state = p["beds"]["floor"]                                          # no bed, or the structure being rebuilt (02zh §2, §5)
         if cold and state == "housed" and not b["fire"]:
@@ -86,6 +89,8 @@ def night(w) -> dict:
         gear = None
         if state == "housed" and b["structure"] == "camp":                     # a camp (D2-68)
             gear = "camp"
+        elif levelled and b is not None and b["structure"] == "camp" and BL.level(b) == 2:   # a damaged camp: a bedroll's shelter
+            state, gear = "unsheltered", "bedroll"                              # (brief 4 §3)
         elif state == "unsheltered":                                            # out, with what one carries (D2-68)
             gear = _gear(w, name, where, tents)
         road = today.get("road") or {}
@@ -183,11 +188,17 @@ def night(w) -> dict:
                 if becomes and lost > 1e-9:
                     w.apply("create", place, dst=cid, item=becomes, qty=lost, why="rot")
     for bid, b in s["buildings"].items():                                       # a camp falls in after its nights (D2-68)
+        if levelled:                                                            # shelter in levels: no fixed life (brief 4 §3)
+            break
         if b.get("lasts_until") is not None and w.d >= b["lasts_until"] and b["condition"] > 0:
             w.apply("set", b["node"], ref=("building", bid), field="condition", value=0)
             w.apply("set", b["node"], ref=("building", bid), field="broke", value={"day": w.d, "to": 0})
             w.event(b["node"], "build", f"{b['name']} has fallen in", about=[f"building:{bid}"], salience=0.3, tags=["shelter"])
     for bid, b in s["buildings"].items():                                       # breaks (H-5), by structure (D2-168)
+        if levelled:                                                            # in levels: wear and damage by the weather (brief 4 §3)
+            if not b.get("unfinished") and BL.level(b) > 0 and _wear_night(w, bid, b, p):
+                rec["breaks"].append(bid)
+            continue
         q = float(p["breaks"]["cold" if w.cold(b["node"]) else "p"]) * float(p["breaks"]["structure"].get(b["structure"], 1.0))
         if not b.get("unfinished") and b["condition"] > 0 and w.rng("break", w.d, bid).random() < q:
             w.apply("set", b["node"], ref=("building", bid), field="condition", value=b["condition"] - 1)
@@ -261,7 +272,14 @@ def decay_rate(w, c, item) -> tuple:
     season, cold = w.calendar()["season"], w.cold(node)
     if c["kind"] == "stock":
         bb = w.s["buildings"][c["of"]]
-        return spoil_rate(w.p, item, "store", season, cold, fittings=[f_ for f_, n in bb["fittings"].items() if n]), None
+        r = spoil_rate(w.p, item, "store", season, cold, fittings=[f_ for f_, n in bb["fittings"].items() if n])
+        if bb.get("level") is not None:                                         # damp in a gappy or holed store, the open in a
+            lv = int(bb["level"])                                               # failing one (brief 4 §3)
+            if lv <= 1:
+                r = spoil_rate(w.p, item, "open_wet" if EV.wet(w, node) else "open_dry", season, cold)
+            else:
+                r *= float(w.p["wear"]["damp"].get(str(lv), 1.0))
+        return r, None
     if c["kind"] in TH.KINDS:
         cond = "buried" if c.get("hidden") == "buried" or c.get("buried") is not None else ("open_wet" if EV.wet(w, node) else "open_dry")
         return spoil_rate(w.p, item, cond, season, cold), DECAY.get(ITEMS.get(item, {}).get("decay") or "default", DECAY["default"]).get("becomes")
@@ -518,3 +536,70 @@ def _carcass_night(w, cid, c) -> None:
             x = float(w.s["containers"][cid]["goods"].get(item, 0.0))
             if x > 1e-9:
                 w.apply("destroy", place, src=cid, item=item, qty=x, why="rotted to the bones")
+
+
+def _wear_night(w, bid, b, p) -> bool:
+    """A building's night in levels (brief 4 §3, shelter_damage.md §2): minor wear (a level) and serious damage (as many levels as
+    its cause is severe), both by structure, times the night's weather where it stands and the root of its floor; a camp's three
+    states wear faster and a gale flattens one. Returns whether it lost a level."""
+    import math
+    from cybertron2.engine import buildings as BL, environment as EV
+    W = p["wear"]
+    node, st_ = b["node"], b.get("structure", "wattle")
+    rng = w.rng("wear", w.d, bid)
+    lab = EV.weather(w, node)
+    v = EV.values(w, node) or {}
+    causes = []
+    if w.cold(node):
+        causes.append("frost")
+    if lab == "heavy rain":
+        causes.append("heavy rain")
+    if lab == "gale" or float(v.get("storm", 0.0) or 0.0) >= float(W["storm"]):
+        causes.append("gale")
+    elif float(v.get("wind", 0.0) or 0.0) >= float(W["strong_wind"]):
+        causes.append("strong wind")
+    if EV.snow_lying(w, node) and st_ != "stone":
+        causes.append("snow")
+    if lab == "heavy rain" and int((w.s["parcels"].get(b.get("parcel")) or {}).get("height", 1)) == 0 and st_ != "stone":
+        causes.append("flood")
+    lv = BL.level(b)
+    if lv in (3, 4) and w.d - int(b.get("level_since", -999) if b.get("level_since") is not None else -999) >= int(W["unmended_days"]) \
+            and b.get("level_since") is not None:
+        causes.append("unmended")
+    minor_x = serious_x = 1.0
+    for c in causes:
+        mx, sx = W["weather"][c]
+        minor_x *= float(mx)
+        serious_x *= float(sx)
+    size = math.sqrt(max(1.0, float(b.get("size") or 4)) / float(W["size_ref"]))
+    if st_ == "camp":
+        if "gale" in causes and lv >= 5 and rng.random() < float(W["camp_flatten"]):
+            to = 0
+        else:
+            q = (float(W["minor"]["camp"]) if lv >= 5 else float(W["camp_down"])) * minor_x
+            to = (2 if lv >= 5 else 0) if rng.random() < min(1.0, q) else lv
+    else:
+        to = lv
+        if rng.random() < min(1.0, float(W["serious"].get(st_, 0.001)) * serious_x * size):
+            sev = "gale" if "gale" in causes else ("heavy" if ("snow" in causes or "flood" in causes) else "mild")
+            odds = W["take"][sev]
+            u, acc, n = rng.random(), 0.0, 1
+            for i_, o in enumerate(odds):
+                acc += float(o)
+                if u < acc:
+                    n = i_ + 1
+                    break
+            n = max(1, n - 1) if st_ == "timber" else (min(2, 1 if n < 3 else 2) if st_ == "stone" else n)
+            to = lv - n
+        elif rng.random() < min(1.0, float(W["minor"].get(st_, 0.01)) * minor_x * size):
+            to = lv - 1
+    to = max(0, to)
+    if to >= lv:
+        return False
+    BL.set_level(w, node, bid, to)
+    w.apply("set", node, ref=("building", bid), field="broke", value={"day": w.d, "to": BL.COND_OF_LEVEL[to], "level": to,
+                                                                      "by": causes[:2]})
+    if to <= 0:
+        w.event(node, "build", f"{b['name']} has fallen in" if st_ != "camp" else f"{b['name']} was blown flat in the night",
+                about=[f"building:{bid}"], salience=0.4, tags=["shelter"])
+    return True

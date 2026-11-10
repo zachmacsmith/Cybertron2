@@ -716,10 +716,26 @@ def _amt(q) -> str:
     return "none" if q < 0.05 else ("a little" if q < 1.5 else ("some" if q < 4 else ("plenty" if q < 10 else "a great deal")))
 
 
+def _lv(x):
+    """A building's level in worlds with shelter in levels (brief 4 §3), else None."""
+    return x.b.get("level")
+
+
 BUILDING = [
-    dict(when=lambda x: x.b["condition"] == 2 and not x.camp, sense="sight", p=0.06, tags=["building"],
+    dict(when=lambda x: x.b["condition"] == 2 and not x.camp and _lv(x) in (None, 5), sense="sight", p=0.06, tags=["building"],
          text=lambda x: f"{x.nm} is sound"),
-    dict(when=lambda x: x.b["condition"] == 1, sense="sight", p=0.35, tags=["building", "shelter"],
+    # the levels' own signs (brief 4 §3, shelter_damage.md §1): each a state one can see, and mend
+    dict(when=lambda x: _lv(x) == 4 and not x.camp, sense="touch", p=0.35, tags=["building", "shelter"],
+         text=lambda x: f"a draught at {x.nm}'s hearth; the daub cracked by the door"),
+    dict(when=lambda x: _lv(x) == 3 and not x.camp, sense="sight", p=0.4, tags=["building", "shelter"],
+         text=lambda x: f"light through {x.nm}'s wall by the bins: the daub has holes in it, and the thatch is thin"),
+    dict(when=lambda x: _lv(x) == 2 and not x.camp, sense="sight", p=0.5, tags=["building", "shelter", "animals"],
+         text=lambda x: f"a wall of {x.nm} is breached and the door broken: a hole a fox could use"),
+    dict(when=lambda x: _lv(x) == 1 and not x.camp, sense="sight", p=0.6, tags=["building", "shelter"],
+         text=lambda x: f"{x.nm}'s roof is half fallen in"),
+    dict(when=lambda x: _lv(x) == 2 and x.camp, sense="sight", p=0.5, tags=["shelter"],
+         text=lambda x: f"{x.nm} is sagging: rain through the brush"),
+    dict(when=lambda x: x.b["condition"] == 1 and _lv(x) is None, sense="sight", p=0.35, tags=["building", "shelter"],
          text=lambda x: f"{x.nm} is in poor repair: the thatch slipping, a wall cracked"),
     dict(when=lambda x: x.b["condition"] == 1 and x.cold, sense="touch", p=0.3, tags=["shelter"],
          text=lambda x: f"a cold draught cuts through {x.nm}"),
@@ -734,7 +750,7 @@ BUILDING = [
          text=lambda x: f"fresh timber in {x.nm}'s walls: someone has been mending it"),
     dict(when=lambda x: x.camp, sense="sight", p=0.2, tags=["shelter", "travel"],
          text=lambda x: f"{x.nm}: a lean-to of branches round a fire ring"),
-    dict(when=lambda x: x.camp and x.b.get("lasts_until") is not None and x.b["lasts_until"] - x.day <= 2, sense="sight", p=0.3,
+    dict(when=lambda x: x.camp and _lv(x) is None and x.b.get("lasts_until") is not None and x.b["lasts_until"] - x.day <= 2, sense="sight", p=0.3,
          tags=["shelter"], text=lambda x: f"{x.nm} is sagging: it will not stand many more nights"),
     dict(when=lambda x: x.fire_place and x.b["fire"], sense="sight", p=0.06, tags=["shelter"],
          text=lambda x: f"smoke from {x.nm}'s roof at dawn"),

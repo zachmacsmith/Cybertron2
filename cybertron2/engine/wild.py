@@ -1256,7 +1256,15 @@ def gaps_pass(b, kind) -> bool:
     if kg not in SIZE_ORDER:
         return False
     bg = GAPS["structure"].get(b.get("structure"), "small")
-    if int(b.get("condition", 2)) < 2:
+    if b.get("level") is not None:                                         # in levels (brief 4 §3): as built through worn; a size
+        lv = int(b["level"])                                               # larger gappy; large (the fox, a dog) holed; anything
+        if lv <= 1:                                                        # failing
+            return True
+        if lv == 2:
+            bg = "large"
+        elif lv == 3:
+            bg = SIZE_ORDER[min(len(SIZE_ORDER) - 1, SIZE_ORDER.index(bg) + 1)]
+    elif int(b.get("condition", 2)) < 2:
         bg = SIZE_ORDER[min(len(SIZE_ORDER) - 1, SIZE_ORDER.index(bg) + int(GAPS["damaged"]))]
     return SIZE_ORDER.index(kg) <= SIZE_ORDER.index(bg)
 

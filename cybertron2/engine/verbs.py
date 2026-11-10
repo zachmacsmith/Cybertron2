@@ -853,7 +853,9 @@ def _new_building(here, mind, a, party, pid, what, owner):
             raise Refused("you cannot camp on water")
         if BL.ground_total(par) > 0 and BL.ground_free(pid, par, here.buildings()) < int(SPACE["camp_floor"]):
             raise Refused(f"there is no room left to camp on {par['name']}")
-        _consume(here, bp["materials"], TRY[lvl]["inputs"], here.party_container(party) if party else None)
+        from cybertron2.engine.data import PHYSICS
+        mats = dict(PHYSICS["wear"]["camp_build"]) if here.levels_on() else bp["materials"]   # cheap in levels (brief 4 §3)
+        _consume(here, mats, TRY[lvl]["inputs"], here.party_container(party) if party else None)
         name = str(a.get("name") or "").strip()[:40] or f"{who}'s camp on {par['name']}"
         bid = here.apply("raise", node=here.node, parcel=pid, rec={"name": name, "structure": "camp", "fittings": {},
                                                                      "unfinished": {"blueprint": what, "units_left": bp["units"]}})
@@ -1848,9 +1850,18 @@ def _withdraw(here, mind, a, party):
 
 def _repair(here, bid, m) -> str:
     """A break mended (D2-168): its materials when the mending starts (1 timber, stone for stone, for every 4 spaces of floor, at
-    least 2), then its work, two units an action, until it is mended a step."""
+    least 2), then its work, two units an action, until it is mended a step. In levels (brief 4 §3) a step is a level, and cheap:
+    wattle earth and work, timber or stone one of its stuff, for every `mend_per` spaces of floor."""
     b = here.buildings()[bid]
     md = dict(b.get("mending") or {})
+    if not md and b.get("level") is not None:
+        from cybertron2.engine.data import PHYSICS
+        W = PHYSICS["wear"]
+        n = max(1, int((BL.floor(b) or 4) // int(W["mend_per"])))
+        need = {"materials": {k: v * n for k, v in (W["mend"].get(b.get("structure", "wattle")) or {}).items()}, "units": n}
+        if need["materials"]:
+            _consume(here, need["materials"], extra=b["stock"] if here.may_take(b["stock"]) else None)
+        md = {"units_left": float(need["units"]), "day": here.day}
     if not md:
         need = BL.repair_need(b)
         _consume(here, need["materials"], extra=b["stock"] if here.may_take(b["stock"]) else None)
@@ -1860,6 +1871,13 @@ def _repair(here, bid, m) -> str:
         here.apply("set", ref=("building", bid), field="mending", value=md)
         return f"You worked on mending {b['name']}: about {show(md['units_left'])} units of work left."
     here.apply("set", ref=("building", bid), field="mending", value=None)
+    if b.get("level") is not None:
+        lv = min(5, BL.level(b) + (3 if b.get("structure") == "camp" and BL.level(b) == 2 else 1))
+        here.apply("set", ref=("building", bid), field="level", value=lv)
+        here.apply("set", ref=("building", bid), field="level_since", value=here.day)
+        if BL.COND_OF_LEVEL[lv] != int(b["condition"]):
+            here.apply("set", ref=("building", bid), field="condition", value=BL.COND_OF_LEVEL[lv])
+        return f"You mended {b['name']}: it is now {BL.level_word(here.buildings()[bid])}."
     here.apply("set", ref=("building", bid), field="condition", value=b["condition"] + 1)
     return f"You repaired {b['name']}: it is now {('ruined', 'damaged', 'sound')[b['condition']]}."
 

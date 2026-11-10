@@ -401,7 +401,10 @@ def dawn(w) -> None:
             for item, q in list(w.goods(b["stock"]).items()):
                 share = float(inc.get("food", 0.85)) if item in EDIBLE else float(inc.get("other", 0.5))
                 w.apply("destroy", node, src=b["stock"], item=item, qty=max(0.0, q - safe.get(item, 0.0)) * share, why="fire")
-            w.apply("set", node, ref=("building", bid), field="condition", value=max(0, b["condition"] - int(inc.get("damage", 1))))
+            if b.get("level") is not None:                                     # in levels: a fire takes it to holed or worse (brief 4 §3)
+                BL.set_level(w, node, bid, min(BL.level(b), 2) - (int(inc.get("damage", 1)) - 1))
+            else:
+                w.apply("set", node, ref=("building", bid), field="condition", value=max(0, b["condition"] - int(inc.get("damage", 1))))
             w.apply("set", node, ref=("building", bid), field="fire_hit", value={"day": w.d})   # for its signs (D4-74)
             live = [m for m in w.living() if bid in w.homes(m)]
             w.event(node, "fire", f"fire broke out in {b['name']} in the night: the store is burnt, most of its food is gone and the roof "

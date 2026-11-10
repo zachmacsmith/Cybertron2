@@ -608,8 +608,8 @@ PHYSICS = {
                "step": 0.1,                # a unit's walk for each leg of the day's route past the free ones (carried until whole)
                "free_steps": 2,            # legs free: to the next parcel and back (D4-105)
                "wear": True},              # fittings wear with use and time (FITTINGS wear)
-    "shelter": {"housed": 1.0, "damaged": 1.2, "unsheltered": 1.5},     # D4-12, H-5
-    "shelter_cold": {"housed": 1.0, "no_fuel": 1.3, "damaged": 1.5, "unsheltered": 2.0},
+    "shelter": {"housed": 1.0, "worn": 1.05, "gappy": 1.1, "damaged": 1.2, "unsheltered": 1.5},     # D4-12, H-5; worn, gappy: brief 4 §3
+    "shelter_cold": {"housed": 1.0, "worn": 1.1, "gappy": 1.2, "no_fuel": 1.3, "damaged": 1.5, "unsheltered": 2.0},
     "cold_starving": 0.3,                                                # H-5
     "fuel": {"normal": 0.5, "cold": 2.0, "camp": 1.0, "open": 2.0},     # in timber; in heat (D2-157): below
     "camping_fire": {"out": 1.6, "bedroll": 1.5, "tent": 1.25},            # in the cold by a fire in the open (D2-159)
@@ -624,6 +624,20 @@ PHYSICS = {
     "house_spoil": 0.3,
     "cellar_spoil": 0.25,                                                # D2-45: a quarter of the house rate
     "breaks": {"p": 0.02, "cold": 0.08, "structure": {"wattle": 1.5, "timber": 1.0, "stone": 0.4, "camp": 1.0}},   # D2-168 (proposed)
+    # shelter in levels (brief 4 §3; shelter_damage.md §1 to §4; calibrate), in worlds with the wild pack or `shelter_levels`:
+    # 5 sound, 4 worn, 3 gappy, 2 holed, 1 failing, 0 ruined (a camp: 5 standing, 2 damaged, 0 down). Two chances a night by
+    # structure, times the night's weather and the root of the floor over `size_ref`: minor wear takes a level; serious damage
+    # as many as its cause is severe (`take`: the odds of 1, 2, 3 levels for wattle; timber one fewer, stone one, at most two)
+    "wear": {"minor": {"wattle": 0.03, "timber": 0.015, "stone": 0.003, "camp": 0.08},
+             "serious": {"wattle": 0.002, "timber": 0.001, "stone": 0.0002, "camp": 0.0},
+             "camp_down": 0.05, "camp_flatten": 0.5,                    # a damaged camp falls; a gale flattens a standing one
+             "weather": {"frost": [2.0, 1.0], "heavy rain": [1.5, 1.5], "strong wind": [3.0, 5.0], "gale": [6.0, 20.0],
+                         "snow": [2.0, 8.0], "flood": [1.0, 20.0], "unmended": [1.0, 3.0]},
+             "take": {"mild": [0.8, 0.2, 0.0], "gale": [0.4, 0.4, 0.2], "heavy": [0.2, 0.5, 0.3]},
+             "strong_wind": 11.0, "storm": 0.5, "size_ref": 6, "unmended_days": 8,
+             "mend": {"wattle": {}, "timber": {"timber": 1}, "stone": {"stone": 1}, "camp": {}}, "mend_per": 8,
+             "damp": {"3": 1.5, "2": 3.0},                               # a store's spoiling, gappy and holed
+             "camp_build": {"timber": 1}, "camp_fire": 1.5},             # a camp: poles and brush, cheap; its open fire wasteful
     # D2-165 (defaults for Zach to confirm): the beds each sleeper takes; without one, the floor, as in a damaged house
     "beds": {"infant": 0.0, "child": 0.5, "youth": 1.0, "adult": 1.0, "elder": 1.0, "floor": "damaged"},
     "hunger_yield": {"0": 1.0, "-1": 0.75, "-2": 0.5},

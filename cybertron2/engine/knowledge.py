@@ -233,7 +233,8 @@ def ready(here, tech, kind, key, a=None) -> str:
             return f"{c['of']} is already buried" + ("" if c.get("cairn") else "; a cairn of stones can still be raised over the grave "
                                                       "(method cairn, 3 stone)")
         return ""
-    if kind == "building" and y == "repair" and here.buildings()[key]["condition"] >= 2:
+    if kind == "building" and y == "repair" and (here.buildings()[key]["level"] >= 5 if here.buildings()[key].get("level") is not None
+                                                  else here.buildings()[key]["condition"] >= 2):
         return f"{here.buildings()[key]['name']} is sound"
     from cybertron2.engine import farm as FM
     if kind == "parcel" and y == "clear_built" and any(c.get("left", 0) > 1e-9 for _, _, c in FM.standing(here.parcels()[key])):

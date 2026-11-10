@@ -318,6 +318,39 @@ def tier_up(a, b) -> bool:
     return TIER_ORDER.index(a) > TIER_ORDER.index(b)
 
 
+LEVELS = {5: "sound", 4: "worn", 3: "gappy", 2: "holed", 1: "failing", 0: "ruined"}
+CAMP_LEVELS = {5: "standing", 2: "damaged", 0: "down"}
+COND_OF_LEVEL = {5: 2, 4: 2, 3: 2, 2: 1, 1: 1, 0: 0}
+LEVEL_OF_COND = {2: 5, 1: 2, 0: 0}
+
+
+def levels_on(w) -> bool:
+    """Shelter in levels (brief 4 §3): worlds with the wild pack, or a world's `shelter_levels`; older worlds as before."""
+    sp = getattr(w, "spec", None) or {}
+    return bool(sp.get("shelter_levels", "wild" in (sp.get("packs") or [])))
+
+
+def level(b) -> int:
+    """A building's level of condition: its own, else read from its coarse condition (2 sound, 1 holed, 0 ruined)."""
+    return int(b["level"]) if b.get("level") is not None else LEVEL_OF_COND.get(int(b.get("condition", 2)), 5)
+
+
+def level_word(b) -> str:
+    return (CAMP_LEVELS if b.get("structure") == "camp" else LEVELS).get(level(b), "damaged")
+
+
+def set_level(w, node, bid, lv, why=None) -> None:
+    """Set a building's level, and its coarse condition with it (2 sound to gappy, 1 holed and failing, 0 ruined)."""
+    lv = max(0, min(5, int(lv)))
+    b = w.s["buildings"][bid]
+    if b.get("structure") == "camp":
+        lv = 5 if lv >= 5 else (2 if lv >= 1 else 0)
+    w.apply("set", node, ref=("building", bid), field="level", value=lv)
+    w.apply("set", node, ref=("building", bid), field="level_since", value=w.d)
+    if COND_OF_LEVEL[lv] != int(b["condition"]):
+        w.apply("set", node, ref=("building", bid), field="condition", value=COND_OF_LEVEL[lv])
+
+
 def repair_need(b) -> dict:
     """D2-168: 1 timber (stone for a stone building) and 1 unit for every 4 spaces of floor, at least 2 and 2."""
     from cybertron2.engine.data import PHYSICS
