@@ -1,6 +1,6 @@
 # The hunt over time, and what briefs 1 to 3 left: build brief 4
 
-**Status:** being built (10 Nov) by 37.4 on `ecology-calibrate` (WORK W-27), on Zach's go ("Build the new brief", relayed by 37.4); its open questions take the brief's defaults until Zach says otherwise. No DECISIONS row yet: for Zach to confirm. **Build brief 4** for the wild layer. It covers:
+**Status:** built and gated (10 Nov) by 37.4 on `ecology-calibrate` (`58bb2d3`, 521 tests; older worlds replay exactly; W-27; 02zx, brief 4). Not merged: waits on Zach. Its open questions took the brief's defaults (OPEN Q-39). No DECISIONS row yet: for Zach to confirm.
 - the hunt's calibration measured in 02zzd;
 - the fixes the gates of briefs 2 and 3 found (OPEN Q-37, Q-38);
 - preservation at the new scale of meat.
@@ -294,6 +294,8 @@ Also, for stage A:
   briefs proposed (§8). Renamed hunt_and_fixes.md.
 
 - 10 Nov 2026: Zach's go relayed by 37.4 ("Build the new brief"); 37.4 building it on `ecology-calibrate` (W-27). The four open questions take the brief's defaults: the meat scale as §2.5, the far novice about 0.5, shelter_damage.md and cats.md accepted as far as stages B and C use them, the rack as §5.1.
+
+- 10 Nov 2026: built and gated by 37.4 (`58bb2d3`; 02zx). Stage A on 02zzd's harness: the wood around, master 1.03 a unit at 43%, novice 0.08 at 4%; far, novice 0.39, master 1.93, capped by the carry of 10 on foot (the 4 to 5 target assumed more than a lone hunter can carry: it needs a pack or a party); autumn against summer x1.36. Deviations: game near people applied where the hunt reads the home area's density, not in the ecology's state; a factor `wild_tame` x8 (game in the wild land easier to come on); gappy wattle capped at small gaps (§3.1 would have made it fox-sized); a cow left by the herd ties with one burned (19 kills against 19 a week), so §7's carcass test is not met. 37.2 checked the pressure on the branch (`ev_depletion.py`, seed 7, autumn): one daily stalker moved about 1% of the ring's roe a night beyond the control, and took 1.09 food a unit over 16 days.
 
 ## Sources
 
