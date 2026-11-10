@@ -64,6 +64,9 @@ their intentions.
 """
 
 SUMMARIES = {                                                         # one line per known run (the write-ups: review 38.01, 38.03)
+    "wild_region_s7": "the wild region (seed 7): four villages on three frontiers after wild briefs 1 to 4b, autumn, 30 days, 37 people "
+                      "(Fable 5.2 carrier, an Opus-only and a Haiku-only household): 29 alive of 38; Holtham starved (blight, murrain, wolves, "
+                      "a bear); trade by pack ox between Corneby and Weirford, copper tools as currency; Stanmoor cut off (02zze)",
     "e2_labour": "Wenbridge, a year from summer, phase 2's labour rules on: 12 of 14 died; the world fed 2.7 of 12 as it stood, so it "
                  "cannot answer the labour question (38.64 §9)",
     "e2_nolabour": "the same, labour rules at zero: 9 of 14 died (38.64 §9)",
