@@ -42,7 +42,7 @@ PLACES = {                                  # food_share is the generator's meas
 def spec(seed: int) -> dict:
     return {
         "name": "wild_region", "seed": seed, "days": DAYS,
-        "calendar": {"season": "winter", "day": 1, "season_days": 8},
+        "calendar": {"season": "autumn", "day": 1, "season_days": 8},
         "children": {"on": True, "dial": "low"},
         "packs": ["wild"],
         "bot_travel": False, "bot_reap": "ripe",    # dry runs only: scripted bots stay at home and reap only ripe corn (OPEN Q-35)
@@ -282,6 +282,22 @@ def cast_and_memories(world: dict) -> dict:
     return out
 
 
+FUEL = {"firewood": 30, "timber": 20}        # about 55 heat: a house's autumn and winter nights (1 heat, 4 when cold; firewood 0.5, timber 2)
+
+
+def stock_fuel(world: dict) -> dict:
+    """An edit after generation, said here (Zach, 10 Nov: "Stock the firewood for the houses"): each house with a hearth starts
+    with fuel for the autumn and winter, so that gathering fuel does not take the season (it took half of all acts in the first
+    run, starting in winter)."""
+    n = 0
+    for b in world["buildings"].values():
+        if (b.get("fittings") or {}).get("hearth") and (b.get("fittings") or {}).get("beds") and b.get("stock") is not None:
+            for g_, q in FUEL.items():
+                b["stock"][g_] = b["stock"].get(g_, 0) + q
+            n += 1
+    return {"houses": n, **FUEL}
+
+
 def make(seed: int):
     s = spec(seed)
     with contextlib.redirect_stdout(io.StringIO()):
@@ -289,6 +305,7 @@ def make(seed: int):
     if world.get("agents") and not report.get("refused"):
         report["traders_and_mill"] = seed_traders_and_mill(world)
         report["cast"] = cast_and_memories(world)
+        report["fuel"] = stock_fuel(world)
         report["stores_by_land"] = stores_by_land(world)
     return s, world, cells, report
 
