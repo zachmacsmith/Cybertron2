@@ -297,6 +297,8 @@ Also, for stage A:
 
 - 10 Nov 2026: built and gated by 37.4 (`58bb2d3`; 02zx). Stage A on 02zzd's harness: the wood around, master 1.03 a unit at 43%, novice 0.08 at 4%; far, novice 0.39, master 1.93, capped by the carry of 10 on foot (the 4 to 5 target assumed more than a lone hunter can carry: it needs a pack or a party); autumn against summer x1.36. Deviations: game near people applied where the hunt reads the home area's density, not in the ecology's state; a factor `wild_tame` x8 (game in the wild land easier to come on); gappy wattle capped at small gaps (§3.1 would have made it fox-sized); a cow left by the herd ties with one burned (19 kills against 19 a week), so §7's carcass test is not met. 37.2 checked the pressure on the branch (`ev_depletion.py`, seed 7, autumn): one daily stalker moved about 1% of the ring's roe a night beyond the control, and took 1.09 food a unit over 16 days.
 
+- 10 Nov 2026: Zach agreed with the gate's reading of the carry (a lone hunter cannot bring a red deer home), and with removing `wild_tame` for a natural history of hunting; both go to build brief 4b (hunt_followups.md).
+
 ## Sources
 
 docs/review/37_growth/02zzd_hunting_farming_ev.md and 02zzd_ev/; 02zx_wild_build_log.md; OPEN Q-37, Q-38; shelter_damage.md;
