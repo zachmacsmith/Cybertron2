@@ -207,6 +207,16 @@ def _hunters(generated, n=30, knows=("hunt the wild", "drive", "stalk")):
     return w, WL, wood
 
 
+def _party_hunt(w, names, act):
+    """A hunting party (brief 4b §3.1): the first leads, the rest hunt with them; settled after the acts. Returns the lines."""
+    from cybertron2.engine import parties as HP, verbs as V
+    from cybertron2.engine.here import Here, Mind
+    plans = {names[0]: [dict(act)], **{n: [dict(act, **{"with": names[0]})] for n in names[1:]}}
+    HP.resolve(w, plans)
+    out = [V.do(Here(w, n), Mind(w, n), plans[n][0]) for n in names]
+    return out + [x for lines in HP.settle(w).values() for x in lines]
+
+
 def _do(w, who, a):
     from cybertron2.engine import verbs as V
     from cybertron2.engine.here import Here, Mind
@@ -219,6 +229,9 @@ def _do(w, who, a):
 
 def test_a_kill_comes_off_the_population_and_gives_its_goods(generated):
     w, WL, wood = _hunters(generated)
+    for i in range(30):                                                          # armed: hunters alone now (brief 4b: no crew by events)
+        w.s["containers"][w.s["people"][f"H{i}"]["hands"]]["goods"]["crude weapon"] = 1
+        w.s["know"][f"H{i}"]["stalk"]["skill"] = 3.0
     before = sum(np.asarray(w.s["wild"]["state"]["pop"]["roe deer"]) * WL.model(w).km2)
     took = [r for i in range(30) for r in [_do(w, f"H{i}", {"do": "gather", "what": "stalk", "at": wood, "range": "the wood around",
                                                               "looking for": "roe deer"})] if "took it" in r]
@@ -763,8 +776,7 @@ def test_a_hunted_wood_empties_of_deer_and_keeps_their_group_off_the_fields(gene
     from cybertron2.engine import night as N
     w, WL, wood = _hunters(generated, n=12)
     m, ri = _ring(w, WL)
-    for i in range(12):
-        _do(w, f"H{i}", {"do": "gather", "what": "stalk", "at": wood, "range": "the wood around"})
+    _party_hunt(w, [f"H{i}" for i in range(12)], {"do": "gather", "what": "stalk", "at": wood, "range": "the wood around"})   # a big party
     p = w.s["wild"]["state"]["pressure"]["red deer"][ri]
     assert p > 1.0
     before = float(w.s["wild"]["state"]["pop"]["red deer"][ri])
@@ -1081,9 +1093,13 @@ def test_killing_the_old_sow_scatters_the_sounder(generated):
     gid = "wild boar@s1"
     g = w.s["wild"]["groups"][gid]
     w.s["wild"]["groups"][gid] = dict(g, n=1, leader={"name": "the old sow", "alive": True})      # one beast: the kill is she
+    for i in range(60):                                                          # armed and practised: no crew counted by events now
+        w.s["containers"][w.s["people"][f"H{i}"]["hands"]]["goods"]["crude weapon"] = 1
+        w.s["know"][f"H{i}"]["drive"]["skill"] = 3.0
     rs = []
-    for i in range(60):
-        rs.append(_do(w, f"H{i}", {"do": "gather", "what": "drive", "at": wood, "range": "the wood around", "looking for": "boar"}))
+    for i in range(30):                                                          # a drive is a party's (brief 4b)
+        rs += _party_hunt(w, [f"H{2 * i}", f"H{2 * i + 1}"], {"do": "gather", "what": "drive", "at": wood, "range": "the wood around",
+                                                              "looking for": "boar"})
         if (w.s["wild"]["groups"][gid].get("leader") or {}).get("died") is not None:
             break
     assert any("the old sow that led them" in r for r in rs)

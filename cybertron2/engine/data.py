@@ -424,6 +424,12 @@ TECHNIQUES = {
                      "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:snare", "gather:net", "gather:den work", "gather:trap in water"],
                      "key": "range", "value": "far", "untaught": "tryable", "changes": {"range": "far", "units": 3}, "units": 3,
                      "gives": "", "tags": ["hunting"]},
+    "hunt with": {"verb": "modifier", "label": "hunting in another's party: name who leads; you go their way, to their place and range, after what they are after", "aliases": [], "basic": True, "pack": "wild",
+                  "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:net"], "key": "with", "value": "*", "changes": {}, "units": 0, "gives": "", "tags": ["hunting"]},   # brief 4b §3.1
+    "hunt alone": {"verb": "modifier", "label": "hunting alone: no one joins your hunt (others may join it unless you say so)", "aliases": [], "basic": True, "pack": "wild",
+                   "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:net"], "key": "alone", "value": "*", "changes": {}, "units": 0, "gives": "", "tags": ["hunting"]},
+    "hunt only with": {"verb": "modifier", "label": "taking into your hunting party only those you name", "aliases": [], "basic": True, "pack": "wild",
+                       "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:net"], "key": "only", "value": "*", "changes": {}, "units": 0, "gives": "", "tags": ["hunting"]},
     "looking for": {"verb": "modifier", "label": "looking for one thing in particular: name it, a kind or a sort (boar, deer, hares, fowl, small game)", "aliases": [], "basic": True, "pack": "wild",
                     "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:snare", "gather:net", "gather:den work", "gather:trap in water",
                                  "gather:gather wild food", "work:guard the field", "work:pest work"],
@@ -952,6 +958,10 @@ TECHNIQUES.update({
                           "key": "gather", "value": "*", "changes": {}, "units": 0, "gives": "", "tags": ["travel"]},
     "lead": {"verb": "modifier", "label": "leading a pack ox (an ox of your household's, with a harness)", "basic": True,
              "modifies": ["travel"], "key": "lead", "value": "*", "changes": {}, "units": 0, "gives": "", "tags": ["travel", "animals"]},   # D2-136
+    "lead on the hunt": {"verb": "modifier", "label": "leading a pack ox on the hunt, to carry the kill home (an ox here, a harness in hand)",
+                         "basic": True, "pack": "wild", "aliases": [],
+                         "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive"], "key": "lead", "value": "*",
+                         "changes": {"units": 1, "lead": True}, "units": 1, "gives": "", "tags": ["hunting", "animals"]},   # brief 4b §3.2
     "searching": {"verb": "modifier", "label": "searching the road for a herd or a person", "basic": True, "modifies": ["travel"],
                   "key": "searching", "value": "*", "changes": {}, "units": 0, "gives": "", "tags": ["travel", "animals"]},   # D2-125
 })

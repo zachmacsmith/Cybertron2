@@ -7,7 +7,10 @@
   of full habitat; hibernate; starve (how hard hunger kills); move (share that shifts a season toward better land); migrant
   (seasons present) and arrive (a km2 of habitat on arrival); people (a take a season where people are); vuln (share reachable by a
   predator); ref a real density a km2 of good habitat, to compare only, never to fit; shy (0 to 1) how much people's busy land
-  (a village's own land, less its ring) lowers the kind's habitat: rats follow people (0), deer and boar keep away (0.8).
+  (a village's own land, less its ring) lowers the kind's habitat: rats follow people (0), deer and boar keep away (0.8);
+  fidelity (0 to 1) how much a kind keeps its home range: it drifts toward emptier land by how empty it has been over the last days
+  (a smoothed density), not by tonight's count (brief 4b §2.3); litters "burst" (all born on the breeding season's first day) or
+  "through" (several litters: born a share each day of the breeding seasons, brief 4b §2.4).
 
 The foods (FOOD) and their calibration (SCALE) are the food web's final values (02zp_ecosystem_models/web/final.json): each food
 calibrated once, for every kind that eats it.
@@ -19,8 +22,9 @@ SEASONS = ("spring", "summer", "autumn", "winter")
 
 def K(mass, cls, b, m, hab, diet, breed=("spring",), terr=None, hibernate=False, starve=1.0, move=0.1, limits=None, migrant=None,
       arrive=None, people=0.0, vuln=0.4, switch=None, d0=1.0, ref=None, wave=1, count="density", uses="", damage="", group=None,
-      shy=0.8):
-    return {"shy": shy, "mass": mass, "cls": cls, "b": b, "m": m, "hab": hab, "diet": diet, "breed": list(breed), "terr": terr,
+      shy=0.8, fidelity=0.0, litters="burst"):
+    return {"shy": shy, "fidelity": fidelity, "litters": litters, "mass": mass, "cls": cls, "b": b, "m": m, "hab": hab, "diet": diet,
+            "breed": list(breed), "terr": terr,
             "hibernate": hibernate, "starve": starve, "move": move, "limits": limits or {}, "migrant": list(migrant) if migrant else None,
             "arrive": arrive, "people": people, "vuln": vuln, "switch": switch, "d0": d0, "ref": ref, "wave": wave, "count": count,
             "uses": uses, "damage": damage, "group": group}
@@ -30,26 +34,28 @@ def K(mass, cls, b, m, hab, diet, breed=("spring",), terr=None, hibernate=False,
 KINDS = {
     "red deer": K(90, "herb", 0.4, 0.10, {"wood": 0.45, "shrub": 0.2, "open": 0.4, "heath": 0.4},
                   {"grass": 3, "heather": 2, "browse": 2, "mast": 1, "crops": 1, "aquatic": 0.3}, people=0.08, move=0.15, ref=8, wave=1,
-                  count="whole", group={"size": [4, 15]}, uses="venison, hide, antler; the noble's beast", damage="crops, young trees"),
+                  fidelity=0.8, count="whole", group={"size": [4, 15]}, uses="venison, hide, antler; the noble's beast", damage="crops, young trees"),
     "roe deer": K(22, "herb", 0.9, 0.20, {"wood": 0.6, "shrub": 0.6, "open": 0.2},
                   {"browse": 4, "fruit": 1.5, "roots": 0.5, "grass": 0.5, "crops": 0.5}, people=0.1, ref=15, wave=1,
-                  uses="venison, hide", damage="young trees"),
+                  fidelity=0.8, uses="venison, hide", damage="young trees"),
     "wild boar": K(70, "omni", 1.6, 0.30, {"wood": 0.8, "shrub": 0.3, "wet": 0.3},
                    {"mast": 4, "roots": 2, "nuts": 1, "fruit": 1, "crops": 2, "inverts": 0.3, "seeds": 0.5, "carrion": 0.5},
-                   people=0.15, ref=4, wave=1, count="whole", group={"size": [3, 14]}, uses="pork, fat, hide", damage="roots up crops"),
+                   people=0.15, ref=4, wave=1, count="whole", group={"size": [3, 14]}, fidelity=0.7,
+                   uses="pork, fat, hide", damage="roots up crops"),
     "brown hare": K(3.5, "herb", 4.0, 0.9, {"grassy": 1.0, "farm": 0.4, "open": 0.2}, {"sward": 3, "seeds": 1, "crops": 2},
-                    breed=("spring", "summer"), people=0.3, ref=25, wave=1, uses="meat; coursing", damage="young crops", shy=0.6),
+                    breed=("spring", "summer"), people=0.3, ref=25, wave=1, uses="meat; coursing", damage="young crops", shy=0.6,
+                    litters="through"),
     "woodpigeon": K(0.5, "gran", 3.0, 0.6, {"wood": 0.5, "farm": 0.5}, {"seeds": 2, "mast": 2, "crops": 3, "browse": 1}, people=0.2,   # a raid takes its part of this (brief 4 §4.3)
                     ref=50, wave=1, damage="seed and young corn", shy=0.5),
     "rats": K(0.25, "omni", 10.0, 2.0, {"farm": 1.0}, {"stores": 3, "crops": 2, "seeds": 1, "carrion": 1},
-              breed=("spring", "summer", "autumn"), move=0.05, ref=100, wave=1, damage="stores", shy=0.0),
+              breed=("spring", "summer", "autumn", "winter"), move=0.05, ref=100, wave=1, damage="stores", shy=0.0, litters="through"),   # in the barns all year
     "wildfowl": K(1.0, "gran", 0, 0, {"wet": 1.0, "water": 1.0}, {"aquatic": 4, "seeds": 1, "inverts": 1},
                   migrant=("autumn", "winter"), arrive=150, people=0.3, ref=150, wave=1, uses="meat, feathers, down", shy=0.9),
     "eel": K(0.5, "omni", 1.0, 0.3, {"water": 1.0, "wet": 0.8}, {"inverts": 1, "fish": 1, "aquatic": 1}, people=0.3, move=0.05,
              ref=150, wave=1, uses="food that keeps smoked; rent", shy=0.2),
     "voles and mice": K(0.025, "gran", 16.0, 2.5, {"open": 0.6, "wood": 0.4, "farm": 0.3},
                         {"seeds": 3, "grass": 2, "roots": 1, "inverts": 1, "crops": 1}, breed=("spring", "summer", "autumn"),
-                        starve=1.5, move=0.2, ref=3000, wave=2, damage="crops, stores", shy=0.3),
+                        starve=1.5, move=0.2, ref=3000, wave=2, damage="crops, stores", shy=0.3, litters="through"),
     "owls": K(0.4, "carn", 2.0, 0.45, {"wood": 0.5, "farm": 0.5, "open": 0.2}, {"voles and mice": 5, "rats": 1}, terr=1.5, ref=1,
               wave=2, shy=0.3),
     "fox": K(6, "carn", 2.0, 0.6, {"open": 0.5, "wood": 0.5, "farm": 0.3},
@@ -61,7 +67,8 @@ KINDS = {
                uses="ermine in winter", damage="hens, eggs", shy=0.4),
     "wolf": K(40, "carn", 1.5, 0.30, {"wood": 0.5, "open": 0.2, "heath": 0.3},
               {"red deer": 3, "roe deer": 2, "wild boar": 2, "brown hare": 0.5, "livestock": 1, "carrion": 1}, terr=0.03, people=0.05,
-              move=0.25, ref=0.025, wave=2, count="whole", group={"size": [3, 8]}, uses="pelt; bounty", damage="herds; fear"),
+              move=0.25, ref=0.025, wave=2, count="whole", group={"size": [3, 8]}, fidelity=0.6,
+              uses="pelt; bounty", damage="herds; fear"),
     "raven": K(1.2, "omni", 1.0, 0.15, {"open": 0.5, "rock": 0.4, "wood": 0.2}, {"carrion": 4, "inverts": 1, "seeds": 1}, terr=0.3,
                ref=0.2, wave=2, uses="signs: circling over carrion", shy=0.6),
     "brown bear": K(250, "omni", 0.3, 0.05, {"wood": 0.7, "rock": 0.3, "old": 0.3},
@@ -404,10 +411,11 @@ FOLLOW_HARVEST = {"rats": 1.0, "voles and mice": 0.5}
 HUNTED = {"flee": {"red deer": 0.18, "roe deer": 0.12, "wild boar": 0.09}, "hunt": 0.25, "kill": 0.3, "crew": 0.5, "fade": 0.75}   # brief 4 §2.8
 # the take as a search over time (brief 4 §2, calibrate): meetings a trip ~ Poisson(sum of density x detect x ... x ground x `meet`),
 # at most `most`; a kill at `take_k` x skill x weapon x (1 - flee) x familiarity; the areas crossed on the way searched at `cross`;
-# a method with no sweep of its own searches `sweep` km2 a unit; deer and boar keep off a village's own land (`home_shy`); game in
-# the wild land, never hunted, is easier to come on (`wild_tame`)
-HUNT = {"meet": 0.055, "wild_tame": 8.0, "take_k": 0.19, "cross": 0.2, "sweep": 0.5, "most": 8, "set_meet": 0.03,   # a set's night: Poisson, as before at low
-        "home_shy": {"red deer": 0.3, "roe deer": 0.3, "wild boar": 0.3}}
+# a method with no sweep of its own searches `sweep` km2 a unit; how wary the game is of people is learned (WARY), not by the land's
+# kind (brief 4b §2.1)
+# a beast led on a hunt (brief 4b §3.2, calibrate): the game knows the party sooner (meetings x seen) and flees more readily
+LEAD = {"seen": 0.85, "flee": 0.15}
+HUNT = {"meet": 0.16, "take_k": 0.25, "cross": 0.2, "sweep": 0.5, "most": 8, "set_meet": 0.03}   # a set's night: Poisson, as before at low
 
 # ---------------------------------------------------------------------- wave 5: sites, individuals, rare regimes (wild_layer.md §6 phase 9)
 # Sites (wild_systems.md §5, colony and engineer): held on a parcel for generations, placed at world build where the land suits
@@ -753,7 +761,21 @@ STORE_STOPS = {"granary": {"keep": 0.3, "for": {"climbs": True, "gap": "tiny"}},
 # a tallow light (brief 3 §5, calibrate): night work at a load by it does this much more, and burns the light down
 LIGHT = {"item": "tallow light", "night_work": 1.3}
 # the carrion pool is a flow: what dies or is left goes in, and eaters and decay take it within days (brief 4 §4.6; calibrate)
-CARRION = {"half_life_days": 2.0}
+CARRION = {"half_life_days": 2.0,
+           "draw": 3.0, "draw_ref": 200.0}        # carrion lying in an area draws its eaters (brief 4b §2.5): attraction x (1 + draw x the
+                                                  # kind's carrion share of its diet x c / (c + draw_ref)), c the area's carrion kg a km2
+# wariness (brief 4b §2.1, calibrate): learned by each kind in each area from people's hunting, and slow to fade. Each day it fades
+# by its half-life; a take adds `take` x the share of the kind taken there; a hunt adds `hunt` x the share of the area searched. It
+# divides how easily the kind is come on (1 + detect x wary), raises its flight (1 - (1 - flee)/(1 + flee x wary)), and dulls a
+# group's boldness at the fields (1 + raid x wary); what it does tops out: wary / (1 + wary / most)
+WARY = {"half_life_days": 32.0, "take": 30.0, "hunt": 0.5, "detect": 1.0, "flee": 0.15, "raid": 0.1, "most": 8.0}
+# people's reach (brief 4b §2.2, calibrate): each village's presence in an area falls off with the distance of the area's land from
+# it, exp(-d / km); d the distance between their middles and two-thirds of the area's radius, together; presences add, at most 1
+REACH = {"km": 2.5}
+# a home range's drift (brief 4b §2.3, calibrate): a kind with fidelity f wanders (1 - f) of its `move`, and drifts across each link
+# toward land emptier than its own, `drift` a day of its numbers x the link's share of its border x how much emptier, emptiness read
+# from a density smoothed over `tau` days; the young of the breeding season disperse `young` of them over the season the same way
+DRIFT = {"drift": 0.03, "tau": 6.0, "young": 0.3}
 CARCASS_PULL = {"ref": 20.0, "dig": 0.1, "spill_nights": 3, "spill_drive": 1.5}
 CAT = {"settle_p": 0.15, "fed_p": 0.4, "prey": "voles and mice", "prey_least": 50.0, "stray_p": 0.08, "item": "cat",
        "fed_days": 3}                         # cats.md §3 (brief 4 §4.1): fed lately (food left out at the house), it settles likelier

@@ -112,6 +112,28 @@ def suitability(f, k):
     return s
 
 
+def presence(land: dict, ids: list) -> np.ndarray:
+    """People's presence in each area (0 to 1, brief 4b §2.2): each village's falls off with the distance of the area's land from it,
+    exp(-d / REACH km), where d puts together the distance between their middles and two-thirds of the area's radius (about the mean
+    distance of its land from a point at its middle); the villages' presences add, at most 1. The villages are the home areas."""
+    homes = [land["areas"][a] for a in land.get("home", {}).values() if a in land["areas"]] or \
+        [x for x in land["areas"].values() if x.get("kind") == "home"]
+    D = float(WK.REACH["km"])
+    out = np.zeros(len(ids))
+    for i, a in enumerate(ids):
+        x = land["areas"][a]
+        if "xy_km" not in x:                                                # a hand-made land without positions: by its kind
+            out[i] = {"home": 1.0, "ring": 0.4}.get(x.get("kind"), 0.0)
+            continue
+        r = math.sqrt(max(float(x["km2"]), 1e-6) / math.pi)
+        for h in homes:
+            if "xy_km" not in h:
+                continue
+            d = math.hypot(math.dist(x["xy_km"], h["xy_km"]), 2.0 / 3.0 * r)
+            out[i] += math.exp(-d / D)
+    return np.clip(out, 0.0, 1.0)
+
+
 # ------------------------------------------------------------------ the model of one world's land
 class Model:
     """What does not change: the areas, their features and foods, the kinds compiled."""
@@ -132,9 +154,7 @@ class Model:
         self.cap_stock = 1 - (1 - 0.6) ** (1.0 / self.S)                    # a season's share never eaten (0.6, 0.8), as a day's
         self.cap_other = 1 - (1 - 0.8) ** (1.0 / self.S)
         self.provided = set(self.knobs.get("provided") or ())              # foods the engine supplies (its crops, its stores)
-        kind_of = np.array([land["areas"][a]["kind"] for a in self.ids])
-        near = {"home": 1.0, "ring": 0.4, "wild": 0.0}                     # people's presence (living_populations §2a: busy land)
-        self.busy = np.array([near.get(k, 0.0) for k in kind_of])
+        self.busy = presence(land, self.ids)                               # people's presence, by distance (brief 4b §2.2)
         for n_ in self.names:                                              # a shy kind finds busy land worth less
             shy = float(self.kinds[n_].get("shy", 0.8))
             self.suit[n_] = self.suit[n_] * (1 - 0.75 * shy * self.busy)
@@ -150,12 +170,19 @@ class Model:
             k = self.kinds[n]
             st["pop"][n] = list((k["ref"] or 1.0) * k["d0"] * 0.5 * self.suit[n] * (0.0 if k["migrant"] else 1.0))
             st["cond"][n] = [0.6] * self.n
+            if k["people"] > 0:
+                st.setdefault("wary", {})[n] = [0.0] * self.n                   # naive until hunted (brief 4b §2.1)
         for fd, sp in WK.FOOD.items():
             if sp["type"] == "stock":
                 st["stock"][fd] = list(self.cap(fd) * 0.6)
             elif sp["type"] == "pulse":
                 st["pulse"][fd] = [0.0] * self.n
         return st
+
+
+def carrion_keep() -> float:
+    """The share of the carrion pool left after a day's decay (its half-life)."""
+    return 0.5 ** (1.0 / float(WK.CARRION["half_life_days"]))
 
 
 def mast_level(st: dict, year: int, frost: bool, draw: float) -> float:
@@ -180,9 +207,11 @@ def mast_level(st: dict, year: int, frost: bool, draw: float) -> float:
     return lvl
 
 
-def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | None = None, scale: dict | None = None) -> dict:
+def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | None = None, scale: dict | None = None,
+         history: bool = False) -> dict:
     """One engine day. weather: {node: {temp, low, rain, snow}} for this day; draws: keyed uniform numbers {"mast": u for the year};
-    take: {kind: [per-area share taken today by people]} (the acts), or None for the background take; scale: {food: [per area]}, how
+    take: {kind: [per-area share taken today by people]} (the acts), or None; history: the days before the run, when people's take is
+    the background one, by their presence in each area (brief 4b §2.2; in the run the people hunt for themselves); scale: {food: [per area]}, how
     much of a food the land's stocks hold for the wild kinds where the engine keeps them (D2-202). Returns the day's effects:
     {"eaten": {food: [kg per area]}, "killed": {kind: [head per area]}, "dead": {...}} for the engine's bridge."""
     Y, S, n = m.Y, m.S, m.n
@@ -299,9 +328,11 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
             elif key == "carrion":
                 carrion = np.maximum(carrion - g, 0)
                 eff["eaten"]["carrion"] = eff["eaten"].get("carrion", 0) + g * m.km2   # what the dead in it lose (brief 3 §3)
-    carrion = carrion * 0.5 ** (1.0 / float(WK.CARRION.get("half_life_days", S)))   # a flow, gone within days (brief 4 §4.6)
+    carrion = carrion * carrion_keep()                                    # a flow, gone within days (brief 4 §4.6)
     # 3-4. condition, death, birth, people's take
     dis = knobs.get("disease", 0.15)
+    wary = {k: np.asarray(v, float) for k, v in (st.get("wary") or {}).items()}
+    fade = 0.5 ** (1.0 / float(WK.WARY["half_life_days"]))
     from cybertron2.wild import diseases as DS
     extra = DS.step(m, st, day, N, draws)                                 # named diseases spreading by host and area (wave 4)
     named = DS.hosts_of()
@@ -332,37 +363,75 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
         ph = (st.get("phase") or {}).get(k)
         if ph is not None and k in WK.PHASES:                             # the phase clock's deaths (the crash)
             surv = surv * np.exp(-float(WK.PHASES[k]["die"][ph]))
-        if sd == 0 and SEASONS_OF[si] in kd["breed"] and kd["migrant"] is None:
+        through = kd.get("litters") == "through"                          # several litters: a share born each day (brief 4b §2.4)
+        if (sd == 0 or through) and SEASONS_OF[si] in kd["breed"] and kd["migrant"] is None:
             cond = np.clip(0.2 + 0.8 * E[k], 0, 1) / (1.0 + (dis / 0.15) * crowd ** 2)
             if ph is not None and k in WK.PHASES:
                 cond = cond * float(WK.PHASES[k]["breed"][ph])
             if WK.CYCLE.get(k):                                               # a cycler: last year's crowding holds this year's breeding
                 lag = np.asarray((st.get("lag") or {}).get(k, N[k]), float) / np.maximum(m.crowd_at[k] * m.suit[k], 1e-9)
                 cond = cond / (1.0 + float(WK.CYCLE[k]) * lag ** 2)
-            N[k] = N[k] * (1 + kd["b"] / len(kd["breed"]) * cond)
+            born = N[k] * ((1 + kd["b"] / len(kd["breed"]) * cond) ** ((1.0 / S) if through else 1.0) - 1)
+            N[k] = N[k] + born
+            if kd.get("fidelity") and not through:                            # the young that will disperse this season (§2.3)
+                st.setdefault("young", {})[k] = [round(float(x), 6) for x in born * m.km2 * float(WK.DRIFT["young"])]
+        if k in wary:
+            wary[k] = wary[k] * fade
         if take is None:
-            if kd["people"] > 0:
-                t = N[k] * kd["people"] / 4 / S * m.f["farm"]
-                N[k] = N[k] - t
+            if kd["people"] > 0 and history:                                  # people's take by their presence (brief 4b §2.2)
+                share = kd["people"] / 4 / S * m.busy
+                N[k] = N[k] * (1 - share)
+                wary[k] = wary.get(k, np.zeros(n)) + float(WK.WARY["take"]) * share
         elif k in take:
-            N[k] = N[k] * (1 - np.clip(np.asarray(take[k], float), 0, 1))
+            sh = np.clip(np.asarray(take[k], float), 0, 1)
+            N[k] = N[k] * (1 - sh)
+            wary[k] = wary.get(k, np.zeros(n)) + float(WK.WARY["take"]) * sh
     # 5. movement along the links, migrants excepted; a thin immigration from beyond
+    smooth = st.setdefault("smooth", {})
     if len(m.la):
+        border = np.zeros(n); np.add.at(border, m.la, m.le); np.add.at(border, m.lb, m.le)
         for k in m.names:
             kd = m.kinds[k]
             if kd["migrant"] is not None or kd["move"] <= 0:
                 continue
             att = m.suit[k] * (0.3 + E[k]) + 1e-9
+            cs = float(kd["diet"].get("carrion", 0.0)) / max(sum(kd["diet"].values()), 1e-9)
+            if cs > 0:                                                    # carrion lying there draws its eaters (brief 4b §2.5)
+                att = att * (1 + float(WK.CARRION["draw"]) * cs * carrion / (carrion + float(WK.CARRION["draw_ref"])))
+            fid = float(kd.get("fidelity") or 0.0)
             C = N[k] * m.km2
-            mv = min(0.6, kd["move"] * knobs.get("move_scale", 1.0)) / S * C
+            mv = min(0.6, kd["move"] * knobs.get("move_scale", 1.0)) / S * C * (1 - fid)   # a home range: it wanders less
             wa = att[m.lb] * m.le; wb = att[m.la] * m.le               # a to b drawn by b's attraction, b to a by a's
             tot = np.zeros(n); np.add.at(tot, m.la, wa); np.add.at(tot, m.lb, wb)
             out_ = np.zeros(n); inn = np.zeros(n)
             fa = mv[m.la] * wa / np.maximum(tot[m.la], 1e-12); fb = mv[m.lb] * wb / np.maximum(tot[m.lb], 1e-12)
             np.add.at(out_, m.la, fa); np.add.at(inn, m.lb, fa)
             np.add.at(out_, m.lb, fb); np.add.at(inn, m.la, fb)
-            C = C - out_ + inn
+            if fid > 0:                                                   # and drifts toward land that has been emptier (§2.3)
+                sm = np.asarray(smooth.get(k, N[k]), float)
+                rel = sm / att
+                ea = np.clip((rel[m.la] - rel[m.lb]) / np.maximum(rel[m.la], 1e-12), 0, 1)   # how much emptier b is than a
+                eb = np.clip((rel[m.lb] - rel[m.la]) / np.maximum(rel[m.lb], 1e-12), 0, 1)
+                dr = float(WK.DRIFT["drift"])
+                fa = dr * C[m.la] * m.le / np.maximum(border[m.la], 1e-12) * ea
+                fb = dr * C[m.lb] * m.le / np.maximum(border[m.lb], 1e-12) * eb
+                Y_ = np.asarray((st.get("young") or {}).get(k, np.zeros(n)), float)
+                if Y_.any() and SEASONS_OF[si] in kd["breed"]:            # the season's young disperse, the emptier land first
+                    ya = att[m.lb] * m.le * (1 + ea); yb = att[m.la] * m.le * (1 + eb)
+                    yt = np.zeros(n); np.add.at(yt, m.la, ya); np.add.at(yt, m.lb, yb)
+                    go = np.minimum(Y_ / max(S - sd, 1), C)
+                    fa = fa + go[m.la] * ya / np.maximum(yt[m.la], 1e-12)
+                    fb = fb + go[m.lb] * yb / np.maximum(yt[m.lb], 1e-12)
+                    st["young"][k] = [round(float(x), 6) for x in np.maximum(Y_ - go, 0)]
+                np.add.at(out_, m.la, fa); np.add.at(inn, m.lb, fa)
+                np.add.at(out_, m.lb, fb); np.add.at(inn, m.la, fb)
+            C = C - np.minimum(out_, C) + inn
             N[k] = np.maximum(C / m.km2, 0)
+    tau = float(WK.DRIFT["tau"])
+    for k in m.names:                                                     # the density a home range remembers (§2.3)
+        if m.kinds[k].get("fidelity"):
+            sm = np.asarray(smooth.get(k, N[k]), float)
+            smooth[k] = [round(float(x), 6) for x in sm + (N[k] - sm) / tau]
     P = st.get("pressure") or {}                                          # hunted areas: the shy leave, and come back as it fades
     for k, share in WK.HUNTED["flee"].items():
         if k in N and k in P and len(m.la):
@@ -403,6 +472,7 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
     for k in WK.CYCLE:
         if k in N:
             acc[k] = [round(float(x), 6) for x in (0.9 * np.asarray(acc.get(k, N[k]), float) + 0.1 * N[k])]
+    st["wary"] = {k: [round(float(x), 4) for x in v] for k, v in wary.items()}
     st["pop"] = {k: [round(float(x), 6) for x in v] for k, v in N.items()}
     st["cond"] = {k: [round(float(x), 4) for x in v] for k, v in E.items()}
     st["stock"] = {k: [round(float(x), 2) for x in v] for k, v in stock.items()}

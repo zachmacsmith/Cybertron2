@@ -954,6 +954,8 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                     scripted.setdefault(sc["who"], []).append(dict(sc["do"]))
             for n, acts in scripted.items():
                 plans[n] = acts + plans[n]
+            from cybertron2.engine import parties as HP
+            HP.resolve(w, plans)                                               # who hunts with whom, declared (brief 4b §3.1)
             order = list(names)
             w.rng("order", day).shuffle(order)
             spoke = {n: sum(1 for y in results[n] if y.startswith("You said (")) * int(w.p["say_units"]) for n in names}
@@ -982,6 +984,10 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                         rep[n][refused_sig[n][sig]] = rep[n].get(refused_sig[n][sig], 1) + 1
                         continue
                     c = V.cost(here, a)
+                    if a.get("_party"):                                       # a follower with fewer units turns back early
+                        c2 = HP.cost(here, a, c, budget[n] + over_ok[n] - used[n])
+                        a = {**a, "_units": c2} if c2 != c else a
+                        c = c2
                     if used[n] + c > budget[n] + over_ok[n]:
                         if c and used[n] < budget[n] + over_ok[n]:
                             results[n].append(f"Not done: {a.get('do')} {a.get('what') or ''}".rstrip() + f": it takes {c} units and you had "
@@ -1049,6 +1055,8 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                 elif used[n] > budget[n]:
                     results[n].append(f"You pushed on {used[n] - budget[n]} unit{'s' if used[n] - budget[n] != 1 else ''} past your strength: "
                                       "it costs double food tonight, and you will be tired tomorrow.")
+            for n, lines in HP.settle(w).items():                              # the parties' hunts, after the day's acts (4b §3.1)
+                results.setdefault(n, []).extend(lines)
             if today.get("travel_morning"):                                    # set off this morning: in by nightfall (D4-67)
                 morning_departures(w, today)
             from cybertron2.engine import layout as LY

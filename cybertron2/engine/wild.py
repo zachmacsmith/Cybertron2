@@ -95,7 +95,7 @@ def seed(w) -> None:
     off = HISTORY_AHEAD_YEARS * Y
     k0 = eco_day(w, 0)
     for d in range(years * Y):                                            # the history before the run, ending on the run's season
-        EC.step(m, st, k0 + d, weather(w, sorted(set(m.nodes)), off + d), draws(w, k0 + d, "history"))
+        EC.step(m, st, k0 + d, weather(w, sorted(set(m.nodes)), off + d), draws(w, k0 + d, "history"), history=True)
     st["day"] = -1
     st["mast"]["years"] = {}                                              # the trees' budget carries over; the run's years are its own
     w.s["wild"]["state"] = st
@@ -1241,7 +1241,7 @@ def _targets(w, node, t) -> list:
 
 def _count(m, st, kind, land, node, ring_i, gather):
     import numpy as np
-    idx = [ring_i] if gather != "far" else [i for i in _reach(m, land, node, "far") if land["areas"][m.ids[i]]["kind"] != "home"]
+    idx = [ring_i] if gather != "far" else _reach(m, land, node, "far")     # the village's own land too: what the dead draw in (4b §2.5)
     return sum(float(np.asarray(st["pop"][kind])[i]) * float(m.km2[i]) for i in idx)
 
 
@@ -1478,7 +1478,8 @@ def _dead_from_pool(w, m, st, eff, lent) -> None:
             q = TH.eat_flesh(w, cid, f * share, "eaten by carrion birds and beasts")
             if q >= 0.05:                                                     # birds at it: their sign (a quarter kg and more)
                 w.apply("set_thing", TH.where(w, w.s["containers"][cid]), cid=cid, field="birds", value=w.d)
-        st["carrion"][i] = round(max(0.0, float(st["carrion"][i]) - kg * (1.0 - share) * 0.5 ** (1.0 / float(m.S))), 2)
+        from cybertron2.wild import ecology as EC
+        st["carrion"][i] = round(max(0.0, float(st["carrion"][i]) - kg * (1.0 - share) * EC.carrion_keep()), 2)   # the step's own decay
 
 
 def _did(res) -> bool:
@@ -1672,8 +1673,10 @@ def _groups(w, m, st) -> dict:
                 tg = _targets(w, node, trow)
                 if not tg:
                     continue
+                from cybertron2.wild.kinds import WARY
+                lw = learned(float(((st.get("wary") or {}).get(kind) or [0.0] * m.n)[ri]))   # hunted game is less bold (4b §2.1)
                 p = min(1.0, attr * (float(np_["drive"]["base"]) + float(np_["drive"]["hunger"]) * hunger) * ef["drive"] * lmul
-                        * (float(CARCASS_PULL["spill_drive"]) if spill else 1.0))
+                        * (float(CARCASS_PULL["spill_drive"]) if spill else 1.0) / (1.0 + float(WARY["raid"]) * lw))
                 knows = 1 <= w.d - int(g["found"]) <= int(np_["memory_days"])
                 if knows:
                     p = max(p, float(np_["return_p"]) * attr)
@@ -1789,18 +1792,54 @@ def _ground(m, land, node, areas, rng_word, km2) -> dict:
     return out
 
 
+def learned(wary) -> float:
+    """What a kind's wariness does (brief 4b §2.1): it grows with the wariness and tops out (WARY `most`): game hunted hard is very
+    shy, never impossible to come on."""
+    from cybertron2.wild.kinds import WARY
+    x = max(0.0, float(wary))
+    return x / (1.0 + x / float(WARY["most"]))
+
+
+def carry_of(here, ox=None) -> float:
+    """What one hunter can bring home (brief 4 §2.4; brief 4b §3.2): on foot, a pack's more, and a led beast's."""
+    from cybertron2.engine.data import HERDS, ITEMS, PHYSICS
+    cap = float(PHYSICS["carry"]["foot"]) + float((ITEMS.get("pack") or {}).get("carry", 0.0)) * (1 if here.carried().get("pack", 0) >= 1 else 0)
+    return cap + (float(HERDS["pack_ox"]["carry"]) if ox else 0.0)
+
+
+def member(here, mind, out, m_skill, t, ox=None) -> dict:
+    """One hunter of a hunt: who, where what they take goes, their skill at the method, the units they search, and their carry."""
+    return {"name": here.name, "here": here, "mind": mind, "out": out, "skill": float(m_skill), "t": float(t), "ox": ox,
+            "cap": carry_of(here, ox)}
+
+
 def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
-    """A hunt as a search over time (brief 4 §2): the method's units search ground (its `sweep` a unit) in the areas the range
-    reaches; what is met there is a number drawn by the kinds' densities, how easy each is to find, what this way of hunting takes,
-    the hunter's focus and familiarity, and how hunted the ground is; each meeting in turn may hurt the hunter (D2-193), flee, or be
-    taken, until the hunter can carry no more. What cannot be carried is cut and left. Looking for one thing makes it likelier and
-    the rest less likely, never impossible. Returns (food taken, a line for the hunter, what they noticed on the way)."""
-    from cybertron2.engine.data import ITEMS, PHYSICS, RESOURCES, TECHNIQUES, THINGS
+    """A hunt by one hunter alone (brief 4 §2): `hunt` with a party of one. Returns (food taken, a line for the hunter, what they
+    noticed on the way)."""
+    from cybertron2.engine.data import TECHNIQUES
+    ox = (a.get("_mods") or {}).get("_ox")
+    r = hunt(here, [member(here, mind, out, m_skill, float(TECHNIQUES[tech]["units"]), ox)], tech, key, place_name, y, a)
+    return r["food"][here.name], r["lines"][here.name], r["tails"][here.name]
+
+
+def hunt(here, members, tech, key, place_name, y, a) -> dict:
+    """A hunt as a search over time (brief 4 §2), by one hunter or a declared party (brief 4b §3.1), the first member leading: the
+    method's units search ground (its `sweep` a unit a hunter) in the areas the range reaches; what is met there is a number drawn by
+    the kinds' densities, how easy each is to find, what this way of hunting takes, the hunters' focus and familiarity, how hunted the
+    ground is and how wary its game has grown. Each meeting falls at a time in the search, a keyed draw: only the members still out
+    then count (a member with fewer units turns back for home when they are spent). Each in turn may hurt one in front (D2-193; the
+    danger spread across those out), flee, or be taken by the best hunter out, until those out can carry no more; a kill is dressed
+    where it fell and shared across their hands up to each one's carry. What cannot be carried is cut and left, and the offal with it.
+    Looking for one thing makes it likelier and the rest less likely, never impossible. Returns {"food": {name: food}, "lines":
+    {name: the hunt's events in order, as that member knows them}, "tails": {name: what they noticed on the way}}."""
+    from cybertron2.engine.data import ITEMS, RESOURCES, TECHNIQUES, THINGS
     from cybertron2.engine import things as TH
     import numpy as np
     w = here._w
+    names = [mb["name"] for mb in members]
     if not on(w) or not (w.s.get("wild") or {}).get("state"):
-        return 0.0, f"You found nothing to take at {place_name}.", ""
+        return {"food": {n: 0.0 for n in names}, "lines": {n: f"You found nothing to take at {place_name}." for n in names},
+                "tails": {n: "" for n in names}}
     m = model(w)
     land = w.s["wild"]["land"]
     st = w.s["wild"]["state"]
@@ -1809,7 +1848,7 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
     areas = _reach(m, land, here.node, rng_word)
     takes = dict(y["takes"])
     from cybertron2.wild import methods as MT
-    from cybertron2.wild.kinds import HUNT, HUNTED, LEGENDS, LEADERS
+    from cybertron2.wild.kinds import HUNT, HUNTED, LEAD, LEGENDS, LEADERS, WARY
     if a.get("looking for") and str(a.get("looking for")).strip().lower() not in ("anything", "whatever comes", "game", "any") \
             and not _wanted(a.get("looking for"), [k for k, r in RESOURCES.items() if r.get("taken")]):
         from cybertron2.engine.here import Refused
@@ -1827,51 +1866,59 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
             if all(tr.get(t) == v for t, v in (row.get("for") or {}).items()):
                 x *= float(row.get("x", 1.0))
         return x
-    crew = 1 + sum(1 for e in here.events() if e.get("kind") == "work" and e.get("tech") == tech and e.get("actor") != here.name
-                   and f"parcel:{key}" in (e.get("about") or []))
-    search = float(TECHNIQUES[tech]["units"])                             # the method's units search; the range's are travel (§2.1)
-    ground = _ground(m, land, here.node, areas, rng_word, search * float(TECHNIQUES[tech].get("sweep", HUNT["sweep"])) * crew)
+    crew = len(members)
+    T = float(TECHNIQUES[tech]["units"])                                  # the method's units search; the range's are travel (§2.1)
+    ts = [max(0.0, min(T, float(mb["t"]))) for mb in members]
+    led = any(mb.get("ox") for mb in members)
+    sweep = float(TECHNIQUES[tech].get("sweep", HUNT["sweep"]))
+    ground = _ground(m, land, here.node, areas, rng_word, sweep * sum(ts))
     pressure = {k: [float(x) for x in ((st.get("pressure") or {}).get(k) or [0.0] * m.n)] for k in takes if k in st["pop"]}
     pressure0 = {k: list(v) for k, v in pressure.items()}
-    for kk in pressure:                                                   # the hunt disturbs the ground it covers (§2.8)
-        for ii in areas:
-            pressure[kk][ii] = round(pressure[kk][ii] + float(HUNTED["hunt"]) * min(1.0, ground[ii] / float(m.km2[ii]))
-                                     * (1 + float(HUNTED["crew"]) * (crew - 1)), 4)
+    wary = {k: [float(x) for x in ((st.get("wary") or {}).get(k) or [0.0] * m.n)] for k in takes if k in st["pop"]}
+    wary0 = {k: list(v) for k, v in wary.items()}
+    for kk in pressure:                                                   # the hunt disturbs the ground it covers (§2.8), and the
+        for ii in areas:                                                  # game there learns it (brief 4b §2.1)
+            share = min(1.0, ground[ii] / float(m.km2[ii]))
+            pressure[kk][ii] = round(pressure[kk][ii] + float(HUNTED["hunt"]) * share * (1 + float(HUNTED["crew"]) * (crew - 1)), 4)
+            wary[kk][ii] = round(wary[kk][ii] + float(WARY["hunt"]) * share, 4)
+    fam = lambda mb, k: MT.factor(mb["mind"], k)
     cand = []
     for k, tw in sorted(takes.items()):
         if k not in st["pop"]:
             continue
         tk = (RESOURCES.get(k) or {}).get("taken") or {}
         focus = (3.0 if k in want else 0.4) if want else 1.0
-        x = when_for(k) * MT.factor(mind, k) * focus * float(tw)           # familiarity with the kind (D2-204 §5)
+        x = when_for(k) * max(fam(mb, k) for mb in members) * focus * float(tw)   # familiarity with the kind (D2-204 §5): the party's best
         for i in areas:
             dens = float(st["pop"][k][i])
-            if m.home[i]:
-                dens *= float(HUNT["home_shy"].get(k, 1.0))                 # game near people keeps off (§2.9)
-            elif land["areas"][m.ids[i]]["kind"] == "wild":
-                dens *= float(HUNT["wild_tame"])                            # and in the wild land is not wary (§2.3)
-            lam = dens * float(tk.get("detect", 0.2)) * efx[k]["detect"] * x / (1.0 + 0.5 * min(4.0, pressure0[k][i])) \
-                * ground[i] * float(HUNT["meet"])
+            shy = 1.0 + float(WARY["detect"]) * learned(wary0[k][i])        # game that has learned people is harder to come on (4b §2.1)
+            lam = dens * float(tk.get("detect", 0.2)) * efx[k]["detect"] * x / (1.0 + 0.5 * min(4.0, pressure0[k][i])) / shy \
+                * ground[i] * float(HUNT["meet"]) * (float(LEAD["seen"]) if led else 1.0)   # a beast led: the game knows them sooner
             if lam > 0 and float(st["pop"][k][i]) * float(m.km2[i]) >= 1.0:   # one met is a whole one
                 cand.append((k, i, lam))
     total = sum(c[2] for c in cand)
-    effort = float(TECHNIQUES[tech]["units"]) / 2.0
     looked = f" looking for {a.get('looking for')}" if want else ""
     where = {"near": place_name, "the wood around": f"the woods and wastes around {place_name}", "far": "the wild land far beyond"}[rng_word]
-    seen = _notices(here, mind, m, st, areas, key, effort)
-    tail = (" On the way you saw " + "; and ".join(seen) + ".") if seen else ""
-    n_met = _poisson(rng, total, int(HUNT["most"]))
-    if n_met == 0:
-        _put_pressure(here, pressure)
-        return 0.0, f"You hunted {where}{looked} and came on nothing.", tail
-    armed = here.weapon()
-    wpn = float(TECHNIQUES[tech]["weapon"]["armed" if armed else "none"])
-    cap = float(PHYSICS["carry"]["foot"]) + float((ITEMS.get("pack") or {}).get("carry", 0.0)) * (1 if here.carried().get("pack", 0) >= 1 else 0)   # one's own
-    load, food, lines, left, left_kind = 0.0, 0.0, [], {}, None
-    pops = {}
-    extra = ""
-    took_any = False
-    for n in range(n_met):
+    tails = {}
+    for mb, t_ in zip(members, ts):                                       # what each noticed while out (their own eyes)
+        seen = _notices(mb["here"], mb["mind"], m, st, areas, key, max(0.5, t_ / 2.0))
+        tails[mb["name"]] = (" On the way you saw " + "; and ".join(seen) + ".") if seen else ""
+    n_met = _poisson(rng, total, int(HUNT["most"]) * crew)                # at most `most` a hunter
+    times = sorted(rng.random() * t_ for t_ in [rng.choices(ts, weights=ts)[0] if sum(ts) > 0 else 0.0 for _ in range(n_met)])
+    ev = []                                                               # the hunt's events in order: (time, text by whom, who)
+    load = {mb["name"]: 0.0 for mb in members}
+    food = {mb["name"]: 0.0 for mb in members}
+    held = {mb["name"]: {} for mb in members}
+    left, left_kind, pops, extra = {}, None, {}, ""
+    hurt = set()
+    dead = set()
+    out_at = lambda tau: [mb for mb, t_ in zip(members, ts) if t_ > tau + 1e-9 and mb["name"] not in hurt | dead]
+    for n, tau in enumerate(times):
+        here_out = out_at(tau)
+        if not here_out:
+            break
+        if all(load[mb["name"]] >= mb["cap"] - 1e-9 for mb in here_out):
+            break
         u, acc = rng.random() * total, 0.0
         for k, i, lam in cand:
             acc += lam
@@ -1888,45 +1935,53 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
                 if tk.get("danger"):
                     tk["danger"] = {kk: float(v) * float(legend["danger"]) for kk, v in tk["danger"].items()}
                 tk["goods"] = {it: round(float(q) * float(legend["goods"]), 2) for it, q in (tk.get("goods") or {}).items()}
+        n_out = len(here_out)
+        best = max(here_out, key=lambda mb: (mb["skill"] * float(TECHNIQUES[tech]["weapon"]["armed" if mb["here"].weapon() else "none"])
+                                             * fam(mb, k), -names.index(mb["name"])))      # the leader, of equals
+        armed = best["here"].weapon()
+        wpn = float(TECHNIQUES[tech]["weapon"]["armed" if armed else "none"])
         surprise = bool(want) and k not in want
-        found = (f"you came on {legend['name']} itself" if legend else f"you came on {_a(k)}") + \
-            (f" instead of the {a.get('looking for')} you were after" if surprise and not legend else "")
-        if n > 0:
-            found = "then " + found.removeprefix("you ")
+        what = legend["name"] + " itself" if legend else _a(k)
+        found = "{subj} came on " + what + (f" instead of the {a.get('looking for')} you were after" if surprise and not legend else "")
         danger = tk.get("danger")
         dmul = efx[k]["danger"]
-        if danger and rng.random() < min(0.95, float(danger["wound"]) * dmul / crew):
-            if rng.random() < min(0.5, float(danger.get("kill", 0.0)) * dmul / crew):
-                _put_pressure(here, pressure)
-                here.apply("die", person=here.name, cause=f"killed by {_a(k)} while hunting")
-                return food, f"Hunting {where}, " + "; ".join(lines + [found + "; it turned on you"]) + ".", ""
-            here.apply("harm", person=here.name, wounded=True)
-            lines.append(found + "; it turned on you and you were hurt before it broke away, and you came home")
-            break
+        if danger and rng.random() < min(0.95, float(danger["wound"]) * dmul / n_out):   # the danger spread across those out
+            if rng.random() < min(0.5, float(danger.get("kill", 0.0)) * dmul / n_out):
+                ev.append((tau, found + "; it turned on {subj}, and {subj} {was} killed", best["name"], True))
+                best["here"].apply("die", person=best["name"], cause=f"killed by {_a(k)} while hunting")
+                dead.add(best["name"])
+                continue
+            best["here"].apply("harm", person=best["name"], wounded=True)
+            ev.append((tau, found + "; it turned on {subj}, and {subj} {was} hurt before it broke away, and came home", best["name"], True))
+            hurt.add(best["name"])
+            continue
         flee = min(0.95, float(tk.get("flee", 0.5)) * efx[k]["flee"])
-        p_take = float(np.clip(float(HUNT["take_k"]) * m_skill * wpn * (1 - flee) * (1 + 0.25 * (crew - 1)) * MT.factor(mind, k), 0, 0.95))
+        flee = 1.0 - (1.0 - flee) / (1.0 + float(WARY["flee"]) * learned(wary0[k][i]))   # and quicker to flee
+        if led:
+            flee = 1.0 - (1.0 - flee) * (1.0 - float(LEAD["flee"]))
+        p_take = float(np.clip(float(HUNT["take_k"]) * best["skill"] * wpn * (1 - flee) * (1 + 0.25 * (n_out - 1)) * fam(best, k), 0, 0.95))
         if rng.random() >= p_take:
             if armed and tk.get("danger") and rng.random() < 0.3:          # hit but not down: a wounded beast lying up
                 here.apply("set_wild", path=["state", "wounded", f"{k}@{i}"], value=here.day)
-                lines.append(found + "; you hit it, but it broke away into the thicket, bleeding")
+                ev.append((tau, found + "; {subj} hit it, but it broke away into the thicket, bleeding", best["name"], False))
             else:
-                lines.append(found + ", but it got away")
+                ev.append((tau, found + ", but it got away", best["name"], False))
             continue
-        took_any = True
         pressure[k][i] = round(pressure[k][i] + float(HUNTED["kill"]) * min(1.0, ground[i] / float(m.km2[i])), 4)   # on the ground hunted
         pop = pops.setdefault(k, [float(v) for v in st["pop"][k]])
+        wary[k][i] = round(wary[k][i] + float(WARY["take"]) / max(1.0, pop[i] * float(m.km2[i])), 4)   # the share of them taken
         pop[i] = max(0.0, pop[i] - 1.0 / float(m.km2[i]))                  # one head off its area's count
         lit = tk.get("litter")                                             # young taken with it (cubs at the earth in spring): the kind's
         home_need = (TECHNIQUES[tech].get("needs") or {}).get("home")       # own row, by a method that works its home (D2-204)
         if lit and home_need and lit.get("home") in (home_need if isinstance(home_need, list) else [home_need]) \
                 and cond(w, here.node, lit.get("if"), k, m, st, ring_i):
             pop[i] = max(0.0, pop[i] - float(lit["n"]) / float(m.km2[i]))
-        MT.raise_familiar(here, mind, k, MT.FAMILIAR["take"], tech)          # taking it teaches one the kind (§5)
+        MT.raise_familiar(best["here"], best["mind"], k, MT.FAMILIAR["take"], tech)   # the one whose shot took it learns the kind (§5)
         gid = f"{k}@{here.node}"
         g = (w.s["wild"].get("groups") or {}).get(gid)
         if legend:
-            here.apply("set_wild", path=["legends", k], value=dict(lg, alive=False, died=here.day, by=here.name))
-            here.event("hunt", f"{here.name} killed {legend['name']}", salience=0.9, tags=["hunting", "danger"])
+            here.apply("set_wild", path=["legends", k], value=dict(lg, alive=False, died=here.day, by=best["name"]))
+            here.event("hunt", f"{best['name']} killed {legend['name']}", salience=0.9, tags=["hunting", "danger"])
             extra += f" It was {legend['name']} the old ones tell of."
         if g:                                                               # its group is one fewer, and wary of the village
             np_ = _near(k) or {}
@@ -1936,43 +1991,98 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
                 g2["leader"] = dict(g["leader"], alive=False, died=here.day)  # the leader herself: the group scatters
                 extra += f" It was {ld['name']} that led them."
             here.apply("set_wild", path=["groups", gid], value=g2)
-        got = {}
-        for item, q in sorted((tk.get("goods") or {}).items()):              # carried home as far as one can carry (§2.4)
+        got = {}                                                            # dressed where it fell; shared across the hands out (4b §3.1)
+        meat_here = 0.0
+        for item, q in sorted((tk.get("goods") or {}).items()):
             wt = float((ITEMS.get(item) or {}).get("weight", 1)) or 1.0
-            room = max(0.0, cap - load) / wt
-            keep = round(min(float(q), room), 2)
-            if keep > 1e-9:
-                here.apply("create", dst=out, item=item, qty=keep, why=tech)
-                got[item] = keep
-                load += keep * wt
-                food += keep if item == "meat" else 0.0
-            if float(q) - keep > 1e-9:
-                left[item] = round(left.get(item, 0.0) + float(q) - keep, 2)
+            need = float(q)
+            order = sorted(here_out, key=lambda mb: (mb["name"] != best["name"], mb["name"]))
+            rooms = {mb["name"]: max(0.0, mb["cap"] - load[mb["name"]]) / wt for mb in order}
+            space = sum(rooms.values())
+            given = 0.0
+            for j, mb in enumerate(order):                                  # by each one's room; the last takes what is over
+                fair = need * rooms[mb["name"]] / space if space > 1e-12 else 0.0
+                share = round(min(rooms[mb["name"]], fair if j < len(order) - 1 else min(need, space) - given), 2)
+                given += share
+                if share > 1e-9:
+                    mb["here"].apply("create", dst=mb["out"], item=item, qty=share, why=tech)
+                    held[mb["name"]][item] = round(held[mb["name"]].get(item, 0.0) + share, 2)
+                    load[mb["name"]] += share * wt
+                    food[mb["name"]] += share if item == "meat" else 0.0
+                    got[item] = round(got.get(item, 0.0) + share, 2)
+            if need - got.get(item, 0.0) > 1e-9:
+                left[item] = round(left.get(item, 0.0) + need - got.get(item, 0.0), 2)
                 left_kind = k
-        lines.append(found + " and took it: " + (", ".join(f"{q:g} {it}" for it, q in sorted(got.items())) or "nothing you could carry"))
-        if rng_word == "near" and key in here.parcels():                    # gutted where it fell: the kill's signs (signs.HUNTED)
+            if item == "meat":
+                meat_here = need
+        if meat_here > 0:                                                   # the offal is left where it was gutted (§3.4)
+            left["offal"] = round(left.get("offal", 0.0) + meat_here * float(THINGS["carcass_offal"]), 2)
+            left_kind = left_kind or k
+        ev.append((tau, found + " and took it: " + (", ".join(f"{q:g} {it}" for it, q in sorted(got.items())) or "nothing that could be carried"),
+                   best["name"], False))
+        if rng_word == "near" and key in here.parcels():                    # the kill's signs (signs.HUNTED)
             rec = here.parcels()[key].get("hunted") or {}
             kills = list(rec.get("kills") or []) if rec.get("day") == here.day else []
-            kills.append({"by": here.name, "meat": got.get("meat", 0.0), "hide": "hide" in got, "kind": k})
+            kills.append({"by": best["name"], "meat": got.get("meat", 0.0), "hide": "hide" in got, "kind": k})
             here.apply("set", ref=("parcel", key), field="hunted", value={"day": here.day, "kills": kills})
-        if load >= cap - 1e-9:
-            break
     for k, pop in sorted(pops.items()):
         here.apply("set_wild", path=["state", "pop", k], value=pop)
-    _put_pressure(here, pressure)
-    if left:                                                                # what could not be carried is cut and left (§2.4)
-        meat = float(left.get("meat", 0.0))
-        if rng_word == "near" and key in here.parcels() and meat > 0:
-            cid = here.apply("new_thing", node=here.node, parcel=key, kind="carcass", beast=left_kind, of=f"what was left of {_a(left_kind)}",
-                             holders=[], cause="killed", died=here.day, by=here.name, mass0=round(meat, 2))
-            here.apply("create", dst=cid, item="meat", qty=round(meat, 2), why="left by the hunter")
-        elif meat > 0:
+    _put_pressure(here, pressure, wary)
+    flesh_left = float(left.get("meat", 0.0))
+    if left and (flesh_left > 0 or left.get("offal")):                     # what could not be carried is cut and left (§2.4)
+        if rng_word == "near" and key in here.parcels():
+            if flesh_left > 0:
+                cid = here.apply("new_thing", node=here.node, parcel=key, kind="carcass", beast=left_kind, of=f"what was left of {_a(left_kind)}",
+                                 holders=[], cause="killed", died=here.day, by=here.name, mass0=round(flesh_left + left.get("offal", 0.0), 2))
+                here.apply("create", dst=cid, item="meat", qty=round(flesh_left, 2), why="left by the hunter")
+                if left.get("offal"):
+                    here.apply("create", dst=cid, item="offal", qty=round(left["offal"], 2), why="left by the hunter")
+        else:
             far_i = max(areas, key=lambda j: ground[j])
             pool = [float(v) for v in st["carrion"]]
-            pool[far_i] = round(pool[far_i] + meat * float(THINGS["carcass_kg"]) / float(m.km2[far_i]), 2)
+            pool[far_i] = round(pool[far_i] + (flesh_left + float(left.get("offal", 0.0))) * float(THINGS["carcass_kg"]) / float(m.km2[far_i]), 2)
             here.apply("set_wild", path=["state", "carrion"], value=pool)
-        lines[-1] += f"; you could carry no more, and left {meat:g} meat" if meat > 0 else ""
-    return food, f"Hunting {where}, " + "; ".join(lines) + "." + extra, tail
+    return _hunt_lines(members, ts, ev, held, flesh_left, where, looked, food, tails, extra, dead, hurt)
+
+
+def _hunt_lines(members, ts, ev, held, flesh_left, where, looked, food, tails, extra, dead, hurt) -> dict:
+    """Each member's account of the hunt (brief 4b §3.1): the events in order up to when they turned back (those who stayed learn all
+    of it), worded from where they stood; who turned back and when; and what each carried home."""
+    solo = len(members) == 1
+    others = lambda me: [mb["name"] for mb in members if mb["name"] != me]
+    lines = {}
+    for mb, t_ in zip(members, ts):
+        me = mb["name"]
+        story = []
+        marks = sorted([(t2, "turn", mb2["name"]) for mb2, t2 in zip(members, ts) if t2 < max(ts) - 1e-9] +
+                       [(tau, "ev", (txt, who, ends)) for tau, txt, who, ends in ev])
+        for tau, kind, x in marks:
+            if tau > t_ + 1e-9:
+                break
+            if kind == "turn":
+                story.append("you turned back for home, your day spent" if x == me else f"{x} turned back for home")
+                if x == me:
+                    break
+                continue
+            txt, who, ends = x
+            story.append(txt.format(subj="you" if who == me else who, was="were" if who == me else "was"))
+            if who == me and ends:                                          # hurt or killed: the hunt ended there for them
+                break
+        if not ev and solo:
+            lines[me] = f"You hunted {where}{looked} and came on nothing."
+            continue
+        if not story:
+            story = ["nothing was met"]
+        story = [s if j == 0 else "then " + (s.removeprefix("you ") if solo else s) for j, s in enumerate(story)]
+        party = "" if solo else " with " + ", ".join(others(me))
+        carried = held[me]
+        tail_ = ""
+        if not solo:
+            tail_ = "; you carried home " + (", ".join(f"{q:g} {it}" for it, q in sorted(carried.items())) or "nothing")
+        if flesh_left > 0 and (me not in dead) and (t_ >= max(ts) - 1e-9 or solo):
+            tail_ += f"; {'you' if solo else 'the party'} could carry no more, and left {flesh_left:g} meat"
+        lines[me] = f"Hunting {where}{party}{looked if not solo else ''}, " + "; ".join(story) + tail_ + "." + extra
+    return {"food": food, "lines": lines, "tails": tails}
 
 
 NOTICE_MOST = 2
@@ -2044,12 +2154,13 @@ def _notices(here, mind, m, st, areas, key, effort) -> list:
     return got
 
 
-def _put_pressure(here, pressure) -> None:
+def _put_pressure(here, pressure, wary=None) -> None:
     w = here._w
-    old = (w.s["wild"]["state"].get("pressure") or {})
-    for k, v in sorted(pressure.items()):
-        if v != old.get(k):
-            here.apply("set_wild", path=["state", "pressure", k], value=v)
+    for name, tbl in (("pressure", pressure), ("wary", wary or {})):
+        old = (w.s["wild"]["state"].get(name) or {})
+        for k, v in sorted(tbl.items()):
+            if v != old.get(k):
+                here.apply("set_wild", path=["state", name, k], value=v)
 
 
 def _a(kind) -> str:

@@ -547,9 +547,18 @@ def _technique(here, mind, a, party, verb):
         raise Refused(f"{a.get('what')!r} is not something you {verb} ({verb}: {', '.join(names)})")
     tech, a = _as_modified(tech, verb, a)
     t = TECHNIQUES[tech]
-    if not t.get("crew"):                                                     # crew work: anyone may dig, led by one who knows how
-        _level(mind, tech)
+    from cybertron2.engine import parties as HP
+    lead = HP.member_of(here) if a.get("_party") and (t.get("yield") or {}).get("kind") == "wild_take" else None
+    if not t.get("crew") and not (lead and lead != here.name):              # crew work: anyone may dig, led by one who knows how;
+        _level(mind, tech)                                                  # a hunting party, led by its leader (brief 4b §3.1)
     a = {**a, "_mods": MOD.resolve(here, mind, verb, a, tech=tech)}           # ways of doing it (D2-93)
+    if a["_mods"].get("lead") and (t.get("yield") or {}).get("kind") == "wild_take":   # a beast led to carry the kill (brief 4b §3.2)
+        ox = here.pack_ox(a.get("lead"))
+        if ox is None:
+            raise Refused("to lead a pack ox on the hunt you need an ox here and a harness in your hands")
+        a["_mods"] = {**a["_mods"], "_ox": ox}
+    if t.get("crew") and (t.get("yield") or {}).get("kind") == "wild_take" and not lead:
+        raise Refused(f"{KN.label(tech)} needs others with you: hunt with someone (\"with\": who leads), or have others hunt with you")
     kind, key, place_name = _site(here, mind, tech, a.get("at"), a)
     if kind in ("parcel", "thing"):                                           # a bear lying up by its kill there (brief 3 §3)
         from cybertron2.engine import wild as WL
@@ -642,6 +651,9 @@ def _technique(here, mind, a, party, verb):
     elif y["kind"] == "wild_take" and t.get("set"):                           # set and left: it catches by night (brief 2 §4)
         from cybertron2.engine import wild as WL
         word = WL.set_work(here, mind, tech, key, place_name)
+        gives = None
+    elif y["kind"] == "wild_take" and lead:                                  # a party's hunt: settled after the day's acts (4b §3.1)
+        word = HP.record(here, mind, tech, key, place_name, out, m, a)
         gives = None
     elif y["kind"] == "wild_take":                                           # a hunt in the wild layer (wild_layer.md, D2-199)
         from cybertron2.engine import wild as WL
