@@ -585,7 +585,8 @@ KNOWN_SOMEWHERE = {"method: dibble": ["sow", "seed", "reap", "plough", "hoe", "f
 LEVELS = ("aware", "rough", "capable", "known")
 TRY = {"rough": {"inputs": 1.7, "chance": 0.5}, "capable": {"inputs": 1.3, "chance": 0.75}, "known": {"inputs": 1.0, "chance": 1.0}}
 SKILL_WORDS = ((0.85, "master"), (0.5, "skilled"), (0.2, "competent"), (0.0, "novice"))   # by the share of the way to a master
-SKILL = {"trade": [0.5, 2.0], "basic": [1.0, 1.5], "tau": 50.0}     # D2-52 (02n §4): skill by practice, units of work; calibrate
+SKILL = {"trade": [0.5, 2.0], "basic": [1.0, 1.5], "tau": 50.0,     # D2-52 (02n §4): skill by practice, units of work; calibrate
+         "hard": [0.4, 3.0], "tau_hard": 150.0}                       # the hunt: a high ceiling, slow to reach (brief 4 §2.6)
 
 PHYSICS = {
     "units": {"summer": 7, "autumn": 6, "winter": 5, "spring": 6},      # agents/work.md (calibrate)

@@ -39,19 +39,26 @@ def resolve(x, verb=None):
 
 # ---------------------------------------------------------------------- skill by practice (D2-52; 02n §4: calibrate)
 def curve(tech):
+    if (TECHNIQUES.get(tech) or {}).get("curve") == "hard":                    # the hunt's own curve (brief 4 §2.6)
+        lo, hi = SKILL["hard"]
+        return float(lo), float(hi)
     lo, hi = SKILL["basic" if basic(tech) else "trade"]
     return float(lo), float(hi)
 
 
+def tau(tech) -> float:
+    return float(SKILL["tau_hard"] if (TECHNIQUES.get(tech) or {}).get("curve") == "hard" else SKILL["tau"])
+
+
 def skill_of_practice(tech, p) -> float:
     lo, hi = curve(tech)
-    return round(lo + (hi - lo) * (1 - math.exp(-max(0.0, p) / float(SKILL["tau"]))), 4)
+    return round(lo + (hi - lo) * (1 - math.exp(-max(0.0, p) / tau(tech))), 4)
 
 
 def practice_of_skill(tech, sk) -> float:
     lo, hi = curve(tech)
     share = min(0.999, max(0.0, (sk - lo) / (hi - lo)))
-    return -float(SKILL["tau"]) * math.log(1 - share)
+    return -tau(tech) * math.log(1 - share)
 
 
 # ---------------------------------------------------------------------- the store (engine side: seeding and the learn primitive)

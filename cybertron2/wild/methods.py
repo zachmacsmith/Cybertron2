@@ -81,9 +81,17 @@ METHODS = {
         3, "dig out a beast's den, or trap at a lodge, where you know one to be", untaught=False),
 }
 METHODS["den work"]["yield"]["kind"] = "wild_den"
-SETS = {"snare": {"life": 4, "base": 0.5}, "trap in water": {"life": 8, "base": 0.5}}     # nights it lasts; its chance against a hunter's
+# nights a set lasts; its chance against a hunter's; how many sets one act lays (a snare line, brief 4 §2.10); what one set holds
+SETS = {"snare": {"life": 4, "base": 0.5, "line": 5, "holds": 1}, "trap in water": {"life": 8, "base": 0.5, "line": 1, "holds": 6}}
 for _k, _v in SETS.items():
     METHODS[_k]["set"] = dict(_v)
+# the take as a search over time (brief 4 §2.2, §2.6; calibrate): km2 searched a unit of the method's own work, and the hunt's
+# hard curve of skill; methods with no sweep search at SWEEP_DEFAULT
+SWEEP = {"stalk": 0.4, "hunt the wild": 1.0, "drive": 2.0, "net": 0.3, "den work": 0.2}
+for _k, _v in SWEEP.items():
+    METHODS[_k]["sweep"] = _v
+for _k in ("stalk", "hunt the wild", "drive"):
+    METHODS[_k]["curve"] = "hard"
 METHODS["snare"]["note"] = "set a line of nooses where small beasts run; it catches by night for a few nights, and the catch is whoever's finds it"
 METHODS["trap in water"]["note"] = "set wicker traps in the water at dusk; they fish by night for some nights, best when things run, and lifting them is whoever's finds them"                      # at a den, a take; at a lodge, the site's trap (wild.den_work)
 

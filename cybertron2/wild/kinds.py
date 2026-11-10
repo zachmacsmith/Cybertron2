@@ -255,6 +255,7 @@ WHEN = {
          "targets": [{"what": "items", "items": DRY, "door": True, "share": 0.004, "attr": 0.7, "sign": "stores", "seasons": AUT_WIN},
                      {"what": "crop", "seasons": AUT_WIN, "attr": 0.8, "trample": 0.01}]},
         {"if": {"mast": ["heavy"], "seasons": {2: (0, 7)}}, "drive": 0.3},
+        {"name": "tracked in snow", "if": {"snow": True}, "detect": 1.5},                  # found by their tracks (brief 4 §2.7)
         {"if": {"pressure": 0.5}, "drive": 0.3},
         {"name": "rut", "if": {"seasons": {2: (5, 7), 3: (0, 3)}}, "danger": 1.5,
          "rows": [R("knows", "sound", 0.6, (0, 0), "boars come in to the sounders now, fighting in the wood: dangerous to meet")]},
@@ -278,6 +279,8 @@ WHEN = {
         {"name": "rut", "if": {"seasons": {2: (0, 5)}}, "bold": 0.4, "detect": 1.5, "danger": 1.3,
          "rows": [R("all", "sound", 1.5, (0, 0), "stags roaring in the woods at dusk and through the night"),
                   R("knows", "sound", 0.8, (0, 0), "the rut is on: the stags are bold and careless, easier to come on, and a stag at bay is dangerous")]},
+        {"name": "tracked in snow", "if": {"snow": True}, "detect": 1.5},                  # brief 4 §2.7 (calibrate)
+        {"name": "summer leaf", "if": {"seasons": {1: (0, 7)}}, "detect": 0.8},             # lost in the full leaf
         {"name": "calving", "if": {"seasons": {1: (0, 3)}},
          "rows": [R("knows", "sight", 0.5, (0, 0), "hinds with new calves in the clearings")]},
         {"name": "antlers cast", "if": {"seasons": {0: (0, 3)}},
@@ -285,6 +288,8 @@ WHEN = {
     ],
     "roe deer": [
         {"if": {"pressure": 0.4}, "drive": 0.2},
+        {"name": "tracked in snow", "if": {"snow": True}, "detect": 1.5},                  # brief 4 §2.7 (calibrate)
+        {"name": "summer leaf", "if": {"seasons": {1: (0, 7)}}, "detect": 0.8},
         {"name": "rut", "if": {"seasons": {1: (3, 7)}},
          "rows": [R("all", "sound", 0.8, (0, 0), "a roe barking hoarsely in the dusk"),
                   R("knows", "sight", 0.6, (0, 0), "roe rings trodden round the bushes in the meadow: the roe rut in summer, not autumn")]},
@@ -396,6 +401,12 @@ PHASES = {"voles and mice": {"order": ["low", "increase", "peak", "crash"],
 FOLLOW_HARVEST = {"rats": 1.0, "voles and mice": 0.5}
 # hunted kinds leaving a hunted area (a share a day for each unit of pressure); pressure added by a hunt, a kill, a crew; its fading
 HUNTED = {"flee": {"red deer": 0.3, "roe deer": 0.2, "wild boar": 0.15}, "hunt": 0.25, "kill": 0.3, "crew": 0.5, "fade": 0.75}
+# the take as a search over time (brief 4 §2, calibrate): meetings a trip ~ Poisson(sum of density x detect x ... x ground x `meet`),
+# at most `most`; a kill at `take_k` x skill x weapon x (1 - flee) x familiarity; the areas crossed on the way searched at `cross`;
+# a method with no sweep of its own searches `sweep` km2 a unit; deer and boar keep off a village's own land (`home_shy`); game in
+# the wild land, never hunted, is easier to come on (`wild_tame`)
+HUNT = {"meet": 0.045, "wild_tame": 8.0, "take_k": 0.19, "cross": 0.2, "sweep": 0.5, "most": 8, "set_meet": 0.03,   # a set's night: Poisson, as before at low
+        "home_shy": {"red deer": 0.3, "roe deer": 0.3, "wild boar": 0.3}}
 
 # ---------------------------------------------------------------------- wave 5: sites, individuals, rare regimes (wild_layer.md §6 phase 9)
 # Sites (wild_systems.md §5, colony and engineer): held on a parcel for generations, placed at world build where the land suits
@@ -558,27 +569,27 @@ RAVENS_OVER = {"min_carrion": 20.0, "lay": "ravens wheeling over the wood", "kno
 # by; goods, what a kill gives (engine food for meat: real content x Y/365, node_ecology.md).
 TAKEN = {
     "red deer":   {"family": ["deer", "red deer", "stag", "hind", "venison", "big game", "game"], "detect": 0.35, "flee": 0.55,
-                   "goods": {"meat": 3.9, "hide": 1},
+                   "goods": {"meat": 20.0, "hide": 1},           # on the cow's scale, about 3 kg a meat (brief 4 §2.5)
                    "calibrate": {"drive": 0.15}},   # a drive is made for the sounder: deer break back through the beaters (D2-204 §4)
-    "roe deer":   {"family": ["deer", "roe", "roe deer", "venison", "game"], "detect": 0.3, "flee": 0.5, "goods": {"meat": 1.1, "hide": 1},
+    "roe deer":   {"family": ["deer", "roe", "roe deer", "venison", "game"], "detect": 0.3, "flee": 0.5, "goods": {"meat": 4.5, "hide": 1},
                    "calibrate": {"snare": 0.03}},   # a hare's noose seldom holds a roe (D2-204 §4)
     "wild boar":  {"family": ["boar", "wild boar", "pig", "swine", "sounder", "big game", "game"], "detect": 0.3, "flee": 0.35,
-                   "danger": {"wound": 0.3, "kill": 0.03}, "goods": {"meat": 3.5, "hide": 1},
+                   "danger": {"wound": 0.3, "kill": 0.03}, "goods": {"meat": 15.0, "hide": 1},
                    "calibrate": {"stalk": 0.12}},   # a sounder in the thicket is not stalked as a deer is (D2-204 §4)
-    "brown hare": {"family": ["hare", "hares", "small game", "game"], "detect": 0.5, "flee": 0.5, "goods": {"meat": 0.18}},
-    "woodpigeon": {"family": ["pigeon", "pigeons", "birds", "small game"], "detect": 0.4, "flee": 0.75, "goods": {"meat": 0.05},
+    "brown hare": {"family": ["hare", "hares", "small game", "game"], "detect": 0.5, "flee": 0.5, "goods": {"meat": 0.7}},
+    "woodpigeon": {"family": ["pigeon", "pigeons", "birds", "small game"], "detect": 0.4, "flee": 0.75, "goods": {"meat": 0.1},
                    "calibrate": {"net": 0.1}},      # pigeons seldom come down to the fowler's nets and decoys (D2-204 §4)
-    "wildfowl":   {"family": ["fowl", "duck", "ducks", "geese", "birds", "wildfowl"], "detect": 0.5, "flee": 0.6, "goods": {"meat": 0.2},
+    "wildfowl":   {"family": ["fowl", "duck", "ducks", "geese", "birds", "wildfowl"], "detect": 0.5, "flee": 0.6, "goods": {"meat": 0.3},
                    "calibrate": {"trap in water": 0.1}},   # a duck drowned in an eel trap now and then, no more (D2-204 §4)
     "stoat":      {"family": ["stoat", "stoats", "weasel", "ermine", "vermin"], "detect": 0.1, "flee": 0.7, "goods": {"hide": 1}},
     "fox":        {"family": ["fox", "foxes", "vermin"], "detect": 0.15, "flee": 0.6, "goods": {"hide": 1},
                    "litter": {"home": "den", "if": {"seasons": {0: (0, 7)}}, "n": 3}},       # cubs at the earth in spring (D2-204: on the kind)
     # D2-204 (brief 1): an eel trap took eels that gave nothing (no row); a night's lift is several eels (calibrate)
-    "eel":        {"family": ["eel", "eels", "fish"], "detect": 0.4, "flee": 0.3, "goods": {"meat": 0.1}},
+    "eel":        {"family": ["eel", "eels", "fish"], "detect": 0.4, "flee": 0.3, "goods": {"meat": 0.2}},
     "wolf":       {"family": ["wolf", "wolves", "big game"], "detect": 0.12, "flee": 0.5, "danger": {"wound": 0.25, "kill": 0.04},
                    "goods": {"hide": 1}},
     "brown bear": {"family": ["bear", "big game"], "detect": 0.1, "flee": 0.3, "danger": {"wound": 0.5, "kill": 0.12},
-                   "goods": {"meat": 6.0, "hide": 2}},
+                   "goods": {"meat": 40.0, "hide": 2}},
 }
 
 
