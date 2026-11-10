@@ -1,6 +1,6 @@
 # The hunt over time, and what briefs 1 to 3 left: build brief 4
 
-**Status:** built and gated (10 Nov) by 37.4 on `ecology-calibrate` (`58bb2d3`, 521 tests; older worlds replay exactly; W-27; 02zx, brief 4). Not merged: waits on Zach. Its open questions took the brief's defaults (OPEN Q-39). No DECISIONS row yet: for Zach to confirm.
+**Status:** built and gated (10 Nov) by 37.4 on `ecology-calibrate` (`58bb2d3`, 521 tests; older worlds replay exactly; W-27; 02zx, brief 4; its gate in OPEN Q-40). Not merged: waits on Zach. Its open questions took the brief's defaults (OPEN Q-39). No DECISIONS row yet: for Zach to confirm.
 - the hunt's calibration measured in 02zzd;
 - the fixes the gates of briefs 2 and 3 found (OPEN Q-37, Q-38);
 - preservation at the new scale of meat.
