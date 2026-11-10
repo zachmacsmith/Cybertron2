@@ -1,6 +1,6 @@
 # The hunt over time, and what briefs 1 to 3 left: build brief 4
 
-**Status:** draft (10 Nov), for Zach's go. **Build brief 4** for the wild layer. It covers:
+**Status:** being built (10 Nov) by 37.4 on `ecology-calibrate` (WORK W-27), on Zach's go ("Build the new brief", relayed by 37.4); its open questions take the brief's defaults until Zach says otherwise. No DECISIONS row yet: for Zach to confirm. **Build brief 4** for the wild layer. It covers:
 - the hunt's calibration measured in 02zzd;
 - the fixes the gates of briefs 2 and 3 found (OPEN Q-37, Q-38);
 - preservation at the new scale of meat.
@@ -292,6 +292,8 @@ Also, for stage A:
 - 10 Nov 2026: Zach: keep stage A; defer forays as their own track; first build the other wildlife that needs no forays. Rewritten
   as brief 4: stage A as written; stage B forays removed; stages B to D added (shelter, the gates' fixes, preservation); the next
   briefs proposed (§8). Renamed hunt_and_fixes.md.
+
+- 10 Nov 2026: Zach's go relayed by 37.4 ("Build the new brief"); 37.4 building it on `ecology-calibrate` (W-27). The four open questions take the brief's defaults: the meat scale as §2.5, the far novice about 0.5, shelter_damage.md and cats.md accepted as far as stages B and C use them, the rack as §5.1.
 
 ## Sources
 

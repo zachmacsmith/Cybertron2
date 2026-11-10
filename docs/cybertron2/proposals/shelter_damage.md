@@ -153,6 +153,8 @@ Its gaps are large in every state: walls never keep anything out at a camp.
 
 - 10 Nov 2026: taken into build brief 4 (hunt_and_fixes.md, stage B); Zach's go on the brief accepts it as far as written there.
 
+- 10 Nov 2026: being built in brief 4 by 37.4 (W-27), on Zach's go as relayed by 37.4; to be confirmed as a decision by Zach.
+
 ## Sources
 proposals/building_risks.md, camps in spec/economy/lodging.md (D2-68, D4-49, D4-84, D4-92), buildings.md (D2-168); docs/review/37_growth/02zx
 (brief 2's gate); branch `ecology-raiders` (`wild.GAPS`, `night.py` breaks); D2-21, D2-198, D4-109 to D4-111.

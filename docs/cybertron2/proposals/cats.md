@@ -50,5 +50,7 @@ seasons, more if fed.
 
 - 10 Nov 2026: taken into build brief 4 (hunt_and_fixes.md, stage C); Zach's go on the brief accepts it as far as written there.
 
+- 10 Nov 2026: being built in brief 4 by 37.4 (W-27), on Zach's go as relayed by 37.4; to be confirmed as a decision by Zach.
+
 ## Sources
 proposals/wild_raiders_and_works.md (§5, the cat); docs/review/37_growth/02zx (brief 2's gate); proposals/husbandry.md; D2-85, D2-206.
