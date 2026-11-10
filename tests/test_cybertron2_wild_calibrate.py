@@ -189,6 +189,10 @@ def test_cats_settle_at_a_lower_rate_and_likelier_where_fed():
 
 def test_a_group_fed_at_the_dead_remembers_the_herd_it_saw(generated):  # noqa: F811
     w, _ = _summer_world(generated, kind="wolf")
+    m = WL.model(w)
+    reach = WL._reach(m, w.s["wild"]["land"], "s1", "far")                     # a pack spread over its range, not crowded into the
+    w.s["wild"]["state"]["pop"]["wolf"] = [float(x) * (3.0 if i in reach else 1.0) if float(x) < 1.0 else 0.04   # ring, where the
+                                           for i, x in enumerate(w.s["wild"]["state"]["pop"]["wolf"])]          # step kills it off
     herds = [hid for hid, h in w.s["herds"].items() if h.get("node") == "s1" and h.get("parcel")]
     if not herds:
         return

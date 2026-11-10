@@ -193,6 +193,9 @@ def test_society_a_dead_cow_left_by_the_herd_draws_the_wolves_and_one_burned_doe
             w.s["day"] = 12 + k
             m = WL.model(w)
             w.s["wild"]["state"]["cond"]["wolf"] = [0.9] * m.n                     # not hungry: they come for the dead
+            reach = WL._reach(m, w.s["wild"]["land"], "s1", "far")                 # a pack spread over its range (brief 4b): crowded
+            w.s["wild"]["state"]["pop"]["wolf"] = [float(x) * (3.0 if i in reach else 1.0) if float(x) < 1.0 else 0.04   # into the
+                                                   for i, x in enumerate(w.s["wild"]["state"]["pop"]["wolf"])]   # ring, the step kills it
             herds = [h for h in w.s["herds"].values() if h.get("node") == "s1" and h.get("parcel")]
             if not herds:
                 return None
@@ -202,6 +205,7 @@ def test_society_a_dead_cow_left_by_the_herd_draws_the_wolves_and_one_burned_doe
                 for i in list(w.s["containers"][cid]["goods"]):
                     w.s["containers"][cid]["goods"][i] = 0.0
             for night in range(6):
+                w.s["wild"]["state"]["cond"]["wolf"] = [0.9] * m.n                 # held: a pack well fed, not hungry (the step fattens it)
                 rec = N.night(w)
                 w.s["day"] += 1
                 n += sum(1 for g, v in ((rec.get("wild") or {}).get("groups") or {}).items() if g.startswith("wolf") and v.get("ate", 0) > 0)

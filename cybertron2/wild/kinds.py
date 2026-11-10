@@ -415,7 +415,7 @@ HUNTED = {"flee": {"red deer": 0.18, "roe deer": 0.12, "wild boar": 0.09}, "hunt
 # kind (brief 4b §2.1)
 # a beast led on a hunt (brief 4b §3.2, calibrate): the game knows the party sooner (meetings x seen) and flees more readily
 LEAD = {"seen": 0.85, "flee": 0.15}
-HUNT = {"meet": 0.16, "take_k": 0.25, "cross": 0.2, "sweep": 0.5, "most": 8, "set_meet": 0.03}   # a set's night: Poisson, as before at low
+HUNT = {"meet": 0.21, "take_k": 0.25, "cross": 0.2, "sweep": 0.5, "most": 8, "set_meet": 0.03}   # a set's night: Poisson, as before at low
 
 # ---------------------------------------------------------------------- wave 5: sites, individuals, rare regimes (wild_layer.md §6 phase 9)
 # Sites (wild_systems.md §5, colony and engineer): held on a parcel for generations, placed at world build where the land suits
@@ -768,7 +768,7 @@ CARRION = {"half_life_days": 2.0,
 # by its half-life; a take adds `take` x the share of the kind taken there; a hunt adds `hunt` x the share of the area searched. It
 # divides how easily the kind is come on (1 + detect x wary), raises its flight (1 - (1 - flee)/(1 + flee x wary)), and dulls a
 # group's boldness at the fields (1 + raid x wary); what it does tops out: wary / (1 + wary / most)
-WARY = {"half_life_days": 32.0, "take": 30.0, "hunt": 0.5, "detect": 1.0, "flee": 0.15, "raid": 0.1, "most": 8.0}
+WARY = {"half_life_days": 32.0, "take": 30.0, "hunt": 0.5, "detect": 1.5, "flee": 0.15, "raid": 0.1, "most": 8.0}
 # people's reach (brief 4b §2.2, calibrate): each village's presence in an area falls off with the distance of the area's land from
 # it, exp(-d / km); d the distance between their middles and two-thirds of the area's radius, together; presences add, at most 1
 REACH = {"km": 2.5}
