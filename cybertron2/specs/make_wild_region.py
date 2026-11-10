@@ -50,8 +50,18 @@ def spec(seed: int) -> dict:
         "cast": {"head": "claude-opus-5-5", "middle": "claude-sonnet-5-5", "rest": "claude-haiku-5-5", "youth": "claude-haiku-5-5",
                  "sonnet_extra": 6},           # scenario_design: Opus at every head, a Sonnet middle tier, Haiku in the bulk
         "generate": {
-            "seed": seed, "configuration": "settled lowland and frontier", "settlements": 4,
-            "features": [{"kind": "ore", "name": "lode", "box": [0.7, 0.45, 0.98, 0.8]}],
+            "seed": seed, "configuration": "settled lowland and frontier", "settlements": 4, "wild_shore": True,
+            "features": [
+                {"kind": "ore", "name": "lode", "box": [0.7, 0.45, 0.98, 0.8]},              # copper in the east's hills only
+                # the south-west: a wild coast of saltmarsh and fen round a tidal inlet (the region's only salt)
+                {"kind": "coast", "name": "west_coast", "side": "west", "at": 0.08},
+                {"kind": "inlet", "name": "saltings", "from": [0.0, 0.18], "to": [0.2, 0.2], "width": 0.04, "tidal": True},
+                {"kind": "system", "name": "marsh", "system": "fen", "box": [0.06, 0.04, 0.32, 0.34]},
+                {"kind": "wild", "name": "southwest_marsh", "box": [0.0, 0.0, 0.34, 0.36]},
+                # the north-west: wild upland moor and fells (red deer, hill grazing, stone; no ore)
+                {"kind": "system", "name": "fells", "system": "upland", "box": [0.0, 0.7, 0.45, 1.0]},
+                {"kind": "massif", "name": "north_fells", "at": [0.2, 0.86], "r": 0.15, "height": 520},
+                {"kind": "wild", "name": "northwest_moor", "box": [0.0, 0.68, 0.46, 1.0]}],
             "places": copy.deepcopy(PLACES)}}
 
 
@@ -160,7 +170,7 @@ def main():
         print(seed, "made: people", len(world["agents"]), json.dumps(report["checks"].get("capacity, people as generated", {}).get("detail")),
               flush=True)
         os.makedirs(out, exist_ok=True)
-        W.write(world, cells, report, os.path.join(out, "wild_region.yaml"))
+        W.write(world, cells, report, os.path.join(out, "wild_region.yaml"), picture=os.path.join(out, "wild_region.png"))
         json.dump({"seed": seed, "capacity": capacity(world), "stores": report.get("stores_by_land"), "horizon": horizon(world),
                    "wild": wild_summary(world),
                    "checks": {k: v for k, v in report["checks"].items()}}, open(os.path.join(out, "wild_region.summary.json"), "w"),

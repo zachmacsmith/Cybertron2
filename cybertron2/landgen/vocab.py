@@ -30,7 +30,8 @@ DEFAULTS = {
     "field_km": 2.5,              # the farthest a settlement's worked land reaches (a few hours out and back is the maximum, D4-11)
     "wild_node_km2": 10.0,        # a wild area large enough for a node of its own (D2-181)
     "wild_node_hours": 4.0,       # ... and at least half a day from any settlement
-    "wild_nodes": 1,              # of each kind (deep forest; hills), unless pinned
+    "wild_nodes": None,           # at most this many of each kind; None: one for every separate large wild area (Zach, 10 Nov)
+    "wild_shore": False,          # a wild node on a saltmarsh shore too, where the land has one (its salt)
     "clay_n": 0.12,               # geology: noise above this, low and moist enough, is clay; below sand_n is sand; chalk where a
     "sand_n": -0.25,              # second, broader noise passes chalk_n on higher ground (stage 1 §3.4)
     "chalk_n": 0.35,

@@ -91,6 +91,12 @@ def _wild_parcels(L: Land, key: str, cells: list, kind: str) -> list:
                          eco="grassland"))
         ps.append(Parcel(f"{key}_1", "wild", "forest", cells[1:7], size=min(6, max(3, len(cells) - 1)), side="centre", height=2,
                          terrain=terr, soil="loam", wood_kind="old forest", eco=max(set(ecos), key=ecos.count), band=3))
+    elif kind == "shore":                                                 # a wild shore: the strand and the saltmarsh behind it (salt)
+        r, c = cells[0]
+        ps.append(Parcel(f"{key}_0", "wild", "meadow", cells[:1], size=1, side="east", height=1, terrain=P.TERRAIN_NAMES[int(L.terrain[r, c])],
+                         soil="loam", eco="grassland"))
+        ps.append(Parcel(f"{key}_1", "wild", "saltmarsh", cells[1:5], size=min(3, max(2, len(cells) - 1)), side="west", height=0,
+                         terrain="saltmarsh", soil="loam", eco="saltmarsh"))
     else:
         ps.append(Parcel(f"{key}_0", "wild", "rock", cells[:2], size=2, side="centre", height=3, terrain="hills", soil="loam"))
         ps.append(Parcel(f"{key}_1", "wild", "scrub", cells[2:4], size=2, side="south", height=2, terrain="hills", soil="loam",
@@ -101,27 +107,63 @@ def _wild_parcels(L: Land, key: str, cells: list, kind: str) -> list:
     return ps
 
 
+def _areas(mask: np.ndarray) -> list:
+    """The separate areas of a mask (8-neighbour), each a boolean array, in the order of their first cell (deterministic)."""
+    lab = np.zeros(mask.shape, dtype=np.int32)
+    out, ny, nx = [], mask.shape[0], mask.shape[1]
+    for start in np.flatnonzero(mask.ravel()):
+        if lab.flat[start]:
+            continue
+        k = len(out) + 1
+        lab.flat[start] = k
+        stack = [start]
+        while stack:
+            i = stack.pop()
+            r, c = divmod(int(i), nx)
+            for dr in (-1, 0, 1):
+                for dc in (-1, 0, 1):
+                    rr, cc = r + dr, c + dc
+                    if 0 <= rr < ny and 0 <= cc < nx and mask[rr, cc] and not lab[rr, cc]:
+                        lab[rr, cc] = k
+                        stack.append(rr * nx + cc)
+        out.append(lab == k)
+    return out
+
+
 def wild_nodes(L: Land, conf: dict, settlements: list, H: np.ndarray, dists: dict) -> list:
-    """Large wild areas (deep forest; hills) at least half a day from every settlement get a node at their most reachable cell,
-    at most two of each kind."""
+    """Every large wild area (deep forest; hill country; a saltmarsh shore where the world asks for one) at least half a day from
+    every settlement gets a node at its most reachable cell: one for each separate area of each kind, however many there are
+    (Zach, 10 Nov: no cap on the count). `wild_nodes`, if a world sets it, limits the count of each kind."""
     g = L.g
     near = np.minimum.reduce([d for d in dists.values()]) if dists else np.full(g.shape, np.inf)
     out = []
     taken = np.zeros(g.shape, dtype=bool)
+    shore = (L.eco == "saltmarsh") if getattr(L, "eco", None) is not None else np.zeros(g.shape, dtype=bool)
+    most = conf.get("wild_nodes")
     for kind, mask in (("forest", L.band == 3),                         # deep forest: the core of a large wood (ecology.depth)
-                       ("hills", np.isin(L.terrain, [P.TERRAIN_NAMES.index("hills"), P.TERRAIN_NAMES.index("upland pasture")]))):
-        big = F.box_mean(mask.astype(float), 10) > 0.6                     # the heart of a large area
-        if kind == "hills" and L.ore.any():                                # hill country is entered where its ore is
-            ore_near = F.box_mean(L.ore.astype(float), 6) > 0.02
-            big = big & ore_near if (big & ore_near).any() else big
-        cand = big & np.isfinite(near) & (near >= conf["wild_node_hours"]) & (near <= 2.2 * conf["road_day_hours"]) & ~taken
+                       ("hills", np.isin(L.terrain, [P.TERRAIN_NAMES.index("hills"), P.TERRAIN_NAMES.index("upland pasture")])),
+                       ("shore", shore)):                                # a wild saltmarsh shore, where the land has one (salt)
+        if kind == "shore" and not conf.get("wild_shore", False):
+            continue
+        dens = F.box_mean(mask.astype(float), 10)
+        big = dens > (0.15 if kind == "shore" else 0.6)                   # the heart of a large area (a marsh is a strip)
+        reach = np.isfinite(near) & (near >= conf["wild_node_hours"]) & (near <= 2.2 * conf["road_day_hours"])
         n = 0
-        while cand.any() and n < conf["wild_nodes"] and len(out) < conf["wild_nodes"] * 2:
+        for area_mask in _areas(big):
+            if most is not None and n >= int(most):
+                break
+            heart = area_mask
+            if kind == "hills" and L.ore.any():                            # hill country is entered where its ore is, if it has any
+                ore_near = heart & (F.box_mean(L.ore.astype(float), 6) > 0.02)
+                heart = ore_near if ore_near.any() else heart
+            cand = heart & reach & ~taken
+            if not cand.any():
+                continue
+            km2 = float(area_mask.sum()) * g.km ** 2
+            if km2 < conf["wild_node_km2"] * (0.05 if kind == "shore" else 0.3):
+                continue
             idx = np.argmin(np.where(cand, near, np.inf))
             r, c = divmod(int(idx), g.nx)
-            area = float(F.box_mean(mask.astype(float), 10)[r, c]) * (21 * g.km) ** 2
-            if area < conf["wild_node_km2"] * 0.3:
-                break
             key = f"w{len(out) + 1}"
             cells = [(r, c)] + [(r + dr, c + dc) for dr, dc in F.N8 if 0 <= r + dr < g.ny and 0 <= c + dc < g.nx][:7]
             s = Settlement(key, (r, c), {}, 0, 0, {}, kind="wild")
@@ -129,7 +171,6 @@ def wild_nodes(L: Land, conf: dict, settlements: list, H: np.ndarray, dists: dic
             s.facts = {"wild": kind, "seam": kind == "hills" and bool(L.ore[max(0, r - 6):r + 7, max(0, c - 6):c + 7].any())}
             out.append(s)
             taken |= np.hypot(g.x - g.x[r, c], g.y - g.y[r, c]) < 8.0
-            cand &= ~taken
             n += 1
     return out
 

@@ -1,5 +1,7 @@
 # 02zze: a wild region with dependence: four villages, one rich (design, generated, dry-run)
 
+![The region](02zze_wild_region.png)
+
 37.2, 10 Nov 2026 (WORK W-29). Zach (10 Nov): design a multi-village world testing the new wildlife across land and dependence;
 "make the carrying capacity of one of the villages much larger than the others, the overall carrying capacity should support the
 base number of models". Generated, not run live: a live run needs Zach's go, and should come after brief 4b.
@@ -12,10 +14,10 @@ capacity, stores, horizon and game. Generated here on brief 4's branch (`ecology
 
 | Village | Where | Households, people | Cast | Land | Role |
 |---|---|---|---|---|---|
-| **Corneby** | centre of the lowland (31, 22 km) | 3; 14 (2 youths, 2 elders, 3 small children) | 3 Opus | 8 fields, meadow, pasture, a wood, scrub; rich soil | the granary and the crossroads |
-| **Weirford** | west, on the river (13, 24 km) | 2; 8 | 2 Opus | 2 water, 2 wood, fen, 1 field, meadow, pasture | fish and the river; a little short |
-| **Holtham** | the frontier's woods, north-east (42, 9 km) | 2; 10 | 2 Opus | 3 wood, 2 pasture, 1 field, meadow | timber and game; short of food |
-| **Stanmoor** | the frontier hills, east (46, 32 km) | 2; 6 | 2 Opus | 3 rock, a seam of copper, 1 field, meadow, pasture, wood, scrub | the only stone and copper; far short of food |
+| **Corneby** | the lowland's east edge, at the woods (31, 22 km) | 3; 14 (2 youths, 2 elders, 3 small children) | 3 Opus | 8 fields, meadow, pasture, a wood, scrub; rich soil | the granary and the crossroads |
+| **Weirford** | north-west, on the river below the fells (15, 32 km) | 2; 8 | 2 Opus | 2 water, 2 wood, fen, 1 field, meadow, pasture | fish and the river; a little short |
+| **Holtham** | the frontier's woods, south-east (42, 9 km) | 2; 10 | 2 Opus | 3 wood, 2 pasture, 1 field, meadow | timber and game; short of food |
+| **Stanmoor** | the frontier hills, north-east (46, 32 km) | 2; 6 | 2 Opus | 3 rock, a seam of copper, 1 field, meadow, pasture, wood, scrub | the only stone and copper; far short of food |
 
 - **The cast:** 31 who act (26 adults, 2 youths, 3 elders): Opus at each of the 9 household heads, 6 Sonnet, 16 Haiku; 7 young
   children.
@@ -34,6 +36,30 @@ capacity, stores, horizon and game. Generated here on brief 4's branch (`ecology
 
 That gives two interlocking chokepoints, food and the crossroads at Corneby and metal at Stanmoor, rather than one
 (scenario_design §1).
+
+## Three wild frontiers (10 Nov, Zach: "another type or two of wild frontiers in different directions ... one that has some resources that the others don't have")
+
+| Frontier | Land | Its wild node | Only here |
+|---|---|---|---|
+| **East** (the configuration's own) | wildwood and the frontier hills | Hazelthorpe (deep wood: game, timber), next to Holtham | copper (Stanmoor's seam) |
+| **North-west fells** (new: an upland system, a massif of 520 m, a wild box) | moor and blanket bog above about 450 m, upland oak wood | Cragcombe (deep wood); Flintley (rock: stone) | red deer on the open hill; stone outside Stanmoor |
+| **South-west saltmarsh coast** (new: a west coast, a tidal inlet, a fen system, a wild box) | saltmarsh, fen, reedbed, dunes | Sedgehaven (saltmarsh) | **salt**, the region's only source, which brief 4's salt meat needs; wildfowl and eels |
+
+**Generator changes (37.2's landgen):**
+- A **shore** kind of wild node (a strand and its saltmarsh), made where a world asks for it (`wild_shore`).
+- **No cap on wild nodes** (Zach, 10 Nov: "I can't see why there should be any cap"). The old rule allowed one node of each kind
+  and two in all, a leftover from when there were two kinds.
+- The land is generated whole, and a node is placed on every separate large wild area of each kind, at its most reachable cell.
+  What remains are selection rules, not counts:
+  - large enough to be a wild place;
+  - half a day to about two days from any village;
+  - 8 km from another wild node.
+- `wild_nodes` stays as an optional limit for a world that wants one; `make_ladder.py`'s 0 still means none.
+- The generator's tests pass (30).
+- Worlds generated before keep their nodes; regenerating one now can give it more.
+
+Stone is no longer Stanmoor's alone: Flintley's rock in the fells gives it too, a day and more from Weirford with no one living
+there. Copper is Stanmoor's alone.
 
 ## Carrying capacity
 
