@@ -1,6 +1,6 @@
 # Forays: going out from the village and coming back
 
-**Status:** discussion (9 Nov). Zach's answers so far are in History; nothing is in the spec or DECISIONS.md yet. Design only.
+**Status:** deferred (10 Nov) as its own track (OPEN L-105). Zach's answers so far are in History; nothing is in the spec or DECISIONS.md yet. Design only.
 **Owner:** 37.2 (author). Acts, places, the parcel graph, memory and model calls are 37.4's (spec/agents/, spec/world/,
 spec/information/memory.md, spec/record/execution.md), so the built form goes to them through the board when Zach allows.
 **Affects:** spec/agents/actions.md (a new act), spec/world/places.md and parcel_graph.md (land beyond the village reachable by
@@ -173,8 +173,10 @@ The order of events is state; the words for the time of day are a presentation c
   out), with camps, moving out and new sites later (latent nodes with some choice in setting up a camp); hunting and gathering
   both in the first version; naming supported; it replaces 02zr's search inside one act. Written up (this file).
 
-- 10 Nov 2026: Zach on the route: not followed exactly but explored, "kinda like a Markov chain or probabilistic graph exploration with some imposed constraints about nodes to visit and actions to do there", the next step depending on (a) the person's tendencies (uphill, greener land, following only deer), (b) the signs seen at each step, (c) what the land makes easy or hard, (d) the animals met; signs along the way should show actual world state, so that hunting's skill ceiling is learning how the world works and planning a hunt, not raw chances; this needs land with real features at a fine grain. 37.2 proposed splitting brief 4 (hunt_and_forays.md): stage A as written, stage B redesigned as a route module over a land grid with animals placed on it (awaiting Zach).
+- 10 Nov 2026: Zach on the route: not followed exactly but explored, "kinda like a Markov chain or probabilistic graph exploration with some imposed constraints about nodes to visit and actions to do there", the next step depending on (a) the person's tendencies (uphill, greener land, following only deer), (b) the signs seen at each step, (c) what the land makes easy or hard, (d) the animals met; signs along the way should show actual world state, so that hunting's skill ceiling is learning how the world works and planning a hunt, not raw chances; this needs land with real features at a fine grain. 37.2 proposed splitting brief 4 (hunt_and_fixes.md): stage A as written, stage B redesigned as a route module over a land grid with animals placed on it (awaiting Zach).
 - 10 Nov 2026: Zach: the story can be partly templates, but a large part of it is the signs along the way, what was met, the outcomes (of a hunt and the rest), and why the person went where it went, with the paths it saw and did not take. **All forays return home for now** (no night out in the first version; replaces §6's night out for now).
+
+- 10 Nov 2026: Zach: forays deferred and split off as their own track; the other wildlife is built first (briefs 4 and 5: hunt_and_fixes.md, river_and_water.md). The route module is to be designed on the land the world now keeps (D2-208). OPEN L-105.
 
 ## Sources
 

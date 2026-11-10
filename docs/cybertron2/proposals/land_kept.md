@@ -83,4 +83,4 @@ a wood cleared cell by cell) has anything to stand on.
 
 ## Sources
 
-DECISIONS D2-208, D1-1, D1-3, D4-22; spec/world/generation.md; forays.md History (10 Nov); hunt_and_forays.md.
+DECISIONS D2-208, D1-1, D1-3, D4-22; spec/world/generation.md; forays.md History (10 Nov); hunt_and_fixes.md.

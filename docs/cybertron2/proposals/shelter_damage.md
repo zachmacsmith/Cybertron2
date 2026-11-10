@@ -151,6 +151,8 @@ Its gaps are large in every state: walls never keep anything out at a camp.
   camp's build cut to 1 timber and 1 unit, its wear raised (0.25 and 0.05 a calm night), its fixed life replaced by wear and
   mending; the break-even with a small wattle room set near a season. This changes D2-68 and D4-49's camp, for Zach to decide.
 
+- 10 Nov 2026: taken into build brief 4 (hunt_and_fixes.md, stage B); Zach's go on the brief accepts it as far as written there.
+
 ## Sources
 proposals/building_risks.md, camps in spec/economy/lodging.md (D2-68, D4-49, D4-84, D4-92), buildings.md (D2-168); docs/review/37_growth/02zx
 (brief 2's gate); branch `ecology-raiders` (`wild.GAPS`, `night.py` breaks); D2-21, D2-198, D4-109 to D4-111.

@@ -48,5 +48,7 @@ seasons, more if fed.
 ## History
 - 9 Nov 2026: written by 37.2 at Zach's request, answering OPEN Q-37 (d).
 
+- 10 Nov 2026: taken into build brief 4 (hunt_and_fixes.md, stage C); Zach's go on the brief accepts it as far as written there.
+
 ## Sources
 proposals/wild_raiders_and_works.md (§5, the cat); docs/review/37_growth/02zx (brief 2's gate); proposals/husbandry.md; D2-85, D2-206.

@@ -1,6 +1,6 @@
 # 02zzd: hunting, gathering and farming, food per unit of work, measured in generated worlds
 
-The calibration below is taken into build brief 4: docs/cybertron2/proposals/hunt_and_forays.md. The harness is in 02zzd_ev/.
+The calibration below is taken into build brief 4: docs/cybertron2/proposals/hunt_and_fixes.md. The harness is in 02zzd_ev/.
 
 37.2, 9 to 10 Nov 2026 (WORK W-22). Zach (9 Nov): "Generate some actual worlds from the generator and compare the desired expected
 values from hunting and farming across the various conditions and see what seems off and needs calibrating." Code measured: 37.4's
