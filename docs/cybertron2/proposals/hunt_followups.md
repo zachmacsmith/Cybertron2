@@ -20,8 +20,8 @@ Stage B (the hunt's code, the act's party, led beasts, caching) is 37.4's (§5).
 
 Brief 4 made the hunt a search over time, but its gate and 37.2's check show four gaps:
 - **Unhunted land is a label, not a history.** `wild_tame` (x8) and `home_shy` (x0.3) are factors applied by the area's kind.
-- **A hunted-out wood is full again within a year,** by deer walking in from next door. That is less than the wood's own yearly
-  swing.
+- **A hunted-out wood starts refilling the next night,** by deer walking in from next door, with no lag: 38% of the loss is back in
+  12 days.
 - **Rats, mice, voles and hares** swing threefold within a season, because all births fall on one day.
 - **A carcass cannot draw more animals in.**
 
@@ -67,13 +67,25 @@ Dry runs only.
    - The same take raises `wary`.
    - `busy`'s label table (home 1.0, ring 0.4, wild 0) gives way to the same distance rule.
    - At day 0 the land already shows the gradient: thinner and warier game near people, naive game far out.
-3. **Slow recovery.**
-   - Kinds that keep a home range (deer, boar, the wolf; a new `K` trait `fidelity`) no longer drift a share a day into emptier
-     land.
-   - Their movement is mostly the young dispersing once a year after the breeding season, a share by attraction.
-   - A daily trickle stays, only toward much better land.
-   - **Target:** a wood whose deer were halved makes back about half its loss in a year and most of it in about three years, with
-     no hunting. The natural yearly swing is unchanged.
+3. **Recovery with a lag, from the woods around.**
+   - Recovery should be neither instant nor longer than a run. A wood that is hunted with restraint, or left alone, refills from the
+     woods around it, but only after a lag.
+   - **Kinds that keep a home range** (deer, boar, the wolf; a new `K` trait `fidelity`) move toward emptier land by how empty it
+     has been over the last days, not by tonight's count. Their attraction reads a smoothed density with a time constant of about
+     4 to 6 days.
+     - In the first days after a cull, few come in.
+     - Over the next season or two they drift in.
+     - The young dispersing after the breeding season add a pulse.
+   - **Where the woods around are thin** or cut off (no linked forest, or linked only across open ground), recovery is by the wood's
+     own births and is slower.
+   - **Targets** (`recover.py`), for a wood with its deer halved and then left alone:
+     - very little recovery in the first 3 or 4 days;
+     - about half the loss back in one to two seasons (8 to 16 days);
+     - most of it back within about a year (32 days);
+     - a wood with no forest around it is clearly slower;
+     - the natural yearly swing is unchanged.
+   - Under steady hunting the wood settles at a lower level that its births and inflow can sustain. Under heavy hunting it stays
+     low while the hunting lasts.
 4. **Births through the season for fast breeders.**
    - Kinds with several litters a year (rats, mice, voles, hares, rabbits) give birth a share each day of their breeding seasons,
      in place of all on the first day.
@@ -131,7 +143,8 @@ Dry runs only.
 ## 6. Tests (the gate)
 
 **Stage A:**
-- `recover.py`: a halved wood recovers about half its loss in a year and most of it in three years, against the control's swing.
+- `recover.py`: for a halved wood, little back in 3 or 4 days, about half in 8 to 16 days, and most within 32, against the control's swing. A wood with no forest around it is slower.
+- Hunting daily for 8 days, then stopping: the wood refills on the same lag. Hunting every other day: it settles at a lower level.
 - At day 0, deer near a village are thinner and warier than in land a day's walk out, in every one of the four test worlds.
 - Daily hunting raises `wary`, and it fades over about a year after hunting stops.
 - `rat_check2.py`: rats swing less than 1.5 times within a season, and foxes and deer keep their yearly birth burst.
@@ -184,6 +197,8 @@ Dry runs only.
 ## History
 
 - 10 Nov 2026: written by 37.2 from 02zzd's addendum and Zach's answers on the label, recovery and carrying.
+
+- 10 Nov 2026: Zach: recovery not too slow ("Shouldn't last a full run. Just not too fast. A reasonable amount of restraint should make it be repopulated, if there are surrounding forests for them to drift in from, but with lag"). §2.3 rewritten: inflow by a smoothed density (a lag of days), half back in one to two seasons and most within a year, slower without forest around, a lower steady level under steady hunting; the three-year target dropped.
 
 ## Sources
 
