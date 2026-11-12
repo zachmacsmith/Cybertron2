@@ -1,0 +1,730 @@
+run,day,by,by_hh,to,to_hh,item,qty,cross,model
+e1_fish_dry,3,Maud,Reeve,Roger,Reeve,crude weapon,1.0,0,claude-sonnet-5-5
+e1_fish_water,6,Simon,Tanner,Agnes,Ferry,firewood,4.0,1,claude-sonnet-5-5
+e1_fish_water,9,Ivo,Ferry,Joan,Ferry,fish,1.0,0,claude-opus-5-5
+e2_labour,1,Wat,Mason,Joan,Mason,crude tool,1.0,0,claude-opus-5-5
+e2_labour,4,Joan,Mason,Wat,Mason,timber,2.0,0,claude-sonnet-5-5
+e2_labour,9,Hugh,Ardern,Wat,Mason,grain,3.0,1,claude-opus-5-5
+e2_labour,9,Rob,Newcome,Mary,Newcome,grain,3.0,0,claude-sonnet-5-5
+e2_labour,9,Tom,Hearne,Kit,Hearne,crude tool,1.0,0,claude-sonnet-5-5
+e2_labour,10,Odo,Ardern,Hugh,Ardern,crude tool,1.0,0,claude-haiku-5-5
+e2_labour,11,Hugh,Ardern,Joan,Mason,grain,4.0,1,claude-opus-5-5
+e2_labour,12,Hugh,Ardern,Alys,Ardern,stone,1.0,0,claude-opus-5-5
+e2_labour,12,Rob,Newcome,Piers,Wright,firewood,4.0,1,claude-sonnet-5-5
+e2_labour,13,Piers,Wright,Rob,Newcome,grain,2.0,1,claude-opus-5-5
+e2_labour,14,Hugh,Ardern,Mary,Newcome,grain,3.0,1,claude-opus-5-5
+e2_labour,14,Odo,Ardern,Mary,Newcome,grain,4.0,1,claude-haiku-5-5
+e2_labour,15,Hugh,Ardern,Mary,Newcome,beans,3.0,1,claude-opus-5-5
+e2_labour,16,Hugh,Ardern,Piers,Wright,firewood,10.0,1,claude-opus-5-5
+e2_labour,20,Hugh,Ardern,Piers,Wright,timber,3.0,1,claude-opus-5-5
+e2_labour,21,Hugh,Ardern,Tom,Hearne,meat,1.0,1,claude-opus-5-5
+e2_labour,25,Alys,Ardern,Piers,Wright,firewood,3.0,1,claude-sonnet-5-5
+e2_labour,25,Ellen,Hearne,Alys,Ardern,firewood,1.4,1,claude-sonnet-5-5
+e2_labour,25,Piers,Wright,Alys,Ardern,firewood,1.5,1,claude-opus-5-5
+e2_labour,26,Alys,Ardern,Piers,Wright,meat,0.7,1,claude-sonnet-5-5
+e2_labour,26,Alys,Ardern,Ellen,Hearne,meat,0.7,1,claude-sonnet-5-5
+e2_labour,26,Ellen,Hearne,Alys,Ardern,hay,3.0,1,claude-sonnet-5-5
+e2_labour,26,Piers,Wright,Alys,Ardern,firewood,3.2,1,claude-opus-5-5
+e2_labour,27,Alys,Ardern,Piers,Wright,meat,0.8,1,claude-sonnet-5-5
+e2_labour,27,Alys,Ardern,Ellen,Hearne,meat,0.8,1,claude-sonnet-5-5
+e2_labour,27,Piers,Wright,Alys,Ardern,firewood,4.9,1,claude-opus-5-5
+e2_labour,28,Ellen,Hearne,Alys,Ardern,firewood,6.0,1,claude-sonnet-5-5
+e2_labour,28,Piers,Wright,Alys,Ardern,firewood,4.8,1,claude-opus-5-5
+e2_labour,29,Piers,Wright,Alys,Ardern,firewood,4.8,1,claude-opus-5-5
+e2_labour,29,Piers,Wright,Ellen,Hearne,wild food,0.4,1,claude-opus-5-5
+e2_labour,30,Ellen,Hearne,Alys,Ardern,firewood,4.0,1,claude-sonnet-5-5
+e2_nolabour,1,Wat,Mason,Joan,Mason,crude tool,1.0,0,claude-opus-5-5
+e2_nolabour,2,Hugh,Ardern,Piers,Wright,coin,5.0,1,claude-opus-5-5
+e2_nolabour,4,Joan,Mason,Wat,Mason,crude tool,1.0,0,claude-sonnet-5-5
+e2_nolabour,7,Hugh,Ardern,Piers,Wright,coin,5.0,1,claude-opus-5-5
+e2_nolabour,8,Hugh,Ardern,Piers,Wright,coin,5.0,1,claude-opus-5-5
+e2_nolabour,9,Hugh,Ardern,Piers,Wright,coin,5.0,1,claude-opus-5-5
+e2_nolabour,10,Hugh,Ardern,Piers,Wright,coin,5.0,1,claude-opus-5-5
+e2_nolabour,11,Hugh,Ardern,Piers,Wright,grain,3.0,1,claude-opus-5-5
+e2_nolabour,11,Hugh,Ardern,Piers,Wright,firewood,4.0,1,claude-opus-5-5
+e2_nolabour,12,Hugh,Ardern,Piers,Wright,grain,3.0,1,claude-opus-5-5
+e2_nolabour,12,Hugh,Ardern,Piers,Wright,firewood,4.0,1,claude-opus-5-5
+e2_nolabour,12,Wat,Mason,Joan,Mason,crude tool,1.0,0,claude-opus-5-5
+e2_nolabour,13,Hugh,Ardern,Piers,Wright,grain,3.0,1,claude-opus-5-5
+e2_nolabour,13,Hugh,Ardern,Piers,Wright,firewood,4.0,1,claude-opus-5-5
+e2_nolabour,14,Hugh,Ardern,Piers,Wright,grain,3.0,1,claude-opus-5-5
+e2_nolabour,14,Hugh,Ardern,Piers,Wright,firewood,4.0,1,claude-opus-5-5
+e2_nolabour,14,Hugh,Ardern,Alys,Ardern,crude tool,1.0,0,claude-opus-5-5
+e2_nolabour,15,Hugh,Ardern,Piers,Wright,grain,3.0,1,claude-opus-5-5
+e2_nolabour,15,Hugh,Ardern,Piers,Wright,firewood,4.0,1,claude-opus-5-5
+e2_nolabour,15,Mary,Newcome,Rob,Newcome,grain,3.0,0,claude-haiku-5-5
+e2_nolabour,16,Hugh,Ardern,Piers,Wright,timber,1.0,1,claude-opus-5-5
+e2_nolabour,17,Hugh,Ardern,Piers,Wright,grain,3.0,1,claude-opus-5-5
+e2_nolabour,17,Hugh,Ardern,Piers,Wright,firewood,4.0,1,claude-opus-5-5
+e2_nolabour,17,Hugh,Ardern,Piers,Wright,timber,1.0,1,claude-opus-5-5
+e2_nolabour,17,Tom,Hearne,Ellen,Hearne,firewood,0.5,0,claude-sonnet-5-5
+e2_nolabour,18,Hugh,Ardern,Piers,Wright,grain,3.0,1,claude-opus-5-5
+e2_nolabour,18,Hugh,Ardern,Piers,Wright,firewood,4.0,1,claude-opus-5-5
+e2_nolabour,18,Hugh,Ardern,Piers,Wright,timber,1.0,1,claude-opus-5-5
+e2_nolabour,19,Ellen,Hearne,Kit,Hearne,firewood,0.7,0,claude-sonnet-5-5
+e2_nolabour,19,Hugh,Ardern,Piers,Wright,grain,3.0,1,claude-opus-5-5
+e2_nolabour,19,Hugh,Ardern,Piers,Wright,timber,3.0,1,claude-opus-5-5
+e2_nolabour,20,Hugh,Ardern,Piers,Wright,grain,3.0,1,claude-opus-5-5
+e2_nolabour,20,Hugh,Ardern,Piers,Wright,timber,3.0,1,claude-opus-5-5
+e2_nolabour,20,Will,Hearne,Ellen,Hearne,wild food,0.2,0,claude-haiku-5-5
+e2_nolabour,21,Hugh,Ardern,Piers,Wright,grain,3.0,1,claude-opus-5-5
+e2_nolabour,21,Hugh,Ardern,Piers,Wright,timber,3.0,1,claude-opus-5-5
+e2_nolabour,21,Kit,Hearne,Ellen,Hearne,firewood,0.7,0,claude-haiku-5-5
+e2_nolabour,23,Piers,Wright,Agnes,Mason,grain,2.0,1,claude-opus-5-5
+e2a_labour_stopped,11,Ellen,Hearne,Tom,Hearne,timber,0.7,0,claude-sonnet-5-5
+e2a_labour_stopped,12,Hugh,Ardern,Piers,Wright,firewood,6.0,1,claude-opus-5-5
+e2a_labour_stopped,12,Hugh,Ardern,Odo,Ardern,crude tool,1.0,0,claude-opus-5-5
+e2a_nolabour_stopped,2,Hugh,Ardern,Piers,Wright,grain,4.0,1,claude-opus-5-5
+e2a_nolabour_stopped,4,Odo,Ardern,Hugh,Ardern,crude tool,1.0,0,claude-haiku-5-5
+e2a_nolabour_stopped,7,Hugh,Ardern,Piers,Wright,grain,2.0,1,claude-opus-5-5
+e2a_nolabour_stopped,7,Rob,Newcome,Mary,Newcome,grain,1.0,0,claude-sonnet-5-5
+e2a_nolabour_stopped,10,Hugh,Ardern,Piers,Wright,grain,4.0,1,claude-opus-5-5
+e2a_nolabour_stopped,10,Hugh,Ardern,Odo,Ardern,coin,10.0,0,claude-opus-5-5
+e2a_nolabour_stopped,11,Hugh,Ardern,Piers,Wright,grain,2.0,1,claude-opus-5-5
+e2a_nolabour_stopped,11,Mary,Newcome,Rob,Newcome,grain,2.0,0,claude-haiku-5-5
+e2a_nolabour_stopped,11,Tom,Hearne,Ellen,Hearne,timber,3.0,0,claude-sonnet-5-5
+e2a_nolabour_stopped,13,Hugh,Ardern,Piers,Wright,grain,2.0,1,claude-opus-5-5
+e2a_nolabour_stopped,14,Hugh,Ardern,Piers,Wright,grain,2.0,1,claude-opus-5-5
+e2a_nolabour_stopped,14,Hugh,Ardern,Piers,Wright,firewood,4.0,1,claude-opus-5-5
+gp3_copper_haiku_memory_strong_r1,1,Agnes,Hale,Walter,Hale,grain,8.0,0,claude-haiku-5-5
+gp3_copper_haiku_memory_strong_r1,4,Osbert,Mire,Joan,Mire,copper,2.0,0,claude-opus-5-5
+gp3_copper_haiku_none_r1,1,Osbert,Mire,Cecily,Mire,crude tool,1.0,0,claude-opus-5-5
+gp3_copper_haiku_none_r1,7,Osbert,Mire,Joan,Mire,wild food,0.1,0,claude-opus-5-5
+gp3_copper_haiku_scored_high_r1,0,Osbert,Mire,Cecily,Mire,crude tool,1.0,0,claude-opus-5-5
+gp3_copper_haiku_scored_high_r1,1,Cecily,Mire,Osbert,Mire,crude tool,1.0,0,claude-haiku-5-5
+gp3_copper_haiku_scored_high_r1,4,Osbert,Mire,Joan,Mire,copper,4.0,0,claude-opus-5-5
+gp3_copper_haiku_scored_max_r1,0,Walter,Hale,Agnes,Hale,coin,10.0,0,claude-haiku-5-5
+gp3_copper_haiku_scored_max_r1,0,Walter,Hale,Agnes,Hale,crude tool,1.0,0,claude-haiku-5-5
+gp3_copper_haiku_scored_max_r1,0,Walter,Hale,Agnes,Hale,grain,3.0,0,claude-haiku-5-5
+gp3_copper_haiku_scored_max_r1,1,Osbert,Mire,Cecily,Mire,crude tool,1.0,0,claude-opus-5-5
+gp3_copper_opus_memory_strong_r1,0,Osbert,Mire,Cecily,Mire,crude tool,1.0,0,claude-opus-5-5
+gp3_copper_opus_memory_strong_r1,2,Walter,Hale,Osbert,Mire,coin,3.0,1,claude-opus-5-5
+gp3_copper_opus_memory_strong_r1,3,Osbert,Mire,Joan,Mire,copper,2.0,0,claude-opus-5-5
+gp3_copper_opus_memory_strong_r1,3,Osbert,Mire,Walter,Hale,coin,3.0,1,claude-opus-5-5
+gp3_copper_opus_memory_strong_r1,5,Walter,Hale,Joan,Mire,grain,3.0,1,claude-opus-5-5
+gp3_copper_opus_none_r1,3,Osbert,Mire,Cecily,Mire,copper,2.0,0,claude-opus-5-5
+gp3_copper_opus_none_r1,3,Osbert,Mire,Cecily,Mire,grain,5.0,0,claude-opus-5-5
+gp3_copper_opus_scored_high_r1,1,Agnes,Hale,Walter,Hale,grain,3.0,0,claude-opus-5-5
+gp3_copper_opus_scored_high_r1,4,Agnes,Hale,Walter,Hale,grain,6.8,0,claude-opus-5-5
+gp3_copper_opus_scored_high_r1,7,Osbert,Mire,Cecily,Mire,grain,9.0,0,claude-opus-5-5
+gp3_copper_opus_scored_max_r1,1,Agnes,Hale,Walter,Hale,grain,4.0,0,claude-opus-5-5
+gp3_copper_opus_scored_max_r1,1,Osbert,Mire,Cecily,Mire,crude tool,1.0,0,claude-opus-5-5
+gp3_copper_opus_scored_max_r1,1,Osbert,Mire,Joan,Mire,copper,3.0,0,claude-opus-5-5
+gp3_copper_sonnet_memory_strong_r1,4,Joan,Mire,Osbert,Mire,copper,4.0,0,claude-haiku-5-5
+gp3_copper_sonnet_memory_strong_r1,4,Joan,Mire,Osbert,Mire,coin,5.0,0,claude-haiku-5-5
+gp3_copper_sonnet_memory_strong_r1,4,Osbert,Mire,Joan,Mire,copper,4.0,0,claude-opus-5-5
+gp3_copper_sonnet_memory_strong_r1,4,Osbert,Mire,Joan,Mire,coin,5.0,0,claude-opus-5-5
+gp3_copper_sonnet_none_r1,6,Osbert,Mire,Cecily,Mire,crude tool,1.0,0,claude-opus-5-5
+gp3_salt_haiku_none_r1,3,Robert,Fowler,Maud,Fowler,firewood,5.0,0,claude-opus-5-5
+gp3_salt_haiku_scored_max_r1,2,Edith,Ashby,Hugh,Ashby,grain,2.0,0,claude-haiku-5-5
+gp3_salt_opus_memory_strong_r1,0,Edith,Ashby,Hugh,Ashby,wild food,0.8,0,claude-opus-5-5
+gp3_salt_opus_none_r1,4,Robert,Fowler,Wat,Fowler,grain,3.0,0,claude-opus-5-5
+gp3_salt_opus_scored_high_r1,1,Hugh,Ashby,Edith,Ashby,grain,2.8,0,claude-opus-5-5
+gp3_salt_opus_scored_max_r1,1,Edith,Ashby,Hugh,Ashby,grain,3.0,0,claude-opus-5-5
+gp3_salt_opus_scored_max_r1,5,Hugh,Ashby,Wat,Fowler,grain,1.0,1,claude-opus-5-5
+gp3_salt_opus_scored_max_r1,5,Hugh,Ashby,Edith,Ashby,grain,3.0,0,claude-opus-5-5
+gp3_salt_opus_scored_max_r1,5,Wat,Fowler,Hugh,Ashby,salt,0.7,1,claude-haiku-5-5
+gp3_salt_sonnet_scored_high_r1,4,Maud,Fowler,Edith,Ashby,grain,2.0,1,claude-haiku-5-5
+gp3_timber_haiku_memory_strong_r1,5,Alice,Reed,Simon,Reed,beans,1.9,0,claude-haiku-5-5
+gp3_timber_haiku_none_r1,5,Tom,Cole,Mabel,Cole,grain,2.4,0,claude-haiku-5-5
+gp3_timber_opus_memory_strong_r1,2,Geoffrey,Cole,Tom,Cole,crude tool,1.0,0,claude-opus-5-5
+gp3_timber_opus_memory_strong_r1,5,Alice,Reed,Mabel,Cole,grain,3.0,1,claude-opus-5-5
+gp3_timber_opus_none_r1,1,Geoffrey,Cole,Tom,Cole,grain,4.0,0,claude-opus-5-5
+gp3_timber_opus_scored_high_r1,1,Simon,Reed,Geoffrey,Cole,coin,3.0,1,claude-opus-5-5
+gp3_timber_opus_scored_high_r1,2,Simon,Reed,Geoffrey,Cole,grain,10.0,1,claude-opus-5-5
+gp3_timber_opus_scored_max_r1,1,Simon,Reed,Geoffrey,Cole,grain,4.0,1,claude-opus-5-5
+gp3_timber_opus_scored_max_r1,2,Simon,Reed,Geoffrey,Cole,grain,18.0,1,claude-opus-5-5
+gp3_timber_opus_scored_max_r1,3,Simon,Reed,Alice,Reed,timber,3.0,0,claude-opus-5-5
+gp3_timber_opus_scored_max_r1,4,Geoffrey,Cole,Mabel,Cole,grain,0.75,0,claude-opus-5-5
+gp3_timber_sonnet_memory_strong_r1,1,Geoffrey,Cole,Mabel,Cole,crude weapon,1.0,0,claude-opus-5-5
+gp3_timber_sonnet_none_r1,3,Geoffrey,Cole,Mabel,Cole,timber,4.0,0,claude-opus-5-5
+gp3_timber_sonnet_none_r1,3,Geoffrey,Cole,Mabel,Cole,grain,1.0,0,claude-opus-5-5
+gp3_timber_sonnet_none_r1,3,Geoffrey,Cole,Mabel,Cole,grain,0.5,0,claude-opus-5-5
+gp3_timber_sonnet_scored_high_r1,4,Geoffrey,Cole,Tom,Cole,crude tool,1.0,0,claude-opus-5-5
+gp3_timber_sonnet_scored_high_r1,4,Tom,Cole,Geoffrey,Cole,crude tool,1.0,0,claude-haiku-5-5
+gph_salt_haiku_memory_25_r3,3,Robert,Fowler,Hugh,Ashby,salt,2.0,1,claude-opus-5-5
+gph_salt_opus_scored_max_r1,2,Hugh,Ashby,Edith,Ashby,crude tool,1.0,0,claude-opus-5-5
+orwell,5,Kit,Hearne,Tom,Hearne,timber,2.0,0,claude-haiku-5-5
+orwell,5,Wat,Mason,Joan,Mason,timber,4.6,0,claude-opus-5-5
+orwell,5,Wat,Mason,Joan,Mason,timber,4.0,0,claude-opus-5-5
+orwell,5,Will,Hearne,Tom,Hearne,timber,0.5,0,claude-haiku-5-5
+orwell,6,Ellen,Hearne,Will,Hearne,meat,1.2,0,claude-sonnet-5-5
+orwell,6,Ellen,Hearne,Kit,Hearne,wild food,1.0,0,claude-sonnet-5-5
+orwell,6,Ellen,Hearne,Will,Hearne,wild food,0.5,0,claude-sonnet-5-5
+orwell,6,Hugh,Ardern,Odo,Ardern,crude tool,1.0,0,claude-opus-5-5
+orwell,6,Will,Hearne,Tom,Hearne,beans,1.3,0,claude-haiku-5-5
+orwell,7,Kit,Hearne,Ellen,Hearne,wild food,1.0,0,claude-haiku-5-5
+orwell,7,Will,Hearne,Ellen,Hearne,meat,1.1,0,claude-haiku-5-5
+orwell,11,Hugh,Ardern,Odo,Ardern,crude weapon,1.0,0,claude-opus-5-5
+orwell,12,Mary,Newcome,Rob,Newcome,stone,2.0,0,claude-haiku-5-5
+orwell,12,Tom,Hearne,Rob,Newcome,grain,4.0,1,claude-sonnet-5-5
+orwell,13,Hugh,Ardern,Ellen,Hearne,grain,16.3,1,claude-opus-5-5
+orwell,16,Joan,Mason,Wat,Mason,timber,2.0,0,claude-sonnet-5-5
+orwell,19,Hugh,Ardern,Piers,Wright,timber,4.0,1,claude-opus-5-5
+orwell,20,Mary,Newcome,Hugh,Ardern,firewood,5.0,1,claude-haiku-5-5
+orwell,20,Wat,Mason,Joan,Mason,crude tool,1.0,0,claude-opus-5-5
+orwell,23,Kit,Hearne,Odo,Ardern,wild food,0.9,1,claude-haiku-5-5
+orwell,24,Ellen,Hearne,Will,Hearne,meal,0.4,0,claude-sonnet-5-5
+orwell,24,Ellen,Hearne,Will,Hearne,firewood,1.1,0,claude-sonnet-5-5
+orwell,24,Kit,Hearne,Will,Hearne,wild food,0.5,0,claude-haiku-5-5
+orwell,24,Piers,Wright,Kit,Hearne,meat,0.6,1,claude-opus-5-5
+orwell,25,Ellen,Hearne,Will,Hearne,wild food,1.0,0,claude-sonnet-5-5
+orwell,25,Tom,Hearne,Kit,Hearne,meat,0.7,0,claude-sonnet-5-5
+orwell,26,Ellen,Hearne,Will,Hearne,meal,0.5,0,claude-sonnet-5-5
+orwell,26,Kit,Hearne,Tom,Hearne,wild food,0.5,0,claude-haiku-5-5
+orwell,30,Rob,Newcome,Piers,Wright,crude tool,1.8,1,claude-sonnet-5-5
+orwell,30,Rob,Newcome,Piers,Wright,firewood,1.9,1,claude-sonnet-5-5
+orwell,30,Rob,Newcome,Piers,Wright,timber,1.0,1,claude-sonnet-5-5
+orwell,30,Rob,Newcome,Piers,Wright,beans,1.2,1,claude-sonnet-5-5
+orwell,35,Piers,Wright,Rob,Newcome,wild food,1.5,1,claude-opus-5-5
+p1_brookend,0,Walter,Miller,Joan,Miller,wild food,1.0,0,claude-opus-5-5
+p1_brookend,2,Walter,Miller,Joan,Miller,wild food,1.8,0,claude-opus-5-5
+p1_brookend,8,Hugh,Croft,Kit,Croft,timber,2.0,0,claude-opus-5-5
+p1_brookend,9,Walter,Miller,Hugh,Croft,bread,6.0,1,claude-opus-5-5
+p1_brookend,17,Hugh,Croft,Kit,Croft,milk,2.0,0,claude-opus-5-5
+p1_brookend,17,Hugh,Croft,Mabel,Croft,milk,2.0,0,claude-opus-5-5
+p1_brookend,19,Edwin,Thorne,Agnes,Thorne,crude tool,1.0,0,claude-opus-5-5
+p1_brookend,19,Mabel,Croft,Hugh,Croft,milk,5.0,0,claude-haiku-5-5
+p1_brookend,19,Mabel,Croft,Kit,Croft,milk,5.0,0,claude-haiku-5-5
+p1_brookend,20,Hugh,Croft,Edwin,Thorne,timber,4.0,1,claude-opus-5-5
+p1_brookend,20,Mabel,Croft,Hugh,Croft,milk,4.0,0,claude-haiku-5-5
+p1_brookend,20,Mabel,Croft,Kit,Croft,milk,4.0,0,claude-haiku-5-5
+p1_brookend,21,Hugh,Croft,Mabel,Croft,timber,2.0,0,claude-opus-5-5
+p1_brookend,22,Walter,Miller,Joan,Miller,crude tool,1.0,0,claude-opus-5-5
+p1_brookend,23,Mabel,Croft,Hugh,Croft,milk,6.0,0,claude-haiku-5-5
+p1_brookend,23,Mabel,Croft,Kit,Croft,milk,6.0,0,claude-haiku-5-5
+p1_brookend,25,Hugh,Croft,Walter,Miller,grain,15.0,1,claude-opus-5-5
+p1_brookend,29,Hugh,Croft,Mabel,Croft,timber,4.0,0,claude-opus-5-5
+p1_brookend,30,Hugh,Croft,Walter,Miller,meat,6.0,1,claude-opus-5-5
+p2_brookend,4,Walter,Miller,Hugh,Croft,flour,2.0,1,claude-opus-5-5
+p2_brookend,8,Walter,Miller,Joan,Miller,crude tool,1.0,0,claude-opus-5-5
+p2_brookend,11,Hugh,Croft,Edwin,Thorne,beans,10.0,1,claude-opus-5-5
+p2_brookend,11,Joan,Miller,Hugh,Croft,hay,20.0,1,claude-sonnet-5-5
+p2_brookend,12,Hugh,Croft,Joan,Miller,beans,10.0,1,claude-opus-5-5
+takeover,1,Wat,Mason,Joan,Mason,crude tool,1.0,0,claude-opus-5-5
+takeover,6,Hugh,Ardern,Alys,Ardern,coin,6.0,0,claude-opus-5-5
+takeover,10,Hugh,Ardern,Rob,Newcome,grain,3.0,1,claude-opus-5-5
+takeover,10,Joan,Mason,Wat,Mason,crude tool,1.0,0,claude-sonnet-5-5
+takeover,13,Hugh,Ardern,Piers,Wright,timber,4.0,1,claude-opus-5-5
+takeover,13,Rob,Newcome,Wat,Mason,firewood,8.0,1,claude-sonnet-5-5
+takeover,14,Alys,Ardern,Rob,Newcome,grain,6.0,1,claude-sonnet-5-5
+takeover,25,Piers,Wright,Will,Hearne,timber,0.6,1,claude-opus-5-5
+takeover,25,Piers,Wright,Will,Hearne,firewood,0.3,1,claude-opus-5-5
+takeover,25,Piers,Wright,Will,Hearne,meat,1.0,1,claude-opus-5-5
+takeover,26,Piers,Wright,Will,Hearne,meat,1.0,1,claude-opus-5-5
+takeover,26,Piers,Wright,Kit,Hearne,meat,1.0,1,claude-opus-5-5
+takeover,26,Will,Hearne,Piers,Wright,firewood,2.0,1,claude-haiku-5-5
+takeover,27,Odo,Ardern,Eva,Ardern,beans,1.8,0,claude-haiku-5-5
+takeover,27,Piers,Wright,Will,Hearne,firewood,5.5,1,claude-opus-5-5
+takeover,27,Piers,Wright,Will,Hearne,firewood,0.2,1,claude-opus-5-5
+takeover,28,Alys,Ardern,Eva,Ardern,meat,0.6,0,claude-sonnet-5-5
+takeover,28,Alys,Ardern,Odo,Ardern,meat,0.3,0,claude-sonnet-5-5
+takeover,29,Odo,Ardern,Alys,Ardern,timber,3.0,0,claude-haiku-5-5
+takeover,31,Alys,Ardern,Eva,Ardern,wild food,1.0,0,claude-sonnet-5-5
+takeover,31,Piers,Wright,Alys,Ardern,wild food,1.0,1,claude-opus-5-5
+takeover,31,Piers,Wright,Eva,Ardern,wild food,0.6,1,claude-opus-5-5
+takeover,32,Alys,Ardern,Eva,Ardern,wild food,0.3,0,claude-sonnet-5-5
+takeover,33,Piers,Wright,Eva,Ardern,wild food,0.9,1,claude-opus-5-5
+takeover,36,Kit,Hearne,Will,Hearne,wild food,0.2,0,claude-haiku-5-5
+violent_opus,3,Edith,Ashby,Ida,Croft,beans,4.0,1,claude-haiku-5-5
+a2_barleyfield,7,Ancel,Reed,Annora,Lowe,grain,2.0,1,claude-opus-5-5
+a2_barleyfield,7,Clement,Reed,Ralf,Lowe,beans,4.0,1,claude-haiku-5-5
+a2_barleyfield,7,Petronel,Reed,Randal,Hale,stone,1.4,1,claude-haiku-5-5
+a2_barleyfield,9,Ancel,Reed,Bennet,Barrow,rye,4.0,1,claude-opus-5-5
+a2_barleyfield,9,Ancel,Reed,Christian,Barrow,rye,3.0,1,claude-opus-5-5
+a2_barleyfield,9,Ancel,Reed,Thurstan,Barrow,rye,2.0,1,claude-opus-5-5
+b0_valleys_bare,0,Hob,Smith,Geoffrey,Cragg,grain,3.0,1,claude-haiku-5-5
+b0_valleys_bare,5,Joyce,Cragg,Warin,Smith,flour,3.0,1,claude-sonnet-5-5
+b0_valleys_bare,5,Joyce,Cragg,Ancel,Smith,grain,4.0,1,claude-sonnet-5-5
+b0_valleys_bare,7,Osric,Cragg,Joyce,Cragg,coin,4.0,0,claude-opus-5-5
+b0_valleys_bare,7,Wat,Miller,William,Reeve,coin,6.0,1,claude-opus-5-5
+b1_valleys_roads,2,Avice,Smith,Ancel,Smith,copper tool,1.0,0,claude-haiku-5-5
+b1_valleys_roads,2,Wat,Miller,Adam,Marsh,bread,1.0,1,claude-opus-5-5
+b1_valleys_roads,3,Osric,Cragg,Geoffrey,Cragg,crude tool,1.0,0,claude-opus-5-5
+b1_valleys_roads,3,Osric,Cragg,Joyce,Cragg,crude weapon,1.0,0,claude-opus-5-5
+b1_valleys_roads,3,Wat,Miller,Adam,Marsh,flour,2.9,1,claude-opus-5-5
+b1_valleys_roads,4,Ancel,Smith,William,Reeve,coin,1.0,1,claude-opus-5-5
+b1_valleys_roads,4,Joyce,Cragg,Avice,Smith,grain,3.0,1,claude-sonnet-5-5
+b1_valleys_roads,5,Ancel,Smith,Godiva,Miller,crude tool,1.0,1,claude-opus-5-5
+b1_valleys_roads,5,Ancel,Smith,Godiva,Miller,grain,1.3,1,claude-opus-5-5
+b1_valleys_roads,5,Godiva,Miller,Ancel,Smith,bread,1.0,1,claude-haiku-5-5
+b1_valleys_roads,6,William,Reeve,Richolda,Marsh,grain,4.0,1,claude-opus-5-5
+b1_valleys_roads,6,William,Reeve,Gervase,Marsh,grain,3.0,1,claude-opus-5-5
+b1_wild,3,Bran,Wolf,Sorrel,Wolf,firewood,3.0,0,claude-opus-5-5
+b1_wild,4,Sorrel,Wolf,Tam,Wolf,firewood,18.5,0,claude-haiku-5-5
+b1_wild,4,Tam,Wolf,Bran,Wolf,timber,1.0,0,claude-sonnet-5-5
+b1_wild,4,Wren,Wolf,Tam,Wolf,dried meat,2.0,0,claude-sonnet-5-5
+b1_wild,15,Bran,Wolf,Tam,Wolf,dried meat,2.0,0,claude-opus-5-5
+b1_wild,15,Bran,Wolf,Tam,Wolf,timber,0.2,0,claude-opus-5-5
+b1_wild,16,Wren,Wolf,Sorrel,Wolf,meat,1.5,0,claude-sonnet-5-5
+b1_wild,16,Wren,Wolf,Tam,Wolf,meat,1.5,0,claude-sonnet-5-5
+b1_wild,24,Bran,Wolf,Tam,Wolf,meat,1.0,0,claude-opus-5-5
+b1_wild,24,Bran,Wolf,Wren,Wolf,meat,1.0,0,claude-opus-5-5
+b1_wild,24,Bran,Wolf,Sorrel,Wolf,meat,1.0,0,claude-opus-5-5
+b1_wild,26,Bran,Wolf,Tam,Wolf,dried meat,1.0,0,claude-opus-5-5
+b1_wild,27,Bran,Wolf,Sorrel,Wolf,firewood,2.6,0,claude-opus-5-5
+b1_wild,28,Bran,Wolf,Wren,Wolf,dried meat,1.0,0,claude-opus-5-5
+b1_wild,28,Bran,Wolf,Wren,Wolf,wild food,0.5,0,claude-opus-5-5
+b1_wild,28,Sorrel,Wolf,Wren,Wolf,wild food,0.8,0,claude-haiku-5-5
+b1_wild,28,Tam,Wolf,Sorrel,Wolf,wild food,0.3,0,claude-sonnet-5-5
+b1_wild,29,Bran,Wolf,Sorrel,Wolf,meat,2.0,0,claude-opus-5-5
+b1_wild,29,Bran,Wolf,Wren,Wolf,meat,2.0,0,claude-opus-5-5
+b1_wild,29,Wren,Wolf,Sorrel,Wolf,dried meat,0.5,0,claude-sonnet-5-5
+b1_wild,30,Bran,Wolf,Tam,Wolf,meat,0.4,0,claude-opus-5-5
+b1_wild,30,Bran,Wolf,Tam,Wolf,dried meat,0.1,0,claude-opus-5-5
+b1_wild,30,Sorrel,Wolf,Tam,Wolf,meat,0.3,0,claude-haiku-5-5
+b1_wild,30,Sorrel,Wolf,Tam,Wolf,wild food,1.0,0,claude-haiku-5-5
+b1_wild,30,Sorrel,Wolf,Bran,Wolf,wild food,0.5,0,claude-haiku-5-5
+b1_wild,30,Wren,Wolf,Sorrel,Wolf,meat,1.5,0,claude-sonnet-5-5
+b1_wild,30,Wren,Wolf,Bran,Wolf,meat,1.5,0,claude-sonnet-5-5
+b1_wild,33,Bran,Wolf,Tam,Wolf,timber,1.6,0,claude-opus-5-5
+b1_wild,33,Sorrel,Wolf,Bran,Wolf,dried meat,0.2,0,claude-haiku-5-5
+b1_wild,33,Wren,Wolf,Tam,Wolf,timber,2.0,0,claude-sonnet-5-5
+b1_wild,34,Wren,Wolf,Sorrel,Wolf,wild food,1.0,0,claude-sonnet-5-5
+b1_wild,35,Wren,Wolf,Tam,Wolf,firewood,2.0,0,claude-sonnet-5-5
+b1_wild,36,Sorrel,Wolf,Tam,Wolf,wild food,1.5,0,claude-haiku-5-5
+b1_wild,36,Tam,Wolf,Wren,Wolf,wild food,0.9,0,claude-sonnet-5-5
+b1_wild,36,Wren,Wolf,Tam,Wolf,meat,2.0,0,claude-sonnet-5-5
+b1_wild,36,Wren,Wolf,Sorrel,Wolf,meat,1.5,0,claude-sonnet-5-5
+b1_wild,36,Wren,Wolf,Tam,Wolf,wild food,0.8,0,claude-sonnet-5-5
+b1_wild,36,Wren,Wolf,Sorrel,Wolf,meat,0.5,0,claude-sonnet-5-5
+b1_wild,36,Wren,Wolf,Sorrel,Wolf,firewood,1.2,0,claude-sonnet-5-5
+b1_wild,38,Tam,Wolf,Sorrel,Wolf,wild food,0.8,0,claude-sonnet-5-5
+b1_wild,39,Tam,Wolf,Wren,Wolf,meat,0.4,0,claude-sonnet-5-5
+b2_valleys_meet,0,Hob,Smith,Geoffrey,Cragg,grain,3.0,1,claude-haiku-5-5
+b2_valleys_meet,2,Hob,Smith,Ancel,Smith,timber,4.0,0,claude-haiku-5-5
+c1_barleyfield_herds,3,Bennet,Barrow,Lettice,Hale,grain,2.0,1,claude-opus-5-5
+c1_barleyfield_herds,3,Clement,Reed,Randal,Hale,grain,8.0,1,claude-haiku-5-5
+c1_barleyfield_herds,4,Bennet,Barrow,Lettice,Hale,grain,3.0,1,claude-opus-5-5
+c1_barleyfield_herds,4,Clement,Reed,Randal,Hale,grain,4.0,1,claude-haiku-5-5
+c1_barleyfield_herds,4,Durand,Reed,Lettice,Hale,grain,3.0,1,claude-haiku-5-5
+c1_barleyfield_herds,4,Ralf,Lowe,Randal,Hale,grain,3.0,1,claude-sonnet-5-5
+c1_barleyfield_herds,5,Bennet,Barrow,Lettice,Hale,grain,2.0,1,claude-opus-5-5
+c1_barleyfield_herds,6,Ancel,Reed,Lettice,Hale,grain,5.0,1,claude-opus-5-5
+c1_barleyfield_herds,6,Bennet,Barrow,Petronel,Reed,grain,3.0,1,claude-opus-5-5
+c1_combe,17,Ivo,Hobb,Everard,Hobb,crude tool,1.0,0,claude-opus-5-5
+c1_combe,23,Ivo,Hobb,Everard,Hobb,grain,6.0,0,claude-opus-5-5
+c1_combe,25,Ivo,Hobb,Everard,Hobb,grain,3.0,0,claude-opus-5-5
+c1_combe,33,Ivo,Hobb,Everard,Hobb,crude tool,1.0,0,claude-opus-5-5
+c2_combe,45,Ivo,Hobb,Hawise,Hobb,crude tool,1.0,0,claude-opus-5-5
+c2_valleys_herds,0,Hob,Smith,Geoffrey,Cragg,grain,3.0,1,claude-haiku-5-5
+c2_valleys_herds,1,Florence,Smith,Ancel,Smith,copper tool,2.0,0,claude-haiku-5-5
+c2_valleys_herds,4,Wat,Miller,Agatha,Miller,copper tool,1.0,0,claude-opus-5-5
+c2_valleys_herds,5,Ancel,Smith,Simkin,Marsh,hide,1.0,1,claude-opus-5-5
+c2_valleys_herds,5,Simkin,Marsh,Ancel,Smith,grain,3.0,1,claude-opus-5-5
+c2_valleys_herds,5,William,Reeve,Gervase,Marsh,grain,3.0,1,claude-opus-5-5
+c2_valleys_herds,6,Felice,Reeve,Wat,Miller,grain,2.0,1,claude-haiku-5-5
+c3_barleyfield_gate,1,Bennet,Barrow,Ralf,Lowe,grain,6.0,1,claude-opus-5-5
+c3_barleyfield_gate,2,Bennet,Barrow,Beatrix,Lowe,grain,3.0,1,claude-opus-5-5
+c3_barleyfield_gate,2,Bennet,Barrow,Annora,Lowe,grain,3.0,1,claude-opus-5-5
+c3_barleyfield_gate,2,Christian,Barrow,Annora,Lowe,grain,2.0,1,claude-haiku-5-5
+c3_barleyfield_gate,2,Christian,Barrow,Beatrix,Lowe,grain,2.0,1,claude-haiku-5-5
+c3_barleyfield_gate,2,Thurstan,Barrow,Beatrix,Lowe,grain,2.0,1,claude-haiku-5-5
+c3_barleyfield_gate,2,Thurstan,Barrow,Randal,Hale,grain,2.0,1,claude-haiku-5-5
+c3_barleyfield_gate,3,Bennet,Barrow,Ralf,Lowe,grain,2.0,1,claude-opus-5-5
+c3_barleyfield_gate,3,Clement,Reed,Daniel,Hale,grain,2.0,1,claude-haiku-5-5
+c3_barleyfield_gate,3,Thurstan,Barrow,Tobin,Hale,grain,3.0,1,claude-haiku-5-5
+c3_barleyfield_gate,4,Bennet,Barrow,Ralf,Lowe,grain,2.0,1,claude-opus-5-5
+c3_barleyfield_gate,4,Clement,Reed,Tobin,Hale,grain,3.0,1,claude-haiku-5-5
+c3_barleyfield_gate,4,Philippa,Reed,Tobin,Hale,grain,3.0,1,claude-haiku-5-5
+c3_barleyfield_gate,4,Philippa,Reed,Lettice,Hale,grain,3.0,1,claude-haiku-5-5
+c3_barleyfield_gate,4,Philippa,Reed,Annora,Lowe,grain,3.0,1,claude-haiku-5-5
+c3_combe_rich,10,Margery,Hobb,Ivo,Hobb,crude tool,1.0,0,claude-opus-5-5
+c3_combe_rich,12,Margery,Hobb,Everard,Hobb,crude tool,1.0,0,claude-opus-5-5
+c3_combe_rich,35,Ivo,Hobb,Everard,Hobb,stone,0.5,0,claude-opus-5-5
+c3_combe_rich,40,Everard,Hobb,Margery,Hobb,stone,1.7,0,claude-opus-5-5
+c3_combe_rich,41,Margery,Hobb,Matthew,Hobb,crude tool,1.0,0,claude-opus-5-5
+c3_combe_rich,43,Everard,Hobb,Ivo,Hobb,timber,1.0,0,claude-opus-5-5
+c3_combe_rich,55,Ivo,Hobb,Margery,Hobb,crude tool,1.0,0,claude-opus-5-5
+c3_combe_rich,60,Margery,Hobb,Everard,Hobb,crude tool,1.0,0,claude-opus-5-5
+c4_barleyfield_herds,3,Bennet,Barrow,Randal,Hale,grain,4.0,1,claude-opus-5-5
+c4_barleyfield_herds,3,Bennet,Barrow,Lettice,Hale,grain,2.0,1,claude-opus-5-5
+c4_barleyfield_herds,4,Bennet,Barrow,Lettice,Hale,grain,2.0,1,claude-opus-5-5
+c4_barleyfield_herds,5,Bennet,Barrow,Lettice,Hale,grain,3.0,1,claude-opus-5-5
+c5_valleys_search,0,Hob,Smith,Geoffrey,Cragg,grain,3.0,1,claude-haiku-5-5
+c5_valleys_search,2,Avice,Smith,Geoffrey,Cragg,crude tool,1.0,1,claude-haiku-5-5
+c5_valleys_search,2,Osric,Cragg,William,Reeve,coin,1.0,1,claude-opus-5-5
+c5_valleys_search,3,Avice,Smith,Geoffrey,Cragg,timber,3.0,1,claude-haiku-5-5
+d1_duo,1,Jory,Fenwick,Lucy,Fenwick,crude tool,1.0,0,claude-opus-4-7
+d1_duo,6,Richard,Moor,Jory,Fenwick,rye,2.0,1,claude-sonnet-4-6
+d1_duo,6,Richard,Moor,Ellen,Fenwick,rye,2.0,1,claude-sonnet-4-6
+d1_duo,6,Richard,Moor,Roger,Fenwick,rye,2.0,1,claude-sonnet-4-6
+d1_duo,6,Richard,Moor,Lucy,Fenwick,rye,2.0,1,claude-sonnet-4-6
+f1_frontier,0,Ulf,Gorm,Ketil,Gorm,crude weapon,1.0,0,claude-opus-5-5
+f1_frontier,10,Ulf,Gorm,Cuthbert,Bram,dried meat,2.0,1,claude-opus-5-5
+f1_frontier,11,Aldo,Ash,Bryony,Ash,coin,2.0,0,claude-opus-5-5
+f1_frontier,16,Edwin,Cold,Freya,Cold,hide,1.0,0,claude-opus-5-5
+f1_frontier,19,Freya,Cold,Edwin,Cold,coin,2.0,0,claude-sonnet-5-5
+f1_frontier,20,Hilde,Gorm,Ulf,Gorm,stone,0.3,0,claude-sonnet-5-5
+f1_frontier,24,Edwin,Cold,Freya,Cold,hide,1.0,0,claude-opus-5-5
+f1_frontier,25,Cuthbert,Bram,Florence,Bram,meat,0.8,0,claude-opus-5-5
+f1_frontier,25,Cuthbert,Bram,Florence,Bram,dried meat,0.1,0,claude-opus-5-5
+f1_frontier,26,Ulf,Gorm,Ketil,Gorm,dried meat,2.0,0,claude-opus-5-5
+f1_frontier,28,Freya,Cold,Herbert,Cold,meat,1.1,0,claude-sonnet-5-5
+f1_frontier,29,Ulf,Gorm,Ketil,Gorm,dried meat,4.0,0,claude-opus-5-5
+f1_frontier,29,Ulf,Gorm,Ketil,Gorm,timber,2.0,0,claude-opus-5-5
+f1_frontier,30,Ketil,Gorm,Ulf,Gorm,dried meat,1.5,0,claude-haiku-5-5
+f1_frontier,31,Freya,Cold,Herbert,Cold,meat,2.0,0,claude-sonnet-5-5
+gp_copper_none,2,Walter,Hale,Agnes,Hale,crude tool,1.0,0,claude-opus-5-5
+gp_copper_scored,0,Agnes,Hale,Walter,Hale,grain,8.0,0,claude-sonnet-5-5
+gp_copper_scored,0,Agnes,Hale,Walter,Hale,coin,10.0,0,claude-sonnet-5-5
+gp_copper_scored,0,Walter,Hale,Agnes,Hale,coin,10.0,0,claude-opus-5-5
+gp_copper_scored,0,Walter,Hale,Agnes,Hale,grain,8.0,0,claude-opus-5-5
+gp_copper_scored,1,Agnes,Hale,Walter,Hale,grain,6.0,0,claude-sonnet-5-5
+gp_copper_scored,1,Walter,Hale,Agnes,Hale,coin,10.0,0,claude-opus-5-5
+gp_copper_scored,4,Walter,Hale,Agnes,Hale,wild food,1.0,0,claude-opus-5-5
+gp_copper_scored_max,3,Agnes,Hale,Walter,Hale,copper ore,3.0,0,claude-sonnet-5-5
+gp_food2_scored,1,Thomas,Croft,Ida,Croft,crude tool,1.0,0,claude-sonnet-5-5
+gp_food_memory_strong,4,Ida,Croft,Thomas,Croft,crude tool,1.0,0,claude-haiku-5-5
+gp_food_memory_strong,4,Thomas,Croft,Ida,Croft,crude tool,1.0,0,claude-sonnet-5-5
+gp_food_none,1,Thomas,Croft,Ida,Croft,crude tool,1.0,0,claude-sonnet-5-5
+gp_food_scored,2,Hugh,Ashby,Edith,Ashby,crude tool,1.0,0,claude-sonnet-5-5
+gp_food_scored,2,Thomas,Croft,Ida,Croft,crude tool,1.0,0,claude-sonnet-5-5
+gp_salt_none,2,Hugh,Ashby,Edith,Ashby,crude tool,1.0,0,claude-sonnet-5-5
+gp_timber_memory_strong,2,Simon,Reed,Geoffrey,Cole,grain,4.0,1,claude-haiku-5-5
+gp_timber_memory_strong,2,Simon,Reed,Alice,Reed,crude tool,1.0,0,claude-haiku-5-5
+gp_timber_scored,2,Geoffrey,Cole,Mabel,Cole,crude tool,1.0,0,claude-sonnet-5-5
+gp_timber_scored,3,Mabel,Cole,Geoffrey,Cole,crude tool,1.0,0,claude-haiku-5-5
+gp_timber_scored_max,2,Geoffrey,Cole,Mabel,Cole,crude tool,1.0,0,claude-sonnet-5-5
+gp_timber_scored_max,3,Mabel,Cole,Geoffrey,Cole,crude tool,1.0,0,claude-haiku-5-5
+gp_timber_scored_max,4,Geoffrey,Cole,Mabel,Cole,crude tool,1.0,0,claude-sonnet-5-5
+gp_timber_scored_max,5,Mabel,Cole,Geoffrey,Cole,crude tool,1.0,0,claude-haiku-5-5
+hp_disable_memory,3,Walter,Fowler,Agnes,Fowler,crude tool,1.0,0,claude-sonnet-5-5
+hp_disable_scored,1,Robert,Webb,Maud,Webb,crude tool,1.0,0,claude-sonnet-5-5
+hp_disable_scored,2,Maud,Webb,Robert,Webb,crude tool,1.0,0,claude-haiku-5-5
+hp_population_scored_high,2,Hugh,Ashby,Edith,Ashby,crude tool,1.0,0,claude-sonnet-5-5
+hp_population_scored_high,3,Edith,Ashby,Hugh,Ashby,crude tool,1.0,0,claude-haiku-5-5
+hp_population_scored_high,4,Walter,Fowler,Agnes,Fowler,crude tool,1.0,0,claude-sonnet-5-5
+hp_population_scored_max,1,Thomas,Croft,Ida,Croft,crude tool,1.0,0,claude-sonnet-5-5
+m1_A,3,Osric,,Agnes,,grain,2.0,0,claude-opus-5-5
+m1_A,4,Maud,,Agnes,,grain,2.0,0,claude-sonnet-5-5
+m1_A,7,Wat,,Agnes,,meat,0.9,0,claude-haiku-5-5
+m1_B,0,Wat,,Letice,,timber,2.0,0,claude-sonnet-5-5
+m1_C,4,Letice,,Roger,,bread,3.0,0,claude-sonnet-5-5
+m1_C,6,Osric,,Cecily,,bread,2.0,0,claude-opus-5-5
+m1_C,6,Osric,,Cecily,,grain,4.0,0,claude-opus-5-5
+m1_C,7,Osric,,Hob,,bread,1.0,0,claude-opus-5-5
+m1_C0,0,Wat,,Letice,,timber,2.0,0,claude-sonnet-5-5
+m1_C02,0,Wat,,Letice,,timber,2.0,0,claude-sonnet-5-5
+m1_C2,6,Wat,,Letice,,timber,2.0,0,claude-sonnet-5-5
+m1_D,0,Piers,,Hamo,,timber,1.0,0,claude-haiku-5-5
+m1_D,1,Joan,,Wat,,meat,1.0,0,claude-haiku-5-5
+m1_D,3,Piers,,Hamo,,timber,2.0,0,claude-haiku-5-5
+m1_D,5,Alys,,Piers,,basket,1.0,0,claude-haiku-5-5
+m1_D,5,Wat,,Piers,,axe,1.0,0,claude-opus-5-5
+m1_D,6,Ivo,,Letice,,line,1.0,0,claude-opus-5-5
+m1_D,6,Ivo,,Isolde,,line,1.0,0,claude-opus-5-5
+m1_E_check,0,Maud,,Agnes,,grain,2.0,0,claude-sonnet-5-5
+m1_F,0,Wat,,Letice,,meat,1.0,0,claude-opus-5-5
+m1_F,2,Piers,,Hamo,,grain,3.0,0,claude-haiku-5-5
+m1_F,3,Mabel,,Joan,,timber,1.0,0,claude-haiku-5-5
+m1_F,4,Hamo,,Letice,,copper tool,1.0,0,claude-opus-5-5
+m1_F,5,Letice,,Hamo,,grain,4.0,0,claude-opus-5-5
+m1_F,5,Letice,,Hamo,,copper tool,1.0,0,claude-opus-5-5
+m1_G,0,Wat,,Ivo,,meat,1.0,0,claude-opus-5-5
+m1_G,0,Wat,,Ivo,,timber,1.0,0,claude-opus-5-5
+m1_G,1,Letice,,Alys,,milk,1.0,0,claude-opus-5-5
+m1_G,1,Letice,,Isolde,,milk,1.0,0,claude-opus-5-5
+m1_G,1,Letice,,Ivo,,milk,0.8,0,claude-opus-5-5
+m1_G,1,Maud,,Alys,,crude weapon,1.0,0,claude-haiku-5-5
+m1_G,2,Alys,,Maud,,crude weapon,1.0,0,claude-haiku-5-5
+m1_G,2,Isolde,,Alys,,milk,0.5,0,claude-haiku-5-5
+m1_G,2,Ivo,,Letice,,meat,1.3,0,claude-opus-5-5
+m1_G,2,Ivo,,Alys,,meat,1.3,0,claude-opus-5-5
+m1_G,2,Piers,,Mariot,,crude weapon,1.0,0,claude-haiku-5-5
+m1_G,3,Piers,,Hamo,,wild food,3.0,0,claude-haiku-5-5
+m1_G,4,Isolde,,Letice,,milk,1.0,0,claude-haiku-5-5
+m1_G,4,Isolde,,Alys,,milk,1.0,0,claude-haiku-5-5
+m1_G,5,Isolde,,Letice,,milk,1.0,0,claude-haiku-5-5
+m1_G,5,Isolde,,Alys,,milk,1.0,0,claude-haiku-5-5
+m1_G,5,Ivo,,Wat,,crude tool,1.0,0,claude-opus-5-5
+m1_G,6,Isolde,,Letice,,milk,1.0,0,claude-haiku-5-5
+m1_G,6,Isolde,,Alys,,milk,1.0,0,claude-haiku-5-5
+m1_G,7,Isolde,,Letice,,milk,1.0,0,claude-haiku-5-5
+m1_G,7,Isolde,,Alys,,milk,1.0,0,claude-haiku-5-5
+m1_G,7,Ivo,,Wat,,grain,1.5,0,claude-opus-5-5
+m1_G,7,Ivo,,Wat,,crude tool,1.0,0,claude-opus-5-5
+m1_G,8,Isolde,,Letice,,milk,1.0,0,claude-haiku-5-5
+m1_G,8,Isolde,,Alys,,milk,1.0,0,claude-haiku-5-5
+m1_G,8,Ivo,,Letice,,milk,1.9,0,claude-opus-5-5
+m1_G,9,Isolde,,Letice,,milk,1.0,0,claude-haiku-5-5
+m1_G,9,Isolde,,Alys,,milk,1.0,0,claude-haiku-5-5
+m1_G,9,Ivo,,Letice,,milk,2.0,0,claude-opus-5-5
+m1_G,9,Ivo,,Alys,,milk,1.0,0,claude-opus-5-5
+m1_G,9,Ivo,,Isolde,,milk,1.0,0,claude-opus-5-5
+m2_V,2,Aldric,,Warin,,meat,2.0,0,claude-haiku-5-5
+m2_V,2,Simkin,,Warin,,meat,3.0,0,claude-opus-5-5
+m2_V,3,Aldric,,Warin,,meat,1.0,0,claude-haiku-5-5
+m2_V,4,Aldric,,Rohese,,wild food,8.0,0,claude-haiku-5-5
+m2_V,4,Warin,,Rohese,,timber,4.5,0,claude-opus-5-5
+m2_V,5,Rohese,,Aldric,,wild food,2.0,0,claude-sonnet-5-5
+m2_V,6,Simkin,,Alard,,crude weapon,1.0,0,claude-opus-5-5
+m2_V,7,Aldric,,Rohese,,wild food,3.0,0,claude-haiku-5-5
+m2_V,7,Aldric,,Warin,,timber,2.0,0,claude-haiku-5-5
+m2_V,7,Edith,,Warin,,wild food,2.0,0,claude-sonnet-5-5
+m2_V,7,Simkin,,Osric,,meat,2.1,0,claude-opus-5-5
+m2_V,8,Edith,,Warin,,wild food,2.0,0,claude-sonnet-5-5
+m2_V,8,Isolde,,Sibyl,,flour,4.0,0,claude-haiku-5-5
+m2_V,9,Warin,,Simkin,,copper tool,1.0,0,claude-opus-5-5
+m2_V,9,Warin,,Edith,,coin,17.0,0,claude-opus-5-5
+m2_V,9,Warin,,Alard,,crude tool,1.0,0,claude-opus-5-5
+m2_V,9,Warin,,Aldric,,timber,3.0,0,claude-opus-5-5
+m2_V,10,Aldric,,Warin,,wild food,1.2,0,claude-haiku-5-5
+m2_V,10,Edith,,Warin,,wild food,1.0,0,claude-sonnet-5-5
+m2_V,10,Hamo,,Edric,,grain,3.0,0,claude-opus-5-5
+m2_V,10,Simkin,,Osric,,timber,2.0,0,claude-opus-5-5
+m2_V,11,Alard,,Warin,,timber,3.0,0,claude-haiku-5-5
+m2_V,11,Aldric,,Warin,,wild food,1.0,0,claude-haiku-5-5
+m2_V,12,Osric,,Alard,,copper ore,3.0,0,claude-haiku-5-5
+m2_V,12,Warin,,Alard,,timber,4.0,0,claude-opus-5-5
+m2_V,17,Alard,,Warin,,copper ore,3.0,0,claude-haiku-5-5
+m2_V,17,Alard,,Warin,,timber,4.0,0,claude-haiku-5-5
+m2_V,17,Alard,,Osric,,meat,1.5,0,claude-haiku-5-5
+m2_V,17,Warin,,Aldric,,copper tool,1.0,0,claude-opus-5-5
+m2_V,18,Edric,,Hamo,,bread,2.0,0,claude-opus-5-5
+m2_V,19,Aldric,,Simkin,,timber,4.0,0,claude-haiku-5-5
+m2_V,19,Edith,,Simkin,,coin,17.0,0,claude-sonnet-5-5
+m2_V,19,Osric,,Simkin,,crude weapon,1.0,0,claude-haiku-5-5
+p1_combe_evening,23,Everard,Hobb,Ivo,Hobb,harness,1.0,0,claude-haiku-5-5
+p1_combe_evening,23,Everard,Hobb,Ivo,Hobb,wooden plough,1.0,0,claude-haiku-5-5
+p1_combe_evening,27,Idonea,Hobb,Margery,Hobb,meat,1.0,0,claude-haiku-5-5
+p1_combe_evening,27,Idonea,Hobb,Margery,Hobb,wild food,1.2,0,claude-haiku-5-5
+p1_combe_evening,27,Idonea,Hobb,Everard,Hobb,grain,0.4,0,claude-haiku-5-5
+p1_combe_evening,31,Ivo,Hobb,Everard,Hobb,crude tool,1.0,0,claude-opus-5-5
+p1_combe_evening,36,Avice,Hobb,Ursula,Hobb,beans,1.0,0,claude-haiku-5-5
+p1_combe_now,23,Everard,Hobb,Ivo,Hobb,meat,3.0,0,claude-opus-5-5
+p1_combe_now,23,Ivo,Hobb,Everard,Hobb,wild food,0.7,0,claude-opus-5-5
+s1_valleys_signs,1,Simkin,Marsh,Hob,Smith,coin,4.0,1,claude-opus-5-5
+s1_valleys_signs,2,Hob,Smith,Simkin,Marsh,copper tool,1.0,1,claude-haiku-5-5
+s1_valleys_signs,2,Hob,Smith,Ancel,Smith,coin,4.0,0,claude-haiku-5-5
+s1_valleys_signs,2,Simkin,Marsh,Geoffrey,Cragg,coin,1.0,1,claude-opus-5-5
+s1_valleys_signs,4,Osric,Cragg,Ancel,Smith,coin,4.0,1,claude-opus-5-5
+v3,0,Simkin,Fenn,Alard,Fenn,crude tool,1.0,0,claude-opus-5-5
+v3,2,Warin,Smith,Osric,Smith,copper tool,1.0,0,claude-opus-5-5
+v3,4,Edric,Reed,Hamo,Hale,grain,4.0,1,claude-opus-5-5
+v3,4,Hamo,Hale,Tiffany,Hale,crude weapon,1.0,0,claude-opus-5-5
+v3,4,Warin,Smith,Rohese,Smith,timber,5.0,0,claude-opus-5-5
+v3,7,Hamo,Hale,Aldric,Fenn,timber,2.0,1,claude-opus-5-5
+v3,8,Simkin,Fenn,Elena,Smith,wild food,7.3,1,claude-opus-5-5
+v3,9,Edric,Reed,Cecily,Reed,bread,1.0,0,claude-opus-5-5
+v3,9,Hamo,Hale,Aldric,Fenn,grain,4.9,1,claude-opus-5-5
+v3,9,Simkin,Fenn,Cecily,Reed,timber,4.0,1,claude-opus-5-5
+v3,10,Cecily,Reed,Edric,Reed,timber,2.0,0,claude-haiku-5-5
+v3,10,Warin,Smith,Alard,Fenn,copper tool,1.0,1,claude-opus-5-5
+v3,11,Elena,Smith,Warin,Smith,wild food,2.8,0,claude-haiku-5-5
+v3,11,Elena,Smith,Osric,Smith,wild food,2.8,0,claude-haiku-5-5
+v3,13,Edric,Reed,Edith,Fenn,bread,3.0,1,claude-opus-5-5
+v3,14,Isolde,Reed,Simkin,Fenn,bread,1.0,1,claude-haiku-5-5
+v3,14,Isolde,Reed,Rohese,Smith,bread,1.0,1,claude-haiku-5-5
+v3,14,Osric,Smith,Edric,Reed,timber,2.0,1,claude-haiku-5-5
+v3,15,Hamo,Hale,Sibyl,Reed,coin,3.0,1,claude-opus-5-5
+v3,17,Alard,Fenn,Warin,Smith,copper tool,1.0,1,claude-haiku-5-5
+v3,17,Edith,Fenn,Edric,Reed,timber,4.0,1,claude-sonnet-5-5
+v3,17,Edith,Fenn,Sibyl,Reed,timber,4.0,1,claude-sonnet-5-5
+v3,17,Edric,Reed,Warin,Smith,bread,0.4,1,claude-opus-5-5
+w1_hamlet,0,Randal,Thorne,Alice,Ashby,grain,3.0,1,claude-opus-5-5
+w1_hamlet,0,Randal,Thorne,Matthew,Ashby,rye,2.0,1,claude-opus-5-5
+w1_hamlet,5,Randal,Thorne,Alice,Ashby,grain,4.0,1,claude-opus-5-5
+w1_hamlet,6,Payn,Ashby,Randal,Thorne,timber,6.0,1,claude-opus-5-5
+w1_hamlet,7,Payn,Ashby,Randal,Thorne,timber,6.0,1,claude-opus-5-5
+w1_hamlet,8,Randal,Thorne,Payn,Ashby,grain,4.0,1,claude-opus-5-5
+w1_hamlet,15,Randal,Thorne,Payn,Ashby,beans,2.2,1,claude-opus-5-5
+w1_hamlet,15,Randal,Thorne,Payn,Ashby,flour,2.9,1,claude-opus-5-5
+w1_wide,3,Jory,Fenwick,Lucy,Fenwick,crude tool,1.0,0,claude-opus-4-7
+w1_wide,3,Lucy,Fenwick,Jory,Fenwick,crude tool,1.0,0,claude-opus-4-7
+w1_wide,4,Avice,Moor,Ellen,Fenwick,milk,3.0,1,claude-sonnet-4-6
+w1_wide,4,Richard,Moor,Jory,Fenwick,crude tool,1.0,1,claude-sonnet-4-6
+w1_wide,5,Jory,Fenwick,Richard,Moor,crude tool,1.0,1,claude-opus-4-7
+w1_wide,6,Edith,Ashe,Gilbert,Ashe,charcoal,8.0,0,claude-sonnet-4-5
+w1_wide,6,Edith,Ashe,Gilbert,Ashe,grain,10.0,0,claude-sonnet-4-5
+w1_wide,6,Richard,Moor,Jory,Fenwick,rye,6.0,1,claude-sonnet-4-6
+w1_wide,6,Richard,Moor,Lucy,Fenwick,rye,5.0,1,claude-sonnet-4-6
+w1_wide,6,Richard,Moor,Roger,Fenwick,rye,4.0,1,claude-sonnet-4-6
+w1_wide,7,Avice,Moor,Jory,Fenwick,milk,2.0,1,claude-sonnet-4-6
+w1_wide,7,Edith,Ashe,Rose,Rook,grain,2.0,1,claude-sonnet-4-5
+w1_wide,7,Edith,Ashe,Denise,Rook,grain,4.0,1,claude-sonnet-4-5
+w1_wide,7,Richard,Moor,Jory,Fenwick,rye,5.0,1,claude-sonnet-4-6
+w1_wide,11,Avice,Moor,Ellen,Fenwick,crude tool,1.0,1,claude-sonnet-4-6
+w1_wide,12,Thomas,Cotter,Warin,Wynn,grain,7.6,1,claude-haiku-4-5
+w1_wide,13,Richard,Moor,Roger,Fenwick,rye,10.0,1,claude-sonnet-4-6
+w1_wide,14,Simkin,Rook,Gilbert,Ashe,coin,3.0,1,claude-opus-5-5
+w1_wide,17,Sabina,Cotter,Warin,Wynn,grain,5.0,1,claude-haiku-4-5
+w1_wide,19,Ellen,Fenwick,Richard,Moor,crude tool,1.0,1,claude-opus-4-7
+w1_wide,21,Avice,Moor,Richard,Moor,crude tool,1.0,0,claude-sonnet-4-6
+w2_two_valleys,0,Hob,Smith,Geoffrey,Cragg,grain,3.0,1,claude-haiku-5-5
+w2_two_valleys,1,Avice,Smith,Ancel,Smith,copper tool,1.0,0,claude-haiku-5-5
+w2_two_valleys,1,Osric,Cragg,Ancel,Smith,coin,1.0,1,claude-opus-5-5
+w2_two_valleys,2,Ancel,Smith,William,Reeve,coin,1.0,1,claude-opus-5-5
+w2_two_valleys,3,Ancel,Smith,William,Reeve,hide,1.0,1,claude-opus-5-5
+w2_two_valleys,3,Ancel,Smith,William,Reeve,crude tool,1.0,1,claude-opus-5-5
+w2_two_valleys,3,Ancel,Smith,William,Reeve,grain,2.0,1,claude-opus-5-5
+w2_two_valleys,4,Ancel,Smith,Joyce,Cragg,grain,3.0,1,claude-opus-5-5
+w2_two_valleys,4,Ancel,Smith,Osric,Cragg,coin,1.0,1,claude-opus-5-5
+w2_two_valleys,6,Felice,Reeve,Wat,Miller,flour,2.0,1,claude-haiku-5-5
+w2_two_valleys,6,Osric,Cragg,Ancel,Smith,coin,1.0,1,claude-opus-5-5
+w2_two_valleys,6,William,Reeve,Wat,Miller,grain,5.0,1,claude-opus-5-5
+w2_two_valleys,7,Ancel,Smith,Osric,Cragg,grain,3.0,1,claude-opus-5-5
+w2_two_valleys,7,Ancel,Smith,Osric,Cragg,copper tool,1.0,1,claude-opus-5-5
+w2_two_valleys,8,Agnes,Marsh,Ancel,Smith,grain,4.0,1,claude-sonnet-5-5
+w2_two_valleys,9,Wat,Miller,Florence,Smith,timber,2.3,1,claude-opus-5-5
+w2_two_valleys,12,Geoffrey,Cragg,Stephen,Smith,bread,3.0,1,claude-haiku-5-5
+w2_two_valleys,13,Osric,Cragg,Ancel,Smith,coin,3.0,1,claude-opus-5-5
+w2_two_valleys,14,Osric,Cragg,Joyce,Cragg,crude tool,1.0,0,claude-opus-5-5
+w2_two_valleys,14,Wat,Miller,William,Reeve,meat,5.0,1,claude-opus-5-5
+w2_two_valleys,14,Wat,Miller,Felice,Reeve,meat,4.0,1,claude-opus-5-5
+w2_two_valleys,15,Ancel,Smith,Gervase,Marsh,coin,5.0,1,claude-opus-5-5
+w2_two_valleys,15,Felice,Reeve,Richolda,Marsh,bread,3.0,1,claude-haiku-5-5
+w2_two_valleys,15,Felice,Reeve,Olive,Miller,meat,2.3,1,claude-haiku-5-5
+w2_two_valleys,15,Hob,Smith,Stephen,Smith,bread,0.6,0,claude-haiku-5-5
+w2_two_valleys,15,Hob,Smith,Warin,Smith,bread,0.5,0,claude-haiku-5-5
+w2_two_valleys,15,Osric,Cragg,Joyce,Cragg,stone,1.0,0,claude-opus-5-5
+w2_two_valleys,16,Ancel,Smith,Osric,Cragg,coin,4.0,1,claude-opus-5-5
+w3_region,1,Alard,Moor,Florence,Moor,copper tool,1.0,0,claude-haiku-5-5
+w3_region,2,Drew,Cole,Nicol,Moor,copper ore,2.0,1,claude-sonnet-5-5
+w3_region,2,Gilbert,Cole,Alard,Moor,copper ore,4.0,1,claude-haiku-5-5
+w3_region,3,Adam,Smith,Reynold,Smith,copper tool,1.0,0,claude-opus-5-5
+w3_region,3,Adam,Smith,Reynold,Smith,coin,4.0,0,claude-opus-5-5
+w3_region,3,Adam,Smith,Reynold,Smith,bread,1.0,0,claude-opus-5-5
+w3_region,3,Alard,Moor,Gilbert,Cole,copper tool,1.0,1,claude-haiku-5-5
+w3_region,3,Alice,Bell,Aldric,Ashe,bread,0.8,1,claude-haiku-5-5
+w3_region,3,Ancel,Reed,Randal,Hale,grain,4.0,1,claude-opus-5-5
+w3_region,3,Ancel,Reed,Dionisia,Hale,grain,2.0,1,claude-opus-5-5
+w3_region,3,Bennet,Barrow,Christian,Barrow,handcart,1.0,0,claude-opus-5-5
+w3_region,3,Bennet,Barrow,Christian,Barrow,coin,6.0,0,claude-opus-5-5
+w3_region,3,Colin,Merchant,Aldric,Ashe,bread,4.0,1,claude-opus-5-5
+w3_region,3,Petronel,Reed,Ralf,Lowe,grain,2.0,1,claude-haiku-5-5
+w3_region,3,Petronel,Reed,Beatrix,Lowe,grain,2.0,1,claude-haiku-5-5
+w3_region,4,Ancel,Reed,Warin,Bell,grain,2.0,1,claude-opus-5-5
+w3_region,4,Ancel,Reed,Adam,Smith,grain,2.0,1,claude-opus-5-5
+w3_region,4,Colin,Merchant,Ysolt,Merchant,bread,2.5,0,claude-opus-5-5
+w3_region,4,Colin,Merchant,Ysolt,Merchant,timber,4.0,0,claude-opus-5-5
+w3_region,4,Colin,Merchant,Peter,Merchant,timber,5.0,0,claude-opus-5-5
+w3_region,4,Colin,Merchant,Aldric,Ashe,crude weapon,1.0,1,claude-opus-5-5
+w3_region,4,Peter,Merchant,Ysolt,Merchant,bread,0.5,0,claude-haiku-5-5
+w3_region,5,Gilbert,Cole,Florence,Moor,copper ore,9.0,1,claude-haiku-5-5
+w3_region,5,Gillian,Merchant,Christian,Barrow,bread,1.0,1,claude-haiku-5-5
+w3_region,5,Lettice,Hale,Ralf,Lowe,grain,4.0,1,claude-haiku-5-5
+w3_region,5,Nicol,Moor,Florence,Moor,handcart,1.0,0,claude-opus-5-5
+w3_region,5,Philippa,Reed,Ralf,Lowe,grain,4.0,1,claude-haiku-5-5
+w3_region,6,Adam,Smith,Bennet,Barrow,crude tool,1.0,1,claude-opus-5-5
+w3_region,6,Adam,Smith,Ralf,Lowe,grain,0.4,1,claude-opus-5-5
+w3_region,6,Ancel,Reed,Elena,Miller,grain,3.0,1,claude-opus-5-5
+w3_region,6,Daniel,Hale,Ralf,Lowe,grain,2.0,1,claude-haiku-5-5
+w3_region,6,Daniel,Hale,Emma,Bell,grain,2.0,1,claude-haiku-5-5
+w3_region,6,Lettice,Hale,Beatrix,Lowe,grain,3.0,1,claude-haiku-5-5
+w3_region,6,Lettice,Hale,Emma,Bell,grain,3.0,1,claude-haiku-5-5
+w3_region,6,Peter,Merchant,Piers,Fenn,timber,1.0,1,claude-haiku-5-5
+w3_region,6,Ysolt,Merchant,Christian,Barrow,bread,1.0,1,claude-haiku-5-5
+w3_region,7,Lettice,Hale,Ralf,Lowe,grain,3.0,1,claude-haiku-5-5
+w3_region,7,Lettice,Hale,Emma,Bell,grain,3.0,1,claude-haiku-5-5
+w3_region,7,Philippa,Reed,Beatrix,Lowe,grain,3.0,1,claude-haiku-5-5
+w3_region,7,Randal,Hale,Adam,Smith,coin,1.0,1,claude-sonnet-5-5
+w3_region,8,Beatrix,Lowe,Bennet,Barrow,grain,4.0,1,claude-sonnet-5-5
+w3_region,8,Beatrix,Lowe,Thurstan,Barrow,grain,4.0,1,claude-sonnet-5-5
+w3_region,8,Elena,Miller,Bennet,Barrow,grain,4.0,1,claude-sonnet-5-5
+w3_region,8,Nicol,Moor,Florence,Moor,timber,4.8,0,claude-opus-5-5
+w3_region,9,Ancel,Reed,Durand,Reed,coin,6.0,0,claude-opus-5-5
+w3_region,9,Beatrix,Lowe,Bennet,Barrow,flour,6.0,1,claude-sonnet-5-5
+w3_region,9,Bennet,Barrow,Ancel,Reed,coin,6.0,1,claude-opus-5-5
+w3_region,9,Bennet,Barrow,Durand,Reed,coin,6.0,1,claude-opus-5-5
+w3_region,9,Colin,Merchant,Aldric,Ashe,coin,3.0,1,claude-opus-5-5
+w3_region,9,Elias,Fenn,Warin,Bell,coin,2.0,1,claude-opus-5-5
+w3_region,9,Wilmot,Moor,Nicol,Moor,bread,1.0,0,claude-haiku-5-5
+w3_region,10,Ancel,Reed,Ralf,Lowe,crude tool,1.0,1,claude-opus-5-5
+w3_region,10,Ancel,Reed,Ralf,Lowe,beans,0.7,1,claude-opus-5-5
+w3_region,10,Ancel,Reed,Ralf,Lowe,timber,3.0,1,claude-opus-5-5
+w3_region,10,Ancel,Reed,Ralf,Lowe,grain,0.1,1,claude-opus-5-5
+w3_region,10,Bennet,Barrow,Daniel,Hale,flour,2.0,1,claude-opus-5-5
+w3_region,10,Colin,Merchant,Cassandra,Merchant,dried meat,0.2,0,claude-opus-5-5
+w3_region,11,Alard,Moor,Sarra,Cole,bread,1.0,1,claude-haiku-5-5
+w3_region,11,Ancel,Reed,Durand,Reed,grain,0.4,0,claude-opus-5-5
+w3_region,11,Elias,Fenn,Wat,Miller,timber,2.0,1,claude-opus-5-5
+w3_region,11,Elias,Fenn,Rohese,Fenn,bread,0.3,0,claude-opus-5-5
+w3_region,11,Elias,Fenn,Rohese,Fenn,grain,3.8,0,claude-opus-5-5
+w3_region,11,Nicol,Moor,Wymarc,Cole,timber,5.0,1,claude-opus-5-5
+w3_region,11,Wat,Miller,Rohese,Fenn,grain,2.0,1,claude-haiku-5-5
+w3_region,12,Durand,Reed,Elias,Fenn,rye,2.4,1,claude-haiku-5-5
+w3_region,12,Rohese,Fenn,Nicol,Moor,handcart,1.0,1,claude-sonnet-5-5
+w3_region,13,Avice,Reed,Elena,Miller,flour,3.0,1,claude-sonnet-5-5
+w3_region,13,Avice,Reed,Lettice,Hale,flour,3.0,1,claude-sonnet-5-5
+w3_region,13,Avice,Reed,Daniel,Hale,flour,3.0,1,claude-sonnet-5-5
+w3_region,13,Beatrix,Lowe,Lettice,Hale,flour,5.0,1,claude-sonnet-5-5
+w3_region,13,Beatrix,Lowe,Daniel,Hale,flour,5.0,1,claude-sonnet-5-5
+w3_region,13,Elias,Fenn,Aldric,Ashe,flour,1.0,1,claude-opus-5-5
+w3_region,13,Ralf,Lowe,Elias,Fenn,flour,3.0,1,claude-sonnet-5-5
+w3_region,14,Avice,Reed,Bennet,Barrow,flour,3.0,1,claude-sonnet-5-5
+w3_region,14,Avice,Reed,Elena,Miller,grain,3.0,1,claude-sonnet-5-5
+w3_region,14,Cecily,Smith,Warin,Bell,grain,1.0,1,claude-haiku-5-5
+w3_region,14,Cecily,Smith,Alice,Bell,grain,1.0,1,claude-haiku-5-5
+w3_region,14,Clement,Reed,Durand,Reed,rye,4.0,0,claude-haiku-5-5
+w3_region,16,Bennet,Barrow,Beatrix,Lowe,flour,4.0,1,claude-opus-5-5
+w3_region,16,Rohese,Fenn,Wat,Miller,bread,1.0,1,claude-sonnet-5-5
+w3_region,17,Bennet,Barrow,Philippa,Reed,flour,3.0,1,claude-opus-5-5
+w3_region,17,Bennet,Barrow,Ralf,Lowe,flour,5.0,1,claude-opus-5-5
+w3_region,17,Jordan,Fenn,Basilia,Ashe,flour,1.0,1,claude-haiku-5-5
+w3_region,17,Rohese,Fenn,Wat,Miller,bread,1.0,1,claude-sonnet-5-5
+w3_region,18,Elena,Miller,Cecily,Smith,flour,1.0,1,claude-sonnet-5-5
+w3_region,18,Jordan,Fenn,Basilia,Ashe,grain,1.0,1,claude-haiku-5-5
+w3_region,18,Nicol,Moor,Wilmot,Moor,timber,2.5,0,claude-opus-5-5
+w3_region,19,Elias,Fenn,Colin,Merchant,flour,2.0,1,claude-opus-5-5
+w3_region,19,Jordan,Fenn,Basilia,Ashe,bread,1.0,1,claude-haiku-5-5
+wb1_wenbridge_hungry,2,Hugh,Ardern,Piers,Wright,grain,3.0,1,claude-opus-5-5
+wb1_wenbridge_hungry,2,Hugh,Ardern,Piers,Wright,coin,1.0,1,claude-opus-5-5
+wb1_wenbridge_hungry,2,Mary,Newcome,Hugh,Ardern,hay,3.5,1,claude-haiku-5-5
+wb1_wenbridge_paused,1,Wat,Mason,Joan,Mason,crude tool,1.0,0,claude-opus-5-5
+wb1_wenbridge_paused,4,Hugh,Ardern,Wat,Mason,timber,1.0,1,claude-opus-5-5
+wb1_wenbridge_paused,4,Joan,Mason,Wat,Mason,crude tool,1.0,0,claude-sonnet-5-5
+wb1_wenbridge_paused,6,Piers,Wright,Rob,Newcome,grain,2.0,1,claude-opus-5-5
+wb1_wenbridge_paused,6,Piers,Wright,Odo,Ardern,grain,1.0,1,claude-opus-5-5
+wb1_wenbridge_paused,7,Wat,Mason,Hugh,Ardern,stone,2.0,1,claude-opus-5-5
+wb1_wenbridge_paused,8,Piers,Wright,Rob,Newcome,firewood,2.2,1,claude-opus-5-5
+wb1_wenbridge_paused,9,Piers,Wright,Hugh,Ardern,grain,3.0,1,claude-opus-5-5
+wb1_wenbridge_paused,9,Rob,Newcome,Mary,Newcome,firewood,2.2,0,claude-sonnet-5-5
+wb1_wenbridge_paused,9,Wat,Mason,Hugh,Ardern,stone,3.9,1,claude-opus-5-5
+wb1_wenbridge_paused,10,Hugh,Ardern,Wat,Mason,grain,5.0,1,claude-opus-5-5
+wb1_wenbridge_paused,10,Joan,Mason,Wat,Mason,grain,1.0,0,claude-sonnet-5-5
+wb1_wenbridge_paused,13,Kit,Hearne,Ellen,Hearne,straw,10.0,0,claude-haiku-5-5
+wb1_wenbridge_paused,13,Piers,Wright,Tom,Hearne,timber,5.3,1,claude-opus-5-5
+wb1_wenbridge_paused,13,Tom,Hearne,Will,Hearne,timber,4.0,0,claude-sonnet-5-5
+wb2_wenbridge,2,Wat,Mason,Joan,Mason,crude tool,1.0,0,claude-opus-5-5
+wb2_wenbridge,2,Wat,Mason,Joan,Mason,grain,2.2,0,claude-opus-5-5
+wb2_wenbridge,4,Hugh,Ardern,Wat,Mason,timber,1.0,1,claude-opus-5-5
+wb2_wenbridge,6,Hugh,Ardern,Odo,Ardern,coin,15.0,0,claude-opus-5-5
+wb2_wenbridge,8,Hugh,Ardern,Piers,Wright,coin,5.0,1,claude-opus-5-5
+wb2_wenbridge,8,Tom,Hearne,Ellen,Hearne,grain,40.0,0,claude-sonnet-5-5
+wb2_wenbridge,8,Tom,Hearne,Kit,Hearne,grain,40.0,0,claude-sonnet-5-5
+wb2_wenbridge,8,Tom,Hearne,Will,Hearne,grain,36.3,0,claude-sonnet-5-5
+wb2_wenbridge,8,Tom,Hearne,Ellen,Hearne,straw,0.7,0,claude-sonnet-5-5
+wb2_wenbridge,9,Joan,Mason,Wat,Mason,crude tool,1.0,0,claude-sonnet-5-5
+wb2_wenbridge,9,Rob,Newcome,Joan,Mason,firewood,10.0,1,claude-sonnet-5-5
+wb2_wenbridge,10,Mary,Newcome,Rob,Newcome,grain,14.0,0,claude-haiku-5-5
+wb2_wenbridge,10,Rob,Newcome,Mary,Newcome,grain,8.5,0,claude-sonnet-5-5
+wb2_wenbridge,11,Alys,Ardern,Wat,Mason,grain,3.0,1,claude-sonnet-5-5
+wb2_wenbridge,11,Hugh,Ardern,Piers,Wright,coin,5.0,1,claude-opus-5-5
+wb2_wenbridge,11,Mary,Newcome,Rob,Newcome,grain,4.0,0,claude-haiku-5-5
+wb2_wenbridge,11,Mary,Newcome,Joan,Mason,wild food,1.0,1,claude-haiku-5-5
+wb2_wenbridge,11,Rob,Newcome,Joan,Mason,meat,1.1,1,claude-sonnet-5-5
+wb2_wenbridge,11,Will,Hearne,Ellen,Hearne,grain,4.0,0,claude-haiku-5-5
+wb2_wenbridge,12,Mary,Newcome,Odo,Ardern,firewood,4.0,1,claude-haiku-5-5
+wb2_wenbridge,12,Mary,Newcome,Joan,Mason,firewood,3.0,1,claude-haiku-5-5
+wb2_wenbridge,12,Will,Hearne,Ellen,Hearne,grain,14.0,0,claude-haiku-5-5
+wb2_wenbridge,13,Hugh,Ardern,Will,Hearne,firewood,3.0,1,claude-opus-5-5
+wb2_wenbridge,13,Kit,Hearne,Ellen,Hearne,grain,6.9,0,claude-haiku-5-5
+wb2_wenbridge,13,Odo,Ardern,Piers,Wright,coin,10.0,1,claude-haiku-5-5
+wb2_wenbridge,14,Mary,Newcome,Rob,Newcome,grain,5.0,0,claude-haiku-5-5
+wb2_wenbridge,15,Mary,Newcome,Rob,Newcome,grain,2.5,0,claude-haiku-5-5
+wb2_wenbridge,16,Ellen,Hearne,Joan,Mason,grain,4.0,1,claude-sonnet-5-5
+wb2_wenbridge,18,Hugh,Ardern,Rob,Newcome,meat,0.5,1,claude-opus-5-5
+wb2_wenbridge,19,Mary,Newcome,Rob,Newcome,wild food,0.5,0,claude-haiku-5-5
+wb2_wenbridge,20,Mary,Newcome,Rob,Newcome,firewood,0.2,0,claude-haiku-5-5
+wb2_wenbridge,20,Odo,Ardern,Will,Hearne,timber,1.0,1,claude-haiku-5-5
+wb2_wenbridge,21,Hugh,Ardern,Piers,Wright,coin,4.0,1,claude-opus-5-5
+wb2_wenbridge,21,Odo,Ardern,Will,Hearne,firewood,1.5,1,claude-haiku-5-5
+wb2_wenbridge,27,Alys,Ardern,Kit,Hearne,meat,0.4,1,claude-sonnet-5-5
+wb3_wenbridge,1,Wat,Mason,Joan,Mason,crude tool,1.0,0,claude-opus-5-5
+wb3_wenbridge,3,Joan,Mason,Wat,Mason,timber,4.0,0,claude-sonnet-5-5
+wb3_wenbridge,3,Wat,Mason,Joan,Mason,stone,2.0,0,claude-opus-5-5
+wb3_wenbridge,5,Joan,Mason,Wat,Mason,crude tool,1.0,0,claude-sonnet-5-5
+live_spring_seed7,3,Odo,Holt,Denise,Wood,grain,2.0,1,claude-sonnet-5-5
+live_spring_seed7,6,Odo,Holt,Denise,Wood,grain,10.0,1,claude-sonnet-5-5
+live_spring_seed7,6,Osric,Wood,Odo,Holt,grain,20.0,1,claude-sonnet-5-5

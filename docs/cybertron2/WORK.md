@@ -59,6 +59,7 @@ next number; 37.2 and 37.4 share the series (check before adding).
 
 | # | Work | Owner | Done |
 |---|---|---|---|
+| W-33 | The economy that emerged across runs (Zach, 12 Nov): barter, credit, gifts, reputation, and what the engine forced | 37.4 | 12 Nov: docs/review/38_space_engine/68_economy_forms.md, with scripts and CSVs in 68_economy/ |
 | W-32 | Offers across all cybertron2 runs (Zach, 12 Nov): prices, roundness, and what moves them (own stock, food, scarcity, competition, mentions, hunger); taking against price; credit | 37.4 | 12 Nov: docs/review/38_space_engine/67_offers.md, with scripts, CSV and chart in 67_offers/ |
 | W-28 | Build brief 4b written (hunt_followups.md): wariness, history by distance, recovery with a lag, births through the season, carrion drawing eaters; declared hunting parties, led beasts | 37.2 | 10 Nov: written, revised with Zach, sent to 37.4 |
 | W-24 | Build brief 4 written (hunt_and_fixes.md) | 37.2 | 10 Nov: written and handed over; built by 37.4 as W-27 |
