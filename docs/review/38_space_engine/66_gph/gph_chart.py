@@ -4,8 +4,9 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 W = ["No goal", "Memory", "Strong memory", "Graded high", "As much as possible"]
 DATA = {"Sonnet": {"kit": [0, 1, 0, 4, 4], "house": [0, 1, 0, 11, 11], "salt": [0, 6, 4, 30, 16]},
-        "Opus":   {"kit": [0, 0, 0, 2, 2], "house": [0, 0, 0, 5, 6], "salt": [0, 1, 2, 27, 12]}}
-COL = {"Sonnet": "#eb6834", "Opus": "#1baf7a"}
+        "Opus":   {"kit": [0, 0, 0, 2, 2], "house": [0, 0, 0, 5, 6], "salt": [0, 1, 2, 27, 12]},
+        "Haiku":  {"kit": [0, 0, 0, 2, 1], "house": [0, 0, 0, 5, 3], "salt": [0, 5, 2, 28, 15]}}
+COL = {"Haiku": "#2a78d6", "Sonnet": "#eb6834", "Opus": "#1baf7a"}
 fig, axes = plt.subplots(1, 3, figsize=(15, 4.2), dpi=150)
 for ax, key, lab in ((axes[0], "house", "Meals the whole household missed\n(Kit, Hugh, Edith; 8 nights)"), (axes[1], "kit", "Meals Kit missed (8 nights)"),
                      (axes[2], "salt", "Salt the Ashbys held at the end")):
