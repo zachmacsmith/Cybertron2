@@ -153,4 +153,84 @@ log(1 + x). The full tables are in `analysis.txt` §4 and §9.
     rate, which no prompt shows now.
   - That is a question for senses (the guide) and for the prompt, not a mechanic. It is not proposed here.
 
-*Current as of 12 Nov 2026.*
+## 6. Going rates between worlds, between runs of one world, and within a run (12 Nov)
+
+Zach (12 Nov): "Is there a lot more similarity in trades within a world than between? Is this about actual different worlds, or do
+different runs on the same world also vary?"
+
+`67_offers/rates_between.py`, output in `rates_between.txt`.
+
+**The method:**
+- Each spot offer becomes the price of a good in a common unit: grain if the trade has it, else coin, else work.
+- "Grain for 1 salt" is the same quantity whether salt is sold or bought. The side is kept, and removed within each run.
+- A **world** is the spec a run came from. All of round 3's salt cells are one world, all the hunger probe's runs one world, and so
+  on.
+- A mixed model (offers within runs within worlds) splits the variance of log price into the three levels.
+
+**The variance split:**
+
+| Market | Offers / runs / worlds | Between worlds | Between runs of one world | Within a run |
+|---|---|---|---|---|
+| salt in grain | 213 / 53 / 4 | **56%** (×1.69) | 19% (×1.35) | 25% (×1.42) |
+| timber in grain | 190 / 42 / 22 | **58%** (×1.59) | 12% (×1.23) | 30% (×1.40) |
+| work (days) in grain | 213 / 71 / 23 | 16% (×1.24) | **41%** (×1.42) | **44%** (×1.44) |
+| coin in grain | 170 / 66 / 18 | 20% (×1.29) | 22% (×1.31) | **57%** (×1.53) |
+| firewood in grain | 52 / 30 / 10 | 27% (×1.41) | 1% | **72%** (×1.76) |
+
+**Read:**
+- **Goods whose supply the world sets (salt, timber, copper) have a price that belongs to the world.** For these, the world explains
+  over half the variance.
+- **Wages and coin have no world price.** A day's work costs about 3 grain everywhere: the median is 3, and most worlds fall between 2
+  and 5.
+  - That is about 2.1 food, roughly two days of the base ration (1.0 a day).
+  - It looks like a convention the models bring with them, not something the worlds set. The worlds explain 16% of it.
+  - What spread there is lies between runs and within runs.
+- **Coin has no anchor in any world:** within a run its price spreads ×1.5.
+
+**Runs of one world differ by about ×1.25 to ×1.4, even when the spec is identical.** The hunger probe has replicates with the same
+spec and a different seed. Robert, the same Opus seller in the same world, opened his first salt offer at:
+
+| Spec | r1 | r2 | r3 |
+|---|---|---|---|
+| Haiku, scored high | 1.0 | 0.5 | 2.0 |
+| Haiku, memory 25 | 1.33 | 0.6 | 1.33 |
+| Sonnet, scored max | 2.0 | 2.0 | 1.0 |
+| Sonnet, memory all | 2.0 | 2.0 | 1.0 |
+
+- Across all 33 runs of that world, his first salt price ran from 0.5 to 2.0 grain a salt. The common openings were 1.0 (8 runs),
+  1.33 (7) and 2.0 (8).
+- **A run's rate is a draw from a few round numbers, made on the first days.**
+
+**Within a run, prices hang together:**
+- **Sellers and buyers converge.** In runs where both sides quote a market, the sellers' price over the buyers' has a median of
+  0.94 to 1.03. Once a number is said, both sides use it.
+- **The first offer anchors, but loosely.**
+  - Across 133 run-markets with 4 or more offers, the correlation between the first offer and the mean of the later ones is 0.49.
+    Between the first offer and the last it is 0.21.
+  - The typical move away from the first price is ×1.26, with no drift up or down on average.
+
+**Patterns between worlds:**
+- **Salt:**
+  - rounds 1 and 2: about 2.8 to 3 grain a salt;
+  - round 3: 0.9 to 1.4;
+  - the hunger world: about 1.05.
+  - Round 3 added the Saltings, a free source a day away, and the holder's household changed to an Opus head. Either could explain
+    the fall; the two are confounded.
+- **Timber:** the first engine's worlds (m1) priced it at 2 to 4 grain, against about 1 to 1.5 in later worlds.
+- **Timber against firewood:** in round 3's timber world, timber was 1.3 grain and firewood 0.32, a ratio of 4. That matches the
+  engine's heat values (2.0 against 0.5). It could be a coincidence: timber also builds.
+- **Wages are lowest where grain is scarce:** 2.5 grain a day in the hunger world's lean spring, against 3 to 5 in Wenbridge, takeover
+  and Brookend.
+- **Within the hunger world, the buyers' model shifts the salt price a little:**
+  - with Opus parents, salt cost 1.33 grain;
+  - with Sonnet parents, 1.11;
+  - with Haiku parents, 0.99.
+  - These are from 5 to 15 runs each. The seller is the same in all of them.
+
+**What this means for experiments:**
+- For a world-set good, a single run's price is a fair reading of the world, give or take ×1.35.
+- For wages and coin it is not: one run says little.
+- Comparing arms on price needs several runs per arm. The noise between replicates (×1.25 to ×1.4) is about the size of most effects
+  in §2.
+
+*Current as of 12 Nov 2026 (§6 added).*
