@@ -1,7 +1,7 @@
 # River and water: the runs, the weir and what lives by the water: build brief 5
 
-**Status:** draft (10 Nov), for Zach's go after brief 4b. **Build brief 5** for the wild layer: pack K4 (02zv §4) without its fen-only
-and boat parts, on the engine as built by briefs 1 to 4b.
+**Status:** draft, revised 12 Nov for Zach's check; to go after brief 4c (`hunt_calibration.md`). **Build brief 5** for the wild
+layer: pack K4 (02zv §4) without its fen-only and boat parts, on the engine as built by briefs 1 to 4b and calibrated by 4c.
 **Owner:** 37.2 (author; the wild pack's data, `engine/wild.py`, the ecology; the test worlds from the generator). Works on a water
 parcel, their condition and the manual are 37.4's (§6).
 **Affects:** spec/environment/wildlife.md; spec/economy/buildings.md (the weir as a work); on the branch: `wild/kinds.py`,
@@ -24,7 +24,8 @@ traps, and the beaver's dam floods one meadow and fills a pond. This brief build
 ## 1. For the builder
 
 **This file holds for this brief.** Read:
-- briefs 1 to 4b and their tests (4b: hunt_followups.md);
+- briefs 1 to 4c and their tests (4b: hunt_followups.md; 4c: hunt_calibration.md, for the take as calibrated and set things found
+  at their parcel);
 - 02zv K4;
 - 02zp §27 (the eel analysis);
 - on the branch:
@@ -39,10 +40,12 @@ traps, and the beaver's dam floods one meadow and fills a pond. This brief build
 **Do not** name kinds in rule code (a run is a mover's rule over any kind with `mover: run`); invent rivers the land does not have;
 cap signs. Dry runs only.
 
-**Branch:** `ecology-water`, from brief 4b's branch (`ecology-hunt2`).
+**Branch:** `ecology-water`, from main once briefs 1 to 4c are merged (otherwise from brief 4c's branch).
 
-**Worlds:** 37.2 supplies two generated worlds with the land kept (D2-208): two villages on one river, one upstream of the other;
-and a lowland village with a lake. They are made with `cybertron2/specs/make_wild_tests.py`.
+**Worlds:** 37.2 supplies two generated worlds with the land kept (D2-208), before the build starts: two villages on one river, one
+upstream of the other, with a big river for salmon; and a lowland village with a lake. `land.down` exists only in generated
+worlds, so they come from the generator (not `make_wild_tests.py`, whose worlds are written by hand). Each starts late in summer, so
+a run of 14 days holds the autumn run. The wild region (02zze: Weirford on its river, the Mere) is a third check.
 
 ## 2. The run along the river (C6 on `land.down`)
 
@@ -75,8 +78,12 @@ and a lowland village with a lake. They are made with `cybertron2/specs/make_wil
    - **Open:** it takes little and lets the run pass.
 3. **Downstream:** what a shut weir takes is not there below. The next village down sees the run thinner by that share, on the lag
    day. Two shut weirs on one river leave little for a third.
-4. **Robbing:** the weir's set things, like any set thing, can be emptied by anyone at the parcel. Taking from another's leaves a
-   trace (D4-48), read by those who know the weir.
+4. **Robbing and lifting:** the weir's set things, like any set thing, can be emptied by anyone at the parcel. Taking from another's
+   leaves a trace (D4-48), read by those who know the weir. As brief 4c builds for snares and traps:
+   - the crew finds the catch by going to the weir, never by being told;
+   - one who knows the weir sees its catch when at the parcel;
+   - a full trap is plainer to anyone;
+   - a remembered weir says what was seen and when, never "empty" by default.
 5. **Signs:** the weir and its gap seen at the parcel; the run seen ("eels thick in the weir's traps"); below, "the run was thin
    this year" for those who know it.
 
@@ -156,9 +163,13 @@ pack off: crews on run nights, weirs built and kept, the gap disputed between th
 
 ## Open questions (for Zach)
 
-1. The salmon's three-year return compressed into the world's years (a year is 32 days), or shortened.
+1. The salmon's three-year return compressed into the world's years (a year is 32 days, so 96 days, longer than any run so far), or
+   shortened. Proposed: one world year (32 days), so a run of 45 days or more sees a shut weir's cost. That is a compression like the
+   lifespan's, stated as such.
 2. Whether the weir's gap has a customary rule seeded in any world (no: nothing social is forced), or is only physical (proposed).
-3. The run-night target at a weir (§7).
+3. The run-night target at a weir (§7). Proposed: about 1 to 2 food a unit at a sound, shut weir on a run night, near nothing
+   otherwise. Over an autumn that is a few good nights, above brief 4c's master near home only on those nights.
+4. Whether the weir waits for 37.4's merge of briefs 1 to 4c (proposed), or starts on the stacked branch.
 
 ## History
 
@@ -166,6 +177,9 @@ pack off: crews on run nights, weirs built and kept, the gap disputed between th
   first briefs before any foraging").
 
 - 10 Nov 2026: rebased on brief 4b (hunt_followups.md): its branch, declared parties for crew work, wariness and recovery in the ecology the runs move through.
+- 12 Nov 2026: revised for Zach's check: after brief 4c (the take as calibrated; set things found by going to them, and remembered
+  without "empty", Zach 12 Nov); the branch from main after the merge; the worlds from the generator, starting late in summer, with
+  the region as a third check; proposed answers to the salmon's return and the run-night target.
 
 ## Sources
 
