@@ -233,4 +233,60 @@ spec and a different seed. Robert, the same Opus seller in the same world, opene
 - Comparing arms on price needs several runs per arm. The noise between replicates (×1.25 to ×1.4) is about the size of most effects
   in §2.
 
-*Current as of 12 Nov 2026 (§6 added).*
+## 7. Are bigger models' offers less variable? (12 Nov)
+
+Zach (12 Nov): "Are offers made by bigger models more consistent / less variable?"
+
+`67_offers/by_model.py`, output in `by_model.txt`.
+- **A series** is one maker's offers in one market, on one side (buying or selling), in one run.
+- **The question is answered both ways:** a maker against itself (its series), and a maker against the other makers in the same run
+  and market.
+
+**Against itself, Opus is the most variable; Sonnet the least:**
+
+| Model | Series with repeats | Spread within a series | Reposts unchanged | Median step when changed | Steps of ×2 or more |
+|---|---|---|---|---|---|
+| Haiku | 51 | ×1.24 | 54% | ×1.41 | 12% |
+| Sonnet | 30 | ×1.15 | 66% | ×1.33 | 5% |
+| Opus | 159 | ×1.30 | 34% | ×1.50 | 17% |
+
+**The ranking holds with the role held.** In the salt and hunger probes, each model was also tested as the target pair, in the same
+role:
+
+| Model | Spread | Unchanged |
+|---|---|---|
+| Opus | ×1.34 | 26% |
+| Haiku | ×1.25 | 53% |
+| Sonnet | ×1.18 | 79% |
+
+It also holds in short series only (2 to 3 offers), on both the buying and the selling side.
+
+**Against the others in the same run, no model sits closer to the going rate.**
+- The median distance from the other makers' mean is ×1.31 to ×1.33 for all three.
+- Where two models offered in the same run, market and side, Opus was further from the others more often than not:
+  - against Haiku: further in 35% of cases, closer in 16% (the rest are ties: with two makers, the distances are equal);
+  - against Sonnet: further in 40%, closer in 19%.
+
+**Why Opus moves: it bargains.** The step from one offer to the next, signed so that a positive step is better for the taker:
+
+| Model | After an offer not taken: concedes / hardens / same | After an offer taken: concedes / hardens / same |
+|---|---|---|
+| Haiku | 35% / 18% / 48% (40) | 0% / 36% / 64% (25) |
+| Sonnet | 26% / 22% / 52% (23) | 13% / 0% / 87% (15) |
+| Opus | **62%** / 12% / 26% (151) | 37% / 17% / 46% (93) |
+
+- **Opus cuts its price after a failed offer twice as often as the others.** Haiku raises its price after a success, as a seller
+  testing the market would.
+- Sonnet mostly repeats itself whatever happened.
+- **Opus's changes are not much explained by its own state.** Within a series, its own stock and food explain 14% of the movement,
+  against 20 to 25% for Haiku and Sonnet. The pooled result in §2, that Opus prices by stock and food, comes mostly from differences
+  between Opus makers and between days, not from steps within one series.
+
+**Limits:**
+- "Taken" is the offer's final count, not its state when the next offer was made.
+- Haiku's and Sonnet's repeat series are few (23 to 51).
+
+**Read:** the bigger model is not the more consistent one. Its prices move most, in the direction of a seller looking for a buyer.
+Sonnet's stability is mostly not responding.
+
+*Current as of 12 Nov 2026 (§6 and §7 added).*

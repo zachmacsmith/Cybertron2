@@ -1,0 +1,52 @@
+== 1. Each maker against itself: its offers in one market, one side, one run
+ model  offers  makers  repeat series  sd within series (x)  repost unchanged  median step when changed (x)  steps > x2  simple ratio
+ haiku     388     207             51                  1.24              0.54                          1.41        0.12          0.83
+  opus     792     199            159                  1.30              0.34                          1.50        0.17          0.79
+sonnet     231     114             30                  1.15              0.66                          1.33        0.05          0.81
+
+== 2. Each maker against the others: |log price - mean of the other makers' offers in that run, market and side|
+        offers  median_gap  gap_over_x2
+model                                  
+haiku      225        1.33         0.20
+opus       353        1.33         0.25
+sonnet     158        1.31         0.23
+
+== 3. Same run, same market, same side, both models present: pairwise gap of each model's mean from the other makers'
+haiku vs opus: 81 run-markets; mean gap haiku x1.47, opus x1.54; haiku further off in 16%, closer in 35%, tied (two makers only) 49%
+sonnet vs opus: 43 run-markets; mean gap sonnet x1.31, opus x1.44; sonnet further off in 19%, closer in 40%, tied (two makers only) 42%
+haiku vs sonnet: 43 run-markets; mean gap haiku x1.47, sonnet x1.45; haiku further off in 30%, closer in 30%, tied (two makers only) 40%
+
+== 4. Noise left after the maker's own state (offers with a market): within-series sd of the residual of
+   lprice ~ own stock of the good + household food + place stock of the numeraire, by model (fixed effect per series)
+haiku: series 28, offers 59; raw sd x1.24, residual sd x1.20, share explained 0.25
+opus: series 114, offers 281; raw sd x1.32, residual sd x1.30, share explained 0.14
+sonnet: series 23, offers 51; raw sd x1.15, residual sd x1.13, share explained 0.20
+
+== 5. Section 1 with the role held: short series (2-3 offers) only, by side; and the salt and hunger probes' targets (Haiku,
+   Sonnet or Opus pairs in the same role) against the fixed Opus holders
+             series    sd  unchanged
+side model                          
+buy  haiku       25  1.14       0.69
+     opus        41  1.25       0.35
+     sonnet      14  1.14       0.65
+sell haiku       24  1.28       0.39
+     opus        99  1.30       0.35
+     sonnet      14  1.15       0.67
+                         series  offers    sd  unchanged
+role             model                                  
+holder household haiku        3       6  1.14       0.67
+                 opus        47     114  1.35       0.30
+target pair      haiku       15      32  1.25       0.53
+                 opus        21      52  1.34       0.26
+                 sonnet      11      25  1.18       0.79
+
+== 6. What a change follows: the step from one offer to the next in a series, signed so that + is better for the taker
+   (a seller cuts, a buyer offers more), by whether the earlier offer was taken
+move               concedes  hardens  same    n
+model  prev_taken                              
+haiku  False           0.35     0.18  0.48   40
+       True            0.00     0.36  0.64   25
+opus   False           0.62     0.12  0.26  151
+       True            0.37     0.17  0.46   93
+sonnet False           0.26     0.22  0.52   23
+       True            0.13     0.00  0.87   15
