@@ -1,7 +1,7 @@
 # Written by cybertron2/specs/make_goal_probe.py round3 (review 38.65).
 name: gp3_copper_opus_none_r1
 seed: 302
-days: 6
+days: 8
 calendar:
   season: summer
   day: 2
@@ -79,6 +79,7 @@ nodes:
         - cg_field
         - cg_mead
         - cg_scar
+        - cg_old
       cg_field:
         name: the Field
         cover: field
@@ -121,6 +122,19 @@ nodes:
             S: 40
             r: 0.0
             ore: copper ore
+      cg_old:
+        name: the Old Working
+        cover: rock
+        size: 1
+        side: west
+        height: 3
+        text: an old copper digging, grassed over, nobody's
+        state:
+          seam:
+            K: 15
+            S: 15
+            r: 0.0
+            ore: copper ore
 roads:
 - - brook
   - cragg
@@ -151,14 +165,17 @@ buildings:
     rooms:
     - kind: medium room
     fittings:
-      beds: 2
+      beds: 3
       hearth: 1
       bins: 1
+      anvil: 1
     stock:
       grain: 40
       copper: 6
       beans: 6
       firewood: 30
+      timber: 8
+      charcoal: 2
 agents:
   Walter:
     household: Hale
@@ -170,6 +187,8 @@ agents:
     memories:
     - The Hales farm the Field at Brook.
     - Cragg lies a day's walk over the hills.
+    - Above Cragg is the Old Working, an old copper digging that belongs to nobody. Ore from it wants a miner's skill to dig, and copper wants
+      the ore smelted at an anvil, as the Mires do.
     knows: &id001
       sow: &id002
         level: known
@@ -204,6 +223,8 @@ agents:
       Walter: your husband
     memories:
     - You keep the Hale house at Brook.
+    - Above Cragg is the Old Working, an old copper digging that belongs to nobody. Ore from it wants a miner's skill to dig, and copper wants
+      the ore smelted at an anvil, as the Mires do.
     knows: *id001
     aware_of: {}
     holdings: {}
@@ -224,12 +245,17 @@ agents:
       Joan: your wife
     memories:
     - The Mires hold the copper seam at Cragg and smelt a little.
+    - Above Cragg is the Old Working, an old copper digging that belongs to nobody. Ore from it wants a miner's skill to dig, and copper wants
+      the ore smelted at an anvil, as the Mires do.
     knows:
       sow: *id002
       reap: *id003
       hoe: *id004
       weed: *id005
-      mine:
+      mine: &id006
+        level: known
+        skill: 1.0
+      smelt: &id007
         level: known
         skill: 1.0
     aware_of: {}
@@ -252,6 +278,8 @@ agents:
       Osbert: your husband
     memories:
     - You keep the Mire house at Cragg.
+    - Above Cragg is the Old Working, an old copper digging that belongs to nobody. Ore from it wants a miner's skill to dig, and copper wants
+      the ore smelted at an anvil, as the Mires do.
     knows: *id001
     aware_of: {}
     holdings: {}
@@ -260,6 +288,37 @@ agents:
     - family
     parents: []
     partner: Osbert
+    model: claude-haiku-5-5
+    born_line: Mire
+    kept: []
+  Cecily:
+    household: Mire
+    born: -20
+    stage: adult
+    sex: f
+    relations:
+      Osbert: your father
+      Joan: your mother
+    memories:
+    - You are the Mires' grown daughter, not yet married, and you live at home.
+    - Above Cragg is the Old Working, an old copper digging that belongs to nobody. Ore from it wants a miner's skill to dig, and copper wants
+      the ore smelted at an anvil, as the Mires do.
+    knows:
+      sow: *id002
+      reap: *id003
+      hoe: *id004
+      weed: *id005
+      mine: *id006
+      smelt: *id007
+    aware_of: {}
+    holdings: {}
+    concerns:
+    - food
+    - family
+    parents:
+    - Osbert
+    - Joan
+    partner: null
     model: claude-haiku-5-5
     born_line: Mire
     kept: []

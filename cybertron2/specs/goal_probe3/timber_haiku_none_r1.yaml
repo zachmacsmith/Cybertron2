@@ -1,7 +1,7 @@
 # Written by cybertron2/specs/make_goal_probe.py round3 (review 38.65).
 name: gp3_timber_haiku_none_r1
 seed: 303
-days: 6
+days: 8
 calendar:
   season: summer
   day: 2
@@ -77,6 +77,30 @@ nodes:
         state:
           wood:
             kind: copse
+  hart:
+    name: Hartwood
+    parcels:
+      hw_wood:
+        name: the Hart Wood
+        cover: forest
+        size: 2
+        side: centre
+        height: 2
+        text: a common wood of oak and ash
+        adj:
+        - hw_ride
+        state:
+          wood:
+            kind: managed wood
+      hw_ride:
+        name: the Ride
+        cover: pasture
+        size: 1
+        side: south
+        height: 2
+        text: a grassy ride through the wood
+        adj:
+        - hw_wood
 buildings:
   reed_house:
     name: the Reed house
@@ -101,7 +125,7 @@ buildings:
     rooms:
     - kind: medium room
     fittings:
-      beds: 2
+      beds: 3
       hearth: 1
       bins: 1
     stock:
@@ -119,6 +143,7 @@ agents:
       Alice: your wife
     memories:
     - The Reeds farm the Field.
+    - 'Hartwood, a day''s walk up the valley, is common wood: anyone may fell there.'
     knows:
       sow: &id001
         level: known
@@ -156,6 +181,7 @@ agents:
       Simon: your husband
     memories:
     - You keep the Reed house.
+    - 'Hartwood, a day''s walk up the valley, is common wood: anyone may fell there.'
     knows: &id005
       sow: *id001
       reap: *id002
@@ -180,6 +206,7 @@ agents:
       Mabel: your wife
     memories:
     - The Coles hold the Copse and cut it sparingly.
+    - 'Hartwood, a day''s walk up the valley, is common wood: anyone may fell there.'
     knows: *id005
     aware_of: {}
     holdings:
@@ -201,6 +228,7 @@ agents:
       Geoffrey: your husband
     memories:
     - You keep the Cole house.
+    - 'Hartwood, a day''s walk up the valley, is common wood: anyone may fell there.'
     knows: *id005
     aware_of: {}
     holdings: {}
@@ -212,3 +240,37 @@ agents:
     model: claude-haiku-5-5
     born_line: Cole
     kept: []
+  Tom:
+    household: Cole
+    born: -20
+    stage: adult
+    sex: m
+    relations:
+      Geoffrey: your father
+      Mabel: your mother
+    memories:
+    - You are the Coles' grown son, not yet married, and you live at home.
+    - 'Hartwood, a day''s walk up the valley, is common wood: anyone may fell there.'
+    knows:
+      sow: *id001
+      reap: *id002
+      hoe: *id003
+      weed: *id004
+    aware_of: {}
+    holdings: {}
+    concerns:
+    - food
+    - family
+    parents:
+    - Geoffrey
+    - Mabel
+    partner: null
+    model: claude-haiku-5-5
+    born_line: Cole
+    kept: []
+roads:
+- - vale
+  - hart
+  - 1
+  - terrain: forest
+    way: the valley road to Hartwood
