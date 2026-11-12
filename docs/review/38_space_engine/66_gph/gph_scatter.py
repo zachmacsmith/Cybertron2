@@ -1,42 +1,40 @@
-"""The hunger probe's confound check in two dimensions (38.66): each run's salt at the end against the meals its household missed.
-Colour: promise or grade; shape: the parents' model; an arrow from each ask's promise mean to its grade mean."""
-import random, sys
+"""The hunger probe's confound check in two dimensions (38.66): one panel per model and ask, each comparing exactly one pair. Each
+small dot is a run (salt at the end, meals the household missed); the large dot is the mean of its 3; blue the promise, orange the
+grade; a black ring marks a run where someone died."""
+import sys
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 sys.argv = sys.argv[:2]
 import gph_confound_chart as C
 BLUE, ORANGE = "#2a78d6", "#eb6834"
-SHAPE = {"haiku": "o", "sonnet": "s"}
-ASKS = [("memory_25", "scored_high", "25 salt"), ("memory_all", "scored_max", "all you can")]
-rng = random.Random(1)
-fig, ax = plt.subplots(figsize=(8, 5.6), dpi=150)
-for p in ("haiku", "sonnet"):
-    for mem, grd, ask in ASKS:
-        means = []
-        for arm, col in ((mem, BLUE), (grd, ORANGE)):
+ASKS = [("memory_25", "scored_high", "Asked for 25 salt"), ("memory_all", "scored_max", "Asked for all they can")]
+fig, axes = plt.subplots(2, 2, figsize=(10, 8), dpi=150, sharex=True, sharey=True)
+for i, p in enumerate(("haiku", "sonnet")):
+    for j, (mem, grd, ask) in enumerate(ASKS):
+        ax = axes[i][j]
+        for arm, col, lab in ((mem, BLUE, "Promise (in-world)"), (grd, ORANGE, "Grade")):
             runs = C.cell(p, arm)
-            xs = [r["salt"] + rng.uniform(-0.3, 0.3) for r in runs]
-            ys = [r["missed"] + rng.uniform(-0.15, 0.15) for r in runs]
-            for x_, y_, r in zip(xs, ys, runs):                          # one by one: only a run with a death is outlined
-                ax.scatter([x_], [y_], marker=SHAPE[p], s=55 if r["dead"] else 45, color=col, alpha=0.75 if r["dead"] else 0.55,
-                           edgecolors="black" if r["dead"] else col, linewidths=1.8 if r["dead"] else 0, zorder=3)
-            means.append((sum(r["salt"] for r in runs) / 3, sum(r["missed"] for r in runs) / 3))
-        (x0, y0), (x1, y1) = means
-        ax.annotate("", xy=(x1, y1), xytext=(x0, y0), arrowprops=dict(arrowstyle="-|>", color="#555555", lw=1.4), zorder=2)
-        ax.annotate(f"{p.capitalize()}, {ask}", ((x0 + x1) / 2, (y0 + y1) / 2), xytext=(6, -10 if p == "haiku" else 6),
-                    textcoords="offset points", fontsize=8, color="#333333")
-ax.axvline(25, color="grey", linestyle="--", linewidth=1)
-ax.text(25.3, 0.2, "25 salt", fontsize=8, color="grey")
-for lab, kw in (("Promise (in-world)", dict(color=BLUE, marker="o")), ("Grade", dict(color=ORANGE, marker="o")),
-                ("Haiku parents", dict(color="grey", marker="o")), ("Sonnet parents", dict(color="grey", marker="s")),
-                ("Someone died", dict(color="white", marker="o", markeredgecolor="black"))):
-    ax.plot([], [], linestyle="none", markersize=7, label=lab, **kw)
-ax.legend(fontsize=8, frameon=False, loc="upper left")
-ax.set_xlabel("Salt held at the end"); ax.set_ylabel("Meals the household missed (Kit, Hugh, Edith; 8 nights)")
-ax.set_title("Same ask, promise or grade: each dot a run; arrows go from the promise's mean to the grade's", fontsize=10)
-ax.set_xlim(-1, 33); ax.set_ylim(-0.6, 12)
-ax.grid(alpha=0.3); ax.spines[["top", "right"]].set_visible(False)
-fig.tight_layout()
+            for k, r in enumerate(runs):
+                ax.scatter([r["salt"] + 0.25 * (k - 1)], [r["missed"]], s=40, color=col, alpha=0.6, zorder=3,
+                           edgecolors="black" if r["dead"] else col, linewidths=1.8 if r["dead"] else 0)
+            mx, my = sum(r["salt"] for r in runs) / 3, sum(r["missed"] for r in runs) / 3
+            ax.scatter([mx], [my], s=170, color=col, zorder=4, edgecolors="white", linewidths=1.5, label=f"{lab}, mean of 3")
+        ax.axvline(25, color="grey", linestyle="--", linewidth=1)
+        ax.set_title(f"{p.capitalize()} parents, {ask.lower()}", fontsize=10)
+        ax.grid(alpha=0.3); ax.spines[["top", "right"]].set_visible(False)
+        ax.set_xlim(-1, 33); ax.set_ylim(-0.8, 12)
+for ax in axes[1]:
+    ax.set_xlabel("Salt held at the end (dashed: 25)")
+for ax in axes[:, 0]:
+    ax.set_ylabel("Meals the household missed")
+h, l = axes[0][0].get_legend_handles_labels()
+h += [plt.Line2D([], [], linestyle="none", marker="o", markersize=7, color=BLUE, alpha=0.6),
+      plt.Line2D([], [], linestyle="none", marker="o", markersize=7, markerfacecolor="white", markeredgecolor="black", markeredgewidth=1.8)]
+l += ["A single run", "Someone died in that run"]
+fig.legend(h, l, fontsize=8, frameon=False, loc="upper center", ncol=4, bbox_to_anchor=(0.5, 0.955))
+fig.suptitle("The same ask as a deathbed promise (blue) or as a grade (orange). Right = more salt; up = more meals the family missed",
+             fontsize=10)
+fig.tight_layout(rect=(0, 0, 1, 0.93))
 fig.savefig("gph_scatter.png")
 print("ok")
