@@ -135,7 +135,10 @@ def cost(here, a) -> int:
             from cybertron2.engine import things as TH                         # (D4-99): an act puts in up to its units
             n = max(1, min(n, here.grave_left(cid)))
     elif v == "make":
-        n *= max(1, int(_qty(a.get("qty"), 1)))
+        try:
+            n *= max(1, int(_qty(a.get("qty"), 1)))
+        except Refused:                                                        # a bad qty is refused by the act itself, not by its cost
+            pass
     return n + MOD.units(a, v, tech)
 
 
