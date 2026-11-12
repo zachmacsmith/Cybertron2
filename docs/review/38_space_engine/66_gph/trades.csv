@@ -1,0 +1,131 @@
+probe,pair,arm,rep,agreement,day,made_by,salt,for_item,for_qty,price_per_salt
+round3,haiku,memory_strong,r1,A30,1,Edith+Maud,5.0,grain,5.0,1.0
+round3,haiku,memory_strong,r1,A33,1,Hugh+Robert,15.0,grain,10.0,0.667
+round3,haiku,none,r1,A94,4,Hugh+Wat,2.0,grain,3.0,1.5
+round3,haiku,none,r1,A135,6,Hugh+Robert,12.0,grain,9.0,0.75
+round3,haiku,scored_high,r1,A114,6,Edith+Robert,6.0,grain,10.0,1.667
+round3,haiku,scored_high,r1,A117,6,Edith+Maud,4.0,grain,2.0,0.5
+round3,haiku,scored_max,r1,A80,5,Edith+Robert,6.0,grain,6.0,1.0
+round3,haiku,scored_max,r1,A83,5,Edith+Maud,10.0,grain,4.0,0.4
+round3,haiku,scored_max,r1,A140,7,Edith+Robert,10.0,grain,8.0,0.8
+round3,opus,memory_strong,r1,A4,0,Hugh+Maud,2.0,grain,6.0,3.0
+round3,opus,memory_strong,r1,A7,0,Hugh+Robert,3.0,grain,9.0,3.0
+round3,opus,memory_strong,r1,A82,4,Maud+Robert,6.0,grain,18.0,3.0
+round3,opus,none,r1,A68,3,Maud+Robert,10.0,grain,20.0,2.0
+round3,opus,scored_high,r1,A56,2,Hugh+Robert,6.0,grain,8.0,1.333
+round3,opus,scored_high,r1,A58,2,Edith+Robert,9.0,grain,12.0,1.333
+round3,opus,scored_high,r1,A69,3,Edith+Robert,9.0,grain,12.0,1.333
+round3,opus,scored_high,r1,A136,6,Edith+Maud,6.0,grain,8.0,1.333
+round3,opus,scored_max,r1,A44,2,Hugh+Maud,3.0,grain,4.0,1.333
+round3,opus,scored_max,r1,A46,2,Hugh+Robert,15.0,grain,10.0,0.667
+round3,opus,scored_max,r1,A52,2,Hugh+Robert,9.0,grain,12.0,1.333
+round3,opus,scored_max,r1,A83,4,Hugh+Robert,3.0,grain,5.0,1.667
+round3,sonnet,memory_strong,r1,A74,5,Maud+Robert,5.0,grain,3.0,0.6
+round3,sonnet,scored_high,r1,A134,6,Hugh+Maud,4.0,grain,2.0,0.5
+round3,sonnet,scored_high,r1,A136,6,Hugh+Robert,20.0,grain,15.0,0.75
+round3,sonnet,scored_max,r1,A62,3,Edith+Maud,10.0,grain,5.0,0.5
+round3,sonnet,scored_max,r1,A66,3,Edith+Robert,15.0,grain,10.0,0.667
+round3,sonnet,scored_max,r1,A78,4,Hugh+Robert,3.0,grain,2.0,0.667
+hunger,haiku,memory_25,r1,A78,4,Edith+Robert,4.0,grain,2.0,0.5
+hunger,haiku,memory_25,r2,A45,2,Edith+Robert,20.0,grain,12.0,0.6
+hunger,haiku,memory_25,r2,A49,2,Hugh+Robert,5.0,crude tool,1.0,0.2
+hunger,haiku,memory_25,r3,A34,1,Edith+Robert,3.0,grain,4.0,1.333
+hunger,haiku,memory_25,r3,A37,1,Hugh+Robert,2.0,work (days),2.0,1.0
+hunger,haiku,memory_25,r3,A45,2,Maud+Robert,6.0,grain,8.0,1.333
+hunger,haiku,memory_all,r1,A29,1,Edith+Maud,4.0,grain,3.0,0.75
+hunger,haiku,memory_all,r1,A42,2,Edith+Robert,4.0,work (days),1.0,0.25
+hunger,haiku,memory_all,r1,A45,2,Hugh+Robert,5.0,crude tool,1.0,0.2
+hunger,haiku,memory_all,r2,A4,0,Hugh+Robert,1.0,grain,1.0,1.0
+hunger,haiku,memory_all,r2,A25,1,Edith+Robert,4.0,grain,4.0,1.0
+hunger,haiku,memory_all,r2,A28,1,Hugh+Robert,2.0,grain,2.0,1.0
+hunger,haiku,memory_all,r3,A30,1,Edith+Robert,1.0,grain,1.0,1.0
+hunger,haiku,memory_all,r3,A40,2,Hugh+Robert,3.0,crude tool,1.0,0.333
+hunger,haiku,memory_all,r3,A56,3,Edith+Robert,5.0,grain,8.0,1.6
+hunger,haiku,memory,r1,A7,0,Edith+Robert,1.0,grain,2.0,2.0
+hunger,haiku,memory,r1,A11,0,Hugh+Robert,2.0,grain,3.0,1.5
+hunger,haiku,memory,r1,A77,4,Maud+Robert,4.0,grain,6.0,1.5
+hunger,haiku,memory_strong,r1,A4,0,Hugh+Maud,2.0,grain,3.0,1.5
+hunger,haiku,memory_strong,r1,A69,4,Maud+Robert,6.0,grain,9.0,1.5
+hunger,haiku,scored_high,r1,A8,0,Hugh+Maud,5.0,firewood,10.0,2.0
+hunger,haiku,scored_high,r1,A11,0,Edith+Robert,2.0,grain,2.0,1.0
+hunger,haiku,scored_high,r1,A38,1,Edith+Robert,6.0,grain,6.0,1.0
+hunger,haiku,scored_high,r1,A40,1,Edith+Robert,12.0,grain,12.0,1.0
+hunger,haiku,scored_high,r1,A47,2,Hugh+Robert,3.0,crude tool,1.0,0.333
+hunger,haiku,scored_high,r2,A44,2,Edith+Robert,20.0,grain,10.0,0.5
+hunger,haiku,scored_high,r2,A56,4,Maud+Robert,5.0,grain,5.0,1.0
+hunger,haiku,scored_high,r2,A67,6,Hugh+Robert,5.0,grain,5.0,1.0
+hunger,haiku,scored_high,r3,A7,0,Hugh+Robert,5.0,grain,10.0,2.0
+hunger,haiku,scored_high,r3,A88,4,Hugh+Maud,4.0,work (days),2.0,0.5
+hunger,haiku,scored_high,r3,A118,5,Edith+Maud,4.0,grain,2.0,0.5
+hunger,haiku,scored_max,r1,A31,1,Hugh+Wat,4.0,grain,4.0,1.0
+hunger,haiku,scored_max,r1,A49,2,Hugh+Maud,6.0,grain,8.0,1.333
+hunger,haiku,scored_max,r1,A78,4,Hugh+Robert,3.0,firewood,9.0,3.0
+hunger,haiku,scored_max,r1,A80,4,Edith+Robert,2.0,firewood,6.0,3.0
+hunger,haiku,scored_max,r2,A42,2,Hugh+Robert,6.0,grain,9.0,1.5
+hunger,haiku,scored_max,r2,A74,4,Edith+Hugh,2.0,firewood,4.0,2.0
+hunger,haiku,scored_max,r2,A76,4,Hugh+Robert,2.0,work (days),2.0,1.0
+hunger,haiku,scored_max,r2,A107,5,Edith+Hugh,2.0,firewood,4.0,2.0
+hunger,haiku,scored_max,r2,A133,6,Edith+Robert,4.0,firewood,8.0,2.0
+hunger,haiku,scored_max,r2,A136,6,Hugh+Maud,2.0,firewood,4.0,2.0
+hunger,haiku,scored_max,r3,A8,0,Hugh+Robert,3.0,grain,4.0,1.333
+hunger,haiku,scored_max,r3,A11,0,Edith+Robert,6.0,grain,8.0,1.333
+hunger,haiku,scored_max,r3,A29,1,Hugh+Robert,2.0,grain,2.0,1.0
+hunger,haiku,scored_max,r3,A92,5,Edith+Maud,6.0,firewood,8.0,1.333
+hunger,haiku,scored_max,r3,A97,5,Hugh+Maud,3.0,firewood,4.0,1.333
+hunger,opus,memory,r1,A30,1,Edith+Maud,1.0,work (days),1.0,1.0
+hunger,opus,memory_strong,r1,A8,0,Edith+Robert,2.0,grain,4.0,2.0
+hunger,opus,scored_high,r1,A10,0,Edith+Robert,8.0,grain,8.0,1.0
+hunger,opus,scored_high,r1,A14,0,Hugh+Robert,5.0,work (days),1.0,0.2
+hunger,opus,scored_high,r1,A68,2,Hugh+Maud,2.0,firewood,3.0,1.5
+hunger,opus,scored_high,r1,A89,4,Maud+Robert,3.0,grain,2.0,0.667
+hunger,opus,scored_high,r1,A92,4,Hugh+Robert,12.0,grain,8.0,0.667
+hunger,opus,scored_max,r1,A10,0,Hugh+Maud,3.0,work (days),1.0,0.333
+hunger,opus,scored_max,r1,A28,1,Edith+Maud,3.0,work (days),1.0,0.333
+hunger,opus,scored_max,r1,A86,4,Edith+Robert,2.0,grain,4.0,2.0
+hunger,opus,scored_max,r1,A105,5,Edith+Robert,2.0,grain,3.0,1.5
+hunger,opus,scored_max,r1,A121,6,Edith+Robert,2.0,grain,3.0,1.5
+hunger,sonnet,memory_25,r1,A13,0,Hugh+Maud,25.0,grain,8.0,0.32
+hunger,sonnet,memory_25,r2,A9,0,Edith+Maud,25.0,grain,8.0,0.32
+hunger,sonnet,memory_25,r3,A7,0,Hugh+Robert,25.0,grain,25.0,1.0
+hunger,sonnet,memory_all,r1,A29,1,Hugh+Maud,5.0,grain,5.0,1.0
+hunger,sonnet,memory_all,r1,A34,2,Edith+Robert,2.0,grain,4.0,2.0
+hunger,sonnet,memory_all,r1,A37,2,Hugh+Robert,2.0,grain,4.0,2.0
+hunger,sonnet,memory_all,r2,A4,0,Edith+Robert,1.0,grain,2.0,2.0
+hunger,sonnet,memory_all,r2,A30,1,Edith+Robert,5.0,grain,10.0,2.0
+hunger,sonnet,memory_all,r2,A33,1,Hugh+Robert,4.0,grain,8.0,2.0
+hunger,sonnet,memory_all,r3,A6,0,Hugh+Robert,8.0,grain,8.0,1.0
+hunger,sonnet,memory_all,r3,A10,0,Edith+Robert,1.0,grain,1.0,1.0
+hunger,sonnet,memory,r1,A36,2,Hugh+Robert,6.0,grain,8.0,1.333
+hunger,sonnet,memory_strong,r1,A7,0,Edith+Robert,2.0,grain,3.0,1.5
+hunger,sonnet,memory_strong,r1,A11,0,Hugh+Robert,2.0,grain,2.0,1.0
+hunger,sonnet,memory_strong,r1,A45,2,Maud+Robert,10.0,grain,15.0,1.5
+hunger,sonnet,scored_high,r1,A10,0,Edith+Robert,10.0,grain,10.0,1.0
+hunger,sonnet,scored_high,r1,A41,2,Edith+Robert,10.0,grain,10.0,1.0
+hunger,sonnet,scored_high,r1,A57,3,Edith+Maud,5.0,grain,5.0,1.0
+hunger,sonnet,scored_high,r1,A62,3,Hugh+Robert,5.0,firewood,10.0,2.0
+hunger,sonnet,scored_high,r2,A7,0,Hugh+Robert,20.0,grain,20.0,1.0
+hunger,sonnet,scored_high,r2,A30,1,Hugh+Robert,5.0,grain,5.0,1.0
+hunger,sonnet,scored_high,r3,A10,0,Hugh+Robert,15.0,grain,15.0,1.0
+hunger,sonnet,scored_high,r3,A13,0,Edith+Maud,4.0,firewood,4.0,1.0
+hunger,sonnet,scored_high,r3,A16,0,Hugh+Robert,10.0,work (days),2.0,0.2
+hunger,sonnet,scored_high,r3,A34,1,Edith+Maud,1.0,firewood,1.0,1.0
+hunger,sonnet,scored_max,r1,A6,0,Edith+Maud,1.0,grain,2.0,2.0
+hunger,sonnet,scored_max,r1,A11,0,Hugh+Maud,5.0,firewood,20.0,4.0
+hunger,sonnet,scored_max,r1,A31,1,Edith+Robert,6.0,grain,12.0,2.0
+hunger,sonnet,scored_max,r1,A33,1,Hugh+Robert,2.0,grain,4.0,2.0
+hunger,sonnet,scored_max,r1,A53,3,Edith+Robert,2.0,grain,4.0,2.0
+hunger,sonnet,scored_max,r2,A23,1,Hugh+Robert,8.0,grain,8.0,1.0
+hunger,sonnet,scored_max,r2,A26,1,Edith+Maud,1.0,grain,2.0,2.0
+hunger,sonnet,scored_max,r2,A45,2,Hugh+Robert,4.0,grain,4.0,1.0
+hunger,sonnet,scored_max,r2,A62,3,Hugh+Robert,2.0,grain,4.0,2.0
+hunger,sonnet,scored_max,r2,A73,4,Hugh+Robert,1.0,grain,2.0,2.0
+hunger,sonnet,scored_max,r2,A75,4,Hugh+Maud,1.0,grain,2.0,2.0
+hunger,sonnet,scored_max,r3,A6,0,Edith+Robert,1.0,grain,2.0,2.0
+hunger,sonnet,scored_max,r3,A11,0,Hugh+Robert,5.0,grain,5.0,1.0
+hunger,sonnet,scored_max,r3,A32,1,Hugh+Maud,3.0,grain,3.0,1.0
+hunger,sonnet,scored_max,r3,A40,2,Hugh+Robert,4.0,grain,4.0,1.0
+hunger,sonnet,scored_max,r3,A61,3,Hugh+Maud,2.0,grain,2.0,1.0
+hunger,sonnet,scored_max,r3,A63,4,Edith+Maud,4.0,grain,4.0,1.0
+hunger,sonnet,scored_max,r3,A75,5,Edith+Robert,2.0,grain,2.0,1.0
+hunger,sonnet,scored_max,r3,A77,5,Hugh+Robert,2.0,grain,2.0,1.0
+hunger,sonnet,scored_max,r3,A85,7,Maud+Robert,3.0,grain,3.0,1.0

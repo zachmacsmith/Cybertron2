@@ -1,0 +1,286 @@
+probe,pair,arm,rep,offer,day,by,side,sells_salt,salt,for_item,for_qty,price_per_salt,lots,taken,closed,fowler_salt,fowler_grain,ashby_grain
+round3,haiku,memory_strong,r1,O23,1,Maud,Fowler,True,5.0,grain,5.0,1.0,1,1,taken,30.0,28.2,76.4
+round3,haiku,memory_strong,r1,O24,1,Robert,Fowler,True,3.0,grain,2.0,0.667,5,5,taken,30.0,28.2,76.4
+round3,haiku,memory_strong,r1,O72,4,Robert,Fowler,True,3.0,grain,2.0,0.667,3,0,withdrawn,14.1,30.7,51.4
+round3,haiku,memory_strong,r1,O82,5,Maud,Fowler,True,4.0,grain,4.0,1.0,1,0,open,14.1,26.6,48.0
+round3,haiku,memory_strong,r1,O113,6,Robert,Fowler,True,3.0,grain,2.0,0.667,4,0,withdrawn,14.1,26.0,40.6
+round3,haiku,memory_strong,r1,O114,6,Wat,Fowler,True,3.0,grain,2.0,0.667,1,0,open,14.1,26.0,40.6
+round3,haiku,memory_strong,r1,O151,7,Robert,Fowler,True,2.0,grain,2.0,1.0,5,0,open,14.1,20.9,37.4
+round3,haiku,none,r1,O68,3,Edith,Ashby,False,2.0,beans,2.0,1.0,1,0,lapsed,30.0,23.8,69.1
+round3,haiku,none,r1,O69,3,Hugh,Ashby,False,2.0,grain,3.0,1.5,1,1,taken,30.0,23.8,69.1
+round3,haiku,none,r1,O105,5,Robert,Fowler,True,4.0,grain,3.0,0.75,3,3,taken,30.0,14.1,60.9
+round3,haiku,none,r1,O106,5,Wat,Fowler,True,4.0,firewood,4.0,1.0,1,0,open,30.0,14.1,60.9
+round3,haiku,none,r1,O122,6,Robert,Fowler,True,6.0,beans,3.0,0.5,2,0,open,30.0,11.1,59.0
+round3,haiku,none,r1,O123,6,Wat,Fowler,True,3.0,beans,2.0,0.667,1,0,open,30.0,11.1,59.0
+round3,haiku,none,r1,O141,7,Hugh,Ashby,True,2.0,firewood,2.0,1.0,2,0,open,18.0,19.9,42.3
+round3,haiku,scored_high,r1,O56,3,Maud,Fowler,True,4.0,grain,2.0,0.5,1,1,taken,30.0,17.1,73.8
+round3,haiku,scored_high,r1,O107,6,Edith,Ashby,False,6.0,grain,10.0,1.667,1,1,taken,30.0,3.1,71.6
+round3,haiku,scored_high,r1,O123,7,Maud,Fowler,True,4.0,grain,2.0,0.5,2,0,open,20.0,10.8,57.9
+round3,haiku,scored_high,r1,O125,7,Robert,Fowler,True,6.0,grain,10.0,1.667,2,0,open,20.0,10.8,57.9
+round3,haiku,scored_max,r1,O38,2,Maud,Fowler,True,10.0,grain,4.0,0.4,1,1,taken,30.0,28.1,69.8
+round3,haiku,scored_max,r1,O48,3,Edith,Ashby,True,1.0,bread,1.0,1.0,1,0,withdrawn,30.0,20.5,67.5
+round3,haiku,scored_max,r1,O75,5,Edith,Ashby,False,6.0,grain,6.0,1.0,1,1,taken,30.0,11.8,65.6
+round3,haiku,scored_max,r1,O102,6,Edith,Ashby,False,20.0,grain,20.0,1.0,1,0,open,14.0,17.1,53.7
+round3,haiku,scored_max,r1,O104,6,Robert,Fowler,True,5.0,grain,4.0,0.8,2,2,taken,14.0,17.1,53.7
+round3,haiku,scored_max,r1,O106,6,Robert,Fowler,True,14.0,grain,14.0,1.0,1,0,open,14.0,17.1,53.7
+round3,haiku,scored_max,r1,O138,7,Robert,Fowler,True,4.0,grain,4.0,1.0,1,0,open,14.0,11.8,51.7
+round3,opus,memory_strong,r1,O3,0,Hugh,Ashby,False,1.0,grain,3.0,3.0,5,5,taken,30.0,30.0,80.0
+round3,opus,memory_strong,r1,O60,3,Maud,Fowler,True,4.0,firewood,6.0,1.5,1,0,open,25.0,39.0,47.1
+round3,opus,memory_strong,r1,O81,4,Robert,Fowler,True,1.0,grain,3.0,3.0,6,6,taken,26.0,31.7,46.7
+round3,opus,memory_strong,r1,O99,5,Robert,Fowler,True,1.0,grain,3.0,3.0,6,0,open,26.0,27.3,43.8
+round3,opus,memory_strong,r1,O136,7,Robert,Fowler,True,2.0,grain,3.0,1.5,6,0,open,26.0,17.7,38.0
+round3,opus,none,r1,O64,3,Robert,Fowler,True,10.0,grain,20.0,2.0,1,1,taken,30.0,26.2,67.1
+round3,opus,none,r1,O65,3,Robert,Fowler,True,1.0,grain,2.0,2.0,10,0,withdrawn,30.0,26.2,67.1
+round3,opus,none,r1,O86,4,Maud,Fowler,True,6.0,firewood,12.0,2.0,1,0,open,30.0,22.0,63.4
+round3,opus,none,r1,O141,6,Robert,Fowler,True,6.0,grain,8.0,1.333,1,0,open,30.8,13.2,56.0
+round3,opus,scored_high,r1,O21,1,Robert,Fowler,True,3.0,grain,4.0,1.333,5,5,taken,30.0,29.9,71.4
+round3,opus,scored_high,r1,O46,2,Edith,Ashby,False,3.0,grain,4.0,1.333,3,3,taken,30.0,26.4,65.6
+round3,opus,scored_high,r1,O51,2,Hugh,Ashby,False,4.0,grain,6.0,1.5,2,0,withdrawn,30.0,26.4,65.6
+round3,opus,scored_high,r1,O131,6,Edith,Ashby,False,3.0,grain,4.0,1.333,4,2,open,6.8,36.2,22.4
+round3,opus,scored_high,r1,O133,6,Hugh,Ashby,False,3.0,grain,4.0,1.333,3,0,withdrawn,6.8,36.2,22.4
+round3,opus,scored_max,r1,O16,1,Robert,Fowler,True,3.0,grain,2.0,0.667,5,5,taken,30.0,29.9,78.2
+round3,opus,scored_max,r1,O41,2,Hugh,Ashby,False,3.0,grain,4.0,1.333,10,4,withdrawn,30.0,28.2,69.6
+round3,opus,scored_max,r1,O56,3,Edith,Ashby,False,2.0,beans,3.0,1.5,3,0,lapsed,3.0,50.0,40.3
+round3,opus,scored_max,r1,O57,3,Hugh,Ashby,False,3.0,beans,5.0,1.667,2,0,lapsed,3.0,50.0,40.3
+round3,opus,scored_max,r1,O71,4,Hugh,Ashby,False,3.0,grain,5.0,1.667,5,1,lapsed,3.0,45.2,37.5
+round3,opus,scored_max,r1,O72,4,Hugh,Ashby,False,2.0,firewood,6.0,3.0,2,0,lapsed,3.0,45.2,37.5
+round3,opus,scored_max,r1,O76,4,Hugh,Ashby,False,4.0,grain,6.0,1.5,1,0,lapsed,3.0,45.2,37.5
+round3,opus,scored_max,r1,O77,4,Hugh,Ashby,False,3.0,work (days),1.0,0.333,2,0,lapsed,3.0,45.2,37.5
+round3,opus,scored_max,r1,O100,5,Wat,Fowler,True,2.0,grain,3.0,1.5,1,0,withdrawn,0.0,46.8,22.1
+round3,opus,scored_max,r1,O131,6,Hugh,Ashby,False,1.0,grain,2.0,2.0,3,0,withdrawn,0.1,43.8,12.0
+round3,opus,scored_max,r1,O143,7,Hugh,Ashby,False,1.0,grain,3.0,3.0,2,0,open,0.0,41.0,9.1
+round3,opus,scored_max,r1,O144,7,Hugh,Ashby,False,1.0,beans,3.0,3.0,3,0,open,0.0,41.0,9.1
+round3,sonnet,memory_strong,r1,O63,4,Robert,Fowler,True,5.0,grain,3.0,0.6,1,1,taken,30.8,16.8,63.9
+round3,sonnet,memory_strong,r1,O91,6,Robert,Fowler,True,5.0,grain,3.0,0.6,4,0,open,30.8,9.3,57.2
+round3,sonnet,memory_strong,r1,O92,6,Robert,Fowler,True,3.0,cheese,1.0,0.333,3,0,open,30.8,9.3,57.2
+round3,sonnet,none,r1,O14,1,Robert,Fowler,True,4.0,grain,5.0,1.25,4,0,lapsed,30.0,29.9,76.9
+round3,sonnet,none,r1,O49,3,Robert,Fowler,True,2.0,grain,4.0,2.0,4,0,lapsed,30.0,22.8,70.9
+round3,sonnet,none,r1,O120,6,Robert,Fowler,True,4.0,grain,6.0,1.5,1,0,open,30.0,7.8,61.2
+round3,sonnet,none,r1,O122,6,Robert,Fowler,True,3.0,grain,4.0,1.333,1,0,open,30.0,7.8,61.2
+round3,sonnet,none,r1,O144,7,Robert,Fowler,True,10.0,grain,8.0,0.8,1,0,open,30.0,2.9,59.5
+round3,sonnet,scored_high,r1,O98,5,Maud,Fowler,True,4.0,grain,2.0,0.5,1,1,taken,30.0,5.7,48.0
+round3,sonnet,scored_high,r1,O99,5,Robert,Fowler,True,4.0,grain,3.0,0.75,5,5,taken,30.0,5.7,48.0
+round3,sonnet,scored_high,r1,O129,6,Maud,Fowler,True,2.0,grain,1.0,0.5,2,0,open,30.0,2.8,47.4
+round3,sonnet,scored_max,r1,O38,2,Maud,Fowler,True,10.0,grain,5.0,0.5,1,1,taken,30.0,27.9,68.6
+round3,sonnet,scored_max,r1,O40,2,Robert,Fowler,True,3.0,grain,2.0,0.667,5,5,taken,30.0,27.9,68.6
+round3,sonnet,scored_max,r1,O74,4,Edith,Ashby,False,4.0,grain,2.0,0.5,5,0,withdrawn,5.0,34.0,49.0
+round3,sonnet,scored_max,r1,O75,4,Hugh,Ashby,False,3.0,grain,2.0,0.667,10,1,withdrawn,5.0,34.0,49.0
+round3,sonnet,scored_max,r1,O128,7,Maud,Fowler,True,2.0,grain,1.0,0.5,2,0,open,2.0,22.4,37.9
+hunger,haiku,memory_25,r1,O28,1,Robert,Fowler,True,3.0,grain,4.0,1.333,3,0,withdrawn,30.0,29.8,33.9
+hunger,haiku,memory_25,r1,O52,3,Maud,Fowler,True,5.0,grain,4.0,0.8,2,0,withdrawn,30.0,21.0,29.0
+hunger,haiku,memory_25,r1,O54,3,Robert,Fowler,True,4.0,grain,2.0,0.5,5,1,open,30.0,21.0,29.0
+hunger,haiku,memory_25,r1,O73,4,Robert,Fowler,True,5.0,grain,2.0,0.4,4,0,withdrawn,30.0,16.6,24.4
+hunger,haiku,memory_25,r1,O74,4,Wat,Fowler,True,2.0,grain,1.0,0.5,2,0,open,30.0,16.6,24.4
+hunger,haiku,memory_25,r2,O40,2,Hugh,Ashby,False,5.0,crude tool,1.0,0.2,1,1,taken,30.0,28.7,29.9
+hunger,haiku,memory_25,r2,O41,2,Robert,Fowler,True,25.0,grain,15.0,0.6,1,0,withdrawn,30.0,28.7,29.9
+hunger,haiku,memory_25,r2,O42,2,Hugh,Ashby,False,25.0,work (days),2.0,0.08,1,0,withdrawn,30.0,28.7,29.9
+hunger,haiku,memory_25,r2,O43,2,Robert,Fowler,True,20.0,grain,12.0,0.6,1,1,taken,30.0,28.7,29.9
+hunger,haiku,memory_25,r2,O83,5,Hugh,Ashby,True,5.0,grain,3.0,0.6,1,0,withdrawn,0.0,26.4,7.1
+hunger,haiku,memory_25,r2,O97,6,Edith,Ashby,True,5.0,wild food,3.0,0.6,1,0,open,0.0,21.8,3.5
+hunger,haiku,memory_25,r3,O30,1,Hugh,Ashby,False,2.0,work (days),2.0,1.0,1,1,taken,30.0,29.9,33.9
+hunger,haiku,memory_25,r3,O31,1,Robert,Fowler,True,3.0,grain,4.0,1.333,3,3,taken,30.0,29.9,33.9
+hunger,haiku,memory_25,r3,O44,2,Hugh,Ashby,False,3.0,work (days),2.0,0.667,1,0,open,27.0,31.1,27.9
+hunger,haiku,memory_25,r3,O59,3,Robert,Fowler,True,3.0,grain,4.0,1.333,3,0,withdrawn,27.0,26.5,23.6
+hunger,haiku,memory_25,r3,O115,5,Robert,Fowler,True,2.0,grain,4.0,2.0,4,0,withdrawn,25.0,16.1,15.6
+hunger,haiku,memory_25,r3,O116,5,Wat,Fowler,True,3.0,grain,4.0,1.333,3,0,open,25.0,16.1,15.6
+hunger,haiku,memory_25,r3,O137,6,Robert,Fowler,True,4.0,grain,4.0,1.0,3,0,withdrawn,25.0,11.2,11.3
+hunger,haiku,memory_25,r3,O154,7,Robert,Fowler,True,6.0,grain,4.0,0.667,3,0,open,25.0,6.3,7.3
+hunger,haiku,memory_25,r3,O156,7,Robert,Fowler,True,3.0,bread,2.0,0.667,3,0,open,25.0,6.3,7.3
+hunger,haiku,memory_all,r1,O4,0,Maud,Fowler,True,3.0,work (days),2.0,0.667,1,0,open,30.0,30.0,34.0
+hunger,haiku,memory_all,r1,O6,0,Robert,Fowler,True,5.0,crude tool,1.0,0.2,1,1,taken,30.0,30.0,34.0
+hunger,haiku,memory_all,r1,O7,0,Robert,Fowler,True,8.0,copper tool,1.0,0.125,1,0,open,30.0,30.0,34.0
+hunger,haiku,memory_all,r1,O8,0,Robert,Fowler,True,4.0,work (days),1.0,0.25,1,1,taken,30.0,30.0,34.0
+hunger,haiku,memory_all,r1,O24,1,Maud,Fowler,True,4.0,grain,3.0,0.75,1,1,taken,30.0,29.9,33.9
+hunger,haiku,memory_all,r1,O26,1,Robert,Fowler,True,1.0,grain,1.0,1.0,10,0,withdrawn,30.0,29.9,33.9
+hunger,haiku,memory_all,r1,O70,4,Robert,Fowler,True,2.0,grain,1.0,0.5,6,0,open,17.0,22.4,19.2
+hunger,haiku,memory_all,r1,O83,5,Robert,Fowler,True,4.0,grain,3.0,0.75,3,0,open,17.0,17.8,15.3
+hunger,haiku,memory_all,r1,O103,7,Robert,Fowler,True,3.0,grain,2.0,0.667,4,0,open,17.0,9.0,7.3
+hunger,haiku,memory_all,r2,O3,0,Hugh,Ashby,False,1.0,grain,1.0,1.0,1,1,taken,30.0,30.0,34.0
+hunger,haiku,memory_all,r2,O22,1,Robert,Fowler,True,1.0,grain,1.0,1.0,10,6,open,29.0,30.9,32.9
+hunger,haiku,memory_all,r2,O67,5,Robert,Fowler,True,2.0,grain,1.0,0.5,6,0,open,23.0,20.3,15.2
+hunger,haiku,memory_all,r3,O4,0,Edith,Ashby,False,1.0,grain,1.0,1.0,1,1,taken,30.0,30.0,34.0
+hunger,haiku,memory_all,r3,O5,0,Maud,Fowler,True,4.0,beans,2.0,0.5,1,0,open,30.0,30.0,34.0
+hunger,haiku,memory_all,r3,O7,0,Robert,Fowler,True,5.0,grain,8.0,1.6,3,1,open,30.0,30.0,34.0
+hunger,haiku,memory_all,r3,O37,2,Hugh,Ashby,False,3.0,crude tool,1.0,0.333,1,1,taken,29.0,27.0,31.1
+hunger,haiku,memory_all,r3,O105,7,Robert,Fowler,True,6.0,grain,6.0,1.0,2,0,open,21.0,8.9,5.6
+hunger,haiku,memory_all,r3,O106,7,Robert,Fowler,True,4.0,beans,3.0,0.75,2,0,open,21.0,8.9,5.6
+hunger,haiku,memory,r1,O3,0,Edith,Ashby,False,1.0,grain,2.0,2.0,1,1,taken,30.0,30.0,34.0
+hunger,haiku,memory,r1,O4,0,Hugh,Ashby,False,2.0,grain,3.0,1.5,1,1,taken,30.0,30.0,34.0
+hunger,haiku,memory,r1,O65,3,Edith,Ashby,True,2.0,grain,2.0,1.0,1,0,withdrawn,25.0,26.9,22.7
+hunger,haiku,memory,r1,O75,4,Robert,Fowler,True,2.0,grain,3.0,1.5,4,2,withdrawn,25.0,22.1,19.0
+hunger,haiku,memory,r1,O90,5,Robert,Fowler,True,2.0,grain,3.0,1.5,4,0,withdrawn,25.0,17.0,15.2
+hunger,haiku,memory_strong,r1,O3,0,Hugh,Ashby,False,2.0,grain,3.0,1.5,1,1,taken,30.0,30.0,34.0
+hunger,haiku,memory_strong,r1,O54,3,Robert,Fowler,True,2.0,grain,3.0,1.5,6,3,withdrawn,28.0,26.1,23.7
+hunger,haiku,memory_strong,r1,O90,5,Robert,Fowler,True,3.0,grain,3.0,1.0,4,0,withdrawn,28.0,13.9,16.8
+hunger,haiku,memory_strong,r1,O96,6,Robert,Fowler,True,2.0,grain,1.0,0.5,5,0,open,28.0,9.3,13.1
+hunger,haiku,none,r1,O3,0,Robert,Fowler,True,3.0,grain,4.0,1.333,1,0,open,30.0,30.0,34.0
+hunger,haiku,scored_high,r1,O4,0,Edith,Ashby,False,2.0,grain,2.0,1.0,1,1,taken,30.0,30.0,34.0
+hunger,haiku,scored_high,r1,O6,0,Hugh,Ashby,False,5.0,firewood,10.0,2.0,1,1,taken,30.0,30.0,34.0
+hunger,haiku,scored_high,r1,O32,1,Edith,Ashby,False,1.0,grain,1.0,1.0,18,12,withdrawn,23.0,29.4,31.9
+hunger,haiku,scored_high,r1,O34,1,Hugh,Ashby,False,1.0,firewood,2.0,2.0,4,0,withdrawn,23.0,29.4,31.9
+hunger,haiku,scored_high,r1,O35,1,Robert,Fowler,True,3.0,grain,3.0,1.0,4,2,withdrawn,23.0,29.4,31.9
+hunger,haiku,scored_high,r1,O45,2,Hugh,Ashby,False,3.0,crude tool,1.0,0.333,1,1,taken,5.0,43.4,13.1
+hunger,haiku,scored_high,r1,O70,3,Robert,Fowler,True,1.0,grain,2.0,2.0,2,0,open,2.0,37.8,12.1
+hunger,haiku,scored_high,r2,O37,2,Robert,Fowler,True,2.0,grain,1.0,0.5,10,10,taken,30.0,28.8,30.5
+hunger,haiku,scored_high,r2,O39,2,Edith,Ashby,False,6.0,grain,3.0,0.5,1,0,open,30.0,28.8,30.5
+hunger,haiku,scored_high,r2,O41,2,Robert,Fowler,True,5.0,grain,5.0,1.0,5,2,open,30.0,28.8,30.5
+hunger,haiku,scored_high,r2,O42,2,Robert,Fowler,True,5.0,beans,6.0,1.2,3,0,open,30.0,28.8,30.5
+hunger,haiku,scored_high,r3,O3,0,Edith,Ashby,False,4.0,grain,2.0,0.5,1,1,taken,30.0,30.0,34.0
+hunger,haiku,scored_high,r3,O5,0,Hugh,Ashby,False,1.0,grain,2.0,2.0,5,5,taken,30.0,30.0,34.0
+hunger,haiku,scored_high,r3,O25,1,Hugh,Ashby,False,4.0,work (days),2.0,0.5,1,1,taken,25.0,39.9,23.9
+hunger,haiku,scored_high,r3,O26,1,Maud,Fowler,True,5.0,grain,10.0,2.0,1,0,open,25.0,39.9,23.9
+hunger,haiku,scored_high,r3,O27,1,Robert,Fowler,True,1.0,grain,2.0,2.0,5,0,withdrawn,25.0,39.9,23.9
+hunger,haiku,scored_high,r3,O28,1,Edith,Ashby,False,4.0,work (days),2.0,0.5,1,0,open,25.0,39.9,23.9
+hunger,haiku,scored_high,r3,O109,5,Robert,Fowler,True,6.0,grain,6.0,1.0,1,0,withdrawn,21.0,11.5,10.2
+hunger,haiku,scored_high,r3,O123,6,Hugh,Ashby,False,2.0,work (days),1.0,0.5,1,0,open,17.0,9.1,4.0
+hunger,haiku,scored_high,r3,O138,7,Maud,Fowler,True,4.0,grain,2.0,0.5,2,0,withdrawn,17.0,4.5,0.1
+hunger,haiku,scored_high,r3,O140,7,Robert,Fowler,True,3.0,grain,2.0,0.667,4,0,open,17.0,4.5,0.1
+hunger,haiku,scored_max,r1,O23,1,Maud,Fowler,True,6.0,grain,8.0,1.333,1,1,taken,30.0,29.9,33.9
+hunger,haiku,scored_max,r1,O25,1,Robert,Fowler,True,1.0,grain,2.0,2.0,10,0,open,30.0,29.9,33.9
+hunger,haiku,scored_max,r1,O26,1,Wat,Fowler,True,4.0,grain,4.0,1.0,1,1,taken,30.0,29.9,33.9
+hunger,haiku,scored_max,r1,O70,4,Robert,Fowler,True,1.0,firewood,3.0,3.0,5,5,taken,20.0,13.0,11.5
+hunger,haiku,scored_max,r1,O71,4,Maud,Fowler,True,2.0,grain,4.0,2.0,3,0,open,20.0,13.0,11.5
+hunger,haiku,scored_max,r1,O87,5,Hugh,Ashby,False,2.0,work (days),1.0,0.5,1,0,open,15.0,8.6,7.8
+hunger,haiku,scored_max,r1,O89,5,Robert,Fowler,True,1.0,grain,1.0,1.0,8,0,open,15.0,8.6,7.8
+hunger,haiku,scored_max,r1,O91,5,Robert,Fowler,True,1.0,beans,1.0,1.0,5,0,open,15.0,8.6,7.8
+hunger,haiku,scored_max,r1,O92,5,Wat,Fowler,True,2.0,grain,4.0,2.0,2,0,open,15.0,8.6,7.8
+hunger,haiku,scored_max,r1,O93,5,Wat,Fowler,True,2.0,beans,3.0,1.5,1,0,open,15.0,8.6,7.8
+hunger,haiku,scored_max,r1,O112,7,Maud,Fowler,True,2.0,grain,3.0,1.5,3,0,open,15.0,0.0,1.0
+hunger,haiku,scored_max,r1,O116,7,Wat,Fowler,True,2.0,wild food,2.0,1.0,2,0,open,15.0,0.0,1.0
+hunger,haiku,scored_max,r2,O19,1,Robert,Fowler,True,2.0,grain,3.0,1.5,5,3,open,30.0,29.9,33.9
+hunger,haiku,scored_max,r2,O54,3,Hugh,Ashby,False,2.0,work (days),2.0,1.0,1,1,taken,24.0,32.0,18.7
+hunger,haiku,scored_max,r2,O73,4,Hugh,Ashby,False,2.0,firewood,4.0,2.0,1,1,taken,24.0,27.1,14.9
+hunger,haiku,scored_max,r2,O101,5,Hugh,Ashby,False,2.0,firewood,4.0,2.0,1,1,taken,22.0,21.8,10.9
+hunger,haiku,scored_max,r2,O131,6,Edith,Ashby,False,2.0,firewood,4.0,2.0,2,2,taken,22.0,16.8,7.3
+hunger,haiku,scored_max,r2,O132,6,Hugh,Ashby,False,2.0,firewood,4.0,2.0,1,1,taken,22.0,16.8,7.3
+hunger,haiku,scored_max,r2,O155,7,Robert,Fowler,True,3.0,grain,3.0,1.0,4,0,open,16.0,0.0,3.5
+hunger,haiku,scored_max,r2,O157,7,Robert,Fowler,True,2.0,beans,2.0,1.0,3,0,open,16.0,0.0,3.5
+hunger,haiku,scored_max,r3,O3,0,Robert,Fowler,True,3.0,grain,4.0,1.333,3,3,taken,30.0,30.0,34.0
+hunger,haiku,scored_max,r3,O23,1,Edith,Ashby,False,3.0,firewood,4.0,1.333,2,2,taken,21.0,41.9,19.9
+hunger,haiku,scored_max,r3,O24,1,Hugh,Ashby,False,2.0,grain,2.0,1.0,1,1,taken,21.0,41.9,19.9
+hunger,haiku,scored_max,r3,O51,3,Robert,Fowler,True,3.0,grain,4.0,1.333,3,0,withdrawn,19.0,38.6,12.2
+hunger,haiku,scored_max,r3,O69,4,Hugh,Ashby,False,3.0,firewood,4.0,1.333,2,1,withdrawn,19.0,33.6,8.5
+hunger,haiku,scored_max,r3,O88,5,Robert,Fowler,True,2.0,grain,2.0,1.0,4,0,withdrawn,19.0,29.0,4.7
+hunger,haiku,scored_max,r3,O101,6,Robert,Fowler,True,3.0,grain,2.0,0.667,3,0,open,10.0,24.6,1.3
+hunger,haiku,scored_max,r3,O108,7,Edith,Ashby,False,2.0,firewood,2.0,1.0,1,0,open,10.0,20.2,0.0
+hunger,haiku,scored_max,r3,O109,7,Hugh,Ashby,True,4.0,grain,2.0,0.5,1,0,withdrawn,10.0,20.2,0.0
+hunger,haiku,scored_max,r3,O113,7,Hugh,Ashby,True,6.0,grain,3.0,0.5,1,0,open,10.0,20.2,0.0
+hunger,opus,memory,r1,O26,1,Edith,Ashby,False,1.0,work (days),1.0,1.0,1,1,taken,30.0,29.9,33.9
+hunger,opus,memory,r1,O27,1,Robert,Fowler,True,3.0,grain,4.0,1.333,5,0,withdrawn,30.0,29.9,33.9
+hunger,opus,memory,r1,O102,6,Hugh,Ashby,True,1.0,grain,4.0,4.0,1,0,open,29.0,10.1,15.5
+hunger,opus,memory_strong,r1,O3,0,Edith,Ashby,False,1.0,grain,2.0,2.0,2,2,taken,30.0,30.0,34.0
+hunger,opus,memory_strong,r1,O4,0,Hugh,Ashby,False,1.0,firewood,6.0,6.0,1,0,withdrawn,30.0,30.0,34.0
+hunger,opus,memory_strong,r1,O5,0,Hugh,Ashby,False,2.0,work (days),1.0,0.5,1,0,withdrawn,30.0,30.0,34.0
+hunger,opus,memory_strong,r1,O31,1,Maud,Fowler,True,4.0,grain,8.0,2.0,1,0,open,28.0,33.9,29.9
+hunger,opus,memory_strong,r1,O32,1,Robert,Fowler,True,1.0,grain,2.0,2.0,4,0,open,28.0,33.9,29.9
+hunger,opus,memory_strong,r1,O99,6,Robert,Fowler,True,2.0,grain,1.0,0.5,6,0,open,28.0,14.7,10.9
+hunger,opus,memory_strong,r1,O100,6,Robert,Fowler,True,2.0,beans,1.0,0.5,4,0,open,28.0,14.7,10.9
+hunger,opus,none,r1,O31,1,Robert,Fowler,True,1.0,grain,2.0,2.0,10,0,withdrawn,30.0,29.9,33.3
+hunger,opus,none,r1,O67,3,Robert,Fowler,True,3.0,grain,2.0,0.667,4,0,open,30.0,24.8,25.0
+hunger,opus,scored_high,r1,O4,0,Edith,Ashby,False,1.0,grain,1.0,1.0,8,8,taken,30.0,30.0,34.0
+hunger,opus,scored_high,r1,O6,0,Hugh,Ashby,False,2.0,firewood,3.0,1.5,5,1,withdrawn,30.0,30.0,34.0
+hunger,opus,scored_high,r1,O7,0,Hugh,Ashby,False,5.0,work (days),1.0,0.2,3,1,withdrawn,30.0,30.0,34.0
+hunger,opus,scored_high,r1,O33,1,Edith,Ashby,False,5.0,work (days),1.0,0.2,2,0,withdrawn,17.0,36.2,25.9
+hunger,opus,scored_high,r1,O36,1,Robert,Fowler,True,1.0,grain,1.0,1.0,12,0,withdrawn,17.0,36.2,25.9
+hunger,opus,scored_high,r1,O87,4,Robert,Fowler,True,3.0,grain,2.0,0.667,5,5,taken,15.0,23.2,18.5
+hunger,opus,scored_high,r1,O116,5,Robert,Fowler,True,3.0,grain,2.0,0.667,1,0,open,3.0,26.9,6.2
+hunger,opus,scored_max,r1,O4,0,Edith,Ashby,False,1.0,firewood,4.0,4.0,5,0,withdrawn,30.0,30.0,34.0
+hunger,opus,scored_max,r1,O6,0,Hugh,Ashby,False,1.0,firewood,4.0,4.0,5,0,withdrawn,30.0,30.0,34.0
+hunger,opus,scored_max,r1,O7,0,Hugh,Ashby,False,3.0,work (days),1.0,0.333,2,1,withdrawn,30.0,30.0,34.0
+hunger,opus,scored_max,r1,O9,0,Robert,Fowler,True,1.0,grain,2.0,2.0,10,2,withdrawn,30.0,30.0,34.0
+hunger,opus,scored_max,r1,O25,1,Edith,Ashby,False,3.0,work (days),1.0,0.333,3,1,open,27.0,29.9,30.1
+hunger,opus,scored_max,r1,O76,4,Hugh,Ashby,False,1.0,firewood,3.0,3.0,4,0,withdrawn,24.0,22.6,18.9
+hunger,opus,scored_max,r1,O97,5,Robert,Fowler,True,2.0,grain,3.0,1.5,8,2,open,22.0,15.8,10.7
+hunger,opus,scored_max,r1,O99,5,Wat,Fowler,True,3.0,grain,6.0,2.0,1,0,open,22.0,15.8,10.7
+hunger,opus,scored_max,r1,O102,5,Hugh,Ashby,False,1.0,firewood,2.0,2.0,7,0,open,22.0,15.8,10.7
+hunger,opus,scored_max,r1,O112,6,Edith,Ashby,False,2.0,work (days),1.0,0.5,1,0,open,20.0,14.1,3.8
+hunger,opus,scored_max,r1,O117,6,Hugh,Ashby,False,2.0,work (days),1.0,0.5,1,0,open,20.0,14.1,3.8
+hunger,sonnet,memory_25,r1,O4,0,Edith,Ashby,False,25.0,firewood,8.0,0.32,1,0,withdrawn,30.0,30.0,34.0
+hunger,sonnet,memory_25,r1,O6,0,Hugh,Ashby,False,25.0,grain,8.0,0.32,1,1,taken,30.0,30.0,34.0
+hunger,sonnet,memory_25,r1,O7,0,Robert,Fowler,True,25.0,grain,18.0,0.72,1,0,withdrawn,30.0,30.0,34.0
+hunger,sonnet,memory_25,r1,O68,4,Robert,Fowler,True,2.0,grain,5.0,2.5,1,0,open,5.0,27.8,14.1
+hunger,sonnet,memory_25,r1,O83,5,Robert,Fowler,True,5.0,grain,10.0,2.0,1,0,open,5.0,23.4,9.8
+hunger,sonnet,memory_25,r1,O96,6,Robert,Fowler,True,3.0,grain,8.0,2.667,1,0,open,5.0,19.4,6.1
+hunger,sonnet,memory_25,r2,O4,0,Edith,Ashby,False,25.0,grain,8.0,0.32,1,1,taken,30.0,30.0,34.0
+hunger,sonnet,memory_25,r2,O5,0,Hugh,Ashby,False,25.0,grain,6.0,0.24,1,0,withdrawn,30.0,30.0,34.0
+hunger,sonnet,memory_25,r2,O7,0,Robert,Fowler,True,25.0,grain,14.0,0.56,1,0,withdrawn,30.0,30.0,34.0
+hunger,sonnet,memory_25,r2,O49,3,Robert,Fowler,True,2.0,grain,4.0,2.0,1,0,open,5.0,31.3,19.4
+hunger,sonnet,memory_25,r2,O90,7,Hugh,Ashby,True,3.0,grain,4.0,1.333,1,0,open,5.0,13.5,4.2
+hunger,sonnet,memory_25,r2,O92,7,Maud,Fowler,True,5.0,grain,8.0,1.6,1,0,open,5.0,13.5,4.2
+hunger,sonnet,memory_25,r2,O94,7,Robert,Fowler,True,2.0,grain,10.0,5.0,1,0,open,5.0,13.5,4.2
+hunger,sonnet,memory_25,r3,O4,0,Edith,Ashby,False,25.0,grain,8.0,0.32,1,0,withdrawn,30.0,30.0,34.0
+hunger,sonnet,memory_25,r3,O5,0,Hugh,Ashby,False,1.0,grain,1.0,1.0,25,25,taken,30.0,30.0,34.0
+hunger,sonnet,memory_25,r3,O34,2,Hugh,Ashby,True,1.0,grain,2.0,2.0,1,0,lapsed,5.0,54.5,4.5
+hunger,sonnet,memory_25,r3,O91,7,Edith,Ashby,True,10.0,grain,20.0,2.0,1,0,open,5.0,26.4,3.8
+hunger,sonnet,memory_all,r1,O21,1,Hugh,Ashby,False,1.0,grain,1.0,1.0,5,5,taken,30.0,29.9,33.9
+hunger,sonnet,memory_all,r1,O25,1,Robert,Fowler,True,1.0,grain,2.0,2.0,10,4,open,30.0,29.9,33.9
+hunger,sonnet,memory_all,r1,O90,5,Edith,Ashby,True,2.0,grain,4.0,2.0,1,0,open,21.0,27.8,5.8
+hunger,sonnet,memory_all,r1,O91,5,Hugh,Ashby,True,4.0,grain,6.0,1.5,1,0,open,21.0,27.8,5.8
+hunger,sonnet,memory_all,r1,O93,5,Robert,Fowler,True,1.0,wild food,2.0,2.0,5,0,open,21.0,27.8,5.8
+hunger,sonnet,memory_all,r1,O99,6,Maud,Fowler,True,4.0,grain,6.0,1.5,1,0,open,21.0,23.7,1.9
+hunger,sonnet,memory_all,r2,O3,0,Edith,Ashby,False,1.0,grain,2.0,2.0,1,1,taken,30.0,30.0,34.0
+hunger,sonnet,memory_all,r2,O25,1,Edith,Ashby,False,1.0,grain,2.0,2.0,5,5,taken,29.0,30.9,31.9
+hunger,sonnet,memory_all,r2,O26,1,Hugh,Ashby,False,1.0,grain,2.0,2.0,4,4,taken,29.0,30.9,31.9
+hunger,sonnet,memory_all,r2,O27,1,Robert,Fowler,True,1.0,grain,2.0,2.0,10,0,open,29.0,30.9,31.9
+hunger,sonnet,memory_all,r2,O28,1,Robert,Fowler,True,2.0,timber,1.0,0.5,5,0,open,29.0,30.9,31.9
+hunger,sonnet,memory_all,r2,O70,4,Hugh,Ashby,True,4.0,grain,4.0,1.0,1,0,withdrawn,20.0,34.0,6.7
+hunger,sonnet,memory_all,r2,O93,6,Hugh,Ashby,True,3.0,grain,3.0,1.0,1,0,open,20.0,17.2,0.0
+hunger,sonnet,memory_all,r2,O103,7,Edith,Ashby,True,3.0,grain,2.0,0.667,1,0,open,20.0,12.2,0.0
+hunger,sonnet,memory_all,r2,O105,7,Hugh,Ashby,True,2.0,grain,1.0,0.5,3,0,open,20.0,12.2,0.0
+hunger,sonnet,memory_all,r2,O106,7,Robert,Fowler,True,3.0,grain,2.0,0.667,5,0,withdrawn,20.0,12.2,0.0
+hunger,sonnet,memory_all,r3,O3,0,Edith,Ashby,False,1.0,grain,1.0,1.0,1,1,taken,30.0,30.0,34.0
+hunger,sonnet,memory_all,r3,O4,0,Hugh,Ashby,False,1.0,grain,1.0,1.0,8,8,taken,30.0,30.0,34.0
+hunger,sonnet,memory_all,r3,O49,2,Robert,Fowler,True,1.0,grain,1.0,1.0,10,0,open,21.0,36.9,21.1
+hunger,sonnet,memory_all,r3,O77,4,Robert,Fowler,True,1.0,beans,1.0,1.0,2,0,open,21.0,27.5,13.9
+hunger,sonnet,memory_all,r3,O120,7,Edith,Ashby,True,2.0,grain,2.0,1.0,1,0,open,21.0,14.0,2.6
+hunger,sonnet,memory,r1,O28,1,Robert,Fowler,True,3.0,grain,4.0,1.333,5,2,open,30.0,29.9,33.9
+hunger,sonnet,memory,r1,O66,4,Robert,Fowler,True,4.0,grain,4.0,1.0,4,0,open,24.0,26.8,15.1
+hunger,sonnet,memory,r1,O104,6,Robert,Fowler,True,8.0,grain,8.0,1.0,1,0,open,24.0,18.1,7.1
+hunger,sonnet,memory_strong,r1,O3,0,Edith,Ashby,False,2.0,grain,3.0,1.5,1,1,taken,30.0,30.0,34.0
+hunger,sonnet,memory_strong,r1,O4,0,Hugh,Ashby,False,2.0,grain,2.0,1.0,1,1,taken,30.0,30.0,34.0
+hunger,sonnet,memory_strong,r1,O43,2,Robert,Fowler,True,2.0,grain,3.0,1.5,5,5,taken,26.0,30.1,26.5
+hunger,sonnet,memory_strong,r1,O55,3,Robert,Fowler,True,1.0,salt,1.0,1.0,1,0,lapsed,26.0,26.1,23.4
+hunger,sonnet,memory_strong,r1,O56,3,Robert,Fowler,True,2.0,grain,3.0,1.5,5,0,withdrawn,26.0,26.1,23.4
+hunger,sonnet,memory_strong,r1,O83,5,Robert,Fowler,True,3.0,grain,3.0,1.0,6,0,open,26.0,17.7,15.3
+hunger,sonnet,none,r1,O23,1,Maud,Fowler,True,4.0,grain,4.0,1.0,1,0,open,30.0,29.6,33.9
+hunger,sonnet,none,r1,O24,1,Robert,Fowler,True,2.0,grain,3.0,1.5,5,0,withdrawn,30.0,29.6,33.9
+hunger,sonnet,none,r1,O94,5,Robert,Fowler,True,3.0,grain,2.0,0.667,5,0,open,30.0,10.2,22.9
+hunger,sonnet,none,r1,O119,6,Robert,Fowler,True,5.0,grain,2.0,0.4,4,0,open,30.0,0.0,19.0
+hunger,sonnet,scored_high,r1,O4,0,Edith,Ashby,False,1.0,grain,1.0,1.0,10,10,taken,30.0,30.0,34.0
+hunger,sonnet,scored_high,r1,O5,0,Edith,Ashby,False,1.0,firewood,2.0,2.0,10,0,withdrawn,30.0,30.0,34.0
+hunger,sonnet,scored_high,r1,O6,0,Hugh,Ashby,False,10.0,work (days),2.0,0.2,1,0,open,30.0,30.0,34.0
+hunger,sonnet,scored_high,r1,O7,0,Hugh,Ashby,False,2.0,grain,1.0,0.5,10,0,withdrawn,30.0,30.0,34.0
+hunger,sonnet,scored_high,r1,O24,1,Edith,Ashby,False,1.0,firewood,1.0,1.0,12,0,withdrawn,20.0,39.9,22.9
+hunger,sonnet,scored_high,r1,O26,1,Robert,Fowler,True,1.0,grain,1.0,1.0,10,10,taken,20.0,39.9,22.9
+hunger,sonnet,scored_high,r1,O55,3,Edith,Ashby,False,1.0,grain,1.0,1.0,5,5,taken,10.0,41.2,8.0
+hunger,sonnet,scored_high,r1,O56,3,Hugh,Ashby,False,1.0,firewood,2.0,2.0,5,5,taken,10.0,41.2,8.0
+hunger,sonnet,scored_high,r1,O78,4,Edith,Ashby,True,1.0,grain,1.0,1.0,5,0,withdrawn,0.0,41.1,0.1
+hunger,sonnet,scored_high,r1,O96,5,Edith,Ashby,True,1.0,grain,1.0,1.0,5,0,withdrawn,0.0,36.3,0.0
+hunger,sonnet,scored_high,r2,O3,0,Edith,Ashby,False,1.0,firewood,2.0,2.0,7,0,withdrawn,30.0,30.0,34.0
+hunger,sonnet,scored_high,r2,O4,0,Edith,Ashby,False,10.0,work (days),2.0,0.2,1,0,withdrawn,30.0,30.0,34.0
+hunger,sonnet,scored_high,r2,O5,0,Edith,Ashby,False,1.0,grain,1.0,1.0,8,0,withdrawn,30.0,30.0,34.0
+hunger,sonnet,scored_high,r2,O6,0,Hugh,Ashby,False,1.0,grain,1.0,1.0,25,25,taken,30.0,30.0,34.0
+hunger,sonnet,scored_high,r2,O88,6,Robert,Fowler,True,5.0,grain,5.0,1.0,1,0,open,5.0,19.9,0.0
+hunger,sonnet,scored_high,r3,O4,0,Edith,Ashby,False,1.0,firewood,1.0,1.0,10,5,withdrawn,30.0,30.0,34.0
+hunger,sonnet,scored_high,r3,O5,0,Edith,Ashby,False,10.0,work (days),2.0,0.2,1,0,withdrawn,30.0,30.0,34.0
+hunger,sonnet,scored_high,r3,O7,0,Hugh,Ashby,False,1.0,grain,1.0,1.0,20,15,withdrawn,30.0,30.0,34.0
+hunger,sonnet,scored_high,r3,O8,0,Hugh,Ashby,False,10.0,work (days),2.0,0.2,1,1,taken,30.0,30.0,34.0
+hunger,sonnet,scored_max,r1,O3,0,Edith,Ashby,False,1.0,grain,2.0,2.0,1,1,taken,30.0,30.0,34.0
+hunger,sonnet,scored_max,r1,O4,0,Hugh,Ashby,False,1.0,firewood,4.0,4.0,5,5,taken,30.0,30.0,34.0
+hunger,sonnet,scored_max,r1,O5,0,Robert,Fowler,True,1.0,grain,2.0,2.0,10,10,taken,30.0,30.0,34.0
+hunger,sonnet,scored_max,r1,O96,6,Maud,Fowler,True,2.0,grain,4.0,2.0,1,0,open,14.0,5.7,0.0
+hunger,sonnet,scored_max,r1,O98,6,Robert,Fowler,True,1.0,grain,2.0,2.0,6,0,open,14.0,5.7,0.0
+hunger,sonnet,scored_max,r2,O3,0,Edith,Ashby,False,1.0,firewood,4.0,4.0,1,0,open,30.0,30.0,34.0
+hunger,sonnet,scored_max,r2,O4,0,Edith,Ashby,False,1.0,grain,2.0,2.0,1,1,taken,30.0,30.0,34.0
+hunger,sonnet,scored_max,r2,O5,0,Hugh,Ashby,False,1.0,grain,1.0,1.0,8,8,taken,30.0,30.0,34.0
+hunger,sonnet,scored_max,r2,O40,2,Hugh,Ashby,False,1.0,grain,1.0,1.0,4,4,taken,21.0,35.1,20.6
+hunger,sonnet,scored_max,r2,O41,2,Robert,Fowler,True,1.0,grain,2.0,2.0,6,3,open,21.0,35.1,20.6
+hunger,sonnet,scored_max,r2,O58,3,Maud,Fowler,True,1.0,grain,2.0,2.0,5,1,open,17.0,33.8,14.4
+hunger,sonnet,scored_max,r2,O85,5,Hugh,Ashby,False,1.0,firewood,4.0,4.0,1,0,withdrawn,13.0,27.1,0.0
+hunger,sonnet,scored_max,r3,O3,0,Edith,Ashby,False,1.0,grain,2.0,2.0,1,1,taken,30.0,30.0,34.0
+hunger,sonnet,scored_max,r3,O4,0,Hugh,Ashby,False,1.0,grain,1.0,1.0,5,5,taken,30.0,30.0,34.0
+hunger,sonnet,scored_max,r3,O30,1,Hugh,Ashby,False,1.0,grain,1.0,1.0,3,3,taken,24.0,36.7,26.9
+hunger,sonnet,scored_max,r3,O38,2,Hugh,Ashby,False,1.0,grain,1.0,1.0,4,4,taken,21.0,35.0,23.7
+hunger,sonnet,scored_max,r3,O55,3,Hugh,Ashby,False,1.0,grain,1.0,1.0,2,2,taken,17.0,34.3,15.7
+hunger,sonnet,scored_max,r3,O56,3,Maud,Fowler,True,4.0,grain,4.0,1.0,1,1,taken,17.0,34.3,15.7
+hunger,sonnet,scored_max,r3,O58,3,Robert,Fowler,True,1.0,grain,1.0,1.0,12,7,open,17.0,34.3,15.7
