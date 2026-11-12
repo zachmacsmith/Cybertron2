@@ -1,0 +1,213 @@
+== 1. Sizes
+offers 1856  runs 147  single-item 1809  spot swaps 1740  with market 970
+taken at least once: 0.381
+
+== 2. Round numbers
+quantities whole: 0.995  ratio with both terms <= 4: 0.832
+r
+1.000    393
+2.000    247
+0.500    228
+3.000    126
+1.500    113
+0.667    108
+0.333     84
+4.000     64
+
+== 3. How consistent is a pair's price? (spread of log p, as a factor: exp(sd))
+                pair   n  runs  median p  all runs x  within run x  within maker x  taken
+work (days) -> grain 184    67      3.00        1.74          1.37            1.14   0.31
+       coin -> grain 164    66      1.33        1.78          1.42            1.21   0.18
+       salt -> grain 143    48      1.00        1.68          1.40            1.33   0.29
+     timber -> grain 109    32      1.50        1.75          1.34            1.16   0.50
+     grain -> timber  81    29      0.50        1.69          1.36            1.15   0.68
+       grain -> salt  70    35      0.75        1.87          1.27            1.09   0.76
+      coin -> timber  44    17      1.00        1.81          1.43            1.13   0.25
+   firewood -> grain  43    27      0.50        2.00          1.62            1.11   0.16
+     timber -> bread  38    10      1.41        1.57          1.13            1.08   0.58
+       coin -> bread  35    19      1.00        1.87          1.36            1.08   0.17
+      stone -> grain  30    10      1.00        1.70          1.32            1.31   0.37
+grain -> work (days)  29    17      0.33        1.62          1.07            1.04   0.76
+     copper -> grain  27    15      6.00        1.48          1.09            1.09   0.07
+      line -> timber  26     1      1.00        1.15          1.15            1.14   1.00
+    firewood -> salt  25    13      0.50        1.85          1.19            1.16   0.44
+ coin -> copper tool  21    14      0.25        1.24          1.12            1.08   0.19
+        hay -> grain  21    15      0.40        1.52          1.10            1.04   0.05
+ work (days) -> salt  19    12      3.00        1.88          1.10            1.10   0.37
+      coin -> copper  19    12      0.33        1.72          1.34            1.34   0.26
+    timber -> greens  19     3      2.00        1.34          1.28            1.27   1.00
+copper tool -> grain  18     9      6.00        1.51          1.30            1.07   0.33
+    basket -> timber  17     1      1.00        1.26          1.26            1.19   1.00
+ coin -> work (days)  17     8      0.25        1.63          1.22            1.14   0.59
+      meat -> greens  15     1      1.50        1.29          1.29            1.25   1.00
+
+== 4. What moves the price: log(asked/given), fixed effect for run x pair (across makers and days); se clustered by maker
+Signs a trader who prices by need would show: own_give -, own_get +, place_give -, demand_for_give +, rival_sellers -,
+supply_of_get +, rival_buyers -.
+
+-- all spot swaps: n=649, groups=220, makers=287
+                    coef     se      p
+own_give          -0.321  0.062  0.000
+own_get           -0.053  0.032  0.104
+place_give         0.151  0.108  0.161
+place_get          0.218  0.054  0.000
+food_days          0.147  0.050  0.004
+hungry            -0.047  0.041  0.251
+rival_sellers_l   -0.111  0.063  0.078
+demand_for_give_l -0.003  0.099  0.973
+supply_of_get_l    0.171  0.059  0.004
+rival_buyers_l    -0.025  0.058  0.669
+ment_give          0.058  0.051  0.258
+ment_get           0.026  0.044  0.554
+day_z              0.002  0.007  0.728
+
+-- within one maker's own offers of the pair (the same person, as conditions change): n=391, groups=165, makers=126
+                    coef     se      p
+own_give          -0.242  0.104  0.019
+own_get           -0.058  0.046  0.211
+place_give        -0.004  0.096  0.964
+place_get          0.203  0.061  0.001
+food_days          0.233  0.082  0.005
+hungry            -0.014  0.050  0.779
+rival_sellers_l   -0.163  0.068  0.016
+demand_for_give_l  0.070  0.091  0.443
+supply_of_get_l    0.082  0.072  0.255
+rival_buyers_l    -0.014  0.072  0.842
+ment_give          0.132  0.053  0.013
+ment_get          -0.068  0.054  0.207
+day_z              0.010  0.011  0.328
+
+== 5. Food: offers asking for food, by the maker's state
+                      n  rel_mean  pays_more_share  taken
+state                                                    
+fed, <2 days food    59     -0.02             0.37   0.12
+fed, food in store  296      0.04             0.36   0.26
+hungry               43     -0.10             0.42   0.21
+starving             37     -0.14             0.62   0.19
+
+offers giving food, by the maker's state (rel > 0 asks more than the going rate)
+                      n  rel_mean  taken
+state                                   
+fed, food in store  102     -0.00   0.66
+hungry                9      0.02   0.56
+
+what the hungry offer: share of offers by kind
+state             fed  hungry
+kind                         
+buys food        0.40    0.67
+food for food    0.05    0.00
+no food          0.16    0.14
+sells food       0.18    0.07
+works for food   0.15    0.09
+works for other  0.05    0.03
+state            fed  hungry
+kind                        
+buys food        362     100
+food for food     43       0
+no food          147      21
+sells food       165      10
+works for food   133      14
+works for other   44       4
+
+== 6. Acceptance against price (rel: how the asking compares with the run's going rate for the pair)
+                n  taken
+band                    
+much cheaper  139   0.22
+cheaper       100   0.37
+at the rate   154   0.42
+dearer        111   0.32
+much dearer   145   0.23
+logit taken ~ rel: {'const': -0.79, 'rel': -0.06} p {'const': 0.0, 'rel': 0.767}
+
+== 7. Credit: the same good later for some now (implied interest)
+24 offers; repay/borrow median 1.50, range 1.33-2.00; taken 0.08
+                            run     by model  day give_item  give_qty  get_qty  rate  taken
+                    e1_fish_dry  Roger  opus  7.0     grain      10.0      5.0  2.00      0
+gp3_salt_haiku_memory_strong_r1 Robert  opus  7.0     grain       6.0      4.0  1.50      1
+        gp3_salt_sonnet_none_r1 Robert  opus  6.0     grain      12.0      8.0  1.50      0
+        gp3_salt_sonnet_none_r1 Robert  opus  7.0     grain      16.0      8.0  2.00      0
+        gp3_salt_sonnet_none_r1 Robert  opus  7.0     grain      14.0      8.0  1.75      0
+   gph_salt_haiku_memory_all_r1 Robert  opus  5.0     grain       9.0      6.0  1.50      0
+   gph_salt_haiku_memory_all_r2 Robert  opus  6.0     grain       8.0      6.0  1.33      0
+   gph_salt_haiku_memory_all_r2 Robert  opus  6.0     grain       6.0      4.0  1.50      0
+gph_salt_haiku_memory_strong_r1   Hugh haiku  6.0     grain       3.0      2.0  1.50      0
+   gph_salt_haiku_scored_max_r1 Robert  opus  6.0     grain       7.0      4.0  1.75      0
+   gph_salt_haiku_scored_max_r3 Robert  opus  6.0     grain       9.0      6.0  1.50      0
+        gph_salt_opus_memory_r1  Edith  opus  2.0     grain      16.0      8.0  2.00      0
+        gph_salt_opus_memory_r1   Hugh  opus  3.0     grain      40.0     20.0  2.00      0
+ gph_salt_opus_memory_strong_r1   Hugh  opus  4.0     grain      12.0      8.0  1.50      0
+          gph_salt_opus_none_r1   Hugh  opus  3.0     grain       3.0      2.0  1.50      0
+          gph_salt_opus_none_r1 Robert  opus  4.0     grain       4.0      3.0  1.33      0
+          gph_salt_opus_none_r1 Robert  opus  5.0     grain       6.0      3.0  2.00      0
+   gph_salt_opus_scored_high_r1 Robert  opus  7.0     grain       4.0      3.0  1.33      0
+   gph_salt_sonnet_memory_25_r1 Robert  opus  5.0     grain      12.0      8.0  1.50      0
+   gph_salt_sonnet_memory_25_r1 Robert  opus  6.0     grain      20.0     10.0  2.00      0
+  gph_salt_sonnet_memory_all_r1 Robert  opus  6.0     grain       6.0      4.0  1.50      0
+      gph_salt_sonnet_memory_r1 Robert  opus  5.0     grain       8.0      6.0  1.33      0
+      gph_salt_sonnet_memory_r1 Robert  opus  6.0     grain      16.0     12.0  1.33      0
+                        w1_wide Simkin  opus 23.0     grain       8.0      6.0  1.33      1
+
+== 8. By model: spread within maker, and the price's response to own holdings (pooled fixed effect)
+haiku: offers 151, repeat-pair makers 28, within-maker spread x1.24, share unchanged on repost 0.46
+
+-- haiku only: n=151, groups=96, makers=92
+                  coef     se      p
+own_give        -0.169  0.114  0.138
+own_get          0.039  0.074  0.601
+food_days        0.052  0.068  0.450
+rival_sellers_l -0.255  0.126  0.044
+rival_buyers_l   0.042  0.102  0.683
+opus: offers 366, repeat-pair makers 114, within-maker spread x1.32, share unchanged on repost 0.22
+
+-- opus only: n=366, groups=156, makers=119
+                  coef     se      p
+own_give        -0.438  0.060  0.000
+own_get         -0.110  0.080  0.170
+food_days        0.420  0.096  0.000
+rival_sellers_l -0.198  0.074  0.007
+rival_buyers_l   0.017  0.076  0.819
+sonnet: offers 132, repeat-pair makers 23, within-maker spread x1.15, share unchanged on repost 0.61
+
+-- sonnet only: n=132, groups=71, makers=76
+                  coef     se      p
+own_give        -0.171  0.109  0.118
+own_get          0.012  0.046  0.792
+food_days       -0.038  0.066  0.560
+rival_sellers_l  0.013  0.128  0.916
+rival_buyers_l  -0.082  0.106  0.437
+
+== 9. Robustness of section 4 (all spot swaps, run x pair fixed effect)
+share of the sample from the salt probes (gp3/gph): 0.56  by the Fowler head Robert: 0.18
+
+-- with the offer's size (log qty given) as a control: n=649, groups=220, makers=287
+                    coef     se      p
+own_give          -0.244  0.055  0.000
+own_get           -0.038  0.032  0.245
+place_give         0.142  0.093  0.128
+place_get          0.173  0.053  0.001
+food_days          0.147  0.050  0.003
+hungry            -0.023  0.040  0.574
+rival_sellers_l   -0.068  0.059  0.246
+demand_for_give_l -0.034  0.092  0.714
+supply_of_get_l    0.152  0.057  0.007
+rival_buyers_l    -0.025  0.052  0.634
+ment_give          0.056  0.048  0.241
+ment_get           0.031  0.042  0.456
+day_z             -0.004  0.007  0.583
+size_l            -0.250  0.050  0.000
+
+-- without the goal and hunger probes: n=235, groups=66, makers=89
+                    coef     se      p
+own_give          -0.386  0.079  0.000
+own_get           -0.114  0.066  0.084
+place_give         0.184  0.149  0.215
+place_get          0.193  0.084  0.022
+food_days          0.216  0.091  0.017
+hungry            -0.082  0.084  0.326
+rival_sellers_l   -0.001  0.089  0.989
+demand_for_give_l -0.009  0.185  0.962
+supply_of_get_l    0.059  0.093  0.529
+rival_buyers_l    -0.053  0.087  0.543
+ment_give         -0.014  0.072  0.851
+ment_get           0.061  0.081  0.452
+day_z              0.002  0.008  0.797
