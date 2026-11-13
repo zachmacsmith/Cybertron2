@@ -786,6 +786,17 @@ def day0_capacity(spec) -> dict:
         return {"error": f"{type(e).__name__}: {str(e)[:200]}"}
 
 
+STANDARD = {"view": "beliefs", "evening": True, "tags": True, "ages": True}       # what every current world sets (38.70b)
+
+
+def settings_line(spec) -> str:
+    """The world's settings at the start of a run, and a warning for any standard one that is off."""
+    keys = ("view", "evening", "tags", "ages", "lifespan", "packs", "children", "memory", "memory_at_evening", "llm")
+    line = "settings: " + "; ".join(f"{k}={spec.get(k)!r}" for k in keys)
+    off = [k for k, v in STANDARD.items() if spec.get(k) != v]
+    return line + (f"\nWARNING: standard settings off in this world: {', '.join(off)}" if off else "")
+
+
 def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, seed=None, until=None, mode="start", responders=None):
     """mode "start": a new run from a world file; "resume": go on with the run in out_dir from its journal (every answered request
     reused, the first step not committed run again live); "replay": play the run in out_dir again from its record alone, in a
@@ -798,6 +809,7 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
             spec["seed"] = int(seed)
         if days:
             spec["days"] = int(days)
+        print(settings_line(spec), flush=True)
         if bots:
             spec["bots"] = True                                             # those who come of age are bots too
             for a in spec["agents"].values():

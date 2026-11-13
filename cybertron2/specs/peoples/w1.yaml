@@ -17,6 +17,15 @@ memory:
 packs:
 - wild
 - water
+view: beliefs
+evening: true
+tags: true
+ages: true
+llm:
+  week_stop: 0.5
+cold_days: []
+incidents: []
+customs: []
 cast:
   head: claude-opus-5-5
   middle: claude-opus-5-5

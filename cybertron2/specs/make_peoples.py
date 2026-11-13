@@ -162,6 +162,8 @@ def spec(key: str, seed: int) -> dict:
         "children": {"on": True, "dial": "low"},
         "memory": {"kept": {"words": 80}},                                 # room for the aim line whole
         "packs": ["wild", "water"],                                       # the wild layer; fish and salt (the water pack)
+        "view": "beliefs", "evening": True, "tags": True, "ages": True,  # the standard settings of every current world
+        "llm": {"week_stop": 0.5}, "cold_days": [], "incidents": [], "customs": [],
         "cast": {"head": MODELS["A"], "middle": MODELS["A"], "rest": MODELS["A"], "youth": MODELS["A"]},   # replaced by the peoples'
                                                                            # households' models (household_models, cast() below)
         "peoples": {name: x for name, x in homes.items()},
