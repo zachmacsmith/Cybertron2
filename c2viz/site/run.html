@@ -238,11 +238,18 @@ function words() {
   const d = S.day; talkEl.hidden = false;
   if (T.day !== d) { T.day = d; T.list = null; T.shown = 0; $("#talkday").textContent = `Day ${d + 1} · what they said`; $("#talkn").textContent = ""; hush("…");
     talkFor(d).then((list) => { if (T.day !== d) return; T.list = list; T.shown = -1; words(); }); return; }
-  const list = T.list; if (!list) return;
+  if (!T.list) return;
+  // close up on a place, only the words said there: where the speaker woke for the morning and the talk (the day before's end),
+  // where they ended the day for the evening (else where they woke, if they ended it on a road)
+  const was = (who, k) => ((V.days[k] || {}).people || {})[who]?.at;
+  const where = (m) => (m.p === "evening" ? was(m.from, d) || was(m.from, d - 1) : was(m.from, d - 1) || was(m.from, d));
+  const list = S.node ? T.list.filter((m) => where(m) === S.node) : T.list;
+  if (T.node !== (S.node || "")) { T.node = S.node || ""; T.shown = -1; }        // a different place: start the list again
+  $("#talkday").textContent = `Day ${d + 1} · what they said${S.node ? " at " + ST.nodes[S.node].name : ""}`;
   const clock = S.node && V.days[d].timeline && S.t != null ? S.t : Infinity, upto = list.filter((m) => m.at <= clock).length;
   $("#talkn").textContent = list.length ? `${upto} of ${list.length}` : "";
   if (upto === T.shown) return;
-  if (!list.length) { T.shown = 0; return hush("Nobody spoke today."); }
+  if (!list.length) { T.shown = 0; return hush(S.node ? "Nobody spoke here today." : "Nobody spoke today."); }
   if (upto < T.shown || T.shown <= 0) { talkB.replaceChildren(); T.shown = 0; }  // back in time, or a new day: start the list again
   if (!upto) { T.shown = 0; return hush("Nothing said yet today."); }
   const stick = talkB.scrollHeight - talkB.scrollTop - talkB.clientHeight < 40;
