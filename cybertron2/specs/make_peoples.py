@@ -130,7 +130,7 @@ def spec(key: str, seed: int) -> dict:
     homes = {p["name"]: p["kind"].split(":")[1] for p in w["places"] if p["kind"].startswith("home:")}
     return {
         "name": f"peoples_{key.lower()}", "seed": seed, "days": 200, "lifespan": LIFESPAN,
-        "calendar": {"season": "spring", "day": 1, "season_days": 16},       # a year of 64 days: one lifespan a year (calibrate)
+        "calendar": {"season": "spring", "day": 1, "season_days": 8},        # a year of 32 days, as the other worlds (a lifespan is two)
         "children": {"on": True, "dial": "low"},
         "packs": ["wild"],
         "cast": {"head": MODELS["A"], "middle": MODELS["A"], "rest": MODELS["A"], "youth": MODELS["A"]},   # replaced by the peoples'

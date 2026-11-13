@@ -7,10 +7,10 @@
    "people": 7,
    "food": 0.33,
    "heat": 0.3,
-   "plots_wanted": 26,
-   "fields": 26,
-   "wood_wanted": 10,
-   "woods": 10,
+   "plots_wanted": 13,
+   "fields": 13,
+   "wood_wanted": 5,
+   "woods": 5,
    "waste": 3
   },
   "Brockley": {
@@ -18,10 +18,10 @@
    "people": 9,
    "food": 0.33,
    "heat": 0.3,
-   "plots_wanted": 34,
-   "fields": 34,
-   "wood_wanted": 13,
-   "woods": 13,
+   "plots_wanted": 17,
+   "fields": 17,
+   "wood_wanted": 7,
+   "woods": 7,
    "waste": 3
   }
  },
@@ -48,10 +48,10 @@
   },
   "capacity": {
    "kind": "design",
-   "ok": false,
+   "ok": true,
    "detail": {
-    "Ashford": 0.56,
-    "Brockley": 0.56
+    "Ashford": 0.35,
+    "Brockley": 0.32
    }
   },
   "dependence": {
@@ -94,8 +94,8 @@
    "kind": "design",
    "ok": false,
    "detail": {
-    "Ashford": 13,
-    "Brockley": 15,
+    "Ashford": 8,
+    "Brockley": 11,
     "Middlemead": 6,
     "Lower Meads": 8,
     "Coppice Hill": 9,
@@ -127,16 +127,16 @@
   },
   "capacity, people as generated": {
    "kind": "design",
-   "ok": false,
+   "ok": true,
    "detail": {
     "Ashford": {
      "people": 7,
-     "share": 0.56,
+     "share": 0.35,
      "target": 0.33
     },
     "Brockley": {
      "people": 9,
-     "share": 0.56,
+     "share": 0.32,
      "target": 0.33
     }
    }
@@ -145,25 +145,25 @@
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "16 people; the land keeps 57 for good (0.28 of it)"
+   "detail": "16 people; the land keeps 66 for good (0.24 of it)"
   },
   "economy: food over the run": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "200 days need 3120 meals; store, crops ripening and the land give 7941 (0.39)"
+   "detail": "200 days need 3120 meals; store, crops ripening and the land give 10699 (0.29)"
   },
   "economy: region heat": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "16 people; the land keeps 142 for good (0.11 of it)"
+   "detail": "16 people; the land keeps 279 for good (0.06 of it)"
   },
   "economy: heat over the run": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "200 days need 1376 heat (4 hearths, 48.0 cold nights); store and the woods' flow give 11117 (0.12); the woods stand at 317975 more"
+   "detail": "200 days need 1376 heat (4 hearths, 48.0 cold nights); store and the woods' flow give 21818 (0.06); the woods stand at 302025 more"
   },
   "economy: carrying burden": {
    "kind": "economy",
@@ -196,7 +196,7 @@
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "4 couples; about 33 births in 200 days if they try often; the region would be at 0.86 of its land"
+   "detail": "4 couples; about 33 births in 200 days if they try often; the region would be at 0.75 of its land"
   },
   "economy: succession": {
    "kind": "economy",
@@ -227,7 +227,7 @@
     23.4,
     24.19
    ],
-   "parcels": 13
+   "parcels": 8
   },
   "Brockley": {
    "name": "Brockley",
@@ -236,7 +236,7 @@
     58.66,
     28.05
    ],
-   "parcels": 15
+   "parcels": 11
   },
   "Middlemead": {
    "name": "Middlemead",
@@ -314,8 +314,8 @@
    "name": "Haydale",
    "kind": "stop",
    "site_km": [
-    47.1,
-    39.5
+    47.21,
+    39.3
    ],
    "parcels": 1
   }
