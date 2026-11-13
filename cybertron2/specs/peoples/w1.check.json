@@ -1,0 +1,411 @@
+{
+ "refused": [],
+ "capacity": {
+  "Ashford": {
+   "people": 10,
+   "standing": 7.4,
+   "worked": 49.7,
+   "best": 92.6
+  },
+  "Brockley": {
+   "people": 10,
+   "standing": 9.1,
+   "worked": 64.4,
+   "best": 120.4
+  },
+  "(region)": {
+   "people": 20,
+   "standing": 16.4,
+   "worked": 114.1,
+   "best": 213.0
+  }
+ },
+ "checks": {
+  "rivers run downhill": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "0 river cells drain uphill"
+  },
+  "laid rivers run where laid": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "1 laid"
+  },
+  "every pin met": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "a pin not met is refused when it is placed"
+  },
+  "settlements placed": {
+   "kind": "design",
+   "ok": true,
+   "detail": "9 of 9 at 7.0 km apart"
+  },
+  "capacity": {
+   "kind": "design",
+   "ok": false,
+   "detail": {
+    "Ashford": 0.56,
+    "Brockley": 0.56
+   }
+  },
+  "dependence": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Ashford": [
+     "stone",
+     "metal"
+    ],
+    "Brockley": [
+     "stone",
+     "metal"
+    ]
+   }
+  },
+  "reachable by land": {
+   "kind": "design",
+   "ok": true,
+   "detail": []
+  },
+  "chokepoint": {
+   "kind": "design",
+   "ok": true,
+   "detail": [
+    "Ash Wood-Coppice Hill: pass",
+    "Brock Wood-Coppice Hill: pass",
+    "t1-Coppice Hill: pass",
+    "t2-Coppice Hill: pass"
+   ]
+  },
+  "roads about a day": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "1": 13
+   }
+  },
+  "parcels per node": {
+   "kind": "design",
+   "ok": false,
+   "detail": {
+    "Ashford": 13,
+    "Brockley": 15,
+    "Middlemead": 6,
+    "Lower Meads": 8,
+    "Coppice Hill": 9,
+    "Ash Wood": 5,
+    "Ash Heath": 4,
+    "Brock Wood": 5,
+    "Brock Heath": 6
+   }
+  },
+  "access gates": {
+   "kind": "design",
+   "ok": true,
+   "detail": "the bot dry run checks them once the people exist (scenario_design)"
+  },
+  "makes its own landscape": {
+   "kind": "design",
+   "ok": true,
+   "detail": "no promise for this configuration"
+  },
+  "lakes where lakes belong": {
+   "kind": "design",
+   "ok": true,
+   "detail": "1 lakes; 0 outside fen or upland systems (0.0 a 1,000 km2)"
+  },
+  "wood share by how long settled": {
+   "kind": "design",
+   "ok": true,
+   "detail": "0.60 of the land in wood (settled: frontier, 0.60)"
+  },
+  "capacity, people as generated": {
+   "kind": "design",
+   "ok": false,
+   "detail": {
+    "Ashford": {
+     "people": 7,
+     "share": 0.56,
+     "target": 0.33
+    },
+    "Brockley": {
+     "people": 9,
+     "share": 0.56,
+     "target": 0.33
+    }
+   }
+  },
+  "economy: region food": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "16 people; the land keeps 57 for good (0.28 of it)"
+  },
+  "economy: food over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "200 days need 3120 meals; store, crops ripening and the land give 7941 (0.39)"
+  },
+  "economy: region heat": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "16 people; the land keeps 142 for good (0.11 of it)"
+  },
+  "economy: heat over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "200 days need 1376 heat (4 hearths, 48.0 cold nights); store and the woods' flow give 11117 (0.12); the woods stand at 317975 more"
+  },
+  "economy: carrying burden": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {}
+  },
+  "economy: households' runway": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {
+    "short": [],
+    "share_of_people": 0.0,
+    "days_of_food_a_member": {
+     "the Reeds": 6.8,
+     "the Hales": 6.8,
+     "the Marshs": 6.8,
+     "the Wynns": 6.8
+    }
+   }
+  },
+  "economy: fuel": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "every hearth has wood in store or woods at hand"
+  },
+  "economy: room to grow": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "4 couples; about 33 births in 200 days if they try often; the region would be at 0.86 of its land"
+  },
+  "economy: succession": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": false,
+   "detail": [
+    "the Hales: Roger (100%), Joyce (100%) likely to die in the run; 0 grown left for 1",
+    "the Wynns: Hamo (100%), Eva (100%), Oliver (100%), Joan (100%) likely to die in the run; 0 grown left for 1"
+   ]
+  }
+ },
+ "compare": {
+  "roads": [
+   {
+    "road": "Ashford - Middlemead",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Brockley - Middlemead",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Middlemead - Lower Meads",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Ashford - Coppice Hill",
+    "designed": 2,
+    "generated": 2
+   },
+   {
+    "road": "Brockley - Coppice Hill",
+    "designed": 2,
+    "generated": 2
+   },
+   {
+    "road": "Ashford - Ash Wood",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Ashford - Ash Heath",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Brockley - Brock Wood",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Brockley - Brock Heath",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Ash Wood - Coppice Hill",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Brock Wood - Coppice Hill",
+    "designed": 1,
+    "generated": 1
+   }
+  ],
+  "places": {
+   "Ashford": {
+    "land": "farmland",
+    "covers": {
+     "built": 1,
+     "field": 26,
+     "meadow": 1,
+     "pasture": 6,
+     "forest": 10
+    },
+    "stocks": [
+     "crop",
+     "game",
+     "grass",
+     "last_crop",
+     "plants",
+     "wood"
+    ]
+   },
+   "Brockley": {
+    "land": "farmland",
+    "covers": {
+     "built": 1,
+     "field": 34,
+     "meadow": 1,
+     "pasture": 3,
+     "forest": 13,
+     "heath": 3
+    },
+    "stocks": [
+     "crop",
+     "game",
+     "grass",
+     "last_crop",
+     "plants",
+     "wood"
+    ]
+   },
+   "Middlemead": {
+    "land": "rich vale",
+    "covers": {
+     "pasture": 27,
+     "forest": 7,
+     "heath": 2,
+     "water": 2
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Lower Meads": {
+    "land": "fen",
+    "covers": {
+     "pasture": 9,
+     "forest": 4,
+     "fen": 23,
+     "water": 2
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Coppice Hill": {
+    "land": "rock hills",
+    "covers": {
+     "pasture": 21,
+     "forest": 4,
+     "rock": 15,
+     "water": 2
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "quarry",
+     "seam",
+     "wood"
+    ]
+   },
+   "Ash Wood": {
+    "land": "forest",
+    "covers": {
+     "pasture": 4,
+     "forest": 18,
+     "heath": 2,
+     "water": 2
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Ash Heath": {
+    "land": "heath",
+    "covers": {
+     "meadow": 3,
+     "pasture": 3,
+     "forest": 2,
+     "heath": 16
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Brock Wood": {
+    "land": "forest",
+    "covers": {
+     "pasture": 6,
+     "forest": 18,
+     "water": 2
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Brock Heath": {
+    "land": "heath",
+    "covers": {
+     "meadow": 2,
+     "pasture": 4,
+     "forest": 2,
+     "heath": 16,
+     "water": 2
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   }
+  }
+ }
+}
