@@ -11,8 +11,12 @@ calendar:
 children:
   'on': true
   dial: low
+memory:
+  kept:
+    words: 80
 packs:
 - wild
+- water
 cast:
   head: claude-opus-5-5
   middle: claude-opus-5-5
@@ -42,7 +46,7 @@ nodes:
         text: houses round a trodden green
         adj:
         - Ashford_1
-        - Ashford_7
+        - Ashford_3
         terrain: lowland loam
         soil: loam
         ecosystem: grassland
@@ -58,11 +62,12 @@ nodes:
           rain_factor: 1.0
           sea_km: 99.0
           river: none
+        state: {}
       Ashford_1:
         name: Ashford Field
         cover: field
-        size: 6
-        side: south
+        size: 5
+        side: centre
         height: 1
         text: ploughland, on good loam
         adj:
@@ -71,16 +76,16 @@ nodes:
         - Ashford_3
         - Ashford_4
         - Ashford_5
-        - Ashford_7
+        - Ashford_6
         fertility: 0.99
         terrain: lowland loam
         soil: loam
         ecosystem: grassland
         land:
-          elevation: 70.2
-          exposure: 0.41
+          elevation: 71.3
+          exposure: 0.4
           texture: loam
-          held_mm: 196.6
+          held_mm: 197.2
           drain_rate: 0.25
           depth: 1.16
           base_fertility: 1.0
@@ -92,7 +97,7 @@ nodes:
         state:
           crop:
             kind: barley
-            left: 288
+            left: 240
             ripe_day: 5
       Ashford_2:
         name: Mill Meadow
@@ -103,6 +108,8 @@ nodes:
         text: hay meadow, on good loam
         adj:
         - Ashford_1
+        - Ashford_4
+        - Ashford_6
         state:
           plants:
             K: 1.3
@@ -112,16 +119,16 @@ nodes:
             K: 27.0
             S: 27.0
             r: 0.32
-        terrain: river terrace
+        terrain: lowland loam
         soil: loam
-        ecosystem: grassland
+        ecosystem: wet grassland
         land:
-          elevation: 48.6
-          exposure: 0.29
+          elevation: 69.3
+          exposure: 0.4
           texture: loam
-          held_mm: 171.9
+          held_mm: 200.0
           drain_rate: 0.25
-          depth: 1.01
+          depth: 1.18
           base_fertility: 1.0
           position: hollow
           rain_factor: 1.0
@@ -136,10 +143,11 @@ nodes:
         height: 1
         text: grazing, on good loam
         adj:
+        - Ashford_0
         - Ashford_1
         - Ashford_4
         - Ashford_5
-        - Ashford_7
+        - Ashford_6
         state:
           plants:
             K: 3.0
@@ -153,28 +161,104 @@ nodes:
         soil: loam
         ecosystem: grassland
         land:
-          elevation: 70.1
+          elevation: 71.4
           exposure: 0.4
           texture: loam
-          held_mm: 196.6
+          held_mm: 196.3
           drain_rate: 0.25
-          depth: 1.16
+          depth: 1.15
           base_fertility: 1.0
-          position: slope
+          position: hollow
           rain_factor: 1.0
           sea_km: 99.0
           river: none
       Ashford_4:
         name: the Spinney
         cover: forest
-        size: 1
-        side: east
+        size: 2
+        side: west
+        height: 1
+        text: coppiced, oak and ash over hazel
+        adj:
+        - Ashford_1
+        - Ashford_2
+        - Ashford_3
+        state:
+          plants:
+            K: 2.9
+            S: 2.9
+            r: 0.3
+          wood:
+            kind: managed wood
+          game:
+            K: 2.1
+            S: 2.1
+            r: 0.25
+        terrain: lowland loam
+        soil: loam
+        ecosystem: oak-ash wood
+        depth: edge
+        land:
+          elevation: 71.3
+          exposure: 0.41
+          texture: loam
+          held_mm: 193.9
+          drain_rate: 0.25
+          depth: 1.14
+          base_fertility: 1.0
+          position: slope
+          rain_factor: 1.0
+          sea_km: 99.0
+          river: none
+      Ashford_5:
+        name: Hazel Copse
+        cover: forest
+        size: 2
+        side: centre
         height: 1
         text: coppiced, oak and ash over hazel
         adj:
         - Ashford_1
         - Ashford_3
         - Ashford_7
+        state:
+          plants:
+            K: 2.9
+            S: 2.9
+            r: 0.3
+          wood:
+            kind: managed wood
+          game:
+            K: 2.1
+            S: 2.1
+            r: 0.25
+        terrain: lowland loam
+        soil: loam
+        ecosystem: oak-ash wood
+        depth: edge
+        land:
+          elevation: 73.3
+          exposure: 0.43
+          texture: loam
+          held_mm: 193.3
+          drain_rate: 0.25
+          depth: 1.14
+          base_fertility: 1.0
+          position: slope
+          rain_factor: 1.0
+          sea_km: 99.0
+          river: none
+      Ashford_6:
+        name: South Wood
+        cover: forest
+        size: 1
+        side: south
+        height: 1
+        text: coppiced, oak and ash over hazel
+        adj:
+        - Ashford_1
+        - Ashford_2
+        - Ashford_3
         state:
           plants:
             K: 1.4
@@ -191,57 +275,18 @@ nodes:
         ecosystem: oak-ash wood
         depth: edge
         land:
-          elevation: 68.8
+          elevation: 69.4
           exposure: 0.41
           texture: loam
-          held_mm: 192.5
+          held_mm: 196.6
           drain_rate: 0.25
-          depth: 1.13
+          depth: 1.16
           base_fertility: 1.0
           position: slope
           rain_factor: 1.0
           sea_km: 99.0
           river: none
-      Ashford_5:
-        name: Hazel Copse
-        cover: forest
-        size: 4
-        side: centre
-        height: 1
-        text: coppiced, oak and ash over hazel
-        adj:
-        - Ashford_1
-        - Ashford_3
-        - Ashford_6
-        - Ashford_7
-        state:
-          plants:
-            K: 5.8
-            S: 5.8
-            r: 0.3
-          wood:
-            kind: managed wood
-          game:
-            K: 4.2
-            S: 4.2
-            r: 0.25
-        terrain: lowland loam
-        soil: loam
-        ecosystem: oak-ash wood
-        depth: edge
-        land:
-          elevation: 73.1
-          exposure: 0.42
-          texture: loam
-          held_mm: 193.3
-          drain_rate: 0.25
-          depth: 1.14
-          base_fertility: 1.0
-          position: slope
-          rain_factor: 1.0
-          sea_km: 99.0
-          river: none
-      Ashford_6:
+      Ashford_7:
         name: Cow Close
         cover: pasture
         size: 3
@@ -269,47 +314,15 @@ nodes:
           held_mm: 162.0
           drain_rate: 0.4
           depth: 1.16
-          base_fertility: 0.85
+          base_fertility: 0.95
           position: slope
           rain_factor: 1.0
           sea_km: 99.0
           river: none
-      Ashford_7:
-        name: Middle Field
-        cover: field
-        size: 7
-        side: centre
-        height: 1
-        text: ploughland, on good loam
-        adj:
-        - Ashford_0
-        - Ashford_1
-        - Ashford_3
-        - Ashford_4
-        - Ashford_5
-        fertility: 0.99
-        terrain: lowland loam
-        soil: loam
-        ecosystem: grassland
-        land:
-          elevation: 72.3
-          exposure: 0.41
-          texture: loam
-          held_mm: 195.9
-          drain_rate: 0.25
-          depth: 1.15
-          base_fertility: 1.0
-          position: slope
-          rain_factor: 1.0
-          sea_km: 99.0
-          river: none
-        holder: Reed
-        state:
-          last_crop: fallow
     xy:
     - 23.4
     - 24.19
-    elevation: 72.3
+    elevation: 74.0
     rain_mm: 707.0
   Brockley:
     name: Brockley
@@ -324,8 +337,9 @@ nodes:
         text: houses round a trodden green
         adj:
         - Brockley_1
-        - Brockley_10
-        - Brockley_9
+        - Brockley_3
+        - Brockley_4
+        - Brockley_6
         terrain: lowland loam
         soil: loam
         ecosystem: grassland
@@ -338,45 +352,45 @@ nodes:
           depth: 1.17
           base_fertility: 1.0
           position: slope
-          rain_factor: 0.991
+          rain_factor: 0.985
           sea_km: 99.0
           river: none
+        state: {}
       Brockley_1:
-        name: Brockley Field
+        name: Middle Field
         cover: field
-        size: 8
+        size: 4
         side: centre
         height: 1
         text: ploughland, on good loam
         adj:
         - Brockley_0
-        - Brockley_10
         - Brockley_3
         - Brockley_4
+        - Brockley_5
         - Brockley_6
         - Brockley_7
-        - Brockley_9
         fertility: 0.99
         terrain: lowland loam
         soil: loam
         ecosystem: grassland
         land:
-          elevation: 141.3
+          elevation: 141.8
           exposure: 0.53
           texture: loam
-          held_mm: 196.8
+          held_mm: 197.2
           drain_rate: 0.25
           depth: 1.16
           base_fertility: 1.0
           position: slope
-          rain_factor: 0.991
+          rain_factor: 0.985
           sea_km: 99.0
           river: none
         holder: Marsh
         state:
           crop:
             kind: barley
-            left: 384
+            left: 192
             ripe_day: 5
       Brockley_2:
         name: Brook Meadow
@@ -406,128 +420,164 @@ nodes:
           held_mm: 81.5
           drain_rate: 0.5
           depth: 1.16
-          base_fertility: 0.7
+          base_fertility: 0.95
           position: slope
-          rain_factor: 1.136
+          rain_factor: 1.129
           sea_km: 99.0
           river: none
-        holder: Marsh
+        holder: Wynn
       Brockley_3:
         name: Brockley Common
         cover: pasture
-        size: 3
+        size: 1
         side: centre
         height: 1
         text: grazing, on good loam
         adj:
+        - Brockley_0
         - Brockley_1
-        - Brockley_4
         - Brockley_5
         - Brockley_6
-        - Brockley_7
-        - Brockley_9
         state:
           plants:
-            K: 3.0
-            S: 3.0
+            K: 1.0
+            S: 1.0
             r: 0.3
           grass:
-            K: 90.0
-            S: 90.0
+            K: 30.0
+            S: 30.0
             r: 0.32
         terrain: lowland loam
         soil: loam
         ecosystem: grassland
         land:
-          elevation: 141.8
-          exposure: 0.54
+          elevation: 142.2
+          exposure: 0.55
           texture: loam
-          held_mm: 192.6
+          held_mm: 197.8
           drain_rate: 0.25
-          depth: 1.13
+          depth: 1.16
           base_fertility: 1.0
           position: slope
-          rain_factor: 0.991
+          rain_factor: 0.985
           sea_km: 99.0
           river: none
       Brockley_4:
-        name: South Wood
-        cover: forest
+        name: the Leaze
+        cover: pasture
         size: 2
-        side: south
+        side: centre
         height: 1
-        text: coppiced, oak and ash over hazel
+        text: grazing, on good loam
         adj:
+        - Brockley_0
         - Brockley_1
-        - Brockley_3
-        - Brockley_8
+        - Brockley_5
+        - Brockley_6
+        - Brockley_7
         state:
           plants:
-            K: 2.9
-            S: 2.9
+            K: 2.0
+            S: 2.0
             r: 0.3
-          wood:
-            kind: managed wood
-          game:
-            K: 2.1
-            S: 2.1
-            r: 0.25
+          grass:
+            K: 60.0
+            S: 60.0
+            r: 0.32
         terrain: lowland loam
         soil: loam
-        ecosystem: oak-ash wood
-        depth: edge
+        ecosystem: grassland
         land:
-          elevation: 143.4
-          exposure: 0.56
+          elevation: 141.7
+          exposure: 0.53
           texture: loam
-          held_mm: 194.4
+          held_mm: 197.8
           drain_rate: 0.25
-          depth: 1.14
+          depth: 1.16
           base_fertility: 1.0
           position: slope
-          rain_factor: 0.991
+          rain_factor: 0.985
           sea_km: 99.0
           river: none
       Brockley_5:
         name: Brockley Copse
         cover: forest
-        size: 2
-        side: north
+        size: 3
+        side: east
         height: 1
         text: coppiced, oak and ash over hazel
         adj:
-        - Brockley_10
+        - Brockley_1
         - Brockley_3
-        - Brockley_9
+        - Brockley_4
         state:
           plants:
-            K: 2.9
-            S: 2.9
+            K: 4.3
+            S: 4.3
             r: 0.3
           wood:
             kind: managed wood
           game:
-            K: 2.1
-            S: 2.1
+            K: 3.1
+            S: 3.1
             r: 0.25
         terrain: lowland loam
         soil: loam
         ecosystem: oak-ash wood
         depth: edge
         land:
-          elevation: 145.3
-          exposure: 0.61
+          elevation: 140.8
+          exposure: 0.55
           texture: loam
-          held_mm: 192.4
+          held_mm: 196.8
           drain_rate: 0.25
-          depth: 1.13
+          depth: 1.16
           base_fertility: 1.0
-          position: ridge
-          rain_factor: 0.991
+          position: slope
+          rain_factor: 0.985
           sea_km: 99.0
           river: none
       Brockley_6:
-        name: South Wood 2
+        name: North Wood
+        cover: forest
+        size: 3
+        side: north
+        height: 1
+        text: coppiced, oak and ash over hazel
+        adj:
+        - Brockley_0
+        - Brockley_1
+        - Brockley_3
+        - Brockley_4
+        state:
+          plants:
+            K: 4.3
+            S: 4.3
+            r: 0.3
+          wood:
+            kind: managed wood
+          game:
+            K: 3.1
+            S: 3.1
+            r: 0.25
+        terrain: lowland loam
+        soil: loam
+        ecosystem: oak-ash wood
+        depth: edge
+        land:
+          elevation: 141.4
+          exposure: 0.53
+          texture: loam
+          held_mm: 195.4
+          drain_rate: 0.25
+          depth: 1.15
+          base_fertility: 1.0
+          position: slope
+          rain_factor: 0.985
+          sea_km: 99.0
+          river: none
+      Brockley_7:
+        name: Brockley Copse 2
         cover: forest
         size: 1
         side: south
@@ -535,7 +585,8 @@ nodes:
         text: coppiced, oak and ash over hazel
         adj:
         - Brockley_1
-        - Brockley_3
+        - Brockley_4
+        - Brockley_8
         state:
           plants:
             K: 1.4
@@ -552,53 +603,15 @@ nodes:
         ecosystem: oak-ash wood
         depth: edge
         land:
-          elevation: 143.3
-          exposure: 0.61
+          elevation: 144.1
+          exposure: 0.56
           texture: loam
-          held_mm: 189.3
+          held_mm: 196.9
           drain_rate: 0.25
-          depth: 1.11
-          base_fertility: 1.0
-          position: ridge
-          rain_factor: 0.991
-          sea_km: 99.0
-          river: none
-      Brockley_7:
-        name: West Wood
-        cover: forest
-        size: 2
-        side: west
-        height: 1
-        text: coppiced, oak and ash over hazel
-        adj:
-        - Brockley_1
-        - Brockley_3
-        - Brockley_9
-        state:
-          plants:
-            K: 2.9
-            S: 2.9
-            r: 0.3
-          wood:
-            kind: managed wood
-          game:
-            K: 2.1
-            S: 2.1
-            r: 0.25
-        terrain: lowland loam
-        soil: loam
-        ecosystem: oak-ash wood
-        depth: edge
-        land:
-          elevation: 139.0
-          exposure: 0.49
-          texture: loam
-          held_mm: 194.0
-          drain_rate: 0.25
-          depth: 1.14
+          depth: 1.16
           base_fertility: 1.0
           position: slope
-          rain_factor: 0.997
+          rain_factor: 0.985
           sea_km: 99.0
           river: none
       Brockley_8:
@@ -610,7 +623,7 @@ nodes:
         text: heather and gorse on thin sand
         adj:
         - Brockley_2
-        - Brockley_4
+        - Brockley_7
         state:
           plants:
             K: 1.8
@@ -630,117 +643,52 @@ nodes:
           held_mm: 80.0
           drain_rate: 0.5
           depth: 1.14
-          base_fertility: 0.7
+          base_fertility: 0.95
           position: slope
-          rain_factor: 1.035
+          rain_factor: 1.03
           sea_km: 99.0
           river: none
-      Brockley_9:
-        name: Broad Field
-        cover: field
-        size: 4
-        side: centre
-        height: 1
-        text: ploughland, on good loam
-        adj:
-        - Brockley_0
-        - Brockley_1
-        - Brockley_10
-        - Brockley_3
-        - Brockley_5
-        - Brockley_7
-        fertility: 0.99
-        terrain: lowland loam
-        soil: loam
-        ecosystem: grassland
-        land:
-          elevation: 142.6
-          exposure: 0.54
-          texture: loam
-          held_mm: 195.9
-          drain_rate: 0.25
-          depth: 1.15
-          base_fertility: 1.0
-          position: slope
-          rain_factor: 0.991
-          sea_km: 99.0
-          river: none
-        holder: Wynn
-        state:
-          last_crop: fallow
-      Brockley_10:
-        name: East Field
-        cover: field
-        size: 5
-        side: east
-        height: 1
-        text: ploughland, on good loam
-        adj:
-        - Brockley_0
-        - Brockley_1
-        - Brockley_5
-        - Brockley_9
-        fertility: 0.99
-        terrain: lowland loam
-        soil: loam
-        ecosystem: grassland
-        land:
-          elevation: 141.8
-          exposure: 0.55
-          texture: loam
-          held_mm: 197.3
-          drain_rate: 0.25
-          depth: 1.16
-          base_fertility: 1.0
-          position: slope
-          rain_factor: 0.991
-          sea_km: 99.0
-          river: none
-        holder: Wynn
-        state:
-          last_crop: legumes
     xy:
     - 58.66
     - 28.05
-    elevation: 141.6
-    rain_mm: 714.0
+    elevation: 141.1
+    rain_mm: 718.0
   Middlemead:
     name: Middlemead
     text: land no one lives on or holds in rolling lowland
     parcels:
       Middlemead_0:
-        name: the Leaze
+        name: the Common
         cover: pasture
-        size: 13
-        side: south
+        size: 27
+        side: centre
         height: 1
         text: grazing, on good loam
         adj:
         - Middlemead_1
-        - Middlemead_2
         - Middlemead_5
         state:
           plants:
-            K: 13.0
-            S: 13.0
+            K: 27.0
+            S: 27.0
             r: 0.3
           grass:
-            K: 390.0
-            S: 390.0
+            K: 810.0
+            S: 810.0
             r: 0.32
         terrain: lowland loam
         soil: loam
         ecosystem: grassland
         land:
-          elevation: 64.0
+          elevation: 63.8
           exposure: 0.41
           texture: loam
-          held_mm: 180.9
+          held_mm: 186.4
           drain_rate: 0.25
-          depth: 1.06
+          depth: 1.1
           base_fertility: 1.2
           position: slope
-          rain_factor: 0.994
+          rain_factor: 0.997
           sea_km: 99.0
           river: none
       Middlemead_1:
@@ -752,6 +700,7 @@ nodes:
         text: oak and ash over hazel, old and tall
         adj:
         - Middlemead_0
+        - Middlemead_3
         - Middlemead_5
         state:
           plants:
@@ -769,12 +718,12 @@ nodes:
         ecosystem: oak-ash wood
         depth: edge
         land:
-          elevation: 67.8
+          elevation: 67.6
           exposure: 0.45
           texture: loam
-          held_mm: 190.8
+          held_mm: 189.2
           drain_rate: 0.25
-          depth: 1.12
+          depth: 1.11
           base_fertility: 1.2
           position: slope
           rain_factor: 0.996
@@ -788,7 +737,7 @@ nodes:
         height: 1
         text: heather and gorse on thin sand
         adj:
-        - Middlemead_0
+        - Middlemead_5
         state:
           plants:
             K: 1.2
@@ -821,8 +770,8 @@ nodes:
         height: 0
         text: running water, low by the water
         adj:
+        - Middlemead_1
         - Middlemead_4
-        - Middlemead_5
         terrain: river floodplain
         soil: loam
         ecosystem: wet grassland
@@ -839,6 +788,11 @@ nodes:
           sea_km: 99.0
           river: river
           down: out
+        state:
+          fish:
+            K: 8.0
+            S: 8.0
+            r: 0.3
       Middlemead_4:
         name: the Brook
         cover: water
@@ -864,52 +818,57 @@ nodes:
           sea_km: 99.0
           river: river
           down: Middlemead_3
+        state:
+          fish:
+            K: 8.0
+            S: 8.0
+            r: 0.3
       Middlemead_5:
-        name: Middlemead Common
-        cover: pasture
-        size: 14
+        name: the Ham
+        cover: meadow
+        size: 1
         side: centre
         height: 1
-        text: grazing, on good loam
+        text: hay meadow, on good loam
         adj:
         - Middlemead_0
         - Middlemead_1
-        - Middlemead_3
+        - Middlemead_2
         state:
           plants:
-            K: 14.0
-            S: 14.0
+            K: 1.3
+            S: 1.3
             r: 0.3
           grass:
-            K: 420.0
-            S: 420.0
+            K: 27.0
+            S: 27.0
             r: 0.32
         terrain: lowland loam
         soil: loam
         ecosystem: grassland
         land:
-          elevation: 64.0
-          exposure: 0.41
+          elevation: 69.6
+          exposure: 0.45
           texture: loam
-          held_mm: 190.4
+          held_mm: 194.8
           drain_rate: 0.25
-          depth: 1.12
+          depth: 1.15
           base_fertility: 1.2
           position: slope
-          rain_factor: 1.0
+          rain_factor: 0.993
           sea_km: 99.0
           river: none
     xy:
     - 37.64
     - 27.47
-    elevation: 64.9
+    elevation: 64.8
     rain_mm: 712.0
   Lower Meads:
     name: Lower Meads
     text: land no one lives on or holds in the fens
     parcels:
       Lower Meads_0:
-        name: the Common
+        name: Lower Meads Common
         cover: pasture
         size: 9
         side: centre
@@ -919,6 +878,9 @@ nodes:
         - Lower Meads_1
         - Lower Meads_3
         - Lower Meads_4
+        - Lower Meads_5
+        - Lower Meads_8
+        - Lower Meads_9
         state:
           plants:
             K: 9.0
@@ -932,10 +894,10 @@ nodes:
         soil: loam
         ecosystem: wet grassland
         land:
-          elevation: 64.2
+          elevation: 64.9
           exposure: 0.38
           texture: loam
-          held_mm: 194.5
+          held_mm: 193.7
           drain_rate: 0.25
           depth: 1.14
           base_fertility: 1.0
@@ -952,7 +914,9 @@ nodes:
         text: oak and ash over hazel, old and tall
         adj:
         - Lower Meads_0
-        - Lower Meads_3
+        - Lower Meads_5
+        - Lower Meads_8
+        - Lower Meads_9
         state:
           plants:
             K: 5.8
@@ -969,7 +933,7 @@ nodes:
         ecosystem: oak-ash wood
         depth: edge
         land:
-          elevation: 62.8
+          elevation: 62.9
           exposure: 0.35
           texture: loam
           held_mm: 196.1
@@ -977,7 +941,7 @@ nodes:
           depth: 1.15
           base_fertility: 1.0
           position: slope
-          rain_factor: 1.01
+          rain_factor: 1.002
           sea_km: 99.0
           river: none
       Lower Meads_2:
@@ -1008,45 +972,44 @@ nodes:
           held_mm: 351.5
           drain_rate: 0.05
           depth: 1.17
-          base_fertility: 1.1
+          base_fertility: 1.05
           position: hollow
-          rain_factor: 0.989
+          rain_factor: 0.986
           sea_km: 99.0
           river: none
       Lower Meads_3:
         name: the Sedge
         cover: fen
-        size: 14
+        size: 9
         side: east
         height: 0
         text: reed and sedge over standing water, low by the water
         adj:
         - Lower Meads_0
-        - Lower Meads_1
-        - Lower Meads_6
         - Lower Meads_7
+        - Lower Meads_8
         state:
           plants:
-            K: 14.0
-            S: 14.0
+            K: 9.0
+            S: 9.0
             r: 0.3
           grass:
-            K: 210.0
-            S: 210.0
+            K: 135.0
+            S: 135.0
             r: 0.32
         terrain: fen
         soil: peat
         ecosystem: reedbed
         land:
-          elevation: 71.4
-          exposure: 0.42
+          elevation: 77.9
+          exposure: 0.47
           texture: peat
-          held_mm: 333.2
+          held_mm: 333.6
           drain_rate: 0.05
           depth: 1.11
-          base_fertility: 1.1
+          base_fertility: 1.05
           position: hollow
-          rain_factor: 1.004
+          rain_factor: 1.003
           sea_km: 99.0
           river: none
       Lower Meads_4:
@@ -1059,7 +1022,7 @@ nodes:
         adj:
         - Lower Meads_0
         - Lower Meads_2
-        - Lower Meads_5
+        - Lower Meads_6
         state:
           plants:
             K: 5.0
@@ -1079,13 +1042,48 @@ nodes:
           held_mm: 349.9
           drain_rate: 0.05
           depth: 1.17
-          base_fertility: 1.1
+          base_fertility: 1.05
           position: hollow
-          rain_factor: 0.988
+          rain_factor: 0.985
           sea_km: 99.0
           river: none
       Lower Meads_5:
         name: Lower Meads Fen 2
+        cover: fen
+        size: 3
+        side: north
+        height: 0
+        text: reed and sedge over standing water, low by the water
+        adj:
+        - Lower Meads_0
+        - Lower Meads_1
+        - Lower Meads_8
+        state:
+          plants:
+            K: 3.0
+            S: 3.0
+            r: 0.3
+          grass:
+            K: 45.0
+            S: 45.0
+            r: 0.32
+        terrain: fen
+        soil: peat
+        ecosystem: reedbed
+        land:
+          elevation: 57.9
+          exposure: 0.33
+          texture: peat
+          held_mm: 327.9
+          drain_rate: 0.05
+          depth: 1.09
+          base_fertility: 1.05
+          position: hollow
+          rain_factor: 0.984
+          sea_km: 99.0
+          river: none
+      Lower Meads_6:
+        name: the Sedge 2
         cover: fen
         size: 2
         side: south
@@ -1112,13 +1110,13 @@ nodes:
           held_mm: 336.1
           drain_rate: 0.05
           depth: 1.12
-          base_fertility: 1.1
+          base_fertility: 1.05
           position: hollow
-          rain_factor: 0.98
+          rain_factor: 0.977
           sea_km: 99.0
           river: none
-      Lower Meads_6:
-        name: the Sedge 2
+      Lower Meads_7:
+        name: the Carr 2
         cover: fen
         size: 1
         side: north
@@ -1145,91 +1143,100 @@ nodes:
           held_mm: 356.2
           drain_rate: 0.05
           depth: 1.19
-          base_fertility: 1.1
+          base_fertility: 1.05
           position: hollow
-          rain_factor: 1.002
+          rain_factor: 1.0
           sea_km: 99.0
           river: none
-      Lower Meads_7:
+      Lower Meads_8:
         name: Lower Meads Water
         cover: water
         size: 2
-        side: west
+        side: centre
         height: 0
         text: running water, low by the water
         adj:
+        - Lower Meads_0
+        - Lower Meads_1
         - Lower Meads_3
+        - Lower Meads_5
+        - Lower Meads_9
         terrain: fen
         soil: peat
         ecosystem: reedbed
         land:
-          elevation: 48.2
-          exposure: 0.29
+          elevation: 62.0
+          exposure: 0.34
           texture: peat
-          held_mm: 301.6
+          held_mm: 339.3
           drain_rate: 0.05
-          depth: 1.01
-          base_fertility: 1.265
+          depth: 1.13
+          base_fertility: 1.05
           position: hollow
-          rain_factor: 0.961
+          rain_factor: 1.022
           sea_km: 99.0
-          river: river
+          river: none
           down: out
+        state:
+          fish:
+            K: 16.0
+            S: 16.0
+            r: 0.3
+      Lower Meads_9:
+        name: Lower Meads Meadow
+        cover: meadow
+        size: 1
+        side: centre
+        height: 1
+        text: hay meadow, on good loam
+        adj:
+        - Lower Meads_0
+        - Lower Meads_1
+        - Lower Meads_8
+        state:
+          plants:
+            K: 1.3
+            S: 1.3
+            r: 0.3
+          grass:
+            K: 27.0
+            S: 27.0
+            r: 0.32
+        terrain: lowland loam
+        soil: loam
+        ecosystem: wet grassland
+        land:
+          elevation: 63.4
+          exposure: 0.35
+          texture: loam
+          held_mm: 196.4
+          drain_rate: 0.25
+          depth: 1.16
+          base_fertility: 1.0
+          position: slope
+          rain_factor: 1.018
+          sea_km: 99.0
+          river: none
     xy:
     - 42.0
     - 9.86
-    elevation: 65.5
-    rain_mm: 911.0
+    elevation: 66.5
+    rain_mm: 913.0
   Coppice Hill:
     name: Coppice Hill
     text: land no one lives on or holds in the hills
     parcels:
       Coppice Hill_0:
-        name: North Pasture
-        cover: pasture
-        size: 4
-        side: north
-        height: 1
-        text: grazing, on good loam
-        adj:
-        - Coppice Hill_3
-        - Coppice Hill_4
-        - Coppice Hill_6
-        state:
-          plants:
-            K: 4.0
-            S: 4.0
-            r: 0.3
-          grass:
-            K: 120.0
-            S: 120.0
-            r: 0.32
-        terrain: lowland loam
-        soil: loam
-        ecosystem: hill pasture
-        land:
-          elevation: 414.2
-          exposure: 1.0
-          texture: loam
-          held_mm: 175.9
-          drain_rate: 0.25
-          depth: 1.03
-          base_fertility: 0.8
-          position: ridge
-          rain_factor: 0.984
-          sea_km: 99.0
-          river: none
-      Coppice Hill_1:
-        name: East Pasture
+        name: West Pasture
         cover: pasture
         size: 1
-        side: east
+        side: west
         height: 2
         text: grazing, on good loam, on the slope
         adj:
         - Coppice Hill_4
+        - Coppice Hill_5
         - Coppice Hill_6
-        - Coppice Hill_7
         state:
           plants:
             K: 1.0
@@ -1243,12 +1250,47 @@ nodes:
         soil: loam
         ecosystem: hill pasture
         land:
-          elevation: 370.1
-          exposure: 0.97
+          elevation: 325.3
+          exposure: 0.74
           texture: loam
-          held_mm: 132.7
+          held_mm: 20.4
           drain_rate: 0.25
-          depth: 0.78
+          depth: 0.12
+          base_fertility: 0.8
+          position: slope
+          rain_factor: 0.984
+          sea_km: 99.0
+          river: none
+      Coppice Hill_1:
+        name: North Pasture
+        cover: pasture
+        size: 3
+        side: north
+        height: 1
+        text: grazing, on good loam
+        adj:
+        - Coppice Hill_3
+        - Coppice Hill_4
+        - Coppice Hill_6
+        state:
+          plants:
+            K: 3.0
+            S: 3.0
+            r: 0.3
+          grass:
+            K: 90.0
+            S: 90.0
+            r: 0.32
+        terrain: lowland loam
+        soil: loam
+        ecosystem: hill pasture
+        land:
+          elevation: 413.8
+          exposure: 1.0
+          texture: loam
+          held_mm: 173.1
+          drain_rate: 0.25
+          depth: 1.02
           base_fertility: 0.8
           position: ridge
           rain_factor: 0.984
@@ -1257,7 +1299,7 @@ nodes:
       Coppice Hill_2:
         name: Coppice Hill Common
         cover: pasture
-        size: 2
+        size: 3
         side: east
         height: 2
         text: grazing, on good loam, on the slope
@@ -1266,24 +1308,24 @@ nodes:
         - Coppice Hill_6
         state:
           plants:
-            K: 2.0
-            S: 2.0
+            K: 3.0
+            S: 3.0
             r: 0.3
           grass:
-            K: 60.0
-            S: 60.0
+            K: 90.0
+            S: 90.0
             r: 0.32
         terrain: hills
         soil: loam
         ecosystem: hill pasture
         land:
-          elevation: 421.7
-          exposure: 1.0
+          elevation: 404.5
+          exposure: 0.99
           texture: loam
-          held_mm: 126.7
+          held_mm: 128.7
           drain_rate: 0.25
-          depth: 0.75
-          base_fertility: 0.797
+          depth: 0.76
+          base_fertility: 0.8
           position: ridge
           rain_factor: 0.984
           sea_km: 99.0
@@ -1292,12 +1334,14 @@ nodes:
         name: Coppice Hill Wood
         cover: forest
         size: 4
-        side: centre
+        side: north
         height: 1
         text: oak and ash over hazel, old and tall
         adj:
-        - Coppice Hill_0
+        - Coppice Hill_1
+        - Coppice Hill_4
         - Coppice Hill_6
+        - Coppice Hill_9
         state:
           plants:
             K: 5.8
@@ -1314,19 +1358,19 @@ nodes:
         ecosystem: oak-ash wood
         depth: edge
         land:
-          elevation: 409.0
+          elevation: 412.7
           exposure: 1.0
           texture: loam
-          held_mm: 173.3
+          held_mm: 176.3
           drain_rate: 0.25
-          depth: 1.02
+          depth: 1.04
           base_fertility: 0.8
           position: ridge
           rain_factor: 0.984
           sea_km: 99.0
           river: none
       Coppice Hill_4:
-        name: the Common 2
+        name: East Pasture
         cover: pasture
         size: 13
         side: east
@@ -1336,7 +1380,9 @@ nodes:
         - Coppice Hill_0
         - Coppice Hill_1
         - Coppice Hill_2
+        - Coppice Hill_3
         - Coppice Hill_6
+        - Coppice Hill_8
         state:
           plants:
             K: 13.0
@@ -1358,17 +1404,18 @@ nodes:
           depth: 0.69
           base_fertility: 0.8
           position: ridge
-          rain_factor: 0.999
+          rain_factor: 1.0
           sea_km: 99.0
           river: none
       Coppice Hill_5:
-        name: West Pasture
+        name: Coppice Hill Common 2
         cover: pasture
         size: 1
         side: west
         height: 2
         text: grazing, on good loam, on the slope
         adj:
+        - Coppice Hill_0
         - Coppice Hill_6
         state:
           plants:
@@ -1408,6 +1455,7 @@ nodes:
         - Coppice Hill_3
         - Coppice Hill_4
         - Coppice Hill_5
+        - Coppice Hill_9
         state:
           quarry:
             K: 1500.0
@@ -1439,7 +1487,6 @@ nodes:
         height: 0
         text: running water, low by the water
         adj:
-        - Coppice Hill_1
         - Coppice Hill_8
         terrain: river floodplain
         soil: loam
@@ -1453,10 +1500,15 @@ nodes:
           depth: 0.57
           base_fertility: 0.8
           position: hollow
-          rain_factor: 1.294
+          rain_factor: 1.295
           sea_km: 99.0
           river: river
           down: Coppice Hill_8
+        state:
+          fish:
+            K: 8.0
+            S: 8.0
+            r: 0.3
       Coppice Hill_8:
         name: the Mere
         cover: water
@@ -1465,6 +1517,7 @@ nodes:
         height: 0
         text: running water, low by the water
         adj:
+        - Coppice Hill_4
         - Coppice Hill_7
         terrain: river floodplain
         soil: loam
@@ -1478,14 +1531,53 @@ nodes:
           depth: 0.12
           base_fertility: 0.8
           position: hollow
-          rain_factor: 1.158
+          rain_factor: 1.159
           sea_km: 99.0
           river: river
           down: out
+        state:
+          fish:
+            K: 8.0
+            S: 8.0
+            r: 0.3
+      Coppice Hill_9:
+        name: Brue Meadow
+        cover: meadow
+        size: 1
+        side: centre
+        height: 1
+        text: hay meadow, on good loam
+        adj:
+        - Coppice Hill_3
+        - Coppice Hill_6
+        state:
+          plants:
+            K: 1.3
+            S: 1.3
+            r: 0.3
+          grass:
+            K: 27.0
+            S: 27.0
+            r: 0.32
+        terrain: lowland loam
+        soil: loam
+        ecosystem: hill pasture
+        land:
+          elevation: 400.4
+          exposure: 1.0
+          texture: loam
+          held_mm: 172.4
+          drain_rate: 0.25
+          depth: 1.01
+          base_fertility: 0.8
+          position: ridge
+          rain_factor: 0.984
+          sea_km: 99.0
+          river: none
     xy:
     - 40.23
     - 47.12
-    elevation: 387.5
+    elevation: 386.1
     rain_mm: 719.0
   Ash Wood:
     name: Ash Wood
@@ -1495,7 +1587,7 @@ nodes:
         name: Ash Wood Common
         cover: pasture
         size: 3
-        side: east
+        side: north
         height: 1
         text: grazing, on good loam
         adj:
@@ -1514,15 +1606,15 @@ nodes:
         soil: loam
         ecosystem: grassland
         land:
-          elevation: 76.9
-          exposure: 0.51
+          elevation: 76.2
+          exposure: 0.5
           texture: loam
-          held_mm: 188.2
+          held_mm: 188.9
           drain_rate: 0.25
           depth: 1.11
           base_fertility: 1.0
           position: slope
-          rain_factor: 0.987
+          rain_factor: 0.988
           sea_km: 99.0
           river: none
       Ash Wood_1:
@@ -1556,7 +1648,7 @@ nodes:
           depth: 1.15
           base_fertility: 1.0
           position: slope
-          rain_factor: 0.995
+          rain_factor: 0.996
           sea_km: 99.0
           river: none
       Ash Wood_2:
@@ -1569,6 +1661,7 @@ nodes:
         adj:
         - Ash Wood_0
         - Ash Wood_1
+        - Ash Wood_5
         state:
           plants:
             K: 25.9
@@ -1588,12 +1681,12 @@ nodes:
           elevation: 78.8
           exposure: 0.5
           texture: loam
-          held_mm: 195.6
+          held_mm: 195.3
           drain_rate: 0.25
           depth: 1.15
           base_fertility: 1.0
           position: slope
-          rain_factor: 0.987
+          rain_factor: 0.988
           sea_km: 99.0
           river: none
       Ash Wood_3:
@@ -1624,7 +1717,7 @@ nodes:
           held_mm: 77.2
           drain_rate: 0.5
           depth: 1.1
-          base_fertility: 0.7
+          base_fertility: 0.95
           position: slope
           rain_factor: 1.15
           sea_km: 99.0
@@ -1648,23 +1741,61 @@ nodes:
           held_mm: 147.9
           drain_rate: 0.25
           depth: 0.87
-          base_fertility: 1.15
+          base_fertility: 1.05
           position: hollow
-          rain_factor: 0.987
+          rain_factor: 0.988
           sea_km: 99.0
           river: river
           down: out
+        state:
+          fish:
+            K: 16.0
+            S: 16.0
+            r: 0.3
+      Ash Wood_5:
+        name: Wharf Meadow
+        cover: meadow
+        size: 1
+        side: centre
+        height: 1
+        text: hay meadow, on good loam
+        adj:
+        - Ash Wood_2
+        state:
+          plants:
+            K: 1.3
+            S: 1.3
+            r: 0.3
+          grass:
+            K: 27.0
+            S: 27.0
+            r: 0.32
+        terrain: lowland loam
+        soil: loam
+        ecosystem: grassland
+        land:
+          elevation: 79.7
+          exposure: 0.51
+          texture: loam
+          held_mm: 196.1
+          drain_rate: 0.25
+          depth: 1.15
+          base_fertility: 1.0
+          position: slope
+          rain_factor: 0.988
+          sea_km: 99.0
+          river: none
     xy:
     - 25.79
     - 44.54
     elevation: 77.2
-    rain_mm: 717.0
+    rain_mm: 716.0
   Ash Heath:
     name: Ash Heath
-    text: land no one lives on or holds in rolling lowland
+    text: land no one lives on or holds on the sand country's edge
     parcels:
       Ash Heath_0:
-        name: the Ham
+        name: Ash Heath Meadow
         cover: meadow
         size: 3
         side: centre
@@ -1674,6 +1805,7 @@ nodes:
         - Ash Heath_1
         - Ash Heath_2
         - Ash Heath_3
+        - Ash Heath_4
         state:
           plants:
             K: 3.9
@@ -1695,7 +1827,7 @@ nodes:
           depth: 1.07
           base_fertility: 0.8
           position: hollow
-          rain_factor: 0.987
+          rain_factor: 0.986
           sea_km: 99.0
           river: none
       Ash Heath_1:
@@ -1729,7 +1861,7 @@ nodes:
           depth: 1.07
           base_fertility: 0.8
           position: slope
-          rain_factor: 0.984
+          rain_factor: 0.983
           sea_km: 99.0
           river: none
       Ash Heath_2:
@@ -1742,6 +1874,7 @@ nodes:
         adj:
         - Ash Heath_0
         - Ash Heath_3
+        - Ash Heath_4
         state:
           plants:
             K: 2.9
@@ -1758,15 +1891,15 @@ nodes:
         ecosystem: birch and pine wood
         depth: edge
         land:
-          elevation: 60.4
+          elevation: 60.3
           exposure: 0.42
           texture: sand
-          held_mm: 76.9
+          held_mm: 77.1
           drain_rate: 0.5
           depth: 1.1
           base_fertility: 0.7
           position: slope
-          rain_factor: 1.003
+          rain_factor: 1.008
           sea_km: 99.0
           river: none
       Ash Heath_3:
@@ -1780,6 +1913,7 @@ nodes:
         - Ash Heath_0
         - Ash Heath_1
         - Ash Heath_2
+        - Ash Heath_4
         state:
           plants:
             K: 9.6
@@ -1804,6 +1938,41 @@ nodes:
           rain_factor: 1.005
           sea_km: 99.0
           river: none
+      Ash Heath_4:
+        name: Mill Meadow 2
+        cover: meadow
+        size: 1
+        side: centre
+        height: 1
+        text: hay meadow, on light sand
+        adj:
+        - Ash Heath_0
+        - Ash Heath_2
+        - Ash Heath_3
+        state:
+          plants:
+            K: 1.3
+            S: 1.3
+            r: 0.3
+          grass:
+            K: 27.0
+            S: 27.0
+            r: 0.32
+        terrain: sandy ground
+        soil: sand
+        ecosystem: lowland heath
+        land:
+          elevation: 60.4
+          exposure: 0.42
+          texture: sand
+          held_mm: 75.7
+          drain_rate: 0.5
+          depth: 1.08
+          base_fertility: 0.7
+          position: slope
+          rain_factor: 0.995
+          sea_km: 99.0
+          river: none
     xy:
     - 5.12
     - 13.33
@@ -1817,12 +1986,13 @@ nodes:
         name: Brock Wood Common
         cover: pasture
         size: 2
-        side: west
-        height: 2
-        text: grazing, on heavy clay, on the slope
+        side: south
+        height: 1
+        text: grazing, on heavy clay
         adj:
+        - Brock Wood_1
         - Brock Wood_2
-        - Brock Wood_4
+        - Brock Wood_5
         state:
           plants:
             K: 2.0
@@ -1836,53 +2006,18 @@ nodes:
         soil: clay
         ecosystem: grassland
         land:
-          elevation: 91.6
-          exposure: 0.44
+          elevation: 101.5
+          exposure: 0.49
           texture: clay
-          held_mm: 139.9
+          held_mm: 172.6
           drain_rate: 0.08
-          depth: 0.93
+          depth: 1.15
           base_fertility: 1.05
           position: slope
           rain_factor: 0.995
           sea_km: 99.0
           river: none
       Brock Wood_1:
-        name: South Pasture 2
-        cover: pasture
-        size: 2
-        side: south
-        height: 1
-        text: grazing, on heavy clay
-        adj:
-        - Brock Wood_2
-        - Brock Wood_3
-        - Brock Wood_4
-        state:
-          plants:
-            K: 2.0
-            S: 2.0
-            r: 0.3
-          grass:
-            K: 60.0
-            S: 60.0
-            r: 0.32
-        terrain: clay vale
-        soil: clay
-        ecosystem: grassland
-        land:
-          elevation: 98.4
-          exposure: 0.5
-          texture: clay
-          held_mm: 156.6
-          drain_rate: 0.08
-          depth: 1.04
-          base_fertility: 1.05
-          position: slope
-          rain_factor: 0.995
-          sea_km: 99.0
-          river: none
-      Brock Wood_2:
         name: Brock Wood Wood
         cover: forest
         size: 18
@@ -1891,8 +2026,9 @@ nodes:
         text: oak and ash over hazel, old and tall
         adj:
         - Brock Wood_0
-        - Brock Wood_1
+        - Brock Wood_3
         - Brock Wood_4
+        - Brock Wood_5
         state:
           plants:
             K: 25.9
@@ -1909,10 +2045,10 @@ nodes:
         ecosystem: oak-ash wood
         depth: edge
         land:
-          elevation: 97.3
+          elevation: 96.8
           exposure: 0.46
           texture: clay
-          held_mm: 161.2
+          held_mm: 159.9
           drain_rate: 0.08
           depth: 1.07
           base_fertility: 1.05
@@ -1920,27 +2056,29 @@ nodes:
           rain_factor: 0.995
           sea_km: 99.0
           river: none
-      Brock Wood_3:
-        name: Cow Close 2
-        cover: pasture
+      Brock Wood_2:
+        name: Thorn Bank
+        cover: scrub
         size: 2
         side: east
         height: 1
-        text: grazing, on thin chalky soil
+        text: thorn and rough grass
         adj:
-        - Brock Wood_1
+        - Brock Wood_0
         state:
           plants:
             K: 2.0
             S: 2.0
             r: 0.3
           grass:
-            K: 60.0
-            S: 60.0
+            K: 20.0
+            S: 20.0
             r: 0.32
+          wood:
+            kind: scrub
         terrain: chalk down
         soil: chalk
-        ecosystem: chalk grassland
+        ecosystem: wet grassland
         land:
           elevation: 93.1
           exposure: 0.39
@@ -1948,22 +2086,21 @@ nodes:
           held_mm: 159.8
           drain_rate: 0.4
           depth: 1.14
-          base_fertility: 0.85
+          base_fertility: 0.95
           position: slope
           rain_factor: 1.061
           sea_km: 99.0
           river: none
-      Brock Wood_4:
-        name: Brock Wood Water
+      Brock Wood_3:
+        name: the Isel
         cover: water
         size: 2
         side: west
         height: 0
         text: running water, low by the water
         adj:
-        - Brock Wood_0
         - Brock Wood_1
-        - Brock Wood_2
+        - Brock Wood_5
         terrain: clay vale
         soil: clay
         ecosystem: wet grassland
@@ -1974,16 +2111,89 @@ nodes:
           held_mm: 130.7
           drain_rate: 0.08
           depth: 0.87
-          base_fertility: 1.208
+          base_fertility: 1.05
           position: hollow
           rain_factor: 0.995
           sea_km: 99.0
           river: river
           down: out
+        state:
+          fish:
+            K: 16.0
+            S: 16.0
+            r: 0.3
+      Brock Wood_4:
+        name: Brock Wood Meadow
+        cover: meadow
+        size: 1
+        side: centre
+        height: 1
+        text: hay meadow, on heavy clay
+        adj:
+        - Brock Wood_1
+        state:
+          plants:
+            K: 1.3
+            S: 1.3
+            r: 0.3
+          grass:
+            K: 27.0
+            S: 27.0
+            r: 0.32
+        terrain: clay vale
+        soil: clay
+        ecosystem: grassland
+        land:
+          elevation: 99.1
+          exposure: 0.46
+          texture: clay
+          held_mm: 167.1
+          drain_rate: 0.08
+          depth: 1.11
+          base_fertility: 1.05
+          position: slope
+          rain_factor: 0.995
+          sea_km: 99.0
+          river: none
+      Brock Wood_5:
+        name: Middle Pasture
+        cover: pasture
+        size: 2
+        side: centre
+        height: 2
+        text: grazing, on heavy clay, on the slope
+        adj:
+        - Brock Wood_0
+        - Brock Wood_1
+        - Brock Wood_3
+        state:
+          plants:
+            K: 2.0
+            S: 2.0
+            r: 0.3
+          grass:
+            K: 60.0
+            S: 60.0
+            r: 0.32
+        terrain: clay vale
+        soil: clay
+        ecosystem: grassland
+        land:
+          elevation: 94.2
+          exposure: 0.49
+          texture: clay
+          held_mm: 140.1
+          drain_rate: 0.08
+          depth: 0.93
+          base_fertility: 1.05
+          position: slope
+          rain_factor: 0.995
+          sea_km: 99.0
+          river: none
     xy:
     - 52.02
     - 40.36
-    elevation: 95.1
+    elevation: 95.3
     rain_mm: 711.0
   Brock Heath:
     name: Brock Heath
@@ -1998,6 +2208,7 @@ nodes:
         text: hay meadow, on light sand
         adj:
         - Brock Heath_3
+        - Brock Heath_4
         state:
           plants:
             K: 2.6
@@ -2019,42 +2230,40 @@ nodes:
           depth: 1.16
           base_fertility: 0.7
           position: slope
-          rain_factor: 1.012
+          rain_factor: 1.011
           sea_km: 99.0
           river: none
       Brock Heath_1:
         name: Brock Heath Common
         cover: pasture
-        size: 2
-        side: south
+        size: 4
+        side: centre
         height: 1
         text: grazing, on good loam
         adj:
         - Brock Heath_3
-        - Brock Heath_4
-        - Brock Heath_5
         state:
           plants:
-            K: 2.0
-            S: 2.0
+            K: 4.0
+            S: 4.0
             r: 0.3
           grass:
-            K: 60.0
-            S: 60.0
+            K: 120.0
+            S: 120.0
             r: 0.32
         terrain: lowland loam
         soil: loam
         ecosystem: grassland
         land:
-          elevation: 97.9
+          elevation: 99.4
           exposure: 0.39
           texture: loam
-          held_mm: 198.6
+          held_mm: 196.3
           drain_rate: 0.25
-          depth: 1.17
+          depth: 1.15
           base_fertility: 0.8
           position: slope
-          rain_factor: 0.956
+          rain_factor: 0.981
           sea_km: 99.0
           river: none
       Brock Heath_2:
@@ -2066,6 +2275,7 @@ nodes:
         text: birch and pine on light sand, old and tall
         adj:
         - Brock Heath_3
+        - Brock Heath_5
         state:
           plants:
             K: 2.9
@@ -2082,15 +2292,15 @@ nodes:
         ecosystem: birch and pine wood
         depth: edge
         land:
-          elevation: 99.5
-          exposure: 0.38
+          elevation: 98.5
+          exposure: 0.36
           texture: sand
-          held_mm: 80.3
+          held_mm: 80.1
           drain_rate: 0.5
-          depth: 1.15
+          depth: 1.14
           base_fertility: 0.7
           position: slope
-          rain_factor: 1.019
+          rain_factor: 1.023
           sea_km: 99.0
           river: none
       Brock Heath_3:
@@ -2118,15 +2328,15 @@ nodes:
         soil: sand
         ecosystem: lowland heath
         land:
-          elevation: 98.8
+          elevation: 99.2
           exposure: 0.37
           texture: sand
-          held_mm: 80.1
+          held_mm: 80.2
           drain_rate: 0.5
-          depth: 1.14
+          depth: 1.15
           base_fertility: 0.7
           position: slope
-          rain_factor: 1.016
+          rain_factor: 1.014
           sea_km: 99.0
           river: none
       Brock Heath_4:
@@ -2137,7 +2347,7 @@ nodes:
         height: 0
         text: running water, low by the water
         adj:
-        - Brock Heath_1
+        - Brock Heath_0
         terrain: lowland loam
         soil: loam
         ecosystem: wet grassland
@@ -2150,49 +2360,54 @@ nodes:
           depth: 1.0
           base_fertility: 0.8
           position: hollow
-          rain_factor: 0.885
+          rain_factor: 0.884
           sea_km: 99.0
           river: river
           down: out
+        state:
+          fish:
+            K: 16.0
+            S: 16.0
+            r: 0.3
       Brock Heath_5:
-        name: the Common 3
-        cover: pasture
-        size: 2
-        side: west
+        name: Brock Heath Meadow
+        cover: meadow
+        size: 1
+        side: centre
         height: 1
-        text: grazing, on good loam
+        text: hay meadow, on light sand
         adj:
-        - Brock Heath_1
+        - Brock Heath_2
         - Brock Heath_3
         state:
           plants:
-            K: 2.0
-            S: 2.0
+            K: 1.3
+            S: 1.3
             r: 0.3
           grass:
-            K: 60.0
-            S: 60.0
+            K: 27.0
+            S: 27.0
             r: 0.32
         terrain: sandy ground
-        soil: loam
-        ecosystem: grassland
+        soil: sand
+        ecosystem: lowland heath
         land:
-          elevation: 101.2
-          exposure: 0.42
+          elevation: 98.5
+          exposure: 0.37
           texture: sand
-          held_mm: 81.6
+          held_mm: 80.2
           drain_rate: 0.5
-          depth: 1.17
-          base_fertility: 0.8
+          depth: 1.15
+          base_fertility: 0.7
           position: slope
-          rain_factor: 0.995
+          rain_factor: 1.01
           sea_km: 99.0
           river: none
     xy:
     - 70.17
     - 16.67
-    elevation: 97.4
-    rain_mm: 816.0
+    elevation: 97.6
+    rain_mm: 818.0
   t1:
     name: Meadby
     text: a stopping place on the road in rolling lowland
@@ -2282,12 +2497,12 @@ roads:
     ends:
       Ashford:
         parcels:
-        - Ashford_7
+        - Ashford_1
         side: north
       Middlemead:
         parcels:
         - Middlemead_0
-        side: south
+        side: north
 - - Brockley
   - Middlemead
   - 1
@@ -2300,7 +2515,7 @@ roads:
         side: north
       Middlemead:
         parcels:
-        - Middlemead_5
+        - Middlemead_0
         side: north
 - - Middlemead
   - Lower Meads
@@ -2311,10 +2526,10 @@ roads:
       Middlemead:
         parcels:
         - Middlemead_0
-        side: south
+        side: north
       Lower Meads:
         parcels:
-        - Lower Meads_0
+        - Lower Meads_8
         side: north
     stretches:
       1:
@@ -2328,7 +2543,7 @@ roads:
     ends:
       Ashford:
         parcels:
-        - Ashford_7
+        - Ashford_1
         side: north
       Ash Wood:
         parcels:
@@ -2342,7 +2557,7 @@ roads:
     ends:
       Ashford:
         parcels:
-        - Ashford_3
+        - Ashford_1
         side: north
       Ash Heath:
         parcels:
@@ -2356,12 +2571,12 @@ roads:
     ends:
       Brockley:
         parcels:
-        - Brockley_9
+        - Brockley_1
         side: north
       Brock Wood:
         parcels:
-        - Brock Wood_2
-        side: north
+        - Brock Wood_0
+        side: south
 - - Brockley
   - Brock Heath
   - 1
@@ -2370,12 +2585,12 @@ roads:
     ends:
       Brockley:
         parcels:
-        - Brockley_1
+        - Brockley_4
         side: north
       Brock Heath:
         parcels:
-        - Brock Heath_5
-        side: west
+        - Brock Heath_3
+        side: north
 - - Ash Wood
   - Coppice Hill
   - 1
@@ -2385,7 +2600,7 @@ roads:
       Ash Wood:
         parcels:
         - Ash Wood_0
-        side: east
+        side: north
       Coppice Hill:
         parcels:
         - Coppice Hill_5
@@ -2403,8 +2618,8 @@ roads:
     ends:
       Brock Wood:
         parcels:
-        - Brock Wood_0
-        side: west
+        - Brock Wood_5
+        side: north
       Coppice Hill:
         parcels:
         - Coppice Hill_4
@@ -2422,7 +2637,7 @@ roads:
     ends:
       Ashford:
         parcels:
-        - Ashford_7
+        - Ashford_3
         side: north
       t1:
         parcels:
@@ -2454,7 +2669,7 @@ roads:
     ends:
       Brockley:
         parcels:
-        - Brockley_3
+        - Brockley_1
         side: north
       t2:
         parcels:
@@ -2582,7 +2797,7 @@ herds:
   hale_cattle:
     name: the Hale cows
     kind: cattle
-    parcel: Ashford_6
+    parcel: Ashford_7
     cows: 2
     young: 1
     in_milk: 1
@@ -2590,7 +2805,7 @@ herds:
   marsh_cattle:
     name: the Marsh cattle
     kind: cattle
-    parcel: Brockley_3
+    parcel: Brockley_4
     cows: 2
     oxen: 2
     bulls: 1
@@ -2624,28 +2839,29 @@ wild:
         - Ashford_5
         - Ashford_6
         - Ashford_7
-        km2: 0.585
+        km2: 0.405
         xy_km:
-        - 23.32
-        - 24.23
+        - 23.27
+        - 24.31
         cover:
           built: 0.0225
-          field: 0.2925
+          field: 0.1125
           meadow: 0.0225
           pasture: 0.135
           forest: 0.1125
         eco:
-          grassland: 0.405
+          grassland: 0.2025
+          wet grassland: 0.0225
           oak-ash wood: 0.1125
           chalk grassland: 0.0675
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
-        wet: 0.352
-        elevation: 72.3
-        temp: 8.82
+        wet: 0.361
+        elevation: 74.0
+        temp: 8.81
         texture:
-          loam: 0.885
-          chalk: 0.115
+          loam: 0.833
+          chalk: 0.167
         rock: 0.0
         river_km: 0.0
         big_river_km: 0.0
@@ -2656,7 +2872,6 @@ wild:
         parcels:
         - Brockley_0
         - Brockley_1
-        - Brockley_10
         - Brockley_2
         - Brockley_3
         - Brockley_4
@@ -2664,30 +2879,29 @@ wild:
         - Brockley_6
         - Brockley_7
         - Brockley_8
-        - Brockley_9
-        km2: 0.72
+        km2: 0.4275
         xy_km:
-        - 58.55
-        - 27.91
+        - 58.54
+        - 27.82
         cover:
           built: 0.0225
-          field: 0.3825
+          field: 0.09
           meadow: 0.0225
           pasture: 0.0675
           forest: 0.1575
           heath: 0.0675
         eco:
-          grassland: 0.495
+          grassland: 0.2025
           oak-ash wood: 0.1575
           lowland heath: 0.0675
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
-        wet: 0.233
-        elevation: 141.6
+        wet: 0.25
+        elevation: 141.1
         temp: 8.31
         texture:
-          sand: 0.125
-          loam: 0.875
+          sand: 0.211
+          loam: 0.789
         rock: 0.0
         river_km: 0.0
         big_river_km: 0.0
@@ -2702,29 +2916,30 @@ wild:
         - Middlemead_3
         - Middlemead_4
         - Middlemead_5
-        km2: 0.855
+        km2: 0.8775
         settled: false
         xy_km:
-        - 37.6
-        - 27.36
+        - 37.61
+        - 27.38
         cover:
           pasture: 0.6075
           forest: 0.1575
           heath: 0.045
           water: 0.045
+          meadow: 0.0225
         eco:
-          grassland: 0.6075
+          grassland: 0.63
           oak-ash wood: 0.1575
           lowland heath: 0.045
           wet grassland: 0.045
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
-        wet: 0.183
-        elevation: 64.9
+        wet: 0.184
+        elevation: 64.8
         temp: 8.79
         texture:
-          sand: 0.053
-          loam: 0.947
+          sand: 0.051
+          loam: 0.949
         rock: 0.0
         river_km: 0.3
         big_river_km: 0.0
@@ -2741,31 +2956,34 @@ wild:
         - Lower Meads_5
         - Lower Meads_6
         - Lower Meads_7
-        km2: 0.855
+        - Lower Meads_8
+        - Lower Meads_9
+        km2: 0.8325
         settled: false
         xy_km:
-        - 42.08
-        - 9.73
+        - 42.13
+        - 9.71
         cover:
           pasture: 0.2025
           forest: 0.09
-          fen: 0.5175
+          fen: 0.4725
           water: 0.045
+          meadow: 0.0225
         eco:
-          wet grassland: 0.2025
+          wet grassland: 0.225
           oak-ash wood: 0.09
           fen: 0.1575
-          reedbed: 0.405
+          reedbed: 0.36
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
-        wet: 0.679
-        elevation: 65.5
-        temp: 9.14
+        wet: 0.647
+        elevation: 66.5
+        temp: 9.13
         texture:
-          loam: 0.342
-          peat: 0.658
+          loam: 0.378
+          peat: 0.622
         rock: 0.0
-        river_km: 0.3
+        river_km: 0.0
         big_river_km: 0.0
         lake_km2: 0.0
       a4:
@@ -2781,28 +2999,30 @@ wild:
         - Coppice Hill_6
         - Coppice Hill_7
         - Coppice Hill_8
-        km2: 0.945
+        - Coppice Hill_9
+        km2: 0.9675
         settled: false
         xy_km:
-        - 40.4
+        - 40.39
         - 47.17
         cover:
           pasture: 0.4725
           forest: 0.09
           rock: 0.3375
           water: 0.045
+          meadow: 0.0225
         eco:
-          hill pasture: 0.81
+          hill pasture: 0.8325
           oak-ash wood: 0.09
           wet grassland: 0.045
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
         wet: 0.075
-        elevation: 387.5
-        temp: 6.33
+        elevation: 386.1
+        temp: 6.34
         texture:
           loam: 1.0
-        rock: 0.071
+        rock: 0.07
         river_km: 0.3
         big_river_km: 0.0
         lake_km2: 0.0
@@ -2815,29 +3035,31 @@ wild:
         - Ash Wood_2
         - Ash Wood_3
         - Ash Wood_4
-        km2: 0.585
+        - Ash Wood_5
+        km2: 0.6075
         settled: false
         xy_km:
-        - 25.77
-        - 44.48
+        - 25.76
+        - 44.49
         cover:
           pasture: 0.09
           forest: 0.405
           heath: 0.045
           water: 0.045
+          meadow: 0.0225
         eco:
-          grassland: 0.09
+          grassland: 0.1125
           oak-ash wood: 0.405
           lowland heath: 0.045
           wet grassland: 0.045
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
-        wet: 0.301
+        wet: 0.294
         elevation: 77.2
         temp: 8.4
         texture:
-          sand: 0.077
-          loam: 0.923
+          sand: 0.074
+          loam: 0.926
         rock: 0.0
         river_km: 0.3
         big_river_km: 0.0
@@ -2850,13 +3072,14 @@ wild:
         - Ash Heath_1
         - Ash Heath_2
         - Ash Heath_3
-        km2: 0.54
+        - Ash Heath_4
+        km2: 0.5625
         settled: false
         xy_km:
         - 5.14
-        - 13.35
+        - 13.33
         cover:
-          meadow: 0.0675
+          meadow: 0.09
           pasture: 0.0675
           forest: 0.045
           heath: 0.36
@@ -2864,15 +3087,15 @@ wild:
           wet grassland: 0.0675
           grassland: 0.0675
           birch and pine wood: 0.045
-          lowland heath: 0.36
+          lowland heath: 0.3825
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
-        wet: 0.263
+        wet: 0.255
         elevation: 59.2
         temp: 9.11
         texture:
-          sand: 0.75
-          loam: 0.25
+          sand: 0.76
+          loam: 0.24
         rock: 0.0
         river_km: 0.0
         big_river_km: 0.0
@@ -2886,28 +3109,30 @@ wild:
         - Brock Wood_2
         - Brock Wood_3
         - Brock Wood_4
-        km2: 0.585
+        - Brock Wood_5
+        km2: 0.6075
         settled: false
         xy_km:
         - 52.16
-        - 40.26
+        - 40.25
         cover:
-          pasture: 0.135
+          pasture: 0.09
           forest: 0.405
+          scrub: 0.045
           water: 0.045
+          meadow: 0.0225
         eco:
-          grassland: 0.09
+          grassland: 0.1125
           oak-ash wood: 0.405
-          chalk grassland: 0.045
-          wet grassland: 0.045
+          wet grassland: 0.09
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
-        wet: 0.249
-        elevation: 95.1
+        wet: 0.25
+        elevation: 95.3
         temp: 8.36
         texture:
-          clay: 0.923
-          chalk: 0.077
+          clay: 0.926
+          chalk: 0.074
         rock: 0.0
         river_km: 0.3
         big_river_km: 0.0
@@ -2922,13 +3147,13 @@ wild:
         - Brock Heath_3
         - Brock Heath_4
         - Brock Heath_5
-        km2: 0.585
+        km2: 0.6075
         settled: false
         xy_km:
-        - 70.17
-        - 16.56
+        - 70.18
+        - 16.57
         cover:
-          meadow: 0.045
+          meadow: 0.0675
           pasture: 0.09
           forest: 0.045
           heath: 0.36
@@ -2936,16 +3161,16 @@ wild:
         eco:
           grassland: 0.135
           birch and pine wood: 0.045
-          lowland heath: 0.36
+          lowland heath: 0.3825
           wet grassland: 0.045
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
-        wet: 0.322
-        elevation: 97.4
+        wet: 0.315
+        elevation: 97.6
         temp: 8.8
         texture:
-          sand: 0.808
-          loam: 0.192
+          sand: 0.815
+          loam: 0.185
         rock: 0.0
         river_km: 0.3
         big_river_km: 0.0
@@ -3000,28 +3225,28 @@ wild:
         kind: ring
         node: Ashford
         parcels: []
-        km2: 19.1475
+        km2: 19.3275
         xy_km:
         - 23.4
         - 24.15
         cover:
           fen: 0.1125
           meadow: 2.0025
-          pasture: 17.0325
+          pasture: 17.2125
         eco:
           chalk grassland: 1.4175
           fen: 0.1125
-          grassland: 15.615
+          grassland: 15.795
           hay meadow: 0.9225
           wet grassland: 1.08
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
-        wet: 0.248
+        wet: 0.249
         elevation: 72.5
         temp: 8.82
         texture:
-          loam: 0.926
-          chalk: 0.074
+          loam: 0.927
+          chalk: 0.073
         rock: 0.0
         river_km: 4.8
         big_river_km: 0.0
@@ -3030,26 +3255,26 @@ wild:
         kind: ring
         node: Brockley
         parcels: []
-        km2: 19.0125
+        km2: 19.305
         xy_km:
         - 58.65
         - 28.06
         cover:
           heath: 5.49
           meadow: 0.09
-          pasture: 13.4325
+          pasture: 13.725
         eco:
-          grassland: 13.4325
+          grassland: 13.725
           lowland heath: 5.49
           wet grassland: 0.09
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
         wet: 0.227
-        elevation: 131.3
+        elevation: 131.4
         temp: 8.37
         texture:
-          sand: 0.421
-          loam: 0.579
+          sand: 0.415
+          loam: 0.585
         rock: 0.0
         river_km: 0.0
         big_river_km: 0.0
@@ -3058,15 +3283,15 @@ wild:
         kind: ring
         node: Middlemead
         parcels: []
-        km2: 18.9
+        km2: 18.8775
         xy_km:
         - 37.65
         - 27.45
         cover:
           meadow: 0.8775
-          pasture: 18.0225
+          pasture: 18.0
         eco:
-          grassland: 18.0225
+          grassland: 18.0
           hay meadow: 0.045
           wet grassland: 0.8325
         old_wood_km2: 0.0
@@ -3084,38 +3309,38 @@ wild:
         kind: ring
         node: Lower Meads
         parcels: []
-        km2: 18.8775
+        km2: 18.9
         xy_km:
-        - 42.0
+        - 41.99
         - 9.91
         cover:
-          fen: 0.765
-          meadow: 15.4125
+          fen: 0.81
+          meadow: 15.39
           pasture: 0.09
           water: 2.61
         eco:
           fen: 0.27
           grassland: 0.09
-          reedbed: 0.495
+          reedbed: 0.54
           water: 2.61
-          wet grassland: 15.4125
+          wet grassland: 15.39
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
-        wet: 0.388
+        wet: 0.39
         elevation: 69.5
         temp: 9.11
         texture:
-          loam: 0.818
-          peat: 0.182
+          loam: 0.815
+          peat: 0.185
         rock: 0.0
-        river_km: 3.45
+        river_km: 3.75
         big_river_km: 1.05
         lake_km2: 2.4525
       a15:
         kind: ring
         node: Coppice Hill
         parcels: []
-        km2: 18.7875
+        km2: 18.765
         xy_km:
         - 40.19
         - 47.1
@@ -3123,18 +3348,18 @@ wild:
           forest: 0.9675
           meadow: 0.9675
           moor: 0.2025
-          pasture: 16.335
+          pasture: 16.3125
           rock: 0.315
         eco:
           bare rock: 0.315
-          hill pasture: 16.335
+          hill pasture: 16.3125
           moor: 0.2025
           upland oak wood: 0.9675
           wet grassland: 0.9675
         old_wood_km2: 0.0
         wood_edge_km2: 0.9675
         wet: 0.104
-        elevation: 354.4
+        elevation: 354.5
         temp: 6.54
         texture:
           loam: 0.752
@@ -3147,16 +3372,16 @@ wild:
         kind: ring
         node: Ash Wood
         parcels: []
-        km2: 19.1475
+        km2: 19.125
         xy_km:
         - 25.8
         - 44.55
         cover:
           heath: 3.6675
           meadow: 1.395
-          pasture: 14.085
+          pasture: 14.0625
         eco:
-          grassland: 14.085
+          grassland: 14.0625
           hay meadow: 0.2475
           lowland heath: 3.6675
           wet grassland: 1.1475
@@ -3176,17 +3401,17 @@ wild:
         kind: ring
         node: Ash Heath
         parcels: []
-        km2: 19.1925
+        km2: 19.17
         xy_km:
         - 5.1
         - 13.35
         cover:
-          heath: 10.2375
+          heath: 10.215
           meadow: 0.72
           pasture: 8.235
         eco:
           grassland: 8.235
-          lowland heath: 10.2375
+          lowland heath: 10.215
           wet grassland: 0.72
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
@@ -3194,9 +3419,9 @@ wild:
         elevation: 64.2
         temp: 9.08
         texture:
-          sand: 0.57
+          sand: 0.569
           loam: 0.312
-          clay: 0.118
+          clay: 0.119
         rock: 0.0
         river_km: 3.15
         big_river_km: 0.0
@@ -3205,18 +3430,18 @@ wild:
         kind: ring
         node: Brock Wood
         parcels: []
-        km2: 19.125
+        km2: 19.1025
         xy_km:
         - 52.05
         - 40.35
         cover:
           fen: 0.045
           meadow: 1.5975
-          pasture: 17.4825
+          pasture: 17.46
         eco:
           chalk grassland: 1.6425
           fen: 0.045
-          grassland: 15.84
+          grassland: 15.8175
           hay meadow: 0.09
           wet grassland: 1.5075
         old_wood_km2: 0.0
@@ -3225,8 +3450,8 @@ wild:
         elevation: 98.4
         temp: 8.35
         texture:
-          loam: 0.441
-          clay: 0.467
+          loam: 0.442
+          clay: 0.466
           chalk: 0.092
         rock: 0.0
         river_km: 4.65
@@ -3236,20 +3461,20 @@ wild:
         kind: ring
         node: Brock Heath
         parcels: []
-        km2: 19.1475
+        km2: 19.125
         xy_km:
         - 70.2
         - 16.65
         cover:
           fen: 0.18
-          heath: 5.5125
+          heath: 5.49
           meadow: 1.575
           pasture: 11.88
         eco:
           fen: 0.18
           grassland: 11.88
           hay meadow: 0.6075
-          lowland heath: 5.5125
+          lowland heath: 5.49
           wet grassland: 0.9675
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
@@ -3257,8 +3482,8 @@ wild:
         elevation: 103.8
         temp: 8.76
         texture:
-          sand: 0.348
-          loam: 0.551
+          sand: 0.347
+          loam: 0.552
           clay: 0.101
         rock: 0.0
         river_km: 3.6
@@ -7024,10 +7249,10 @@ wild:
     links:
     - - a0
       - a11
-      - 5.1
+      - 4.5
     - - a1
       - a12
-      - 6.0
+      - 5.1
     - - a2
       - a13
       - 6.15
@@ -7036,7 +7261,7 @@ wild:
       - 0.45
     - - a3
       - a14
-      - 13.5
+      - 12.3
     - - a4
       - a15
       - 6.0
@@ -7045,7 +7270,7 @@ wild:
       - 5.1
     - - a6
       - a17
-      - 3.3
+      - 3.6
     - - a7
       - a18
       - 4.5
@@ -7819,7 +8044,6 @@ wild:
       - 0.6
     down:
       a2: a13
-      a3: a14
       a4: a15
       a5: a16
       a7: a18
@@ -7953,15 +8177,15 @@ agents:
     born: -36
     sex: m
     relations:
+      Alys: of the Hale household, of your people
+      Cecily: of the Reed household, of your people
+      Agnes: your wife
+      Beatrice: your sister
       Denis: of the Reed household, of your people
       Dionisia: of the Reed household, of your people
-      Alys: of the Hale household, of your people
       Bennet: your brother
-      Beatrice: your sister
-      Cecily: of the Reed household, of your people
-      Cuthbert: of the Reed household, of your people
-      Agnes: your wife
       Everard: of the Reed household, of your people
+      Cuthbert: of the Reed household, of your people
     memories:
     - 'You are of the Ashford folk: the Hales and the Reeds, kin who came to Ashford together a few years ago and broke its fields.'
     - Ashford is all the land your people hold; beyond it the land is held by no one, as far as you know.
@@ -7969,28 +8193,35 @@ agents:
       hoe: &id001
         level: known
         skill: 1.4
-      medium room: &id002
+      medium room:
+        level: known
+        skill: 1.6
+      milk: &id002
         level: known
         skill: 1.4
-      milk: &id003
+      reap: &id003
         level: known
         skill: 1.4
-      reap: &id004
+      select seed: &id004
         level: known
         skill: 1.4
-      select seed: &id005
+      sow: &id005
         level: known
         skill: 1.4
-      sow: &id006
+      weed: &id006
         level: known
         skill: 1.4
-      weed: &id007
+      hearth:
         level: known
-        skill: 1.4
+        skill: 1.2
+      charcoal:
+        level: known
+        skill: 1.6
     aware_of:
       plough: you have seen the Marshs at it all your life
       quarry: you have seen the Reeds at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -7998,37 +8229,48 @@ agents:
     partner: Agnes
     model: claude-opus-5-5
     born_line: Hale
-    trade: sowing a field broadcast and reaping a crop
+    trade: carpenter
     aim: ''
+    kept:
+    - text: 'You are of the Ashford folk. What matters above all is that the Ashford folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Agnes:
     household: Hale
     born: -33
     sex: f
     relations:
+      Alys: of the Hale household, of your people
+      Cecily: of the Reed household, of your people
+      Beatrice: of the Hale household, of your people
       Denis: of the Reed household, of your people
       Dionisia: of the Reed household, of your people
-      Alys: of the Hale household, of your people
-      Aldo: your husband
       Bennet: of the Hale household, of your people
-      Beatrice: of the Hale household, of your people
-      Cecily: of the Reed household, of your people
-      Cuthbert: of the Reed household, of your people
       Everard: of the Reed household, of your people
+      Cuthbert: of the Reed household, of your people
+      Aldo: your husband
     memories:
     - 'You are of the Ashford folk: the Hales and the Reeds, kin who came to Ashford together a few years ago and broke its fields.'
     - Ashford is all the land your people hold; beyond it the land is held by no one, as far as you know.
     knows:
       hoe: *id001
-      medium room: *id002
-      milk: *id003
-      reap: *id004
-      select seed: *id005
-      sow: *id006
-      weed: *id007
+      medium room: &id007
+        level: known
+        skill: 1.4
+      milk: *id002
+      reap: *id003
+      select seed: *id004
+      sow: *id005
+      weed: *id006
+      hearth:
+        level: known
+        skill: 1.2
     aware_of:
       plough: you have seen the Marshs at it all your life
       quarry: you have seen the Reeds at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8038,35 +8280,47 @@ agents:
     born_line: Hale
     trade: sowing a field broadcast and reaping a crop
     aim: ''
+    kept:
+    - text: 'You are of the Ashford folk. What matters above all is that the Ashford folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Bennet:
     household: Hale
     born: -32
     sex: m
     relations:
+      Alys: your wife
+      Cecily: of the Reed household, of your people
+      Agnes: of the Hale household, of your people
+      Beatrice: your sister
       Denis: of the Reed household, of your people
       Dionisia: of the Reed household, of your people
-      Alys: your wife
-      Aldo: your brother
-      Beatrice: your sister
-      Cecily: of the Reed household, of your people
-      Cuthbert: of the Reed household, of your people
-      Agnes: of the Hale household, of your people
       Everard: of the Reed household, of your people
+      Cuthbert: of the Reed household, of your people
+      Aldo: your brother
     memories:
     - 'You are of the Ashford folk: the Hales and the Reeds, kin who came to Ashford together a few years ago and broke its fields.'
     - Ashford is all the land your people hold; beyond it the land is held by no one, as far as you know.
     knows:
       hoe: *id001
-      medium room: *id002
-      milk: *id003
-      reap: *id004
-      select seed: *id005
-      sow: *id006
-      weed: *id007
+      medium room: *id007
+      milk: *id002
+      reap: *id003
+      select seed: *id004
+      sow: *id005
+      weed: *id006
+      hearth:
+        level: known
+        skill: 1.2
+      quarry:
+        level: known
+        skill: 1.6
     aware_of:
       plough: you have seen the Marshs at it all your life
       quarry: you have seen the Reeds at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8074,37 +8328,46 @@ agents:
     partner: Alys
     model: claude-opus-5-5
     born_line: Hale
-    trade: sowing a field broadcast and reaping a crop
+    trade: mason
     aim: ''
+    kept:
+    - text: 'You are of the Ashford folk. What matters above all is that the Ashford folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Alys:
     household: Hale
     born: -30
     sex: f
     relations:
+      Cecily: of the Reed household, of your people
+      Agnes: of the Hale household, of your people
+      Beatrice: of the Hale household, of your people
       Denis: of the Reed household, of your people
       Dionisia: of the Reed household, of your people
-      Aldo: of the Hale household, of your people
       Bennet: your husband
-      Beatrice: of the Hale household, of your people
-      Cecily: of the Reed household, of your people
-      Cuthbert: of the Reed household, of your people
-      Agnes: of the Hale household, of your people
       Everard: of the Reed household, of your people
+      Cuthbert: of the Reed household, of your people
+      Aldo: of the Hale household, of your people
     memories:
     - 'You are of the Ashford folk: the Hales and the Reeds, kin who came to Ashford together a few years ago and broke its fields.'
     - Ashford is all the land your people hold; beyond it the land is held by no one, as far as you know.
     knows:
       hoe: *id001
-      medium room: *id002
-      milk: *id003
-      reap: *id004
-      select seed: *id005
-      sow: *id006
-      weed: *id007
+      medium room: *id007
+      milk: *id002
+      reap: *id003
+      select seed: *id004
+      sow: *id005
+      weed: *id006
+      hearth:
+        level: known
+        skill: 1.2
     aware_of:
       plough: you have seen the Marshs at it all your life
       quarry: you have seen the Reeds at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8114,35 +8377,44 @@ agents:
     born_line: Hale
     trade: sowing a field broadcast and reaping a crop
     aim: ''
+    kept:
+    - text: 'You are of the Ashford folk. What matters above all is that the Ashford folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Beatrice:
     household: Hale
     born: -28
     sex: f
     relations:
+      Alys: of the Hale household, of your people
+      Cecily: of the Reed household, of your people
+      Agnes: of the Hale household, of your people
       Denis: of the Reed household, of your people
       Dionisia: of the Reed household, of your people
-      Alys: of the Hale household, of your people
-      Aldo: your brother
       Bennet: your brother
-      Cecily: of the Reed household, of your people
-      Cuthbert: of the Reed household, of your people
-      Agnes: of the Hale household, of your people
       Everard: of the Reed household, of your people
+      Cuthbert: of the Reed household, of your people
+      Aldo: your brother
     memories:
     - 'You are of the Ashford folk: the Hales and the Reeds, kin who came to Ashford together a few years ago and broke its fields.'
     - Ashford is all the land your people hold; beyond it the land is held by no one, as far as you know.
     knows:
       hoe: *id001
-      medium room: *id002
-      milk: *id003
-      reap: *id004
-      select seed: *id005
-      sow: *id006
-      weed: *id007
+      medium room: *id007
+      milk: *id002
+      reap: *id003
+      select seed: *id004
+      sow: *id005
+      weed: *id006
+      hearth:
+        level: known
+        skill: 1.2
     aware_of:
       plough: you have seen the Marshs at it all your life
       quarry: you have seen the Reeds at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8152,20 +8424,25 @@ agents:
     born_line: Hale
     trade: sowing a field broadcast and reaping a crop
     aim: ''
+    kept:
+    - text: 'You are of the Ashford folk. What matters above all is that the Ashford folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Cuthbert:
     household: Reed
     born: -34
     sex: m
     relations:
-      Denis: your brother
-      Dionisia: of the Reed household, of your people
       Alys: of the Hale household, of your people
-      Aldo: of the Hale household, of your people
-      Bennet: of the Hale household, of your people
-      Beatrice: of the Hale household, of your people
       Cecily: your wife
       Agnes: of the Hale household, of your people
+      Beatrice: of the Hale household, of your people
+      Denis: your brother
+      Dionisia: of the Reed household, of your people
+      Bennet: of the Hale household, of your people
       Everard: your brother
+      Aldo: of the Hale household, of your people
     memories:
     - 'You are of the Ashford folk: the Hales and the Reeds, kin who came to Ashford together a few years ago and broke its fields.'
     - Ashford is all the land your people hold; beyond it the land is held by no one, as far as you know.
@@ -8197,9 +8474,25 @@ agents:
       medium room: &id016
         level: known
         skill: 1.4
+      hearth:
+        level: known
+        skill: 1.2
+      mine:
+        level: known
+        skill: 1.6
+      smelt:
+        level: known
+        skill: 1.6
+      copper tool:
+        level: known
+        skill: 1.6
+      charcoal:
+        level: known
+        skill: 1.6
     aware_of:
       medium room: you have seen the Marshs at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8207,22 +8500,27 @@ agents:
     partner: Cecily
     model: claude-opus-5-5
     born_line: Reed
-    trade: sowing a field broadcast and reaping a crop
+    trade: smith
     aim: ''
+    kept:
+    - text: 'You are of the Ashford folk. What matters above all is that the Ashford folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Cecily:
     household: Reed
     born: -31
     sex: f
     relations:
+      Alys: of the Hale household, of your people
+      Agnes: of the Hale household, of your people
+      Beatrice: of the Hale household, of your people
       Denis: of the Reed household, of your people
       Dionisia: of the Reed household, of your people
-      Alys: of the Hale household, of your people
-      Aldo: of the Hale household, of your people
       Bennet: of the Hale household, of your people
-      Beatrice: of the Hale household, of your people
-      Cuthbert: your husband
-      Agnes: of the Hale household, of your people
       Everard: of the Reed household, of your people
+      Cuthbert: your husband
+      Aldo: of the Hale household, of your people
     memories:
     - 'You are of the Ashford folk: the Hales and the Reeds, kin who came to Ashford together a few years ago and broke its fields.'
     - Ashford is all the land your people hold; beyond it the land is held by no one, as far as you know.
@@ -8236,9 +8534,13 @@ agents:
       sow: *id014
       weed: *id015
       medium room: *id016
+      hearth:
+        level: known
+        skill: 1.2
     aware_of:
       medium room: you have seen the Marshs at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8248,20 +8550,25 @@ agents:
     born_line: Reed
     trade: sowing a field broadcast and reaping a crop
     aim: ''
+    kept:
+    - text: 'You are of the Ashford folk. What matters above all is that the Ashford folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Denis:
     household: Reed
     born: -30
     sex: m
     relations:
-      Dionisia: your wife
       Alys: of the Hale household, of your people
-      Aldo: of the Hale household, of your people
-      Bennet: of the Hale household, of your people
-      Beatrice: of the Hale household, of your people
       Cecily: of the Reed household, of your people
-      Cuthbert: your brother
       Agnes: of the Hale household, of your people
+      Beatrice: of the Hale household, of your people
+      Dionisia: your wife
+      Bennet: of the Hale household, of your people
       Everard: your brother
+      Cuthbert: your brother
+      Aldo: of the Hale household, of your people
     memories:
     - 'You are of the Ashford folk: the Hales and the Reeds, kin who came to Ashford together a few years ago and broke its fields.'
     - Ashford is all the land your people hold; beyond it the land is held by no one, as far as you know.
@@ -8275,9 +8582,19 @@ agents:
       sow: *id014
       weed: *id015
       medium room: *id016
+      hearth:
+        level: known
+        skill: 1.2
+      stalk:
+        level: known
+        skill: 1.6
+      harness:
+        level: known
+        skill: 1.6
     aware_of:
       medium room: you have seen the Marshs at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8285,22 +8602,27 @@ agents:
     partner: Dionisia
     model: claude-opus-5-5
     born_line: Reed
-    trade: sowing a field broadcast and reaping a crop
+    trade: hunter
     aim: ''
+    kept:
+    - text: 'You are of the Ashford folk. What matters above all is that the Ashford folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Dionisia:
     household: Reed
     born: -28
     sex: f
     relations:
-      Denis: your husband
       Alys: of the Hale household, of your people
-      Aldo: of the Hale household, of your people
-      Bennet: of the Hale household, of your people
-      Beatrice: of the Hale household, of your people
       Cecily: of the Reed household, of your people
-      Cuthbert: of the Reed household, of your people
       Agnes: of the Hale household, of your people
+      Beatrice: of the Hale household, of your people
+      Denis: your husband
+      Bennet: of the Hale household, of your people
       Everard: of the Reed household, of your people
+      Cuthbert: of the Reed household, of your people
+      Aldo: of the Hale household, of your people
     memories:
     - 'You are of the Ashford folk: the Hales and the Reeds, kin who came to Ashford together a few years ago and broke its fields.'
     - Ashford is all the land your people hold; beyond it the land is held by no one, as far as you know.
@@ -8314,9 +8636,13 @@ agents:
       sow: *id014
       weed: *id015
       medium room: *id016
+      hearth:
+        level: known
+        skill: 1.2
     aware_of:
       medium room: you have seen the Marshs at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8326,20 +8652,25 @@ agents:
     born_line: Reed
     trade: sowing a field broadcast and reaping a crop
     aim: ''
+    kept:
+    - text: 'You are of the Ashford folk. What matters above all is that the Ashford folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Everard:
     household: Reed
     born: -26
     sex: m
     relations:
+      Alys: of the Hale household, of your people
+      Cecily: of the Reed household, of your people
+      Agnes: of the Hale household, of your people
+      Beatrice: of the Hale household, of your people
       Denis: your brother
       Dionisia: of the Reed household, of your people
-      Alys: of the Hale household, of your people
-      Aldo: of the Hale household, of your people
       Bennet: of the Hale household, of your people
-      Beatrice: of the Hale household, of your people
-      Cecily: of the Reed household, of your people
       Cuthbert: your brother
-      Agnes: of the Hale household, of your people
+      Aldo: of the Hale household, of your people
     memories:
     - 'You are of the Ashford folk: the Hales and the Reeds, kin who came to Ashford together a few years ago and broke its fields.'
     - Ashford is all the land your people hold; beyond it the land is held by no one, as far as you know.
@@ -8353,9 +8684,13 @@ agents:
       sow: *id014
       weed: *id015
       medium room: *id016
+      hearth:
+        level: known
+        skill: 1.2
     aware_of:
       medium room: you have seen the Marshs at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8365,20 +8700,25 @@ agents:
     born_line: Reed
     trade: sowing a field broadcast and reaping a crop
     aim: ''
+    kept:
+    - text: 'You are of the Ashford folk. What matters above all is that the Ashford folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Fulk:
     household: Marsh
     born: -36
     sex: m
     relations:
-      Hamon: of the Wynn household, of your people
-      Isolda: of the Wynn household, of your people
-      Jocelin: of the Wynn household, of your people
       Gervase: your brother
-      Emma: your wife
-      Felicia: of the Marsh household, of your people
-      Gunnora: your sister
-      Hawise: of the Wynn household, of your people
       Ivo: of the Wynn household, of your people
+      Isolda: of the Wynn household, of your people
+      Felicia: of the Marsh household, of your people
+      Hawise: of the Wynn household, of your people
+      Hamon: of the Wynn household, of your people
+      Gunnora: your sister
+      Jocelin: of the Wynn household, of your people
+      Emma: your wife
     memories:
     - 'You are of the Brockley folk: the Marshs and the Wynns, kin who came to Brockley together a few years ago and broke its fields.'
     - Brockley is all the land your people hold; beyond it the land is held by no one, as far as you know.
@@ -8386,30 +8726,37 @@ agents:
       hoe: &id017
         level: known
         skill: 1.4
-      medium room: &id018
+      medium room:
+        level: known
+        skill: 1.6
+      milk: &id018
         level: known
         skill: 1.4
-      milk: &id019
+      plough: &id019
         level: known
         skill: 1.4
-      plough: &id020
+      reap: &id020
         level: known
         skill: 1.4
-      reap: &id021
+      select seed: &id021
         level: known
         skill: 1.4
-      select seed: &id022
+      sow: &id022
         level: known
         skill: 1.4
-      sow: &id023
+      weed: &id023
         level: known
         skill: 1.4
-      weed: &id024
+      hearth:
         level: known
-        skill: 1.4
+        skill: 1.2
+      charcoal:
+        level: known
+        skill: 1.6
     aware_of:
       quarry: you have seen the Reeds at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8417,37 +8764,48 @@ agents:
     partner: Emma
     model: claude-sonnet-5-5
     born_line: Marsh
-    trade: sowing a field broadcast and reaping a crop
+    trade: carpenter
     aim: ''
+    kept:
+    - text: 'You are of the Brockley folk. What matters above all is that the Brockley folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Emma:
     household: Marsh
     born: -33
     sex: f
     relations:
-      Hamon: of the Wynn household, of your people
-      Isolda: of the Wynn household, of your people
-      Jocelin: of the Wynn household, of your people
       Gervase: of the Marsh household, of your people
-      Fulk: your husband
-      Felicia: of the Marsh household, of your people
-      Gunnora: of the Marsh household, of your people
-      Hawise: of the Wynn household, of your people
       Ivo: of the Wynn household, of your people
+      Isolda: of the Wynn household, of your people
+      Felicia: of the Marsh household, of your people
+      Hawise: of the Wynn household, of your people
+      Hamon: of the Wynn household, of your people
+      Gunnora: of the Marsh household, of your people
+      Fulk: your husband
+      Jocelin: of the Wynn household, of your people
     memories:
     - 'You are of the Brockley folk: the Marshs and the Wynns, kin who came to Brockley together a few years ago and broke its fields.'
     - Brockley is all the land your people hold; beyond it the land is held by no one, as far as you know.
     knows:
       hoe: *id017
-      medium room: *id018
-      milk: *id019
-      plough: *id020
-      reap: *id021
-      select seed: *id022
-      sow: *id023
-      weed: *id024
+      medium room: &id024
+        level: known
+        skill: 1.4
+      milk: *id018
+      plough: *id019
+      reap: *id020
+      select seed: *id021
+      sow: *id022
+      weed: *id023
+      hearth:
+        level: known
+        skill: 1.2
     aware_of:
       quarry: you have seen the Reeds at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8457,35 +8815,47 @@ agents:
     born_line: Marsh
     trade: sowing a field broadcast and reaping a crop
     aim: ''
+    kept:
+    - text: 'You are of the Brockley folk. What matters above all is that the Brockley folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Gervase:
     household: Marsh
     born: -32
     sex: m
     relations:
-      Hamon: of the Wynn household, of your people
+      Ivo: of the Wynn household, of your people
       Isolda: of the Wynn household, of your people
+      Felicia: your wife
+      Hawise: of the Wynn household, of your people
+      Hamon: of the Wynn household, of your people
+      Gunnora: your sister
+      Fulk: your brother
       Jocelin: of the Wynn household, of your people
       Emma: of the Marsh household, of your people
-      Fulk: your brother
-      Felicia: your wife
-      Gunnora: your sister
-      Hawise: of the Wynn household, of your people
-      Ivo: of the Wynn household, of your people
     memories:
     - 'You are of the Brockley folk: the Marshs and the Wynns, kin who came to Brockley together a few years ago and broke its fields.'
     - Brockley is all the land your people hold; beyond it the land is held by no one, as far as you know.
     knows:
       hoe: *id017
-      medium room: *id018
-      milk: *id019
-      plough: *id020
-      reap: *id021
-      select seed: *id022
-      sow: *id023
-      weed: *id024
+      medium room: *id024
+      milk: *id018
+      plough: *id019
+      reap: *id020
+      select seed: *id021
+      sow: *id022
+      weed: *id023
+      hearth:
+        level: known
+        skill: 1.2
+      quarry:
+        level: known
+        skill: 1.6
     aware_of:
       quarry: you have seen the Reeds at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8493,37 +8863,46 @@ agents:
     partner: Felicia
     model: claude-sonnet-5-5
     born_line: Marsh
-    trade: sowing a field broadcast and reaping a crop
+    trade: mason
     aim: ''
+    kept:
+    - text: 'You are of the Brockley folk. What matters above all is that the Brockley folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Felicia:
     household: Marsh
     born: -30
     sex: f
     relations:
-      Hamon: of the Wynn household, of your people
-      Isolda: of the Wynn household, of your people
-      Jocelin: of the Wynn household, of your people
       Gervase: your husband
-      Emma: of the Marsh household, of your people
-      Fulk: of the Marsh household, of your people
-      Gunnora: of the Marsh household, of your people
-      Hawise: of the Wynn household, of your people
       Ivo: of the Wynn household, of your people
+      Isolda: of the Wynn household, of your people
+      Hawise: of the Wynn household, of your people
+      Hamon: of the Wynn household, of your people
+      Gunnora: of the Marsh household, of your people
+      Fulk: of the Marsh household, of your people
+      Jocelin: of the Wynn household, of your people
+      Emma: of the Marsh household, of your people
     memories:
     - 'You are of the Brockley folk: the Marshs and the Wynns, kin who came to Brockley together a few years ago and broke its fields.'
     - Brockley is all the land your people hold; beyond it the land is held by no one, as far as you know.
     knows:
       hoe: *id017
-      medium room: *id018
-      milk: *id019
-      plough: *id020
-      reap: *id021
-      select seed: *id022
-      sow: *id023
-      weed: *id024
+      medium room: *id024
+      milk: *id018
+      plough: *id019
+      reap: *id020
+      select seed: *id021
+      sow: *id022
+      weed: *id023
+      hearth:
+        level: known
+        skill: 1.2
     aware_of:
       quarry: you have seen the Reeds at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8533,35 +8912,44 @@ agents:
     born_line: Marsh
     trade: sowing a field broadcast and reaping a crop
     aim: ''
+    kept:
+    - text: 'You are of the Brockley folk. What matters above all is that the Brockley folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Gunnora:
     household: Marsh
     born: -28
     sex: f
     relations:
-      Hamon: of the Wynn household, of your people
-      Isolda: of the Wynn household, of your people
-      Jocelin: of the Wynn household, of your people
       Gervase: your brother
-      Emma: of the Marsh household, of your people
-      Fulk: your brother
+      Ivo: of the Wynn household, of your people
+      Isolda: of the Wynn household, of your people
       Felicia: of the Marsh household, of your people
       Hawise: of the Wynn household, of your people
-      Ivo: of the Wynn household, of your people
+      Hamon: of the Wynn household, of your people
+      Fulk: your brother
+      Jocelin: of the Wynn household, of your people
+      Emma: of the Marsh household, of your people
     memories:
     - 'You are of the Brockley folk: the Marshs and the Wynns, kin who came to Brockley together a few years ago and broke its fields.'
     - Brockley is all the land your people hold; beyond it the land is held by no one, as far as you know.
     knows:
       hoe: *id017
-      medium room: *id018
-      milk: *id019
-      plough: *id020
-      reap: *id021
-      select seed: *id022
-      sow: *id023
-      weed: *id024
+      medium room: *id024
+      milk: *id018
+      plough: *id019
+      reap: *id020
+      select seed: *id021
+      sow: *id022
+      weed: *id023
+      hearth:
+        level: known
+        skill: 1.2
     aware_of:
       quarry: you have seen the Reeds at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8571,20 +8959,25 @@ agents:
     born_line: Marsh
     trade: sowing a field broadcast and reaping a crop
     aim: ''
+    kept:
+    - text: 'You are of the Brockley folk. What matters above all is that the Brockley folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Hamon:
     household: Wynn
     born: -34
     sex: m
     relations:
-      Isolda: of the Wynn household, of your people
-      Jocelin: your brother
       Gervase: of the Marsh household, of your people
-      Emma: of the Marsh household, of your people
-      Fulk: of the Marsh household, of your people
-      Felicia: of the Marsh household, of your people
-      Gunnora: of the Marsh household, of your people
-      Hawise: your wife
       Ivo: your brother
+      Isolda: of the Wynn household, of your people
+      Felicia: of the Marsh household, of your people
+      Hawise: your wife
+      Gunnora: of the Marsh household, of your people
+      Fulk: of the Marsh household, of your people
+      Jocelin: your brother
+      Emma: of the Marsh household, of your people
     memories:
     - 'You are of the Brockley folk: the Marshs and the Wynns, kin who came to Brockley together a few years ago and broke its fields.'
     - Brockley is all the land your people hold; beyond it the land is held by no one, as far as you know.
@@ -8607,11 +9000,27 @@ agents:
       weed: &id030
         level: known
         skill: 1.4
+      hearth:
+        level: known
+        skill: 1.2
+      mine:
+        level: known
+        skill: 1.6
+      smelt:
+        level: known
+        skill: 1.6
+      copper tool:
+        level: known
+        skill: 1.6
+      charcoal:
+        level: known
+        skill: 1.6
     aware_of:
       plough: you have seen the Marshs at it all your life
       quarry: you have seen the Reeds at it all your life
       medium room: you have seen the Marshs at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8619,22 +9028,27 @@ agents:
     partner: Hawise
     model: claude-sonnet-5-5
     born_line: Wynn
-    trade: sowing a field broadcast and reaping a crop
+    trade: smith
     aim: ''
+    kept:
+    - text: 'You are of the Brockley folk. What matters above all is that the Brockley folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Hawise:
     household: Wynn
     born: -31
     sex: f
     relations:
-      Hamon: your husband
-      Isolda: of the Wynn household, of your people
-      Jocelin: of the Wynn household, of your people
       Gervase: of the Marsh household, of your people
-      Emma: of the Marsh household, of your people
-      Fulk: of the Marsh household, of your people
-      Felicia: of the Marsh household, of your people
-      Gunnora: of the Marsh household, of your people
       Ivo: of the Wynn household, of your people
+      Isolda: of the Wynn household, of your people
+      Felicia: of the Marsh household, of your people
+      Hamon: your husband
+      Gunnora: of the Marsh household, of your people
+      Fulk: of the Marsh household, of your people
+      Jocelin: of the Wynn household, of your people
+      Emma: of the Marsh household, of your people
     memories:
     - 'You are of the Brockley folk: the Marshs and the Wynns, kin who came to Brockley together a few years ago and broke its fields.'
     - Brockley is all the land your people hold; beyond it the land is held by no one, as far as you know.
@@ -8645,11 +9059,15 @@ agents:
       select seed: *id028
       sow: *id029
       weed: *id030
+      hearth:
+        level: known
+        skill: 1.2
     aware_of:
       plough: you have seen the Marshs at it all your life
       quarry: you have seen the Reeds at it all your life
       medium room: you have seen the Marshs at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8659,20 +9077,25 @@ agents:
     born_line: Wynn
     trade: sowing a field broadcast and reaping a crop
     aim: ''
+    kept:
+    - text: 'You are of the Brockley folk. What matters above all is that the Brockley folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Ivo:
     household: Wynn
     born: -30
     sex: m
     relations:
-      Hamon: your brother
-      Isolda: your wife
-      Jocelin: your brother
       Gervase: of the Marsh household, of your people
-      Emma: of the Marsh household, of your people
-      Fulk: of the Marsh household, of your people
+      Isolda: your wife
       Felicia: of the Marsh household, of your people
-      Gunnora: of the Marsh household, of your people
       Hawise: of the Wynn household, of your people
+      Hamon: your brother
+      Gunnora: of the Marsh household, of your people
+      Fulk: of the Marsh household, of your people
+      Jocelin: your brother
+      Emma: of the Marsh household, of your people
     memories:
     - 'You are of the Brockley folk: the Marshs and the Wynns, kin who came to Brockley together a few years ago and broke its fields.'
     - Brockley is all the land your people hold; beyond it the land is held by no one, as far as you know.
@@ -8683,11 +9106,21 @@ agents:
       select seed: *id028
       sow: *id029
       weed: *id030
+      hearth:
+        level: known
+        skill: 1.2
+      stalk:
+        level: known
+        skill: 1.6
+      harness:
+        level: known
+        skill: 1.6
     aware_of:
       plough: you have seen the Marshs at it all your life
       quarry: you have seen the Reeds at it all your life
       medium room: you have seen the Marshs at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8695,22 +9128,27 @@ agents:
     partner: Isolda
     model: claude-sonnet-5-5
     born_line: Wynn
-    trade: sowing a field broadcast and reaping a crop
+    trade: hunter
     aim: ''
+    kept:
+    - text: 'You are of the Brockley folk. What matters above all is that the Brockley folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Isolda:
     household: Wynn
     born: -28
     sex: f
     relations:
-      Hamon: of the Wynn household, of your people
-      Jocelin: of the Wynn household, of your people
       Gervase: of the Marsh household, of your people
-      Emma: of the Marsh household, of your people
-      Fulk: of the Marsh household, of your people
-      Felicia: of the Marsh household, of your people
-      Gunnora: of the Marsh household, of your people
-      Hawise: of the Wynn household, of your people
       Ivo: your husband
+      Felicia: of the Marsh household, of your people
+      Hawise: of the Wynn household, of your people
+      Hamon: of the Wynn household, of your people
+      Gunnora: of the Marsh household, of your people
+      Fulk: of the Marsh household, of your people
+      Jocelin: of the Wynn household, of your people
+      Emma: of the Marsh household, of your people
     memories:
     - 'You are of the Brockley folk: the Marshs and the Wynns, kin who came to Brockley together a few years ago and broke its fields.'
     - Brockley is all the land your people hold; beyond it the land is held by no one, as far as you know.
@@ -8721,11 +9159,15 @@ agents:
       select seed: *id028
       sow: *id029
       weed: *id030
+      hearth:
+        level: known
+        skill: 1.2
     aware_of:
       plough: you have seen the Marshs at it all your life
       quarry: you have seen the Reeds at it all your life
       medium room: you have seen the Marshs at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8735,20 +9177,25 @@ agents:
     born_line: Wynn
     trade: sowing a field broadcast and reaping a crop
     aim: ''
+    kept:
+    - text: 'You are of the Brockley folk. What matters above all is that the Brockley folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
   Jocelin:
     household: Wynn
     born: -26
     sex: m
     relations:
-      Hamon: your brother
-      Isolda: of the Wynn household, of your people
       Gervase: of the Marsh household, of your people
-      Emma: of the Marsh household, of your people
-      Fulk: of the Marsh household, of your people
-      Felicia: of the Marsh household, of your people
-      Gunnora: of the Marsh household, of your people
-      Hawise: of the Wynn household, of your people
       Ivo: your brother
+      Isolda: of the Wynn household, of your people
+      Felicia: of the Marsh household, of your people
+      Hawise: of the Wynn household, of your people
+      Hamon: your brother
+      Gunnora: of the Marsh household, of your people
+      Fulk: of the Marsh household, of your people
+      Emma: of the Marsh household, of your people
     memories:
     - 'You are of the Brockley folk: the Marshs and the Wynns, kin who came to Brockley together a few years ago and broke its fields.'
     - Brockley is all the land your people hold; beyond it the land is held by no one, as far as you know.
@@ -8759,11 +9206,15 @@ agents:
       select seed: *id028
       sow: *id029
       weed: *id030
+      hearth:
+        level: known
+        skill: 1.2
     aware_of:
       plough: you have seen the Marshs at it all your life
       quarry: you have seen the Reeds at it all your life
       medium room: you have seen the Marshs at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
     concerns:
     - farming
     - food
@@ -8773,6 +9224,11 @@ agents:
     born_line: Wynn
     trade: sowing a field broadcast and reaping a crop
     aim: ''
+    kept:
+    - text: 'You are of the Brockley folk. What matters above all is that the Brockley folk outnumber all the other peoples together, by as many
+        as you can, in the years to come: every living soul of your people, children too, against every living soul of theirs. A child is of the
+        people of the house that raises it.'
+      fixed: true
 tree:
 - name: Aldo
   sex: m

@@ -116,7 +116,7 @@ QUARRY_PER_UNIT = 100              # stone in a rock parcel a unit of size (wenb
 WORDS = {
     "short_of": "the settlement's share of that flow in the region's bottom quarter",
     "plenty_of": "the settlement's share of that flow in the region's top quarter",
-    "soil": {"rich": [1.2, 1.4], "poor": [0.6, 0.8]},
+    "soil": {"rich": [1.2, 1.4], "fair": [0.95, 1.05], "poor": [0.6, 0.8]},
     "land": {"land-pressed": [0.8, 0.9], "land-rich": [0.4, 0.5]},     # its capacity target (D2-16)
 }
 

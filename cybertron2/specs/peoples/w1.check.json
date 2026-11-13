@@ -3,21 +3,21 @@
  "capacity": {
   "Ashford": {
    "people": 10,
-   "standing": 7.8,
-   "worked": 51.4,
-   "best": 97.1
+   "standing": 4.2,
+   "worked": 21.3,
+   "best": 38.9
   },
   "Brockley": {
    "people": 10,
-   "standing": 9.7,
-   "worked": 66.5,
-   "best": 126.2
+   "standing": 3.7,
+   "worked": 17.5,
+   "best": 31.6
   },
   "(region)": {
    "people": 20,
-   "standing": 17.6,
-   "worked": 118.0,
-   "best": 223.3
+   "standing": 13.9,
+   "worked": 44.8,
+   "best": 76.5
   }
  },
  "checks": {
@@ -45,8 +45,8 @@
    "kind": "design",
    "ok": true,
    "detail": {
-    "Ashford": 0.35,
-    "Brockley": 0.32
+    "Ashford": 0.77,
+    "Brockley": 1.1
    }
   },
   "dependence": {
@@ -90,13 +90,13 @@
    "ok": false,
    "detail": {
     "Ashford": 8,
-    "Brockley": 11,
+    "Brockley": 9,
     "Middlemead": 6,
-    "Lower Meads": 8,
-    "Coppice Hill": 9,
-    "Ash Wood": 5,
-    "Ash Heath": 4,
-    "Brock Wood": 5,
+    "Lower Meads": 10,
+    "Coppice Hill": 10,
+    "Ash Wood": 6,
+    "Ash Heath": 5,
+    "Brock Wood": 6,
     "Brock Heath": 6
    }
   },
@@ -126,13 +126,13 @@
    "detail": {
     "Ashford": {
      "people": 7,
-     "share": 0.35,
-     "target": 0.33
+     "share": 0.77,
+     "target": 0.74
     },
     "Brockley": {
      "people": 9,
-     "share": 0.32,
-     "target": 0.33
+     "share": 1.1,
+     "target": 1.06
     }
    }
   },
@@ -140,31 +140,39 @@
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "16 people; the land keeps 66 for good (0.24 of it)"
+   "detail": "16 people; the land keeps 35 for good (0.46 of it)"
   },
   "economy: food over the run": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "200 days need 3120 meals; store, crops ripening and the land give 10699 (0.29)"
+   "detail": "200 days need 3120 meals; store, crops ripening and the land give 6951 (0.45)"
   },
   "economy: region heat": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "16 people; the land keeps 279 for good (0.06 of it)"
+   "detail": "16 people; the land keeps 280 for good (0.06 of it)"
   },
   "economy: heat over the run": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "200 days need 1376 heat (4 hearths, 48.0 cold nights); store and the woods' flow give 21818 (0.06); the woods stand at 302025 more"
+   "detail": "200 days need 1376 heat (4 hearths, 48.0 cold nights); store and the woods' flow give 21860 (0.06); the woods stand at 302095 more"
   },
   "economy: carrying burden": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": {}
+   "detail": {
+    "Brockley": {
+     "short_people": 0.8,
+     "short_heat_a_day": 0.0,
+     "road_days": 1,
+     "share_on_the_road": 0.0,
+     "short_rations_a_day_in_the_run": 0.3
+    }
+   }
   },
   "economy: households' runway": {
    "kind": "economy",
@@ -190,8 +198,8 @@
   "economy: room to grow": {
    "kind": "economy",
    "level": "warn",
-   "ok": true,
-   "detail": "4 couples; about 33 births in 200 days if they try often; the region would be at 0.75 of its land"
+   "ok": false,
+   "detail": "4 couples; about 33 births in 200 days if they try often; the region would be at 1.41 of its land"
   },
   "economy: succession": {
    "kind": "economy",
@@ -266,7 +274,7 @@
     "land": "farmland",
     "covers": {
      "built": 1,
-     "field": 13,
+     "field": 5,
      "meadow": 1,
      "pasture": 6,
      "forest": 5
@@ -275,7 +283,6 @@
      "crop",
      "game",
      "grass",
-     "last_crop",
      "plants",
      "wood"
     ]
@@ -284,7 +291,7 @@
     "land": "farmland",
     "covers": {
      "built": 1,
-     "field": 17,
+     "field": 4,
      "meadow": 1,
      "pasture": 3,
      "forest": 7,
@@ -294,7 +301,6 @@
      "crop",
      "game",
      "grass",
-     "last_crop",
      "plants",
      "wood"
     ]
@@ -305,9 +311,11 @@
      "pasture": 27,
      "forest": 7,
      "heath": 2,
-     "water": 2
+     "water": 2,
+     "meadow": 1
     },
     "stocks": [
+     "fish",
      "game",
      "grass",
      "plants",
@@ -319,10 +327,12 @@
     "covers": {
      "pasture": 9,
      "forest": 4,
-     "fen": 23,
-     "water": 2
+     "fen": 21,
+     "water": 2,
+     "meadow": 1
     },
     "stocks": [
+     "fish",
      "game",
      "grass",
      "plants",
@@ -335,9 +345,11 @@
      "pasture": 21,
      "forest": 4,
      "rock": 15,
-     "water": 2
+     "water": 2,
+     "meadow": 1
     },
     "stocks": [
+     "fish",
      "game",
      "grass",
      "plants",
@@ -352,9 +364,11 @@
      "pasture": 4,
      "forest": 18,
      "heath": 2,
-     "water": 2
+     "water": 2,
+     "meadow": 1
     },
     "stocks": [
+     "fish",
      "game",
      "grass",
      "plants",
@@ -364,7 +378,7 @@
    "Ash Heath": {
     "land": "heath",
     "covers": {
-     "meadow": 3,
+     "meadow": 4,
      "pasture": 3,
      "forest": 2,
      "heath": 16
@@ -379,11 +393,14 @@
    "Brock Wood": {
     "land": "forest",
     "covers": {
-     "pasture": 6,
+     "pasture": 4,
      "forest": 18,
-     "water": 2
+     "scrub": 2,
+     "water": 2,
+     "meadow": 1
     },
     "stocks": [
+     "fish",
      "game",
      "grass",
      "plants",
@@ -393,13 +410,14 @@
    "Brock Heath": {
     "land": "heath",
     "covers": {
-     "meadow": 2,
+     "meadow": 3,
      "pasture": 4,
      "forest": 2,
      "heath": 16,
      "water": 2
     },
     "stocks": [
+     "fish",
      "game",
      "grass",
      "plants",

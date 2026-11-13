@@ -348,6 +348,8 @@ def allocate_vacant(L: Land, conf: dict, s: Settlement, claimed: np.ndarray) -> 
         s.facts[f"mine_{res}"] = take("mine", 2, want)
         if not s.facts[f"mine_{res}"]:
             raise Refused(f"{s.key}: its {res} is beyond the land it can work ({conf['field_km']} km)")
+    take("clearing", 1, lambda rc: tn(rc) in V.BUILT_OK)                    # a small clearing to build on first (one cell: a homestead's
+                                                                           # ground; clearing a whole pasture for building is days of work)
     mix = s.pin.get("mix") or VACANT_MIX.get(s.pin.get("land", "open"), VACANT_MIX["open"])
     total = int(s.pin.get("cells") or VACANT_CELLS * s.households)
     is_wood = lambda rc: L.cover[rc] == "forest" or tn(rc) in V.WOOD_OK
@@ -365,7 +367,9 @@ def allocate_vacant(L: Land, conf: dict, s: Settlement, claimed: np.ndarray) -> 
     for rc in list(out):                                                   # open ground: meadow where wet, else pasture
         if out[rc] == "open":
             out[rc] = "meadow" if (tn(rc) in V.MEADOW_OK or L.wet[rc] > 0.75) else "pasture"
-    near_water = [rc for rc in order[:400] if (L.river[rc] >= 2 or L.lake[rc] or (L.sea[rc] and s.pin.get("on") == "sea")) and not claimed[rc]]
+    fishy = bool(s.pin.get("fish"))                                          # a place with fish: a stream or a mere will do (pin `fish`)
+    near_water = [rc for rc in order[:400] if (L.river[rc] >= (1 if fishy else 2) or L.lake[rc] or (L.sea[rc] and s.pin.get("on") == "sea")
+                                               or (fishy and L.wet[rc] > 0.9)) and not claimed[rc]]
     for rc in near_water[:2]:
         out[rc] = "water"
     return out
@@ -394,7 +398,7 @@ def parcels(L: Land, conf: dict, s: Settlement, land: dict) -> list:
     most a node may have, the largest field split until there are at least the fewest (stage 1 §5, D2-116)."""
     lo, hi = conf["parcels"]
     groups = []
-    for use in ("built", "field", "meadow", "pasture", "wood", "wildwood", "waste", "mine", "water"):
+    for use in ("built", "field", "meadow", "pasture", "wood", "wildwood", "waste", "mine", "water", "clearing"):
         for comp in _components({rc for rc, u in land.items() if u == use}):
             groups.append([use, comp])
 
@@ -484,7 +488,7 @@ def parcels(L: Land, conf: dict, s: Settlement, land: dict) -> list:
         if waste in ("forest", "field", "built", "water", "meadow"):          # grassland waste is the common's rough grazing
             waste = V.WASTE_COVER.get(p.terrain, "scrub")
         p.cover = {"built": "built", "field": "field", "meadow": "meadow", "pasture": "pasture", "wood": "forest", "water": "water",
-                   "waste": waste, "mine": "rock", "wildwood": "forest"}[use]
+                   "waste": waste, "mine": "rock", "wildwood": "forest", "clearing": "meadow"}[use]
         if use == "wildwood":                                              # a vacant place's wood: wild, as deep as the land's
             forests = [e for e in ecos if e in EC.FORESTS]
             p.eco = max(set(forests), key=forests.count) if forests else EC.natural_forest(p.terrain)

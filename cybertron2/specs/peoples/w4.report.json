@@ -1,0 +1,519 @@
+{
+ "seed": 1301,
+ "pins": {},
+ "targets": {
+  "Ashgate": {
+   "households": 2,
+   "people": 7,
+   "food": 0.74,
+   "heat": 0.3,
+   "plots_wanted": 5,
+   "fields": 5,
+   "wood_wanted": 5,
+   "woods": 5,
+   "waste": 3
+  },
+  "Brackwell": {
+   "households": 2,
+   "people": 6,
+   "food": 0.74,
+   "heat": 0.3,
+   "plots_wanted": 4,
+   "fields": 4,
+   "wood_wanted": 5,
+   "woods": 5,
+   "waste": 3
+  },
+  "Colton": {
+   "households": 2,
+   "people": 7,
+   "food": 0.92,
+   "heat": 0.3,
+   "plots_wanted": 4,
+   "fields": 4,
+   "wood_wanted": 5,
+   "woods": 5,
+   "waste": 3
+  }
+ },
+ "checks": {
+  "rivers run downhill": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "0 river cells drain uphill"
+  },
+  "laid rivers run where laid": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "1 laid"
+  },
+  "every pin met": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "a pin not met is refused when it is placed"
+  },
+  "settlements placed": {
+   "kind": "design",
+   "ok": true,
+   "detail": "17 of 17 at 7.0 km apart"
+  },
+  "capacity": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Ashgate": 0.77,
+    "Brackwell": 0.79,
+    "Colton": 0.92
+   }
+  },
+  "dependence": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Ashgate": [
+     "stone",
+     "metal"
+    ],
+    "Brackwell": [
+     "stone",
+     "metal"
+    ],
+    "Colton": [
+     "stone",
+     "metal"
+    ]
+   }
+  },
+  "reachable by land": {
+   "kind": "design",
+   "ok": true,
+   "detail": []
+  },
+  "chokepoint": {
+   "kind": "design",
+   "ok": true,
+   "detail": [
+    "Brack Wood-The Gorge: pass",
+    "Colton Wood-The Gorge: pass",
+    "Brackwell-Brack Quarry: pass",
+    "Brackwell-Brack Wood: pass",
+    "Colton-Colton Fell: pass",
+    "Colton-Colton Wood: pass",
+    "t1-The Gorge: pass",
+    "t2-Brack Quarry: pass",
+    "t3-Colton Fell: pass"
+   ]
+  },
+  "roads about a day": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "1": 23
+   }
+  },
+  "parcels per node": {
+   "kind": "design",
+   "ok": false,
+   "detail": {
+    "Ashgate": 7,
+    "Brackwell": 8,
+    "Colton": 7,
+    "North Gap": 6,
+    "West Gap": 6,
+    "East Gap": 7,
+    "Northmead": 6,
+    "Westmead": 6,
+    "Eastmead": 7,
+    "The Mere": 6,
+    "The Gorge": 13,
+    "Ashwood": 6,
+    "Ash Moor": 6,
+    "Brack Quarry": 6,
+    "Brack Wood": 5,
+    "Colton Fell": 5,
+    "Colton Wood": 5
+   }
+  },
+  "access gates": {
+   "kind": "design",
+   "ok": true,
+   "detail": "the bot dry run checks them once the people exist (scenario_design)"
+  },
+  "makes its own landscape": {
+   "kind": "design",
+   "ok": true,
+   "detail": "no promise for this configuration"
+  },
+  "lakes where lakes belong": {
+   "kind": "design",
+   "ok": true,
+   "detail": "6 lakes; 0 outside fen or upland systems (0.0 a 1,000 km2)"
+  },
+  "wood share by how long settled": {
+   "kind": "design",
+   "ok": true,
+   "detail": "0.60 of the land in wood (settled: frontier, 0.60)"
+  },
+  "capacity, people as generated": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Ashgate": {
+     "people": 7,
+     "share": 0.77,
+     "target": 0.74
+    },
+    "Brackwell": {
+     "people": 6,
+     "share": 0.79,
+     "target": 0.74
+    },
+    "Colton": {
+     "people": 7,
+     "share": 0.92,
+     "target": 0.92
+    }
+   }
+  },
+  "economy: region food": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "20 people; the land keeps 55 for good (0.37 of it)"
+  },
+  "economy: food over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "200 days need 3920 meals; store, crops ripening and the land give 10888 (0.36)"
+  },
+  "economy: region heat": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "20 people; the land keeps 472 for good (0.04 of it)"
+  },
+  "economy: heat over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "200 days need 2064 heat (6 hearths, 48.0 cold nights); store and the woods' flow give 36857 (0.06); the woods stand at 528900 more"
+  },
+  "economy: carrying burden": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {}
+  },
+  "economy: households' runway": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {
+    "short": [],
+    "share_of_people": 0.0,
+    "days_of_food_a_member": {
+     "the Reeds": 6.8,
+     "the Hales": 6.8,
+     "the Marshs": 6.8,
+     "the Wynns": 6.8,
+     "the Hunts": 6.8,
+     "the Rooks": 6.8
+    }
+   }
+  },
+  "economy: fuel": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "every hearth has wood in store or woods at hand"
+  },
+  "economy: room to grow": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "3 couples; about 25 births in 200 days if they try often; the region would be at 0.82 of its land"
+  },
+  "economy: succession": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": false,
+   "detail": [
+    "the Hales: Tobin (100%), Agnes (100%), Joyce (100%) likely to die in the run; 0 grown left for 1",
+    "the Rooks: Payn (100%), Denise (100%), Osric (100%), Rohese (100%) likely to die in the run; 0 grown left for 1"
+   ]
+  }
+ },
+ "generated": [],
+ "deviations": [
+  "cells on a jittered square grid, not Poisson-disc points with Delaunay neighbours (scipy not installed)",
+  "cells saved as .npz, not parquet (pyarrow not installed)",
+  "people: generate.py once for the region as it stands (no kin between villages yet: 37.4's, later)"
+ ],
+ "descriptions": {
+  "model": null,
+  "written": 0,
+  "failed": 0
+ },
+ "nodes": {
+  "Ashgate": {
+   "name": "Ashgate",
+   "kind": "village",
+   "site_km": [
+    40.1,
+    89.85
+   ],
+   "parcels": 7
+  },
+  "Brackwell": {
+   "name": "Brackwell",
+   "kind": "village",
+   "site_km": [
+    8.71,
+    27.46
+   ],
+   "parcels": 8
+  },
+  "Colton": {
+   "name": "Colton",
+   "kind": "village",
+   "site_km": [
+    69.13,
+    29.96
+   ],
+   "parcels": 7
+  },
+  "North Gap": {
+   "name": "North Gap",
+   "kind": "vacant",
+   "site_km": [
+    40.55,
+    71.67
+   ],
+   "parcels": 6
+  },
+  "West Gap": {
+   "name": "West Gap",
+   "kind": "vacant",
+   "site_km": [
+    27.11,
+    31.51
+   ],
+   "parcels": 6
+  },
+  "East Gap": {
+   "name": "East Gap",
+   "kind": "vacant",
+   "site_km": [
+    52.95,
+    36.47
+   ],
+   "parcels": 7
+  },
+  "Northmead": {
+   "name": "Northmead",
+   "kind": "vacant",
+   "site_km": [
+    36.19,
+    57.04
+   ],
+   "parcels": 6
+  },
+  "Westmead": {
+   "name": "Westmead",
+   "kind": "vacant",
+   "site_km": [
+    26.83,
+    51.6
+   ],
+   "parcels": 6
+  },
+  "Eastmead": {
+   "name": "Eastmead",
+   "kind": "vacant",
+   "site_km": [
+    52.55,
+    48.9
+   ],
+   "parcels": 7
+  },
+  "The Mere": {
+   "name": "The Mere",
+   "kind": "vacant",
+   "site_km": [
+    38.65,
+    43.19
+   ],
+   "parcels": 6
+  },
+  "The Gorge": {
+   "name": "The Gorge",
+   "kind": "vacant",
+   "site_km": [
+    39.77,
+    10.84
+   ],
+   "parcels": 13
+  },
+  "Ashwood": {
+   "name": "Ashwood",
+   "kind": "vacant",
+   "site_km": [
+    22.4,
+    73.23
+   ],
+   "parcels": 6
+  },
+  "Ash Moor": {
+   "name": "Ash Moor",
+   "kind": "vacant",
+   "site_km": [
+    54.89,
+    76.67
+   ],
+   "parcels": 6
+  },
+  "Brack Quarry": {
+   "name": "Brack Quarry",
+   "kind": "vacant",
+   "site_km": [
+    7.68,
+    44.9
+   ],
+   "parcels": 6
+  },
+  "Brack Wood": {
+   "name": "Brack Wood",
+   "kind": "vacant",
+   "site_km": [
+    23.74,
+    14.38
+   ],
+   "parcels": 5
+  },
+  "Colton Fell": {
+   "name": "Colton Fell",
+   "kind": "vacant",
+   "site_km": [
+    68.4,
+    48.9
+   ],
+   "parcels": 5
+  },
+  "Colton Wood": {
+   "name": "Colton Wood",
+   "kind": "vacant",
+   "site_km": [
+    53.6,
+    14.23
+   ],
+   "parcels": 5
+  },
+  "t1": {
+   "name": "Hayhurst",
+   "kind": "stop",
+   "site_km": [
+    41.15,
+    27.14
+   ],
+   "parcels": 1
+  },
+  "t2": {
+   "name": "Standen",
+   "kind": "stop",
+   "site_km": [
+    9.33,
+    59.66
+   ],
+   "parcels": 1
+  },
+  "t3": {
+   "name": "Ashley",
+   "kind": "stop",
+   "site_km": [
+    65.53,
+    63.93
+   ],
+   "parcels": 1
+  }
+ },
+ "anchors": {
+  "ring_0.pass_1": [
+   38.9,
+   66.61
+  ],
+  "ring_0.gate": [
+   38.9,
+   17.2
+  ],
+  "ring_0.pass_2": [
+   17.72,
+   29.18
+  ],
+  "ring_0.pass_3": [
+   60.12,
+   29.25
+  ],
+  "ring_0.pass_4": [
+   38.9,
+   17.2
+  ],
+  "basin_1_0": [
+   38.9,
+   41.9
+  ],
+  "river_2.source": [
+   38.9,
+   41.9
+  ],
+  "river_2.mouth": [
+   38.9,
+   8.0
+  ],
+  "oldwood_3_0": [
+   22.8,
+   76.1
+  ],
+  "upland_North Gap": [
+   38.9,
+   74.1
+  ],
+  "upland_West Gap": [
+   24.9,
+   33.5
+  ],
+  "upland_East Gap": [
+   53.0,
+   33.5
+  ],
+  "hollow_The Mere": [
+   38.9,
+   41.9
+  ],
+  "mere_The Mere": [
+   38.9,
+   41.9
+  ],
+  "ore_The Gorge": [
+   38.9,
+   8.0
+  ],
+  "upland_The Gorge": [
+   38.9,
+   8.0
+  ],
+  "upland_Ash Moor": [
+   55.1,
+   76.1
+  ],
+  "down_Brack Quarry": [
+   8.0,
+   47.7
+  ],
+  "upland_Colton Fell": [
+   69.8,
+   47.7
+  ]
+ },
+ "refused": []
+}

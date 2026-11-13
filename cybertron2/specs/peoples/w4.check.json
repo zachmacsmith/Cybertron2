@@ -1,0 +1,610 @@
+{
+ "refused": [],
+ "capacity": {
+  "Ashgate": {
+   "people": 10,
+   "standing": 4.2,
+   "worked": 21.3,
+   "best": 38.9
+  },
+  "Brackwell": {
+   "people": 10,
+   "standing": 3.7,
+   "worked": 17.5,
+   "best": 31.6
+  },
+  "Colton": {
+   "people": 10,
+   "standing": 3.9,
+   "worked": 18.5,
+   "best": 33.4
+  },
+  "(region)": {
+   "people": 30,
+   "standing": 13.8,
+   "worked": 59.3,
+   "best": 105.9
+  }
+ },
+ "checks": {
+  "rivers run downhill": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "0 river cells drain uphill"
+  },
+  "laid rivers run where laid": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "1 laid"
+  },
+  "every pin met": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "a pin not met is refused when it is placed"
+  },
+  "settlements placed": {
+   "kind": "design",
+   "ok": true,
+   "detail": "17 of 17 at 7.0 km apart"
+  },
+  "capacity": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Ashgate": 0.77,
+    "Brackwell": 0.79,
+    "Colton": 0.92
+   }
+  },
+  "dependence": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Ashgate": [
+     "stone",
+     "metal"
+    ],
+    "Brackwell": [
+     "stone",
+     "metal"
+    ],
+    "Colton": [
+     "stone",
+     "metal"
+    ]
+   }
+  },
+  "reachable by land": {
+   "kind": "design",
+   "ok": true,
+   "detail": []
+  },
+  "chokepoint": {
+   "kind": "design",
+   "ok": true,
+   "detail": [
+    "Brack Wood-The Gorge: pass",
+    "Colton Wood-The Gorge: pass",
+    "Brackwell-Brack Quarry: pass",
+    "Brackwell-Brack Wood: pass",
+    "Colton-Colton Fell: pass",
+    "Colton-Colton Wood: pass",
+    "t1-The Gorge: pass",
+    "t2-Brack Quarry: pass",
+    "t3-Colton Fell: pass"
+   ]
+  },
+  "roads about a day": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "1": 23
+   }
+  },
+  "parcels per node": {
+   "kind": "design",
+   "ok": false,
+   "detail": {
+    "Ashgate": 7,
+    "Brackwell": 8,
+    "Colton": 7,
+    "North Gap": 6,
+    "West Gap": 6,
+    "East Gap": 7,
+    "Northmead": 6,
+    "Westmead": 6,
+    "Eastmead": 7,
+    "The Mere": 6,
+    "The Gorge": 13,
+    "Ashwood": 6,
+    "Ash Moor": 6,
+    "Brack Quarry": 6,
+    "Brack Wood": 5,
+    "Colton Fell": 5,
+    "Colton Wood": 5
+   }
+  },
+  "access gates": {
+   "kind": "design",
+   "ok": true,
+   "detail": "the bot dry run checks them once the people exist (scenario_design)"
+  },
+  "makes its own landscape": {
+   "kind": "design",
+   "ok": true,
+   "detail": "no promise for this configuration"
+  },
+  "lakes where lakes belong": {
+   "kind": "design",
+   "ok": true,
+   "detail": "6 lakes; 0 outside fen or upland systems (0.0 a 1,000 km2)"
+  },
+  "wood share by how long settled": {
+   "kind": "design",
+   "ok": true,
+   "detail": "0.60 of the land in wood (settled: frontier, 0.60)"
+  },
+  "capacity, people as generated": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Ashgate": {
+     "people": 7,
+     "share": 0.77,
+     "target": 0.74
+    },
+    "Brackwell": {
+     "people": 6,
+     "share": 0.79,
+     "target": 0.74
+    },
+    "Colton": {
+     "people": 7,
+     "share": 0.92,
+     "target": 0.92
+    }
+   }
+  },
+  "economy: region food": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "20 people; the land keeps 55 for good (0.37 of it)"
+  },
+  "economy: food over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "200 days need 3920 meals; store, crops ripening and the land give 10888 (0.36)"
+  },
+  "economy: region heat": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "20 people; the land keeps 472 for good (0.04 of it)"
+  },
+  "economy: heat over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "200 days need 2064 heat (6 hearths, 48.0 cold nights); store and the woods' flow give 36857 (0.06); the woods stand at 528900 more"
+  },
+  "economy: carrying burden": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {}
+  },
+  "economy: households' runway": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {
+    "short": [],
+    "share_of_people": 0.0,
+    "days_of_food_a_member": {
+     "the Reeds": 6.8,
+     "the Hales": 6.8,
+     "the Marshs": 6.8,
+     "the Wynns": 6.8,
+     "the Hunts": 6.8,
+     "the Rooks": 6.8
+    }
+   }
+  },
+  "economy: fuel": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "every hearth has wood in store or woods at hand"
+  },
+  "economy: room to grow": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "3 couples; about 25 births in 200 days if they try often; the region would be at 0.82 of its land"
+  },
+  "economy: succession": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": false,
+   "detail": [
+    "the Hales: Tobin (100%), Agnes (100%), Joyce (100%) likely to die in the run; 0 grown left for 1",
+    "the Rooks: Payn (100%), Denise (100%), Osric (100%), Rohese (100%) likely to die in the run; 0 grown left for 1"
+   ]
+  }
+ },
+ "compare": {
+  "roads": [
+   {
+    "road": "Ashgate - North Gap",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "North Gap - Northmead",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Northmead - The Mere",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Brackwell - West Gap",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "West Gap - Westmead",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Westmead - The Mere",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Colton - East Gap",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "East Gap - Eastmead",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Eastmead - The Mere",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "The Mere - The Gorge",
+    "designed": 2,
+    "generated": 2
+   },
+   {
+    "road": "Brack Wood - The Gorge",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Colton Wood - The Gorge",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Ashgate - Ashwood",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Ashgate - Ash Moor",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Brackwell - Brack Quarry",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Brackwell - Brack Wood",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Colton - Colton Fell",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Colton - Colton Wood",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Ashwood - Brack Quarry",
+    "designed": 2,
+    "generated": 2
+   },
+   {
+    "road": "Ash Moor - Colton Fell",
+    "designed": 2,
+    "generated": 2
+   }
+  ],
+  "places": {
+   "Ashgate": {
+    "land": "farmland",
+    "covers": {
+     "built": 1,
+     "field": 5,
+     "meadow": 1,
+     "pasture": 3,
+     "forest": 5,
+     "heath": 3
+    },
+    "stocks": [
+     "crop",
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Brackwell": {
+    "land": "farmland",
+    "covers": {
+     "built": 1,
+     "field": 4,
+     "meadow": 1,
+     "pasture": 3,
+     "forest": 5,
+     "fen": 3
+    },
+    "stocks": [
+     "crop",
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Colton": {
+    "land": "farmland",
+    "covers": {
+     "built": 1,
+     "field": 4,
+     "meadow": 1,
+     "pasture": 3,
+     "forest": 5,
+     "fen": 3
+    },
+    "stocks": [
+     "crop",
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "North Gap": {
+    "land": "rock hills",
+    "covers": {
+     "meadow": 8,
+     "pasture": 15,
+     "forest": 2
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "West Gap": {
+    "land": "rock hills",
+    "covers": {
+     "pasture": 22,
+     "forest": 2,
+     "meadow": 1
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "East Gap": {
+    "land": "rock hills",
+    "covers": {
+     "meadow": 3,
+     "pasture": 13,
+     "forest": 2,
+     "rock": 7,
+     "water": 2
+    },
+    "stocks": [
+     "fish",
+     "game",
+     "grass",
+     "plants",
+     "quarry",
+     "wood"
+    ]
+   },
+   "Northmead": {
+    "land": "rich vale",
+    "covers": {
+     "meadow": 9,
+     "pasture": 20,
+     "forest": 7,
+     "fen": 1
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Westmead": {
+    "land": "rich vale",
+    "covers": {
+     "meadow": 5,
+     "pasture": 21,
+     "forest": 7,
+     "heath": 4
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Eastmead": {
+    "land": "rich vale",
+    "covers": {
+     "meadow": 8,
+     "pasture": 18,
+     "forest": 7,
+     "fen": 4
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "The Mere": {
+    "land": "lake",
+    "covers": {
+     "pasture": 25,
+     "forest": 7,
+     "heath": 4,
+     "meadow": 1
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "The Gorge": {
+    "land": "rock hills",
+    "covers": {
+     "meadow": 2,
+     "pasture": 6,
+     "forest": 4,
+     "fen": 12,
+     "rock": 17
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "quarry",
+     "seam",
+     "wood"
+    ]
+   },
+   "Ashwood": {
+    "land": "old forest",
+    "covers": {
+     "pasture": 6,
+     "forest": 18,
+     "water": 2,
+     "meadow": 1
+    },
+    "stocks": [
+     "fish",
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Ash Moor": {
+    "land": "moor",
+    "covers": {
+     "pasture": 17,
+     "forest": 2,
+     "fen": 5,
+     "meadow": 1
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Brack Quarry": {
+    "land": "chalk down",
+    "covers": {
+     "pasture": 15,
+     "forest": 2,
+     "rock": 9,
+     "meadow": 1
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "quarry",
+     "wood"
+    ]
+   },
+   "Brack Wood": {
+    "land": "forest",
+    "covers": {
+     "pasture": 6,
+     "forest": 18,
+     "meadow": 1
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Colton Fell": {
+    "land": "moor",
+    "covers": {
+     "pasture": 22,
+     "forest": 2,
+     "meadow": 1
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Colton Wood": {
+    "land": "forest",
+    "covers": {
+     "pasture": 6,
+     "forest": 18,
+     "meadow": 1
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   }
+  }
+ }
+}
