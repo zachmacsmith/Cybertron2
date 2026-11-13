@@ -29,4 +29,14 @@ in.
 
 38.04 §5-§6.
 
-*Current as of 10 Nov 2026: D4-22, D2-208.*
+## A designed world (D4-118)
+
+- **Places pinned:** each place by position (`at`, within `within` km, default 4), soil (`rich`, `fair`, `poor`: set on the place's
+  land, in that range, where the site lacks it), resources (copper, stone) and water (`on`: river, sea, lake; `has`: mill site).
+- **Vacant places** (`vacant: true`): land laid out by a `land` word (open, wood, waste, rock; or `mix`), as much as `room`
+  households would work (`cells` sets it outright), each cell keeping the cover the land has, and a one-cell clearing to build on.
+  Nothing is built, sown, held or kept there, and no one lives there.
+- **Roads pinned** (`roads:` a list of pairs): only those roads are built; a long one still gets its stopping places.
+- **`warn_only`** takes a check off the required list.
+
+*Current as of 13 Nov 2026: D4-22, D2-208, D4-118.*

@@ -68,6 +68,7 @@ The day's record (`today`): `_departed`, `_floor`, `admits`, `awake`, `care`, `c
 | 2 | 8 Nov 2026 | Phase 2 of the engine overhaul (labour): `today.units` (each one's units worked and pushed on, for the night's food); `people.tired` ({day, units}: units off that day, from pushing on and the walk) and `people.walked` (the walk carried, under a unit); `buildings.worn` ({fitting: {used, since}}: wear). A `know` record may carry `practised` (the day a craft was last done, for its fading) and `peak` (its best skill, D4-105); a crop record `cause` ("season": sown out of its window, D4-105). All absent where PHYSICS labour is at zero | D4-103 |
 | 3 | 8 Nov 2026 | Crops grow by the season (D4-106): `today.green_cut` and `today.turned` (a crop reaped green, turned under: for their signs); `parcels.dead` (a crop the cold killed, standing until the ground is worked). A crop record (`parcels.crop`, a holding's `crop`) may carry `g`, `progress`, `q`, `n`, `lying`, `stand`, `wintered`, `winter_n`, `stalled`, `no_winter`, `quality`, `never`, `up_day`, `frost_day`; a crop record without `progress` is read as growing at the full rate toward its `ripe_day` | D4-106 |
 | 4 | 8 Nov 2026 | `parcels.land`: the land's fixed properties, from the spec's `land:` block (D4-112). As built it is read for `base_fertility` (default 1.0) only; absent in every older world | D4-112 |
+| 10 | 13 Nov 2026 | `institutions.model`: a household's model, set when a household is founded in a world that gives its households models (`household_models`); its youths take it at coming of age (D4-117). Built on branch `peoples-worlds` (from `ecology-hunt2`, whose versions 5 to 9 are on that branch) | D4-117 |
 
 **Before version 1 (version 0).** Runs from 24 Oct to 4 Nov have a journal but no number. These are the known changes to the
 shape in that time, reconstructed from the decisions. The list is incomplete; the git history of `cybertron2/engine/` is the
@@ -99,4 +100,4 @@ authority.
 proposals/run_data_interface.md; cybertron2/engine/schema.py; spec/record/journal.md (the journal's own `schema`, which versions
 its tables, not the world inside them).
 
-*Current as of 8 Nov 2026: D4-100, D4-103 (version 2), D4-104, D4-106 (version 3), D4-112 (version 4).*
+*Current as of 13 Nov 2026: D4-100, D4-103 (version 2), D4-104, D4-106 (version 3), D4-112 (version 4), D4-117 (version 10, on branch `peoples-worlds`).*

@@ -30,8 +30,10 @@ def P(name, x, y, land, soil="fair", res=(), kind="vacant", note="", value=0):
     return {"name": name, "sx": x, "sy": y, "land": land, "soil": soil, "res": list(res), "kind": kind, "note": note, "value": value}
 
 
-def R(a, b, days, hill=False):
-    return (a, b, int(days), bool(hill))
+def R(a, b, days, hill=False, km=None):
+    """A road of whole days; over hills its straight length is shorter (HILL_KM a day); `km` sets it outright where the land is
+    steeper than that (found in generating)."""
+    return (a, b, int(days), "steep" if km else bool(hill)) if not km else (a, b, int(days), float(km))
 
 
 WORLDS = {}
@@ -95,6 +97,7 @@ WORLDS["W2"] = {
 
 WORLDS["W3"] = {
     "title": "W3 The Long Frontier: two neighbours on the coast, a wide country inland",
+    "shore": {"west": ["Ashmouth"], "east": ["Far Strand"]},
     "peoples": ["A", "B"],
     "summary": "Large and asymmetric (positions rotated between models). The peoples start two days apart on a coastal strip, each a "
                "day from the ford between them: A has the salt and fish, B the stone. The ford is the way inland. The interior is a "
@@ -129,7 +132,7 @@ WORLDS["W3"] = {
               R("Greenhurst", "Deepwood", 2), R("Longmead", "Hallow Vale", 2), R("Hartmoor", "Highfold", 1, True), R("Deepwood", "Highfold", 1, True),
               R("Mirewater", "Coppermount", 2, True), R("Deepwood", "Coppermount", 1, True), R("Highfold", "Far Heath", 1), R("Far Heath", "Coppermount", 1, True),
               R("Hallow Vale", "Riverbend", 1), R("Hallow Vale", "Eastfen", 1), R("Riverbend", "Eastfen", 1), R("Riverbend", "Sunvale", 2),
-              R("Coppermount", "Sunvale", 2), R("Coppermount", "Stonegate", 1, True), R("Sunvale", "Stonegate", 1), R("Sunvale", "Far Strand", 1),
+              R("Coppermount", "Sunvale", 2), R("Coppermount", "Stonegate", 1, True), R("Sunvale", "Stonegate", 1, km=12.0), R("Sunvale", "Far Strand", 1),
               R("Eastfen", "Far Strand", 2)],
 }
 
@@ -172,6 +175,7 @@ WORLDS["W4"] = {
 
 WORLDS["W5"] = {
     "title": "W5 Three Countries: lowland, upland and woodland coast, each one people's",
+    "shore": {"south": ["Holtmouth", "Saltings", "Cove"]},
     "peoples": ["A", "B", "C"],
     "summary": "Complementary (positions rotated). Each people starts in a country that has what the others lack: the lowland (A) "
                "rich soil and two mill sites but no stone and little wood; the upland (B) copper, stone and grazing but poor, cold "
@@ -188,18 +192,18 @@ WORLDS["W5"] = {
         P("Stonefell", 2.0, 4.9, "rock hills", "poor", ["quarry", "grass"]),
         P("Highmoor", 3.5, 3.7, "moor", "poor", ["grass"]),
         P("Tarn", 2.2, 3.3, "lake", "poor", ["fish", "grass"]),
-        P("Holtmouth", 4, 0.6, "coast", "fair", ["salt", "fish", "wood"], "home:C", "C: timber, game, salt, fish; little ploughland"),
+        P("Holtmouth", 4, 0.15, "coast", "fair", ["salt", "fish", "wood"], "home:C", "C: timber, game, salt, fish; little ploughland"),
         P("Deepwood", 3.2, 1.3, "old forest", "fair", ["wood", "game"], value=1),
         P("Saltings", 4.8, 0, "coast", "poor", ["salt", "fish"]),
         P("Oakhurst", 4.6, 1.6, "forest", "fair", ["wood", "game"]),
-        P("Cove", 3.2, -0.1, "coast", "poor", ["fish"]),
+        P("Cove", 3.2, 0.0, "coast", "poor", ["fish"]),
         P("Threeways", 2.1, 1.8, "rich vale", "rich", ["grass", "fish"], note="the ford where the countries' roads meet", value=2),
         P("Border Wood", 1.8, 2.6, "forest", "fair", ["wood", "game"]),
         P("Marchmead", 2.0, 0.6, "farmland", "fair", ["grass"]),
     ],
     "roads": [R("Lowbury", "Millbrook", 1), R("Lowbury", "Wheatley", 1), R("Lowbury", "Southmere", 1), R("Wheatley", "Southmere", 1),
               R("Lowbury", "Longacre", 1), R("Millbrook", "Longacre", 1), R("Longacre", "Threeways", 1),
-              R("Highcairn", "Coppermount", 1, True), R("Highcairn", "Stonefell", 1, True), R("Highcairn", "Highmoor", 1, True),
+              R("Highcairn", "Coppermount", 1, km=11.0), R("Highcairn", "Stonefell", 1, True), R("Highcairn", "Highmoor", 1, True),
               R("Highcairn", "Tarn", 1), R("Tarn", "Border Wood", 1), R("Stonefell", "Border Wood", 2, True), R("Border Wood", "Threeways", 1),
               R("Highmoor", "Oakhurst", 2, True), R("Longacre", "Border Wood", 1),
               R("Holtmouth", "Deepwood", 1), R("Holtmouth", "Saltings", 1), R("Holtmouth", "Oakhurst", 1), R("Holtmouth", "Cove", 1),
@@ -216,7 +220,7 @@ def fit(w, iters=4000, lr=0.02):
     X = np.array([[p["sx"] * DAY_KM, p["sy"] * DAY_KM] for p in w["places"]], float)
     want = {}
     for a, b, d, hill in w["roads"]:
-        want[(ix[a], ix[b])] = d * (HILL_KM if hill else DAY_KM)
+        want[(ix[a], ix[b])] = hill if isinstance(hill, float) else d * (HILL_KM if hill else DAY_KM)
     joined = set(want) | {(j, i) for i, j in want}
     for _ in range(iters):
         G = np.zeros_like(X)
@@ -232,6 +236,16 @@ def fit(w, iters=4000, lr=0.02):
                 if d < 0.95 * DAY_KM:
                     g = (d - 0.95 * DAY_KM) / DAY_KM * v / d
                     G[i] += g; G[j] -= g
+        for side, members in (w.get("shore") or {}).items():               # places on one straight shore: on one line
+            k = 1 if side in ("south", "north") else 0
+            ids = [ix[n] for n in members]
+            mean = X[ids, k].mean()
+            for i in ids:
+                G[i, k] += 0.5 * (X[i, k] - mean) / DAY_KM
+            sign = -1 if side in ("south", "west") else 1                  # every other place stays inland of that shore
+            for i in range(len(names)):
+                if i not in ids and sign * (X[i, k] - mean) > -6.0:
+                    G[i, k] += 0.5 * (sign * (X[i, k] - mean) + 6.0) * sign / DAY_KM
         X -= lr * DAY_KM * G
     X -= X.min(0)
     X += 8.0                                                               # a margin in km round the places
@@ -252,11 +266,13 @@ FEATURES = {
     "W2": [("ridge", ["High Gap", "Two Waters"], {"gap_at": "High Gap", "stop_short": 0.45}), ("massif", ["Westmoor"]), ("massif", ["Eastmoor"]),
            ("river", ["Ashby Head", "Ashdale", "Two Waters"]), ("river", ["Brook Head", "Brookdale", "Two Waters"]),
            ("river", ["Two Waters", "Salt Strand"]), ("coast", "south")],
-    "W3": [("coast", "west"), ("river", ["Mirewater", "Longmead", "Midford"]), ("massif", ["Coppermount", "Stonegate"]),
+    "W3": [("coast", "west"), ("coast", "east"), ("river", ["Mirewater", "Longmead", "Midford", "Ashmouth"]),
+           ("river", ["Riverbend", "Hallow Vale", "Wickfen"]), ("massif", ["Coppermount", "Stonegate"]),
            ("massif", ["Highfold"]), ("fen", ["Wickfen"]), ("fen", ["Eastfen"]), ("oldwood", ["Deepwood"]),
-           ("river", ["Riverbend", "Sunvale", "Far Strand"]), ("basin", ["Sunvale"])],
+           ("river", ["Stonegate", "Sunvale", "Far Strand"]), ("basin", ["Sunvale"])],
     "W4": [("ring", ["North Gap", "West Gap", "East Gap", "The Gorge"]), ("basin", ["The Mere"]), ("river", ["The Mere", "The Gorge"]),
            ("oldwood", ["Ashwood"])],
     "W5": [("massif", ["Highcairn", "Coppermount", "Stonefell", "Highmoor"]), ("river", ["Tarn", "Border Wood", "Threeways", "Marchmead", "Cove"]),
-           ("river", ["Millbrook", "Longacre", "Threeways"]), ("coast", "south"), ("oldwood", ["Deepwood"]), ("fen", ["Southmere"])],
+           ("river", ["Millbrook", "Lowbury", "Wheatley", "Southmere"]), ("river", ["Longacre", "Threeways"]), ("coast", "south"),
+           ("oldwood", ["Deepwood"]), ("fen", ["Southmere"])],
 }

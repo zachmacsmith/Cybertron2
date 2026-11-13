@@ -32,6 +32,8 @@ life/life_stages.md (D4-19).
 - D2-152: any two people of opposite sex at the same node can try for a child if both choose; a partnership is not required.
 - D2-153: the lifespan is a world setting that scales every part of a life (amends D4-19's spans to its default).
 - D4-19, D4-20: short childhoods in days; one agent, one model, for life.
+- D4-117: in a world that gives its households models, a youth takes its household's model; a household founded in the run takes
+  its founder's.
 
 ## Mechanics
 
@@ -187,4 +189,4 @@ A baby sleeps where its mother sleeps when she is at the same place: in her bed,
 [proposals/children.md](../../proposals/children.md), [fertility.md](../../proposals/fertility.md), [life.md](../../proposals/life.md),
 [38.09](../../../review/38_space_engine/09_life_design.md); 02v_children_model.py.
 
-*Current as of 5 Nov 2026: D2-138 to D2-153, D2-162, D4-19, D4-20, D4-64, D4-87, D4-88, D4-97 (Open list completed).*
+*Current as of 13 Nov 2026: D2-138 to D2-153, D2-162, D4-19, D4-20, D4-64, D4-87, D4-88, D4-97, D4-117.*
