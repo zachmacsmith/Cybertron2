@@ -29,10 +29,16 @@ they are changed.
    - **rations** (full, or half when the store is under N days);
    - **who eats first** (children, a woman with child, those who worked);
    - **guests:** whether they are fed, with what, and how much (one's own people, strangers).
-3. **A person's own defaults.** They govern what the person carries, and their own choices within the household's rules.
-   - A person's rule may narrow the household's ("I won't eat the seed even if it runs out"), but not widen it.
-   - To go against a household rule, a person acts by hand: they take from what is kept back. Others can notice the act, as with
-     taking. A rule governs the habit and stops no one (the physical-possibility principle).
+3. **A person's own defaults override the household's** (Zach, 13 Nov). The order, highest first:
+   - what the person says in a turn ("tonight I eat the seed");
+   - their own default;
+   - the household's default;
+   - the engine's.
+   - With no act and no rule of their own, they do the household's default.
+   - Going against the household's rule is never hidden. Eating from what the household keeps back, by a person's default or by an
+     act, is recorded and noticed as an act of that person (the night's line: "Joan ate 1 of the seed barley the household keeps
+     back"). The household can then answer it: ask, enforce, punish (Zach: "something that could then be enforced, punished").
+   - A guest's default reaches only what the host's rules give guests. Taking more is taking from the host.
 4. **Who sets them.** The head sets the household's rules, and members propose them at the evening. Anyone sets their own.
 5. **Shown and changed at the evening.** The evening call shows the rules in force and what they did last night. For example: "By your
    rule the seed barley (40) was kept back; Joan and Herbert went hungry". A rule is changed by an act at the evening, which costs no
@@ -76,9 +82,9 @@ they are changed.
 
 ## Open questions
 
-1. Whether a member may change a household rule at all, or only the head; whether a rule may be set by agreement.
+1. Whether a member may change the household's rule, or only the head (a person can always set their own, which overrides it).
 2. How the "unless starving" limit reads: a person starving, or anyone in the household.
-3. Whether a person going against a kept-back rule is seen as taking (noticed, a mark against them) or only as a breach of custom.
+3. Who sees a person eat from what is kept back: the household at once (the night's line to all members), or only those who notice it, as with taking.
 4. The wording of the rules block at the evening, and its length in the prompt.
 5. Whether rules carry into a household founded by a member (as customs do).
 
@@ -99,6 +105,10 @@ they are changed.
   Mine:
   - a person's rules narrow the household's but do not widen them, and going against one is an act by hand;
   - eating built first.
+- **13 Nov 2026 (revised):** Zach: a person's default overrides the household's, and an act in a turn overrides both ("everyone setting
+  'eat the seed' would make sense ... something that could then be enforced, punished"). Point 3 rewritten: personal defaults
+  override rather than only narrow, and going against a household rule is recorded and noticed so that it can be enforced. Open
+  questions 1 and 3 reworded.
 
 ## Sources
 
