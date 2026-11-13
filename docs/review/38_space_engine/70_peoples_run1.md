@@ -64,6 +64,24 @@ There was one trade between the peoples (timber for a crude tool, day 34). There
    - **Fixed** on `peoples-worlds`: make_peoples and w1/w4 set all four; a run now prints its settings at the start and warns when a
      standard one is off (run.py `settings_line`). A 3-day bot run on w1 shows the evening calls and the belief view.
 
+6. **Wildlife was on, but it gave little food and posed no danger** (counted 13 Nov from turns.jsonl, days.jsonl and run.db).
+   - The wild pack ran: 58 groups (red deer, woodpigeon, fox, stoat, wolf, wild boar, a brown bear), two nesting sites, a legendary
+     boar.
+   - **Hunting** (`hunt the wild`): 285 hunts (Ashford 162, Brockley 123) met about 600 animals and took 15 hares and 2
+     pigeons, 10.7 meat in all (Brockley 7.8, Ashford 2.9). Nearly every encounter reads "but it got away".
+   - **Stalking:** one pair stalked deer (Beatrice and Bennet, days 7 and 8, after seeing a herd of about ten at the Spinney gap) and
+     met nothing. Stalking was taught twice in Ashford and never used again.
+   - **Snares:** 112 lines were set (Ashford 80, Brockley 32). The catch taken from them came to 18.7 meat (Ashford 15.8 in 31
+     takes, Brockley 2.9 in 4). Several lines sat until the catch was "rotting meat".
+   - **Raiders:** pigeons, rooks, hares and mice took 48 units of Ashford's crop and 7 of Brockley's (Brockley's barley was
+     reaped green), and 10 units from the stores. Both villages saw it on day 1 and worked the pests off the barley.
+   - **Predators:** wolves, boar and the bear never came near people or herds. No attack and no beast taken happened in 100 days.
+     The one alarm, "Wolves are ranging near, so the house must be shut tonight" (Aldo, day 35), came to nothing. Foxes raided
+     Brockley's fowl and deer its hay only on days 96 to 99.
+   - **A false belief from a bad refusal:** a take written with `at` instead of `from` was refused as "there is no building called
+     ''". Agents read this as "I can't lift things from open ground" (Joan, Cecily, Bennet; about 30 lines), and meat rotted on the
+     Common. Fixed: take reads `at` as `from`, and an empty source gets a refusal that says what to name.
+
 ## What the run says about the models (with the flaws above)
 
 - **Opus takes the aim as a guide for action:**
