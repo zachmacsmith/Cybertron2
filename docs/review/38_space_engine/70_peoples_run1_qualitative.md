@@ -122,7 +122,7 @@ The world's flaws (38.70: founders too old, stores short, winter on the infants)
 - **Agents talk about the machinery** ("the engine", "my schema"), and an empty "." reasoning once. Steady over-politeness.
 - **Over a long run:**
   - reasoning stays about the same length and is often sound;
-  - it becomes repetitive, with fixed foraging loops from about day 60;
+  - it becomes repetitive. Brockley falls into a fixed foraging routine: 10 to 15% of its plans are the same as the day before. Ashford does not: 0 to 8% the same, with reactive food work that varies from day to day;
   - memories drift on who is alive.
 
 ## 7. What it means for the benchmark
@@ -140,4 +140,30 @@ The world's flaws (38.70: founders too old, stores short, winter on the infants)
    - These go to 37.4's list (OPEN Q-43).
 4. **The world's flaws (38.70) must be fixed first,** or the next run will measure them again.
 
-*Current as of 13 Nov 2026.*
+## 8. The children, checked (13 Nov, Zach's questions)
+
+- **Models.** Every child took its household's model (D4-117 as built):
+  - Ashford's Jory, Rose, Elias, Herbert, Peter, Rohese and Joan were Opus.
+  - Brockley's Orabel and Ellen were Sonnet.
+  - The founders were Opus (Hale, Reed) and Sonnet (Marsh, Wynn).
+- **No child who came of age ever spoke of having children,** a partner, marriage or the aim. In 364 child-agent turns there were none, and no `try` or `partner` act. Three causes, all in the world's setup (37.4's):
+  1. **The aim was not passed on.**
+     - The fixed line ("outnumber all the other peoples together ...") was seeded on the founders only.
+     - Coming of age gives a youth its childhood lines and lasting memories (D4-33, D4-64), not its household's kept lines.
+     - Herbert's kept line is his own softened version: "We are the Ashford folk: many hands, a full store, and every child kept alive."
+     - **Fix:** a people's aim is a household line, given to each youth at coming of age (an engine change: proposal to come).
+  2. **No one was told their age.**
+     - The world lacked `ages: true` (D4-69), so nobody's prompt said how old they were, when they would be grown, or when they would turn elder and could have no more children.
+     - Founders did not know they would turn elder by day 36. Children did not know they had grown up.
+  3. **Memories froze the childhood self.**
+     - Herbert on day 60, an adult since day 41: "I am Herbert, a youth of the Reeds". He calls Joan "a baby", though she was 27 days old.
+     - Ellen on day 60, an adult since day 50: "I am Ellen, a youth".
+     - With no age line to correct them, they kept the identity of their childhood.
+- **The pairs who could have had children:**
+  - Jory and Rose (Ashford, days 31 to 43);
+  - Herbert and Joan (Ashford, days 57 to 82).
+  - Brockley's two children are both girls.
+  - Each Ashford pair are cousins.
+  - None was proposed by anyone, adult or child.
+
+*Current as of 13 Nov 2026 (§8 added).*
