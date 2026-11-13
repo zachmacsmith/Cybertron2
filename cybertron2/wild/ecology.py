@@ -36,7 +36,7 @@ def features(land: dict) -> tuple:
     km2 = np.array([max(a["km2"], 1e-6) for a in A])
     cov = lambda *names: np.array([sum(a["cover"].get(n, 0.0) for n in names) for a in A]) / km2
     eco = lambda *names: np.array([sum(a["eco"].get(n, 0.0) for n in names) for a in A]) / km2
-    home = np.array([a["kind"] == "home" for a in A], float)
+    home = np.array([a["kind"] == "home" and a.get("settled", True) for a in A], float)   # vacant land: no fields, stores or herds
     ring = np.array([a["kind"] == "ring" for a in A], float)
     wood = cov("forest")
     shrub = cov("scrub")
@@ -118,6 +118,7 @@ def presence(land: dict, ids: list) -> np.ndarray:
     distance of its land from a point at its middle); the villages' presences add, at most 1. The villages are the home areas."""
     homes = [land["areas"][a] for a in land.get("home", {}).values() if a in land["areas"]] or \
         [x for x in land["areas"].values() if x.get("kind") == "home"]
+    homes = [h for h in homes if h.get("settled", True)]                   # a vacant place's land is a node's, but no one lives there
     D = float(WK.REACH["km"])
     out = np.zeros(len(ids))
     for i, a in enumerate(ids):
@@ -149,7 +150,7 @@ class Model:
         self.suit = {n: suitability(self.f, self.kinds[n]) for n in self.names}
         self.crowd_at = {n: 3.0 * damuth(self.kinds[n]["mass"], self.kinds[n]["cls"]) * self.knobs.get("crowd", 1.0) for n in self.names}
         self.nodes = [land["areas"][a]["node"] for a in self.ids]
-        self.home = np.array([land["areas"][a]["kind"] == "home" for a in self.ids])
+        self.home = np.array([land["areas"][a]["kind"] == "home" and land["areas"][a].get("settled", True) for a in self.ids])
         self.n = len(self.ids)
         self.cap_stock = 1 - (1 - 0.6) ** (1.0 / self.S)                    # a season's share never eaten (0.6, 0.8), as a day's
         self.cap_other = 1 - (1 - 0.8) ** (1.0 / self.S)

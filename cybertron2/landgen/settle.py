@@ -53,7 +53,7 @@ class Settlement:
     targets: dict                  # food and heat: the share of capacity the people use (D2-161)
     parcels: list = dfield(default_factory=list)
     name: str = ""
-    kind: str = "village"          # village, stop, wild
+    kind: str = "village"          # village, stop, wild, vacant (land laid out by its type, held and worked by no one)
     facts: dict = dfield(default_factory=dict)
 
 
@@ -97,7 +97,7 @@ def _pin_mask(L: Land, pin: dict, name: str) -> np.ndarray:
             if at not in L.anchors:
                 raise Refused(f"{name}: no anchor called {at!r} (anchors: {', '.join(sorted(L.anchors)) or 'none'})")
             at = L.anchors[at]
-        ok &= np.hypot(g.x - at[0], g.y - at[1]) <= 4.0
+        ok &= np.hypot(g.x - at[0], g.y - at[1]) <= float(pin.get("within", 4.0))   # km
     if pin.get("terrain"):
         t = pin["terrain"]
         if t not in P.TERRAIN_NAMES:
@@ -168,6 +168,10 @@ def choose_sites(L: Land, conf: dict, places: dict) -> list:
         m = _pin_mask(L, pin, name) & np.isfinite(score) & ~taken
         if extra is not None:
             m &= extra
+        if not m.any() and pin.get("soil") and pin.get("at") is not None:   # a soil the land there does not have: the soil is set
+            m = _pin_mask(L, {k: v for k, v in pin.items() if k != "soil"}, name) & np.isfinite(score) & ~taken   # on its land
+            if extra is not None:                                          # instead (write.py: base fertility in the word's range)
+                m &= extra
         if not m.any():
             raise Refused(f"{name}: no site meets its pins {pin} at least {conf['spacing_km']} km from the others")
         idx = np.argmax(np.where(m, score, -np.inf))
@@ -309,6 +313,64 @@ def allocate(L: Land, conf: dict, base: dict, s: Settlement, claimed: np.ndarray
     return out
 
 
+# what a vacant place's land is made of, by its `land` word: shares of its cells that are open grass (meadow by water, else pasture:
+# ground that can be cleared for fields), wood (wildwood, not managed), waste (heath, moor, fen, saltmarsh or scrub, as the ground
+# has become) and rock (which can be quarried; a seam where the ore is). Data (calibrate)
+VACANT_MIX = {
+    "open":   {"open": 0.7, "wood": 0.2, "waste": 0.1},
+    "wood":   {"open": 0.15, "wood": 0.75, "waste": 0.1},
+    "waste":  {"open": 0.25, "wood": 0.1, "waste": 0.65},
+    "rock":   {"open": 0.2, "wood": 0.1, "waste": 0.4, "rock": 0.3},
+}
+VACANT_CELLS = 12                  # cells (about 2 ha each) of land a vacant place has for each household of `room`
+
+
+def allocate_vacant(L: Land, conf: dict, s: Settlement, claimed: np.ndarray) -> dict:
+    """A vacant place's land (pin `vacant: true`): as much as `room` households would work, nearest first, by the shares its `land`
+    word gives, each cell keeping the cover the land has (nothing built, sown or managed). Pinned resources as for a village."""
+    cost = _cost_from(L, s.site, conf["field_km"])
+    order = sorted(cost, key=lambda k: (cost[k], k))
+    tn = lambda rc: P.TERRAIN_NAMES[int(L.terrain[rc])]
+    out = {}
+    free = lambda rc: rc not in out and not claimed[rc] and not L.sea[rc] and not L.lake[rc] and L.river[rc] < 2
+
+    def take(use, n, ok):
+        got = 0
+        for rc in order:
+            if got >= n:
+                break
+            if free(rc) and ok(rc):
+                out[rc] = use
+                got += 1
+        return got
+    for res in s.pin.get("resources") or []:
+        want = (lambda rc: bool(L.ore[rc])) if res == "copper" else (lambda rc: tn(rc) in ("hills", "rock", "chalk down"))
+        s.facts[f"mine_{res}"] = take("mine", 2, want)
+        if not s.facts[f"mine_{res}"]:
+            raise Refused(f"{s.key}: its {res} is beyond the land it can work ({conf['field_km']} km)")
+    mix = s.pin.get("mix") or VACANT_MIX.get(s.pin.get("land", "open"), VACANT_MIX["open"])
+    total = int(s.pin.get("cells") or VACANT_CELLS * s.households)
+    is_wood = lambda rc: L.cover[rc] == "forest" or tn(rc) in V.WOOD_OK
+    for use, ok in (("rock", lambda rc: tn(rc) in ("hills", "rock", "chalk down")),
+                    ("wildwood", is_wood),
+                    ("waste", lambda rc: tn(rc) in V.WASTE_COVER or L.cover[rc] in ("heath", "moor", "fen", "saltmarsh")),
+                    ("open", lambda rc: tn(rc) not in ("rock",))):
+        key = {"wildwood": "wood"}.get(use, use)
+        n = int(round(total * float(mix.get(key, 0.0))))
+        if not n:
+            continue
+        got = take("mine" if use == "rock" else use, n, ok)
+        if got < n and use != "open":                                      # not enough of it at hand: open ground instead
+            take("open", n - got, lambda rc: tn(rc) not in ("rock",))
+    for rc in list(out):                                                   # open ground: meadow where wet, else pasture
+        if out[rc] == "open":
+            out[rc] = "meadow" if (tn(rc) in V.MEADOW_OK or L.wet[rc] > 0.75) else "pasture"
+    near_water = [rc for rc in order[:400] if (L.river[rc] >= 2 or L.lake[rc] or (L.sea[rc] and s.pin.get("on") == "sea")) and not claimed[rc]]
+    for rc in near_water[:2]:
+        out[rc] = "water"
+    return out
+
+
 # ---------------------------------------------------------------------- parcels
 def _components(cells: set) -> list:
     left, comps = set(cells), []
@@ -332,7 +394,7 @@ def parcels(L: Land, conf: dict, s: Settlement, land: dict) -> list:
     most a node may have, the largest field split until there are at least the fewest (stage 1 §5, D2-116)."""
     lo, hi = conf["parcels"]
     groups = []
-    for use in ("built", "field", "meadow", "pasture", "wood", "waste", "mine", "water"):
+    for use in ("built", "field", "meadow", "pasture", "wood", "wildwood", "waste", "mine", "water"):
         for comp in _components({rc for rc, u in land.items() if u == use}):
             groups.append([use, comp])
 
@@ -422,7 +484,13 @@ def parcels(L: Land, conf: dict, s: Settlement, land: dict) -> list:
         if waste in ("forest", "field", "built", "water", "meadow"):          # grassland waste is the common's rough grazing
             waste = V.WASTE_COVER.get(p.terrain, "scrub")
         p.cover = {"built": "built", "field": "field", "meadow": "meadow", "pasture": "pasture", "wood": "forest", "water": "water",
-                   "waste": waste, "mine": "rock"}[use]
+                   "waste": waste, "mine": "rock", "wildwood": "forest"}[use]
+        if use == "wildwood":                                              # a vacant place's wood: wild, as deep as the land's
+            forests = [e for e in ecos if e in EC.FORESTS]
+            p.eco = max(set(forests), key=forests.count) if forests else EC.natural_forest(p.terrain)
+            bands = [int(L.band[r, c]) for r, c in cs if L.band is not None]
+            p.band = max(1, max(bands) if bands else 1)
+            p.wood_kind = "old forest"                                     # unworked: the wildwood's stocks (data.FORESTS)
         if use == "wood":
             p.wood_kind = "managed wood"                                   # a village's own wood is worked (coppiced), whatever its size
             forests = [e for e in ecos if e in EC.FORESTS]
@@ -472,7 +540,8 @@ def settle(L: Land, conf: dict, base: dict, places: dict) -> list:
         pin = places.get(key) or {}
         rg = keyed.rng(L.g.seed, "households", key)
         lo, hi = conf["households"]
-        hh = int(pin.get("households") or rg.randint(lo, hi))
+        vacant = bool(pin.get("vacant"))
+        hh = int(pin.get("room") or 2) if vacant else int(pin.get("households") or rg.randint(lo, hi))
         clo, chi = conf["capacity"]
         food = heat = rg.uniform(clo, chi)
         land_word = V.WORDS["land"].get(pin.get("land", ""))
@@ -493,8 +562,8 @@ def settle(L: Land, conf: dict, base: dict, places: dict) -> list:
         if pin.get("heat_share") is not None:
             heat = float(pin["heat_share"])
         people = int((conf.get("_people") or {}).get(key) or hh * int(conf["household_size"]))   # the people generated, on a second pass
-        s = Settlement(key, site, pin, hh, people, {"food": food, "heat": heat})
-        land = allocate(L, conf, base, s, claimed)
+        s = Settlement(key, site, pin, hh, people, {"food": food, "heat": heat}, kind="vacant" if vacant else "village")
+        land = allocate_vacant(L, conf, s, claimed) if vacant else allocate(L, conf, base, s, claimed)
         for rc in land:
             claimed[rc] = True
         s.parcels = parcels(L, conf, s, land)

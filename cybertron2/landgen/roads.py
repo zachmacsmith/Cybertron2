@@ -219,6 +219,15 @@ def build(L: Land, conf: dict, settlements: list) -> tuple[list, list, dict]:
     t = lambda a, b: float(reach[a][0][nodes[b].site])
     # a tree joining the settlements by the shortest roads, then extra roads where a direct one is much shorter than the tree's way
     edges, inside = [], {keys[0]} if keys else set()
+    pinned = conf.get("roads")                                             # a world may give its roads: only these are built (each a
+    if pinned:                                                             # pair of places; a long one still gets its stopping places)
+        for a, b in pinned:
+            if a not in nodes or b not in nodes:
+                raise ValueError(f"a pinned road names a place the world does not have: {a!r} to {b!r}")
+            if not math.isfinite(t(a, b)):
+                raise ValueError(f"a pinned road cannot be made: {a} to {b} is beyond reach by land (3.2 days)")
+            edges.append((a, b))
+        inside = set(keys)
     while len(inside) < len(keys):
         best = min(((a, b) for a in inside for b in keys if b not in inside), key=lambda ab: t(*ab))
         if not math.isfinite(t(*best)):
@@ -242,7 +251,7 @@ def build(L: Land, conf: dict, settlements: list) -> tuple[list, list, dict]:
                     heapq.heappush(heap, (nd, y))
         return best.get(b, math.inf)
 
-    for i, a in enumerate(keys):
+    for i, a in enumerate(keys if not pinned else []):
         for b in keys[i + 1:]:
             if (a, b) in edges or (b, a) in edges or t(a, b) > 1.6 * day:
                 continue

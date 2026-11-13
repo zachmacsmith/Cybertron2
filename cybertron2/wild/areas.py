@@ -30,12 +30,15 @@ def build(L, nodes, km: float) -> dict:
     land = ~np.asarray(L.sea, dtype=bool)
     label = np.full((ny, nx), -1, dtype=np.int64)
     meta = []                                                              # (kind, node key, parcels)
+    unsettled = set()                                                      # vacant places: home areas no one lives in
     for s in nodes:                                                        # home: each node's parcels
         cells = [tuple(c) for p in s.parcels for c in p.cells]
         if not cells:
             continue
         i = len(meta)
         meta.append(("home", s.key, sorted(p.pid for p in s.parcels)))
+        if getattr(s, "kind", "") == "vacant":
+            unsettled.add(s.key)
         r, c = np.array(cells).T
         label[r, c] = i
     yy, xx = np.mgrid[0:ny, 0:nx]
@@ -84,6 +87,7 @@ def build(L, nodes, km: float) -> dict:
         riv = np.asarray(L.river)[m]
         areas[f"a{i}"] = {
             "kind": kind, "node": node, "parcels": parcels, "km2": round(n * cell_km2, 4),
+            **({"settled": False} if kind == "home" and key in unsettled else {}),
             "xy_km": [round(cx * km, 2), round(cy * km, 2)],
             "cover": cov, "eco": ecs,
             "old_wood_km2": round(float(((band[m] >= 3) & (cover[m] == "forest")).sum()) * cell_km2, 4),

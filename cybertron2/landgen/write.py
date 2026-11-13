@@ -33,7 +33,7 @@ RES_R = {"plants": 0.3, "grass": 0.32, "game": 0.25}
 
 def _conf(gen: dict) -> dict:
     conf = dict(V.DEFAULTS)
-    conf.update({k: v for k, v in gen.items() if k in V.DEFAULTS or k in ("features", "configuration_params")})   # the shapes a
+    conf.update({k: v for k, v in gen.items() if k in V.DEFAULTS or k in ("features", "configuration_params", "roads")})   # the shapes a
     return conf                                                            # file adds or changes are not defaults (were dropped)
 
 
@@ -274,6 +274,7 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
     settlements = ST.settle(L, conf, settings, places)
     extra, roads, pic = R.build(L, conf, settlements)
     allnodes = settlements + extra
+    villages = [s for s in settlements if s.kind != "vacant"]                # vacant places: land, no households (pin `vacant`)
     # names (D2-186): pinned places keep the name they were given
     namer = NM.Namer(seed)
     for k in places:
@@ -313,10 +314,14 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
             if p.cover == "forest" and p.band:
                 entry["depth"] = {1: "edge", 2: "interior", 3: "core"}[p.band]
             land = _land(L, fields, p, node_rain, owner)
+            lo_hi = V.WORDS["soil"].get(s.pin.get("soil", ""))               # `soil: rich | poor`: the land's own fertility in range
+            if land and lo_hi and "base_fertility" in land:
+                land["base_fertility"] = round(min(max(float(land["base_fertility"]), lo_hi[0]), lo_hi[1]), 3)
             if land:
                 entry["land"] = land                                       # fixed land (02zp; D4-112, D4-113)
             pars[p.pid] = entry
         kind_words = {"village": f"a village of {s.households} households", "stop": "a stopping place on the road",
+                      "vacant": "land no one lives on or holds",
                       "wild": {"forest": "old forest, far from any village", "hills": "broken hill country, stony"}.get(s.facts.get("wild"), "wild country")}
         terr = max((p.terrain for p in s.parcels), key=[p.terrain for p in s.parcels].count) if s.parcels else ""
         where = {"river floodplain": "on the river flats", "river terrace": "on a terrace above the river", "clay vale": "in a clay vale",
@@ -345,7 +350,7 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
                 near_seam[x] = True
             if any(w.key == y and w.facts.get("wild") == "forest" for w in extra):
                 near_forest[x] = True
-    for s in settlements:
+    for s in villages:
         built = next((p for p in s.parcels if p.cover == "built"), s.parcels[0])
         fields = [p for p in s.parcels if p.cover == "field"]
         pastures = sorted((p for p in s.parcels if p.cover == "pasture"), key=lambda p: -p.size)
@@ -420,7 +425,8 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
                                "parcels": len(s.parcels)} for s in allnodes}
     report["anchors"] = {k: [round(v[0], 2), round(v[1], 2)] for k, v in L.anchors.items()}
     failed = [k for k, v in report["checks"].items() if v["kind"] == "physics" and not v["ok"]]
-    required = set(gen.get("require") or []) | {"capacity", "access gates"}
+    required = (set(gen.get("require") or []) | {"capacity", "access gates"}) - set(gen.get("warn_only") or [])   # a world may
+                                                                           # take a check as a warning only (its own check replaces it)
     if not provisional:                                                    # a first pass, sized for planned people, refuses only on physics
         failed += [k for k, v in report["checks"].items() if v["kind"] == "design" and not v["ok"] and k in required]
     report["refused"] = failed
@@ -436,8 +442,8 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
         members = {}
         for a in world.get("agents", {}).values():
             members[a.get("household")] = members.get(a.get("household"), 0) + 1
-        _seed_ways(world, settlements, seed)
-        report["checks"]["capacity, people as generated"] = _capacity_as_generated(world, settings, settlements)
+        _seed_ways(world, villages, seed)
+        report["checks"]["capacity, people as generated"] = _capacity_as_generated(world, settings, villages)
         for b in world["buildings"].values():                              # a house holds its household: a bed each and one spare
             n = members.get(b.get("household"), 0)                         # (D4-86), and stores for a week or so (D2-13)
             if (b.get("fittings") or {}).get("beds") and n:
@@ -572,6 +578,8 @@ def checks(L, conf, gen, settlements, extra, roads, world, settings) -> dict:
         w = World({**settings, **{k: v for k, v in world.items() if k not in ("lines", "bounds", "sim")}, "agents": {},
                    "days": int(settings.get("days", 24))})
         for s in settlements:
+            if s.kind == "vacant":                                         # held by no one: no people to feed
+                continue
             cap = CAP.node(w, s.key)
             caps[s.name] = round(s.people / max(1e-9, min(cap["food_people"], cap["heat_people"])), 2)
     except Exception as e:                                                 # noqa: BLE001 (reported, not raised)
@@ -584,7 +592,7 @@ def checks(L, conf, gen, settlements, extra, roads, world, settings) -> dict:
                                                                                                             # more slack below
     out["capacity"] = {"kind": "design", "ok": bool(cap_ok), "detail": caps}
     lacks = {}
-    for s in settlements:
+    for s in [s_ for s_ in settlements if s_.kind != "vacant"]:
         has_stone = any(p.cover == "rock" for p in s.parcels)
         has_metal = any(p.use == "mine" and p.facts.get("seam") for p in s.parcels)
         lacks[s.name] = [x for x, ok in (("stone", has_stone), ("metal", has_metal)) if not ok]

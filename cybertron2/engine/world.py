@@ -767,6 +767,8 @@ def p_found(w, person, name):
         iid = f"{name} {n}"
     w.s["institutions"][iid] = {"kind": "household", "name": f"the {name}s", "members": [], "offices": {"head": person},
                                 "rules": {"admit": "head", "grant": "members"}}
+    if w.spec.get("household_models") and (w.s["people"].get(person) or {}).get("model"):   # a world that gives each household a model:
+        w.s["institutions"][iid]["model"] = w.s["people"][person]["model"]            # a new household's is its founder's (Zach, 13 Nov)
     p_admit(w, person, iid)
     w.s["institutions"][iid]["offices"]["head"] = person
     return iid
