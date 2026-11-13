@@ -183,6 +183,9 @@ function at(e) {
   return hits[0];
 }
 let drag = null;
+// a redraw takes from tens of milliseconds (a place) to most of a second (the whole world) on the page's own thread, so while the
+// map is being dragged the playing day and days hold their redraws and the drag stays smooth
+const dragging = () => !!(drag && drag.moved);
 map.addEventListener("mousedown", (e) => { drag = { x: e.clientX, y: e.clientY, sl: map.scrollLeft, st: map.scrollTop, moved: false }; });
 addEventListener("mousemove", (e) => { if (!drag) return; const dx = e.clientX - drag.x, dy = e.clientY - drag.y; if (Math.abs(dx) + Math.abs(dy) > 4) { drag.moved = true; map.classList.add("drag"); } map.scrollLeft = drag.sl - dx; map.scrollTop = drag.st - dy; });
 addEventListener("mouseup", () => { setTimeout(() => { drag = null; map.classList.remove("drag"); }, 0); });
@@ -190,7 +193,8 @@ cv.addEventListener("mousemove", (e) => { const h = at(e); if (h) { tip.style.di
 cv.addEventListener("mouseleave", () => (tip.style.display = "none"));
 cv.addEventListener("click", (e) => { if (drag && drag.moved) return; const h = at(e); if (!h) return; if (h.kind === "node") { S.node = h.id; render(); } else if (h.kind === "exit") { S.node = h.to; render(); } });
 const setDay = (i) => { S.day = Math.max(0, Math.min(V.days.length - 1, i)); render(); };
-function play(on) { S.playing = on; $("#play").textContent = on ? "❚❚" : "▶"; clearTimeout(S.timer); const t = () => { if (!S.playing) return; if (S.day >= V.days.length - 1) return play(false); setDay(S.day + 1); S.timer = setTimeout(t, 900); }; if (on) S.timer = setTimeout(t, 900); }
+function play(on) { S.playing = on; $("#play").textContent = on ? "❚❚" : "▶"; clearTimeout(S.timer); const t = () => { if (!S.playing) return; if (dragging()) { S.timer = setTimeout(t, 150); return; }   // the next day waits for a drag to end
+  if (S.day >= V.days.length - 1) return play(false); setDay(S.day + 1); S.timer = setTimeout(t, 900); }; if (on) S.timer = setTimeout(t, 900); }
 $("#prev").onclick = () => { play(false); setDay(S.day - 1); }; $("#next").onclick = () => { play(false); setDay(S.day + 1); };
 $("#play").onclick = () => play(!S.playing); $("#slider").oninput = (e) => { play(false); setDay(+e.target.value); };
 $("#back").onclick = () => { S.node = null; render(); };
@@ -212,7 +216,8 @@ function playDay(on) { S.dayAnim = on ? { last: performance.now() } : null; $("#
       if (S.day < V.days.length - 1) { S.day++; S.t = -0.1; $("#slider").value = S.day; }
       else if (V.days.length < TOTAL) { if (S.t < 1.16) { S.t = 1.16; render(); } setTimeout(() => requestAnimationFrame(step), 400); return; }   // the next is still being built: wait for it
       else { S.t = 1.15; render(); return playDay(false); } }
-    render(); requestAnimationFrame(step); };
+    if (!dragging()) render();                                              // held while the map is dragged; it catches up after
+    requestAnimationFrame(step); };
   requestAnimationFrame(step); }
 $("#dayplay").onclick = () => playDay(!S.dayAnim);
 $("#clock").oninput = (e) => { playDay(false); S.t = +e.target.value / 100; render(); };
