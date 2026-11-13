@@ -1386,7 +1386,9 @@ def _move(here, mind, a, party):
 
 def _take(here, mind, a, party):
     item = item_of(a.get("item"))
-    src_name = str(a.get("from") or "")
+    src_name = str(a.get("from") or a.get("at") or "")                     # "at" read as "from": the models write both (38.70)
+    if not src_name.strip():
+        raise Refused('take needs "from": the building, or the place where the things lie (a field, the Green, the Street)')
     rem = here.find_thing(src_name, item)                        # what one knows lies here (D2-87: nobody's)
     from cybertron2.engine import tags as TG
     tag = TG.tag_in(src_name) if here.setting("tags") else None
