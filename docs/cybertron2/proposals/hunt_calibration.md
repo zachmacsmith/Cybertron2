@@ -1,17 +1,21 @@
-# Hunting that pays something to a beginner, and snares that are lifted: build brief 4c
+# Hunting that pays a beginner, snares that are lifted, and predators that reach the villages: build brief 4c
 
-**Status:** draft (12 Nov), for Zach's decision on the targets (§2) and the party bonus (§5). Nothing decided or built.
-**Build brief 4c** for the wild layer, after brief 4b (`hunt_followups.md`) and before brief 5 (`river_and_water.md`).
+**Status:** written (13 Nov), ready to hand to 37.4 on Zach's go. Proposed defaults stand unless he changes them: §2's targets, §5's
+party bonus for drives only, §6's batch, §7's predator targets (OPEN Q-44). Nothing decided or built.
+**Build brief 4c** for the wild layer, after brief 4b (`hunt_followups.md`) and before brief 5 (`river_and_water.md`). It answers the
+wild region run (02zze, 30 days) and the first peoples run (38.70, 100 days), both on briefs 1 to 4b as built.
 **Owner:** 37.2:
 - the author;
-- the data in `wild/kinds.py` (`HUNT`, `HUNTED`, kinds' `flee`) and `wild/methods.py` (method rows, weapon factors) is 37.2's;
+- the data in `wild/kinds.py` (`HUNT`, `HUNTED`, kinds' `flee`, `near_people`, the ecology rows) and `wild/methods.py` (method rows,
+  gear multipliers) is 37.2's, and so is §7.1's ecology check, done before the build;
 - 37.4 builds it, as for briefs 4 and 4b; the skill curve (`engine/data.py` `SKILL`), noticing (`engine/things.py`) and the
-  remembered line (`engine/prompt.py`) are 37.4's (§6).
+  remembered line (`engine/prompt.py`) are 37.4's (§8).
 
 **Affects:**
 - spec/environment/wildlife.md (on the merge of briefs 1 to 4b);
+- `engine/data.py` TECHNIQUES `dry meat` (§6);
 - on the branch: `wild/kinds.py`, `wild/methods.py`, `engine/data.py` (`SKILL`), `engine/wild.py` (`hunt`, `_set_night`),
-  `engine/things.py` (`own`, `_describe`, the remembered text), `engine/perceive.py`.
+  `engine/things.py` (`own`, `_describe`, the remembered text), `engine/perceive.py`, `engine/wild.py` `_groups` and `_count` (§7).
 
 ## Summary
 
@@ -20,7 +24,7 @@ The wild region's 30-day live run (02zze; 38 people, four villages, briefs 1 to 
 - 25 snare lines and water traps were set. They caught about 17 hares and 5 eels, and **none was ever lifted**: the catches rotted
   in the snares.
 
-Measured on the region's own world (the harness of 02zzd, 80 tries a cell; §8), the hunt as built gives a novice almost nothing:
+Measured on the region's own world (the harness of 02zzd, 80 tries a cell; §10), the hunt as built gives a novice almost nothing:
 
 | Method, the wood around | Novice (skill 0.4) | Capable (1.0) | Master (2.3) |
 |---|---|---|---|
@@ -47,11 +51,24 @@ Why:
 
 Snares, once lifted, were the one method that paid: about 0.9 food a unit in the run.
 
+**The first peoples run** (38.70; Twin Hollows, 100 days, the same code) repeated it and added two more:
+- **Hunting:** 285 hunts met about 600 beasts and took 15 hares and 2 pigeons (10.7 meat), about 2.8% of beasts met: what the
+  stacked factors give. Many hunted bare-handed. Deer were seen and stalked once, and stalking was taught twice and dropped.
+- **Snares:** 112 lines set; 18.7 meat lifted in 35 takes (there, agents worked out lifting for themselves); several catches rotted.
+- **Drying:** `dry meat` takes exactly 8 meat, so 52 tries were refused, 9 of them at 7.8 meat after a night's spoilage (OPEN Q-43).
+- **No predator came near people or herds in 100 days.** A dry run of the same world (§7) shows why: the wolves and boar are at nodes
+  where no one lives; a group raids only at its own node; and the wolves and boar fall from the first night (wolves within reach of
+  Ashford from 3.8 to 2.1 in 12 days, below a pack's least size of 3 by day 4).
+
+With no predators and almost no hunting, the wild layer in these runs was a drain on crops and nothing else: no reason to guard
+herds, no shared hunts, none of the dependence it was meant to add.
+
 ## 1. For the builder
 
 **Read:**
 - briefs 4 and 4b and their gates (02zx; OPEN Q-40, Q-41);
-- 02zzd and its scripts (`docs/review/37_growth/02zzd_ev/`), with `ev_region.py` (§8);
+- 02zzd and its scripts (`docs/review/37_growth/02zzd_ev/`), with `ev_region.py` (§10);
+- 38.70 flaw 6 (the peoples run's wildlife) and §7's dry-run trace (`pred_trace.py`, §10);
 - `docs/cybertron2/guides/senses.md` before §4;
 - on the branch:
   - `engine/wild.py`: `hunt` (`p_take`), `_set_night`;
@@ -60,7 +77,9 @@ Snares, once lifted, were the one method that paid: about 0.9 food a unit in the
   - `engine/data.py`: `SKILL`;
   - `engine/knowledge.py`: `curve`, `skill_of_practice`, `tried`;
   - `engine/things.py`: `own`, `_describe`, `remember`;
-  - `engine/prompt.py`: `_things_lines`.
+  - `engine/prompt.py`: `_things_lines`;
+  - `engine/wild.py`: `_groups`, `_count`, `_reach`; `wild/kinds.py`: `near_people` for wolf, boar, bear;
+  - `engine/data.py`: TECHNIQUES `dry meat`.
 
 **Do not:**
 - tell anyone about a catch they are not at;
@@ -70,7 +89,8 @@ Snares, once lifted, were the one method that paid: about 0.9 food a unit in the
 
 Dry runs only.
 
-**Branch:** from main after briefs 1 to 4b are merged; otherwise `ecology-hunt3` from `ecology-hunt2`.
+**Branch:** from main after briefs 1 to 4b are merged; otherwise `ecology-hunt3` from `ecology-hunt2`. Runs are now on
+`peoples-worlds` (from `ecology-hunt2`), so it should take 4c too: by merge, or a cherry-pick agreed with 37.4.
 
 ## 2. Targets (for Zach)
 
@@ -147,7 +167,7 @@ consistency only.
 
 ### 3.2 The levers, in order
 
-Calibrated on §8's harness until §2 holds; stop at the first that fits:
+Calibrated on §10's harness until §2 holds; stop at the first that fits:
 1. **`base` by method** for the bare-handed novice (§2's first row).
 2. **The crude weapon's multiplier** for the armed novice (about x3; calibrate).
 3. **The skill multiplier's top** for the capable and the master (about x4 at the top; capable at about 40 units of practice).
@@ -190,7 +210,55 @@ Proposed:
 - for other methods, a party's gain is the carry and the danger shared (brief 4b), and finding beasts by more eyes (`detect` per
   member, as built).
 
-## 6. Touches in 37.4's files
+## 6. Drying: any batch up to the rack's 8 (OPEN Q-43)
+
+`dry meat` takes up to 8 meat a unit: whatever meat one has, up to 8, is hung in one batch, for the same unit and the same 3 nights,
+and gives half its weight in dried meat. A hare's 0.7 can be dried. Refusals for "needs 8" go. Spoilage on the rack is as built:
+about 3% over the 3 nights in a hearth's smoke, 13% by a fire ring on dry nights, about 35% on wet ones.
+
+## 7. Predators: pressure that reaches the villages
+
+**What the peoples world shows** (a dry run of `peoples/w1.yaml` with bots, 12 days, the count each night within reach of each node;
+`pred_trace.py`):
+
+| Kind | Within reach of Ashford | Of Brockley | Where it is | Night 1 to night 12 |
+|---|---|---|---|---|
+| wolf | 3.8 | 1.0 | every node, most at Coppice Hill (5.8), Brock Heath (4.9) | falls about 45% everywhere (Ashford 3.8 to 2.1) |
+| wild boar | 1.2 | 0.1 | Lower Meads (25.9), t1 (9.1), Coppice Hill (6.0), no one living there | falls 20 to 30% |
+| brown bear | 0.06 | 0 | Coppice Hill (1.7) | steady |
+| red deer | 34.6 | 41.6 | | falls about 7% |
+
+So, in order of effect:
+1. **The wolves and boar fall from the first night,** everywhere alike, villages or not: faster than the ecology's own mortality
+   (wolf m 0.30 a year, about 1% a day at 32-day years) can explain. Either the world starts them far above what the ecology holds, or
+   something takes them (starvation, a rule misfiring). A pack needs 3, so by night 4 no village has one.
+2. **A group is tied to one node.** It condenses from that node's reach and raids only there. A wolf pack ranges 100 to 300 km², over
+   several nodes; a pack at Brock Heath, next to Brockley, never comes to Brockley's herd. The same for a bear.
+3. **Even when present, the drive is low:** the herd's attraction is 1.0 only in winter and early spring and 0.35 otherwise, times
+   0.03 plus 0.9 x the area's hunger; with deer plentiful, hunger is near 0, so about 1% a night. That is right for well-fed wolves
+   (they prefer wild prey) but leaves pressure to hard winters only.
+4. **Boar live where people do not:** the ring near a village is thin for them by design (presence by distance, brief 4b), and these
+   worlds put the woods' boar at empty nodes.
+
+**7.1 The ecology check (37.2, before the build).** Find why wolves and boar fall from the first night: the world's start against
+the ecology's equilibrium (the generator's seeding, the spin-up), and starvation in the diet rows. Fix in the seeding or the rows,
+so a world starts near its own balance. Check on the peoples world, the region and 02zzd's worlds.
+
+**7.2 Groups that range** (37.4's `_groups` with 37.2's data): a kind with a large range (`range_km2` on the kind: wolf about 150,
+bear about 200, boar about 20, fox and deer as built) condenses over the nodes within its range of its densest area, not one node's
+reach. When it sets out, it picks a target among the villages in its range: by the target's attraction, the distance, and what it
+remembers (the herd seen, the herd that was unwatched). One pack is one group, wherever it raids; its traces and signs show at the
+village it comes to. Kinds with a small range keep today's rule.
+
+**7.3 Targets** (dry runs with bots; a world with wolves within range of a village with an unwatched herd on open pasture):
+- in winter, signs of wolves at the edge most weeks, and a beast lost about once in two or three weeks unless the herd is watched,
+  folded or kept by a dog;
+- in summer, with deer plentiful, rarely;
+- after a hard winter or where the deer are hunted out, more often (the hunger term, as built);
+- boar at a field in a wooded village most autumn weeks (the 3 to 10% of need, 02zr).
+The generator's report names, for each village, the predators within range (a check, not a refusal).
+
+## 8. Touches in 37.4's files
 
 - `engine/data.py`: `SKILL["hard"]` as a multiplier (§3.1).
 - `engine/wild.py`: `hunt`'s `p_take` and `_set_night`'s catch as 1 - exp(-base x multipliers) (§3.1).
@@ -198,11 +266,13 @@ Proposed:
 - `engine/perceive.py`: the look at a known thing on the parcel, through the one noticing rule.
 - `engine/prompt.py`: none beyond the wording, unless the remembered text is built there.
 - `engine/wild.py`: the crew's kill bonus by method (§5).
+- `engine/data.py`: TECHNIQUES `dry meat` takes up to 8 (§6).
+- `engine/wild.py`: `_groups` and `_count` for ranging kinds (§7.2).
 - The manual: the snare's and the trap's lines (§4.4).
 - **37.2's own:** `wild/methods.py` (`base` by method; gear multipliers in place of the `weapon` rows), `wild/kinds.py` (any `flee`
-  or `HUNT` change), the harness and its worlds.
+  or `HUNT` change; `range_km2`; §7.1's fix), the generator's predator check, the harnesses and their worlds.
 
-## 7. Tests (the gate)
+## 9. Tests (the gate)
 
 **Unit:**
 - A setter working the parcel of their own line sees its catch on the morning after it is caught (at the calibrated chance); one not
@@ -212,11 +282,17 @@ Proposed:
 - `lift the snares` at the parcel takes the catch into hand.
 - The chance is 1 - exp(-base x multipliers): bare-handed novice at `base`; each gear and skill multiplier raises it; no clip.
 - Practice raises the skill multiplier from 1 toward its top.
+- `dry meat` with 3 meat hangs 3 and gives 1.5 dried meat after 3 nights.
+- A wolf pack at a node next to a village, with that village in its range, raids its unwatched herd; one at a node out of range
+  does not.
+- A world's wolves and boar hold near their start over 32 nights with no hunting (§7.1).
 
-**Calibration** (§8's harness, the region world and 02zzd's worlds, at least 80 tries a cell): §2's kill rates and food a unit within
+**Calibration** (§10's harness, the region world and 02zzd's worlds, at least 80 tries a cell): §2's kill rates and food a unit within
 about a third, on fresh ground; and daily hunting of one wood over 16 days falling well below them (as 02zzd).
 
-**Society-level** (dry, scripted bots set and lift lines): the catch lifted in the bots' arm against the catch left in the run.
+**Society-level** (dry, scripted bots set and lift lines): the catch lifted in the bots' arm against the catch left in the run; and
+§7.3's predator targets on the peoples world and the region, over 32 nights with bots. (The peoples world's bots all starve by day
+14, OPEN Q-35: §7's trace ran on the ecology alone; the society test needs bots that feed themselves, or a world for it.)
 
 **Regression:**
 - worlds without the wild pack unchanged;
@@ -224,18 +300,24 @@ about a third, on fresh ground; and daily hunting of one wood over 16 days falli
 - all tests pass.
 
 **Gate:** the above and a short dry-run report to Zach. A live arm only if he allows it: the region world again against the 30-day
-run, reading kills, snares lifted, weapons made, and hunting kept up past the first week.
+run, or the next peoples run against the first, reading kills, snares lifted, weapons made, hunting kept up past the first week,
+predators at the villages, and watches and folds kept.
 
-## 8. The harness
+## 10. The harnesses
 
-`docs/review/37_growth/02zzd_ev/ev_region.py` (CYB_ROOT = a checkout of the branch): for each village's wood, `hunt the wild` and
+**The hunt:** `docs/review/37_growth/02zzd_ev/ev_region.py` (CYB_ROOT = a checkout of the branch): for each village's wood, `hunt the wild` and
 `stalk` near and `hunt the wild` far, by novice, capable and master, armed and unarmed, on fresh copies of the world at its start
 (nothing depletes between tries). Its results on brief 4b as built are in `ev_region_4b.json` beside it.
+
+**Predators:** `docs/review/37_growth/02zzd_ev/pred_trace.py` (CYB_ROOT, the world, the days): runs a world dry with bots and records,
+each night, the count of each whole-counted kind within reach of each node (`_count`) and its groups (`days.jsonl` `near`). Its
+trace of the peoples world on `peoples-worlds` is in `pred_trace_peoples_w1.json`.
 
 ## Why
 
 - Zach (12 Nov): "I feel like overall hunting numbers are too low, especially with the novice being practically zero right now?"
 - The region run: no kill in 63 hunts and stalks; 22 catches never lifted.
+- 38.70 (Zach, 13 Nov: "this other run seemed to mirror the same failures"): 17 kills in 285 hunts, no predator in 100 days.
 - Hunting matters to the design as a skill that grows, a reason for parties, weapons and dogs, and a lean-season fallback; at about
   0.01 a unit it is none of these.
 
@@ -255,9 +337,16 @@ run, reading kills, snares lifted, weapons made, and hunting kept up past the fi
 1. §2's targets: kill rates (a novice armed on about half their trips) and food a unit, against farming.
 2. §5: the party bonus for drives only.
 3. Whether the region world (02zze) is the calibration world, beside 02zzd's.
+4. §6: drying any batch up to 8.
+5. §7.2: groups that range over several nodes (a change to how raids work), and §7.3's predator targets.
+6. Whether `peoples-worlds` takes 4c (the runs are there now).
 
 ## History
 
+- 13 Nov 2026: written up for the build (Zach: "write up 4c"): the first peoples run's evidence (38.70 flaw 6); §6 drying any batch
+  up to 8 (OPEN Q-43); §7 predators, from a dry trace of the peoples world (wolves and boar falling from the first night, groups tied
+  to one node, the drive low when prey is plentiful), with the ecology check (37.2), ranging groups (37.4) and targets; the branch
+  note for `peoples-worlds`.
 - 13 Nov 2026: §2 and §3 rewritten (Zach, 13 Nov: "rather than times 0.3 for being unarmed, surely it should be increased if you
   are armed"; "Is a kill every 4 to 7 trips too bad?"; "Compare to the amount of food to get from farming"): the chance as a baseline
   (bare hands, a novice) times multipliers for gear, skill and familiarity, as 1 - exp(-x); kill-rate targets beside food a unit (a
@@ -268,5 +357,5 @@ run, reading kills, snares lifted, weapons made, and hunting kept up past the fi
 
 ## Sources
 
-02zze (the run); 02zzd and its harness; hunt_and_fixes.md (brief 4); hunt_followups.md (brief 4b); 02zx; OPEN Q-36, Q-40, Q-41,
-L-106; guides/senses.md; D4-48, D4-70, D4-75.
+02zze (the run); 38.70 (the peoples run, flaw 6); 02zzd and its harnesses; hunt_and_fixes.md (brief 4); hunt_followups.md (brief 4b); 02zx; OPEN Q-36, Q-40, Q-41,
+L-106, Q-35, Q-43; guides/senses.md; D4-48, D4-70, D4-75.
