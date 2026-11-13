@@ -52,6 +52,18 @@ There was one trade between the peoples (timber for a crude tool, day 34). There
    - Agnes moving the Reeds' grain into the Reed granary, as Cuthbert asked, was counted as five thefts.
    - A `for` on take (or the owner's leave) should make it not theft.
 
+5. **The world left out four standard settings** (found 13 Nov, after the run; Zach had not been told).
+   - `view: beliefs`, `evening: true`, `tags: true` and `ages: true` are set by every current builder (make_goal_probe,
+     make_wenbridge, make_frontier). make_peoples was built from the generator's spec (twin_bays_gen.yaml lacks all four), and its
+     settings were never compared with those builders. None was turned off by choice.
+   - So the run had the old morning message (with a list of techniques) instead of the belief-built one, no evening at the hearth
+     (no nightly talk or settling: the Combe pair, 38.42, had 31 tries for a child with it against 8 without), no age line, and no tags.
+   - The other settings match the current worlds: `cold_days`, `incidents` and `customs` empty (the default), `memory_at_evening`
+     off (D4-80), packs `wild` and `water` (the only two). Chosen and stated: kept lines of 80 words (for the aim line), lifespan 64,
+     children on with dial low, a spring start.
+   - **Fixed** on `peoples-worlds`: make_peoples and w1/w4 set all four; a run now prints its settings at the start and warns when a
+     standard one is off (run.py `settings_line`). A 3-day bot run on w1 shows the evening calls and the belief view.
+
 ## What the run says about the models (with the flaws above)
 
 - **Opus takes the aim as a guide for action:**
