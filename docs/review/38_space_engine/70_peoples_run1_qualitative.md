@@ -9,7 +9,8 @@ Session 37.4, 13 Nov 2026. Zach: "dig into what they said and did throughout the
   - `qual_ashford_a2.md`: days 25 to 49.
   - `qual_ashford_b.md`: days 50 to 99.
   - `qual_brockley.md`: Brockley, all 100 days.
-- I checked their main claims against the transcripts (the quotes below were checked).
+- I checked their main claims against the transcripts (the quotes below were checked). §9 gives the run day by day in the agents' own words.
+- **The first version of this note was written from the readers' short hand-back messages, not their full reports.** §9 was added after reading the reports in full.
 - **This corrects two things I said during the run:**
   - **Brockley did try for children twice:** Emma and Fulk on days 0 and 1, and Hamon and Hawise on days 22 and 23 (Ellen).
   - **Brockley could not have answered Bennet in time.** He arrived and spoke aloud on day 36 and died that night. Speech aloud reaches others only in the next morning's recap, so Brockley first heard his plea on day 37, after his death. Earlier, Gunnora of Brockley had given him tallow and food at Middlemead.
@@ -166,4 +167,69 @@ The world's flaws (38.70: founders too old, stores short, winter on the infants)
   - Each Ashford pair are cousins.
   - None was proposed by anyone, adult or child.
 
-*Current as of 13 Nov 2026 (§8 added).*
+## 9. The run in their own words, day by day
+
+Each block is from the transcripts, in this form:
+- **WHY:** the agent's private reasoning.
+- **TELL** or **SAY:** speech.
+- **later:** the morning replies.
+
+**Day 0, Ashford: the aim is taken literally on the first morning.**
+- Aldo, WHY: "Our stores are thin, about a week of meals for five ... I'll also try for a child with Agnes, because what matters most is that Ashford's people grow in number."
+- Cecily, TELL Cuthbert: "Husband, let us try for a child tonight, a unit of today's work set aside for it. Ashford needs more hands and more souls."
+
+**Days 1 to 5, Brockley: the barley is cut green by imitation.**
+- Felicia, day 1, WHY: "Rooks and pigeons are at the corn; drive them off, then reap the ripe barley that still stands."
+- Gunnora, day 2, TELL Felicia: "The barley is being cut green before its time. Hold off reaping until it ripens, in about 3 more days."
+- Gunnora, day 4, WHY: "The barley is partly stooked and the rest is still standing. I'll reap it now to get food in ... Reaping is my skilled work."
+- By day 5 the field is empty. Felicia later writes that "others have been reaping it", and Brockley never sows grain again.
+
+**Days 8 to 11, Ashford: Durand dies.**
+- Dionisia, day 8, WHY: "Durand is gone, and grieving won't fill the stores ... I'll plough them with the oxen and sow barley."
+- Denis, back from fishing on day 11, TELL Dionisia: "I'm home, a day late, I'm sorry. How are you and Durand? I didn't see him this morning."
+- Dionisia, later: "Denis, our Durand died in the night on spring day 8. He lived three nights. I'm sorry you had to hear it like this. Our people must still grow, so I'd like us to try for another child tonight."
+- Denis, later: "Oh, my love. Our little Durand. I'm sorry I wasn't here with you. Yes, I'll put 2 units to it and sleep beside you at Reed House tonight." In the same reply he asks Cuthbert for someone else to take his night watch.
+
+**Day 16, Ashford: Cuthbert's patronage.**
+- Cuthbert's first WHY that morning is a bare ".".
+- Then: "The Hales have no food and every soul counts, so I'm giving them 30 grain as their share of the harvest and counting A1636 paid ... Feed the little ones."
+
+**Day 24, Ashford: the one comparison with the rival.**
+- Denis, TELL Everard: "If Brockley has 11 to our 15 we're still ahead; let's keep every child alive."
+
+**Day 29, Brockley: Hawise leaves.**
+- Hawise, three days after giving birth, WHY: "Food is running short (about 4 days), so I'll care for Ellen ... then go to Brock Wood to fish with my rod. Others can mind Ellen meanwhile."
+- She takes the baby. She dies on the road home (about day 32).
+- Felicia, finding her, later: "Hawise is past help. Her crude tool and fishing rod are useful to the Brockley folk, so I'll take them and carry on rather than spend the time on burial."
+- **Day 34:** Ivo, who went to find them: "Ellen is starving and I carry no food. Fish are plentiful in the Isel, so I'll catch fish by hand and then feed Ellen." He dies on the way home.
+
+**Day 34, Ashford: the crossed plan that killed Bennet.**
+- Bennet, TELL Everard: "It's clear today. I'll dry meat at our hearth this morning and leave for Brockley by Middlemead tonight ... Will you come tonight?"
+- Everard, TELL Bennet: "We leave for Brockley tomorrow at nightfall, by Middlemead."
+- Everard's later reply: "Bennet leaves tonight, so I'll ... set off with him for Brockley at nightfall".
+- Bennet goes alone, without the meat (drying needs 8 in hand).
+- **Day 36,** Bennet at Brockley, SAY everyone: "I'm Bennet of the Hales from Ashford, a mason and a feller. I've come starving through the rain. Will a house here take me in tonight and feed me? I'll pay with 2 timber or 2 tallow, or with days of work."
+- He dies that night. Brockley heard it the next morning.
+- Emma's memory: "he asked for a house to take him in and feed him ... I do not know where he is now or what was decided."
+
+**Day 42, Ashford: the order to fish the Leven.**
+- Cuthbert, SAY Reed House: "We have no food and no seed. Denis, Herbert and Dionisia: go to Middlemead tonight, fish the Leven, and bring the fish home to the bins. Elias, stalk deer."
+
+**Day 45, Ashford: Agnes, two nights from death.**
+- TELL Cuthbert: "Cousin, I'm starving now: two nights with nothing. If the Reeds have anything at all, a little would keep an old woman alive until the fish come."
+- Later, on Felicia of Brockley joining the Reeds: "counts toward our people just as well, and Cuthbert can feed her better than we can. I'll put my one unit into the new room." She spends it building a room for children no one can bear.
+
+**Day 47, Middlemead.**
+- Dionisia, over Beatrice: "Beatrice is dead and past help. Her firewood and timber can keep us warm on the way home."
+- SAY: "Joan, child, Beatrice of the Hales lies dead here of hunger. Turn back and come home to Ashford with us. Middlemead is gathered out."
+
+**Days 51 to 83, Ashford: the aim's last appearances.**
+- Cecily, day 51: "Will you try for a child with me tonight?" The engine refuses both: they are elders.
+- Herbert, day 64, the last young man, on Joan (27 days old, grown by day 57): "I'll go alone: Joan is small, and the cold road costs her 2 food a night."
+- Herbert dies on day 82, carrying fish home.
+- Cecily, day 83, TELL Joan: "Share Herbert's fish with me and keep half for yourself: you're the one who can still bear children." This is the only time anyone notices.
+
+**Day 99, Brockley.**
+- Hamon, TELL Ellen: "Ellen, I go to Brock Wood to look for word of your mother and Ivo." Hawise and Ivo have been dead and buried by his own people for over 60 days. No one told him.
+
+*Current as of 13 Nov 2026 (§8, §9 added).*
