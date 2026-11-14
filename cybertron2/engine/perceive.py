@@ -176,7 +176,8 @@ def facts(here) -> list:
             p = p(x) if callable(p) else p
             add(about, row["text"](x), p, row.get("tags", []), row.get("sense", "sight"), thing=cid, reach=row.get("reach", "rule"),
                 knows=row.get("knows"), lay=row.get("lay"), sign=f"thing:{cid}#{i}",
-                own=row["own"](x) if callable(row.get("own")) else row.get("own"), night=row.get("night", False))
+                own=row["own"](x) if callable(row.get("own")) else row.get("own"), night=row.get("night", False),
+                **({"who": row["who"]} if row.get("who") else {}))
     for e in here.events():
         if e["kind"] == "speech":
             continue
@@ -229,6 +230,20 @@ def chance_of(w, name, f, target=None, mind=None, attending=False, focus=1.0) ->
                                           inside=sp.get("inside") or (), everyone=sp.get("everyone", False),
                                           eye_on="bare" if f.get("eye") else "things", reach=reach, night=f.get("night", False),
                                           attending=attending, focus=focus, sky=(f.get("about") or [""])[0] == "sky", cap=False))
+
+
+def for_me(w, name, f, knows) -> bool:
+    """A thing's sign by its scope (brief 4c §4): "setter" rows only for who set it, "seen" rows for others who know it, "stranger"
+    rows for those who do not know it; rows with no scope for everyone."""
+    who = f.get("who")
+    if not who or not f.get("thing"):
+        return True
+    mine = (w.s["containers"].get(f["thing"]) or {}).get("by") == name
+    if who == "setter":
+        return mine
+    if who == "seen":
+        return not mine and f["thing"] in knows
+    return not mine and f["thing"] not in knows
 
 
 def happened_to(w, name, f) -> bool:
@@ -402,7 +417,14 @@ def evening(w, attend: dict, today: dict, skip=None) -> dict:
             if f.get("thing"):                                                 # things: the one rule (D2-85, D4-75)
                 if f.get("reach") == "count":
                     continue                                                    # counted only when attended to (below)
-                if f["text"] in (knows.get(f["thing"]) or {}).get("texts", []):
+                if not for_me(w, name, f, knows):
+                    continue
+                if f.get("who") in ("setter", "seen"):                         # the look at a set thing one knows (brief 4c §4.1):
+                    if f["text"] == (knows.get(f["thing"]) or {}).get("look"):  # shown when it changed; seen again as it was, its
+                        if rng.random() < chance_of(w, name, f, tgt_raw):      # day kept for the remembered line
+                            TH.look(w, name, f["thing"])
+                        continue
+                elif f["text"] in (knows.get(f["thing"]) or {}).get("texts", []):
                     continue                                                    # already known as it is
                 if not SG.readable(f, practised(mind)):
                     continue
@@ -521,7 +543,8 @@ def evening(w, attend: dict, today: dict, skip=None) -> dict:
             if f.get("thing") and f.get("sense") != "smell":
                 text = f["text"]
                 if f.get("reach") == "near":                                   # a close look: remember what the thing is, now
-                    rows = [g for g in F if g.get("thing") == f["thing"] and g.get("reach") == "near" and g.get("sense") != "smell"]
+                    rows = [g for g in F if g.get("thing") == f["thing"] and g.get("reach") == "near" and g.get("sense") != "smell"
+                            and for_me(w, name, g, knows)]
                     text = min(rows, key=lambda g: int(str(g.get("sign", "#0")).rsplit("#", 1)[-1] or 0))["text"] if rows else text
                 TH.remember(w, name, f["thing"], "saw", text=text, close=f.get("reach") == "near")
         mine = {name, w.household_of(name)}                                     # what one saw of one's own beasts

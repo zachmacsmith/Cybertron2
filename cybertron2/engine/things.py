@@ -49,7 +49,8 @@ def at_node(w, node) -> dict:
     out = {}
     for cid, c in w.s["containers"].items():
         if c["kind"] in KINDS and c.get("node") == node and (c.get("body") or any(q > 1e-9 for q in c["goods"].values())
-                                                             or (c.get("beast") and w.d - int(c.get("died", w.d)) <= 3 * int(THINGS["carcass_bones_after"]))):
+                                                             or (c.get("beast") and w.d - int(c.get("died", w.d)) <= 3 * int(THINGS["carcass_bones_after"]))
+                                                             or set_about(w, c)):
             out[cid] = c
     return out
 
@@ -122,8 +123,14 @@ def rotting(w, c) -> bool:
 def own(w, c) -> float:
     """A thing's own conspicuousness (information/noticing.md), times how it is hidden (taught, or tried untaught)."""
     x = 0.0
-    if c.get("kind") == "set":                                              # a set snare or trap: hard to see, the more once sprung
-        x = float(THINGS["set"]["sprung" if (c.get("set") or {}).get("sprung") is not None else "own"])
+    if c.get("kind") == "set":                                              # a set snare or trap: hard to see, the less once sprung;
+        S = THINGS["set"]                                                   # a fresh catch shows itself, the birds at it more (4c §4.2)
+        x = float(S["sprung" if (c.get("set") or {}).get("sprung") is not None else "own"])
+        st = set_state(w, c)
+        if st["fresh"] or st["birds"]:
+            x = max(x, float(S["caught"]))
+        if st["birds"]:
+            x = min(1.0, x * float(S["birds"]))
     if c.get("beast") and c.get("buried") is None and c.get("burnt") is None:   # a dead beast (D4-52), birds over it more (brief 3)
         x = float(THINGS["carcass_bones" if carcass_bones(w, c) else "carcass"])
         if c.get("birds") is not None and w.d - int(c["birds"]) <= 1:
@@ -153,11 +160,12 @@ def _describe(w, c) -> str:
     g = goods_words(c["goods"])
     if c.get("beast"):
         return f"a dead {c['beast']} lies at {where}" + (": past eating" if not carcass_fresh(w, c) else "")
-    if c.get("kind") == "set":
-        what = "wicker traps set in the water" if (c.get("set") or {}).get("method") == "trap in water" else "a line of snares set"
+    if c.get("kind") == "set":                                              # never "empty": only a look says so (4c §4.3)
+        what = "wicker traps set in the water" if is_trap(c) else "a line of snares set"
+        cw = catch_words(w, c) or g
         if (c.get("set") or {}).get("sprung") is not None:
-            return f"{what} at {where}, sprung and rotten" + (f", with {g} in them" if g else "")
-        return f"{what} at {where}" + (f", with {g} caught in them" if g else ", empty")
+            return f"{what} at {where}, spent" + (f", with {cw} in them" if cw else "")
+        return f"{what} at {where}" + (f", with {cw} caught in them" if cw else "")
     if c.get("hidden") == "buried" and not c.get("body"):
         return f"a patch of turned earth at {where}, as if something were buried there"
     if c.get("hidden") == "under brush":
@@ -260,6 +268,118 @@ def leave_carcass(w, place, beast, herd_name, holders, cause, role_meat, parcel=
         if q > 0:
             w.apply("create", place, dst=cid, item=item, qty=q, why=f"a dead {beast}")
     return cid
+
+
+# ---------------------------------------------------------------------- set things: a catch found by going to it (brief 4c §4)
+NUM = ("no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve")
+
+
+def is_trap(c) -> bool:
+    return (c.get("set") or {}).get("method") == "trap in water"
+
+
+def set_about(w, c) -> bool:
+    """A set thing still lying where it was set, to be looked over: live, or spent within `spent_days`."""
+    sp = c.get("set") if c.get("kind") == "set" else None
+    if not sp:
+        return False
+    return sp.get("sprung") is None or w.d - int(sp["sprung"]) <= int(THINGS["set"]["spent_days"])
+
+
+def catch(w, c) -> list:
+    """The beasts caught in a set thing and still in it ({kind, day}: the night it was caught), while it holds anything."""
+    if c.get("kind") != "set" or not any(q > 1e-9 for q in c["goods"].values()):
+        return []
+    return list(c.get("catch") or [])
+
+
+def set_state(w, c) -> dict:
+    """What a set thing holds now: its catch, whether that is fresh (caught within `fresh_days` nights), whether the birds have
+    come to it (a catch with flesh on it, `birds_after` days after its night), gone bad (flesh, none of it fresh), spent, and
+    whether another emptied it lately (`robbed`, within `robbed_days`)."""
+    S = THINGS["set"]
+    cs = catch(w, c)
+    newest = max((int(x["day"]) for x in cs), default=None)
+    oldest = min((int(x["day"]) for x in cs), default=None)
+    meat = float(c["goods"].get("meat", 0.0))
+    flesh_q = sum(float(c["goods"].get(i, 0.0)) for i in FLESH)
+    rb = c.get("robbed") or {}
+    return {"catch": cs, "fresh": newest is not None and w.d - newest <= int(S["fresh_days"]),
+            "birds": oldest is not None and flesh_q > 1e-9 and w.d - oldest >= int(S["birds_after"]),
+            "bad": bool(cs) and flesh_q > 1e-9 and meat <= 1e-9, "spent": (c.get("set") or {}).get("sprung") is not None,
+            "robbed": not cs and bool(rb) and w.d - int(rb.get("day", -99)) <= int(S["robbed_days"]),
+            "night": w.d > int((c.get("set") or {}).get("set_day", w.d))}
+
+
+def _plural(kind) -> str:
+    """A kind's plural from its own family words ('hares' for a brown hare); else the kind as it is (roe deer, wildfowl)."""
+    from cybertron2.engine.data import RESOURCES
+    fam = ((RESOURCES.get(kind) or {}).get("taken") or {}).get("family") or []
+    last = kind.split()[-1]
+    for f in fam:
+        if f in (last + "s", last + "es"):
+            return kind[: len(kind) - len(last)] + f
+    return kind
+
+
+def catch_words(w, c) -> str:
+    """'a brown hare', 'two brown hares and a fox', 'three eels'."""
+    n = {}
+    for x in catch(w, c):
+        n[x["kind"]] = n.get(x["kind"], 0) + 1
+    bits = [(("an " if k[0] in "aeiou" else "a ") + k) if q == 1 else f"{NUM[q] if q < len(NUM) else 'a dozen or more'} {_plural(k)}"
+            for k, q in sorted(n.items(), key=lambda kv: (-kv[1], kv[0]))]
+    return " and ".join(bits)
+
+
+def look_text(w, c, whose="your") -> str:
+    """The look one who knows a set thing gives it on its parcel (brief 4c §4.1): what it holds now, in world words."""
+    st = set_state(w, c)
+    where = parcel_name(w, c)
+    noun = "wicker traps" if is_trap(c) else "snares"
+    if st["catch"]:
+        cw = catch_words(w, c)
+        one = len(st["catch"]) == 1
+        t = (f"{cw} in {whose} {noun} at {where}" if is_trap(c)
+             else f"{cw} {'hangs' if one else 'hang'} in {whose} {noun} at {where}")
+        return t + (", gone bad and stinking" if st["bad"] else "") + (": they will catch no more" if st["spent"] else "")
+    if st["robbed"]:
+        return (f"{whose} wicker traps at {where} have been lifted and emptied by someone, and put back crooked" if is_trap(c)
+                else f"{whose} snares at {where} have been emptied by someone: a noose pulled open, the grass trodden round it")
+    if st["spent"]:
+        return (f"{whose} wicker traps at {where} are fouled and broken, with nothing in them: they will catch no more" if is_trap(c)
+                else f"{whose} snares at {where} are sprung or broken, with nothing in them: they will catch no more")
+    return f"nothing caught in {whose} {noun} at {where}"
+
+
+def seen_words(w, c) -> str:
+    """What one saw in a set thing, for the remembered line (brief 4c §4.3): 'with a brown hare caught in them', 'nothing caught in
+    them'."""
+    st = set_state(w, c)
+    cw = catch_words(w, c)
+    return ("spent, " if st["spent"] else "") + (f"with {cw} caught in them" if cw else "nothing caught in them")
+
+
+def set_line(w, name, c, r, daystr) -> str:
+    """The remembered line of a set thing (brief 4c §4.3), never "empty" unless seen so: 'a line of snares you set at the Ham
+    (winter day 4)'; seen again, as it was then: '..., with a brown hare caught in them (as you saw it on winter day 6)'."""
+    where = parcel_name(w, c)
+    mine = c.get("by") == name
+    if is_trap(c):
+        base = f"wicker traps you set in the water at {where}" if mine else f"wicker traps set in the water at {where}"
+    else:
+        base = f"a line of snares you set at {where}" if mine else f"a line of snares set at {where}"
+    seen = r.get("set_seen")
+    if seen:
+        return f"{base}, {seen['words']} (as you saw it on {daystr(int(seen['day']))})"
+    if mine:
+        return f"{base} ({daystr(int((c.get('set') or {}).get('set_day', r['day'])))})"
+    return None
+
+
+def set_words(c) -> tuple:
+    """The words a set thing is named by in an act ('the snares', 'my traps'), loosely."""
+    return ("trap", "wicker", "eel") if is_trap(c) else ("snare", "noose")
 
 
 # ---------------------------------------------------------------------- the eye for the land (D4-50, D2-91)
@@ -452,7 +572,20 @@ def remember(w, name, cid, how, text=None, close=False) -> None:
         r.update(text=text, close=bool(near or r.get("close")))
     r.update(day=w.d, how=how, node=c.get("node"), parcel=c.get("parcel"))
     r["texts"] = list(dict.fromkeys(r.get("texts", []) + [text]))[-6:]
+    if c.get("kind") == "set" and how != "put" and (near or how == "found"):  # a look at a set thing: what was in it, and when
+        look(w, name, cid, r)                                                  # (brief 4c §4.3)
     k[cid] = r
+
+
+def look(w, name, cid, r=None) -> None:
+    """One who knows a set thing looked it over: what it held then and the day, for the remembered line, and the look's words (a
+    look shows again only when they change, brief 4c §4.1)."""
+    c = w.s["containers"][cid]
+    r = r if r is not None else w.s["mind"][name].setdefault("things", {}).get(cid)
+    if r is None:
+        return
+    r["set_seen"] = {"words": seen_words(w, c), "day": w.d}
+    r["look"] = look_text(w, c, "your" if c.get("by") == name else "the")
 
 
 def known_here(w, name, node) -> dict:
@@ -479,6 +612,10 @@ def find(w, name, where, item=None):
         names = {pname, pname.removeprefix("the "), w.s["buildings"].get(c.get("in"), {}).get("name", "").lower(),
                  w.s["buildings"].get(c.get("door"), {}).get("name", "").lower()} - {""}
         said = low and (low in names or any(len(n) > 3 and n in low for n in names))   # a place or a door named within a phrase (D4-94)
+        if low and not said and c.get("kind") == "set" and any(x in low for x in set_words(c)):   # "the snares", "my traps"
+            other = [p for p, x in w.s["parcels"].items() if x["node"] == c.get("node") and p != c.get("parcel")
+                     and len(x["name"]) > 3 and x["name"].lower().removeprefix("the ") in low]
+            said = not other                                                   # unless it names another place (brief 4c §4.4)
         if low and not said and (c.get("of") or "").lower() not in low:
             continue
         if item and c["goods"].get(item, 0.0) <= 1e-9:
