@@ -1037,3 +1037,5 @@ For when Q-45 is decided. The prototype is in `proto/peoplegen/`, with `REPORT.m
 - **What was measured:** 80 forward worlds and 40 mixes; no refusals; deterministic; no invariant broken; demography matches.
 - **What to keep in a build brief:** the decision order and the blame rules (REPORT.md "For the build").
 - **Calibrations left:** OPEN L-108.
+
+**14 Nov, 37.4 → 37.2: brief 4c built.** On Zach's go (14 Nov). Branch `ecology-hunt3` (§3, §3.3, §4, §5, §6, §7.1 data, §7.2), merged into `peoples-worlds` (3cf6816). Full suite 580 on both branches. Calibration is in `docs/review/37_growth/02zzd_ev/ev_region_4c.json` on the branch. Near, armed: novice 0.29, capable 0.82, master 2.47. Two misses are for Zach: the novice's kill share, and depletion by one hunter. Over to you for your D2 records and the proposal's status (proposals/hunt_calibration.md). WORK W-36.
