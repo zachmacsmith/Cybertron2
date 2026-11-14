@@ -1523,7 +1523,22 @@ def _carcass_pull(w, node, t) -> float:
     return best
 
 
-RANGE_PICK = {"memory": 3.0}    # a ranging group's pull to the village it remembers (raided unopposed, a herd seen; calibrate, 4c)
+RANGE_PICK = {"memory": 3.0}    # a ranging group's pull to the village it remembers (raided unopposed, a herd seen; calibrate, 4c);
+                                # a village farther off draws it by exp(-distance / the range's radius, sqrt(range_km2 / pi))
+
+
+def _raidable(w, node) -> bool:
+    """Whether a node has anything a group could come for (brief 4c §7.2): a herd out, a field with a standing crop, a store with
+    goods in it, the dead lying open. Only such a node is a village to a ranging group, and to the generator's check."""
+    from cybertron2.engine import farm as FM, things as TH
+    if any(h.get("node") == node and h.get("parcel") and not h.get("with") and FM.head(h) > 0 for h in w.s["herds"].values()):
+        return True
+    if _fields(w, node):
+        return True
+    if any(b.get("node") == node and b.get("stock") and any(float(q) > 0 for q in ((w.s["containers"].get(b["stock"]) or {}).get("goods")
+                                                                                 or {}).values()) for b in w.s["buildings"].values()):
+        return True
+    return bool(TH.open_dead(w, node))
 
 
 def _range_km2(m, kind) -> float:
@@ -1581,8 +1596,8 @@ def range_count(m, st, kind, node, land) -> float:
 
 
 def within_range(w) -> dict:
-    """For each village (a node with a house to sleep in), the whole-counted kinds that come near people for their beasts, stores or
-    dead (not the fields alone) and could reach it: the grown heads within a ranging kind's range of its site (brief 4c §7.2), or
+    """For each village (a node with something to come for, `_raidable`), the whole-counted kinds that come near people for their
+    beasts, stores or dead (not the fields alone) and could reach it: the grown heads within a ranging kind's range of its site (brief 4c §7.2), or
     within a node-bound kind's reach, against the least group (the generator's check, §7.3).
     {village name: {kind: {"heads", "least", "range_km2" or "reach"}}}."""
     if not on(w) or not (w.s.get("wild") or {}).get("state"):
@@ -1590,7 +1605,7 @@ def within_range(w) -> dict:
     m, st, land = model(w), w.s["wild"]["state"], w.s["wild"]["land"]
     ix = {a: i for i, a in enumerate(m.ids)}
     rings = {a["node"]: ix[aid] for aid, a in land["areas"].items() if a["kind"] == "ring"}
-    homes = sorted({b["node"] for b in w.s["buildings"].values() if (b.get("fittings") or {}).get("beds")} & set(rings))
+    homes = sorted(nd for nd in rings if _raidable(w, nd))                # a village: a node with something to come for
     out = {}
     for node in homes:
         row = {}
@@ -1825,7 +1840,8 @@ def _groups(w, m, st) -> dict:
             attr = max([t["attr"] for t in rows] or [0.0])
             hunger = 1.0 - float(np.asarray(st["cond"][kind])[ri])
             night_of(gid, g, node, ri, kind, np_, ef, rows, attr, hunger, lmul, rng)
-    homes = {nd: ix[aid] for nd, aid in sorted((land.get("home") or {}).items()) if nd in rings and aid in ix}
+    homes = {nd: ix[aid] for nd, aid in sorted((land.get("home") or {}).items()) if nd in rings and aid in ix
+             and ranging and _raidable(w, nd)}                            # a village: a node with something to come for (4c §7.2)
     for kind in [k for k in m.names if k in ranging]:                     # groups that range (brief 4c §7.2)
         W, D, R = ranging[kind]
         np_, spec = _near(kind), m.kinds[kind]
@@ -1856,7 +1872,7 @@ def _groups(w, m, st) -> dict:
                 continue
             share = np.minimum(avail, W[c])
             count = float((adults * share).sum())
-            if not near_v[c] or count < lo_c[c]:
+            if count < lo_c[c]:                                           # (with nothing to come for in range, it waits)
                 groups.pop(gid, None)
                 continue
             avail = avail - share
@@ -1915,7 +1931,9 @@ def _groups(w, m, st) -> dict:
                 v, _, rows, attr = pick
                 g["node"] = v
             else:
-                v = g["node"] if g.get("node") in rings else near_v[c][0]
+                v = g["node"] if g.get("node") in rings else (near_v[c] or [None])[0]
+                if v is None:
+                    continue
                 rows = _rows_at(w, v, np_, ef_at(v))
                 attr = max([t["attr"] for t in rows] or [0.0])
             night_of(gid, g, v, rings[v], kind, np_, ef_at(v), rows, attr, hunger, lmul, rng, knows_here=g.get("found_at") == v)
