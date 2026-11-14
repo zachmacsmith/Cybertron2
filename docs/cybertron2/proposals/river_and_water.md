@@ -99,6 +99,29 @@ a run of 14 days holds the autumn run. The wild region (02zze: Weirford on its r
 | **beaver** (the site, built) | the dam floods the meadow below: the meadow parcel next to the lodge's water loses hay (a cut, calibrate) and the water parcel's fish stock rises; `break a dam` (built) ends both for a season; trapping takes the pelt and castoreum (built) | the dam lowers the meadow's hay and raises the fish; breaking it reverses both |
 | **heron** (the site, built) | herons take fish from the village's water and from a fish pond (a cut of its stock); the heronry's size follows the fish | a big heronry lowers a small water's fish |
 
+## 4a. The smokehouse: keeping a glut (moved here from brief 4c, Zach 13 Nov)
+
+A run of eels or salmon, like a herd slaughtered before winter, brings more food in a few nights than a household's hearth rack can
+keep: a rack dries about 8 meat every 3 nights (about 2.7 a night), while fresh fish and meat spoil fast. The smokehouse is the
+scale above the rack (water_and_preservation.md §7).
+
+1. **Its own building, apart:** a small room with **smoke racks** (a fitting; about 2 timber and 2 units), on any parcel with room.
+   - **Wattle** (cheap): a smoulder in clay-daubed wattle can catch; a keyed fire chance each night it burns (calibrate), the danger
+     being to the buildings on its own parcel.
+   - **Stone** (dear): near no risk. Built on another parcel than the houses (a croft, a field's edge), a fire there reaches no
+     house: the engine counts space in a parcel, so "apart" is another parcel.
+2. **A batch:** up to about **40** fish or meat, loaded in one act; **3 to 4 nights**.
+3. **The fire:** a smoulder of hardwood or chips, about 1 firewood a night. **Tended once a day** (a unit, at the place); banked, it
+   lasts the night. A day untended, the fire dies that night: the batch pauses and spoils that night at the open rate. Nobody sits
+   up with it.
+4. **It gives smoked fish and smoked meat:** about half the weight; keeping about four times as long as dried meat (slow smoke dries
+   further and preserves). Their uses: laying in for winter, food carried on a long journey, trade.
+5. **Whose:** its builder's household. Others use it by agreement (a rent or a share), so it is a thing to control, like the mill;
+   it can be robbed while a batch is in. Its owners see its state when at the place, by brief 4c §6.4's rule ("the smokehouse: 30
+   eels curing, 2 nights left, the fire low").
+6. **Tests:** a 40-eel run loses under 10% through a smokehouse and about half without; a day untended pauses the batch; a wattle
+   smokehouse sometimes catches, a stone one almost never; a neighbour pays to use it.
+
 ## 5. Not in this brief
 
 - **Fen only:** the decoy pond (it needs a trained dog, K6), reedbeds, crane and bittern with drainage, the fen ague. They wait on
@@ -177,6 +200,8 @@ pack off: crews on run nights, weirs built and kept, the gap disputed between th
   first briefs before any foraging").
 
 - 10 Nov 2026: rebased on brief 4b (hunt_followups.md): its branch, declared parties for crew work, wariness and recovery in the ecology the runs move through.
+- 13 Nov 2026: the smokehouse added (§4a), moved from brief 4c (Zach: "that sounds valid"): its own building, wattle with a fire
+  risk or stone, apart on another parcel, tended once a day, giving smoked fish and meat that keep about four times as long as dried.
 - 12 Nov 2026: revised for Zach's check: after brief 4c (the take as calibrated; set things found by going to them, and remembered
   without "empty", Zach 12 Nov); the branch from main after the merge; the worlds from the generator, starting late in summer, with
   the region as a third check; proposed answers to the salmon's return and the run-night target.
