@@ -229,7 +229,7 @@ def test_the_manual_says_come_back_and_take_what_is_in_them():
 def test_a_night_catch_is_recorded_with_its_night_and_its_chance_has_no_clip(generated):  # noqa: F811
     import inspect
     src = inspect.getsource(WL._set_night)
-    assert "1.0 - math.exp(-xp)" in src and "min(0.95" not in src
+    assert "chance(" in src and "min(0.95" not in src                         # 1 - e^(-x) (wild.chance), no clip
     world = _two(generated)
     w, _ = _summer_world(world)
     w.s["today"] = R.blank_today()
