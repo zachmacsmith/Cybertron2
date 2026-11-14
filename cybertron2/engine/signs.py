@@ -1968,7 +1968,8 @@ def _wild_traces(here, pid, p, sub, add) -> None:
         rows = ((RAID_SIGNS.get(sort) or {}).get(tr.get("kind")) if sort else None) or (SIGNS.get(tr.get("kind")) or {}).get(what) \
             or WATCH_SIGNS.get(what) or []
         rows = list(rows) + list((EXPERT_SIGNS.get(tr.get("kind")) or {}).get(what) or [])
-        g = ((here._w.s.get("wild") or {}).get("groups") or {}).get(f"{tr.get('kind')}@{here.node}") or {}
+        from cybertron2.engine import wild as WL
+        g = WL.group_at(here._w, tr.get("kind"), here.node)[1] or {}        # its group, or the ranging one there (brief 4c §7.2)
         from cybertron2.wild.kinds import LEADERS
         ld = LEADERS.get(tr.get("kind"))
         if ld and what in ("edge", "raid"):
