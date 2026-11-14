@@ -188,7 +188,7 @@ class Here:
         from cybertron2.engine import life as LF
         inst = self._w.s["institutions"].get(self.household() or "", {})
         return {"on": LF.on(self._w), "dial": LF.dial(self._w), "gap": LF.in_gap(self._w, self.name), "succession": inst.get("succession"),
-                "order": inst.get("order"), "heir": inst.get("heir")}
+                "order": inst.get("order"), "heir": inst.get("heir"), "lifespan": LF.lifespan(self._w)}
 
     def person_stage(self, x) -> str:
         return self._w.s["people"][x]["stage"]

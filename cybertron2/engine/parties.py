@@ -160,7 +160,8 @@ def cost(here, a, c, left) -> int:
 
 
 def record(here, mind, tech, key, place_name, out, m_skill, a) -> str:
-    """A hunting act in a party: kept to be settled after the day's acts. The units are spent and the method practised now."""
+    """A hunting act in a party: kept to be settled after the day's acts. The units are spent now; the method is practised when the
+    hunt is settled (brief 4c §3.3)."""
     lead = member_of(here)
     full = int(TECHNIQUES[tech]["units"])
     spent = a.get("_units")
@@ -199,6 +200,7 @@ def settle(w) -> dict:
             ms = [WL.member(Here(w, n), Mind(w, n), acts[n]["out"], acts[n]["skill"], acts[n]["t"], acts[n].get("ox")) for n in names]
             tech = first["tech"]
             r = WL.hunt(here0, ms, tech, first["key"], first["place"], TECHNIQUES[tech]["yield"], first["a"])
+            WL.practise(ms, tech, r)                                          # practised by how it went, behind the leader (4c §3.3)
             for n in names:
                 out.setdefault(n, []).append(r["lines"][n] + r["tails"][n])
     if today.get("party_acts"):
