@@ -1232,8 +1232,9 @@ def _targets(w, node, t) -> list:
     if what == "res":
         return [(pid, pid) for pid, par in sorted(w.s["parcels"].items()) if par["node"] == node and par["cover"] in (t.get("covers") or [])
                 and float(((par.get("res") or {}).get(t["res"]) or {}).get("S", 0)) > 1.0]
-    if what == "left out":                                                # food left out at a house's door (brief 4 §4.1)
-        return [(cid, w.s["buildings"][c["door"]]["parcel"]) for cid, c in _left_out(w, node)]
+    if what == "left out":                                                # food left out at a house's door (brief 4 §4.1), and
+        return [(cid, w.s["buildings"][c.get("door") or c["in"]]["parcel"])  # a rack inside, reached as the store is (4c §6.2)
+                for cid, c in _left_out(w, node) + _racks_in(w, node)]
     if what == "carcass":                                                 # the dead lying open, or shallow for a digger (brief 3 §3)
         return [(cid, c["parcel"]) for cid, c in _dead_at(w, node, t if isinstance(t, dict) else {})]
     return []
@@ -1342,6 +1343,8 @@ def _raid(w, g, np_, kind, t, tgt, parcel, scare, rng) -> dict:
         from cybertron2.wild.kinds import LEFT_OUT
         c = w.s["containers"].get(tgt) or {}
         took = 0.0
+        if c.get("in") in w.s["buildings"] and not _gets_in(w, c["in"], kind, rng):   # inside: only as into the store (4c §6.2)
+            return {"took": 0}
         for item in LEFT_OUT["items"]:
             q = float((c.get("goods") or {}).get(item, 0.0))
             if q > 1e-9:
@@ -1378,11 +1381,8 @@ def _raid(w, g, np_, kind, t, tgt, parcel, scare, rng) -> dict:
         return {"ate": round(ate, 4), **out}
     if what in ("items", "hens"):
         b = w.s["buildings"][tgt]
-        if t.get("door", False):
-            shut = int(((w.s["wild"].get("shut") or {}).get(tgt) or {}).get("day", -9)) == w.d
-            passes = gaps_pass(b, kind)                                       # the building's own gaps against the kind's (§4)
-            if rng.random() >= (0.9 if passes else (0.02 if shut else 0.6)):  # shut in, a door is seldom left open; left, often;
-                return {"took": 0}                                            # through its gaps, shut or not
+        if t.get("door", False) and not _gets_in(w, tgt, kind, rng):
+            return {"took": 0}
         goods = w.s["containers"][b["stock"]].get("goods") or {}
         took = 0.0
         for item in _items_of(t.get("items")):
@@ -1405,6 +1405,14 @@ def _raid(w, g, np_, kind, t, tgt, parcel, scare, rng) -> dict:
             w.apply("draw", node, parcel=tgt, key=t["res"], qty=q)
         return {"stripped": q}
     return {}
+
+
+def _gets_in(w, bid, kind, rng) -> bool:
+    """Whether a kind that comes for what is inside a house gets in tonight: through its gaps (a holed house for a fox, brief 4 §3),
+    else by the door, seldom when shut up for the night, often when left (D2-207)."""
+    shut = int(((w.s["wild"].get("shut") or {}).get(bid) or {}).get("day", -9)) == w.d
+    passes = gaps_pass(w.s["buildings"][bid], kind)                         # the building's own gaps against the kind's (§4)
+    return rng.random() < (0.9 if passes else (0.02 if shut else 0.6))
 
 
 def layout_steps(w, a, b):
@@ -2273,6 +2281,15 @@ def _left_out(w, node) -> list:
     return out
 
 
+def _racks_in(w, node) -> list:
+    """Racks of food hanging inside a node's houses, at a hearth (brief 4c §6.2): [(thing id, thing)]. Part of the house: what comes
+    for them comes as for its store."""
+    from cybertron2.wild.kinds import LEFT_OUT
+    return [(cid, c) for cid, c in sorted(w.s["containers"].items()) if c.get("kind") == "pile" and c.get("node") == node
+            and c.get("in") in w.s["buildings"] and c.get("rack")
+            and any(float((c.get("goods") or {}).get(i, 0.0)) > 1e-9 for i in LEFT_OUT["items"])]
+
+
 def _food_out_night(w) -> None:
     """Which houses had food left out at the door tonight, for the cats that come to it (brief 4 §4.1)."""
     from cybertron2.wild.kinds import LEFT_OUT
@@ -2342,6 +2359,14 @@ def _stores(w, node, share) -> float:
                 take = round(float(q) * share * keep * plague, 4)
                 if take > 1e-6:
                     w.apply("destroy", node, src=cid, item=item, qty=take, why="eaten in store by wild kinds")
+                    total += take
+        from cybertron2.wild.kinds import LEFT_OUT                          # a rack inside: at the store's rate (brief 4c §6.2)
+        for rid, c in [(r, c) for r, c in _racks_in(w, node) if c["in"] == bid]:
+            for item in LEFT_OUT["items"]:
+                q = float((c.get("goods") or {}).get(item, 0.0))
+                take = round(q * share * keep * plague, 4)
+                if take > 1e-6:
+                    w.apply("destroy", node, src=rid, item=item, qty=take, why="eaten on the rack by wild kinds")
                     total += take
     from cybertron2.wild.kinds import LEFT_OUT                              # and what is left out at the doors, in the open: as much
     for pid_, c in _left_out(w, node):                                    # again, nothing stopping them (brief 4 §4.1)

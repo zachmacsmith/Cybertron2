@@ -168,14 +168,6 @@ def night(w) -> dict:
     for cid, c in list(s["containers"].items()):                              # spoilage, by condition (D2-58, D2-87)
         if c["kind"] == "hands" and not s["people"][c["of"]]["alive"]:
             continue
-        rk = c.get("rack")
-        if rk and not rk.get("done") and w.d - int(rk["day"]) >= int(rk["nights"]):   # dried on the rack (brief 4 §5)
-            place = w.place_of(("container", cid))
-            for item in [i for i, q in c["goods"].items() if q > 1e-9 and ITEMS.get(i, {}).get("decay") == "drying meat"]:
-                q = float(c["goods"][item])
-                w.apply("destroy", place, src=cid, item=item, qty=q, why="dried")
-                w.apply("create", place, dst=cid, item=rk["into"], qty=round(q * float(rk["ratio"]), 4), why="dried on the rack")
-            w.apply("set_thing", place, cid=cid, field="rack", value=dict(rk, done=w.d))
         flesh_by_size = c["kind"] == "carcass" and c.get("beast")
         if flesh_by_size:                                                      # a dead beast's flesh by its size (D4-52, brief 3 §2);
             _carcass_night(w, cid, c)                                          # its hide and tallow as goods are
@@ -195,6 +187,9 @@ def night(w) -> dict:
                 rec["spoiled"][item] = round(rec["spoiled"].get(item, 0.0) + lost, 4)
                 if becomes and lost > 1e-9:
                     w.apply("create", place, dst=cid, item=becomes, qty=lost, why="rot")
+        rk = c.get("rack")
+        if rk and not rk.get("done") and w.d - int(rk["day"]) + 1 >= int(rk["nights"]):   # dry after its nights (brief 4 §5, 4c §6)
+            _dried(w, cid, c, rk)
     for bid, b in s["buildings"].items():                                       # a camp falls in after its nights (D2-68)
         if levelled:                                                            # shelter in levels: no fixed life (brief 4 §3)
             break
@@ -269,6 +264,30 @@ def departures(w, today) -> list:
             out.append({"agent": name, "from": here, "to": to})
     today["_departed"] = out
     return out
+
+
+def _dried(w, cid, c, rk) -> None:
+    """A batch dry on its rack tonight, after its last night's loss (brief 4 §5): the meat turned to dried meat at the rack's ratio,
+    then put into the store of the house it hangs in or at, as much as there is room for; the rest stays on the rack until taken
+    (brief 4c §6.3). The rack records the day, what dried and what went in, for the household's morning line."""
+    from cybertron2.engine import buildings as BL
+    place = w.place_of(("container", cid))
+    dried = 0.0
+    for item in [i for i, q in c["goods"].items() if q > 1e-9 and ITEMS.get(i, {}).get("decay") == "drying meat"]:
+        q = float(c["goods"][item])
+        w.apply("destroy", place, src=cid, item=item, qty=q, why="dried")
+        dried += w.apply("create", place, dst=cid, item=rk["into"], qty=round(q * float(rk["ratio"]), 4), why="dried on the rack")
+    stored = 0.0
+    bid = c.get("in") or c.get("door")
+    b = w.s["buildings"].get(bid)
+    if b is not None and b.get("stock") in w.s["containers"] and dried > 1e-9:
+        have = float(c["goods"].get(rk["into"], 0.0))
+        stored = round(min(have, BL.room_for(b, w.goods(b["stock"]), rk["into"])), 4)
+        if stored > 1e-6:
+            w.apply("transfer", place, src=cid, dst=b["stock"], item=rk["into"], qty=stored)
+        else:
+            stored = 0.0
+    w.apply("set_thing", place, cid=cid, field="rack", value=dict(rk, done=w.d, dried=round(dried, 4), stored=stored))
 
 
 def decay_rate(w, c, item) -> tuple:

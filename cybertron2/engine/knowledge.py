@@ -258,9 +258,22 @@ def pick_inputs(here, needs: dict, mult=1.0, extra=None) -> dict:
     return out
 
 
-def inputs_words(needs: dict) -> str:
-    return ", ".join(" or ".join(f"{n:g} {i}" for i, n in q.items()) if isinstance(q, dict) else f"{q:g} {item}"
+def inputs_words(needs: dict, batch=False) -> str:
+    return ", ".join(" or ".join(f"{n:g} {i}" for i, n in q.items()) if isinstance(q, dict) else ("up to " if batch else "") + f"{q:g} {item}"
                      for item, q in (needs or {}).items())
+
+
+def batch_share(here, tech, mult=1.0, extra=None) -> float:
+    """The share of a full batch one makes (brief 4c §6.1): 1 for a recipe that takes its inputs whole; for one that takes whatever
+    one has up to its batch (`batch`), the least share of any input to hand, at most 1 (0 with none of an input)."""
+    t = TECHNIQUES[tech]
+    if not t.get("batch"):
+        return 1.0
+    share = 1.0
+    for item, q in (t.get("inputs") or {}).items():
+        alts = q if isinstance(q, dict) else {item: q}
+        share = min(share, max(available(here, i, extra=extra) / max(1e-12, n * mult) for i, n in alts.items()))
+    return max(0.0, min(1.0, share))
 
 
 def shortfall(here, mind, tech, mult=1.0, at=None, extra=None, a=None) -> str:
@@ -293,6 +306,12 @@ def shortfall(here, mind, tech, mult=1.0, at=None, extra=None, a=None) -> str:
             return why
     for item, q in (t.get("inputs") or {}).items():
         alts = q if isinstance(q, dict) else {item: q}
+        if t.get("batch") and not any(available(here, i, extra=extra) > 1e-6 for i in alts):    # any amount, up to the batch (4c §6.1)
+            i, n = next(iter(alts.items()))
+            from cybertron2.engine.verbs import _short_note
+            return f"it takes up to {round(n * mult, 2):g} {i}, and you have none to hand" + _short_note(here, i)
+        if t.get("batch"):
+            continue
         if not any(available(here, i, extra=extra) + 1e-9 >= round(n * mult, 2) for i, n in alts.items()):
             i, n = next(iter(alts.items()))
             more = "".join(f" or {round(n2 * mult, 2):g} {i2}" for i2, n2 in list(alts.items())[1:])
@@ -318,7 +337,7 @@ def card(here, mind, tech) -> str:
     places = ", ".join(sorted({x[2] for x in where(here, tech)})) or "nowhere here"
     if lvl == "aware":
         return f"{t['label']}: you know of it{src}, but not how it is done"
-    ins = inputs_words(t.get("inputs")) or "no materials"
+    ins = inputs_words(t.get("inputs"), t.get("batch")) or "no materials"
     if lvl == "rough":
         return f"{t['label']}: you have a rough idea{src}: {ins}, done at {places}. You could try (about half the time it works, and it takes more)"
     gives = t["gives"] if isinstance(t["gives"], str) else ", ".join(f"{q:g} {i}" for i, q in t["gives"].items())

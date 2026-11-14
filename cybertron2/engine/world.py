@@ -580,7 +580,8 @@ class World:
 
     def takeable(self, name, node=None) -> list:
         """Containers at this node one may take from: one's hands, then stores where one has withdrawal, then what was left at
-        those stores' doors (goods that overflow at a door stay the house's: D4-89)."""
+        those stores' doors (goods that overflow at a door stay the house's: D4-89) or hangs inside their houses (a rack at the
+        hearth: brief 4c §6.2)."""
         node = node or self.at(name)
         out = [self.hands(name)]
         mine = set()
@@ -588,7 +589,7 @@ class World:
             if b["node"] == node and self.may_take(name, b["stock"]):
                 out.append(b["stock"])
                 mine.add(bid)
-        out += [cid for cid, c in self.s["containers"].items() if c.get("kind") == "pile" and c.get("door") in mine
+        out += [cid for cid, c in self.s["containers"].items() if c.get("kind") == "pile" and (c.get("door") in mine or c.get("in") in mine)
                 and not c.get("hidden") and c.get("node") == node]
         return out
 

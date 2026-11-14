@@ -518,6 +518,7 @@ TECHNIQUES = {
                   "basic": True, "inputs": {"meat": 4, "salt": 1}, "units": 1, "gives": {"salt meat": 4}, "tags": ["food", "cooking"]},   # brief 4 §5.2
     "dry meat": {"verb": "make", "label": "drying meat over a fire", "aliases": ["drying meat", "cure meat"], "basic": True,
                  "at": {"fittings": ["hearth", "fire ring"]}, "inputs": {"meat": 8}, "units": 1, "gives": {"drying meat": 8},
+                 "batch": True,                                                 # whatever one has, up to the batch (brief 4c §6.1)
                  "rack": {"nights": 3, "into": "dried meat", "ratio": 0.5}, "tags": ["food", "cooking"]},   # cut and hung in a batch (brief 4 §5.1)
     "cheese": {"verb": "make", "label": "making cheese", "aliases": ["cheesemaking"], "at": {"fittings": ["cellar"]},
                "inputs": {"milk": 6, "salt": 0.2}, "units": 1, "gives": {"cheese": 1}, "tags": ["food", "animals"], "trade": "herder"},

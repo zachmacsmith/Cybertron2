@@ -158,6 +158,9 @@ def _describe(w, c) -> str:
         if (c.get("set") or {}).get("sprung") is not None:
             return f"{what} at {where}, sprung and rotten" + (f", with {g} in them" if g else "")
         return f"{what} at {where}" + (f", with {g} caught in them" if g else ", empty")
+    if c.get("rack") and not c.get("hidden"):                                  # meat hung to dry (brief 4 §5, 4c §6.2)
+        return (f"a rack of {g or 'nothing'} hanging in the smoke of the hearth in {where}" if c.get("in") else
+                f"a rack of {g or 'nothing'} drying by the fire at {where}")
     if c.get("hidden") == "buried" and not c.get("body"):
         return f"a patch of turned earth at {where}, as if something were buried there"
     if c.get("hidden") == "under brush":
@@ -471,7 +474,10 @@ def find(w, name, where, item=None):
         if c and c.get("node") == w.at(name) and cid in known and (not item or c["goods"].get(item, 0.0) > 1e-9):
             return cid
         return None
-    for cid, r in sorted(known_here(w, name, w.at(name)).items(), key=lambda kv: -kv[1]["day"]):
+    homes = set(w.homes(name))                                                 # what lies in or at one's own house is known
+    own = {cid: {"day": w.d} for cid, c in w.s["containers"].items() if c.get("kind") == "pile" and c.get("node") == w.at(name)
+           and not c.get("hidden") and (c.get("in") in homes or c.get("door") in homes)}   # without a roll (brief 4c §6.4)
+    for cid, r in sorted({**own, **known_here(w, name, w.at(name))}.items(), key=lambda kv: -kv[1]["day"]):
         c = w.s["containers"].get(cid)
         if not c or c.get("node") != w.at(name):
             continue

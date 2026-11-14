@@ -751,24 +751,30 @@ def _make(here, mind, a, party):
         if why:
             res.append(f"Refused: make {tech}: {why}")
             break
-        _consume(here, t.get("inputs") or {}, mult, extra)
+        share = KN.batch_share(here, tech, mult, extra)                        # whatever one has, up to the batch (brief 4c §6.1)
+        _consume(here, t.get("inputs") or {}, mult * share, extra)
         if b is not None and fits and WE.on(here.p):
-            WE.use(here, site[1], fits, sum(v for v in (t.get("inputs") or {}).values() if isinstance(v, (int, float))) * fac)
+            WE.use(here, site[1], fits, sum(v for v in (t.get("inputs") or {}).values() if isinstance(v, (int, float))) * fac * share)
         ok = here.rng("make", here.day, here.name, tech, i).random() < TRY[lvl]["chance"]
         rose = KN.tried(here, mind, tech, ok, units=t["units"])
         if ok:
             full = ""
             gives = {item: (q if fac == 1.0 else round(q * fac, 2)) for item, q in t["gives"].items()}
+            if share < 1.0:
+                gives = {item: round(q * share, 4) for item, q in gives.items()}
             rk = t.get("rack")
             if rk and b is not None:                                           # hung on a rack at the fire, for its nights (brief 4 §5)
-                smoke = bool((b.get("fittings") or {}).get("hearth"))
-                dst = here.apply("new_thing", node=here.node, parcel=b["parcel"], kind="pile", door=site[1], by=here.name,
+                smoke = bool((b.get("fittings") or {}).get("hearth"))          # at a hearth: inside, in its smoke (brief 4c §6.2)
+                dst = here.apply("new_thing", node=here.node, parcel=b["parcel"], kind="pile", by=here.name,
+                                 **({"in": site[1]} if smoke else {"door": site[1]}),
                                  rack={"day": here.day, "nights": int(rk["nights"]), "into": rk["into"], "ratio": float(rk["ratio"]),
                                        "smoke": smoke})
-                here.remember_thing(dst, "put")
+                if site[1] not in here.homes_here():                           # one's own house is known without it (4c §6.4)
+                    here.remember_thing(dst, "put")
                 for item, q in gives.items():
                     here.apply("create", dst=dst, item=item, qty=q, why=tech)
-                full = f"; it hangs on a rack {'in the smoke of the hearth' if smoke else 'by the fire'} at {b['name']} for {int(rk['nights'])} nights"
+                full = (f"; it hangs on the rack in the smoke of the hearth inside {b['name']} for {int(rk['nights'])} nights" if smoke else
+                        f"; it hangs on a rack by the fire outside {b['name']} for {int(rk['nights'])} nights")
             for item, q in ({} if rk and b is not None else gives).items():
                 full += _full_note(here, out, item, q)
                 here.apply("create", dst=out, item=item, qty=q, why=tech)
