@@ -698,10 +698,11 @@ def _technique(here, mind, a, party, verb):
         here.apply("create", dst=out, item=gives, qty=got, why=tech)
     if tool and t.get("wear"):
         here.apply("wear", container=here.hands, item=tool, uses=t["wear"])
-    KN.tried(here, mind, tech, got > 0 or y["kind"] in ("sow", "tend", "repair", "slaughter", "break", "manure", "herd", "bury", "fence", "gate",
-                                                       "wild_watch", "wild_take", "wild_shut", "wild_guard", "wild_forage", "wild_site",
-                                                       "wild_den", "wild_young", "wild_pest"),
-             units=t["units"])
+    if not (y["kind"] in ("wild_take", "wild_den") and not t.get("set")):   # a hunt is practised by how it went (wild.practise, 4c §3.3)
+        KN.tried(here, mind, tech, got > 0 or y["kind"] in ("sow", "tend", "repair", "slaughter", "break", "manure", "herd", "bury", "fence",
+                                                           "gate", "wild_watch", "wild_take", "wild_shut", "wild_guard", "wild_forage",
+                                                           "wild_site", "wild_young", "wild_pest"),
+                 units=t["units"])
     MOD.practise(here, mind, a["_mods"])
     for_txt = f" for {here.households()[party]['name'] if party in here.households() else party}" if party and party != here.name else ""
     text = f"{here.name} was {KN.label(tech)} at {place_name}{for_txt}{note}"

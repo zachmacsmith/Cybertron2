@@ -410,12 +410,14 @@ FOLLOW_HARVEST = {"rats": 1.0, "voles and mice": 0.5}
 # hunted kinds leaving a hunted area (a share a day for each unit of pressure); pressure added by a hunt, a kill, a crew; its fading
 HUNTED = {"flee": {"red deer": 0.18, "roe deer": 0.12, "wild boar": 0.09}, "hunt": 0.25, "kill": 0.3, "crew": 0.5, "fade": 0.75}   # brief 4 §2.8
 # the take as a search over time (brief 4 §2, calibrate): meetings a trip ~ Poisson(sum of density x detect x ... x ground x `meet`),
-# at most `most`; a kill at `take_k` x skill x weapon x (1 - flee) x familiarity; the areas crossed on the way searched at `cross`;
+# at most `most`; a kill at 1 - e^(-the method's take_base x gear x skill x (1 - flee) x familiarity) (brief 4c §3.1; `take_k` the
+# base of a method with none), x (1 + `crew` a member past the first) for a crew's method (the drive, brief 4c §5); the areas crossed
+# on the way searched at `cross`;
 # a method with no sweep of its own searches `sweep` km2 a unit; how wary the game is of people is learned (WARY), not by the land's
 # kind (brief 4b §2.1)
 # a beast led on a hunt (brief 4b §3.2, calibrate): the game knows the party sooner (meetings x seen) and flees more readily
 LEAD = {"seen": 0.85, "flee": 0.15}
-HUNT = {"meet": 0.21, "take_k": 0.25, "cross": 0.2, "sweep": 0.5, "most": 8, "set_meet": 0.03}   # a set's night: Poisson, as before at low
+HUNT = {"meet": 0.21, "take_k": 0.25, "cross": 0.2, "sweep": 0.5, "most": 8, "set_meet": 0.03, "crew": 0.25}   # a set's night: Poisson, as before at low
 
 # ---------------------------------------------------------------------- wave 5: sites, individuals, rare regimes (wild_layer.md §6 phase 9)
 # Sites (wild_systems.md §5, colony and engineer): held on a parcel for generations, placed at world build where the land suits

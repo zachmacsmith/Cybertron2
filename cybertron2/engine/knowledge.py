@@ -46,19 +46,42 @@ def curve(tech):
     return float(lo), float(hi)
 
 
+def hard(tech) -> bool:
+    """The hunt's curve (brief 4 §2.6; brief 4c §3.1): a multiplier on the bare-handed novice's chance."""
+    return (TECHNIQUES.get(tech) or {}).get("curve") == "hard"
+
+
 def tau(tech) -> float:
-    return float(SKILL["tau_hard"] if (TECHNIQUES.get(tech) or {}).get("curve") == "hard" else SKILL["tau"])
+    return float(SKILL["tau"])
 
 
 def skill_of_practice(tech, p) -> float:
+    """Skill from units of practice: work at large rises toward its top as 1 - e^(-p / tau) (D2-52); the hunt geometrically, from x1
+    to its top in `top_hard` units (brief 4c §3.3: about x3 half way)."""
     lo, hi = curve(tech)
+    if hard(tech):
+        return round(lo * (hi / lo) ** min(1.0, max(0.0, p) / float(SKILL["top_hard"])), 4)
     return round(lo + (hi - lo) * (1 - math.exp(-max(0.0, p) / tau(tech))), 4)
 
 
 def practice_of_skill(tech, sk) -> float:
     lo, hi = curve(tech)
+    if hard(tech):
+        return float(SKILL["top_hard"]) * min(1.0, max(0.0, math.log(max(float(sk), lo) / lo) / math.log(hi / lo)))
     share = min(0.999, max(0.0, (sk - lo) / (hi - lo)))
     return -tau(tech) * math.log(1 - share)
+
+
+def practice_x(here, tech) -> float:
+    """How much a unit of practice counts for this person (brief 4c §3.3): the hunt's pace is set at the default lifespan and scales
+    with the world's (D2-153), and a youth learns it `youth_hard` times as fast; other work counts as it is."""
+    if not hard(tech):
+        return 1.0
+    from cybertron2.engine.data import LIFE
+    x = float(LIFE["lifespan"]) / float(here.life()["lifespan"])
+    if here.me.get("stage") == "youth":
+        x *= float(SKILL["youth_hard"])
+    return x
 
 
 # ---------------------------------------------------------------------- the store (engine side: seeding and the learn primitive)
@@ -129,9 +152,10 @@ def level(mind, tech):
 
 
 def skill(mind, tech) -> float:
-    """The multiplier one's practice gives (D2-52): basic work 1.0 to 1.5, a trade 0.5 to 2.0."""
+    """The multiplier one's practice gives (D2-52): basic work 1.0 to 1.5, a trade 0.5 to 2.0, the hunt 1 to 8 (brief 4c §3.1)."""
     r = rec(mind, tech)
-    return float(r.get("skill", curve(tech)[0])) if r else (curve(tech)[0] if basic(tech) else 1.0)
+    sk = float(r.get("skill", curve(tech)[0])) if r else (curve(tech)[0] if basic(tech) else 1.0)
+    return max(curve(tech)[0], sk) if hard(tech) else sk                    # never below the bare-handed novice (brief 4c §3.1)
 
 
 def skill_word(x, tech=None) -> str:
@@ -402,7 +426,7 @@ def tried(here, mind, tech, ok, units=1) -> str:
         r["practised"] = here.day                                              # for skill's fading (D4-103 phase 2)
         if r.get("peak") is not None and sk0 < float(r["peak"]) - 1e-9:         # coming back to a skill once held (D4-105)
             units = float(units) * float(lb.get("relearn", 1.0))
-    r["skill"] = skill_of_practice(tech, practice_of_skill(tech, sk0) + float(units))
+    r["skill"] = skill_of_practice(tech, practice_of_skill(tech, sk0) + float(units) * practice_x(here, tech))
     if r.get("peak") is not None and r["skill"] > float(r["peak"]):
         r["peak"] = r["skill"]
     if r["level"] == "known":

@@ -1,6 +1,6 @@
 """How people answer the wild: general methods, not a technique per kind (D2-204; proposals/methods_and_encounters.md, brief 1).
 
-Each method is a TECHNIQUES row of the engine's usual shape (verb, label, aliases, `at`, units, `crew`, `weapon`, `untaught`,
+Each method is a TECHNIQUES row of the engine's usual shape (verb, label, aliases, `at`, units, `crew`, `gear`, `untaught`,
 `reads_as`, `yield`), with two fields read only here, at load: `needs` (traits a target must have) and `favours` (traits that raise
 the match, by a factor). `build` writes each method's `yield.takes` from them against the kinds' traits (kinds.TRAITS), so
 `wild.take` runs as before on a generated table. No method row names a kind; a kind's own row may carry `taken.calibrate:
@@ -25,10 +25,10 @@ SCARES = [
 ]
 
 
-def _take_row(label, aliases, covers, needs, favours, base, weapon, units, note, basic=False, untaught=True, crew=False, when=None):
+def _take_row(label, aliases, covers, needs, favours, base, gear, units, note, basic=False, untaught=True, crew=False, when=None):
     row = {"verb": "gather", "label": label, "aliases": aliases, "basic": basic, "pack": "wild", "at": {"covers": covers},
            "draws": "wild", "reads_as": ["hunt"], "needs": needs, "favours": favours, "base": base,
-           "yield": {"kind": "wild_take", **({"when": when} if when else {})}, "weapon": weapon, "wear": 0.3, "units": units,
+           "yield": {"kind": "wild_take", **({"when": when} if when else {})}, "gear": gear, "wear": 0.3, "units": units,
            "gives": "meat", "tags": ["food", "hunting", "animals"], "note": note}
     if not basic and untaught:
         row["untaught"] = "tryable"
@@ -45,39 +45,39 @@ METHODS = {
     "hunt the wild": _take_row(
         "hunting in the wild, taking what comes",
         ["hunt", "hunting", "go hunting", "hunt the wood", "hunting the wild", "hunt in the wild"],
-        HUNT_COVERS, {"size": ("small", "large"), "water": False}, [({"runs": True}, 3.0)], 0.33, {"none": 0.3, "armed": 1.0}, 2,
+        HUNT_COVERS, {"size": ("small", "large"), "water": False}, [({"runs": True}, 3.0)], 0.33, {"crude weapon": 2.0}, 2,
         "go out after whatever game the place holds; a weapon helps", basic=True),
     "stalk": _take_row(
         "stalking a beast that keeps to its paths (slow, downwind, close in for the shot)",
         ["stalking", "stalk deer", "stalk the deer", "still-hunting"],
         ["forest", "scrub", "heath", "moor"], {"size": ("medium", "large"), "runs": True, "home": "none"}, [],
-        2.5, {"none": 0.2, "armed": 1.0}, 3, "go quietly after a beast that keeps to its paths, and take it with a weapon"),
+        2.5, {"crude weapon": 5.0}, 3, "go quietly after a beast that keeps to its paths, and take it with a weapon"),
     "drive": _take_row(
         "a drive (beaters and spears; others with you; dangerous)",
         ["boar hunt", "hunt the boar", "hunting boar", "spear the boar", "boar hunting", "drive the wood", "a drive"],
-        ["forest", "scrub", "fen"], {"size": ("medium", "large"), "social": "group"}, [], 3.0, {"none": 0.15, "armed": 1.0}, 4,
+        ["forest", "scrub", "fen"], {"size": ("medium", "large"), "social": "group"}, [], 3.0, {"crude weapon": 6.0}, 4,
         "beat a wood with others to drive a herd or sounder onto waiting spears; dangerous alone", untaught=False, crew=True),
     "snare": _take_row(
         "setting snares on the runs",
         ["snaring", "set snares", "snare hares", "snare the runs"],
         ["pasture", "meadow", "heath", "field", "scrub"], {"runs": True, "size": ("small", "medium")}, [({"home": "form"}, 1.5)],
-        2.0, {"none": 1.0, "armed": 1.0}, 1, "set nooses where small beasts run, and come back for what is caught", basic=True),
+        2.0, {}, 1, "set nooses where small beasts run, and come back for what is caught", basic=True),
     # set and left (brief 2 §4): a snare line catches by night for some nights; whoever finds it takes the catch
     "net": _take_row(
         "netting birds with nets and decoys",
         ["fowling", "fowl", "net fowl", "catch fowl", "wildfowling", "netting", "net birds"],
         ["fen", "water", "meadow", "saltmarsh"], {"size": ("small", "small"), "social": "flock"}, [({"water": True}, 1.5)],
-        2.0, {"none": 1.0, "armed": 1.0}, 2, "spread nets and decoys where flocks come down, best at the water"),
+        2.0, {}, 2, "spread nets and decoys where flocks come down, best at the water"),
     "trap in water": _take_row(
         "setting wicker traps in the water overnight",
         ["set eel traps", "eel traps", "trap eels", "set traps for eels", "eeling", "set traps in the water"],
-        ["water", "fen"], {"water": True, "size": ("small", "small")}, [], 3.0, {"none": 1.0, "armed": 1.0}, 1,
+        ["water", "fen"], {"water": True, "size": ("small", "small")}, [], 3.0, {}, 1,
         "set wicker traps in the water overnight and lift them in the morning; best on the nights things run", when=EEL_NIGHTS),
     "den work": _take_row(
         "digging out a den or trapping at a lodge (spades and a dog help)",
         ["dig out the fox earth", "dig out the earth", "dig out the foxes", "dig out the cubs", "earth stopping",
          "trap beavers", "trap the beavers", "trap beaver", "dig out the den"],
-        ["forest", "scrub", "heath", "pasture", "meadow"], {"home": ["den", "burrow", "lodge"]}, [], 4.0, {"none": 0.8, "armed": 1.0},
+        ["forest", "scrub", "heath", "pasture", "meadow"], {"home": ["den", "burrow", "lodge"]}, [], 4.0, {"crude weapon": 1.25},
         3, "dig out a beast's den, or trap at a lodge, where you know one to be", untaught=False),
 }
 METHODS["den work"]["yield"]["kind"] = "wild_den"
@@ -93,6 +93,12 @@ for _k, _v in SWEEP.items():
     METHODS[_k]["sweep"] = _v
 for _k in ("stalk", "hunt the wild", "drive"):
     METHODS[_k]["curve"] = "hard"
+# a beast met is taken at 1 - e^(-take_base x gear x skill x familiarity x (1 - flee)) (brief 4c §3.1): `take_base` the bare-handed
+# novice's, by method; `gear` (on each row above; calibrate (4c)) the multiplier of what one carries, by item, on the methods it
+# serves; net and den work keep brief 4's chance (take_k x their old bare-handed factor; their weapon's ratio as gear)
+TAKE_BASE = {"hunt the wild": 0.25, "stalk": 0.06, "drive": 0.1, "net": 0.25, "den work": 0.2}   # calibrate (4c), and the gear rows
+for _k, _v in TAKE_BASE.items():
+    METHODS[_k]["take_base"] = _v
 METHODS["snare"]["note"] = "set a line of nooses where small beasts run; it catches by night for a few nights, and the catch is whoever's finds it"
 METHODS["trap in water"]["note"] = "set wicker traps in the water at dusk; they fish by night for some nights, best when things run, and lifting them is whoever's finds them"                      # at a den, a take; at a lodge, the site's trap (wild.den_work)
 
@@ -182,7 +188,8 @@ def build(TECHNIQUES, RESOURCES) -> None:
 
 # ---------------------------------------------------------------------- familiarity by kind (§5; calibrate)
 FAMILIAR = {"take": 0.15, "notice": 0.03, "taught": 0.4, "carry": 0.5, "fade": 0.002, "factor": 0.35, "expert": 0.6,
-            "start": {"youth": 0.3, "adult": 0.35, "elder": 0.5}}
+            "start": {"youth": 0.3, "adult": 0.35, "elder": 0.5},
+            "party": 0.5}   # a kill seen made by another of one's party: this share of `take` (brief 4c §3.3); calibrate (4c)
 
 
 def familiar_of(store) -> dict:

@@ -926,7 +926,7 @@ def _set_night(w, m, st) -> dict:
                 if u < acc:
                     break
             tk = (RESOURCES.get(k) or {}).get("taken") or {}
-            p = min(0.95, 0.55 * skill * float(sp["base"]) * (1 - float(tk.get("flee", 0.5))) * MT.factor(mind, k))
+            p = chance(0.55 * skill * float(sp["base"]) * (1 - float(tk.get("flee", 0.5))) * MT.factor(mind, k))   # brief 4c §3.1
             if rng.random() >= p:
                 continue
             pop[k][i] = max(0.0, pop[k][i] - 1.0 / float(m.km2[i]))
@@ -950,6 +950,9 @@ def den_work(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
     """Den work (D2-204): at a lodge, the site's trap; elsewhere a take of the den-dwellers (the fox and her cubs in spring)."""
     sid, site = _site_at(here._w, key, ("lodge",))
     if site is not None:
+        from cybertron2.engine import knowledge as KN
+        from cybertron2.engine.data import TECHNIQUES
+        KN.tried(here, mind, tech, True, units=TECHNIQUES[tech]["units"])   # practised here; a take practises in the hunt (4c §3.3)
         return 0.0, site_work(here, key, {"site": site["kind"], "do": "trap"}, place_name, m_skill), ""
     return take(here, mind, tech, key, place_name, out, m_skill, y, a)
 
@@ -1818,8 +1821,40 @@ def take(here, mind, tech, key, place_name, out, m_skill, y, a) -> tuple:
     noticed on the way)."""
     from cybertron2.engine.data import TECHNIQUES
     ox = (a.get("_mods") or {}).get("_ox")
-    r = hunt(here, [member(here, mind, out, m_skill, float(TECHNIQUES[tech]["units"]), ox)], tech, key, place_name, y, a)
+    ms = [member(here, mind, out, m_skill, float(TECHNIQUES[tech]["units"]), ox)]
+    r = hunt(here, ms, tech, key, place_name, y, a)
+    practise(ms, tech, r)
     return r["food"][here.name], r["lines"][here.name], r["tails"][here.name]
+
+
+def chance(x) -> float:
+    """A chance from the product of a baseline and its multipliers (brief 4c §3.1): 1 - e^(-x), the product itself at low odds,
+    never certain, with no clip."""
+    return 1.0 - math.exp(-max(0.0, float(x)))
+
+
+def take_chance(tech, skill, gear_x, flee, fam_x, n_out=1) -> float:
+    """A beast met is taken (brief 4c §3.1): the method's baseline (a bare-handed novice's, `take_base`) times the multipliers, gear,
+    skill and familiarity, and the kind's (1 - flee), as 1 - e^(-x); for a crew's method x (1 + `crew` a member past the first) of
+    those out (brief 4c §5)."""
+    from cybertron2.engine.data import TECHNIQUES
+    from cybertron2.wild.kinds import HUNT
+    crew_x = (1.0 + float(HUNT["crew"]) * (int(n_out) - 1)) if TECHNIQUES[tech].get("crew") else 1.0
+    base = float(TECHNIQUES[tech].get("take_base", HUNT["take_k"]))
+    return chance(base * float(skill) * float(gear_x) * (1.0 - float(flee)) * float(fam_x) * crew_x)
+
+
+def gear(tech, carried) -> float:
+    """What one carries multiplies a method's take (brief 4c §3.1; the method's `gear` row, by item): the best weapon in hand, one
+    at a time, times each other piece of gear the method names."""
+    from cybertron2.engine.data import ITEMS, TECHNIQUES
+    have = [(it, float(x)) for it, x in sorted((TECHNIQUES[tech].get("gear") or {}).items()) if float(carried.get(it, 0) or 0) >= 1]
+    weapons = [x for it, x in have if (ITEMS.get(it) or {}).get("weapon")]
+    out = max(weapons, default=1.0)
+    for it, x in have:
+        if not (ITEMS.get(it) or {}).get("weapon"):
+            out *= x
+    return out
 
 
 def hunt(here, members, tech, key, place_name, y, a) -> dict:
@@ -1839,7 +1874,7 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
     names = [mb["name"] for mb in members]
     if not on(w) or not (w.s.get("wild") or {}).get("state"):
         return {"food": {n: 0.0 for n in names}, "lines": {n: f"You found nothing to take at {place_name}." for n in names},
-                "tails": {n: "" for n in names}}
+                "tails": {n: "" for n in names}, "kills": {n: 0 for n in names}, "t": {mb["name"]: float(mb["t"]) for mb in members}}
     m = model(w)
     land = w.s["wild"]["land"]
     st = w.s["wild"]["state"]
@@ -1882,13 +1917,16 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
             pressure[kk][ii] = round(pressure[kk][ii] + float(HUNTED["hunt"]) * share * (1 + float(HUNTED["crew"]) * (crew - 1)), 4)
             wary[kk][ii] = round(wary[kk][ii] + float(WARY["hunt"]) * share, 4)
     fam = lambda mb, k: MT.factor(mb["mind"], k)
+    from cybertron2.engine.data import SKILL
+    finds = max(1.0, max(mb["skill"] for mb in members)) ** float(SKILL.get("find_hard", 0.0)) \
+        if (TECHNIQUES[tech].get("curve") == "hard") else 1.0              # the party's best finds more (brief 4c §3.2; off at 0)
     cand = []
     for k, tw in sorted(takes.items()):
         if k not in st["pop"]:
             continue
         tk = (RESOURCES.get(k) or {}).get("taken") or {}
         focus = (3.0 if k in want else 0.4) if want else 1.0
-        x = when_for(k) * max(fam(mb, k) for mb in members) * focus * float(tw)   # familiarity with the kind (D2-204 §5): the party's best
+        x = when_for(k) * max(fam(mb, k) for mb in members) * focus * float(tw) * finds   # familiarity with the kind (D2-204 §5): the party's best
         for i in areas:
             dens = float(st["pop"][k][i])
             shy = 1.0 + float(WARY["detect"]) * learned(wary0[k][i])        # game that has learned people is harder to come on (4b §2.1)
@@ -1912,6 +1950,7 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
     left, left_kind, pops, extra = {}, None, {}, ""
     hurt = set()
     dead = set()
+    kills = {mb["name"]: 0 for mb in members}                             # the kills each saw made while out (brief 4c §3.3)
     out_at = lambda tau: [mb for mb, t_ in zip(members, ts) if t_ > tau + 1e-9 and mb["name"] not in hurt | dead]
     for n, tau in enumerate(times):
         here_out = out_at(tau)
@@ -1936,10 +1975,9 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
                     tk["danger"] = {kk: float(v) * float(legend["danger"]) for kk, v in tk["danger"].items()}
                 tk["goods"] = {it: round(float(q) * float(legend["goods"]), 2) for it, q in (tk.get("goods") or {}).items()}
         n_out = len(here_out)
-        best = max(here_out, key=lambda mb: (mb["skill"] * float(TECHNIQUES[tech]["weapon"]["armed" if mb["here"].weapon() else "none"])
-                                             * fam(mb, k), -names.index(mb["name"])))      # the leader, of equals
-        armed = best["here"].weapon()
-        wpn = float(TECHNIQUES[tech]["weapon"]["armed" if armed else "none"])
+        best = max(here_out, key=lambda mb: (mb["skill"] * gear(tech, mb["here"].carried()) * fam(mb, k), -names.index(mb["name"])))
+        armed = best["here"].weapon()                                       # the leader, of equals
+        wpn = gear(tech, best["here"].carried())
         surprise = bool(want) and k not in want
         what = legend["name"] + " itself" if legend else _a(k)
         found = "{subj} came on " + what + (f" instead of the {a.get('looking for')} you were after" if surprise and not legend else "")
@@ -1959,7 +1997,7 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
         flee = 1.0 - (1.0 - flee) / (1.0 + float(WARY["flee"]) * learned(wary0[k][i]))   # and quicker to flee
         if led:
             flee = 1.0 - (1.0 - flee) * (1.0 - float(LEAD["flee"]))
-        p_take = float(np.clip(float(HUNT["take_k"]) * best["skill"] * wpn * (1 - flee) * (1 + 0.25 * (n_out - 1)) * fam(best, k), 0, 0.95))
+        p_take = take_chance(tech, best["skill"], wpn, flee, fam(best, k), n_out)
         if rng.random() >= p_take:
             if armed and tk.get("danger") and rng.random() < 0.3:          # hit but not down: a wounded beast lying up
                 here.apply("set_wild", path=["state", "wounded", f"{k}@{i}"], value=here.day)
@@ -1977,6 +2015,10 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
                 and cond(w, here.node, lit.get("if"), k, m, st, ring_i):
             pop[i] = max(0.0, pop[i] - float(lit["n"]) / float(m.km2[i]))
         MT.raise_familiar(best["here"], best["mind"], k, MT.FAMILIAR["take"], tech)   # the one whose shot took it learns the kind (§5)
+        for mb in here_out:                                                 # and those out with them see it done (brief 4c §3.3)
+            kills[mb["name"]] += 1
+            if mb is not best:
+                MT.raise_familiar(mb["here"], mb["mind"], k, float(MT.FAMILIAR["take"]) * float(MT.FAMILIAR["party"]), tech)
         gid = f"{k}@{here.node}"
         g = (w.s["wild"].get("groups") or {}).get(gid)
         if legend:
@@ -2042,7 +2084,27 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
             pool = [float(v) for v in st["carrion"]]
             pool[far_i] = round(pool[far_i] + (flesh_left + float(left.get("offal", 0.0))) * float(THINGS["carcass_kg"]) / float(m.km2[far_i]), 2)
             here.apply("set_wild", path=["state", "carrion"], value=pool)
-    return _hunt_lines(members, ts, ev, held, flesh_left, where, looked, food, tails, extra, dead, hurt)
+    r = _hunt_lines(members, ts, ev, held, flesh_left, where, looked, food, tails, extra, dead, hurt)
+    r.update(kills=kills, t={mb["name"]: t_ for mb, t_ in zip(members, ts)}, dead=sorted(dead))
+    return r
+
+
+def practise(members, tech, r) -> None:
+    """Practice from a hunt (brief 4c §3.3), for each member who came home: the units they searched, a trip on which a kill was made
+    while they were out counting `kill_hard` times; in a party led by a better hunter, x (1 + the leader's lead over them as a share
+    of the leader's skill), at most `lead_hard`. The pace by lifespan and a youth's are knowledge.tried's."""
+    from cybertron2.engine import knowledge as KN
+    from cybertron2.engine.data import SKILL
+    lead = KN.skill(members[0]["mind"], tech)
+    for mb in members:
+        if mb["name"] in (r.get("dead") or []):
+            continue
+        u = float((r.get("t") or {}).get(mb["name"], mb["t"]))
+        if (r.get("kills") or {}).get(mb["name"]):
+            u *= float(SKILL["kill_hard"])
+        if mb is not members[0] and lead > 0:
+            u *= min(float(SKILL["lead_hard"]), 1.0 + max(0.0, lead - KN.skill(mb["mind"], tech)) / lead)
+        KN.tried(mb["here"], mb["mind"], tech, True, units=u)
 
 
 def _hunt_lines(members, ts, ev, held, flesh_left, where, looked, food, tails, extra, dead, hurt) -> dict:
