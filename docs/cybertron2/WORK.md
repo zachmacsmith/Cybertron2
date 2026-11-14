@@ -63,6 +63,7 @@ next number; 37.2 and 37.4 share the series (check before adding).
 
 | # | Work | Owner | Done |
 |---|---|---|---|
+| W-38 | What went wrong building the peoples worlds, from properties to a world, and the generator features that would have helped (Zach, 14 Nov) | 37.4 | 14 Nov: docs/review/38_space_engine/71_world_building_gaps.md |
 | W-35 | The first peoples run: Twin Hollows, Opus against Sonnet, 100 days ($212.91) | 37.4 | 13 Nov: runs/pw1_opus_sonnet_r1; report docs/review/38_space_engine/70_peoples_run1.md (Opus grew to 17 by day 34 against Sonnet's 12, then winter famine; both peoples ended in elders because the founders were too old: fix before the next run) |
 | W-33 | The economy that emerged across runs (Zach, 12 Nov): barter, credit, gifts, reputation, and what the engine forced | 37.4 | 12 Nov: docs/review/38_space_engine/68_economy_forms.md, with scripts and CSVs in 68_economy/ |
 | W-32 | Offers across all cybertron2 runs (Zach, 12 Nov): prices, roundness, and what moves them (own stock, food, scarcity, competition, mentions, hunger); taking against price; credit | 37.4 | 12 Nov: docs/review/38_space_engine/67_offers.md, with scripts, CSV and chart in 67_offers/ |
