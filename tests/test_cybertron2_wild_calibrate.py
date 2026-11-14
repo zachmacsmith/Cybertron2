@@ -29,8 +29,8 @@ def _with_people(generated, n=3):
 
 # ---------------------------------------------------------------------------------------------------------------- stage A
 def test_the_hunt_has_its_own_hard_curve_and_the_meat_is_on_the_cows_scale():
-    assert KN.curve("stalk") == (0.4, 3.0) and KN.curve("hunt the wild") == (0.4, 3.0) and KN.curve("snare") != (0.4, 3.0)
-    assert KN.skill_of_practice("stalk", 50) < KN.skill_of_practice("snare", 50) + 1.0      # slower to climb (tau x3)
+    assert KN.curve("stalk") == (1.0, 8.0) and KN.curve("hunt the wild") == (1.0, 8.0) and KN.curve("snare") != (1.0, 8.0)   # 4c §3.1
+    assert KN.skill_of_practice("stalk", 10) < 2.0 < KN.skill_of_practice("stalk", 40)       # a high ceiling, climbed by practice (4c §3.3)
     goods = {k: (WK.TAKEN[k].get("goods") or {}).get("meat") for k in ("red deer", "roe deer", "wild boar", "brown hare", "eel")}
     assert goods == {"red deer": 20.0, "roe deer": 4.5, "wild boar": 15.0, "brown hare": 0.7, "eel": 0.2}
     assert TECHNIQUES["stalk"]["sweep"] == 0.4 and TECHNIQUES["drive"]["sweep"] == 2.0
@@ -236,6 +236,7 @@ def test_meat_hung_on_a_rack_dries_in_three_nights_and_salt_meat_needs_salt(gene
     for _ in range(3):
         N.night(w)
         w.s["day"] += 1
-    N.night(w)
-    assert c["goods"].get("dried meat", 0) > 2.5 and c["goods"].get("drying meat", 0) < 1e-6   # about 4 from 8, less what spoiled
+    stored = w.s["containers"][w.s["buildings"][bid]["stock"]]["goods"].get("dried meat", 0)   # dry after its third night, and
+    assert c["rack"]["dried"] > 2.5 and c["goods"].get("drying meat", 0) < 1e-6              # into the store (brief 4c §6.3):
+    assert stored + c["goods"].get("dried meat", 0) > 2.5                                     # about 4 from 8, less what spoiled
     assert TECHNIQUES["salt meat"]["inputs"] == {"meat": 4, "salt": 1}

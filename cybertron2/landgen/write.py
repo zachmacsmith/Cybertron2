@@ -457,6 +457,8 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
             report["checks"][f"economy: {k}"] = {"kind": "economy", "level": v["level"], "ok": v["ok"], "detail": v["detail"]}
             if not v["ok"] and v["level"] == "refuse" and k not in allowed:
                 report["refused"].append(f"economy: {k}")
+    if not provisional and not failed and "wild" in (({**settings, **world}).get("packs") or []):
+        report["checks"]["predators within range"] = _predators(world, settings)
     cells = {"x": g.x, "y": g.y, "h": L.h, "sea": L.sea, "lake": L.lake, "slope": L.slope, "temp": L.temp, "moist": L.moist,
              "acc": L.acc, "river": L.river, "spring": L.spring, "wet": L.wet, "tex": L.tex, "fert": L.fert, "f": L.f, "c": L.c,
              "terrain": L.terrain, "terrain_names": np.array(P.TERRAIN_NAMES), "cover": L.cover.astype(str),
@@ -466,6 +468,25 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
                           "sites": [s.site for s in allnodes], "road_cells": pic["road_cells"]}
     report["_land"] = L
     return world, cells, report
+
+
+def _predators(world: dict, settings: dict) -> dict:
+    """The predators within range of each village (brief 4c §7.3): a check, never a refusal. On the world as it will run, after the
+    ecology's history: each kind that comes near people, its grown heads within its range (or reach) of the village against its
+    least group."""
+    import contextlib
+    import io
+    from cybertron2.engine import wild as WL
+    from cybertron2.engine.world import World
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            w = World({**settings, **copy.deepcopy(world), "days": int(settings.get("days", 24))})
+        rows = WL.within_range(w)
+    except Exception as e:                                                 # noqa: BLE001 (reported, not raised)
+        return {"kind": "wild", "ok": True, "detail": f"not checked: {e}"}
+    said = {v: ", ".join(f"{k} {x['heads']:g} (a group needs {x['least']})" for k, x in sorted(row.items(), key=lambda kv: -kv[1]["heads"])
+                         if x["heads"] >= 0.05) or "none" for v, row in rows.items()}
+    return {"kind": "wild", "ok": True, "detail": {"said": said, "by village": rows}}
 
 
 def _seed_ways(world: dict, settlements: list, seed: int) -> None:

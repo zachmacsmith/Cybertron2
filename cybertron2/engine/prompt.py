@@ -547,6 +547,80 @@ def _yesterday_record(mind, opening) -> list:
     return out
 
 
+def _meals(goods) -> float:
+    return sum(float(q) * float(ITEMS.get(i, {}).get("food", 0.0)) for i, q in goods.items() if q > 1e-9)
+
+
+def house_food(here, bid) -> tuple:
+    """(store, door, rack): the food of one's house in meals: in its store, left at its door and hanging on a rack inside it, the door
+    and the rack only as the night's meal reaches them (what one may take: world.takeable, D4-89; brief 4c §6.5)."""
+    reach = set(here.takeable())
+    things = here.house_things(bid)
+    door = sum(_meals(c["goods"]) for cid, c in things.items() if c.get("door") == bid and cid in reach)
+    rack = sum(_meals(c["goods"]) for cid, c in things.items() if c.get("in") == bid and cid in reach)
+    return _meals(here.stock(bid)), door, rack
+
+
+def food_words(here, bid) -> str:
+    """'food worth 14 meals, and 9 more at its door' (brief 4c §6.5)."""
+    store, door, rack = house_food(here, bid)
+    more = [f"{show(door)} more at its door"] * (door > 0.05) + [f"{show(rack)} more on the rack inside"] * (rack > 0.05)
+    return f"food worth {show(store)} meals" + (", and " + " and ".join(more) if more else "")
+
+
+def _cap(x) -> str:
+    return x[:1].upper() + x[1:]
+
+
+def house_known(here, bid, daily=False) -> list:
+    """What anyone of the household in the house knows of it without a roll (brief 4c §6.4; the noticing rule stays for everything
+    else): its rack (drying, and how many nights are left; dry overnight, and whether it went into the store), goods left at its
+    door and the food among them, a new building with no beds where no one can sleep yet; and, with `daily` (the belief-built
+    message, which shows the house in full only at the opening), its fire and its cat. Lines in lower case, without a full stop."""
+    b = here.buildings()[bid]
+    out = []
+    if daily and here.day and b["fittings"].get("beds") and any(b["fittings"].get(f_) for f_ in ("hearth", "fire ring")):   # lit for sleepers
+        out.append(f"the fire {'lit' if b.get('fire') else 'out'} last night")
+    if daily and float(here.stock(bid).get("cat", 0.0)) >= 1:
+        out.append("a cat in the store")
+    door = {}
+    for cid, c in sorted(here.house_things(bid).items()):
+        rk = c.get("rack")
+        if not rk:
+            for i, q in c["goods"].items():
+                door[i] = door.get(i, 0.0) + float(q)
+            continue
+        at = "on the rack by the hearth" if c.get("in") == bid else "on the rack by the fire at its door"
+        if not rk.get("done"):
+            q = sum(float(v) for i, v in c["goods"].items() if ITEMS.get(i, {}).get("decay") == "drying meat")
+            if q > 1e-6:
+                left = max(1, int(rk["day"]) + int(rk["nights"]) - here.day)
+                out.append(f"{at}: {show(q)} meat drying, {left} night{'s' if left != 1 else ''} left")
+            continue
+        into, dried, stored = rk["into"], float(rk.get("dried", 0.0)), float(rk.get("stored", 0.0))
+        rest = float(c["goods"].get(into, 0.0))
+        if int(rk["done"]) == here.day - 1 and dried > 1e-6:
+            if rest <= 1e-6:
+                out.append(f"dry overnight: about {show(round(dried, 1))} {into}, put in the store")
+            elif stored > 1e-6:
+                out.append(f"dry overnight: about {show(round(dried, 1))} {into}; {show(round(stored, 1))} put in the store, and "
+                           f"{show(round(rest, 1))} left {at}: the store is full")
+            else:
+                out.append(f"dry overnight: about {show(round(dried, 1))} {into}, left {at}: the store has no room for it")
+        elif rest > 1e-6:
+            out.append(f"{at}: {show(round(rest, 1))} {into}, dry, waiting to be taken")
+    door = {i: q for i, q in door.items() if q > 0.05}
+    if door:
+        food = _meals(door)
+        out.append("left at its door: " + ", ".join(f"{show(q)} {i}" for i, q in sorted(door.items(), key=lambda kv: -kv[1]))
+                   + (f" (food worth {show(food)} meals)" if food > 0.05 else ""))
+    if (not b["fittings"].get("beds") and b.get("built_day") is not None and not b.get("unfinished") and b.get("structure") != "camp"
+            and not b.get("monument")):
+        hearth = any(b["fittings"].get(f_) for f_ in ("hearth", "fire ring"))
+        out.append(f"{b['name']} has no beds{'' if hearth else ' or hearth'}: no one can sleep there yet")
+    return out
+
+
 def _house_lines(here, mind) -> list:
     homes = here.homes_here()
     out = []
@@ -569,12 +643,16 @@ def _house_lines(here, mind) -> list:
     if others:
         out.append("Also yours here: " + "; ".join(f"{here.buildings()[b]['name']} (store: " + (", ".join(f"{show(q)} {i}" for i, q in
                    sorted(here.stock(b).items()) if q > 0.05) or "empty") + ")" for b in others) + ".")
+        for bid in others:                                                     # known without a roll (brief 4c §6.4)
+            nm = here.buildings()[bid]["name"]
+            kn = [x.replace(f"{nm} has no", "it has no", 1) for x in house_known(here, bid)]
+            if kn:
+                out.append(f"{nm}: " + "; ".join(kn) + ".")
     for bid in [b for b in homes if b not in others]:
         b = here.buildings()[bid]
         st = here.stock(bid)
         who = [x for x in here.people(me=False) if bid in here.homes_here(x)]
         stock = ", ".join(f"{show(q)} {i}" for i, q in sorted(st.items()) if q > 0.05) or "empty"
-        food = sum(st.get(i, 0) * ITEMS[i]["food"] for i in ITEMS if ITEMS[i]["food"])
         beds = int(b['fittings'].get('beds', 0))
         need = sum(float(here.p["beds"].get(here.person_stage(x), 1.0)) for x in [here.name] + who)
         from cybertron2.engine import buildings as BL
@@ -587,10 +665,11 @@ def _house_lines(here, mind) -> list:
         fire = b['fittings'].get('hearth') or b['fittings'].get('fire ring')
         pile = sum(FO.heat_of(c["goods"]) for c in here.things().values() if c.get("door") == bid and not c.get("hidden"))
         heat = FO.heat_of(st) + pile                                             # its store and its woodpile (D4-92)
-        out.append(f"Its store: {stock} (food worth {show(food)} meals; those who eat from it eat about {len(who) + 1} a night"
+        out.append(f"Its store: {stock} ({food_words(here, bid)}; those who eat from it eat about {len(who) + 1} a night"
                    + (f", and the fire takes {_heat(here, b):g} heat ({FO.fuel_words(_heat(here, b))}); fuel for about "
                       f"{int(heat // max(_heat(here, b), 1e-9))} such nights" + (" with the woodpile at its door" if pile > 1e-9 else "")
                       if fire else "") + ").")                                   # fuel shown as food is (D4-97; OPEN L-60)
+        out += [_cap(x) + "." for x in house_known(here, bid)]                   # known without a roll (brief 4c §6.4)
     return out
 
 
@@ -772,6 +851,10 @@ def _things_lines(here, mind) -> list:
     """What one knows lies about here (world/things_in_places.md): as one last saw it, and how one knows."""
     out = []
     for cid, (r, c) in sorted(here.known_things().items(), key=lambda kv: kv[1][0]["day"]):
+        line = here.set_line(c, r, lambda d: _daystr(mind, d)) if c and c.get("kind") == "set" else None
+        if line:                                                               # a set thing: as one last saw it, never "empty"
+            out.append(line)                                                   # unless seen so (brief 4c §4.3)
+            continue
         how = {"put": "you put it there", "saw": "you saw it", "took": "you took from it"}.get(r["how"], r["how"])
         out.append(f"{r['text']} ({how}, {_daystr(mind, r['day'])})")
     return out[-8:]

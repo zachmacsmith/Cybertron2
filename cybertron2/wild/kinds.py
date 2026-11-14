@@ -40,7 +40,8 @@ KINDS = {
                   fidelity=0.8, uses="venison, hide", damage="young trees"),
     "wild boar": K(70, "omni", 1.6, 0.30, {"wood": 0.8, "shrub": 0.3, "wet": 0.3},
                    {"mast": 4, "roots": 2, "nuts": 1, "fruit": 1, "crops": 2, "inverts": 0.3, "seeds": 0.5, "carrion": 0.5},
-                   people=0.15, ref=4, wave=1, count="whole", group={"size": [3, 14]}, fidelity=0.7,
+                   people=0.15, ref=4, wave=1, count="whole", fidelity=0.7,
+                   group={"size": [2, 14], "range_km2": 40},                                      # calibrate (4c)
                    uses="pork, fat, hide", damage="roots up crops"),
     "brown hare": K(3.5, "herb", 4.0, 0.9, {"grassy": 1.0, "farm": 0.4, "open": 0.2}, {"sward": 3, "seeds": 1, "crops": 2},
                     breed=("spring", "summer"), people=0.3, ref=25, wave=1, uses="meat; coursing", damage="young crops", shy=0.6,
@@ -66,15 +67,17 @@ KINDS = {
                "inverts": 0.5}, terr=2, people=0.1, ref=4, wave=2, count="whole", group={"size": [1, 2]},
                uses="ermine in winter", damage="hens, eggs", shy=0.4),
     "wolf": K(40, "carn", 1.5, 0.30, {"wood": 0.5, "open": 0.2, "heath": 0.3},
-              {"red deer": 3, "roe deer": 2, "wild boar": 2, "brown hare": 0.5, "livestock": 1, "carrion": 1}, terr=0.03, people=0.05,
-              move=0.25, ref=0.025, wave=2, count="whole", group={"size": [3, 8]}, fidelity=0.6,
+              {"red deer": 3, "roe deer": 2, "wild boar": 2, "brown hare": 0.5, "livestock": 1, "carrion": 1}, terr=0.06,   # calibrate (4c)
+              people=0.05, move=0.25, ref=0.025, wave=2, count="whole", fidelity=0.6,
+              group={"size": [3, 8], "range_km2": 200},                                           # calibrate (4c)
               uses="pelt; bounty", damage="herds; fear"),
     "raven": K(1.2, "omni", 1.0, 0.15, {"open": 0.5, "rock": 0.4, "wood": 0.2}, {"carrion": 4, "inverts": 1, "seeds": 1}, terr=0.3,
                ref=0.2, wave=2, uses="signs: circling over carrion", shy=0.6),
     "brown bear": K(250, "omni", 0.3, 0.05, {"wood": 0.7, "rock": 0.3, "old": 0.3},
                     {"fruit": 3, "nuts": 2, "mast": 2, "roots": 2, "inverts": 1, "carrion": 2, "fish": 1, "red deer": 0.3, "roe deer": 0.3,
                      "wild boar": 0.2, "livestock": 1}, hibernate=True, people=0.02, move=0.2, ref=0.02, wave=5, count="whole",
-                    group={"size": [1, 1]}, uses="great pelt, fat; legend", damage="beasts, hives"),
+                    group={"size": [1, 1], "range_km2": 300},                                     # calibrate (4c)
+                    uses="great pelt, fat; legend", damage="beasts, hives"),
 }
 
 # foods: "stock" grows logistically toward cap (kg a km2 of full cover); "pulse" is produced in its seasons and rots
@@ -410,12 +413,14 @@ FOLLOW_HARVEST = {"rats": 1.0, "voles and mice": 0.5}
 # hunted kinds leaving a hunted area (a share a day for each unit of pressure); pressure added by a hunt, a kill, a crew; its fading
 HUNTED = {"flee": {"red deer": 0.18, "roe deer": 0.12, "wild boar": 0.09}, "hunt": 0.25, "kill": 0.3, "crew": 0.5, "fade": 0.75}   # brief 4 §2.8
 # the take as a search over time (brief 4 §2, calibrate): meetings a trip ~ Poisson(sum of density x detect x ... x ground x `meet`),
-# at most `most`; a kill at `take_k` x skill x weapon x (1 - flee) x familiarity; the areas crossed on the way searched at `cross`;
+# at most `most`; a kill at 1 - e^(-the method's take_base x gear x skill x (1 - flee) x familiarity) (brief 4c §3.1; `take_k` the
+# base of a method with none), x (1 + `crew` a member past the first) for a crew's method (the drive, brief 4c §5); the areas crossed
+# on the way searched at `cross`;
 # a method with no sweep of its own searches `sweep` km2 a unit; how wary the game is of people is learned (WARY), not by the land's
 # kind (brief 4b §2.1)
 # a beast led on a hunt (brief 4b §3.2, calibrate): the game knows the party sooner (meetings x seen) and flees more readily
 LEAD = {"seen": 0.85, "flee": 0.15}
-HUNT = {"meet": 0.21, "take_k": 0.25, "cross": 0.2, "sweep": 0.5, "most": 8, "set_meet": 0.03}   # a set's night: Poisson, as before at low
+HUNT = {"meet": 0.21, "take_k": 0.25, "cross": 0.2, "sweep": 0.5, "most": 8, "set_meet": 0.03, "crew": 0.25}   # a set's night: Poisson, as before at low
 
 # ---------------------------------------------------------------------- wave 5: sites, individuals, rare regimes (wild_layer.md §6 phase 9)
 # Sites (wild_systems.md §5, colony and engineer): held on a parcel for generations, placed at world build where the land suits

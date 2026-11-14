@@ -154,11 +154,19 @@ def _changes(here, mind, last) -> list:
             out.append(f"{b['name']}: now {PR.CONDITION[b['condition']]}, door {b['door']}.")
         diff = []
         for i in sorted(set(st) | set(was)):
+            if i == "cat":                                                     # a beast, not a good: told as the house (4c §6.4)
+                continue
             d = round(st.get(i, 0.0) - float(was.get(i, 0.0)), 1)
             if abs(d) >= 0.1:
                 diff.append(f"{i} {'+' if d > 0 else ''}{show(d)} (now {show(st.get(i, 0.0))})")
         if diff:
             out.append(f"{b['name']}'s store since you last looked: " + ", ".join(diff) + ".")
+        cat, had = float(st.get("cat", 0.0)) >= 1, float(was.get("cat", 0.0)) >= 1
+        if cat != had:
+            out.append(f"{b['name']}: " + ("a cat has taken up in the store." if cat else "the cat has gone from the store."))
+        kn = PR.house_known(here, bid, daily=True)                             # one's own house, known every day (brief 4c §6.4)
+        if kn:
+            out.append(f"{b['name']} this morning: " + "; ".join(x.replace(f"{b['name']} has no", "it has no", 1) for x in kn) + ".")
     return out
 
 

@@ -1232,8 +1232,29 @@ def _old(age) -> str:
 # A thing at a spot: a body (fresh, dead some days, bones; buried), goods in the open (a heap, a bundle, at a door), goods hidden
 # (under brush, buried). Glimpses never name what a cache holds or whose a body is: that is for a close look (reach "near"), and a
 # close look at a hidden thing is as unlikely as its hiding makes it (perceive: a near row's p times things.hidden_factor).
-_OPEN = lambda x: not x.hidden and not x.body                                          # noqa: E731
+_OPEN = lambda x: not x.hidden and not x.body and x.kind != "set"                    # noqa: E731
 THING = [
+    # ---- a set snare line or wicker traps (brief 4c §4): one who knows it and is on its parcel looks it over (a close look at the
+    # line's own `knows` conspicuousness, THINGS set); others by the rule as built, a catch and the birds at it raising the thing's own.
+    # `who`: "setter" (who set it), "seen" (knows it, did not set it), "stranger" (does not know it). Kinds (guides/senses.md):
+    # nearby (the look, a glimpse), lingering (the birds after a day, a line emptied by another), conditional (spent, gone bad).
+    dict(when=lambda x: x.set_line and (x.set_catch or x.set_robbed or x.set_spent or x.set_night), who="setter", reach="near",
+         own=lambda x: x.set_knows, sense="sight", tags=["food", "hunting"], text=lambda x: x.set_look_yours),
+    dict(when=lambda x: x.set_line and (x.set_catch or x.set_robbed or x.set_spent or x.set_night), who="seen", reach="near",
+         own=lambda x: x.set_knows, sense="sight", tags=["food", "hunting"], text=lambda x: x.set_look_the),
+    dict(when=lambda x: x.set_line and x.set_catch and not x.set_trap, who="stranger", sense="sight", tags=["food", "hunting"],
+         text=lambda x: f"{x.set_catch} caught in a snare {x.at}"),
+    dict(when=lambda x: x.set_line and x.set_catch and x.set_trap, who="stranger", sense="sight", tags=["food", "hunting"],
+         text=lambda x: f"wicker traps set in the water {x.at}, with something in them"),
+    dict(when=lambda x: x.set_line and not x.set_catch, who="stranger", sense="sight", tags=["hunting"],
+         text=lambda x: (f"wicker traps set in the water {x.at}" if x.set_trap else f"a line of snares set {x.at}")
+         + (", fouled and broken" if x.set_spent else "")),
+    dict(when=lambda x: x.set_line and x.set_catch, who="stranger", reach="near", sense="sight", tags=["food", "hunting"],
+         text=lambda x: (f"wicker traps set in the water {x.at}, with {x.set_catch} in them" if x.set_trap
+                         else f"a line of snares set {x.at}, with {x.set_catch} caught in them")),
+    dict(when=lambda x: x.set_line and x.set_birds and x.outside and x.weather != "fog", sense="sight", own=1.0, tags=["animals", "food"],
+         text=lambda x: f"crows and magpies going down {x.at}, at something caught there"),
+
     # ---- a body, fresh (the day of death)
     dict(when=lambda x: x.body == "fresh", sense="sight", p=1.0, tags=["death"], text=lambda x: f"someone lies still {x.at}"),
     dict(when=lambda x: x.body == "fresh" and x.cause == "attack" and x.outside, sense="sight", p=0.4, tags=["death", "danger"],
@@ -1655,6 +1676,15 @@ def thing_context(w, c):
     x.grave_idle = w.d - int(g.get("day", w.d)) if g else 0
     x.wet_now = EV.wet(w, at)
     x.cairn_age = w.d - int(c["cairn_day"]) if c.get("cairn_day") is not None else 99
+    x.set_line = c["kind"] == "set" and bool(c.get("set"))                    # a set snare line or traps (brief 4c §4)
+    if x.set_line:
+        st = TH.set_state(w, c)
+        x.set_catch, x.set_trap, x.set_spent, x.set_robbed, x.set_birds = (TH.catch_words(w, c), TH.is_trap(c), st["spent"],
+                                                                              st["robbed"], st["birds"])
+        x.set_night, x.set_knows = st["night"], float(THINGS["set"]["knows"])
+        x.set_look_yours, x.set_look_the = TH.look_text(w, c, "your"), TH.look_text(w, c, "the")
+        if st["catch"]:                                                        # the catch's meat by the days since it was caught
+            x.age = max(0, w.d - min(int(k["day"]) for k in st["catch"]) - 1)
     return x
 
 
@@ -1968,7 +1998,8 @@ def _wild_traces(here, pid, p, sub, add) -> None:
         rows = ((RAID_SIGNS.get(sort) or {}).get(tr.get("kind")) if sort else None) or (SIGNS.get(tr.get("kind")) or {}).get(what) \
             or WATCH_SIGNS.get(what) or []
         rows = list(rows) + list((EXPERT_SIGNS.get(tr.get("kind")) or {}).get(what) or [])
-        g = ((here._w.s.get("wild") or {}).get("groups") or {}).get(f"{tr.get('kind')}@{here.node}") or {}
+        from cybertron2.engine import wild as WL
+        g = WL.group_at(here._w, tr.get("kind"), here.node)[1] or {}        # its group, or the ranging one there (brief 4c §7.2)
         from cybertron2.wild.kinds import LEADERS
         ld = LEADERS.get(tr.get("kind"))
         if ld and what in ("edge", "raid"):

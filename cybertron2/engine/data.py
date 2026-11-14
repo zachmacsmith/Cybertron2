@@ -518,6 +518,7 @@ TECHNIQUES = {
                   "basic": True, "inputs": {"meat": 4, "salt": 1}, "units": 1, "gives": {"salt meat": 4}, "tags": ["food", "cooking"]},   # brief 4 §5.2
     "dry meat": {"verb": "make", "label": "drying meat over a fire", "aliases": ["drying meat", "cure meat"], "basic": True,
                  "at": {"fittings": ["hearth", "fire ring"]}, "inputs": {"meat": 8}, "units": 1, "gives": {"drying meat": 8},
+                 "batch": True,                                                 # whatever one has, up to the batch (brief 4c §6.1)
                  "rack": {"nights": 3, "into": "dried meat", "ratio": 0.5}, "tags": ["food", "cooking"]},   # cut and hung in a batch (brief 4 §5.1)
     "cheese": {"verb": "make", "label": "making cheese", "aliases": ["cheesemaking"], "at": {"fittings": ["cellar"]},
                "inputs": {"milk": 6, "salt": 0.2}, "units": 1, "gives": {"cheese": 1}, "tags": ["food", "animals"], "trade": "herder"},
@@ -598,7 +599,15 @@ LEVELS = ("aware", "rough", "capable", "known")
 TRY = {"rough": {"inputs": 1.7, "chance": 0.5}, "capable": {"inputs": 1.3, "chance": 0.75}, "known": {"inputs": 1.0, "chance": 1.0}}
 SKILL_WORDS = ((0.85, "master"), (0.5, "skilled"), (0.2, "competent"), (0.0, "novice"))   # by the share of the way to a master
 SKILL = {"trade": [0.5, 2.0], "basic": [1.0, 1.5], "tau": 50.0,     # D2-52 (02n §4): skill by practice, units of work; calibrate
-         "hard": [0.4, 3.0], "tau_hard": 150.0}                       # the hunt: a high ceiling, slow to reach (brief 4 §2.6)
+         # the hunt (brief 4c §3.1, §3.3; calibrate): a multiplier on the bare-handed novice's chance, x1 to x8, rising geometrically
+         # with practice (about x3 half way) to its top after `top_hard` units of practice at the default lifespan, scaled with the
+         # lifespan (D2-153); a trip with a kill counts `kill_hard` times its units; a youth's practice counts `youth_hard` times; in a
+         # party each member's counts x (1 + the leader's lead over them as a share of the leader's skill), at most `lead_hard`
+         # above the capable (`capable_hard`), the party's best skill also finds more game: meetings x (skill / capable_hard)^find_hard
+         # (0: as the brief has it; 4c's calibration, docs/review/37_growth/02zzd_ev/ev_region_4c.json: the near wood meets about one
+         # beast a trip, so without it the master is held near the capable by meetings, not by the take)
+         "hard": [1.0, 8.0], "top_hard": 50.0, "kill_hard": 1.5, "youth_hard": 2.0, "lead_hard": 2.0,
+         "capable_hard": 3.0, "find_hard": 1.05}
 
 PHYSICS = {
     "units": {"summer": 7, "autumn": 6, "winter": 5, "spring": 6},      # agents/work.md (calibrate)
@@ -659,7 +668,8 @@ PHYSICS = {
     "regrow_winter": 0.25,
     "game_threshold": 0.15,                                              # below this share of capacity game does not come back
     "combat": {"base": [0.5, 1.5], "guard": 2.0, "asleep": 0.5, "units": 3, "raid_share": 0.5, "fight_wear": 4},
-    "teach": {"units_teacher": 2, "units_learner": 2, "skill_share": 0.3},
+    "teach": {"units_teacher": 2, "units_learner": 2, "skill_share": 0.3,
+              "hunt_share": 0.15},   # the hunt's methods: a day closes this share of the gap to the teacher, x2 a youth (brief 4c §3.3)
     "watch": {"units": 4},
     "notes": {"max": 8, "words": 150, "open": 2},
     "felt_watched": 0.3,
@@ -801,7 +811,12 @@ THINGS = {
     "carcass_rot_season": {"spring": 1.0, "summer": 1.5, "autumn": 1.0, "winter": 0.5}, "carcass_gone": 0.05,
     "carcass_offal": 0.25, "body_mass": 30, "carcass_kg": 5.0,      # offal as a share of the meat; a unit of meat as kg of carrion
     "hidden": {"under brush": [0.2, 0.4], "buried": [0.03, 0.06], "off the road": [0.2, 0.2]},
-    "set": {"own": 0.12, "sprung": 0.05},                                  # a set snare or trap, seen (brief 2 §4; calibrate)
+    # a set snare or trap, seen (brief 2 §4; brief 4c §4; calibrate): its own conspicuousness empty, spent (sprung), with a beast
+    # caught in it (`caught`, while the catch is fresh: up to `fresh_days` after the night it was caught), and x`birds` once the birds
+    # come to a catch with flesh on it (`birds_after` days after its night); for one who knows the line and is on its parcel, the look
+    # it is given (`knows`, a close look); a line emptied by another shows it for `robbed_days`; a spent one is about for `spent_days`
+    "set": {"own": 0.12, "sprung": 0.05, "caught": 0.4, "fresh_days": 1, "birds_after": 2, "birds": 1.5, "knows": 0.9,
+            "robbed_days": 2, "spent_days": 6},
 }
 # Fences round a parcel (livestock.md, D2-130; calibrate): what a build takes for a parcel of size s (x the square root of s), the chance a
 # day a herd gets through by its level (whole, gappy; down is no fence), and its upkeep: a wood fence loses a level each season unless
