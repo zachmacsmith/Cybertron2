@@ -91,16 +91,89 @@ and apart from the land. Most of the problems Zach has hit come from those two c
 
 ## 4. The proposal
 
+**Revised 14 Nov (Zach):** the present population is pinned and the history is filled in behind it; and generation fills to
+the conditions and repairs what a change touches, instead of building, rejecting and building again. Zach: "the current population
+mix is something we should be able to pin, with the history backfilling ... the history etc. is all downstream of that even though
+happening before"; "fill to suit the conditions and if you adjust the conditions it can backtrack or use some subset ... and then
+regenerate to fill the new conditions." §4a and §4b below replace the forward history of stage 2 as the frame.
+
 **One generator, four stages, each with its own pins, its own checks and a written result.**
 
 | Stage | Makes | Pins it meets | How it meets them |
 |---|---|---|---|
 | **1. Land** | the physical layers, as now (macro, elevation, climate, water, soil, terrain, natural cover) | shapes, rivers, fords, passes, heights, soil, resources, by name or place | control points the fields pass through (as rivers are laid now); a pin's shape from a declared table of words to primitives, not special cases |
-| **2. History** | a simulation of people on the land, year by year for a chosen span (say 80 to 200 years) | founding dates, villages, households, kin, feuds, a place's size or age | constructive: start states and rates chosen to aim at the pins; then local repair (below) |
+| **2. People, then their past** | the present population (households, members, ages, roles), pinned or drawn from a pinned mix; then the genealogy and events behind it, built backward (§4a) | the household mix, any person, kin, feuds, founding dates, a famine | the present is given or drawn; the past is chosen to fit it, never simulated and rejected |
 | **3. The present** | the graph and the state: nodes, parcels, holdings, houses, herds, stores, trades, from the end of the history | capacity bands, a village short of wood, food_share, vacant places | closed-loop adjustment with the engine's own measures |
 | **4. Checks** | the report, always written | physics refuses; design warns unless required | after every stage, so a failure points at its stage |
 
-### Stage 2, the history (the core change)
+### 4a. The present first, the past filled in behind it
+
+**The order of generation is not the order of time.** Generation starts from what the run needs (the people now) and works back to
+what explains it. The forward model is kept, as the judge of what is likely: it scores choices, it does not filter whole worlds.
+
+1. **The present population is an input.** A world gives any of:
+   - an explicit list: households with members, ages, sexes, roles;
+   - a mix: "4 villages; households of 3 to 7; most a couple with young children; two widows living alone; one household of three
+     generations; about two in five under 15";
+   - nothing: the default mix, drawn.
+
+   A mix is drawn into an explicit list by keyed draws (per village, per household), so the list is reproducible and editable.
+2. **Each household's inner ties are inferred** from its members' ages and roles: the couple, their children (each born when the
+   mother was 16 to 45 and at least two years apart), a widowed parent.
+   - A member who does not fit is reinterpreted, not rejected: a grandchild, a nephew taken in, a second wife's child, a lodger.
+   - The choice among readings is weighted by the forward model's likelihood.
+3. **The genealogy is built backward,** a generation at a time, as a population geneticist builds a coalescent:
+   - each living adult gets parents, with birth years drawn given the child's;
+   - parents are merged into sibships across households and villages, by an assignment that respects ages and nearness. Two heads
+     can be brothers; a wife can be the sister of a man in the next village. This is where kin between villages comes from, chosen
+     to fit, not hoped for;
+   - each ancestor's death is placed after their last child and, where it fits, in the world's own hard years (the climate
+     scheduler's past, D4-109);
+   - siblings not living now are given fates (died young, left, married away to a named place).
+   - This goes back to the founders, as far as the history's span or a pinned founding date says.
+4. **Events are written from the genealogy:**
+   - foundings: the oldest line's arrival; a daughter village where its founders' parents lived elsewhere;
+   - marriages, deaths, departures, feuds and debts;
+   - each person's memories, from their own age at each event.
+5. **The land follows the people.** Stage 3 sizes each village's worked land to the people it has (capacity in the loop). Clearing
+   is backfilled the same way: the present fields are the target, and the history says which household cleared which field, when.
+   It is no longer a forward simulation that has to land on them.
+
+**What this gives:** exact control for test conditions (the household mix is what was asked for, every time), and a past that is
+consistent with it by construction. **What it costs:** a backward-built past is consistent, but not automatically likely. That is why
+every choice is weighted by the forward model, and the report says where a pin forced an unlikely past (a woman with nine living
+children, a village of one generation).
+
+### 4b. Generation as a graph of keyed decisions, repaired, never rejected
+
+**Each decision is a node:** a village's site, a parcel's cells, a household's members, a person's parents, an ancestor's death year,
+a road's path. Each node has:
+- its **inputs:** the pins that bear on it and the upstream decisions it reads;
+- its **candidates,** in a keyed order (D2-70: the order is a hash of the world's seed and the node's id, so it is the same every
+  time);
+- its **constraints:** what its choice must satisfy, given its inputs.
+
+**The rule:** take the first candidate that satisfies the constraints.
+
+1. **Filling, not filtering.** A node that has no fitting candidate backtracks to the nearest upstream decision that is not pinned and
+   tries that node's next candidate (conflict-directed backjumping, as in a constraint solver). The world is never thrown away; only
+   the decisions in conflict move.
+2. **Idempotent.** The same pins and seed give the same world, byte for byte: candidate orders are keyed, and the first fit is taken.
+3. **Incremental.** Each node records the inputs it read. When a pin changes, only the nodes whose inputs changed are made again,
+   and then their dependants, as a build system rebuilds only what a changed file touches.
+4. **Stable under edits.** On a change, the previous world's choices are tried first, as soft pins. Making Northby's third household
+   a family of seven changes that household's genealogy and the kin who must now fit; the map, the other villages and their people
+   stay as they were, unless a constraint forces them to move. The report lists what moved and why.
+5. **Refusal is the last resort,** and only of a pin. When backtracking exhausts every unpinned choice, the pin that cannot be met is
+   named, with the pins it conflicts with.
+
+**Where it will not be perfectly local:**
+- **The land's continuous fields** (noise and shapes) are global: moving a range moves heights everywhere. Pins there act as local
+  control points with a limited reach, so most land edits stay local. A new configuration remakes the land.
+- **Claimed land is first come, first served** between villages: a village that grows can push a neighbour's fields, so it moves too.
+- Both are reported as moved; neither needs a seed search.
+
+### Stage 2 as first proposed (forward, superseded by §4a as the frame; its parts are kept as the forward model that scores choices)
 
 - **The unit is the household,** not the line:
   - a couple founds a household; sons (or daughters, by the custom) found their own on marrying, if there is a plot and a house to
@@ -155,6 +228,10 @@ and apart from the land. Most of the problems Zach has hit come from those two c
 
 ## 5. Order of work (each a step that pays on its own)
 
+*Revised 14 Nov:* step 2 becomes the present population as an input (an explicit list or a mix) with the genealogy built backward
+(§4a), before any forward history. Step 3 becomes the decision graph (§4b), starting with the people: households, parents and
+sibships are the decisions most often edited for test conditions.
+
 1. **Capacity in the loop** (stage 3's bisection, with the engine's `capacity.node`) and **write refused worlds with their report.**
    Small, in settle.py and write.py. It should end the seed search today (31 of 36 refused).
 2. **Households, not lines, and one regional marriage market** in generate.py; no bare off-map places. Medium.
@@ -186,6 +263,9 @@ and apart from the land. Most of the problems Zach has hit come from those two c
 
 ## Open questions (for Zach)
 
+*Answered 14 Nov in conversation, not yet decided:* the present population is pinned and the past is backfilled (it replaces
+question 2's framing: the age mix is part of the pinned present).
+
 1. **How long a history:** 80 years (two to three generations, cheap) or 200 (old villages, extinct lines, daughter villages)?
 2. **Age structure:** realistic by default with "mostly working adults" as a world's choice, or the other way round?
 3. **Kin between villages:** wanted as the default (it creates ties and dependence), or only when a world asks?
@@ -199,6 +279,10 @@ and apart from the land. Most of the problems Zach has hit come from those two c
 - **14 Nov 2026:** proposed by the c2viz session at Zach's request, from a reading of `landgen/` and `engine/generate.py` on main
   (`45ea678`) and the peoples-worlds branch. Measured: 36 worlds generated (31 refused); the allocator and the engine's capacity
   compared on a refused world; 400 lineage histories; kin and origins in a passing world.
+
+- **14 Nov 2026 (later):** revised with Zach: the present population is an input and the past is built backward to fit it (§4a);
+  generation is a graph of keyed decisions that fills to the conditions, backtracks on conflict and remakes only what a change
+  touches (§4b). The forward history of stage 2 is kept as the model that weighs choices.
 
 ## Sources
 
