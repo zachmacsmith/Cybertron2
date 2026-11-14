@@ -219,6 +219,7 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
     year = day // Y
     knobs = m.knobs
     N = {k: np.asarray(v, float) for k, v in st["pop"].items()}
+    N0 = {k: N[k].copy() for k in (st.get("yearling") or {}) if k in N}    # the young's count is kept against today's losses (4c §7.1)
     E = {k: np.asarray(v, float) for k, v in st["cond"].items()}
     stock = {k: np.asarray(v, float) for k, v in st["stock"].items()}
     pulse = {k: np.asarray(v, float) for k, v in st["pulse"].items()}
@@ -372,6 +373,9 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
                 lag = np.asarray((st.get("lag") or {}).get(k, N[k]), float) / np.maximum(m.crowd_at[k] * m.suit[k], 1e-9)
                 cond = cond / (1.0 + float(WK.CYCLE[k]) * lag ** 2)
             born = N[k] * ((1 + kd["b"] / len(kd["breed"]) * cond) ** ((1.0 / S) if through else 1.0) - 1)
+            if (kd.get("group") or {}).get("range_km2") and not through:     # a ranging group counts its adults: the year's young are
+                st.setdefault("yearling", {})[k] = [round(float(x), 6) for x in born]   # left out until the next births (brief 4c §7.1)
+                N0[k] = N[k] + born
             N[k] = N[k] + born
             if kd.get("fidelity") and not through:                            # the young that will disperse this season (§2.3)
                 st.setdefault("young", {})[k] = [round(float(x), 6) for x in born * m.km2 * float(WK.DRIFT["young"])]
@@ -474,6 +478,9 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
             acc[k] = [round(float(x), 6) for x in (0.9 * np.asarray(acc.get(k, N[k]), float) + 0.1 * N[k])]
     st["wary"] = {k: [round(float(x), 4) for x in v] for k, v in wary.items()}
     st["pop"] = {k: [round(float(x), 6) for x in v] for k, v in N.items()}
+    if st.get("yearling"):                                                # the year's young die first: an area's losses come off them,
+        st["yearling"] = {k: [round(float(x), 6) for x in np.clip(            # and those that come in are grown (brief 4c §7.1)
+            np.asarray(v, float) - np.maximum(N0.get(k, N[k]) - N[k], 0), 0, N[k])] for k, v in st["yearling"].items() if k in N}
     st["cond"] = {k: [round(float(x), 4) for x in v] for k, v in E.items()}
     st["stock"] = {k: [round(float(x), 2) for x in v] for k, v in stock.items()}
     st["pulse"] = {k: [round(float(x), 2) for x in v] for k, v in pulse.items()}

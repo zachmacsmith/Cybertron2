@@ -40,7 +40,8 @@ KINDS = {
                   fidelity=0.8, uses="venison, hide", damage="young trees"),
     "wild boar": K(70, "omni", 1.6, 0.30, {"wood": 0.8, "shrub": 0.3, "wet": 0.3},
                    {"mast": 4, "roots": 2, "nuts": 1, "fruit": 1, "crops": 2, "inverts": 0.3, "seeds": 0.5, "carrion": 0.5},
-                   people=0.15, ref=4, wave=1, count="whole", group={"size": [3, 14]}, fidelity=0.7,
+                   people=0.15, ref=4, wave=1, count="whole", fidelity=0.7,
+                   group={"size": [3, 14], "range_km2": 20},                                      # calibrate (4c)
                    uses="pork, fat, hide", damage="roots up crops"),
     "brown hare": K(3.5, "herb", 4.0, 0.9, {"grassy": 1.0, "farm": 0.4, "open": 0.2}, {"sward": 3, "seeds": 1, "crops": 2},
                     breed=("spring", "summer"), people=0.3, ref=25, wave=1, uses="meat; coursing", damage="young crops", shy=0.6,
@@ -66,15 +67,17 @@ KINDS = {
                "inverts": 0.5}, terr=2, people=0.1, ref=4, wave=2, count="whole", group={"size": [1, 2]},
                uses="ermine in winter", damage="hens, eggs", shy=0.4),
     "wolf": K(40, "carn", 1.5, 0.30, {"wood": 0.5, "open": 0.2, "heath": 0.3},
-              {"red deer": 3, "roe deer": 2, "wild boar": 2, "brown hare": 0.5, "livestock": 1, "carrion": 1}, terr=0.03, people=0.05,
-              move=0.25, ref=0.025, wave=2, count="whole", group={"size": [3, 8]}, fidelity=0.6,
+              {"red deer": 3, "roe deer": 2, "wild boar": 2, "brown hare": 0.5, "livestock": 1, "carrion": 1}, terr=0.06,   # calibrate (4c)
+              people=0.05, move=0.25, ref=0.025, wave=2, count="whole", fidelity=0.6,
+              group={"size": [3, 8], "range_km2": 200},                                           # calibrate (4c)
               uses="pelt; bounty", damage="herds; fear"),
     "raven": K(1.2, "omni", 1.0, 0.15, {"open": 0.5, "rock": 0.4, "wood": 0.2}, {"carrion": 4, "inverts": 1, "seeds": 1}, terr=0.3,
                ref=0.2, wave=2, uses="signs: circling over carrion", shy=0.6),
     "brown bear": K(250, "omni", 0.3, 0.05, {"wood": 0.7, "rock": 0.3, "old": 0.3},
                     {"fruit": 3, "nuts": 2, "mast": 2, "roots": 2, "inverts": 1, "carrion": 2, "fish": 1, "red deer": 0.3, "roe deer": 0.3,
                      "wild boar": 0.2, "livestock": 1}, hibernate=True, people=0.02, move=0.2, ref=0.02, wave=5, count="whole",
-                    group={"size": [1, 1]}, uses="great pelt, fat; legend", damage="beasts, hives"),
+                    group={"size": [1, 1], "range_km2": 300},                                     # calibrate (4c)
+                    uses="great pelt, fat; legend", damage="beasts, hives"),
 }
 
 # foods: "stock" grows logistically toward cap (kg a km2 of full cover); "pulse" is produced in its seasons and rots
