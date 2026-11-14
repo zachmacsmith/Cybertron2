@@ -1,8 +1,8 @@
 # Hunting that pays a beginner, snares that are lifted, and predators that reach the villages: build brief 4c
 
-**Status:** written (13 Nov), ready to hand to 37.4 on Zach's go. Agreed by Zach 13 Nov: hunting worth learning (§2, §3.3) and the
-rack with one's own house known (§6). Defaults standing unless he changes them: §2's other targets, §5's party bonus for drives
-only, §7's predator targets (OPEN Q-44). Nothing decided in DECISIONS.md or built.
+**Status:** built and gated (14 Nov) by 37.4 on `ecology-hunt3` (e98d893, merge f58764f) and merged into `peoples-worlds`
+(3cf6816); 580 tests pass on both. Zach's go relayed by 37.4 (14 Nov: "Can you build brief 4c for wildlife"); parts agreed with 37.2
+on 13 Nov (§3.3, §6). Not merged into main; no DECISIONS rows yet: Zach to confirm (OPEN Q-46), with two misses and §7.4.
 **Build brief 4c** for the wild layer, after brief 4b (`hunt_followups.md`) and before brief 5 (`river_and_water.md`). It answers the
 wild region run (02zze, 30 days) and the first peoples run (38.70, 100 days), both on briefs 1 to 4b as built.
 **Owner:** 37.2:
@@ -410,6 +410,21 @@ trace of the peoples world on `peoples-worlds` is in `pred_trace_peoples_w1.json
 
 ## History
 
+- 14 Nov 2026: built and gated by 37.4 (ev_region_4c.json, 80 tries a cell, region seed 7, mean of four villages). Hunt the wild near,
+  armed: novice 0.29 a unit (kills on 23% of trips), bare 0.12 (12%), capable 0.82 (46%), master 2.47 (90%); far 0.43, 1.11, 2.10;
+  stalk near 0.33, 1.04, 2.86. As built: `take_base` by method (hunt the wild 0.25, stalk 0.06, drive 0.1, net 0.25, den work 0.2);
+  the crude weapon x2 (hunt the wild), x5 (stalk), x6 (drive), x1.25 (den work); skill a geometric curve x1 to x8 over `top_hard` 50
+  units scaled by the life; meetings x max(1, skill/3)^1.05 above capable (without it the master stays at 1.1); a kill's practice
+  x1.5, behind a better leader up to x2, a youth's x2; teaching 15% of the gap a day (30% a youth) for the hunt's methods only; the
+  crew bonus for the drive only; set catches 1 - exp(-0.6 x ...), within about 6% of brief 4's rates. Predators: wolf `terr` 0.06;
+  `range_km2` wolf 200, bear 300, boar 40; boar's least group 2; villages are nodes with something to raid; the season's young stay
+  home and last year's disperse at the year's turn. pred_trace on peoples w1 (32 nights, bots fed): grown wolves in range of each
+  village flat at 2.25 to 2.29; winter raids by wolves, a calf and a cow at Ashford (nights 29, 31) and two calves and a cow at
+  Brockley (27 to 31); a bear at a carcass; boar at Ashford's field on nights 13, 15 and 17 with an autumn crop standing.
+  Misses: (1) the novice kills on 23% of trips against about half, food a unit on target (the near wood meets about 0.9 beasts a
+  trip); (2) one master hunting one wood daily for 16 days stays at 2 to 3 a unit (the ring holds about 230 large beasts), so the
+  sustained yield does not fall below fresh ground as §2 says, and a master's sustained 2.5 would beat farming's 1.8 on unbroken
+  ground; (3) the boar's field rows end on autumn day 1.
 - 14 Nov 2026: §7.1 done by 37.2 (Zach's go on 4c, relayed by 37.4): not the seeding and not starvation, but the spring birth
   pulse culled by the territorial limit and crowding; a node's reach never holds a pack; the fix in wolf `terr`, `range_km2`, and
   groups counting adults.
