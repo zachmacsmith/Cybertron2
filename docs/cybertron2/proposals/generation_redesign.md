@@ -135,14 +135,62 @@ what explains it. The forward model is kept, as the judge of what is likely: it 
    - foundings: the oldest line's arrival; a daughter village where its founders' parents lived elsewhere;
    - marriages, deaths, departures, feuds and debts;
    - each person's memories, from their own age at each event.
-5. **The land follows the people.** Stage 3 sizes each village's worked land to the people it has (capacity in the loop). Clearing
-   is backfilled the same way: the present fields are the target, and the history says which household cleared which field, when.
-   It is no longer a forward simulation that has to land on them.
+5. **What is worked follows the people, not the land itself** (corrected 14 Nov: §4c). The physical land is generated and
+   pinned on its own; how much of it is cleared and worked is backfilled, within what the land affords.
 
 **What this gives:** exact control for test conditions (the household mix is what was asked for, every time), and a past that is
 consistent with it by construction. **What it costs:** a backward-built past is consistent, but not automatically likely. That is why
 every choice is weighted by the forward model, and the report says where a pin forced an unlikely past (a woman with nine living
 children, a village of one generation).
+
+### 4c. Land, its use and capacity: three things, not one (Zach, 14 Nov)
+
+Zach: "deciding the different environmental conditions themselves are important, e.g. deciding which nodes have what types of
+resources ... it shouldn't just automatically change the landscape to fit the carrying capacity ... done badly this could just
+overoptimise specific features ... like giving really big fields, rather than being able to holistically create places that can
+richly support people in different ways."
+
+**That is what the generator does today.** settle.allocate meets the target with two levers: plots to the food target and managed
+wood to the heat target. Every village gets the same recipe in the same order (built ground, fields, meadow, pasture, wood, waste),
+and the target is met by field count. Separating three things fixes it:
+
+| Layer | What it is | Who sets it | Fitted to people? |
+|---|---|---|---|
+| **The land** | terrain, water, soil, climate, resources: a river, a seam, the downs, a fen | pins and the generator (stage 1); a world says which node has what | **never** |
+| **Its use** | what has been cleared and how it is worked: fields, meadow, pasture, managed wood, a weir, a mill, a fold | the history, backfilled | **yes, within what the land affords** |
+| **Capacity** | how many the land, as used, feeds and warms, by every way it can | measured, never a knob | it is the comparison |
+
+**Capacity is measured with the full model.** 37.4's capacity package (D4-102: `cybertron2/capacity/`) already counts every food
+source in the registry (fields under rotation, herds, wild food, fish), processing and spoilage, the lean season, the work people can
+give, levels of practice (bare, standing, worked, best, ceiling), and what a short node can draw from a neighbour (space.py). The
+generator's check uses the narrow `engine/capacity.node` (fields x grain + woods x wild food), a third model. The generator should
+read the package.
+
+**Approaches, from least to most automatic:**
+1. **Measure only.** Land and people are generated apart; capacity is reported by source and level; the designer changes pins.
+   Honest and never over-fitted, but every mismatch is the designer's to fix.
+2. **Fit one lever** (today): resize fields until the ratio is in band. Over-fits and makes every place alike. Rejected.
+3. **Choose where, not what** (siting as matching). The land is generated whole and unchanged. A village's people are placed where
+   the land affords them: a pinned village of seven households takes a site whose affordances (soil, water, grazing, wood, fish)
+   support seven. Good for "which node has what" pins: the land is pinned, and the people are put where it works.
+4. **Livelihoods by affordance.** Each village's use is drawn as a mix of ways of living, weighted by what its land affords: a river
+   village fishes and mills, a downland village keeps sheep, a fen village takes eels and reeds, a wood-edge village keeps pigs and
+   cuts timber. Each pathway is developed only as far as is plausible for its ground, with bounds a rule sets (a household's
+   holding in field strips, the share of a node that can be meadow, a weir's catch). So capacity comes from several sources in
+   proportions the land suggests, not from the cheapest one stretched.
+5. **Dependence by design.** Capacity is not balanced per village. A world states a profile across the region: Corneby feeds
+   itself twice over, the hill village is short of grain and has copper, the region as a whole at 70% (D2-161). Shortfalls are met
+   by neighbours and trade, which is the dependence the scenario rules ask for. The target is a profile, not a band per village.
+
+**The recommendation: 3, 4 and 5 together, with 1 as the fallback.**
+- The land is pinned or generated and is never changed to fit the people.
+- Villages are sited where the land affords them (3); each develops a mix of livelihoods within plausible bounds (4); the region
+  meets a stated dependence profile (5), measured with the full capacity model.
+- **Which side is free is the world's choice:** people fixed and use fills; land and use fixed and people fill; or both fixed and
+  the report shows the gap.
+- **When the conditions conflict** (seven households pinned on a node pinned as poor heath, with no trade allowed), nothing is
+  stretched past its bounds. The report names the gap by source and the levers that would close it, most plausible first: more
+  cleared land within bounds, a pathway the land affords but has not been developed, a trade dependence, fewer people.
 
 ### 4b. Generation as a graph of keyed decisions, repaired, never rejected
 
@@ -283,6 +331,11 @@ question 2's framing: the age mix is part of the pinned present).
 - **14 Nov 2026 (later):** revised with Zach: the present population is an input and the past is built backward to fit it (§4a);
   generation is a graph of keyed decisions that fills to the conditions, backtracks on conflict and remakes only what a change
   touches (§4b). The forward history of stage 2 is kept as the model that weighs choices.
+
+- **14 Nov 2026 (third):** §4c with Zach: the land, its use and capacity kept apart; the land is never fitted to people; capacity is
+  measured with the full capacity package (D4-102), not fitted by one lever; approaches compared (measure only, one lever, siting as
+  matching, livelihoods by affordance, dependence by design); recommended siting, livelihoods and a dependence profile, with
+  measure-only as the fallback.
 
 ## Sources
 
