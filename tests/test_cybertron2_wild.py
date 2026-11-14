@@ -814,8 +814,8 @@ def test_a_fence_round_the_field_keeps_a_group_out(generated):
 
 def test_an_expert_reads_the_gap_the_practised_reads_the_sounder(generated):
     world = _two(generated)
-    world["agents"]["Ann"]["knows"] = {"hunt the wild": {"level": "known", "skill": 2.6}}             # expert on the hunt's curve             # expert in basic work
-    world["agents"]["Tom"]["knows"] = {"hunt the wild": {"level": "known", "skill": 1.2}}             # practised
+    world["agents"]["Ann"]["knows"] = {"hunt the wild": {"level": "known", "skill": 7.0}}             # expert on the hunt's curve (4c: x1 to x8)
+    world["agents"]["Tom"]["knows"] = {"hunt the wild": {"level": "known", "skill": 3.0}}             # practised
     w, WL = _summer_world(world)
     edge = WL._edge_of(w, WL._fields(w, "s1")[0])
     w.apply("set_wild", "s1", path=["traces"], value={edge: [{"kind": "wild boar", "what": "edge", "day": w.d, "n": 9}]})
@@ -937,8 +937,8 @@ def test_an_expert_hunter_reads_how_many_and_in_what_condition(generated):
 
 def test_an_expert_reads_the_voles_in_the_owl_pellets(generated):
     world = _two(generated)
-    world["agents"]["Ann"]["knows"] = {"hunt the wild": {"level": "known", "skill": 2.6}}             # expert on the hunt's curve
-    world["agents"]["Tom"]["knows"] = {"hunt the wild": {"level": "known", "skill": 1.2}}
+    world["agents"]["Ann"]["knows"] = {"hunt the wild": {"level": "known", "skill": 7.0}}             # expert on the hunt's curve (4c)
+    world["agents"]["Tom"]["knows"] = {"hunt the wild": {"level": "known", "skill": 3.0}}
     w, WL = _summer_world(world)
     m, ri = _ring(w, WL)
     w.s["wild"]["state"]["pop"]["voles and mice"][ri] = 4000.0
