@@ -446,6 +446,16 @@ class Here:
         from cybertron2.engine import things as TH
         TH.remember(self._w, self.name, cid, how)
 
+    def look_thing(self, cid) -> None:
+        """One looked a set thing over (brief 4c §4.3): what it held and the day, for the remembered line."""
+        from cybertron2.engine import things as TH
+        TH.look(self._w, self.name, cid)
+
+    def set_line(self, c, r, daystr):
+        """The remembered line of a set thing one knows (brief 4c §4.3), or None for the plain line."""
+        from cybertron2.engine import things as TH
+        return TH.set_line(self._w, self.name, c, r, daystr)
+
     def known_things(self) -> dict:
         from cybertron2.engine import things as TH
         return {cid: (r, self.thing(cid)) for cid, r in TH.known_here(self._w, self.name, self.node).items()}

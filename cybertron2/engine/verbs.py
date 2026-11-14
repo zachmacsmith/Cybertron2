@@ -1407,7 +1407,7 @@ def _lift(here, mind, rem):
         if q > 1e-9:
             took.append(_take(here, mind, {"item": it, "qty": q, "from": "", "_thing": rem}, None))
     if not took:
-        TH.look(here._w, here.name, rem)
+        here.look_thing(rem)
         return f"You looked over {whose} {noun} at {here.spot_name(c)}: nothing is caught in them."
     return " ".join(took)
 
