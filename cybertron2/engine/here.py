@@ -400,6 +400,12 @@ class Here:
         from cybertron2.engine import things as TH
         return TH.at_node(self._w, self.node)
 
+    def house_things(self, bid) -> dict:
+        """What hangs inside a house here or lies at its door, not hidden (racks, piles; empty ones too): {thing id: thing}. Its
+        household knows them without a roll (brief 4c §6.4)."""
+        return {cid: c for cid, c in self._w.s["containers"].items() if c.get("kind") == "pile" and c.get("node") == self.node
+                and not c.get("hidden") and (c.get("in") == bid or c.get("door") == bid)}
+
     def thing(self, cid) -> dict:
         c = self._w.s["containers"].get(cid)
         return c if c and c.get("node") == self.node else None
