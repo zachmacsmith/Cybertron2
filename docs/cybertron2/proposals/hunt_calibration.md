@@ -281,9 +281,25 @@ So, in order of effect:
 4. **Boar live where people do not:** the ring near a village is thin for them by design (presence by distance, brief 4b), and these
    worlds put the woods' boar at empty nodes.
 
-**7.1 The ecology check (37.2, before the build).** Find why wolves and boar fall from the first night: the world's start against
-the ecology's equilibrium (the generator's seeding, the spin-up), and starvation in the diet rows. Fix in the seeding or the rows,
-so a world starts near its own balance. Check on the peoples world, the region and 02zzd's worlds.
+**7.1 The ecology check (37.2, done 14 Nov).** Traced each night's deaths by cause for wolf and boar on the peoples world (the
+ecology step instrumented in a scratch copy; 320 nights of the world's history, then the run):
+- **Not the seeding:** the world runs its history before day 0, so it starts at the ecology's own seasonal balance.
+- **Not starvation:** wolves eat 1.4 to 1.5 times their need and boar 1.1 to 1.2; condition stays at 1.0; starvation deaths 0.
+- **The spring birth pulse, then its cull.** Both breed once, on spring's first day (`litters: burst`), and the run starts on spring
+  day 1: wolves go from 69 to 170 across the map that night, boar from 7,330 to 15,730. The young count at once against the
+  wolves' territorial limit (`terr` 0.03 x suitability: deaths of 8% a night at first, falling) and the boar's crowding (3% a night
+  at first). The "fall from the first night" is that cull back toward the year's balance.
+- **The real gap is the pack's size against one node's reach.** Before the births, the map holds about 1.6 wolves per 150 km²
+  (0.011 a km², the territorial limit binding), against a pack's least of 3. A node's reach never holds a pack except just after the
+  births. Boar hold about 23 per 20 km² overall but are thin on busy land near the villages (presence by distance, brief 4b).
+
+**The fix (data, 37.2's values; 37.4 sets them in the files while building):**
+1. **Wolf `terr` from 0.03 to about 0.06** (calibrate): about 3 adults per 150 km² before the births, within real wolf densities of
+   about 1 to 4 per 100 km².
+2. **`range_km2` (§7.2):** wolf about 200, brown bear about 300, wild boar about 20; deer and fox as built.
+3. **A group counts adults:** the season's young (already held for kinds with `fidelity`, `st["young"]`) are left out of a group's
+   count until the next year, so a pack does not appear in spring and vanish as the young die.
+4. No change to the seeding or the diet rows.
 
 **7.2 Groups that range** (37.4's `_groups` with 37.2's data): a kind with a large range (`range_km2` on the kind: wolf about 150,
 bear about 200, boar about 20, fox and deer as built) condenses over the nodes within its range of its densest area, not one node's
@@ -394,6 +410,9 @@ trace of the peoples world on `peoples-worlds` is in `pred_trace_peoples_w1.json
 
 ## History
 
+- 14 Nov 2026: §7.1 done by 37.2 (Zach's go on 4c, relayed by 37.4): not the seeding and not starvation, but the spring birth
+  pulse culled by the territorial limit and crowding; a node's reach never holds a pack; the fix in wolf `terr`, `range_km2`, and
+  groups counting adults.
 - 13 Nov 2026: Zach agreed hunting worth learning and the rack with one's own house's signs; the master's target raised to about
   2.5 ("a master hunter being below a skilled gatherer feels somewhat nonsensical"); §3.3 the pace, learning in a party, teaching
   over days; §6 the rack inside, a dry batch into the store, the household's own house known without a roll, the store line with
