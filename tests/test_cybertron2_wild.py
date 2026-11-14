@@ -279,8 +279,11 @@ def test_a_hungry_pack_takes_a_beast_from_the_herd_and_leaves_its_carcass(genera
     w, WL = _summer_world(generated)
     m, ri = _ring(w, WL)
     st = w.s["wild"]["state"]
-    st["pop"]["wolf"][ri] = 8.0 / m.km2[ri]
-    st["cond"]["wolf"][ri] = 0.0
+    rw = WL._range_geom(m, WL._range_km2(m, "wolf"))[0][ri]                          # a pack ranges (brief 4c §7.2): about 8 grown
+    tot = float((rw * np.asarray(m.km2)).sum())                                     # wolves spread over the range about the village,
+    for i in np.flatnonzero(rw > 0):                                                # hungry
+        st["pop"]["wolf"][i], st["cond"]["wolf"][i] = 8.0 / tot, 0.0
+        st.setdefault("yearling", {}).setdefault("wolf", [0.0] * m.n)[i] = 0.0
     from cybertron2.engine import farm as FM
     herds = [hid for hid, h in w.s["herds"].items() if h["node"] == "s1"]
     assert herds
