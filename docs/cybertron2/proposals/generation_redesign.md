@@ -1,6 +1,6 @@
 # Proposal: world generation as one history, with pins met in the loop
 
-**Status:** ready for a decision (the frame: §5's four decisions); two parts to prototype before build briefs. **Owner:** the c2viz session (analysis at Zach's request, 14 Nov). It would be built by 37.2 (the land) and
+**Status:** ready for a decision (the frame: §5's four decisions); both parts prototyped for people (proto/peoplegen/REPORT.md). **Owner:** the c2viz session (analysis at Zach's request, 14 Nov). It would be built by 37.2 (the land) and
 37.4 (`engine/generate.py`, the lineage); nothing here changes code.
 
 **Affects:**
@@ -323,6 +323,12 @@ a road's path. Each node has:
 3. **The present population as an input,** with the past built backward to fit it (§4.3).
 4. **Generation as a graph of keyed decisions** that fills, backtracks on conflict and remakes only what a change touches (§4.5).
 
+**Prototyped (14 Nov, `proto/peoplegen/REPORT.md`):** both risks below are settled for people.
+- The backward genealogy meets every pinned present, explicit or mixed, and matches the forward model's demography. It is close
+  on its kin structure, though kin across villages is under-made (calibration, OPEN L-108).
+- The decision graph is deterministic, keeps 98% of a world under an edit, never rejects, and refuses an impossible pin by name.
+- The remaining risk is that every conflict set is complete. The report gives the rules the build should keep.
+
 **Not yet ready to build all of it.** Two parts carry design risk, best settled by small prototypes before the build briefs:
 - **The backward genealogy** (§4.3): whether pasts built to fit pinned mixes read as plausible. A prototype outside the engine, on
   the mixes Zach uses for test conditions, judged by the forward model's likelihood and by reading the histories.
@@ -403,6 +409,20 @@ fitted to people; capacity is tunable through a holistic richness, not one lever
 - **14 Nov 2026 (fifth):** consolidated into one design (§4.1 to §4.6), the superseded forward stage folded in as the forward model;
   readiness, two prototypes before build briefs, the order of work, and the open questions merged (§5, Open questions). Status to
   ready for a decision.
+
+- **14 Nov 2026 (sixth):** both §5 prototypes built for people, outside the engine, at Zach's request ("prototype it"):
+  `proto/peoplegen/`, report `REPORT.md`. A forward reference simulation's present is pinned and its past rebuilt, over 80 worlds
+  (40 held out from the calibration). Mixes of household forms were drawn, and edits and odd and impossible pins tested.
+  - **Results:** no refusal of a feasible present; deterministic; no invariant broken. Demography within about a year or a tenth.
+    Coalescence close. Kin across villages under-made (46% against 59% with a sibling in another village). A null arm with the
+    forward model's weights removed is wrong by 3 to 10 times on structure. Edits keep 98% of decisions with soft pins (92% from
+    keyed order alone). Impossible pins refused at once, naming the pins.
+  - **Findings for the design:**
+    - the forward model must weigh choices with evidence it implies: co-residence as kin, a cost for fostering, out-marriage
+      beyond distance;
+    - conflict sets must name only what a decision set. Candidates are never dropped at weight zero for another decision's
+      state, and pins filter.
+  - Calibrations left: OPEN L-108.
 
 ## Sources
 

@@ -1,0 +1,288 @@
+{
+ "e1_forward_pinned": {
+  "seeds": 40,
+  "solved": 40,
+  "refusals": [],
+  "deterministic": 40,
+  "seconds_mean": 0.138,
+  "seconds_max": 0.459,
+  "backjumps_total": 3,
+  "worlds_with_backjumps": 1,
+  "null_failed": [],
+  "violations": 0,
+  "violation_examples": [],
+  "truth": {
+   "mother_age_mean": 30.037,
+   "mother_age_sd": 6.657,
+   "first_birth_age": 24.743,
+   "birth_gap_median": 2.725,
+   "completed_family": 4.728,
+   "families_9plus": 1.45,
+   "died_under_15": 0.225,
+   "adult_age_at_death": 50.718,
+   "adults_with_living_parent": 0.543,
+   "wives_from_other_village": 0.632,
+   "wives_from_off_map": 0.074,
+   "adults_sibling_other_household": 0.403,
+   "adults_sibling_other_village": 0.591,
+   "adults_sib_or_cousin_other_village": 0.893,
+   "parent_couples_per_present": 0.359,
+   "grandparent_couples_per_present": 0.278,
+   "persons_in_past": 239.05
+  },
+  "built": {
+   "mother_age_mean": 28.783,
+   "mother_age_sd": 7.051,
+   "first_birth_age": 22.934,
+   "birth_gap_median": 2.925,
+   "completed_family": 4.688,
+   "families_9plus": 1.6,
+   "died_under_15": 0.25,
+   "adult_age_at_death": 48.977,
+   "adults_with_living_parent": 0.543,
+   "wives_from_other_village": 0.557,
+   "wives_from_off_map": 0.055,
+   "adults_sibling_other_household": 0.457,
+   "adults_sibling_other_village": 0.458,
+   "adults_sib_or_cousin_other_village": 0.712,
+   "parent_couples_per_present": 0.396,
+   "grandparent_couples_per_present": 0.274,
+   "persons_in_past": 238.125
+  },
+  "null": {
+   "mother_age_mean": 30.202,
+   "mother_age_sd": 7.43,
+   "first_birth_age": 26.675,
+   "birth_gap_median": 3.025,
+   "completed_family": 2.841,
+   "families_9plus": 1.55,
+   "died_under_15": 0.293,
+   "adult_age_at_death": 50.52,
+   "adults_with_living_parent": 0.086,
+   "wives_from_other_village": 0.784,
+   "wives_from_off_map": 0.234,
+   "adults_sibling_other_household": 0.056,
+   "adults_sibling_other_village": 0.14,
+   "adults_sib_or_cousin_other_village": 0.405,
+   "parent_couples_per_present": 0.892,
+   "grandparent_couples_per_present": 1.138,
+   "persons_in_past": 882.05
+  },
+  "match_built": {
+   "living_parents_same": 0.488,
+   "no_living_parent_same": 0.717
+  },
+  "match_null": {
+   "living_parents_same": 0.017,
+   "no_living_parent_same": 0.956
+  }
+ },
+ "e2_mixes": {
+  "default": {
+   "seeds": 20,
+   "solved": 20,
+   "refusals": [],
+   "counts_exact": 20,
+   "seconds_mean": 0.1,
+   "flags_per_world": 4.0,
+   "flag_examples": [
+    "par:No3.2: 78% of the model's weight ruled out",
+    "pg:So1.0: 9 children to one couple",
+    "par:No5.2: 73% of the model's weight ruled out",
+    "pg:No4.5: 10 children to one couple",
+    "Westcot: founded 16 years ago",
+    "par:Ea1.2: 88% of the model's weight ruled out",
+    "par:No4.5~: 60% of the model's weight ruled out",
+    "pc:No6.1: 10 children to one couple"
+   ],
+   "violations": 0,
+   "violation_examples": []
+  },
+  "test_conditions": {
+   "seeds": 20,
+   "solved": 20,
+   "refusals": [],
+   "counts_exact": 20,
+   "seconds_mean": 0.088,
+   "flags_per_world": 3.65,
+   "flag_examples": [
+    "par:We4.3^f: 86% of the model's weight ruled out",
+    "cp:Ea6.0+Ea6.1: 9 children to one couple",
+    "pc:No7.0: 9 children to one couple",
+    "pc:We4.3^m: 10 children to one couple",
+    "pairs:No6: 98% of the model's weight ruled out",
+    "par:No5.2: 77% of the model's weight ruled out",
+    "cp:No4.0+No4.1: 10 children to one couple",
+    "Westcot: founded 14 years ago"
+   ],
+   "violations": 0,
+   "violation_examples": []
+  }
+ },
+ "e3_stability": {
+  "baby": {
+   "decisions_changed_soft": 0.001,
+   "living_with_other_parents_soft": 0.0,
+   "decisions_changed_fresh": 0.002,
+   "living_with_other_parents_fresh": 0.002,
+   "decisions_new_mean": 1.1,
+   "decisions_gone_mean": 0,
+   "refused": []
+  },
+  "seven": {
+   "decisions_changed_soft": 0.023,
+   "living_with_other_parents_soft": 0.02,
+   "decisions_changed_fresh": 0.073,
+   "living_with_other_parents_fresh": 0.075,
+   "decisions_new_mean": 16.9,
+   "decisions_gone_mean": 13.1,
+   "refused": []
+  },
+  "drop": {
+   "decisions_changed_soft": 0.021,
+   "living_with_other_parents_soft": 0.024,
+   "decisions_changed_fresh": 0.079,
+   "living_with_other_parents_fresh": 0.085,
+   "decisions_new_mean": 6.3,
+   "decisions_gone_mean": 12.3,
+   "refused": []
+  }
+ },
+ "e4_odd_pins": {
+  "nine_children": {
+   "result": "built",
+   "backjumps": 0,
+   "max_jump": 0,
+   "flags": [
+    "par:No1.2: 51% of the model's weight ruled out",
+    "par:No8.0: 68% of the model's weight ruled out",
+    "cp:big.0+big.1: 9 children to one couple",
+    "pc:No2.0: 10 children to one couple",
+    "pc:No1.7: 11 children to one couple",
+    "Westcot: founded 23 years ago"
+   ],
+   "violations": []
+  },
+  "village_of_widows": {
+   "result": "built",
+   "backjumps": 1,
+   "max_jump": 2,
+   "flags": [
+    "par:No1.2: 52% of the model's weight ruled out",
+    "par:No8.0: 79% of the model's weight ruled out",
+    "pc:No2.0: 9 children to one couple",
+    "pc:No1.7: 11 children to one couple",
+    "Westcot: founded 23 years ago"
+   ],
+   "violations": []
+  },
+  "young_village": {
+   "result": "built",
+   "backjumps": 0,
+   "max_jump": 0,
+   "flags": [
+    "par:No1.2: 51% of the model's weight ruled out",
+    "par:No8.0: 68% of the model's weight ruled out",
+    "pc:No2.0: 10 children to one couple",
+    "pc:No1.7: 11 children to one couple",
+    "Westcot: founded 20 years ago"
+   ],
+   "violations": [],
+   "westcot_adults_origin": {
+    "We1.0": "came",
+    "We1.1": "came",
+    "We2.0": "came",
+    "We2.1": "came",
+    "We2.2": "Westcot",
+    "We2.3": "Westcot",
+    "We3.0": "came",
+    "We3.1": "Southam",
+    "We3.2": "Westcot",
+    "We4.0": "came",
+    "We4.1": "Southam",
+    "We4.2": "Westcot"
+   }
+  },
+  "young_village_older_child": {
+   "result": "refused",
+   "pins": [
+    "found:Westcot",
+    "pin:age:We3.2"
+   ],
+   "message": "found:Westcot: cannot be met; the pins in conflict: ['found:Westcot', 'pin:age:We3.2'] (no candidate fits)"
+  },
+  "twins_unpinned": {
+   "result": "built",
+   "backjumps": 0,
+   "max_jump": 0,
+   "flags": [
+    "par:No1.2: 51% of the model's weight ruled out",
+    "par:No8.0: 68% of the model's weight ruled out",
+    "pc:No2.0: 9 children to one couple",
+    "pc:No1.7: 11 children to one couple",
+    "Westcot: founded 23 years ago"
+   ],
+   "violations": [],
+   "readings": {
+    "tw.0": [
+     "pc:No4.0",
+     "Eastwick"
+    ],
+    "tw.1": [
+     "cp:We1.0+We1.1",
+     "Westcot"
+    ],
+    "tw.2": [
+     "cp:tw.0+tw.1",
+     "Eastwick"
+    ],
+    "tw.3": [
+     "cp:Ea6.0+Ea6.1",
+     "Eastwick"
+    ]
+   }
+  },
+  "twins_pinned_children": {
+   "result": "refused",
+   "pins": [
+    "pin:age:tp.0",
+    "pin:age:tp.2",
+    "pin:age:tp.3",
+    "pin:role:tp.0",
+    "pin:role:tp.1",
+    "pin:role:tp.2",
+    "pin:role:tp.3"
+   ],
+   "message": "pairs:Ea1: cannot be met; the pins in conflict: ['pin:age:tp.0', 'pin:age:tp.2', 'pin:age:tp.3', 'pin:role:tp.0', 'pin:role:tp.1', 'pin:role:tp.2', 'pin:role:tp.3'] (no candidate fits)"
+  },
+  "impossible_child": {
+   "result": "refused",
+   "pins": [
+    "pin:age:x.0",
+    "pin:age:x.1",
+    "pin:role:x.0",
+    "pin:role:x.1"
+   ],
+   "message": "pairs:Ea1: cannot be met; the pins in conflict: ['pin:age:x.0', 'pin:age:x.1', 'pin:role:x.0', 'pin:role:x.1'] (no candidate fits)"
+  },
+  "all_young": {
+   "result": "built",
+   "backjumps": 1,
+   "max_jump": 2,
+   "flags": [
+    "par:No1.2: 53% of the model's weight ruled out",
+    "Eastwick: founded 20 years ago",
+    "Northby: founded 20 years ago",
+    "Southam: founded 20 years ago",
+    "Westcot: founded 20 years ago"
+   ],
+   "violations": []
+  }
+ },
+ "e5_sample": {
+  "agents": 117,
+  "tree": 299,
+  "history": 207,
+  "seconds_to_write": 1.54
+ }
+}

@@ -25,7 +25,7 @@ next number; 37.2 and 37.4 share the series (check before adding).
 
 | # | Work | Owner | State | Started | Last touched | Where | Done so far; what is left |
 |---|---|---|---|---|---|---|---|
-| W-38 | Generation redesign: the original pinned design against the built land and lineage generators; their flaws, measured; a design with one history and pins met in the loop (Zach, 14 Nov) | c2viz session | ready for a decision | 14 Nov | 14 Nov | docs/cybertron2/proposals/generation_redesign.md | consolidated design, ready for a decision (four decisions, §5); left: Zach's answers (Q-45), then two prototypes (backward genealogy; the decision graph for people) before build briefs; nothing built |
+| W-38 | Generation redesign: the original pinned design against the built land and lineage generators; their flaws, measured; a design with one history and pins met in the loop (Zach, 14 Nov) | c2viz session | ready for a decision | 14 Nov | 14 Nov | docs/cybertron2/proposals/generation_redesign.md | consolidated design, ready for a decision (four decisions, §5); both prototypes done (W-39, proto/peoplegen/REPORT.md); left: Zach's answers (Q-45) |
 | W-37 | Standing rules: how a household eats and what it keeps back, with a person's own defaults, shown and changed at the evening (Zach, 13 Nov, after Ashford ate its seed) | 37.4 | discussion | 13 Nov | 13 Nov | docs/cybertron2/proposals/standing_rules.md | proposal written. Left: Zach's answers to its open questions and his go; then build eating first |
 | W-2 | Build briefs 2 and 3, the 20 dry test arms, the spring live run (wild_raiders_and_works.md, carcass_and_decay.md, 02zy) | 37.4 | active | 9 Nov | 9 Nov | branches `ecology-raiders` (`f290e2c`) and `ecology-carcass` (`cc4d342`, from it) | brief 2 built and gated, 61 dry arms read, the spring live run done ($9.87); brief 3 built and gated (503 tests). Left: Zach's answers to Q-37 and Q-38; merging to `ecology` (Zach's go); the late-summer live run (needs Zach's go); brief 3's own live run if he allows one |
 | W-3 | Records restructure: WORK.md, OPEN.md's kinds, CLAUDE.md's rule, hygiene's stale checks, the sorting draft (02zz) | 37.2 (session "Thicker economy exploration") | active | 9 Nov | 9 Nov | main: docs/cybertron2/WORK.md, OPEN.md, CLAUDE.md, tools/hygiene.py, docs/review/37_growth/02zz_open_sorting.md | in this commit; left: Zach checks 02zz's sorting, then the rows move |
@@ -65,6 +65,7 @@ next number; 37.2 and 37.4 share the series (check before adding).
 
 | # | Work | Owner | Done |
 |---|---|---|---|
+| W-39 | Prototype of generation_redesign.md §4.3 and §4.5 for people: the present pinned (a list or a mix), the past built backward by a solver of keyed decisions that backjumps, prefers the previous world and never rejects (Zach, 14 Nov: "prototype it") | c2viz session | 14 Nov: proto/peoplegen/ (REPORT.md): 80 forward presents and 40 mixes built, none refused, deterministic, no invariant broken; demography matches the forward model, kin structure close (kin across villages under-made); edits keep 98% of a world with soft pins; impossible pins refused by name. Left: calibrations (OPEN L-108) and Zach's decision (Q-45) |
 | W-38 | What went wrong building the peoples worlds, from properties to a world, and the generator features that would have helped (Zach, 14 Nov) | 37.4 | 14 Nov: docs/review/38_space_engine/71_world_building_gaps.md |
 | W-35 | The first peoples run: Twin Hollows, Opus against Sonnet, 100 days ($212.91) | 37.4 | 13 Nov: runs/pw1_opus_sonnet_r1; report docs/review/38_space_engine/70_peoples_run1.md (Opus grew to 17 by day 34 against Sonnet's 12, then winter famine; both peoples ended in elders because the founders were too old: fix before the next run) |
 | W-33 | The economy that emerged across runs (Zach, 12 Nov): barter, credit, gifts, reputation, and what the engine forced | 37.4 | 12 Nov: docs/review/38_space_engine/68_economy_forms.md, with scripts and CSVs in 68_economy/ |
@@ -87,4 +88,4 @@ chores the report finds).
 |---|---|---|---|---|---|
 | 2026-11-09 | 6 | 11 | 30 | 62 | 122 |
 | 2026-11-12 | 13 | 11 | 33 | 64 | 122 |
-| 2026-11-14 | 18 | 11 | 37 | 67 | 127 |
+| 2026-11-14 | 18 | 11 | 37 | 69 | 129 |

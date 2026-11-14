@@ -1028,3 +1028,12 @@ cleanly would help.
   - bad-year capacity.
 - I'd want your numbers for the kinds' bases and drivers (02q, environment.md §6), and your view on wolves (an incident row now,
   replaced by living_populations.md if that is decided). I'll only touch scheduler.md's "as built" lines.
+
+## 14 Nov, c2viz session → 37.4: the backward people build, prototyped
+
+For when Q-45 is decided. The prototype is in `proto/peoplegen/`, with `REPORT.md`; nothing under `cybertron2/` was changed.
+- **What it does:** the present is pinned (a list or a mix) and the past is built backward as keyed decisions with backjumping. It
+  writes `generate.py`'s tree, history and agents (kin from `generate.kin`).
+- **What was measured:** 80 forward worlds and 40 mixes; no refusals; deterministic; no invariant broken; demography matches.
+- **What to keep in a build brief:** the decision order and the blame rules (REPORT.md "For the build").
+- **Calibrations left:** OPEN L-108.

@@ -105,7 +105,7 @@ Rebuilt from the files on 5 Nov (status and owner as each file states them; 37.2
 | [fire_lines.md](fire_lines.md) | One room, one fire; the night says what fuel was missing; a theft at a door told as one | 37.4 | retrospective, accepted: D4-93 (2 Nov) |
 | [fire_weather.md](fire_weather.md) | A fire under no roof in the night's weather | 37.4 | retrospective, accepted: D4-83 (2 Nov) |
 | [generator.md](generator.md) | the landscape generator (a world under the graph) | 37.2 | partly accepted: D2-173 to D2-175 here, D2-177 to D2-188 through stage 1, D2-189 to D2-191 since. ... |
-| [generation_redesign.md](generation_redesign.md) | world generation redesigned: land, use and capacity apart; richness; the present population pinned with the past backward; a graph of keyed decisions | c2viz session | ready for a decision |
+| [generation_redesign.md](generation_redesign.md) | world generation redesigned: land, use and capacity apart; richness; the present population pinned with the past backward; a graph of keyed decisions | c2viz session | ready for a decision; people prototyped (proto/peoplegen/REPORT.md) |
 | [generator_stage1.md](generator_stage1.md) | the generator, stage 1 (a spec for review before it is built) | 37.2 | built (3 Nov) by 37.2 at Zach's request, with what differs listed in [02zj](../../review/37_growth/02zj_generator_build.md). ... |
 | [graves.md](graves.md) | Graves dug by many, over days; a cairn after burial; an unfinished grave's signs | 37.4 | retrospective, accepted: D4-99 (4 Nov) |
 | [heap_sizes.md](heap_sizes.md) | How much lies there: heaps seen by their bulk, counted when attended, and kept by their house | 37.4 | retrospective, accepted: D4-89, D4-90, D4-91, D4-92 (2 Nov) |
