@@ -192,6 +192,63 @@ read the package.
   stretched past its bounds. The report names the gap by source and the levers that would close it, most plausible first: more
   cleared land within bounds, a pathway the land affords but has not been developed, a trade dependence, fewer people.
 
+### 4d. Richness: one tunable measure that feeds every food source (Zach, 14 Nov)
+
+Zach: "there should be some ways to in general adjust the carrying capacity of land ... richer or sparser ... a holistic measure ...
+so that when generating the land, whatever food sources are introduced are scaled based on that ... bigger rivers with more fish or
+more forests ... a metaparameter for the generation, tunable for the whole world or specific places, that feeds into a bunch of
+things ... Otherwise ... I can only tweak population size."
+
+**The pattern: drive the cause, not the effects.** In ecology the holistic measure is the land's productivity, how much grows on
+it in a year: net primary productivity, set by warmth, water and soil. Every food source downstream (crops, grass and the beasts on
+it, woods and their mast and game, fish in the water fed by the land) is a function of it. So make one quantity the generator's
+upstream driver, and let each food source read it through its own rule. Do not give each source its own knob.
+
+1. **A richness field** `r` over the map, 1.0 by default.
+   - **Set by:** a world's level (`richness: 0.8`); places and areas as control points the field passes through (`Northby: 1.3`, "the
+     fen: rich", "the eastern moor: poor"); optionally a gradient.
+   - **Blending:** like the other fields, with a reach, so a richer valley shades into its neighbours instead of stopping at a line.
+   - **Words** map to values, as the vocabulary does now (D2-173: "rich bottomland", "poor stony soil").
+2. **Each food source reads `r` through a declared transfer function,** in one registry beside the sources (one row a source, as the
+   capacity package registers its sources), so the coupling is defined once and can be inspected:
+   - soil: base fertility (D4-112: the engine's own multiplier, `land.base_fertility`) and depth;
+   - grass: its stock and regrowth on pasture and meadow;
+   - woods: standing wood, regrowth, mast, wild plants;
+   - water: rivers' flow, as rain over the catchment, so richer land gives bigger rivers and more fish; a lake's fish;
+   - the wild layer: each kind's habitat capacity per area (D2-199), through the food it eats;
+   - not stone or ore: richness is about what grows.
+3. **Two depths of effect,** so tuning one place never rearranges the map:
+   - **World or region richness may move the physical drivers:** more rain, a longer growing season, deeper soils. That can change
+     geography (bigger rivers, more wood, more fen) and happens before the land is laid out.
+   - **A place's richness scales only yields and stocks** on the land as laid out: the same river, but more fish in it; the same
+     wood, denser; the same fields, more fertile.
+4. **Within each terrain's range.** A rich heath is the best heath, not loam. Richness moves each terrain's numbers within the
+   bounds its kind allows, and never changes a cover or a terrain into another. That is the guard against over-optimising: the land
+   stays the kind it is.
+5. **Monotone by construction,** and tested: raising `r` never lowers any source's yield. So capacity, measured with the full model
+   (§4c), rises monotonically with richness, which makes it tunable:
+   - **Tune by richness:** set `r` and read the capacity.
+   - **Tune by capacity:** ask for a capacity ("Northby feeds about 40 at the worked level", "the region at 0.7") and the generator
+     finds the place's `r` by bisection on that one number. Which sources carry the gain is decided by the land's affordances, never
+     by the target.
+6. **Three knobs that stay apart:**
+   - **richness:** what the land grows by nature;
+   - **use:** what has been cleared and worked (§4c, from the history);
+   - **level:** how well it is farmed (the capacity package's bare to ceiling).
+
+   A place can be rich and little worked (a frontier), or poor and worked hard (an old upland village).
+7. **How it fits the rest:**
+   - with people pinned and a target ratio, `r` per place is the free value;
+   - with `r` pinned, people or use fill;
+   - a dependence profile (§4c item 5) is a richness profile over the region, met by bisection per place.
+
+**What is new and what exists:**
+- **Exists:** the engine's per-parcel fertility multiplier (D4-112); the generator's soil fertility; the wild layer's habitat
+  capacities.
+- **New:** the field, the registry of transfer functions, the monotone guard test, and the bisection.
+
+**Size:** medium, mostly in the generator; nothing in the engine beyond fields it already reads.
+
 ### 4b. Generation as a graph of keyed decisions, repaired, never rejected
 
 **Each decision is a node:** a village's site, a parcel's cells, a household's members, a person's parents, an ancestor's death year,
@@ -336,6 +393,10 @@ question 2's framing: the age mix is part of the pinned present).
   measured with the full capacity package (D4-102), not fitted by one lever; approaches compared (measure only, one lever, siting as
   matching, livelihoods by affordance, dependence by design); recommended siting, livelihoods and a dependence profile, with
   measure-only as the fallback.
+
+- **14 Nov 2026 (fourth):** §4d with Zach: richness, one upstream productivity field (world and places) that every food source reads
+  through a declared, monotone transfer function within its terrain's range; tunable by value or by a target capacity (bisection on
+  one number); kept apart from use and from the level of practice.
 
 ## Sources
 
