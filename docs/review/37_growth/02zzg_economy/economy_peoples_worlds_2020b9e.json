@@ -1,0 +1,3720 @@
+{
+"source": {
+"commit": "2020b9e",
+"branch": "HEAD"
+},
+"nodes": [
+{
+"id": "good:grain",
+"kind": "good",
+"label": "grain",
+"pack": "core",
+"food": 0.7,
+"weight": 1,
+"spoil": 0.0167,
+"origin": "core economy"
+},
+{
+"id": "good:rye",
+"kind": "good",
+"label": "rye",
+"pack": "core",
+"food": 0.7,
+"weight": 1,
+"spoil": 0.0167,
+"origin": "core economy"
+},
+{
+"id": "good:beans",
+"kind": "good",
+"label": "beans",
+"pack": "core",
+"food": 0.6,
+"weight": 1,
+"spoil": 0.0167,
+"origin": "core economy"
+},
+{
+"id": "good:flour",
+"kind": "good",
+"label": "flour",
+"pack": "core",
+"food": 1.0,
+"weight": 1,
+"spoil": 0.0167,
+"origin": "core economy"
+},
+{
+"id": "good:meal",
+"kind": "good",
+"label": "meal",
+"pack": "core",
+"food": 1.0,
+"weight": 1,
+"spoil": 0.0167,
+"origin": "core economy"
+},
+{
+"id": "good:bread",
+"kind": "good",
+"label": "bread",
+"pack": "core",
+"food": 1.3,
+"weight": 1,
+"spoil": 0.05,
+"origin": "core economy"
+},
+{
+"id": "good:dried meat",
+"kind": "good",
+"label": "dried meat",
+"pack": "core",
+"food": 3.0,
+"weight": 1,
+"spoil": 0.02,
+"origin": "brief 4 (drying)"
+},
+{
+"id": "good:cheese",
+"kind": "good",
+"label": "cheese",
+"pack": "core",
+"food": 2.5,
+"weight": 1,
+"spoil": 0.02,
+"origin": "core economy"
+},
+{
+"id": "good:salt",
+"kind": "good",
+"label": "salt",
+"pack": "core",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:hay",
+"kind": "good",
+"label": "hay",
+"pack": "core",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:green grain",
+"kind": "good",
+"label": "green grain",
+"pack": "core",
+"food": 0.15,
+"weight": 1,
+"spoil": 0.2,
+"origin": "core economy"
+},
+{
+"id": "good:green rye",
+"kind": "good",
+"label": "green rye",
+"pack": "core",
+"food": 0.15,
+"weight": 1,
+"spoil": 0.2,
+"origin": "core economy"
+},
+{
+"id": "good:green beans",
+"kind": "good",
+"label": "green beans",
+"pack": "core",
+"food": 0.3,
+"weight": 1,
+"spoil": 0.2,
+"origin": "core economy"
+},
+{
+"id": "good:straw",
+"kind": "good",
+"label": "straw",
+"pack": "core",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:dung",
+"kind": "good",
+"label": "dung",
+"pack": "core",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:charcoal",
+"kind": "good",
+"label": "charcoal",
+"pack": "core",
+"food": 0.0,
+"weight": 2,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:firewood",
+"kind": "good",
+"label": "firewood",
+"pack": "core",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:wild food",
+"kind": "good",
+"label": "wild food",
+"pack": "core",
+"food": 1.0,
+"weight": 1,
+"spoil": 0.15,
+"origin": "core economy"
+},
+{
+"id": "good:fish",
+"kind": "good",
+"label": "fish",
+"pack": "water",
+"food": 1.0,
+"weight": 1,
+"spoil": 0.3,
+"origin": "water pack"
+},
+{
+"id": "good:salt fish",
+"kind": "good",
+"label": "salt fish",
+"pack": "water",
+"food": 1.0,
+"weight": 1,
+"spoil": 0.01,
+"origin": "water pack"
+},
+{
+"id": "good:fishing rod",
+"kind": "good",
+"label": "fishing rod",
+"pack": "water",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "water pack"
+},
+{
+"id": "good:meat",
+"kind": "good",
+"label": "meat",
+"pack": "core",
+"food": 1.5,
+"weight": 1,
+"spoil": 0.3,
+"origin": "core economy"
+},
+{
+"id": "good:milk",
+"kind": "good",
+"label": "milk",
+"pack": "core",
+"food": 0.5,
+"weight": 1,
+"spoil": 1.0,
+"origin": "core economy"
+},
+{
+"id": "good:hen",
+"kind": "good",
+"label": "hen",
+"pack": "wild",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "wild layer"
+},
+{
+"id": "good:cat",
+"kind": "good",
+"label": "cat",
+"pack": "wild",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "brief 2 (raiders)"
+},
+{
+"id": "good:egg",
+"kind": "good",
+"label": "egg",
+"pack": "wild",
+"food": 0.6,
+"weight": 0.1,
+"spoil": 0.05,
+"origin": "wild layer"
+},
+{
+"id": "good:greens",
+"kind": "good",
+"label": "greens",
+"pack": "wild",
+"food": 0.6,
+"weight": 1,
+"spoil": 0.3,
+"origin": "wild layer"
+},
+{
+"id": "good:roots",
+"kind": "good",
+"label": "roots",
+"pack": "wild",
+"food": 0.8,
+"weight": 1,
+"spoil": 0.05,
+"origin": "wild layer"
+},
+{
+"id": "good:mushrooms",
+"kind": "good",
+"label": "mushrooms",
+"pack": "wild",
+"food": 0.6,
+"weight": 1,
+"spoil": 0.3,
+"origin": "wild layer"
+},
+{
+"id": "good:watercress",
+"kind": "good",
+"label": "watercress",
+"pack": "wild",
+"food": 0.4,
+"weight": 1,
+"spoil": 0.3,
+"origin": "wild layer"
+},
+{
+"id": "good:samphire",
+"kind": "good",
+"label": "samphire",
+"pack": "wild",
+"food": 0.5,
+"weight": 1,
+"spoil": 0.2,
+"origin": "wild layer"
+},
+{
+"id": "good:berries",
+"kind": "good",
+"label": "berries",
+"pack": "wild",
+"food": 0.8,
+"weight": 1,
+"spoil": 0.25,
+"origin": "wild layer"
+},
+{
+"id": "good:hedge fruit",
+"kind": "good",
+"label": "hedge fruit",
+"pack": "wild",
+"food": 0.6,
+"weight": 1,
+"spoil": 0.03,
+"origin": "wild layer"
+},
+{
+"id": "good:hazel nuts",
+"kind": "good",
+"label": "hazel nuts",
+"pack": "wild",
+"food": 1.6,
+"weight": 1,
+"spoil": 0.004,
+"origin": "wild layer"
+},
+{
+"id": "good:beech nuts",
+"kind": "good",
+"label": "beech nuts",
+"pack": "wild",
+"food": 1.2,
+"weight": 1,
+"spoil": 0.006,
+"origin": "wild layer"
+},
+{
+"id": "good:acorns",
+"kind": "good",
+"label": "acorns",
+"pack": "wild",
+"food": 0.1,
+"weight": 1,
+"spoil": 0.01,
+"origin": "wild layer"
+},
+{
+"id": "good:acorn meal",
+"kind": "good",
+"label": "acorn meal",
+"pack": "wild",
+"food": 1.0,
+"weight": 1,
+"spoil": 0.02,
+"origin": "wild layer"
+},
+{
+"id": "good:antler",
+"kind": "good",
+"label": "antler",
+"pack": "wild",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "brief 1 (scares)"
+},
+{
+"id": "good:beaver pelt",
+"kind": "good",
+"label": "beaver pelt",
+"pack": "wild",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "wild sites (beaver)"
+},
+{
+"id": "good:clappers",
+"kind": "good",
+"label": "clappers",
+"pack": "wild",
+"food": 0.0,
+"weight": 0.5,
+"spoil": 0.0,
+"origin": "brief 1 (scares)"
+},
+{
+"id": "good:horn",
+"kind": "good",
+"label": "horn",
+"pack": "wild",
+"food": 0.0,
+"weight": 0.5,
+"spoil": 0.0,
+"origin": "brief 1 (scares)"
+},
+{
+"id": "good:castoreum",
+"kind": "good",
+"label": "castoreum",
+"pack": "wild",
+"food": 0.0,
+"weight": 0.2,
+"spoil": 0.0,
+"origin": "wild sites (beaver)"
+},
+{
+"id": "good:timber",
+"kind": "good",
+"label": "timber",
+"pack": "core",
+"food": 0.0,
+"weight": 2,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:stone",
+"kind": "good",
+"label": "stone",
+"pack": "core",
+"food": 0.0,
+"weight": 3,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:hide",
+"kind": "good",
+"label": "hide",
+"pack": "core",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:tallow",
+"kind": "good",
+"label": "tallow",
+"pack": "core",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "brief 3 (carcasses)"
+},
+{
+"id": "good:drying meat",
+"kind": "good",
+"label": "drying meat",
+"pack": "core",
+"food": 1.5,
+"weight": 1,
+"spoil": 0.15,
+"origin": "brief 4 (drying)"
+},
+{
+"id": "good:salt meat",
+"kind": "good",
+"label": "salt meat",
+"pack": "core",
+"food": 1.4,
+"weight": 1,
+"spoil": 0.003,
+"origin": "brief 4 (salting)"
+},
+{
+"id": "good:offal",
+"kind": "good",
+"label": "offal",
+"pack": "core",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "brief 3 (carcasses)"
+},
+{
+"id": "good:tallow light",
+"kind": "good",
+"label": "tallow light",
+"pack": "core",
+"food": 0.0,
+"weight": 0.2,
+"spoil": 0.0,
+"origin": "brief 3 (carcasses)"
+},
+{
+"id": "good:copper ore",
+"kind": "good",
+"label": "copper ore",
+"pack": "core",
+"food": 0.0,
+"weight": 3,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:copper",
+"kind": "good",
+"label": "copper",
+"pack": "core",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:coin",
+"kind": "good",
+"label": "coin",
+"pack": "core",
+"food": 0.0,
+"weight": 0,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:crude tool",
+"kind": "good",
+"label": "crude tool",
+"pack": "core",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:copper tool",
+"kind": "good",
+"label": "copper tool",
+"pack": "core",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:crude weapon",
+"kind": "good",
+"label": "crude weapon",
+"pack": "core",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:pack",
+"kind": "good",
+"label": "pack",
+"pack": "core",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:handcart",
+"kind": "good",
+"label": "handcart",
+"pack": "core",
+"food": 0.0,
+"weight": 0,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:wooden plough",
+"kind": "good",
+"label": "wooden plough",
+"pack": "core",
+"food": 0.0,
+"weight": 4,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:harness",
+"kind": "good",
+"label": "harness",
+"pack": "core",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:bedroll",
+"kind": "good",
+"label": "bedroll",
+"pack": "core",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:tent",
+"kind": "good",
+"label": "tent",
+"pack": "core",
+"food": 0.0,
+"weight": 6,
+"spoil": 0.0,
+"origin": "core economy"
+},
+{
+"id": "good:rotting meat",
+"kind": "good",
+"label": "rotting meat",
+"pack": "core",
+"food": 0.0,
+"weight": 1,
+"spoil": 0.3,
+"origin": "decay (D2-87)"
+},
+{
+"id": "use:eat",
+"kind": "use",
+"label": "eaten (food)"
+},
+{
+"id": "use:warmth",
+"kind": "use",
+"label": "burned for warmth and cooking"
+},
+{
+"id": "use:fodder",
+"kind": "use",
+"label": "fed to beasts"
+},
+{
+"id": "use:seed",
+"kind": "use",
+"label": "sown as seed"
+},
+{
+"id": "use:build",
+"kind": "use",
+"label": "built with"
+},
+{
+"id": "use:tool",
+"kind": "use",
+"label": "a tool for work"
+},
+{
+"id": "use:weapon",
+"kind": "use",
+"label": "a weapon for the hunt"
+},
+{
+"id": "use:scare",
+"kind": "use",
+"label": "a scare for guarding a field"
+},
+{
+"id": "use:carry",
+"kind": "use",
+"label": "carrying more"
+},
+{
+"id": "use:sleep",
+"kind": "use",
+"label": "sleeping out"
+},
+{
+"id": "use:light",
+"kind": "use",
+"label": "light for night work"
+},
+{
+"id": "use:money",
+"kind": "use",
+"label": "money for trade and dues"
+},
+{
+"id": "use:store",
+"kind": "use",
+"label": "keeps a store"
+},
+{
+"id": "use:fish",
+"kind": "use",
+"label": "gear for fishing"
+},
+{
+"id": "use:plough",
+"kind": "use",
+"label": "gear for ploughing"
+},
+{
+"id": "use:manure",
+"kind": "use",
+"label": "manures a field"
+},
+{
+"id": "proc:forage",
+"kind": "process",
+"label": "forage",
+"verb": "gather",
+"units": 1,
+"label2": "foraging (greens, roots, berries, nuts)",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "src:forest",
+"kind": "source",
+"label": "forest",
+"group": "land"
+},
+{
+"id": "src:meadow",
+"kind": "source",
+"label": "meadow",
+"group": "land"
+},
+{
+"id": "src:pasture",
+"kind": "source",
+"label": "pasture",
+"group": "land"
+},
+{
+"id": "src:scrub",
+"kind": "source",
+"label": "scrub",
+"group": "land"
+},
+{
+"id": "src:heath",
+"kind": "source",
+"label": "heath",
+"group": "land"
+},
+{
+"id": "src:moor",
+"kind": "source",
+"label": "moor",
+"group": "land"
+},
+{
+"id": "src:fen",
+"kind": "source",
+"label": "fen",
+"group": "land"
+},
+{
+"id": "src:saltmarsh",
+"kind": "source",
+"label": "saltmarsh",
+"group": "land"
+},
+{
+"id": "proc:hunt",
+"kind": "process",
+"label": "hunt",
+"verb": "gather",
+"units": 2,
+"label2": "hunting game",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:fell",
+"kind": "process",
+"label": "fell",
+"verb": "gather",
+"units": 2,
+"label2": "felling timber",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:firewood",
+"kind": "process",
+"label": "firewood",
+"verb": "gather",
+"units": 1,
+"label2": "gathering firewood (dead wood, by hand)",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:cut",
+"kind": "process",
+"label": "cut",
+"verb": "gather",
+"units": 1,
+"label2": "cutting young growth for firewood",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:mine",
+"kind": "process",
+"label": "mine",
+"verb": "gather",
+"units": 2,
+"label2": "mining copper ore",
+"pack": "core",
+"trade": "miner",
+"basic": null
+},
+{
+"id": "src:rock",
+"kind": "source",
+"label": "rock",
+"group": "land"
+},
+{
+"id": "proc:quarry",
+"kind": "process",
+"label": "quarry",
+"verb": "gather",
+"units": 2,
+"label2": "quarrying stone",
+"pack": "core",
+"trade": "mason",
+"basic": null
+},
+{
+"id": "proc:sow",
+"kind": "process",
+"label": "sow",
+"verb": "work",
+"units": 1,
+"label2": "sowing a field broadcast (seed thrown)",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "src:field",
+"kind": "source",
+"label": "field",
+"group": "land"
+},
+{
+"id": "proc:hoe",
+"kind": "process",
+"label": "hoe",
+"verb": "work",
+"units": 1,
+"label2": "breaking the soil with a hoe",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:plough",
+"kind": "process",
+"label": "plough",
+"verb": "work",
+"units": 1,
+"label2": "ploughing with a yoked pair of oxen",
+"pack": "core",
+"trade": "farmer",
+"basic": null
+},
+{
+"id": "proc:manure",
+"kind": "process",
+"label": "manure",
+"verb": "work",
+"units": 1,
+"label2": "manuring a field",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:reap",
+"kind": "process",
+"label": "reap",
+"verb": "work",
+"units": 1,
+"label2": "reaping a crop",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:hay",
+"kind": "process",
+"label": "hay",
+"verb": "gather",
+"units": 1,
+"label2": "cutting hay",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:gather wild food",
+"kind": "process",
+"label": "gather wild food",
+"verb": "gather",
+"units": 1,
+"label2": "gathering wild food (what is in season where you are: greens, berries, nuts, fungi, roots)",
+"pack": "wild",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:make clappers",
+"kind": "process",
+"label": "make clappers",
+"verb": "make",
+"units": 1,
+"label2": "making clappers (two boards on a cord) for scaring beasts off a field",
+"pack": "wild",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:make tallow lights",
+"kind": "process",
+"label": "make tallow lights",
+"verb": "make",
+"units": 1,
+"label2": "dipping rushes in tallow for lights to work by at night",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:make a horn",
+"kind": "process",
+"label": "make a horn",
+"verb": "make",
+"units": 2,
+"label2": "making a horn to blow from a cast antler's base",
+"pack": "wild",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:leach acorns",
+"kind": "process",
+"label": "leach acorns",
+"verb": "make",
+"units": 1,
+"label2": "boiling acorns in changes of water at a hearth till the bitterness is gone",
+"pack": "wild",
+"trade": null,
+"basic": true
+},
+{
+"id": "fit:hearth",
+"kind": "fitting",
+"label": "hearth"
+},
+{
+"id": "proc:burn the stubble",
+"kind": "process",
+"label": "burn the stubble",
+"verb": "work",
+"units": 2,
+"label2": "burning the stubble after the harvest",
+"pack": "wild",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:dung",
+"kind": "process",
+"label": "dung",
+"verb": "gather",
+"units": 1,
+"label2": "gathering dung",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:milk",
+"kind": "process",
+"label": "milk",
+"verb": "work",
+"units": 1,
+"label2": "milking (a cow in milk)",
+"pack": "core",
+"trade": "herder",
+"basic": null
+},
+{
+"id": "proc:slaughter",
+"kind": "process",
+"label": "slaughter",
+"verb": "work",
+"units": 2,
+"label2": "slaughtering a beast",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "src:built",
+"kind": "source",
+"label": "built",
+"group": "land"
+},
+{
+"id": "proc:grind",
+"kind": "process",
+"label": "grind",
+"verb": "make",
+"units": 1,
+"label2": "grinding grain into meal at a hand mill",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "fit:hand mill",
+"kind": "fitting",
+"label": "hand mill"
+},
+{
+"id": "proc:mill",
+"kind": "process",
+"label": "mill",
+"verb": "make",
+"units": 2,
+"label2": "milling grain at dressed millstones turned by an ox",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "fit:millstones",
+"kind": "fitting",
+"label": "millstones"
+},
+{
+"id": "proc:water mill",
+"kind": "process",
+"label": "water mill",
+"verb": "make",
+"units": 2,
+"label2": "milling grain at a water mill",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "fit:water wheel",
+"kind": "fitting",
+"label": "water wheel"
+},
+{
+"id": "proc:dry fodder",
+"kind": "process",
+"label": "dry fodder",
+"verb": "make",
+"units": 1,
+"label2": "drying a green crop into hay",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:pack",
+"kind": "process",
+"label": "pack",
+"verb": "make",
+"units": 1,
+"label2": "making a pack",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:handcart",
+"kind": "process",
+"label": "handcart",
+"verb": "make",
+"units": 3,
+"label2": "making a handcart",
+"pack": "core",
+"trade": "carpenter",
+"basic": null
+},
+{
+"id": "proc:bread",
+"kind": "process",
+"label": "bread",
+"verb": "make",
+"units": 1,
+"label2": "baking bread at a hearth",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:oven bread",
+"kind": "process",
+"label": "oven bread",
+"verb": "make",
+"units": 3,
+"label2": "baking bread in a stone oven",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "fit:oven",
+"kind": "fitting",
+"label": "oven"
+},
+{
+"id": "proc:fish by hand",
+"kind": "process",
+"label": "fish by hand",
+"verb": "gather",
+"units": 1,
+"label2": "fishing by hand (tickling trout, groping under the banks)",
+"pack": "water",
+"trade": null,
+"basic": true
+},
+{
+"id": "src:water",
+"kind": "source",
+"label": "water",
+"group": "land"
+},
+{
+"id": "proc:angle",
+"kind": "process",
+"label": "angle",
+"verb": "gather",
+"units": 1,
+"label2": "fishing with a rod and line",
+"pack": "water",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:fishing rod",
+"kind": "process",
+"label": "fishing rod",
+"verb": "make",
+"units": 1,
+"label2": "making a fishing rod and line",
+"pack": "water",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:salt pan",
+"kind": "process",
+"label": "salt pan",
+"verb": "gather",
+"units": 1,
+"label2": "making salt in the saltmarsh pans (dried by the sun)",
+"pack": "water",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:salt fish",
+"kind": "process",
+"label": "salt fish",
+"verb": "make",
+"units": 1,
+"label2": "salting fish to keep",
+"pack": "water",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:salt meat",
+"kind": "process",
+"label": "salt meat",
+"verb": "make",
+"units": 1,
+"label2": "salting meat in a tub to keep",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:dry meat",
+"kind": "process",
+"label": "dry meat",
+"verb": "make",
+"units": 1,
+"label2": "drying meat over a fire",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "fit:fire ring",
+"kind": "fitting",
+"label": "fire ring"
+},
+{
+"id": "proc:cheese",
+"kind": "process",
+"label": "cheese",
+"verb": "make",
+"units": 1,
+"label2": "making cheese",
+"pack": "core",
+"trade": "herder",
+"basic": null
+},
+{
+"id": "fit:cellar",
+"kind": "fitting",
+"label": "cellar"
+},
+{
+"id": "proc:charcoal",
+"kind": "process",
+"label": "charcoal",
+"verb": "make",
+"units": 2,
+"label2": "burning charcoal",
+"pack": "core",
+"trade": "woodsman",
+"basic": null
+},
+{
+"id": "proc:wooden plough",
+"kind": "process",
+"label": "wooden plough",
+"verb": "make",
+"units": 4,
+"label2": "making a plough",
+"pack": "core",
+"trade": "carpenter",
+"basic": null
+},
+{
+"id": "proc:bedroll",
+"kind": "process",
+"label": "bedroll",
+"verb": "make",
+"units": 1,
+"label2": "making a bedroll",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:tent",
+"kind": "process",
+"label": "tent",
+"verb": "make",
+"units": 2,
+"label2": "making a tent",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:harness",
+"kind": "process",
+"label": "harness",
+"verb": "make",
+"units": 2,
+"label2": "making a harness",
+"pack": "core",
+"trade": "leatherworker",
+"basic": null
+},
+{
+"id": "proc:crude tool",
+"kind": "process",
+"label": "crude tool",
+"verb": "make",
+"units": 1,
+"label2": "making a crude hand tool",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:crude weapon",
+"kind": "process",
+"label": "crude weapon",
+"verb": "make",
+"units": 1,
+"label2": "making a crude weapon",
+"pack": "core",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:smelt",
+"kind": "process",
+"label": "smelt",
+"verb": "make",
+"units": 3,
+"label2": "smelting copper",
+"pack": "core",
+"trade": "smelter",
+"basic": null
+},
+{
+"id": "fit:anvil",
+"kind": "fitting",
+"label": "anvil"
+},
+{
+"id": "proc:copper tool",
+"kind": "process",
+"label": "copper tool",
+"verb": "make",
+"units": 3,
+"label2": "making a copper hand tool",
+"pack": "core",
+"trade": "smith",
+"basic": null
+},
+{
+"id": "proc:coin",
+"kind": "process",
+"label": "coin",
+"verb": "make",
+"units": 1,
+"label2": "striking coin",
+"pack": "core",
+"trade": "smith",
+"basic": null
+},
+{
+"id": "src:wild:brown bear",
+"kind": "source",
+"label": "brown bear",
+"group": "wild"
+},
+{
+"id": "src:wild:brown hare",
+"kind": "source",
+"label": "brown hare",
+"group": "wild"
+},
+{
+"id": "src:wild:fox",
+"kind": "source",
+"label": "fox",
+"group": "wild"
+},
+{
+"id": "src:wild:red deer",
+"kind": "source",
+"label": "red deer",
+"group": "wild"
+},
+{
+"id": "src:wild:roe deer",
+"kind": "source",
+"label": "roe deer",
+"group": "wild"
+},
+{
+"id": "src:wild:stoat",
+"kind": "source",
+"label": "stoat",
+"group": "wild"
+},
+{
+"id": "src:wild:wild boar",
+"kind": "source",
+"label": "wild boar",
+"group": "wild"
+},
+{
+"id": "src:wild:wolf",
+"kind": "source",
+"label": "wolf",
+"group": "wild"
+},
+{
+"id": "src:wild:woodpigeon",
+"kind": "source",
+"label": "woodpigeon",
+"group": "wild"
+},
+{
+"id": "proc:hunt the wild",
+"kind": "process",
+"label": "hunt the wild",
+"verb": "gather",
+"units": 2,
+"label2": "hunting in the wild, taking what comes",
+"pack": "wild",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:stalk",
+"kind": "process",
+"label": "stalk",
+"verb": "gather",
+"units": 3,
+"label2": "stalking a beast that keeps to its paths (slow, downwind, close in for the shot)",
+"pack": "wild",
+"trade": null,
+"basic": false
+},
+{
+"id": "proc:drive",
+"kind": "process",
+"label": "drive",
+"verb": "gather",
+"units": 4,
+"label2": "a drive (beaters and spears; others with you; dangerous)",
+"pack": "wild",
+"trade": null,
+"basic": false
+},
+{
+"id": "proc:snare",
+"kind": "process",
+"label": "snare",
+"verb": "gather",
+"units": 1,
+"label2": "setting snares on the runs",
+"pack": "wild",
+"trade": null,
+"basic": true
+},
+{
+"id": "src:wild:wildfowl",
+"kind": "source",
+"label": "wildfowl",
+"group": "wild"
+},
+{
+"id": "proc:net",
+"kind": "process",
+"label": "net",
+"verb": "gather",
+"units": 2,
+"label2": "netting birds with nets and decoys",
+"pack": "wild",
+"trade": null,
+"basic": false
+},
+{
+"id": "src:wild:eel",
+"kind": "source",
+"label": "eel",
+"group": "wild"
+},
+{
+"id": "proc:trap in water",
+"kind": "process",
+"label": "trap in water",
+"verb": "gather",
+"units": 1,
+"label2": "setting wicker traps in the water overnight",
+"pack": "wild",
+"trade": null,
+"basic": false
+},
+{
+"id": "proc:den work",
+"kind": "process",
+"label": "den work",
+"verb": "gather",
+"units": 3,
+"label2": "digging out a den or trapping at a lodge (spades and a dog help)",
+"pack": "wild",
+"trade": null,
+"basic": false
+},
+{
+"id": "proc:pest work",
+"kind": "process",
+"label": "pest work",
+"verb": "work",
+"units": 1,
+"label2": "working the pests off a crop (picking them off, pinching out the tops)",
+"pack": "wild",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:guard the field",
+"kind": "process",
+"label": "guard the field",
+"verb": "work",
+"units": 2,
+"label2": "guarding a field by night against beasts",
+"pack": "wild",
+"trade": null,
+"basic": true
+},
+{
+"id": "proc:shut",
+"kind": "process",
+"label": "shut",
+"verb": "work",
+"units": 1,
+"label2": "shutting the hens and the store up for the night (the doors wedged, the gaps stopped)",
+"pack": "wild",
+"trade": null,
+"basic": true
+},
+{
+"id": "fit:beds",
+"kind": "fitting",
+"label": "beds",
+"does": "housed when sleeping here, one a bed",
+"units": 1,
+"trade": null,
+"pack": "core"
+},
+{
+"id": "fit:owl hole",
+"kind": "fitting",
+"label": "owl hole",
+"does": "a way in for a barn owl, which keeps the mice in the store down",
+"units": 1,
+"trade": null,
+"pack": "wild"
+},
+{
+"id": "fit:bins",
+"kind": "fitting",
+"label": "bins",
+"does": "a store for food (60)",
+"units": 1,
+"trade": null,
+"pack": "core"
+},
+{
+"id": "fit:granary",
+"kind": "fitting",
+"label": "granary",
+"does": "grain keeps longest, raised and dry (300)",
+"units": 4,
+"trade": null,
+"pack": "core"
+},
+{
+"id": "fit:stalls",
+"kind": "fitting",
+"label": "stalls",
+"does": "beasts housed in winter, one a stall: less fodder, dung kept, not driven off without coming in",
+"units": 1,
+"trade": null,
+"pack": "core"
+},
+{
+"id": "fit:woodshed",
+"kind": "fitting",
+"label": "woodshed",
+"does": "a lean-to against the building: 40 timber kept dry",
+"units": 1,
+"trade": null,
+"pack": "core"
+},
+{
+"id": "fit:vault",
+"kind": "fitting",
+"label": "vault",
+"does": "a stone room of its own on the ground floor: 30 weight a space kept, safe from fire (D2-49)",
+"units": 30,
+"trade": "mason",
+"pack": "core"
+},
+{
+"id": "room:small room",
+"kind": "fitting",
+"label": "small room",
+"does": "a room: 6 floor, 2 places"
+},
+{
+"id": "room:medium room",
+"kind": "fitting",
+"label": "medium room",
+"does": "a room: 12 floor, 4 places"
+},
+{
+"id": "room:hall",
+"kind": "fitting",
+"label": "hall",
+"does": "a room: 30 floor, 8 places"
+},
+{
+"id": "src:herd",
+"kind": "source",
+"label": "cattle",
+"group": "herd"
+},
+{
+"id": "proc:hens lay",
+"kind": "process",
+"label": "hens lay",
+"verb": "night",
+"label2": "hens in a store lay eggs each night (wild.py _hens_lay)",
+"pack": "wild"
+},
+{
+"id": "proc:on the rack",
+"kind": "process",
+"label": "on the rack",
+"verb": "night",
+"label2": "3 nights on the rack: drying meat becomes dried meat at half the weight (night.py)",
+"pack": "core"
+},
+{
+"id": "proc:decay",
+"kind": "process",
+"label": "decay",
+"verb": "night",
+"label2": "fresh meat left out turns to rotting meat (night.py, D2-87)",
+"pack": "core"
+},
+{
+"id": "src:comes by itself",
+"kind": "source",
+"label": "comes by itself or is found",
+"group": "wild"
+},
+{
+"id": "src:wild:beaver",
+"kind": "source",
+"label": "beaver (a lodge)",
+"group": "wild"
+},
+{
+"id": "proc:trap beavers",
+"kind": "process",
+"label": "trap beavers",
+"verb": "work",
+"label2": "den work at a beaver lodge (wild.py site_work)",
+"pack": "wild"
+}
+],
+"edges": [
+{
+"from": "proc:forage",
+"to": "good:wild food",
+"kind": "output"
+},
+{
+"from": "src:forest",
+"to": "proc:forage",
+"kind": "where"
+},
+{
+"from": "src:meadow",
+"to": "proc:forage",
+"kind": "where"
+},
+{
+"from": "src:pasture",
+"to": "proc:forage",
+"kind": "where"
+},
+{
+"from": "src:scrub",
+"to": "proc:forage",
+"kind": "where"
+},
+{
+"from": "src:heath",
+"to": "proc:forage",
+"kind": "where"
+},
+{
+"from": "src:moor",
+"to": "proc:forage",
+"kind": "where"
+},
+{
+"from": "src:fen",
+"to": "proc:forage",
+"kind": "where"
+},
+{
+"from": "src:saltmarsh",
+"to": "proc:forage",
+"kind": "where"
+},
+{
+"from": "proc:hunt",
+"to": "good:meat",
+"kind": "output"
+},
+{
+"from": "src:forest",
+"to": "proc:hunt",
+"kind": "where"
+},
+{
+"from": "good:crude weapon",
+"to": "proc:hunt",
+"kind": "weapon",
+"qty": 3.33,
+"note": "x take, armed against bare hands"
+},
+{
+"from": "proc:fell",
+"to": "good:timber",
+"kind": "output"
+},
+{
+"from": "src:forest",
+"to": "proc:fell",
+"kind": "where"
+},
+{
+"from": "good:crude tool",
+"to": "proc:fell",
+"kind": "tool",
+"qty": 1.0
+},
+{
+"from": "good:copper tool",
+"to": "proc:fell",
+"kind": "tool",
+"qty": 2.0
+},
+{
+"from": "proc:firewood",
+"to": "good:firewood",
+"kind": "output"
+},
+{
+"from": "src:forest",
+"to": "proc:firewood",
+"kind": "where"
+},
+{
+"from": "src:scrub",
+"to": "proc:firewood",
+"kind": "where"
+},
+{
+"from": "proc:cut",
+"to": "good:firewood",
+"kind": "output"
+},
+{
+"from": "src:forest",
+"to": "proc:cut",
+"kind": "where"
+},
+{
+"from": "src:scrub",
+"to": "proc:cut",
+"kind": "where"
+},
+{
+"from": "good:crude tool",
+"to": "proc:cut",
+"kind": "tool",
+"qty": 1.0
+},
+{
+"from": "good:copper tool",
+"to": "proc:cut",
+"kind": "tool",
+"qty": 1.5
+},
+{
+"from": "proc:mine",
+"to": "good:copper ore",
+"kind": "output"
+},
+{
+"from": "src:rock",
+"to": "proc:mine",
+"kind": "where"
+},
+{
+"from": "good:crude tool",
+"to": "proc:mine",
+"kind": "tool",
+"qty": 1.0
+},
+{
+"from": "good:copper tool",
+"to": "proc:mine",
+"kind": "tool",
+"qty": 1.5
+},
+{
+"from": "proc:quarry",
+"to": "good:stone",
+"kind": "output"
+},
+{
+"from": "src:rock",
+"to": "proc:quarry",
+"kind": "where"
+},
+{
+"from": "good:crude tool",
+"to": "proc:quarry",
+"kind": "tool",
+"qty": 1.0
+},
+{
+"from": "good:copper tool",
+"to": "proc:quarry",
+"kind": "tool",
+"qty": 1.5
+},
+{
+"from": "good:grain",
+"to": "use:seed",
+"kind": "use"
+},
+{
+"from": "good:rye",
+"to": "use:seed",
+"kind": "use"
+},
+{
+"from": "good:beans",
+"to": "use:seed",
+"kind": "use"
+},
+{
+"from": "src:field",
+"to": "proc:sow",
+"kind": "where"
+},
+{
+"from": "src:meadow",
+"to": "proc:sow",
+"kind": "where"
+},
+{
+"from": "src:pasture",
+"to": "proc:sow",
+"kind": "where"
+},
+{
+"from": "src:heath",
+"to": "proc:sow",
+"kind": "where"
+},
+{
+"from": "src:scrub",
+"to": "proc:sow",
+"kind": "where"
+},
+{
+"from": "proc:hoe",
+"to": "good:stone",
+"kind": "output"
+},
+{
+"from": "src:field",
+"to": "proc:hoe",
+"kind": "where"
+},
+{
+"from": "good:crude tool",
+"to": "proc:hoe",
+"kind": "tool",
+"qty": 1.0
+},
+{
+"from": "good:copper tool",
+"to": "proc:hoe",
+"kind": "tool",
+"qty": 1.5
+},
+{
+"from": "proc:plough",
+"to": "good:stone",
+"kind": "output"
+},
+{
+"from": "src:field",
+"to": "proc:plough",
+"kind": "where"
+},
+{
+"from": "good:wooden plough",
+"to": "proc:plough",
+"kind": "gear",
+"qty": 1
+},
+{
+"from": "good:harness",
+"to": "proc:plough",
+"kind": "gear",
+"qty": 2
+},
+{
+"from": "good:dung",
+"to": "proc:manure",
+"kind": "input",
+"qty": 1.9
+},
+{
+"from": "src:field",
+"to": "proc:manure",
+"kind": "where"
+},
+{
+"from": "proc:reap",
+"to": "good:grain",
+"kind": "output"
+},
+{
+"from": "proc:reap",
+"to": "good:rye",
+"kind": "output"
+},
+{
+"from": "proc:reap",
+"to": "good:beans",
+"kind": "output"
+},
+{
+"from": "proc:reap",
+"to": "good:straw",
+"kind": "output"
+},
+{
+"from": "proc:reap",
+"to": "good:green grain",
+"kind": "output"
+},
+{
+"from": "proc:reap",
+"to": "good:green rye",
+"kind": "output"
+},
+{
+"from": "proc:reap",
+"to": "good:green beans",
+"kind": "output"
+},
+{
+"from": "src:field",
+"to": "proc:reap",
+"kind": "where"
+},
+{
+"from": "src:meadow",
+"to": "proc:reap",
+"kind": "where"
+},
+{
+"from": "src:pasture",
+"to": "proc:reap",
+"kind": "where"
+},
+{
+"from": "src:heath",
+"to": "proc:reap",
+"kind": "where"
+},
+{
+"from": "src:scrub",
+"to": "proc:reap",
+"kind": "where"
+},
+{
+"from": "good:crude tool",
+"to": "proc:reap",
+"kind": "tool",
+"qty": 1.0
+},
+{
+"from": "good:copper tool",
+"to": "proc:reap",
+"kind": "tool",
+"qty": 1.5
+},
+{
+"from": "proc:hay",
+"to": "good:hay",
+"kind": "output"
+},
+{
+"from": "src:pasture",
+"to": "proc:hay",
+"kind": "where"
+},
+{
+"from": "src:meadow",
+"to": "proc:hay",
+"kind": "where"
+},
+{
+"from": "good:crude tool",
+"to": "proc:hay",
+"kind": "tool",
+"qty": 1.0
+},
+{
+"from": "good:copper tool",
+"to": "proc:hay",
+"kind": "tool",
+"qty": 1.5
+},
+{
+"from": "proc:gather wild food",
+"to": "good:greens",
+"kind": "output"
+},
+{
+"from": "proc:gather wild food",
+"to": "good:roots",
+"kind": "output"
+},
+{
+"from": "proc:gather wild food",
+"to": "good:mushrooms",
+"kind": "output"
+},
+{
+"from": "proc:gather wild food",
+"to": "good:watercress",
+"kind": "output"
+},
+{
+"from": "proc:gather wild food",
+"to": "good:samphire",
+"kind": "output"
+},
+{
+"from": "proc:gather wild food",
+"to": "good:berries",
+"kind": "output"
+},
+{
+"from": "proc:gather wild food",
+"to": "good:hedge fruit",
+"kind": "output"
+},
+{
+"from": "proc:gather wild food",
+"to": "good:hazel nuts",
+"kind": "output"
+},
+{
+"from": "proc:gather wild food",
+"to": "good:acorns",
+"kind": "output"
+},
+{
+"from": "proc:gather wild food",
+"to": "good:beech nuts",
+"kind": "output"
+},
+{
+"from": "src:forest",
+"to": "proc:gather wild food",
+"kind": "where"
+},
+{
+"from": "src:meadow",
+"to": "proc:gather wild food",
+"kind": "where"
+},
+{
+"from": "src:pasture",
+"to": "proc:gather wild food",
+"kind": "where"
+},
+{
+"from": "src:scrub",
+"to": "proc:gather wild food",
+"kind": "where"
+},
+{
+"from": "src:heath",
+"to": "proc:gather wild food",
+"kind": "where"
+},
+{
+"from": "src:moor",
+"to": "proc:gather wild food",
+"kind": "where"
+},
+{
+"from": "src:fen",
+"to": "proc:gather wild food",
+"kind": "where"
+},
+{
+"from": "src:saltmarsh",
+"to": "proc:gather wild food",
+"kind": "where"
+},
+{
+"from": "good:timber",
+"to": "proc:make clappers",
+"kind": "input",
+"qty": 0.5
+},
+{
+"from": "proc:make clappers",
+"to": "good:clappers",
+"kind": "output",
+"qty": 1
+},
+{
+"from": "good:tallow",
+"to": "proc:make tallow lights",
+"kind": "input",
+"qty": 1
+},
+{
+"from": "proc:make tallow lights",
+"to": "good:tallow light",
+"kind": "output",
+"qty": 4
+},
+{
+"from": "good:antler",
+"to": "proc:make a horn",
+"kind": "input",
+"qty": 1
+},
+{
+"from": "proc:make a horn",
+"to": "good:horn",
+"kind": "output",
+"qty": 1
+},
+{
+"from": "good:acorns",
+"to": "proc:leach acorns",
+"kind": "input",
+"qty": 3
+},
+{
+"from": "proc:leach acorns",
+"to": "good:acorn meal",
+"kind": "output",
+"qty": 2
+},
+{
+"from": "fit:hearth",
+"to": "proc:leach acorns",
+"kind": "needs"
+},
+{
+"from": "src:field",
+"to": "proc:burn the stubble",
+"kind": "where"
+},
+{
+"from": "proc:dung",
+"to": "good:dung",
+"kind": "output"
+},
+{
+"from": "src:pasture",
+"to": "proc:dung",
+"kind": "where"
+},
+{
+"from": "src:meadow",
+"to": "proc:dung",
+"kind": "where"
+},
+{
+"from": "src:field",
+"to": "proc:dung",
+"kind": "where"
+},
+{
+"from": "proc:milk",
+"to": "good:milk",
+"kind": "output"
+},
+{
+"from": "src:pasture",
+"to": "proc:milk",
+"kind": "where"
+},
+{
+"from": "src:meadow",
+"to": "proc:milk",
+"kind": "where"
+},
+{
+"from": "src:field",
+"to": "proc:milk",
+"kind": "where"
+},
+{
+"from": "src:heath",
+"to": "proc:milk",
+"kind": "where"
+},
+{
+"from": "src:moor",
+"to": "proc:milk",
+"kind": "where"
+},
+{
+"from": "src:fen",
+"to": "proc:milk",
+"kind": "where"
+},
+{
+"from": "src:saltmarsh",
+"to": "proc:milk",
+"kind": "where"
+},
+{
+"from": "proc:slaughter",
+"to": "good:meat",
+"kind": "output"
+},
+{
+"from": "proc:slaughter",
+"to": "good:hide",
+"kind": "output"
+},
+{
+"from": "proc:slaughter",
+"to": "good:tallow",
+"kind": "output"
+},
+{
+"from": "src:pasture",
+"to": "proc:slaughter",
+"kind": "where"
+},
+{
+"from": "src:meadow",
+"to": "proc:slaughter",
+"kind": "where"
+},
+{
+"from": "src:field",
+"to": "proc:slaughter",
+"kind": "where"
+},
+{
+"from": "src:heath",
+"to": "proc:slaughter",
+"kind": "where"
+},
+{
+"from": "src:moor",
+"to": "proc:slaughter",
+"kind": "where"
+},
+{
+"from": "src:fen",
+"to": "proc:slaughter",
+"kind": "where"
+},
+{
+"from": "src:saltmarsh",
+"to": "proc:slaughter",
+"kind": "where"
+},
+{
+"from": "src:built",
+"to": "proc:slaughter",
+"kind": "where"
+},
+{
+"from": "good:grain",
+"to": "proc:grind",
+"kind": "input",
+"qty": 3
+},
+{
+"from": "proc:grind",
+"to": "good:meal",
+"kind": "output",
+"qty": 3
+},
+{
+"from": "fit:hand mill",
+"to": "proc:grind",
+"kind": "needs"
+},
+{
+"from": "good:grain",
+"to": "proc:mill",
+"kind": "input",
+"qty": 64
+},
+{
+"from": "proc:mill",
+"to": "good:flour",
+"kind": "output",
+"qty": 64
+},
+{
+"from": "fit:millstones",
+"to": "proc:mill",
+"kind": "needs"
+},
+{
+"from": "good:grain",
+"to": "proc:water mill",
+"kind": "input",
+"qty": 200
+},
+{
+"from": "proc:water mill",
+"to": "good:flour",
+"kind": "output",
+"qty": 200
+},
+{
+"from": "fit:water wheel",
+"to": "proc:water mill",
+"kind": "needs"
+},
+{
+"from": "good:green grain",
+"to": "proc:dry fodder",
+"kind": "input",
+"qty": 10,
+"note": "one of"
+},
+{
+"from": "good:green rye",
+"to": "proc:dry fodder",
+"kind": "input",
+"qty": 10,
+"note": "one of"
+},
+{
+"from": "good:green beans",
+"to": "proc:dry fodder",
+"kind": "input",
+"qty": 10,
+"note": "one of"
+},
+{
+"from": "proc:dry fodder",
+"to": "good:hay",
+"kind": "output",
+"qty": 8
+},
+{
+"from": "good:hide",
+"to": "proc:pack",
+"kind": "input",
+"qty": 1
+},
+{
+"from": "good:timber",
+"to": "proc:pack",
+"kind": "input",
+"qty": 1
+},
+{
+"from": "proc:pack",
+"to": "good:pack",
+"kind": "output",
+"qty": 1
+},
+{
+"from": "good:timber",
+"to": "proc:handcart",
+"kind": "input",
+"qty": 6
+},
+{
+"from": "proc:handcart",
+"to": "good:handcart",
+"kind": "output",
+"qty": 1
+},
+{
+"from": "good:crude tool",
+"to": "proc:handcart",
+"kind": "tool",
+"qty": 1.0
+},
+{
+"from": "good:copper tool",
+"to": "proc:handcart",
+"kind": "tool",
+"qty": 1.0
+},
+{
+"from": "good:flour",
+"to": "proc:bread",
+"kind": "input",
+"qty": 10
+},
+{
+"from": "good:timber",
+"to": "proc:bread",
+"kind": "input",
+"qty": 1
+},
+{
+"from": "proc:bread",
+"to": "good:bread",
+"kind": "output",
+"qty": 10
+},
+{
+"from": "fit:hearth",
+"to": "proc:bread",
+"kind": "needs"
+},
+{
+"from": "good:flour",
+"to": "proc:oven bread",
+"kind": "input",
+"qty": 100
+},
+{
+"from": "good:timber",
+"to": "proc:oven bread",
+"kind": "input",
+"qty": 4
+},
+{
+"from": "proc:oven bread",
+"to": "good:bread",
+"kind": "output",
+"qty": 100
+},
+{
+"from": "fit:oven",
+"to": "proc:oven bread",
+"kind": "needs"
+},
+{
+"from": "proc:fish by hand",
+"to": "good:fish",
+"kind": "output"
+},
+{
+"from": "src:water",
+"to": "proc:fish by hand",
+"kind": "where"
+},
+{
+"from": "proc:angle",
+"to": "good:fish",
+"kind": "output"
+},
+{
+"from": "src:water",
+"to": "proc:angle",
+"kind": "where"
+},
+{
+"from": "good:fishing rod",
+"to": "proc:angle",
+"kind": "gear",
+"qty": 1
+},
+{
+"from": "good:timber",
+"to": "proc:fishing rod",
+"kind": "input",
+"qty": 0.5
+},
+{
+"from": "good:hide",
+"to": "proc:fishing rod",
+"kind": "input",
+"qty": 0.1
+},
+{
+"from": "proc:fishing rod",
+"to": "good:fishing rod",
+"kind": "output",
+"qty": 1
+},
+{
+"from": "proc:salt pan",
+"to": "good:salt",
+"kind": "output"
+},
+{
+"from": "src:saltmarsh",
+"to": "proc:salt pan",
+"kind": "where"
+},
+{
+"from": "good:fish",
+"to": "proc:salt fish",
+"kind": "input",
+"qty": 4
+},
+{
+"from": "good:salt",
+"to": "proc:salt fish",
+"kind": "input",
+"qty": 1
+},
+{
+"from": "proc:salt fish",
+"to": "good:salt fish",
+"kind": "output",
+"qty": 4
+},
+{
+"from": "good:meat",
+"to": "proc:salt meat",
+"kind": "input",
+"qty": 4
+},
+{
+"from": "good:salt",
+"to": "proc:salt meat",
+"kind": "input",
+"qty": 1
+},
+{
+"from": "proc:salt meat",
+"to": "good:salt meat",
+"kind": "output",
+"qty": 4
+},
+{
+"from": "good:meat",
+"to": "proc:dry meat",
+"kind": "input",
+"qty": 8
+},
+{
+"from": "proc:dry meat",
+"to": "good:drying meat",
+"kind": "output",
+"qty": 8
+},
+{
+"from": "fit:hearth",
+"to": "proc:dry meat",
+"kind": "needs"
+},
+{
+"from": "fit:fire ring",
+"to": "proc:dry meat",
+"kind": "needs"
+},
+{
+"from": "good:milk",
+"to": "proc:cheese",
+"kind": "input",
+"qty": 6
+},
+{
+"from": "good:salt",
+"to": "proc:cheese",
+"kind": "input",
+"qty": 0.2
+},
+{
+"from": "proc:cheese",
+"to": "good:cheese",
+"kind": "output",
+"qty": 1
+},
+{
+"from": "fit:cellar",
+"to": "proc:cheese",
+"kind": "needs"
+},
+{
+"from": "good:timber",
+"to": "proc:charcoal",
+"kind": "input",
+"qty": 5
+},
+{
+"from": "proc:charcoal",
+"to": "good:charcoal",
+"kind": "output",
+"qty": 1
+},
+{
+"from": "src:forest",
+"to": "proc:charcoal",
+"kind": "where"
+},
+{
+"from": "good:timber",
+"to": "proc:wooden plough",
+"kind": "input",
+"qty": 4
+},
+{
+"from": "good:copper",
+"to": "proc:wooden plough",
+"kind": "input",
+"qty": 1
+},
+{
+"from": "proc:wooden plough",
+"to": "good:wooden plough",
+"kind": "output",
+"qty": 1
+},
+{
+"from": "good:crude tool",
+"to": "proc:wooden plough",
+"kind": "tool",
+"qty": 1.0
+},
+{
+"from": "good:copper tool",
+"to": "proc:wooden plough",
+"kind": "tool",
+"qty": 1.0
+},
+{
+"from": "good:hide",
+"to": "proc:bedroll",
+"kind": "input",
+"qty": 1
+},
+{
+"from": "proc:bedroll",
+"to": "good:bedroll",
+"kind": "output",
+"qty": 1
+},
+{
+"from": "good:hide",
+"to": "proc:tent",
+"kind": "input",
+"qty": 3
+},
+{
+"from": "good:timber",
+"to": "proc:tent",
+"kind": "input",
+"qty": 2
+},
+{
+"from": "proc:tent",
+"to": "good:tent",
+"kind": "output",
+"qty": 1
+},
+{
+"from": "good:timber",
+"to": "proc:harness",
+"kind": "input",
+"qty": 2
+},
+{
+"from": "good:hide",
+"to": "proc:harness",
+"kind": "input",
+"qty": 1
+},
+{
+"from": "proc:harness",
+"to": "good:harness",
+"kind": "output",
+"qty": 1
+},
+{
+"from": "good:timber",
+"to": "proc:crude tool",
+"kind": "input",
+"qty": 1
+},
+{
+"from": "good:stone",
+"to": "proc:crude tool",
+"kind": "input",
+"qty": 0.5
+},
+{
+"from": "proc:crude tool",
+"to": "good:crude tool",
+"kind": "output",
+"qty": 1
+},
+{
+"from": "good:timber",
+"to": "proc:crude weapon",
+"kind": "input",
+"qty": 1
+},
+{
+"from": "proc:crude weapon",
+"to": "good:crude weapon",
+"kind": "output",
+"qty": 1
+},
+{
+"from": "good:copper ore",
+"to": "proc:smelt",
+"kind": "input",
+"qty": 3
+},
+{
+"from": "good:charcoal",
+"to": "proc:smelt",
+"kind": "input",
+"qty": 1,
+"note": "one of"
+},
+{
+"from": "good:timber",
+"to": "proc:smelt",
+"kind": "input",
+"qty": 4,
+"note": "one of"
+},
+{
+"from": "proc:smelt",
+"to": "good:copper",
+"kind": "output",
+"qty": 1
+},
+{
+"from": "fit:anvil",
+"to": "proc:smelt",
+"kind": "needs"
+},
+{
+"from": "good:copper",
+"to": "proc:copper tool",
+"kind": "input",
+"qty": 1
+},
+{
+"from": "good:timber",
+"to": "proc:copper tool",
+"kind": "input",
+"qty": 0.5
+},
+{
+"from": "proc:copper tool",
+"to": "good:copper tool",
+"kind": "output",
+"qty": 1
+},
+{
+"from": "fit:anvil",
+"to": "proc:copper tool",
+"kind": "needs"
+},
+{
+"from": "good:copper",
+"to": "proc:coin",
+"kind": "input",
+"qty": 1
+},
+{
+"from": "proc:coin",
+"to": "good:coin",
+"kind": "output",
+"qty": 10
+},
+{
+"from": "fit:anvil",
+"to": "proc:coin",
+"kind": "needs"
+},
+{
+"from": "src:wild:brown bear",
+"to": "proc:hunt the wild",
+"kind": "taken by",
+"qty": 0.33
+},
+{
+"from": "src:wild:brown hare",
+"to": "proc:hunt the wild",
+"kind": "taken by",
+"qty": 0.99
+},
+{
+"from": "src:wild:fox",
+"to": "proc:hunt the wild",
+"kind": "taken by",
+"qty": 0.99
+},
+{
+"from": "src:wild:red deer",
+"to": "proc:hunt the wild",
+"kind": "taken by",
+"qty": 0.99
+},
+{
+"from": "src:wild:roe deer",
+"to": "proc:hunt the wild",
+"kind": "taken by",
+"qty": 0.99
+},
+{
+"from": "src:wild:stoat",
+"to": "proc:hunt the wild",
+"kind": "taken by",
+"qty": 0.99
+},
+{
+"from": "src:wild:wild boar",
+"to": "proc:hunt the wild",
+"kind": "taken by",
+"qty": 0.99
+},
+{
+"from": "src:wild:wolf",
+"to": "proc:hunt the wild",
+"kind": "taken by",
+"qty": 0.99
+},
+{
+"from": "src:wild:woodpigeon",
+"to": "proc:hunt the wild",
+"kind": "taken by",
+"qty": 0.33
+},
+{
+"from": "proc:hunt the wild",
+"to": "good:meat",
+"kind": "output"
+},
+{
+"from": "proc:hunt the wild",
+"to": "good:hide",
+"kind": "output"
+},
+{
+"from": "good:crude weapon",
+"to": "proc:hunt the wild",
+"kind": "weapon",
+"qty": 3.33,
+"note": "x take, armed against bare hands"
+},
+{
+"from": "src:wild:red deer",
+"to": "proc:stalk",
+"kind": "taken by",
+"qty": 2.5
+},
+{
+"from": "src:wild:roe deer",
+"to": "proc:stalk",
+"kind": "taken by",
+"qty": 2.5
+},
+{
+"from": "src:wild:wild boar",
+"to": "proc:stalk",
+"kind": "taken by",
+"qty": 0.3
+},
+{
+"from": "proc:stalk",
+"to": "good:meat",
+"kind": "output"
+},
+{
+"from": "proc:stalk",
+"to": "good:hide",
+"kind": "output"
+},
+{
+"from": "good:crude weapon",
+"to": "proc:stalk",
+"kind": "weapon",
+"qty": 5.0,
+"note": "x take, armed against bare hands"
+},
+{
+"from": "src:wild:red deer",
+"to": "proc:drive",
+"kind": "taken by",
+"qty": 0.45
+},
+{
+"from": "src:wild:wild boar",
+"to": "proc:drive",
+"kind": "taken by",
+"qty": 3.0
+},
+{
+"from": "src:wild:wolf",
+"to": "proc:drive",
+"kind": "taken by",
+"qty": 3.0
+},
+{
+"from": "proc:drive",
+"to": "good:meat",
+"kind": "output"
+},
+{
+"from": "proc:drive",
+"to": "good:hide",
+"kind": "output"
+},
+{
+"from": "good:crude weapon",
+"to": "proc:drive",
+"kind": "weapon",
+"qty": 6.67,
+"note": "x take, armed against bare hands"
+},
+{
+"from": "src:wild:brown hare",
+"to": "proc:snare",
+"kind": "taken by",
+"qty": 3.0
+},
+{
+"from": "src:wild:fox",
+"to": "proc:snare",
+"kind": "taken by",
+"qty": 2.0
+},
+{
+"from": "src:wild:roe deer",
+"to": "proc:snare",
+"kind": "taken by",
+"qty": 0.06
+},
+{
+"from": "src:wild:stoat",
+"to": "proc:snare",
+"kind": "taken by",
+"qty": 2.0
+},
+{
+"from": "proc:snare",
+"to": "good:meat",
+"kind": "output"
+},
+{
+"from": "proc:snare",
+"to": "good:hide",
+"kind": "output"
+},
+{
+"from": "src:wild:wildfowl",
+"to": "proc:net",
+"kind": "taken by",
+"qty": 3.0
+},
+{
+"from": "src:wild:woodpigeon",
+"to": "proc:net",
+"kind": "taken by",
+"qty": 0.2
+},
+{
+"from": "proc:net",
+"to": "good:meat",
+"kind": "output"
+},
+{
+"from": "src:wild:eel",
+"to": "proc:trap in water",
+"kind": "taken by",
+"qty": 3.0
+},
+{
+"from": "src:wild:wildfowl",
+"to": "proc:trap in water",
+"kind": "taken by",
+"qty": 0.3
+},
+{
+"from": "proc:trap in water",
+"to": "good:meat",
+"kind": "output"
+},
+{
+"from": "src:wild:brown bear",
+"to": "proc:den work",
+"kind": "taken by",
+"qty": 4.0
+},
+{
+"from": "src:wild:fox",
+"to": "proc:den work",
+"kind": "taken by",
+"qty": 4.0
+},
+{
+"from": "src:wild:stoat",
+"to": "proc:den work",
+"kind": "taken by",
+"qty": 4.0
+},
+{
+"from": "src:wild:wolf",
+"to": "proc:den work",
+"kind": "taken by",
+"qty": 4.0
+},
+{
+"from": "proc:den work",
+"to": "good:meat",
+"kind": "output"
+},
+{
+"from": "proc:den work",
+"to": "good:hide",
+"kind": "output"
+},
+{
+"from": "good:crude weapon",
+"to": "proc:den work",
+"kind": "weapon",
+"qty": 1.25,
+"note": "x take, armed against bare hands"
+},
+{
+"from": "src:field",
+"to": "proc:pest work",
+"kind": "where"
+},
+{
+"from": "src:meadow",
+"to": "proc:pest work",
+"kind": "where"
+},
+{
+"from": "src:pasture",
+"to": "proc:pest work",
+"kind": "where"
+},
+{
+"from": "src:field",
+"to": "proc:guard the field",
+"kind": "where"
+},
+{
+"from": "src:pasture",
+"to": "proc:guard the field",
+"kind": "where"
+},
+{
+"from": "src:meadow",
+"to": "proc:guard the field",
+"kind": "where"
+},
+{
+"from": "src:forest",
+"to": "proc:guard the field",
+"kind": "where"
+},
+{
+"from": "src:scrub",
+"to": "proc:guard the field",
+"kind": "where"
+},
+{
+"from": "good:firewood",
+"to": "proc:guard the field",
+"kind": "scare"
+},
+{
+"from": "good:clappers",
+"to": "proc:guard the field",
+"kind": "scare"
+},
+{
+"from": "good:horn",
+"to": "proc:guard the field",
+"kind": "scare"
+},
+{
+"from": "src:built",
+"to": "proc:shut",
+"kind": "where"
+},
+{
+"from": "good:timber",
+"to": "fit:beds",
+"kind": "material",
+"qty": 1
+},
+{
+"from": "good:straw",
+"to": "fit:beds",
+"kind": "material",
+"qty": 2
+},
+{
+"from": "good:stone",
+"to": "fit:hearth",
+"kind": "material",
+"qty": 4
+},
+{
+"from": "good:timber",
+"to": "fit:owl hole",
+"kind": "material",
+"qty": 1
+},
+{
+"from": "good:timber",
+"to": "fit:bins",
+"kind": "material",
+"qty": 3
+},
+{
+"from": "good:stone",
+"to": "fit:hand mill",
+"kind": "material",
+"qty": 2
+},
+{
+"from": "good:timber",
+"to": "fit:granary",
+"kind": "material",
+"qty": 6
+},
+{
+"from": "good:stone",
+"to": "fit:fire ring",
+"kind": "material",
+"qty": 1
+},
+{
+"from": "good:stone",
+"to": "fit:oven",
+"kind": "material",
+"qty": 20
+},
+{
+"from": "good:timber",
+"to": "fit:oven",
+"kind": "material",
+"qty": 2
+},
+{
+"from": "good:stone",
+"to": "fit:anvil",
+"kind": "material",
+"qty": 6
+},
+{
+"from": "good:hide",
+"to": "fit:anvil",
+"kind": "material",
+"qty": 2
+},
+{
+"from": "good:timber",
+"to": "fit:anvil",
+"kind": "material",
+"qty": 1
+},
+{
+"from": "good:stone",
+"to": "fit:cellar",
+"kind": "material",
+"qty": 4
+},
+{
+"from": "good:stone",
+"to": "fit:millstones",
+"kind": "material",
+"qty": 10
+},
+{
+"from": "good:timber",
+"to": "fit:water wheel",
+"kind": "material",
+"qty": 60
+},
+{
+"from": "good:stone",
+"to": "fit:water wheel",
+"kind": "material",
+"qty": 20
+},
+{
+"from": "good:copper",
+"to": "fit:water wheel",
+"kind": "material",
+"qty": 2
+},
+{
+"from": "good:timber",
+"to": "fit:stalls",
+"kind": "material",
+"qty": 1
+},
+{
+"from": "good:timber",
+"to": "fit:woodshed",
+"kind": "material",
+"qty": 2
+},
+{
+"from": "good:stone",
+"to": "fit:vault",
+"kind": "material",
+"qty": 40
+},
+{
+"from": "good:timber",
+"to": "room:small room",
+"kind": "material",
+"qty": 8,
+"note": "wattle"
+},
+{
+"from": "good:timber",
+"to": "room:small room",
+"kind": "material",
+"qty": 8,
+"note": "timber"
+},
+{
+"from": "good:stone",
+"to": "room:small room",
+"kind": "material",
+"qty": 2,
+"note": "timber"
+},
+{
+"from": "good:stone",
+"to": "room:small room",
+"kind": "material",
+"qty": 30,
+"note": "stone"
+},
+{
+"from": "good:timber",
+"to": "room:small room",
+"kind": "material",
+"qty": 4,
+"note": "stone"
+},
+{
+"from": "good:timber",
+"to": "room:medium room",
+"kind": "material",
+"qty": 15,
+"note": "timber"
+},
+{
+"from": "good:stone",
+"to": "room:medium room",
+"kind": "material",
+"qty": 4,
+"note": "timber"
+},
+{
+"from": "good:stone",
+"to": "room:medium room",
+"kind": "material",
+"qty": 60,
+"note": "stone"
+},
+{
+"from": "good:timber",
+"to": "room:medium room",
+"kind": "material",
+"qty": 8,
+"note": "stone"
+},
+{
+"from": "good:timber",
+"to": "room:hall",
+"kind": "material",
+"qty": 80,
+"note": "timber"
+},
+{
+"from": "good:stone",
+"to": "room:hall",
+"kind": "material",
+"qty": 20,
+"note": "timber"
+},
+{
+"from": "good:stone",
+"to": "room:hall",
+"kind": "material",
+"qty": 150,
+"note": "stone"
+},
+{
+"from": "good:timber",
+"to": "room:hall",
+"kind": "material",
+"qty": 20,
+"note": "stone"
+},
+{
+"from": "src:herd",
+"to": "proc:milk",
+"kind": "from"
+},
+{
+"from": "src:herd",
+"to": "proc:slaughter",
+"kind": "from"
+},
+{
+"from": "src:herd",
+"to": "proc:dung",
+"kind": "from"
+},
+{
+"from": "good:grain",
+"to": "use:eat",
+"kind": "use",
+"qty": 0.7
+},
+{
+"from": "good:rye",
+"to": "use:eat",
+"kind": "use",
+"qty": 0.7
+},
+{
+"from": "good:beans",
+"to": "use:eat",
+"kind": "use",
+"qty": 0.6
+},
+{
+"from": "good:flour",
+"to": "use:eat",
+"kind": "use",
+"qty": 1.0
+},
+{
+"from": "good:meal",
+"to": "use:eat",
+"kind": "use",
+"qty": 1.0
+},
+{
+"from": "good:bread",
+"to": "use:eat",
+"kind": "use",
+"qty": 1.3
+},
+{
+"from": "good:dried meat",
+"to": "use:eat",
+"kind": "use",
+"qty": 3.0
+},
+{
+"from": "good:cheese",
+"to": "use:eat",
+"kind": "use",
+"qty": 2.5
+},
+{
+"from": "good:green grain",
+"to": "use:eat",
+"kind": "use",
+"qty": 0.15
+},
+{
+"from": "good:green rye",
+"to": "use:eat",
+"kind": "use",
+"qty": 0.15
+},
+{
+"from": "good:green beans",
+"to": "use:eat",
+"kind": "use",
+"qty": 0.3
+},
+{
+"from": "good:charcoal",
+"to": "use:warmth",
+"kind": "use",
+"qty": 6.0
+},
+{
+"from": "good:firewood",
+"to": "use:warmth",
+"kind": "use",
+"qty": 0.5
+},
+{
+"from": "good:wild food",
+"to": "use:eat",
+"kind": "use",
+"qty": 1.0
+},
+{
+"from": "good:fish",
+"to": "use:eat",
+"kind": "use",
+"qty": 1.0
+},
+{
+"from": "good:salt fish",
+"to": "use:eat",
+"kind": "use",
+"qty": 1.0
+},
+{
+"from": "good:meat",
+"to": "use:eat",
+"kind": "use",
+"qty": 1.5
+},
+{
+"from": "good:milk",
+"to": "use:eat",
+"kind": "use",
+"qty": 0.5
+},
+{
+"from": "good:egg",
+"to": "use:eat",
+"kind": "use",
+"qty": 0.6
+},
+{
+"from": "good:greens",
+"to": "use:eat",
+"kind": "use",
+"qty": 0.6
+},
+{
+"from": "good:roots",
+"to": "use:eat",
+"kind": "use",
+"qty": 0.8
+},
+{
+"from": "good:mushrooms",
+"to": "use:eat",
+"kind": "use",
+"qty": 0.6
+},
+{
+"from": "good:watercress",
+"to": "use:eat",
+"kind": "use",
+"qty": 0.4
+},
+{
+"from": "good:samphire",
+"to": "use:eat",
+"kind": "use",
+"qty": 0.5
+},
+{
+"from": "good:berries",
+"to": "use:eat",
+"kind": "use",
+"qty": 0.8
+},
+{
+"from": "good:hedge fruit",
+"to": "use:eat",
+"kind": "use",
+"qty": 0.6
+},
+{
+"from": "good:hazel nuts",
+"to": "use:eat",
+"kind": "use",
+"qty": 1.6
+},
+{
+"from": "good:beech nuts",
+"to": "use:eat",
+"kind": "use",
+"qty": 1.2
+},
+{
+"from": "good:acorns",
+"to": "use:eat",
+"kind": "use",
+"qty": 0.1
+},
+{
+"from": "good:acorn meal",
+"to": "use:eat",
+"kind": "use",
+"qty": 1.0
+},
+{
+"from": "good:timber",
+"to": "use:warmth",
+"kind": "use",
+"qty": 2.0
+},
+{
+"from": "good:drying meat",
+"to": "use:eat",
+"kind": "use",
+"qty": 1.5
+},
+{
+"from": "good:salt meat",
+"to": "use:eat",
+"kind": "use",
+"qty": 1.4
+},
+{
+"from": "good:copper tool",
+"to": "use:tool",
+"kind": "use"
+},
+{
+"from": "good:crude tool",
+"to": "use:tool",
+"kind": "use"
+},
+{
+"from": "good:crude weapon",
+"to": "use:weapon",
+"kind": "use"
+},
+{
+"from": "good:firewood",
+"to": "use:scare",
+"kind": "use"
+},
+{
+"from": "good:clappers",
+"to": "use:scare",
+"kind": "use"
+},
+{
+"from": "good:horn",
+"to": "use:scare",
+"kind": "use"
+},
+{
+"from": "good:pack",
+"to": "use:carry",
+"kind": "use",
+"qty": 10
+},
+{
+"from": "good:handcart",
+"to": "use:carry",
+"kind": "use",
+"qty": 30
+},
+{
+"from": "good:hay",
+"to": "use:fodder",
+"kind": "use",
+"note": "herds eat hay in winter (herds.py, HERDS)"
+},
+{
+"from": "good:grain",
+"to": "use:fodder",
+"kind": "use",
+"note": "beasts fed grain (herds.py)"
+},
+{
+"from": "good:pack",
+"to": "use:carry",
+"kind": "use",
+"note": "carry +10 on foot (PHYSICS carry)"
+},
+{
+"from": "good:bedroll",
+"to": "use:sleep",
+"kind": "use",
+"note": "sleeping out (night.py _gear, D2-68)"
+},
+{
+"from": "good:tent",
+"to": "use:sleep",
+"kind": "use",
+"note": "sleeping out (night.py _gear, D2-68)"
+},
+{
+"from": "good:tallow light",
+"to": "use:light",
+"kind": "use",
+"note": "night work on wild acts (wild.py LIGHT)"
+},
+{
+"from": "good:coin",
+"to": "use:money",
+"kind": "use",
+"note": "trade and agreements (D2-34)"
+},
+{
+"from": "good:cat",
+"to": "use:store",
+"kind": "use",
+"note": "keeps mice off a store (wild.py _store_beasts)"
+},
+{
+"from": "good:dung",
+"to": "use:manure",
+"kind": "use",
+"note": "manure acts on fields (TECHNIQUES manure)"
+},
+{
+"from": "good:fishing rod",
+"to": "use:fish",
+"kind": "use",
+"note": "angling (TECHNIQUES angle uses)"
+},
+{
+"from": "good:wooden plough",
+"to": "use:plough",
+"kind": "use",
+"note": "ploughing (TECHNIQUES plough uses)"
+},
+{
+"from": "good:harness",
+"to": "use:plough",
+"kind": "use",
+"note": "ploughing (TECHNIQUES plough uses)"
+},
+{
+"from": "good:timber",
+"to": "use:build",
+"kind": "use",
+"note": "rooms and fittings"
+},
+{
+"from": "good:stone",
+"to": "use:build",
+"kind": "use",
+"note": "rooms and fittings"
+},
+{
+"from": "good:straw",
+"to": "use:build",
+"kind": "use",
+"note": "beds"
+},
+{
+"from": "good:hen",
+"to": "proc:hens lay",
+"kind": "input",
+"note": "kept, not used up"
+},
+{
+"from": "proc:hens lay",
+"to": "good:egg",
+"kind": "output"
+},
+{
+"from": "proc:slaughter",
+"to": "good:offal",
+"kind": "output"
+},
+{
+"from": "good:drying meat",
+"to": "proc:on the rack",
+"kind": "input"
+},
+{
+"from": "proc:on the rack",
+"to": "good:dried meat",
+"kind": "output",
+"qty": 0.5
+},
+{
+"from": "good:meat",
+"to": "proc:decay",
+"kind": "input"
+},
+{
+"from": "proc:decay",
+"to": "good:rotting meat",
+"kind": "output"
+},
+{
+"from": "src:comes by itself",
+"to": "good:cat",
+"kind": "output"
+},
+{
+"from": "src:wild:beaver",
+"to": "proc:trap beavers",
+"kind": "taken by"
+},
+{
+"from": "proc:trap beavers",
+"to": "good:beaver pelt",
+"kind": "output"
+},
+{
+"from": "proc:trap beavers",
+"to": "good:castoreum",
+"kind": "output"
+}
+]
+}

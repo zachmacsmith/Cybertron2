@@ -1,0 +1,416 @@
+<title>Cybertron 2 Economy Map</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a working desk. Controls and findings on the left, the network in the middle, the selected thing's ledger on the right. */
+:root{
+  --bg:#f4f5f2; --panel:#ffffff; --ink:#1d2421; --muted:#5d6762; --line:#d9ddd8; --soft:#eceee9;
+  --accent:#2f6f5e;           /* the hand that draws attention: selection, trace */
+  --food:#c8902c; --material:#8a6a4a; --gear:#3f63a3; --wild:#4f8a3c; --water:#2b8a99;
+  --act:#9aa39e; --fitting:#7a5aa6; --source:#56615c; --use:#2a3330; --problem:#c0442f; --idea:#d06a9a;
+  --f-display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif; --f-body:"Inter",ui-sans-serif,system-ui,sans-serif; --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#141917; --panel:#1c2320; --ink:#e7ece9; --muted:#9aa6a0; --line:#2f3935; --soft:#232b28;
+  --accent:#6cc3a8; --food:#e0ac4c; --material:#b58d67; --gear:#7a9be0; --wild:#7cbf63; --water:#55c0cf;
+  --act:#6d7772; --fitting:#a98bd6; --source:#a3aea8; --use:#e7ece9; --problem:#ee6b55; --idea:#e48ab5; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#141917; --panel:#1c2320; --ink:#e7ece9; --muted:#9aa6a0; --line:#2f3935; --soft:#232b28;
+  --accent:#6cc3a8; --food:#e0ac4c; --material:#b58d67; --gear:#7a9be0; --wild:#7cbf63; --water:#55c0cf;
+  --act:#6d7772; --fitting:#a98bd6; --source:#a3aea8; --use:#e7ece9; --problem:#ee6b55; --idea:#e48ab5; color-scheme:dark }
+*{box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45;margin:0}
+.wrap{display:grid;grid-template-columns:300px minmax(0,1fr) 320px;grid-template-rows:auto minmax(0,1fr);height:100%;
+  padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))}
+header{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding-block:12px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));border-bottom:1px solid var(--line);background:var(--panel)}
+h1{font-family:var(--f-display);font-weight:700;font-size:20px;margin:0;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:12.5px}
+.sub code{font-family:var(--f-mono);font-size:11.5px}
+aside{overflow:auto;padding:14px 16px;background:var(--panel);border-right:1px solid var(--line);min-width:0}
+#detail{border-right:0;border-left:1px solid var(--line)}
+main{position:relative;min-width:0;min-height:0}
+#cy{position:absolute;inset:0}
+h2{font-family:var(--f-display);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:18px 0 8px}
+h2:first-child{margin-top:0}
+h3{font-family:var(--f-display);font-size:18px;margin:0 0 4px;text-wrap:balance}
+.row{display:flex;flex-wrap:wrap;gap:6px}
+label.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border:1px solid var(--line);border-radius:999px;cursor:pointer;font-size:12.5px;user-select:none;background:var(--panel)}
+label.chip input{accent-color:var(--accent);margin:0}
+.sw{width:10px;height:10px;border-radius:3px;display:inline-block}
+input[type=search],input[type=text],select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:7px 9px}
+textarea{font-family:var(--f-mono);font-size:11.5px;min-height:70px}
+button{font:inherit;font-size:12.5px;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:6px 10px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button.primary{background:var(--accent);color:var(--panel);border-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.stat{background:var(--soft);border-radius:8px;padding:7px 8px}
+.stat b{display:block;font-family:var(--f-display);font-size:18px;font-variant-numeric:tabular-nums}
+.stat span{font-size:11px;color:var(--muted)}
+.list{display:flex;flex-wrap:wrap;gap:5px}
+.pill{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--soft);border:1px solid var(--line);cursor:pointer;color:var(--ink)}
+.pill.bad{border-color:var(--problem);color:var(--problem)}
+.pill .n{font-family:var(--f-mono);font-size:10.5px;color:var(--muted);margin-left:4px}
+p.note{color:var(--muted);font-size:12.5px;margin:6px 0}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;font-size:12px;color:var(--muted)}
+.legend span{display:flex;align-items:center;gap:6px}
+dl{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;margin:8px 0;font-size:12.5px}
+dt{color:var(--muted)} dd{margin:0;font-variant-numeric:tabular-nums}
+.links{list-style:none;padding:0;margin:4px 0 10px;display:flex;flex-direction:column;gap:3px}
+.links li{font-size:12.5px;display:flex;gap:6px;align-items:baseline}
+.links a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--muted);cursor:pointer}
+.links .k{font-family:var(--f-mono);font-size:10.5px;color:var(--muted);min-width:64px}
+.tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:999px;border:1px solid var(--line);color:var(--muted);margin-right:4px}
+.tag.bad{border-color:var(--problem);color:var(--problem)}
+.findings{font-size:12.5px;margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+.toolbar{position:absolute;left:12px;top:12px;display:flex;gap:6px;flex-wrap:wrap;z-index:2}
+.toolbar button{background:var(--panel)}
+.empty{color:var(--muted);font-size:13px}
+.ideaitem{display:flex;justify-content:space-between;gap:6px;font-size:12.5px;padding:4px 0;border-bottom:1px dashed var(--line)}
+@media (max-width:1000px){
+  .wrap{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto 70vh auto;height:auto}
+  aside{border-right:0;border-bottom:1px solid var(--line);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  #detail{border-left:0;border-top:1px solid var(--line)}
+  main{min-height:420px}
+}
+@media (prefers-reduced-motion: reduce){ *{transition:none!important;animation:none!important} }
+</style>
+
+<div class="wrap">
+<header>
+  <h1>Cybertron 2 Economy Map</h1>
+  <span class="sub">Every good, the acts that make it, what they need and what each good is for, read from the engine's tables (<code id="srcline"></code>). Click anything to see its ledger; trace a chain up or down.</span>
+</header>
+
+<aside id="left">
+  <h2>Find</h2>
+  <input type="search" id="q" list="names" placeholder="A good, an act, a fitting…" aria-label="Find a node">
+  <datalist id="names"></datalist>
+
+  <h2>Show</h2>
+  <div class="row" id="showRow">
+    <label class="chip"><input type="checkbox" id="sActs" checked> acts</label>
+    <label class="chip"><input type="checkbox" id="sSources" checked> sources</label>
+    <label class="chip"><input type="checkbox" id="sFittings" checked> fittings</label>
+    <label class="chip"><input type="checkbox" id="sUses" checked> uses</label>
+    <label class="chip"><input type="checkbox" id="sEnable" checked> tools and gear links</label>
+    <label class="chip"><input type="checkbox" id="sWhere"> where (land) links</label>
+  </div>
+  <h2>Packs</h2>
+  <div class="row">
+    <label class="chip"><input type="checkbox" id="pCore" checked><i class="sw" style="background:var(--material)"></i> core</label>
+    <label class="chip"><input type="checkbox" id="pWild" checked><i class="sw" style="background:var(--wild)"></i> wild</label>
+    <label class="chip"><input type="checkbox" id="pWater" checked><i class="sw" style="background:var(--water)"></i> water</label>
+  </div>
+  <div class="row" style="margin-top:8px">
+    <label class="chip"><input type="checkbox" id="hProblems" checked><i class="sw" style="background:var(--problem)"></i> mark problems</label>
+  </div>
+
+  <h2>The economy at a glance</h2>
+  <div class="stats" id="stats"></div>
+
+  <h2>Goods with no use</h2>
+  <div class="list" id="deadEnds"></div>
+  <h2>Goods with no source</h2>
+  <div class="list" id="noSource"></div>
+  <h2>Goods with a single use</h2>
+  <div class="list" id="singleUse"></div>
+  <h2>Most connected goods</h2>
+  <div class="list" id="hubs"></div>
+
+  <h2>What the network shows</h2>
+  <ul class="findings" id="findings">
+    <li><b>The core is a web.</b> Timber feeds 32 acts, fittings and uses, and stone 17. Ore needs charcoal, which needs timber; copper makes tools, coin and the plough; hides make harness, packs and tents; salt feeds three ways of keeping food.</li>
+    <li><b>The wild layer is mostly leaves.</b> The wild plant foods, nuts and eggs go only to eating. Antler goes only to a horn, and a horn only scares. Tallow goes only to lights.</li>
+    <li><b>29 goods have a single use,</b> and four have none: castoreum, beaver pelt and offal serve no one (rotting meat is waste by design). Antler and the hen come from nowhere the tables name; both exist only when a world seeds them.</li>
+    <li><b>Few chains run more than two steps</b> outside metal and bread. Most goods are one act from the land and one step from being eaten.</li>
+  </ul>
+
+  <h2>Sketch an idea</h2>
+  <p class="note">Add a good or an act and link it to what exists. Ideas are drawn dashed, kept in this browser only, and can be copied out as JSON.</p>
+  <form id="ideaForm" autocomplete="off">
+    <div style="display:grid;gap:6px">
+      <input type="text" id="ideaName" placeholder="Name, e.g. leather" aria-label="Idea name" required>
+      <select id="ideaKind" aria-label="Idea kind"><option value="good">a good</option><option value="process">an act</option><option value="use">a use</option></select>
+      <input type="text" id="ideaFrom" list="names" placeholder="Comes from (names, comma separated)" aria-label="Comes from">
+      <input type="text" id="ideaTo" list="names" placeholder="Goes to (names, comma separated)" aria-label="Goes to">
+      <div class="row"><button class="primary" type="submit">Add to the map</button><button type="button" id="copyIdeas">Copy ideas as JSON</button></div>
+      <textarea id="ideaOut" hidden readonly aria-label="Ideas as JSON"></textarea>
+    </div>
+  </form>
+  <div id="ideaList"></div>
+
+  <h2>Key</h2>
+  <div class="legend">
+    <span><i class="sw" style="background:var(--food)"></i>food</span>
+    <span><i class="sw" style="background:var(--material)"></i>material</span>
+    <span><i class="sw" style="background:var(--gear)"></i>tool or gear</span>
+    <span><i class="sw" style="background:var(--wild)"></i>wild good</span>
+    <span><i class="sw" style="background:var(--water)"></i>water good</span>
+    <span><i class="sw" style="background:var(--act);border-radius:50%"></i>act</span>
+    <span><i class="sw" style="background:var(--fitting)"></i>fitting or room</span>
+    <span><i class="sw" style="background:var(--source)"></i>source</span>
+    <span><i class="sw" style="background:var(--use)"></i>use</span>
+    <span><i class="sw" style="border:2px solid var(--problem)"></i>problem</span>
+  </div>
+  <p class="note">Solid links carry goods. Dashed links enable: a fitting, a tool, gear, a weapon, a scare. Dotted links are where an act is done.</p>
+</aside>
+
+<main>
+  <div class="toolbar">
+    <button type="button" id="bLayered">Chains left to right</button>
+    <button type="button" id="bForce">Clusters</button>
+    <button type="button" id="bFit">Fit</button>
+    <button type="button" id="bClear">Clear trace</button>
+  </div>
+  <div id="cy" role="img" aria-label="The economy as a network of goods, acts, fittings, sources and uses"></div>
+</main>
+
+<aside id="detail"><p class="empty">Select a good, an act or a fitting to see what makes it, what it needs and what it is for.</p></aside>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+<script>
+const DATA = __DATA__;
+const $ = s => document.querySelector(s);
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+document.getElementById('srcline').textContent = `${DATA.source.branch === 'HEAD' ? 'peoples-worlds' : DATA.source.branch} @ ${DATA.source.commit}`;
+
+const FOODISH = new Set(), GEAR = new Set(['crude tool','copper tool','crude weapon','wooden plough','harness','pack','handcart','bedroll','tent','fishing rod','clappers','horn','tallow light','coin']);
+for (const n of DATA.nodes) if (n.kind==='good' && n.food>0) FOODISH.add(n.label);
+function goodCat(n){ if (n.pack==='wild') return 'wild'; if (n.pack==='water') return 'water'; if (GEAR.has(n.label)) return 'gear'; if (n.food>0) return 'food'; return 'material'; }
+
+// ideas kept per viewer
+let IDEAS = []; try { IDEAS = JSON.parse(localStorage.getItem('econ-ideas')||'[]'); } catch(e) { IDEAS = []; }
+function saveIdeas(){ try { localStorage.setItem('econ-ideas', JSON.stringify(IDEAS)); } catch(e) {} }
+
+function allData(){
+  const nodes = DATA.nodes.map(n=>({...n})), edges = DATA.edges.map(e=>({...e}));
+  const byLabel = new Map(nodes.map(n=>[n.label.toLowerCase(), n.id]));
+  for (const idea of IDEAS){
+    const id = 'idea:'+idea.name;
+    nodes.push({id, kind: idea.kind==='process'?'process':(idea.kind==='use'?'use':'good'), label: idea.name, idea:true, pack:'idea'});
+    byLabel.set(idea.name.toLowerCase(), id);
+  }
+  for (const idea of IDEAS){
+    const id = 'idea:'+idea.name;
+    for (const f of idea.from){ const s = byLabel.get(f.toLowerCase()); if (s) edges.push({from:s, to:id, kind:'idea'}); }
+    for (const t of idea.to){ const s = byLabel.get(t.toLowerCase()); if (s) edges.push({from:id, to:s, kind:'idea'}); }
+  }
+  return {nodes, edges};
+}
+
+// problems, measured on the whole network (ideas included)
+function analyse(G){
+  const out = new Map(), inn = new Map();
+  for (const e of G.edges){ (out.get(e.from)||out.set(e.from,[]).get(e.from)).push(e); (inn.get(e.to)||inn.set(e.to,[]).get(e.to)).push(e); }
+  const goods = G.nodes.filter(n=>n.kind==='good');
+  const res = {dead:[], nosrc:[], single:[], hubs:[], out, inn};
+  for (const g of goods){
+    const o = out.get(g.id)||[], i = (inn.get(g.id)||[]).filter(e=>e.kind==='output'||e.kind==='idea');
+    if (!o.length) res.dead.push(g);
+    if (!i.length) res.nosrc.push(g);
+    if (o.length===1) res.single.push(g);
+  }
+  res.hubs = goods.map(g=>[g,(out.get(g.id)||[]).length]).sort((a,b)=>b[1]-a[1]).slice(0,10);
+  return res;
+}
+
+let G = allData(), A = analyse(G), cy = null, mode = 'layered';
+
+function packOn(n){
+  const p = n.pack||'core';
+  if (p==='idea') return true;
+  if (p==='wild') return $('#pWild').checked;
+  if (p==='water') return $('#pWater').checked;
+  return $('#pCore').checked;
+}
+function visible(){
+  const showK = {good:true, process:$('#sActs').checked, source:$('#sSources').checked, fitting:$('#sFittings').checked, use:$('#sUses').checked};
+  const nodes = G.nodes.filter(n=> showK[n.kind] && (n.kind!=='good' && n.kind!=='process' ? true : packOn(n)));
+  const ids = new Set(nodes.map(n=>n.id));
+  const ENABLE = new Set(['needs','tool','gear','weapon','scare']);
+  let edges = G.edges.filter(e=> ids.has(e.from) && ids.has(e.to));
+  if (!$('#sEnable').checked) edges = edges.filter(e=>!ENABLE.has(e.kind));
+  if (!$('#sWhere').checked) edges = edges.filter(e=>e.kind!=='where');
+  // with acts hidden, join each act's inputs to its outputs directly
+  if (!showK.process){
+    const P = new Map();
+    for (const e of G.edges){ if (e.to.startsWith('proc:')||e.to.startsWith('idea:')) (P.get(e.to)||P.set(e.to,{i:[],o:[]}).get(e.to)).i.push(e); if (e.from.startsWith('proc:')||e.from.startsWith('idea:')) (P.get(e.from)||P.set(e.from,{i:[],o:[]}).get(e.from)).o.push(e); }
+    for (const [p,{i,o}] of P){
+      const pn = G.nodes.find(n=>n.id===p); if (!pn || pn.kind!=='process') continue;
+      for (const a of i) for (const b of o){
+        if (ids.has(a.from) && ids.has(b.to) && a.from!==b.to){
+          const k = (a.kind==='input'||a.kind==='taken by'||a.kind==='from'||a.kind==='idea') ? 'input' : (ENABLE.has(a.kind)?a.kind:a.kind);
+          if (k==='where' && !$('#sWhere').checked) continue;
+          if (ENABLE.has(k) && !$('#sEnable').checked) continue;
+          edges.push({from:a.from, to:b.to, kind:k==='input'?'output':k, via:pn.label});
+        }
+      }
+    }
+  }
+  // drop isolated non-goods
+  const deg = new Map(); for (const e of edges){ deg.set(e.from,(deg.get(e.from)||0)+1); deg.set(e.to,(deg.get(e.to)||0)+1); }
+  const keep = nodes.filter(n=> deg.get(n.id) || n.kind==='good');
+  return {nodes:keep, edges};
+}
+
+// a layered layout: rank by the longest path along flows that carry goods, then order each rank by the mean of its neighbours
+function layered(V){
+  const FLOW = new Set(['input','output','where','from','taken by','material','use','idea']);
+  const ids = V.nodes.map(n=>n.id), idx = new Map(ids.map((id,i)=>[id,i]));
+  const succ = ids.map(()=>[]), pred = ids.map(()=>[]);
+  for (const e of V.edges){ if (!FLOW.has(e.kind)) continue; const a=idx.get(e.from), b=idx.get(e.to); if (a==null||b==null||a===b) continue; succ[a].push(b); pred[b].push(a); }
+  // break cycles by DFS
+  const state = new Array(ids.length).fill(0), keepE = ids.map(()=>[]);
+  function dfs(u){ state[u]=1; for (const v of succ[u]){ if (state[v]===1) continue; keepE[u].push(v); if (!state[v]) dfs(v); } state[u]=2; }
+  for (let i=0;i<ids.length;i++) if(!state[i]) dfs(i);
+  const rank = new Array(ids.length).fill(0), indeg = new Array(ids.length).fill(0);
+  for (let u=0;u<ids.length;u++) for (const v of keepE[u]) indeg[v]++;
+  const q = []; for (let i=0;i<ids.length;i++) if(!indeg[i]) q.push(i);
+  while (q.length){ const u=q.shift(); for (const v of keepE[u]){ rank[v]=Math.max(rank[v],rank[u]+1); if(--indeg[v]===0) q.push(v); } }
+  // uses sit in a last column
+  const maxR = Math.max(0,...rank.filter((r,i)=>V.nodes[i].kind!=='use'));
+  V.nodes.forEach((n,i)=>{ if(n.kind==='use') rank[i]=maxR+1; if(n.kind==='source') rank[i]=0; });
+  const cols = new Map(); ids.forEach((id,i)=>{ (cols.get(rank[i])||cols.set(rank[i],[]).get(rank[i])).push(i); });
+  const order = new Array(ids.length).fill(0); for (const [r,list] of cols) list.forEach((i,k)=>order[i]=k);
+  const nb = ids.map((_,i)=>[...succ[i],...pred[i]]);
+  for (let sweep=0; sweep<8; sweep++){
+    for (const [r,list] of [...cols].sort((a,b)=> sweep%2? b[0]-a[0] : a[0]-b[0])){
+      const bc = list.map(i=>{ const ns = nb[i]; return [i, ns.length? ns.reduce((s,j)=>s+order[j],0)/ns.length : order[i]]; });
+      bc.sort((a,b)=>a[1]-b[1]); bc.forEach(([i],k)=>order[i]=k); cols.set(r,bc.map(x=>x[0]));
+    }
+  }
+  const pos = {}, colW = 190, rowH = 34;
+  for (const [r,list] of cols){ const h = list.length*rowH; list.forEach((i,k)=>{ pos[ids[i]] = {x:r*colW, y:k*rowH - h/2}; }); }
+  return pos;
+}
+
+function colorOf(n){
+  if (n.idea) return css('--idea');
+  if (n.kind==='good') return css('--'+goodCat(n));
+  return css({process:'--act', fitting:'--fitting', source:'--source', use:'--use'}[n.kind]);
+}
+
+function build(){
+  G = allData(); A = analyse(G);
+  const V = visible();
+  const bad = new Set($('#hProblems').checked ? [...A.dead,...A.nosrc].map(n=>n.id) : []);
+  const els = [];
+  for (const n of V.nodes){
+    els.push({group:'nodes', data:{id:n.id, label:n.label, kind:n.kind, color:colorOf(n), bad: bad.has(n.id)?1:0, idea:n.idea?1:0}});
+  }
+  V.edges.forEach((e,i)=> els.push({group:'edges', data:{id:'e'+i, source:e.from, target:e.to, kind:e.kind, via:e.via||''}}));
+  const pos = mode==='layered' ? layered(V) : null;
+  if (cy) cy.destroy();
+  cy = cytoscape({container: $('#cy'), elements: els, wheelSensitivity: 0.25, minZoom:0.08, maxZoom:3,
+    style: [
+      {selector:'node', style:{'label':'data(label)','font-family':'Inter, sans-serif','font-size':11,'color':css('--ink'),'text-valign':'center','text-halign':'right','text-margin-x':6,
+        'background-color':'data(color)','width':12,'height':12,'shape':'round-rectangle','border-width':0}},
+      {selector:'node[kind="good"]', style:{'width':16,'height':16,'font-weight':600}},
+      {selector:'node[kind="process"]', style:{'shape':'ellipse','width':8,'height':8,'font-size':9.5,'color':css('--muted')}},
+      {selector:'node[kind="fitting"]', style:{'shape':'hexagon','width':14,'height':14}},
+      {selector:'node[kind="source"]', style:{'shape':'barrel','width':14,'height':14,'text-halign':'left','text-margin-x':-6}},
+      {selector:'node[kind="use"]', style:{'shape':'round-rectangle','width':14,'height':14,'font-weight':600}},
+      {selector:'node[bad=1]', style:{'border-width':3,'border-color':css('--problem')}},
+      {selector:'node[idea=1]', style:{'border-width':2,'border-style':'dashed','border-color':css('--idea')}},
+      {selector:'edge', style:{'width':1,'line-color':css('--line'),'curve-style':'bezier','target-arrow-shape':'triangle','target-arrow-color':css('--line'),'arrow-scale':0.6,'opacity':0.9}},
+      {selector:'edge[kind="input"],edge[kind="output"]', style:{'line-color':css('--muted'),'target-arrow-color':css('--muted'),'opacity':0.55}},
+      {selector:'edge[kind="needs"],edge[kind="tool"],edge[kind="gear"],edge[kind="weapon"],edge[kind="scare"]', style:{'line-style':'dashed','line-color':css('--gear'),'target-arrow-color':css('--gear'),'opacity':0.55}},
+      {selector:'edge[kind="where"],edge[kind="from"],edge[kind="taken by"]', style:{'line-style':'dotted','line-color':css('--source'),'target-arrow-color':css('--source'),'opacity':0.45}},
+      {selector:'edge[kind="material"]', style:{'line-color':css('--fitting'),'target-arrow-color':css('--fitting'),'opacity':0.45}},
+      {selector:'edge[kind="use"]', style:{'line-color':css('--use'),'target-arrow-color':css('--use'),'opacity':0.25}},
+      {selector:'edge[kind="idea"]', style:{'line-style':'dashed','line-color':css('--idea'),'target-arrow-color':css('--idea'),'opacity':0.9,'width':1.5}},
+      {selector:'.dim', style:{'opacity':0.08}},
+      {selector:'node.hl', style:{'opacity':1}},
+      {selector:'edge.hl', style:{'opacity':1,'width':2,'line-color':css('--accent'),'target-arrow-color':css('--accent')}},
+      {selector:'node:selected', style:{'border-width':3,'border-color':css('--accent')}}
+    ],
+    layout: pos ? {name:'preset', positions: n=>pos[n.id()], fit:true, padding:30}
+               : {name:'cose', animate:false, nodeRepulsion: 9000, idealEdgeLength: 60, gravity: 0.4, numIter: 1500, fit:true, padding:30}
+  });
+  cy.on('tap','node', ev=> select(ev.target.id()));
+  cy.on('tap', ev=>{ if (ev.target===cy) clearTrace(); });
+  renderSide();
+}
+
+function clearTrace(){ if (cy) cy.elements().removeClass('dim hl'); }
+function trace(id, dir){
+  const n = cy.getElementById(id); if (!n.length) return;
+  const set = dir==='up' ? n.predecessors().union(n) : dir==='down' ? n.successors().union(n) : n.closedNeighborhood();
+  cy.elements().addClass('dim').removeClass('hl'); set.removeClass('dim').addClass('hl');
+}
+
+const lab = id => (G.nodes.find(n=>n.id===id)||{label:id}).label;
+function linkList(items){
+  if (!items.length) return '<p class="empty">None.</p>';
+  return '<ul class="links">' + items.map(([k,id,extra])=>`<li><span class="k">${k}</span><a data-go="${id}">${lab(id)}</a>${extra?`<span class="tag">${extra}</span>`:''}</li>`).join('') + '</ul>';
+}
+const fmt = q => q==null ? '' : (typeof q==='number' ? (Math.round(q*100)/100).toString() : q);
+
+function select(id){
+  const n = G.nodes.find(x=>x.id===id); if (!n) return;
+  const out = (A.out.get(id)||[]), inn = (A.inn.get(id)||[]);
+  const K = {good:'good', process:'act', fitting:'fitting or room', source:'source', use:'use'};
+  let h = `<h3>${n.label}</h3><div>${n.idea?'<span class="tag" style="border-color:var(--idea);color:var(--idea)">idea</span>':''}<span class="tag">${K[n.kind]}</span>${n.pack&&n.pack!=='core'&&n.pack!=='idea'?`<span class="tag">${n.pack} pack</span>`:''}${A.dead.some(g=>g.id===id)?'<span class="tag bad">no use</span>':''}${A.nosrc.some(g=>g.id===id)?'<span class="tag bad">no source</span>':''}</div>`;
+  if (n.kind==='good'){
+    h += `<dl><dt>food</dt><dd>${fmt(n.food)||'none'}</dd><dt>weight</dt><dd>${fmt(n.weight)}</dd><dt>spoils a night</dt><dd>${fmt(n.spoil)}</dd><dt>added by</dt><dd>${n.origin||'idea'}</dd></dl>`;
+    h += '<h2>Made or got by</h2>' + linkList(inn.map(e=>[e.kind, e.from, e.qty!=null?`×${fmt(e.qty)}`:''] ));
+    h += '<h2>Goes into, or is for</h2>' + linkList(out.map(e=>[e.kind, e.to, e.qty!=null?fmt(e.qty):(e.note||'')] ));
+  } else if (n.kind==='process'){
+    if (n.label2) h += `<p class="note">${n.label2}</p>`;
+    h += `<dl><dt>verb</dt><dd>${n.verb||''}</dd><dt>units</dt><dd>${fmt(n.units)||''}</dd>${n.trade?`<dt>trade</dt><dd>${n.trade}</dd>`:''}</dl>`;
+    h += '<h2>Takes</h2>' + linkList(inn.filter(e=>e.kind==='input'||e.kind==='taken by'||e.kind==='from'||e.kind==='idea').map(e=>[e.kind, e.from, e.qty!=null?fmt(e.qty):(e.note||'')]));
+    h += '<h2>Needs or is helped by</h2>' + linkList(inn.filter(e=>['needs','tool','gear','weapon','scare'].includes(e.kind)).map(e=>[e.kind, e.from, e.qty!=null?`×${fmt(e.qty)}`:'']));
+    h += '<h2>Where</h2>' + linkList(inn.filter(e=>e.kind==='where').map(e=>['on', e.from, '']));
+    h += '<h2>Gives</h2>' + linkList(out.map(e=>[e.kind, e.to, e.qty!=null?fmt(e.qty):'']));
+  } else {
+    if (n.does) h += `<p class="note">${n.does}</p>`;
+    h += '<h2>In</h2>' + linkList(inn.map(e=>[e.kind, e.from, e.qty!=null?fmt(e.qty):(e.note||'')]));
+    h += '<h2>Out</h2>' + linkList(out.map(e=>[e.kind, e.to, e.qty!=null?fmt(e.qty):(e.note||'')]));
+  }
+  h += `<div class="row" style="margin-top:10px"><button type="button" data-tr="up">Trace up: where it comes from</button><button type="button" data-tr="down">Trace down: what it feeds</button><button type="button" data-tr="near">Neighbours</button></div>`;
+  const d = $('#detail'); d.innerHTML = h;
+  d.querySelectorAll('[data-go]').forEach(a=>a.addEventListener('click',()=>{ select(a.dataset.go); focusOn(a.dataset.go); }));
+  d.querySelectorAll('[data-tr]').forEach(b=>b.addEventListener('click',()=>trace(id,b.dataset.tr)));
+  if (cy){ cy.$(':selected').unselect(); const el = cy.getElementById(id); if (el.length) el.select(); }
+}
+function focusOn(id){ const el = cy && cy.getElementById(id); if (el && el.length){ cy.animate({center:{eles:el}, zoom:Math.max(cy.zoom(),1.1)},{duration:250}); } }
+
+function pills(el, list, bad){
+  el.innerHTML = list.length ? list.map(x=>{ const [n,c] = Array.isArray(x)?x:[x,null]; return `<button type="button" class="pill${bad?' bad':''}" data-go="${n.id}">${n.label}${c!=null?`<span class="n">${c}</span>`:''}</button>`; }).join('') : '<span class="empty">None.</span>';
+  el.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>{ select(b.dataset.go); focusOn(b.dataset.go); trace(b.dataset.go,'near'); }));
+}
+function renderSide(){
+  const goods = G.nodes.filter(n=>n.kind==='good');
+  const k = t => G.nodes.filter(n=>n.kind===t).length;
+  $('#stats').innerHTML = [[goods.length,'goods'],[k('process'),'acts'],[k('fitting'),'fittings and rooms'],[k('source'),'sources'],[k('use'),'uses'],[G.edges.length,'links']]
+    .map(([v,l])=>`<div class="stat"><b>${v}</b><span>${l}</span></div>`).join('');
+  pills($('#deadEnds'), A.dead, true); pills($('#noSource'), A.nosrc, true);
+  pills($('#singleUse'), A.single.map(g=>[g, lab((A.out.get(g.id)||[])[0]?.to||'')]), false);
+  $('#singleUse').querySelectorAll('.n').forEach(s=>s.textContent='→ '+s.textContent);
+  pills($('#hubs'), A.hubs, false);
+  $('#names').innerHTML = G.nodes.map(n=>`<option value="${n.label}">`).join('');
+  $('#ideaList').innerHTML = IDEAS.map((x,i)=>`<div class="ideaitem"><span><b>${x.name}</b> (${x.kind}) ${x.from.length?'← '+x.from.join(', '):''} ${x.to.length?'→ '+x.to.join(', '):''}</span><button type="button" data-rm="${i}" aria-label="Remove ${x.name}">Remove</button></div>`).join('');
+  $('#ideaList').querySelectorAll('[data-rm]').forEach(b=>b.addEventListener('click',()=>{ IDEAS.splice(+b.dataset.rm,1); saveIdeas(); build(); }));
+}
+
+['sActs','sSources','sFittings','sUses','sEnable','sWhere','pCore','pWild','pWater','hProblems'].forEach(i=>$('#'+i).addEventListener('change', build));
+$('#bLayered').addEventListener('click',()=>{ mode='layered'; build(); });
+$('#bForce').addEventListener('click',()=>{ mode='force'; build(); });
+$('#bFit').addEventListener('click',()=> cy && cy.fit(undefined,30));
+$('#bClear').addEventListener('click', clearTrace);
+$('#q').addEventListener('change', e=>{ const v = e.target.value.trim().toLowerCase(); const n = G.nodes.find(x=>x.label.toLowerCase()===v) || G.nodes.find(x=>x.label.toLowerCase().includes(v)); if (n){ select(n.id); focusOn(n.id); trace(n.id,'near'); } });
+$('#ideaForm').addEventListener('submit', e=>{ e.preventDefault(); const name=$('#ideaName').value.trim(); if(!name) return;
+  const split = s=>s.split(',').map(x=>x.trim()).filter(Boolean);
+  IDEAS = IDEAS.filter(x=>x.name!==name); IDEAS.push({name, kind:$('#ideaKind').value, from:split($('#ideaFrom').value), to:split($('#ideaTo').value)});
+  saveIdeas(); ['ideaName','ideaFrom','ideaTo'].forEach(i=>$('#'+i).value=''); build(); select('idea:'+name); });
+$('#copyIdeas').addEventListener('click', ()=>{ const t = JSON.stringify(IDEAS,null,1); const ta=$('#ideaOut'); ta.value=t; ta.hidden=false;
+  navigator.clipboard && navigator.clipboard.writeText(t).then(()=>{ $('#copyIdeas').textContent='Copied'; setTimeout(()=>$('#copyIdeas').textContent='Copy ideas as JSON',1500); }).catch(()=>{ ta.select(); }); });
+const mq = window.matchMedia('(prefers-color-scheme: dark)'); mq.addEventListener && mq.addEventListener('change', build);
+new MutationObserver(build).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+build(); select('good:hide'); trace('good:hide','near');
+</script>
