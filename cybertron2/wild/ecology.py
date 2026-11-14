@@ -219,7 +219,7 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
     year = day // Y
     knobs = m.knobs
     N = {k: np.asarray(v, float) for k, v in st["pop"].items()}
-    N0 = {k: N[k].copy() for k in (st.get("yearling") or {}) if k in N}    # the young's count is kept against today's losses (4c §7.1)
+    Yl = {k: np.asarray(v, float) for k, v in (st.get("yearling") or {}).items() if k in N}   # a ranging kind's young (4c §7.1)
     E = {k: np.asarray(v, float) for k, v in st["cond"].items()}
     stock = {k: np.asarray(v, float) for k, v in st["stock"].items()}
     pulse = {k: np.asarray(v, float) for k, v in st["pulse"].items()}
@@ -360,6 +360,8 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
         dead = N[k] * (1 - surv)
         carrion = carrion + dead * kd["mass"] * 0.6
         eff["dead"][k] = dead * m.km2
+        if k in Yl:                                                       # the young die first (brief 4c §7.1)
+            Yl[k] = np.maximum(Yl[k] - dead, 0.0)
         N[k] = N[k] - dead
         ph = (st.get("phase") or {}).get(k)
         if ph is not None and k in WK.PHASES:                             # the phase clock's deaths (the crash)
@@ -373,21 +375,28 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
                 lag = np.asarray((st.get("lag") or {}).get(k, N[k]), float) / np.maximum(m.crowd_at[k] * m.suit[k], 1e-9)
                 cond = cond / (1.0 + float(WK.CYCLE[k]) * lag ** 2)
             born = N[k] * ((1 + kd["b"] / len(kd["breed"]) * cond) ** ((1.0 / S) if through else 1.0) - 1)
-            if (kd.get("group") or {}).get("range_km2") and not through:     # a ranging group counts its adults: the year's young are
-                st.setdefault("yearling", {})[k] = [round(float(x), 6) for x in born]   # left out until the next births (brief 4c §7.1)
-                N0[k] = N[k] + born
+            ranging = bool((kd.get("group") or {}).get("range_km2")) and not through
             N[k] = N[k] + born
-            if kd.get("fidelity") and not through:                            # the young that will disperse this season (§2.3)
+            if ranging:                                                       # a ranging kind (brief 4c §7.1): the season's young stay at
+                grown = Yl.get(k, np.zeros(n))                                # home, uncounted; at the year's turn last year's are grown
+                Yl[k] = born                                                  # and disperse
+                if kd.get("fidelity"):
+                    st.setdefault("young", {})[k] = [round(float(x), 6) for x in grown * m.km2 * float(WK.DRIFT["young"])]
+            elif kd.get("fidelity") and not through:                          # the young that will disperse this season (§2.3)
                 st.setdefault("young", {})[k] = [round(float(x), 6) for x in born * m.km2 * float(WK.DRIFT["young"])]
         if k in wary:
             wary[k] = wary[k] * fade
         if take is None:
             if kd["people"] > 0 and history:                                  # people's take by their presence (brief 4b §2.2)
                 share = kd["people"] / 4 / S * m.busy
+                if k in Yl:
+                    Yl[k] = np.maximum(Yl[k] - N[k] * share, 0.0)
                 N[k] = N[k] * (1 - share)
                 wary[k] = wary.get(k, np.zeros(n)) + float(WK.WARY["take"]) * share
         elif k in take:
             sh = np.clip(np.asarray(take[k], float), 0, 1)
+            if k in Yl:
+                Yl[k] = np.maximum(Yl[k] - N[k] * sh, 0.0)
             N[k] = N[k] * (1 - sh)
             wary[k] = wary.get(k, np.zeros(n)) + float(WK.WARY["take"]) * sh
     # 5. movement along the links, migrants excepted; a thin immigration from beyond
@@ -403,7 +412,8 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
             if cs > 0:                                                    # carrion lying there draws its eaters (brief 4b §2.5)
                 att = att * (1 + float(WK.CARRION["draw"]) * cs * carrion / (carrion + float(WK.CARRION["draw_ref"])))
             fid = float(kd.get("fidelity") or 0.0)
-            C = N[k] * m.km2
+            home = np.minimum(Yl[k], N[k]) if k in Yl else np.zeros(n)       # the year's young stay at home (brief 4c §7.1)
+            C = (N[k] - home) * m.km2
             mv = min(0.6, kd["move"] * knobs.get("move_scale", 1.0)) / S * C * (1 - fid)   # a home range: it wanders less
             wa = att[m.lb] * m.le; wb = att[m.la] * m.le               # a to b drawn by b's attraction, b to a by a's
             tot = np.zeros(n); np.add.at(tot, m.la, wa); np.add.at(tot, m.lb, wb)
@@ -430,7 +440,7 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
                 np.add.at(out_, m.la, fa); np.add.at(inn, m.lb, fa)
                 np.add.at(out_, m.lb, fb); np.add.at(inn, m.la, fb)
             C = C - np.minimum(out_, C) + inn
-            N[k] = np.maximum(C / m.km2, 0)
+            N[k] = np.maximum(C / m.km2, 0) + home
     tau = float(WK.DRIFT["tau"])
     for k in m.names:                                                     # the density a home range remembers (§2.3)
         if m.kinds[k].get("fidelity"):
@@ -478,9 +488,8 @@ def step(m: Model, st: dict, day: int, weather: dict, draws: dict, take: dict | 
             acc[k] = [round(float(x), 6) for x in (0.9 * np.asarray(acc.get(k, N[k]), float) + 0.1 * N[k])]
     st["wary"] = {k: [round(float(x), 4) for x in v] for k, v in wary.items()}
     st["pop"] = {k: [round(float(x), 6) for x in v] for k, v in N.items()}
-    if st.get("yearling"):                                                # the year's young die first: an area's losses come off them,
-        st["yearling"] = {k: [round(float(x), 6) for x in np.clip(            # and those that come in are grown (brief 4c §7.1)
-            np.asarray(v, float) - np.maximum(N0.get(k, N[k]) - N[k], 0), 0, N[k])] for k, v in st["yearling"].items() if k in N}
+    if Yl:                                                                # the year's young, never more than are there (4c §7.1)
+        st["yearling"] = {k: [round(float(x), 6) for x in np.clip(v, 0, N[k])] for k, v in sorted(Yl.items())}
     st["cond"] = {k: [round(float(x), 4) for x in v] for k, v in E.items()}
     st["stock"] = {k: [round(float(x), 2) for x in v] for k, v in stock.items()}
     st["pulse"] = {k: [round(float(x), 2) for x in v] for k, v in pulse.items()}

@@ -57,12 +57,14 @@ def _areas(w):
 
 
 def _nights(w, n=16):
-    """The wolves' kills over n nights, and the parcels their traces were left on."""
+    """The wolves' kills over n nights, and the parcels their traces of a raid were left on (not the wood's edge they came out of,
+    which may be a neighbour's parcel)."""
     raids, traced = [], set()
     for _ in range(n):
         rec = N.night(w)
         raids += [(gid, r) for gid, r in ((rec.get("wild") or {}).get("groups") or {}).items() if gid.startswith("wolf") and r.get("killed")]
-        traced |= {pid for pid, lst in (w.s["wild"].get("traces") or {}).items() if any(t.get("kind") == "wolf" for t in lst)}
+        traced |= {pid for pid, lst in (w.s["wild"].get("traces") or {}).items()
+                   if any(t.get("kind") == "wolf" and t["what"].split(":")[0] in ("raid", "tried", "turned") for t in lst)}
         w.s["day"] += 1
     return raids, traced
 
@@ -152,12 +154,13 @@ BEFORE_4C = "a8dada811634fe2f"
 
 
 def test_kinds_without_a_range_keep_the_rule_they_had_exactly(monkeypatch):
-    """With no kind ranging (and the wolves' territorial limit as it was), the same groups and raids on a fixed seed as before 4c:
+    """With no kind ranging (and the wolves' territorial limit and the boar's least group as they were), the same groups and raids on a fixed seed as before 4c:
     replays of older worlds stay identical."""
     for k, row in WK.KINDS.items():
         if "range_km2" in (row.get("group") or {}):
             monkeypatch.delitem(row["group"], "range_km2")
     monkeypatch.setitem(WK.KINDS["wolf"], "terr", 0.03)
+    monkeypatch.setitem(WK.KINDS["wild boar"]["group"], "size", [3, 14])
     log = _scenario(monkeypatch)
     raids = [(g, r) for d in log[:12] for g, r in d[2].items() if isinstance(r, dict) and not r.get("turned")]
     assert len(raids) >= 10 and {g.split("@")[0] for g, _ in raids} >= {"wolf", "wild boar", "fox"}
@@ -165,6 +168,7 @@ def test_kinds_without_a_range_keep_the_rule_they_had_exactly(monkeypatch):
 
 
 def test_a_ranging_group_counts_its_grown_beasts_and_the_years_young_die_first(generated):
+    """§7.1: the season's young are left out of a ranging group's count until the year's turn; deaths fall on them first."""
     w = build(generated)
     m, st = WL.model(w), copy.deepcopy(w.s["wild"]["state"])
     kind = next(k for k in m.names if WL._range_km2(m, k) > 0 and m.kinds[k]["count"] == "whole"
@@ -192,6 +196,64 @@ def test_a_ranging_group_counts_its_grown_beasts_and_the_years_young_die_first(g
     before = heads(st)
     EC.step(m, st, k1, WL.weather(w, nodes, k1), WL.draws(w, k1, "t"))
     assert float(WL._adults(m, st, kind).sum()) <= before + 1e-6 and float(WL._adults(m, st, kind).sum()) > 0.8 * before
+
+
+def test_a_ranging_kinds_young_stay_at_home_and_disperse_grown_at_the_years_turn(generated):
+    """§7.1 (37.2, 14 Nov): the season's young stay where they were born, uncounted, while the grown range; at the year's turn they
+    are grown and the dispersing share of them sets out (the kind's `young` drift), as yearlings do, not as pups of the season."""
+    w = build(generated)
+    m, st = WL.model(w), copy.deepcopy(w.s["wild"]["state"])
+    kind = next(k for k in m.names if WL._range_km2(m, k) > 0 and m.kinds[k]["count"] == "whole"
+                and m.kinds[k].get("litters") != "through" and m.kinds[k].get("fidelity"))
+    Y, nodes, km2 = w.year_days(), sorted(set(m.nodes)), np.asarray(m.km2, float)
+    k0 = Y * 3
+    i = int(np.argmax(np.asarray(st["pop"][kind]) * km2))                          # last year's young, set by hand in one area
+    st.setdefault("yearling", {})[kind] = [0.0] * m.n
+    st["yearling"][kind][i] = 0.5 * float(st["pop"][kind][i])
+    last = 0.5 * float(st["pop"][kind][i]) * float(km2[i])
+    EC.step(m, st, k0, WL.weather(w, nodes, k0), WL.draws(w, k0, "t"))             # the year's turn: the births
+    gone = np.asarray(st["young"][kind], float)                                     # heads setting out, from last year's young
+    share = float(WK.DRIFT["young"])
+    assert 0.7 * share * last <= float(gone.sum()) <= share * last + 1e-6 and float(gone[i]) == pytest.approx(float(gone.sum()))
+    y1 = np.asarray(st["yearling"][kind], float)                                    # this year's young, where they were born
+    assert float((y1 * km2).sum()) > 0
+    for d in range(1, 8):                                                           # the season: the grown move, the young do not
+        EC.step(m, st, k0 + d, WL.weather(w, nodes, k0 + d), WL.draws(w, k0 + d, "t"))
+        y = np.asarray(st["yearling"][kind], float)
+        assert np.all(y <= y1 + 1e-9) and not np.any((y > 1e-9) & (y1 <= 1e-12))   # never more, never anywhere new
+        y1 = y
+
+
+def test_a_node_with_nothing_to_come_for_is_no_village(generated, monkeypatch):
+    """§7.2: a ranging group's villages, and the generator's check, are the nodes with something to come for (a herd out, a field
+    with a crop, a store with goods, the dead); a node stripped of all of them is left out."""
+    w = build(generated)
+    m, land, home = _areas(w)
+    R = math.sqrt(WL._range_km2(m, "wolf") / math.pi)
+    near = [a for a in m.ids if land["areas"][a]["kind"] == "wild" and land["areas"][a]["node"] != "s1"
+            and math.dist(land["areas"][a]["xy_km"], home["s1"]) < R - 1.0]
+    where = min(near, key=lambda a: math.dist(land["areas"][a]["xy_km"], home["s1"]))
+    other = land["areas"][where]["node"]                                           # the other node in the pack's range
+    assert other != "s1" and math.dist(land["areas"][where]["xy_km"], home[other]) < R
+    for hid in [h for h, x in w.s["herds"].items() if x.get("node") == other]:      # strip it of everything to come for
+        del w.s["herds"][hid]
+    for pid, par in w.s["parcels"].items():
+        if par["node"] == other:
+            for _, r in FM.records(par):
+                r.pop("crop", None)
+    for b in w.s["buildings"].values():
+        if b.get("node") == other and b.get("stock") in w.s["containers"]:
+            w.s["containers"][b["stock"]]["goods"] = {}
+    from cybertron2.engine import things as TH
+    for cid in TH.open_dead(w, other):
+        w.s["containers"][cid]["burnt"] = w.d
+    assert not WL._raidable(w, other) and WL._raidable(w, "s1")
+    assert w.s["nodes"][other].get("name", other) not in WL.within_range(w)
+    _held_pack(monkeypatch, w, "wolf", where, 6.0)
+    raids, traced = _nights(w, 6)
+    packs = [g for g in w.s["wild"]["groups"].values() if g["kind"] == "wolf"]
+    assert packs and all(other not in g["villages"] for g in packs) and "s1" in packs[0]["villages"]
+    assert not any(w.s["parcels"][pid]["node"] == other for pid in traced)
 
 
 def test_the_generators_report_names_the_predators_within_range_of_each_village():
