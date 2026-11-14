@@ -802,7 +802,12 @@ THINGS = {
     "carcass_rot_season": {"spring": 1.0, "summer": 1.5, "autumn": 1.0, "winter": 0.5}, "carcass_gone": 0.05,
     "carcass_offal": 0.25, "body_mass": 30, "carcass_kg": 5.0,      # offal as a share of the meat; a unit of meat as kg of carrion
     "hidden": {"under brush": [0.2, 0.4], "buried": [0.03, 0.06], "off the road": [0.2, 0.2]},
-    "set": {"own": 0.12, "sprung": 0.05},                                  # a set snare or trap, seen (brief 2 §4; calibrate)
+    # a set snare or trap, seen (brief 2 §4; brief 4c §4; calibrate): its own conspicuousness empty, spent (sprung), with a beast
+    # caught in it (`caught`, while the catch is fresh: up to `fresh_days` after the night it was caught), and x`birds` once the birds
+    # come to a catch with flesh on it (`birds_after` days after its night); for one who knows the line and is on its parcel, the look
+    # it is given (`knows`, a close look); a line emptied by another shows it for `robbed_days`; a spent one is about for `spent_days`
+    "set": {"own": 0.12, "sprung": 0.05, "caught": 0.4, "fresh_days": 1, "birds_after": 2, "birds": 1.5, "knows": 0.9,
+            "robbed_days": 2, "spent_days": 6},
 }
 # Fences round a parcel (livestock.md, D2-130; calibrate): what a build takes for a parcel of size s (x the square root of s), the chance a
 # day a herd gets through by its level (whole, gappy; down is no fence), and its upkeep: a wood fence loses a level each season unless

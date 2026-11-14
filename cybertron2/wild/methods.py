@@ -93,8 +93,10 @@ for _k, _v in SWEEP.items():
     METHODS[_k]["sweep"] = _v
 for _k in ("stalk", "hunt the wild", "drive"):
     METHODS[_k]["curve"] = "hard"
-METHODS["snare"]["note"] = "set a line of nooses where small beasts run; it catches by night for a few nights, and the catch is whoever's finds it"
-METHODS["trap in water"]["note"] = "set wicker traps in the water at dusk; they fish by night for some nights, best when things run, and lifting them is whoever's finds them"                      # at a den, a take; at a lodge, the site's trap (wild.den_work)
+METHODS["snare"]["note"] = ("set a line of nooses where small beasts run; it catches by night for a few nights: come back to your snares and "
+                            "take what is in them, or it rots there or another finds it")       # brief 4c §4.4
+METHODS["trap in water"]["note"] = ("set wicker traps in the water at dusk; they fish by night for some nights, best when things run: come back "
+                                    "to your traps and take what is in them, or it rots there or another finds it")                      # at a den, a take; at a lodge, the site's trap (wild.den_work)
 
 METHODS.update({
     "gather young": {"verb": "gather", "label": "taking the young from the nests of a colony", "basic": False, "pack": "wild",

@@ -851,6 +851,10 @@ def _things_lines(here, mind) -> list:
     """What one knows lies about here (world/things_in_places.md): as one last saw it, and how one knows."""
     out = []
     for cid, (r, c) in sorted(here.known_things().items(), key=lambda kv: kv[1][0]["day"]):
+        line = here.set_line(c, r, lambda d: _daystr(mind, d)) if c and c.get("kind") == "set" else None
+        if line:                                                               # a set thing: as one last saw it, never "empty"
+            out.append(line)                                                   # unless seen so (brief 4c §4.3)
+            continue
         how = {"put": "you put it there", "saw": "you saw it", "took": "you took from it"}.get(r["how"], r["how"])
         out.append(f"{r['text']} ({how}, {_daystr(mind, r['day'])})")
     return out[-8:]

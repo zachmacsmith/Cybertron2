@@ -926,8 +926,9 @@ def _set_night(w, m, st) -> dict:
                 if u < acc:
                     break
             tk = (RESOURCES.get(k) or {}).get("taken") or {}
-            p = min(0.95, 0.55 * skill * float(sp["base"]) * (1 - float(tk.get("flee", 0.5))) * MT.factor(mind, k))
-            if rng.random() >= p:
+            xp = 0.6 * skill * float(sp["base"]) * (1 - float(tk.get("flee", 0.5))) * MT.factor(mind, k)   # 1 - exp(-x), no clip
+            p = 1.0 - math.exp(-xp)                                        # (brief 4c §3.1; 0.6 keeps the old 0.55 clipped product's
+            if rng.random() >= p:                                          # catch within about 6% from novice to master)
                 continue
             pop[k][i] = max(0.0, pop[k][i] - 1.0 / float(m.km2[i]))
             w.apply("set_wild", node, path=["state", "pop", k], value=pop[k])
@@ -936,6 +937,8 @@ def _set_night(w, m, st) -> dict:
             got.append(k)
         if got:
             w.apply("set_thing", node, cid=cid, field="caught", value=held + len(got))
+            had = list(c.get("catch") or []) if held else []                   # what it holds, by the night caught (brief 4c §4)
+            w.apply("set_thing", node, cid=cid, field="catch", value=had + [{"kind": k, "day": w.d} for k in got])
             out[cid] = got[0] if len(got) == 1 else got
     return out
 

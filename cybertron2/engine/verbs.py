@@ -249,6 +249,8 @@ def do(here, mind, a) -> str:
     if v in ALIASES:                                                          # leaving, putting down and hiding are giving (D2-111)
         a = ALIASES[v](a)
         v = "give"
+    if v in LIFT or (v in ("gather", "work") and str((a or {}).get("what") or "").strip().lower() in LIFT - {"lift", "check"}):
+        a, v = _as_lift(a), "take"                                            # lifting snares is taking from them (brief 4c §4.4)
     try:
         if v not in VERBS:
             raise Refused(f"unknown verb {v!r}; the verbs are {', '.join(VERBS)}")
@@ -1390,20 +1392,58 @@ def _move(here, mind, a, party):
             + f" (it holds {show(here.stock(bid).get(item, 0.0))}).")
 
 
+def _parcel_named(here, x):
+    """A parcel here by its name, or named within a phrase ("the snares at the Ham"; brief 4c §4.4)."""
+    pid = here.parcel(x)
+    if pid is not None:
+        return pid
+    low = str(x or "").strip().lower()
+    hits = [p for p, q in here.parcels().items() if len(q["name"].lower().removeprefix("the ")) > 3
+            and q["name"].lower().removeprefix("the ") in low]
+    return max(hits, key=lambda p: len(here.parcels()[p]["name"])) if hits else None
+
+
+def _lift(here, mind, rem):
+    """Lifting a set thing one knows (brief 4c §4.4): everything in it into hand, or a look that it holds nothing."""
+    c = here.thing(rem)
+    noun = "wicker traps" if TH.is_trap(c) else "snares"
+    whose = "your" if c.get("by") == here.name else "the"
+    took = []
+    for it, q in sorted(c["goods"].items()):
+        if q > 1e-9:
+            took.append(_take(here, mind, {"item": it, "qty": q, "from": "", "_thing": rem}, None))
+    if not took:
+        here.look_thing(rem)
+        return f"You looked over {whose} {noun} at {here.spot_name(c)}: nothing is caught in them."
+    return " ".join(took)
+
+
 def _take(here, mind, a, party):
+    src_name = str(a.get("from") or a.get("at") or "")
+    if not a.get("item"):                                       # no item: lift a set thing one knows, all of it (brief 4c §4.4)
+        rem = here.find_thing(src_name)
+        if rem is not None and (here.thing(rem) or {}).get("kind") == "set":
+            return _lift(here, mind, rem)
+        pid = _parcel_named(here, src_name)
+        if rem is None and pid is not None and here.building(src_name) is None:
+            rem = here.search_thing(here.parcels()[pid]["name"])
+            if rem is not None and (here.thing(rem) or {}).get("kind") == "set":
+                return _lift(here, mind, rem)
+        if rem is None and any(x in src_name.lower() for x in ("snare", "trap", "noose")):
+            raise Refused("you know of no such set snares or traps here; name the place: {\"from\": \"the snares at <place>\"}")
     item = item_of(a.get("item"))
-    src_name = str(a.get("from") or "")
-    rem = here.find_thing(src_name, item)                        # what one knows lies here (D2-87: nobody's)
+    rem = a.get("_thing") or here.find_thing(src_name, item)    # what one knows lies here (D2-87: nobody's)
     from cybertron2.engine import tags as TG
     tag = TG.tag_in(src_name) if here.setting("tags") else None
     if rem is None and tag and here.building(src_name) is None:              # a thing named by its tag: say why not (D4-94)
         if not here.tagged_here(tag):
             raise Refused(f"you know of nothing called {tag} here")
         raise Refused(f"{tag} holds no {item}" if item else f"{tag} holds nothing")
-    if rem is None and here.parcel(src_name) is not None and here.building(src_name) is None:
-        rem = here.search_thing(src_name, item)                  # not known of: one looks, as it is seen or hidden (D4-70)
+    pid = _parcel_named(here, src_name) if rem is None else None
+    if rem is None and pid is not None and here.building(src_name) is None:
+        rem = here.search_thing(here.parcels()[pid]["name"], item)   # not known of: one looks, as it is seen or hidden (D4-70)
         if rem is None:
-            raise Refused(f"you looked over {here.parcels()[here.parcel(src_name)]['name']} and found no {item} lying there")
+            raise Refused(f"you looked over {here.parcels()[pid]['name']} and found no {item} lying there")
     if rem:
         c = here.thing(rem)
         from cybertron2.engine import wild as WL
@@ -1414,6 +1454,9 @@ def _take(here, mind, a, party):
         src, theft = rem, bool(door) and not here.may_take(here.buildings()[door]["stock"])
         bid = door
         label = f"what {c['of']} left" if c.get("body") else f"what lay at {here.spot_name(c)}"
+        if c.get("kind") == "set":
+            label = (f"{'your' if c.get('by') == here.name else 'the'} {'wicker traps' if TH.is_trap(c) else 'snares'} "
+                     f"at {here.spot_name(c)}")
         have = c["goods"].get(item, 0.0)
         if c.get("by") != here.name:
             f = mind.store.setdefault("found", [])
@@ -1439,6 +1482,11 @@ def _take(here, mind, a, party):
         here.record("take", None, None, theft=True)
         return f"You took {show(q)} {item} from {label}, which is not yours to take from. Whether anyone saw, you will learn."
     c = here.thing(src) or {"kind": "stock"}
+    if c["kind"] == "set":                                                     # emptied: its catch gone; another's emptying it shows
+        if not any(x > 1e-9 for x in c["goods"].values()):                     # to those who know the line (brief 4c §4.2)
+            here.apply("set_thing", cid=src, field="catch", value=[])
+        if c.get("by") not in (here.name, None):
+            here.apply("set_thing", cid=src, field="robbed", value={"day": here.day, "by": here.name})
     if c["kind"] == "set" and c.get("by") not in (here.name, None):            # another's snare robbed: seen, and theirs to know
         here.event("take", f"{here.name} took {item} from the {'traps' if (c.get('set') or {}).get('method') == 'trap in water' else 'snares'} "
                            f"{c['by']} set at {here.spot_name(c)}", actor=here.name, salience=0.55, about=[f"parcel:{c['parcel']}"],
@@ -1556,6 +1604,19 @@ def _alias_give(hidden=None):
 
 
 ALIASES = {"leave": _alias_give(), "put": _alias_give(), "drop": _alias_give(), "hide": _alias_give("under brush")}
+# lifting or checking one's snares or traps is taking what is in them (brief 4c §4.4): as a verb, or as the way of work named
+LIFT = {f"{v} {o}".strip() for v in ("lift", "check", "empty") for o in
+        ("", "the snares", "snares", "my snares", "the snare line", "the snare", "the traps", "traps", "my traps", "the eel traps",
+         "eel traps", "the wicker traps", "wicker traps")} - {"empty"}
+
+
+def _as_lift(a):
+    """A lift or check of snares or traps, as a take from them: from the place it names, else the snares or traps it names."""
+    what = str(a.get("what") or a.get("do") or "").strip().lower()
+    src = a.get("from") or a.get("at") or a.get("thing") or a.get("target")
+    if src and not any(x in str(src).lower() for x in ("snare", "trap", "noose")):
+        src = f"the {'traps' if 'trap' in what else 'snares'} at {src}"
+    return {k: v for k, v in a.items() if k not in ("do", "what", "at")} | {"from": src or ("the traps" if "trap" in what else "the snares")}
 
 
 # ---------------------------------------------------------------------- hosting and grants (05 §3; D4-23 rights)
