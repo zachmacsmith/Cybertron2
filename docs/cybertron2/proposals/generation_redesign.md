@@ -1,6 +1,6 @@
 # Proposal: world generation as one history, with pins met in the loop
 
-**Status:** discussion. **Owner:** the c2viz session (analysis at Zach's request, 14 Nov). It would be built by 37.2 (the land) and
+**Status:** ready for a decision (the frame: §5's four decisions); two parts to prototype before build briefs. **Owner:** the c2viz session (analysis at Zach's request, 14 Nov). It would be built by 37.2 (the land) and
 37.4 (`engine/generate.py`, the lineage); nothing here changes code.
 
 **Affects:**
@@ -89,24 +89,90 @@ and apart from the land. Most of the problems Zach has hit come from those two c
    land is regenerated for the people made. The dependency is the wrong way round: in a history, land and people shape each other
    over time.
 
-## 4. The proposal
+## 4. The design
 
-**Revised 14 Nov (Zach):** the present population is pinned and the history is filled in behind it; and generation fills to
-the conditions and repairs what a change touches, instead of building, rejecting and building again. Zach: "the current population
-mix is something we should be able to pin, with the history backfilling ... the history etc. is all downstream of that even though
-happening before"; "fill to suit the conditions and if you adjust the conditions it can backtrack or use some subset ... and then
-regenerate to fill the new conditions." §4a and §4b below replace the forward history of stage 2 as the frame.
+**Revised and consolidated 14 Nov** with Zach's four steers (History). Three things are kept apart, and a fourth is measured:
 
-**One generator, four stages, each with its own pins, its own checks and a written result.**
-
-| Stage | Makes | Pins it meets | How it meets them |
+| | What it is | Set by | Fitted to anything? |
 |---|---|---|---|
-| **1. Land** | the physical layers, as now (macro, elevation, climate, water, soil, terrain, natural cover) | shapes, rivers, fords, passes, heights, soil, resources, by name or place | control points the fields pass through (as rivers are laid now); a pin's shape from a declared table of words to primitives, not special cases |
-| **2. People, then their past** | the present population (households, members, ages, roles), pinned or drawn from a pinned mix; then the genealogy and events behind it, built backward (§4a) | the household mix, any person, kin, feuds, founding dates, a famine | the present is given or drawn; the past is chosen to fit it, never simulated and rejected |
-| **3. The present** | the graph and the state: nodes, parcels, holdings, houses, herds, stores, trades, from the end of the history | capacity bands, a village short of wood, food_share, vacant places | closed-loop adjustment with the engine's own measures |
-| **4. Checks** | the report, always written | physics refuses; design warns unless required | after every stage, so a failure points at its stage |
+| **The land** | terrain, water, soil, climate, resources, and its **richness** | pins and the generator | never to people |
+| **The people** | households, members, ages, kin, and their past | pins or a mix; the past built backward | the past to the present |
+| **The use** | what is cleared and worked, houses, herds, stores | the backfilled history | within what the land affords |
+| **Capacity** | how many the land as used feeds and warms, by every source | measured (the capacity package) | never a knob |
 
-### 4a. The present first, the past filled in behind it
+**The stages,** each with its own pins and checks, and a report always written:
+
+| Stage | Makes | Pins it meets | How |
+|---|---|---|---|
+| **1. Land** | the physical layers as now, under a richness field (§4.2) | shapes, rivers, fords, passes, heights, soil, resources, richness, by name or place | control points the fields pass through; a declared table of words to primitives |
+| **2. People** | the present population, then its genealogy and events, built backward (§4.3) | the household mix, persons, kin, feuds, founding dates, a famine | the present given or drawn; the past chosen to fit, weighted by the forward model |
+| **3. Use** | villages sited, their land's use, houses, herds, stores, the graph (§4.4) | capacity targets or a dependence profile, vacant places, food_share | siting by affordance, livelihoods within bounds, bisection on richness or use |
+| **4. Checks** | the report | physics refuses; design warns unless required | after every stage, so a failure points at its stage |
+
+### 4.1 The land
+
+Stage 1 as built (the mesh, water, soil, terrain, ecosystems, keyed draws, roads by least cost, the vocabulary), with two changes:
+- pins at any layer by name (a river, a ford, a pass, a height), as control points;
+- the richness field (§4.2) under every food-producing layer.
+
+### 4.2 Richness: one tunable measure that feeds every food source (Zach, 14 Nov)
+
+Zach: "there should be some ways to in general adjust the carrying capacity of land ... richer or sparser ... a holistic measure ...
+so that when generating the land, whatever food sources are introduced are scaled based on that ... bigger rivers with more fish or
+more forests ... a metaparameter for the generation, tunable for the whole world or specific places, that feeds into a bunch of
+things ... Otherwise ... I can only tweak population size."
+
+**The pattern: drive the cause, not the effects.** In ecology the holistic measure is the land's productivity, how much grows on
+it in a year: net primary productivity, set by warmth, water and soil. Every food source downstream (crops, grass and the beasts on
+it, woods and their mast and game, fish in the water fed by the land) is a function of it. So make one quantity the generator's
+upstream driver, and let each food source read it through its own rule. Do not give each source its own knob.
+
+1. **A richness field** `r` over the map, 1.0 by default.
+   - **Set by:** a world's level (`richness: 0.8`); places and areas as control points the field passes through (`Northby: 1.3`, "the
+     fen: rich", "the eastern moor: poor"); optionally a gradient.
+   - **Blending:** like the other fields, with a reach, so a richer valley shades into its neighbours instead of stopping at a line.
+   - **Words** map to values, as the vocabulary does now (D2-173: "rich bottomland", "poor stony soil").
+2. **Each food source reads `r` through a declared transfer function,** in one registry beside the sources (one row a source, as the
+   capacity package registers its sources), so the coupling is defined once and can be inspected:
+   - soil: base fertility (D4-112: the engine's own multiplier, `land.base_fertility`) and depth;
+   - grass: its stock and regrowth on pasture and meadow;
+   - woods: standing wood, regrowth, mast, wild plants;
+   - water: rivers' flow, as rain over the catchment, so richer land gives bigger rivers and more fish; a lake's fish;
+   - the wild layer: each kind's habitat capacity per area (D2-199), through the food it eats;
+   - not stone or ore: richness is about what grows.
+3. **Two depths of effect,** so tuning one place never rearranges the map:
+   - **World or region richness may move the physical drivers:** more rain, a longer growing season, deeper soils. That can change
+     geography (bigger rivers, more wood, more fen) and happens before the land is laid out.
+   - **A place's richness scales only yields and stocks** on the land as laid out: the same river, but more fish in it; the same
+     wood, denser; the same fields, more fertile.
+4. **Within each terrain's range.** A rich heath is the best heath, not loam. Richness moves each terrain's numbers within the
+   bounds its kind allows, and never changes a cover or a terrain into another. That is the guard against over-optimising: the land
+   stays the kind it is.
+5. **Monotone by construction,** and tested: raising `r` never lowers any source's yield. So capacity, measured with the full model
+   (§4.4), rises monotonically with richness, which makes it tunable:
+   - **Tune by richness:** set `r` and read the capacity.
+   - **Tune by capacity:** ask for a capacity ("Northby feeds about 40 at the worked level", "the region at 0.7") and the generator
+     finds the place's `r` by bisection on that one number. Which sources carry the gain is decided by the land's affordances, never
+     by the target.
+6. **Three knobs that stay apart:**
+   - **richness:** what the land grows by nature;
+   - **use:** what has been cleared and worked (§4.4, from the history);
+   - **level:** how well it is farmed (the capacity package's bare to ceiling).
+
+   A place can be rich and little worked (a frontier), or poor and worked hard (an old upland village).
+7. **How it fits the rest:**
+   - with people pinned and a target ratio, `r` per place is the free value;
+   - with `r` pinned, people or use fill;
+   - a dependence profile (§4.4 item 5) is a richness profile over the region, met by bisection per place.
+
+**What is new and what exists:**
+- **Exists:** the engine's per-parcel fertility multiplier (D4-112); the generator's soil fertility; the wild layer's habitat
+  capacities.
+- **New:** the field, the registry of transfer functions, the monotone guard test, and the bisection.
+
+**Size:** medium, mostly in the generator; nothing in the engine beyond fields it already reads.
+
+### 4.3 People: the present first, the past filled in behind it
 
 **The order of generation is not the order of time.** Generation starts from what the run needs (the people now) and works back to
 what explains it. The forward model is kept, as the judge of what is likely: it scores choices, it does not filter whole worlds.
@@ -135,15 +201,36 @@ what explains it. The forward model is kept, as the judge of what is likely: it 
    - foundings: the oldest line's arrival; a daughter village where its founders' parents lived elsewhere;
    - marriages, deaths, departures, feuds and debts;
    - each person's memories, from their own age at each event.
-5. **What is worked follows the people, not the land itself** (corrected 14 Nov: §4c). The physical land is generated and
+5. **What is worked follows the people, not the land itself** (corrected 14 Nov: §4.4). The physical land is generated and
    pinned on its own; how much of it is cleared and worked is backfilled, within what the land affords.
+
+**The forward model** (it scores the backward choices, so the past is likely, not only consistent):
+
+- **The unit is the household,** not the line:
+  - a couple founds a household; sons (or daughters, by the custom) found their own on marrying, if there is a plot and a house to
+    be had, else they stay;
+  - holdings, houses and herds pass by the custom's inheritance rule;
+  - lines become surnames over households.
+- **One marriage market for the region,** by distance. Spouses come from the nearest villages with someone of age, so kin crosses
+  villages in proportion to nearness. An off-map origin is allowed only as a named node of the world (a market town beyond the map
+  edge), never as a bare name.
+- **Villages are founded at different times.** An old village fills its land; when its holdings run out, a household founds a daughter
+  village on the best unclaimed site (stage 1's siting scores, in order). So there are old and new places, a frontier, and sizes
+  that differ for a reason.
+- **Births and deaths read the land and the weather.** Each year's food per head comes from the village's cleared land and its
+  yields, under the climate scheduler's own years (the same draw the wild layer uses for its history, at days far ahead of the run).
+  Hard years are the world's hard years, remembered by those who lived them. Fertility and mortality are tables (calibrate), with
+  starvation, disease and fever as named causes.
+- **Clearing is part of the history:** each household clears and works land as it needs and can, so the present cleared share, the
+  fields' place and the woods left are the history's result, per village. That replaces the region-wide 30% woodland dial and the
+  rings set directly.
 
 **What this gives:** exact control for test conditions (the household mix is what was asked for, every time), and a past that is
 consistent with it by construction. **What it costs:** a backward-built past is consistent, but not automatically likely. That is why
 every choice is weighted by the forward model, and the report says where a pin forced an unlikely past (a woman with nine living
 children, a village of one generation).
 
-### 4c. Land, its use and capacity: three things, not one (Zach, 14 Nov)
+### 4.4 Use and capacity: the land is never fitted to the people (Zach, 14 Nov)
 
 Zach: "deciding the different environmental conditions themselves are important, e.g. deciding which nodes have what types of
 resources ... it shouldn't just automatically change the landscape to fit the carrying capacity ... done badly this could just
@@ -192,64 +279,7 @@ read the package.
   stretched past its bounds. The report names the gap by source and the levers that would close it, most plausible first: more
   cleared land within bounds, a pathway the land affords but has not been developed, a trade dependence, fewer people.
 
-### 4d. Richness: one tunable measure that feeds every food source (Zach, 14 Nov)
-
-Zach: "there should be some ways to in general adjust the carrying capacity of land ... richer or sparser ... a holistic measure ...
-so that when generating the land, whatever food sources are introduced are scaled based on that ... bigger rivers with more fish or
-more forests ... a metaparameter for the generation, tunable for the whole world or specific places, that feeds into a bunch of
-things ... Otherwise ... I can only tweak population size."
-
-**The pattern: drive the cause, not the effects.** In ecology the holistic measure is the land's productivity, how much grows on
-it in a year: net primary productivity, set by warmth, water and soil. Every food source downstream (crops, grass and the beasts on
-it, woods and their mast and game, fish in the water fed by the land) is a function of it. So make one quantity the generator's
-upstream driver, and let each food source read it through its own rule. Do not give each source its own knob.
-
-1. **A richness field** `r` over the map, 1.0 by default.
-   - **Set by:** a world's level (`richness: 0.8`); places and areas as control points the field passes through (`Northby: 1.3`, "the
-     fen: rich", "the eastern moor: poor"); optionally a gradient.
-   - **Blending:** like the other fields, with a reach, so a richer valley shades into its neighbours instead of stopping at a line.
-   - **Words** map to values, as the vocabulary does now (D2-173: "rich bottomland", "poor stony soil").
-2. **Each food source reads `r` through a declared transfer function,** in one registry beside the sources (one row a source, as the
-   capacity package registers its sources), so the coupling is defined once and can be inspected:
-   - soil: base fertility (D4-112: the engine's own multiplier, `land.base_fertility`) and depth;
-   - grass: its stock and regrowth on pasture and meadow;
-   - woods: standing wood, regrowth, mast, wild plants;
-   - water: rivers' flow, as rain over the catchment, so richer land gives bigger rivers and more fish; a lake's fish;
-   - the wild layer: each kind's habitat capacity per area (D2-199), through the food it eats;
-   - not stone or ore: richness is about what grows.
-3. **Two depths of effect,** so tuning one place never rearranges the map:
-   - **World or region richness may move the physical drivers:** more rain, a longer growing season, deeper soils. That can change
-     geography (bigger rivers, more wood, more fen) and happens before the land is laid out.
-   - **A place's richness scales only yields and stocks** on the land as laid out: the same river, but more fish in it; the same
-     wood, denser; the same fields, more fertile.
-4. **Within each terrain's range.** A rich heath is the best heath, not loam. Richness moves each terrain's numbers within the
-   bounds its kind allows, and never changes a cover or a terrain into another. That is the guard against over-optimising: the land
-   stays the kind it is.
-5. **Monotone by construction,** and tested: raising `r` never lowers any source's yield. So capacity, measured with the full model
-   (§4c), rises monotonically with richness, which makes it tunable:
-   - **Tune by richness:** set `r` and read the capacity.
-   - **Tune by capacity:** ask for a capacity ("Northby feeds about 40 at the worked level", "the region at 0.7") and the generator
-     finds the place's `r` by bisection on that one number. Which sources carry the gain is decided by the land's affordances, never
-     by the target.
-6. **Three knobs that stay apart:**
-   - **richness:** what the land grows by nature;
-   - **use:** what has been cleared and worked (§4c, from the history);
-   - **level:** how well it is farmed (the capacity package's bare to ceiling).
-
-   A place can be rich and little worked (a frontier), or poor and worked hard (an old upland village).
-7. **How it fits the rest:**
-   - with people pinned and a target ratio, `r` per place is the free value;
-   - with `r` pinned, people or use fill;
-   - a dependence profile (§4c item 5) is a richness profile over the region, met by bisection per place.
-
-**What is new and what exists:**
-- **Exists:** the engine's per-parcel fertility multiplier (D4-112); the generator's soil fertility; the wild layer's habitat
-  capacities.
-- **New:** the field, the registry of transfer functions, the monotone guard test, and the bisection.
-
-**Size:** medium, mostly in the generator; nothing in the engine beyond fields it already reads.
-
-### 4b. Generation as a graph of keyed decisions, repaired, never rejected
+### 4.5 How it runs: a graph of keyed decisions, repaired, never rejected
 
 **Each decision is a node:** a village's site, a parcel's cells, a household's members, a person's parents, an ancestor's death year,
 a road's path. Each node has:
@@ -278,72 +308,41 @@ a road's path. Each node has:
 - **Claimed land is first come, first served** between villages: a village that grows can push a neighbour's fields, so it moves too.
 - Both are reported as moved; neither needs a seed search.
 
-### Stage 2 as first proposed (forward, superseded by §4a as the frame; its parts are kept as the forward model that scores choices)
+### 4.6 What stays
 
-- **The unit is the household,** not the line:
-  - a couple founds a household; sons (or daughters, by the custom) found their own on marrying, if there is a plot and a house to
-    be had, else they stay;
-  - holdings, houses and herds pass by the custom's inheritance rule;
-  - lines become surnames over households.
-- **One marriage market for the region,** by distance. Spouses come from the nearest villages with someone of age, so kin crosses
-  villages in proportion to nearness. An off-map origin is allowed only as a named node of the world (a market town beyond the map
-  edge), never as a bare name.
-- **Villages are founded at different times.** An old village fills its land; when its holdings run out, a household founds a daughter
-  village on the best unclaimed site (stage 1's siting scores, in order). So there are old and new places, a frontier, and sizes
-  that differ for a reason.
-- **Births and deaths read the land and the weather.** Each year's food per head comes from the village's cleared land and its
-  yields, under the climate scheduler's own years (the same draw the wild layer uses for its history, at days far ahead of the run).
-  Hard years are the world's hard years, remembered by those who lived them. Fertility and mortality are tables (calibrate), with
-  starvation, disease and fever as named causes.
-- **Clearing is part of the history:** each household clears and works land as it needs and can, so the present cleared share, the
-  fields' place and the woods left are the history's result, per village. That replaces the region-wide 30% woodland dial and the
-  rings set directly.
-- **Pins on people and places become conditions on the history,** met in order of cost:
-  1. **chosen:** a pin that is a start state (a village founded 120 years ago, a line of smiths) is simply the start;
-  2. **aimed:** a size or a band (Northby about 30 people, mostly adults) sets the founding date and rates from a fitted table, so the
-     expected end lands near it;
-  3. **repaired:** what is still off is fixed by small written events at the end (a death, a marriage, a departure, a household
-     taking in a widow), each recorded in the history as what happened;
-  4. **resampled locally:** if a repair is too large, only the household or village concerned is run again, never the region.
-- **The age structure is a pin, not an accident:** realistic by default (about two in five under 15), or "mostly working adults" as
-  a world's stated choice, met by the start date and repair.
-
-### Stage 3, the present
-
-- **The graph from the end state:** nodes from settlements and their reach, parcels from land in one use (as now), wild land as the
-  waste left.
-- **Houses, herds and stores from each household's history:**
-  - rooms by its size and wealth;
-  - cattle by what it bred and inherited;
-  - stores by its last harvest;
-  - all placed on the built parcel's ground (D2-154), with the parcel sized to them.
-- **Capacity in the loop:** after the graph is made, read `engine.capacity.node` (the engine's own function, never a copy) for each
-  village. Adjust what is unpinned (a plot more or less, a wood managed or wild) by bisection until the village is in band; refuse
-  only if the unpinned land cannot do it, naming the pin that stops it. The band should be wider than one plot's step for small
-  villages, or set in plots, not shares.
-- **A history in equilibrium gives the band naturally:** a village that has lived through hard years sits below what its land feeds.
-  If stage 2 runs on the land's real yields, the 60 to 70% target becomes a check on the history's calibration, not a number forced
-  onto the present.
-
-### What stays
-
-- Stage 1 as built: the mesh, water, soil, terrain, ecosystems, keyed draws, roads by least cost, the vocabulary.
-- The checks' kinds (D2-180), the economy checks, descriptions written once.
+- Stage 1 as built; the checks' kinds (D2-180); the economy checks; descriptions written once.
 - `generate.py`'s good parts: years mapped to days by stage knots (D2-153), memories written from each person's position, ties.
 
-## 5. Order of work (each a step that pays on its own)
+## 5. Readiness and order of work
 
-*Revised 14 Nov:* step 2 becomes the present population as an input (an explicit list or a mix) with the genealogy built backward
-(§4a), before any forward history. Step 3 becomes the decision graph (§4b), starting with the people: households, parents and
-sibships are the decisions most often edited for test conditions.
+**Ready for a decision** on the frame: four separable decisions, each of which stands alone.
+1. **Land, use and capacity apart;** capacity measured with the capacity package; siting, livelihoods and a dependence profile in place
+   of sizing fields to a band (§4.4).
+2. **Richness** as one upstream field read by every food source through declared monotone rules, tunable by value or by a target
+   (§4.2).
+3. **The present population as an input,** with the past built backward to fit it (§4.3).
+4. **Generation as a graph of keyed decisions** that fills, backtracks on conflict and remakes only what a change touches (§4.5).
 
-1. **Capacity in the loop** (stage 3's bisection, with the engine's `capacity.node`) and **write refused worlds with their report.**
-   Small, in settle.py and write.py. It should end the seed search today (31 of 36 refused).
-2. **Households, not lines, and one regional marriage market** in generate.py; no bare off-map places. Medium.
-3. **The history loop with the climate's years and land-fed demography,** founding dates per village, daughter villages. Medium to
-   large: stage 2.
-4. **Clearing from the history,** replacing the rings and the woodland dial; houses, herds and stores from households. Large.
-5. **Split write.py by stage;** a declared table of words to primitives; pins on rivers, fords and roads by name.
+**Not yet ready to build all of it.** Two parts carry design risk, best settled by small prototypes before the build briefs:
+- **The backward genealogy** (§4.3): whether pasts built to fit pinned mixes read as plausible. A prototype outside the engine, on
+  the mixes Zach uses for test conditions, judged by the forward model's likelihood and by reading the histories.
+- **The decision graph** (§4.5): incremental rebuilding and backjumping over a pipeline that mixes continuous fields with discrete
+  choices is the largest engineering unknown. Build it first for the people only (households, parents, sibships), where edits for
+  test conditions happen most.
+
+The richness rules need calibrating against the capacity package (each source's response to `r`, monotone, within its terrain's
+range); that is calibration, not design risk.
+
+**Order of work,** each step useful on its own:
+1. **Now, independent of the rest:** capacity checked and adjusted with the capacity package, not `engine/capacity.node`; refused
+   worlds written with their report. Small; it should end the seed search (31 of 36 refused today).
+2. **Prototype the backward genealogy** offline; then households as the unit, one regional marriage market, no bare off-map places.
+3. **The present population as an input** (a list or a mix) in place of `lines` and `bounds`.
+4. **The decision graph for the people,** then for stage 3's use.
+5. **Richness:** the field, the rules registry, the monotone guard test, bisection to a target capacity.
+6. **Use from affordances:** siting as matching, livelihoods within bounds, a dependence profile; houses, herds and stores from
+   households, sized to their ground.
+7. **Split write.py by stage;** pins on rivers, fords and roads by name.
 
 ## Why
 
@@ -368,16 +367,19 @@ sibships are the decisions most often edited for test conditions.
 
 ## Open questions (for Zach)
 
-*Answered 14 Nov in conversation, not yet decided:* the present population is pinned and the past is backfilled (it replaces
-question 2's framing: the age mix is part of the pinned present).
+*Answered in conversation 14 Nov, not yet decided:* the present population is pinned and the past backfilled; the land is never
+fitted to people; capacity is tunable through a holistic richness, not one lever.
 
-1. **How long a history:** 80 years (two to three generations, cheap) or 200 (old villages, extinct lines, daughter villages)?
-2. **Age structure:** realistic by default with "mostly working adults" as a world's choice, or the other way round?
-3. **Kin between villages:** wanted as the default (it creates ties and dependence), or only when a world asks?
-4. **Off-map places:** should a world that wants outside spouses or migrants have a named off-map node they come from, or should all
-   marriages stay within the map?
-5. **Who builds what:** stage 1 and 3 are 37.2's (the generator), stage 2 sits between 37.2 and 37.4 (generate.py is 37.4's). One
-   owner for the history loop would keep it from being split across two sessions.
+1. **The four decisions in §5:** accept, change or reject each.
+2. **History span:** about 80 years (two or three generations) or about 200 (old villages, extinct lines, daughter villages)?
+3. **Kin between villages:** the default, or only when a world asks?
+4. **Outside spouses and migrants:** only from a named off-map node of the world, or all within the map?
+5. **Dependence:** may a village sit well short of feeding itself when the region is fine (dependence as the default), or is each
+   village roughly self-sufficient unless a world asks otherwise?
+6. **Richness's reach:** may a world's or region's richness change geography (bigger rivers, more wood), with a place's richness
+   only scaling yields (as proposed), or should richness never move the physical layers?
+7. **Who builds what:** stage 1 and the land's use are 37.2's; stage 2 sits between 37.2 and 37.4 (generate.py is 37.4's). One owner
+   for the people stage and the decision graph would keep them from being split.
 
 ## History
 
@@ -397,6 +399,10 @@ question 2's framing: the age mix is part of the pinned present).
 - **14 Nov 2026 (fourth):** §4d with Zach: richness, one upstream productivity field (world and places) that every food source reads
   through a declared, monotone transfer function within its terrain's range; tunable by value or by a target capacity (bisection on
   one number); kept apart from use and from the level of practice.
+
+- **14 Nov 2026 (fifth):** consolidated into one design (§4.1 to §4.6), the superseded forward stage folded in as the forward model;
+  readiness, two prototypes before build briefs, the order of work, and the open questions merged (§5, Open questions). Status to
+  ready for a decision.
 
 ## Sources
 
