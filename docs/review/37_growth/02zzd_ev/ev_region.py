@@ -11,7 +11,8 @@ more), food a trip. Written to EV_OUT (default ev_region.json beside the world).
 
 Brief 4c's results (ev_region_4c*.json beside this) are on the region world made by main's specs/make_wild_region.py --seeds 7 with
 CYB_ROOT a peoples-worlds checkout (ecology-hunt3's generator refuses it on capacity; main's writes no wild land): 38 people, the
-4b run's hunters replaced by each village's first adult where absent. _find0 is the same with SKILL find_hard 0."""
+4b run's hunters replaced by each village's first adult where absent. ev_region_4c is as built (finding above the capable,
+find_hard 1.05); _find0 is with find_hard 0; _find065 is the first calibration (meetings x skill^0.65 from the novice up)."""
 import os, sys, copy, json, statistics, yaml
 ROOT = os.environ["CYB_ROOT"]; sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
