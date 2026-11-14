@@ -120,7 +120,9 @@ MAST = {"every": (2, 5), "ordinary_p": 0.6, "levels": {"heavy": 3.0, "ordinary":
 # reading for the practised hunter and one for anyone else.
 NEAR_PEOPLE = {
     "wild boar": {
-        "targets": [{"seasons": {1: (3, 7), 2: (0, 1)}, "attr": 1.0, "trample": 0.012},     # milk-ripe to harvest
+        "targets": [{"seasons": {1: (3, 7), 2: (0, 4)}, "attr": 1.0, "trample": 0.012},     # milk-ripe to harvest, into autumn
+                                                                                         # (to day 4: 37.2, 14 Nov, calibrate (4c); a mast
+                                                                                         # year keeps them in the woods: WHEN's drive 0.3)
                     {"what": "carcass", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.5, "stages": ["rotting"], "eat": 2.0},   # rooting at the dead (brief 3)
                     {"seasons": {0: (0, 5)}, "attr": 0.3, "trample": 0.006}],              # the sown corn
         "drive": {"base": 0.35, "hunger": 0.5}, "memory_days": 3, "return_p": 0.85, "lead_nights": 2, "lead_sign_p": 0.9,
