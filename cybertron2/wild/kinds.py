@@ -41,7 +41,7 @@ KINDS = {
     "wild boar": K(70, "omni", 1.6, 0.30, {"wood": 0.8, "shrub": 0.3, "wet": 0.3},
                    {"mast": 4, "roots": 2, "nuts": 1, "fruit": 1, "crops": 2, "inverts": 0.3, "seeds": 0.5, "carrion": 0.5},
                    people=0.15, ref=4, wave=1, count="whole", fidelity=0.7,
-                   group={"size": [3, 14], "range_km2": 20},                                      # calibrate (4c)
+                   group={"size": [2, 14], "range_km2": 40},                                      # calibrate (4c)
                    uses="pork, fat, hide", damage="roots up crops"),
     "brown hare": K(3.5, "herb", 4.0, 0.9, {"grassy": 1.0, "farm": 0.4, "open": 0.2}, {"sward": 3, "seeds": 1, "crops": 2},
                     breed=("spring", "summer"), people=0.3, ref=25, wave=1, uses="meat; coursing", damage="young crops", shy=0.6,
