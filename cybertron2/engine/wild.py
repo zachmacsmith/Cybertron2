@@ -1844,6 +1844,15 @@ def take_chance(tech, skill, gear_x, flee, fam_x, n_out=1) -> float:
     return chance(base * float(skill) * float(gear_x) * (1.0 - float(flee)) * float(fam_x) * crew_x)
 
 
+def find_x(tech, skill) -> float:
+    """How much more game the best hunter out comes on (brief 4c §3.2): for the hunt's methods, (skill / the capable's)^find_hard
+    above the capable, 1 at or below it; other methods 1."""
+    from cybertron2.engine.data import SKILL, TECHNIQUES
+    if TECHNIQUES[tech].get("curve") != "hard":
+        return 1.0
+    return max(1.0, float(skill) / float(SKILL["capable_hard"])) ** float(SKILL.get("find_hard", 0.0))
+
+
 def gear(tech, carried) -> float:
     """What one carries multiplies a method's take (brief 4c §3.1; the method's `gear` row, by item): the best weapon in hand, one
     at a time, times each other piece of gear the method names."""
@@ -1917,9 +1926,7 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
             pressure[kk][ii] = round(pressure[kk][ii] + float(HUNTED["hunt"]) * share * (1 + float(HUNTED["crew"]) * (crew - 1)), 4)
             wary[kk][ii] = round(wary[kk][ii] + float(WARY["hunt"]) * share, 4)
     fam = lambda mb, k: MT.factor(mb["mind"], k)
-    from cybertron2.engine.data import SKILL
-    finds = max(1.0, max(mb["skill"] for mb in members)) ** float(SKILL.get("find_hard", 0.0)) \
-        if (TECHNIQUES[tech].get("curve") == "hard") else 1.0              # the party's best finds more (brief 4c §3.2; off at 0)
+    finds = find_x(tech, max(mb["skill"] for mb in members))           # above the capable, the party's best finds more (4c §3.2)
     cand = []
     for k, tw in sorted(takes.items()):
         if k not in st["pop"]:

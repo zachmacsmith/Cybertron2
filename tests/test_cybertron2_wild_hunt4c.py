@@ -37,6 +37,15 @@ def test_the_crew_bonus_is_for_the_drive_only():
         assert WL.take_chance(tech, 1.0, 1.0, flee, fam, n_out=3) == WL.take_chance(tech, 1.0, 1.0, flee, fam, n_out=1)   # the eyes
 
 
+def test_skill_finds_more_game_only_above_the_capable():
+    cap = float(SKILL["capable_hard"])
+    for tech in ("hunt the wild", "stalk"):
+        assert WL.find_x(tech, 1.0) == WL.find_x(tech, cap) == 1.0                                # novice to capable: as found
+        assert WL.find_x(tech, 8.0) > WL.find_x(tech, 5.0) > 1.0                                    # a master comes on more
+        assert math.isclose(WL.find_x(tech, 8.0), (8.0 / cap) ** float(SKILL["find_hard"]))
+    assert WL.find_x("net", 8.0) == 1.0                                                             # not the hunt's curve: none
+
+
 def test_no_wild_method_keeps_a_weapon_ceiling():
     for tech in ("hunt the wild", "stalk", "drive", "snare", "net", "trap in water", "den work"):
         assert "weapon" not in TECHNIQUES[tech] and isinstance(TECHNIQUES[tech].get("gear"), dict), tech
@@ -142,6 +151,20 @@ def test_ten_days_teaching_bring_a_youth_near_the_teacher_with_no_level_cap(gene
     assert youth >= 8.0 - 0.1 * (8.0 - lo)                                                       # near the teacher: 97% of the gap
     assert lo + 0.7 * (8.0 - lo) <= adult < youth                                                # an adult about 80%
     assert w.s["know"]["H1"]["stalk"]["level"] == "known" and w.s["know"]["H2"]["stalk"]["level"] == "capable"
+
+
+def test_a_craft_off_the_hunts_curve_teaches_as_before_in_one_day(generated):  # noqa: F811
+    w, _, wood = _hunters(generated, n=2, knows=("plough",))
+    assert not KN.hard("plough")
+    w.s["know"]["H0"]["plough"].update(level="known", skill=2.0)
+    w.s["know"]["H1"].pop("plough", None)
+    out = _teach_day(w, "H0", "H1", "plough")
+    r = w.s["know"]["H1"]["plough"]
+    share = float(w.p["teach"]["skill_share"])
+    assert share == 0.3 and r["level"] == "capable" and math.isclose(r["skill"], round(0.6 + share * (2.0 - 0.6), 3))
+    assert any("(aware -> capable)" in x for x in out["H1"])
+    out = _teach_day(w, "H0", "H1", "plough")                                                      # one jump, then refused
+    assert any("nothing more to teach you" in x for x in out["H1"]) and math.isclose(r["skill"], round(0.6 + share * 1.4, 3))
 
 
 def test_teaching_is_refused_only_when_nothing_is_left_to_give(generated):  # noqa: F811

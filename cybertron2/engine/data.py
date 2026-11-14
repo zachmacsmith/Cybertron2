@@ -602,10 +602,11 @@ SKILL = {"trade": [0.5, 2.0], "basic": [1.0, 1.5], "tau": 50.0,     # D2-52 (02n
          # with practice (about x3 half way) to its top after `top_hard` units of practice at the default lifespan, scaled with the
          # lifespan (D2-153); a trip with a kill counts `kill_hard` times its units; a youth's practice counts `youth_hard` times; in a
          # party each member's counts x (1 + the leader's lead over them as a share of the leader's skill), at most `lead_hard`
-         # `find_hard`: the party's best skill also finds more game, meetings x skill^find_hard (0: as the brief has it; 4c's
-         # calibration, docs/review/37_growth/02zzd_ev/ev_region_4c.json: the near wood meets about one beast a trip, so without it
-         # the master is held near the capable by meetings, not by the take)
-         "hard": [1.0, 8.0], "top_hard": 50.0, "kill_hard": 1.5, "youth_hard": 2.0, "lead_hard": 2.0, "find_hard": 0.65}
+         # above the capable (`capable_hard`), the party's best skill also finds more game: meetings x (skill / capable_hard)^find_hard
+         # (0: as the brief has it; 4c's calibration, docs/review/37_growth/02zzd_ev/ev_region_4c.json: the near wood meets about one
+         # beast a trip, so without it the master is held near the capable by meetings, not by the take)
+         "hard": [1.0, 8.0], "top_hard": 50.0, "kill_hard": 1.5, "youth_hard": 2.0, "lead_hard": 2.0,
+         "capable_hard": 3.0, "find_hard": 1.05}
 
 PHYSICS = {
     "units": {"summer": 7, "autumn": 6, "winter": 5, "spring": 6},      # agents/work.md (calibrate)
@@ -666,7 +667,8 @@ PHYSICS = {
     "regrow_winter": 0.25,
     "game_threshold": 0.15,                                              # below this share of capacity game does not come back
     "combat": {"base": [0.5, 1.5], "guard": 2.0, "asleep": 0.5, "units": 3, "raid_share": 0.5, "fight_wear": 4},
-    "teach": {"units_teacher": 2, "units_learner": 2, "skill_share": 0.15},   # a day closes this share of the gap to the teacher, x2 a youth (brief 4c §3.3)
+    "teach": {"units_teacher": 2, "units_learner": 2, "skill_share": 0.3,
+              "hunt_share": 0.15},   # the hunt's methods: a day closes this share of the gap to the teacher, x2 a youth (brief 4c §3.3)
     "watch": {"units": 4},
     "notes": {"max": 8, "words": 150, "open": 2},
     "felt_watched": 0.3,

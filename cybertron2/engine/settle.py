@@ -163,12 +163,8 @@ def duel(w, place, by, t, aim, helpers=(), guarding=False, rng=None, wear_attack
 
 
 def settle_teaching(w, today) -> dict:
-    """Teaching happens when a teach and a learn match the same day, both at one node. A day lifts the learner to a working level
-    (capable; a youth to known) and closes a share of the gap between their skill and the teacher's (`skill_share`, twice for a
-    youth), so each day gives less as the gap closes; there is no cap of level, and it is refused only when the learner has the level
-    and nothing of the gap is left (brief 4c §3.3)."""
-    from cybertron2.engine.data import LEVELS
-    from cybertron2.wild import methods as MT
+    """Teaching happens when a teach and a learn match the same day, both at one node: the hunt's methods over many days (brief 4c
+    §3.3), everything else in one day (`_teach_day`)."""
     out = {}
     for t in today["teach"]:
         match = next((l for l in today["learn"] if l["by"] == t["to"] and l["from"] == t["by"] and l["tech"] == t["tech"]), None)
@@ -176,36 +172,69 @@ def settle_teaching(w, today) -> dict:
         if not match or w.at(t["by"]) != w.at(t["to"]):
             out.setdefault(t["by"], []).append(f"You meant to teach {t['to']} {label}, but {t['to']} did not set aside time to learn.")
             continue
-        youth = w.s["people"][t["to"]]["stage"] == "youth"
-        target = "known" if youth else "capable"
-        k = w.s["know"].setdefault(t["to"], {})
-        before = k.get(t["tech"], {}).get("level") or "aware"
-        tk = w.s["know"].get(t["by"], {}).get(t["tech"], {})
-        lo = KN.curve(t["tech"])[0]
-        sk_t = float(tk.get("skill", 1.0))
-        sk_l = float(k.get(t["tech"], {}).get("skill", 0.6 if not KN.hard(t["tech"]) else lo))
-        gap = sk_t - sk_l
-        rises = LEVELS.index(before) < LEVELS.index(target)
-        if not rises and gap <= 0.01 * max(abs(sk_t), 1e-9):
-            out.setdefault(t["by"], []).append(f"{t['to']} already has {label} as well as you can teach it; you lost the day's time.")
-            out.setdefault(t["to"], []).append(f"{t['by']} had nothing more to teach you of {label}; practice is what you need.")
-            continue
-        node = w.at(t["by"])
-        if rises:
-            w.apply("learn", node, person=t["to"], tech=t["tech"], level=target, source=f"taught by {t['by']}")
-        MT.teach_familiar(w, t["by"], t["to"], t["tech"])                   # taught a method: the kinds the teacher knows by it (D2-204 §5)
-        r = k[t["tech"]]
-        share = float(w.p["teach"]["skill_share"]) * (2 if youth else 1)
-        r["skill"] = round(sk_l + min(1.0, share) * max(0.0, gap), 3)
-        out.setdefault(t["by"], []).append(f"You taught {t['to']} {label}.")
-        out.setdefault(t["to"], []).append(f"{t['by']} taught you {label}" + (f" ({before} -> {target})." if rises else
-                                                                            ": a day's teaching that took you nearer their skill."))
-        w.event(node, "teach", f"{t['by']} spent the day teaching {t['to']} {label}", actor=t["by"], target=t["to"], salience=0.3,
-                tags=TECHNIQUES[t["tech"]]["tags"], concerns=[t["to"]])
+        (_teach_days if KN.hard(t["tech"]) else _teach_day)(w, t, label, out)
     for l in today["learn"]:
         if not any(t["by"] == l["from"] and t["to"] == l["by"] and t["tech"] == l["tech"] for t in today["teach"]):
             out.setdefault(l["by"], []).append(f"You meant to learn from {l['from']}, but {l['from']} did not set aside time to teach you.")
     return out
+
+
+def _teach_day(w, t, label, out) -> None:
+    """A craft taught in a day: the learner rises to a working level (capable; a youth to known) and `skill_share` of the gap to the
+    teacher's skill (twice for a youth); once at that level, a day's teaching gives no more."""
+    target = "known" if w.s["people"][t["to"]]["stage"] == "youth" else "capable"
+    k = w.s["know"].setdefault(t["to"], {})
+    before = k.get(t["tech"], {}).get("level") or "aware"
+    from cybertron2.engine.data import LEVELS
+    if LEVELS.index(before) >= LEVELS.index(target):
+        out.setdefault(t["by"], []).append(f"{t['to']} already has {label} as well as a day's teaching can give; you lost the day's time.")
+        out.setdefault(t["to"], []).append(f"{t['by']} had nothing more to teach you of {label} that a day could give; practice is what you need.")
+        return
+    node = w.at(t["by"])
+    w.apply("learn", node, person=t["to"], tech=t["tech"], level=target, source=f"taught by {t['by']}")
+    from cybertron2.wild import methods as MT                           # taught a method: the kinds the teacher knows by it (D2-204 §5)
+    MT.teach_familiar(w, t["by"], t["to"], t["tech"])
+    tk = w.s["know"].get(t["by"], {}).get(t["tech"], {})
+    r = k[t["tech"]]
+    share = float(w.p["teach"]["skill_share"]) * (2 if w.s["people"][t["to"]]["stage"] == "youth" else 1)
+    r["skill"] = round(r.get("skill", 0.6) + share * max(0.0, float(tk.get("skill", 1.0)) - r.get("skill", 0.6)), 3)
+    out.setdefault(t["by"], []).append(f"You taught {t['to']} {label}.")
+    out.setdefault(t["to"], []).append(f"{t['by']} taught you {label} ({before} -> {target}).")
+    w.event(node, "teach", f"{t['by']} spent the day teaching {t['to']} {label}", actor=t["by"], target=t["to"], salience=0.3,
+            tags=TECHNIQUES[t["tech"]]["tags"], concerns=[t["to"]])
+
+
+def _teach_days(w, t, label, out) -> None:
+    """The hunt taught over many days (brief 4c §3.3): a day lifts the learner to a working level (capable; a youth to known) and
+    closes `hunt_share` of the gap between their skill and the teacher's (twice for a youth), so each day gives less as the gap
+    closes; no cap of level, refused only when the learner has the level and nothing of the gap is left."""
+    from cybertron2.engine.data import LEVELS
+    from cybertron2.wild import methods as MT
+    youth = w.s["people"][t["to"]]["stage"] == "youth"
+    target = "known" if youth else "capable"
+    k = w.s["know"].setdefault(t["to"], {})
+    before = k.get(t["tech"], {}).get("level") or "aware"
+    tk = w.s["know"].get(t["by"], {}).get(t["tech"], {})
+    sk_t = float(tk.get("skill", 1.0))
+    sk_l = float(k.get(t["tech"], {}).get("skill", KN.curve(t["tech"])[0]))
+    gap = sk_t - sk_l
+    rises = LEVELS.index(before) < LEVELS.index(target)
+    if not rises and gap <= 0.01 * max(abs(sk_t), 1e-9):
+        out.setdefault(t["by"], []).append(f"{t['to']} already has {label} as well as you can teach it; you lost the day's time.")
+        out.setdefault(t["to"], []).append(f"{t['by']} had nothing more to teach you of {label}; practice is what you need.")
+        return
+    node = w.at(t["by"])
+    if rises:
+        w.apply("learn", node, person=t["to"], tech=t["tech"], level=target, source=f"taught by {t['by']}")
+    MT.teach_familiar(w, t["by"], t["to"], t["tech"])                   # taught a method: the kinds the teacher knows by it (D2-204 §5)
+    r = k[t["tech"]]
+    share = float(w.p["teach"]["hunt_share"]) * (2 if youth else 1)
+    r["skill"] = round(sk_l + min(1.0, share) * max(0.0, gap), 3)
+    out.setdefault(t["by"], []).append(f"You taught {t['to']} {label}.")
+    out.setdefault(t["to"], []).append(f"{t['by']} taught you {label}" + (f" ({before} -> {target})." if rises else
+                                                                        ": a day's teaching that took you nearer their skill."))
+    w.event(node, "teach", f"{t['by']} spent the day teaching {t['to']} {label}", actor=t["by"], target=t["to"], salience=0.3,
+            tags=TECHNIQUES[t["tech"]]["tags"], concerns=[t["to"]])
 
 
 def settle_joins(w, today) -> dict:
