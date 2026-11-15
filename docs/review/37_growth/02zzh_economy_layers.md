@@ -1,5 +1,8 @@
 # 02zzh: the economy's layers and trees of dependence, across the domains (14 Nov 2026)
 
+> **Superseded in part (15 Nov):** §2's single four-rung ladder is replaced by shapes and paradigm switches in
+> [proposals/economy_web.md](../../cybertron2/proposals/economy_web.md). The rest stands as analysis.
+
 Zach (14 Nov): "a deep dive into the different potential layers of the economy and fleshing out the connections ... what would the
 ladders (or more like trees) and the different trees of dependence be? How do these unlock more things, more complex economies and
 societies? What is the relation to labour v capital intensive? Connect to the different domains we have like hunting or farming or
