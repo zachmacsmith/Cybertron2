@@ -131,22 +131,18 @@ Each was regulated: chartered markets, a bread assize setting the price or weigh
 the City's monopoly of markets within its bounds. Wrigley's argument (1967) is that this demand restructured English agriculture
 and transport: London's market drew specialisation across the whole country.
 
-**Paris in the 18th century.** Paris (≈ 500,000 to 650,000 †) was fed through a deliberately managed system that Steven Kaplan
-calls "provisioning": the *police des grains*, which treated bread as a public matter. Grain came from the Beauce, the Brie, Picardy
-and down the Seine and its tributaries; merchants needed licences; the zone within a set distance of Paris was reserved for the
-capital's supply; the Halle au blé (rebuilt 1763 to 1767) was the central market; and over the century, as Kaplan shows, flour
-overtook grain in the trade and millers overtook merchants (Kaplan 1984; 1996 on the bakers). The state's legitimacy rested on the
-price of the four-pound loaf, and the "flour war" of 1775, after a trial of free grain trade, is the standard example of what
-happens when a provisioning regime is changed abruptly.
+**Paris in the 18th century** (≈ 500,000 to 650,000 †) was fed by what Steven Kaplan calls "provisioning": the *police des grains*,
+which treated bread as a public matter. Grain came from the Beauce, the Brie and Picardy and down the Seine; merchants needed
+licences; a zone around Paris was reserved for its supply; the Halle au blé was the central market; and over the century flour
+overtook grain and millers overtook merchants (Kaplan 1984, 1996). The state's legitimacy rested on the price of the loaf, and the
+"flour war" of 1775, after a trial of free trade in grain, shows what happens when a provisioning regime changes abruptly.
 
-**Edo (1720s).** Edo reached roughly a million by the 1720s (the Tokyo metropolitan government cites ≈ 1.3 million in 1721;
-other sources date a million to 1733 †). It was fed largely by rice shipped by sea from Osaka and the north, sold through the
-rice brokers who turned the daimyo's tax rice into cash, and by vegetables from farms around the city fertilised with the city's
-night soil (§1.6).
+**Edo** reached about a million by the 1720s (≈ 1.3 million in 1721 by the Tokyo government's figure; others date a million to
+1733 †), fed by sea rice from Osaka sold through brokers who turned the daimyo's tax rice into cash, and by vegetables grown with
+the city's night soil (§1.6).
 
-**The industrial break.** Railways and steamships cut land transport costs by an order of magnitude and refrigeration (refrigerated
-rail cars in the 1870s and 1880s, refrigerated ships to Britain from Australia and Argentina from 1880) removed perishability as a
-limit. The von Thünen rings did not vanish; they became continental. Chicago's hinterland was the American West (§2).
+**The industrial break.** Railways, steamships and refrigeration (rail cars from the 1870s, ships from 1880) cut land transport
+costs by an order of magnitude and removed perishability as a limit. The rings became continental: Chicago's was the West (§2).
 
 ### 1.3 Water
 
@@ -186,19 +182,15 @@ that, and the water then has to go somewhere: **piped water before sewers create
 | industrial cities | coal by rail, town gas from coal (London from 1812), then electricity | | Manchester and Chicago ran on rail coal |
 | modern cities | oil, gas, electricity | pipelines, grids, tankers | megacities in 2010: 6.7 % of world population, 9.3 % of electricity, about 10 % of gasoline (Kennedy et al. 2015) |
 
-**London's coal is a model chokepoint chain.** Coal was dug on Tyneside by miners bound to annual contracts, carried in keels to
-the colliers, shipped down the coast (the tonnage of coal from the north-east often exceeded all of England's imports), unloaded by
-coal-heavers in the Pool of London, measured by sworn meters, sold through the Coal Exchange, and taxed by the City (coal dues
-paid for rebuilding St Paul's and the City churches after 1666). The Newcastle "hostmen" ran a cartel at the mouth, the "Limitation
-of the Vend" restricted supply, and London buyers complained of combinations at both ends. The chain had **a monopoly at the
-pit-head port, a pulse with the sailing season and war (privateers, press gangs), a tax at the city end, and a pollution cost that
-fell on everyone** (Cavert 2016 on smoke and its politics). Wrigley's argument (02zzi §3.8) begins here: London's coal is the first
-large city fuelled by mineral energy.
+**London's coal is a model chokepoint chain.** Dug on Tyneside, carried in keels to colliers, shipped down the coast (the north-east's
+coal tonnage often exceeded all of England's imports), unloaded by coal-heavers, measured by sworn meters, sold on the Coal
+Exchange and taxed by the City (coal dues rebuilt St Paul's after 1666). The Newcastle hostmen ran a cartel at the mouth (the
+"Limitation of the Vend"). The chain had **a monopoly at the source port, a pulse with the sailing season and war, a tax at the
+city end, and a pollution cost on everyone** (Cavert 2016). It is the first large city fuelled by mineral energy (02zzi §3.8).
 
-**Paris's wood is a model pulse chain.** Wood was cut in the Morvan in winter, stacked by streams, released in a spring flood when
-dams were opened (*flottage à bûches perdues*), caught and sorted at Clamecy, bound into rafts and floated to Paris, where it was
-stacked in the wood ports. A whole region's forest was managed as Paris's fuel ring, at the distance von Thünen's model would
-forbid by land and allow by water.
+**Paris's wood is a model pulse chain.** Cut in the Morvan in winter, released down the streams in a spring flood when dams were
+opened, sorted at Clamecy, rafted to Paris: a region's forest managed as Paris's fuel ring, at a distance von Thünen's model
+forbids by land and allows by water.
 
 ### 1.5 Building materials
 
@@ -276,38 +268,25 @@ their own births.
 
 Notes on what each shows, in the vocabulary of 02zzi and economy_web.md:
 
-- **Uruk: the first city is a household writ large.** The temple and palace were great estates that fed dependants with rations
-  of barley, oil and wool, recorded on clay. The mass-produced bevelled-rim bowls found in their millions are usually read as
-  ration bowls †(others read them as bread moulds for feasts). Writing was invented to keep these accounts. Guillermo Algaze argues
-  that Uruk grew because the alluvium had cheap water transport and high yields, and because it traded textiles for the metals,
-  stone and timber it lacked: a **chokepoint economy** (no local stone, metal or timber) solved by exchange and colonies upstream.
-  Redistribution (Polanyi) came before markets.
-- **Rome: the parasitic and the productive city.** Rome lived on the taxes and rents of an empire (the "consumer city" of Weber and
-  Finley †, disputed by those who stress its crafts and services). Its economy is still instructive: a dole for some, markets for
-  the rest, contracting for the state, and a harbour as the chokepoint.
-- **Chang'an to Kaifeng: the controlled market opens.** Tang Chang'an confined trade to two supervised markets with set hours, inside
-  a city of walled wards closed at night. Over the late Tang and Song the ward walls fell, shops opened onto streets, night markets
-  ran, and commercial taxes rose above the land tax in importance: the "medieval urban revolution" (Elvin, Shiba). Kaifeng is the
-  first city known to have used coal as a common fuel and among the first to use paper money. **The same city size can be organised
-  by supervision or by markets**, and the switch changes everything inside it.
-- **Baghdad: a hub on the routes.** Built as a planned capital, it grew beyond its walls into the commercial Karkh. Its credit
-  instruments let merchants move value across the caliphate without coin, and its paper mills made a cheap information good.
-- **Venice: the state as merchant.** Venice owned the galleys, auctioned voyages to syndicates, ran its own grain office and built
-  ships in the Arsenal on something like an assembly line (galleys fitted out as they were towed past stores). **A city of little
-  land lives entirely by carrying and credit** (02zzi §3.9's maritime trading cities).
-- **Florence: an industrial city before industry.** Wool from England, alum from the Levant, dyes, and a putting-out system with
-  thousands of wage workers who could not form guilds of their own (the Ciompi revolt of 1378). Its banks were the deepest
-  financial network of the 14th century, and their failure shows **default chains** (02zzi §3.5) at city scale.
-- **Bruges: a market as an institution.** Bruges's role came from hosting foreign merchants under its law, with brokers, hostellers
-  who doubled as bankers, and a meeting place. When its channel silted and Antwerp offered better terms, the market moved: **a
-  hub's advantage is an equilibrium, not a resource**.
-- **London: growth by drawing a nation.** Port, court and capital in one; its demand specialised England's agriculture and
-  transport (Wrigley 1967).
-- **Amsterdam: the entrepôt.** It made money not by producing but by storing, grading, pricing and re-exporting the goods of
-  others, with the cheapest shipping, the best information (printed price currents) and the most trusted bank money (the
-  Wisselbank's bank guilders traded at a premium over coin). A city as **an information and trust good**.
-- **Manchester: the shock city of industry.** Coal, canals, cotton, steam, and housing built faster than drains or water. Engels's
-  *Condition of the Working Class in England* (1845) describes the result.
+- **Uruk: a household writ large.** Temple and palace estates fed dependants with rations of barley, oil and wool, recorded on
+  clay (the mass-produced bevelled-rim bowls are usually read as ration bowls †); writing was invented for these accounts. Algaze
+  argues Uruk grew on cheap water transport and high yields, trading textiles for the metal, stone and timber it lacked: **a
+  chokepoint economy solved by exchange and upstream colonies**, with redistribution before markets.
+- **Rome: the consumer city.** It lived on an empire's taxes and rents (Weber's and Finley's "consumer city" †, disputed by those
+  who stress its crafts): a dole for some, markets for the rest, state contracting, a harbour as the chokepoint.
+- **Chang'an to Kaifeng: the controlled market opens.** Tang Chang'an confined trade to two supervised markets inside walled wards
+  shut at night. Over the late Tang and Song the ward walls fell, shops opened onto streets, night markets ran, and commercial taxes
+  grew in weight (the "medieval urban revolution": Elvin, Shiba). **The same size of city can be run by supervision or by markets.**
+- **Venice and Bruges: carrying, credit and hosting.** Venice owned the galleys, auctioned voyages to syndicates and fitted ships
+  out in the Arsenal on something like an assembly line: **a city of little land lives by carrying and credit** (02zzi §3.9).
+  Bruges hosted foreign merchants under its law, with brokers and hostellers who were also bankers; when its channel silted and
+  Antwerp offered better terms the market moved: **a hub's advantage is an equilibrium, not a resource**.
+- **Florence: industry before industry.** English wool, Levantine alum, a putting-out system of wage workers barred from guilds of
+  their own (the Ciompi revolt, 1378), and the deepest banks of the century, whose failure shows **default chains** (02zzi §3.5).
+- **Amsterdam: the entrepôt.** It earned by storing, grading, pricing and re-exporting others' goods, with the cheapest shipping,
+  printed price currents and the most trusted bank money (Wisselbank guilders traded at a premium over coin): **a city as an
+  information and trust good**.
+- **Manchester: the shock city.** Coal, canals, cotton and steam, with housing built faster than drains (Engels 1845).
 - **Chicago: the hub that made commodities.** Cronon's *Nature's Metropolis* (1991) is the key text. Chicago sat between the West's
   raw materials and the East's markets at the meeting of lake, canal and (from 1848) railways. Three chains:
   - **Grain:** before 1850 grain moved in sacks, each farmer's lot kept separate. Steam elevators lifted it in bulk into bins; in
@@ -325,14 +304,10 @@ Notes on what each shows, in the vocabulary of 02zzi and economy_web.md:
   the line.
   - Cronon's lesson: **the city and its hinterland are one system**; the city makes the country into a market and the market
   hides the land and labour behind the price.
-- **New York: the vertical city.** Its 20th-century form needed every layer of §5: distant water, intercepting sewers, electricity
-  for lifts and lighting, a subway to bring a million workers into lower and midtown Manhattan, and the telephone to coordinate
-  offices.
-- **Tokyo: a capital by statute, then a metropolis by rail.** Edo was a city made by an administrative rule: the daimyo's
-  alternate residence put perhaps half the population in samurai households ≈, and their spending built the merchant economy.
-  Modern Tokyo is a rail metropolis: private railways built lines and department stores and suburbs together.
-- **Shanghai: a gateway city.** Its growth came from being the port where China met the world, under foreign concessions; after 1990
-  it was rebuilt as a planned global city.
+- **New York, Tokyo, Shanghai.** New York's vertical form needed every layer of §5 (distant water, sewers, electricity for lifts,
+  a subway, the telephone). Edo was a capital made by statute (the daimyo's alternate residence put perhaps half its people in
+  samurai households ≈); modern Tokyo is a rail metropolis whose private railways built lines, terminal stores and suburbs
+  together. Shanghai grew as the gateway where China met the world, and was rebuilt after 1990 as a planned global city.
 - **21st-century megacities and global cities.** The UN's 2025 revision (with a new, density-based definition) counts 33 cities
   above 10 million, against 8 in 1975, with Jakarta (≈ 42 million), Dhaka (≈ 37 to 40 million) and Tokyo (≈ 33 million) the largest,
   and 45 per cent of the world's 8.2 billion people in cities (UN DESA 2025). Many megacities grow faster than their infrastructure:

@@ -533,19 +533,18 @@ The towns grew faster than water, drains and housing:
 
 | View | Who | Claim | Main critiques |
 |---|---|---|---|
-| **High wages, cheap energy** | Robert Allen, *The British Industrial Revolution in Global Perspective* (2009) | British wages were high relative to the prices of capital and energy (Newcastle coal was among the cheapest energy in Europe); the wage to capital-price ratio rose from 1640 to about 1.7 times its earlier level by 1820, while France's stayed flat. So machines that saved labour and used coal paid in Britain first (his jenny calculation: profitable in England, not in France or India). Once British engineers improved them, they paid everywhere | Humphries and Schneider (2019): spinning wages were not high, and hand spinners' earnings were low; Gragnolati, Moschella and Pugliese: under looser assumptions the jenny paid in France too; Kelly, Mokyr and Ó Gráda: high wages reflect better-fed, more productive workers, not just factor prices [C] |
-| **Culture of growth, Industrial Enlightenment** | Joel Mokyr, *The Enlightened Economy* (2009), *A Culture of Growth* (2016) | a belief that nature could be understood and used for material progress; a Republic of Letters connecting scientists and craftsmen; a large pool of skilled mechanics able to build and improve; institutions that let innovators profit and protected them from resistance | hard to measure; Europe shared the Enlightenment yet Britain led; Allen replies that culture explains the supply of invention but not why it was used in Britain first [C] |
-| **Coal and colonies** | Kenneth Pomeranz, *The Great Divergence* (2000) | the Yangzi delta and England were similar in living standards and markets until about 1750 to 1800; England escaped the land ceiling through two accidents: **coal close to London and to water**, and the **"ghost acres" of the Americas** (cotton, sugar, timber grown on land worked by enslaved people and paid for by the Atlantic system) | Broadberry, Guan and Li; Allen and others: Chinese and Indian living standards had already fallen behind by 1700 [C]; Kander, Warde and Theodoridis (2019): Britain was usually a net exporter of land embodied in trade, except in the early 1800s, so coal (vertical expansion) mattered more than colonies (horizontal) [C] |
+| **High wages, cheap energy** | Robert Allen, *The British Industrial Revolution in Global Perspective* (2009) | wages were high relative to capital and energy prices (Newcastle coal among Europe's cheapest energy); England's wage to capital-price ratio rose to about 1.7 by 1820 while France's stayed flat. Machines that saved labour and used coal paid in Britain first (the jenny: profitable in England, not France or India); improved, they paid everywhere | Humphries and Schneider (2019): spinning wages were not high, and hand spinners' earnings were low; Gragnolati, Moschella and Pugliese: under looser assumptions the jenny paid in France too; Kelly, Mokyr and Ó Gráda: high wages reflect better-fed, more productive workers, not just factor prices [C] |
+| **Culture of growth, Industrial Enlightenment** | Joel Mokyr, *The Enlightened Economy* (2009), *A Culture of Growth* (2016) | a belief that nature could be understood and used for progress; scientists and craftsmen in contact; a deep pool of skilled mechanics; institutions that let innovators profit | hard to measure; Europe shared the Enlightenment; Allen: culture explains the supply of invention, not where it was used first [C] |
+| **Coal and colonies** | Kenneth Pomeranz, *The Great Divergence* (2000) | the Yangzi delta and England were alike until about 1750 to 1800; England escaped the land ceiling by two accidents: **coal near London and water**, and the **"ghost acres" of the Americas** (cotton, sugar, timber from land worked by the enslaved) | Broadberry, Guan and Li: China had fallen behind by 1700 [C]; Kander, Warde and Theodoridis (2019): Britain was usually a net exporter of embodied land except in the early 1800s, so coal mattered more than colonies [C] |
 | **Slavery and Atlantic trade** | Eric Williams; Joseph Inikori; Berg and Hudson | see 3.4 | O'Brien, Eltis and Engerman on the small share of profits [C] |
 | **Institutions** | North and Weingast (1989) | the settlement of 1688 secured property and the public debt | Clark and others: property was secure before 1688; growth did not jump after it [C] |
 | **Industrious revolution (demand)** | Jan de Vries | households worked harder for the market to buy new goods (tea, sugar, cottons), creating demand before supply changed | timing and scale debated |
 | **Agricultural surplus** | many (Wrigley; Allen; Overton) | English agriculture fed a population with a small share of the labour force by 1800 [R: perhaps 35 to 40% of men], freeing labour for industry | the "agricultural revolution's" timing is disputed |
 
-**A reading that fits most of them.** The prerequisites stacked: an organic economy already squeezed for wood near London; coal
-near the sea and near the market; high wages in a commercial economy with a large market and cheap credit; a skill pool of
-millwrights, clockmakers and smiths; and Atlantic trade. Then **the first machines were made to pay in one place** (coal-pit
-drainage, cotton spinning), and the improvements made by using them spread the paradigm. The Netherlands is the usual
-counter-example: high wages, commerce, peat as a fossil fuel, but peat ran down and coal was far; it did not industrialise first.
+**A reading that fits most of them.** The prerequisites stacked (wood squeezed near London; coal near the sea and the market;
+high wages, a large market and cheap credit; millwrights, clockmakers and smiths; Atlantic trade), **the first machines paid in
+one place** (pit drainage, cotton spinning), and improvement by use spread them. The Netherlands is the counter-example: high
+wages, commerce and peat, but the peat ran down and coal was far.
 
 ---
 
@@ -626,22 +625,20 @@ rests on it.
 
 ### 11.1 Principles from the history
 
-1. **Each industrial layer is a paradigm switch with several prerequisites at once.** None of them appears from one recipe. Coke
-   iron needs coking coal, a suitable ore and a market for cast iron; the Watt engine needs a precise cylinder, a capitalist and a
-   buyer who pays dearly for fuel; the railway needs rails, engines, capital and law. A simulator should gate a new layer on
-   **conjunctions of states the world already holds**, not on a tech tree.
+1. **Each layer is a paradigm switch with several prerequisites at once.** Coke iron needs coking coal, suitable ore and a
+   market for cast iron; the Watt engine a precise cylinder, a capitalist and a buyer paying dearly for fuel; the railway rails,
+   engines, capital and law. Gate a layer on **conjunctions of states the world already holds**, not on a tech tree.
 2. **The first buyer is the one who saves most.** Newcomen paid at collieries burning slack; Watt paid in Cornwall where coal was
    dear; the jenny paid where wages were high (Allen). Diffusion should follow **relative prices in the world**, so the same
    technique spreads at different speeds in different places.
 3. **Improvement comes from use.** Duty tripled after Watt's patent lapsed; spinning hours fell six-fold after the mule was made.
    Techniques should **improve with cumulative use and shared information**, not arrive finished.
-4. **Joint products and wastes make later industries.** Gas → coke and tar → dyes; Leblanc's acid → bleach; basic slag → fertiliser.
-   Each chain should leave by-products in the state, so that a later chain can find a use for them.
-5. **Chains fuse into loops.** Coal-iron-steam-rail grew slowly, then fast, because each was the others' customer. A simulator
-   that lets outputs of one chain become inputs of another will show this without being scripted.
-6. **Social forms arrive with the technique.** The factory, wage labour, child labour, the company, the industrial town, pollution
-   and public health law were part of the switch. A simulator should model the **organisation as part of the chain**: who owns
-   the machine, who works it, who is paid how.
+4. **Joint products and wastes make later industries** (tar → dyes; Leblanc's acid → bleach; basic slag → fertiliser): chains
+   should leave by-products in the state for a later chain to use.
+5. **Chains fuse into loops.** Coal-iron-steam-rail grew slowly, then fast, because each was the others' customer; letting one
+   chain's outputs be another's inputs shows this without scripting.
+6. **Social forms arrive with the technique** (the factory, wage and child labour, the company, the town, pollution law): model
+   the **organisation as part of the chain**: who owns the machine, who works it, who is paid how.
 7. **The gains come late and unevenly.** Wages stagnated for decades; towns were deadly. Read any metric of "industrial growth"
    against a null arm and a qualitative reading of who gained (the project's rule).
 
@@ -660,9 +657,9 @@ rests on it.
 | **Turnpikes and canals** | roads with a **surface** attribute that lowers cart costs, built and kept by a trust that charges tolls; canals as new edges for boats, built at great labour, giving bulk carriage at a quarter or less of road cost | carts and roads (E); a group able to raise capital and collect tolls; an authority that grants the right (an institution); a bulk cargo (coal) worth moving |
 | **Railways** | track edges that need iron rails per unit length and a locomotive; very cheap per ton, very costly to build; a network whose value rises with its reach | wrought iron in quantity; high-pressure engines; machine tools; a company able to raise capital from many holders; rights over land along a route (compulsory purchase or bargaining) |
 | **Steamships and a world market** | sea edges with coal consumption; coaling stations as chokepoints; distant regions whose grain and fibre can be bought | engines, iron plate, coal export; a world beyond the region (02zzi §6 notes a kingdom is not yet within the model of space) |
-| **Plantation and coerced-labour chains** | a distant region where land is plentiful and labour is forced, linked to the core by credit and shipping | a frontier or colony; credit; a demand at the core. Represent with care: this is the moral weight of the history, and its social forms (slavery, the slave trade, abolition) are not a game mechanic to optimise; a simulator studying it should show its costs to the people inside it |
+| **Plantation and coerced-labour chains** | a distant region of plentiful land and forced labour, linked to the core by credit and shipping | a frontier or colony; credit; demand at the core. With care: slavery is the moral weight of this history, not a mechanic to optimise; a simulator that includes it should show its costs to the people inside it |
 | **Companies, banks, patents** | firms as parties that own capital with shareholders; limited liability as a rule; banks that lend and issue notes; patents as rights over a method for a term, with a fee | agreements with credit legs (E), ledgers at institutions (E: D2-33), enforcement by people rather than the engine (OPEN L-106), records and writing (information as a good, 02zzi §1) |
-| **Industrial towns and public health** | a town node whose density raises disease and fouls water unless drains and clean water are built as public goods by levy; a death rate that responds to sanitation | population growth from births and migration (demography work); a public authority able to tax; engineers; the senses guide's rule that signs of sickness are grounded in state |
+| **Industrial towns and public health** | a town node whose density raises disease and fouls water unless drains and water are built by levy | births and migration (demography work); an authority able to tax; engineers; signs of sickness grounded in state (senses guide) |
 
 ### 11.3 What a world needs before any of this can emerge
 
@@ -682,26 +679,21 @@ Gathered from sections 1 to 10, the prerequisites stack in this rough order:
    that people provide (L-106).
 7. **Transport that can carry bulk**: roads with carts, rivers and boats, then canals.
 8. **Information that travels**: prices heard from traders, methods shared, records kept.
-9. **Time**: the history took over a century from Darby (1709) to the railway (1830). Runs of a few hundred days cannot contain
-   this; a simulator would need **multi-generation runs**, histories simulated before the agents arrive, or worlds that start
-   part-way up the tree.
-10. **People who are not all agents**: industrial labour is hundreds per works and hundreds of thousands per region. The design
-    in 02zzi §6 (agents as owners, managers, officials, union leaders and heads of household; the bulk as rule-driven households)
-    applies here with force. Opus at the poles of leverage (the ironmaster, the banker, the engineer, the mill owner, the
-    reformer), Sonnet in the middle, Haiku in the bulk, as the project's scenario rules say.
+9. **Time**: over a century from Darby (1709) to the railway (1830). A simulator would need **multi-generation runs**, histories
+   simulated before the agents arrive, or worlds that start part-way up the tree.
+10. **People who are not all agents**: hundreds per works, hundreds of thousands per region. 02zzi §6 applies with force: agents
+    as owners, managers, officials, union leaders and heads of household, the bulk as rule-driven households; Opus at the poles
+    of leverage (ironmaster, banker, engineer, mill owner, reformer), Sonnet in the middle, Haiku in the bulk.
 
 ### 11.4 Questions a simulator could study
 
-- **Does a fuel ceiling produce a fuel switch?** Overcut woods, rising charcoal prices: do people dig coal, and who owns the pits?
-- **Who captures a paradigm switch?** When a mill or furnace becomes possible, do households pool, does a merchant build it, does a
-  lord claim it?
-- **Do relative prices steer invention?** Vary wages and fuel prices between arms; does the same technique spread at different
-  speeds?
-- **Do chains fuse?** If iron makes better engines and engines make more iron, does the loop take off, and how long does it take?
-- **What happens to the people displaced?** The handloom weavers' story: does the old trade linger, collapse, or resist?
-- **Do wastes create rules?** When an alkali works fouls a neighbour's fields, does a rule or a court emerge, and does the waste
-  become a product?
-- **Does a public good get built?** When a town's water spreads disease, who pays for the drains?
+- **Does a fuel ceiling produce a fuel switch,** and who owns the pits?
+- **Who captures a paradigm switch:** pooled households, a merchant, a lord?
+- **Do relative prices steer invention?** Vary wages and fuel prices between arms.
+- **Do chains fuse into a loop that takes off,** and how long does it take?
+- **What happens to the displaced** (the handloom weavers): linger, collapse, resist?
+- **Do wastes create rules,** and do the rules turn wastes into products?
+- **Who pays for the drains** when a town's water spreads disease?
 
 ---
 

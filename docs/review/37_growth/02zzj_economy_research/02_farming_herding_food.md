@@ -7,13 +7,12 @@ where needed. It ties each system to what the engine holds now (E), using the va
 
 ## Summary
 
-Food was the largest sector of every economy before about 1850. Farming, herding and food processing used most of the labour, most
-of the land and most of the capital. The deepest finding across ten thousand years is the same one in every period: **farming
-systems are set by how much land each person has and by how nitrogen gets back onto the fields.** When land is plentiful, people
-farm extensively, with long fallows, fire and little labour per acre. As people per acre rise, they shorten the fallow, add manure,
-labour and works, and get more food per acre but less per hour of work (Ester Boserup's intensification). In north-west Europe the
-binding limit for a thousand years was the **manure gap**. Grain needs nitrogen. Nitrogen came from dung. Dung came from beasts.
-Beasts needed grass and hay, and grass competed with grain for the same land. Each big change closed the gap a little more
+Before about 1850, food used most of every economy's labour, land and capital. Across ten thousand years one finding holds:
+**farming systems are set by how much land each person has and by how nitrogen gets back onto the fields.** With land to spare,
+people farm extensively, with long fallows, fire and little labour an acre. As people per acre rise, they shorten the fallow and add
+manure, labour and works, getting more food per acre but less per hour (Ester Boserup's intensification). In north-west Europe the
+binding limit for a thousand years was the **manure gap**: grain needs nitrogen, nitrogen came from dung, dung from beasts, and the
+beasts' grass and hay competed with grain for the same land. Each big change closed the gap a little more
 (legumes, grass leys, clover and turnips, guano), until synthetic nitrogen broke the link between beasts and fields altogether; it
 now feeds roughly 40 to 50% of humanity.
 
@@ -24,8 +23,8 @@ English tenants owed suit of mill and paid a toll of a sixteenth to a twenty-fou
 Roller mills, packers, refrigerated cars, poultry integrators
 and supermarkets later did the same at industrial scale. In the United States the four largest packers
 went from a quarter of steer and heifer slaughter in 1976 to 85% in 2019, and the farmer's share of the food dollar fell to around
-15 cents. Labour went the other way: 250 to 300 hours to grow 100 bushels of wheat in 1830, 15 to 20 hours by the 1930s. Farm
-labour fell from about 40% of US workers in 1900 to under 2%. For a simulator, the core is a small set of state and choices: land
+15 cents. Labour per 100 bushels of wheat fell from 250 to 300 hours (1830) to 15 to 20
+(1930s), and farm work from about 40% of US workers (1900) to under 2%. For a simulator, the core is a small set of state and choices: land
 per person, fertility and the fodder triangle, the harvest peak, the mill as a chokepoint with a toll, ale as the barley sink, the
 carcass as joint products, and later the decoupling of herd from field and the concentration of processing.
 
@@ -121,7 +120,7 @@ The system of Scotland, Ireland, Wales, northern England, Scandinavia and parts 
 - **Infield:** the land nearest the steading, cropped every year (in Scotland bere barley and oats), getting all the manure from the
   byre and the midden.
 - **Outfield:** further out, cropped for a few years (oats) after cattle had been folded on it, then left in grass for several years.
-- **Hill grazing and shielings** beyond, used in summer (transhumance, §4.6).
+- **Hill grazing and shielings** beyond, used in summer (transhumance, §4.5).
 - **Numbers:** the infield was a small share of the arable, often put at a quarter to a third [r]. Yields on outfield oats were low,
   ratios of 2 or 3 to 1 [r].
 - **Institutions:** in Scotland, joint-tenant farms (the fermtoun) worked in run-rig: strips reallocated among tenants, sometimes
@@ -183,12 +182,10 @@ the lord (court, mill).
 ### 2.5 Convertible ("up-and-down") husbandry and water meadows
 
 From the late 15th to the 17th century, especially in the English Midlands [s, Kerridge 1967]:
-- **Ley farming:** a field alternates several years in grain with several years in sown or tumbled grass, instead of a permanent
-  split between arable and pasture. The grass years build fertility and carry more beasts; the grain years cash it.
-- **Results:** more stock and more grain at once; yields rose, by some estimates a third or more [r]. Eric Kerridge called this
-  the real agricultural revolution (1560 to 1767), a claim most historians now hold too early but not empty [s, r].
-- **Needs:** control of one's own land (enclosure, or agreement within the open field to make leys in strips), fences, and capital
-  to stock the grass years.
+- **Ley farming:** a field alternates several years of grain with several of grass; the grass years build fertility and carry
+  beasts, the grain years cash it. More stock and more grain at once; yields up perhaps a third [r]. Kerridge called it the real
+  agricultural revolution (1560 to 1767), a dating most historians think too early [s, r]. It needs control of one's land
+  (enclosure, or leys agreed in strips), fences and stock.
 - **Floated water meadows** (Wessex chalk valleys, 17th century on): channels and sluices flood a meadow with a thin sheet of
   moving water in winter, keeping frost off and warming the grass. They gave an **early bite** for ewes in March (the hungry gap)
   and heavier hay crops [s, r]. Ewes fed by day on the meadow were folded by night on the arable: the **sheep-corn system**, which
@@ -425,16 +422,14 @@ brewing and dairying (spent grain, whey), salt (keeping).
 
 ### 4.6 Winter feeding and hay
 
-- In northern Europe the winter is the bottleneck. Grass grows little from November to March. Beasts live on **hay**, straw, leaves
-  (pollarded trees cut for leaf hay), and later roots and clover.
+- In northern Europe winter is the bottleneck: beasts live on **hay**, straw, leaf fodder, later roots and clover.
 - **Hay meadow was the most valuable land.** Medieval meadow was often valued at two to three or more times arable per acre in
   extents [s, r].
 - **The autumn slaughter** of beasts that could not be fed through winter was once thought massive; historians now think most beasts
   were overwintered and that the slaughter was partial, of those meant for meat [s, r].
 - A cow needs very roughly a ton or more of hay to see a northern winter [r]. Haymaking is a **pulse** in early summer, needing dry
   weather and many hands.
-- The **engine** has hay cut from pasture and meadow (3 a unit in summer), drying a green crop into hay, and cattle that eat hay when
-  grass is short.
+- The **engine** has hay (3 a unit in summer), drying green crops, and cattle eating hay when grass is short.
 
 **Shape:** a **pulse** (haymaking) that feeds a **bottleneck** (the winter) and so sets the size of the herd. **Depends on:** meadow,
 scythes, dry weather, barns and ricks.
@@ -453,9 +448,8 @@ scythes, dry weather, barns and ricks.
   3. clover and turnips (§2.6): nitrogen from the air and more fodder on the same land;
   4. imported fertility: bones, Peruvian guano (1840s to 1870s), Chilean nitrate, superphosphate (John Bennet Lawes, 1842) [s];
   5. synthetic nitrogen (Haber–Bosch, 1909 to 1913) [s], which ends the dependence on beasts (§6.2).
-- **The engine** has this triangle already: manure takes about 10 dung a plot (1.9 a unit for 0.1875 plots), a beast gives 20 dung a
-  year (dung for 2 plots), grazing and fallow raise soil, and the engine's notes call cattle's dung "for 2 plots a head a year". That
-  is the core of the manure gap and it is worth keeping visible.
+- **The engine** has this triangle already: manure takes about 10 dung a plot, a beast gives 20 dung a year (2 plots), and grazing
+  and fallow raise the soil. That is the manure gap's core, worth keeping visible.
 
 **Shape:** a **closed loop with a leak**: nutrients cycle between herds and fields, and every harvest sold away from the farm leaks
 some. A **commons** (the fallow and the fold). **Depends on:** herds, fodder, labour to cart and spread, later trade (guano) and
@@ -716,9 +710,8 @@ selling at market to supplying a processor to a specification.
 - **What it does to the chain:** buyer power. Retailers set standards, private labels, delivery windows and prices. The US farmer's
   share of each food dollar spent is about **15 cents** in USDA's food dollar series [s, r]; the rest goes to processing, packaging,
   transport, retail and food service.
-- **What it does to households:** food fell from most of a household's spending (perhaps 70 to 80% for a medieval or early modern
-  labourer [r, the Phelps Brown and Hopkins basket]) to about a tenth of disposable income in the United States [s]. Cooking moved
-  partly out of the home (ready meals, restaurants).
+- **For households:** food fell from perhaps 70 to 80% of a labourer's spending (the Phelps Brown and Hopkins basket) [r] to about a
+  tenth of US disposable income [s].
 
 ### 6.7 Global supply chains
 
