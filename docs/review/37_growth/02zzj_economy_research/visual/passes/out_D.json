@@ -1,0 +1,4932 @@
+{
+ "nodes": [
+  {
+   "id": "sea_coal_trade",
+   "label": "London sea-coal trade",
+   "domain": "energy",
+   "kind": "industry",
+   "start": 1550,
+   "date_src": "part",
+   "place": "Newcastle to London by collier ship",
+   "paradigm": "early_modern_state",
+   "desc": "London burnt Newcastle coal shipped down the coast from the sixteenth century, because wood near the city ran short. By 1700 coal already fired brewing, salt and soap boiling, brick, lime and glass, so later industrial uses were grafted onto an existing chain. British output was about 3 million tons in 1700 [R].",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "coal_wagonway",
+   "label": "Colliery wagonways",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1605,
+   "date_src": "part",
+   "place": "Tyneside; Coalbrookdale",
+   "paradigm": "early_modern_state",
+   "desc": "Wooden rail tracks carried coal from Tyneside pits to the river staithes from the early 1600s, because coal paid only near water. Coalbrookdale laid cast-iron rails on them in 1767. The railway is a grown-up wagonway.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "steam_engine",
+   "label": "Newcomen steam engine",
+   "domain": "energy",
+   "kind": "technique",
+   "start": 1712,
+   "date_src": "part",
+   "place": "near Dudley Castle, England",
+   "paradigm": "industrial",
+   "desc": "An atmospheric engine: steam condensed under a piston worked a beam and a mine pump, about 5.5 hp [R]. It needed a cast brass or iron cylinder, a boiler, and a flooding mine with unsaleable slack coal to burn, so it paid first at collieries. About 2,200 engines were built in eighteenth-century Britain.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "deep_coal_mining",
+   "label": "Deep drained coal pits",
+   "domain": "energy",
+   "kind": "industry",
+   "start": 1712,
+   "date_src": "part",
+   "place": "British coalfields (Tyneside, South Wales, Lancashire)",
+   "paradigm": "industrial",
+   "desc": "Coal grew by more men and deeper pits, not machines at the face: pick-and-shovel work until the twentieth century. Depth needed pumping, ventilation and haulage. Coal was a chokepoint of geology: industries moved to the coalfields, and output rose from about 3 million tons (1700) to 287 million (1913), with about 1.1 million miners [R].",
+   "chokepoint": true,
+   "part": "07"
+  },
+  {
+   "id": "cannon_boring_mill",
+   "label": "Wilkinson's boring mill",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1774,
+   "date_src": "part",
+   "place": "John Wilkinson's ironworks, England",
+   "paradigm": "industrial",
+   "desc": "A cannon borer turned to boring engine cylinders true to 'the thickness of an old shilling' [R]. Without it Watt's engine could not hold its steam. Military demand made the machine tool that made the engine.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "watt_engine",
+   "label": "Watt separate condenser",
+   "domain": "energy",
+   "kind": "technique",
+   "start": 1775,
+   "date_src": "part",
+   "place": "Soho, Birmingham (Boulton & Watt, from 1775)",
+   "paradigm": "industrial",
+   "desc": "Patented 1769 and built from 1775: condensing steam apart kept the cylinder hot, cutting coal use to a third or a quarter of Newcomen's [R]. It needed Wilkinson's bored cylinder, Boulton's capital and a 1775 Act extending the patent to 1800. Cornish mines, paying dearly for Welsh coal, bought first; Watt charged a third of the fuel saved.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "rotative_engine",
+   "label": "Rotative steam engine",
+   "domain": "energy",
+   "kind": "technique",
+   "start": 1781,
+   "date_src": "part",
+   "wide": 1830,
+   "place": "Soho, Birmingham",
+   "paradigm": "industrial",
+   "desc": "From 1781 Watt's engines turned a shaft, so steam could drive mills, not only pumps; 268 Boulton & Watt engines were rotative. Steam reached parity with water power only about 1830, at about 165,000 hp each [R]: a general-purpose technology that took decades to pay.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "high_pressure_engine",
+   "label": "High-pressure steam engine",
+   "domain": "energy",
+   "kind": "technique",
+   "start": 1799,
+   "date_src": "part",
+   "place": "Cornwall (Trevithick); Woolf compound 1804",
+   "paradigm": "industrial",
+   "desc": "Small, light engines from about 1799, once Watt's patent ended (1800), made the locomotive possible. They needed wrought-iron boiler plate. Shared monthly reports in Lean's Engine Reporter (from 1811) helped Cornish engines reach 60 to 100 million duty by the 1840s [R].",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "gas_lighting",
+   "label": "Coal-gas lighting",
+   "domain": "energy",
+   "kind": "industry",
+   "start": 1792,
+   "date_src": "part",
+   "wide": 1835,
+   "place": "Murdoch in Cornwall and Soho; London (Gas Light and Coke Co., 1812)",
+   "paradigm": "industrial",
+   "desc": "Coal heated in a closed retort gives gas, coke and tar at once. Murdoch lit his house with gas in 1792 and the Gas Light and Coke Company was chartered in 1812; most British towns had gas light by the 1830s [R]. It let mills run long winter shifts and lit streets at night.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "coal_tar_chemicals",
+   "label": "Coal tar",
+   "domain": "materials",
+   "kind": "resource",
+   "start": 1812,
+   "date_src": "part",
+   "place": "British gasworks and coke ovens",
+   "paradigm": "industrial",
+   "desc": "The tar left by gasworks was a waste for decades. It became creosote, road pitch, naphtha (Macintosh used it in 1823 to dissolve rubber for waterproof cloth) and, from 1856, the feedstock of synthetic dyes. A textbook joint product whose by-products made later industries.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "finery_forge",
+   "label": "Charcoal finery forge",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1490,
+   "date_src": "part",
+   "place": "the Weald, Forest of Dean, Shropshire",
+   "paradigm": "early_modern_state",
+   "desc": "Pig iron from the charcoal blast furnace was refined in a charcoal finery to bar iron under a water hammer. Each furnace needed the coppice of thousands of acres [R], so output was capped near 25,000 tons a year about 1720 [R] and much bar iron came from Sweden and Russia.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "coke",
+   "label": "Coke smelting of iron",
+   "domain": "energy",
+   "kind": "technique",
+   "start": 1709,
+   "date_src": "part",
+   "wide": 1806,
+   "place": "Coalbrookdale (Abraham Darby I)",
+   "paradigm": "industrial",
+   "desc": "Coal baked free of sulphur and tar replaced charcoal in the blast furnace in 1709. It needed a coking coal and low-sulphur ore on one site and a market for cast pots, and beat charcoal iron on cost only from the 1750s. By 1806, 162 of 173 British furnaces used coke.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "steam_blown_furnace",
+   "label": "Steam-blown blast furnace",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1776,
+   "date_src": "part",
+   "place": "Broseley (Wilkinson)",
+   "paradigm": "industrial",
+   "desc": "Watt engines blew the furnaces and pumped water back over wheels from 1776. Furnaces left the river for the coalfield, larger and running all year: iron and steam became each other's customer.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "reverberatory_furnace",
+   "label": "Reverberatory furnace",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1690,
+   "date_src": "general",
+   "place": "England (glass and lead works)",
+   "paradigm": "early_modern_state",
+   "desc": "A furnace where the flame plays over the charge while the fuel burns apart, so coal's sulphur and smoke stay off the product. Worked out in glass and lead smelting, it was the vessel Cort's puddling needed.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "puddling",
+   "label": "Puddling",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1784,
+   "date_src": "part",
+   "place": "Britain (Henry Cort); typified at Merthyr Tydfil",
+   "paradigm": "industrial",
+   "desc": "Pig iron stirred in a coal-fired reverberatory furnace became wrought iron from coal alone, ending the charcoal finery. Puddlers held a heavy long skill of judgement. Merthyr's Cyfarthfa and Dowlais became the world's largest ironworks.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "rolling_mill",
+   "label": "Grooved rolling mill",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1783,
+   "date_src": "part",
+   "place": "Britain (Henry Cort, patents 1783 to 1784)",
+   "paradigm": "industrial",
+   "desc": "Hot iron passed through grooved rolls instead of under the hammer, shaping bars, plate and rails fast. The rolls needed steam engines to turn them. Birkinshaw's rolled rails of 1820 came from it.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "hot_blast",
+   "label": "Hot blast",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1828,
+   "date_src": "part",
+   "place": "Glasgow (Neilson)",
+   "paradigm": "industrial",
+   "desc": "Air heated in iron stoves before the furnace more than halved fuel per ton [R]. With Scotland's blackband ironstone (Mushet, 1801), Scottish pig iron rose roughly fifteen-fold by the late 1840s [R].",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "crucible_steel",
+   "label": "Crucible steel",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1740,
+   "date_src": "part",
+   "place": "Sheffield (Huntsman)",
+   "paradigm": "early_modern_state",
+   "desc": "Steel melted in clay pots from Swedish bar iron with coke heat and refractory clay. It made cutlery, tools and springs in small, dear batches until Bessemer.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "bessemer_steel",
+   "label": "Bessemer converter",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1856,
+   "date_src": "part",
+   "place": "Henry Bessemer; Sheffield works 1858",
+   "paradigm": "industrial",
+   "desc": "Air blown through molten pig burned out carbon in about 20 minutes with no fuel, tons per blow. It needed low-phosphorus haematite pig and Mushet's spiegeleisen, so ore chemistry was its chokepoint. British Bessemer steel fell from about $80 a ton (1873) to under $20 (1886) [R].",
+   "chokepoint": true,
+   "part": "07"
+  },
+  {
+   "id": "open_hearth_steel",
+   "label": "Open-hearth steel",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1864,
+   "date_src": "part",
+   "wide": 1900,
+   "place": "Siemens (1856 to 1861); Martin (1864 to 1865)",
+   "paradigm": "industrial",
+   "desc": "Waste heat recycled through brick chequers gave a slower, controllable melt that could take scrap. It needed gas producers and refractories, made ship plate and structural steel, and overtook Bessemer about 1900 [R].",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "basic_process",
+   "label": "Thomas-Gilchrist basic process",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1878,
+   "date_src": "part",
+   "place": "Britain; used in Lorraine and Germany",
+   "paradigm": "industrial",
+   "desc": "A dolomite lining removed phosphorus, so Lorraine's phosphoric ores became usable and German steel surged. Germany overtook Britain in steel about 1893 [R]: the technique spread to where the ore was.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "basic_slag_fertiliser",
+   "label": "Basic slag fertiliser",
+   "domain": "food",
+   "kind": "good",
+   "start": 1880,
+   "date_src": "general",
+   "place": "Germany and Britain",
+   "paradigm": "industrial",
+   "desc": "The phosphorus-rich slag of basic steelmaking was ground and sold as fertiliser. A waste of one chain became an input of farming.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "wrought_iron_rails",
+   "label": "Rolled wrought-iron rails",
+   "domain": "metals",
+   "kind": "good",
+   "start": 1820,
+   "date_src": "part",
+   "place": "Bedlington (Birkinshaw)",
+   "paradigm": "industrial",
+   "desc": "Rolled wrought-iron rails, laid on the Stockton & Darlington, replaced brittle cast-iron rails. The railway manias took a large share of iron output [R]; steel rails from the 1860s lasted many times longer.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "iron_frame_mill",
+   "label": "Iron-framed mill",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1797,
+   "date_src": "part",
+   "place": "Ditherington, Shrewsbury (Charles Bage)",
+   "paradigm": "industrial",
+   "desc": "Bage's flax mill of 1797 was the first iron-framed building, built so textile mills would not burn. The same idea carried cast and wrought iron frames to warehouses and the Crystal Palace.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "flying_shuttle",
+   "label": "Flying shuttle",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1733,
+   "date_src": "part",
+   "place": "England (John Kay)",
+   "paradigm": "early_modern_state",
+   "desc": "One weaver could work a wide loom, roughly doubling weaving speed [R]; it spread slowly against resistance. It deepened the spinning bottleneck: one loom needed the yarn of several spinners [R: three to five].",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "spinning_jenny",
+   "label": "Spinning jenny",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1765,
+   "date_src": "part",
+   "place": "Lancashire (Hargreaves)",
+   "paradigm": "industrial",
+   "desc": "A cottage machine on a joiner's frame letting one spinner work 8, then up to 120 spindles of weft. It stayed in the home under putting-out; Allen argues it paid first where wages were high [C].",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "mechanised_spinning",
+   "label": "Water frame",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1769,
+   "date_src": "part",
+   "place": "Cromford, Derbyshire (Arkwright)",
+   "paradigm": "industrial",
+   "desc": "Water-driven rollers spun strong warp yarn, so all-cotton cloth could be made. It needed a wheel, a millwright, capital and a fast stream. Yarn prices fell sharply once Arkwright's patents were overturned in 1785.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "spinning_mule",
+   "label": "Spinning mule",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1779,
+   "date_src": "part",
+   "place": "Bolton (Crompton)",
+   "paradigm": "industrial",
+   "desc": "Combined jenny and rollers to spin fine strong yarn matching Indian muslins; never patented. Hours to spin 100 lb of cotton fell from about 50,000 by hand to 2,000 on the 1780 mule [R]. Mule spinning became a skilled adult male trade.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "self_acting_mule",
+   "label": "Self-acting mule",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1825,
+   "date_src": "part",
+   "place": "Manchester (Richard Roberts)",
+   "paradigm": "industrial",
+   "desc": "An automatic mule (1825 to 1830), commissioned after a spinners' strike, letting one minder and piecers run a thousand spindles. It came out of the engineering workshop and cut spinning to about 135 hours per 100 lb [R].",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "steam_cotton_mill",
+   "label": "Steam-powered cotton mill",
+   "domain": "textiles",
+   "kind": "industry",
+   "start": 1785,
+   "date_src": "part",
+   "place": "Papplewick; then Manchester ('Cottonopolis')",
+   "paradigm": "industrial",
+   "desc": "The first steam-powered cotton mill (1785) used a rotative Watt engine, freeing mills from streams. Mills moved to the Lancashire coalfield: Manchester grew from about 90,000 (1801) to about 400,000 (1851) [R].",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "power_loom",
+   "label": "Power loom",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1785,
+   "date_src": "part",
+   "wide": 1850,
+   "place": "Cartwright; practical with Horrocks and Roberts",
+   "paradigm": "industrial",
+   "desc": "Weaving by power came decades after power spinning, practical only in the 1800s to 1820s with iron frames. Power looms rose from a few thousand (1813) to about 250,000 (1850) [R], and handloom piece rates fell by more than half [R].",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "handloom_weaving_boom",
+   "label": "Handloom weaving on mill yarn",
+   "domain": "textiles",
+   "kind": "practice",
+   "start": 1780,
+   "date_src": "general",
+   "place": "Lancashire and Yorkshire villages",
+   "paradigm": "industrial",
+   "desc": "Cheap machine yarn made handloom weaving grow for decades, to perhaps a quarter of a million weavers about 1820 [R]. It collapsed as power looms rose, hence the Luddites (1811 to 1816).",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "cotton_gin",
+   "label": "Cotton gin",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1793,
+   "date_src": "part",
+   "place": "Georgia (Whitney)",
+   "paradigm": "plantation_slave",
+   "desc": "Cleaned short-staple upland cotton many times faster [R], answering the demand of the British mills. Cotton spread across the American South, from about 1.5 million lb (1790) to about 2 billion lb (1860) [R].",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "cotton_plantation",
+   "label": "Cotton South plantations",
+   "domain": "textiles",
+   "kind": "industry",
+   "start": 1793,
+   "date_src": "part",
+   "place": "American South",
+   "paradigm": "plantation_slave",
+   "desc": "Upland cotton grown on land worked by enslaved people; the enslaved population rose from about 700,000 to about 4 million, 1790 to 1860, and perhaps a million were moved by the internal trade [R]. The US supplied over 70% of British cotton from the late 1820s; how far this financed industry is disputed [C].",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "cotton_factor_credit",
+   "label": "Cotton factors and crop credit",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1790,
+   "date_src": "general",
+   "place": "New Orleans, Mobile, Charleston; London, Liverpool",
+   "paradigm": "plantation_slave",
+   "desc": "Factors advanced credit to planters, who borrowed on land and on enslaved people as collateral. London and Liverpool houses (Barings, Browns) financed the crop with bills of exchange.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "liverpool_cotton_market",
+   "label": "Liverpool cotton port",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1780,
+   "date_src": "general",
+   "place": "Liverpool",
+   "paradigm": "maritime_trading",
+   "desc": "Britain's leading slave-trading port (roughly half or more of the trade [R]) turned its docks, merchants and credit to cotton; its brokers' market set the world price. Inland carriage ran by the Mersey and Irwell Navigation, canals, then the 1830 railway.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "factory_system",
+   "label": "Cromford cotton factory",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1771,
+   "date_src": "part",
+   "place": "Cromford, Derbyshire (Arkwright, Strutt, Need)",
+   "paradigm": "industrial",
+   "desc": "Workers, wheel and machines in one building: the owner held tools and material, paid wages by time or piece, and ruled by the bell and the clock. Powered machines could not be put out. Families and children were brought and housed in a mill village.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "manufactory",
+   "label": "Centralised manufactory",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1766,
+   "date_src": "part",
+   "place": "Soho, Birmingham; Etruria, Stoke",
+   "paradigm": "industrial",
+   "desc": "Hand workers gathered under one roof before power did: Boulton's Soho Manufactory (1766, several hundred workers [R]) and Wedgwood's Etruria (1769), with a fine division of labour, clocking-in and rules.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "factory_acts",
+   "label": "Factory Acts",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1802,
+   "date_src": "part",
+   "place": "Britain",
+   "paradigm": "industrial",
+   "desc": "Child labour was central to the early mills (pauper apprentices at Styal). The Factory Acts (1802, 1819; 1833, the first with paid inspectors), the Mines Act (1842) and the Ten Hours Act (1847) were the response.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "machine_tools",
+   "label": "Maudslay's machine tools",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1800,
+   "date_src": "part",
+   "place": "Lambeth, London (Maudslay's shop)",
+   "paradigm": "industrial",
+   "desc": "The screw-cutting lathe with slide rest and change gears (about 1800), true planes and a bench micrometer: machines made in iron to drawings. Maudslay's shop trained Roberts, Clement, Nasmyth and Whitworth; skills spread by apprenticeship and the movement of men, not books.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "portsmouth_block_mills",
+   "label": "Portsmouth Block Mills",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 1803,
+   "date_src": "part",
+   "place": "Portsmouth dockyard",
+   "paradigm": "industrial",
+   "desc": "Maudslay, Marc Brunel and Bentham built 45 machines (1803 to 1808) making the navy's pulley blocks, about 130,000 in 1808. It was claimed ten unskilled men did the work of 110 skilled blockmakers: the first mass production by machine tools.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "standard_screw_threads",
+   "label": "Whitworth standard threads",
+   "domain": "metals",
+   "kind": "practice",
+   "start": 1841,
+   "date_src": "part",
+   "place": "Manchester (Whitworth)",
+   "paradigm": "industrial",
+   "desc": "Standard threads (1841) and fine measuring machines set shared tolerances, so parts from different shops fitted. Standards locked in for later machinery.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "textile_machine_makers",
+   "label": "Textile machine makers",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 1820,
+   "date_src": "part",
+   "place": "Manchester (Sharp, Roberts & Co., Atlas Works 1828)",
+   "paradigm": "industrial",
+   "desc": "Engineering firms grew up making mill machinery because the mills were their customers, then built machine tools and locomotives. Rosenberg's technological convergence: the same turning, boring and planing serve many industries.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "locomotive_works",
+   "label": "Locomotive works",
+   "domain": "transport",
+   "kind": "industry",
+   "start": 1823,
+   "date_src": "part",
+   "place": "Newcastle (Robert Stephenson & Co.); Crewe and Swindon 1843",
+   "paradigm": "industrial",
+   "desc": "The first purpose-built locomotive works came from the colliery wagonway world; Rocket won the Rainhill trials in 1829. Sharp Stewart, Beyer Peacock (1854) and company towns at Crewe and Swindon followed, Crewe making its own Bessemer steel from 1864.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "interchangeable_parts",
+   "label": "American system of parts",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1815,
+   "date_src": "part",
+   "place": "US armouries (Springfield, Harpers Ferry)",
+   "paradigm": "industrial",
+   "desc": "Armouries pursued uniform musket parts; John Hall made interchangeable rifles by the late 1820s with jigs, gauges and special machines. It needed a tolerance discipline and a large uniform order (the army) and cost more than hand fitting at first [C: Hounshell]. Enfield bought American machines in 1855 to 1857.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "machinery_export_ban",
+   "label": "Bans on artisan emigration",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1774,
+   "date_src": "general",
+   "place": "Britain",
+   "paradigm": "industrial",
+   "desc": "Britain barred skilled artisans from emigrating (until 1825) and machinery from export (until 1843). Both leaked: Samuel Slater carried the Arkwright system in his head to Rhode Island in 1789.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "turnpike_trusts",
+   "label": "Turnpike trusts",
+   "domain": "transport",
+   "kind": "institution",
+   "start": 1663,
+   "date_src": "part",
+   "wide": 1772,
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "Road trusts set up by private Acts borrowed on tolls to resurface roads; about 1,000 trusts and 20,000 miles by the 1830s. Freight rates fell about 20% where trusts ran (Bogart), and fast coaches and mails followed.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "river_navigations",
+   "label": "River navigations",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1600,
+   "date_src": "part",
+   "place": "English rivers (Mersey and Irwell, Severn)",
+   "paradigm": "early_modern_state",
+   "desc": "Dredging and locks on rivers under Acts of Parliament, with capital raised for each, gave bulk carriage by water inland before the canals.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "bridgewater_canal",
+   "label": "Bridgewater Canal",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1761,
+   "date_src": "part",
+   "place": "Worsley to Manchester (engineer Brindley)",
+   "paradigm": "industrial",
+   "desc": "Built for the Duke of Bridgewater's Worsley coal; Manchester's coal price halved within a year. It began the canal age: about 4,000 miles by the 1830s [R], horse boats of 20 to 30 tons, at a quarter to a half of road cost per ton-mile [R].",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "bubble_act",
+   "label": "Bubble Act",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1720,
+   "date_src": "part",
+   "place": "Britain (1720 to 1825)",
+   "paradigm": "early_modern_state",
+   "desc": "Restricted joint-stock companies after the South Sea crash, so canals, turnpikes, docks and railways were set up one at a time by private Act.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "statutory_company",
+   "label": "Statutory canal company",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1766,
+   "date_src": "general",
+   "place": "England (Trent & Mersey, canal mania of the 1790s)",
+   "paradigm": "industrial",
+   "desc": "Canals, docks and railways were incorporated by private Act with shares, tolls and powers over land along the route. It was the industrial era's way round the Bubble Act, and its shares traded on the stock exchange.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "limited_liability",
+   "label": "General limited liability",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1855,
+   "date_src": "part",
+   "place": "Britain (1844, 1855, 1862)",
+   "paradigm": "industrial",
+   "desc": "General incorporation (1844), limited liability (1855) and the Companies Act (1862) replaced incorporation by Act. Most manufacturers still stayed partnerships, funded by kin, partners and retained profit (Crouzet).",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "country_banks",
+   "label": "Country banks",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1770,
+   "date_src": "part",
+   "place": "England; Lancashire",
+   "paradigm": "industrial",
+   "desc": "Country banks grew from about a hundred in the 1770s to several hundred by 1810 [R], issuing notes and discounting bills; in Lancashire bills of exchange circulated as money. Crises in 1825, 1847, 1857 and 1866 broke weak banks.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "railway",
+   "label": "Steam railway",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1825,
+   "date_src": "part",
+   "place": "Stockton & Darlington (1825); Liverpool & Manchester (1830)",
+   "paradigm": "industrial",
+   "desc": "Iron rails on graded track with locomotives, signals and timetables. It needed wrought-iron rails, high-pressure engines, engineering workshops, joint-stock capital and private Acts with compulsory purchase. Real freight charges per ton-mile by 1870 were about a twentieth of 1700's wagons (Bogart); about 15,000 miles by 1870 [R].",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "railway_mania",
+   "label": "Railway mania",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1845,
+   "date_src": "part",
+   "place": "Britain (1845 to 1847)",
+   "paradigm": "industrial",
+   "desc": "Railway investment reached several percent of GDP a year [R], raised through shares on the stock exchange, then crashed. The over-built lines were used cheaply afterwards; cumulative railway investment reached about 60% of GDP by 1913 [R].",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "steamship",
+   "label": "Paddle steamship",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1812,
+   "date_src": "part",
+   "place": "Clyde (Comet); Atlantic (Great Western, 1838)",
+   "paradigm": "industrial",
+   "desc": "Coal-fired engines driving paddles: Comet on the Clyde (1812), the Great Western across the Atlantic (1838), Cunard from 1840. Engine builders grew on the Clyde, Tyne and Mersey.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "iron_hull_steamship",
+   "label": "Iron screw steamship",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1843,
+   "date_src": "part",
+   "place": "Bristol (Brunel's Great Britain)",
+   "paradigm": "industrial",
+   "desc": "Brunel's Great Britain (1843), iron-hulled and screw-driven, joined iron plate to the marine engine; steel hulls followed. Shipwrights and boilermakers had to work in iron.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "compound_marine_engine",
+   "label": "Compound marine engine",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1865,
+   "date_src": "part",
+   "place": "Liverpool (Holt's ships to China)",
+   "paradigm": "industrial",
+   "desc": "Compound engines burnt little enough coal for long voyages; with Suez (1869) steam took the long routes. Tramp freight rates roughly halved from the early 1870s to the early 1910s (Hatton).",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "coaling_stations",
+   "label": "Coaling stations",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1850,
+   "date_src": "general",
+   "place": "ports of the British Empire",
+   "paradigm": "industrial",
+   "desc": "Steamships needed coal depots along every route, stocked with Welsh steam coal and held by empire. The part names them the chokepoint of ocean steam.",
+   "chokepoint": true,
+   "part": "07"
+  },
+  {
+   "id": "world_grain_market",
+   "label": "World grain market",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1870,
+   "date_src": "part",
+   "place": "Chicago to Liverpool",
+   "paradigm": "industrial",
+   "desc": "Cheap rail and ocean freight joined distant grain lands to Europe: the Chicago to Liverpool wheat price gap fell from over half to under a sixth, 1870 to 1895 [R]. Meat and emigrants moved the same way.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "grass_bleachfields",
+   "label": "Grass bleachfields",
+   "domain": "textiles",
+   "kind": "practice",
+   "start": 1500,
+   "date_src": "general",
+   "place": "bleachfields near European cloth towns",
+   "paradigm": "early_modern_state",
+   "desc": "In the organic economy cloth was bleached with lye from wood or kelp ash, soured in buttermilk, and laid on grass in the sun for weeks to months. When machine output rose many times, bleaching (land, months, ash) became the bottleneck.",
+   "chokepoint": true,
+   "part": "07"
+  },
+  {
+   "id": "lead_chamber_acid",
+   "label": "Lead-chamber sulphuric acid",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 1746,
+   "date_src": "part",
+   "place": "Birmingham; Prestonpans 1749 (Roebuck and Garbett)",
+   "paradigm": "early_modern_state",
+   "desc": "Sulphuric acid made in lead rooms instead of glass globes, from Sicilian sulphur and saltpetre. Dilute acid replaced sour milk in bleaching, and acid fed bleach, soda and superphosphate.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "chlorine_bleach",
+   "label": "Chlorine bleaching powder",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 1799,
+   "date_src": "part",
+   "place": "St Rollox, Glasgow (Charles Tennant)",
+   "paradigm": "industrial",
+   "desc": "Chlorine (Berthollet, 1785), then Tennant's bleaching powder from acid, salt, manganese dioxide and lime, cut bleaching from months to days. St Rollox became the world's largest chemical works in the 1830s and 1840s, over 100 acres.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "leblanc_soda",
+   "label": "Leblanc soda",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 1791,
+   "date_src": "part",
+   "place": "France (Leblanc); Liverpool, St Helens, Widnes from 1823 (Muspratt)",
+   "paradigm": "industrial",
+   "desc": "Salt and sulphuric acid gave salt cake, roasted with limestone and coal to black ash and leached to soda. In Britain it grew after the salt tax cut of 1823, on Cheshire salt and Lancashire coal by the Mersey: about 200,000 tons a year in the 1870s, more than the rest of the world [R].",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "leblanc_waste",
+   "label": "Alkali acid gas and galligu",
+   "domain": "materials",
+   "kind": "resource",
+   "start": 1823,
+   "date_src": "part",
+   "place": "Widnes and St Helens",
+   "paradigm": "industrial",
+   "desc": "For every eight tons of soda ash, about five and a half tons of hydrogen chloride gas and seven tons of calcium sulphide waste [R]. The gas killed crops and trees for miles; the heaps poisoned streams: a commons.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "alkali_act",
+   "label": "Alkali Act and Inspectorate",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1863,
+   "date_src": "part",
+   "place": "Britain",
+   "paradigm": "industrial",
+   "desc": "Britain's first major air pollution law required works to absorb 95% of their hydrogen chloride and set up inspectors to enforce it. Regulation turned a waste into a joint product.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "hcl_chlorine_recovery",
+   "label": "Weldon and Deacon processes",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 1865,
+   "date_src": "part",
+   "place": "Mersey alkali works",
+   "paradigm": "industrial",
+   "desc": "The captured hydrogen chloride was turned into chlorine for bleaching powder (1860s to 1870s). A waste became a product once the law made the works catch it.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "solvay_soda",
+   "label": "Solvay ammonia-soda",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 1863,
+   "date_src": "part",
+   "wide": 1900,
+   "place": "Belgium (Solvay); Winnington, Cheshire (Brunner Mond, 1873)",
+   "paradigm": "industrial",
+   "desc": "Made soda from brine with ammonia and far less waste; it displaced Leblanc by about 1900. The Leblanc firms merged into the United Alkali Company (1890) to survive; Brunner Mond became a founder of ICI (1926).",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "industrial_soap",
+   "label": "Soda soap works",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1830,
+   "date_src": "general",
+   "place": "Warrington; Port Sunlight (Lever, 1888)",
+   "paradigm": "industrial",
+   "desc": "Soap from soda and tallow or vegetable oil; the soap tax was repealed in 1853. Lever Brothers (1888) ran on palm and coconut oil from West Africa and the Pacific.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "superphosphate",
+   "label": "Superphosphate fertiliser",
+   "domain": "food",
+   "kind": "good",
+   "start": 1842,
+   "date_src": "part",
+   "place": "Rothamsted (John Bennet Lawes)",
+   "paradigm": "industrial",
+   "desc": "Bones and mineral phosphates treated with sulphuric acid (patent 1842). Industry fed back into farming.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "synthetic_dyes",
+   "label": "Synthetic aniline dyes",
+   "domain": "textiles",
+   "kind": "industry",
+   "start": 1856,
+   "date_src": "part",
+   "place": "London (Perkin's mauve); then Germany (BASF, Bayer, Hoechst)",
+   "paradigm": "industrial",
+   "desc": "Perkin, aged 18, made mauve from aniline, out of gasworks benzene and nitric acid. Britain invented, Germany scaled: German firms made about 80 to 90% of world dyes by 1913 [R], helped by university chemistry, in-house laboratories, the 1877 Patent Act and bank finance.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "synthetic_alizarin_indigo",
+   "label": "Synthetic alizarin and indigo",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1868,
+   "date_src": "part",
+   "place": "Germany (alizarin 1868; BASF indigo 1897)",
+   "paradigm": "industrial",
+   "desc": "Synthetic alizarin destroyed the madder fields of France and the Low Countries within a decade; synthetic indigo hit Bengal's indigo plantations after 1897. A paradigm switch in one country removed a land-based chain in another.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "cast_plate_glass",
+   "label": "Cast plate glass",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1773,
+   "date_src": "part",
+   "place": "Ravenhead, St Helens",
+   "paradigm": "industrial",
+   "desc": "The British Cast Plate Glass Company used French casting methods. St Helens had coal and sand and, after the 1820s, the alkali works next door; Pilkington started there in 1826.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "cylinder_sheet_glass",
+   "label": "Cylinder sheet glass",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 1832,
+   "date_src": "part",
+   "place": "Smethwick (Chance Brothers)",
+   "paradigm": "industrial",
+   "desc": "Glass blown into cylinders, split and flattened into sheets. After the glass excise was repealed in 1845 the price fell.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "crystal_palace",
+   "label": "Crystal Palace",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1851,
+   "date_src": "part",
+   "place": "Hyde Park, London (Paxton)",
+   "paradigm": "industrial",
+   "desc": "About 300,000 panes of Chance glass on a cast and wrought-iron frame of standard parts, built in about five months [R]. Iron, glass, standardisation and railway delivery in one building.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "portland_cement",
+   "label": "Portland cement",
+   "domain": "building",
+   "kind": "technique",
+   "start": 1824,
+   "date_src": "part",
+   "place": "Leeds (Joseph Aspdin)",
+   "paradigm": "industrial",
+   "desc": "Patented 1824 after Smeaton's hydraulic lime work (1756) and Parker's Roman cement (1796), improved with hotter clinker in the 1840s. Firing needed coal kilns and grinding needed steam mills; Bazalgette's drainage used it on a vast scale with strength testing [R].",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "reinforced_concrete",
+   "label": "Reinforced concrete",
+   "domain": "building",
+   "kind": "technique",
+   "start": 1867,
+   "date_src": "part",
+   "place": "France (Monier 1867; Hennebique 1892)",
+   "paradigm": "industrial",
+   "desc": "Steel bars set in concrete joined Portland cement to cheap steel, making cement a paradigm switch in building.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "patent_system",
+   "label": "Patents for inventions",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1624,
+   "date_src": "part",
+   "place": "England (Statute of Monopolies)",
+   "paradigm": "early_modern_state",
+   "desc": "Patents for new inventions; before 1852 an English patent cost about £100 and £300 or more for all three kingdoms [R], shutting out most workmen. The 1852 Act cut the first fee to about £25 and patenting rose several-fold [R]; much innovation still relied on secrecy (Moser).",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "useful_knowledge_societies",
+   "label": "Lunar Society and institutes",
+   "domain": "information",
+   "kind": "institution",
+   "start": 1765,
+   "date_src": "general",
+   "place": "Birmingham (Lunar Society)",
+   "paradigm": "industrial",
+   "desc": "Useful knowledge moved through societies (Boulton, Watt, Wedgwood, Priestley), lectures, mechanics' institutes and journals. Mokyr ties the revolution to this contact and to a broad tail of skilled mechanics who improved others' inventions.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "industrial_town",
+   "label": "Industrial town",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1800,
+   "date_src": "part",
+   "place": "Manchester and the coalfield towns",
+   "paradigm": "industrial",
+   "desc": "Towns grew faster than water, drains and housing: back-to-backs, cellar dwellings, shared privies, rivers for both water and sewage. Chadwick (1842) gave average ages at death of 17 for Manchester labourers against 38 in rural Rutland [C]; cholera struck in 1831, 1848, 1853 and 1866.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "public_health_acts",
+   "label": "Public Health Acts",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1848,
+   "date_src": "part",
+   "place": "Britain (1848, 1875)",
+   "paradigm": "industrial",
+   "desc": "Boards of health, then municipal gas and water (Chamberlain's Birmingham, 1870s). Public goods at a scale no village faces, needing rates, borrowing and engineers.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "bazalgette_sewers",
+   "label": "Bazalgette's London sewers",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1859,
+   "date_src": "part",
+   "place": "London",
+   "paradigm": "industrial",
+   "desc": "After the Great Stink of 1858, about 80 miles of main and 1,100 miles of street sewers [R] carried waste east of the city, opened 1865 and finished about 1875. Built on the wrong theory (bad air), it worked anyway.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "electricity",
+   "label": "Generated electricity",
+   "domain": "energy",
+   "kind": "technique",
+   "start": 1870,
+   "date_src": "part",
+   "place": "Europe and the United States (dynamos)",
+   "paradigm": "industrial",
+   "desc": "Faraday's induction (1831) led to working dynamos in the 1860s and 1870s, turning steam or water power into current sent along a wire. It separated where energy is made from where it is used, and divided it into any quantity. The first science-based industry beside chemistry.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "incandescent_lamp",
+   "label": "Electric lamp",
+   "domain": "energy",
+   "kind": "good",
+   "start": 1879,
+   "date_src": "general",
+   "place": "Menlo Park, New Jersey (Edison)",
+   "paradigm": "industrial",
+   "desc": "Light was electricity's first mass demand, since gas lighting had shown people would pay for it. Carbon filaments gave way to GE's ductile tungsten (Coolidge, 1910). The lamp makers' skill at pumping glass empty later made the first vacuum tubes.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "electric_grid",
+   "label": "Central power station",
+   "domain": "energy",
+   "kind": "infrastructure",
+   "start": 1882,
+   "date_src": "part",
+   "place": "Pearl Street Station, New York",
+   "paradigm": "industrial",
+   "desc": "Pearl Street began with about 400 lamps for 59 to 85 customers, though its six dynamos could light about 7,200 (sources differ). Edison's invention was the system: station, dynamo, cables, fuse, meter and lamp, each made by a separate Edison company. It needed coal by rail, copper, streets to bury cables in, and bank capital.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "steam_turbine",
+   "label": "Steam turbine",
+   "domain": "energy",
+   "kind": "technique",
+   "start": 1884,
+   "date_src": "part",
+   "place": "Britain (Parsons)",
+   "paradigm": "industrial",
+   "desc": "Parsons' turbine replaced reciprocating engines driving dynamos and became the standard generator drive, carrying the steam layer into the electric age.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "ac_transmission",
+   "label": "AC transmission",
+   "domain": "energy",
+   "kind": "technique",
+   "start": 1886,
+   "date_src": "general",
+   "place": "United States (Westinghouse, Tesla)",
+   "paradigm": "industrial",
+   "desc": "Westinghouse's alternating current, with Tesla's motor patents and transformers, let power travel far at high voltage. It won after Niagara Falls sent power to Buffalo in 1896; voltage and frequency standards locked in.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "hydroelectric_power",
+   "label": "Hydroelectric power",
+   "domain": "energy",
+   "kind": "industry",
+   "start": 1895,
+   "date_src": "part",
+   "place": "Niagara Falls",
+   "paradigm": "industrial",
+   "desc": "Falling water drove generators at Niagara from the mid-1890s, and cheap hydro drew power-hungry industries to it: Alcoa moved its aluminium smelting there in 1895. Later dams made hydro a large share of power.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "electrical_equipment_oligopoly",
+   "label": "Electrical equipment makers",
+   "domain": "energy",
+   "kind": "industry",
+   "start": 1892,
+   "date_src": "part",
+   "place": "US (GE, Westinghouse); Germany (Siemens, AEG)",
+   "paradigm": "industrial",
+   "desc": "Edison General Electric merged with Thomson-Houston to form General Electric (1892); Westinghouse built the rival AC system. Two firms dominated the US for most of a century: equipment making as an oligopoly from the start, held by patents.",
+   "chokepoint": true,
+   "part": "08"
+  },
+  {
+   "id": "utility_franchise",
+   "label": "Regulated utility monopoly",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1907,
+   "date_src": "part",
+   "place": "Chicago (Insull, Commonwealth Edison)",
+   "paradigm": "industrial",
+   "desc": "Insull ran large stations for many customers whose peaks fell at different hours (the load factor), with low prices to win load, and took a monopoly franchise in return for state rate regulation (commissions from 1907). His holding-company pyramid collapsed in 1932 and the 1935 Act broke such pyramids up.",
+   "chokepoint": true,
+   "part": "08"
+  },
+  {
+   "id": "rural_electrification",
+   "label": "Rural electric cooperatives",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1935,
+   "date_src": "part",
+   "wide": 1955,
+   "place": "United States (REA)",
+   "paradigm": "industrial",
+   "desc": "In 1930 about nine in ten urban homes had access but only about one farm in ten, because the load did not pay for the wire. The Rural Electrification Administration (1935) lent to farmers' cooperatives to build their own lines; farms passed nine in ten by the mid-1950s (rough). A network leaves out its thin edges unless an institution pays.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "electrolytic_copper",
+   "label": "Electrolytic copper",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1880,
+   "date_src": "general",
+   "place": "US; later Chile and Central Africa",
+   "paradigm": "industrial",
+   "desc": "Wire-grade copper is refined by current, so the metal came to depend on the power it carried (a loop). Electrification made copper strategic: open-pit mines such as Bingham Canyon (1906) and the copper belts followed demand.",
+   "chokepoint": true,
+   "part": "08"
+  },
+  {
+   "id": "line_shaft_drive",
+   "label": "Line-shaft factory",
+   "domain": "energy",
+   "kind": "practice",
+   "start": 1785,
+   "date_src": "general",
+   "place": "steam mills of Britain and the US",
+   "paradigm": "industrial",
+   "desc": "A steam factory was built round one engine turning line shafts and belts on every floor, tall and narrow to keep shafts short. The first electric motors simply replaced the engine at the head of the shafts (group drive), and little was gained.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "unit_drive",
+   "label": "Electric unit drive",
+   "domain": "energy",
+   "kind": "practice",
+   "start": 1900,
+   "date_src": "part",
+   "wide": 1920,
+   "place": "American factories",
+   "paradigm": "industrial",
+   "desc": "A motor in each machine let factories be rebuilt as single-storey plants laid out by the flow of work. It waited on old buildings wearing out and on managers who knew flow layout; US manufacturing output per man-hour rose about 1.3% a year before 1919 and 3.1% after [Devine 1983]. Paul David's dynamo lesson.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "household_appliances",
+   "label": "Household appliances",
+   "domain": "energy",
+   "kind": "good",
+   "start": 1920,
+   "date_src": "part",
+   "place": "United States",
+   "paradigm": "industrial",
+   "desc": "Irons, washing machines, refrigerators and radios came decades after light: they needed wired houses and consumer credit. US household electrification went from about 35% (1920) to nearly 68% (1929) [Richmond Fed 2020].",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "aluminium",
+   "label": "Hall-Heroult aluminium",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1886,
+   "date_src": "part",
+   "place": "Pittsburgh (Hall); France (Heroult); Niagara from 1895",
+   "paradigm": "industrial",
+   "desc": "Alumina dissolved in molten cryolite is split by current. The price fell from about $4.86 a pound (1888) to $0.78 (1893) as Alcoa scaled up. The chain runs bauxite, Bayer alumina (1888), smelter, rolling mill; at roughly 13 to 15 kWh per kilogram (rough), smelters go where power is cheapest: location set by energy, not ore.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "chlor_alkali",
+   "label": "Chlor-alkali electrolysis",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 1890,
+   "date_src": "general",
+   "place": "US and Europe",
+   "paradigm": "industrial",
+   "desc": "Electrolysis of brine gives chlorine and caustic soda. Water treatment and later plastics needed its chlorine.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "electric_arc_steel",
+   "label": "Electric arc furnace",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1900,
+   "date_src": "part",
+   "place": "France (Heroult)",
+   "paradigm": "industrial",
+   "desc": "Heroult's arc furnace made steel with current; arc furnaces later made metallurgical silicon (about 98 to 99% pure) for chips.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "oil_petroleum",
+   "label": "Drilled petroleum",
+   "domain": "energy",
+   "kind": "resource",
+   "start": 1859,
+   "date_src": "part",
+   "place": "Titusville, Pennsylvania (Drake)",
+   "paradigm": "industrial",
+   "desc": "Drake's well began the industry; drillers borrowed salt-well boring and tank cars rode the railways before pipelines. In the US the landowner owned what lay beneath, which made a scramble. Spindletop (1901), Persia (1908) and Saudi Arabia (1938) moved the centre of supply.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "kerosene_refining",
+   "label": "Kerosene refining",
+   "domain": "energy",
+   "kind": "industry",
+   "start": 1860,
+   "date_src": "part",
+   "place": "Pennsylvania and Cleveland",
+   "paradigm": "industrial",
+   "desc": "Distillation, learned in the coal-oil industry of the 1850s, turned crude into lamp oil for an existing mass market for light (whale oil, coal oil). For forty years oil was a lighting business; gasoline was a dangerous waste, often dumped.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "standard_oil_trust",
+   "label": "Standard Oil refining",
+   "domain": "energy",
+   "kind": "industry",
+   "start": 1870,
+   "date_src": "general",
+   "place": "Cleveland (Rockefeller)",
+   "paradigm": "industrial",
+   "desc": "Standard grew by controlling refining and transport, not wells: buying out refiners, winning railway rebates, building pipelines. By about 1880 it refined roughly 90% of American oil (rough), until the Supreme Court broke it into 34 companies in 1911. The chokepoint was the middle step.",
+   "chokepoint": true,
+   "part": "08"
+  },
+  {
+   "id": "gasoline",
+   "label": "Gasoline",
+   "domain": "energy",
+   "kind": "good",
+   "start": 1860,
+   "date_src": "part",
+   "place": "US refineries",
+   "paradigm": "industrial",
+   "desc": "A by-product of kerosene refining, dumped until the car made it the main product. Burton's thermal cracking (1913) and catalytic cracking (1930s) raised its share of each barrel.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "internal_combustion_engine",
+   "label": "Otto four-stroke engine",
+   "domain": "energy",
+   "kind": "technique",
+   "start": 1876,
+   "date_src": "part",
+   "place": "Germany (Otto)",
+   "paradigm": "industrial",
+   "desc": "A cycle modelled on the steam engine's, built by machinists to fine tolerances, put a light engine inside a moving vehicle. Engine and liquid fuel moved power off the rail and the shaft into anything that could carry a tank.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "diesel_engine",
+   "label": "Diesel engine",
+   "domain": "energy",
+   "kind": "technique",
+   "start": 1893,
+   "date_src": "part",
+   "place": "Germany (Diesel)",
+   "paradigm": "industrial",
+   "desc": "A compression-ignition engine burning a heavier refinery cut; it came to drive trucks, tractors, ships, locomotives and pumps.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "asphalt_paving",
+   "label": "Refinery asphalt roads",
+   "domain": "transport",
+   "kind": "good",
+   "start": 1870,
+   "date_src": "general",
+   "place": "US and European cities",
+   "paradigm": "industrial",
+   "desc": "The heaviest refinery residue paved the roads the cars needed, beside Portland cement surfaces. A joint product that built its own market.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "motor_vehicle",
+   "label": "Motor car",
+   "domain": "transport",
+   "kind": "good",
+   "start": 1886,
+   "date_src": "general",
+   "place": "Germany (Benz); then Detroit (Ford's Model T, 1908)",
+   "paradigm": "industrial",
+   "desc": "Began as a craft product assembled by small firms, often bicycle and carriage makers, from bought parts. It needed steel sheet, machine tools, rubber, glass, refined fuel and roads. The Model T fell from $850 to $260 by 1925; about 15 million were built by 1927 (figures vary).",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "moving_assembly_line",
+   "label": "Moving assembly line",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1913,
+   "date_src": "part",
+   "place": "Highland Park, Michigan (Ford)",
+   "paradigm": "industrial",
+   "desc": "Cut the time to build a chassis from about 12.5 hours to about 93 minutes (figures vary by source). It rested on interchangeable parts, machine tools and one model made in enormous volume.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "river_rouge_integration",
+   "label": "River Rouge integration",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1927,
+   "date_src": "part",
+   "place": "Dearborn, Michigan (Ford)",
+   "paradigm": "industrial",
+   "desc": "One complex with docks, ore freighters, railway, blast furnaces, steel mill, glass plant, power station and tyre plant, over 100,000 workers at peak; Ford also owned mines, timber and Fordlandia (1928). Integration answered unreliable suppliers, then became a burden when buyers wanted variety.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "multidivisional_firm",
+   "label": "Multidivisional firm",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1920,
+   "date_src": "general",
+   "place": "Detroit (Sloan's General Motors)",
+   "paradigm": "industrial",
+   "desc": "'A car for every purse and purpose': divisions, annual models and consumer credit. GM overtook Ford in the late 1920s and its form became the model of the large corporation (Chandler).",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "consumer_credit",
+   "label": "Instalment consumer credit",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1919,
+   "date_src": "part",
+   "place": "United States (GMAC, 1919)",
+   "paradigm": "industrial",
+   "desc": "GM's finance arm and the 1920s instalment plans let households buy cars and appliances on credit. Both waited on it.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "lean_supplier_networks",
+   "label": "Lean supplier networks",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1950,
+   "date_src": "general",
+   "place": "Japan (Toyota, keiretsu)",
+   "paradigm": "industrial",
+   "desc": "A core plant drawing parts just in time from a pyramid of affiliated suppliers tied by long relationships and cross-shareholding; Japanese makers bought around 80% of parts from affiliates while GM made more than half in house (rough). The lean plant built a car in about 16 hours against 31 [Womack, Jones and Roos 1990].",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "vulcanisation",
+   "label": "Vulcanised rubber",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 1839,
+   "date_src": "part",
+   "place": "United States (Goodyear)",
+   "paradigm": "industrial",
+   "desc": "Sulphur and heat made rubber durable instead of sticky or brittle. Wild Amazon latex was the only source.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "pneumatic_tyre",
+   "label": "Pneumatic tyre",
+   "domain": "transport",
+   "kind": "good",
+   "start": 1888,
+   "date_src": "part",
+   "place": "Belfast (Dunlop)",
+   "paradigm": "industrial",
+   "desc": "The air-filled tyre made rubber a vehicle material, first for bicycles, then cars.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "rubber_plantations",
+   "label": "Rubber plantations",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1876,
+   "date_src": "part",
+   "place": "Malaya and the Netherlands Indies",
+   "paradigm": "industrial",
+   "desc": "Seeds taken from Brazil in 1876 founded Asian plantations that displaced wild Amazon rubber. Rubber is a chokepoint by climate: when Japan took the plantations in 1942, the Allies lost most of their supply.",
+   "chokepoint": true,
+   "part": "08"
+  },
+  {
+   "id": "synthetic_rubber",
+   "label": "Synthetic rubber",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1942,
+   "date_src": "part",
+   "place": "United States",
+   "paradigm": "industrial",
+   "desc": "Built from petroleum and alcohol feedstocks in about three years (rough) after the plantations fell. The substitute needed the whole petrochemical layer.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "highway_finance",
+   "label": "Public highway finance",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1916,
+   "date_src": "part",
+   "place": "United States (1916, 1919, 1956)",
+   "paradigm": "industrial",
+   "desc": "Cars needed roads and roads needed public money: the Federal Aid Road Act (1916), petrol taxes earmarked for roads (Oregon, 1919) and the Interstate Highway Act (1956). Roads brought filling stations, motels, suburbs and trucking, and the decline of the electric interurban.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "tractor",
+   "label": "Farm tractor",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1892,
+   "date_src": "general",
+   "wide": 1940,
+   "place": "United States",
+   "paradigm": "industrial",
+   "desc": "US farm tractors rose from about 240,000 (1920) to almost 1.6 million (1940) (rough). They freed the roughly 93 million acres of cropland that fed horses and mules at the 1915 peak, about a quarter of the harvest [Olmstead and Rhode 2001], lifting the land ceiling a second time. They needed fuel at every farm, repair skills and credit, and emptied the countryside.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "plastics",
+   "label": "Synthetic plastics",
+   "domain": "materials",
+   "kind": "good",
+   "start": 1907,
+   "date_src": "part",
+   "place": "Yonkers, New York (Baekeland's Bakelite)",
+   "paradigm": "industrial",
+   "desc": "Began on the coal layer: celluloid (1860s) and Bakelite from coal-tar phenol, then polyethylene (ICI, 1933), PVC and polystyrene. Cheap only once refining made their inputs in bulk: about 2 million tonnes (1950) to 380 million (2015), with about 79% of all waste in landfill or the environment [Geyer, Jambeck and Law 2017].",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "petrochemical_cracking",
+   "label": "Steam cracking feedstocks",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 1950,
+   "date_src": "part",
+   "place": "US and European refineries",
+   "paradigm": "industrial",
+   "desc": "After the Second World War, steam cracking of naphtha and ethane gave ethylene and propylene in bulk, switching the chemical industry's raw material from coal to oil and gas.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "synthetic_fibres",
+   "label": "Nylon",
+   "domain": "textiles",
+   "kind": "good",
+   "start": 1935,
+   "date_src": "part",
+   "place": "DuPont, United States",
+   "paradigm": "industrial",
+   "desc": "DuPont's nylon (1935 to 1939), from an industrial research laboratory, was the first fully synthetic fibre; fibres later drew on petrochemical feedstocks.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "industrial_research_lab",
+   "label": "Industrial research laboratory",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1870,
+   "date_src": "general",
+   "place": "Germany (BASF, Bayer, Hoechst)",
+   "paradigm": "industrial",
+   "desc": "A paid team of scientists searching for new products on purpose, invented by the German dye firms with university-trained chemists; GE (1900), DuPont (1903) and Bell (1925) copied it. Industries came to depend on organised knowledge held by an organisation, not a craftsman.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "synthetic_drugs",
+   "label": "Synthetic drugs",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1899,
+   "date_src": "part",
+   "place": "Germany (Bayer aspirin; Hoechst Salvarsan)",
+   "paradigm": "industrial",
+   "desc": "The dye firms knew how to make, test and purify organic molecules: aspirin (1899), Ehrlich's Salvarsan (1910, from dyes that stained some cells), and Prontosil (1935), the first sulfa drug, itself a red dye.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "penicillin_fermentation",
+   "label": "Deep-tank penicillin",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 1944,
+   "date_src": "part",
+   "place": "Brooklyn (Pfizer)",
+   "paradigm": "industrial",
+   "desc": "Fleming's penicillin (1928), made a drug by Florey and Chain (1940), was mass produced by deep-tank fermentation borrowed from brewing and citric-acid making. Pfizer's plant in a converted ice factory, fourteen 7,500-gallon tanks, opened in March 1944 [ACS landmark].",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "drug_regulation",
+   "label": "Drug safety and efficacy law",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1938,
+   "date_src": "part",
+   "place": "United States (1938, 1962)",
+   "paradigm": "industrial",
+   "desc": "The Elixir Sulfanilamide deaths led to the 1938 Act (proof of safety) and thalidomide to the 1962 rule of proof of efficacy. Drugs became an industry gated by testing, with costly trials as its threshold.",
+   "chokepoint": true,
+   "part": "08"
+  },
+  {
+   "id": "chilean_nitrate",
+   "label": "Chilean nitrate",
+   "domain": "materials",
+   "kind": "resource",
+   "start": 1850,
+   "date_src": "part",
+   "place": "Atacama, Chile",
+   "paradigm": "industrial",
+   "desc": "From the mid-nineteenth century farms and explosives makers bought Chilean sodium nitrate beside manure, legumes and guano. A chokepoint by geology: Crookes warned of a nitrogen limit in 1898, and the British blockade cut Germany off in the First World War.",
+   "chokepoint": true,
+   "part": "08"
+  },
+  {
+   "id": "synthetic_nitrogen",
+   "label": "Haber-Bosch ammonia",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1913,
+   "date_src": "part",
+   "place": "Oppau, Germany (BASF)",
+   "paradigm": "industrial",
+   "desc": "Haber (1909) combined nitrogen and hydrogen at high pressure over a catalyst; Bosch made it industrial with a lined steel reactor, since hydrogen embrittles steel at about 200 atmospheres. Hydrogen came from coal via water gas, now mainly natural gas. About 44% of the world's people in 2000 were fed by its nitrogen [Erisman et al. 2008].",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "ddt_pesticides",
+   "label": "DDT and pesticides",
+   "domain": "food",
+   "kind": "good",
+   "start": 1939,
+   "date_src": "part",
+   "place": "Switzerland (Paul Muller)",
+   "paradigm": "industrial",
+   "desc": "Used against typhus and malaria in the war, then on crops. Silent Spring (1962) made its harm public and the US banned most uses in 1972: a commons, the gain private and the harm shared downstream.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "semi_dwarf_varieties",
+   "label": "Semi-dwarf wheat and rice",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1945,
+   "date_src": "part",
+   "place": "Mexico (Borlaug); IRRI, Philippines (IR8, 1966)",
+   "paradigm": "industrial",
+   "desc": "Short-stemmed wheat bred with the Japanese Norin-10 gene took heavy fertiliser without falling over; IR8 rice followed in 1966. The seed was useless alone.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "green_revolution",
+   "label": "Green Revolution",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1965,
+   "date_src": "part",
+   "place": "India and Pakistan (the Punjab)",
+   "paradigm": "industrial",
+   "desc": "New wheats helped raise Indian wheat from about 12 to about 20 million tonnes, mid-1960s to 1970 (rough). It was an assembly of seed, fertiliser, irrigation, pesticides, credit, extension agents and price support; where any was missing gains were small, and in the Punjab they came with falling water tables and widening gaps.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "germ_theory",
+   "label": "Epidemiology and germ theory",
+   "domain": "building",
+   "kind": "technique",
+   "start": 1854,
+   "date_src": "part",
+   "place": "London (Snow); Pasteur and Koch (cholera germ 1883)",
+   "paradigm": "industrial",
+   "desc": "Snow traced the 1854 Broad Street cholera outbreak to a pump; Pasteur and Koch gave germ theory and bacteriological testing of water. It told engineers what clean water had to remove.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "water_filtration",
+   "label": "Sand filtration of water",
+   "domain": "building",
+   "kind": "technique",
+   "start": 1829,
+   "date_src": "general",
+   "wide": 1900,
+   "place": "London; Hamburg and Altona (1892)",
+   "paradigm": "industrial",
+   "desc": "In 1892 cholera killed thousands in unfiltered Hamburg while Altona, filtering the same river, was largely spared, and filtration became standard. Filtration and chlorination explain nearly half the fall in mortality in major US cities, 1900 to 1936 [Cutler and Miller 2005].",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "chlorination",
+   "label": "Chlorinated water supply",
+   "domain": "building",
+   "kind": "technique",
+   "start": 1908,
+   "date_src": "part",
+   "place": "Jersey City",
+   "paradigm": "industrial",
+   "desc": "The first continuous chlorination of a public supply spread across American cities within a decade, using chlor-alkali chlorine. With filtration it ended the urban penalty, so cities could grow from their own births.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "municipal_bonds",
+   "label": "Municipal borrowing",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1850,
+   "date_src": "general",
+   "place": "British and American cities",
+   "paradigm": "industrial",
+   "desc": "Water and sewer works are very large and long-lived, paid back over decades: time capital in its purest form. Only towns able to borrow against rates, with powers to dig under private land, built them.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "multipurpose_dams",
+   "label": "Multipurpose dams",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1933,
+   "date_src": "part",
+   "place": "TVA (1933); Hoover (1936); Aswan High (1970)",
+   "paradigm": "industrial",
+   "desc": "Large dams combined water supply, flood control, irrigation and hydro power, bringing upstream-against-downstream conflicts between nations and displacing people from reservoirs. World irrigated area rose from about 147 to 343 million hectares, 1961 to 2020 [USDA ERS 2024].",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "groundwater_pumping",
+   "label": "Groundwater pump irrigation",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1950,
+   "date_src": "general",
+   "place": "the Punjab; the US Plains",
+   "paradigm": "irrigation",
+   "desc": "Electric and diesel pumps lifted groundwater for fields: the classic depleting commons. It watered the Green Revolution and lowered water tables.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "telegraph",
+   "label": "Electric telegraph",
+   "domain": "information",
+   "kind": "infrastructure",
+   "start": 1837,
+   "date_src": "part",
+   "place": "British railways; Washington to Baltimore (Morse, 1844)",
+   "paradigm": "industrial",
+   "desc": "Batteries, copper and iron wire, insulators and poles, run along railway rights of way from 1837. Western Union dominated the US by 1866. Messages that took days or weeks now took minutes.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "railway_telegraph_dispatch",
+   "label": "Telegraph train dispatching",
+   "domain": "transport",
+   "kind": "practice",
+   "start": 1851,
+   "date_src": "part",
+   "place": "Erie Railroad, United States",
+   "paradigm": "industrial",
+   "desc": "From 1851 trains were dispatched by telegraph, so one track could carry trains both ways safely. Railway and telegraph grew up together, each the other's customer and corridor.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "gutta_percha",
+   "label": "Gutta-percha",
+   "domain": "materials",
+   "kind": "resource",
+   "start": 1843,
+   "date_src": "general",
+   "place": "Malaya",
+   "paradigm": "industrial",
+   "desc": "A latex from Malayan trees, for decades the only good insulator under sea water. Submarine cables depended on it: a tropical chokepoint, as rubber was for tyres.",
+   "chokepoint": true,
+   "part": "08"
+  },
+  {
+   "id": "submarine_cable",
+   "label": "Transatlantic cable",
+   "domain": "information",
+   "kind": "infrastructure",
+   "start": 1858,
+   "date_src": "part",
+   "place": "Ireland to Newfoundland (durable 1866)",
+   "paradigm": "industrial",
+   "desc": "The 1858 cable failed within weeks; a durable one came in 1866. News between New York and Liverpool fell from 7 to 15 days to about a day, and the cotton price gap fell by more than a third and its variance by over 90% [Steinwender 2018].",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "commodity_futures",
+   "label": "Graded grain futures",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1848,
+   "date_src": "part",
+   "place": "Chicago Board of Trade",
+   "paradigm": "industrial",
+   "desc": "With the telegraph and the stock ticker (1867), exchanges traded grain by grade and for future delivery. Regional prices joined into one national market (Cronon).",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "managerial_enterprise",
+   "label": "Managerial enterprise",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1850,
+   "date_src": "general",
+   "place": "US and British railways",
+   "paradigm": "industrial",
+   "desc": "Railways and the telegraph let head offices coordinate plants and branches daily, so administration replaced the market for many decisions (Chandler's visible hand). The railway company was the first big firm with professional managers.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "telephone",
+   "label": "Telephone",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1876,
+   "date_src": "part",
+   "place": "United States (Bell's patent)",
+   "paradigm": "industrial",
+   "desc": "Needed exchanges, a pair of copper wires to every subscriber and power, building on the telegraph's poles and the electric industry. Its value rose with subscribers, a network effect that favoured one network; it let firms split head office from plant.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "telephone_exchange",
+   "label": "Telephone exchanges",
+   "domain": "information",
+   "kind": "infrastructure",
+   "start": 1878,
+   "date_src": "general",
+   "place": "United States",
+   "paradigm": "industrial",
+   "desc": "Switchboards joined subscribers' lines, run by operators (one of the largest new women's occupations), then automatic switches from the 1890s. Their lines and switching later carried the first data networks.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "regulated_telephone_monopoly",
+   "label": "Bell regulated monopoly",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1913,
+   "date_src": "part",
+   "place": "United States (AT&T)",
+   "paradigm": "industrial",
+   "desc": "AT&T settled with the government in 1913 (the Kingsbury Commitment), was regulated as a monopoly from 1934, and was broken up only in 1984. The monopoly network was telecoms' chokepoint, and its rents funded research.",
+   "chokepoint": true,
+   "part": "08"
+  },
+  {
+   "id": "bell_labs",
+   "label": "Bell Labs",
+   "domain": "information",
+   "kind": "institution",
+   "start": 1925,
+   "date_src": "part",
+   "place": "New Jersey (AT&T)",
+   "paradigm": "industrial",
+   "desc": "A regulated monopoly funding basic research from secure rents: the transistor (1947), information theory (Shannon, 1948) and Unix.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "vacuum_tube",
+   "label": "Vacuum tube",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1904,
+   "date_src": "part",
+   "place": "Britain (Fleming diode); US (de Forest triode, 1906)",
+   "paradigm": "industrial",
+   "desc": "Fleming's diode came from the Edison effect in light bulbs; de Forest's triode amplified. The lamp industry became the electronics industry: radio, then ENIAC's 18,000 tubes.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "radio",
+   "label": "Radio",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1901,
+   "date_src": "part",
+   "place": "Marconi, across the Atlantic",
+   "paradigm": "industrial",
+   "desc": "Needed Maxwell and Hertz's theory, Marconi's engineering and then the vacuum tube to amplify. RCA was formed in 1919 from GE's and others' patents; about 40% of US households had a radio by 1930 [Census 2023].",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "broadcast_advertising",
+   "label": "Broadcasting and advertising",
+   "domain": "information",
+   "kind": "practice",
+   "start": 1920,
+   "date_src": "part",
+   "place": "Pittsburgh (KDKA)",
+   "paradigm": "industrial",
+   "desc": "Free to the listener, paid for by advertising, which made national brands and national markets in attention. Television took the same model: about 9% of US households in 1950, roughly 87% by 1960 (rough).",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "spectrum_licensing",
+   "label": "Spectrum licensing",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1927,
+   "date_src": "general",
+   "place": "United States",
+   "paradigm": "industrial",
+   "desc": "The state licenses who may transmit on which frequency. The part names spectrum a chokepoint of telecoms, and its licences as necessary as the machines.",
+   "chokepoint": true,
+   "part": "08"
+  },
+  {
+   "id": "radar",
+   "label": "Radar",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1935,
+   "date_src": "general",
+   "place": "Britain and Germany",
+   "paradigm": "industrial",
+   "desc": "Radio turned to detecting aircraft and ships, then to navigation and military command. Radar and radio beacons became part of the controlled sky airliners needed.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "internet",
+   "label": "Internet",
+   "domain": "information",
+   "kind": "infrastructure",
+   "start": 1969,
+   "date_src": "part",
+   "place": "United States (ARPANET); CERN (the Web, 1989 to 1991)",
+   "paradigm": "service_information",
+   "desc": "ARPANET joined university computers on lines leased from the telephone network; TCP/IP (1983) interconnected networks, the Web gave a public face and the backbone opened to commerce in 1995. About 5.5 billion people, 68% of the world, were online in 2024 [ITU 2024]; it later carried voice as data.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "fibre_optic_backbone",
+   "label": "Fibre-optic backbones",
+   "domain": "information",
+   "kind": "infrastructure",
+   "start": 1988,
+   "date_src": "general",
+   "place": "undersea and along rail and pipeline corridors",
+   "paradigm": "service_information",
+   "desc": "Fibre cables carry most intercontinental traffic, laid along railway and pipeline corridors and the old telegraph cable routes. They feed data centres, which draw on the grid.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "digital_platforms",
+   "label": "Digital platforms",
+   "domain": "information",
+   "kind": "industry",
+   "start": 1995,
+   "date_src": "general",
+   "place": "United States and China",
+   "paradigm": "service_information",
+   "desc": "Search, social media and marketplaces with network effects: global price search, markets for small sellers, work done anywhere, and new forms of surveillance and control.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "aviation",
+   "label": "Powered flight",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1903,
+   "date_src": "part",
+   "place": "Kitty Hawk (the Wright brothers)",
+   "paradigm": "industrial",
+   "desc": "The first flight (12 seconds, 120 feet) used a light engine built in the Wrights' own shop and their own wind tunnel; bicycle makers and machinists came first. The First World War made aircraft a mass-produced weapon and built the first aircraft and engine industries.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "duralumin",
+   "label": "Duralumin",
+   "domain": "metals",
+   "kind": "good",
+   "start": 1906,
+   "date_src": "part",
+   "place": "Germany (Alfred Wilm)",
+   "paradigm": "industrial",
+   "desc": "An aluminium alloy that hardens with age, letting metal airframes replace spruce and fabric; aircraft came to depend on cheap electrolytic aluminium.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "airmail_contracts",
+   "label": "Airmail contracts",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1918,
+   "date_src": "part",
+   "place": "United States (Post Office; Kelly Act 1925)",
+   "paradigm": "industrial",
+   "desc": "The Post Office flew mail from 1918 and the Kelly Act put it out to private carriers; those contracts founded the major airlines. The Air Commerce Act (1926) licensed pilots and aircraft.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "commercial_airlines",
+   "label": "Commercial airlines",
+   "domain": "transport",
+   "kind": "industry",
+   "start": 1925,
+   "date_src": "part",
+   "place": "United States (DC-3, 1936)",
+   "paradigm": "industrial",
+   "desc": "Founded on airmail subsidy; the Douglas DC-3 (1936) was the first airliner to pay on passengers alone. By the mid-2020s airlines carried on the order of four to five billion trips a year (rough).",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "jet_engine",
+   "label": "Jet engine",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1939,
+   "date_src": "part",
+   "place": "Britain (Whittle); Germany (von Ohain)",
+   "paradigm": "industrial",
+   "desc": "Burned refinery kerosene in a turbine whose blades must keep their strength red-hot. The Comet (1952) taught through fatigue failures how pressurised hulls break; the 707 (1958) and 747 (1970) made jet travel cheap.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "nickel_superalloys",
+   "label": "Nickel superalloys",
+   "domain": "metals",
+   "kind": "good",
+   "start": 1940,
+   "date_src": "general",
+   "place": "Britain and the US",
+   "paradigm": "industrial",
+   "desc": "Alloys that keep their strength red-hot for turbine blades, much later grown as single crystals. A metallurgical long skill held by few engine makers.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "air_traffic_control",
+   "label": "Radar air traffic control",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1958,
+   "date_src": "part",
+   "place": "United States (Federal Aviation Agency)",
+   "paradigm": "industrial",
+   "desc": "After two airliners collided over the Grand Canyon in 1956, one radar-based control system was created for the sky. American fares and routes were regulated until 1978.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "icao_air_rights",
+   "label": "Chicago Convention air rights",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1944,
+   "date_src": "part",
+   "place": "Chicago (ICAO)",
+   "paradigm": "industrial",
+   "desc": "Created the International Civil Aviation Organization and the system of rights to fly over and land in other countries: the legal frame of any international route.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "aerospace_oligopoly",
+   "label": "Airframe and engine oligopoly",
+   "domain": "transport",
+   "kind": "industry",
+   "start": 1970,
+   "date_src": "general",
+   "place": "Boeing, Airbus; GE, Rolls-Royce, Pratt & Whitney",
+   "paradigm": "industrial",
+   "desc": "Large airframes came down to two makers and large jet engines to three. Very high fixed costs of design and certification, long learning curves and few buyers made an oligopoly by increasing returns and long skill.",
+   "chokepoint": true,
+   "part": "08"
+  },
+  {
+   "id": "air_cargo",
+   "label": "Air cargo",
+   "domain": "transport",
+   "kind": "industry",
+   "start": 1960,
+   "date_src": "general",
+   "place": "world airports",
+   "paradigm": "industrial",
+   "desc": "Under 1% of world trade by weight but close to a third by value [IATA 2025]: flowers, fish, drugs, chips, spare parts. It lets one chip supply chain run across several continents.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "punched_card_tabulator",
+   "label": "Punched-card tabulator",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1890,
+   "date_src": "part",
+   "place": "US census (Hollerith); IBM from 1924",
+   "paradigm": "industrial",
+   "desc": "Hollerith's tabulators counted the 1890 census, beside cash registers and adding machines in offices. They stood on machine tools, electric relays and bureaucracies with records to count.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "computer",
+   "label": "Electronic computer",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1945,
+   "date_src": "part",
+   "place": "ENIAC, Philadelphia",
+   "paradigm": "industrial",
+   "desc": "About 18,000 vacuum tubes and 150 kW of power, built for artillery tables (rough), from the lamp and radio industries' tubes and wartime money. Like the dynamo, it was slow to show in productivity (Solow, 1987).",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "semiconductors",
+   "label": "Transistor",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1947,
+   "date_src": "part",
+   "place": "Bell Labs, New Jersey",
+   "paradigm": "industrial",
+   "desc": "Came from the telephone monopoly's laboratory and quantum physics, in germanium then silicon. It replaced the vacuum tube and began the semiconductor industry.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "integrated_circuit",
+   "label": "Integrated circuit",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1958,
+   "date_src": "part",
+   "place": "Texas Instruments (Kilby); Fairchild (Noyce, planar 1959)",
+   "paradigm": "service_information",
+   "desc": "Many transistors on one chip by photolithography, diffusion furnaces and pure chemicals. Minuteman missiles and the Apollo guidance computer bought most of the first ones, carrying the industry down its learning curve (rough).",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "photolithography",
+   "label": "Chip lithography",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1957,
+   "date_src": "general",
+   "place": "US labs; today ASML, Netherlands",
+   "paradigm": "service_information",
+   "desc": "Patterning chips with light, borrowed from printing. Extreme ultraviolet machines come from one firm, ASML, built from about 100,000 parts and 5,000 suppliers with Zeiss mirrors and Trumpf lasers, about EUR 350 million each (rough): a chokepoint of knowledge with no substitute.",
+   "chokepoint": true,
+   "part": "08"
+  },
+  {
+   "id": "hyperpure_silicon",
+   "label": "Hyperpure silicon wafers",
+   "domain": "materials",
+   "kind": "good",
+   "start": 1955,
+   "date_src": "general",
+   "place": "US, Japan, Germany",
+   "paradigm": "service_information",
+   "desc": "Quartz is reduced in arc furnaces to metallurgical silicon, purified to polysilicon of 'nine to eleven nines', pulled into single-crystal ingots and sliced into wafers. Silicon is abundant; purity is not.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "critical_minerals",
+   "label": "Rare chip elements",
+   "domain": "materials",
+   "kind": "resource",
+   "start": 1970,
+   "date_src": "general",
+   "place": "China and scattered mines",
+   "paradigm": "service_information",
+   "desc": "Gallium, germanium, hafnium, tantalum, cobalt, helium and rare earths are minor by weight and major by dependence. China produced about 98% of the world's gallium in 2023 [Global Taiwan Institute 2023].",
+   "chokepoint": true,
+   "part": "08"
+  },
+  {
+   "id": "microprocessor",
+   "label": "Microprocessor",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1971,
+   "date_src": "part",
+   "place": "Intel, California (4004)",
+   "paradigm": "service_information",
+   "desc": "About 2,300 transistors on one chip; a 2024 GPU package held about 208 billion. Half a century of shrinking was paid for by each generation's sales; Perez dates the information surge from it.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "pure_play_foundry",
+   "label": "Foundry and fabless split",
+   "domain": "information",
+   "kind": "industry",
+   "start": 1987,
+   "date_src": "part",
+   "place": "Taiwan (TSMC)",
+   "paradigm": "service_information",
+   "desc": "Chipmaking split into fabless designers (Nvidia, Apple, Qualcomm) and foundries that do not compete with their customers, on standard design rules. A leading-edge fab costs about $20 billion or more and TSMC makes roughly 90% of the most advanced logic chips (rough).",
+   "chokepoint": true,
+   "part": "08"
+  },
+  {
+   "id": "software_industry",
+   "label": "Software industry",
+   "domain": "information",
+   "kind": "industry",
+   "start": 1969,
+   "date_src": "part",
+   "place": "United States (IBM unbundling; IBM PC 1981, Microsoft)",
+   "paradigm": "service_information",
+   "desc": "Selling software apart from machines, then as a mass product for personal computers. It needed university training in programming and copyright for code.",
+   "chokepoint": false,
+   "part": "08"
+  },
+  {
+   "id": "data_centres",
+   "label": "Data centres",
+   "domain": "information",
+   "kind": "infrastructure",
+   "start": 2000,
+   "date_src": "general",
+   "place": "worldwide",
+   "paradigm": "service_information",
+   "desc": "Used about 415 TWh in 2024, around 1.5% of the world's electricity, projected to more than double by 2030 [IEA 2025]. Computing has come round to depend on the grid.",
+   "chokepoint": false,
+   "part": "08"
+  }
+ ],
+ "edges": [
+  {
+   "from": "wood_fuel",
+   "to": "sea_coal_trade",
+   "type": "replaces",
+   "note": "coal for hearths as wood near London ran short",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "sea_coal_trade",
+   "type": "input",
+   "note": "Newcastle sea coal",
+   "src": "part"
+  },
+  {
+   "from": "boats",
+   "to": "sea_coal_trade",
+   "type": "enables",
+   "note": "collier ships down the coast",
+   "src": "part"
+  },
+  {
+   "from": "sea_coal_trade",
+   "to": "coal_wagonway",
+   "type": "enables",
+   "note": "coal paid only near water",
+   "src": "part"
+  },
+  {
+   "from": "timber",
+   "to": "coal_wagonway",
+   "type": "input",
+   "note": "wooden rails",
+   "src": "part"
+  },
+  {
+   "from": "blast_furnace",
+   "to": "coal_wagonway",
+   "type": "input",
+   "note": "cast-iron rails at Coalbrookdale, 1767",
+   "src": "part"
+  },
+  {
+   "from": "coal_wagonway",
+   "to": "deep_coal_mining",
+   "type": "enables",
+   "note": "haulage to river staithes",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "steam_engine",
+   "type": "input",
+   "note": "unsaleable slack coal at the pit",
+   "src": "part"
+  },
+  {
+   "from": "copper_smelting",
+   "to": "steam_engine",
+   "type": "input",
+   "note": "cast brass cylinder",
+   "src": "part"
+  },
+  {
+   "from": "blast_furnace",
+   "to": "steam_engine",
+   "type": "input",
+   "note": "cast-iron cylinders and beams",
+   "src": "part"
+  },
+  {
+   "from": "steam_engine",
+   "to": "deep_coal_mining",
+   "type": "enables",
+   "note": "pumps drained pits below water table",
+   "src": "part"
+  },
+  {
+   "from": "draught_animals",
+   "to": "deep_coal_mining",
+   "type": "enables",
+   "note": "horse gins pumped shallow pits",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "deep_coal_mining",
+   "type": "input",
+   "note": "seams at depth",
+   "src": "part"
+  },
+  {
+   "from": "steam_engine",
+   "to": "watt_engine",
+   "type": "enables",
+   "note": "improved Newcomen design",
+   "src": "part"
+  },
+  {
+   "from": "cannon_boring_mill",
+   "to": "watt_engine",
+   "type": "enables",
+   "note": "cylinder bored true",
+   "src": "part"
+  },
+  {
+   "from": "patent_system",
+   "to": "watt_engine",
+   "type": "enables",
+   "note": "1775 Act extended patent to 1800",
+   "src": "part"
+  },
+  {
+   "from": "useful_knowledge_societies",
+   "to": "watt_engine",
+   "type": "enables",
+   "note": "Lunar Society joined Boulton and Watt",
+   "src": "general"
+  },
+  {
+   "from": "watt_engine",
+   "to": "rotative_engine",
+   "type": "enables",
+   "note": "gearing turned a shaft",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "rotative_engine",
+   "type": "replaces",
+   "note": "power off the river; parity about 1830",
+   "src": "part"
+  },
+  {
+   "from": "watt_engine",
+   "to": "steam_blown_furnace",
+   "type": "enables",
+   "note": "blowing engines from 1776",
+   "src": "part"
+  },
+  {
+   "from": "watt_engine",
+   "to": "high_pressure_engine",
+   "type": "enables",
+   "note": "patent lapse in 1800 freed design",
+   "src": "part"
+  },
+  {
+   "from": "puddling",
+   "to": "high_pressure_engine",
+   "type": "input",
+   "note": "wrought-iron boiler plate",
+   "src": "part"
+  },
+  {
+   "from": "watt_engine",
+   "to": "gas_lighting",
+   "type": "enables",
+   "note": "Murdoch, Boulton & Watt's engineer",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "gas_lighting",
+   "type": "input",
+   "note": "coal heated in retorts",
+   "src": "part"
+  },
+  {
+   "from": "rendering_tallow",
+   "to": "gas_lighting",
+   "type": "replaces",
+   "note": "gas light replaced candles",
+   "src": "general"
+  },
+  {
+   "from": "gas_lighting",
+   "to": "coal_tar_chemicals",
+   "type": "byproduct",
+   "note": "tar left in the retorts",
+   "src": "part"
+  },
+  {
+   "from": "blast_furnace",
+   "to": "finery_forge",
+   "type": "input",
+   "note": "pig iron refined to bar",
+   "src": "part"
+  },
+  {
+   "from": "charcoal",
+   "to": "finery_forge",
+   "type": "input",
+   "note": "charcoal fuel",
+   "src": "part"
+  },
+  {
+   "from": "coppice",
+   "to": "finery_forge",
+   "type": "input",
+   "note": "thousands of acres per furnace",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "finery_forge",
+   "type": "enables",
+   "note": "water hammer and bellows",
+   "src": "part"
+  },
+  {
+   "from": "charcoal",
+   "to": "coke",
+   "type": "replaces",
+   "note": "coal-based fuel freed coppice land",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "coke",
+   "type": "input",
+   "note": "coking coal baked free of sulphur",
+   "src": "part"
+  },
+  {
+   "from": "coke",
+   "to": "steam_blown_furnace",
+   "type": "input",
+   "note": "coke fuel",
+   "src": "part"
+  },
+  {
+   "from": "blast_furnace",
+   "to": "steam_blown_furnace",
+   "type": "enables",
+   "note": "same furnace, new blast",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "steam_blown_furnace",
+   "type": "replaces",
+   "note": "steam blast replaced water bellows",
+   "src": "part"
+  },
+  {
+   "from": "glass",
+   "to": "reverberatory_furnace",
+   "type": "enables",
+   "note": "developed in glass and lead works",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "reverberatory_furnace",
+   "type": "input",
+   "note": "coal fired apart from charge",
+   "src": "part"
+  },
+  {
+   "from": "reverberatory_furnace",
+   "to": "puddling",
+   "type": "enables",
+   "note": "vessel for stirring pig",
+   "src": "part"
+  },
+  {
+   "from": "coke",
+   "to": "puddling",
+   "type": "input",
+   "note": "coke pig iron",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "puddling",
+   "type": "input",
+   "note": "coal-fired furnace",
+   "src": "part"
+  },
+  {
+   "from": "finery_forge",
+   "to": "puddling",
+   "type": "replaces",
+   "note": "wrought iron from coal; finery ended",
+   "src": "part"
+  },
+  {
+   "from": "rotative_engine",
+   "to": "rolling_mill",
+   "type": "enables",
+   "note": "steam turned the rolls",
+   "src": "part"
+  },
+  {
+   "from": "finery_forge",
+   "to": "rolling_mill",
+   "type": "replaces",
+   "note": "grooved rolls instead of the hammer",
+   "src": "part"
+  },
+  {
+   "from": "steam_blown_furnace",
+   "to": "hot_blast",
+   "type": "enables",
+   "note": "blown furnace, air now heated",
+   "src": "part"
+  },
+  {
+   "from": "coke",
+   "to": "crucible_steel",
+   "type": "input",
+   "note": "coke heat",
+   "src": "part"
+  },
+  {
+   "from": "pottery",
+   "to": "crucible_steel",
+   "type": "enables",
+   "note": "refractory clay pots",
+   "src": "part"
+  },
+  {
+   "from": "finery_forge",
+   "to": "crucible_steel",
+   "type": "input",
+   "note": "Swedish bar iron",
+   "src": "part"
+  },
+  {
+   "from": "crucible_steel",
+   "to": "bessemer_steel",
+   "type": "replaces",
+   "note": "small dear batches to tons per blow",
+   "src": "part"
+  },
+  {
+   "from": "blast_furnace",
+   "to": "bessemer_steel",
+   "type": "input",
+   "note": "molten low-phosphorus pig",
+   "src": "part"
+  },
+  {
+   "from": "bessemer_steel",
+   "to": "open_hearth_steel",
+   "type": "replaces",
+   "note": "controllable melt, takes scrap; led by 1900",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "open_hearth_steel",
+   "type": "input",
+   "note": "gas producers",
+   "src": "part"
+  },
+  {
+   "from": "bessemer_steel",
+   "to": "basic_process",
+   "type": "enables",
+   "note": "converter given a dolomite lining",
+   "src": "part"
+  },
+  {
+   "from": "basic_process",
+   "to": "basic_slag_fertiliser",
+   "type": "byproduct",
+   "note": "phosphorus slag",
+   "src": "part"
+  },
+  {
+   "from": "rolling_mill",
+   "to": "wrought_iron_rails",
+   "type": "enables",
+   "note": "rails rolled, not cast",
+   "src": "part"
+  },
+  {
+   "from": "puddling",
+   "to": "wrought_iron_rails",
+   "type": "input",
+   "note": "wrought iron",
+   "src": "part"
+  },
+  {
+   "from": "blast_furnace",
+   "to": "iron_frame_mill",
+   "type": "input",
+   "note": "cast-iron columns and beams",
+   "src": "part"
+  },
+  {
+   "from": "mechanised_spinning",
+   "to": "iron_frame_mill",
+   "type": "enables",
+   "note": "mills that must not burn",
+   "src": "part"
+  },
+  {
+   "from": "iron_frame_mill",
+   "to": "crystal_palace",
+   "type": "enables",
+   "note": "iron frame of standard parts",
+   "src": "part"
+  },
+  {
+   "from": "iron_frame_mill",
+   "to": "steel_frame",
+   "type": "enables",
+   "note": "metal frame lineage",
+   "src": "general"
+  },
+  {
+   "from": "weaving",
+   "to": "flying_shuttle",
+   "type": "enables",
+   "note": "fitted to the handloom",
+   "src": "part"
+  },
+  {
+   "from": "flying_shuttle",
+   "to": "spinning_jenny",
+   "type": "enables",
+   "note": "yarn demand doubled: spinning bottleneck",
+   "src": "part"
+  },
+  {
+   "from": "spinning",
+   "to": "spinning_jenny",
+   "type": "replaces",
+   "note": "8 to 120 spindles per spinner",
+   "src": "part"
+  },
+  {
+   "from": "putting_out",
+   "to": "spinning_jenny",
+   "type": "enables",
+   "note": "cottage machine on merchant credit",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "mechanised_spinning",
+   "type": "enables",
+   "note": "wheel and millwright",
+   "src": "part"
+  },
+  {
+   "from": "cotton",
+   "to": "mechanised_spinning",
+   "type": "input",
+   "note": "raw cotton",
+   "src": "part"
+  },
+  {
+   "from": "patent_system",
+   "to": "mechanised_spinning",
+   "type": "enables",
+   "note": "Arkwright's patents, overturned 1785",
+   "src": "part"
+  },
+  {
+   "from": "spinning_jenny",
+   "to": "spinning_mule",
+   "type": "enables",
+   "note": "carriage of spindles",
+   "src": "part"
+  },
+  {
+   "from": "mechanised_spinning",
+   "to": "spinning_mule",
+   "type": "enables",
+   "note": "drafting rollers",
+   "src": "part"
+  },
+  {
+   "from": "spinning_mule",
+   "to": "self_acting_mule",
+   "type": "enables",
+   "note": "mule made automatic",
+   "src": "part"
+  },
+  {
+   "from": "machine_tools",
+   "to": "self_acting_mule",
+   "type": "enables",
+   "note": "engineering workshop built it",
+   "src": "part"
+  },
+  {
+   "from": "rotative_engine",
+   "to": "steam_cotton_mill",
+   "type": "enables",
+   "note": "mills freed from streams",
+   "src": "part"
+  },
+  {
+   "from": "mechanised_spinning",
+   "to": "steam_cotton_mill",
+   "type": "enables",
+   "note": "machines moved to steam",
+   "src": "part"
+  },
+  {
+   "from": "rotative_engine",
+   "to": "power_loom",
+   "type": "enables",
+   "note": "weaving by power",
+   "src": "part"
+  },
+  {
+   "from": "weaving",
+   "to": "handloom_weaving_boom",
+   "type": "enables",
+   "note": "the handloom trade",
+   "src": "part"
+  },
+  {
+   "from": "mechanised_spinning",
+   "to": "handloom_weaving_boom",
+   "type": "input",
+   "note": "cheap machine yarn",
+   "src": "part"
+  },
+  {
+   "from": "handloom_weaving_boom",
+   "to": "power_loom",
+   "type": "replaces",
+   "note": "weavers displaced; piece rates halved",
+   "src": "part"
+  },
+  {
+   "from": "cotton",
+   "to": "cotton_gin",
+   "type": "enables",
+   "note": "upland cotton to clean",
+   "src": "part"
+  },
+  {
+   "from": "mechanised_spinning",
+   "to": "cotton_gin",
+   "type": "enables",
+   "note": "demand of the British mills",
+   "src": "part"
+  },
+  {
+   "from": "cotton_gin",
+   "to": "cotton_plantation",
+   "type": "enables",
+   "note": "upland cotton made cleanable",
+   "src": "part"
+  },
+  {
+   "from": "slavery",
+   "to": "cotton_plantation",
+   "type": "enables",
+   "note": "coerced labour on new land",
+   "src": "part"
+  },
+  {
+   "from": "cotton",
+   "to": "cotton_plantation",
+   "type": "input",
+   "note": "upland cotton crop",
+   "src": "part"
+  },
+  {
+   "from": "bills_of_exchange",
+   "to": "cotton_factor_credit",
+   "type": "enables",
+   "note": "crop financed by bills",
+   "src": "part"
+  },
+  {
+   "from": "slavery",
+   "to": "cotton_factor_credit",
+   "type": "enables",
+   "note": "enslaved people as collateral",
+   "src": "part"
+  },
+  {
+   "from": "cotton",
+   "to": "liverpool_cotton_market",
+   "type": "input",
+   "note": "raw cotton from West Indies, Brazil, US",
+   "src": "part"
+  },
+  {
+   "from": "cotton_factor_credit",
+   "to": "cotton_plantation",
+   "type": "enables",
+   "note": "planters borrowed on land and slaves",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "liverpool_cotton_market",
+   "type": "enables",
+   "note": "slave-trade docks and credit reused",
+   "src": "part"
+  },
+  {
+   "from": "river_navigations",
+   "to": "liverpool_cotton_market",
+   "type": "enables",
+   "note": "Mersey and Irwell carriage inland",
+   "src": "part"
+  },
+  {
+   "from": "liverpool_cotton_market",
+   "to": "steam_cotton_mill",
+   "type": "input",
+   "note": "raw cotton to Lancashire",
+   "src": "part"
+  },
+  {
+   "from": "household_production",
+   "to": "manufactory",
+   "type": "replaces",
+   "note": "hand workers gathered under one roof",
+   "src": "part"
+  },
+  {
+   "from": "manufactory",
+   "to": "factory_system",
+   "type": "enables",
+   "note": "discipline, division of labour",
+   "src": "part"
+  },
+  {
+   "from": "mechanised_spinning",
+   "to": "factory_system",
+   "type": "enables",
+   "note": "powered machines could not be put out",
+   "src": "part"
+  },
+  {
+   "from": "wage_labour",
+   "to": "factory_system",
+   "type": "enables",
+   "note": "wages by time or piece",
+   "src": "part"
+  },
+  {
+   "from": "putting_out",
+   "to": "factory_system",
+   "type": "replaces",
+   "note": "owner holds tools and material",
+   "src": "part"
+  },
+  {
+   "from": "factory_system",
+   "to": "factory_acts",
+   "type": "enables",
+   "note": "response to child labour in mills",
+   "src": "part"
+  },
+  {
+   "from": "factory_system",
+   "to": "trade_unions",
+   "type": "enables",
+   "note": "wage labour at scale; Combination Acts",
+   "src": "part"
+  },
+  {
+   "from": "cannon_boring_mill",
+   "to": "machine_tools",
+   "type": "enables",
+   "note": "first precision boring",
+   "src": "part"
+  },
+  {
+   "from": "machine_tools",
+   "to": "portsmouth_block_mills",
+   "type": "enables",
+   "note": "45 machine tools for blocks",
+   "src": "part"
+  },
+  {
+   "from": "machine_tools",
+   "to": "standard_screw_threads",
+   "type": "enables",
+   "note": "Maudslay's pupil Whitworth",
+   "src": "part"
+  },
+  {
+   "from": "machine_tools",
+   "to": "textile_machine_makers",
+   "type": "enables",
+   "note": "iron machines to drawings",
+   "src": "part"
+  },
+  {
+   "from": "mechanised_spinning",
+   "to": "textile_machine_makers",
+   "type": "enables",
+   "note": "mills were the customers",
+   "src": "part"
+  },
+  {
+   "from": "mechanised_spinning",
+   "to": "machinery_export_ban",
+   "type": "enables",
+   "note": "protecting the Arkwright system",
+   "src": "part"
+  },
+  {
+   "from": "textile_machine_makers",
+   "to": "locomotive_works",
+   "type": "enables",
+   "note": "Sharp Roberts built Experiment, 1833",
+   "src": "part"
+  },
+  {
+   "from": "coal_wagonway",
+   "to": "locomotive_works",
+   "type": "enables",
+   "note": "Stephenson, colliery enginewright",
+   "src": "part"
+  },
+  {
+   "from": "high_pressure_engine",
+   "to": "locomotive_works",
+   "type": "enables",
+   "note": "light engine for a locomotive",
+   "src": "part"
+  },
+  {
+   "from": "machine_tools",
+   "to": "interchangeable_parts",
+   "type": "enables",
+   "note": "special-purpose machines and gauges",
+   "src": "part"
+  },
+  {
+   "from": "roads",
+   "to": "turnpike_trusts",
+   "type": "enables",
+   "note": "existing roads resurfaced",
+   "src": "part"
+  },
+  {
+   "from": "boats",
+   "to": "river_navigations",
+   "type": "enables",
+   "note": "river boats",
+   "src": "part"
+  },
+  {
+   "from": "river_navigations",
+   "to": "bridgewater_canal",
+   "type": "enables",
+   "note": "locks and Acts for water carriage",
+   "src": "part"
+  },
+  {
+   "from": "canals",
+   "to": "bridgewater_canal",
+   "type": "enables",
+   "note": "the still-water cut",
+   "src": "general"
+  },
+  {
+   "from": "deep_coal_mining",
+   "to": "bridgewater_canal",
+   "type": "enables",
+   "note": "Worsley coal to carry",
+   "src": "part"
+  },
+  {
+   "from": "bridgewater_canal",
+   "to": "steam_cotton_mill",
+   "type": "enables",
+   "note": "Manchester coal price halved",
+   "src": "part"
+  },
+  {
+   "from": "bridgewater_canal",
+   "to": "statutory_company",
+   "type": "enables",
+   "note": "canal model copied by companies",
+   "src": "part"
+  },
+  {
+   "from": "joint_stock_company",
+   "to": "bubble_act",
+   "type": "enables",
+   "note": "the Act restricted joint stock",
+   "src": "part"
+  },
+  {
+   "from": "bubble_act",
+   "to": "statutory_company",
+   "type": "enables",
+   "note": "one company per private Act",
+   "src": "part"
+  },
+  {
+   "from": "bubble_act",
+   "to": "limited_liability",
+   "type": "replaces",
+   "note": "general incorporation, then limited liability",
+   "src": "part"
+  },
+  {
+   "from": "joint_stock_company",
+   "to": "limited_liability",
+   "type": "enables",
+   "note": "shares with capped risk",
+   "src": "part"
+  },
+  {
+   "from": "bills_of_exchange",
+   "to": "country_banks",
+   "type": "enables",
+   "note": "discounting bills",
+   "src": "part"
+  },
+  {
+   "from": "banking",
+   "to": "country_banks",
+   "type": "enables",
+   "note": "note issue",
+   "src": "part"
+  },
+  {
+   "from": "country_banks",
+   "to": "steam_cotton_mill",
+   "type": "enables",
+   "note": "notes and trade credit",
+   "src": "part"
+  },
+  {
+   "from": "coal_wagonway",
+   "to": "railway",
+   "type": "enables",
+   "note": "a grown-up wagonway",
+   "src": "part"
+  },
+  {
+   "from": "wrought_iron_rails",
+   "to": "railway",
+   "type": "input",
+   "note": "rails",
+   "src": "part"
+  },
+  {
+   "from": "locomotive_works",
+   "to": "railway",
+   "type": "enables",
+   "note": "locomotives",
+   "src": "part"
+  },
+  {
+   "from": "high_pressure_engine",
+   "to": "railway",
+   "type": "enables",
+   "note": "high-pressure engines",
+   "src": "part"
+  },
+  {
+   "from": "statutory_company",
+   "to": "railway",
+   "type": "enables",
+   "note": "private Acts with compulsory purchase",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "railway",
+   "type": "input",
+   "note": "fuel and first freight",
+   "src": "part"
+  },
+  {
+   "from": "liverpool_cotton_market",
+   "to": "railway",
+   "type": "enables",
+   "note": "L&M built to break the canal's hold",
+   "src": "part"
+  },
+  {
+   "from": "turnpike_trusts",
+   "to": "railway",
+   "type": "replaces",
+   "note": "land freight about a twentieth of wagons",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "railway_mania",
+   "type": "enables",
+   "note": "lines to finance",
+   "src": "part"
+  },
+  {
+   "from": "stock_exchange",
+   "to": "railway_mania",
+   "type": "enables",
+   "note": "shares traded in London",
+   "src": "part"
+  },
+  {
+   "from": "rotative_engine",
+   "to": "steamship",
+   "type": "enables",
+   "note": "engine turning paddles",
+   "src": "general"
+  },
+  {
+   "from": "coal",
+   "to": "steamship",
+   "type": "input",
+   "note": "coal-fired boilers",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "steamship",
+   "type": "replaces",
+   "note": "steam freed ships from the wind",
+   "src": "general"
+  },
+  {
+   "from": "steamship",
+   "to": "iron_hull_steamship",
+   "type": "enables",
+   "note": "marine engine moved to iron",
+   "src": "part"
+  },
+  {
+   "from": "puddling",
+   "to": "iron_hull_steamship",
+   "type": "input",
+   "note": "wrought-iron plate",
+   "src": "part"
+  },
+  {
+   "from": "iron_hull_steamship",
+   "to": "compound_marine_engine",
+   "type": "enables",
+   "note": "iron hulls and boilers",
+   "src": "part"
+  },
+  {
+   "from": "high_pressure_engine",
+   "to": "compound_marine_engine",
+   "type": "enables",
+   "note": "high-pressure compounding",
+   "src": "part"
+  },
+  {
+   "from": "deep_coal_mining",
+   "to": "coaling_stations",
+   "type": "input",
+   "note": "Welsh steam coal",
+   "src": "part"
+  },
+  {
+   "from": "steamship",
+   "to": "coaling_stations",
+   "type": "enables",
+   "note": "ships that burn coal",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "world_grain_market",
+   "type": "enables",
+   "note": "grain by rail to ports",
+   "src": "part"
+  },
+  {
+   "from": "compound_marine_engine",
+   "to": "world_grain_market",
+   "type": "enables",
+   "note": "cheap ocean freight",
+   "src": "part"
+  },
+  {
+   "from": "coaling_stations",
+   "to": "world_grain_market",
+   "type": "enables",
+   "note": "coal along the routes",
+   "src": "part"
+  },
+  {
+   "from": "milk_dairy",
+   "to": "grass_bleachfields",
+   "type": "input",
+   "note": "buttermilk for souring",
+   "src": "part"
+  },
+  {
+   "from": "alkali_soda",
+   "to": "grass_bleachfields",
+   "type": "input",
+   "note": "lye from wood or kelp ash",
+   "src": "part"
+  },
+  {
+   "from": "sulphuric_acid",
+   "to": "lead_chamber_acid",
+   "type": "enables",
+   "note": "acid known; now made in bulk",
+   "src": "part"
+  },
+  {
+   "from": "grass_bleachfields",
+   "to": "chlorine_bleach",
+   "type": "replaces",
+   "note": "months to days; land released",
+   "src": "part"
+  },
+  {
+   "from": "lead_chamber_acid",
+   "to": "chlorine_bleach",
+   "type": "input",
+   "note": "sulphuric acid",
+   "src": "part"
+  },
+  {
+   "from": "salt_making",
+   "to": "chlorine_bleach",
+   "type": "input",
+   "note": "salt",
+   "src": "part"
+  },
+  {
+   "from": "lime",
+   "to": "chlorine_bleach",
+   "type": "input",
+   "note": "lime",
+   "src": "part"
+  },
+  {
+   "from": "lead_chamber_acid",
+   "to": "leblanc_soda",
+   "type": "input",
+   "note": "acid for salt cake",
+   "src": "part"
+  },
+  {
+   "from": "salt_making",
+   "to": "leblanc_soda",
+   "type": "input",
+   "note": "Cheshire salt",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "leblanc_soda",
+   "type": "input",
+   "note": "coal for the black ash",
+   "src": "part"
+  },
+  {
+   "from": "lime",
+   "to": "leblanc_soda",
+   "type": "input",
+   "note": "limestone",
+   "src": "part"
+  },
+  {
+   "from": "alkali_soda",
+   "to": "leblanc_soda",
+   "type": "replaces",
+   "note": "kelp-burning and barilla collapse",
+   "src": "part"
+  },
+  {
+   "from": "leblanc_soda",
+   "to": "leblanc_waste",
+   "type": "byproduct",
+   "note": "acid gas and galligu",
+   "src": "part"
+  },
+  {
+   "from": "leblanc_waste",
+   "to": "alkali_act",
+   "type": "enables",
+   "note": "poisoned land forced the law",
+   "src": "part"
+  },
+  {
+   "from": "alkali_act",
+   "to": "hcl_chlorine_recovery",
+   "type": "enables",
+   "note": "95% capture required",
+   "src": "part"
+  },
+  {
+   "from": "leblanc_waste",
+   "to": "hcl_chlorine_recovery",
+   "type": "input",
+   "note": "captured hydrogen chloride",
+   "src": "part"
+  },
+  {
+   "from": "leblanc_soda",
+   "to": "solvay_soda",
+   "type": "replaces",
+   "note": "far less waste; Leblanc gone by 1900",
+   "src": "part"
+  },
+  {
+   "from": "salt_making",
+   "to": "solvay_soda",
+   "type": "input",
+   "note": "brine",
+   "src": "part"
+  },
+  {
+   "from": "leblanc_soda",
+   "to": "industrial_soap",
+   "type": "input",
+   "note": "soda",
+   "src": "part"
+  },
+  {
+   "from": "rendering_tallow",
+   "to": "industrial_soap",
+   "type": "input",
+   "note": "tallow or vegetable oil",
+   "src": "part"
+  },
+  {
+   "from": "glass",
+   "to": "cast_plate_glass",
+   "type": "enables",
+   "note": "glassmaking skill",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "cast_plate_glass",
+   "type": "input",
+   "note": "St Helens coal",
+   "src": "part"
+  },
+  {
+   "from": "glass",
+   "to": "cylinder_sheet_glass",
+   "type": "enables",
+   "note": "blown glass",
+   "src": "part"
+  },
+  {
+   "from": "leblanc_soda",
+   "to": "cylinder_sheet_glass",
+   "type": "input",
+   "note": "soda for glass",
+   "src": "part"
+  },
+  {
+   "from": "cylinder_sheet_glass",
+   "to": "crystal_palace",
+   "type": "input",
+   "note": "300,000 panes",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "crystal_palace",
+   "type": "enables",
+   "note": "brought the parts",
+   "src": "part"
+  },
+  {
+   "from": "lead_chamber_acid",
+   "to": "superphosphate",
+   "type": "input",
+   "note": "sulphuric acid on phosphate",
+   "src": "part"
+  },
+  {
+   "from": "rendering_tallow",
+   "to": "superphosphate",
+   "type": "input",
+   "note": "bones from carcasses",
+   "src": "part"
+  },
+  {
+   "from": "coal_tar_chemicals",
+   "to": "synthetic_dyes",
+   "type": "input",
+   "note": "benzene to aniline",
+   "src": "part"
+  },
+  {
+   "from": "dyeing",
+   "to": "synthetic_dyes",
+   "type": "replaces",
+   "note": "plant colours displaced",
+   "src": "part"
+  },
+  {
+   "from": "banking",
+   "to": "synthetic_dyes",
+   "type": "enables",
+   "note": "bank finance of German firms",
+   "src": "part"
+  },
+  {
+   "from": "synthetic_dyes",
+   "to": "synthetic_alizarin_indigo",
+   "type": "enables",
+   "note": "organic synthesis of plant dyes",
+   "src": "part"
+  },
+  {
+   "from": "dyeing",
+   "to": "synthetic_alizarin_indigo",
+   "type": "replaces",
+   "note": "madder fields and Bengal indigo collapse",
+   "src": "part"
+  },
+  {
+   "from": "lime",
+   "to": "portland_cement",
+   "type": "input",
+   "note": "chalk and clay clinker",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "portland_cement",
+   "type": "input",
+   "note": "coal kilns",
+   "src": "part"
+  },
+  {
+   "from": "rotative_engine",
+   "to": "portland_cement",
+   "type": "enables",
+   "note": "steam grinding mills",
+   "src": "part"
+  },
+  {
+   "from": "portland_cement",
+   "to": "reinforced_concrete",
+   "type": "enables",
+   "note": "concrete matrix",
+   "src": "part"
+  },
+  {
+   "from": "bessemer_steel",
+   "to": "reinforced_concrete",
+   "type": "input",
+   "note": "cheap steel bars",
+   "src": "part"
+  },
+  {
+   "from": "cities",
+   "to": "industrial_town",
+   "type": "enables",
+   "note": "towns on coal and lines",
+   "src": "part"
+  },
+  {
+   "from": "steam_cotton_mill",
+   "to": "industrial_town",
+   "type": "enables",
+   "note": "mills drew workers to towns",
+   "src": "part"
+  },
+  {
+   "from": "industrial_town",
+   "to": "public_health_acts",
+   "type": "enables",
+   "note": "cholera and short lives",
+   "src": "part"
+  },
+  {
+   "from": "public_health_acts",
+   "to": "bazalgette_sewers",
+   "type": "enables",
+   "note": "boards and rates",
+   "src": "part"
+  },
+  {
+   "from": "sewers",
+   "to": "bazalgette_sewers",
+   "type": "enables",
+   "note": "brick sewers",
+   "src": "part"
+  },
+  {
+   "from": "portland_cement",
+   "to": "bazalgette_sewers",
+   "type": "input",
+   "note": "cement at vast scale",
+   "src": "part"
+  },
+  {
+   "from": "steam_engine",
+   "to": "bazalgette_sewers",
+   "type": "enables",
+   "note": "steam pumps lifted sewage",
+   "src": "part"
+  },
+  {
+   "from": "steam_engine",
+   "to": "electricity",
+   "type": "enables",
+   "note": "steam engines drove the first dynamos",
+   "src": "part"
+  },
+  {
+   "from": "copper_smelting",
+   "to": "electricity",
+   "type": "input",
+   "note": "copper wire and windings",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "incandescent_lamp",
+   "type": "enables",
+   "note": "current for filaments",
+   "src": "part"
+  },
+  {
+   "from": "glass",
+   "to": "incandescent_lamp",
+   "type": "input",
+   "note": "evacuated glass bulbs",
+   "src": "part"
+  },
+  {
+   "from": "gas_lighting",
+   "to": "incandescent_lamp",
+   "type": "replaces",
+   "note": "gas to electric light",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "electric_grid",
+   "type": "enables",
+   "note": "dynamos in a station",
+   "src": "part"
+  },
+  {
+   "from": "incandescent_lamp",
+   "to": "electric_grid",
+   "type": "enables",
+   "note": "light the first demand",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "electric_grid",
+   "type": "input",
+   "note": "station fuel",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "electric_grid",
+   "type": "enables",
+   "note": "coal brought by rail",
+   "src": "part"
+  },
+  {
+   "from": "banking",
+   "to": "electric_grid",
+   "type": "enables",
+   "note": "Morgan financed Edison",
+   "src": "part"
+  },
+  {
+   "from": "electrolytic_copper",
+   "to": "electric_grid",
+   "type": "input",
+   "note": "copper cables",
+   "src": "part"
+  },
+  {
+   "from": "steam_engine",
+   "to": "steam_turbine",
+   "type": "enables",
+   "note": "steam layer continued",
+   "src": "part"
+  },
+  {
+   "from": "rotative_engine",
+   "to": "steam_turbine",
+   "type": "replaces",
+   "note": "turbine replaced piston engines at dynamos",
+   "src": "part"
+  },
+  {
+   "from": "electric_grid",
+   "to": "ac_transmission",
+   "type": "enables",
+   "note": "station networks to extend",
+   "src": "part"
+  },
+  {
+   "from": "ac_transmission",
+   "to": "hydroelectric_power",
+   "type": "enables",
+   "note": "power sent from the falls",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "hydroelectric_power",
+   "type": "enables",
+   "note": "the mill race's descendant",
+   "src": "part"
+  },
+  {
+   "from": "electric_grid",
+   "to": "electrical_equipment_oligopoly",
+   "type": "enables",
+   "note": "Edison companies merged into GE",
+   "src": "part"
+  },
+  {
+   "from": "patent_system",
+   "to": "electrical_equipment_oligopoly",
+   "type": "enables",
+   "note": "Tesla's and Edison's patents",
+   "src": "part"
+  },
+  {
+   "from": "patent_system",
+   "to": "ac_transmission",
+   "type": "enables",
+   "note": "Tesla's motor patents",
+   "src": "part"
+  },
+  {
+   "from": "electric_grid",
+   "to": "utility_franchise",
+   "type": "enables",
+   "note": "load factor economics",
+   "src": "part"
+  },
+  {
+   "from": "steam_turbine",
+   "to": "utility_franchise",
+   "type": "enables",
+   "note": "large stations, falling unit cost",
+   "src": "general"
+  },
+  {
+   "from": "utility_franchise",
+   "to": "rural_electrification",
+   "type": "enables",
+   "note": "private utilities left farms unserved",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "rural_electrification",
+   "type": "enables",
+   "note": "federal loans to cooperatives",
+   "src": "part"
+  },
+  {
+   "from": "copper_smelting",
+   "to": "electrolytic_copper",
+   "type": "input",
+   "note": "smelter copper refined by current",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "electrolytic_copper",
+   "type": "enables",
+   "note": "copper depends on power: a loop",
+   "src": "part"
+  },
+  {
+   "from": "rotative_engine",
+   "to": "line_shaft_drive",
+   "type": "enables",
+   "note": "one engine drives every shaft",
+   "src": "general"
+  },
+  {
+   "from": "line_shaft_drive",
+   "to": "unit_drive",
+   "type": "replaces",
+   "note": "single-storey flow plants",
+   "src": "part"
+  },
+  {
+   "from": "electric_grid",
+   "to": "unit_drive",
+   "type": "enables",
+   "note": "motors fed from stations",
+   "src": "part"
+  },
+  {
+   "from": "electric_grid",
+   "to": "household_appliances",
+   "type": "enables",
+   "note": "wired houses",
+   "src": "part"
+  },
+  {
+   "from": "consumer_credit",
+   "to": "household_appliances",
+   "type": "enables",
+   "note": "instalment plans",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "aluminium",
+   "type": "input",
+   "note": "13 to 15 kWh per kg",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "chlor_alkali",
+   "type": "enables",
+   "note": "brine split by current",
+   "src": "part"
+  },
+  {
+   "from": "salt_making",
+   "to": "chlor_alkali",
+   "type": "input",
+   "note": "brine",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "electric_arc_steel",
+   "type": "enables",
+   "note": "arc heat",
+   "src": "part"
+  },
+  {
+   "from": "salt_making",
+   "to": "oil_petroleum",
+   "type": "enables",
+   "note": "salt-well boring the model",
+   "src": "part"
+  },
+  {
+   "from": "property_in_land",
+   "to": "oil_petroleum",
+   "type": "enables",
+   "note": "landowner owned the subsurface",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "oil_petroleum",
+   "type": "enables",
+   "note": "tank cars before pipelines",
+   "src": "part"
+  },
+  {
+   "from": "oil_petroleum",
+   "to": "kerosene_refining",
+   "type": "input",
+   "note": "crude oil",
+   "src": "part"
+  },
+  {
+   "from": "kerosene_refining",
+   "to": "standard_oil_trust",
+   "type": "enables",
+   "note": "refiners bought out",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "standard_oil_trust",
+   "type": "enables",
+   "note": "railway rebates",
+   "src": "part"
+  },
+  {
+   "from": "pipelines",
+   "to": "standard_oil_trust",
+   "type": "enables",
+   "note": "Standard built pipelines",
+   "src": "part"
+  },
+  {
+   "from": "kerosene_refining",
+   "to": "gasoline",
+   "type": "byproduct",
+   "note": "light fraction, at first dumped",
+   "src": "part"
+  },
+  {
+   "from": "kerosene_refining",
+   "to": "incandescent_lamp",
+   "type": "replaces",
+   "note": "electric light took kerosene's market",
+   "src": "part"
+  },
+  {
+   "from": "kerosene_refining",
+   "to": "asphalt_paving",
+   "type": "byproduct",
+   "note": "heaviest residue",
+   "src": "part"
+  },
+  {
+   "from": "kerosene_refining",
+   "to": "diesel_engine",
+   "type": "input",
+   "note": "diesel oil cut",
+   "src": "part"
+  },
+  {
+   "from": "kerosene_refining",
+   "to": "jet_engine",
+   "type": "input",
+   "note": "kerosene as jet fuel",
+   "src": "part"
+  },
+  {
+   "from": "kerosene_refining",
+   "to": "petrochemical_cracking",
+   "type": "byproduct",
+   "note": "naphtha and feedstocks",
+   "src": "part"
+  },
+  {
+   "from": "natural_gas",
+   "to": "petrochemical_cracking",
+   "type": "input",
+   "note": "ethane",
+   "src": "part"
+  },
+  {
+   "from": "coal_tar_chemicals",
+   "to": "petrochemical_cracking",
+   "type": "replaces",
+   "note": "feedstock switched from coal to oil and gas",
+   "src": "part"
+  },
+  {
+   "from": "steam_engine",
+   "to": "internal_combustion_engine",
+   "type": "enables",
+   "note": "model for the cycle",
+   "src": "part"
+  },
+  {
+   "from": "machine_tools",
+   "to": "internal_combustion_engine",
+   "type": "enables",
+   "note": "fine tolerances",
+   "src": "part"
+  },
+  {
+   "from": "internal_combustion_engine",
+   "to": "diesel_engine",
+   "type": "enables",
+   "note": "compression variant",
+   "src": "part"
+  },
+  {
+   "from": "internal_combustion_engine",
+   "to": "motor_vehicle",
+   "type": "enables",
+   "note": "light engine in a vehicle",
+   "src": "part"
+  },
+  {
+   "from": "gasoline",
+   "to": "motor_vehicle",
+   "type": "input",
+   "note": "fuel",
+   "src": "part"
+  },
+  {
+   "from": "open_hearth_steel",
+   "to": "motor_vehicle",
+   "type": "input",
+   "note": "steel sheet and frames",
+   "src": "part"
+  },
+  {
+   "from": "pneumatic_tyre",
+   "to": "river_rouge_integration",
+   "type": "input",
+   "note": "Rouge's own tyre plant",
+   "src": "part"
+  },
+  {
+   "from": "draught_animals",
+   "to": "motor_vehicle",
+   "type": "replaces",
+   "note": "end of the horse economy",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "motor_vehicle",
+   "type": "replaces",
+   "note": "roads took rail passenger traffic",
+   "src": "part"
+  },
+  {
+   "from": "motor_vehicle",
+   "to": "moving_assembly_line",
+   "type": "enables",
+   "note": "one model in volume",
+   "src": "part"
+  },
+  {
+   "from": "interchangeable_parts",
+   "to": "moving_assembly_line",
+   "type": "enables",
+   "note": "parts that fit without fitting",
+   "src": "part"
+  },
+  {
+   "from": "factory_system",
+   "to": "moving_assembly_line",
+   "type": "enables",
+   "note": "the plant and wage labour",
+   "src": "part"
+  },
+  {
+   "from": "moving_assembly_line",
+   "to": "river_rouge_integration",
+   "type": "enables",
+   "note": "scale of a single model",
+   "src": "part"
+  },
+  {
+   "from": "blast_furnace",
+   "to": "river_rouge_integration",
+   "type": "input",
+   "note": "Ford's own furnaces and steel mill",
+   "src": "part"
+  },
+  {
+   "from": "river_rouge_integration",
+   "to": "lean_supplier_networks",
+   "type": "replaces",
+   "note": "parts from affiliated suppliers",
+   "src": "part"
+  },
+  {
+   "from": "corporation",
+   "to": "multidivisional_firm",
+   "type": "enables",
+   "note": "large firm reorganised",
+   "src": "part"
+  },
+  {
+   "from": "moving_assembly_line",
+   "to": "multidivisional_firm",
+   "type": "enables",
+   "note": "GM's answer to Ford's one model",
+   "src": "part"
+  },
+  {
+   "from": "consumer_credit",
+   "to": "multidivisional_firm",
+   "type": "enables",
+   "note": "GMAC sold cars on credit",
+   "src": "part"
+  },
+  {
+   "from": "banking",
+   "to": "consumer_credit",
+   "type": "enables",
+   "note": "finance arms lending to households",
+   "src": "part"
+  },
+  {
+   "from": "rubber",
+   "to": "vulcanisation",
+   "type": "enables",
+   "note": "raw latex",
+   "src": "part"
+  },
+  {
+   "from": "vulcanisation",
+   "to": "pneumatic_tyre",
+   "type": "enables",
+   "note": "durable rubber",
+   "src": "part"
+  },
+  {
+   "from": "rubber",
+   "to": "rubber_plantations",
+   "type": "replaces",
+   "note": "Asian plantations displaced wild Amazon rubber",
+   "src": "part"
+  },
+  {
+   "from": "rubber_plantations",
+   "to": "pneumatic_tyre",
+   "type": "input",
+   "note": "plantation rubber",
+   "src": "part"
+  },
+  {
+   "from": "rubber_plantations",
+   "to": "synthetic_rubber",
+   "type": "replaces",
+   "note": "made in three years when plantations fell",
+   "src": "part"
+  },
+  {
+   "from": "oil_petroleum",
+   "to": "synthetic_rubber",
+   "type": "input",
+   "note": "petroleum feedstocks",
+   "src": "part"
+  },
+  {
+   "from": "roads",
+   "to": "highway_finance",
+   "type": "enables",
+   "note": "horse roads rebuilt",
+   "src": "part"
+  },
+  {
+   "from": "motor_vehicle",
+   "to": "highway_finance",
+   "type": "enables",
+   "note": "cars needed roads",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "highway_finance",
+   "type": "enables",
+   "note": "petrol taxes earmarked",
+   "src": "part"
+  },
+  {
+   "from": "asphalt_paving",
+   "to": "highway_finance",
+   "type": "input",
+   "note": "road surfaces",
+   "src": "part"
+  },
+  {
+   "from": "portland_cement",
+   "to": "highway_finance",
+   "type": "input",
+   "note": "concrete surfaces",
+   "src": "part"
+  },
+  {
+   "from": "internal_combustion_engine",
+   "to": "tractor",
+   "type": "enables",
+   "note": "engine on the farm",
+   "src": "part"
+  },
+  {
+   "from": "gasoline",
+   "to": "tractor",
+   "type": "input",
+   "note": "fuel delivered to every farm",
+   "src": "part"
+  },
+  {
+   "from": "draught_animals",
+   "to": "tractor",
+   "type": "replaces",
+   "note": "freed ~93m acres from feeding beasts",
+   "src": "part"
+  },
+  {
+   "from": "coal_tar_chemicals",
+   "to": "plastics",
+   "type": "input",
+   "note": "phenol for Bakelite",
+   "src": "part"
+  },
+  {
+   "from": "chlor_alkali",
+   "to": "plastics",
+   "type": "input",
+   "note": "chlorine for PVC",
+   "src": "part"
+  },
+  {
+   "from": "industrial_research_lab",
+   "to": "synthetic_fibres",
+   "type": "enables",
+   "note": "DuPont's laboratory",
+   "src": "part"
+  },
+  {
+   "from": "coal_tar_chemicals",
+   "to": "synthetic_fibres",
+   "type": "input",
+   "note": "benzene-based intermediates",
+   "src": "general"
+  },
+  {
+   "from": "synthetic_dyes",
+   "to": "industrial_research_lab",
+   "type": "enables",
+   "note": "dye firms invented the lab",
+   "src": "part"
+  },
+  {
+   "from": "industrial_research_lab",
+   "to": "synthetic_drugs",
+   "type": "enables",
+   "note": "make, test, purify molecules",
+   "src": "part"
+  },
+  {
+   "from": "synthetic_dyes",
+   "to": "synthetic_drugs",
+   "type": "enables",
+   "note": "dyes that stain cells",
+   "src": "part"
+  },
+  {
+   "from": "synthetic_drugs",
+   "to": "drug_regulation",
+   "type": "enables",
+   "note": "Elixir Sulfanilamide deaths",
+   "src": "part"
+  },
+  {
+   "from": "brewing",
+   "to": "penicillin_fermentation",
+   "type": "enables",
+   "note": "deep-tank fermentation from brewing",
+   "src": "part"
+  },
+  {
+   "from": "industrial_research_lab",
+   "to": "bell_labs",
+   "type": "enables",
+   "note": "copied the research lab",
+   "src": "part"
+  },
+  {
+   "from": "steamship",
+   "to": "chilean_nitrate",
+   "type": "enables",
+   "note": "nitrate shipped from Chile",
+   "src": "general"
+  },
+  {
+   "from": "chilean_nitrate",
+   "to": "synthetic_nitrogen",
+   "type": "replaces",
+   "note": "blockade cut Germany off",
+   "src": "part"
+  },
+  {
+   "from": "manure",
+   "to": "synthetic_nitrogen",
+   "type": "replaces",
+   "note": "manure and legumes to bought nitrogen",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "synthetic_nitrogen",
+   "type": "input",
+   "note": "hydrogen via water gas",
+   "src": "part"
+  },
+  {
+   "from": "natural_gas",
+   "to": "synthetic_nitrogen",
+   "type": "input",
+   "note": "hydrogen by steam reforming",
+   "src": "part"
+  },
+  {
+   "from": "open_hearth_steel",
+   "to": "synthetic_nitrogen",
+   "type": "input",
+   "note": "steel pressure vessels",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "synthetic_nitrogen",
+   "type": "input",
+   "note": "compressors",
+   "src": "part"
+  },
+  {
+   "from": "industrial_research_lab",
+   "to": "synthetic_nitrogen",
+   "type": "enables",
+   "note": "BASF's chemists and plant",
+   "src": "part"
+  },
+  {
+   "from": "synthetic_nitrogen",
+   "to": "semi_dwarf_varieties",
+   "type": "enables",
+   "note": "seed bred to take heavy fertiliser",
+   "src": "part"
+  },
+  {
+   "from": "synthetic_nitrogen",
+   "to": "green_revolution",
+   "type": "input",
+   "note": "fertiliser",
+   "src": "part"
+  },
+  {
+   "from": "semi_dwarf_varieties",
+   "to": "green_revolution",
+   "type": "enables",
+   "note": "the new seed",
+   "src": "part"
+  },
+  {
+   "from": "ddt_pesticides",
+   "to": "green_revolution",
+   "type": "input",
+   "note": "pesticides",
+   "src": "part"
+  },
+  {
+   "from": "irrigation_farming",
+   "to": "green_revolution",
+   "type": "enables",
+   "note": "irrigated land",
+   "src": "part"
+  },
+  {
+   "from": "groundwater_pumping",
+   "to": "green_revolution",
+   "type": "input",
+   "note": "Punjab tubewells",
+   "src": "part"
+  },
+  {
+   "from": "banking",
+   "to": "green_revolution",
+   "type": "enables",
+   "note": "farm credit",
+   "src": "part"
+  },
+  {
+   "from": "industrial_research_lab",
+   "to": "ddt_pesticides",
+   "type": "enables",
+   "note": "found in a company laboratory",
+   "src": "general"
+  },
+  {
+   "from": "electric_grid",
+   "to": "groundwater_pumping",
+   "type": "enables",
+   "note": "electric pumps",
+   "src": "part"
+  },
+  {
+   "from": "diesel_engine",
+   "to": "groundwater_pumping",
+   "type": "enables",
+   "note": "diesel pumps",
+   "src": "part"
+  },
+  {
+   "from": "irrigation_farming",
+   "to": "multipurpose_dams",
+   "type": "enables",
+   "note": "irrigation command areas",
+   "src": "part"
+  },
+  {
+   "from": "hydroelectric_power",
+   "to": "multipurpose_dams",
+   "type": "enables",
+   "note": "hydro paid part of the dam",
+   "src": "part"
+  },
+  {
+   "from": "reinforced_concrete",
+   "to": "multipurpose_dams",
+   "type": "input",
+   "note": "concrete",
+   "src": "general"
+  },
+  {
+   "from": "industrial_town",
+   "to": "germ_theory",
+   "type": "enables",
+   "note": "crowded cholera towns studied",
+   "src": "part"
+  },
+  {
+   "from": "piped_water",
+   "to": "water_filtration",
+   "type": "enables",
+   "note": "mains to filter",
+   "src": "part"
+  },
+  {
+   "from": "industrial_town",
+   "to": "water_filtration",
+   "type": "enables",
+   "note": "cholera and typhoid in crowded cities",
+   "src": "part"
+  },
+  {
+   "from": "water_filtration",
+   "to": "chlorination",
+   "type": "enables",
+   "note": "filtered supply then dosed",
+   "src": "part"
+  },
+  {
+   "from": "germ_theory",
+   "to": "chlorination",
+   "type": "enables",
+   "note": "kill what the water carries",
+   "src": "part"
+  },
+  {
+   "from": "chlor_alkali",
+   "to": "chlorination",
+   "type": "input",
+   "note": "chlorine",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "municipal_bonds",
+   "type": "enables",
+   "note": "rates to repay",
+   "src": "part"
+  },
+  {
+   "from": "municipal_bonds",
+   "to": "bazalgette_sewers",
+   "type": "enables",
+   "note": "borrowing on the rates",
+   "src": "part"
+  },
+  {
+   "from": "municipal_bonds",
+   "to": "chlorination",
+   "type": "enables",
+   "note": "municipal works",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "telegraph",
+   "type": "enables",
+   "note": "rights of way beside the track",
+   "src": "part"
+  },
+  {
+   "from": "copper_smelting",
+   "to": "telegraph",
+   "type": "input",
+   "note": "copper wire",
+   "src": "part"
+  },
+  {
+   "from": "pottery",
+   "to": "telegraph",
+   "type": "input",
+   "note": "porcelain insulators",
+   "src": "part"
+  },
+  {
+   "from": "telegraph",
+   "to": "railway_telegraph_dispatch",
+   "type": "enables",
+   "note": "instant messages",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "railway_telegraph_dispatch",
+   "type": "enables",
+   "note": "single track both ways",
+   "src": "part"
+  },
+  {
+   "from": "telegraph",
+   "to": "submarine_cable",
+   "type": "enables",
+   "note": "telegraph laid under sea",
+   "src": "part"
+  },
+  {
+   "from": "gutta_percha",
+   "to": "submarine_cable",
+   "type": "input",
+   "note": "only underwater insulator",
+   "src": "part"
+  },
+  {
+   "from": "telegraph",
+   "to": "commodity_futures",
+   "type": "enables",
+   "note": "prices by wire; the ticker",
+   "src": "part"
+  },
+  {
+   "from": "markets_fairs",
+   "to": "commodity_futures",
+   "type": "enables",
+   "note": "existing grain markets",
+   "src": "part"
+  },
+  {
+   "from": "telegraph",
+   "to": "managerial_enterprise",
+   "type": "enables",
+   "note": "head office coordinates daily",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "managerial_enterprise",
+   "type": "enables",
+   "note": "first big managed firm",
+   "src": "part"
+  },
+  {
+   "from": "managerial_enterprise",
+   "to": "multidivisional_firm",
+   "type": "enables",
+   "note": "professional management",
+   "src": "part"
+  },
+  {
+   "from": "telegraph",
+   "to": "telephone",
+   "type": "enables",
+   "note": "poles and know-how",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "telephone",
+   "type": "enables",
+   "note": "power",
+   "src": "part"
+  },
+  {
+   "from": "telephone",
+   "to": "telephone_exchange",
+   "type": "enables",
+   "note": "subscribers to switch",
+   "src": "part"
+  },
+  {
+   "from": "telephone",
+   "to": "regulated_telephone_monopoly",
+   "type": "enables",
+   "note": "network effect favoured one network",
+   "src": "part"
+  },
+  {
+   "from": "regulated_telephone_monopoly",
+   "to": "bell_labs",
+   "type": "enables",
+   "note": "secure rents funded research",
+   "src": "part"
+  },
+  {
+   "from": "incandescent_lamp",
+   "to": "vacuum_tube",
+   "type": "enables",
+   "note": "Edison effect; pumping glass empty",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "radio",
+   "type": "enables",
+   "note": "theory and power",
+   "src": "part"
+  },
+  {
+   "from": "telegraph",
+   "to": "radio",
+   "type": "enables",
+   "note": "wireless telegraphy first",
+   "src": "general"
+  },
+  {
+   "from": "radio",
+   "to": "broadcast_advertising",
+   "type": "enables",
+   "note": "transmitters",
+   "src": "part"
+  },
+  {
+   "from": "vacuum_tube",
+   "to": "broadcast_advertising",
+   "type": "enables",
+   "note": "amplified broadcasting",
+   "src": "part"
+  },
+  {
+   "from": "electrical_equipment_oligopoly",
+   "to": "broadcast_advertising",
+   "type": "enables",
+   "note": "RCA formed from GE's patents",
+   "src": "part"
+  },
+  {
+   "from": "radio",
+   "to": "spectrum_licensing",
+   "type": "enables",
+   "note": "crowded frequencies",
+   "src": "part"
+  },
+  {
+   "from": "radio",
+   "to": "radar",
+   "type": "enables",
+   "note": "radio engineering turned to detection",
+   "src": "part"
+  },
+  {
+   "from": "telephone_exchange",
+   "to": "internet",
+   "type": "enables",
+   "note": "leased lines and switching",
+   "src": "part"
+  },
+  {
+   "from": "computer",
+   "to": "internet",
+   "type": "enables",
+   "note": "host computers",
+   "src": "part"
+  },
+  {
+   "from": "internet",
+   "to": "digital_platforms",
+   "type": "enables",
+   "note": "near-zero cost per message",
+   "src": "part"
+  },
+  {
+   "from": "submarine_cable",
+   "to": "fibre_optic_backbone",
+   "type": "enables",
+   "note": "old cable routes reused",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "fibre_optic_backbone",
+   "type": "enables",
+   "note": "rail corridors",
+   "src": "part"
+  },
+  {
+   "from": "pipelines",
+   "to": "fibre_optic_backbone",
+   "type": "enables",
+   "note": "pipeline corridors",
+   "src": "part"
+  },
+  {
+   "from": "internal_combustion_engine",
+   "to": "aviation",
+   "type": "enables",
+   "note": "light petrol engine",
+   "src": "part"
+  },
+  {
+   "from": "gasoline",
+   "to": "aviation",
+   "type": "input",
+   "note": "fuel",
+   "src": "part"
+  },
+  {
+   "from": "aluminium",
+   "to": "duralumin",
+   "type": "input",
+   "note": "aluminium base",
+   "src": "part"
+  },
+  {
+   "from": "aviation",
+   "to": "airmail_contracts",
+   "type": "enables",
+   "note": "aircraft to carry mail",
+   "src": "part"
+  },
+  {
+   "from": "postal_service",
+   "to": "airmail_contracts",
+   "type": "enables",
+   "note": "Post Office as buyer",
+   "src": "part"
+  },
+  {
+   "from": "airmail_contracts",
+   "to": "commercial_airlines",
+   "type": "enables",
+   "note": "contracts founded the airlines",
+   "src": "part"
+  },
+  {
+   "from": "duralumin",
+   "to": "commercial_airlines",
+   "type": "input",
+   "note": "metal airframes",
+   "src": "part"
+  },
+  {
+   "from": "aviation",
+   "to": "jet_engine",
+   "type": "enables",
+   "note": "airframes and aerodynamics",
+   "src": "part"
+  },
+  {
+   "from": "jet_engine",
+   "to": "nickel_superalloys",
+   "type": "enables",
+   "note": "blades must hold strength red-hot",
+   "src": "part"
+  },
+  {
+   "from": "commercial_airlines",
+   "to": "icao_air_rights",
+   "type": "enables",
+   "note": "international routes needed rights",
+   "src": "part"
+  },
+  {
+   "from": "commercial_airlines",
+   "to": "air_traffic_control",
+   "type": "enables",
+   "note": "crowded sky; 1956 collision",
+   "src": "part"
+  },
+  {
+   "from": "radar",
+   "to": "air_traffic_control",
+   "type": "enables",
+   "note": "radar control",
+   "src": "part"
+  },
+  {
+   "from": "jet_engine",
+   "to": "aerospace_oligopoly",
+   "type": "enables",
+   "note": "costly engine design",
+   "src": "part"
+  },
+  {
+   "from": "nickel_superalloys",
+   "to": "aerospace_oligopoly",
+   "type": "enables",
+   "note": "long skill in hot metals",
+   "src": "part"
+  },
+  {
+   "from": "jet_engine",
+   "to": "air_cargo",
+   "type": "enables",
+   "note": "fast, large freighters",
+   "src": "part"
+  },
+  {
+   "from": "icao_air_rights",
+   "to": "air_cargo",
+   "type": "enables",
+   "note": "rights to land abroad",
+   "src": "part"
+  },
+  {
+   "from": "machine_tools",
+   "to": "punched_card_tabulator",
+   "type": "enables",
+   "note": "precision mechanisms",
+   "src": "part"
+  },
+  {
+   "from": "record_keeping",
+   "to": "punched_card_tabulator",
+   "type": "enables",
+   "note": "bureaucracies with records to count",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "punched_card_tabulator",
+   "type": "enables",
+   "note": "electric relays",
+   "src": "part"
+  },
+  {
+   "from": "punched_card_tabulator",
+   "to": "computer",
+   "type": "enables",
+   "note": "office machines lineage (IBM)",
+   "src": "part"
+  },
+  {
+   "from": "vacuum_tube",
+   "to": "computer",
+   "type": "enables",
+   "note": "18,000 tubes",
+   "src": "part"
+  },
+  {
+   "from": "bell_labs",
+   "to": "semiconductors",
+   "type": "enables",
+   "note": "transistor invented there",
+   "src": "part"
+  },
+  {
+   "from": "vacuum_tube",
+   "to": "semiconductors",
+   "type": "replaces",
+   "note": "solid state replaced the tube",
+   "src": "part"
+  },
+  {
+   "from": "semiconductors",
+   "to": "integrated_circuit",
+   "type": "enables",
+   "note": "transistors on one chip",
+   "src": "part"
+  },
+  {
+   "from": "printing",
+   "to": "photolithography",
+   "type": "enables",
+   "note": "lithography borrowed from printing",
+   "src": "part"
+  },
+  {
+   "from": "photolithography",
+   "to": "integrated_circuit",
+   "type": "enables",
+   "note": "planar patterning",
+   "src": "part"
+  },
+  {
+   "from": "electric_arc_steel",
+   "to": "hyperpure_silicon",
+   "type": "enables",
+   "note": "arc furnaces make silicon",
+   "src": "part"
+  },
+  {
+   "from": "chlor_alkali",
+   "to": "hyperpure_silicon",
+   "type": "input",
+   "note": "chlorination of silicon",
+   "src": "general"
+  },
+  {
+   "from": "hyperpure_silicon",
+   "to": "integrated_circuit",
+   "type": "input",
+   "note": "wafers",
+   "src": "part"
+  },
+  {
+   "from": "integrated_circuit",
+   "to": "microprocessor",
+   "type": "enables",
+   "note": "whole processor on a chip",
+   "src": "part"
+  },
+  {
+   "from": "integrated_circuit",
+   "to": "pure_play_foundry",
+   "type": "enables",
+   "note": "standard design rules",
+   "src": "part"
+  },
+  {
+   "from": "photolithography",
+   "to": "pure_play_foundry",
+   "type": "enables",
+   "note": "EUV machines",
+   "src": "part"
+  },
+  {
+   "from": "critical_minerals",
+   "to": "pure_play_foundry",
+   "type": "input",
+   "note": "gallium, hafnium, helium",
+   "src": "part"
+  },
+  {
+   "from": "air_cargo",
+   "to": "pure_play_foundry",
+   "type": "enables",
+   "note": "one supply chain across continents",
+   "src": "part"
+  },
+  {
+   "from": "computer",
+   "to": "software_industry",
+   "type": "enables",
+   "note": "machines to program",
+   "src": "part"
+  },
+  {
+   "from": "microprocessor",
+   "to": "data_centres",
+   "type": "enables",
+   "note": "processors by the million",
+   "src": "part"
+  },
+  {
+   "from": "pure_play_foundry",
+   "to": "data_centres",
+   "type": "input",
+   "note": "leading-edge chips",
+   "src": "part"
+  },
+  {
+   "from": "electric_grid",
+   "to": "data_centres",
+   "type": "input",
+   "note": "1.5% of world electricity",
+   "src": "part"
+  },
+  {
+   "from": "internet",
+   "to": "data_centres",
+   "type": "enables",
+   "note": "traffic to serve",
+   "src": "part"
+  },
+  {
+   "from": "fibre_optic_backbone",
+   "to": "data_centres",
+   "type": "enables",
+   "note": "fibre feeds data centres",
+   "src": "part"
+  }
+ ]
+}

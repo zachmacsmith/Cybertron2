@@ -1,0 +1,4406 @@
+{
+ "nodes": [
+  {
+   "id": "gift_exchange",
+   "label": "Gift exchange",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": -100000,
+   "date_src": "general",
+   "place": "Forager bands everywhere",
+   "paradigm": "foraging",
+   "desc": "Gifts and counter-gifts between kin, partners and neighbours, with the return delayed and unstated (Polanyi's reciprocity, Sahlins's generalised and balanced reciprocity). It needs lasting relations and memory of who gave what. It binds people over time, insures against local failure and makes the peace in which barter with outsiders can happen.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "hxaro_partnership",
+   "label": "Hxaro gift partnerships",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": -50000,
+   "date_src": "general",
+   "place": "Ju/'hoansi, Kalahari",
+   "paradigm": "foraging",
+   "desc": "Delayed gift partnerships among the Ju/'hoansi (Polly Wiessner), some with partners far away. In a bad year a household could move to a partner's water hole, so the gifts worked as insurance against local failure [s]. The start date is a guess at the antiquity of such networks.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "kula_ring",
+   "label": "Kula ring",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1400,
+   "date_src": "general",
+   "place": "Massim islands, Melanesia",
+   "paradigm": "gift_economy",
+   "desc": "Shell necklaces and armbands circulated in opposite directions around a ring of islands (Malinowski, 1922), carrying rank and partnership. Practical barter (gimwali) went on beside them: ceremonial exchange made the peace that let ordinary trade happen.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "barter",
+   "label": "Barter between strangers",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": -10000,
+   "date_src": "general",
+   "place": "Between groups without common authority",
+   "paradigm": "horticultural_tribal",
+   "desc": "Direct swap of goods without money, with haggling (Sahlins's negative reciprocity). Anthropologists found no society where barter was everyday exchange between neighbours: it appears between strangers or where money has failed (the late Roman west, post-Soviet Russia). In the engine runs spot barter made up 61% of formal agreements (38.68).",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "redistribution",
+   "label": "Redistribution by a centre",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -5000,
+   "date_src": "general",
+   "place": "Chiefdoms; Mesopotamian temples",
+   "paradigm": "chiefdom",
+   "desc": "Goods flow to a centre (chief, temple, palace, lord, state) and back out as rations, feasts, wages or works. It needs a centre that can collect and store, and records. It enabled units of account, rations as wages, big works and writing.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "obsidian_exchange",
+   "label": "Obsidian down-the-line exchange",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": -12000,
+   "date_src": "part",
+   "wide": -7000,
+   "place": "Anatolian and Armenian sources to the Levant",
+   "paradigm": "foraging",
+   "desc": "Volcanic glass for blades, traced to source by trace elements (Renfrew, Dixon and Cann). Within about 300 km of a source it made over 80% of chipped stone, then fell off almost exponentially with distance [c]; each community passed part on to the next. Models show some long-distance carriers or visits to source must also have existed [c].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "spondylus_trade",
+   "label": "Spondylus shell trade",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": -5500,
+   "date_src": "part",
+   "place": "Aegean to central Europe",
+   "paradigm": "horticultural_tribal",
+   "desc": "Shell ornaments carried up to about 1,500 km through many hands [s, r], worn as status and buried with the dead. Prestige goods moving down the line built hierarchies and knowledge of distant sources.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "amber_road",
+   "label": "Baltic amber road",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": -2000,
+   "date_src": "part",
+   "place": "Baltic to Mycenaean Greece",
+   "paradigm": "chiefdom",
+   "desc": "A long chain of linked exchanges carrying Baltic amber to the Mediterranean in the 2nd millennium BC [s]. A high value-for-weight good that could pay for great distances.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "tin_lapis_trade",
+   "label": "Tin and lapis trade",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": -3000,
+   "date_src": "part",
+   "place": "Afghanistan and Central Asia to Mesopotamia",
+   "paradigm": "early_state",
+   "desc": "Organised long-distance trade in tin and lapis lazuli into Mesopotamia in the 3rd millennium BC. Tin was needed to make bronze, so the bronze economy depended on routes no single state controlled.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "clay_tokens",
+   "label": "Clay accounting tokens",
+   "domain": "information",
+   "kind": "technique",
+   "start": -8000,
+   "date_src": "part",
+   "place": "Levant and Mesopotamia",
+   "paradigm": "horticultural_tribal",
+   "desc": "Small clay tokens recording grain and beasts from about 8000 BC (Schmandt-Besserat's reading, debated). Accounting came before writing: writing at Uruk began about 3300 BC as accounts of goods owed and delivered [s].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "temple_palace_economy",
+   "label": "Temple and palace economy",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -2100,
+   "date_src": "part",
+   "place": "Sumer, Ur III",
+   "paradigm": "early_state",
+   "desc": "Large institutions owned land, herds and workshops, paid workers rations of barley, oil and wool, and recorded flows in units of account (Ur III, about 2100 to 2000 BC). They ran rations and also traded through merchants, so redistribution and markets coexisted.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "credit_accounting",
+   "label": "Credit in units of account",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": -3000,
+   "date_src": "general",
+   "place": "Mesopotamia",
+   "paradigm": "early_state",
+   "desc": "Money began as units of account and credit well before coins: debts reckoned in silver or barley and recorded by scribes. Most Mesopotamian transactions were recorded in silver but paid in barley or goods. Even in coined economies most village exchange later ran on credit.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "silver_shekel",
+   "label": "Weighed silver shekel",
+   "domain": "exchange",
+   "kind": "good",
+   "start": -2500,
+   "date_src": "general",
+   "place": "Mesopotamia",
+   "paradigm": "early_state",
+   "desc": "Silver weighed out as money of account, store and medium for trade, debt and fines: the shekel of about 8.3 to 8.4 g, 60 to the mina [c, x]. Barley was the unit inside the village; the Laws of Eshnunna set 1 shekel = 1 gur (300 sila) of barley [s]. It needed scales, scribes and a metal valued everywhere.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "interest_caps_hammurabi",
+   "label": "Hammurabi interest caps",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -1750,
+   "date_src": "part",
+   "place": "Babylon",
+   "paradigm": "early_state",
+   "desc": "The Laws of Hammurabi capped interest at 20% a year on silver and 33 1/3% on barley loans; a creditor who charged more lost the loan [c]. Actual rates sometimes ran higher [c]. Written law over credit made interest-bearing loans a regulated practice.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "debt_bondage",
+   "label": "Debt bondage",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -2000,
+   "date_src": "general",
+   "place": "Mesopotamia",
+   "paradigm": "early_state",
+   "desc": "Debt was the main path to dependence: debtors pledged land, then family members, then themselves. Interest-bearing loans in a world of harvest risk turned free farmers into bondsmen.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "debt_cancellation",
+   "label": "Royal debt cancellation",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -1800,
+   "date_src": "part",
+   "place": "Old Babylonian kingdoms",
+   "paradigm": "early_state",
+   "desc": "Kings periodically cancelled debts (mīšarum edicts) to restore free farmers who owed military service (Michael Hudson's reading) [s]. Debt relief as politics: the state protected its tax and soldier base from creditors.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "assyrian_karum",
+   "label": "Old Assyrian karum trade",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -1950,
+   "date_src": "part",
+   "wide": -1800,
+   "place": "Assur to Kanesh (Kültepe), Anatolia",
+   "paradigm": "early_state",
+   "desc": "A trading quarter of Assyrian merchants at Kanesh, with family firms, agents abroad, consignment and credit, a karum court and treaties with Anatolian rulers fixing taxes. Over 22,000 tablets of letters and accounts survive [c]. Tin and textiles went west for silver and gold; tin sold for roughly twice its Assur price [s, r].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "naruqqum_fund",
+   "label": "Naruqqum investment fund",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -1900,
+   "date_src": "part",
+   "place": "Assur",
+   "paradigm": "early_state",
+   "desc": "A long-term joint fund ('sack'): a dozen or so investors pooled gold with a travelling merchant for about ten years, for a share of profit [s]. An early pooling of capital from many hands behind one trader, ancestor in form of the commenda.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "donkey_caravan",
+   "label": "Donkey caravans",
+   "domain": "transport",
+   "kind": "practice",
+   "start": -1950,
+   "date_src": "part",
+   "place": "Assur to Anatolia",
+   "paradigm": "early_state",
+   "desc": "Black donkeys each carried about 65 kg of tin plus some 25 textiles, in caravans of about 15, covering about 1,000 km in six to seven weeks [c]. Tolls were paid to each kingdom on the way, and donkeys were often sold at the end.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "coinage",
+   "label": "Stamped coinage",
+   "domain": "exchange",
+   "kind": "good",
+   "start": -630,
+   "date_src": "part",
+   "wide": -500,
+   "place": "Lydia, western Anatolia",
+   "paradigm": "agrarian_empire",
+   "desc": "Pieces of metal whose weight and fineness are guaranteed by a stamp, so they need not be weighed at each use: Lydian electrum about 630 to 600 BC [s], then Greek silver. It made it cheap to pay many strangers (soldiers, crews, builders) and to collect taxes, and enabled money rents, retail markets and comparable prices.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "chinese_cast_cash",
+   "label": "Chinese cast bronze cash",
+   "domain": "exchange",
+   "kind": "good",
+   "start": -221,
+   "date_src": "part",
+   "place": "Qin China",
+   "paradigm": "agrarian_empire",
+   "desc": "Bronze spade and knife money of the Zhou, unified under Qin (221 BC) as the round ban liang with a square hole [s]. Cast base-metal coin heavy for its value; in Sichuan iron coin was too heavy for trade, which pushed paper money.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "coin_debasement",
+   "label": "Coin debasement",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 64,
+   "date_src": "general",
+   "place": "Roman Empire; Tudor England",
+   "paradigm": "agrarian_empire",
+   "desc": "Rulers cut the metal in coins to pay their debts. The Roman denarius fell from near-pure silver to a few per cent by the 260s and 270s [s, r]; England's Great Debasement (1544 to 1551) cut the standard from 92.5% to about 25% [c] and prices roughly doubled. Gresham's law: the bad coin circulates, the good is hoarded.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "price_edict",
+   "label": "Diocletian's Price Edict",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 301,
+   "date_src": "part",
+   "place": "Roman Empire",
+   "paradigm": "agrarian_empire",
+   "desc": "The Edict on Maximum Prices (301 AD) tried to fix prices after debasement-driven inflation, and failed. It also lists freight rates: wheat carried 100 miles by land cost about 55% of its value, by sea about 1.3% [c].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "carolingian_money_account",
+   "label": "Pound-shilling-penny reckoning",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 794,
+   "date_src": "part",
+   "place": "Carolingian Francia",
+   "paradigm": "feudal_manorial",
+   "desc": "Charlemagne's reform fixed 1 pound = 20 shillings = 240 pence, a system that lasted a thousand years. Only the silver penny was struck for centuries; pound and shilling were units of account for debts, rents and prices. Around 1300 a labourer earned 1 to 2 pence a day [s, r].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "tradesmen_tokens",
+   "label": "Tradesmen's tokens",
+   "domain": "exchange",
+   "kind": "good",
+   "start": 1648,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "Many thousands of kinds of private copper and lead tokens issued by English tradesmen from 1648 to 1672, and again in the 1780s and 1790s [s], to fill the 'big problem of small change': states could not supply enough small coin, so small trades ran on credit or private tokens.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "steam_struck_coinage",
+   "label": "Steam-struck copper coinage",
+   "domain": "exchange",
+   "kind": "technique",
+   "start": 1797,
+   "date_src": "part",
+   "place": "Birmingham (Soho Mint), England",
+   "paradigm": "industrial",
+   "desc": "Matthew Boulton's steam-powered presses struck uniform copper coins for the crown in 1797 [s], hard to counterfeit, ending the second wave of private tokens.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "token_coinage",
+   "label": "State token coinage",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1816,
+   "date_src": "general",
+   "place": "Britain and Europe",
+   "paradigm": "industrial",
+   "desc": "The 19th-century fix to small change: base-metal coins worth more than their metal, whose value comes from the state's promise to exchange them for full money, issued by a monopoly mint in limited quantity.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "paper_money",
+   "label": "Paper money",
+   "domain": "exchange",
+   "kind": "good",
+   "start": 1023,
+   "date_src": "part",
+   "place": "Sichuan, Song China",
+   "paradigm": "agrarian_empire",
+   "desc": "The first government paper money, the jiaozi, taken over by the Song state in 1023 to 1024 from private deposit-receipt houses, where iron coins were too heavy for trade [s]. The Yuan made paper the main currency; over-issue caused inflation and the Ming abandoned it for silver by the mid-15th century. Paper works while issuers limit it.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "tally_sticks",
+   "label": "Split tally sticks",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1100,
+   "date_src": "general",
+   "place": "Medieval Europe; English Exchequer",
+   "paradigm": "feudal_manorial",
+   "desc": "A hazel stick notched for the sum and split lengthwise, each party keeping a half that must match. Used from villages to the English Exchequer, which kept them until 1826; burning the old tallies set fire to Parliament in 1834 [s]. A record of debt that needs no literacy.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "book_credit",
+   "label": "Shop book credit",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1300,
+   "date_src": "general",
+   "wide": 1600,
+   "place": "Town and village shops, England",
+   "paradigm": "feudal_manorial",
+   "desc": "A shopkeeper's or craftsman's ledger of what each customer owes, the main form of early modern retail credit. Muldrew argued almost all buying and selling ran on credit and that a household's 'credit' meant its reputation for paying [s].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "reckoning_days",
+   "label": "Reckoning days between neighbours",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1300,
+   "date_src": "general",
+   "place": "Medieval and early modern England",
+   "paradigm": "feudal_manorial",
+   "desc": "Neighbours kept running accounts in memory, chalk, notches or books and met to reckon at intervals (quarter days, after harvest), cancelling mutual debts and settling only the balance in coin, goods or a new bond. Clearing between neighbours saved scarce coin.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "sealed_bond",
+   "label": "Sealed bond with penalty",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1250,
+   "date_src": "general",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "A sealed written promise to pay, often for double the sum as penalty on default, enforceable at common law. Written bonds replaced living witnesses as the record of a debt.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "sureties_pledges",
+   "label": "Sureties and pledges",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1100,
+   "date_src": "general",
+   "place": "Manor courts, England",
+   "paradigm": "feudal_manorial",
+   "desc": "Neighbours who promise to pay if the debtor does not, named when deals were made before witnesses. Chris Briggs found debt the commonest civil plea in 14th-century manor courts, with loans in grain, malt and cash backed by personal pledges [s].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "pawnbroking",
+   "label": "Pawnbroking and monti di pieta",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1462,
+   "date_src": "part",
+   "place": "Perugia, Italy",
+   "paradigm": "commercial_city_state",
+   "desc": "A good handed over as security for a loan: Lombard and Jewish pawnbrokers in medieval Europe, then Franciscan charitable pawn banks (monti di pietà) from Perugia in 1462 [s].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "statute_merchant",
+   "label": "Statute merchant and staple",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1283,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "Debts registered before a town official, with fast seizure of the debtor's goods or body on default (England from 1283 and 1285) [s]. A public register of debts that made credit between merchants enforceable quickly.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "community_responsibility",
+   "label": "Community responsibility system",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1100,
+   "date_src": "general",
+   "place": "Medieval European towns",
+   "paradigm": "commercial_city_state",
+   "desc": "A whole town's merchants were liable for one member's debts abroad, so a creditor's town could seize the goods of any of them (Avner Greif) [s]. It gave towns reason to police their own and let strangers from different towns trade, while towns were few and members identifiable.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "maghribi_coalition",
+   "label": "Maghribi trader coalition",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1050,
+   "date_src": "part",
+   "place": "Mediterranean (Cairo Geniza)",
+   "paradigm": "maritime_trading",
+   "desc": "11th-century Jewish merchants shared news of agents' honesty by letter and collectively refused to employ a cheat (Greif). Edwards and Ogilvie, and Goldberg, answered that the same letters show heavy use of courts and contracts [s, x]. A reputation system needing a closed group and an information channel.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "market_charters",
+   "label": "Royal market charters",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1200,
+   "date_src": "part",
+   "wide": 1300,
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "A weekly market or yearly fair was a royal franchise bought by a lord, abbey or town; grants peaked in the late 13th century, for well over a thousand places [c source, r count]. Bracton's rule: a new market within 6 2/3 miles harmed an old one [s]. The lord took tolls, stall rents and court fines.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "markets_fairs",
+   "label": "Weekly markets and fairs",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -600,
+   "date_src": "general",
+   "wide": 1300,
+   "place": "Greek agoras; medieval Europe",
+   "paradigm": "agrarian_empire",
+   "desc": "A known place and day where many buyers and sellers meet under a peace someone keeps. Most English villagers about 1300 lived within 7 to 10 miles of one [s, r]; markets sat about a day's round walk apart and nested into a central-place hierarchy. They enabled specialisation by village and craft and visible prices.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "periodic_market_system",
+   "label": "Periodic market cycle",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1100,
+   "date_src": "general",
+   "place": "Rural China (Skinner)",
+   "paradigm": "agrarian_empire",
+   "desc": "A standard market town served about 18 villages, some 1,500 households, within a few hours' walk; markets met every few days on staggered schedules so itinerant traders could visit each in turn, nesting upward into larger towns (G. William Skinner) [s].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "champagne_fairs",
+   "label": "Champagne fairs",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1180,
+   "date_src": "part",
+   "place": "Lagny, Bar-sur-Aube, Provins, Troyes",
+   "paradigm": "feudal_manorial",
+   "desc": "Six fairs a year in four towns so one was nearly always running, at their height about 1180 to 1300 [c]. Each ended with a settlement period that cleared debts between Italian and Flemish merchants. The counts supplied a fair court, safe-conducts and fair-keepers [c]; they declined after the French crown took the county (1285) and Genoese galleys reached Bruges (1277).",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "fair_courts",
+   "label": "Fair courts and law merchant",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1150,
+   "date_src": "general",
+   "place": "Fairs and boroughs of Europe",
+   "paradigm": "commercial_city_state",
+   "desc": "Quick courts at fairs with merchant judges (the English 'piepowder' court, for dusty-footed travellers). Milgrom, North and Weingast modelled them as a third-party record of unpaid judgements; Edwards and Ogilvie found no private merchant code, only public courts [c].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "merchant_letters",
+   "label": "Merchant letters",
+   "domain": "information",
+   "kind": "practice",
+   "start": 1000,
+   "date_src": "general",
+   "place": "Italy and Europe",
+   "paradigm": "commercial_city_state",
+   "desc": "From the 12th century merchants wrote prices, exchange rates, ship arrivals and politics to correspondents (the Geniza letters are earlier still). Around 1500 a letter reached Venice in one week from Genoa, two from Paris, three from Antwerp [c]; Datini of Prato left about 150,000 letters [s]. Whoever knew prices elsewhere made the margin.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "state_courier_relay",
+   "label": "State courier relays",
+   "domain": "information",
+   "kind": "infrastructure",
+   "start": -550,
+   "date_src": "general",
+   "place": "Persia; Roman cursus publicus; Mongol yam",
+   "paradigm": "agrarian_empire",
+   "desc": "Relays of riders and fresh horses carrying state letters 100 to 200 km a day: the Roman cursus publicus, the Mongol yam. Fast but reserved for the ruler.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "postal_service",
+   "label": "Public relay post",
+   "domain": "information",
+   "kind": "infrastructure",
+   "start": 1490,
+   "date_src": "part",
+   "place": "Habsburg lands (Taxis family)",
+   "paradigm": "early_modern_state",
+   "desc": "The Taxis family posts across the Habsburg lands from 1490 carried letters for anyone who paid: Brussels to Innsbruck in five days, six in winter [c]. Regular public post made merchant information cheaper and faster.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "price_currents",
+   "label": "Printed price currents",
+   "domain": "information",
+   "kind": "good",
+   "start": 1580,
+   "date_src": "part",
+   "place": "Antwerp and Amsterdam",
+   "paradigm": "early_modern_state",
+   "desc": "Weekly printed lists of commodity prices and exchange rates from the late 16th century [s]. Public prices let anyone compare places and moved profit from knowing to carrying and financing.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "newspapers",
+   "label": "Newspapers and ship news",
+   "domain": "information",
+   "kind": "good",
+   "start": 1605,
+   "date_src": "general",
+   "place": "Low Countries and Germany",
+   "paradigm": "early_modern_state",
+   "desc": "Weekly, then daily, printed news from the 17th century carrying ship arrivals, prices and politics.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "long_distance_trade",
+   "label": "Long-distance trade",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": -3000,
+   "date_src": "general",
+   "place": "Mesopotamia and beyond",
+   "paradigm": "early_state",
+   "desc": "Trade over hundreds to thousands of kilometres in goods valuable for their weight: silver, spices, silk, fine cloth for thousands of miles; wool, wine, salt and fish for hundreds by water; grain for tens by land. It needed merchants, credit to carry stock, cheap water carriage and a guarantor of merchants' rights abroad.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "roads",
+   "label": "Rights-of-way roads",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": -3000,
+   "date_src": "general",
+   "place": "Everywhere; Roman roads",
+   "paradigm": "early_state",
+   "desc": "After Roman roads decayed, roads were mostly rights of way, not built surfaces. A medieval English cart added about 3% to wheat's price every 10 miles (Clark) [c], about 0.25% per km (Masschaele) [c]; overland firewood paid only within about 18 to 20 km of London [c].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "parish_road_repair",
+   "label": "Parish statute labour on roads",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1555,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "From 1555 English parishes had to repair their roads, each householder owing about six days' labour a year [unchecked]; it was done badly. A public good provided by compulsory labour, later replaced by tolled turnpikes.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "turnpike_trusts",
+   "label": "Turnpike trusts",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1663,
+   "date_src": "part",
+   "wide": 1750,
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "Trusts set up by act of parliament charged tolls and borrowed to surface roads (from 1663, mostly 1700 to 1830). Coach times London to Manchester or Edinburgh fell by about three quarters between the 1750s and 1830s [s, r].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "bridges_pontage",
+   "label": "Bridges and pontage tolls",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1150,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "A wave of bridge building in the 12th and 13th centuries, paid by lords, towns, religious guilds and pontage tolls [s]. Towns grew at the lowest bridging point (London, Rouen, Cologne), at fords and at the head of navigation.",
+   "chokepoint": true,
+   "part": "04"
+  },
+  {
+   "id": "movement_tolls",
+   "label": "Tolls on roads and rivers",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1000,
+   "date_src": "general",
+   "place": "Rhine and medieval Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "Pontage, murage, pavage, market and river tolls: the lord's or town's rent on movement. The Rhine had dozens of toll stations by the late Middle Ages, making river transport much dearer than it needed to be [s, r]; freedom from tolls was a prized privilege.",
+   "chokepoint": true,
+   "part": "04"
+  },
+  {
+   "id": "inns",
+   "label": "Inns and stabling",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1200,
+   "date_src": "general",
+   "place": "England and Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "Lodging for people, stabling for beasts, storage for goods and a place to hear news and meet buyers: the infrastructure of trade. The English 1686 War Office survey counted inns for tens of thousands of travellers [s, r].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "horse_haulage",
+   "label": "Horse haulage replaces oxen",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1150,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "From the 12th century horses replaced oxen in English haulage (John Langdon): a one-horse cart carried 0.3 to 0.5 t at 25 to 35 km a day against an ox wagon's 15 to 20 km. Faster, but horses eat oats where oxen eat grass.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "camel_caravan",
+   "label": "Camel caravans",
+   "domain": "transport",
+   "kind": "practice",
+   "start": 300,
+   "date_src": "part",
+   "place": "Middle East and North Africa",
+   "paradigm": "pastoral_nomadic",
+   "desc": "A camel carried 150 to 250 kg at 30 to 40 km a day, and from late antiquity displaced wheeled transport across the Middle East and North Africa (Richard Bulliet).",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "stage_wagon",
+   "label": "Stage wagons and carriers",
+   "domain": "transport",
+   "kind": "practice",
+   "start": 1550,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "Regular wagon or pack services on fixed days between a town and London, carrying goods and letters for anyone who paid; listed in printed carrier guides from 1637 [s]. By the 18th century a stage wagon carried 3 to 4 t behind 6 to 8 horses on turnpikes.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "pedlars_chapmen",
+   "label": "Pedlars and chapmen",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1300,
+   "date_src": "general",
+   "wide": 1650,
+   "place": "England and Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "Walked village to village with a pack of small wares (pins, ribbons, needles, cheap print); a mass trade in 17th and 18th century England.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "droving",
+   "label": "Long-distance droving",
+   "domain": "transport",
+   "kind": "practice",
+   "start": 1300,
+   "date_src": "general",
+   "place": "Wales and Scotland to London",
+   "paradigm": "feudal_manorial",
+   "desc": "Drovers walked cattle and sheep hundreds of miles from the uplands to fattening grounds and London, the outer ring of von Thünen's pattern: animals carry themselves to market.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "hanse_cog",
+   "label": "Hanseatic cog",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1200,
+   "date_src": "general",
+   "place": "North Sea and Baltic",
+   "paradigm": "maritime_trading",
+   "desc": "A clinker-built sailing ship of about 100 to 200 t making 100 to 150 km a day in fair wind; winter sailing stopped in the Baltic. Carried Hanse bulk trade, later replaced by the hulk.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "dutch_fluyt",
+   "label": "Dutch fluyt",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1595,
+   "date_src": "general",
+   "place": "Holland",
+   "paradigm": "maritime_trading",
+   "desc": "A cheap bulk carrier of 200 to 500 t with a small crew; part of why Amsterdam won the Baltic grain trade.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "commenda",
+   "label": "Commenda partnership",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1050,
+   "date_src": "part",
+   "place": "Genoa and Venice",
+   "paradigm": "commercial_city_state",
+   "desc": "A sedentary investor provided capital and a travelling merchant took goods on a voyage; with all capital from the investor the traveller took about a quarter of profit, in the societas maris an equal split [s]. Islamic qirad and Jewish isqa came before it. Giovanni Scriba's register (1154 to 1164) holds hundreds; shares in many voyages spread risk.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "compagnia",
+   "label": "Florentine compagnia",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1250,
+   "date_src": "part",
+   "place": "Florence",
+   "paradigm": "commercial_city_state",
+   "desc": "Partners with unlimited liability running branches across Europe: the Bardi, Peruzzi and later the Medici. The Bardi and Peruzzi failed in the 1340s after lending to Edward III, who stopped paying [s, x].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "double_entry",
+   "label": "Double-entry bookkeeping",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1340,
+   "date_src": "part",
+   "place": "Genoa; Italy",
+   "paradigm": "commercial_city_state",
+   "desc": "Every transaction entered twice, as debit and credit, so accounts balance and errors show. Genoa's city accounts used it by 1340; Luca Pacioli printed a description in 1494 [s]. It let firms with many branches know their position.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "merchant_guild",
+   "label": "Merchant guilds",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1100,
+   "date_src": "general",
+   "place": "European towns",
+   "paradigm": "commercial_city_state",
+   "desc": "Gilds merchant held town charters, controlled who could trade retail in the town, set terms for outsiders and negotiated privileges abroad. Ogilvie argues their main effect was to capture rents through monopoly and exclusion [s, x].",
+   "chokepoint": true,
+   "part": "04"
+  },
+  {
+   "id": "hanseatic_league",
+   "label": "Hanseatic League",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1250,
+   "date_src": "part",
+   "wide": 1370,
+   "place": "North German and Baltic towns",
+   "paradigm": "maritime_trading",
+   "desc": "A loose association of over 100, by some counts about 200, towns at its 14th-century height [c, x], with privileged kontore (London Steelyard, Bruges, Bergen, Novgorod) and shared Lübeck law. Baltic grain, timber, furs and wax went west for cloth, salt and herring; embargoes and war (Stralsund 1370) defended its privileges.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "english_wool_export",
+   "label": "English wool export trade",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1100,
+   "date_src": "general",
+   "wide": 1300,
+   "place": "England to Flanders and Italy",
+   "paradigm": "feudal_manorial",
+   "desc": "England specialised in raw wool, tens of thousands of sacks a year around 1300 [s, r], sold to Flanders and Italy for cloth, wine, luxuries and cash for the crown's taxes; later England made the cloth itself.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "flemish_cloth",
+   "label": "Flemish fine cloth industry",
+   "domain": "textiles",
+   "kind": "industry",
+   "start": 1100,
+   "date_src": "general",
+   "place": "Flanders and Brabant",
+   "paradigm": "commercial_city_state",
+   "desc": "Fine woollen cloth made from imported English wool and sold across Europe. A region's industry built on another's raw material, made fragile by any war that closed the route.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "baltic_grain_trade",
+   "label": "Baltic grain trade",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1450,
+   "date_src": "general",
+   "wide": 1600,
+   "place": "Poland and Prussia to Amsterdam",
+   "paradigm": "early_modern_state",
+   "desc": "Grain, timber, flax and potash from the Baltic lands to Amsterdam, the Dutch 'mother trade', for cloth, salt, herring and colonial goods. It needed cheap bulk ships, credit and passage through the Sound.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "stockfish_trade",
+   "label": "Norwegian stockfish trade",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1100,
+   "date_src": "general",
+   "place": "Bergen, Norway",
+   "paradigm": "maritime_trading",
+   "desc": "Wind-dried cod from northern Norway traded through the Hanse kontor at Bergen for grain. A region specialised in a durable food it could not eat all of.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "moneychangers",
+   "label": "Moneychangers",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1150,
+   "date_src": "general",
+   "place": "Italian towns and fairs",
+   "paradigm": "commercial_city_state",
+   "desc": "Exchanged coins of many mints at fairs and in towns and began to hold deposits, the first step toward deposit banking.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "banking",
+   "label": "Deposit and giro banking",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1200,
+   "date_src": "part",
+   "place": "Genoa and Venice",
+   "paradigm": "commercial_city_state",
+   "desc": "Deposit bankers in Genoa and Venice by the 12th to 13th century made transfers between accounts on spoken order (giro), so merchants could pay each other without moving coin [s]. The Medici bank later had branches from London to Rome.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "bills_of_exchange",
+   "label": "Bills of exchange",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1250,
+   "date_src": "part",
+   "place": "Florence, Bruges and Italian networks",
+   "paradigm": "commercial_city_state",
+   "desc": "A merchant pays florins to a banker, who writes to a correspondent in Bruges to pay local money at a set date (the usance) [s]. It combined transfer across distance, currency exchange and credit, and let bankers earn interest despite the usury ban. Needed correspondents in many towns and trust between bankers.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "bill_clearing_fairs",
+   "label": "Exchange fairs for bills",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1579,
+   "date_src": "part",
+   "place": "Piacenza (Genoese 'Besançon' fairs)",
+   "paradigm": "commercial_city_state",
+   "desc": "Fairs held four times a year that existed only to clear bills of exchange [s]: pure financial settlement without goods.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "bill_endorsement",
+   "label": "Endorsement and discounting",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1550,
+   "date_src": "part",
+   "place": "Antwerp",
+   "paradigm": "early_modern_state",
+   "desc": "In 16th-century Antwerp bills became transferable by endorsement and could be sold at a discount before due [s], making them close to money.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "bank_of_amsterdam",
+   "label": "Bank of Amsterdam",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1609,
+   "date_src": "part",
+   "place": "Amsterdam",
+   "paradigm": "early_modern_state",
+   "desc": "The Wisselbank took coin of uncertain quality and credited accounts in stable bank money that traded at a premium (the agio); large bills had to be paid through it [s].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "goldsmith_bankers",
+   "label": "Goldsmith-bankers",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1640,
+   "date_src": "general",
+   "place": "London",
+   "paradigm": "early_modern_state",
+   "desc": "17th-century London goldsmiths took deposits and lent more than they held: fractional-reserve banking, and with it bank runs. Their receipts were ancestors of banknotes.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "central_bank",
+   "label": "Central banks",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1668,
+   "date_src": "part",
+   "wide": 1913,
+   "place": "Sweden (Riksbank); England (1694)",
+   "paradigm": "early_modern_state",
+   "desc": "The Riksbank (1668) is the oldest surviving; the Bank of England (1694) was founded on a £1.2 million loan to the government, issued banknotes and later became lender of last resort (Bagehot's rule, 1873) [s]. The Federal Reserve followed the panic of 1907 (1913).",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "funded_public_debt",
+   "label": "Funded public debt",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1600,
+   "date_src": "general",
+   "wide": 1694,
+   "place": "Dutch Republic; Britain after 1688",
+   "paradigm": "early_modern_state",
+   "desc": "Long-term state borrowing at low rates against taxes voted by a parliament. Rates fell from 10 to 20% on medieval loans to about 4% on Dutch public debt and 3 to 4% on British debt in the 18th century [s, r], letting these states outspend larger rivals in war (the financial revolution).",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "gold_standard",
+   "label": "Gold standard",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1717,
+   "date_src": "part",
+   "wide": 1875,
+   "place": "Britain",
+   "paradigm": "industrial",
+   "desc": "Britain moved onto gold de facto in 1717 when Newton overvalued the guinea, and by law in 1816 to 1821 [s]. From the 1870s to 1914 most trading nations fixed to gold: stable exchange rates and free capital, but money supply tied to mining and recurring deflation.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "bretton_woods",
+   "label": "Bretton Woods system",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1944,
+   "date_src": "part",
+   "place": "International",
+   "paradigm": "industrial",
+   "desc": "Currencies pegged to the dollar and the dollar convertible to gold for central banks, with the IMF and World Bank. It ended when the US closed the gold window on 15 August 1971.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "fiat_money",
+   "label": "Fiat money",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1971,
+   "date_src": "part",
+   "place": "International",
+   "paradigm": "service_information",
+   "desc": "Currency backed only by the state's acceptance of it for taxes and the central bank's management; floating rates from 1973. Inflation targeting by independent central banks spread from New Zealand (1990) [s].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "stock_exchange",
+   "label": "Stock exchange",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1602,
+   "date_src": "part",
+   "place": "Amsterdam bourse",
+   "paradigm": "early_modern_state",
+   "desc": "Amsterdam traded VOC shares from 1602, with forwards and options within decades; London's brokers met in coffee houses before forming the Stock Exchange (1801), New York's signed the Buttonwood Agreement in 1792 [s]. Pooled capital for long-lived works and liquidity, with bubbles (1720, 1840s, 1929).",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "joint_stock_company",
+   "label": "Joint-stock company",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1600,
+   "date_src": "part",
+   "place": "England (East India Company); Dutch VOC 1602",
+   "paradigm": "early_modern_state",
+   "desc": "Companies with permanent capital and transferable shares: the English East India Company (1600) and the Dutch VOC (1602), whose shares traded on the Amsterdam exchange [s].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "cheque_clearing",
+   "label": "Cheques and clearing houses",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1770,
+   "date_src": "part",
+   "place": "London",
+   "paradigm": "industrial",
+   "desc": "Banks net their claims on each other daily instead of moving coin (London clearing house from the 1770s) [s].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "telegraphic_transfer",
+   "label": "Telegraphic money transfer",
+   "domain": "exchange",
+   "kind": "technique",
+   "start": 1871,
+   "date_src": "part",
+   "place": "United States (Western Union)",
+   "paradigm": "industrial",
+   "desc": "Money sent across a continent in hours by wire, from 1871 [s].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "credit_cards",
+   "label": "Credit and charge cards",
+   "domain": "exchange",
+   "kind": "technique",
+   "start": 1950,
+   "date_src": "part",
+   "place": "United States (Diners Club)",
+   "paradigm": "industrial",
+   "desc": "Diners Club (1950) and BankAmericard (1958) brought consumer credit to the point of sale [s].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "swift_messaging",
+   "label": "SWIFT interbank messaging",
+   "domain": "exchange",
+   "kind": "infrastructure",
+   "start": 1973,
+   "date_src": "part",
+   "place": "International (Belgium)",
+   "paradigm": "service_information",
+   "desc": "Standard cross-border payment messages between banks, founded 1973 [s]; in 2025 about 15.1 billion messages, 59.8 million per business day [c].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "electronic_payments",
+   "label": "Electronic card payments",
+   "domain": "exchange",
+   "kind": "infrastructure",
+   "start": 1970,
+   "date_src": "general",
+   "wide": 2010,
+   "place": "Rich countries",
+   "paradigm": "service_information",
+   "desc": "Retail payment as entries on a network's ledger. In 2024 contactless card spending was about $10.4 trillion over 456.6 billion transactions [c]; most retail payments in rich countries became electronic.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "mobile_money",
+   "label": "Mobile money (M-Pesa)",
+   "domain": "exchange",
+   "kind": "technique",
+   "start": 2007,
+   "date_src": "part",
+   "place": "Kenya",
+   "paradigm": "service_information",
+   "desc": "Payments by phone for people without bank accounts, M-Pesa from 2007 [s].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "instant_payments",
+   "label": "Instant account payments (UPI)",
+   "domain": "exchange",
+   "kind": "infrastructure",
+   "start": 2016,
+   "date_src": "part",
+   "place": "India",
+   "paradigm": "service_information",
+   "desc": "Free, instant account-to-account retail payments at national scale: India's UPI from 2016, about 25.5 billion transactions in October 2026 [c].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "cryptocurrency",
+   "label": "Cryptocurrency",
+   "domain": "exchange",
+   "kind": "technique",
+   "start": 2009,
+   "date_src": "part",
+   "place": "Internet (Bitcoin)",
+   "paradigm": "service_information",
+   "desc": "A ledger kept by no single party, Bitcoin from 2009; mostly a speculative asset.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "cbdc",
+   "label": "Central bank digital currency",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 2020,
+   "date_src": "part",
+   "place": "China (e-CNY)",
+   "paradigm": "service_information",
+   "desc": "State money held as a digital account, e-CNY pilots from 2020 [s]: the trusted ledger moved to the central bank itself.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "canals",
+   "label": "Canals",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1761,
+   "date_src": "part",
+   "wide": 1795,
+   "place": "Bridgewater, England; Erie Canal 1825",
+   "paradigm": "industrial",
+   "desc": "Water where there was none: the Bridgewater (1761) roughly halved Manchester's coal price [s]; the Erie Canal (1825, 363 miles) cut Buffalo to New York freight from about $100 to $10 a ton [c, x]. Needed capital from investors and tolls and acts of parliament.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "railway",
+   "label": "Railways",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1830,
+   "date_src": "part",
+   "wide": 1850,
+   "place": "Liverpool and Manchester",
+   "paradigm": "industrial",
+   "desc": "Cheap land transport, all year and fast. US average rail freight was 2.58 cents a ton-mile in 1859 (Fishlow) [c] against roughly 15 to 25 for wagons [s, r]; Fogel put the 1890 social saving at only a few per cent of GNP because canals were the alternative [s, x].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "steamship",
+   "label": "Iron steamships",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1850,
+   "date_src": "part",
+   "wide": 1880,
+   "place": "North Atlantic",
+   "paradigm": "industrial",
+   "desc": "Steam and iron then steel hulls from the 1850s made ocean freight cheap and schedules regular: transatlantic costs fell about 41 to 70% to 1913 [c], tramp rates roughly halved from the early 1870s [c].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "suez_canal",
+   "label": "Suez Canal",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1869,
+   "date_src": "part",
+   "place": "Egypt",
+   "paradigm": "industrial",
+   "desc": "Cut the sea route from Europe to Asia in 1869; a chokepoint whose 2021 blockage (Ever Given) showed how tightly coupled world shipping had become [s].",
+   "chokepoint": true,
+   "part": "04"
+  },
+  {
+   "id": "transatlantic_cable",
+   "label": "Transatlantic telegraph",
+   "domain": "information",
+   "kind": "infrastructure",
+   "start": 1866,
+   "date_src": "part",
+   "place": "Ireland to Newfoundland",
+   "paradigm": "industrial",
+   "desc": "From 1866 prices crossed the Atlantic in minutes, removing most of the New York to London cotton price gap that came from slow news [s]. Chicago-Liverpool wheat gaps fell from 58% (1870) to 16% (1913) with rail and steam [s].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "telegraph",
+   "label": "Electric telegraph",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1840,
+   "date_src": "part",
+   "place": "Britain and United States",
+   "paradigm": "industrial",
+   "desc": "Prices, orders and transfers carried in minutes from the 1840s, often along railway lines. It made prices known everywhere and enabled futures markets.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "futures_markets",
+   "label": "Commodity futures markets",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1865,
+   "date_src": "general",
+   "place": "Chicago",
+   "paradigm": "industrial",
+   "desc": "Standard contracts for future delivery of grain traded on exchanges, made possible by telegraph prices and graded rail-borne grain.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "highways_trucking",
+   "label": "Trucks and highways",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1920,
+   "date_src": "part",
+   "wide": 1956,
+   "place": "United States (Interstate 1956)",
+   "paradigm": "industrial",
+   "desc": "Door-to-door freight from the 1920s, and the US Interstate system from 1956; factories could leave railheads [s].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "container_shipping",
+   "label": "Container shipping",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1956,
+   "date_src": "part",
+   "wide": 1970,
+   "place": "Newark to Houston (Ideal-X)",
+   "paradigm": "industrial",
+   "desc": "The Ideal-X carried 58 containers in April 1956 [c]; ISO standard sizes followed in the late 1960s. Loading loose cargo cost $5.83 a ton against about 16 cents by container (Levinson) [c]; ships, trains and trucks share one box.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "air_freight",
+   "label": "Air freight",
+   "domain": "transport",
+   "kind": "industry",
+   "start": 1960,
+   "date_src": "part",
+   "place": "Worldwide (jet freighters)",
+   "paradigm": "service_information",
+   "desc": "Jet freighters from the 1960s carried high-value goods fast; the cost of air freight fell about an order of magnitude from 1955 to 2004 (Hummels) [c]. Air carries a large share of trade by value but under 1% by weight [s].",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "global_supply_chains",
+   "label": "Global supply chains",
+   "domain": "transport",
+   "kind": "practice",
+   "start": 1975,
+   "date_src": "part",
+   "wide": 2000,
+   "place": "Worldwide",
+   "paradigm": "service_information",
+   "desc": "From the 1970s just-in-time production, the barcode and global value chains turned inventory into flow, with parts crossing borders many times. Ocean freight now costs about 0.4 cents per tonne-km against 12 for a truck [c, r], so time, handling and reliability shape trade.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "electronic_exchanges",
+   "label": "Electronic trading",
+   "domain": "exchange",
+   "kind": "technique",
+   "start": 1990,
+   "date_src": "part",
+   "place": "Worldwide",
+   "paradigm": "service_information",
+   "desc": "Prices for everyone in milliseconds from the 1990s, and algorithmic trading.",
+   "chokepoint": false,
+   "part": "04"
+  },
+  {
+   "id": "demand_sharing",
+   "label": "Demand sharing",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -100000,
+   "date_src": "general",
+   "place": "Forager bands",
+   "paradigm": "foraging",
+   "desc": "Those who have must give when asked (Nicolas Peterson). With territories held as band use rights and only personal tools owned, sharing gives access for all and insurance, with little investment in land.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "reverse_dominance",
+   "label": "Reverse dominance hierarchy",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -100000,
+   "date_src": "general",
+   "place": "Forager bands",
+   "paradigm": "foraging",
+   "desc": "Foragers keep promises by repeated dealing, gossip, ridicule, sharing withdrawn and exit; the group levels anyone who tries to dominate (Christopher Boehm). Order without a state, but trade with strangers barely possible.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "household_production",
+   "label": "Household production",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -10000,
+   "date_src": "general",
+   "place": "Everywhere; Chayanov's peasant",
+   "paradigm": "horticultural_tribal",
+   "desc": "Through almost all of history the household was the unit of production: a few adults, children and servants making grain, beasts, ale, bread, yarn and fuel. Chayanov: it works until one more day's drudgery balances what it adds; the consumer-worker ratio sets effort. Western European households were small, about 4.75 people [unchecked].",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "reciprocal_work_parties",
+   "label": "Kin work-parties",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -7000,
+   "date_src": "general",
+   "place": "Early farming villages",
+   "paradigm": "horticultural_tribal",
+   "desc": "Households helping each other at peak work, repaid in kind or by return help: the first answer to a labour calendar with a harvest peak several times the winter's demand.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "granary_storage",
+   "label": "Stored grain surplus",
+   "domain": "food",
+   "kind": "practice",
+   "start": -9000,
+   "date_src": "general",
+   "place": "Near East",
+   "paradigm": "horticultural_tribal",
+   "desc": "Grain can be seen, measured, stored, stolen and taxed (James C. Scott). Owning a surplus, holding dependants and extracting from others begin here, and with them slavery, tribute and the state. Storage was costly (rats, damp, tied-up capital); at scale it was a public good.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "property_in_land",
+   "label": "Household and lineage land",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -7000,
+   "date_src": "general",
+   "place": "Early farming villages",
+   "paradigm": "horticultural_tribal",
+   "desc": "Land held by lineages and households, herds as movable wealth, and inheritance that begins to matter. Property is a bundle of rights (access, withdrawal, management, exclusion, alienation; Schlager and Ostrom), usually split between holders.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "feud_wergild",
+   "label": "Feud and wergild",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -3000,
+   "date_src": "general",
+   "place": "Early farmers; early medieval Europe",
+   "paradigm": "horticultural_tribal",
+   "desc": "Kin groups answer injury with vengeance or a payment, such as the Anglo-Saxon wergild, a price on each rank's life. Order rests on kin able to retaliate.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "slavery",
+   "label": "Slavery",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -3000,
+   "date_src": "general",
+   "place": "Ancient states; Roman Italy",
+   "paradigm": "agrarian_empire",
+   "desc": "Appears wherever there is a surplus to guard, war to make captives, and estates or mines needing hands more than skill. Roman Italy may have held one to two million slaves among six to seven million people [rough, contested]; in Domesday England slaves were just under one in ten of those recorded [checked] and faded within two generations.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "corvee_labour",
+   "label": "Corvée labour",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -2600,
+   "date_src": "general",
+   "place": "Egypt, Mesopotamia, China",
+   "paradigm": "early_state",
+   "desc": "Labour taken as tax for canals, walls and tombs, alongside taxes in grain. It needed records, counted people and force.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "state_taxation",
+   "label": "Grain and labour taxation",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -3000,
+   "date_src": "general",
+   "place": "Mesopotamia, Egypt, China",
+   "paradigm": "early_state",
+   "desc": "Early states took taxes in grain and labour, kept granaries, counted people and fields, and wrote first of all to keep accounts. Farmers grew what could be taxed; later states taxed goods, trade and incomes.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "census_cadastre",
+   "label": "Census and land survey",
+   "domain": "information",
+   "kind": "practice",
+   "start": -3000,
+   "date_src": "general",
+   "place": "Early states; Domesday England 1086",
+   "paradigm": "early_state",
+   "desc": "Counting people and fields: the measurement behind state capacity. Domesday (1086) recorded villeins as about 41% of people holding about 45% of land, bordars and cottars about 32% holding about 5% [checked].",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "atlantic_slave_trade",
+   "label": "Atlantic slave trade",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1525,
+   "date_src": "part",
+   "wide": 1700,
+   "place": "West Africa to the Americas",
+   "paradigm": "plantation_slave",
+   "desc": "About 12.5 million people embarked from Africa from 1525 to 1866, and about 10.7 million arrived [checked]. Gang labour for plantations, tied to long-distance trade; the US held nearly four million enslaved people in 1860 [unchecked].",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "serfdom",
+   "label": "Serfdom",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 800,
+   "date_src": "general",
+   "wide": 1100,
+   "place": "Western Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "Binds the worker to the land and a lord rather than making him property. An English villein about 1300 owed week-work, boons, heriot and merchet and needed leave to go. Domar: free land, free labour and a landowning class cannot coexist; it ended in England after the Black Death.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "lordship_manor",
+   "label": "The manor",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 800,
+   "date_src": "general",
+   "place": "Western Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "A lord's demesne worked by servants, hired hands and tenants' dues, tenants' holdings, commons and the lord's monopolies, run by a steward, bailiff and a reeve chosen from the tenants. Yearly account rolls recorded every bushel and penny. Lordship turned rural surplus into urban demand.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "labour_dues",
+   "label": "Week-work and boon days",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 800,
+   "date_src": "general",
+   "place": "English manors",
+   "paradigm": "feudal_manorial",
+   "desc": "Villein yardlanders owed two or three days a week on some manors plus boon works at harvest, 0 to 150 days a year, often sent by a son or servant. The lord's peak was also the tenant's; 'the work of a villein is worth half that of a hired man'.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "open_field_strips",
+   "label": "Open fields in strips",
+   "domain": "food",
+   "kind": "practice",
+   "start": 800,
+   "date_src": "general",
+   "place": "Midland England and northern Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "Arable in scattered strips across two or three great fields, meadow allotted for hay, common pasture and waste, with everyone's beasts on the stubble. Scattering may have insured against harvest variance (McCloskey) [contested].",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "regulated_commons",
+   "label": "Regulated commons and stints",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1224,
+   "date_src": "part",
+   "place": "English villages; Törbel, Switzerland",
+   "paradigm": "feudal_manorial",
+   "desc": "Manor by-laws set when fields opened, how many beasts each holding might graze (the stint, in proportion to arable), who might glean, and fines for over-use. Not Hardin's open access: Ostrom's design principles are met by stint, jury, hayward and graded fines; Törbel's meadows governed by village rules since at least 1224.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "hand_quern",
+   "label": "Rotary hand quern",
+   "domain": "food",
+   "kind": "technique",
+   "start": -400,
+   "date_src": "general",
+   "place": "Iron Age Europe",
+   "paradigm": "horticultural_tribal",
+   "desc": "Two stones turned by hand to grind grain at home: slow but needing no capital. Lords with mill soke confiscated querns; the abbots of St Albans paved a floor with them and townsmen dug them up in 1381.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "mill_soke",
+   "label": "Mill soke (suit of mill)",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1086,
+   "date_src": "general",
+   "place": "English manors",
+   "paradigm": "feudal_manorial",
+   "desc": "Tenants were bound to grind at the lord's mill and pay multure, a twelfth to a thirtieth of the grain (one source: a thirteenth for serfs, a twenty-fourth for free men) [checked]. Domesday records about 6,000 mills [unchecked]; about 43% of 14th-century powered mills were the church's [checked]. A monopoly rent and an archetype of evasion.",
+   "chokepoint": true,
+   "part": "05"
+  },
+  {
+   "id": "seigneurial_banalites",
+   "label": "Lord's oven and press",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1000,
+   "date_src": "general",
+   "place": "France and western Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "Banalités: the lord's power to command the mill, oven, wine press, sometimes the bull and boar. Tenants paid in kind each time, so the lord's share rose with output; capital beyond a household plus power to forbid alternatives.",
+   "chokepoint": true,
+   "part": "05"
+  },
+  {
+   "id": "forest_law",
+   "label": "Forest law and game rights",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1070,
+   "date_src": "general",
+   "place": "Norman England",
+   "paradigm": "feudal_manorial",
+   "desc": "The Norman kings put perhaps a quarter to a third of England under forest law, reserving deer to the king [rough]; small game needed a grant of free warren. Poaching was among the commonest offences into the 19th century.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "weir_rights",
+   "label": "Weirs and fisheries",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1000,
+   "date_src": "general",
+   "place": "English rivers",
+   "paradigm": "feudal_manorial",
+   "desc": "Fisheries and weirs were valuable lords' rights, but a weir blocked boats; Magna Carta (1215) ordered fish weirs removed from the Thames and Medway.",
+   "chokepoint": true,
+   "part": "05"
+  },
+  {
+   "id": "tithe",
+   "label": "Church tithe",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 585,
+   "date_src": "general",
+   "place": "Western Christendom",
+   "paradigm": "feudal_manorial",
+   "desc": "A tenth of produce to the church: great tithes (grain, hay, wood) to the rector, small tithes (lambs, wool, eggs) to the vicar, counted in the field by stooks. Commuted in England to a money rent charge in 1836 [unchecked].",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "manor_court",
+   "label": "Manor court and tenant jury",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1100,
+   "date_src": "general",
+   "place": "English manors",
+   "paradigm": "feudal_manorial",
+   "desc": "Met every three weeks or so, handling land transfers, by-laws, trespass, debts between tenants and failed services. Juries of tenants found facts and declared custom into the rolls; deals before witnesses were backed by pledges. Most villagers both borrowed and lent, and the court was why (Briggs).",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "frankpledge",
+   "label": "Frankpledge tithings",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1100,
+   "date_src": "general",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "Every man over twelve was in a tithing of about ten, bound to produce any member who offended: policing by neighbours, checked at the view of frankpledge once or twice a year.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "assize_bread_ale",
+   "label": "Assize of bread and ale",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1266,
+   "date_src": "general",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "Fixed bread and ale prices and measures, enforced by fines on brewers and bakers in the manor court that worked in effect as a licence. Assized measures and coin of guaranteed weight are enforcement too.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "freehold_tenure",
+   "label": "Freehold under royal courts",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1166,
+   "date_src": "part",
+   "place": "England (Henry II's assizes)",
+   "paradigm": "feudal_manorial",
+   "desc": "Land held for fixed, often nominal, services, heritable and saleable, protected by the king's courts from Henry II's assizes (1160s to 1170s). Villein land, by contrast, was protected only in the manor court.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "law_courts",
+   "label": "Royal courts and common law",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1166,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "Travelling justices and juries from Henry II's assizes; Common Pleas and King's Bench heard debt and contract. Courts that enforced promises between strangers impartially mattered most for trade beyond the village (North). Debt suits peaked around 1600 (Muldrew) [rough].",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "assumpsit",
+   "label": "Action of assumpsit",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1550,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "A 16th-century action that made informal promises enforceable in royal courts. Suing became the last resort that made the threat of default credible across long chains of informal credit.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "peasant_land_market",
+   "label": "Peasant land market",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1250,
+   "date_src": "part",
+   "place": "English villages (court rolls)",
+   "paradigm": "feudal_manorial",
+   "desc": "From the 13th century court rolls show small plots bought, leased and mortgaged between villagers to balance land with family size. A villein's transfer was a surrender and regrant entered on the roll.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "primogeniture",
+   "label": "Primogeniture and partible inheritance",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1100,
+   "date_src": "general",
+   "place": "England; Kent and France for partible",
+   "paradigm": "feudal_manorial",
+   "desc": "Primogeniture kept holdings whole and pushed younger children into service, crafts and towns; partible inheritance (Kent's gavelkind, much of France) supported denser, poorer populations with more by-employment.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "commutation_money_rent",
+   "label": "Commutation to money rent",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1150,
+   "date_src": "part",
+   "wide": 1400,
+   "place": "English manors",
+   "paradigm": "feudal_manorial",
+   "desc": "Replacing labour services with money, in waves: much in the 12th century, a return to services in the 13th under high grain prices, then commutation from the later 14th. By 1300 money rents were already most of what tenants paid [rough]. Needed markets and coin; it pushed tenants to sell.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "demesne_leasing",
+   "label": "Leasing the demesne",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1380,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "From the late 14th century lords leased their demesnes for years at money rent, creating the tenant farmers of the early modern period. After the Black Death rents fell and tenants who stayed held more land on better terms.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "copyhold",
+   "label": "Copyhold tenure",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1400,
+   "date_src": "general",
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "Customary tenure after serfdom: the title a copy of the court-roll entry, protected by royal courts by the 16th century, held for lives, by inheritance or at will, with entry fines as the lord's lever.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "statute_of_labourers",
+   "label": "Statute of Labourers",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1349,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "After the Black Death the Ordinance (1349) and Statute of Labourers (1351) tried to hold wages at pre-plague levels and compel the able-bodied to work [checked]. Enforcement was patchy and it lapsed in effect by the 1370s; real farm wages rose about 64% by the 15th century (Clark) [checked].",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "wage_labour",
+   "label": "Day labour for wages",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1086,
+   "date_src": "part",
+   "wide": 1600,
+   "place": "England (bordars and cottars)",
+   "paradigm": "feudal_manorial",
+   "desc": "Households with little or no land living by wages, with a garden, common rights and the wife's spinning; by the 17th century perhaps a third of rural households [rough]. Casual workers' days rose from under 150 a year to well over 300 by the Industrial Revolution (Humphries and Weisdorf) [checked, contested].",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "payment_in_kind",
+   "label": "Harvest pay in kind",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1200,
+   "date_src": "general",
+   "place": "Medieval England",
+   "paradigm": "feudal_manorial",
+   "desc": "Meals at work, a share of the harvest, gleaning rights, a tied cottage: a medieval harvest worker's pay was often half food and drink.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "servants_in_husbandry",
+   "label": "Servants in husbandry",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1350,
+   "date_src": "general",
+   "wide": 1600,
+   "place": "England and north-west Europe",
+   "paradigm": "early_modern_state",
+   "desc": "Unmarried young people hired by the year, living in the employer's house for board and a small wage. In 63 English parish listings (1574 to 1821) servants were 13.4% of the population and about 60% of those aged 15 to 24 [checked] (Kussmaul). A life stage that moved young labour where needed and let it save to marry.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "hiring_fairs",
+   "label": "Hiring fairs",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1350,
+   "date_src": "general",
+   "place": "England (Michaelmas, Martinmas)",
+   "paradigm": "early_modern_state",
+   "desc": "Yearly fairs where servants changed masters; the hiring fair of the village labour market, ancestor of the gig economy's digital one.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "statute_of_artificers",
+   "label": "Statute of Artificers",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1563,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "Let justices of the peace set wages, made yearly hiring the norm and made seven years the minimum apprenticeship for crafts [unchecked].",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "apprenticeship",
+   "label": "Apprenticeship indentures",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1200,
+   "date_src": "general",
+   "place": "London and European towns",
+   "paradigm": "commercial_city_state",
+   "desc": "The master gives board, lodging and training, often for a premium, and the youth his labour for a term. A high share of London apprenticeships ended early (Wallis; Minns and Wallis) [checked, qualitative]: the master's cost came first, the apprentice's useful work last.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "guilds",
+   "label": "Craft guilds",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1100,
+   "date_src": "general",
+   "wide": 1300,
+   "place": "European towns",
+   "paradigm": "commercial_city_state",
+   "desc": "Regulated entry (apprenticeship, fees, masterpiece), quality (searches, seals on cloth), prices and apprentices per master, and judged members' disputes. Epstein: they enforced training and spread skills; Ogilvie: mostly rent-seeking and exclusion. Abolished in France 1791.",
+   "chokepoint": true,
+   "part": "05"
+  },
+  {
+   "id": "putting_out",
+   "label": "Putting-out system",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1400,
+   "date_src": "general",
+   "wide": 1700,
+   "place": "Flanders, England, Germany",
+   "paradigm": "early_modern_state",
+   "desc": "A merchant gives wool or flax to rural households who spin and weave at home for piece wages in the farm's slack season. It rested on the winter slack of the labour calendar; Mendels argued it loosened the link between land and marriage [contested].",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "industrious_revolution",
+   "label": "Industrious revolution",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1650,
+   "date_src": "part",
+   "place": "North-west Europe",
+   "paradigm": "early_modern_state",
+   "desc": "Households worked more days and more for the market to buy sugar, tea, tobacco, pottery and printed cotton (de Vries). Male hours in London rose from about 2,288 to 3,666 a year between the 1750s and 1800 as Saint Monday and holy days went (Voth) [checked]. Allen and Weisdorf read it as hardship instead.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "factory_system",
+   "label": "Factory system",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1771,
+   "date_src": "general",
+   "wide": 1830,
+   "place": "England (Cromford)",
+   "paradigm": "industrial",
+   "desc": "Workers gathered under one roof with water then steam power, supervision and a clock; early mills employed many women and children twelve hours a day and more. Output per worker far above the household; it separated home and work.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "factory_acts",
+   "label": "Factory Acts",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1833,
+   "date_src": "part",
+   "place": "Britain",
+   "paradigm": "industrial",
+   "desc": "Labour law by stages: the Factory Act 1833 (children, inspectors), the Ten Hours Act 1847 [unchecked]. Hours fell from about 3,000 a year around 1870 to 1,400 to 1,800 today [rough].",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "friendly_societies",
+   "label": "Friendly societies",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1700,
+   "date_src": "general",
+   "place": "Britain",
+   "paradigm": "industrial",
+   "desc": "Members' clubs paying sick pay and funeral money from subscriptions; with craft societies the root of trade unions.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "trade_unions",
+   "label": "Trade unions",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1824,
+   "date_src": "part",
+   "wide": 1950,
+   "place": "Britain",
+   "paradigm": "industrial",
+   "desc": "Legal after repeal of the Combination Acts (1824 to 1825) and the Trade Union Act 1871 [unchecked]; raised wages where they could restrict supply or stop production. OECD density halved from about 30% (1985) to about 15% (2023 to 2024); US 9.9% in 2024 [checked].",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "enclosure",
+   "label": "Enclosure",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1450,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "Ending common rights and consolidating strips into compact hedged fields under one holder. England was perhaps 45% enclosed by 1500 and 47% by 1600, about 24% more in the 17th century [checked] (Wordie). Allen found it raised rents more than output; the landless lost grazing, fuel and gleaning.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "parliamentary_enclosure",
+   "label": "Parliamentary enclosure",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1750,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "industrial",
+   "desc": "From 1750 mostly by private act of parliament: about 7.25 to 7.35 million acres, some 22% of England [checked]. Turning a split bundle of rights into a single holder's needed a strong institution to register and override small rights.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "corporation",
+   "label": "Corporate bodies",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1200,
+   "date_src": "general",
+   "place": "Medieval towns, guilds, monasteries, colleges",
+   "paradigm": "feudal_manorial",
+   "desc": "Bodies that hold property, sue and outlive their members: medieval towns, guilds, monasteries and colleges, then chartered companies with tradable shares.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "limited_liability",
+   "label": "General limited liability",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1855,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "industrial",
+   "desc": "General incorporation and limited liability by law (Britain 1855 to 1862) let strangers invest without risking everything [unchecked].",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "intellectual_property",
+   "label": "Patents and copyright",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1474,
+   "date_src": "part",
+   "place": "Venice; England",
+   "paradigm": "commercial_city_state",
+   "desc": "Venice's patent statute (1474), England's Statute of Monopolies (1624), copyright from the Statute of Anne (1710) [unchecked]. Ideas are non-rival, so property in them is wholly an institution: a monopoly for a term as reward for invention.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "land_registry",
+   "label": "Land title registers",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1858,
+   "date_src": "general",
+   "place": "South Australia (Torrens); worldwide",
+   "paradigm": "industrial",
+   "desc": "Registers and titles make land collateral; de Soto argues the poor of many countries cannot borrow against customary, unregistered claims. Modern property is mostly claims on claims kept by institutions.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "lay_subsidy",
+   "label": "Taxes on movables",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1200,
+   "date_src": "general",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "A fraction of movable goods' value (often a fifteenth in the countryside, a tenth in towns), assessed by local juries and fixed as quotas per vill from 1334 [unchecked]; the poll taxes of 1377 to 1381 set off the Peasants' Revolt.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "wool_customs",
+   "label": "Wool export customs",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1275,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "Customs on wool exports became the English crown's most reliable revenue from 1275: a tax on a chokepoint trade collected at the ports.",
+   "chokepoint": true,
+   "part": "05"
+  },
+  {
+   "id": "excise",
+   "label": "Excise on goods",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1643,
+   "date_src": "general",
+   "place": "Dutch Republic; Britain",
+   "paradigm": "early_modern_state",
+   "desc": "Professional excise on beer, malt, salt, candles, leather and soap, collected by excise men gauging casks. Taxes on traded goods were over half of British indirect taxes by about 1800 (Dal Bó and others) [checked].",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "fiscal_military_state",
+   "label": "Fiscal-military state",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1688,
+   "date_src": "part",
+   "place": "Britain after 1688; Dutch Republic",
+   "paradigm": "early_modern_state",
+   "desc": "Parliament's control of taxes, a professional excise, the Bank of England and funded debt raised British taxes from a few per cent of national income to the low teens and near a fifth in the Napoleonic wars [rough, unchecked]. 'War made the state, and the state made war' (Tilly).",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "police_force",
+   "label": "Professional police",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1829,
+   "date_src": "general",
+   "place": "London",
+   "paradigm": "industrial",
+   "desc": "Policing was local and voluntary, constables chosen in turn, until the 19th century, when paid forces took over.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "old_poor_law",
+   "label": "Old Poor Law",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1597,
+   "date_src": "part",
+   "wide": 1601,
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "Every parish raised a rate to relieve the old, sick, widowed, children and in bad years the able-bodied. In 1696 relief cost about £400,000, just under 1% of national income [checked]. Solar argues reliable local relief let labourers give up land for wages without risking starvation [contested].",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "new_poor_law",
+   "label": "New Poor Law workhouse",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1834,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "industrial",
+   "desc": "Put the able-bodied in the workhouse so relief was 'less eligible' than the worst job.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "insurance",
+   "label": "Marine insurance",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1350,
+   "date_src": "part",
+   "place": "Italian maritime cities",
+   "paradigm": "commercial_city_state",
+   "desc": "Premiums paid to underwriters against loss at sea, from 14th-century Italy, then life insurance and annuities in the 17th century. Insurance took over the work of stores, kin and the parish.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "life_insurance",
+   "label": "Life insurance and annuities",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1650,
+   "date_src": "part",
+   "place": "Netherlands and England",
+   "paradigm": "early_modern_state",
+   "desc": "Contracts paying on death or for life, from the 17th century, priced as the arithmetic of mortality improved.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "social_insurance",
+   "label": "State social insurance",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1883,
+   "date_src": "part",
+   "place": "Germany (Bismarck)",
+   "paradigm": "industrial",
+   "desc": "Bismarck's sickness, accident and old-age insurance (1883 to 1889), British pensions (1908) and National Insurance (1911), US Social Security (1935).",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "welfare_state",
+   "label": "Welfare state",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1942,
+   "date_src": "part",
+   "wide": 1960,
+   "place": "Britain (Beveridge); OECD",
+   "paradigm": "industrial",
+   "desc": "Public spending in industrial countries rose from about 8 to 11% of GDP around 1870 to nearly 46% by 1996 [checked] (Tanzi and Schuknecht), driven by wars, the franchise and social spending on pensions, unemployment, health and schooling. Lindert: high spenders did not grow more slowly.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "economic_regulation",
+   "label": "Regulatory state",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1887,
+   "date_src": "general",
+   "place": "United States; Europe",
+   "paradigm": "industrial",
+   "desc": "Regulation of food, drugs, labour, banks, competition, environment and zoning that now sets much of the terms of every contract; with credit bureaus and ratings, reputation kept by third parties.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "credit_bureaus",
+   "label": "Credit bureaus and ratings",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1841,
+   "date_src": "general",
+   "place": "New York (Mercantile Agency)",
+   "paradigm": "industrial",
+   "desc": "Reputation kept by third parties as a business: the modern heir of fair courts' records of unpaid judgements and coalitions' gossip.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "professional_licensing",
+   "label": "Professions and licensing",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1858,
+   "date_src": "general",
+   "wide": 2000,
+   "place": "Britain; United States",
+   "paradigm": "service_information",
+   "desc": "The guilds' heirs: entry by education and examination, self-regulation, often a state licence. The US share of workers needing a licence rose from about 5% in the 1950s to over a quarter by the 2000s (Kleiner and Krueger) [unchecked].",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "gig_platforms",
+   "label": "Gig work platforms",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 2009,
+   "date_src": "general",
+   "place": "United States and worldwide",
+   "paradigm": "service_information",
+   "desc": "Piece rates and day labour with a digital hiring fair and a reputation score; about 1% of US employment as main work in 2017 [unchecked].",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "european_marriage_pattern",
+   "label": "European marriage pattern",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1400,
+   "date_src": "general",
+   "place": "West of Trieste-St Petersburg",
+   "paradigm": "early_modern_state",
+   "desc": "Late marriage (women about 24 to 26), 10 to 20% never marrying and a new household on marriage (Hajnal) [checked]. It needed service as a life stage and neolocal norms, and tied population to wages: Malthus's preventive check through an institution.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "quarantine",
+   "label": "Plague quarantine",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1377,
+   "date_src": "general",
+   "place": "Ragusa; Venice",
+   "paradigm": "commercial_city_state",
+   "desc": "Isolation of ships and travellers against plague; with other measures plague left western Europe by the 1720s.",
+   "chokepoint": false,
+   "part": "05"
+  },
+  {
+   "id": "demographic_transition",
+   "label": "Demographic transition",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1780,
+   "date_src": "part",
+   "wide": 1900,
+   "place": "North-west Europe",
+   "paradigm": "industrial",
+   "desc": "Death rates fell first (late 18th century), then births (from the 1870s). England grew from about 5.8 million (1750) to 16.7 million (1851) [rough]; population and real wages rose together. Today world fertility is about 2.25 and 58% live in towns [checked].",
+   "chokepoint": false,
+   "part": "05"
+  }
+ ],
+ "edges": [
+  {
+   "from": "gift_exchange",
+   "to": "hxaro_partnership",
+   "type": "enables",
+   "note": "gift partnerships as insurance across distance",
+   "src": "part"
+  },
+  {
+   "from": "gift_exchange",
+   "to": "kula_ring",
+   "type": "enables",
+   "note": "ceremonial gifts carry rank and partnership",
+   "src": "part"
+  },
+  {
+   "from": "gift_exchange",
+   "to": "barter",
+   "type": "enables",
+   "note": "gift peace allows safe meetings for barter",
+   "src": "part"
+  },
+  {
+   "from": "stone_tools",
+   "to": "obsidian_exchange",
+   "type": "enables",
+   "note": "blades drove demand for obsidian",
+   "src": "part"
+  },
+  {
+   "from": "gift_exchange",
+   "to": "obsidian_exchange",
+   "type": "enables",
+   "note": "passed hand to hand down the line",
+   "src": "part"
+  },
+  {
+   "from": "obsidian_exchange",
+   "to": "long_distance_trade",
+   "type": "enables",
+   "note": "knowledge of distant sources",
+   "src": "part"
+  },
+  {
+   "from": "gift_exchange",
+   "to": "spondylus_trade",
+   "type": "enables",
+   "note": "prestige goods moved through many hands",
+   "src": "part"
+  },
+  {
+   "from": "spondylus_trade",
+   "to": "amber_road",
+   "type": "enables",
+   "note": "prestige chains lengthen",
+   "src": "general"
+  },
+  {
+   "from": "tin",
+   "to": "tin_lapis_trade",
+   "type": "input",
+   "note": "eastern tin carried west",
+   "src": "part"
+  },
+  {
+   "from": "tin_lapis_trade",
+   "to": "bronze",
+   "type": "input",
+   "note": "tin feeds Mesopotamian bronze-making",
+   "src": "part"
+  },
+  {
+   "from": "tin_lapis_trade",
+   "to": "long_distance_trade",
+   "type": "enables",
+   "note": "start of organised long-distance trade",
+   "src": "part"
+  },
+  {
+   "from": "clay_tokens",
+   "to": "writing",
+   "type": "enables",
+   "note": "writing began as accounts of goods owed",
+   "src": "part"
+  },
+  {
+   "from": "clay_tokens",
+   "to": "record_keeping",
+   "type": "enables",
+   "note": "tokens record grain and beasts",
+   "src": "part"
+  },
+  {
+   "from": "redistribution",
+   "to": "temple_palace_economy",
+   "type": "enables",
+   "note": "centre collects and hands back rations",
+   "src": "part"
+  },
+  {
+   "from": "record_keeping",
+   "to": "temple_palace_economy",
+   "type": "enables",
+   "note": "flows recorded in units of account",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "redistribution",
+   "type": "input",
+   "note": "storable grain to collect at a centre",
+   "src": "general"
+  },
+  {
+   "from": "credit_accounting",
+   "to": "temple_palace_economy",
+   "type": "enables",
+   "note": "rations and dues reckoned in units",
+   "src": "part"
+  },
+  {
+   "from": "writing",
+   "to": "credit_accounting",
+   "type": "enables",
+   "note": "scribes record debts",
+   "src": "part"
+  },
+  {
+   "from": "credit_accounting",
+   "to": "silver_shekel",
+   "type": "enables",
+   "note": "silver as unit of account and debt",
+   "src": "part"
+  },
+  {
+   "from": "silver_shekel",
+   "to": "interest_caps_hammurabi",
+   "type": "enables",
+   "note": "silver loans capped at 20%",
+   "src": "part"
+  },
+  {
+   "from": "writing",
+   "to": "interest_caps_hammurabi",
+   "type": "enables",
+   "note": "written law code",
+   "src": "part"
+  },
+  {
+   "from": "credit_accounting",
+   "to": "debt_bondage",
+   "type": "enables",
+   "note": "unpaid debts pledge land then persons",
+   "src": "part"
+  },
+  {
+   "from": "debt_bondage",
+   "to": "debt_cancellation",
+   "type": "enables",
+   "note": "kings cancel debts to restore free farmers",
+   "src": "part"
+  },
+  {
+   "from": "silver_shekel",
+   "to": "assyrian_karum",
+   "type": "input",
+   "note": "tin sold in Anatolia for silver",
+   "src": "part"
+  },
+  {
+   "from": "tin_lapis_trade",
+   "to": "assyrian_karum",
+   "type": "enables",
+   "note": "tin from the east re-exported via Assur",
+   "src": "part"
+  },
+  {
+   "from": "writing",
+   "to": "assyrian_karum",
+   "type": "enables",
+   "note": "22,000 tablets of letters and accounts",
+   "src": "part"
+  },
+  {
+   "from": "pack_animals",
+   "to": "donkey_caravan",
+   "type": "enables",
+   "note": "black donkeys carry 65 kg each",
+   "src": "part"
+  },
+  {
+   "from": "donkey_caravan",
+   "to": "assyrian_karum",
+   "type": "enables",
+   "note": "caravans carry tin 1,000 km",
+   "src": "part"
+  },
+  {
+   "from": "assyrian_karum",
+   "to": "naruqqum_fund",
+   "type": "enables",
+   "note": "merchant families pool investors' gold",
+   "src": "part"
+  },
+  {
+   "from": "naruqqum_fund",
+   "to": "commenda",
+   "type": "enables",
+   "note": "capital from many, travel by one",
+   "src": "general"
+  },
+  {
+   "from": "silver_shekel",
+   "to": "coinage",
+   "type": "replaces",
+   "note": "stamp replaces weighing and assay",
+   "src": "part"
+  },
+  {
+   "from": "copper_smelting",
+   "to": "coinage",
+   "type": "enables",
+   "note": "metalworking and mints",
+   "src": "general"
+  },
+  {
+   "from": "state_taxation",
+   "to": "coinage",
+   "type": "enables",
+   "note": "taxes paid in coin; paying soldiers",
+   "src": "part"
+  },
+  {
+   "from": "coinage",
+   "to": "markets_fairs",
+   "type": "enables",
+   "note": "retail markets and comparable prices",
+   "src": "part"
+  },
+  {
+   "from": "bronze",
+   "to": "chinese_cast_cash",
+   "type": "input",
+   "note": "cast bronze spade, knife, round coins",
+   "src": "part"
+  },
+  {
+   "from": "chinese_cast_cash",
+   "to": "paper_money",
+   "type": "replaces",
+   "note": "iron coin too heavy for trade",
+   "src": "part"
+  },
+  {
+   "from": "coinage",
+   "to": "coin_debasement",
+   "type": "enables",
+   "note": "rulers cut metal to pay debts",
+   "src": "part"
+  },
+  {
+   "from": "coin_debasement",
+   "to": "price_edict",
+   "type": "enables",
+   "note": "inflation prompted failed price caps",
+   "src": "part"
+  },
+  {
+   "from": "coinage",
+   "to": "carolingian_money_account",
+   "type": "enables",
+   "note": "silver penny struck; pound reckoned",
+   "src": "part"
+  },
+  {
+   "from": "credit_accounting",
+   "to": "carolingian_money_account",
+   "type": "enables",
+   "note": "pound and shilling as units of account",
+   "src": "part"
+  },
+  {
+   "from": "coinage",
+   "to": "tradesmen_tokens",
+   "type": "enables",
+   "note": "too little small coin; private tokens filled gap",
+   "src": "part"
+  },
+  {
+   "from": "steam_engine",
+   "to": "steam_struck_coinage",
+   "type": "enables",
+   "note": "Boulton's steam presses at Soho",
+   "src": "part"
+  },
+  {
+   "from": "tradesmen_tokens",
+   "to": "steam_struck_coinage",
+   "type": "replaces",
+   "note": "crown copper ends private tokens",
+   "src": "part"
+  },
+  {
+   "from": "tradesmen_tokens",
+   "to": "token_coinage",
+   "type": "replaces",
+   "note": "state monopoly token coin solves small change",
+   "src": "part"
+  },
+  {
+   "from": "paper",
+   "to": "paper_money",
+   "type": "input",
+   "note": "printed notes",
+   "src": "general"
+  },
+  {
+   "from": "printing",
+   "to": "paper_money",
+   "type": "enables",
+   "note": "Song notes block-printed",
+   "src": "general"
+  },
+  {
+   "from": "timber",
+   "to": "tally_sticks",
+   "type": "input",
+   "note": "notched split hazel sticks",
+   "src": "general"
+  },
+  {
+   "from": "credit_accounting",
+   "to": "tally_sticks",
+   "type": "enables",
+   "note": "debt recorded without literacy",
+   "src": "part"
+  },
+  {
+   "from": "credit_accounting",
+   "to": "book_credit",
+   "type": "enables",
+   "note": "running accounts in a ledger",
+   "src": "part"
+  },
+  {
+   "from": "writing",
+   "to": "book_credit",
+   "type": "enables",
+   "note": "shopkeeper's written ledger",
+   "src": "part"
+  },
+  {
+   "from": "book_credit",
+   "to": "reckoning_days",
+   "type": "enables",
+   "note": "running debts cleared at set days",
+   "src": "part"
+  },
+  {
+   "from": "tally_sticks",
+   "to": "reckoning_days",
+   "type": "enables",
+   "note": "notched accounts matched at reckoning",
+   "src": "part"
+  },
+  {
+   "from": "reckoning_days",
+   "to": "cheque_clearing",
+   "type": "enables",
+   "note": "netting mutual debts, later by banks",
+   "src": "general"
+  },
+  {
+   "from": "writing",
+   "to": "sealed_bond",
+   "type": "enables",
+   "note": "written promise replaces living witness",
+   "src": "part"
+  },
+  {
+   "from": "law_courts",
+   "to": "sealed_bond",
+   "type": "enables",
+   "note": "enforceable at common law",
+   "src": "part"
+  },
+  {
+   "from": "sureties_pledges",
+   "to": "book_credit",
+   "type": "enables",
+   "note": "neighbours stand behind the debtor",
+   "src": "part"
+  },
+  {
+   "from": "law_courts",
+   "to": "statute_merchant",
+   "type": "enables",
+   "note": "registered debts with fast seizure",
+   "src": "part"
+  },
+  {
+   "from": "credit_accounting",
+   "to": "pawnbroking",
+   "type": "enables",
+   "note": "loan against a pledged good",
+   "src": "part"
+  },
+  {
+   "from": "community_responsibility",
+   "to": "champagne_fairs",
+   "type": "enables",
+   "note": "towns liable for members abroad",
+   "src": "part"
+  },
+  {
+   "from": "merchant_letters",
+   "to": "maghribi_coalition",
+   "type": "enables",
+   "note": "news of agents' honesty by letter",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "maghribi_coalition",
+   "type": "enables",
+   "note": "agents hired in distant ports",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "market_charters",
+   "type": "enables",
+   "note": "lords bought charters to profit from tolls",
+   "src": "part"
+  },
+  {
+   "from": "markets_fairs",
+   "to": "market_charters",
+   "type": "enables",
+   "note": "markets franchised by the crown",
+   "src": "part"
+  },
+  {
+   "from": "markets_fairs",
+   "to": "periodic_market_system",
+   "type": "enables",
+   "note": "staggered days for itinerant traders",
+   "src": "part"
+  },
+  {
+   "from": "markets_fairs",
+   "to": "champagne_fairs",
+   "type": "enables",
+   "note": "rotating fairs in four towns",
+   "src": "part"
+  },
+  {
+   "from": "fair_courts",
+   "to": "champagne_fairs",
+   "type": "enables",
+   "note": "count's fair court and safe-conducts",
+   "src": "part"
+  },
+  {
+   "from": "champagne_fairs",
+   "to": "bills_of_exchange",
+   "type": "enables",
+   "note": "debts payable at the next fair",
+   "src": "part"
+  },
+  {
+   "from": "champagne_fairs",
+   "to": "bill_clearing_fairs",
+   "type": "enables",
+   "note": "fair settlement period as clearing house",
+   "src": "part"
+  },
+  {
+   "from": "writing",
+   "to": "merchant_letters",
+   "type": "enables",
+   "note": "letters of prices and rates",
+   "src": "part"
+  },
+  {
+   "from": "merchant_letters",
+   "to": "bills_of_exchange",
+   "type": "enables",
+   "note": "banker writes to correspondent",
+   "src": "part"
+  },
+  {
+   "from": "draught_animals",
+   "to": "state_courier_relay",
+   "type": "enables",
+   "note": "relays of fresh horses",
+   "src": "general"
+  },
+  {
+   "from": "state_courier_relay",
+   "to": "postal_service",
+   "type": "enables",
+   "note": "relay model opened to paying public",
+   "src": "part"
+  },
+  {
+   "from": "postal_service",
+   "to": "price_currents",
+   "type": "enables",
+   "note": "regular post spreads price news",
+   "src": "general"
+  },
+  {
+   "from": "printing",
+   "to": "price_currents",
+   "type": "enables",
+   "note": "weekly printed price lists",
+   "src": "part"
+  },
+  {
+   "from": "merchant_letters",
+   "to": "price_currents",
+   "type": "replaces",
+   "note": "public prices end the knowing margin",
+   "src": "part"
+  },
+  {
+   "from": "printing",
+   "to": "newspapers",
+   "type": "enables",
+   "note": "weekly then daily print",
+   "src": "part"
+  },
+  {
+   "from": "price_currents",
+   "to": "newspapers",
+   "type": "enables",
+   "note": "prices and ship news in the press",
+   "src": "part"
+  },
+  {
+   "from": "price_currents",
+   "to": "stock_exchange",
+   "type": "enables",
+   "note": "public exchange rates and prices",
+   "src": "general"
+  },
+  {
+   "from": "roads",
+   "to": "parish_road_repair",
+   "type": "enables",
+   "note": "parishes made to mend roads",
+   "src": "part"
+  },
+  {
+   "from": "parish_road_repair",
+   "to": "turnpike_trusts",
+   "type": "replaces",
+   "note": "tolls pay for surfaced roads",
+   "src": "part"
+  },
+  {
+   "from": "roads",
+   "to": "bridges_pontage",
+   "type": "enables",
+   "note": "bridges decide routes",
+   "src": "part"
+  },
+  {
+   "from": "movement_tolls",
+   "to": "bridges_pontage",
+   "type": "enables",
+   "note": "pontage tolls paid for bridges",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "movement_tolls",
+   "type": "enables",
+   "note": "lord's rent on movement",
+   "src": "part"
+  },
+  {
+   "from": "roads",
+   "to": "inns",
+   "type": "enables",
+   "note": "lodging and stabling along routes",
+   "src": "part"
+  },
+  {
+   "from": "inns",
+   "to": "stage_wagon",
+   "type": "enables",
+   "note": "stabling and storage on carriers' routes",
+   "src": "part"
+  },
+  {
+   "from": "wheel_cart",
+   "to": "horse_haulage",
+   "type": "enables",
+   "note": "one-horse carts faster than ox wagons",
+   "src": "part"
+  },
+  {
+   "from": "draught_animals",
+   "to": "horse_haulage",
+   "type": "enables",
+   "note": "horses replace oxen in haulage",
+   "src": "part"
+  },
+  {
+   "from": "wheel_cart",
+   "to": "camel_caravan",
+   "type": "replaces",
+   "note": "camel displaced wheeled transport",
+   "src": "part"
+  },
+  {
+   "from": "pack_animals",
+   "to": "camel_caravan",
+   "type": "enables",
+   "note": "camels carry 150-250 kg",
+   "src": "part"
+  },
+  {
+   "from": "horse_haulage",
+   "to": "stage_wagon",
+   "type": "enables",
+   "note": "6 to 8 horse teams",
+   "src": "part"
+  },
+  {
+   "from": "markets_fairs",
+   "to": "pedlars_chapmen",
+   "type": "enables",
+   "note": "small wares carried between markets",
+   "src": "part"
+  },
+  {
+   "from": "printing",
+   "to": "pedlars_chapmen",
+   "type": "input",
+   "note": "cheap print in the pack",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "droving",
+   "type": "enables",
+   "note": "beasts walked to market",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "hanse_cog",
+   "type": "enables",
+   "note": "100-200 t sailing bulk carrier",
+   "src": "part"
+  },
+  {
+   "from": "hanse_cog",
+   "to": "hanseatic_league",
+   "type": "enables",
+   "note": "cog then hulk carried Hanse trade",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "dutch_fluyt",
+   "type": "enables",
+   "note": "cheap bulk carrier, small crew",
+   "src": "part"
+  },
+  {
+   "from": "hanse_cog",
+   "to": "dutch_fluyt",
+   "type": "replaces",
+   "note": "cheaper bulk tonnage",
+   "src": "general"
+  },
+  {
+   "from": "baltic_grain_trade",
+   "to": "dutch_fluyt",
+   "type": "enables",
+   "note": "bulk trade rewarded a cheap carrier",
+   "src": "part"
+  },
+  {
+   "from": "credit_accounting",
+   "to": "commenda",
+   "type": "enables",
+   "note": "capital lent for a voyage's profit share",
+   "src": "part"
+  },
+  {
+   "from": "commenda",
+   "to": "compagnia",
+   "type": "enables",
+   "note": "partnerships grow into branch firms",
+   "src": "general"
+  },
+  {
+   "from": "compagnia",
+   "to": "double_entry",
+   "type": "enables",
+   "note": "branch networks need balanced accounts",
+   "src": "part"
+  },
+  {
+   "from": "writing",
+   "to": "double_entry",
+   "type": "enables",
+   "note": "written ledgers",
+   "src": "part"
+  },
+  {
+   "from": "compagnia",
+   "to": "bills_of_exchange",
+   "type": "enables",
+   "note": "branch networks pay across Europe",
+   "src": "general"
+  },
+  {
+   "from": "double_entry",
+   "to": "joint_stock_company",
+   "type": "enables",
+   "note": "accounts of permanent capital",
+   "src": "general"
+  },
+  {
+   "from": "merchant_guild",
+   "to": "hanseatic_league",
+   "type": "enables",
+   "note": "merchants' privileges abroad",
+   "src": "part"
+  },
+  {
+   "from": "movement_tolls",
+   "to": "merchant_guild",
+   "type": "enables",
+   "note": "guilds won toll freedom for members",
+   "src": "part"
+  },
+  {
+   "from": "salt_making",
+   "to": "hanseatic_league",
+   "type": "input",
+   "note": "Lüneburg and Bourgneuf salt traded",
+   "src": "part"
+  },
+  {
+   "from": "salt_preservation",
+   "to": "stockfish_trade",
+   "type": "enables",
+   "note": "durable preserved fish",
+   "src": "general"
+  },
+  {
+   "from": "fishing",
+   "to": "stockfish_trade",
+   "type": "input",
+   "note": "northern cod dried for trade",
+   "src": "part"
+  },
+  {
+   "from": "stockfish_trade",
+   "to": "hanseatic_league",
+   "type": "input",
+   "note": "Bergen kontor traded stockfish",
+   "src": "part"
+  },
+  {
+   "from": "wool_sheep",
+   "to": "english_wool_export",
+   "type": "input",
+   "note": "raw wool sacks to Flanders",
+   "src": "part"
+  },
+  {
+   "from": "english_wool_export",
+   "to": "flemish_cloth",
+   "type": "input",
+   "note": "Flemish cloth from English wool",
+   "src": "part"
+  },
+  {
+   "from": "weaving",
+   "to": "flemish_cloth",
+   "type": "enables",
+   "note": "fine woollen weaving",
+   "src": "part"
+  },
+  {
+   "from": "timber",
+   "to": "baltic_grain_trade",
+   "type": "input",
+   "note": "Baltic timber shipped west",
+   "src": "part"
+  },
+  {
+   "from": "coinage",
+   "to": "moneychangers",
+   "type": "enables",
+   "note": "coins of many mints to exchange",
+   "src": "part"
+  },
+  {
+   "from": "moneychangers",
+   "to": "banking",
+   "type": "enables",
+   "note": "changers began to hold deposits",
+   "src": "part"
+  },
+  {
+   "from": "banking",
+   "to": "bills_of_exchange",
+   "type": "enables",
+   "note": "banker and correspondent pay abroad",
+   "src": "part"
+  },
+  {
+   "from": "bills_of_exchange",
+   "to": "bill_clearing_fairs",
+   "type": "enables",
+   "note": "fairs existed only to clear bills",
+   "src": "part"
+  },
+  {
+   "from": "bills_of_exchange",
+   "to": "bill_endorsement",
+   "type": "enables",
+   "note": "bills made transferable",
+   "src": "part"
+  },
+  {
+   "from": "bill_endorsement",
+   "to": "goldsmith_bankers",
+   "type": "enables",
+   "note": "transferable paper close to money",
+   "src": "general"
+  },
+  {
+   "from": "banking",
+   "to": "bank_of_amsterdam",
+   "type": "enables",
+   "note": "public bank money with agio",
+   "src": "part"
+  },
+  {
+   "from": "bank_of_amsterdam",
+   "to": "central_bank",
+   "type": "enables",
+   "note": "public bank model",
+   "src": "general"
+  },
+  {
+   "from": "banking",
+   "to": "goldsmith_bankers",
+   "type": "enables",
+   "note": "deposits lent beyond reserves",
+   "src": "part"
+  },
+  {
+   "from": "goldsmith_bankers",
+   "to": "central_bank",
+   "type": "enables",
+   "note": "notes and runs need a lender of last resort",
+   "src": "general"
+  },
+  {
+   "from": "funded_public_debt",
+   "to": "central_bank",
+   "type": "enables",
+   "note": "Bank of England founded on a state loan",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "funded_public_debt",
+   "type": "enables",
+   "note": "debt serviced by voted taxes",
+   "src": "part"
+  },
+  {
+   "from": "central_bank",
+   "to": "gold_standard",
+   "type": "enables",
+   "note": "convertibility managed by the bank",
+   "src": "part"
+  },
+  {
+   "from": "gold_standard",
+   "to": "bretton_woods",
+   "type": "replaces",
+   "note": "dollar peg replaces gold standard",
+   "src": "part"
+  },
+  {
+   "from": "bretton_woods",
+   "to": "fiat_money",
+   "type": "replaces",
+   "note": "gold window closed 1971",
+   "src": "part"
+  },
+  {
+   "from": "joint_stock_company",
+   "to": "stock_exchange",
+   "type": "enables",
+   "note": "VOC shares traded in Amsterdam",
+   "src": "part"
+  },
+  {
+   "from": "stock_exchange",
+   "to": "railway",
+   "type": "enables",
+   "note": "capital pooled for long-lived works",
+   "src": "part"
+  },
+  {
+   "from": "banking",
+   "to": "cheque_clearing",
+   "type": "enables",
+   "note": "banks net claims daily",
+   "src": "part"
+  },
+  {
+   "from": "telegraph",
+   "to": "telegraphic_transfer",
+   "type": "enables",
+   "note": "money by wire in hours",
+   "src": "part"
+  },
+  {
+   "from": "banking",
+   "to": "credit_cards",
+   "type": "enables",
+   "note": "bank-backed consumer credit",
+   "src": "general"
+  },
+  {
+   "from": "computer",
+   "to": "swift_messaging",
+   "type": "enables",
+   "note": "standard electronic messages",
+   "src": "general"
+  },
+  {
+   "from": "credit_cards",
+   "to": "electronic_payments",
+   "type": "enables",
+   "note": "cards become main retail payment",
+   "src": "part"
+  },
+  {
+   "from": "computer",
+   "to": "electronic_payments",
+   "type": "enables",
+   "note": "network ledgers",
+   "src": "general"
+  },
+  {
+   "from": "mobile_phone",
+   "to": "mobile_money",
+   "type": "enables",
+   "note": "payments by phone",
+   "src": "part"
+  },
+  {
+   "from": "internet",
+   "to": "instant_payments",
+   "type": "enables",
+   "note": "instant national payment network",
+   "src": "general"
+  },
+  {
+   "from": "internet",
+   "to": "cryptocurrency",
+   "type": "enables",
+   "note": "ledger kept by no single party",
+   "src": "part"
+  },
+  {
+   "from": "fiat_money",
+   "to": "cbdc",
+   "type": "enables",
+   "note": "state money as a digital account",
+   "src": "part"
+  },
+  {
+   "from": "electronic_payments",
+   "to": "cbdc",
+   "type": "enables",
+   "note": "digital money infrastructure",
+   "src": "general"
+  },
+  {
+   "from": "boats",
+   "to": "canals",
+   "type": "enables",
+   "note": "barges where no river ran",
+   "src": "general"
+  },
+  {
+   "from": "coal",
+   "to": "canals",
+   "type": "enables",
+   "note": "Bridgewater built for coal; halved its price",
+   "src": "part"
+  },
+  {
+   "from": "turnpike_trusts",
+   "to": "canals",
+   "type": "enables",
+   "note": "same toll-and-act finance model",
+   "src": "general"
+  },
+  {
+   "from": "steam_engine",
+   "to": "railway",
+   "type": "enables",
+   "note": "locomotive power",
+   "src": "general"
+  },
+  {
+   "from": "canals",
+   "to": "railway",
+   "type": "replaces",
+   "note": "cheap land transport all year",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "telegraph",
+   "type": "enables",
+   "note": "telegraph wires beside the railway",
+   "src": "general"
+  },
+  {
+   "from": "steam_engine",
+   "to": "steamship",
+   "type": "enables",
+   "note": "steam propulsion at sea",
+   "src": "general"
+  },
+  {
+   "from": "sail",
+   "to": "steamship",
+   "type": "replaces",
+   "note": "regular schedules, cheaper ocean freight",
+   "src": "part"
+  },
+  {
+   "from": "steamship",
+   "to": "suez_canal",
+   "type": "enables",
+   "note": "steam route through the canal",
+   "src": "part"
+  },
+  {
+   "from": "telegraph",
+   "to": "transatlantic_cable",
+   "type": "enables",
+   "note": "cable across the Atlantic 1866",
+   "src": "part"
+  },
+  {
+   "from": "telegraph",
+   "to": "futures_markets",
+   "type": "enables",
+   "note": "prices known everywhere in minutes",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "futures_markets",
+   "type": "enables",
+   "note": "graded grain by rail",
+   "src": "general"
+  },
+  {
+   "from": "motor_vehicle",
+   "to": "highways_trucking",
+   "type": "enables",
+   "note": "door-to-door freight",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "highways_trucking",
+   "type": "replaces",
+   "note": "factories leave railheads",
+   "src": "part"
+  },
+  {
+   "from": "steamship",
+   "to": "container_shipping",
+   "type": "enables",
+   "note": "ocean ships carry boxes",
+   "src": "general"
+  },
+  {
+   "from": "container_shipping",
+   "to": "global_supply_chains",
+   "type": "enables",
+   "note": "handling costs collapsed",
+   "src": "part"
+  },
+  {
+   "from": "highways_trucking",
+   "to": "container_shipping",
+   "type": "enables",
+   "note": "trucks share the same box",
+   "src": "part"
+  },
+  {
+   "from": "aviation",
+   "to": "air_freight",
+   "type": "enables",
+   "note": "jet freighters",
+   "src": "part"
+  },
+  {
+   "from": "air_freight",
+   "to": "global_supply_chains",
+   "type": "enables",
+   "note": "speed for high-value parts",
+   "src": "part"
+  },
+  {
+   "from": "computer",
+   "to": "global_supply_chains",
+   "type": "enables",
+   "note": "barcodes and just-in-time",
+   "src": "general"
+  },
+  {
+   "from": "internet",
+   "to": "electronic_exchanges",
+   "type": "enables",
+   "note": "prices in milliseconds",
+   "src": "part"
+  },
+  {
+   "from": "stock_exchange",
+   "to": "electronic_exchanges",
+   "type": "enables",
+   "note": "exchanges move to screens",
+   "src": "part"
+  },
+  {
+   "from": "foraging",
+   "to": "demand_sharing",
+   "type": "enables",
+   "note": "small mobile groups share on request",
+   "src": "part"
+  },
+  {
+   "from": "foraging",
+   "to": "reverse_dominance",
+   "type": "enables",
+   "note": "bands level would-be dominators",
+   "src": "part"
+  },
+  {
+   "from": "demand_sharing",
+   "to": "gift_exchange",
+   "type": "enables",
+   "note": "sharing within, gifts between",
+   "src": "general"
+  },
+  {
+   "from": "reverse_dominance",
+   "to": "feud_wergild",
+   "type": "replaces",
+   "note": "kin retaliation replaces levelling",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "granary_storage",
+   "type": "input",
+   "note": "grain can be stored and measured",
+   "src": "part"
+  },
+  {
+   "from": "granary_storage",
+   "to": "state_taxation",
+   "type": "enables",
+   "note": "visible grain can be taxed",
+   "src": "part"
+  },
+  {
+   "from": "granary_storage",
+   "to": "slavery",
+   "type": "enables",
+   "note": "a surplus to guard and to feed dependants",
+   "src": "part"
+  },
+  {
+   "from": "granary_storage",
+   "to": "redistribution",
+   "type": "enables",
+   "note": "chiefs collect tribute and redistribute",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "household_production",
+   "type": "enables",
+   "note": "farming household as unit of production",
+   "src": "general"
+  },
+  {
+   "from": "household_production",
+   "to": "reciprocal_work_parties",
+   "type": "enables",
+   "note": "households swap help at peak",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "property_in_land",
+   "type": "enables",
+   "note": "fields held by lineages and households",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "property_in_land",
+   "type": "enables",
+   "note": "herds as movable wealth",
+   "src": "part"
+  },
+  {
+   "from": "property_in_land",
+   "to": "feud_wergild",
+   "type": "enables",
+   "note": "kin defend land and members",
+   "src": "general"
+  },
+  {
+   "from": "state_taxation",
+   "to": "corvee_labour",
+   "type": "enables",
+   "note": "labour taken as tax",
+   "src": "part"
+  },
+  {
+   "from": "irrigation_farming",
+   "to": "corvee_labour",
+   "type": "enables",
+   "note": "canals dug by levied labour",
+   "src": "part"
+  },
+  {
+   "from": "record_keeping",
+   "to": "state_taxation",
+   "type": "enables",
+   "note": "counting people and fields",
+   "src": "part"
+  },
+  {
+   "from": "writing",
+   "to": "census_cadastre",
+   "type": "enables",
+   "note": "written counts of people and fields",
+   "src": "part"
+  },
+  {
+   "from": "census_cadastre",
+   "to": "state_taxation",
+   "type": "enables",
+   "note": "measurement behind state capacity",
+   "src": "part"
+  },
+  {
+   "from": "slavery",
+   "to": "atlantic_slave_trade",
+   "type": "enables",
+   "note": "coercive law treats people as property",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "atlantic_slave_trade",
+   "type": "enables",
+   "note": "ocean trade in captives",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "atlantic_slave_trade",
+   "type": "enables",
+   "note": "transatlantic shipping",
+   "src": "general"
+  },
+  {
+   "from": "atlantic_slave_trade",
+   "to": "mechanised_spinning",
+   "type": "enables",
+   "note": "slave-grown cotton fed the mills",
+   "src": "general"
+  },
+  {
+   "from": "slavery",
+   "to": "serfdom",
+   "type": "replaces",
+   "note": "Domesday slaves settled as smallholders",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "serfdom",
+   "type": "enables",
+   "note": "lord with force binds labour",
+   "src": "part"
+  },
+  {
+   "from": "serfdom",
+   "to": "labour_dues",
+   "type": "enables",
+   "note": "villeins owe week-work and boons",
+   "src": "part"
+  },
+  {
+   "from": "labour_dues",
+   "to": "lordship_manor",
+   "type": "input",
+   "note": "demesne worked by tenants' dues",
+   "src": "part"
+  },
+  {
+   "from": "open_field_strips",
+   "to": "three_field_rotation",
+   "type": "enables",
+   "note": "great fields rotated in common",
+   "src": "general"
+  },
+  {
+   "from": "plough",
+   "to": "open_field_strips",
+   "type": "enables",
+   "note": "ploughing in common in long strips",
+   "src": "general"
+  },
+  {
+   "from": "open_field_strips",
+   "to": "regulated_commons",
+   "type": "enables",
+   "note": "stubble and fallow grazed in common",
+   "src": "part"
+  },
+  {
+   "from": "manor_court",
+   "to": "regulated_commons",
+   "type": "enables",
+   "note": "by-laws, stints and fines",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "mill_soke",
+   "type": "enables",
+   "note": "capital mill the lord can monopolise",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "mill_soke",
+   "type": "enables",
+   "note": "power to forbid querns",
+   "src": "part"
+  },
+  {
+   "from": "hand_quern",
+   "to": "watermill",
+   "type": "replaces",
+   "note": "mill grinds fast; querns slow but possible",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "seigneurial_banalites",
+   "type": "enables",
+   "note": "lord's bannum over oven and press",
+   "src": "part"
+  },
+  {
+   "from": "baking",
+   "to": "seigneurial_banalites",
+   "type": "enables",
+   "note": "communal oven as monopoly",
+   "src": "general"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "forest_law",
+   "type": "enables",
+   "note": "king reserves deer",
+   "src": "general"
+  },
+  {
+   "from": "hunting",
+   "to": "forest_law",
+   "type": "enables",
+   "note": "game made a lord's right",
+   "src": "part"
+  },
+  {
+   "from": "fishing",
+   "to": "weir_rights",
+   "type": "enables",
+   "note": "fish weirs as lords' property",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "tithe",
+   "type": "input",
+   "note": "a tenth of grain to the church",
+   "src": "general"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "manor_court",
+   "type": "enables",
+   "note": "lord's court for tenants",
+   "src": "part"
+  },
+  {
+   "from": "manor_court",
+   "to": "frankpledge",
+   "type": "enables",
+   "note": "view of frankpledge held in court",
+   "src": "part"
+  },
+  {
+   "from": "manor_court",
+   "to": "sureties_pledges",
+   "type": "enables",
+   "note": "deals backed by pledges",
+   "src": "part"
+  },
+  {
+   "from": "manor_court",
+   "to": "assize_bread_ale",
+   "type": "enables",
+   "note": "fines on brewers and bakers",
+   "src": "part"
+  },
+  {
+   "from": "brewing",
+   "to": "assize_bread_ale",
+   "type": "enables",
+   "note": "ale sold for money is regulated",
+   "src": "general"
+  },
+  {
+   "from": "manor_court",
+   "to": "peasant_land_market",
+   "type": "enables",
+   "note": "transfers entered on court roll",
+   "src": "part"
+  },
+  {
+   "from": "record_keeping",
+   "to": "manor_court",
+   "type": "enables",
+   "note": "court rolls record custom",
+   "src": "part"
+  },
+  {
+   "from": "manor_court",
+   "to": "book_credit",
+   "type": "enables",
+   "note": "court made village credit possible",
+   "src": "part"
+  },
+  {
+   "from": "law_courts",
+   "to": "freehold_tenure",
+   "type": "enables",
+   "note": "king's courts protect freehold",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "freehold_tenure",
+   "type": "enables",
+   "note": "land held for fixed services",
+   "src": "general"
+  },
+  {
+   "from": "law_courts",
+   "to": "assumpsit",
+   "type": "enables",
+   "note": "informal promises made enforceable",
+   "src": "part"
+  },
+  {
+   "from": "feud_wergild",
+   "to": "law_courts",
+   "type": "replaces",
+   "note": "public justice replaces kin vengeance",
+   "src": "general"
+  },
+  {
+   "from": "fair_courts",
+   "to": "law_courts",
+   "type": "enables",
+   "note": "merchant procedure absorbed",
+   "src": "general"
+  },
+  {
+   "from": "coinage",
+   "to": "commutation_money_rent",
+   "type": "enables",
+   "note": "rents paid in coin",
+   "src": "part"
+  },
+  {
+   "from": "markets_fairs",
+   "to": "commutation_money_rent",
+   "type": "enables",
+   "note": "tenants sell to pay rent",
+   "src": "part"
+  },
+  {
+   "from": "labour_dues",
+   "to": "commutation_money_rent",
+   "type": "replaces",
+   "note": "money replaces services; frees tenant time",
+   "src": "part"
+  },
+  {
+   "from": "commutation_money_rent",
+   "to": "demesne_leasing",
+   "type": "enables",
+   "note": "lords lease rather than farm",
+   "src": "part"
+  },
+  {
+   "from": "demesne_leasing",
+   "to": "servants_in_husbandry",
+   "type": "enables",
+   "note": "tenant farmers hire servants",
+   "src": "general"
+  },
+  {
+   "from": "serfdom",
+   "to": "copyhold",
+   "type": "replaces",
+   "note": "customary tenure without bondage",
+   "src": "part"
+  },
+  {
+   "from": "manor_court",
+   "to": "copyhold",
+   "type": "enables",
+   "note": "title is a copy of the roll",
+   "src": "part"
+  },
+  {
+   "from": "primogeniture",
+   "to": "servants_in_husbandry",
+   "type": "enables",
+   "note": "younger children sent into service",
+   "src": "part"
+  },
+  {
+   "from": "primogeniture",
+   "to": "apprenticeship",
+   "type": "enables",
+   "note": "younger sons to crafts and towns",
+   "src": "part"
+  },
+  {
+   "from": "property_in_land",
+   "to": "primogeniture",
+   "type": "enables",
+   "note": "inheritance rules for holdings",
+   "src": "general"
+  },
+  {
+   "from": "wage_labour",
+   "to": "statute_of_labourers",
+   "type": "enables",
+   "note": "wages to cap after the plague",
+   "src": "part"
+  },
+  {
+   "from": "statute_of_labourers",
+   "to": "statute_of_artificers",
+   "type": "replaces",
+   "note": "JPs set wages; yearly hiring",
+   "src": "part"
+  },
+  {
+   "from": "serfdom",
+   "to": "wage_labour",
+   "type": "replaces",
+   "note": "Black Death: tenants leave for better terms",
+   "src": "part"
+  },
+  {
+   "from": "wage_labour",
+   "to": "payment_in_kind",
+   "type": "enables",
+   "note": "harvest pay half food and drink",
+   "src": "part"
+  },
+  {
+   "from": "coinage",
+   "to": "wage_labour",
+   "type": "enables",
+   "note": "coin to pay day wages",
+   "src": "general"
+  },
+  {
+   "from": "reciprocal_work_parties",
+   "to": "labour_dues",
+   "type": "enables",
+   "note": "boon days modelled on harvest help",
+   "src": "general"
+  },
+  {
+   "from": "household_production",
+   "to": "servants_in_husbandry",
+   "type": "enables",
+   "note": "households balance hands and land",
+   "src": "part"
+  },
+  {
+   "from": "servants_in_husbandry",
+   "to": "hiring_fairs",
+   "type": "enables",
+   "note": "yearly change of masters",
+   "src": "part"
+  },
+  {
+   "from": "servants_in_husbandry",
+   "to": "european_marriage_pattern",
+   "type": "enables",
+   "note": "service as a life stage before marriage",
+   "src": "part"
+  },
+  {
+   "from": "apprenticeship",
+   "to": "statute_of_artificers",
+   "type": "enables",
+   "note": "statute fixed seven-year terms",
+   "src": "part"
+  },
+  {
+   "from": "guilds",
+   "to": "apprenticeship",
+   "type": "enables",
+   "note": "guild enforces training contract",
+   "src": "part"
+  },
+  {
+   "from": "cities",
+   "to": "guilds",
+   "type": "enables",
+   "note": "town crafts organise",
+   "src": "general"
+  },
+  {
+   "from": "household_production",
+   "to": "putting_out",
+   "type": "enables",
+   "note": "slack-season household labour",
+   "src": "part"
+  },
+  {
+   "from": "merchant_guild",
+   "to": "putting_out",
+   "type": "enables",
+   "note": "merchant capital owns the materials",
+   "src": "general"
+  },
+  {
+   "from": "spinning",
+   "to": "putting_out",
+   "type": "input",
+   "note": "rural spinning for piece wages",
+   "src": "part"
+  },
+  {
+   "from": "putting_out",
+   "to": "industrious_revolution",
+   "type": "enables",
+   "note": "women and children in cottage industry",
+   "src": "part"
+  },
+  {
+   "from": "industrious_revolution",
+   "to": "factory_system",
+   "type": "enables",
+   "note": "longer hours, market-oriented households",
+   "src": "general"
+  },
+  {
+   "from": "putting_out",
+   "to": "factory_system",
+   "type": "replaces",
+   "note": "work gathered under one roof",
+   "src": "part"
+  },
+  {
+   "from": "mechanised_spinning",
+   "to": "factory_system",
+   "type": "enables",
+   "note": "water and steam powered machines",
+   "src": "part"
+  },
+  {
+   "from": "wage_labour",
+   "to": "factory_system",
+   "type": "input",
+   "note": "wage-dependent workers",
+   "src": "part"
+  },
+  {
+   "from": "factory_system",
+   "to": "factory_acts",
+   "type": "enables",
+   "note": "child labour prompted inspection law",
+   "src": "part"
+  },
+  {
+   "from": "friendly_societies",
+   "to": "trade_unions",
+   "type": "enables",
+   "note": "craft and friendly societies became unions",
+   "src": "part"
+  },
+  {
+   "from": "factory_system",
+   "to": "trade_unions",
+   "type": "enables",
+   "note": "concentrated workers combine",
+   "src": "part"
+  },
+  {
+   "from": "guilds",
+   "to": "trade_unions",
+   "type": "replaces",
+   "note": "guilds abolished; unions bargain",
+   "src": "general"
+  },
+  {
+   "from": "regulated_commons",
+   "to": "enclosure",
+   "type": "replaces",
+   "note": "common rights ended; strips consolidated",
+   "src": "part"
+  },
+  {
+   "from": "open_field_strips",
+   "to": "enclosure",
+   "type": "replaces",
+   "note": "compact hedged fields under one holder",
+   "src": "part"
+  },
+  {
+   "from": "enclosure",
+   "to": "parliamentary_enclosure",
+   "type": "enables",
+   "note": "enclosure by private act",
+   "src": "part"
+  },
+  {
+   "from": "parliamentary_enclosure",
+   "to": "factory_system",
+   "type": "enables",
+   "note": "landless lose commons, sell labour",
+   "src": "part"
+  },
+  {
+   "from": "guilds",
+   "to": "corporation",
+   "type": "enables",
+   "note": "guilds as corporate bodies",
+   "src": "part"
+  },
+  {
+   "from": "cities",
+   "to": "corporation",
+   "type": "enables",
+   "note": "chartered towns as corporations",
+   "src": "part"
+  },
+  {
+   "from": "corporation",
+   "to": "joint_stock_company",
+   "type": "enables",
+   "note": "chartered companies with shares",
+   "src": "part"
+  },
+  {
+   "from": "joint_stock_company",
+   "to": "limited_liability",
+   "type": "enables",
+   "note": "general incorporation by law",
+   "src": "part"
+  },
+  {
+   "from": "printing",
+   "to": "intellectual_property",
+   "type": "enables",
+   "note": "copyright for printed works",
+   "src": "general"
+  },
+  {
+   "from": "guilds",
+   "to": "intellectual_property",
+   "type": "enables",
+   "note": "monopoly privileges as a model",
+   "src": "general"
+  },
+  {
+   "from": "census_cadastre",
+   "to": "land_registry",
+   "type": "enables",
+   "note": "surveyed titles",
+   "src": "general"
+  },
+  {
+   "from": "coinage",
+   "to": "lay_subsidy",
+   "type": "enables",
+   "note": "taxes assessed in money",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "lay_subsidy",
+   "type": "enables",
+   "note": "royal taxes on movables",
+   "src": "part"
+  },
+  {
+   "from": "english_wool_export",
+   "to": "wool_customs",
+   "type": "input",
+   "note": "wool exports taxed at ports",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "wool_customs",
+   "type": "enables",
+   "note": "crown's most reliable revenue",
+   "src": "part"
+  },
+  {
+   "from": "markets_fairs",
+   "to": "excise",
+   "type": "enables",
+   "note": "taxes on traded goods",
+   "src": "part"
+  },
+  {
+   "from": "brewing",
+   "to": "excise",
+   "type": "input",
+   "note": "beer and malt excised",
+   "src": "general"
+  },
+  {
+   "from": "excise",
+   "to": "fiscal_military_state",
+   "type": "enables",
+   "note": "professional excise revenue",
+   "src": "part"
+  },
+  {
+   "from": "funded_public_debt",
+   "to": "fiscal_military_state",
+   "type": "enables",
+   "note": "war financed by funded debt",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "parish_road_repair",
+   "type": "enables",
+   "note": "roads by statute labour",
+   "src": "part"
+  },
+  {
+   "from": "frankpledge",
+   "to": "police_force",
+   "type": "replaces",
+   "note": "paid police replace neighbours' policing",
+   "src": "general"
+  },
+  {
+   "from": "tithe",
+   "to": "old_poor_law",
+   "type": "enables",
+   "note": "parish as unit of relief",
+   "src": "general"
+  },
+  {
+   "from": "granary_storage",
+   "to": "old_poor_law",
+   "type": "enables",
+   "note": "relief beyond private stores",
+   "src": "general"
+  },
+  {
+   "from": "old_poor_law",
+   "to": "factory_system",
+   "type": "enables",
+   "note": "relief let labourers leave land for wages",
+   "src": "part"
+  },
+  {
+   "from": "old_poor_law",
+   "to": "new_poor_law",
+   "type": "replaces",
+   "note": "workhouse makes relief less eligible",
+   "src": "part"
+  },
+  {
+   "from": "bills_of_exchange",
+   "to": "insurance",
+   "type": "enables",
+   "note": "Italian merchant finance underwrites voyages",
+   "src": "general"
+  },
+  {
+   "from": "sail",
+   "to": "insurance",
+   "type": "enables",
+   "note": "risky voyages to insure",
+   "src": "general"
+  },
+  {
+   "from": "insurance",
+   "to": "life_insurance",
+   "type": "enables",
+   "note": "premiums extended to lives",
+   "src": "part"
+  },
+  {
+   "from": "life_insurance",
+   "to": "social_insurance",
+   "type": "enables",
+   "note": "actuarial pooling by the state",
+   "src": "general"
+  },
+  {
+   "from": "trade_unions",
+   "to": "social_insurance",
+   "type": "enables",
+   "note": "franchise and labour pressure",
+   "src": "general"
+  },
+  {
+   "from": "social_insurance",
+   "to": "welfare_state",
+   "type": "enables",
+   "note": "pensions, health, unemployment",
+   "src": "part"
+  },
+  {
+   "from": "new_poor_law",
+   "to": "welfare_state",
+   "type": "replaces",
+   "note": "state insurance replaces the parish",
+   "src": "part"
+  },
+  {
+   "from": "fiscal_military_state",
+   "to": "welfare_state",
+   "type": "enables",
+   "note": "war taxes that did not fall back",
+   "src": "part"
+  },
+  {
+   "from": "economic_regulation",
+   "to": "welfare_state",
+   "type": "enables",
+   "note": "bureaucracy built for regulation",
+   "src": "general"
+  },
+  {
+   "from": "fair_courts",
+   "to": "credit_bureaus",
+   "type": "enables",
+   "note": "third-party record of defaulters",
+   "src": "part"
+  },
+  {
+   "from": "maghribi_coalition",
+   "to": "credit_bureaus",
+   "type": "enables",
+   "note": "reputation by information channel",
+   "src": "general"
+  },
+  {
+   "from": "guilds",
+   "to": "professional_licensing",
+   "type": "replaces",
+   "note": "entry by exam and licence",
+   "src": "part"
+  },
+  {
+   "from": "internet",
+   "to": "gig_platforms",
+   "type": "enables",
+   "note": "digital hiring fair with ratings",
+   "src": "part"
+  },
+  {
+   "from": "hiring_fairs",
+   "to": "gig_platforms",
+   "type": "replaces",
+   "note": "day labour re-matched online",
+   "src": "general"
+  },
+  {
+   "from": "credit_bureaus",
+   "to": "gig_platforms",
+   "type": "enables",
+   "note": "reputation scores for strangers",
+   "src": "general"
+  },
+  {
+   "from": "european_marriage_pattern",
+   "to": "demographic_transition",
+   "type": "enables",
+   "note": "fertility below biological maximum",
+   "src": "general"
+  },
+  {
+   "from": "quarantine",
+   "to": "demographic_transition",
+   "type": "enables",
+   "note": "end of epidemic mortality",
+   "src": "part"
+  },
+  {
+   "from": "piped_water",
+   "to": "demographic_transition",
+   "type": "enables",
+   "note": "clean water ended towns as graveyards",
+   "src": "part"
+  },
+  {
+   "from": "sewers",
+   "to": "demographic_transition",
+   "type": "enables",
+   "note": "sanitation lowered urban deaths",
+   "src": "part"
+  },
+  {
+   "from": "cities",
+   "to": "quarantine",
+   "type": "enables",
+   "note": "dense towns as graveyards needed it",
+   "src": "general"
+  }
+ ]
+}

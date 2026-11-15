@@ -1,0 +1,5379 @@
+{
+ "nodes": [
+  {
+   "id": "kanesh_caravan_firms",
+   "label": "Assyrian caravan firms",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -1950,
+   "date_src": "part",
+   "place": "Assur to Kanesh, Anatolia",
+   "paradigm": "early_state",
+   "desc": "Old Assyrian family firms sent tin and woollen textiles by donkey caravans of tens of animals some 1,000 km to Kanesh, sold them for silver and gold and sent the metal home. Over 22,000 letters and contracts show branch offices, pooled-capital partnerships, interest-bearing loans and tolls paid en route: merchant credit and agency in the Bronze Age.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "roman_annona",
+   "label": "Roman annona grain office",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -22,
+   "date_src": "general",
+   "place": "Rome, Ostia, Portus",
+   "paradigm": "agrarian_empire",
+   "desc": "The cura annonae under a prefect levied or bought grain (much of Egypt's as tax in kind), contracted private shippers and stored the grain in horrea for a city of 800,000 to a million (rough). Rome's yearly need is put at 150,000 to 400,000 t (contested). A hybrid: state demand and guarantees calling a private shipping industry into being.",
+   "chokepoint": true,
+   "part": "11"
+  },
+  {
+   "id": "egyptian_tax_grain",
+   "label": "Egyptian Nile tax grain",
+   "domain": "food",
+   "kind": "resource",
+   "start": -30,
+   "date_src": "general",
+   "place": "Nile valley, Egypt",
+   "paradigm": "agrarian_empire",
+   "desc": "One flood crop a year on Nile farms, much of it taken as tax in kind and shipped to Rome: 20 million modii (about 135,000 t) a year under Augustus. Whoever held Egypt held Rome's bread, so Augustus ruled it through his own prefect and barred senators from it.",
+   "chokepoint": true,
+   "part": "11"
+  },
+  {
+   "id": "navicularii",
+   "label": "Navicularii grain shippers",
+   "domain": "transport",
+   "kind": "industry",
+   "start": 41,
+   "date_src": "general",
+   "place": "Mediterranean to Ostia and Portus",
+   "paradigm": "agrarian_empire",
+   "desc": "Private shipowners contracted to carry the annona's grain, in ships of about 340 t commonly (rough). Emperors drew them in with privileges: Claudius insured them against storm losses, and a Junian Latin who carried grain for six years in a 10,000-modii ship earned citizenship. The April-to-October sailing season made a year's supply arrive in six months.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "horrea",
+   "label": "Horrea grain warehouses",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": -100,
+   "date_src": "general",
+   "place": "Ostia, Portus and Rome",
+   "paradigm": "agrarian_empire",
+   "desc": "State and private warehouses holding the grain shipped in during the six-month sailing season, turning a pulse into a year's supply. Grain reached them up the Tiber in barges towed by men and oxen.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "portus_harbour",
+   "label": "Portus harbour",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 42,
+   "date_src": "general",
+   "place": "Portus, mouth of the Tiber",
+   "paradigm": "agrarian_empire",
+   "desc": "Claudius and Trajan built an artificial harbour at Portus for the big grain ships, after Puteoli and Ostia. It was the chokepoint of Rome's bread; when the grain fleet was late, Rome rioted.",
+   "chokepoint": true,
+   "part": "11"
+  },
+  {
+   "id": "frumentatio_dole",
+   "label": "Free grain dole",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -123,
+   "date_src": "general",
+   "place": "Rome",
+   "paradigm": "agrarian_empire",
+   "desc": "Free grain from ticketed citizen lists: 5 modii a month to about 200,000 citizens under Augustus (about 80,000 t a year). It was under half of what the city ate; the rest was sold on the market.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "baetican_olive_oil",
+   "label": "Baetican olive oil trade",
+   "domain": "food",
+   "kind": "industry",
+   "start": 30,
+   "date_src": "general",
+   "wide": 140,
+   "place": "Guadalquivir valley (Baetica), Spain",
+   "paradigm": "agrarian_empire",
+   "desc": "Groves taking 15 to 20 years to full bearing, lever and screw presses and estate amphora kilns supplied oil shipped via Hispalis to Rome and the frontier armies, much of it bought by the state. Monte Testaccio, a 35 m hill of jars dumped about AD 140 to 260, holds 20 to 53 million amphorae (contested).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "dressel20_amphorae",
+   "label": "Dressel 20 oil amphorae",
+   "domain": "materials",
+   "kind": "good",
+   "start": 30,
+   "date_src": "general",
+   "place": "estate kilns on the Guadalquivir",
+   "paradigm": "agrarian_empire",
+   "desc": "Globular oil jars of about 70 litres, stamped with the estate and painted with the shipper and checking officials. Oil-soaked sherds could not be reused, so they were dumped on Monte Testaccio, in effect a customs archive.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "iberian_silver_mines",
+   "label": "Iberian silver-lead mines",
+   "domain": "metals",
+   "kind": "industry",
+   "start": -230,
+   "date_src": "general",
+   "place": "Carthago Nova, Sierra Morena, Rio Tinto",
+   "paradigm": "agrarian_empire",
+   "desc": "Rome's money rested on Iberian lead-silver ore, state-owned and leased to contractors who worked it with slaves and convicts, drained shafts with man-worked water wheels in series and smelted with charcoal from the surrounding woods. Polybius says the mines near Carthago Nova employed 40,000 workers; Rio Tinto left 6 to 16 million tonnes of slag (contested).",
+   "chokepoint": true,
+   "part": "11"
+  },
+  {
+   "id": "cupellation",
+   "label": "Cupellation of silver",
+   "domain": "metals",
+   "kind": "technique",
+   "start": -3000,
+   "date_src": "general",
+   "place": "Near East; at scale in Laurion and Iberia",
+   "paradigm": "early_state",
+   "desc": "Lead bullion smelted from galena is oxidised in a hearth so the lead burns off and silver remains, leaving lead as a by-product. Roman-era smelting put lead into the Greenland ice at about four times the natural level (Hong 1994).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "roman_lead",
+   "label": "Lead pipes and sheeting",
+   "domain": "metals",
+   "kind": "good",
+   "start": -500,
+   "date_src": "general",
+   "place": "Laurion, Iberia, Britain",
+   "paradigm": "agrarian_empire",
+   "desc": "Lead was the by-product of desilvering galena and went into water pipes and sheeting. Lead in the NGRIP ice core tracks Roman mining year by year, peaking under the early Empire and falling with civil wars and the Antonine plague (McConnell 2018).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "mining_leases",
+   "label": "Mine leases to contractors",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -550,
+   "date_src": "general",
+   "place": "Laurion; Roman Spain (Vipasca)",
+   "paradigm": "agrarian_empire",
+   "desc": "The state kept ownership of the ore and leased shafts to contractors (Athens's lessees at Laurion, Rome's publicani and later imperial procurators), who supplied the labour. The Vipasca tablets set the lease rules.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "denarius",
+   "label": "Silver denarius",
+   "domain": "exchange",
+   "kind": "good",
+   "start": -211,
+   "date_src": "general",
+   "place": "Rome",
+   "paradigm": "agrarian_empire",
+   "desc": "About 3.9 g of nearly pure silver under Augustus, minted from Iberian silver, paid to the army and carrying a monetary economy that reached peasants in many provinces. Nero cut its weight and fineness in AD 64, and by the 260s its successor held a few per cent silver (rough), with steep price rises.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "taxes_and_trade",
+   "label": "Money tax forcing trade",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -200,
+   "date_src": "part",
+   "place": "Roman Empire; later Mughal India, Ming China",
+   "paradigm": "agrarian_empire",
+   "desc": "Keith Hopkins's model: the state taxed rich inner provinces in money and spent it in Rome and on the frontier armies, so the provinces had to sell goods where the coin was spent to get next year's tax. A tax payable only in coin makes households sell, and a market forms where none was.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "roman_concrete",
+   "label": "Roman pozzolana concrete",
+   "domain": "building",
+   "kind": "technique",
+   "start": -150,
+   "date_src": "general",
+   "place": "Rome and Campania",
+   "paradigm": "agrarian_empire",
+   "desc": "Opus caementicium mixed lime, volcanic ash and rubble; the ash reacts with lime to set hard even under water, so harbour moles could be cast in the sea. It let semi-skilled gangs under contractors build vaults cheaply inside brick facing over timber formwork; the Pantheon's unreinforced dome (about AD 126) is 43.3 m across.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "pozzolana",
+   "label": "Pozzolana volcanic ash",
+   "domain": "materials",
+   "kind": "resource",
+   "start": -200,
+   "date_src": "general",
+   "place": "ash pits near Puteoli (Naples)",
+   "paradigm": "agrarian_empire",
+   "desc": "Volcanic ash that reacts with lime to give a hydraulic set. The pits near Naples were a regional chokepoint, with crushed brick a weaker substitute elsewhere.",
+   "chokepoint": true,
+   "part": "11"
+  },
+  {
+   "id": "laurion_silver",
+   "label": "Laurion silver mines",
+   "domain": "metals",
+   "kind": "industry",
+   "start": -540,
+   "date_src": "general",
+   "place": "Laurion, Attica",
+   "paradigm": "commercial_city_state",
+   "desc": "A rich silver strike in 483/2 BC was spent, at Themistocles's urging, on a fleet of about 200 triremes that won at Salamis. The state leased the mines to contractors working them with slaves; over 20,000 slaves fled Athens in 413 BC (Thucydides 7.27).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "athenian_owl",
+   "label": "Athenian silver owl",
+   "domain": "exchange",
+   "kind": "good",
+   "start": -510,
+   "date_src": "general",
+   "place": "Athens",
+   "paradigm": "commercial_city_state",
+   "desc": "The silver tetradrachm struck from Laurion silver, the Aegean's common money by the 5th century BC. Rowers paid in coin from a mine dug by slaves: one loop of silver, labour and sea power.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "athenian_grain_policy",
+   "label": "Athenian grain-route policing",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -450,
+   "date_src": "general",
+   "place": "Athens, the Hellespont, the Bosporan kingdom",
+   "paradigm": "commercial_city_state",
+   "desc": "Athens imported grain from the Black Sea, Egypt and Sicily (about 400,000 medimnoi, 12,000 to 16,000 t, a year from the Bosporus, per Demosthenes), policed the Hellespont, forbade citizens to ship grain elsewhere and set grain wardens over the market. How dependent it was is debated.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "peculium_slave_agents",
+   "label": "Slave agents with peculium",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -200,
+   "date_src": "general",
+   "place": "Roman Italy",
+   "paradigm": "agrarian_empire",
+   "desc": "Skilled slaves ran shops, ships and money for their owners as agents with a peculium, a fund they managed and could buy freedom with; freedmen became a large part of the urban commercial class. Italy held about 1 to 1.5 million slaves at the height (contested).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "coloni_tenancy",
+   "label": "Coloni bound tenants",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 200,
+   "date_src": "part",
+   "place": "Roman Empire",
+   "paradigm": "agrarian_empire",
+   "desc": "From the 2nd to the 4th century the slave estate gave way to tenants (coloni) bound to the land, as slave supply fell back on breeding and frontier capture after the conquests ended.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "chinese_cast_iron",
+   "label": "Chinese blast-furnace cast iron",
+   "domain": "metals",
+   "kind": "technique",
+   "start": -500,
+   "date_src": "part",
+   "place": "Warring States China",
+   "paradigm": "early_state",
+   "desc": "China smelted cast iron in blast furnaces from about the 5th century BC, over 1,500 years before Europe at scale, mass-casting ploughshares and hoes in clay and iron moulds and annealing them. Bellows were worked by men and horses, later by water.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "chaogang_steel",
+   "label": "Chaogang fining steel",
+   "domain": "metals",
+   "kind": "technique",
+   "start": -100,
+   "date_src": "general",
+   "place": "Han China",
+   "paradigm": "agrarian_empire",
+   "desc": "Steel made by decarburising cast iron in a stirred hearth: a puddling process in the Han, far ahead of Europe. It turned brittle cast iron into tools and weapons.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "water_bellows",
+   "label": "Water-powered bellows",
+   "domain": "energy",
+   "kind": "technique",
+   "start": 31,
+   "date_src": "part",
+   "place": "Han China (Du Shi)",
+   "paradigm": "agrarian_empire",
+   "desc": "Du Shi's water-driven bellows (AD 31) blew Han iron furnaces; Wang Zhen described Song-Yuan water bellows in 1313. Water replaced men and horses at the bellows.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "han_salt_iron_monopoly",
+   "label": "Han salt and iron monopoly",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -117,
+   "date_src": "part",
+   "place": "Han China (Sang Hongyang)",
+   "paradigm": "agrarian_empire",
+   "desc": "In 117 BC Emperor Wu, needing money for wars with the Xiongnu, made salt and iron state monopolies: some four dozen iron offices (rough), big works outside city walls run by conscripts and convicts, tools sold at fixed prices. The 81 BC Discourses on Salt and Iron argued the case; the salt monopoly stayed a fiscal pillar for two thousand years.",
+   "chokepoint": true,
+   "part": "11"
+  },
+  {
+   "id": "song_coal_iron",
+   "label": "Song coal-fired iron industry",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 1000,
+   "date_src": "general",
+   "place": "Cizhou and Xingzhou, Hebei and Henan",
+   "paradigm": "agrarian_empire",
+   "desc": "A large, partly private iron industry under state licence and quota, using coal from shafts as the northern woods ran out, blast furnaces with water bellows, and refining to wrought iron and steel for armies, builders and farmers. Hartwell put 1078 output at 75,000 to 125,000 t, near Britain's 1788 level; Wagner says no reliable calculation is possible (contested). It fell after the Jurchen conquest (1126) and the Yellow River's shift (1194).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "kaifeng_coal_fuel",
+   "label": "Coal heating Kaifeng",
+   "domain": "energy",
+   "kind": "practice",
+   "start": 1050,
+   "date_src": "general",
+   "place": "Kaifeng, Northern Song",
+   "paradigm": "agrarian_empire",
+   "desc": "A wood fuel crisis in the Northern Song led to wide use of mineral coal to heat the capital, brought from the Shanxi and Hebei coalfields by canal and cart. A city near a million on mineral fuel, centuries before London.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "song_wet_rice",
+   "label": "Song wet-rice intensification",
+   "domain": "food",
+   "kind": "technique",
+   "start": 900,
+   "date_src": "part",
+   "place": "Lower Yangzi, south China",
+   "paradigm": "agrarian_empire",
+   "desc": "Wet rice with transplanting, irrigation by treadle pumps, and night soil and canal mud as manure let the south overtake the north; China's population passed about 100 million around 1100 (rough).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "treadle_chain_pump",
+   "label": "Treadle chain pump",
+   "domain": "food",
+   "kind": "technique",
+   "start": 100,
+   "date_src": "general",
+   "place": "China",
+   "paradigm": "agrarian_empire",
+   "desc": "A chain of paddles in a trough, worked by foot, lifting canal water into paddy fields: the irrigation tool of Song rice intensification.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "champa_rice",
+   "label": "Champa early-ripening rice",
+   "domain": "food",
+   "kind": "good",
+   "start": 1012,
+   "date_src": "part",
+   "place": "Champa (central Vietnam) via Fujian",
+   "paradigm": "agrarian_empire",
+   "desc": "Early-ripening, drought-tolerant rice; after the 1012 drought Emperor Zhenzong had 30,000 bushels of seed sent to the lower Yangzi and Huai. It allowed a second crop, or a crop on higher land; its origin is debated in genomic studies.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "grand_canal",
+   "label": "Grand Canal",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 605,
+   "date_src": "part",
+   "place": "Yangzi to Kaifeng, later Beijing",
+   "paradigm": "agrarian_empire",
+   "desc": "Begun by the Sui from 605 to join the Yangzi to the north and extended by the Yuan to Beijing: about 1,776 km. It carried 3 to 4 million shi of tax grain a year in Ming and Qing (rough), the binding chokepoint of the capitals' bread.",
+   "chokepoint": true,
+   "part": "11"
+  },
+  {
+   "id": "canal_tax_grain",
+   "label": "Canal tax-grain tribute",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 610,
+   "date_src": "general",
+   "place": "Tang Chang'an, Song Kaifeng, Ming-Qing Beijing",
+   "paradigm": "agrarian_empire",
+   "desc": "Tax grain from the Yangzi moved north on the canals to feed the court, officials and army: bulk that moved far only on a state's demand. Kaifeng's Bian canal brought several million shi a year (contested).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "copper_cash",
+   "label": "Copper cash coins",
+   "domain": "exchange",
+   "kind": "good",
+   "start": -221,
+   "date_src": "general",
+   "place": "China",
+   "paradigm": "agrarian_empire",
+   "desc": "Round bronze coins with a square hole, strung by the thousand. Northern Song minting peaked at roughly 5 to 6 billion coins a year around 1080 (rough).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "sichuan_iron_cash",
+   "label": "Sichuan iron coins",
+   "domain": "exchange",
+   "kind": "good",
+   "start": 960,
+   "date_src": "general",
+   "place": "Sichuan",
+   "paradigm": "agrarian_empire",
+   "desc": "Sichuan's coins were iron and too heavy to carry for trade, which pushed its merchants toward paper receipts.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "jiaozi_receipts",
+   "label": "Jiaozi deposit receipts",
+   "domain": "exchange",
+   "kind": "good",
+   "start": 1000,
+   "date_src": "part",
+   "place": "Chengdu, Sichuan",
+   "paradigm": "agrarian_empire",
+   "desc": "Merchant houses in Sichuan issued deposit receipts against heavy iron coin around 1000: private paper that circulated as money. The state suppressed them and took over issue.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "song_state_notes",
+   "label": "Song state paper notes",
+   "domain": "exchange",
+   "kind": "good",
+   "start": 1024,
+   "date_src": "part",
+   "place": "Chengdu note office, Sichuan",
+   "paradigm": "agrarian_empire",
+   "desc": "The Song state took over issue in 1023 to 1024 with an official office at Chengdu, the first state paper money. Notes had a term, a fixed issue and a cash reserve; over-issue for war depreciated them.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "huizi_notes",
+   "label": "Southern Song huizi",
+   "domain": "exchange",
+   "kind": "good",
+   "start": 1160,
+   "date_src": "part",
+   "place": "Hangzhou, Southern Song",
+   "paradigm": "agrarian_empire",
+   "desc": "Southern Song notes from the 1160s, which depreciated badly in the wars with the Jin and Mongols. The Yuan then made paper the main money and over-issued it too.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "ming_silver_by_weight",
+   "label": "Ming uncoined silver",
+   "domain": "exchange",
+   "kind": "good",
+   "start": 1430,
+   "date_src": "general",
+   "place": "Ming China",
+   "paradigm": "agrarian_empire",
+   "desc": "After paper lost trust the Ming returned in the 15th century to copper and above all to uncoined silver by weight. This made China the world's silver sink; gold:silver stood about 1:6 in China against 1:12 in Spain c.1600.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "single_whip_reform",
+   "label": "Single-whip silver tax",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1570,
+   "date_src": "part",
+   "place": "Ming China",
+   "paradigm": "agrarian_empire",
+   "desc": "Reforms of the 1570s and 1580s turned taxes and labour service into payments in silver: a money tax that forced sales and drew in Japanese and American silver.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "kaolin_china_stone",
+   "label": "Kaolin and china stone",
+   "domain": "materials",
+   "kind": "resource",
+   "start": 1000,
+   "date_src": "general",
+   "place": "Gaoling hill and quarries near Jingdezhen",
+   "paradigm": "agrarian_empire",
+   "desc": "Porcelain's two body materials lay near Jingdezhen: kaolin (named after Gaoling hill) and petuntse, crushed by water-powered trip hammers, settled in tanks and shipped to town as white bricks. China stone with lime-and-fern ash also made the glaze.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "water_trip_hammer",
+   "label": "Water-powered trip hammers",
+   "domain": "energy",
+   "kind": "technique",
+   "start": -100,
+   "date_src": "general",
+   "place": "China; later Islamic paper mills",
+   "paradigm": "agrarian_empire",
+   "desc": "Water wheels lifting hammers, used on Jingdezhen's streams to crush china stone and in Islamic mills to beat rags to pulp. Water power gave paper increasing returns.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "jingdezhen_porcelain",
+   "label": "Jingdezhen porcelain",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1004,
+   "date_src": "general",
+   "place": "Jingdezhen, Jiangxi",
+   "paradigm": "agrarian_empire",
+   "desc": "The world's porcelain city from the Song on: hundreds of private kilns with throwing, moulding, painting, glazing and saggar-making as separate trades (a cup passes through seventy-two hands, Song Yingxing 1637). D'Entrecolles reported some 3,000 kilns in 1712 (reported, probably exaggerated); ware went by river to the Yangzi and overland to Guangzhou and Quanzhou.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "dragon_kiln",
+   "label": "Dragon and egg kilns",
+   "domain": "materials",
+   "kind": "technique",
+   "start": -200,
+   "date_src": "general",
+   "place": "south China; Jingdezhen",
+   "paradigm": "agrarian_empire",
+   "desc": "Long kilns climbing a slope, and Jingdezhen's egg-shaped kilns, firing porcelain with pine wood in vast amounts fetched from ever further away.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "persian_cobalt",
+   "label": "Persian cobalt",
+   "domain": "materials",
+   "kind": "resource",
+   "start": 1320,
+   "date_src": "general",
+   "place": "Qamsar near Kashan, Persia",
+   "paradigm": "agrarian_empire",
+   "desc": "The blue of Yuan and Ming blue-and-white came from cobalt imported from Persia through Mongol and sea trade: the porcelain chain's one imported chokepoint. When supply failed potters used duller local cobalt, a substitute with a trade-off.",
+   "chokepoint": true,
+   "part": "11"
+  },
+  {
+   "id": "blue_and_white_ware",
+   "label": "Blue-and-white porcelain",
+   "domain": "materials",
+   "kind": "good",
+   "start": 1320,
+   "date_src": "general",
+   "place": "Jingdezhen",
+   "paradigm": "agrarian_empire",
+   "desc": "Underglaze cobalt-painted porcelain begun under the Yuan, sold to the court, Japan, Southeast Asia, the Islamic world (to Persian taste) and Europe after 1600.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "imperial_kiln",
+   "label": "Imperial kiln",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1369,
+   "date_src": "part",
+   "place": "Jingdezhen",
+   "paradigm": "agrarian_empire",
+   "desc": "Founded in 1369 or 1402 among hundreds of private kilns, it made the state a quality-setting customer: it commissioned designs, drew the best workers and passed its rejects to the market.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "sericulture",
+   "label": "Sericulture",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": -2700,
+   "date_src": "general",
+   "place": "China",
+   "paradigm": "horticultural_tribal",
+   "desc": "Mulberry trees (years to grow) feed silkworms reared for a month in warm rooms by women, with leaves fed hourly at the end: a labour pulse. Egg cards are kept over winter.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "silk_reeling",
+   "label": "Silk reeling",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": -2500,
+   "date_src": "general",
+   "place": "China",
+   "paradigm": "horticultural_tribal",
+   "desc": "Cocoons are boiled and the filament reeled off in skilled hours at a reel into raw silk, then twisted and dyed.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "drawloom_brocade",
+   "label": "Drawloom damask and brocade",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": -200,
+   "date_src": "general",
+   "place": "Suzhou, Hangzhou, Nanjing",
+   "paradigm": "agrarian_empire",
+   "desc": "Patterned silks woven on drawlooms in city workshops, while plain silk was woven in peasant homes.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "imperial_weaving_bureaus",
+   "label": "Imperial weaving bureaus",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1368,
+   "date_src": "general",
+   "place": "Suzhou, Hangzhou, Nanjing",
+   "paradigm": "agrarian_empire",
+   "desc": "State silk workshops in the brocade cities under the Ming and Qing: one of several social forms (households, city workshops, bureaus) for the same cloth chain.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "silk_tax_cloth",
+   "label": "Taxes paid in silk",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -200,
+   "date_src": "general",
+   "place": "China",
+   "paradigm": "agrarian_empire",
+   "desc": "Households paid tax in cloth for centuries, and the Tang paid its Central Asian garrisons in silk, which then entered trade (Hansen).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "mulberry_dike_fishpond",
+   "label": "Mulberry-dike fish ponds",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1400,
+   "date_src": "general",
+   "place": "Pearl River delta; Lake Tai",
+   "paradigm": "agrarian_empire",
+   "desc": "Ponds dug for fish, the spoil heaped into dikes planted with mulberry, leaves fed to silkworms, their droppings to the fish, and pond mud dredged back onto the dikes: joint products closed into a loop at landscape scale.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "indian_cotton_cloth",
+   "label": "Indian painted and printed cottons",
+   "domain": "textiles",
+   "kind": "industry",
+   "start": -100,
+   "date_src": "general",
+   "place": "Gujarat, Coromandel, Bengal",
+   "paradigm": "agrarian_empire",
+   "desc": "India was the world's great cloth maker from antiquity to about 1800: printed cottons from Gujarat, painted chintz from Coromandel, Dhaka muslins from Bengal, woven by caste weavers on pit looms. Textiles were about two-thirds or more of the English East India Company's Asian imports in the 17th and 18th centuries; ships sailed on the monsoon, so cloth had to be ready by a date.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "churka_gin",
+   "label": "Churka roller gin",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 500,
+   "date_src": "general",
+   "place": "India",
+   "paradigm": "agrarian_empire",
+   "desc": "Two rollers squeezing the seeds out of raw cotton, followed by bowing to open the fibre before spinning.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "charkha",
+   "label": "Charkha spinning wheel",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1000,
+   "date_src": "general",
+   "place": "India",
+   "paradigm": "agrarian_empire",
+   "desc": "The wheel on which women spun cotton at home; yarn fineness was set by the spinner's skill.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "mordant_chintz",
+   "label": "Mordant-painted chintz",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": -500,
+   "date_src": "general",
+   "place": "Coromandel coast",
+   "paradigm": "agrarian_empire",
+   "desc": "Mordants (alum, iron) fixed madder and chay-root reds and indigo blue, with resist and hand painting: fast colours no one else could match. Washermen bleached the cloth in river water with lye and sun.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "alum_mordant",
+   "label": "Alum mordant",
+   "domain": "materials",
+   "kind": "resource",
+   "start": -1500,
+   "date_src": "general",
+   "place": "India; the Levant",
+   "paradigm": "early_state",
+   "desc": "A mineral salt that binds dyes to fibre: it fixed Indian chintz colours, and Levantine alum was an input of Florence's woollen cloth.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "indigo",
+   "label": "Indigo dye cakes",
+   "domain": "textiles",
+   "kind": "good",
+   "start": -1500,
+   "date_src": "general",
+   "place": "Bayana near Agra; Sarkhej near Ahmedabad",
+   "paradigm": "agrarian_empire",
+   "desc": "Leaves fermented in one vat, the liquor beaten in a second to oxidise it, and the blue sediment pressed into cakes: light and valuable, ideal for long trade. Under the British it moved to Bengal plantations on forced contracts (the Indigo Revolt, 1859 to 1860).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "woad",
+   "label": "Woad",
+   "domain": "textiles",
+   "kind": "resource",
+   "start": -3000,
+   "date_src": "general",
+   "place": "Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "Europe's own blue dye plant. Woad interests won bans and duties on indigo in the 16th and 17th centuries, which the stronger dye eventually broke: a substitution decided by politics as much as chemistry.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "dadni_advances",
+   "label": "Dadni merchant advances",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1600,
+   "date_src": "general",
+   "place": "Bengal and Coromandel",
+   "paradigm": "agrarian_empire",
+   "desc": "Merchants advanced cash to dispersed household weavers before the season and collected the cloth, on a credit network of shroffs and hundis: proto-industry centuries before Europe's.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "shroffs_hundi",
+   "label": "Shroffs and hundi bills",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1200,
+   "date_src": "general",
+   "place": "Mughal and earlier India",
+   "paradigm": "agrarian_empire",
+   "desc": "Shroffs tested coin, lent to officers against revenue assignments and remitted money by hundi, bills drawn on correspondents in other cities, so value moved without carrying coin.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "calico_acts",
+   "label": "Calico Acts",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1700,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "The calico craze in England led wool and silk interests to win bans on printed calico imports (1700) and then on most cotton sales (1721).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "wootz_steel",
+   "label": "Wootz crucible steel",
+   "domain": "metals",
+   "kind": "technique",
+   "start": -300,
+   "date_src": "part",
+   "place": "Kodumanal (Tamil Nadu); Sri Lanka",
+   "paradigm": "agrarian_empire",
+   "desc": "Iron and wood or leaves sealed in small clay crucibles, held at heat for hours and cooled slowly, giving high-carbon steel (about 1 to 2 per cent) with a banded structure; in Sri Lanka ridge furnaces were blown by the monsoon wind. The secret lay in ores with traces of vanadium plus the recipe; when those broke in the 18th and 19th centuries the blades could not be made.",
+   "chokepoint": true,
+   "part": "11"
+  },
+  {
+   "id": "damascus_blades",
+   "label": "Damascus patterned blades",
+   "domain": "metals",
+   "kind": "good",
+   "start": 900,
+   "date_src": "general",
+   "place": "Persia and Syria",
+   "paradigm": "agrarian_empire",
+   "desc": "Wootz cakes carried across the Arabian Sea were forged at low heat into the patterned blades Europeans called Damascus steel.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "mughal_zabt",
+   "label": "Mughal zabt cash revenue",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1580,
+   "date_src": "part",
+   "place": "Mughal India (Akbar)",
+   "paradigm": "agrarian_empire",
+   "desc": "Land measured and assessed by crop and average prices at a third to a half of produce, collected mostly in money, so peasants had to sell grain and the countryside was pulled into markets. Revenue around 1595 was roughly 90 to 100 million rupees (rough), assigned to mansabdars as jagirs rotated every few years.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "banjara_caravans",
+   "label": "Banjara bullock caravans",
+   "domain": "transport",
+   "kind": "practice",
+   "start": 1500,
+   "date_src": "general",
+   "place": "Mughal India",
+   "paradigm": "agrarian_empire",
+   "desc": "Caste caravanners moving grain with pack bullocks in herds of thousands; Peter Mundy reported about 14,000 laden oxen in one train in 1632 (reported).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "silver_rupee",
+   "label": "Silver rupee",
+   "domain": "exchange",
+   "kind": "good",
+   "start": 1540,
+   "date_src": "part",
+   "place": "India (Sher Shah)",
+   "paradigm": "agrarian_empire",
+   "desc": "A coin of about 11 g of silver from the 1540s. India sold cloth and drew in the world's silver, and Mughal mint output swelled with American silver.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "camel_caravans",
+   "label": "Camel saddle caravans",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 300,
+   "date_src": "part",
+   "place": "Middle East and North Africa",
+   "paradigm": "pastoral_nomadic",
+   "desc": "From about the 3rd to the 6th century camels with a better saddle displaced carts, being cheaper per load and needing no roads (Bulliet). Land transport became caravans of hundreds or thousands of camels between watered stops.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "caravanserai_funduq",
+   "label": "Caravanserai and funduq",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 800,
+   "date_src": "general",
+   "place": "Islamic routes and ports",
+   "paradigm": "agrarian_empire",
+   "desc": "Walled inns with one guarded gate, a courtyard for beasts and goods and rooms above; in ports the funduq was also warehouse, customs point and residence for foreign merchants of one nation. Venice copied the form in the Fondaco dei Tedeschi.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "waqf",
+   "label": "Waqf endowment",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 700,
+   "date_src": "general",
+   "place": "Islamic world",
+   "paradigm": "agrarian_empire",
+   "desc": "A perpetual endowment whose rents paid for public works; many of a road's inns and markets were built and kept by waqf.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "muhtasib",
+   "label": "Muhtasib market inspector",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 800,
+   "date_src": "general",
+   "place": "Islamic cities",
+   "paradigm": "agrarian_empire",
+   "desc": "An official enforcing weights, measures, the prices of necessities and honest dealing (hisba): the market's rules, visible and enforced on the spot.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "islamic_paper_mill",
+   "label": "Islamic rag-paper mills",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 794,
+   "date_src": "part",
+   "place": "Baghdad; then Damascus, Cairo, Fez, Xativa",
+   "paradigm": "agrarian_empire",
+   "desc": "A paper mill worked in Baghdad by about 794: linen and hemp rags retted, beaten to pulp by water- or animal-driven trip hammers, formed with a mould, pressed and sized with starch. Bloom argues cheap paper made bureaucracy, accounts, commercial letters and books practical before print.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "linen_rags",
+   "label": "Linen rag trade",
+   "domain": "textiles",
+   "kind": "resource",
+   "start": 750,
+   "date_src": "general",
+   "place": "Islamic world; later Europe",
+   "paradigm": "agrarian_empire",
+   "desc": "Used linen and hemp cloth collected as paper fibre (China used mulberry bark, bamboo and hemp): a waste stream turned input.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "papyrus_parchment",
+   "label": "Papyrus and parchment",
+   "domain": "information",
+   "kind": "good",
+   "start": -3000,
+   "date_src": "general",
+   "place": "Egypt; the Mediterranean",
+   "paradigm": "early_state",
+   "desc": "Writing surfaces before paper: papyrus from Egyptian reed, parchment from animal skin. Paper substituted for both.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "fabriano_paper",
+   "label": "Fabriano paper",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1270,
+   "date_src": "part",
+   "place": "Fabriano, Italy",
+   "paradigm": "commercial_city_state",
+   "desc": "Christian Europe's first major paper centre by the 1270s, sizing with gelatine instead of starch.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "cane_sugar_crystal",
+   "label": "Crystallised cane sugar",
+   "domain": "food",
+   "kind": "technique",
+   "start": 350,
+   "date_src": "general",
+   "place": "India, then Sasanian Persia",
+   "paradigm": "agrarian_empire",
+   "desc": "Cane juice boiled and crystallised first in India (Sanskrit khanda, the root of 'candy'), then in Sasanian Persia.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "arab_crop_package",
+   "label": "Islamic crop and irrigation spread",
+   "domain": "food",
+   "kind": "practice",
+   "start": 700,
+   "date_src": "general",
+   "place": "Iraq to al-Andalus",
+   "paradigm": "agrarian_empire",
+   "desc": "Watson's 'Arab agricultural revolution': Muslim rule spreading sugar, rice, cotton, citrus and sorghum with summer irrigation from Iraq to Spain; Decker and others argue many were already in the Roman and Sasanian world (contested).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "mamluk_sugar_refining",
+   "label": "Mamluk sugar refining",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1250,
+   "date_src": "general",
+   "place": "Egypt",
+   "paradigm": "agrarian_empire",
+   "desc": "Egypt refined sugar at scale with peasants and wage workers and exported it to Europe. Cane must be crushed within a day or two or the juice spoils, so field and mill had to be one unit.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "atlantic_sugar_plantation",
+   "label": "Atlantic sugar plantation",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1450,
+   "date_src": "part",
+   "wide": 1640,
+   "place": "Madeira, Sao Tome, Brazil, the Caribbean",
+   "paradigm": "plantation_slave",
+   "desc": "Sugar moved via Cyprus to Madeira (1450s), Sao Tome, Brazil (leading producer from the later 16th century) and the Caribbean (from the 1640s): cane field, roller mill and a boiling house of copper kettles under one command, worked by enslaved Africans in gangs and burning fuel in vast amounts. The cane's need for immediate crushing made the plantation.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "molasses_rum",
+   "label": "Molasses and rum",
+   "domain": "food",
+   "kind": "good",
+   "start": 1650,
+   "date_src": "general",
+   "place": "the Caribbean",
+   "paradigm": "plantation_slave",
+   "desc": "Purging loaf sugar in clay cone moulds leaves molasses, later distilled into rum: a joint product of the sugar works.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "qanat",
+   "label": "Qanat",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": -800,
+   "date_src": "part",
+   "place": "Iran; spread to Oman, Central Asia, North Africa, Spain",
+   "paradigm": "irrigation",
+   "desc": "A gently sloping tunnel tapping groundwater under an alluvial fan and leading it by gravity to fields kilometres away, dug from a line of shafts by hereditary diggers (muqannis). The Gonabad qanat has a 300 m mother well and 427 shafts over about 33 km; about 37,000 were still in use in Iran in the 2000s (counts vary widely). The village dies if it collapses.",
+   "chokepoint": true,
+   "part": "11"
+  },
+  {
+   "id": "water_time_shares",
+   "label": "Water time shares",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -500,
+   "date_src": "general",
+   "place": "Iran and Oman",
+   "paradigm": "irrigation",
+   "desc": "A qanat's flow owned in shares of time in a cycle of days, measured with a water clock and run by a water master; shares were sold, inherited and pledged. A commons that is also property.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "suftaja",
+   "label": "Suftaja transfer bill",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 800,
+   "date_src": "general",
+   "place": "Abbasid world",
+   "paradigm": "agrarian_empire",
+   "desc": "Money paid in one city and repaid in another by the issuer's correspondent, so value moved without carrying coin on dangerous roads; jurists debated it because the lender gained safe carriage.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "hawala",
+   "label": "Hawala debt transfer",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 800,
+   "date_src": "general",
+   "place": "Islamic world",
+   "paradigm": "agrarian_empire",
+   "desc": "Legal transfer of a debt to another debtor, letting debts circulate; the root of the modern informal transfer system of that name.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "sakk",
+   "label": "Sakk payment order",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 800,
+   "date_src": "general",
+   "place": "Abbasid Baghdad",
+   "paradigm": "agrarian_empire",
+   "desc": "A written order to pay among known bankers, the root of Europe's 'cheque'.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "qirad",
+   "label": "Qirad partnership",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 650,
+   "date_src": "general",
+   "place": "Arabia and the Islamic world",
+   "paradigm": "agrarian_empire",
+   "desc": "One partner gives capital, the other travels and trades, and profit is shared: capital joined to skill without interest, very like the later Italian commenda (Udovitch).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "maghribi_reputation",
+   "label": "Merchant reputation networks",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1000,
+   "date_src": "part",
+   "place": "Fustat (Cairo Geniza), Mediterranean",
+   "paradigm": "agrarian_empire",
+   "desc": "Greif argued the 11th-century Maghribi traders enforced agents' honesty by collective reputation; Edwards and Ogilvie replied that they used courts and dealt with outsiders; Goldberg sees networks of reciprocal agency. Enforcement mixed reputation, courts and kin, changing with distance.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "inca_mita",
+   "label": "Inca mit'a labour tax",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1438,
+   "date_src": "part",
+   "place": "Andes (Tawantinsuyu)",
+   "paradigm": "agrarian_empire",
+   "desc": "Households owed turns of labour, not goods (farming state and temple land, herding, building, soldiering, carrying), organised by local lords (kurakas). The state fed workers while they worked, with food and maize beer at feasts: hospitality as payment.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "qollqa_storehouses",
+   "label": "Qollqa storehouses",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1438,
+   "date_src": "part",
+   "place": "Huanuco Pampa; Cotapachi",
+   "paradigm": "agrarian_empire",
+   "desc": "Rows of storehouses on cool, windy hillsides near state centres: Huanuco Pampa had 497, mostly of highland tubers; Cotapachi about 2,400 (reported). They stocked way stations and paid workers and soldiers; the Spanish found them full.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "chuno_charki",
+   "label": "Chuno and ch'arki",
+   "domain": "food",
+   "kind": "technique",
+   "start": -500,
+   "date_src": "general",
+   "place": "Andean highlands",
+   "paradigm": "horticultural_tribal",
+   "desc": "Potatoes freeze-dried by night frost and day sun (chuno) and dried meat (ch'arki): food that kept for years in the stores.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "qhapaq_nan",
+   "label": "Qhapaq Nan road system",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1438,
+   "date_src": "part",
+   "place": "the Andes",
+   "paradigm": "agrarian_empire",
+   "desc": "Some 30,000 to 40,000 km of roads (estimates 23,000 to 60,000) with way stations (tambos) a day apart, stocked from the storehouses, and relay runners (chasqui).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "khipu",
+   "label": "Khipu knotted cords",
+   "domain": "information",
+   "kind": "technique",
+   "start": 600,
+   "date_src": "general",
+   "place": "the Andes",
+   "paradigm": "agrarian_empire",
+   "desc": "Knotted cords recording labour owed and goods stored: records for a state with no writing in the usual sense.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "llama_caravans",
+   "label": "Llama caravans",
+   "domain": "transport",
+   "kind": "practice",
+   "start": -1000,
+   "date_src": "general",
+   "place": "the Andes",
+   "paradigm": "horticultural_tribal",
+   "desc": "The only Andean pack animal, carrying about 25 to 30 kg; llama trains carried the Inca stores and later fed Potosi from valleys far below.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "andean_terraces",
+   "label": "Andean terraces",
+   "domain": "food",
+   "kind": "infrastructure",
+   "start": -1000,
+   "date_src": "general",
+   "place": "the Andes",
+   "paradigm": "chiefdom",
+   "desc": "Terraces and irrigation built by community and later mit'a labour over generations: time capital in the land.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "vertical_archipelago",
+   "label": "Vertical archipelago",
+   "domain": "food",
+   "kind": "practice",
+   "start": -500,
+   "date_src": "general",
+   "place": "the Andes",
+   "paradigm": "chiefdom",
+   "desc": "John Murra showed Andean communities held land at several altitudes (tubers high, maize in the valleys, coca and cotton lower) and moved goods within the kin group or the state instead of trading.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "inca_staple_finance",
+   "label": "Inca staple finance",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1438,
+   "date_src": "part",
+   "place": "Inca empire",
+   "paradigm": "agrarian_empire",
+   "desc": "The state paid in food and fine cloth (woven by aqllakuna) from its own stores rather than in money (D'Altroy and Earle), ruling perhaps 6 to 14 million people (contested) without markets or money. The strongest case that storage, roads, records and a labour obligation can coordinate a large society.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "aztec_tribute",
+   "label": "Aztec tribute schedules",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1428,
+   "date_src": "part",
+   "place": "Triple Alliance, Basin of Mexico",
+   "paradigm": "agrarian_empire",
+   "desc": "The Codex Mendoza records the tribute of 38 or 39 provinces on fixed schedules: maize, beans, cacao, cotton cloaks by the tens of thousands (rough), feathers, jade, gold, paper, lime and timber. Much was redistributed or sold.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "tlatelolco_market",
+   "label": "Tlatelolco market",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1430,
+   "date_src": "general",
+   "place": "Tlatelolco, Tenochtitlan",
+   "paradigm": "agrarian_empire",
+   "desc": "Cortes reported 'more than sixty thousand' buying and selling daily (a conquistador's estimate; others say 20,000 to 25,000). Goods were sold by count and measure in streets by kind under judges sitting in the market.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "cacao_cloak_money",
+   "label": "Cacao and cloak money",
+   "domain": "exchange",
+   "kind": "good",
+   "start": 1200,
+   "date_src": "general",
+   "place": "Mesoamerica",
+   "paradigm": "agrarian_empire",
+   "desc": "Cacao beans for small sums and cotton cloaks (quachtli) worth 65 to 300 beans for large ones, with copper axe blanks and quills of gold dust.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "pochteca",
+   "label": "Pochteca merchant guild",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1400,
+   "date_src": "general",
+   "place": "Tenochtitlan",
+   "paradigm": "agrarian_empire",
+   "desc": "A hereditary guild of long-distance merchants with its own courts, who traded far beyond the empire and spied for it.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "tlameme_porters",
+   "label": "Porters (tlameme)",
+   "domain": "transport",
+   "kind": "practice",
+   "start": -1000,
+   "date_src": "general",
+   "place": "Mesoamerica",
+   "paradigm": "chiefdom",
+   "desc": "With no draft animals or carts, porters carried about 23 kg some 20 to 30 km a day (Hassig), which made staple maize uneconomic to move more than a few hundred kilometres by land (Drennan).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "chinampas",
+   "label": "Chinampa raised beds",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1100,
+   "date_src": "general",
+   "place": "Xochimilco and Chalco lakes",
+   "paradigm": "agrarian_empire",
+   "desc": "Long raised beds of mud and vegetation between canals, anchored by willows, renewed with canal muck and planted from seedling nurseries for several crops a year; perhaps 9,000 to 9,500 ha at their height (rough).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "west_african_gold",
+   "label": "West African gold fields",
+   "domain": "metals",
+   "kind": "resource",
+   "start": 700,
+   "date_src": "general",
+   "place": "Bambuk, Bure, later the Akan forest",
+   "paradigm": "early_state",
+   "desc": "Alluvial washing and shallow shafts worked by farmers in the dry season under local lords' rights; perhaps two-thirds of the medieval Mediterranean's gold (rough), one to several tonnes a year (contested).",
+   "chokepoint": true,
+   "part": "11"
+  },
+  {
+   "id": "saharan_rock_salt",
+   "label": "Saharan rock salt",
+   "domain": "materials",
+   "kind": "resource",
+   "start": 700,
+   "date_src": "general",
+   "place": "Taghaza, later Taoudenni",
+   "paradigm": "pastoral_nomadic",
+   "desc": "Rock salt cut by slaves at Taghaza, where Ibn Battuta (1352) found houses and a mosque of salt blocks and all food and water brought in. A camel carried two slabs of up to about 90 kg each (rough), and the price multiplied many times on the way south.",
+   "chokepoint": true,
+   "part": "11"
+  },
+  {
+   "id": "trans_saharan_trade",
+   "label": "Trans-Saharan gold-salt trade",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 750,
+   "date_src": "part",
+   "place": "Sijilmasa to Walata, Timbuktu, Gao",
+   "paradigm": "pastoral_nomadic",
+   "desc": "With the camel in wide use and Muslim merchants from the 8th century, gold went north and salt, copper, horses, cloth, beads and cowries south for nearly a thousand years. Saharan nomads (Massufa, later Tuareg) carried and protected caravans for a fee; Wangara traders worked inland.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "ghana_gold_toll",
+   "label": "Ghana's salt toll and nugget rule",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1000,
+   "date_src": "general",
+   "place": "Ghana empire, the Sahel",
+   "paradigm": "early_state",
+   "desc": "Al-Bakri (1068) says the king of Ghana took one dinar per donkey-load of salt coming in and two going out, and kept all gold nuggets, leaving the dust to the people so that gold would not lose its value: a state restricting supply to hold a price. Mali and Songhay later taxed at the desert's edge.",
+   "chokepoint": true,
+   "part": "11"
+  },
+  {
+   "id": "gold_dinar",
+   "label": "Sijilmasa gold dinars",
+   "domain": "exchange",
+   "kind": "good",
+   "start": 800,
+   "date_src": "general",
+   "place": "Sijilmasa and other North African mints",
+   "paradigm": "agrarian_empire",
+   "desc": "Islamic gold coin; West African gold was minted into dinars at Sijilmasa and elsewhere (Almoravid and Fatimid dinars), later into Genoese and Venetian gold coin.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "cowrie_money",
+   "label": "Cowrie shell money",
+   "domain": "exchange",
+   "kind": "good",
+   "start": 1000,
+   "date_src": "general",
+   "place": "Maldives to West Africa",
+   "paradigm": "early_state",
+   "desc": "Maldive cowries carried by way of Cairo and across the Sahara became West Africa's small change.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "great_zimbabwe",
+   "label": "Great Zimbabwe gold and cattle",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1100,
+   "date_src": "part",
+   "place": "Zimbabwe plateau",
+   "paradigm": "early_state",
+   "desc": "A capital of mortarless stone enclosures (about 1100 to 1450; population estimates fallen from 18,000 to under 10,000, contested) living on cattle herded seasonally under the court and on control of gold won by many small miners and carried to Sofala and Kilwa. Abandoned perhaps as gold ran out, routes moved north, or overgrazing and drought struck.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "swahili_hosts",
+   "label": "Swahili merchant hosts",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1000,
+   "date_src": "general",
+   "place": "Swahili coast, Mogadishu to Sofala",
+   "paradigm": "maritime_trading",
+   "desc": "The monsoon allowed one round trip a year, so foreign merchants waited months as guests of local hosts who stored and sold their goods. The coral-stone towns were brokers of gold, ivory, captives and mangrove poles rather than carriers.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "nok_iron",
+   "label": "West African iron smelting",
+   "domain": "metals",
+   "kind": "technique",
+   "start": -600,
+   "date_src": "part",
+   "place": "Taruga (Nok), Nigeria",
+   "paradigm": "chiefdom",
+   "desc": "Iron furnaces dated to the mid-first millennium BC (about 600 to 200 BC reported); African smelters built bowl furnaces with bellows and tall natural-draft furnaces that needed none. Whether invented independently is unsettled; smiths were often a distinct caste (the Mande numu).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "iron_hoe_money",
+   "label": "Iron hoes and bars as money",
+   "domain": "exchange",
+   "kind": "good",
+   "start": 500,
+   "date_src": "general",
+   "place": "sub-Saharan Africa",
+   "paradigm": "chiefdom",
+   "desc": "Iron hoes and axes opened forest and savanna to farming, and iron bars and hoes served as money and bridewealth.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "brass_manillas",
+   "label": "Brass manillas",
+   "domain": "metals",
+   "kind": "good",
+   "start": 1480,
+   "date_src": "general",
+   "place": "Benin, West Africa",
+   "paradigm": "early_modern_state",
+   "desc": "Brass bracelets brought by the Portuguese by the tens of thousands and melted down to cast Benin's later bronzes.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "silk_roads",
+   "label": "Silk Roads relay trade",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -138,
+   "date_src": "part",
+   "place": "China to the Mediterranean via Dunhuang, Samarkand, Merv",
+   "paradigm": "agrarian_empire",
+   "desc": "Opened as state business with Zhang Qian's missions (from 138 BC); goods passed segment by segment through oasis cities, the Sogdians being the great intermediaries from the 4th to 8th century. Silk went west; horses, glass and silver east; paper and religions both ways. Hansen argues most traffic was local and state-driven.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "mongol_yam",
+   "label": "Mongol yam relay post",
+   "domain": "information",
+   "kind": "institution",
+   "start": 1230,
+   "date_src": "general",
+   "place": "Mongol empire",
+   "paradigm": "pastoral_nomadic",
+   "desc": "Under the Mongols one power held the whole road, with safe-conduct tablets (paiza) and relay post stations (yam); travel peaked, and the plague of 1346 came the same way.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "monsoon_ocean_trade",
+   "label": "Monsoon Indian Ocean trade",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -100,
+   "date_src": "general",
+   "place": "Aden, Hormuz, Cambay, Calicut, Melaka, Quanzhou",
+   "paradigm": "maritime_trading",
+   "desc": "The largest trade zone before 1500, run on seasonal monsoon winds in three segments joined at emporia where merchants waited for the wind, with resident merchant minorities under their own headmen. The Muziris papyrus values one ship's cargo from Kerala near 9 million sesterces, a quarter taken in customs.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "portuguese_cartaz",
+   "label": "Portuguese cartaz passes",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1502,
+   "date_src": "general",
+   "place": "Indian Ocean",
+   "paradigm": "maritime_trading",
+   "desc": "After 1498 the Portuguese sold passes to Indian Ocean shippers at gunpoint: selling protection, not goods, breaking the pattern of open emporia.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "potosi_silver",
+   "label": "Potosi silver",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 1545,
+   "date_src": "part",
+   "place": "Cerro Rico, Potosi (Bolivia); Zacatecas (1546)",
+   "paradigm": "early_modern_state",
+   "desc": "Found in 1545; a city of perhaps 100,000 at 4,000 m (rough), fed by llama trains from valleys far below, with stamp mills on dammed lakes. Spanish America produced about 150,000 t of silver from 1500 to 1800, perhaps 80 per cent of world output.",
+   "chokepoint": true,
+   "part": "11"
+  },
+  {
+   "id": "patio_amalgamation",
+   "label": "Patio mercury amalgamation",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1554,
+   "date_src": "part",
+   "place": "Pachuca, Mexico (Bartolome de Medina); Potosi from 1571",
+   "paradigm": "early_modern_state",
+   "desc": "Crushed ore mixed with mercury, salt and copper sulphate and trodden by mules in open patios, so lower-grade ore could be worked. Registered Peruvian output rose from 6.4 million pesos in 1570-74 to 64 million in the 1580s (rough).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "crown_mercury",
+   "label": "Almaden and Huancavelica mercury",
+   "domain": "metals",
+   "kind": "resource",
+   "start": -400,
+   "date_src": "general",
+   "place": "Almaden (Spain); Huancavelica (Peru, from 1564)",
+   "paradigm": "early_modern_state",
+   "desc": "The two crown mercury mines on which American silver amalgamation hung: a crown monopoly that poisoned its workers.",
+   "chokepoint": true,
+   "part": "11"
+  },
+  {
+   "id": "potosi_mita",
+   "label": "Potosi mita",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1572,
+   "date_src": "part",
+   "place": "Potosi and seventeen provinces",
+   "paradigm": "early_modern_state",
+   "desc": "Viceroy Toledo turned the Inca mit'a into forced mine labour: about 13,000 to 14,000 men a year, a seventh of the eligible men, each working a year in the mines and mills. Its effects still show in household consumption in the supplying districts (Dell 2010).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "spanish_dollar",
+   "label": "Spanish piece of eight",
+   "domain": "exchange",
+   "kind": "good",
+   "start": 1570,
+   "date_src": "general",
+   "place": "Potosi and Mexico mints",
+   "paradigm": "early_modern_state",
+   "desc": "The silver peso minted from American silver, the first global coin; Europe could pay for Asian goods mainly because it had American silver.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "manila_galleon",
+   "label": "Manila galleon",
+   "domain": "transport",
+   "kind": "institution",
+   "start": 1571,
+   "date_src": "part",
+   "place": "Acapulco to Manila",
+   "paradigm": "early_modern_state",
+   "desc": "Galleons from 1571 carried about 2 million pesos (50 t) of silver a year to Manila to buy silk and porcelain from Chinese junks. Flynn and Giraldez date the birth of a global economy to 1571.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "potato_old_world",
+   "label": "Potato in the Old World",
+   "domain": "food",
+   "kind": "good",
+   "start": 1570,
+   "date_src": "general",
+   "place": "Europe, from the Andes",
+   "paradigm": "early_modern_state",
+   "desc": "Nunn and Qian credit the potato with about a quarter of Old World population and urban growth 1700 to 1900 (conservative); a critical review says a sixth to a quarter.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "maize_old_world",
+   "label": "Maize in the Old World",
+   "domain": "food",
+   "kind": "good",
+   "start": 1520,
+   "date_src": "general",
+   "place": "Africa, southern Europe, China's uplands",
+   "paradigm": "early_modern_state",
+   "desc": "An American crop that became a staple in Africa, southern Europe and China's uplands.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "sweet_potato_china",
+   "label": "Sweet potato in China",
+   "domain": "food",
+   "kind": "good",
+   "start": 1590,
+   "date_src": "general",
+   "place": "south China uplands",
+   "paradigm": "agrarian_empire",
+   "desc": "Allowed upland settlement in south China from the 16th century (Ho Ping-ti).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "atlantic_slave_trade",
+   "label": "Atlantic slave trade",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1501,
+   "date_src": "part",
+   "place": "West Africa to the Americas",
+   "paradigm": "plantation_slave",
+   "desc": "About 12.5 million Africans embarked across the Atlantic from 1501 to 1866, about 10.7 million surviving the crossing, mostly for sugar. Indian cloth was a main currency exchanged for captives; the collapse of the American population from Old World disease (about 56 million deaths by 1600, contested in detail) was the precondition of the colonial economy.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "uruk_temple_economy",
+   "label": "Uruk temple ration economy",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -3300,
+   "date_src": "part",
+   "place": "Uruk, southern Mesopotamia",
+   "paradigm": "early_state",
+   "desc": "Temple and palace estates fed dependants with rations of barley, oil and wool, recorded on clay; writing was invented for these accounts. Algaze argues Uruk (about 20,000 to 50,000, contested) grew on cheap water transport and high yields, trading textiles for the metal, stone and timber it lacked.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "town_walls_market",
+   "label": "Walls, gates and market place",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": -2900,
+   "date_src": "general",
+   "place": "Uruk; every walled town",
+   "paradigm": "early_state",
+   "desc": "Layer 1 of the city's works: streets, walls, gates and a market place giving movement, safety and a place where offers meet, with tolls at the gates. It needs a site, labour and an authority.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "roman_aqueducts",
+   "label": "Roman gravity aqueducts",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": -312,
+   "date_src": "general",
+   "place": "Rome",
+   "paradigm": "agrarian_empire",
+   "desc": "Channels on a steady fall from springs to public fountains, baths and a few paying private connections: 11 by AD 226. Frontinus (about AD 97) recorded 14,018 quinariae delivered and about 10,000 more stolen; about 300 to 1,000 litres a head a day nominal (contested). A public good with rationed private access whose main problem was theft.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "cloaca_maxima",
+   "label": "Cloaca Maxima",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": -600,
+   "date_src": "general",
+   "place": "Rome",
+   "paradigm": "early_state",
+   "desc": "Rome's great drain, flushed by the aqueducts' surplus: the first of the drainage layer in the part's list, long before intercepting sewers.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "insulae_tenements",
+   "label": "Rented tenement blocks",
+   "domain": "building",
+   "kind": "practice",
+   "start": -200,
+   "date_src": "general",
+   "place": "Rome; later Edo, New York",
+   "paradigm": "agrarian_empire",
+   "desc": "Rome's insulae (blocks of five or six storeys let by the room), Edo's back-alley nagaya and New York's 1879 dumbbell tenements: the same answer to migrants outpacing building. Housing is a stock, so rents and crowding follow the building rate.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "fire_building_codes",
+   "label": "Fire building codes",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 64,
+   "date_src": "part",
+   "place": "Rome 64; London 1666; Chicago 1871",
+   "paradigm": "agrarian_empire",
+   "desc": "Each great fire brought building codes, brick or stone instead of timber and thatch, wider streets, fire insurance and brigades.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "fire_insurance",
+   "label": "Fire insurance office",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1680,
+   "date_src": "part",
+   "place": "London (the Fire Office)",
+   "paradigm": "early_modern_state",
+   "desc": "Insurance against fire, begun in London after the 1666 fire; one of the institutions great fires called into being.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "ever_normal_granary",
+   "label": "Ever-normal granaries",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -54,
+   "date_src": "general",
+   "place": "Han China and later dynasties",
+   "paradigm": "agrarian_empire",
+   "desc": "State granaries that bought grain when cheap and sold when dear: the storage layer that turns harvest pulses into steady city supply.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "ward_markets",
+   "label": "Supervised ward markets",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 582,
+   "date_src": "general",
+   "place": "Sui-Tang Chang'an",
+   "paradigm": "agrarian_empire",
+   "desc": "Tang Chang'an (about 800,000 to 1 million in about 84 km2, contested) confined trade to two official markets with set hours and price records, inside 108 walled wards shut at night.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "song_open_markets",
+   "label": "Open street commerce",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1000,
+   "date_src": "general",
+   "place": "Northern Song Kaifeng",
+   "paradigm": "agrarian_empire",
+   "desc": "Over the late Tang and Song the ward walls fell, shops opened onto every street, night markets ran, guilds (hang) organised trades and commercial taxes grew: the 'medieval urban revolution'. The same size of city run by markets instead of supervision; Kaifeng had about a million (contested).",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "jahbadh_bankers",
+   "label": "Jahbadh bankers",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 800,
+   "date_src": "general",
+   "place": "Abbasid Baghdad (Karkh)",
+   "paradigm": "agrarian_empire",
+   "desc": "State and merchant bankers of Abbasid Baghdad (300,000 to 1 million, contested), hub of the routes from India to the Mediterranean, dealing in cheques (sakk) and transfer bills (suftaja).",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "venice_arsenal",
+   "label": "Venetian Arsenal",
+   "domain": "transport",
+   "kind": "industry",
+   "start": 1104,
+   "date_src": "general",
+   "place": "Venice",
+   "paradigm": "commercial_city_state",
+   "desc": "The state shipyard that built and fitted galleys on something like an assembly line: 1,500 to 2,000 workers, 4,000 to 5,000 in war (16,000 often repeated, contested), 'perhaps the largest industrial plant of that time' (Lane). Its timber, hemp, pitch and sailcloth came by trade.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "venice_mude",
+   "label": "Venetian galley convoys",
+   "domain": "transport",
+   "kind": "institution",
+   "start": 1300,
+   "date_src": "part",
+   "place": "Venice to Byzantium, the Levant, Flanders",
+   "paradigm": "commercial_city_state",
+   "desc": "State-owned galley convoys (mude) whose voyages were auctioned to merchant syndicates: a city of little land living by carrying and credit.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "colleganza",
+   "label": "Colleganza partnership",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1050,
+   "date_src": "general",
+   "place": "Venice",
+   "paradigm": "commercial_city_state",
+   "desc": "Venice's sea-loan partnership joining a stay-at-home investor's capital to a travelling merchant's voyage, with profit shared.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "civic_grain_office",
+   "label": "Civic grain office",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1250,
+   "date_src": "general",
+   "place": "Venice",
+   "paradigm": "commercial_city_state",
+   "desc": "A state grain office bringing grain by sea from Apulia, the Black Sea and Sicily for a city of about 100,000 to 120,000 before 1348 (contested) with little land of its own.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "lazaretto",
+   "label": "Lazaretto quarantine",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1423,
+   "date_src": "part",
+   "place": "Venice",
+   "paradigm": "commercial_city_state",
+   "desc": "Plague orders and quarantine in an island hospital, Venice's lazaretto of 1423: public health before sanitation, at the port.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "florentine_wool_cloth",
+   "label": "Florentine woollen industry",
+   "domain": "textiles",
+   "kind": "industry",
+   "start": 1250,
+   "date_src": "general",
+   "wide": 1338,
+   "place": "Florence",
+   "paradigm": "commercial_city_state",
+   "desc": "English wool and Levantine alum worked by a putting-out system of wage workers barred from guilds of their own (the Ciompi revolt, 1378). Villani (about 1338): about 30,000 paid by the cloth trade, about 200 workshops, 70,000 to 80,000 cloths a year (contested).",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "florin",
+   "label": "Gold florin",
+   "domain": "exchange",
+   "kind": "good",
+   "start": 1252,
+   "date_src": "part",
+   "place": "Florence",
+   "paradigm": "commercial_city_state",
+   "desc": "Florence's gold coin from 1252, the money of its cloth trade and banks.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "bardi_peruzzi_banks",
+   "label": "Bardi and Peruzzi banks",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1300,
+   "date_src": "general",
+   "place": "Florence",
+   "paradigm": "commercial_city_state",
+   "desc": "The deepest merchant banks of the century, which failed in the 1340s: a default chain running from royal borrowers through the city.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "hanse_kontor",
+   "label": "Hanse Kontor",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1250,
+   "date_src": "general",
+   "place": "Bruges, London, Bergen, Novgorod",
+   "paradigm": "commercial_city_state",
+   "desc": "A foreign nation's house where Hanse merchants lived and traded under the host city's law, bringing Baltic grain and goods to Bruges.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "bruges_bourse",
+   "label": "Bruges bourse and hostellers",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1300,
+   "date_src": "part",
+   "place": "Bruges",
+   "paradigm": "commercial_city_state",
+   "desc": "Bruges (about 40,000 to 46,000) was the market of northern Europe: brokers and hostellers who were also bankers hosted foreign merchants, and the 'bourse' took its name from the Van der Beurse inn. When the Zwin channel silted and Antwerp offered better terms the market moved: a hub's advantage is an equilibrium, not a resource.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "amsterdam_entrepot",
+   "label": "Amsterdam staple entrepot",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1600,
+   "date_src": "part",
+   "place": "Amsterdam",
+   "paradigm": "commercial_city_state",
+   "desc": "Amsterdam (about 60,000 in 1600 to 200,000 in 1700) earned by storing, grading, pricing and re-exporting others' goods, with Baltic grain the 'mother trade' and the cheapest shipping: a city as an information and trust good.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "printed_price_currents",
+   "label": "Printed price currents",
+   "domain": "information",
+   "kind": "good",
+   "start": 1600,
+   "date_src": "general",
+   "place": "Amsterdam",
+   "paradigm": "commercial_city_state",
+   "desc": "Printed lists of current prices at the exchange, the early form of prices that travel.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "wisselbank",
+   "label": "Amsterdam Wisselbank",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1609,
+   "date_src": "part",
+   "place": "Amsterdam",
+   "paradigm": "commercial_city_state",
+   "desc": "The exchange bank of 1609 (708 accounts in 1611, 1,202 by 1620), whose bank guilders traded at a premium over coin: the most trusted bank money of its day.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "amsterdam_canal_rings",
+   "label": "Canal rings on piles",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1613,
+   "date_src": "part",
+   "place": "Amsterdam",
+   "paradigm": "commercial_city_state",
+   "desc": "Canal rings dug from 1613, lined with warehouses on wooden piles driven into peat: the entrepot's storage and water access.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "royal_exchange",
+   "label": "Royal Exchange",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1571,
+   "date_src": "part",
+   "place": "London",
+   "paradigm": "early_modern_state",
+   "desc": "London's merchants' exchange of 1571, beside livery companies and later the Bank of England (1694) and Lloyd's.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "coffee_houses",
+   "label": "Coffee houses",
+   "domain": "information",
+   "kind": "institution",
+   "start": 1652,
+   "date_src": "part",
+   "place": "London",
+   "paradigm": "early_modern_state",
+   "desc": "London's first coffee house opened in 1652; they became meeting places for news, brokers and underwriters.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "clearing_house",
+   "label": "Bankers' clearing house",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1773,
+   "date_src": "part",
+   "place": "London",
+   "paradigm": "industrial",
+   "desc": "Bankers settled cheques against each other in one place from 1773, netting payments instead of moving coin.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "great_conduit",
+   "label": "London Great Conduit",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1245,
+   "date_src": "part",
+   "place": "London",
+   "paradigm": "feudal_manorial",
+   "desc": "Lead pipes from springs to a public conduit (1245): water carried to the city by gravity, kept by conduit keepers.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "new_river",
+   "label": "New River water company",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1613,
+   "date_src": "part",
+   "place": "Hertfordshire springs to London",
+   "paradigm": "early_modern_state",
+   "desc": "Hugh Myddelton's channel of about 60 km (1613, cost 18,524 pounds), with a private company selling piped water to paying houses a few hours a week through lead or wooden pipes.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "london_sea_coal",
+   "label": "London sea-coal trade",
+   "domain": "energy",
+   "kind": "industry",
+   "start": 1580,
+   "date_src": "part",
+   "place": "Tyne and Wear to London",
+   "paradigm": "early_modern_state",
+   "desc": "Coal dug on Tyneside, carried in keels to colliers, shipped down the coast, unloaded by coal-heavers, measured by sworn meters and sold on the Coal Exchange: about 450,000 t a year by 1700 (rough), about 1 t a head in 1850 and 2.5 t in 1890. A monopoly at the source port, a pulse with sailing season and war, a tax at the city end and smoke on everyone: the first large city on mineral energy.",
+   "chokepoint": true,
+   "part": "12"
+  },
+  {
+   "id": "collier_shipping",
+   "label": "Coastal collier fleet",
+   "domain": "transport",
+   "kind": "industry",
+   "start": 1580,
+   "date_src": "general",
+   "place": "North Sea coast",
+   "paradigm": "early_modern_state",
+   "desc": "Collier ships carrying coal down the coast; English coastal coal shipping cost about 0.8 pence a ton-km in 1700 and 0.4 by 1785 (Clark and Jacks), far below road haulage.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "newcastle_hostmen",
+   "label": "Newcastle hostmen's vend",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1600,
+   "date_src": "general",
+   "place": "Newcastle upon Tyne",
+   "paradigm": "early_modern_state",
+   "desc": "The hostmen ran a cartel at the coal port's mouth (the 'Limitation of the Vend'): a monopoly at the source of London's fuel.",
+   "chokepoint": true,
+   "part": "12"
+  },
+  {
+   "id": "city_coal_dues",
+   "label": "City coal dues",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1667,
+   "date_src": "general",
+   "place": "City of London",
+   "paradigm": "early_modern_state",
+   "desc": "The City taxed coal coming in, and coal dues rebuilt St Paul's after 1666: a tax at the city end of a fuel chokepoint.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "morvan_log_floating",
+   "label": "Morvan log floating",
+   "domain": "energy",
+   "kind": "practice",
+   "start": 1550,
+   "date_src": "part",
+   "place": "Morvan, Yonne and Seine to Paris",
+   "paradigm": "early_modern_state",
+   "desc": "Wood cut in the Morvan in winter was released down the streams in a spring flood when dams opened, sorted at Clamecy and rafted to Paris (about 3,000 rafts a year c.1700, 5,000 by c.1800). Paris burned about 830,000 steres c.1700 and 1.5 million by the 1780s (as summarised): a forest managed as a city's fuel ring at a distance land carriage forbids.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "smithfield_droving",
+   "label": "Droving to Smithfield",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1500,
+   "date_src": "general",
+   "place": "Scotland, Wales, the north to London",
+   "paradigm": "early_modern_state",
+   "desc": "Cattle and sheep walked from Scotland, Wales and the north, fattened in the Midlands and Home Counties and slaughtered in the city: 76,210 cattle and 514,700 sheep in 1732 (Youatt), about 1.7 million animals a year by the 1820s.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "dung_market_gardens",
+   "label": "Dung-fed market gardens",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1600,
+   "date_src": "general",
+   "place": "Middlesex, Surrey, Essex",
+   "paradigm": "early_modern_state",
+   "desc": "Market gardens around London fed with the city's dung and carted to Covent Garden: von Thunen's first ring, made by the city's own manure.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "london_corn_exchange",
+   "label": "Corn factors and Corn Exchange",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1747,
+   "date_src": "part",
+   "place": "Bear Key and Mark Lane, London",
+   "paradigm": "early_modern_state",
+   "desc": "Corn factors sold grain and flour brought by coaster and Thames barge from the Home Counties, East Anglia and Kent; the Corn Exchange opened in Mark Lane in 1747. London (about 960,000 by 1801) ate about a quarter of wheat a head a year.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "bread_assize",
+   "label": "Bread assize",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1266,
+   "date_src": "general",
+   "place": "England (London)",
+   "paradigm": "feudal_manorial",
+   "desc": "A rule setting the price or weight of the loaf, beside chartered markets and inspectors of weights and measures: provisioning as regulation.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "police_des_grains",
+   "label": "Paris police of grain",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1700,
+   "date_src": "general",
+   "place": "Paris",
+   "paradigm": "early_modern_state",
+   "desc": "A provisioning regime that treated bread as a public matter (Kaplan): licensed merchants, a zone around Paris reserved for its supply, the Halle au ble; over the century flour overtook grain and millers overtook merchants. The 1775 'flour war' after a trial of free grain trade shows what an abrupt change does.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "edo_rice_brokers",
+   "label": "Osaka rice brokers",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1650,
+   "date_src": "general",
+   "place": "Osaka and Edo",
+   "paradigm": "early_modern_state",
+   "desc": "Brokers who turned the daimyo's tax rice into cash and shipped it by sea to Edo, which reached about a million by the 1720s (contested).",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "sankin_kotai",
+   "label": "Alternate residence",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1635,
+   "date_src": "general",
+   "place": "Edo",
+   "paradigm": "early_modern_state",
+   "desc": "The shogunate made daimyo live in Edo in alternate years (sankin-kotai), putting perhaps half the city in samurai households (rough): a capital made by statute.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "tamagawa_aqueduct",
+   "label": "Tamagawa aqueduct",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1653,
+   "date_src": "part",
+   "place": "Tama river to Edo",
+   "paradigm": "early_modern_state",
+   "desc": "Edo stood on reclaimed land with salty wells, so the Tamagawa aqueduct (1653-54) brought water about 43 km by open channel and then wooden and stone pipes to street wells, with over 30 branch canals irrigating farms on the way.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "night_soil_trade",
+   "label": "Night-soil trade",
+   "domain": "food",
+   "kind": "good",
+   "start": 1000,
+   "date_src": "general",
+   "place": "Chinese cities; Edo and Osaka",
+   "paradigm": "agrarian_empire",
+   "desc": "Excreta collected from privies and sold to farmers as fertiliser, closing the city's nutrient loop. In Edo the tenement landlord owned it and sold it under annual contracts; ten households' night soil for a year was worth two to three bu of silver (as reported), and in 1789 villages petitioned the shogunate over the price.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "guano",
+   "label": "Imported guano",
+   "domain": "food",
+   "kind": "resource",
+   "start": 1840,
+   "date_src": "part",
+   "place": "Peru to London",
+   "paradigm": "industrial",
+   "desc": "Cheap imported guano from the 1840s made London's night soil worth less than the cost of carting it, so cesspits overflowed: a substitute fertiliser that collapsed a waste market.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "flush_toilet",
+   "label": "Flush toilets",
+   "domain": "building",
+   "kind": "technique",
+   "start": 1800,
+   "date_src": "general",
+   "wide": 1850,
+   "place": "London",
+   "paradigm": "industrial",
+   "desc": "Flush toilets spreading after the 1850s sent waste into old storm drains and the Thames, multiplying sewage by the water used. Piped water before sewers creates the crisis that sewers solve.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "metropolitan_board_works",
+   "label": "Metropolitan Board of Works",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1855,
+   "date_src": "part",
+   "place": "London",
+   "paradigm": "industrial",
+   "desc": "A public authority with a rate, created in 1855; after the Great Stink of 1858 Parliament acted within weeks and Bazalgette built about 1,100 miles of street drains feeding 82 miles of intercepting sewers (1858-75).",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "water_filtration",
+   "label": "Water filtration and chlorination",
+   "domain": "building",
+   "kind": "technique",
+   "start": 1829,
+   "date_src": "general",
+   "wide": 1908,
+   "place": "London; Altona; widely after 1900",
+   "paradigm": "industrial",
+   "desc": "Sand filtration and, from about 1908, chlorination. In 1892 Hamburg lost about 8,600 to cholera while neighbouring Altona, which filtered its water, was spared: one intake downstream of another's sewer.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "sewage_treatment",
+   "label": "Sewage treatment",
+   "domain": "building",
+   "kind": "technique",
+   "start": 1914,
+   "date_src": "part",
+   "place": "Britain, then worldwide",
+   "paradigm": "industrial",
+   "desc": "Sewage farms, then biological treatment (activated sludge, 1914), needing electricity and chemistry: a precondition of megacity density.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "medical_officers_health",
+   "label": "Medical officers of health",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1848,
+   "date_src": "part",
+   "place": "London",
+   "paradigm": "industrial",
+   "desc": "Medical officers (London from 1848) and sanitary boards using statistics: with water and sewers they turned the urban graveyard off, so by 1900 big cities grew from their own births.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "croton_aqueduct",
+   "label": "Croton aqueduct",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1842,
+   "date_src": "part",
+   "place": "Croton river to New York",
+   "paradigm": "industrial",
+   "desc": "Dams and channels from a distant catchment, built for 60 to 90 million US gallons a day (contested) when about 300,000 people used 18 million at first: the long-distance supply that made New York's density possible.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "town_gas",
+   "label": "Town gas lighting",
+   "domain": "energy",
+   "kind": "infrastructure",
+   "start": 1812,
+   "date_src": "part",
+   "place": "London",
+   "paradigm": "industrial",
+   "desc": "Gas made from coal piped through the streets for lighting from 1812, by private companies later taken over or regulated by cities: the fuel network layer.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "horse_omnibus",
+   "label": "Horse omnibus",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1828,
+   "date_src": "part",
+   "place": "Paris 1828, London 1829",
+   "paradigm": "industrial",
+   "desc": "About 8 km/h, a radius of about 4 km in half an hour (rough): the first middle-class commuting, at fares too high for workers.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "horse_tram",
+   "label": "Horse tramway",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1832,
+   "date_src": "part",
+   "wide": 1860,
+   "place": "New York 1832; widespread 1850s-1880s",
+   "paradigm": "industrial",
+   "desc": "Rails in the street doubled what a horse could pull, about 10 km/h: the streetcar suburb begins.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "horse_manure",
+   "label": "Street horse manure",
+   "domain": "building",
+   "kind": "good",
+   "start": 1850,
+   "date_src": "general",
+   "place": "industrial cities",
+   "paradigm": "industrial",
+   "desc": "A city horse dropped 15 to 30 lb of manure a day (Tarr); New York's 100,000 to 200,000 horses around 1900 (contested) left about 1,000 to 2,000 tons a day on the streets. The motor vehicle was welcomed as a sanitary reform.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "underground_railway",
+   "label": "Underground railway",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1863,
+   "date_src": "part",
+   "place": "London (Metropolitan Railway)",
+   "paradigm": "industrial",
+   "desc": "Steam railways in cut-and-cover tunnels from 1863, about 25 to 35 km/h, giving railway suburbs and workmen's fares; steam in tunnels was barely tolerable.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "electric_tram",
+   "label": "Electric tram",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1888,
+   "date_src": "part",
+   "place": "Richmond, Virginia (Sprague)",
+   "paradigm": "industrial",
+   "desc": "Electric traction removed the horse: about 15 to 20 km/h and a city of about 250 km2 (rough); land developers built lines to sell lots.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "electric_metro",
+   "label": "Electric deep-tube metro",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1890,
+   "date_src": "part",
+   "place": "London 1890; Budapest, Paris, New York 1904",
+   "paradigm": "industrial",
+   "desc": "Deep tube railways needing electric traction, about 30 km/h with stops: the office downtown fed by trains.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "commuter_rail_suburbs",
+   "label": "Private commuter rail suburbs",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1920,
+   "date_src": "part",
+   "place": "Tokyo",
+   "paradigm": "industrial",
+   "desc": "Private railways built lines, terminal stores and suburbs together, at 40 to 60 km/h: the rail metropolis of 30 million and more (Shinjuku about 3.5 million passengers a day).",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "car_suburbs",
+   "label": "Expressways and car suburbs",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1920,
+   "date_src": "part",
+   "place": "United States from the 1920s",
+   "paradigm": "industrial",
+   "desc": "Cars at 30 to 60 km/h give a 20 to 30 km radius and 1,500 to 3,000 km2 (rough): dispersed suburbs and edge cities, the centre's share of jobs falling. Needs fuel distribution and traffic rules.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "balloon_frame",
+   "label": "Balloon frame houses",
+   "domain": "building",
+   "kind": "technique",
+   "start": 1832,
+   "date_src": "part",
+   "place": "Chicago",
+   "paradigm": "frontier_settler",
+   "desc": "Light frames of standard sawn pine and machine-made nails from the 1830s let unskilled labour build houses fast.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "pearl_street_station",
+   "label": "Pearl Street power station",
+   "domain": "energy",
+   "kind": "infrastructure",
+   "start": 1882,
+   "date_src": "part",
+   "place": "New York (Edison)",
+   "paradigm": "industrial",
+   "desc": "Edison's central generating station of 1882, wiring streets for light; private, then regulated or municipal. Electricity is the layer under lifts, metros and electric traction.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "grain_elevator",
+   "label": "Steam grain elevators",
+   "domain": "food",
+   "kind": "infrastructure",
+   "start": 1842,
+   "date_src": "general",
+   "place": "Buffalo, then Chicago",
+   "paradigm": "industrial",
+   "desc": "Steam elevators took grain in bulk instead of in each farmer's sacks; an elevator receipt returned an equal quantity of equal grade, so ownership separated from the grain.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "chicago_board_trade",
+   "label": "Chicago Board of Trade",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1848,
+   "date_src": "part",
+   "place": "Chicago",
+   "paradigm": "industrial",
+   "desc": "The merchants' exchange of 1848 that set grain grades and ran to-arrive contracts, at the hub where lake, canal and railways met.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "grain_grading",
+   "label": "Grain grading standards",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1856,
+   "date_src": "part",
+   "place": "Chicago",
+   "paradigm": "industrial",
+   "desc": "In 1856 the Board of Trade set grades (white winter, red winter, spring wheat, each with quality standards), so grain became a commodity and receipts became money-like. Shipments tripled from 1853 to 1856, to 21 million bushels (as quoted from Cronon).",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "grain_futures",
+   "label": "Commodity futures",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1865,
+   "date_src": "general",
+   "place": "Chicago",
+   "paradigm": "industrial",
+   "desc": "'To arrive' contracts on graded grain became futures, traded at the Board of Trade on telegraph prices.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "telegraph_prices",
+   "label": "Telegraph price reporting",
+   "domain": "information",
+   "kind": "practice",
+   "start": 1848,
+   "date_src": "general",
+   "place": "Chicago, New York, Liverpool",
+   "paradigm": "industrial",
+   "desc": "Telegraph prices brought New York and Liverpool prices to the prairie: prices that travel.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "chicago_lumber_market",
+   "label": "Chicago lumber market",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1850,
+   "date_src": "part",
+   "place": "Chicago",
+   "paradigm": "frontier_settler",
+   "desc": "Michigan and Wisconsin white pine floated to lake ports, came by schooner to Chicago and went out by rail to the treeless prairie; by the 1850s the world's largest lumber market. The forest was cut over in a generation.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "union_stock_yards",
+   "label": "Union Stock Yards",
+   "domain": "food",
+   "kind": "infrastructure",
+   "start": 1865,
+   "date_src": "part",
+   "place": "Chicago",
+   "paradigm": "industrial",
+   "desc": "Opened on 25 December 1865, receiving 1.29 million hogs and 384,000 cattle in 1866 and more than 15 million animals a year by the 1920s (contested).",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "refrigerator_car",
+   "label": "Refrigerator rail cars",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1878,
+   "date_src": "part",
+   "place": "Chicago (Swift)",
+   "paradigm": "industrial",
+   "desc": "Swift's refrigerator cars from 1878, cooled by ice, let dressed beef replace live cattle on the rails and removed perishability as a limit.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "packing_byproducts",
+   "label": "Packing by-products",
+   "domain": "materials",
+   "kind": "good",
+   "start": 1870,
+   "date_src": "general",
+   "place": "Chicago packing houses",
+   "paradigm": "industrial",
+   "desc": "Hides, glue, lard and fertiliser ('everything but the squeal'): the joint products that paid for the packing line.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "producer_services",
+   "label": "Global-city producer services",
+   "domain": "exchange",
+   "kind": "industry",
+   "start": 1980,
+   "date_src": "general",
+   "place": "New York, London, Tokyo",
+   "paradigm": "service_information",
+   "desc": "Sassen: globalisation dispersed production but concentrated control in cities that make and trade finance, law, accounting, advertising and consulting, polarising into well-paid professionals and low-paid service workers. Global cities rank by firms' office networks, not size.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "informal_settlements",
+   "label": "Informal settlements",
+   "domain": "building",
+   "kind": "practice",
+   "start": 1950,
+   "date_src": "general",
+   "place": "21st-century megacities",
+   "paradigm": "service_information",
+   "desc": "Where infrastructure has not kept pace with migration, density brings back the old diseases: UN-Habitat counts roughly a billion people in slums (rough).",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "megacity_systems",
+   "label": "Megacity metropolitan systems",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1975,
+   "date_src": "part",
+   "place": "Tokyo, Jakarta, Dhaka, Shanghai",
+   "paradigm": "service_information",
+   "desc": "Metro, expressways, airports, container ports, treatment plants, grids and data at a scale for 10 million and more: 8 such cities in 1975 and 33 in the UN's 2025 count. Every lower layer must already hold.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "chartered_market_town",
+   "label": "Chartered market town",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1100,
+   "date_src": "general",
+   "place": "medieval Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "A market place and market day under a lord's or king's charter, with tolls, its own court and peace on the roads, serving villages within a day's walk (about 10 to 15 km) and supporting smiths, tanners, bakers and brewers.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "metropolitan_police",
+   "label": "Professional police",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1829,
+   "date_src": "part",
+   "place": "London (Metropolitan Police)",
+   "paradigm": "industrial",
+   "desc": "London's Metropolitan Police of 1829 replaced the watch and ward constables: enforcement that needs people, paid for by the city.",
+   "chokepoint": false,
+   "part": "12"
+  },
+  {
+   "id": "department_store",
+   "label": "Department store",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1852,
+   "date_src": "part",
+   "place": "Paris (Bon Marche)",
+   "paradigm": "industrial",
+   "desc": "Fixed-price retail of many lines under one roof from 1852, joined by Chicago's wholesale houses and Sears' mail order.",
+   "chokepoint": false,
+   "part": "12"
+  }
+ ],
+ "edges": [
+  {
+   "from": "tin",
+   "to": "kanesh_caravan_firms",
+   "type": "input",
+   "note": "tin carried 1,000 km by donkey",
+   "src": "part"
+  },
+  {
+   "from": "weaving",
+   "to": "kanesh_caravan_firms",
+   "type": "input",
+   "note": "woollen textiles sold for silver",
+   "src": "part"
+  },
+  {
+   "from": "pack_animals",
+   "to": "kanesh_caravan_firms",
+   "type": "enables",
+   "note": "donkey caravans of tens of animals",
+   "src": "part"
+  },
+  {
+   "from": "record_keeping",
+   "to": "kanesh_caravan_firms",
+   "type": "enables",
+   "note": "22,000 letters and contracts",
+   "src": "part"
+  },
+  {
+   "from": "credit_accounting",
+   "to": "kanesh_caravan_firms",
+   "type": "enables",
+   "note": "interest-bearing loans, pooled capital",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "kanesh_caravan_firms",
+   "type": "enables",
+   "note": "older tin and metal routes",
+   "src": "general"
+  },
+  {
+   "from": "state_taxation",
+   "to": "egyptian_tax_grain",
+   "type": "enables",
+   "note": "grain taken as tax in kind",
+   "src": "part"
+  },
+  {
+   "from": "irrigation_farming",
+   "to": "egyptian_tax_grain",
+   "type": "enables",
+   "note": "one Nile flood crop a year",
+   "src": "general"
+  },
+  {
+   "from": "egyptian_tax_grain",
+   "to": "roman_annona",
+   "type": "input",
+   "note": "about 135,000 t a year",
+   "src": "part"
+  },
+  {
+   "from": "cities",
+   "to": "roman_annona",
+   "type": "enables",
+   "note": "a million beyond its hinterland",
+   "src": "part"
+  },
+  {
+   "from": "frumentatio_dole",
+   "to": "roman_annona",
+   "type": "enables",
+   "note": "dole lists needed a standing supply",
+   "src": "general"
+  },
+  {
+   "from": "roman_annona",
+   "to": "navicularii",
+   "type": "enables",
+   "note": "privileges and insurance call shippers in",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "navicularii",
+   "type": "enables",
+   "note": "sailing season April to October",
+   "src": "part"
+  },
+  {
+   "from": "timber",
+   "to": "navicularii",
+   "type": "input",
+   "note": "timber, pitch, sailcloth for ships",
+   "src": "part"
+  },
+  {
+   "from": "horrea",
+   "to": "roman_annona",
+   "type": "enables",
+   "note": "stores carry the six-month pulse",
+   "src": "part"
+  },
+  {
+   "from": "roman_annona",
+   "to": "portus_harbour",
+   "type": "enables",
+   "note": "state harbour works for grain ships",
+   "src": "part"
+  },
+  {
+   "from": "roman_concrete",
+   "to": "portus_harbour",
+   "type": "enables",
+   "note": "moles cast in the sea",
+   "src": "part"
+  },
+  {
+   "from": "navicularii",
+   "to": "portus_harbour",
+   "type": "enables",
+   "note": "big ships needed a deep harbour",
+   "src": "part"
+  },
+  {
+   "from": "pottery",
+   "to": "dressel20_amphorae",
+   "type": "enables",
+   "note": "estate potters",
+   "src": "part"
+  },
+  {
+   "from": "kiln",
+   "to": "dressel20_amphorae",
+   "type": "enables",
+   "note": "amphora kilns on the river",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "dressel20_amphorae",
+   "type": "input",
+   "note": "kiln fuel",
+   "src": "part"
+  },
+  {
+   "from": "dressel20_amphorae",
+   "to": "baetican_olive_oil",
+   "type": "input",
+   "note": "jars to ship the oil",
+   "src": "part"
+  },
+  {
+   "from": "roman_annona",
+   "to": "baetican_olive_oil",
+   "type": "enables",
+   "note": "state purchase for city and armies",
+   "src": "part"
+  },
+  {
+   "from": "slavery",
+   "to": "baetican_olive_oil",
+   "type": "input",
+   "note": "tenants and slaves in the groves",
+   "src": "part"
+  },
+  {
+   "from": "boats",
+   "to": "baetican_olive_oil",
+   "type": "enables",
+   "note": "barges down the Guadalquivir",
+   "src": "part"
+  },
+  {
+   "from": "copper_smelting",
+   "to": "cupellation",
+   "type": "enables",
+   "note": "furnace smelting know-how",
+   "src": "general"
+  },
+  {
+   "from": "cupellation",
+   "to": "iberian_silver_mines",
+   "type": "enables",
+   "note": "lead bullion desilvered",
+   "src": "part"
+  },
+  {
+   "from": "cupellation",
+   "to": "roman_lead",
+   "type": "byproduct",
+   "note": "lead left after taking the silver",
+   "src": "part"
+  },
+  {
+   "from": "cupellation",
+   "to": "laurion_silver",
+   "type": "enables",
+   "note": "silver parted from lead",
+   "src": "general"
+  },
+  {
+   "from": "slavery",
+   "to": "iberian_silver_mines",
+   "type": "input",
+   "note": "slaves and convicts underground",
+   "src": "part"
+  },
+  {
+   "from": "charcoal",
+   "to": "iberian_silver_mines",
+   "type": "input",
+   "note": "charcoal in huge volume",
+   "src": "part"
+  },
+  {
+   "from": "mining_leases",
+   "to": "iberian_silver_mines",
+   "type": "enables",
+   "note": "state-owned, leased to contractors",
+   "src": "part"
+  },
+  {
+   "from": "iberian_silver_mines",
+   "to": "denarius",
+   "type": "input",
+   "note": "silver for the mints",
+   "src": "part"
+  },
+  {
+   "from": "coinage",
+   "to": "denarius",
+   "type": "enables",
+   "note": "struck coin",
+   "src": "part"
+  },
+  {
+   "from": "denarius",
+   "to": "taxes_and_trade",
+   "type": "enables",
+   "note": "coin tax and army pay circuit",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "taxes_and_trade",
+   "type": "enables",
+   "note": "taxes demanded in money",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "taxes_and_trade",
+   "type": "enables",
+   "note": "provinces sell where coin is spent",
+   "src": "general"
+  },
+  {
+   "from": "lime",
+   "to": "roman_concrete",
+   "type": "input",
+   "note": "lime from limestone kilns",
+   "src": "part"
+  },
+  {
+   "from": "pozzolana",
+   "to": "roman_concrete",
+   "type": "input",
+   "note": "ash for a hydraulic set",
+   "src": "part"
+  },
+  {
+   "from": "brick",
+   "to": "roman_concrete",
+   "type": "input",
+   "note": "stamped brick facing",
+   "src": "part"
+  },
+  {
+   "from": "timber",
+   "to": "roman_concrete",
+   "type": "input",
+   "note": "formwork",
+   "src": "part"
+  },
+  {
+   "from": "slavery",
+   "to": "laurion_silver",
+   "type": "input",
+   "note": "slave miners, over 20,000",
+   "src": "part"
+  },
+  {
+   "from": "mining_leases",
+   "to": "laurion_silver",
+   "type": "enables",
+   "note": "state leased mines to contractors",
+   "src": "part"
+  },
+  {
+   "from": "laurion_silver",
+   "to": "athenian_owl",
+   "type": "input",
+   "note": "silver for tetradrachms",
+   "src": "part"
+  },
+  {
+   "from": "coinage",
+   "to": "athenian_owl",
+   "type": "enables",
+   "note": "Lydian-Ionian coin precedent",
+   "src": "part"
+  },
+  {
+   "from": "athenian_owl",
+   "to": "athenian_grain_policy",
+   "type": "enables",
+   "note": "coin paid for imported grain",
+   "src": "general"
+  },
+  {
+   "from": "sail",
+   "to": "athenian_grain_policy",
+   "type": "enables",
+   "note": "Black Sea grain shipping",
+   "src": "general"
+  },
+  {
+   "from": "slavery",
+   "to": "peculium_slave_agents",
+   "type": "enables",
+   "note": "slaves as business agents",
+   "src": "part"
+  },
+  {
+   "from": "slavery",
+   "to": "coloni_tenancy",
+   "type": "replaces",
+   "note": "tenants replace the slave estate",
+   "src": "part"
+  },
+  {
+   "from": "coloni_tenancy",
+   "to": "serfdom",
+   "type": "enables",
+   "note": "tenants bound to the land",
+   "src": "general"
+  },
+  {
+   "from": "bronze",
+   "to": "chinese_cast_iron",
+   "type": "enables",
+   "note": "foundry casting skill",
+   "src": "general"
+  },
+  {
+   "from": "charcoal",
+   "to": "chinese_cast_iron",
+   "type": "input",
+   "note": "furnace fuel",
+   "src": "part"
+  },
+  {
+   "from": "chinese_cast_iron",
+   "to": "chaogang_steel",
+   "type": "input",
+   "note": "cast iron decarburised to steel",
+   "src": "part"
+  },
+  {
+   "from": "chinese_cast_iron",
+   "to": "han_salt_iron_monopoly",
+   "type": "enables",
+   "note": "big state ironworks",
+   "src": "part"
+  },
+  {
+   "from": "salt_making",
+   "to": "han_salt_iron_monopoly",
+   "type": "enables",
+   "note": "salt as a monopoly revenue",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "han_salt_iron_monopoly",
+   "type": "enables",
+   "note": "war finance against the Xiongnu",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "water_bellows",
+   "type": "enables",
+   "note": "water wheel drives bellows",
+   "src": "general"
+  },
+  {
+   "from": "water_bellows",
+   "to": "song_coal_iron",
+   "type": "enables",
+   "note": "water-driven bellows",
+   "src": "part"
+  },
+  {
+   "from": "chinese_cast_iron",
+   "to": "song_coal_iron",
+   "type": "enables",
+   "note": "blast-furnace tradition",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "song_coal_iron",
+   "type": "input",
+   "note": "coal replaced charcoal in the north",
+   "src": "part"
+  },
+  {
+   "from": "chaogang_steel",
+   "to": "song_coal_iron",
+   "type": "enables",
+   "note": "refining to wrought iron and steel",
+   "src": "part"
+  },
+  {
+   "from": "grand_canal",
+   "to": "song_coal_iron",
+   "type": "enables",
+   "note": "iron carried by the Bian canal",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "kaifeng_coal_fuel",
+   "type": "input",
+   "note": "Shanxi and Hebei coal",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "kaifeng_coal_fuel",
+   "type": "replaces",
+   "note": "coal ended a wood fuel crisis",
+   "src": "part"
+  },
+  {
+   "from": "grand_canal",
+   "to": "kaifeng_coal_fuel",
+   "type": "enables",
+   "note": "coal by canal and cart",
+   "src": "part"
+  },
+  {
+   "from": "irrigation_farming",
+   "to": "song_wet_rice",
+   "type": "enables",
+   "note": "paddy irrigation",
+   "src": "general"
+  },
+  {
+   "from": "treadle_chain_pump",
+   "to": "song_wet_rice",
+   "type": "enables",
+   "note": "treadle pumps lift canal water",
+   "src": "part"
+  },
+  {
+   "from": "manure",
+   "to": "song_wet_rice",
+   "type": "input",
+   "note": "night soil and canal mud",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "champa_rice",
+   "type": "enables",
+   "note": "a rice variety",
+   "src": "general"
+  },
+  {
+   "from": "song_wet_rice",
+   "to": "champa_rice",
+   "type": "enables",
+   "note": "state spread seed after 1012",
+   "src": "part"
+  },
+  {
+   "from": "canals",
+   "to": "grand_canal",
+   "type": "enables",
+   "note": "canal building",
+   "src": "general"
+  },
+  {
+   "from": "grand_canal",
+   "to": "canal_tax_grain",
+   "type": "enables",
+   "note": "Yangzi grain moved north",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "canal_tax_grain",
+   "type": "enables",
+   "note": "grain levied as tax",
+   "src": "part"
+  },
+  {
+   "from": "bronze",
+   "to": "copper_cash",
+   "type": "input",
+   "note": "bronze coin metal",
+   "src": "part"
+  },
+  {
+   "from": "coinage",
+   "to": "copper_cash",
+   "type": "enables",
+   "note": "struck coin",
+   "src": "general"
+  },
+  {
+   "from": "chinese_cast_iron",
+   "to": "sichuan_iron_cash",
+   "type": "input",
+   "note": "iron coin",
+   "src": "part"
+  },
+  {
+   "from": "sichuan_iron_cash",
+   "to": "jiaozi_receipts",
+   "type": "enables",
+   "note": "heavy coin bred paper receipts",
+   "src": "part"
+  },
+  {
+   "from": "paper",
+   "to": "jiaozi_receipts",
+   "type": "input",
+   "note": "paper for notes",
+   "src": "part"
+  },
+  {
+   "from": "jiaozi_receipts",
+   "to": "song_state_notes",
+   "type": "enables",
+   "note": "state took over issue, 1023-24",
+   "src": "part"
+  },
+  {
+   "from": "song_state_notes",
+   "to": "huizi_notes",
+   "type": "enables",
+   "note": "state note issue continued south",
+   "src": "part"
+  },
+  {
+   "from": "song_state_notes",
+   "to": "paper_money",
+   "type": "enables",
+   "note": "first state paper money",
+   "src": "general"
+  },
+  {
+   "from": "huizi_notes",
+   "to": "ming_silver_by_weight",
+   "type": "replaces",
+   "note": "over-issue lost trust; back to metal",
+   "src": "part"
+  },
+  {
+   "from": "ming_silver_by_weight",
+   "to": "single_whip_reform",
+   "type": "enables",
+   "note": "taxes reckoned in silver",
+   "src": "part"
+  },
+  {
+   "from": "single_whip_reform",
+   "to": "manila_galleon",
+   "type": "enables",
+   "note": "Chinese silver demand paid the route",
+   "src": "part"
+  },
+  {
+   "from": "kaolin_china_stone",
+   "to": "jingdezhen_porcelain",
+   "type": "input",
+   "note": "body and glaze materials",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "water_trip_hammer",
+   "type": "enables",
+   "note": "water wheel lifts hammers",
+   "src": "general"
+  },
+  {
+   "from": "water_trip_hammer",
+   "to": "jingdezhen_porcelain",
+   "type": "enables",
+   "note": "crushing china stone",
+   "src": "part"
+  },
+  {
+   "from": "pottery",
+   "to": "jingdezhen_porcelain",
+   "type": "enables",
+   "note": "ceramic craft",
+   "src": "general"
+  },
+  {
+   "from": "kiln",
+   "to": "dragon_kiln",
+   "type": "enables",
+   "note": "kiln building",
+   "src": "general"
+  },
+  {
+   "from": "dragon_kiln",
+   "to": "jingdezhen_porcelain",
+   "type": "enables",
+   "note": "high-fired porcelain kilns",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "jingdezhen_porcelain",
+   "type": "input",
+   "note": "pine wood in vast amounts",
+   "src": "part"
+  },
+  {
+   "from": "lime",
+   "to": "jingdezhen_porcelain",
+   "type": "input",
+   "note": "lime-and-fern ash glaze",
+   "src": "part"
+  },
+  {
+   "from": "jingdezhen_porcelain",
+   "to": "blue_and_white_ware",
+   "type": "enables",
+   "note": "porcelain body for cobalt painting",
+   "src": "part"
+  },
+  {
+   "from": "persian_cobalt",
+   "to": "blue_and_white_ware",
+   "type": "input",
+   "note": "imported cobalt blue",
+   "src": "part"
+  },
+  {
+   "from": "mongol_yam",
+   "to": "persian_cobalt",
+   "type": "enables",
+   "note": "Mongol routes brought Persian cobalt",
+   "src": "part"
+  },
+  {
+   "from": "jingdezhen_porcelain",
+   "to": "imperial_kiln",
+   "type": "enables",
+   "note": "state kiln among private ones",
+   "src": "part"
+  },
+  {
+   "from": "monsoon_ocean_trade",
+   "to": "blue_and_white_ware",
+   "type": "enables",
+   "note": "sea sales to Asia and Islam",
+   "src": "part"
+  },
+  {
+   "from": "sericulture",
+   "to": "silk_reeling",
+   "type": "input",
+   "note": "cocoons",
+   "src": "part"
+  },
+  {
+   "from": "silk_reeling",
+   "to": "drawloom_brocade",
+   "type": "input",
+   "note": "raw silk",
+   "src": "part"
+  },
+  {
+   "from": "weaving",
+   "to": "drawloom_brocade",
+   "type": "enables",
+   "note": "loom weaving",
+   "src": "general"
+  },
+  {
+   "from": "drawloom_brocade",
+   "to": "imperial_weaving_bureaus",
+   "type": "enables",
+   "note": "state workshops for brocade",
+   "src": "part"
+  },
+  {
+   "from": "sericulture",
+   "to": "mulberry_dike_fishpond",
+   "type": "enables",
+   "note": "mulberry and silkworms in the loop",
+   "src": "part"
+  },
+  {
+   "from": "fishing",
+   "to": "mulberry_dike_fishpond",
+   "type": "enables",
+   "note": "fish raised in ponds",
+   "src": "general"
+  },
+  {
+   "from": "silk_reeling",
+   "to": "silk_tax_cloth",
+   "type": "input",
+   "note": "silk cloth paid as tax",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "silk_tax_cloth",
+   "type": "enables",
+   "note": "tax collected in kind",
+   "src": "part"
+  },
+  {
+   "from": "silk_tax_cloth",
+   "to": "silk_roads",
+   "type": "input",
+   "note": "garrison silk entered trade",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "silk_roads",
+   "type": "enables",
+   "note": "older overland exchange",
+   "src": "general"
+  },
+  {
+   "from": "cotton",
+   "to": "churka_gin",
+   "type": "input",
+   "note": "raw cotton",
+   "src": "part"
+  },
+  {
+   "from": "churka_gin",
+   "to": "charkha",
+   "type": "input",
+   "note": "ginned and bowed cotton",
+   "src": "part"
+  },
+  {
+   "from": "spinning",
+   "to": "charkha",
+   "type": "enables",
+   "note": "hand spinning",
+   "src": "general"
+  },
+  {
+   "from": "cotton",
+   "to": "indian_cotton_cloth",
+   "type": "input",
+   "note": "many local cottons",
+   "src": "part"
+  },
+  {
+   "from": "spinning",
+   "to": "indian_cotton_cloth",
+   "type": "enables",
+   "note": "fine yarn by skilled spinners",
+   "src": "part"
+  },
+  {
+   "from": "weaving",
+   "to": "indian_cotton_cloth",
+   "type": "enables",
+   "note": "caste weavers on pit looms",
+   "src": "part"
+  },
+  {
+   "from": "alum_mordant",
+   "to": "mordant_chintz",
+   "type": "input",
+   "note": "mordant fixes colour",
+   "src": "part"
+  },
+  {
+   "from": "indigo",
+   "to": "mordant_chintz",
+   "type": "input",
+   "note": "blue dye",
+   "src": "part"
+  },
+  {
+   "from": "dyeing",
+   "to": "mordant_chintz",
+   "type": "enables",
+   "note": "dyers' craft",
+   "src": "general"
+  },
+  {
+   "from": "mordant_chintz",
+   "to": "indian_cotton_cloth",
+   "type": "enables",
+   "note": "fast colours no one could match",
+   "src": "part"
+  },
+  {
+   "from": "woad",
+   "to": "indigo",
+   "type": "replaces",
+   "note": "stronger dye broke woad's bans",
+   "src": "part"
+  },
+  {
+   "from": "indigo",
+   "to": "coal_tar_chemicals",
+   "type": "replaces",
+   "note": "BASF synthetic indigo ended trade, 1897",
+   "src": "part"
+  },
+  {
+   "from": "indian_cotton_cloth",
+   "to": "dadni_advances",
+   "type": "enables",
+   "note": "merchants advance cash to weavers",
+   "src": "part"
+  },
+  {
+   "from": "shroffs_hundi",
+   "to": "dadni_advances",
+   "type": "enables",
+   "note": "credit network behind advances",
+   "src": "part"
+  },
+  {
+   "from": "charkha",
+   "to": "dadni_advances",
+   "type": "enables",
+   "note": "household spinning under advances",
+   "src": "general"
+  },
+  {
+   "from": "credit_accounting",
+   "to": "shroffs_hundi",
+   "type": "enables",
+   "note": "debt and credit records",
+   "src": "general"
+  },
+  {
+   "from": "indian_cotton_cloth",
+   "to": "calico_acts",
+   "type": "enables",
+   "note": "calico craze provoked bans",
+   "src": "part"
+  },
+  {
+   "from": "calico_acts",
+   "to": "mechanised_spinning",
+   "type": "enables",
+   "note": "protected English cotton market",
+   "src": "general"
+  },
+  {
+   "from": "indian_cotton_cloth",
+   "to": "atlantic_slave_trade",
+   "type": "input",
+   "note": "cloth exchanged for captives",
+   "src": "part"
+  },
+  {
+   "from": "indian_cotton_cloth",
+   "to": "monsoon_ocean_trade",
+   "type": "input",
+   "note": "cloth for spices, gold, ivory",
+   "src": "part"
+  },
+  {
+   "from": "bloomery_iron",
+   "to": "wootz_steel",
+   "type": "input",
+   "note": "iron sealed in crucibles",
+   "src": "general"
+  },
+  {
+   "from": "pottery",
+   "to": "wootz_steel",
+   "type": "enables",
+   "note": "clay crucibles",
+   "src": "general"
+  },
+  {
+   "from": "wootz_steel",
+   "to": "damascus_blades",
+   "type": "input",
+   "note": "steel cakes shipped to Persia, Syria",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "mughal_zabt",
+   "type": "enables",
+   "note": "measured land assessment",
+   "src": "part"
+  },
+  {
+   "from": "silver_rupee",
+   "to": "mughal_zabt",
+   "type": "enables",
+   "note": "revenue collected in money",
+   "src": "part"
+  },
+  {
+   "from": "shroffs_hundi",
+   "to": "mughal_zabt",
+   "type": "enables",
+   "note": "shroffs lend against assignments",
+   "src": "part"
+  },
+  {
+   "from": "pack_animals",
+   "to": "banjara_caravans",
+   "type": "enables",
+   "note": "pack bullocks by thousands",
+   "src": "part"
+  },
+  {
+   "from": "banjara_caravans",
+   "to": "mughal_zabt",
+   "type": "enables",
+   "note": "grain sold for tax moved by bullock",
+   "src": "general"
+  },
+  {
+   "from": "coinage",
+   "to": "silver_rupee",
+   "type": "enables",
+   "note": "struck coin",
+   "src": "general"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "camel_caravans",
+   "type": "enables",
+   "note": "the domestic camel",
+   "src": "general"
+  },
+  {
+   "from": "wheel_cart",
+   "to": "camel_caravans",
+   "type": "replaces",
+   "note": "camels cheaper per load, no roads",
+   "src": "part"
+  },
+  {
+   "from": "camel_caravans",
+   "to": "caravanserai_funduq",
+   "type": "enables",
+   "note": "inns at watered stops",
+   "src": "part"
+  },
+  {
+   "from": "waqf",
+   "to": "caravanserai_funduq",
+   "type": "enables",
+   "note": "endowed rents kept the inns",
+   "src": "part"
+  },
+  {
+   "from": "markets_fairs",
+   "to": "muhtasib",
+   "type": "enables",
+   "note": "a market to police",
+   "src": "general"
+  },
+  {
+   "from": "law_courts",
+   "to": "muhtasib",
+   "type": "enables",
+   "note": "hisba as enforced law",
+   "src": "general"
+  },
+  {
+   "from": "paper",
+   "to": "islamic_paper_mill",
+   "type": "enables",
+   "note": "Chinese paper reached Samarkand",
+   "src": "part"
+  },
+  {
+   "from": "silk_roads",
+   "to": "islamic_paper_mill",
+   "type": "enables",
+   "note": "paper carried west",
+   "src": "part"
+  },
+  {
+   "from": "linen_rags",
+   "to": "islamic_paper_mill",
+   "type": "input",
+   "note": "rag fibre",
+   "src": "part"
+  },
+  {
+   "from": "flax_linen",
+   "to": "linen_rags",
+   "type": "byproduct",
+   "note": "worn linen becomes paper fibre",
+   "src": "part"
+  },
+  {
+   "from": "water_trip_hammer",
+   "to": "islamic_paper_mill",
+   "type": "enables",
+   "note": "beating rags to pulp",
+   "src": "part"
+  },
+  {
+   "from": "writing",
+   "to": "papyrus_parchment",
+   "type": "enables",
+   "note": "a surface to write on",
+   "src": "general"
+  },
+  {
+   "from": "papyrus_parchment",
+   "to": "islamic_paper_mill",
+   "type": "replaces",
+   "note": "cheap paper replaced papyrus, parchment",
+   "src": "part"
+  },
+  {
+   "from": "islamic_paper_mill",
+   "to": "fabriano_paper",
+   "type": "enables",
+   "note": "method carried west",
+   "src": "part"
+  },
+  {
+   "from": "fabriano_paper",
+   "to": "printing",
+   "type": "enables",
+   "note": "European paper supply for print",
+   "src": "general"
+  },
+  {
+   "from": "islamic_paper_mill",
+   "to": "suftaja",
+   "type": "enables",
+   "note": "cheap paper for bills and letters",
+   "src": "part"
+  },
+  {
+   "from": "islamic_paper_mill",
+   "to": "sakk",
+   "type": "enables",
+   "note": "paper orders to pay",
+   "src": "general"
+  },
+  {
+   "from": "cane_sugar_crystal",
+   "to": "arab_crop_package",
+   "type": "enables",
+   "note": "sugar spread under Islamic rule",
+   "src": "part"
+  },
+  {
+   "from": "irrigation_farming",
+   "to": "arab_crop_package",
+   "type": "enables",
+   "note": "summer irrigation",
+   "src": "part"
+  },
+  {
+   "from": "arab_crop_package",
+   "to": "mamluk_sugar_refining",
+   "type": "enables",
+   "note": "cane in Egypt",
+   "src": "part"
+  },
+  {
+   "from": "mamluk_sugar_refining",
+   "to": "atlantic_sugar_plantation",
+   "type": "enables",
+   "note": "chain moved via Cyprus to Madeira",
+   "src": "part"
+  },
+  {
+   "from": "slavery",
+   "to": "atlantic_sugar_plantation",
+   "type": "input",
+   "note": "enslaved Africans in gangs",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "atlantic_sugar_plantation",
+   "type": "input",
+   "note": "boiling-house fuel, woods cleared",
+   "src": "part"
+  },
+  {
+   "from": "copper_smelting",
+   "to": "atlantic_sugar_plantation",
+   "type": "input",
+   "note": "train of copper kettles",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "atlantic_sugar_plantation",
+   "type": "enables",
+   "note": "water-driven roller mills",
+   "src": "part"
+  },
+  {
+   "from": "atlantic_sugar_plantation",
+   "to": "molasses_rum",
+   "type": "byproduct",
+   "note": "molasses from purging, then rum",
+   "src": "part"
+  },
+  {
+   "from": "atlantic_sugar_plantation",
+   "to": "atlantic_slave_trade",
+   "type": "enables",
+   "note": "sugar's demand for gang labour",
+   "src": "part"
+  },
+  {
+   "from": "slavery",
+   "to": "atlantic_slave_trade",
+   "type": "enables",
+   "note": "slavery as an institution",
+   "src": "general"
+  },
+  {
+   "from": "irrigation_farming",
+   "to": "qanat",
+   "type": "enables",
+   "note": "water led to fields",
+   "src": "general"
+  },
+  {
+   "from": "qanat",
+   "to": "water_time_shares",
+   "type": "enables",
+   "note": "flow divided by time",
+   "src": "part"
+  },
+  {
+   "from": "property_in_land",
+   "to": "water_time_shares",
+   "type": "enables",
+   "note": "shares sold, inherited, pledged",
+   "src": "general"
+  },
+  {
+   "from": "credit_accounting",
+   "to": "suftaja",
+   "type": "enables",
+   "note": "debts on account",
+   "src": "general"
+  },
+  {
+   "from": "credit_accounting",
+   "to": "hawala",
+   "type": "enables",
+   "note": "debts assignable",
+   "src": "general"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "qirad",
+   "type": "enables",
+   "note": "a travelling partner",
+   "src": "general"
+  },
+  {
+   "from": "qirad",
+   "to": "maghribi_reputation",
+   "type": "enables",
+   "note": "distant agents needed enforcement",
+   "src": "general"
+  },
+  {
+   "from": "law_courts",
+   "to": "maghribi_reputation",
+   "type": "enables",
+   "note": "traders also used courts",
+   "src": "part"
+  },
+  {
+   "from": "khipu",
+   "to": "inca_mita",
+   "type": "enables",
+   "note": "labour turns recorded on cords",
+   "src": "part"
+  },
+  {
+   "from": "inca_mita",
+   "to": "qollqa_storehouses",
+   "type": "enables",
+   "note": "built and filled by labour turns",
+   "src": "part"
+  },
+  {
+   "from": "chuno_charki",
+   "to": "qollqa_storehouses",
+   "type": "input",
+   "note": "freeze-dried food kept for years",
+   "src": "part"
+  },
+  {
+   "from": "qollqa_storehouses",
+   "to": "qhapaq_nan",
+   "type": "enables",
+   "note": "tambos stocked from stores",
+   "src": "part"
+  },
+  {
+   "from": "roads",
+   "to": "qhapaq_nan",
+   "type": "enables",
+   "note": "road building",
+   "src": "general"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "llama_caravans",
+   "type": "enables",
+   "note": "the domestic llama",
+   "src": "general"
+  },
+  {
+   "from": "andean_terraces",
+   "to": "inca_staple_finance",
+   "type": "input",
+   "note": "terrace harvests",
+   "src": "part"
+  },
+  {
+   "from": "vertical_archipelago",
+   "to": "inca_staple_finance",
+   "type": "enables",
+   "note": "goods moved between altitudes",
+   "src": "part"
+  },
+  {
+   "from": "qollqa_storehouses",
+   "to": "inca_staple_finance",
+   "type": "enables",
+   "note": "pay from the state's stores",
+   "src": "part"
+  },
+  {
+   "from": "qhapaq_nan",
+   "to": "inca_staple_finance",
+   "type": "enables",
+   "note": "roads to move stores",
+   "src": "part"
+  },
+  {
+   "from": "llama_caravans",
+   "to": "inca_staple_finance",
+   "type": "input",
+   "note": "llamas carry 25 to 30 kg",
+   "src": "part"
+  },
+  {
+   "from": "inca_mita",
+   "to": "inca_staple_finance",
+   "type": "enables",
+   "note": "labour tax repaid in food",
+   "src": "part"
+  },
+  {
+   "from": "redistribution",
+   "to": "inca_staple_finance",
+   "type": "enables",
+   "note": "redistribution without markets",
+   "src": "part"
+  },
+  {
+   "from": "weaving",
+   "to": "inca_staple_finance",
+   "type": "input",
+   "note": "fine cloth as wealth",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "aztec_tribute",
+   "type": "enables",
+   "note": "fixed tribute schedules",
+   "src": "general"
+  },
+  {
+   "from": "tlameme_porters",
+   "to": "aztec_tribute",
+   "type": "enables",
+   "note": "tribute carried on backs",
+   "src": "part"
+  },
+  {
+   "from": "aztec_tribute",
+   "to": "tlatelolco_market",
+   "type": "input",
+   "note": "tribute goods reached the market",
+   "src": "part"
+  },
+  {
+   "from": "markets_fairs",
+   "to": "tlatelolco_market",
+   "type": "enables",
+   "note": "market by count and measure",
+   "src": "general"
+  },
+  {
+   "from": "law_courts",
+   "to": "tlatelolco_market",
+   "type": "enables",
+   "note": "judges sitting in the market",
+   "src": "part"
+  },
+  {
+   "from": "cotton",
+   "to": "cacao_cloak_money",
+   "type": "input",
+   "note": "cotton cloaks as money",
+   "src": "part"
+  },
+  {
+   "from": "cacao_cloak_money",
+   "to": "tlatelolco_market",
+   "type": "enables",
+   "note": "a medium of exchange",
+   "src": "part"
+  },
+  {
+   "from": "boats",
+   "to": "chinampas",
+   "type": "enables",
+   "note": "canoes on the lake canals",
+   "src": "general"
+  },
+  {
+   "from": "chinampas",
+   "to": "tlatelolco_market",
+   "type": "input",
+   "note": "lake food by canoe",
+   "src": "general"
+  },
+  {
+   "from": "tlameme_porters",
+   "to": "pochteca",
+   "type": "enables",
+   "note": "porter-carried long trade",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "pochteca",
+   "type": "enables",
+   "note": "far trade for luxuries",
+   "src": "general"
+  },
+  {
+   "from": "west_african_gold",
+   "to": "trans_saharan_trade",
+   "type": "input",
+   "note": "gold north",
+   "src": "part"
+  },
+  {
+   "from": "saharan_rock_salt",
+   "to": "trans_saharan_trade",
+   "type": "input",
+   "note": "salt south",
+   "src": "part"
+  },
+  {
+   "from": "slavery",
+   "to": "saharan_rock_salt",
+   "type": "input",
+   "note": "salt cut by slaves",
+   "src": "part"
+  },
+  {
+   "from": "camel_caravans",
+   "to": "trans_saharan_trade",
+   "type": "enables",
+   "note": "camels cross the desert",
+   "src": "part"
+  },
+  {
+   "from": "trans_saharan_trade",
+   "to": "ghana_gold_toll",
+   "type": "enables",
+   "note": "toll at the desert's edge",
+   "src": "part"
+  },
+  {
+   "from": "trans_saharan_trade",
+   "to": "gold_dinar",
+   "type": "input",
+   "note": "gold minted at Sijilmasa",
+   "src": "part"
+  },
+  {
+   "from": "coinage",
+   "to": "gold_dinar",
+   "type": "enables",
+   "note": "struck coin",
+   "src": "general"
+  },
+  {
+   "from": "trans_saharan_trade",
+   "to": "cowrie_money",
+   "type": "enables",
+   "note": "cowries carried south",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "great_zimbabwe",
+   "type": "input",
+   "note": "cattle herded under the court",
+   "src": "general"
+  },
+  {
+   "from": "stone_masonry",
+   "to": "great_zimbabwe",
+   "type": "enables",
+   "note": "mortarless stone enclosures",
+   "src": "general"
+  },
+  {
+   "from": "swahili_hosts",
+   "to": "great_zimbabwe",
+   "type": "enables",
+   "note": "gold sold via Sofala and Kilwa",
+   "src": "part"
+  },
+  {
+   "from": "monsoon_ocean_trade",
+   "to": "swahili_hosts",
+   "type": "enables",
+   "note": "one round trip a year",
+   "src": "part"
+  },
+  {
+   "from": "charcoal",
+   "to": "nok_iron",
+   "type": "input",
+   "note": "furnace fuel",
+   "src": "general"
+  },
+  {
+   "from": "nok_iron",
+   "to": "iron_hoe_money",
+   "type": "input",
+   "note": "iron for hoes and bars",
+   "src": "part"
+  },
+  {
+   "from": "copper_smelting",
+   "to": "brass_manillas",
+   "type": "input",
+   "note": "copper alloy",
+   "src": "general"
+  },
+  {
+   "from": "sail",
+   "to": "brass_manillas",
+   "type": "enables",
+   "note": "Portuguese ships brought them",
+   "src": "general"
+  },
+  {
+   "from": "silk_roads",
+   "to": "mongol_yam",
+   "type": "enables",
+   "note": "one power held the whole road",
+   "src": "part"
+  },
+  {
+   "from": "postal_service",
+   "to": "mongol_yam",
+   "type": "enables",
+   "note": "relay post stations",
+   "src": "general"
+  },
+  {
+   "from": "sail",
+   "to": "monsoon_ocean_trade",
+   "type": "enables",
+   "note": "monsoon sailing",
+   "src": "general"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "monsoon_ocean_trade",
+   "type": "enables",
+   "note": "emporia joined three segments",
+   "src": "general"
+  },
+  {
+   "from": "monsoon_ocean_trade",
+   "to": "portuguese_cartaz",
+   "type": "enables",
+   "note": "Portuguese sold protection after 1498",
+   "src": "part"
+  },
+  {
+   "from": "crown_mercury",
+   "to": "patio_amalgamation",
+   "type": "input",
+   "note": "mercury from crown mines",
+   "src": "part"
+  },
+  {
+   "from": "salt_making",
+   "to": "patio_amalgamation",
+   "type": "input",
+   "note": "salt in the patio mix",
+   "src": "part"
+  },
+  {
+   "from": "patio_amalgamation",
+   "to": "spanish_dollar",
+   "type": "input",
+   "note": "amalgamated silver to the mints",
+   "src": "part"
+  },
+  {
+   "from": "potosi_silver",
+   "to": "spanish_dollar",
+   "type": "input",
+   "note": "silver minted as pesos",
+   "src": "part"
+  },
+  {
+   "from": "llama_caravans",
+   "to": "potosi_silver",
+   "type": "input",
+   "note": "food and fuel by llama train",
+   "src": "part"
+  },
+  {
+   "from": "inca_mita",
+   "to": "potosi_mita",
+   "type": "enables",
+   "note": "Toledo turned mit'a into mine draft",
+   "src": "part"
+  },
+  {
+   "from": "potosi_silver",
+   "to": "potosi_mita",
+   "type": "enables",
+   "note": "mines needed forced labour",
+   "src": "part"
+  },
+  {
+   "from": "spanish_dollar",
+   "to": "manila_galleon",
+   "type": "input",
+   "note": "about 2 million pesos a year",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "manila_galleon",
+   "type": "enables",
+   "note": "transpacific galleons",
+   "src": "general"
+  },
+  {
+   "from": "manila_galleon",
+   "to": "sweet_potato_china",
+   "type": "enables",
+   "note": "American crop via Manila",
+   "src": "general"
+  },
+  {
+   "from": "sail",
+   "to": "potato_old_world",
+   "type": "enables",
+   "note": "Atlantic crossing carried the crop",
+   "src": "general"
+  },
+  {
+   "from": "sail",
+   "to": "maize_old_world",
+   "type": "enables",
+   "note": "Atlantic crossing carried the crop",
+   "src": "general"
+  },
+  {
+   "from": "irrigation_farming",
+   "to": "uruk_temple_economy",
+   "type": "input",
+   "note": "irrigated barley and dates",
+   "src": "part"
+  },
+  {
+   "from": "wool_sheep",
+   "to": "uruk_temple_economy",
+   "type": "input",
+   "note": "wool for ration and trade textiles",
+   "src": "part"
+  },
+  {
+   "from": "redistribution",
+   "to": "uruk_temple_economy",
+   "type": "enables",
+   "note": "rations before markets",
+   "src": "part"
+  },
+  {
+   "from": "boats",
+   "to": "uruk_temple_economy",
+   "type": "enables",
+   "note": "cheap water transport (Algaze)",
+   "src": "part"
+  },
+  {
+   "from": "uruk_temple_economy",
+   "to": "writing",
+   "type": "enables",
+   "note": "writing invented for ration accounts",
+   "src": "part"
+  },
+  {
+   "from": "uruk_temple_economy",
+   "to": "town_walls_market",
+   "type": "enables",
+   "note": "an authority to build walls",
+   "src": "part"
+  },
+  {
+   "from": "town_walls_market",
+   "to": "chartered_market_town",
+   "type": "enables",
+   "note": "walls, gates and a market place",
+   "src": "part"
+  },
+  {
+   "from": "markets_fairs",
+   "to": "chartered_market_town",
+   "type": "enables",
+   "note": "market day under charter",
+   "src": "part"
+  },
+  {
+   "from": "coinage",
+   "to": "chartered_market_town",
+   "type": "enables",
+   "note": "coin, weights and measures",
+   "src": "part"
+  },
+  {
+   "from": "stone_masonry",
+   "to": "roman_aqueducts",
+   "type": "enables",
+   "note": "channels on a steady fall",
+   "src": "general"
+  },
+  {
+   "from": "roman_lead",
+   "to": "roman_aqueducts",
+   "type": "input",
+   "note": "lead pipes to private connections",
+   "src": "general"
+  },
+  {
+   "from": "lime",
+   "to": "roman_aqueducts",
+   "type": "input",
+   "note": "mortar and lining",
+   "src": "general"
+  },
+  {
+   "from": "stone_masonry",
+   "to": "cloaca_maxima",
+   "type": "enables",
+   "note": "vaulted stone drain",
+   "src": "general"
+  },
+  {
+   "from": "brick",
+   "to": "insulae_tenements",
+   "type": "input",
+   "note": "brick and timber blocks",
+   "src": "general"
+  },
+  {
+   "from": "cities",
+   "to": "insulae_tenements",
+   "type": "enables",
+   "note": "migrants outpace building",
+   "src": "part"
+  },
+  {
+   "from": "insulae_tenements",
+   "to": "fire_building_codes",
+   "type": "enables",
+   "note": "crowded blocks burned",
+   "src": "general"
+  },
+  {
+   "from": "fire_building_codes",
+   "to": "fire_insurance",
+   "type": "enables",
+   "note": "great fires brought insurance",
+   "src": "part"
+  },
+  {
+   "from": "insurance",
+   "to": "fire_insurance",
+   "type": "enables",
+   "note": "underwriting know-how",
+   "src": "general"
+  },
+  {
+   "from": "state_taxation",
+   "to": "ever_normal_granary",
+   "type": "enables",
+   "note": "state buys grain cheap, sells dear",
+   "src": "general"
+  },
+  {
+   "from": "redistribution",
+   "to": "ever_normal_granary",
+   "type": "enables",
+   "note": "stores released in shortage",
+   "src": "general"
+  },
+  {
+   "from": "markets_fairs",
+   "to": "ward_markets",
+   "type": "enables",
+   "note": "official markets",
+   "src": "general"
+  },
+  {
+   "from": "ward_markets",
+   "to": "song_open_markets",
+   "type": "replaces",
+   "note": "walls fell; shops on every street",
+   "src": "part"
+  },
+  {
+   "from": "canal_tax_grain",
+   "to": "song_open_markets",
+   "type": "enables",
+   "note": "Bian canal fed Kaifeng",
+   "src": "part"
+  },
+  {
+   "from": "credit_accounting",
+   "to": "jahbadh_bankers",
+   "type": "enables",
+   "note": "banking on account",
+   "src": "general"
+  },
+  {
+   "from": "jahbadh_bankers",
+   "to": "sakk",
+   "type": "enables",
+   "note": "bankers honoured written orders",
+   "src": "general"
+  },
+  {
+   "from": "jahbadh_bankers",
+   "to": "suftaja",
+   "type": "enables",
+   "note": "bankers issued transfer bills",
+   "src": "general"
+  },
+  {
+   "from": "timber",
+   "to": "venice_arsenal",
+   "type": "input",
+   "note": "timber by trade",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "venice_arsenal",
+   "type": "enables",
+   "note": "hemp, pitch, sailcloth by trade",
+   "src": "part"
+  },
+  {
+   "from": "venice_arsenal",
+   "to": "venice_mude",
+   "type": "enables",
+   "note": "state galleys fitted out",
+   "src": "part"
+  },
+  {
+   "from": "colleganza",
+   "to": "venice_mude",
+   "type": "enables",
+   "note": "syndicates bid for voyages",
+   "src": "general"
+  },
+  {
+   "from": "qirad",
+   "to": "colleganza",
+   "type": "enables",
+   "note": "commenda form resembles qirad (Udovitch)",
+   "src": "general"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "civic_grain_office",
+   "type": "enables",
+   "note": "grain by sea from Apulia, Black Sea",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "lazaretto",
+   "type": "enables",
+   "note": "ships brought plague",
+   "src": "general"
+  },
+  {
+   "from": "wool_sheep",
+   "to": "florentine_wool_cloth",
+   "type": "input",
+   "note": "English wool",
+   "src": "part"
+  },
+  {
+   "from": "alum_mordant",
+   "to": "florentine_wool_cloth",
+   "type": "input",
+   "note": "Levantine alum",
+   "src": "part"
+  },
+  {
+   "from": "putting_out",
+   "to": "florentine_wool_cloth",
+   "type": "enables",
+   "note": "wage workers put out",
+   "src": "part"
+  },
+  {
+   "from": "guilds",
+   "to": "florentine_wool_cloth",
+   "type": "enables",
+   "note": "the Arti ran the commune",
+   "src": "part"
+  },
+  {
+   "from": "dyeing",
+   "to": "florentine_wool_cloth",
+   "type": "enables",
+   "note": "dyers among the trades",
+   "src": "general"
+  },
+  {
+   "from": "coinage",
+   "to": "florin",
+   "type": "enables",
+   "note": "struck gold coin",
+   "src": "general"
+  },
+  {
+   "from": "florin",
+   "to": "bardi_peruzzi_banks",
+   "type": "enables",
+   "note": "gold money of the banks",
+   "src": "part"
+  },
+  {
+   "from": "banking",
+   "to": "bardi_peruzzi_banks",
+   "type": "enables",
+   "note": "deposit and lending",
+   "src": "general"
+  },
+  {
+   "from": "bills_of_exchange",
+   "to": "bardi_peruzzi_banks",
+   "type": "enables",
+   "note": "remittance across Europe",
+   "src": "general"
+  },
+  {
+   "from": "florentine_wool_cloth",
+   "to": "bardi_peruzzi_banks",
+   "type": "enables",
+   "note": "cloth merchants as bankers",
+   "src": "general"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "hanse_kontor",
+   "type": "enables",
+   "note": "Baltic and Flemish trade",
+   "src": "general"
+  },
+  {
+   "from": "hanse_kontor",
+   "to": "bruges_bourse",
+   "type": "enables",
+   "note": "foreign nations' houses in Bruges",
+   "src": "part"
+  },
+  {
+   "from": "bruges_bourse",
+   "to": "stock_exchange",
+   "type": "enables",
+   "note": "the bourse's name and form",
+   "src": "general"
+  },
+  {
+   "from": "bruges_bourse",
+   "to": "amsterdam_entrepot",
+   "type": "replaces",
+   "note": "hub moved when the Zwin silted",
+   "src": "part"
+  },
+  {
+   "from": "bruges_bourse",
+   "to": "royal_exchange",
+   "type": "enables",
+   "note": "exchange on the bourse model",
+   "src": "general"
+  },
+  {
+   "from": "printing",
+   "to": "printed_price_currents",
+   "type": "enables",
+   "note": "printed lists",
+   "src": "general"
+  },
+  {
+   "from": "printed_price_currents",
+   "to": "amsterdam_entrepot",
+   "type": "enables",
+   "note": "prices that travel",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "amsterdam_entrepot",
+   "type": "enables",
+   "note": "Baltic grain, the mother trade",
+   "src": "part"
+  },
+  {
+   "from": "amsterdam_entrepot",
+   "to": "wisselbank",
+   "type": "enables",
+   "note": "entrepot needed trusted bank money",
+   "src": "general"
+  },
+  {
+   "from": "banking",
+   "to": "wisselbank",
+   "type": "enables",
+   "note": "deposit banking",
+   "src": "general"
+  },
+  {
+   "from": "wisselbank",
+   "to": "central_bank",
+   "type": "enables",
+   "note": "bank money as public trust",
+   "src": "general"
+  },
+  {
+   "from": "amsterdam_entrepot",
+   "to": "amsterdam_canal_rings",
+   "type": "enables",
+   "note": "warehouses on canals",
+   "src": "part"
+  },
+  {
+   "from": "timber",
+   "to": "amsterdam_canal_rings",
+   "type": "input",
+   "note": "wooden piles in peat",
+   "src": "part"
+  },
+  {
+   "from": "coffee_houses",
+   "to": "stock_exchange",
+   "type": "enables",
+   "note": "brokers met in coffee houses",
+   "src": "general"
+  },
+  {
+   "from": "banking",
+   "to": "clearing_house",
+   "type": "enables",
+   "note": "banks settle with each other",
+   "src": "general"
+  },
+  {
+   "from": "roman_lead",
+   "to": "great_conduit",
+   "type": "input",
+   "note": "lead pipes",
+   "src": "part"
+  },
+  {
+   "from": "great_conduit",
+   "to": "new_river",
+   "type": "enables",
+   "note": "conduit stage before companies",
+   "src": "general"
+  },
+  {
+   "from": "new_river",
+   "to": "piped_water",
+   "type": "enables",
+   "note": "private pipes before constant supply",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "london_sea_coal",
+   "type": "input",
+   "note": "Tyneside coal",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "london_sea_coal",
+   "type": "replaces",
+   "note": "coal replaced wood in London",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "collier_shipping",
+   "type": "enables",
+   "note": "coastal sailing colliers",
+   "src": "general"
+  },
+  {
+   "from": "collier_shipping",
+   "to": "london_sea_coal",
+   "type": "enables",
+   "note": "coal shipped down the coast",
+   "src": "part"
+  },
+  {
+   "from": "london_sea_coal",
+   "to": "newcastle_hostmen",
+   "type": "enables",
+   "note": "cartel at the source port",
+   "src": "part"
+  },
+  {
+   "from": "london_sea_coal",
+   "to": "city_coal_dues",
+   "type": "enables",
+   "note": "tax at the city end",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "morvan_log_floating",
+   "type": "input",
+   "note": "Morvan firewood",
+   "src": "part"
+  },
+  {
+   "from": "coppice",
+   "to": "morvan_log_floating",
+   "type": "enables",
+   "note": "forest managed as fuel ring",
+   "src": "general"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "smithfield_droving",
+   "type": "input",
+   "note": "cattle and sheep on the hoof",
+   "src": "general"
+  },
+  {
+   "from": "markets_fairs",
+   "to": "smithfield_droving",
+   "type": "enables",
+   "note": "chartered market at Smithfield",
+   "src": "part"
+  },
+  {
+   "from": "manure",
+   "to": "dung_market_gardens",
+   "type": "input",
+   "note": "the city's dung",
+   "src": "part"
+  },
+  {
+   "from": "night_soil_trade",
+   "to": "dung_market_gardens",
+   "type": "input",
+   "note": "nightmen's collections",
+   "src": "part"
+  },
+  {
+   "from": "markets_fairs",
+   "to": "london_corn_exchange",
+   "type": "enables",
+   "note": "licensed corn market",
+   "src": "general"
+  },
+  {
+   "from": "baking",
+   "to": "bread_assize",
+   "type": "enables",
+   "note": "bakers' loaf to regulate",
+   "src": "general"
+  },
+  {
+   "from": "flour_milling",
+   "to": "police_des_grains",
+   "type": "enables",
+   "note": "millers overtook merchants",
+   "src": "part"
+  },
+  {
+   "from": "baking",
+   "to": "police_des_grains",
+   "type": "enables",
+   "note": "bread as a public matter",
+   "src": "general"
+  },
+  {
+   "from": "state_taxation",
+   "to": "edo_rice_brokers",
+   "type": "enables",
+   "note": "daimyo's tax rice",
+   "src": "part"
+  },
+  {
+   "from": "sankin_kotai",
+   "to": "edo_rice_brokers",
+   "type": "enables",
+   "note": "daimyo needed cash in Edo",
+   "src": "general"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "sankin_kotai",
+   "type": "enables",
+   "note": "lords held hostage by residence",
+   "src": "general"
+  },
+  {
+   "from": "canals",
+   "to": "tamagawa_aqueduct",
+   "type": "enables",
+   "note": "open-channel engineering",
+   "src": "general"
+  },
+  {
+   "from": "cities",
+   "to": "night_soil_trade",
+   "type": "byproduct",
+   "note": "city excreta as fertiliser",
+   "src": "part"
+  },
+  {
+   "from": "night_soil_trade",
+   "to": "guano",
+   "type": "replaces",
+   "note": "guano made night soil not worth carting",
+   "src": "part"
+  },
+  {
+   "from": "piped_water",
+   "to": "flush_toilet",
+   "type": "enables",
+   "note": "water to flush",
+   "src": "part"
+  },
+  {
+   "from": "flush_toilet",
+   "to": "metropolitan_board_works",
+   "type": "enables",
+   "note": "waste in the Thames forced action",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "metropolitan_board_works",
+   "type": "enables",
+   "note": "a rate to pay for works",
+   "src": "part"
+  },
+  {
+   "from": "metropolitan_board_works",
+   "to": "sewers",
+   "type": "enables",
+   "note": "Bazalgette's intercepting sewers",
+   "src": "part"
+  },
+  {
+   "from": "sewers",
+   "to": "sewage_treatment",
+   "type": "enables",
+   "note": "trunk sewers to treat",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "sewage_treatment",
+   "type": "enables",
+   "note": "activated sludge plants",
+   "src": "part"
+  },
+  {
+   "from": "piped_water",
+   "to": "water_filtration",
+   "type": "enables",
+   "note": "a supply to filter",
+   "src": "general"
+  },
+  {
+   "from": "record_keeping",
+   "to": "medical_officers_health",
+   "type": "enables",
+   "note": "mortality statistics",
+   "src": "part"
+  },
+  {
+   "from": "stone_masonry",
+   "to": "croton_aqueduct",
+   "type": "enables",
+   "note": "dams and aqueduct bridges",
+   "src": "general"
+  },
+  {
+   "from": "coal",
+   "to": "town_gas",
+   "type": "input",
+   "note": "gas made from coal",
+   "src": "part"
+  },
+  {
+   "from": "town_gas",
+   "to": "coal_tar_chemicals",
+   "type": "byproduct",
+   "note": "gasworks tar",
+   "src": "general"
+  },
+  {
+   "from": "roads",
+   "to": "horse_omnibus",
+   "type": "enables",
+   "note": "paved streets",
+   "src": "part"
+  },
+  {
+   "from": "draught_animals",
+   "to": "horse_omnibus",
+   "type": "input",
+   "note": "horses pull the bus",
+   "src": "part"
+  },
+  {
+   "from": "horse_omnibus",
+   "to": "horse_tram",
+   "type": "enables",
+   "note": "rails doubled what a horse pulled",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "horse_tram",
+   "type": "enables",
+   "note": "rails in the street",
+   "src": "general"
+  },
+  {
+   "from": "horse_omnibus",
+   "to": "horse_manure",
+   "type": "byproduct",
+   "note": "manure on the streets",
+   "src": "part"
+  },
+  {
+   "from": "horse_tram",
+   "to": "horse_manure",
+   "type": "byproduct",
+   "note": "manure on the streets",
+   "src": "part"
+  },
+  {
+   "from": "horse_tram",
+   "to": "motor_vehicle",
+   "type": "replaces",
+   "note": "motor traction, welcomed as sanitary reform",
+   "src": "general"
+  },
+  {
+   "from": "railway",
+   "to": "underground_railway",
+   "type": "enables",
+   "note": "steam railway in tunnels",
+   "src": "part"
+  },
+  {
+   "from": "underground_railway",
+   "to": "electric_metro",
+   "type": "replaces",
+   "note": "electric traction ended steam in tunnels",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "electric_metro",
+   "type": "enables",
+   "note": "electric traction",
+   "src": "part"
+  },
+  {
+   "from": "horse_tram",
+   "to": "electric_tram",
+   "type": "replaces",
+   "note": "electricity removed the horse",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "electric_tram",
+   "type": "enables",
+   "note": "electric traction",
+   "src": "part"
+  },
+  {
+   "from": "pearl_street_station",
+   "to": "electric_tram",
+   "type": "enables",
+   "note": "generating stations",
+   "src": "general"
+  },
+  {
+   "from": "railway",
+   "to": "commuter_rail_suburbs",
+   "type": "enables",
+   "note": "commuter lines",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "commuter_rail_suburbs",
+   "type": "enables",
+   "note": "electric suburban trains",
+   "src": "general"
+  },
+  {
+   "from": "motor_vehicle",
+   "to": "car_suburbs",
+   "type": "enables",
+   "note": "cars for commuting",
+   "src": "part"
+  },
+  {
+   "from": "roads",
+   "to": "car_suburbs",
+   "type": "enables",
+   "note": "expressways",
+   "src": "part"
+  },
+  {
+   "from": "oil_petroleum",
+   "to": "car_suburbs",
+   "type": "input",
+   "note": "fuel distribution",
+   "src": "part"
+  },
+  {
+   "from": "timber",
+   "to": "balloon_frame",
+   "type": "input",
+   "note": "standard sawn pine",
+   "src": "part"
+  },
+  {
+   "from": "balloon_frame",
+   "to": "chicago_lumber_market",
+   "type": "enables",
+   "note": "prairie building demanded pine",
+   "src": "general"
+  },
+  {
+   "from": "electricity",
+   "to": "pearl_street_station",
+   "type": "enables",
+   "note": "dynamos and lamps",
+   "src": "general"
+  },
+  {
+   "from": "steam_engine",
+   "to": "pearl_street_station",
+   "type": "input",
+   "note": "steam-driven dynamos",
+   "src": "general"
+  },
+  {
+   "from": "pearl_street_station",
+   "to": "electric_grid",
+   "type": "enables",
+   "note": "central station to network",
+   "src": "general"
+  },
+  {
+   "from": "steam_engine",
+   "to": "grain_elevator",
+   "type": "enables",
+   "note": "steam-powered elevators",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "grain_elevator",
+   "type": "enables",
+   "note": "grain arriving in bulk",
+   "src": "general"
+  },
+  {
+   "from": "grain_elevator",
+   "to": "grain_grading",
+   "type": "enables",
+   "note": "bulk storage mixed lots",
+   "src": "part"
+  },
+  {
+   "from": "chicago_board_trade",
+   "to": "grain_grading",
+   "type": "enables",
+   "note": "Board set grades in 1856",
+   "src": "part"
+  },
+  {
+   "from": "grain_grading",
+   "to": "grain_futures",
+   "type": "enables",
+   "note": "receipts and to-arrive contracts",
+   "src": "part"
+  },
+  {
+   "from": "telegraph",
+   "to": "telegraph_prices",
+   "type": "enables",
+   "note": "prices by wire",
+   "src": "part"
+  },
+  {
+   "from": "telegraph_prices",
+   "to": "grain_futures",
+   "type": "enables",
+   "note": "distant prices reach the pit",
+   "src": "part"
+  },
+  {
+   "from": "canals",
+   "to": "chicago_board_trade",
+   "type": "enables",
+   "note": "I&M canal made the hub",
+   "src": "part"
+  },
+  {
+   "from": "timber",
+   "to": "chicago_lumber_market",
+   "type": "input",
+   "note": "northern white pine",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "chicago_lumber_market",
+   "type": "enables",
+   "note": "rail to the treeless prairie",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "chicago_lumber_market",
+   "type": "enables",
+   "note": "lake schooners",
+   "src": "general"
+  },
+  {
+   "from": "railway",
+   "to": "union_stock_yards",
+   "type": "enables",
+   "note": "animals arrive by rail",
+   "src": "part"
+  },
+  {
+   "from": "union_stock_yards",
+   "to": "meatpacking",
+   "type": "enables",
+   "note": "yards feed the packers",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "refrigerator_car",
+   "type": "enables",
+   "note": "rail network",
+   "src": "part"
+  },
+  {
+   "from": "refrigerator_car",
+   "to": "meatpacking",
+   "type": "enables",
+   "note": "dressed beef replaced live cattle",
+   "src": "part"
+  },
+  {
+   "from": "refrigerator_car",
+   "to": "refrigeration_cold_chain",
+   "type": "enables",
+   "note": "first cold chain on rails",
+   "src": "general"
+  },
+  {
+   "from": "meatpacking",
+   "to": "packing_byproducts",
+   "type": "byproduct",
+   "note": "everything but the squeal",
+   "src": "part"
+  },
+  {
+   "from": "rendering_tallow",
+   "to": "packing_byproducts",
+   "type": "enables",
+   "note": "rendering lard and glue",
+   "src": "general"
+  },
+  {
+   "from": "telephone",
+   "to": "producer_services",
+   "type": "enables",
+   "note": "offices coordinating at distance",
+   "src": "general"
+  },
+  {
+   "from": "stock_exchange",
+   "to": "producer_services",
+   "type": "enables",
+   "note": "finance as a city export",
+   "src": "part"
+  },
+  {
+   "from": "corporation",
+   "to": "producer_services",
+   "type": "enables",
+   "note": "global firms' office networks",
+   "src": "part"
+  },
+  {
+   "from": "cities",
+   "to": "informal_settlements",
+   "type": "enables",
+   "note": "migration outpacing infrastructure",
+   "src": "part"
+  },
+  {
+   "from": "electric_metro",
+   "to": "megacity_systems",
+   "type": "enables",
+   "note": "metro at scale",
+   "src": "part"
+  },
+  {
+   "from": "commuter_rail_suburbs",
+   "to": "megacity_systems",
+   "type": "enables",
+   "note": "rail metropolis",
+   "src": "part"
+  },
+  {
+   "from": "sewers",
+   "to": "megacity_systems",
+   "type": "enables",
+   "note": "sanitation before megacity density",
+   "src": "part"
+  },
+  {
+   "from": "sewage_treatment",
+   "to": "megacity_systems",
+   "type": "enables",
+   "note": "treatment plants",
+   "src": "part"
+  },
+  {
+   "from": "water_filtration",
+   "to": "megacity_systems",
+   "type": "enables",
+   "note": "treated water",
+   "src": "part"
+  },
+  {
+   "from": "croton_aqueduct",
+   "to": "megacity_systems",
+   "type": "enables",
+   "note": "water from distant catchments",
+   "src": "part"
+  },
+  {
+   "from": "medical_officers_health",
+   "to": "megacity_systems",
+   "type": "enables",
+   "note": "public health turns the sink off",
+   "src": "part"
+  },
+  {
+   "from": "electric_grid",
+   "to": "megacity_systems",
+   "type": "enables",
+   "note": "energy grids",
+   "src": "part"
+  },
+  {
+   "from": "refrigeration_cold_chain",
+   "to": "megacity_systems",
+   "type": "enables",
+   "note": "food by global cold chains",
+   "src": "part"
+  },
+  {
+   "from": "container_shipping",
+   "to": "megacity_systems",
+   "type": "enables",
+   "note": "container ports",
+   "src": "part"
+  },
+  {
+   "from": "aviation",
+   "to": "megacity_systems",
+   "type": "enables",
+   "note": "airports",
+   "src": "part"
+  },
+  {
+   "from": "steel_frame",
+   "to": "megacity_systems",
+   "type": "enables",
+   "note": "housing at density",
+   "src": "part"
+  },
+  {
+   "from": "elevator",
+   "to": "megacity_systems",
+   "type": "enables",
+   "note": "lifts for height",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "metropolitan_police",
+   "type": "enables",
+   "note": "a city paying police",
+   "src": "general"
+  },
+  {
+   "from": "law_courts",
+   "to": "metropolitan_police",
+   "type": "enables",
+   "note": "courts behind the police",
+   "src": "general"
+  },
+  {
+   "from": "factory_system",
+   "to": "department_store",
+   "type": "enables",
+   "note": "mass-made goods to sell",
+   "src": "general"
+  },
+  {
+   "from": "department_store",
+   "to": "supermarket",
+   "type": "enables",
+   "note": "fixed-price retail model",
+   "src": "general"
+  }
+ ]
+}

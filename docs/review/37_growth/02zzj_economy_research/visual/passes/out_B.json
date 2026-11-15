@@ -1,0 +1,4456 @@
+{
+ "nodes": [
+  {
+   "id": "hand_quern",
+   "label": "Hand quern",
+   "domain": "food",
+   "kind": "technique",
+   "start": -9000,
+   "date_src": "general",
+   "place": "Near East",
+   "paradigm": "horticultural_tribal",
+   "desc": "Grain ground by hand between stones. A person grinds a few kg of grain an hour [M]. It went on beside the mill, often illegally, for centuries.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "suit_of_mill",
+   "label": "Suit of mill and multure",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1086,
+   "date_src": "general",
+   "wide": 1300,
+   "place": "England (Domesday mills)",
+   "paradigm": "feudal_manorial",
+   "desc": "The lord's monopoly on grinding: tenants had to use his mill and pay multure, often a sixteenth to a twentieth of the grain [M]. The first rent on shared capital, with about 6,000 mills in 1086 and perhaps 10,000 by 1300 [V]. One of the main frictions between lords and tenants.",
+   "chokepoint": true,
+   "part": "01"
+  },
+  {
+   "id": "wind_sawmill",
+   "label": "Zaan wind sawmill",
+   "domain": "energy",
+   "kind": "industry",
+   "start": 1592,
+   "date_src": "part",
+   "wide": 1650,
+   "place": "Zaan district, Holland",
+   "paradigm": "commercial_city_state",
+   "desc": "Cornelis Corneliszoon's wind-driven sawmill of 1592 turned the windmill to industry. The Zaan had 600 to 1,000 windmills at its peak, over 200 of them sawmills [V]; they cut Baltic logs into boards for shipyards.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "hay_meadow",
+   "label": "Hay meadow",
+   "domain": "food",
+   "kind": "resource",
+   "start": -800,
+   "date_src": "general",
+   "place": "Iron Age Europe",
+   "paradigm": "chiefdom",
+   "desc": "Mown grassland that fed draught beasts through winter. A horse's year of hay came from 1.5 to 2 acres (0.6 to 0.8 ha) [V]. Meadow was land that could not also grow bread.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "oats_fodder",
+   "label": "Fodder oats",
+   "domain": "food",
+   "kind": "good",
+   "start": 900,
+   "date_src": "general",
+   "place": "northern Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "Grain grown for horses rather than people. A hard-worked 19th-century horse ate 12 to 16 lb of grain and 12 lb of hay a day [V], roughly 2 to 3 ha of land per horse [C]. England's horses ate the produce of perhaps a fifth of the farmland [M].",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "horse_collar",
+   "label": "Collar-harnessed horse",
+   "domain": "energy",
+   "kind": "technique",
+   "start": 900,
+   "date_src": "part",
+   "wide": 1400,
+   "place": "Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "A horse with a padded collar and iron shoes, in Europe from about the 10th century [M]: about 500 to 750 W, half again as fast as an ox, but it needs oats [M]. Oxen still outnumbered horses about two to one on English demesnes at the end of the 14th century; peasants took to the horse faster [V].",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "dung_straw_fuel",
+   "label": "Straw, dung and furze fuel",
+   "domain": "energy",
+   "kind": "practice",
+   "start": -6000,
+   "date_src": "general",
+   "place": "open-field villages, steppe, uplands",
+   "paradigm": "horticultural_tribal",
+   "desc": "Farm by-products burned where wood was short. They burn fast, and every load of dung burned is manure lost to the fields. National accounts count them poorly, which is part of why rural English fuel per head reads as low as 0.5 t of wood [V].",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "firewood_ring",
+   "label": "City firewood ring",
+   "domain": "energy",
+   "kind": "practice",
+   "start": 1300,
+   "date_src": "part",
+   "place": "London region",
+   "paradigm": "feudal_manorial",
+   "desc": "The ring of coppice that heated a medieval city. London burned about 141,000 tons of wood fuel a year c.1300 [V], carted by land up to about 18 to 20 km [V]; [C] some 45,000 to 55,000 ha of coppice under rotation.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "sea_coal_shipping",
+   "label": "Sea coal, Tyne to London",
+   "domain": "energy",
+   "kind": "industry",
+   "start": 1250,
+   "date_src": "part",
+   "wide": 1600,
+   "place": "Newcastle to London",
+   "paradigm": "feudal_manorial",
+   "desc": "Coal from outcrops near the Tyne shipped to London: for lime-burning and smithing from the 13th century, household fuel from the later 16th [V]. Coal gave half of England's energy by 1700 and over 90% by 1850 [V].",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "chimney",
+   "label": "Chimney and enclosed hearth",
+   "domain": "building",
+   "kind": "technique",
+   "start": 1150,
+   "date_src": "general",
+   "wide": 1550,
+   "place": "England and northern Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "A brick or stone flue that let houses have upper floors and waste less fuel; it spread in England in the 16th century [M]. An open hearth delivered perhaps 10 to 20% of its heat to the room [M].",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "coal_grate",
+   "label": "Coal grate",
+   "domain": "energy",
+   "kind": "technique",
+   "start": 1570,
+   "date_src": "part",
+   "wide": 1650,
+   "place": "London",
+   "paradigm": "early_modern_state",
+   "desc": "An iron grate and tall chimney for burning coal at home, from the late 16th century in London where coal was cheap by water [V]. Coal needed new grates, chimneys and processes before it could replace wood [V].",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "rushlight",
+   "label": "Rushlight",
+   "domain": "energy",
+   "kind": "good",
+   "start": -500,
+   "date_src": "general",
+   "place": "Europe",
+   "paradigm": "chiefdom",
+   "desc": "Rush pith dipped in kitchen fat: the cheapest made light, open to any household with fat. For most of history the evening was rationed by fat.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "tallow_candle",
+   "label": "Tallow candle",
+   "domain": "energy",
+   "kind": "good",
+   "start": 100,
+   "date_src": "general",
+   "place": "Roman and medieval Europe",
+   "paradigm": "agrarian_empire",
+   "desc": "Tallow from cattle and sheep on a wick of cotton or linen; a chandler's trade in towns, and smoky. Beeswax candles were for the Church and the rich.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "oil_lamp",
+   "label": "Oil lamp",
+   "domain": "energy",
+   "kind": "good",
+   "start": -3000,
+   "date_src": "general",
+   "place": "Mediterranean",
+   "paradigm": "early_state",
+   "desc": "A wick in vegetable or animal oil: olive oil in the south, rapeseed and linseed in the north, whale oil from the 17th to 19th centuries. It paid where oil was cheaper than tallow.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "whaling",
+   "label": "Whaling for lamp oil",
+   "domain": "energy",
+   "kind": "industry",
+   "start": 1600,
+   "date_src": "part",
+   "wide": 1800,
+   "place": "North Atlantic, later the Pacific",
+   "paradigm": "maritime_trading",
+   "desc": "Whale oil joined light to a global hunt from the 17th century [M]. Kerosene ended its lamp market in the 1860s [M].",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "gas_lighting",
+   "label": "Town gas lighting",
+   "domain": "energy",
+   "kind": "industry",
+   "start": 1812,
+   "date_src": "part",
+   "wide": 1850,
+   "place": "London",
+   "paradigm": "industrial",
+   "desc": "Coal baked for gas, piped to street and house lamps; London's Gas Light and Coke Company from 1812 [M]. It joined light to the coal chain and city pipes, and its coal tar became dyes and drugs.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "kerosene_refining",
+   "label": "Kerosene refining",
+   "domain": "energy",
+   "kind": "industry",
+   "start": 1860,
+   "date_src": "part",
+   "wide": 1870,
+   "place": "Pennsylvania",
+   "paradigm": "industrial",
+   "desc": "Crude oil distilled for lamp kerosene from the 1860s [M], after the Titusville well of 1859 [M]. It ended whale oil's lamp market; petrol and diesel came later from the same stills.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "petrol_diesel",
+   "label": "Petrol and diesel",
+   "domain": "energy",
+   "kind": "good",
+   "start": 1885,
+   "date_src": "general",
+   "wide": 1920,
+   "place": "Europe and USA",
+   "paradigm": "industrial",
+   "desc": "Lighter and heavier cuts of crude oil, first a waste of the kerosene trade, then the fuel of engines. They made the car, the tractor and the aeroplane.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "electric_lighting",
+   "label": "Electric light",
+   "domain": "energy",
+   "kind": "good",
+   "start": 1880,
+   "date_src": "part",
+   "wide": 1920,
+   "place": "New York and London",
+   "paradigm": "industrial",
+   "desc": "Lamps fed by wire from central stations, from 1882 (Pearl Street, Holborn Viaduct) [M]. Four separate light chains (herds, bees, whales, coal) collapsed into one network that also drove motors and trams.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "potash",
+   "label": "Potash (wood-ash lye)",
+   "domain": "materials",
+   "kind": "good",
+   "start": -3000,
+   "date_src": "general",
+   "wide": 1700,
+   "place": "every wooded region; later the Baltic and North America",
+   "paradigm": "early_state",
+   "desc": "Wood ash leached to lye: the alkali of glass, soap, bleaching and dyeing. The Spiegelberg glassworks needed about 800 centners a year, some 40,000 m3 of wood [V]. Ash-burning competed with hearths and ironworks for the woods.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "kelp_barilla",
+   "label": "Kelp and barilla ash",
+   "domain": "materials",
+   "kind": "good",
+   "start": 1500,
+   "date_src": "general",
+   "place": "Scottish and Irish shores; Spain",
+   "paradigm": "early_modern_state",
+   "desc": "Soda ash from burned seaweed (kelp) and Spanish saltwort (barilla) [M]. With wood ash, one of three land- and shore-based alkali chains that the Leblanc process replaced.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "forest_glass",
+   "label": "Forest glass",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1100,
+   "date_src": "part",
+   "place": "German and central European woods",
+   "paradigm": "feudal_manorial",
+   "desc": "Glass fluxed with beech ash: Theophilus (c.1100) gives two parts ash to one of quartz, and with furnace fuel 150 to 200 kg of wood per kg of glass [V]. The works moved with the forest.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "coal_glass_furnace",
+   "label": "Coal-fired glass",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1615,
+   "date_src": "part",
+   "wide": 1700,
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "English glass moved to coal after the 1615 ban on wood for glass furnaces [M]; coal-fired furnaces made glass bottles in 17th-century England [M]. It joined containers to the coal chain.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "woods_preservation_law",
+   "label": "Laws preserving the woods",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1543,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "State rules for fuel against timber: the 1543 Act for the Preservation of Woods [M] and bans on wood in glass furnaces (1615) [M]. They pushed fuel-hungry trades toward coal.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "soap_boiling",
+   "label": "Soap boiling",
+   "domain": "materials",
+   "kind": "industry",
+   "start": -2800,
+   "date_src": "general",
+   "place": "Mesopotamia; medieval towns",
+   "paradigm": "early_state",
+   "desc": "Fat (tallow, oil) boiled with lye from wood ash, later with soda. A soap-boiler competed with glassworks and hearths for wood and with chandlers for fat.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "leblanc_process",
+   "label": "Leblanc soda",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 1790,
+   "date_src": "part",
+   "wide": 1830,
+   "place": "France, then Britain",
+   "paradigm": "industrial",
+   "desc": "Soda made from salt, sulphuric acid and coal (1790s) [M]. Three land-based alkali chains (wood ash, kelp, barilla) became one chemical chain fed by salt, coal and stone, and the old ash trades died.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "solvay_process",
+   "label": "Solvay soda",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 1865,
+   "date_src": "part",
+   "wide": 1900,
+   "place": "Belgium",
+   "paradigm": "industrial",
+   "desc": "Soda from salt, limestone and ammonia (1860s) [M]; cleaner and cheaper than Leblanc, which it displaced.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "chlorine_bleach",
+   "label": "Chlorine bleaching",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1799,
+   "date_src": "general",
+   "wide": 1830,
+   "place": "Scotland and France",
+   "paradigm": "industrial",
+   "desc": "Bleach from salt-derived chlorine in place of weeks of sun and lye. It merged the salt chain with the chains for textiles and bleach that had run on wood ash.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "briquetage",
+   "label": "Briquetage salt pots",
+   "domain": "materials",
+   "kind": "technique",
+   "start": -700,
+   "date_src": "general",
+   "place": "Iron Age Droitwich and Europe",
+   "paradigm": "chiefdom",
+   "desc": "Brine boiled dry in coarse clay pots that were broken to get the salt out; Iron Age Droitwich worked this way [M].",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "lead_pan_brine",
+   "label": "Brine boiling in lead pans",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1086,
+   "date_src": "general",
+   "wide": 1500,
+   "place": "Droitwich",
+   "paradigm": "feudal_manorial",
+   "desc": "Near-saturated brine boiled over wood in lead pans: four tons of brine gave a ton of salt [V]. Droitwich burned about 6,000 loads of wood a year in the 1530s [V], brought from Worcester, Bromsgrove and Alcester. A chokepoint (salt) bound to distant woods.",
+   "chokepoint": true,
+   "part": "01"
+  },
+  {
+   "id": "fuel_rent_in_kind",
+   "label": "Fuel rent for salt",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1086,
+   "date_src": "general",
+   "place": "Worcestershire manors",
+   "paradigm": "feudal_manorial",
+   "desc": "Manors owed the salt works wood in return for salt: Martin Hussingtree owed 100 cartloads a year for a set quantity [V]. A chokepoint tied to its sink at a distance by rent in kind.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "solar_sea_salt",
+   "label": "Bay salt (solar pans)",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1350,
+   "date_src": "general",
+   "wide": 1450,
+   "place": "Bay of Bourgneuf, Atlantic France",
+   "paradigm": "maritime_trading",
+   "desc": "Sea salt made by the sun in coastal pans; seawater is about 3.5% salt [M], too weak to boil cheaply. Atlantic bay salt undersold boiled salt for fish-curing [M].",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "rock_salt_coal_pans",
+   "label": "Cheshire rock salt, coal pans",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1650,
+   "date_src": "part",
+   "wide": 1750,
+   "place": "Cheshire",
+   "paradigm": "early_modern_state",
+   "desc": "From the 17th century rock salt and coal-fired pans joined the salt chain to the coal chain [M]. In the 19th century salt became the feedstock of soda and chlorine.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "malt",
+   "label": "Malt",
+   "domain": "food",
+   "kind": "good",
+   "start": -4000,
+   "date_src": "general",
+   "place": "Mesopotamia; every barley land",
+   "paradigm": "early_state",
+   "desc": "Barley steeped, sprouted and dried on a floor and kiln. It made ale and beer (a staple drink and much of a household's calories [M]), vinegar and spirits.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "hops_beer",
+   "label": "Hopped beer",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1200,
+   "date_src": "general",
+   "wide": 1500,
+   "place": "Low Countries and Germany",
+   "paradigm": "feudal_manorial",
+   "desc": "Beer with hops, which keeps and travels where ale soured; in England from the 15th century [M]. It let brewing grow from the household to the town brewhouse.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "barrel_cooperage",
+   "label": "Coopered barrels",
+   "domain": "materials",
+   "kind": "good",
+   "start": -100,
+   "date_src": "part",
+   "wide": 1000,
+   "place": "Gaul and the Roman west",
+   "paradigm": "agrarian_empire",
+   "desc": "Oak staves and iron or withy hoops, made by a cooper's long skill. The standard bulk container of Europe from Roman times to the 19th century: wine, ale, salt fish, salt meat, butter, nails, gunpowder [M].",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "canning",
+   "label": "Tin cans",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1810,
+   "date_src": "part",
+   "wide": 1870,
+   "place": "Britain and France",
+   "paradigm": "industrial",
+   "desc": "Food sealed in tinplate (iron sheet coated with tin) with solder, from the 1810s [M]; first for armies and ships. Containers joined tin mining and later steel.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "bast_cord",
+   "label": "Bast fibre cord",
+   "domain": "textiles",
+   "kind": "good",
+   "start": -30000,
+   "date_src": "general",
+   "place": "everywhere",
+   "paradigm": "foraging",
+   "desc": "Cord twisted from lime, nettle or willow bark after retting in water; with sinew, rawhide and withies, the first binding. It made nets, snares, lines and lashing.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "hemp",
+   "label": "Hemp",
+   "domain": "textiles",
+   "kind": "resource",
+   "start": -4000,
+   "date_src": "general",
+   "wide": 1600,
+   "place": "China; later the Baltic",
+   "paradigm": "horticultural_tribal",
+   "desc": "A bast fibre crop for rope, sailcloth and sacking; like flax it needed good land, manure and retting water. Navies imported Baltic hemp.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "ropewalk",
+   "label": "Ropewalk",
+   "domain": "textiles",
+   "kind": "infrastructure",
+   "start": 1400,
+   "date_src": "general",
+   "wide": 1700,
+   "place": "naval ports of Europe",
+   "paradigm": "early_modern_state",
+   "desc": "A long shed where hemp was laid into rope; capital sunk in one long building. It paid only for navies and merchant fleets.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "baltic_bulk_trade",
+   "label": "Baltic bulk trade",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1400,
+   "date_src": "general",
+   "wide": 1650,
+   "place": "Baltic to Amsterdam and London",
+   "paradigm": "maritime_trading",
+   "desc": "Dutch and English bought Baltic grain, timber, hemp and tar, goods that embodied other people's land. Pomeranz calls such imports 'ghost acres' [M].",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "dutch_peat_economy",
+   "label": "Dutch peat fuel economy",
+   "domain": "energy",
+   "kind": "industry",
+   "start": 1550,
+   "date_src": "part",
+   "wide": 1650,
+   "place": "Holland and Frisia",
+   "paradigm": "commercial_city_state",
+   "desc": "Bog peat cut in spring, dried in summer and moved by canal: stored land, many years of growth in each cut. The Dutch Golden Age ran on it [V] (contested as a sufficient cause); output fell about 20% in the 1660s [V, weakly sourced].",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "hydroelectric",
+   "label": "Hydroelectric power",
+   "domain": "energy",
+   "kind": "infrastructure",
+   "start": 1882,
+   "date_src": "part",
+   "wide": 1930,
+   "place": "USA and Alps",
+   "paradigm": "industrial",
+   "desc": "Electricity from falling water from the 1880s [M]: the mill's site-bound power carried by wire. With wind and solar, the return of place-bound power.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "norfolk_four_course",
+   "label": "Norfolk four-course rotation",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1650,
+   "date_src": "part",
+   "wide": 1800,
+   "place": "Norfolk and Flanders",
+   "paradigm": "early_modern_state",
+   "desc": "Wheat, turnips, barley and clover: turnips and clover were both fodder and fertility, so more beasts and more manure. English wheat yields rose about a half in 1800 to 1850 [V].",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "marling",
+   "label": "Marling and liming fields",
+   "domain": "food",
+   "kind": "practice",
+   "start": -50,
+   "date_src": "general",
+   "wide": 1750,
+   "place": "Gaul; later England",
+   "paradigm": "agrarian_empire",
+   "desc": "Clay-lime marl or burnt lime spread on acid or light soils; it needed pits, kilns and fuel. One of the fertility rungs before mineral fertiliser.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "sheep_folding",
+   "label": "Folding sheep on arable",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1200,
+   "date_src": "general",
+   "place": "chalk and sand lands of England",
+   "paradigm": "feudal_manorial",
+   "desc": "Sheep penned by night on the fallow inside hurdles of withies, with a shepherd, so their dung fertilised the arable. The fold course tied a lord's flock to tenants' fields.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "night_soil",
+   "label": "Town night soil",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1200,
+   "date_src": "general",
+   "place": "Flanders, east Norfolk, around towns",
+   "paradigm": "commercial_city_state",
+   "desc": "Human dung and stable manure carted from towns to fields near them, which made intensive farming possible around cities.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "guano_nitrate",
+   "label": "Guano and Chilean nitrate",
+   "domain": "food",
+   "kind": "good",
+   "start": 1840,
+   "date_src": "part",
+   "wide": 1880,
+   "place": "Peru and Chile",
+   "paradigm": "industrial",
+   "desc": "Bird dung and mined nitrate shipped across the oceans from the 1840s to the 1910s [M]. They joined fertility to ocean shipping and mining.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "saltpetre",
+   "label": "Saltpetre",
+   "domain": "materials",
+   "kind": "good",
+   "start": 850,
+   "date_src": "general",
+   "wide": 1500,
+   "place": "China; European nitre beds; India",
+   "paradigm": "agrarian_empire",
+   "desc": "Nitre from beds of dung and urine and earth scraped from stables, later Indian imports. In Europe gathered under state monopolies (saltpetre men), for gunpowder and curing meat.",
+   "chokepoint": true,
+   "part": "01"
+  },
+  {
+   "id": "gunpowder",
+   "label": "Gunpowder",
+   "domain": "materials",
+   "kind": "good",
+   "start": 900,
+   "date_src": "general",
+   "wide": 1500,
+   "place": "China",
+   "paradigm": "agrarian_empire",
+   "desc": "Saltpetre, charcoal and sulphur. It made charcoal and saltpetre strategic and was shipped in barrels.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "ice_house",
+   "label": "Ice houses",
+   "domain": "food",
+   "kind": "infrastructure",
+   "start": 1600,
+   "date_src": "general",
+   "wide": 1800,
+   "place": "Europe",
+   "paradigm": "early_modern_state",
+   "desc": "Cool cellars and insulated stores of winter ice, first for the rich, then dairies and fish. The rung before mechanical refrigeration.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "commons_stints",
+   "label": "Stints on the common",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1200,
+   "date_src": "general",
+   "place": "English open-field villages",
+   "paradigm": "feudal_manorial",
+   "desc": "Limits on how many beasts each holder may put on the common: the answer to arable eating pasture and to overgrazing. Ostrom's commons institutions [M].",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "enclosure_for_sheep",
+   "label": "Enclosure for sheep",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1450,
+   "date_src": "part",
+   "wide": 1550,
+   "place": "Midland England",
+   "paradigm": "early_modern_state",
+   "desc": "Arable and commons turned to fenced sheepwalk in 15th- and 16th-century England ('sheep eat men'). Statutes against depopulation failed where wool paid.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "river_ordinances",
+   "label": "Mill, weir and river rules",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1200,
+   "date_src": "general",
+   "place": "European rivers",
+   "paradigm": "feudal_manorial",
+   "desc": "Rules for one river with many claims: mill rights, weir laws, fixed fishing times, ordinances on where tanners and retters may work. Mills hold water, fish need runs, tanning and retting foul it.",
+   "chokepoint": false,
+   "part": "01"
+  },
+  {
+   "id": "wood_pasture",
+   "label": "Wood pasture and pannage",
+   "domain": "food",
+   "kind": "practice",
+   "start": -3000,
+   "date_src": "general",
+   "place": "European wildwood",
+   "paradigm": "horticultural_tribal",
+   "desc": "Grazing beasts and deer under scattered trees, with pigs on the autumn mast (pannage). Browsing kills young regrowth, so wood pasture and coppice exclude each other.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "coppice_with_standards",
+   "label": "Coppice with standards",
+   "domain": "materials",
+   "kind": "practice",
+   "start": 1000,
+   "date_src": "general",
+   "wide": 1300,
+   "place": "lowland England",
+   "paradigm": "feudal_manorial",
+   "desc": "Underwood cut on rotation with oaks left among it to grow to timber over 50 to 150 years. Broadleaf coppice grows about 2.5 t of dry wood a hectare a year (cited); a standard was capital left by grandfathers.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "withies_rods",
+   "label": "Withies and rods",
+   "domain": "materials",
+   "kind": "good",
+   "start": -8000,
+   "date_src": "general",
+   "place": "hazel and willow coppice",
+   "paradigm": "foraging",
+   "desc": "Hazel and willow rods on 1 to 10 years: 25,000 to 30,000 rods a hectare from eight- or nine-year hazel (cited). They made wattle, hurdles, fences, baskets, fish traps and weirs.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "oak_bark",
+   "label": "Oak tanbark",
+   "domain": "materials",
+   "kind": "good",
+   "start": -1000,
+   "date_src": "general",
+   "place": "oak coppice",
+   "paradigm": "chiefdom",
+   "desc": "Oak bark stripped in spring when the sap runs, a pulse in the coppice year; the peeled oak then sold as poles or charcoal wood. It bound the tanner to the oak woods.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "woodbank_fencing",
+   "label": "Fenced coppice by year",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1200,
+   "date_src": "general",
+   "place": "English woods",
+   "paradigm": "feudal_manorial",
+   "desc": "Woods divided in time (fenced panels by year of cut) and in right (who may take what, when). Restraint enforced by bank, ditch, hedge and calendar, with fines for breaking it.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "naval_oak_regulation",
+   "label": "Naval oak and compass timber",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1600,
+   "date_src": "general",
+   "wide": 1750,
+   "place": "England and France",
+   "paradigm": "early_modern_state",
+   "desc": "Navies turned great oak into a strategic good regulated by the state (m); a 74-gun ship took of the order of 2,000 to 3,500 oaks [M, part 01]. A chokepoint created by a later chain on a resource that grows on the scale of a century.",
+   "chokepoint": true,
+   "part": "03"
+  },
+  {
+   "id": "plantation_forestry",
+   "label": "Plantation forestry",
+   "domain": "materials",
+   "kind": "practice",
+   "start": 1800,
+   "date_src": "part",
+   "wide": 1920,
+   "place": "Germany and Britain",
+   "paradigm": "industrial",
+   "desc": "Conifers in even-aged blocks for pit props, pulp and boards: the wood became a crop managed by an owner with machines. The coppice commons fell with the demand that made it worth defending.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "wood_pulp",
+   "label": "Wood pulp",
+   "domain": "materials",
+   "kind": "good",
+   "start": 1844,
+   "date_src": "general",
+   "wide": 1900,
+   "place": "Germany and North America",
+   "paradigm": "industrial",
+   "desc": "Wood ground or cooked to fibre for paper and cardboard; with plywood and particleboard, wood as fibre and panel rather than beam (20th c.).",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "flint_mining",
+   "label": "Flint mines",
+   "domain": "materials",
+   "kind": "industry",
+   "start": -4000,
+   "date_src": "general",
+   "wide": -2400,
+   "place": "Grime's Graves, Norfolk; Spiennes",
+   "paradigm": "horticultural_tribal",
+   "desc": "The first extractive industry: shafts dug through chalk to the floorstone. Grime's Graves had at least 433 shafts over about 37 ha, mostly 2600 to 2300 BC (cited), and may have yielded 16,000 to 18,000 t of flint (rough). Crew work for a place-bound good traded far.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "fire_setting",
+   "label": "Fire-setting ore mining",
+   "domain": "metals",
+   "kind": "technique",
+   "start": -5000,
+   "date_src": "general",
+   "place": "Balkans and Near East",
+   "paradigm": "horticultural_tribal",
+   "desc": "Heat the rock face, quench it, break it with stone mauls and antler picks (m). The first way to mine copper ore.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "arsenical_copper",
+   "label": "Arsenical copper",
+   "domain": "metals",
+   "kind": "good",
+   "start": -4000,
+   "date_src": "general",
+   "place": "Near East and Balkans",
+   "paradigm": "chiefdom",
+   "desc": "Copper smelted from mixed ores, often arsenical, which made it harder (m). The bridge between pure copper and tin bronze.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "leather_bellows",
+   "label": "Leather bellows",
+   "domain": "metals",
+   "kind": "technique",
+   "start": -3000,
+   "date_src": "general",
+   "place": "Near East",
+   "paradigm": "early_state",
+   "desc": "A leather bag pumped by hand or foot to blow the furnace and forge; it tied metal to the carcass. Later driven by water wheels.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "tin_route",
+   "label": "Long-distance tin trade",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": -2500,
+   "date_src": "general",
+   "wide": -1300,
+   "place": "eastern Mediterranean to Central Asia",
+   "paradigm": "early_state",
+   "desc": "Tin is rare and far from most copper, so bronze needed traders, ships and safe routes. The Uluburun wreck (c.1320 BC) carried 348 ingots, about 10 t of copper and 1 t of tin, a third of the tin traced to Musiston in Uzbekistan (cited). Assembly plus double chokepoint; when the routes broke, the metal failed.",
+   "chokepoint": true,
+   "part": "03"
+  },
+  {
+   "id": "mining_law",
+   "label": "Mining law and free miners",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1150,
+   "date_src": "general",
+   "wide": 1300,
+   "place": "Cornwall stannaries; German Bergregal; Forest of Dean",
+   "paradigm": "feudal_manorial",
+   "desc": "A right to a resource separated from ownership of the land: miners staked claims under a special law and paid dues to the crown (m). Chartered rights and royal dues on Cornish and Devon tin.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "mining_shares",
+   "label": "Mine shares (Kuxe)",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1400,
+   "date_src": "general",
+   "place": "Saxony and Bohemia",
+   "paradigm": "feudal_manorial",
+   "desc": "Joint ownership of a mine in parts, an early home of shares and investors (m). Deeper mines needed drainage capital no one miner had.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "mine_drainage",
+   "label": "Mine drainage (adits, pumps)",
+   "domain": "metals",
+   "kind": "infrastructure",
+   "start": 1300,
+   "date_src": "general",
+   "wide": 1700,
+   "place": "central European and English mines",
+   "paradigm": "feudal_manorial",
+   "desc": "As mines went deeper they needed adits, then pumps, then steam (m). Pumping mines was the Newcomen engine's first job, at about 4 kW [M, part 01].",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "bog_iron_ore",
+   "label": "Bog ore and ironstone",
+   "domain": "metals",
+   "kind": "resource",
+   "start": -1200,
+   "date_src": "general",
+   "place": "almost everywhere",
+   "paradigm": "chiefdom",
+   "desc": "Iron ore is common almost everywhere, so iron ended bronze's double chokepoint. The chokepoint moved from the mine to the woods and the smith.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "village_smith",
+   "label": "Village smithy",
+   "domain": "metals",
+   "kind": "practice",
+   "start": -1000,
+   "date_src": "general",
+   "place": "everywhere",
+   "paradigm": "chiefdom",
+   "desc": "Anvil, hearth, bellows, hammers, tongs, a stock of iron and charcoal, and years of skill: the deepest village trade. The village depended on the smith as on the miller; towns split the trade into blacksmiths, locksmiths, farriers, cutlers and more.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "iron_edged_tools",
+   "label": "Iron-edged tools",
+   "domain": "metals",
+   "kind": "good",
+   "start": -1000,
+   "date_src": "general",
+   "wide": 1000,
+   "place": "Near East, then Europe",
+   "paradigm": "chiefdom",
+   "desc": "An iron edge on wood: ploughshare, axe, spade, scythe, sickle. It multiplied the labour of every other chain, and the smith's mending kept it working.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "water_bloomery_hammer",
+   "label": "Water-powered bloomery and hammer",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1200,
+   "date_src": "part",
+   "place": "European mill sites",
+   "paradigm": "feudal_manorial",
+   "desc": "A wheel driving bellows and hammer at a bloomery from the 13th century (m): larger blooms, at the lord's or a monastery's mill site.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "cast_iron",
+   "label": "Cast pig iron",
+   "domain": "metals",
+   "kind": "good",
+   "start": 1400,
+   "date_src": "part",
+   "wide": 1600,
+   "place": "Europe (earlier in China)",
+   "paradigm": "feudal_manorial",
+   "desc": "Liquid iron from the blast furnace, carbon-rich and brittle, good for guns and pots. A charcoal furnace took about 8 t of wood for 2 t of charcoal to smelt 1 t of pig (cited).",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "finery_forge",
+   "label": "Finery forge",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1490,
+   "date_src": "part",
+   "wide": 1600,
+   "place": "the Weald",
+   "paradigm": "early_modern_state",
+   "desc": "Pig iron refined to bar (wrought) iron under a water hammer, at a second site with more charcoal. The blast furnace and finery made a two-site enterprise.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "ironmaster_wood_lease",
+   "label": "Ironmaster's woodland leases",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1550,
+   "date_src": "part",
+   "wide": 1650,
+   "place": "Weald, Forest of Dean, Furness",
+   "paradigm": "early_modern_state",
+   "desc": "A furnace ran for months on the wood of about a three-mile radius (cited), so the ironmaster leased woods for miles and bought coppice on long rotations; colliers, cutters, carters and founders became a hired crew. The Weald made over 9,000 tons a year in the 1590s (cited).",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "crucible_steel",
+   "label": "Crucible steel",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1740,
+   "date_src": "part",
+   "wide": 1800,
+   "place": "Sheffield",
+   "paradigm": "early_modern_state",
+   "desc": "Huntsman's crucible steel of the 1740s (m): small quantities of uniform steel for tools and springs.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "steel_rails",
+   "label": "Steel rails",
+   "domain": "transport",
+   "kind": "good",
+   "start": 1865,
+   "date_src": "general",
+   "wide": 1890,
+   "place": "USA and Britain",
+   "paradigm": "industrial",
+   "desc": "Rails were the first mass market for steel. US rails fell from $174 a ton in 1868 to $17 in 1898 (cited).",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "basic_process",
+   "label": "Gilchrist Thomas basic process",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1878,
+   "date_src": "part",
+   "wide": 1900,
+   "place": "Britain, Lorraine, Sweden",
+   "paradigm": "industrial",
+   "desc": "A basic lining that took the phosphorus out of the melt (1878) (m), making phosphoric ores in Lorraine and Sweden usable; its slag was sold as fertiliser.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "basic_oxygen_furnace",
+   "label": "Basic oxygen furnace",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1952,
+   "date_src": "part",
+   "wide": 1975,
+   "place": "Austria",
+   "paradigm": "industrial",
+   "desc": "Fast oxygen converters from the 1950s (m), now the main route: about 70% of the 1,883 Mt of crude steel made in 2024 came by blast furnace and basic oxygen (cited).",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "steel_scrap",
+   "label": "Steel scrap loop",
+   "domain": "metals",
+   "kind": "resource",
+   "start": 1865,
+   "date_src": "general",
+   "wide": 1990,
+   "place": "industrial countries",
+   "paradigm": "industrial",
+   "desc": "Scrap remelted in open hearths and then electric arc furnaces; about 29% of world steel now comes by electric arc, much of it from scrap (cited). The scrap yard is now an ore deposit.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "nailers_cutlers",
+   "label": "Nailers and cutlers",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 1500,
+   "date_src": "general",
+   "wide": 1700,
+   "place": "Black Country and Sheffield",
+   "paradigm": "early_modern_state",
+   "desc": "Metal trades among the first organised on putting-out lines (m): a merchant's iron worked at home by the piece.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "machine_cut_nails",
+   "label": "Machine-made nails",
+   "domain": "metals",
+   "kind": "good",
+   "start": 1790,
+   "date_src": "general",
+   "wide": 1840,
+   "place": "USA and Britain",
+   "paradigm": "industrial",
+   "desc": "Nails cut by machine rather than forged by hand (18th to 19th c.) (m); with sawmills they made the balloon frame possible.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "cupellation",
+   "label": "Cupellation",
+   "domain": "metals",
+   "kind": "technique",
+   "start": -2500,
+   "date_src": "general",
+   "place": "Anatolia and the Near East",
+   "paradigm": "early_state",
+   "desc": "Silver separated from lead ore by oxidising the lead away in a hearth of bone ash (m). So silver mining was a lead industry with a precious by-product.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "silver_mining_towns",
+   "label": "Silver mining towns",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 968,
+   "date_src": "general",
+   "wide": 1500,
+   "place": "Rammelsberg, Kutna Hora, Saxony",
+   "paradigm": "feudal_manorial",
+   "desc": "The great silver strikes made mining towns with their own law (m). Coin made from their silver fed every other chain's exchange.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "huancavelica_mercury",
+   "label": "Huancavelica mercury",
+   "domain": "metals",
+   "kind": "resource",
+   "start": 1564,
+   "date_src": "general",
+   "wide": 1600,
+   "place": "Huancavelica, Peru",
+   "paradigm": "agrarian_empire",
+   "desc": "The mercury mine that fed Potosi's refining. With Potosi it put out more than a quarter of the mercury vapour emitted in Latin America from 1500 to 1800 (cited).",
+   "chokepoint": true,
+   "part": "03"
+  },
+  {
+   "id": "mita_draft",
+   "label": "Mita labour draft",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1572,
+   "date_src": "general",
+   "place": "Andean highlands",
+   "paradigm": "agrarian_empire",
+   "desc": "A colonial draft that took about one in seven able-bodied men of the subject districts each year for the mines (cited). Coerced labour where the capital needed more hands than wages could draw.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "patio_process",
+   "label": "Potosi patio silver",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 1572,
+   "date_src": "part",
+   "wide": 1600,
+   "place": "Potosi, Andes",
+   "paradigm": "agrarian_empire",
+   "desc": "After 1572 Potosi's ores were refined by mercury amalgamation (patio) with mita labour (cited): chokepoint at the lode, assembly of ore, mercury, salt, fuel and labour. Its share of world silver is contested: 60 to 80% in the late 16th century by some estimates (contested).",
+   "chokepoint": true,
+   "part": "03"
+  },
+  {
+   "id": "timber_frame",
+   "label": "Timber frame",
+   "domain": "building",
+   "kind": "technique",
+   "start": 1200,
+   "date_src": "part",
+   "wide": 1450,
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "Standards felled, hewn and jointed by the carpenter on a framing yard, then raised by a crew; infill of wattle and daub. Grundle House used about 330 mostly small, young oaks (m), so building fit the coppice-with-standards.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "saw_pit",
+   "label": "Saw pit",
+   "domain": "building",
+   "kind": "technique",
+   "start": 1100,
+   "date_src": "general",
+   "place": "Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "A pair of sawyers, one above and one in the pit, ripping timber into boards. Worked wood (boards, staves, poles) went into building, barrels, carts, ploughs and boats.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "lime_mortar",
+   "label": "Lime mortar",
+   "domain": "building",
+   "kind": "technique",
+   "start": -2500,
+   "date_src": "general",
+   "place": "Near East; Rome",
+   "paradigm": "early_state",
+   "desc": "Quicklime slaked and mixed with sand. The lime kiln was a hub: rock, fuel, building, farming and leather in one fitting.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "mason_lodges",
+   "label": "Mason crews and lodges",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1150,
+   "date_src": "general",
+   "wide": 1300,
+   "place": "cathedral works of England and France",
+   "paradigm": "feudal_manorial",
+   "desc": "Itinerant crews of rough masons and freemasons moving between large works under a master, paid by the day. A stone church or castle took years and hundreds of workers (rough).",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "thatch_roof",
+   "label": "Thatch",
+   "domain": "building",
+   "kind": "good",
+   "start": -5000,
+   "date_src": "general",
+   "place": "everywhere grain or reed grows",
+   "paradigm": "horticultural_tribal",
+   "desc": "Straw (a by-product of grain, 15 to 30 years) or water reed (up to about 50) (m). The cheapest roof and the worst fire risk.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "clay_roof_tiles",
+   "label": "Clay roof tiles",
+   "domain": "building",
+   "kind": "good",
+   "start": -700,
+   "date_src": "general",
+   "wide": 1600,
+   "place": "Greece; later towns of northern Europe",
+   "paradigm": "agrarian_empire",
+   "desc": "Clay fired in a kiln: dear but fire-resistant. Fuel-bound with increasing returns, like brick.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "fire_regulations",
+   "label": "Town fire regulations",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1212,
+   "date_src": "part",
+   "wide": 1667,
+   "place": "London",
+   "paradigm": "feudal_manorial",
+   "desc": "After London's fire of 1212, fitz Ailwin's rules banned new roofs of reed, rush or straw (widely flouted); after 1666, when about 13,200 houses burned, the rebuilding acts required brick and stone (m). One house's thatch threatens the street, so the rule had to be collective.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "great_rebuilding",
+   "label": "Great rebuilding in brick",
+   "domain": "building",
+   "kind": "practice",
+   "start": 1550,
+   "date_src": "part",
+   "wide": 1650,
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "Houses rebuilt in brick and stone with chimneys, glazing and upper floors in the 16th and 17th centuries (m); brick became a mass good.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "balloon_frame",
+   "label": "Balloon frame",
+   "domain": "building",
+   "kind": "technique",
+   "start": 1832,
+   "date_src": "general",
+   "wide": 1880,
+   "place": "Chicago and the US frontier",
+   "paradigm": "frontier_settler",
+   "desc": "Light sawn timber nailed together with no joinery: housing as a mass product. It needed sawmills and machine-made nails.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "reinforced_concrete",
+   "label": "Reinforced concrete",
+   "domain": "building",
+   "kind": "technique",
+   "start": 1865,
+   "date_src": "part",
+   "wide": 1920,
+   "place": "France",
+   "paradigm": "industrial",
+   "desc": "Steel and cement fused into one material (1860s to 1890s) (m). Cement now emits about 1.56 Gt of CO2 a year (2023), 5 to 8% of the world's, 60% of it from calcination (cited): the lime kiln at planetary scale.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "wool_export_trade",
+   "label": "English raw wool exports",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1270,
+   "date_src": "part",
+   "wide": 1300,
+   "place": "England to Flanders and Italy",
+   "paradigm": "feudal_manorial",
+   "desc": "England's chief export: about 25,000 sacks in 1280, peaking at 40,000 to 45,000 a year, down to about 9,700 by 1476 as cloth took its place (secondary summary of Carus-Wilson and Coleman).",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "broadcloth_export",
+   "label": "English broadcloth exports",
+   "domain": "textiles",
+   "kind": "industry",
+   "start": 1350,
+   "date_src": "part",
+   "wide": 1540,
+   "place": "English cloth districts",
+   "paradigm": "feudal_manorial",
+   "desc": "England wove its own wool: cloth exports rose from about 10,000 a year in 1349-50 to about 140,000 in 1539-40 (secondary summary). A sack of wool made about 4.3 broadcloths.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "spinning_wheel",
+   "label": "Spinning wheel",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1280,
+   "date_src": "part",
+   "wide": 1400,
+   "place": "Europe (13th c.)",
+   "paradigm": "feudal_manorial",
+   "desc": "Faster spinning than distaff and spindle, which managed 40 to 100 m of yarn an hour (cited); guilds sometimes banned wheel yarn for warps at first (m). Spinning was the bottleneck of cloth and the main paid work of women.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "treadle_loom",
+   "label": "Horizontal treadle loom",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1050,
+   "date_src": "part",
+   "wide": 1200,
+   "place": "Flanders and Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "A foot-worked loom of the high Middle Ages (m) that took weaving out of the household into men's workshops in towns. A loom is capital; efficient weaving used two looms and two weavers.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "alum",
+   "label": "Alum mordant",
+   "domain": "materials",
+   "kind": "good",
+   "start": -1500,
+   "date_src": "general",
+   "wide": 1460,
+   "place": "Anatolia; later Tolfa (Papal States)",
+   "paradigm": "agrarian_empire",
+   "desc": "The mordant that fixed dyes, also used in tawing; a traded chokepoint of the dyer's assembly.",
+   "chokepoint": true,
+   "part": "03"
+  },
+  {
+   "id": "woad_madder",
+   "label": "Woad, madder and weld",
+   "domain": "textiles",
+   "kind": "resource",
+   "start": -1000,
+   "date_src": "general",
+   "wide": 1300,
+   "place": "Picardy, Languedoc, Flanders",
+   "paradigm": "chiefdom",
+   "desc": "Field-grown plant dyes (blue, red, yellow) often carried far to the dyer. Displaced by coal-tar dyes from the 1850s.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "retting",
+   "label": "Retting ponds",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": -7000,
+   "date_src": "general",
+   "place": "flax and hemp lands",
+   "paradigm": "horticultural_tribal",
+   "desc": "Flax and hemp stems rotted in water for days to free the fibre, fouling the water and killing fish downstream. A water conflict at one step of the linen chain.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "sun_bleaching",
+   "label": "Linen bleachfields",
+   "domain": "textiles",
+   "kind": "practice",
+   "start": 1200,
+   "date_src": "general",
+   "wide": 1700,
+   "place": "Flanders, Holland, Ireland",
+   "paradigm": "commercial_city_state",
+   "desc": "Linen laid out in the sun for weeks with lye: a seasonal pulse at the end of the flax chain.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "flying_shuttle",
+   "label": "Flying shuttle",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1733,
+   "date_src": "part",
+   "wide": 1760,
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "Kay's shuttle (1733) (m) doubled the weaver's speed and sharpened the shortage of yarn.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "spinning_mule",
+   "label": "Spinning mule",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1779,
+   "date_src": "part",
+   "wide": 1800,
+   "place": "Lancashire",
+   "paradigm": "industrial",
+   "desc": "Crompton's mule (1779) (m) had 48 spindles and spun about a pound of fine 60s yarn a day (cited). It attacked the spinning bottleneck of the whole cloth chain.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "self_acting_mule",
+   "label": "Self-acting mule",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1825,
+   "date_src": "part",
+   "wide": 1850,
+   "place": "Lancashire",
+   "paradigm": "industrial",
+   "desc": "Roberts's automatic mule (patents 1825, 1830) spun about 900 hanks a machine a day against about 25 for a jenny and 8 for a hand wheel (cited). Hours to spin 100 lb of cotton fell from about 50,000 by hand to about 135 (m, contested).",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "indian_handloom",
+   "label": "Indian handloom cotton",
+   "domain": "textiles",
+   "kind": "industry",
+   "start": -2500,
+   "date_src": "general",
+   "wide": 1700,
+   "place": "Bengal and Gujarat",
+   "paradigm": "agrarian_empire",
+   "desc": "Hand-spun, handwoven Indian cotton cloth that supplied the Indian Ocean trade; mill-spun cotton displaced it after the 1770s.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "aniline_dyes",
+   "label": "Coal-tar dyes",
+   "domain": "textiles",
+   "kind": "industry",
+   "start": 1856,
+   "date_src": "general",
+   "wide": 1880,
+   "place": "Britain and Germany",
+   "paradigm": "industrial",
+   "desc": "Synthetic dyes from coal tar from the 1850s (m); they ended the plant-dye trades and merged cloth with chemistry.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "rayon",
+   "label": "Rayon",
+   "domain": "textiles",
+   "kind": "good",
+   "start": 1905,
+   "date_src": "general",
+   "wide": 1930,
+   "place": "Britain and France",
+   "paradigm": "industrial",
+   "desc": "Regenerated cellulose fibre made from wood pulp (m): the first fibre from a chemical works rather than a field or flock.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "global_garment_chain",
+   "label": "Global garment chain",
+   "domain": "textiles",
+   "kind": "industry",
+   "start": 1975,
+   "date_src": "general",
+   "wide": 2000,
+   "place": "Bangladesh, China and brands' home countries",
+   "paradigm": "service_information",
+   "desc": "Fibre plants, mills, dye houses and cut-and-sew workshops in low-wage countries, the brand owning design and market: putting-out made global. World fibre was about 132 Mt in 2024, polyester 59% (cited); Rana Plaza (2013) killed over 1,100 garment workers (m).",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "carcass_joint_products",
+   "label": "Carcass joint products",
+   "domain": "food",
+   "kind": "practice",
+   "start": -50000,
+   "date_src": "general",
+   "place": "everywhere",
+   "paradigm": "foraging",
+   "desc": "A slaughtered beast gives meat, hide, fat, horn, bone, sinew, guts and dung at once; the butcher's leftovers fed half a dozen trades, zoned by smell in the medieval town. About half of a modern meat animal is not eaten (cited).",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "horn_bone_glue",
+   "label": "Horn, bone and glue trades",
+   "domain": "materials",
+   "kind": "industry",
+   "start": -30000,
+   "date_src": "general",
+   "wide": 1300,
+   "place": "medieval town streets",
+   "paradigm": "foraging",
+   "desc": "Horners, bone-workers and glue-boilers: combs, lantern panes, handles, dice, needles, glue and size from the carcass's leftovers. Bone ash also lined the cupellation hearth.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "parchment",
+   "label": "Parchment",
+   "domain": "information",
+   "kind": "good",
+   "start": -200,
+   "date_src": "general",
+   "wide": 800,
+   "place": "Pergamon; medieval Europe",
+   "paradigm": "agrarian_empire",
+   "desc": "Limed and scraped skins of sheep, goats and calves for writing; a branch of the carcass chain.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "currying",
+   "label": "Currying and leather guilds",
+   "domain": "textiles",
+   "kind": "institution",
+   "start": 1200,
+   "date_src": "general",
+   "place": "medieval towns",
+   "paradigm": "feudal_manorial",
+   "desc": "Shaving, oiling with tallow or fish oil, and finishing the tanned hide. Curriers and cordwainers were separate guilds from tanners and fought over who did which step (m): trades formed round the steps of one chain.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "tawing",
+   "label": "Tawing (alum leather)",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": -1000,
+   "date_src": "general",
+   "place": "Near East and Europe",
+   "paradigm": "chiefdom",
+   "desc": "White leather made quickly with alum and salt, and oil tanning (chamois) with fish oil (m): the faster, lighter substitutes to bark tanning for gloves and fine goods.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "tannin_extracts",
+   "label": "Tannin extracts",
+   "domain": "textiles",
+   "kind": "good",
+   "start": 1850,
+   "date_src": "part",
+   "wide": 1880,
+   "place": "Argentina (quebracho), southern Europe (chestnut)",
+   "paradigm": "industrial",
+   "desc": "Imported quebracho and chestnut extracts in the 19th century (m) freed tanning from local bark.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "chrome_tanning",
+   "label": "Chrome tanning",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1878,
+   "date_src": "part",
+   "wide": 1920,
+   "place": "Germany and USA",
+   "paradigm": "industrial",
+   "desc": "Described by Knapp in 1858, commercial from about 1878, patented in the US 1884 (cited): tanning in days instead of the 11 to 18 months of bark (cited). About 80% of leather is now chrome-tanned; leather moved from the woods to the chemical works.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "industrial_rendering",
+   "label": "Industrial rendering",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1850,
+   "date_src": "part",
+   "wide": 1950,
+   "place": "beside slaughterhouses (Chicago)",
+   "paradigm": "industrial",
+   "desc": "Everything not eaten gathered into one plant: fats, proteins and meals for feed, pet food, soap, oleochemicals, biodiesel and fertiliser. North American rendering takes about 27.5 Mt of raw material a year (cited). By-product capture completed.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "wicker_fish_traps",
+   "label": "Wicker fish traps",
+   "domain": "food",
+   "kind": "technique",
+   "start": -7000,
+   "date_src": "general",
+   "place": "Mesolithic Europe",
+   "paradigm": "foraging",
+   "desc": "Eel baskets and traps woven of withies in a few days: the coppice into the water.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "fishing_nets",
+   "label": "Fishing nets",
+   "domain": "food",
+   "kind": "technique",
+   "start": -8000,
+   "date_src": "general",
+   "place": "everywhere",
+   "paradigm": "foraging",
+   "desc": "Seines and drift nets of flax or hemp cord, many hours of netting: a long skill.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "fish_weir",
+   "label": "Fish weir",
+   "domain": "food",
+   "kind": "infrastructure",
+   "start": 700,
+   "date_src": "general",
+   "wide": 1200,
+   "place": "English rivers",
+   "paradigm": "feudal_manorial",
+   "desc": "Stakes, wattle and stones across a river, taking a share of every run and blocking boats and the fish of those upstream. Magna Carta ordered weirs removed from the Thames and Medway (m).",
+   "chokepoint": true,
+   "part": "03"
+  },
+  {
+   "id": "fishponds",
+   "label": "Fishponds and stews",
+   "domain": "food",
+   "kind": "infrastructure",
+   "start": 1100,
+   "date_src": "general",
+   "wide": 1300,
+   "place": "manors, castles, monasteries",
+   "paradigm": "feudal_manorial",
+   "desc": "Dug ponds with dams and sluices, 'living larders' of high-status sites: keeping instead of catching.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "salt_fish",
+   "label": "Salt herring and cod",
+   "domain": "food",
+   "kind": "good",
+   "start": 1150,
+   "date_src": "general",
+   "wide": 1400,
+   "place": "Baltic and North Sea",
+   "paradigm": "commercial_city_state",
+   "desc": "Fish packed in salt and barrels, the staple of fast days across Europe [M, part 01]. An assembly with salt as its chokepoint.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "scania_herring_fair",
+   "label": "Scania herring fair",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1200,
+   "date_src": "general",
+   "wide": 1350,
+   "place": "Scania, Baltic",
+   "paradigm": "commercial_city_state",
+   "desc": "The medieval Baltic herring market where the Hanse packed herring in Luneburg salt (m).",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "stockfish",
+   "label": "Stockfish",
+   "domain": "food",
+   "kind": "good",
+   "start": 1100,
+   "date_src": "general",
+   "wide": 1300,
+   "place": "Lofoten, Norway; Iceland",
+   "paradigm": "maritime_trading",
+   "desc": "Cod dried in wind without salt, from Norway and Iceland (m): a long-distance commodity carried with grain.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "herring_buss",
+   "label": "Dutch herring buss",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1415,
+   "date_src": "general",
+   "wide": 1600,
+   "place": "Holland",
+   "paradigm": "maritime_trading",
+   "desc": "A decked vessel of about 15 crew on a 50 ft keel that gutted and salted herring at sea in barrels, so it could stay out for weeks (cited); fleets of 400 to 500 (cited). Its assembly (Biscay salt, barrels, hemp nets, Baltic timber) tied the Dutch economy to half of Europe.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "steam_trawler",
+   "label": "Steam trawler",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1881,
+   "date_src": "part",
+   "wide": 1900,
+   "place": "North Sea ports",
+   "paradigm": "industrial",
+   "desc": "Steam trawlers and the otter trawl of the 1880s to 1890s (m): the seabed swept, fishing a capital fleet with wage crews.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "fish_train",
+   "label": "Ice and the fish train",
+   "domain": "transport",
+   "kind": "practice",
+   "start": 1850,
+   "date_src": "part",
+   "wide": 1900,
+   "place": "Britain",
+   "paradigm": "industrial",
+   "desc": "Ice and railways in the 19th century (m) carried fresh fish to inland cities.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "factory_trawler",
+   "label": "Freezer factory trawler",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1954,
+   "date_src": "general",
+   "wide": 1970,
+   "place": "North Atlantic",
+   "paradigm": "industrial",
+   "desc": "Diesel, sonar, synthetic nets and freezers in the 20th century (m): distant-water fleets with catches far beyond the fish's recovery.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "cod_moratorium",
+   "label": "Northern cod moratorium",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1992,
+   "date_src": "part",
+   "place": "Newfoundland",
+   "paradigm": "service_information",
+   "desc": "Harvestable northern cod fell 82% from 1962 to 1977 and the spawning stock was about 1% of its peak by 1992; the moratorium of 2 July 1992 put 30,000 to 40,000 people out of work (cited). The weir and the commons at the scale of an ocean.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "eez",
+   "label": "Exclusive economic zones",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1977,
+   "date_src": "part",
+   "wide": 1985,
+   "place": "coastal states worldwide",
+   "paradigm": "service_information",
+   "desc": "The sea enclosed by states in the 1970s and 1980s (m).",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "fishing_quotas",
+   "label": "Tradable fishing quotas",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1985,
+   "date_src": "part",
+   "place": "Iceland, New Zealand",
+   "paradigm": "service_information",
+   "desc": "Late 20th-century quotas and tradable shares (m): the commons privatised as rights to a share of the catch.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "aquaculture",
+   "label": "Aquaculture",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1975,
+   "date_src": "part",
+   "wide": 2022,
+   "place": "China, Norway, Southeast Asia",
+   "paradigm": "service_information",
+   "desc": "Keeping instead of catching at scale: in 2022 aquaculture overtook capture for aquatic animals, 94.4 Mt against 92.3 Mt (cited), growing about 5% a year since 2000. The medieval fishpond became the dominant form.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "royal_forest_law",
+   "label": "Royal forest law",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1079,
+   "date_src": "general",
+   "wide": 1200,
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "Crown law over whole districts protecting deer and their cover, with its own courts (m): a chokepoint made by law.",
+   "chokepoint": true,
+   "part": "03"
+  },
+  {
+   "id": "deer_park",
+   "label": "Deer park",
+   "domain": "food",
+   "kind": "infrastructure",
+   "start": 1086,
+   "date_src": "general",
+   "wide": 1300,
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "Deer fed, guarded and culled inside a pale of fence, bank and hedge: about 3,200 parks by 1300, some 2% of England (cited). Capital sunk in the pale, enforced by law and keepers.",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "rabbit_warren",
+   "label": "Rabbit warren",
+   "domain": "food",
+   "kind": "infrastructure",
+   "start": 1100,
+   "date_src": "part",
+   "wide": 1300,
+   "place": "Breckland, England",
+   "paradigm": "feudal_manorial",
+   "desc": "Rabbits introduced by the Normans by about 1100 and kept in guarded, often leased warrens for meat and fur (cited); a luxury in the 13th century, a common pest by the 19th (m).",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "poaching_game_laws",
+   "label": "Poaching and game laws",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1200,
+   "date_src": "general",
+   "wide": 1800,
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "The peasant snared and poached for food and was punished for it: the contest over a commons that law took away. Later game laws and gamekeepers guarded the shooting estate (m).",
+   "chokepoint": false,
+   "part": "03"
+  },
+  {
+   "id": "fur_trade",
+   "label": "North American fur trade",
+   "domain": "exchange",
+   "kind": "industry",
+   "start": 1600,
+   "date_src": "general",
+   "wide": 1750,
+   "place": "North America",
+   "paradigm": "frontier_settler",
+   "desc": "Commercial trapping for European markets (m): a global chain from the hunt to the hatter.",
+   "chokepoint": false,
+   "part": "03"
+  }
+ ],
+ "edges": [
+  {
+   "from": "cereal_domestication",
+   "to": "hand_quern",
+   "type": "enables",
+   "note": "grain needs grinding",
+   "src": "part"
+  },
+  {
+   "from": "hand_quern",
+   "to": "watermill",
+   "type": "replaces",
+   "note": "mill frees hours of grinding",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "suit_of_mill",
+   "type": "enables",
+   "note": "mill as lord's capital",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "suit_of_mill",
+   "type": "enables",
+   "note": "lord's monopoly over tenants",
+   "src": "part"
+  },
+  {
+   "from": "suit_of_mill",
+   "to": "flour_milling",
+   "type": "enables",
+   "note": "tenants' grain ground for multure",
+   "src": "part"
+  },
+  {
+   "from": "windmill",
+   "to": "wind_sawmill",
+   "type": "enables",
+   "note": "wind power turned to sawing",
+   "src": "part"
+  },
+  {
+   "from": "timber",
+   "to": "wind_sawmill",
+   "type": "input",
+   "note": "logs sawn to boards",
+   "src": "part"
+  },
+  {
+   "from": "baltic_bulk_trade",
+   "to": "wind_sawmill",
+   "type": "input",
+   "note": "Baltic timber for Dutch yards",
+   "src": "general"
+  },
+  {
+   "from": "hay_meadow",
+   "to": "draught_animals",
+   "type": "input",
+   "note": "winter hay for oxen and horses",
+   "src": "part"
+  },
+  {
+   "from": "hay_meadow",
+   "to": "horse_collar",
+   "type": "input",
+   "note": "hay for a working horse",
+   "src": "part"
+  },
+  {
+   "from": "oats_fodder",
+   "to": "horse_collar",
+   "type": "input",
+   "note": "horses need grain, oxen do not",
+   "src": "part"
+  },
+  {
+   "from": "draught_animals",
+   "to": "horse_collar",
+   "type": "enables",
+   "note": "ox teams before horses",
+   "src": "part"
+  },
+  {
+   "from": "bloomery_iron",
+   "to": "horse_collar",
+   "type": "input",
+   "note": "iron horseshoes",
+   "src": "part"
+  },
+  {
+   "from": "horse_collar",
+   "to": "tractor",
+   "type": "replaces",
+   "note": "frees land that fed horses",
+   "src": "part"
+  },
+  {
+   "from": "horse_collar",
+   "to": "railway",
+   "type": "replaces",
+   "note": "frees horse land from carting",
+   "src": "part"
+  },
+  {
+   "from": "oats_fodder",
+   "to": "tractor",
+   "type": "replaces",
+   "note": "tractor runs on diesel, not oats",
+   "src": "part"
+  },
+  {
+   "from": "manure",
+   "to": "dung_straw_fuel",
+   "type": "input",
+   "note": "dung burned is manure lost",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "dung_straw_fuel",
+   "type": "replaces",
+   "note": "where wood is short; costs fertility",
+   "src": "part"
+  },
+  {
+   "from": "coppice",
+   "to": "firewood_ring",
+   "type": "input",
+   "note": "coppice rotations around the city",
+   "src": "part"
+  },
+  {
+   "from": "cities",
+   "to": "firewood_ring",
+   "type": "enables",
+   "note": "urban demand organises the ring",
+   "src": "part"
+  },
+  {
+   "from": "boats",
+   "to": "firewood_ring",
+   "type": "enables",
+   "note": "wood boated down rivers",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "sea_coal_shipping",
+   "type": "input",
+   "note": "outcrops near the Tyne",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "sea_coal_shipping",
+   "type": "enables",
+   "note": "colliers sailing to London",
+   "src": "part"
+  },
+  {
+   "from": "sea_coal_shipping",
+   "to": "coal_grate",
+   "type": "enables",
+   "note": "cheap coal by water",
+   "src": "part"
+  },
+  {
+   "from": "firewood_ring",
+   "to": "coal_grate",
+   "type": "replaces",
+   "note": "coal grates for dear city firewood",
+   "src": "part"
+  },
+  {
+   "from": "brick",
+   "to": "chimney",
+   "type": "input",
+   "note": "brick flues",
+   "src": "part"
+  },
+  {
+   "from": "stone_masonry",
+   "to": "chimney",
+   "type": "enables",
+   "note": "stone chimney stacks",
+   "src": "part"
+  },
+  {
+   "from": "chimney",
+   "to": "coal_grate",
+   "type": "enables",
+   "note": "tall chimney for coal fumes",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "coal_grate",
+   "type": "replaces",
+   "note": "household fuel leaves the woods",
+   "src": "part"
+  },
+  {
+   "from": "cast_iron",
+   "to": "coal_grate",
+   "type": "input",
+   "note": "cast iron grates",
+   "src": "general"
+  },
+  {
+   "from": "rendering_tallow",
+   "to": "rushlight",
+   "type": "input",
+   "note": "kitchen fat on rush pith",
+   "src": "part"
+  },
+  {
+   "from": "rendering_tallow",
+   "to": "tallow_candle",
+   "type": "input",
+   "note": "rendered beef and mutton fat",
+   "src": "part"
+  },
+  {
+   "from": "flax_linen",
+   "to": "tallow_candle",
+   "type": "input",
+   "note": "linen wick",
+   "src": "part"
+  },
+  {
+   "from": "rushlight",
+   "to": "tallow_candle",
+   "type": "replaces",
+   "note": "a chandler's candle for those who can pay",
+   "src": "part"
+  },
+  {
+   "from": "pottery",
+   "to": "oil_lamp",
+   "type": "enables",
+   "note": "clay lamp bodies",
+   "src": "general"
+  },
+  {
+   "from": "oil_lamp",
+   "to": "whaling",
+   "type": "enables",
+   "note": "lamp market drove the whale hunt",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "whaling",
+   "type": "enables",
+   "note": "ocean ships for the hunt",
+   "src": "part"
+  },
+  {
+   "from": "whaling",
+   "to": "kerosene_refining",
+   "type": "replaces",
+   "note": "kerosene ends whale oil's lamp market",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "gas_lighting",
+   "type": "input",
+   "note": "coal baked for gas",
+   "src": "part"
+  },
+  {
+   "from": "gas_lighting",
+   "to": "coal_tar_chemicals",
+   "type": "byproduct",
+   "note": "gasworks tar became dyes and drugs",
+   "src": "part"
+  },
+  {
+   "from": "tallow_candle",
+   "to": "gas_lighting",
+   "type": "replaces",
+   "note": "piped gas for tallow in towns",
+   "src": "part"
+  },
+  {
+   "from": "oil_petroleum",
+   "to": "kerosene_refining",
+   "type": "input",
+   "note": "crude oil distilled",
+   "src": "part"
+  },
+  {
+   "from": "kerosene_refining",
+   "to": "petrol_diesel",
+   "type": "byproduct",
+   "note": "same stills give petrol and diesel",
+   "src": "part"
+  },
+  {
+   "from": "petrol_diesel",
+   "to": "motor_vehicle",
+   "type": "input",
+   "note": "fuel for cars and lorries",
+   "src": "part"
+  },
+  {
+   "from": "petrol_diesel",
+   "to": "tractor",
+   "type": "input",
+   "note": "fuel for farm machines",
+   "src": "part"
+  },
+  {
+   "from": "petrol_diesel",
+   "to": "aviation",
+   "type": "input",
+   "note": "aviation fuel",
+   "src": "part"
+  },
+  {
+   "from": "internal_combustion_engine",
+   "to": "petrol_diesel",
+   "type": "enables",
+   "note": "engines create the market for petrol",
+   "src": "general"
+  },
+  {
+   "from": "electricity",
+   "to": "electric_lighting",
+   "type": "enables",
+   "note": "power carried by wire",
+   "src": "part"
+  },
+  {
+   "from": "electric_grid",
+   "to": "electric_lighting",
+   "type": "enables",
+   "note": "central stations wired to lamps",
+   "src": "part"
+  },
+  {
+   "from": "gas_lighting",
+   "to": "electric_lighting",
+   "type": "replaces",
+   "note": "light joins the power network",
+   "src": "part"
+  },
+  {
+   "from": "kerosene_refining",
+   "to": "electric_lighting",
+   "type": "replaces",
+   "note": "wired light for lamp oil",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "potash",
+   "type": "byproduct",
+   "note": "ash from burned wood",
+   "src": "part"
+  },
+  {
+   "from": "potash",
+   "to": "forest_glass",
+   "type": "input",
+   "note": "beech ash as flux",
+   "src": "part"
+  },
+  {
+   "from": "potash",
+   "to": "soap_boiling",
+   "type": "input",
+   "note": "lye for soap",
+   "src": "part"
+  },
+  {
+   "from": "potash",
+   "to": "dyeing",
+   "type": "input",
+   "note": "lye in dyeing",
+   "src": "part"
+  },
+  {
+   "from": "kelp_barilla",
+   "to": "glass",
+   "type": "input",
+   "note": "soda ash for glass",
+   "src": "part"
+  },
+  {
+   "from": "glass",
+   "to": "forest_glass",
+   "type": "enables",
+   "note": "glassmaking skill",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "forest_glass",
+   "type": "input",
+   "note": "furnace fuel",
+   "src": "part"
+  },
+  {
+   "from": "forest_glass",
+   "to": "coal_glass_furnace",
+   "type": "replaces",
+   "note": "glass moves from forest to coal",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "coal_glass_furnace",
+   "type": "input",
+   "note": "coal fires the furnace",
+   "src": "part"
+  },
+  {
+   "from": "woods_preservation_law",
+   "to": "coal_glass_furnace",
+   "type": "enables",
+   "note": "1615 ban on wood in glass furnaces",
+   "src": "part"
+  },
+  {
+   "from": "timber",
+   "to": "woods_preservation_law",
+   "type": "enables",
+   "note": "fuel against timber conflict",
+   "src": "part"
+  },
+  {
+   "from": "rendering_tallow",
+   "to": "soap_boiling",
+   "type": "input",
+   "note": "tallow boiled with lye",
+   "src": "part"
+  },
+  {
+   "from": "lime",
+   "to": "soap_boiling",
+   "type": "input",
+   "note": "lime in soap-making",
+   "src": "part"
+  },
+  {
+   "from": "salt_making",
+   "to": "leblanc_process",
+   "type": "input",
+   "note": "salt as feedstock",
+   "src": "part"
+  },
+  {
+   "from": "sulphuric_acid",
+   "to": "leblanc_process",
+   "type": "input",
+   "note": "acid on salt",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "leblanc_process",
+   "type": "input",
+   "note": "coal in the furnace",
+   "src": "part"
+  },
+  {
+   "from": "potash",
+   "to": "leblanc_process",
+   "type": "replaces",
+   "note": "synthetic soda for wood ash",
+   "src": "part"
+  },
+  {
+   "from": "kelp_barilla",
+   "to": "leblanc_process",
+   "type": "replaces",
+   "note": "synthetic soda for kelp and barilla",
+   "src": "part"
+  },
+  {
+   "from": "leblanc_process",
+   "to": "alkali_soda",
+   "type": "enables",
+   "note": "soda in bulk from salt",
+   "src": "part"
+  },
+  {
+   "from": "leblanc_process",
+   "to": "solvay_process",
+   "type": "replaces",
+   "note": "cleaner, cheaper soda",
+   "src": "part"
+  },
+  {
+   "from": "salt_making",
+   "to": "solvay_process",
+   "type": "input",
+   "note": "brine as feedstock",
+   "src": "part"
+  },
+  {
+   "from": "lime",
+   "to": "solvay_process",
+   "type": "input",
+   "note": "limestone in the process",
+   "src": "part"
+  },
+  {
+   "from": "solvay_process",
+   "to": "alkali_soda",
+   "type": "enables",
+   "note": "the main soda route",
+   "src": "part"
+  },
+  {
+   "from": "alkali_soda",
+   "to": "glass",
+   "type": "input",
+   "note": "soda flux for glass",
+   "src": "general"
+  },
+  {
+   "from": "salt_making",
+   "to": "chlorine_bleach",
+   "type": "input",
+   "note": "chlorine from salt",
+   "src": "part"
+  },
+  {
+   "from": "salt_making",
+   "to": "briquetage",
+   "type": "enables",
+   "note": "brine springs worked",
+   "src": "part"
+  },
+  {
+   "from": "pottery",
+   "to": "briquetage",
+   "type": "input",
+   "note": "clay pots for boiling",
+   "src": "part"
+  },
+  {
+   "from": "briquetage",
+   "to": "lead_pan_brine",
+   "type": "replaces",
+   "note": "lead pans for broken pots",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "lead_pan_brine",
+   "type": "input",
+   "note": "6,000 loads of wood a year",
+   "src": "part"
+  },
+  {
+   "from": "lead_pan_brine",
+   "to": "salt_preservation",
+   "type": "input",
+   "note": "salt for curing",
+   "src": "part"
+  },
+  {
+   "from": "lead_pan_brine",
+   "to": "fuel_rent_in_kind",
+   "type": "enables",
+   "note": "salt traded for wood",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "fuel_rent_in_kind",
+   "type": "enables",
+   "note": "manorial dues in kind",
+   "src": "part"
+  },
+  {
+   "from": "lead_pan_brine",
+   "to": "solar_sea_salt",
+   "type": "replaces",
+   "note": "sun salt undersells boiled salt",
+   "src": "part"
+  },
+  {
+   "from": "lead_pan_brine",
+   "to": "rock_salt_coal_pans",
+   "type": "replaces",
+   "note": "coal pans for wood pans",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "rock_salt_coal_pans",
+   "type": "input",
+   "note": "coal-fired pans",
+   "src": "part"
+  },
+  {
+   "from": "rock_salt_coal_pans",
+   "to": "leblanc_process",
+   "type": "input",
+   "note": "salt feedstock for soda",
+   "src": "general"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "malt",
+   "type": "input",
+   "note": "barley sprouted",
+   "src": "part"
+  },
+  {
+   "from": "kiln",
+   "to": "malt",
+   "type": "enables",
+   "note": "malt kiln dries the grain",
+   "src": "part"
+  },
+  {
+   "from": "malt",
+   "to": "brewing",
+   "type": "input",
+   "note": "malt for ale and beer",
+   "src": "part"
+  },
+  {
+   "from": "brewing",
+   "to": "hops_beer",
+   "type": "enables",
+   "note": "ale brewing before hops",
+   "src": "part"
+  },
+  {
+   "from": "malt",
+   "to": "hops_beer",
+   "type": "input",
+   "note": "malt for beer",
+   "src": "part"
+  },
+  {
+   "from": "timber",
+   "to": "barrel_cooperage",
+   "type": "input",
+   "note": "oak staves",
+   "src": "part"
+  },
+  {
+   "from": "bloomery_iron",
+   "to": "barrel_cooperage",
+   "type": "input",
+   "note": "iron hoops",
+   "src": "part"
+  },
+  {
+   "from": "barrel_cooperage",
+   "to": "salt_preservation",
+   "type": "enables",
+   "note": "barrels for salt fish and meat",
+   "src": "part"
+  },
+  {
+   "from": "barrel_cooperage",
+   "to": "canning",
+   "type": "replaces",
+   "note": "sealed cans for barrelled food",
+   "src": "part"
+  },
+  {
+   "from": "tin",
+   "to": "canning",
+   "type": "input",
+   "note": "tinplate coating",
+   "src": "part"
+  },
+  {
+   "from": "puddling",
+   "to": "canning",
+   "type": "input",
+   "note": "wrought iron sheet for tinplate",
+   "src": "general"
+  },
+  {
+   "from": "salt_preservation",
+   "to": "canning",
+   "type": "replaces",
+   "note": "preserving without salt",
+   "src": "part"
+  },
+  {
+   "from": "bast_cord",
+   "to": "flax_linen",
+   "type": "replaces",
+   "note": "flax gives stronger cord",
+   "src": "part"
+  },
+  {
+   "from": "hemp",
+   "to": "ropewalk",
+   "type": "input",
+   "note": "hemp laid into rope",
+   "src": "part"
+  },
+  {
+   "from": "hemp",
+   "to": "baltic_bulk_trade",
+   "type": "input",
+   "note": "Baltic hemp for navies",
+   "src": "part"
+  },
+  {
+   "from": "timber",
+   "to": "baltic_bulk_trade",
+   "type": "input",
+   "note": "Baltic timber and tar",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "baltic_bulk_trade",
+   "type": "enables",
+   "note": "bulk trade by sea",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "ropewalk",
+   "type": "enables",
+   "note": "fleets need rigging",
+   "src": "general"
+  },
+  {
+   "from": "peat",
+   "to": "dutch_peat_economy",
+   "type": "input",
+   "note": "bog peat cut and dried",
+   "src": "part"
+  },
+  {
+   "from": "canals",
+   "to": "dutch_peat_economy",
+   "type": "enables",
+   "note": "peat moved by canal",
+   "src": "part"
+  },
+  {
+   "from": "dutch_peat_economy",
+   "to": "coal",
+   "type": "replaces",
+   "note": "coal after cheap peat ran out",
+   "src": "general"
+  },
+  {
+   "from": "watermill",
+   "to": "hydroelectric",
+   "type": "replaces",
+   "note": "site-bound water power, now by wire",
+   "src": "part"
+  },
+  {
+   "from": "hydroelectric",
+   "to": "electricity",
+   "type": "input",
+   "note": "falling water to power",
+   "src": "part"
+  },
+  {
+   "from": "hydroelectric",
+   "to": "aluminium",
+   "type": "enables",
+   "note": "cheap power for smelting",
+   "src": "general"
+  },
+  {
+   "from": "legumes_clover",
+   "to": "norfolk_four_course",
+   "type": "input",
+   "note": "clover fixes nitrogen",
+   "src": "part"
+  },
+  {
+   "from": "three_field_rotation",
+   "to": "norfolk_four_course",
+   "type": "replaces",
+   "note": "no fallow year",
+   "src": "part"
+  },
+  {
+   "from": "manure",
+   "to": "norfolk_four_course",
+   "type": "input",
+   "note": "more beasts, more dung",
+   "src": "part"
+  },
+  {
+   "from": "lime",
+   "to": "marling",
+   "type": "input",
+   "note": "burnt lime on fields",
+   "src": "part"
+  },
+  {
+   "from": "marling",
+   "to": "norfolk_four_course",
+   "type": "enables",
+   "note": "marl on Norfolk sands",
+   "src": "general"
+  },
+  {
+   "from": "wool_sheep",
+   "to": "sheep_folding",
+   "type": "enables",
+   "note": "the flock as fertiliser",
+   "src": "part"
+  },
+  {
+   "from": "sheep_folding",
+   "to": "three_field_rotation",
+   "type": "enables",
+   "note": "dung for the fallow",
+   "src": "general"
+  },
+  {
+   "from": "cities",
+   "to": "night_soil",
+   "type": "enables",
+   "note": "towns as dung sources",
+   "src": "part"
+  },
+  {
+   "from": "night_soil",
+   "to": "sewers",
+   "type": "replaces",
+   "note": "sewers flush what was carted",
+   "src": "general"
+  },
+  {
+   "from": "manure",
+   "to": "saltpetre",
+   "type": "input",
+   "note": "nitre beds of dung and urine",
+   "src": "part"
+  },
+  {
+   "from": "saltpetre",
+   "to": "gunpowder",
+   "type": "input",
+   "note": "saltpetre for powder",
+   "src": "part"
+  },
+  {
+   "from": "charcoal",
+   "to": "gunpowder",
+   "type": "input",
+   "note": "charcoal for powder",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "saltpetre",
+   "type": "enables",
+   "note": "state monopoly of saltpetre men",
+   "src": "general"
+  },
+  {
+   "from": "saltpetre",
+   "to": "guano_nitrate",
+   "type": "replaces",
+   "note": "Chilean nitrate for nitre beds",
+   "src": "part"
+  },
+  {
+   "from": "manure",
+   "to": "guano_nitrate",
+   "type": "replaces",
+   "note": "imported fertility for dung",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "guano_nitrate",
+   "type": "enables",
+   "note": "ocean shipping of guano",
+   "src": "part"
+  },
+  {
+   "from": "guano_nitrate",
+   "to": "synthetic_nitrogen",
+   "type": "replaces",
+   "note": "Haber-Bosch ammonia from 1913",
+   "src": "part"
+  },
+  {
+   "from": "saltpetre",
+   "to": "synthetic_nitrogen",
+   "type": "replaces",
+   "note": "same chemistry makes explosives",
+   "src": "part"
+  },
+  {
+   "from": "ice_house",
+   "to": "refrigeration_cold_chain",
+   "type": "replaces",
+   "note": "mechanical cold for winter ice",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "commons_stints",
+   "type": "enables",
+   "note": "manor court sets the stint",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "commons_stints",
+   "type": "enables",
+   "note": "herds on shared grazing",
+   "src": "part"
+  },
+  {
+   "from": "commons_stints",
+   "to": "enclosure_for_sheep",
+   "type": "replaces",
+   "note": "fenced private grazing",
+   "src": "part"
+  },
+  {
+   "from": "wool_sheep",
+   "to": "enclosure_for_sheep",
+   "type": "input",
+   "note": "sheep on enclosed land",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "river_ordinances",
+   "type": "enables",
+   "note": "mills hold the water",
+   "src": "part"
+  },
+  {
+   "from": "law_courts",
+   "to": "river_ordinances",
+   "type": "enables",
+   "note": "rules enforced by courts",
+   "src": "general"
+  },
+  {
+   "from": "foraging",
+   "to": "wood_pasture",
+   "type": "enables",
+   "note": "wildwood grazed and gathered",
+   "src": "general"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "wood_pasture",
+   "type": "enables",
+   "note": "herds and pigs in the woods",
+   "src": "part"
+  },
+  {
+   "from": "coppice",
+   "to": "coppice_with_standards",
+   "type": "enables",
+   "note": "oaks left among the underwood",
+   "src": "part"
+  },
+  {
+   "from": "coppice",
+   "to": "withies_rods",
+   "type": "input",
+   "note": "rods cut on short rotation",
+   "src": "part"
+  },
+  {
+   "from": "coppice",
+   "to": "oak_bark",
+   "type": "byproduct",
+   "note": "bark peeled before charcoal cut",
+   "src": "part"
+  },
+  {
+   "from": "coppice",
+   "to": "woodbank_fencing",
+   "type": "enables",
+   "note": "regrowth must be fenced from browse",
+   "src": "part"
+  },
+  {
+   "from": "wood_pasture",
+   "to": "woodbank_fencing",
+   "type": "enables",
+   "note": "browsing beasts kept out",
+   "src": "part"
+  },
+  {
+   "from": "law_courts",
+   "to": "woodbank_fencing",
+   "type": "enables",
+   "note": "fines for breaking the calendar",
+   "src": "general"
+  },
+  {
+   "from": "coppice_with_standards",
+   "to": "timber",
+   "type": "input",
+   "note": "standards grow to timber",
+   "src": "part"
+  },
+  {
+   "from": "coppice_with_standards",
+   "to": "naval_oak_regulation",
+   "type": "input",
+   "note": "great oak for ships",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "naval_oak_regulation",
+   "type": "enables",
+   "note": "the state regulates oak",
+   "src": "general"
+  },
+  {
+   "from": "coppice",
+   "to": "plantation_forestry",
+   "type": "replaces",
+   "note": "even-aged conifers for the worked wood",
+   "src": "part"
+  },
+  {
+   "from": "plantation_forestry",
+   "to": "wood_pulp",
+   "type": "input",
+   "note": "conifers for pulp",
+   "src": "part"
+  },
+  {
+   "from": "paper",
+   "to": "wood_pulp",
+   "type": "enables",
+   "note": "papermaking takes wood fibre",
+   "src": "part"
+  },
+  {
+   "from": "withies_rods",
+   "to": "wattle_daub",
+   "type": "input",
+   "note": "rods woven on stakes",
+   "src": "part"
+  },
+  {
+   "from": "withies_rods",
+   "to": "sheep_folding",
+   "type": "input",
+   "note": "hurdles for the fold",
+   "src": "general"
+  },
+  {
+   "from": "withies_rods",
+   "to": "fish_weir",
+   "type": "input",
+   "note": "wattle for the weir",
+   "src": "part"
+  },
+  {
+   "from": "withies_rods",
+   "to": "wicker_fish_traps",
+   "type": "input",
+   "note": "woven eel baskets",
+   "src": "part"
+  },
+  {
+   "from": "stone_tools",
+   "to": "flint_mining",
+   "type": "enables",
+   "note": "demand for good flint",
+   "src": "part"
+  },
+  {
+   "from": "fire",
+   "to": "fire_setting",
+   "type": "enables",
+   "note": "heat cracks the rock",
+   "src": "part"
+  },
+  {
+   "from": "fire_setting",
+   "to": "copper_smelting",
+   "type": "input",
+   "note": "ore broken from the rock",
+   "src": "part"
+  },
+  {
+   "from": "copper_smelting",
+   "to": "arsenical_copper",
+   "type": "enables",
+   "note": "mixed ores give harder copper",
+   "src": "part"
+  },
+  {
+   "from": "arsenical_copper",
+   "to": "bronze",
+   "type": "replaces",
+   "note": "tin bronze casts better",
+   "src": "part"
+  },
+  {
+   "from": "charcoal",
+   "to": "copper_smelting",
+   "type": "input",
+   "note": "charcoal fuel for the smelt",
+   "src": "part"
+  },
+  {
+   "from": "tanning",
+   "to": "leather_bellows",
+   "type": "input",
+   "note": "hide for the bellows",
+   "src": "part"
+  },
+  {
+   "from": "leather_bellows",
+   "to": "bloomery_iron",
+   "type": "enables",
+   "note": "air for the furnace",
+   "src": "part"
+  },
+  {
+   "from": "leather_bellows",
+   "to": "village_smith",
+   "type": "enables",
+   "note": "air for the forge",
+   "src": "part"
+  },
+  {
+   "from": "tin",
+   "to": "tin_route",
+   "type": "input",
+   "note": "rare tin from far mines",
+   "src": "part"
+  },
+  {
+   "from": "copper_smelting",
+   "to": "tin_route",
+   "type": "input",
+   "note": "Cypriot copper ingots",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "tin_route",
+   "type": "enables",
+   "note": "ships carry the ingots",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "tin_route",
+   "type": "enables",
+   "note": "traders and safe routes",
+   "src": "part"
+  },
+  {
+   "from": "tin_route",
+   "to": "bronze",
+   "type": "enables",
+   "note": "two ores from two regions",
+   "src": "part"
+  },
+  {
+   "from": "tin",
+   "to": "mining_law",
+   "type": "enables",
+   "note": "stannary rights over tin",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "mining_law",
+   "type": "enables",
+   "note": "dues to the crown",
+   "src": "part"
+  },
+  {
+   "from": "silver_mining_towns",
+   "to": "mining_law",
+   "type": "enables",
+   "note": "mining towns with their own law",
+   "src": "part"
+  },
+  {
+   "from": "mining_law",
+   "to": "mining_shares",
+   "type": "enables",
+   "note": "claims held in parts",
+   "src": "part"
+  },
+  {
+   "from": "mine_drainage",
+   "to": "mining_shares",
+   "type": "enables",
+   "note": "deep mines need investors",
+   "src": "part"
+  },
+  {
+   "from": "mine_drainage",
+   "to": "steam_engine",
+   "type": "enables",
+   "note": "pumping mines was Newcomen's job",
+   "src": "part"
+  },
+  {
+   "from": "mining_shares",
+   "to": "joint_stock_company",
+   "type": "enables",
+   "note": "shares in a venture",
+   "src": "general"
+  },
+  {
+   "from": "bog_iron_ore",
+   "to": "bloomery_iron",
+   "type": "input",
+   "note": "common ore",
+   "src": "part"
+  },
+  {
+   "from": "bronze",
+   "to": "bloomery_iron",
+   "type": "replaces",
+   "note": "common ore ends tin chokepoint",
+   "src": "part"
+  },
+  {
+   "from": "charcoal",
+   "to": "bloomery_iron",
+   "type": "input",
+   "note": "10 to 18 kg charcoal per kg iron",
+   "src": "part"
+  },
+  {
+   "from": "bloomery_iron",
+   "to": "village_smith",
+   "type": "input",
+   "note": "iron stock for the smith",
+   "src": "part"
+  },
+  {
+   "from": "charcoal",
+   "to": "village_smith",
+   "type": "input",
+   "note": "forge fuel",
+   "src": "part"
+  },
+  {
+   "from": "village_smith",
+   "to": "iron_edged_tools",
+   "type": "enables",
+   "note": "edges forged and mended",
+   "src": "part"
+  },
+  {
+   "from": "iron_edged_tools",
+   "to": "plough",
+   "type": "input",
+   "note": "iron share on a wooden plough",
+   "src": "part"
+  },
+  {
+   "from": "iron_edged_tools",
+   "to": "machine_tools",
+   "type": "enables",
+   "note": "later the machine-tool industry",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "water_bloomery_hammer",
+   "type": "enables",
+   "note": "wheel drives bellows and hammer",
+   "src": "part"
+  },
+  {
+   "from": "bloomery_iron",
+   "to": "water_bloomery_hammer",
+   "type": "enables",
+   "note": "bloomery scaled up at the mill",
+   "src": "part"
+  },
+  {
+   "from": "water_bloomery_hammer",
+   "to": "blast_furnace",
+   "type": "enables",
+   "note": "water-blown smelting",
+   "src": "part"
+  },
+  {
+   "from": "blast_furnace",
+   "to": "cast_iron",
+   "type": "enables",
+   "note": "liquid pig iron",
+   "src": "part"
+  },
+  {
+   "from": "charcoal",
+   "to": "blast_furnace",
+   "type": "input",
+   "note": "8 t wood per t pig",
+   "src": "part"
+  },
+  {
+   "from": "cast_iron",
+   "to": "finery_forge",
+   "type": "input",
+   "note": "pig refined to bar",
+   "src": "part"
+  },
+  {
+   "from": "charcoal",
+   "to": "finery_forge",
+   "type": "input",
+   "note": "more charcoal for refining",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "finery_forge",
+   "type": "enables",
+   "note": "water hammer",
+   "src": "part"
+  },
+  {
+   "from": "blast_furnace",
+   "to": "ironmaster_wood_lease",
+   "type": "enables",
+   "note": "months of fuel for one furnace",
+   "src": "part"
+  },
+  {
+   "from": "coppice",
+   "to": "ironmaster_wood_lease",
+   "type": "input",
+   "note": "coppice bought on long rotations",
+   "src": "part"
+  },
+  {
+   "from": "ironmaster_wood_lease",
+   "to": "wage_labour",
+   "type": "enables",
+   "note": "colliers and founders as hired crew",
+   "src": "part"
+  },
+  {
+   "from": "ironmaster_wood_lease",
+   "to": "coke",
+   "type": "replaces",
+   "note": "coke cuts iron loose from woods",
+   "src": "part"
+  },
+  {
+   "from": "finery_forge",
+   "to": "puddling",
+   "type": "replaces",
+   "note": "refining with coal, not charcoal",
+   "src": "part"
+  },
+  {
+   "from": "cast_iron",
+   "to": "steel_frame",
+   "type": "replaces",
+   "note": "steel frame for cast-iron columns",
+   "src": "part"
+  },
+  {
+   "from": "coke",
+   "to": "crucible_steel",
+   "type": "input",
+   "note": "coke fire for crucibles",
+   "src": "part"
+  },
+  {
+   "from": "bloomery_iron",
+   "to": "crucible_steel",
+   "type": "input",
+   "note": "bar iron melted to steel",
+   "src": "general"
+  },
+  {
+   "from": "crucible_steel",
+   "to": "bessemer_steel",
+   "type": "replaces",
+   "note": "bulk steel for small batches",
+   "src": "part"
+  },
+  {
+   "from": "bessemer_steel",
+   "to": "steel_rails",
+   "type": "input",
+   "note": "cheap converter steel",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "steel_rails",
+   "type": "enables",
+   "note": "first mass market for steel",
+   "src": "part"
+  },
+  {
+   "from": "bessemer_steel",
+   "to": "basic_process",
+   "type": "enables",
+   "note": "converter given a basic lining",
+   "src": "part"
+  },
+  {
+   "from": "open_hearth_steel",
+   "to": "basic_oxygen_furnace",
+   "type": "replaces",
+   "note": "fast oxygen converters",
+   "src": "part"
+  },
+  {
+   "from": "open_hearth_steel",
+   "to": "steel_scrap",
+   "type": "enables",
+   "note": "scrap melted with pig iron",
+   "src": "part"
+  },
+  {
+   "from": "steel_scrap",
+   "to": "electric_arc_steel",
+   "type": "input",
+   "note": "scrap melted by electricity",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "electric_arc_steel",
+   "type": "input",
+   "note": "arc furnace power",
+   "src": "part"
+  },
+  {
+   "from": "putting_out",
+   "to": "nailers_cutlers",
+   "type": "enables",
+   "note": "merchant's iron worked by the piece",
+   "src": "part"
+  },
+  {
+   "from": "bloomery_iron",
+   "to": "nailers_cutlers",
+   "type": "input",
+   "note": "rod iron for nails",
+   "src": "part"
+  },
+  {
+   "from": "finery_forge",
+   "to": "nailers_cutlers",
+   "type": "input",
+   "note": "bar iron for nails and blades",
+   "src": "part"
+  },
+  {
+   "from": "nailers_cutlers",
+   "to": "machine_cut_nails",
+   "type": "replaces",
+   "note": "machine nails for hand-forged",
+   "src": "part"
+  },
+  {
+   "from": "cupellation",
+   "to": "coinage",
+   "type": "enables",
+   "note": "silver from lead ores",
+   "src": "part"
+  },
+  {
+   "from": "cupellation",
+   "to": "silver_mining_towns",
+   "type": "enables",
+   "note": "lead mines yield silver",
+   "src": "part"
+  },
+  {
+   "from": "horn_bone_glue",
+   "to": "cupellation",
+   "type": "input",
+   "note": "bone ash hearth",
+   "src": "part"
+  },
+  {
+   "from": "silver_mining_towns",
+   "to": "coinage",
+   "type": "input",
+   "note": "silver for coin",
+   "src": "part"
+  },
+  {
+   "from": "huancavelica_mercury",
+   "to": "patio_process",
+   "type": "input",
+   "note": "mercury for amalgamation",
+   "src": "part"
+  },
+  {
+   "from": "mita_draft",
+   "to": "patio_process",
+   "type": "enables",
+   "note": "one in seven men drafted",
+   "src": "part"
+  },
+  {
+   "from": "salt_making",
+   "to": "patio_process",
+   "type": "input",
+   "note": "salt in the amalgam",
+   "src": "part"
+  },
+  {
+   "from": "cupellation",
+   "to": "patio_process",
+   "type": "replaces",
+   "note": "mercury refining for fire refining",
+   "src": "general"
+  },
+  {
+   "from": "slavery",
+   "to": "mita_draft",
+   "type": "enables",
+   "note": "coerced labour where wages could not draw",
+   "src": "general"
+  },
+  {
+   "from": "coppice_with_standards",
+   "to": "timber_frame",
+   "type": "input",
+   "note": "many small young oaks",
+   "src": "part"
+  },
+  {
+   "from": "wattle_daub",
+   "to": "timber_frame",
+   "type": "input",
+   "note": "infill panels",
+   "src": "part"
+  },
+  {
+   "from": "saw_pit",
+   "to": "timber_frame",
+   "type": "enables",
+   "note": "boards and sawn timbers",
+   "src": "part"
+  },
+  {
+   "from": "timber",
+   "to": "saw_pit",
+   "type": "input",
+   "note": "logs ripped to boards",
+   "src": "part"
+  },
+  {
+   "from": "saw_pit",
+   "to": "wind_sawmill",
+   "type": "replaces",
+   "note": "wind saws for pit sawyers",
+   "src": "part"
+  },
+  {
+   "from": "lime",
+   "to": "lime_mortar",
+   "type": "input",
+   "note": "quicklime slaked",
+   "src": "part"
+  },
+  {
+   "from": "lime_mortar",
+   "to": "stone_masonry",
+   "type": "enables",
+   "note": "mortar binds stone",
+   "src": "part"
+  },
+  {
+   "from": "lime_mortar",
+   "to": "cement_concrete",
+   "type": "replaces",
+   "note": "Portland cement 1824",
+   "src": "part"
+  },
+  {
+   "from": "lime",
+   "to": "tanning",
+   "type": "input",
+   "note": "lime pits loosen hair",
+   "src": "part"
+  },
+  {
+   "from": "stone_masonry",
+   "to": "mason_lodges",
+   "type": "enables",
+   "note": "large stone works",
+   "src": "part"
+  },
+  {
+   "from": "guilds",
+   "to": "mason_lodges",
+   "type": "enables",
+   "note": "craft organisation",
+   "src": "general"
+  },
+  {
+   "from": "mason_lodges",
+   "to": "wage_labour",
+   "type": "enables",
+   "note": "masons paid by the day",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "thatch_roof",
+   "type": "byproduct",
+   "note": "straw from the grain harvest",
+   "src": "part"
+  },
+  {
+   "from": "kiln",
+   "to": "clay_roof_tiles",
+   "type": "enables",
+   "note": "tiles fired in kilns",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "clay_roof_tiles",
+   "type": "input",
+   "note": "kiln fuel",
+   "src": "part"
+  },
+  {
+   "from": "thatch_roof",
+   "to": "clay_roof_tiles",
+   "type": "replaces",
+   "note": "fire-safe roof for cheap roof",
+   "src": "part"
+  },
+  {
+   "from": "thatch_roof",
+   "to": "fire_regulations",
+   "type": "enables",
+   "note": "thatch puts the street at risk",
+   "src": "part"
+  },
+  {
+   "from": "cities",
+   "to": "fire_regulations",
+   "type": "enables",
+   "note": "dense towns burn together",
+   "src": "part"
+  },
+  {
+   "from": "fire_regulations",
+   "to": "great_rebuilding",
+   "type": "enables",
+   "note": "rebuild in brick and stone",
+   "src": "part"
+  },
+  {
+   "from": "chimney",
+   "to": "great_rebuilding",
+   "type": "enables",
+   "note": "chimneys and upper floors",
+   "src": "part"
+  },
+  {
+   "from": "brick",
+   "to": "great_rebuilding",
+   "type": "input",
+   "note": "brick as a mass good",
+   "src": "part"
+  },
+  {
+   "from": "glass",
+   "to": "great_rebuilding",
+   "type": "input",
+   "note": "glazed windows",
+   "src": "part"
+  },
+  {
+   "from": "timber_frame",
+   "to": "great_rebuilding",
+   "type": "replaces",
+   "note": "brick and stone for frames",
+   "src": "part"
+  },
+  {
+   "from": "wind_sawmill",
+   "to": "balloon_frame",
+   "type": "enables",
+   "note": "sawn standard timber",
+   "src": "part"
+  },
+  {
+   "from": "machine_cut_nails",
+   "to": "balloon_frame",
+   "type": "input",
+   "note": "nails replace joints",
+   "src": "part"
+  },
+  {
+   "from": "timber_frame",
+   "to": "balloon_frame",
+   "type": "replaces",
+   "note": "nailed studs for carpentry",
+   "src": "part"
+  },
+  {
+   "from": "cement_concrete",
+   "to": "reinforced_concrete",
+   "type": "input",
+   "note": "cement matrix",
+   "src": "part"
+  },
+  {
+   "from": "bessemer_steel",
+   "to": "reinforced_concrete",
+   "type": "input",
+   "note": "steel bars",
+   "src": "general"
+  },
+  {
+   "from": "reinforced_concrete",
+   "to": "steel_frame",
+   "type": "enables",
+   "note": "concrete floors on steel frames",
+   "src": "general"
+  },
+  {
+   "from": "wool_sheep",
+   "to": "wool_export_trade",
+   "type": "input",
+   "note": "fleece for Flemish looms",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "wool_export_trade",
+   "type": "enables",
+   "note": "wool to Flanders and Italy",
+   "src": "part"
+  },
+  {
+   "from": "wool_export_trade",
+   "to": "broadcloth_export",
+   "type": "replaces",
+   "note": "England weaves its own wool",
+   "src": "part"
+  },
+  {
+   "from": "wool_export_trade",
+   "to": "enclosure_for_sheep",
+   "type": "enables",
+   "note": "wool prices pay for sheepwalk",
+   "src": "part"
+  },
+  {
+   "from": "fulling_mill",
+   "to": "broadcloth_export",
+   "type": "enables",
+   "note": "water-fulled broadcloth",
+   "src": "part"
+  },
+  {
+   "from": "putting_out",
+   "to": "broadcloth_export",
+   "type": "enables",
+   "note": "clothiers organise rural cloth",
+   "src": "part"
+  },
+  {
+   "from": "treadle_loom",
+   "to": "broadcloth_export",
+   "type": "enables",
+   "note": "broadloom weavers",
+   "src": "part"
+  },
+  {
+   "from": "spinning",
+   "to": "spinning_wheel",
+   "type": "replaces",
+   "note": "wheel for distaff and spindle",
+   "src": "part"
+  },
+  {
+   "from": "spinning_wheel",
+   "to": "mechanised_spinning",
+   "type": "replaces",
+   "note": "jenny and frame for the wheel",
+   "src": "part"
+  },
+  {
+   "from": "weaving",
+   "to": "treadle_loom",
+   "type": "enables",
+   "note": "loom moves to workshops",
+   "src": "part"
+  },
+  {
+   "from": "treadle_loom",
+   "to": "power_loom",
+   "type": "replaces",
+   "note": "powered weaving",
+   "src": "part"
+  },
+  {
+   "from": "treadle_loom",
+   "to": "flying_shuttle",
+   "type": "enables",
+   "note": "shuttle fitted to the loom",
+   "src": "part"
+  },
+  {
+   "from": "flying_shuttle",
+   "to": "mechanised_spinning",
+   "type": "enables",
+   "note": "yarn shortage spurs machines",
+   "src": "general"
+  },
+  {
+   "from": "suit_of_mill",
+   "to": "fulling_mill",
+   "type": "enables",
+   "note": "fulling mills under lord's monopoly",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "fulling_mill",
+   "type": "enables",
+   "note": "water hammers",
+   "src": "part"
+  },
+  {
+   "from": "fulling_mill",
+   "to": "river_ordinances",
+   "type": "enables",
+   "note": "another claim on the stream",
+   "src": "part"
+  },
+  {
+   "from": "alum",
+   "to": "dyeing",
+   "type": "input",
+   "note": "mordant fixes dye",
+   "src": "part"
+  },
+  {
+   "from": "woad_madder",
+   "to": "dyeing",
+   "type": "input",
+   "note": "plant dyes",
+   "src": "part"
+  },
+  {
+   "from": "alum",
+   "to": "tawing",
+   "type": "input",
+   "note": "alum for white leather",
+   "src": "part"
+  },
+  {
+   "from": "retting",
+   "to": "flax_linen",
+   "type": "enables",
+   "note": "stems rotted to free fibre",
+   "src": "part"
+  },
+  {
+   "from": "retting",
+   "to": "hemp",
+   "type": "enables",
+   "note": "hemp retted like flax",
+   "src": "part"
+  },
+  {
+   "from": "retting",
+   "to": "river_ordinances",
+   "type": "enables",
+   "note": "fouled water needs rules",
+   "src": "part"
+  },
+  {
+   "from": "flax_linen",
+   "to": "sun_bleaching",
+   "type": "enables",
+   "note": "linen bleached weeks in sun",
+   "src": "part"
+  },
+  {
+   "from": "potash",
+   "to": "sun_bleaching",
+   "type": "input",
+   "note": "lye for bleaching",
+   "src": "part"
+  },
+  {
+   "from": "sun_bleaching",
+   "to": "chlorine_bleach",
+   "type": "replaces",
+   "note": "chemical bleach for weeks of sun",
+   "src": "part"
+  },
+  {
+   "from": "mechanised_spinning",
+   "to": "spinning_mule",
+   "type": "enables",
+   "note": "jenny and water frame combined",
+   "src": "general"
+  },
+  {
+   "from": "cotton",
+   "to": "spinning_mule",
+   "type": "input",
+   "note": "fine cotton yarn",
+   "src": "part"
+  },
+  {
+   "from": "spinning_mule",
+   "to": "self_acting_mule",
+   "type": "replaces",
+   "note": "automatic mule for the spinner's hand",
+   "src": "part"
+  },
+  {
+   "from": "steam_engine",
+   "to": "self_acting_mule",
+   "type": "enables",
+   "note": "steam-driven mule mills",
+   "src": "general"
+  },
+  {
+   "from": "cotton",
+   "to": "indian_handloom",
+   "type": "input",
+   "note": "Indian cotton",
+   "src": "part"
+  },
+  {
+   "from": "indian_handloom",
+   "to": "mechanised_spinning",
+   "type": "replaces",
+   "note": "mill yarn undersold handspun",
+   "src": "part"
+  },
+  {
+   "from": "slavery",
+   "to": "cotton",
+   "type": "enables",
+   "note": "American plantation cotton",
+   "src": "part"
+  },
+  {
+   "from": "coal_tar_chemicals",
+   "to": "aniline_dyes",
+   "type": "input",
+   "note": "coal tar feedstock",
+   "src": "part"
+  },
+  {
+   "from": "woad_madder",
+   "to": "aniline_dyes",
+   "type": "replaces",
+   "note": "synthetic dyes end plant dyes",
+   "src": "part"
+  },
+  {
+   "from": "aniline_dyes",
+   "to": "dyeing",
+   "type": "enables",
+   "note": "dye house merges with chemistry",
+   "src": "part"
+  },
+  {
+   "from": "wood_pulp",
+   "to": "rayon",
+   "type": "input",
+   "note": "cellulose from wood",
+   "src": "part"
+  },
+  {
+   "from": "rayon",
+   "to": "synthetic_fibres",
+   "type": "enables",
+   "note": "chemical fibre before oil fibres",
+   "src": "general"
+  },
+  {
+   "from": "synthetic_fibres",
+   "to": "global_garment_chain",
+   "type": "input",
+   "note": "polyester 59% of fibre",
+   "src": "part"
+  },
+  {
+   "from": "cotton",
+   "to": "global_garment_chain",
+   "type": "input",
+   "note": "cotton 19% of fibre",
+   "src": "part"
+  },
+  {
+   "from": "putting_out",
+   "to": "global_garment_chain",
+   "type": "enables",
+   "note": "putting-out made global",
+   "src": "part"
+  },
+  {
+   "from": "container_shipping",
+   "to": "global_garment_chain",
+   "type": "enables",
+   "note": "global logistics",
+   "src": "general"
+  },
+  {
+   "from": "hunting",
+   "to": "carcass_joint_products",
+   "type": "enables",
+   "note": "game carcasses",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "carcass_joint_products",
+   "type": "enables",
+   "note": "herd carcasses",
+   "src": "part"
+  },
+  {
+   "from": "carcass_joint_products",
+   "to": "tanning",
+   "type": "input",
+   "note": "hides and skins",
+   "src": "part"
+  },
+  {
+   "from": "carcass_joint_products",
+   "to": "rendering_tallow",
+   "type": "input",
+   "note": "suet and fat",
+   "src": "part"
+  },
+  {
+   "from": "carcass_joint_products",
+   "to": "horn_bone_glue",
+   "type": "input",
+   "note": "horn, bone, hooves, sinew",
+   "src": "part"
+  },
+  {
+   "from": "carcass_joint_products",
+   "to": "parchment",
+   "type": "input",
+   "note": "sheep, goat and calf skins",
+   "src": "part"
+  },
+  {
+   "from": "lime",
+   "to": "parchment",
+   "type": "input",
+   "note": "liming skins",
+   "src": "part"
+  },
+  {
+   "from": "parchment",
+   "to": "paper",
+   "type": "replaces",
+   "note": "paper for skins",
+   "src": "part"
+  },
+  {
+   "from": "oak_bark",
+   "to": "tanning",
+   "type": "input",
+   "note": "ground bark in the pits",
+   "src": "part"
+  },
+  {
+   "from": "tanning",
+   "to": "currying",
+   "type": "enables",
+   "note": "tanned hide finished",
+   "src": "part"
+  },
+  {
+   "from": "rendering_tallow",
+   "to": "currying",
+   "type": "input",
+   "note": "tallow dressing",
+   "src": "part"
+  },
+  {
+   "from": "guilds",
+   "to": "currying",
+   "type": "enables",
+   "note": "a guild for each step",
+   "src": "part"
+  },
+  {
+   "from": "salt_making",
+   "to": "tawing",
+   "type": "input",
+   "note": "salt with alum",
+   "src": "part"
+  },
+  {
+   "from": "tanning",
+   "to": "tawing",
+   "type": "replaces",
+   "note": "quick light leather",
+   "src": "part"
+  },
+  {
+   "from": "oak_bark",
+   "to": "tannin_extracts",
+   "type": "replaces",
+   "note": "imported extract for local bark",
+   "src": "part"
+  },
+  {
+   "from": "tanning",
+   "to": "chrome_tanning",
+   "type": "replaces",
+   "note": "days instead of months",
+   "src": "part"
+  },
+  {
+   "from": "oak_bark",
+   "to": "chrome_tanning",
+   "type": "replaces",
+   "note": "second buyer leaves the woods",
+   "src": "part"
+  },
+  {
+   "from": "tanning",
+   "to": "river_ordinances",
+   "type": "enables",
+   "note": "tan yards foul the river",
+   "src": "part"
+  },
+  {
+   "from": "carcass_joint_products",
+   "to": "industrial_rendering",
+   "type": "replaces",
+   "note": "one plant for many trades",
+   "src": "part"
+  },
+  {
+   "from": "meatpacking",
+   "to": "industrial_rendering",
+   "type": "input",
+   "note": "slaughterhouse leftovers",
+   "src": "part"
+  },
+  {
+   "from": "rendering_tallow",
+   "to": "industrial_rendering",
+   "type": "replaces",
+   "note": "chandler, glue and bone trades fused",
+   "src": "part"
+  },
+  {
+   "from": "industrial_rendering",
+   "to": "aquaculture",
+   "type": "input",
+   "note": "feed fats and meals",
+   "src": "part"
+  },
+  {
+   "from": "horn_bone_glue",
+   "to": "industrial_rendering",
+   "type": "replaces",
+   "note": "glue and bone into one plant",
+   "src": "part"
+  },
+  {
+   "from": "fishing",
+   "to": "wicker_fish_traps",
+   "type": "enables",
+   "note": "fixed traps for the catch",
+   "src": "part"
+  },
+  {
+   "from": "fishing",
+   "to": "fishing_nets",
+   "type": "enables",
+   "note": "nets for the catch",
+   "src": "part"
+  },
+  {
+   "from": "bast_cord",
+   "to": "fishing_nets",
+   "type": "input",
+   "note": "cord for netting",
+   "src": "part"
+  },
+  {
+   "from": "fishing",
+   "to": "fish_weir",
+   "type": "enables",
+   "note": "takes a share of every run",
+   "src": "part"
+  },
+  {
+   "from": "fish_weir",
+   "to": "river_ordinances",
+   "type": "enables",
+   "note": "weirs block boats and fish",
+   "src": "part"
+  },
+  {
+   "from": "fishing",
+   "to": "fishponds",
+   "type": "replaces",
+   "note": "keeping instead of catching",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "fishponds",
+   "type": "enables",
+   "note": "high-status living larders",
+   "src": "part"
+  },
+  {
+   "from": "fishponds",
+   "to": "aquaculture",
+   "type": "enables",
+   "note": "the pond becomes dominant",
+   "src": "part"
+  },
+  {
+   "from": "salt_making",
+   "to": "salt_fish",
+   "type": "input",
+   "note": "salt the chokepoint",
+   "src": "part"
+  },
+  {
+   "from": "barrel_cooperage",
+   "to": "salt_fish",
+   "type": "input",
+   "note": "barrels for packing",
+   "src": "part"
+  },
+  {
+   "from": "salt_preservation",
+   "to": "salt_fish",
+   "type": "enables",
+   "note": "salting fish for keeping",
+   "src": "part"
+  },
+  {
+   "from": "markets_fairs",
+   "to": "scania_herring_fair",
+   "type": "enables",
+   "note": "seasonal fair",
+   "src": "part"
+  },
+  {
+   "from": "salt_fish",
+   "to": "scania_herring_fair",
+   "type": "input",
+   "note": "Luneburg-salted herring",
+   "src": "part"
+  },
+  {
+   "from": "fishing",
+   "to": "stockfish",
+   "type": "enables",
+   "note": "cod dried in the wind",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "stockfish",
+   "type": "enables",
+   "note": "carried with grain",
+   "src": "part"
+  },
+  {
+   "from": "scania_herring_fair",
+   "to": "herring_buss",
+   "type": "replaces",
+   "note": "salting at sea, not on shore",
+   "src": "part"
+  },
+  {
+   "from": "salt_fish",
+   "to": "herring_buss",
+   "type": "enables",
+   "note": "salt herring market",
+   "src": "part"
+  },
+  {
+   "from": "barrel_cooperage",
+   "to": "herring_buss",
+   "type": "input",
+   "note": "barrels aboard",
+   "src": "part"
+  },
+  {
+   "from": "fishing_nets",
+   "to": "herring_buss",
+   "type": "input",
+   "note": "hemp drift nets",
+   "src": "part"
+  },
+  {
+   "from": "baltic_bulk_trade",
+   "to": "herring_buss",
+   "type": "input",
+   "note": "ships of Baltic timber",
+   "src": "part"
+  },
+  {
+   "from": "solar_sea_salt",
+   "to": "herring_buss",
+   "type": "input",
+   "note": "salt from the Biscay coast",
+   "src": "part"
+  },
+  {
+   "from": "herring_buss",
+   "to": "steam_trawler",
+   "type": "replaces",
+   "note": "capital fleet with wage crews",
+   "src": "part"
+  },
+  {
+   "from": "steamship",
+   "to": "steam_trawler",
+   "type": "enables",
+   "note": "steam power at sea",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "steam_trawler",
+   "type": "input",
+   "note": "bunker coal",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "fish_train",
+   "type": "enables",
+   "note": "fast trains inland",
+   "src": "part"
+  },
+  {
+   "from": "ice_house",
+   "to": "fish_train",
+   "type": "input",
+   "note": "ice packed with fish",
+   "src": "part"
+  },
+  {
+   "from": "fish_train",
+   "to": "refrigeration_cold_chain",
+   "type": "replaces",
+   "note": "mechanical cold for ice",
+   "src": "general"
+  },
+  {
+   "from": "steam_trawler",
+   "to": "factory_trawler",
+   "type": "replaces",
+   "note": "freezer at sea",
+   "src": "part"
+  },
+  {
+   "from": "refrigeration_cold_chain",
+   "to": "factory_trawler",
+   "type": "input",
+   "note": "freezers aboard",
+   "src": "part"
+  },
+  {
+   "from": "synthetic_fibres",
+   "to": "factory_trawler",
+   "type": "input",
+   "note": "synthetic nets",
+   "src": "part"
+  },
+  {
+   "from": "factory_trawler",
+   "to": "cod_moratorium",
+   "type": "enables",
+   "note": "overfishing collapses the cod",
+   "src": "part"
+  },
+  {
+   "from": "factory_trawler",
+   "to": "eez",
+   "type": "enables",
+   "note": "states fence off distant-water fleets",
+   "src": "general"
+  },
+  {
+   "from": "eez",
+   "to": "fishing_quotas",
+   "type": "enables",
+   "note": "states allot the catch",
+   "src": "part"
+  },
+  {
+   "from": "hunting",
+   "to": "royal_forest_law",
+   "type": "enables",
+   "note": "deer reserved by law",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "royal_forest_law",
+   "type": "enables",
+   "note": "crown jurisdiction over districts",
+   "src": "general"
+  },
+  {
+   "from": "law_courts",
+   "to": "royal_forest_law",
+   "type": "enables",
+   "note": "forest courts",
+   "src": "part"
+  },
+  {
+   "from": "hunting",
+   "to": "deer_park",
+   "type": "replaces",
+   "note": "keeping deer instead of chasing",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "deer_park",
+   "type": "enables",
+   "note": "lords enclose parks",
+   "src": "part"
+  },
+  {
+   "from": "timber",
+   "to": "deer_park",
+   "type": "input",
+   "note": "the pale of fence",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "rabbit_warren",
+   "type": "enables",
+   "note": "manors and monasteries keep warrens",
+   "src": "part"
+  },
+  {
+   "from": "royal_forest_law",
+   "to": "poaching_game_laws",
+   "type": "enables",
+   "note": "the commons taken away",
+   "src": "part"
+  },
+  {
+   "from": "deer_park",
+   "to": "poaching_game_laws",
+   "type": "enables",
+   "note": "the park as target",
+   "src": "part"
+  },
+  {
+   "from": "hunting",
+   "to": "fur_trade",
+   "type": "input",
+   "note": "trapped furs",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "fur_trade",
+   "type": "enables",
+   "note": "furs shipped to Europe",
+   "src": "part"
+  },
+  {
+   "from": "joint_stock_company",
+   "to": "fur_trade",
+   "type": "enables",
+   "note": "chartered fur companies",
+   "src": "general"
+  }
+ ]
+}

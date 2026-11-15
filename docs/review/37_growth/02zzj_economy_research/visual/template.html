@@ -119,11 +119,13 @@ aside p{margin:0 0 10px;max-width:65ch}
 .nowline{stroke:var(--accent);stroke-width:1.5}
 .nowlab{font:600 10px var(--f-mono);fill:var(--accent)}
 .pbar{cursor:pointer}
-.pbar rect{fill:var(--bg);stroke:var(--muted);stroke-width:1}
-.pbar.branch rect{stroke-dasharray:3 2}
-.pbar text{font:600 10px var(--f-body);fill:var(--ink)}
-.pbar.live rect{fill:var(--accent);fill-opacity:.16;stroke:var(--accent)}
-.pbar.sel rect{fill:var(--accent);fill-opacity:.35;stroke-width:2}
+.pbar path{fill:var(--surface);stroke:var(--muted);stroke-width:1.3}
+.pbar.branch path{stroke-dasharray:2 1.5}
+.pbar text{font:600 10px var(--f-body);fill:var(--muted)}
+.pbar.live path{fill:var(--accent);stroke:var(--accent)} .pbar.live text{fill:var(--ink)}
+.pbar.ended path{fill:none;stroke:var(--locked)} .pbar.ended text{fill:var(--locked);text-decoration:line-through}
+.pbar.sel path{stroke:var(--ink);stroke-width:2.5} .pbar.sel text{fill:var(--ink);font-weight:700}
+.pbar:hover text{fill:var(--ink)}
 .tracklab{font:600 10px var(--f-body);letter-spacing:.08em;fill:var(--muted)}
 /* societies view */
 .socwrap{position:absolute;inset:0;overflow:auto;padding:12px max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px))}
@@ -132,7 +134,7 @@ aside p{margin:0 0 10px;max-width:65ch}
 .sbar rect{fill:var(--surface);stroke:var(--muted)} .sbar.branch rect{stroke-dasharray:4 3}
 .sbar{cursor:pointer} .sbar:hover rect{stroke:var(--accent);stroke-width:2} .sbar.sel rect{fill:var(--accent);fill-opacity:.25;stroke:var(--accent);stroke-width:2}
 .sbar text{font:600 12px var(--f-body);fill:var(--ink)} .sbar .eng{font:10px var(--f-mono);fill:var(--muted)}
-.trans{fill:none;stroke:var(--accent);stroke-width:1.4;stroke-opacity:.7}
+.trans{fill:none;stroke:var(--accent);stroke-width:1.3;stroke-opacity:.45}
 .trans-hit{fill:none;stroke:transparent;stroke-width:10;cursor:pointer}
 .collapse line{stroke:var(--needs);stroke-dasharray:3 3} .collapse text{font:600 10px var(--f-body);fill:var(--needs)}
 .theories{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px 18px;max-width:1200px}
@@ -246,12 +248,11 @@ function layoutLanes(){let y=0;DOMAINS.forEach(d=>{laneTop[d]=y;laneH[d]=hidden.
   nodes.forEach(n=>n.y=laneTop[n.domain]+LPAD+n.row*ROWH+ROWH/2);}
 layoutLanes();
 // paradigm track rows
-const pRows=[];P.slice().sort((a,b)=>a.start-b.start).forEach(p=>{const x0=X(p.start),x1=Math.max(X(p.end==null?2030:p.end),x0+18+tw(p.label)*0.95);
-  let r=pRows.findIndex(e=>e<x0-4);if(r<0){r=pRows.length;pRows.push(0);}pRows[r]=x1;p.row=r;});
-const PROWH=17,AXIS=24,TOP=(P.length?pRows.length*PROWH+22:4)+AXIS;
+const PROWS=4,PROWH=15,AXIS=24,TOP=(P.length?PROWS*PROWH+26:4)+AXIS;
+const PSORT=P.slice().sort((a,b)=>a.start-b.start);
 
 // ---------- state ----------
-let year=2030, sel=null, selP=null, mode='both', T={x:0,k:1}, ty=0, playing=null;
+let year=2030, sel=null, selP=null, mode='near', T={x:0,k:1}, ty=0, playing=null;
 const unlocked=n=>n.start<=year;
 
 // ---------- svg ----------
@@ -278,11 +279,11 @@ if(P.length)gTop.append('text').attr('class','tracklab').attr('x',12).attr('y',1
 gTop.append('text').attr('class','tracklab').attr('x',12).attr('y',TOP-8).text('TIME →');
 const pSel=gTrack.selectAll('g').data(P).join('g').attr('class',p=>'pbar'+(p.kind==='branch'?' branch':''))
   .on('click',(ev,p)=>{ev.stopPropagation();selectP(p);});
-pSel.append('rect').attr('height',PROWH-4).attr('rx',3);
-pSel.append('text').attr('dy',PROWH/2-2+3.5).text(p=>p.label);
-pSel.append('title').text(p=>p.label);
+pSel.append('path').attr('d','M0,-5L5,0L0,5L-5,0Z');
+pSel.append('text').attr('x',8).attr('dy','0.35em').text(p=>p.label);
+pSel.append('title').text(p=>`${p.label}: from ${fmtY(p.start)}${p.end!=null?' to '+fmtY(p.end):', still found'}`);
 
-gCol.append('rect').attr('class','lanecol').attr('width',LEFT);
+gCol.append('rect').attr('class','lanecol').attr('width',LEFT).attr('y',TOP);
 gCol.append('line').attr('class','colrule').attr('x1',LEFT).attr('x2',LEFT);
 const gLab=gCol.append('g');
 const labSel=gLab.selectAll('g').data(DOMAINS).join('g');
@@ -296,14 +297,15 @@ function sx(x){return LEFT+T.x+x*T.k;}
 function resize(){const r=svg.node().getBoundingClientRect();W=r.width;H=r.height;LEFT=W<600?86:150;
   gCol.select('.lanecol').attr('width',LEFT);labSel.select('.lane-label').text(d=>LEFT<150?DSHORT[d]:DLAB[d]);
   d3.select('#clipRect').attr('x',LEFT).attr('y',TOP).attr('width',Math.max(0,W-LEFT)).attr('height',Math.max(0,H-TOP));
-  gTop.select('.topband').attr('width',W).attr('height',TOP);gCol.select('.lanecol').attr('height',H);gCol.select('.colrule').attr('y2',H);
+  gTop.select('.topband').attr('width',W).attr('height',TOP);gCol.select('.lanecol').attr('height',Math.max(0,H-TOP));gCol.select('.colrule').attr('y1',TOP).attr('y2',H);
   clampY();render();}
 function clampY(){ty=Math.min(0,Math.max(Math.min(0,H-TOP-totalH-30),ty));}
 
 function render(){
   const k=T.k;
   laneBg.attr('x',LEFT).attr('width',Math.max(0,W-LEFT)).attr('y',d=>TOP+ty+laneTop[d]).attr('height',d=>laneH[d]);
-  labSel.attr('display',d=>hidden.has(d)?'none':null).attr('transform',d=>`translate(0,${Math.max(TOP+4,TOP+ty+laneTop[d])})`);
+  labSel.attr('display',d=>(hidden.has(d)||TOP+ty+laneTop[d]+laneH[d]<TOP+26)?'none':null)
+    .attr('transform',d=>{const t0=TOP+ty+laneTop[d];return `translate(0,${Math.min(Math.max(TOP+2,t0),t0+laneH[d]-44)})`;});
   labSel.select('rect').attr('y',LPAD-2).attr('height',d=>Math.max(8,Math.min(laneH[d]-2*LPAD+4,40)));
   labSel.select('.lane-label').attr('y',LPAD+8);
   labSel.select('.lane-count').attr('y',LPAD+22).text(d=>{const ns=nodes.filter(n=>n.domain===d);return `${ns.filter(unlocked).length} / ${ns.length}`;});
@@ -314,13 +316,26 @@ function render(){
     .attr('transform',t=>`translate(${sx(X(t))},0)`).call(g=>{g.select('line').attr('y1',TOP-6).attr('y2',TOP);g.select('text').attr('y',TOP-9).text(fmtY);});
   gGrid.selectAll('line').data(shown,d=>d).join('line').attr('class','gridline').attr('x1',t=>sx(X(t))).attr('x2',t=>sx(X(t))).attr('y1',TOP).attr('y2',H);
   // track
-  pSel.attr('transform',p=>`translate(${sx(X(p.start))},${20+p.row*PROWH})`)
-    .classed('live',p=>p.start<=year&&(p.end==null||p.end>=year)).classed('sel',p=>p===selP);
-  pSel.select('rect').attr('width',p=>Math.max(4,(X(p.end==null?2030:p.end)-X(p.start))*k));
-  pSel.select('text').attr('x',4);
+  const pend=new Array(PROWS).fill(-1e9);
+  PSORT.forEach(p=>{const x=sx(X(p.start));let r=pend.findIndex(e=>e<x-6);p._lab=r>=0;if(r<0)r=pend.indexOf(Math.min(...pend));
+    if(p._lab)pend[r]=x+14+tw(p.label);p.row=r;});
+  pSel.attr('transform',p=>`translate(${sx(X(p.start))},${28+p.row*PROWH})`)
+    .classed('live',p=>p.start<=year&&(p.end==null||p.end>=year)).classed('sel',p=>p===selP).classed('ended',p=>p.end!=null&&p.end<year);
+  pSel.select('text').attr('display',p=>p._lab||p===selP?null:'none');
   // nodes
   const rel=relSet();
-  const labelOK=n=>rel?rel.nodes.has(n):(k>=0.72||(n.deg>=9&&k>=0.28)||(n.deg>=6&&k>=0.45)||n===sel);
+  // labels placed greedily by importance; a label may not cover another label or another visible dot (spatial hash, 48px cells)
+  const show=new Set(),grid=new Map(),C=48;
+  const cells=b=>{const o=[];for(let i=Math.floor(b[0]/C);i<=Math.floor(b[2]/C);i++)for(let j=Math.floor(b[1]/C);j<=Math.floor(b[3]/C);j++)o.push(i+','+j);return o;};
+  const add=(b,owner)=>{for(const c of cells(b)){let l=grid.get(c);if(!l)grid.set(c,l=[]);l.push([b,owner]);}};
+  const hit=(b,me)=>{for(const c of cells(b)){const l=grid.get(c);if(l)for(const [o,w] of l)if(w!==me&&b[0]<o[2]&&b[2]>o[0]&&b[1]<o[3]&&b[3]>o[1])return true;}return false;};
+  const vis=nodes.filter(n=>{if(hidden.has(n.domain))return false;n._x=sx(X(n.start));n._y=TOP+ty+n.y;return n._x>LEFT-300&&n._x<W+5&&n._y>TOP-10&&n._y<H+10;});
+  vis.forEach(n=>{if(!rel||rel.nodes.has(n))add([n._x-4,n._y-4,n._x+4,n._y+4],n);});
+  const cand=vis.filter(n=>!rel||rel.nodes.has(n));
+  cand.sort((a,b)=>(b===sel)-(a===sel)||(rel?0:(unlocked(b)-unlocked(a)))||b.deg-a.deg);
+  let placed=0;for(const n of cand){if(placed>500)break;const b=[n._x+5,n._y-7,n._x+9+tw(n.label),n._y+7];
+    if(n!==sel&&hit(b,n))continue;add(b,n);show.add(n);placed++;}
+  const labelOK=n=>show.has(n);
   nSel.attr('transform',n=>`translate(${sx(X(n.start))},${TOP+ty+n.y})`)
     .attr('display',n=>hidden.has(n.domain)?'none':null)
     .classed('locked',n=>!unlocked(n)).classed('sel',n=>n===sel).classed('rel-on',n=>rel?rel.nodes.has(n):false);
@@ -366,7 +381,7 @@ function showNode(n){const up=walk(n,'up'),dn=walk(n,'down');const p=PById.get(n
   <p>${esc(n.desc)}</p>
   <div class="meta"><span>${p?`society: <a href="#" id="plink">${esc(p.label)}</a>`:''}</span><span>${(n.parts&&n.parts.length?n.parts:[n.part]).map(partLink).join(' · ')}</span></div>
   <h3>Highlight</h3>
-  <div class="modes" id="modes">${[['both','Both chains'],['up','What it needed'],['down','What it unlocked'],['near','Direct links']].map(([m,l])=>`<button class="btn" data-m="${m}" aria-pressed="${mode===m}">${l}</button>`).join('')}</div>
+  <div class="modes" id="modes">${[['near','Direct links'],['up','Whole chain behind it'],['down','Everything it led to'],['both','Both']].map(([m,l])=>`<button class="btn" data-m="${m}" aria-pressed="${mode===m}">${l}</button>`).join('')}</div>
   <p class="stat">Rests on <b>${up.nodes.size}</b> earlier things, <b>${up.max}</b> steps deep. Leads on to <b>${dn.nodes.size}</b>${year<2030?' by '+fmtY(year):''}.</p>
   <h3>Needed (${n.in.length})</h3>${relList(n.in,'in')}
   <h3>Unlocked (${n.out.length})</h3>${relList(n.out,'out')}`;
@@ -398,7 +413,7 @@ function showIntro(){
   const hubs=nodes.slice().sort((a,b)=>b.out.length-a.out.length).slice(0,8);
   panel.innerHTML=`<button class="btn close" id="pclose" aria-label="Close">✕</button>
   <h2>How economies unlocked</h2>
-  <p>Each dot is a technique, industry, good, piece of infrastructure or institution, placed at its first significant appearance anywhere and in the lane of its domain. Lines run from what came first to what depended on it. Click a dot to light up everything it rested on and everything it led to. Drag the timeline to watch things unlock; the sparkline behind it counts what exists by then.</p>
+  <p>Each dot is a technique, industry, good, piece of infrastructure or institution, placed at its first significant appearance anywhere and in the lane of its domain. Lines run from what came first to what depended on it. Click a dot to see what it needed and what it unlocked, then follow the whole chain back to fire or forward to today. Drag the timeline to watch things unlock; the sparkline behind it counts what exists by then.</p>
   <h3>Lines</h3>
   <div class="legend">
    <svg width="44" height="10"><path d="M2 5H42" stroke="var(--edge)" stroke-width="1.6"/></svg><span><b>input</b>: a material, fuel or power it consumes</span>
@@ -410,25 +425,27 @@ function showIntro(){
   </div>
   <h3>Deepest chains</h3><ul class="rel">${deep.map(o=>`<li data-id="${esc(o.id)}"><span class="t">${o._d} steps</span><span class="n">${esc(o.label)} <span class="stat">${fmtY(o.start)}</span></span></li>`).join('')}</ul>
   <h3>What the most things rest on</h3><ul class="rel">${hubs.map(o=>`<li data-id="${esc(o.id)}"><span class="t">→ ${o.out.length}</span><span class="n">${esc(o.label)}</span></li>`).join('')}</ul>
-  <h3>Society types</h3><p>The track above the lanes shows when each type of society first appears and whether it still exists; click one to see what it needed and what first appears in it. The Societies tab shows the transitions between them. Types are attractors, not rungs: they coexist, and some societies moved back.</p>
+  <h3>Society types</h3><p>The diamonds above the lanes mark when each type of society first appears (filled: it exists at the chosen year; struck through: it has ended; dashed: a branch rather than a main type); click one to see what it needed and what first appears in it. The Societies tab shows the transitions between them. Types are attractors, not rungs: they coexist, and some societies moved back.</p>
   <p class="caveat">Drawn from the 13 parts of the 02zzj research folder by six extraction passes, then merged. Dates are first significant use anywhere, rounded; “date: general” marks dates filled from general knowledge rather than the part. Figures keep the parts' own verification tags, and several parts flag figures as unchecked. This is research to design from: nothing here is a Cybertron 2 decision.</p>`;
   wirePanel();if(innerWidth<=760)panel.classList.add('shut');}
 
-function select(n){sel=n;selP=null;if(mode==='near'&&!n)mode='both';showNode(n);render();}
+function select(n){sel=n;selP=null;showNode(n);render();}
 function selectP(p){sel=null;selP=p;showP(p);render();renderSoc();}
 function clearSel(){sel=null;selP=null;render();renderSoc();}
 svg.on('click',()=>{if(sel||selP){clearSel();showIntro();}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&(sel||selP)){clearSel();showIntro();}});
 
 // ---------- zoom ----------
-const zoom=d3.zoom().scaleExtent([0.08,8]).filter(e=>e.type!=='wheel'&&e.type!=='dblclick'&&!e.button)
+const zoom=d3.zoom().scaleExtent([0.02,8]).filter(e=>e.type!=='wheel'&&e.type!=='dblclick'&&!e.button)
   .on('zoom',e=>{const t=e.transform;if(lastT&&t.k===lastT.k)ty+=t.y-lastT.y;lastT=t;T={x:t.x,k:t.k};clampY();render();});
 let lastT=null;svg.call(zoom);
 svg.on('wheel',e=>{e.preventDefault();const [px]=d3.pointer(e,svg.node());
   if(e.ctrlKey||e.metaKey){zoom.scaleBy(svg,Math.pow(2,-e.deltaY*(e.deltaMode?0.05:0.0025)),[px-LEFT,0]);}
   else{const dx=e.shiftKey?e.deltaY:e.deltaX,dy=e.shiftKey?0:e.deltaY;if(dx)zoom.translateBy(svg,-dx/T.k,0);if(dy){ty-=dy;clampY();render();}}},{passive:false});
-function fit(){const k=Math.max(0.08,(W-LEFT-24)/TW);svg.call(zoom.transform,d3.zoomIdentity.translate(8,0).scale(k));}
-function centerOn(n){const k=Math.max(T.k,0.9);const x=(W-LEFT)/2-X(n.start)*k;svg.transition().duration(450).call(zoom.transform,d3.zoomIdentity.translate(x,0).scale(k));
+function fit(){const k=Math.max(0.02,(W-LEFT-24)/TW);svg.call(zoom.transform,d3.zoomIdentity.translate(8,0).scale(k));}
+function centerOn(n){const xs=[n,...n.in.map(e=>e.a),...n.out.map(e=>e.b)].filter(o=>!hidden.has(o.domain)).map(o=>X(o.start));
+  const lo=Math.min(...xs),hi=Math.max(...xs),span=Math.max(200,hi-lo);
+  const k=Math.max(0.03,Math.min(1.3,(W-LEFT-260)/span));const x=(W-LEFT)/2-((lo+hi)/2)*k;svg.transition().duration(450).call(zoom.transform,d3.zoomIdentity.translate(x,0).scale(k));
   ty=-(n.y-(H-TOP)/2);clampY();render();}
 $('#zin').onclick=()=>zoom.scaleBy(svg.transition().duration(250),1.6,[(W-LEFT)/2,0]);
 $('#zout').onclick=()=>zoom.scaleBy(svg.transition().duration(250),1/1.6,[(W-LEFT)/2,0]);
@@ -474,7 +491,9 @@ $('#q').addEventListener('change',e=>{const v=e.target.value.trim().toLowerCase(
 // ---------- societies view ----------
 function renderSoc(){const wrap=$('#socwrap');if($('#stage-soc').hidden)return;
   const w=Math.max(940,wrap.clientWidth-32);const types=P.filter(p=>p.kind!=='branch').sort((a,b)=>a.start-b.start);
-  const br=P.filter(p=>p.kind==='branch').sort((a,b)=>a.start-b.start);const RH=40,top=44;
+  const br=P.filter(p=>p.kind==='branch').sort((a,b)=>a.start-b.start);const RH=40;
+  const L0=8,R0=w-8,s0=y=>L0+X(y)/TW*(R0-L0);const crow=[];COLL.slice().sort((a,b)=>a.when-b.when).forEach(c=>{const x=s0(c.when);let r=crow.findIndex(e=>e<x-4);if(r<0){r=crow.length;crow.push(0);}crow[r]=x+8+tw(c.label)*0.95;c.row=r;});
+  const top=36+crow.length*13+14;
   const rows=new Map();types.forEach((p,i)=>rows.set(p.id,top+i*RH));br.forEach((p,i)=>rows.set(p.id,top+(types.length+0.6+i)*RH));
   const h=top+(types.length+br.length+1)*RH+10;const L=8,R=w-8;const s=y=>L+X(y)/TW*(R-L);
   const g=d3.select('#soc').attr('width',w).attr('height',h);g.selectAll('*').remove();
@@ -482,7 +501,7 @@ function renderSoc(){const wrap=$('#socwrap');if($('#stage-soc').hidden)return;
     g.append('text').attr('x',x).attr('y',16).attr('text-anchor','middle').text(fmtY(t)).style('font','10px var(--f-mono)').style('fill','var(--muted)');});
   if(br.length)g.append('text').attr('x',L).attr('y',top+(types.length+0.35)*RH).text('BRANCHES').attr('class','tracklab');
   COLL.forEach(c=>{const x=s(c.when);const cg=g.append('g').attr('class','collapse');cg.append('line').attr('x1',x).attr('x2',x).attr('y1',26).attr('y2',h);
-    cg.append('text').attr('x',x+3).attr('y',34).text(c.label);cg.append('title').text(c.summary);});
+    cg.append('text').attr('x',x+3).attr('y',32+c.row*13).text(c.label);cg.append('title').text(`${c.label}: ${c.summary}`);});
   const tg=g.append('g');
   TRANS.forEach(t=>{const a=PById.get(t.from),b=PById.get(t.to);if(!a||!b)return;const x=s(b.start),y1=rows.get(a.id)+12,y2=rows.get(b.id)+12;
     const d=`M${x-14},${y1}C${x},${y1} ${x-10},${y2} ${x},${y2}`;tg.append('path').attr('class','trans').attr('d',d).attr('marker-end','url(#arr)');
@@ -491,8 +510,9 @@ function renderSoc(){const wrap=$('#socwrap');if($('#stage-soc').hidden)return;
     .append('path').attr('d','M0,0L8,4L0,8Z').style('fill','var(--accent)');
   P.forEach(p=>{const y=rows.get(p.id),x0=s(p.start),x1=s(p.end==null?2030:p.end);const bg=g.append('g').attr('class','sbar'+(p.kind==='branch'?' branch':'')+(p===selP?' sel':'')).attr('transform',`translate(0,${y})`).on('click',()=>selectP(p));
     bg.append('rect').attr('x',x0).attr('y',4).attr('width',Math.max(6,x1-x0)).attr('height',16).attr('rx',4);
-    const lab=bg.append('text').attr('y',-1).text(p.label);const lw=tw(p.label)*1.12;lab.attr('x',Math.min(x0,R-lw));
-    if(p.engine){const short=String(p.engine).split(/[.:;(]/)[0].slice(0,60);bg.append('text').attr('class','eng').attr('y',32).attr('x',Math.min(x0,R-tw(short)*0.9)).text('engine: '+short);}
+    const short=p.engine?String(p.engine).split(/[.:;(,]/)[0].slice(0,40):'';const lw=tw(p.label)*1.12+(short?tw(short)+60:0);
+    const lab=bg.append('text').attr('y',-1).attr('x',Math.max(L,Math.min(x0,R-lw))).text(p.label);
+    if(short)lab.append('tspan').attr('class','eng').attr('dx',8).text('engine: '+short);
     bg.append('title').text(p.summary||p.label);});
 }
 $('#theories').innerHTML=THEO.map(t=>`<div><b>${esc(t.name)}</b><p>${esc(t.claim)}</p><p class="crit">${esc(t.critique||'')}</p></div>`).join('')||'<p class="src">None recorded.</p>';

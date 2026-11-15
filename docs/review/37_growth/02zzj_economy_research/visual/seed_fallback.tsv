@@ -1,0 +1,139 @@
+id	label	domain	kind	start	paradigm	desc
+fire	Fire at will	energy	technique	-400000	foraging	Controlled fire: cooking, warmth, light, clearing land and later every kiln and furnace. The first energy technology.
+wood_fuel	Firewood	energy	resource	-400000	foraging	Wood burned as fuel, the main source of heat until coal; one to two tonnes a person a year in organic economies (part 01).
+charcoal	Charcoal	energy	good	-5000	chiefdom	Wood charred in clamps by colliers; a hotter, lighter fuel for smelting and smithing. A bloomery took 10 to 18 kg of charcoal for each kg of iron (part 03, from memory), so metal was bound to woodland until coke. Wood charred in clamps; a hotter, lighter fuel for smelting and smithing. Bound metal to woodland until coke.
+draught_animals	Draught animals	energy	resource	-4000	horticultural_tribal	Oxen, then horses, pulling ploughs, carts and mills; the largest non-human power source before water and wind.
+watermill	Watermill	energy	infrastructure	-250	agrarian_empire	About 6,000 in England's Domesday survey of 1086 and about 10,000 by 1300 (part 01). A wheel turned by a stream, driving grinding, fulling, bellows, hammers and saws; shared streams made it a chokepoint.
+windmill	Windmill	energy	infrastructure	1180	feudal_manorial	Wind-driven mill for grinding and drainage, spreading where streams were scarce.
+peat	Peat	energy	resource	1100	commercial_city_state	Dug bog fuel; powered the Dutch Golden Age's industries before coal.
+coal	Coal	energy	resource	-200	agrarian_empire	Mineral fuel, used in Han and Song China and dug in England from the 13th century. About half of England's energy by 1700 and over 90% by 1850 (part 01), ending the organic economy's land limit. Mineral fuel; half of England's energy by about 1700 and over 90% by 1850, ending the organic economy's land limit.
+coke	Coke	energy	good	1709	industrial	Coal baked to drive off impurities; replaced charcoal in the blast furnace (Darby, 1709) and freed iron from the woods.
+steam_engine	Steam engine	energy	technique	1712	industrial	Heat into motion: Newcomen pumping, Watt's separate condenser, then high-pressure engines for mills, rail and ships.
+oil_petroleum	Oil	energy	resource	1859	industrial	Crude petroleum, first refined for kerosene lamps; later fuel, lubricants, asphalt and petrochemicals.
+natural_gas	Natural gas	energy	resource	1880	industrial	Methane from wells, piped for heat, power and as feedstock for ammonia.
+electricity	Electricity	energy	technique	1880	industrial	Power carried by wire: lighting, motors, electrochemistry; separated where power is made from where it is used.
+electric_grid	Electric grid	energy	infrastructure	1890	industrial	Interconnected generation and transmission; central stations, alternating current, and later national grids.
+internal_combustion_engine	Internal combustion engine	energy	technique	1876	industrial	Fuel burned inside the cylinder (Otto, Diesel); compact power for vehicles, tractors and aircraft.
+nuclear_power	Nuclear power	energy	technique	1954	service_information	Fission heat raising steam for electricity.
+solar_wind	Solar and wind power	energy	technique	1980	service_information	Photovoltaic and wind-turbine generation, cheap at scale from the 2010s.
+foraging	Foraging	food	practice	-300000	foraging	Gathering wild plants and small game; the economy of more than 99% of human history.
+hunting	Hunting	food	practice	-400000	foraging	Taking wild animals with spears, then bows, traps and drives; high-skill, shared returns.
+fishing	Fishing	food	practice	-100000	foraging	Taking fish and shellfish with hooks, nets, traps and weirs.
+cereal_domestication	Cereal farming	food	technique	-9500	horticultural_tribal	Domesticated wheat, barley, rice and maize; storable grain that fed more people per hectare than foraging.
+animal_domestication	Herding domesticates	food	technique	-8500	horticultural_tribal	Sheep, goats, cattle and pigs kept for meat, then milk, wool and traction.
+milk_dairy	Dairying	food	practice	-7000	horticultural_tribal	Milk, butter and cheese: the secondary products of herds.
+wool_sheep	Wool sheep	food	resource	-4000	early_state	Sheep bred for fleece; wool became the raw material of the largest pre-industrial industry.
+plough	Plough	food	technique	-4000	early_state	Ard, then the heavy mouldboard plough; turned draught power into tilled land.
+irrigation_farming	Irrigation farming	food	technique	-6000	irrigation	Fields watered by canals and basins; high yields bound to collective water works.
+three_field_rotation	Three-field rotation	food	practice	800	feudal_manorial	Winter grain, spring grain and fallow in rotation on open fields.
+legumes_clover	Legumes and clover	food	technique	1650	early_modern_state	Nitrogen-fixing crops in rotation that raised grain yields and fed more beasts.
+manure	Manure	food	resource	-6000	horticultural_tribal	Dung returned to fields: the main nitrogen source until guano and synthetic fertiliser.
+flour_milling	Flour milling	food	industry	-9000	horticultural_tribal	Grinding grain: quern, then mill; the lord's mill and its toll.
+baking	Baking	food	industry	-3000	early_state	Bread ovens; in towns a licensed trade, on manors often the lord's oven.
+brewing	Brewing	food	industry	-4000	early_state	Ale and beer from malted grain; barley's sink and a household then commercial industry.
+salt_preservation	Salting and curing	food	technique	-2000	early_state	Salt used to keep meat and fish; tied food stores to the salt trade.
+refrigeration_cold_chain	Cold chain	food	infrastructure	1880	industrial	Mechanical refrigeration, refrigerated rail cars and ships carrying meat and produce across oceans.
+synthetic_nitrogen	Synthetic nitrogen	food	industry	1913	industrial	Haber–Bosch ammonia; fertiliser now feeding 40 to 50% of people and separating herds from fields.
+tractor	Tractor	food	good	1910	industrial	Engine-powered traction replacing horses and the land that fed them.
+meatpacking	Meatpacking	food	industry	1865	industrial	Disassembly lines and refrigerated distribution from stockyard cities; later highly concentrated.
+supermarket	Supermarket	food	industry	1930	industrial	Self-service retail with central buying and its own supply chains.
+green_revolution	Green Revolution	food	technique	1960	service_information	High-yield varieties with fertiliser and irrigation, raising grain yields across Asia and Latin America.
+stone_tools	Stone tools	materials	technique	-3300000	foraging	Flaked flint and stone for cutting, scraping and points; the oldest manufactured goods.
+pottery	Pottery	materials	industry	-18000	horticultural_tribal	Fired clay vessels for storage and cooking.
+kiln	Kiln	materials	technique	-6000	horticultural_tribal	A controlled high-temperature firing chamber for pottery, lime and later metal.
+lime	Lime	materials	good	-7000	horticultural_tribal	Burnt limestone for mortar, plaster, tanning and soil.
+glass	Glass	materials	industry	-2500	early_state	A forest glassworks burned 150 to 200 kg of wood for each kg of glass (part 01). Sand, soda or potash and lime fused with heavy fuel use.
+rendering_tallow	Rendering and tallow	materials	industry	-2000	early_state	Animal fat rendered into tallow for candles, soap and grease.
+alkali_soda	Alkali (soda)	materials	good	-1500	early_state	Soda and potash from plant ash and kelp, later Leblanc and Solvay processes; for glass, soap and bleaching.
+sulphuric_acid	Sulphuric acid	materials	good	1746	industrial	The base chemical of the chemical industry: bleaching, soda, fertiliser.
+coal_tar_chemicals	Coal-tar chemicals	materials	industry	1856	industrial	By-products of gasworks and coke ovens turned into dyes, drugs and later plastics.
+plastics	Plastics	materials	industry	1907	industrial	Synthetic polymers from coal tar, then petroleum feedstocks.
+cement_concrete	Cement and concrete	materials	good	1824	industrial	Portland cement and concrete, later reinforced with steel.
+timber	Timber	materials	resource	-10000	foraging	Wood for building, ships and tools.
+coppice	Coppice	materials	practice	-4000	horticultural_tribal	Woodland cut on rotation for poles, withies and charcoal wood.
+rubber	Rubber	materials	good	1839	industrial	Vulcanised natural rubber for belts, hoses and tyres.
+paper	Paper	materials	good	105	agrarian_empire	Pulped fibre sheets, from China; carrier of records, print and paper money.
+salt_making	Salt making	materials	industry	-6000	horticultural_tribal	Salt from brine boiling, evaporation pans or mines; a fuel-hungry trade.
+copper_smelting	Copper smelting	metals	technique	-5000	chiefdom	Reducing copper ore with charcoal; the first metallurgy.
+tin	Tin	metals	resource	-3000	early_state	Rare ore, alloyed with copper for bronze; traded across long distances.
+bronze	Bronze	metals	good	-3300	early_state	Copper–tin alloy; tools, weapons and status goods dependent on tin routes.
+bloomery_iron	Bloomery iron	metals	technique	-1200	agrarian_empire	Iron reduced in a small furnace with charcoal and hammered.
+blast_furnace	Blast furnace	metals	technique	1200	feudal_manorial	Tall water-blown furnace making liquid cast iron.
+puddling	Puddling	metals	technique	1784	industrial	Cort's process turning pig iron into wrought iron with coal.
+bessemer_steel	Bessemer steel	metals	technique	1856	industrial	Air blown through molten iron made cheap bulk steel.
+open_hearth_steel	Open-hearth steel	metals	technique	1865	industrial	Siemens–Martin regenerative furnace steel.
+electric_arc_steel	Electric arc steel	metals	technique	1907	industrial	Steel melted from scrap with electric arcs.
+aluminium	Aluminium	metals	industry	1886	industrial	Hall–Héroult electrolysis made aluminium cheap with large electricity inputs.
+machine_tools	Machine tools	metals	industry	1775	industrial	Lathes, borers and planers making precise metal parts.
+interchangeable_parts	Interchangeable parts	metals	technique	1800	industrial	Parts made to gauge so any one fits; the basis of mass production.
+spinning	Spinning	textiles	technique	-8000	horticultural_tribal	Twisting fibre into thread, by spindle, then wheel.
+weaving	Weaving	textiles	technique	-7000	horticultural_tribal	Interlacing thread into cloth on a loom.
+cotton	Cotton	textiles	resource	-5000	early_state	Cotton fibre, from India; later the core of the industrial revolution and of slave plantations.
+flax_linen	Flax and linen	textiles	resource	-8000	horticultural_tribal	Flax retted and spun into linen.
+fulling_mill	Fulling mill	textiles	infrastructure	1100	feudal_manorial	Water-driven hammers to finish woollen cloth.
+mechanised_spinning	Mechanised spinning	textiles	technique	1764	industrial	Jenny, water frame and mule.
+power_loom	Power loom	textiles	technique	1785	industrial	Mechanised weaving.
+dyeing	Dyeing	textiles	industry	-3000	early_state	Colouring cloth with plant, insect and later synthetic dyes and mordants.
+synthetic_fibres	Synthetic fibres	textiles	industry	1935	industrial	Nylon and polyester from petrochemicals.
+tanning	Tanning	textiles	industry	-5000	horticultural_tribal	Hides into leather with bark tannin, later chrome salts.
+wattle_daub	Wattle and daub	building	technique	-6000	horticultural_tribal	Woven withies plastered with clay and dung.
+mudbrick	Mudbrick	building	technique	-9000	horticultural_tribal	Sun-dried clay bricks.
+stone_masonry	Stone masonry	building	technique	-3000	early_state	Cut stone building.
+brick	Fired brick	building	good	-3500	early_state	Kiln-fired clay bricks.
+steel_frame	Steel frame	building	technique	1885	industrial	Skyscraper construction on a steel skeleton.
+elevator	Passenger lift	building	technique	1857	industrial	Safety lifts that made tall buildings usable.
+piped_water	Piped water	building	infrastructure	1800	industrial	Mains water supply to houses.
+sewers	Sewers	building	infrastructure	1850	industrial	Underground sewerage removing waste from cities.
+boats	Boats	transport	technique	-50000	foraging	Rafts, dugouts and hide boats.
+sail	Sail	transport	technique	-3500	early_state	Wind-driven ships.
+pack_animals	Pack animals	transport	technique	-3500	pastoral_nomadic	Donkeys, camels and horses carrying loads.
+wheel_cart	Wheel and cart	transport	technique	-3500	early_state	Wheeled vehicles drawn by animals.
+roads	Roads	transport	infrastructure	-3000	early_state	Built routes for carts and armies.
+canals	Canals	transport	infrastructure	-500	agrarian_empire	Artificial waterways.
+railway	Railway	transport	infrastructure	1825	industrial	Steam locomotives on iron rails.
+steamship	Steamship	transport	technique	1807	industrial	Steam-propelled ships.
+motor_vehicle	Motor vehicle	transport	good	1886	industrial	Cars and lorries with internal combustion engines.
+container_shipping	Container shipping	transport	technique	1956	service_information	Standard boxes moved between ship, rail and truck.
+aviation	Aviation	transport	industry	1903	industrial	Powered flight, then airlines and air freight.
+pipelines	Pipelines	transport	infrastructure	1865	industrial	Pipes moving oil, gas and water.
+gift_exchange	Gift exchange	exchange	practice	-100000	foraging	Goods moved by gift and obligation.
+redistribution	Redistribution	exchange	institution	-5000	chiefdom	A centre collecting goods and handing them out.
+barter	Barter	exchange	practice	-10000	horticultural_tribal	Direct exchange of goods for goods.
+credit_accounting	Credit and accounts	exchange	institution	-3000	early_state	Debts recorded in units of account.
+coinage	Coinage	exchange	institution	-630	agrarian_empire	Stamped metal coins.
+markets_fairs	Markets and fairs	exchange	institution	-2000	early_state	Regular places and days for trade.
+bills_of_exchange	Bills of exchange	exchange	institution	1200	commercial_city_state	Transferable orders to pay at a distance.
+banking	Banking	exchange	institution	1150	commercial_city_state	Deposit and lending houses.
+paper_money	Paper money	exchange	institution	1024	agrarian_empire	Notes as money.
+joint_stock_company	Joint-stock company	exchange	institution	1600	early_modern_state	Shares in a permanent company.
+stock_exchange	Stock exchange	exchange	institution	1602	early_modern_state	A market for shares.
+insurance	Insurance	exchange	institution	1350	commercial_city_state	Pooled risk for a premium.
+central_bank	Central bank	exchange	institution	1694	early_modern_state	A state's bank.
+electronic_payments	Electronic payments	exchange	infrastructure	1970	service_information	Card and digital payment networks.
+long_distance_trade	Long-distance trade	exchange	practice	-40000	foraging	Goods moved far beyond home.
+household_production	Household production	institutions	institution	-10000	horticultural_tribal	The household as the unit of production and consumption.
+property_in_land	Property in land	institutions	institution	-3000	early_state	Rights to land held and transferred.
+lordship_manor	Lordship and the manor	institutions	institution	800	feudal_manorial	Lords' rights over land and tenants.
+serfdom	Serfdom	institutions	institution	800	feudal_manorial	Tenants bound to land and labour dues.
+slavery	Slavery	institutions	institution	-3000	early_state	People owned as property.
+guilds	Guilds	institutions	institution	1100	commercial_city_state	Associations of craftsmen or merchants.
+wage_labour	Wage labour	institutions	institution	1100	feudal_manorial	Work sold for wages.
+putting_out	Putting-out	institutions	institution	1400	early_modern_state	Merchants supplying materials to home workers.
+factory_system	Factory system	institutions	institution	1771	industrial	Workers gathered at powered machines under supervision.
+state_taxation	State taxation	institutions	institution	-3000	early_state	A state taking a share of output.
+law_courts	Law courts	institutions	institution	-2000	early_state	Third-party enforcement of rights and debts.
+trade_unions	Trade unions	institutions	institution	1830	industrial	Workers organised to bargain.
+corporation	Corporation	institutions	institution	1850	industrial	Limited-liability companies with managers.
+welfare_state	Welfare state	institutions	institution	1883	industrial	State insurance, pensions and services.
+cities	Cities	institutions	institution	-3500	early_state	Dense settlements living on supply from elsewhere.
+writing	Writing	information	technique	-3200	early_state	Marks on clay and papyrus.
+record_keeping	Record keeping	information	practice	-8000	horticultural_tribal	Tokens and tallies.
+printing	Printing	information	technique	700	agrarian_empire	Woodblock printing in Tang China, movable type in Song China and Korea, and in Europe from about 1450; it carried paper money, prices, contracts and manuals.
+postal_service	Postal service	information	infrastructure	1500	early_modern_state	Regular carriage of letters.
+telegraph	Telegraph	information	infrastructure	1837	industrial	Messages by wire.
+telephone	Telephone	information	infrastructure	1876	industrial	Voice by wire.
+radio	Radio	information	technique	1895	industrial	Wireless signals.
+computer	Computer	information	technique	1945	service_information	Programmable electronic calculation.
+semiconductors	Semiconductors	information	industry	1947	service_information	Transistors and chips.
+internet	Internet	information	infrastructure	1969	service_information	Packet-switched networks.
+mobile_phone	Mobile phone	information	good	1983	service_information	Cellular telephones.

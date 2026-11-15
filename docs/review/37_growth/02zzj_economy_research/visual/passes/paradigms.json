@@ -1,0 +1,1004 @@
+{
+ "paradigms": [
+  {
+   "id": "foraging",
+   "label": "Foraging bands",
+   "kind": "type",
+   "start": -300000,
+   "end": null,
+   "size": "bands of 25-50; regional networks of a few hundred; usually under 1 person/km2",
+   "energy": "human muscle and fire (about 4,000-5,000 kcal a day per person, Morris after Cook)",
+   "organisation": "Gathering, hunting and fishing with a sexual division of labour; food is shared, often by rule, and goods move as gifts across bands. No fixed power: leadership by persuasion, status levelled by ridicule and the threat of leaving.",
+   "examples": "the !Kung San (Richard Lee); Sahlins's 'original affluent society'",
+   "preconditions": [
+    "under 1 person/km2",
+    "almost no stored surplus",
+    "human muscle and fire",
+    "stone, bone, fibre, fire",
+    "kin, sharing norms, levelling",
+    "foot travel; regional gatherings",
+    "needs nothing before it"
+   ],
+   "precondition_nodes": [
+    "fire",
+    "stone_tools"
+   ],
+   "typical_nodes": [
+    "foraging",
+    "hunting",
+    "fishing",
+    "fire",
+    "stone_tools",
+    "gift_exchange"
+   ],
+   "summary": "Small mobile groups fission and fuse through the year, linked by kin and marriage to a regional network. Food is shared and status is levelled; mobility caps possessions and stored wealth. Later work (Hawkes, O'Connell) showed that processing, tool making and childcare make the work week longer than Sahlins thought, and the leisure seasonal. The limit is the wild yield of the land.",
+   "collapse": null,
+   "engine": "here now: part 09 finds gathering, hunting with skill and parties, fishing, camps and gifts already in the engine; only a travelling household camp and bows and spears are missing."
+  },
+  {
+   "id": "horticultural_tribal",
+   "label": "Horticultural and tribal societies",
+   "kind": "type",
+   "start": -9500,
+   "end": null,
+   "size": "villages of 100-500; tribes of thousands; 1-20 people/km2",
+   "energy": "muscle; fire for clearing",
+   "organisation": "Swidden or garden plots, pigs and some herding, worked by households; exchange runs through reciprocity, big-man exchange and feasting. Lineages, councils and big men with no permanent office; surplus becomes pigs, feasts, bride-wealth and alliances.",
+   "examples": "Melanesian big men (Sahlins 1963); highland New Guinea; Boserup's fallow ladder",
+   "preconditions": [
+    "domesticates",
+    "sedentism",
+    "domesticated plants and animals, polished stone, pottery",
+    "lineages, big men, councils",
+    "foot and canoe"
+   ],
+   "precondition_nodes": [
+    "cereal_domestication",
+    "animal_domestication",
+    "pottery"
+   ],
+   "typical_nodes": [
+    "cereal_domestication",
+    "animal_domestication",
+    "pottery",
+    "household_production",
+    "gift_exchange",
+    "wattle_daub"
+   ],
+   "summary": "Gardeners clear plots, crop them for a few years and let them return to bush; Boserup's fallow ladder describes how this intensifies as people per acre rise. Villages are sedentary or semi-sedentary and political life runs through lineages. The big man builds a following through feasts and pig exchange and loses it when he stops giving. Warfare is frequent and often the main check on growth; no one can store, measure or tax the surplus at scale.",
+   "collapse": null,
+   "engine": "here now (as part 09's 'settled farming villages that last'): households farming their own land, stores, gifts and help are all in the engine; the question is calibration and run length, not primitives."
+  },
+  {
+   "id": "chiefdom",
+   "label": "Chiefdoms",
+   "kind": "type",
+   "start": -5000,
+   "end": null,
+   "size": "thousands to tens of thousands; one or two levels above the village",
+   "energy": "muscle; some draught animals",
+   "organisation": "Farming, often intensified (terraces, fishponds), with craft made for the chief; goods move by redistribution through the chief and as prestige goods. Hereditary ranked chiefs with sacred status collect part of the harvest and labour to fund feasts, craftsmen, warriors and monuments.",
+   "examples": "Polynesia and Hawaii (Kirch); Cahokia (10,000-20,000 at its peak c. 1050-1150 CE); Bronze Age Wessex",
+   "preconditions": [
+    "regular surplus chiefs can collect",
+    "intensified fields, monuments, craft",
+    "hereditary rank; sacred chiefship; tribute",
+    "one day from the centre",
+    "a control point (water, prestige goods, warriors)"
+   ],
+   "precondition_nodes": [
+    "cereal_domestication",
+    "irrigation_farming"
+   ],
+   "typical_nodes": [
+    "redistribution",
+    "gift_exchange",
+    "long_distance_trade",
+    "stone_masonry",
+    "irrigation_farming"
+   ],
+   "summary": "A chiefdom has hereditary ranks and a central person or lineage above the village. Earle stresses that chiefs need a control point: irrigation works, fishponds, prestige goods from afar, or warriors. Kirch argues that Hawaii's paramount chiefs had become archaic kings by the seventeenth century. Chiefdoms cycle, expanding, fragmenting on succession and re-forming, because the chief cannot yet make his officials independent of their own kin.",
+   "collapse": "Cycles of fragmentation on succession, between simple and complex chiefdoms.",
+   "engine": "modest (as part 09's 'lordship and redistribution'): a lord or chief can already be a household holding the best land or a mill; it needs the lord's house as an institution, dues by rule, tenancy until notice and light enforcement."
+  },
+  {
+   "id": "early_state",
+   "label": "Early states and temple economies",
+   "kind": "type",
+   "start": -3100,
+   "end": 1533,
+   "size": "cities of 10,000-50,000 (Uruk c. 3100 BCE perhaps 25,000-50,000) in polities of 100,000+",
+   "energy": "muscle and draught animals",
+   "organisation": "Temple and palace households hold land, herds and workshops and pay dependants rations of barley and wool from central stores, recorded on clay; some markets beside. A king, temple and scribes rule through tax, corvee, a standing administration and a claim to the monopoly of force.",
+   "examples": "southern Mesopotamia (Uruk); Egypt c. 3100 BCE; the Indus; the Yellow River; later Mesoamerica and the Andes",
+   "preconditions": [
+    "100,000+ people; a city of 10,000+",
+    "grain surplus measurable and storable",
+    "plough or irrigation, bronze, wheel, writing or records",
+    "tax, corvee, standing administration, law, monopoly of force",
+    "rivers, pack animals, messengers",
+    "appropriable cereal; records; circumscription or caging"
+   ],
+   "precondition_nodes": [
+    "cereal_domestication",
+    "plough",
+    "irrigation_farming",
+    "record_keeping",
+    "writing",
+    "bronze",
+    "wheel_cart"
+   ],
+   "typical_nodes": [
+    "redistribution",
+    "record_keeping",
+    "writing",
+    "state_taxation",
+    "cities",
+    "mudbrick",
+    "weaving",
+    "brewing",
+    "law_courts"
+   ],
+   "summary": "The first states add a standing administration, taxes, a monopoly claim on force and usually writing, which grew out of accounting. In southern Mesopotamia temple and palace households ran weaving shops of hundreds of women and paid dependants in rations. Scott argues early states were grain states because cereals ripen at once and can be seen, measured, stored and taxed, and that many people fled them; Mayshar, Moav and Pascali find cross-cultural support. The limit is how far grain can be hauled and how many people a centre can feed.",
+   "collapse": "The Late Bronze Age collapse (c. 1200-1150 BCE) destroyed the palace economies of the eastern Mediterranean: palaces, writing, fine craft and long-distance trade vanished from Greece for about four centuries.",
+   "engine": "major (as part 09's 'states and fiscal power'): the engine has nothing above the household; a state needs institutions at several levels, taxes by rule from a register, a treasury ledger, officials and courts, and is the first layer that cannot be all agents."
+  },
+  {
+   "id": "agrarian_empire",
+   "label": "Agrarian empires",
+   "kind": "type",
+   "start": -2334,
+   "end": 1922,
+   "size": "10-100 million (Han census AD 2 about 58 million; Rome about 60 million or more); 10-15 per cent urban",
+   "energy": "muscle, animals, wood, water mills (an organic economy)",
+   "organisation": "Peasant farming, with 80-90 per cent of people on the land, taxed in kind and coin; urban markets and long-distance luxuries. An emperor with a bureaucracy or aristocracy and an army takes the surplus through rent and tax for the army, capital, court and estates.",
+   "examples": "Rome; Han and Tang China; the Achaemenids; the Mauryas; the Abbasids; the Ottomans; the Mughals",
+   "preconditions": [
+    "millions; 10-15 per cent urban",
+    "tax-sized surplus across many provinces",
+    "iron, roads, coin, ships",
+    "bureaucracy or aristocracy; army; coinage; law",
+    "roads, rivers, sea lanes; relay posts",
+    "states to conquer; an army that can be paid"
+   ],
+   "precondition_nodes": [
+    "bloomery_iron",
+    "roads",
+    "coinage",
+    "state_taxation",
+    "law_courts",
+    "writing"
+   ],
+   "typical_nodes": [
+    "state_taxation",
+    "coinage",
+    "roads",
+    "cities",
+    "law_courts",
+    "slavery",
+    "watermill",
+    "markets_fairs",
+    "long_distance_trade"
+   ],
+   "summary": "Empires of tens of millions on a peasant base, where an elite of a few per cent takes the surplus; Milanovic, Lindert and Williamson find extraction close to the maximum compatible with the subsistence of the rest. Empires gave peace, roads, coin and law across large areas and could show real per capita growth (Goldstone's 'efflorescences'), but in an organic economy growth hits the land ceiling and turns into population. Turchin and Nefedov describe secular cycles of two to three centuries: growth, crowding and elite overproduction, crisis, depopulation.",
+   "collapse": "The end of the Western Roman economy (5th-7th centuries): when the tax-and-army system broke into kingdoms living off land, mass production for distant markets, money taxation, urban demand and literate administration were lost in the west for centuries (Wickham, Ward-Perkins).",
+   "engine": "major (as part 09's 'states and fiscal power'): office-holders could be agents but the taxed population must be aggregate; it needs institutions at levels, taxes by rule, a mint and borrowing, jurisdictions and the post."
+  },
+  {
+   "id": "feudal_manorial",
+   "label": "Feudal and manorial society",
+   "kind": "type",
+   "start": 850,
+   "end": 1861,
+   "size": "manor of one village (100-400 people); kingdom of a few million (England c. 1086 about 2 million); 10-40 people/km2 rural",
+   "energy": "muscle, animals, wood; water mills",
+   "organisation": "Peasant holdings beside the lord's demesne, worked by labour services; rents in labour, kind, then money, with local markets and fairs. Lords hold jurisdiction over dependent peasants and the ban (mill, oven, court); the church and a weak crown stand beside them.",
+   "examples": "the Latin West after the Carolingians (Bloch, Duby); the 'second serfdom' east of the Elbe",
+   "preconditions": [
+    "10-40/km2 rural",
+    "rent-sized surplus per village",
+    "heavy plough, horse collar, mill",
+    "lordship with jurisdiction; serfdom or tenancy; church",
+    "local roads; weekly markets",
+    "fragmentation of a larger state; land valuable relative to labour"
+   ],
+   "precondition_nodes": [
+    "plough",
+    "watermill",
+    "property_in_land",
+    "draught_animals"
+   ],
+   "typical_nodes": [
+    "lordship_manor",
+    "serfdom",
+    "three_field_rotation",
+    "watermill",
+    "markets_fairs",
+    "baking",
+    "property_in_land",
+    "guilds"
+   ],
+   "summary": "Power fragmented to lords who held jurisdiction over dependent peasants; the manor joined a village's holdings to the lord's demesne, mill, oven and court. Domar argued serfdom appears where land is plentiful and labour scarce and the state sides with landlords. The Brenner debate set class relations against the neo-Malthusian account: the Black Death ended serfdom in the west and produced a second serfdom east of the Elbe because the balance of power differed. The limits are land per peasant, violence between lords and peasant mobility.",
+   "collapse": "Not a collapse but a dissolution: after the Black Death labour services and serfdom faded in the west while lords tightened them in the east.",
+   "engine": "modest (as part 09's 'lordship and redistribution'): mills, leases, every-n legs, work legs and guarding exist; it needs the lord's house as an institution, tenancy until notice, dues by rule, distraint and a manor court, multure per batch and a manor roll."
+  },
+  {
+   "id": "commercial_city_state",
+   "label": "City-states and commercial republics",
+   "kind": "type",
+   "start": -2900,
+   "end": 1797,
+   "size": "towns of 20,000-150,000 (Venice c. 1300 above 100,000) on small territories; Greek poleis mostly a few thousand on under 200 km2",
+   "energy": "wood, wind, water, peat",
+   "organisation": "Crafts, shipbuilding and finance, with food bought or taken from the hinterland; markets, long-distance trade, credit and insurance. Merchant oligarchies, guilds and councils govern, and surplus goes to ships, stock, palaces, mercenaries and public debt.",
+   "examples": "Sumerian city-states; Phoenician ports; Greek poleis; the Swahili coast; the Hanse; Venice, Genoa, Florence; the Dutch Republic",
+   "preconditions": [
+    "towns 20,000-150,000",
+    "food bought or taken from hinterland",
+    "ships, accounting, credit instruments",
+    "self-government, guilds, merchant law, public debt",
+    "water routes; letters and couriers",
+    "trade routes; cheap water transport; a hinterland or grain trade"
+   ],
+   "precondition_nodes": [
+    "boats",
+    "sail",
+    "long_distance_trade",
+    "credit_accounting",
+    "cities"
+   ],
+   "typical_nodes": [
+    "bills_of_exchange",
+    "banking",
+    "insurance",
+    "guilds",
+    "markets_fairs",
+    "long_distance_trade",
+    "coinage",
+    "windmill",
+    "peat"
+   ],
+   "summary": "Societies where trade and craft dominate and food is bought or taken from outside. Medieval Italian cities invented or spread the commenda, double-entry bookkeeping, marine insurance, bills of exchange and public debt. The Dutch Republic was the largest version, 'the first modern economy' (de Vries and van der Woude), with specialised farming, peat energy and wind-powered industry. Epstein argued city-states also restricted trade to favour their citizens, and larger territorial states integrated markets better.",
+   "collapse": "Limited by food supply, routes others can close, and larger neighbours; the commercial revolution ended in the famines of 1315-17 and the Black Death.",
+   "engine": "major (as part 09's 'merchants and commercial economies', after 'market towns', modest to major): it needs partnerships as parties, ledgers at distant seats, courts, visible reputation, sea edges, letters and bills of exchange."
+  },
+  {
+   "id": "early_modern_state",
+   "label": "Early modern territorial states",
+   "kind": "type",
+   "start": 1500,
+   "end": 1850,
+   "size": "2-20 million; national markets forming",
+   "energy": "organic; peat and early coal in places",
+   "organisation": "An agrarian base plus proto-industry and colonial trade, with integrated markets, chartered companies and public debt. A crown with a bureaucracy and standing army, parliaments in some, spends on war, debt service and court.",
+   "examples": "England after 1688 (Brewer's fiscal-military state); France; Prussia; Russia; the Dutch; Ming and Qing China; Mughal, Ottoman and Tokugawa states",
+   "preconditions": [
+    "millions; national market forming",
+    "taxable money income",
+    "gunpowder, printing, ocean ships",
+    "bureaucracy, standing army, funded debt, chartered companies",
+    "canals, turnpikes, posts, printed news",
+    "commercialisation; competition between states"
+   ],
+   "precondition_nodes": [
+    "printing",
+    "sail",
+    "state_taxation",
+    "banking",
+    "coinage",
+    "postal_service"
+   ],
+   "typical_nodes": [
+    "joint_stock_company",
+    "central_bank",
+    "putting_out",
+    "printing",
+    "postal_service",
+    "canals",
+    "stock_exchange",
+    "paper_money"
+   ],
+   "summary": "From about 1500 European states grew by war: Tilly's coercion-intensive and capital-intensive paths, combined most successfully in England and France. England after 1688 raised revenue sharply through excise officers, a funded debt and the Bank of England (1694). Chartered companies carried state power overseas, proto-industry spread through the countryside, and de Vries's 'industrious revolution' had households working more for the market. All were still organic economies.",
+   "collapse": null,
+   "engine": "major (as part 09's 'states and fiscal power' and 'proto-industry'): both need major social additions, and the taxed population and the bulk of the spinners must be rule-run or aggregate."
+  },
+  {
+   "id": "industrial",
+   "label": "Industrial capitalist societies",
+   "kind": "type",
+   "start": 1760,
+   "end": null,
+   "size": "tens of millions; urban majority; agriculture under a tenth of workers",
+   "energy": "coal, then oil and electricity",
+   "organisation": "Factories, mineral energy and wage labour, with national and world markets, firms and banks. Parliamentary or authoritarian states, owners and organised labour; surplus goes to investment, infrastructure, consumption and social insurance.",
+   "examples": "Britain (first industrial revolution); Germany and the United States (second, after about 1870); Ford's assembly line from 1913",
+   "preconditions": [
+    "tens of millions; urban majority",
+    "agricultural surplus feeding non-farm majority",
+    "coal, then oil and electricity",
+    "steam, machine tools, steel, chemistry",
+    "secure property, company law, banks, wage contracts, schooling",
+    "railways, steamships, telegraph",
+    "agricultural revolution; mineral fuel; useful knowledge; capital"
+   ],
+   "precondition_nodes": [
+    "coal",
+    "steam_engine",
+    "machine_tools",
+    "legumes_clover",
+    "banking",
+    "joint_stock_company",
+    "wage_labour"
+   ],
+   "typical_nodes": [
+    "factory_system",
+    "mechanised_spinning",
+    "power_loom",
+    "railway",
+    "steamship",
+    "telegraph",
+    "bessemer_steel",
+    "electricity",
+    "corporation",
+    "trade_unions",
+    "coal_tar_chemicals"
+   ],
+   "summary": "Industrial society begins when mineral energy and machines make output per worker grow for generations; in Britain agriculture fell from about a third of workers in 1800 to under a tenth by 1900. A first revolution (cotton, iron, steam, canals, railways) was followed after about 1870 by a second (steel, chemicals, electricity, the internal combustion engine) with Chandler's managerial firm and research laboratories. Wage labour became normal, cities became majorities, and states added schooling, factory law and social insurance. The limits are business cycles, conflict between capital and labour, and the environmental cost of fossil fuel.",
+   "collapse": null,
+   "engine": "far (part 09's 'industrial edge' and 'mature industrial economy'): the kernel holds, but it needs a second, aggregate layer of workers, factories and markets; the energy step itself (a coal seam, engines as a fitting class) is cheap by comparison."
+  },
+  {
+   "id": "socialist_planned",
+   "label": "Socialist planned economies",
+   "kind": "type",
+   "start": 1928,
+   "end": null,
+   "size": "tens to hundreds of millions",
+   "energy": "as industrial",
+   "organisation": "State enterprises and collective farms with administered output targets, prices and allocation; chronic shortages and informal markets. A party-state pushes savings into heavy industry, defence, education and housing.",
+   "examples": "the Soviet Union from the first Five-Year Plan (1928) and its imitators; China before and after the 1978 reform",
+   "preconditions": [
+    "surplus extracted from agriculture by the state",
+    "party-state, central planning, collective farms",
+    "a revolution or conquest",
+    "an agrarian or industrial base to mobilise"
+   ],
+   "precondition_nodes": [
+    "factory_system",
+    "railway",
+    "electricity"
+   ],
+   "typical_nodes": [
+    "factory_system",
+    "tractor",
+    "electric_grid",
+    "welfare_state"
+   ],
+   "summary": "Markets were replaced with administered targets, prices and allocation, agriculture was collectivised and savings went into heavy industry and defence. Allen argues growth to the 1960s was real and fast; the famine of 1932-33 and the camps were its cost. Hayek argued a planner cannot gather the dispersed knowledge prices carry, and Kornai showed how soft budget constraints made firms hoard, ignore cost and quality, and produce shortages. Growth slowed from the 1970s as extensive growth ran out.",
+   "collapse": "The Soviet economy collapsed after 1989-91; Russian output fell about 40 per cent in the 1990s through 'disorganisation' of long supplier chains (Blanchard and Kremer). China kept the party-state but let markets grow from 1978.",
+   "engine": null
+  },
+  {
+   "id": "service_information",
+   "label": "Service and information economy",
+   "kind": "type",
+   "start": 1970,
+   "end": null,
+   "size": "city regions of millions; global networks; about 80 per cent urban",
+   "energy": "oil, gas, electricity; renewables rising",
+   "organisation": "Services hold about three quarters of jobs in high-income countries while manufacturing runs through global value chains; global markets, platforms, finance and intangibles. Large firms and regulators sit beside democracies and other states; surplus goes to R&D, education, health, pensions, housing and intangible capital.",
+   "examples": "New York, London, Tokyo as global cities (Sassen); the post-industrial society (Bell); East Asian manufacturing in global value chains",
+   "preconditions": [
+    "city regions of millions; 80 per cent urban",
+    "industrial productivity freeing workers for services",
+    "computers, telecoms, the internet, containers",
+    "education systems, IP law, regulation, social insurance, capital markets",
+    "air, container shipping, the internet",
+    "industrial base; mass education; cheap communication"
+   ],
+   "precondition_nodes": [
+    "computer",
+    "internet",
+    "container_shipping",
+    "aviation",
+    "electric_grid",
+    "welfare_state",
+    "stock_exchange"
+   ],
+   "typical_nodes": [
+    "internet",
+    "mobile_phone",
+    "semiconductors",
+    "electronic_payments",
+    "container_shipping",
+    "supermarket",
+    "central_bank",
+    "solar_wind"
+   ],
+   "summary": "As incomes rise employment moves from agriculture to industry to services (Clark, Fourastie), and Baumol's cost disease makes labour-intensive services grow dearer. Since about 1990 cheap communication allowed Baldwin's 'second unbundling' of factories into global value chains, now close to half of world trade, while control concentrated in a few global cities. Capital is increasingly intangible and favours winner-take-most firms and cities; the world became majority urban about 2007. The limits are slow productivity growth in services, ageing, inequality, housing and the move off fossil fuel.",
+   "collapse": null,
+   "engine": "far, near the edge of what the engine is for (part 09's 'modern urban economy'): it needs all of P1 to P18; the agent layer would become a set of seats and window households over an aggregate economy."
+  },
+  {
+   "id": "pastoral_nomadic",
+   "label": "Pastoral nomadism",
+   "kind": "branch",
+   "start": -4000,
+   "end": null,
+   "size": "mobile herding groups; steppe empires of confederated tribes",
+   "energy": "herd animals; the ridden horse",
+   "organisation": "Herds turn grassland unfit for crops into food, wool and transport, and wealth is stored on the hoof. Nomads are never self-sufficient and get grain, metal and cloth from farmers by trade, tribute or raid.",
+   "examples": "the Xiongnu, the Turks, the Uighurs (Barfield's 'outer frontier strategy'); the Mongols",
+   "preconditions": [
+    "domestic herd animals",
+    "grassland",
+    "settled neighbours to trade or raid",
+    "for steppe empires, the ridden horse"
+   ],
+   "precondition_nodes": [
+    "animal_domestication",
+    "wool_sheep",
+    "milk_dairy"
+   ],
+   "typical_nodes": [
+    "animal_domestication",
+    "wool_sheep",
+    "milk_dairy",
+    "pack_animals",
+    "long_distance_trade"
+   ],
+   "summary": "Khazanov's point is that nomads always need settled neighbours. Barfield showed that steppe empires rose with Chinese dynasties and lived on tribute extracted by alternating raids and peace; the Mongols were the exception that conquered and ruled. Nomadism is viable where cropping fails, animals store wealth and mobility makes people hard to tax.",
+   "collapse": "Typically absorbed, or conquers and settles.",
+   "engine": "modest: herds, driving and leading exist (herds.py); it needs herds at scale and a household that moves."
+  },
+  {
+   "id": "irrigation",
+   "label": "Irrigation societies",
+   "kind": "branch",
+   "start": -6000,
+   "end": null,
+   "size": "river valleys of thousands to millions",
+   "energy": "muscle and draught animals on watered alluvium",
+   "organisation": "River floods on fertile alluvium give very high yields per acre through canals that need upkeep and the allocation of water. Water may be managed by a state or by nested farmer associations and water temples.",
+   "examples": "Mesopotamia (Adams); Wittfogel's 'hydraulic' states; the Balinese subak (Lansing)",
+   "preconditions": [
+    "a river with silt and predictable flood",
+    "canals",
+    "allocation rules"
+   ],
+   "precondition_nodes": [
+    "irrigation_farming",
+    "cereal_domestication"
+   ],
+   "typical_nodes": [
+    "irrigation_farming",
+    "cereal_domestication",
+    "state_taxation",
+    "record_keeping"
+   ],
+   "summary": "Wittfogel argued that large irrigation works required and produced centralised despotic states. Adams showed that in Mesopotamia early canals were local and states came before large-scale works, and Lansing showed Balinese water managed by farmer associations and water temples, though critics dispute how old that system is. The fair reading: irrigation gives high, reliable yields and a control point that can be captured, but it does not require despotism.",
+   "collapse": "Salinisation, silting, and war over the head-works (salinisation in southern Mesopotamia).",
+   "engine": "major: it needs public works at scale, water rights by rule, and water as a resource on parcels with flow between them."
+  },
+  {
+   "id": "maritime_trading",
+   "label": "Maritime trading networks",
+   "kind": "branch",
+   "start": -2500,
+   "end": null,
+   "size": "networks of ports and merchant diasporas across seas",
+   "energy": "wind and oar; the monsoon",
+   "organisation": "Water transport many times cheaper than land, entrepots at straits, and merchant diasporas with their own law exchanging cloth, spices, horses and porcelain. Trust across ports is held by collective reputation, courts and partnerships.",
+   "examples": "the Indian Ocean (Aden, Calicut, Malacca, Quanzhou; Chaudhuri, Abu-Lughod); Austronesian voyagers; the Phoenicians; the Hanse; Venice; the Maghribi traders",
+   "preconditions": [
+    "boats",
+    "seasonal winds or coasts",
+    "ports at straits",
+    "trust between ports"
+   ],
+   "precondition_nodes": [
+    "boats",
+    "sail"
+   ],
+   "typical_nodes": [
+    "boats",
+    "sail",
+    "long_distance_trade",
+    "credit_accounting",
+    "bills_of_exchange",
+    "insurance"
+   ],
+   "summary": "The Indian Ocean system ran on the monsoon's regular wind reversal through port cities and merchant diasporas. Viability came from cheap water transport, entrepots at straits and trust institutions across ports. Greif's account of Maghribi traders enforcing contracts by collective reputation is the classic model; Edwards and Ogilvie argued from the same letters that they also used courts, and Greif disputed their reading.",
+   "collapse": "Larger states take the chokepoints.",
+   "engine": "major: it needs sea edges, ledgers at distant seats, bills and credit, and a port of districts."
+  },
+  {
+   "id": "frontier_settler",
+   "label": "Frontier and settler economies",
+   "kind": "branch",
+   "start": 1600,
+   "end": 1914,
+   "size": "settler colonies and frontiers of thousands to millions",
+   "energy": "organic, then rail and steam to market",
+   "organisation": "Abundant land and scarce labour mean either high wages and family farms or coerced labour; settlers ship staples to a metropolitan market. Force against the original inhabitants and an expanding state stand behind it.",
+   "examples": "the American frontier (Turner); Anglo settler booms of the nineteenth century (Belich)",
+   "preconditions": [
+    "an expanding state behind it",
+    "land taken from others",
+    "transport to metropolitan markets"
+   ],
+   "precondition_nodes": [
+    "railway",
+    "steamship",
+    "property_in_land"
+   ],
+   "typical_nodes": [
+    "property_in_land",
+    "railway",
+    "steamship",
+    "cereal_domestication",
+    "wage_labour"
+   ],
+   "summary": "Turner credited free land with American democracy; later historians stress conquest and federal support. Domar's logic applies: abundant land and scarce labour mean high wages or coercion, and Engerman and Sokoloff argued the crop decided which, with wheat and mixed farming favouring broad landholding. Belich describes nineteenth-century settler booms as cycles of boom, bust and 'export rescue' once railways and steamships let the frontier ship staples.",
+   "collapse": "Boom, bust and export rescue; the frontier closes.",
+   "engine": "here to modest: vacant places exist in the peoples worlds; settlement, claims on new land and dependence on the home region are in place."
+  },
+  {
+   "id": "plantation_slave",
+   "label": "Plantation and slave economies",
+   "kind": "branch",
+   "start": 1450,
+   "end": 1888,
+   "size": "plantation colonies; about 12.5 million Africans embarked in the transatlantic trade",
+   "energy": "coerced human muscle; animals and mills for sugar",
+   "organisation": "Export crops with economies of gang labour (sugar, tobacco, rice, cotton) on abundant land, worked by enslaved people that free workers would not replace at the wages owners would pay. A coercive state and distant consumers sustain it.",
+   "examples": "sugar in Brazil and the Caribbean; tobacco, rice and cotton in North America",
+   "preconditions": [
+    "export crop with scale economies",
+    "coercive law",
+    "captive supply",
+    "distant market"
+   ],
+   "precondition_nodes": [
+    "slavery",
+    "long_distance_trade",
+    "sail"
+   ],
+   "typical_nodes": [
+    "slavery",
+    "cotton",
+    "long_distance_trade",
+    "sail"
+   ],
+   "summary": "About 12.5 million Africans were embarked and about 10.7 million arrived (Slave Voyages). Fogel and Engerman argued plantations were efficient and profitable; critics attacked their evidence and picture of slave life while accepting profitability. Williams argued slavery's profits financed British industry, which most economic historians think too large in quantity but right about the Atlantic system's role in cotton supply.",
+   "collapse": "Abolition, with persistent inequality after it.",
+   "engine": null
+  },
+  {
+   "id": "gift_economy",
+   "label": "Gift and rank economies",
+   "kind": "branch",
+   "start": -1500,
+   "end": null,
+   "size": "winter villages of complex foragers; island rings; highland big-man networks",
+   "energy": "human muscle; stored salmon or sweet potato and pigs",
+   "organisation": "A rich storable surplus without a state to tax it feeds competitive giving: chiefs give away or destroy goods to validate names and rank, and valuables circulate to make lasting partnerships. Ordinary barter runs alongside.",
+   "examples": "the Northwest Coast potlatch; the Trobriand kula (Malinowski); the moka of highland New Guinea (Strathern)",
+   "preconditions": [
+    "storable surplus without a taxing state",
+    "rival groups to exchange with",
+    "a rich, concentrated, storable resource",
+    "storage, drying, boats, weirs",
+    "ranked lineages, ceremony"
+   ],
+   "precondition_nodes": [
+    "fishing",
+    "salt_preservation",
+    "boats"
+   ],
+   "typical_nodes": [
+    "gift_exchange",
+    "fishing",
+    "boats",
+    "slavery",
+    "barter"
+   ],
+   "summary": "Mauss built The Gift on two cases. On the Northwest Coast, salmon dried and stored in quantity let foragers live in large winter villages with hereditary ranks, slaves and the potlatch; ranking followed the intensification of salmon storage, and Suttles argued the potlatch spread food across villages whose resources fluctuated. In the Trobriands the kula carries necklaces and armshells round an island ring, and in highland New Guinea the moka is competitive pig exchange made possible by sweet potato.",
+   "collapse": "Colonial bans (Canada banned the potlatch 1885-1951) and incorporation in markets.",
+   "engine": null
+  }
+ ],
+ "transitions": [
+  {
+   "from": "foraging",
+   "to": "horticultural_tribal",
+   "label": "The Neolithic transition",
+   "when": "c. 9500 BCE onward",
+   "mechanism": "Farming began independently in seven to eleven centres and domestication took one to three millennia (Fuller). Explanations include climate (Richerson, Boyd and Bettinger), population pressure (Cohen), the broad spectrum revolution (Flannery), feasting (Hayden) and property rights (Bowles and Choi); skeletons show it made individuals worse off (Cohen and Armelagos). It won through the Neolithic demographic transition (Bocquet-Appel): farming outbred foragers.",
+   "part_section": "4.1"
+  },
+  {
+   "from": "foraging",
+   "to": "gift_economy",
+   "label": "Complex foragers",
+   "when": "where a rich storable wild resource existed",
+   "mechanism": "Where a rich, storable, defensible resource existed (salmon on the Northwest Coast, acorns in California) foragers became sedentary, ranked and slave-holding. Archaeologists find that ranking followed the intensification of salmon storage.",
+   "part_section": "3.6"
+  },
+  {
+   "from": "horticultural_tribal",
+   "to": "chiefdom",
+   "label": "Rise of chiefdoms",
+   "when": "from the regular collectable surplus",
+   "mechanism": "Chiefs arise where they can hold a control point: irrigation works, fishponds, prestige goods from afar, or warriors (Earle). Chiefdoms cycle between simple and complex forms because the chief cannot yet make officials independent of their kin.",
+   "part_section": "2.4"
+  },
+  {
+   "from": "chiefdom",
+   "to": "early_state",
+   "label": "The rise of the state",
+   "when": "late 4th millennium BCE onward",
+   "mechanism": "Integrative theories (Childe, Wright and Johnson, managerial irrigation) see the state as solving coordination; conflict theories see capture, as in Carneiro's circumscription, Mann's caging and Scott's grain state, where people and harvest cannot easily leave. Critics say circumscription needs a universal drive to conquer and fails cross-cultural tests. Most specialists combine an appropriable surplus, density beyond face-to-face rule (Dunbar's about 150), competition between polities and a technology of records.",
+   "part_section": "4.2"
+  },
+  {
+   "from": "irrigation",
+   "to": "early_state",
+   "label": "The hydraulic hypothesis",
+   "when": "Mesopotamia, from the 4th millennium BCE",
+   "mechanism": "Wittfogel argued large irrigation works required and produced despotic states. Adams showed early Mesopotamian canals were local and states came before large works, and Lansing's Bali showed water run by farmer associations; irrigation gives a capturable control point but does not require despotism.",
+   "part_section": "3.2"
+  },
+  {
+   "from": "early_state",
+   "to": "agrarian_empire",
+   "label": "Empire building",
+   "when": "from the late 3rd millennium BCE",
+   "mechanism": "Empires conquer many states and must pay an army; they give peace, roads, coin and law across large areas. Growth in an organic economy hits the land ceiling and turns into population, in Turchin and Nefedov's secular cycles.",
+   "part_section": "2.6"
+  },
+  {
+   "from": "pastoral_nomadic",
+   "to": "agrarian_empire",
+   "label": "Steppe conquest",
+   "when": "Xiongnu from c. 209 BCE; Mongols 13th century",
+   "mechanism": "Steppe empires rose alongside Chinese dynasties and lived on tribute by alternating raids and peace (Barfield). The Mongols were the exception that conquered and ruled; the typical end is absorption, or conquest and settling (Khazanov).",
+   "part_section": "3.1"
+  },
+  {
+   "from": "agrarian_empire",
+   "to": "feudal_manorial",
+   "label": "The end of the Western Roman economy",
+   "when": "5th to 7th centuries CE",
+   "mechanism": "Wickham's explanation is fiscal: when the Roman tax-and-army system broke into kingdoms that lived off land, the demand that sustained specialists vanished and power fragmented to lords. The transformation school stresses continuity; Ward-Perkins counters with a sharp material fall; Harper adds climate and plague, and Haldon warns against simple environmental causes.",
+   "part_section": "6.2"
+  },
+  {
+   "from": "feudal_manorial",
+   "to": "commercial_city_state",
+   "label": "The commercial revolution",
+   "when": "950-1350 CE",
+   "mechanism": "Lopez's commercial revolution: Europe's population doubled or tripled, towns and over a thousand English market charters were founded (Britnell), Italian merchants built partnerships, credit and bookkeeping, and the Champagne fairs joined Italy and Flanders. The mechanisms were Smithian, demographic and institutional; it ended in the famines of 1315-17 and the Black Death because growth was largely extensive.",
+   "part_section": "4.3"
+  },
+  {
+   "from": "maritime_trading",
+   "to": "commercial_city_state",
+   "label": "Entrepots become republics",
+   "when": "Phoenicians, Hanse, Venice",
+   "mechanism": "Cheap water transport and entrepots at straits let ports live on trade with food bought from outside. Their typical end is that larger states take the chokepoints.",
+   "part_section": "3.3"
+  },
+  {
+   "from": "feudal_manorial",
+   "to": "early_modern_state",
+   "label": "The end of western serfdom",
+   "when": "after 1347-1352",
+   "mechanism": "With land abundant and labour scarce after the Black Death, real wages rose and labour services faded in the west despite the Statute of Labourers, while lords east of the Elbe tied peasants tighter. Brenner explains the difference by class power against the neo-Malthusian account of Postan and Le Roy Ladurie; Voigtlander and Voth argue plague and war kept incomes high.",
+   "part_section": "6.3"
+  },
+  {
+   "from": "commercial_city_state",
+   "to": "early_modern_state",
+   "label": "War makes states",
+   "when": "from about 1500",
+   "mechanism": "Tilly: war made states, along coercion-intensive and capital-intensive paths, and larger territorial states eventually integrated markets better than city-states (Epstein). Brewer's fiscal-military state shows England after 1688 raising revenue through excise and a funded debt; Tilly is criticised as Eurocentric.",
+   "part_section": "2.9"
+  },
+  {
+   "from": "early_modern_state",
+   "to": "plantation_slave",
+   "label": "The Atlantic plantation system",
+   "when": "15th to 19th centuries",
+   "mechanism": "Export crops with gang-labour scale economies on abundant land, a coercive state and a supply of captives made plantations viable (Domar; Engerman and Sokoloff). Fogel and Engerman argued they were efficient; critics contested their evidence while accepting profitability.",
+   "part_section": "3.5"
+  },
+  {
+   "from": "early_modern_state",
+   "to": "frontier_settler",
+   "label": "Settler expansion",
+   "when": "17th to 19th centuries",
+   "mechanism": "Abundant land and scarce labour gave high wages and family farms or coerced labour, the crop deciding which (Engerman and Sokoloff). Turner credited free land with democracy; historians stress conquest and federal support; Belich describes boom, bust and export rescue once railways and steamships arrived.",
+   "part_section": "3.4"
+  },
+  {
+   "from": "early_modern_state",
+   "to": "industrial",
+   "label": "The agricultural revolution",
+   "when": "16th to 19th centuries (England)",
+   "mechanism": "Convertible husbandry, turnips and clover, and rotations that fixed nitrogen and fed more animals and so more manure raised output per acre and per worker (Overton). Allen argues much of the rise came from small farmers in the seventeenth century, with later enclosure mainly redistributing income. Fewer farmers could feed more townspeople, releasing labour to industry.",
+   "part_section": "4.4"
+  },
+  {
+   "from": "early_modern_state",
+   "to": "industrial",
+   "label": "The Great Divergence",
+   "when": "c. 1700-1800",
+   "mechanism": "Pomeranz argued the Yangzi delta and England were alike until coal near industry and the New World's 'ghost acres' let Britain diverge. Broadberry and Gupta, Allen and coauthors, and Broadberry, Guan and Li answered with wage and output data dating divergence earlier; others point to a little divergence within Europe, political fragmentation (Rosenthal and Wong) and useful knowledge (Mokyr).",
+   "part_section": "4.5"
+  },
+  {
+   "from": "early_modern_state",
+   "to": "industrial",
+   "label": "The industrial revolution",
+   "when": "c. 1760-1850 (Britain)",
+   "mechanism": "Growth was slower and longer than once thought, under 2 per cent a year (Crafts and Harley). Explanations, now treated as complements: Allen's high wages and cheap coal (disputed by Humphries and Schneider), Mokyr's industrial enlightenment, skilled mechanics (Kelly, Mokyr and O Grada), Wrigley's energy transition (by 1800 coal equal to woodland on a third of Britain) and North and Weingast's secure property after 1688.",
+   "part_section": "4.6"
+  },
+  {
+   "from": "plantation_slave",
+   "to": "industrial",
+   "label": "Atlantic cotton and British industry",
+   "when": "late 18th to 19th centuries",
+   "mechanism": "Williams argued slavery's profits financed British industry; most economic historians think the quantity too large but accept the Atlantic system's role in cotton supply. Pomeranz's 'ghost acres' make a related argument about land-intensive goods grown abroad.",
+   "part_section": "3.5"
+  },
+  {
+   "from": "industrial",
+   "to": "socialist_planned",
+   "label": "Revolution and the plan",
+   "when": "1928 onward",
+   "mechanism": "A revolution or conquest and an agrarian or industrial base to mobilise let a party-state replace markets with targets and collectivise farming. Allen argues growth to the 1960s was real; Hayek's knowledge problem and Kornai's soft budget constraint explain the shortages and the slowdown as extensive growth ran out.",
+   "part_section": "2.11"
+  },
+  {
+   "from": "industrial",
+   "to": "service_information",
+   "label": "The demographic transition",
+   "when": "19th to 20th centuries",
+   "mechanism": "Falling death rates then falling birth rates (Thompson, Notestein), through better food (McKeown) or urban public health (Szreter). The Princeton project read the fertility fall as cultural diffusion, which Brown and Guinnane showed was biased against economic effects; Galor links it to returns to education. It breaks the Malthusian link, so income gains stop turning into more people.",
+   "part_section": "4.7"
+  },
+  {
+   "from": "industrial",
+   "to": "service_information",
+   "label": "Mass production, then deindustrialisation",
+   "when": "1910s-1970s, then from about 1980-1990",
+   "mechanism": "Mass production and the consumer economy brought standardised goods, high wages, mass schooling and the welfare state. From about 1980-1990 manufacturing jobs fell in rich countries and rose in Asia as global value chains formed and control gathered in global cities (Baldwin, Sassen); East Asian developmental states directed credit to exports after land reform and education (Johnson, Amsden, Wade).",
+   "part_section": "4.8"
+  },
+  {
+   "from": "socialist_planned",
+   "to": "industrial",
+   "label": "From plan to market",
+   "when": "China from 1978; Eastern Europe from 1991",
+   "mechanism": "China kept the party-state but let markets grow beside the plan; the post-1991 transitions ran part of the sequence in a generation. In Russia output fell about 40 per cent as long supplier chains broke when the plan stopped (Blanchard and Kremer's disorganisation).",
+   "part_section": "4.8"
+  }
+ ],
+ "collapses": [
+  {
+   "label": "Late Bronze Age collapse",
+   "when": -1200,
+   "summary": "A system of palace economies joined by diplomacy and the copper-and-tin trade for bronze collapsed within a few decades: the Hittite state vanished and Ugarit burned. Cline treats it as a systems collapse of drought, earthquakes, the Sea Peoples, rebellion and the failure of the trade network on which bronze depended.",
+   "lost": [
+    "palace economies",
+    "writing (Linear B)",
+    "fine craft",
+    "long-distance trade",
+    "bronze",
+    "population"
+   ]
+  },
+  {
+   "label": "End of the Western Roman economy",
+   "when": 450,
+   "summary": "When the Roman tax-and-army system broke into kingdoms that lived off land, the buyers of specialist goods and payers of officials disappeared (Wickham). Ward-Perkins finds fewer and coarser pots, smaller cattle, thatch instead of tile and coins out of use; in Britain coin, wheel-made pottery and towns went within a generation of 410. Greenland lead pollution shows the decline began well before 476.",
+   "lost": [
+    "coinage",
+    "pottery",
+    "cities",
+    "state_taxation",
+    "mass production for distant markets",
+    "literate administration"
+   ]
+  },
+  {
+   "label": "Classic Maya and Chaco Canyon (Tainter)",
+   "when": 900,
+   "summary": "Two of Tainter's cases of complexity yielding diminishing returns until a shock brought a rapid fall in complexity. Critics (McAnany and Yoffee, Butzer) stress that people and much of their culture continued, so collapse often meant the end of an elite; deforestation explanations for the Maya are debated.",
+   "lost": [
+    "elite administration",
+    "monuments",
+    "complexity"
+   ]
+  },
+  {
+   "label": "Black Death",
+   "when": 1347,
+   "summary": "Plague killed perhaps 30-50 per cent of Europe's people (up to about 60 per cent in Benedictow's reckoning) and recurred for three centuries. With land abundant and labour scarce, real wages rose and serfdom faded in the west, while institutions, knowledge and routes survived, so income per head rose.",
+   "lost": [
+    "population",
+    "marginal settlement",
+    "serfdom"
+   ]
+  },
+  {
+   "label": "Soviet disorganisation",
+   "when": 1991,
+   "summary": "When the plan stopped, firms in long chains of specialised suppliers could not replace a single missing input or customer, and bargaining failures cut whole chains (Blanchard and Kremer). Russian output fell about 40 per cent in the 1990s; the same logic applies to global value chains under shocks.",
+   "lost": [
+    "planned supply chains",
+    "industrial output",
+    "factory_system"
+   ]
+  }
+ ],
+ "theories": [
+  {
+   "name": "Malthus",
+   "claim": "Population grows faster than food, so famine, disease and late marriage hold income near subsistence.",
+   "critique": "Misses the escape after 1800 and underrates technical change and preventive checks such as Hajnal's European marriage pattern."
+  },
+  {
+   "name": "Boserup",
+   "claim": "Population pressure causes intensification: shorter fallow, more labour per acre, new tools.",
+   "critique": "Intensification lowers output per hour, and it explains when intensification happens, not whether."
+  },
+  {
+   "name": "Smith",
+   "claim": "The division of labour is limited by the extent of the market, so trade and specialisation raise output.",
+   "critique": "Smithian growth is bounded by land and energy (Wrigley) and does not by itself produce industrialisation."
+  },
+  {
+   "name": "Marx (frame only)",
+   "claim": "Modes of production are defined by who owns the means and how surplus is taken, and class conflict drives change.",
+   "critique": "Teleological; the stage list fits Europe poorly and elsewhere worse, and planned economies did not behave as predicted."
+  },
+  {
+   "name": "North, Wallis and Weingast",
+   "claim": "Limited access orders share rents among elites to contain violence; open access orders let anyone form organisations once 'doorstep conditions' are met.",
+   "critique": "More descriptive than causal; how the doorstep is crossed is loosely specified."
+  },
+  {
+   "name": "Acemoglu and Robinson",
+   "claim": "Extractive institutions block creative destruction and inclusive ones allow growth, decided at critical junctures.",
+   "critique": "Glaeser et al. argue human capital comes first; Albouy contests the settler-mortality data; China grew under extractive rule."
+  },
+  {
+   "name": "Wrigley",
+   "claim": "Organic economies are bounded by photosynthesis on land, and mineral energy removes the bound.",
+   "critique": "Energy is necessary, not sufficient: coal existed elsewhere without industrialisation."
+  },
+  {
+   "name": "Mokyr",
+   "claim": "Sustained growth needs a growing stock of useful knowledge tied to techniques and an open market for ideas.",
+   "critique": "Hard to measure, and it may describe growth rather than cause it."
+  },
+  {
+   "name": "Allen",
+   "claim": "High wages and cheap energy made labour-saving machines pay first in Britain.",
+   "critique": "Humphries and Schneider show hand spinners' wages were low, and it does not explain continued invention."
+  },
+  {
+   "name": "Domar; Engerman and Sokoloff",
+   "claim": "Land-labour ratios and crops shape coercion and inequality: serfdom, slavery and settler institutions.",
+   "critique": "Many exceptions; politics decides as much as ratios."
+  },
+  {
+   "name": "Tilly",
+   "claim": "War made states and states made war, with coercion and capital setting the path.",
+   "critique": "Eurocentric, and underrates China as a large state with little interstate war."
+  },
+  {
+   "name": "Scheidel",
+   "claim": "Inequality falls mainly through four violent levellers: mass war, revolution, state collapse and plague.",
+   "critique": "Gives less weight to policy and education."
+  },
+  {
+   "name": "Service and Fried",
+   "claim": "Societies sort into band, tribe, chiefdom and state by political integration and access to status.",
+   "critique": "Unilinear, and built from ethnography of colonised peoples treated as living fossils."
+  },
+  {
+   "name": "Johnson and Earle",
+   "claim": "Societies sort from family-level groups to nation-states by intensification, integration and stratification.",
+   "critique": "Still a single direction, with little on reversals."
+  },
+  {
+   "name": "Polanyi",
+   "claim": "Goods move by reciprocity, redistribution, market exchange or householding.",
+   "critique": "The forms coexist in most societies, and markets are older and wider than he allowed."
+  },
+  {
+   "name": "Morris",
+   "claim": "Societies can be ranked as foragers, farmers and fossil-fuel users by energy captured per person.",
+   "critique": "Energy is one index among several, and values and politics follow it only loosely."
+  },
+  {
+   "name": "Graeber and Wengrow",
+   "claim": "There are no stages: people alternated seasonally between forms and chose how to organise.",
+   "critique": "Scheidel and others reply that flexibility within a stage does not refute the overall trend in scale and hierarchy."
+  },
+  {
+   "name": "Sahlins (original affluent society)",
+   "claim": "Foragers met their needs with only part of the week's work.",
+   "critique": "Hawkes and O'Connell showed processing, tool making and childcare raise the total sharply and the leisure was seasonal."
+  },
+  {
+   "name": "Scott (Against the Grain)",
+   "claim": "Early states were grain states, because cereals can be seen, measured, stored and taxed, and many people fled them.",
+   "critique": "Critics note the role of non-grain crops and that many people chose towns."
+  },
+  {
+   "name": "Carneiro (circumscription)",
+   "claim": "Where farmland is bounded by desert, sea or mountains, defeated villages cannot flee and become tribute payers.",
+   "critique": "Needs a universal drive to conquer and fails cross-cultural tests, though it fits several valleys."
+  },
+  {
+   "name": "Wittfogel (hydraulic society)",
+   "claim": "Large irrigation works required and produced centralised despotic states.",
+   "critique": "Adams showed states came before large works in Mesopotamia, and Lansing's Bali shows water run by farmer associations."
+  },
+  {
+   "name": "Brenner",
+   "claim": "The same demographic shock ended serfdom in the west and tightened it in the east because the balance of class power differed.",
+   "critique": "The neo-Malthusian school (Postan, Le Roy Ladurie) gives demography the leading role."
+  },
+  {
+   "name": "Pomeranz (Great Divergence)",
+   "claim": "England and the Yangzi delta were alike until coal and the New World's ghost acres let Britain diverge.",
+   "critique": "Broadberry and Gupta, Allen et al. and Broadberry, Guan and Li find wage and output gaps that date the divergence earlier."
+  },
+  {
+   "name": "Greif (Maghribi traders)",
+   "claim": "Long-distance traders enforced contracts by collective reputation within a coalition.",
+   "critique": "Edwards and Ogilvie argue from the same letters that they also used courts and outsiders; Greif disputed their reading."
+  },
+  {
+   "name": "Fogel and Engerman (Time on the Cross)",
+   "claim": "Slave plantations were efficient and profitable.",
+   "critique": "Gutman, David and Temin attacked the evidence and picture of slave life, while accepting profitability."
+  },
+  {
+   "name": "Williams (Capitalism and Slavery)",
+   "claim": "Slavery's profits financed British industry.",
+   "critique": "Most economic historians think the quantity too large, though right about the Atlantic system's role in cotton supply."
+  },
+  {
+   "name": "Turner (frontier thesis)",
+   "claim": "Free land on the frontier produced American democracy.",
+   "critique": "Historians since have stressed conquest and federal support."
+  },
+  {
+   "name": "Hayek and Kornai",
+   "claim": "A planner cannot gather the dispersed knowledge prices carry, and soft budget constraints make firms hoard and produce shortages.",
+   "critique": "Allen argues Soviet growth to the 1960s was real and fast."
+  },
+  {
+   "name": "Princeton European Fertility Project",
+   "claim": "Fertility fell almost together across regions of very different economies, read as cultural diffusion.",
+   "critique": "Brown and Guinnane showed its methods were biased against finding economic effects."
+  },
+  {
+   "name": "Tainter",
+   "claim": "Complexity is a problem-solving investment with diminishing returns, until a shock brings collapse.",
+   "critique": "Complexity is hard to measure and risks circularity; it ignores new energy sources; collapse often meant the end of an elite, not a society."
+  },
+  {
+   "name": "Henrich (Tasmania)",
+   "claim": "When population falls below a threshold, knowledge held by few is lost.",
+   "critique": "Contested."
+  }
+ ]
+}

@@ -44,6 +44,24 @@ def main(src, dest=HERE):
             e['to'] = ALIAS.get(e['to'], e['to'])
             e['part'] = os.path.basename(f)
             edges.append(e)
+    # seed ids that a pass linked to but no pass defined: a short general entry, so no edge is lost
+    fb = os.path.join(HERE, 'seed_fallback.tsv')
+    if os.path.exists(fb):
+        rows = [l.rstrip('\n').split('\t') for l in open(fb) if l.strip()]
+        head = rows[0]
+        wanted = {e['from'] for e in edges} | {e['to'] for e in edges}
+        for r in rows[1:]:
+            s = dict(zip(head, r))
+            if s['id'] in wanted and s['id'] not in nodes:
+                nodes[s['id']] = {'id': s['id'], 'label': s['label'], 'domain': s['domain'], 'kind': s['kind'],
+                                  'start': int(s['start']), 'date_src': 'general', 'paradigm': s['paradigm'], 'place': '',
+                                  'desc': s['desc'] + ' (A general entry: no part defined this node, though parts link to it.)',
+                                  'chokepoint': False, 'parts': [], 'fallback': True}
+                report.append(f"fallback: {s['id']}")
+    ov = os.path.join(HERE, 'date_overrides.json')
+    for i, y in (json.load(open(ov)).items() if os.path.exists(ov) else []):
+        if i in nodes:
+            nodes[i]['start'], nodes[i]['date_src'] = y, 'general'
     # clean nodes
     for n in nodes.values():
         n['part'] = n['parts'][0] if n['parts'] else ''

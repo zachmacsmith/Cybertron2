@@ -1,0 +1,4737 @@
+{
+ "nodes": [
+  {
+   "id": "foraging",
+   "label": "Foraging",
+   "domain": "food",
+   "kind": "practice",
+   "start": -2600000,
+   "date_src": "general",
+   "place": "Africa, then worldwide",
+   "paradigm": "foraging",
+   "desc": "Bands of about 25 to 30 people [firm] moving over territories, taking wild food and sharing most of it. Diet-breadth logic ranks foods by return: big game ~16,000 to 31,000 kcal an hour once found, small seeds ~300 to 1,300 [rough], so lower foods join the diet only as the best run short.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "stone_tools",
+   "label": "Stone tools (Oldowan)",
+   "domain": "materials",
+   "kind": "technique",
+   "start": -2600000,
+   "date_src": "part",
+   "place": "Ledi-Geraru and Gona, Ethiopia",
+   "paradigm": "foraging",
+   "desc": "Sharp flakes knocked off cobbles, for butchering large carcasses and reaching marrow. At Nyayanga chosen cobbles were carried up to 13 km [firm]; knapping is long skill on a chokepoint, since fine-grained stone is patchy.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "acheulean_handaxe",
+   "label": "Acheulean hand-axe",
+   "domain": "materials",
+   "kind": "technique",
+   "start": -1760000,
+   "date_src": "part",
+   "place": "East Africa",
+   "paradigm": "foraging",
+   "desc": "A planned shape worked on both faces: an all-purpose tool unchanged for a million years. Stone usually local (under ~20 km) but chosen for quality.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "prepared_core_levallois",
+   "label": "Prepared-core (Levallois) flaking",
+   "domain": "materials",
+   "kind": "technique",
+   "start": -300000,
+   "date_src": "part",
+   "place": "Olorgesailie, Kenya",
+   "paradigm": "foraging",
+   "desc": "A core shaped so one blow gives a planned flake, making points for hafting. At Olorgesailie obsidian came from 25 to 95 km away ~300 ka [firm].",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "blade_technology",
+   "label": "Blades and burins",
+   "domain": "materials",
+   "kind": "technique",
+   "start": -48000,
+   "date_src": "part",
+   "place": "Upper Palaeolithic Eurasia; earlier in Africa",
+   "paradigm": "foraging",
+   "desc": "Long thin blades from prismatic cores give more edge per kilo; burins cut bone and antler into needles, harpoons and spear-thrower hooks. Good flint moved 100 to 200 km and more [rough].",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "microliths",
+   "label": "Microliths",
+   "domain": "materials",
+   "kind": "technique",
+   "start": -71000,
+   "date_src": "part",
+   "wide": -18000,
+   "place": "Pinnacle Point, South Africa",
+   "paradigm": "foraging",
+   "desc": "Tiny geometric pieces set in rows in a shaft: arrows, barbed spears, sickles with replaceable parts. A substitute that relaxed the stone chokepoint, since small poor nodules sufficed; general after ~20 ka.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "hafting_composite_tools",
+   "label": "Hafted composite tools",
+   "domain": "materials",
+   "kind": "technique",
+   "start": -300000,
+   "date_src": "part",
+   "place": "Africa and Eurasia",
+   "paradigm": "foraging",
+   "desc": "Stone point, wooden shaft, glue and binding assembled from three or four chains. It opened stone-tipped spears, later the bow, and blades set in a haft as sickles.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "birch_tar_adhesive",
+   "label": "Birch tar and gum glues",
+   "domain": "materials",
+   "kind": "technique",
+   "start": -200000,
+   "date_src": "part",
+   "place": "Italy (Neanderthals); South Africa",
+   "paradigm": "foraging",
+   "desc": "Birch tar from ~200 ka, made by heating bark; gum-and-ochre glues ~70 ka in South Africa. One of the first uses of fire to make a material, and the joint of every hafted tool.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "ochre",
+   "label": "Ochre",
+   "domain": "materials",
+   "kind": "resource",
+   "start": -300000,
+   "date_src": "general",
+   "place": "southern Africa; Australia (Wilgie Mia, Parachilna)",
+   "paradigm": "foraging",
+   "desc": "Iron-oxide pigment used in glues, on bodies and in ceremony, and carried hundreds of km along Aboriginal kin routes [distances rough]. The part lists ochre with good stone and water as forager chokepoints; quarries were owned by one group.",
+   "chokepoint": true,
+   "part": "10"
+  },
+  {
+   "id": "fire",
+   "label": "Fire use",
+   "domain": "energy",
+   "kind": "technique",
+   "start": -1000000,
+   "date_src": "part",
+   "wide": -350000,
+   "place": "Wonderwerk Cave, South Africa",
+   "paradigm": "foraging",
+   "desc": "Burnt bone and ash ~1.0 Ma [contested]; repeated hearths ~790 ka and habitual fire ~400 to 300 ka. The first general-purpose hub: cooking, heat treatment, glue, smoking, plaster, pottery, salt and metal all pass through a hearth or kiln.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "fire_making_at_will",
+   "label": "Fire-making at will",
+   "domain": "energy",
+   "kind": "technique",
+   "start": -400000,
+   "date_src": "part",
+   "place": "Barnham, Suffolk",
+   "paradigm": "foraging",
+   "desc": "A heated hearth with iron pyrite, foreign to the site, for striking sparks on flint (Davis et al. 2025); the previous oldest firm evidence was ~50 ka. Fire no longer had to be carried or found.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "cooking",
+   "label": "Cooking",
+   "domain": "food",
+   "kind": "practice",
+   "start": -400000,
+   "date_src": "part",
+   "place": "Qesem Cave and European sites",
+   "paradigm": "foraging",
+   "desc": "Cooking gelatinises starch and softens fibre, so the same food yields more energy (Carmody et al. 2011) [firm for the effect; size in humans rough]. It made tubers and seeds worth eating; its cost is fuel, which pushes camps to move.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "heat_treated_stone",
+   "label": "Heat-treated stone",
+   "domain": "materials",
+   "kind": "technique",
+   "start": -164000,
+   "date_src": "part",
+   "place": "Pinnacle Point, South Africa",
+   "paradigm": "foraging",
+   "desc": "Silcrete heated to ~350 C flakes better: the first use of fire to change a material. The bottom rung of the pyrotechnology ladder.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "landscape_burning",
+   "label": "Landscape burning",
+   "domain": "food",
+   "kind": "practice",
+   "start": -40000,
+   "date_src": "general",
+   "place": "Australia (firestick farming)",
+   "paradigm": "foraging",
+   "desc": "Fire set on the land so fresh growth draws game: a managed commons. Late Pleistocene and Holocene, from charcoal records and ethnography.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "wooden_spears",
+   "label": "Wooden spears",
+   "domain": "food",
+   "kind": "technique",
+   "start": -400000,
+   "date_src": "part",
+   "place": "Clacton, England; Schoningen, Germany",
+   "paradigm": "foraging",
+   "desc": "Thrust or thrown 10 to 20 m; needs straight young trees and a stone tool to shape them. Schoningen's eight or more spears, long dated ~300 ka, were re-dated in 2025 to ~200 ka [contested date].",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "stone_tipped_spears",
+   "label": "Stone-tipped spears",
+   "domain": "food",
+   "kind": "technique",
+   "start": -300000,
+   "date_src": "part",
+   "place": "Kathu Pan, South Africa",
+   "paradigm": "foraging",
+   "desc": "Stone, shaft, glue and binding assembled into a point that wounds deeper. Claimed ~500 ka at Kathu Pan [contested]; common by ~300 ka.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "spear_thrower",
+   "label": "Spear-thrower (atlatl)",
+   "domain": "food",
+   "kind": "technique",
+   "start": -18000,
+   "date_src": "part",
+   "place": "Solutrean and Magdalenian France",
+   "paradigm": "foraging",
+   "desc": "An antler hook throws light darts 30 to 50 m with more force. Firm finds ~20 to 17 ka, probably older [contested].",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "bow_and_arrow",
+   "label": "Bow and arrow",
+   "domain": "food",
+   "kind": "technique",
+   "start": -52000,
+   "date_src": "part",
+   "place": "Grotte Mandrin, France; Sibudu, South Africa",
+   "paradigm": "foraging",
+   "desc": "Accurate at 20 to 50 m, so one person can hunt alone and take small fast prey. Needs stave, cord, feathers, small points and glue: five chains; ~54 ka at Mandrin, ~61.7 ka at Sibudu [contested].",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "cordage",
+   "label": "Cordage",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": -48000,
+   "date_src": "part",
+   "place": "Abri du Maras, France",
+   "paradigm": "foraging",
+   "desc": "A Neanderthal three-ply cord ~50 to 40 ka; cordage at Ohalo II, 19.4 ka. Many hours of twisting bast or sinew; it opened nets, snares, bowstrings and, later, spinning.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "nets",
+   "label": "Nets",
+   "domain": "food",
+   "kind": "technique",
+   "start": -27000,
+   "date_src": "part",
+   "place": "Pavlov and Dolni Vestonice, Moravia",
+   "paradigm": "foraging",
+   "desc": "Cord impressions in clay ~29 to 26 ka. Nets made hunting hares and fishing a crowd's work, among the first occasions a group had to be organised and fed in one place.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "traps_snares",
+   "label": "Traps and snares",
+   "domain": "food",
+   "kind": "technique",
+   "start": -40000,
+   "date_src": "general",
+   "place": "Upper Palaeolithic Eurasia",
+   "paradigm": "foraging",
+   "desc": "Gear that works while people do other things: time capital. Inferred in the Upper Palaeolithic; wooden fish traps survive from ~7000 to 5000 BC.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "game_drives_kites",
+   "label": "Game drives and desert kites",
+   "domain": "food",
+   "kind": "infrastructure",
+   "start": -7000,
+   "date_src": "part",
+   "place": "Near East; Head-Smashed-In, Canada",
+   "paradigm": "foraging",
+   "desc": "Stone funnels kilometres long and buffalo jumps take hundreds of animals in a day: a pulse. They need crowds, leaders, years of building and meat processed at once; many kites ~9,000 to 5,000 BP.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "hunting",
+   "label": "Hunting",
+   "domain": "food",
+   "kind": "practice",
+   "start": -2000000,
+   "date_src": "part",
+   "place": "Africa",
+   "paradigm": "foraging",
+   "desc": "From scavenging carcasses with clubs and stones (>2 Ma) to spears, bows, nets and dogs (well before 15 ka [contested]). Men target big game partly for prestige (Hawkes 1991); the kill is pooled across the band.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "shellfish_gathering",
+   "label": "Shellfish gathering",
+   "domain": "food",
+   "kind": "practice",
+   "start": -164000,
+   "date_src": "part",
+   "place": "Pinnacle Point, South Africa",
+   "paradigm": "foraging",
+   "desc": "Shellfish as a staple ~164 ka (Marean et al. 2007) [firm]: predictable, low risk, gathered by anyone. Holocene coasts grew great shell middens (Jomon, Ertebolle, sambaquis).",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "fishing",
+   "label": "Fishing",
+   "domain": "food",
+   "kind": "practice",
+   "start": -90000,
+   "date_src": "part",
+   "place": "Katanda, DR Congo; Jerimalai, East Timor",
+   "paradigm": "foraging",
+   "desc": "Barbed bone points ~90 ka [contested date]; open-sea tuna fishing ~42 ka and shell hooks ~23 ka. Fish are the forager resource most like crops: dense, predictable, seasonal.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "fish_weirs",
+   "label": "Weirs and fixed fish traps",
+   "domain": "food",
+   "kind": "infrastructure",
+   "start": -7000,
+   "date_src": "part",
+   "place": "Mesolithic Europe",
+   "paradigm": "foraging",
+   "desc": "Fixed gear across a river: time capital, and a commons for those downstream. Holocene everywhere.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "salmon_economies",
+   "label": "Salmon economies (complex foragers)",
+   "domain": "food",
+   "kind": "practice",
+   "start": -3000,
+   "date_src": "part",
+   "place": "North-west coast of North America",
+   "paradigm": "gift_economy",
+   "desc": "Settled foragers with plank-house villages, ranked chiefs, slaves and potlatch, from ~5,000 BP. They show that storage, not farming, opened the door to wealth and rank (Testart 1982).",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "drying_smoking",
+   "label": "Drying, smoking, rendering",
+   "domain": "food",
+   "kind": "technique",
+   "start": -40000,
+   "date_src": "general",
+   "place": "everywhere",
+   "paradigm": "foraging",
+   "desc": "Drying, smoking, rendering and pemmican turn a pulse (a kill, a fish run) into months of food. Needs fire and fuel; the first form of storage.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "storage_pits_caches",
+   "label": "Storage pits and caches",
+   "domain": "food",
+   "kind": "infrastructure",
+   "start": -13000,
+   "date_src": "part",
+   "place": "Mezhyrich, Ukraine",
+   "paradigm": "foraging",
+   "desc": "Meat cached in cold ground and pits beside mammoth-bone houses ~15 ka; nut stores (Jomon chestnut pits, California acorns). Stores must be guarded, which pushes people to stay put.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "wild_grain_granaries",
+   "label": "Granaries for wild grain",
+   "domain": "food",
+   "kind": "infrastructure",
+   "start": -9350,
+   "date_src": "part",
+   "place": "Dhra', Jordan",
+   "paradigm": "foraging",
+   "desc": "Raised floors against damp and rodents, between houses and perhaps shared, ~11,300 cal BP: about a thousand years before domestic cereals (Kuijt and Finlayson 2009) [firm].",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "delayed_return_property",
+   "label": "Delayed-return property",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -13000,
+   "date_src": "general",
+   "place": "Natufian Levant; rich coasts",
+   "paradigm": "foraging",
+   "desc": "Woodburn's (1982) shift: foragers with stores, traps, boats or weirs hold assets that must be guarded and inherited, so they develop property, binding kin rules and often rank. Storage turns sharing into a question of who owns the store.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "demand_sharing",
+   "label": "Demand sharing and risk pooling",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -200000,
+   "date_src": "general",
+   "place": "Hadza, !Kung, Ache (ethnographic)",
+   "paradigm": "foraging",
+   "desc": "Food is shared because others ask, and refusing shames; big chancy kills are pooled while plant food is kept. Among the Ache most of a hunter's kill is eaten outside his family: the band as an insurance pool.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "gift_exchange",
+   "label": "Gift partnerships (hxaro)",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -31000,
+   "date_src": "part",
+   "place": "southern Africa (Ju/'hoansi San; Lesotho beads)",
+   "paradigm": "foraging",
+   "desc": "Delayed gifts of beads and arrows to ~16 partners (range 2 to 42) within ~200 km; in drought a family lives with a distant partner for months (Wiessner) [firm]. Ostrich-eggshell beads moved ~100 km from ~33 ka: exchange began for spouses and insurance, not goods.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "shell_beads",
+   "label": "Shell beads",
+   "domain": "exchange",
+   "kind": "good",
+   "start": -100000,
+   "date_src": "part",
+   "place": "Skhul, Israel; Blombos, South Africa",
+   "paradigm": "foraging",
+   "desc": "Pierced Nassarius shell beads ~100 to 75 ka: among the first goods moved far, being light, durable, valued and hard to get.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "broad_spectrum_revolution",
+   "label": "Broad spectrum revolution",
+   "domain": "food",
+   "kind": "practice",
+   "start": -18000,
+   "date_src": "part",
+   "place": "Near East and Europe",
+   "paradigm": "foraging",
+   "desc": "After ~20 ka diets widened from large game to small fast animals, fish, shellfish and seeds, as the diet-breadth model predicts under growing numbers (Flannery 1969; Stiner 2001). Cultivation began from this base.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "saddle_quern",
+   "label": "Grinding slabs (saddle quern)",
+   "domain": "food",
+   "kind": "technique",
+   "start": -28000,
+   "date_src": "part",
+   "place": "Ohalo II, Sea of Galilee",
+   "paradigm": "foraging",
+   "desc": "Grinding slabs from ~30 ka; wild barley ground on stone at Ohalo II, 23,000 BP. Seeds rank low because of processing, so grinding tools are what raise their return.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "sickle",
+   "label": "Flint sickle",
+   "domain": "food",
+   "kind": "technique",
+   "start": -13000,
+   "date_src": "part",
+   "place": "Natufian Levant",
+   "paradigm": "foraging",
+   "desc": "Blades set in a haft, glossed from cutting grass. Harlan cut wild einkorn with one and argued a family could gather a year's grain in about three weeks [widely quoted; not re-checked].",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "sedentary_villages",
+   "label": "Settled forager villages",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": -13000,
+   "date_src": "part",
+   "place": "Natufian Levant",
+   "paradigm": "foraging",
+   "desc": "Stone houses, cemeteries, mortars and sickles ~15,000 to 11,700 BP among people who still foraged. Sedentism came with storage, before farming.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "monumental_feasting",
+   "label": "Monumental feasting sites",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -9600,
+   "date_src": "part",
+   "place": "Gobekli Tepe, Turkey",
+   "paradigm": "horticultural_tribal",
+   "desc": "Monumental pillars raised ~9600 to 8200 BC by people still largely foraging, with feasting on a large scale (wild cereal beer [contested]). An early case of labour gathered and fed for a common work.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "cereal_domestication",
+   "label": "Cereal domestication",
+   "domain": "food",
+   "kind": "technique",
+   "start": -8500,
+   "date_src": "part",
+   "wide": -7000,
+   "place": "Fertile Crescent; also China, Mesoamerica, Andes, New Guinea, Sahel",
+   "paradigm": "horticultural_tribal",
+   "desc": "Einkorn, emmer, barley and pulses from ~10,500 BP, in at least seven centres; non-shattering grain took 2,000 to 3,000 years to dominate. Early cultivation paid ~63% of the wild-food mean per hour (Bowles 2011) [rough] but fed more per hectare, stored, and raised birth rates.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "animal_domestication",
+   "label": "Herd animal domestication",
+   "domain": "food",
+   "kind": "technique",
+   "start": -8500,
+   "date_src": "part",
+   "place": "Zagros, Taurus, upper Euphrates",
+   "paradigm": "horticultural_tribal",
+   "desc": "Goat, sheep, cattle and pig ~10,500 BP; later donkey, llama, horse, camel and chicken. A herd is a bundle of joint products (meat, milk, hide, dung, fibre, power) taken over a lifetime: time capital that needs fodder, folds and inheritance.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "milk_dairy",
+   "label": "Dairying",
+   "domain": "food",
+   "kind": "technique",
+   "start": -7000,
+   "date_src": "part",
+   "place": "north-west Anatolia",
+   "paradigm": "horticultural_tribal",
+   "desc": "Milk fats in pots from ~7000 BC (Evershed et al. 2008, >2,200 vessels): dairying is nearly as old as herding, not part of a 4th-millennium package. Milk was first eaten as cheese, yogurt and butter, since lactase persistence spread mostly in the last ~3,000 years.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "wool_sheep",
+   "label": "Woolly sheep",
+   "domain": "textiles",
+   "kind": "resource",
+   "start": -3500,
+   "date_src": "part",
+   "place": "Mesopotamia",
+   "paradigm": "early_state",
+   "desc": "Woolly fleeces came only with selected breeds in the 4th millennium BC. Wool, gathered from many herders and spun by many hands, became the commodity the first cities ran on; Knossos tracked at least ~80,000 sheep [rough].",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "draught_animals",
+   "label": "Ox traction",
+   "domain": "energy",
+   "kind": "technique",
+   "start": -3500,
+   "date_src": "part",
+   "place": "South Street, England; Near East",
+   "paradigm": "horticultural_tribal",
+   "desc": "Ard marks under a long barrow ~3500 BC, draught pathologies in cattle earlier in places. An increasing-returns threshold: an ox team paid only on enough land, concentrating land in families that owned teams.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "plough",
+   "label": "Ard (scratch plough)",
+   "domain": "food",
+   "kind": "technique",
+   "start": -3500,
+   "date_src": "part",
+   "place": "Near East and Europe",
+   "paradigm": "chiefdom",
+   "desc": "A beam scoring the soil without turning it, pulled by a pair of oxen and worked twice across. Opened heavier soils and made ploughing men's work (Sherratt).",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "wheel_cart",
+   "label": "Wheel and cart",
+   "domain": "transport",
+   "kind": "technique",
+   "start": -3500,
+   "date_src": "part",
+   "place": "Bronocice, Poland; Ljubljana marshes",
+   "paradigm": "chiefdom",
+   "desc": "A cart image on the Bronocice pot ~3500 BC and a wheel ~3150 BC; the wheel appeared within a few centuries in several regions. With oxen it gave bulk land transport.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "pack_animals",
+   "label": "Donkey pack transport",
+   "domain": "transport",
+   "kind": "technique",
+   "start": -5000,
+   "date_src": "part",
+   "place": "north-east Africa",
+   "paradigm": "early_state",
+   "desc": "Donkeys domesticated ~5000 BC (Todd et al. 2022) for pack transport in dry country; llamas carried ~30 kg in the Andes. A black donkey took ~65 kg of tin from Assur to Kanesh [rough].",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "horse_riding_chariots",
+   "label": "Horse riding and chariots",
+   "domain": "transport",
+   "kind": "technique",
+   "start": -2200,
+   "date_src": "part",
+   "place": "western steppe",
+   "paradigm": "pastoral_nomadic",
+   "desc": "The modern horse lineage spreads from ~2200 BC (Librado et al. 2024); Botai ~3500 BC [contested]. Firm riding and chariots in the late 3rd to early 2nd millennium BC: war and speed.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "camel_caravans",
+   "label": "Camel caravans",
+   "domain": "transport",
+   "kind": "technique",
+   "start": -1000,
+   "date_src": "part",
+   "place": "Arabia, Central Asia",
+   "paradigm": "pastoral_nomadic",
+   "desc": "Camels domesticated ~1000 BC carried desert caravans where donkeys could not.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "pottery",
+   "label": "Pottery",
+   "domain": "materials",
+   "kind": "technique",
+   "start": -18000,
+   "date_src": "part",
+   "place": "Xianrendong Cave, China",
+   "paradigm": "foraging",
+   "desc": "Invented by foragers ~20,000 cal BP [firm], later in Japan and Mali; in the Near East only ~7000 BC, after farming. A paradigm switch for cooking: boiling extracts more from low-ranked foods, and pots store grain, oil and milk.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "potters_wheel",
+   "label": "Potter's wheel",
+   "domain": "materials",
+   "kind": "technique",
+   "start": -3500,
+   "date_src": "part",
+   "place": "Mesopotamia",
+   "paradigm": "early_state",
+   "desc": "Turns potting into a specialist trade once demand is concentrated, ~4th millennium BC. Good clay, temper and fuel are local and potting is long skill.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "lime",
+   "label": "Lime plaster",
+   "domain": "materials",
+   "kind": "technique",
+   "start": -9000,
+   "date_src": "part",
+   "place": "Levant",
+   "paradigm": "horticultural_tribal",
+   "desc": "Limestone burned at ~750 to 900 C for plaster, at a heavy fuel cost. In the Near East two thousand years of plaster and stone vessels came before pottery.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "kiln",
+   "label": "Pottery kiln",
+   "domain": "materials",
+   "kind": "infrastructure",
+   "start": -6000,
+   "date_src": "general",
+   "place": "Near East",
+   "paradigm": "horticultural_tribal",
+   "desc": "A closed firing chamber with draught control, 600 to 1,000 C. The rung that led to faience and to the closed smelting furnace.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "faience_glazes",
+   "label": "Faience and glazes",
+   "domain": "materials",
+   "kind": "technique",
+   "start": -4500,
+   "date_src": "part",
+   "place": "Near East and Egypt",
+   "paradigm": "chiefdom",
+   "desc": "Glazed bodies fired at ~900 C in the 5th to 4th millennium BC, a rung of the pyrotechnology ladder between kiln and smelting.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "spinning",
+   "label": "Hand spinning",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": -7000,
+   "date_src": "general",
+   "place": "Neolithic Near East",
+   "paradigm": "horticultural_tribal",
+   "desc": "Spinning is the bottleneck: a hand spindle makes ~50 to 100 m of yarn an hour and a square metre of cloth needs one to several kilometres, so a garment takes hundreds of hours [rough]. Cloth was thus a store of value and the first cities' main export.",
+   "chokepoint": true,
+   "part": "10"
+  },
+  {
+   "id": "weaving",
+   "label": "Weaving (warp-weighted loom)",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": -6500,
+   "date_src": "part",
+   "place": "Nahal Hemar, Israel; Catalhoyuk",
+   "paradigm": "horticultural_tribal",
+   "desc": "Woven linen ~8,500 BP, textiles at Catalhoyuk ~7000 BC, spindle whorls and warp-weighted looms with the Neolithic. Turns yarn into cloth, among the most labour-dense goods of the ancient world.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "flax_linen",
+   "label": "Flax and linen",
+   "domain": "textiles",
+   "kind": "resource",
+   "start": -8500,
+   "date_src": "part",
+   "place": "Fertile Crescent; Egypt",
+   "paradigm": "horticultural_tribal",
+   "desc": "Flax was a Fertile Crescent founder crop; linen was Egypt's cloth, made in temple workshops. Possible wild flax fibres ~30 ka at Dzudzuana [contested].",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "cotton",
+   "label": "Cotton",
+   "domain": "textiles",
+   "kind": "resource",
+   "start": -5000,
+   "date_src": "part",
+   "place": "Mehrgarh, South Asia",
+   "paradigm": "horticultural_tribal",
+   "desc": "Earliest known cotton at Mehrgarh ~7,000 BP, also domesticated in the Andes; the Indus made the earliest known cotton cloth.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "polished_stone_axe",
+   "label": "Polished stone axe",
+   "domain": "materials",
+   "kind": "technique",
+   "start": -9000,
+   "date_src": "general",
+   "place": "Near East and Neolithic Europe",
+   "paradigm": "horticultural_tribal",
+   "desc": "Shaped by pecking and grinding tough rock from a few quarries, for clearing woodland; it fells a medium tree in hours, many times slower than steel [rough].",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "jadeitite_axes",
+   "label": "Alpine jade axes",
+   "domain": "exchange",
+   "kind": "good",
+   "start": -5300,
+   "date_src": "part",
+   "place": "Monte Viso and Monte Beigua, Italian Alps",
+   "paradigm": "chiefdom",
+   "desc": "Axes of Alpine jadeitite, 5300 to 4000 BC, reached Brittany, Britain, Ireland and Denmark up to ~1,800 km away (Projet JADE) [firm]. Many were never used and were laid in bogs and graves: prestige goods.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "obsidian_trade",
+   "label": "Obsidian exchange",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": -11000,
+   "date_src": "part",
+   "place": "Melos to Franchthi Cave; Anatolia to the Levant",
+   "paradigm": "foraging",
+   "desc": "Melian obsidian in Franchthi Cave ~11,000 BC is the earliest proof of sea travel for a material in the Mediterranean [firm]. A few volcanic sources supplied a ~300 km supply zone, beyond which shares fall exponentially: down-the-line exchange, plus directional trade 700 to 800 km into the Levant.",
+   "chokepoint": true,
+   "part": "10"
+  },
+  {
+   "id": "flint_mines",
+   "label": "Flint mines",
+   "domain": "materials",
+   "kind": "industry",
+   "start": -4400,
+   "date_src": "part",
+   "place": "Spiennes, Belgium; Krzemionki; Grimes Graves",
+   "paradigm": "chiefdom",
+   "desc": "Deep shafts to the best seam: Grimes Graves has at least 433 [firm], ~60 t of nodules per medium shaft [rough], from ~2650 BC. A threshold work: a crew fed for a season before any return, for prestige axes with no equivalent.",
+   "chokepoint": true,
+   "part": "10"
+  },
+  {
+   "id": "antler_picks",
+   "label": "Antler picks",
+   "domain": "materials",
+   "kind": "good",
+   "start": -4400,
+   "date_src": "part",
+   "place": "Grimes Graves; European flint mines",
+   "paradigm": "chiefdom",
+   "desc": "Red-deer antler picks, hundreds per shaft: a joint product of herds and hunting that made mining possible.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "prestige_goods_exchange",
+   "label": "Prestige goods chains",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": -5500,
+   "date_src": "part",
+   "place": "central Europe; Mycenae; Mesopotamia",
+   "paradigm": "chiefdom",
+   "desc": "Gifts between leaders, held not used: Spondylus shell (~1,500 km) in Linearbandkeramik graves ~5500 BC, Baltic amber (~2,000 km) at Mycenae, lapis from Badakhshan (~2,500 km). Signature: rich graves and hoards far from source.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "salt_making",
+   "label": "Brine salt-making",
+   "domain": "materials",
+   "kind": "industry",
+   "start": -6000,
+   "date_src": "part",
+   "place": "Poiana Slatinei, Romania; Provadia-Solnitsata, Bulgaria",
+   "paradigm": "chiefdom",
+   "desc": "Brine boiled in ceramic vessels in domed kilns (briquetage); Provadia's output rose from ~25 kg a load ~5500 BC to perhaps 4 to 5 t a cycle by 4700 to 4500 BC [rough] and the site grew a wall. A chokepoint for keeping food and for herds, joining the fuel and clay chains.",
+   "chokepoint": true,
+   "part": "10"
+  },
+  {
+   "id": "native_copper_working",
+   "label": "Cold-hammered native copper",
+   "domain": "metals",
+   "kind": "technique",
+   "start": -8500,
+   "date_src": "part",
+   "place": "Cayonu, Anatolia; Lake Superior",
+   "paradigm": "horticultural_tribal",
+   "desc": "Native copper and malachite hammered into beads from the 9th to 8th millennium BC. The Old Copper Complex by Lake Superior (~4000 to 1000 BC) never went on to smelting.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "copper_mining",
+   "label": "Copper mines",
+   "domain": "metals",
+   "kind": "industry",
+   "start": -5400,
+   "date_src": "part",
+   "place": "Rudna Glava, Serbia; Ai Bunar, Bulgaria",
+   "paradigm": "chiefdom",
+   "desc": "Ore mined ~5400 BC at Rudna Glava; open trenches tens of metres long at Ai Bunar ~5000 BC.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "forced_draught_bellows",
+   "label": "Blowpipes and bellows",
+   "domain": "metals",
+   "kind": "technique",
+   "start": -5000,
+   "date_src": "general",
+   "place": "Balkans and Near East",
+   "paradigm": "chiefdom",
+   "desc": "Forced draught, first by blowpipes and later by leather bellows, lifts a furnace to the 1,100 to 1,200 C copper smelting needs.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "copper_smelting",
+   "label": "Copper smelting",
+   "domain": "metals",
+   "kind": "technique",
+   "start": -5000,
+   "date_src": "part",
+   "place": "Belovode, Serbia",
+   "paradigm": "chiefdom",
+   "desc": "The earliest secure smelting, 49th century BC (~5 g of slag) [firm]. Needs ore, charcoal, a furnace or crucible at ~1,100 to 1,200 C from pottery skills, forced draught and long skill; it opened metal as stored wealth.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "gold_working_varna",
+   "label": "Varna gold",
+   "domain": "metals",
+   "kind": "good",
+   "start": -4600,
+   "date_src": "part",
+   "place": "Varna, Bulgaria",
+   "paradigm": "chiefdom",
+   "desc": "~3,000 gold objects, ~6 kg, mostly in a few graves, ~4600 to 4300 BC [rough]: the first sharp inequality in Europe's graves, 40 km from the Provadia salt works.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "lost_wax_casting",
+   "label": "Lost-wax casting",
+   "domain": "metals",
+   "kind": "technique",
+   "start": -3700,
+   "date_src": "part",
+   "place": "Nahal Mishmar, Judaean desert",
+   "paradigm": "chiefdom",
+   "desc": "The Nahal Mishmar hoard of over 400 objects, ~3700 BC, cast in arsenical copper. Mould and lost-wax casting led toward bronze.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "arsenical_copper",
+   "label": "Arsenical copper",
+   "domain": "metals",
+   "kind": "technique",
+   "start": -3700,
+   "date_src": "part",
+   "place": "Near East",
+   "paradigm": "chiefdom",
+   "desc": "Copper with 2 to 5% arsenic from mixed ores, perhaps first by accident; harder and better for casting than pure copper. It dominated the 4th and early 3rd millennia BC.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "tin",
+   "label": "Tin",
+   "domain": "metals",
+   "kind": "resource",
+   "start": -3000,
+   "date_src": "part",
+   "place": "Kestel, Anatolia; Mushiston, Tajikistan; Erzgebirge; Cornwall",
+   "paradigm": "early_state",
+   "desc": "Small 3rd-millennium mines at Kestel [contested scale]; Central Asian Bronze Age mines matched to Uluburun's tin [firm for mining]; Cornish ingots on wrecks off Israel [contested but growing]. The Near East had almost none, so tin was the rarer of bronze's two chokepoints.",
+   "chokepoint": true,
+   "part": "10"
+  },
+  {
+   "id": "bronze",
+   "label": "Tin bronze",
+   "domain": "metals",
+   "kind": "technique",
+   "start": -3000,
+   "date_src": "part",
+   "wide": -2600,
+   "place": "Mesopotamia",
+   "paradigm": "early_state",
+   "desc": "Copper with ~10% tin: harder, casts well, follows a recipe, and can be remelted as a stock. Common in Mesopotamia by ~2600 BC, central Europe ~1800 BC; copper and tin rarely lie together, so every bronze society depended on routes of 1,000 km or more, brittle when they failed together (~1200 BC).",
+   "chokepoint": true,
+   "part": "10"
+  },
+  {
+   "id": "old_assyrian_trade",
+   "label": "Old Assyrian caravan trade",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": -1950,
+   "date_src": "part",
+   "place": "Assur to Kanesh (Kultepe), Anatolia",
+   "paradigm": "commercial_city_state",
+   "desc": "Black donkey caravans ~1,000 km in about six weeks, tin and woollen cloth out, silver and gold back, from ~23,000 letters and contracts. A working estimate of ~1,000 donkey loads a year [rough; contested], margins ~100% on tin [rough].",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "naruqqum_fund",
+   "label": "Naruqqum investment fund",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -1950,
+   "date_src": "part",
+   "place": "Assur",
+   "paradigm": "commercial_city_state",
+   "desc": "The 'bag': a ten- to twelve-year fund pooling gold from a dozen or more investors into one merchant's hands for a share of profits. Long-distance partnership capital in the early 2nd millennium BC.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "merchant_treaties_court",
+   "label": "Merchants' court and trade treaties",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -1950,
+   "date_src": "part",
+   "place": "Kanesh karum",
+   "paradigm": "commercial_city_state",
+   "desc": "A merchants' court in the karum and treaties with Anatolian rulers fixing taxes (a share of cloth at entry, a right of first purchase) and guaranteeing caravans (Larsen 2015; Veenhof).",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "oxhide_ingot_shipping",
+   "label": "Copper ingot sea trade",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": -1320,
+   "date_src": "part",
+   "place": "Uluburun wreck, south-west Turkey",
+   "paradigm": "maritime_trading",
+   "desc": "The Uluburun ship carried ~10 t of Cypriot copper in ~350 oxhide ingots and ~1 t of tin, the 10:1 bronze ratio, plus ~175 glass ingots and amber (Pulak 2008). Goods of half a dozen cultures on one hull.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "linear_b_accounts",
+   "label": "Linear B palace accounts",
+   "domain": "information",
+   "kind": "practice",
+   "start": -1400,
+   "date_src": "part",
+   "place": "Knossos, Pylos",
+   "paradigm": "early_state",
+   "desc": "Mycenaean palaces tracked a few high-value chains closely: flocks with wool targets and deficits, ~750 women textile workers on rations at Pylos [rough], ~270 bronzesmiths [rough]. Selective redistributors that left most farming to villages (Halstead 1992).",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "ta_ra_si_ja",
+   "label": "Ta-ra-si-ja allocation",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -1400,
+   "date_src": "part",
+   "place": "Pylos, Knossos",
+   "paradigm": "early_state",
+   "desc": "The palace issued raw material (bronze at ~0.75 to 4 kg a group) and took back finished goods, the worker working at home: a putting-out system three thousand years before proto-industry. Many smiths 'without allocation' signal metal shortage.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "irrigation_farming",
+   "label": "Canal irrigation",
+   "domain": "food",
+   "kind": "technique",
+   "start": -6500,
+   "date_src": "part",
+   "place": "Mesopotamian alluvium (Ubaid)",
+   "paradigm": "irrigation",
+   "desc": "Small canals off river levees from the Ubaid; later canals dug and cleaned by labour gangs, and fought over for generations by Lagash and Umma. At Larsa ~1700 BC yields averaged ~900 litres per hectare (Jacobsen and Adams).",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "field_salinisation",
+   "label": "Salinisation and the barley shift",
+   "domain": "food",
+   "kind": "practice",
+   "start": -2400,
+   "date_src": "general",
+   "place": "southern Mesopotamia",
+   "paradigm": "irrigation",
+   "desc": "Jacobsen and Adams argued irrigation without drainage salted the fields, pushing wheat out for salt-tolerant barley; Powell (1985) disputed it [contested]. Either way, intensification can degrade its own base.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "temple_palace_household",
+   "label": "Temple and palace great households",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -4000,
+   "date_src": "part",
+   "place": "Uruk (Eanna precinct), Mesopotamia",
+   "paradigm": "early_state",
+   "desc": "Temples and palaces (e2, 'house') owned land, herds and workshops and fed dependants in rations (Gelb 1965). They needed a grain surplus, granaries, flocks, dependent labour and standard measures, and are nearly all the records.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "grain_rations",
+   "label": "Grain rations",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -3500,
+   "date_src": "part",
+   "place": "Uruk; Ur III; Giza; Deir el-Medina",
+   "paradigm": "early_state",
+   "desc": "Labour paid in standard measures by an institution, perhaps marked by mass-produced bevelled-rim bowls [contested]. Ur III: an adult man 60 sila of barley a month, a woman 30 [firm]; the first wage.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "record_keeping",
+   "label": "Tokens and bullae",
+   "domain": "information",
+   "kind": "technique",
+   "start": -8000,
+   "date_src": "part",
+   "place": "Near East",
+   "paradigm": "horticultural_tribal",
+   "desc": "Clay tokens in simple shapes from ~8000 BC, sealed in clay envelopes (bullae) in the 4th millennium BC and then impressed on them (Schmandt-Besserat) [contested in strong form; bullae firm].",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "numerical_tablets",
+   "label": "Numerical tablets",
+   "domain": "information",
+   "kind": "technique",
+   "start": -3500,
+   "date_src": "part",
+   "place": "Uruk, Susa",
+   "paradigm": "early_state",
+   "desc": "Clay tablets ~3500 BC carrying numbers and a seal: counting written down before words, with a different number system for each kind of good.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "writing",
+   "label": "Proto-cuneiform writing",
+   "domain": "information",
+   "kind": "technique",
+   "start": -3300,
+   "date_src": "part",
+   "place": "Uruk IV, Mesopotamia",
+   "paradigm": "early_state",
+   "desc": "~5,000 to 6,000 archaic tablets, the great majority administrative (grain, beer, sheep, workers, fields) [firm in outline]. It let institutions plan rations against a harvest, carry debts over years and audit officials: the information good that let a household scale to thousands.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "scribal_schools",
+   "label": "Scribal schooling",
+   "domain": "information",
+   "kind": "institution",
+   "start": -3200,
+   "date_src": "part",
+   "place": "Uruk",
+   "paradigm": "early_state",
+   "desc": "Lexical lists for training scribes make up the non-administrative share of the archaic tablets: a school to reproduce the skill.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "dependent_weaving_workshops",
+   "label": "Temple weaving workshops",
+   "domain": "textiles",
+   "kind": "industry",
+   "start": -2100,
+   "date_src": "part",
+   "place": "Lagash province, Guabba (Ur III)",
+   "paradigm": "early_state",
+   "desc": "Wool from household flocks spun and woven by dependent women on rations; one Ur III text records over 10,000 people in Lagash's weaving establishments, two-thirds women weavers [rough]. Cloth was traded for the timber, metal and stone the plain lacked.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "uruk_colonies",
+   "label": "Uruk colonies",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": -3500,
+   "date_src": "part",
+   "place": "Habuba Kabira, Jebel Aruda, Hacinebi",
+   "paradigm": "early_state",
+   "desc": "Uruk-style settlements planted far upriver ~3500 to 3100 BC, read by Algaze as a world system trading cloth and manufactures for metal, timber and stone [contested as a model; colonies firm].",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "cities",
+   "label": "First cities",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -3500,
+   "date_src": "part",
+   "place": "Uruk, Mesopotamia",
+   "paradigm": "early_state",
+   "desc": "Uruk reached ~250 ha, perhaps ~600 ha and 40,000 to 50,000 people by ~2900 BC [rough; contested]. Redistributive machines with an export industry: grain and wool turned into rations and cloth by dependent labour.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "neolithic_town",
+   "label": "Neolithic town (Catalhoyuk)",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": -7100,
+   "date_src": "part",
+   "place": "Catalhoyuk, Turkey",
+   "paradigm": "horticultural_tribal",
+   "desc": "A dense mud-brick town of 3,500 to 8,000 people [rough], 7100 to 5950 BC, each household with its own store and no visible central authority; obsidian from 140 km.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "corvee_labour_gangs",
+   "label": "Labour gangs",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -2600,
+   "date_src": "part",
+   "place": "Giza; Mesopotamian canals",
+   "paradigm": "early_state",
+   "desc": "Gangs fed from the granary dug canals and built temples and pyramids: perhaps 8,000 to 10,000 at Giza at a time [rough], with a workers' town of bakeries, breweries and fish-processing.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "basin_irrigation_nile",
+   "label": "Nile basin irrigation",
+   "domain": "food",
+   "kind": "technique",
+   "start": -3100,
+   "date_src": "general",
+   "place": "Egypt",
+   "paradigm": "irrigation",
+   "desc": "The predictable late-summer flood filled earth-banked basins, soaked them and drained; one winter crop was sown in the mud, with little canal-cleaning and little salt. The river was also the road, carrying grain cheaply to any granary.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "nilometer",
+   "label": "Nilometers",
+   "domain": "institutions",
+   "kind": "infrastructure",
+   "start": -2500,
+   "date_src": "general",
+   "place": "Egypt",
+   "paradigm": "early_state",
+   "desc": "Gauges by which the state measured the flood to set taxes, since the risk was a low or a too-high flood.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "royal_expeditions",
+   "label": "Royal trade expeditions",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": -2600,
+   "date_src": "general",
+   "place": "Egypt: Byblos, Sinai, Nubia, Punt",
+   "paradigm": "early_state",
+   "desc": "Egypt's imports came mostly by royal expedition: cedar from Byblos, copper and turquoise from Sinai, gold from Nubia, incense and ebony from Punt by Red Sea ships.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "papyrus_records",
+   "label": "Papyrus work logs",
+   "domain": "information",
+   "kind": "good",
+   "start": -2560,
+   "date_src": "part",
+   "place": "Wadi al-Jarf, Egypt",
+   "paradigm": "early_state",
+   "desc": "Merer's diary, the oldest papyrus known, logs a crew of ~40 shipping Tura limestone to Giza along flood canals: the first papyrus is a work log.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "ration_strike",
+   "label": "Ration strike",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -1157,
+   "date_src": "part",
+   "place": "Deir el-Medina, Egypt",
+   "paradigm": "early_state",
+   "desc": "In year 29 of Ramesses III the royal tomb-builders stopped work and sat in at temples when rations were weeks late (Turin Strike Papyrus) [firm]. Their wage was 4 khar of emmer and 1.5 of barley a month.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "deben_unit_of_account",
+   "label": "Copper deben unit of account",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -1550,
+   "date_src": "general",
+   "place": "New Kingdom Egypt",
+   "paradigm": "early_state",
+   "desc": "Village barter priced in the deben (~91 g of copper) and the sack of grain, goods paid in a mix of other goods (Janssen 1975) [firm]. Money as a measure of value long before coin.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "silver_by_weight",
+   "label": "Silver by weight (shekel)",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -2500,
+   "date_src": "general",
+   "place": "Mesopotamia",
+   "paradigm": "early_state",
+   "desc": "Silver weighed in shekels of ~8.3 g, beside barley, as money and measure; Old Assyrian merchants were paid in silver and gold. Needs an authority to fix and check weights.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "indus_chert_weights",
+   "label": "Indus chert weights",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -2600,
+   "date_src": "part",
+   "place": "Harappa, Mohenjo-daro",
+   "paradigm": "early_state",
+   "desc": "Polished chert cubes in a binary series 1 to 64 (commonest ~13.7 g) then decimal multiples, consistent across sites hundreds of km apart [firm]. Probably for trade, taxing goods and allocating craft materials [rough reading].",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "indus_covered_drains",
+   "label": "Indus planned drains",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": -2600,
+   "date_src": "part",
+   "place": "Mohenjo-daro",
+   "paradigm": "early_state",
+   "desc": "Grid streets, covered drains and wells in baked bricks of a 1:2:4 ratio; Mohenjo-daro covered ~200 to 250 ha with perhaps 40,000 people [rough], with no visible palace.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "carnelian_bead_craft",
+   "label": "Carnelian bead craft",
+   "domain": "materials",
+   "kind": "industry",
+   "start": -2600,
+   "date_src": "part",
+   "place": "Indus; Gujarat",
+   "paradigm": "early_state",
+   "desc": "Blanks heated to redden and drilled end to end with a special hard-stone drill: one long bead could take a week or more [rough]. Exported to Mesopotamia, found in Ur's Royal Cemetery.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "steatite_seals",
+   "label": "Steatite seals",
+   "domain": "information",
+   "kind": "good",
+   "start": -2600,
+   "date_src": "part",
+   "place": "Indus",
+   "paradigm": "early_state",
+   "desc": "Carved, fired seals with the undeciphered script; sealings show corded packages, a check on goods in transit.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "meluhha_gulf_trade",
+   "label": "Gulf trade (Meluhha, Dilmun)",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": -2600,
+   "date_src": "part",
+   "place": "Indus to Mesopotamia via Dilmun (Bahrain)",
+   "paradigm": "maritime_trading",
+   "desc": "The Indus (Meluhha) sent carnelian, ivory, timber and gold by sea; Meluhhans lived at Guabba and Dilmun used Indus-standard weights. Magan (Oman) supplied copper.",
+   "chokepoint": false,
+   "part": "10"
+  },
+  {
+   "id": "hoe_cultivation",
+   "label": "Hoe and digging stick",
+   "domain": "food",
+   "kind": "technique",
+   "start": -8500,
+   "date_src": "general",
+   "place": "worldwide; Africa and the tropics",
+   "paradigm": "horticultural_tribal",
+   "desc": "Holes for seed and breaking and weeding soil by one person: the base of African and much tropical farming, and of weeding everywhere. The engine's hoe does a quarter of a plough team's work.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "swidden",
+   "label": "Shifting cultivation (swidden)",
+   "domain": "food",
+   "kind": "technique",
+   "start": -7000,
+   "date_src": "general",
+   "place": "forest zones; Finland and Sweden later",
+   "paradigm": "horticultural_tribal",
+   "desc": "Fell or ring trees, burn, sow into the ash, crop one to three years, move on; the territory is fifteen to twenty times the cropped area and densities stay under a few tens per km2 [r]. Returns per hour are among the highest of any farming [s, r]; the regrowing forest is the stored fertility.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "two_field_system",
+   "label": "Two-field system",
+   "domain": "food",
+   "kind": "practice",
+   "start": 800,
+   "date_src": "part",
+   "place": "Mediterranean; northern Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "One field in crop, one in fallow each year: half the arable fallow, grazed in common. Boserup's short-fallow stage, reached as people per acre rose.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "three_field_rotation",
+   "label": "Three-field rotation",
+   "domain": "food",
+   "kind": "practice",
+   "start": 800,
+   "date_src": "part",
+   "wide": 1250,
+   "place": "English Midlands, northern France, Germany",
+   "paradigm": "feudal_manorial",
+   "desc": "Winter corn, spring corn, fallow: the cropped share rises from 50% to 67%, a third more crop from the same arable [s], with risk spread over two crops. Wheat yielded about 4:1 gross [s, r]; after seed and the tithe a household kept about two-thirds.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "spring_legumes",
+   "label": "Legumes in the spring field",
+   "domain": "food",
+   "kind": "practice",
+   "start": 900,
+   "date_src": "general",
+   "place": "open-field England and France",
+   "paradigm": "feudal_manorial",
+   "desc": "Peas, beans and vetch sown in the spring field of the three-field system: the first step in closing the manure gap. Eastern Norfolk's high medieval yields rested on legumes and intensive manuring (Campbell 1983) [c].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "common_rights_stints",
+   "label": "Common grazing and stints",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 800,
+   "date_src": "part",
+   "place": "open-field townships",
+   "paradigm": "feudal_manorial",
+   "desc": "The fallow and stubble were grazed in common, with stints limiting each holding's beasts in proportion to its arable. A coordination problem: no household could change its rotation alone. Common rights could be worth a large share of a poor family's income [s, r].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "manor_court_byelaws",
+   "label": "Manor court byelaws",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1200,
+   "date_src": "general",
+   "place": "English manors",
+   "paradigm": "feudal_manorial",
+   "desc": "Byelaws made and enforced in the manor court: dates for opening the stubble, gleaning rules (often for the poor only), penalties for straying beasts. The open field needed them to work.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "sheep_fold",
+   "label": "Sheep folding",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1200,
+   "date_src": "general",
+   "place": "English downland",
+   "paradigm": "feudal_manorial",
+   "desc": "Hurdles moved nightly over the fallow put sheep dung where it was wanted. With water meadows it formed the sheep-corn system, carrying fertility from valley to down.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "heavy_mouldboard_plough",
+   "label": "Heavy mouldboard plough",
+   "domain": "food",
+   "kind": "technique",
+   "start": 700,
+   "date_src": "general",
+   "place": "northern Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "Coulter, share and mouldboard turn the furrow on heavy clays and make ridge and furrow, which drains; Domesday's standard team was 8 oxen [c], about an acre a day [r]. Lynn White made it an engine of medieval growth; most now think it followed population and soils [s, r].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "work_horses",
+   "label": "Work horses",
+   "domain": "energy",
+   "kind": "technique",
+   "start": 1100,
+   "date_src": "general",
+   "place": "England and north-west Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "Faster than oxen (a third to a half more work a day [r]) and better for carting, but need oats, shoes and a padded collar. Oxen still outnumbered horses about two to one on English demesnes at the end of the 14th century, while peasants adopted horses faster than lords (Langdon 1986) [c].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "marling",
+   "label": "Marling",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1200,
+   "date_src": "general",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "Lime-rich clay spread on light or acid soils at tens of tons an acre, lasting a generation or more ('marl for your son') [r]. A time-capital work paid once, by the landholder.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "field_liming",
+   "label": "Liming fields",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1500,
+   "date_src": "general",
+   "place": "England and Europe",
+   "paradigm": "early_modern_state",
+   "desc": "Limestone burned in kilns to quicklime and spread on acid soils; it needs a kiln and much fuel [r], tying farming to the fuel and building chains.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "pipe_under_drainage",
+   "label": "Clay-pipe under-drainage",
+   "domain": "food",
+   "kind": "infrastructure",
+   "start": 1846,
+   "date_src": "part",
+   "place": "Victorian England",
+   "paradigm": "industrial",
+   "desc": "Buried channels of stones and bushes, then clay pipes, take water off heavy land; Victorian pipe drainage was lent millions of pounds of public money after the 1846 Drainage Act [s, r]. A club good: a drain works only if the neighbour's ditch is clear.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "infield_outfield",
+   "label": "Infield-outfield",
+   "domain": "food",
+   "kind": "practice",
+   "start": 500,
+   "date_src": "general",
+   "place": "Scotland, Ireland, Wales, Scandinavia",
+   "paradigm": "feudal_manorial",
+   "desc": "The infield by the steading was cropped every year and got all the byre's dung; the outfield was cropped a few years after cattle were folded on it, with oat yields of 2 or 3 to 1 [r]. Fertility flowed from outfield and hill through the beasts to the infield; in Scotland joint tenants worked it in run-rig.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "convertible_husbandry",
+   "label": "Convertible (ley) husbandry",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1500,
+   "date_src": "part",
+   "place": "English Midlands",
+   "paradigm": "early_modern_state",
+   "desc": "Fields alternate several years of grain with several of grass, carrying more stock and more grain at once; yields up perhaps a third [r]. It needed control of one's land, fences and stock; Kerridge called it the real agricultural revolution [s, r].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "water_meadows",
+   "label": "Floated water meadows",
+   "domain": "food",
+   "kind": "infrastructure",
+   "start": 1600,
+   "date_src": "part",
+   "place": "Wessex chalk valleys",
+   "paradigm": "early_modern_state",
+   "desc": "Channels and sluices flood a meadow with a thin moving sheet of water in winter, giving an early bite for ewes in March and heavier hay [s, r]. Needed a skilled drowner and agreement between users along the stream.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "turnips_root_fodder",
+   "label": "Turnips and root fodder",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1650,
+   "date_src": "general",
+   "wide": 1750,
+   "place": "Flanders; Norfolk",
+   "paradigm": "early_modern_state",
+   "desc": "Turnips hoed in rows clean the land of weeds, the old reason for fallow, and feed sheep and cattle in winter, often eaten off by folded sheep. Not common in England until the mid-18th century [c, Overton 1996].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "legumes_clover",
+   "label": "Clover leys",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1650,
+   "date_src": "general",
+   "wide": 1800,
+   "place": "Flanders; England",
+   "paradigm": "early_modern_state",
+   "desc": "Clover fixes nitrogen from the air and makes hay and grazing. One estimate gives clover about half the rise in crop yields between the 14th and early 19th centuries [c].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "seed_drill",
+   "label": "Seed drill",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1701,
+   "date_src": "part",
+   "place": "England (Jethro Tull)",
+   "paradigm": "early_modern_state",
+   "desc": "Horse-drawn sowing in rows at a set depth saves seed and allows hoeing, as turnips in rows needed. Slow to spread until the 19th century [s].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "norfolk_four_course",
+   "label": "Norfolk four-course rotation",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1730,
+   "date_src": "general",
+   "wide": 1830,
+   "place": "Norfolk, England",
+   "paradigm": "early_modern_state",
+   "desc": "Wheat, turnips, barley, clover, with no bare fallow: fodder, beasts and fertility closed in one loop on one farm. English wheat yields rose about a quarter 1700 to 1800 and a half again by 1850 [c, Overton], reaching ~30 bushels an acre by the 1890s [c].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "enclosure",
+   "label": "Enclosure",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1450,
+   "date_src": "part",
+   "wide": 1800,
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "Open fields and commons replaced by hedged holdings in severalty, by agreement and lords from the 15th century and by about 4,000 Acts covering a fifth of England, mostly 1750 to 1830 [s, r]. Heldring, Robinson and Vollmer find yields up ~45% by 1830 and land inequality up [c]; cottagers lost common rights.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "capitalist_tenant_farm",
+   "label": "Capitalist tenant farms",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1720,
+   "date_src": "general",
+   "place": "Holkham, Norfolk",
+   "paradigm": "early_modern_state",
+   "desc": "Large tenant farms on long leases with rotation covenants (Coke of Holkham): the landlord built barns, yards and roads, the tenant stocked the farm, landless labourers worked it. Overton calls it a revolution in institutions as well as output [c].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "wet_rice_farming",
+   "label": "Wet-rice farming",
+   "domain": "food",
+   "kind": "technique",
+   "start": -5000,
+   "date_src": "general",
+   "place": "Yangzi and South-East Asia",
+   "paradigm": "irrigation",
+   "desc": "Transplanting, water control, double cropping, night soil and careful weeding on small plots: Bray's skill-oriented path against Europe's capital- and animal-oriented one [s]. Yields per acre far above European grain; the key capital is irrigation works kept by communities or states.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "ever_normal_granary",
+   "label": "Ever-normal granaries",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -54,
+   "date_src": "general",
+   "place": "China",
+   "paradigm": "agrarian_empire",
+   "desc": "State granaries that bought in plenty and sold in dearth (Will and Wong 1991) [s], beside the church's tithe barns and town granaries elsewhere. Losses to rats and damp often ran a tenth or more a year [r].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "scythe",
+   "label": "Scythe",
+   "domain": "food",
+   "kind": "technique",
+   "start": -500,
+   "date_src": "general",
+   "wide": 1830,
+   "place": "Europe",
+   "paradigm": "agrarian_empire",
+   "desc": "Always used for hay; for grain it spread from the late Middle Ages for barley and oats and in the 18th and 19th centuries for wheat. A mower cut ~2 to 3 acres of wheat a day [c] and harvest costs fell 20 to 30% [c], but farmers switched only when labour became scarce (Collins 1969).",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "haymaking_meadow",
+   "label": "Hay meadow and haymaking",
+   "domain": "food",
+   "kind": "practice",
+   "start": -500,
+   "date_src": "general",
+   "place": "northern Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "Winter is the bottleneck and hay sets the size of the herd; meadow was valued at two to three or more times arable per acre [s, r]. Haymaking is a labour pulse in early summer needing dry weather and many hands.",
+   "chokepoint": true,
+   "part": "02"
+  },
+  {
+   "id": "flail_threshing",
+   "label": "Flail threshing",
+   "domain": "food",
+   "kind": "technique",
+   "start": 400,
+   "date_src": "general",
+   "place": "Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "Grain beaten out on a barn floor through the winter: about a quarter of all farm labour by the 18th century [c], and up to half a labourer's winter income [c, Clark 2001]. A labour sink that filled the slack season.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "fanning_mill",
+   "label": "Fanning mill",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1720,
+   "date_src": "general",
+   "place": "Britain and Europe",
+   "paradigm": "early_modern_state",
+   "desc": "A cranked winnowing machine of the 18th century that replaced winnowing in the wind between barn doors [s].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "threshing_machine",
+   "label": "Threshing machine",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1786,
+   "date_src": "part",
+   "place": "Scotland (Andrew Meikle)",
+   "paradigm": "industrial",
+   "desc": "Raised output per worker about 5 times with horse power and 10 times with water power [c]. It took the winter work that kept labourers off poor relief, and the Swing riots of 1830 (over 3,000 across 45 counties) targeted it [c].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "mechanical_reaper",
+   "label": "Mechanical reaper and binder",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1831,
+   "date_src": "part",
+   "place": "United States (McCormick)",
+   "paradigm": "industrial",
+   "desc": "McCormick's reaper (1831, patented 1834), with self-binders in the 1870s and 1880s [s]. By 1890 US wheat took 40 to 50 hours per 100 bushels against 250 to 300 in 1830 [c].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "combine_harvester",
+   "label": "Combine harvester",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1885,
+   "date_src": "part",
+   "wide": 1935,
+   "place": "California",
+   "paradigm": "industrial",
+   "desc": "Reaping and threshing in one machine, pulled by 20 or more horses in 1880s California and spreading with tractors from the 1920s and 1930s [s]. It pays only over many acres, so farms grew or rented custom crews.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "tractor",
+   "label": "Farm tractor",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1910,
+   "date_src": "general",
+   "wide": 1954,
+   "place": "United States",
+   "paradigm": "industrial",
+   "desc": "About 246,000 US tractors in 1920 and 4.7 million in 1954, when they first outnumbered horses and mules [c]. Land feeding work animals fell from ~93 million acres (1915) to ~5 million (1960) [c]; farm work fell from ~40% of US workers in 1900 to under 2% by 2000 [s].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "transhumance",
+   "label": "Transhumance",
+   "domain": "food",
+   "kind": "practice",
+   "start": -5000,
+   "date_src": "general",
+   "place": "Alps; Britain (shielings); Iberia",
+   "paradigm": "pastoral_nomadic",
+   "desc": "Flocks and herds moved seasonally between lowland winter and upland summer pasture; in British shielings women and young people made butter and cheese for the summer [s]. A commons at each end and a corridor that must be kept open.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "mesta_transhumance",
+   "label": "Mesta sheep guild",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1273,
+   "date_src": "part",
+   "place": "Castile",
+   "paradigm": "feudal_manorial",
+   "desc": "Chartered in 1273, it moved merino flocks hundreds of km between north and south, a few million head in the early 16th century [s, r]. Protected drove roads (canadas), grazing rights at both ends, tolls and its own courts.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "pannage",
+   "label": "Pannage",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 700,
+   "date_src": "general",
+   "place": "English and European woods",
+   "paradigm": "feudal_manorial",
+   "desc": "The right to turn pigs into a wood in autumn for acorns and mast, paid to the lord as one pig in ten or a fee per pig [s, r]; Domesday measured some woodland by the pigs it fed. Pigs convert waste and a seasonal pulse on a commons.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "wool_staple",
+   "label": "Wool export and the Staple",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1300,
+   "date_src": "part",
+   "place": "England; the Staple at Calais",
+   "paradigm": "feudal_manorial",
+   "desc": "English wool exports ran to roughly 30,000 to 40,000 sacks a year at their early-14th-century height, several million fleeces [s, r], through merchants and the Staple to Flemish and Italian clothmakers. A chokepoint at the port and the tax; the customs paid for the Crown's wars.",
+   "chokepoint": true,
+   "part": "02"
+  },
+  {
+   "id": "cheese_making",
+   "label": "Cheese making",
+   "domain": "food",
+   "kind": "technique",
+   "start": -5500,
+   "date_src": "general",
+   "place": "Europe; later Cheshire, Suffolk",
+   "paradigm": "horticultural_tribal",
+   "desc": "The way to keep milk, needing salt, rennet and a cool store. An English estate rule expected 98 lb of cheese and 14 lb of butter per cow between May and Michaelmas [c, r]; regions specialised in cheese from the 16th century.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "rotary_quern",
+   "label": "Rotary quern",
+   "domain": "food",
+   "kind": "technique",
+   "start": -500,
+   "date_src": "general",
+   "place": "Mediterranean and Iron Age Europe",
+   "paradigm": "agrarian_empire",
+   "desc": "Two round stones, the upper turned by hand, about 4.3 times as efficient as the saddle quern [c] and ~20 kg of stone when new [c]. A household's daily flour in an hour or two [r], mostly women's work.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "flour_milling",
+   "label": "Powered grain mills",
+   "domain": "food",
+   "kind": "industry",
+   "start": -200,
+   "date_src": "general",
+   "wide": 1300,
+   "place": "Roman bakeries; medieval England",
+   "paradigm": "feudal_manorial",
+   "desc": "Stones turned by animals, water or wind; England had ~5,624 water mills at Domesday [c] and ~10,000 mills grinding about 80% of the grain by 1300 [c, Langdon]. A water mill needs a site, dam, leat, gears, millstones and a millwright, and pays only with many customers.",
+   "chokepoint": true,
+   "part": "02"
+  },
+  {
+   "id": "suit_of_mill",
+   "label": "Suit of mill and multure",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1100,
+   "date_src": "general",
+   "place": "English and Scottish manors",
+   "paradigm": "feudal_manorial",
+   "desc": "Tenants were bound to grind at the lord's mill and pay a toll of a sixteenth to a twenty-fourth of the grain [c]; lords confiscated hand querns, and St Albans' abbot paved a floor with them until the 1381 rebels broke it up [s]. The mill made a legal monopoly.",
+   "chokepoint": true,
+   "part": "02"
+  },
+  {
+   "id": "roller_mill",
+   "label": "Roller milling",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1870,
+   "date_src": "part",
+   "place": "Budapest; Minneapolis",
+   "paradigm": "industrial",
+   "desc": "Steel or porcelain rollers in stages with sifting give white flour in bulk (Budapest 1870s, Minneapolis 1880s) [s]. Flour became a national industry of branded millers (Washburn-Crosby, Pillsbury) and small mills closed.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "baking",
+   "label": "Bread baking",
+   "domain": "food",
+   "kind": "technique",
+   "start": -3500,
+   "date_src": "general",
+   "place": "Near East and Egypt; medieval towns",
+   "paradigm": "early_state",
+   "desc": "Flat breads on a bake-stone, bread under a pot, then ovens heated by burning faggots inside; an oven pays only if fired often with a full load. In towns baking was an early guild trade; rural households often ate pottage more than bread [s].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "banal_oven",
+   "label": "Lord's oven (four banal)",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1100,
+   "date_src": "general",
+   "place": "France",
+   "paradigm": "feudal_manorial",
+   "desc": "A seigneurial monopoly like the mill: tenants paid to bake in the lord's oven [s]. Less common and less enforced in England [s, r].",
+   "chokepoint": true,
+   "part": "02"
+  },
+  {
+   "id": "assize_bread_ale",
+   "label": "Assize of Bread and Ale",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1266,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "Fixed the weight of a penny loaf by the price of wheat, enforced by local courts with fines and the pillory; ale-tasters tested quality and routine fines worked as a licence [s]. It lasted in London until 1815.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "malting",
+   "label": "Malting",
+   "domain": "food",
+   "kind": "technique",
+   "start": -3500,
+   "date_src": "general",
+   "place": "Mesopotamia; medieval Europe",
+   "paradigm": "early_state",
+   "desc": "Barley steeped, germinated on a floor for several days, then dried in a kiln: malt. A long skill, later the trade of the maltster.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "brewing",
+   "label": "Ale brewing",
+   "domain": "food",
+   "kind": "technique",
+   "start": -3500,
+   "date_src": "general",
+   "place": "Mesopotamia; medieval England",
+   "paradigm": "early_state",
+   "desc": "Malt mashed in hot water, the wort boiled and fermented; unhopped ale sours within days, so brewing stays local and frequent. Bennett estimates adults drank about a gallon a day in medieval England [c; r as an average]: food, safe drink and part of wages, and a large grain sink.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "brewsters_alewives",
+   "label": "Brewsters and alewives",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1300,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "In the 14th and 15th centuries most ale was brewed by women, for the household and then for sale, as a by-employment of wives and widows (Bennett 1996) [c].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "hopped_beer",
+   "label": "Hopped beer",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1400,
+   "date_src": "part",
+   "place": "Low Countries to England",
+   "paradigm": "commercial_city_state",
+   "desc": "Hops make beer that keeps for weeks or months, so brewing could grow larger, more capitalised and male [c, Bennett]. A paradigm switch: keeping, then scale, then capital.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "porter_breweries",
+   "label": "Porter breweries",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1720,
+   "date_src": "general",
+   "place": "London",
+   "paradigm": "industrial",
+   "desc": "London porter breweries of the 18th century were among the largest firms of their day, later owning tied houses [s].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "salt_preservation",
+   "label": "Salting fish and meat",
+   "domain": "food",
+   "kind": "technique",
+   "start": -2000,
+   "date_src": "general",
+   "place": "worldwide; North Sea and Baltic",
+   "paradigm": "agrarian_empire",
+   "desc": "Salt keeps protein a year or more in barrels: herring, salt pork and beef for navies [s]. Salt is the chokepoint for keeping protein.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "herring_salting_trade",
+   "label": "Salt herring trade",
+   "domain": "exchange",
+   "kind": "industry",
+   "start": 1250,
+   "date_src": "general",
+   "place": "Baltic and North Sea (Hanse)",
+   "paradigm": "commercial_city_state",
+   "desc": "Baltic and North Sea herring salted in barrels and traded far; the Hanse's control of Luneburg salt made it a chokepoint [s].",
+   "chokepoint": true,
+   "part": "02"
+  },
+  {
+   "id": "canning",
+   "label": "Canning",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1810,
+   "date_src": "part",
+   "place": "France (Appert); England (Durand)",
+   "paradigm": "industrial",
+   "desc": "Appert's bottling (glass, 1810) and Durand's tin can patent (1810) keep food for years with tin plate, heat and solder [s].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "condensed_milk",
+   "label": "Condensed milk",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1856,
+   "date_src": "part",
+   "place": "United States (Gail Borden)",
+   "paradigm": "industrial",
+   "desc": "Borden's 1856 patent preserved milk in cans, taking a perishable household good into the factory [s].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "breakfast_cereals",
+   "label": "Breakfast cereals",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1895,
+   "date_src": "part",
+   "place": "Battle Creek, Michigan (Kellogg, Post)",
+   "paradigm": "industrial",
+   "desc": "Branded cereals of the 1890s [s]: a craft step taken into a factory and given a brand and national distribution.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "frozen_food",
+   "label": "Quick-frozen food",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1925,
+   "date_src": "part",
+   "place": "United States (Birdseye)",
+   "paradigm": "industrial",
+   "desc": "Birdseye's quick freezing in the 1920s [s], dependent on cold stores all the way to the home.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "factory_bread",
+   "label": "Factory bread",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1928,
+   "date_src": "part",
+   "place": "United States; Chorleywood, England",
+   "paradigm": "industrial",
+   "desc": "Sliced bread in 1928 and the Chorleywood process in 1961 moved bread from the baker to the factory and then the supermarket's frozen dough [s].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "meatpacking",
+   "label": "Meatpacking",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1830,
+   "date_src": "part",
+   "place": "Cincinnati; Chicago",
+   "paradigm": "industrial",
+   "desc": "Cincinnati's pork packers of the 1830s to 1850s had each worker make one cut on carcasses moving on rails; Swift, Armour and Morris dominated by 1900 [c, s]. The four largest packers' share of US steer and heifer slaughter rose from ~25% (1976) to 85% (2019) [c].",
+   "chokepoint": true,
+   "part": "02"
+  },
+  {
+   "id": "union_stock_yards",
+   "label": "Union Stock Yards",
+   "domain": "food",
+   "kind": "infrastructure",
+   "start": 1865,
+   "date_src": "part",
+   "place": "Chicago",
+   "paradigm": "industrial",
+   "desc": "Opened in 1865 [c] where the western railways met the eastern market: the hub where live cattle became dressed meat.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "refrigerated_rail_car",
+   "label": "Refrigerated rail car",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1878,
+   "date_src": "part",
+   "place": "Chicago (Swift, Chase)",
+   "paradigm": "industrial",
+   "desc": "Swift ordered ten cars in 1878 with ice above the load and built icing stations along the route [c]. Shipping dressed beef cut freight weight since the inedible half stayed in Chicago; Swift ran ~7,000 cars by 1920 [c].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "refrigeration_cold_chain",
+   "label": "Cold chain",
+   "domain": "food",
+   "kind": "infrastructure",
+   "start": 1870,
+   "date_src": "part",
+   "wide": 1955,
+   "place": "United States; New Zealand to London",
+   "paradigm": "industrial",
+   "desc": "Ice, then refrigerating machines (1870s); frozen New Zealand mutton reached London in 1882; most US homes had refrigerators by the 1950s; reefer containers later [s]. An assembly in time, only as good as its weakest cold store.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "packer_byproducts",
+   "label": "Packinghouse by-products",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1880,
+   "date_src": "general",
+   "place": "Chicago",
+   "paradigm": "industrial",
+   "desc": "Glue, fertiliser, soap, lard and gelatin from what had been waste, 'everything but the squeal' [s]: the by-products made the packers' margin. The carcass as a hub feeding leather, light, glue and fertiliser.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "meat_inspection_antitrust",
+   "label": "Meat inspection and antitrust",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1906,
+   "date_src": "part",
+   "place": "United States",
+   "paradigm": "industrial",
+   "desc": "The Big Five drew the Meat Inspection Act (1906), the 1920 consent decree and the Packers and Stockyards Act (1921) [s].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "boxed_beef",
+   "label": "Boxed beef",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1967,
+   "date_src": "general",
+   "place": "US cattle country (IBP)",
+   "paradigm": "industrial",
+   "desc": "Iowa Beef Packers built plants in the cattle country in the 1960s, ran fast lines with low-skilled labour and shipped vacuum-packed cuts instead of carcasses [s].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "broiler_integration",
+   "label": "Integrated broiler production",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1955,
+   "date_src": "part",
+   "place": "US South",
+   "paradigm": "industrial",
+   "desc": "Contract growing from the 1950s; by the mid-1960s over 90% of broilers came from integrated firms. The integrator owns birds and feed, the grower owns the houses and the debt; a broiler now reaches ~6.5 lb in ~47 days against 2.5 lb in 112 days in 1925 [c].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "guano_imports",
+   "label": "Guano imports",
+   "domain": "food",
+   "kind": "good",
+   "start": 1840,
+   "date_src": "part",
+   "place": "Peru to Britain",
+   "paradigm": "industrial",
+   "desc": "Peruvian guano, 1840s to 1870s [s]: imported fertility, beside bone meal, that eased the manure gap.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "chilean_nitrate",
+   "label": "Chilean nitrate",
+   "domain": "materials",
+   "kind": "resource",
+   "start": 1850,
+   "date_src": "general",
+   "place": "Atacama, Chile",
+   "paradigm": "industrial",
+   "desc": "Mined sodium nitrate shipped as fertiliser before synthesis [s].",
+   "chokepoint": true,
+   "part": "02"
+  },
+  {
+   "id": "phosphate_rock",
+   "label": "Phosphate rock",
+   "domain": "materials",
+   "kind": "resource",
+   "start": 1842,
+   "date_src": "general",
+   "place": "Morocco holds most reserves",
+   "paradigm": "industrial",
+   "desc": "Mined rock phosphate for superphosphate; a chokepoint, since Morocco holds most of the world's phosphate rock reserves [s].",
+   "chokepoint": true,
+   "part": "02"
+  },
+  {
+   "id": "superphosphate",
+   "label": "Superphosphate",
+   "domain": "materials",
+   "kind": "good",
+   "start": 1842,
+   "date_src": "part",
+   "place": "England (Lawes; Rothamsted)",
+   "paradigm": "industrial",
+   "desc": "Bones or rock phosphate treated with sulphuric acid, patented by John Bennet Lawes in 1842, with the Rothamsted experiments from 1843 [s].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "synthetic_nitrogen",
+   "label": "Haber-Bosch ammonia",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1913,
+   "date_src": "part",
+   "place": "Oppau, Germany (BASF)",
+   "paradigm": "industrial",
+   "desc": "Haber fixed nitrogen as ammonia in 1909 and Bosch scaled it at Oppau in 1913, with high pressure, heat and hydrogen now mostly from natural gas [s]. About 48% of people in 2008 depended on it (Erisman et al.) [c]; it decoupled herds from fields after ten thousand years.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "hybrid_maize_seed",
+   "label": "Hybrid seed maize",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1926,
+   "date_src": "part",
+   "place": "US Corn Belt (Pioneer Hi-Bred)",
+   "paradigm": "industrial",
+   "desc": "Higher-yielding hybrids that do not breed true, so farmers buy seed every year; seed selection moved from farmer to company [s].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "green_revolution",
+   "label": "Green Revolution",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1966,
+   "date_src": "part",
+   "place": "Mexico (Borlaug); IRRI, Philippines",
+   "paradigm": "industrial",
+   "desc": "Semi-dwarf wheats and IR8 rice that stood under heavy fertiliser, as a package with fertiliser, irrigation, pesticides, credit and extension. Developing-world cereal output tripled over ~50 years while cultivated area rose ~30% [c, Pingali 2012]; Sub-Saharan Africa largely missed it.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "chain_stores",
+   "label": "Grocery chain stores",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1859,
+   "date_src": "general",
+   "place": "United States (A&P)",
+   "paradigm": "industrial",
+   "desc": "The Great Atlantic & Pacific Tea Company grew to the largest US retailer by the 1920s and 1930s [s].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "self_service_store",
+   "label": "Self-service store",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1916,
+   "date_src": "part",
+   "place": "Memphis (Piggly Wiggly)",
+   "paradigm": "industrial",
+   "desc": "Piggly Wiggly let customers take goods from shelves themselves (1916) [s].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "supermarket",
+   "label": "Supermarket",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1930,
+   "date_src": "part",
+   "place": "Queens, New York (King Kullen)",
+   "paradigm": "industrial",
+   "desc": "Self-service, low prices, volume and a car park (1930) [s]; Walmart later became the largest US grocer. Retailers set standards, private labels and prices; the US farmer's share of the food dollar is ~15 cents [s, r].",
+   "chokepoint": true,
+   "part": "02"
+  },
+  {
+   "id": "grain_elevators_grading",
+   "label": "Grain elevators and grading",
+   "domain": "exchange",
+   "kind": "infrastructure",
+   "start": 1850,
+   "date_src": "part",
+   "place": "Chicago",
+   "paradigm": "industrial",
+   "desc": "Elevators and grain grading in the 1850s turned grain into a commodity sold by grade, not by the farmer's sack (Cronon 1991) [s].",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "grain_futures",
+   "label": "Grain futures",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1865,
+   "date_src": "part",
+   "place": "Chicago Board of Trade",
+   "paradigm": "industrial",
+   "desc": "The Board of Trade (1848) added futures contracts in the 1860s [s]; a few trading houses (ADM, Bunge, Cargill, Louis Dreyfus) now handle much of world grain and oilseed trade.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "global_feed_trade",
+   "label": "Global feed trade",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1970,
+   "date_src": "general",
+   "place": "Brazil and US to China and Europe",
+   "paradigm": "service_information",
+   "desc": "Soybeans and maize shipped across continents feed pigs, poultry and feedlots; livestock eats about a third of the world's cereal crop [s, r]. Efficient but brittle: in 2020 a handful of closed packing plants backed hogs up on farms.",
+   "chokepoint": false,
+   "part": "02"
+  },
+  {
+   "id": "manure",
+   "label": "Manuring and the manure gap",
+   "domain": "food",
+   "kind": "practice",
+   "start": -5500,
+   "date_src": "general",
+   "place": "Europe's first farmers; medieval England",
+   "paradigm": "horticultural_tribal",
+   "desc": "Stable isotopes show manuring from the start among Europe's first farmers (Bogaard et al. 2013, part 10) [firm]. Grain needs nitrogen, nitrogen came from dung, dung from beasts whose grass competed with grain for land: the binding limit in north-west Europe for a thousand years.",
+   "chokepoint": true,
+   "part": "02"
+  }
+ ],
+ "edges": [
+  {
+   "from": "stone_tools",
+   "to": "acheulean_handaxe",
+   "type": "enables",
+   "note": "flaking skill extended to planned shapes",
+   "src": "part"
+  },
+  {
+   "from": "acheulean_handaxe",
+   "to": "prepared_core_levallois",
+   "type": "enables",
+   "note": "planned shaping leads to prepared cores",
+   "src": "part"
+  },
+  {
+   "from": "prepared_core_levallois",
+   "to": "hafting_composite_tools",
+   "type": "enables",
+   "note": "points shaped for hafting",
+   "src": "part"
+  },
+  {
+   "from": "prepared_core_levallois",
+   "to": "blade_technology",
+   "type": "enables",
+   "note": "prismatic cores follow prepared cores",
+   "src": "part"
+  },
+  {
+   "from": "birch_tar_adhesive",
+   "to": "microliths",
+   "type": "input",
+   "note": "glue sets pieces in the shaft",
+   "src": "part"
+  },
+  {
+   "from": "ochre",
+   "to": "hafting_composite_tools",
+   "type": "input",
+   "note": "ochre in gum glues",
+   "src": "part"
+  },
+  {
+   "from": "fire",
+   "to": "birch_tar_adhesive",
+   "type": "enables",
+   "note": "tar made by heating bark",
+   "src": "part"
+  },
+  {
+   "from": "stone_tools",
+   "to": "wooden_spears",
+   "type": "enables",
+   "note": "stone tool shapes the shaft",
+   "src": "part"
+  },
+  {
+   "from": "wooden_spears",
+   "to": "stone_tipped_spears",
+   "type": "enables",
+   "note": "shaft carries the point",
+   "src": "part"
+  },
+  {
+   "from": "hafting_composite_tools",
+   "to": "stone_tipped_spears",
+   "type": "enables",
+   "note": "point, shaft, glue, binding assembled",
+   "src": "part"
+  },
+  {
+   "from": "stone_tipped_spears",
+   "to": "spear_thrower",
+   "type": "enables",
+   "note": "darts thrown farther",
+   "src": "part"
+  },
+  {
+   "from": "blade_technology",
+   "to": "spear_thrower",
+   "type": "enables",
+   "note": "burins cut antler hooks",
+   "src": "part"
+  },
+  {
+   "from": "hafting_composite_tools",
+   "to": "microliths",
+   "type": "enables",
+   "note": "small pieces set in rows",
+   "src": "part"
+  },
+  {
+   "from": "microliths",
+   "to": "bow_and_arrow",
+   "type": "input",
+   "note": "small arrow points",
+   "src": "part"
+  },
+  {
+   "from": "cordage",
+   "to": "bow_and_arrow",
+   "type": "input",
+   "note": "bowstring; cord likely older than finds",
+   "src": "part"
+  },
+  {
+   "from": "birch_tar_adhesive",
+   "to": "bow_and_arrow",
+   "type": "input",
+   "note": "glue for points and fletching",
+   "src": "part"
+  },
+  {
+   "from": "stone_tipped_spears",
+   "to": "bow_and_arrow",
+   "type": "enables",
+   "note": "projectile line leads to the bow",
+   "src": "part"
+  },
+  {
+   "from": "fire",
+   "to": "fire_making_at_will",
+   "type": "enables",
+   "note": "fire known before it could be struck",
+   "src": "part"
+  },
+  {
+   "from": "fire",
+   "to": "cooking",
+   "type": "enables",
+   "note": "hearth as the camp centre",
+   "src": "part"
+  },
+  {
+   "from": "fire_making_at_will",
+   "to": "cooking",
+   "type": "enables",
+   "note": "fire no longer carried or found",
+   "src": "part"
+  },
+  {
+   "from": "fire",
+   "to": "heat_treated_stone",
+   "type": "enables",
+   "note": "~350 C improves flaking",
+   "src": "part"
+  },
+  {
+   "from": "fire",
+   "to": "landscape_burning",
+   "type": "enables",
+   "note": "fire set on the land",
+   "src": "part"
+  },
+  {
+   "from": "fire",
+   "to": "drying_smoking",
+   "type": "enables",
+   "note": "smoke and heat keep meat",
+   "src": "part"
+  },
+  {
+   "from": "cooking",
+   "to": "broad_spectrum_revolution",
+   "type": "enables",
+   "note": "tubers and seeds become worth eating",
+   "src": "part"
+  },
+  {
+   "from": "cordage",
+   "to": "nets",
+   "type": "input",
+   "note": "cord in quantity",
+   "src": "part"
+  },
+  {
+   "from": "cordage",
+   "to": "traps_snares",
+   "type": "input",
+   "note": "snare lines",
+   "src": "part"
+  },
+  {
+   "from": "cordage",
+   "to": "spinning",
+   "type": "enables",
+   "note": "twisting fibre becomes spinning yarn",
+   "src": "part"
+  },
+  {
+   "from": "traps_snares",
+   "to": "fish_weirs",
+   "type": "enables",
+   "note": "fixed gear as time capital",
+   "src": "part"
+  },
+  {
+   "from": "stone_tools",
+   "to": "hunting",
+   "type": "enables",
+   "note": "butchery of large carcasses",
+   "src": "part"
+  },
+  {
+   "from": "hunting",
+   "to": "game_drives_kites",
+   "type": "enables",
+   "note": "communal hunting at scale",
+   "src": "part"
+  },
+  {
+   "from": "drying_smoking",
+   "to": "game_drives_kites",
+   "type": "enables",
+   "note": "kill pulse processed at once",
+   "src": "part"
+  },
+  {
+   "from": "hunting",
+   "to": "antler_picks",
+   "type": "byproduct",
+   "note": "red-deer antler",
+   "src": "part"
+  },
+  {
+   "from": "fishing",
+   "to": "salmon_economies",
+   "type": "enables",
+   "note": "dense predictable runs",
+   "src": "part"
+  },
+  {
+   "from": "fish_weirs",
+   "to": "salmon_economies",
+   "type": "enables",
+   "note": "fishing stations as property",
+   "src": "part"
+  },
+  {
+   "from": "drying_smoking",
+   "to": "salmon_economies",
+   "type": "enables",
+   "note": "stored surplus",
+   "src": "part"
+  },
+  {
+   "from": "drying_smoking",
+   "to": "storage_pits_caches",
+   "type": "enables",
+   "note": "kept food to store",
+   "src": "part"
+  },
+  {
+   "from": "storage_pits_caches",
+   "to": "delayed_return_property",
+   "type": "enables",
+   "note": "stores must be guarded",
+   "src": "part"
+  },
+  {
+   "from": "delayed_return_property",
+   "to": "salmon_economies",
+   "type": "enables",
+   "note": "owned stations, rank",
+   "src": "part"
+  },
+  {
+   "from": "delayed_return_property",
+   "to": "sedentary_villages",
+   "type": "enables",
+   "note": "stores tie people to place",
+   "src": "part"
+  },
+  {
+   "from": "storage_pits_caches",
+   "to": "wild_grain_granaries",
+   "type": "enables",
+   "note": "storage applied to wild grain",
+   "src": "part"
+  },
+  {
+   "from": "delayed_return_property",
+   "to": "property_in_land",
+   "type": "enables",
+   "note": "stores and fields as property",
+   "src": "part"
+  },
+  {
+   "from": "foraging",
+   "to": "demand_sharing",
+   "type": "enables",
+   "note": "band as an insurance pool",
+   "src": "part"
+  },
+  {
+   "from": "foraging",
+   "to": "broad_spectrum_revolution",
+   "type": "enables",
+   "note": "diet widens as top foods deplete",
+   "src": "part"
+  },
+  {
+   "from": "demand_sharing",
+   "to": "gift_exchange",
+   "type": "enables",
+   "note": "sharing extended to distant partners",
+   "src": "part"
+  },
+  {
+   "from": "shell_beads",
+   "to": "gift_exchange",
+   "type": "input",
+   "note": "light valued gifts",
+   "src": "part"
+  },
+  {
+   "from": "gift_exchange",
+   "to": "long_distance_trade",
+   "type": "enables",
+   "note": "partners in other groups",
+   "src": "part"
+  },
+  {
+   "from": "gift_exchange",
+   "to": "obsidian_trade",
+   "type": "enables",
+   "note": "down-the-line passing",
+   "src": "part"
+  },
+  {
+   "from": "gift_exchange",
+   "to": "prestige_goods_exchange",
+   "type": "enables",
+   "note": "gifts between leaders",
+   "src": "part"
+  },
+  {
+   "from": "boats",
+   "to": "obsidian_trade",
+   "type": "enables",
+   "note": "Melos obsidian by sea",
+   "src": "part"
+  },
+  {
+   "from": "obsidian_trade",
+   "to": "long_distance_trade",
+   "type": "enables",
+   "note": "first long-distance material moves",
+   "src": "part"
+  },
+  {
+   "from": "shellfish_gathering",
+   "to": "broad_spectrum_revolution",
+   "type": "enables",
+   "note": "coastal foods already used",
+   "src": "part"
+  },
+  {
+   "from": "hunting",
+   "to": "broad_spectrum_revolution",
+   "type": "enables",
+   "note": "big game decline forces widening",
+   "src": "part"
+  },
+  {
+   "from": "broad_spectrum_revolution",
+   "to": "cereal_domestication",
+   "type": "enables",
+   "note": "cultivation began from that base",
+   "src": "part"
+  },
+  {
+   "from": "saddle_quern",
+   "to": "cereal_domestication",
+   "type": "enables",
+   "note": "grinding raises seed returns",
+   "src": "part"
+  },
+  {
+   "from": "hafting_composite_tools",
+   "to": "sickle",
+   "type": "enables",
+   "note": "blades set in a haft",
+   "src": "part"
+  },
+  {
+   "from": "sickle",
+   "to": "cereal_domestication",
+   "type": "enables",
+   "note": "harvesting wild cereals",
+   "src": "part"
+  },
+  {
+   "from": "wild_grain_granaries",
+   "to": "cereal_domestication",
+   "type": "enables",
+   "note": "storage a millennium before domestication",
+   "src": "part"
+  },
+  {
+   "from": "sedentary_villages",
+   "to": "cereal_domestication",
+   "type": "enables",
+   "note": "sedentism before farming",
+   "src": "part"
+  },
+  {
+   "from": "sedentary_villages",
+   "to": "monumental_feasting",
+   "type": "enables",
+   "note": "gathered labour and feasts",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "property_in_land",
+   "type": "enables",
+   "note": "fields and stores households defend",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "neolithic_town",
+   "type": "enables",
+   "note": "farmers reach 10-100x forager density",
+   "src": "part"
+  },
+  {
+   "from": "mudbrick",
+   "to": "neolithic_town",
+   "type": "input",
+   "note": "mud-brick houses",
+   "src": "part"
+  },
+  {
+   "from": "obsidian_trade",
+   "to": "neolithic_town",
+   "type": "input",
+   "note": "obsidian from 140 km",
+   "src": "part"
+  },
+  {
+   "from": "neolithic_town",
+   "to": "cities",
+   "type": "enables",
+   "note": "dense towns precede cities",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "milk_dairy",
+   "type": "enables",
+   "note": "milked herds",
+   "src": "part"
+  },
+  {
+   "from": "pottery",
+   "to": "milk_dairy",
+   "type": "enables",
+   "note": "pots hold and process milk",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "wool_sheep",
+   "type": "enables",
+   "note": "selection for woolly fleece",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "draught_animals",
+   "type": "enables",
+   "note": "cattle trained for traction",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "pack_animals",
+   "type": "enables",
+   "note": "donkey domesticated",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "horse_riding_chariots",
+   "type": "enables",
+   "note": "horse domesticated",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "manure",
+   "type": "byproduct",
+   "note": "dung from herds",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "tanning",
+   "type": "byproduct",
+   "note": "hides to leather",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "rendering_tallow",
+   "type": "byproduct",
+   "note": "carcass fat",
+   "src": "part"
+  },
+  {
+   "from": "draught_animals",
+   "to": "plough",
+   "type": "enables",
+   "note": "oxen pull the ard",
+   "src": "part"
+  },
+  {
+   "from": "draught_animals",
+   "to": "wheel_cart",
+   "type": "enables",
+   "note": "oxen pull carts",
+   "src": "part"
+  },
+  {
+   "from": "wheel_cart",
+   "to": "horse_riding_chariots",
+   "type": "enables",
+   "note": "wheel for chariots",
+   "src": "part"
+  },
+  {
+   "from": "pack_animals",
+   "to": "camel_caravans",
+   "type": "replaces",
+   "note": "camels cross desert donkeys cannot",
+   "src": "part"
+  },
+  {
+   "from": "camel_caravans",
+   "to": "long_distance_trade",
+   "type": "enables",
+   "note": "desert caravan routes",
+   "src": "part"
+  },
+  {
+   "from": "fire",
+   "to": "pottery",
+   "type": "enables",
+   "note": "firing clay at 600-1,000 C",
+   "src": "part"
+  },
+  {
+   "from": "cooking",
+   "to": "pottery",
+   "type": "enables",
+   "note": "pots make boiling possible",
+   "src": "part"
+  },
+  {
+   "from": "pottery",
+   "to": "kiln",
+   "type": "enables",
+   "note": "firing moved into a chamber",
+   "src": "part"
+  },
+  {
+   "from": "pottery",
+   "to": "potters_wheel",
+   "type": "enables",
+   "note": "specialist potting",
+   "src": "part"
+  },
+  {
+   "from": "fire",
+   "to": "lime",
+   "type": "enables",
+   "note": "750-900 C burning",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "lime",
+   "type": "input",
+   "note": "heavy fuel cost",
+   "src": "part"
+  },
+  {
+   "from": "kiln",
+   "to": "faience_glazes",
+   "type": "enables",
+   "note": "controlled ~900 C firing",
+   "src": "part"
+  },
+  {
+   "from": "faience_glazes",
+   "to": "glass",
+   "type": "enables",
+   "note": "glaze skills lead to glass",
+   "src": "general"
+  },
+  {
+   "from": "kiln",
+   "to": "copper_smelting",
+   "type": "enables",
+   "note": "furnace and draught handling",
+   "src": "part"
+  },
+  {
+   "from": "pottery",
+   "to": "copper_smelting",
+   "type": "enables",
+   "note": "crucibles and furnace linings",
+   "src": "part"
+  },
+  {
+   "from": "charcoal",
+   "to": "copper_smelting",
+   "type": "input",
+   "note": "fuel and reducing agent",
+   "src": "part"
+  },
+  {
+   "from": "forced_draught_bellows",
+   "to": "copper_smelting",
+   "type": "enables",
+   "note": "reaches 1,100-1,200 C",
+   "src": "part"
+  },
+  {
+   "from": "tanning",
+   "to": "forced_draught_bellows",
+   "type": "input",
+   "note": "leather bellows",
+   "src": "part"
+  },
+  {
+   "from": "native_copper_working",
+   "to": "copper_smelting",
+   "type": "enables",
+   "note": "copper known as material",
+   "src": "part"
+  },
+  {
+   "from": "copper_mining",
+   "to": "copper_smelting",
+   "type": "input",
+   "note": "ore",
+   "src": "part"
+  },
+  {
+   "from": "stone_tools",
+   "to": "copper_mining",
+   "type": "enables",
+   "note": "stone hammers break ore",
+   "src": "general"
+  },
+  {
+   "from": "native_copper_working",
+   "to": "gold_working_varna",
+   "type": "enables",
+   "note": "hammering native metal",
+   "src": "general"
+  },
+  {
+   "from": "copper_smelting",
+   "to": "lost_wax_casting",
+   "type": "enables",
+   "note": "molten metal to cast",
+   "src": "part"
+  },
+  {
+   "from": "copper_smelting",
+   "to": "arsenical_copper",
+   "type": "enables",
+   "note": "smelting mixed ores",
+   "src": "part"
+  },
+  {
+   "from": "arsenical_copper",
+   "to": "bronze",
+   "type": "replaces",
+   "note": "tin bronze harder, follows a recipe",
+   "src": "part"
+  },
+  {
+   "from": "copper_smelting",
+   "to": "bronze",
+   "type": "input",
+   "note": "copper, 9 parts",
+   "src": "part"
+  },
+  {
+   "from": "tin",
+   "to": "bronze",
+   "type": "input",
+   "note": "tin, ~10%",
+   "src": "part"
+  },
+  {
+   "from": "lost_wax_casting",
+   "to": "bronze",
+   "type": "enables",
+   "note": "casting skills",
+   "src": "part"
+  },
+  {
+   "from": "copper_smelting",
+   "to": "bloomery_iron",
+   "type": "enables",
+   "note": "next rung of the furnace ladder",
+   "src": "part"
+  },
+  {
+   "from": "pottery",
+   "to": "salt_making",
+   "type": "input",
+   "note": "briquetage vessels",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "salt_making",
+   "type": "input",
+   "note": "boiling brine",
+   "src": "part"
+  },
+  {
+   "from": "kiln",
+   "to": "salt_making",
+   "type": "enables",
+   "note": "domed kilns for boiling",
+   "src": "part"
+  },
+  {
+   "from": "salt_making",
+   "to": "salt_preservation",
+   "type": "enables",
+   "note": "salt keeps meat, fish, cheese",
+   "src": "part"
+  },
+  {
+   "from": "saddle_quern",
+   "to": "polished_stone_axe",
+   "type": "enables",
+   "note": "pecking and grinding technique",
+   "src": "part"
+  },
+  {
+   "from": "polished_stone_axe",
+   "to": "jadeitite_axes",
+   "type": "enables",
+   "note": "axes as exchange goods",
+   "src": "part"
+  },
+  {
+   "from": "prestige_goods_exchange",
+   "to": "jadeitite_axes",
+   "type": "enables",
+   "note": "axes made as prestige gifts",
+   "src": "part"
+  },
+  {
+   "from": "polished_stone_axe",
+   "to": "flint_mines",
+   "type": "enables",
+   "note": "demand for axe stone",
+   "src": "part"
+  },
+  {
+   "from": "antler_picks",
+   "to": "flint_mines",
+   "type": "input",
+   "note": "hundreds of picks a shaft",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "flint_mines",
+   "type": "enables",
+   "note": "surplus feeds a crew for a season",
+   "src": "part"
+  },
+  {
+   "from": "flax_linen",
+   "to": "spinning",
+   "type": "input",
+   "note": "bast fibre",
+   "src": "part"
+  },
+  {
+   "from": "cotton",
+   "to": "spinning",
+   "type": "input",
+   "note": "cotton fibre",
+   "src": "part"
+  },
+  {
+   "from": "spinning",
+   "to": "weaving",
+   "type": "input",
+   "note": "kilometres of yarn",
+   "src": "part"
+  },
+  {
+   "from": "weaving",
+   "to": "dependent_weaving_workshops",
+   "type": "enables",
+   "note": "looms worked at scale",
+   "src": "part"
+  },
+  {
+   "from": "wool_sheep",
+   "to": "dependent_weaving_workshops",
+   "type": "input",
+   "note": "household flocks' wool",
+   "src": "part"
+  },
+  {
+   "from": "temple_palace_household",
+   "to": "dependent_weaving_workshops",
+   "type": "enables",
+   "note": "institutional workshops",
+   "src": "part"
+  },
+  {
+   "from": "grain_rations",
+   "to": "dependent_weaving_workshops",
+   "type": "enables",
+   "note": "weavers paid in rations",
+   "src": "part"
+  },
+  {
+   "from": "dependent_weaving_workshops",
+   "to": "old_assyrian_trade",
+   "type": "input",
+   "note": "woollen textiles exported",
+   "src": "part"
+  },
+  {
+   "from": "tin",
+   "to": "old_assyrian_trade",
+   "type": "input",
+   "note": "tin carried west",
+   "src": "part"
+  },
+  {
+   "from": "pack_animals",
+   "to": "old_assyrian_trade",
+   "type": "enables",
+   "note": "black donkey caravans",
+   "src": "part"
+  },
+  {
+   "from": "writing",
+   "to": "old_assyrian_trade",
+   "type": "enables",
+   "note": "letters and contracts",
+   "src": "part"
+  },
+  {
+   "from": "silver_by_weight",
+   "to": "old_assyrian_trade",
+   "type": "enables",
+   "note": "silver and gold as money",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "old_assyrian_trade",
+   "type": "enables",
+   "note": "established routes",
+   "src": "part"
+  },
+  {
+   "from": "old_assyrian_trade",
+   "to": "naruqqum_fund",
+   "type": "enables",
+   "note": "capital for caravans",
+   "src": "part"
+  },
+  {
+   "from": "credit_accounting",
+   "to": "naruqqum_fund",
+   "type": "enables",
+   "note": "pooled credit, shares of profit",
+   "src": "part"
+  },
+  {
+   "from": "old_assyrian_trade",
+   "to": "merchant_treaties_court",
+   "type": "enables",
+   "note": "safe passage and taxes abroad",
+   "src": "part"
+  },
+  {
+   "from": "writing",
+   "to": "credit_accounting",
+   "type": "enables",
+   "note": "debts carried over years",
+   "src": "part"
+  },
+  {
+   "from": "copper_smelting",
+   "to": "oxhide_ingot_shipping",
+   "type": "input",
+   "note": "Cypriot copper ingots",
+   "src": "part"
+  },
+  {
+   "from": "tin",
+   "to": "oxhide_ingot_shipping",
+   "type": "input",
+   "note": "a tonne of tin",
+   "src": "part"
+  },
+  {
+   "from": "boats",
+   "to": "oxhide_ingot_shipping",
+   "type": "enables",
+   "note": "seagoing hull",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "oxhide_ingot_shipping",
+   "type": "enables",
+   "note": "sailing ships",
+   "src": "general"
+  },
+  {
+   "from": "writing",
+   "to": "linear_b_accounts",
+   "type": "enables",
+   "note": "script lineage via Linear A",
+   "src": "general"
+  },
+  {
+   "from": "wool_sheep",
+   "to": "linear_b_accounts",
+   "type": "input",
+   "note": "~80,000 sheep tracked",
+   "src": "part"
+  },
+  {
+   "from": "linear_b_accounts",
+   "to": "ta_ra_si_ja",
+   "type": "enables",
+   "note": "allocations recorded",
+   "src": "part"
+  },
+  {
+   "from": "bronze",
+   "to": "ta_ra_si_ja",
+   "type": "input",
+   "note": "metal issued to smiths",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "irrigation_farming",
+   "type": "enables",
+   "note": "crops for the dry plain",
+   "src": "part"
+  },
+  {
+   "from": "irrigation_farming",
+   "to": "field_salinisation",
+   "type": "byproduct",
+   "note": "salt without drainage",
+   "src": "part"
+  },
+  {
+   "from": "irrigation_farming",
+   "to": "temple_palace_household",
+   "type": "enables",
+   "note": "grain surplus",
+   "src": "part"
+  },
+  {
+   "from": "redistribution",
+   "to": "temple_palace_household",
+   "type": "enables",
+   "note": "redistribution at scale",
+   "src": "part"
+  },
+  {
+   "from": "temple_palace_household",
+   "to": "grain_rations",
+   "type": "enables",
+   "note": "granary pays dependants",
+   "src": "part"
+  },
+  {
+   "from": "baking",
+   "to": "grain_rations",
+   "type": "input",
+   "note": "bread",
+   "src": "part"
+  },
+  {
+   "from": "brewing",
+   "to": "grain_rations",
+   "type": "input",
+   "note": "beer",
+   "src": "part"
+  },
+  {
+   "from": "grain_rations",
+   "to": "corvee_labour_gangs",
+   "type": "enables",
+   "note": "gangs fed from granaries",
+   "src": "part"
+  },
+  {
+   "from": "grain_rations",
+   "to": "ration_strike",
+   "type": "enables",
+   "note": "late rations, workers stop",
+   "src": "part"
+  },
+  {
+   "from": "grain_rations",
+   "to": "wage_labour",
+   "type": "enables",
+   "note": "rations as the first wage",
+   "src": "part"
+  },
+  {
+   "from": "record_keeping",
+   "to": "numerical_tablets",
+   "type": "enables",
+   "note": "tokens impressed on tablets",
+   "src": "part"
+  },
+  {
+   "from": "numerical_tablets",
+   "to": "writing",
+   "type": "enables",
+   "note": "numbers then signs",
+   "src": "part"
+  },
+  {
+   "from": "temple_palace_household",
+   "to": "writing",
+   "type": "enables",
+   "note": "more transactions than memory",
+   "src": "part"
+  },
+  {
+   "from": "writing",
+   "to": "scribal_schools",
+   "type": "enables",
+   "note": "lexical lists for training",
+   "src": "part"
+  },
+  {
+   "from": "writing",
+   "to": "law_courts",
+   "type": "enables",
+   "note": "law codes (Ur-Namma, Hammurabi)",
+   "src": "part"
+  },
+  {
+   "from": "writing",
+   "to": "papyrus_records",
+   "type": "enables",
+   "note": "writing on papyrus",
+   "src": "part"
+  },
+  {
+   "from": "irrigation_farming",
+   "to": "cities",
+   "type": "enables",
+   "note": "alluvial grain base",
+   "src": "part"
+  },
+  {
+   "from": "temple_palace_household",
+   "to": "cities",
+   "type": "enables",
+   "note": "institutional core of Uruk",
+   "src": "part"
+  },
+  {
+   "from": "cities",
+   "to": "uruk_colonies",
+   "type": "enables",
+   "note": "cloth for metal, timber",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "uruk_colonies",
+   "type": "enables",
+   "note": "directional trade by specialists",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "basin_irrigation_nile",
+   "type": "enables",
+   "note": "winter crop in flood mud",
+   "src": "part"
+  },
+  {
+   "from": "basin_irrigation_nile",
+   "to": "nilometer",
+   "type": "enables",
+   "note": "flood height sets yields",
+   "src": "part"
+  },
+  {
+   "from": "nilometer",
+   "to": "state_taxation",
+   "type": "enables",
+   "note": "flood measured to set taxes",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "state_taxation",
+   "type": "enables",
+   "note": "grain visible, storable, countable",
+   "src": "part"
+  },
+  {
+   "from": "basin_irrigation_nile",
+   "to": "corvee_labour_gangs",
+   "type": "enables",
+   "note": "grain feeds pyramid builders",
+   "src": "part"
+  },
+  {
+   "from": "corvee_labour_gangs",
+   "to": "stone_masonry",
+   "type": "enables",
+   "note": "quarry and building gangs",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "royal_expeditions",
+   "type": "enables",
+   "note": "state funds expeditions",
+   "src": "part"
+  },
+  {
+   "from": "boats",
+   "to": "royal_expeditions",
+   "type": "enables",
+   "note": "Nile and Red Sea ships",
+   "src": "part"
+  },
+  {
+   "from": "barter",
+   "to": "deben_unit_of_account",
+   "type": "enables",
+   "note": "barter priced in deben",
+   "src": "part"
+  },
+  {
+   "from": "copper_smelting",
+   "to": "deben_unit_of_account",
+   "type": "input",
+   "note": "~91 g of copper",
+   "src": "part"
+  },
+  {
+   "from": "deben_unit_of_account",
+   "to": "coinage",
+   "type": "enables",
+   "note": "measure of value before coin",
+   "src": "part"
+  },
+  {
+   "from": "temple_palace_household",
+   "to": "silver_by_weight",
+   "type": "enables",
+   "note": "authority fixes weights",
+   "src": "part"
+  },
+  {
+   "from": "silver_by_weight",
+   "to": "coinage",
+   "type": "enables",
+   "note": "money by weight before coin",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "indus_chert_weights",
+   "type": "enables",
+   "note": "weights for traded goods",
+   "src": "part"
+  },
+  {
+   "from": "indus_chert_weights",
+   "to": "meluhha_gulf_trade",
+   "type": "enables",
+   "note": "Dilmun used Indus weights",
+   "src": "part"
+  },
+  {
+   "from": "heat_treated_stone",
+   "to": "carnelian_bead_craft",
+   "type": "enables",
+   "note": "blanks heated to redden",
+   "src": "part"
+  },
+  {
+   "from": "carnelian_bead_craft",
+   "to": "meluhha_gulf_trade",
+   "type": "input",
+   "note": "beads exported to Ur",
+   "src": "part"
+  },
+  {
+   "from": "kiln",
+   "to": "steatite_seals",
+   "type": "enables",
+   "note": "seals carved and fired",
+   "src": "part"
+  },
+  {
+   "from": "steatite_seals",
+   "to": "meluhha_gulf_trade",
+   "type": "enables",
+   "note": "sealed corded packages",
+   "src": "part"
+  },
+  {
+   "from": "boats",
+   "to": "meluhha_gulf_trade",
+   "type": "enables",
+   "note": "sea route via the Gulf",
+   "src": "part"
+  },
+  {
+   "from": "kiln",
+   "to": "brick",
+   "type": "enables",
+   "note": "baked bricks",
+   "src": "general"
+  },
+  {
+   "from": "brick",
+   "to": "indus_covered_drains",
+   "type": "input",
+   "note": "1:2:4 baked bricks",
+   "src": "part"
+  },
+  {
+   "from": "cities",
+   "to": "indus_covered_drains",
+   "type": "enables",
+   "note": "planned grid city",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "hoe_cultivation",
+   "type": "enables",
+   "note": "tilling sown plots",
+   "src": "part"
+  },
+  {
+   "from": "hoe_cultivation",
+   "to": "wet_rice_farming",
+   "type": "enables",
+   "note": "hand tillage and weeding",
+   "src": "general"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "swidden",
+   "type": "enables",
+   "note": "crops sown in ash",
+   "src": "part"
+  },
+  {
+   "from": "fire",
+   "to": "swidden",
+   "type": "enables",
+   "note": "burning the felled forest",
+   "src": "part"
+  },
+  {
+   "from": "polished_stone_axe",
+   "to": "swidden",
+   "type": "enables",
+   "note": "felling trees",
+   "src": "part"
+  },
+  {
+   "from": "landscape_burning",
+   "to": "swidden",
+   "type": "enables",
+   "note": "managed fire on land",
+   "src": "general"
+  },
+  {
+   "from": "swidden",
+   "to": "two_field_system",
+   "type": "replaces",
+   "note": "shorter fallow as density rises",
+   "src": "part"
+  },
+  {
+   "from": "plough",
+   "to": "two_field_system",
+   "type": "enables",
+   "note": "ard tillage of short-fallow fields",
+   "src": "part"
+  },
+  {
+   "from": "two_field_system",
+   "to": "three_field_rotation",
+   "type": "replaces",
+   "note": "cropped share 50% to 67%",
+   "src": "part"
+  },
+  {
+   "from": "heavy_mouldboard_plough",
+   "to": "three_field_rotation",
+   "type": "enables",
+   "note": "heavy clays brought in",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "three_field_rotation",
+   "type": "enables",
+   "note": "lordship and court organise fields",
+   "src": "part"
+  },
+  {
+   "from": "three_field_rotation",
+   "to": "spring_legumes",
+   "type": "enables",
+   "note": "spring field takes peas, beans",
+   "src": "part"
+  },
+  {
+   "from": "three_field_rotation",
+   "to": "common_rights_stints",
+   "type": "enables",
+   "note": "fallow grazed in common",
+   "src": "part"
+  },
+  {
+   "from": "common_rights_stints",
+   "to": "manor_court_byelaws",
+   "type": "enables",
+   "note": "stints need enforcement",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "manor_court_byelaws",
+   "type": "enables",
+   "note": "manor court makes byelaws",
+   "src": "part"
+  },
+  {
+   "from": "wool_sheep",
+   "to": "sheep_fold",
+   "type": "enables",
+   "note": "flocks to fold",
+   "src": "part"
+  },
+  {
+   "from": "coppice",
+   "to": "sheep_fold",
+   "type": "input",
+   "note": "withy hurdles",
+   "src": "part"
+  },
+  {
+   "from": "manure",
+   "to": "sheep_fold",
+   "type": "enables",
+   "note": "dung placed where wanted",
+   "src": "part"
+  },
+  {
+   "from": "plough",
+   "to": "heavy_mouldboard_plough",
+   "type": "replaces",
+   "note": "turns furrow on heavy clay",
+   "src": "part"
+  },
+  {
+   "from": "draught_animals",
+   "to": "heavy_mouldboard_plough",
+   "type": "input",
+   "note": "eight-ox team",
+   "src": "part"
+  },
+  {
+   "from": "bloomery_iron",
+   "to": "heavy_mouldboard_plough",
+   "type": "input",
+   "note": "iron coulter and share",
+   "src": "general"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "work_horses",
+   "type": "enables",
+   "note": "horses bred for work",
+   "src": "part"
+  },
+  {
+   "from": "horse_riding_chariots",
+   "to": "work_horses",
+   "type": "enables",
+   "note": "horses already kept",
+   "src": "general"
+  },
+  {
+   "from": "draught_animals",
+   "to": "work_horses",
+   "type": "replaces",
+   "note": "faster; costs oats, no salvage meat",
+   "src": "part"
+  },
+  {
+   "from": "bloomery_iron",
+   "to": "work_horses",
+   "type": "input",
+   "note": "horseshoes",
+   "src": "part"
+  },
+  {
+   "from": "wheel_cart",
+   "to": "marling",
+   "type": "enables",
+   "note": "carting tens of tons an acre",
+   "src": "general"
+  },
+  {
+   "from": "marling",
+   "to": "convertible_husbandry",
+   "type": "enables",
+   "note": "accretive soil improvement",
+   "src": "general"
+  },
+  {
+   "from": "lime",
+   "to": "field_liming",
+   "type": "input",
+   "note": "quicklime",
+   "src": "part"
+  },
+  {
+   "from": "kiln",
+   "to": "field_liming",
+   "type": "enables",
+   "note": "lime kilns",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "field_liming",
+   "type": "input",
+   "note": "much fuel to burn lime",
+   "src": "part"
+  },
+  {
+   "from": "kiln",
+   "to": "pipe_under_drainage",
+   "type": "enables",
+   "note": "fired clay pipes",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "pipe_under_drainage",
+   "type": "enables",
+   "note": "public loans, 1846 Drainage Act",
+   "src": "part"
+  },
+  {
+   "from": "manure",
+   "to": "infield_outfield",
+   "type": "input",
+   "note": "byre dung to infield",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "infield_outfield",
+   "type": "enables",
+   "note": "cattle folded on outfield",
+   "src": "part"
+  },
+  {
+   "from": "peat",
+   "to": "infield_outfield",
+   "type": "input",
+   "note": "turf and peat byre bedding",
+   "src": "part"
+  },
+  {
+   "from": "three_field_rotation",
+   "to": "convertible_husbandry",
+   "type": "replaces",
+   "note": "grass years instead of fallow",
+   "src": "part"
+  },
+  {
+   "from": "enclosure",
+   "to": "convertible_husbandry",
+   "type": "enables",
+   "note": "control of one's land",
+   "src": "part"
+  },
+  {
+   "from": "haymaking_meadow",
+   "to": "water_meadows",
+   "type": "enables",
+   "note": "meadow improved by floating",
+   "src": "part"
+  },
+  {
+   "from": "sheep_fold",
+   "to": "water_meadows",
+   "type": "enables",
+   "note": "sheep-corn system",
+   "src": "part"
+  },
+  {
+   "from": "turnips_root_fodder",
+   "to": "norfolk_four_course",
+   "type": "input",
+   "note": "cleaning crop and winter fodder",
+   "src": "part"
+  },
+  {
+   "from": "legumes_clover",
+   "to": "norfolk_four_course",
+   "type": "input",
+   "note": "nitrogen and hay",
+   "src": "part"
+  },
+  {
+   "from": "spring_legumes",
+   "to": "legumes_clover",
+   "type": "enables",
+   "note": "legume nitrogen already used",
+   "src": "general"
+  },
+  {
+   "from": "seed_drill",
+   "to": "norfolk_four_course",
+   "type": "enables",
+   "note": "turnips sown and hoed in rows",
+   "src": "part"
+  },
+  {
+   "from": "work_horses",
+   "to": "seed_drill",
+   "type": "enables",
+   "note": "horse drill and hoe",
+   "src": "part"
+  },
+  {
+   "from": "sheep_fold",
+   "to": "norfolk_four_course",
+   "type": "enables",
+   "note": "folded sheep eat off turnips",
+   "src": "part"
+  },
+  {
+   "from": "three_field_rotation",
+   "to": "norfolk_four_course",
+   "type": "replaces",
+   "note": "no bare fallow",
+   "src": "part"
+  },
+  {
+   "from": "enclosure",
+   "to": "norfolk_four_course",
+   "type": "enables",
+   "note": "freedom to set rotation",
+   "src": "part"
+  },
+  {
+   "from": "capitalist_tenant_farm",
+   "to": "norfolk_four_course",
+   "type": "enables",
+   "note": "tenant stocks, landlord builds",
+   "src": "part"
+  },
+  {
+   "from": "enclosure",
+   "to": "capitalist_tenant_farm",
+   "type": "enables",
+   "note": "consolidated holdings to lease",
+   "src": "part"
+  },
+  {
+   "from": "capitalist_tenant_farm",
+   "to": "wage_labour",
+   "type": "enables",
+   "note": "landless labourers hired",
+   "src": "part"
+  },
+  {
+   "from": "property_in_land",
+   "to": "enclosure",
+   "type": "enables",
+   "note": "holdings in severalty",
+   "src": "part"
+  },
+  {
+   "from": "common_rights_stints",
+   "to": "enclosure",
+   "type": "replaces",
+   "note": "commons to private property",
+   "src": "part"
+  },
+  {
+   "from": "wool_staple",
+   "to": "enclosure",
+   "type": "enables",
+   "note": "sheep pay; early enclosure",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "wet_rice_farming",
+   "type": "enables",
+   "note": "domestic rice",
+   "src": "part"
+  },
+  {
+   "from": "irrigation_farming",
+   "to": "wet_rice_farming",
+   "type": "enables",
+   "note": "water control works",
+   "src": "part"
+  },
+  {
+   "from": "manure",
+   "to": "wet_rice_farming",
+   "type": "input",
+   "note": "night soil and dung",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "ever_normal_granary",
+   "type": "enables",
+   "note": "state buys and sells grain",
+   "src": "part"
+  },
+  {
+   "from": "sickle",
+   "to": "scythe",
+   "type": "replaces",
+   "note": "harvest costs fall 20-30%",
+   "src": "part"
+  },
+  {
+   "from": "bloomery_iron",
+   "to": "scythe",
+   "type": "input",
+   "note": "long iron blade",
+   "src": "general"
+  },
+  {
+   "from": "scythe",
+   "to": "haymaking_meadow",
+   "type": "enables",
+   "note": "mowing hay",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "haymaking_meadow",
+   "type": "enables",
+   "note": "herds need winter feed",
+   "src": "part"
+  },
+  {
+   "from": "flail_threshing",
+   "to": "fanning_mill",
+   "type": "enables",
+   "note": "winnows threshed grain",
+   "src": "part"
+  },
+  {
+   "from": "flail_threshing",
+   "to": "threshing_machine",
+   "type": "replaces",
+   "note": "5x horse, 10x water power",
+   "src": "part"
+  },
+  {
+   "from": "work_horses",
+   "to": "threshing_machine",
+   "type": "input",
+   "note": "horse power",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "threshing_machine",
+   "type": "enables",
+   "note": "water power",
+   "src": "part"
+  },
+  {
+   "from": "scythe",
+   "to": "mechanical_reaper",
+   "type": "replaces",
+   "note": "machine cuts grain",
+   "src": "part"
+  },
+  {
+   "from": "mechanical_reaper",
+   "to": "combine_harvester",
+   "type": "enables",
+   "note": "reaping mechanised",
+   "src": "part"
+  },
+  {
+   "from": "threshing_machine",
+   "to": "combine_harvester",
+   "type": "enables",
+   "note": "threshing mechanised",
+   "src": "part"
+  },
+  {
+   "from": "internal_combustion_engine",
+   "to": "tractor",
+   "type": "enables",
+   "note": "engine power",
+   "src": "part"
+  },
+  {
+   "from": "oil_petroleum",
+   "to": "tractor",
+   "type": "input",
+   "note": "fuel",
+   "src": "part"
+  },
+  {
+   "from": "work_horses",
+   "to": "tractor",
+   "type": "replaces",
+   "note": "frees ~88 million acres of feed",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "transhumance",
+   "type": "enables",
+   "note": "flocks moved seasonally",
+   "src": "part"
+  },
+  {
+   "from": "transhumance",
+   "to": "mesta_transhumance",
+   "type": "enables",
+   "note": "long-range transhumance",
+   "src": "part"
+  },
+  {
+   "from": "wool_sheep",
+   "to": "mesta_transhumance",
+   "type": "input",
+   "note": "merino wool flocks",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "pannage",
+   "type": "enables",
+   "note": "lord's woods",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "pannage",
+   "type": "enables",
+   "note": "pigs eat mast",
+   "src": "part"
+  },
+  {
+   "from": "wool_sheep",
+   "to": "wool_staple",
+   "type": "input",
+   "note": "fleeces, ~240 to a sack",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "wool_staple",
+   "type": "enables",
+   "note": "export to Flanders, Italy",
+   "src": "part"
+  },
+  {
+   "from": "wool_staple",
+   "to": "state_taxation",
+   "type": "enables",
+   "note": "wool customs pay for wars",
+   "src": "part"
+  },
+  {
+   "from": "milk_dairy",
+   "to": "cheese_making",
+   "type": "enables",
+   "note": "milk to keep",
+   "src": "part"
+  },
+  {
+   "from": "salt_making",
+   "to": "cheese_making",
+   "type": "input",
+   "note": "salt",
+   "src": "part"
+  },
+  {
+   "from": "saddle_quern",
+   "to": "rotary_quern",
+   "type": "replaces",
+   "note": "4.3x as efficient",
+   "src": "part"
+  },
+  {
+   "from": "rotary_quern",
+   "to": "flour_milling",
+   "type": "replaces",
+   "note": "mill grinds most of the grain",
+   "src": "part"
+  },
+  {
+   "from": "draught_animals",
+   "to": "flour_milling",
+   "type": "input",
+   "note": "animal-driven mills",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "flour_milling",
+   "type": "enables",
+   "note": "water-driven stones",
+   "src": "part"
+  },
+  {
+   "from": "windmill",
+   "to": "flour_milling",
+   "type": "enables",
+   "note": "wind-driven stones",
+   "src": "part"
+  },
+  {
+   "from": "flour_milling",
+   "to": "suit_of_mill",
+   "type": "enables",
+   "note": "lord's mill as monopoly",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "suit_of_mill",
+   "type": "enables",
+   "note": "tenants bound to the lord's mill",
+   "src": "part"
+  },
+  {
+   "from": "flour_milling",
+   "to": "roller_mill",
+   "type": "replaces",
+   "note": "stones to steel rollers",
+   "src": "part"
+  },
+  {
+   "from": "bessemer_steel",
+   "to": "roller_mill",
+   "type": "input",
+   "note": "steel rollers",
+   "src": "general"
+  },
+  {
+   "from": "roller_mill",
+   "to": "factory_bread",
+   "type": "input",
+   "note": "white flour in bulk",
+   "src": "part"
+  },
+  {
+   "from": "roller_mill",
+   "to": "breakfast_cereals",
+   "type": "input",
+   "note": "milled grain",
+   "src": "general"
+  },
+  {
+   "from": "railway",
+   "to": "breakfast_cereals",
+   "type": "enables",
+   "note": "national distribution of a brand",
+   "src": "general"
+  },
+  {
+   "from": "saddle_quern",
+   "to": "baking",
+   "type": "input",
+   "note": "ground grain",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "baking",
+   "type": "input",
+   "note": "faggots heat the oven",
+   "src": "part"
+  },
+  {
+   "from": "baking",
+   "to": "banal_oven",
+   "type": "enables",
+   "note": "oven as shared capital",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "banal_oven",
+   "type": "enables",
+   "note": "seigneurial monopoly",
+   "src": "part"
+  },
+  {
+   "from": "baking",
+   "to": "assize_bread_ale",
+   "type": "enables",
+   "note": "loaf weight fixed by wheat price",
+   "src": "part"
+  },
+  {
+   "from": "brewing",
+   "to": "assize_bread_ale",
+   "type": "enables",
+   "note": "ale priced and tasted",
+   "src": "part"
+  },
+  {
+   "from": "law_courts",
+   "to": "assize_bread_ale",
+   "type": "enables",
+   "note": "local courts enforce",
+   "src": "part"
+  },
+  {
+   "from": "baking",
+   "to": "factory_bread",
+   "type": "replaces",
+   "note": "baker to factory",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "malting",
+   "type": "input",
+   "note": "barley",
+   "src": "part"
+  },
+  {
+   "from": "kiln",
+   "to": "malting",
+   "type": "enables",
+   "note": "drying kiln",
+   "src": "part"
+  },
+  {
+   "from": "malting",
+   "to": "brewing",
+   "type": "input",
+   "note": "malt",
+   "src": "part"
+  },
+  {
+   "from": "brewing",
+   "to": "baking",
+   "type": "input",
+   "note": "barm yeast for bread",
+   "src": "part"
+  },
+  {
+   "from": "brewing",
+   "to": "brewsters_alewives",
+   "type": "enables",
+   "note": "ale brewed for sale",
+   "src": "part"
+  },
+  {
+   "from": "brewsters_alewives",
+   "to": "hopped_beer",
+   "type": "replaces",
+   "note": "keeps weeks; scale, capital, men",
+   "src": "part"
+  },
+  {
+   "from": "hopped_beer",
+   "to": "porter_breweries",
+   "type": "enables",
+   "note": "beer that keeps allows scale",
+   "src": "part"
+  },
+  {
+   "from": "salt_preservation",
+   "to": "herring_salting_trade",
+   "type": "enables",
+   "note": "barrelled salt herring",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "herring_salting_trade",
+   "type": "enables",
+   "note": "Hanse routes",
+   "src": "part"
+  },
+  {
+   "from": "salt_preservation",
+   "to": "meatpacking",
+   "type": "enables",
+   "note": "salt pork packing",
+   "src": "part"
+  },
+  {
+   "from": "tin",
+   "to": "canning",
+   "type": "input",
+   "note": "tin plate",
+   "src": "general"
+  },
+  {
+   "from": "glass",
+   "to": "canning",
+   "type": "input",
+   "note": "Appert's glass bottles",
+   "src": "part"
+  },
+  {
+   "from": "salt_preservation",
+   "to": "canning",
+   "type": "replaces",
+   "note": "heat-sealed keeping",
+   "src": "part"
+  },
+  {
+   "from": "canning",
+   "to": "condensed_milk",
+   "type": "enables",
+   "note": "milk in cans",
+   "src": "part"
+  },
+  {
+   "from": "milk_dairy",
+   "to": "condensed_milk",
+   "type": "input",
+   "note": "milk",
+   "src": "part"
+  },
+  {
+   "from": "refrigeration_cold_chain",
+   "to": "frozen_food",
+   "type": "enables",
+   "note": "freezers to the home",
+   "src": "part"
+  },
+  {
+   "from": "meatpacking",
+   "to": "union_stock_yards",
+   "type": "enables",
+   "note": "packing industry concentrates",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "union_stock_yards",
+   "type": "enables",
+   "note": "western railways meet eastern market",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "refrigerated_rail_car",
+   "type": "enables",
+   "note": "rail network",
+   "src": "part"
+  },
+  {
+   "from": "refrigeration_cold_chain",
+   "to": "refrigerated_rail_car",
+   "type": "enables",
+   "note": "ice and icing stations",
+   "src": "part"
+  },
+  {
+   "from": "meatpacking",
+   "to": "packer_byproducts",
+   "type": "byproduct",
+   "note": "glue, soap, lard, fertiliser",
+   "src": "part"
+  },
+  {
+   "from": "refrigerated_rail_car",
+   "to": "packer_byproducts",
+   "type": "enables",
+   "note": "inedible half stays in Chicago",
+   "src": "part"
+  },
+  {
+   "from": "rendering_tallow",
+   "to": "packer_byproducts",
+   "type": "enables",
+   "note": "rendering at industrial scale",
+   "src": "general"
+  },
+  {
+   "from": "meatpacking",
+   "to": "meat_inspection_antitrust",
+   "type": "enables",
+   "note": "Big Five concentration",
+   "src": "part"
+  },
+  {
+   "from": "meatpacking",
+   "to": "motor_vehicle",
+   "type": "enables",
+   "note": "Ford credited disassembly lines",
+   "src": "part"
+  },
+  {
+   "from": "meatpacking",
+   "to": "boxed_beef",
+   "type": "enables",
+   "note": "second packing wave",
+   "src": "part"
+  },
+  {
+   "from": "refrigeration_cold_chain",
+   "to": "boxed_beef",
+   "type": "input",
+   "note": "vacuum-packed chilled cuts",
+   "src": "part"
+  },
+  {
+   "from": "meatpacking",
+   "to": "broiler_integration",
+   "type": "enables",
+   "note": "integrated processing",
+   "src": "part"
+  },
+  {
+   "from": "corporation",
+   "to": "broiler_integration",
+   "type": "enables",
+   "note": "integrator owns birds and feed",
+   "src": "part"
+  },
+  {
+   "from": "broiler_integration",
+   "to": "global_feed_trade",
+   "type": "enables",
+   "note": "demand for soy feed",
+   "src": "part"
+  },
+  {
+   "from": "synthetic_nitrogen",
+   "to": "global_feed_trade",
+   "type": "enables",
+   "note": "herds decoupled from fields",
+   "src": "part"
+  },
+  {
+   "from": "manure",
+   "to": "guano_imports",
+   "type": "replaces",
+   "note": "fertility bought from abroad",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "guano_imports",
+   "type": "enables",
+   "note": "shipped from Peru",
+   "src": "general"
+  },
+  {
+   "from": "guano_imports",
+   "to": "chilean_nitrate",
+   "type": "replaces",
+   "note": "nitrate as guano ran short",
+   "src": "general"
+  },
+  {
+   "from": "sulphuric_acid",
+   "to": "superphosphate",
+   "type": "input",
+   "note": "acid treats bones, rock",
+   "src": "part"
+  },
+  {
+   "from": "phosphate_rock",
+   "to": "superphosphate",
+   "type": "input",
+   "note": "rock phosphate",
+   "src": "part"
+  },
+  {
+   "from": "manure",
+   "to": "synthetic_nitrogen",
+   "type": "replaces",
+   "note": "fertility no longer from beasts",
+   "src": "part"
+  },
+  {
+   "from": "chilean_nitrate",
+   "to": "synthetic_nitrogen",
+   "type": "replaces",
+   "note": "nitrogen from the air",
+   "src": "part"
+  },
+  {
+   "from": "natural_gas",
+   "to": "synthetic_nitrogen",
+   "type": "input",
+   "note": "hydrogen feedstock",
+   "src": "part"
+  },
+  {
+   "from": "synthetic_nitrogen",
+   "to": "green_revolution",
+   "type": "input",
+   "note": "heavy fertiliser",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "hybrid_maize_seed",
+   "type": "enables",
+   "note": "maize from teosinte",
+   "src": "general"
+  },
+  {
+   "from": "hybrid_maize_seed",
+   "to": "green_revolution",
+   "type": "enables",
+   "note": "bred high-yield seed model",
+   "src": "part"
+  },
+  {
+   "from": "irrigation_farming",
+   "to": "green_revolution",
+   "type": "input",
+   "note": "water for the package",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "chain_stores",
+   "type": "enables",
+   "note": "national supply",
+   "src": "general"
+  },
+  {
+   "from": "chain_stores",
+   "to": "supermarket",
+   "type": "enables",
+   "note": "chain buying",
+   "src": "part"
+  },
+  {
+   "from": "self_service_store",
+   "to": "supermarket",
+   "type": "enables",
+   "note": "self-service",
+   "src": "part"
+  },
+  {
+   "from": "motor_vehicle",
+   "to": "supermarket",
+   "type": "enables",
+   "note": "car park, volume",
+   "src": "part"
+  },
+  {
+   "from": "refrigeration_cold_chain",
+   "to": "supermarket",
+   "type": "enables",
+   "note": "chilled and frozen aisles",
+   "src": "general"
+  },
+  {
+   "from": "railway",
+   "to": "grain_elevators_grading",
+   "type": "enables",
+   "note": "grain by rail to Chicago",
+   "src": "part"
+  },
+  {
+   "from": "steam_engine",
+   "to": "grain_elevators_grading",
+   "type": "enables",
+   "note": "steam-powered elevators",
+   "src": "general"
+  },
+  {
+   "from": "grain_elevators_grading",
+   "to": "grain_futures",
+   "type": "enables",
+   "note": "graded grain as a commodity",
+   "src": "part"
+  },
+  {
+   "from": "telegraph",
+   "to": "grain_futures",
+   "type": "enables",
+   "note": "prices across distance",
+   "src": "general"
+  },
+  {
+   "from": "container_shipping",
+   "to": "global_feed_trade",
+   "type": "enables",
+   "note": "reefers and bulk freight",
+   "src": "general"
+  }
+ ]
+}

@@ -1,0 +1,2173 @@
+{
+ "nodes": [
+  {
+   "id": "moving_assembly_line",
+   "label": "Moving assembly line",
+   "domain": "institutions",
+   "kind": "technique",
+   "start": 1913,
+   "date_src": "part",
+   "wide": 1920,
+   "place": "Ford Highland Park, Detroit",
+   "paradigm": "industrial",
+   "desc": "The work moves past the worker and each does one task, on parts made to gauge so nothing is fitted at assembly. Chassis time fell from about 12.5 hours to about 93 minutes over 1913-14 (AM). A paradigm switch with increasing returns past a volume threshold.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "five_dollar_day",
+   "label": "Five-dollar day",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1914,
+   "date_src": "part",
+   "place": "Ford, Detroit",
+   "paradigm": "industrial",
+   "desc": "Ford doubled wages in January 1914 to hold workers on dull, fast line work, when turnover had been several hundred per cent a year (rough). Part of the Fordist settlement of high wages and mass consumption: a worker who could buy what he made.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "vertical_integration_rouge",
+   "label": "River Rouge vertical integration",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1917,
+   "date_src": "part",
+   "place": "River Rouge, Dearborn, Michigan",
+   "paradigm": "industrial",
+   "desc": "One owner of the whole chain: ore, coal, sand and rubber in, cars out, with Ford's own ships, railways, mines, forests and a Brazilian rubber plantation. Ore to finished car in about 28 hours (BRIT; commonly cited), about 100,000 workers, still at least 6,000 outside suppliers (CLUI). Cheaper than buying at each step because the line cannot stop for a late part, but rigid: one model, one colour.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "multidivisional_firm",
+   "label": "Multidivisional firm (Sloan)",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1921,
+   "date_src": "general",
+   "place": "General Motors, United States",
+   "paradigm": "industrial",
+   "desc": "GM under Alfred Sloan answered Ford's rigidity in the 1920s with a range of models at price steps, the annual model change, and divisions run on financial targets. Chandler made it the centre of his account of modern business (The Visible Hand).",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "toyota_production_system",
+   "label": "Toyota Production System (lean)",
+   "domain": "institutions",
+   "kind": "technique",
+   "start": 1950,
+   "date_src": "part",
+   "wide": 1990,
+   "place": "Toyota, Japan",
+   "paradigm": "industrial",
+   "desc": "Ohno and Toyoda's answer to a firm that could not afford Ford's scale or stocks: just in time, jidoka (stop the line at the first defect), small lots and quick die changes so many models share one line. The MIT IMVP found about 16 labour hours and 45 defects per 100 cars against 31 hours and 130 defects for mass production (MIT IMVP via TST). NUMMI (1984) showed the gap was organisation, not culture.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "just_in_time_kanban",
+   "label": "Just in time (kanban)",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1953,
+   "date_src": "general",
+   "wide": 1990,
+   "place": "Toyota, Japan",
+   "paradigm": "industrial",
+   "desc": "Each part arrives when needed in the quantity needed, pulled by a card from downstream rather than pushed to a plan. Lean plants held about two hours of parts stock against about two weeks (MIT IMVP). It removes buffer stock, which is cheap insurance, so every single source becomes a point of failure.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "keiretsu_supplier_network",
+   "label": "Keiretsu supplier network",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1950,
+   "date_src": "general",
+   "place": "Toyota group, Japan",
+   "paradigm": "industrial",
+   "desc": "A tiered network of long-term, often part-owned suppliers who design parts with the assembler, share costs and are not dropped for a cheaper bid (Gereffi's relational governance). After the Aisin fire of Feb 1997 cut about 99% of Toyota's P-valves, more than 200 group firms improvised production and plants restarted in about five days (WIKI-AISIN; sources give two to five).",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "export_processing_zones",
+   "label": "Export-processing zones",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1965,
+   "date_src": "general",
+   "wide": 1980,
+   "place": "Mexico's maquiladoras; East Asia; Shenzhen 1980",
+   "paradigm": "service_information",
+   "desc": "Zones where labour-intensive steps (garments, electronics assembly) were moved to low-wage coasts from the 1970s to the 1990s, with Shenzhen opened in 1980. A step between multinationals building whole plants abroad and the fine-sliced value chain.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "contract_manufacturing",
+   "label": "Contract manufacturing",
+   "domain": "institutions",
+   "kind": "industry",
+   "start": 1990,
+   "date_src": "part",
+   "wide": 2000,
+   "place": "Foxconn, Flextronics; southern China",
+   "paradigm": "service_information",
+   "desc": "Firms that assemble other firms' branded products to written specifications: Gereffi's modular governance. Foxconn, Pegatron and Luxshare assemble most smartphones, in China and increasingly India and Vietnam. Assembly is easy to move and earns little (Chinese assembly labour about 1.8% of an iPhone 4's price, KLD).",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "foundry_model",
+   "label": "Fabless chip foundry",
+   "domain": "information",
+   "kind": "industry",
+   "start": 1987,
+   "date_src": "part",
+   "wide": 2000,
+   "place": "TSMC, Hsinchu, Taiwan",
+   "paradigm": "service_information",
+   "desc": "Chip design split from fabrication: fabless firms design, a foundry makes for many customers. A leading fab costs $20 billion or more (rough), and yield learning ties customers' designs to one process, so TSMC became a chokepoint built by learning rather than geography.",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "global_value_chains",
+   "label": "Global value chains",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1990,
+   "date_src": "part",
+   "wide": 2008,
+   "place": "worldwide; China after WTO entry (2001)",
+   "paradigm": "service_information",
+   "desc": "Baldwin's second unbundling: cheap telecoms let the factory itself be split across countries, with know-how sent with the work. Trade inside such chains reached almost half of world trade by 2008 and then stalled (WDR 2020). Specialisation compounds wealth and fragility together.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "smile_curve_value_capture",
+   "label": "Smile curve of value",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1992,
+   "date_src": "part",
+   "place": "Acer, Taiwan (Stan Shih)",
+   "paradigm": "service_information",
+   "desc": "Value added is high at both ends of a chain (R&D, design, brand, distribution, service) and low in the middle (fabrication, assembly). In 2010 Apple kept about 58.5% of an iPhone's price as profit, materials about 21.9%, Chinese labour about 1.8% (KLD). Value goes to what is scarce and hard to copy.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "just_in_case_stocking",
+   "label": "Just in case stocking",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 2021,
+   "date_src": "part",
+   "place": "car makers worldwide",
+   "paradigm": "service_information",
+   "desc": "After the 2021 chip shortage (about 7.7 million vehicles of output lost, ALIX), car makers bought chips directly, held months of stock of critical parts and mapped suppliers to tier 3 and beyond. Toyota had done so after the 2011 earthquake, which is one reason it weathered 2021 better.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "iso_container_standard",
+   "label": "ISO container standard",
+   "domain": "transport",
+   "kind": "institution",
+   "start": 1968,
+   "date_src": "general",
+   "wide": 1970,
+   "place": "ISO; United States and Europe",
+   "paradigm": "industrial",
+   "desc": "Standard 20- and 40-foot boxes and corner fittings, agreed in the 1960s after fights between firms and countries over sizes. The box was not the invention; the system was, and the standard is a public good someone had to set and others accept.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "container_ports_gantry",
+   "label": "Container ports and gantry cranes",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1962,
+   "date_src": "general",
+   "wide": 1975,
+   "place": "Port Newark-Elizabeth; Felixstowe; Rotterdam",
+   "paradigm": "industrial",
+   "desc": "Gantry cranes, large flat yards and deep berths for cellular ships. The old docks (Manhattan, London's East End, Liverpool) died and new ones grew where land was, after long fights with dockers' unions settled by buyouts and guaranteed incomes. Shanghai now handles about 50 million TEU a year (rough).",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "double_stack_rail",
+   "label": "Double-stack container rail",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1984,
+   "date_src": "part",
+   "place": "North America",
+   "paradigm": "service_information",
+   "desc": "The same box moves from ship to rail to truck; US double-stack trains from 1984, after the 1980 deregulation of rail and trucking. It made the container intermodal over long land distances.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "barcode_upc",
+   "label": "Bar code (UPC)",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1974,
+   "date_src": "part",
+   "wide": 1985,
+   "place": "United States",
+   "paradigm": "service_information",
+   "desc": "The Universal Product Code, first scanned in 1974, joined retail checkout to stock records. With satellite links it let Walmart run its own logistics from the 1980s, and retailers' data on what sells came to set factory orders.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "cross_dock_distribution",
+   "label": "Cross-dock distribution centre",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1980,
+   "date_src": "part",
+   "wide": 1990,
+   "place": "Walmart, United States",
+   "paradigm": "service_information",
+   "desc": "The 20th-century warehouse stored; the distribution centre flows, unloading inbound trucks straight onto outbound ones for daily store delivery. Bread goes bakery depot to the supermarket's regional cross-dock to store, daily.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "ecommerce_fulfilment",
+   "label": "E-commerce fulfilment network",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1994,
+   "date_src": "general",
+   "wide": 2020,
+   "place": "Amazon, United States",
+   "paradigm": "service_information",
+   "desc": "Walmart's template carried to the parcel: Amazon had about 1.5 million employees in 2025, most in operations, and around a million robots (RSF, GEEK). E-commerce is about a fifth of world retail (EMK). Increasing returns from network density, so a few firms dominate; the last mile is the costliest step per item.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "suez_canal",
+   "label": "Suez Canal chokepoint",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1869,
+   "date_src": "general",
+   "place": "Egypt",
+   "paradigm": "industrial",
+   "desc": "12 to 15% of world maritime trade and over 20% of container trade passed before 2024 (UNCTAD). The Ever Given held up about $9-10 billion of trade a day for six days in 2021 (LL); Red Sea attacks cut Suez volume about 50% in early 2024 (IMF). Its value is set by the alternative: round the Cape adds 10 to 14 days (rough).",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "panama_canal",
+   "label": "Panama Canal chokepoint",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1914,
+   "date_src": "general",
+   "place": "Panama",
+   "paradigm": "industrial",
+   "desc": "About 5% of world trade by volume, through locks fed by fresh water from Gatun Lake (about 200 million litres per transit, rough). The 2023-24 drought cut daily transits from about 36-38 to about 24 (GCAP, ME).",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "oil_straits",
+   "label": "Oil straits (Hormuz, Malacca)",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1950,
+   "date_src": "general",
+   "place": "Persian Gulf; Strait of Malacca",
+   "paradigm": "industrial",
+   "desc": "Hormuz carried about 20 million barrels a day of oil in 2023 and much of the world's LNG; Malacca about 23.7 million, the largest oil chokepoint (EIA). Geography forces many routes into one; tanker war 1984-88, seizures in 2019.",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "oil_refining_cracking",
+   "label": "Oil refining and cracking",
+   "domain": "energy",
+   "kind": "industry",
+   "start": 1913,
+   "date_src": "general",
+   "wide": 1930,
+   "place": "United States",
+   "paradigm": "industrial",
+   "desc": "Crude is distilled, cracked and reformed into fuels. A joint-product plant: every barrel gives a mix of petrol, diesel, jet, fuel oil, naphtha, LPG, asphalt and coke, and refiners choose crude and units to tilt the mix. World oil use about 100-105 million barrels a day (rough).",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "petrochemicals",
+   "label": "Petrochemical cracking",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1920,
+   "date_src": "general",
+   "wide": 1950,
+   "place": "United States; Germany",
+   "paradigm": "industrial",
+   "desc": "Naphtha and ethane are cracked to ethylene, propylene and benzene, then made into plastics (PE, PP, PVC, PET), synthetic fibres, rubber, solvents and detergents. The hub that ties food packaging, clothing and buildings to oil and gas.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "lng_shipping",
+   "label": "LNG liquefaction and tankers",
+   "domain": "energy",
+   "kind": "infrastructure",
+   "start": 1964,
+   "date_src": "general",
+   "wide": 2010,
+   "place": "Algeria to UK; now US, Qatar, Australia",
+   "paradigm": "industrial",
+   "desc": "Gas is liquefied, shipped in tankers and regasified, freeing it from pipelines; the US, Qatar and Australia are the largest exporters. When Russian pipeline gas to Europe was cut in 2022, European gas and power prices rose several-fold and fertiliser plants closed.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "large_power_transformers",
+   "label": "Large power transformers",
+   "domain": "energy",
+   "kind": "good",
+   "start": 1885,
+   "date_src": "general",
+   "place": "worldwide; few makers",
+   "paradigm": "industrial",
+   "desc": "Custom-built, made by few firms, with lead times stretched to two to four years in the 2020s (rough); grain-oriented electrical steel has few makers. A chokepoint for grids and for new buildings.",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "power_market_liberalisation",
+   "label": "Liberalised power markets",
+   "domain": "energy",
+   "kind": "institution",
+   "start": 1990,
+   "date_src": "part",
+   "place": "UK, US, EU",
+   "paradigm": "service_information",
+   "desc": "Grids began as private firms (Edison), became regulated monopolies or state utilities (one wire network per place), and since the 1990s many were split into competing generators, regulated wires and a wholesale market. Supply must still equal demand every second across a synchronous area.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "uranium_enrichment",
+   "label": "Uranium enrichment",
+   "domain": "energy",
+   "kind": "industry",
+   "start": 1945,
+   "date_src": "general",
+   "place": "Russia (Rosatom), Urenco, Orano, CNNC",
+   "paradigm": "industrial",
+   "desc": "Mined uranium is milled to yellowcake, converted to UF6 and enriched before fuel fabrication. Rosatom held about 44% of world enrichment capacity in 2024 (POWERTECH; estimates 40-46%), a chokepoint that survived the 2022 sanctions because the West had let its own capacity run down.",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "polysilicon",
+   "label": "Polysilicon refining",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1955,
+   "date_src": "general",
+   "wide": 2010,
+   "place": "now China",
+   "paradigm": "service_information",
+   "desc": "Quartz is reduced with coal or charcoal in arc furnaces to metallurgical silicon, then refined to polysilicon, using a great deal of power. China holds over 95% of polysilicon and wafers for solar and over 80% of every solar manufacturing stage (IEA-PV).",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "lithium_ion_battery",
+   "label": "Lithium-ion battery cells",
+   "domain": "energy",
+   "kind": "industry",
+   "start": 1991,
+   "date_src": "general",
+   "wide": 2015,
+   "place": "Japan; now China (CATL, BYD)",
+   "paradigm": "service_information",
+   "desc": "Cells of cathode (lithium, nickel, cobalt, manganese or iron phosphate), graphite anode, electrolyte and separator, made by CATL, BYD, LG, Panasonic and others; China has roughly three quarters of world cell capacity (rough). They feed cars, grid storage and phones.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "battery_mineral_refining",
+   "label": "Battery-mineral refining",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 1990,
+   "date_src": "general",
+   "wide": 2015,
+   "place": "China; Indonesia (nickel)",
+   "paradigm": "service_information",
+   "desc": "Lithium, nickel, cobalt and graphite are mined widely but refined mostly in China: about 80-88% of cobalt refining (IISD), over 90% of battery-grade graphite (IEA), and leadership in 19 of 20 energy minerals at about 70% average share (IEA-CMO). Refining is the chokepoint because it needs cheap power, chemistry skill, tolerance of pollution and years to build.",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "rare_earth_separation",
+   "label": "Rare-earth separation",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 1965,
+   "date_src": "general",
+   "wide": 1995,
+   "place": "China (also Mountain Pass, Myanmar)",
+   "paradigm": "service_information",
+   "desc": "Hundreds of solvent-extraction stages separate the elements, with chemistry skill and acid waste. China does about 90% of separation (91% of magnet rare earths in 2024, IEA). Its April 2025 licensing of seven heavy rare earths halved magnet exports within a month (SMM, ENGNEWS): a chokepoint used as a dial.",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "ndfeb_magnets",
+   "label": "Neodymium (NdFeB) magnets",
+   "domain": "metals",
+   "kind": "good",
+   "start": 1984,
+   "date_src": "general",
+   "wide": 2015,
+   "place": "China about 90% (rough)",
+   "paradigm": "service_information",
+   "desc": "Neodymium-iron-boron magnets for EV motors, wind turbines, phone speakers and haptics, and missiles. China makes about 90% (rough); in 2025 some car plants outside China cut output for lack of them (SMM).",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "electric_vehicle",
+   "label": "Electric vehicle",
+   "domain": "transport",
+   "kind": "good",
+   "start": 2008,
+   "date_src": "general",
+   "wide": 2020,
+   "place": "US (Tesla); China (BYD)",
+   "paradigm": "service_information",
+   "desc": "A battery with a car around it: battery pack, rare-earth motor, silicon-carbide inverter. The IEA put a typical EV's mineral input at about six times a conventional car's (about 207 kg against 34 kg, excluding steel and aluminium; IEA 2021, rough).",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "euv_lithography",
+   "label": "EUV lithography",
+   "domain": "information",
+   "kind": "technique",
+   "start": 2019,
+   "date_src": "general",
+   "place": "ASML, Veldhoven, Netherlands",
+   "paradigm": "service_information",
+   "desc": "ASML is the sole maker: Zeiss optics (sole source), a light source that hits tin droplets with a laser tens of thousands of times a second, and about 5,100 suppliers; machines cost about EUR 150 to over 350 million (LS, CNBC). Since 2019 the Netherlands has not licensed EUV tools to China.",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "eda_software",
+   "label": "Chip design (EDA) software",
+   "domain": "information",
+   "kind": "industry",
+   "start": 1985,
+   "date_src": "general",
+   "place": "Synopsys, Cadence (US); Siemens EDA",
+   "paradigm": "service_information",
+   "desc": "Electronic design automation tools and libraries on which chip designers are trained; decades of accumulated tools make it a chokepoint with no quick substitute. Arm's instruction set (UK) is a parallel ecosystem node.",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "high_purity_quartz",
+   "label": "High-purity quartz (Spruce Pine)",
+   "domain": "materials",
+   "kind": "resource",
+   "start": 1950,
+   "date_src": "general",
+   "place": "Spruce Pine, North Carolina",
+   "paradigm": "service_information",
+   "desc": "Two firms in one town supply about 70-90% of high-purity quartz (TT, BNN), used for the crucibles in which silicon ingots are grown. Hurricane Helene shut both mines for about two weeks in 2024. A chokepoint of geology.",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "silicon_wafers",
+   "label": "Silicon wafers",
+   "domain": "information",
+   "kind": "good",
+   "start": 1955,
+   "date_src": "general",
+   "place": "Shin-Etsu, SUMCO (Japan)",
+   "paradigm": "service_information",
+   "desc": "Polysilicon grown into ingots in quartz crucibles and sliced into wafers; Japanese firms dominate wafers and photoresists (JSR, TOK) through process chemistry and purity know-how.",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "leading_edge_logic",
+   "label": "Leading-edge chip fabrication",
+   "domain": "information",
+   "kind": "industry",
+   "start": 2019,
+   "date_src": "general",
+   "place": "Taiwan (TSMC), South Korea",
+   "paradigm": "service_information",
+   "desc": "Logic below 10 nm: in 2021 Taiwan held 92% and South Korea 8% of world capacity (SIA-BCG 2021). It draws on EUV, photoresists, specialty gases, ultra-pure water and as much power as a mid-sized city per fab (rough). The deepest tree with the narrowest nodes.",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "air_separation_gases",
+   "label": "Air separation (industrial gases)",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1902,
+   "date_src": "general",
+   "place": "Germany (Linde); worldwide",
+   "paradigm": "industrial",
+   "desc": "Plants separate air into oxygen, nitrogen, argon and neon. Oxygen feeds the steel converter; semiconductor-grade neon is a by-product of steel-plant air separation, and Ukraine supplied about 45-54% before 2022 (Reuters via CNBC). By-product supply does not respond to its own price.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "gallium_germanium",
+   "label": "Gallium and germanium",
+   "domain": "metals",
+   "kind": "resource",
+   "start": 1980,
+   "date_src": "general",
+   "place": "China",
+   "paradigm": "service_information",
+   "desc": "Minor metals for radio chips (gallium arsenide) and optics; China has about 98% of primary gallium (rough). China licensed exports from Aug 2023 and banned some to the US from Dec 2024 (rough).",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "smartphone",
+   "label": "Smartphone",
+   "domain": "information",
+   "kind": "good",
+   "start": 2007,
+   "date_src": "general",
+   "wide": 2015,
+   "place": "designed in California, Seoul, Beijing; assembled in China",
+   "paradigm": "service_information",
+   "desc": "Assembly across the most countries of any common good, with chokepoints at both ends (minerals; leading-edge chips and EUV) and the steepest smile curve. Several dozen elements, often quoted as 60-70 (rough); 200-400 industries touched (rough). A 2023 teardown put the iPhone 15 Pro Max's parts at about $502 against a $1,199 price (CP).",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "synthetic_rubber",
+   "label": "Synthetic rubber",
+   "domain": "materials",
+   "kind": "good",
+   "start": 1930,
+   "date_src": "general",
+   "place": "Germany; United States",
+   "paradigm": "industrial",
+   "desc": "Rubber made from petrochemicals, blended with natural rubber (Thailand, Indonesia), carbon black and steel cord in tyres. A substitute that loosened the plantation chokepoint.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "float_glass",
+   "label": "Float glass (Pilkington)",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 1959,
+   "date_src": "general",
+   "wide": 1970,
+   "place": "Pilkington, England",
+   "paradigm": "industrial",
+   "desc": "Flat glass formed on a bath of molten tin from silica sand, soda ash and limestone, heated by gas; the part dates it to the 1950s. It glazes building envelopes and cars.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "wiring_harness",
+   "label": "Car wiring harness",
+   "domain": "transport",
+   "kind": "good",
+   "start": 1950,
+   "date_src": "general",
+   "place": "Mexico, Morocco, Eastern Europe, Philippines",
+   "paradigm": "industrial",
+   "desc": "About 1 to 5 km of copper wire per car, hand-assembled in low-wage countries (rough). Harness labour is one of the car chain's chokepoints alongside chips, batteries and magnets.",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "cotton_ginning",
+   "label": "Cotton ginning",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1793,
+   "date_src": "general",
+   "place": "US South (Whitney's saw gin)",
+   "paradigm": "plantation_slave",
+   "desc": "The gin separates lint from seed to make bales; picking is by machine in the US, Australia and Brazil and by hand in much of India and Africa. China and India grow about 25-28 million bales each (USDA via Cotton Inc.). A joint-product step: cottonseed goes to oil and feed.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "cottonseed_oil",
+   "label": "Cottonseed oil and feed",
+   "domain": "food",
+   "kind": "good",
+   "start": 1860,
+   "date_src": "general",
+   "place": "US South",
+   "paradigm": "industrial",
+   "desc": "The joint product of ginning: seed pressed for oil, the cake fed to animals. One of the part's examples of a by-product chain.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "multi_fibre_arrangement",
+   "label": "Multi Fibre Arrangement",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1974,
+   "date_src": "part",
+   "place": "GATT; importing countries",
+   "paradigm": "service_information",
+   "desc": "A quota system (1974-2004) that spread garment making across dozens of countries; its end in 2005 concentrated it in China, Bangladesh and Vietnam. Rivoli's finding was that politics (subsidies, quotas, rules of origin) shaped the T-shirt's route as much as markets.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "offshore_garment_sewing",
+   "label": "Offshore garment sewing",
+   "domain": "textiles",
+   "kind": "industry",
+   "start": 1980,
+   "date_src": "general",
+   "wide": 2005,
+   "place": "Bangladesh, Vietnam, Cambodia, China",
+   "paradigm": "service_information",
+   "desc": "A buyer-driven chain: the brand designs and sells but owns no factory; cutting and sewing go to the cheapest coast. Garments are over 80% of Bangladesh's exports, about $46 billion in 2022 (DT); Rana Plaza (2013) killed 1,134 workers. The sewing wage is put at around 1% of the retail price (rough, contested).",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "secondhand_clothing_trade",
+   "label": "Secondhand clothing export",
+   "domain": "textiles",
+   "kind": "industry",
+   "start": 1980,
+   "date_src": "general",
+   "place": "East Africa, Eastern Europe",
+   "paradigm": "service_information",
+   "desc": "After use, donated clothes are sorted, baled and exported to secondhand markets, then become rags or landfill: the long tail of the T-shirt chain that Rivoli followed to Tanzania (RIV).",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "roller_milling",
+   "label": "Roller flour milling",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1870,
+   "date_src": "general",
+   "wide": 1890,
+   "place": "Budapest; Minneapolis",
+   "paradigm": "industrial",
+   "desc": "Steel rollers replaced millstones, splitting grain into joint products: flour, bran and germ, which go to feed. In the modern bread chain the farm share of a US food dollar is only about 12-16 cents (ERS).",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "chorleywood_bread_process",
+   "label": "Chorleywood bread process",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1961,
+   "date_src": "part",
+   "wide": 1970,
+   "place": "Chorleywood, England",
+   "paradigm": "industrial",
+   "desc": "Industrial baking that cut fermentation to minutes with high-speed mixing, fats and improvers; it makes most British bread (rough, about 80%). Slicing and bagging machines and polyethylene bags complete the loaf.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "broiler_integrator",
+   "label": "Integrated broiler chain",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1950,
+   "date_src": "general",
+   "wide": 1970,
+   "place": "US South (Tyson, Perdue); Brazil (BRF, JBS)",
+   "paradigm": "industrial",
+   "desc": "One firm owns breeder flocks, hatchery, feed mill, processing plant and brand; contract growers own the barns and are paid per pound under a tournament ranking, bearing the capital risk. Broilers went from 112 days to 2.5 lb at feed conversion 4.7 (1925) to 47 days to 6.6 lb at 1.69 (2024) (NCC, FS).",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "broiler_genetics",
+   "label": "Broiler breeding firms",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1950,
+   "date_src": "general",
+   "place": "Aviagen, Cobb-Vantress",
+   "paradigm": "industrial",
+   "desc": "Two breeding firms supply grandparent stock for most of the world's broiler lines (rough: a large majority). A chokepoint at the head of the most industrialised animal chain.",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "basic_oxygen_furnace",
+   "label": "Basic oxygen steelmaking",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1952,
+   "date_src": "general",
+   "wide": 1970,
+   "place": "Linz-Donawitz, Austria",
+   "paradigm": "industrial",
+   "desc": "Blast-furnace hot metal is blown with oxygen in a converter with some scrap; BF-BOF makes about 70% of world steel (rough), needing about 1.4 t ore, 0.8 t coking coal and 0.3 t limestone per t (WSA-RM). World crude steel was 1,882.6 Mt in 2024, 53% in China (WSA).",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "steel_minimill",
+   "label": "Scrap-based minimill",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 1970,
+   "date_src": "part",
+   "wide": 1990,
+   "place": "Nucor, United States",
+   "paradigm": "service_information",
+   "desc": "Small, flexible electric arc furnace plants on scrap or DRI, now about 30% of world steel (rough), switching the chain from mining to recycling. They destroyed much of the old integrated industry: Christensen's standard example of disruption.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "direct_reduced_iron",
+   "label": "Direct-reduced iron",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1970,
+   "date_src": "general",
+   "place": "Mexico, Middle East, India",
+   "paradigm": "service_information",
+   "desc": "Ore reduced in the solid state by natural gas (or hydrogen) rather than coke, fed with scrap to the electric arc furnace. The route that green steel plans rely on.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "seaborne_iron_ore",
+   "label": "Seaborne iron ore trade",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 1950,
+   "date_src": "general",
+   "wide": 2005,
+   "place": "Pilbara and Brazil to China",
+   "paradigm": "service_information",
+   "desc": "Ore is crushed, pelletised or sintered and carried in 200,000-400,000 tonne bulk carriers. Australia-China iron ore is the world's largest bulk trade by tonnage (rough); the ore is in Australia and Brazil, the furnaces in China.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "pharma_rnd_trials",
+   "label": "Drug R&D and clinical trials",
+   "domain": "institutions",
+   "kind": "industry",
+   "start": 1962,
+   "date_src": "general",
+   "place": "US (FDA), Europe (EMA)",
+   "paradigm": "industrial",
+   "desc": "Discovery, preclinical tests and Phase I-III trials before a regulator's review, about 10-15 years; about $2.6 billion per approved drug including failures (Tufts CSDD; contested). Time capital at its extreme, then a pulse of monopoly profit during patent life.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "api_fine_chemicals",
+   "label": "Active ingredient (API) chemistry",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1980,
+   "date_src": "general",
+   "wide": 2000,
+   "place": "China and India",
+   "paradigm": "service_information",
+   "desc": "Key starting materials, intermediates and the active pharmaceutical ingredient, made as fine chemicals; India's makers import about 70% of their API inputs from China (rough). Very high Chinese shares in some whole classes, such as older antibiotics (USP).",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "generic_drugs",
+   "label": "Generic drugs",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1984,
+   "date_src": "general",
+   "wide": 2000,
+   "place": "India; United States market",
+   "paradigm": "service_information",
+   "desc": "After patent expiry the drug becomes a commodity made by the cheapest maker: Indian firms supplied about 47% of US generic prescriptions in 2022 (IQVIA). Selling near cost, makers cut to one or two plants per molecule, so one failed inspection causes national shortages (cisplatin 2023, rough).",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "biologics",
+   "label": "Biologic drugs",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1982,
+   "date_src": "general",
+   "place": "United States; Europe",
+   "paradigm": "service_information",
+   "desc": "Cell lines, bioreactors, purification and a cold chain instead of chemistry. The Pfizer-BioNTech COVID vaccine needed about 280 materials from 86 suppliers in 19 countries (rough, company figure); sterile fill-finish glass vials are a recurrent shortage.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "ready_mix_concrete",
+   "label": "Ready-mix concrete",
+   "domain": "building",
+   "kind": "industry",
+   "start": 1913,
+   "date_src": "general",
+   "wide": 1950,
+   "place": "Baltimore, United States",
+   "paradigm": "industrial",
+   "desc": "Cement, aggregates, water and admixtures batched at a plant and carried in a drum truck that must pour within about 90 minutes (rough), so the chain is heavy and local. Supplementary fly ash and slag come as joint products of other chains. World cement about 4.1 billion t in 2023, China about half (GC).",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "sand_gravel_aggregates",
+   "label": "Sand and gravel aggregates",
+   "domain": "building",
+   "kind": "resource",
+   "start": 1900,
+   "date_src": "general",
+   "place": "rivers, coasts, quarries worldwide",
+   "paradigm": "industrial",
+   "desc": "The most extracted solid material: about 50 billion t a year (UNEP 2022). Desert sand is too rounded; river and marine sand mining is contested and in places criminal.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "mortgage_market",
+   "label": "Mortgage and construction credit",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1934,
+   "date_src": "general",
+   "place": "United States (FHA); worldwide",
+   "paradigm": "industrial",
+   "desc": "A construction loan and a mortgage market are inputs to a building as much as cement; construction ties the global economy to land, credit and law.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "building_codes_planning",
+   "label": "Building codes and planning permission",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1916,
+   "date_src": "general",
+   "place": "New York zoning (1916); worldwide",
+   "paradigm": "industrial",
+   "desc": "Land and planning permission, codes, testing and inspectors stand behind every building; the part lists land, permission and credit as the building chain's chokepoints.",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "modern_tower_block",
+   "label": "Concrete and glass tower",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1960,
+   "date_src": "general",
+   "place": "cities worldwide",
+   "paradigm": "industrial",
+   "desc": "An office or apartment tower is a long local assembly of dozens of trades on global parts: concrete, rebar and structural steel, float glass, lifts, HVAC, copper cable and transformers. 100-200 industries and 10-40 countries touched (rough). China used about 6.6 billion t of cement in 2011-13, more than the US in the whole 20th century (Smil, rough).",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "digital_platforms",
+   "label": "Digital platforms",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 2008,
+   "date_src": "general",
+   "wide": 2015,
+   "place": "United States; China",
+   "paradigm": "service_information",
+   "desc": "Two-sided markets (app stores, marketplaces, ride hailing, payment networks) worth more to each side the more the other has: increasing returns of a social kind. One or two win per market and take a toll on every transaction (app stores 15-30%). The modern form of the miller's share: a rent for shared capital, here a network.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "cloud_computing",
+   "label": "Cloud computing",
+   "domain": "information",
+   "kind": "industry",
+   "start": 2006,
+   "date_src": "general",
+   "wide": 2015,
+   "place": "AWS, Azure, Google Cloud",
+   "paradigm": "service_information",
+   "desc": "Computing rented from huge data centres; three firms hold most of the market (rough). Cloud and AI are a new hub that draws power, chips and water.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "swift_messaging",
+   "label": "SWIFT and clearing hubs",
+   "domain": "exchange",
+   "kind": "infrastructure",
+   "start": 1973,
+   "date_src": "general",
+   "place": "Brussels; global",
+   "paradigm": "service_information",
+   "desc": "Clearing houses, card networks (Visa, Mastercard) and messaging (SWIFT) are themselves chokepoints of finance; foreign exchange turnover was about $9.6 trillion a day in April 2025 (BIS). States sitting on such hubs can weaponise interdependence (Farrell and Newman).",
+   "chokepoint": true,
+   "part": "13"
+  },
+  {
+   "id": "export_controls",
+   "label": "Export controls on hubs",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 2019,
+   "date_src": "part",
+   "place": "Netherlands, US, China",
+   "paradigm": "service_information",
+   "desc": "Since 2019 EUV tools were not licensed to China, from 2022 the US controlled advanced chips and tools, and China answered with controls on gallium, germanium, graphite and rare earths. The chokepoint became an instrument of state power: a dial (slow licences) as well as a switch.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "reshoring_industrial_policy",
+   "label": "Re-shoring industrial policy",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 2022,
+   "date_src": "part",
+   "place": "US (CHIPS Act), EU, Japan",
+   "paradigm": "service_information",
+   "desc": "The CHIPS Act and Inflation Reduction Act (2022), the EU Chips Act and Critical Raw Materials Act, Japan's subsidies for TSMC Kumamoto: states paying a premium for redundancy that markets did not buy. Also 'China plus one' and near-shoring.",
+   "chokepoint": false,
+   "part": "13"
+  },
+  {
+   "id": "ai_data_centres",
+   "label": "AI data centres",
+   "domain": "information",
+   "kind": "infrastructure",
+   "start": 2023,
+   "date_src": "general",
+   "place": "United States",
+   "paradigm": "service_information",
+   "desc": "A new, concentrated demand on grids, rough at several per cent of US power by the late 2020s, drawing on leading-edge chips, power and water. Part of 'everything with data'.",
+   "chokepoint": false,
+   "part": "13"
+  }
+ ],
+ "edges": [
+  {
+   "from": "interchangeable_parts",
+   "to": "moving_assembly_line",
+   "type": "enables",
+   "note": "parts to gauge, no fitting at assembly",
+   "src": "part"
+  },
+  {
+   "from": "machine_tools",
+   "to": "moving_assembly_line",
+   "type": "enables",
+   "note": "fixed jigs and gauges",
+   "src": "general"
+  },
+  {
+   "from": "factory_system",
+   "to": "moving_assembly_line",
+   "type": "enables",
+   "note": "work already gathered under one roof",
+   "src": "general"
+  },
+  {
+   "from": "electricity",
+   "to": "moving_assembly_line",
+   "type": "enables",
+   "note": "electric motors drive the line",
+   "src": "general"
+  },
+  {
+   "from": "moving_assembly_line",
+   "to": "motor_vehicle",
+   "type": "enables",
+   "note": "Model T from $850 to about $260",
+   "src": "part"
+  },
+  {
+   "from": "moving_assembly_line",
+   "to": "five_dollar_day",
+   "type": "enables",
+   "note": "wages doubled to hold workers on dull work",
+   "src": "part"
+  },
+  {
+   "from": "wage_labour",
+   "to": "five_dollar_day",
+   "type": "enables",
+   "note": "turnover of several hundred per cent",
+   "src": "part"
+  },
+  {
+   "from": "moving_assembly_line",
+   "to": "vertical_integration_rouge",
+   "type": "enables",
+   "note": "the line cannot stop for a late part",
+   "src": "part"
+  },
+  {
+   "from": "blast_furnace",
+   "to": "vertical_integration_rouge",
+   "type": "input",
+   "note": "ore and coal in at the Rouge",
+   "src": "part"
+  },
+  {
+   "from": "rubber",
+   "to": "vertical_integration_rouge",
+   "type": "input",
+   "note": "Ford's own Brazilian rubber plantation",
+   "src": "part"
+  },
+  {
+   "from": "vertical_integration_rouge",
+   "to": "multidivisional_firm",
+   "type": "replaces",
+   "note": "model range freed one-model rigidity",
+   "src": "part"
+  },
+  {
+   "from": "corporation",
+   "to": "multidivisional_firm",
+   "type": "enables",
+   "note": "divisions run on financial targets",
+   "src": "part"
+  },
+  {
+   "from": "moving_assembly_line",
+   "to": "trade_unions",
+   "type": "enables",
+   "note": "UAW, 1937 sit-down strike at GM",
+   "src": "part"
+  },
+  {
+   "from": "vertical_integration_rouge",
+   "to": "toyota_production_system",
+   "type": "replaces",
+   "note": "own less, coordinate more, hold less stock",
+   "src": "part"
+  },
+  {
+   "from": "toyota_production_system",
+   "to": "just_in_time_kanban",
+   "type": "enables",
+   "note": "downstream pulls with a card",
+   "src": "part"
+  },
+  {
+   "from": "toyota_production_system",
+   "to": "keiretsu_supplier_network",
+   "type": "enables",
+   "note": "tiered long-term suppliers design with Toyota",
+   "src": "part"
+  },
+  {
+   "from": "keiretsu_supplier_network",
+   "to": "just_in_time_kanban",
+   "type": "enables",
+   "note": "trusted suppliers deliver small lots on time",
+   "src": "part"
+  },
+  {
+   "from": "just_in_time_kanban",
+   "to": "just_in_case_stocking",
+   "type": "replaces",
+   "note": "months of stock bought back as insurance",
+   "src": "part"
+  },
+  {
+   "from": "semiconductors",
+   "to": "just_in_case_stocking",
+   "type": "enables",
+   "note": "2021 chip shortage taught it",
+   "src": "part"
+  },
+  {
+   "from": "container_shipping",
+   "to": "global_value_chains",
+   "type": "enables",
+   "note": "a factory can depend on a far part",
+   "src": "part"
+  },
+  {
+   "from": "internet",
+   "to": "global_value_chains",
+   "type": "enables",
+   "note": "second unbundling: know-how sent with work",
+   "src": "part"
+  },
+  {
+   "from": "telephone",
+   "to": "global_value_chains",
+   "type": "enables",
+   "note": "cheap telecoms of the 1990s",
+   "src": "part"
+  },
+  {
+   "from": "export_processing_zones",
+   "to": "global_value_chains",
+   "type": "enables",
+   "note": "labour-intensive steps already on low-wage coasts",
+   "src": "part"
+  },
+  {
+   "from": "export_processing_zones",
+   "to": "contract_manufacturing",
+   "type": "enables",
+   "note": "electronics assembly zones",
+   "src": "part"
+  },
+  {
+   "from": "export_processing_zones",
+   "to": "offshore_garment_sewing",
+   "type": "enables",
+   "note": "garment steps moved to zones",
+   "src": "part"
+  },
+  {
+   "from": "global_value_chains",
+   "to": "contract_manufacturing",
+   "type": "enables",
+   "note": "chain cut into fine slices",
+   "src": "part"
+  },
+  {
+   "from": "global_value_chains",
+   "to": "smile_curve_value_capture",
+   "type": "enables",
+   "note": "value gathers at design and brand ends",
+   "src": "part"
+  },
+  {
+   "from": "global_value_chains",
+   "to": "reshoring_industrial_policy",
+   "type": "enables",
+   "note": "shocks exposed single points of failure",
+   "src": "part"
+  },
+  {
+   "from": "just_in_case_stocking",
+   "to": "reshoring_industrial_policy",
+   "type": "enables",
+   "note": "redundancy for chips, batteries, drugs",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "global_value_chains",
+   "type": "enables",
+   "note": "first unbundling: goods made far from use",
+   "src": "part"
+  },
+  {
+   "from": "iso_container_standard",
+   "to": "container_shipping",
+   "type": "enables",
+   "note": "standard boxes and corner fittings",
+   "src": "part"
+  },
+  {
+   "from": "container_ports_gantry",
+   "to": "container_shipping",
+   "type": "enables",
+   "note": "gantry cranes, flat yards, deep berths",
+   "src": "part"
+  },
+  {
+   "from": "steamship",
+   "to": "container_shipping",
+   "type": "enables",
+   "note": "cellular ships built around box stacks",
+   "src": "general"
+  },
+  {
+   "from": "trade_unions",
+   "to": "container_ports_gantry",
+   "type": "enables",
+   "note": "dockers' settlements: buyouts, guaranteed incomes",
+   "src": "part"
+  },
+  {
+   "from": "container_shipping",
+   "to": "double_stack_rail",
+   "type": "enables",
+   "note": "same box on ship, rail and truck",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "double_stack_rail",
+   "type": "enables",
+   "note": "long land distance for boxes",
+   "src": "part"
+  },
+  {
+   "from": "computer",
+   "to": "barcode_upc",
+   "type": "enables",
+   "note": "scanning tied to stock records",
+   "src": "general"
+  },
+  {
+   "from": "barcode_upc",
+   "to": "cross_dock_distribution",
+   "type": "enables",
+   "note": "Walmart's bar codes and satellite links",
+   "src": "part"
+  },
+  {
+   "from": "supermarket",
+   "to": "cross_dock_distribution",
+   "type": "enables",
+   "note": "chains need daily store replenishment",
+   "src": "part"
+  },
+  {
+   "from": "motor_vehicle",
+   "to": "cross_dock_distribution",
+   "type": "enables",
+   "note": "trucks carry most domestic freight",
+   "src": "part"
+  },
+  {
+   "from": "cross_dock_distribution",
+   "to": "ecommerce_fulfilment",
+   "type": "enables",
+   "note": "Walmart's template carried to the parcel",
+   "src": "part"
+  },
+  {
+   "from": "internet",
+   "to": "ecommerce_fulfilment",
+   "type": "enables",
+   "note": "orders online, a fifth of world retail",
+   "src": "part"
+  },
+  {
+   "from": "electronic_payments",
+   "to": "ecommerce_fulfilment",
+   "type": "enables",
+   "note": "card payment at a distance",
+   "src": "general"
+  },
+  {
+   "from": "canals",
+   "to": "suez_canal",
+   "type": "enables",
+   "note": "a sea-level ship canal",
+   "src": "general"
+  },
+  {
+   "from": "canals",
+   "to": "panama_canal",
+   "type": "enables",
+   "note": "lock canal fed by Gatun Lake",
+   "src": "general"
+  },
+  {
+   "from": "suez_canal",
+   "to": "container_shipping",
+   "type": "enables",
+   "note": "over 20% of container trade passes",
+   "src": "part"
+  },
+  {
+   "from": "panama_canal",
+   "to": "container_shipping",
+   "type": "enables",
+   "note": "about 5% of world trade by volume",
+   "src": "part"
+  },
+  {
+   "from": "oil_petroleum",
+   "to": "oil_straits",
+   "type": "enables",
+   "note": "Gulf oil trade made straits chokepoints",
+   "src": "part"
+  },
+  {
+   "from": "oil_straits",
+   "to": "lng_shipping",
+   "type": "enables",
+   "note": "Qatar's LNG goes through Hormuz",
+   "src": "part"
+  },
+  {
+   "from": "oil_petroleum",
+   "to": "oil_refining_cracking",
+   "type": "input",
+   "note": "crude to distillation and cracking",
+   "src": "part"
+  },
+  {
+   "from": "internal_combustion_engine",
+   "to": "oil_refining_cracking",
+   "type": "enables",
+   "note": "petrol and diesel demand",
+   "src": "general"
+  },
+  {
+   "from": "oil_refining_cracking",
+   "to": "petrochemicals",
+   "type": "byproduct",
+   "note": "naphtha cut feeds the crackers",
+   "src": "part"
+  },
+  {
+   "from": "natural_gas",
+   "to": "petrochemicals",
+   "type": "input",
+   "note": "ethane to ethylene",
+   "src": "part"
+  },
+  {
+   "from": "petrochemicals",
+   "to": "plastics",
+   "type": "input",
+   "note": "ethylene to PE, PP, PVC, PET",
+   "src": "part"
+  },
+  {
+   "from": "petrochemicals",
+   "to": "synthetic_fibres",
+   "type": "input",
+   "note": "PTA and MEG to polyester",
+   "src": "part"
+  },
+  {
+   "from": "petrochemicals",
+   "to": "synthetic_rubber",
+   "type": "input",
+   "note": "synthetic rubber from oil",
+   "src": "part"
+  },
+  {
+   "from": "rubber",
+   "to": "synthetic_rubber",
+   "type": "replaces",
+   "note": "blended in tyres beside plantation rubber",
+   "src": "part"
+  },
+  {
+   "from": "natural_gas",
+   "to": "lng_shipping",
+   "type": "input",
+   "note": "liquefied for tankers",
+   "src": "part"
+  },
+  {
+   "from": "natural_gas",
+   "to": "synthetic_nitrogen",
+   "type": "input",
+   "note": "hydrogen for ammonia; feeds about half of humanity",
+   "src": "part"
+  },
+  {
+   "from": "natural_gas",
+   "to": "direct_reduced_iron",
+   "type": "input",
+   "note": "gas reduces the ore",
+   "src": "part"
+  },
+  {
+   "from": "natural_gas",
+   "to": "float_glass",
+   "type": "input",
+   "note": "gas-fired glass furnace",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "large_power_transformers",
+   "type": "enables",
+   "note": "high-voltage transmission",
+   "src": "general"
+  },
+  {
+   "from": "large_power_transformers",
+   "to": "power_market_liberalisation",
+   "type": "enables",
+   "note": "transmission wires stay regulated",
+   "src": "general"
+  },
+  {
+   "from": "electric_grid",
+   "to": "power_market_liberalisation",
+   "type": "enables",
+   "note": "one wire network split from generators",
+   "src": "part"
+  },
+  {
+   "from": "large_power_transformers",
+   "to": "modern_tower_block",
+   "type": "input",
+   "note": "transformers a building chokepoint",
+   "src": "part"
+  },
+  {
+   "from": "large_power_transformers",
+   "to": "ai_data_centres",
+   "type": "input",
+   "note": "new grid connections need transformers",
+   "src": "general"
+  },
+  {
+   "from": "electric_grid",
+   "to": "ai_data_centres",
+   "type": "input",
+   "note": "several per cent of US power",
+   "src": "part"
+  },
+  {
+   "from": "uranium_enrichment",
+   "to": "nuclear_power",
+   "type": "input",
+   "note": "enriched fuel for reactors",
+   "src": "part"
+  },
+  {
+   "from": "high_purity_quartz",
+   "to": "silicon_wafers",
+   "type": "input",
+   "note": "crucibles for growing ingots",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "polysilicon",
+   "type": "input",
+   "note": "quartz reduced with coal in arc furnaces",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "polysilicon",
+   "type": "input",
+   "note": "lots of power",
+   "src": "part"
+  },
+  {
+   "from": "polysilicon",
+   "to": "silicon_wafers",
+   "type": "input",
+   "note": "ingots sliced to wafers",
+   "src": "part"
+  },
+  {
+   "from": "polysilicon",
+   "to": "solar_wind",
+   "type": "input",
+   "note": "China over 95% of polysilicon",
+   "src": "part"
+  },
+  {
+   "from": "high_purity_quartz",
+   "to": "polysilicon",
+   "type": "input",
+   "note": "quartz is the silicon source",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "battery_mineral_refining",
+   "type": "enables",
+   "note": "refining needs cheap power",
+   "src": "part"
+  },
+  {
+   "from": "sulphuric_acid",
+   "to": "battery_mineral_refining",
+   "type": "input",
+   "note": "high-pressure acid leaching of nickel",
+   "src": "part"
+  },
+  {
+   "from": "battery_mineral_refining",
+   "to": "lithium_ion_battery",
+   "type": "input",
+   "note": "lithium, nickel, cobalt, graphite",
+   "src": "part"
+  },
+  {
+   "from": "lithium_ion_battery",
+   "to": "electric_vehicle",
+   "type": "input",
+   "note": "battery pack",
+   "src": "part"
+  },
+  {
+   "from": "lithium_ion_battery",
+   "to": "smartphone",
+   "type": "input",
+   "note": "phone battery cell",
+   "src": "part"
+  },
+  {
+   "from": "sulphuric_acid",
+   "to": "rare_earth_separation",
+   "type": "input",
+   "note": "acid solvent extraction, acid waste",
+   "src": "part"
+  },
+  {
+   "from": "rare_earth_separation",
+   "to": "ndfeb_magnets",
+   "type": "input",
+   "note": "neodymium, praseodymium, dysprosium oxides",
+   "src": "part"
+  },
+  {
+   "from": "ndfeb_magnets",
+   "to": "electric_vehicle",
+   "type": "input",
+   "note": "EV traction motor",
+   "src": "part"
+  },
+  {
+   "from": "ndfeb_magnets",
+   "to": "solar_wind",
+   "type": "input",
+   "note": "wind turbine generators",
+   "src": "part"
+  },
+  {
+   "from": "ndfeb_magnets",
+   "to": "smartphone",
+   "type": "input",
+   "note": "speakers, haptics, camera stabilisation",
+   "src": "part"
+  },
+  {
+   "from": "internal_combustion_engine",
+   "to": "electric_vehicle",
+   "type": "replaces",
+   "note": "six times the mineral input",
+   "src": "part"
+  },
+  {
+   "from": "motor_vehicle",
+   "to": "electric_vehicle",
+   "type": "enables",
+   "note": "same assemblers and dealer networks",
+   "src": "part"
+  },
+  {
+   "from": "semiconductors",
+   "to": "electric_vehicle",
+   "type": "input",
+   "note": "silicon-carbide inverter chips",
+   "src": "part"
+  },
+  {
+   "from": "copper_smelting",
+   "to": "wiring_harness",
+   "type": "input",
+   "note": "1 to 5 km of copper wire",
+   "src": "part"
+  },
+  {
+   "from": "motor_vehicle",
+   "to": "wiring_harness",
+   "type": "enables",
+   "note": "cars need electrical systems",
+   "src": "part"
+  },
+  {
+   "from": "wiring_harness",
+   "to": "electric_vehicle",
+   "type": "input",
+   "note": "harness labour a car chokepoint",
+   "src": "part"
+  },
+  {
+   "from": "semiconductors",
+   "to": "foundry_model",
+   "type": "enables",
+   "note": "fabless design split from fabrication",
+   "src": "part"
+  },
+  {
+   "from": "computer",
+   "to": "eda_software",
+   "type": "enables",
+   "note": "design done in software",
+   "src": "general"
+  },
+  {
+   "from": "eda_software",
+   "to": "foundry_model",
+   "type": "enables",
+   "note": "fabless firms design on shared tools",
+   "src": "part"
+  },
+  {
+   "from": "silicon_wafers",
+   "to": "semiconductors",
+   "type": "input",
+   "note": "wafers from Shin-Etsu and SUMCO",
+   "src": "part"
+  },
+  {
+   "from": "silicon_wafers",
+   "to": "leading_edge_logic",
+   "type": "input",
+   "note": "300 mm wafers for leading fabs",
+   "src": "part"
+  },
+  {
+   "from": "foundry_model",
+   "to": "leading_edge_logic",
+   "type": "enables",
+   "note": "TSMC's yield learning",
+   "src": "part"
+  },
+  {
+   "from": "euv_lithography",
+   "to": "leading_edge_logic",
+   "type": "enables",
+   "note": "only tool for 3 to 5 nm",
+   "src": "part"
+  },
+  {
+   "from": "air_separation_gases",
+   "to": "leading_edge_logic",
+   "type": "input",
+   "note": "neon from steel-plant air separation",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "leading_edge_logic",
+   "type": "input",
+   "note": "a fab draws a city's power",
+   "src": "part"
+  },
+  {
+   "from": "foundry_model",
+   "to": "smartphone",
+   "type": "input",
+   "note": "system-on-chip fabricated by TSMC at 3 to 5 nm",
+   "src": "part"
+  },
+  {
+   "from": "leading_edge_logic",
+   "to": "ai_data_centres",
+   "type": "input",
+   "note": "AI chips",
+   "src": "general"
+  },
+  {
+   "from": "aluminium",
+   "to": "gallium_germanium",
+   "type": "byproduct",
+   "note": "gallium recovered in alumina refining",
+   "src": "general"
+  },
+  {
+   "from": "gallium_germanium",
+   "to": "smartphone",
+   "type": "input",
+   "note": "gallium arsenide RF front end",
+   "src": "part"
+  },
+  {
+   "from": "mobile_phone",
+   "to": "smartphone",
+   "type": "enables",
+   "note": "mobile networks, spectrum, towers",
+   "src": "part"
+  },
+  {
+   "from": "internet",
+   "to": "smartphone",
+   "type": "enables",
+   "note": "apps, cloud, platforms",
+   "src": "part"
+  },
+  {
+   "from": "semiconductors",
+   "to": "smartphone",
+   "type": "input",
+   "note": "memory, modem, image sensors",
+   "src": "part"
+  },
+  {
+   "from": "contract_manufacturing",
+   "to": "smartphone",
+   "type": "enables",
+   "note": "Foxconn, Pegatron, Luxshare assembly",
+   "src": "part"
+  },
+  {
+   "from": "smartphone",
+   "to": "digital_platforms",
+   "type": "enables",
+   "note": "app stores take 15 to 30%",
+   "src": "part"
+  },
+  {
+   "from": "internet",
+   "to": "digital_platforms",
+   "type": "enables",
+   "note": "a market as a network",
+   "src": "part"
+  },
+  {
+   "from": "electronic_payments",
+   "to": "digital_platforms",
+   "type": "enables",
+   "note": "payment networks are platforms",
+   "src": "part"
+  },
+  {
+   "from": "internet",
+   "to": "cloud_computing",
+   "type": "enables",
+   "note": "computing reached over the network",
+   "src": "part"
+  },
+  {
+   "from": "computer",
+   "to": "cloud_computing",
+   "type": "enables",
+   "note": "huge rented data centres",
+   "src": "general"
+  },
+  {
+   "from": "cloud_computing",
+   "to": "ai_data_centres",
+   "type": "enables",
+   "note": "cloud and AI a new hub",
+   "src": "part"
+  },
+  {
+   "from": "euv_lithography",
+   "to": "export_controls",
+   "type": "enables",
+   "note": "no EUV licences to China since 2019",
+   "src": "part"
+  },
+  {
+   "from": "rare_earth_separation",
+   "to": "export_controls",
+   "type": "enables",
+   "note": "April 2025 licensing used as a dial",
+   "src": "part"
+  },
+  {
+   "from": "gallium_germanium",
+   "to": "export_controls",
+   "type": "enables",
+   "note": "China's licences from Aug 2023",
+   "src": "part"
+  },
+  {
+   "from": "swift_messaging",
+   "to": "export_controls",
+   "type": "enables",
+   "note": "network hubs weaponised (Farrell, Newman)",
+   "src": "part"
+  },
+  {
+   "from": "banking",
+   "to": "swift_messaging",
+   "type": "enables",
+   "note": "interbank payment messages",
+   "src": "general"
+  },
+  {
+   "from": "computer",
+   "to": "swift_messaging",
+   "type": "enables",
+   "note": "electronic messaging replaces telex",
+   "src": "general"
+  },
+  {
+   "from": "export_controls",
+   "to": "reshoring_industrial_policy",
+   "type": "enables",
+   "note": "states pay for second sources",
+   "src": "part"
+  },
+  {
+   "from": "glass",
+   "to": "float_glass",
+   "type": "replaces",
+   "note": "flat glass without grinding",
+   "src": "general"
+  },
+  {
+   "from": "alkali_soda",
+   "to": "float_glass",
+   "type": "input",
+   "note": "soda ash with sand and limestone",
+   "src": "part"
+  },
+  {
+   "from": "cotton",
+   "to": "cotton_ginning",
+   "type": "input",
+   "note": "seed cotton picked to the gin",
+   "src": "part"
+  },
+  {
+   "from": "cotton_ginning",
+   "to": "cottonseed_oil",
+   "type": "byproduct",
+   "note": "cottonseed for oil and feed",
+   "src": "part"
+  },
+  {
+   "from": "cotton_ginning",
+   "to": "offshore_garment_sewing",
+   "type": "input",
+   "note": "bales to spinning, knitting, sewing",
+   "src": "part"
+  },
+  {
+   "from": "cotton",
+   "to": "synthetic_fibres",
+   "type": "replaces",
+   "note": "polyester over half of fibre made",
+   "src": "part"
+  },
+  {
+   "from": "synthetic_fibres",
+   "to": "offshore_garment_sewing",
+   "type": "input",
+   "note": "polyester jersey",
+   "src": "part"
+  },
+  {
+   "from": "dyeing",
+   "to": "offshore_garment_sewing",
+   "type": "input",
+   "note": "bleaching, dyeing; heavy water pollution",
+   "src": "part"
+  },
+  {
+   "from": "multi_fibre_arrangement",
+   "to": "offshore_garment_sewing",
+   "type": "enables",
+   "note": "quotas spread sewing; end concentrated it",
+   "src": "part"
+  },
+  {
+   "from": "container_shipping",
+   "to": "offshore_garment_sewing",
+   "type": "enables",
+   "note": "carton to container to store",
+   "src": "part"
+  },
+  {
+   "from": "offshore_garment_sewing",
+   "to": "secondhand_clothing_trade",
+   "type": "byproduct",
+   "note": "donated shirts baled to East Africa",
+   "src": "part"
+  },
+  {
+   "from": "flour_milling",
+   "to": "roller_milling",
+   "type": "replaces",
+   "note": "steel rollers replace millstones",
+   "src": "general"
+  },
+  {
+   "from": "roller_milling",
+   "to": "chorleywood_bread_process",
+   "type": "input",
+   "note": "flour; bran and germ go to feed",
+   "src": "part"
+  },
+  {
+   "from": "baking",
+   "to": "chorleywood_bread_process",
+   "type": "replaces",
+   "note": "fermentation cut to minutes",
+   "src": "part"
+  },
+  {
+   "from": "plastics",
+   "to": "chorleywood_bread_process",
+   "type": "input",
+   "note": "polyethylene bread bags",
+   "src": "part"
+  },
+  {
+   "from": "synthetic_nitrogen",
+   "to": "roller_milling",
+   "type": "enables",
+   "note": "fertilised wheat feeds the mills",
+   "src": "general"
+  },
+  {
+   "from": "broiler_genetics",
+   "to": "broiler_integrator",
+   "type": "input",
+   "note": "grandparent stock from two firms",
+   "src": "part"
+  },
+  {
+   "from": "meatpacking",
+   "to": "broiler_integrator",
+   "type": "enables",
+   "note": "line processing over 100 birds a minute",
+   "src": "part"
+  },
+  {
+   "from": "refrigeration_cold_chain",
+   "to": "broiler_integrator",
+   "type": "enables",
+   "note": "chilled trucks and store chillers",
+   "src": "part"
+  },
+  {
+   "from": "broiler_integrator",
+   "to": "rendering_tallow",
+   "type": "byproduct",
+   "note": "feathers and offal to rendering",
+   "src": "part"
+  },
+  {
+   "from": "plastics",
+   "to": "broiler_integrator",
+   "type": "input",
+   "note": "foam trays and packaging",
+   "src": "part"
+  },
+  {
+   "from": "blast_furnace",
+   "to": "basic_oxygen_furnace",
+   "type": "input",
+   "note": "hot metal charged with scrap",
+   "src": "part"
+  },
+  {
+   "from": "open_hearth_steel",
+   "to": "basic_oxygen_furnace",
+   "type": "replaces",
+   "note": "oxygen converter replaces open hearth",
+   "src": "general"
+  },
+  {
+   "from": "air_separation_gases",
+   "to": "basic_oxygen_furnace",
+   "type": "input",
+   "note": "oxygen for the converter",
+   "src": "part"
+  },
+  {
+   "from": "seaborne_iron_ore",
+   "to": "basic_oxygen_furnace",
+   "type": "input",
+   "note": "about 1.4 t ore per t steel",
+   "src": "part"
+  },
+  {
+   "from": "coke",
+   "to": "coal_tar_chemicals",
+   "type": "byproduct",
+   "note": "coke-oven gas, tar, benzene",
+   "src": "part"
+  },
+  {
+   "from": "blast_furnace",
+   "to": "cement_concrete",
+   "type": "byproduct",
+   "note": "slag to cement and road base",
+   "src": "part"
+  },
+  {
+   "from": "electric_arc_steel",
+   "to": "steel_minimill",
+   "type": "enables",
+   "note": "small furnaces on scrap",
+   "src": "part"
+  },
+  {
+   "from": "direct_reduced_iron",
+   "to": "steel_minimill",
+   "type": "input",
+   "note": "DRI with scrap in the arc furnace",
+   "src": "part"
+  },
+  {
+   "from": "basic_oxygen_furnace",
+   "to": "steel_minimill",
+   "type": "replaces",
+   "note": "scrap and power replace ore and coal",
+   "src": "part"
+  },
+  {
+   "from": "electric_arc_steel",
+   "to": "modern_tower_block",
+   "type": "input",
+   "note": "rebar from arc-furnace steel",
+   "src": "part"
+  },
+  {
+   "from": "coal_tar_chemicals",
+   "to": "pharma_rnd_trials",
+   "type": "enables",
+   "note": "medicinal chemistry from dye chemistry",
+   "src": "general"
+  },
+  {
+   "from": "welfare_state",
+   "to": "pharma_rnd_trials",
+   "type": "enables",
+   "note": "public research funds and national payers",
+   "src": "part"
+  },
+  {
+   "from": "pharma_rnd_trials",
+   "to": "generic_drugs",
+   "type": "replaces",
+   "note": "patent ends; cheapest maker takes over",
+   "src": "part"
+  },
+  {
+   "from": "api_fine_chemicals",
+   "to": "generic_drugs",
+   "type": "input",
+   "note": "API from China and India",
+   "src": "part"
+  },
+  {
+   "from": "pharma_rnd_trials",
+   "to": "biologics",
+   "type": "enables",
+   "note": "same trial and regulator path",
+   "src": "general"
+  },
+  {
+   "from": "refrigeration_cold_chain",
+   "to": "biologics",
+   "type": "enables",
+   "note": "biologics need a cold chain",
+   "src": "part"
+  },
+  {
+   "from": "glass",
+   "to": "biologics",
+   "type": "input",
+   "note": "vials for sterile fill-finish",
+   "src": "part"
+  },
+  {
+   "from": "cement_concrete",
+   "to": "ready_mix_concrete",
+   "type": "input",
+   "note": "cement 10 to 15% of concrete",
+   "src": "part"
+  },
+  {
+   "from": "sand_gravel_aggregates",
+   "to": "ready_mix_concrete",
+   "type": "input",
+   "note": "aggregates, the bulk of concrete",
+   "src": "part"
+  },
+  {
+   "from": "motor_vehicle",
+   "to": "ready_mix_concrete",
+   "type": "enables",
+   "note": "drum truck pours within 90 minutes",
+   "src": "part"
+  },
+  {
+   "from": "ready_mix_concrete",
+   "to": "modern_tower_block",
+   "type": "input",
+   "note": "frame and floors",
+   "src": "part"
+  },
+  {
+   "from": "steel_frame",
+   "to": "modern_tower_block",
+   "type": "input",
+   "note": "structural steel sections",
+   "src": "part"
+  },
+  {
+   "from": "elevator",
+   "to": "modern_tower_block",
+   "type": "enables",
+   "note": "lifts by Otis, Schindler, KONE",
+   "src": "part"
+  },
+  {
+   "from": "float_glass",
+   "to": "modern_tower_block",
+   "type": "input",
+   "note": "glazed envelope",
+   "src": "part"
+  },
+  {
+   "from": "mortgage_market",
+   "to": "modern_tower_block",
+   "type": "enables",
+   "note": "construction loan and mortgage as inputs",
+   "src": "part"
+  },
+  {
+   "from": "building_codes_planning",
+   "to": "modern_tower_block",
+   "type": "enables",
+   "note": "permission, codes and inspectors",
+   "src": "part"
+  },
+  {
+   "from": "banking",
+   "to": "mortgage_market",
+   "type": "enables",
+   "note": "long loans against land",
+   "src": "general"
+  },
+  {
+   "from": "cities",
+   "to": "building_codes_planning",
+   "type": "enables",
+   "note": "urban zoning and codes",
+   "src": "general"
+  }
+ ]
+}
