@@ -649,8 +649,7 @@ megacity / global city
 
 ## 7. What a simulator could take from this
 
-Grouped by kind, each tied to the 02zzi and economy_web.md vocabulary, and named for what Cybertron 2 has (E), has proposed (P) or
-would need (N) only where 02zzi already places it; the rest is offered as possibility, not as a gap list.
+Grouped by kind and tied to the vocabulary of 02zzi and economy_web.md. Offered as possibilities, not a gap list.
 
 **The city as a supply problem.**
 - **Per-head budgets as rules.** A town node with population that eats, drinks, burns and builds at per-head rates (the table in
@@ -668,7 +667,7 @@ would need (N) only where 02zzi already places it; the rest is offered as possib
 **Chokepoints and shared works.**
 - **Water, a bridge, a harbour mouth, a canal lock, a pit-head port.** Cities are made of chokepoints, and the history above is full
   of who controlled them (the Newcastle hostmen, the City's coal dues, Rome's grain fleet, Venice's galleys). Several interlocking
-  chokepoints (CLAUDE.md's design rule) arise naturally: food by water, fuel by water, water by aqueduct, all through one port.
+  chokepoints (the rule in `docs/scenario_design.md`) arise naturally: food by water, fuel by water, water by aqueduct, all through one port.
 - **Infrastructure as club and public goods with thresholds.** Aqueducts, sewers, granaries, market halls and roads each pay only
   above a scale of use, need a tax or a fee, and create free-rider and theft problems (Frontinus's illegal taps). They are the
   urban counterpart of the mill and the weir.
@@ -691,7 +690,7 @@ would need (N) only where 02zzi already places it; the rest is offered as possib
 **Why cities grow, as checks rather than inputs.**
 - **Agglomeration and scaling as things to measure, not to impose.** If interaction is cheaper in dense places, do larger towns
   in a run show more methods learned, more agreements, more trades per head (super-linear) and less road per head (sub-linear)?
-  Bettencourt's exponents give a reference to compare against, read against a null arm (CLAUDE.md).
+  Bettencourt's exponents give a reference to compare against, read against a null arm (`docs/scenario_design.md`).
 - **New work by combination (Jacobs).** If methods can arise from combining methods known in the same place, diverse towns should
   out-invent one-trade towns; import replacement (a town learning to make what it bought) is a measurable event.
 - **Hubs as equilibria.** Bruges, Antwerp, Amsterdam, St Louis and Chicago show that a hub's advantage can move when a channel
