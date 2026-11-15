@@ -30,22 +30,21 @@ length, petrol stations near 0.8) (Bettencourt et al. 2007). Jane Jacobs's accou
 old. But each step up in size was gated by a layer of infrastructure that had to exist first: streets and a market, then clean
 water, then drainage, then bulk transport, then fuel networks, then mechanical transport within the city, then electricity and
 lifts for height, then sewage treatment and public health for megacity density. This document sets out the metabolism with its
-numbers per inhabitant, a history of fourteen cities as economies, the theory of urban growth, the city's own trades and services,
+numbers per inhabitant, a history of fifteen cities as economies, the theory of urban growth, the city's own trades and services,
 the infrastructure layers and their dependencies, dependency trees from market town to megacity, and what a simulator could take.
 
 ---
 
 ## 1. The metabolism of a city
 
-Abel Wolman named the idea in 1965: a city, like an organism, takes in materials and energy and gives out wastes, and its health
-depends on handling both (Wolman 1965). The metabolism is the most direct way to see a city as an economy, because every flow is a
+Abel Wolman named the idea in 1965: a city takes in materials and energy and gives out wastes (Wolman 1965). Every flow is a
 supply chain with a hinterland, a transport mode, an institution that keeps it going, and a chokepoint where it can fail.
 
 ### 1.1 What one inhabitant needs, by era
 
 | Flow | Walking-city era (to c.1800) | Industrial city (c.1850 to 1900) | Modern city (late 20th to 21st c.) |
 |---|---|---|---|
-| **Grain / staple food** | ≈ 200 to 250 kg grain a year (Rome: at least 200 kg per resident, Erdkamp via Rickman-type estimates; London: about a quarter of wheat, ≈ 220 kg) | similar calories, more meat, sugar, tea; much imported | ≈ 2 kg of food a day in Wolman's US city (Wolman 1965); a 2017 revision gives 3.8 kg including what is wasted |
+| **Grain / staple food** | ≈ 200 to 250 kg grain a year (Rome: Erdkamp's 200 kg; London: about a quarter of wheat, ≈ 220 kg) | similar calories, more meat, sugar, tea; much imported | ≈ 2 kg of food a day in Wolman's US city (Wolman 1965); a 2017 revision gives 3.8 kg including what is wasted |
 | **Water** | wells and carriers: ≈ 5 to 20 litres a day; Rome's aqueducts were far more generous on paper (see §1.3) | London domestic supply ≈ 20 imperial gallons (≈ 90 l) a day in 1850, 28 in 1900 (Hardy 1991) | ≈ 625 kg (625 l) a day in all uses in Wolman's city; domestic use ≈ 120 to 150 l in Europe, ≈ 300 l in the US |
 | **Fuel** | wood: Paris ≈ 1.6 stères per head c.1700, ≈ 2.5 by the 1780s (≈, from Jandot's totals); coal: London ≈ 0.8 t per head c.1700 (≈) | London coal ≈ 1 t per head in 1850, ≈ 2.5 t in 1890 (Clay and Troesken, NBER) | ≈ 9.5 kg of fuel a day in Wolman's city (≈ 3.5 t a year) |
 | **Total energy** | Paris ≈ 19 GJ per head c.1700, ≈ 30 GJ in 1800 (Kim and Barles 2012) | ≈ 50 to 100 GJ (≈) | rich cities ≈ 100 to 200 GJ; megacities differ by a factor of 28 per head (Kennedy et al. 2015) |
@@ -61,12 +60,10 @@ point: **water outweighs everything else by two orders of magnitude**, and fuel 
 
 ### 1.2 Food: hinterlands, rings and the institutions that fed cities
 
-**Transport cost sets the hinterland.** The basic fact behind every pre-railway city: moving grain by land quickly eats its value.
-Duncan-Jones's reading of Diocletian's Price Edict (301 AD) is that moving wheat 100 Roman miles by land cost about 55 per cent of
-its value, by sea about 1.3 per cent; the edict also set river freight at about five times sea freight (Duncan-Jones 1982, pp.
-367-8, as summarised by Scheidel 2013 and others). The often quoted ratio "sea 1 : river 5 : land 30 to 60" is a reading of the
-same edict and is †, but the order is not in doubt. Early modern figures say the same: English coastal shipping of coal cost about
-0.8 pence per ton-kilometre in 1700, falling to 0.4 by 1785 (Clark and Jacks), far below road haulage.
+**Transport cost sets the hinterland.** On Duncan-Jones's reading of Diocletian's Price Edict (301 AD), moving wheat 100 Roman
+miles by land cost about 55 per cent of its value, by sea about 1.3 per cent, and river freight was about five times sea freight
+(Duncan-Jones 1982, pp. 367-8; Scheidel 2013). The usual ratio "sea 1 : river 5 : land 30 to 60" is †, but the order is not in
+doubt. English coastal coal shipping cost about 0.8 pence a ton-km in 1700 and 0.4 by 1785 (Clark and Jacks), far below road haulage.
 
 | Mode (pre-railway) | Relative cost per ton-km | What it meant for a city |
 |---|---|---|
@@ -74,22 +71,22 @@ same edict and is †, but the order is not in doubt. Early modern figures say t
 | river or canal | ≈ 5 | inland capitals were built on rivers and fed by canals (Chang'an, Kaifeng, Paris, Baghdad) |
 | land, by cart or pack | ≈ 30 to 60 † | grain could come only tens of kilometres by road; bulky low-value goods (firewood, hay) even less |
 
-**Von Thünen's rings.** Johann Heinrich von Thünen (*Der isolierte Staat*, 1826) asked what a farmer should grow at each distance
-from a single city on a featureless plain. Each crop's rent is its market price less production and transport cost, and transport
-cost rises with distance and with weight and perishability. The answer is concentric rings:
+**Von Thünen's rings.** J. H. von Thünen (*Der isolierte Staat*, 1826) asked what should be grown at each distance from one city
+on a featureless plain. Each crop's rent is its price less production and transport cost, which rises with distance, weight and
+perishability. The answer is concentric rings:
 
 | Ring (from the city outwards) | Use | Why there |
 |---|---|---|
 | 1 | market gardens, dairy, intensive farming fed by the city's dung | perishable, heavy per unit of value; the city's manure comes back cheaply |
-| 2 | managed forest for fuel and timber | heavy and bulky: wood cannot bear long carriage (this surprises modern readers and matches early modern Paris and London) |
+| 2 | managed forest for fuel and timber | heavy and bulky: wood bears carriage by land worst of all (Paris drew its wood from far off only because it floated) |
 | 3 | arable with rotations, grain | grain keeps and bears carriage moderately |
 | 4 | three-field system and pasture | lower intensity as rent falls |
 | 5 | ranching, livestock | animals walk themselves to market |
 | beyond | wilderness | nothing pays |
 
-A river or a canal stretches the rings along it, and a second town makes its own set. Von Thünen's model is the root of all later
-land-rent theory (Alonso's bid-rent city of 1964 is the same model turned inward: offices at the centre, then flats, then houses).
-The model is a design tool: **put one city on a plain with transport costs by mode, and the land around it sorts itself**.
+A river stretches the rings along it; a second town makes its own set. Alonso's bid-rent city (1964) is the same model turned
+inward (offices, then flats, then houses). As a design tool: **put one city on a plain with transport costs by mode, and the land
+around it sorts itself**.
 
 **A rough sizing (≈, my arithmetic).** With grain yields of ≈ 0.6 to 1 t per hectare net of seed and a fallow year in two or three,
 one person's 220 kg needs ≈ 0.3 to 0.6 ha of arable. A town of 10,000 then needs ≈ 30 to 60 km² of arable alone, plus pasture for
@@ -102,18 +99,14 @@ London of perhaps 60,000 to 80,000 people † (some argue higher). The Thames co
 with the closest price integration; grain came down the river and from north Kent (Faversham), and the city's demand shaped what
 was grown across ten counties. Its hinterland was wider by water than by road, as von Thünen would predict.
 
-**Rome (1st and 2nd centuries AD).** Rome of perhaps 750,000 to 1 million people † imported, on estimates that range from about
-150,000 tonnes (Erdkamp's minimum, at 200 kg a head) through 200,000 (Rickman) and 237,000 (Mattingly and Aldrete) to 400,000
-tonnes a year (a reading of Josephus and Aurelius Victor) (summarised from the Cura Annonae literature). Josephus said Africa
-supplied eight months of the year and Egypt four, so Egypt supplied about a third †. Part went as a free monthly ration (the
-*frumentatio*) to a list of citizens: Augustus fixed it at about 200,000 recipients, each receiving 5 *modii* (≈ 33 kg) a month.
-The rest came through the market, with the state's prefect of the grain supply (*praefectus annonae*) contracting shippers, granting
-privileges to merchants who built ships for the grain trade, and holding stocks in the warehouses (*horrea*) at Ostia, Portus and
-in the city. Oil came the same way: Monte Testaccio, a hill made entirely of broken oil amphorae from Spain and North Africa, holds
-perhaps 53 million of them (≈ 6 billion litres of oil), with up to 130,000 dumped a year at the peak in the late 2nd century; many
-are stamped as deliveries to the annona (Monte Testaccio studies, as summarised). The lesson for design: **the largest city of the
-ancient world was a public-private supply chain run by a state office, using a sea, with a chokepoint at the harbour mouth**. When
-the grain fleet was late, Rome rioted.
+**Rome (1st and 2nd centuries AD).** A Rome of perhaps 750,000 to 1 million † imported 150,000 tonnes of grain a year (Erdkamp's
+minimum, at 200 kg a head), 200,000 (Rickman), 237,000 (Mattingly and Aldrete) or up to 400,000 (a reading of Josephus); Josephus
+gives Egypt a third †. Part went as a free monthly ration to about 200,000 citizens under Augustus, 5 *modii* (≈ 33 kg) each; the
+rest came through the market, with the prefect of the grain supply (*praefectus annonae*) contracting shippers, privileging
+merchants who built grain ships, and holding stocks in the *horrea* of Ostia, Portus and the city. Oil came the same way: Monte
+Testaccio, a hill of broken oil amphorae, holds perhaps 53 million (≈ 6 billion litres), up to 130,000 dumped a year at the peak,
+many stamped as annona deliveries. **The ancient world's largest city was a public-private supply chain run by a state office,
+across a sea, with a chokepoint at the harbour mouth.** When the grain fleet was late, Rome rioted.
 
 **London in the 18th century.** London grew from about 575,000 in 1700 to about 960,000 in 1801 (Wrigley; Finlay and Shearer give
 ≈ 490,000 for 1700 †), about a tenth of England's population. Its food came by a set of specialised chains, each a different shape:
@@ -217,9 +210,8 @@ forbids by land and allows by water.
 | **treatment** | sewage farms, then biological treatment (activated sludge, 1914) | | electricity, chemistry |
 | **municipal solid waste** | collection, landfill, incineration, recycling | ≈ 1.8 kg a head a day in Wolman's city | |
 
-**Edo's night soil market** is the best documented case of waste as a traded good. By the start of the 18th century farmers and
-dealers paid for human waste. The rights belonged to the landlord of a tenement (urine often to the tenants), and were sold under
-annual contracts, sometimes for rice or vegetables; historians cite the night soil of ten households for a year as worth two to
+**Edo's night soil market** is the best documented case of waste as a traded good. By 1700 farmers and dealers paid for it; the
+landlord of a tenement owned it and sold it under annual contracts, sometimes for rice or vegetables; historians cite the night soil of ten households for a year as worth two to
 three *bu* of silver, over half a *ryō*, when a ryō bought a year's grain for one person (Tajima, as reported). In the later 18th
 century rival collectors bid prices up, and in 1789 the villages around Edo petitioned the shogunate over the price (Kumazawa 1985).
 Waste here is a **joint product** of the city that closes the nutrient loop and has owners, contracts and price disputes.
@@ -235,14 +227,13 @@ market** (a substitute fertiliser), with a public works answer.
 
 ### 1.7 People: the urban graveyard
 
-Until the late 19th century most large cities had more deaths than births: crowding, contaminated water, and diseases that need a
-dense host population (smallpox, measles, typhus, tuberculosis, cholera). London is the best measured case. Wrigley's "simple
+Until the late 19th century most large cities had more deaths than births, from crowding, bad water and diseases that need dense
+hosts. Wrigley's "simple
 model" (1967) computed that London, to grow as it did between 1650 and 1750, needed more than 8,000 net migrants a year beyond its
 own natural decrease; on his reckoning a large share of all English adults (often quoted as one in six) spent part of their lives
-there. The city was therefore **a demographic sink and a social mixer**: it drew young adults from the countryside, trained them
-(apprenticeship, service), killed many, and sent some back with new habits and connections. The switch to natural increase came
-with clean water, sewers, and later vaccination and antibiotics: by 1900 big cities in Europe and North America could grow from
-their own births.
+there. The city was **a demographic sink and a social mixer**: it drew young adults, trained them (apprenticeship, service),
+killed many, and sent some home with new habits. Clean water and sewers, then vaccines and antibiotics, turned the sink off: by
+1900 big cities in Europe and North America grew from their own births.
 
 ---
 
@@ -250,20 +241,20 @@ their own births.
 
 | City | When | Population (†) | What fed it | What it lived by | Key institutions | Key infrastructure |
 |---|---|---|---|---|---|---|
-| **Uruk** | c.3300-2900 BC | ≈ 20,000 to 50,000 (some say 40,000 by 3100 BC, 80,000 to 90,000 with its surroundings) | irrigated barley, dates, sheep from the alluvium | temple and palace estates; wool textiles; long-distance trade for metal, stone, timber (Algaze) | temple households; rations; scribes; the first writing (proto-cuneiform), used for accounts | canals; the city wall (≈ 9 km by c.2900 BC); ≈ 250 ha in the Late Uruk period, larger later |
+| **Uruk** | c.3300-2900 BC | ≈ 20,000 to 50,000 (40,000 by 3100 BC is often quoted) | irrigated barley, dates, sheep from the alluvium | temple and palace estates; wool textiles; long-distance trade for metal, stone, timber (Algaze) | temple households; rations; scribes; writing invented for accounts | canals; ≈ 250 ha in the Late Uruk period; a wall of ≈ 9 km later |
 | **Rome** | 1st-2nd c. AD | ≈ 750,000 to 1 million | Egyptian, African, Sicilian grain by sea; Spanish and African oil | the empire's taxes and rents spent in the capital; services, building, crafts | the annona; patron and client; collegia (trade associations); the dole | Ostia and Portus; 11 aqueducts; *horrea*; insulae; Cloaca Maxima |
-| **Chang'an** (Tang) | 7th-9th c. | ≈ 800,000 to 1 million in ≈ 84 km² walls | tax grain from the Yangzi by the Grand Canal and Wei river | the court, officials, the army; the Silk Road | 108 walled wards with gates shut at night; two official markets (East and West) under market officials, with fixed hours and price records | the grid; canals; granaries |
+| **Chang'an** (Tang) | 7th-9th c. | ≈ 800,000 to 1 million in ≈ 84 km² walls | tax grain from the Yangzi by the Grand Canal and Wei river | the court, officials, the army; the Silk Road | 108 walled wards shut at night; two official markets with set hours and price records | the grid; canals; granaries |
 | **Kaifeng** (Northern Song) | 960-1127 | ≈ 1 million (Rozman), "more than a million" in 1102-06 | Yangzi rice by the Bian canal (annual tax grain of several million *shi* †) | the court; commerce; crafts; printing | wards opened up, shops on every street, night markets; guilds (*hang*); paper money (jiaozi from Sichuan, 1020s) | canals; coal as household fuel |
-| **Baghdad** (Abbasid) | 762 to 10th c. | ≈ 300,000 to 1 million (840,000 in one estimate; texts only, the city is built over) | Sawad irrigated grain; Tigris and Euphrates boats | caliphal court; the hub of routes from India to the Mediterranean | suqs by trade in Karkh; money changers (*jahbadh*); cheques (*sakk*) and transfer bills (*suftaja*); paper mills (from c.794) | the Round City (762-66); canals linking Tigris and Euphrates |
-| **Venice** | c.1300-1500 | ≈ 100,000 to 120,000 before 1348 | grain by sea from Apulia, the Black Sea, Sicily; a state grain office | carrying trade and credit between Byzantium, the Levant and Europe; salt; glass | the commune and Great Council; state galley convoys (*mude*) auctioned to merchants; the *colleganza* partnership | the Arsenal: 1,500 to 2,000 workers normally, 4,000 to 5,000 in war (16,000 at times is an often repeated figure †); "perhaps the largest industrial plant of that time" (Lane) |
-| **Florence** | c.1338 | ≈ 90,000 to 120,000 (Villani); ≈ 40,000 to 50,000 after the Black Death | Tuscan grain plus imports from Sicily and Apulia, often through its own merchant-bankers | woollen cloth (Villani: ≈ 30,000 people paid by the cloth industry; ≈ 200 workshops and 70,000 to 80,000 cloths a year, as usually quoted †); banking | the *Arti* (guilds), which ran the commune; the florin (1252); the Bardi and Peruzzi, who failed in the 1340s after lending to Edward III | |
-| **Bruges** | c.1300-1450 | ≈ 40,000 to 46,000 | Flemish and French grain; Baltic grain by Hanse ships | the market of northern Europe: Flemish and English cloth, wool, Baltic and Italian goods | foreign nations' houses (the Hanseatic *Kontor*, Italian lodges); brokers and hostellers; the "bourse" (named after the Van der Beurse inn where merchants met) | the Zwin channel to the sea (its silting ended Bruges's role) |
+| **Baghdad** (Abbasid) | 762 to 10th c. | ≈ 300,000 to 1 million (840,000 in one estimate; texts only) | Sawad irrigated grain; Tigris and Euphrates boats | caliphal court; the hub of routes from India to the Mediterranean | suqs in Karkh; bankers (*jahbadh*); cheques (*sakk*) and transfer bills (*suftaja*); paper mills (c.794) | the Round City (762-66); canals linking Tigris and Euphrates |
+| **Venice** | c.1300-1500 | ≈ 100,000 to 120,000 before 1348 | grain by sea from Apulia, the Black Sea, Sicily; a state grain office | carrying trade and credit between Byzantium, the Levant and Europe; salt; glass | the Great Council; state galley convoys (*mude*) auctioned to merchants; the *colleganza* | the Arsenal: 1,500 to 2,000 workers, 4,000 to 5,000 in war (16,000 is often repeated †), "perhaps the largest industrial plant of that time" (Lane) |
+| **Florence** | c.1338 | ≈ 90,000 to 120,000 (Villani); ≈ 40,000 to 50,000 after the Black Death | Tuscan grain; imports from Sicily and Apulia | woollen cloth (Villani: ≈ 30,000 paid by the cloth trade; ≈ 200 workshops, 70,000 to 80,000 cloths a year †); banking | the *Arti* (guilds) ran the commune; the florin (1252); the Bardi and Peruzzi, failed in the 1340s | |
+| **Bruges** | c.1300-1450 | ≈ 40,000 to 46,000 | Flemish and French grain; Baltic grain by Hanse ships | the market of northern Europe: Flemish and English cloth, wool, Baltic and Italian goods | foreign nations' houses (the Hanse *Kontor*); brokers and hostellers; the "bourse" (after the Van der Beurse inn) | the Zwin channel (its silting ended Bruges's role) |
 | **London** | 1550-1800 | ≈ 70,000 to 75,000 (1550), 200,000 (1600), 490,000 to 575,000 (1700), ≈ 960,000 (1801) | §1.2; coal §1.4 | port, court, Parliament, law, finance, crafts, the season; re-exports | livery companies; the Royal Exchange (1571); the Bank of England (1694); insurance (Lloyd's) | the Thames and the Pool; the New River (1613); London Bridge (the only one until 1750) |
-| **Amsterdam** | 1600-1700 | ≈ 60,000 (1600), ≈ 175,000 (1650), ≈ 200,000 (1700) (de Vries and van der Woude) | Baltic grain (the "mother trade"); Dutch dairy | the entrepôt of Europe: staple goods stored, graded and re-exported; shipping; the VOC | the VOC (1602); the Wisselbank (1609: 708 account holders in 1611, 1,202 by 1620); the Bourse (1611), where VOC shares traded; printed price currents | canal rings (1613 onwards); warehouses; piles |
+| **Amsterdam** | 1600-1700 | ≈ 60,000 (1600), ≈ 175,000 (1650), ≈ 200,000 (1700) (de Vries and van der Woude) | Baltic grain (the "mother trade"); Dutch dairy | the entrepôt of Europe: staple goods stored, graded and re-exported; shipping; the VOC | the VOC (1602); the Wisselbank (1609: 708 accounts in 1611, 1,202 by 1620); the Bourse (1611); printed price currents | canal rings (1613 onwards); warehouses; piles |
 | **Manchester** | 1770-1850 | ≈ 23,000 (1773; another estimate 43,000 †), 75,000 (1801), 303,000 (1851; 401,000 with Salford) | Lancashire, Irish and imported food by canal and rail | cotton spinning: mills from 3 to 19 in the 1790s, 108 at the peak (1853); merchants and warehouses | the Cotton Exchange; factory discipline; working-class housing by speculative builders | the Bridgewater canal (1761); the Liverpool and Manchester railway (1830); steam power |
 | **Chicago** | 1833-1900 | 350 (1833), 29,963 (1850), 298,977 (1870), 1,099,850 (1890), 1,698,575 (1900) | its own hinterland: it was the food hub | grain, lumber and meat for the East and Europe; rail; manufacturing | the Board of Trade (1848); grain grading (1856); futures; the Union Stock Yards (1865); the packers | the I&M canal (1848); railways; elevators; refrigerator cars |
-| **New York** | 1900-1960 | 3.4 million (1900), ≈ 7.9 million (1950) | national markets by rail and sea | port; finance; garment industry; publishing; headquarters | Wall Street; the Port Authority (1921); city government | Croton and Catskill water; Bazalgette-scale sewers; subway (1904); electricity (Pearl Street, 1882); skyscrapers |
-| **Tokyo** | 1600 to now | Edo ≈ 1 million (1720s); Tokyo ≈ 33 million (UN 2025) | Edo: sea rice from Osaka; now global | Edo: the shogun's capital, with daimyo required to live there in alternate years (*sankin-kōtai*); now finance, headquarters, manufacturing | Edo: rice brokers, merchant houses (Mitsui, from 1673); now ministries and keiretsu | Tamagawa aqueduct (1653); rail: Shinjuku ≈ 3.5 million passengers a day across all operators |
+| **New York** | 1900-1960 | 3.4 million (1900), ≈ 7.9 million (1950) | national markets by rail and sea | port; finance; garment industry; publishing; headquarters | Wall Street; the Port Authority (1921); city government | Croton and Catskill water; sewers; electricity (Pearl Street, 1882); subway (1904); skyscrapers |
+| **Tokyo** | 1600 to now | Edo ≈ 1 million (1720s); Tokyo ≈ 33 million (UN 2025) | Edo: sea rice from Osaka; now global | Edo: the shogun's capital, daimyo resident in alternate years (*sankin-kōtai*); now finance, headquarters | Edo: rice brokers, merchant houses (Mitsui, 1673); now ministries, keiretsu | Tamagawa aqueduct (1653); rail: Shinjuku ≈ 3.5 million passengers a day across all operators |
 | **Shanghai** | 1842 to now | ≈ 3 to 3.5 million by the 1930s ≈; ≈ 25 to 30 million now | the Yangzi basin; global | the treaty-port gateway to China; then industry; since 1990 finance (Pudong) and the world's busiest container port | foreign concessions with their own councils; compradors; now state planning | the Bund and docks; now metro, port, airports |
 
 Notes on what each shows, in the vocabulary of 02zzi and economy_web.md:
@@ -287,21 +278,20 @@ Notes on what each shows, in the vocabulary of 02zzi and economy_web.md:
   printed price currents and the most trusted bank money (Wisselbank guilders traded at a premium over coin): **a city as an
   information and trust good**.
 - **Manchester: the shock city.** Coal, canals, cotton and steam, with housing built faster than drains (Engels 1845).
-- **Chicago: the hub that made commodities.** Cronon's *Nature's Metropolis* (1991) is the key text. Chicago sat between the West's
-  raw materials and the East's markets at the meeting of lake, canal and (from 1848) railways. Three chains:
-  - **Grain:** before 1850 grain moved in sacks, each farmer's lot kept separate. Steam elevators lifted it in bulk into bins; in
-  1856 the Board of Trade set grades (white winter, red winter and spring wheat, each with quality standards), so an elevator could
-  give back an equal quantity of equal grade instead of the farmer's own grain. Ownership separated from the physical grain;
-  elevator receipts became money-like; trading in "to arrive" contracts became futures. Shipments more than tripled between 1853
-  and 1856, to 21 million bushels in 1856 (as quoted from Cronon). **Grading turned a good into a commodity.**
-  - **Lumber:** white pine from Michigan and Wisconsin floated down rivers to lake ports and came to Chicago by schooner, to be
-  sold to the treeless prairie by rail; by the 1850s Chicago was the largest lumber market in the world (Cronon's lectures), with
-  receipts in the 1880s and 1890s of the order of billions of board feet ≈. The forest was cut over in a generation.
-  - **Meat:** the Union Stock Yards opened on 25 December 1865 and received 1.29 million hogs and 384,000 cattle in 1866; cattle
-  receipts passed a million a year by 1876-79; by the 1920s more than 15 million animals a year passed through † (summarised from
-  the Encyclopedia of Chicago and Union Stock Yards histories). Swift's refrigerator cars (from 1878) let dressed beef replace live
-  cattle on the rails, and the packers used "everything but the squeal": joint products (hides, glue, lard, fertiliser) paid for
-  the line.
+- **Chicago: the hub that made commodities** (Cronon 1991). It sat between the West's raw materials and the East's markets where
+  lake, canal and (from 1848) railways met. Three chains:
+  - **Grain:** grain had moved in sacks, each farmer's lot kept apart. Steam elevators took it in bulk; in 1856 the Board of Trade
+  set grades (white winter, red winter, spring wheat, each with quality standards), so an elevator returned an equal quantity of
+  equal grade rather than the farmer's own grain. Ownership separated from the grain, elevator receipts became money-like, and
+  "to arrive" contracts became futures. Shipments tripled from 1853 to 1856, to 21 million bushels (as quoted from Cronon).
+  **Grading turned a good into a commodity.**
+  - **Lumber:** Michigan and Wisconsin white pine floated to lake ports, came to Chicago by schooner and went out to the treeless
+  prairie by rail; by the 1850s Chicago was the world's largest lumber market, with receipts later of the order of billions of
+  board feet a year ≈. The forest was cut over in a generation.
+  - **Meat:** the Union Stock Yards opened on 25 December 1865 and received 1.29 million hogs and 384,000 cattle in 1866, over a
+  million cattle a year by 1876-79, and more than 15 million animals a year by the 1920s †. Swift's refrigerator cars (from 1878)
+  let dressed beef replace live cattle on the rails, and joint products (hides, glue, lard, fertiliser: "everything but the
+  squeal") paid for the line.
   - Cronon's lesson: **the city and its hinterland are one system**; the city makes the country into a market and the market
   hides the land and labour behind the price.
 - **New York, Tokyo, Shanghai.** New York's vertical form needed every layer of §5 (distant water, sewers, electricity for lifts,
@@ -312,11 +302,10 @@ Notes on what each shows, in the vocabulary of 02zzi and economy_web.md:
   above 10 million, against 8 in 1975, with Jakarta (≈ 42 million), Dhaka (≈ 37 to 40 million) and Tokyo (≈ 33 million) the largest,
   and 45 per cent of the world's 8.2 billion people in cities (UN DESA 2025). Many megacities grow faster than their infrastructure:
   UN-Habitat counts roughly a billion people in slums ≈. **Saskia Sassen's** *The Global City* (1991) argued that globalisation
-  dispersed production but concentrated control: New York, London and Tokyo became the places where the producer services that run
-  a global economy (finance, law, accounting, advertising, consulting) are produced and traded, so the most global activity is the
-  most centralised. The same cities polarise: highly paid professionals and the low-paid service workers who serve them. Global
-  cities are ranked by networks of firms' offices (the GaWC rankings) rather than by size: Lagos is larger than Zurich, Zurich is
-  more global.
+  dispersed production but concentrated control: New York, London and Tokyo became where the producer services that run a global
+  economy (finance, law, accounting, advertising, consulting) are made and traded, and they polarise into well-paid professionals
+  and the low-paid workers who serve them. Global cities rank by firms' office networks (GaWC), not size: Lagos is larger than
+  Zurich, Zurich is more global.
 
 ---
 
@@ -363,16 +352,13 @@ the two, and the costs are what the infrastructure layers of §5 push back.
 
 Jacobs's *The Economy of Cities* (1969) and *Cities and the Wealth of Nations* (1984) make four claims:
 
-1. **New work is added to old work.** A new product or service starts as a division of an existing one: a brassiere maker grows out
-   of dressmaking, the 3M company out of sandpaper. The more and more varied existing work a place has, the more combinations it
-   can make. This is why diverse cities (urbanisation economies) generate innovation more than one-industry towns.
-2. **Import replacement.** A city grows explosively when it starts making locally what it used to import, which frees its earnings
-   to import new things; the new local production then feeds further divisions of work. Cities trade above all with other cities.
-3. **City regions.** A vigorous city reshapes its surrounding region (suburbs, markets, transplanted industry), while regions that
-   only supply distant cities (supply regions, plantations, "transplant" regions) stay undeveloped.
-4. **Cities before agriculture.** Her claim that cities came first and agriculture was invented in their hinterlands is now
-   generally rejected by archaeologists, but the general point (that dense exchange drives invention) has strong support in the
-   scaling data (patents scale super-linearly).
+1. **New work is added to old work:** a new product starts as a division of an existing one (brassieres out of dressmaking, 3M's
+   tapes out of sandpaper). The more varied the existing work, the more combinations; so diverse cities out-invent one-trade towns.
+2. **Import replacement:** a city grows explosively when it starts making what it imported, freeing earnings to import new things.
+   Cities trade above all with other cities.
+3. **City regions:** a vigorous city reshapes its region; regions that only supply distant cities stay undeveloped.
+4. **Cities before agriculture:** now generally rejected by archaeologists, though the general point (dense exchange drives
+   invention) fits the scaling data.
 
 For a simulator, the first two are mechanisms, not just observations: **new methods arise by combining methods present in the same
 place, and a place gains when it substitutes its own production for an import.**
@@ -421,7 +407,7 @@ of one city as it grows.
 - **Disease:** the urban graveyard (§1.7), and plagues: Florence lost perhaps half its people in 1348.
 - **Congestion and commuting:** the travel time budget. Studies collected by Schafer and Victor find people travel on average about
   an hour a day (45 to 90 minutes), across cultures and eras (the "Marchetti constant", from Zahavi's work); London and New York
-  average about 46 and 41 minutes each way. Each faster transport mode enlarges the city that fits in the budget (§4.2).
+  average commutes of about 46 and 41 minutes (as quoted). Each faster transport mode enlarges the city that fits in the budget (§4.2).
 - **Housing:** rents rise when building lags migration; slums form when it lags far.
 - **Political:** loss of the court or the empire (Rome after 330 and 410; Chang'an after the Tang). A capital city lives on a flow
   that can be redirected.
@@ -443,15 +429,13 @@ in the economic base model) is usually larger: most people in any city work for 
 | **crafts** | guilds (Florence's *Arti*, London's livery companies, Song *hang*, Roman *collegia*) controlling entry, apprenticeship (7 years in London), quality, prices, and often city government | factories replace much craft; craft survives in luxury trades and repair | design, specialised manufacture, maker trades |
 | **markets** | the market place and market day; chartered fairs; specialised markets (Smithfield, Billingsgate, Covent Garden; Chang'an's two markets) | wholesale produce markets; exchanges for commodities | wholesale hubs at the edge; online markets |
 | **finance** | money changers, pawnbrokers, merchant bankers; bills of exchange; deposit banks (Venice, the Wisselbank) | joint-stock banks, stock exchanges, insurance, clearing houses (London 1773) | the financial district; global markets (Sassen) |
-| **information** | criers, notaries, scribes; printing (from the 1450s in Europe, Song China far earlier); newspapers and price currents | the press, the telegraph, advertising | telecoms, media, software |
-| **retail** | shops on the street front, often workshop and shop in one; pedlars | the department store (Paris's Bon Marché, 1852; Mitsukoshi in Tokyo, from the Mitsui drapery of 1673) | malls, chains, e-commerce |
+| **information, retail** | notaries, scribes, printing, price currents; shop-workshops on the street, pedlars | the press, telegraph, advertising; the department store (Bon Marché, 1852) | telecoms, media, software; chains, e-commerce |
 | **transport within the city** | porters, carters, watermen (London's Thames watermen), sedan chairs, hackney coaches (licensed in London from 1654) | omnibus, tram, underground, cab | metro, bus, taxi, ride hailing, delivery |
 | **housing and construction** | the building trades (masons, carpenters, bricklayers); speculative builders; ground rents and leases | mass speculative building; tenements; building societies | developers, mortgage finance, public housing, zoning |
 | **utilities** | water carriers; conduit keepers; nightmen; scavengers | water companies, gas companies (London 1812), electricity (1880s), telephones (1870s on) | grids, networks, regulated utilities |
 | **public health** | plague orders and quarantine (Venice's lazaretto, 1423); hospitals as charity | medical officers of health (London from 1848), sanitary boards | public health departments, hospitals |
 | **order** | the watch, ward constables, guild and market courts; the city's own law | professional police (London's Metropolitan Police, 1829) | police, courts, regulators |
-| **schooling** | church and guild schools; universities (Bologna, Paris) | compulsory schooling (England 1870-80) | universities as city industries |
-| **entertainment** | festivals, processions; Rome's games and baths; theatres (London's Bankside), taverns, coffee houses (London's first 1652) | music halls, sport, cinema | culture, tourism, sport as export industries |
+| **schooling, entertainment** | church and guild schools, universities; festivals, games, theatres, taverns, coffee houses (London's first 1652) | compulsory schooling; music halls, sport, cinema | universities, culture and tourism as export industries |
 
 **Guilds** deserve a note because they are the institution that most often stood between a city's market and its producers. Their
 functions combined restriction (who may practise, how many apprentices, minimum prices) with public goods (training, quality marks,

@@ -11,18 +11,16 @@ The British industrial revolution (roughly 1760 to 1870, with roots back to 1700
 invention. It was a handful of supply chains that had grown up separately in the organic economy (coal for London's hearths,
 charcoal iron, wool and linen spun at home, water mills, carts and river boats) and that, over about a century, **fused into one
 web**. Coal fed coke, coke fed iron, iron and coal fed the steam engine, the steam engine drained the coal mines and blew the
-furnaces, iron rails and steam engines became the railway, and the railway carried coal. Beside this loop ran a second complex,
-cotton: slave-grown fibre from the American South, shipped through Liverpool, spun and woven in Lancashire mills on machines
-built by Manchester engineers, bleached and dyed with chemicals from Glasgow and Widnes, and sold back to the world, including to
-India, whose hand spinners it displaced. The engineering workshops that built textile machinery went on to build locomotives and
-machine tools; the chemical works that began by making bleach for linen and cotton went on to make soda for glass and soap, and
-then dyes from the tar left by the gasworks. Every one of these steps needed something earlier: a fuel, a material, a skill pool,
-a market, a road or a canal, a way to raise capital, a law.
+furnaces, iron rails and steam engines became the railway, and the railway carried coal. Beside it ran cotton:
+slave-grown fibre from the American South, through Liverpool, spun and woven in Lancashire on machines built by Manchester
+engineers, bleached and dyed with chemicals from Glasgow and Widnes, and sold to the world, India included. The textile-machine
+makers went on to build locomotives and machine tools; the bleach makers went on to soda for glass and soap, then dyes from
+gasworks tar. Every step needed something earlier: a fuel, a material, a skill pool, a market, a canal, capital, a law.
 
 E. A. Wrigley's summary is the one to keep: the revolution was the shift from an **organic economy**, in which almost all energy
 and materials came from what grew on land each year, to a **mineral economy**, in which they came from stores laid down long ago
 (coal, then iron ore and limestone on a vast scale). That broke the land ceiling that binds every economy the engine can model
-today. The shift was slow: output per head grew only about 0.5% a year before 1830, steam mattered little to productivity until
+today. The shift was slow: output per head grew perhaps 0.5% a year or less before 1830 [R] (Crafts and Harley), steam mattered little to productivity until
 after 1830, and wages stayed flat for decades while the towns grew sick. For a simulator the lesson is that each industrial layer
 is a **paradigm switch with prerequisites**, usually several at once, and that the social forms (wage labour at scale, the
 factory, the joint-stock company, the industrial town and its diseases) came with the technology rather than after it. Section 11
@@ -88,27 +86,24 @@ then coke for iron (2), steam (1.3), gas (1.4), railways and steamships (5), and
 | Engine | Date, place | What it did | Fuel use (duty) | What it required |
 |---|---|---|---|---|
 | Savery's "fire engine" | patent 1698 | raised water by steam pressure and vacuum, no piston | very poor; burst at depth | brass and copper work, solder |
-| **Newcomen atmospheric engine** | 1712, Coneygree colliery near Dudley Castle | a piston pulled down by vacuum under a cylinder of condensed steam, working a beam and a pump; about 5.5 horsepower [R] | about 4 to 6 million foot-pounds per bushel (94 lb) of coal [R] | a large cast brass (later cast iron) cylinder; a beam; a boiler of copper or iron plate; a mine needing drainage with **unsaleable small coal at the pithead to burn** |
+| **Newcomen atmospheric engine** | 1712, near Dudley Castle | vacuum under condensed steam pulls a piston, working a beam and pump; about 5.5 hp [R] | about 4 to 6 million foot-pounds per bushel (94 lb) of coal [R] | a cast brass or iron cylinder; a boiler; a flooding mine with **unsaleable slack coal to burn** |
 | Smeaton's improved Newcomen | 1760s to 1770s | careful proportions and boring | about 9 to 10 million [R] | systematic testing |
-| **Watt's separate condenser** | idea 1765, patent 1769; **Boulton & Watt** from 1775 (Soho, Birmingham) | steam condensed in a separate vessel, so the cylinder stays hot | about 20 to 30 million [R]: roughly a third to a quarter of Newcomen's coal for the same work | **John Wilkinson's cannon-boring mill (1774)** to bore the cylinder true; Matthew Boulton's capital and workshop; an Act of Parliament (1775) extending the patent to 1800 |
-| Rotative Watt engines | sun-and-planet gear 1781; double acting 1782; parallel motion 1784; governor 1788 | turned a shaft, so could drive mills, not only pumps | as above | gear cutting, precision fitting |
-| High-pressure engines | Trevithick from about 1799; Woolf compound about 1804 to 1814 | small, light engines with steam well above atmospheric pressure; the locomotive | Cornish engines rose to 60 to 100 million by the 1830s to 1840s [R] | **stronger boilers of wrought-iron plate**, better rivets; the end of Watt's patent in 1800 |
+| **Watt's separate condenser** | patent 1769; **Boulton & Watt** from 1775 (Soho, Birmingham) | steam condensed apart, so the cylinder stays hot | about 20 to 30 million [R]: a third to a quarter of Newcomen's coal | **Wilkinson's cannon-boring mill (1774)** to bore the cylinder true; Boulton's capital; an Act (1775) extending the patent to 1800 |
+| Rotative Watt engines | 1781 to 1788 | turned a shaft: drove mills, not only pumps | as above | gearing, precision fitting |
+| High-pressure engines | Trevithick from about 1799; Woolf compound 1804 to 1814 | small, light engines; the locomotive | Cornish engines 60 to 100 million by the 1840s [R] | **wrought-iron boiler plate**; Watt's patent ended (1800) |
 
 **Key dependencies.**
-- The Newcomen engine was hugely wasteful, and still paid at **collieries**, because it burnt slack that could not be sold. In
-  **Cornwall's copper and tin mines**, which had no coal and paid to ship it from South Wales, it was costly; so Cornwall was the
-  first market for Watt, who charged a royalty of **a third of the fuel saved** against a Newcomen engine. Who buys a new technique
-  first depends on the price of the input it saves.
-- Watt's engine could not be built until boring could make a cylinder true to "the thickness of an old shilling" over a diameter of
-  several feet [R]. Wilkinson's boring mill was a cannon-making machine. **Military demand made the machine tool that made the
-  engine.**
+- Newcomen's engine was wasteful but paid at **collieries**, burning slack nobody could sell. **Cornwall's copper and tin mines**
+  shipped coal from Wales, so they were Watt's first market; he charged **a third of the fuel saved**. Who adopts first depends on
+  the price of the input saved.
+- Watt's cylinder needed boring true to "the thickness of an old shilling" [R]; Wilkinson's mill was a cannon borer. **Military
+  demand made the machine tool that made the engine.**
 - After Watt's patent lapsed (1800), Cornish mines published engine performance monthly in *Lean's Engine Reporter* (from 1811),
   and duty roughly tripled: Nuvolari's **collective invention**, driven by shared information, not patents [C: how far Watt's
   patent held progress back is disputed].
 
-**Diffusion.** About 2,200 steam engines were built in Britain in the eighteenth century (Kanefsky and Robey; perhaps 2,400 to
-2,500 in all), of which about 450 to 480 were Boulton & Watt engines, 268 of them rotative (Tann). Nicholas Crafts's summary of
-installed power, from Kanefsky [R; Kitsikopoulos revises 1800 upward]:
+**Diffusion.** About 2,200 engines were built in eighteenth-century Britain (Kanefsky and Robey), about 450 to 480 of them by
+Boulton & Watt, 268 rotative (Tann). Installed power (Crafts, from Kanefsky) [R; Kitsikopoulos revises 1800 upward]:
 
 | Year | Steam horsepower | Water horsepower |
 |---|---|---|
@@ -141,14 +136,14 @@ the synthetic dye industry (6.4). A textbook **joint product** whose by-products
 | Stage | Date, place, person | What changed | What it required | What it enabled |
 |---|---|---|---|---|
 | **Charcoal blast furnace and finery** | from the 1490s; the Weald, Forest of Dean, Shropshire | ore + charcoal + limestone in a furnace blown by water-powered bellows → pig iron; refined in a charcoal finery to bar iron under a water hammer | the coppice of thousands of acres per furnace [R]; ore, wood and water on one site; leather bellows | guns, pots, nails, tools; output capped by charcoal (about 25,000 tons a year about 1720 [R]); much bar iron imported from Sweden and Russia |
-| **Coke smelting** | Abraham Darby I, Coalbrookdale, Shropshire, 1709 | coke (coal baked to drive off sulphur and tar) in place of charcoal | a coal that cokes well and low-sulphur ore (Coalbrookdale had both); a market for cast iron (Darby made thin-walled cast pots) | at first only foundry iron (coke pig made poor bar iron). Spread slowly: coke iron became cheaper than charcoal iron only from the 1750s, as charcoal grew dearer and furnaces bigger (Hyde). By 1788, 53 of 77 British furnaces used coke; by 1806, 162 of 173 |
+| **Coke smelting** | Abraham Darby I, Coalbrookdale, 1709 | coke (coal baked free of sulphur and tar) for charcoal | a coking coal and low-sulphur ore (both at Coalbrookdale); a market for cast pots | foundry iron at first; cheaper than charcoal iron only from the 1750s (Hyde). By 1788, 53 of 77 furnaces used coke; by 1806, 162 of 173 |
 | **Steam-blown furnaces** | 1776 onward (Wilkinson's Broseley blowing engine was among the first Boulton & Watt engines) | steam engines blew the furnaces and pumped water back over wheels | the Watt engine | furnaces off the river: sited on the coalfield, larger and running all year |
 | **Puddling and rolling** | Henry Cort, patents 1783 to 1784 | pig iron stirred ("puddled") in a coal-fired reverberatory furnace into wrought iron, then passed through grooved rolls instead of under the hammer | the reverberatory furnace (from glass and lead smelting); steam rolling mills; **puddlers, a heavy long skill of judgement** | wrought iron from coal alone; the end of the finery; Merthyr Tydfil's ironworks (Cyfarthfa, Dowlais) became the world's largest |
-| **Hot blast** | James Neilson, Glasgow, 1828 | air heated before it entered the furnace | iron pipes and stoves; Scotland's blackband ironstone (found by David Mushet, 1801) and raw splint coal | fuel per ton of pig cut by more than half [R]; Scottish pig iron rose roughly fifteen-fold between 1830 and the late 1840s [R] |
-| **Crucible steel** | Benjamin Huntsman, Sheffield, about 1740 | blister steel melted in clay crucibles → uniform cast steel | Swedish bar iron (low phosphorus); coke; refractory clay; Sheffield's cutlers | cutlery, tools, springs, files; but in pots of tens of pounds, dear [R] |
-| **Bessemer converter** | Henry Bessemer, 1856 (paper at Cheltenham); his own Sheffield works from 1858 | air blown through molten pig iron burns out carbon in about 20 minutes, with no fuel; tons per blow | low-phosphorus (haematite) pig iron, from Cumberland or Spain; Robert Mushet's addition of spiegeleisen (manganese) to fix the metal; Göransson's trials in Sweden | **cheap steel**: steel rails, plates, wire. The price of British Bessemer steel fell from about $80 a ton in 1873 to under $20 in 1886 [R]; steel rails fell from £10 to £18 a ton before 1875 to about £4 10s in 1886 |
-| **Open hearth** | Siemens regenerative furnace (1856 to 1861); Pierre-Émile Martin, 1864 to 1865 | waste heat recycled through brick chequers to reach steelmaking temperature; slower than Bessemer, more controllable, takes scrap | gas producers; refractory brick; chemistry | ship plate and structural steel; overtook Bessemer by about 1900 [R] |
-| **Basic process** | Sidney Gilchrist Thomas and Percy Gilchrist, 1878 to 1879 | a limestone or dolomite lining removes phosphorus | chemistry of slags | the phosphoric ores of Lorraine and Luxembourg became usable: **German and Belgian steel surged**; basic slag sold as fertiliser (a joint product) |
+| **Hot blast** | Neilson, Glasgow, 1828 | air heated before the furnace | iron stoves; Scotland's blackband ironstone (Mushet, 1801) | fuel per ton more than halved [R]; Scottish pig iron up roughly fifteen-fold by the late 1840s [R] |
+| **Crucible steel** | Huntsman, Sheffield, about 1740 | steel melted in clay pots | Swedish bar iron; coke; refractory clay | cutlery, tools, springs; small batches, dear |
+| **Bessemer converter** | Henry Bessemer, 1856; Sheffield works 1858 | air blown through molten pig burns out carbon in about 20 minutes, no fuel, tons per blow | low-phosphorus haematite pig (Cumberland, Spain); Mushet's spiegeleisen (manganese) | **cheap steel**: British Bessemer steel from about $80 a ton (1873) to under $20 (1886) [R]; rails from £10 to £18 before 1875 to about £4 10s (1886) |
+| **Open hearth** | Siemens (1856 to 1861); Martin (1864 to 1865) | waste heat recycled through brick chequers; slower, controllable, takes scrap | gas producers; refractories | ship plate, structural steel; overtook Bessemer about 1900 [R] |
+| **Basic process** | Thomas and Gilchrist, 1878 to 1879 | a dolomite lining removes phosphorus | slag chemistry | Lorraine's phosphoric ores usable: **German steel surged**; basic slag sold as fertiliser |
 
 ### 2.2 Output and the shift of leadership
 
@@ -186,12 +181,10 @@ hammer → rolling needs steam; bar iron → Bessemer steel needs low-phosphorus
 
 ### 3.1 Before the factory
 
-Wool was England's great industry in the organic economy: spun by women in their homes on the wheel, woven by men on handlooms,
-fulled in water mills (the fulling mill is one of the first water-powered industrial uses, from the twelfth century), finished in
-towns. The **putting-out system** (02zzi §3.6) organised it: a clothier or merchant owned the wool and the yarn, households owned
-their wheels and looms and were paid by the piece. The industry was rural, part-time, and run on merchant credit. Cotton was a
-small, new branch in Lancashire, usually woven with linen warps (fustians), protected from Indian calicoes by the Calico Acts
-(1700, 1721; repealed 1774).
+Wool was England's great organic-economy industry: spun at home on the wheel, woven on handlooms, fulled in water mills (from the
+twelfth century). **Putting-out** (02zzi §3.6) organised it: the merchant owned wool and yarn, households owned wheels and looms
+and were paid by the piece, part-time, on merchant credit. Cotton was a small Lancashire branch woven on linen warps, protected
+from Indian calicoes by the Calico Acts (1700, 1721; repealed 1774).
 
 The bottleneck was **spinning**: one loom needed the yarn of several spinners [R: three to five is commonly cited, more after the
 flying shuttle].
@@ -200,15 +193,14 @@ flying shuttle].
 
 | Invention | Date, place | What it did | Prerequisites |
 |---|---|---|---|
-| Flying shuttle | John Kay, Bury, 1733 | one weaver threw the shuttle across a wide loom alone; roughly doubled weaving speed [R] | a handloom; spread slowly, against weavers' resistance |
-| Roller spinning | Lewis Paul and John Wyatt, Birmingham, 1738 | rollers drew out fibre; worked poorly | the idea that Arkwright made work |
-| **Spinning jenny** | James Hargreaves, Stanhill, Lancashire, about 1764 to 1765; patent 1770 | one spinner worked 8, then 16 to 120 spindles; a hand machine for the cottage or workshop | a wooden frame a joiner could make; weft only (the thread too weak for warp) |
-| **Water frame** | Richard Arkwright (with John Kay the clockmaker), patent 1769; **Cromford mill, Derbyshire, 1771**, with Jedediah Strutt and Samuel Need | rollers and flyers driven by water: strong yarn fit for warp, so all-cotton cloth | **a water wheel, a millwright, capital** (Strutt and Need were hosiers); a site on a fast stream; a labour force brought to the valley and housed (Cromford village) |
-| **Mule** | Samuel Crompton, Bolton, 1779 | combined the jenny's moving carriage and the frame's rollers: fine, strong yarn able to match Indian muslins | not patented; worked by hand, then by water and steam for part of the cycle |
-| Steam-driven mills | first Boulton & Watt rotative engine in a cotton mill, Papplewick, Nottinghamshire, 1785 | mills freed from streams: to towns, on coal | the rotative Watt engine |
-| Power loom | Edmund Cartwright, 1785; made practical by Horrocks (Stockport, 1803), Roberts (1822) and others | weaving by power | iron-framed looms, dressing machines for the warp; came forty years after power spinning |
-| **Self-acting mule** | Richard Roberts, Manchester, 1825 and 1830 | the whole spinning cycle automatic; one minder and piecers over a thousand or more spindles | the engineering workshop (4); commissioned by mill owners after a spinners' strike |
-| Cotton gin | Eli Whitney, Georgia, 1793 | separated seed from short-staple upland cotton; one worker cleaned many times what he could by hand [R] | the demand of the British mills |
+| Flying shuttle | John Kay, 1733 | one weaver, a wide loom; roughly doubled weaving speed [R] | a handloom; spread slowly against resistance |
+| **Spinning jenny** | Hargreaves, Lancashire, about 1765 | one spinner, 8 then up to 120 spindles; a cottage machine | a joiner's frame; weft only |
+| **Water frame** | Arkwright, patent 1769; **Cromford, Derbyshire, 1771**, with the hosiers Strutt and Need | water-driven rollers: strong warp yarn, so all-cotton cloth | **a wheel, a millwright, capital**; a fast stream; workers brought and housed (Cromford village) |
+| **Mule** | Crompton, Bolton, 1779 | fine strong yarn to match Indian muslins | not patented; hand-driven, then part-powered |
+| Steam mills | Papplewick, 1785 (the first steam-powered cotton mill) | mills freed from streams | the rotative Watt engine |
+| Power loom | Cartwright 1785; practical by the 1800s to 1820s (Horrocks, Roberts) | weaving by power | iron frames; came decades after power spinning |
+| **Self-acting mule** | Roberts, Manchester, 1825 to 1830 | automatic; one minder and piecers over a thousand spindles | the engineering workshop (4); commissioned after a spinners' strike |
+| Cotton gin | Whitney, Georgia, 1793 | cleaned upland cotton many times faster [R] | the demand of the British mills |
 
 ### 3.3 Productivity
 
@@ -224,9 +216,8 @@ The widely cited estimates from Harold Catling (*The Spinning Mule*, 1970) of op
 | Roberts's self-acting mule | 1825 | 135 |
 | Modern ring spinning | 1990 | 40 |
 
-A fall of more than 300 times in about seventy years, most of it in the first twenty. Prices followed: C. Knick Harley's work on
-yarn prices and profits shows yarn prices falling sharply by the 1780s, once Arkwright's patents were overturned (1785) and
-competition spread, with no evidence of super-profits afterward.
+A fall of over 300 times in seventy years, most in the first twenty. Harley finds yarn prices fell sharply by the 1780s, once
+Arkwright's patents fell (1785) and competition spread, with no super-profits after.
 
 **Scale.** British raw cotton imports [R: series differ]:
 
@@ -258,7 +249,7 @@ This is the clearest case of supply chains fusing across an ocean.
 3. **Shipping** to **Liverpool**, Britain's leading slave-trading port in the late eighteenth century (roughly half or more of the
    British trade [R]), which turned its docks, merchants and credit to cotton; its brokers' market set the world price.
 4. **Carriage inland.** The Mersey and Irwell Navigation and the Bridgewater Canal, then the **Liverpool & Manchester Railway
-   (1830)**, built to break the canal's hold on the 35-mile route.
+   (1830)**, built to break the canal's hold on the 30-mile route.
 5. **Spinning and weaving** in Manchester ("Cottonopolis") and its ring of towns (Oldham, Bolton, Preston, Stockport, Blackburn):
    McConnel & Kennedy and the Murrays in Ancoats (mule spinning from the 1790s); Greg's Quarry Bank Mill at Styal (1784), worked by
    pauper apprentice children; New Lanark (Dale and Arkwright, 1786; Robert Owen from 1800), about 2,000 workers [R].
@@ -315,10 +306,9 @@ men trained one another:
   plane surfaces, and his bench micrometer. With **Marc Brunel** and Samuel Bentham he built the **Portsmouth Block Mills**
   (1803 to 1808): 45 machines making ship's pulley blocks, about 130,000 blocks in 1808; it was claimed that ten unskilled men did
   the work of 110 skilled blockmakers. The first mass production by machine tools.
-- **Maudslay's shop trained** Richard Roberts (planing machine 1817; later the self-acting mule and locomotives), Joseph Clement
-  (precision lathes; Babbage's difference engine), **James Nasmyth** (steam hammer 1839; Bridgewater Foundry at Patricroft, sited
-  between the Bridgewater Canal and the Liverpool & Manchester Railway), **Joseph Whitworth** (standard screw threads 1841;
-  measuring machines to very fine tolerances; Manchester), and others.
+- **Maudslay's shop trained** Richard Roberts (planer 1817; the self-acting mule; locomotives), Joseph Clement (Babbage's
+  difference engine), **James Nasmyth** (steam hammer 1839; Bridgewater Foundry, Patricroft, between the Bridgewater Canal and the
+  Liverpool & Manchester Railway) and **Joseph Whitworth** (standard threads 1841; fine measuring machines).
 
 ### 4.2 Textile machinery → locomotives → machine tools
 
@@ -339,12 +329,10 @@ Textile machinery → locomotives → marine engines → machine tools for sale 
 
 ### 4.3 Interchangeable parts: the American system
 
-- French and American military armouries pursued uniform parts for muskets (Honoré Blanc in France, 1780s; the US Springfield and
-  Harpers Ferry armouries from the 1810s). John Hall at Harpers Ferry made rifles with interchangeable parts by the late 1820s
-  using jigs, fixtures and gauges; Thomas Blanchard's copying lathe (1818) turned gunstocks.
-- Private makers (Colt; Robbins & Lawrence in Vermont) carried it into commerce. At the 1851 Great Exhibition the Americans
-  surprised British observers; a British committee visited US armouries (1854) and the **Royal Small Arms Factory at Enfield**
-  (1855 to 1857) was equipped with American machines.
+- Armouries pursued uniform musket parts (Blanc in France, 1780s; Springfield and Harpers Ferry from the 1810s). John Hall made
+  interchangeable rifles by the late 1820s with jigs and gauges; Blanchard's copying lathe (1818) turned gunstocks.
+- Colt and Robbins & Lawrence took it into commerce; after the 1851 Exhibition a British committee toured US armouries (1854) and
+  **Enfield** (1855 to 1857) was equipped with American machines.
 - The method needed **gauges and a tolerance discipline**, special-purpose machines, a large uniform order (the army), and it cost
   more at first than hand fitting [C: David Hounshell shows full interchangeability was slow and costly until well after 1850].
 
@@ -389,14 +377,12 @@ journey from about three weeks to about a week [R].
 
 ### 5.3 Effects on markets and location
 
-- **Industries moved to coal** once transport made coal cheap where it was mined and dear far from it; and to ports.
-- **Markets widened** (Smith's "extent of the market"), so specialisation deepened: Lancashire for cotton, Sheffield for cutlery
-  and steel, the Potteries for ceramics, Northampton for shoes.
-- **The railway was itself the largest new customer** of iron, coal, engineering and capital in mid-century; its social saving to
-  the British economy by 1865 was estimated by Gary Hawke at roughly 7 to 11% of national income [R, C: Robert Fogel's lower US
-  estimate for 1890 started the debate on whether railways were "indispensable"].
-- **New towns** grew on the lines (Crewe, Swindon, Middlesbrough, founded 1830 as a coal port and an iron town by the 1850s after
-  Cleveland ironstone was found); old ones off the lines declined.
+- **Industries moved to coal** and to ports.
+- **Markets widened**, so specialisation deepened: Lancashire cotton, Sheffield steel, the Potteries, Northampton shoes.
+- **The railway was itself the largest new customer** of iron, coal, engineering and capital in mid-century; Hawke put its social
+  saving by 1865 at roughly 7 to 11% of national income [R, C: Fogel's lower US estimate began the "indispensable?" debate].
+- **New towns** grew on the lines (Crewe, Swindon; Middlesbrough, a coal port in 1830 and an iron town after Cleveland ironstone
+  was found in 1850); towns off the lines declined.
 
 ---
 
@@ -485,13 +471,11 @@ switch in one country removes a land-based chain in another.**
 
 ### 7.2 Capital, companies and banks
 
-- **Most industrial capital came from partners, kin, retained profit and trade credit** (François Crouzet). An early cotton mill
-  cost a few thousand pounds [R]; fixed capital was small, working capital (stocks of fibre and yarn) large.
-- **The Bubble Act (1720)** restricted joint-stock companies; until its repeal (1825), large undertakings that needed many
-  investors (canals, turnpikes, docks, then railways) were set up **one at a time by private Act of Parliament** as statutory
-  companies.
-- **General incorporation**: the Joint Stock Companies Act (1844, registration), the **Limited Liability Act (1855)** and the
-  Companies Act (1862). Most manufacturing firms stayed partnerships until late in the century.
+- **Most industrial capital came from partners, kin, retained profit and trade credit** (Crouzet). An early cotton mill cost a few
+  thousand pounds [R]; working capital (stocks) outweighed fixed.
+- **The Bubble Act (1720 to 1825)** restricted joint-stock companies, so canals, turnpikes, docks and railways were set up **one at a
+  time by private Act** as statutory companies. General incorporation came in 1844, **limited liability in 1855**, the Companies
+  Act in 1862; most manufacturers stayed partnerships until late in the century.
 - **Banks**: the Bank of England (1694); country banks grew from about a hundred in the 1770s to several hundred by 1810 [R],
   issuing notes and discounting bills; in Lancashire **bills of exchange** circulated as money. Crises (1825, 1847, 1857, 1866)
   broke weak banks; the Bank Charter Act (1844) gave the Bank of England control of note issue. The London Stock Exchange
@@ -535,7 +519,7 @@ The towns grew faster than water, drains and housing:
 |---|---|---|---|
 | **High wages, cheap energy** | Robert Allen, *The British Industrial Revolution in Global Perspective* (2009) | wages were high relative to capital and energy prices (Newcastle coal among Europe's cheapest energy); England's wage to capital-price ratio rose to about 1.7 by 1820 while France's stayed flat. Machines that saved labour and used coal paid in Britain first (the jenny: profitable in England, not France or India); improved, they paid everywhere | Humphries and Schneider (2019): spinning wages were not high, and hand spinners' earnings were low; Gragnolati, Moschella and Pugliese: under looser assumptions the jenny paid in France too; Kelly, Mokyr and Ó Gráda: high wages reflect better-fed, more productive workers, not just factor prices [C] |
 | **Culture of growth, Industrial Enlightenment** | Joel Mokyr, *The Enlightened Economy* (2009), *A Culture of Growth* (2016) | a belief that nature could be understood and used for progress; scientists and craftsmen in contact; a deep pool of skilled mechanics; institutions that let innovators profit | hard to measure; Europe shared the Enlightenment; Allen: culture explains the supply of invention, not where it was used first [C] |
-| **Coal and colonies** | Kenneth Pomeranz, *The Great Divergence* (2000) | the Yangzi delta and England were alike until about 1750 to 1800; England escaped the land ceiling by two accidents: **coal near London and water**, and the **"ghost acres" of the Americas** (cotton, sugar, timber from land worked by the enslaved) | Broadberry, Guan and Li: China had fallen behind by 1700 [C]; Kander, Warde and Theodoridis (2019): Britain was usually a net exporter of embodied land except in the early 1800s, so coal mattered more than colonies [C] |
+| **Coal and colonies** | Kenneth Pomeranz, *The Great Divergence* (2000) | the Yangzi delta and England were alike until about 1750 to 1800; England escaped the land ceiling by two accidents: **coal near London and water**, and the **"ghost acres" of the Americas** (cotton, sugar, timber from land worked by the enslaved) | Broadberry, Guan and Li: China had fallen behind by 1700 [C]; Kander, Warde and Theodoridis (2019): a fuller accounting of trade finds Britain's net land imports smaller than Pomeranz's, so coal mattered more than colonies [C] |
 | **Slavery and Atlantic trade** | Eric Williams; Joseph Inikori; Berg and Hudson | see 3.4 | O'Brien, Eltis and Engerman on the small share of profits [C] |
 | **Institutions** | North and Weingast (1989) | the settlement of 1688 secured property and the public debt | Clark and others: property was secure before 1688; growth did not jump after it [C] |
 | **Industrious revolution (demand)** | Jan de Vries | households worked harder for the market to buy new goods (tea, sugar, cottons), creating demand before supply changed | timing and scale debated |
@@ -588,7 +572,7 @@ sale, arms, sewing machines, bicycles. Each step widened the market for the skil
 
 ---
 
-## 10. A dependency tree
+## 10. The dependency table
 
 For each technology: what it needed (materials, fuel, skills, capital, demand, transport, institutions), what it enabled, its
 chain shape, and whether it was a **paradigm switch** (PS) and what social change came with it.
