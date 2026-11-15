@@ -586,7 +586,7 @@ urban demand.
 | 1440s to 1450 | about 2 to 2.5 million (one estimate 2.3 million) | high; farm wages about 64% above pre-plague |
 | 1550 | about 3 million | falling |
 | 1650 | about 5.3 million | low |
-| 1750 | about 5.8 million | rising |
+| 1750 | about 5.8 million | fairly high, then squeezed late in the century |
 | 1851 | about 16.7 million | rising, and no longer bound to population |
 
   (Medieval figures *contested* within about a third; checked ranges from Broadberry and others and summaries of their work; later
