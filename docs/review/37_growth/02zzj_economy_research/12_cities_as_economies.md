@@ -437,9 +437,8 @@ in the economic base model) is usually larger: most people in any city work for 
 | **order** | the watch, ward constables, guild and market courts; the city's own law | professional police (London's Metropolitan Police, 1829) | police, courts, regulators |
 | **schooling, entertainment** | church and guild schools, universities; festivals, games, theatres, taverns, coffee houses (London's first 1652) | compulsory schooling; music halls, sport, cinema | universities, culture and tourism as export industries |
 
-**Guilds** deserve a note because they are the institution that most often stood between a city's market and its producers. Their
-functions combined restriction (who may practise, how many apprentices, minimum prices) with public goods (training, quality marks,
-mutual insurance, a voice in government). Economic historians still dispute whether they were mainly rent-seeking cartels
+**Guilds** most often stood between a city's market and its producers, combining restriction (who may practise, how many
+apprentices, minimum prices) with public goods (training, quality marks, mutual insurance, a voice in government). Economic historians still dispute whether they were mainly rent-seeking cartels
 (Ogilvie 2019) or mainly solutions to quality and training problems (Epstein 1998) †. In design terms a guild is **a club good
 with exclusion**, and the dispute is the design question: who benefits from limited entry.
 
@@ -457,13 +456,10 @@ constant (§3.5). The radii below are my arithmetic (≈) at half an hour each w
 | electric tram | Richmond, Virginia, 1888 (Sprague) | ≈ 15 to 20 km/h | ≈ 8 to 10 km | ≈ 250 km² | the streetcar suburb (Sam Bass Warner on Boston); land developers built lines to sell lots |
 | electric metro | London 1890 (deep tube), Budapest 1896, Paris 1900, New York 1904 | ≈ 30 km/h with stops | ≈ 15 km | dense centres and linear suburbs | the office downtown fed by trains |
 | car and expressway | from the 1920s in the US, 1950s to 1970s elsewhere | ≈ 30 to 60 km/h | ≈ 20 to 30 km | ≈ 1,500 to 3,000 km² | dispersed suburbs, edge cities; the centre's share of jobs falls |
-| commuter rail at scale | Tokyo, from the 1920s private railways | ≈ 40 to 60 km/h | ≈ 30 to 40 km | ≈ 3,000+ km², dense | the rail metropolis of 30+ million |
+| commuter rail at scale | Tokyo, from the 1920s private railways | ≈ 40 to 60 km/h | ≈ 20 to 30 km, more on express lines | ≈ 1,500 to 3,000 km², dense | the rail metropolis of 30+ million |
 
-Each mode needed the one before (the omnibus needed paved streets; the tram needed rails in the street and a franchise; electric
-traction needed generating stations; the metro needed tunnelling, electricity and ventilation; the car needed paved roads, fuel
-distribution and traffic rules) and each set new land values: land near stations rose, and developers and railway companies
-captured that rise (Tokyo's private railways built the department stores at their terminals and the suburbs at the end of the
-lines).
+Each mode needed what came before (paved streets, rails and a franchise, generating stations, tunnelling, fuel distribution and
+traffic rules; §5), and each reset land values: land near stations rose, and developers and railways captured the rise.
 
 ---
 
