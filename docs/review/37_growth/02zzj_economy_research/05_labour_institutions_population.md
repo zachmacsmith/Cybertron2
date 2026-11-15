@@ -51,23 +51,17 @@ The rest of this file works down the columns.
 
 ### 1.1 Foragers and the first farmers
 
-- **How much foragers work** is one of anthropology's long arguments. Marshall Sahlins's "original affluent society" (1966, 1972)
-  drew on Richard Lee's !Kung studies to argue that foragers met their needs with a few hours of food-getting a day (Lee's often
-  quoted figure is around 2 to 2.5 days of foraging a week, roughly 12 to 20 hours; with tool-making and housework, around 40 hours:
-  *contested, unchecked*). Later work counted processing, travel and childcare and found longer days.
-- **Kraft and others (2021)** compared time and energy budgets of great apes, the Hadza (foragers) and the Tsimane
-  (forager-horticulturalists). Humans gain far more energy per hour than apes, but they did **not** turn that into leisure: the gain
-  went into feeding more dependants and larger brains and bodies. Horticulture had higher returns than foraging with little
-  difference in time spent (*checked*, qualitative).
-- **Labour is organised by age and sex,** with sharing of large game across households and the household as the unit for plant food
-  and childcare. Children forage from young ages where predators are few.
-- **The first farmers worked harder.** Farming yields more food per acre but, at first, often less per hour than good foraging.
-  Ester Boserup's argument is that people intensify (shorter fallows, more weeding and manuring) only under population pressure, and
-  each step raises output per acre while lowering output per hour. Skeletons of early farmers show more wear, more dental disease and
-  shorter stature than foragers before them (*rough*).
-- **What changed was storage.** Grain can be stored, counted, stolen and taxed (James C. Scott's point, *Against the Grain*, 2017).
-  Stored food made it possible to own a surplus, to hold dependants, and to extract from others. That is where slavery, tribute and
-  the state begin.
+- **How much foragers work** is a long argument. Marshall Sahlins's "original affluent society" (1966, 1972) drew on Richard Lee's
+  !Kung studies (often quoted: about 12 to 20 hours of food-getting a week, around 40 with tools and housework: *contested,
+  unchecked*). Later work counted processing, travel and childcare and found longer days.
+- **Kraft and others (2021)** compared apes, the Hadza (foragers) and the Tsimane (forager-horticulturalists): humans gain far more
+  energy per hour than apes but did **not** turn it into leisure; the gain fed more dependants. Horticulture returned more than
+  foraging for about the same time (*checked*, qualitative).
+- **The first farmers worked harder.** Ester Boserup's argument: people intensify (shorter fallows, more weeding and manuring) under
+  population pressure, raising output per acre and lowering it per hour. Early farmers' skeletons show more wear and disease than
+  foragers' (*rough*).
+- **What changed was storage.** Grain can be seen, measured, stored, stolen and taxed (James C. Scott, *Against the Grain*, 2017).
+  Owning a surplus, holding dependants and extracting from others begin here, and with them slavery, tribute and the state.
 
 ### 1.2 The household as the unit of production
 
@@ -137,38 +131,30 @@ between households, and for winter crafts.
 
 ### 1.5 Unfree labour: slavery and serfdom
 
-**Slavery** appears wherever there is a surplus to guard, war to make captives, and land or mines that need hands more than they
-need skill.
-- **Ancient:** Roman Italy at its height may have held one to two million slaves in a population of six to seven million (*rough,
-  contested*, Scheidel). Slaves worked estates and mines, and served as domestics, clerks and craftsmen; manumission was common, so
-  freed slaves became a class of their own.
-- **Early medieval England:** slaves (*servi*) were just under one in ten of the people Domesday recorded in 1086 (*checked*),
-  higher in the west; slavery faded in England within about two generations after the Conquest, as slaves were settled on land as
-  smallholders.
-- **The Atlantic slave trade:** about **12.5 million** people embarked from Africa, 1525 to 1866, and about **10.7 million**
-  arrived in the Americas (*checked*, Trans-Atlantic Slave Trade Database). The United States held nearly four million enslaved
-  people in 1860 (*unchecked*: 3.95 million in the census). Plantation slavery is the case where the owner's control of labour
-  rested entirely on violence and law, and where gang labour on sugar and cotton was more productive per worker than free farming
-  (Fogel and Engerman, *contested*).
+**Slavery** appears wherever there is a surplus to guard, war to make captives, and estates or mines needing hands more than skill.
+- **Roman Italy** at its height may have held one to two million slaves among six to seven million people (*rough, contested*,
+  Scheidel); manumission was common.
+- **Domesday England (1086):** slaves (*servi*) were just under one in ten of the recorded people (*checked*); slavery faded within
+  about two generations as slaves were settled as smallholders.
+- **The Atlantic trade:** about **12.5 million** people embarked from Africa, 1525 to 1866, and about **10.7 million** arrived
+  (*checked*, Trans-Atlantic Slave Trade Database). The United States held nearly four million enslaved people in 1860
+  (*unchecked*).
 
-**Serfdom** binds the worker to the land and to a lord rather than making him property.
-- **Domesday England (1086):** villeins (*villani*) were about **41%** of the recorded population, holding about 45% of the land;
-  bordars and cottars about **32%**, holding about 5%; slaves just under 10% (*checked*); the remainder free men and sokemen.
-- **The English villein** around 1300 held a standard holding (a yardland or half) for **week-work** (often two or three days a
-  week for a full yardland on the larger church estates), **boon works** at harvest, a payment at death (heriot), a fee to marry a
-  daughter (merchet), and the lord's leave to leave the manor; he could not sue his lord in the king's courts over his land (*rough*;
-  dues varied enormously by manor).
-- **The end of serfdom in England** came by default after the Black Death: labour was scarce, tenants could leave for better terms,
-  and lords offered leases and money rents. The Peasants' Revolt of 1381 demanded the end of villeinage; serfdom faded within about a
-  century.
-- **The second serfdom** in east-central Europe went the other way: as western demand for grain rose in the sixteenth century,
-  lords in Poland, Bohemia, Prussia and Russia tied peasants more tightly and raised labour dues (*robot*, *barshchina*), to three or
-  more days a week in places (*rough, unchecked*: Bohemia's Robot Patent of 1680 tried to cap them at three days). Russian serfdom
-  was abolished only in 1861, when privately held serfs were around a third of the population (*rough, unchecked*).
+**Serfdom** binds the worker to the land and a lord rather than making him property.
+- **Domesday:** villeins were about **41%** of the recorded population, holding about 45% of the land; bordars and cottars about
+  **32%**, holding about 5% (*checked*); the rest free men and sokemen.
+- **The English villein** around 1300 held a yardland or half for **week-work** (often two or three days a week on the great church
+  estates), **boon works** at harvest, heriot at death, merchet to marry a daughter, and needed leave to leave; he could not sue his
+  lord in the king's courts over his land (*rough*; dues varied by manor).
+- **Its end in England** came after the Black Death: tenants could leave for better terms and lords gave way. The Peasants' Revolt
+  of 1381 demanded the end of villeinage; it faded within a century.
+- **The second serfdom** went the other way: as western grain demand rose in the sixteenth century, lords in Poland, Bohemia,
+  Prussia and Russia raised labour dues (*robot*, *barshchina*) to three or more days a week in places (*rough, unchecked*). Russia
+  abolished serfdom only in 1861.
 
-Evsey Domar's hypothesis (1970) ties these together: **free land, free labour and a landowning class cannot coexist.** Where land is
-plentiful and labour scarce, a landowning class either binds labour (serfdom, slavery) or has no rents. The Black Death made labour
-scarce in both west and east; the west's peasants won, the east's lost, depending on the strength of lords, towns and states.
+Evsey Domar's hypothesis (1970): **free land, free labour and a landowning class cannot coexist.** Where land is plentiful and labour
+scarce, landowners bind labour or get no rent. The Black Death made labour scarce east and west; western peasants won, eastern ones
+lost, depending on the strength of lords, towns and states.
 
 ### 1.6 Servants, wage labour and day labourers
 
@@ -209,24 +195,20 @@ scarce in both west and east; the west's peasants won, the east's lost, dependin
 
 ### 1.8 Wages and their real value over time
 
-| Period (England) | Day wage, unskilled (rough) | Day wage, craftsman (rough) | Real wage, as read by the literature |
+| Period (England) | Day wage, unskilled | Day wage, craftsman | Real wage, as read by the literature |
 |---|---|---|---|
 | about 1300 | 1 to 1.5d | about 3d | low; land-hungry, before the famine of 1315 to 1317 |
-| about 1450 | about 4d | about 6d | high: real farm wages averaged about **64% above** their pre-plague level by the fifteenth century (Clark, *checked*); builders' roughly doubled (Phelps Brown and Hopkins, *rough*) |
-| about 1600 | about 8d | about 12d | fallen back after the sixteenth-century price rise and population recovery |
-| about 1750 | about 12d | about 18 to 24d | rising again; London and Amsterdam the highest in Europe |
+| about 1450 | about 4d | about 6d | high: real farm wages about **64% above** pre-plague by the fifteenth century (Clark, *checked*); builders' roughly doubled (Phelps Brown and Hopkins, *rough*) |
+| about 1600 | about 8d | about 12d | fallen back after the price rise and population recovery |
+| about 1750 | about 12d | 18 to 24d | rising; London and Amsterdam the highest in Europe |
 
-(Money wages *rough* and *unchecked*, from the standard Farmer, Munro and Clark series; read the trend, not the pennies.)
+(Money wages *rough, unchecked*, from the Farmer, Munro and Clark series; read the trend, not the pennies.)
 
-- **Robert Allen's welfare ratios** price a "bare-bones" subsistence basket (mostly the cheapest grain, a little pulses, fat, cloth,
-  fuel and rent) for a family, and divide annual earnings by it. Workers in London and Amsterdam in the seventeenth and eighteenth
-  centuries earned roughly **three to four times** bare-bones subsistence; workers in Delhi and Beijing little more than one; much of
-  southern and central Europe fell from the fifteenth century to the eighteenth (*rough*; Allen 2001, 2009). This "little divergence"
-  is Allen's starting point for why Britain mechanised: labour was dear and coal was cheap.
-- **Gregory Clark** reads the same evidence as near-stagnation of real wages from 1200 to 1800, with the plague era a high point,
-  and growth only after 1800 (*A Farewell to Alms*, 2007).
-- **The day-count problem** (§1.3) matters here: a daily wage times 250 days overstates medieval annual incomes if casual workers
-  found work on far fewer days (Humphries and Weisdorf).
+- **Robert Allen's welfare ratios** divide annual earnings by the cost of a family's "bare-bones" basket. London and Amsterdam
+  workers in the seventeenth and eighteenth centuries earned roughly **three to four times** it; Delhi and Beijing workers little
+  more than one (*rough*; Allen 2001, 2009). Dear labour and cheap coal are Allen's reason Britain mechanised.
+- **Gregory Clark** reads near-stagnation from 1200 to 1800, with the plague era a high point (*A Farewell to Alms*, 2007).
+- **The day count matters** (§1.3): a daily wage times 250 days overstates medieval incomes if casual workers found fewer days.
 
 ### 1.9 The industrious revolution
 
@@ -264,37 +246,30 @@ scarce in both west and east; the west's peasants won, the east's lost, dependin
 
 ### 1.11 Modern labour markets: professions, licences and platforms
 
-- **The employment contract** became the main relation: open-ended, with the employer directing the work (Ronald Coase's reason firms
-  exist: some transactions are cheaper to direct than to contract each time). Internal labour markets (careers inside firms),
-  pensions and health insurance tied to the job.
-- **Professions** (law, medicine, engineering, accounting) are guilds' heirs: controlled entry through education and examination,
-  self-regulation, codes of ethics, and in many cases a state licence. In the United States the share of workers needing a licence
-  rose from about **5% in the 1950s to more than a quarter by the 2000s** (*unchecked*, Kleiner and Krueger 2013). The
-  Epstein-Ogilvie argument (§1.7) recurs: quality assurance or exclusion.
-- **Human capital:** schooling became the main route into skilled work; literacy in England rose from perhaps a third of men in 1600
-  to two thirds by 1800 and near universal by 1900 (*rough*).
-- **The gig economy:** work arranged task by task through a platform, with the worker as a contractor. It is a return to piece rates
-  and day labour with a digital hiring fair and a reputation score. Its size is small relative to the attention it gets (*rough,
-  unchecked*: about 1% of US employment as primary work in the 2017 BLS survey of electronically mediated work); its legal status
-  (employee or contractor) is fought over in many countries.
-- **What persists from the village:** households still pool income and time; the gendered division of unpaid work is still large;
-  reputation still governs much hiring.
+- **The employment contract** became the main relation: open-ended, with the employer directing the work (Ronald Coase: some
+  transactions are cheaper to direct than to contract each time); careers, pensions and health insurance tied to the job.
+- **Professions** are the guilds' heirs: entry by education and examination, self-regulation, often a state licence. In the United
+  States the share of workers needing a licence rose from about **5% in the 1950s to over a quarter by the 2000s** (*unchecked*,
+  Kleiner and Krueger 2013). The Epstein-Ogilvie argument (§1.7) recurs.
+- **The gig economy** is piece rates and day labour with a digital hiring fair and a reputation score. It is small relative to its
+  attention (about 1% of US employment as main work in the 2017 BLS survey, *unchecked*); whether its workers are employees is
+  fought over in many countries.
+- **What persists from the village:** households pool income and time; unpaid work is still divided by sex; reputation still
+  governs much hiring.
 
 ### 1.12 Labour: what it needed, what it enabled, how it interacts
 
 | Relation | Needed | Enabled | Interacts with production and exchange |
 |---|---|---|---|
-| sharing among foragers | small groups; repeated contact; big game that one household cannot eat | insurance against bad days | no stored surplus, so little exchange |
-| household production | land, tools, a division of labour by age and sex | self-sufficiency; flexible labour by the life cycle | sets the floor of output; exchange only of surplus |
-| slavery | surplus, war captives or a slave trade, coercive law | gang labour on estates, mines, plantations; elite leisure | depresses free wages; links to long-distance trade (the Atlantic triangle) |
-| serfdom and labour dues | a lord with force, land to grant, labour scarcer than land | a demesne worked without wages | labour taken at the lord's peak is lost at the tenant's; dues commute to money as markets grow |
-| servants in husbandry | late marriage; yearly contracts; hiring fairs | moves young labour where it is needed; savings; training | lets households balance hands and land without kin |
-| day labour and wages | landless or near-landless households; money or food to pay | the harvest peak met; specialists fed | the beginning of a labour market; wages a price that can be compared |
-| apprenticeship and guilds | contracts that last years; a body that enforces them | skills passed on; quality marks; collective welfare | entry barriers; high prices; resistance to new methods |
-| putting-out | merchant capital; materials owned by one, worked by another | rural industry in slack seasons | the start of buying goods with wages; regional specialisation |
-| factory wage labour | power, machines, capital, a wage-dependent population | output per worker far above the household | separates home and work; a market for food and housing |
-| unions and labour law | legal right to combine; mass employers; votes | higher wages for some; hours, safety | wages set by bargaining; strikes stop production |
-| licensed professions, platforms | schooling, states that license, digital platforms | trust in strangers' skill; work by the task | reputation and credential become goods in themselves |
+| household production | land, tools, division of labour by age and sex | flexible labour over the life cycle | sets the floor of output; exchange of surplus only |
+| slavery | surplus, captives or a slave trade, coercive law | gang labour on estates, mines, plantations | depresses free wages; tied to long-distance trade |
+| serfdom and labour dues | a lord with force; labour scarcer than land | a demesne worked without wages | the lord's peak is also the tenant's; dues commute as markets grow |
+| servants in husbandry | late marriage; yearly contracts; hiring fairs | young labour moved where needed; savings; training | households balance hands and land without kin |
+| day labour | near-landless households; food or coin to pay | the harvest peak met; specialists fed | a labour market; wages a price to compare |
+| apprenticeship and guilds | contracts lasting years; a body to enforce them | skills passed on; quality marks; welfare | entry barriers; high prices; slow change |
+| putting-out | merchant capital; materials owned by one, worked by another | rural industry in slack seasons | buying goods with wages; regional specialisation |
+| factory wage labour | power, machines, capital, wage-dependent people | output per worker far above the household | separates home and work |
+| unions, licences, platforms | legal right to combine; schooling; states that license; platforms | higher wages for some; trust in strangers' skill | wages bargained; credentials and ratings become goods |
 
 ## 2. Property and rights
 
@@ -309,25 +284,23 @@ enforced only by people.
 
 ### 2.2 From use rights to tenure
 
-- **Foragers:** territories used by a band or a set of kin, with visitors asking leave; personal ownership of tools and
-  ornaments; strong norms of **demand sharing** (Nicolas Peterson's term: those who have are expected to give when asked).
-- **Early farmers:** land held by lineages and households, often redistributed; herds as the main movable wealth; inheritance rules
-  begin to matter.
+- **Foragers:** territories used by a band, visitors asking leave; personal tools; **demand sharing** (Nicolas Peterson: those who
+  have must give when asked).
+- **Early farmers:** land held by lineages and households; herds as movable wealth; inheritance starts to matter.
 - **Medieval England:**
-  - **Freehold:** land held of a lord for fixed, often nominal, services; heritable and saleable; protected by the king's courts
-    (from the assizes of Henry II, 1160s to 1170s).
-  - **Villein or customary tenure:** held "at the will of the lord according to the custom of the manor", protected only in the
-    manor court; services and fines by custom; a transfer was a surrender to the lord and a regrant, recorded on the court roll.
-  - **Copyhold:** customary tenure after serfdom faded; the tenant's title was a copy of the court roll entry; by the sixteenth
-    century the royal courts protected it. Terms were for lives (often three), by inheritance, or at will; entry fines were the
-    lord's lever.
-  - **Leases:** for years, at a money rent; the demesnes were leased out from the late fourteenth century, which created the
-    tenant farmers of the early modern period.
-- **The active land market** among peasants is visible in English court rolls from the thirteenth century: small plots bought and
-  sold, leased and mortgaged between villagers, often to balance land with family size (Chayanov's cycle again).
-- **Inheritance rules shaped holdings:** primogeniture kept holdings whole and pushed younger children into service, crafts and
-  towns; partible inheritance (Kent's gavelkind, much of France and western Germany) divided land and supported denser, poorer
-  populations with more by-employment.
+  - **freehold:** held for fixed, often nominal, services; heritable and saleable; protected by the king's courts from Henry II's
+    assizes (1160s to 1170s);
+  - **villein or customary tenure:** "at the will of the lord according to the custom of the manor", protected only in the manor
+    court; a transfer was a surrender and regrant, entered on the court roll;
+  - **copyhold:** customary tenure after serfdom, the title a copy of the roll entry, protected by royal courts by the sixteenth
+    century; terms for lives, by inheritance or at will, with entry fines as the lord's lever;
+  - **leases** for years at money rent: the demesnes were leased from the late fourteenth century, making the tenant farmers of the
+    early modern period.
+- **A peasant land market** shows in court rolls from the thirteenth century: small plots bought, leased and mortgaged between
+  villagers to balance land with family size.
+- **Inheritance shaped holdings:** primogeniture kept them whole and pushed younger children into service, crafts and towns;
+  partible inheritance (Kent's gavelkind, much of France and western Germany) supported denser, poorer populations with more
+  by-employment.
 
 ### 2.3 Commons and their regulation
 
@@ -357,19 +330,16 @@ enforced only by people.
 
 ### 2.4 Rights in game, water and mills
 
-- **Game:** the Norman kings declared royal forests (at their widest, under Henry II, perhaps a quarter to a third of England,
-  *rough*) under forest law, which reserved deer and their habitat to the king; landholders needed a grant of free warren to hunt
-  small game. Poaching was one of the commonest offences and one of the most resented rules. The game laws stayed strict into the
-  nineteenth century (property qualifications to hunt, the Black Act of 1723).
-- **Water:** fisheries and weirs were valuable lords' rights; a weir for a mill or a fish trap blocked boats, and Magna Carta (1215)
-  ordered fish weirs removed from the Thames and Medway. Riparian rights (users along a river share its flow) grew into the common
-  law of water.
-- **Mills and mill soke:** a manor's tenants were bound to grind their corn at the lord's mill (**suit of mill**) and pay
-  **multure**, a share of the grain, which ranged from about one twelfth to one thirtieth (one source: one thirteenth for serfs,
-  one twenty-fourth for free men: *checked*). Hand querns were sometimes confiscated (the abbots of St Albans famously broke and
-  paved their floor with tenants' querns; the townsmen dug them up in 1381). Domesday records about 6,000 mills (*unchecked*); John
-  Langdon estimates English mills grew to over 10,000 by 1300 (*rough, unchecked*), many of them windmills. About 43% of powered
-  mills in fourteenth-century England were held by the church (Adam Lucas, *checked*).
+- **Game:** the Norman kings put large areas under forest law (perhaps a quarter to a third of England at its widest, *rough*),
+  reserving deer to the king; small game needed a grant of free warren. Poaching was among the commonest and most resented
+  offences; game laws stayed strict into the nineteenth century.
+- **Water:** fisheries and weirs were valuable lords' rights; a weir blocked boats, and Magna Carta (1215) ordered fish weirs
+  removed from the Thames and Medway.
+- **Mills and mill soke:** tenants were bound to grind at the lord's mill (**suit of mill**) and pay **multure**, from about one
+  twelfth to one thirtieth of the grain (one source: one thirteenth for serfs, one twenty-fourth for free men: *checked*). Hand
+  querns were confiscated: the abbots of St Albans paved a floor with tenants' querns, and the townsmen dug them up in 1381. Domesday
+  records about 6,000 mills (*unchecked*); John Langdon puts England's mills at over 10,000 by 1300 (*rough, unchecked*). About 43%
+  of fourteenth-century powered mills were the church's (Adam Lucas, *checked*).
 
 ### 2.5 Enclosure
 
@@ -388,32 +358,26 @@ enforced only by people.
 
 ### 2.6 Corporations, intellectual property and modern property
 
-- **Corporations:** a body that holds property, sues and is sued, and outlives its members. Medieval forms were towns, guilds,
-  monasteries and colleges. The chartered trading companies (the English East India Company 1600, the Dutch VOC 1602, with
-  tradable shares) joined capital from many investors. General incorporation and limited liability came in the nineteenth century
-  (in England the Limited Liability Act 1855 and the Joint Stock Companies Act 1856, *unchecked*). Limited liability let strangers
-  invest without risking everything they owned.
-- **Intellectual property:** Venice's patent statute (1474) and England's Statute of Monopolies (1624) gave inventors a term of
-  exclusive right; copyright from the Statute of Anne (1710) (*unchecked*, the standard dates). Ideas are non-rival, so property in
-  them is entirely an institution: nothing physical stops copying.
-- **Registers and titles:** land registries, mortgages and title insurance make land usable as collateral. Hernando de Soto's
-  argument (*The Mystery of Capital*, 2000) is that the poor in many countries hold assets they cannot borrow against because the
-  claims are customary, not registered.
-- **Modern property is mostly claims on claims:** shares, bonds, pensions, bank deposits, insurance policies, all records kept by
-  institutions and enforced by courts.
+- **Corporations** hold property, sue and outlive their members: medieval towns, guilds, monasteries and colleges; then chartered
+  companies with tradable shares (English East India Company 1600, Dutch VOC 1602); general incorporation and limited liability in
+  the nineteenth century (England 1855 to 1856, *unchecked*), which let strangers invest without risking everything.
+- **Intellectual property:** Venice's patent statute (1474), England's Statute of Monopolies (1624), copyright from the Statute of
+  Anne (1710) (*unchecked*). Ideas are non-rival: property in them is wholly an institution.
+- **Registers and titles** make land collateral; Hernando de Soto (2000) argues the poor of many countries cannot borrow against
+  customary, unregistered claims.
+- **Modern property is mostly claims on claims:** shares, bonds, pensions, deposits, policies, kept by institutions, enforced by
+  courts.
 
 ### 2.7 Property: what it needed, what it enabled, how it interacts
 
 | Form | Needed | Enabled | Interacts with production and exchange |
 |---|---|---|---|
-| use rights, demand sharing | small groups; mobility | access for all; insurance | little investment in land |
-| household and lineage land | settlement; inheritance rules | investment in fields and buildings | the household economy |
-| split tenure (lord, tenant, village) | a lord with force; a court; custom | rent; order on shared land | land transfers recorded; entry fines; custom sets dues |
-| regulated commons | known users; a meeting; a monitor; sanctions | sustained use of pasture, wood, fish | grazing proportional to arable; gleaning for the poor |
-| lords' rights in game, water and mills | lordship backed by law | a monopoly rent | raises the cost of milling and food; poaching and querns as resistance |
-| enclosure and full private holding | a market for the output; registration; power to override small rights | improvement, consolidation, investment | landless labour; rent rises; common resources lost |
-| corporations and shares | charters or general law; courts | pooling capital from strangers; long-lived ventures | firms as parties; shares as tradable property |
-| intellectual property | a state that registers and enforces | rewards for invention | monopoly pricing for a term; licensing |
+| use rights, demand sharing | small mobile groups | access for all; insurance | little investment in land |
+| split tenure (lord, tenant, village) | a lord with force; a court; custom | rent; order on shared land | transfers recorded; custom sets dues |
+| regulated commons | known users; a meeting; a monitor; sanctions | lasting use of pasture, wood, fish | grazing in proportion to arable; gleaning for the poor |
+| rights in game, water, mills | lordship backed by law | monopoly rent | dearer milling and food; poaching and querns as resistance |
+| enclosure, full private holding | a market for output; registration; power over small rights | consolidation, investment | landless labour; higher rents |
+| corporations, intellectual property | charters or general law; courts; registers | pooled capital from strangers; rewards for invention | firms as parties; monopoly for a term |
 
 ## 3. Lordship and rent
 
@@ -451,33 +415,30 @@ enforced only by people.
 
 ### 3.4 How the surplus was extracted and spent
 
-**The burden** on a villein yardlander around 1300 has been put at anything from a fifth to a half of gross output, once rent,
-services, the tithe, the lord's monopolies, entry fines, heriot and merchet, and the king's taxes are added (*contested*:
-Kosminsky and Postan high; Kanzaka, Campbell and others lower, with free tenants paying far less than villeins). A rough
-decomposition for a villein, read only as orders of magnitude:
+**The burden** on a villein yardlander around 1300 has been put at anything from a fifth to a half of gross output, adding rent,
+services, tithe, mill tolls, entry fines, heriot, merchet and royal taxes (*contested*: Kosminsky and Postan high, Kanzaka and
+Campbell lower; free tenants paid far less). Orders of magnitude only:
 
 | Claim | Share of gross output (rough) | Paid how |
 |---|---|---|
-| seed kept back for next year | a fifth to a quarter of the grain | in kind, inside the household |
+| seed for next year | a fifth to a quarter of the grain | kept back in the household |
 | tithe | a tenth | in kind, in the field |
 | rent and services | a tenth to a quarter | money, labour, some kind |
-| mill tolls, fines, heriot, merchet | a few percent, lumpy | in kind and money |
-| royal taxes (lay subsidies, purveyance) | a few percent in tax years | money and goods |
+| mill tolls, fines, heriot, merchet | a few percent, lumpy | kind and money |
+| royal taxes | a few percent in tax years | money and goods |
 
-**How lords spent it:** on their households and retinues (great households fed dozens to hundreds), building (castles, halls,
-churches, colleges), war and its ransoms, pious gifts, luxuries from distant markets (wine, spices, fine cloth), and, much less,
-investment in their estates (perhaps a few percent of income, *rough*, Postan's estimate, now thought too low by some). Lordship
-turned rural surplus into urban demand: the great households bought in towns and at fairs.
+**Lords spent it** on households and retinues (dozens to hundreds fed), building (castles, halls, churches, colleges), war, pious
+gifts and distant luxuries (wine, spices, fine cloth); much less on improving estates (*rough*). Lordship turned rural surplus into
+urban demand.
 
 ### 3.5 Lordship: what it needed, what it enabled, how it interacts
 
 | Element | Needed | Enabled | Interacts with production and exchange |
 |---|---|---|---|
-| the demesne and labour dues | serfdom or a tenant body that owes labour; officers to direct and count | large-scale grain and wool production; the lord's household fed | competes with tenants' land for labour at the peak |
-| money rent | markets where tenants can sell; coin | lords' spending anywhere; tenants' freedom in their time | pushes tenants into the market |
-| monopolies (mill, oven) | capital beyond one household; the power to forbid alternatives | mills built early; a steady income | adds a toll on every loaf; querns and private ovens as evasion |
-| tithe | a church with legal power | parish churches, clergy, some poor relief | a tenth of output off the top, in kind |
-| spending of surplus | towns, merchants, building trades | specialists, luxury trades, architecture | creates urban demand from rural rent |
+| demesne and labour dues | tenants who owe labour; officers to direct and count | grain and wool at scale; the lord's household fed | competes with tenants' land for labour at the peak |
+| money rent | markets; coin | lords' spending anywhere; tenants' freedom of time | pushes tenants to sell |
+| monopolies (mill, oven) | capital beyond a household; power to forbid alternatives | mills built early; steady income | a toll on every loaf; evasion |
+| tithe | a church with legal power | parishes, clergy, some relief | a tenth off the top, in kind |
 
 ## 4. Law and enforcement
 
@@ -530,21 +491,17 @@ turned rural surplus into urban demand: the great households bought in towns and
 
 ### 4.5 Royal courts, the common law and Douglass North
 
-- **Royal justice:** in England the king's courts grew from Henry II's assizes (1160s to 1170s), with travelling justices and juries
-  of presentment; the Court of Common Pleas and the King's Bench handled debt and contract; actions of debt, covenant and later
-  assumpsit (from the sixteenth century) made informal promises enforceable.
-- **The economy of obligation:** Craig Muldrew (1998) shows that by the late sixteenth and early seventeenth centuries English
-  households lived by long chains of informal credit, that debt litigation reached extraordinary levels (most households were
-  party to a suit at some time, *rough, unchecked*), and that "credit" meant both a loan and a person's reputation for honesty.
-  Litigation and reputation worked together: suing was a last resort that made the threat of it credible.
-- **Douglass North:** institutions are "the rules of the game", formal (laws, contracts) and informal (norms); **transaction costs**
-  (finding partners, measuring goods, negotiating, monitoring and enforcing) are a large part of all economic activity; economies
-  grow when institutions lower them (*Institutions, Institutional Change and Economic Performance*, 1990). North and Weingast (1989)
-  argue that the Glorious Revolution (1688) made the English crown's promises credible by giving parliament control of taxes and
-  courts independence, so the state could borrow cheaply. North, Wallis and Weingast (2009): "limited access orders" (elites share
-  rents and restrain violence) against "open access orders" (anyone can form organisations).
-- **Weights and measures, coin and records** are part of enforcement: the assizes set standard measures; the crown's coin was a
-  public guarantee of weight; written deeds and bonds (a sealed bond with a penalty for default) replaced witnesses as the record.
+- **Royal justice** in England grew from Henry II's assizes, with travelling justices and juries; Common Pleas and King's Bench
+  heard debt and contract; the action of assumpsit (sixteenth century) made informal promises enforceable.
+- **The economy of obligation:** Craig Muldrew (1998) shows late sixteenth- and early seventeenth-century households living by long
+  chains of informal credit, with debt litigation at extraordinary levels (most households party to a suit at some time, *rough,
+  unchecked*). "Credit" meant both a loan and a reputation; suing was the last resort that made the threat credible.
+- **Douglass North:** institutions are "the rules of the game", formal and informal; **transaction costs** (finding partners,
+  measuring, negotiating, monitoring, enforcing) are a large share of all activity, and economies grow as institutions lower them
+  (1990). North and Weingast (1989): after 1688 parliament's control of taxes and independent courts made the crown's promises
+  credible, so it could borrow cheaply. North, Wallis and Weingast (2009): "limited access" against "open access" orders.
+- **Weights, coin and writing** are enforcement too: assized measures, coin of guaranteed weight, sealed bonds with a penalty for
+  default that replaced living witnesses as the record.
 
 ### 4.6 Modern enforcement
 
@@ -556,14 +513,11 @@ turned rural surplus into urban demand: the great households bought in towns and
 
 | Mechanism | Needed | Enabled | Interacts with production and exchange |
 |---|---|---|---|
-| kin, gossip, exit | small groups, repeated dealing, talk | sharing and help within a community | trade with strangers barely possible |
-| feud and compensation | kin able to retaliate; agreed prices | order without a state | violence is costly; truces |
-| manor and village courts, juries, pledges | a regular meeting, a record, a presiding authority | land market, local credit, by-laws enforced | low-cost dealing among neighbours |
-| guild courts | a closed body with the power to exclude | quality rules, apprenticeship enforced | entry barriers |
-| fair courts and merchant law | fairs, merchant judges, quick procedure | trade among strangers from many places | long-distance commerce |
+| kin, gossip, exit; feud | small groups, talk; kin able to retaliate | help and order without a state | trade with strangers barely possible |
+| manor courts, juries, pledges | a regular meeting, a record, an authority | land market, local credit, by-laws | cheap dealing among neighbours |
+| guild and fair courts, merchant law | a body that can exclude; fairs; merchant judges | quality rules; trade among strangers | long-distance commerce; entry barriers |
 | reputation coalitions | a closed group and a channel of information | agency across distance | trade confined to the group |
-| royal courts and contract law | a state with judges, records, sheriffs | enforceable promises among anyone | credit chains; impersonal markets |
-| written records (rolls, deeds, bonds) | literacy, scribes, safekeeping | proof without living witnesses | transferable claims |
+| royal courts, contract law, written bonds | judges, records, sheriffs, literacy | enforceable promises among anyone | credit chains; impersonal markets |
 
 ## 5. The state and taxation
 
@@ -638,13 +592,11 @@ turned rural surplus into urban demand: the great households bought in towns and
 
 | Form | Needed | Enabled | Interacts with production and exchange |
 |---|---|---|---|
-| tribute and redistribution | a chief's prestige; a storable surplus | feasts, alliance, big works | surplus flows to the centre and out |
-| taxes in grain and labour | visible, measurable crops; records; force | granaries, canals, armies | farmers grow what can be taxed |
-| feudal service and aids | land to grant | armies without a treasury | lordship and the state blur |
-| taxes on goods and trade | coin; markets; officials | revenue that grows with trade | prices raised; smuggling |
-| funded debt | credible promises (parliament, a bank) | war finance; a market in safe assets | capital drawn to government bonds |
-| public goods (roads, justice, coin) | taxes, tolls or levies; organised bodies | lower transport and transaction costs | wider markets, finer specialisation |
-| welfare and regulation | income taxes; votes; bureaucracy | insurance against age, sickness, unemployment | labour supply, saving and fertility all change |
+| tribute and redistribution | prestige; a storable surplus | feasts, alliance, big works | surplus to the centre and out |
+| taxes in grain and labour | measurable crops; records; force | granaries, canals, armies | farmers grow what can be taxed |
+| taxes on goods and trade; funded debt | coin, markets, officials; credible promises | revenue that grows with trade; war finance | prices raised; smuggling; capital drawn to bonds |
+| public goods | taxes, tolls or levies | lower transport and transaction costs | wider markets, finer specialisation |
+| welfare and regulation | income taxes, votes, bureaucracy | insurance against age, sickness, unemployment | labour supply, saving and fertility change |
 
 ## 6. Population and risk
 
@@ -685,26 +637,21 @@ turned rural surplus into urban demand: the great households bought in towns and
 
 ### 6.3 Famine
 
-- **Frequency:** in pre-industrial Europe harvests were poor about one year in four (Slicher van Bath, *checked*), and bad harvests
-  clustered (wet years in runs). A severe famine with heavy mortality came perhaps once or twice a century in a given region
-  (*rough*). England escaped mass famine mortality after the 1620s (the last in the north-west was 1623), while France still had
-  them in 1693 to 1694 and 1709 to 1710 (*unchecked*).
-- **The Great Famine of 1315 to 1317:** continuous rain ruined harvests across northern Europe; England lost perhaps 10 to 15% of its
-  people, possibly more, with towns hit hardest (*checked* range; estimates "far from secure"). It was followed by a cattle and sheep
-  murrain (1319 to 1321) that killed draught oxen and so cut the next harvests.
-- **Amartya Sen's entitlement approach** (*Poverty and Famines*, 1981): a famine is a collapse of some groups' **entitlements**,
-  their ability to command food through what they own, grow, earn or are given. In the Bengal famine of 1943 (around 2 to 3 million
-  deaths, *rough*), food availability was not unusually low, but war inflation raised food prices beyond what rural labourers' wages
-  could buy, while the state bought for Calcutta and the army. Those who starved were landless labourers, fishermen and artisans,
-  not landholders. Famines hit those who sell labour or services, whose demand falls in a crisis, before those who grow food. Sen
-  also observed that no substantial famine has occurred in a functioning democracy with a free press.
-- **In medieval terms:** landless cottagers and craftsmen starved first, because their wages bought less grain, and buyers of their
-  goods cut back. Smallholders with stores survived; lords with granaries profited. The peoples run (38.70) shows the same shape:
-  Brockley held about 110 food and did not answer a starving visitor; the famine killed whoever had no claim on stores.
-- **Storage and its cost:** grain stored across a year loses to rats, damp and rot, and ties up capital. McCloskey and Nash (1984)
-  inferred from the seasonal rise of grain prices that the cost of storing grain was high in medieval England, implying high
-  interest rates, which declined later (*rough*). Peasants stored a year's grain at best; carryover from one year to the next was
-  small. Storage at scale (granaries, the Chinese ever-normal granaries) is a public good.
+- **Frequency:** pre-industrial European harvests were poor about one year in four (Slicher van Bath, *checked*), and bad years
+  clustered. A famine with heavy mortality came perhaps once or twice a century in a region (*rough*). England's last famine
+  mortality was in the 1620s; France still had them in 1693 to 1694 and 1709 to 1710 (*unchecked*).
+- **The Great Famine of 1315 to 1317:** rain ruined harvests across northern Europe; England lost perhaps 10 to 15% of its people,
+  possibly more, towns worst (*checked* range, estimates "far from secure"). A murrain of cattle and sheep followed (1319 to 1321),
+  killing ploughing oxen and so the next harvests.
+- **Amartya Sen's entitlements** (1981): a famine is a collapse of some groups' ability to command food by what they own, grow,
+  earn or are given. In Bengal in 1943 (around 2 to 3 million deaths, *rough*) food was not unusually short, but war inflation put
+  it beyond rural labourers' wages while the state bought for Calcutta and the army. Labourers, fishermen and artisans starved, not
+  landholders. Sen also observed no substantial famine in a functioning democracy with a free press.
+- **In medieval terms,** cottagers and craftsmen starved first; smallholders with stores survived; lords with granaries profited.
+  The peoples run (38.70) has the same shape: Brockley held about 110 food and did not answer a starving visitor.
+- **Storage was costly:** rats, damp and tied-up capital. McCloskey and Nash (1984) read high storage costs and interest from the
+  seasonal rise of grain prices (*rough*). Peasants rarely carried grain over a year; storage at scale (granaries, China's
+  ever-normal granaries) was a public good.
 
 ### 6.4 Disease
 
@@ -721,28 +668,22 @@ turned rural surplus into urban demand: the great households bought in towns and
 
 | Means | How it works | Limits |
 |---|---|---|
-| **stores** | grain and beasts held against a bad year | storage losses; a two-year failure exhausts them |
-| **diversification** | scattered strips, several crops, beasts and by-employments | costs output in good years |
-| **kin** | help from parents, siblings and grown children; retirement contracts (land given to an heir for maintenance, written in the court roll) | English kin networks were thin and households nuclear (Laslett, Richard Smith) |
-| **neighbours and reciprocity** | gifts of food, help at harvest, loans in kind | breaks down when everyone is short |
-| **credit** | borrowing grain or money against the next harvest or land | default and loss of land in a run of bad years; a land market in distress sales |
-| **charity** | alms from monasteries, lords, gilds, wills; doles at funerals | uneven, and much of it disappeared with the dissolution of the monasteries (1536 to 1540) |
-| **gilds and friendly societies** | members' contributions for sickness and burial | small pools; members only |
-| **poor relief** | the parish taxes householders (the poor rate) and relieves the old, sick, widowed and children, and in hard years the able-bodied | settlement rules limited who a parish relieved |
+| **stores and diversification** | grain and beasts held back; scattered strips, several crops, by-employments | losses in store; a two-year failure; lower output in good years |
+| **kin** | help from kin; retirement contracts (land to an heir for maintenance, on the court roll) | English kin networks were thin and households nuclear (Laslett, Richard Smith) |
+| **neighbours** | food gifts, help at harvest, loans in kind | fails when everyone is short |
+| **credit** | grain or money against the next harvest or land | default; distress sales of land |
+| **charity, gilds, friendly societies** | alms from monasteries, lords, wills; members' sick and burial funds | uneven; much went with the monasteries (1536 to 1540) |
+| **poor relief** | the parish taxes householders and relieves the old, sick, widowed, children, and in bad years the able-bodied | settlement rules limited who a parish relieved |
 
-- **The Old Poor Law** (Acts of 1597 and 1601) made every parish raise a poor rate and appoint overseers. In 1696 poor relief cost
-  about £400,000, slightly under **1% of national income** (*checked*, Board of Trade); spending rose sharply from 1750 to 1820,
-  real spending per head more than doubled between 1748 to 1750 and 1803 (*checked*), and by around 1800 to 1830 it reached about 2%
-  of national income (*rough, unchecked*, Boyer). Across several western European cases, formal relief could reach up to about 3% of
-  GDP before the welfare state (van Bavel and Rijpma 2016, *checked*).
-- **What it did:** Peter Solar argued the Poor Law, a reliable, local, tax-funded insurance, let English labourers give up land and
-  move into wage work without risking starvation, and helps explain England's early escape from famine (*contested*). Richard Smith
-  argued that English relief by the community substituted for weak kin.
-- **The New Poor Law** (1834) replaced outdoor relief for the able-bodied with the workhouse, to make relief "less eligible" than the
-  worst job.
-- **Modern insurance:** marine insurance (fourteenth-century Italy), life insurance and annuities (seventeenth century), and from the
-  1880s state social insurance (§5.6). Today pensions, health insurance and unemployment benefits do the work of stores, kin and the
-  parish.
+- **The Old Poor Law** (1597, 1601) made every parish raise a rate. In 1696 relief cost about £400,000, just under **1% of national
+  income** (*checked*); real spending per head more than doubled between 1748 to 1750 and 1803 (*checked*), reaching about 2% of
+  national income around 1800 to 1830 (*rough, unchecked*, Boyer). Formal relief in western Europe could reach about 3% of GDP
+  before the welfare state (van Bavel and Rijpma 2016, *checked*).
+- **What it did:** Peter Solar argues a reliable, local, tax-funded insurance let English labourers give up land for wage work
+  without risking starvation, helping explain England's early escape from famine (*contested*). The New Poor Law (1834) put the
+  able-bodied in the workhouse to make relief "less eligible" than the worst job.
+- **Later insurance:** marine insurance (fourteenth-century Italy), life insurance and annuities (seventeenth century), then state
+  social insurance (§5.6) doing the work of stores, kin and the parish.
 
 ### 6.6 Household formation: the European marriage pattern
 
@@ -777,30 +718,20 @@ turned rural surplus into urban demand: the great households bought in towns and
 
 | Element | Needed | Enabled | Interacts with production and exchange |
 |---|---|---|---|
-| storage | buildings, dry grain, protection from theft and pests | survival of a bad year | stocks smooth prices; hoarding raises them |
-| kin insurance | living kin nearby; norms of help | care for the old and orphans | inheritance and retirement contracts |
-| credit in hard times | lenders; a land market or pledges | survival at the cost of land | distress sales concentrate land |
-| charity and poor relief | church, gilds, or a parish that can tax | a floor under the poor; labour mobility | relief sets a floor under wages; a cost on landholders |
+| storage | buildings, dry grain, protection | survival of a bad year | stocks smooth prices; hoarding raises them |
+| kin, credit, charity, relief | kin nearby; lenders; a parish that can tax | a floor under the poor; labour mobility | distress sales concentrate land; relief floors wages |
 | late marriage | service; neolocal norms; consent | lower fertility; savings; youth labour | ties population to wages |
-| the demographic transition | falling mortality, schooling, higher returns to skill | sustained per-head growth | smaller families; more capital per child |
+| the demographic transition | falling mortality; schooling; returns to skill | growth per head | smaller families; more capital per child |
 
 ## 7. How these interact with production and exchange
 
-The same few loops recur across the whole arc:
-
-- **The harvest peak creates the labour market.** Households cannot meet the peak alone; they hire, owe, swap or command labour.
-  Every labour institution from the boon work to the hiring fair to the migrant gang sits on this peak.
-- **Scarcity of labour against land decides who wins** (Domar). The Black Death shows both outcomes: freedom and high wages in
-  England, the second serfdom in the east.
-- **Rights in chokepoints become rents.** The mill, the weir, the oven, the game, the guild's entry, the patent, the licence: each is
-  a claim on a capital good or a skill that everyone needs, and each draws evasion (querns, poaching, unlicensed work).
-- **Enforcement scales with records and third parties.** Kin and gossip work in a village; trade with strangers needs a court, a
-  fair judge, a coalition with letters, or a state. The engine's runs are stuck at the bilateral stage (38.68).
-- **Surplus extraction shapes markets.** Money rents and taxes push peasants to sell; lords' and states' spending creates urban
-  demand; taxes on goods raise prices and drive smuggling.
-- **Risk is pooled by whoever can.** Stores, kin, neighbours, credit, charity, the parish, then insurers and the state. Whoever
-  carries the risk gets a claim on the poor (land in distress sales, labour in return for relief).
-- **Population responds to wages** until the transition, through deaths and through marriage.
+- **The harvest peak creates the labour market:** boon work, hiring fairs and migrant gangs all sit on it.
+- **Labour scarcity against land decides who wins** (Domar): freedom in England after the Black Death, the second serfdom in the east.
+- **Rights in chokepoints become rents,** from the mill and the weir to the guild, the patent and the licence, and each draws evasion.
+- **Enforcement scales with records and third parties.** The runs are stuck at the bilateral stage (38.68).
+- **Extraction shapes markets:** money rents and taxes push peasants to sell; lords' and states' spending makes urban demand.
+- **Whoever carries risk gains a claim on the poor:** land in distress sales, labour for relief.
+- **Population answers wages,** through deaths and marriage, until the transition.
 
 ## 8. What a simulator could take from this
 

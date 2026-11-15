@@ -1,29 +1,26 @@
 # 08: the technology paradigms after the first industrial revolution, and how each builds on the layers below
 
-Part of the 02zzj economy research folder (15 Nov 2026). Research to think with, not a plan or a build list. It starts where the
-industrial revolution file leaves off (coal, steam, iron and steel, textiles, railways, the factory) and follows seven later
-paradigms (electricity; oil and the engine; chemistry and farming; water and sanitation; telecommunications; flight; computing)
-through the industries and supply chains each one grew, how those industries merged and split, what each needed from the layers
-below, and what each did to the society around it. It uses the chain shapes of economy_web.md §1 (shallow, accretive, paradigm
-switch, substitutes, joint products, assembly, chokepoint, long skill, time capital, pulse, commons, increasing returns) and adds
-one the later paradigms make unavoidable: the **network**, a chain whose value lies in a built web of lines, pipes or routes that
-many users share.
+Part of the 02zzj economy research folder (15 Nov 2026); research to think with, not a plan. It starts where the industrial
+revolution file leaves off (coal, steam, iron and steel, textiles, railways, the factory) and follows seven later paradigms
+(electricity; oil and the engine; chemistry and farming; water and sanitation; telecommunications; flight; computing) through the
+industries and supply chains each grew, how those industries merged and split, what each needed from the layers below, and what
+each did to society. It uses the chain shapes of economy_web.md §1 (shallow, accretive, paradigm switch, substitutes, joint
+products, assembly, chokepoint, long skill, time capital, pulse, commons, increasing returns) and adds one the later paradigms
+make unavoidable: the **network**, a chain whose value lies in a built web of lines, pipes or routes that many users share.
 
 Three findings run through all seven. **First, each paradigm is an assembly of the layers beneath it, and it arrives late:** the
 electric grid needed coal, steam engines, copper mining and the iron foundry; the car needed steel sheet, machine tools, rubber,
-oil refining and roads; the chip needs electricity at scale, ultra-pure chemistry, optics and a century of physics. None could
-have appeared in a world without those layers, and each took thirty to fifty years from first working version to the point where
-it changed how most people lived, because the payoff waited on complements (wiring, roads, filling stations, software, new factory
-layouts) and on people learning to reorganise around it (Paul David's dynamo and computer). **Second, the decisive industries were
-often joint products and chokepoints rather than inventions:** gasoline was a waste by-product of kerosene before the car; coal
-tar from gas works became the dye, drug and plastics industry; asphalt is a refinery residue; the vacuum tube came out of the
-light-bulb industry, and the transistor out of the telephone monopoly's laboratory. Control of a narrow step (Standard Oil's
-refineries, Chile's nitrate, Bell's network, ASML's lithography today) shaped each industry more than control of its raw material.
-**Third, each new network rode on the rights of way, the capital and the institutions of the one before:** the telegraph ran
-beside the railway; the telephone used the telegraph's poles and the electric industry's generators; roads took the oil industry's
-asphalt; fibre runs beside rail lines and pipelines; air traffic control rides on radar and radio. For a simulator this means none
-of these paradigms can be added as a machine; at most they can be represented as aggregate capabilities that a world earns only
-once it holds the layers they stand on (the last section).
+oil refining and roads; the chip needs electricity at scale, ultra-pure chemistry, optics and a century of physics. Each took
+thirty to fifty years from first working version to changing how most people lived, because the payoff waited on complements
+(wiring, roads, software, new factory layouts) and on people learning to reorganise around it (Paul David's dynamo and computer).
+**Second, the decisive industries were often joint products and chokepoints rather than inventions:** gasoline was a waste
+by-product of kerosene before the car; coal tar from gas works became the dye, drug and plastics industry; asphalt is a refinery
+residue; the vacuum tube came out of the light-bulb industry, and the transistor out of the telephone monopoly's laboratory.
+Control of a narrow step (Standard Oil's refineries, Chile's nitrate, Bell's network, ASML's lithography today) shaped each
+industry more than control of its raw material. **Third, each new network rode on the rights of way, capital and institutions of
+the one before:** the telegraph ran beside the railway, roads took the refineries' asphalt, fibre runs beside rail lines and
+pipelines. For a simulator, none of these can be added as a machine; at most some can be aggregate capabilities that a world earns
+once it holds the layers they stand on (§11).
 
 ## 0. The layer beneath, and how to read this file
 
@@ -40,8 +37,8 @@ The industrial revolution file covers the layer this one stands on. What later p
 | **joint-stock companies, banks, stock exchanges** | the capital for grids, refineries and networks, which were too large for partnerships |
 | **patents, contracts, courts, literacy, technical schools** | the knowledge institutions that the science-based industries (chemistry, electricity) needed |
 
-Notation used below: **←** what a paradigm took from earlier layers; **→** what it gave. Numbers are cited in the Sources section
-by bracketed keys such as [David 1990]; those marked *(rough)* are orders of magnitude or vary between sources.
+Numbers cite the Sources section by bracketed keys such as [David 1990]; those marked *(rough)* are orders of magnitude or vary
+between sources.
 
 ## 1. Electricity
 
@@ -84,22 +81,22 @@ coal mine / river ──► power station (boilers, turbines, generators) ──
   station, the dynamo, the cables, the fuse, the meter and the lamp, each made by a separate Edison company because no one else
   made them. Those companies merged into Edison General Electric, which merged with Thomson-Houston to form General Electric in
   1892; Westinghouse built the rival alternating-current system (Tesla's motor patents, transformers that let current travel far
-  at high voltage). Alternating current won after Westinghouse's Niagara Falls plant sent power to Buffalo in 1896. Two equipment
-  firms dominated the United States for most of a century, a pattern repeated in Germany (Siemens, AEG): **equipment making as an
-  oligopoly, from the start**.
-- **Copper.** Electrification made copper a strategic metal. Copper had to be refined electrolytically to the purity wire needs,
-  so the metal industry came to depend on the very thing it supplied (a loop). Large open-pit mines (Bingham Canyon, from 1906)
-  and the copper belts of Chile and Central Africa followed demand.
-- **Lamps.** The carbon-filament lamp gave way to General Electric's ductile tungsten filament (William Coolidge, 1910). The lamp
-  makers also made the first vacuum tubes (§5), because they knew how to pump glass envelopes empty.
+  at high voltage). Alternating current won after the Niagara Falls plant, with Westinghouse generators, sent power to Buffalo in
+  1896. Two equipment firms dominated the United States for most of a century, as Siemens and AEG did Germany: **equipment making
+  as an oligopoly from the start**.
+- **Copper.** Electrification made copper strategic. Wire-grade copper is refined electrolytically, so the metal came to depend on
+  the power it carried (a loop); open-pit mines (Bingham Canyon, 1906) and the copper belts of Chile and Central Africa followed
+  demand.
+- **Lamps.** Carbon filaments gave way to GE's ductile tungsten (Coolidge, 1910); the lamp makers, who knew how to pump glass
+  empty, also made the first vacuum tubes (§5).
 - **Utilities.** Samuel Insull in Chicago (Commonwealth Edison) worked out the economics that made electricity cheap: large
   stations, many kinds of customers whose peaks fall at different hours (the **load factor**), low prices to win more load, and a
   monopoly franchise in return for state regulation of rates (state commissions from 1907). This is **increasing returns** in a
   pure form: the cost of a unit falls as more is sold, so one supplier per area wins. Insull's pyramid of holding companies
   collapsed in 1932, and the Public Utility Holding Company Act (1935) broke such pyramids up: the institutions came after the
   failure.
-- **Appliances.** Irons, fans, vacuum cleaners, washing machines, refrigerators and radios came decades after light; they needed
-  houses to be wired first and consumer credit to buy them (instalment plans in the 1920s).
+- **Appliances** (irons, washing machines, refrigerators, radios) came decades after light: they needed wired houses and consumer
+  credit (1920s instalment plans).
 
 ### 1.4 How it spread
 Household electrification in the United States went from about 35% in 1920 to nearly 68% by 1929 [Richmond Fed 2020]. In 1930
@@ -110,44 +107,39 @@ and farm electrification passed nine in ten by the mid-1950s *(rough)*. A networ
 edges unless an institution (a cooperative, a state) pays for them.
 
 ### 1.5 The slow factory: Paul David's dynamo
-The electric motor was available to factories from the 1880s, yet American manufacturing productivity barely moved for decades.
-Paul David [David 1990], drawing on Warren Devine [Devine 1983], explained why. A steam-powered factory was built around a single
-engine turning **line shafts** and belts on every floor; the building was tall and narrow to keep shafts short. The first electric
-motors simply replaced the steam engine at the head of the same shafts (**group drive**): little was gained. The gains came only
-with **unit drive**, a motor in each machine, which let the factory be rebuilt as a single-storey plant laid out by the flow of
-work, with better light and air, cranes overhead and machines moved where the process needed them. That required new buildings,
-which owners built only as old ones wore out, and managers who knew how to lay out flow. Steam supplied about 80% of mechanical
-drive around 1900; electric motors overtook it by about 1920 and supplied most of it by 1929 *(rough; Devine's table)*. Output per
-man-hour in American manufacturing rose about 1.3% a year before 1919 and about 3.1% a year after [Devine 1983]. The forty years
-between the first central station and the productivity surge is the paradox David set beside Robert Solow's 1987 remark that "you
-can see the computer age everywhere but in the productivity statistics" (§7).
+Motors were available to factories from the 1880s, yet American manufacturing productivity barely moved for decades. Paul David
+[David 1990], drawing on Warren Devine [Devine 1983], explained why. A steam factory was built around one engine turning **line
+shafts** and belts on every floor, tall and narrow to keep shafts short. The first motors simply replaced the engine at the head
+of the same shafts (**group drive**), and little was gained. The gains came with **unit drive**, a motor in each machine, which
+let the factory be rebuilt as a single-storey plant laid out by the flow of work, with better light, overhead cranes and machines
+placed where the process needed them. That needed new buildings, built only as old ones wore out, and managers who knew how to lay
+out flow. Steam supplied about 80% of mechanical drive around 1900; electric motors overtook it by about 1920 and supplied most of
+it by 1929 *(rough; Devine's table)*. Output per man-hour in American manufacturing rose about 1.3% a year before 1919 and about
+3.1% a year after [Devine 1983]. David set these forty years beside Robert Solow's 1987 remark that "you can see the computer age
+everywhere but in the productivity statistics" (§7).
 
 **The lesson in chain-shape terms:** a general purpose technology is not a better tool dropped into an old process. It is a
 **paradigm switch that waits on time capital** (buildings replaced at the end of their lives) and on **long skill** (managers and
 engineers who know the new layout).
 
 ### 1.6 Electrochemistry: aluminium and its kin
-Cheap electricity made possible a family of industries that are electricity turned into matter:
+Cheap power made a family of industries that are electricity turned into matter:
 - **Aluminium.** Charles Hall in the United States and Paul Héroult in France found in 1886 that alumina dissolved in molten
   cryolite could be split by current. Aluminium fell from about $4.86 a pound in 1888 to about $0.78 in 1893 [Encyclopedia.com,
   Hall] as Hall's Pittsburgh Reduction Company (later Alcoa) scaled up and moved to Niagara Falls in 1895 for hydro power. Modern
   smelting uses roughly 13 to 15 kWh of electricity per kilogram *(rough)*, so smelters go where power is cheapest: Norway,
   Quebec, Iceland, the Pacific Northwest, later the Gulf and China's coal provinces. The chain is **bauxite (a place-bound ore,
-  tropical) → Bayer process (alumina, 1888) → smelter (by the power) → rolling mill → users (aircraft, wire, cans)**. Aluminium is
-  an example of a material whose location is set not by its ore but by its **energy**.
+  tropical) → Bayer process (alumina, 1888) → smelter (by the power) → rolling mill → users (aircraft, wire, cans)**. Its location
+  is set not by its ore but by its **energy**.
 - **Others:** chlor-alkali (chlorine and caustic soda from brine, which water treatment and plastics later needed, §3 and §4); the
   electric arc furnace for steel (Héroult again, 1900) and later for silicon (§7); electrolytic copper; calcium carbide (and from
   it acetylene).
 
 ### 1.7 What it enabled and its social effects
-- **Paradigm switches:** gas light to electric light; steam shafts to unit-drive motors; horse trams to electric trams and the
-  first suburbs; ice boxes to refrigerators; manual housework to appliances.
-- **New jobs:** electricians, linemen, station operators, electrical engineers, appliance sellers and repairers, utility clerks
-  and meter readers.
-- **Social effects:** the working day freed from daylight; women's household labour reshaped by appliances (a large literature,
-  with debate over how large the effect on work outside the home was); the farm left behind and then pulled in by cooperatives and
-  the state; new public questions of monopoly and rates.
-- **Shapes:** network, increasing returns, time capital, long skill; copper and later hydro sites as chokepoints.
+Switches: gas to electric light, shafts to unit drive, horse to electric trams (the first suburbs), ice boxes to refrigerators.
+New jobs: electricians, linemen, station operators, electrical engineers, appliance trades, meter readers. Social effects: the
+working day freed from daylight; housework reshaped by appliances (with debate over how far this moved women into paid work); the
+farm left behind and then pulled in by cooperatives and the state; monopoly and rates as public questions.
 
 ## 2. Oil and the internal combustion engine
 
@@ -168,15 +160,14 @@ tractors, ships, aircraft. Petroleum was also the feedstock that replaced coal f
 | **demand** | lamp oil first: a mass market for light already existed (whale oil, coal oil) |
 
 ### 2.3 The industries and how they merged
-**Extraction and refining.** Edwin Drake's well at Titusville, Pennsylvania (1859) began the industry. For its first forty years
-oil was a **lighting** business: kerosene for lamps. Gasoline was a dangerous waste product, often dumped. John D. Rockefeller's
-Standard Oil grew not by drilling but by controlling **refining** and transport: buying out refiners, winning rebates from
-railways, then building pipelines. By about 1880 it refined roughly 90% of American oil *(rough, widely cited)*, until the Supreme
-Court broke it into 34 companies in 1911. The lesson is that the **chokepoint was the middle step**, not the wells (anyone could
-drill; few could refine and ship at scale). Electric light then took kerosene's market just as the car created one for gasoline:
-the joint product became the main product. Thermal cracking (William Burton at Standard of Indiana, 1913) raised the gasoline
-share of each barrel, and catalytic cracking (1930s) raised it further. Spindletop in Texas (1901) and the Middle East fields
-(Persia 1908, Saudi Arabia 1938) moved the centre of supply.
+**Extraction and refining.** Edwin Drake's well at Titusville, Pennsylvania (1859) began the industry. For forty years oil was a
+**lighting** business (kerosene), and gasoline a dangerous waste, often dumped. Rockefeller's Standard Oil grew not by drilling
+but by controlling **refining** and transport: buying out refiners, winning railway rebates, building pipelines. By about 1880 it
+refined roughly 90% of American oil *(rough, widely cited)*, until the Supreme Court broke it into 34 companies in 1911. The
+**chokepoint was the middle step**: anyone could drill; few could refine and ship at scale. Electric light then took kerosene's
+market just as the car made one for gasoline, and the waste became the main product; thermal cracking (Burton, 1913) and catalytic
+cracking (1930s) raised its share of each barrel. Spindletop (Texas, 1901) and the Middle East fields (Persia 1908, Saudi Arabia
+1938) moved the centre of supply.
 
 **The refinery's joint products.** A refinery splits one input into a family of outputs, and each found its own industry: gasoline
 (cars), diesel (trucks, tractors, ships, locomotives), kerosene (lamps, then jet fuel, §6), fuel oil (ships, power stations),
@@ -184,54 +175,52 @@ lubricants (every machine), **asphalt** (the residue that paved the roads the ca
 (ethylene, propylene, benzene) for plastics, fibres and rubber. This is economy_web's **joint products** shape at industrial
 scale: each product's demand subsidises the others, and a refinery is tuned by which one pays most.
 
-**Cars: from the workshop to the integrated plant.** The car was first a craft product assembled by small firms from bought parts
-(bicycle and carriage makers in many cases). Henry Ford's Model T (1908) and the moving assembly line at Highland Park (1913) cut
-the time to build a chassis from about 12.5 hours to about 93 minutes, and the price of a Model T fell from $850 to $260 by 1925
+**Cars: from the workshop to the integrated plant.** The car began as a craft product assembled by small firms (often bicycle and
+carriage makers) from bought parts. Henry Ford's Model T (1908) and the moving assembly line at Highland Park (1913) cut the time
+to build a chassis from about 12.5 hours to about 93 minutes, and the price of a Model T fell from $850 to $260 by 1925
 [Britannica; The Henry Ford] *(dates and figures vary slightly by source)*; about 15 million were built by 1927. Ford then pushed
 **vertical integration** further than any firm before: the River Rouge complex (land bought 1915; final assembly moved there 1927)
 had its own docks, ore freighters, railway, blast furnaces, steel mill, glass plant, power station, tyre plant and foundries; it
 employed more than 100,000 people at its peak, and Ford claimed a car could be built from raw ore in 28 hours (a promotional best
-case) [The Henry Ford, Rouge history]. Ford owned iron mines, coal mines and timberland, and in 1928 founded Fordlandia, a rubber
-plantation in the Brazilian Amazon that failed to leaf blight and labour unrest. Integration was a response to unreliable
-suppliers and to the scale of a single model; it became a burden when demand wanted variety.
+case) [The Henry Ford, Rouge history]. Ford also owned iron and coal mines and timberland, and in 1928 founded Fordlandia, an
+Amazon rubber plantation that failed. Integration answered unreliable suppliers and the scale of a single model; it became a
+burden when buyers wanted variety.
 
-**General Motors' answer.** Alfred Sloan's GM offered "a car for every purse and purpose": several divisions, annual model
-changes, and consumer credit through GMAC (1919). It bought many parts from outside and its own divisions competed. GM overtook
-Ford in the late 1920s. Sloan's multidivisional firm became the model of the large corporation (Chandler).
+**General Motors' answer.** Alfred Sloan's GM offered "a car for every purse and purpose": divisions, annual models and consumer
+credit (GMAC, 1919). It overtook Ford in the late 1920s, and its multidivisional form became the model of the large corporation
+(Chandler).
 
-**Toyota's supplier networks.** Postwar Toyota, short of capital and space, built the opposite structure: a small core plant
-drawing parts **just in time** from a pyramid of affiliated suppliers (first-tier makers of whole systems, below them second and
-third tiers), tied by long relationships, shared engineering and cross-shareholding (keiretsu). Toyota and other Japanese makers
-bought around 80% of their parts from affiliated firms, while GM made more than half its parts in house [Japan economy text, via
-Asanuma and Cusumano] *(rough; measures vary)*. The MIT study of world car plants found the lean plant built a car in about 16
-hours with 45 defects per 100 cars, against about 31 hours and 130 defects for the mass-production plant [Womack, Jones and Roos
-1990]. The arc from the craft shop to Ford's integration to Toyota's networks is a lesson in **how the boundary of the firm
-moves** as trust, information and transport costs change; the global form of supplier networks is covered by the supply chains
-file.
+**Toyota's supplier networks.** Postwar Toyota, short of capital and space, built the opposite: a core plant drawing parts **just
+in time** from a pyramid of affiliated suppliers (first-tier system makers, then second and third tiers), tied by long
+relationships, shared engineering and cross-shareholding (keiretsu). Toyota and other Japanese makers bought around 80% of their
+parts from affiliated firms, while GM made more than half its parts in house [Japan economy text, via Asanuma and Cusumano]
+*(rough; measures vary)*. The MIT study of world car plants found the lean plant built a car in about 16 hours with 45 defects per
+100 cars, against about 31 hours and 130 defects for the mass-production plant [Womack, Jones and Roos 1990]. From the craft shop
+to Ford's integration to Toyota's networks, **the boundary of the firm moves** as trust, information and transport costs change
+(global supplier networks are the supply chains file's).
 
 **Rubber.** Vulcanisation (Charles Goodyear, 1839) made rubber durable; Dunlop's pneumatic tyre (1888) made it a vehicle material.
 Wild Amazon rubber gave way to plantations in Malaya and the Netherlands Indies, grown from seeds taken from Brazil in 1876. When
 Japan took those plantations in 1942, the United States built a synthetic rubber industry from petroleum and alcohol feedstocks in
-about three years *(rough)*. Rubber is a **chokepoint by climate**: the tree grows in a narrow tropical band; the substitute
-needed the whole petrochemical layer.
+about three years *(rough)*. Rubber is a **chokepoint by climate**; its substitute needed the whole petrochemical layer.
 
-**Steel for cars.** The car industry created demand for thin, uniform **sheet steel**, which led to the continuous wide-strip
-rolling mill (Armco, 1920s) and to car bodies pressed from steel rather than built of wood.
+**Steel for cars.** Demand for thin, uniform sheet led to the continuous wide-strip mill (Armco, 1920s) and pressed-steel bodies
+in place of wood.
 
 **Roads.** Cars needed roads, and roads needed public money. In the United States the Federal Aid Road Act (1916), petrol taxes
 earmarked for roads (Oregon first, 1919), and the Interstate Highway Act (1956) paid for them. Asphalt from refineries and
-Portland cement made the surfaces. Roads then brought filling stations, motels, suburbs, shopping centres, trucking, and the
-decline of the interurban electric tram and much rail passenger traffic: a network displacing the one before.
+Portland cement made the surfaces. Roads brought filling stations, motels, suburbs and trucking, and the decline of the electric
+interurban and much rail passenger traffic: a network displacing the one before.
 
 ### 2.4 Tractors: farm mechanisation
 Farm tractors in the United States rose from about 240,000 in 1920 to about 920,000 in 1930 and almost 1.6 million in 1940, and to
 roughly 4.7 million by the mid-1950s [USDA census tables] *(rough)*. Horses and mules on farms peaked at nearly 27 million during
 the First World War. The quiet gain was land: feeding those animals took about 93 million acres of cropland at the 1915 peak,
 roughly a quarter of all harvested cropland, plus about 80 million acres of pasture; by 1960 nearly all of it was freed for food,
-dairy and beef [Olmstead and Rhode 2001]. The tractor replaced an **organic energy** source (beasts fed from the land, E. A.
-Wrigley's organic economy, 02zzi §1) with a mineral one, and in doing so lifted the land ceiling a second time, after coal. It
-also emptied the countryside: fewer, larger farms, rural labour moving to cities, and farm debt for machines. The tractor needed
-petrol and diesel distribution to every farm, repair skills in every county, and credit.
+dairy and beef [Olmstead and Rhode 2001]. The tractor replaced an **organic** energy source (beasts fed from the land, Wrigley's
+organic economy, 02zzi §1) with a mineral one, lifting the land ceiling a second time after coal. It also emptied the countryside
+(fewer, larger farms; labour to the cities; farm debt for machines), and it needed fuel delivered to every farm, repair skills in
+every county, and credit.
 
 ### 2.5 Plastics and petrochemicals
 Plastics began on the coal layer: celluloid (1860s, from cellulose), and Bakelite (Leo Baekeland, 1907) from phenol, a coal-tar
@@ -239,14 +228,11 @@ chemical (§3). Polyethylene (ICI, 1933), nylon (DuPont, 1935 to 1939), PVC and 
 the feedstock switched from coal to oil and gas because steam cracking of naphtha and ethane gave ethylene and propylene in bulk:
 a **paradigm switch in the chemical industry's raw material**. Global plastics production rose from about 2 million tonnes in 1950
 to about 380 million tonnes in 2015, an 8.4% compound annual rate, and about 79% of the waste ever made has gone to landfills or
-the environment [Geyer, Jambeck and Law 2017]. Plastics show a material made possible only when an earlier industry (refining)
-produced its inputs as by-products cheap enough to burn.
+the environment [Geyer, Jambeck and Law 2017]. Plastics became cheap only once refining made their inputs as by-products in bulk.
 
-### 2.6 Social effects and shapes
-Personal mobility, suburbs, the end of the horse economy (stables, farriers, oat and hay trade), trucking freeing factories from
-rail sidings, oil as a strategic resource tied to foreign policy, and from the 1970s, oil price shocks as a macroeconomic force.
-**Shapes:** chokepoint (refining, the oil fields, rubber), joint products (the refinery), increasing returns (the assembly line),
-network (roads, pipelines, filling stations), paradigm switch (horse to tractor; coal to oil feedstock).
+### 2.6 Social effects
+Personal mobility and suburbs; the end of the horse economy (stables, farriers, the hay trade); trucks freeing factories from rail
+sidings; oil as a strategic resource and, from the 1970s, its price shocks as a macroeconomic force.
 
 ## 3. Chemistry, agriculture and medicine
 
@@ -270,9 +256,9 @@ The dye firms already knew how to make, test and purify organic molecules, so th
   Brooklyn plant, in a converted ice factory with fourteen 7,500-gallon tanks, opened in March 1944 and supplied most of the
   penicillin that went ashore on D-Day [ACS landmark]; American output rose from small amounts in 1943 to about a hundred billion
   units a month by mid-1944 *(rough; units and doses are counted differently)*.
-- **Institutions:** the Elixir Sulfanilamide disaster (1937, more than a hundred deaths from a toxic solvent) led to the US Food,
-  Drug and Cosmetic Act (1938), requiring proof of safety; the thalidomide disaster led to the 1962 requirement of proof of
-  efficacy. Drug making became an industry gated by **testing and regulation**, with long, costly trials as its threshold.
+- **Institutions:** the Elixir Sulfanilamide deaths (1937) led to the US Food, Drug and Cosmetic Act (1938, proof of safety),
+  thalidomide to the 1962 rule of proof of efficacy: drugs became an industry gated by **testing and regulation**, with costly
+  trials as its threshold.
 
 ### 3.3 Nitrogen: Haber–Bosch
 **The need.** Plants need fixed nitrogen; farms got it from manure, legumes, guano and, from the mid-nineteenth century, Chilean
@@ -301,10 +287,9 @@ Fertiliser is **mineral energy turned into food**: it breaks the organic economy
 broke its fuel ceiling.
 
 ### 3.4 Pesticides and the Green Revolution
-**Pesticides.** Paris green and lead arsenate came first; DDT's insecticidal power was found by Paul Müller in 1939. It was used
-against typhus and malaria in the war and then on crops. Rachel Carson's *Silent Spring* (1962) turned its costs to birds and
-water into a public question, and the United States banned most uses in 1972. A **commons** shape: the gain is private, the harm
-downstream and shared.
+**Pesticides.** After arsenic compounds came DDT (Paul Müller, 1939), used against typhus and malaria in the war, then on crops;
+Rachel Carson's *Silent Spring* (1962) made its harm a public question, and the United States banned most uses in 1972. A
+**commons** shape: the gain private, the harm downstream and shared.
 
 **The Green Revolution.** From the 1940s, Norman Borlaug's programme in Mexico bred short-stemmed wheat (using the Japanese
 Norin-10 dwarfing gene) that could take heavy fertiliser without falling over; the International Rice Research Institute released
@@ -315,11 +300,9 @@ credit, extension agents who taught farmers, and state price support. Where any 
 gains were small; where all were present (the irrigated Punjab) they were large, and came with falling water tables and widening
 gaps between farmers.
 
-### 3.5 What chemistry enabled and its shapes
+### 3.5 What chemistry enabled
 Fertiliser and therefore population; synthetic dyes, drugs, explosives, fibres, plastics, detergents; the research laboratory;
 drug regulation. New jobs: industrial chemists, pharmacists, chemical plant operators, agronomists, extension officers.
-**Shapes:** joint products (coal tar, refinery gases), long skill (a profession, not a craft), chokepoint (Chile's nitrate before
-Haber; patents after), commons (pesticides, nitrate run-off), assembly (the Green Revolution package).
 
 ## 4. Water and sanitation
 
@@ -350,8 +333,8 @@ grew only because migrants arrived (the "urban penalty").
 - **The measured effect:** David Cutler and Grant Miller [Cutler and Miller 2005] found that filtration and chlorination explain
   nearly half of the fall in total mortality in major American cities between 1900 and 1936, about three-quarters of the fall in
   infant mortality and nearly two-thirds of the fall in child mortality, at a social return of more than 23 to 1.
-- **Scale of cities:** clean water ended the urban penalty, so cities could grow from their own births, and reach sizes (tens of
-  millions) that would earlier have been death traps. Sewage treatment followed later (activated sludge, Manchester 1914).
+- **Scale of cities:** clean water ended the urban penalty, so cities could grow from their own births to sizes (tens of millions)
+  that would earlier have been death traps.
 
 ### 4.4 Dams and irrigation
 Large dams combined water supply, flood control, irrigation and hydroelectric power: the Hoover Dam (1936), the Tennessee Valley
@@ -361,10 +344,9 @@ but yields roughly 40% of the world's food *(rough)*. Dams brought **upstream ag
 nations (the Nile, the Indus, the Colorado), the displacement of people from reservoirs, and in groundwater pumping (electric and
 diesel pumps) the classic depleting **commons**.
 
-### 4.5 Shapes
-Time capital, public goods (a sewer cannot easily exclude a free rider, and everyone benefits from a neighbour's clean water
-because disease is shared), network, commons (rivers, aquifers). Water is the paradigm in which the gain is mostly **lives**, not
-goods, and which only a public institution with the power to tax and borrow has ever built.
+### 4.5 What kind of good it is
+A **public good** (disease is shared, so everyone gains from a neighbour's clean water) built as **time capital** on a **commons**
+(rivers, aquifers). Its gain is mostly lives, not goods, and only public institutions able to tax and borrow have built it.
 
 ## 5. Telecommunications
 
@@ -387,19 +369,18 @@ an odd good (02zzi §1): costly to make, nearly free to copy, valuable mostly be
   about 8% of the value of cotton exports. Within countries, the telegraph and the stock ticker (1867) let commodity exchanges
   (the Chicago Board of Trade, 1848) trade grain by grade and by future delivery, and joined regional prices into one national
   market (William Cronon's *Nature's Metropolis*).
-- **Effects on organisation:** Alfred Chandler [Chandler 1977] argued that railways and the telegraph together made the large
-  managed firm possible: head offices could coordinate plants, depots and sales branches daily, so administration replaced the
-  market for many decisions ("the visible hand"). Governments gained the same reach over provinces and colonies.
+- **Effects on organisation:** Alfred Chandler [Chandler 1977] argued that railways and the telegraph made the large managed firm
+  possible: head offices could coordinate plants and branches daily, so administration replaced the market for many decisions
+  ("the visible hand"). States gained the same reach over provinces and colonies.
 
 ### 5.3 The telephone
 Alexander Graham Bell's patent (1876) began the Bell system. Telephones needed **exchanges** (operators, then automatic switches
 from the 1890s), a pair of copper wires to every subscriber, and power, so they built on the telegraph's poles and the electric
-industry's generators. Its value rose with the number of subscribers (a **network effect**, Metcalfe's later name), which favoured
-one network: AT&T accepted regulation as a monopoly (the Kingsbury Commitment, 1913) and was broken up only in 1984. Its
-laboratory, Bell Labs (1925), produced the transistor (1947), information theory (Shannon, 1948), the laser's theory and the Unix
-operating system: a regulated monopoly funding basic research from secure rents. The telephone changed the office (the
-switchboard, the secretary), let firms split head office from plant, and created one of the largest new women's occupations, the
-operator.
+industry's generators. Its value rose with the number of subscribers (a **network effect**), which favoured one network: AT&T
+settled with the government in 1913 (the Kingsbury Commitment), was regulated as a monopoly from 1934, and was broken up only in
+1984. Bell Labs (1925) produced the transistor (1947), information theory (Shannon, 1948) and Unix: a regulated monopoly funding
+basic research from secure rents. The telephone let firms split head office from plant and made the operator one of the largest
+new women's occupations.
 
 ### 5.4 Radio and television
 - **Radio** needed theory (Maxwell, Hertz), then Marconi's engineering (across the Atlantic, 1901), then the **vacuum tube** to
@@ -407,9 +388,8 @@ operator.
   became the electronics industry. RCA was formed in 1919 from GE's and others' radio patents. Broadcasting began in 1920 (KDKA,
   Pittsburgh); by 1930 about 40% of American households had a radio [Census 2023]. Its business model was new: free to the
   listener, paid for by **advertising**, which made national brands and national markets in attention.
-- **Television** followed the same model; about 9% of American households had one in 1950 and roughly 87% by 1960 *(rough; sources
-  differ)*: one of the fastest adoptions of any household good.
-- **Radio's other uses:** ships and aircraft navigation, radar (§6), military command.
+- **Television** followed the same model: about 9% of American households in 1950, roughly 87% by 1960 *(rough; sources differ)*,
+  one of the fastest adoptions of any household good. Radio also gave navigation, radar (§6) and military command.
 
 ### 5.5 The internet
 The packet-switched ARPANET (1969) joined university computers on lines leased from the telephone network; TCP/IP (1983) let
@@ -429,9 +409,6 @@ prices as costly; each telecom step lowered that cost. The pattern across all fi
 | radio and TV | broadcast to everyone at once | national advertising and brands | mass politics and mass culture |
 | internet | near-zero cost per message, to anyone | global price search; platforms; markets for small sellers | dispersed firms; work done anywhere |
 
-**Shapes:** network, increasing returns (one network wins), chokepoints (gutta-percha, spectrum licences, cable landing points),
-long skill.
-
 ## 6. Flight
 
 ### 6.1 What it is
@@ -445,26 +422,25 @@ between two points: only an airport at each end and a controlled sky between.
 | **materials** | spruce and fabric first; then **duralumin** (Alfred Wilm, 1906, an aluminium alloy that hardens with age), so aircraft depended on cheap electrolytic aluminium (§1.6); later nickel superalloys and titanium for jet turbines; composites |
 | **fuel** | petrol, then kerosene for jets: refinery products (§2) |
 | **knowledge** | aerodynamics (wind tunnels; the Wright brothers built their own), structural engineering, metallurgy, later radar and radio |
-| **skills** | the Wrights were bicycle makers; the industry drew on machinists, then on aeronautical engineers and pilots, both long skills |
-| **capital** | airframes and engines, airlines, airports; governments as the main early buyer |
+| **skills and capital** | bicycle makers and machinists first, then aeronautical engineers and pilots (long skills); governments as the main early buyer |
 | **infrastructure** | airfields, then paved runways, terminals, radio beacons, radar, weather services |
 | **institutions** | airmail contracts as subsidy; licensing of pilots and aircraft; international rights to fly over and land |
 | **demand** | war first; mail; then business travel; then mass tourism |
 
 ### 6.3 How it grew, and its industries
-- **1903 to 1918:** the Wrights' first powered flight (12 seconds, 120 feet) used a light aluminium-block engine built in their
-  own shop. The First World War turned aircraft into a mass-produced weapon and built the first aircraft and engine industries.
+- **1903 to 1918:** the Wrights' first flight (12 seconds, 120 feet) used a light engine built in their own shop; the First World
+  War made aircraft a mass-produced weapon and built the first aircraft and engine industries.
 - **Mail and subsidy:** the United States Post Office flew mail from 1918; the Kelly Act (1925) put airmail out to private
   carriers, and those contracts founded the major airlines. The Air Commerce Act (1926) licensed pilots and aircraft. The Douglas
   DC-3 (1936) was the first airliner that could pay its way on passengers alone.
 - **The jet:** Frank Whittle (patent 1930) and Hans von Ohain (first flight, 1939) built the jet engine; it needed turbine blades
-  that keep their strength red-hot, hence nickel superalloys and, much later, single-crystal blades. The de Havilland Comet (1952)
-  was the first jet airliner, and its crashes from metal fatigue (1954) taught the industry, at great cost, how pressurised hulls
-  fail. The Boeing 707 (1958) and 747 (1970) made jet travel cheap enough for the many.
+  that keep their strength red-hot, hence nickel superalloys and, much later, single-crystal blades. The Comet (1952), the first
+  jet airliner, taught through fatal fatigue failures (1954) how pressurised hulls break; the Boeing 707 (1958) and 747 (1970)
+  made jet travel cheap.
 - **Rules and control:** the Chicago Convention (1944) created the International Civil Aviation Organization and the system of
   rights to fly over and land in other countries. After two airliners collided over the Grand Canyon in 1956, the United States
-  created the Federal Aviation Agency (1958) to control all airspace by radar, itself a wartime invention. American airline fares
-  and routes were regulated until 1978.
+  created the Federal Aviation Agency (1958) to run one radar-based air traffic control system. American fares and routes were
+  regulated until 1978.
 - **Industrial structure:** large airframes came down to two makers (Boeing and Airbus) and large jet engines to three (General
   Electric, Rolls-Royce, Pratt & Whitney): very high fixed costs of design and certification, long learning curves, and a small
   number of buyers make an **oligopoly by increasing returns and long skill**.
@@ -472,10 +448,9 @@ between two points: only an airport at each end and a controlled sky between.
   carries less than 1% of world trade by weight but close to a third by value [IATA 2025]: fresh flowers, fish, drugs, chips,
   spare parts. Flight is what lets the chip industry (§7) run one supply chain across several continents.
 
-### 6.4 Social effects and shapes
+### 6.4 Social effects
 Tourism as a mass industry; global firms with managers who fly; diasporas that keep in touch; the end of the ocean liner; the
-spread of disease at the speed of a flight. **Shapes:** network (hubs and routes), chokepoint (airports, landing slots, the engine
-makers), long skill (pilots, engineers), assembly (an airliner is the meeting point of aluminium, fuel, electronics and radar).
+spread of disease at the speed of a flight.
 
 ## 7. Computing and information
 
@@ -523,14 +498,13 @@ quartz ──► metallurgical silicon (electric arc furnace, ~98–99% pure; ne
   some 5,000 suppliers; the newest cost about €350 million each; their mirrors come from Zeiss and their drive lasers from Trumpf
   [ASML and trade press] *(rough)*. A **chokepoint of knowledge**, built over decades with no substitute.
 - **Fabrication:** a leading-edge fab costs on the order of $20 billion or more *(rough)*; TSMC in Taiwan makes roughly 90% of the
-  most advanced logic chips [Global Taiwan Institute 2023; trade estimates] *(rough)*. The industry split from integrated firms
-  that designed and made their own chips (Intel, IBM, Texas Instruments) into **fabless designers** (Nvidia, Apple, Qualcomm) and
-  **foundries** (TSMC from 1987): a vertical disintegration like the move from Ford to Toyota, made possible by standard design
-  rules and trust in the foundry not to compete with its customers.
+  most advanced logic chips [Global Taiwan Institute 2023; trade estimates] *(rough)*. The industry split from firms that designed
+  and made their own chips (Intel, IBM, Texas Instruments) into **fabless designers** (Nvidia, Apple, Qualcomm) and **foundries**
+  (TSMC, from 1987): a vertical disintegration like Ford to Toyota, resting on standard design rules and a foundry that does not
+  compete with its customers.
 - **Energy:** data centres used about 415 TWh in 2024, around 1.5% of the world's electricity, projected to more than double by
   2030 [IEA 2025]. Computing has come round to depend on the first layer in this file.
-- **Skills:** process engineers, chip designers, programmers: long skill, concentrated in a few places (Taiwan, Korea, the
-  Netherlands, California, Japan) and hard to move.
+- **Skills:** process engineers and chip designers, a long skill concentrated in a few places and hard to move.
 
 ### 7.4 The productivity paradox, again
 Solow's 1987 remark (§1.5) described two decades of computers in offices with little measured gain. American productivity growth
@@ -540,11 +514,9 @@ the same lesson as unit drive. Robert Gordon [Gordon 2016] argues that the earli
 chemistry, plumbing, telecoms) did more: American total factor productivity grew about 1.89% a year from 1920 to 1970, against
 about 0.64% from 1970 to 2014 *(as reported in secondary sources; check against the book's tables)*.
 
-### 7.5 Social effects and shapes
+### 7.5 Social effects
 Clerical work automated and then much routine middle-skill work; new jobs in programming, systems and design; platforms with
 network effects (search, social media, marketplaces); surveillance and new forms of control; geopolitical rivalry over chips.
-**Shapes:** assembly (the deepest), chokepoint (lithography, advanced fabs, gallium), increasing returns (chips and software: high
-fixed cost, near-zero marginal cost), long skill, network.
 
 ## 8. General purpose technologies, paradigms and long waves
 
@@ -559,9 +531,8 @@ lower measured productivity before raising it (Helpman's edited volume, 1998). R
 [Lipsey et al. 2005] list about two dozen GPTs across history, from writing and the wheel to the internet, and stress that each
 restructures the economy around it.
 
-Among the paradigms in this file, electricity, the internal combustion engine and computing are GPTs in the strict sense;
-chemistry is a family of them; water and sanitation and telecommunications are infrastructures with GPT-like effects; flight is a
-transport technology with narrower reach.
+Here electricity, the engine and computing are GPTs in the strict sense; chemistry is a family of them; water and telecoms are
+infrastructures with GPT-like effects; flight is narrower.
 
 ### 8.2 Techno-economic paradigms and long waves
 Nikolai Kondratiev (1925) noticed waves of about fifty years in prices and output; Joseph Schumpeter (1939) tied them to clusters
@@ -577,12 +548,11 @@ and unfolds over a **great surge** of about half a century in two halves.
 | 4. oil, cars and mass production | 1908, the Model T | oil, gas, synthetic materials | roads, airports, pipelines, universal electricity, radio | mass production, the multidivisional firm, the welfare state |
 | 5. information and telecoms | 1971, the Intel microprocessor | the chip | digital networks, fibre, satellites | networks, flexible firms, platforms |
 
-**Installation and deployment.** In each surge the first twenty to thirty years (**installation**) are led by financial capital:
-speculation pours money into the new infrastructure, ending in a bubble (canal mania, the railway mania of the 1840s, the 1920s,
-the dot-com bubble). A crash and a turning point follow, often with new institutions (regulation of utilities and securities after
-1929). Then **deployment**: productive capital and the state spread the paradigm through the whole economy over another twenty to
-thirty years, as in the postwar boom of mass production. The bubble's over-built infrastructure (railways, fibre) is what
-deployment then uses cheaply.
+**Installation and deployment.** In the first twenty to thirty years (**installation**) financial capital pours money into the new
+infrastructure, ending in a bubble (canal mania, the 1840s railway mania, the 1920s, dot-com). A crash and turning point follow,
+often with new institutions (utility and securities regulation after 1929). Then **deployment**: productive capital and the state
+spread the paradigm through the economy for another twenty to thirty years (the postwar boom), using cheaply the infrastructure
+the bubble over-built.
 
 ### 8.3 How infrastructures layer
 | New network | Rode on the earlier layer's | And in turn carried |
@@ -642,18 +612,6 @@ ORGANIC ECONOMY (land, wood, beasts, water wheels, crafts)       ◄── the e
           └─ + telephone network ── INTERNET ── platforms; data centres (back onto the grid)
 ```
 
-The same dependencies as a matrix (● strong, ○ some):
-
-| Paradigm needs → | coal/steam | steel | machine tools | railways | electricity | oil | chemistry | telecoms | aluminium | municipal/state finance |
-|---|---|---|---|---|---|---|---|---|---|---|
-| electricity | ● | ● | ● | ● | | | ○ | | | ● (franchises, later rural lines) |
-| oil and the engine | ○ | ● | ● | ● (tank cars) | ○ | | ● (refining) | | | ● (roads) |
-| chemistry, Haber–Bosch | ● | ● | ● | ● | ● | ● (gas feedstock today) | | | | ○ |
-| water and sanitation | ● (pumps) | ● | ○ | | ○ | | ● (chlorine) | | | ● |
-| telecoms | | ○ | ● | ● (rights of way) | ● | | ○ (insulators) | | | ● (spectrum, regulation) |
-| flight | | ● | ● | | ● | ● | ● | ● (radio, radar) | ● | ● (airports, ATC, subsidy) |
-| computing | | ○ | ● | | ● | ○ | ● | ● | ○ | ● (early demand) |
-
 ## 10. The paradigms in economy_web's vocabulary
 
 | Paradigm | Dominant shapes | The switch it made | The chokepoints it created |
@@ -671,10 +629,9 @@ nearest kin) and the **science-based long skill** held by an organisation (the l
 
 ## 11. What a simulator could take from this
 
-None of these paradigms is close to what a village-scale society of LLM agents can reach, and the honest reading is that most of
-them never will be represented as machines. What can be represented are their **shapes**, and a few of them as **aggregate
-capabilities** that a large, long-lived world earns once it holds the layers they need. Three kinds of use follow, from nearest to
-furthest.
+None of these paradigms is close to what a village-scale society of LLM agents can reach, and most will never be represented as
+machines. What can be represented are their **shapes**, and a few as **aggregate capabilities** that a large, long-lived world
+earns once it holds the layers they need. Three uses, nearest first.
 
 ### 11.1 Lessons that apply now, inside the medieval web
 These do not need any later technology; they are how the later paradigms behaved, and the same mechanics already exist at small
@@ -692,20 +649,21 @@ scale:
   far hamlet never gets is the same shape.
 
 ### 11.2 As aggregate capabilities, at town and region scale
-If the world grows to regions with towns, rule-driven populations and runs of years (02zzi §6), each paradigm could exist as a
+If the world grows to regions with towns, rule-driven populations and runs of years (02zzi §6), some paradigms could exist as a
 **capability of a place or an institution**: a coarse level that changes yields, costs, mortality or the speed of information,
-earned by meeting its prerequisites and paid for by upkeep, never as individual machines. What each would require the world to
-contain first:
+earned by meeting its prerequisites and paid for by upkeep, never as individual machines. Paradigm by paradigm, with the coal
+switch (the industrial file's) as the gate before most of them:
 
-| Capability | Abstraction | What the world must contain before it could emerge |
-|---|---|---|
-| **sanitation** (a town's water and drains) | a town-level work that lowers death rates by density; upkeep in labour and coin | towns dense enough to suffer the urban penalty; disease that depends on crowding and water; a town institution able to levy and borrow; stone, lime and a mason's long skill; a river or spring |
-| **fertility beyond manure** (lime and marl first; Haber–Bosch is far past this) | a field's yield ceiling raised by a bought input | soil fertility that runs down (it does: D4-102's capacity ladder); a mined input in one place (lime, marl, later nitrate) so the gain is a trade, not a gift |
-| **mechanical power by network** (the mill race generalised; electricity in the limit) | a power level at a place, supplied from a source elsewhere along a built line | a source fixed in space (a river, a coal seam); a line as a built work along the place graph, with upkeep and a toll; several users so the load factor matters; an owner, so rent and regulation become questions |
-| **fast information** (the courier and post first; the telegraph in the limit) | the delay with which prices and news travel between places | prices that exist and differ between places (02zzi §6: "prices that travel"); carriers; a market in each place; an institution that runs the line and can sell or withhold its speed |
-| **mobility by engine** (carts on tracks first) | the cost and speed of moving bulk along an edge of the graph | roads as built works with upkeep; a fuel or fodder that the vehicle consumes; places worth reaching; public money for roads |
-| **a laboratory** (organised knowledge) | an institution that turns resources into new known methods over time | methods as things that can be discovered, not only taught (4c §3.3); records; a patron willing to pay for years before a return |
-| **the switch from organic to mineral energy** (coal) | a fuel not drawn from this year's land | a fuel resource with a different geography (peat already, economy_web L); a land ceiling that binds, so the switch matters |
+| Paradigm | Could it be represented? | Abstraction (a capability, not a machine) | Its ancestor in the medieval web | What the world must contain before it could emerge |
+|---|---|---|---|---|
+| **water and sanitation** | yes, the nearest: a town-scale work | a town's water and drains as one work that lowers death rates in proportion to crowding; upkeep in labour and coin | the well, the river, the cellar | towns dense enough to suffer an urban penalty; disease that depends on crowding and water; a town institution able to levy and borrow; stone, lime and a mason's long skill; a spring or river to draw on |
+| **chemistry and fertiliser** | its early form only | a field's yield ceiling raised by a bought input; a "works" that turns a waste into a good | dung, lime and marl (L); the tan pit and the carcass's by-products | soil that runs down (D4-102's capacity ladder); a mined input found in one place (lime, marl; nitrate far later), so the gain is a trade, not a gift; by-products with no use yet, waiting for one |
+| **electricity** | only as its shape: power by network | a power level at a place, supplied from a fixed source along a built line, shared by several users | the mill race and the water wheel | a power source fixed in space (river, later coal); lines as built works along the place graph with upkeep and a toll; enough users for the load to matter; an owner, so rent and regulation become questions |
+| **oil and the engine** | only as its shape: cheaper movement of bulk | the cost and speed of moving goods along an edge of the graph, set by the road and the vehicle | the pack ox, carts on tracks (L) | roads as built works with upkeep and public money; a fuel or fodder that vehicles consume, from somewhere else; places worth reaching; land freed when beasts are no longer fed |
+| **telecommunications** | yes, as the speed of information | the delay with which prices and news travel between places | the carrier, the traveller's news | prices that exist and differ between places ("prices that travel", 02zzi §6); markets in several places; an institution running the line that can sell or withhold its speed |
+| **flight** | no, except as a far-horizon given | a fast, dear edge between distant nodes for people and high-value goods | none | a world of many regions, high-value light goods, a state to license and control routes |
+| **computing** | no, except as a far-horizon given; its institutional cousin, records, is near | a cheaper cost of keeping records and coordinating at a distance | records and ledgers (D2-33) | writing and records; bureaucracies with something to count; for computing proper, the whole of §7.3 |
+| **organised knowledge** (the laboratory, behind chemistry, electricity and computing) | yes, as an institution | an institution that turns resources and years into new known methods | teaching and upbringing (4c §3.3) | methods that can be discovered, not only taught; records; a patron who will pay for years before any return |
 
 The rule for every row: the capability **must not be granted**; it should be earned by assembling its inputs, so that a world can
 see the dependency structure of §9 in miniature, and fail to reach a capability for want of one layer.
@@ -720,13 +678,10 @@ installation phase, how long a reorganisation takes after a GPT arrives, and whe
 institutional questions, and the engine's strength is institutions; the machines would be numbers in a table.
 
 ### 11.4 What to avoid
-- **A tech tree of buttons.** The history above is a web of assemblies, joint products and institutions; a tree where one research
-  step unlocks the next would teach the opposite.
-- **Instant payoffs.** Every paradigm here took decades and reorganisation to pay; a capability that pays on the day it is built
-  would erase the most important fact about them.
-- **Leaving out the institutions.** Franchises, utility regulation, municipal bonds, drug testing, air traffic control and
-  spectrum licences were as necessary as the machines. A world that can build the work but not the rule will not reproduce any of
-  these paradigms.
+**A tech tree of buttons** (the history is a web of assemblies, joint products and institutions, not steps that unlock steps);
+**instant payoffs** (every paradigm here took decades and reorganisation to pay); and **leaving out the institutions**
+(franchises, utility regulation, municipal bonds, drug testing, air traffic control and spectrum licences were as necessary as the
+machines).
 
 ## Sources
 

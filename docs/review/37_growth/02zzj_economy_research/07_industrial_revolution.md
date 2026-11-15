@@ -25,9 +25,8 @@ and materials came from what grew on land each year, to a **mineral economy**, i
 today. The shift was slow: output per head grew only about 0.5% a year before 1830, steam mattered little to productivity until
 after 1830, and wages stayed flat for decades while the towns grew sick. For a simulator the lesson is that each industrial layer
 is a **paradigm switch with prerequisites**, usually several at once, and that the social forms (wage labour at scale, the
-factory, the joint-stock company, the industrial town and its diseases) came with the technology rather than after it. The last
-section sets out which layers a society simulator could represent, at what grain, and what a world must already hold before each
-could emerge.
+factory, the joint-stock company, the industrial town and its diseases) came with the technology rather than after it. Section 11
+sets out which layers a simulator could represent, and what a world must hold before each could emerge.
 
 **Marks used.** [R] a rough figure (an order of magnitude, a commonly cited estimate, or a figure that differs between sources);
 [C] a contested figure or claim, with the dispute named. Figures without a mark are well established. British tons (long tons,
@@ -50,16 +49,14 @@ Wrigley's rule of thumb is that an acre of woodland, cut on a sustained rotation
 acres of woodland, a large fraction of England's 32 million acres, and by the 1850s the coal burnt each year was equal to more
 woodland than the whole surface of Britain [R]. Coal let Britain grow without finding that land.
 
-Three things to note for a simulator:
-- **Coal came first as a heating fuel, not an industrial one.** London burnt coal shipped from Newcastle ("sea coal") from the
-  sixteenth century because wood near the city ran short. The coal trade, the collier ships, the coal-burning hearth and chimney,
-  and coal in brewing, salt boiling, soap boiling, brick and lime burning and glass all existed by 1700. The industrial uses were
-  grafted onto an existing chain.
-- **Coal is a substitute with trade-offs.** It gives more heat per ton and per acre than wood, but its sulphur and smoke spoil iron,
-  malt, glass and bread. Much of the history of coal is the history of keeping coal's fumes away from the product: covered pots
-  for glass, reverberatory furnaces (flame passes over the charge, the fuel does not touch it), coke instead of raw coal.
-- **Coal is a chokepoint of geology.** It exists only on coalfields; industries moved to it (the Black Country, Tyneside, South
-  Wales, Lanarkshire, the West Riding, Lancashire).
+- **Coal came first as a heating fuel.** London burnt Newcastle "sea coal" from the sixteenth century because wood near the city
+  ran short; collier ships, coal hearths, and coal in brewing, salt and soap boiling, brick, lime and glass all existed by 1700.
+  The industrial uses were grafted onto an existing chain.
+- **Coal is a substitute with trade-offs.** More heat per ton and per acre than wood, but its sulphur and smoke spoil iron, malt
+  and glass. Much of its history is keeping the fumes off the product: covered glass pots, reverberatory furnaces (flame over the
+  charge, fuel apart), coke instead of raw coal.
+- **Coal is a chokepoint of geology.** Industries moved to the coalfields (the Black Country, Tyneside, South Wales, Lanarkshire,
+  the West Riding, Lancashire).
 
 ### 1.2 Coal mining
 
@@ -74,22 +71,17 @@ Three things to note for a simulator:
 | 1900 | over 200 million | |
 | 1913 | 287 million (292 million tonnes) | the all-time peak; about 1.1 million miners [R] |
 
-**How it grew.** Not by machines at the coal face, which stayed pick-and-shovel work until the twentieth century, but by more
-men, deeper pits and better ways to drain, ventilate and haul. Output per miner rose little over the nineteenth century [R]. The
-binding problems were:
-- **Water.** Pits below the water table flooded. Horse gins and water wheels pumped shallow pits; the steam engine (1.3) was
-  invented for this.
-- **Air and fire.** Deep pits held firedamp (methane). Furnace-driven ventilation shafts, then fans; the Davy and Stephenson safety
-  lamps (both 1815). Explosions killed hundreds a year through the century.
-- **Haulage.** Coal is bulky and cheap, so it only pays near water. Tyneside collieries ran wooden wagonways from the early 1600s to
-  the river staithes, with horses pulling loaded wagons downhill; Coalbrookdale laid cast-iron rails on them in 1767. The railway is
-  a grown-up wagonway.
-- **Labour.** Families worked underground (men hewing, women and children hauling) until the Mines Act of 1842 barred women and
-  boys under ten.
+**How it grew.** Not by machines at the face (pick-and-shovel work until the twentieth century; output per miner rose little [R])
+but by more men, deeper pits, and better drainage, ventilation and haulage:
+- **Water:** pits below the water table flooded; horse gins and wheels pumped shallow ones; the steam engine (1.3) was invented
+  for this.
+- **Air:** firedamp in deep pits; ventilation furnaces, then fans; the Davy and Stephenson safety lamps (1815).
+- **Haulage:** coal pays only near water. Tyneside ran wooden wagonways to the river staithes from the early 1600s; Coalbrookdale
+  laid cast-iron rails on them in 1767. The railway is a grown-up wagonway.
+- **Labour:** families worked underground until the Mines Act of 1842 barred women and boys under ten.
 
-**What coal fed.** Domestic heat (the largest single use until the late nineteenth century [R]); salt pans, breweries, soap
-boilers, lime kilns, brick and glass works; then coke for iron (2), steam engines (1.3), gasworks (1.4), railways and steamships
-(5), and exports (by 1913 about a third of output was exported [R]).
+**What coal fed.** Household heat (the largest use until late in the century [R]); salt, brewing, soap, lime, brick and glass;
+then coke for iron (2), steam (1.3), gas (1.4), railways and steamships (5), and exports (about a third of output by 1913 [R]).
 
 ### 1.3 The steam engine
 
@@ -110,9 +102,9 @@ boilers, lime kilns, brick and glass works; then coke for iron (2), steam engine
 - Watt's engine could not be built until boring could make a cylinder true to "the thickness of an old shilling" over a diameter of
   several feet [R]. Wilkinson's boring mill was a cannon-making machine. **Military demand made the machine tool that made the
   engine.**
-- After Watt's patent lapsed (1800), Cornish mine captains published engine performance monthly in *Lean's Engine Reporter* (from
-  1811). Duty roughly tripled in the following decades. Alessandro Nuvolari calls this **collective invention**: shared
-  information, not patents, drove the gains [C: how far Watt's patent held back progress is disputed].
+- After Watt's patent lapsed (1800), Cornish mines published engine performance monthly in *Lean's Engine Reporter* (from 1811),
+  and duty roughly tripled: Nuvolari's **collective invention**, driven by shared information, not patents [C: how far Watt's
+  patent held progress back is disputed].
 
 **Diffusion.** About 2,200 steam engines were built in Britain in the eighteenth century (Kanefsky and Robey; perhaps 2,400 to
 2,500 in all), of which about 450 to 480 were Boulton & Watt engines, 268 of them rotative (Tann). Nicholas Crafts's summary of
@@ -126,10 +118,9 @@ installed power, from Kanefsky [R; Kitsikopoulos revises 1800 upward]:
 | 1870 | about 2,000,000 | about 230,000 |
 | 1907 | about 9,700,000 | small |
 
-Water power did most of the early industrial work: Arkwright's mills were water mills. Steam reached parity only about 1830.
-Crafts's growth accounting finds steam's contribution to labour productivity growth was a few hundredths of a percentage point a
-year before 1830 and rose to roughly 0.3 to 0.4 points a year only in 1850 to 1870 [R]. **A general-purpose technology takes
-decades to pay**: it needs cheap engines, a skill pool to build and mend them, coal delivered cheaply, and machines designed
+Water did most early industrial work (Arkwright's mills were water mills). Crafts finds steam added a few hundredths of a point a
+year to labour productivity growth before 1830, and roughly 0.3 to 0.4 points only in 1850 to 1870 [R]. **A general-purpose
+technology takes decades to pay**: it needs cheap engines, people to build and mend them, cheap coal, and machines designed
 around it.
 
 ### 1.4 Gas, coke and tar: coal's joint products
@@ -149,10 +140,10 @@ the synthetic dye industry (6.4). A textbook **joint product** whose by-products
 
 | Stage | Date, place, person | What changed | What it required | What it enabled |
 |---|---|---|---|---|
-| **Charcoal blast furnace and finery** | from about 1490s in England; the Weald, Forest of Dean, Shropshire | ore + charcoal + limestone flux in a tall furnace blown by water-powered bellows → cast (pig) iron; pig refined in a charcoal finery to wrought (bar) iron under a water-powered hammer | woodland (a furnace used the coppice of thousands of acres [R]); water power; a site with ore, wood and water; leather bellows | guns, pots, nails, tools; but output capped by charcoal: British pig iron about 25,000 tons a year around 1720 [R], with much bar iron imported from Sweden and Russia |
+| **Charcoal blast furnace and finery** | from the 1490s; the Weald, Forest of Dean, Shropshire | ore + charcoal + limestone in a furnace blown by water-powered bellows → pig iron; refined in a charcoal finery to bar iron under a water hammer | the coppice of thousands of acres per furnace [R]; ore, wood and water on one site; leather bellows | guns, pots, nails, tools; output capped by charcoal (about 25,000 tons a year about 1720 [R]); much bar iron imported from Sweden and Russia |
 | **Coke smelting** | Abraham Darby I, Coalbrookdale, Shropshire, 1709 | coke (coal baked to drive off sulphur and tar) in place of charcoal | a coal that cokes well and low-sulphur ore (Coalbrookdale had both); a market for cast iron (Darby made thin-walled cast pots) | at first only foundry iron (coke pig made poor bar iron). Spread slowly: coke iron became cheaper than charcoal iron only from the 1750s, as charcoal grew dearer and furnaces bigger (Hyde). By 1788, 53 of 77 British furnaces used coke; by 1806, 162 of 173 |
 | **Steam-blown furnaces** | 1776 onward (Wilkinson's Broseley blowing engine was among the first Boulton & Watt engines) | steam engines blew the furnaces and pumped water back over wheels | the Watt engine | furnaces off the river: sited on the coalfield, larger and running all year |
-| **Puddling and rolling** | Henry Cort, patents 1783 to 1784 (Peter Onions in parallel) | pig iron stirred ("puddled") in a coal-fired reverberatory furnace (flame over the iron, fuel apart) until it became wrought iron; then passed through grooved rolls instead of under the hammer | the reverberatory furnace (from glass and lead smelting); steam-driven rolling mills; **puddlers, a long skill of heavy, hot, judgement-based work** | wrought iron from coal alone; the end of the charcoal finery; rolling at many times the rate of hammering [R]; the South Wales ironworks (Cyfarthfa, Dowlais, Penydarren around Merthyr Tydfil) became the world's largest |
+| **Puddling and rolling** | Henry Cort, patents 1783 to 1784 | pig iron stirred ("puddled") in a coal-fired reverberatory furnace into wrought iron, then passed through grooved rolls instead of under the hammer | the reverberatory furnace (from glass and lead smelting); steam rolling mills; **puddlers, a heavy long skill of judgement** | wrought iron from coal alone; the end of the finery; Merthyr Tydfil's ironworks (Cyfarthfa, Dowlais) became the world's largest |
 | **Hot blast** | James Neilson, Glasgow, 1828 | air heated before it entered the furnace | iron pipes and stoves; Scotland's blackband ironstone (found by David Mushet, 1801) and raw splint coal | fuel per ton of pig cut by more than half [R]; Scottish pig iron rose roughly fifteen-fold between 1830 and the late 1840s [R] |
 | **Crucible steel** | Benjamin Huntsman, Sheffield, about 1740 | blister steel melted in clay crucibles → uniform cast steel | Swedish bar iron (low phosphorus); coke; refractory clay; Sheffield's cutlers | cutlery, tools, springs, files; but in pots of tens of pounds, dear [R] |
 | **Bessemer converter** | Henry Bessemer, 1856 (paper at Cheltenham); his own Sheffield works from 1858 | air blown through molten pig iron burns out carbon in about 20 minutes, with no fuel; tons per blow | low-phosphorus (haematite) pig iron, from Cumberland or Spain; Robert Mushet's addition of spiegeleisen (manganese) to fix the metal; Göransson's trials in Sweden | **cheap steel**: steel rails, plates, wire. The price of British Bessemer steel fell from about $80 a ton in 1873 to under $20 in 1886 [R]; steel rails fell from £10 to £18 a ton before 1875 to about £4 10s in 1886 |
@@ -176,17 +167,13 @@ invented spread to places with bigger markets, newer plant, and (after Thomas an
 
 ### 2.3 What iron fed
 
-- **Steam engines and boilers** (1.3): cast-iron cylinders and beams, wrought-iron boiler plate.
-- **Rails** (5.3): cast-iron plate rails on wagonways from 1767; John Birkinshaw's rolled wrought-iron rails (Bedlington, patent
-  1820) on the Stockton & Darlington; steel rails from the 1860s, lasting many times longer [R]. In the railway manias railway
-  building took a large share of British iron output [R].
-- **Buildings**: the first iron-framed building, Charles Bage's flax mill at Ditherington, Shrewsbury (1797), was built to stop
-  textile mills burning down. Iron columns and beams became the fireproof mill; then the Crystal Palace (1851).
-- **Bridges**: the Iron Bridge over the Severn (Abraham Darby III, 1779); Telford's Menai suspension bridge (1826);
-  Robert Stephenson's wrought-iron tube Britannia Bridge (1850).
-- **Machines**: textile machinery moved from wood to iron frames in the early nineteenth century, which needed the engineering
-  workshop (4).
-- **Ships**: iron hulls (Brunel's *Great Britain*, 1843), then steel.
+- **Engines and boilers** (1.3): cast-iron cylinders and beams, wrought-iron plate.
+- **Rails** (5): cast-iron rails on wagonways from 1767; Birkinshaw's rolled wrought-iron rails (Bedlington, 1820) on the Stockton
+  & Darlington; steel rails from the 1860s, lasting many times longer [R]. The railway manias took a large share of iron output [R].
+- **Buildings and bridges**: Charles Bage's flax mill at Ditherington, Shrewsbury (1797), the first iron-framed building, built so
+  textile mills would not burn; the Iron Bridge (Darby III, 1779); Telford's Menai bridge (1826); the Crystal Palace (1851).
+- **Machines and ships**: textile machines moved from wood to iron frames (needing the workshops of section 4); iron hulls
+  (Brunel's *Great Britain*, 1843), then steel.
 
 **Shapes.** Iron is an **assembly** (ore, fuel, flux, blast, refractories, skill), a **chokepoint** (ore and coal in the same
 place, or carried cheaply), a **long skill** (the furnace keeper, the puddler, the roller), **increasing returns** (bigger furnaces
@@ -262,24 +249,19 @@ several hundred thousand people in factories by mid-century [R].
 
 This is the clearest case of supply chains fusing across an ocean.
 
-1. **Land and labour in the Americas.** Short-staple upland cotton grew across the American South once the gin made it
-   cleanable. US cotton output rose from about 1.5 million lb in 1790 to about 2 billion lb by 1860 [R]. The labour was enslaved:
-   the enslaved population of the United States rose from about 700,000 in 1790 to about 4 million in 1860, most of the growth by
-   natural increase after the US banned the import trade in 1808, and the internal slave trade moved perhaps a million people from
-   the Upper South to the cotton states [R]. Cotton was the largest US export.
-2. **Merchants and credit.** Cotton factors in New Orleans, Mobile and Charleston advanced credit to planters; London and Liverpool
-   houses (Baring Brothers, Brown Brothers) financed the crop with bills of exchange; planters borrowed on land and on enslaved
-   people as collateral.
-3. **Shipping.** Sailing packets, then steamships, to **Liverpool**, which had been Britain's leading slave-trading port (by the
-   late eighteenth century Liverpool ships carried a large share, roughly half or more, of the British slave trade [R]) and turned
-   its docks, merchant houses and credit to cotton. The Liverpool cotton brokers' market became the world's price-setting market
-   for raw cotton.
+1. **Land and labour in the Americas.** Upland cotton spread across the American South once the gin made it cleanable: from about
+   1.5 million lb in 1790 to about 2 billion lb in 1860 [R]. The enslaved population rose from about 700,000 to about 4 million
+   over the same years, mostly by natural increase after the import trade was banned (1808); the internal slave trade moved perhaps
+   a million people to the cotton states [R]. Cotton was the largest US export.
+2. **Merchants and credit.** Factors in New Orleans, Mobile and Charleston advanced credit to planters, who borrowed on land and on
+   enslaved people as collateral; London and Liverpool houses (Barings, Browns) financed the crop with bills of exchange.
+3. **Shipping** to **Liverpool**, Britain's leading slave-trading port in the late eighteenth century (roughly half or more of the
+   British trade [R]), which turned its docks, merchants and credit to cotton; its brokers' market set the world price.
 4. **Carriage inland.** The Mersey and Irwell Navigation and the Bridgewater Canal, then the **Liverpool & Manchester Railway
    (1830)**, built to break the canal's hold on the 35-mile route.
-5. **Spinning and weaving.** Mills in Manchester ("Cottonopolis") and the ring of Lancashire and Cheshire towns (Oldham, Bolton,
-   Preston, Stockport, Blackburn). Examples: McConnel & Kennedy and the Murray brothers in Ancoats, Manchester (mule spinning from
-   the 1790s); Samuel Greg's Quarry Bank Mill at Styal (1784), which used pauper apprentice children; Robert Owen's New Lanark (from
-   1800; founded by David Dale and Arkwright in 1786), about 2,000 workers [R].
+5. **Spinning and weaving** in Manchester ("Cottonopolis") and its ring of towns (Oldham, Bolton, Preston, Stockport, Blackburn):
+   McConnel & Kennedy and the Murrays in Ancoats (mule spinning from the 1790s); Greg's Quarry Bank Mill at Styal (1784), worked by
+   pauper apprentice children; New Lanark (Dale and Arkwright, 1786; Robert Owen from 1800), about 2,000 workers [R].
 6. **Finishing.** Bleaching, dyeing and calico printing works (Peel's in Lancashire, the Turkey-red dyers of the Vale of Leven), the
    customers of the chemical industry (6).
 7. **Markets.** The Manchester Royal Exchange sold cloth to merchants for home sale and export: Europe, the Americas, and from the
@@ -290,15 +272,11 @@ This is the clearest case of supply chains fusing across an ocean.
 idled most of the county's mills [R]; Britain turned to Indian, Egyptian and Brazilian cotton, and Egyptian and Indian growers
 borrowed heavily, then suffered when prices fell after 1865.
 
-**Slavery and the revolution.** The debate:
-- Eric Williams (*Capitalism and Slavery*, 1944): the profits of the slave trade and plantations financed British industry.
-- Critics (Engerman, O'Brien, Eltis): slave-trade profits were a small share of British investment; the cotton supply could have
-  come at a somewhat higher price from elsewhere.
-- Recent work (Inikori; Beckert's *Empire of Cotton*, 2014; Berg and Hudson's *Slavery, Capitalism and the Industrial Revolution*,
-  2023; the Legacies of British Slavery database): the important link was not profits but the **supply of cheap fibre from land
-  worked by coerced labour**, Atlantic markets for British goods, and the credit and shipping networks the slave economy built
-  [C]. When Britain abolished slavery in its colonies (1833) it paid £20 million in compensation to slave owners, not to the
-  enslaved, about two-fifths of a year's government spending [R].
+**Slavery and the revolution** [C]. Eric Williams (1944) argued slave-trade and plantation profits financed British industry;
+critics (Engerman, O'Brien, Eltis) find those profits a small share of investment. Recent work (Inikori; Beckert, 2014; Berg and
+Hudson, 2023) puts the link elsewhere: **cheap fibre from land worked by coerced labour**, Atlantic markets for British goods, and
+the credit and shipping networks the slave economy built. At abolition in the colonies (1833) Britain paid £20 million to slave
+owners, not to the enslaved, about two-fifths of a year's government spending [R].
 
 ### 3.5 From putting-out to the factory
 
@@ -313,16 +291,14 @@ borrowed heavily, then suffered when prices fell after 1865.
 | Supervision | none; embezzlement of yarn was a constant complaint | overlookers |
 | Capital | working capital (the stock of wool and yarn) | fixed capital (building, wheel or engine, machines) |
 
-The factory won because powered machines could not be put out: they needed a wheel or an engine, shafting and constant attention.
-Discipline and the control of embezzlement were also reasons [C: how much discipline, rather than technology, explains the
-factory is debated (Marglin vs Landes)].
+Powered machines could not be put out: they needed a wheel or engine, shafting and constant attention. Discipline and the end of
+embezzlement also counted [C: Marglin against Landes on how much].
 
-**The social change.** The paradigm switch did not abolish the hand trades at once: handloom weaving grew for decades on cheap
-machine yarn, to perhaps a quarter of a million weavers about 1820, and then collapsed as power looms rose (from a few thousand
-in 1813 to about 100,000 by 1833 and about 250,000 by 1850 [R]); handloom weavers' piece rates fell by more than half [R]. The
-Luddite machine-breaking (1811 to 1816) and the factory reform campaigns came from this. Child labour was central to the early
-mills; the Factory Acts (1802, 1819, and the 1833 Act, the first with paid inspectors) and the Ten Hours Act (1847) are the
-response.
+**The social change.** The switch did not end the hand trades at once: handloom weaving grew for decades on cheap machine yarn,
+to perhaps a quarter of a million weavers about 1820, then collapsed as power looms rose (a few thousand in 1813, about 100,000 in
+1833, about 250,000 in 1850 [R]) and piece rates fell by more than half [R]. Hence the Luddites (1811 to 1816) and factory reform.
+Child labour was central to the early mills; the Factory Acts (1802, 1819; 1833, the first with paid inspectors) and the Ten Hours
+Act (1847) were the response.
 
 ---
 
@@ -625,8 +601,6 @@ sale, arms, sewing machines, bicycles. Each step widened the market for the skil
 For each technology: what it needed (materials, fuel, skills, capital, demand, transport, institutions), what it enabled, its
 chain shape, and whether it was a **paradigm switch** (PS) and what social change came with it.
 
-### 10.1 Table
-
 | Technology (date) | Needed: materials, fuel | Needed: skills | Needed: capital, demand, transport, institutions | Enabled | Shape | PS and social change |
 |---|---|---|---|---|---|---|
 | **Coal for heat** (1500s to 1700s) | coal seams near water | hewers; colliers' boats | London's market (wood scarce); coastal shipping; wagonways | coal-fired trades (salt, brewing, brick, glass); later all of section 1 | substitute; chokepoint of geology | PS from wood: mining villages; a coal trade with its own guilds and fleets |
@@ -648,58 +622,14 @@ chain shape, and whether it was a **paradigm switch** (PS) and what social chang
 | **Bessemer and open hearth steel** (1856 to 1865) | low-phosphorus pig; spiegeleisen; refractory brick; gas | metallurgists; chemists | rail and ship demand; large plant | cheap steel: rails, ships, bridges, tools, wire | increasing returns; chokepoint (ore chemistry) | PS: steel towns; scale shifts to the USA and Germany |
 | **Synthetic dyes** (1856 to 1897) | coal tar; nitric acid; benzene | trained chemists | research labs; universities; patents; bank finance | colours for textiles; then drugs (aspirin, 1897), explosives | long skill (science); increasing returns | PS from plant dyes: madder and indigo farming collapse; the research laboratory |
 
-### 10.2 As a tree
-
-The same in nested form, from the organic economy's layers upward. A child needs its parent; a cross-reference (→) names a second
-parent.
-
-- **Organic base: land, woods, water, muscle, coastal shipping, markets, credit**
-  - **Wood shortage near towns** → **coal for heat** (London, 1500s to 1700s)
-    - **Wagonways** (wood, then iron rails)
-    - **Drainage problem in deep mines** → **Newcomen engine** (1712) (→ brass and iron founding)
-      - **Precision boring** (Wilkinson, 1774; from cannon making) → **Watt engine** (1776)
-        - **Rotative engines** → steam mills (→ textiles), rolling mills (→ iron), blowing engines (→ iron)
-        - **High-pressure engines** (after 1800, → wrought-iron plate)
-          - **Locomotive** (1804 to 1829) + wagonways + wrought-iron rails → **railway** (1825 to 1830)
-            - railway works, telegraph, time standard, national markets
-          - **Marine engines** → **steamships** (→ iron plate, coaling stations) → world markets
-    - **Coking** → **coke iron** (1709) (→ coking coal, low-sulphur ore)
-      - **Coke furnaces blown by steam** (1776 on)
-      - **Puddling and rolling** (1784) (→ reverberatory furnaces from glass; → steam)
-        - wrought-iron rails, boilers, ship plate, iron-framed mills, bridges
-      - **Hot blast** (1828)
-      - **Bessemer and open hearth steel** (1856 to 1865) (→ chemistry, refractories) → **basic steel** (1878)
-    - **Gas** (1792) → gas lighting; coke; **tar** → (1856) **synthetic dyes**
-  - **Putting-out textiles** (wool, linen, fustians; merchant credit)
-    - **Flying shuttle** (1733) → spinning bottleneck
-      - **Jenny** (1764) (cottage)
-      - **Water frame** (1769) (→ water wheels, millwrights, capital) → **the factory** (Cromford, 1771)
-        - **Mule** (1779) → **self-acting mule** (1825) (→ engineering workshops)
-        - **Steam mills** (1785, → Watt engine) → mill towns on coal
-        - **Power loom** (1785 to 1820s, → iron frames, machine tools) → handloom weavers' collapse
-      - **Cotton gin** (1793) → slave cotton in the American South → Liverpool
-    - **Bleaching bottleneck** → **sulphuric acid** (1746) → **chlorine bleach** (1799) → **Leblanc soda** (1823 in Britain)
-      - soap, glass (→ Pilkington, Crystal Palace), superphosphate
-      - pollution law (1863) → acid recovered as a product → Solvay (1873)
-  - **Millwrights and clockmakers**
-    - **Bramah and Maudslay** (1784 to 1800) → **machine tools** → block mills (1803)
-      - **Textile-machine makers** → **locomotive builders** (Sharp Roberts 1833) → machine tools for sale
-      - **American armouries** (1820s) → interchangeable parts → Enfield (1855); sewing machines, bicycles, cars
-  - **Roads and rivers**
-    - **Turnpikes** (1750 to 1770s), **navigations**, **canals** (1761) → coal and pottery inland → railways (above)
-  - **Commercial institutions** (partnerships, bills, Bank of England, private Acts)
-    - **Statutory companies** (canals, railways) → **general incorporation and limited liability** (1844 to 1862)
-    - **Patents** (1624) → cheap patents (1852)
-  - **Towns** → industrial towns → **public health, sewers, water, gas** as public goods (1848 to 1875)
-
 ---
 
 ## 11. What a simulator could take from this
 
 This section does not limit itself by what is cheap to run. It names layers a society simulator could plausibly represent, at
 what grain, and what a world must already hold before each could emerge. The engine's present economy (farming, herding, crafts,
-copper smelted with charcoal, water mills, ovens, roads and carts) is the organic base of section 10.2. Every layer below rests on
-it.
+copper smelted with charcoal, water mills, ovens, roads and carts) is the organic base of the table in section 10. Every layer below
+rests on it.
 
 ### 11.1 Principles from the history
 
