@@ -68,12 +68,10 @@ The rest of this file works down the columns.
 - **Western European households were small and nuclear** (Peter Laslett's English listings: a mean household size around 4.75,
   steady from the sixteenth to the nineteenth century: *unchecked*). They grew by taking **servants** rather than by extended kin
   living together.
-- **The household was a firm with many products:** grain and beasts on the holding; food processing, brewing and baking; spinning
-  and weaving; fuel; building and repair; childcare and nursing. Most of this was invisible to markets, and much of it was women's
-  work.
-- **Its labour was flexible.** It hired a servant when children were small, sent its own children into service when they were grown,
-  hired day labour at harvest, and sold its own days to others in slack seasons. This is the labour market of pre-industrial
-  Europe: households adjusting their size and their time.
+- **The household was a firm with many products** (grain, beasts, brewing, baking, spinning, fuel, building, care), most of it
+  invisible to markets and much of it women's work.
+- **Its labour was flexible:** it took a servant when children were small, sent its own into service when grown, hired at harvest
+  and sold its own days in slack seasons. That was the pre-industrial labour market: households adjusting their size and time.
 
 ### 1.3 The peasant family's year
 
@@ -96,12 +94,10 @@ the orders of magnitude in Clark (1991), Campbell (2000) and Dyer (1989); treat 
 | Market, church, holy days, sickness | | Sundays and about 40 to 50 holy days | |
 
 What the table shows:
-- **A household has slack in winter and too few hands at harvest.** Every pre-industrial labour institution answers this:
-  servants on yearly contracts, day labourers hired by the day, boon work owed to the lord at harvest, neighbours' help repaid in
-  kind, migrant harvest gangs (Irish harvesters in nineteenth-century England, for example).
-- **By-employment fills the slack:** spinning, weaving, carting, mining, quarrying, fishing, charcoal-burning, brewing for sale.
-  Many smallholders were half-farmer, half-craftsman; in the 1381 poll tax returns, many rural taxpayers carry a craft name
-  (*rough*). Later, the putting-out system (§1.9) rested on this slack.
+- **Slack in winter, too few hands at harvest.** Every pre-industrial labour institution answers this: yearly servants, day
+  labourers, boon work, neighbours' help repaid in kind, migrant harvest gangs.
+- **By-employment fills the slack:** spinning, weaving, carting, quarrying, fishing, charcoal-burning, brewing for sale. Many
+  smallholders were half craftsmen (*rough*); putting-out (§1.9) later rested on this slack.
 - **How many days were worked** is contested. The older assumption was a working year of about 250 days. Humphries and Weisdorf
   (2019), estimating from the pay of workers on annual contracts, argue that casual workers' labour input rose from **under 150
   days a year in the medieval period to well over 300 by the Industrial Revolution** (*checked*; *contested*: others argue that
@@ -741,7 +737,8 @@ acts; people make the institutions.**
 | risk | weather and harvest variance that clusters; disease; spoilage and pests in stores | storage strategy, insurance, charity, poor rates |
 | population | birth, ageing, death, hunger, fertility as choices with lags | marriage norms, household formation, migration |
 
-What the engine should **not** do, by the evidence of 38.68 and this research:
+What this research suggests the engine should **not** do (L-106 is not decided; each change would first be a world option read
+against the null arm, as L-106 proposes):
 - settle obligations automatically, which removes the need for enforcement and so the institutions that provide it;
 - make every member of a household know every agreement, which removes the household as a site of negotiation;
 - keep witnesses who never perceive, which removes the third party;

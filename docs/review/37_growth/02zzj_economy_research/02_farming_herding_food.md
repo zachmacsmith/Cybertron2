@@ -750,24 +750,18 @@ transport**. Comparative advantage at the scale of continents. **Depends on:** s
 
 ## 7. Paradigm switches and their social effects
 
-| Area | Before | After | Who does the work | Who owns the capital | Rents and institutions that follow |
-|---|---|---|---|---|---|
-| getting food | foraging | farming and herding | households, much more labour | households own stores and beasts | property in land and herds; inheritance; storage; taxes in grain |
-| tillage | hoe, ard | heavy plough | the ploughman and team | those with oxen; teams shared | co-aration (sharing teams); open fields; the manor |
-| fallow | two fields | three fields | more labour, spread over two seasons | the township's common rotation | byelaws, stints, manor court |
-| fertility | fallow and grazing | Norfolk four-course | more hired labour | capitalist tenant; landlord's buildings | leases with covenants; landlord, tenant, labourer |
-| land | open fields and commons | enclosure | fewer hands per acre in some places | proprietors | loss of common rights; rural poverty; poor law |
-| harvest | sickle | scythe, then reaper, binder, combine | fewer, stronger hands; then machines | farmer; custom harvesters | harvest gangs fade; machine dealers and credit |
-| threshing | flail | threshing machine | machine crews | farmer; travelling machine owners | the Swing riots; contract threshing |
-| traction | oxen | horses, then tractors | | farmer; then manufacturers' credit | feed land freed; dealers, fuel |
-| fertility | dung | guano, then synthetic N | | chemical firms | herds and fields decouple; a fertiliser industry |
-| seed | saved seed | hybrids, Green Revolution | | seed companies, public research | seed bought yearly; intellectual property |
-| grinding | quern | the lord's mill; then roller mills | the miller; then mill workers | the lord; then milling companies | suit of mill, multure (1/16 to 1/24); brands |
-| baking | hearth | oven; baker; factory | the baker; then factory workers | the lord (banal oven), guild bakers; then firms | oven fees; the assize of bread; branded bread |
-| brewing | household | alehouse; brewery | women, then men | brewsters; then brewers | the assize of ale, licensing; tied houses |
-| dairying | the farm wife | leased dairy; creamery; dairy companies | dairymaids; then factory workers and milkers | lord or farmer; then cooperatives and firms | dairy leases; milk marketing boards |
-| meat | household slaughter, town butchers | packing houses, integrators | line workers; contract growers | packers; integrators | meat inspection; antitrust; contract growing |
-| selling | markets, shops | chains, supermarkets | shop staff | retail chains | buyer power; private standards |
+| Area | Switch | Who works after | Who owns the capital | What follows |
+|---|---|---|---|---|
+| getting food | foraging → farming and herding | households, more hours | households (stores, beasts) | property, inheritance, grain taxes |
+| tillage | hoe, ard → heavy plough | ploughman and team | owners of oxen; shared teams | co-aration, open fields, the manor |
+| fallow and fertility | two fields → three → four-course | more, then hired, labour | township; then capitalist tenant | byelaws and stints; leases with covenants |
+| land | open fields → enclosure | fewer hands per acre in places | proprietors | lost common rights; poor relief |
+| harvest, threshing | sickle, flail → scythe, machines, combine | fewer hands; machine crews | farmer; contract operators | harvest gangs fade; the Swing riots |
+| fertility, seed | dung, saved seed → synthetic N, hybrids | | chemical and seed firms | herds and fields decouple; seed bought yearly |
+| grinding | quern → lord's mill → roller mill | the miller; mill hands | lord; milling firms | suit of mill, toll 1/16 to 1/24; brands |
+| baking, brewing | hearth and household brew → oven, alehouse, brewery, factory | baker; brewster then brewer | lord (banal oven), guilds; firms | assizes of bread and ale; licences, tied houses |
+| meat | household slaughter → packers, integrators | line workers; contract growers | packers, integrators | meat inspection, antitrust, grower contracts |
+| selling | market and shop → supermarket | shop staff | retail chains | buyer power, private standards |
 
 Three patterns run through the table:
 1. **The capital moves up the chain.** In each era the stage with the biggest fixed cost becomes the chokepoint and takes the rent:
