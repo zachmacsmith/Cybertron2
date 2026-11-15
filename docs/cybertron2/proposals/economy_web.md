@@ -11,11 +11,11 @@ The engine's economy is mostly one step deep: 63 goods, most of them one act fro
 proposes a web of about fifteen chains that interlock, each with its own **shape**, so that working out which shape you are in
 (when to invest, trade, specialise, wait or share) is part of what people have to navigate.
 
-It replaces the single four-rung ladder of 02zzh §2 (Zach, 14 Nov: "having 4 ladder rungs is a terrible idea"). Instead:
-- some ways of meeting a need are **shallow** (one way, a skill that plateaus);
-- some **accrete**: separate improvements adopted one at a time, in any order;
-- some **switch paradigm** at a threshold of capital, demand or knowledge, and the switch changes who does the work and how
-  people are organised (hand baking to the village oven; the quern to the mill; hunting the wild to a deer park).
+It replaces the single four-rung ladder of 02zzh §2 (Zach, 14 Nov: "having 4 ladder rungs is a terrible idea"). There is no fixed
+form that every chain follows, and no closed list of forms: each chain takes the form that fits what it is. Zach's examples of how
+they can differ (15 Nov: suggestions, not categories): a way of doing something can be very **shallow**; it can **grow by adding
+new things** over time; or it can **switch paradigm altogether** past a certain amount of capital (automating something, as the
+mill does for grinding or the oven for baking). §1 lists the shapes this design draws on; it is a working vocabulary, open to more.
 
 ## 1. Shapes a chain can have
 
@@ -34,10 +34,12 @@ It replaces the single four-rung ladder of 02zzh §2 (Zach, 14 Nov: "having 4 la
 | **commons** | value depends on others' use | rules, disputes, cooperation |
 | **increasing returns** | cheaper per unit the more it is used | a single centre, sharing, rent |
 
-A chain usually combines two or three. **The design rule:** the web's chains should differ in shape, and a new chain earns its
-place partly by adding a shape or a combination the world lacks.
+These are shapes to draw on, not a taxonomy: a chain usually combines several, and others will come up (two ways that coexist
+at different scales, as hand baking goes on beside the village oven; a way abandoned when its demand goes; seasonal switching
+between ways; quality that varies with skill). **The design aim:** the web's chains should differ from one another, so that
+working out what kind of chain one is in is part of the game.
 
-**Paradigm switches deserve their own rule.** A switch is not a better tool; it changes the social form:
+**Paradigm switches, as one example worth spelling out:** a switch is not a better tool; it changes the social form:
 
 | Need | Household paradigm | Switches to | What changes |
 |---|---|---|---|
@@ -234,6 +236,8 @@ unused, dried meat rotting at doors, villages never reaching a resource two days
 
 ## History
 
+- 15 Nov 2026: reframed (Zach: the shallow, add-over-time and switch examples "were supposed to be some suggestions", not a
+  categorisation): the shapes are a working vocabulary, open, combined freely; no chain is made to fit a template.
 - 15 Nov 2026: written by 37.2 at Zach's request ("Write up these types of chains and design a web of interconnected economy that
   you think would work well"), replacing 02zzh §2's single ladder with shapes and paradigms.
 
