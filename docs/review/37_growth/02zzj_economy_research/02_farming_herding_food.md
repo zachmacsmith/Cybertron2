@@ -94,17 +94,9 @@ harder. She sorted systems by how often a plot is cropped:
 
 Source: Boserup 1965 [s]. Fallow periods are her rough bands [r].
 
-What the sequence says:
-1. **Output per acre rises, output per hour falls** as fallow shortens. Farmers do not intensify because they discover something;
-   they intensify when they must, because the extensive way gives more food per hour when land allows it.
-2. **Each step needs new work**: clearing roots for the plough, carting manure, weeding (short fallow brings grass weeds that fire
-   used to burn off), fencing, and works (ditches, terraces, irrigation).
-3. **It runs backwards too.** When population fell after the Black Death (1348 to 1349), English and European farmers turned arable
-   back to grass, extended fallows and kept more sheep [s].
-
-**For the engine:** the land per household and the capacity ladder (D4-102) already set the pressure. Boserup's rule suggests that
-the methods available should include extensive ones that give more food per unit of work when land is free, so that intensifying is
-a choice made under pressure, not a strict improvement.
+**Output per acre rises and output per hour falls** as fallow shortens, so farmers intensify when they must, not when they
+discover how. Each step adds work: stumping for the plough, carting manure, weeding the grass that fire used to clear, fencing,
+works. **It runs backwards too:** after the Black Death, farmers turned arable back to grass and kept more sheep [s].
 
 ### 2.2 Shifting cultivation (swidden)
 
@@ -118,8 +110,6 @@ a choice made under pressure, not a strict improvement.
   among the highest of any farming [s, r, Boserup; Clark and Haswell 1967].
 - **Livestock:** not needed; often pigs or none.
 - **Institutions:** a lineage or village holds a territory; a household has use rights to the plot it cleared while it crops it.
-- **Why it ends:** more people per km² force shorter fallows; forests do not regrow; grass invades; the hoe and then the plough
-  take over.
 
 **Shape:** **shallow** in skill and capital, but **time capital** in land (the forest's regrowth is the stored fertility), and a
 **commons** (the territory). **Depends on:** forest cover, fire, axes (metal raises the felling rate a lot: the engine has fell at
@@ -137,8 +127,7 @@ The system of Scotland, Ireland, Wales, northern England, Scandinavia and parts 
   ratios of 2 or 3 to 1 [r].
 - **Institutions:** in Scotland, joint-tenant farms (the fermtoun) worked in run-rig: strips reallocated among tenants, sometimes
   by lot [s].
-- **What it shows:** fertility is a flow from the outfield and the hill (through the beasts' dung) to the infield. Concentrating dung
-  on a small area is the oldest form of the manure gap's answer.
+- Fertility flows from outfield and hill, through the beasts' dung, to the infield.
 
 **Shape:** a **gradient** around a centre (a shape worth adding to the vocabulary: intensity falls with distance from the house,
 J. H. von Thünen's rings at farm scale). **Depends on:** cattle (dung, folding), turf and peat for byre bedding.
@@ -226,11 +215,9 @@ operator, a river) with a **commons** along the water. **Depends on:** fences an
   [c, Overton 1996]. Earlier Flemish farming had already combined fodder crops, stall feeding and heavy manuring [s].
 - **Labour and capital:** more labour per acre (hoeing, carting, folding, root lifting) and more stock per acre. The tenant had to
   stock the farm with sheep and cattle and buy seed; the landlord built barns, yards and roads.
-- **Institutions:** large tenant farms on long leases, with rents fixed for years and covenants on rotation (Coke of Holkham's leases
-  are the famous case) [s]. The three-part rural order of landlord, capitalist tenant farmer and landless labourer belongs to this
-  system. Overton describes the change as two revolutions, one in output and one in the institutions of farming [c].
-- **What pushed it:** rising population and food prices after 1750, a growing London market for meat and grain, and enclosure,
-  which let one farmer choose his own rotation.
+- **Institutions:** large tenant farms on long leases with rotation covenants (Coke of Holkham) [s]: landlord, capitalist tenant and
+  landless labourer. Overton calls it two revolutions, in output and in institutions [c]. **Pushed by** rising prices after 1750,
+  London's market, and enclosure.
 
 **Shape:** an **assembly** (four crops that need each other: clover's nitrogen, turnips' cleaning and fodder, the beasts' dung) and a
 **paradigm switch** from open-field fallow. It also **closes a loop**: the fodder, the beasts and the fertility are on the same farm
@@ -248,8 +235,7 @@ seed drill and horse hoe (for turnips in rows), enclosure.
   landlords as higher rent, and that the yeoman's decline came from other causes [c, Allen 1982, 1992]. Heldring, Robinson and
   Vollmer (2021), using 15,000 parishes, found that parliamentary enclosure raised yields by about 45% by 1830 in their instrumented
   estimate (3% in plain OLS), and raised land inequality [c].
-- **Costs:** commissioners, surveyors, the act itself, and fencing and hedging, borne by the proprietors in proportion to their
-  allotments; small holders often sold rather than pay [s, r].
+- **Costs** (the act, surveyors, fencing) fell on proprietors by allotment; small holders often sold rather than pay [s, r].
 - **Social effects:** cottagers and the landless lost common rights (grazing a cow, gathering fuel, gleaning) that had been worth a
   large share of a poor family's income, by some estimates as much as an adult man's wage in some places [s, r, Humphries 1990;
   Neeson 1993]. Earlier enclosure for sheep depopulated villages; Thomas More wrote in 1516 that sheep "devour men" [s].
@@ -349,10 +335,8 @@ public goods** (a drain only works if the neighbour's ditch is clear). **Depends
 - **Why the switch was late:** E. J. T. Collins argued farmers cut labour costs first by using more labour more intensively, and only
   turned to the scythe and heavy hook when labour became scarce [c, Collins 1969]. J. A. Perkins disputed the link to labour markets
   [c]. On the Wolds by the 1830s "all the wheat is mown" [c].
-- **The harvest peak** set the size of the labour force. Every household and the demesne needed most of their year's extra labour in
-  three to six weeks. This made **migrant harvest gangs** (Irish workers in England, Galicians in Castile), **boon works**, high
-  harvest wages, and the harvest feast. Christopher Dyer's study of harvest workers' food shows the change in their diet from bread and
-  ale towards meat after the Black Death, when labour was scarce [s, Dyer 1988].
+- **The harvest peak** (most of a year's extra labour in three to six weeks) set the labour force: migrant gangs, boon works, high
+  harvest wages. Harvest workers' food shifted from bread and ale towards meat after the Black Death [s, Dyer 1988].
 
 **Shape:** a **pulse** in labour (the crop must be cut in a window) with **substitutes** (sickle or scythe). **Depends on:** metal
 (blades), the smith (sharpening, setting), hired labour.
@@ -362,8 +346,7 @@ public goods** (a drain only works if the neighbour's ditch is clear). **Depends
 - **The flail** beat the grain out on a barn floor through the winter. Hand threshing took about a quarter of all farm labour by the
   18th century [c], and threshing gave up to half of a rural labourer's winter income [c, Clark 2001, via Caprettini and Voth].
   Rates varied widely with crop and worker; a few bushels to about ten bushels of wheat a day are typical estimates [r].
-- **Winnowing** separated grain from chaff: tossing in a wind, with a basket, between the barn's two doors; then the **winnowing
-  machine** (a cranked fan, from China via the Low Countries in the 18th century) [s].
+- **Winnowing** in the wind between the barn doors, then the cranked fanning mill (18th century) [s].
 - **The threshing machine** (Andrew Meikle, 1786) raised output per worker by about **5 times with horse power and 10 times with
   water power** [c, Caprettini and Voth]. The flail stayed dominant in much of England for half a century [c].
 - **The Swing riots** (from August 1830, more than 3,000 riots across 45 counties) targeted threshing machines, because they took
@@ -390,8 +373,7 @@ horses or water (machines), later steam.
   (roughly 11,000 litres) [s]. That is a rise of perhaps twenty- to thirty-fold [r].
 - **Dairy leasing:** lords often let the dairy herd to a dairyman or dairywoman for a fixed sum per cow a year, passing the risk and
   the work to them [s, r]. Dairying was women's work in most of England until the 18th and 19th centuries.
-- **Regional specialisation:** cheese regions (Cheshire, Suffolk, Gloucestershire) and droving regions (Wales and Scotland sent
-  store cattle on foot to be fattened near London) grew from the 16th century [s].
+- **Regions specialised** from the 16th century: cheese (Cheshire, Suffolk), droving store cattle from Wales and Scotland [s].
 
 The **engine** has milk (a herd of 3 cows in milk, 1.6 each), cheese (6 milk and 0.2 salt in a cellar), slaughter (cow 40 meat and 2
 hide; ox 50), dung (20 a head a year), traction (plough, pack ox) and hay.
@@ -405,12 +387,8 @@ hide; ox 50), dung (20 a head a year), traction (plough, pack ox) and hay.
 - **Scale:** English wool exports in the early 14th century ran to tens of thousands of sacks a year, roughly 30,000 to 40,000 at
   their height, that is several million fleeces [s, r, Power 1941]. The adult sheep population fell only about 13% from 1310 to 1440
   [c, Oldland 2014].
-- **The chain:** sheep (Cotswolds, Lincolnshire, the Welsh Marches, Cistercian granges) → wool merchants and the Staple at Calais →
-  Flemish and Italian clothmakers. From the 15th century England turned more of its wool into cloth at home, and cloth replaced wool
-  as the main export [s].
-- **Social effects:** wool made lords and monasteries convert arable to sheepwalk in the 15th and 16th centuries, enclosing and
-  depopulating villages (the deserted medieval villages). Wool was taxed at the ports, and the wool customs financed the Crown's wars
-  [s].
+- **The chain:** flocks → wool merchants and the Staple at Calais → Flemish and Italian clothmakers; from the 15th century, cloth made
+  at home replaced wool as the export. The wool customs paid for the Crown's wars; sheepwalks depopulated villages [s].
 
 **Shape:** a **cash crop for export** with a **chokepoint** (the port, the Staple, the tax). **Joint products** with the fold's dung
 and the arable. **Depends on:** pasture and downland, hurdles (withies), shepherds (long skill), shearing (a pulse), merchants,
@@ -444,9 +422,8 @@ brewing and dairying (spent grain, whey), salt (keeping).
 - **Forms:** short-range (Alpine villages to their high pastures; British shielings, where women and young people went with the
   cattle for the summer and made butter and cheese [s]); long-range (the Castilian Mesta, chartered in 1273, moving merino sheep
   hundreds of kilometres between north and south; flocks of a few million head in the early 16th century [s, r]).
-- **Institutions:** drove roads (the cañadas, kept wide and protected by law), grazing rights at both ends, tolls at passes and
-  bridges, a guild or council (the Mesta) with its own courts, and conflicts with farmers whose fields lay on the routes [s].
-- **The merino** gave fine wool that Spain exported and kept as a monopoly until the 18th century [s].
+- **Institutions:** protected drove roads (cañadas), grazing rights at both ends, tolls, the Mesta's own courts, and quarrels with
+  farmers on the routes [s].
 
 **Shape:** **seasonal switching between places**, a **commons** at each end, and a **corridor** (the drove road) that needs a
 **public or club good** to stay open. **Depends on:** a state or guild, routes, upland and lowland, markets for wool.
@@ -565,11 +542,8 @@ wind, millwrights, carts for grain.
 - **Bakers:** in towns, bakers were a guild trade early. The **Assize of Bread and Ale** (about 1266 to 1267) fixed the weight of a
   penny loaf according to the price of wheat, enforced by local courts, with fines and the pillory for short weight [s]. It lasted in
   London until 1815 [s].
-- **Kinds of bread** marked rank: white wheat bread (manchet) for the rich; maslin (wheat and rye), rye, barley and horse bread (beans
-  and bran) for the poor [s].
-- **Later merging:** industrial bakeries in the 19th and 20th centuries, sliced and wrapped bread (1928), and the Chorleywood process
-  (1961), which made factory bread from softer wheat with less time [s]. Bread moved from household, to baker, to factory, to
-  supermarket in-store bakeries baking frozen dough.
+- **Bread marked rank:** white manchet for the rich; maslin, rye and horse bread for the poor [s]. **Later**, bread moved from
+  household to baker to factory (sliced 1928, Chorleywood 1961) to the supermarket's frozen dough [s].
 
 **Shape:** **paradigm switch** with **two ways that coexist at different scales** (home baking goes on beside the baker for
 centuries). A **regulated price** (the assize) is an institution worth noting: a rule that ties a processed good's price to its input.
@@ -588,10 +562,8 @@ centuries). A **regulated price** (the assize) is an institution worth noting: a
 - **Who:** in the 14th and 15th centuries **most ale was brewed by women** (brewsters, alewives), first for the household and then
   for sale; brewing was a by-employment that wives and widows did between other work. After 1350, and especially with hopped beer
   from the Low Countries in the 15th century, brewing became bigger, longer-lasting, more capitalised and male [c, Bennett 1996].
-- **Regulation:** the assize of ale fixed prices; ale-tasters (aletasters, often elected) tested quality; brewsters were routinely
-  fined, which worked as a licence fee [s].
-- **Later merging:** London porter breweries of the 18th century were among the largest industrial enterprises of their day [s];
-  tied houses (pubs owned by breweries) followed in the 19th century [s].
+- **Regulation:** the assize fixed prices, ale-tasters tested quality, and routine fines worked as a licence fee [s]. **Later**: the
+  London porter breweries (18th century) were among the largest firms of their day, then tied houses [s].
 
 **Shape:** a **long skill** (malting and brewing well), **perishable** output (ale must be drunk within days, so brewing is local and
 frequent until hops), then a **paradigm switch** (hops: keeping → scale → capital → men). A large **grain sink** that competes with
@@ -660,9 +632,8 @@ communal; **goods that keep and travel** become trades and then industries.
   and feed for sale.
 - **The farm population:** about 40% of US workers were in farming in 1900, under 2% by 2000 [s, Dimitri, Effland and Conklin 2005].
   The mechanical cotton picker (1940s and 1950s) pushed sharecroppers off Southern farms and fed the Great Migration [s, r].
-- **Who owns the capital:** farmers bought machines on credit from manufacturers (International Harvester, Deere) and banks; farm
-  sizes rose because a combine pays only over many acres. Custom operators (contract harvesting crews moving north with the wheat
-  harvest) let small farms rent the capital [s].
+- **Capital:** machines bought on credit from makers and banks; farms grew because a combine pays only over many acres; custom
+  harvest crews let small farms rent it [s].
 
 **Shape:** a **paradigm switch** from animal and human power to fossil power, with **increasing returns** to farm size. **Depends on:**
 steel, oil, engines, credit, rural roads, dealers and repair.
@@ -696,8 +667,7 @@ industry, phosphate and potash mines (chokepoints: Morocco holds most of the wor
   **30%**, as population more than doubled [c, Pingali 2012]. The first Green Revolution period is usually put at 1966 to 1985 [c]. The
   research is estimated to have saved 18 to 27 million hectares from being brought into farming [c, Stevenson et al. 2013].
   Sub-Saharan Africa largely missed it [c].
-- **Social effects:** gains went first to farmers with water and credit; debates continue over inequality, groundwater depletion
-  (Punjab), and loss of crop diversity [s, r].
+- Gains went first to farmers with water and credit; groundwater and diversity costs are debated [s, r].
 
 **Shape:** an **assembly** (the package: if any input is missing, the seed does worse than the old one), with a **chokepoint** in
 seed and in water. **Depends on:** fertiliser, irrigation works, credit, research institutions (a public good), state procurement.
@@ -748,7 +718,6 @@ market to supplying a processor to a specification.
 
 ### 6.6 Retail
 
-- **Before:** markets on set days, fairs, hucksters, and the corner shop where the grocer weighed goods from bulk and gave credit.
 - **Chain stores:** the Great Atlantic & Pacific Tea Company (A&P) grew to the largest US retailer by the 1920s and 1930s [s].
 - **Self-service:** Piggly Wiggly (Memphis, 1916) let customers take goods from shelves [s]. **The supermarket:** King Kullen (Queens,
   1930) combined self-service, low prices, volume and a car park [s].
@@ -769,9 +738,8 @@ market to supplying a processor to a specification.
   much of world grain and oilseed trade [s].
 - **Feed:** soybeans from Brazil and the US feed pigs and poultry in China and Europe; maize feeds feedlots. **Livestock eats about a
   third of the world's cereal crop** [s, r].
-- **Fresh food:** refrigerated containers and air freight carry fruit, vegetables, flowers and fish year-round across hemispheres.
-  Aquaculture (salmon, shrimp) is an integrated industry like poultry.
-- **Standards:** private standards (GlobalGAP, retailer codes) and state rules (sanitary and phytosanitary) decide who can sell.
+- Reefers and air freight carry fresh food across hemispheres; aquaculture integrates like poultry.
+- Private and state **standards** decide who can sell.
 - **Fragility:** concentration and just-in-time stocks make the system efficient but brittle. In 2020 COVID-19 outbreaks closed a
   handful of US packing plants and backed up hogs and cattle on farms [s].
 

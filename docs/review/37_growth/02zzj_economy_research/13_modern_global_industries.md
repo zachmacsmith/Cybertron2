@@ -482,7 +482,7 @@ parcel), which is why a few firms dominate, and a last mile that is the most exp
 | Chokepoint | What passes | Disruptions |
 |---|---|---|
 | **Suez Canal** | 12 to 15% of world maritime trade before 2024 by most estimates (measures differ); over 20% of container trade (UNCTAD) | 1956 crisis; closed 1967 to 1975; Ever Given six days in 2021; Red Sea attacks from late 2023 (trade volume down about 50%, container traffic down far more; IMF, COFACE) |
-| **Panama Canal** | about 5% of world trade by volume; locks fed by fresh water from Gatun Lake (rough: about 200 million litres per transit) | 2023 to 2024 drought: daily transits cut from about 36 to 38 to 22 to 24, and planned at 18; draft limits (GCAP, ME) |
+| **Panama Canal** | about 5% of world trade by volume; locks fed by fresh water from Gatun Lake (rough: about 200 million litres per transit) | 2023 to 2024 drought: daily transits cut from about 36 to 38 to about 24 by November 2023, with deeper cuts planned for 2024; draft limits (GCAP, ME) |
 | **Strait of Hormuz** | about 20 million barrels a day of oil in 2023 (over a quarter of seaborne oil trade, about a fifth of world liquids use) and much of the world's LNG (Qatar) (EIA) | tanker war 1984 to 1988; repeated threats; 2019 seizures |
 | **Strait of Malacca** | about 23.7 million barrels a day of oil in 2023, the largest oil chokepoint; most East Asia-Europe trade (EIA) | piracy; congestion |
 | **Bab el-Mandeb** | the Red Sea's southern gate to Suez | the 2023 to 2025 attacks |
@@ -566,19 +566,6 @@ lithium-ion battery
 analysed, with an average share of about 70%, and over 95% for battery-grade graphite and rare earths (IEA-CMO). Mining is spread
 more widely than refining; **refining is the chokepoint**, because it needs cheap power, chemistry skill, tolerance of pollution
 and years to build, and China built it while others did not.
-
-### 4.5 The energy chokepoints together
-
-| Chokepoint | Holder | Substitutes and lead time |
-|---|---|---|
-| Hormuz and Malacca transit | geography | pipelines bypass a fraction; strategic reserves cover weeks to months |
-| oil spare capacity | Saudi Arabia, UAE | none at scale |
-| LNG export | US, Qatar, Australia | years to build new trains |
-| enrichment | Russia ≈ 44% | Urenco and Orano expansions: years |
-| polysilicon, wafers | China > 95% | new plants: two to four years and cheap power |
-| battery refining and cells | China | years; IRA and EU subsidies since 2022 |
-| large transformers | few makers worldwide | years |
-| rare-earth separation and magnets | China ≈ 90% | Lynas (Australia, Malaysia), MP Materials (US): slow; years |
 
 ## 5. Services and the knowledge economy
 
@@ -671,12 +658,10 @@ The April 2025 licensing of seven medium and heavy rare earths and their magnets
 some car lines in Europe, the US and India (SMM; ENGNEWS). It showed that a chokepoint can be used as a dial (slow licences)
 rather than a switch.
 
-### 6.3 Shipping lanes and canals (§3.4) and critical minerals (§4.4)
+### 6.3 Why specialisation raises both wealth and fragility
 
-These are the same pattern at different scales: a few places or firms where many chains converge, with a substitute that costs
-much more or takes years.
-
-### 6.4 Why specialisation raises both wealth and fragility
+Shipping lanes (§3.4), critical minerals (§4.4), chips and rare earths are one pattern at different scales: a few places or
+firms where many chains converge, with a substitute that costs much more or takes years.
 
 | Mechanism | Wealth | Fragility |
 |---|---|---|

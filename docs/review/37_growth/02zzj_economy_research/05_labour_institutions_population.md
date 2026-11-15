@@ -7,31 +7,28 @@ separating social structure from the world).
 
 ## Summary
 
-Through almost all of history the unit that produced things was not a person or a firm but a **household**: a few adults,
-children and often servants, with a labour budget that rose and fell with the seasons, a harvest peak three or more times the
-winter's demand, and by-employments (spinning, carting, brewing, day work) to fill the gaps. Around it, societies built a
-sequence of answers to the same few problems: who may use land and its produce (property), who gets the surplus (lordship, rent,
-tithe, tax), how promises are made to hold (kin and gossip, then courts, guilds, merchant law, states), and how people survive bad
-years (stores, kin, credit, charity, poor relief, later insurance and the welfare state). Labour relations moved from sharing among
-foragers, through slavery, serfdom and labour dues, to servants and day labourers, to guild-regulated crafts, factory wage work
-with unions and labour law, and finally to the modern labour market of professions, licences and platforms. Each step needed
-something before it (a storable surplus, a way to record and enforce claims, money, a market wide enough to live from), and each
-changed what people produced and how they exchanged.
+Through almost all of history the unit of production was not a person or a firm but a **household**: a few adults, children and
+often servants, with a labour budget that rose and fell with the seasons, a harvest peak several times the winter's demand, and
+by-employments to fill the gaps. Around it, societies built answers to the same few problems: who may use land and its produce
+(property), who gets the surplus (lordship, rent, tithe, tax), how promises are made to hold (kin and gossip, then courts, guilds,
+merchant law, states), and how people survive bad years (stores, kin, credit, charity, poor relief, later insurance and the welfare
+state). Labour relations moved from sharing among foragers, through slavery, serfdom and labour dues, to servants and day
+labourers, guild crafts, factory wage work with unions and labour law, and the modern market of professions, licences and
+platforms. Each step needed something before it (a storable surplus, a way to record and enforce claims, money, a market wide
+enough to live from) and each changed what people produced and how they exchanged.
 
-Population sat underneath all of it. Before about 1800, more food mostly became more people, and real wages moved against
-population (the Black Death roughly halved England's people and raised real wages by half to double). Famines were frequent, but
-Amartya Sen's point holds back to the middle ages: people starve when they lose the means to command food, not only when food is
-absent. Western Europe's late marriage and its servants in husbandry made the household a flexible labour and savings unit; the
-demographic transition then broke the link between income and numbers. For a simulator the lesson is that **social structure is
-mostly made by people, around a small set of physical facts the world must hold**: the labour calendar, land and what it yields,
-who is present and sees what, records that can be kept, and bodies that are born, starve and die. The engine should hold those
-facts honestly and leave the courts, guilds, lords, rents, poor rates and unions for agents to build, which is where OPEN L-106
-already points.
+Population sat underneath. Before about 1800 more food mostly became more people, and real wages moved against numbers: the Black
+Death roughly halved England's people and raised real farm wages by about two thirds. Famines were frequent, but Amartya Sen's
+point holds back to the middle ages: people starve when they lose the means to command food, not only when food is absent. Late
+marriage and service made the western European household a flexible labour and savings unit; the demographic transition then broke
+the link between income and numbers. For a simulator the lesson is that **social structure is mostly made by people, around a few
+physical facts the world must hold**: the labour calendar, land and its yield, who is present and sees what, records made by
+deliberate acts, and bodies that are born, starve and die. The engine should hold those facts honestly and leave courts, guilds,
+lords, rents, poor rates and unions for agents to build, as OPEN L-106 already points.
 
-**On the figures.** Numbers are marked: *checked* (confirmed against a source during this session), *rough* (orders of magnitude,
-or a range in the literature), *contested* (scholars disagree materially), or *unchecked* (a standard figure from the literature
-that this session could not re-verify because the shared web search budget ran out part-way). Section 1.3's labour budget is an
-illustrative construction, not a sourced series.
+**On the figures.** *Checked*: confirmed against a source in this session. *Rough*: an order of magnitude or a range.
+*Contested*: scholars disagree materially. *Unchecked*: a standard figure this session could not re-verify because the shared web
+search budget ran out part-way. The labour budget in §1.3 is an illustrative construction, not a sourced series.
 
 ## 0. The arc at a glance
 
@@ -175,23 +172,17 @@ lost, depending on the strength of lords, towns and states.
 
 ### 1.7 Apprenticeship and guilds
 
-- **Apprenticeship:** a contract (an indenture) between a master and a youth (and his family), with the master giving board,
-  lodging and training, often for a premium, and the youth giving his labour for a term. The Statute of Artificers (1563) made
-  **seven years** the national minimum for crafts in England (*unchecked*, the standard figure); London terms commonly ran from about
-  14 to about 24.
-- **Rules and reality:** many apprentices did not finish. Wallis (2008) and Minns and Wallis (2012) find that a high proportion of
-  London apprenticeships ended early, with early departures, late arrivals and absences common (*checked*, qualitative; the commonly
-  quoted share completing is under half, *unchecked*). Training front-loaded the master's cost and back-loaded the apprentice's
-  useful work; leaving early was the apprentice's exit option.
-- **Guilds** regulated entry (completing an apprenticeship, paying fees, making a masterpiece, often being a master's son), quality
-  (searches of workshops, seals on cloth), prices and hours, the number of apprentices per master, and members' welfare (funerals,
-  help to widows and the sick).
-- **What guilds were for is contested.** Stephan R. Epstein argued they solved real problems: training (enforcing apprenticeship
-  contracts that would otherwise break), quality signalling, and spreading skills. Sheilagh Ogilvie (*The European Guilds*, 2019)
-  argues the evidence shows mostly rent-seeking: exclusion of outsiders, women and Jews, high prices, and resistance to new methods,
-  with their benefits going to members and the authorities that sold them privileges. Both agree guilds were powerful from the
-  twelfth to the eighteenth century, and that they were abolished or withered from the late eighteenth (France 1791; most German
-  states by the 1860s).
+- **Apprenticeship:** an indenture in which the master gives board, lodging and training, often for a premium, and the youth gives
+  his labour for a term. The Statute of Artificers (1563) made **seven years** the minimum for crafts in England (*unchecked*).
+- **Rules and reality:** a high proportion of London apprenticeships ended early, with early departures, late arrivals and absences
+  common (Wallis 2008; Minns and Wallis 2012, *checked*, qualitative; the share completing is often put under half, *unchecked*).
+  The master's cost came first and the apprentice's useful work last; leaving early was the apprentice's exit.
+- **Guilds** regulated entry (apprenticeship, fees, a masterpiece, often being a master's son), quality (searches, seals on cloth),
+  prices, the number of apprentices per master, and members' welfare.
+- **What guilds were for is contested.** Stephan R. Epstein: they enforced training contracts, signalled quality and spread skills.
+  Sheilagh Ogilvie (*The European Guilds*, 2019): mostly rent-seeking, excluding outsiders, women and Jews, raising prices and
+  resisting new methods, with benefits shared with the authorities that sold them privileges. They withered or were abolished from
+  the late eighteenth century (France 1791).
 
 ### 1.8 Wages and their real value over time
 
@@ -212,37 +203,28 @@ lost, depending on the strength of lords, towns and states.
 
 ### 1.9 The industrious revolution
 
-- **Jan de Vries** (1994, 2008): from the mid-seventeenth century, households in north-west Europe reallocated their time: they
-  worked more days and hours, and more for the market (women and children in cottage industry, men giving up "Saint Monday" and holy
-  days), in order to buy new goods (sugar, tea, tobacco, pottery, printed cotton, clocks). A demand-side change came before the
-  supply-side Industrial Revolution.
-- **The evidence on hours:** Hans-Joachim Voth (2001), from witnesses' statements in criminal trials, finds male annual hours rose
-  about 30% between the 1750s and 1800; in London from about 2,288 to about 3,666 hours as Saint Monday and about 53 holy days
-  disappeared, and in the North from about 2,860 to about 3,366 by 1830 (*checked*, from reviews). About 3,500 hours a year around
-  1800 is the all-time high for English workers.
-- **The other reading:** Allen and Weisdorf (2011) find two industrious episodes among English farm labourers, both explained by
-  hardship (working more to buy the same basket), not by a consumer revolution; London workers did have the margin for one
-  (*checked*).
-- **Putting-out (proto-industry):** a merchant gives wool or flax to rural households, who spin and weave at home for piece wages
-  and return the product. It used the farm calendar's slack (§1.3), let regions specialise (Yorkshire wool, Flanders linen), and
-  according to Franklin Mendels' proto-industrialisation thesis it loosened the link between land and marriage, so that cottage
-  workers married earlier (*contested*).
+- **Jan de Vries** (1994, 2008): from the mid-seventeenth century north-west European households worked more days and more for the
+  market (women and children in cottage industry, men giving up "Saint Monday" and holy days) to buy new goods: sugar, tea, tobacco,
+  pottery, printed cotton, clocks. Demand changed before supply.
+- **Hours:** Hans-Joachim Voth (2001), from witnesses in criminal trials, finds male annual hours rose about 30% between the 1750s
+  and 1800: in London from about 2,288 to 3,666 as Saint Monday and about 53 holy days went, in the North from about 2,860 to 3,366
+  by 1830 (*checked*, from reviews).
+- **The other reading:** Allen and Weisdorf (2011) find two industrious episodes among farm labourers, both from hardship (working
+  more for the same basket), not a consumer revolution; London workers had the margin for one (*checked*).
+- **Putting-out:** a merchant gives wool or flax to rural households, who spin and weave at home for piece wages in the farm's slack
+  season (§1.3). Franklin Mendels argued it loosened the link between land and marriage (*contested*).
 
 ### 1.10 Factory labour, unions and labour law
 
-- **The factory** gathered workers under one roof, with water and then steam power, supervision and a clock. Its gains came from
-  power, machines, and the control of work (discipline, continuous running, less embezzlement of materials). Early textile mills
-  employed many women and children; twelve-hour days and longer were common.
-- **Labour law** came by stages in Britain: the Factory Act of 1833 (children's hours, inspectors), the Ten Hours Act of 1847 (women
-  and young persons), the repeal of the Combination Acts in 1824 to 1825 (unions became legal, within limits), the Trade Union Act
-  1871, and the Trade Disputes Act 1906 (*unchecked*, the standard dates).
-- **Unions** began as craft societies and friendly societies (sick pay, funerals) before they bargained. They raised wages where they
-  could restrict supply (skilled crafts) or stop production (dockers, miners), and they became political (the Labour Party, 1900).
-- **Peak and decline:** across the OECD, union density halved from about **30% in 1985 to about 15% in 2023 to 2024**; in the United
-  States it fell from 20.1% (1983) to **9.9% (2024)**; the United Kingdom's membership peaked in 1979 (about 13 million, *unchecked*)
-  and its density is about 22% today (*checked*, OECD/AIAS ICTWSS, BLS).
-- **Hours fell** as productivity rose: from around 3,000 hours a year in western Europe around 1870 to under 2,000 by the 1970s and
-  about 1,400 to 1,800 in rich countries today (*rough, unchecked*, Huberman and Minns 2007; OECD).
+- **The factory** gathered workers under one roof with water and then steam power, supervision and a clock; its gains came from
+  power, machines and control of work. Early mills employed many women and children for twelve hours a day and more.
+- **Labour law** in Britain came by stages: the Factory Act 1833 (children, inspectors), the Ten Hours Act 1847, repeal of the
+  Combination Acts 1824 to 1825, the Trade Union Act 1871 (*unchecked*, standard dates).
+- **Unions** began as craft and friendly societies (sick pay, funerals), raised wages where they could restrict supply or stop
+  production, and became political. Across the OECD density halved from about **30% in 1985 to about 15% in 2023 to 2024**; US
+  density fell from 20.1% (1983) to **9.9% (2024)**; UK membership peaked in 1979 and density is about 22% (*checked*).
+- **Hours fell** from around 3,000 a year in western Europe around 1870 to about 1,400 to 1,800 in rich countries today (*rough,
+  unchecked*, Huberman and Minns 2007; OECD).
 
 ### 1.11 Modern labour markets: professions, licences and platforms
 
@@ -304,29 +286,26 @@ enforced only by people.
 
 ### 2.3 Commons and their regulation
 
-- **The open field village** had arable in strips scattered across two or three great fields, meadow allotted for hay, and common
-  pasture and waste. After harvest the arable was opened to everyone's beasts (common of shack); the fallow field was grazed in
-  common.
-- **By-laws** were made in the manor court or by the village: when fields opened and closed, how many beasts each holding could
-  put on the common (the **stint**, usually in proportion to the arable held), who might glean (often only the poor, the old and
-  children, and only after the sheaves were carried), the hayward's duties, fines for straying beasts and for taking turves or wood
-  beyond one's allowance (Warren Ault's studies of medieval by-laws).
-- **Why strips were scattered** is argued: equity at the founding; insurance (Donald McCloskey: scattered strips across soils
-  reduced the variance of a household's harvest, at a cost of perhaps 10% of output, *contested*); and the need to plough in common.
-- **Garrett Hardin's "tragedy of the commons"** (1968) assumed open access. Medieval commons were not open access: they were
-  regulated common property with known users. Elinor Ostrom's **design principles** for long-lasting commons (*Governing the
-  Commons*, 1990):
-  1. clearly defined boundaries (of the resource and of who may use it);
-  2. rules of use that fit local conditions, and costs in proportion to benefits;
-  3. collective-choice arrangements (those affected help make the rules);
-  4. monitoring, by users or people accountable to them;
+- **The open-field village** had arable in strips scattered across two or three great fields, meadow allotted for hay, and common
+  pasture and waste; after harvest, and on the fallow, everyone's beasts grazed the arable.
+- **By-laws** made in the manor court set when fields opened and closed, how many beasts each holding might graze (the **stint**,
+  usually in proportion to arable held), who might glean (often only the poor, old and young, after the sheaves were carried), the
+  hayward's duties, and fines for strays and for wood or turves beyond one's allowance (Warren Ault).
+- **Why strips were scattered** is argued: equity at founding; ploughing in common; insurance (Donald McCloskey: strips across
+  soils cut the variance of a household's harvest at some cost in output, *contested*).
+- **Garrett Hardin's "tragedy of the commons"** (1968) assumed open access. Medieval commons were regulated common property with
+  known users. Elinor Ostrom's **design principles** for lasting commons (1990):
+  1. clearly defined boundaries of the resource and its users;
+  2. rules that fit local conditions, with costs in proportion to benefits;
+  3. those affected help make the rules;
+  4. monitoring by users or people answerable to them;
   5. graduated sanctions;
-  6. cheap, local conflict-resolution;
-  7. the right to organise recognised by outside authorities;
-  8. for larger systems, nested enterprises (layers of organisation).
-  Medieval by-laws meet most of these: the stint (2), the manor court of tenants and its jury (3, 6), the hayward and the reeve (4),
-  amercements rising for repeat offences (5), and the lord's and the king's recognition of the court (7). Ostrom's own cases
-  include Swiss alpine meadows (Törbel) governed by village rules since at least 1224, and Japanese village commons.
+  6. cheap, local conflict resolution;
+  7. outside authorities recognise the right to organise;
+  8. nested layers for larger systems.
+  Medieval by-laws meet most: the stint (2), the court and its tenant jury (3, 6), the hayward and reeve (4), rising amercements (5),
+  the lord's and king's recognition (7). Ostrom's own cases include Törbel's Swiss alpine meadows, governed by village rules since at
+  least 1224.
 
 ### 2.4 Rights in game, water and mills
 
@@ -451,17 +430,14 @@ urban demand.
 
 ### 4.2 Village and manor courts
 
-- **The manor court** met every three weeks or so (*rough*), with a **view of frankpledge** (or leet) once or twice a year. Its work:
-  transfers of land, admission of heirs, by-laws and their breach, trespasses and debts between tenants, failure to do services, the
-  assize of bread and ale (fines on brewers and bakers who broke the price and quality rules, which functioned as a licence).
-- **Frankpledge:** every man over twelve was in a **tithing**, a group of about ten, responsible for producing any member who
-  offended. Mutual surety was policing by neighbours.
-- **Juries of tenants** found the facts and declared the custom; the lord's steward presided. Custom was what the oldest tenants
-  said it was, and was written into the rolls.
-- **Witnesses and pledges:** a deal was made before witnesses; a debt or a tenancy was backed by pledges (sureties who would pay if
-  the principal did not). The court roll was the village's public memory; people paid to have agreements enrolled.
-- **Credit in the village:** English manor courts heard many small debt pleas; Chris Briggs (*Credit and Village Society*, 2009)
-  shows that most villagers both borrowed and lent, and that the court was a key reason they could.
+- **The manor court** met every three weeks or so (*rough*), with a **view of frankpledge** once or twice a year. It handled land
+  transfers and heirs, by-laws and their breach, trespass and debt between tenants, failed services, and the assize of bread and ale
+  (fines on brewers and bakers that worked as a licence).
+- **Frankpledge:** every man over twelve was in a **tithing** of about ten, bound to produce any member who offended: policing by
+  neighbours.
+- **Juries of tenants** found the facts and declared the custom, which was written into the rolls. Deals were made before
+  witnesses and backed by **pledges** (sureties who paid if the principal did not); people paid to have agreements enrolled.
+- **Village credit:** most villagers both borrowed and lent, and the court was a key reason they could (Chris Briggs, 2009).
 
 ### 4.3 Guild courts, merchant law and fairs
 
@@ -477,17 +453,14 @@ urban demand.
 
 ### 4.4 Reputation: the Maghribi traders
 
-- **Greif (1989, 1993, 2006)** studied eleventh-century Jewish traders in the Mediterranean (the "Maghribis"), from letters in the
-  Cairo Geniza. Merchants hired agents in distant ports. A coalition of merchants shared information about agents' honesty by
-  letter, and would collectively refuse to employ an agent who cheated any one of them. Because the future value of being employed
-  by the coalition exceeded the gain from cheating, agents were honest.
-- **The Genoese contrast:** Genoese merchants relied more on bilateral relations, formal contracts and courts. Greif argues that the
-  collectivist system worked well inside the group but did not scale to strangers, while the individualist, court-based system
-  could expand. (Jeremy Edwards and Sheilagh Ogilvie, 2012, argue that the Geniza letters show Maghribis using courts and formal
-  contracts too, *contested*.)
-- **What the coalition needed:** a closed group, a channel of information (letters), a shared rule for punishment, and repeated
-  dealing. **This is exactly what the runs lack** (38.68): witnesses are recorded but never perceive defaults, and nobody tells a
-  third party.
+- **Avner Greif** (1989, 1993, 2006), from eleventh-century letters in the Cairo Geniza: Jewish merchants in the Mediterranean hired
+  agents in distant ports, shared news of agents' honesty by letter, and collectively refused to employ an agent who cheated any of
+  them. The value of future employment exceeded the gain from cheating.
+- **The Genoese** relied more on bilateral relations, contracts and courts; Greif argues the collectivist system did not scale to
+  strangers while the court-based one could. Edwards and Ogilvie (2012) find the Maghribis used courts and contracts too
+  (*contested*).
+- **It needed** a closed group, a channel of information, a shared rule of punishment and repeated dealing. **The runs lack the
+  channel** (38.68): witnesses are recorded but never perceive defaults, and nobody tells a third party.
 
 ### 4.5 Royal courts, the common law and Douglass North
 
@@ -544,16 +517,14 @@ urban demand.
 
 ### 5.3 The fiscal-military state
 
-- **The military revolution** (larger standing armies, fortifications, navies from the sixteenth century) made war far more
-  expensive; states that could raise and borrow money won.
-- **Britain after 1688** (John Brewer, *The Sinews of Power*, 1989): parliament's control of taxation, a professional excise
-  service, the Bank of England (1694), and a funded national debt let Britain raise taxes from a few percent of national income in
-  the late seventeenth century to the low teens by the late eighteenth and near a fifth during the Napoleonic wars (*rough,
-  unchecked*; O'Brien 1988). Most of it was indirect: excise on beer, malt, salt, candles, leather and soap, and customs on
-  imports (taxes on traded goods were over half of indirect taxes by about 1800, Dal Bó and others 2025, *checked*).
-- **The Dutch Republic** pioneered the model: high excises, provincial debt held by citizens, low interest.
-- **Why it mattered:** cheap, credible borrowing let a small country fight large wars; tax collection required measurement, records
-  and a body of officials (the excise men gauging casks), which is state capacity.
+- **The military revolution** (standing armies, new fortifications, navies) made war far dearer; states that could raise and borrow
+  money won.
+- **Britain after 1688** (John Brewer, 1989): parliament's control of taxation, a professional excise, the Bank of England (1694)
+  and a funded debt raised taxes from a few percent of national income in the late seventeenth century to the low teens by the late
+  eighteenth and near a fifth in the Napoleonic wars (*rough, unchecked*, O'Brien 1988). Most was indirect: excise on beer, malt,
+  salt, candles, leather, soap, and customs (taxes on traded goods were over half of indirect taxes by about 1800, Dal Bó and others
+  2025, *checked*). The Dutch Republic pioneered the model.
+- **Collection needed capacity:** measurement, records and paid officials (excise men gauging casks).
 
 ### 5.4 Public goods
 
@@ -576,17 +547,15 @@ urban demand.
 
 ### 5.6 The modern regulatory and welfare state
 
-- **Size:** average public spending in industrial countries was about **8 to 11% of GDP around 1870**, about **13% in 1913**, and
-  nearly **46% by 1996** (*checked*, Tanzi and Schuknecht 1996, 2000). For individual countries: the United States 19.7% (1937),
-  27.0% (1960), 31.4% (1980); France 29.0%, 34.6%, 46.1% (*checked*).
-- **What drove it:** two world wars (taxes that rose and did not fall back), the franchise, and **social spending**: pensions,
-  unemployment insurance, health and schooling. Peter Lindert (*Growing Public*, 2004) shows social transfers were tiny before 1880
-  and grew with democracy and ageing; and that high-spending welfare states did not grow more slowly, because they chose taxes that
-  did little harm.
-- **Steps:** Bismarck's social insurance in Germany (sickness 1883, accidents 1884, old age 1889), Britain's old-age pensions (1908)
-  and National Insurance (1911), the US Social Security Act (1935), the Beveridge Report (1942) and the post-war welfare states.
-- **Regulation:** food and drug safety, labour standards, banking, competition, environment, zoning. The state now sets much of the
-  terms of every contract.
+- **Size:** average public spending in industrial countries was about **8 to 11% of GDP around 1870**, about **13% in 1913** and
+  nearly **46% by 1996** (*checked*, Tanzi and Schuknecht). The United States went from 19.7% (1937) to 27.0% (1960) and 31.4%
+  (1980); France from 29.0% to 34.6% and 46.1% (*checked*).
+- **What drove it:** wars (taxes that did not fall back), the franchise and **social spending** on pensions, unemployment, health and
+  schooling. Peter Lindert (2004): transfers were tiny before 1880 and grew with democracy and ageing; high-spending welfare states
+  did not grow more slowly, because they chose taxes that did little harm.
+- **Steps:** Bismarck's social insurance (1883 to 1889), British pensions (1908) and National Insurance (1911), US Social Security
+  (1935), the Beveridge Report (1942).
+- **Regulation** (food, drugs, labour, banks, competition, environment, zoning) now sets much of the terms of every contract.
 
 ### 5.7 The state: what it needed, what it enabled, how it interacts
 
@@ -687,19 +656,16 @@ urban demand.
 
 ### 6.6 Household formation: the European marriage pattern
 
-- **John Hajnal (1965)** identified a pattern west of a line from Trieste to St Petersburg: **late marriage** (women at about 24 to 26
-  and men at about 26 to 28), **many never marrying** (10 to 20%), and **new households** formed on marriage (neolocal). East of the
-  line, three quarters of women were married by 25 (*checked*).
-- **England:** women's mean age at first marriage was about 25 to 26 in the seventeenth century and fell to about 23 by the early
-  nineteenth (*checked*, Wrigley and Schofield and summaries). Marriage followed wages with a lag: when real wages rose, people
-  married earlier, and fertility rose 30 years later. This is the **preventive check** operating through an institution.
-- **The pattern needed:** service as a life stage (youths left home to work and save), a norm that a couple must be able to set up
-  their own household, inheritance at or near the parents' death, and the church's insistence on consent to marriage.
-- **What it enabled** (*contested*): lower fertility than the biological maximum, so lower population pressure; a long period of
-  youth labour on the market; savings before marriage; women's earnings and some bargaining power (Tine de Moor and Jan Luiten van
-  Zanden's "girl power" argument); higher investment in children. Voigtländer and Voth (2013) argue that the Black Death's shift to
-  pastoral farming, where women had better work, raised women's age at marriage and kept wages high. Others question the link to
-  growth.
+- **John Hajnal (1965)** found west of a line from Trieste to St Petersburg **late marriage** (women about 24 to 26, men 26 to 28),
+  **many never marrying** (10 to 20%) and **new households on marriage**; east of it three quarters of women were married by 25
+  (*checked*).
+- **England:** women's mean age at first marriage was about 25 to 26 in the seventeenth century, falling to about 23 by the early
+  nineteenth (*checked*). Marriage followed real wages with a lag: Malthus's **preventive check** working through an institution.
+- **It needed** service as a life stage, a norm that a couple set up its own household, inheritance late in the parents' life, and
+  the church's rule of consent.
+- **It enabled** (*contested*) fertility below the biological maximum, long youth labour on the market, savings before marriage,
+  some bargaining power for women (de Moor and van Zanden's "girl power"), and more investment in children. Voigtländer and Voth
+  (2013) tie it to the Black Death's shift to pasture, where women had better work.
 
 ### 6.7 The demographic transition and modern urban population
 
