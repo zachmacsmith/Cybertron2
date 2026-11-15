@@ -158,24 +158,19 @@ limit. The von Thünen rings did not vanish; they became continental. Chicago's 
 | pressurised municipal supply | steam pumps, reservoirs, iron mains, constant supply | ≈ 90 to 150 l | London domestic ≈ 20 imperial gallons a day in 1850, 27.8 in 1900; total supply grew from 28.8 million gallons a day in 1828 to 202 million in 1898 (Hardy 1991) |
 | long-distance aqueducts and filtration | dams and tunnels from distant catchments; sand filtration, then chlorination (from about 1908) | ≈ 300 to 600 l in all uses | New York's Croton aqueduct (1842): built for 60 to 90 million US gallons a day †; 18 million used at first by ≈ 300,000 people |
 
-**Rome's aqueducts.** Frontinus, the water commissioner around 97 AD, recorded 14,018 *quinariae* delivered by nine aqueducts and
-claimed to have found about 10,000 more being stolen. Converting a quinaria (a pipe-size unit, not a volume) to flow is the whole
-dispute: Herschel's conservative reading gives ≈ 84 million gallons a day for the nine; popular accounts give ≈ 1 million m³ a
-day for the eleven, ≈ 1 m³ a head; studies of channel size and travertine deposits (Keenan-Jones et al. 2015 on the Anio Novus)
-put actual flows lower than the old estimates. **†: anything between ≈ 300 and 1,000 litres per head per day nominal.** What is
-not in doubt is the shape: continuous flow from springs up to 90 km away, to fountains, baths and a few paying private connections,
-with the surplus flushing the sewers (the Cloaca Maxima). Water was a public good with rationed private access, and theft by
-illegal taps was the commissioner's main problem.
+**Rome's aqueducts.** Frontinus, water commissioner around 97 AD, recorded 14,018 *quinariae* delivered by nine aqueducts and
+about 10,000 more being stolen. Converting a quinaria (a pipe size, not a volume) to flow is the whole dispute: Herschel's
+conservative reading gives ≈ 84 million gallons a day; popular accounts give ≈ 1 million m³ a day for the eleven, ≈ 1 m³ a head;
+studies of channel size and travertine (Keenan-Jones et al. 2015) put flows lower. **† ≈ 300 to 1,000 litres a head a day
+nominal.** The shape is not in doubt: continuous flow to fountains, baths and a few paying private connections, the surplus
+flushing the sewers. A public good with rationed private access, whose main problem was theft.
 
-**Edo's waterworks.** Much of Edo was reclaimed land with salty wells, so it was a water-import city early: the Kanda aqueduct, then
-the Tamagawa aqueduct (1653-54) bringing water ≈ 43 km from the Tama river by open channel and then by wooden and stone pipes to
-wells in the streets, plus more than 30 branch canals that irrigated farms on the way (Tokyo Waterworks Museum; Tamagawa Josui
-histories). It supplied nearly all of the dense downtown.
+**Edo** stood on reclaimed land with salty wells, so it imported water early: the Tamagawa aqueduct (1653-54) brought it ≈ 43 km
+by open channel and then wooden and stone pipes to street wells, with more than 30 branch canals irrigating farms on the way.
 
-**Cholera and the switch to treatment.** The 19th century learned that water supply without drainage poisons a city. John Snow's
-Broad Street pump (1854) and his comparison of the two companies supplying south London showed water-borne cholera; Hamburg's 1892
-epidemic, which killed about 8,600 while neighbouring Altona, which filtered its water, was spared, settled the case for filtration.
-Each case is an **external effect between neighbours on a shared chain**: one company's intake downstream of another city's sewer.
+**Cholera** taught that water without drainage poisons a city: Snow's Broad Street pump (1854), and Hamburg in 1892 (about 8,600
+dead while neighbouring Altona, which filtered its water, was spared). Each is **an external effect between neighbours on a shared
+chain**: one intake downstream of another's sewer.
 
 **Rule of thumb (≈).** A walking city lives at ≈ 10 l a head; a city with piped water and flush toilets needs ten to thirty times
 that, and the water then has to go somewhere: **piped water before sewers creates the crisis that sewers solve**.
@@ -207,22 +202,17 @@ forbid by land and allow by water.
 
 ### 1.5 Building materials
 
-- **What a city is made of** is decided by local geology and fuel. Mesopotamian cities were mud brick (sun-dried) with fired brick
-  and bitumen for important buildings; Rome used tuff, travertine, fired brick and concrete (lime and volcanic pozzolana); medieval
-  northern cities were timber-framed with thatch until fires and bylaws forced tile and brick; Amsterdam built on wooden piles
-  driven into peat (the Royal Palace rests on 13,659 piles, a commonly quoted figure ≈); London rebuilt in brick after 1666 under the
-  Rebuilding Act, which set standard house types; Edo stayed wood and burned repeatedly (the Meireki fire of 1657 killed tens of
-  thousands †).
-- **Fire changes materials.** The great fires (Rome 64 AD, London 1666, Edo 1657, Chicago 1871) each led to building codes, to
-  brick or stone, and to wider streets. Insurance (the Fire Office, London 1680) and fire brigades came with them.
-- **Industrial cities ran on brick and then steel.** Chicago's balloon frame (light standard sawn timber held with machine-made
-  nails, from the 1830s) let houses be built by unskilled labour from rail-delivered pine; after 1871, brick and terracotta; after
-  1885, the steel-frame skyscraper (Home Insurance Building).
-- **Modern cities** use cement and steel at a scale that makes construction the largest material flow after water: Kennedy et al.
-  (2015) found megacities' steel consumption per head differed by a factor of 35, a sign of where each is in its building cycle.
-- **Housing is a stock, not a flow.** A city's houses embody decades of past building; rents and crowding follow from whether new
-  building keeps pace with migrants. Rome's *insulae* (apartment blocks of five or six storeys, rented by the room), Edo's
-  back-alley tenements (*nagaya*), and New York's tenements (the 1879 "dumbbell" type) are the same answer to the same pressure.
+- **Local geology and fuel decide the material:** mud brick with fired brick and bitumen in Mesopotamia; tuff, brick and concrete
+  (lime and pozzolana) in Rome; timber and thatch in medieval northern Europe until fires and bylaws forced tile and brick;
+  Amsterdam on wooden piles driven into peat; Edo in wood, burning repeatedly (the Meireki fire of 1657 killed tens of thousands †).
+- **Fire changes materials.** Rome 64 AD, London 1666, Chicago 1871: each brought building codes, brick or stone, wider streets,
+  fire insurance (the Fire Office, London 1680) and brigades.
+- **Industrial cities ran on brick and then steel:** Chicago's balloon frame (standard sawn pine and machine-made nails, from the
+  1830s) let unskilled labour build houses; the steel-frame skyscraper followed in 1885. Megacities' steel use per head differs by
+  a factor of 35 (Kennedy et al. 2015), a sign of where each is in its building cycle.
+- **Housing is a stock, not a flow:** rents and crowding follow from whether building keeps pace with migrants. Rome's *insulae*
+  (blocks of five or six storeys let by the room), Edo's back-alley *nagaya* and New York's 1879 "dumbbell" tenements are the same
+  answer to the same pressure.
 
 ### 1.6 Waste and sanitation
 

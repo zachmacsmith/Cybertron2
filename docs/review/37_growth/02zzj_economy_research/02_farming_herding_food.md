@@ -106,9 +106,8 @@ works. **It runs backwards too:** after the Black Death, farmers turned arable b
   fifteen to twenty times the cropped area. Population densities that swidden supports are low, typically under a few tens per km²
   [r]. In Finland and Sweden, slash-and-burn rye on the ash of spruce forest gave first-crop yield ratios of 1:20 or more, far above
   open-field grain [s, r].
-- **Labour:** mostly the felling and burning, and fencing against animals; little weeding in the first year. Returns per hour are
-  among the highest of any farming [s, r, Boserup; Clark and Haswell 1967].
-- **Livestock:** not needed; often pigs or none.
+- **Labour:** felling, burning and fencing; little weeding. Returns per hour are among the highest of any farming [s, r, Boserup;
+  Clark and Haswell 1967]. No livestock needed.
 - **Institutions:** a lineage or village holds a territory; a household has use rights to the plot it cleared while it crops it.
 
 **Shape:** **shallow** in skill and capital, but **time capital** in land (the forest's regrowth is the stored fertility), and a
@@ -134,7 +133,7 @@ J. H. von Thünen's rings at farm scale). **Depends on:** cattle (dung, folding)
 
 ### 2.4 Two- and three-field open fields
 
-The system of the English Midlands and much of northern France and Germany from the 9th to 13th centuries until enclosure [s].
+The system of the English Midlands and much of northern France and Germany, from about the 9th century until enclosure [s].
 
 **How it worked:**
 - A township's arable lay in two or three great fields, each divided into furlongs and strips. A household held strips scattered
@@ -310,11 +309,9 @@ the plough followed population and soils rather than leading them [s, r].
 
 | Work | What it does | Numbers | Who does it |
 |---|---|---|---|
-| ridge and furrow | ploughing in the same direction for years builds ridges; the furrows drain | ridges a few metres wide | the plough team |
 | ditching and open drains | takes water off heavy or wet land | the engine: 40 units a plot by a crew (D2-66) | crews, the township |
 | marling | spreads marl (lime-rich clay) on light or acid soils | heavy dressings (tens of tons an acre) lasting a generation or more [r]; "marl for your son" proverbs | the landholder; a medieval and 16th to 18th century practice |
 | liming | burns limestone in kilns to quicklime, spread on acid soils | needs a kiln and much fuel [r] | lime burners; links to fuel and building |
-| paring and burning | cuts and burns turf to ash on new or sour ground | | |
 | floated water meadows | §2.5 | | the drowner, a specialist |
 | under-drainage | buried channels of stones, bushes, then clay pipes | Victorian pipe drainage was lent millions of pounds of public money after the 1846 Drainage Act [s, r] | contractors; landlords borrowing |
 | terraces | flat steps on hills | the engine: 60 units and 6 stone a plot (D2-66) | crews |
@@ -364,15 +361,13 @@ horses or water (machines), later steam.
 
 - **Products:** traction (oxen), milk (butter and cheese), beef and veal, hides (leather), tallow (candles, soap, grease), horn, bone,
   dung.
-- **Size:** medieval cattle were small, about 1.1 m at the withers [r]; carcass weights roughly doubled or more between the late
-  Middle Ages and the 19th century with breeding and better feed [s, r].
+- **Size:** medieval cattle were small (about 1.1 m at the withers) [r]; carcasses roughly doubled by the 19th century [s, r].
 - **Dairy yields:** an English estate rule expected a cow to make **seven stone (98 lb) of cheese and one stone (14 lb) of butter**
   between May and Michaelmas [c, local history, original basis not seen; r]. The 13th-century *Hosebondrie* gave careful estimates of
   milk and its yield of butter and cheese, for ewes as well as cows [c]. Rough modern readings put a medieval cow at a few hundred
   litres a lactation [r]. By the 1860s a Gloucestershire cow gave about 525 gallons a year [c]; a US cow now gives about 24,000 lb
   (roughly 11,000 litres) [s]. That is a rise of perhaps twenty- to thirty-fold [r].
-- **Dairy leasing:** lords often let the dairy herd to a dairyman or dairywoman for a fixed sum per cow a year, passing the risk and
-  the work to them [s, r]. Dairying was women's work in most of England until the 18th and 19th centuries.
+- **Dairy leasing:** lords let the herd to a dairyman or dairywoman for a sum per cow a year [s, r]. Dairying was women's work.
 - **Regions specialised** from the 16th century: cheese (Cheshire, Suffolk), droving store cattle from Wales and Scotland [s].
 
 The **engine** has milk (a herd of 3 cows in milk, 1.6 each), cheese (6 milk and 0.2 salt in a cellar), slaughter (cow 40 meat and 2
@@ -380,8 +375,8 @@ hide; ox 50), dung (20 a head a year), traction (plough, pack ox) and hay.
 
 ### 4.2 Sheep and wool
 
-- **Products:** wool (the main medieval English export), milk (ewe's milk cheese, valued at almost double cow's milk in one local
-  account [c, r]), meat (mutton, mostly from old animals), skins (parchment, leather), tallow, dung (the fold).
+- **Products:** wool (the main medieval English export), ewe's milk for cheese (valued near double cow's milk in one account [c, r]),
+  mutton, skins (parchment), tallow, the fold's dung.
 - **Fleece:** a medieval fleece weighed about 1.5 lb (0.7 kg) against 9 lb or more for a modern one [c, VCH Gloucestershire;
   Stephenson 1988]. A sack of wool (364 lb) held the fleeces of about 240 sheep [c].
 - **Scale:** English wool exports in the early 14th century ran to tens of thousands of sacks a year, roughly 30,000 to 40,000 at
@@ -578,8 +573,6 @@ bread. **Depends on:** barley, water, fuel (the kiln and the copper), vessels (b
 | salting | a year or more | **salt**, barrels | herring (the Baltic and North Sea trade, the Hanse), salt pork and beef for navies [s] |
 | cheese | months to years | milk, salt, rennet, a cool store | the way to keep milk |
 | butter | weeks; salted, months | salt | |
-| pickling, fermenting | months | vinegar, salt, vessels | sauerkraut, pickled herring |
-| ice houses | months | ice cut in winter, a pit | for the rich, from the 17th century [s] |
 | canning | years | tin plate, heat, solder | Nicolas Appert (glass, 1810); Peter Durand's tin can patent (1810) [s] |
 | refrigeration and freezing | months | ice, then machines | §6.4 |
 
@@ -674,9 +667,8 @@ seed and in water. **Depends on:** fertiliser, irrigation works, credit, researc
 
 ### 6.4 Meatpacking and the cold chain
 
-- **Disassembly lines:** Cincinnati ("Porkopolis") in the 1830s to 1850s packed pork on lines where each worker made one cut as
-  carcasses moved on overhead rails [s]. Henry Ford later said the Chicago packers' lines inspired his assembly line [s].
-- **Chicago:** the Union Stock Yards opened in 1865 [c], at the meeting point of the western railways and the eastern market.
+- **Disassembly lines:** Cincinnati's pork packers (1830s to 1850s) had each worker make one cut on carcasses moving on rails; Ford
+  credited the packers' lines [s]. Chicago's Union Stock Yards opened in 1865 [c], where the western railways met the eastern market.
 - **The refrigerated car:** in 1878 Gustavus Swift ordered ten refrigerated cars designed by Andrew Chase, with ice above the load so
   cold air fell through it, and built icing stations along the route [c]. Shipping **dressed beef** instead of live cattle cut freight
   weight (the inedible half stayed in Chicago), and the by-products became a business of their own. By 1920 Swift's line ran about
@@ -690,7 +682,7 @@ seed and in water. **Depends on:** fertiliser, irrigation works, credit, researc
   about **47 days** to around 6.5 lb on roughly 1.7 to 1.9 lb of feed per pound [c, National Chicken Council; others]. Contract growing
   began in the 1950s, and by the mid-1960s over 90% of broilers came from integrated firms. About 40 integrators contract with about
   29,500 growers for 95% of US broilers; the company owns the birds and feed, the grower owns the houses and carries their debt, and is
-  paid per pound against the performance of other growers [c, USDA; industry manual].
+  paid by the pound and by efficiency measures including feed [c, USDA; industry manual], ranked against other growers [s].
 - **The cold chain:** ice, then machines (1870s); frozen New Zealand mutton to London (1882); Birdseye's quick freezing (1920s);
   home refrigerators (most US homes by the 1950s); reefer containers [s]. It is only as good as its weakest cold store.
 
@@ -704,17 +696,14 @@ contracting every stage: a shape worth adding, the **merged chain**). The cold c
 |---|---|---|---|
 | canning | Appert's bottling; Durand's tin can | 1810 | [s] |
 | condensed milk | Gail Borden's patent | 1856 | [s] |
-| margarine | Mège-Mouriès, for Napoleon III's navy | 1869 | [s] |
 | roller flour | Budapest, then Minneapolis | 1870s to 1880s | [s] |
 | breakfast cereals | Kellogg, Post | 1890s | [s] |
-| beet sugar | French Napoleonic blockade; later European subsidy | 1810s on | [s] |
 | frozen food | Birdseye | 1920s | [s] |
 | factory bread | sliced bread; Chorleywood | 1928; 1961 | [s] |
 
-**How the chains merged:** each industry took a household or craft step (preserving, dairying, milling, baking) into a factory and then
-attached a **brand** and **national distribution** to it. Food processors became the largest buyers of farm goods and set grades,
-varieties and contracts (tomatoes bred for machine picking and canning; potatoes for chips). The farmer moved from selling to a
-market to supplying a processor to a specification.
+**How the chains merged:** each industry took a household or craft step into a factory, then added a **brand** and **national
+distribution**. Processors became the main buyers of farm goods and set grades, varieties and contracts; the farmer moved from
+selling at market to supplying a processor to a specification.
 
 ### 6.6 Retail
 

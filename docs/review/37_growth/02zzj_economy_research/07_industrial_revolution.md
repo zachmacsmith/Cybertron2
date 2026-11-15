@@ -367,9 +367,9 @@ Textile machinery → locomotives → marine engines → machine tools for sale 
 |---|---|---|---|---|
 | **Turnpikes** | from 1663; most trusts 1750 to 1772; about 1,000 trusts and 20,000 miles by the 1830s | road trusts set up by private Acts of Parliament, borrowing on tolls to resurface roads | an Act for each trust; local landowners and merchants as trustees; toll collection; road engineering (Metcalf, Telford, McAdam) | freight rates fell about 20% on average where trusts ran (Bogart); travel times fell sharply; fast coaches and the mails |
 | **River navigations** | 1600s to 1700s | dredging and locks on rivers | Acts; capital | bulk by water inland |
-| **Canals** | **Bridgewater Canal 1761** (the Duke of Bridgewater, engineer James Brindley, agent John Gilbert), from the Duke's Worsley coal mines to Manchester; Trent & Mersey (1777, promoted by Josiah Wedgwood); the canal mania of the 1790s; about 4,000 miles by the 1830s [R] | still-water cuts with locks, aqueducts and tunnels; horse-drawn boats carrying 20 to 30 tons [R] | coal or other bulk to carry; an Act; capital by statutory company shares; surveyors; navvies | **the price of coal in Manchester fell by about half** within a year of the Bridgewater's opening; Wedgwood's pottery reached ports unbroken; china clay and flint came to Stoke |
-| **Railways** | Stockton & Darlington 1825 (a coal line, horses and locomotives); **Liverpool & Manchester 1830** (the first intercity line, double track, steam only, timetable, passengers); about 1,500 miles by 1840 [R], 6,000 by 1849 [R], 15,000 by 1870, about 20,000 at peak about 1914 | iron rails on graded track, locomotives, wagons, stations, signals | **wrought-iron rails**; high-pressure engines; engineering workshops; joint-stock companies raising capital at an unprecedented scale (investment in the mania of 1845 to 1847 reached several percent of GDP a year [R]; cumulative railway investment about 60% of GDP by 1913 [R]); private Acts with powers of compulsory purchase; armies of navvies (about 250,000 at the 1847 peak [R]) | real freight charges per ton-mile in 1870 about a twentieth of the horse wagon's in 1700 (Bogart's survey); national markets for perishables (milk, fish, fresh meat); one time across the country (railway time, Greenwich time adopted by railways 1847); the electric telegraph along the lines (Cooke and Wheatstone, 1837) |
-| **Steamships** | river steamers from 1812 (Bell's *Comet* on the Clyde); Atlantic crossings (*Great Western*, 1838); Cunard mail line 1840; iron screw ship *Great Britain* 1843; Alfred Holt's compound-engined ships to China (1865); Suez Canal 1869; triple-expansion engines 1880s | coal-fired engines driving paddles then screws; iron then steel hulls | **coal at coaling stations** around the world (Welsh steam coal); iron and steel plate; marine engine builders on the Clyde, Tyne and Mersey; compound engines to cut coal use enough for long voyages | ocean freight fell modestly before 1850 and sharply after, as metal steamships spread (Harley); nominal tramp rates roughly halved between the early 1870s and early 1910s (Hatton); the gap between wheat prices in Chicago and Liverpool fell from over half to under a sixth between 1870 and 1895 [R] (O'Rourke and Williamson): a world market in grain |
+| **Canals** | **Bridgewater Canal 1761** (the Duke's Worsley coal mines to Manchester; engineer Brindley); Trent & Mersey 1777 (promoted by Wedgwood); the 1790s mania; about 4,000 miles by the 1830s [R] | still-water cuts with locks and aqueducts; horse boats of 20 to 30 tons [R] | bulk to carry; an Act; statutory company shares; surveyors; navvies | **Manchester's coal price halved** within a year; Wedgwood's pottery reached ports unbroken |
+| **Railways** | Stockton & Darlington 1825 (a coal line); **Liverpool & Manchester 1830** (the first intercity, steam-only, timetabled line); about 1,500 miles by 1840, 6,000 by 1849, 15,000 by 1870, 20,000 about 1914 [R] | iron rails on graded track; locomotives; signals | **wrought-iron rails**; high-pressure engines; engineering workshops; joint-stock capital on a new scale (the 1845 to 1847 mania several percent of GDP a year [R]; cumulative investment about 60% of GDP by 1913 [R]); private Acts with compulsory purchase; navvies (about 250,000 in 1847 [R]) | real freight charges per ton-mile in 1870 about a twentieth of 1700's wagons (Bogart); national markets for milk, fish and meat; railway time (Greenwich, 1847); the telegraph along the lines (1837) |
+| **Steamships** | *Comet* on the Clyde 1812; *Great Western* across the Atlantic 1838; Cunard 1840; *Great Britain* (iron, screw) 1843; Holt's compound-engined ships to China 1865; Suez 1869 | coal-fired engines; iron then steel hulls | **coaling stations** worldwide (Welsh steam coal); iron plate; Clyde, Tyne and Mersey engine builders; compound engines frugal enough for long voyages | ocean freight fell sharply after 1850 (Harley); tramp rates roughly halved from the early 1870s to the early 1910s (Hatton); the Chicago to Liverpool wheat price gap fell from over half to under a sixth, 1870 to 1895 [R]: a world grain market |
 
 ### 5.2 Costs per ton-mile
 
@@ -404,18 +404,16 @@ journey from about three weeks to about a week [R].
 
 ### 6.1 Why textiles made the chemical industry
 
-Cloth must be **bleached** (linen and cotton are grey off the loom), **soured** (rinsed in acid), **dyed** and **printed**. In the
-organic economy bleaching meant soaking in alkali lye made from wood ash or kelp ash, souring in buttermilk, and laying the cloth
-on grass in the sun for weeks to months ("crofting"), on bleachfields that took land near towns. When spinning and weaving output
-rose many times, the bleachfields became the bottleneck: land, months, and ash and buttermilk in quantity. Each step was replaced
-by a chemical:
+Cloth must be **bleached**, **soured**, **dyed** and **printed**. In the organic economy that meant lye from wood or kelp ash,
+souring in buttermilk, and weeks to months laid on grass in the sun, on bleachfields near towns. When spinning and weaving output
+rose many times, bleaching became the bottleneck (land, months, ash, buttermilk). Each step was replaced by a chemical:
 
 | Organic way | Chemical replacement | Who, where, when | Prerequisite |
 |---|---|---|---|
-| sour milk for souring | dilute **sulphuric acid** ("oil of vitriol") | John Roebuck and Samuel Garbett's **lead-chamber process**, Birmingham 1746, Prestonpans 1749: acid in large lead-lined rooms instead of glass globes | lead sheet; sulphur (from Sicily) and saltpetre; Roebuck was a physician trained in chemistry at Edinburgh and Leiden |
-| sun and grass | **chlorine**, then **bleaching powder** (chloride of lime) | Berthollet's chlorine bleaching (France, 1785); **Charles Tennant**, patent 1799 (with Charles Macintosh), at **St Rollox, Glasgow** | sulphuric acid and salt (to make chlorine), manganese dioxide, lime. St Rollox became the largest chemical works in the world in the 1830s and 1840s, over 100 acres; its chimney, "Tennant's Stalk" (1842), was 435 feet |
-| wood ash, kelp, barilla | **soda ash** by the **Leblanc process** | Nicolas Leblanc, France, 1791; in Britain after the salt tax was cut (1823): **James Muspratt** at Liverpool (1823), then St Helens and **Widnes**; Losh on the Tyne (1816) | salt (Cheshire brine), sulphuric acid, coal, limestone; all on or near the Mersey. British soda production reached about 140,000 tons by 1852 and about 200,000 tons a year in the 1870s, more than the rest of the world [R] |
-| madder, indigo, cochineal, weld | **synthetic dyes** | William Henry Perkin's **mauve** from aniline (London, 1856, aged 18, a student of A. W. Hofmann at the Royal College of Chemistry); synthetic alizarin (Graebe and Liebermann, 1868 to 1869; BASF and Perkin); synthetic indigo (BASF, 1897) | **coal tar from the gasworks** (benzene → nitrobenzene → aniline, needing nitric acid); organic chemistry as a science; university laboratories |
+| sour milk | dilute **sulphuric acid** | Roebuck and Garbett's **lead-chamber process** (Birmingham 1746, Prestonpans 1749): acid in lead rooms, not glass globes | lead sheet; Sicilian sulphur; saltpetre; a chemist's training |
+| sun and grass | **chlorine**, then **bleaching powder** | Berthollet (France, 1785); **Charles Tennant**, patent 1799, at **St Rollox, Glasgow**, the world's largest chemical works in the 1830s and 1840s (over 100 acres; "Tennant's Stalk", 1842, 435 feet) | sulphuric acid, salt, manganese dioxide, lime |
+| wood ash, kelp, barilla | **soda ash** by the **Leblanc process** | Leblanc (France, 1791); in Britain after the salt tax cut of 1823: **Muspratt** at Liverpool, then St Helens and **Widnes**. About 140,000 tons by 1852 and 200,000 a year in the 1870s, more than the rest of the world [R] | Cheshire salt, acid, coal, limestone, all near the Mersey |
+| madder, indigo | **synthetic dyes** | Perkin's **mauve** (London, 1856, aged 18, a student of Hofmann); alizarin (1868 to 1869); indigo (BASF, 1897) | **coal tar from the gasworks** (benzene → aniline, needing nitric acid); organic chemistry; laboratories |
 
 ### 6.2 The alkali chain and its by-products
 
@@ -478,9 +476,8 @@ switch in one country removes a land-based chain in another.**
   clocking-in and rules. Lombe's silk mill at Derby (1721) was a powered precursor.
 - **Discipline and time**: E. P. Thompson's essay on time and work discipline and Sidney Pollard's *Genesis of Modern Management*
   describe the bell, fines, overlookers, the move from task time to clock time.
-- **Labour law and response**: the Combination Acts (1799 to 1800) forbade unions until repealed in 1824; the Truck Act (1831)
-  required wages in coin, not goods from the masters' shops; trade unions, friendly societies, cooperatives (Rochdale Pioneers,
-  1844), Chartism (1838 to 1848).
+- **Labour law and response**: the Combination Acts (1799 to 1824) forbade unions; the Truck Act (1831) required wages in coin;
+  unions, friendly societies, cooperatives (Rochdale, 1844), Chartism (1838 to 1848).
 - **Living standards**: real wages were flat or nearly so from about 1780 to 1830 or 1840 while output per worker rose (Robert
   Allen's "Engels' pause"); Charles Feinstein estimated a rise of only about 30% in real wages between the late 1770s and the
   1850s [R]. Hans-Joachim Voth finds working hours rose, so consumption per head adjusted for leisure barely changed from 1760 to
@@ -508,9 +505,8 @@ switch in one country removes a land-based chain in another.**
 - Patents mattered unevenly: Arkwright's patents were overturned in 1785; Watt's was extended; Crompton never patented; the
   Cornish engineers shared (1.3). Petra Moser finds most exhibits at the 1851 Crystal Palace were not patented: secrecy and
   first-mover advantage protected much innovation.
-- **Useful knowledge** moved through societies (the Royal Society, 1660; the Lunar Society of Birmingham, 1765 to about 1813:
-  Boulton, Watt, Wedgwood, Priestley, Erasmus Darwin), lectures, encyclopaedias, mechanics' institutes (from the 1820s), and
-  journals.
+- **Useful knowledge** moved through societies (the Lunar Society of Birmingham: Boulton, Watt, Wedgwood, Priestley), lectures,
+  mechanics' institutes and journals.
 
 ### 7.4 Urbanisation and its problems
 
@@ -521,18 +517,15 @@ switch in one country removes a land-based chain in another.**
 | Manchester (with Salford) | small market town | about 90,000 (1801) [R] | about 400,000 [R] | |
 
 The towns grew faster than water, drains and housing:
-- **Housing**: back-to-back terraces, courts, cellar dwellings (in Liverpool in the 1840s a large share of the working class lived
-  in cellars [R]).
-- **Water and sewage**: cesspools, privies shared by many households, rivers used for both. Cholera came in 1831 to 1832, 1848 to
-  1849, 1853 to 1854 and 1866; John Snow traced the 1854 Broad Street outbreak to a pump.
+- **Housing and water**: back-to-backs, courts, cellar dwellings; cesspools and shared privies; rivers for both water and sewage.
+  Cholera in 1831 to 1832, 1848 to 1849, 1853 to 1854 and 1866; John Snow traced the 1854 Broad Street outbreak to a pump.
 - **Mortality**: Edwin Chadwick's *Report on the Sanitary Condition of the Labouring Population* (1842) gave average ages at death of
   17 for labourers in Manchester against 38 in rural Rutland, and 38 against 52 for professionals [C: average age at death is a poor
   measure, depressed by infant deaths, but the gap was real]. Urban life expectancy at birth in the worst industrial towns in the
   1840s was in the high twenties to low thirties [R].
-- **Responses**: Public Health Acts (1848, 1875), local boards of health, municipal water companies; after the "Great Stink" of 1858,
-  Bazalgette's intercepting sewers (about 80 miles of main sewers and some 1,100 miles of street sewers [R]). Municipal gas and water
-  ("gas and water socialism", Joseph Chamberlain's Birmingham in the 1870s). These are **public goods and commons** at a scale no
-  village faces: they needed rates (local taxes), borrowing, and engineers.
+- **Responses**: Public Health Acts (1848, 1875); after the "Great Stink" of 1858, Bazalgette's sewers (about 80 miles of main and
+  1,100 of street sewers [R]); municipal gas and water (Chamberlain's Birmingham, 1870s). **Public goods at a scale no village
+  faces**, needing rates, borrowing and engineers.
 
 ---
 
