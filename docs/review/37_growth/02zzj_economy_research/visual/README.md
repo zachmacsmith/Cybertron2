@@ -5,6 +5,11 @@ web of dependencies across different societal paradigms, as new things are unloc
 
 Page: https://claude.ai/artifact/MGPhiBe42BscFep6MB8VrN (private to Zach; `index.html` here is the same page).
 
+> **A map, not a plan** (Zach, 15 Nov: "a map of all of the future to come back and have better clarity of where to draw the
+> borders for now ... so I don't accidentally scope creep into trying to build the entirety of human history"). Nothing here
+> is proposed for building because it appears here. The border for now, and how something crosses it, is in
+> [02zzk_medieval_border.md](../../02zzk_medieval_border.md).
+
 ## What it shows
 
 - **Dependency web:** 908 techniques, industries, goods, infrastructures and institutions in ten domain lanes, placed at their

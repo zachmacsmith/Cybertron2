@@ -6,6 +6,11 @@ hunter gatherer through to advanced urban 21st century society. Don't feel bound
 affordable AI societies. But don't be too coarse, I want you to dig into specific industries and their supply chains and how they
 merged and built historically."
 
+> **A map, not a plan** (Zach, 15 Nov: "a map of all of the future to come back and have better clarity of where to draw the
+> borders for now ... so I don't accidentally scope creep into trying to build the entirety of human history"). Nothing here
+> is proposed for building because it appears here. The border for now, and how something crosses it, is in
+> [02zzk_medieval_border.md](../02zzk_medieval_border.md).
+
 Thirteen parts, about 144,000 words, written by thirteen research agents and read and indexed here by 37.2. Research to design from:
 nothing in it is proposed for building or decided. It extends 02zzi (a first frame from memory), 02zzh (layers and trees) and
 proposals/economy_web.md (chains of different shapes), and it is read against the engine as built (part 09).
