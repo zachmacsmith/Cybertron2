@@ -153,6 +153,44 @@ and its owner chooses between grinding and the fish.
 5. **Signs:** the mill's gap seen at the parcel ("the mill's hatches are shut; the water stands high above the dam"); salmon leaping
    at the dam on a run night, plain to anyone there; above the dam, "few salmon came up this year" for those who know the run.
 
+## 3b. The weir in sections, its cap and its upkeep (Zach, 16 Nov; D2-210)
+
+A run should be a short burst of plenty, worth more a night than farming, but only on a few nights a year; the limits are what
+the weir can hold and what people can keep (Zach: "storage and keeping food does become the real bottleneck"). All values calibrate.
+
+1. **One weir per water parcel** (the parcel is its site). Weirs on one stretch take in turn from upstream, each from what the ones
+   above let through.
+2. **Built in sections**, as the mill is built by adding parts (D2-61); upgrading costs only the difference, and a weir can be part
+   upgraded:
+
+   | Section | Cost each | Adds |
+   |---|---|---|
+   | the first (stakes and wattle across part of the river, one trap) | 12 timber, 24 units, a crew of 2 (as built) | takes 30% of a run passing, holds about 10 food a night |
+   | each further timber section, up to three | about 10 timber, 25 units | about 7% more of the run and about 7 food more a night, to about 50% and 30 food |
+   | stone footing, a section at a time | about 10 stone, 15 units | that section wears at a tenth of wattle's rate |
+
+3. **A night's catch** is the share of the run passing, capped by what the weir holds (later also by what its crew can lift).
+4. **A year's take, the target:** about 60 to 70 food for one section, about 180 to 200 for a full weir (about 13% and 40% of a
+   village of 15's food in a 32-day year: 480), from about 5 salmon nights and 3 eel nights. A run night pays about 3 to 6 food a
+   unit of work, above farming's 2.8, for a few nights only.
+5. **Wear follows the river**, per section and night: the material's rate (wattle; timber about half; stone-footed about a tenth) ×
+   the water type (lowland river ×1, large river ×1.5, upland beck ×2) × the flow (low ×0.5, normal ×1, high ×2, spate ×5, flood ×15)
+   × the gap shut in high water (×1.5: traps and a closed gap catch the debris) × ice (×3, more at the break-up). Until the river
+   level exists (environment_systems.md, phase 1), the flow is read from the catchment's rain of the last days, the signal §2
+   already computes for the eel's cue.
+6. **Targets:** a wattle section on a lowland river loses about a level in a week of normal flow (mended every season it is used);
+   a spate night often costs one or two levels; a flood with the gap shut usually takes the section, with it open about half that.
+   A year's upkeep: wattle about 40 to 50% of its cost, timber 20 to 25%, stone-footed 5 to 10%; a full weir a quarter to a third of
+   its cost a year, against a few percent for a house.
+7. **The choice it makes:** runs come with rain, so the nights the fish run are the nights the river rises. Keep the gap shut and
+   catch the run while risking the weir, or open it to save the weir and lose the fish.
+8. **Keeping is the bottleneck:** a full weir's salmon night (about 15 fish, 30 food) is more than one smokehouse can take (40 fish
+   a batch over 3 to 4 nights) or one salt spring supplies quickly (1 salt for 4 fish); fresh fish spoil in days. So the weir, the
+   smokehouses, salt and fuel bind together, as the research found (02zzj parts 06, 10: storage, not the catch, made a run into
+   wealth).
+9. **Proposed, not decided: fresh fish spoil faster than meat**, about 0.5 a night against meat's 0.3 (the data has fish "as
+   meat"): fish goes off within a day in warmth, a carcass can hang for days in cool weather.
+
 ## 4. The kinds on the water
 
 | Kind | What to add (data on the rules, unless said) | Test |
@@ -392,6 +430,10 @@ generate; nothing in the engine changes for it.
 - 16 Nov 2026: the worlds made (branch `water-worlds`, cc6f38d): the river, lake and runs-only worlds and the generator's brine spring
   and big-river pins (§1); where a run meets a village (§2.4, found building them); §8's "no farming" made physical, since farming has
   no pack (OPEN L-112).
+- 16 Nov 2026: §3b, the weir in sections, its nightly cap, a year's targets and upkeep by the river (D2-210), after the build
+  measured salmon nights at 4.5 to 17 food a unit with no cap (38.72). Zach: "storage and keeping food does become the real
+  bottleneck"; "a weir seems like quite high upkeep ... a lot more than a house"; "if you think the numbers above match that then it
+  is fine". Fresh fish spoiling faster than meat proposed (§3b.9).
 
 ## Sources
 
