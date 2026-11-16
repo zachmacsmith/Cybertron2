@@ -293,8 +293,10 @@ def test_a_hungry_pack_takes_a_beast_from_the_herd_and_leaves_its_carcass(genera
     from cybertron2.engine import signs as SG
     formed, true = False, None
     for _ in range(16):
-        N.night(w)
-        formed |= "wolf@s1" in w.s["wild"]["groups"]
+        for i in np.flatnonzero(rw > 0):                                            # kept hungry: well-fed wolves in summer rarely
+            w.s["wild"]["state"]["cond"]["wolf"][i] = 0.0                          # set out (the drive's hunger term), so a fed pack
+        N.night(w)                                                                  # raids by chance only
+        formed |= any(g.startswith("wolf@") for g in w.s["wild"]["groups"])
         c = next((c for c in w.s["containers"].values() if c.get("kind") == "carcass" and c.get("cause") == "killed"), None)
         if c is not None and true is None:                                         # the morning after the kill
             w.s["day"] += 1
