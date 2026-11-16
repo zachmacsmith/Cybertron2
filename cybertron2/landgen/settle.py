@@ -108,6 +108,9 @@ def _pin_mask(L: Land, pin: dict, name: str) -> np.ndarray:
     if on == "river":
         _, d = P._spread(g, L.river >= 2, np.ones(g.shape), 4, how="near")
         ok &= np.isfinite(d)
+    elif on == "big river":                                                # beside the large river itself (brief 5 §1): its water
+        _, d = P._spread(g, L.river >= 3, np.ones(g.shape), 4, how="near") # parcels are cut from it (allocate)
+        ok &= np.isfinite(d)
     elif on == "sea":
         ok &= L.c < 1.5
     elif on == "lake":
@@ -140,6 +143,8 @@ def _pin_mask(L: Land, pin: dict, name: str) -> np.ndarray:
         elif h == "mill site":
             _, d = P._spread(g, (L.river >= 2) & (L.slope >= 0.6), np.ones(g.shape), 6, how="near")
             ok &= np.isfinite(d)
+        elif h == "brine spring":                                          # placed on the place's own open ground (write.py), so it
+            pass                                                           # does not move the site (D2-56; brief 5 §4b)
     return ok
 
 
@@ -308,6 +313,11 @@ def allocate(L: Land, conf: dict, base: dict, s: Settlement, claimed: np.ndarray
     s.facts["woods"] = take("wood", units, lambda rc: L.cover[rc] == "forest" or tn(rc) in V.WOOD_OK)
     s.facts["waste"] = take("waste", waste_units, lambda rc: tn(rc) in V.WASTE_COVER or L.cover[rc] in ("heath", "moor", "fen"))
     near_water = [rc for rc in order[:400] if (L.river[rc] >= 2 or L.lake[rc]) and not claimed[rc]]
+    if s.pin.get("on") == "big river":                                     # the large river's own cells, nearest the site first:
+        r0, c0 = s.site                                                    # the travel costs skip them (_cost_from), so they are
+        big = np.argwhere((L.river >= 3) & ~claimed & ~L.sea)              # found by distance, within the village's reach
+        dist = np.hypot(L.g.x[big[:, 0], big[:, 1]] - L.g.x[r0, c0], L.g.y[big[:, 0], big[:, 1]] - L.g.y[r0, c0])
+        near_water = [tuple(map(int, big[i])) for i in np.argsort(dist, kind="stable") if dist[i] <= float(conf["field_km"])][:2] or near_water
     for rc in near_water[:2]:
         out[rc] = "water"
     return out

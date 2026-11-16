@@ -110,6 +110,8 @@ PER_UNIT = {
 }
 GAME_PER_UNIT = {"managed wood": 1.3, "copse": 0.5, "old forest": 3.5}
 SEAM = {"S": 60, "K": 60}          # copper ore in a seam (region_c's Coppergate size)
+BRINE = {"S": 1000, "K": 1000, "r": 0.0}   # a brine spring (D2-56; brief 5 §4b): drawn and boiled, it does not run dry (calibrate)
+BRINE_TEXT = "A brine spring wells up here: the water tastes of salt, and the grass round it is thin and white-crusted."
 QUARRY_PER_UNIT = 100              # stone in a rock parcel a unit of size (wenbridge's quarry: 200 in a parcel of size 1, finite)
 
 # ---------------------------------------------------------------------- the vocabulary (D2-173; stage 1 §11c)

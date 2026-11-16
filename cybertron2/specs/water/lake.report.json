@@ -1,0 +1,245 @@
+{
+ "seed": 3,
+ "pins": {},
+ "targets": {
+  "Meresby": {
+   "households": 3,
+   "people": 15,
+   "food": 0.6,
+   "heat": 0.6,
+   "plots_wanted": 16,
+   "fields": 16,
+   "wood_wanted": 5,
+   "woods": 5,
+   "waste": 3
+  }
+ },
+ "checks": {
+  "rivers run downhill": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "0 river cells drain uphill"
+  },
+  "laid rivers run where laid": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "2 laid"
+  },
+  "every pin met": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "a pin not met is refused when it is placed"
+  },
+  "settlements placed": {
+   "kind": "design",
+   "ok": true,
+   "detail": "1 of 1 at 17.0 km apart"
+  },
+  "capacity": {
+   "kind": "design",
+   "ok": false,
+   "detail": {
+    "Meresby": 0.75
+   }
+  },
+  "dependence": {
+   "kind": "design",
+   "ok": false,
+   "detail": {
+    "Meresby": [
+     "stone",
+     "metal"
+    ]
+   }
+  },
+  "reachable by land": {
+   "kind": "design",
+   "ok": true,
+   "detail": []
+  },
+  "chokepoint": {
+   "kind": "design",
+   "ok": false,
+   "detail": []
+  },
+  "roads about a day": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "1": 1
+   }
+  },
+  "parcels per node": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Meresby": 10
+   }
+  },
+  "access gates": {
+   "kind": "design",
+   "ok": true,
+   "detail": "the bot dry run checks them once the people exist (scenario_design)"
+  },
+  "makes its own landscape": {
+   "kind": "design",
+   "ok": true,
+   "detail": "no promise for this configuration"
+  },
+  "lakes where lakes belong": {
+   "kind": "design",
+   "ok": true,
+   "detail": "1 lakes; 0 outside fen or upland systems (0.0 a 1,000 km2)"
+  },
+  "wood share by how long settled": {
+   "kind": "design",
+   "ok": true,
+   "detail": "0.30 of the land in wood (settled: settled, 0.30)"
+  },
+  "capacity, people as generated": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Meresby": {
+     "people": 15,
+     "share": 0.75,
+     "target": 0.6
+    }
+   }
+  },
+  "economy: region food": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "15 people; the land keeps 28 for good (0.55 of it)"
+  },
+  "economy: food over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "14 days need 193 meals; store, crops ripening and the land give 453 (0.43)"
+  },
+  "economy: region heat": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "15 people; the land keeps 45 for good (0.33 of it)"
+  },
+  "economy: heat over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "14 days need 51 heat (3 hearths, 1.0 cold nights); store and the woods' flow give 339 (0.15); the woods stand at 38300 more"
+  },
+  "economy: carrying burden": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {}
+  },
+  "economy: households' runway": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {
+    "short": [],
+    "share_of_people": 0.0,
+    "days_of_food_a_member": {
+     "the Hunts": 6.8,
+     "the Wards": 6.8,
+     "the Marshs": 6.8
+    }
+   }
+  },
+  "economy: fuel": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "every hearth has wood in store or woods at hand"
+  },
+  "economy: room to grow": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "2 couples; about 2 births in 14 days if they try often; the region would be at 0.63 of its land"
+  },
+  "economy: succession": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "nobody grown is likely to die in the run"
+  }
+ },
+ "generated": [],
+ "deviations": [
+  "cells on a jittered square grid, not Poisson-disc points with Delaunay neighbours (scipy not installed)",
+  "cells saved as .npz, not parquet (pyarrow not installed)",
+  "people: generate.py once for the region as it stands (no kin between villages yet: 37.4's, later)"
+ ],
+ "descriptions": {
+  "model": null,
+  "written": 0,
+  "failed": 0
+ },
+ "nodes": {
+  "Meresby": {
+   "name": "Meresby",
+   "kind": "village",
+   "site_km": [
+    25.95,
+    23.0
+   ],
+   "parcels": 10
+  },
+  "w1": {
+   "name": "Hazelhope",
+   "kind": "wild",
+   "site_km": [
+    45.11,
+    41.39
+   ],
+   "parcels": 2
+  }
+ },
+ "anchors": {
+  "the_mere": [
+   25.0,
+   25.0
+  ],
+  "the_brook.source": [
+   25.0,
+   45.0
+  ],
+  "the_brook.mouth": [
+   25.0,
+   28.0
+  ],
+  "the_outflow.source": [
+   25.0,
+   22.0
+  ],
+  "the_outflow.mouth": [
+   25.0,
+   0.0
+  ],
+  "carr": [
+   25.0,
+   25.0
+  ]
+ },
+ "refused": [],
+ "water_stocks": {
+  "water parcels stocked": 1
+ },
+ "fuel": {
+  "houses": 3,
+  "firewood": 30,
+  "timber": 20
+ },
+ "design": {
+  "water_parcels": {
+   "Meresby_8": 2
+  },
+  "lake_km2_at_home": 12.85
+ }
+}
