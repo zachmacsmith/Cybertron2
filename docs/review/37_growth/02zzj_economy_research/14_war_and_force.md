@@ -26,14 +26,12 @@ crossings, ports and passes and took tolls. Tribute and plunder economies (Assyr
 Danegeld reached £72,000 from England in 1018 plus £10,500 from London) moved surplus by threat; war made captives and so slaves.
 Frederic Lane's "protection rent" names the profit of whoever produces security more cheaply than rivals: Venice's convoys,
 Portugal's passes, the chartered companies with their own armies (the East India Company's forces approached a quarter of a million
-men by the 1820s). War also made the state. Tilly's "war made the state, and the state made war", the military-revolution debate
-(Roberts, Parker and their critics) and the fiscal-military state (the Bank of England's first act was a loan of £1.2 million at 8%
-to William III's war; Britain's debt rose from £12 million in 1700 to about £850 million in 1815) are the main lines. War finance
-was also the main source of inflation and debasement before the 20th century, and of mass income taxation in it.
+men by the 1820s). War also made the state. The main lines are Tilly's "war made the state", the military-revolution debate and the
+fiscal-military state (the Bank of England began with a £1.2 million war loan at 8%; British debt rose from £12 million in 1700 to
+about £850 million in 1815). War finance drove most debasement and inflation, and mass income taxation.
 
-Against that sits destruction and insecurity: armies that lived off the land, regions that lost a third of their people, and the
-standing cost of insecurity (walls, hidden stores, hill villages, coin hoards, crops chosen because soldiers cannot easily take
-them), and the peace dividends of Pax Romana, Pax Mongolica and the 1990s. The steppe nomads' edge (horse archers, grass for fuel,
+Against that sit destruction (regions that lost a
+third of their people), the standing cost of insecurity (walls, hidden stores, hill villages, hoards) and the peace dividends. The steppe nomads' edge (horse archers, grass for fuel,
 many mounts a rider) shaped Eurasian trade for two thousand years, through tribute from China, protection of the Silk Roads and the
 Mongol peace, until gunpowder and the agrarian empires closed the steppe in the 18th century. For the engine, the main point is that
 force is already physics in Cybertron 2 (attacks, raids, guards, walls and gates, `spec/conflict/`; one crude weapon that serves
@@ -312,10 +310,9 @@ standard). The earliest written formula is Chinese (the *Wujing Zongyao*, 1044, 
 | **GPS** | US Air Force Navstar: first satellite 1978, full operation 1995, the civil signal degraded until 2000 | logistics, surveying, phones, precision farming | *unchecked* |
 | **synthetic rubber, aluminium, penicillin** | the US wartime programmes | the postwar plastics, aircraft and drug industries (synthetic_rubber, aluminium, penicillin_fermentation) | *unchecked* |
 
-- **How procurement worked as a driver.** The military bought early, at high prices, in volume, with specifications that forced
-  reliability and miniaturisation, and often paid for research and the production engineering behind it. That carried new
-  technologies down the learning curve until civil buyers could afford them (*rough*). Whether that is efficient or crowds out civil
-  research is argued (Mazzucato against her critics, *contested*), but the sequence is not in doubt for the cases above.
+- **How procurement drove technology**: the military bought early, dear and in volume, to specifications that forced reliability
+  and miniaturisation, and paid for the research and production engineering, carrying technologies down the learning curve to civil
+  buyers (*rough*). Whether this crowds out civil research is *contested* (Mazzucato and her critics).
 - **The scale.** US defence spending was about 14% of GDP in 1953, 9.5% in 1968, about 6% at the 1986 peak and about 3% from 1999
   to 2001 (*checked*, several secondary series). Eisenhower named the "military-industrial complex" in 1961.
 - **Total war**: in the Second World War the US built some 300,000 aircraft and about 2,700 welded Liberty ships (*unchecked*).
@@ -347,13 +344,12 @@ standard). The earliest written formula is Chinese (the *Wujing Zongyao*, 1044, 
 | **the Mongols** (13th c.) | conquest, then tribute, census and taxes; artisans spared and moved to Karakorum and China; merchant partnerships (ortogh) financed by the nobility | the largest land empire; the yam relay (mongol_yam) | part 11; *unchecked* |
 | **Spain in the Americas** (16th c.) | plunder of Aztec and Inca treasure (Atahualpa's ransom), then silver by forced labour (potosi_mita) | plunder became a mining economy | part 11 |
 
-- **The pattern.** Plunder is a one-off; tribute is plunder made regular; taxation is tribute made routine and administered. Mancur
-  Olson's "roving and stationary bandits" (1993) puts this as an incentive: a bandit who stays has a stake in his victims' output,
-  so takes less and protects them from others (*unchecked*). Tribute needs what a tax needs, minus consent: a way to count, a
-  schedule, collectors, and the credible threat of the raid behind it.
-- **Plunder economies were short of goods of their own.** Viking silver came mostly from Islamic dirhams traded for slaves and furs
-  (hundreds of thousands found in Scandinavia, *rough*); the Assyrian core depended on deported labour; the Mongol court on
-  captured artisans. When conquest stopped, the plunder economy had to become a tax economy or shrink.
+- **The pattern.** Plunder is a one-off, tribute is
+  plunder made regular, taxation is tribute administered. In Olson's "roving and stationary bandits" (1993) a bandit who stays has a
+  stake in his victims' output, so takes less and protects them (*unchecked*). Tribute needs a count, a schedule, collectors and the
+  credible threat of the raid.
+- **Plunder economies made little of their own** (Viking silver was mostly Islamic dirhams traded for slaves and furs, *rough*);
+  when conquest stopped they became tax economies or shrank.
 
 ### 2.3 Slaving from war captives
 
@@ -406,8 +402,7 @@ standard). The earliest written formula is Chinese (the *Wujing Zongyao*, 1044, 
 - **Castle and town.** Conquest castles came with planned towns: Edward I's boroughs in Wales and the *bastides* of Gascony, with
   walls, a market and settlers given burgage plots (*unchecked*). The castle protected the market, and the market paid the castle.
 - **Incastellamento.** In 10th- and 11th-century central Italy, lords gathered scattered peasants into fortified hill villages
-  (Pierre Toubert's *incastellamento*), reorganising land, settlement and lordship at once (*unchecked*). Insecurity made the
-  village shape (§4.2).
+  (Toubert's *incastellamento*, *unchecked*).
 - **Sieges were usually won by hunger**, so a castle's granary and well were its real defences (*rough*).
 
 ### 2.6 Protection rents: Frederic Lane
@@ -490,9 +485,8 @@ standard). The earliest written formula is Chinese (the *Wujing Zongyao*, 1044, 
 - **Others.** Black put the change after 1660, Rogers saw punctuated revolutions from the Hundred Years' War, and Lynn showed
   French paper strengths of the 1690s overstate the men present (*unchecked*). Andrade (*The Gunpowder Age*, 2016) found China's own military revolutions and a divergence only after about 1750
   (*unchecked*).
-- **What the debate shows for this map.** Whichever date wins, the mechanism is the same chain: a technique (the gun, the bastion,
-  drill) raises the minimum cost of war; the cost needs revenue and credit; the revenue needs officials, records and consent or
-  coercion. That is the line from §1 to part 05 §5.
+- **For this map** the mechanism is one chain whatever the date: a
+  technique raises the minimum cost of war, which needs revenue and credit, which need officials, records and consent or coercion.
 
 ### 3.3 The fiscal-military state, public debt and the Bank of England
 
@@ -507,8 +501,6 @@ standard). The earliest written formula is Chinese (the *Wujing Zongyao*, 1044, 
   bankers on short contracts (*asientos*) and suspended payments several times (1557, 1560, 1575, 1596, *unchecked*; Drelichman and
   Voth argue these were renegotiations built into the contracts, *contested*); **France** relied on tax farmers and sold offices,
   and the debt of the American war brought on the crisis of 1788 to 1789 (*unchecked*).
-- **What it needed**: coin and markets to tax, a credible promise to repay (a parliament of creditors), records, and a market for
-  the bonds (stock_exchange). **What it enabled**: war on credit, a deep bond market, and the rentier as a class.
 
 ### 3.4 War finance and inflation
 
