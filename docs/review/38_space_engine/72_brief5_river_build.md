@@ -79,4 +79,10 @@ sound weir at each village's water, lifted each morning; no one else acting (riv
 8. **Fixed in passing:** `wild.hunt` overwrote its tally of each hunter's kills with the parcel's kill record when a near hunt killed on
    its own parcel, so `practise` crashed (a net at the village water taking salmon showed it).
 
+9. **Old assertions changed:** one. `test_cybertron2_wild_range4c.py::test_kinds_without_a_range_keep_the_rule_they_had_exactly` pins
+   a replay digest of the generated probe world from before 4c; brief 5's new kinds and the eels' run change that world's ecology (the
+   brief's rule), so the test now also takes brief 5's kinds (`wave` 6) and `RUNS` off, and the old digest holds exactly.
+10. **The river's signs** are rows on the one noticing rule with `own` set like the other wild rows; the guide's table of chances by
+   place, fog and night (guides/senses.md, checklist step 4) is not yet made for them.
+
 *Current as of 16 Nov 2026.*
