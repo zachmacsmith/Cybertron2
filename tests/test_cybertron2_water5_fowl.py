@@ -12,7 +12,7 @@ from cybertron2.engine.world import World
 from cybertron2.wild.kinds import OPEN_WATER, PUSHED, SITES
 from tests.test_cybertron2_wild import _do, build, generated  # noqa: F401
 
-NODE, BROOK, WOOD, LEAZE = "Meresby", "Meresby_8", "Meresby_6", "Meresby_3"
+NODE = "Meresby"
 WINTER = 14                                                     # the lake world starts on summer's 4th day of 8: day 14 is winter
 
 
@@ -28,6 +28,25 @@ def _world(lake, netters=0, skill=5.0, keep=1):
     s["agents"].update({f"N{i}": {"household": hh, "stage": "adult", "sex": "m", "at": NODE,
                                   "knows": {"net": {"level": "known", "skill": skill}}} for i in range(netters)})
     return World(s)
+
+
+def _places(w):
+    """The places a test needs, found in the world: the village's fish water, a wood off the water, a lodge's parcel beside the
+    water (of the lodge's covers) and the meadow and pasture its dam would flood."""
+    P = w.s["parcels"]
+    ours = sorted(pid for pid, p in P.items() if p["node"] == NODE)
+    brook = next(pid for pid in ours if P[pid]["cover"] == "water" and "fish" in P[pid]["res"])
+    wood = next(pid for pid in ours if P[pid]["cover"] == "forest" and WL.at_water(w, pid) is None)
+    grassy = lambda q: P[q]["cover"] in SITES["lodge"]["dam"]["floods"]["covers"] and "grass" in P[q]["res"]
+    lodge = next(q for q in sorted(P[brook]["adj"]) if q in ours and P[q]["cover"] in SITES["lodge"]["where"]["covers"]
+                 and any(grassy(x) for x in [q] + list(P[q]["adj"])))
+    flooded = sorted(x for x in [lodge] + list(P[lodge]["adj"]) if x in P and grassy(x))
+    return {"brook": brook, "wood": wood, "lodge": lodge, "flooded": flooded, "name": P[brook]["name"]}
+
+
+def _no_frost(monkeypatch):
+    """The real weather pinned mild: no hard night anywhere (no hard winter, no great freeze)."""
+    monkeypatch.setattr(WL, "_frozen_day", lambda w, node, d: False)
 
 
 def _frost(monkeypatch, day, n):
@@ -57,7 +76,8 @@ def test_the_lake_world_holds_small_water_at_home_and_the_mere_in_its_ring(lake)
     home, ring = WL._water_parts(m, hi), WL._water_parts(m, ri)
     assert home["small"] > 0 and home["lake"] == home["big river"] == 0
     assert ring["lake"] > 0 and ring["small"] > 0
-    assert WL.at_water(w, BROOK) == "water" and WL.at_water(w, WOOD) is None
+    pl = _places(w)
+    assert WL.at_water(w, pl["brook"]) == "water" and WL.at_water(w, pl["wood"]) is None
 
 
 def test_frost_freezes_the_small_waters_first_and_the_lake_last(lake, monkeypatch):
@@ -82,9 +102,10 @@ def test_only_a_pushed_kind_at_the_water_is_crowded(lake, monkeypatch):
     w.s["day"] = WINTER
     m, hi, ri = _areas(w)
     _frost(monkeypatch, WINTER, 1)
-    assert WL.pushed(w, m, NODE, BROOK, "wildfowl", hi) > 1.0
-    assert WL.pushed(w, m, NODE, WOOD, "wildfowl", hi) == 1.0                       # off the water: as before
-    assert WL.pushed(w, m, NODE, BROOK, "eel", hi) == 1.0                           # not a kind the cold pushes
+    pl = _places(w)
+    assert WL.pushed(w, m, NODE, pl["brook"], "wildfowl", hi) > 1.0
+    assert WL.pushed(w, m, NODE, pl["wood"], "wildfowl", hi) == 1.0                 # off the water: as before
+    assert WL.pushed(w, m, NODE, pl["brook"], "eel", hi) == 1.0                     # not a kind the cold pushes
 
 
 def test_worlds_without_water_are_as_before(generated, monkeypatch):  # noqa: F811
@@ -107,9 +128,10 @@ def _nets(lake, monkeypatch, n, rng_word=None, netters=20):
     _fowl(w)
     _frost(monkeypatch, WINTER, n)
     meat, lines = 0.0, []
+    at = _places(w)["name"]
     for i in range(netters):
         w.s["today"] = R.blank_today()
-        lines.append(_do(w, f"N{i}", {"do": "gather", "what": "net", "at": "the Brook", **({"range": rng_word} if rng_word else {})}))
+        lines.append(_do(w, f"N{i}", {"do": "gather", "what": "net", "at": at, **({"range": rng_word} if rng_word else {})}))
         meat += w.goods(w.s["people"][f"N{i}"]["hands"]).get("meat", 0.0)
     return meat, lines
 
@@ -160,11 +182,12 @@ def test_the_push_shows_at_the_water_the_day_it_begins(lake, monkeypatch):
         out = []
         SG._wild_when(Here(w, who), lambda about, text, *a, **k: out.append((text, k["spot"]["parcel"])))
         return out
+    pl = _places(w)
     crowd = seen(1)
-    assert any("packed thick on the open water at the Brook" in t and pid == BROOK for t, pid in crowd)
+    assert any(f"packed thick on the open water at {pl['name']}" in t and pid == pl["brook"] for t, pid in crowd)
     assert any("nets at the water's edge" in t for t, _ in crowd)
     froze = seen(OPEN_WATER["hold"]["small"] + 1)
-    assert any("the water at the Brook frozen over" in t for t, _ in froze)
+    assert any(f"the water at {pl['name']} frozen over" in t for t, _ in froze)
     assert not any("packed thick" in t for t, _ in froze)
 
 
@@ -176,9 +199,12 @@ def _site(w, kind, pid, size):
     return sid
 
 
-def test_the_dam_cuts_the_meadows_hay_and_raises_the_fish_and_breaking_it_reverses_both(lake):
+def test_the_dam_cuts_the_meadows_hay_and_raises_the_fish_and_breaking_it_reverses_both(lake, monkeypatch):
+    _no_frost(monkeypatch)
     w = _world(lake)
-    sid = _site(w, "lodge", WOOD, 3)
+    pl = _places(w)
+    BROOK, LODGE, LEAZE = pl["brook"], pl["lodge"], pl["flooded"][0]
+    sid = _site(w, "lodge", LODGE, 3)
     hay0, fish0 = (dict(w.s["parcels"][LEAZE]["res"]["grass"]), dict(w.s["parcels"][BROOK]["res"]["fish"]))
     WL._dam(w, sid, w.s["wild"]["sites"][sid], True, direct=True)
     d = SITES["lodge"]["dam"]
@@ -189,7 +215,7 @@ def test_the_dam_cuts_the_meadows_hay_and_raises_the_fish_and_breaking_it_revers
     out = []
     from cybertron2.engine.here import Here
     SG._wild_sites(Here(w, next(iter(w.s["people"]))), lambda about, text, *a, **k: out.append((text, k["spot"]["parcel"])))
-    assert any("lies drowned behind the beavers' dam" in t and pid == LEAZE for t, pid in out)
+    assert any("lies drowned behind the beavers' dam" in t and pid in pl["flooded"] for t, pid in out)
     assert any("backed up the water" in t and pid == BROOK for t, pid in out)
     for _ in range(6):                                                               # the pond fills with fish
         N.night(w)
@@ -198,7 +224,7 @@ def test_the_dam_cuts_the_meadows_hay_and_raises_the_fish_and_breaking_it_revers
     w.s["today"] = R.blank_today()
     who = next(iter(w.s["people"]))
     w.s["know"].setdefault(who, {})["break a dam"] = {"level": "known", "skill": 1.0}     # a village with a lodge knows it (methods)
-    r = _do(w, who, {"do": "work", "what": "break a dam", "at": w.s["parcels"][WOOD]["name"]})
+    r = _do(w, who, {"do": "work", "what": "break a dam", "at": w.s["parcels"][LODGE]["name"]})
     assert "broke open" in r, r
     g, f = w.s["parcels"][LEAZE]["res"]["grass"], w.s["parcels"][BROOK]["res"]["fish"]
     assert abs(g["K"] - hay0["K"]) < 1e-6 and abs(f["K"] - fish0["K"]) < 1e-6 and f["S"] <= fish0["K"] + 1e-6
@@ -212,7 +238,9 @@ def test_the_dam_cuts_the_meadows_hay_and_raises_the_fish_and_breaking_it_revers
 # ---------------------------------------------------------------------------------------------------------- the heronry
 def _herons(lake, nests, fish_k=None, nights=8):
     w = _world(lake, keep=0)
-    _site(w, "heronry", WOOD, nests)
+    pl = _places(w)
+    BROOK = pl["brook"]
+    _site(w, "heronry", pl["wood"], nests)
     if fish_k is not None:
         w.s["parcels"][BROOK]["res"]["fish"].update(K=float(fish_k), S=float(fish_k))
     for _ in range(nights):
@@ -222,18 +250,22 @@ def _herons(lake, nests, fish_k=None, nights=8):
     return f["S"] / f["K"], w
 
 
-def test_a_big_heronry_lowers_a_small_waters_fish(lake):
+def test_a_big_heronry_lowers_a_small_waters_fish(lake, monkeypatch):
+    _no_frost(monkeypatch)
     small_big, _ = _herons(lake, 24)
     small_few, _ = _herons(lake, 2)
     big_big, _ = _herons(lake, 24, fish_k=160)
     assert small_big < 0.92 and small_few > 0.98 and big_big > 0.98, (small_big, small_few, big_big)
 
 
-def test_the_heronry_follows_the_fish(lake):
+def test_the_heronry_follows_the_fish(lake, monkeypatch):
+    _no_frost(monkeypatch)                                                           # a mild winter before: no crash
+
     def spring(fish_k):
         w = _world(lake, keep=0)
-        sid = _site(w, "heronry", WOOD, 20)
-        w.s["parcels"][BROOK]["res"]["fish"].update(K=float(fish_k), S=float(fish_k))
+        pl = _places(w)
+        sid = _site(w, "heronry", pl["wood"], 20)
+        w.s["parcels"][pl["brook"]]["res"]["fish"].update(K=float(fish_k), S=float(fish_k))
         w.s["day"] = next(d for d in range(1, 40) if w.calendar(d)["season"] == "spring" and w.calendar(d)["day"] == 1)
         WL._sites_night(w, WL.model(w), w.s["wild"]["state"])
         return w.s["wild"]["sites"][sid]
