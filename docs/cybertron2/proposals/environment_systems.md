@@ -1,240 +1,260 @@
-# Environment systems: the land the engine reads, a few physical stocks, and the events and interactions they give
+# Environment systems: the land at three speeds, on the places the engine already has
 
-**Status:** discussion (16 Nov 2026). Nothing decided, nothing to build yet.
+**Status:** discussion (16 Nov 2026; revised the same day as a consolidation of the earlier designs). Nothing decided, nothing to
+build yet.
 **Owner:** 37.2 (design, the generator, the wild layer); 37.4 (the engine).
-**Affects:** spec/environment/ (scheduler.md, resources.md, a new file for the stocks); spec/world/generation.md; on the code side
+**Affects:** spec/environment/ (scheduler.md, resources.md, a new file for the land's stocks); spec/world/generation.md;
 `engine/climate.py`, `engine/renewal.py`, `engine/night.py`, `engine/farm.py`, `engine/roads.py`, `engine/forests.py`,
 `engine/signs.py`, `wild/areas.py`, `wild/ecology.py`, `landgen/write.py`.
 
 ## Summary
 
 Zach (16 Nov): "What are the general gaps between what the engine sees and the world generated, and what interactions between the
-environment are currently missed. This should aim for general systems, like can we support floods etc, and the interactions."
+environment are currently missed ... general systems, like can we support floods etc, and the interactions"; then: "do a
+consolidation for what you think is the best combination of them, considering that there should be slow and fast loops, and how
+things will interact. Will some things spread or average across adjacent parcels? What is the relationship between land points and
+parcels? And nodes?"
 
-The gaps (02zzl, an inventory of the code on `main`, 16 Nov):
-1. **The generator makes a land the engine barely reads.** Rain shadows, which way water runs, height above the river, how much
-   water a soil holds and how fast it drains, exposure, slope, springs and wet ground are all in the world file, and no process
-   reads them. The engine rains from one global number, and the cells (D2-208) are never loaded.
-2. **The weather touches things directly, never through the land.** Frost, snow, gale and heavy rain act on crops, houses and
-   fords as labels for the day. Nothing accumulates. There is no soil water outside the wild layer, no river level, no ice, no
-   fuel dryness, no loose soil, no water quality. So there are no floods, droughts, wildfires, erosion or winterkill, and the
-   decided hazards (D2-77: drought, river flood, wildfire and others) have nothing to read.
+Several designs have touched this, and none is built beyond the fixed land fields and fertility:
+- **the land at three speeds** (37.2 to 37.4, 8 Nov, agreed by Zach in principle, never recorded as a decision): fixed, slow, fast;
+- **five layers on four clocks** (02zp §4): ground, conditions, vegetation, populations, uses; day, season, year, decades;
+- **shared hidden state** (environment_state.md, L-23): variables that relax to a baseline, move one step a day, and cascade;
+- **the scheduler** (spec/environment/scheduler.md, D2-69 to D2-79): external change drawn from the seed; hazards and incidents;
+- **the engine's clocks** (process_model.md, D4-103): every rate names its clock (day, year, life);
+- **the land fields** (D4-112, D4-113): written to every generated world, and a hook that hands each stock's rule the weather and
+  the land. Only base fertility is read.
 
-The proposal:
-- **Read the land the generator already makes** (§2). Small changes, and every later system rests on them.
-- **Add a few physical stocks** that the weather fills and drains each day, and that run over the land's own graph (§3): soil
-  water, snow, river level, standing flood water, ice, fuel dryness, loose soil, and the river's silt and cleanness.
-- **Make floods, droughts, freezes, wildfires and erosion thresholds of those stocks** (§4), so they emerge from the drawn weather
-  and from what people did to the land, as D2-71 allows ("incidents also emerge from the systems"). The scheduler keeps drawing
-  the weather and the truly external events.
-- **Name the interactions as one graph** (§5), with people's works (ditches, banks, felling, ploughing, dams, middens) writing the
-  same stocks.
-- **Give waters a short list of types** (§6), as woods have, with the fish groups, freezing and floods that follow from each.
-- **Build it in phases** (§8), water first, alongside brief 5.
-
-This is the physical-process half of environment_state.md (shared hidden variables that interact; flagged L-23). That proposal's
-variables for buildings, herds and people stay there.
+**The consolidation:**
+1. **Three speeds** are the spine: fixed land, slow stocks (years), fast stocks (days). Each speed reads the slower ones as its
+   parameters and writes to them by small amounts, so there are fast loops (a wet week, a flood) and slow loops (a cleared valley
+   floods worse for years) and the coupling between them (§2, §3).
+2. **The places the engine has are enough, each with one job** (§1): the cells hold only fixed land and feed everything else
+   when a world is made; parcels hold the stocks of the land people work; the wild layer's areas hold the stocks of land no one
+   holds, and string the rivers into reaches; nodes hold the weather and the snow. Nothing new is stepped on the cells.
+3. **Nothing spreads by default** (§4). Things move between neighbours only along three named channels: downhill and
+   downstream (water, silt, fouling), adjacency (fire, colonisation by plants, pests), and the areas' links (animals, disease).
+   Nothing averages across parcels.
+4. **Events are thresholds of the stocks** (§5): floods, droughts, freezes, wildfire's spread and erosion emerge; the scheduler
+   draws the weather and the true externals (ignitions, hail, pestilence), as D2-71 allows.
+5. **People's acts write the same stocks** (§6), and **people see bands through signs**, never numbers (§7).
+6. **Built in phases** (§9): read the fixed land; then the water; then cover and fire; then soil, silt and conditions.
 
 ## The proposal
 
-### 1. Principles
+### 1. The places, and how they relate
 
-1. **The land is the substrate.** A process reads the land's fixed properties (D4-112, D4-113's hook) before it reads the day's
-   weather. Two places under the same sky differ because their land differs.
-2. **Few stocks, each with one rule.** A stock is a number on a place with sources, sinks and a rate. Its rule runs once a day in a
-   fixed order, reading yesterday's values (environment_state.md §3), so effects travel one step a day and there are no same-day
-   loops.
-3. **Events are thresholds, not dice.** A flood is the river above its banks; a drought is soil and river low for long enough; a
-   freeze is ice thick enough. The scheduler draws the weather (D4-4: the same in every arm) and the few truly external events
-   (lightning, hail, pestilence). What follows is physics, and people's acts change it (clearing, draining, damming).
-4. **Kinds are short lists; state is continuous.** A water's type, a soil's texture and a parcel's position are named kinds.
-   Levels are numbers, and people see them in graded bands through signs, never as numbers.
-5. **Every effect is something to act on.** Agents ignored forecasts they could do nothing about (guides/senses.md). A rising river
-   matters when there is hay to move, a gap to open or a bank to raise.
-6. **The grids already there are enough.** Parcels hold ground stocks (soil water, cover, fuel); river reaches are the wild
-   layer's areas strung on `down`; still waters are their water parcels; snow lies by node. The cells stay with the generator and
-   c2viz, except where a world needs them loaded (D2-208). This is one answer to Q-50 for the environment.
-
-### 2. Reading the land the generator makes (no new stock)
-
-| The land holds | Written now as | Read for |
-|---|---|---|
-| Rain by place (wind and rain shadow) | node `rain_mm`, parcel `land.rain_factor` | the climate's rain at a node scaled by its normal (now one global number, climate.py:251); a parcel's share of it |
-| Which way water runs | parcel `land.down`, areas `down` | river reaches (§3.3); downstream fouling and silt; the runs (brief 5 reads `down` already) |
-| Height above the river | the cells' `f`, only as parcel `height` 0 | a new parcel `land.above_river_m`, so a flood's reach is a height, not a rank |
-| Soil's water: how much it holds, how fast it drains | `land.held_mm`, `land.drain_rate`, `land.depth`, `land.texture` | the soil water bucket (§3.1) |
-| Wet ground | words only ("wet underfoot", landgen/write.py:141) | the parcel key `ground: wet` that farming already reads (D2-66, farm.ground_mult), written by the generator |
-| Exposure, position (hollow, ridge, slope) | `land.exposure`, `land.position` | frost pockets in hollows and wind on exposed ground: the climate's night low and wind by parcel |
-| Slope | `height` 2 over 5°; area `rock` | erosion (§3.7); the work cost of ploughing |
-| Springs, falls, fords | words; fords as road features | water sources that hold in a drought; falls as a fishing site and a barrier; fords that close in spate |
-| A water's type | (not made) | §6 |
-
-Most of these are a few lines each in the generator or the engine. Two change existing worlds' behaviour (rain by place, `ground`),
-so they come behind a world setting, and older worlds and replays stay exact.
-
-### 3. The stocks
-
-Each is updated once a day, after the weather and before people act; sources and sinks are from the day before.
-
-| # | Stock | On | Fills from | Empties by | Read by |
-|---|---|---|---|---|---|
-| 1 | **Soil water** (0 to its `held_mm`) | parcel | rain × `rain_factor`; snowmelt; flood water | evaporation by warmth and season; drainage at `drain_rate` (faster with ditches); what overflows runs off to the parcel's reach | crops' growth and stress (L-68), grass growth (the renewal hook), wild plants, mud and work on wet ground, fuel dryness, waterlogging |
-| 2 | **Snow** (depth) | node, and its hill parcels | snow days | melt by warmth and rain | the existing "snow lies" rules by depth; melt into soil water and runoff (spring floods) |
-| 3 | **River level** (against its normal) | reach: each river-bearing area on `down` | its area's runoff, plus the reach above's outflow a day later (one day for each 10 to 20 km; calibrate) | outflow downstream; seepage in a drought | bands **dry, low, normal, high, spate, flood**; fords, the mill's power and gap, weirs, the runs' cues, fishing, floods (§4) |
-| 4 | **Standing water** (days under water) | low parcels on a reach | a flood over the parcel's `above_river_m` | falls with the river; soaks into soil water | hay, crops and stores lost; houses damaged (replacing the label rule at night.py:593); silt laid (fertility up); fish spread onto meadows |
-| 5 | **Ice** (thickness) | still waters first, then slow rivers; big rivers rarely | frost degree-days, faster on shallow and still water (§6) | thaw degree-days, rain, a spate breaking it | fishing access (traps, nets and weirs shut; a hole can be cut), fords and crossings (thick ice carries), fowl driven to open water, winterkill in shallow water under long ice |
-| 6 | **Fuel dryness** | wood, scrub, heath, grass and ripe crops | dry days, warmth, wind | rain, snow, green growth in spring | wildfire's spread and odds (§4); heath burning by people; how well cut wood and stubble burn |
-| 7 | **Loose soil** (bare and loosened ground) | parcels | ploughing, clearing, burning, overgrazing, a flood's scour | growth of cover over the season | erosion in heavy rain on a slope: fertility and depth lost from the parcel, silt sent to its reach |
-| 8 | **Silt and cleanness** | reach, and its water parcels | erosion; floods; fouling trades (tanning, retting, offal, middens; later) | flushed by flow; settles in still water | fish (silt chokes spawning gravel; fouling kills), the leat silting faster, the mill's upkeep; later, people's health (L-9, L-23) |
-
-A water table and wells (environment_state.md §2, §8) would be a ninth stock, deeper and slower than soil water. They wait on water
-as a need (L-23).
-
-### 4. Events as thresholds of the stocks
-
-| Event | When | Effect | Its place in the scheduler |
+| Place | What it is | Size | Holds |
 |---|---|---|---|
-| **Spate** | a reach's level in its spate band | fords shut; fishing poor in muddy water; a weir's and a set trap's wear; the runs' cues (rain after dry) | emerges (D2-71) |
-| **Flood** | a reach above its banks | standing water (§3.4) on parcels below the excess height; low houses damaged; silt laid; a mill or weir damaged by force | D2-77's "river flood" and the windfall "flood silt", now emerging from rain and land |
-| **Low water and drought** | a reach low, or parcels' soil water low, for several days | crops stressed, pasture fails, the mill's power falls, brooks dry, fish crowd into pools, fords easy | D2-77's "drought", emerging |
-| **Freeze** | ice past a thickness | §3.5; the great freeze regime reads the ice, not only the run of frozen nights | emerges; it replaces the frozen-run proxy where water is concerned |
-| **Wildfire** | an ignition (lightning, drawn by the scheduler; a hearth or burning by people) where fuel is dry | the parcel's vegetation and fuel burnt; spreads to neighbours by dryness and wind, and along edges as D2-72 allows | D2-77's "wildfire": the ignition is drawn, the spread is physics |
-| **Erosion** | heavy rain on loose soil on a slope | §3.7 | emerges |
-| **Winterkill** | long ice on shallow still water | the water's fish mostly dead, found at the thaw | emerges |
+| **Cell** (a land point) | the generator's grid, kept with the world (D2-208) | 150 m, about 2 ha; one unit of parcel size (D2-181); about 110,000 in a 50 km window | **fixed land only**: height, slope, flow direction and area drained, river class, height above the river, soil texture and depth, rain, wetness, exposure, temperature |
+| **Parcel** | a connected group of cells of one use, held and worked by a node's people | a few to a few dozen cells (`size` = its cells) | the land's **slow and fast stocks** for worked land; claims, works, buildings |
+| **Node** | a place one can reach and return from in a day (D4-2): its parcels, its people, its roads | worked land within 2.5 km (`field_km`) | the **weather** (climate.py by node), **snow**; signs and people |
+| **Area** (the wild layer) | every cell is in exactly one: a node's **home** (its parcels' cells), its **ring** (unheld land within 2.5 km), or a **wild** block (about 8 km) | home: the parcels; ring: a few km²; wild: tens of km² | the slow and fast stocks of **land no one holds**; wild populations; **rivers as reaches** (river-bearing areas strung on `down`) |
 
-Hail, lightning, late frost, blizzard, blight, murrain and pestilence stay drawn by the scheduler as D2-77 has them, with these
-stocks as their exposure (D2-69's term).
+**How they relate:**
+- **Cells to parcels and areas:** each cell is in one area; a held cell is also in one parcel. When a world is made, a parcel's
+  and an area's fixed values are summaries of their cells (means, shares, the lowest point, the length of river). This already
+  happens for most fields (`land:` per parcel, area fields in wild/areas.py).
+- **Parcels to nodes:** each parcel belongs to one node and lists its neighbours there (`adj`); a node's parcels make its home area.
+- **Nodes to nodes:** roads in days (edges); the weather is correlated between near nodes (D4-111).
+- **Areas to areas:** shared edges (`links`, with their length) and the downstream link (`down`).
+- **Parcels to areas:** a node's parcels touch its ring (the unheld land around them), and through it the wild. Fire, plants and
+  beasts cross there.
 
-### 5. The interactions, as one graph
+**Why the cells are not stepped.** Every stock an agent can see or act on is about a parcel, a stretch of river, a node or a
+stretch of wild. Stepping 110,000 cells adds detail no one can see and a much larger daily state to save and replay. The cells
+stay the source of the fixed land, are loaded when a world needs a new summary (a parcel cleared out of the ring, a new field,
+D2-208), and drive c2viz. This is the environment's answer to Q-50: parcels and areas as the grids, cells as their source.
 
-Each arrow runs at most one day. People's acts are in bold.
+### 2. The three speeds
 
-| From | Through | To |
+Each row is a quantity, on the place that holds it, with its clock (process_model.md: every rate names its clock).
+
+**Fixed** (generations; changed only by works and by the slow stocks' rare large events):
+
+| Quantity | Where it comes from | Status |
 |---|---|---|
-| rain on a catchment | soil water full, runoff, reaches downstream | spate, flood, standing water on the meadows a day or two later downstream |
-| snow, then a thaw with rain | melt into runoff | the spring flood |
-| dry weeks | soil water and river low | crops and grass stressed; the mill slows; fish crowd; brooks dry; fords easy |
-| dry weeks and wind | fuel dryness | wildfire; then loose soil on burnt slopes; then silt in the next heavy rain |
-| frost nights | ice | fishing shut or through holes; crossings over the ice; fowl to the open water; winterkill |
-| **felling a slope, ploughing, overgrazing** | loose soil | erosion; silt downstream; the leat silts, spawning gravel choked, the salmon run thins years later |
-| **clearing woods upstream** | more runoff, faster (less soil water held) | higher spates downstream: an externality between villages (02zzj part 18 §2.5) |
-| **ditching a field** (built, D2-66) | faster drainage | less waterlogging; more runoff downstream |
-| **a flood bank** (new work) | standing water held off a parcel | the water goes elsewhere: a quarrel |
-| **a mill dam or weir** (brief 5) | level held above, flow below | flooding above in spate; less below in drought; the gap decides |
-| beaver dam (built) | level held | the meadow flooded, fish up |
-| a flood | silt (fertility up), mud | a better crop next year, a fouled well (later) |
-| **tanning, retting, a midden by the water** (later) | cleanness down | fish lost downstream; later, flux |
-| **burning heath for grazing** | fuel and cover reset | better grass next spring; a fire that runs if the wind turns |
-| abandoned field or clearing | cover grows back | weeds, then scrub, then wood (succession, ecosystems.md) |
+| elevation, exposure, position (hollow, slope, ridge) | cells | written (`land:`), unread |
+| slope | cells | in text and ranks only; to write as `land.slope_deg` |
+| soil texture as water held (`held_mm`) and drainage (`drain_rate`), soil depth | cells | written, unread |
+| base fertility (nutrients) | cells: texture × silt × height | written, read (D4-112) |
+| rain factor (the parcel's rain over its node's), node normal rain (`rain_mm`) | the wind sweep | written, unread (the climate rains from one number) |
+| flow direction (`down`), river class, sea distance | cells | written; `down` unread (brief 5 reads it) |
+| height above the river | cells' `f` | to write as `land.above_river_m` |
+| water type (§8), springs, falls, fords | cells | to write |
 
-### 6. Water types (a short list, as woods have)
+**Slow** (the year clock, stepped at the season's turn; moved by use, by the ecology and by the fast stocks' events):
 
-The generator writes each water parcel's type from what it already knows: river class, slope, lake, fen and sea. Each type is a row
-of data:
+| Quantity | On | Moved by | Read by | Status |
+|---|---|---|---|---|
+| **fertility** (base × offset) | parcel | crops and hay take; dung, fallow and grazed stubble give; flood silt gives; erosion takes | yields | built (D4-112, farm.py) |
+| **wetness offset** | parcel, area | drains and ditches lower it; dams, weirs, beavers and silted channels raise it | soil water's capacity and drainage; flood depth; which plants and covers suit | agreed 8 Nov; not built |
+| **vegetation** (canopy, shrub, field-layer shares; the cover follows from it) | parcel, area | growth toward what the conditions suit (succession), grazing, mowing, felling, burning, colonisation from neighbours (§4) | forage, fuel load, runoff and erosion, sight, the wild kinds' habitat | agreed 8 Nov as `vegetation`; covers and woods built (forests.py); the shares not built |
+| **soil depth** | parcel, area | erosion takes; nothing adds within a run | water held (`held_mm` scales with depth), yields | not built |
+| **channel silt** | reach, leat | erosion upstream adds; spates scour | spawning gravel (the salmon's return), the mill's leat, flood height | not built (the leat silts on a fixed one-year clock) |
+| **conditions** (nitrogen, acidity, light; 02zp layer 2) | parcel, area | dung and folding, burning, canopy | which field-layer plants come | proposed in 02zp; optional, last |
 
-| Type | From the land | Fish groups (§6.1) | Freezes | Floods | Weir or mill |
-|---|---|---|---|---|---|
-| brook | stream, a spring above | shallows | fast | flashy, short | no |
-| upland beck | small or medium river, steep | shallows, resident (trout), the runs at falls | edges | flashy; scours | falls as a fishing site |
-| lowland river | small or medium, gentle | resident (coarse fish), eels, the runs | in long frost | slow, wide, the meadows | yes |
-| large river | large class | the runs, resident in deep water | rarely bank to bank | slow, long, wide | a weir; too big for a village mill |
-| lake or mere | lowland or fen lake | resident (pike, perch), eels, fowl | slowly; holes can be cut | rises slowly | no |
-| tarn | upland lake | few fish | early and long | little | no |
-| fen water | fen system | eels, pike, fowl | fast (shallow) | spreads widely | no |
-| pond | a feature or made (mill pond, beaver pond, later fishpond) | shallows, eels | fast; winterkill | little | the mill pond is the mill's |
+**Fast** (the day clock; one stock, one rule each, in the parcel's or the area's `state`, read through D4-113's hook):
 
-Estuary and coast come with boats. **Features** sit on a water parcel as sites: falls or rapids (where salmon leap: a fishing place
-and a barrier), a ford, a spring.
+| Quantity | On | Fills from | Empties by | Status |
+|---|---|---|---|---|
+| **soil water** | parcel, area | rain × rain factor, snowmelt, standing water | evaporation by warmth and season; drainage at `drain_rate` (ditches faster); overflow runs off downhill (§4) | agreed 8 Nov; the wild layer has a bucket from rain alone |
+| **snow** (depth) | node, adjusted by a parcel's height and exposure | snow days | melt by warmth and rain, into soil water and runoff | agreed 8 Nov; built as a flag ("snow lies") |
+| **river level** (river flow) | reach | its area's runoff, plus the reach above's outflow a day or so later | outflow downstream | agreed 8 Nov; not built |
+| **fuel dryness** | vegetated parcels and areas | dry days, warmth, wind | rain, snow, spring growth | agreed 8 Nov; not built |
+| **standing water** | low parcels and areas on a reach | a flood over their height above the river | the falling river; soaking in | new |
+| **ice** | still water, slow reaches | frost degree-days (faster when shallow and still) | thaw, rain, a spate | new (the wild layer counts frozen nights) |
+| **loose soil** | parcels, areas | ploughing, clearing, burning, overgrazing, a flood's scour | cover growing back over the season | new |
+| **cleanness and turbidity** | reach | erosion, floods, fouling trades and middens (later) | flushed by flow | new |
 
-#### 6.1 Fish groups and what reaches them
+Buildings, herds and people keep their own hidden variables (damp, condition, sickness, filth) in environment_state.md, with the
+same mechanics: a baseline, a rate, one step a day.
 
-Each water holds up to four stocks instead of one `fish`, so the gear ladder reaches different fish rather than the same fish faster:
-- **shallows** (crayfish, small fish, trout tickled under the bank): by hand and small traps;
-- **resident** (the water type's fish): rod, net, spear;
-- **runs** (eels down; salmon and lamprey up): brief 5's kinds, at weirs, the mill's race, below a dam, by net;
-- **competitors** (otter, heron, pike): the wild layer's kinds, eating from the same stocks.
+### 3. The loops: fast, slow, and between them
 
-The village's fish and the wild layer's area fish become one stock, so people, herons and otters compete for the same fish
-(02zzl §2: they are separate now). Cold lowers every catch; ice closes the shallows and set gear; low water crowds fish into
-pools (easy, then fewer); silt and fouling lower the stocks.
+**The update order each day** (after the weather, before people act; environment_state.md §3): fixed land is read; fast stocks
+step from yesterday's values; events are tested (§5); at the season's turn the slow stocks step from the season's fast history (its
+sums and extremes). So a fast change reaches a slow stock at the next season's turn, and a slow change reaches the fast stocks the
+next day. No loop closes within a day.
 
-### 7. What people see, and what they can do
+**Fast loops** (days to weeks):
+- rain → soil water → runoff → the reach's level → spate and flood → standing water → soil water;
+- dry days → soil water and river low → crops and grass stressed, the mill slow, fish crowded → fuel dry → fire → bare ground;
+- frost nights → ice → fishing shut, crossings open → thaw and rain → spate.
 
-- **Signs by band, as bundles** (guides/senses.md): the river "up and brown, over the lower stones" (high), "over the meadow at
-  dusk" (flood), "the brook down to a trickle between stones" (low), "ice at the edges, thin" and "ice you could walk on" (freeze),
-  "the bracken brittle, the grass white" (dry fuel), "the plough lands washed into the hollow" (erosion). Changes, not standing
-  facts; a skilled eye reads the low bands first.
-- **Upstream is a warning.** A spate reaches the village below a day or two after the one above, so a traveller or a watcher
-  upstream brings warning: information worth carrying.
-- **Acts that answer them** (most exist already): move hay and stores to high ground; reap early; open a mill's or weir's gap in
-  spate; ditch; raise a bank (new); cut a firebreak or put out a fire (new: the fire acts of L-21); cross on thick ice; cut a hole and
-  fish; stint the grazing on a slope; coppice instead of clear.
+**Slow loops** (years):
+- **clearing and ploughing a slope** → vegetation down → more runoff and loose soil → erosion → soil depth and fertility down
+  here, channel silt up below → floods higher and spawning gravel choked → fewer salmon a year on;
+- **draining a wet meadow** → wetness offset down → pasture up, eels and fowl down;
+- **dung and folding** → fertility and nitrogen up on the arable, down on the down (the sheep-corn system, 02zp L2);
+- **abandonment** → vegetation succeeds (weeds, scrub, wood) → fuel and game change, a ruin read in the plants (02zp L12);
+- **grazing and burning heath** → vegetation held open (02zp L1, L9).
 
-### 8. Phases
+**Between the speeds:**
+- a **flood** (fast) lays silt (fertility up, slow) and scours (loose soil, fast; soil depth, slow); a **big fire** (fast) resets
+  vegetation (slow); a **drought year** (a season of fast lows) sets back vegetation and raises dead fuel;
+- the slow stocks set the fast stocks' parameters: vegetation sets interception, runoff and fuel load; the wetness offset sets
+  soil water's capacity and drainage; soil depth sets the water held; channel silt sets the river's flood height.
 
-| Phase | What | Needs | Tests |
+### 4. What moves between neighbours (and what does not)
+
+Nothing spreads or averages across parcels by default. Lateral effects travel only along three named channels, one step a day:
+
+| Channel | Along | What travels | Rule |
 |---|---|---|---|
-| **0: the land read** | §2: rain by place, `ground`, height above the river, exposure into frost and wind, water types written | the generator (37.2) and small engine reads (37.4), behind a world setting | worlds unchanged with it off; with it on, rain shadows and wet ground show in yields |
-| **1: water** | soil water, snow depth and melt, river level on reaches, spate, flood, standing water, low water, ice, winterkill; fish groups by water type | phase 0; brief 5's reaches and runs | a wet week floods the lower village's meadows a day after the upper's; a dry month stops the mill; a hard freeze closes the traps and opens the crossing |
-| **2: fire and cover** | fuel dryness, wildfire with drawn ignitions and spread, heath burning, succession of abandoned ground | phase 1's soil water; L-21's fire acts | a dry windy spell carries a fire across the heath and not over the river |
-| **3: soil and silt** | loose soil, erosion, silt and cleanness on reaches, fouling trades | phases 1 and 2; the materials stage for tanning and retting | clearing the slope above a river thins its salmon run and silts the mill's leat downstream |
-| **later** | water table and wells; people's water and health (environment_state.md, L-23, L-9) | water as a need | |
+| **Down** | the land's flow (`land.down` for parcels; areas' `down`; reaches) | runoff, flood water, silt, fouling, ice breaking up | directed, never back up; a parcel's overflow goes to its `down`, a reach's outflow to the next reach after its lag |
+| **Adjacency** | parcels' `adj`, a node's parcels to its ring, areas' `links`; between nodes along edges as D2-72 allows | fire (by dryness, wind, cover), colonisation by plants (scrub and wood seed into a neighbour; an old field next to a wood goes to wood faster), pests | a chance per neighbour per day, by the shared edge's length and the receiver's state; spreads, never averages |
+| **Links** | the wild layer's area links | beasts, disease (built: wild/ecology.py, diseases.py) | as built |
 
-Each phase is gated by dry runs and a null arm (the same world with the phase off), and read against the stocks' signs in the
-agents' reasoning: is it acted on?
+**Not lateral:** fertility (it moves only with dung, hay, silt and erosion, all carried), soil water (only by runoff down),
+snow (by height and exposure, not by drift), frost (a hollow's colder night is a fixed property of its position, not a flow of
+cold air). This keeps the model directed, cheap and traceable: each lateral effect is a flow with a source and a route.
 
-### 9. What keeps it small
+### 5. Events as thresholds of the stocks
 
-- Eight stocks in all, each one number on a place; the rules are a few lines each, cheap beside the ecology.
-- No hydraulics: a reach's level is a bucket with a lag, not a flow model. A flood's reach is a height, not a simulation of water
-  over the cells.
-- Compressed time is stated, as the lifespan is (D2-153): a spate in a few days, a season's drought in a week or two of the
-  compressed year (calibrate against 32-day years).
-- Nothing new reaches the prompt except signs and the acts that already exist, plus a bank and the fire acts.
-- The border holds (02zzk): all of this is inside the medieval village and its river.
+| Event | When | Effect | Scheduler (D2-77) |
+|---|---|---|---|
+| spate | a reach's level in its spate band | fords shut; fishing poor; gear worn; the runs' cue | emerges |
+| flood | a reach over its banks (raised by channel silt) | standing water on parcels lower than the excess; low houses damaged (replacing night.py:593's label rule); hay, crops and stores lost; silt laid; mills and weirs damaged | "river flood" and "flood silt", emerging |
+| low water, drought | a reach low, or soil water low, for some days | crops and pasture stressed; the mill slows; brooks dry; fish crowd; fords easy | "drought", emerging |
+| freeze | ice past a thickness | fishing through holes only; crossings on the ice; fowl to open water; long ice: winterkill | emerges (replaces the frozen-night proxy for water) |
+| wildfire | a drawn ignition (lightning) or a hearth or a burning by people, on dry fuel | vegetation and fuel burnt; spreads by adjacency (§4) | "wildfire": ignition drawn, spread physical |
+| erosion | heavy rain on loose soil on a slope | soil depth and fertility down; silt down the flow | emerges |
+
+Hail, late frost, blizzard, lightning, blight, murrain and pestilence stay drawn by the scheduler, with these stocks as their
+exposure term (D2-69).
+
+### 6. What people do to the land (the uses layer)
+
+Most acts exist; each writes a stock: **felling and clearing** (vegetation, loose soil), **ploughing** (loose soil), **grazing and
+folding** (vegetation, fertility, dung), **mowing hay** (vegetation, fertility), **ditching** (built, D2-66: drainage, the wetness
+offset), **burning heath** (vegetation, fuel), **dams, weirs and the mill** (brief 5: a reach's level above and below; the wetness
+offset above), **coppicing** instead of clearing (vegetation kept), and later **banks** (standing water held off a parcel and sent
+elsewhere), **firebreaks**, **wells** and **middens** (cleanness; environment_state.md §8, §9).
+
+### 7. What people see
+
+Signs by band, as bundles of senses (guides/senses.md), for changes: "the river up and brown, over the lower stones"; "over the
+meadow at dusk"; "the brook down to a trickle"; "ice you could walk on"; "the bracken brittle, the grass white"; "the plough lands
+washed into the hollow"; "the leat choked with silt". Skill reads the low bands first. Upstream warns downstream: a spate reaches
+the village below a day or two after the one above, so a traveller's word is worth carrying. Every band has an act that answers it
+(move hay and stores, reap early, open a gap, ditch, bank, cut a firebreak, cross on the ice, cut a hole and fish).
+
+### 8. Waters (one part of the fixed land)
+
+The generator writes each water parcel's **type** from its cells: brook, upland beck, lowland river, large river, lake or mere,
+tarn, fen water, pond (estuary and coast later, with boats). The type sets how fast it freezes, how it floods (flashy or slow and
+wide), whether a weir or a mill fits, and which **fish groups** it holds: the shallows (by hand, small traps), the resident fish
+(rod, net, spear), the runs (brief 5's kinds), and competitors (otter, heron, pike, eating from the same stocks). The village's
+fish and the wild layer's fish become one stock. Falls, fords and springs sit on water parcels as sites.
+
+### 9. Phases
+
+| Phase | What | Tests |
+|---|---|---|
+| **0: the fixed land read** | rain by place; `ground` from the generator's wet ground (farming reads it, D2-66); exposure and position into frost and wind; slope, height above the river and water type written. Behind a world setting, so older worlds and replays stay exact | rain shadows and wet ground show in yields; nothing changes with the setting off |
+| **1: water** | soil water, snow depth and melt, river level on reaches, spate, flood, standing water, low water, ice, winterkill; the wetness offset; fish groups by water type | a wet week floods the lower village's meadows a day after the upper's; a dry month stops the mill; a freeze closes the traps and opens the crossing; draining raises a meadow's grass |
+| **2: cover and fire** | the vegetation shares and succession, colonisation by adjacency, fuel dryness, wildfire with drawn ignitions and spread, heath burning | a dry windy spell carries fire across the heath and not over the river; an old field beside a wood goes to scrub |
+| **3: soil and silt** | loose soil, erosion, soil depth, channel silt, cleanness and turbidity; then the conditions layer if it earns its place | clearing the slope above a river thins its salmon and silts the leat downstream within a few years |
+| **later** | water table and wells; buildings', herds' and people's hidden variables (environment_state.md, L-23, L-9) | |
+
+Each phase passes dry runs and a null arm (the same world with the phase off), and its signs are read in agents' reasoning: are
+they acted on?
+
+### 10. What keeps it small
+
+- About fourteen quantities in all, each one number on a parcel, an area, a reach or a node; a few lines of rule each.
+- No hydraulics and no cell stepping: a reach is a bucket with a lag; a flood's reach is a height.
+- Slow stocks step at the season's turn; fast stocks once a day; nothing loops within a day.
+- Compressed time is stated as such (a 32-day year): a spate in a few days, a dry spell in a week or two (calibrate).
+- The prompt gains only signs, plus a bank and the fire acts.
+- Inside the border (02zzk): the medieval village and its river.
 
 ## Why
 
-- Zach (16 Nov): general systems, floods and their interactions; the gaps between the generated world and what the engine sees.
-- The generator's land is mostly unused (02zzl §1), so much of the realism already paid for is lost.
-- The decided hazards (D2-77) have no state to read, and D2-71 already says incidents emerge from the systems.
-- Shared shocks make leverage and dependence (scenario_design §1): who holds high ground, stores, the mill and the crossing; who
-  upstream makes floods or silt for those below; a commons in the river and the woods.
+- Zach (16 Nov): general systems, floods and their interactions; then a consolidation with slow and fast loops and the spatial
+  relations.
+- The generator's land is mostly unused (02zzl §1), and the agreed fast stocks (8 Nov, L-71) and slow stocks were never built.
+- The decided hazards (D2-77) have no state to read; D2-71 says incidents also emerge from the systems.
+- Shared shocks and slow degradation make dependence and quarrels (scenario_design §1): who holds the high ground, the stores, the
+  mill and the crossing; who upstream sends floods and silt to those below; the woods and the river as commons.
 
 ## Alternatives considered
 
-- **Floods and droughts as drawn incidents** (D2-77 as it stands): cheap, but they would not depend on the land or on people's
-  acts, so clearing, ditching and damming would change nothing, and the same rain would flood a hill village and a river village alike.
-- **Simulate water on the cells** (a flow model at 150 m): realistic, but costly, hard to calibrate, and finer than anything an
-  agent can see or act on. Reaches and parcels carry what matters.
-- **One "wetness" number per node**: too coarse to put the flood on the meadow and not the hill field, or the drought on the sand
-  and not the clay.
-- **Leave it to environment_state.md**: that proposal holds the variables of buildings, herds and people; the land's physics needs
-  its own design, so the two are split here and cross-referenced.
+- **Step the cells** (a fast stock on each of 110,000 cells, water routed cell to cell): finer floods and fires, but detail no agent
+  sees, and a much larger state to save and replay. The cells stay the source.
+- **Floods and droughts as drawn incidents** (D2-77 as it stands): cheap, but blind to the land and to people's acts.
+- **Diffusion between all neighbours** (averaging soil water, fertility or snow): simpler to write, but it smears the differences
+  the land makes and hides cause; directed flows along named channels keep cause traceable.
+- **One wetness number per node:** too coarse to put the flood on the meadow and not the hill field.
+- **Leave it to environment_state.md:** kept for buildings, herds and people; the land needs its own design.
 
 ## Open questions (for Zach)
 
-1. **Emerging or drawn:** should floods, droughts, freezes and wildfire's spread emerge from the stocks (proposed), with the
-   scheduler drawing only the weather and true externals (ignitions, hail, pestilence)? This amends how D2-77's flood and drought
-   are reached, not that they exist.
-2. **The grids:** parcels for ground, reaches (areas on `down`) for rivers, water parcels for still water, nodes for snow; cells
-   stay generator-side (proposed). This answers Q-50 for the environment only.
-3. **Older worlds:** phase 0 changes the weather and yields of worlds that read it (rain by place, wet ground). Proposed: behind a
-   world setting, on for new worlds.
-4. **The order:** phase 0 now with brief 5, phase 1 next (water, with the fish groups), then fire, then soil (proposed).
-5. **Water types:** the eight in §6, from the generator, with estuary and coast later?
-6. **How often:** under the compressed year, about one or two spates a year in a wet lowland, a flood on the meadows every year or
-   two, a hard freeze every few years, a dry spell most summers (calibrate)?
+1. **Record the three speeds** (fixed, slow, fast; 8 Nov) as a decision, with this proposal's list as their content?
+2. **The places:** cells only as the fixed source; parcels and areas hold the stocks; reaches are areas on `down`; nodes hold the
+   weather and snow (the environment's answer to Q-50)?
+3. **Spreading:** only along down, adjacency and links; nothing averages?
+4. **Emerging events:** floods, droughts, freezes, erosion and fire's spread from the stocks; the scheduler draws the weather and
+   true externals?
+5. **Order:** phase 0 now with brief 5; then water; then cover and fire; then soil and silt?
+6. **How often** under the compressed year: spates once or twice a year in a wet lowland, a meadow flood every year or two, a hard
+   freeze every few years, a dry spell most summers?
 
 ## History
 
-- 16 Nov 2026: written by 37.2 at Zach's request, after the waters discussion (water types and fish groups, ice, seasons), widened
-  at his ask to the whole environment. Built on two read-only passes over `main` (02zzl).
+- 16 Nov 2026: written by 37.2 at Zach's request, after the waters discussion, widened to the whole environment (02zzl's
+  inventory).
+- 16 Nov 2026 (later): rewritten as a consolidation, after Zach asked whether the land's quantities at different speeds had been
+  specced before. They had: the three speeds agreed on 8 Nov (37.2's message to 37.4; cited in base_fertility.md, L-71), 02zp's five
+  layers and four clocks, environment_state.md, the scheduler spec, process_model.md's clocks. The first draft had re-derived the
+  agreed fast stocks and left out the slow layer. Added: the three speeds as the spine with each quantity's status and clock (§2);
+  the loops within and between speeds (§3); the places and how they relate (§1); what moves between neighbours (§4).
 
 ## Sources
 
-docs/review/37_growth/02zzl_environment_gaps.md (the inventory); spec/environment/scheduler.md (D2-69 to D2-79), resources.md;
-proposals/environment_state.md, environment_catalogue.md, ecosystems.md, crop_growth.md, building_risks.md,
-phase3_variance_and_risk.md, weather_scheduler.md, land_kept.md (D2-208), river_and_water.md (D2-209), temperate_landscapes.md,
-water_and_preservation.md, wild_layer.md; OPEN L-10, L-21, L-23, L-34, L-48, L-68, L-71, L-73, L-100, Q-50; guides/senses.md;
-docs/scenario_design.md §1; 02zzj part 18 §2 (depletion and pollution), 02zzk (the border).
+37.2's message to 37.4 of 8 Nov (the three speeds; this session's record); docs/review/37_growth/02zzl_environment_gaps.md;
+02zp_ecosystems_deep_dive.md §4 (layers and clocks), §15 (the land fields), §16; proposals/environment_state.md, base_fertility.md
+(D4-112), weather_scheduler.md (D4-113), process_model.md (D4-103 clocks), ecosystems.md, wild_systems.md, wild_layer.md §3.10,
+land_kept.md (D2-208), river_and_water.md (D2-209), environment_catalogue.md, crop_growth.md, building_risks.md;
+spec/environment/scheduler.md (D2-69 to D2-79, D4-5); landgen/vocab.py (the cell, D2-181); wild/areas.py (home, ring, wild,
+links, down); OPEN L-21, L-23, L-48, L-68, L-71, Q-50; guides/senses.md; docs/scenario_design.md §1; 02zzk (the border).
