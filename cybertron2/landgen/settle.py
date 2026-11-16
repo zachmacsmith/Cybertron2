@@ -489,12 +489,12 @@ def parcels(L: Land, conf: dict, s: Settlement, land: dict) -> list:
         wet, f, h, sl = float(L.wet[rr, cc].mean()), float(L.f[rr, cc].mean()), float(L.h[rr, cc].mean()), float(L.slope[rr, cc].mean())
         p.height = 0 if (use == "water" or f < 2 or wet > 0.8) else (3 if h > L.h[sr, sc] + 60 else (2 if sl > 5 else 1))
         ts = [P.TERRAIN_NAMES[int(L.terrain[r, c])] for r, c in cs]
-        p.terrain = max(set(ts), key=ts.count)
+        p.terrain = max(dict.fromkeys(ts), key=ts.count)
         texs = [V.TEXTURE[int(L.tex[r, c])] for r, c in cs]
-        p.soil = max(set(texs), key=texs.count)
+        p.soil = max(dict.fromkeys(texs), key=texs.count)
         p.fertility = round(float(L.fert[rr, cc].mean()), 2)
         ecos = [L.eco[r, c] for r, c in cs] if L.eco is not None else []
-        p.eco = max(set(ecos), key=ecos.count) if ecos else ""
+        p.eco = max(dict.fromkeys(ecos), key=ecos.count) if ecos else ""
         from cybertron2.landgen import ecology as EC
         waste = EC.ECOSYSTEMS.get(p.eco, ("scrub",))[0]                    # the waste as its ground has become (heath, moor, fen ...)
         if waste in ("forest", "field", "built", "water", "meadow"):          # grassland waste is the common's rough grazing
@@ -503,14 +503,14 @@ def parcels(L: Land, conf: dict, s: Settlement, land: dict) -> list:
                    "waste": waste, "mine": "rock", "wildwood": "forest", "clearing": "meadow"}[use]
         if use == "wildwood":                                              # a vacant place's wood: wild, as deep as the land's
             forests = [e for e in ecos if e in EC.FORESTS]
-            p.eco = max(set(forests), key=forests.count) if forests else EC.natural_forest(p.terrain)
+            p.eco = max(dict.fromkeys(forests), key=forests.count) if forests else EC.natural_forest(p.terrain)
             bands = [int(L.band[r, c]) for r, c in cs if L.band is not None]
             p.band = max(1, max(bands) if bands else 1)
             p.wood_kind = "old forest"                                     # unworked: the wildwood's stocks (data.FORESTS)
         if use == "wood":
             p.wood_kind = "managed wood"                                   # a village's own wood is worked (coppiced), whatever its size
             forests = [e for e in ecos if e in EC.FORESTS]
-            p.eco = max(set(forests), key=forests.count) if forests else EC.natural_forest(p.terrain)
+            p.eco = max(dict.fromkeys(forests), key=forests.count) if forests else EC.natural_forest(p.terrain)
             bands = [int(L.band[r, c]) for r, c in cs if L.band is not None]
             p.band = max(1, min(2, max(bands) if bands else 1))           # a village's wood is worked: edge or interior, never core
         if p.cover == "scrub":

@@ -90,7 +90,7 @@ def _wild_parcels(L: Land, key: str, cells: list, kind: str) -> list:
         ps.append(Parcel(f"{key}_0", "wild", "meadow", cells[:1], size=1, side="south", height=1, terrain=terr, soil="loam",
                          eco="grassland"))
         ps.append(Parcel(f"{key}_1", "wild", "forest", cells[1:7], size=min(6, max(3, len(cells) - 1)), side="centre", height=2,
-                         terrain=terr, soil="loam", wood_kind="old forest", eco=max(set(ecos), key=ecos.count), band=3))
+                         terrain=terr, soil="loam", wood_kind="old forest", eco=max(dict.fromkeys(ecos), key=ecos.count), band=3))
     elif kind == "shore":                                                 # a wild shore: the strand and the saltmarsh behind it (salt)
         r, c = cells[0]
         ps.append(Parcel(f"{key}_0", "wild", "meadow", cells[:1], size=1, side="east", height=1, terrain=P.TERRAIN_NAMES[int(L.terrain[r, c])],
@@ -219,7 +219,7 @@ def _terrain(L: Land, cov, cells: list) -> str:
     if np.mean([L.slope[rc] for rc in cells]) > 6:
         return "hills"
     kinds = [V.ROAD_TERRAIN.get(cov[rc], "plain") for rc in cells]
-    return max(set(kinds), key=kinds.count)
+    return max(dict.fromkeys(kinds), key=kinds.count)
 
 
 def _end(s: Settlement, path: list, from_start: bool) -> dict:
