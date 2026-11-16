@@ -75,22 +75,22 @@ The null arm keeps the same decisions and constraints but weights every allowed 
 
 | | Truth (forward) | Built | Null |
 |---|---|---|---|
-| Mother's age at a birth (mean / sd) | 30.0 / 6.7 | 29.1 / 7.0 | 30.2 / 7.4 |
-| Mother's age at first birth | 24.7 | 23.2 | 26.7 |
+| Mother's age at a birth (mean / sd) | 30.0 / 6.7 | 28.9 / 7.0 | 30.1 / 7.5 |
+| Mother's age at first birth | 24.7 | 23.2 | 26.8 |
 | Birth interval (median, years) | 2.7 | 2.9 | 3.0 |
-| Births to a completed family | 4.73 | 4.87 | 2.84 |
-| Couples with 9 or more births, per world | 1.45 | 1.85 (2.45 held out) | 1.55 |
-| Died under 15 | 22% | 25% | 29% |
-| Age at death, adults | 50.7 | 50.8 | 50.5 |
-| Adults with a living parent | 54% | 53% | 9% |
+| Births to a completed family | 4.73 | 4.87 | 2.61 |
+| Couples with 9 or more births, per world | 1.45 | 1.8 (2.0 held out) | 0.8 |
+| Died under 15 | 22% | 27% | 32% |
+| Age at death, adults | 50.7 | 54.7 | 51.5 |
+| Adults with a living parent | 54% | 56% | 9% |
 | Wives born in another village | 63% | 57% | 78% |
-| Wives born off the map | 7% | 6% | 23% |
-| Adults with a sibling in another household of the village | 40% | 46% | 6% |
-| Adults with a sibling in another village | 59% | 45% | 14% |
-| Adults with a sibling or cousin in another village | 89% | 73% | 41% |
-| Parent couples per living person | 0.36 | 0.36 | 0.89 |
-| Grandparent couples per living person | 0.28 | 0.25 | 1.14 |
-| People in the past | 239 | 228 | 882 |
+| Wives born off the map | 7% | 5% | 28% |
+| Adults with a sibling in another household of the village | 40% | 51% | 6% |
+| Adults with a sibling in another village | 59% | 58% | 15% |
+| Adults with a sibling or cousin in another village | 89% | 92% | 40% |
+| Parent couples per living person | 0.36 | 0.38 | 0.89 |
+| Grandparent couples per living person | 0.28 | 0.30 | 1.10 |
+| People in the past | 239 | 235 | 803 |
 | Living people given the true living parents (only the test has a truth: see below) | | 60% (56% held out) | 2% |
 
 **How to read it:**
@@ -129,10 +129,46 @@ The null arm keeps the same decisions and constraints but weights every allowed 
     off-map wives.
   - **If a test needs exact living kin, pin it:** the mix forms pin head, spouse, child and parent roles. This test pinned none.
 
-**The biases that remain (calibration, not design):**
-- **Siblings in other villages are under-made:** 46% against 59%, and siblings or cousins 71% against 89%. Siblings in other households of the same village are over-made: 46% against 40%. Merges happen, but too many stay in the home village.
+**The biases that remain:**
+- **Kin across villages now matches** (58% against 59%, and 92% against 89% with cousins), since daughter villages are founded
+  from their mother village (§7). Siblings in other households of the same village are over-made: 51% against 40%.
+- **Adults die four years too old** (54.7 against 50.7). Ancestors marry once, so the young first spouses who die and are
+  replaced never appear: married parents dying under 40 are half the truth's count. Until 16 Nov this was hidden by a fill
+  fault (unrecorded children living to old age without marrying), which also inflated families. That fault is fixed; the gap
+  waits on second marriages for ancestors (L-108).
 - **First births come 1.5 years young.** The marriage year is drawn after the children, so fill can add an early birth.
-- **Too many very large families:** 1.85 per world against 1.45 (2.45 against 1.4 held out).
+- **Slightly too many very large families:** 1.8 per world against 1.45 (2.0 against 1.4 held out). More children die under 15: 27% against 22%.
+
+### 3a. Village ages come from the settlement history (16 Nov)
+
+**Before:** each village's founding year was drawn from its present size alone. The genealogy then mostly gave the founders
+"came from elsewhere". The founding order agreed with the truth at Kendall tau 0.43, and only 12% of daughter villages were
+founded by someone born in an older village.
+
+**Now:** the settlement is part of the built history, read from the evidence and built by the forward model's rule.
+- **A `settle` decision** picks the order of settlement. Each later village buds from the nearest older one.
+- **Each order implies founding years.** The k-th village is founded when those before it have filled.
+- **Orders are weighed by what the present shows of a village's age,** with relations fitted on 120 forward runs:
+  - an old village is full, at about 1 - exp(-A / 35) of the largest village's households;
+  - it has elders: its third-oldest resident is about 12 + 0.58 A years old.
+  - The likeliest order is taken.
+- **Founders come from the mother village.** A daughter village's founders get their parents there. Founders born before the
+  record are recorded as born there. "Came from elsewhere" is kept for the first village's founders and is rare otherwise.
+- **The chronicle** dates a founding when its first couple settled, and names where they came from.
+
+| 80 forward worlds | Before | Now |
+|---|---|---|
+| Founding order against the truth (Kendall tau) | 0.43 | 0.71 |
+| First village right | 37 of 80 | 47 of 80 |
+| Founding year error (mean) | 21 years | 15 years |
+| Daughter villages founded from an older village | 12% | 85% |
+
+**Limits:**
+- The present carries little of a village's age. The best that can be read from it is tau 0.73 on the fitted seeds and 0.66
+  held out.
+- The third-oldest resident is fragile in small villages: two widows of 66 and 67 over a man of 37 read as young.
+- In a mix the ages are drawn, not lived, so the order follows whatever they show.
+- Founding years and the order can be pinned.
 
 ### 4. Stability under edits
 
@@ -141,11 +177,11 @@ same seed without them.
 
 | Edit | Decisions changed (soft / fresh) | Living people given other parents (soft / fresh) |
 |---|---|---|
-| A newborn added to one household | 0% / 0.8% | 0% / 1.2% |
-| The second household made a family of seven | 1.7% / 4.8% | 1.5% / 4.3% |
-| The last household removed | 1.4% / 5.9% | 1.5% / 6.3% |
+| A newborn added to one household | 0% / 1.7% | 0% / 1.6% |
+| The second household made a family of seven | 2.9% / 10.6% | 1.8% / 8.6% |
+| The last household removed | 1.5% / 9.1% | 1.3% / 6.8% |
 
-Keyed orders alone already keep about 95% of a world. The soft pins keep about 98.5%.
+Keyed orders alone keep about 90% of a world; the soft pins keep about 98%. A household change can change the settlement order, which moves more on a fresh build.
 
 **What still moves:** the decisions downstream of a changed one, whose candidates changed. For example, a couple the edit removed
 was someone's parents.
@@ -157,13 +193,13 @@ was someone's parents.
 | Nine living children to one couple | Built. Flagged as a couple of nine. |
 | A village of widows living alone | Built. Each widow is given a dead husband (its own decision, `wid`, when no living child calls for one) and that marriage's children who died or left. The first draft made no husband for a childless widow; that was fixed. |
 | A village pinned as founded 20 years ago, all its adults older | Built. Its adults "came", or were born in Northby or Southam; its children were born there. |
-| The same, 12 years ago, with a child of 13 | Refused: `found:Westcot`, `pin:age:We3.2`. |
+| The same, 12 years ago, with a child of 13 | Refused: `pin:found:Westcot`, `pin:age:We3.2`. |
 | Two children of 6 in one house, no roles | Built. One is the couple's; the other is read as a child of another Eastwick household, living with them. |
 | The same, pinned as the head's children | Refused, naming the pins. |
 | Every village pinned as founded 20 years ago | Built. Everyone over 20 came from outside the record. |
 
 **The flags** mark decisions where the constraints ruled out at least half of the model's weight, couples of nine or more, and
-villages under 25 years old. A mix world has 2.9 to 3.2 flags. This is the report the proposal asked for: where a pin forced an
+villages under 25 years old. A mix world has 9 to 10 flags. Most are founders whose strongly preferred parents in the mother village were ruled out by ages. This is the report the proposal asked for: where a pin forced an
 unlikely past.
 
 ### 6. Reading the histories
@@ -236,4 +272,4 @@ heads' kin and memories. It reads as a history, and it is consistent by construc
 
 Example pasts to read: `results/examples.md` (`python -m proto.peoplegen.examples`).
 
-*Current as of 16 Nov 2026.*
+*Current as of 16 Nov 2026 (settlement history).*

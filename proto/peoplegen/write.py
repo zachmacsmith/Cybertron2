@@ -70,11 +70,11 @@ def history(b, N) -> list:
         start = lambda c: max(F, min([c.wed] + [b.P[k].born for k in c.kids] if c.wed is not None else [b.P[k].born for k in c.kids]))
         cs = sorted([c for c in b.C.values() if c.res == v and c.kids], key=lambda c: (start(c), c.id))[:1]
         for c in cs:
-            f = b.P[c.f]
-            fc = b.C.get(f.pc) if f.pc else None
-            frm = (f" from {where(fc.res)}" if fc and fc.res != v else " from elsewhere" if f.came or not fc else "")
+            o = b.born_at(c.f)
+            frm = f" from {where(o)}" if o not in (None, "came", v) else " from elsewhere" if o in (None, "came") else ""
+            bud = f", the first house beyond {b.mother[v]}'s fields" if v in b.mother and o == b.mother[v] else ""
             H.append({"year": start(c), "kind": "founding", "who": [N[c.f], N[c.m]],
-                      "text": f"{N[c.f]} and {N[c.m]} came to {v}{frm} and built its first house"})
+                      "text": f"{N[c.f]} and {N[c.m]} came to {v}{frm} and built its first house{bud}"})
     for c in b.C.values():
         if c.wed is not None and c.res != "OFF":
             o = lambda q: (b.C[b.P[q].pc].res if b.P[q].pc else None)

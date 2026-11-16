@@ -17,11 +17,19 @@ KFRAC = 0.5              # fertile couples per household, in a village's past (m
 OUT = 2.0               # a wife's parents in another village, beyond the distance kernel: kin at home are barred (forward: 64%)
 MOVE = 0.5              # a man (or an unmarried woman) living in another village than his parents', relative to staying
 CO = 20.0               # a grown son or unmarried daughter living with an elder: the likelihood ratio that the elder is a parent
+FILL = 0.6              # the k-th village founded at span x (1 - share of today's households in the villages before it) ** FILL
+FOUND_SD = 10           # a founding year about the plan (years)
+THIRD = (12.0, 0.58, 14.0)  # a village A years old: its third-oldest resident about 12 + 0.58 A, sd 14 falling with age (forward fit)
+FILL_YEARS = 35         # its households about 1 - exp(-A / 35) of the largest village's (forward fit)
+SHARE_SD = 0.22
+UNRECORDED = 0.3        # the chance a child who grew up and married is not in the record: it left, or its line died out
+BUD = 20.0               # a daughter village's founders' parents lived in its mother village
+CAME_DAUGHTER = 0.1     # from outside the record, for a daughter village's people
 SHARP = 3.0             # a household's couples and children take the likeliest reading (weights to this power); the rest is drawn
 SIBLIKE = 0.2           # a young man and woman in a house with a woman who could have borne both: likelier siblings (forward: odds / 5)
 AWAY = 0.0015           # a child living apart from a living parent (forward: 1.5% of such children, spread over a village's couples)
 FOSTER = 0.1            # a child with both parents dead, living in another's house (forward: 0.7% of children; calibrate)
-FLOOR = 0.1             # a village's unseen couples when the ones already made fill its estimate (calibrate)
+FLOOR = 0.03             # a village's unseen couples when the ones already made fill its estimate (calibrate)
 FOUND = 0.5             # a couple with no house to be had founds a new village, if a site is left
 
 
@@ -80,6 +88,11 @@ def g(a) -> float:
 
 
 FBAR = _GT / sum(_G.values())   # a fertile couple's mean births a year
+
+
+def unwed_death(a_now, sex="f") -> float:
+    """The chance someone born a_now years ago died before marrying: the hazard at each age while still unmarried."""
+    return sum(hazard(a) * S(a) * (1 - married_share(a, sex)) for a in range(int(a_now)))
 
 
 def gap_w(gap) -> float:

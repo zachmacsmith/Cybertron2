@@ -1,147 +1,129 @@
 # A built past (forward seed 1, its present pinned)
 
-Village foundings, built against true: Eastwick -46 (-23), Northby -72 (-100), Southam -37 (-19), Westcot -97 (-74)
+Village foundings, built against true: Eastwick -51 (-23), Northby -98 (-100), Southam -37 (-19), Westcot -97 (-74)
 
 ## Foundings, marriages and the last 15 years' deaths, in order (year 0 is now)
 
-- -109: Stephen Cole married Joyce Shaw at Westcot
-- -97: Jordan Ashdown and Ysolt Webb came to Westcot and built one of its first houses
-- -97: Stephen Cole and Joyce Shaw came to Westcot and built one of its first houses
-- -96: Jordan Ashdown married Ysolt Webb at Westcot
-- -94: Absolon Carter married Rose Moor at Westcot
-- -93: Thurstan Holt married Philippa Hurst at Westcot
-- -86: Edric Reed married Hawise Reed at Westcot
-- -83: Hamon Pike married Edith Miller at Westcot
-- -73: Colin Shaw married Dionisia Slade at Northby
-- -72: Bennet Pike and Joan Ridley came to Northby and built one of its first houses
-- -72: Colin Shaw and Dionisia Slade came to Northby and built one of its first houses
-- -72: Bennet Pike married Joan Ridley at Northby
-- -71: Elias Cole married Emma Holt at Westcot
-- -71: Godwin Webb married Margery Ford at Northby
-- -71: Otes Ashdown married Gunnild Carter at Westcot
-- -70: Aldric Wood married Beatrix Cole at Westcot
-- -63: Godwin Tanner married Isolde Reed of Westcot at Northby
-- -59: Lucas Ashdown married Margery Pike at Westcot
-- -55: Hob Slade married Cassandra Hurst at Northby
-- -50: Odo Pike married Agnes Shaw at Northby
-- -47: Edric Webb married Isabel Cole at Westcot
-- -47: William Pike married Agnes Webb at Northby
-- -46: Warin Tanner and Ursula Pike came to Eastwick from Kingsmarket and built one of its first houses
-- -46: William Thatcher and Christian Tanner came to Eastwick from Kingsmarket and built one of its first houses
-- -44: Wymond Pike went to Kingsmarket
-- -44: Oliver Ashdown married Richolda Wood at Westcot
-- -43: Katherine Ashdown went to Kingsmarket
-- -43: Warin Tanner married Ursula Pike of Northby at Eastwick
-- -43: William Thatcher married Christian Tanner of Northby at Eastwick
-- -42: Edric Ashdown married Edith Cole at Westcot
-- -42: Fulk Brook married Olive Slade at Southam
-- -42: Hamon Reed married Emma Ashdown at Westcot
-- -40: Richard Lane married Margery Wood of Westcot at Northby
-- -37: Fulk Brook and Olive Slade came to Southam from Kingsmarket and built one of its first houses
-- -37: Peter Ashdown and Sibyl Fenn came to Southam from Westcot and built one of its first houses
-- -37: Denise Pike went to Kingsmarket
-- -35: Reynold Slade married Lucy Ashdown of Westcot at Northby
-- -30: Wymarc Shaw went to Kingsmarket
-- -30: Osric Tanner married Sibyl Ashdown at Westcot
-- -29: Stephen Ashdown went to Kingsmarket
-- -29: Bennet Ashdown married Isabel Tanner of Northby at Westcot
-- -29: Peter Ashdown married Sibyl Fenn at Southam
-- -25: Stephen Pike married Letice Tanner at Northby
-- -25: Warin Croft married Tiffany Tanner at Eastwick
-- -24: Jory Tanner went to Kingsmarket
-- -23: Daniel Ashdown married Emma Slade of Northby at Westcot
-- -23: Elias Tanner married Katherine Webb of Westcot at Eastwick
-- -23: Payn Webb married Richolda Reed at Westcot
-- -23: Wat Pike married Joyce Tanner at Northby
-- -21: Aldric Lane married Elena Pike at Northby
-- -20: Jordan Pike married Mariot Ridley of Kingsmarket at Eastwick
-- -16: Hamon Ashdown married Gunnild Tanner of Eastwick at Southam
-- -15: Gillian Reed went to Kingsmarket
-- -15: Geoffrey Slade married Felice Tanner at Northby
-- -14: Christian Tanner died (a fever)
-- -14: Nigel Ashdown died (a fever)
-- -14: Saer Reed married Isolde Brook of Southam at Westcot
-- -13: Dionisia Slade died (old age)
-- -13: Gunnild Carter died (old age)
+- -99: Jordan Ashdown married Ysolt Webb
+- -98: Colin Shaw married Edith Pike
+- -97: Colin Shaw and Edith Pike came to Westcot from Northby and built its first house, the first house beyond Northby's fields
+- -95: Piers Ashdown and Joan Brook came to Northby from elsewhere and built its first house
+- -95: Piers Ashdown married Joan Brook at Northby
+- -94: Payn Croft married Isabel Slade at Northby
+- -87: Tobin Pike married Alys Marsh at Westcot
+- -79: Robin Hurst married Richolda Shaw of Westcot at Northby
+- -77: Simkin Ford married Alys Croft at Northby
+- -73: Elias Hurst married Ursula Ashdown at Westcot
+- -70: Aldric Ashdown married Beatrix Shaw at Westcot
+- -70: Bennet Pike married Joan Ashdown at Northby
+- -69: Lucas Ashdown married Amice Shaw of Westcot at Northby
+- -67: Nicol Pike married Margery Ashdown of Northby at Westcot
+- -65: Matthew Ashdown married Margery Croft of Northby at Westcot
+- -53: Godiva Pike went to Kingsmarket
+- -51: Durand Croft married Gunnild Ashdown at Northby
+- -51: William Hurst married Cassandra Fenn of Kingsmarket at Northby
+- -48: Hob Hurst married Gillian Croft at Northby
+- -47: Beatrix Ford went to Kingsmarket
+- -47: Richard Ford married Nichola Ashdown of Westcot at Northby
+- -46: Clement Hurst married Eva Pike at Northby
+- -44: Lucy Hurst went to Kingsmarket
+- -44: Oliver Pike married Richolda Ashdown at Westcot
+- -43: Simkin Croft and Susanna Miller came to Eastwick from Northby and built its first house, the first house beyond Northby's fields
+- -43: Simkin Croft married Susanna Miller of Kingsmarket at Eastwick
+- -42: Fulk Brook married Matilda Hurst of Westcot
+- -42: Hamon Shaw married Emma Pike at Westcot
+- -41: Warin Hurst married Ursula Pike of Northby at Eastwick
+- -37: Fulk Brook and Matilda Hurst came to Southam from Kingsmarket and built its first house
+- -37: Godwin Ashdown went to Kingsmarket
+- -37: Reynold Hurst married Lucy Ashdown of Westcot at Northby
+- -36: Sibyl Ashdown went to Kingsmarket
+- -35: Alard Hurst went to Kingsmarket
+- -30: Osric Pike married Tiffany Ashdown at Westcot
+- -29: Hob Ashdown went to Kingsmarket
+- -29: Tiffany Croft went to Kingsmarket
+- -29: Absolon Ashdown married Isabel Pike at Westcot
+- -29: Warin Croft married Tiffany Hurst of Northby at Eastwick
+- -26: Edric Pike married Edith Ashdown at Westcot
+- -25: Stephen Pike married Letice Croft of Eastwick at Northby
+- -23: Daniel Pike married Emma Hurst of Northby at Westcot
+- -23: Elias Croft married Katherine Hurst of Northby at Eastwick
+- -23: Payn Pike married Sabina Shaw at Westcot
+- -23: Wat Hurst married Joyce Ford at Northby
+- -21: Aldric Hurst married Elena Hurst at Northby
+- -20: Jordan Hurst married Mariot Wood of Kingsmarket at Eastwick
+- -16: Absolon Pike went to Kingsmarket
+- -16: Hamon Croft married Gunnild Hurst of Eastwick at Southam
+- -15: Gillian Shaw went to Kingsmarket
+- -15: Geoffrey Hurst married Felice Hurst at Northby
+- -14: Saer Shaw married Isolde Brook of Southam at Westcot
 - -13: Lettice Croft died (a fever)
-- -13: William Thatcher died (a fever)
-- -13: Hob Lane married Maud Pike at Northby
-- -13: Otes Tanner married Lucy Lane of Northby at Westcot
-- -13: Simkin Ashdown married Orabel Webb at Westcot
-- -12: Simkin Lane died (a fever)
-- -12: Odo Ashdown went to Kingsmarket
-- -11: Fulk Webb died (a fever)
-- -11: Isabel Tanner died (a fever)
-- -11: Otes Ashdown died (old age)
-- -10: Emma Slade died (a fever)
-- -10: Thomasin Cole died (a fever)
-- -10: Ellen Thatcher went to Kingsmarket
-- -10: Idonea Pike went to Kingsmarket
-- -10: Odo Slade married Thomasin Ashdown of Westcot at Northby
-- -9: Gilbert Pike died (the hard winter)
+- -13: Edric Hurst married Maud Ford at Northby
+- -13: Otes Pike married Lucy Pike at Westcot
+- -13: Simkin Pike married Orabel Hurst of Northby at Westcot
+- -12: Tobin Ford died (a fever)
+- -11: Amice Shaw died (old age)
+- -11: Isabel Pike died (a fever)
+- -11: Drew Hurst went to Kingsmarket
+- -10: Emma Hurst died (a fever)
+- -10: Odo Hurst married Thomasin Hurst at Northby
+- -9: Margery Ashdown died (the hard winter)
 - -9: Warin Croft died (the hard winter)
-- -9: Drew Lane went to Kingsmarket
-- -9: Hamon Slade married Lettice Lane at Northby
-- -8: Edric Ashdown died (a fever)
-- -8: Edric Webb died (old age)
-- -8: Lambert Ashdown died (old age)
-- -8: Olive Slade died (old age)
-- -7: Reynold Slade died (a fever)
-- -7: Fulk Slade married Tiffany Pike at Northby
-- -7: Hamon Tanner married Letice Ashdown at Westcot
-- -6: Geoffrey Slade died (a fever)
-- -6: Peter Ashdown died (a fever)
-- -6: Warin Tanner died (old age)
-- -5: Avice Carter died (old age)
-- -5: Emma Ashdown died (old age)
-- -5: Margery Shaw died (a fever)
-- -4: Hamon Reed died (old age)
-- -4: Isolde Reed died (old age)
-- -4: Mariot Ashdown died (a fever)
-- -4: Godwin Lane married Sabina Thatcher of Eastwick at Northby
-- -3: Agnes Webb died (old age)
-- -3: Bennet Ashdown died (a fever)
-- -3: Stephen Thatcher died (a fever)
-- -3: Drew Croft went to Kingsmarket
-- -3: William Pike married Cassandra Cole of Westcot at Northby
-- -2: Odo Pike died (old age)
-- -2: Geoffrey Ashdown went to Kingsmarket
-- -2: Hawise Ashdown went to Kingsmarket
-- -2: Adam Ashdown married Lettice Tanner of Westcot at Southam
-- -2: Fulk Tanner married Agatha Webb at Westcot
-- -1: Aldric Webb died (the hard winter)
-- -1: Gunnild Tanner died (the hard winter)
-- -1: Ivo Slade went to Kingsmarket
-- -1: Edric Lane married Petronel Pike of Eastwick at Southam
-- -1: Tobin Hale married Denise Tanner at Eastwick
-- 0: Clement Pike married Helewise Lane of Northby at Eastwick
-- 0: Drew Ashdown married Alice Webb at Westcot
+- -9: Drew Ford went to Kingsmarket
+- -9: Hamon Hurst married Lettice Ford at Northby
+- -8: Edric Pike died (a fever)
+- -8: Matilda Hurst died (old age)
+- -8: Hamon Ford went to Kingsmarket
+- -7: Reynold Hurst died (a fever)
+- -7: Fulk Hurst married Wymarc Croft of Eastwick at Northby
+- -7: Herbert Pike married Letice Pike at Westcot
+- -6: Geoffrey Hurst died (a fever)
+- -6: Warin Hurst died (old age)
+- -6: Elena Croft went to Kingsmarket
+- -5: Emma Ashdown died (a fever)
+- -5: Emma Pike died (old age)
+- -4: Hamon Shaw died (old age)
+- -4: Sibyl Pike died (a fever)
+- -4: Godwin Hurst married Sabina Pike of Westcot at Northby
+- -3: Absolon Ashdown died (a fever)
+- -3: Hob Hurst died (old age)
+- -3: Ursula Ashdown died (old age)
+- -2: Eva Pike died (a fever)
+- -2: Susanna Miller died (a fever)
+- -2: Adam Croft married Lettice Pike of Westcot at Southam
+- -2: Elias Pike married Agatha Pike at Westcot
+- -1: Clement Hurst died (the hard winter)
+- -1: Gunnild Hurst died (the hard winter)
+- -1: Simkin Croft died (the hard winter)
+- -1: Piers Hurst married Petronel Hurst of Eastwick at Southam
+- -1: Tobin Shaw married Denise Croft at Eastwick
+- 0: Clement Pike married Helewise Hurst of Northby at Eastwick
+- 0: Drew Pike married Alice Pike at Westcot
 
 ## Three heads as they will be told it (memories in years here; the spec writes the engine's winters)
 
-**Payn Webb** (adult, h23): kin living: Katherine Webb (sister); Elias Tanner (brother-in-law); Agnes Tanner (niece); Tobin Tanner (nephew); Ralf Tanner (nephew); Cecily Tanner (niece); Tobin Hale (niece's husband); Denise Tanner (niece)
-  - Father Edric Webb died 8 years ago (old age).
-  - Grandmother Emma Holt died 32 years ago (a fever).
-  - Grandmother Margery Ford died 19 years ago (old age).
-  - Grandfather Godwin Webb died 29 years ago (old age).
-  - Daughter Godiva Webb died 13 years ago (in the cradle).
-  - Daughter Philippa Webb died 4 years ago (a childhood fever).
-  - Brother Aldric Webb died last year (the hard winter).
-  - Brother Fulk Webb died 11 years ago (a fever).
-**Elias Tanner** (adult, h25): kin living: Katherine Webb (wife); Agnes Tanner (daughter); Tobin Tanner (son); Ralf Tanner (son); Cecily Tanner (daughter); Jordan Pike (cousin); Mariot Ridley (cousin's wife); Tobin Hale (son-in-law)
+**Payn Pike** (adult, h23): kin living: Katherine Hurst (cousin); Elias Croft (cousin's husband); Jordan Hurst (cousin); Mariot Wood (cousin's wife); Clement Pike (cousin); Helewise Hurst (cousin's wife); Elena Hurst (cousin); Aldric Hurst (cousin's husband)
   - Hard winters you remember: 36 years ago, 25 years ago, 24 years ago, 17 years ago, 9 years ago, last year.
-  - Sister Gunnild Tanner died last year (the hard winter).
-  - Mother Ursula Pike died 20 years ago (a fever).
-  - Father Warin Tanner died 6 years ago (old age).
-  - Grandmother Joan Ridley died 19 years ago (old age).
+  - Cousin's husband Geoffrey Hurst died 6 years ago (a fever).
+  - Grandmother Joan Ashdown died 19 years ago (old age).
   - Grandfather Bennet Pike died 33 years ago (old age).
-  - Sister Alice Tanner died 31 years ago (in the cradle).
-**Hamon Ashdown** (adult, h27): kin living: Katherine Webb (cousin); Elias Tanner (brother-in-law); Agnes Tanner (niece); Tobin Tanner (nephew); Ralf Tanner (nephew); Cecily Tanner (niece); Tobin Hale (niece's husband); Denise Tanner (niece)
-  - Uncle's wife Agnes Webb died 3 years ago (old age).
-  - Mother Edith Cole died 16 years ago (a fever).
-  - Father Edric Ashdown died 8 years ago (a fever).
-  - Grandmother Gunnild Carter died 13 years ago (old age).
-  - Grandfather Otes Ashdown died 11 years ago (old age).
-  - Grandmother Emma Holt died 32 years ago (a fever).
-  - Brother Henry Ashdown died 29 years ago (in the cradle).
-  - Brother Gervase Ashdown died 23 years ago (in the cradle).
+  - Grandfather Aldric Ashdown died 36 years ago (the hard winter).
+  - Daughter Annora Pike died 13 years ago (in the cradle).
+  - Daughter Philippa Pike died 4 years ago (a childhood fever).
+**Elias Croft** (adult, h25): kin living: Tiffany Hurst (sister-in-law); Jory Croft (nephew); Ivy Croft (niece); Katherine Hurst (wife); Agnes Croft (daughter); Tobin Croft (son); Godwin Croft (son); Cecily Croft (daughter)
+  - Brother Warin Croft died 9 years ago (the hard winter).
+  - Cousin's wife Isabel Pike died 11 years ago (a fever).
+  - Cousin's husband Edric Pike died 8 years ago (a fever).
+  - Cousin's husband Reynold Hurst died 7 years ago (a fever).
+  - Father Durand Croft died 19 years ago (a fever).
+  - Grandmother Isabel Slade died 21 years ago (old age).
+  - Grandmother Amice Shaw died 11 years ago (old age).
+  - Grandfather Lucas Ashdown died 30 years ago (a fever).
+**Hamon Croft** (adult, h27): kin living: Tiffany Hurst (cousin's wife); Katherine Hurst (cousin's wife); Elias Croft (cousin); Jordan Hurst (brother-in-law); Lettice Hurst (niece); Roger Hurst (nephew); Ancel Hurst (nephew); Daniel Hurst (nephew)
+  - Hard winters you remember: 25 years ago, 24 years ago, 17 years ago, 9 years ago, last year.
+  - Wife Gunnild Hurst died last year (the hard winter).
+  - Cousin's wife Isabel Pike died 11 years ago (a fever).
+  - Mother Susanna Miller died 2 years ago (a fever).
+  - Father Simkin Croft died last year (the hard winter).
+  - Cousin's husband Edric Pike died 8 years ago (a fever).
+  - Cousin's husband Reynold Hurst died 7 years ago (a fever).
+  - Grandmother Isabel Slade died 21 years ago (old age).

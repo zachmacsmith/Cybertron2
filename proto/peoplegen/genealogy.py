@@ -1,7 +1,11 @@
 """The past built backward from a pinned present (generation_redesign.md §4.3), as decisions for the solver (§4.5).
 
 Decisions, in the order they are made:
-- found:<village>    the year the village was founded (pinned, or drawn: an older village for a bigger present);
+- settle             the order the villages were settled in, each daughter village budding from the nearest older one (the
+                     forward model's rule: a village fills its land, then a household founds the next site). Weighted by what
+                     the present shows of a village's age: an old village is full and has elders, a young one is small and
+                     its oldest people are its founders;
+- found:<village>    the year it was founded, near what the order implies (pinned, or drawn);
 - pairs:<household>  who in the household is married to whom (a matching of its adults);
 - par:<person>       who a person's parents were, newest births first, so the build runs backward in time like a coalescent:
                      an existing couple (the present couple, an ancestral couple already made: siblings merge here, across
@@ -60,6 +64,8 @@ class Build:
         self.off = spec.get("off")
         self.hard = set(spec["hard_years"]) if spec.get("hard_years") is not None else D.hard_years(seed, self.span)
         self.pin_found = (spec.get("pins") or {}).get("found") or {}
+        self.mother = {}                                          # a daughter village -> the village it budded from
+        self.plan = {}                                            # the founding year the settlement order implies
         self.trail = Trail()
         self.P, self.C, self.F = {}, {}, {}
         self.hh = {}
@@ -162,9 +168,10 @@ class Build:
         if v is None or r == v:
             return 1.0
         k = math.exp(-self.dv(r, v) / D.LAMBDA)
+        bud = D.BUD if (self.mother.get(v) == r and p.born is not None and p.born < self.F.get(v, -999) + 10) else 1.0
         if p.sex == "f" and self.married(x):
-            return D.OUT * k
-        return D.MOVE * k
+            return D.OUT * k * bud
+        return D.MOVE * k * bud                                   # a daughter village's founders were born in its mother
 
     def spacing(self, m, b):
         ks = [self.P[k].born for k in self.kids_of_mother(m)]
@@ -176,13 +183,14 @@ class Build:
     def klass(self, cand):
         if cand[0] in ("new",):
             return cand[:2]
-        if cand[0] in ("off", "age", "death", "fill", "year"):
+        if cand[0] in ("off", "age", "death", "fill", "year", "order"):
             return cand[:1]
         return cand
 
     # ------------------------------------------------------------------ decisions
     def initial(self):
-        vs = [Var(f"found:{v}", (0, v), pin=("year", self.pin_found[v]) if v in self.pin_found else None) for v in sorted(self.V)]
+        vs = [Var("settle:", (-1, ""))]
+        vs += [Var(f"found:{v}", (0, v), pin=("year", self.pin_found[v]) if v in self.pin_found else None) for v in sorted(self.V)]
         vs += [Var(f"pairs:{h}", (1, h)) for h in sorted(self.hh)]
         vs += [Var(f"par:{i}", (2, -p.born, i, 0)) for i, p in sorted(self.P.items()) if p.born >= -self.span]
         vs += [Var(f"wid:{i}", (2.9, i)) for i, p in sorted(self.P.items()) if p.role == "widowed"]
@@ -210,9 +218,22 @@ class Build:
     def cands(self, var):
         kind, key = var.id.split(":", 1)
         out = getattr(self, "c_" + kind)(key)
-        if self.sharp != 1 and (kind == "pairs" or kind == "par" and self.P[key].kind == "present" and self.P[key].age < 16):
+        if self.sharp != 1 and (kind in ("pairs", "settle") or kind == "par" and self.P[key].kind == "present" and self.P[key].age < 16):
             out = [(k, w ** self.sharp) for k, w in out]          # a household's couples and children: the likeliest reading
         return out
+
+    def born_at(self, i):
+        """Where a person was born: their parents' village; for someone born before the record, the mother village of the
+        daughter village they founded (the settlement history says it budded from there); else unknown."""
+        p = self.P[i]
+        if p.pc:
+            return self.C[p.pc].res
+        if p.came:
+            return "came"
+        v = self.adult_village(i)
+        if v in self.mother and p.born is not None and p.born < self.F.get(v, -999):
+            return self.mother[v]
+        return None
 
     def blame(self, var):
         """The decisions a decision reads: where its conflict set goes when it has no candidate at all."""
@@ -226,6 +247,8 @@ class Build:
                 return {p.bsrc, f"pairs:{p.hh}"} | pins | ({f"found:{p.village}"} if p.born < self.F.get(p.village, -999) else set())
             av = self.adult_village(key)
             return {p.bsrc} | pins | {f"found:{v}" for v in self.V if p.born < self.F.get(v, -999)} | ({f"found:{av}"} if av in self.V else set())
+        if kind == "found":
+            return {"settle:"}
         if kind == "age":
             c = self.C[key]
             return {c.src} | {self.P[k].psrc for k in c.kids}
@@ -237,18 +260,72 @@ class Build:
         kind, key = var.id.split(":", 1)
         return getattr(self, "a_" + kind)(var, key, cand)
 
-    # found
+    # settle: the order of settlement, and what each village's present says of its age
+    def settled(self):
+        return [v for v in sorted(self.V) if self.H.get(v)]
+
+    def plan_years(self, order):
+        """The k-th village is founded when the villages before it have filled: the share of today's households they hold,
+        through the forward model's curve (calibrate: forward runs found daughters about 73, 57 and 44 years back)."""
+        tot = sum(self.H.get(v, 0) for v in order) or 1
+        out, cum = {}, 0
+        for k, v in enumerate(order):
+            out[v] = -self.span if k == 0 else -int(round(self.span * (1 - cum / tot) ** D.FILL))
+            cum += self.H.get(v, 0)
+        return out
+
+    def age_w(self, v, F):
+        """How well a founding year fits the village's present, by the forward model's measured relations to a village's age A:
+        its third-oldest resident (about 12 + 0.58 A, sd 14 falling to 8) and its households as a share of the largest
+        village's (about 1 - exp(-A / 35), sd 0.22)."""
+        A = max(1, -F)
+        ages = sorted(p.age for p in self.P.values() if p.kind == "present" and p.village == v)
+        third = ages[-3] if len(ages) >= 3 else (ages[0] if ages else 0)
+        mu, sd = D.THIRD[0] + D.THIRD[1] * A, max(7.0, D.THIRD[2] - 0.07 * A)
+        share = self.H.get(v, 0) / max(self.H.values())
+        ms = 1 - math.exp(-A / D.FILL_YEARS)
+        return math.exp(-((third - mu) ** 2) / (2 * sd ** 2) - ((share - ms) ** 2) / (2 * D.SHARE_SD ** 2))
+
+    def c_settle(self, _):
+        import itertools
+        vs = self.settled()
+        out = []
+        for order in itertools.permutations(vs):
+            plan = self.plan_years(order)
+            w = 1.0
+            for v in order:
+                w *= self.age_w(v, plan[v])
+            out.append((("order",) + order, w))
+        return out
+
+    def a_settle(self, var, _, cand):
+        order = cand[1:]
+        plan = self.plan_years(order)
+        for k, v in enumerate(order):
+            self.trail.put(self.plan, v, plan[v])
+            if k:
+                self.trail.put(self.mother, v, min(order[:k], key=lambda u: (self.dv(v, u), u)))
+        return None, []
+
+    # found: the year, near the plan, read against the village's present
     def c_found(self, v):
-        H = max(2, self.H.get(v, 2))
-        est = -min(self.span, max(10, math.log(H / 2) / 0.02))
-        return [(("year", y), math.exp(-((y - est) ** 2) / (2 * 15 ** 2))) for y in range(-self.span, -4)]
+        F0 = self.plan.get(v, -self.span // 2)
+        sd = 3 if F0 == -self.span else D.FOUND_SD
+        return [(("year", y), math.exp(-((y - F0) ** 2) / (2 * sd ** 2)) * self.age_w(v, y)) for y in range(-self.span, -4)]
 
     def a_found(self, var, v, cand):
         minors = [p for p in self.P.values() if p.kind == "present" and p.village == v and p.age < 16]
         old = min(minors, key=lambda p: p.born) if minors else None
         if old and cand[1] > old.born:                              # the village was there when its children were born
-            return {old.bsrc}, None
-        self.trail.put(self.F, v, cand[1])
+            return {old.bsrc} | ({f"pin:found:{v}"} if v in self.pin_found else set()), None
+        y = cand[1]
+        m = self.mother.get(v)
+        if m is not None and m in self.F and self.F[m] > y:         # a daughter no earlier than its mother
+            return {"settle:", f"found:{m}"}, None
+        for u, Fu in self.F.items():
+            if self.mother.get(u) == v and Fu < y:
+                return {"settle:", f"found:{u}"}, None
+        self.trail.put(self.F, v, y)
         return None, []
 
     # pairs
@@ -352,8 +429,8 @@ class Build:
             w *= self.barren_since(q, b)
 
             out.append((("with", q), max(w, EPS)))
-        if v in self.F and b < self.F[v] and not minor:
-            out.append((("came",), D.CAME_RATE * D.FBAR))
+        if v in self.F and b < self.F[v] and not minor:          # from outside the record: the first village's founders, and few others
+            out.append((("came",), D.CAME_RATE * D.FBAR * (1.0 if v not in self.mother else D.CAME_DAUGHTER)))
         return self.by_role(x, out)
 
     def by_role(self, x, out):
@@ -635,18 +712,23 @@ class Build:
             gapb = 99 if last is None else y - last
             ahead = min([k - y for k in K if k > y] or [99])
             sp = (0 if min(gapb, ahead) < 1 else 0.3 if min(gapb, ahead) == 1 else 1)
-            a_now = -y
-            q_dead = 1 - D.S(a_now)
-            q_left = 0.25 if self.off and a_now >= 18 else 0.0
-            gone = q_dead + (1 - q_dead) * q_left
+            a_now = -y                                            # a child not living now and not in the record: died before
+            sex = "m" if u(self.seed, "fsex", cid, y) < .5 else "f"   # it married, or married and left (or its line died out)
+            q_dead = D.unwed_death(a_now, sex)
+            q_left = D.UNRECORDED * D.married_share(a_now, sex) * D.S(a_now)
+            gone = q_dead + q_left
             if u(self.seed, "fill", cid, y) < D.fert(y - m.born) * sp * gone:
-                sex = "m" if u(self.seed, "fsex", cid, y) < .5 else "f"
                 if u(self.seed, "ffate", cid, y) < q_dead / gone:
-                    ds = [(z, D.death_w(z - y, z, self.hard)) for z in range(y, 0)]
+                    ds = [(z, D.death_w(z - y, z, self.hard) * (1 - D.married_share(z - y, sex))) for z in range(y, 0)]
                     z = order(self.seed, ("fdie", cid, y), ds)[0]
                     out.append(("died", y, sex, z))
                 else:
                     z = y + 16 + int(u(self.seed, "fleft", cid, y) * min(14, max(1, -y - 16)))
+                    if not self.off:                                  # nowhere to go: a line that died out
+                        z = order(self.seed, ("fdie2", cid, y), [(zz, D.death_w(zz - y, zz, self.hard)) for zz in range(min(y + 25, -1), 0)])[0]
+                        out.append(("died", y, sex, z))
+                        last = y
+                        continue
                     out.append(("left", y, sex, min(z, -1)))
                 last = y
         return tuple(out)
@@ -677,9 +759,9 @@ class Build:
         out = {}
         for i, p in self.P.items():
             c = self.C.get(p.pc) if p.pc else None
-            bi = "before" if p.born is not None and p.born < -self.span and not c else ("came" if p.came else (c.res if c else None))
+            bi = self.born_at(i) or ("before" if p.born is not None and p.born < -self.span else None)
             out[i] = {"sex": p.sex, "born": p.born, "died": p.died, "left": p.fate[1] if p.fate else None,
                       "father": c.f if c else None, "mother": c.m if c else None, "present": p.kind == "present",
                       "village": p.village, "hh": p.hh, "born_in": bi, "kind": p.kind}
         unions = [{"f": c.f, "m": c.m, "res": c.res, "wed": c.wed} for c in self.C.values()]
-        return {"P": out, "unions": unions, "founded": dict(self.F), "span": self.span}
+        return {"P": out, "unions": unions, "founded": dict(self.F), "span": self.span, "mother": dict(self.mother)}

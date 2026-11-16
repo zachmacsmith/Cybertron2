@@ -435,6 +435,15 @@ fitted to people; capacity is tunable through a holistic richness, not one lever
   cannot be read from ages: parents in other households, step-parents, two couples in one house. Statistics unchanged or
   closer. Example pasts: `proto/peoplegen/results/examples.md`.
 
+- **16 Nov 2026 (later), at Zach's request:** village ages come from the settlement history, not from a size prior.
+  - **What was built:** a `settle` decision orders the villages, each daughter budding from the nearest older one when those
+    before it fill (§4.3's forward rule). Orders are weighed by the present's evidence of age, fitted on forward runs: households
+    as a share of the largest, and the third-oldest resident. Founders are born in the mother village.
+  - **Results:** order against the truth tau 0.43 → 0.71; founding error 21 → 15 years; daughter villages founded from an older
+    village 12% → 85%. Kin across villages now matches.
+  - **Also fixed:** unrecorded children could live long without marrying.
+  - **What it exposed:** ancestors marry only once, so adults die four years too old (L-108).
+
 ## Sources
 
 - generator.md (D2-173 to D2-175, §2 to §5, §9), generator_stage1.md, temperate_landscapes.md (D2-191), land_kept.md (W-25).
