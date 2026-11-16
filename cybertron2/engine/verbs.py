@@ -764,8 +764,7 @@ def _make(here, mind, a, party):
             break
         share = KN.batch_share(here, tech, mult, extra)                        # whatever one has, up to the batch (brief 4c §6.1)
         if t.get("rack") and b is not None:                                    # as much as the racks there have room for (5 §4a)
-            from cybertron2.engine import keeping as KP
-            share = min(share, KP.room(here._w, site[1], tech) / max(1e-12, sum(float(q) for q in t["gives"].values())))
+            share = min(share, here.rack_room(site[1], tech) / max(1e-12, sum(float(q) for q in t["gives"].values())))
         _consume(here, t.get("inputs") or {}, mult * share, extra)
         if b is not None and fits and WE.on(here.p):
             WE.use(here, site[1], fits, sum(v for v in (t.get("inputs") or {}).values() if isinstance(v, (int, float))) * fac * share)
@@ -791,7 +790,7 @@ def _make(here, mind, a, party):
                 if house:
                     from cybertron2.engine import keeping as KP
                     KP.light(here, site[1])                                    # hung and the fire lit: it burns tonight
-                    n = KP.fuel_nights(here._w, site[1])
+                    n = here.smoke_fuel_nights(site[1])
                     full = (f"; it hangs on the smoke racks in {b['name']} for {int(rk['nights'])} nights of fire, the fire lit for tonight "
                             "and to be tended each day after (tend the smoke), or the batch waits and spoils"
                             + (f"; firewood there for {n} night{'s' if n != 1 else ''}" if n else
@@ -1138,8 +1137,7 @@ def _fitting(here, mind, a, party, what):
     if what in ("beds", "hearth") and any(b["fittings"].get(x) for x, d in FITTINGS.items() if d.get("apart")):
         raise Refused(f"{b['name']} is a smokehouse: people do not sleep or keep a hearth in it")
     if f.get("spring"):                                                      # at or beside a spring (brief 5 §4b.2)
-        from cybertron2.engine import keeping as KP
-        if not KP.near_spring(here._w, b["parcel"], f["spring"]):
+        if not here.near_spring(b["parcel"], f["spring"]):
             raise Refused(f"{f['label']} is set where the {f['spring']} is: at or beside a {f['spring']} spring, and {b['name']} is not")
     if f.get("site") and not any(here.parcels()[x]["cover"] == f["site"] for x in [b["parcel"]] + here.parcels()[b["parcel"]]["adj"]
                                  if x in here.parcels()):

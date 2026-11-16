@@ -610,7 +610,7 @@ def house_known(here, bid, daily=False) -> list:
         into, dried, stored = rk["into"], float(rk.get("dried", 0.0)), float(rk.get("stored", 0.0))
         rest = float(c["goods"].get(into, 0.0))
         if int(rk["done"]) == here.day - 1 and dried > 1e-6:
-            theirs = house and not (c.get("by") in here._w.s["people"] and bid in here._w.homes(c["by"]))
+            theirs = house and not here.hung_by_household(c, bid)
             if rest <= 1e-6:
                 out.append(f"{dry} overnight: about {show(round(dried, 1))} {into}, put in the store")
             elif theirs:
