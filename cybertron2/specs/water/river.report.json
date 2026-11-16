@@ -15,13 +15,13 @@
   },
   "Millham": {
    "households": 3,
-   "people": 13,
+   "people": 9,
    "food": 0.6,
    "heat": 0.61,
-   "plots_wanted": 13,
-   "fields": 13,
-   "wood_wanted": 5,
-   "woods": 5,
+   "plots_wanted": 9,
+   "fields": 9,
+   "wood_wanted": 3,
+   "woods": 3,
    "waste": 3
   }
  },
@@ -48,10 +48,10 @@
   },
   "capacity": {
    "kind": "design",
-   "ok": true,
+   "ok": false,
    "detail": {
     "Saltwell": 0.7,
-    "Millham": 0.65
+    "Millham": 0.76
    }
   },
   "dependence": {
@@ -78,14 +78,14 @@
    "ok": true,
    "detail": [
     "Saltwell-w1: pass",
-    "Saltwell-w2: pass"
+    "Saltwell-w3: pass"
    ]
   },
   "roads about a day": {
    "kind": "design",
    "ok": true,
    "detail": {
-    "1": 3
+    "1": 4
    }
   },
   "parcels per node": {
@@ -93,7 +93,7 @@
    "ok": true,
    "detail": {
     "Saltwell": 12,
-    "Millham": 11
+    "Millham": 10
    }
   },
   "access gates": {
@@ -126,8 +126,8 @@
      "target": 0.67
     },
     "Millham": {
-     "people": 13,
-     "share": 0.65,
+     "people": 9,
+     "share": 0.76,
      "target": 0.61
     }
    }
@@ -136,25 +136,25 @@
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "27 people; the land keeps 48 for good (0.57 of it)"
+   "detail": "23 people; the land keeps 43 for good (0.54 of it)"
   },
   "economy: food over the run": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "14 days need 350 meals; store, crops ripening and the land give 766 (0.46)"
+   "detail": "14 days need 300 meals; store, crops ripening and the land give 689 (0.43)"
   },
   "economy: region heat": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "27 people; the land keeps 66 for good (0.41 of it)"
+   "detail": "23 people; the land keeps 83 for good (0.28 of it)"
   },
   "economy: heat over the run": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "14 days need 119 heat (7 hearths, 1.0 cold nights); store and the woods' flow give 558 (0.21); the woods stand at 45620 more"
+   "detail": "14 days need 132 heat (7 hearths, 1.608695652173913 cold nights); store and the woods' flow give 640 (0.21); the woods stand at 73770 more"
   },
   "economy: carrying burden": {
    "kind": "economy",
@@ -189,13 +189,79 @@
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "9 couples; about 10 births in 14 days if they try often; the region would be at 0.79 of its land"
+   "detail": "6 couples; about 7 births in 14 days if they try often; the region would be at 0.70 of its land"
   },
   "economy: succession": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
    "detail": "nobody grown is likely to die in the run"
+  },
+  "predators within range": {
+   "kind": "wild",
+   "ok": true,
+   "detail": {
+    "said": {
+     "Millham": "stoat 23.14 (a group needs 1), fox 17.67 (a group needs 1), wild boar 10.92 (a group needs 2), wolf 2.84 (a group needs 3), brown bear 0.91 (a group needs 1)",
+     "Saltwell": "stoat 22.12 (a group needs 1), fox 16.85 (a group needs 1), wild boar 7.78 (a group needs 2), wolf 2.42 (a group needs 3), brown bear 0.71 (a group needs 1)"
+    },
+    "by village": {
+     "Millham": {
+      "wild boar": {
+       "heads": 10.92,
+       "least": 2,
+       "range_km2": 40.0
+      },
+      "fox": {
+       "heads": 17.67,
+       "least": 1,
+       "reach": "ring"
+      },
+      "stoat": {
+       "heads": 23.14,
+       "least": 1,
+       "reach": "ring"
+      },
+      "wolf": {
+       "heads": 2.84,
+       "least": 3,
+       "range_km2": 200.0
+      },
+      "brown bear": {
+       "heads": 0.91,
+       "least": 1,
+       "range_km2": 300.0
+      }
+     },
+     "Saltwell": {
+      "wild boar": {
+       "heads": 7.78,
+       "least": 2,
+       "range_km2": 40.0
+      },
+      "fox": {
+       "heads": 16.85,
+       "least": 1,
+       "reach": "ring"
+      },
+      "stoat": {
+       "heads": 22.12,
+       "least": 1,
+       "reach": "ring"
+      },
+      "wolf": {
+       "heads": 2.42,
+       "least": 3,
+       "range_km2": 200.0
+      },
+      "brown bear": {
+       "heads": 0.71,
+       "least": 1,
+       "range_km2": 300.0
+      }
+     }
+    }
+   }
   }
  },
  "generated": [],
@@ -226,7 +292,7 @@
     24.61,
     15.33
    ],
-   "parcels": 11
+   "parcels": 10
   },
   "w1": {
    "name": "Stanley",
@@ -238,7 +304,16 @@
    "parcels": 2
   },
   "w2": {
-   "name": "Flintley",
+   "name": "Hazeley",
+   "kind": "wild",
+   "site_km": [
+    14.22,
+    41.69
+   ],
+   "parcels": 2
+  },
+  "w3": {
+   "name": "Craghope",
    "kind": "wild",
    "site_km": [
     22.66,
@@ -294,7 +369,7 @@
   "spring": {
    "parcel": "Saltwell_2",
    "name": "the Brine Meadow",
-   "held_by": "Cole"
+   "held_by": "Hale"
   },
   "mill": {
    "building": "Millham_mill",
@@ -303,14 +378,14 @@
  },
  "design": {
   "saltwell_area": "a0",
-  "millham_area": "a5",
+  "millham_area": "a6",
   "saltwell_above_millham": true,
   "chain": [
    "a0",
-   "a4",
-   "a32",
-   "a25",
-   "a5"
+   "a5",
+   "a34",
+   "a27",
+   "a6"
   ],
   "areas_between": 3,
   "river_km_between": 34.6,

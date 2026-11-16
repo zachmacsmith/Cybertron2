@@ -4,11 +4,11 @@
  "targets": {
   "Meresby": {
    "households": 3,
-   "people": 15,
+   "people": 14,
    "food": 0.6,
    "heat": 0.6,
-   "plots_wanted": 16,
-   "fields": 16,
+   "plots_wanted": 15,
+   "fields": 15,
    "wood_wanted": 5,
    "woods": 5,
    "waste": 3
@@ -39,7 +39,7 @@
    "kind": "design",
    "ok": false,
    "detail": {
-    "Meresby": 0.75
+    "Meresby": 0.7
    }
   },
   "dependence": {
@@ -101,8 +101,8 @@
    "ok": true,
    "detail": {
     "Meresby": {
-     "people": 15,
-     "share": 0.75,
+     "people": 14,
+     "share": 0.7,
      "target": 0.6
     }
    }
@@ -111,25 +111,25 @@
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "15 people; the land keeps 28 for good (0.55 of it)"
+   "detail": "14 people; the land keeps 26 for good (0.54 of it)"
   },
   "economy: food over the run": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "14 days need 193 meals; store, crops ripening and the land give 453 (0.43)"
+   "detail": "14 days need 179 meals; store, crops ripening and the land give 412 (0.43)"
   },
   "economy: region heat": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "15 people; the land keeps 45 for good (0.33 of it)"
+   "detail": "14 people; the land keeps 45 for good (0.31 of it)"
   },
   "economy: heat over the run": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "14 days need 51 heat (3 hearths, 1.0 cold nights); store and the woods' flow give 339 (0.15); the woods stand at 38300 more"
+   "detail": "14 days need 42 heat (3 hearths, 0 cold nights); store and the woods' flow give 336 (0.13); the woods stand at 38300 more"
   },
   "economy: carrying burden": {
    "kind": "economy",
@@ -161,13 +161,51 @@
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "2 couples; about 2 births in 14 days if they try often; the region would be at 0.63 of its land"
+   "detail": "3 couples; about 4 births in 14 days if they try often; the region would be at 0.67 of its land"
   },
   "economy: succession": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
    "detail": "nobody grown is likely to die in the run"
+  },
+  "predators within range": {
+   "kind": "wild",
+   "ok": true,
+   "detail": {
+    "said": {
+     "Meresby": "stoat 20.95 (a group needs 1), wild boar 17.54 (a group needs 2), fox 16.06 (a group needs 1), wolf 2.2 (a group needs 3), brown bear 0.32 (a group needs 1)"
+    },
+    "by village": {
+     "Meresby": {
+      "wild boar": {
+       "heads": 17.54,
+       "least": 2,
+       "range_km2": 40.0
+      },
+      "fox": {
+       "heads": 16.06,
+       "least": 1,
+       "reach": "ring"
+      },
+      "stoat": {
+       "heads": 20.95,
+       "least": 1,
+       "reach": "ring"
+      },
+      "wolf": {
+       "heads": 2.2,
+       "least": 3,
+       "range_km2": 200.0
+      },
+      "brown bear": {
+       "heads": 0.32,
+       "least": 1,
+       "range_km2": 300.0
+      }
+     }
+    }
+   }
   }
  },
  "generated": [],

@@ -7,6 +7,8 @@ calendar:
   season: summer
   day: 4
   season_days: 8
+climate:
+  era: steady
 children:
   'on': true
   dial: low
@@ -36,33 +38,34 @@ nodes:
       Meresby_0:
         name: the Street
         cover: built
-        size: 1
+        size: 5
         side: centre
         height: 1
         text: houses round a trodden green
         adj:
         - Meresby_1
+        - Meresby_2
         - Meresby_9
         terrain: river terrace
         soil: loam
         ecosystem: wet grassland
         land:
-          elevation: 76.2
-          exposure: 0.54
+          elevation: 75.4
+          exposure: 0.53
           texture: loam
-          held_mm: 197.0
+          held_mm: 197.2
           drain_rate: 0.25
           depth: 1.16
           base_fertility: 1.0
           position: slope
-          rain_factor: 0.99
+          rain_factor: 0.989
           sea_km: 99.0
           river: none
       Meresby_1:
         name: Broad Field
         cover: field
-        size: 8
-        side: centre
+        size: 7
+        side: south
         height: 1
         text: ploughland, on good loam
         adj:
@@ -78,22 +81,22 @@ nodes:
         soil: loam
         ecosystem: wet grassland
         land:
-          elevation: 74.6
-          exposure: 0.51
+          elevation: 74.7
+          exposure: 0.5
           texture: loam
-          held_mm: 196.8
+          held_mm: 197.1
           drain_rate: 0.25
           depth: 1.16
           base_fertility: 1.0
           position: slope
-          rain_factor: 0.993
+          rain_factor: 0.995
           sea_km: 99.0
           river: none
         holder: Hunt
         state:
           crop:
             kind: barley
-            left: 384
+            left: 336
             ripe_day: 5
       Meresby_2:
         name: Meresby Meadow
@@ -103,8 +106,11 @@ nodes:
         height: 1
         text: hay meadow, on good loam
         adj:
+        - Meresby_0
         - Meresby_1
         - Meresby_4
+        - Meresby_5
+        - Meresby_8
         state:
           plants:
             K: 1.3
@@ -118,163 +124,163 @@ nodes:
         soil: loam
         ecosystem: wet grassland
         land:
-          elevation: 72.7
-          exposure: 0.47
+          elevation: 75.3
+          exposure: 0.51
           texture: loam
-          held_mm: 197.1
+          held_mm: 196.0
           drain_rate: 0.25
-          depth: 1.16
+          depth: 1.15
           base_fertility: 1.0
           position: slope
-          rain_factor: 0.99
+          rain_factor: 1.015
           sea_km: 99.0
           river: none
         holder: Ward
       Meresby_3:
         name: the Leaze
         cover: pasture
-        size: 3
+        size: 2
+        side: east
+        height: 1
+        text: grazing, on good loam
+        adj:
+        - Meresby_1
+        - Meresby_6
+        - Meresby_9
+        state:
+          plants:
+            K: 2.0
+            S: 2.0
+            r: 0.3
+          grass:
+            K: 60.0
+            S: 60.0
+            r: 0.32
+        terrain: river terrace
+        soil: loam
+        ecosystem: wet grassland
+        land:
+          elevation: 74.3
+          exposure: 0.5
+          texture: loam
+          held_mm: 199.3
+          drain_rate: 0.25
+          depth: 1.17
+          base_fertility: 1.0
+          position: slope
+          rain_factor: 0.989
+          sea_km: 99.0
+          river: none
+      Meresby_4:
+        name: West Pasture
+        cover: pasture
+        size: 2
         side: west
         height: 1
         text: grazing, on good loam
         adj:
         - Meresby_1
-        - Meresby_5
-        - Meresby_6
+        - Meresby_2
+        - Meresby_7
         - Meresby_9
         state:
           plants:
-            K: 3.0
-            S: 3.0
+            K: 2.0
+            S: 2.0
             r: 0.3
           grass:
-            K: 90.0
-            S: 90.0
+            K: 60.0
+            S: 60.0
             r: 0.32
         terrain: river terrace
         soil: loam
         ecosystem: wet grassland
         land:
-          elevation: 77.1
+          elevation: 77.7
           exposure: 0.55
           texture: loam
-          held_mm: 196.9
+          held_mm: 200.5
           drain_rate: 0.25
-          depth: 1.16
+          depth: 1.18
           base_fertility: 1.0
           position: slope
-          rain_factor: 1.004
-          sea_km: 99.0
-          river: none
-      Meresby_4:
-        name: South Pasture
-        cover: pasture
-        size: 1
-        side: south
-        height: 1
-        text: grazing, on good loam
-        adj:
-        - Meresby_1
-        - Meresby_2
-        state:
-          plants:
-            K: 1.0
-            S: 1.0
-            r: 0.3
-          grass:
-            K: 30.0
-            S: 30.0
-            r: 0.32
-        terrain: river terrace
-        soil: loam
-        ecosystem: wet grassland
-        land:
-          elevation: 73.8
-          exposure: 0.47
-          texture: loam
-          held_mm: 199.7
-          drain_rate: 0.25
-          depth: 1.17
-          base_fertility: 1.0
-          position: slope
-          rain_factor: 0.99
+          rain_factor: 1.005
           sea_km: 99.0
           river: none
       Meresby_5:
         name: the Spinney
         cover: forest
-        size: 4
-        side: north
-        height: 1
-        text: coppiced, oak and ash over hazel
-        adj:
-        - Meresby_1
-        - Meresby_3
-        - Meresby_7
-        - Meresby_9
-        state:
-          plants:
-            K: 5.8
-            S: 5.8
-            r: 0.3
-          wood:
-            kind: managed wood
-          game:
-            K: 4.2
-            S: 4.2
-            r: 0.25
-        terrain: river terrace
-        soil: loam
-        ecosystem: oak-ash wood
-        depth: edge
-        land:
-          elevation: 75.9
-          exposure: 0.55
-          texture: loam
-          held_mm: 199.7
-          drain_rate: 0.25
-          depth: 1.17
-          base_fertility: 1.0
-          position: slope
-          rain_factor: 0.99
-          sea_km: 99.0
-          river: none
-      Meresby_6:
-        name: South Wood
-        cover: forest
-        size: 1
+        size: 2
         side: south
         height: 1
         text: coppiced, oak and ash over hazel
         adj:
         - Meresby_1
-        - Meresby_3
-        - Meresby_8
+        - Meresby_2
+        - Meresby_9
         state:
           plants:
-            K: 1.4
-            S: 1.4
+            K: 2.9
+            S: 2.9
             r: 0.3
           wood:
             kind: managed wood
           game:
-            K: 1.0
-            S: 1.0
+            K: 2.1
+            S: 2.1
             r: 0.25
         terrain: river terrace
         soil: loam
         ecosystem: oak-ash wood
         depth: edge
         land:
-          elevation: 76.5
-          exposure: 0.51
+          elevation: 77.0
+          exposure: 0.53
           texture: loam
-          held_mm: 200.3
+          held_mm: 197.8
+          drain_rate: 0.25
+          depth: 1.16
+          base_fertility: 1.0
+          position: ridge
+          rain_factor: 1.016
+          sea_km: 99.0
+          river: none
+      Meresby_6:
+        name: East Wood
+        cover: forest
+        size: 3
+        side: east
+        height: 1
+        text: coppiced, oak and ash over hazel
+        adj:
+        - Meresby_1
+        - Meresby_3
+        - Meresby_9
+        state:
+          plants:
+            K: 4.3
+            S: 4.3
+            r: 0.3
+          wood:
+            kind: managed wood
+          game:
+            K: 3.1
+            S: 3.1
+            r: 0.25
+        terrain: river terrace
+        soil: loam
+        ecosystem: oak-ash wood
+        depth: edge
+        land:
+          elevation: 74.3
+          exposure: 0.52
+          texture: loam
+          held_mm: 200.0
           drain_rate: 0.25
           depth: 1.18
           base_fertility: 1.0
           position: slope
-          rain_factor: 1.021
+          rain_factor: 0.989
           sea_km: 99.0
           river: none
       Meresby_7:
@@ -285,7 +291,7 @@ nodes:
         height: 1
         text: reed and sedge over standing water
         adj:
-        - Meresby_5
+        - Meresby_4
         - Meresby_9
         state:
           plants:
@@ -308,7 +314,7 @@ nodes:
           depth: 1.15
           base_fertility: 1.1
           position: hollow
-          rain_factor: 0.996
+          rain_factor: 0.995
           sea_km: 99.0
           river: none
       Meresby_8:
@@ -319,7 +325,7 @@ nodes:
         height: 0
         text: running water, low by the water
         adj:
-        - Meresby_6
+        - Meresby_2
         terrain: fen
         soil: peat
         ecosystem: reedbed
@@ -332,7 +338,7 @@ nodes:
           depth: 1.16
           base_fertility: 1.265
           position: hollow
-          rain_factor: 1.094
+          rain_factor: 1.093
           sea_km: 99.0
           river: river
           down: out
@@ -352,22 +358,24 @@ nodes:
         - Meresby_0
         - Meresby_1
         - Meresby_3
+        - Meresby_4
         - Meresby_5
+        - Meresby_6
         - Meresby_7
         fertility: 0.99
         terrain: river terrace
         soil: loam
         ecosystem: wet grassland
         land:
-          elevation: 76.1
+          elevation: 76.4
           exposure: 0.55
           texture: loam
-          held_mm: 198.9
+          held_mm: 198.6
           drain_rate: 0.25
           depth: 1.17
           base_fertility: 1.0
-          position: slope
-          rain_factor: 0.99
+          position: ridge
+          rain_factor: 0.989
           sea_km: 99.0
           river: none
         holder: Marsh
@@ -478,16 +486,16 @@ buildings:
     parcel: Meresby_0
     household: Hunt
     structure: wattle
-    size: 8
+    size: 4
     fittings:
-      beds: 8
+      beds: 4
       hearth: 1
       bins: 1
     stock:
-      grain: 56
-      beans: 14
+      grain: 24
+      beans: 6
       timber: 28
-      firewood: 72
+      firewood: 48
   ward_house:
     name: Ward House
     parcel: Meresby_0
@@ -508,16 +516,16 @@ buildings:
     parcel: Meresby_0
     household: Marsh
     structure: wattle
-    size: 5
+    size: 8
     fittings:
-      beds: 5
+      beds: 8
       hearth: 1
       bins: 1
     stock:
-      grain: 32
-      beans: 8
+      grain: 56
+      beans: 14
       timber: 28
-      firewood: 54
+      firewood: 72
   hunt_byre:
     name: the Hunt Byre
     parcel: Meresby_0
@@ -580,31 +588,31 @@ wild:
         - Meresby_7
         - Meresby_8
         - Meresby_9
-        km2: 0.72
+        km2: 0.7875
         xy_km:
         - 25.87
-        - 22.94
+        - 22.93
         cover:
-          built: 0.0225
-          field: 0.36
+          built: 0.1125
+          field: 0.3375
           meadow: 0.0225
           pasture: 0.09
           forest: 0.1125
           fen: 0.0675
           water: 0.045
         eco:
-          wet grassland: 0.495
+          wet grassland: 0.5625
           oak-ash wood: 0.1125
           fen: 0.0675
           reedbed: 0.045
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
-        wet: 0.515
+        wet: 0.506
         elevation: 75.5
         temp: 8.57
         texture:
-          loam: 0.844
-          peat: 0.156
+          loam: 0.857
+          peat: 0.143
         rock: 0.0
         river_km: 0.3
         big_river_km: 0.0
@@ -640,27 +648,27 @@ wild:
         kind: ring
         node: Meresby
         parcels: []
-        km2: 19.0125
+        km2: 18.945
         xy_km:
         - 25.95
         - 22.95
         cover:
           fen: 5.265
-          meadow: 12.9825
+          meadow: 12.915
           water: 0.765
         eco:
           fen: 2.25
           reedbed: 3.015
           water: 0.765
-          wet grassland: 12.9825
+          wet grassland: 12.915
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
         wet: 0.569
-        elevation: 65.6
+        elevation: 65.5
         temp: 8.64
         texture:
-          loam: 0.601
-          peat: 0.399
+          loam: 0.6
+          peat: 0.4
         rock: 0.0
         river_km: 1.2
         big_river_km: 0.0
@@ -2336,7 +2344,7 @@ wild:
     links:
     - - a0
       - a2
-      - 5.7
+      - 6.3
     - - a1
       - a3
       - 1.8
@@ -2663,117 +2671,119 @@ claims: []
 agents:
   Simkin:
     household: Hunt
-    born: -33
-    stage: elder
+    born: -28
+    stage: adult
     sex: m
     relations:
       Helewise: your wife
-      Baldwin: of the Ward household
+      Baldwin: of the Ward household; there is bad blood between your households since last winter, over a pig that went missing
       Hawise: of the Ward household
       Ralf: of the Marsh household
-      Edric: of the Ward household; you owe them 2 grain from last winter
-      Cecily: your daughter-in-law
+      Rose: of the Marsh household; you owe them 2 grain from last winter
+      Edric: of the Ward household
+      Cecily: of the Marsh household
       Geoffrey: your son
+      Basilia: of the Marsh household
       Felice: of the Ward household
       Martin: of the Marsh household
       Drew: of the Marsh household
       Mabel: of the Marsh household
-      Warin: your grandson
-      Gervase: your grandson
-      Godiva: your granddaughter
     memories:
     - 'Your line''s founders: Simkin and Helewise Hunt came to Meresby and built the first Hunt house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
     - Daughter Matilda married into Ashby, two days' walk away.
-    - Last winter Edric lent you 2 grain when your store ran low; you have not paid it back.
+    - Last winter you and Baldwin came to blows over a pig that went missing; it was never settled.
+    - Last winter Rose lent you 2 grain when your store ran low; you have not paid it back.
     knows:
       hoe:
         level: known
-        skill: 1.5
+        skill: 1.41
       medium room:
         level: known
-        skill: 1.8
+        skill: 1.62
       milk:
         level: known
-        skill: 1.8
+        skill: 1.62
       plough:
         level: known
-        skill: 1.8
+        skill: 1.62
       reap:
         level: known
-        skill: 1.5
+        skill: 1.41
       select seed:
         level: known
-        skill: 1.8
+        skill: 1.62
       sow:
         level: known
-        skill: 1.5
+        skill: 1.41
       weed:
         level: known
-        skill: 1.5
+        skill: 1.41
     aware_of:
       hunt: you have seen the Wards at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
+      coin: 2
     concerns:
     - farming
     - building
     - shelter
     - food
     partner: Helewise
-    model: claude-haiku-5-5
+    role: head
+    model: claude-opus-5-5
     born_line: Hunt
     trade: sowing a field broadcast and reaping a crop
-    aim: See your grandchildren settled and provided for before you die.
+    aim: See the Hunt household through the winter, fed and warm. You will not be shamed by Baldwin again.
   Helewise:
     household: Hunt
-    born: -32
-    stage: elder
+    born: -27
+    stage: adult
     sex: f
     relations:
       Simkin: your husband
       Baldwin: of the Ward household
       Hawise: of the Ward household
       Ralf: of the Marsh household
-      Edric: of the Ward household; you owe them 1 meat from last winter
-      Cecily: your daughter-in-law
+      Rose: of the Marsh household; you owe them 1 meat from last winter
+      Edric: of the Ward household; he courted you once, before you married
+      Cecily: of the Marsh household
       Geoffrey: your son
+      Basilia: of the Marsh household
       Felice: of the Ward household
       Martin: of the Marsh household
       Drew: of the Marsh household
       Mabel: of the Marsh household
-      Warin: your grandson
-      Gervase: your grandson
-      Godiva: your granddaughter
     memories:
     - 'Your line''s founders: Simkin and Helewise Hunt came to Meresby and built the first Hunt house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
     - Daughter Matilda married into Ashby, two days' walk away.
-    - Last winter Edric lent you 1 meat when your store ran low; you have not paid it back.
+    - Last winter Rose lent you 1 meat when your store ran low; you have not paid it back.
     knows:
       hoe:
         level: known
-        skill: 1.5
+        skill: 1.4
       medium room:
         level: known
-        skill: 1.8
+        skill: 1.6
       milk:
         level: known
-        skill: 1.8
+        skill: 1.6
       plough:
         level: known
-        skill: 1.8
+        skill: 1.6
       reap:
         level: known
-        skill: 1.5
+        skill: 1.4
       select seed:
         level: known
-        skill: 1.8
+        skill: 1.6
       sow:
         level: known
-        skill: 1.5
+        skill: 1.4
       weed:
         level: known
-        skill: 1.5
+        skill: 1.4
     aware_of:
       hunt: you have seen the Wards at it all your life
     holdings: {}
@@ -2783,75 +2793,78 @@ agents:
     - shelter
     - food
     partner: Simkin
-    model: claude-haiku-5-5
+    model: claude-sonnet-5-5
     born_line: Hunt
     trade: sowing a field broadcast and reaping a crop
-    aim: Live through one more winter, and be a burden to nobody.
+    aim: Keep your household fed and its house sound; pay back Rose what you owe, if you can.
   Baldwin:
     household: Ward
-    born: -34
-    stage: elder
+    born: -28
+    stage: adult
     sex: m
     relations:
-      Simkin: of the Hunt household
+      Simkin: of the Hunt household; there is bad blood between your households since last winter, over a pig that went missing
       Helewise: of the Hunt household
       Hawise: your wife
       Ralf: of the Marsh household
+      Rose: of the Marsh household
       Edric: your son
-      Cecily: of the Hunt household
+      Cecily: of the Marsh household
       Geoffrey: of the Hunt household
+      Basilia: of the Marsh household
       Felice: your daughter
       Martin: of the Marsh household
       Drew: of the Marsh household
       Mabel: of the Marsh household
-      Warin: of the Hunt household
-      Gervase: of the Hunt household
-      Godiva: of the Hunt household
     memories:
     - 'Your line''s founders: Baldwin and Hawise Ward came to Meresby and built the first Ward house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
     - Daughter Ellen married into Ashby, two days' walk away.
+    - Last winter Simkin struck you in a quarrel over a pig that went missing; you have not forgotten.
     knows:
       hoe:
         level: known
-        skill: 1.5
+        skill: 1.43
       hunt:
         level: known
-        skill: 1.5
+        skill: 1.43
       milk:
         level: known
-        skill: 1.8
+        skill: 1.65
       reap:
         level: known
-        skill: 1.5
+        skill: 1.43
       select seed:
         level: known
-        skill: 1.8
+        skill: 1.65
       sow:
         level: known
-        skill: 1.5
+        skill: 1.43
       weed:
         level: known
-        skill: 1.5
+        skill: 1.43
     aware_of:
       plough: you have seen the Hunts at it all your life
       medium room: you have seen the Hunts at it all your life
-    holdings: {}
+    holdings:
+      crude tool: 1
+      coin: 2
     concerns:
     - farming
     - food
     - hunting
     - animals
     partner: Hawise
-    model: claude-haiku-5-5
+    role: head
+    model: claude-opus-5-5
     born_line: Ward
     trade: sowing a field broadcast and reaping a crop
-    aim: Pass on what you know before your strength goes.
+    aim: See the Ward household through the winter, fed and warm. You will not be shamed by Simkin again.
     places:
     - w1
   Hawise:
     household: Ward
-    born: -31
+    born: -26
     stage: adult
     sex: f
     relations:
@@ -2859,16 +2872,15 @@ agents:
       Helewise: of the Hunt household
       Baldwin: your husband
       Ralf: of the Marsh household
+      Rose: of the Marsh household
       Edric: your son
-      Cecily: of the Hunt household
+      Cecily: of the Marsh household
       Geoffrey: of the Hunt household
+      Basilia: of the Marsh household
       Felice: your daughter
       Martin: of the Marsh household
       Drew: of the Marsh household
       Mabel: of the Marsh household
-      Warin: of the Hunt household
-      Gervase: of the Hunt household
-      Godiva: of the Hunt household
     memories:
     - 'Your line''s founders: Baldwin and Hawise Ward came to Meresby and built the first Ward house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
@@ -2876,25 +2888,25 @@ agents:
     knows:
       hoe:
         level: known
-        skill: 1.49
+        skill: 1.36
       hunt:
         level: known
-        skill: 1.49
+        skill: 1.36
       milk:
         level: known
-        skill: 1.78
+        skill: 1.53
       reap:
         level: known
-        skill: 1.49
+        skill: 1.36
       select seed:
         level: known
-        skill: 1.78
+        skill: 1.53
       sow:
         level: known
-        skill: 1.49
+        skill: 1.36
       weed:
         level: known
-        skill: 1.49
+        skill: 1.36
     aware_of:
       plough: you have seen the Hunts at it all your life
       medium room: you have seen the Hunts at it all your life
@@ -2913,7 +2925,7 @@ agents:
     - w1
   Ralf:
     household: Marsh
-    born: -30
+    born: -25
     stage: adult
     sex: m
     relations:
@@ -2921,41 +2933,38 @@ agents:
       Helewise: of the Hunt household
       Baldwin: of the Ward household
       Hawise: of the Ward household
+      Rose: your wife
       Edric: your son-in-law
       Cecily: your daughter
-      Geoffrey: your son-in-law
+      Geoffrey: of the Hunt household
+      Basilia: your daughter
       Felice: of the Ward household
       Martin: your son
       Drew: your son
       Mabel: your daughter
-      Warin: your grandson
-      Gervase: your grandson
-      Godiva: your granddaughter
     memories:
     - 'Your line''s founders: Ralf and Rose Marsh came to Meresby and built the first Marsh house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Wife Rose died last winter (old age).
     - Daughter Margery married into Ashby, two days' walk away.
-    - Daughter Basilia married into Ashby, two days' walk away.
     knows:
       hoe:
         level: known
-        skill: 1.48
+        skill: 1.35
       milk:
         level: known
-        skill: 1.75
+        skill: 1.5
       reap:
         level: known
-        skill: 1.48
+        skill: 1.35
       select seed:
         level: known
-        skill: 1.75
+        skill: 1.5
       sow:
         level: known
-        skill: 1.48
+        skill: 1.35
       weed:
         level: known
-        skill: 1.48
+        skill: 1.35
     aware_of:
       plough: you have seen the Hunts at it all your life
       medium room: you have seen the Hunts at it all your life
@@ -2974,60 +2983,112 @@ agents:
     born_line: Marsh
     trade: sowing a field broadcast and reaping a crop
     aim: See the Marsh household through the winter, fed and warm.
-  Edric:
-    household: Ward
-    born: -18
+  Rose:
+    household: Marsh
+    born: -25
     stage: adult
-    sex: m
+    sex: f
     relations:
       Simkin: of the Hunt household; they owe you 2 grain from last winter
       Helewise: of the Hunt household; they owe you 1 meat from last winter
+      Baldwin: of the Ward household
+      Hawise: of the Ward household
+      Ralf: your husband
+      Edric: your son-in-law
+      Cecily: your daughter
+      Geoffrey: of the Hunt household
+      Basilia: your daughter
+      Felice: of the Ward household
+      Martin: your son
+      Drew: your son
+      Mabel: your daughter
+    memories:
+    - 'Your line''s founders: Ralf and Rose Marsh came to Meresby and built the first Marsh house.'
+    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
+    - Daughter Margery married into Ashby, two days' walk away.
+    knows:
+      hoe:
+        level: known
+        skill: 1.35
+      milk:
+        level: known
+        skill: 1.5
+      reap:
+        level: known
+        skill: 1.35
+      select seed:
+        level: known
+        skill: 1.5
+      sow:
+        level: known
+        skill: 1.35
+      weed:
+        level: known
+        skill: 1.35
+    aware_of:
+      plough: you have seen the Hunts at it all your life
+      medium room: you have seen the Hunts at it all your life
+      hunt: you have seen the Wards at it all your life
+    holdings: {}
+    concerns:
+    - farming
+    - food
+    - animals
+    - harvest
+    partner: Ralf
+    model: claude-haiku-5-5
+    born_line: Marsh
+    trade: sowing a field broadcast and reaping a crop
+    aim: Keep your household fed and its house sound.
+  Edric:
+    household: Ward
+    born: -13
+    stage: adult
+    sex: m
+    relations:
+      Simkin: of the Hunt household
+      Helewise: of the Hunt household; you courted her once, before she married
       Baldwin: your father
       Hawise: your mother
       Ralf: your father-in-law
+      Rose: your mother-in-law
       Cecily: your sister-in-law
-      Geoffrey: of the Hunt household; there is bad blood between your households since last winter, over a pig that went missing
+      Geoffrey: of the Hunt household; a close friend
+      Basilia: your sister-in-law
       Felice: your sister
       Martin: your brother-in-law
       Drew: your brother-in-law
       Mabel: your sister-in-law
-      Warin: your nephew
-      Gervase: your nephew
-      Godiva: your niece
     memories:
     - 'Your line''s founders: Baldwin and Hawise Ward came to Meresby and built the first Ward house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Mother-in-law Rose died last winter (old age).
     - Sister Ellen married into Ashby, two days' walk away.
-    - Last winter Geoffrey struck you in a quarrel over a pig that went missing; you have not forgotten.
     knows:
       hoe:
         level: known
-        skill: 1.15
+        skill: 1.02
       hunt:
         level: known
-        skill: 1.15
+        skill: 1.02
       milk:
         level: known
-        skill: 1.1
+        skill: 0.85
       reap:
         level: known
-        skill: 1.15
+        skill: 1.02
       select seed:
         level: known
-        skill: 1.1
+        skill: 0.85
       sow:
         level: known
-        skill: 1.15
+        skill: 1.02
       weed:
         level: known
-        skill: 1.15
+        skill: 1.02
     aware_of:
       plough: you have seen the Hunts at it all your life
       medium room: you have seen the Hunts at it all your life
-    holdings:
-      crude tool: 1
-      coin: 2
+    holdings: {}
     concerns:
     - farming
     - food
@@ -3037,136 +3098,106 @@ agents:
     - Baldwin
     - Hawise
     partner: Margery
-    role: head
-    model: claude-opus-5-5
+    model: claude-haiku-5-5
     born_line: Ward
     trade: sowing a field broadcast and reaping a crop
-    aim: See the Ward household through the winter, fed and warm. You will not be shamed by Geoffrey again.
+    aim: Keep your household fed and its house sound.
     places:
     - w1
   Cecily:
-    household: Hunt
-    born: -17
+    household: Marsh
+    born: -12
     stage: adult
     sex: f
     relations:
-      Simkin: your father-in-law
-      Helewise: your mother-in-law
+      Simkin: of the Hunt household
+      Helewise: of the Hunt household
       Baldwin: of the Ward household
       Hawise: of the Ward household
       Ralf: your father
+      Rose: your mother
       Edric: your brother-in-law
-      Geoffrey: your husband
+      Geoffrey: of the Hunt household
+      Basilia: your sister
       Felice: of the Ward household
       Martin: your brother
       Drew: your brother
       Mabel: your sister
-      Warin: your son
-      Gervase: your son
-      Godiva: your daughter
     memories:
     - 'Your line''s founders: Ralf and Rose Marsh came to Meresby and built the first Marsh house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Mother Rose died last winter (old age).
     - Sister Margery married into Ashby, two days' walk away.
-    - Sister Basilia married into Ashby, two days' walk away.
     knows:
       hoe:
         level: known
-        skill: 1.12
-      medium room:
-        level: known
-        skill: 1.05
+        skill: 1.0
       milk:
         level: known
-        skill: 1.05
-      plough:
-        level: known
-        skill: 1.05
+        skill: 0.8
       reap:
         level: known
-        skill: 1.12
+        skill: 1.0
       select seed:
         level: known
-        skill: 1.05
+        skill: 0.8
       sow:
         level: known
-        skill: 1.12
+        skill: 1.0
       weed:
         level: known
-        skill: 1.12
+        skill: 1.0
     aware_of:
+      plough: you have seen the Hunts at it all your life
+      medium room: you have seen the Hunts at it all your life
       hunt: you have seen the Wards at it all your life
     holdings: {}
     concerns:
     - farming
-    - building
-    - shelter
     - food
+    - animals
+    - harvest
     parents:
     - Ralf
     - Rose
-    partner: Geoffrey
-    model: claude-sonnet-5-5
+    model: claude-haiku-5-5
     born_line: Marsh
     trade: sowing a field broadcast and reaping a crop
     aim: Keep your household fed and its house sound.
   Geoffrey:
     household: Hunt
-    born: -16
-    stage: adult
+    born: -11
+    stage: youth
     sex: m
     relations:
       Simkin: your father
       Helewise: your mother
       Baldwin: of the Ward household
       Hawise: of the Ward household
-      Ralf: your father-in-law
-      Edric: of the Ward household; there is bad blood between your households since last winter, over a pig that went missing
-      Cecily: your wife
+      Ralf: of the Marsh household
+      Rose: of the Marsh household
+      Edric: of the Ward household; your closest friend
+      Cecily: of the Marsh household
+      Basilia: of the Marsh household
       Felice: of the Ward household
-      Martin: your brother-in-law
-      Drew: your brother-in-law
-      Mabel: your sister-in-law
-      Warin: your son
-      Gervase: your son
-      Godiva: your daughter
+      Martin: of the Marsh household
+      Drew: of the Marsh household
+      Mabel: of the Marsh household
     memories:
     - 'Your line''s founders: Simkin and Helewise Hunt came to Meresby and built the first Hunt house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Mother-in-law Rose died last winter (old age).
     - Sister Matilda married into Ashby, two days' walk away.
-    - Last winter you and Edric came to blows over a pig that went missing; it was never settled.
     knows:
-      hoe:
-        level: known
-        skill: 1.11
-      medium room:
-        level: known
-        skill: 1.03
-      milk:
-        level: known
-        skill: 1.03
-      plough:
-        level: known
-        skill: 1.03
-      reap:
-        level: known
-        skill: 1.11
-      select seed:
-        level: known
-        skill: 1.03
-      sow:
-        level: known
-        skill: 1.11
-      weed:
-        level: known
-        skill: 1.11
+      hoe: capable
+      medium room: capable
+      milk: capable
+      plough: capable
+      reap: capable
+      select seed: capable
+      sow: capable
+      weed: capable
     aware_of:
       hunt: you have seen the Wards at it all your life
-    holdings:
-      crude tool: 1
-      coin: 2
+    holdings: {}
     concerns:
     - farming
     - building
@@ -3175,191 +3206,13 @@ agents:
     parents:
     - Simkin
     - Helewise
-    partner: Cecily
-    role: head
-    model: claude-opus-5-5
+    model: claude-haiku-5-5
     born_line: Hunt
-    trade: sowing a field broadcast and reaping a crop
-    aim: See the Hunt household through the winter, fed and warm. You will not be shamed by Edric again.
-  Felice:
-    household: Ward
-    born: -13
-    stage: adult
-    sex: f
-    relations:
-      Simkin: of the Hunt household
-      Helewise: of the Hunt household
-      Baldwin: your father
-      Hawise: your mother
-      Ralf: of the Marsh household
-      Edric: your brother
-      Cecily: of the Hunt household
-      Geoffrey: of the Hunt household
-      Martin: of the Marsh household
-      Drew: of the Marsh household; a close friend
-      Mabel: of the Marsh household
-      Warin: of the Hunt household
-      Gervase: of the Hunt household
-      Godiva: of the Hunt household
-    memories:
-    - 'Your line''s founders: Baldwin and Hawise Ward came to Meresby and built the first Ward house.'
-    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Sister Ellen married into Ashby, two days' walk away.
-    knows:
-      hoe:
-        level: known
-        skill: 1.04
-      hunt:
-        level: known
-        skill: 1.04
-      milk:
-        level: known
-        skill: 0.88
-      reap:
-        level: known
-        skill: 1.04
-      select seed:
-        level: known
-        skill: 0.88
-      sow:
-        level: known
-        skill: 1.04
-      weed:
-        level: known
-        skill: 1.04
-    aware_of:
-      plough: you have seen the Hunts at it all your life
-      medium room: you have seen the Hunts at it all your life
-    holdings: {}
-    concerns:
-    - farming
-    - food
-    - hunting
-    - animals
-    parents:
-    - Baldwin
-    - Hawise
-    model: claude-haiku-5-5
-    born_line: Ward
-    trade: sowing a field broadcast and reaping a crop
-    aim: Keep your household fed and its house sound.
-    places:
-    - w1
-  Martin:
-    household: Marsh
-    born: -12
-    stage: adult
-    sex: m
-    relations:
-      Simkin: of the Hunt household
-      Helewise: of the Hunt household
-      Baldwin: of the Ward household
-      Hawise: of the Ward household
-      Ralf: your father
-      Edric: your brother-in-law
-      Cecily: your sister
-      Geoffrey: your brother-in-law
-      Felice: of the Ward household
-      Drew: your brother
-      Mabel: your sister
-      Warin: your nephew
-      Gervase: your nephew
-      Godiva: your niece
-    memories:
-    - 'Your line''s founders: Ralf and Rose Marsh came to Meresby and built the first Marsh house.'
-    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Mother Rose died last winter (old age).
-    - Sister Margery married into Ashby, two days' walk away.
-    - Sister Basilia married into Ashby, two days' walk away.
-    knows:
-      hoe:
-        level: known
-        skill: 1.01
-      milk:
-        level: known
-        skill: 0.83
-      reap:
-        level: known
-        skill: 1.01
-      select seed:
-        level: known
-        skill: 0.83
-      sow:
-        level: known
-        skill: 1.01
-      weed:
-        level: known
-        skill: 1.01
-    aware_of:
-      plough: you have seen the Hunts at it all your life
-      medium room: you have seen the Hunts at it all your life
-      hunt: you have seen the Wards at it all your life
-    holdings: {}
-    concerns:
-    - farming
-    - food
-    - animals
-    - harvest
-    parents:
-    - Ralf
-    - Rose
-    model: claude-haiku-5-5
-    born_line: Marsh
-    trade: sowing a field broadcast and reaping a crop
-    aim: Keep your household fed and its house sound.
-  Drew:
-    household: Marsh
-    born: -11
-    stage: youth
-    sex: m
-    relations:
-      Simkin: of the Hunt household
-      Helewise: of the Hunt household
-      Baldwin: of the Ward household
-      Hawise: of the Ward household
-      Ralf: your father
-      Edric: your brother-in-law
-      Cecily: your sister
-      Geoffrey: your brother-in-law
-      Felice: of the Ward household; your closest friend
-      Martin: your brother
-      Mabel: your sister
-      Warin: your nephew
-      Gervase: your nephew
-      Godiva: your niece
-    memories:
-    - 'Your line''s founders: Ralf and Rose Marsh came to Meresby and built the first Marsh house.'
-    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Mother Rose died last winter (old age).
-    - Sister Margery married into Ashby, two days' walk away.
-    - Sister Basilia married into Ashby, two days' walk away.
-    knows:
-      hoe: capable
-      milk: capable
-      reap: capable
-      select seed: capable
-      sow: capable
-      weed: capable
-    aware_of:
-      plough: you have seen the Hunts at it all your life
-      medium room: you have seen the Hunts at it all your life
-      hunt: you have seen the Wards at it all your life
-    holdings: {}
-    concerns:
-    - farming
-    - food
-    - animals
-    - harvest
-    parents:
-    - Ralf
-    - Rose
-    model: claude-haiku-5-5
-    born_line: Marsh
     trade: ''
     aim: Prove yourself to your family, and learn hunting game as the Wards do it.
-  Mabel:
+  Basilia:
     household: Marsh
-    born: -8
+    born: -6
     stage: youth
     sex: f
     relations:
@@ -3368,21 +3221,18 @@ agents:
       Baldwin: of the Ward household
       Hawise: of the Ward household
       Ralf: your father
+      Rose: your mother
       Edric: your brother-in-law
       Cecily: your sister
-      Geoffrey: your brother-in-law
-      Felice: of the Ward household
+      Geoffrey: of the Hunt household
+      Felice: of the Ward household; your closest friend
       Martin: your brother
       Drew: your brother
-      Warin: your nephew
-      Gervase: your nephew
-      Godiva: your niece
+      Mabel: your sister
     memories:
     - 'Your line''s founders: Ralf and Rose Marsh came to Meresby and built the first Marsh house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Mother Rose died last winter (old age).
     - Sister Margery married into Ashby, two days' walk away.
-    - Sister Basilia married into Ashby, two days' walk away.
     knows:
       hoe: rough
       milk: rough
@@ -3406,109 +3256,157 @@ agents:
     model: claude-haiku-5-5
     born_line: Marsh
     trade: ''
-    aim: Prove yourself to your family, and learn hunting game as the Wards do it.
-  Warin:
-    household: Hunt
+    aim: Prove yourself to your family, and learn ploughing with a yoked pair of oxen as the Hunts do it.
+  Felice:
+    household: Ward
+    born: -6
+    stage: youth
+    sex: f
+    relations:
+      Simkin: of the Hunt household
+      Helewise: of the Hunt household
+      Baldwin: your father
+      Hawise: your mother
+      Ralf: of the Marsh household
+      Rose: of the Marsh household
+      Edric: your brother
+      Cecily: of the Marsh household
+      Geoffrey: of the Hunt household
+      Basilia: of the Marsh household; a close friend
+      Martin: of the Marsh household
+      Drew: of the Marsh household
+      Mabel: of the Marsh household
+    memories:
+    - 'Your line''s founders: Baldwin and Hawise Ward came to Meresby and built the first Ward house.'
+    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
+    - Sister Ellen married into Ashby, two days' walk away.
+    knows:
+      hoe: rough
+      hunt: rough
+      milk: rough
+      reap: rough
+      select seed: rough
+      sow: rough
+      weed: rough
+    aware_of:
+      plough: you have seen the Hunts at it all your life
+      medium room: you have seen the Hunts at it all your life
+    holdings: {}
+    concerns:
+    - farming
+    - food
+    - hunting
+    - animals
+    parents:
+    - Baldwin
+    - Hawise
+    model: claude-haiku-5-5
+    born_line: Ward
+    trade: ''
+    aim: Prove yourself to your family, and learn ploughing with a yoked pair of oxen as the Hunts do it.
+    places:
+    - w1
+  Martin:
+    household: Marsh
     born: -4
     stage: child
     sex: m
     relations:
-      Simkin: your grandfather
-      Helewise: your grandmother
+      Simkin: of the Hunt household
+      Helewise: of the Hunt household
       Baldwin: of the Ward household
       Hawise: of the Ward household
-      Ralf: your grandfather
-      Edric: your uncle
-      Cecily: your mother
-      Geoffrey: your father
+      Ralf: your father
+      Rose: your mother
+      Edric: your brother-in-law
+      Cecily: your sister
+      Geoffrey: of the Hunt household
+      Basilia: your sister
       Felice: of the Ward household
-      Martin: your uncle
-      Drew: your uncle
-      Mabel: your aunt
-      Gervase: your brother
-      Godiva: your sister
+      Drew: your brother
+      Mabel: your sister
     memories:
-    - 'Your line''s founders: Simkin and Helewise Hunt came to Meresby and built the first Hunt house.'
+    - 'Your line''s founders: Ralf and Rose Marsh came to Meresby and built the first Marsh house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Grandmother Rose died last winter (old age).
+    - Sister Margery married into Ashby, two days' walk away.
     knows: {}
     aware_of: {}
     holdings: {}
     concerns: []
     parents:
-    - Geoffrey
-    - Cecily
+    - Ralf
+    - Rose
     model: null
-    born_line: Hunt
+    born_line: Marsh
     trade: ''
-  Gervase:
-    household: Hunt
-    born: -2
+  Drew:
+    household: Marsh
+    born: -4
     stage: child
     sex: m
     relations:
-      Simkin: your grandfather
-      Helewise: your grandmother
+      Simkin: of the Hunt household
+      Helewise: of the Hunt household
       Baldwin: of the Ward household
       Hawise: of the Ward household
-      Ralf: your grandfather
-      Edric: your uncle
-      Cecily: your mother
-      Geoffrey: your father
+      Ralf: your father
+      Rose: your mother
+      Edric: your brother-in-law
+      Cecily: your sister
+      Geoffrey: of the Hunt household
+      Basilia: your sister
       Felice: of the Ward household
-      Martin: your uncle
-      Drew: your uncle
-      Mabel: your aunt
-      Warin: your brother
-      Godiva: your sister
+      Martin: your brother
+      Mabel: your sister
     memories:
-    - 'Your line''s founders: Simkin and Helewise Hunt came to Meresby and built the first Hunt house.'
+    - 'Your line''s founders: Ralf and Rose Marsh came to Meresby and built the first Marsh house.'
+    - Sister Margery married into Ashby, two days' walk away.
     knows: {}
     aware_of: {}
     holdings: {}
     concerns: []
     parents:
-    - Geoffrey
-    - Cecily
+    - Ralf
+    - Rose
     model: null
-    born_line: Hunt
+    born_line: Marsh
     trade: ''
-  Godiva:
-    household: Hunt
-    born: -1
-    stage: infant
+  Mabel:
+    household: Marsh
+    born: -2
+    stage: child
     sex: f
     relations:
-      Simkin: your grandfather
-      Helewise: your grandmother
+      Simkin: of the Hunt household
+      Helewise: of the Hunt household
       Baldwin: of the Ward household
       Hawise: of the Ward household
-      Ralf: your grandfather
-      Edric: your uncle
-      Cecily: your mother
-      Geoffrey: your father
+      Ralf: your father
+      Rose: your mother
+      Edric: your brother-in-law
+      Cecily: your sister
+      Geoffrey: of the Hunt household
+      Basilia: your sister
       Felice: of the Ward household
-      Martin: your uncle
-      Drew: your uncle
-      Mabel: your aunt
-      Warin: your brother
-      Gervase: your brother
+      Martin: your brother
+      Drew: your brother
     memories:
-    - 'Your line''s founders: Simkin and Helewise Hunt came to Meresby and built the first Hunt house.'
+    - 'Your line''s founders: Ralf and Rose Marsh came to Meresby and built the first Marsh house.'
+    - Sister Margery married into Ashby, two days' walk away.
     knows: {}
     aware_of: {}
     holdings: {}
     concerns: []
     parents:
-    - Geoffrey
-    - Cecily
+    - Ralf
+    - Rose
     model: null
-    born_line: Hunt
+    born_line: Marsh
     trade: ''
 tree:
 - name: Simkin
   sex: m
-  born: -33
+  born: -28
   died: null
   cause: null
   parents: []
@@ -3521,7 +3419,7 @@ tree:
   left: null
 - name: Helewise
   sex: f
-  born: -32
+  born: -27
   died: null
   cause: null
   parents: []
@@ -3534,7 +3432,7 @@ tree:
   left: null
 - name: Baldwin
   sex: m
-  born: -34
+  born: -28
   died: null
   cause: null
   parents: []
@@ -3548,7 +3446,7 @@ tree:
   left: null
 - name: Hawise
   sex: f
-  born: -31
+  born: -26
   died: null
   cause: null
   parents: []
@@ -3562,7 +3460,7 @@ tree:
   left: null
 - name: Ralf
   sex: m
-  born: -30
+  born: -25
   died: null
   cause: null
   parents: []
@@ -3579,9 +3477,9 @@ tree:
   left: null
 - name: Rose
   sex: f
-  born: -30
-  died: 0
-  cause: old age
+  born: -25
+  died: null
+  cause: null
   parents: []
   partner: Ralf
   line: Marsh
@@ -3596,7 +3494,7 @@ tree:
   left: null
 - name: Matilda
   sex: f
-  born: -21
+  born: -16
   died: null
   cause: null
   parents:
@@ -3606,10 +3504,10 @@ tree:
   line: Hunt
   origin: null
   children: []
-  left: -7
+  left: -2
 - name: Ellen
   sex: f
-  born: -19
+  born: -14
   died: null
   cause: null
   parents:
@@ -3619,10 +3517,10 @@ tree:
   line: Ward
   origin: null
   children: []
-  left: -9
+  left: -2
 - name: Edric
   sex: m
-  born: -18
+  born: -13
   died: null
   cause: null
   parents:
@@ -3635,7 +3533,7 @@ tree:
   left: null
 - name: Margery
   sex: f
-  born: -18
+  born: -13
   died: null
   cause: null
   parents:
@@ -3645,44 +3543,11 @@ tree:
   line: Ward
   origin: null
   children: []
-  left: -6
+  left: -1
   line_born: Marsh
 - name: Cecily
   sex: f
-  born: -17
-  died: null
-  cause: null
-  parents:
-  - Ralf
-  - Rose
-  partner: Geoffrey
-  line: Hunt
-  origin: null
-  children:
-  - Warin
-  - Gervase
-  - Godiva
-  left: null
-  line_born: Marsh
-- name: Geoffrey
-  sex: m
-  born: -16
-  died: null
-  cause: null
-  parents:
-  - Simkin
-  - Helewise
-  partner: Cecily
-  line: Hunt
-  origin: null
-  children:
-  - Warin
-  - Gervase
-  - Godiva
-  left: null
-- name: Basilia
-  sex: f
-  born: -14
+  born: -12
   died: null
   cause: null
   parents:
@@ -3692,10 +3557,36 @@ tree:
   line: Marsh
   origin: null
   children: []
-  left: -2
+  left: null
+- name: Geoffrey
+  sex: m
+  born: -11
+  died: null
+  cause: null
+  parents:
+  - Simkin
+  - Helewise
+  partner: null
+  line: Hunt
+  origin: null
+  children: []
+  left: null
+- name: Basilia
+  sex: f
+  born: -6
+  died: null
+  cause: null
+  parents:
+  - Ralf
+  - Rose
+  partner: null
+  line: Marsh
+  origin: null
+  children: []
+  left: null
 - name: Felice
   sex: f
-  born: -13
+  born: -6
   died: null
   cause: null
   parents:
@@ -3708,7 +3599,7 @@ tree:
   left: null
 - name: Martin
   sex: m
-  born: -12
+  born: -4
   died: null
   cause: null
   parents:
@@ -3721,7 +3612,7 @@ tree:
   left: null
 - name: Drew
   sex: m
-  born: -11
+  born: -4
   died: null
   cause: null
   parents:
@@ -3734,7 +3625,7 @@ tree:
   left: null
 - name: Mabel
   sex: f
-  born: -8
+  born: -2
   died: null
   cause: null
   parents:
@@ -3745,117 +3636,62 @@ tree:
   origin: null
   children: []
   left: null
-- name: Warin
-  sex: m
-  born: -4
-  died: null
-  cause: null
-  parents:
-  - Geoffrey
-  - Cecily
-  partner: null
-  line: Hunt
-  origin: null
-  children: []
-  left: null
-- name: Gervase
-  sex: m
-  born: -2
-  died: null
-  cause: null
-  parents:
-  - Geoffrey
-  - Cecily
-  partner: null
-  line: Hunt
-  origin: null
-  children: []
-  left: null
-- name: Godiva
-  sex: f
-  born: -1
-  died: null
-  cause: null
-  parents:
-  - Geoffrey
-  - Cecily
-  partner: null
-  line: Hunt
-  origin: null
-  children: []
-  left: null
 history:
 - text: Simkin and Helewise Hunt came to Meresby and built the first Hunt house
   who:
   - Simkin
   - Helewise
-  day: -21
+  day: -16
 - text: Baldwin and Hawise Ward came to Meresby and built the first Ward house
   who:
   - Baldwin
   - Hawise
-  day: -21
+  day: -16
 - text: Ralf and Rose Marsh came to Meresby and built the first Marsh house
   who:
   - Ralf
   - Rose
-  day: -21
-- text: 'a hard winter: the frost came early and the stores ran out'
-  kind: winter
-  who: []
-  day: -17
+  day: -16
 - text: 'a hard winter: the frost came early and the stores ran out'
   kind: winter
   who: []
   day: -13
-- text: Ellen married into Ashby and left Meresby
-  kind: left
-  who:
-  - Ellen
-  day: -9
-- text: Matilda married into Ashby and left Meresby
-  kind: left
-  who:
-  - Matilda
-  day: -7
-- text: Margery married into Ashby and left Meresby
-  kind: left
-  who:
-  - Margery
-  day: -6
-- text: Margery of the Marshs married Edric Ward
-  kind: marriage
-  who:
-  - Edric
-  - Margery
-  day: -6
+- text: 'a hard winter: the frost came early and the stores ran out'
+  kind: winter
+  who: []
+  day: -12
 - text: 'a hard winter: the frost came early and the stores ran out'
   kind: winter
   who: []
   day: -5
-- text: Cecily of the Marshs married Geoffrey Hunt
-  kind: marriage
-  who:
-  - Geoffrey
-  - Cecily
-  day: -4
-- text: Basilia married into Ashby and left Meresby
+- text: Ellen married into Ashby and left Meresby
   kind: left
   who:
-  - Basilia
+  - Ellen
+  day: -2
+- text: Matilda married into Ashby and left Meresby
+  kind: left
+  who:
+  - Matilda
   day: -2
 - text: 'a hard winter: the frost came early and the stores ran out'
   kind: winter
   who: []
   day: -1
-- text: Rose died (old age)
-  kind: death
+- text: Margery married into Ashby and left Meresby
+  kind: left
   who:
-  - Rose
-  day: 0
+  - Margery
+  day: -1
+- text: Margery of the Marshs married Edric Ward
+  kind: marriage
+  who:
+  - Edric
+  - Margery
+  day: -1
 - day: -4
-  text: Geoffrey and Edric came to blows over a pig that went missing
+  text: Simkin and Baldwin came to blows over a pig that went missing
   kind: feud
   who:
-  - Geoffrey
-  - Edric
+  - Simkin
+  - Baldwin

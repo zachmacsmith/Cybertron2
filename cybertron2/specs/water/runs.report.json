@@ -3,37 +3,37 @@
  "pins": {},
  "targets": {
   "Highpool": {
-   "households": 4,
-   "people": 15,
+   "households": 3,
+   "people": 12,
    "food": 0.6,
    "heat": 0.63,
-   "plots_wanted": 16,
-   "fields": 16,
-   "wood_wanted": 5,
-   "woods": 5,
-   "waste": 4
+   "plots_wanted": 12,
+   "fields": 12,
+   "wood_wanted": 4,
+   "woods": 4,
+   "waste": 3
   },
   "Middleham": {
-   "households": 4,
-   "people": 14,
+   "households": 3,
+   "people": 13,
    "food": 0.6,
    "heat": 0.69,
-   "plots_wanted": 15,
-   "fields": 15,
-   "wood_wanted": 5,
-   "woods": 5,
-   "waste": 4
+   "plots_wanted": 14,
+   "fields": 14,
+   "wood_wanted": 4,
+   "woods": 4,
+   "waste": 3
   },
   "Lowstrand": {
-   "households": 4,
-   "people": 19,
+   "households": 3,
+   "people": 11,
    "food": 0.6,
    "heat": 0.67,
-   "plots_wanted": 20,
-   "fields": 20,
-   "wood_wanted": 6,
-   "woods": 6,
-   "waste": 4
+   "plots_wanted": 11,
+   "fields": 11,
+   "wood_wanted": 4,
+   "woods": 4,
+   "waste": 3
   }
  },
  "checks": {
@@ -62,8 +62,8 @@
    "ok": false,
    "detail": {
     "Highpool": 0.75,
-    "Middleham": 0.7,
-    "Lowstrand": 0.79
+    "Middleham": 0.82,
+    "Lowstrand": 0.69
    }
   },
   "dependence": {
@@ -93,15 +93,15 @@
    "kind": "design",
    "ok": true,
    "detail": [
-    "Highpool-w1: pass",
-    "Highpool-w2: pass"
+    "Highpool-w2: pass",
+    "Highpool-w3: pass"
    ]
   },
   "roads about a day": {
    "kind": "design",
    "ok": true,
    "detail": {
-    "1": 4
+    "1": 5
    }
   },
   "parcels per node": {
@@ -109,8 +109,8 @@
    "ok": true,
    "detail": {
     "Highpool": 11,
-    "Middleham": 13,
-    "Lowstrand": 13
+    "Middleham": 11,
+    "Lowstrand": 10
    }
   },
   "access gates": {
@@ -138,18 +138,18 @@
    "ok": true,
    "detail": {
     "Highpool": {
-     "people": 15,
+     "people": 12,
      "share": 0.75,
      "target": 0.63
     },
     "Middleham": {
-     "people": 14,
-     "share": 0.7,
+     "people": 13,
+     "share": 0.82,
      "target": 0.69
     },
     "Lowstrand": {
-     "people": 19,
-     "share": 0.79,
+     "people": 11,
+     "share": 0.69,
      "target": 0.67
     }
    }
@@ -158,25 +158,25 @@
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "48 people; the land keeps 84 for good (0.57 of it)"
+   "detail": "36 people; the land keeps 64 for good (0.57 of it)"
   },
   "economy: food over the run": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "60 days need 2760 meals; store, crops ripening and the land give 3524 (0.78)"
+   "detail": "60 days need 1992 meals; store, crops ripening and the land give 2857 (0.70)"
   },
   "economy: region heat": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "48 people; the land keeps 89 for good (0.54 of it)"
+   "detail": "36 people; the land keeps 99 for good (0.37 of it)"
   },
   "economy: heat over the run": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "60 days need 1404 heat (13 hearths, 16.0 cold nights); store and the woods' flow give 2447 (0.57); the woods stand at 54320 more"
+   "detail": "60 days need 910 heat (10 hearths, 10.333333333333334 cold nights); store and the woods' flow give 2580 (0.35); the woods stand at 79570 more"
   },
   "economy: carrying burden": {
    "kind": "economy",
@@ -200,10 +200,7 @@
      "the Harts": 6.8,
      "the Woods": 6.8,
      "the Wrights": 6.8,
-     "the Cotters": 6.8,
-     "the Bells": 6.8,
-     "the Coles": 6.8,
-     "the Hunts": 6.8
+     "the Cotters": 6.8
     }
    }
   },
@@ -217,22 +214,117 @@
    "kind": "economy",
    "level": "warn",
    "ok": false,
-   "detail": "10 couples; about 50 births in 60 days if they try often; the region would be at 1.17 of its land"
+   "detail": "9 couples; about 45 births in 60 days if they try often; the region would be at 1.27 of its land"
   },
   "economy: succession": {
    "kind": "economy",
    "level": "warn",
    "ok": false,
    "detail": [
-    "the Brooks: Gervase (86%), Nichola (85%), Mabel (71%) likely to die in the run; 0 grown left for 1",
-    "the Marshs: Henry (88%), Sarra (85%), Juliana (59%) likely to die in the run; 0 grown left for 1",
-    "the Shepherds: Adam (86%), Helewise (85%) likely to die in the run; 0 grown left for 1",
-    "the Fields: Ralf (88%), Thomasin (83%), Dionisia (59%) likely to die in the run; 0 grown left for 1",
-    "the Fletchers: Daniel (87%), Eva (85%), Matthew (62%) likely to die in the run; 0 grown left for 1",
-    "the Woods: Ivo (86%) likely to die in the run; 0 grown left for 1",
-    "the Wrights: Otes (87%), Isabel (85%), Godiva (73%), Hob (71%) likely to die in the run; 0 grown left for 1",
-    "the Coles: Baldwin (87%), Orabel (85%), Odo (71%), Avice (70%) likely to die in the run; 0 grown left for 4"
+    "the Brooks: Tobin (80%), Joan (81%), Cassandra (59%) likely to die in the run; 0 grown left for 1",
+    "the Marshs: Peter (81%), Hawise (78%) likely to die in the run; 0 grown left for 2",
+    "the Shepherds: Gervase (78%), Sarra (81%), Orabel (60%) likely to die in the run; 0 grown left for 1",
+    "the Fields: Nigel (80%), Isabel (77%) likely to die in the run; 0 grown left for 2",
+    "the Fletchers: Ralf (80%), Matilda (81%), Sabina (59%) likely to die in the run; 0 grown left for 1",
+    "the Harts: Martin (82%), Godiva (78%), Jory (62%) likely to die in the run; 0 grown left for 2",
+    "the Woods: Jocelin (81%), Avice (80%) likely to die in the run; 0 grown left for 1",
+    "the Wrights: Baldwin (80%), Olive (78%), Thomasin (59%) likely to die in the run; 0 grown left for 2",
+    "the Cotters: Walter (78%), Christian (81%) likely to die in the run; 0 grown left for 1"
    ]
+  },
+  "predators within range": {
+   "kind": "wild",
+   "ok": true,
+   "detail": {
+    "said": {
+     "Highpool": "stoat 20.24 (a group needs 1), fox 14.98 (a group needs 1), wild boar 12.38 (a group needs 2), wolf 3.13 (a group needs 3), brown bear 3.03 (a group needs 1)",
+     "Lowstrand": "stoat 22.8 (a group needs 1), fox 17.39 (a group needs 1), wild boar 6 (a group needs 2), wolf 2.47 (a group needs 3), brown bear 0.44 (a group needs 1)",
+     "Middleham": "stoat 22.44 (a group needs 1), fox 17.13 (a group needs 1), wild boar 7.02 (a group needs 2), wolf 2.44 (a group needs 3), brown bear 0.35 (a group needs 1)"
+    },
+    "by village": {
+     "Highpool": {
+      "wild boar": {
+       "heads": 12.38,
+       "least": 2,
+       "range_km2": 40.0
+      },
+      "fox": {
+       "heads": 14.98,
+       "least": 1,
+       "reach": "ring"
+      },
+      "stoat": {
+       "heads": 20.24,
+       "least": 1,
+       "reach": "ring"
+      },
+      "wolf": {
+       "heads": 3.13,
+       "least": 3,
+       "range_km2": 200.0
+      },
+      "brown bear": {
+       "heads": 3.03,
+       "least": 1,
+       "range_km2": 300.0
+      }
+     },
+     "Lowstrand": {
+      "wild boar": {
+       "heads": 6.0,
+       "least": 2,
+       "range_km2": 40.0
+      },
+      "fox": {
+       "heads": 17.39,
+       "least": 1,
+       "reach": "ring"
+      },
+      "stoat": {
+       "heads": 22.8,
+       "least": 1,
+       "reach": "ring"
+      },
+      "wolf": {
+       "heads": 2.47,
+       "least": 3,
+       "range_km2": 200.0
+      },
+      "brown bear": {
+       "heads": 0.44,
+       "least": 1,
+       "range_km2": 300.0
+      }
+     },
+     "Middleham": {
+      "wild boar": {
+       "heads": 7.02,
+       "least": 2,
+       "range_km2": 40.0
+      },
+      "fox": {
+       "heads": 17.13,
+       "least": 1,
+       "reach": "ring"
+      },
+      "stoat": {
+       "heads": 22.44,
+       "least": 1,
+       "reach": "ring"
+      },
+      "wolf": {
+       "heads": 2.44,
+       "least": 3,
+       "range_km2": 200.0
+      },
+      "brown bear": {
+       "heads": 0.35,
+       "least": 1,
+       "range_km2": 300.0
+      }
+     }
+    }
+   }
   }
  },
  "generated": [],
@@ -263,7 +355,7 @@
     22.45,
     24.8
    ],
-   "parcels": 13
+   "parcels": 11
   },
   "Lowstrand": {
    "name": "Lowstrand",
@@ -272,10 +364,19 @@
     9.85,
     14.83
    ],
-   "parcels": 13
+   "parcels": 10
   },
   "w1": {
    "name": "Craghurst",
+   "kind": "wild",
+   "site_km": [
+    20.81,
+    43.22
+   ],
+   "parcels": 2
+  },
+  "w2": {
+   "name": "Cragton",
    "kind": "wild",
    "site_km": [
     30.11,
@@ -283,12 +384,12 @@
    ],
    "parcels": 2
   },
-  "w2": {
-   "name": "Craglow",
+  "w3": {
+   "name": "Stanhurst",
    "kind": "wild",
    "site_km": [
-    22.09,
-    44.25
+    25.09,
+    50.0
    ],
    "parcels": 2
   }
@@ -332,14 +433,14 @@
   "water parcels stocked": 5
  },
  "fuel": {
-  "houses": 12,
+  "houses": 9,
   "firewood": 30,
   "timber": 20
  },
  "no_farming": {
-  "fields to scrub": 8,
-  "herds removed": 12,
-  "farm goods removed": 36,
+  "fields to scrub": 6,
+  "herds removed": 9,
+  "farm goods removed": 30,
   "larder a house": {
    "dried meat": 4,
    "roots": 6,
@@ -348,9 +449,9 @@
   }
  },
  "cast_opus": {
-  "Highpool": "Marsh",
-  "Middleham": "Wright",
-  "Lowstrand": "Cole"
+  "Highpool": "Shepherd",
+  "Middleham": "Hart",
+  "Lowstrand": "Wright"
  },
  "design": {
   "big_river_km": {

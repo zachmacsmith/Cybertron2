@@ -7,6 +7,8 @@ calendar:
   season: summer
   day: 4
   season_days: 8
+climate:
+  era: steady
 children:
   'on': true
   dial: low
@@ -27,7 +29,7 @@ generated:
   configuration: null
   people:
     seed: 9
-    try: 0
+    try: 27
 nodes:
   Saltwell:
     name: Saltwell
@@ -36,19 +38,20 @@ nodes:
       Saltwell_0:
         name: the Green
         cover: built
-        size: 1
+        size: 5
         side: centre
         height: 1
         text: houses round a trodden green
         adj:
         - Saltwell_1
         - Saltwell_11
+        - Saltwell_3
         terrain: lowland loam
         soil: loam
         ecosystem: grassland
         land:
-          elevation: 77.2
-          exposure: 0.44
+          elevation: 77.6
+          exposure: 0.45
           texture: loam
           held_mm: 194.0
           drain_rate: 0.25
@@ -70,7 +73,7 @@ nodes:
         - Saltwell_11
         - Saltwell_3
         - Saltwell_4
-        - Saltwell_5
+        - Saltwell_6
         - Saltwell_7
         fertility: 0.99
         terrain: lowland loam
@@ -80,7 +83,7 @@ nodes:
           elevation: 78.5
           exposure: 0.44
           texture: loam
-          held_mm: 197.1
+          held_mm: 197.0
           drain_rate: 0.25
           depth: 1.16
           base_fertility: 1.0
@@ -133,38 +136,37 @@ nodes:
           sea_km: 99.0
           river: none
         spring: brine
-        holder: Cole
+        holder: Hale
       Saltwell_3:
         name: Saltwell Common
         cover: pasture
-        size: 3
-        side: north
+        size: 2
+        side: west
         height: 1
         text: grazing, on good loam
         adj:
+        - Saltwell_0
         - Saltwell_1
-        - Saltwell_11
-        - Saltwell_5
-        - Saltwell_6
+        - Saltwell_7
         state:
           plants:
-            K: 3.0
-            S: 3.0
+            K: 2.0
+            S: 2.0
             r: 0.3
           grass:
-            K: 90.0
-            S: 90.0
+            K: 60.0
+            S: 60.0
             r: 0.32
         terrain: lowland loam
         soil: loam
         ecosystem: grassland
         land:
-          elevation: 76.5
-          exposure: 0.45
+          elevation: 75.7
+          exposure: 0.41
           texture: loam
-          held_mm: 195.3
+          held_mm: 193.3
           drain_rate: 0.25
-          depth: 1.15
+          depth: 1.14
           base_fertility: 1.0
           position: slope
           rain_factor: 0.998
@@ -173,32 +175,32 @@ nodes:
       Saltwell_4:
         name: the Common
         cover: pasture
-        size: 1
-        side: south
+        size: 2
+        side: east
         height: 1
         text: grazing, on good loam
         adj:
         - Saltwell_1
-        - Saltwell_5
+        - Saltwell_11
         state:
           plants:
-            K: 1.0
-            S: 1.0
+            K: 2.0
+            S: 2.0
             r: 0.3
           grass:
-            K: 30.0
-            S: 30.0
+            K: 60.0
+            S: 60.0
             r: 0.32
         terrain: lowland loam
         soil: loam
         ecosystem: grassland
         land:
-          elevation: 78.6
-          exposure: 0.44
+          elevation: 80.9
+          exposure: 0.47
           texture: loam
-          held_mm: 193.9
+          held_mm: 200.4
           drain_rate: 0.25
-          depth: 1.14
+          depth: 1.18
           base_fertility: 1.0
           position: slope
           rain_factor: 0.998
@@ -207,38 +209,34 @@ nodes:
       Saltwell_5:
         name: Saltwell Copse
         cover: forest
-        size: 3
-        side: west
+        size: 2
+        side: north
         height: 1
         text: coppiced, oak and ash over hazel
         adj:
-        - Saltwell_1
-        - Saltwell_10
         - Saltwell_11
-        - Saltwell_3
-        - Saltwell_4
         state:
           plants:
-            K: 4.3
-            S: 4.3
+            K: 2.9
+            S: 2.9
             r: 0.3
           wood:
             kind: managed wood
           game:
-            K: 3.1
-            S: 3.1
+            K: 2.1
+            S: 2.1
             r: 0.25
         terrain: lowland loam
         soil: loam
         ecosystem: oak-ash wood
         depth: edge
         land:
-          elevation: 75.0
-          exposure: 0.41
+          elevation: 76.5
+          exposure: 0.46
           texture: loam
-          held_mm: 193.8
+          held_mm: 194.7
           drain_rate: 0.25
-          depth: 1.14
+          depth: 1.15
           base_fertility: 1.0
           position: slope
           rain_factor: 0.998
@@ -247,33 +245,34 @@ nodes:
       Saltwell_6:
         name: Hazel Copse
         cover: forest
-        size: 1
-        side: east
+        size: 2
+        side: south
         height: 1
         text: coppiced, oak and ash over hazel
         adj:
+        - Saltwell_1
         - Saltwell_11
-        - Saltwell_3
+        - Saltwell_8
         state:
           plants:
-            K: 1.4
-            S: 1.4
+            K: 2.9
+            S: 2.9
             r: 0.3
           wood:
             kind: managed wood
           game:
-            K: 1.0
-            S: 1.0
+            K: 2.1
+            S: 2.1
             r: 0.25
         terrain: lowland loam
         soil: loam
         ecosystem: oak-ash wood
         depth: edge
         land:
-          elevation: 81.1
-          exposure: 0.5
+          elevation: 80.1
+          exposure: 0.45
           texture: loam
-          held_mm: 200.8
+          held_mm: 200.0
           drain_rate: 0.25
           depth: 1.18
           base_fertility: 1.0
@@ -285,12 +284,14 @@ nodes:
         name: the Spinney
         cover: forest
         size: 1
-        side: east
+        side: west
         height: 1
         text: coppiced, oak and ash over hazel
         adj:
         - Saltwell_1
-        - Saltwell_8
+        - Saltwell_10
+        - Saltwell_11
+        - Saltwell_3
         state:
           plants:
             K: 1.4
@@ -307,15 +308,15 @@ nodes:
         ecosystem: oak-ash wood
         depth: edge
         land:
-          elevation: 80.7
-          exposure: 0.45
+          elevation: 72.0
+          exposure: 0.37
           texture: loam
-          held_mm: 200.0
+          held_mm: 196.8
           drain_rate: 0.25
-          depth: 1.18
+          depth: 1.16
           base_fertility: 1.0
-          position: slope
-          rain_factor: 0.998
+          position: hollow
+          rain_factor: 1.007
           sea_km: 99.0
           river: none
       Saltwell_8:
@@ -327,7 +328,7 @@ nodes:
         text: reed and sedge over standing water
         adj:
         - Saltwell_2
-        - Saltwell_7
+        - Saltwell_6
         state:
           plants:
             K: 3.0
@@ -390,7 +391,7 @@ nodes:
         height: 0
         text: running water, low by the water
         adj:
-        - Saltwell_5
+        - Saltwell_7
         - Saltwell_9
         terrain: water
         soil: loam
@@ -423,18 +424,19 @@ nodes:
         adj:
         - Saltwell_0
         - Saltwell_1
-        - Saltwell_3
+        - Saltwell_4
         - Saltwell_5
         - Saltwell_6
+        - Saltwell_7
         fertility: 0.99
         terrain: lowland loam
         soil: loam
         ecosystem: grassland
         land:
-          elevation: 78.0
+          elevation: 77.7
           exposure: 0.46
           texture: loam
-          held_mm: 195.7
+          held_mm: 196.2
           drain_rate: 0.25
           depth: 1.15
           base_fertility: 1.0
@@ -448,7 +450,7 @@ nodes:
     xy:
     - 31.47
     - 31.55
-    elevation: 75.1
+    elevation: 75.4
     rain_mm: 709.0
   Millham:
     name: Millham
@@ -457,23 +459,26 @@ nodes:
       Millham_0:
         name: the Street
         cover: built
-        size: 1
+        size: 5
         side: centre
         height: 1
         text: houses round a trodden green
         adj:
         - Millham_1
-        - Millham_10
+        - Millham_3
+        - Millham_4
+        - Millham_5
+        - Millham_9
         terrain: lowland loam
         soil: loam
         ecosystem: grassland
         land:
-          elevation: 53.7
+          elevation: 54.4
           exposure: 0.36
           texture: loam
-          held_mm: 193.9
+          held_mm: 196.1
           drain_rate: 0.25
-          depth: 1.14
+          depth: 1.15
           base_fertility: 1.0
           position: slope
           rain_factor: 0.993
@@ -482,25 +487,25 @@ nodes:
       Millham_1:
         name: Millham Field
         cover: field
-        size: 6
+        size: 4
         side: centre
         height: 1
         text: ploughland, on good loam
         adj:
         - Millham_0
-        - Millham_10
         - Millham_3
         - Millham_4
         - Millham_5
+        - Millham_9
         fertility: 0.99
         terrain: lowland loam
         soil: loam
         ecosystem: grassland
         land:
-          elevation: 55.2
+          elevation: 54.6
           exposure: 0.38
           texture: loam
-          held_mm: 194.9
+          held_mm: 194.8
           drain_rate: 0.25
           depth: 1.15
           base_fertility: 1.0
@@ -512,7 +517,7 @@ nodes:
         state:
           crop:
             kind: barley
-            left: 288
+            left: 192
             ripe_day: 5
       Millham_2:
         name: Brook Meadow
@@ -522,7 +527,7 @@ nodes:
         height: 0
         text: hay meadow, on good loam, low by the water
         adj:
-        - Millham_7
+        - Millham_6
         state:
           plants:
             K: 1.3
@@ -547,7 +552,7 @@ nodes:
           rain_factor: 0.993
           sea_km: 99.0
           river: none
-        holder: Hobb
+        holder: Moor
       Millham_3:
         name: Cow Close
         cover: pasture
@@ -556,11 +561,11 @@ nodes:
         height: 1
         text: grazing, on good loam
         adj:
+        - Millham_0
         - Millham_1
-        - Millham_10
         - Millham_4
         - Millham_5
-        - Millham_6
+        - Millham_9
         state:
           plants:
             K: 4.0
@@ -593,6 +598,7 @@ nodes:
         height: 1
         text: coppiced, oak and ash over hazel
         adj:
+        - Millham_0
         - Millham_1
         - Millham_3
         state:
@@ -630,6 +636,7 @@ nodes:
         height: 1
         text: coppiced, oak and ash over hazel
         adj:
+        - Millham_0
         - Millham_1
         - Millham_3
         state:
@@ -660,44 +667,6 @@ nodes:
           sea_km: 99.0
           river: none
       Millham_6:
-        name: North Wood
-        cover: forest
-        size: 2
-        side: north
-        height: 1
-        text: coppiced, oak and ash over hazel
-        adj:
-        - Millham_10
-        - Millham_3
-        - Millham_7
-        state:
-          plants:
-            K: 2.9
-            S: 2.9
-            r: 0.3
-          wood:
-            kind: managed wood
-          game:
-            K: 2.1
-            S: 2.1
-            r: 0.25
-        terrain: lowland loam
-        soil: loam
-        ecosystem: oak-ash wood
-        depth: edge
-        land:
-          elevation: 52.7
-          exposure: 0.33
-          texture: loam
-          held_mm: 197.6
-          drain_rate: 0.25
-          depth: 1.16
-          base_fertility: 1.0
-          position: hollow
-          rain_factor: 0.993
-          sea_km: 99.0
-          river: none
-      Millham_7:
         name: the Carr
         cover: fen
         size: 3
@@ -706,7 +675,7 @@ nodes:
         text: reed and sedge over standing water, low by the water
         adj:
         - Millham_2
-        - Millham_6
+        - Millham_8
         - Millham_9
         state:
           plants:
@@ -732,7 +701,7 @@ nodes:
           rain_factor: 0.993
           sea_km: 99.0
           river: none
-      Millham_8:
+      Millham_7:
         name: Millham Water
         cover: water
         size: 1
@@ -740,7 +709,7 @@ nodes:
         height: 0
         text: running water, low by the water
         adj:
-        - Millham_9
+        - Millham_8
         terrain: water
         soil: loam
         ecosystem: water
@@ -753,7 +722,7 @@ nodes:
           depth: 0.94
           base_fertility: 1.15
           position: hollow
-          rain_factor: 1.105
+          rain_factor: 1.104
           sea_km: 99.0
           river: river
           down: out
@@ -762,7 +731,7 @@ nodes:
             K: 8.0
             S: 8.0
             r: 0.3
-      Millham_9:
+      Millham_8:
         name: the Mere
         cover: water
         size: 1
@@ -770,8 +739,8 @@ nodes:
         height: 0
         text: running water, low by the water
         adj:
+        - Millham_6
         - Millham_7
-        - Millham_8
         terrain: water
         soil: loam
         ecosystem: water
@@ -784,20 +753,20 @@ nodes:
           depth: 0.94
           base_fertility: 1.15
           position: hollow
-          rain_factor: 1.081
+          rain_factor: 1.08
           sea_km: 99.0
           river: river
-          down: Millham_8
+          down: Millham_7
         state:
           fish:
             K: 8.0
             S: 8.0
             r: 0.3
-      Millham_10:
-        name: Middle Field
+      Millham_9:
+        name: North Field
         cover: field
-        size: 7
-        side: centre
+        size: 5
+        side: north
         height: 1
         text: ploughland, on good loam
         adj:
@@ -813,22 +782,22 @@ nodes:
           elevation: 52.9
           exposure: 0.34
           texture: loam
-          held_mm: 199.3
+          held_mm: 199.8
           drain_rate: 0.25
-          depth: 1.17
+          depth: 1.18
           base_fertility: 1.0
           position: slope
           rain_factor: 0.993
           sea_km: 99.0
           river: none
-        holder: Moor
+        holder: Hobb
         state:
           last_crop: fallow
     xy:
     - 24.61
     - 15.33
-    elevation: 52.0
-    rain_mm: 712.0
+    elevation: 51.9
+    rain_mm: 713.0
   w1:
     name: Stanley
     text: old forest, far from any village on the sand country's edge
@@ -909,18 +878,97 @@ nodes:
     elevation: 203.4
     rain_mm: 707.0
   w2:
-    name: Flintley
-    text: broken hill country, stony in the hills
+    name: Hazeley
+    text: old forest, far from any village in a clay vale
     parcels:
       w2_0:
-        name: the Scar
+        name: Hazeley Meadow
+        cover: meadow
+        size: 1
+        side: south
+        height: 1
+        text: hay meadow, on good loam
+        adj:
+        - w2_1
+        state:
+          plants:
+            K: 1.3
+            S: 1.3
+            r: 0.3
+          grass:
+            K: 27.0
+            S: 27.0
+            r: 0.32
+        terrain: clay vale
+        soil: loam
+        ecosystem: grassland
+        land:
+          elevation: 116.2
+          exposure: 0.51
+          texture: clay
+          held_mm: 167.9
+          drain_rate: 0.08
+          depth: 1.12
+          base_fertility: 1.05
+          position: slope
+          rain_factor: 1.003
+          sea_km: 99.0
+          river: none
+      w2_1:
+        name: the Deep Wood
+        cover: forest
+        size: 6
+        side: centre
+        height: 2
+        text: small oak and birch on the valley sides, deep and dim, on the slope
+        adj:
+        - w2_0
+        state:
+          plants:
+            K: 4.3
+            S: 4.3
+            r: 0.3
+          wood:
+            kind: old forest
+          game:
+            K: 25.2
+            S: 25.2
+            r: 0.25
+        terrain: clay vale
+        soil: loam
+        ecosystem: upland oak wood
+        depth: core
+        land:
+          elevation: 115.0
+          exposure: 0.52
+          texture: clay
+          held_mm: 162.3
+          drain_rate: 0.08
+          depth: 1.08
+          base_fertility: 1.033
+          position: slope
+          rain_factor: 0.999
+          sea_km: 99.0
+          river: none
+    unexplored: true
+    xy:
+    - 14.22
+    - 41.69
+    elevation: 115.2
+    rain_mm: 1123.0
+  w3:
+    name: Craghope
+    text: broken hill country, stony in the hills
+    parcels:
+      w3_0:
+        name: Craghope Scar
         cover: rock
         size: 2
         side: centre
         height: 3
         text: bare rock and scree, up on the tops
         adj:
-        - w2_1
+        - w3_1
         state:
           quarry:
             K: 200.0
@@ -939,19 +987,19 @@ nodes:
           drain_rate: 0.25
           depth: 0.71
           base_fertility: 0.99
-          position: slope
+          position: ridge
           rain_factor: 0.995
           sea_km: 99.0
           river: none
-      w2_1:
-        name: the Brakes
+      w3_1:
+        name: the Rough
         cover: scrub
         size: 2
         side: south
         height: 2
         text: thorn and rough grass, on the slope
         adj:
-        - w2_0
+        - w3_0
         state:
           plants:
             K: 2.0
@@ -996,7 +1044,7 @@ roads:
         side: south
       Millham:
         parcels:
-        - Millham_10
+        - Millham_9
         side: north
 - - Saltwell
   - w1
@@ -1024,32 +1072,62 @@ roads:
     ends:
       Saltwell:
         parcels:
-        - Saltwell_1
-        side: south
+        - Saltwell_11
+        side: north
       w2:
         parcels:
         - w2_1
+        side: north
+- - Saltwell
+  - w3
+  - 1
+  - terrain: plain
+    way: the open road
+    ends:
+      Saltwell:
+        parcels:
+        - Saltwell_11
+        side: north
+      w3:
+        parcels:
+        - w3_1
         side: south
     stretches:
       1:
         landmarks:
         - pass
+- - w2
+  - w3
+  - 1
+  - terrain: woodland
+    way: a way through the cover
+    ends:
+      w2:
+        parcels:
+        - w2_1
+        side: north
+        hidden: true
+      w3:
+        parcels:
+        - w3_0
+        side: north
+        hidden: true
 buildings:
   cole_house:
     name: Cole House
     parcel: Saltwell_0
     household: Cole
     structure: wattle
-    size: 4
+    size: 6
     fittings:
-      beds: 4
+      beds: 6
       hearth: 1
       bins: 1
     stock:
-      grain: 24
-      beans: 6
+      grain: 40
+      beans: 10
       timber: 28
-      firewood: 48
+      firewood: 60
   cole_forge:
     name: Cole's Forge
     parcel: Saltwell_0
@@ -1066,16 +1144,16 @@ buildings:
     parcel: Saltwell_0
     household: Shepherd
     structure: wattle
-    size: 8
+    size: 6
     fittings:
-      beds: 8
+      beds: 6
       hearth: 1
       bins: 1
     stock:
-      grain: 56
-      beans: 14
+      grain: 40
+      beans: 10
       timber: 28
-      firewood: 72
+      firewood: 60
   hale_house:
     name: Hale House
     parcel: Saltwell_0
@@ -1116,10 +1194,10 @@ buildings:
       hearth: 1
       bins: 1
     stock:
-      grain: 24
-      beans: 6
+      grain: 16
+      beans: 4
       timber: 28
-      firewood: 48
+      firewood: 42
   moor_house:
     name: Moor House
     parcel: Millham_0
@@ -1151,16 +1229,16 @@ buildings:
     parcel: Millham_0
     household: Hobb
     structure: wattle
-    size: 6
+    size: 4
     fittings:
-      beds: 6
+      beds: 4
       hearth: 1
       bins: 1
     stock:
-      grain: 40
-      beans: 10
+      grain: 16
+      beans: 4
       timber: 28
-      firewood: 60
+      firewood: 42
   fenn_byre:
     name: the Fenn Byre
     parcel: Millham_0
@@ -1251,12 +1329,12 @@ wild:
         - Saltwell_7
         - Saltwell_8
         - Saltwell_9
-        km2: 0.6975
+        km2: 0.7875
         xy_km:
-        - 31.56
-        - 31.4
+        - 31.55
+        - 31.41
         cover:
-          built: 0.0225
+          built: 0.1125
           field: 0.3375
           meadow: 0.0225
           pasture: 0.09
@@ -1264,19 +1342,19 @@ wild:
           fen: 0.0675
           water: 0.045
         eco:
-          grassland: 0.45
+          grassland: 0.54
           wet grassland: 0.0225
           oak-ash wood: 0.1125
           fen: 0.0675
           water: 0.045
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
-        wet: 0.392
-        elevation: 75.1
+        wet: 0.391
+        elevation: 75.4
         temp: 8.3
         texture:
-          sand: 0.032
-          loam: 0.968
+          sand: 0.029
+          loam: 0.971
         rock: 0.0
         river_km: 0.3
         big_river_km: 0.3
@@ -1287,7 +1365,6 @@ wild:
         parcels:
         - Millham_0
         - Millham_1
-        - Millham_10
         - Millham_2
         - Millham_3
         - Millham_4
@@ -1296,28 +1373,28 @@ wild:
         - Millham_7
         - Millham_8
         - Millham_9
-        km2: 0.6525
+        km2: 0.6075
         xy_km:
-        - 24.72
-        - 15.44
+        - 24.73
+        - 15.43
         cover:
-          built: 0.0225
-          field: 0.2925
+          built: 0.1125
+          field: 0.2025
           meadow: 0.0225
           pasture: 0.09
-          forest: 0.1125
+          forest: 0.0675
           fen: 0.0675
           water: 0.045
         eco:
           grassland: 0.405
           wet grassland: 0.0225
-          oak-ash wood: 0.1125
+          oak-ash wood: 0.0675
           fen: 0.0675
           water: 0.045
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
-        wet: 0.46
-        elevation: 52.0
+        wet: 0.452
+        elevation: 51.9
         temp: 8.94
         texture:
           loam: 1.0
@@ -1358,6 +1435,34 @@ wild:
         parcels:
         - w2_0
         - w2_1
+        km2: 0.1575
+        xy_km:
+        - 14.23
+        - 41.66
+        cover:
+          meadow: 0.0225
+          forest: 0.135
+        eco:
+          grassland: 0.0225
+          upland oak wood: 0.135
+        old_wood_km2: 0.1575
+        wood_edge_km2: 0.0
+        wet: 0.285
+        elevation: 115.2
+        temp: 7.75
+        texture:
+          loam: 0.286
+          clay: 0.714
+        rock: 0.0
+        river_km: 0.0
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a4:
+        kind: home
+        node: w3
+        parcels:
+        - w3_0
+        - w3_1
         km2: 0.09
         xy_km:
         - 22.65
@@ -1377,11 +1482,11 @@ wild:
         river_km: 0.0
         big_river_km: 0.0
         lake_km2: 0.0
-      a4:
+      a5:
         kind: ring
         node: Saltwell
         parcels: []
-        km2: 19.035
+        km2: 18.945
         xy_km:
         - 31.5
         - 31.5
@@ -1390,32 +1495,32 @@ wild:
           forest: 0.2025
           heath: 3.4425
           meadow: 0.8775
-          pasture: 14.04
+          pasture: 13.95
           water: 0.405
         eco:
           birch and pine wood: 0.2025
           fen: 0.0675
-          grassland: 14.04
+          grassland: 13.95
           lowland heath: 3.4425
           water: 0.405
           wet grassland: 0.8775
         old_wood_km2: 0.0
         wood_edge_km2: 0.2025
-        wet: 0.244
+        wet: 0.243
         elevation: 75.9
         temp: 8.29
         texture:
-          sand: 0.197
-          loam: 0.803
+          sand: 0.198
+          loam: 0.802
         rock: 0.0
         river_km: 6.75
         big_river_km: 2.7
         lake_km2: 0.0
-      a5:
+      a6:
         kind: ring
         node: Millham
         parcels: []
-        km2: 19.08
+        km2: 19.125
         xy_km:
         - 24.6
         - 15.3
@@ -1423,11 +1528,11 @@ wild:
           fen: 0.0225
           heath: 1.4175
           meadow: 0.5625
-          pasture: 16.56
+          pasture: 16.605
           water: 0.5175
         eco:
           fen: 0.0225
-          grassland: 16.56
+          grassland: 16.605
           lowland heath: 1.4175
           water: 0.5175
           wet grassland: 0.5625
@@ -1443,7 +1548,7 @@ wild:
         river_km: 3.45
         big_river_km: 3.45
         lake_km2: 0.0
-      a6:
+      a7:
         kind: ring
         node: w1
         parcels: []
@@ -1474,9 +1579,39 @@ wild:
         river_km: 3.6
         big_river_km: 0.0
         lake_km2: 0.0
-      a7:
+      a8:
         kind: ring
         node: w2
+        parcels: []
+        km2: 19.575
+        xy_km:
+        - 14.25
+        - 41.7
+        cover:
+          forest: 18.5175
+          meadow: 0.1125
+          pasture: 0.945
+        eco:
+          grassland: 0.45
+          hill pasture: 0.495
+          oak-ash wood: 0.1125
+          upland oak wood: 18.405
+          wet grassland: 0.1125
+        old_wood_km2: 11.2275
+        wood_edge_km2: 1.5525
+        wet: 0.386
+        elevation: 110.6
+        temp: 7.78
+        texture:
+          loam: 0.477
+          clay: 0.523
+        rock: 0.0
+        river_km: 5.25
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a9:
+        kind: ring
+        node: w3
         parcels: []
         km2: 19.6425
         xy_km:
@@ -1507,7 +1642,7 @@ wild:
         river_km: 3.45
         big_river_km: 0.0
         lake_km2: 0.5625
-      a8:
+      a10:
         kind: wild
         node: Millham
         parcels: []
@@ -1538,7 +1673,7 @@ wild:
         river_km: 13.35
         big_river_km: 0.0
         lake_km2: 0.0
-      a9:
+      a11:
         kind: wild
         node: Millham
         parcels: []
@@ -1568,7 +1703,7 @@ wild:
         river_km: 3.75
         big_river_km: 0.0
         lake_km2: 0.0
-      a10:
+      a12:
         kind: wild
         node: Millham
         parcels: []
@@ -1601,7 +1736,7 @@ wild:
         river_km: 6.75
         big_river_km: 0.0
         lake_km2: 0.0
-      a11:
+      a13:
         kind: wild
         node: Millham
         parcels: []
@@ -1632,7 +1767,7 @@ wild:
         river_km: 9.15
         big_river_km: 7.95
         lake_km2: 0.0
-      a12:
+      a14:
         kind: wild
         node: Millham
         parcels: []
@@ -1665,7 +1800,7 @@ wild:
         river_km: 5.25
         big_river_km: 0.0
         lake_km2: 0.0
-      a13:
+      a15:
         kind: wild
         node: Millham
         parcels: []
@@ -1700,7 +1835,7 @@ wild:
         river_km: 8.85
         big_river_km: 8.1
         lake_km2: 0.0
-      a14:
+      a16:
         kind: wild
         node: Millham
         parcels: []
@@ -1731,7 +1866,7 @@ wild:
         river_km: 0.0
         big_river_km: 0.0
         lake_km2: 0.0
-      a15:
+      a17:
         kind: wild
         node: Millham
         parcels: []
@@ -1766,7 +1901,7 @@ wild:
         river_km: 2.1
         big_river_km: 0.0
         lake_km2: 0.0
-      a16:
+      a18:
         kind: wild
         node: Millham
         parcels: []
@@ -1797,7 +1932,7 @@ wild:
         river_km: 9.75
         big_river_km: 0.0
         lake_km2: 0.0
-      a17:
+      a19:
         kind: wild
         node: Millham
         parcels: []
@@ -1831,7 +1966,7 @@ wild:
         river_km: 0.9
         big_river_km: 0.0
         lake_km2: 0.0
-      a18:
+      a20:
         kind: wild
         node: Millham
         parcels: []
@@ -1868,7 +2003,7 @@ wild:
         river_km: 10.95
         big_river_km: 5.55
         lake_km2: 0.0
-      a19:
+      a21:
         kind: wild
         node: Millham
         parcels: []
@@ -1899,7 +2034,7 @@ wild:
         river_km: 3.15
         big_river_km: 0.0
         lake_km2: 0.0
-      a20:
+      a22:
         kind: wild
         node: Millham
         parcels: []
@@ -1934,7 +2069,7 @@ wild:
         river_km: 12.45
         big_river_km: 0.0
         lake_km2: 0.0
-      a21:
+      a23:
         kind: wild
         node: Millham
         parcels: []
@@ -1964,7 +2099,7 @@ wild:
         river_km: 0.0
         big_river_km: 0.0
         lake_km2: 0.0
-      a22:
+      a24:
         kind: wild
         node: Millham
         parcels: []
@@ -1999,7 +2134,7 @@ wild:
         river_km: 7.5
         big_river_km: 3.9
         lake_km2: 0.0
-      a23:
+      a25:
         kind: wild
         node: Millham
         parcels: []
@@ -2034,7 +2169,7 @@ wild:
         river_km: 17.1
         big_river_km: 11.7
         lake_km2: 0.0
-      a24:
+      a26:
         kind: wild
         node: Millham
         parcels: []
@@ -2069,7 +2204,7 @@ wild:
         river_km: 5.85
         big_river_km: 0.0
         lake_km2: 0.0
-      a25:
+      a27:
         kind: wild
         node: Millham
         parcels: []
@@ -2104,7 +2239,7 @@ wild:
         river_km: 13.95
         big_river_km: 8.25
         lake_km2: 0.0
-      a26:
+      a28:
         kind: wild
         node: Millham
         parcels: []
@@ -2134,7 +2269,7 @@ wild:
         river_km: 0.45
         big_river_km: 0.0
         lake_km2: 0.0
-      a27:
+      a29:
         kind: wild
         node: Saltwell
         parcels: []
@@ -2167,7 +2302,7 @@ wild:
         river_km: 3.6
         big_river_km: 0.0
         lake_km2: 0.0
-      a28:
+      a30:
         kind: wild
         node: Saltwell
         parcels: []
@@ -2198,7 +2333,7 @@ wild:
         river_km: 0.0
         big_river_km: 0.0
         lake_km2: 0.0
-      a29:
+      a31:
         kind: wild
         node: w2
         parcels: []
@@ -2232,7 +2367,7 @@ wild:
         river_km: 16.95
         big_river_km: 10.5
         lake_km2: 0.0
-      a30:
+      a32:
         kind: wild
         node: w2
         parcels: []
@@ -2267,7 +2402,7 @@ wild:
         river_km: 0.6
         big_river_km: 0.0
         lake_km2: 0.0
-      a31:
+      a33:
         kind: wild
         node: Saltwell
         parcels: []
@@ -2299,7 +2434,7 @@ wild:
         river_km: 16.8
         big_river_km: 0.0
         lake_km2: 0.0
-      a32:
+      a34:
         kind: wild
         node: Saltwell
         parcels: []
@@ -2336,7 +2471,7 @@ wild:
         river_km: 10.5
         big_river_km: 10.5
         lake_km2: 0.0
-      a33:
+      a35:
         kind: wild
         node: Saltwell
         parcels: []
@@ -2369,7 +2504,7 @@ wild:
         river_km: 9.0
         big_river_km: 0.0
         lake_km2: 0.0
-      a34:
+      a36:
         kind: wild
         node: Saltwell
         parcels: []
@@ -2404,7 +2539,7 @@ wild:
         river_km: 10.2
         big_river_km: 0.0
         lake_km2: 0.0
-      a35:
+      a37:
         kind: wild
         node: Saltwell
         parcels: []
@@ -2434,7 +2569,7 @@ wild:
         river_km: 0.0
         big_river_km: 0.0
         lake_km2: 0.0
-      a36:
+      a38:
         kind: wild
         node: w2
         parcels: []
@@ -2471,44 +2606,44 @@ wild:
         river_km: 4.35
         big_river_km: 2.7
         lake_km2: 0.0
-      a37:
+      a39:
         kind: wild
         node: w2
         parcels: []
-        km2: 63.2025
+        km2: 62.235
         xy_km:
-        - 11.85
-        - 35.7
+        - 11.81
+        - 35.64
         cover:
           fen: 0.1575
-          forest: 32.58
-          meadow: 1.125
-          pasture: 29.34
+          forest: 32.265
+          meadow: 1.08
+          pasture: 28.7325
         eco:
           alder carr: 0.405
           birch and pine wood: 26.685
           fen: 0.1575
-          grassland: 27.6525
-          hill pasture: 1.6875
-          oak-ash wood: 4.68
-          upland oak wood: 0.81
-          wet grassland: 1.125
+          grassland: 27.27
+          hill pasture: 1.4625
+          oak-ash wood: 4.5675
+          upland oak wood: 0.6075
+          wet grassland: 1.08
         old_wood_km2: 4.4325
-        wood_edge_km2: 10.44
-        wet: 0.248
-        elevation: 70.2
+        wood_edge_km2: 10.125
+        wet: 0.247
+        elevation: 69.8
         temp: 8.22
         texture:
-          sand: 0.431
-          loam: 0.553
+          sand: 0.438
+          loam: 0.546
           clay: 0.016
         rock: 0.0
-        river_km: 4.95
+        river_km: 4.5
         big_river_km: 0.0
         lake_km2: 0.0
-      a38:
+      a40:
         kind: wild
-        node: w2
+        node: w3
         parcels: []
         km2: 59.535
         xy_km:
@@ -2541,7 +2676,7 @@ wild:
         river_km: 10.8
         big_river_km: 0.0
         lake_km2: 0.0
-      a39:
+      a41:
         kind: wild
         node: Saltwell
         parcels: []
@@ -2577,7 +2712,7 @@ wild:
         river_km: 13.5
         big_river_km: 1.65
         lake_km2: 0.0
-      a40:
+      a42:
         kind: wild
         node: Saltwell
         parcels: []
@@ -2615,7 +2750,7 @@ wild:
         river_km: 3.75
         big_river_km: 0.0
         lake_km2: 0.0
-      a41:
+      a43:
         kind: wild
         node: Saltwell
         parcels: []
@@ -2654,7 +2789,7 @@ wild:
         river_km: 5.55
         big_river_km: 0.3
         lake_km2: 0.0
-      a42:
+      a44:
         kind: wild
         node: Saltwell
         parcels: []
@@ -2684,7 +2819,7 @@ wild:
         river_km: 0.0
         big_river_km: 0.0
         lake_km2: 0.0
-      a43:
+      a45:
         kind: wild
         node: w2
         parcels: []
@@ -2723,69 +2858,69 @@ wild:
         river_km: 10.2
         big_river_km: 0.15
         lake_km2: 0.0
-      a44:
+      a46:
         kind: wild
         node: w2
         parcels: []
-        km2: 63.2025
+        km2: 46.9575
         xy_km:
-        - 11.85
-        - 43.65
+        - 11.12
+        - 44.28
         cover:
-          forest: 53.4825
-          meadow: 0.1575
-          pasture: 9.5625
+          forest: 37.6425
+          meadow: 0.09
+          pasture: 9.225
         eco:
           alder carr: 0.045
-          grassland: 1.755
-          hill pasture: 7.8075
+          grassland: 1.6875
+          hill pasture: 7.5375
           oak-ash wood: 0.0675
-          upland oak wood: 53.37
-          wet grassland: 0.1575
-        old_wood_km2: 25.83
-        wood_edge_km2: 8.145
-        wet: 0.369
-        elevation: 85.6
-        temp: 7.88
+          upland oak wood: 37.53
+          wet grassland: 0.09
+        old_wood_km2: 15.9975
+        wood_edge_km2: 6.9075
+        wet: 0.358
+        elevation: 79.3
+        temp: 7.9
         texture:
           sand: 0.001
-          loam: 0.404
-          clay: 0.596
+          loam: 0.414
+          clay: 0.586
         rock: 0.0
-        river_km: 12.15
+        river_km: 7.95
         big_river_km: 0.0
         lake_km2: 0.0
-      a45:
+      a47:
         kind: wild
-        node: w2
+        node: w3
         parcels: []
-        km2: 51.57
+        km2: 49.05
         xy_km:
-        - 19.28
-        - 44.17
+        - 19.44
+        - 44.3
         cover:
-          forest: 49.4325
+          forest: 46.9125
           moor: 1.1025
           water: 1.035
         eco:
           alder carr: 0.135
           blanket bog: 0.2925
           moor: 0.81
-          upland oak wood: 49.2975
+          upland oak wood: 46.7775
           water: 1.035
-        old_wood_km2: 8.3475
+        old_wood_km2: 6.795
         wood_edge_km2: 10.395
-        wet: 0.265
-        elevation: 271.8
-        temp: 6.66
+        wet: 0.263
+        elevation: 277.5
+        temp: 6.62
         texture:
-          loam: 0.973
-          clay: 0.027
+          loam: 0.975
+          clay: 0.025
         rock: 0.003
-        river_km: 4.8
+        river_km: 4.2
         big_river_km: 1.05
         lake_km2: 0.8775
-      a46:
+      a48:
         kind: wild
         node: w1
         parcels: []
@@ -2814,7 +2949,7 @@ wild:
         river_km: 0.15
         big_river_km: 0.0
         lake_km2: 0.0
-      a47:
+      a49:
         kind: wild
         node: w1
         parcels: []
@@ -2845,7 +2980,7 @@ wild:
         river_km: 6.9
         big_river_km: 0.0
         lake_km2: 1.1925
-      a48:
+      a50:
         kind: wild
         node: w1
         parcels: []
@@ -2881,7 +3016,7 @@ wild:
         river_km: 11.4
         big_river_km: 2.4
         lake_km2: 3.5775
-      a49:
+      a51:
         kind: wild
         node: w1
         parcels: []
@@ -2912,7 +3047,7 @@ wild:
         river_km: 2.4
         big_river_km: 2.4
         lake_km2: 0.0
-      a50:
+      a52:
         kind: wild
         node: w2
         parcels: []
@@ -2947,7 +3082,7 @@ wild:
         river_km: 0.0
         big_river_km: 0.0
         lake_km2: 0.0
-      a51:
+      a53:
         kind: wild
         node: w2
         parcels: []
@@ -2978,9 +3113,9 @@ wild:
         river_km: 5.85
         big_river_km: 4.95
         lake_km2: 0.0
-      a52:
+      a54:
         kind: wild
-        node: w2
+        node: w3
         parcels: []
         km2: 19.08
         xy_km:
@@ -3012,7 +3147,7 @@ wild:
         river_km: 7.65
         big_river_km: 7.65
         lake_km2: 0.0
-      a53:
+      a55:
         kind: wild
         node: w1
         parcels: []
@@ -3043,7 +3178,7 @@ wild:
         river_km: 0.0
         big_river_km: 0.0
         lake_km2: 1.1475
-      a54:
+      a56:
         kind: wild
         node: w1
         parcels: []
@@ -3076,7 +3211,7 @@ wild:
         river_km: 0.0
         big_river_km: 0.0
         lake_km2: 0.045
-      a55:
+      a57:
         kind: wild
         node: w1
         parcels: []
@@ -3108,7 +3243,7 @@ wild:
         river_km: 0.0
         big_river_km: 0.0
         lake_km2: 0.2475
-      a56:
+      a58:
         kind: wild
         node: w1
         parcels: []
@@ -3138,77 +3273,77 @@ wild:
         lake_km2: 0.0
     links:
     - - a0
-      - a4
-      - 6.6
-    - - a1
       - a5
+      - 7.8
+    - - a1
+      - a6
       - 6.3
     - - a2
-      - a6
+      - a7
       - 1.8
     - - a3
-      - a7
-      - 1.5
+      - a8
+      - 1.8
     - - a4
-      - a32
-      - 5.4
-    - - a4
-      - a33
-      - 4.95
-    - - a4
-      - a39
-      - 4.95
-    - - a4
-      - a40
-      - 4.5
-    - - a5
-      - a17
-      - 4.5
-    - - a5
-      - a18
-      - 6.45
-    - - a5
-      - a24
-      - 3.45
-    - - a5
-      - a25
-      - 5.4
-    - - a6
-      - a39
-      - 4.8
-    - - a6
-      - a40
-      - 2.55
-    - - a6
-      - a46
-      - 7.35
-    - - a6
-      - a47
-      - 5.1
-    - - a7
-      - a38
-      - 4.95
-    - - a7
-      - a39
-      - 2.4
-    - - a7
-      - a45
-      - 7.5
-    - - a7
-      - a46
-      - 4.95
-    - - a8
       - a9
-      - 7.95
+      - 1.5
+    - - a5
+      - a34
+      - 5.4
+    - - a5
+      - a35
+      - 4.95
+    - - a5
+      - a41
+      - 4.95
+    - - a5
+      - a42
+      - 4.5
+    - - a6
+      - a19
+      - 4.5
+    - - a6
+      - a20
+      - 6.45
+    - - a6
+      - a26
+      - 3.45
+    - - a6
+      - a27
+      - 5.4
+    - - a7
+      - a41
+      - 4.8
+    - - a7
+      - a42
+      - 2.55
+    - - a7
+      - a48
+      - 7.35
+    - - a7
+      - a49
+      - 5.1
     - - a8
-      - a15
-      - 7.95
+      - a39
+      - 4.05
+    - - a8
+      - a46
+      - 9.9
+    - - a8
+      - a47
+      - 5.85
     - - a9
-      - a10
-      - 7.95
+      - a40
+      - 4.95
     - - a9
-      - a16
-      - 7.95
+      - a41
+      - 2.4
+    - - a9
+      - a47
+      - 7.5
+    - - a9
+      - a48
+      - 4.95
     - - a10
       - a11
       - 7.95
@@ -3234,8 +3369,11 @@ wild:
       - a20
       - 7.95
     - - a14
+      - a15
+      - 7.95
+    - - a14
       - a21
-      - 2.4
+      - 7.95
     - - a15
       - a16
       - 7.95
@@ -3243,38 +3381,38 @@ wild:
       - a22
       - 7.95
     - - a16
-      - a17
-      - 7.95
-    - - a16
       - a23
-      - 7.95
+      - 2.4
     - - a17
       - a18
-      - 5.1
+      - 7.95
     - - a17
       - a24
-      - 6.3
+      - 7.95
     - - a18
       - a19
       - 7.95
     - - a18
       - a25
-      - 4.65
+      - 7.95
     - - a19
       - a20
-      - 7.95
+      - 5.1
     - - a19
       - a26
-      - 7.95
+      - 6.3
     - - a20
       - a21
       - 7.95
     - - a20
       - a27
+      - 4.65
+    - - a21
+      - a22
       - 7.95
     - - a21
       - a28
-      - 2.4
+      - 7.95
     - - a22
       - a23
       - 7.95
@@ -3282,14 +3420,11 @@ wild:
       - a29
       - 7.95
     - - a23
-      - a24
-      - 7.95
-    - - a23
       - a30
-      - 7.95
+      - 2.4
     - - a24
       - a25
-      - 6.15
+      - 7.95
     - - a24
       - a31
       - 7.95
@@ -3301,7 +3436,7 @@ wild:
       - 7.95
     - - a26
       - a27
-      - 7.95
+      - 6.15
     - - a26
       - a33
       - 7.95
@@ -3312,8 +3447,11 @@ wild:
       - a34
       - 7.95
     - - a28
+      - a29
+      - 7.95
+    - - a28
       - a35
-      - 2.4
+      - 7.95
     - - a29
       - a30
       - 7.95
@@ -3321,11 +3459,8 @@ wild:
       - a36
       - 7.95
     - - a30
-      - a31
-      - 7.95
-    - - a30
       - a37
-      - 7.95
+      - 2.4
     - - a31
       - a32
       - 7.95
@@ -3334,25 +3469,28 @@ wild:
       - 7.95
     - - a32
       - a33
-      - 5.25
+      - 7.95
     - - a32
       - a39
-      - 5.25
+      - 7.95
     - - a33
       - a34
       - 7.95
     - - a33
       - a40
-      - 5.7
-    - - a34
-      - a35
       - 7.95
     - - a34
+      - a35
+      - 5.25
+    - - a34
       - a41
+      - 5.25
+    - - a35
+      - a36
       - 7.95
     - - a35
       - a42
-      - 2.4
+      - 5.7
     - - a36
       - a37
       - 7.95
@@ -3360,38 +3498,38 @@ wild:
       - a43
       - 7.95
     - - a37
-      - a38
-      - 7.95
-    - - a37
       - a44
-      - 7.95
+      - 2.4
     - - a38
       - a39
-      - 6.75
+      - 7.95
     - - a38
       - a45
-      - 4.5
+      - 7.95
     - - a39
       - a40
-      - 4.5
+      - 7.95
     - - a39
       - a46
-      - 3.45
+      - 4.8
     - - a40
       - a41
-      - 7.95
+      - 6.75
     - - a40
       - a47
-      - 6.6
+      - 4.5
     - - a41
       - a42
-      - 7.95
+      - 4.5
     - - a41
       - a48
+      - 3.45
+    - - a42
+      - a43
       - 7.95
     - - a42
       - a49
-      - 2.4
+      - 6.6
     - - a43
       - a44
       - 7.95
@@ -3399,43 +3537,46 @@ wild:
       - a50
       - 7.95
     - - a44
-      - a45
-      - 7.95
-    - - a44
       - a51
-      - 7.95
+      - 2.4
     - - a45
       - a46
-      - 4.5
+      - 7.95
     - - a45
       - a52
       - 7.95
     - - a46
       - a47
-      - 4.5
+      - 3.9
     - - a46
       - a53
       - 7.95
     - - a47
       - a48
-      - 7.95
+      - 4.5
     - - a47
       - a54
       - 7.95
     - - a48
       - a49
-      - 7.95
+      - 4.5
     - - a48
       - a55
       - 7.95
     - - a49
+      - a50
+      - 7.95
+    - - a49
       - a56
-      - 2.4
+      - 7.95
     - - a50
       - a51
-      - 2.4
+      - 7.95
+    - - a50
+      - a57
+      - 7.95
     - - a51
-      - a52
+      - a58
       - 2.4
     - - a52
       - a53
@@ -3449,135 +3590,137 @@ wild:
     - - a55
       - a56
       - 2.4
+    - - a56
+      - a57
+      - 2.4
+    - - a57
+      - a58
+      - 2.4
     down:
-      a0: a4
-      a1: a5
-      a4: a32
-      a5: a18
-      a6: a39
-      a7: a39
-      a8: out
-      a9: a16
-      a10: a9
-      a11: out
-      a12: a13
+      a0: a5
+      a1: a6
+      a5: a34
+      a6: a20
+      a7: a41
+      a8: a46
+      a9: a41
+      a10: out
+      a11: a18
+      a12: a11
       a13: out
-      a15: a8
-      a16: a23
+      a14: a15
+      a15: out
       a17: a10
-      a18: a11
-      a19: a20
+      a18: a25
+      a19: a12
       a20: a13
-      a22: a29
-      a23: a22
-      a24: a23
-      a25: a5
-      a26: a19
-      a27: a20
-      a29: out
-      a30: a23
-      a31: a24
+      a21: a22
+      a22: a15
+      a24: a31
+      a25: a24
+      a26: a25
+      a27: a6
+      a28: a21
+      a29: a22
+      a31: out
       a32: a25
-      a33: a40
-      a34: a33
-      a36: out
-      a37: a36
-      a38: a31
-      a39: a32
-      a40: a4
-      a41: a48
-      a43: a36
-      a44: a43
-      a45: a52
-      a46: a7
-      a47: a48
-      a48: a49
-      a49: out
+      a33: a26
+      a34: a27
+      a35: a42
+      a36: a35
+      a38: out
+      a39: a38
+      a40: a33
+      a41: a34
+      a42: a5
+      a43: a50
+      a45: a38
+      a46: a45
+      a47: a54
+      a48: a9
+      a49: a50
+      a50: a51
       a51: out
-      a52: a51
-      a56: out
+      a53: out
+      a54: a53
+      a58: out
     home:
       Saltwell: a0
       Millham: a1
       w1: a2
       w2: a3
+      w3: a4
 claims: []
 agents:
-  Walter:
+  Baldwin:
     household: Cole
-    born: -31
+    born: -28
     stage: adult
     sex: m
     relations:
-      Isolde: your wife
-      Saer: of the Shepherd household; there is bad blood between your households since last winter, over a pig that went missing
-      Thomasin: of the Shepherd household
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: of the Shepherd household
-      Tiffany: of the Hale household
-      Tobin: of the Hale household
-      Elena: of the Shepherd household
-      Godiva: your daughter
-      Geoffrey: of the Shepherd household
-      Robin: of the Shepherd household
-      Godwin: of the Shepherd household
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: of the Moor household
+      Joyce: your wife
+      Henry: of the Shepherd household; there is bad blood between your households since last winter, over a pig that went missing
+      Petronel: of the Shepherd household
+      Edric: of the Hale household
+      Hawise: of the Hale household
+      Edith: of the Shepherd household
+      Alard: your son
+      Margery: of the Shepherd household
+      Basilia: your daughter
+      Cecily: of the Hale household
+      Susanna: your daughter
+      Wilmot: of the Hale household
+      Martin: of the Shepherd household
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: of the Moor household
+      Wymarc: of the Moor household
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: of the Moor household
+      Adam: of the Moor household
+      Robin: of the Moor household
     memories:
-    - 'Your line''s founders: Walter and Isolde Cole came to Saltwell and built the first Cole house.'
+    - 'Your line''s founders: Baldwin and Joyce Cole came to Saltwell and built the first Cole house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Daughter Ursula married into Ashby, two days' walk away.
-    - Daughter Cecily married into Ashby, two days' walk away.
-    - Last winter you and Saer came to blows over a pig that went missing; it was never settled.
+    - Last winter you and Henry came to blows over a pig that went missing; it was never settled.
     knows:
       coin:
         level: known
-        skill: 1.78
+        skill: 1.65
       copper tool:
         level: known
-        skill: 1.78
+        skill: 1.65
       hoe:
         level: known
-        skill: 1.49
+        skill: 1.43
       hunt:
         level: known
-        skill: 1.49
+        skill: 1.43
       milk:
         level: known
-        skill: 1.78
+        skill: 1.65
       mine:
         level: known
-        skill: 1.78
+        skill: 1.65
       plough:
         level: known
-        skill: 1.78
+        skill: 1.65
       reap:
         level: known
-        skill: 1.49
+        skill: 1.43
       select seed:
         level: known
-        skill: 1.78
+        skill: 1.65
       smelt:
         level: known
-        skill: 1.78
+        skill: 1.65
       sow:
         level: known
-        skill: 1.49
+        skill: 1.43
       weed:
         level: known
-        skill: 1.49
+        skill: 1.43
     aware_of:
       quarry: you have seen the Shepherds at it all your life
       medium room: you have seen the Fenns at it all your life
@@ -3590,89 +3733,84 @@ agents:
     - smithing
     - farming
     - food
-    partner: Isolde
+    partner: Joyce
     role: head
     model: claude-opus-5-5
     born_line: Cole
     trade: sowing a field broadcast and reaping a crop
-    aim: See the Cole household through the winter, fed and warm. You will not be shamed by Saer again.
+    aim: See the Cole household through the winter, fed and warm. You will not be shamed by Henry again.
     places:
     - w1
     - w2
-  Isolde:
+    - w3
+  Joyce:
     household: Cole
-    born: -30
+    born: -26
     stage: adult
     sex: f
     relations:
-      Walter: your husband
-      Saer: of the Shepherd household
-      Thomasin: of the Shepherd household
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: of the Shepherd household
-      Tiffany: of the Hale household
-      Tobin: of the Hale household
-      Elena: of the Shepherd household
-      Godiva: your daughter
-      Geoffrey: of the Shepherd household
-      Robin: of the Shepherd household
-      Godwin: of the Shepherd household
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: of the Hobb household; he courted you once, before you married
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: of the Moor household
+      Baldwin: your husband
+      Henry: of the Shepherd household
+      Petronel: of the Shepherd household
+      Edric: of the Hale household
+      Hawise: of the Hale household
+      Edith: of the Shepherd household
+      Alard: your son
+      Margery: of the Shepherd household
+      Basilia: your daughter
+      Cecily: of the Hale household
+      Susanna: your daughter
+      Wilmot: of the Hale household
+      Martin: of the Shepherd household
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: of the Moor household
+      Wymarc: of the Moor household
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: of the Moor household
+      Adam: of the Moor household
+      Robin: of the Moor household
     memories:
-    - 'Your line''s founders: Walter and Isolde Cole came to Saltwell and built the first Cole house.'
+    - 'Your line''s founders: Baldwin and Joyce Cole came to Saltwell and built the first Cole house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Daughter Ursula married into Ashby, two days' walk away.
-    - Daughter Cecily married into Ashby, two days' walk away.
     knows:
       coin:
         level: known
-        skill: 1.73
+        skill: 1.55
       copper tool:
         level: known
-        skill: 1.73
+        skill: 1.55
       hoe:
         level: known
-        skill: 1.46
+        skill: 1.38
       hunt:
         level: known
-        skill: 1.46
+        skill: 1.38
       milk:
         level: known
-        skill: 1.73
+        skill: 1.55
       mine:
         level: known
-        skill: 1.73
+        skill: 1.55
       plough:
         level: known
-        skill: 1.73
+        skill: 1.55
       reap:
         level: known
-        skill: 1.46
+        skill: 1.38
       select seed:
         level: known
-        skill: 1.73
+        skill: 1.55
       smelt:
         level: known
-        skill: 1.73
+        skill: 1.55
       sow:
         level: known
-        skill: 1.46
+        skill: 1.38
       weed:
         level: known
-        skill: 1.46
+        skill: 1.38
     aware_of:
       quarry: you have seen the Shepherds at it all your life
       medium room: you have seen the Fenns at it all your life
@@ -3683,7 +3821,7 @@ agents:
     - smithing
     - farming
     - food
-    partner: Walter
+    partner: Baldwin
     model: claude-sonnet-5-5
     born_line: Cole
     trade: sowing a field broadcast and reaping a crop
@@ -3691,65 +3829,62 @@ agents:
     places:
     - w1
     - w2
-  Saer:
+    - w3
+  Henry:
     household: Shepherd
-    born: -31
+    born: -28
     stage: adult
     sex: m
     relations:
-      Walter: of the Cole household; there is bad blood between your households since last winter, over a pig that went missing
-      Isolde: of the Cole household
-      Thomasin: your wife
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: your son
-      Tiffany: your daughter
-      Tobin: your son-in-law
-      Elena: your daughter-in-law
-      Godiva: of the Cole household
-      Geoffrey: your grandson
-      Robin: your grandson
-      Godwin: your grandson
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: of the Moor household
+      Baldwin: of the Cole household; there is bad blood between your households since last winter, over a pig that went missing
+      Joyce: of the Cole household
+      Petronel: your wife
+      Edric: of the Hale household
+      Hawise: of the Hale household
+      Edith: your daughter
+      Alard: of the Cole household
+      Margery: your daughter
+      Basilia: of the Cole household
+      Cecily: of the Hale household
+      Susanna: of the Cole household
+      Wilmot: of the Hale household
+      Martin: your son
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: of the Moor household
+      Wymarc: of the Moor household
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household; you owe them 2 timber from last winter
+      Dionisia: of the Moor household
+      Adam: of the Moor household
+      Robin: of the Moor household
     memories:
-    - 'Your line''s founders: Saer and Thomasin Shepherd came to Saltwell and built the first Shepherd house.'
+    - 'Your line''s founders: Henry and Petronel Shepherd came to Saltwell and built the first Shepherd house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Daughter Rose married into Ashby, two days' walk away.
-    - Last winter Walter struck you in a quarrel over a pig that went missing; you have not forgotten.
+    - Last winter Baldwin struck you in a quarrel over a pig that went missing; you have not forgotten.
+    - Last winter Nichola lent you 2 timber when your store ran low; you have not paid it back.
     knows:
       hoe:
         level: known
-        skill: 1.5
+        skill: 1.41
       milk:
         level: known
-        skill: 1.8
+        skill: 1.62
       quarry:
         level: known
-        skill: 1.8
+        skill: 1.62
       reap:
         level: known
-        skill: 1.5
+        skill: 1.41
       select seed:
         level: known
-        skill: 1.8
+        skill: 1.62
       sow:
         level: known
-        skill: 1.5
+        skill: 1.41
       weed:
         level: known
-        skill: 1.5
+        skill: 1.41
     aware_of:
       plough: you have seen the Fenns at it all your life
       mine: you have seen the Coles at it all your life
@@ -3767,72 +3902,67 @@ agents:
     - food
     - animals
     - building
-    partner: Thomasin
+    partner: Petronel
     role: head
     model: claude-opus-5-5
     born_line: Shepherd
     trade: sowing a field broadcast and reaping a crop
-    aim: See the Shepherd household through the winter, fed and warm. You will not be shamed by Walter again.
+    aim: See the Shepherd household through the winter, fed and warm. You will not be shamed by Baldwin again.
     places:
-    - w2
-  Thomasin:
+    - w3
+  Petronel:
     household: Shepherd
-    born: -31
+    born: -26
     stage: adult
     sex: f
     relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: your husband
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: your son
-      Tiffany: your daughter
-      Tobin: your son-in-law
-      Elena: your daughter-in-law
-      Godiva: of the Cole household
-      Geoffrey: your grandson
-      Robin: your grandson
-      Godwin: your grandson
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: of the Moor household
+      Baldwin: of the Cole household
+      Joyce: of the Cole household
+      Henry: your husband
+      Edric: of the Hale household
+      Hawise: of the Hale household
+      Edith: your daughter
+      Alard: of the Cole household
+      Margery: your daughter
+      Basilia: of the Cole household
+      Cecily: of the Hale household
+      Susanna: of the Cole household
+      Wilmot: of the Hale household
+      Martin: your son
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: of the Moor household
+      Wymarc: of the Moor household
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: of the Moor household
+      Adam: of the Moor household
+      Robin: of the Moor household
     memories:
-    - 'Your line''s founders: Saer and Thomasin Shepherd came to Saltwell and built the first Shepherd house.'
+    - 'Your line''s founders: Henry and Petronel Shepherd came to Saltwell and built the first Shepherd house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Daughter Rose married into Ashby, two days' walk away.
     knows:
       hoe:
         level: known
-        skill: 1.49
+        skill: 1.38
       milk:
         level: known
-        skill: 1.78
+        skill: 1.55
       quarry:
         level: known
-        skill: 1.78
+        skill: 1.55
       reap:
         level: known
-        skill: 1.49
+        skill: 1.38
       select seed:
         level: known
-        skill: 1.78
+        skill: 1.55
       sow:
         level: known
-        skill: 1.49
+        skill: 1.38
       weed:
         level: known
-        skill: 1.49
+        skill: 1.38
     aware_of:
       plough: you have seen the Fenns at it all your life
       mine: you have seen the Coles at it all your life
@@ -3848,73 +3978,68 @@ agents:
     - food
     - animals
     - building
-    partner: Saer
+    partner: Henry
     model: claude-haiku-5-5
     born_line: Shepherd
     trade: sowing a field broadcast and reaping a crop
     aim: Keep your household fed and its house sound.
     places:
-    - w2
-  Wymond:
+    - w3
+  Edric:
     household: Hale
-    born: -31
+    born: -26
     stage: adult
     sex: m
     relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: of the Shepherd household
-      Thomasin: of the Shepherd household
-      Mariot: your wife
-      Oliver: of the Shepherd household
-      Tiffany: your daughter-in-law
-      Tobin: your son
-      Elena: of the Shepherd household
-      Godiva: of the Cole household
-      Geoffrey: of the Shepherd household
-      Robin: of the Shepherd household
-      Godwin: of the Shepherd household
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: of the Hobb household
-      Orabel: of the Hobb household; you owe them 2 grain from last winter
-      Reynold: of the Hobb household
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: of the Moor household
+      Baldwin: of the Cole household
+      Joyce: of the Cole household
+      Henry: of the Shepherd household
+      Petronel: of the Shepherd household
+      Hawise: your wife
+      Edith: of the Shepherd household
+      Alard: of the Cole household
+      Margery: of the Shepherd household
+      Basilia: of the Cole household
+      Cecily: your daughter
+      Susanna: of the Cole household
+      Wilmot: your daughter
+      Martin: of the Shepherd household
+      Richard: of the Fenn household
+      Agatha: of the Fenn household; you owe them 1 meat from last winter
+      Herbert: of the Moor household
+      Wymarc: of the Moor household
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: of the Moor household
+      Adam: of the Moor household
+      Robin: of the Moor household
     memories:
-    - 'Your line''s founders: Wymond and Mariot Hale came to Saltwell and built the first Hale house.'
+    - 'Your line''s founders: Edric and Hawise Hale came to Saltwell and built the first Hale house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Daughter Letice married into Ashby, two days' walk away.
-    - Son Roger married into Ashby, two days' walk away.
-    - Last winter Orabel lent you 2 grain when your store ran low; you have not paid it back.
+    - Daughter Rose married into Ashby, two days' walk away.
+    - Last winter Agatha lent you 1 meat when your store ran low; you have not paid it back.
     knows:
       hoe:
         level: known
-        skill: 1.49
+        skill: 1.36
       medium room:
         level: known
-        skill: 1.78
+        skill: 1.53
       milk:
         level: known
-        skill: 1.78
+        skill: 1.53
       reap:
         level: known
-        skill: 1.49
+        skill: 1.36
       select seed:
         level: known
-        skill: 1.78
+        skill: 1.53
       sow:
         level: known
-        skill: 1.49
+        skill: 1.36
       weed:
         level: known
-        skill: 1.49
+        skill: 1.36
     aware_of:
       plough: you have seen the Fenns at it all your life
       mine: you have seen the Coles at it all your life
@@ -3932,73 +4057,66 @@ agents:
     - building
     - shelter
     - food
-    partner: Mariot
+    partner: Hawise
     role: head
     model: claude-opus-5-5
     born_line: Hale
     trade: sowing a field broadcast and reaping a crop
     aim: See the Hale household through the winter, fed and warm.
-    places:
-    - w2
-  Mariot:
+  Hawise:
     household: Hale
-    born: -32
-    stage: elder
+    born: -26
+    stage: adult
     sex: f
     relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: of the Shepherd household
-      Thomasin: of the Shepherd household
-      Wymond: your husband
-      Oliver: of the Shepherd household
-      Tiffany: your daughter-in-law
-      Tobin: your son
-      Elena: of the Shepherd household
-      Godiva: of the Cole household
-      Geoffrey: of the Shepherd household
-      Robin: of the Shepherd household
-      Godwin: of the Shepherd household
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: of the Moor household
+      Baldwin: of the Cole household
+      Joyce: of the Cole household
+      Henry: of the Shepherd household
+      Petronel: of the Shepherd household
+      Edric: your husband
+      Edith: of the Shepherd household
+      Alard: of the Cole household
+      Margery: of the Shepherd household
+      Basilia: of the Cole household
+      Cecily: your daughter
+      Susanna: of the Cole household
+      Wilmot: your daughter
+      Martin: of the Shepherd household
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: of the Moor household
+      Wymarc: of the Moor household
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: of the Moor household
+      Adam: of the Moor household
+      Robin: of the Moor household
     memories:
-    - 'Your line''s founders: Wymond and Mariot Hale came to Saltwell and built the first Hale house.'
+    - 'Your line''s founders: Edric and Hawise Hale came to Saltwell and built the first Hale house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Daughter Letice married into Ashby, two days' walk away.
-    - Son Roger married into Ashby, two days' walk away.
+    - Daughter Rose married into Ashby, two days' walk away.
     knows:
       hoe:
         level: known
-        skill: 1.5
+        skill: 1.38
       medium room:
         level: known
-        skill: 1.8
+        skill: 1.55
       milk:
         level: known
-        skill: 1.8
+        skill: 1.55
       reap:
         level: known
-        skill: 1.5
+        skill: 1.38
       select seed:
         level: known
-        skill: 1.8
+        skill: 1.55
       sow:
         level: known
-        skill: 1.5
+        skill: 1.38
       weed:
         level: known
-        skill: 1.5
+        skill: 1.38
     aware_of:
       plough: you have seen the Fenns at it all your life
       mine: you have seen the Coles at it all your life
@@ -4014,71 +4132,50 @@ agents:
     - building
     - shelter
     - food
-    partner: Wymond
+    partner: Edric
     model: claude-haiku-5-5
     born_line: Hale
     trade: sowing a field broadcast and reaping a crop
-    aim: See your grandchildren settled and provided for before you die.
-    places:
-    - w2
-  Oliver:
+    aim: Keep your household fed and its house sound.
+  Edith:
     household: Shepherd
-    born: -20
-    stage: adult
-    sex: m
+    born: -10
+    stage: youth
+    sex: f
     relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: your father
-      Thomasin: your mother
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Tiffany: your sister
-      Tobin: your brother-in-law
-      Elena: your wife
-      Godiva: of the Cole household
-      Geoffrey: your son
-      Robin: your son
-      Godwin: your son
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: of the Moor household
+      Baldwin: of the Cole household
+      Joyce: of the Cole household
+      Henry: your father
+      Petronel: your mother
+      Edric: of the Hale household
+      Hawise: of the Hale household
+      Alard: of the Cole household; your closest friend
+      Margery: your sister
+      Basilia: of the Cole household; a close friend
+      Cecily: of the Hale household
+      Susanna: of the Cole household
+      Wilmot: of the Hale household
+      Martin: your brother
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: of the Moor household
+      Wymarc: of the Moor household
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: of the Moor household
+      Adam: of the Moor household
+      Robin: of the Moor household
     memories:
-    - 'Your line''s founders: Saer and Thomasin Shepherd came to Saltwell and built the first Shepherd house.'
+    - 'Your line''s founders: Henry and Petronel Shepherd came to Saltwell and built the first Shepherd house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Sister Rose married into Ashby, two days' walk away.
     knows:
-      hoe:
-        level: known
-        skill: 1.2
-      milk:
-        level: known
-        skill: 1.2
-      quarry:
-        level: known
-        skill: 1.2
-      reap:
-        level: known
-        skill: 1.2
-      select seed:
-        level: known
-        skill: 1.2
-      sow:
-        level: known
-        skill: 1.2
-      weed:
-        level: known
-        skill: 1.2
+      hoe: capable
+      milk: capable
+      quarry: capable
+      reap: capable
+      select seed: capable
+      sow: capable
+      weed: capable
     aware_of:
       plough: you have seen the Fenns at it all your life
       mine: you have seen the Coles at it all your life
@@ -4095,301 +4192,173 @@ agents:
     - animals
     - building
     parents:
-    - Saer
-    - Thomasin
-    partner: Elena
+    - Henry
+    - Petronel
     model: claude-haiku-5-5
     born_line: Shepherd
-    trade: sowing a field broadcast and reaping a crop
-    aim: Keep your household fed and its house sound.
+    trade: ''
+    aim: Prove yourself to your family, and learn milling grain at dressed millstones turned by an ox as the Moors do it.
     places:
-    - w2
-  Tiffany:
-    household: Hale
-    born: -16
-    stage: adult
-    sex: f
-    relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: your father
-      Thomasin: your mother
-      Wymond: your father-in-law
-      Mariot: your mother-in-law
-      Oliver: your brother
-      Tobin: your husband
-      Elena: your sister-in-law
-      Godiva: of the Cole household
-      Geoffrey: your nephew
-      Robin: your nephew
-      Godwin: your nephew
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: of the Moor household
-    memories:
-    - 'Your line''s founders: Saer and Thomasin Shepherd came to Saltwell and built the first Shepherd house.'
-    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Sister Rose married into Ashby, two days' walk away.
-    knows:
-      hoe:
-        level: known
-        skill: 1.11
-      medium room:
-        level: known
-        skill: 1.03
-      milk:
-        level: known
-        skill: 1.03
-      quarry:
-        level: known
-        skill: 1.03
-      reap:
-        level: known
-        skill: 1.11
-      select seed:
-        level: known
-        skill: 1.03
-      sow:
-        level: known
-        skill: 1.11
-      weed:
-        level: known
-        skill: 1.11
-    aware_of:
-      plough: you have seen the Fenns at it all your life
-      mine: you have seen the Coles at it all your life
-      smelt: you have seen the Coles at it all your life
-      copper tool: you have seen the Coles at it all your life
-      coin: you have seen the Coles at it all your life
-      hunt: you have seen the Coles at it all your life
-      mill: you have seen the Moors at it all your life
-    holdings: {}
-    concerns:
-    - farming
-    - building
-    - shelter
-    - food
-    parents:
-    - Saer
-    - Thomasin
-    partner: Tobin
-    model: claude-haiku-5-5
-    born_line: Shepherd
-    trade: sowing a field broadcast and reaping a crop
-    aim: Keep your household fed and its house sound.
-    places:
-    - w2
-  Tobin:
-    household: Hale
-    born: -16
-    stage: adult
-    sex: m
-    relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: your father-in-law
-      Thomasin: your mother-in-law
-      Wymond: your father
-      Mariot: your mother
-      Oliver: your brother-in-law
-      Tiffany: your wife
-      Elena: of the Shepherd household
-      Godiva: of the Cole household
-      Geoffrey: your nephew
-      Robin: your nephew
-      Godwin: your nephew
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: of the Moor household
-    memories:
-    - 'Your line''s founders: Wymond and Mariot Hale came to Saltwell and built the first Hale house.'
-    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Sister Letice married into Ashby, two days' walk away.
-    - Brother Roger married into Ashby, two days' walk away.
-    knows:
-      hoe:
-        level: known
-        skill: 1.11
-      medium room:
-        level: known
-        skill: 1.03
-      milk:
-        level: known
-        skill: 1.03
-      reap:
-        level: known
-        skill: 1.11
-      select seed:
-        level: known
-        skill: 1.03
-      sow:
-        level: known
-        skill: 1.11
-      weed:
-        level: known
-        skill: 1.11
-    aware_of:
-      plough: you have seen the Fenns at it all your life
-      mine: you have seen the Coles at it all your life
-      smelt: you have seen the Coles at it all your life
-      copper tool: you have seen the Coles at it all your life
-      coin: you have seen the Coles at it all your life
-      hunt: you have seen the Coles at it all your life
-      quarry: you have seen the Shepherds at it all your life
-      mill: you have seen the Moors at it all your life
-    holdings: {}
-    concerns:
-    - farming
-    - building
-    - shelter
-    - food
-    parents:
-    - Wymond
-    - Mariot
-    partner: Tiffany
-    model: claude-haiku-5-5
-    born_line: Hale
-    trade: sowing a field broadcast and reaping a crop
-    aim: Keep your household fed and its house sound.
-    places:
-    - w2
-  Elena:
-    household: Shepherd
-    born: -20
-    stage: adult
-    sex: f
-    relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: your father-in-law
-      Thomasin: your mother-in-law
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: your husband
-      Tiffany: your sister-in-law
-      Tobin: of the Hale household
-      Godiva: of the Cole household
-      Geoffrey: your son
-      Robin: your son
-      Godwin: your son
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: of the Hobb household; you owe them 1 meat from last winter
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: of the Moor household
-    memories:
-    - 'Your line''s founders: Saer and Thomasin Shepherd came to Saltwell and built the first Shepherd house.'
-    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Last winter Henry lent you 1 meat when your store ran low; you have not paid it back.
-    knows:
-      hoe:
-        level: known
-        skill: 1.2
-      milk:
-        level: known
-        skill: 1.2
-      quarry:
-        level: known
-        skill: 1.2
-      reap:
-        level: known
-        skill: 1.2
-      select seed:
-        level: known
-        skill: 1.2
-      sow:
-        level: known
-        skill: 1.2
-      weed:
-        level: known
-        skill: 1.2
-    aware_of:
-      plough: you have seen the Fenns at it all your life
-      mine: you have seen the Coles at it all your life
-      smelt: you have seen the Coles at it all your life
-      copper tool: you have seen the Coles at it all your life
-      coin: you have seen the Coles at it all your life
-      hunt: you have seen the Coles at it all your life
-      medium room: you have seen the Fenns at it all your life
-      mill: you have seen the Moors at it all your life
-    holdings: {}
-    concerns:
-    - farming
-    - food
-    - animals
-    - building
-    partner: Oliver
-    model: claude-haiku-5-5
-    born_line: Shepherd
-    trade: sowing a field broadcast and reaping a crop
-    aim: Keep your household fed and its house sound; pay back Henry what you owe, if you can.
-    places:
-    - w2
-  Godiva:
+    - w3
+  Alard:
     household: Cole
+    born: -9
+    stage: youth
+    sex: m
+    relations:
+      Baldwin: your father
+      Joyce: your mother
+      Henry: of the Shepherd household
+      Petronel: of the Shepherd household
+      Edric: of the Hale household
+      Hawise: of the Hale household
+      Edith: of the Shepherd household; a close friend
+      Margery: of the Shepherd household; a close friend
+      Basilia: your sister
+      Cecily: of the Hale household
+      Susanna: your sister
+      Wilmot: of the Hale household
+      Martin: of the Shepherd household
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: of the Moor household
+      Wymarc: of the Moor household
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: of the Moor household
+      Adam: of the Moor household; your closest friend
+      Robin: of the Moor household
+    memories:
+    - 'Your line''s founders: Baldwin and Joyce Cole came to Saltwell and built the first Cole house.'
+    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
+    knows:
+      coin: capable
+      copper tool: capable
+      hoe: capable
+      hunt: capable
+      milk: capable
+      mine: capable
+      plough: capable
+      reap: capable
+      select seed: capable
+      smelt: capable
+      sow: capable
+      weed: capable
+    aware_of:
+      quarry: you have seen the Shepherds at it all your life
+      medium room: you have seen the Fenns at it all your life
+      mill: you have seen the Moors at it all your life
+    holdings: {}
+    concerns:
+    - craft
+    - smithing
+    - farming
+    - food
+    parents:
+    - Baldwin
+    - Joyce
+    model: claude-haiku-5-5
+    born_line: Cole
+    trade: ''
+    aim: Prove yourself to your family, and learn quarrying stone as the Shepherds do it.
+    places:
+    - w1
+    - w2
+    - w3
+  Margery:
+    household: Shepherd
     born: -8
     stage: youth
     sex: f
     relations:
-      Walter: your father
-      Isolde: your mother
-      Saer: of the Shepherd household
-      Thomasin: of the Shepherd household
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: of the Shepherd household
-      Tiffany: of the Hale household
-      Tobin: of the Hale household
-      Elena: of the Shepherd household
-      Geoffrey: of the Shepherd household
-      Robin: of the Shepherd household
-      Godwin: of the Shepherd household
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household; your closest friend
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: of the Moor household
+      Baldwin: of the Cole household
+      Joyce: of the Cole household
+      Henry: your father
+      Petronel: your mother
+      Edric: of the Hale household
+      Hawise: of the Hale household
+      Edith: your sister
+      Alard: of the Cole household; your closest friend
+      Basilia: of the Cole household
+      Cecily: of the Hale household
+      Susanna: of the Cole household
+      Wilmot: of the Hale household
+      Martin: your brother
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: of the Moor household
+      Wymarc: of the Moor household
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: of the Moor household
+      Adam: of the Moor household
+      Robin: of the Moor household
     memories:
-    - 'Your line''s founders: Walter and Isolde Cole came to Saltwell and built the first Cole house.'
+    - 'Your line''s founders: Henry and Petronel Shepherd came to Saltwell and built the first Shepherd house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Sister Ursula married into Ashby, two days' walk away.
-    - Sister Cecily married into Ashby, two days' walk away.
+    knows:
+      hoe: rough
+      milk: rough
+      quarry: rough
+      reap: rough
+      select seed: rough
+      sow: rough
+      weed: rough
+    aware_of:
+      plough: you have seen the Fenns at it all your life
+      mine: you have seen the Coles at it all your life
+      smelt: you have seen the Coles at it all your life
+      copper tool: you have seen the Coles at it all your life
+      coin: you have seen the Coles at it all your life
+      hunt: you have seen the Coles at it all your life
+      medium room: you have seen the Fenns at it all your life
+      mill: you have seen the Moors at it all your life
+    holdings: {}
+    concerns:
+    - farming
+    - food
+    - animals
+    - building
+    parents:
+    - Henry
+    - Petronel
+    model: claude-haiku-5-5
+    born_line: Shepherd
+    trade: ''
+    aim: Prove yourself to your family, and learn building a medium room as the Hales do it.
+    places:
+    - w3
+  Basilia:
+    household: Cole
+    born: -7
+    stage: youth
+    sex: f
+    relations:
+      Baldwin: your father
+      Joyce: your mother
+      Henry: of the Shepherd household
+      Petronel: of the Shepherd household
+      Edric: of the Hale household
+      Hawise: of the Hale household
+      Edith: of the Shepherd household; your closest friend
+      Alard: your brother
+      Margery: of the Shepherd household
+      Cecily: of the Hale household; a close friend
+      Susanna: your sister
+      Wilmot: of the Hale household
+      Martin: of the Shepherd household
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: of the Moor household
+      Wymarc: of the Moor household
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: of the Moor household
+      Adam: of the Moor household
+      Robin: of the Moor household
+    memories:
+    - 'Your line''s founders: Baldwin and Joyce Cole came to Saltwell and built the first Cole house.'
+    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
     knows:
       coin: rough
       copper tool: rough
@@ -4414,210 +4383,257 @@ agents:
     - farming
     - food
     parents:
-    - Walter
-    - Isolde
+    - Baldwin
+    - Joyce
     model: claude-haiku-5-5
     born_line: Cole
     trade: ''
-    aim: Prove yourself to your family, and learn building a medium room as the Fenns do it.
+    aim: Prove yourself to your family, and learn building a medium room as the Hales do it.
     places:
     - w1
     - w2
-  Geoffrey:
-    household: Shepherd
-    born: -4
-    stage: child
-    sex: m
+    - w3
+  Cecily:
+    household: Hale
+    born: -7
+    stage: youth
+    sex: f
     relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: your grandfather
-      Thomasin: your grandmother
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: your father
-      Tiffany: your aunt
-      Tobin: your uncle
-      Elena: your mother
-      Godiva: of the Cole household
-      Robin: your brother
-      Godwin: your brother
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: of the Moor household
+      Baldwin: of the Cole household
+      Joyce: of the Cole household
+      Henry: of the Shepherd household
+      Petronel: of the Shepherd household
+      Edric: your father
+      Hawise: your mother
+      Edith: of the Shepherd household
+      Alard: of the Cole household
+      Margery: of the Shepherd household
+      Basilia: of the Cole household; your closest friend
+      Susanna: of the Cole household
+      Wilmot: your sister
+      Martin: of the Shepherd household
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: of the Moor household
+      Wymarc: of the Moor household
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: of the Moor household
+      Adam: of the Moor household
+      Robin: of the Moor household
     memories:
-    - 'Your line''s founders: Saer and Thomasin Shepherd came to Saltwell and built the first Shepherd house.'
+    - 'Your line''s founders: Edric and Hawise Hale came to Saltwell and built the first Hale house.'
+    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
+    - Sister Rose married into Ashby, two days' walk away.
+    knows:
+      hoe: rough
+      medium room: rough
+      milk: rough
+      reap: rough
+      select seed: rough
+      sow: rough
+      weed: rough
+    aware_of:
+      plough: you have seen the Fenns at it all your life
+      mine: you have seen the Coles at it all your life
+      smelt: you have seen the Coles at it all your life
+      copper tool: you have seen the Coles at it all your life
+      coin: you have seen the Coles at it all your life
+      hunt: you have seen the Coles at it all your life
+      quarry: you have seen the Shepherds at it all your life
+      mill: you have seen the Moors at it all your life
+    holdings: {}
+    concerns:
+    - farming
+    - building
+    - shelter
+    - food
+    parents:
+    - Edric
+    - Hawise
+    model: claude-haiku-5-5
+    born_line: Hale
+    trade: ''
+    aim: Prove yourself to your family, and learn ploughing with a yoked pair of oxen as the Coles do it.
+  Susanna:
+    household: Cole
+    born: -5
+    stage: child
+    sex: f
+    relations:
+      Baldwin: your father
+      Joyce: your mother
+      Henry: of the Shepherd household
+      Petronel: of the Shepherd household
+      Edric: of the Hale household
+      Hawise: of the Hale household
+      Edith: of the Shepherd household
+      Alard: your brother
+      Margery: of the Shepherd household
+      Basilia: your sister
+      Cecily: of the Hale household
+      Wilmot: of the Hale household
+      Martin: of the Shepherd household
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: of the Moor household
+      Wymarc: of the Moor household
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: of the Moor household
+      Adam: of the Moor household
+      Robin: of the Moor household
+    memories:
+    - 'Your line''s founders: Baldwin and Joyce Cole came to Saltwell and built the first Cole house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
     knows: {}
     aware_of: {}
     holdings: {}
     concerns: []
     parents:
-    - Oliver
-    - Elena
+    - Baldwin
+    - Joyce
     model: null
-    born_line: Shepherd
+    born_line: Cole
     trade: ''
-  Robin:
+  Wilmot:
+    household: Hale
+    born: -4
+    stage: child
+    sex: f
+    relations:
+      Baldwin: of the Cole household
+      Joyce: of the Cole household
+      Henry: of the Shepherd household
+      Petronel: of the Shepherd household
+      Edric: your father
+      Hawise: your mother
+      Edith: of the Shepherd household
+      Alard: of the Cole household
+      Margery: of the Shepherd household
+      Basilia: of the Cole household
+      Cecily: your sister
+      Susanna: of the Cole household
+      Martin: of the Shepherd household
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: of the Moor household
+      Wymarc: of the Moor household
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: of the Moor household
+      Adam: of the Moor household
+      Robin: of the Moor household
+    memories:
+    - 'Your line''s founders: Edric and Hawise Hale came to Saltwell and built the first Hale house.'
+    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
+    - Sister Rose married into Ashby, two days' walk away.
+    knows: {}
+    aware_of: {}
+    holdings: {}
+    concerns: []
+    parents:
+    - Edric
+    - Hawise
+    model: null
+    born_line: Hale
+    trade: ''
+  Martin:
     household: Shepherd
-    born: -2
+    born: -3
     stage: child
     sex: m
     relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: your grandfather
-      Thomasin: your grandmother
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: your father
-      Tiffany: your aunt
-      Tobin: your uncle
-      Elena: your mother
-      Godiva: of the Cole household
-      Geoffrey: your brother
-      Godwin: your brother
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: of the Moor household
+      Baldwin: of the Cole household
+      Joyce: of the Cole household
+      Henry: your father
+      Petronel: your mother
+      Edric: of the Hale household
+      Hawise: of the Hale household
+      Edith: your sister
+      Alard: of the Cole household
+      Margery: your sister
+      Basilia: of the Cole household
+      Cecily: of the Hale household
+      Susanna: of the Cole household
+      Wilmot: of the Hale household
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: of the Moor household
+      Wymarc: of the Moor household
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: of the Moor household
+      Adam: of the Moor household
+      Robin: of the Moor household
     memories:
-    - 'Your line''s founders: Saer and Thomasin Shepherd came to Saltwell and built the first Shepherd house.'
+    - 'Your line''s founders: Henry and Petronel Shepherd came to Saltwell and built the first Shepherd house.'
     knows: {}
     aware_of: {}
     holdings: {}
     concerns: []
     parents:
-    - Oliver
-    - Elena
+    - Henry
+    - Petronel
     model: null
     born_line: Shepherd
     trade: ''
-  Godwin:
-    household: Shepherd
-    born: 0
-    stage: infant
-    sex: m
-    relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: your grandfather
-      Thomasin: your grandmother
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: your father
-      Tiffany: your aunt
-      Tobin: your uncle
-      Elena: your mother
-      Godiva: of the Cole household
-      Geoffrey: your brother
-      Robin: your brother
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: of the Moor household
-    memories:
-    - 'Your line''s founders: Saer and Thomasin Shepherd came to Saltwell and built the first Shepherd house.'
-    knows: {}
-    aware_of: {}
-    holdings: {}
-    concerns: []
-    parents:
-    - Oliver
-    - Elena
-    model: null
-    born_line: Shepherd
-    trade: ''
-  Wat:
+  Richard:
     household: Fenn
-    born: -30
+    born: -26
     stage: adult
     sex: m
     relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: of the Shepherd household
-      Thomasin: of the Shepherd household
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: of the Shepherd household
-      Tiffany: of the Hale household
-      Tobin: of the Hale household
-      Elena: of the Shepherd household
-      Godiva: of the Cole household
-      Geoffrey: of the Shepherd household
-      Robin: of the Shepherd household
-      Godwin: of the Shepherd household
-      Sibyl: your wife
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: your daughter
-      Clement: your son-in-law
-      Gunnild: your daughter
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: your granddaughter
+      Baldwin: of the Cole household
+      Joyce: of the Cole household
+      Henry: of the Shepherd household
+      Petronel: of the Shepherd household
+      Edric: of the Hale household
+      Hawise: of the Hale household
+      Edith: of the Shepherd household
+      Alard: of the Cole household
+      Margery: of the Shepherd household
+      Basilia: of the Cole household
+      Cecily: of the Hale household
+      Susanna: of the Cole household
+      Wilmot: of the Hale household
+      Martin: of the Shepherd household
+      Agatha: your wife
+      Herbert: of the Moor household
+      Wymarc: of the Moor household
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: of the Moor household
+      Adam: of the Moor household
+      Robin: of the Moor household
     memories:
-    - 'Your line''s founders: Wat and Sibyl Fenn came to Millham and built the first Fenn house.'
+    - 'Your line''s founders: Richard and Agatha Fenn came to Millham and built the first Fenn house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Daughter Philippa married into Ashby, two days' walk away.
-    - Daughter Susanna married into Ashby, two days' walk away.
     knows:
       hoe:
         level: known
-        skill: 1.48
+        skill: 1.38
       medium room:
         level: known
-        skill: 1.75
+        skill: 1.55
       milk:
         level: known
-        skill: 1.75
+        skill: 1.55
       plough:
         level: known
-        skill: 1.75
+        skill: 1.55
       reap:
         level: known
-        skill: 1.48
+        skill: 1.38
       select seed:
         level: known
-        skill: 1.75
+        skill: 1.55
       sow:
         level: known
-        skill: 1.48
+        skill: 1.38
       weed:
         level: known
-        skill: 1.48
+        skill: 1.38
     aware_of:
       mine: you have seen the Coles at it all your life
       smelt: you have seen the Coles at it all your life
@@ -4634,74 +4650,68 @@ agents:
     - building
     - shelter
     - food
-    partner: Sibyl
+    partner: Agatha
     role: head
     model: claude-opus-5-5
     born_line: Fenn
     trade: sowing a field broadcast and reaping a crop
     aim: See the Fenn household through the winter, fed and warm.
-  Sibyl:
+  Agatha:
     household: Fenn
-    born: -29
+    born: -27
     stage: adult
     sex: f
     relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: of the Shepherd household
-      Thomasin: of the Shepherd household
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: of the Shepherd household
-      Tiffany: of the Hale household
-      Tobin: of the Hale household
-      Elena: of the Shepherd household
-      Godiva: of the Cole household
-      Geoffrey: of the Shepherd household
-      Robin: of the Shepherd household
-      Godwin: of the Shepherd household
-      Wat: your husband
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: your daughter
-      Clement: your son-in-law
-      Gunnild: your daughter
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: your granddaughter
+      Baldwin: of the Cole household
+      Joyce: of the Cole household
+      Henry: of the Shepherd household
+      Petronel: of the Shepherd household
+      Edric: of the Hale household; they owe you 1 meat from last winter
+      Hawise: of the Hale household
+      Edith: of the Shepherd household
+      Alard: of the Cole household
+      Margery: of the Shepherd household
+      Basilia: of the Cole household
+      Cecily: of the Hale household
+      Susanna: of the Cole household
+      Wilmot: of the Hale household
+      Martin: of the Shepherd household
+      Richard: your husband
+      Herbert: of the Moor household
+      Wymarc: of the Moor household
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: of the Moor household
+      Adam: of the Moor household
+      Robin: of the Moor household
     memories:
-    - 'Your line''s founders: Wat and Sibyl Fenn came to Millham and built the first Fenn house.'
+    - 'Your line''s founders: Richard and Agatha Fenn came to Millham and built the first Fenn house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Daughter Philippa married into Ashby, two days' walk away.
-    - Daughter Susanna married into Ashby, two days' walk away.
     knows:
       hoe:
         level: known
-        skill: 1.45
+        skill: 1.39
       medium room:
         level: known
-        skill: 1.7
+        skill: 1.58
       milk:
         level: known
-        skill: 1.7
+        skill: 1.58
       plough:
         level: known
-        skill: 1.7
+        skill: 1.58
       reap:
         level: known
-        skill: 1.45
+        skill: 1.39
       select seed:
         level: known
-        skill: 1.7
+        skill: 1.58
       sow:
         level: known
-        skill: 1.45
+        skill: 1.39
       weed:
         level: known
-        skill: 1.45
+        skill: 1.39
     aware_of:
       mine: you have seen the Coles at it all your life
       smelt: you have seen the Coles at it all your life
@@ -4716,70 +4726,65 @@ agents:
     - building
     - shelter
     - food
-    partner: Wat
-    model: claude-haiku-5-5
+    partner: Richard
+    model: claude-sonnet-5-5
     born_line: Fenn
     trade: sowing a field broadcast and reaping a crop
     aim: Keep your household fed and its house sound.
-  Everard:
+  Herbert:
     household: Moor
-    born: -31
+    born: -28
     stage: adult
     sex: m
     relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: of the Shepherd household
-      Thomasin: of the Shepherd household
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: of the Shepherd household
-      Tiffany: of the Hale household
-      Tobin: of the Hale household
-      Elena: of the Shepherd household
-      Godiva: of the Cole household
-      Geoffrey: of the Shepherd household
-      Robin: of the Shepherd household
-      Godwin: of the Shepherd household
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Florence: your wife
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: your daughter-in-law
-      Clement: your son
-      Gunnild: of the Fenn household
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: your granddaughter
+      Baldwin: of the Cole household
+      Joyce: of the Cole household
+      Henry: of the Shepherd household
+      Petronel: of the Shepherd household
+      Edric: of the Hale household
+      Hawise: of the Hale household
+      Edith: of the Shepherd household
+      Alard: of the Cole household
+      Margery: of the Shepherd household
+      Basilia: of the Cole household
+      Cecily: of the Hale household
+      Susanna: of the Cole household
+      Wilmot: of the Hale household
+      Martin: of the Shepherd household
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Wymarc: your wife
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: your daughter
+      Adam: your son
+      Robin: your son
     memories:
-    - 'Your line''s founders: Everard and Florence Moor came to Millham and built the first Moor house.'
+    - 'Your line''s founders: Herbert and Wymarc Moor came to Millham and built the first Moor house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Son Martin married into Ashby, two days' walk away.
-    - Daughter Emma married into Ashby, two days' walk away.
+    - Daughter Matilda married into Ashby, two days' walk away.
     knows:
       hoe:
         level: known
-        skill: 1.5
+        skill: 1.43
       milk:
         level: known
-        skill: 1.8
+        skill: 1.65
       mill:
         level: known
-        skill: 1.5
+        skill: 1.43
       reap:
         level: known
-        skill: 1.5
+        skill: 1.43
       select seed:
         level: known
-        skill: 1.8
+        skill: 1.65
       sow:
         level: known
-        skill: 1.5
+        skill: 1.43
       weed:
         level: known
-        skill: 1.5
+        skill: 1.43
     aware_of:
       plough: you have seen the Fenns at it all your life
       mine: you have seen the Coles at it all your life
@@ -4797,71 +4802,66 @@ agents:
     - food
     - animals
     - cooking
-    partner: Florence
+    partner: Wymarc
     role: head
     model: claude-opus-5-5
     born_line: Moor
     trade: sowing a field broadcast and reaping a crop
     aim: See the Moor household through the winter, fed and warm.
-  Florence:
+  Wymarc:
     household: Moor
-    born: -30
+    born: -26
     stage: adult
     sex: f
     relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: of the Shepherd household
-      Thomasin: of the Shepherd household
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: of the Shepherd household
-      Tiffany: of the Hale household
-      Tobin: of the Hale household
-      Elena: of the Shepherd household
-      Godiva: of the Cole household
-      Geoffrey: of the Shepherd household
-      Robin: of the Shepherd household
-      Godwin: of the Shepherd household
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: your husband
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: your daughter-in-law
-      Clement: your son
-      Gunnild: of the Fenn household
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: your granddaughter
+      Baldwin: of the Cole household
+      Joyce: of the Cole household
+      Henry: of the Shepherd household
+      Petronel: of the Shepherd household
+      Edric: of the Hale household
+      Hawise: of the Hale household
+      Edith: of the Shepherd household
+      Alard: of the Cole household
+      Margery: of the Shepherd household
+      Basilia: of the Cole household
+      Cecily: of the Hale household
+      Susanna: of the Cole household
+      Wilmot: of the Hale household
+      Martin: of the Shepherd household
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: your husband
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: your daughter
+      Adam: your son
+      Robin: your son
     memories:
-    - 'Your line''s founders: Everard and Florence Moor came to Millham and built the first Moor house.'
+    - 'Your line''s founders: Herbert and Wymarc Moor came to Millham and built the first Moor house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Son Martin married into Ashby, two days' walk away.
-    - Daughter Emma married into Ashby, two days' walk away.
+    - Daughter Matilda married into Ashby, two days' walk away.
     knows:
       hoe:
         level: known
-        skill: 1.46
+        skill: 1.36
       milk:
         level: known
-        skill: 1.73
+        skill: 1.53
       mill:
         level: known
-        skill: 1.46
+        skill: 1.36
       reap:
         level: known
-        skill: 1.46
+        skill: 1.36
       select seed:
         level: known
-        skill: 1.73
+        skill: 1.53
       sow:
         level: known
-        skill: 1.46
+        skill: 1.36
       weed:
         level: known
-        skill: 1.46
+        skill: 1.36
     aware_of:
       plough: you have seen the Fenns at it all your life
       mine: you have seen the Coles at it all your life
@@ -4877,66 +4877,63 @@ agents:
     - food
     - animals
     - cooking
-    partner: Everard
+    partner: Herbert
     model: claude-haiku-5-5
     born_line: Moor
     trade: sowing a field broadcast and reaping a crop
     aim: Keep your household fed and its house sound.
-  Henry:
+  Geoffrey:
     household: Hobb
-    born: -31
+    born: -26
     stage: adult
     sex: m
     relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household; you courted her once, before she married
-      Saer: of the Shepherd household
-      Thomasin: of the Shepherd household
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: of the Shepherd household
-      Tiffany: of the Hale household
-      Tobin: of the Hale household
-      Elena: of the Shepherd household; they owe you 1 meat from last winter
-      Godiva: of the Cole household
-      Geoffrey: of the Shepherd household
-      Robin: of the Shepherd household
-      Godwin: of the Shepherd household
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Orabel: your wife
-      Reynold: your son
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household
-      Felice: your daughter-in-law
-      Wilmot: your granddaughter
-      Avice: of the Moor household
+      Baldwin: of the Cole household
+      Joyce: of the Cole household
+      Henry: of the Shepherd household
+      Petronel: of the Shepherd household
+      Edric: of the Hale household
+      Hawise: of the Hale household
+      Edith: of the Shepherd household
+      Alard: of the Cole household
+      Margery: of the Shepherd household
+      Basilia: of the Cole household
+      Cecily: of the Hale household
+      Susanna: of the Cole household
+      Wilmot: of the Hale household
+      Martin: of the Shepherd household
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: of the Moor household
+      Wymarc: of the Moor household
+      Nichola: your wife
+      Dionisia: of the Moor household
+      Adam: of the Moor household
+      Robin: of the Moor household
     memories:
-    - 'Your line''s founders: Henry and Orabel Hobb came to Millham and built the first Hobb house.'
+    - 'Your line''s founders: Geoffrey and Nichola Hobb came to Millham and built the first Hobb house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Son Gervase married into Ashby, two days' walk away.
+    - Daughter Lucy married into Ashby, two days' walk away.
+    - Son Everard married into Ashby, two days' walk away.
     knows:
       hoe:
         level: known
-        skill: 1.5
+        skill: 1.36
       milk:
         level: known
-        skill: 1.8
+        skill: 1.53
       reap:
         level: known
-        skill: 1.5
+        skill: 1.36
       select seed:
         level: known
-        skill: 1.8
+        skill: 1.53
       sow:
         level: known
-        skill: 1.5
+        skill: 1.36
       weed:
         level: known
-        skill: 1.5
+        skill: 1.36
     aware_of:
       plough: you have seen the Fenns at it all your life
       mine: you have seen the Coles at it all your life
@@ -4955,67 +4952,64 @@ agents:
     - food
     - animals
     - harvest
-    partner: Orabel
+    partner: Nichola
     role: head
     model: claude-opus-5-5
     born_line: Hobb
     trade: sowing a field broadcast and reaping a crop
     aim: See the Hobb household through the winter, fed and warm.
-  Orabel:
+  Nichola:
     household: Hobb
-    born: -30
+    born: -25
     stage: adult
     sex: f
     relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: of the Shepherd household
-      Thomasin: of the Shepherd household
-      Wymond: of the Hale household; they owe you 2 grain from last winter
-      Mariot: of the Hale household
-      Oliver: of the Shepherd household
-      Tiffany: of the Hale household
-      Tobin: of the Hale household
-      Elena: of the Shepherd household
-      Godiva: of the Cole household
-      Geoffrey: of the Shepherd household
-      Robin: of the Shepherd household
-      Godwin: of the Shepherd household
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: your husband
-      Reynold: your son
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household
-      Felice: your daughter-in-law
-      Wilmot: your granddaughter
-      Avice: of the Moor household
+      Baldwin: of the Cole household
+      Joyce: of the Cole household
+      Henry: of the Shepherd household; they owe you 2 timber from last winter
+      Petronel: of the Shepherd household
+      Edric: of the Hale household
+      Hawise: of the Hale household
+      Edith: of the Shepherd household
+      Alard: of the Cole household
+      Margery: of the Shepherd household
+      Basilia: of the Cole household
+      Cecily: of the Hale household
+      Susanna: of the Cole household
+      Wilmot: of the Hale household
+      Martin: of the Shepherd household
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: of the Moor household
+      Wymarc: of the Moor household
+      Geoffrey: your husband
+      Dionisia: of the Moor household
+      Adam: of the Moor household
+      Robin: of the Moor household
     memories:
-    - 'Your line''s founders: Henry and Orabel Hobb came to Millham and built the first Hobb house.'
+    - 'Your line''s founders: Geoffrey and Nichola Hobb came to Millham and built the first Hobb house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Son Gervase married into Ashby, two days' walk away.
+    - Daughter Lucy married into Ashby, two days' walk away.
+    - Son Everard married into Ashby, two days' walk away.
     knows:
       hoe:
         level: known
-        skill: 1.48
+        skill: 1.34
       milk:
         level: known
-        skill: 1.75
+        skill: 1.48
       reap:
         level: known
-        skill: 1.48
+        skill: 1.34
       select seed:
         level: known
-        skill: 1.75
+        skill: 1.48
       sow:
         level: known
-        skill: 1.48
+        skill: 1.34
       weed:
         level: known
-        skill: 1.48
+        skill: 1.34
     aware_of:
       plough: you have seen the Fenns at it all your life
       mine: you have seen the Coles at it all your life
@@ -5032,235 +5026,65 @@ agents:
     - food
     - animals
     - harvest
-    partner: Henry
+    partner: Geoffrey
     model: claude-haiku-5-5
     born_line: Hobb
     trade: sowing a field broadcast and reaping a crop
     aim: Keep your household fed and its house sound.
-  Reynold:
-    household: Hobb
-    born: -18
-    stage: adult
-    sex: m
-    relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: of the Shepherd household
-      Thomasin: of the Shepherd household
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: of the Shepherd household
-      Tiffany: of the Hale household
-      Tobin: of the Hale household
-      Elena: of the Shepherd household
-      Godiva: of the Cole household
-      Geoffrey: of the Shepherd household
-      Robin: of the Shepherd household
-      Godwin: of the Shepherd household
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: your father
-      Orabel: your mother
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household
-      Felice: your wife
-      Wilmot: your daughter
-      Avice: of the Moor household
-    memories:
-    - 'Your line''s founders: Henry and Orabel Hobb came to Millham and built the first Hobb house.'
-    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Brother Gervase married into Ashby, two days' walk away.
-    knows:
-      hoe:
-        level: known
-        skill: 1.15
-      milk:
-        level: known
-        skill: 1.1
-      reap:
-        level: known
-        skill: 1.15
-      select seed:
-        level: known
-        skill: 1.1
-      sow:
-        level: known
-        skill: 1.15
-      weed:
-        level: known
-        skill: 1.15
-    aware_of:
-      plough: you have seen the Fenns at it all your life
-      mine: you have seen the Coles at it all your life
-      smelt: you have seen the Coles at it all your life
-      copper tool: you have seen the Coles at it all your life
-      coin: you have seen the Coles at it all your life
-      hunt: you have seen the Coles at it all your life
-      quarry: you have seen the Shepherds at it all your life
-      medium room: you have seen the Fenns at it all your life
-      mill: you have seen the Moors at it all your life
-    holdings: {}
-    concerns:
-    - farming
-    - food
-    - animals
-    - harvest
-    parents:
-    - Henry
-    - Orabel
-    partner: Felice
-    model: claude-haiku-5-5
-    born_line: Hobb
-    trade: sowing a field broadcast and reaping a crop
-    aim: Keep your household fed and its house sound.
-  Ivy:
+  Dionisia:
     household: Moor
-    born: -17
+    born: -13
     stage: adult
     sex: f
     relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: of the Shepherd household
-      Thomasin: of the Shepherd household
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: of the Shepherd household
-      Tiffany: of the Hale household
-      Tobin: of the Hale household
-      Elena: of the Shepherd household
-      Godiva: of the Cole household
-      Geoffrey: of the Shepherd household
-      Robin: of the Shepherd household
-      Godwin: of the Shepherd household
-      Wat: your father
-      Sibyl: your mother
-      Everard: your father-in-law
-      Florence: your mother-in-law
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Clement: your husband
-      Gunnild: your sister
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: your daughter
+      Baldwin: of the Cole household
+      Joyce: of the Cole household
+      Henry: of the Shepherd household
+      Petronel: of the Shepherd household
+      Edric: of the Hale household
+      Hawise: of the Hale household
+      Edith: of the Shepherd household
+      Alard: of the Cole household
+      Margery: of the Shepherd household
+      Basilia: of the Cole household
+      Cecily: of the Hale household
+      Susanna: of the Cole household
+      Wilmot: of the Hale household
+      Martin: of the Shepherd household
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: your father
+      Wymarc: your mother
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Adam: your brother
+      Robin: your brother
     memories:
-    - 'Your line''s founders: Wat and Sibyl Fenn came to Millham and built the first Fenn house.'
+    - 'Your line''s founders: Herbert and Wymarc Moor came to Millham and built the first Moor house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Sister Philippa married into Ashby, two days' walk away.
-    - Sister Susanna married into Ashby, two days' walk away.
+    - Sister Matilda married into Ashby, two days' walk away.
     knows:
       hoe:
         level: known
-        skill: 1.12
-      medium room:
-        level: known
-        skill: 1.05
+        skill: 1.02
       milk:
         level: known
-        skill: 1.05
+        skill: 0.85
       mill:
         level: known
-        skill: 1.12
-      plough:
-        level: known
-        skill: 1.05
+        skill: 1.02
       reap:
         level: known
-        skill: 1.12
+        skill: 1.02
       select seed:
         level: known
-        skill: 1.05
+        skill: 0.85
       sow:
         level: known
-        skill: 1.12
+        skill: 1.02
       weed:
         level: known
-        skill: 1.12
-    aware_of:
-      mine: you have seen the Coles at it all your life
-      smelt: you have seen the Coles at it all your life
-      copper tool: you have seen the Coles at it all your life
-      coin: you have seen the Coles at it all your life
-      hunt: you have seen the Coles at it all your life
-      quarry: you have seen the Shepherds at it all your life
-    holdings: {}
-    concerns:
-    - farming
-    - building
-    - shelter
-    - food
-    parents:
-    - Wat
-    - Sibyl
-    partner: Clement
-    model: claude-sonnet-5-5
-    born_line: Fenn
-    trade: sowing a field broadcast and reaping a crop
-    aim: Keep your household fed and its house sound.
-  Clement:
-    household: Moor
-    born: -16
-    stage: adult
-    sex: m
-    relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: of the Shepherd household
-      Thomasin: of the Shepherd household
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: of the Shepherd household
-      Tiffany: of the Hale household
-      Tobin: of the Hale household
-      Elena: of the Shepherd household
-      Godiva: of the Cole household
-      Geoffrey: of the Shepherd household
-      Robin: of the Shepherd household
-      Godwin: of the Shepherd household
-      Wat: your father-in-law
-      Sibyl: your mother-in-law
-      Everard: your father
-      Florence: your mother
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: your wife
-      Gunnild: your sister-in-law
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: your daughter
-    memories:
-    - 'Your line''s founders: Everard and Florence Moor came to Millham and built the first Moor house.'
-    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Brother Martin married into Ashby, two days' walk away.
-    - Sister Emma married into Ashby, two days' walk away.
-    knows:
-      hoe:
-        level: known
-        skill: 1.11
-      milk:
-        level: known
-        skill: 1.03
-      mill:
-        level: known
-        skill: 1.11
-      reap:
-        level: known
-        skill: 1.11
-      select seed:
-        level: known
-        skill: 1.03
-      sow:
-        level: known
-        skill: 1.11
-      weed:
-        level: known
-        skill: 1.11
+        skill: 1.02
     aware_of:
       plough: you have seen the Fenns at it all your life
       mine: you have seen the Coles at it all your life
@@ -5277,134 +5101,52 @@ agents:
     - animals
     - cooking
     parents:
-    - Everard
-    - Florence
-    partner: Ivy
+    - Herbert
+    - Wymarc
     model: claude-haiku-5-5
     born_line: Moor
     trade: sowing a field broadcast and reaping a crop
     aim: Keep your household fed and its house sound.
-  Gunnild:
-    household: Fenn
-    born: -11
+  Adam:
+    household: Moor
+    born: -7
     stage: youth
-    sex: f
+    sex: m
     relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: of the Shepherd household
-      Thomasin: of the Shepherd household
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: of the Shepherd household
-      Tiffany: of the Hale household
-      Tobin: of the Hale household
-      Elena: of the Shepherd household
-      Godiva: of the Cole household; a close friend
-      Geoffrey: of the Shepherd household
-      Robin: of the Shepherd household
-      Godwin: of the Shepherd household
-      Wat: your father
-      Sibyl: your mother
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: your sister
-      Clement: your brother-in-law
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
-      Avice: your niece
+      Baldwin: of the Cole household
+      Joyce: of the Cole household
+      Henry: of the Shepherd household
+      Petronel: of the Shepherd household
+      Edric: of the Hale household
+      Hawise: of the Hale household
+      Edith: of the Shepherd household
+      Alard: of the Cole household; a close friend
+      Margery: of the Shepherd household
+      Basilia: of the Cole household
+      Cecily: of the Hale household
+      Susanna: of the Cole household
+      Wilmot: of the Hale household
+      Martin: of the Shepherd household
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: your father
+      Wymarc: your mother
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: your sister
+      Robin: your brother
     memories:
-    - 'Your line''s founders: Wat and Sibyl Fenn came to Millham and built the first Fenn house.'
+    - 'Your line''s founders: Herbert and Wymarc Moor came to Millham and built the first Moor house.'
     - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    - Sister Philippa married into Ashby, two days' walk away.
-    - Sister Susanna married into Ashby, two days' walk away.
+    - Sister Matilda married into Ashby, two days' walk away.
     knows:
-      hoe: capable
-      medium room: capable
-      milk: capable
-      plough: capable
-      reap: capable
-      select seed: capable
-      sow: capable
-      weed: capable
-    aware_of:
-      mine: you have seen the Coles at it all your life
-      smelt: you have seen the Coles at it all your life
-      copper tool: you have seen the Coles at it all your life
-      coin: you have seen the Coles at it all your life
-      hunt: you have seen the Coles at it all your life
-      quarry: you have seen the Shepherds at it all your life
-      mill: you have seen the Moors at it all your life
-    holdings: {}
-    concerns:
-    - farming
-    - building
-    - shelter
-    - food
-    parents:
-    - Wat
-    - Sibyl
-    model: claude-haiku-5-5
-    born_line: Fenn
-    trade: ''
-    aim: Prove yourself to your family, and learn quarrying stone as the Shepherds do it.
-  Felice:
-    household: Hobb
-    born: -18
-    stage: adult
-    sex: f
-    relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: of the Shepherd household
-      Thomasin: of the Shepherd household
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: of the Shepherd household
-      Tiffany: of the Hale household
-      Tobin: of the Hale household
-      Elena: of the Shepherd household
-      Godiva: of the Cole household
-      Geoffrey: of the Shepherd household
-      Robin: of the Shepherd household
-      Godwin: of the Shepherd household
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: your father-in-law
-      Orabel: your mother-in-law
-      Reynold: your husband
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household
-      Wilmot: your daughter
-      Avice: of the Moor household
-    memories:
-    - 'Your line''s founders: Henry and Orabel Hobb came to Millham and built the first Hobb house.'
-    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
-    knows:
-      hoe:
-        level: known
-        skill: 1.16
-      milk:
-        level: known
-        skill: 1.12
-      reap:
-        level: known
-        skill: 1.16
-      select seed:
-        level: known
-        skill: 1.12
-      sow:
-        level: known
-        skill: 1.16
-      weed:
-        level: known
-        skill: 1.16
+      hoe: rough
+      milk: rough
+      mill: rough
+      reap: rough
+      select seed: rough
+      sow: rough
+      weed: rough
     aware_of:
       plough: you have seen the Fenns at it all your life
       mine: you have seen the Coles at it all your life
@@ -5414,742 +5156,488 @@ agents:
       hunt: you have seen the Coles at it all your life
       quarry: you have seen the Shepherds at it all your life
       medium room: you have seen the Fenns at it all your life
-      mill: you have seen the Moors at it all your life
     holdings: {}
     concerns:
     - farming
     - food
     - animals
-    - harvest
-    partner: Reynold
+    - cooking
+    parents:
+    - Herbert
+    - Wymarc
     model: claude-haiku-5-5
-    born_line: Hobb
-    trade: sowing a field broadcast and reaping a crop
-    aim: Keep your household fed and its house sound.
-  Wilmot:
-    household: Hobb
-    born: -2
-    stage: child
-    sex: f
-    relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: of the Shepherd household
-      Thomasin: of the Shepherd household
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: of the Shepherd household
-      Tiffany: of the Hale household
-      Tobin: of the Hale household
-      Elena: of the Shepherd household
-      Godiva: of the Cole household
-      Geoffrey: of the Shepherd household
-      Robin: of the Shepherd household
-      Godwin: of the Shepherd household
-      Wat: of the Fenn household
-      Sibyl: of the Fenn household
-      Everard: of the Moor household
-      Florence: of the Moor household
-      Henry: your grandfather
-      Orabel: your grandmother
-      Reynold: your father
-      Ivy: of the Moor household
-      Clement: of the Moor household
-      Gunnild: of the Fenn household
-      Felice: your mother
-      Avice: of the Moor household
-    memories:
-    - 'Your line''s founders: Henry and Orabel Hobb came to Millham and built the first Hobb house.'
-    knows: {}
-    aware_of: {}
-    holdings: {}
-    concerns: []
-    parents:
-    - Reynold
-    - Felice
-    model: null
-    born_line: Hobb
+    born_line: Moor
     trade: ''
-  Avice:
+    aim: Prove yourself to your family, and learn quarrying stone as the Shepherds do it.
+  Robin:
     household: Moor
-    born: -2
+    born: -4
     stage: child
-    sex: f
+    sex: m
     relations:
-      Walter: of the Cole household
-      Isolde: of the Cole household
-      Saer: of the Shepherd household
-      Thomasin: of the Shepherd household
-      Wymond: of the Hale household
-      Mariot: of the Hale household
-      Oliver: of the Shepherd household
-      Tiffany: of the Hale household
-      Tobin: of the Hale household
-      Elena: of the Shepherd household
-      Godiva: of the Cole household
-      Geoffrey: of the Shepherd household
-      Robin: of the Shepherd household
-      Godwin: of the Shepherd household
-      Wat: your grandfather
-      Sibyl: your grandmother
-      Everard: your grandfather
-      Florence: your grandmother
-      Henry: of the Hobb household
-      Orabel: of the Hobb household
-      Reynold: of the Hobb household
-      Ivy: your mother
-      Clement: your father
-      Gunnild: your aunt
-      Felice: of the Hobb household
-      Wilmot: of the Hobb household
+      Baldwin: of the Cole household
+      Joyce: of the Cole household
+      Henry: of the Shepherd household
+      Petronel: of the Shepherd household
+      Edric: of the Hale household
+      Hawise: of the Hale household
+      Edith: of the Shepherd household
+      Alard: of the Cole household
+      Margery: of the Shepherd household
+      Basilia: of the Cole household
+      Cecily: of the Hale household
+      Susanna: of the Cole household
+      Wilmot: of the Hale household
+      Martin: of the Shepherd household
+      Richard: of the Fenn household
+      Agatha: of the Fenn household
+      Herbert: your father
+      Wymarc: your mother
+      Geoffrey: of the Hobb household
+      Nichola: of the Hobb household
+      Dionisia: your sister
+      Adam: your brother
     memories:
-    - 'Your line''s founders: Everard and Florence Moor came to Millham and built the first Moor house.'
+    - 'Your line''s founders: Herbert and Wymarc Moor came to Millham and built the first Moor house.'
+    - Sister Matilda married into Ashby, two days' walk away.
     knows: {}
     aware_of: {}
     holdings: {}
     concerns: []
     parents:
-    - Clement
-    - Ivy
+    - Herbert
+    - Wymarc
     model: null
     born_line: Moor
     trade: ''
 tree:
-- name: Walter
+- name: Baldwin
   sex: m
-  born: -31
+  born: -28
   died: null
   cause: null
   parents: []
-  partner: Isolde
+  partner: Joyce
   line: Cole
   origin: null
   children:
-  - Ursula
-  - Cecily
-  - Godiva
+  - Alard
+  - Basilia
+  - Susanna
   left: null
-- name: Isolde
+- name: Joyce
   sex: f
-  born: -30
+  born: -26
   died: null
   cause: null
   parents: []
-  partner: Walter
+  partner: Baldwin
   line: Cole
   origin: Ashby
   children:
-  - Ursula
+  - Alard
+  - Basilia
+  - Susanna
+  left: null
+- name: Henry
+  sex: m
+  born: -28
+  died: null
+  cause: null
+  parents: []
+  partner: Petronel
+  line: Shepherd
+  origin: null
+  children:
+  - Edith
+  - Margery
+  - Martin
+  left: null
+- name: Petronel
+  sex: f
+  born: -26
+  died: null
+  cause: null
+  parents: []
+  partner: Henry
+  line: Shepherd
+  origin: Ashby
+  children:
+  - Edith
+  - Margery
+  - Martin
+  left: null
+- name: Edric
+  sex: m
+  born: -26
+  died: null
+  cause: null
+  parents: []
+  partner: Hawise
+  line: Hale
+  origin: null
+  children:
+  - Rose
   - Cecily
-  - Godiva
+  - Wilmot
   left: null
-- name: Saer
-  sex: m
-  born: -31
-  died: null
-  cause: null
-  parents: []
-  partner: Thomasin
-  line: Shepherd
-  origin: null
-  children:
-  - Rose
-  - Oliver
-  - Tiffany
-  left: null
-- name: Thomasin
+- name: Hawise
   sex: f
-  born: -31
+  born: -26
   died: null
   cause: null
   parents: []
-  partner: Saer
-  line: Shepherd
-  origin: Ashby
-  children:
-  - Rose
-  - Oliver
-  - Tiffany
-  left: null
-- name: Wymond
-  sex: m
-  born: -31
-  died: null
-  cause: null
-  parents: []
-  partner: Mariot
-  line: Hale
-  origin: null
-  children:
-  - Letice
-  - Roger
-  - Tobin
-  - Ysolt
-  left: null
-- name: Mariot
-  sex: f
-  born: -32
-  died: null
-  cause: null
-  parents: []
-  partner: Wymond
+  partner: Edric
   line: Hale
   origin: Ashby
   children:
-  - Letice
-  - Roger
-  - Tobin
-  - Ysolt
+  - Rose
+  - Cecily
+  - Wilmot
   left: null
 - name: Rose
-  sex: f
-  born: -21
-  died: null
-  cause: null
-  parents:
-  - Saer
-  - Thomasin
-  partner: null
-  line: Shepherd
-  origin: null
-  children: []
-  left: -12
-- name: Oliver
-  sex: m
-  born: -20
-  died: null
-  cause: null
-  parents:
-  - Saer
-  - Thomasin
-  partner: Elena
-  line: Shepherd
-  origin: null
-  children:
-  - Geoffrey
-  - Robin
-  - Godwin
-  left: null
-- name: Letice
-  sex: f
-  born: -20
-  died: null
-  cause: null
-  parents:
-  - Wymond
-  - Mariot
-  partner: null
-  line: Hale
-  origin: null
-  children: []
-  left: -2
-- name: Roger
-  sex: m
-  born: -18
-  died: null
-  cause: null
-  parents:
-  - Wymond
-  - Mariot
-  partner: null
-  line: Hale
-  origin: null
-  children: []
-  left: -7
-- name: Tiffany
-  sex: f
-  born: -16
-  died: null
-  cause: null
-  parents:
-  - Saer
-  - Thomasin
-  partner: Tobin
-  line: Hale
-  origin: null
-  children: []
-  left: null
-  line_born: Shepherd
-- name: Tobin
-  sex: m
-  born: -16
-  died: null
-  cause: null
-  parents:
-  - Wymond
-  - Mariot
-  partner: Tiffany
-  line: Hale
-  origin: null
-  children: []
-  left: null
-- name: Ursula
-  sex: f
-  born: -15
-  died: null
-  cause: null
-  parents:
-  - Walter
-  - Isolde
-  partner: null
-  line: Cole
-  origin: null
-  children: []
-  left: -3
-- name: Cecily
   sex: f
   born: -14
   died: null
   cause: null
   parents:
-  - Walter
-  - Isolde
-  partner: null
-  line: Cole
-  origin: null
-  children: []
-  left: -2
-- name: Ysolt
-  sex: f
-  born: -13
-  died: null
-  cause: null
-  parents:
-  - Wymond
-  - Mariot
+  - Edric
+  - Hawise
   partner: null
   line: Hale
   origin: null
   children: []
-  left: -1
-- name: Elena
+  left: -2
+- name: Edith
   sex: f
-  born: -20
+  born: -10
   died: null
   cause: null
-  parents: []
-  partner: Oliver
+  parents:
+  - Henry
+  - Petronel
+  partner: null
   line: Shepherd
-  origin: Ashby
-  children:
-  - Geoffrey
-  - Robin
-  - Godwin
+  origin: null
+  children: []
   left: null
-  line_born: Shepherd
-- name: Godiva
+- name: Alard
+  sex: m
+  born: -9
+  died: null
+  cause: null
+  parents:
+  - Baldwin
+  - Joyce
+  partner: null
+  line: Cole
+  origin: null
+  children: []
+  left: null
+- name: Margery
   sex: f
   born: -8
   died: null
   cause: null
   parents:
-  - Walter
-  - Isolde
+  - Henry
+  - Petronel
+  partner: null
+  line: Shepherd
+  origin: null
+  children: []
+  left: null
+- name: Basilia
+  sex: f
+  born: -7
+  died: null
+  cause: null
+  parents:
+  - Baldwin
+  - Joyce
   partner: null
   line: Cole
   origin: null
   children: []
   left: null
-- name: Geoffrey
-  sex: m
+- name: Cecily
+  sex: f
+  born: -7
+  died: null
+  cause: null
+  parents:
+  - Edric
+  - Hawise
+  partner: null
+  line: Hale
+  origin: null
+  children: []
+  left: null
+- name: Susanna
+  sex: f
+  born: -5
+  died: null
+  cause: null
+  parents:
+  - Baldwin
+  - Joyce
+  partner: null
+  line: Cole
+  origin: null
+  children: []
+  left: null
+- name: Wilmot
+  sex: f
   born: -4
   died: null
   cause: null
   parents:
-  - Oliver
-  - Elena
+  - Edric
+  - Hawise
+  partner: null
+  line: Hale
+  origin: null
+  children: []
+  left: null
+- name: Martin
+  sex: m
+  born: -3
+  died: null
+  cause: null
+  parents:
+  - Henry
+  - Petronel
   partner: null
   line: Shepherd
+  origin: null
+  children: []
+  left: null
+- name: Richard
+  sex: m
+  born: -26
+  died: null
+  cause: null
+  parents: []
+  partner: Agatha
+  line: Fenn
+  origin: null
+  children: []
+  left: null
+- name: Agatha
+  sex: f
+  born: -27
+  died: null
+  cause: null
+  parents: []
+  partner: Richard
+  line: Fenn
+  origin: Ashby
+  children: []
+  left: null
+- name: Herbert
+  sex: m
+  born: -28
+  died: null
+  cause: null
+  parents: []
+  partner: Wymarc
+  line: Moor
+  origin: null
+  children:
+  - Matilda
+  - Dionisia
+  - Adam
+  - Robin
+  left: null
+- name: Wymarc
+  sex: f
+  born: -26
+  died: null
+  cause: null
+  parents: []
+  partner: Herbert
+  line: Moor
+  origin: Ashby
+  children:
+  - Matilda
+  - Dionisia
+  - Adam
+  - Robin
+  left: null
+- name: Geoffrey
+  sex: m
+  born: -26
+  died: null
+  cause: null
+  parents: []
+  partner: Nichola
+  line: Hobb
+  origin: null
+  children:
+  - Lucy
+  - Everard
+  left: null
+- name: Nichola
+  sex: f
+  born: -25
+  died: null
+  cause: null
+  parents: []
+  partner: Geoffrey
+  line: Hobb
+  origin: Ashby
+  children:
+  - Lucy
+  - Everard
+  left: null
+- name: Matilda
+  sex: f
+  born: -15
+  died: null
+  cause: null
+  parents:
+  - Herbert
+  - Wymarc
+  partner: null
+  line: Moor
+  origin: null
+  children: []
+  left: -2
+- name: Lucy
+  sex: f
+  born: -15
+  died: null
+  cause: null
+  parents:
+  - Geoffrey
+  - Nichola
+  partner: null
+  line: Hobb
+  origin: null
+  children: []
+  left: -2
+- name: Everard
+  sex: m
+  born: -14
+  died: null
+  cause: null
+  parents:
+  - Geoffrey
+  - Nichola
+  partner: null
+  line: Hobb
+  origin: null
+  children: []
+  left: -2
+- name: Dionisia
+  sex: f
+  born: -13
+  died: null
+  cause: null
+  parents:
+  - Herbert
+  - Wymarc
+  partner: null
+  line: Moor
+  origin: null
+  children: []
+  left: null
+- name: Adam
+  sex: m
+  born: -7
+  died: null
+  cause: null
+  parents:
+  - Herbert
+  - Wymarc
+  partner: null
+  line: Moor
   origin: null
   children: []
   left: null
 - name: Robin
   sex: m
-  born: -2
+  born: -4
   died: null
   cause: null
   parents:
-  - Oliver
-  - Elena
-  partner: null
-  line: Shepherd
-  origin: null
-  children: []
-  left: null
-- name: Godwin
-  sex: m
-  born: 0
-  died: null
-  cause: null
-  parents:
-  - Oliver
-  - Elena
-  partner: null
-  line: Shepherd
-  origin: null
-  children: []
-  left: null
-- name: Wat
-  sex: m
-  born: -30
-  died: null
-  cause: null
-  parents: []
-  partner: Sibyl
-  line: Fenn
-  origin: null
-  children:
-  - Philippa
-  - Ivy
-  - Susanna
-  - Gunnild
-  left: null
-- name: Sibyl
-  sex: f
-  born: -29
-  died: null
-  cause: null
-  parents: []
-  partner: Wat
-  line: Fenn
-  origin: Ashby
-  children:
-  - Philippa
-  - Ivy
-  - Susanna
-  - Gunnild
-  left: null
-- name: Everard
-  sex: m
-  born: -31
-  died: null
-  cause: null
-  parents: []
-  partner: Florence
-  line: Moor
-  origin: null
-  children:
-  - Martin
-  - Emma
-  - Clement
-  left: null
-- name: Florence
-  sex: f
-  born: -30
-  died: null
-  cause: null
-  parents: []
-  partner: Everard
-  line: Moor
-  origin: Ashby
-  children:
-  - Martin
-  - Emma
-  - Clement
-  left: null
-- name: Henry
-  sex: m
-  born: -31
-  died: null
-  cause: null
-  parents: []
-  partner: Orabel
-  line: Hobb
-  origin: null
-  children:
-  - Gervase
-  - Reynold
-  left: null
-- name: Orabel
-  sex: f
-  born: -30
-  died: null
-  cause: null
-  parents: []
-  partner: Henry
-  line: Hobb
-  origin: Ashby
-  children:
-  - Gervase
-  - Reynold
-  left: null
-- name: Martin
-  sex: m
-  born: -20
-  died: null
-  cause: null
-  parents:
-  - Everard
-  - Florence
-  partner: null
-  line: Moor
-  origin: null
-  children: []
-  left: -10
-- name: Gervase
-  sex: m
-  born: -20
-  died: null
-  cause: null
-  parents:
-  - Henry
-  - Orabel
-  partner: null
-  line: Hobb
-  origin: null
-  children: []
-  left: -4
-- name: Philippa
-  sex: f
-  born: -19
-  died: null
-  cause: null
-  parents:
-  - Wat
-  - Sibyl
-  partner: null
-  line: Fenn
-  origin: null
-  children: []
-  left: -5
-- name: Emma
-  sex: f
-  born: -18
-  died: null
-  cause: null
-  parents:
-  - Everard
-  - Florence
-  partner: null
-  line: Moor
-  origin: null
-  children: []
-  left: -6
-- name: Reynold
-  sex: m
-  born: -18
-  died: null
-  cause: null
-  parents:
-  - Henry
-  - Orabel
-  partner: Felice
-  line: Hobb
-  origin: null
-  children:
-  - Wilmot
-  left: null
-- name: Ivy
-  sex: f
-  born: -17
-  died: null
-  cause: null
-  parents:
-  - Wat
-  - Sibyl
-  partner: Clement
-  line: Moor
-  origin: null
-  children:
-  - Avice
-  left: null
-  line_born: Fenn
-- name: Clement
-  sex: m
-  born: -16
-  died: null
-  cause: null
-  parents:
-  - Everard
-  - Florence
-  partner: Ivy
-  line: Moor
-  origin: null
-  children:
-  - Avice
-  left: null
-- name: Susanna
-  sex: f
-  born: -14
-  died: null
-  cause: null
-  parents:
-  - Wat
-  - Sibyl
-  partner: null
-  line: Fenn
-  origin: null
-  children: []
-  left: -2
-- name: Gunnild
-  sex: f
-  born: -11
-  died: null
-  cause: null
-  parents:
-  - Wat
-  - Sibyl
-  partner: null
-  line: Fenn
-  origin: null
-  children: []
-  left: null
-- name: Felice
-  sex: f
-  born: -18
-  died: null
-  cause: null
-  parents: []
-  partner: Reynold
-  line: Hobb
-  origin: Ashby
-  children:
-  - Wilmot
-  left: null
-  line_born: Hobb
-- name: Wilmot
-  sex: f
-  born: -2
-  died: null
-  cause: null
-  parents:
-  - Reynold
-  - Felice
-  partner: null
-  line: Hobb
-  origin: null
-  children: []
-  left: null
-- name: Avice
-  sex: f
-  born: -2
-  died: null
-  cause: null
-  parents:
-  - Clement
-  - Ivy
+  - Herbert
+  - Wymarc
   partner: null
   line: Moor
   origin: null
   children: []
   left: null
 history:
-- text: Walter and Isolde Cole came to Saltwell and built the first Cole house
+- text: Baldwin and Joyce Cole came to Saltwell and built the first Cole house
   who:
-  - Walter
-  - Isolde
-  day: -21
-- text: Saer and Thomasin Shepherd came to Saltwell and built the first Shepherd house
-  who:
-  - Saer
-  - Thomasin
-  day: -21
-- text: Wymond and Mariot Hale came to Saltwell and built the first Hale house
-  who:
-  - Wymond
-  - Mariot
-  day: -21
-- text: Wat and Sibyl Fenn came to Millham and built the first Fenn house
-  who:
-  - Wat
-  - Sibyl
-  day: -21
-- text: Everard and Florence Moor came to Millham and built the first Moor house
-  who:
-  - Everard
-  - Florence
-  day: -21
-- text: Henry and Orabel Hobb came to Millham and built the first Hobb house
+  - Baldwin
+  - Joyce
+  day: -16
+- text: Henry and Petronel Shepherd came to Saltwell and built the first Shepherd house
   who:
   - Henry
-  - Orabel
-  day: -21
+  - Petronel
+  day: -16
+- text: Edric and Hawise Hale came to Saltwell and built the first Hale house
+  who:
+  - Edric
+  - Hawise
+  day: -16
+- text: Richard and Agatha Fenn came to Millham and built the first Fenn house
+  who:
+  - Richard
+  - Agatha
+  day: -16
+- text: Herbert and Wymarc Moor came to Millham and built the first Moor house
+  who:
+  - Herbert
+  - Wymarc
+  day: -16
+- text: Geoffrey and Nichola Hobb came to Millham and built the first Hobb house
+  who:
+  - Geoffrey
+  - Nichola
+  day: -16
+- text: 'a hard winter: the frost came early and the stores ran out'
+  kind: winter
+  who: []
+  day: -11
+- text: 'a hard winter: the frost came early and the stores ran out'
+  kind: winter
+  who: []
+  day: -10
+- text: 'a hard winter: the frost came early and the stores ran out'
+  kind: winter
+  who: []
+  day: -6
 - text: Rose married into Ashby and left Saltwell
   kind: left
   who:
   - Rose
-  day: -12
-- text: Martin married into Ashby and left Millham
-  kind: left
-  who:
-  - Martin
-  day: -10
-- text: Roger married into Ashby and left Saltwell
-  kind: left
-  who:
-  - Roger
-  day: -7
-- text: 'a hard winter: the frost came early and the stores ran out'
-  kind: winter
-  who: []
-  day: -6
-- text: Emma married into Ashby and left Millham
-  kind: left
-  who:
-  - Emma
-  day: -6
-- text: 'a hard winter: the frost came early and the stores ran out'
-  kind: winter
-  who: []
-  day: -5
-- text: Philippa married into Ashby and left Millham
-  kind: left
-  who:
-  - Philippa
-  day: -5
-- text: Ivy of the Fenns married Clement Moor
-  kind: marriage
-  who:
-  - Clement
-  - Ivy
-  day: -4
-- text: Gervase married into Ashby and left Millham
-  kind: left
-  who:
-  - Gervase
-  day: -4
-- text: Tiffany of the Shepherds married Tobin Hale
-  kind: marriage
-  who:
-  - Tobin
-  - Tiffany
-  day: -4
-- text: 'a hard winter: the frost came early and the stores ran out'
-  kind: winter
-  who: []
-  day: -3
-- text: Ursula married into Ashby and left Saltwell
-  kind: left
-  who:
-  - Ursula
-  day: -3
-- text: Cecily married into Ashby and left Saltwell
-  kind: left
-  who:
-  - Cecily
   day: -2
-- text: Letice married into Ashby and left Saltwell
+- text: Lucy married into Ashby and left Millham
   kind: left
   who:
-  - Letice
+  - Lucy
   day: -2
-- text: Susanna married into Ashby and left Millham
+- text: Matilda married into Ashby and left Millham
   kind: left
   who:
-  - Susanna
+  - Matilda
+  day: -2
+- text: Everard married into Ashby and left Millham
+  kind: left
+  who:
+  - Everard
   day: -2
 - text: 'a hard winter: the frost came early and the stores ran out'
   kind: winter
   who: []
-  day: -1
-- text: Ysolt married into Ashby and left Saltwell
-  kind: left
-  who:
-  - Ysolt
   day: -1
 - day: -3
-  text: Walter and Saer came to blows over a pig that went missing
+  text: Baldwin and Henry came to blows over a pig that went missing
   kind: feud
   who:
-  - Walter
-  - Saer
+  - Baldwin
+  - Henry
