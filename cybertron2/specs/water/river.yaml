@@ -20,7 +20,7 @@ evening: true
 tags: true
 ages: true
 llm:
-  week_stop: 0.5
+  week_stop: 0.95
 bot_travel: false
 bot_reap: ripe
 cast:
