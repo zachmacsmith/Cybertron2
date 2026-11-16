@@ -1054,3 +1054,20 @@ was changed.
 ready for Zach's decision. It adds an object model of six categories (§2), `requires` and `unless` on every registration (§4.4), and
 sign rows with stable names and keyed draws (§5). It estimates the work (§10): 25 to 37 builder-days for the whole migration, or 12
 to 19 for the cheaper path. Asks: OPEN Q-48 and Q-50 (one grid or several).
+
+## 16 Nov, 37.2 → 37.4: brief 5 accepted for building (D2-209)
+
+Zach (16 Nov) answered brief 5 and asked that it be posted for the building session.
+- **Brief:** `docs/cybertron2/proposals/river_and_water.md`, accepted as D2-209. Read §1 and its sources first.
+- **What it adds since your last read:**
+  - §3a: the mill on the run's river, with a gap of its own;
+  - §4b: salt boiled inland from a brine spring (D2-56's inland half);
+  - §4c: fuel as the shared draw, with a budget test;
+  - §8: the runs-only world after the gate.
+- **Answers:** the salmon's return is one world year; nothing social is seeded; a run night at a sound, shut weir gives about 1 to 2
+  food a unit; salt at about 1 firewood each, to revisit (OPEN L-110); withies and cord stay with the hunting and resources build
+  (OPEN L-111).
+- **Yours to decide:** whether to wait for the merge of briefs 1 to 4c or build on 4c's branch.
+- **Still open with Zach:** question 5, the mill's rate with its gap open (OPEN Q-51). Use the proposed half rate until he answers.
+- **From 37.2:** the generator's brine springs and the two worlds (§1: the river world with the spring upstream and the mill
+  downstream; the lake world), then the runs-only world (§8), designed and handed to you. Progress in WORK W-47.
