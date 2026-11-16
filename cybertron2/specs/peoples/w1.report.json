@@ -1,0 +1,358 @@
+{
+ "seed": 1301,
+ "pins": {},
+ "targets": {
+  "Ashford": {
+   "households": 2,
+   "people": 7,
+   "food": 0.74,
+   "heat": 0.3,
+   "plots_wanted": 5,
+   "fields": 5,
+   "wood_wanted": 5,
+   "woods": 5,
+   "waste": 3
+  },
+  "Brockley": {
+   "households": 2,
+   "people": 9,
+   "food": 1.06,
+   "heat": 0.3,
+   "plots_wanted": 4,
+   "fields": 4,
+   "wood_wanted": 7,
+   "woods": 7,
+   "waste": 3
+  }
+ },
+ "checks": {
+  "rivers run downhill": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "0 river cells drain uphill"
+  },
+  "laid rivers run where laid": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "1 laid"
+  },
+  "every pin met": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "a pin not met is refused when it is placed"
+  },
+  "settlements placed": {
+   "kind": "design",
+   "ok": true,
+   "detail": "9 of 9 at 7.0 km apart"
+  },
+  "capacity": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Ashford": 0.77,
+    "Brockley": 1.1
+   }
+  },
+  "dependence": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Ashford": [
+     "stone",
+     "metal"
+    ],
+    "Brockley": [
+     "stone",
+     "metal"
+    ]
+   }
+  },
+  "reachable by land": {
+   "kind": "design",
+   "ok": true,
+   "detail": []
+  },
+  "chokepoint": {
+   "kind": "design",
+   "ok": true,
+   "detail": [
+    "Ash Wood-Coppice Hill: pass",
+    "Brock Wood-Coppice Hill: pass",
+    "t1-Coppice Hill: pass",
+    "t2-Coppice Hill: pass"
+   ]
+  },
+  "roads about a day": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "1": 13
+   }
+  },
+  "parcels per node": {
+   "kind": "design",
+   "ok": false,
+   "detail": {
+    "Ashford": 8,
+    "Brockley": 9,
+    "Middlemead": 6,
+    "Lower Meads": 10,
+    "Coppice Hill": 10,
+    "Ash Wood": 6,
+    "Ash Heath": 5,
+    "Brock Wood": 6,
+    "Brock Heath": 6
+   }
+  },
+  "access gates": {
+   "kind": "design",
+   "ok": true,
+   "detail": "the bot dry run checks them once the people exist (scenario_design)"
+  },
+  "makes its own landscape": {
+   "kind": "design",
+   "ok": true,
+   "detail": "no promise for this configuration"
+  },
+  "lakes where lakes belong": {
+   "kind": "design",
+   "ok": true,
+   "detail": "1 lakes; 0 outside fen or upland systems (0.0 a 1,000 km2)"
+  },
+  "wood share by how long settled": {
+   "kind": "design",
+   "ok": true,
+   "detail": "0.60 of the land in wood (settled: frontier, 0.60)"
+  },
+  "capacity, people as generated": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Ashford": {
+     "people": 7,
+     "share": 0.77,
+     "target": 0.74
+    },
+    "Brockley": {
+     "people": 9,
+     "share": 1.1,
+     "target": 1.06
+    }
+   }
+  },
+  "economy: region food": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "16 people; the land keeps 35 for good (0.46 of it)"
+  },
+  "economy: food over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "200 days need 3120 meals; store, crops ripening and the land give 6951 (0.45)"
+  },
+  "economy: region heat": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "16 people; the land keeps 280 for good (0.06 of it)"
+  },
+  "economy: heat over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "200 days need 1376 heat (4 hearths, 48.0 cold nights); store and the woods' flow give 21860 (0.06); the woods stand at 302095 more"
+  },
+  "economy: carrying burden": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {
+    "Brockley": {
+     "short_people": 0.8,
+     "short_heat_a_day": 0.0,
+     "road_days": 1,
+     "share_on_the_road": 0.0,
+     "short_rations_a_day_in_the_run": 0.3
+    }
+   }
+  },
+  "economy: households' runway": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {
+    "short": [],
+    "share_of_people": 0.0,
+    "days_of_food_a_member": {
+     "the Reeds": 6.8,
+     "the Hales": 6.8,
+     "the Marshs": 6.8,
+     "the Wynns": 6.8
+    }
+   }
+  },
+  "economy: fuel": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "every hearth has wood in store or woods at hand"
+  },
+  "economy: room to grow": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": false,
+   "detail": "4 couples; about 33 births in 200 days if they try often; the region would be at 1.41 of its land"
+  },
+  "economy: succession": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": false,
+   "detail": [
+    "the Hales: Roger (100%), Joyce (100%) likely to die in the run; 0 grown left for 1",
+    "the Wynns: Hamo (100%), Eva (100%), Oliver (100%), Joan (100%) likely to die in the run; 0 grown left for 1"
+   ]
+  }
+ },
+ "generated": [],
+ "deviations": [
+  "cells on a jittered square grid, not Poisson-disc points with Delaunay neighbours (scipy not installed)",
+  "cells saved as .npz, not parquet (pyarrow not installed)",
+  "people: generate.py once for the region as it stands (no kin between villages yet: 37.4's, later)"
+ ],
+ "descriptions": {
+  "model": null,
+  "written": 0,
+  "failed": 0
+ },
+ "nodes": {
+  "Ashford": {
+   "name": "Ashford",
+   "kind": "village",
+   "site_km": [
+    23.4,
+    24.19
+   ],
+   "parcels": 8
+  },
+  "Brockley": {
+   "name": "Brockley",
+   "kind": "village",
+   "site_km": [
+    58.66,
+    28.05
+   ],
+   "parcels": 9
+  },
+  "Middlemead": {
+   "name": "Middlemead",
+   "kind": "vacant",
+   "site_km": [
+    37.64,
+    27.47
+   ],
+   "parcels": 6
+  },
+  "Lower Meads": {
+   "name": "Lower Meads",
+   "kind": "vacant",
+   "site_km": [
+    42.0,
+    9.86
+   ],
+   "parcels": 10
+  },
+  "Coppice Hill": {
+   "name": "Coppice Hill",
+   "kind": "vacant",
+   "site_km": [
+    40.23,
+    47.12
+   ],
+   "parcels": 10
+  },
+  "Ash Wood": {
+   "name": "Ash Wood",
+   "kind": "vacant",
+   "site_km": [
+    25.79,
+    44.54
+   ],
+   "parcels": 6
+  },
+  "Ash Heath": {
+   "name": "Ash Heath",
+   "kind": "vacant",
+   "site_km": [
+    5.12,
+    13.33
+   ],
+   "parcels": 5
+  },
+  "Brock Wood": {
+   "name": "Brock Wood",
+   "kind": "vacant",
+   "site_km": [
+    52.02,
+    40.36
+   ],
+   "parcels": 6
+  },
+  "Brock Heath": {
+   "name": "Brock Heath",
+   "kind": "vacant",
+   "site_km": [
+    70.17,
+    16.67
+   ],
+   "parcels": 6
+  },
+  "t1": {
+   "name": "Meadby",
+   "kind": "stop",
+   "site_km": [
+    32.8,
+    38.36
+   ],
+   "parcels": 1
+  },
+  "t2": {
+   "name": "Haydale",
+   "kind": "stop",
+   "site_km": [
+    47.21,
+    39.3
+   ],
+   "parcels": 1
+  }
+ },
+ "anchors": {
+  "massif_0_0": [
+   39.8,
+   49.6
+  ],
+  "river_1.source": [
+   39.8,
+   49.6
+  ],
+  "river_1.mouth": [
+   39.8,
+   8.0
+  ],
+  "river_1.point_1": [
+   39.8,
+   26.0
+  ],
+  "fen_Lower Meads": [
+   39.8,
+   8.0
+  ],
+  "ore_Coppice Hill": [
+   39.8,
+   49.6
+  ]
+ },
+ "refused": []
+}

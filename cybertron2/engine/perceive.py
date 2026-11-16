@@ -176,7 +176,8 @@ def facts(here) -> list:
             p = p(x) if callable(p) else p
             add(about, row["text"](x), p, row.get("tags", []), row.get("sense", "sight"), thing=cid, reach=row.get("reach", "rule"),
                 knows=row.get("knows"), lay=row.get("lay"), sign=f"thing:{cid}#{i}",
-                own=row["own"](x) if callable(row.get("own")) else row.get("own"), night=row.get("night", False))
+                own=row["own"](x) if callable(row.get("own")) else row.get("own"), night=row.get("night", False),
+                **({"who": row["who"]} if row.get("who") else {}))
     for e in here.events():
         if e["kind"] == "speech":
             continue
@@ -231,6 +232,20 @@ def chance_of(w, name, f, target=None, mind=None, attending=False, focus=1.0) ->
                                           attending=attending, focus=focus, sky=(f.get("about") or [""])[0] == "sky", cap=False))
 
 
+def for_me(w, name, f, knows) -> bool:
+    """A thing's sign by its scope (brief 4c §4): "setter" rows only for who set it, "seen" rows for others who know it, "stranger"
+    rows for those who do not know it; rows with no scope for everyone."""
+    who = f.get("who")
+    if not who or not f.get("thing"):
+        return True
+    mine = (w.s["containers"].get(f["thing"]) or {}).get("by") == name
+    if who == "setter":
+        return mine
+    if who == "seen":
+        return not mine and f["thing"] in knows
+    return not mine and f["thing"] not in knows
+
+
 def happened_to(w, name, f) -> bool:
     """A concerned line that happened to one, or in one's own house (D4-75): read with full presence. Other concerns (one's field,
     one's beasts) are read by the rule like anything else."""
@@ -272,13 +287,22 @@ def knack(mind, f) -> float:
 
 
 def practised(mind) -> set:
-    """The techniques one reads signs by (a row's `knows`): trades one knows, and basic work long practised."""
-    out = set()
+    """The techniques one reads signs by (a row's `knows`): trades one knows, and basic work long practised, with the work a
+    technique `reads_as` (one who stalks deer reads a hunter's signs)."""
+    out = {"elder"} if (getattr(mind, "person", None) or {}).get("stage") == "elder" else set()   # the old remember (L4)
     for t, r in mind.know.items():
-        if t not in TECHNIQUES or r.get("level") != "known":
+        if t not in TECHNIQUES or not isinstance(r, dict) or r.get("level") != "known":
             continue
         if not KN.basic(t) or float(r.get("skill", KN.curve(t)[0])) >= KN.curve(t)[0] + 0.1:
             out.add(t)
+            out.update(TECHNIQUES[t].get("reads_as") or [])                     # a way of a work reads its signs (the wild hunts: "hunt")
+            lo, hi = KN.curve(t)
+            if float(r.get("skill", lo)) >= lo + float(NOTICING.get("expert_at", 0.8)) * (hi - lo):   # the expert's reading (L3)
+                out.add(f"expert:{t}")
+                out.update(f"expert:{x}" for x in (TECHNIQUES[t].get("reads_as") or []))
+    from cybertron2.wild import methods as MT                                  # a kind one knows well: its expert readings (D2-204 §5)
+    out.update(f"familiar:{k}" for k, x in MT.familiar_of(getattr(mind, "store", None)).items()
+               if not k.startswith("_") and float(x) >= float(MT.FAMILIAR["expert"]))
     return out
 
 
@@ -393,7 +417,14 @@ def evening(w, attend: dict, today: dict, skip=None) -> dict:
             if f.get("thing"):                                                 # things: the one rule (D2-85, D4-75)
                 if f.get("reach") == "count":
                     continue                                                    # counted only when attended to (below)
-                if f["text"] in (knows.get(f["thing"]) or {}).get("texts", []):
+                if not for_me(w, name, f, knows):
+                    continue
+                if f.get("who") in ("setter", "seen"):                         # the look at a set thing one knows (brief 4c §4.1):
+                    if f["text"] == (knows.get(f["thing"]) or {}).get("look"):  # shown when it changed; seen again as it was, its
+                        if rng.random() < chance_of(w, name, f, tgt_raw):      # day kept for the remembered line
+                            TH.look(w, name, f["thing"])
+                        continue
+                elif f["text"] in (knows.get(f["thing"]) or {}).get("texts", []):
                     continue                                                    # already known as it is
                 if not SG.readable(f, practised(mind)):
                     continue
@@ -512,7 +543,8 @@ def evening(w, attend: dict, today: dict, skip=None) -> dict:
             if f.get("thing") and f.get("sense") != "smell":
                 text = f["text"]
                 if f.get("reach") == "near":                                   # a close look: remember what the thing is, now
-                    rows = [g for g in F if g.get("thing") == f["thing"] and g.get("reach") == "near" and g.get("sense") != "smell"]
+                    rows = [g for g in F if g.get("thing") == f["thing"] and g.get("reach") == "near" and g.get("sense") != "smell"
+                            and for_me(w, name, g, knows)]
                     text = min(rows, key=lambda g: int(str(g.get("sign", "#0")).rsplit("#", 1)[-1] or 0))["text"] if rows else text
                 TH.remember(w, name, f["thing"], "saw", text=text, close=f.get("reach") == "near")
         mine = {name, w.household_of(name)}                                     # what one saw of one's own beasts

@@ -21,7 +21,7 @@ forests.seed as a night's rate (proposals/process_model.md, "Clocks").
 from __future__ import annotations
 
 RULES = {}
-NIGHTLY = ("fast", "threshold", "periodic")          # regrown by night._grow; the woods' three by forests.night
+NIGHTLY = ("fast", "threshold", "periodic", "seasonal")          # regrown by night._grow; the woods' three by forests.night
 RESPONSES = {"proportional": 1.0, "hyperstable": 0.4, "hyperdepleted": 2.0}     # calibrate
 
 
@@ -63,6 +63,18 @@ def periodic(p, res, ctx):
     return NI.regrow(p, "fast", S, K, float(res.get("r", 0.3)), ctx.get("winter", False))
 
 
+@rule("seasonal")
+def seasonal(p, res, ctx):
+    """A wild plant's crop (wild_plants.md, D2-200): in its seasons it comes toward its peak (K) times the season's share times the
+    year's factor (`f`, set by the wild layer: a keyed draw, the mast, the fungus load, the spring's warmth) at `r` a night; above
+    that level (gathered, eaten or out of season) nothing comes, and what is over it rots at `rot` a night."""
+    S, K = float(res["S"]), float(res["K"])
+    target = K * float((res.get("seasons") or {}).get(ctx.get("season"), 0.0)) * float(res.get("f", 1.0))
+    if S < target:
+        return round(S + float(res.get("r", 0.4)) * (target - S), 4)
+    return round(max(target, S - float(res.get("rot", 0.2)) * (S - target)), 4)
+
+
 @rule("slow")
 def slow(p, res, ctx):
     from cybertron2.engine import forests as FO
@@ -83,6 +95,13 @@ def dead(p, res, ctx):
 
 @rule("finite")
 def finite(p, res, ctx):
+    return res["S"]
+
+
+@rule("population")
+def population(p, res, ctx):
+    """A wild kind (wild_layer.md §3.2, D2-199): it lives in the wild layer's store, moved by the ecology step, never as a parcel's
+    stock; as a parcel stock it would not change (and is not run nightly)."""
     return res["S"]
 
 

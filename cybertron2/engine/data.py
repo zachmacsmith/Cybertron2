@@ -44,9 +44,35 @@ ITEMS = {
     "fishing rod": {"pack": "water", "weight": 1, "food": 0.0, "spoil": 0.0, "life": 30, "seen": True},              # a rod, a line of hair or gut
     "meat": {"weight": 1, "food": 1.5, "spoil": 0.30, "cook": True, "raw": 0.8, "decay": "fresh meat"},                 # dense, spoils fresh (D2-41)
     "milk": {"weight": 1, "food": 0.5, "spoil": 1.0},                  # the same day (D2-42)
+    "hen": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},
+    "cat": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # a cat in a store keeps the mice down (D2-206; brief 2 K1)   # kept hens in a house's store: they lay (wild_layer.md, wave 2)
+    "egg": {"weight": 0.1, "food": 0.6, "spoil": 0.05, "cook": True, "raw": 0.5, "pack": "wild"},
+    # wild plants' goods (wild_plants.md §2, D2-200): fresh ones spoil fast, nuts keep for months; acorns are bitter until leached
+    "greens": {"weight": 1, "food": 0.6, "spoil": 0.3, "pack": "wild"},
+    "roots": {"weight": 1, "food": 0.8, "spoil": 0.05, "cook": True, "raw": 0.4, "pack": "wild"},
+    "mushrooms": {"weight": 1, "food": 0.6, "spoil": 0.3, "cook": True, "raw": 0.3, "pack": "wild"},
+    "watercress": {"weight": 1, "food": 0.4, "spoil": 0.3, "pack": "wild"},
+    "samphire": {"weight": 1, "food": 0.5, "spoil": 0.2, "cook": True, "raw": 0.4, "pack": "wild"},
+    "berries": {"weight": 1, "food": 0.8, "spoil": 0.25, "pack": "wild"},
+    "hedge fruit": {"weight": 1, "food": 0.6, "spoil": 0.03, "cook": True, "raw": 0.3, "pack": "wild"},
+    "hazel nuts": {"weight": 1, "food": 1.6, "spoil": 0.004, "pack": "wild"},
+    "beech nuts": {"weight": 1, "food": 1.2, "spoil": 0.006, "pack": "wild"},
+    "acorns": {"weight": 1, "food": 0.1, "spoil": 0.01, "pack": "wild"},
+    "acorn meal": {"weight": 1, "food": 1.0, "spoil": 0.02, "cook": True, "raw": 0.3, "pack": "wild"},
+    "antler": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # a cast antler: horn for handles and combs
+    "beaver pelt": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # a fine fur for trade
+    "clappers": {"weight": 0.5, "food": 0.0, "spoil": 0.0, "pack": "wild"},
+    "horn": {"weight": 0.5, "food": 0.0, "spoil": 0.0, "pack": "wild"},
+    "castoreum": {"weight": 0.2, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # the beaver's scent glands: a physician's good
     "timber": {"weight": 2, "food": 0.0, "spoil": 0.0, "heat": 2.0},   # D2-24; 2 heat (D2-157)
     "stone": {"weight": 3, "food": 0.0, "spoil": 0.0},                 # D2-3, D2-24
     "hide": {"weight": 1, "food": 0.0, "spoil": 0.0, "decay": "hide"},                  # D2-24
+    "tallow": {"weight": 1, "food": 0.0, "spoil": 0.0},                                  # a beast's fat, rendered or not (brief 3 §5)
+    "drying meat": {"weight": 1, "food": 1.5, "spoil": 0.15, "cook": True, "raw": 0.8, "decay": "drying meat"},   # on a rack: the flies
+    "salt meat": {"weight": 1, "food": 1.4, "spoil": 0.003, "cook": True, "raw": 0.6, "decay": "dried meat"},     # keeps for months
+    "offal": {"weight": 1, "food": 0.0, "spoil": 0.0},                                   # what is left in a carcass taken from: the
+                                                                                          # night's rot by its size (night.py, brief 3 §2)
+    "tallow light": {"weight": 0.2, "food": 0.0, "spoil": 0.0},                          # a rush or rag dipped in tallow: night work by it
     "copper ore": {"weight": 3, "food": 0.0, "spoil": 0.0},
     "copper": {"weight": 1, "food": 0.0, "spoil": 0.0},                # D2-19, D2-24
     "coin": {"weight": 0, "food": 0.0, "spoil": 0.0},                  # copper coin, carried (D2-1, D2-28)
@@ -71,6 +97,7 @@ DECAY = {
     "bread": {"open_dry": 3, "open_wet": 8, "buried": 3, "warm": 1.5, "frozen": 0.2},
     "fresh meat": {"open_dry": 2, "open_wet": 2.5, "buried": 1, "warm": 1.5, "frozen": 0.1, "becomes": "rotting meat"},
     "dried meat": {"open_dry": 2, "open_wet": 6, "buried": 2, "warm": 1.2, "frozen": 0.5},
+    "drying meat": {"open_dry": 1.0, "open_wet": 3.0, "buried": 1, "warm": 1.5, "frozen": 0.2, "smoke": 0.25},   # rain spoils it; smoke keeps flies off
     "cheese": {"open_dry": 3, "open_wet": 5, "buried": 1, "warm": 1.5, "frozen": 0.3},
     "hide": {"abs": {"open_dry": 0.01, "open_wet": 0.03, "buried": 0.02}},
     "fresh fish": {"open_dry": 2, "open_wet": 2.5, "buried": 1, "warm": 1.5, "frozen": 0.1},       # as fresh meat (calibrate)
@@ -127,7 +154,7 @@ COVERS = {
 # How each resource comes back (D4-7) and how it is seen (in words, never numbers: environment/resources.md).
 RESOURCES = {
     "plants": {"renewal": "fast", "low": "{name} has been picked over: little wild food left", "high": "{name} is thick with berries, nuts and greens"},
-    "game": {"renewal": "threshold", "low": "few fresh tracks in {name}: the game is thin", "high": "fresh deer slots and droppings along the rides of {name}"},
+    "game": {"renewal": "threshold", "off_with": ["wild"], "low": "few fresh tracks in {name}: the game is thin", "high": "fresh deer slots and droppings along the rides of {name}"},
     "wood": {"renewal": "slow", "low": "{name} is thinned out: stumps where the big trees stood", "high": ""},     # the trees (D2-156)
     "young": {"renewal": "young", "low": "", "high": ""},                 # young growth: cut for firewood (D2-156)
     "dead": {"renewal": "dead", "low": "", "high": ""},                   # dead wood: gathered for firewood (D2-156)
@@ -139,6 +166,12 @@ RESOURCES = {
     "salt": {"pack": "water", "renewal": "endless", "low": "", "high": "white crusts of salt drying in the pans at {name}"},   # a saltmarsh's pans
     "dung": {"renewal": "accrues", "low": "", "high": "dung lies thick where the beasts have been on {name}"},
 }
+# the wild kinds (wild_layer.md §3.2, D2-199): RESOURCES rows with population fields, in the `wild` pack; one registry
+from cybertron2.wild import kinds as _WILD_KINDS                       # noqa: E402
+RESOURCES.update(_WILD_KINDS.rows())
+from cybertron2.wild import plants as _WILD_PLANTS                     # noqa: E402
+RESOURCES.update({k: {"renewal": "seasonal", "pack": "wild", "plant": True, "low": f"{{name}} has been picked over: few {v['words']} left",
+                      "high": f"{{name}} is thick with {v['words']}"} for k, v in _WILD_PLANTS.PLANTS.items()})   # wild plants (D2-200)
 
 # Forests (environment/resources.md "Forests", D2-156): three stocks a unit of size, as timber (trees) and firewood (young growth,
 # dead wood); yearly rates. A world file gives `wood: {kind, ...}` on a forest or scrub parcel; an older world's `wood` stock is
@@ -175,6 +208,8 @@ FITTINGS = {
              "does": "housed when sleeping here, one a bed"},                                                  # D2-56; 02zh §4 (proposed)
     "hearth": {"label": "a hearth", "materials": {"stone": 4}, "units": 3, "basic": False, "trade": "mason", "fire": True, "spaces": 1,
                "does": "warmth (burns timber), porridge and baking"},
+    "owl hole": {"label": "an owl hole (a gap left high in a barn's gable)", "materials": {"timber": 1}, "units": 1, "basic": True,
+                 "spaces": 0, "pack": "wild", "does": "a way in for a barn owl, which keeps the mice in the store down"},   # brief 2 K1
     "bins": {"label": "bins", "materials": {"timber": 3}, "units": 1, "basic": True, "does": "a store for food (60)", "spoil": 0.5,
              "spaces": 1, "holds": {"food": 60}},
     "hand mill": {"label": "a hand mill", "materials": {"stone": 2}, "units": 2, "basic": True, "spaces": 1,
@@ -287,10 +322,10 @@ LINES = {
 # Techniques: one handler reads these (38.17 §5). Tool multipliers by grade (recipes.md §8); "bare" is bare hands; a grade missing
 # from `tools` means the work cannot be done with it (no mining bare-handed).
 TECHNIQUES = {
-    "forage": {"verb": "gather", "label": "foraging (greens, roots, berries, nuts)", "aliases": ["foraging", "gather food"], "basic": True,
+    "forage": {"verb": "gather", "label": "foraging (greens, roots, berries, nuts)", "aliases": ["foraging", "gather food"], "basic": True, "off_with": ["wild"],
                "at": {"covers": ["forest", "meadow", "pasture", "scrub", "heath", "moor", "fen", "saltmarsh"]}, "draws": "plants", "yield": {"kind": "stock", "base": 1.2},
                "units": 1, "gives": "wild food", "tags": ["food"]},
-    "hunt": {"verb": "gather", "label": "hunting game", "aliases": ["hunting"], "basic": True, "at": {"covers": ["forest"]},
+    "hunt": {"verb": "gather", "label": "hunting game", "aliases": ["hunting"], "basic": True, "at": {"covers": ["forest"]}, "off_with": ["wild"],
              "draws": "game", "yield": {"kind": "chance", "p": 0.35, "range": [2, 6], "by": {"hide": 0.25}},
              "weapon": {"none": 0.3, "armed": 1.0}, "wear": 0.3, "units": 2, "gives": "meat", "tags": ["food", "hunting", "animals"]},
     "fell": {"verb": "gather", "label": "felling timber", "aliases": ["felling", "chop timber", "cut wood"], "basic": True,
@@ -358,6 +393,47 @@ TECHNIQUES = {
              "aliases": ["mind", "minding", "look after", "nurse", "tend the child"], "at": {"children": True}, "draws": "child",
              "yield": {"kind": "care"}, "units": 1, "gives": "", "tags": ["family"]},                                       # D2-142, D2-150
     # Fences round a parcel and gates (livestock.md "Fences and gates": D2-130, D2-132): a field work on the parcel; FENCES has the numbers
+    "gather wild food": {"verb": "gather", "label": "gathering wild food (what is in season where you are: greens, berries, nuts, fungi, roots)",
+                         "aliases": ["forage", "foraging", "gather food", "gather", "pick", "gather nuts", "gather berries", "gather mushrooms",
+                                     "gather acorns", "pick berries", "pick mushrooms"], "basic": True, "pack": "wild",
+                         "at": {"covers": ["forest", "meadow", "pasture", "scrub", "heath", "moor", "fen", "saltmarsh"]}, "draws": "wild plants",
+                         "yield": {"kind": "wild_forage", "base": 1.2}, "units": 1, "gives": "", "tags": ["food"]},
+    "make clappers": {"verb": "make", "label": "making clappers (two boards on a cord) for scaring beasts off a field", "basic": True, "pack": "wild",
+                      "aliases": ["clappers", "make a clapper"], "inputs": {"timber": 0.5}, "units": 1, "gives": {"clappers": 1}, "tags": ["farming"]},
+    "make tallow lights": {"verb": "make", "label": "dipping rushes in tallow for lights to work by at night", "basic": True,
+                           "aliases": ["tallow lights", "make lights", "make a light", "rushlights", "dip rushes"],
+                           "inputs": {"tallow": 1}, "units": 1, "gives": {"tallow light": 4}, "tags": ["light"]},   # brief 3 §5
+    "make a horn": {"verb": "make", "label": "making a horn to blow from a cast antler's base", "basic": True, "pack": "wild",
+                    "aliases": ["horn", "make horn"], "inputs": {"antler": 1}, "units": 2, "gives": {"horn": 1}, "tags": ["farming"]},
+    "leach acorns": {"verb": "make", "label": "boiling acorns in changes of water at a hearth till the bitterness is gone", "basic": True,
+                     "aliases": ["leach", "leaching acorns", "acorn meal"], "pack": "wild", "at": {"fittings": ["hearth"]},
+                     "inputs": {"acorns": 3}, "units": 1, "gives": {"acorn meal": 2}, "tags": ["food", "cooking"]},
+    "burn the stubble": {"verb": "work", "label": "burning the stubble after the harvest", "basic": True, "pack": "wild",
+                         "aliases": ["burn stubble", "fire the stubble"], "at": {"covers": ["field"]}, "draws": "guard",
+                         "yield": {"kind": "wild_guard", "load": "slugs", "cut": 0.3, "days": 16, "thin": {"slugs": 0.3},
+                                   "done": "You burned off the stubble in {place}."}, "units": 2, "gives": "", "tags": ["farming"]},
+    "range: near": {"verb": "modifier", "label": "hunting on the village's own land", "aliases": [], "basic": True, "pack": "wild",
+                     "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:snare", "gather:net", "gather:den work", "gather:trap in water"],
+                     "key": "range", "value": "near", "untaught": "tryable", "changes": {"range": "near", "units": 0}, "units": 0,
+                     "gives": "", "tags": ["hunting"]},
+    "range: the wood around": {"verb": "modifier", "label": "hunting out through the woods and wastes around (about 2.5 km)", "aliases": [], "basic": True, "pack": "wild",
+                     "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:snare", "gather:net", "gather:den work", "gather:trap in water"],
+                     "key": "range", "value": "the wood around", "untaught": "tryable", "changes": {"range": "the wood around", "units": 1}, "units": 1,
+                     "gives": "", "tags": ["hunting"]},
+    "range: far": {"verb": "modifier", "label": "hunting far out into the wild land beyond (a long day)", "aliases": [], "basic": True, "pack": "wild",
+                     "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:snare", "gather:net", "gather:den work", "gather:trap in water"],
+                     "key": "range", "value": "far", "untaught": "tryable", "changes": {"range": "far", "units": 3}, "units": 3,
+                     "gives": "", "tags": ["hunting"]},
+    "hunt with": {"verb": "modifier", "label": "hunting in another's party: name who leads; you go their way, to their place and range, after what they are after", "aliases": [], "basic": True, "pack": "wild",
+                  "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:net"], "key": "with", "value": "*", "changes": {}, "units": 0, "gives": "", "tags": ["hunting"]},   # brief 4b §3.1
+    "hunt alone": {"verb": "modifier", "label": "hunting alone: no one joins your hunt (others may join it unless you say so)", "aliases": [], "basic": True, "pack": "wild",
+                   "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:net"], "key": "alone", "value": "*", "changes": {}, "units": 0, "gives": "", "tags": ["hunting"]},
+    "hunt only with": {"verb": "modifier", "label": "taking into your hunting party only those you name", "aliases": [], "basic": True, "pack": "wild",
+                       "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:net"], "key": "only", "value": "*", "changes": {}, "units": 0, "gives": "", "tags": ["hunting"]},
+    "looking for": {"verb": "modifier", "label": "looking for one thing in particular: name it, a kind or a sort (boar, deer, hares, fowl, small game)", "aliases": [], "basic": True, "pack": "wild",
+                    "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:snare", "gather:net", "gather:den work", "gather:trap in water",
+                                 "gather:gather wild food", "work:guard the field", "work:pest work"],
+                    "key": "looking for", "value": "*", "untaught": "tryable", "changes": {}, "units": 0, "gives": "", "tags": ["hunting"]},
     "fence": {"verb": "work", "label": "fencing a parcel round (wattle or post and rail)", "basic": True,
               "aliases": ["fencing", "put up a fence", "wattle fence", "mend the fence", "build a fence", "a fence"],
               "at": {"covers": ["pasture", "meadow", "field", "scrub"]}, "draws": "plot", "yield": {"kind": "fence", "fence": "wood"},
@@ -380,8 +456,9 @@ TECHNIQUES = {
              "trade": "herder"},
     "slaughter": {"verb": "work", "label": "slaughtering a beast", "aliases": ["butcher", "kill a cow"], "basic": True,
                   "at": {"covers": ["pasture", "meadow", "field", "heath", "moor", "fen", "saltmarsh", "built"]}, "draws": "herd",
-                  "yield": {"kind": "slaughter", "gives": {"cows": {"meat": 40, "hide": 2}, "oxen": {"meat": 50, "hide": 2},
-                                                          "bulls": {"meat": 50, "hide": 2}, "young": {"meat": 10, "hide": 1}}},
+                  "yield": {"kind": "slaughter", "gives": {"cows": {"meat": 40, "hide": 2, "tallow": 4}, "oxen": {"meat": 50, "hide": 2, "tallow": 4},
+                                                          "bulls": {"meat": 50, "hide": 2, "tallow": 4},
+                                                          "young": {"meat": 10, "hide": 1, "tallow": 1}}},   # tallow: brief 3 §5 (calibrate)
                   "units": 2, "gives": "meat", "tags": ["food", "animals"]},
     # Mending a worn fitting (D4-103 phase 2; building_risks.md: capital has upkeep): it works at full again (calibrate)
     "dress millstones": {"verb": "work", "label": "dressing worn millstones (recutting their furrows)", "aliases": ["dress the stones"],
@@ -437,8 +514,12 @@ TECHNIQUES = {
                  "yield": {"kind": "fixed", "base": 1.0}, "by_season": {"spring": 0.4, "summer": 1.0, "autumn": 0.2, "winter": 0.0}, "units": 1, "gives": "salt", "tags": ["salt"]},
     "salt fish": {"pack": "water", "verb": "make", "label": "salting fish to keep", "aliases": ["salting", "salt the fish"], "basic": True,
                   "inputs": {"fish": 4, "salt": 1}, "units": 1, "gives": {"salt fish": 4}, "tags": ["food", "cooking", "fishing"]},
+    "salt meat": {"verb": "make", "label": "salting meat in a tub to keep", "aliases": ["salting meat", "salt the meat", "brine the meat"],
+                  "basic": True, "inputs": {"meat": 4, "salt": 1}, "units": 1, "gives": {"salt meat": 4}, "tags": ["food", "cooking"]},   # brief 4 §5.2
     "dry meat": {"verb": "make", "label": "drying meat over a fire", "aliases": ["drying meat", "cure meat"], "basic": True,
-                 "at": {"fittings": ["hearth", "fire ring"]}, "inputs": {"meat": 2}, "units": 1, "gives": {"dried meat": 1}, "tags": ["food", "cooking"]},
+                 "at": {"fittings": ["hearth", "fire ring"]}, "inputs": {"meat": 8}, "units": 1, "gives": {"drying meat": 8},
+                 "batch": True,                                                 # whatever one has, up to the batch (brief 4c §6.1)
+                 "rack": {"nights": 3, "into": "dried meat", "ratio": 0.5}, "tags": ["food", "cooking"]},   # cut and hung in a batch (brief 4 §5.1)
     "cheese": {"verb": "make", "label": "making cheese", "aliases": ["cheesemaking"], "at": {"fittings": ["cellar"]},
                "inputs": {"milk": 6, "salt": 0.2}, "units": 1, "gives": {"cheese": 1}, "tags": ["food", "animals"], "trade": "herder"},
     "charcoal": {"verb": "make", "label": "burning charcoal", "aliases": ["charcoal burning"], "at": {"covers": ["forest"]},
@@ -495,7 +576,14 @@ TECHNIQUES.update({
                    "aliases": ["grandly"], "basic": True, "modifies": ["build"], "key": "how", "value": "grand", "changes": {"tier": "grand"},
                    "units": 0, "gives": "", "tags": ["building"]},
     "bury": {"verb": "work", "label": "burying the dead", "aliases": ["burial", "bury the dead", "bury the body"], "basic": True,
-             "at": {"things": "body"}, "yield": {"kind": "bury"}, "units": 2, "units_by": "bury", "gives": "", "tags": ["death"]},   # D2-96
+             "at": {"things": ["body", "carcass"]}, "yield": {"kind": "bury"}, "units": 2, "units_by": "bury", "gives": "",
+             "tags": ["death"]},                                                  # D2-96; a dead beast too (brief 3 §4)
+    "method: shallow": {"verb": "modifier", "label": "burying it shallow (half the digging; beasts may dig it up)", "aliases": ["shallow"],
+                        "basic": True, "modifies": ["work:bury"], "key": "method", "value": "shallow", "changes": {}, "units": 0,
+                        "gives": "", "tags": ["death"]},
+    "burn": {"verb": "work", "label": "burning a carcass (firewood and work by its size)", "aliases": ["burn the carcass", "burn it",
+             "burn the dead beast", "burn the beast"], "basic": True, "at": {"things": ["carcass"]}, "yield": {"kind": "burn"}, "units": 2,
+             "units_by": "burn", "gives": "", "tags": ["death"]},                 # brief 3 §4
 })
 MODIFIERS = {t for t, d in TECHNIQUES.items() if d.get("modifies")}
 
@@ -510,7 +598,16 @@ KNOWN_SOMEWHERE = {"method: dibble": ["sow", "seed", "reap", "plough", "hoe", "f
 LEVELS = ("aware", "rough", "capable", "known")
 TRY = {"rough": {"inputs": 1.7, "chance": 0.5}, "capable": {"inputs": 1.3, "chance": 0.75}, "known": {"inputs": 1.0, "chance": 1.0}}
 SKILL_WORDS = ((0.85, "master"), (0.5, "skilled"), (0.2, "competent"), (0.0, "novice"))   # by the share of the way to a master
-SKILL = {"trade": [0.5, 2.0], "basic": [1.0, 1.5], "tau": 50.0}     # D2-52 (02n §4): skill by practice, units of work; calibrate
+SKILL = {"trade": [0.5, 2.0], "basic": [1.0, 1.5], "tau": 50.0,     # D2-52 (02n §4): skill by practice, units of work; calibrate
+         # the hunt (brief 4c §3.1, §3.3; calibrate): a multiplier on the bare-handed novice's chance, x1 to x8, rising geometrically
+         # with practice (about x3 half way) to its top after `top_hard` units of practice at the default lifespan, scaled with the
+         # lifespan (D2-153); a trip with a kill counts `kill_hard` times its units; a youth's practice counts `youth_hard` times; in a
+         # party each member's counts x (1 + the leader's lead over them as a share of the leader's skill), at most `lead_hard`
+         # above the capable (`capable_hard`), the party's best skill also finds more game: meetings x (skill / capable_hard)^find_hard
+         # (0: as the brief has it; 4c's calibration, docs/review/37_growth/02zzd_ev/ev_region_4c.json: the near wood meets about one
+         # beast a trip, so without it the master is held near the capable by meetings, not by the take)
+         "hard": [1.0, 8.0], "top_hard": 50.0, "kill_hard": 1.5, "youth_hard": 2.0, "lead_hard": 2.0,
+         "capable_hard": 3.0, "find_hard": 1.05}
 
 PHYSICS = {
     "units": {"summer": 7, "autumn": 6, "winter": 5, "spring": 6},      # agents/work.md (calibrate)
@@ -524,6 +621,7 @@ PHYSICS = {
                "over_units": 2,            # units one may push on past the day's (an agent's "overwork")
                "over_food": 2.0,           # their food, as units worked
                "fatigue": 1,               # units off tomorrow for each unit pushed past the day's
+               "watch_tired": 2,           # units off tomorrow after a night on watch, its sleep given up (D2-21; calibrate)
                "fade_after": 0.5,          # years a craft goes unpractised before its skill fades (D4-105)
                "fade_rate": 0.5,           # then this share a year of what can still be lost
                "fade_keep": 0.6,           # the share of one's best gain over the craft's floor that is never lost
@@ -531,8 +629,8 @@ PHYSICS = {
                "step": 0.1,                # a unit's walk for each leg of the day's route past the free ones (carried until whole)
                "free_steps": 2,            # legs free: to the next parcel and back (D4-105)
                "wear": True},              # fittings wear with use and time (FITTINGS wear)
-    "shelter": {"housed": 1.0, "damaged": 1.2, "unsheltered": 1.5},     # D4-12, H-5
-    "shelter_cold": {"housed": 1.0, "no_fuel": 1.3, "damaged": 1.5, "unsheltered": 2.0},
+    "shelter": {"housed": 1.0, "worn": 1.05, "gappy": 1.1, "damaged": 1.2, "unsheltered": 1.5},     # D4-12, H-5; worn, gappy: brief 4 §3
+    "shelter_cold": {"housed": 1.0, "worn": 1.1, "gappy": 1.2, "no_fuel": 1.3, "damaged": 1.5, "unsheltered": 2.0},
     "cold_starving": 0.3,                                                # H-5
     "fuel": {"normal": 0.5, "cold": 2.0, "camp": 1.0, "open": 2.0},     # in timber; in heat (D2-157): below
     "camping_fire": {"out": 1.6, "bedroll": 1.5, "tent": 1.25},            # in the cold by a fire in the open (D2-159)
@@ -547,6 +645,20 @@ PHYSICS = {
     "house_spoil": 0.3,
     "cellar_spoil": 0.25,                                                # D2-45: a quarter of the house rate
     "breaks": {"p": 0.02, "cold": 0.08, "structure": {"wattle": 1.5, "timber": 1.0, "stone": 0.4, "camp": 1.0}},   # D2-168 (proposed)
+    # shelter in levels (brief 4 §3; shelter_damage.md §1 to §4; calibrate), in worlds with the wild pack or `shelter_levels`:
+    # 5 sound, 4 worn, 3 gappy, 2 holed, 1 failing, 0 ruined (a camp: 5 standing, 2 damaged, 0 down). Two chances a night by
+    # structure, times the night's weather and the root of the floor over `size_ref`: minor wear takes a level; serious damage
+    # as many as its cause is severe (`take`: the odds of 1, 2, 3 levels for wattle; timber one fewer, stone one, at most two)
+    "wear": {"minor": {"wattle": 0.03, "timber": 0.015, "stone": 0.003, "camp": 0.08},
+             "serious": {"wattle": 0.002, "timber": 0.001, "stone": 0.0002, "camp": 0.0},
+             "camp_down": 0.05, "camp_flatten": 0.5,                    # a damaged camp falls; a gale flattens a standing one
+             "weather": {"frost": [2.0, 1.0], "heavy rain": [1.5, 1.5], "strong wind": [3.0, 5.0], "gale": [6.0, 20.0],
+                         "snow": [2.0, 8.0], "flood": [1.0, 20.0], "unmended": [1.0, 3.0]},
+             "take": {"mild": [0.8, 0.2, 0.0], "gale": [0.4, 0.4, 0.2], "heavy": [0.2, 0.5, 0.3]},
+             "strong_wind": 11.0, "storm": 0.5, "size_ref": 6, "unmended_days": 8,
+             "mend": {"wattle": {}, "timber": {"timber": 1}, "stone": {"stone": 1}, "camp": {}}, "mend_per": 8,
+             "damp": {"3": 1.5, "2": 3.0},                               # a store's spoiling, gappy and holed
+             "camp_build": {"timber": 1}, "camp_fire": 1.5},             # a camp: poles and brush, cheap; its open fire wasteful
     # D2-165 (defaults for Zach to confirm): the beds each sleeper takes; without one, the floor, as in a damaged house
     "beds": {"infant": 0.0, "child": 0.5, "youth": 1.0, "adult": 1.0, "elder": 1.0, "floor": "damaged"},
     "hunger_yield": {"0": 1.0, "-1": 0.75, "-2": 0.5},
@@ -556,7 +668,8 @@ PHYSICS = {
     "regrow_winter": 0.25,
     "game_threshold": 0.15,                                              # below this share of capacity game does not come back
     "combat": {"base": [0.5, 1.5], "guard": 2.0, "asleep": 0.5, "units": 3, "raid_share": 0.5, "fight_wear": 4},
-    "teach": {"units_teacher": 2, "units_learner": 2, "skill_share": 0.3},
+    "teach": {"units_teacher": 2, "units_learner": 2, "skill_share": 0.3,
+              "hunt_share": 0.15},   # the hunt's methods: a day closes this share of the gap to the teacher, x2 a youth (brief 4c §3.3)
     "watch": {"units": 4},
     "notes": {"max": 8, "words": 150, "open": 2},
     "felt_watched": 0.3,
@@ -687,8 +800,23 @@ THINGS = {
     # road. Meat by how it died, as a share of slaughter's (calibrate)
     "carcass": 0.9, "carcass_bones": 0.3, "carcass_bones_after": 6, "carcass_fresh_days": 1,
     "carcass_road": {"none": 0.3, "hidden": 0.3},
-    "carcass_meat": {"starved": 0.25, "road": 0.5, "other": 0.5},
+    "carcass_meat": {"starved": 0.25, "road": 0.5, "other": 0.5, "killed": 0.3, "sick": 0.6},
+    # a carcass's stages by its size on the day's clock (brief 3 §2, calibrate): fresh this many days, then its rotting meat and offal
+    # lose `rot` of themselves a night (x the season; nothing on a frozen night or under snow) until under `gone` of the first flesh,
+    # when only bones are left. A person's body is a medium carcass for what comes to it (`body_mass` of flesh, D2-205)
+    "carcass_size": {"cow": "large", "ox": "large", "bull": "large", "calf": "medium", "body": "medium", "hen": "small", "hare": "small"},
+    "carcass_sizes": {"small": {"fresh": 1, "rot": 0.6, "burn": {"units": 1, "firewood": 2}},
+                      "medium": {"fresh": 1, "rot": 0.4, "burn": {"units": 2, "firewood": 6}},
+                      "large": {"fresh": 2, "rot": 0.3, "burn": {"units": 4, "firewood": 12}}},
+    "carcass_rot_season": {"spring": 1.0, "summer": 1.5, "autumn": 1.0, "winter": 0.5}, "carcass_gone": 0.05,
+    "carcass_offal": 0.25, "body_mass": 30, "carcass_kg": 5.0,      # offal as a share of the meat; a unit of meat as kg of carrion
     "hidden": {"under brush": [0.2, 0.4], "buried": [0.03, 0.06], "off the road": [0.2, 0.2]},
+    # a set snare or trap, seen (brief 2 §4; brief 4c §4; calibrate): its own conspicuousness empty, spent (sprung), with a beast
+    # caught in it (`caught`, while the catch is fresh: up to `fresh_days` after the night it was caught), and x`birds` once the birds
+    # come to a catch with flesh on it (`birds_after` days after its night); for one who knows the line and is on its parcel, the look
+    # it is given (`knows`, a close look); a line emptied by another shows it for `robbed_days`; a spent one is about for `spent_days`
+    "set": {"own": 0.12, "sprung": 0.05, "caught": 0.4, "fresh_days": 1, "birds_after": 2, "birds": 1.5, "knows": 0.9,
+            "robbed_days": 2, "spent_days": 6},
 }
 # Fences round a parcel (livestock.md, D2-130; calibrate): what a build takes for a parcel of size s (x the square root of s), the chance a
 # day a herd gets through by its level (whole, gappy; down is no fence), and its upkeep: a wood fence loses a level each season unless
@@ -704,6 +832,8 @@ FENCES = {
 
 # Herds that are not held (livestock.md: D2-117, D2-123, D2-124, D2-128, D2-131; calibrate where the spec says so).
 HERDS = {
+    "gad": {"temp": 18.0, "wind": 3.0, "rain": 0.5, "through": 0.7},   # cattle gadding: a warm, still, dry summer day (the flies
+                                                          # work in sun from about 18 degrees); a fence's odds at least this (brief 2 K1; calibrate)
     "steps": {"fed": 1, "drawn": 8},             # a day: a fed herd on good pasture 0 to 1 steps; hungry or drawn up to 8 (D2-123)
     "good_grass": 0.3,                           # grazing above this share of the pasture's best counts as good
     "draw": {"ripe": 1.0, "water": 0.3},         # beyond the food a parcel offers: a ripe crop's pull, water when hungry
@@ -738,7 +868,7 @@ EVENT_EXTENT = {
     "building": ["store", "put", "left", "make", "host", "build", "birth"],
 }
 
-NOTICING = {
+NOTICING = {"expert_at": 0.8,              # the share of a work's skill range past which one reads as an expert (L3; 02zq)
     # presence: where the observer was and what it did, by what its work draws on (D2-85); passing through 0.3 (D2-115), next door 0.3
     # (D4-98: was 0.1; a herd on the pasture beside one's house was seen about 1 day in 10)
     "presence": {"game": 1.0, "plants": 0.7, "herd": 0.5, "work": 0.5, "about": 0.5, "crossing": 0.3, "next door": 0.3,
@@ -843,6 +973,10 @@ TECHNIQUES.update({
                           "key": "gather", "value": "*", "changes": {}, "units": 0, "gives": "", "tags": ["travel"]},
     "lead": {"verb": "modifier", "label": "leading a pack ox (an ox of your household's, with a harness)", "basic": True,
              "modifies": ["travel"], "key": "lead", "value": "*", "changes": {}, "units": 0, "gives": "", "tags": ["travel", "animals"]},   # D2-136
+    "lead on the hunt": {"verb": "modifier", "label": "leading a pack ox on the hunt, to carry the kill home (an ox here, a harness in hand)",
+                         "basic": True, "pack": "wild", "aliases": [],
+                         "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive"], "key": "lead", "value": "*",
+                         "changes": {"units": 1, "lead": True}, "units": 1, "gives": "", "tags": ["hunting", "animals"]},   # brief 4b §3.2
     "searching": {"verb": "modifier", "label": "searching the road for a herd or a person", "basic": True, "modifies": ["travel"],
                   "key": "searching", "value": "*", "changes": {}, "units": 0, "gives": "", "tags": ["travel", "animals"]},   # D2-125
 })
@@ -873,3 +1007,8 @@ LIFE = {
     "children_work": ["forage", "herd", "hay", "firewood"],   # D2-148, D2-156: what a head may set children to (the watch, D2-21, is not built)
     "child_skill": 0.5,                                                             # a child's skill at that work, to start
 }
+
+
+# The wild methods (D2-204, cybertron2/wild/methods.py): general rows whose take tables are generated from the kinds' traits.
+from cybertron2.wild import methods as _WILD_METHODS                   # noqa: E402
+_WILD_METHODS.build(TECHNIQUES, RESOURCES)

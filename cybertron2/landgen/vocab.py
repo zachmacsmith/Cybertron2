@@ -11,7 +11,12 @@ DEFAULTS = {
     "spacing_km": 17.0,           # sites at least this far apart in a straight line: roads of about a day (D2-182)
     "configuration": None,        # a named configuration (CONFIGS), or none: plain land with noise
     "wind": "west",               # the prevailing wind (wet windward, rain shadow lee)
-    "sea_level": 0.0,
+    "sea_level": 0.0,             # the sea's height against the land's datum: raise it and low ground joined to the sea drowns
+    "datum": 0.0,                 # the height the land's shapes are held above (02zp)
+    "carr_wet": 0.85,             # wood on ground this wet is alder carr, whatever the terrain (02zp)
+    "wet_grass": 0.75,            # cleared ground this wet is rushy wet grassland (02zp)
+    "treeline_c": 4.6,            # no wood where a year's mean is below this, C: the tree line follows warmth, not height (02zp)
+    "rain_mm": 900.0,             # a year's rain on the windward lowland, mm; the wind sweep raises it on hills, lowers it in the lee
     "base_m": 60.0,               # lowland height
     "relief_m": 100.0,            # the noise's height range
     "temperature_c": 9.0,         # a year's mean at sea level
@@ -112,7 +117,7 @@ QUARRY_PER_UNIT = 100              # stone in a rock parcel a unit of size (wenb
 WORDS = {
     "short_of": "the settlement's share of that flow in the region's bottom quarter",
     "plenty_of": "the settlement's share of that flow in the region's top quarter",
-    "soil": {"rich": [1.2, 1.4], "poor": [0.6, 0.8]},
+    "soil": {"rich": [1.2, 1.4], "fair": [0.95, 1.05], "poor": [0.6, 0.8]},
     "land": {"land-pressed": [0.8, 0.9], "land-rich": [0.4, 0.5]},     # its capacity target (D2-16)
 }
 

@@ -9,7 +9,7 @@ from __future__ import annotations
 import math
 from cybertron2.engine import renewal as RN, yields as YD
 from cybertron2.engine import buildings as BL, farm as FM, knowledge as KN, modifiers as MOD, perceive as PC, things as TH
-from cybertron2.engine.data import BLUEPRINTS, COVERS, FITTINGS, ITEMS, LINES, MONUMENTS, ROOMS, SPACE, TECHNIQUES, TIERS, TRY
+from cybertron2.engine.data import BLUEPRINTS, COVERS, FITTINGS, ITEMS, LINES, MONUMENTS, ROOMS, SPACE, TECHNIQUES, THINGS, TIERS, TRY
 from cybertron2.engine.here import Refused, show
 
 # The registry (cybertron 1's action_registry): arguments, cost (units, a physics path, or "craft"), the line in the manual, and
@@ -128,12 +128,15 @@ def cost(here, a) -> int:
     n = int(TECHNIQUES[tech]["units"])
     if TECHNIQUES[tech].get("units_by") == "bury":                            # by the ground and the cold (D2-96)
         cairn = str(a.get("method", "")).lower() == "cairn"
-        cid = _thing_site(here, a.get("at"), graves=cairn)
+        cid = _thing_site(here, a.get("at"), graves=cairn, kinds=_dead_kinds(tech))
         if cid and cairn:
             n = here.bury_units(cid, cairn=True)
         elif cid:                                                              # a grave is dug a share at a time, by anyone, over days
-            from cybertron2.engine import things as TH                         # (D4-99): an act puts in up to its units
-            n = max(1, min(n, here.grave_left(cid)))
+            n = max(1, min(n, _grave_left(here, cid, a)))                      # (D4-99): an act puts in up to its units
+    elif TECHNIQUES[tech].get("units_by") == "burn":                          # by the carcass's size (brief 3 §4)
+        cid = _thing_site(here, a.get("at"), kinds=_dead_kinds(tech))
+        if cid:
+            n = int(THINGS["carcass_sizes"][here.carcass_size(cid)]["burn"]["units"])
     elif v == "make":
         try:
             n *= max(1, int(_qty(a.get("qty"), 1)))
@@ -171,15 +174,18 @@ def _bury(here, cid, cairn, a) -> str:
         return f"You buried {c['of']} at {spot} under a cairn of stones."
     need = here.bury_units(cid)
     g = dict(c.get("grave") or {})
-    put = max(1, min(int(TECHNIQUES["bury"]["units"]), here.grave_left(cid)))
+    shallow = str(a.get("method", "")).lower() == "shallow"                   # half the digging: beasts may dig it up (brief 3 §4)
+    put = max(1, min(int(TECHNIQUES["bury"]["units"]), _grave_left(here, cid, a)))
     done = min(1.0, round(float(g.get("done", 0.0)) + put / need, 6))
     by = list(dict.fromkeys(list(g.get("by") or []) + [here.name]))
     others = [x for x in by if x != here.name]
-    if done >= 1.0 - 1e-6:
+    if done >= (0.5 if shallow else 1.0) - 1e-6:
         here.apply("set_thing", cid=cid, field="buried", value=here.day)
         here.apply("set_thing", cid=cid, field="cairn", value=False)
         here.apply("set_thing", cid=cid, field="grave", value=None)
+        here.apply("set_thing", cid=cid, field="depth", value="shallow" if done < 1.0 - 1e-6 else "deep")
         return (f"You finished the grave and buried {c['of']} at {spot}" + (f"; {', '.join(others)} dug it with you" if others else "")
+                + (", shallow: beasts may dig it up" if done < 1.0 - 1e-6 else "")
                 + ". A cairn of stones can be raised over it later (3 stone).")
     here.apply("set_thing", cid=cid, field="grave", value={"done": done, "by": by, "day": here.day, "began": g.get("began", here.day)})
     left = here.grave_left(cid)
@@ -187,14 +193,52 @@ def _bury(here, cid, cairn, a) -> str:
             f"of digging{' in the frozen ground' if here.cold() else ''}). Anyone can help dig it, and the work keeps for another day.")
 
 
-def _thing_site(here, at, graves=False):
+def _dead_kinds(tech) -> tuple:
+    """Which of the dead a technique works on: bodies, dead beasts (brief 3 §4)."""
+    t = (TECHNIQUES[tech].get("at") or {}).get("things") or "body"
+    return tuple(t) if isinstance(t, list) else (t,)
+
+
+def _grave_left(here, cid, a) -> int:
+    """Units a grave still wants: a shallow one half the whole (brief 3 §4)."""
+    import math
+    left = here.grave_left(cid)
+    if str((a or {}).get("method", "")).lower() == "shallow":
+        c = here.thing(cid)
+        need = math.ceil(here.bury_units(cid) / 2)
+        done = float((c.get("grave") or {}).get("done", 0.0)) * here.bury_units(cid)
+        left = max(0, math.ceil(need - done - 1e-6))
+    return left
+
+
+def _burn(here, cid) -> str:
+    """Burning a carcass (brief 3 §4): firewood by its size, from hand or a store one may take from; its flesh, hide and tallow
+    burn, and nothing comes to it after; the smoke is seen."""
+    c = here.thing(cid)
+    size = THINGS["carcass_sizes"][here.carcass_size(cid)]["burn"]
+    _consume(here, {"firewood": float(size["firewood"])})
+    for item, q in sorted(c["goods"].items()):
+        if q > 1e-9:
+            here.apply("destroy", src=cid, item=item, qty=q, why="burned")
+    here.apply("set_thing", cid=cid, field="burnt", value=here.day)
+    spot = here.spot_name(c)
+    here.event("work", f"{here.name} burned the dead {c['beast']} at {spot}; the smoke of it went up", salience=0.4,
+               tags=["animals"], about=[f"parcel:{c['parcel']}"] if c.get("parcel") else [])
+    return f"You burned the dead {c['beast']} at {spot} on a pyre of {size['firewood']:g} firewood: nothing will come to it now."
+
+
+def _thing_site(here, at, graves=False, kinds=("body",)):
     """A body here by its person's name or its place's name (for burying); with `graves`, a grave with no cairn yet as well (a
-    cairn raised after the burial, D4-99), an unburied body first."""
+    cairn raised after the burial, D4-99), an unburied body first; with kinds holding "carcass", a dead beast by its beast's name
+    too (brief 3 §4)."""
     from cybertron2.engine import things as TH
     low = str(at or "").strip().lower()
-    pool = list(here.bodies().items()) + (list(here.graves().items()) if graves else [])
+    pool = (list(here.bodies().items()) if "body" in kinds else []) + (list(here.carcasses().items()) if "carcass" in kinds else []) \
+        + (list(here.graves().items()) if graves else [])
     for cid, c in pool:
         names = {c["of"].lower(), here.spot_name(c).lower(), here.spot_name(c).lower().removeprefix("the ")}
+        if c.get("beast"):
+            names |= {c["beast"], f"the {c['beast']}", f"the dead {c['beast']}", f"dead {c['beast']}", "the carcass", "carcass"}
         pid = c.get("parcel")
         if pid in here.parcels():                                             # the ground it lies on, or a building on that ground
             names |= {here.parcels()[pid]["name"].lower()} | {b["name"].lower() for b in here.buildings().values() if b["parcel"] == pid}
@@ -208,6 +252,8 @@ def do(here, mind, a) -> str:
     if v in ALIASES:                                                          # leaving, putting down and hiding are giving (D2-111)
         a = ALIASES[v](a)
         v = "give"
+    if v in LIFT or (v in ("gather", "work") and str((a or {}).get("what") or "").strip().lower() in LIFT - {"lift", "check"}):
+        a, v = _as_lift(a), "take"                                            # lifting snares is taking from them (brief 4c §4.4)
     try:
         if v not in VERBS:
             raise Refused(f"unknown verb {v!r}; the verbs are {', '.join(VERBS)}")
@@ -420,18 +466,23 @@ def _site(here, mind, tech, at, a=None):
         return "thing", cid, (f"the grave of {c['of']} at {here.spot_name(c)}" if c.get("buried") is not None
                               else f"the body of {c['of']} at {here.spot_name(c)}")
     if sites and sites[0][0] == "thing":
-        cid = _thing_site(here, at)
+        kinds = _dead_kinds(tech)
+        cid = _thing_site(here, at, kinds=kinds)
+        what = "body or dead beast" if len(kinds) > 1 else ("dead beast" if kinds == ("carcass",) else "body")
         if cid is None:
-            raise Refused(f"there is no body to bury here called {at!r}" if at else "there is no body here to bury")
+            raise Refused(f"there is no {what} here called {at!r}" if at else f"there is no {what} here")
         return "thing", cid, next(s[2] for s in sites if s[1] == cid)
     if not sites and (TECHNIQUES[tech].get("at") or {}).get("things"):
-        raise Refused("there is no one lying unburied here")
+        raise Refused("there is no dead beast lying here" if _dead_kinds(tech) == ("carcass",) else "there is no one lying unburied here")
     if at:
         key = here.parcel(at) or here.building(at)
         if key is None:
             raise Refused(f"there is no place called {at!r} here")
         where = [s for s in sites if s[0] == "parcel"]
-        sites = [s for s in sites if s[1] == key]
+        on = [s for s in sites if s[1] == key]
+        if not on and key in here.buildings():                                # work done on the ground, named by a building on it:
+            on = [s for s in where if s[1] == here.buildings()[key].get("parcel")]   # the parcel it stands on
+        sites = on
         if not sites:                                                          # where here it is done, by the land (D4-95)
             names = list(dict.fromkeys(here.parcels()[s[1]]["name"] for s in where if s[1] in here.parcels()))
             raise Refused(f"{KN.label(tech)} is not done at {at}" + (f"; here it is done at {', '.join(names)}" if names else
@@ -495,14 +546,30 @@ def _technique(here, mind, a, party, verb):
     tech = KN.resolve(a.get("what"), verb)
     if tech is None or TECHNIQUES[tech]["verb"] != verb:
         from cybertron2.engine import packs as PK
+        if "wild" in PK.CURRENT:                                               # the catalogue is not listed (D2-204 §7)
+            raise Refused(f"{a.get('what')!r} is not a way of working you know; you {verb} by the ways your crafts list names")
         names = PK.techniques(verb=verb)
         raise Refused(f"{a.get('what')!r} is not something you {verb} ({verb}: {', '.join(names)})")
     tech, a = _as_modified(tech, verb, a)
     t = TECHNIQUES[tech]
-    if not t.get("crew"):                                                     # crew work: anyone may dig, led by one who knows how
-        _level(mind, tech)
+    from cybertron2.engine import parties as HP
+    lead = HP.member_of(here) if a.get("_party") and (t.get("yield") or {}).get("kind") == "wild_take" else None
+    if not t.get("crew") and not (lead and lead != here.name):              # crew work: anyone may dig, led by one who knows how;
+        _level(mind, tech)                                                  # a hunting party, led by its leader (brief 4b §3.1)
     a = {**a, "_mods": MOD.resolve(here, mind, verb, a, tech=tech)}           # ways of doing it (D2-93)
+    if a["_mods"].get("lead") and (t.get("yield") or {}).get("kind") == "wild_take":   # a beast led to carry the kill (brief 4b §3.2)
+        ox = here.pack_ox(a.get("lead"))
+        if ox is None:
+            raise Refused("to lead a pack ox on the hunt you need an ox here and a harness in your hands")
+        a["_mods"] = {**a["_mods"], "_ox": ox}
+    if t.get("crew") and (t.get("yield") or {}).get("kind") == "wild_take" and not lead:
+        raise Refused(f"{KN.label(tech)} needs others with you: hunt with someone (\"with\": who leads), or have others hunt with you")
     kind, key, place_name = _site(here, mind, tech, a.get("at"), a)
+    if kind in ("parcel", "thing"):                                           # a bear lying up by its kill there (brief 3 §3)
+        from cybertron2.engine import wild as WL
+        met = WL.cache_meet(here, key if kind == "parcel" else (here.thing(key) or {}).get("parcel"))
+        if met:
+            return met
     why = KN.shortfall(here, mind, tech, 1.0, key, a=a)
     if why:
         if kind == "parcel":                                                   # one went and tried: one sees the place (D4-95)
@@ -520,6 +587,7 @@ def _technique(here, mind, a, party, verb):
     note = _against(here, thing) if kind == "parcel" and t.get("draws") != "dead" else ""   # dead wood is anyone's (D2-158)
     got, gives, word, extra_got, suffix = 0.0, t.get("gives"), "", "", ""
     holding = None
+    after = ""                                                                 # what was noticed on the way, after the outcome
     if y["kind"] == "stock":
         r = here.parcels()[key]["res"][t["draws"]]
         got = here.apply("draw", parcel=key, key=t["draws"], qty=YD.dist(y, r, m, tm, refuge=here.p["refuge"],
@@ -567,6 +635,10 @@ def _technique(here, mind, a, party, verb):
         word = _bury(here, key, "method: cairn" in a["_mods"]["_used"], a)
         c = here.thing(key)
         thing = ("parcel", c["parcel"]) if c.get("parcel") else thing
+    elif y["kind"] == "burn":                                                 # a carcass burned (brief 3 §4)
+        word = _burn(here, key)
+        c = here.thing(key)
+        thing = ("parcel", c["parcel"]) if c.get("parcel") else thing
     elif y["kind"] == "mend":                                                # a worn fitting set right (D4-103 phase 2)
         from cybertron2.engine import wear as WE
         need = y.get("inputs") or {}
@@ -581,6 +653,43 @@ def _technique(here, mind, a, party, verb):
             _mason(mind)                                                       # mending stone is walling (D4-97)
         word = _repair(here, key, m)
         thing = ("building", key)
+    elif y["kind"] == "wild_take" and t.get("set"):                           # set and left: it catches by night (brief 2 §4)
+        from cybertron2.engine import wild as WL
+        word = WL.set_work(here, mind, tech, key, place_name)
+        gives = None
+    elif y["kind"] == "wild_take" and lead:                                  # a party's hunt: settled after the day's acts (4b §3.1)
+        word = HP.record(here, mind, tech, key, place_name, out, m, a)
+        gives = None
+    elif y["kind"] == "wild_take":                                           # a hunt in the wild layer (wild_layer.md, D2-199)
+        from cybertron2.engine import wild as WL
+        _, word, after = WL.take(here, mind, tech, key, place_name, out, m, y, a)
+        gives = None                                                            # its goods are made by the hunt, by kind
+    elif y["kind"] == "wild_den":                                            # den work: a den's take or a lodge's trap (D2-204)
+        from cybertron2.engine import wild as WL
+        _, word, after = WL.den_work(here, mind, tech, key, place_name, out, m, y, a)
+        gives = None
+    elif y["kind"] == "wild_young":                                          # gather young: a colony's (D2-204)
+        from cybertron2.engine import wild as WL
+        word = WL.young(here, key, place_name, m * tm)
+    elif y["kind"] == "wild_pest":                                           # pest work: the pest named, else the worst (D2-204)
+        from cybertron2.engine import wild as WL
+        word = WL.pest(here, key, place_name, a)
+    elif y["kind"] == "wild_forage":                                         # wild plants in season (D2-200, D2-201)
+        from cybertron2.engine import wild as WL
+        got, word = WL.forage(here, mind, tech, key, place_name, out, m * tm, y, a)
+        gives = None
+    elif y["kind"] == "wild_site":                                           # a heronry, rookery or lodge (wave 5)
+        from cybertron2.engine import wild as WL
+        word = WL.site_work(here, key, y, place_name, m * tm)
+    elif y["kind"] == "wild_shut":                                           # hens shut in for the night (wild_layer.md, wave 2)
+        from cybertron2.engine import wild as WL
+        word = WL.shut(here)
+    elif y["kind"] == "wild_guard":                                          # a guard on a field against a load (wave 3)
+        from cybertron2.engine import wild as WL
+        word = WL.guard(here, key, y, place_name)
+    elif y["kind"] == "wild_watch":                                          # a night watch over a field (wild_layer.md, D2-199)
+        from cybertron2.engine import wild as WL
+        word = WL.watch(here, key, y, place_name, a)
     elif y["kind"] == "clear_built":                                          # new ground for building (02zh §8)
         word = _clear_built(here, key, place_name, m * tm, party)
     what = PC.LAND_DRAWS.get(t.get("draws")) if kind == "parcel" and y["kind"] in ("stock", "chance") else None
@@ -594,8 +703,11 @@ def _technique(here, mind, a, party, verb):
         here.apply("create", dst=out, item=gives, qty=got, why=tech)
     if tool and t.get("wear"):
         here.apply("wear", container=here.hands, item=tool, uses=t["wear"])
-    KN.tried(here, mind, tech, got > 0 or y["kind"] in ("sow", "tend", "repair", "slaughter", "break", "manure", "herd", "bury", "fence", "gate"),
-             units=t["units"])
+    if not (y["kind"] in ("wild_take", "wild_den") and not t.get("set")):   # a hunt is practised by how it went (wild.practise, 4c §3.3)
+        KN.tried(here, mind, tech, got > 0 or y["kind"] in ("sow", "tend", "repair", "slaughter", "break", "manure", "herd", "bury", "fence",
+                                                           "gate", "wild_watch", "wild_take", "wild_shut", "wild_guard", "wild_forage",
+                                                           "wild_site", "wild_young", "wild_pest"),
+                 units=t["units"])
     MOD.practise(here, mind, a["_mods"])
     for_txt = f" for {here.households()[party]['name'] if party in here.households() else party}" if party and party != here.name else ""
     text = f"{here.name} was {KN.label(tech)} at {place_name}{for_txt}{note}"
@@ -603,17 +715,20 @@ def _technique(here, mind, a, party, verb):
                tech=tech, concerns=(_holding_people(here, holding) if holding is not None else _holders_people(here, thing)) if note else [],
                **({"holding": holding} if holding is not None else {}))
     here.record(verb, tech, party, site=key)
+    if kind == "parcel":                                                      # what the work showed of the wild about it (02zq)
+        from cybertron2.engine import wild as WL
+        after += WL.work_notices(here, mind, tech, key)
     if word:
         if y["kind"] == "slaughter":                                          # where the meat and hide went (D4-70)
             word = word.rstrip(".") + (" (now in your hands)." if out == here.hands else
                                        f" (put into {here.buildings()[out[len('stock:'):]]['name']})." if out.startswith("stock:") else ".")
-        return word if not for_txt else word.rstrip(".") + for_txt + "."
+        return (word if not for_txt else word.rstrip(".") + for_txt + ".") + after
     if y["kind"] == "chance" and got <= 0:
-        return f"You hunted in {place_name}{note} and caught nothing{extra_got}."
+        return f"You hunted in {place_name}{note} and caught nothing{extra_got}." + after
     via = f" with your {tool}" if tool else (" with your bare hands" if t.get("tools") else "")
     dest = "" if out == here.hands else f" into {here.buildings()[out[len('stock:'):]]['name']}" if out.startswith("stock:") else f" to {party}"
     return (f"You {verb}ed {show(got)} {gives}{extra_got} at {place_name}{note}{via}{dest}.{suffix}".replace("You gathered", "You took")
-            .replace("You worked", "You got"))
+            .replace("You worked", "You got")) + after
 
 
 # ---------------------------------------------------------------------- making
@@ -642,15 +757,31 @@ def _make(here, mind, a, party):
         if why:
             res.append(f"Refused: make {tech}: {why}")
             break
-        _consume(here, t.get("inputs") or {}, mult, extra)
+        share = KN.batch_share(here, tech, mult, extra)                        # whatever one has, up to the batch (brief 4c §6.1)
+        _consume(here, t.get("inputs") or {}, mult * share, extra)
         if b is not None and fits and WE.on(here.p):
-            WE.use(here, site[1], fits, sum(v for v in (t.get("inputs") or {}).values() if isinstance(v, (int, float))) * fac)
+            WE.use(here, site[1], fits, sum(v for v in (t.get("inputs") or {}).values() if isinstance(v, (int, float))) * fac * share)
         ok = here.rng("make", here.day, here.name, tech, i).random() < TRY[lvl]["chance"]
         rose = KN.tried(here, mind, tech, ok, units=t["units"])
         if ok:
             full = ""
             gives = {item: (q if fac == 1.0 else round(q * fac, 2)) for item, q in t["gives"].items()}
-            for item, q in gives.items():
+            if share < 1.0:
+                gives = {item: round(q * share, 4) for item, q in gives.items()}
+            rk = t.get("rack")
+            if rk and b is not None:                                           # hung on a rack at the fire, for its nights (brief 4 §5)
+                smoke = bool((b.get("fittings") or {}).get("hearth"))          # at a hearth: inside, in its smoke (brief 4c §6.2)
+                dst = here.apply("new_thing", node=here.node, parcel=b["parcel"], kind="pile", by=here.name,
+                                 **({"in": site[1]} if smoke else {"door": site[1]}),
+                                 rack={"day": here.day, "nights": int(rk["nights"]), "into": rk["into"], "ratio": float(rk["ratio"]),
+                                       "smoke": smoke})
+                if site[1] not in here.homes_here():                           # one's own house is known without it (4c §6.4)
+                    here.remember_thing(dst, "put")
+                for item, q in gives.items():
+                    here.apply("create", dst=dst, item=item, qty=q, why=tech)
+                full = (f"; it hangs on the rack in the smoke of the hearth inside {b['name']} for {int(rk['nights'])} nights" if smoke else
+                        f"; it hangs on a rack by the fire outside {b['name']} for {int(rk['nights'])} nights")
+            for item, q in ({} if rk and b is not None else gives).items():
                 full += _full_note(here, out, item, q)
                 here.apply("create", dst=out, item=item, qty=q, why=tech)
             worn = (" (" + WE.worn_words(here.p, b, fits, here.day, here.year_days()) + ")") if fac < 1.0 else ""
@@ -756,7 +887,9 @@ def _new_building(here, mind, a, party, pid, what, owner):
             raise Refused("you cannot camp on water")
         if BL.ground_total(par) > 0 and BL.ground_free(pid, par, here.buildings()) < int(SPACE["camp_floor"]):
             raise Refused(f"there is no room left to camp on {par['name']}")
-        _consume(here, bp["materials"], TRY[lvl]["inputs"], here.party_container(party) if party else None)
+        from cybertron2.engine.data import PHYSICS
+        mats = dict(PHYSICS["wear"]["camp_build"]) if here.levels_on() else bp["materials"]   # cheap in levels (brief 4 §3)
+        _consume(here, mats, TRY[lvl]["inputs"], here.party_container(party) if party else None)
         name = str(a.get("name") or "").strip()[:40] or f"{who}'s camp on {par['name']}"
         bid = here.apply("raise", node=here.node, parcel=pid, rec={"name": name, "structure": "camp", "fittings": {},
                                                                      "unfinished": {"blueprint": what, "units_left": bp["units"]}})
@@ -1263,26 +1396,73 @@ def _move(here, mind, a, party):
             + f" (it holds {show(here.stock(bid).get(item, 0.0))}).")
 
 
+def _parcel_named(here, x):
+    """A parcel here by its name, or named within a phrase ("the snares at the Ham"; brief 4c §4.4)."""
+    pid = here.parcel(x)
+    if pid is not None:
+        return pid
+    low = str(x or "").strip().lower()
+    hits = [p for p, q in here.parcels().items() if len(q["name"].lower().removeprefix("the ")) > 3
+            and q["name"].lower().removeprefix("the ") in low]
+    return max(hits, key=lambda p: len(here.parcels()[p]["name"])) if hits else None
+
+
+def _lift(here, mind, rem):
+    """Lifting a set thing one knows (brief 4c §4.4): everything in it into hand, or a look that it holds nothing."""
+    c = here.thing(rem)
+    noun = "wicker traps" if TH.is_trap(c) else "snares"
+    whose = "your" if c.get("by") == here.name else "the"
+    took = []
+    for it, q in sorted(c["goods"].items()):
+        if q > 1e-9:
+            took.append(_take(here, mind, {"item": it, "qty": q, "from": "", "_thing": rem}, None))
+    if not took:
+        here.look_thing(rem)
+        return f"You looked over {whose} {noun} at {here.spot_name(c)}: nothing is caught in them."
+    return " ".join(took)
+
+
 def _take(here, mind, a, party):
+    src_name = str(a.get("from") or a.get("at") or "")
+    if not a.get("item"):                                       # no item: lift a set thing one knows, all of it (brief 4c §4.4)
+        rem = here.find_thing(src_name)
+        if rem is not None and (here.thing(rem) or {}).get("kind") == "set":
+            return _lift(here, mind, rem)
+        pid = _parcel_named(here, src_name)
+        if rem is None and pid is not None and here.building(src_name) is None:
+            rem = here.search_thing(here.parcels()[pid]["name"])
+            if rem is not None and (here.thing(rem) or {}).get("kind") == "set":
+                return _lift(here, mind, rem)
+        if rem is None and any(x in src_name.lower() for x in ("snare", "trap", "noose")):
+            raise Refused("you know of no such set snares or traps here; name the place: {\"from\": \"the snares at <place>\"}")
     item = item_of(a.get("item"))
-    src_name = str(a.get("from") or "")
-    rem = here.find_thing(src_name, item)                        # what one knows lies here (D2-87: nobody's)
+    if not src_name.strip() and not a.get("_thing"):
+        raise Refused('take needs "from": the building, or the place where the things lie (a field, the Green, the Street)')
+    rem = a.get("_thing") or here.find_thing(src_name, item)    # what one knows lies here (D2-87: nobody's)
     from cybertron2.engine import tags as TG
     tag = TG.tag_in(src_name) if here.setting("tags") else None
     if rem is None and tag and here.building(src_name) is None:              # a thing named by its tag: say why not (D4-94)
         if not here.tagged_here(tag):
             raise Refused(f"you know of nothing called {tag} here")
         raise Refused(f"{tag} holds no {item}" if item else f"{tag} holds nothing")
-    if rem is None and here.parcel(src_name) is not None and here.building(src_name) is None:
-        rem = here.search_thing(src_name, item)                  # not known of: one looks, as it is seen or hidden (D4-70)
+    pid = _parcel_named(here, src_name) if rem is None else None
+    if rem is None and pid is not None and here.building(src_name) is None:
+        rem = here.search_thing(here.parcels()[pid]["name"], item)   # not known of: one looks, as it is seen or hidden (D4-70)
         if rem is None:
-            raise Refused(f"you looked over {here.parcels()[here.parcel(src_name)]['name']} and found no {item} lying there")
+            raise Refused(f"you looked over {here.parcels()[pid]['name']} and found no {item} lying there")
     if rem:
         c = here.thing(rem)
+        from cybertron2.engine import wild as WL
+        met = WL.cache_meet(here, c.get("parcel")) if c.get("cached") else None   # a bear lying up by its kill (brief 3 §3)
+        if met:
+            return met
         door = c.get("door") if c.get("door") in here.buildings() else None         # left at a door: the house's (D4-89)
         src, theft = rem, bool(door) and not here.may_take(here.buildings()[door]["stock"])
         bid = door
         label = f"what {c['of']} left" if c.get("body") else f"what lay at {here.spot_name(c)}"
+        if c.get("kind") == "set":
+            label = (f"{'your' if c.get('by') == here.name else 'the'} {'wicker traps' if TH.is_trap(c) else 'snares'} "
+                     f"at {here.spot_name(c)}")
         have = c["goods"].get(item, 0.0)
         if c.get("by") != here.name:
             f = mind.store.setdefault("found", [])
@@ -1308,6 +1488,15 @@ def _take(here, mind, a, party):
         here.record("take", None, None, theft=True)
         return f"You took {show(q)} {item} from {label}, which is not yours to take from. Whether anyone saw, you will learn."
     c = here.thing(src) or {"kind": "stock"}
+    if c["kind"] == "set":                                                     # emptied: its catch gone; another's emptying it shows
+        if not any(x > 1e-9 for x in c["goods"].values()):                     # to those who know the line (brief 4c §4.2)
+            here.apply("set_thing", cid=src, field="catch", value=[])
+        if c.get("by") not in (here.name, None):
+            here.apply("set_thing", cid=src, field="robbed", value={"day": here.day, "by": here.name})
+    if c["kind"] == "set" and c.get("by") not in (here.name, None):            # another's snare robbed: seen, and theirs to know
+        here.event("take", f"{here.name} took {item} from the {'traps' if (c.get('set') or {}).get('method') == 'trap in water' else 'snares'} "
+                           f"{c['by']} set at {here.spot_name(c)}", actor=here.name, salience=0.55, about=[f"parcel:{c['parcel']}"],
+                   tags=["food", "hunting"], concerns=[c["by"]])
     here.event("take", f"{here.name} took {item} from {label}", actor=here.name, salience=0.4 if c["kind"] in TH.KINDS else 0.3,
                about=[f"parcel:{c['parcel']}"] if c.get("parcel") else [], tags=["food"] if ITEMS[item]["food"] else [])
     if c["kind"] in TH.KINDS:
@@ -1421,6 +1610,19 @@ def _alias_give(hidden=None):
 
 
 ALIASES = {"leave": _alias_give(), "put": _alias_give(), "drop": _alias_give(), "hide": _alias_give("under brush")}
+# lifting or checking one's snares or traps is taking what is in them (brief 4c §4.4): as a verb, or as the way of work named
+LIFT = {f"{v} {o}".strip() for v in ("lift", "check", "empty") for o in
+        ("", "the snares", "snares", "my snares", "the snare line", "the snare", "the traps", "traps", "my traps", "the eel traps",
+         "eel traps", "the wicker traps", "wicker traps")} - {"empty"}
+
+
+def _as_lift(a):
+    """A lift or check of snares or traps, as a take from them: from the place it names, else the snares or traps it names."""
+    what = str(a.get("what") or a.get("do") or "").strip().lower()
+    src = a.get("from") or a.get("at") or a.get("thing") or a.get("target")
+    if src and not any(x in str(src).lower() for x in ("snare", "trap", "noose")):
+        src = f"the {'traps' if 'trap' in what else 'snares'} at {src}"
+    return {k: v for k, v in a.items() if k not in ("do", "what", "at")} | {"from": src or ("the traps" if "trap" in what else "the snares")}
 
 
 # ---------------------------------------------------------------------- hosting and grants (05 §3; D4-23 rights)
@@ -1743,9 +1945,18 @@ def _withdraw(here, mind, a, party):
 
 def _repair(here, bid, m) -> str:
     """A break mended (D2-168): its materials when the mending starts (1 timber, stone for stone, for every 4 spaces of floor, at
-    least 2), then its work, two units an action, until it is mended a step."""
+    least 2), then its work, two units an action, until it is mended a step. In levels (brief 4 §3) a step is a level, and cheap:
+    wattle earth and work, timber or stone one of its stuff, for every `mend_per` spaces of floor."""
     b = here.buildings()[bid]
     md = dict(b.get("mending") or {})
+    if not md and b.get("level") is not None:
+        from cybertron2.engine.data import PHYSICS
+        W = PHYSICS["wear"]
+        n = max(1, int((BL.floor(b) or 4) // int(W["mend_per"])))
+        need = {"materials": {k: v * n for k, v in (W["mend"].get(b.get("structure", "wattle")) or {}).items()}, "units": n}
+        if need["materials"]:
+            _consume(here, need["materials"], extra=b["stock"] if here.may_take(b["stock"]) else None)
+        md = {"units_left": float(need["units"]), "day": here.day}
     if not md:
         need = BL.repair_need(b)
         _consume(here, need["materials"], extra=b["stock"] if here.may_take(b["stock"]) else None)
@@ -1755,6 +1966,13 @@ def _repair(here, bid, m) -> str:
         here.apply("set", ref=("building", bid), field="mending", value=md)
         return f"You worked on mending {b['name']}: about {show(md['units_left'])} units of work left."
     here.apply("set", ref=("building", bid), field="mending", value=None)
+    if b.get("level") is not None:
+        lv = min(5, BL.level(b) + (3 if b.get("structure") == "camp" and BL.level(b) == 2 else 1))
+        here.apply("set", ref=("building", bid), field="level", value=lv)
+        here.apply("set", ref=("building", bid), field="level_since", value=here.day)
+        if BL.COND_OF_LEVEL[lv] != int(b["condition"]):
+            here.apply("set", ref=("building", bid), field="condition", value=BL.COND_OF_LEVEL[lv])
+        return f"You mended {b['name']}: it is now {BL.level_word(here.buildings()[bid])}."
     here.apply("set", ref=("building", bid), field="condition", value=b["condition"] + 1)
     return f"You repaired {b['name']}: it is now {('ruined', 'damaged', 'sound')[b['condition']]}."
 

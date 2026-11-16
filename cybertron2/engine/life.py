@@ -150,7 +150,8 @@ def come_of_age(w, name) -> None:
         model = w.s["people"][head].get("model") or cast.get("youth") or "claude-haiku-5-5"
     else:
         model = cast.get("youth") or "claude-haiku-5-5"
-    model = (w.spec.get("household_models") or {}).get(hh) or model             # a world may give each household one model
+    model = (w.spec.get("household_models") or {}).get(hh) or inst.get("model") or model   # a world may give each household one
+                                                                                # model; a household founded in the run has its founder's
     if w.spec.get("bots"):
         model = "bot"
     w.apply("set", w.place_of(("person", name)), ref=("person", name), field="model", value=model)

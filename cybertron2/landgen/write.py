@@ -33,7 +33,7 @@ RES_R = {"plants": 0.3, "grass": 0.32, "game": 0.25}
 
 def _conf(gen: dict) -> dict:
     conf = dict(V.DEFAULTS)
-    conf.update({k: v for k, v in gen.items() if k in V.DEFAULTS or k in ("features", "configuration_params")})   # the shapes a
+    conf.update({k: v for k, v in gen.items() if k in V.DEFAULTS or k in ("features", "configuration_params", "roads")})   # the shapes a
     return conf                                                            # file adds or changes are not defaults (were dropped)
 
 
@@ -45,6 +45,64 @@ def _base_settings(spec: dict, path: str | None) -> dict:
         bp = b if os.path.exists(b) else os.path.join(os.path.dirname(path), os.path.basename(b))
         return merge(load_spec(bp), {k: v for k, v in spec.items() if k not in ("base", "generate")})
     return {k: v for k, v in spec.items() if k != "generate"}
+
+
+# the land a parcel carries (02zp; agreed with 37.4, D4-112, D4-113): fixed properties under `land:`, read by renewal rules through
+# renewal.context. Soil water by texture: plant-available water a metre of soil (mm) and the share of a surplus that drains a day.
+AWC_MM = {V.SAND: 70.0, V.LOAM: 170.0, V.CLAY: 150.0, V.CHALK: 140.0, V.PEAT: 300.0}
+DRAIN = {V.SAND: 0.5, V.LOAM: 0.25, V.CLAY: 0.08, V.CHALK: 0.4, V.PEAT: 0.05}
+NUTRIENT = {V.SAND: 0.7, V.LOAM: 1.0, V.CLAY: 1.05, V.CHALK: 0.85, V.PEAT: 1.1}   # nutrients only: water is soil_water's
+
+
+def _land_fields(L) -> dict:
+    """Fields the parcels' land is read from: exposure (0 sheltered to 1 exposed) and position (hollow, slope, ridge)."""
+    local = F.box_mean(L.h, 13)                                            # the ground within about 2 km
+    rel = L.h - local
+    exposure = np.clip(0.4 + rel / 80.0 + L.slope / 40.0 + np.clip(L.h - 200, 0, None) / 1000.0, 0, 1)
+    position = np.where(L.wet >= 0.55, "hollow", np.where(rel > 12.0, "ridge", "slope"))
+    return {"exposure": exposure, "position": position}
+
+
+def _land(L, fields, p, node_rain: float, owner: dict) -> dict:
+    """A parcel's fixed land, from its cells."""
+    rc = tuple(np.array(p.cells).T) if p.cells else None
+    if rc is None:
+        return {}
+    tex = L.tex[rc]
+    t = int(np.bincount(tex.astype(int)).argmax())
+    depth_m = float(np.mean(L.depth[rc])) * 1.2
+    silt = np.where((L.f[rc] < 2) & (L.near_river[rc] >= 2), 1.15, 1.0)
+    high = 1 - np.clip((L.h[rc] - 300) / 600, 0, 0.4)
+    nutr = float(np.mean(np.vectorize(NUTRIENT.get)(tex) * silt * high))
+    rain = float(np.mean(L.rain_mm[rc])) if getattr(L, "rain_mm", None) is not None else node_rain
+    riv = int(L.river[rc].max())
+    land = {"elevation": round(float(np.mean(L.h[rc])), 1), "exposure": round(float(np.mean(fields["exposure"][rc])), 2),
+            "texture": V.TEXTURE.get(t, "loam"), "held_mm": round(AWC_MM.get(t, 150.0) * depth_m, 1), "drain_rate": DRAIN.get(t, 0.25),
+            "depth": round(depth_m, 2), "base_fertility": round(nutr, 3),
+            "position": max(set(fields["position"][rc].tolist()), key=fields["position"][rc].tolist().count),
+            "rain_factor": round(rain / max(node_rain, 1.0), 3), "sea_km": round(float(min(np.mean(L.c[rc]), 99.0)), 1),
+            "river": "river" if riv >= 2 else ("brook" if riv == 1 else "none")}
+    if p.cover == "water":                                                 # where its water goes: the next river parcel downstream
+        land["down"] = _down(L, p, owner)
+    return land
+
+
+def _down(L, p, owner: dict) -> str:
+    """Follow the flow from the parcel's most downstream cell until it reaches another parcel's water, or leaves the node."""
+    cells = sorted(p.cells, key=lambda c: -float(L.acc[c]))
+    i = cells[0][0] * L.g.nx + cells[0][1]
+    for _ in range(4000):
+        j = int(L.recv[i])
+        if j < 0:
+            return "out"
+        r, c = divmod(j, L.g.nx)
+        q = owner.get((r, c))
+        if q is not None and q != p.pid:
+            return q
+        if q is None and (r, c) not in owner:
+            pass
+        i = j
+    return "out"
 
 
 def _state(p, seam: bool = False) -> dict:
@@ -216,6 +274,7 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
     settlements = ST.settle(L, conf, settings, places)
     extra, roads, pic = R.build(L, conf, settlements)
     allnodes = settlements + extra
+    villages = [s for s in settlements if s.kind != "vacant"]                # vacant places: land, no households (pin `vacant`)
     # names (D2-186): pinned places keep the name they were given
     namer = NM.Namer(seed)
     for k in places:
@@ -231,8 +290,13 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
                           os.path.join(out_dir, os.path.basename(out_path).split(".")[0] + ".descriptions.json") if out_path else None)
     nodes = {}
     river_name = {s.key: namer.river(s.key) for s in allnodes if any(p.cover == "water" for p in s.parcels)}
+    fields = _land_fields(L)
     for s in allnodes:
         pars = {}
+        owner = {tuple(c): q.pid for q in s.parcels if q.cover == "water" for c in q.cells}   # the node's water cells
+        node_cells = [tuple(c) for q in s.parcels for c in q.cells]
+        nrc = tuple(np.array(node_cells).T) if node_cells else None
+        node_rain = float(np.mean(L.rain_mm[nrc])) if nrc is not None and getattr(L, "rain_mm", None) is not None else 900.0
         for p in s.parcels:
             p.name = namer.parcel(s.name, p, river_name.get(s.key))
             facts = _words(p)
@@ -249,8 +313,15 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
                 entry["ecosystem"] = p.eco                                     # temperate_landscapes.md: data; its stocks already differ
             if p.cover == "forest" and p.band:
                 entry["depth"] = {1: "edge", 2: "interior", 3: "core"}[p.band]
+            land = _land(L, fields, p, node_rain, owner)
+            lo_hi = V.WORDS["soil"].get(s.pin.get("soil", ""))               # `soil: rich | poor`: the land's own fertility in range
+            if land and lo_hi and "base_fertility" in land:
+                land["base_fertility"] = round(min(max(float(land["base_fertility"]), lo_hi[0]), lo_hi[1]), 3)
+            if land:
+                entry["land"] = land                                       # fixed land (02zp; D4-112, D4-113)
             pars[p.pid] = entry
         kind_words = {"village": f"a village of {s.households} households", "stop": "a stopping place on the road",
+                      "vacant": "land no one lives on or holds",
                       "wild": {"forest": "old forest, far from any village", "hills": "broken hill country, stony"}.get(s.facts.get("wild"), "wild country")}
         terr = max((p.terrain for p in s.parcels), key=[p.terrain for p in s.parcels].count) if s.parcels else ""
         where = {"river floodplain": "on the river flats", "river terrace": "on a terrace above the river", "clay vale": "in a clay vale",
@@ -261,6 +332,10 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
                                                   " ".join(x for x in (kind_words.get(s.kind, s.kind), where) if x)), "parcels": pars}
         if s.kind == "wild":
             node["unexplored"] = True                                       # D2-187: wild nodes off the roads start unexplored (D4-47)
+        r0, c0 = s.site                                                    # for the climate (D4-109): where the node is, how high,
+        node["xy"] = [round(float(L.g.x[r0, c0]), 2), round(float(L.g.y[r0, c0]), 2)]   # and its normal rain
+        node["elevation"] = round(float(np.mean(L.h[nrc])) if nrc is not None else float(L.h[r0, c0]), 1)
+        node["rain_mm"] = round(node_rain, 0)
         nodes[s.key] = node
     # households, houses, herds, claims, lines (D2-184)
     rg = keyed.rng(seed, "lines")
@@ -275,7 +350,7 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
                 near_seam[x] = True
             if any(w.key == y and w.facts.get("wild") == "forest" for w in extra):
                 near_forest[x] = True
-    for s in settlements:
+    for s in villages:
         built = next((p for p in s.parcels if p.cover == "built"), s.parcels[0])
         fields = [p for p in s.parcels if p.cover == "field"]
         pastures = sorted((p for p in s.parcels if p.cover == "pasture"), key=lambda p: -p.size)
@@ -336,6 +411,8 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
     world["roads"] = roads
     world["buildings"] = buildings
     world["herds"] = herds
+    from cybertron2.wild import areas as WA                                 # the land summary for the wild layer (wild_layer.md
+    world["wild"] = {"land": WA.build(L, allnodes, float(conf["km"]))}       # §3.1, D2-199); read only by a world with the wild pack
     world.setdefault("claims", [])
     world["lines"] = lines
     n = len(lines)
@@ -366,8 +443,8 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
         members = {}
         for a in world.get("agents", {}).values():
             members[a.get("household")] = members.get(a.get("household"), 0) + 1
-        _seed_ways(world, settlements, seed)
-        report["checks"]["capacity, people as generated"] = _capacity_as_generated(world, settings, settlements)
+        _seed_ways(world, villages, seed)
+        report["checks"]["capacity, people as generated"] = _capacity_as_generated(world, settings, villages)
         for b in world["buildings"].values():                              # a house holds its household: a bed each and one spare
             n = members.get(b.get("household"), 0)                         # (D4-86), and stores for a week or so (D2-13)
             if (b.get("fittings") or {}).get("beds") and n:
@@ -381,6 +458,8 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
             report["checks"][f"economy: {k}"] = {"kind": "economy", "level": v["level"], "ok": v["ok"], "detail": v["detail"]}
             if not v["ok"] and v["level"] == "refuse" and k not in allowed:
                 report["refused"].append(f"economy: {k}")
+    if not provisional and not failed and "wild" in (({**settings, **world}).get("packs") or []):
+        report["checks"]["predators within range"] = _predators(world, settings)
     cells = {"x": g.x, "y": g.y, "h": L.h, "sea": L.sea, "lake": L.lake, "slope": L.slope, "temp": L.temp, "moist": L.moist,
              "acc": L.acc, "river": L.river, "spring": L.spring, "wet": L.wet, "tex": L.tex, "fert": L.fert, "f": L.f, "c": L.c,
              "terrain": L.terrain, "terrain_names": np.array(P.TERRAIN_NAMES), "cover": L.cover.astype(str),
@@ -390,6 +469,25 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
                           "sites": [s.site for s in allnodes], "road_cells": pic["road_cells"]}
     report["_land"] = L
     return world, cells, report
+
+
+def _predators(world: dict, settings: dict) -> dict:
+    """The predators within range of each village (brief 4c §7.3): a check, never a refusal. On the world as it will run, after the
+    ecology's history: each kind that comes near people, its grown heads within its range (or reach) of the village against its
+    least group."""
+    import contextlib
+    import io
+    from cybertron2.engine import wild as WL
+    from cybertron2.engine.world import World
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            w = World({**settings, **copy.deepcopy(world), "days": int(settings.get("days", 24))})
+        rows = WL.within_range(w)
+    except Exception as e:                                                 # noqa: BLE001 (reported, not raised)
+        return {"kind": "wild", "ok": True, "detail": f"not checked: {e}"}
+    said = {v: ", ".join(f"{k} {x['heads']:g} (a group needs {x['least']})" for k, x in sorted(row.items(), key=lambda kv: -kv[1]["heads"])
+                         if x["heads"] >= 0.05) or "none" for v, row in rows.items()}
+    return {"kind": "wild", "ok": True, "detail": {"said": said, "by village": rows}}
 
 
 def _seed_ways(world: dict, settlements: list, seed: int) -> None:
@@ -484,12 +582,11 @@ def checks(L, conf, gen, settlements, extra, roads, world, settings) -> dict:
     up = [i for i in riv if L.recv[i] >= 0 and Zf[L.recv[i]] > Zf[i] + 25.0]   # filled flats may rise a little; a climb is a fault
     out["rivers run downhill"] = {"kind": "physics", "ok": len(up) == 0, "detail": f"{len(up)} river cells drain uphill"}
     laid_ok = True
-    for rv in L.rivers:
-        pts = rv["through"]
-        hits = sum(1 for a, b in zip(pts, pts[1:]) for t in np.linspace(0, 1, 12)
-                   for r, c in [L.g.cell(a[0] + t * (b[0] - a[0]), a[1] + t * (b[1] - a[1]))]
-                   if (L.river[max(0, r - 6):r + 7, max(0, c - 6):c + 7] >= 1).any() or L.lake[r, c] or L.sea[r, c])
-        laid_ok &= hits >= 0.7 * 12 * (len(pts) - 1)
+    laid = getattr(L, "laid", None)
+    if L.rivers and laid is not None and laid.any():                      # along the channel as carved, in the shapes' bent space
+        near = F.box_mean((L.river >= 1).astype(float), 3) > 0             # (the straight line drawn in the file can lie a km off it)
+        wet_ok = near | L.lake | L.sea
+        laid_ok = bool(wet_ok[laid].mean() >= 0.7)
     out["laid rivers run where laid"] = {"kind": "physics", "ok": bool(laid_ok), "detail": f"{len(L.rivers)} laid"}
     out["every pin met"] = {"kind": "physics", "ok": True, "detail": "a pin not met is refused when it is placed"}
     # design
@@ -503,6 +600,8 @@ def checks(L, conf, gen, settlements, extra, roads, world, settings) -> dict:
         w = World({**settings, **{k: v for k, v in world.items() if k not in ("lines", "bounds", "sim")}, "agents": {},
                    "days": int(settings.get("days", 24))})
         for s in settlements:
+            if s.kind == "vacant":                                         # held by no one: no people to feed
+                continue
             cap = CAP.node(w, s.key)
             caps[s.name] = round(s.people / max(1e-9, min(cap["food_people"], cap["heat_people"])), 2)
     except Exception as e:                                                 # noqa: BLE001 (reported, not raised)
@@ -515,7 +614,7 @@ def checks(L, conf, gen, settlements, extra, roads, world, settings) -> dict:
                                                                                                             # more slack below
     out["capacity"] = {"kind": "design", "ok": bool(cap_ok), "detail": caps}
     lacks = {}
-    for s in settlements:
+    for s in [s_ for s_ in settlements if s_.kind != "vacant"]:
         has_stone = any(p.cover == "rock" for p in s.parcels)
         has_metal = any(p.use == "mine" and p.facts.get("seam") for p in s.parcels)
         lacks[s.name] = [x for x, ok in (("stone", has_stone), ("metal", has_metal)) if not ok]

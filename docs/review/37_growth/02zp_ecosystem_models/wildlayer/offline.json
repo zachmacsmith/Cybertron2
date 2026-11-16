@@ -1,0 +1,642 @@
+{
+ "settled lowland and frontier | steady": {
+  "kinds": {
+   "red deer": {
+    "good_density": 1.285,
+    "ref": 8,
+    "ratio": 0.16,
+    "cv": 0.13,
+    "good_areas": 15
+   },
+   "roe deer": {
+    "good_density": 8.785,
+    "ref": 15,
+    "ratio": 0.59,
+    "cv": 0.06,
+    "good_areas": 15
+   },
+   "wild boar": {
+    "good_density": 1.889,
+    "ref": 4,
+    "ratio": 0.47,
+    "cv": 0.03,
+    "good_areas": 15
+   },
+   "brown hare": {
+    "good_density": 41.51,
+    "ref": 25,
+    "ratio": 1.66,
+    "cv": 0.13,
+    "good_areas": 15
+   },
+   "woodpigeon": {
+    "good_density": 23.606,
+    "ref": 50,
+    "ratio": 0.47,
+    "cv": 0.18,
+    "good_areas": 15
+   },
+   "rats": {
+    "good_density": 127.696,
+    "ref": 100,
+    "ratio": 1.28,
+    "cv": 0.0,
+    "good_areas": 6
+   },
+   "wildfowl": {
+    "good_density": 0.0,
+    "ref": 150,
+    "ratio": 0.0,
+    "cv": 0.0,
+    "good_areas": 0
+   },
+   "eel": {
+    "good_density": 0.0,
+    "ref": 150,
+    "ratio": 0.0,
+    "cv": 0.0,
+    "good_areas": 0
+   },
+   "voles and mice": {
+    "good_density": 2177.155,
+    "ref": 3000,
+    "ratio": 0.73,
+    "cv": 0.0,
+    "good_areas": 15
+   },
+   "owls": {
+    "good_density": 0.951,
+    "ref": 1,
+    "ratio": 0.95,
+    "cv": 0.0,
+    "good_areas": 15
+   },
+   "fox": {
+    "good_density": 0.637,
+    "ref": 2,
+    "ratio": 0.32,
+    "cv": 0.01,
+    "good_areas": 46
+   },
+   "wolf": {
+    "good_density": 0.015,
+    "ref": 0.025,
+    "ratio": 0.59,
+    "cv": 0.0,
+    "good_areas": 15
+   },
+   "raven": {
+    "good_density": 0.166,
+    "ref": 0.2,
+    "ratio": 0.83,
+    "cv": 0.0,
+    "good_areas": 15
+   },
+   "brown bear": {
+    "good_density": 0.08,
+    "ref": 0.02,
+    "ratio": 4.01,
+    "cv": 0.31,
+    "good_areas": 15
+   }
+  },
+  "mast": [
+   0.15,
+   1.0,
+   3.0,
+   0.15,
+   0.4,
+   1.0,
+   1.0,
+   3.0,
+   0.15,
+   1.0,
+   1.0,
+   1.0,
+   3.0,
+   0.15,
+   0.4,
+   1.0,
+   1.0,
+   3.0,
+   0.15,
+   0.4,
+   0.15,
+   3.0,
+   0.15,
+   3.0
+  ]
+ },
+ "fen with islands | steady": {
+  "kinds": {
+   "red deer": {
+    "good_density": 1.96,
+    "ref": 8,
+    "ratio": 0.25,
+    "cv": 0.08,
+    "good_areas": 14
+   },
+   "roe deer": {
+    "good_density": 7.958,
+    "ref": 15,
+    "ratio": 0.53,
+    "cv": 0.02,
+    "good_areas": 14
+   },
+   "wild boar": {
+    "good_density": 1.723,
+    "ref": 4,
+    "ratio": 0.43,
+    "cv": 0.02,
+    "good_areas": 14
+   },
+   "brown hare": {
+    "good_density": 55.253,
+    "ref": 25,
+    "ratio": 2.21,
+    "cv": 0.12,
+    "good_areas": 14
+   },
+   "woodpigeon": {
+    "good_density": 108.384,
+    "ref": 50,
+    "ratio": 2.17,
+    "cv": 0.09,
+    "good_areas": 14
+   },
+   "rats": {
+    "good_density": 191.933,
+    "ref": 100,
+    "ratio": 1.92,
+    "cv": 0.0,
+    "good_areas": 10
+   },
+   "wildfowl": {
+    "good_density": 128.44,
+    "ref": 150,
+    "ratio": 0.86,
+    "cv": 0.05,
+    "good_areas": 14
+   },
+   "eel": {
+    "good_density": 65.982,
+    "ref": 150,
+    "ratio": 0.44,
+    "cv": 0.03,
+    "good_areas": 14
+   },
+   "voles and mice": {
+    "good_density": 2675.35,
+    "ref": 3000,
+    "ratio": 0.89,
+    "cv": 0.03,
+    "good_areas": 14
+   },
+   "owls": {
+    "good_density": 1.065,
+    "ref": 1,
+    "ratio": 1.06,
+    "cv": 0.0,
+    "good_areas": 14
+   },
+   "fox": {
+    "good_density": 0.686,
+    "ref": 2,
+    "ratio": 0.34,
+    "cv": 0.01,
+    "good_areas": 43
+   },
+   "wolf": {
+    "good_density": 0.014,
+    "ref": 0.025,
+    "ratio": 0.57,
+    "cv": 0.0,
+    "good_areas": 14
+   },
+   "raven": {
+    "good_density": 0.176,
+    "ref": 0.2,
+    "ratio": 0.88,
+    "cv": 0.0,
+    "good_areas": 14
+   },
+   "brown bear": {
+    "good_density": 0.124,
+    "ref": 0.02,
+    "ratio": 6.19,
+    "cv": 0.21,
+    "good_areas": 14
+   }
+  },
+  "mast": [
+   1.0,
+   1.0,
+   3.0,
+   0.15,
+   3.0,
+   0.15,
+   0.15,
+   0.4,
+   3.0,
+   0.15,
+   3.0,
+   0.15,
+   3.0,
+   0.15,
+   1.0,
+   3.0,
+   0.15,
+   0.4,
+   3.0,
+   0.15,
+   1.0,
+   3.0,
+   0.15,
+   0.4
+  ]
+ },
+ "upland and moor | steady": {
+  "kinds": {
+   "red deer": {
+    "good_density": 2.066,
+    "ref": 8,
+    "ratio": 0.26,
+    "cv": 0.04,
+    "good_areas": 16
+   },
+   "roe deer": {
+    "good_density": 7.525,
+    "ref": 15,
+    "ratio": 0.5,
+    "cv": 0.05,
+    "good_areas": 16
+   },
+   "wild boar": {
+    "good_density": 1.282,
+    "ref": 4,
+    "ratio": 0.32,
+    "cv": 0.02,
+    "good_areas": 16
+   },
+   "brown hare": {
+    "good_density": 46.435,
+    "ref": 25,
+    "ratio": 1.86,
+    "cv": 0.13,
+    "good_areas": 19
+   },
+   "woodpigeon": {
+    "good_density": 110.246,
+    "ref": 50,
+    "ratio": 2.2,
+    "cv": 0.08,
+    "good_areas": 16
+   },
+   "rats": {
+    "good_density": 176.78,
+    "ref": 100,
+    "ratio": 1.77,
+    "cv": 0.0,
+    "good_areas": 12
+   },
+   "wildfowl": {
+    "good_density": 37.845,
+    "ref": 150,
+    "ratio": 0.25,
+    "cv": 0.0,
+    "good_areas": 3
+   },
+   "eel": {
+    "good_density": 22.004,
+    "ref": 150,
+    "ratio": 0.15,
+    "cv": 0.05,
+    "good_areas": 3
+   },
+   "voles and mice": {
+    "good_density": 2513.964,
+    "ref": 3000,
+    "ratio": 0.84,
+    "cv": 0.04,
+    "good_areas": 16
+   },
+   "owls": {
+    "good_density": 1.009,
+    "ref": 1,
+    "ratio": 1.01,
+    "cv": 0.0,
+    "good_areas": 16
+   },
+   "fox": {
+    "good_density": 0.689,
+    "ref": 2,
+    "ratio": 0.34,
+    "cv": 0.01,
+    "good_areas": 46
+   },
+   "wolf": {
+    "good_density": 0.013,
+    "ref": 0.025,
+    "ratio": 0.52,
+    "cv": 0.0,
+    "good_areas": 16
+   },
+   "raven": {
+    "good_density": 0.179,
+    "ref": 0.2,
+    "ratio": 0.9,
+    "cv": 0.0,
+    "good_areas": 16
+   },
+   "brown bear": {
+    "good_density": 0.1,
+    "ref": 0.02,
+    "ratio": 4.98,
+    "cv": 0.21,
+    "good_areas": 16
+   }
+  },
+  "mast": [
+   0.15,
+   1.0,
+   3.0,
+   0.15,
+   1.0,
+   0.4,
+   0.4,
+   3.0,
+   0.15,
+   1.0,
+   0.15,
+   1.0,
+   3.0,
+   0.15,
+   3.0,
+   0.15,
+   1.0,
+   0.4,
+   3.0,
+   0.15,
+   0.15,
+   0.4,
+   3.0,
+   0.15
+  ]
+ },
+ "plain | steady": {
+  "kinds": {
+   "red deer": {
+    "good_density": 2.444,
+    "ref": 8,
+    "ratio": 0.31,
+    "cv": 0.05,
+    "good_areas": 15
+   },
+   "roe deer": {
+    "good_density": 7.011,
+    "ref": 15,
+    "ratio": 0.47,
+    "cv": 0.03,
+    "good_areas": 15
+   },
+   "wild boar": {
+    "good_density": 1.365,
+    "ref": 4,
+    "ratio": 0.34,
+    "cv": 0.03,
+    "good_areas": 15
+   },
+   "brown hare": {
+    "good_density": 45.92,
+    "ref": 25,
+    "ratio": 1.84,
+    "cv": 0.12,
+    "good_areas": 15
+   },
+   "woodpigeon": {
+    "good_density": 102.872,
+    "ref": 50,
+    "ratio": 2.06,
+    "cv": 0.09,
+    "good_areas": 15
+   },
+   "rats": {
+    "good_density": 128.07,
+    "ref": 100,
+    "ratio": 1.28,
+    "cv": 0.0,
+    "good_areas": 8
+   },
+   "wildfowl": {
+    "good_density": 0.0,
+    "ref": 150,
+    "ratio": 0.0,
+    "cv": 0.0,
+    "good_areas": 0
+   },
+   "eel": {
+    "good_density": 0.0,
+    "ref": 150,
+    "ratio": 0.0,
+    "cv": 0.0,
+    "good_areas": 0
+   },
+   "voles and mice": {
+    "good_density": 2295.342,
+    "ref": 3000,
+    "ratio": 0.77,
+    "cv": 0.0,
+    "good_areas": 15
+   },
+   "owls": {
+    "good_density": 0.868,
+    "ref": 1,
+    "ratio": 0.87,
+    "cv": 0.0,
+    "good_areas": 15
+   },
+   "fox": {
+    "good_density": 0.637,
+    "ref": 2,
+    "ratio": 0.32,
+    "cv": 0.01,
+    "good_areas": 48
+   },
+   "wolf": {
+    "good_density": 0.013,
+    "ref": 0.025,
+    "ratio": 0.52,
+    "cv": 0.0,
+    "good_areas": 15
+   },
+   "raven": {
+    "good_density": 0.15,
+    "ref": 0.2,
+    "ratio": 0.75,
+    "cv": 0.0,
+    "good_areas": 15
+   },
+   "brown bear": {
+    "good_density": 0.116,
+    "ref": 0.02,
+    "ratio": 5.78,
+    "cv": 0.19,
+    "good_areas": 15
+   }
+  },
+  "mast": [
+   0.15,
+   1.0,
+   3.0,
+   0.15,
+   0.4,
+   1.0,
+   1.0,
+   3.0,
+   0.15,
+   1.0,
+   1.0,
+   1.0,
+   3.0,
+   0.15,
+   0.4,
+   1.0,
+   1.0,
+   3.0,
+   0.15,
+   0.4,
+   3.0,
+   0.15,
+   0.4,
+   1.0
+  ]
+ },
+ "sand country | steady": {
+  "kinds": {
+   "red deer": {
+    "good_density": 2.285,
+    "ref": 8,
+    "ratio": 0.29,
+    "cv": 0.01,
+    "good_areas": 15
+   },
+   "roe deer": {
+    "good_density": 6.779,
+    "ref": 15,
+    "ratio": 0.45,
+    "cv": 0.05,
+    "good_areas": 15
+   },
+   "wild boar": {
+    "good_density": 1.48,
+    "ref": 4,
+    "ratio": 0.37,
+    "cv": 0.03,
+    "good_areas": 15
+   },
+   "brown hare": {
+    "good_density": 45.922,
+    "ref": 25,
+    "ratio": 1.84,
+    "cv": 0.12,
+    "good_areas": 15
+   },
+   "woodpigeon": {
+    "good_density": 72.975,
+    "ref": 50,
+    "ratio": 1.46,
+    "cv": 0.1,
+    "good_areas": 15
+   },
+   "rats": {
+    "good_density": 123.039,
+    "ref": 100,
+    "ratio": 1.23,
+    "cv": 0.0,
+    "good_areas": 8
+   },
+   "wildfowl": {
+    "good_density": 0.0,
+    "ref": 150,
+    "ratio": 0.0,
+    "cv": 0.0,
+    "good_areas": 0
+   },
+   "eel": {
+    "good_density": 0.0,
+    "ref": 150,
+    "ratio": 0.0,
+    "cv": 0.0,
+    "good_areas": 0
+   },
+   "voles and mice": {
+    "good_density": 2198.554,
+    "ref": 3000,
+    "ratio": 0.73,
+    "cv": 0.0,
+    "good_areas": 15
+   },
+   "owls": {
+    "good_density": 0.853,
+    "ref": 1,
+    "ratio": 0.85,
+    "cv": 0.0,
+    "good_areas": 15
+   },
+   "fox": {
+    "good_density": 0.625,
+    "ref": 2,
+    "ratio": 0.31,
+    "cv": 0.01,
+    "good_areas": 49
+   },
+   "wolf": {
+    "good_density": 0.015,
+    "ref": 0.025,
+    "ratio": 0.61,
+    "cv": 0.0,
+    "good_areas": 15
+   },
+   "raven": {
+    "good_density": 0.155,
+    "ref": 0.2,
+    "ratio": 0.77,
+    "cv": 0.0,
+    "good_areas": 15
+   },
+   "brown bear": {
+    "good_density": 0.128,
+    "ref": 0.02,
+    "ratio": 6.38,
+    "cv": 0.2,
+    "good_areas": 15
+   }
+  },
+  "mast": [
+   1.0,
+   1.0,
+   3.0,
+   0.15,
+   0.4,
+   1.0,
+   1.0,
+   3.0,
+   0.15,
+   1.0,
+   0.15,
+   1.0,
+   3.0,
+   0.15,
+   0.4,
+   1.0,
+   1.0,
+   3.0,
+   0.15,
+   0.4,
+   0.15,
+   3.0,
+   0.15,
+   3.0
+  ]
+ }
+}

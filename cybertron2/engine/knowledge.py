@@ -39,19 +39,49 @@ def resolve(x, verb=None):
 
 # ---------------------------------------------------------------------- skill by practice (D2-52; 02n §4: calibrate)
 def curve(tech):
+    if (TECHNIQUES.get(tech) or {}).get("curve") == "hard":                    # the hunt's own curve (brief 4 §2.6)
+        lo, hi = SKILL["hard"]
+        return float(lo), float(hi)
     lo, hi = SKILL["basic" if basic(tech) else "trade"]
     return float(lo), float(hi)
 
 
+def hard(tech) -> bool:
+    """The hunt's curve (brief 4 §2.6; brief 4c §3.1): a multiplier on the bare-handed novice's chance."""
+    return (TECHNIQUES.get(tech) or {}).get("curve") == "hard"
+
+
+def tau(tech) -> float:
+    return float(SKILL["tau"])
+
+
 def skill_of_practice(tech, p) -> float:
+    """Skill from units of practice: work at large rises toward its top as 1 - e^(-p / tau) (D2-52); the hunt geometrically, from x1
+    to its top in `top_hard` units (brief 4c §3.3: about x3 half way)."""
     lo, hi = curve(tech)
-    return round(lo + (hi - lo) * (1 - math.exp(-max(0.0, p) / float(SKILL["tau"]))), 4)
+    if hard(tech):
+        return round(lo * (hi / lo) ** min(1.0, max(0.0, p) / float(SKILL["top_hard"])), 4)
+    return round(lo + (hi - lo) * (1 - math.exp(-max(0.0, p) / tau(tech))), 4)
 
 
 def practice_of_skill(tech, sk) -> float:
     lo, hi = curve(tech)
+    if hard(tech):
+        return float(SKILL["top_hard"]) * min(1.0, max(0.0, math.log(max(float(sk), lo) / lo) / math.log(hi / lo)))
     share = min(0.999, max(0.0, (sk - lo) / (hi - lo)))
-    return -float(SKILL["tau"]) * math.log(1 - share)
+    return -tau(tech) * math.log(1 - share)
+
+
+def practice_x(here, tech) -> float:
+    """How much a unit of practice counts for this person (brief 4c §3.3): the hunt's pace is set at the default lifespan and scales
+    with the world's (D2-153), and a youth learns it `youth_hard` times as fast; other work counts as it is."""
+    if not hard(tech):
+        return 1.0
+    from cybertron2.engine.data import LIFE
+    x = float(LIFE["lifespan"]) / float(here.life()["lifespan"])
+    if here.me.get("stage") == "youth":
+        x *= float(SKILL["youth_hard"])
+    return x
 
 
 # ---------------------------------------------------------------------- the store (engine side: seeding and the learn primitive)
@@ -122,9 +152,10 @@ def level(mind, tech):
 
 
 def skill(mind, tech) -> float:
-    """The multiplier one's practice gives (D2-52): basic work 1.0 to 1.5, a trade 0.5 to 2.0."""
+    """The multiplier one's practice gives (D2-52): basic work 1.0 to 1.5, a trade 0.5 to 2.0, the hunt 1 to 8 (brief 4c §3.1)."""
     r = rec(mind, tech)
-    return float(r.get("skill", curve(tech)[0])) if r else (curve(tech)[0] if basic(tech) else 1.0)
+    sk = float(r.get("skill", curve(tech)[0])) if r else (curve(tech)[0] if basic(tech) else 1.0)
+    return max(curve(tech)[0], sk) if hard(tech) else sk                    # never below the bare-handed novice (brief 4c §3.1)
 
 
 def skill_word(x, tech=None) -> str:
@@ -140,8 +171,11 @@ def where(here, tech, graves=False) -> list:
     if not at:
         return [("anywhere", None, "anywhere")]
     out = []
-    if at.get("things"):                                                       # work on a thing at a spot: the dead (D2-96)
-        out = [("thing", cid, f"the body of {c['of']} at {here.spot_name(c)}") for cid, c in here.bodies().items()]
+    if at.get("things"):                                                       # work on a thing at a spot: the dead (D2-96), a dead
+        kinds = at["things"] if isinstance(at["things"], list) else [at["things"]]   # beast (brief 3 §4)
+        out = [("thing", cid, f"the body of {c['of']} at {here.spot_name(c)}") for cid, c in here.bodies().items()] if "body" in kinds else []
+        if "carcass" in kinds:
+            out += [("thing", cid, f"the dead {c['beast']} at {here.spot_name(c)}") for cid, c in here.carcasses().items()]
         if graves:                                                             # a cairn over a grave already dug (D4-99)
             out += [("thing", cid, f"the grave of {c['of']} at {here.spot_name(c)}") for cid, c in here.graves().items()]
         return out
@@ -176,6 +210,10 @@ def ready(here, tech, kind, key, a=None) -> str:
             return f"there is little dung on {p['name']}"
         if d in ("seam",) and p["res"][d]["S"] <= 1e-9:
             return f"the seam at {p['name']} is worked out"
+        if d == "wild plants":                                                # the wild plants in season here (D2-200)
+            from cybertron2.engine import wild as WL
+            if not WL.in_season(here, key):
+                return f"there is nothing in season to gather at {p['name']}"
         if d == "plants" and p["res"][d]["S"] <= (here.p["refuge"] + 0.02) * p["res"][d]["K"]:
             return f"{p['name']} is picked bare"
         if d == "fish" and p["res"][d]["S"] <= (here.p["refuge"] + 0.02) * p["res"][d]["K"]:
@@ -209,15 +247,18 @@ def ready(here, tech, kind, key, a=None) -> str:
                 return "there are no beasts left"
     if kind == "thing":
         c = here.thing(key)
-        if not c or not c.get("body"):
+        if not c or not (c.get("body") or c.get("beast")):                    # a body, or a dead beast (brief 3 §4)
             return "there is no body there"
+        if c.get("burnt") is not None:
+            return "it has been burned; ash and bone are left"
         if c.get("buried") is not None:
             if str((a or {}).get("method", "")).lower() == "cairn":            # a cairn over the grave, after the burial (D4-99)
                 return f"the grave of {c['of']} already has a cairn" if c.get("cairn") else ""
             return f"{c['of']} is already buried" + ("" if c.get("cairn") else "; a cairn of stones can still be raised over the grave "
                                                       "(method cairn, 3 stone)")
         return ""
-    if kind == "building" and y == "repair" and here.buildings()[key]["condition"] >= 2:
+    if kind == "building" and y == "repair" and (here.buildings()[key]["level"] >= 5 if here.buildings()[key].get("level") is not None
+                                                  else here.buildings()[key]["condition"] >= 2):
         return f"{here.buildings()[key]['name']} is sound"
     from cybertron2.engine import farm as FM
     if kind == "parcel" and y == "clear_built" and any(c.get("left", 0) > 1e-9 for _, _, c in FM.standing(here.parcels()[key])):
@@ -241,9 +282,22 @@ def pick_inputs(here, needs: dict, mult=1.0, extra=None) -> dict:
     return out
 
 
-def inputs_words(needs: dict) -> str:
-    return ", ".join(" or ".join(f"{n:g} {i}" for i, n in q.items()) if isinstance(q, dict) else f"{q:g} {item}"
+def inputs_words(needs: dict, batch=False) -> str:
+    return ", ".join(" or ".join(f"{n:g} {i}" for i, n in q.items()) if isinstance(q, dict) else ("up to " if batch else "") + f"{q:g} {item}"
                      for item, q in (needs or {}).items())
+
+
+def batch_share(here, tech, mult=1.0, extra=None) -> float:
+    """The share of a full batch one makes (brief 4c §6.1): 1 for a recipe that takes its inputs whole; for one that takes whatever
+    one has up to its batch (`batch`), the least share of any input to hand, at most 1 (0 with none of an input)."""
+    t = TECHNIQUES[tech]
+    if not t.get("batch"):
+        return 1.0
+    share = 1.0
+    for item, q in (t.get("inputs") or {}).items():
+        alts = q if isinstance(q, dict) else {item: q}
+        share = min(share, max(available(here, i, extra=extra) / max(1e-12, n * mult) for i, n in alts.items()))
+    return max(0.0, min(1.0, share))
 
 
 def shortfall(here, mind, tech, mult=1.0, at=None, extra=None, a=None) -> str:
@@ -266,6 +320,9 @@ def shortfall(here, mind, tech, mult=1.0, at=None, extra=None, a=None) -> str:
             near = next((cid for cid in here.takeable() if cid != here.hands and any(here.contents(cid).get(x, 0) >= 1 for x in TOOLS)), None)
             return f"you need a tool in your hands for {label(tech)}" + (
                 f"; there is one in {here.buildings()[near[len('stock:'):]]['name']}'s store: take it into your hands (move)" if near else "; you have none")
+    for f_ in t.get("home_fittings") or []:                                   # kept at one's home (a dog for a watch)
+        if not any((here.buildings()[b].get("fittings") or {}).get(f_) for b in here.homes_here() if b in here.buildings()):
+            return f"you keep no {f_} at your home here"
     if t.get("animals") or t.get("uses"):
         from cybertron2.engine import farm as FM
         why = FM.team_shortfall(here, t)
@@ -273,6 +330,12 @@ def shortfall(here, mind, tech, mult=1.0, at=None, extra=None, a=None) -> str:
             return why
     for item, q in (t.get("inputs") or {}).items():
         alts = q if isinstance(q, dict) else {item: q}
+        if t.get("batch") and not any(available(here, i, extra=extra) > 1e-6 for i in alts):    # any amount, up to the batch (4c §6.1)
+            i, n = next(iter(alts.items()))
+            from cybertron2.engine.verbs import _short_note
+            return f"it takes up to {round(n * mult, 2):g} {i}, and you have none to hand" + _short_note(here, i)
+        if t.get("batch"):
+            continue
         if not any(available(here, i, extra=extra) + 1e-9 >= round(n * mult, 2) for i, n in alts.items()):
             i, n = next(iter(alts.items()))
             more = "".join(f" or {round(n2 * mult, 2):g} {i2}" for i2, n2 in list(alts.items())[1:])
@@ -298,7 +361,7 @@ def card(here, mind, tech) -> str:
     places = ", ".join(sorted({x[2] for x in where(here, tech)})) or "nowhere here"
     if lvl == "aware":
         return f"{t['label']}: you know of it{src}, but not how it is done"
-    ins = inputs_words(t.get("inputs")) or "no materials"
+    ins = inputs_words(t.get("inputs"), t.get("batch")) or "no materials"
     if lvl == "rough":
         return f"{t['label']}: you have a rough idea{src}: {ins}, done at {places}. You could try (about half the time it works, and it takes more)"
     gives = t["gives"] if isinstance(t["gives"], str) else ", ".join(f"{q:g} {i}" for i, q in t["gives"].items())
@@ -337,8 +400,9 @@ def options(here, mind, limit=10):
         if t.get("modifies"):                                                  # modifiers show on their verbs' lines
             continue
         lvl = level(mind, tech)
-        if t.get("crew") and lvl not in ("rough", "capable", "known"):
-            lvl = "known"                                                     # anyone can work on a crew (D2-66)
+        from cybertron2.engine import packs as PK
+        if t.get("crew") and lvl not in ("rough", "capable", "known") and PK.on(t, getattr(mind, "packs", None)):
+            lvl = "known"                                                     # anyone can work on a crew (D2-66), of this world's packs
         if lvl not in ("rough", "capable", "known") or t["verb"] == "build" or (t.get("yield") or {}).get("kind") == "clear_built":
             continue                                                          # building: the build verb's own line (02zh §9)
         why = shortfall(here, mind, tech, TRY[lvl]["inputs"])
@@ -381,7 +445,7 @@ def tried(here, mind, tech, ok, units=1) -> str:
         r["practised"] = here.day                                              # for skill's fading (D4-103 phase 2)
         if r.get("peak") is not None and sk0 < float(r["peak"]) - 1e-9:         # coming back to a skill once held (D4-105)
             units = float(units) * float(lb.get("relearn", 1.0))
-    r["skill"] = skill_of_practice(tech, practice_of_skill(tech, sk0) + float(units))
+    r["skill"] = skill_of_practice(tech, practice_of_skill(tech, sk0) + float(units) * practice_x(here, tech))
     if r.get("peak") is not None and r["skill"] > float(r["peak"]):
         r["peak"] = r["skill"]
     if r["level"] == "known":

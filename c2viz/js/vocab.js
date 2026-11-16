@@ -7,6 +7,8 @@
     angle: "fish", "fish by hand": "forage", "salt pan": "dig", "salt fish": "make", "fishing rod": "make",                    // the water pack (D4-103)
     "hunt the wild": "hunt", "stalk deer": "hunt", "boar hunt": "hunt", "snare hares": "dig", fowling: "forage",          // the wild pack (D2-192, D2-199)
     "watch the field (fire)": "herd", "watch the field (clapper)": "herd", "watch the field (horn)": "herd", "watch the field (dog)": "herd",
+    stalk: "hunt", drive: "hunt", snare: "dig", net: "forage", "trap in water": "fish", "den work": "dig", "gather young": "forage",   // D2-204
+    "pest work": "dig", "break a dam": "dig", "guard the field": "herd", shut: "carry",
     "dress millstones": "make", "reline oven": "make", "clear the leat": "dig", "dry fodder": "carry" };                     // mending (D4-103), drying (D4-106)
   const toolFor = (a) => !a ? null : TECH_TOOL[a.tech] || (a.verb === "make" || a.verb === "build" ? "make" : a.verb === "gather" ? "forage" : a.verb === "work" ? "dig" : a.verb === "give" || a.verb === "take" ? "carry" : null);
   const RIVER = /river|brook|stream|leat|beck|burn|creek|race/i;

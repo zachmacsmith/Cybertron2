@@ -127,6 +127,8 @@ class World:
                        "works": None, "side": p.get("side", "centre"), "height": int(p.get("height", 1))}   # D2-114
                 if p.get("land"):                                                    # the land's fixed properties (D4-112)
                     par["land"] = dict(p["land"])
+                if p.get("ecosystem") and "wild" in PK.of(self):                     # what grows there, for the wild layer
+                    par["ecosystem"] = p["ecosystem"]                                # (wild_layer.md §3.1, D2-199); only with its pack
                 if p.get("fence"):                                                   # a fence round it (D2-130): {kind, level, gate}
                     fz = p["fence"]
                     from cybertron2.engine import farm as FM
@@ -159,6 +161,10 @@ class World:
         for bid, b in (spec.get("buildings") or {}).items():
             self._new_building(bid, b)
         self._fit_seed_free(spec.get("buildings") or {})
+        from cybertron2.engine import buildings as BL
+        if BL.levels_on(self):                                                  # shelter in levels (brief 4 §3): from the coarse condition
+            for bid, b in s["buildings"].items():
+                b.setdefault("level", int((spec.get("buildings") or {}).get(bid, {}).get("level", BL.LEVEL_OF_COND.get(int(b["condition"]), 5))))
         for hid, h in (spec.get("herds") or {}).items():                       # cattle by role (D2-63); a bare count is cows
             roles = {r: int(h.get(r, 0)) for r in ("cows", "oxen", "bulls", "young")}
             if not any(roles.values()):
@@ -243,6 +249,9 @@ class World:
             TH.remember(self, who, cid, "put")
         from cybertron2.engine import buildings as BL
         BL.install(self)                                                       # what does not fit in a store lies at its door (D2-155)
+        if "wild" in PK.of(self):                                              # the wild layer (wild_layer.md, D2-199): its land
+            from cybertron2.engine import wild as WL                           # summary and starting populations; no other world
+            WL.seed(self)                                                      # holds the key
 
     def _person(self, name, a):
         """A person's record and hands (D2-139: `born` a day, negative before the run; the stage follows it when given)."""
@@ -571,7 +580,8 @@ class World:
 
     def takeable(self, name, node=None) -> list:
         """Containers at this node one may take from: one's hands, then stores where one has withdrawal, then what was left at
-        those stores' doors (goods that overflow at a door stay the house's: D4-89)."""
+        those stores' doors (goods that overflow at a door stay the house's: D4-89) or hangs inside their houses (a rack at the
+        hearth: brief 4c §6.2)."""
         node = node or self.at(name)
         out = [self.hands(name)]
         mine = set()
@@ -579,7 +589,7 @@ class World:
             if b["node"] == node and self.may_take(name, b["stock"]):
                 out.append(b["stock"])
                 mine.add(bid)
-        out += [cid for cid, c in self.s["containers"].items() if c.get("kind") == "pile" and c.get("door") in mine
+        out += [cid for cid, c in self.s["containers"].items() if c.get("kind") == "pile" and (c.get("door") in mine or c.get("in") in mine)
                 and not c.get("hidden") and c.get("node") == node]
         return out
 
@@ -677,6 +687,19 @@ def p_set(w, ref, field, value):
     return value
 
 
+def p_set_wild(w, path, value):
+    """The wild layer's state (wild_layer.md §3.3, D2-199): set the value at a path of keys under s["wild"] (an area's populations, a
+    group, a trace), so the journal records every change of it."""
+    d = w.s["wild"]
+    for k in path[:-1]:
+        d = d.setdefault(k, {})
+    if value is None:
+        d.pop(path[-1], None)
+    else:
+        d[path[-1]] = value
+    return value
+
+
 def p_new_herd(w, like, parcel):
     """A herd split off another (beasts driven apart: D4-44), at a parcel of the same node, with no beasts yet."""
     h = w.s["herds"][like]
@@ -745,6 +768,8 @@ def p_found(w, person, name):
         iid = f"{name} {n}"
     w.s["institutions"][iid] = {"kind": "household", "name": f"the {name}s", "members": [], "offices": {"head": person},
                                 "rules": {"admit": "head", "grant": "members"}}
+    if w.spec.get("household_models") and (w.s["people"].get(person) or {}).get("model"):   # a world that gives each household a model:
+        w.s["institutions"][iid]["model"] = w.s["people"][person]["model"]            # a new household's is its founder's (Zach, 13 Nov)
     p_admit(w, person, iid)
     w.s["institutions"][iid]["offices"]["head"] = person
     return iid
@@ -1072,4 +1097,5 @@ PRIMITIVES = {
     "set_res": (p_set_res, _r("parcel", "parcel")),
     "transit": (p_transit, _r("person", "person")),
     "traces": (p_traces, lambda kw: []),                                   # at the road the party is on (checked by the caller)
+    "set_wild": (p_set_wild, lambda kw: []),                               # the wild layer's state (D2-199), at the area's node
 }

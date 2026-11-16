@@ -264,3 +264,32 @@ def test_a_generated_world_has_no_gate_shut_for_everyone():
     for k, n in w["nodes"].items():
         if n.get("unexplored"):
             assert any(k in (a.get("places") or []) for a in w["agents"].values()), k
+
+
+def _land(**over):
+    conf = dict(V.DEFAULTS); conf.update(SMALL); conf.update(over); conf["seed"] = 5
+    g = F.grid(5, conf["size_km"], conf["km"])
+    return P.build(conf, g, M.primitives(conf))
+
+
+def test_the_climate_is_absolute_not_ranked_within_a_world():
+    """02zp: rain in mm (rain_mm), moisture and wetness on fixed bounds: a wetter climate is wetter, a drier one drier."""
+    from cybertron2.landgen import ecology as EC
+    dry, base, wet = _land(rain_mm=550.0), _land(), _land(rain_mm=1600.0)
+    assert dry.wet.mean() < base.wet.mean() < wet.wet.mean() and dry.moist.mean() < wet.moist.mean()
+    assert np.median(wet.rain_mm) > 1.5 * np.median(base.rain_mm)
+    wet_ecos = ["fen", "reedbed", "alder carr", "wet grassland", "blanket bog"]
+    assert np.isin(wet.eco, wet_ecos).mean() > np.isin(base.eco, wet_ecos).mean()
+
+
+def test_a_higher_sea_drowns_land_joined_to_it_and_a_cold_climate_has_a_tree_line():
+    """02zp: the sea is what lies below sea level and joins the ocean; the tree line follows warmth."""
+    from cybertron2.landgen import ecology as EC
+    from cybertron2.landgen.field import components
+    base, high = _land(), _land(sea_level=60.0)
+    assert base.sea.mean() == 0.0 and high.sea.mean() > 0.05
+    lab, n = components(high.sea)
+    edge = np.zeros(high.sea.shape, bool); edge[0, :] = edge[-1, :] = edge[:, 0] = edge[:, -1] = True
+    assert all(edge[lab == k].any() for k in range(1, n + 1))
+    cold = _land(temperature_c=3.0)
+    assert np.isin(cold.eco, EC.FORESTS).mean() < 0.5 * np.isin(base.eco, EC.FORESTS).mean()

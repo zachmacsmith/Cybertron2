@@ -29,8 +29,8 @@ def work_need(p, today, name) -> float:
     if u and float(lb.get("work_food", 0) or 0):
         over = int(u.get("over", 0))
         need += float(lb["work_food"]) * (int(u["used"]) - over + over * float(lb.get("over_food", 1.0)))
-    if float(lb.get("guard_food", 0) or 0) and name in (today.get("guards") or {}):
-        need += float(lb["guard_food"])
+    if float(lb.get("guard_food", 0) or 0) and (name in (today.get("guards") or {}) or name in (today.get("night_watch") or {})):
+        need += float(lb["guard_food"])                                         # a night on guard or on watch (D2-21)
     return round(need, 4)
 
 
@@ -48,7 +48,7 @@ def close_day(w, today, used, budget, names) -> None:
         over = max(0, int(used.get(n, 0)) - int(budget.get(n, 0)))
         if eat:
             units[n] = {"used": int(used.get(n, 0)), "over": over}
-        off = over * fatigue
+        off = over * fatigue + (int(lb.get("watch_tired", 0) or 0) if n in (today.get("night_watch") or {}) else 0)   # D2-21
         if step:
             r = (today.get("route") or {}).get(n) or []
             extra = max(0, len(r) - 1 - int(lb.get("free_steps", 2)))           # legs walked past the free ones

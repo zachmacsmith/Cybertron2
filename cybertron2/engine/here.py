@@ -188,7 +188,7 @@ class Here:
         from cybertron2.engine import life as LF
         inst = self._w.s["institutions"].get(self.household() or "", {})
         return {"on": LF.on(self._w), "dial": LF.dial(self._w), "gap": LF.in_gap(self._w, self.name), "succession": inst.get("succession"),
-                "order": inst.get("order"), "heir": inst.get("heir")}
+                "order": inst.get("order"), "heir": inst.get("heir"), "lifespan": LF.lifespan(self._w)}
 
     def person_stage(self, x) -> str:
         return self._w.s["people"][x]["stage"]
@@ -234,6 +234,11 @@ class Here:
 
     def setting(self, key):
         return (self._w.spec or {}).get(key)
+
+    def levels_on(self) -> bool:
+        """Shelter in levels in this world (brief 4 §3)."""
+        from cybertron2.engine import buildings as BL
+        return BL.levels_on(self._w)
 
     def place_name(self, nid) -> str:
         return self._w.s["nodes"][nid]["name"] if nid in self._w.s["nodes"] else str(nid)
@@ -395,6 +400,12 @@ class Here:
         from cybertron2.engine import things as TH
         return TH.at_node(self._w, self.node)
 
+    def house_things(self, bid) -> dict:
+        """What hangs inside a house here or lies at its door, not hidden (racks, piles; empty ones too): {thing id: thing}. Its
+        household knows them without a roll (brief 4c §6.4)."""
+        return {cid: c for cid, c in self._w.s["containers"].items() if c.get("kind") == "pile" and c.get("node") == self.node
+                and not c.get("hidden") and (c.get("in") == bid or c.get("door") == bid)}
+
     def thing(self, cid) -> dict:
         c = self._w.s["containers"].get(cid)
         return c if c and c.get("node") == self.node else None
@@ -402,6 +413,14 @@ class Here:
     def bodies(self) -> dict:
         from cybertron2.engine import things as TH
         return TH.bodies(self._w, self.node)
+
+    def carcasses(self) -> dict:
+        from cybertron2.engine import things as TH
+        return TH.carcasses(self._w, self.node)
+
+    def carcass_size(self, cid) -> str:
+        from cybertron2.engine import things as TH
+        return TH.carcass_size(self._w.s["containers"][cid])
 
     def grave_left(self, cid) -> int:
         """Units of digging a grave still wants, by the ground and the cold now (D2-96, D4-99)."""
@@ -432,6 +451,16 @@ class Here:
     def remember_thing(self, cid, how) -> None:
         from cybertron2.engine import things as TH
         TH.remember(self._w, self.name, cid, how)
+
+    def look_thing(self, cid) -> None:
+        """One looked a set thing over (brief 4c §4.3): what it held and the day, for the remembered line."""
+        from cybertron2.engine import things as TH
+        TH.look(self._w, self.name, cid)
+
+    def set_line(self, c, r, daystr):
+        """The remembered line of a set thing one knows (brief 4c §4.3), or None for the plain line."""
+        from cybertron2.engine import things as TH
+        return TH.set_line(self._w, self.name, c, r, daystr)
 
     def known_things(self) -> dict:
         from cybertron2.engine import things as TH

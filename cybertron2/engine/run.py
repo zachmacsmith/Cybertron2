@@ -46,6 +46,12 @@ def bot_plan(w, name, talk=None) -> dict:
     can, _ = KN.options(here, mind)
     acts = []
     can = sorted(can, key=lambda x: (not x.startswith(("work reap", "work milk")), x))
+    if w.spec.get("bot_reap") == "ripe":                                  # a world's test bots leave a green crop standing
+        from cybertron2.engine import farm as FM
+
+        ripe = any(float(c.get("progress", 0) or 0) >= 1.0 for par in here.parcels().values() for _, _, c in FM.standing(par))
+        can = [x for x in can if ripe or not x.startswith("work reap")]
+    scripted = any(int(sc["day"]) - 1 == w.d and sc["who"] == name for sc in w.spec.get("script") or [])
     for line in can[:4]:
         verb, tech = line.split(" ", 1)
         tech = tech.split(" at ")[0].split(" (")[0]
@@ -53,7 +59,7 @@ def bot_plan(w, name, talk=None) -> dict:
     for item in ("wild food", "grain", "timber", "meat", "milk"):
         acts.append({"do": "move", "item": item, "qty": 2, "to": "store"})
     roads = here.roads()
-    if roads and w.spec.get("bot_travel", True) and w.d % 4 == 1 and len(name) % 2 == 0:
+    if roads and w.spec.get("bot_travel", True) and w.d % 4 == 1 and len(name) % 2 == 0 and not scripted:   # a scripted person stays
         acts = acts[:2] + [{"do": "travel", "to": roads[0][1]}]
     others = here.people(me=False)
     out = {"why": "bot", "actions": acts, "attend": others[(w.d + len(name)) % len(others)] if others else "the place in general",
@@ -395,7 +401,10 @@ def dawn(w) -> None:
             for item, q in list(w.goods(b["stock"]).items()):
                 share = float(inc.get("food", 0.85)) if item in EDIBLE else float(inc.get("other", 0.5))
                 w.apply("destroy", node, src=b["stock"], item=item, qty=max(0.0, q - safe.get(item, 0.0)) * share, why="fire")
-            w.apply("set", node, ref=("building", bid), field="condition", value=max(0, b["condition"] - int(inc.get("damage", 1))))
+            if b.get("level") is not None:                                     # in levels: a fire takes it to holed or worse (brief 4 §3)
+                BL.set_level(w, node, bid, min(BL.level(b), 2) - (int(inc.get("damage", 1)) - 1))
+            else:
+                w.apply("set", node, ref=("building", bid), field="condition", value=max(0, b["condition"] - int(inc.get("damage", 1))))
             w.apply("set", node, ref=("building", bid), field="fire_hit", value={"day": w.d})   # for its signs (D4-74)
             live = [m for m in w.living() if bid in w.homes(m)]
             w.event(node, "fire", f"fire broke out in {b['name']} in the night: the store is burnt, most of its food is gone and the roof "
@@ -777,6 +786,17 @@ def day0_capacity(spec) -> dict:
         return {"error": f"{type(e).__name__}: {str(e)[:200]}"}
 
 
+STANDARD = {"view": "beliefs", "evening": True, "tags": True, "ages": True}       # what every current world sets (38.70b)
+
+
+def settings_line(spec) -> str:
+    """The world's settings at the start of a run, and a warning for any standard one that is off."""
+    keys = ("view", "evening", "tags", "ages", "lifespan", "packs", "children", "memory", "memory_at_evening", "llm")
+    line = "settings: " + "; ".join(f"{k}={spec.get(k)!r}" for k in keys)
+    off = [k for k, v in STANDARD.items() if spec.get(k) != v]
+    return line + (f"\nWARNING: standard settings off in this world: {', '.join(off)}" if off else "")
+
+
 def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, seed=None, until=None, mode="start", responders=None):
     """mode "start": a new run from a world file; "resume": go on with the run in out_dir from its journal (every answered request
     reused, the first step not committed run again live); "replay": play the run in out_dir again from its record alone, in a
@@ -789,6 +809,7 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
             spec["seed"] = int(seed)
         if days:
             spec["days"] = int(days)
+        print(settings_line(spec), flush=True)
         if bots:
             spec["bots"] = True                                             # those who come of age are bots too
             for a in spec["agents"].values():
@@ -945,6 +966,8 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                     scripted.setdefault(sc["who"], []).append(dict(sc["do"]))
             for n, acts in scripted.items():
                 plans[n] = acts + plans[n]
+            from cybertron2.engine import parties as HP
+            HP.resolve(w, plans)                                               # who hunts with whom, declared (brief 4b §3.1)
             order = list(names)
             w.rng("order", day).shuffle(order)
             spoke = {n: sum(1 for y in results[n] if y.startswith("You said (")) * int(w.p["say_units"]) for n in names}
@@ -973,6 +996,10 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                         rep[n][refused_sig[n][sig]] = rep[n].get(refused_sig[n][sig], 1) + 1
                         continue
                     c = V.cost(here, a)
+                    if a.get("_party"):                                       # a follower with fewer units turns back early
+                        c2 = HP.cost(here, a, c, budget[n] + over_ok[n] - used[n])
+                        a = {**a, "_units": c2} if c2 != c else a
+                        c = c2
                     if used[n] + c > budget[n] + over_ok[n]:
                         if c and used[n] < budget[n] + over_ok[n]:
                             results[n].append(f"Not done: {a.get('do')} {a.get('what') or ''}".rstrip() + f": it takes {c} units and you had "
@@ -1040,6 +1067,8 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                 elif used[n] > budget[n]:
                     results[n].append(f"You pushed on {used[n] - budget[n]} unit{'s' if used[n] - budget[n] != 1 else ''} past your strength: "
                                       "it costs double food tonight, and you will be tired tomorrow.")
+            for n, lines in HP.settle(w).items():                              # the parties' hunts, after the day's acts (4b §3.1)
+                results.setdefault(n, []).extend(lines)
             if today.get("travel_morning"):                                    # set off this morning: in by nightfall (D4-67)
                 morning_departures(w, today)
             from cybertron2.engine import layout as LY

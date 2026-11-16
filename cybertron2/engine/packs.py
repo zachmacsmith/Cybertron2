@@ -25,8 +25,13 @@ def use(w) -> tuple:
 
 
 def on(row, packs=None) -> bool:
+    """A row is on when its pack is (or it has none), and off when a pack named in its `off_with` is on: a row a newer pack
+    replaces (the old generic game and its hunt, replaced by the wild layer's kinds: wild_layer.md, D2-199)."""
+    live = CURRENT if packs is None else packs
     s = (row or {}).get("pack")
-    return s is None or s in (CURRENT if packs is None else packs)
+    if any(x in live for x in ((row or {}).get("off_with") or ())):
+        return False
+    return s is None or s in live
 
 
 def items(packs=None) -> list:
