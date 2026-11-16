@@ -78,6 +78,12 @@ summer, so a run of 14 days holds the autumn run. The wild region (02zze: Weirfo
      needs the upper's salt to keep its run except by smoke.
 2. **The lake world:** a lowland village with a lake (the fowl and the freeze).
 
+**Made (16 Nov), on branch `water-worlds` (cc6f38d), from `peoples-worlds`:** `cybertron2/specs/water/` (`river.yaml` seed 9,
+`lake.yaml` seed 3, `runs.yaml` seed 5; README there), by `cybertron2/specs/make_water_worlds.py`, with two new generator pins:
+`has: brine spring` (a `brine` stock on the village's lowest open ground) and `on: big river` (the village's water cut from the
+large river itself; the travel costs skip its cells, so `on: river` gave a side channel or none). In the river world Saltwell's
+water drains to Millham's ring through 34.6 km of river. Each world ran two days with bots, with no errors.
+
 ## 2. The run along the river (C6 on `land.down`)
 
 1. **A run** is a mover's rule over any kind with `mover: run` and a direction (down to the sea, or up to spawn).
@@ -94,7 +100,10 @@ summer, so a run of 14 days holds the autumn run. The wild region (02zze: Weirfo
      count as they pass, so the run thins as it goes, and what reaches the sea is gone.
    - The stock is made up by elvers coming up in spring, by the area's suitability (the ecology's growth). Years of heavy takes lower
      the run that follows.
-4. **What it gives people:** on a run night at a village's water, `trap in water`, `net` and `fish by hand` take from the run by the
+4. **Where a run meets a village:** the chain of areas follows each area's largest river cell, so it passes a village's **ring**,
+   beside its small home area (which holds only the village's water cells). A run is at a village's water when it is in the
+   village's home **or ring** area (found building the worlds, 16 Nov).
+5. **What it gives people:** on a run night at a village's water, `trap in water`, `net` and `fish by hand` take from the run by the
    take rule (stage A of brief 4), with the run's density in place of the resident stock. The `when` multipliers built in brief 1
    become the run itself.
 
@@ -290,7 +299,9 @@ around physical facts (OPEN L-106) than a farming world, and it needs nothing pa
 **The world** (generated, the land kept, pinned):
 - One river with strong salmon and eel runs and three stations along it (upper, middle, lower), each a node with water parcels
   good for a weir; game and wild plants enough for summer and not for winter, so the stores decide the winter.
-- **No farming:** the farming pack off (packs, D4-103); no fields, no seed, no herds. Fire, racks, smokehouses, weirs, traps, nets,
+- **No farming:** no fields, no seed, no herds. Farming's rows carry no pack (D4-103), so it cannot be switched off: the world
+  makes it impossible instead (fields to scrub, no grain, beans, flour, bread, hay or beasts; the farming crafts not known). An
+  engine `farming` pack would make the arm exact (OPEN L-112). Made: `runs.yaml` (seed 5, 48 people, 60 days). Fire, racks, smokehouses, weirs, traps, nets,
   forage and the hunt as built. No spring and no mill: kept by drying and smoke, with the woods as fuel (§4c).
 - **People:** three or four households at each station, kin across stations; Opus at each station's leading household, Sonnet in
   the middle, Haiku in the bulk (scenario_design §2). Goals in-world (keep your people through the winter), never scores.
@@ -378,6 +389,9 @@ generate; nothing in the engine changes for it.
 - 16 Nov 2026: accepted for building (D2-209), Zach: "1. yes. 2. yes. 3. sure. 4. I'll be passing this to the other agent ... 5. what is
   its gap open. 6. for now but flag as revisit ... 7. yes. This will be for the hunting and resources build which should be flagged as a
   soon follow up. 8. yeah ... you can design the world while it gets started and then pass it on". Question 5 open.
+- 16 Nov 2026: the worlds made (branch `water-worlds`, cc6f38d): the river, lake and runs-only worlds and the generator's brine spring
+  and big-river pins (§1); where a run meets a village (§2.4, found building them); §8's "no farming" made physical, since farming has
+  no pack (OPEN L-112).
 
 ## Sources
 

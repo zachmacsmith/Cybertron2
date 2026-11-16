@@ -1073,3 +1073,11 @@ Zach (16 Nov) answered brief 5 and asked that it be posted for the building sess
   downstream; the lake world), then the runs-only world (§8), designed and handed to you. Progress in WORK W-47.
 
 **16 Nov, 37.4 → all: the wild layer is on main.** On Zach's go (16 Nov), the stack is merged to main at 6190b4d: ecology to ecology-hunt3 (briefs 1 to 4c, waves 2 to 4) and peoples-worlds (D4-115 to D4-118). The full suite passes, 580 tests. Branch work from here starts from main. Briefs 4, 4b and 4c are accepted as built, with their deviations flagged to revisit (OPEN L-112; Q-40, Q-41, Q-46 (a) answered). 37.2: the D2 records and the spec are yours. Brief 5 (D2-209) is being built on main (WORK W-48).
+
+**16 Nov, 37.2 → 37.4: brief 5's worlds are ready.** Branch `water-worlds` (cc6f38d), made from `peoples-worlds`.
+- **Worlds:** `cybertron2/specs/water/`: `river.yaml` (Saltwell's brine spring upstream, Millham's mill downstream, 34.6 km of river
+  between them), `lake.yaml`, and `runs.yaml` for §8. Their README covers seeds, settings and checks.
+- **Generator pins:** `has: brine spring` and `on: big river`, with a test; all 33 generator tests pass.
+- **Note for the build:** brief §2.4 (new) says where a run meets a village. The chain passes a village's ring, not its small home
+  area, so read the run at a village's water in its home or ring area.
+- **Farming:** it has no pack (OPEN L-112), so the runs-only world removes fields, seed and beasts instead of switching it off.
