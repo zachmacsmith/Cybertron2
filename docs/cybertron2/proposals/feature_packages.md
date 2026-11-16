@@ -21,8 +21,8 @@ This specification turns the engine into four things:
 
 **The work is large:**
 - **Size:** about 14,000 lines moved, 7,000 to 9,000 rewritten and 3,000 new, from an engine of 20,400.
-- **Time:** about 25 to 37 builder-days for the whole migration (§10), against the 12 active days it took to build the engine.
-- **The cheaper path:** phases 0 to 3 (about 12 to 19 days) give most of the benefit; the rest moves when it is next touched.
+- **Time:** about 26 to 39 builder-days for the whole migration (§10), against the 12 active days it took to build the engine.
+- **The cheaper path:** phases 0 to 3 (about 13 to 21 days) give most of the benefit; the rest moves when it is next touched.
 
 The inventory behind it is in [docs/review/40_feature_packages/](../../review/40_feature_packages/) (five files, A to E).
 
@@ -378,29 +378,88 @@ ranges carry that uncertainty.
 | 0 Guards and bugs | 0 | about 100 | about 600 | 1 to 2 |
 | 1 Core registries | 0 | about 1,500 (`world.py`, `run.py`, `branch.py`, `schema.py`, `here.py`, farm, life and tags callouts) | about 1,500 (loader, kinds, phases, `requires`, runner object) | 4 to 6 |
 | 1b Sign names, draws, results | 0 | about 900 (names on about 490 rows, mostly generated; perceive; result readers in run, evening, exchange) | about 200 | 2 to 3 |
-| 2 Wild as a package | about 3,900 (its own modules) | about 1,300 (its 19 engine edits as registrations) | about 300 | 3 to 5 |
+| 2 Wild as a package | about 5,000 (its own modules) | about 1,800 (its edits to 21 engine files on `ecology-hunt3`, as registrations) | about 300 | 4 to 7 |
 | 3 Animals | about 2,000 | about 500 | about 400 | 3 to 4 |
 | 4 The rest | about 12,000 | about 5,000 (signs walker and contexts about 1,000; prompt into slots about 700; view about 200; the technique hub about 600; night into phases about 500; run's feature logic about 700; `Here` namespaces about 400; needs terms about 300; the rest) | about 800 | 12 to 17 |
 | Tests (across phases) | 39 files move into packages | about 2,500 (37 files import engine modules; about 625 references by module alias) | (above) | included |
-| **Total, phases 0 to 4** | **about 14,000 of the engine's 20,400** | **about 7,000 to 9,000** | **about 3,000 to 4,000** | **about 25 to 37** |
+| **Total, phases 0 to 4** | **about 14,000 of the engine's 20,400** | **about 7,000 to 9,000** | **about 3,000 to 4,000** | **about 26 to 39** |
 | 5 Object model | | about 2,500 and up (populations about 1,500; layers about 1,000; the grid choice could double this) | | 5 to 15 |
 
 **What it comes to:**
 - **Diff size:** the git diff for phases 0 to 4 is about 35,000 to 45,000 lines, since moves count twice.
 - **Net size:** the engine grows by about 1,500 to 3,000 lines: the registries add code, and removing the special cases and the
   duplicates takes some away.
-- **Calendar time:** at the engine's own pace (12 active days in three and a half weeks), 25 to 37 builder-days is about five to
+- **Calendar time:** at the engine's own pace (12 active days in three and a half weeks), 26 to 39 builder-days is about five to
   nine weeks for one session. After phase 1, phase 4's packages can be split between two sessions, since they no longer share
   files, which brings it to about four to six weeks.
 - **Conflicts:** 37.2 and 37.4 keep building content on branches during this. Each package's move needs a short freeze on the
   files it takes, and work in flight has to be rebased.
 
-**The cheaper path** is phases 0, 1, 1b, 2 and 3: about 12 to 19 builder-days and 7,000 to 9,000 lines of diff.
+**The cheaper path** is phases 0, 1, 1b, 2 and 3: about 13 to 21 builder-days and 7,000 to 9,000 lines of diff.
 - **What it gets:** the dependency inversion, the `requires` rule, the phase list, stable sign names, the wild layer as a package
   and a proven pilot.
 - **After that:** new features are written as packages, and old code moves into packages when it is next substantially edited, the
   strangler pattern. The whole migration then costs little extra, but it never finishes on a date, and the core carries both forms
   for a while.
+
+### 11. What packages save, and what waiting costs
+
+**What building looks like today** (measured from git, 23 Oct to 16 Nov):
+- **The hub files.** Of 208 commits touching the engine, `data.py` is in 75, `verbs.py` in 63, `run.py` in 50, `prompt.py` in 48
+  and `signs.py` in 47. These five files are where concurrent sessions meet.
+- **The spread of a feature.** Across the wild briefs, the lines written into existing engine files (not the feature's own files)
+  were:
+
+  | Branch (in order) | Existing engine files edited | Lines there | Lines in its own files |
+  |---|---|---|---|
+  | `ecology` | 13 | 651 | 3,098 |
+  | `ecology-raiders` | 17 | 692 | 3,834 |
+  | `ecology-carcass` | 18 | 963 | 3,994 |
+  | `ecology-hunt3` | 21 | 1,835 | 4,982 |
+
+  So about a quarter of a feature's code lands in files other features share, and that share grew with each brief.
+
+**What packages save.**
+- The integration share moves into the feature's own folder as registrations. The lines are still written, but:
+  - they no longer collide with other sessions' work in the hub files;
+  - they need only the core's interface, not the internals of the 20 files they touch today;
+  - they cannot break another feature through a shared hub.
+- They do not save design, calibration, runs or analysis. Those dominate content-heavy work: the hunt took briefs 4, 4b and 4c,
+  mostly calibration.
+- **A judgement, not a measurement:** about 10 to 20% less building time per feature, more for features that cross many others.
+- Two larger effects follow:
+  - two or three sessions can build different packages at once without meeting in `data.py` and `signs.py`;
+  - the cost of a feature stops growing with the size of the engine.
+
+**What waiting costs.** Every feature built the old way joins the migration:
+- **Its own files** move cheaply: on the order of 2,000 lines a builder-day.
+- **Its edits to shared files** must be re-expressed as registrations and checked against the golden journals: on the order of
+  300 to 400 lines a builder-day, the pace phases 1 and 4 assume.
+- **The couplings built on top of it** must be untangled. This is the part that grows faster than linearly, since each new feature
+  can touch every one already there.
+
+Measured: the wild layer's shared-file edits went from 651 to 1,835 lines in five days of briefs, which took its own move from about
+3 to about 6 builder-days. On the order of 10,000 more lines built the old way, at today's quarter in shared files, would add about
+10 to 15 builder-days to the full migration.
+
+**Phase 1's value grows with every feature built after it, and its cost hardly grows** (about 4 to 6 days, unchanged). Once the
+registries exist, new features can be written as packages before any old code moves. That is why phase 1 is the part worth doing
+soon, whatever is decided about the rest.
+
+**Is it worth it?** It depends on how long C2 keeps growing.
+- **Phases 0, 1 and 1b: worth it on any horizon** (about 7 to 11 builder-days).
+  - They fix bugs that are live now: branching fails on evening worlds.
+  - They fix two faults in experiment design, whatever the build pace:
+    - a pack switched off leaves its signs and prompt prose live, so a null arm is not clean;
+    - one shared sequence of noticing draws means any added row changes what people notice about unrelated things.
+  - They stop the migration's cost from growing.
+- **The cheaper path (13 to 21): worth it if building continues at about today's pace for two months or more,** with more than one
+  session at once.
+  - At about 10 to 20% saved per feature, plus avoided conflicts, it pays back in roughly two to four months of building.
+  - Waiting adds about 1 to 1.5 builder-days a week of building to the eventual move.
+- **The full migration in one push (26 to 39): worth it only if C2 is a long project.** Otherwise the strangler path gets most of
+  the value: old code moves into packages when it is next edited.
+- **If C2 is near its last big features, it is not worth it beyond phase 1b.**
 
 ## What the inventory found
 
@@ -463,8 +522,8 @@ The bugs found on the way are in OPEN Q-49.
 4. **Keyed notice draws (§5):** they change what people notice in existing worlds, so runs from before do not replay under the new
    code. Accept, as phase 1b?
 5. **Scope and pace:**
-   - the whole migration (25 to 37 builder-days);
-   - the cheaper path (12 to 19), then packages as features are touched;
+   - the whole migration (26 to 39 builder-days);
+   - the cheaper path (13 to 21), then packages as features are touched;
    - phase 1 only.
 6. **The grid (§2.6):** the 150 m cells as the base space, or one grid per layer with mappings? This is a decision of its own,
    outside the estimate.
@@ -497,6 +556,9 @@ On decision:
     other packages it requires ... we only include the subset where all package requirements are fulfilled". Added with it: subject
     tables, stable row names, `rank` and `replaces`, the namespace declaration test, and keyed notice draws.
   - Zach asked for it as a spec with the work estimated (§9, §10). It is kept as a proposal until decided, per the folder's rules.
+- **16 Nov 2026: §11 added.** Zach asked how much easier building becomes and how the cost grows if more is built first. The
+  answer is measured from git: hub-file commits, and the wild briefs' spread from 651 to 1,835 lines in 21 files. Phase 2's estimate
+  is raised to 4 to 7 days to match `ecology-hunt3`.
 
 ## Sources
 
