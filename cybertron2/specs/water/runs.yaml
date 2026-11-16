@@ -15,6 +15,12 @@ children:
 packs:
 - wild
 - water
+view: beliefs
+evening: true
+tags: true
+ages: true
+llm:
+  week_stop: 0.5
 bot_travel: false
 bot_reap: ripe
 cast:
