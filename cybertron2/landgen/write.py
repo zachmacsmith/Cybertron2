@@ -320,6 +320,15 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
             if land:
                 entry["land"] = land                                       # fixed land (02zp; D4-112, D4-113)
             pars[p.pid] = entry
+        if "brine spring" in (s.pin.get("has") or []):                    # a brine spring (D2-56; brief 5 §4b), pinned: on the place's
+            open_ = sorted((p for p in s.parcels if p.cover in ("meadow", "pasture", "scrub", "heath", "fen")),   # lowest open ground,
+                           key=lambda p: (p.height, p.pid))                # where springs rise; a stock the engine reads once it knows brine
+            if not open_:
+                raise ST.Refused(f"{s.name}: a brine spring needs open ground (meadow, pasture or waste) on its land")
+            e = pars[open_[0].pid]
+            e.setdefault("state", {})["brine"] = dict(V.BRINE)
+            e["text"] = (str(e["text"]).rstrip(" .") + ". " + V.BRINE_TEXT).strip()
+            e["spring"] = "brine"
         kind_words = {"village": f"a village of {s.households} households", "stop": "a stopping place on the road",
                       "vacant": "land no one lives on or holds",
                       "wild": {"forest": "old forest, far from any village", "hills": "broken hill country, stony"}.get(s.facts.get("wild"), "wild country")}

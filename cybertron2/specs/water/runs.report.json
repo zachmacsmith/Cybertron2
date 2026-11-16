@@ -1,0 +1,370 @@
+{
+ "seed": 5,
+ "pins": {},
+ "targets": {
+  "Highpool": {
+   "households": 4,
+   "people": 15,
+   "food": 0.6,
+   "heat": 0.63,
+   "plots_wanted": 16,
+   "fields": 16,
+   "wood_wanted": 5,
+   "woods": 5,
+   "waste": 4
+  },
+  "Middleham": {
+   "households": 4,
+   "people": 14,
+   "food": 0.6,
+   "heat": 0.69,
+   "plots_wanted": 15,
+   "fields": 15,
+   "wood_wanted": 5,
+   "woods": 5,
+   "waste": 4
+  },
+  "Lowstrand": {
+   "households": 4,
+   "people": 19,
+   "food": 0.6,
+   "heat": 0.67,
+   "plots_wanted": 20,
+   "fields": 20,
+   "wood_wanted": 6,
+   "woods": 6,
+   "waste": 4
+  }
+ },
+ "checks": {
+  "rivers run downhill": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "0 river cells drain uphill"
+  },
+  "laid rivers run where laid": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "1 laid"
+  },
+  "every pin met": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "a pin not met is refused when it is placed"
+  },
+  "settlements placed": {
+   "kind": "design",
+   "ok": true,
+   "detail": "3 of 3 at 11.0 km apart"
+  },
+  "capacity": {
+   "kind": "design",
+   "ok": false,
+   "detail": {
+    "Highpool": 0.75,
+    "Middleham": 0.7,
+    "Lowstrand": 0.79
+   }
+  },
+  "dependence": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Highpool": [
+     "stone",
+     "metal"
+    ],
+    "Middleham": [
+     "stone",
+     "metal"
+    ],
+    "Lowstrand": [
+     "stone",
+     "metal"
+    ]
+   }
+  },
+  "reachable by land": {
+   "kind": "design",
+   "ok": true,
+   "detail": []
+  },
+  "chokepoint": {
+   "kind": "design",
+   "ok": true,
+   "detail": [
+    "Highpool-w1: pass",
+    "Highpool-w2: pass"
+   ]
+  },
+  "roads about a day": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "1": 4
+   }
+  },
+  "parcels per node": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Highpool": 11,
+    "Middleham": 13,
+    "Lowstrand": 13
+   }
+  },
+  "access gates": {
+   "kind": "design",
+   "ok": true,
+   "detail": "the bot dry run checks them once the people exist (scenario_design)"
+  },
+  "makes its own landscape": {
+   "kind": "design",
+   "ok": true,
+   "detail": "no promise for this configuration"
+  },
+  "lakes where lakes belong": {
+   "kind": "design",
+   "ok": true,
+   "detail": "3 lakes; 0 outside fen or upland systems (0.0 a 1,000 km2)"
+  },
+  "wood share by how long settled": {
+   "kind": "design",
+   "ok": true,
+   "detail": "0.30 of the land in wood (settled: settled, 0.30)"
+  },
+  "capacity, people as generated": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Highpool": {
+     "people": 15,
+     "share": 0.75,
+     "target": 0.63
+    },
+    "Middleham": {
+     "people": 14,
+     "share": 0.7,
+     "target": 0.69
+    },
+    "Lowstrand": {
+     "people": 19,
+     "share": 0.79,
+     "target": 0.67
+    }
+   }
+  },
+  "economy: region food": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "48 people; the land keeps 84 for good (0.57 of it)"
+  },
+  "economy: food over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "60 days need 2760 meals; store, crops ripening and the land give 3524 (0.78)"
+  },
+  "economy: region heat": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "48 people; the land keeps 89 for good (0.54 of it)"
+  },
+  "economy: heat over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "60 days need 1404 heat (13 hearths, 16.0 cold nights); store and the woods' flow give 2447 (0.57); the woods stand at 54320 more"
+  },
+  "economy: carrying burden": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {}
+  },
+  "economy: households' runway": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {
+    "short": [],
+    "share_of_people": 0.0,
+    "days_of_food_a_member": {
+     "the Brooks": 6.8,
+     "the Marshs": 6.8,
+     "the Shepherds": 6.8,
+     "the Fields": 6.8,
+     "the Fletchers": 6.8,
+     "the Harts": 6.8,
+     "the Woods": 6.8,
+     "the Wrights": 6.8,
+     "the Cotters": 6.8,
+     "the Bells": 6.8,
+     "the Coles": 6.8,
+     "the Hunts": 6.8
+    }
+   }
+  },
+  "economy: fuel": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "every hearth has wood in store or woods at hand"
+  },
+  "economy: room to grow": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": false,
+   "detail": "10 couples; about 50 births in 60 days if they try often; the region would be at 1.17 of its land"
+  },
+  "economy: succession": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": false,
+   "detail": [
+    "the Brooks: Gervase (86%), Nichola (85%), Mabel (71%) likely to die in the run; 0 grown left for 1",
+    "the Marshs: Henry (88%), Sarra (85%), Juliana (59%) likely to die in the run; 0 grown left for 1",
+    "the Shepherds: Adam (86%), Helewise (85%) likely to die in the run; 0 grown left for 1",
+    "the Fields: Ralf (88%), Thomasin (83%), Dionisia (59%) likely to die in the run; 0 grown left for 1",
+    "the Fletchers: Daniel (87%), Eva (85%), Matthew (62%) likely to die in the run; 0 grown left for 1",
+    "the Woods: Ivo (86%) likely to die in the run; 0 grown left for 1",
+    "the Wrights: Otes (87%), Isabel (85%), Godiva (73%), Hob (71%) likely to die in the run; 0 grown left for 1",
+    "the Coles: Baldwin (87%), Orabel (85%), Odo (71%), Avice (70%) likely to die in the run; 0 grown left for 4"
+   ]
+  }
+ },
+ "generated": [],
+ "deviations": [
+  "cells on a jittered square grid, not Poisson-disc points with Delaunay neighbours (scipy not installed)",
+  "cells saved as .npz, not parquet (pyarrow not installed)",
+  "people: generate.py once for the region as it stands (no kin between villages yet: 37.4's, later)"
+ ],
+ "descriptions": {
+  "model": null,
+  "written": 0,
+  "failed": 0
+ },
+ "nodes": {
+  "Highpool": {
+   "name": "Highpool",
+   "kind": "village",
+   "site_km": [
+    25.4,
+    38.87
+   ],
+   "parcels": 11
+  },
+  "Middleham": {
+   "name": "Middleham",
+   "kind": "village",
+   "site_km": [
+    22.45,
+    24.8
+   ],
+   "parcels": 13
+  },
+  "Lowstrand": {
+   "name": "Lowstrand",
+   "kind": "village",
+   "site_km": [
+    9.85,
+    14.83
+   ],
+   "parcels": 13
+  },
+  "w1": {
+   "name": "Craghurst",
+   "kind": "wild",
+   "site_km": [
+    30.11,
+    43.02
+   ],
+   "parcels": 2
+  },
+  "w2": {
+   "name": "Craglow",
+   "kind": "wild",
+   "site_km": [
+    22.09,
+    44.25
+   ],
+   "parcels": 2
+  }
+ },
+ "anchors": {
+  "the_river.source": [
+   23.0,
+   50.0
+  ],
+  "the_river.mouth": [
+   25.0,
+   0.0
+  ],
+  "the_river.point_1": [
+   25.0,
+   41.0
+  ],
+  "the_river.point_2": [
+   25.0,
+   25.0
+  ],
+  "the_river.point_3": [
+   26.0,
+   9.0
+  ],
+  "fells": [
+   25.0,
+   44.5
+  ],
+  "north_fells": [
+   25.0,
+   47.5
+  ],
+  "upper_waters": [
+   25.0,
+   45.0
+  ]
+ },
+ "refused": [],
+ "water_stocks": {
+  "water parcels stocked": 5
+ },
+ "fuel": {
+  "houses": 12,
+  "firewood": 30,
+  "timber": 20
+ },
+ "no_farming": {
+  "fields to scrub": 8,
+  "herds removed": 12,
+  "farm goods removed": 36,
+  "larder a house": {
+   "dried meat": 4,
+   "roots": 6,
+   "acorns": 6,
+   "berries": 4
+  }
+ },
+ "cast_opus": {
+  "Highpool": "Marsh",
+  "Middleham": "Wright",
+  "Lowstrand": "Cole"
+ },
+ "design": {
+  "big_river_km": {
+   "Highpool": 0.3,
+   "Middleham": 0.3,
+   "Lowstrand": 0.3
+  },
+  "Highpool above Middleham": {
+   "reached": true,
+   "river_km": 23.5
+  },
+  "Middleham above Lowstrand": {
+   "reached": true,
+   "river_km": 36.5
+  }
+ }
+}
