@@ -406,6 +406,27 @@ class Here:
         return {cid: c for cid, c in self._w.s["containers"].items() if c.get("kind") == "pile" and c.get("node") == self.node
                 and not c.get("hidden") and (c.get("in") == bid or c.get("door") == bid)}
 
+    # the smokehouse and the brine spring (brief 5 §4a, §4b; keeping.py)
+    def rack_room(self, bid, tech) -> float:
+        from cybertron2.engine import keeping as KP
+        return KP.room(self._w, bid, tech)
+
+    def rack_full(self, bid, tech) -> str:
+        from cybertron2.engine import keeping as KP
+        return KP.full_words(self._w, bid, tech)
+
+    def smoke_fuel_nights(self, bid) -> int:
+        from cybertron2.engine import keeping as KP
+        return KP.fuel_nights(self._w, bid)
+
+    def near_spring(self, pid, kind="brine") -> bool:
+        from cybertron2.engine import keeping as KP
+        return KP.near_spring(self._w, pid, kind)
+
+    def hung_by_household(self, c, bid) -> bool:
+        """A rack hung by one of the household that holds the building it hangs in."""
+        return c.get("by") in self._w.s["people"] and bid in self._w.homes(c["by"])
+
     def thing(self, cid) -> dict:
         c = self._w.s["containers"].get(cid)
         return c if c and c.get("node") == self.node else None

@@ -666,6 +666,10 @@ def _technique(here, mind, a, party, verb):
         for i, q in need.items():
             here.apply("destroy", src=here.hands, item=i, qty=q, why=tech)
         word = f"You worked on the {y['fitting']} at {place_name}: {WE.mend(here, key, y['fitting'])}."
+    elif y["kind"] == "smoke_tend":                                          # a smokehouse's fire, once a day (brief 5 §4a.3)
+        from cybertron2.engine import keeping as KP
+        word = KP.tend(here, key, place_name)
+        thing = ("building", key)
     elif y["kind"] == "repair":                                              # by its size and structure (D2-168)
         if here.buildings()[key]["structure"] == "stone":
             _mason(mind)                                                       # mending stone is walling (D4-97)
@@ -723,7 +727,7 @@ def _technique(here, mind, a, party, verb):
         here.apply("wear", container=here.hands, item=tool, uses=t["wear"])
     if not (y["kind"] in ("wild_take", "wild_den") and not t.get("set")):   # a hunt is practised by how it went (wild.practise, 4c §3.3)
         KN.tried(here, mind, tech, got > 0 or y["kind"] in ("sow", "tend", "repair", "slaughter", "break", "manure", "herd", "bury", "fence",
-                                                           "gate", "wild_watch", "wild_take", "wild_shut", "wild_guard", "wild_forage",
+                                                           "gate", "wild_watch", "wild_take", "wild_shut", "wild_guard", "wild_forage", "smoke_tend",
                                                            "wild_site", "wild_young", "wild_pest"),
                  units=t["units"])
     MOD.practise(here, mind, a["_mods"])
@@ -765,7 +769,8 @@ def _make(here, mind, a, party):
     from cybertron2.engine import wear as WE
     fits = WE.worked((t.get("at") or {}).get("fittings") or [])
     for i in range(qty):
-        sites = KN.where(here, tech)                                           # one's own house's fitting first
+        sites = KN.where(here, tech)                                           # one's own house's fitting first, of those
+        sites = [x for x in sites if not KN.ready(here, tech, x[0], x[1])] or sites   # ready (racks with room: brief 5 §4a)
         site = sorted(sites, key=lambda x: (x[0] != "building" or x[1] not in here.homes_here(),
                                             x[0] != "building" or not here.may_take(here.buildings()[x[1]]["stock"])))[0] if sites else None
         b = here.buildings().get(site[1]) if site and site[0] == "building" else None
@@ -780,6 +785,8 @@ def _make(here, mind, a, party):
             res.append(f"Refused: make {tech}: {why}")
             break
         share = KN.batch_share(here, tech, mult, extra)                        # whatever one has, up to the batch (brief 4c §6.1)
+        if t.get("rack") and b is not None:                                    # as much as the racks there have room for (5 §4a)
+            share = min(share, here.rack_room(site[1], tech) / max(1e-12, sum(float(q) for q in t["gives"].values())))
         _consume(here, t.get("inputs") or {}, mult * share, extra)
         if b is not None and fits and WE.on(here.p):
             WE.use(here, site[1], fits, sum(v for v in (t.get("inputs") or {}).values() if isinstance(v, (int, float))) * fac * share)
@@ -792,20 +799,32 @@ def _make(here, mind, a, party):
                 gives = {item: round(q * share, 4) for item, q in gives.items()}
             rk = t.get("rack")
             if rk and b is not None:                                           # hung on a rack at the fire, for its nights (brief 4 §5)
-                smoke = bool((b.get("fittings") or {}).get("hearth"))          # at a hearth: inside, in its smoke (brief 4c §6.2)
+                house = bool(rk.get("tended"))                                 # a smokehouse's racks: nights of a tended fire (5 §4a)
+                smoke = house or bool((b.get("fittings") or {}).get("hearth"))   # at a hearth: inside, in its smoke (brief 4c §6.2)
                 dst = here.apply("new_thing", node=here.node, parcel=b["parcel"], kind="pile", by=here.name,
                                  **({"in": site[1]} if smoke else {"door": site[1]}),
                                  rack={"day": here.day, "nights": int(rk["nights"]), "into": rk["into"], "ratio": float(rk["ratio"]),
-                                       "smoke": smoke})
+                                       "smoke": smoke, **({"smokehouse": True, "lit": 0} if house else {})})
                 if site[1] not in here.homes_here():                           # one's own house is known without it (4c §6.4)
                     here.remember_thing(dst, "put")
                 for item, q in gives.items():
                     here.apply("create", dst=dst, item=item, qty=q, why=tech)
-                full = (f"; it hangs on the rack in the smoke of the hearth inside {b['name']} for {int(rk['nights'])} nights" if smoke else
-                        f"; it hangs on a rack by the fire outside {b['name']} for {int(rk['nights'])} nights")
+                if house:
+                    from cybertron2.engine import keeping as KP
+                    KP.light(here, site[1])                                    # hung and the fire lit: it burns tonight
+                    n = here.smoke_fuel_nights(site[1])
+                    full = (f"; it hangs on the smoke racks in {b['name']} for {int(rk['nights'])} nights of fire, the fire lit for tonight "
+                            "and to be tended each day after (tend the smoke), or the batch waits and spoils"
+                            + (f"; firewood there for {n} night{'s' if n != 1 else ''}" if n else
+                               "; but there is no firewood in it or at its door: the fire will die tonight unless some is brought"))
+                else:
+                    full = (f"; it hangs on the rack in the smoke of the hearth inside {b['name']} for {int(rk['nights'])} nights" if smoke else
+                            f"; it hangs on a rack by the fire outside {b['name']} for {int(rk['nights'])} nights")
             for item, q in ({} if rk and b is not None else gives).items():
                 full += _full_note(here, out, item, q)
                 here.apply("create", dst=out, item=item, qty=q, why=tech)
+            if b is not None and any(FITTINGS.get(f, {}).get("spring") for f in fits):   # the pan's rim, for its signs (5 §4b.5)
+                here.apply("set", ref=("building", site[1]), field="boiled", value=here.day)
             worn = (" (" + WE.worn_words(here.p, b, fits, here.day, here.year_days()) + ")") if worn_fac < 1.0 else ""
             if fac < worn_fac:
                 worn += " (the mill's gap is open: the water runs past, and the wheel turns slow)"
@@ -871,6 +890,9 @@ def _ground_check(here, pid, need, what):
 def _build(here, mind, a, party):
     what = str(a.get("what") or "").strip().lower()
     what = MONUMENT_ALIAS.get(what, what)
+    if what not in BLUEPRINTS and what not in FITTINGS and what not in MONUMENTS:
+        from cybertron2.engine.data import FITTING_ALIAS
+        what = FITTING_ALIAS.get(what, what)                                  # "salt pan": the brine pan (brief 5 §4b)
     if what in UPGRADE:
         return _upgrade(here, mind, a, party)
     if what in ("storey", "upper storey", "second storey", "third storey"):
@@ -1147,6 +1169,14 @@ def _fitting(here, mind, a, party, what):
     if f.get("structure") and b["structure"] != f["structure"]:                # an oven only in stone, for its fire (D4-97)
         raise Refused(f"{f['label']} is built only in a {f['structure']} building ({b['name']} is {b['structure']}): "
                       f"build it in one, or raise one")
+    if f.get("apart") and any(b["fittings"].get(x) for x in ("beds", "hearth")):    # a smokehouse stands apart (brief 5 §4a.1)
+        raise Refused(f"{f['label']} go in a building of their own, not in a house with beds or a hearth: build a small room for them "
+                      "(on another parcel than the houses, a fire there reaches none of them)")
+    if what in ("beds", "hearth") and any(b["fittings"].get(x) for x, d in FITTINGS.items() if d.get("apart")):
+        raise Refused(f"{b['name']} is a smokehouse: people do not sleep or keep a hearth in it")
+    if f.get("spring"):                                                      # at or beside a spring (brief 5 §4b.2)
+        if not here.near_spring(b["parcel"], f["spring"]):
+            raise Refused(f"{f['label']} is set where the {f['spring']} is: at or beside a {f['spring']} spring, and {b['name']} is not")
     if f.get("site") and not any(here.parcels()[x]["cover"] == f["site"] for x in [b["parcel"]] + here.parcels()[b["parcel"]]["adj"]
                                  if x in here.parcels()):
         raise Refused(f"{f['label']} needs a building by {f['site']}")

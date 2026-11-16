@@ -393,22 +393,10 @@ def dawn(w) -> None:
                 place = w.at(who)
                 w.apply("die", place, person=who, cause=inc.get("cause", "old age"))
                 w.event(place, "death", f"{who} died in the night", target=who, salience=1.0, tags=["death"], dawn=True)
-        if inc["kind"] == "fire":
-            bid = inc["building"]
-            b = w.s["buildings"][bid]
-            from cybertron2.engine import buildings as BL
-            safe = BL.vaulted(b, w.goods(b["stock"]))                          # a vault does not burn (D2-49)
-            for item, q in list(w.goods(b["stock"]).items()):
-                share = float(inc.get("food", 0.85)) if item in EDIBLE else float(inc.get("other", 0.5))
-                w.apply("destroy", node, src=b["stock"], item=item, qty=max(0.0, q - safe.get(item, 0.0)) * share, why="fire")
-            if b.get("level") is not None:                                     # in levels: a fire takes it to holed or worse (brief 4 §3)
-                BL.set_level(w, node, bid, min(BL.level(b), 2) - (int(inc.get("damage", 1)) - 1))
-            else:
-                w.apply("set", node, ref=("building", bid), field="condition", value=max(0, b["condition"] - int(inc.get("damage", 1))))
-            w.apply("set", node, ref=("building", bid), field="fire_hit", value={"day": w.d})   # for its signs (D4-74)
-            live = [m for m in w.living() if bid in w.homes(m)]
-            w.event(node, "fire", f"fire broke out in {b['name']} in the night: the store is burnt, most of its food is gone and the roof "
-                    "is damaged", about=[f"building:{bid}"], salience=0.95, tags=["danger", "food", "shelter"], concerns=live, dawn=True)
+        if inc["kind"] == "fire":                                           # a fire in the night (keeping.burn_building)
+            from cybertron2.engine import keeping as KP
+            KP.burn_building(w, node, inc["building"], float(inc.get("food", 0.85)), float(inc.get("other", 0.5)),
+                             int(inc.get("damage", 1)), w.d)
     for x in [x for x in w.s.get("left", []) if x["day"] == w.d - 1]:
         b = w.s["buildings"][x["building"]]
         live = [m for m in w.living() if x["building"] in w.homes(m)]

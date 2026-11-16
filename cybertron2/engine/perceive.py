@@ -129,8 +129,8 @@ def describe(view) -> str:
         here = [p for p in view.parcels().values() if p["cover"] == cover]
         if not here or cover == "built":
             continue
-        gives = sorted({k for p in here for k in p["res"] if k in ("game", "seam", "quarry")} | {c["kind"] for p in here for _, _, c in FM.standing(p)})
-        words = {"game": "game", "seam": "a copper seam", "quarry": "stone"}
+        gives = sorted({k for p in here for k in p["res"] if k in ("game", "seam", "quarry", "brine")} | {c["kind"] for p in here for _, _, c in FM.standing(p)})
+        words = {"game": "game", "seam": "a copper seam", "quarry": "stone", "brine": "a brine spring"}
         size = sum(p["size"] for p in here)
         land.append(("much " if size >= 6 else "") + cv["words"] + (f" ({', '.join(words.get(g, g) for g in gives)})" if gives else ""))
     if land:

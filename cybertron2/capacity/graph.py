@@ -27,7 +27,8 @@ ELSEWHERE = {"crop": "rotation.py (a plot's year)", "sow": "rotation.py", "tend"
              "herd": "no goods (watching)", "wild_watch": "no goods (watching a field by night; wild_layer.md)",
              "wild_shut": "no goods (hens shut in for the night)", "wild_guard": "no goods (a guard on a field against a load)", "wild_site": "a site's young or a trapped beaver (wave 5; not yet in the capacity model)", "wild_forage": "the wild plant kinds' seasonal stocks (D2-200; their capacity under a take: not yet)", "wild_take": "the wild layer's populations (capacity under a harvest: living_populations step 2a, not yet)", "wild_den": "a den's take or a lodge's trap (D2-204; as wild_take and wild_site)", "wild_young": "a colony's young (D2-204; as wild_site)", "wild_pest": "no goods (a pest worked off a crop, D2-204)", "burn": "no goods (a carcass burned, brief 3)", "care": "no goods (children)", "works": "ground (rotation: best levels assume done)",
              "clear": "model.ceiling_fields", "clear_built": "no food", "fence": "no food", "gate": "no food",
-             "repair": "costs (upkeep, not yet)", "bury": "no goods", "mend": "costs (a fitting's upkeep: FITTINGS wear)"}
+             "repair": "costs (upkeep, not yet)", "bury": "no goods", "mend": "costs (a fitting's upkeep: FITTINGS wear)",
+             "smoke_tend": "no goods (a smokehouse's fire tended; its fuel a cost, brief 5 §4a)"}
 
 
 @dataclass

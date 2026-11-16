@@ -708,6 +708,8 @@ WILD = [
     dict(when=lambda x: x.r("seam") is not None and x.r("seam") >= 0.35, sense="sight", p=0.05, tags=["mining"],
          text=lambda x: f"a green-stained seam in {x.nm}"),
     dict(when=lambda x: "quarry" in x.p["res"], sense="sight", p=0.05, tags=["building"], text=lambda x: f"a face of good stone at {x.nm}"),
+    dict(when=lambda x: "brine" in x.p["res"], own=0.15, sense="sight", tags=["salt"],                          # brief 5 §4b
+         text=lambda x: f"a spring welling up at {x.nm}, a white rim of salt dried on the stones round it"),
 ]
 
 
@@ -804,6 +806,26 @@ BUILDING = [
          text=lambda x: f"{x.makers_any({'tent', 'bedroll', 'pack', 'harness'})} cutting and stitching hides at {x.nm}"),
     dict(when=lambda x: x.mended, own=0.8, sense="sound", tags=["building"],
          text=lambda x: f"mallets knocking at {x.nm}'s walls"),
+    # the smokehouse (brief 5 §4a; keeping.py): its fire last night with a batch on the racks, or the racks hung and the fire dead.
+    # Nearby: the smoke through the thatch, the smell (carries). Conditional: fog holds the smoke down. A change: the fire gone out.
+    dict(when=lambda x: x.smoking, own=0.9, sense="sight", tags=["food", "fuel"],
+         text=lambda x: f"smoke seeping through the thatch of {x.nm}: {x.smoking} hanging in it to cure"),
+    dict(when=lambda x: x.smoking, own=1.6, sense="smell", tags=["food"],
+         text=lambda x: f"the smell of smoking {x.smoking} from {x.nm}"),
+    dict(when=lambda x: x.smoking and x.weather == "fog", own=0.8, sense="sight", tags=["food"],
+         text=lambda x: f"smoke from {x.nm} lying low and heavy in the fog"),
+    dict(when=lambda x: x.smoke_out, reach="near", own=0.8, sense="sight", tags=["food", "fuel"],
+         text=lambda x: f"no smoke from {x.nm} this morning, though {x.smoke_out} hang on its racks: its fire has gone out"),
+    # boiling salt at a brine pan (brief 5 §4b.5): today, the steam and the smell of the pan, the salter's fire, all day if long at
+    # it; lingering two days, white crusts on the pan's rim
+    dict(when=lambda x: x.salt_n, own=1.2, sense="sight", tags=["salt", "fuel"],
+         text=lambda x: f"steam rising from the pan at {x.nm}, and a smell of salt and wood smoke"),
+    dict(when=lambda x: x.salt_n, own=0.7, sense="sound", tags=["salt", "fuel"],
+         text=lambda x: f"the salter's fire roaring under the pan at {x.nm}"),
+    dict(when=lambda x: x.salt_n >= 3, own=1.0, sense="sight", tags=["salt", "fuel"],
+         text=lambda x: f"the salter's fire at {x.nm} has burned all day, and the woodpile beside it gone down"),
+    dict(when=lambda x: x.salt_age is not None and 0 < x.salt_age <= 2, reach="near", own=0.6, sense="sight", tags=["salt"],
+         text=lambda x: f"white crusts of salt on the rim of the pan at {x.nm}"),
     # food rotting in the store (D4-74)
     dict(when=lambda x: x.rotting and not x.cold, own=0.8, sense="smell", tags=["food"],
          text=lambda x: f"a stink of {x.rotting[0]} from {x.nm}'s store"),
@@ -1000,7 +1022,7 @@ GRAND_AHEAD = [
 
 
 def building_context(here, bid):
-    from cybertron2.engine.data import FITTINGS
+    from cybertron2.engine.data import FITTINGS, TECHNIQUES
     b = here.buildings()[bid]
     st = here.stock(bid)
     live = [x for x in here.people() if bid in here.homes_here(x)] if b["fittings"].get("beds") else []   # who lives in it: a dwelling's
@@ -1033,6 +1055,15 @@ def building_context(here, bid):
     x.makers = {k: " and ".join(v) for k, v in makers.items()}
     x.makers_any = lambda techs: " and ".join(dict.fromkeys(n for t in sorted(techs) for n in makers.get(t, [])))
     x.rotting = [i for i, q in st.items() if ITEMS.get(i, {}).get("rot") and q > 0.2]
+    from cybertron2.engine import keeping as KP                                # the smokehouse and the brine pan (brief 5 §4)
+    sm, rs = b.get("smoke") or {}, KP.active_racks(here._w, bid) if b["fittings"].get("smoke racks") else {}
+    what = " and ".join(sorted({i.replace("smoking ", "") for c in rs.values() for i, q in c["goods"].items() if q > 1e-9
+                                and ITEMS.get(i, {}).get("decay") == "drying meat"}))
+    x.smoking = what if what and sm.get("night") == here.day - 1 and sm.get("lit") else ""
+    x.smoke_out = what if what and sm.get("night") == here.day - 1 and not sm.get("lit") else ""
+    x.salt_n = sum(1 for e in here.events() if e.get("kind") == "make" and f"building:{bid}" in (e.get("about") or [])
+                   and any(FITTINGS.get(f, {}).get("spring") for f in ((TECHNIQUES.get(e.get("tech")) or {}).get("at") or {}).get("fittings") or []))
+    x.salt_age = here.day - int(b["boiled"]) if b.get("boiled") is not None else None
     x.tier = b.get("tier") or "plain"
     mon = b.get("monument")
     x.look = {"carved post": "post", "standing stone": "stone_m", "cairn": "cairn"}.get(mon, b["structure"] if b["structure"] in
