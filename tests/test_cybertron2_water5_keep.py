@@ -60,6 +60,23 @@ def fed(w, household):
 AUTUMN = {"season": "autumn", "day": 1, "season_days": 8}
 
 
+def river_places():
+    """The river world's spring and who is about it, found from the world (the generator places them): the spring's parcel and
+    node, the household holding it, its first adult (the salter), its dwelling, and an adult of another household there."""
+    w = World(copy.deepcopy(RIVER))
+    pid = next(p for p, x in sorted(w.s["parcels"].items()) if "brine" in x["res"])
+    node = w.s["parcels"][pid]["node"]
+    hh = next(c["claimant"] for c in w.claims_on(("parcel", pid)) if c["claimant"] in w.s["institutions"])
+    adults = [n for n in sorted(w.living()) if w.s["people"][n]["stage"] == "adult" and w.s["people"][n]["at"] == node]
+    house = next(b for b in w.homes(next(n for n in adults if w.household_of(n) == hh)) if w.s["buildings"][b]["fittings"].get("beds"))
+    return {"spring": pid, "node": node, "household": hh, "salter": next(n for n in adults if w.household_of(n) == hh),
+            "house": house, "house_name": w.s["buildings"][house]["name"], "house_parcel": w.s["buildings"][house]["parcel"],
+            "neighbour": next(n for n in adults if w.household_of(n) != hh)}
+
+
+RP = river_places()
+
+
 # ---------------------------------------------------------------------- §4a.6: a glut kept, and not
 def test_a_40_meat_glut_loses_under_10_percent_through_a_smokehouse():
     w = world(VALLEY, smokehouse(), calendar=AUTUMN)
@@ -102,13 +119,13 @@ def test_the_hearth_rack_holds_a_batch_at_a_time():
 
 
 def test_fish_smoke_in_the_river_world_and_keep_four_times_as_long_as_dried_meat():
-    w = world(RIVER, smokehouse(parcel="Saltwell_0", household="Hale"), calendar=AUTUMN)
-    fed(w, "Hale")
-    hand(w, "Wymond", fish=40)
-    assert "40 smoking fish" in do(w, "Wymond", do="make", what="smoke fish")
+    w = world(RIVER, smokehouse(parcel=RP["house_parcel"], household=RP["household"]), calendar=AUTUMN)
+    fed(w, RP["household"])
+    hand(w, RP["salter"], fish=40)
+    assert "40 smoking fish" in do(w, RP["salter"], do="make", what="smoke fish")
     for d in range(3):
         if d:
-            do(w, "Wymond", do="work", what="tend the smoke")
+            do(w, RP["salter"], do="work", what="tend the smoke")
         night(w)
     assert 1 - store(w, "smokehouse").get("smoked fish", 0.0) / 20.0 < 0.10
     assert abs(ITEMS["smoked fish"]["spoil"] * 4 - ITEMS["dried meat"]["spoil"]) < 1e-12
@@ -272,34 +289,34 @@ def salter(w, who):
 
 
 def test_boiling_salt_burns_firewood_at_its_rate_at_saltwells_spring():
-    w = world(RIVER, salthouse("Saltwell_2", "Hale"))                      # on the Brine Meadow, at the spring
-    assert "brine" in w.s["parcels"]["Saltwell_2"]["res"]                   # the spring the generator pinned is live
-    salter(w, "Wymond")
-    here = Here(w, "Wymond")
+    w = world(RIVER, salthouse(RP["spring"], RP["household"]))                      # on the Brine Meadow, at the spring
+    assert "brine" in w.s["parcels"][RP["spring"]]["res"]                   # the spring the generator pinned is live
+    salter(w, RP["salter"])
+    here = Here(w, RP["salter"])
     wood, salt = KN.available(here, "firewood"), KN.available(here, "salt")   # from the stores he may take from, as the hearth's
-    r = do(w, "Wymond", do="make", what="boil salt", qty=3)
+    r = do(w, RP["salter"], do="make", what="boil salt", qty=3)
     assert r.count("You made 4 salt") == 3, r
     assert abs(KN.available(here, "firewood") - (wood - 12)) < 1e-9          # 1 firewood a salt
     assert abs(KN.available(here, "salt") - (salt + 12)) < 1e-9
-    assert w.s["parcels"]["Saltwell_2"]["res"]["brine"]["S"] == 1000         # endless
+    assert w.s["parcels"][RP["spring"]]["res"]["brine"]["S"] == 1000         # endless
     assert TECHNIQUES["boil salt"]["units"] == 1 and TECHNIQUES["boil salt"]["trade"] == "salter"
     w.s["calendar"] = {"season": "winter", "day": 2, "season_days": 8}       # in any season, unlike the sun-dried pans
     for cid in here.takeable():
         w.s["containers"][cid]["goods"]["firewood"] = 0.0
     store(w, "salthouse")["firewood"] = 4.0
-    assert "You made 4 salt" in do(w, "Wymond", do="make", what="boil salt")
-    assert "it needs 4 firewood" in do(w, "Wymond", do="make", what="boil salt")   # no firewood, no salt
+    assert "You made 4 salt" in do(w, RP["salter"], do="make", what="boil salt")
+    assert "it needs 4 firewood" in do(w, RP["salter"], do="make", what="boil salt")   # no firewood, no salt
 
 
 def test_a_brine_pan_is_set_only_at_or_beside_a_spring():
     w = world(RIVER)
-    salter(w, "Wymond")
-    hand(w, "Wymond", copper=2, timber=4)
-    r = do(w, "Wymond", do="build", what="salt pan", at="Hale House")     # "salt pan" names the brine pan when building
+    salter(w, RP["salter"])
+    hand(w, RP["salter"], copper=2, timber=4)
+    r = do(w, RP["salter"], do="build", what="salt pan", at=RP["house_name"])     # "salt pan" names the brine pan when building
     assert r.startswith("Refused") and "brine spring" in r, r
-    w2 = world(RIVER, salthouse("Saltwell_0", "Hale"))                     # a pan away from the spring: nothing to boil
-    salter(w2, "Wymond")
-    r = do(w2, "Wymond", do="make", what="boil salt")
+    w2 = world(RIVER, salthouse(RP["house_parcel"], RP["household"]))                     # a pan away from the spring: nothing to boil
+    salter(w2, RP["salter"])
+    r = do(w2, RP["salter"], do="make", what="boil salt")
     assert r.startswith("Refused") and "no brine spring" in r, r
 
 
@@ -337,12 +354,12 @@ def test_an_inland_village_without_a_spring_has_no_salt():
 def test_salted_fish_keep_as_built():
     assert TECHNIQUES["salt fish"]["inputs"] == {"fish": 4, "salt": 1} and TECHNIQUES["salt fish"]["gives"] == {"salt fish": 4}
     assert ITEMS["salt fish"]["spoil"] == 0.01 and ITEMS["salt fish"]["decay"] == "dried meat"
-    w = world(RIVER, salthouse("Saltwell_2", "Hale"), calendar=AUTUMN)       # salt boiled, then fish salted with it
-    salter(w, "Wymond")
-    do(w, "Wymond", do="make", what="boil salt")
-    assert KN.available(Here(w, "Wymond"), "salt") >= 4 - 1e-9
-    hand(w, "Wymond", fish=4)
-    assert "You made 4 salt fish" in do(w, "Wymond", do="make", what="salt fish")
+    w = world(RIVER, salthouse(RP["spring"], RP["household"]), calendar=AUTUMN)       # salt boiled, then fish salted with it
+    salter(w, RP["salter"])
+    do(w, RP["salter"], do="make", what="boil salt")
+    assert KN.available(Here(w, RP["salter"]), "salt") >= 4 - 1e-9
+    hand(w, RP["salter"], fish=4)
+    assert "You made 4 salt fish" in do(w, RP["salter"], do="make", what="salt fish")
     r = N.spoil_rate(w.p, "salt fish", "store", "autumn", False)
     assert abs(r - 0.01 * w.p["house_spoil"]) < 1e-12
 
@@ -361,7 +378,7 @@ def test_coastal_salt_is_unchanged():
 # ---------------------------------------------------------------------- §4c: the fuel harness runs on any world
 def test_the_fuel_budget_harness_runs_on_the_river_world():
     from cybertron2 import fuel_budget as FB
-    out = FB.run("cybertron2/specs/water/river.yaml", days=4, smokehouse="Saltwell", salter="Saltwell")
+    out = FB.run("cybertron2/specs/water/river.yaml", days=4, smokehouse=RP["node"], salter=RP["node"])
     assert set(out["burned"]) == {"hearths", "smokehouse", "salt pan"}
     assert out["burned"]["salt pan"] > 0 and out["burned"]["smokehouse"] > 0 and out["burned"]["hearths"] > 0
     assert out["woods"] and all({"standing", "start"} <= set(v) for v in out["woods"].values())
@@ -386,14 +403,14 @@ def test_the_smokehouse_and_the_salt_pan_are_seen_and_smelt():
     night(w)                                                                  # untended: the fire out
     got = _signs(w, "Hamo")
     assert any("its fire has gone out" in t for t, _, s in got) and not any("smell of smoking" in t for t, _, s in got), got
-    w = world(RIVER, salthouse("Saltwell_2", "Hale"))
-    salter(w, "Wymond")
-    do(w, "Wymond", do="make", what="boil salt", qty=3)
-    got = _signs(w, "Tobin")
+    w = world(RIVER, salthouse(RP["spring"], RP["household"]))
+    salter(w, RP["salter"])
+    do(w, RP["salter"], do="make", what="boil salt", qty=3)
+    got = _signs(w, RP["neighbour"])
     assert any(t.startswith("steam rising from the pan at the Salt House") for t, _, s in got), got
     assert any("has burned all day" in t for t, _, s in got), got
     w.s["day"] += 1
     w.s["events"] = []
-    got = _signs(w, "Tobin")
+    got = _signs(w, RP["neighbour"])
     assert any("white crusts of salt on the rim of the pan" in t for t, _, s in got) and not any("steam" in t for t, _, s in got), got
     assert any("a white rim of salt dried on the stones" in t for t, _, s in got), got
