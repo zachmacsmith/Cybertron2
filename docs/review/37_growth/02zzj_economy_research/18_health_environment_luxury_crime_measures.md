@@ -9,11 +9,10 @@ building; the closing section says only what the border would take from these do
 
 These five domains sit at the edges of the production chains the other parts trace, but each one sets a limit on them. **Disease**
 decided where people could live, how many hands there were and what labour cost. The crowd diseases came from herds and needed
-towns to persist; the Black Death halved the labour force and doubled its bargaining power; Old World pathogens emptied the
+towns to persist; the Black Death cut the labour force by a third to a half and raised its bargaining power; Old World pathogens emptied the
 Americas and made the plantation economy; malaria and yellow fever drew the map of European settlement in the tropics. Healing grew
-from household herb lore and midwifery into licensed trades (barber-surgeons, apothecaries, physicians), a long-distance drug trade
-in bark, gums, opium and spices, and charitable hospitals, before sanitation, germ theory and the dye firms' chemistry turned it into
-public health and the pharmaceutical chain of part 13. **Environment** is the other face of part 01's organic economy: the same
+from household herb lore and midwifery into licensed trades, a long-distance drug trade and endowed hospitals, before sanitation,
+germ theory and the dye firms' chemistry made public health and part 13's drug chain. **Environment** is the other face of part 01's organic economy: the same
 land that gave food, fuel and timber could be stripped, worn out, salted or overfished, and every society that lasted found rules
 for its commons, while some ran into limits. The collapse stories most often told (Rapa Nui, the Maya, Norse Greenland) are
 contested, and the critiques matter as much as the stories.
@@ -21,8 +20,7 @@ contested, and the critiques matter as much as the stories.
 **Luxury** drove most long-distance trade before the nineteenth century, because only goods with high value for their weight could
 pay for the journey: silk, pepper and nutmeg, purple and cochineal, sugar, tea and porcelain each built a chain across continents,
 and states tried to fix who might wear or eat them (sumptuary laws). The consumer revolution of the seventeenth and eighteenth
-centuries turned some of those luxuries into mass goods and pulled households into the market for them, which part 05 and part 07
-read as one of the springs of industry. **Crime and predation** (theft, banditry, piracy, smuggling and fraud) are costs that set how
+centuries turned some of them into mass goods and pulled households into the market. **Crime and predation** (theft, banditry, piracy, smuggling and fraud) are costs that set how
 far trade reaches, and nearly every early institution (watchmen, oaths, frankpledge, guild searches, sealed cloth, convoys, police)
 answered one of them. **Measures and standards** are the quiet public good under every exchange: from Indus chert weights and the
 silver shekel through Magna Carta's one measure and the assize, to the metric system, standard screw threads, the ISO container and
@@ -81,9 +79,8 @@ Labourers trying and failing to hold wages at their pre-plague level. Three furt
 - **Consumption rose.** Survivors ate more meat and drank more ale, and labourers dressed above their station. The English
   **Statute concerning Diet and Apparel of 1363** set out, rank by rank, what cloth and food each might use (*checked*): the first
   big English sumptuary law answers a wage rise (§3.3).
-- **Labour-saving capital.** Dear labour after 1350 is one argument for the spread of labour-saving devices (the printing press, the
-  three-masted ship, more water power) in the late middle ages (David Herlihy, *contested*). Voigtländer and Voth's argument that
-  plague and urban disease kept north-west European incomes high is in part 06.
+- **Labour-saving capital.** Dear labour after 1350 may have hastened labour-saving devices such as printing (David Herlihy,
+  *contested*); Voigtländer and Voth's high-income argument is in part 06.
 
 **The Columbian exchange of disease.** Part 11 (§6.3) gives the scale: about 56 million deaths in the Americas by 1600, roughly 90%
 of the population (Koch et al. 2019, *contested in detail*), from smallpox, measles, influenza and later malaria and yellow fever
@@ -94,11 +91,9 @@ few herd animals and so few crowd diseases.
 
 **Malaria and settlement.** Malaria shaped settlement more slowly but over more of the world:
 
-- **Lowland Europe.** The Roman Campagna and the Pontine Marshes were malarial for two thousand years until drainage and quinine
-  in the twentieth century; Mussolini's draining of the Pontine Marshes (1930s) was as much public health as land reclamation. In
-  England the Essex and Kent marshes and the Fens had "ague", and Mary Dobson's *Contours of Death and Disease* (1997) shows marsh
-  parishes with burial rates far above upland ones (*unchecked*). Draining the Fens (17th century onward) was a land, transport
-  and health project at once.
+- **Lowland Europe.** The Roman Campagna and the Pontine Marshes stayed malarial until drainage and quinine in the twentieth
+  century. England's Fens and Essex marshes had "ague", with burial rates far above upland parishes (Mary Dobson, 1997,
+  *unchecked*); draining them was a land, transport and health project at once.
 - **The tropics.** European death rates in West Africa were so high (Philip Curtin's soldiers' series: often half or more of new
   arrivals dead in the first year, *unchecked*) that the coast was called "the white man's grave", and Europeans traded from forts
   and ships rather than settling until quinine prophylaxis (from the 1850s) opened the interior. Acemoglu, Johnson and Robinson
@@ -107,9 +102,9 @@ few herd animals and so few crowd diseases.
 - **Labour and immunity.** West Africans' partial resistance to falciparum malaria (sickle-cell trait, Duffy negativity) and to
   yellow fever is one strand of why planters in the malarial Caribbean and Lower South bought enslaved Africans rather than hiring
   Europeans (*contested*; Curtin, Coclanis, Esposito).
-- **Canals and wars.** The French Panama canal (1881 to 1889) lost perhaps 20,000 workers, mostly to yellow fever and malaria
-  (*rough*); the American canal (1904 to 1914) succeeded after Gorgas's mosquito control. Yellow fever destroyed the French army sent
-  to retake Saint-Domingue (1802 to 1803), which helped make Haiti independent and led Napoleon to sell Louisiana (*memory*).
+- **Canals and wars.** The French Panama canal (1881 to 1889) lost perhaps 20,000 workers to yellow fever and malaria (*rough*);
+  the American one (1904 to 1914) succeeded after Gorgas's mosquito control. Yellow fever destroyed the French army in
+  Saint-Domingue (1802 to 1803), which helped make Haiti independent (*memory*).
 - **Hookworm** in the American South: the Rockefeller Sanitary Commission's campaign (1909 to 1914) raised school attendance and
   later earnings in the most infected counties (Bleakley 2007, *unchecked*). It is the clearest modern case of a disease as a tax on
   human capital.
@@ -117,16 +112,14 @@ few herd animals and so few crowd diseases.
 **The urban penalty.** Part 12 (§1.7) gives London's 8,000 net migrants a year and Wrigley's model; part 05 gives life expectancy of
 35 to 40 years in early modern England. The penalty grew worse with industrial crowding before it fell: life expectancy in
 Manchester and Liverpool in the 1830s and 1840s was well below the English average (Simon Szreter's "urban penalty", *unchecked*),
-and heights of British-born men fell for cohorts born in the 1830s to 1850s (*contested*). Cholera (1832, 1848, 1854, 1866 in
-Britain) did less of the killing than typhoid, tuberculosis, diarrhoea in infants and typhus, but it frightened the propertied and
-moved Parliament. The answer (water, sewers, medical officers of health) is in parts 08 and 12.
+and heights of British-born men fell for cohorts born in the 1830s to 1850s (*contested*). Cholera did less of the killing than
+typhoid, tuberculosis and infant diarrhoea, but it frightened the propertied and moved Parliament (answers in parts 08 and 12).
 
 **Livestock disease.** Herd plagues were economic shocks of their own. Rinderpest reached the Horn of Africa in 1887 to 1889 and
 swept south to the Cape by 1897, killing perhaps 80 to 90% of cattle in many places (*rough*), with famine for herding peoples and
-the spread of bush and tsetse onto abandoned grazing. The British cattle plague of 1865 to 1867 led to compulsory slaughter with
-compensation and a state veterinary service (Contagious Diseases (Animals) Act 1869, *memory*), one of the first cases of a state
-destroying private property to protect a shared stock. Foot-and-mouth (Britain 2001: about six million animals culled, *rough*) and
-avian influenza continue the pattern.
+the spread of bush and tsetse onto abandoned grazing. Britain's cattle plague of 1865 to 1867 brought compulsory slaughter with
+compensation and a state veterinary service (*memory*): a state destroying private property to protect a shared stock, as in the
+foot-and-mouth cull of 2001 (*rough*: about six million animals).
 
 ### 1.2 Healing as a trade
 
@@ -146,8 +139,8 @@ grew up beside that household care, each with a different good: knowledge, skill
 **The chain of the apothecary.** An early modern apothecary's shelves are a map of world trade: pepper, ginger and cinnamon from the
 spice routes; rhubarb root from China by caravan; aloes from Socotra; senna from Egypt; opium from Anatolia and later India; sugar,
 first sold as a drug (part 11 §4.3); tobacco, guaiacum wood from the Caribbean for syphilis (the Fuggers held a lucrative import
-monopoly, *memory*); and the most famous compound, **theriac**, made publicly in Venice from dozens of ingredients including viper
-flesh, under the eyes of officials who certified the batch (*memory*). The trade's shape was luxury's: high value for weight, long
+monopoly, *memory*); and **theriac**, compounded publicly in Venice from dozens of ingredients under officials who certified the
+batch (*memory*). The trade's shape was luxury's: high value for weight, long
 routes, a few ports of entry, adulteration a constant risk, and guild searches of the shops to find it (§4.6).
 
 **Cinchona and quinine** show a drug becoming a strategic good. Andean cinchona bark was taken up by Jesuits in the 1630s as a cure
@@ -187,9 +180,8 @@ public health and the drug chain (each step needs the one above)
 
 **Health as a sector.** Health care was a small share of spending until the twentieth century. By the 2020s it is about 17% of US
 GDP and around 9 to 12% in most rich countries (*rough*, OECD), most of it services (nursing, doctors, hospitals) rather than goods.
-Paying for it moved from the patient's purse and charity through **friendly societies** and sick clubs (part 05), Bismarck's
-compulsory sickness insurance (1883), Lloyd George's National Insurance (1911) and the NHS (1948) to the insurers and national
-systems of part 13 (*memory* for dates). The economic return showed in the body itself: Robert Fogel's work on height and
+Payment moved from the purse and charity through friendly societies (part 05) to Bismarck's sickness insurance
+(1883) and national systems (*memory*). The economic return showed in the body itself: Robert Fogel's work on height and
 mortality argued that better nutrition and health explain a large share of British growth since 1790 (*contested*).
 
 ### 1.4 Health: what it needed, what it enabled, how it interacts
@@ -216,8 +208,7 @@ fact over time: woods near people were used faster than they grew, and each soci
 |---|---|---|---|
 | **London, 13th century** | firewood and charcoal within carting distance | sea coal from the Tyne for lime-burners, smiths and brewers; complaints of the smoke led to a royal proclamation against burning it in 1306 (*memory*) | coal at a few thousand tons a year then (*rough*); see part 12 |
 | **England 1550 to 1650** | fuel and timber near towns and ironworks | coal for houses and many trades; the 1543 Act for the Preservation of Woods; the 1615 ban on wood in glass furnaces (both in the web) | J. U. Nef's "timber crisis" (1932) is **contested**: Michael Flinn and G. Hammersley found ironmasters managed coppices on rotation and the shortage was local and of large timber (part 03) |
-| **Venice** | oak for the Arsenal's galleys | state forests (the Bosco del Montello reserved for the navy), felling rules, timber measured and marked (*memory*) | |
-| **navies** | great oak for ships of the line | naval reserves, surveys, imports from the Baltic and North America (in the web: naval oak) | a 74-gun ship took 2,000 to 3,500 oaks (part 03) |
+| **Venice and the navies** | oak for galleys and ships of the line | state forests (Venice's Montello), surveys, Baltic and American imports (*memory*; in the web: naval oak) | a 74-gun ship took 2,000 to 3,500 oaks (part 03) |
 | **Song China** | wood in the north round Kaifeng | coal for iron, kilns and homes (part 11) | |
 | **Tokugawa Japan** | old-growth forest, logged out by about 1670 for castles, temples and towns (Totman, *checked*) | a turn from "exploitation" to "regenerative" forestry: felling bans and inventories (the "negative regimen"), then planted forests, partly by coercion of villages and partly by village self-regulation (Totman 1989; *checked* as an argument) | population near 30 million by 1700 (*rough*) |
 | **Britain, 1865** | coal itself, in the long run | W. S. Jevons, *The Coal Question*: more efficient engines raise, not lower, coal use (the "Jevons paradox") (*memory*) | |
@@ -286,10 +277,7 @@ until their waste was intolerable, then a law.
 | the Leblanc soda process | hydrochloric acid gas, alkali waste | crops and woods round the works | the Alkali Act 1863: 95% of the acid gas to be absorbed, with inspectors (part 07, in the web); the recovered acid became a product (bleaching powder) |
 | city sewage | the river as a sewer | water drinkers; the Great Stink of 1858 | intercepting sewers, then treatment (parts 08, 12); the Rivers Pollution Prevention Act 1876 (*memory*) |
 | coal smoke at its worst | smog | London, December 1952: about 4,000 deaths counted at the time, 10,000 to 12,000 in later excess-mortality estimates (*checked*) | the Clean Air Act 1956: smokeless zones and controls on domestic and industrial smoke (*checked*) |
-| lead | from Roman silver smelting in the Greenland ice (part 11) to leaded petrol (1920s to its phase-out, completed worldwide in 2021: *memory*) | everyone; children's blood lead | bans; unleaded fuel |
-| sulphur dioxide from power stations | acid rain | lakes and forests downwind, across borders | the US cap-and-trade for SO2 (1990 Clean Air Act Amendments), which cut emissions at lower cost than expected (*rough*) |
-| CFCs | ozone loss | the whole atmosphere | the Montreal Protocol (1987), the clearest case of a global commons regulated successfully (*memory*) |
-| carbon dioxide | warming | the whole atmosphere, falling unevenly | carbon prices (the EU ETS from 2005), standards, subsidies to substitutes; part 13 §4 |
+| lead, sulphur, CFCs, carbon | leaded petrol (phased out worldwide by 2021); acid rain; ozone loss; warming | children's blood; lakes downwind; the whole atmosphere | bans; the US SO2 cap-and-trade (1990); the Montreal Protocol (1987); carbon prices (EU ETS, 2005) (*memory*) |
 
 **The pattern of the answer.** The first answers were moving the trade (downstream, outside the walls, to the edge of town); the
 next were technical (absorb the gas, sell the by-product); then came inspectors with powers, then priced permits. The waste became
@@ -317,8 +305,6 @@ laws, hayward and court as an example. Three things to add from the environmenta
 | **the Classic Maya** (9th century) | deforestation, erosion and drought ended the lowland cities (Jared Diamond, *Collapse*, 2005) | drought is well attested in lake cores; the population did not vanish but moved and reorganised; Maya kingship ended, Maya people did not (McAnany and Yoffee, *Questioning Collapse*, 2010; part 06) | an end of a political order under drought and war, with environmental stress among the causes |
 | **Rapa Nui** (Easter Island) | islanders cut the last palm, could not build canoes and collapsed in war and famine (Diamond's "ecocide") | rats ate the palm seeds; the island never held the 15,000 to 17,000 once claimed: a 2024 survey of rock gardens supports a stable population of about 3,000 at European contact (Lipo, Hunt and others, *checked*, disputed by Stevenson); the real collapse came with Peruvian slave raids (1862) and smallpox (*memory*) | the canonical ecocide story is probably wrong; the island's people adapted (rock gardens, mulching) to a poor environment |
 | **Norse Greenland** (abandoned in the 15th century) | farmers who would not learn from the Inuit starved as the climate cooled | the colony depended on walrus ivory sold in Europe, whose price fell as elephant ivory returned; isotopes show a diet shifting to seals; people may have left rather than died (*contested*) | a trade-dependent outpost whose export lost its market, under a cooling climate |
-| **Tikopia, highland New Guinea, Tokugawa Japan** | (Diamond's successes) small islands and states that controlled population and forests | broadly accepted | the commons governed |
-| **the Dust Bowl, the Aral Sea** | modern environmental failure | well documented | failures that did not end the society but moved people and money |
 
 **What survives the critiques.** Environmental degradation rarely ended a society by itself. It narrowed the margin, so that a
 drought, a war, a disease or the loss of a market did what it would not otherwise have done. Part 06's table of how depth is lost
@@ -406,8 +392,8 @@ servants and labourers buy into them.
 
 Theories of why people buy status: **Thorstein Veblen** (*The Theory of the Leisure Class*, 1899: conspicuous consumption and
 leisure as proof of wealth); **Georg Simmel** (1904: fashion trickles down as the lower orders imitate and the upper move on);
-**Pierre Bourdieu** (*Distinction*, 1979: taste as cultural capital). The 18th-century "luxury debate" (Bernard Mandeville's *Fable
-of the Bees*, 1714; David Hume) argued that private vanity made public wealth by setting the poor to work: luxury as demand.
+**Pierre Bourdieu** (*Distinction*, 1979: taste as cultural capital). Mandeville's *Fable of the Bees* (1714) had already argued that private
+vanity set the poor to work.
 
 ### 3.6 Status goods today
 
@@ -447,7 +433,7 @@ in this section are the answers to each kind of taking.
 |---|---|---|
 | **villages** | houses with people in them; dogs; neighbours who saw and knew; the hue and cry raised by anyone robbed | in England everyone had to join the hue and cry and follow a thief from village to village (*memory*) |
 | **medieval England** | **frankpledge** (tithings of about ten men answerable for each other, in the web); the Statute of Winchester (1285): town gates shut at night, watchmen, brush cleared 200 feet each side of highways to stop ambush (*memory*) | the constable chosen in turn (part 05) |
-| **merchants** | locks, strongboxes, warehouses with porters; seals on bales; sworn brokers; inns that answered for guests' goods | the innkeeper's strict liability for guests' goods in English law (*memory*) |
+| **merchants** | locks, strongboxes, seals on bales, sworn brokers, innkeepers liable for guests' goods (*memory*) | |
 | **early modern cities** | paid night watch; thief-takers paid by reward (Jonathan Wild, hanged 1725, ran theft and the return of stolen goods together, *memory*); severe penalties (the "Bloody Code"); transportation to America and then Australia | |
 | **police** | the Bow Street Runners (1749, *memory*); the Metropolitan Police (1829, in the web); detectives (1842, *memory*) | prevention by patrol replaced recovery by reward |
 | **today** | police, private security, alarms, insurance, card fraud systems | private security staff outnumber police in many countries (*rough*) |
@@ -510,7 +496,7 @@ Adulteration grew with the distance between maker and buyer: in a village the ba
 through many hands, each a chance to cheat, and chemistry made cheating easier before it made detecting it possible. Part 13's
 melamine in Chinese milk (2008, *memory*) is the same fraud in a global chain.
 
-### 4.7 The institutions that answer, and what they cost
+### 4.7 The institutions that answer, and what each needed
 
 Each answer above needed something before it. **Watchmen** and **frankpledge** needed a community that could be made answerable;
 **oaths and sureties** (in the web) needed witnesses and a court; **guild searches** needed a guild with a charter and the right to
@@ -519,11 +505,189 @@ patrol; **inspectors and analysts** needed chemistry and a statute. Avner Greif'
 traders' reputation (part 05, in the web) were answers for merchants beyond any one state's reach. In the engine's terms (part 09
 P4) they are all enforcement by people.
 
-### 4.8 Crime: what it needed, what it enabled, how it interacts
+## 5. Measures and standards
 
-| | Needed | Enabled or caused | Interacts with |
+### 5.1 Why measures matter
+
+A measure is a promise about quantity that two strangers can both trust without testing. Without it every exchange needs weighing
+against the buyer's own goods, haggling over the vessel, or a trusted third party; with it, prices can be compared between markets,
+taxes assessed, rations issued and contracts written at a distance. Witold Kula (*Measures and Men*, 1986) showed that pre-modern
+measures were also **social bargains**: the bushel heaped for rent paid in and struck level for wages paid out, the ell longer in
+one town than the next, and changing a measure was a way of changing a price. Measurement is a public good in part 01's sense: it
+costs someone to maintain and benefits everyone who trades.
+
+### 5.2 From the first weights to the assize
+
+| When and where | Standard | How it was kept | Told in |
 |---|---|---|---|
-| **theft** | stores worth taking; anonymity | locks, walls, watch, police, insurance, guard labour | storage (02), cities (12), the engine's `take` and signs |
-| **banditry and piracy** | weak states, frontiers, rich traffic | escorts, convoys, forts, protection rent; states as stationary bandits | transport (04), the state (05), luxury trade (§3) |
-| **smuggling** | a duty, monopoly or ban far above cost | customs forces; duty cuts; revenue as a test of tax design | the state and taxation (05), salt (01, 11), tea (§3) |
-| **fraud** | strangers trading; goods whose quality is hidden | standards, seals, inspectors, analysts, regulators | measures (§5), guilds (05), coin (04) |
+| Indus, about 2600 to 1900 BCE | polished chert cubes in a binary then decimal series (the commonest about 13.7 g), the same across hundreds of km | probably by cities or merchants; Dilmun adopted them | part 10, in the web |
+| Mesopotamia | the silver shekel of about 8.3 to 8.4 g, 60 to the mina; barley measures; the Laws of Eshnunna fixing silver against barley | temples and palaces; stone duck weights; standards kept in temples (*memory*) | part 04, in the web |
+| Egypt | the royal cubit (about 52.4 cm) and the deben of copper | master cubits in the hands of officials (*memory*) | part 10 |
+| Qin China, 221 BCE | weights, measures, coin, script and axle widths made one across the empire (*memory*) | bronze and iron standard weights inscribed with the edict | |
+| the Islamic city | the *muhtasib* enforcing weights, measures, prices of necessities and honest dealing (hisba) | on the spot, in the market | part 11, in the web |
+| Charlemagne | attempts to set one measure across the empire (*memory*) | | |
+| England, 10th century on | kings' attempts at one measure; Magna Carta clause 35 (1215): "one measure of wine, ale and corn" (the London quarter) and one breadth of dyed cloth (two ells within the selvedges) through the realm (*checked*) | Exchequer standards kept at Westminster; copies sent to towns; market clerks testing; the Winchester bushel (*memory*) | |
+| England, 1266 | the Assize of Bread and Ale: the loaf's weight tied to the price of wheat; ale-tasters | manor and borough courts; fines as a licence | parts 02, 05, 12, in the web |
+
+**Local measures survived the kings.** On the eve of the Revolution France had hundreds of units under the same names and, by an
+often-quoted count, about a quarter of a million local variants of them (*unchecked*). Uniformity had to wait for states strong
+enough to override local custom and for trade wide enough to want it.
+
+### 5.3 The metric system and the international standard
+
+The French Academy designed the metric system in 1790 to 1795: the metre as a ten-millionth of the meridian quadrant, the gram from
+a cubic centimetre of water, decimal throughout; the platinum *mètre des Archives* and *kilogramme des Archives* were deposited in
+1799 (*memory*). Napoleon relaxed it, and France made it compulsory only in 1840 (*memory*). The **Metre Convention** was signed in
+Paris on 20 May 1875 by seventeen states, setting up the International Bureau of Weights and Measures (BIPM) at Sèvres with new
+prototypes (*checked*); Britain signed in 1884 (*checked*) but kept imperial units at home (the Weights and Measures Act 1824 had
+made them uniform, *memory*). The International System (SI) followed in 1960, and in 2019 every base unit was redefined from fixed
+constants of nature (the kilogram from Planck's constant), ending the reign of a metal cylinder in a vault (*memory*).
+
+### 5.4 Industrial standards
+
+The industrial economy needed standards of fit, time and interface, not only of quantity. Each was a coordination problem with
+network effects: once enough users chose one, it locked in.
+
+| Standard | What it made possible | Told in |
+|---|---|---|
+| **screw threads** (Whitworth 1841; the US Sellers thread 1864, *memory*) | parts from different shops that fit | part 07, in the web |
+| **gauges and interchangeable parts** | armouries, then the American system and mass production | parts 07, 13, in the web |
+| **railway gauge** | through running of wagons; Britain's Gauge Act (1846) after a "gauge war" (*memory*) | part 07 |
+| **standard time** | timetables: railway time in Britain from 1847; time zones in North America (1883) and the Greenwich meridian (1884) (*memory*) | |
+| **grain grades** | grain as a commodity sold by receipt, not by the sack (Chicago 1856) | part 12, in the web |
+| **ISO** (founded 1947, *memory*) and the **container** (ISO sizes in the late 1960s) | a box that every crane, ship, truck and wagon fits | part 13, in the web |
+| **electrical, telecom and internet standards** (plugs and voltages; GSM; TCP/IP) | grids, phones and networks that interconnect | parts 08, 13 |
+
+**Standards wars** are fought because the winner sets the platform: AC against DC, VHS against Betamax, competing mobile standards.
+Paul David's QWERTY story (1985) made lock-in famous; whether the losers were better is **contested** (Liebowitz and Margolis).
+
+### 5.5 Fraud in measures, and its regulation
+
+Every measure invited a fraud (§4.6): the false weight, the thumb on the scale, the bushel with a false bottom, the shrunken loaf.
+The answers moved from the market clerk and the muhtasib through local inspectors of weights and measures (English counties and
+boroughs appointed them under 19th-century acts, *memory*) to national laboratories (Britain's National Physical Laboratory 1900;
+the US National Bureau of Standards 1901, *memory*) and trading standards officers. The modern frauds are frauds of measurement at
+scale: Volkswagen's emissions "defeat device" (2015), which ran clean only on the test bench, and the rigging of LIBOR, a benchmark
+interest rate that priced trillions of dollars of contracts (2012). Both are short weight in a new form.
+
+### 5.6 Measurement as a public good
+
+States measured in order to tax (Domesday, cadastres and censuses, in the web), and the measures then served markets. National accounts, accounting standards, time signals and
+satellite positioning follow the same logic: each lowers the cost of decisions for all who read it, and is supplied by a state or a
+standards body because no single trader would pay for it. A measure is also a lever: the
+one who keeps it can bend it, which is why the keeping was entrusted to sworn officers, to courts and finally to physics.
+
+## 6. How the five margins meet
+
+They meet each other as often as they meet production. **Disease and luxury**: the Black Death raised wages and with them the
+display that the 1363 statute tried to stop; the apothecary sold spices as drugs. **Luxury and crime**: high-value goods drew
+pirates and smugglers, and the duties and monopolies that made them dear made smuggling pay. **Crime and measures**: short weight,
+debasing and adulteration are thefts by measure, and the market's officers answered both. **Environment and health**: drainage cured
+ague; sewage fouled the river; smoke killed in 1952. **Environment and luxury**: beaver hats, whale oil, ivory, plumes and
+nutmeg emptied wild stocks for distant buyers. The common shape is part 01's: a good worth carrying far escapes the local rules that
+kept it in check, until a wider rule catches up.
+
+## 7. What the border would take, and what stays map only
+
+The border is 02zzk's: the medieval village and its market town, with one-day places, households of agents, 32 to 64 day lives and
+runs of 100 to 200 days. What the engine already holds, from part 09 §2 and the code:
+
+| Domain | In the engine | Where |
+|---|---|---|
+| **health** | disease by host and area in the wild (murrain, mange, swine fever, hare sickness), each with a season, a rise with crowding, recovery with immunity that wanes, and spread along the land's links; kept herds infected from sick herds and wild hosts on their land, beasts dying as carcasses that read as the disease, signs read by those who know herding | `cybertron2/wild/diseases.py`, `kinds.DISEASES` and `DISEASE_SIGNS`, `engine/wild.py` (`_herds_sick`) on the `ecology` branch (W) |
+| | human illness only as an adult's background risk of "a sudden illness" and the risks of birth; disease for people waits on OPEN L-9 (D2-149); poisonous plants harm untaught gatherers | `engine/life.py`; `wild/plants.py` (W) |
+| **environment** | soil fertility taken by each crop and restored by fallow, legumes and dung toward the land's base (D4-112), read as "worn out" to "rich"; forests with trees, young growth and dead wood, young growth not regrowing under beasts, a forest under 40% of its trees turning to scrub; the wild ecology's numbers by area, depleted by hunting; terraces; smoke seen from smithing, charcoal, smelting and drying | `engine/farm.py` (`soil_step`, `soil_word`), `engine/forests.py`, `wild/ecology.py` (W), `data.py` |
+| **luxury** | extravagance in tiers: fine, rich and grand buildings and monuments at 1.5, 2.5 and 4 times the materials and 2, 4 and 8 times the work, noticed further (D2-171); lines written on buildings | `data.TIERS`, `signs.py`; D2-169 to D2-171 |
+| **crime** | theft as `take` from a store without the right, seen by those at home or watching (D4-81, D4-89); raids on a building or a whole node by any party, with orders to take and burn (D2-20, D2-22, D2-51); guards, walls and gates; poaching against rights in wild kinds (D2-194) | `verbs.py`, `settle.py`, spec/conflict/raids.md, spec/environment/wildlife.md |
+| **measures** | none as such: quantities are exact engine counts; copper coin struck at an anvil (10 coin a copper) with no issuer's mark or assay | `data.py` ITEMS and TECHNIQUES `coin` |
+
+**Inside the border, as 02zzk would weigh it.** Herd disease, worn soil and stripped woods are built and already make the
+dependence 02zzk's first test asks for: the common grass where murrain spreads, the coppice that goes to scrub if grazed. What the
+map adds inside the border is mostly rows on chains the engine has: herbs and simples gathered from the wild plants (a healer's
+knowledge with no new handler), the balance and a set of weights as village instruments beside the tally (02zzk already lists them
+as new, with L-103), and the river's fouling by tanning and retting (02zzk, the river as one site). Human sickness by place and
+season is the one gap in physics here, and it is already an open question (L-9).
+
+**Behind the social primitives of OPEN L-106.** Most of these domains are social, and wait where 02zzk's lordship and commons wait:
+a theft judged and punished rather than only seen; frankpledge and the hue and cry as duties; stints on the common enforced by
+impounding; a close season for fish or a ban on cutting the lord's wood; a sworn measure and an assize of bread and ale kept by a
+court; a midwife's or a healer's standing held by reputation. Each needs enforcement by people (part 09 P4), visible records (P5)
+and rules that create obligations (P7).
+
+**At the border: the market town.** The market clerk with the town's standard measures and the toll; guild searchers and sealed
+cloth; the apothecary as a shop in a market town, selling imported drugs and spices; pedlars carrying small luxuries; sumptuary
+rules as a town's or a lord's code; highway robbery on the roads between towns. Each needs a market as a place (P6), an institution
+with a code (P1, P7) or carts and roads with traffic worth robbing (P14), which 02zzk already places here.
+
+**Past the border: map only.** Epidemics of the Black Death's scale and their wage effects (they need populations by place, P10);
+the Columbian exchange; malaria and the geography of settlement; hospitals as endowed institutions; quarantine; the drug trade and
+pharmaceuticals; regional deforestation, salinisation and soil erosion over generations; overfishing at sea; pollution law;
+long-distance luxury chains and their monopolies; the consumer revolution and fashion; piracy, privateering, smuggling against
+customs, police forces; national and metric standards, industrial standards and the container. These need people who are not
+agents, a hierarchy of places, edges by sea, or centuries of time (part 09 additions 6 to 9), and they stay on the map.
+
+## Sources
+
+Checked this session (secondary sources and summaries unless stated):
+- Düx, A. et al. (2020), "Measles virus and rinderpest virus divergence dated to the sixth century BCE", *Science* 368: 1367–1370;
+  https://www.aaas.org/news/measles-diverged-cattle-infecting-relative-earlier-thought
+- Tyrian purple and Friedländer's experiment: https://en.wikipedia.org/wiki/Tyrian_purple ; National Geographic, "Purple reign"
+- Cochineal: https://www.sciencehistory.org/stories/magazine/red-the-world-over/ ; https://www.worldhistory.org/Cochineal
+- Dutch conquest of the Banda Islands: https://en.wikipedia.org/wiki/Dutch_conquest_of_the_Banda_Islands ;
+  https://journal.unnes.ac.id/journals/jih/article/view/26288
+- Commutation Act 1784: https://en.wikipedia.org/wiki/Commutation_Act_1784
+- Statute concerning Diet and Apparel 1363: https://en.wikipedia.org/wiki/Statute_Concerning_Diet_and_Apparel_1363
+- Worshipful Society of Apothecaries (1617; the Rose case; the 1815 Act): https://www.apothecaries.org/history/origins/ ;
+  https://en.wikipedia.org/wiki/Worshipful_Society_of_Apothecaries
+- Cinchona and quinine: https://wellcomecollection.org/stories/the-cinchona-tree--malaria-and-colonisation ;
+  https://www.chemistryviews.org/?p=40602
+- Great Smog and Clean Air Act: https://weather.metoffice.gov.uk/learn-about/weather/case-studies/great-smog ;
+  https://navigator.health.org.uk/theme/clean-air-act-1956
+- Rapa Nui: DiNapoli, R., Lipo, C., Hunt, T. et al. (2024), *Science Advances* (doi 10.1126/sciadv.ado1459);
+  https://news.climate.columbia.edu/2024/06/21/study-challenges-popular-idea-that-easter-islanders-committed-ecocide
+- Bison: Hornaday, W. T. (1889), *The Extermination of the American Bison*, https://gutenberg.org/ebooks/17748 ; summaries at
+  https://texapedia.info/bison-extermination/
+- Barbary captives: Davis, R. C. (2003), *Christian Slaves, Muslim Masters*;
+  https://news.osu.edu/when-europeans-were-slaves--research-suggests-white-slavery-was-much-more-common-than-previously-believed/ ;
+  https://www.historynewsnetwork.org/article/4077
+- Somali piracy: Oceans Beyond Piracy (2011, 2012), *The Economic Cost of Piracy*;
+  https://insurancejournal.com/news/international/2011/01/18/180752.htm ; https://www.ship-technology.com/news/newssea-piracy-cost-7b-in-2011/
+- Bradford sweets poisoning and Accum: https://en.wikipedia.org/wiki/1858_Bradford_sweets_poisoning ;
+  https://edu.rsc.org/magnificent-molecules/arsenic-trioxide/3007128.article ; https://gutenberg.org/ebooks/19031
+- Magna Carta clause 35: https://magnacarta.cmp.uea.ac.uk/read/magna_carta_1215/Clause_35
+- Metre Convention: https://en.wikipedia.org/wiki/Metre_Convention
+- Tokugawa forestry: Totman, C. (1989), *The Green Archipelago: Forestry in Pre-Industrial Japan*; summaries at
+  https://people.willamette.edu/~rloftus/Asia%20201/AS%20201%20TotmanPredation.html and
+  https://warwick.ac.uk/fac/soc/economics/seminars/seminars/conferences/econchange/programme/saito_-_venice.pdf
+
+Standard works relied on (figures from these marked *unchecked*, *rough* or *memory*): Acemoglu, D., Johnson, S. and Robinson, J.
+(2001), "The colonial origins of comparative development", *AER*, and Albouy, D. (2012), the reply; Bartlett, M. S. (1957), on
+measles periodicity and community size; Bleakley, H. (2007), "Disease and development: evidence from hookworm eradication in the
+American South", *QJE*; Blok, A. (1972), "The peasant and the brigand"; Bourdieu, P. (1979), *Distinction*; Bowles, S. and Jayadev,
+A. (2006), "Guard labor"; Coase, R. (1960), "The problem of social cost"; Crosby, A. (1972), *The Columbian Exchange*; Curtin, P.
+(1989), *Death by Migration*; David, P. (1985), "Clio and the economics of QWERTY"; de Vries, J. (2008), *The Industrious
+Revolution*; Diamond, J. (2005), *Collapse*; Dobson, M. (1997), *Contours of Death and Disease in Early Modern England*; Dyer, C.
+(1989), *Standards of Living in the Later Middle Ages*; Flinn, M. (1959), "Timber and the advance of technology"; Fogel, R. (2004),
+*The Escape from Hunger and Premature Death*; Greif, A. (2006), *Institutions and the Path to the Modern Economy*; Hammersley, G.
+(1973), "The charcoal iron industry and its fuel"; Hayden, B. (2014), *The Power of Feasts*; Herlihy, D. (1997), *The Black Death and
+the Transformation of the West*; Hirsch, F. (1976), *Social Limits to Growth*; Hobsbawm, E. (1969), *Bandits*; Jacobsen, T. and
+Adams, R. M. (1958), "Salt and silt in ancient Mesopotamian agriculture", *Science*; Jevons, W. S. (1865), *The Coal Question*; Kula,
+W. (1986), *Measures and Men*; Lane, F. (1958), "Economic consequences of organized violence"; Liebowitz, S. and Margolis, S. (1990),
+"The fable of the keys"; Mandeville, B. (1714), *The Fable of the Bees*; McAnany, P. and Yoffee, N. eds. (2010), *Questioning
+Collapse*; McKendrick, N., Brewer, J. and Plumb, J. H. (1982), *The Birth of a Consumer Society*; McNeill, W. H. (1976), *Plagues and
+Peoples*; Mintz, S. (1985), *Sweetness and Power*; Nef, J. U. (1932), *The Rise of the British Coal Industry*; Olson, M. (1993),
+"Dictatorship, democracy, and development", *APSR*; Ostrom, E. (1990), *Governing the Commons*; Pigou, A. C. (1920), *The Economics
+of Welfare*; Powell, M. (1985), "Salt, seed, and yields in Sumerian agriculture"; Shammas, C. (1990), *The Pre-Industrial Consumer
+in England and America*; Simmel, G. (1904), "Fashion"; Szreter, S. (1997), "Economic growth, disruption, deprivation, disease, and
+death"; Tilly, C. (1985), "War making and state making as organized crime"; Veblen, T. (1899), *The Theory of the Leisure Class*;
+Vita-Finzi, C. (1969), *The Mediterranean Valleys*; Weatherill, L. (1988), *Consumer Behaviour and Material Culture in Britain,
+1660–1760*.
+
+In the folder: parts 01 (kinds of good, fuel), 02 (nitrogen, the assize), 03 (coppice, fisheries, the cod), 04 (shekel,
+debasement), 05 (§2.3 commons, §4 enforcement, §6.4 disease), 06 (§6 collapse), 07 (Alkali Act, screw threads), 08 (water,
+drugs), 09 (§1, §2, §9), 10 (Indus weights, salinisation), 11 (silk, porcelain, sugar, indigo, the Columbian exchange), 12 (§1.6
+to 1.7 waste and the urban graveyard), 13 (§2.6 the drug chain, §3.4 straits); 02zzk (the border); OPEN L-9, L-103, L-106. In the
+code: `cybertron2/engine/` on `main` at `2cb2971` (`farm.py`, `forests.py`, `life.py`, `verbs.py`, `data.py` TIERS) and the
+`ecology` branch (`cybertron2/wild/diseases.py`, `kinds.py`, `plants.py`, `engine/wild.py`).
+
+*Current as of 16 Nov 2026.*
