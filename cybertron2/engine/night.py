@@ -71,6 +71,8 @@ def night(w) -> dict:
         w.apply("set", b["node"], ref=("building", bid), field="warm", value=warm)
         if sleepers:
             rec["hearth"][bid] = {"sleepers": len(sleepers), "lit": lit, "warm": round(warm, 2)}
+    from cybertron2.engine import keeping as KP
+    KP.night(w, rec)                                                            # smokehouse fires: tended, fuelled, caught (brief 5 §4a)
     fires = open_fires(w, today, where, rec)                                  # fires in the open, shared by 4 (D2-159)
     rec["care"] = LF.care_gifts(w, today)                                       # the largest care's food, and what is passed on (D4-64)
     tents = {}                                                                  # a tent sleeps two (D2-68): who shares whose
@@ -188,7 +190,8 @@ def night(w) -> dict:
                 if becomes and lost > 1e-9:
                     w.apply("create", place, dst=cid, item=becomes, qty=lost, why="rot")
         rk = c.get("rack")
-        if rk and not rk.get("done") and w.d - int(rk["day"]) + 1 >= int(rk["nights"]):   # dry after its nights (brief 4 §5, 4c §6)
+        if rk and not rk.get("done") and KP.nights_done(w, rk) >= int(rk["nights"]):   # dry after its nights (brief 4 §5, 4c §6;
+                                                                                         # a smokehouse's, nights of fire: 5 §4a)
             _dried(w, cid, c, rk)
     for bid, b in s["buildings"].items():                                       # a camp falls in after its nights (D2-68)
         if levelled:                                                            # shelter in levels: no fixed life (brief 4 §3)
@@ -280,7 +283,8 @@ def _dried(w, cid, c, rk) -> None:
     stored = 0.0
     bid = c.get("in") or c.get("door")
     b = w.s["buildings"].get(bid)
-    if b is not None and b.get("stock") in w.s["containers"] and dried > 1e-9:
+    from cybertron2.engine import keeping as KP
+    if b is not None and b.get("stock") in w.s["containers"] and dried > 1e-9 and KP.done_into_store(w, c, bid):
         have = float(c["goods"].get(rk["into"], 0.0))
         stored = round(min(have, BL.room_for(b, w.goods(b["stock"]), rk["into"])), 4)
         if stored > 1e-6:
@@ -310,7 +314,9 @@ def decay_rate(w, c, item) -> tuple:
     if c["kind"] in TH.KINDS:
         cond = "buried" if c.get("hidden") == "buried" or c.get("buried") is not None else ("open_wet" if EV.wet(w, node) else "open_dry")
         table = DECAY.get(ITEMS.get(item, {}).get("decay") or "default", DECAY["default"])
-        if (c.get("rack") or {}).get("smoke"):                                  # in the hearth's smoke: dry, the flies kept off (brief 4 §5)
+        rk = c.get("rack") or {}
+        if rk.get("smoke") and not (rk.get("smokehouse") and rk.get("out") == w.d):   # in the smoke: dry, the flies kept off (brief 4
+                                                                                     # §5); a smokehouse's fire out: the open (5 §4a)
             return spoil_rate(w.p, item, "open_dry", season, cold) * float(table.get("smoke", 1.0)), table.get("becomes")
         return spoil_rate(w.p, item, cond, season, cold), table.get("becomes")
     return spoil_rate(w.p, item, "hand", season, cold), None

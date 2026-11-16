@@ -257,6 +257,16 @@ def ready(here, tech, kind, key, a=None) -> str:
             return f"{c['of']} is already buried" + ("" if c.get("cairn") else "; a cairn of stones can still be raised over the grave "
                                                       "(method cairn, 3 stone)")
         return ""
+    if kind == "building" and t.get("rack"):                                  # its racks full (brief 5 §4a: a batch a fitting)
+        from cybertron2.engine import keeping as KP
+        why = KP.full_words(here._w, key, tech)
+        if why:
+            return why
+    if kind == "building" and any(FITTINGS[f].get("spring") for f in (t.get("at") or {}).get("fittings") or [] if f in FITTINGS):
+        from cybertron2.engine import keeping as KP                           # brine drawn at the pan (brief 5 §4b.3)
+        sp = next(FITTINGS[f]["spring"] for f in t["at"]["fittings"] if FITTINGS.get(f, {}).get("spring"))
+        if not KP.near_spring(here._w, here.buildings()[key]["parcel"], sp):
+            return f"there is no {sp} spring at or beside {here.buildings()[key]['name']} to draw from"
     if kind == "building" and y == "repair" and (here.buildings()[key]["level"] >= 5 if here.buildings()[key].get("level") is not None
                                                   else here.buildings()[key]["condition"] >= 2):
         return f"{here.buildings()[key]['name']} is sound"

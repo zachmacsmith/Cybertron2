@@ -42,6 +42,10 @@ ITEMS = {
     "fish": {"pack": "water", "weight": 1, "food": 1.0, "spoil": 0.30, "cook": True, "raw": 0.6, "decay": "fresh fish"},   # fresh: spoils as meat does
     "salt fish": {"pack": "water", "weight": 1, "food": 1.0, "spoil": 0.01, "cook": True, "raw": 0.6, "decay": "dried meat"},   # keeps for months
     "fishing rod": {"pack": "water", "weight": 1, "food": 0.0, "spoil": 0.0, "life": 30, "seen": True},              # a rod, a line of hair or gut
+    # the smokehouse (brief 5 §4a; calibrate): a batch curing on its racks (as meat drying on a hearth's rack), then smoked: half the
+    # weight, the same food, keeping four times as long as dried meat
+    "smoking fish": {"pack": "water", "weight": 1, "food": 1.0, "spoil": 0.15, "cook": True, "raw": 0.6, "decay": "drying meat"},
+    "smoked fish": {"pack": "water", "weight": 1, "food": 2.0, "spoil": 0.005, "decay": "dried meat"},
     "meat": {"weight": 1, "food": 1.5, "spoil": 0.30, "cook": True, "raw": 0.8, "decay": "fresh meat"},                 # dense, spoils fresh (D2-41)
     "milk": {"weight": 1, "food": 0.5, "spoil": 1.0},                  # the same day (D2-42)
     "hen": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},
@@ -70,6 +74,8 @@ ITEMS = {
     "tallow": {"weight": 1, "food": 0.0, "spoil": 0.0},                                  # a beast's fat, rendered or not (brief 3 §5)
     "drying meat": {"weight": 1, "food": 1.5, "spoil": 0.15, "cook": True, "raw": 0.8, "decay": "drying meat"},   # on a rack: the flies
     "salt meat": {"weight": 1, "food": 1.4, "spoil": 0.003, "cook": True, "raw": 0.6, "decay": "dried meat"},     # keeps for months
+    "smoking meat": {"weight": 1, "food": 1.5, "spoil": 0.15, "cook": True, "raw": 0.8, "decay": "drying meat"},   # brief 5 §4a
+    "smoked meat": {"weight": 1, "food": 3.0, "spoil": 0.005, "decay": "dried meat"},                             # brief 5 §4a
     "offal": {"weight": 1, "food": 0.0, "spoil": 0.0},                                   # what is left in a carcass taken from: the
                                                                                           # night's rot by its size (night.py, brief 3 §2)
     "tallow light": {"weight": 0.2, "food": 0.0, "spoil": 0.0},                          # a rush or rag dipped in tallow: night work by it
@@ -164,6 +170,7 @@ RESOURCES = {
     # fish in a water parcel (D4-103; water_and_preservation.md §3): resident fish regrow; a river's run comes in its seasons
     "fish": {"pack": "water", "renewal": "periodic", "low": "the water at {name} is quiet: few fish rising", "high": "fish rising all along {name}"},
     "salt": {"pack": "water", "renewal": "endless", "low": "", "high": "white crusts of salt drying in the pans at {name}"},   # a saltmarsh's pans
+    "brine": {"pack": "water", "renewal": "endless", "low": "", "high": "a spring at {name} whose water tastes of salt"},   # a brine spring (brief 5 §4b)
     "dung": {"renewal": "accrues", "low": "", "high": "dung lies thick where the beasts have been on {name}"},
 }
 # the wild kinds (wild_layer.md §3.2, D2-199): RESOURCES rows with population fields, in the `wild` pack; one registry
@@ -207,6 +214,7 @@ FITTINGS = {
     "beds": {"label": "beds", "materials": {"timber": 1, "straw": 2}, "units": 1, "per": "bed", "basic": True, "spaces": 1,
              "does": "housed when sleeping here, one a bed"},                                                  # D2-56; 02zh §4 (proposed)
     "hearth": {"label": "a hearth", "materials": {"stone": 4}, "units": 3, "basic": False, "trade": "mason", "fire": True, "spaces": 1,
+               "racks": 1,                                          # one batch drying at a time (brief 5 §4a: 8 every 3 nights)
                "does": "warmth (burns timber), porridge and baking"},
     "owl hole": {"label": "an owl hole (a gap left high in a barn's gable)", "materials": {"timber": 1}, "units": 1, "basic": True,
                  "spaces": 0, "pack": "wild", "does": "a way in for a barn owl, which keeps the mice in the store down"},   # brief 2 K1
@@ -216,7 +224,7 @@ FITTINGS = {
                   "does": "grinding grain by hand into meal (porridge, not bread)", "aliases": ["quern"]},          # D2-61, D2-167
     "granary": {"label": "a granary floor", "materials": {"timber": 6}, "units": 4, "basic": True, "spoil": 0.2, "spaces": 3,
                 "holds": {"grain": 300}, "does": "grain keeps longest, raised and dry (300)"},                         # D2-58, D2-155
-    "fire ring": {"label": "a fire ring", "materials": {"stone": 1}, "units": 1, "basic": True, "fire": True, "spaces": 1,
+    "fire ring": {"label": "a fire ring", "materials": {"stone": 1}, "units": 1, "basic": True, "fire": True, "spaces": 1, "racks": 1,
                   "does": "a fire in the open for warmth and cooking (burns timber)"},                              # D2-68: a camp's fire
     "oven": {"label": "a stone oven", "materials": {"stone": 20, "timber": 2}, "units": 12, "basic": False, "trade": "mason", "spaces": 2,
              "structure": "stone",                                                 # only in a stone building (D4-97)
@@ -239,6 +247,17 @@ FITTINGS = {
                "does": "beasts housed in winter, one a stall: less fodder, dung kept, not driven off without coming in"},   # D2-45
     "woodshed": {"label": "a woodshed", "materials": {"timber": 2}, "units": 1, "basic": True, "spaces": 0, "ground": 2,
                  "holds": {"timber": 40}, "does": "a lean-to against the building: 40 timber kept dry"},
+    # brief 5 §4a: a smokehouse is a building of its own (`apart`: no beds or hearth in it) with smoke racks; one batch of up to
+    # 40 a fitting at a time (`racks`). Brief 5 §4b: a brine pan over a furnace at or beside a brine spring (`spring`), boiling
+    # salt; it wears like other fittings (calibrate)
+    "smoke racks": {"label": "smoke racks (hurdles over a smouldering fire)", "materials": {"timber": 2}, "units": 2, "basic": True,
+                    "spaces": 3, "apart": True, "racks": 1, "aliases": ["smokehouse racks", "smoking racks"],
+                    "does": "a smokehouse: a batch of up to 40 fish or meat smoked over 3 nights, the fire tended daily"},
+    "brine pan": {"label": "a brine pan (a shallow pan over a furnace, for boiling salt)", "materials": {"copper": 1, "timber": 2},
+                  "units": 4, "basic": False, "trade": "salter", "spaces": 2, "heavy": True, "spring": "brine",
+                  "aliases": ["salt pan", "lead pan", "salt boiling pan"],
+                  "wear": {"life": 60, "count": "act", "mend": "mend the brine pan"},     # boilings; then half (D4-103 phase 2)
+                  "does": "boiling brine from the spring beside it into salt (about 1 firewood a salt)"},
     "vault": {"label": "a vault", "materials": {"stone": 40}, "units": 30, "basic": False, "trade": "mason", "spaces": 4, "room": 4,
               "heavy": True, "holds": {"weight": 30}, "by": "space", "fireproof": True,
               "does": "a stone room of its own on the ground floor: 30 weight a space kept, safe from fire (D2-49)"},
@@ -512,6 +531,35 @@ TECHNIQUES = {
     "salt pan": {"pack": "water", "verb": "gather", "label": "making salt in the saltmarsh pans (dried by the sun)", "basic": True,
                  "aliases": ["make salt", "salt pans", "gather salt"], "at": {"covers": ["saltmarsh"]}, "draws": "salt",
                  "yield": {"kind": "fixed", "base": 1.0}, "by_season": {"spring": 0.4, "summer": 1.0, "autumn": 0.2, "winter": 0.0}, "units": 1, "gives": "salt", "tags": ["salt"]},
+    # inland salt (brief 5 §4b; D2-56, D2-209; calibrate, OPEN L-110): brine drawn at the pan's spring boiled with firewood, about 1
+    # firewood a salt and a unit for 4, in any season; the salter's trade
+    "boil salt": {"pack": "water", "verb": "make", "label": "boiling salt from brine over a fire", "aliases": ["boil brine", "boiling salt",
+                  "salt boiling", "boil the brine"], "basic": False, "trade": "salter", "at": {"fittings": ["brine pan"]},
+                  "inputs": {"firewood": 4}, "units": 1, "gives": {"salt": 4}, "tags": ["salt", "fuel"],
+                  "manual": "brine drawn from the spring beside the pan and boiled dry over a fire: about 1 firewood a salt, in any "
+                            "season; a pan burns through with use and is mended"},
+    "mend the brine pan": {"pack": "water", "verb": "work", "label": "mending a burnt-through brine pan (patching and resetting it)",
+                           "aliases": ["mend the pan", "patch the pan", "mend the salt pan"], "basic": True, "at": {"fittings": ["brine pan"]},
+                           "yield": {"kind": "mend", "fitting": "brine pan", "inputs": {"copper": 0.25}}, "units": 2, "gives": "",
+                           "tags": ["building", "salt"]},
+    # the smokehouse (brief 5 §4a; calibrate): a batch of up to 40 on its racks for 3 nights of fire, tended once a day; smoked to
+    # half the weight
+    "smoke fish": {"pack": "water", "verb": "make", "label": "hanging fish to smoke in a smokehouse", "aliases": ["smoking fish",
+                   "smoke the fish", "cure fish"], "basic": True, "at": {"fittings": ["smoke racks"]}, "inputs": {"fish": 40}, "units": 1,
+                   "gives": {"smoking fish": 40}, "batch": True,
+                   "rack": {"nights": 3, "into": "smoked fish", "ratio": 0.5, "tended": True}, "tags": ["food", "cooking", "fishing"],
+                   "manual": "a batch at a time on the racks for 3 nights of fire, smoked to half the weight and keeping for months; "
+                             "tend the smoke once each day, or the fire dies that night, the batch waits and spoils; about 1 firewood a "
+                             "night from the smokehouse's store or the woodpile at its door; a wattle smokehouse can catch fire"},
+    "smoke meat": {"verb": "make", "label": "hanging meat to smoke in a smokehouse", "aliases": ["smoking meat", "smoke the meat"],
+                   "basic": True, "at": {"fittings": ["smoke racks"]}, "inputs": {"meat": 40}, "units": 1, "gives": {"smoking meat": 40},
+                   "batch": True, "rack": {"nights": 3, "into": "smoked meat", "ratio": 0.5, "tended": True}, "tags": ["food", "cooking"],
+                   "manual": "a batch at a time on the racks for 3 nights of fire, smoked to half the weight and keeping for months; "
+                             "tend the smoke once each day, or the fire dies that night, the batch waits and spoils; about 1 firewood a "
+                             "night from the smokehouse's store or the woodpile at its door; a wattle smokehouse can catch fire"},
+    "tend the smoke": {"verb": "work", "label": "tending a smokehouse fire (feeding and banking it for the night)",
+                       "aliases": ["tend the smokehouse", "tend smokehouse", "tend the fire", "bank the fire", "tend smoke"], "basic": True,
+                       "at": {"fittings": ["smoke racks"]}, "yield": {"kind": "smoke_tend"}, "units": 1, "gives": "", "tags": ["food", "fuel"]},
     "salt fish": {"pack": "water", "verb": "make", "label": "salting fish to keep", "aliases": ["salting", "salt the fish"], "basic": True,
                   "inputs": {"fish": 4, "salt": 1}, "units": 1, "gives": {"salt fish": 4}, "tags": ["food", "cooking", "fishing"]},
     "salt meat": {"verb": "make", "label": "salting meat in a tub to keep", "aliases": ["salting meat", "salt the meat", "brine the meat"],
@@ -696,6 +744,11 @@ PHYSICS = {
                # pasture in summer, an unwatched herd strays
     "repair": {"per": 4, "min": 2},           # D2-168: 1 timber (stone for stone) and 1 unit for every 4 spaces of floor, at least 2 and 2
     "bury": {"soft": 2, "stony": 4, "frozen": 6},                        # D2-96: units of work by the ground and the cold (calibrate)
+    # brief 5 §4a (calibrate): a smokehouse fire takes `fuel` heat a night it burns (1 firewood); while it burns, a chance a night
+    # by its structure that it catches, and then each other building on its parcel catches by `spread`; a fire takes this share
+    # of a burnt building's food (`food`) and other goods (`other`), and the batch on its racks
+    "smokehouse": {"fuel": 0.5, "fire": {"wattle": 0.02, "timber": 0.008, "stone": 0.0003},
+                   "spread": {"wattle": 0.5, "timber": 0.35, "stone": 0.03, "camp": 0.6}, "food": 0.85, "other": 0.5},
     "untaught": 0.5,                                                     # D2-93: an untaught try works half as well (calibrate)
 }
 
@@ -776,7 +829,7 @@ ENV = {
     "crop_high_from": 0.6,                                          # ... from this share of its growing time until reaped
     "smoke": 0.7,                                                   # a parcel with smoke that day
     "felled": {"below": 0.3, "sight": 0.8},                         # a wood felled below this share of its timber is open ground
-    "smoke_tags": ["smithing"], "smoke_techs": ["charcoal", "smelt", "dry meat"],
+    "smoke_tags": ["smithing"], "smoke_techs": ["charcoal", "smelt", "dry meat", "smoke fish", "smoke meat", "tend the smoke", "boil salt"],
     "mask": {"very": 0.3, "loud": 0.6},                             # D2-100: quieter sounds near something very loud, or loud
     "loud_kinds": {"fight": "very", "raid": "very", "threat": "very"},
     "loud_tags": {"smithing": "loud"}, "loud_techs": {"mill": "loud", "water mill": "loud", "grind": "loud"},
