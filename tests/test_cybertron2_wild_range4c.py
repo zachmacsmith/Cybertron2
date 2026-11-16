@@ -161,6 +161,9 @@ def test_kinds_without_a_range_keep_the_rule_they_had_exactly(monkeypatch):
             monkeypatch.delitem(row["group"], "range_km2")
     monkeypatch.setitem(WK.KINDS["wolf"], "terr", 0.03)
     monkeypatch.setitem(WK.KINDS["wild boar"]["group"], "size", [3, 14])
+    for k in [k for k, r in WK.KINDS.items() if r.get("wave") == 6]:               # brief 5's kinds of the river and its runs, off
+        monkeypatch.delitem(WK.KINDS, k)
+    monkeypatch.setattr(WK, "RUNS", {})
     corn = dict(WK.NEAR_PEOPLE["wild boar"]["targets"][0], seasons={1: (3, 7), 2: (0, 1)})   # the corn's autumn as before (37.2, 14 Nov)
     monkeypatch.setitem(WK.NEAR_PEOPLE["wild boar"], "targets", [corn] + WK.NEAR_PEOPLE["wild boar"]["targets"][1:])
     log = _scenario(monkeypatch)
