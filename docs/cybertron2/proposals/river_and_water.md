@@ -415,6 +415,10 @@ generate; nothing in the engine changes for it.
 
 ## History
 
+- 16 Nov 2026 (night): 37.4's measurements of the weir as built (OPEN Q-55) answered by Zach: the runs' cues read the river's
+  level on the seasonal clock, then re-measure (D2-215); eels and salmon are fish (D2-216); wear as built (D2-217); a flood very
+  likely, not always, wrecks a set trap; mending and the open weir as built; the flow level is 37.2's to decide (D2-218); a run
+  night is 3 units (D2-219).
 - 10 Nov 2026: written by 37.2 as brief 5 at Zach's request ("rewrite the briefs to address the other aspects of wildlife in the
   first briefs before any foraging").
 - 10 Nov 2026: rebased on brief 4b (hunt_followups.md): its branch, declared parties for crew work, wariness and recovery in the

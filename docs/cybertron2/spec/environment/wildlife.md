@@ -77,5 +77,9 @@ is, these rules wait for it.
 - **The weir** (D2-210): one a water parcel, built in sections, its catch capped a night, worn by the river's flow far more than
   a house; keeping the catch is the bottleneck. A set trap holds at most about 3 food a night (D2-213).
 - **Fresh fish** (D2-211, D2-212): spoil as meat in hand, twice as fast as meat in a store; alive in a trap or a weir until lifted.
+  Eels and salmon are fish (D2-216).
+- **The weir in use** (D2-215, D2-217 to D2-219): the runs' cues read the river's flow level on the seasonal clock (D2-214); wear
+  as built; a flood very likely wrecks a set trap in running water (about 0.85, calibrate), a spate half the time; mending about
+  6% of a section's build a level; an open weir takes 0.1 of its shut share; a run night's work is 3 units.
 
-*Current as of 16 Nov 2026: D2-192 to D2-198, D2-204 to D2-206, D2-209 to D2-213.*
+*Current as of 16 Nov 2026: D2-192 to D2-198, D2-204 to D2-206, D2-209 to D2-213, D2-215 to D2-219.*

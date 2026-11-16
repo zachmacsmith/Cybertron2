@@ -3,11 +3,14 @@
 ## Summary
 
 A round is a day; the year is compressed, its length a world setting. Daylight, and so the work a day allows, varies by season.
+The seasonal stocks run on a second clock scaled by the year's length.
 
 ## Decided
 
 - D4-13: a round is a day; the calendar is compressed (year length a world setting, about 16-60 days).
 - D4-17: daylight varies by season (agents/work.md).
+- D2-214: two clocks. Day schedules (the weather's events, work, nights) run on the engine day. Seasonal and yearly stocks (soil
+  water, groundwater and wells, snowpack, the slow layer) move about 365 ÷ the year's days real days in each engine day.
 
 ## Mechanics
 
@@ -31,4 +34,4 @@ The season and the day of it ("autumn, day 3 of 6"); the cold in words.
 
 38.05 §1.
 
-*Current as of 23 Oct 2026: D4-13, D4-17.*
+*Current as of 16 Nov 2026: D4-13, D4-17, D2-214.*

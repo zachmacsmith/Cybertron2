@@ -253,13 +253,15 @@ they acted on?
 5. **Order:** phase 0 now with brief 5; then water; then cover and fire; then soil and silt?
 6. **How often** under the compressed year: spates once or twice a year in a wet lowland, a meadow flood every year or two, a hard
    freeze every few years, a dry spell most summers? (Measured in 02zzn: on two clocks, close to this except the freeze.)
-7. **Two clocks** (02zzn §3.2): the seasonal stocks move about 365 ÷ year days a day; the weather's events stay one day?
+7. **Two clocks:** decided, D2-214.
 8. **Floodplains** (02zzn §3.1): fix the generator's valley floors now, which remakes brief 5's worlds while 37.4 builds on them,
    or after brief 5's build?
 9. **Ice** (02zzn §3.3): frozen waterways need a colder base climate in the generator (upland or northern worlds); is that wanted?
 
 ## History
 
+- 16 Nov 2026 (night, later): Zach decided two clocks (D2-214): day schedules on the engine day, the seasonal stocks scaled by
+  the year's length. Q-52 (7) closed. He asked for the weather tested across conditions (dry, mountains, floodplains, coast).
 - 16 Nov 2026 (night): the water half prototyped offline on brief 5's river world (02zzn, script and results beside it). Findings:
   - the generator makes no floodplains (rivers lie in a cut one cell wide, 14 to 24 m deep), so floods by height reach no parcel;
   - on one clock the seasonal loops never happen;
