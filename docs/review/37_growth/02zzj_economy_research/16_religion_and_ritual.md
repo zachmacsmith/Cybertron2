@@ -47,7 +47,7 @@ small); *memory*: recalled from a standard work named in Sources, to check befor
 | **early states** | the temple household (Sumer, Egypt) | land, herds, workshops, granaries, archives | harvests of its own estates; offerings; rents; tithe in Neo-Babylonian times | rations, wages, loans, offerings consumed by staff | landlord, employer, granary, record office, lender |
 | **classical city-states and empires** | sanctuaries and their treasuries (Delos, Delphi, Athena's treasury, Jerusalem, the temple of Saturn) | coin, plate, dedications, land | tithes of spoils and harvests, dedications, rents, fees | loans to cities and people, state finance in war | safe deposit, public treasury, lender |
 | **agrarian empires outside Europe** | Hindu temples, Buddhist monasteries, waqfs, Inca huacas | land, cattle, gold, mills, pawnshops, endowed shops | grants of villages, endowments, alms | wages for hundreds, loans, lamps and food offerings, inns and schools | landlord, lender, employer, welfare |
-| **medieval Europe** | the parish, the monastery, the cathedral, the papacy, the military orders | perhaps a fifth to a quarter of land, mills, barns, archives | tithe, rents, mill tolls, gifts and bequests, papal taxes | clergy's living, building, alms, hospitality, loans | landlord, miller, farmer, maker, lender, calendar, court, welfare |
+| **medieval Europe** | the parish, the monastery, the cathedral, the papacy, the military orders | perhaps a fifth to a quarter of English land (*contested*), mills, barns, archives | tithe, rents, mill tolls, gifts and bequests, papal taxes | clergy's living, building, alms, hospitality, loans | landlord, miller, farmer, maker, lender, calendar, court, welfare |
 | **early modern** | reformed churches, Catholic orders, waqfs; dissolutions | less land; endowed colleges and hospitals; mission estates | tithe, rates, endowment income | poor relief, schooling | land market at dissolution; trust networks of sects |
 | **industrial and modern** | voluntary congregations, church taxes, foundations, Islamic finance | buildings, schools, hospitals, endowments; banks under religious rules | donations, church tax, fees, deposits | services, charity, finance | a nonprofit sector; rules on rest days, food and lending |
 
@@ -496,10 +496,8 @@ Church bells gave the village its hours of work: a shared time signal, a public 
 
 (All dates *unchecked*, standard; Noonan 1957 and Homer and Sylla are the references.)
 
-What counted as usury was a **profit on a loan (*mutuum*) as such**. Scholastic theology accepted compensation for a loss the
-lender suffered (*damnum emergens*), for a profit he gave up (*lucrum cessans*), for a penalty on late payment (*poena
-conventionalis*), and, more grudgingly, for risk (*periculum sortis*). Each opened a door. The main contracts that carried credit
-past the ban:
+Usury was profit on a loan as such. Theologians allowed compensation for a loss suffered (*damnum emergens*), a profit forgone
+(*lucrum cessans*), a late-payment penalty and, grudgingly, risk; each opened a door. The contracts that carried credit past the ban:
 
 | Contract | How it hid or avoided interest | Part |
 |---|---|---|
@@ -507,190 +505,123 @@ past the ban:
 | **bill of exchange** | the interest sits in the difference between exchange rates at two places and dates; "dry exchange" (*cambio secco*), a bill with no real transfer, was condemned and widely used | 04 §9.1 |
 | **census, rent charge** (*rente*, *Rentenkauf*) | the lender buys a perpetual annual rent secured on land or a town's revenues; redeemable by the seller only | 05; the basis of town and state debt (*Renten* in Germany and the Low Countries) |
 | **mort-gage** | the lender takes the land's revenue without reducing the debt | §5.3 |
-| **sale and resale** | sell goods on credit at a higher price, or buy and resell at once | |
-| **late penalties** | a loan "free" if repaid on time, with a penalty both sides expect to be paid | |
 | **triple contract** (*contractus trinus*) | a partnership plus insurance of the capital plus sale of uncertain profit for a fixed return: a loan at fixed interest in three legal parts; defended by Johann Eck (1514, with the Fuggers' support), condemned by Sixtus V (1586) | |
 | **public debt shares** | Florence's *Monte* and Venice's *prestiti* paid "gifts" to forced lenders; tradeable, and argued over by theologians | 04 `funded_public_debt` |
 | **monti di pietà** | charitable pawn banks charging a fee to cover costs | 04 `pawnbroking` |
 
-The ban's real effects were on **form and cost**: credit went into contracts that were harder to write and enforce, priced risk
-poorly, and were most available to those who could afford lawyers and notaries; open moneylending was left to outsiders and to
-the poor's pawnbrokers; and interest was hidden in records, which makes historical interest rates hard to read. Usurers still
-made restitution in their wills (*unchecked*), so the ban also moved money into the church at death. Calvin's letter on usury
-(1545) and the English statute of the same year accepted moderate interest in principle; Catholic practice followed in fact.
+The ban's effects were on **form and cost**: credit went into contracts harder to write and enforce, open to those who could pay
+notaries; open moneylending was left to outsiders and pawnbrokers; and interest was hidden in the records, which makes historical
+rates hard to read. Usurers made restitution in their wills (*unchecked*), so the ban also moved money to the church at death.
+Calvin's letter on usury and the English statute, both of 1545, accepted moderate interest; Catholic practice followed in fact.
 
 ### 8.3 Jewish moneylending in Christian Europe
 
-Because the Christian ban did not bind Jews, and Deuteronomy allowed lending to non-Jews, and because Jews were excluded from guilds
-and often from holding land, moneylending became one of the few trades open to them in parts of northern Europe from the twelfth
-century (*unchecked*). Rulers licensed and taxed them.
-
-- **England.** Jews came with the Normans. After the massacres of 1189 to 1190, in which debt records were burned, the Crown
-  created the **Exchequer of the Jews** (1194) and required every loan to be recorded in a chest (*archa*) in one of the main towns,
-  with a copy of the bond (the *chirograph*) kept under joint Christian and Jewish keys (*unchecked*). It was a public register of
-  private debts, run because the Crown taxed and inherited the debts. Heavy tallages exhausted the community; the Statute of Jewry
-  (1275) banned their lending; Edward I expelled the Jews in 1290 (*unchecked*), and Italian bankers took their place as the
-  Crown's lenders.
-- **Italy.** Towns invited Jewish bankers under a contract (*condotta*) that set the rate (often 20 to 40% a year on small pawn
-  loans) and the term, as a regulated service for the poor (*memory*); the *monti di pietà* were founded partly to compete with
-  them.
-- **Heter iska.** Jewish law also bans interest between Jews; the *heter iska* (sixteenth century) turns a loan into a
-  partnership in which the "investor" receives a fixed return unless the "manager" proves a loss under strict conditions, which in
-  practice he cannot (*unchecked*). Israeli banks use a general *heter iska* today.
-- **Botticini and Eckstein** (*The Chosen Few*, 2012) argue that a religious rule requiring men to read the Torah made Jews literate
-  and so drew them into urban trades and finance before any exclusion did (*contested*).
+The Christian ban did not bind Jews, Deuteronomy allowed lending to non-Jews, and Jews were often barred from guilds and land, so
+in parts of northern Europe from the twelfth century moneylending was one of the few trades open to them, licensed and taxed by
+rulers (*unchecked*).
+- **England.** After the massacres of 1189 to 1190, in which bonds were burned, the Crown set up the **Exchequer of the Jews**
+  (1194) and required every loan to be registered in a chest (*archa*) in a main town, the bond's copy under joint Christian and
+  Jewish keys (*unchecked*): a public register of private debts, kept because the Crown taxed and inherited them. Tallages exhausted
+  the community; lending was banned in 1275 and the Jews expelled in 1290, and Italian bankers took their place (*unchecked*).
+- **Italy.** Towns invited Jewish lenders by *condotta*, a charter setting rates (often 20 to 40% a year on small pawns) and terms
+  (*memory*); the *monti di pietà* were founded partly to compete.
+- **Heter iska.** Jewish law also bans interest between Jews; the *heter iska* (sixteenth century) recasts a loan as a partnership
+  with a fixed return unless a loss is proved under conditions no borrower can meet (*unchecked*). Israeli banks use it today.
+  Botticini and Eckstein (2012) argue Torah literacy drew Jews into urban trades and finance before exclusion did (*contested*).
 
 ### 8.4 Islamic rules and their contracts
 
-The Qur'an forbids **riba** (increase, understood by most jurists as any fixed return on a loan) and **gharar** (excessive
-uncertainty in a contract). Islamic commercial law developed partnership and sale forms to carry credit.
-
-- **Partnership.** *Mudaraba* or *qirad* (an investor provides capital and a merchant labour, sharing profits by agreed ratio and the
-  investor bearing loss) and *musharaka* (joint capital) (part 11, `qirad`). Udovitch argued the commenda came to Italy from the
-  qirad (*contested*).
-- **Sales on credit.** A higher price for deferred payment is a sale, not a loan, and so allowed by most schools. The legal
-  devices (*hiyal*) included the double sale (*bayʿ al-ʿina*: sell an item on credit and buy it back at once for less in cash), which
-  some schools accepted and others condemned (*unchecked*).
-- **Transfer and bills.** The *hawala* and *suftaja* (part 11) moved money across distance; a fee for transfer is not riba.
-- **The cash waqf.** From the fifteenth century Ottoman endowments of cash lent out their capital, often at 10 to 15% a year through
-  sale-and-resale forms, to fund mosques and schools; the Ottoman chief jurist Ebussuud upheld them against critics in the 1540s
-  (*memory*; Mandaville 1979). By the eighteenth century cash waqfs were the main lenders in Ottoman towns.
-- **Kuran and Rubin.** Timur Kuran (*The Long Divergence*, 2011) argues that Islamic partnership law (dissolved at a partner's death),
-  equal inheritance among heirs and the waqf's rigidity kept Middle Eastern firms small and blocked the corporation, while the
-  ban on interest mattered less because it was evaded (*contested*). Jared Rubin (*Rulers, Religion, and Riches*, 2017) argues that
-  where rulers drew legitimacy from religious authorities, as in the Ottoman empire, those authorities could block changes such as
-  open interest and printing; where they did not, as in Protestant Europe, merchants' interests won (*contested*).
-- **Modern Islamic finance.** The Mit Ghamr savings bank in Egypt (1963), the Dubai Islamic Bank and the Islamic Development Bank
-  (1975) began a modern industry (*unchecked*). Its dominant contract is **murabaha**, a cost-plus sale on deferred payment, which
-  critics say reproduces interest under another name (El-Gamal, *Islamic Finance: Law, Economics, and Practice*, 2006). Sukuk are
-  bonds structured as shares in assets or leases. Size: about **$3.88 trillion** of assets in 2024 by the Islamic Financial Services
-  Board, 72% in banking and over half in the Gulf states; other counts give about $5 to 6 trillion with wider scope (*checked*, both).
+The Qur'an forbids **riba** (increase on a loan) and **gharar** (excessive uncertainty). Credit ran through **partnership**
+(*mudaraba* or *qirad*, capital from one, labour from the other, loss on the investor; *musharaka*, joint capital; part 11
+`qirad`; Udovitch argued the commenda came from it, *contested*), **credit sales** at a higher deferred price, legal devices
+(*hiyal*) such as the double sale (*bayʿ al-ʿina*), and transfer by *hawala* and *suftaja* (part 11) (*unchecked*). From the
+fifteenth century Ottoman **cash waqfs** lent their capital at about 10 to 15% through sale-and-resale forms, upheld by the chief
+jurist Ebussuud in the 1540s, and became the main lenders in Ottoman towns (*memory*, Mandaville 1979). Kuran (*The Long
+Divergence*, 2011) argues the ban mattered less than partnership law (dissolved at a partner's death), equal inheritance and the
+waqf's rigidity, which kept firms small; Rubin (2017) that rulers who drew legitimacy from religious authorities let them block
+interest and printing (both *contested*). **Modern Islamic finance** began with Mit Ghamr (Egypt, 1963) and the Dubai Islamic Bank
+and Islamic Development Bank (1975) (*unchecked*). Its main contract is **murabaha**, a cost-plus deferred sale that critics say
+reproduces interest (El-Gamal 2006); sukuk are asset-backed bonds. Assets were about **$3.88 trillion in 2024** (IFSB: 72% banking,
+over half in the Gulf), or about $5 to 6 trillion on wider counts (*checked*, both).
 
 ### 8.5 What the rules did, in one table
 
 | Rule | Who it bound | Workaround | Who gained |
 |---|---|---|---|
-| Deuteronomy, sabbatical release | Jews lending to Jews | prozbul; heter iska | courts and lawyers; the rule kept as a principle |
-| Christian usury ban | Christians, laity from 789 | partnership, bills, rent charges, triple contract, pawn banks | merchant bankers with correspondents abroad; notaries; outsiders licensed to lend |
-| Islamic riba | Muslims | partnerships, credit sales, hiyal, cash waqf | merchants and jurists; endowments as lenders |
-| None or caps (Hindu, Chinese, Mesopotamian) | all | open interest with legal caps | lenders, temples, monasteries |
+| Deuteronomy, sabbatical release | Jews lending to Jews | prozbul; heter iska | courts; the rule kept as a principle |
+| Christian usury ban | Christians, laity from 789 | partnership, bills, rent charges, triple contract, pawn banks | merchant bankers with correspondents abroad; notaries; licensed outsiders |
+| Islamic riba | Muslims | partnership, credit sales, hiyal, cash waqf | merchants and jurists; endowments as lenders |
+| caps, not bans (Mesopotamia, Hindu law, China) | all | open interest within caps | lenders, temples, monasteries |
 
 ## 9. Waqf and endowments
 
 ### 9.1 The waqf
 
-A **waqf** (part 11, `waqf`; the funduq and caravanserai of part 11 §4.1) is property set aside in perpetuity for a purpose named by
-the founder, its income spent as the deed says, under a manager (*mutawalli*) supervised by the judge (*qadi*). It cannot be sold,
-given or inherited. It spread from the eighth century and became the main way to provide public goods in Islamic societies.
-
-- **What waqfs built and ran:** mosques, schools (madrasas), hospitals, soup kitchens (*imaret*), fountains, caravanserais, bridges,
-  markets, baths. A great foundation like the **Süleymaniye** complex in Istanbul (1550s) was endowed with villages, shops, baths and
-  mills whose rents paid for its mosque, schools, hospital, kitchen and staff (*unchecked*).
-- **How large.** Estimates for the Ottoman empire before the nineteenth-century reforms range from a fifth to a half of land and
-  property in some provinces (*contested*); Kuran estimates that waqf revenues in the eighteenth century were a large share of the
-  state's own (*memory*). In some cities most commercial property was endowed.
-- **Why so popular.** A waqf protected wealth from confiscation (rulers rarely seized endowed property), escaped the fixed shares of
-  Islamic inheritance (a founder could name his descendants as beneficiaries, the "family waqf"), and gave the founder's family
-  salaried posts as managers. It was as much an estate plan as a gift (*contested* in degree).
-- **The cost.** Because the founder's terms bound forever, a waqf could not easily change use, merge or borrow; buildings decayed
-  when rents fell and the purpose became obsolete; managers drew salaries from shrinking income. Kuran's thesis (§8.4) is that this
-  rigidity froze capital that in Europe went through more flexible trusts and corporations (*contested*).
-- **Reform.** Nineteenth- and twentieth-century states took waqfs under ministries (Ottoman Ministry of Pious Foundations, 1826; Egypt
-  abolished family waqfs in 1952) (*unchecked*).
+A **waqf** (part 11) is property set aside in perpetuity for a purpose the founder names, its income spent as the deed says by a
+manager under the judge's eye; it cannot be sold, given or inherited. From the eighth century it was the main way Islamic
+societies provided public goods: mosques, madrasas, hospitals, soup kitchens (*imaret*), fountains, caravanserais (part 11 §4.1),
+bridges, markets and baths. The **Süleymaniye** in Istanbul (1550s) was endowed with villages, shops, baths and mills whose rents
+paid for its mosque, schools, hospital and kitchen (*unchecked*). Estimates of the waqf share of Ottoman land and property before
+the nineteenth-century reforms range from a fifth to a half in some provinces (*contested*). A waqf protected wealth from
+confiscation, escaped the fixed shares of Islamic inheritance (the "family waqf" named descendants as beneficiaries) and gave the
+family salaried posts: as much an estate plan as a gift (*contested* in degree). Its cost was rigidity: a founder's terms bound
+forever, so buildings decayed when rents fell and purposes aged (Kuran, *contested*). States took waqfs under ministries from 1826
+(Ottoman) and Egypt abolished family waqfs in 1952 (*unchecked*).
 
 ### 9.2 Western endowments: the dead hand
 
-- **Mortmain.** Land given to a church passed into "the dead hand" (*mortmain*): it never died, married, came of age or forfeited, so
-  the lord lost the feudal incidents (reliefs, wardships, escheats) he would have had from a lay tenant. The English **Statute of
-  Mortmain** (1279) forbade gifts of land to the church without the lord's licence (*unchecked*, standard). It is an early case of a
-  state limiting endowments to protect its revenue.
-- **Chantries.** Late medieval people endowed chantries (priests to sing masses for their souls) with land or rents; there were some
-  thousands in England when they were dissolved in 1547 (*memory*: about 2,400). Many also ran schools, which the Crown refounded in a
-  few cases ("King Edward VI grammar schools").
-- **Colleges and hospitals.** Oxford and Cambridge colleges, cathedral chapters, almshouses and hospitals (St Bartholomew's, London,
-  1123; St Cross, Winchester, 1130s) were endowed corporations (part 05 §2.6, `corporation`). Several Oxford and Cambridge colleges
-  are still among the larger landowners in England.
-- **The trust.** The English use and trust developed from the thirteenth century, partly to give land to friars (who could not own
-  it) and to evade feudal dues; Gaudiosi (1988) argued it borrowed from the waqf through returning crusaders (*contested*).
-- **Modern foundations and endowments.** University endowments (Harvard's about $50 billion, *memory*), religious foundations and
-  philanthropic foundations are the waqf's descendants: capital held in perpetuity for a purpose, managed by trustees. The Church of
-  England's Church Commissioners and the Latter-day Saints' investment arm hold large portfolios (*memory*: both in the tens of
-  billions; the latter reported at about $100 billion in 2019, *contested*).
+- **Mortmain.** Land given to a church never died, married or forfeited, so the lord lost the feudal incidents (reliefs,
+  wardships, escheats); the **Statute of Mortmain** (1279) forbade such gifts without licence (*unchecked*): a state limiting
+  endowment to protect its revenue.
+- **Chantries, colleges, hospitals.** Chantries (priests endowed to sing masses for a soul; about 2,400 in England when dissolved in
+  1547, *memory*) often kept schools; colleges, chapters, almshouses and hospitals (St Bartholomew's, 1123) were endowed corporations
+  (part 05 `corporation`), and Oxford and Cambridge colleges remain large landowners.
+- **The trust** grew in part to hold land for friars, who could not own it; Gaudiosi (1988) argued it borrowed from the waqf
+  (*contested*). University endowments and foundations are the waqf's descendants: capital held in perpetuity for a purpose.
 
 ## 10. Religious orders and networks as trust
 
 ### 10.1 The Templars
 
-The **Knights Templar** (founded about 1119 to 1120 in Jerusalem to protect pilgrims) received land across Europe, built a chain of
-fortified houses from Scotland to Syria and moved men, money and supplies to the East. These features made them bankers:
-- **Safe deposit.** Lords, merchants and kings left money and documents in the Paris and London Temples. Joinville deposited 360
-  livres of his pay with the Templars at Acre in 1250 (*checked*).
-- **The royal treasury.** From the late twelfth century the Paris Temple held and managed the French king's treasury, with the
-  treasurer a Templar; the Temple sent account statements to major clients several times a year (*checked*, secondary).
-- **Transfer.** A pilgrim or crusader could deposit money in Europe and draw it in the East against a written document, and the
-  order could settle between its houses without moving coin (*contested* in detail; the giro form is reported by popular sources and
-  better attested for royal accounts).
-- **Lending.** They lent to kings, including Louis VII and Louis IX for crusades (*unchecked*).
-- **The end.** Philip IV, heavily indebted to them and short of money, had every Templar in France arrested on **13 October 1307**
-  (*checked*); the pope suppressed the order in 1312 and gave most of its property to the Hospitallers (*unchecked*). It is the
-  first case of a state destroying its creditor, and a lesson in the risk of lending to a sovereign that part 04's later bankers
-  (the Bardi and Peruzzi under Edward III) repeated.
-- **The Teutonic Order** ruled Prussia from the thirteenth century as a state, with a monopoly of Baltic amber (part 04,
-  `amber_road`) and a large grain export from its estates through Danzig (*memory*). A religious order became a territorial monopolist.
+The **Knights Templar** (about 1119 to 1120, to protect pilgrims) held land across Europe and a chain of fortified houses to Syria,
+moving men, money and supplies east. That made them bankers. Lords and kings deposited money and documents in the Paris and London
+Temples; Joinville left 360 livres of his pay with them at Acre in 1250 (*checked*). The Paris Temple ran the French royal treasury
+from the late twelfth century and sent statements to major clients several times a year (*checked*, secondary). A crusader could
+deposit at home and draw in the East (*contested* in detail), and the order lent to kings. Philip IV, deep in their debt, had every
+Templar in France arrested on **13 October 1307** (*checked*); the order was suppressed in 1312 and its property given to the
+Hospitallers (*unchecked*): a state destroying its creditor, as Edward III would ruin the Bardi and Peruzzi (part 04). The
+**Teutonic Order** ruled Prussia as a state, with the Baltic amber monopoly (part 04 `amber_road`) and grain exports through Danzig
+(*memory*).
 
 ### 10.2 The Jesuits
 
-Founded 1540, the Society of Jesus was an international organisation of educated men with a central command in Rome, regular
-written reports (the *litterae annuae*), and colleges across Europe, Asia and the Americas.
-- **Colleges financed by estates.** In New Spain and Peru Jesuit colleges were endowed with **haciendas**: sugar plantations worked by
-  enslaved Africans, cattle ranches, vineyards and textile workshops (*obrajes*), run with careful accounting to fund the colleges
-  (Konrad's study of Santa Lucía, Mexico; *memory*). At the expulsion of 1767 they were among the largest landowners in Spanish
-  America.
-- **The Guaraní reductions.** Thirty mission towns in Paraguay, Argentina and Brazil (from 1609) reached a peak of about **141,000
-  people in 1732** (*checked*), then fell by half in the epidemics of 1733 to 1740 (*checked*). They farmed communally and privately,
-  ran cattle herds and sold **yerba mate** in the La Plata market (*checked*, qualitative). They were a planned economy under a
-  religious order, closed to Spanish settlers, which made them rich in their region and resented.
-- **Trade and debt.** The French Jesuit Antoine Lavalette's trading ventures in Martinique failed in the Seven Years' War, and the
-  suit by his creditors helped bring the order's suppression in France in 1764 (*memory*). Portugal (1759), Spain (1767) and the
-  pope (1773) followed; the confiscated estates were sold.
-- **Knowledge.** Jesuits carried European astronomy and mathematics to China and reported Chinese crafts back (d'Entrecolles on
-  Jingdezhen porcelain, part 11), and cinchona bark ("Jesuits' bark") to Europe (*unchecked*). An order was a channel for knowledge
-  across civilisations, a link the web lacks (02zzk §3).
+The Society of Jesus (1540) was an international organisation with a central command, regular written reports and colleges on
+four continents. In New Spain and Peru its colleges were financed by **haciendas** (sugar worked by enslaved Africans, cattle,
+vineyards, textile *obrajes*) run with careful accounts (Konrad; *memory*). The thirty **Guaraní reductions** (from 1609) peaked at
+about **141,000 people in 1732** and lost half in the epidemics of 1733 to 1740 (*checked*); they sold **yerba mate** into the La
+Plata market (*checked*, qualitative). The collapse of Lavalette's trading in Martinique helped bring suppression in France (1764)
+(*memory*); Portugal (1759), Spain (1767) and the pope (1773) followed, and the estates were sold. Jesuits also carried knowledge
+between civilisations (d'Entrecolles on Jingdezhen porcelain, part 11; cinchona to Europe), a link 02zzk §3 says the web lacks.
 
 ### 10.3 Quakers and the dissenters
 
-The Society of Friends (from the 1650s) was excluded from universities, public office and the professions in England and turned to
-trade, manufacturing and banking. Its members became disproportionately prominent in eighteenth-century industry and finance.
-
-- **Trust.** Quaker meetings disciplined members for debt, bankruptcy and dishonest dealing, and could disown them; members dealt
-  with each other across the Atlantic on that guarantee (*unchecked*, standard). Quakers were early to sell at **fixed prices**
-  rather than haggling, on the principle of telling the truth (*unchecked*).
-- **Iron.** Abraham Darby, a Quaker, smelted iron with coke at Coalbrookdale in **1709** (part 07, `coke`), and the Darbys and
-  their Quaker partners and relations (the Reynoldses, the Lloyds of Birmingham) ran ironworks for a century; Benjamin Huntsman's
-  crucible steel (part 03, `crucible_steel`, about 1740) was a Quaker's too (*unchecked*).
-- **Banks.** Lloyds (Birmingham, 1765), Barclays (from Quaker goldsmith-bankers in London), the Gurneys of Norwich, Backhouse of
-  Darlington (*unchecked*): part of the country banks of part 07.
-- **Railways.** Edward Pease and other Quaker financiers of Darlington backed the **Stockton and Darlington Railway** (1825; part
-  04 `railway`), sometimes called "the Quaker line" (*unchecked*).
-- **Food.** Cadbury, Fry and Rowntree in chocolate, Huntley and Palmers in biscuits, Clarks in shoes, Bryant and May in matches
-  (*unchecked*).
-- **Why.** Exclusion from other careers, literacy, thrift, a network of kin and co-religionists that lent to each other and vouched
-  for each other, and a reputation outsiders could rely on. The same explanation is given for other minorities: the **Huguenots**
-  after 1685 (silk weaving in Spitalfields, banking in Geneva, Amsterdam and London), the **Old Believers** in Moscow's textile
-  industry, the **Parsis** in Bombay's shipping and cotton, the **Jains and Marwaris** in Indian banking (the Jagat Seths of Bengal;
-  part 11, `shroffs_hundi`), the **Armenians of New Julfa** in the silk trade between Persia, India and Europe (Aslanian 2011;
-  *memory*), and the Maghribi traders of part 04 and 05.
+Barred from universities, office and the professions in England, Quakers (from the 1650s) went into trade, industry and banking.
+Meetings disciplined members for debt and bankruptcy and could disown them, so Friends could trust each other across the Atlantic,
+and they were early to sell at **fixed prices** (*unchecked*). Abraham Darby smelted with coke at Coalbrookdale in **1709** (part
+07 `coke`) and Huntsman's crucible steel (part 03) was a Quaker's; Lloyds (1765), Barclays and the Gurneys were Quaker banks; Pease
+and Darlington Quakers financed the **Stockton and Darlington Railway** (1825); Cadbury, Fry and Rowntree made chocolate
+(*unchecked*). The same explanation (exclusion, literacy, a network that vouched for its own) is given for the **Huguenots** after
+1685, the **Old Believers** in Moscow textiles, the **Parsis** of Bombay, the **Jains and Marwaris** in Indian banking (part 11
+`shroffs_hundi`), the **Armenians of New Julfa** in silk (Aslanian 2011; *memory*) and the Maghribis (part 04).
 
 ### 10.4 Theories of religious networks
 
-- **Middleman minorities.** A minority excluded from land and office, internally cohesive and trusted among its own, specialises in
-  trade and credit between other groups (Sombart, then Bonacich 1973; *memory*). It gains from the trust, and is exposed to
-  expulsion and confiscation, as the Jews of England in 1290 and the Templars in 1307 were.
-- **Club goods** (Iannaccone 1992, "Sacrifice and stigma"): strict religious groups impose costly rules (dress, diet, rest) that
-  screen out free riders, so members can trust each other with credit and mutual aid. Berman (2000) applied it to ultra-Orthodox
-  communities and later to militant religious groups (*memory*).
-- **Coalitions and community enforcement** (Greif; part 04 §4.4 on the Maghribis): a religious community is a ready coalition with
-  shared courts, meetings where news spreads, and sanctions (disownment, excommunication) that cost a defaulter his whole network.
+- **Middleman minorities** (Sombart, Bonacich 1973): a group excluded from land and office, cohesive within, specialises in trade
+  and credit between others, and is exposed to expulsion and confiscation (England's Jews in 1290, the Templars in 1307).
+- **Club goods** (Iannaccone 1992): costly rules on dress, diet and rest screen out free riders, so members can trust each other with
+  credit and aid (Berman 2000).
+- **Community enforcement** (Greif; part 04 §4.4): a congregation is a ready coalition with its own courts, meetings that spread
+  news, and sanctions (disownment, excommunication) that cost a defaulter his whole network.
 
 ## 11. Religion and markets in theory
 
@@ -698,7 +629,6 @@ trade, manufacturing and banking. Its members became disproportionately prominen
 |---|---|---|
 | **Adam Smith** (*Wealth of Nations*, Book V, 1776) | established churches with secure incomes grow idle; competing sects supported by members' gifts are zealous; the state should leave religion to competition | the root of the "religious economies" school |
 | **Max Weber** (*The Protestant Ethic and the Spirit of Capitalism*, 1904 to 1905) | Calvinist doctrine of predestination led believers to seek signs of grace in disciplined work in a calling and to save rather than spend; this "worldly asceticism" shaped the spirit of modern capitalism | descriptive starting point: Protestants richer than Catholics in Baden (Offenbacher's data, flawed); the most debated thesis in economic sociology |
-| **Werner Sombart** (*The Jews and Economic Life*, 1911) | Jews, not Protestants, carried capitalism | rejected as tendentious; its middleman idea survives |
 | **R. H. Tawney** (*Religion and the Rise of Capitalism*, 1926) | causation ran both ways: commerce shaped Puritanism as much as the reverse | |
 | **Kurt Samuelsson** (1957), **Hugh Trevor-Roper** | capitalism flourished in Catholic Italy, Flanders and southern Germany before the Reformation; Calvinist leaders were not pro-capitalist | |
 | **Becker and Woessmann** (2009) | across 452 Prussian counties in 1871 Protestants were richer, and their higher literacy (from Luther's call to read the Bible) explains practically all of the gap; distance to Wittenberg as an instrument | *checked*: a human-capital, not a work-ethic, channel |
@@ -706,71 +636,43 @@ trade, manufacturing and banking. Its members became disproportionately prominen
 | **Cantoni, Dittmar and Yuchtman** (2018) | after the Reformation, resources shifted from religious to secular uses in Protestant Germany: students from theology to law and administration, building from churches to palaces and offices | *memory* for the findings; the reallocation reading of the dissolution (§5.5) |
 | **Dittmar** (2011), **Rubin** (2014) | printing presses spread first and Protestantism took hold where there were presses | *memory*; links religion to part 07's print and literacy |
 | **Barro and McCleary** (2003) | across countries, belief (in heaven and hell) is associated with growth and church attendance with lower growth, given belief: belief per hour of ritual matters | *contested* (reverse causation; data) |
-| **Iannaccone, Stark, Finke** (1990s) | "supply-side" religious economies: competition raises participation; strictness makes strong groups | the US against European state churches; *contested* |
 | **Ekelund, Hébert and Tollison** (1996) | the medieval church behaved as a firm with market power, selling salvation and enforcing entry barriers (heresy); the Reformation was entry by competitors | *contested* |
-| **Kuran** (2011), **Rubin** (2017) | Islamic law and the ruler's reliance on religious legitimacy shaped Middle Eastern economic institutions | §8.4, *contested* |
 
-Three readings come out of the debate and bear on the map. First, the measured channels are **human capital** (reading, from
-Bible reading and schooling), **reallocation** (land, buildings and people moved from church to secular uses) and **trust networks**
-(§10), more than a work ethic as such. Second, religion often mattered by **who held what** (land, mills, tithes, the calendar)
-rather than by belief. Third, the timing problem never goes away: commercial capitalism was well developed in Catholic Italy and
-Flanders and in the Islamic and Chinese worlds (part 11) long before Calvin.
+Three readings come out of the debate. The measured channels are **human capital** (reading), **reallocation** (land, buildings and
+people moved from church to secular uses) and **trust networks** (§10), more than a work ethic. Religion often mattered through
+**who held what** (land, mills, tithes, the calendar) rather than through belief. And commercial capitalism was well developed in
+Catholic Italy and Flanders and in the Islamic and Chinese worlds (part 11) long before Calvin.
 
 ## 12. Charity and poor relief
 
-Part 05 (§6.5) gives the means of insurance (stores, kin, neighbours, credit, charity, poor relief) and the English poor law's costs.
-Religious institutions ran most of the charity before the state.
-
-- **The church's share.** The canonical quarter of tithe for the poor (§4.1); monastic alms at the gate, doles at funerals and on
-  anniversaries, hospitals for the sick, the old and travellers, leper houses, and almshouses. How much went to the poor is argued:
-  Savine's reading of the Valor (1909) found monastic alms of only about 3% of income (*memory*), but the Valor counted only alms
-  required by founders' deeds, and later historians (Harvey, Rushton) put the real share higher, with food given at the gate and in
-  hospitality (*contested*).
-- **Fraternities and gilds.** Parish and craft fraternities (part 05 `friendly_societies`; guilds) paid for funerals, masses, and
-  aid to members in sickness and poverty from members' dues and endowments (*unchecked*). They were also drinking clubs and
-  credit circles.
-- **Islam.** Zakat (2.5% of wealth, §4.4) is owed to named classes (the poor, the needy, debtors, travellers, collectors and others),
-  sadaqa is voluntary alms, and the waqf soup kitchen fed students, travellers and the poor daily (*unchecked*). The Ottoman
-  *imaret* of a great mosque could feed hundreds to a thousand a day (*memory*).
-- **Judaism.** The communal **kuppah** (charity fund) and **tamhui** (soup kitchen) were levied on members by the community
-  (*unchecked*).
-- **Buddhism.** *Dana* (giving) to monks, who in turn ran famine relief, hospitals and the inexhaustible treasuries (§2.6).
-- **The Reformation and the common chest.** Protestant towns replaced monastic and fraternal alms with a **common chest** filled
-  from confiscated church endowments and contributions and run by elected stewards: Wittenberg (1520 to 1521), **Leisnig** (1523,
-  with Luther's preface), Nuremberg, Strasbourg, Zurich; Catholic Ypres (1525) did the same, and Juan Luis Vives's *De subventione
-  pauperum* (1526) argued for municipal relief (*unchecked*). They banned begging, registered the poor and gave relief by need: the
-  model for the English parish poor rate of 1597 to 1601 (part 05), administered by churchwardens and overseers in the parish, the
-  church's unit made a civil one.
-- **Modern.** Religious bodies still run a large share of charity: hospitals, schools, food banks, the Salvation Army, Caritas,
-  Islamic Relief. Grim and Grim (2016) valued the US religious sector at about **$1.2 trillion a year** in their middle estimate,
-  counting congregations' spending, religious institutions (hospitals, schools, charities) and religion-related businesses; their
-  low estimate was about $378 billion (revenues only) and their high $4.8 trillion (*checked* as the study's figures; the method is
-  argued).
+Part 05 (§6.5) gives the means of insurance and the poor law's costs; religious institutions ran most charity before the state.
+- **The church.** A canonical quarter of tithe for the poor (§4.1); alms at the monastery gate, funeral doles, hospitals, leper
+  houses, almshouses. Savine (1909) found monastic alms only about 3% of income in the Valor (*memory*), but the Valor counted only
+  alms fixed by founders' deeds, and later historians put the real share higher (*contested*). Fraternities paid for funerals and
+  aid to members from dues (*unchecked*).
+- **Islam and Judaism.** Zakat is owed to named classes (the poor, debtors, travellers and others), sadaqa is voluntary, and an
+  Ottoman *imaret* could feed hundreds a day (*memory*); Jewish communities levied the **kuppah** (fund) and **tamhui** (soup
+  kitchen) on members (*unchecked*).
+- **The common chest.** Protestant towns replaced monastic and fraternal alms with a **common chest** filled from confiscated
+  endowments and run by elected stewards (Wittenberg 1520 to 1521, Leisnig 1523; Catholic Ypres 1525; Vives's *De subventione
+  pauperum*, 1526) (*unchecked*). They banned begging, registered the poor and relieved by need: the model for England's parish poor
+  rate of 1597 to 1601 (part 05), the church's unit made a civil one.
+- **Modern.** Grim and Grim (2016) valued the US religious sector at about **$1.2 trillion a year** in their middle estimate
+  (congregations, religious hospitals, schools and charities, and religion-related businesses), $378 billion on revenues alone and
+  $4.8 trillion at the top (*checked* as the study's figures; the method is argued).
 
 ## 13. Modern religious economies where they bear on the map
 
-Most of the twentieth- and twenty-first-century religious economy is a nonprofit sector, but a few parts shape chains in the other
-parts.
-
-- **Rules on food as supply-chain standards.** **Halal** and **kosher** certification are standards applied at the slaughterhouse,
-  the processor and the ingredient supplier. They run through the packers of part 02 and part 13 (`meatpacking`): Brazil and
-  Australia export halal beef and chicken at scale, and certifiers (the Orthodox Union and others for kosher; national bodies such
-  as Malaysia's JAKIM for halal) are chokepoints that a supplier must pass to sell into a market (*unchecked*). A ritual rule has
-  become a market-access standard.
-- **Rules on rest** (§7.1) set shop hours and the working week; **rules on lending** (§8.4) created Islamic finance; **church
-  taxes** (§4.4) fund churches as employers (the German churches and their welfare arms, Caritas and Diakonie, are among the
-  country's largest employers; *memory*: over a million employees together).
-- **Pilgrimage and religious tourism** (§6) are large service industries: the hajj and umrah in Saudi Arabia's plans, Lourdes,
-  Vatican City's museums, the Kumbh Mela.
-- **Temple gold.** Indian households and temples hold a very large stock of gold (often put at over 20,000 tonnes in households and
-  several thousand in temples, *contested*); the state's gold monetisation scheme (2015) tried to bring temple gold into the
-  banking system (*unchecked*). Offerings as a store of value, still.
-- **Spirit money and ritual goods.** Joss paper and funeral goods in China and diaspora communities; candles, flowers and incense
-  everywhere; Christmas as the largest single season of retail demand in many countries, and Diwali, Eid and Lunar New Year in
-  others (*unchecked*). The ritual calendar still sets the peaks of consumption.
-- **Megachurches and the prosperity gospel.** Large congregations run schools, media and property; the prosperity gospel teaches
-  that giving (tithing) brings wealth, and a literature argues it encourages saving and enterprise in Africa and Latin America and
-  another that it extracts from the poor (*contested*).
+- **Food rules as supply-chain standards.** **Halal** and **kosher** certification apply at the slaughterhouse, processor and
+  ingredient supplier, through the packers of parts 02 and 13; certifiers (the Orthodox Union; Malaysia's JAKIM) are chokepoints a
+  supplier must pass to sell into a market (*unchecked*).
+- **Rest, lending and tax.** Rules on rest set shop hours (§7.1), rules on lending made Islamic finance (§8.4), and church taxes make
+  churches and their welfare arms (Caritas, Diakonie) among Germany's largest employers (*memory*).
+- **Pilgrimage and temple gold.** Religious tourism is a large service industry (§6). Indian temples hold thousands of tonnes of
+  gold (*contested*), which the 2015 gold monetisation scheme tried to bring into the banks (*unchecked*).
+- **The ritual calendar still sets consumption peaks**: Christmas, Diwali, Eid and Lunar New Year; joss paper and funeral goods
+  (*unchecked*). The prosperity gospel ties giving to wealth; whether it encourages saving or extracts from the poor is argued
+  (*contested*).
 
 ## 14. How religion connects to the rest of the map
 
@@ -779,14 +681,11 @@ parts.
 | feast and work feast | surplus; brewing; a calendar | labour beyond the household; rank; insurance | grain to ale to labour | 04, 05, 06, 10 |
 | temple store | a surplus to gather; a sacred, guarded place; scribes | rationing, records, loans, writing | the centre of redistribution | 04, 06, 10, 12 |
 | temple loans | stores; written contracts; oaths | credit to farmers and cities; perpetual rents | capital for clearing and irrigation | 04, 11 |
-| sacrifice and offerings | herds; craft goods | meat distribution; demand for incense, wax, oil, metal | specific chains with ritual peaks | 02, 03, 11 |
 | tithe | a church with legal power; a state to enforce it | parishes, clergy, barns, some relief; papal finance | a tenth off the top in kind; a tax on new crops; a statistic | 02, 05 |
-| papal taxation | a church across kingdoms | international banking by bills | papal revenue cleared against wool exports | 04, 12 |
 | monastery | endowments; literate staff; long horizon | granges, mills, forges, drained land, wool exports, records | owner of much water power; lender then borrower | 03, 05 |
 | dissolution | a state short of money; a land of mortmain | a land market; new owners managing for rent | capital released from endowment | 05, 06 |
 | pilgrimage | shrines; roads | inns, bridges, hospices, towns on routes, fairs | travel infrastructure shared with trade | 04, 11 |
 | holy days and Sunday | a church calendar | shared rest; fairs; reckoning days | fewer working days; market days set by church days | 04, 05 |
-| fast days | a calendar enforced by custom and law | salt fish trades; fishponds | demand peaks for fish, salt, barrels | 02, 03, 04 |
 | usury rules | a church or law to define them | partnerships, bills, rent charges, pawn banks; outsiders as lenders | credit in costly forms | 04, 11 |
 | waqf and endowments | courts; a law of perpetual gifts | inns, schools, hospitals, water; family estate plans | capital frozen to purposes | 11 |
 | religious networks | discipline; exclusion from other careers | long-distance trust; banks, ironworks, railways | lower transaction costs within the group | 04, 05, 07 |
