@@ -92,8 +92,10 @@ Specialisms then sit in a few households and spread by teaching, marriage and wa
 2. Whether a craft one does not know can still be tried at a novice's level (it can now), or only one one is aware of.
 3. The archetypes' list and tiers. Proposed first: arable farmer, herder (dairy, hay, harness), miller, baker, fisher, salter,
    hunter-trapper, carpenter, mason, smith.
-4. Whether households carry two archetypes (a farmer who fishes), and how often.
+4. ~~Whether households carry two archetypes~~ Answered (Zach, 16 Nov): yes, a household can carry two livelihoods (a farmer who fishes); how often is to calibrate.
 5. How children learn their household's crafts by growing up in it (now: from the line at coming of age).
+
+6. Individuals with their own specialisms (Zach, 16 Nov): "certain individuals might know specific skills, e.g. especially if they came from another household": one who married in or was taken in brings the crafts of the household they grew up in, and a few individuals carry a specialism of their own.
 
 ## Affects
 
@@ -106,6 +108,7 @@ Specialisms then sit in a few households and spread by teaching, marriage and wa
   - Counted the basics and their growth (55 on 2 Nov to 93 now; 72 crafts on the line).
   - Grouped them by livelihood, and proposed archetypes with tiers, a spread, and a check in the generator's report.
   - Nothing built.
+- **16 Nov 2026 (later):** Zach's answers: households can carry two livelihoods; individuals may know specific skills, especially those from another household. Open question 4 answered, a sixth added.
 
 ## Sources
 
