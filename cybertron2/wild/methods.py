@@ -37,8 +37,9 @@ def _take_row(label, aliases, covers, needs, favours, base, gear, units, note, b
     return row
 
 
-EEL_NIGHTS = [{"if": {"seasons": {2: (0, 7)}}, "x": 2.0, "for": {"mover": "cue"}},
-              {"if": {"rain_after_dry": 2, "seasons": {2: (0, 7)}}, "x": 3.0, "for": {"mover": "cue"}}]
+# the nights things run (brief 1), where no river runs at the village: where one does, the run itself is the take's density (brief 5 §2.4)
+EEL_NIGHTS = [{"if": {"seasons": {2: (0, 7)}, "river_run": False}, "x": 2.0, "for": {"mover": "run"}},
+              {"if": {"rain_after_dry": 2, "seasons": {2: (0, 7)}, "river_run": False}, "x": 3.0, "for": {"mover": "run"}}]
 
 METHODS = {
     # the key is the old hunt's: "hunt" is the hunt of worlds without the wild pack (off_with wild), still read by older worlds
@@ -60,13 +61,13 @@ METHODS = {
     "snare": _take_row(
         "setting snares on the runs",
         ["snaring", "set snares", "snare hares", "snare the runs"],
-        ["pasture", "meadow", "heath", "field", "scrub"], {"runs": True, "size": ("small", "medium")}, [({"home": "form"}, 1.5)],
+        ["pasture", "meadow", "heath", "field", "scrub", "water"], {"runs": True, "size": ("small", "medium")}, [({"home": "form"}, 1.5)],
         2.0, {}, 1, "set nooses where small beasts run, and come back for what is caught", basic=True),
     # set and left (brief 2 §4): a snare line catches by night for some nights; whoever finds it takes the catch
     "net": _take_row(
         "netting birds with nets and decoys",
         ["fowling", "fowl", "net fowl", "catch fowl", "wildfowling", "netting", "net birds"],
-        ["fen", "water", "meadow", "saltmarsh"], {"size": ("small", "small"), "social": "flock"}, [({"water": True}, 1.5)],
+        ["fen", "water", "meadow", "saltmarsh"], {"size": ("small", "medium"), "social": "flock"}, [({"water": True}, 1.5)],
         2.0, {}, 2, "spread nets and decoys where flocks come down, best at the water"),
     "trap in water": _take_row(
         "setting wicker traps in the water overnight",
@@ -132,7 +133,7 @@ METHODS.update({
                                     "clap them off", "watch the field (horn)", "watch the field with a horn",
                                     "watch the corn with a horn", "blow a horn at them", "watch the field (dog)",
                                     "watch the field with the dog", "watch the corn with the dog", "set the dog on them"],
-                        "at": {"covers": FIELD_COVERS}, "draws": "watch", "yield": {"kind": "wild_watch", "scares": SCARES},
+                        "at": {"covers": FIELD_COVERS + ["water"]}, "draws": "watch", "yield": {"kind": "wild_watch", "scares": SCARES},
                         "units": 2, "gives": "", "tags": ["farming", "animals"],
                         "note": "sit up by a field all night to scare beasts off, with a fire, clappers, a horn or the dog; you lose the night's sleep"},
     "shut": {"verb": "work", "label": "shutting the hens and the store up for the night (the doors wedged, the gaps stopped)",
