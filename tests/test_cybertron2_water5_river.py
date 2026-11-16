@@ -122,19 +122,36 @@ def test_a_run_reaches_each_stretch_below_on_its_lag_day_thinner_by_what_was_tak
     assert out[True]["v:Millham"][1] == pytest.approx(50.0, abs=1.0)               # the shut weir above took its half
 
 
+def _eel_cue_tomorrow(w, m, d) -> bool:
+    """Whether the eels' cue holds at any stretch on day d + 1, read from the climate (the rule's own test, by hand)."""
+    nt = RU.net(m)
+    nodes = sorted(set(m.nodes))
+    mem = {}
+    for j in range(RU.MEMORY):
+        wx = WL.weather(w, nodes, max(0, d + 1 - j))
+        for nd in wx:
+            mem.setdefault(nd, []).append(float(wx[nd]["rain"]))
+    return any(RU.cued(nt, g, WK.RUNS["eel"]["cue"], mem) for g in nt.members)
+
+
 def test_cue_nights_start_runs_and_the_sea_takes_what_passes(river):
-    """Through the autumn a silver run leaves the river areas on its nights, and what reaches the sea is gone."""
+    """Through the autumn a silver run leaves the river areas on its cue nights, read from the climate's rain, and on no other;
+    what reaches the sea is gone."""
     w = fresh(river)
-    started, sea = 0.0, 0.0
     m = WL.model(w)
-    pop0 = sum(float(x) * float(a) for x, a in zip(w.s["wild"]["state"]["pop"]["eel"], m.km2))
-    for d in range(w.d, w.d + 14):
+    started, sea, cue = {}, 0.0, set()
+    for d in range(w.d, w.d + 20):
+        inside = RU._window(m, WL.eco_day(w, d + 1), WK.RUNS["eel"]["seasons"])[0]
+        if inside and _eel_cue_tomorrow(w, m, d):
+            cue.add(d)
         morning(w, d)
         rec = N.night(w)
         mv = ((rec.get("wild") or {}).get("runs") or {}).get("moved") or {}
-        started += float(mv.get("started", {}).get("eel", 0.0))
+        if float(mv.get("started", {}).get("eel", 0.0)) > 0:
+            started[d] = float(mv["started"]["eel"])
         sea += float(mv.get("sea", {}).get("eel", 0.0))
-    assert started > 0.1 * pop0 * float(WK.RUNS["eel"]["year"]) and sea > 0.3 * started
+    assert cue and set(started) == cue                                             # the run starts on its cue nights only
+    assert sea > 0.3 * sum(started.values())
 
 
 # ---------------------------------------------------------------------- the weir (§3)
