@@ -43,9 +43,9 @@ RIVER_PLACES = {                            # `at` is set on the generated land'
 }
 RIVER_AT_Y = {"Saltwell": 0.68, "Millham": 0.3}     # where along the river (share of the window's side, south to north)
 RUNS_PLACES = {                             # three stations on the large river, `at` set on it as for the river world
-    "Highpool": {"households": 4, "on": "big river", "within": 1.5, "food_share": 0.6},
-    "Middleham": {"households": 4, "on": "big river", "within": 1.5, "food_share": 0.6},
-    "Lowstrand": {"households": 4, "on": "big river", "within": 1.5, "food_share": 0.6},
+    "Highpool": {"households": 3, "on": "big river", "within": 1.5, "food_share": 0.6},
+    "Middleham": {"households": 3, "on": "big river", "within": 1.5, "food_share": 0.6},
+    "Lowstrand": {"households": 3, "on": "big river", "within": 1.5, "food_share": 0.6},
 }
 RUNS_AT_Y = {"Highpool": 0.74, "Middleham": 0.5, "Lowstrand": 0.26}
 RUNS_DAYS = 60                              # past a salmon return under the compressed year (D2-209: one world year, 32 days)
@@ -55,7 +55,8 @@ LAKE_PLACES = {
 
 
 def base(name: str, seed: int) -> dict:
-    return {"name": name, "seed": seed, "days": DAYS, "calendar": dict(CALENDAR),
+    return {"name": name, "seed": seed, "days": DAYS, "calendar": dict(CALENDAR), "climate": {"era": "steady"},   # the weather scheduler
+                                                                                       # (D4-109): rain by place, so the runs' rain cue fires
             "children": {"on": True, "dial": "low"}, "packs": ["wild", "water"],
             "bot_travel": False, "bot_reap": "ripe", "cast": dict(CAST)}
 
@@ -83,7 +84,8 @@ def runs_spec(seed: int) -> dict:
     s["cast"] = {"head": "claude-sonnet-5-5", "middle": "claude-sonnet-5-5", "rest": "claude-haiku-5-5", "youth": "claude-haiku-5-5"}
     s["generate"] = {
         "seed": seed, "settlements": 3, "household_size": 3, "spacing_km": 11.0, "warn_only": ["capacity"],
-        "bounds": {"per_min": 2, "per_spread": 3, "children_max": 4}, "sim": {"start": -26},
+        "bounds": {"per_min": 1, "per_spread": 5, "children_max": 8}, "sim": {"start": -26},   # wider than the river world's: nine
+                                                                                              # households need a looser people tree
         "features": copy.deepcopy(river_spec(seed)["generate"]["features"]),
         "places": copy.deepcopy(RUNS_PLACES)}
     return s
