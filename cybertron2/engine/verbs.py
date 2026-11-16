@@ -50,7 +50,10 @@ VERB = {
     "drive": {"args": '{"thing": a herd here, "item"?: cows | oxen | bulls | calves | all, "qty"?, "to": a place here}', "cost": 1,
               "when": "herds", "doc": "move beasts to another place here (a bull kept apart from the cows does not breed)"},
     "sleep": {"args": '{"at": building}', "cost": 0, "doc": "sleep there tonight, if you can get in and a bed is free"},
-    "set": {"args": '{"thing": door, "to": open | barred, "at"?: building}', "cost": 0, "doc": "the door of a building you manage"},
+    "set": {"args": '{"thing": door | gap, "to": open | barred (a door) or open | shut (a gap), "at"?: building}', "cost": 0,
+            "doc": "the door of a building you manage; or the gap of a fish weir you work or a water mill you manage on a river where "
+                   "fish run (shut: the weir's traps take the runs passing, and a mill grinds at full but holds back the fish going "
+                   "up; open: the run passes, and the mill grinds at half)"},
     "travel": {"args": '{"to": a place, or a way from here as the roads name it, "on trouble"?: push on | wait | turn back | go round, "days"?: how long to wait or stop, "stop at"?: a good place you know on the way, "gather"?: true, "meeting"?: stop | pass by, "searching"?: a herd or a person lost on that road, "lead"?: a herd of yours here with an ox, to lead an ox as a pack ox (a harness in hands; it carries 60)}',
                "cost": 0, "when": "roads", "doc": "the day's last act: you leave at nightfall and arrive on a later morning. On the road "
                                                  "you decide nothing unless something happens (trouble, a meeting, a find); what you "
@@ -114,6 +117,17 @@ def cost(here, a) -> int:
     v = str((a or {}).get("do", "")).lower().strip()
     if v not in VERB:
         return 0
+    if v == "set" and str(a.get("thing") or "").strip().lower() in ("gap", "the gap", "hatches", "sluice", "weir", "the weir"):
+        from cybertron2.engine.data import WATER_WORKS                         # the traps or hatches put in or out (brief 5 §3)
+        to = {"closed": "shut", "close": "shut"}.get(str(a.get("to") or "").strip().lower(), str(a.get("to") or "").strip().lower())
+        try:
+            from cybertron2.engine import wild as WL
+            b = here.buildings()[_gap_site(here, a.get("at"))]
+            if WL.gap(b) == to:
+                return 0
+            return int(WATER_WORKS["weir" if WL.is_weir(b) else "mill"]["units"].get(to, 1))
+        except Refused:
+            return 0
     n = verb_units(here.p, v)
     if n is not None:
         return n
@@ -592,6 +606,10 @@ def _technique(here, mind, a, party, verb):
         r = here.parcels()[key]["res"][t["draws"]]
         got = here.apply("draw", parcel=key, key=t["draws"], qty=YD.dist(y, r, m, tm, refuge=here.p["refuge"],
                                                                                      b=RN.response(t["draws"], r)).sample(rng))
+        if t.get("run"):                                                        # a run in the water there (brief 5 §3a.2)
+            from cybertron2.engine import wild as WL
+            _, run_words = WL.run_take(here, mind, tech, key, int(t["units"]))
+            suffix += run_words
     elif y["kind"] == "chance":
         r = here.parcels()[key]["res"][t["draws"]]
         armed = here.weapon()
@@ -752,6 +770,10 @@ def _make(here, mind, a, party):
                                             x[0] != "building" or not here.may_take(here.buildings()[x[1]]["stock"])))[0] if sites else None
         b = here.buildings().get(site[1]) if site and site[0] == "building" else None
         fac = WE.factor(here.p, b, fits, here.day, here.year_days()) if fits else 1.0    # a worn fitting works at half (D4-103)
+        worn_fac = fac
+        if b is not None and "water wheel" in fits:                            # its gap open: the head of water lost (brief 5 §3a)
+            from cybertron2.engine import wild as WL
+            fac *= WL.mill_rate(here._w, b)
         mult = TRY[lvl]["inputs"] if fac == 1.0 else TRY[lvl]["inputs"] * fac
         why = KN.shortfall(here, mind, tech, mult, extra=extra)
         if why:
@@ -784,7 +806,9 @@ def _make(here, mind, a, party):
             for item, q in ({} if rk and b is not None else gives).items():
                 full += _full_note(here, out, item, q)
                 here.apply("create", dst=out, item=item, qty=q, why=tech)
-            worn = (" (" + WE.worn_words(here.p, b, fits, here.day, here.year_days()) + ")") if fac < 1.0 else ""
+            worn = (" (" + WE.worn_words(here.p, b, fits, here.day, here.year_days()) + ")") if worn_fac < 1.0 else ""
+            if fac < worn_fac:
+                worn += " (the mill's gap is open: the water runs past, and the wheel turns slow)"
             if t.get("animals"):                                               # others' beasts: allowed and seen (D4-114)
                 worn += FM.beasts_note(here, t)
             res.append(f"You made {', '.join(f'{q:g} {it}' for it, q in gives.items())}" + (f" at {site[2]}" if site and site[1] else "") + worn
@@ -927,7 +951,20 @@ def _new_building(here, mind, a, party, pid, what, owner):
 def _monument(here, mind, a, party, pid, what):
     d = MONUMENTS[what]
     par = here.parcels()[pid]
-    if par["cover"] == "water":
+    crew = []
+    if d.get("site") == "river":                                              # a weir: across a river, by a declared crew (brief 5 §3)
+        from cybertron2.engine import parties as PT, wild as WL
+        if not WL._river_parcel(here._w, pid):
+            raise Refused(f"{d['label'][2:]} is built across a river: at a place of water on a river here")
+        if any(WL.is_weir(b) and b["parcel"] == pid for b in here.buildings().values()):
+            raise Refused(f"there is a weir across {par['name']} already")
+        for x in PT._names(a.get("with")):
+            n_ = PT._person(here._w, x)
+            if n_ and n_ != here.name and n_ not in crew and here._w.s["people"][n_].get("alive", True) and here._w.at(n_) == here.node:
+                crew.append(n_)
+        if len(crew) + 1 < int(d.get("crew", 1)):
+            raise Refused(f"{d['label'][2:]} is crew work: name who builds it with you (\"with\": one or more people here)")
+    elif par["cover"] == "water":
         raise Refused("a monument cannot stand in water")
     how, mods = _how(here, mind, a)
     lvl = _lvl_for(mind, what)
@@ -939,7 +976,8 @@ def _monument(here, mind, a, party, pid, what):
     name = str(a.get("name") or "").strip()[:40] or f"the {what} on {par['name']}"
     bid = here.apply("raise", node=here.node, parcel=pid, rec={"name": name, "structure": d["structure"], "fittings": {}, "rooms": [],
                                                                  "monument": what, "tier": how,
-                                                                 "unfinished": {"blueprint": what, "units_left": float(d["units"]) * float(t["work"])}})
+                                                                 "unfinished": {"blueprint": what, "units_left": float(d["units"]) * float(t["work"])},
+                                                                 **({"crew": [here.name] + crew, "gap": "shut"} if d.get("site") == "river" else {})})
     if a.get("describe"):
         here.apply("set", ref=("building", bid), field="description",
                    value={"text": BL.cap_text(a["describe"], "description"), "by": here.name, "day": here.day})
@@ -1410,8 +1448,8 @@ def _parcel_named(here, x):
 def _lift(here, mind, rem):
     """Lifting a set thing one knows (brief 4c §4.4): everything in it into hand, or a look that it holds nothing."""
     c = here.thing(rem)
-    noun = "wicker traps" if TH.is_trap(c) else "snares"
-    whose = "your" if c.get("by") == here.name else "the"
+    noun = TH.trap_noun(c)
+    whose = "your" if TH.owns_set(c, here.name) else "the"
     took = []
     for it, q in sorted(c["goods"].items()):
         if q > 1e-9:
@@ -1461,7 +1499,7 @@ def _take(here, mind, a, party):
         bid = door
         label = f"what {c['of']} left" if c.get("body") else f"what lay at {here.spot_name(c)}"
         if c.get("kind") == "set":
-            label = (f"{'your' if c.get('by') == here.name else 'the'} {'wicker traps' if TH.is_trap(c) else 'snares'} "
+            label = (f"{'your' if TH.owns_set(c, here.name) else 'the'} {TH.trap_noun(c)} "
                      f"at {here.spot_name(c)}")
         have = c["goods"].get(item, 0.0)
         if c.get("by") != here.name:
@@ -1491,12 +1529,13 @@ def _take(here, mind, a, party):
     if c["kind"] == "set":                                                     # emptied: its catch gone; another's emptying it shows
         if not any(x > 1e-9 for x in c["goods"].values()):                     # to those who know the line (brief 4c §4.2)
             here.apply("set_thing", cid=src, field="catch", value=[])
-        if c.get("by") not in (here.name, None):
+        if c.get("by") not in (here.name, None) and not TH.owns_set(c, here.name):
             here.apply("set_thing", cid=src, field="robbed", value={"day": here.day, "by": here.name})
-    if c["kind"] == "set" and c.get("by") not in (here.name, None):            # another's snare robbed: seen, and theirs to know
-        here.event("take", f"{here.name} took {item} from the {'traps' if (c.get('set') or {}).get('method') == 'trap in water' else 'snares'} "
-                           f"{c['by']} set at {here.spot_name(c)}", actor=here.name, salience=0.55, about=[f"parcel:{c['parcel']}"],
-                   tags=["food", "hunting"], concerns=[c["by"]])
+    if c["kind"] == "set" and c.get("by") not in (here.name, None) and not TH.owns_set(c, here.name):   # another's robbed: seen
+        whose = (f"the weir {', '.join(c.get('crew') or [c['by']])} work" if TH.is_weir(c) else f"the "
+                 f"{'traps' if (c.get('set') or {}).get('method') == 'trap in water' else 'snares'} {c['by']} set")
+        here.event("take", f"{here.name} took {item} from {whose} at {here.spot_name(c)}", actor=here.name, salience=0.55,
+                   about=[f"parcel:{c['parcel']}"], tags=["food", "hunting"], concerns=list(c.get("crew") or [c["by"]]))
     here.event("take", f"{here.name} took {item} from {label}", actor=here.name, salience=0.4 if c["kind"] in TH.KINDS else 0.3,
                about=[f"parcel:{c['parcel']}"] if c.get("parcel") else [], tags=["food"] if ITEMS[item]["food"] else [])
     if c["kind"] in TH.KINDS:
@@ -1791,6 +1830,8 @@ def _sleep(here, mind, a, party):
 
 
 def _set(here, mind, a, party):
+    if str(a.get("thing") or "").strip().lower() in ("gap", "the gap", "hatches", "sluice", "weir", "the weir"):
+        return _set_gap(here, mind, a)
     bid = here.building(a.get("at")) if a.get("at") else (here.homes_here() or [None])[0]
     if bid is None:
         raise Refused("say which building")
@@ -1806,6 +1847,49 @@ def _set(here, mind, a, party):
         raise Refused('set {"thing": "door", "to": "open" or "barred"}')
     here.apply("set", ref=("building", bid), field="door", value=to)
     return f"{here.buildings()[bid]['name']}'s door is now {to}."
+
+
+def _gap_site(here, at):
+    """The weir or water mill a gap is set at: named, or the one at the place named, or the only one here."""
+    from cybertron2.engine import wild as WL
+    w = here._w
+    gaps = [bid for bid, b in sorted(here.buildings().items()) if not b.get("unfinished") and WL.has_gap(w, b)]
+    bid = here.building(at) if at else None
+    if bid is None and at:
+        pid = here.parcel(at)
+        bid = next((x for x in gaps if here.buildings()[x]["parcel"] == pid or WL.mill_water(w, here.buildings()[x]) == pid), None)
+    if bid is None and not at and len(gaps) == 1:
+        bid = gaps[0]
+    if bid is None or bid not in gaps:
+        names = ", ".join(here.buildings()[x]["name"] for x in gaps) or "none here"
+        raise Refused(f"say which weir or mill's gap (\"at\"): {names}")
+    return bid
+
+
+def _set_gap(here, mind, a):
+    """A weir's or a water mill's gap, open or shut (brief 5 §3.2, §3a.1): a weir's by its crew or those who manage it; a mill's by
+    those who manage the water wheel. It takes the work of putting the traps or the hatches in, or out."""
+    from cybertron2.engine import wild as WL
+    bid = _gap_site(here, a.get("at"))
+    b = here.buildings()[bid]
+    to = str(a.get("to") or "").strip().lower()
+    to = {"closed": "shut", "close": "shut", "down": "shut", "up": "open"}.get(to, to)
+    if to not in ("open", "shut"):
+        raise Refused('set {"thing": "gap", "to": "open" or "shut", "at": the weir or the mill}')
+    weir = WL.is_weir(b)
+    may = "management" in here.rights(("building", bid)) or (weir and here.name in (b.get("crew") or []))
+    if not may:
+        who = "its crew or those who manage it" if weir else "those who manage the water wheel"
+        raise Refused(f"the gap of {b['name']} is set by {who}")
+    if WL.gap(b) == to:
+        return f"The gap of {b['name']} is already {to}."
+    here.apply("set", ref=("building", bid), field="gap", value=to)
+    here.apply("set", ref=("building", bid), field="gap_set", value={"day": here.day, "by": here.name, "to": to})
+    what = ("the traps put into the weir's gap" if to == "shut" else "the traps taken out of the weir's gap") if weir else \
+        ("the hatches shut, the water held above the dam" if to == "shut" else "the hatches drawn, the water let past the wheel")
+    here.event("work", f"{here.name} {'shut' if to == 'shut' else 'opened'} the gap of {b['name']}", actor=here.name,
+               about=[f"building:{bid}"], salience=0.4, tags=["food", "fishing"])
+    return f"The gap of {b['name']} is now {to}: {what}."
 
 
 # ---------------------------------------------------------------------- travel (D4-8, D4-32)

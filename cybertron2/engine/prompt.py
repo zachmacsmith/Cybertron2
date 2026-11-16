@@ -395,6 +395,12 @@ def building_line(here, bid) -> str:
         wk = b.get("works")
         if wk:
             head += f"; {V._works_words(wk)} under way"
+    from cybertron2.engine import wild as WL
+    if WL.has_gap(here._w, b):                                                 # a weir's or a mill's gap (brief 5 §3, §3a), as it stands
+        head += (f"; its gap {WL.gap(b)}" if WL.is_weir(b) else
+                 "; its hatches " + ("shut, the water held above the dam" if WL.gap(b) == "shut" else "drawn, the water let past"))
+        if WL.is_weir(b) and b.get("crew"):
+            head += f"; worked by {', '.join(b['crew'])}"
     desc = (b.get("description") or {}).get("text")
     return head + (f"; held by {held}" if held else "") + (f"; its builders' words: \u201c{BL.cap_text(desc, 'description')}\u201d" if desc else "")
 

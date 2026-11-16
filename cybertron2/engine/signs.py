@@ -1881,6 +1881,7 @@ def _aftermath(here, add) -> None:
     _wild_sick(here, add)                                                      # disease in the herds and the wild (wave 4)
     _wild_when(here, add)                                                      # the kinds' conditional layers and phases as they start
     _wild_sites(here, add)                                                     # heronries, rookeries, lodges (wave 5)
+    _wild_river(here, add)                                                     # the runs, the weirs and the mill's gap (brief 5)
     _wild_rare(here, add)                                                      # rare regimes and the elders' tales (L4)
     for bid, b in here.buildings().items():
         sub, live = [f"building:{bid}"], _dwellers(here, bid)
@@ -2215,6 +2216,75 @@ def _wild_sites(here, add) -> None:
             emit("broken")
         if site.get("harm_day") is not None and 0 <= here.day - int(site["harm_day"]) <= 1 and site.get("harm_at") in here.parcels():
             emit("harm", at=site["harm_at"])
+
+
+def _wild_river(here, add) -> None:
+    """The river's signs (brief 5 §3.5, §3a.5, §4; kinds.RUN_SIGNS): a run at the village's water today (the practised read it as a run
+    night); fish held below a shut dam, plain to anyone at its water; a weir's or a mill's gap set, that day and the next; the year's
+    run against last year's, for the practised, the day after its window; a robber's traces at the traps in the water."""
+    from cybertron2.engine import things as TH, wild as WL
+    from cybertron2.wild import runs as RU
+    from cybertron2.wild.kinds import RUN_SIGNS, RUNS
+    w = here._w
+    wild = w.s.get("wild") or {}
+    st = wild.get("state") or {}
+    if not st.get("runs") or here.node not in (wild.get("land") or {}).get("home", {}):
+        return
+    m = WL.model(w)
+    g = f"v:{here.node}"
+    if g not in RU.net(m).members:
+        return
+    water = [pid for pid in sorted(here.parcels()) if WL._river_parcel(w, pid)]
+    if not water:
+        return
+    spot = water[0]
+    day = WL.eco_day(w)
+    x = event_context(here, here.parcels()[spot]["name"], here.day)
+    fmt0 = dict(place=here.parcels()[spot]["name"])
+    now = {}
+    for p in RU.today(m, st, day):
+        if p["g"] == g:
+            key = "held" if p.get("held") else p["dir"]
+            now[(p["k"], key)] = now.get((p["k"], key), 0.0) + float(p["n"])
+    for (k, key), n in sorted(now.items()):
+        if n < 3.0:                                                            # a few fish are no run
+            continue
+        at = spot
+        if key == "held":
+            mill = next((b for _, b in WL.mills(w, here.node) if WL.gap(b) == "shut"), None)
+            at = WL.mill_water(w, mill) if mill else spot
+        _wild_emit(here, RUN_SIGNS[key], x, [f"parcel:{at}"], at, add, f"wildrun{k[:4]}{key}",
+                   dict(fmt0, place=here.parcels()[at]["name"], kind=TH._plural(k)), 0, tags=("animals", "food"), key="trap in water")
+    for k, r in sorted(RUNS.items()):                                          # the year's run, the day after its window
+        if not RU.ended(m, day, r["seasons"]):
+            continue
+        ty = (((st["runs"].get("tally") or {}).get(k) or {}).get(g) or {})
+        yr = (day - 1) // m.Y
+        this, last = float(ty.get(str(yr), 0.0)), float(ty.get(str(yr - 1), 0.0))
+        if last < 5.0:
+            continue
+        share = this / last
+        rows = RUN_SIGNS["thin"] if share < 0.7 else (RUN_SIGNS["good"] if share > 1.3 else [])
+        words = "half" if 0.35 <= share < 0.6 else ("a third" if 0.2 <= share < 0.35 else ("hardly any" if share < 0.2 else "two-thirds"))
+        _wild_emit(here, rows, x, [f"parcel:{spot}"], spot, add, f"wildrunyear{k[:4]}", dict(fmt0, kind=k, share=words), 0,
+                   tags=("animals", "food"), key="trap in water")
+    for bid, b in sorted(here.buildings().items()):                           # a gap set, today and the day after
+        gs = b.get("gap_set") or {}
+        if not gs or not WL.has_gap(w, b) or here.day - int(gs.get("day", -9)) not in (0, 1):
+            continue
+        at = b["parcel"] if WL.is_weir(b) else (WL.mill_water(w, b) or b["parcel"])
+        rows = RUN_SIGNS["gap"]["weir" if WL.is_weir(b) else "mill"][WL.gap(b)]
+        _wild_emit(here, rows, x, [f"building:{bid}", f"parcel:{at}"], at, add, f"wildgap{bid}", dict(fmt0, work=b["name"]),
+                   here.day - int(gs["day"]), tags=("food",), key="trap in water")
+    for cid, c in sorted(w.s["containers"].items()):                         # a robber at the traps in the water
+        rb = c.get("robbed_by") or {}
+        if c.get("kind") != "set" or c.get("node") != here.node or not rb or c.get("parcel") not in here.parcels():
+            continue
+        age = here.day - int(rb.get("day", -9)) - 1
+        rows = (RUN_SIGNS["robbed"] or {}).get(rb.get("kind")) or []
+        if 0 <= age <= 1 and rows:
+            _wild_emit(here, rows, x, [f"parcel:{c['parcel']}"], c["parcel"], add, f"wildrob{cid}",
+                       dict(fmt0, place=here.parcels()[c["parcel"]]["name"]), age, tags=("animals", "food"), key="trap in water")
 
 
 def _wild_rare(here, add) -> None:

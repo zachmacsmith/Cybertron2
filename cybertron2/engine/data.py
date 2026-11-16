@@ -233,7 +233,8 @@ FITTINGS = {
     "water wheel": {"label": "a water wheel and leat", "materials": {"timber": 60, "stone": 20, "copper": 2}, "units": 250,
                     "needs": "millstones", "site": "water", "basic": False, "trade": "carpenter", "spaces": 0, "heavy": True,
                     "wear": {"years": 1.0, "mend": "clear the leat"},                   # silts in a year; then half as much (D4-105)
-                    "does": "a water mill: the river turns the millstones (D2-61)"},                                  # D2-166
+                    "does": "a water mill: the river turns the millstones (D2-61); where fish run the river, its hatches (the gap) "
+                            "are set shut (full grinding, the fish held back) or open (half, the fish let past)"},                                  # D2-166
     "stalls": {"label": "stalls", "materials": {"timber": 1}, "units": 1, "per": "stall", "basic": True, "spaces": 2, "heavy": True,
                "fodder": 0.8, "dung": 1.5,
                "does": "beasts housed in winter, one a stall: less fodder, dung kept, not driven off without coming in"},   # D2-45
@@ -297,7 +298,20 @@ MONUMENTS = {
                        "structure": "stone", "aliases": ["stone", "a stone", "menhir"]},
     "cairn": {"label": "a cairn", "materials": {"stone": 6}, "units": 3, "basic": True, "structure": "stone",
               "aliases": ["a cairn", "heap of stones"]},
+    # a fish weir (brief 5 §3, D2-209; calibrate): a standing work across a river at a water parcel, built by a declared crew
+    # (`with`), with a condition (floods and ice wear it, mended like a building) and a gap set open or shut (WATER_WORKS)
+    "weir": {"label": "a fish weir (stakes and wattle across the river, wicker traps in its gap)", "materials": {"timber": 12},
+             "units": 24, "basic": True, "structure": "timber", "site": "river", "crew": 2, "pack": "wild",
+             "aliases": ["fish weir", "a weir", "a fish weir", "eel weir", "build a weir", "build weir"]},
 }
+# The river's works (brief 5 §3, §3a; D2-209; calibrate): a weir's gap shut takes `shut` of each run passing when sound (less as it
+# wears, `by_level`), open `open`; setting the gap shut puts the traps in (`units`), opening takes them out. A water wheel on a river
+# a run passes has a gap too (a new one shut): shut, it grinds at full and its dam stops `stop` of a run going up (held below it that
+# night) and sends a run going down through the race, where a trap in water takes `race` of it; open, it grinds at `open_rate`
+# (Q-51, default taken: half) and the runs pass.
+WATER_WORKS = {"weir": {"shut": 0.5, "open": 0.05, "by_level": {5: 1.0, 4: 0.8, 3: 0.6, 2: 0.3, 1: 0.1, 0: 0.0},
+                        "units": {"shut": 2, "open": 1}},
+               "mill": {"stop": 0.5, "race": 0.5, "open_rate": 0.5, "units": {"shut": 1, "open": 1}}}
 # Extravagance in tiers (D2-171; calibrate): materials and work multiplied; noticed further (signs.BUILDING, layout, roads).
 TIERS = {
     "plain": {"materials": 1.0, "work": 1.0, "words": ""},
@@ -502,7 +516,8 @@ TECHNIQUES = {
     # Fishing and salt (D4-103's acceptance test; water_and_preservation.md §4, §5: the gear ladder's first rungs; calibrate)
     "fish by hand": {"pack": "water", "verb": "gather", "label": "fishing by hand (tickling trout, groping under the banks)", "basic": True,
                      "aliases": ["fish", "fishing", "tickle trout", "catch fish"], "at": {"covers": ["water"]}, "draws": "fish",
-                     "yield": {"kind": "stock", "base": 0.6}, "units": 1, "gives": "fish", "tags": ["food", "fishing"]},
+                     "yield": {"kind": "stock", "base": 0.6}, "units": 1, "gives": "fish", "tags": ["food", "fishing"],
+                     "run": True},                                     # and from a run in the water, where one is (brief 5 §3a.2)
     "angle": {"pack": "water", "verb": "gather", "label": "fishing with a rod and line", "basic": True,
               "aliases": ["angling", "rod fishing", "fish with a rod", "fish with rod and line"], "at": {"covers": ["water"]},
               "draws": "fish", "yield": {"kind": "stock", "base": 1.5}, "uses": {"fishing rod": 1}, "units": 1, "gives": "fish",
@@ -590,7 +605,8 @@ MODIFIERS = {t for t, d in TECHNIQUES.items() if d.get("modifies")}
 # Building and fitting are techniques too, for knowledge (basic or a trade), with their costs in BLUEPRINTS and FITTINGS.
 for _k, _b in list(BLUEPRINTS.items()) + list(FITTINGS.items()) + list(MONUMENTS.items()):
     TECHNIQUES.setdefault(_k, {"verb": "build", "label": "building " + _b["label"], "aliases": [], "basic": _b.get("basic", False),
-                               "units": _b["units"], "gives": "", "tags": ["building", "shelter"], "trade": _b.get("trade")})
+                               "units": _b["units"], "gives": "", "tags": ["building", "shelter"], "trade": _b.get("trade"),
+                               **({"pack": _b["pack"]} if _b.get("pack") else {})})
 
 # Techniques at least one person in the world knows (D2-129): when no one in a world file does, one is chosen by a keyed draw among the
 # adults whose trade has one of these words (else among all adults), and knows it from its upbringing.
@@ -653,7 +669,8 @@ PHYSICS = {
              "serious": {"wattle": 0.002, "timber": 0.001, "stone": 0.0002, "camp": 0.0},
              "camp_down": 0.05, "camp_flatten": 0.5,                    # a damaged camp falls; a gale flattens a standing one
              "weather": {"frost": [2.0, 1.0], "heavy rain": [1.5, 1.5], "strong wind": [3.0, 5.0], "gale": [6.0, 20.0],
-                         "snow": [2.0, 8.0], "flood": [1.0, 20.0], "unmended": [1.0, 3.0]},
+                         "snow": [2.0, 8.0], "flood": [1.0, 20.0], "unmended": [1.0, 3.0],
+                         "ice": [3.0, 4.0]},                         # ice on a weir (brief 5 §3.1; calibrate)
              "take": {"mild": [0.8, 0.2, 0.0], "gale": [0.4, 0.4, 0.2], "heavy": [0.2, 0.5, 0.3]},
              "strong_wind": 11.0, "storm": 0.5, "size_ref": 6, "unmended_days": 8,
              "mend": {"wattle": {}, "timber": {"timber": 1}, "stone": {"stone": 1}, "camp": {}}, "mend_per": 8,
