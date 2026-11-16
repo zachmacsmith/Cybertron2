@@ -218,12 +218,9 @@ balance sheet.
 
 ### 2.7 The Americas
 
-- **The Inca** divided land into the state's, the Sun's (the religion's) and the communities', all worked by the communities in
-  turn (part 11 §6). The produce of the Sun's lands fed priests and offerings and filled storehouses (*qollqa*); temple herds of
-  llamas supplied sacrifices and wool. The huacas (sacred places and objects) held their own fields and herds.
-- **The Aztecs** fed temples through tribute (part 11, `aztec_tribute`) and temple lands; the great festivals of the eighteen
-  twenty-day months were feasts, markets and sacrifices at once. Human sacrifice created demand for war captives, which shaped
-  warfare (the "flower wars"; *contested* as a motive).
+The **Inca** divided land into the state's, the Sun's and the communities', all worked by the communities in turn (part 11 §6);
+the Sun's produce and herds fed priests, offerings and storehouses. **Aztec** temples lived on tribute and temple lands (part 11);
+the monthly festivals were feasts, markets and sacrifices at once.
 
 ### 2.8 Why the temple was the first bank
 
