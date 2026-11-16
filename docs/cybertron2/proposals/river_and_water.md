@@ -170,6 +170,8 @@ the weir can hold and what people can keep (Zach: "storage and keeping food does
    | stone footing, a section at a time | about 10 stone, 15 units | that section wears at a tenth of wattle's rate |
 
 3. **A night's catch** is the share of the run passing, capped by what the weir holds (later also by what its crew can lift).
+   **A set trap** (a wicker trap in the water, and a trap in a mill's race) holds at most about **3 food a night** (about 15 eels),
+   wherever it is set (D2-213), so a trap in the race is not a free, uncapped weir (the build measured up to 6.5 a unit there).
 4. **A year's take, the target:** about 60 to 70 food for one section, about 180 to 200 for a full weir (about 13% and 40% of a
    village of 15's food in a 32-day year: 480), from about 5 salmon nights and 3 eel nights. A run night pays about 3 to 6 food a
    unit of work, above farming's 2.8, for a few nights only.
@@ -443,6 +445,8 @@ generate; nothing in the engine changes for it.
   be fine" (D2-211); the check showed the base rate matters little indoors, so the proposal is now fish keeping ×2 worse than meat in
   a house (OPEN Q-54).
 - 16 Nov 2026: Zach: "I think fish should keep twice as badly in storage" (D2-212); §3b.9 updated.
+- 16 Nov 2026: a set trap capped at about 3 food a night, in the open river or a mill's race (D2-213; Zach: "yes add the trap cap
+  and send it"), after the build measured a race trap at up to 6.5 food a unit (38.72).
 
 ## Sources
 

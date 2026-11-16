@@ -443,3 +443,4 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 16 Nov | the weir in sections, its nightly cap, a year's targets, upkeep by the river; fresh fish spoiling faster than meat (proposed) | accepted: D2-210 (the weir); the fish proposal open | [river_and_water.md](river_and_water.md) |
 | 16 Nov | fresh fish keep as meat in hand and alive in traps (after a calibration check); fish keeping ×2 worse indoors (proposed) | accepted: D2-211; the indoor factor open (Q-54) | [river_and_water.md](river_and_water.md) |
 | 16 Nov | fresh fish keep twice as badly as meat in a store | accepted: D2-212 | [river_and_water.md](river_and_water.md) |
+| 16 Nov | a set trap capped at about 3 food a night, in the river or a mill's race | accepted: D2-213 | [river_and_water.md](river_and_water.md) |
