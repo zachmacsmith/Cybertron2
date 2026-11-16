@@ -26,6 +26,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | C-8 | **(Closed 2 Nov: superseded by spec/environment/ (D4-4, D4-5, D2-76).)** Environment design for the old engine (calendar, micro-events, foresight) | `wp/environment`: 04_environment_design.md, cybertron/environment.py | redesigned for cybertron2 in spec/environment.md; the old branch marked superseded | 37.4 |
 | C-9 | **(Closed 2 Nov: settled by D4-19, D2-139 and D4-69: all time in days; ages shown.)** Ages: calendar years | 38.09 §2a-2b vs D4-19 | D4-19 wins | 37.4 |
 | ~~C-10~~ | Run files, checkpoints, replay, versioning | spec/core/README `records.md` (37.4, to compile) vs spec/record/ (37.1, D1-4) | `core/records.md` becomes a pointer to spec/record/; `core/events.md` keeps what an event is, record/journal.md how events are stored | 37.4 to confirm | resolved 24 Oct: confirmed by 37.4; spec/core/README points to spec/record/ |
+| C-11 | Weapons: spec/conflict/combat.md and D2-46 name a "blade", but `data.py` on `main` and the ecology branches has only `crude weapon` (1 timber); the boar hunt with spears is on `ecology` only | combat.md, DECISIONS D2-46, `cybertron2/engine/data.py` (found by the 02zzj part 14 research, §7, 16 Nov) | 37.4 to say whether the blade is built later or the spec should read "crude weapon" for now | 37.4 |
 
 ## Open questions (asks)
 

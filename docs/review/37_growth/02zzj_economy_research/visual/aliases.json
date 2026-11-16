@@ -32,5 +32,10 @@
  "transatlantic_cable": "submarine_cable",
  "portland_cement": "cement_concrete",
  "commodity_futures": "futures_markets",
- "grain_futures": "futures_markets"
+ "grain_futures": "futures_markets",
+ "european_porcelain": "meissen_porcelain",
+ "tea_trade": "canton_tea_trade",
+ "tobacco_plantation": "chesapeake_tobacco",
+ "venetian_glass": "murano_glass",
+ "muskets_firearms": "musket"
 }
