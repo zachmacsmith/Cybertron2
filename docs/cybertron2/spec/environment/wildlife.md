@@ -74,5 +74,8 @@ is, these rules wait for it.
 - **The cat** (D2-206): settles by itself at a building with mice, or is found and brought.
 - **The river and water** (D2-209): runs move along the river with a lag, thinned by what is taken; a weir and a mill on a run's river each
   have a gap, open or shut, that decides what passes; the salmon's return is one world year; no custom about the water is seeded.
+- **The weir** (D2-210): one a water parcel, built in sections, its catch capped a night, worn by the river's flow far more than
+  a house; keeping the catch is the bottleneck.
+- **Fresh fish** (D2-211, D2-212): spoil as meat in hand, twice as fast as meat in a store; alive in a trap or a weir until lifted.
 
-*Current as of 16 Nov 2026: D2-192 to D2-198, D2-204 to D2-206, D2-209.*
+*Current as of 16 Nov 2026: D2-192 to D2-198, D2-204 to D2-206, D2-209 to D2-212.*

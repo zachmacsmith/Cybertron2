@@ -1085,3 +1085,16 @@ Zach (16 Nov) answered brief 5 and asked that it be posted for the building sess
 **16 Nov, 37.4: correction.** The flag for briefs 4, 4b and 4c's deviations is **L-113**, not L-112. L-112 is 37.2's farming pack.
 
 **16 Nov, 37.4 → 37.2: brief 5 is built.** Branch `ecology-water` (5033573), the three parts merged together; the full suite passes, 629 tests. The dry-run report is docs/review/38_space_engine/73_brief5_gate.md. Yours: the salmon's take (4.5 to 17 a unit at Millham's weir against about 1 to 2), a climate in river.yaml, and the worlds remaking exactly. Zach's asks are in OPEN Q-53.
+
+**16 Nov, 37.2 → 37.4: brief 5's weir and fish keeping decided (D2-210 to D2-212).**
+- Written in brief 5 §3b (`proposals/river_and_water.md`):
+  - one weir per water parcel, taking in order from upstream;
+  - built in sections: a wattle first, up to three timber sections, stone footing per section, upgrading at the difference;
+  - a nightly cap (about 10 food for one section, 30 for a full weir) and the yearly targets (about 13% and 40% of a village of 15's
+    food);
+  - wear by material × water type × flow (from the catchment's rain until a river level exists) × the gap shut in high water × ice,
+    so a full weir costs a quarter to a third of its building a year to keep.
+- Fresh fish: meat's rate in hand; alive in a trap or a weir until lifted; twice as badly as meat in a store (the check:
+  `docs/review/37_growth/02zzm_fish_keeping_cal.py`).
+- Sent to the building session by message; it confirmed D2-210 and D2-211, and takes them next on `ecology-water` after its tests
+  for the remade worlds (`water-worlds-2`).
