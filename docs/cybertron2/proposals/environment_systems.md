@@ -252,10 +252,22 @@ they acted on?
    true externals?
 5. **Order:** phase 0 now with brief 5; then water; then cover and fire; then soil and silt?
 6. **How often** under the compressed year: spates once or twice a year in a wet lowland, a meadow flood every year or two, a hard
-   freeze every few years, a dry spell most summers?
+   freeze every few years, a dry spell most summers? (Measured in 02zzn: on two clocks, close to this except the freeze.)
+7. **Two clocks** (02zzn §3.2): the seasonal stocks move about 365 ÷ year days a day; the weather's events stay one day?
+8. **Floodplains** (02zzn §3.1): fix the generator's valley floors now, which remakes brief 5's worlds while 37.4 builds on them,
+   or after brief 5's build?
+9. **Ice** (02zzn §3.3): frozen waterways need a colder base climate in the generator (upland or northern worlds); is that wanted?
 
 ## History
 
+- 16 Nov 2026 (night): the water half prototyped offline on brief 5's river world (02zzn, script and results beside it). Findings:
+  - the generator makes no floodplains (rivers lie in a cut one cell wide, 14 to 24 m deep), so floods by height reach no parcel;
+  - on one clock the seasonal loops never happen;
+  - on two clocks (seasonal stores at 365 ÷ year days a day, the weather's events at one day) the river has a year;
+  - ice comes only from cold snaps and hardly at all in lowland worlds;
+  - clearing upstream is a weak loop at the scale of a large river;
+  - a weir's yearly wear is about 1.25 × normal flow on one clock and 2 to 3 × on two.
+  Added Q-52 (7) to (9).
 - 16 Nov 2026: written by 37.2 at Zach's request, after the waters discussion, widened to the whole environment (02zzl's
   inventory).
 - 16 Nov 2026 (later still): Zach asked for a survey of every earlier consideration of hidden state ("we first considered hidden

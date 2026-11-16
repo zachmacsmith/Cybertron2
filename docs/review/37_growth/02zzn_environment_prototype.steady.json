@@ -1,0 +1,436 @@
+{
+ "years": 20,
+ "reaches": 54,
+ "one clock (every rate real)": {
+  "Millham": {
+   "days a year in each band": {
+    "dry": 0.0,
+    "low": 1.6,
+    "normal": 25.4,
+    "high": 3.7,
+    "spate": 1.3,
+    "flood": 0.0
+   },
+   "spates / floods a year (onsets)": [
+    0.25,
+    0.0
+   ],
+   "highest flow / median": 6.3,
+   "highest stage, m": 1.09,
+   "weir wear a year, x a year of normal flow (D2-210 flow factors)": 1.25,
+   "days a year the river stands above (m)": {
+    "0.5": 2.85,
+    "1.0": 0.2,
+    "1.5": 0.0,
+    "2.0": 0.0,
+    "3.0": 0.0
+   },
+   "years with the river above 1 m at least once": 0.1,
+   "parcels with any / half their land under water, days a year": {},
+   "soil under a quarter / half full, days a year": [
+    0.0,
+    0.1
+   ],
+   "ice over 5 / 15 cm on still water, days a year": [
+    0.3,
+    0.0
+   ],
+   "snow lying (> 5 mm), days a year": 0.1
+  },
+  "Saltwell": {
+   "days a year in each band": {
+    "dry": 0.0,
+    "low": 1.6,
+    "normal": 26.5,
+    "high": 2.5,
+    "spate": 1.4,
+    "flood": 0.0
+   },
+   "spates / floods a year (onsets)": [
+    0.3,
+    0.0
+   ],
+   "highest flow / median": 7.6,
+   "highest stage, m": 1.25,
+   "weir wear a year, x a year of normal flow (D2-210 flow factors)": 1.24,
+   "days a year the river stands above (m)": {
+    "0.5": 2.3,
+    "1.0": 0.45,
+    "1.5": 0.0,
+    "2.0": 0.0,
+    "3.0": 0.0
+   },
+   "years with the river above 1 m at least once": 0.15,
+   "parcels with any / half their land under water, days a year": {},
+   "soil under a quarter / half full, days a year": [
+    0.0,
+    0.6
+   ],
+   "ice over 5 / 15 cm on still water, days a year": [
+    0.6,
+    0.0
+   ],
+   "snow lying (> 5 mm), days a year": 0.3
+  },
+  "w1": {
+   "days a year in each band": {
+    "dry": 0.0,
+    "low": 1.1,
+    "normal": 27.9,
+    "high": 1.9,
+    "spate": 0.8,
+    "flood": 0.1
+   },
+   "spates / floods a year (onsets)": [
+    0.4,
+    0.1
+   ],
+   "highest flow / median": 10.7,
+   "highest stage, m": 1.59,
+   "weir wear a year, x a year of normal flow (D2-210 flow factors)": 1.22,
+   "days a year the river stands above (m)": {
+    "0.5": 1.85,
+    "1.0": 0.5,
+    "1.5": 0.05,
+    "2.0": 0.0,
+    "3.0": 0.0
+   },
+   "years with the river above 1 m at least once": 0.2,
+   "parcels with any / half their land under water, days a year": {},
+   "soil under a quarter / half full, days a year": [
+    0.0,
+    1.2
+   ],
+   "ice over 5 / 15 cm on still water, days a year": [
+    0.8,
+    0.0
+   ],
+   "snow lying (> 5 mm), days a year": 0.2
+  },
+  "w2": {
+   "days a year in each band": {
+    "dry": 0.0,
+    "low": 0.0,
+    "normal": 25.0,
+    "high": 3.2,
+    "spate": 2.7,
+    "flood": 1.1
+   },
+   "spates / floods a year (onsets)": [
+    1.2,
+    0.55
+   ],
+   "highest flow / median": 17.4,
+   "highest stage, m": 2.13,
+   "weir wear a year, x a year of normal flow (D2-210 flow factors)": 1.9,
+   "days a year the river stands above (m)": {
+    "0.5": 5.55,
+    "1.0": 2.35,
+    "1.5": 0.5,
+    "2.0": 0.1,
+    "3.0": 0.0
+   },
+   "years with the river above 1 m at least once": 0.5,
+   "parcels with any / half their land under water, days a year": {},
+   "soil under a quarter / half full, days a year": [
+    0.0,
+    3.2
+   ],
+   "ice over 5 / 15 cm on still water, days a year": [
+    0.6,
+    0.0
+   ],
+   "snow lying (> 5 mm), days a year": 0.1
+  },
+  "w3": {
+   "days a year in each band": {
+    "dry": 0.0,
+    "low": 0.9,
+    "normal": 26.9,
+    "high": 2.9,
+    "spate": 1.1,
+    "flood": 0.1
+   },
+   "spates / floods a year (onsets)": [
+    0.65,
+    0.1
+   ],
+   "highest flow / median": 10.2,
+   "highest stage, m": 1.53,
+   "weir wear a year, x a year of normal flow (D2-210 flow factors)": 1.28,
+   "days a year the river stands above (m)": {
+    "0.5": 2.6,
+    "1.0": 0.6,
+    "1.5": 0.05,
+    "2.0": 0.0,
+    "3.0": 0.0
+   },
+   "years with the river above 1 m at least once": 0.25,
+   "parcels with any / half their land under water, days a year": {
+    "Craghope Scar (rock, lowest 0.0 m)": [
+     16.0,
+     16.0
+    ],
+    "the Rough (scrub, lowest 0.0 m)": [
+     16.0,
+     16.0
+    ]
+   },
+   "soil under a quarter / half full, days a year": [
+    0.0,
+    0.1
+   ],
+   "ice over 5 / 15 cm on still water, days a year": [
+    0.8,
+    0.0
+   ],
+   "snow lying (> 5 mm), days a year": 0.6
+  },
+  "Millham, the woods above Saltwell cleared (before -> after)": {
+   "peak flow / median": [
+    6.3,
+    6.6
+   ],
+   "days a year at spate or flood": [
+    1.3,
+    1.45
+   ],
+   "days a year low or dry": [
+    1.55,
+    1.4
+   ],
+   "reaches": 5,
+   "wood share before": 0.19
+  },
+  "Millham, the same land 80% wooded -> cleared": {
+   "peak flow / median": [
+    5.8,
+    7.1
+   ],
+   "days a year at spate or flood": [
+    1.1,
+    1.65
+   ],
+   "days a year low or dry": [
+    1.05,
+    0.4
+   ]
+  }
+ },
+ "two clocks (seasonal stores at 11.4 days a day)": {
+  "Millham": {
+   "days a year in each band": {
+    "dry": 7.5,
+    "low": 4.3,
+    "normal": 10.3,
+    "high": 5.8,
+    "spate": 2.6,
+    "flood": 1.4
+   },
+   "spates / floods a year (onsets)": [
+    0.8,
+    0.25
+   ],
+   "highest flow / median": 14.5,
+   "highest stage, m": 1.91,
+   "weir wear a year, x a year of normal flow (D2-210 flow factors)": 1.96,
+   "days a year the river stands above (m)": {
+    "0.5": 7.0,
+    "1.0": 2.7,
+    "1.5": 0.8,
+    "2.0": 0.0,
+    "3.0": 0.0
+   },
+   "years with the river above 1 m at least once": 0.45,
+   "parcels with any / half their land under water, days a year": {},
+   "soil under a quarter / half full, days a year": [
+    13.2,
+    22.4
+   ],
+   "ice over 5 / 15 cm on still water, days a year": [
+    0.3,
+    0.0
+   ],
+   "snow lying (> 5 mm), days a year": 0.2
+  },
+  "Saltwell": {
+   "days a year in each band": {
+    "dry": 8.2,
+    "low": 3.9,
+    "normal": 10.2,
+    "high": 5.0,
+    "spate": 2.9,
+    "flood": 1.9
+   },
+   "spates / floods a year (onsets)": [
+    1.05,
+    0.35
+   ],
+   "highest flow / median": 18.7,
+   "highest stage, m": 2.23,
+   "weir wear a year, x a year of normal flow (D2-210 flow factors)": 2.14,
+   "days a year the river stands above (m)": {
+    "0.5": 7.2,
+    "1.0": 2.8,
+    "1.5": 1.4,
+    "2.0": 0.2,
+    "3.0": 0.0
+   },
+   "years with the river above 1 m at least once": 0.55,
+   "parcels with any / half their land under water, days a year": {},
+   "soil under a quarter / half full, days a year": [
+    11.6,
+    20.5
+   ],
+   "ice over 5 / 15 cm on still water, days a year": [
+    0.6,
+    0.0
+   ],
+   "snow lying (> 5 mm), days a year": 0.8
+  },
+  "w1": {
+   "days a year in each band": {
+    "dry": 7.5,
+    "low": 4.3,
+    "normal": 9.5,
+    "high": 5.5,
+    "spate": 3.5,
+    "flood": 1.8
+   },
+   "spates / floods a year (onsets)": [
+    1.15,
+    0.3
+   ],
+   "highest flow / median": 22.6,
+   "highest stage, m": 2.48,
+   "weir wear a year, x a year of normal flow (D2-210 flow factors)": 2.2,
+   "days a year the river stands above (m)": {
+    "0.5": 8.1,
+    "1.0": 3.05,
+    "1.5": 1.4,
+    "2.0": 0.55,
+    "3.0": 0.0
+   },
+   "years with the river above 1 m at least once": 0.45,
+   "parcels with any / half their land under water, days a year": {},
+   "soil under a quarter / half full, days a year": [
+    11.2,
+    19.8
+   ],
+   "ice over 5 / 15 cm on still water, days a year": [
+    0.8,
+    0.0
+   ],
+   "snow lying (> 5 mm), days a year": 0.7
+  },
+  "w2": {
+   "days a year in each band": {
+    "dry": 8.6,
+    "low": 4.0,
+    "normal": 8.2,
+    "high": 3.6,
+    "spate": 4.2,
+    "flood": 3.4
+   },
+   "spates / floods a year (onsets)": [
+    1.35,
+    0.75
+   ],
+   "highest flow / median": 33.9,
+   "highest stage, m": 3.09,
+   "weir wear a year, x a year of normal flow (D2-210 flow factors)": 2.93,
+   "days a year the river stands above (m)": {
+    "0.5": 9.5,
+    "1.0": 5.4,
+    "1.5": 2.7,
+    "2.0": 1.0,
+    "3.0": 0.05
+   },
+   "years with the river above 1 m at least once": 0.6,
+   "parcels with any / half their land under water, days a year": {},
+   "soil under a quarter / half full, days a year": [
+    12.8,
+    22.9
+   ],
+   "ice over 5 / 15 cm on still water, days a year": [
+    0.6,
+    0.0
+   ],
+   "snow lying (> 5 mm), days a year": 0.6
+  },
+  "w3": {
+   "days a year in each band": {
+    "dry": 7.0,
+    "low": 4.5,
+    "normal": 10.2,
+    "high": 5.8,
+    "spate": 2.8,
+    "flood": 1.6
+   },
+   "spates / floods a year (onsets)": [
+    1.15,
+    0.3
+   ],
+   "highest flow / median": 21.7,
+   "highest stage, m": 2.42,
+   "weir wear a year, x a year of normal flow (D2-210 flow factors)": 2.07,
+   "days a year the river stands above (m)": {
+    "0.5": 7.4,
+    "1.0": 2.45,
+    "1.5": 1.2,
+    "2.0": 0.25,
+    "3.0": 0.0
+   },
+   "years with the river above 1 m at least once": 0.45,
+   "parcels with any / half their land under water, days a year": {
+    "Craghope Scar (rock, lowest 0.0 m)": [
+     16.0,
+     16.0
+    ],
+    "the Rough (scrub, lowest 0.0 m)": [
+     16.0,
+     16.0
+    ]
+   },
+   "soil under a quarter / half full, days a year": [
+    8.3,
+    18.8
+   ],
+   "ice over 5 / 15 cm on still water, days a year": [
+    0.8,
+    0.0
+   ],
+   "snow lying (> 5 mm), days a year": 1.1
+  },
+  "Millham, the woods above Saltwell cleared (before -> after)": {
+   "peak flow / median": [
+    14.5,
+    15.1
+   ],
+   "days a year at spate or flood": [
+    4.1,
+    4.3
+   ],
+   "days a year low or dry": [
+    11.8,
+    11.45
+   ],
+   "reaches": 5,
+   "wood share before": 0.19
+  },
+  "Millham, the same land 80% wooded -> cleared": {
+   "peak flow / median": [
+    14.2,
+    16.6
+   ],
+   "days a year at spate or flood": [
+    4.15,
+    4.95
+   ],
+   "days a year low or dry": [
+    11.7,
+    10.9
+   ]
+  }
+ }
+}
