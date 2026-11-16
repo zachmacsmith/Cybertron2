@@ -1,11 +1,14 @@
-# River and water: the runs, the weir and what lives by the water: build brief 5
+# River and water: the runs, the weir, the mill, salt and what lives by the water: build brief 5
 
-**Status:** draft, revised 12 Nov for Zach's check; to go after brief 4c (`hunt_calibration.md`). **Build brief 5** for the wild
-layer: pack K4 (02zv §4) without its fen-only and boat parts, on the engine as built by briefs 1 to 4b and calibrated by 4c.
+**Status:** draft, revised 16 Nov from the economy research (02zzj) for Zach's check; to go after brief 4c (`hunt_calibration.md`).
+**Build brief 5** for the wild layer: pack K4 (02zv §4) without its fen-only and boat parts, on the engine as built by briefs 1 to
+4b and calibrated by 4c; with the river as one site with many claims (the mill and the weir), salt boiled inland (D2-56), and fuel
+as a real draw. A runs-only world follows the gate as a test of its own (§8).
 **Owner:** 37.2 (author; the wild pack's data, `engine/wild.py`, the ecology; the test worlds from the generator). Works on a water
-parcel, their condition and the manual are 37.4's (§6).
-**Affects:** spec/environment/wildlife.md; spec/economy/buildings.md (the weir as a work); on the branch: `wild/kinds.py`,
-`wild/ecology.py`, `wild/areas.py` (`down`), `engine/wild.py`, `engine/data.py`, `engine/night.py`, `engine/signs.py`.
+parcel, the mill's gap, the salt pan, their condition and the manual are 37.4's (§6).
+**Affects:** spec/environment/wildlife.md; spec/economy/buildings.md (the weir as a work; the salt pan); spec/economy/production.md
+(the mill's gap; boiling salt); on the branch: `wild/kinds.py`, `wild/ecology.py`, `wild/areas.py` (`down`), `engine/wild.py`,
+`engine/data.py`, `engine/night.py`, `engine/signs.py`; the generator (a brine spring).
 
 ## Summary
 
@@ -13,6 +16,9 @@ What exists:
 - **Kinds:** eels as a kind that moves on a cue (`mover: cue`: the autumn run on rain after dry weather); wildfowl; heronries and
   beaver lodges as sites, with their signs.
 - **Methods:** `trap in water` as a set work, `net` for flocks of fowl, `fish by hand`, the fishing rod, salt fish.
+- **Salt:** only from saltmarsh pans, dried by the sun (`salt pan`), so an inland village has none.
+- **The mill:** a water wheel (`site: water`) that grinds 200 grain a day and silts in a year; it takes nothing from the river but
+  water.
 - **The land:** every area knows its downstream area (`land.down`), its river length and its lakes.
 
 What is missing is the river as a **line that ties villages together**. A run starts upstream and reaches each village in turn, a
@@ -21,6 +27,22 @@ before it spawns is a salmon fewer in three years. Cold drives the fowl onto ope
 traps, and the beaver's dam floods one meadow and fills a pond. This brief builds that, so the strongest commons between villages
 (02zp §27: eels mattered in 13 of 20 villages) is physical.
 
+**What the economy research adds** (02zzj, read in full for this revision; the border note 02zzk puts all of it inside the border):
+- **The river is one site with many claims.** "Mills hold water, fish need runs, tanning and retting foul it", answered in history
+  by "mill rights, weir laws, fixed fishing times" (02zzj part 01 §2.9); water power "bound to specific stretches of river, with
+  fixed capacity, and in conflict with fish runs" (part 01 §6.1); fisheries and weirs were valuable lords' rights, and a weir
+  blocked boats (part 05 §2.4). So the mill on a run's river is a second weir with a different owner (§3a).
+- **A glut must be kept, and keeping costs fuel and salt.** Drying, smoking and salting turn a pulse into months of food (part 10
+  §1.5; part 02 §5.4); salt is "the chokepoint for keeping protein" (part 02 §5.4). Medieval Droitwich boiled brine in lead pans,
+  with woods in other manors owing carts of fuel in return for salt (part 01 §5.2, checked). Inland, salt comes from a spring and
+  costs fuel (§4b, as D2-56 decided and never built).
+- **Fuel is the largest flow a household has.** In a cool climate fuel, not food, is a household's largest energy flow: 1 to 2 t of
+  wood a head a year, and a village of 50 households needs of the order of 40 to 170 ha of coppice (part 01 §3.3). The smokehouse
+  and the salt pan must draw on the same woods as the hearth (§4c).
+- **A run can carry a society by itself.** Where a dense, predictable, storable run could be held, foragers settled, stored, and
+  developed property in fishing stations and rank without farming (part 10 §1.4 and §1.5, Testart and Woodburn; part 06 §3.6: ranking
+  followed the intensification of salmon storage). That is the runs-only world after the gate (§8).
+
 ## 1. For the builder
 
 **This file holds for this brief.** Read:
@@ -28,24 +50,33 @@ traps, and the beaver's dam floods one meadow and fills a pond. This brief build
   at their parcel);
 - 02zv K4;
 - 02zp §27 (the eel analysis);
+- 02zzj parts 01 §2.9, §3.3, §5.2; 02 §5.4; 03 §7.1; 05 §2.4; 10 §1.4 and §1.5; 18 §2.4 (the passages this revision rests on);
 - on the branch:
   - `wild/kinds.py`: the eel's rows, `mover`, the `when` rows of `trap in water`; the heronry and beaver sites;
   - `wild/ecology.py`: movement;
   - `wild/areas.py`: `down`, `river_km`, `big_river_km`, `lake_km2`;
   - `engine/wild.py`: `take`, `_set_night`, sites, `cond`;
-  - `engine/data.py`: TECHNIQUES `trap in water`, `net`, `fish by hand`, `break a dam`;
+  - `engine/data.py`: TECHNIQUES `trap in water`, `net`, `fish by hand`, `break a dam`, `water mill`, `salt pan`, `salt fish`,
+    `firewood`; FITTINGS `water wheel`;
   - the climate's rain and frost by node (D4-109);
   - brief 4's shelter levels, for the weir's condition.
 
 **Do not** name kinds in rule code (a run is a mover's rule over any kind with `mover: run`); invent rivers the land does not have;
-cap signs. Dry runs only.
+cap signs; seed any custom about the gap, the mill or the spring (nothing social is forced). Dry runs only.
 
 **Branch:** `ecology-water`, from main once briefs 1 to 4c are merged (otherwise from brief 4c's branch).
 
-**Worlds:** 37.2 supplies two generated worlds with the land kept (D2-208), before the build starts: two villages on one river, one
-upstream of the other, with a big river for salmon; and a lowland village with a lake. `land.down` exists only in generated
-worlds, so they come from the generator (not `make_wild_tests.py`, whose worlds are written by hand). Each starts late in summer, so
-a run of 14 days holds the autumn run. The wild region (02zze: Weirford on its river, the Mere) is a third check.
+**Worlds:** 37.2 supplies two generated worlds with the land kept (D2-208), before the build starts. `land.down` exists only in
+generated worlds, so they come from the generator (not `make_wild_tests.py`, whose worlds are written by hand). Each starts late in
+summer, so a run of 14 days holds the autumn run. The wild region (02zze: Weirford on its river, the Mere) is a third check.
+1. **The river world:** two villages on one river with a big river for salmon, inland (no saltmarsh), pinned so each holds what the
+   other needs:
+   - **Upper village:** the brine spring (§4b); the first take of the eels' run down.
+   - **Lower village:** a water mill on the river (§3a), whose dam stands between the salmon running up and the upper village's
+     water and spawning areas.
+   - So the upper village's weir thins the lower's eels, the lower village's dam thins the upper's salmon, and the lower village
+     needs the upper's salt to keep its run except by smoke.
+2. **The lake world:** a lowland village with a lake (the fowl and the freeze).
 
 ## 2. The run along the river (C6 on `land.down`)
 
@@ -87,12 +118,38 @@ a run of 14 days holds the autumn run. The wild region (02zze: Weirford on its r
 5. **Signs:** the weir and its gap seen at the parcel; the run seen ("eels thick in the weir's traps"); below, "the run was thin
    this year" for those who know it.
 
+## 3a. The mill on the run's river (new, 16 Nov)
+
+A water mill holds the river with its dam and sends the water through its race. On a river with a run it stands where a weir would,
+and its owner chooses between grinding and the fish.
+
+1. **The mill's gap:** a water wheel on a river parcel where a run passes has a gap like the weir's, open or shut, set by an act at
+   the mill (the same `set` with a gap).
+   - **Shut** (the water held): the mill grinds at its full rate (200 grain a day, as built).
+   - **Open** (water let past): it grinds at a lower rate (about half; calibrate), because the head of water is lost.
+   - A new water wheel starts shut, as a miller would build it.
+2. **What a shut dam does to the runs:**
+   - **Running up** (salmon, lamprey): a shut dam stops a share of the run (about half; calibrate) from passing to the areas above,
+     so fewer spawners reach the upper areas and fewer salmon return (§4). The stopped fish gather below the dam, where anyone at the
+     parcel can take them by `net` or `fish by hand` on that night at the run's density.
+   - **Running down** (eels): the shut dam sends the run through the race. A `trap in water` set in the race (at the mill's water
+     parcel) takes the weir's share of the passing run, into that trap; without a trap in the race, the run passes through the wheel
+     and below as before.
+   - **Open:** the runs pass as if there were no dam.
+3. **Whose:** the mill's gap is set by whoever may manage the water wheel (its claim's rights, as for any building); the trap in the
+   race is anyone's set thing, robbed and remembered by brief 4c's rules.
+4. **What it makes:** two chokepoints on one river with different owners (the weir's crew and the mill's), the village below or
+   above short when either is shut, and a miller who trades flour against fish. The engine settles none of it: who may shut, when,
+   and for what in return is for the people (OPEN L-106).
+5. **Signs:** the mill's gap seen at the parcel ("the mill's hatches are shut; the water stands high above the dam"); salmon leaping
+   at the dam on a run night, plain to anyone there; above the dam, "few salmon came up this year" for those who know the run.
+
 ## 4. The kinds on the water
 
 | Kind | What to add (data on the rules, unless said) | Test |
 |---|---|---|
 | **eel** | `mover: run`, down, autumn; silver share; elvers up in spring; meat 0.2 (brief 4) | the run reaches each weir on its lag day; years of heavy takes thin it |
-| **salmon** (new kind) | RESOURCES and ecology rows: in areas with a big river; `mover: run`, up in autumn and early winter, to the upper areas; returns in about three years by the spawners that reached the upper areas; meat about 2; taken at weirs, by net and by spear (`stalk` on water as a method's use, or `fish by hand`) | a year of shut weirs lowers the run three years on |
+| **salmon** (new kind) | RESOURCES and ecology rows: in areas with a big river; `mover: run`, up in autumn and early winter, to the upper areas; returns in about three years by the spawners that reached the upper areas (past shut weirs and dams, §3, §3a); meat about 2; taken at weirs, below a shut dam, by net and by spear (`stalk` on water as a method's use, or `fish by hand`) | a year of shut weirs or a shut dam lowers the run three years on |
 | **lamprey** (new kind) | on the same module, up in spring; small meat; for the lord's table later | a spring run at the weir |
 | **wildfowl** | pushed by cold: frost on the land raises the fowl on open, unfrozen water at the node (the climate's frost; lakes and big rivers stay open longest); after a long freeze they weaken (flee lower, so easier to take), then die (the great-freeze regime, built); survivors return | a freeze crowds the open water and makes nets pay; a long one empties it |
 | **otter** (new kind) | in areas with rivers; diet fish and eels; takes from set things in water and from weirs at night (brief 2's targets, `water: true`); hide; trapped by `snare` set at water | an unwatched weir loses part of its catch to an otter; trapping it stops that |
@@ -111,9 +168,9 @@ scale above the rack (water_and_preservation.md §7).
    - **Stone** (dear): near no risk. Built on another parcel than the houses (a croft, a field's edge), a fire there reaches no
      house: the engine counts space in a parcel, so "apart" is another parcel.
 2. **A batch:** up to about **40** fish or meat, loaded in one act; **3 to 4 nights**.
-3. **The fire:** a smoulder of hardwood or chips, about 1 firewood a night. **Tended once a day** (a unit, at the place); banked, it
-   lasts the night. A day untended, the fire dies that night: the batch pauses and spoils that night at the open rate. Nobody sits
-   up with it.
+3. **The fire:** a smoulder of hardwood or chips, about 1 firewood a night, drawn from the same stores as the hearth (§4c). **Tended
+   once a day** (a unit, at the place); banked, it lasts the night. A day untended, the fire dies that night: the batch pauses and
+   spoils that night at the open rate. Nobody sits up with it.
 4. **It gives smoked fish and smoked meat:** about half the weight; keeping about four times as long as dried meat (slow smoke dries
    further and preserves). Their uses: laying in for winter, food carried on a long journey, trade.
 5. **Whose:** its builder's household. Others use it by agreement (a rent or a share), so it is a thing to control, like the mill;
@@ -122,12 +179,53 @@ scale above the rack (water_and_preservation.md §7).
 6. **Tests:** a 40-eel run loses under 10% through a smokehouse and about half without; a day untended pauses the batch; a wattle
    smokehouse sometimes catches, a stone one almost never; a neighbour pays to use it.
 
+## 4b. Salt inland: a brine spring boiled with fuel (new, 16 Nov; D2-56)
+
+D2-56 decided that "shore salt is sun-dried, inland springs are boiled". Only the shore half is built, so an inland village cannot
+salt its run or make cheese. This builds the other half.
+
+1. **The spring:** a `brine` resource at a spring on one parcel (endless, like the shore's `salt`, but at one site). The generator
+   places brine springs where the land holds them (37.2: a spring feature, rare; pinned in the river world, §1).
+2. **The salt pan:** a fitting (a shallow lead or iron pan over a hearth; about 1 copper or iron and 2 timber, a few units; calibrate)
+   in a building at or near the spring. It wears like other fittings and is mended.
+3. **Boiling:** `boil salt`, a make at the salt pan: brine (drawn there) and **firewood** give salt. About **1 firewood for each salt**
+   from a strong spring (calibrate: a near-saturated brine needs a few kilograms of wood for each kilogram of salt; a weak one much
+   more), 1 unit for each 4 salt, a skill of its own (a trade: the salter). Done in any season, unlike the sun-dried pans.
+4. **What it makes:** a site that one village holds and others need, a steady draw on the woods (§4c), and salt fish and salt meat
+   (built) possible inland, so a run can be kept by salt instead of smoke. Salt becomes the classic good between villages and
+   between the coast and inland (water_and_preservation.md §5).
+5. **Signs:** steam and the smell of the pans at the spring; white crusts on the pan's rim; "the salter's fire burned all night".
+6. **Tests:** an inland village with a spring makes salt only by burning firewood; a village without one has none unless it trades;
+   salted fish keep as built.
+
+## 4c. Fuel: the woods as the shared draw (new, 16 Nov)
+
+Fuel is the largest flow a household has in a cool climate (part 01 §3.3). The hearth, the smokehouse (§4a) and the salt pan (§4b)
+all burn firewood, gathered or cut from the same woods (forests.py), so a run kept by smoke or salt is paid for in wood.
+
+1. **No new mechanic:** the smokehouse and the salt pan take firewood as inputs from stores, as the hearth does; gathering and the
+   woods' regrowth are as built.
+2. **A budget test** (dry, the river world, one year, bots): report firewood burned by use (hearths, smokehouse, salt pan) and the
+   woods' standing stock and regrowth by area. The target: a village that smokes its run and boils its salt draws its nearer woods
+   down within a year or two unless it gathers further out or cuts back, so fuel binds without starving the hearth in an ordinary
+   year (calibrate the smokehouse's and the pan's draw, not the hearth's).
+3. **What it is for:** the woods become a thing the fish, the salt and the hearth compete for, as in part 01 §2.9 ("fuel for the
+   house against fuel for industry": "iron, salt, glass and lime works bid up the woods").
+
 ## 5. Not in this brief
 
 - **Fen only:** the decoy pond (it needs a trained dog, K6), reedbeds, crane and bittern with drainage, the fen ague. They wait on
   the generator making fen worlds with people: none of eight seeds passed its capacity check (02zzd, 37.2's to fix).
-- **Boats:** punts and coracles (water_and_preservation.md, stage A of boats).
-- **Retting** flax and crayfish downstream; the pearl mussel; eel spearing in winter: later (K4's low ranks).
+- **Boats:** punts and coracles (water_and_preservation.md, stage A of boats). Historically the river mattered more as a road than as
+  a fishery (part 04: water carriage far cheaper than land); that is the transport track (part 09 §9, addition 5), not this brief.
+- **The hunting economy** (benched by Zach, 16 Nov): stage 1 materials and stage 2 gear (economy_web.md). Nets for fish need cord and
+  wicker traps withies from there; this brief uses the traps and nets already built (Open question 7).
+- **The fishpond:** keeping fish alive instead of catching them, the lordly "living larder" (part 03 §7.1; part 06 §7 lists fishponds
+  as a capturable control point). At the border, behind L-106 (02zzk).
+- **Rules of the fishing commons:** close seasons, net mesh, leases of a fishery, a weir's rent (part 18 §2.4; part 05 §2.4). Close
+  seasons need nothing from the engine (people can agree them); the rest wait on L-106, and mesh on nets of cord.
+- **Retting** flax and crayfish downstream; tanning fouling the water; the pearl mussel; eel spearing in winter: later (K4's low
+  ranks; tanning with the benched materials).
 - **Forays to the river beyond the village:** the forays track (OPEN L-105).
 
 ## 6. Touches in 37.4's files
@@ -135,15 +233,19 @@ scale above the rack (water_and_preservation.md §7).
 - **`data.py`:**
   - TECHNIQUES `build weir`, and the weir's gap as `set`;
   - the weir as a work with a structure (timber);
-  - RESOURCES `salmon`, `lamprey`, `otter`;
+  - the water wheel's gap (`set` with a gap) and `water mill`'s rate by the gap (§3a);
+  - RESOURCES `salmon`, `lamprey`, `otter`, `brine`;
+  - FITTINGS `salt pan`; TECHNIQUES `boil salt`, the salter's trade;
   - ITEMS for salmon (or `fish`).
 - **`night.py`:** the weir's condition by floods and ice (brief 4's levels and weather).
-- **`signs.py`:** the run, the weir and its gap, a thin run below, the dam's flooded meadow.
-- **The manual:** the weir's acts for those who know them.
+- **`signs.py`:** the run, the weir and its gap, the mill's gap and the salmon at the dam, a thin run below or above, the dam's
+  flooded meadow, the salt pans.
+- **The manual:** the weir's and the mill's gap, and boiling salt, for those who know them.
 - **37.2's own:**
   - `wild/kinds.py`: the run rows, the new kinds;
-  - `wild/ecology.py`: runs along `down`, with the lag, the silver share and elvers;
-  - `engine/wild.py`: the run as a take's density; the weir's take;
+  - `wild/ecology.py`: runs along `down`, with the lag, the silver share and elvers; the share a shut dam stops;
+  - `engine/wild.py`: the run as a take's density; the weir's take; the race trap's take; the fish below a dam;
+  - the generator: brine springs;
   - the test worlds.
 
 ## 7. Tests (the gate)
@@ -153,24 +255,59 @@ scale above the rack (water_and_preservation.md §7).
 - A shut weir takes about its share, and an open one takes little.
 - A weir's set things can be emptied by another, leaving a trace.
 - Salmon returns follow spawners.
+- A shut mill dam stops about its share of a run going up, and the stopped fish can be taken below it; an open one passes the run
+  and grinds at the lower rate; a trap in the race takes about the weir's share of a run going down.
+- Boiling salt burns firewood at its rate; an inland village without a spring has no salt.
 - Frost crowds the fowl onto open water, and a long freeze weakens and then kills them.
 - An otter takes from an unwatched weir.
 - The beaver's dam cuts the meadow's hay and raises the fish; breaking it reverses both.
 
-**Society-level** (dry, scripted, the two-village river world):
+**Society-level** (dry, scripted, the river world):
 - The downstream village's run-night catch falls by about the upstream weir's share when that weir is shut, against open.
-- Three years of shut weirs lower the salmon run.
+- Three years of shut weirs, or the lower village's dam kept shut, lower the salmon run at the upper village.
+- The fuel budget (§4c) over a year of smoking and boiling.
 
-**Food a unit:** 02zzd's harness extended to run nights (traps, nets, the weir). An eel run night should pay well for a few nights
-a year (a target: about 1 to 2 food a unit at a weir on a run night, near nothing otherwise; calibrate).
+**Food a unit:** 02zzd's harness extended to run nights (traps, nets, the weir, the race trap). An eel run night should pay well for
+a few nights a year (a target: about 1 to 2 food a unit at a weir on a run night, near nothing otherwise; calibrate).
 
 **Regression:**
 - The probe worlds with bots.
-- Worlds without rivers unchanged.
+- Worlds without rivers, mills on rivers without runs, and coastal salt unchanged.
 - All tests pass.
 
 **Gate:** the above and a short dry-run report to Zach; then a small live run on the river world if he allows one, read against the
-pack off: crews on run nights, weirs built and kept, the gap disputed between the villages.
+pack off: crews on run nights, weirs built and kept, the gaps of the weir and the mill disputed between the villages, salt traded.
+
+## 8. After the gate: a runs-only world (a test of its own, Zach 16 Nov)
+
+**The question.** Can a run, with storage and fishing places a group can hold, produce property and rank without farming? The
+research says it did: where a dense, predictable, storable run could be held, foragers settled, stored large surpluses and
+developed property in fishing stations, specialists and rank (part 10 §1.4); assets that must be guarded and inherited (stores,
+traps, boats, weirs) bring property and binding kin rules (Woodburn's delayed return, part 10 §1.5); on the Northwest Coast
+"ranking followed the intensification of salmon storage" (part 06 §3.6). It is a cleaner test of social structure made by people
+around physical facts (OPEN L-106) than a farming world, and it needs nothing past this brief.
+
+**The world** (generated, the land kept, pinned):
+- One river with strong salmon and eel runs and three stations along it (upper, middle, lower), each a node with water parcels
+  good for a weir; game and wild plants enough for summer and not for winter, so the stores decide the winter.
+- **No farming:** the farming pack off (packs, D4-103); no fields, no seed, no herds. Fire, racks, smokehouses, weirs, traps, nets,
+  forage and the hunt as built. No spring and no mill: kept by drying and smoke, with the woods as fuel (§4c).
+- **People:** three or four households at each station, kin across stations; Opus at each station's leading household, Sonnet in
+  the middle, Haiku in the bulk (scenario_design §2). Goals in-world (keep your people through the winter), never scores.
+- **Length:** long enough for a salmon return under the compressed year (Open question 1): about 50 to 70 days, starting late in
+  summer.
+
+**What to read** (against a null arm with the runs replaced by a resident stock of the same yearly food, so storage has no pulse to
+answer):
+- whether stores become unequal between households and stations, and stay so;
+- claims on stations, weirs and smokehouses, and who may use them;
+- the gaps: whether upper stations shut their weirs, and what the lower ones do about it (agreements, gifts, raids);
+- whether people restrain the take for the salmon's return;
+- giving and feasting (gifts of stored food) and who gives;
+- a qualitative end-state reading, as scenario_design asks.
+
+**Order:** after this brief's gate and the river world's live run, and after Zach's go for a live run. The world is 37.2's to
+generate; nothing in the engine changes for it.
 
 ## Why
 
@@ -178,11 +315,19 @@ pack off: crews on run nights, weirs built and kept, the gap disputed between th
   holds.
 - 02zv K4 ranked the eel run with its lag, traps, the weir and its gap, salmon and wildfowl first in water worlds.
 - Zach (10 Nov): build the other wildlife before forays.
+- The economy research (02zzj, Zach 16 Nov: "revisit the fishing"): the river as one site with many claims, keeping a glut by fuel
+  and salt, fuel as the household's largest flow, and the run as the base of a society (Summary, §3a, §4b, §4c, §8).
 
 ## Alternatives considered
 
 - **Eels as a resident stock with a seasonal multiplier** (as built): no line between villages, so no upstream and downstream.
 - **The weir as a fitting with a fixed yield:** simpler, but nothing passes it, so it has no effect downstream.
+- **The mill as the river's only work** (no weir): simpler, but one owner holds the only lever; two works with different owners give
+  interlocking chokepoints (scenario_design §1).
+- **Salt only on the coast, carried inland:** the decided rule (D2-56) has springs too; without them inland worlds have no salt at
+  all, and no salt fish or cheese.
+- **A fuel mechanic of its own for the woods** (a coppice cycle, charcoal at its real weight): left to the materials stage and the
+  border's fuel row (02zzk); this brief only makes its new uses draw on the woods as built.
 
 ## Open questions (for Zach)
 
@@ -190,23 +335,41 @@ pack off: crews on run nights, weirs built and kept, the gap disputed between th
    shortened. Proposed: one world year (32 days), so a run of 45 days or more sees a shut weir's cost. That is a compression like the
    lifespan's, stated as such.
 2. Whether the weir's gap has a customary rule seeded in any world (no: nothing social is forced), or is only physical (proposed).
+   The same for the mill's gap and the spring.
 3. The run-night target at a weir (§7). Proposed: about 1 to 2 food a unit at a sound, shut weir on a run night, near nothing
    otherwise. Over an autumn that is a few good nights, above brief 4c's master near home only on those nights.
 4. Whether the weir waits for 37.4's merge of briefs 1 to 4c (proposed), or starts on the stacked branch.
+5. **The mill's trade** (§3a): open, the mill grinds at about half its rate. Proposed: half, so a miller who lets the salmon through
+   loses half a day's grinding on each run night, and a lower village with a mill has a real choice.
+6. **Salt's fuel** (§4b): about 1 firewood for each salt from a strong spring, the pan a fitting of a few units, the salter a trade.
+   Proposed as stated, to calibrate in the fuel budget (§4c).
+7. **Withies and cord:** they sit in the benched materials stage, but they make fishing gear (wicker traps, nets) as well as hunting
+   gear. Proposed: leave them benched for this brief (it uses the traps and nets already built), and split them from the hunting
+   economy when gear for fishing comes up.
+8. **The runs-only world (§8):** to design now and run after the gate, or only to keep as an idea. And its cast: proposed Opus at each
+   station's lead household (three), Sonnet and Haiku as scenario_design §2.
 
 ## History
 
 - 10 Nov 2026: written by 37.2 as brief 5 at Zach's request ("rewrite the briefs to address the other aspects of wildlife in the
   first briefs before any foraging").
-
-- 10 Nov 2026: rebased on brief 4b (hunt_followups.md): its branch, declared parties for crew work, wariness and recovery in the ecology the runs move through.
-- 13 Nov 2026: the smokehouse added (§4a), moved from brief 4c (Zach: "that sounds valid"): its own building, wattle with a fire
-  risk or stone, apart on another parcel, tended once a day, giving smoked fish and meat that keep about four times as long as dried.
+- 10 Nov 2026: rebased on brief 4b (hunt_followups.md): its branch, declared parties for crew work, wariness and recovery in the
+  ecology the runs move through.
 - 12 Nov 2026: revised for Zach's check: after brief 4c (the take as calibrated; set things found by going to them, and remembered
   without "empty", Zach 12 Nov); the branch from main after the merge; the worlds from the generator, starting late in summer, with
   the region as a third check; proposed answers to the salmon's return and the run-night target.
+- 13 Nov 2026: the smokehouse added (§4a), moved from brief 4c (Zach: "that sounds valid"): its own building, wattle with a fire
+  risk or stone, apart on another parcel, tended once a day, giving smoked fish and meat that keep about four times as long as dried.
+- 16 Nov 2026: revised from the economy research (02zzj, read in full: parts 01, 02, 03, 05, 06, 10, 18), at Zach's request ("bench
+  the hunting economy, but revisit the fishing ... write up the edited water brief, with the runs-only world as a test world to do
+  after"). Added: the mill on the run's river with a gap of its own (§3a); salt boiled inland from a brine spring with fuel (§4b,
+  completing D2-56); fuel as the shared draw, with a budget test (§4c); the river world pinned so each village holds what the other
+  needs (§1); the runs-only world as a test after the gate (§8); boats, the fishpond, the commons' rules and the benched hunting
+  economy named in §5; open questions 5 to 8. Nothing in §2 to §4a changed except the salmon's passage past a shut dam and the
+  smokehouse's fuel.
 
 ## Sources
 
-02zv §4 (K4); 02zp §27; hunt_and_fixes.md (brief 4); briefs 1 to 3; wild/areas.py (`down`); water_and_preservation.md; D4-48,
-D4-109, D2-208.
+02zv §4 (K4); 02zp §27; hunt_and_fixes.md (brief 4); briefs 1 to 3; wild/areas.py (`down`); water_and_preservation.md (§4, §5, §7);
+D4-48, D4-109, D2-56, D2-61, D2-166, D2-208, D4-103; 02zzj parts 01 (§2.9, §3.3, §5.2, §6.1), 02 (§5.4), 03 (§7.1), 04, 05 (§2.4),
+06 (§3.6, §7), 09 (§9), 10 (§1.4, §1.5), 18 (§2.4); 02zzk (the border); scenario_design §1, §2; OPEN L-105, L-106.
