@@ -84,8 +84,8 @@ common pattern:
   pigments (part 10; *contested*). Arsenical copper, and then tin bronze, were found by trying ores and mixtures. Iron came from
   furnaces run hot enough, with ore that happened to suit (part 03). Each step was a small change to a known process.
 - **Recipes without reasons.** The earliest written craft knowledge reads like a list of steps wrapped in ritual. The Assyrian glass
-  texts of the seventh century BC, from Ashurbanipal's library at Nineveh, give batches, furnaces and rites side by side (*memory*).
-  The monk Theophilus's *De diversis artibus* (about 1120) covers glass, pigments, metalwork and organ pipes (*memory*). Vannoccio
+  texts from Ashurbanipal's library (seventh century BC) give batches, furnaces and rites side by side, and the monk Theophilus's
+  *De diversis artibus* (about 1120) covers glass, pigments and metalwork (*memory*). Vannoccio
   Biringuccio's *Pirotechnia* (1540) and Georgius Agricola's *De re metallica* (1556) put mining, smelting, assay and glass into print
   as methods, with little theory (*memory*).
 
@@ -282,7 +282,7 @@ acid, from the still) joined assay to the chemist's glassware by about 1300 (*me
 ### 3.5 Clocks: from the hours of prayer to the factory day
 
 - **Water clocks** served temples and courts for three thousand years. Su Song's tower at Kaifeng (finished 1092) drove an armillary
-  sphere and a celestial globe through a water-wheel escapement (*memory*), and was dismantled after the Jurchen took the city.
+  sphere and a celestial globe through a water-wheel escapement (*memory*).
 - **The mechanical clock** appeared in Europe in the late thirteenth century, regulated by a verge and foliot. Its first users were
   monasteries ringing the canonical hours and cathedrals; then towns put clocks in towers from the mid-fourteenth century (*memory*).
   David Landes (*Revolution in Time*, 1983) argued that public clock time changed work: wages by the hour, the bell of the cloth
@@ -337,9 +337,8 @@ On 2 October 1608 Hans Lipperhey, a spectacle maker of Middelburg, petitioned th
 too easy to copy. The States-General paid Lipperhey 300 guilders for an instrument instead (*checked*). Galileo heard of it and
 built his own in 1609, grinding his own lenses. He reached about 20 magnifications and published the moons of Jupiter in *Sidereus
 Nuncius* in March 1610 (*memory*). The telescope's economic uses came at once (at sea, in war, and for the merchant watching for a
-ship), and its scientific ones changed astronomy. Jupiter's moons became a clock in the sky. Galileo proposed them for longitude at
-sea, where the motion of the ship defeated the method. On land, Cassini's tables (1668) and the moons let the French survey fix
-longitudes and redraw France smaller (*memory*).
+ship), and its scientific ones changed astronomy. Jupiter's moons became a clock in the sky. At sea the ship's motion defeated the method; on
+land Cassini's tables (1668) let the French survey fix longitudes (*memory*).
 
 The **microscope** came out of the same trade in the 1620s. Robert Hooke's *Micrographia* (1665) showed cells in cork and the
 structure of insects. Antonie van Leeuwenhoek, a Delft draper who ground tiny single lenses to inspect cloth, reached perhaps 270
@@ -350,8 +349,7 @@ instrument came long before the theory: microbes were seen in the 1670s and tied
 **Optical glass** became an industry of its own. Pierre-Louis Guinand found how to stir glass to remove striae (about 1800).
 Joseph von Fraunhofer, at Benediktbeuern from 1806, made the best lenses of his day and found the dark lines of the solar spectrum
 (1814). Otto Schott, Ernst Abbe and Carl Zeiss founded the Jena glassworks in 1884, with new glass compositions designed for optics
-(*memory*). In 1914 Britain found it depended on Jena for optical glass for gunsights and had to build its own industry in wartime
-(*memory, rough*). The chain still runs: part 13 records Carl Zeiss as the sole maker of the optics in ASML's EUV lithography
+(*memory*). The chain still runs: part 13 records Carl Zeiss as the sole maker of the optics in ASML's EUV lithography
 machines. The chokepoint of the twenty-first-century chip passes through a lens maker descended from the spectacle trade.
 
 ### 3.9 Mercury, the barometer and the thermometer
@@ -452,8 +450,7 @@ death returns, which William Farr organised from 1839 (*memory*). It fed the lon
 ### 4.5 Trials
 
 - **Lind's scurvy trial** (1747) gave twelve sailors with scurvy six different treatments in pairs. The two given oranges and lemons
-  recovered (*memory*). It was a controlled comparison, but the navy did not issue lemon juice generally until 1795, and the reason
-  was understood only with vitamin C in the 1930s.
+  recovered (*memory*). The navy issued lemon juice generally only in 1795.
 - **Rothamsted.** John Bennet Lawes, who patented superphosphate in 1842 (part 02; `superphosphate`), laid out field experiments on
   his estate at Rothamsted with the chemist Joseph Henry Gilbert from 1843. **Broadbalk**, winter wheat with different manures in
   long strips, is the oldest continuing field experiment in the world (*checked*). The strips settled the dispute with Liebig over
@@ -521,11 +518,9 @@ two (*memory* for the terms; the frame is standard):
   answer that Britain's advantage lay in a broad stock of skilled mechanics, which is tacit knowledge again (part 07 §4.4). Most
   historians now read the scientific base as decisive after about 1850 (chemistry, electricity) and contributory before (*contested*).
 
-**The Needham question.** Why did Song China, with printing, the compass, gunpowder, coal-fired iron and a large literate
-bureaucracy, not have a scientific revolution? The answers on offer are many and none is settled: the examination system's
-classical curriculum, the lack of competing states, the lack of a tradition of experimental proof, or the wrong question, since
-China's techniques were not behind Europe's until the eighteenth century (*contested*). For this map the useful point is Mokyr's:
-techniques can flourish for centuries on a narrow base, but they plateau.
+**The Needham question** (why Song China, with printing, the compass, gunpowder and coal-fired iron, had no scientific
+revolution) has many answers and none settled (*contested*). For this map the useful point is Mokyr's: techniques can flourish for
+centuries on a narrow base, but they plateau.
 
 **How Zach's line reads in Mokyr's terms.** Prescriptive knowledge (techniques, recipes, the dependencies between them) is what the
 engine holds as data, gates by level, and lets agents learn by teaching, watching and trying. Propositional knowledge (what is so,
@@ -541,7 +536,6 @@ propositional knowledge. What they cannot know is the local, contingent kind (§
 | the Ptolemies | the Museum and Library at Alexandria, from about 280 BC (*memory*) | scholars on stipends; Euclid, Eratosthenes, Ctesibius, Hero | prestige; the court's engineers and astronomers |
 | the Abbasid caliphs | the House of Wisdom, Baghdad, ninth century (*memory*) | translation of Greek, Persian and Indian works; astronomy | administration, the calendar and prayer times, prestige |
 | Hulagu, with a waqf | Maragha observatory, 1259 (*memory*) | Nasir al-Din al-Tusi's instruments and tables | astrology for the court; the endowment kept it after him |
-| Ulugh Beg | Samarkand, 1420s (*memory*) | a giant meridian arc; star catalogue | the ruler's own science |
 | Frederick II of Denmark | Tycho Brahe's Uraniborg on Hven, from 1576 (*memory*) | the best naked-eye instruments ever made; decades of observations | prestige; a fief to Tycho; reportedly a sizeable share of crown income (*contested*) |
 | the Medici | Galileo as court mathematician, 1610 (*memory*) | his work, after he named Jupiter's moons the "Medicean stars" | prestige exchanged for a dedication |
 
@@ -588,9 +582,7 @@ Prizes pay for a solution to a stated problem. They suit cases where the target 
 |---|---|---|---|
 | Longitude Act | 1714 | longitude at sea to half a degree, up to £20,000 | Harrison's chronometers and lunar tables; the Board paid many smaller rewards; Harrison got about £8,750 by petition in 1773 (*checked*) |
 | Académie des sciences | 1775 (*memory*) | soda from salt | Nicolas Leblanc's process (patent 1791; part 01, `leblanc_process`); he never received the prize, and his works were seized in the Revolution |
-| Society of Arts premiums | from 1754 | hundreds of small set problems: madder growing, cobalt, tree planting | many small improvements (*rough*) |
 | Napoleon's government | 1810 (*memory*) | preserving food for the army; 12,000 francs to Nicolas Appert | bottling, then the tin can (part 02, `canning`) |
-| Orteig prize | 1919 to 1927 (*memory*) | a non-stop New York to Paris flight; $25,000 | Lindbergh, 1927 |
 | Ansari X Prize | 2004 (*memory*) | a private crewed suborbital flight twice in two weeks; $10 million | SpaceShipOne |
 
 Prizes work for a goal everyone can recognise. Patents work for inventions nobody can name in advance. The two co-existed from the
@@ -632,8 +624,6 @@ Part 08 §3.1 gives the core: the German dye firms' laboratories turned inventio
   staff at its founding (*checked*; the two figures differ by source). It produced the transistor (1947; part 08), information theory
   (1948) and the solar cell (1954) (*memory*). Under the 1956 consent decree AT&T had to license its patents, the transistor's among
   them, at low royalties, which is part of why the semiconductor industry spread beyond AT&T (*memory*).
-- **DuPont's** fundamental research programme hired Wallace Carothers, whose group made nylon (1935; part 08, `synthetic_fibres`)
-  (*memory*).
 - **Why firms did it** (Chandler, Mowery): new technical knowledge had become an input that a large firm could not buy reliably on
   the market. Patents were contested, inventors were independent, and integrating research with production and marketing paid. The
   in-house laboratory is a case of Coase's make-or-buy answer (part 05).
@@ -644,8 +634,8 @@ States had long paid for knowledge they needed: calendars, maps (the Cassini sur
 *memory*), arsenals and dockyards, the École polytechnique (1794), state agricultural stations (§4.5). The twentieth century made it
 large:
 
-- **The First World War** was the first war of chemistry: Haber–Bosch nitrogen for explosives once Chile's nitrate was cut off (part
-  02's `synthetic_nitrogen`), poison gas, and optical glass and wireless as war industries (*memory*).
+- **The First World War** made chemistry a war industry: Haber–Bosch nitrogen for explosives (part 02's `synthetic_nitrogen`), gas,
+  optical glass (*memory*).
 - **The Second World War** joined universities, firms and the state. Vannevar Bush's Office of Scientific Research and Development
   (1941) contracted universities and firms for radar (MIT's Radiation Laboratory), the proximity fuze, and the scale-up of penicillin
   (part 08, `penicillin_fermentation`) (*memory*).

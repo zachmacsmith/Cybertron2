@@ -251,23 +251,13 @@ a chain in another part:
 | **the Eucharist** | wheat bread, wine | monastic and episcopal vineyards north of the Alps (Burgundy, the Rhine, the Moselle) | from the early middle ages |
 | **church building** | stone, lime, timber, lead, glass, bronze for bells | quarries, lime kilns, glass (part 01), lead mines, bell founding | eleventh to fifteenth centuries; Gimpel's claim that France quarried more stone in 1050 to 1350 than ancient Egypt in any period (*contested*, popular) |
 | **liturgical books** | parchment, ink, pigments | parchment from calf and sheep skins (part 03, `parchment`); lapis for blue | monastic scriptoria to the fifteenth century |
-| **vestments and hangings** | silk, gold thread, fine wool | Byzantine and Italian silk; English embroidery (*opus anglicanum*) | |
-| **relics and pilgrimage** | badges, ampullae, lodging, transport | lead and tin casting; inns; ships (§6) | |
-| **prayers for the dead** | masses, chantry priests, candles | endowments of land and rents (§9) | late medieval Europe |
-| **burial** | coffins, shrouds, tombs, grave goods | wood, linen, stone carving; the undertaker | everywhere; the Egyptian funerary economy above all |
+| **pilgrimage, prayers for the dead** | badges, lodging; masses and chantry priests | lead and tin casting, inns (§6); endowments (§9) | late medieval Europe |
 | **spirit money** | paper burned for the dead | paper and printing (part 11) | China from the Tang (*unchecked*); still a large industry |
 
-Two of these were large enough to shape whole sectors.
-
-- **Fish and the fast.** The medieval calendar forbade meat on Fridays, often Wednesdays and Saturdays, in Lent and Advent and on
-  the vigils of feasts (*checked*, secondary). Northern Europe met the demand with salted and dried fish carried hundreds of
-  kilometres: Scania's herring, Norwegian stockfish through Bergen and the Hanse (part 04, `stockfish_trade`), later Newfoundland
-  cod. How much the rules drove the trade, rather than taste and population, is argued (*contested*). After the Reformation the
-  English state kept the fish days by statute to support fishermen and the navy: the 1563 act added Wednesday as a fish day
-  ("Cecil's fast", *unchecked*). A ritual rule became an industrial policy.
-- **Wax.** The western church's rule that altar lights be of beeswax created a demand large enough for wax to be one of the main
-  exports of Russia and the Baltic through the Hanseatic kontor at Novgorod (*memory*). Tallow (part 01, `tallow_candle`) served
-  households; wax served God and the rich.
+**Fish and the fast** shaped a whole sector. Meat was forbidden on Fridays, often Wednesdays and Saturdays, in Lent, Advent and on
+vigils (*checked*, secondary), and northern Europe met the demand with salt herring from Scania and stockfish through Bergen and the
+Hanse (part 04), later Newfoundland cod. How far the rules drove the trade is argued (*contested*). Protestant England kept fish days
+by statute for the fishermen and the navy, adding Wednesday in 1563 (*unchecked*): a ritual rule turned industrial policy.
 
 ## 4. Tithe and church taxation
 
