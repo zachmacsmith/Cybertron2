@@ -1,5 +1,5 @@
 """Brief 5 §4 (proposals/river_and_water.md, D2-209): the wildfowl pushed by cold onto open water, the beaver's dam and the heronry's
-take, on 37.2's lake world (cybertron2/specs/water/lake.yaml: Meresby, its brook and the mere in its ring), with the frost, the sites
+take, on 37.2's lake world (cybertron2/specs/water/lake.yaml: Meresby on its mere, Meresby Water), with the frost, the sites
 and the stocks set by hand where a test needs them; and the generated fixture (no water at s1) for worlds the push leaves as before."""
 import copy
 
@@ -35,13 +35,13 @@ def _places(w):
     water (of the lodge's covers) and the meadow and pasture its dam would flood."""
     P = w.s["parcels"]
     ours = sorted(pid for pid, p in P.items() if p["node"] == NODE)
-    brook = next(pid for pid in ours if P[pid]["cover"] == "water" and "fish" in P[pid]["res"])
+    water = next(pid for pid in ours if P[pid]["cover"] == "water" and "fish" in P[pid]["res"])   # the mere's water parcel
     wood = next(pid for pid in ours if P[pid]["cover"] == "forest" and WL.at_water(w, pid) is None)
     grassy = lambda q: P[q]["cover"] in SITES["lodge"]["dam"]["floods"]["covers"] and "grass" in P[q]["res"]
-    lodge = next(q for q in sorted(P[brook]["adj"]) if q in ours and P[q]["cover"] in SITES["lodge"]["where"]["covers"]
+    lodge = next(q for q in sorted(P[water]["adj"]) if q in ours and P[q]["cover"] in SITES["lodge"]["where"]["covers"]
                  and any(grassy(x) for x in [q] + list(P[q]["adj"])))
     flooded = sorted(x for x in [lodge] + list(P[lodge]["adj"]) if x in P and grassy(x))
-    return {"brook": brook, "wood": wood, "lodge": lodge, "flooded": flooded, "name": P[brook]["name"]}
+    return {"water": water, "wood": wood, "lodge": lodge, "flooded": flooded, "name": P[water]["name"]}
 
 
 def _no_frost(monkeypatch):
@@ -70,14 +70,14 @@ def _fowl(w, density=60.0):
 
 
 # ---------------------------------------------------------------------------------------------------------- the fowl and the freeze
-def test_the_lake_world_holds_small_water_at_home_and_the_mere_in_its_ring(lake):
+def test_the_lake_world_sits_its_village_on_the_mere(lake):
     w = _world(lake)
     m, hi, ri = _areas(w)
     home, ring = WL._water_parts(m, hi), WL._water_parts(m, ri)
-    assert home["small"] > 0 and home["lake"] == home["big river"] == 0
-    assert ring["lake"] > 0 and ring["small"] > 0
+    assert home["lake"] > 0 and ring["lake"] > 0                                    # the mere on the village's own land
+    assert ring["small"] > 0                                                         # and small waters beside it
     pl = _places(w)
-    assert WL.at_water(w, pl["brook"]) == "water" and WL.at_water(w, pl["wood"]) is None
+    assert WL.at_water(w, pl["water"]) == "water" and WL.at_water(w, pl["wood"]) is None
 
 
 def test_frost_freezes_the_small_waters_first_and_the_lake_last(lake, monkeypatch):
@@ -86,15 +86,22 @@ def test_frost_freezes_the_small_waters_first_and_the_lake_last(lake, monkeypatc
     m, hi, ri = _areas(w)
     h = OPEN_WATER["hold"]
     most = PUSHED["wildfowl"]["most"]
-    got = {}
-    for n in range(0, h["lake"] + 2):
+
+    def at(n, cap=None):
         _frost(monkeypatch, WINTER, n)
-        got[n] = (WL.open_water(w, m, hi, NODE, kind="wildfowl"), WL.open_water(w, m, ri, NODE, kind="wildfowl"))
-    assert got[0] == (1.0, 1.0)                                                     # no frost: as before
-    assert 1.0 < got[1][0] <= most and 1.0 < got[1][1] <= most                     # the first hard night: crowded on the water
-    for n in range(h["small"] + 1, h["lake"] + 1):
-        assert got[n][0] == 0.0 and 1.0 < got[n][1] <= most                        # the brook frozen over; the mere still open
-    assert got[h["lake"] + 1] == (0.0, 0.0)                                         # a long freeze: all of it frozen over
+        if cap is not None:
+            monkeypatch.setitem(PUSHED, "wildfowl", {**PUSHED["wildfowl"], "most": cap})
+        out = tuple(WL.open_water(w, m, i, NODE, kind="wildfowl") for i in (hi, ri))
+        monkeypatch.setitem(PUSHED, "wildfowl", {**PUSHED["wildfowl"], "most": most})
+        return out
+    assert at(0) == (1.0, 1.0)                                                      # no frost: as before
+    for n in range(1, h["lake"] + 1):                                               # the mere open: crowded on it
+        assert all(1.0 < x <= most for x in at(n)), (n, at(n))
+    assert at(h["lake"] + 1) == (0.0, 0.0)                                          # a long freeze: all of it frozen over
+    free = [at(n, cap=1e9)[1] for n in range(1, h["lake"] + 1)]                     # uncapped: the open water shrinks as the
+    assert free[h["small"]] > free[h["small"] - 1]                                  # small waters freeze first,
+    assert free[h["big river"]] > free[h["big river"] - 1]                          # then the big river,
+    assert free[h["lake"] - 1] == free[h["big river"]]                              # and the mere holds longest
 
 
 def test_only_a_pushed_kind_at_the_water_is_crowded(lake, monkeypatch):
@@ -103,9 +110,9 @@ def test_only_a_pushed_kind_at_the_water_is_crowded(lake, monkeypatch):
     m, hi, ri = _areas(w)
     _frost(monkeypatch, WINTER, 1)
     pl = _places(w)
-    assert WL.pushed(w, m, NODE, pl["brook"], "wildfowl", hi) > 1.0
+    assert WL.pushed(w, m, NODE, pl["water"], "wildfowl", hi) > 1.0
     assert WL.pushed(w, m, NODE, pl["wood"], "wildfowl", hi) == 1.0                 # off the water: as before
-    assert WL.pushed(w, m, NODE, pl["brook"], "eel", hi) == 1.0                     # not a kind the cold pushes
+    assert WL.pushed(w, m, NODE, pl["water"], "eel", hi) == 1.0                     # not a kind the cold pushes
 
 
 def test_worlds_without_water_are_as_before(generated, monkeypatch):  # noqa: F811
@@ -122,7 +129,7 @@ def test_worlds_without_water_are_as_before(generated, monkeypatch):  # noqa: F8
 
 
 def _nets(lake, monkeypatch, n, rng_word=None, netters=20):
-    """Meat taken by 20 practised fowlers netting at the brook on a winter day after n hard nights."""
+    """Meat taken by 20 practised fowlers netting at the mere on a winter day after n hard nights."""
     w = _world(lake, netters=netters)
     w.s["day"] = WINTER
     _fowl(w)
@@ -137,14 +144,14 @@ def _nets(lake, monkeypatch, n, rng_word=None, netters=20):
 
 
 def test_a_freeze_crowds_the_open_water_and_makes_nets_pay(lake, monkeypatch):
+    h = OPEN_WATER["hold"]
     thaw, _ = _nets(lake, monkeypatch, 0)
-    frost, lines = _nets(lake, monkeypatch, 1)
-    assert frost > 1.5 * thaw > 0, (thaw, frost)
-    shut, lines = _nets(lake, monkeypatch, OPEN_WATER["hold"]["small"] + 1)          # the brook frozen over: no fowl on it
-    assert not any("wildfowl" in r for r in lines)
-    mere0, _ = _nets(lake, monkeypatch, 0, "the wood around")
-    mere, _ = _nets(lake, monkeypatch, OPEN_WATER["hold"]["small"] + 1, "the wood around")   # out to the mere, still open
-    assert mere > 1.5 * mere0 > 0, (mere0, mere)
+    frost, _ = _nets(lake, monkeypatch, 1)
+    assert frost > 1.5 * thaw > 0, (thaw, frost)                                     # the first hard night: crowded on the mere
+    hard, _ = _nets(lake, monkeypatch, h["small"] + 1)                               # the small waters frozen, the mere open
+    assert hard > 1.5 * thaw, (thaw, hard)
+    shut, lines = _nets(lake, monkeypatch, h["lake"] + 1)                             # the mere frozen over: no fowl on it
+    assert not any("wildfowl" in r for r in lines), shut
 
 
 def test_a_long_freeze_empties_the_water_and_the_survivors_return(lake, monkeypatch):
@@ -184,10 +191,13 @@ def test_the_push_shows_at_the_water_the_day_it_begins(lake, monkeypatch):
         return out
     pl = _places(w)
     crowd = seen(1)
-    assert any(f"packed thick on the open water at {pl['name']}" in t and pid == pl["brook"] for t, pid in crowd)
+    assert any(f"packed thick on the open water at {pl['name']}" in t and pid == pl["water"] for t, pid in crowd)
     assert any("nets at the water's edge" in t for t, _ in crowd)
-    froze = seen(OPEN_WATER["hold"]["small"] + 1)
-    assert any(f"the water at {pl['name']} frozen over" in t for t, _ in froze)
+    h = OPEN_WATER["hold"]
+    held = seen(h["small"] + 1)                                                      # still crowded: no news, and not frozen over
+    assert not any("packed thick" in t or "frozen over" in t for t, _ in held)
+    froze = seen(h["lake"] + 1)
+    assert any(f"the water at {pl['name']} frozen over" in t and pid == pl["water"] for t, pid in froze)
     assert not any("packed thick" in t for t, _ in froze)
 
 
@@ -203,7 +213,7 @@ def test_the_dam_cuts_the_meadows_hay_and_raises_the_fish_and_breaking_it_revers
     _no_frost(monkeypatch)
     w = _world(lake)
     pl = _places(w)
-    BROOK, LODGE, LEAZE = pl["brook"], pl["lodge"], pl["flooded"][0]
+    BROOK, LODGE, LEAZE = pl["water"], pl["lodge"], pl["flooded"][0]
     sid = _site(w, "lodge", LODGE, 3)
     hay0, fish0 = (dict(w.s["parcels"][LEAZE]["res"]["grass"]), dict(w.s["parcels"][BROOK]["res"]["fish"]))
     WL._dam(w, sid, w.s["wild"]["sites"][sid], True, direct=True)
@@ -239,7 +249,7 @@ def test_the_dam_cuts_the_meadows_hay_and_raises_the_fish_and_breaking_it_revers
 def _herons(lake, nests, fish_k=None, nights=8):
     w = _world(lake, keep=0)
     pl = _places(w)
-    BROOK = pl["brook"]
+    BROOK = pl["water"]
     _site(w, "heronry", pl["wood"], nests)
     if fish_k is not None:
         w.s["parcels"][BROOK]["res"]["fish"].update(K=float(fish_k), S=float(fish_k))
@@ -265,7 +275,7 @@ def test_the_heronry_follows_the_fish(lake, monkeypatch):
         w = _world(lake, keep=0)
         pl = _places(w)
         sid = _site(w, "heronry", pl["wood"], 20)
-        w.s["parcels"][pl["brook"]]["res"]["fish"].update(K=float(fish_k), S=float(fish_k))
+        w.s["parcels"][pl["water"]]["res"]["fish"].update(K=float(fish_k), S=float(fish_k))
         w.s["day"] = next(d for d in range(1, 40) if w.calendar(d)["season"] == "spring" and w.calendar(d)["day"] == 1)
         WL._sites_night(w, WL.model(w), w.s["wild"]["state"])
         return w.s["wild"]["sites"][sid]
