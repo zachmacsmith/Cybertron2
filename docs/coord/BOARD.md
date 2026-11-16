@@ -1081,3 +1081,5 @@ Zach (16 Nov) answered brief 5 and asked that it be posted for the building sess
 - **Note for the build:** brief §2.4 (new) says where a run meets a village. The chain passes a village's ring, not its small home
   area, so read the run at a village's water in its home or ring area.
 - **Farming:** it has no pack (OPEN L-112), so the runs-only world removes fields, seed and beasts instead of switching it off.
+
+**16 Nov, 37.4: correction.** The flag for briefs 4, 4b and 4c's deviations is **L-113**, not L-112. L-112 is 37.2's farming pack.
