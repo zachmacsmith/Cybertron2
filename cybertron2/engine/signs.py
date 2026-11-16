@@ -2167,9 +2167,16 @@ def _wild_when(here, add) -> None:
         for j, row in enumerate(rows):
             if not row.get("rows"):
                 continue
+            at, xa = spot, x
+            if row.get("at") == "water":                                  # seen at the village's water (brief 5 §4), or not at all
+                at = next((pid for pid, p in sorted(here.parcels().items()) if WL.at_water(w, pid) == "water"),
+                          next((pid for pid, p in sorted(here.parcels().items()) if WL.at_water(w, pid)), None))
+                if at is None:
+                    continue
+                xa = event_context(here, here.parcels()[at]["name"], here.day)
             if WL.cond(w, here.node, row.get("if"), kind, m, st, ri) and (here.day == 0 or not WL.cond(w, here.node, row.get("if"), kind,
                                                                                                       m, st, ri, day=here.day - 1)):   # news on the first day too
-                _wild_emit(here, row["rows"], x, [f"parcel:{spot}"], spot, add, f"wildwhen{kind[:4]}{j}", dict(place=here.parcels()[spot]["name"]),
+                _wild_emit(here, row["rows"], xa, [f"parcel:{at}"], at, add, f"wildwhen{kind[:4]}{j}", dict(place=here.parcels()[at]["name"]),
                            0, tags=("animals",), key="hunt")
     for j, lead in enumerate(WEATHER_LEADS):
         if lead.get("kind") and not about(lead["kind"]):
@@ -2193,7 +2200,7 @@ def _wild_sites(here, add) -> None:
         last, n = site.get("last"), float(site.get("size", 0))
         change = "more" if last is not None and n > float(last) + 0.5 else ("fewer" if last is not None and n < float(last) - 0.5 else "as many")
         why = {"crash": "the hard winter took many of them", "freeze": "the great freeze took many of them",
-               "grew": "the fish are good"}.get(site.get("why"), "")
+               "grew": "the fish are good", "few": "the fish in the water here are too few for more"}.get(site.get("why"), "")
         fmt = dict(place=p["name"], n=int(round(n)), change=change, why=why or "as in other years")
         x = event_context(here, p["name"], here.day)
         def emit(key, age=0, at=pid):
@@ -2209,8 +2216,12 @@ def _wild_sites(here, add) -> None:
             emit("back")
             if here.day == 0:
                 emit("here")
+        flooded = [q for q in sorted({k.split("|")[0] for k in (site.get("k0") or {}) if not k.endswith("|fish")}) if q in here.parcels()]
+        pond = [q for q in sorted({k.split("|")[0] for k in (site.get("k0") or {}) if k.endswith("|fish")}) if q in here.parcels()]
         if site.get("dam") and (here.day == 0 or site.get("rebuilt") == here.day - 1):
-            emit("dam")
+            emit("dam", at=(flooded or [pid])[0])                         # at the drowned meadow (brief 5 §4), and the pond it fills
+            if pond:
+                emit("pond", at=pond[0])
         if site.get("broken") is not None and here.day - int(site["broken"]) == 0:
             emit("broken")
         if site.get("harm_day") is not None and 0 <= here.day - int(site["harm_day"]) <= 1 and site.get("harm_at") in here.parcels():

@@ -254,9 +254,11 @@ EXPERT_KILL = {"wolf": "by the tracks a pack of four or five; they will be back 
 # ---------------------------------------------------------------------- the conditional layers (wild_systems.md §6, L0-L3; 02zq)
 # Conditions (engine/wild.cond): seasons {si: (first day, last)}; frozen_run n (engine days frozen in a row); snow; mast [levels]
 # (this autumn's; mast_last: last autumn's); hungry x (1 - condition in the ring); pressure x (hunting on the ring); hard_winter n
-# (frozen days last winter); rain_after_dry; tomorrow {frozen | rain}; wet; not {...}. Effects while true: drive (x), bold (scares
+# (frozen days last winter); rain_after_dry; tomorrow {frozen | rain}; wet; open_water ("open" | "crowded" | "frozen over": the cold's
+# push on the village's land, OPEN_WATER); not {...}. Effects while true: drive (x), bold (scares
 # turn them that much less), danger and flee and detect (x, in a hunt), lone (a group of one may form), targets (more to raid,
-# each a target row), and rows (the signs of it, shown the day it starts: the change).
+# each a target row), and rows (the signs of it, shown the day it starts: the change; `at: water` shows them at the village's
+# water, and not where it has none).
 AUT_WIN = {2: (0, 7), 3: (0, 7)}
 DRY = "dry"                                                                                   # the engine's dry stores
 WHEN = {
@@ -338,6 +340,13 @@ WHEN = {
         {"if": {"frozen_run": 2}, "flee": 0.5, "detect": 1.5,
          "rows": [R("all", "sight", 0.8, (0, 0), "the fowl crowded on the last open water, weak with the long frost"),
                   R("expert", "sight", 0.5, (0, 0), "birds so weak you could pick them up: take too many now and next winter's flocks are thin")]},
+        # the cold's push (PUSHED, OPEN_WATER; brief 5 §4): signs only, shown at the village's water (`at`) the day the push begins
+        {"if": {"open_water": "crowded"}, "at": "water",
+         "rows": [R("all", "sight", 0.9, (0, 0), "duck and geese packed thick on the open water at {place}, the marsh about it frozen hard"),
+                  R("knows", "sight", 0.7, (0, 0), "the frost has driven the fowl off the frozen ground onto the open water: nets at the water's edge take them now")]},
+        {"if": {"open_water": "frozen over"}, "at": "water",
+         "rows": [R("all", "sight", 0.9, (0, 0), "the water at {place} frozen over, and the fowl gone from it"),
+                  R("knows", "sight", 0.6, (0, 0), "the fowl have gone off the frozen water to open water further off: those that live will be back with the thaw")]},
     ],
     "voles and mice": [
         {"if": {"mast": ["heavy"], "seasons": {3: (0, 7)}},
@@ -364,6 +373,15 @@ EXPERT_SIGNS = {
              "raid": [R("expert", "sight", 0.6, (1, 2), "the wolves will come back to the herd that fed them: watch it or bring it in")]},
     "fox": {"raid": [R("expert", "sight", 0.6, (1, 2), "a fox that found the hens will be back tomorrow night, to the same place")]},
 }
+# the cold's push (brief 5 §4, D2-209): frost on the land drives a kind of the wet ground and the water (PUSHED) onto the water still
+# open at the village. Of an area's water (wild/areas.py), the small waters (the marsh's pools, brooks, ponds) freeze over after
+# `hold` hard nights in a row (engine/wild.frozen_run), a big river (big_river_km) later, a lake (lake_km2) last. Taken at the
+# water (a water parcel, or a parcel a river runs through; a brook's only while the small waters are open), such a kind is at its
+# land's density times its wet ground and water over the water still open, at most `most`: crowded; with no open water left none
+# are on it (gone to open water further off), and they come back on the thaw, fewer by what the great freeze took (REGIMES). An
+# area without water is as before. calibrate
+OPEN_WATER = {"hold": {"small": 1, "big river": 3, "lake": 5}}
+PUSHED = {"wildfowl": {"most": 4.0}}
 # signs that lead the weather (the visible face of the climate's coming day; wild_systems.md §7: plovers before a freeze, swallows
 # low before rain, the river rising dark after the dry weeks)
 WEATHER_LEADS = [
@@ -429,12 +447,18 @@ HUNT = {"meet": 0.21, "take_k": 0.25, "cross": 0.2, "sweep": 0.5, "most": 8, "se
 # (a cover beside another, or on a river), seldom where it does not; a size (nests, a family) that grows toward its cap at the start
 # of its season and crashes after a hard winter; `leaves`: worked or hunted on in its season it may go for good (D2-198); what it does
 # to the village's land each night (eats a stock, harms a crop, floods and feeds through a dam); what may be taken from it, and when.
+# `eats` (brief 5 §4): `each` of the stock a head a night (a nest), shared over the village's parcels of `covers` that hold it by
+# what each holds, at most `most` of any one's a night, so a small water loses more of its stock than a big one; `follows`: where the
+# village holds the stock, the site grows each season toward the heads its stock can keep (the stock standing over `follows` a
+# head), at most `cap`, and falls toward it when the stock is low. `dam` (brief 5 §4): the meadow and pasture beside it lose that
+# share of their grass's capacity (`floods`, so of their hay), the water beside it gains (`fish`); broken, it stays down
+# `rebuild_seasons` seasons while the family lives.
 SPRING = {0: (0, 7)}
 SITES = {
     "heronry": {"home": "colony", "where": {"covers": ["forest"], "beside": ["water"], "or_river": True}, "p": 0.6, "size": (6, 24), "cap": 24, "grow": 0.25,
                 "season": SPRING, "leaves": 0.35, "hard_winter": {"frozen": 3, "crash": 0.5},
                 "troubled_by": ["fell", "hunt the wild", "stalk", "drive", "gather young"],   # at the nests, not the quiet work (D2-204 names)
-                "eats": {"res": "fish", "covers": ["water"], "share": 0.0004},
+                "eats": {"res": "fish", "covers": ["water"], "each": 0.02, "most": 0.2, "follows": 1.0},   # brief 5 §4 (calibrate)
                 "take": {"season": {0: (3, 7)}, "item": "meat", "each": 0.3, "most": 4, "words": "young herons from the nests"}},
     "rookery": {"home": "colony", "where": {"covers": ["forest", "scrub"], "beside": ["field"]}, "p": 0.8, "size": (20, 70), "cap": 80, "grow": 0.2,
                 "season": SPRING, "leaves": 0.0, "hard_winter": {"frozen": 4, "crash": 0.2},
@@ -442,7 +466,7 @@ SITES = {
                 "take": {"season": {0: (4, 7)}, "item": "meat", "each": 0.12, "most": 10, "words": "young rooks from the nests"}},
     "lodge": {"home": "lodge", "where": {"covers": ["forest", "scrub", "meadow"], "river": True}, "p": 0.15, "size": (2, 6), "cap": 6, "grow": 0.15,
               "season": {1: (0, 7)}, "leaves": 0.0, "rare": True,
-              "dam": {"floods": {"covers": ["meadow", "pasture"], "res": "grass", "K": 0.6}, "fish": 1.3, "dead": 20.0, "rebuild_days": 3},
+              "dam": {"floods": {"covers": ["meadow", "pasture"], "res": "grass", "K": 0.6}, "fish": 1.3, "dead": 20.0, "rebuild_seasons": 1},
               "trap": {"item": "beaver pelt", "also": {"castoreum": 1}}},
 }
 SITE_SIGNS = {
@@ -458,7 +482,9 @@ SITE_SIGNS = {
     "lodge": {"back": [R("lay", "sight", 0.7, (0, 0), "trees cut to points by the water at {place}, chips all round them"),
                        R("knows", "sight", 0.7, (0, 0), "beaver: pencil-point stumps and a lodge of sticks on the brook at {place}"),
                        R("expert", "sight", 0.6, (0, 0), "a beaver family of about {n} at {place}: the pond holds fish and fowl, the dam floods the meadow; trap them and they're gone for good")],
-              "dam": [R("all", "sight", 0.9, (0, 0), "the low meadow at {place} under water again behind a dam of sticks")],
+              "dam": [R("all", "sight", 0.9, (0, 0), "the low meadow at {place} under water again behind a dam of sticks"),
+                      R("knows", "sight", 0.7, (0, 0), "the meadow at {place} lies drowned behind the beavers' dam: little hay off it while the dam stands")],
+              "pond": [R("knows", "sight", 0.6, (0, 0), "the beavers' dam has backed up the water at {place} into a deep pond: more fish in it in time")],
               "broken": [R("all", "sight", 0.8, (0, 0), "the dam at {place} broken open, the water running out of the meadow")],
               "here": []},
 }

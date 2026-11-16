@@ -1068,7 +1068,10 @@ def test_a_beaver_dam_floods_the_meadow_breaking_it_drains_it_and_the_beavers_re
     r = _do(w, "Bo", {"do": "work", "what": "break a dam", "at": w.s["parcels"][site["parcel"]]["name"]})
     assert "broke open" in r, r
     assert all(abs(w.s["parcels"][q]["res"]["grass"]["K"] - v) < 1e-6 for q, v in flooded.items())
-    for _ in range(4):
+    for _ in range(w.season_len - 1):                                                          # down a season (brief 5 §4)
+        N.night(w); w.s["day"] += 1
+    assert not w.s["wild"]["sites"][sid]["dam"]
+    for _ in range(2):
         N.night(w); w.s["day"] += 1
     assert w.s["wild"]["sites"][sid]["dam"]                                                    # rebuilt while the family lives
 

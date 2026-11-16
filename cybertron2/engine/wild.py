@@ -763,8 +763,15 @@ def _sites_night(w, m, st) -> dict:
                 site["size"] = round(float(site["size"]) * (1 - float(hw["crash"])), 2)
                 site["why"] = "crash"
             else:
-                site["size"] = round(float(site["size"]) + float(sp["grow"]) * (float(sp["cap"]) - float(site["size"])), 2)
-                site["why"] = "grew"
+                cap = float(sp["cap"])
+                fol = (sp.get("eats") or {}).get("follows")
+                if fol:                                                    # the heads the village's stock can keep (brief 5 §4)
+                    have = _site_stock(w, node, sp["eats"])
+                    if have:
+                        cap = min(cap, sum(have.values()) / float(fol))
+                size0 = float(site["size"])
+                site["size"] = round(size0 + float(sp["grow"]) * (cap - size0), 2)
+                site["why"] = "grew" if site["size"] >= size0 or cap >= float(sp["cap"]) else "few"
             site["back"] = w.d
         for name, rg in REGIMES.items():                                   # a great freeze takes the herons
             if site["kind"] in (rg.get("site_crash") or {}) and name in REGIMES_ON(w, node) and site.get("froze") != w.d - 1:
@@ -776,14 +783,15 @@ def _sites_night(w, m, st) -> dict:
                 site["gone"] = w.d                                          # troubled at the nests: gone for years (D2-198)
                 out[sid] = {"gone": True}
                 continue
-        if sp.get("eats"):
+        if sp.get("eats"):                                                 # its need, shared over the village's stock (brief 5 §4)
             e_ = sp["eats"]
-            for q, par in sorted(w.s["parcels"].items()):
-                r = (par.get("res") or {}).get(e_["res"])
-                if par["node"] == node and par["cover"] in e_["covers"] and r and float(r["S"]) > 0:
-                    qty = round(float(r["S"]) * min(0.2, float(e_["share"]) * float(site["size"])), 4)
-                    if qty > 1e-6:
-                        w.apply("draw", node, parcel=q, key=e_["res"], qty=qty)
+            have = _site_stock(w, node, e_)
+            tot = sum(have.values())
+            need = float(e_["each"]) * float(site["size"])
+            for q, S_ in sorted(have.items()):
+                qty = round(min(float(e_["most"]) * S_, need * S_ / tot), 4) if tot > 1e-9 else 0.0
+                if qty > 1e-6:
+                    w.apply("draw", node, parcel=q, key=e_["res"], qty=qty)
         if sp.get("harm") and _season_window(w, w.d, win):
             h = sp["harm"]
             near = set(w.s["parcels"][pid].get("adj") or []) if h.get("beside") else {q for q, p_ in w.s["parcels"].items() if p_["node"] == node}
@@ -798,11 +806,22 @@ def _sites_night(w, m, st) -> dict:
                         w.apply("draw", node, parcel=q, key="crop", qty=qty, **({"holder": hd} if hd is not None else {}))
                         site["harm_day"], site["harm_at"] = w.d, q
                         out.setdefault(sid, {})["harm"] = round(out.get(sid, {}).get("harm", 0.0) + qty, 4)
-        if sp.get("dam") and not site.get("dam") and float(site["size"]) >= 1 and w.d - int(site.get("broken", w.d)) >= int(sp["dam"]["rebuild_days"]):
+        if sp.get("dam") and not site.get("dam") and float(site["size"]) >= 1 and \
+                w.d - int(site.get("broken", w.d)) >= int(round(float(sp["dam"]["rebuild_seasons"]) * w.season_len)):   # down a season (brief 5 §4)
             _dam(w, sid, site, True)
             site["rebuilt"] = w.d
     if sites != (w.s["wild"].get("sites") or {}):
         w.apply("set_wild", m.nodes[0], path=["sites"], value=sites)
+    return out
+
+
+def _site_stock(w, node, e_) -> dict:
+    """{parcel: stock standing} of a site's `eats` stock on the village's parcels of its covers."""
+    out = {}
+    for q, par in sorted(w.s["parcels"].items()):
+        r = (par.get("res") or {}).get(e_["res"])
+        if par["node"] == node and par["cover"] in e_["covers"] and r and float(r["S"]) > 0:
+            out[q] = float(r["S"])
     return out
 
 
@@ -1131,6 +1150,68 @@ def frozen_run(w, node, day=None, most=6) -> int:
     return n
 
 
+def _home_i(w, m, node):
+    land = (w.s.get("wild") or {}).get("land") or {}
+    aid = (land.get("home") or {}).get(node)
+    return m.ids.index(aid) if aid in m.ids else None
+
+
+def _water_parts(m, i) -> dict:
+    """An area's water as shares of its land, by how long each stays open in a frost (kinds.OPEN_WATER): its lakes, its big river,
+    and the rest (the small waters: pools, brooks, ponds), from the land summary (wild/areas.py) as the ecology's `water` feature."""
+    a = m.land["areas"][m.ids[i]]
+    km2 = max(float(m.km2[i]), 1e-6)
+    total = float(m.f["water"][i])
+    lake = min(total, float(a.get("lake_km2", 0.0)) / km2)
+    big = min(total - lake, 0.6 * float(a.get("big_river_km", 0.0)) * float(m.land.get("km", 0.15)) / km2)
+    return {"small": max(0.0, total - lake - big), "big river": big, "lake": lake}
+
+
+def open_water(w, m, i, node, day=None, kind=None) -> float:
+    """The cold's push at area i (brief 5 §4; kinds.OPEN_WATER, PUSHED): what a pushed kind's density at the water is multiplied by.
+    1 with no hard frost at the node or no water in the area; on a frost of n nights in a row, its wet ground and water over the
+    water still open (each part open while n is within its `hold`), at most the kind's `most`; 0 when all of it is frozen over."""
+    from cybertron2.wild.kinds import OPEN_WATER, PUSHED
+    parts = _water_parts(m, i)
+    total = sum(parts.values())
+    if total <= 1e-9:
+        return 1.0
+    hold = OPEN_WATER["hold"]
+    n = frozen_run(w, node, day, most=max(int(x) for x in hold.values()) + 1)
+    if n <= 0:
+        return 1.0
+    open_ = sum(v for k, v in parts.items() if n <= int(hold[k]))
+    if open_ <= 1e-9:
+        return 0.0
+    most = float((PUSHED.get(kind) or {}).get("most", max([float(v["most"]) for v in PUSHED.values()] or [1.0])))
+    return min(most, (float(m.f["wet"][i]) + total) / open_)
+
+
+def at_water(w, pid):
+    """Whether a parcel is at the water, and how: "water" (a water parcel, or one a river runs through) or "small" (only a brook);
+    None off the water."""
+    par = w.s["parcels"].get(pid) or {}
+    riv = (par.get("land") or {}).get("river")
+    if par.get("cover") == "water" or riv == "river":
+        return "water"
+    return "small" if riv == "brook" else None
+
+
+def pushed(w, m, node, pid, kind, i, day=None) -> float:
+    """A kind's density at a parcel in area i by the cold's push (open_water): 1 for a kind not pushed, or off the water; at a brook
+    only while the small waters are open."""
+    from cybertron2.wild.kinds import OPEN_WATER, PUSHED
+    if kind not in PUSHED:
+        return 1.0
+    how = at_water(w, pid)
+    if how is None:
+        return 1.0
+    f_ = open_water(w, m, i, node, day, kind)
+    if how == "small" and f_ != 1.0 and frozen_run(w, node, day, most=int(OPEN_WATER["hold"]["small"]) + 1) > int(OPEN_WATER["hold"]["small"]):
+        return 0.0
+    return f_
+
+
 def _season_of(w, day):
     cal = w.calendar(day)
     return ["spring", "summer", "autumn", "winter"].index(cal["season"]), int(cal["day"]) - 1
@@ -1173,6 +1254,12 @@ def cond(w, node, c, kind=None, m=None, st=None, ri=None, day=None, ctx=None) ->
             k0 = eco_day(w, day)
             start = day - ((k0 % Y) - 3 * S) if (k0 % Y) >= 3 * S else day - (k0 % Y) - S
             if sum(1 for d in range(max(0, start), max(0, start) + S) if d <= day and _frozen_day(w, node, d)) < int(v):
+                return False
+        elif key == "open_water":
+            m_ = m if m is not None else model(w)
+            hi = _home_i(w, m_, node)
+            f_ = open_water(w, m_, hi, node, day) if hi is not None else 1.0
+            if ("frozen over" if f_ <= 0.0 else ("crowded" if f_ > 1.0 + 1e-6 else "open")) != v:
                 return False
         elif key == "rain_after_dry":
             if _wx(w, node, day)["rain"] < 1.5 * RAIN_MEAN or any(_wx(w, node, day - k)["rain"] >= 0.5 * RAIN_MEAN for k in range(1, int(v) + 1)):
@@ -2190,7 +2277,7 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
         focus = (3.0 if k in want else 0.4) if want else 1.0
         x = when_for(k) * max(fam(mb, k) for mb in members) * focus * float(tw) * finds   # familiarity with the kind (D2-204 §5): the party's best
         for i in areas:
-            dens = float(st["pop"][k][i])
+            dens = float(st["pop"][k][i]) * pushed(w, m, here.node, key, k, i)   # the cold's push onto open water (brief 5 §4)
             shy = 1.0 + float(WARY["detect"]) * learned(wary0[k][i])        # game that has learned people is harder to come on (4b §2.1)
             lam = dens * float(tk.get("detect", 0.2)) * efx[k]["detect"] * x / (1.0 + 0.5 * min(4.0, pressure0[k][i])) / shy \
                 * ground[i] * float(HUNT["meet"]) * (float(LEAD["seen"]) if led else 1.0)   # a beast led: the game knows them sooner
@@ -2325,9 +2412,9 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
                    best["name"], False))
         if rng_word == "near" and key in here.parcels():                    # the kill's signs (signs.HUNTED)
             rec = here.parcels()[key].get("hunted") or {}
-            kills = list(rec.get("kills") or []) if rec.get("day") == here.day else []
-            kills.append({"by": best["name"], "meat": got.get("meat", 0.0), "hide": "hide" in got, "kind": k})
-            here.apply("set", ref=("parcel", key), field="hunted", value={"day": here.day, "kills": kills})
+            on_ground = list(rec.get("kills") or []) if rec.get("day") == here.day else []    # not `kills`, the members' count
+            on_ground.append({"by": best["name"], "meat": got.get("meat", 0.0), "hide": "hide" in got, "kind": k})
+            here.apply("set", ref=("parcel", key), field="hunted", value={"day": here.day, "kills": on_ground})
     for k, pop in sorted(pops.items()):
         here.apply("set_wild", path=["state", "pop", k], value=pop)
     _put_pressure(here, pressure, wary)
