@@ -166,7 +166,7 @@ def test_a_shut_weir_takes_about_its_share_and_an_open_one_little(river, monkeyp
         w.s["wild"]["state"]["pop"]["otter"] = [0.0] * WL.model(w).n
         N.night(w)
         c = w.s["containers"][WL.weir_trap(w, bid)]
-        got[gap] = round(float(c["goods"].get("meat", 0.0)) / float(WK.TAKEN["eel"]["goods"]["meat"]))
+        got[gap] = round(float(c["goods"].get("fish", 0.0)) / float(WK.TAKEN["eel"]["goods"]["fish"]))
     assert got["shut"] == 12                                                       # a section's 30% (D2-210)
     assert got["open"] <= 2
 
@@ -180,7 +180,7 @@ def test_a_worn_weir_takes_less(river, monkeypatch):
     w.s["wild"]["state"]["pop"]["otter"] = [0.0] * WL.model(w).n
     N.night(w)
     c = w.s["containers"][WL.weir_trap(w, bid)]
-    assert round(float(c["goods"]["meat"]) / 0.2) == 9                             # 0.3 x 0.3 of the run at a holed weir (D2-210)
+    assert round(float(c["goods"]["fish"]) / 0.2) == 9                             # 0.3 x 0.3 of the run at a holed weir (D2-210)
 
 
 def test_the_weir_is_crew_work_built_on_a_river_and_its_gap_set_by_its_crew(river):
@@ -224,8 +224,8 @@ def test_a_weirs_traps_emptied_by_another_leave_a_trace(river, monkeypatch):
     N.night(w)
     morning(w, w.d + 1)
     pid = w.s["containers"][cid]["parcel"]
-    r = do(w, other, {"do": "take", "item": "meat", "from": w.s["parcels"][pid]["name"]})
-    assert "meat" in r
+    r = do(w, other, {"do": "take", "item": "fish", "from": w.s["parcels"][pid]["name"]})
+    assert "fish" in r
     rb = w.s["containers"][cid].get("robbed") or {}
     assert rb.get("by") == other
     ev = [e for e in w.s["events"] if e.get("kind") == "take" and set(crew) & set(e.get("concerns") or [])]
@@ -259,9 +259,9 @@ def test_a_shut_dam_holds_about_its_share_of_a_run_going_up_and_they_can_be_take
                         w2 = copy.deepcopy(w)
                         o = w2.rng
                         w2.rng = lambda *k, o=o, s_=s_: o(*k, "t", s_)
-                        before = float(w2.s["containers"][Here(w2, who).hands]["goods"].get("meat", 0.0))
+                        before = float(w2.s["containers"][Here(w2, who).hands]["goods"].get("fish", 0.0))
                         do(w2, who, {"do": "gather", "what": "net", "at": w2.s["parcels"][WL.mill_water(w2, mill)]["name"]})
-                        tries += float(w2.s["containers"][Here(w2, who).hands]["goods"].get("meat", 0.0)) > before
+                        tries += float(w2.s["containers"][Here(w2, who).hands]["goods"].get("fish", 0.0)) > before
                     assert tries >= 3
                 break
             N.night(w)
@@ -297,7 +297,7 @@ def test_a_trap_in_the_race_takes_the_weirs_share_of_a_run_going_down(river, mon
         pulse(w, "Millham", n=60.0)
         rec = N.night(w)
         got[trap] = ((rec["wild"].get("runs") or {}).get("race") or {}).get(bid, {}).get("eel", 0)
-    assert got[True] == 10 and got[False] == 0                                     # half of 60, held to a trap's 3 food (D2-213)
+    assert got[True] == 15 and got[False] == 0                                     # half of 60, held to a trap's 3 food: 15 eels (D2-213, D2-216)
 
 
 def test_the_mills_gap_is_set_by_those_who_manage_it(river):
@@ -613,15 +613,26 @@ def test_fish_alive_in_a_weir_or_a_trap_do_not_spoil_until_lifted(river, monkeyp
     assert w.s["containers"][cid]["goods"] == had and had
 
 
-def test_a_spate_wrecks_a_trap_in_the_river(river, monkeypatch):
+def test_a_flood_very_likely_and_a_spate_half_the_time_wrecks_a_trap_in_the_river(river, monkeypatch):
+    """D2-211, D2-218: a set trap in running water is wrecked, its catch lost, at about 0.85 in a flood and half in a spate; never at a
+    normal flow."""
     no_new_runs(monkeypatch)
-    w = fresh(river)
-    no_robbers(w)
-    who = adults(w, "Saltwell")[0]
-    do(w, who, {"do": "gather", "what": "trap in water", "at": w.s["parcels"][water(w, "Saltwell")]["name"]})
-    monkeypatch.setattr(RU, "flow", lambda *a, **k: "flood")
-    rec = N.night(w)
-    assert rec["wild"]["runs"].get("wrecked")
+    share = {}
+    for fl in ("flood", "spate", "normal"):
+        monkeypatch.setattr(RU, "flow", lambda *a, fl=fl, **k: fl)
+        n = 0
+        for s_ in range(40):
+            w = fresh(river)
+            o = w.rng
+            w.rng = lambda *k, o=o, s_=s_: o(*k, "wreck", s_)
+            no_robbers(w)
+            who = adults(w, "Saltwell")[0]
+            do(w, who, {"do": "gather", "what": "trap in water", "at": w.s["parcels"][water(w, "Saltwell")]["name"]})
+            rec = N.night(w)
+            n += bool(rec["wild"]["runs"].get("wrecked"))
+        share[fl] = n / 40
+    assert share["flood"] == pytest.approx(WATER_WORKS["trap"]["wreck"]["flood"], abs=0.15) and share["flood"] < 1.0
+    assert share["spate"] == pytest.approx(0.5, abs=0.2) and share["normal"] == 0.0
 
 
 def test_fresh_fish_keep_twice_as_badly_as_meat_in_a_store_and_alike_in_hand(river):
@@ -634,6 +645,8 @@ def test_fresh_fish_keep_twice_as_badly_as_meat_in_a_store_and_alike_in_hand(riv
         assert fish == pytest.approx(2 * meat)
     assert NI.spoil_rate(p, "fish", "hand", "autumn", False) == pytest.approx(NI.spoil_rate(p, "meat", "hand", "autumn", False))
     assert NI.spoil_rate(p, "fish", "store", "autumn", False) == pytest.approx(0.18, abs=0.01)
+    assert set(WK.TAKEN["eel"]["goods"]) == {"fish"} and WK.TAKEN["salmon"]["goods"] == {"fish": 2.0}   # so it reaches them (D2-216)
+    assert ITEMS["fish"]["food"] * WK.TAKEN["salmon"]["goods"]["fish"] == 2.0
 
 
 def test_a_set_trap_holds_about_three_food_in_the_river_or_the_race(river, monkeypatch):
@@ -649,4 +662,4 @@ def test_a_set_trap_holds_about_three_food_in_the_river_or_the_race(river, monke
     cid = next(c for c, x in w.s["containers"].items() if x.get("kind") == "set" and x.get("by") == who)
     food = sum(float(q) * ITEMS[i]["food"] for i, q in w.s["containers"][cid]["goods"].items())
     assert food <= WATER_WORKS["trap"]["hold"] + 1e-9 and food >= WATER_WORKS["trap"]["hold"] - 0.31
-    assert rec["wild"]["runs"]["race"][bid]["eel"] == 10                           # 100 eels came through the race; it held 10
+    assert rec["wild"]["runs"]["race"][bid]["eel"] == 15                           # 100 eels came through the race; it held 15 (D2-216)

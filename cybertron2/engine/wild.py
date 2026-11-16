@@ -2452,7 +2452,7 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
                     mb["here"].apply("create", dst=mb["out"], item=item, qty=share, why=tech)
                     held[mb["name"]][item] = round(held[mb["name"]].get(item, 0.0) + share, 2)
                     load[mb["name"]] += share * wt
-                    food[mb["name"]] += share if item == "meat" else 0.0
+                    food[mb["name"]] += share if item in ("meat", "fish") else 0.0   # eels and salmon are fish (D2-216)
                     got[item] = round(got.get(item, 0.0) + share, 2)
             if need - got.get(item, 0.0) > 1e-9:
                 left[item] = round(left.get(item, 0.0) + need - got.get(item, 0.0), 2)

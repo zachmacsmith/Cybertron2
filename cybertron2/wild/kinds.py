@@ -636,8 +636,8 @@ TAKEN = {
     "fox":        {"family": ["fox", "foxes", "vermin"], "detect": 0.15, "flee": 0.6, "goods": {"hide": 1},
                    "litter": {"home": "den", "if": {"seasons": {0: (0, 7)}}, "n": 3}},       # cubs at the earth in spring (D2-204: on the kind)
     # D2-204 (brief 1): an eel trap took eels that gave nothing (no row); a night's lift is several eels (calibrate)
-    "eel":        {"family": ["eel", "eels", "fish"], "detect": 0.4, "flee": 0.3, "goods": {"meat": 0.2}},
-    "salmon":     {"family": ["salmon", "fish"], "detect": 0.4, "flee": 0.4, "goods": {"meat": 2.0}},       # brief 5 §4 (calibrate)
+    "eel":        {"family": ["eel", "eels", "fish"], "detect": 0.4, "flee": 0.3, "goods": {"fish": 0.2}},     # fish goods (D2-216)
+    "salmon":     {"family": ["salmon", "fish"], "detect": 0.4, "flee": 0.4, "goods": {"fish": 2.0}},       # brief 5 §4; fish (D2-216)
     "lamprey":    {"family": ["lamprey", "lampreys", "fish"], "detect": 0.4, "flee": 0.3, "goods": {"meat": 0.3}},
     "otter":      {"family": ["otter", "otters", "vermin"], "detect": 0.1, "flee": 0.6, "goods": {"hide": 1}},
     "wolf":       {"family": ["wolf", "wolves", "big game"], "detect": 0.12, "flee": 0.5, "danger": {"wound": 0.25, "kill": 0.04},

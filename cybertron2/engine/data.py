@@ -344,7 +344,7 @@ WATER_WORKS = {"weir": {"sections": {"wattle": {"share": 0.30, "hold": 10.0, "we
                                  "flow_at": [[0.3, "low"], [1.5, "normal"], [3.0, "high"], [5.0, "spate"]], "gap_high": 1.5,
                                  "ice": 3.0, "thaw": 5.0},
                         "mend": 0.06, "units": {"shut": 2, "open": 1}},
-               "trap": {"wreck": {"spate": 0.5, "flood": 1.0},
+               "trap": {"wreck": {"spate": 0.5, "flood": 0.85},           # a flood very likely, not always (D2-218)
                         "hold": 3.0},                       # a set trap in water, in the river or a race, holds this food (D2-213)
                "mill": {"stop": 0.5, "race": 0.5, "open_rate": 0.5, "units": {"shut": 1, "open": 1}}}
 # Extravagance in tiers (D2-171; calibrate): materials and work multiplied; noticed further (signs.BUILDING, layout, roads).

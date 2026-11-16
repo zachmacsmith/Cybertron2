@@ -31,8 +31,9 @@ def _with_people(generated, n=3):
 def test_the_hunt_has_its_own_hard_curve_and_the_meat_is_on_the_cows_scale():
     assert KN.curve("stalk") == (1.0, 8.0) and KN.curve("hunt the wild") == (1.0, 8.0) and KN.curve("snare") != (1.0, 8.0)   # 4c §3.1
     assert KN.skill_of_practice("stalk", 10) < 2.0 < KN.skill_of_practice("stalk", 40)       # a high ceiling, climbed by practice (4c §3.3)
-    goods = {k: (WK.TAKEN[k].get("goods") or {}).get("meat") for k in ("red deer", "roe deer", "wild boar", "brown hare", "eel")}
-    assert goods == {"red deer": 20.0, "roe deer": 4.5, "wild boar": 15.0, "brown hare": 0.7, "eel": 0.2}
+    goods = {k: (WK.TAKEN[k].get("goods") or {}).get("meat") for k in ("red deer", "roe deer", "wild boar", "brown hare")}
+    assert goods == {"red deer": 20.0, "roe deer": 4.5, "wild boar": 15.0, "brown hare": 0.7}
+    assert WK.TAKEN["eel"]["goods"] == {"fish": 0.2}                               # eels are fish goods (D2-216)
     assert TECHNIQUES["stalk"]["sweep"] == 0.4 and TECHNIQUES["drive"]["sweep"] == 2.0
 
 
