@@ -366,6 +366,35 @@ About 22. "Standard" means on by default, so older world files load as they do n
 | 4 | The rest, least coupled first: water, writing, tags, burial, teaching, labour, roads, evening; then farming, enclosure; then buildings, shelter, fire, food, life, with the signs and prompt split | unchanged |
 | 5 (separate decisions) | Populations in one form; layers first-class; the grid choice (§2.6); weather coupled if wanted | behaviour changes |
 
+#### 9.1 Alongside other work: in parallel, but not on a long-lived branch
+
+**Proposed:** content goes on during the refactor, but the refactor merges into `main` in small steps, not on one branch that is
+folded in at the end.
+
+**Why not one long branch.**
+- **Most engine commits would need porting by hand.** Since 23 Oct, 165 of the 208 commits touching the engine touched at least
+  one of the six files the refactor splits (`data.py`, `verbs.py`, `run.py`, `prompt.py`, `signs.py`, `world.py`). On a branch
+  where those files are split up, about four in five of `main`'s engine commits would have to be re-expressed by hand.
+- **The golden baseline moves.** Calibration briefs change behaviour on `main` all the time, so the branch's golden journals must
+  be re-taken at every sync.
+- **The branch chases a moving target.** Porting debt grows at about 1 to 1.5 builder-days a week for each session building
+  content, against a refactor pace of about 3 to 4 active days a week.
+  - With one content session, that roughly doubles the calendar time.
+  - With two, the branch may not catch up at all.
+- **Everything lands at once.** The fold-in becomes one large, risky merge at the end.
+
+**How it runs instead:**
+1. **A spike branch, 3 to 5 builder-days, run beside content.** Build the core registries and the animals pilot roughly, to test
+   the design: the manifest, the phase sort, `requires`, lazy sign contexts and their speed. Kept for reference or thrown away;
+   never merged as it is.
+2. **Phases 0, 1 and 1b on `main`, in small commits,** each checked against the golden journals.
+   - Phase 1 adds the registries beside the old paths and moves no code, so it barely conflicts with content work.
+   - Phase 1b changes the notice draws once, on a named day, so content sessions re-take their baselines together.
+3. **From the end of phase 1, new features are written as packages.** The migration's cost stops growing. The wild layer lands as
+   the first package.
+4. **Each package moves on a short branch** of 1 to 3 days, with a freeze on that package's files announced on the board. Content
+   work on other packages goes on meanwhile.
+
 ### 10. Estimate
 
 From the inventory and the engine's size by file. A **builder-day** is one active day of a building session, the unit in which
@@ -559,6 +588,9 @@ On decision:
 - **16 Nov 2026: §11 added.** Zach asked how much easier building becomes and how the cost grows if more is built first. The
   answer is measured from git: hub-file commits, and the wild briefs' spread from 651 to 1,835 lines in 21 files. Phase 2's estimate
   is raised to 4 to 7 days to match `ecology-hunt3`.
+- **16 Nov 2026: §9.1 added.** Zach asked whether to refactor on one branch while development goes on and fold the later features in.
+  The answer: in parallel, but merged into `main` in small steps after a short spike, since about four in five engine commits touch
+  the files the refactor splits.
 
 ## Sources
 
