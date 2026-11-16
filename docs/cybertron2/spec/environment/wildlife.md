@@ -72,5 +72,7 @@ is, these rules wait for it.
 - **Carcasses and bodies** (D2-205): a carcass, and a body unburied or shallowly buried, is food for the wild kinds that scavenge,
   in stages by its size on the day's clock (proposals/carcass_and_decay.md; calibrate); a grave dug to its full units draws nothing.
 - **The cat** (D2-206): settles by itself at a building with mice, or is found and brought.
+- **The river and water** (D2-209): runs move along the river with a lag, thinned by what is taken; a weir and a mill on a run's river each
+  have a gap, open or shut, that decides what passes; the salmon's return is one world year; no custom about the water is seeded.
 
-*Current as of 9 Nov 2026: D2-192 to D2-198, D2-204 to D2-206.*
+*Current as of 16 Nov 2026: D2-192 to D2-198, D2-204 to D2-206, D2-209.*

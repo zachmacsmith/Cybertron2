@@ -1,6 +1,6 @@
 # River and water: the runs, the weir, the mill, salt and what lives by the water: build brief 5
 
-**Status:** draft, revised 16 Nov from the economy research (02zzj) for Zach's check; to go after brief 4c (`hunt_calibration.md`).
+**Status:** accepted for building: D2-209 (16 Nov), question 5 open; after brief 4c (`hunt_calibration.md`), the merge left to the building session.
 **Build brief 5** for the wild layer: pack K4 (02zv §4) without its fen-only and boat parts, on the engine as built by briefs 1 to
 4b and calibrated by 4c; with the river as one site with many claims (the mill and the weir), salt boiled inland (D2-56), and fuel
 as a real draw. A runs-only world follows the gate as a test of its own (§8).
@@ -334,20 +334,28 @@ generate; nothing in the engine changes for it.
 1. The salmon's three-year return compressed into the world's years (a year is 32 days, so 96 days, longer than any run so far), or
    shortened. Proposed: one world year (32 days), so a run of 45 days or more sees a shut weir's cost. That is a compression like the
    lifespan's, stated as such.
+   **Answered (D2-209): one world year.**
 2. Whether the weir's gap has a customary rule seeded in any world (no: nothing social is forced), or is only physical (proposed).
    The same for the mill's gap and the spring.
+   **Answered (D2-209): nothing seeded; physical only.**
 3. The run-night target at a weir (§7). Proposed: about 1 to 2 food a unit at a sound, shut weir on a run night, near nothing
    otherwise. Over an autumn that is a few good nights, above brief 4c's master near home only on those nights.
+   **Answered (D2-209): about 1 to 2 food a unit, to calibrate.**
 4. Whether the weir waits for 37.4's merge of briefs 1 to 4c (proposed), or starts on the stacked branch.
+   **Answered (D2-209): the building session decides.**
 5. **The mill's trade** (§3a): open, the mill grinds at about half its rate. Proposed: half, so a miller who lets the salmon through
    loses half a day's grinding on each run night, and a lower village with a mill has a real choice.
+   **Still open** (16 Nov: Zach asked what the gap open means; explained in conversation).
 6. **Salt's fuel** (§4b): about 1 firewood for each salt from a strong spring, the pan a fitting of a few units, the salter a trade.
    Proposed as stated, to calibrate in the fuel budget (§4c).
+   **Answered (D2-209): yes for now; revisit in calibration (OPEN L-110).**
 7. **Withies and cord:** they sit in the benched materials stage, but they make fishing gear (wicker traps, nets) as well as hunting
    gear. Proposed: leave them benched for this brief (it uses the traps and nets already built), and split them from the hunting
    economy when gear for fishing comes up.
+   **Answered (D2-209): benched for this brief; they go to the hunting and resources build, a soon follow-up (OPEN L-111).**
 8. **The runs-only world (§8):** to design now and run after the gate, or only to keep as an idea. And its cast: proposed Opus at each
    station's lead household (three), Sonnet and Haiku as scenario_design §2.
+   **Answered (D2-209): designed now by 37.2 while the build starts, then handed to the building session to run after the gate.**
 
 ## History
 
@@ -367,6 +375,9 @@ generate; nothing in the engine changes for it.
   needs (§1); the runs-only world as a test after the gate (§8); boats, the fishpond, the commons' rules and the benched hunting
   economy named in §5; open questions 5 to 8. Nothing in §2 to §4a changed except the salmon's passage past a shut dam and the
   smokehouse's fuel.
+- 16 Nov 2026: accepted for building (D2-209), Zach: "1. yes. 2. yes. 3. sure. 4. I'll be passing this to the other agent ... 5. what is
+  its gap open. 6. for now but flag as revisit ... 7. yes. This will be for the hunting and resources build which should be flagged as a
+  soon follow up. 8. yeah ... you can design the world while it gets started and then pass it on". Question 5 open.
 
 ## Sources
 
