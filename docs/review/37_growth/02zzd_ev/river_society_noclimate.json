@@ -1,0 +1,155 @@
+{
+ "one section each, both shut, dam shut": {
+  "Saltwell": {
+   "food": 10.5,
+   "heads": {
+    "eel": 28,
+    "salmon": 1
+   },
+   "run_nights": 7,
+   "lost": [
+    7
+   ],
+   "flows": {
+    "normal": 32
+   },
+   "upkeep_share": 0.42,
+   "water": "large"
+  },
+  "Millham": {
+   "food": 31.8,
+   "heads": {
+    "eel": 64,
+    "salmon": 5,
+    "lamprey": 7
+   },
+   "run_nights": 13,
+   "lost": [
+    8
+   ],
+   "flows": {
+    "normal": 32
+   },
+   "upkeep_share": 0.48,
+   "water": "large"
+  },
+  "salmon_past_saltwell": 5.3,
+  "return_due_above": 10.26
+ },
+ "full weirs, both shut, dam shut": {
+  "Saltwell": {
+   "food": 19.3,
+   "heads": {
+    "eel": 47,
+    "salmon": 2,
+    "lamprey": 1
+   },
+   "run_nights": 7,
+   "lost": [
+    7,
+    3,
+    8,
+    3
+   ],
+   "flows": {
+    "normal": 32
+   },
+   "upkeep_share": 0.314,
+   "water": "large"
+  },
+  "Millham": {
+   "food": 65.7,
+   "heads": {
+    "eel": 100,
+    "salmon": 13,
+    "lamprey": 14
+   },
+   "run_nights": 12,
+   "lost": [
+    8,
+    8,
+    7,
+    7
+   ],
+   "flows": {
+    "normal": 32
+   },
+   "upkeep_share": 0.45,
+   "water": "large"
+  },
+  "salmon_past_saltwell": 3.3,
+  "return_due_above": 4.84
+ },
+ "one section, Saltwell's open, dam shut": {
+  "Saltwell": {
+   "food": 0.3,
+   "heads": {
+    "eel": 1
+   },
+   "run_nights": 7,
+   "lost": [
+    7
+   ],
+   "flows": {
+    "normal": 32
+   },
+   "upkeep_share": 0.42,
+   "water": "large"
+  },
+  "Millham": {
+   "food": 34.2,
+   "heads": {
+    "eel": 73,
+    "salmon": 5,
+    "lamprey": 7
+   },
+   "run_nights": 13,
+   "lost": [
+    8
+   ],
+   "flows": {
+    "normal": 32
+   },
+   "upkeep_share": 0.48,
+   "water": "large"
+  },
+  "salmon_past_saltwell": 5.3,
+  "return_due_above": 11.42
+ },
+ "one section, Saltwell's open, dam open": {
+  "Saltwell": {
+   "food": 0.3,
+   "heads": {
+    "eel": 1
+   },
+   "run_nights": 9,
+   "lost": [
+    7
+   ],
+   "flows": {
+    "normal": 32
+   },
+   "upkeep_share": 0.42,
+   "water": "large"
+  },
+  "Millham": {
+   "food": 34.0,
+   "heads": {
+    "eel": 71,
+    "salmon": 5,
+    "lamprey": 8
+   },
+   "run_nights": 14,
+   "lost": [
+    8
+   ],
+   "flows": {
+    "normal": 32
+   },
+   "upkeep_share": 0.48,
+   "water": "large"
+  },
+  "salmon_past_saltwell": 11.3,
+  "return_due_above": 18.07
+ }
+}
