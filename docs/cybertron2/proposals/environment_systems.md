@@ -22,7 +22,11 @@ Several designs have touched this, and none is built beyond the fixed land field
 - **the scheduler** (spec/environment/scheduler.md, D2-69 to D2-79): external change drawn from the seed; hazards and incidents;
 - **the engine's clocks** (process_model.md, D4-103): every rate names its clock (day, year, life);
 - **the land fields** (D4-112, D4-113): written to every generated world, and a hook that hands each stock's rule the weather and
-  the land. Only base fertility is read.
+  the land. Only base fertility is read;
+- and, before all of these, **environment_state.md's layers below people's reach** (23 Oct: groundwater per node, the river on its
+  water parcels, floods spreading from them lowest first), **generator.md's world under the graph** (3 Nov: the mesh as ground truth,
+  floods by height, each cell's exposure to hazards, only physics that ends in leverage), **38.04's hidden quality and signs** (22 Oct),
+  and the engine overhaul's **hooks** (7 Nov: hazards read named state variables). The whole history is in 02zzl §4.
 
 **The consolidation:**
 1. **Three speeds** are the spine: fixed land, slow stocks (years), fast stocks (days). Each speed reads the slower ones as its
@@ -59,6 +63,9 @@ Several designs have touched this, and none is built beyond the fixed land field
 - **Areas to areas:** shared edges (`links`, with their length) and the downstream link (`down`).
 - **Parcels to areas:** a node's parcels touch its ring (the unheld land around them), and through it the wild. Fire, plants and
   beasts cross there.
+
+**Only physics that ends in leverage** (generator.md §7, 3 Nov): every stock here must end in a difference people feel and can
+act on (who floods, whose well fails, which field dries), or it is left out.
 
 **Why the cells are not stepped.** Every stock an agent can see or act on is about a parcel, a stretch of river, a node or a
 stretch of wild. Stepping 110,000 cells adds detail no one can see and a much larger daily state to save and replay. The cells
@@ -144,6 +151,13 @@ Nothing spreads or averages across parcels by default. Lateral effects travel on
 | **Down** | the land's flow (`land.down` for parcels; areas' `down`; reaches) | runoff, flood water, silt, fouling, ice breaking up | directed, never back up; a parcel's overflow goes to its `down`, a reach's outflow to the next reach after its lag |
 | **Adjacency** | parcels' `adj`, a node's parcels to its ring, areas' `links`; between nodes along edges as D2-72 allows | fire (by dryness, wind, cover), colonisation by plants (scrub and wood seed into a neighbour; an old field next to a wood goes to wood faster), pests | a chance per neighbour per day, by the shared edge's length and the receiver's state; spreads, never averages |
 | **Links** | the wild layer's area links | beasts, disease (built: wild/ecology.py, diseases.py) | as built |
+
+**Floods, lowest first.** environment_state.md (23 Oct) had floods spread from the water parcels by adjacency, lowest neighbours
+first (the meadow, then the fields, then the houses on the bank). Height above the river (§2) makes that exact: a flood reaches
+every parcel on the reach lower than its excess, so the order is the land's own, and no adjacency walk is needed.
+
+**Groundwater** (23 Oct: one aquifer per node, parcels higher or lower on it, wells failing before the river in a drought) is a
+slow stock on the node when wells come (§9, later), fed by its parcels' soil water and drained by its springs and the river.
 
 **Not lateral:** fertility (it moves only with dung, hay, silt and erosion, all carried), soil water (only by runoff down),
 snow (by height and exposure, not by drift), frost (a hollow's colder night is a fixed property of its position, not a flow of
@@ -244,6 +258,10 @@ they acted on?
 
 - 16 Nov 2026: written by 37.2 at Zach's request, after the waters discussion, widened to the whole environment (02zzl's
   inventory).
+- 16 Nov 2026 (later still): Zach asked for a survey of every earlier consideration of hidden state ("we first considered hidden
+  state ages ago, with water level"). Surveyed both repositories' histories back to 22 Oct (02zzl §4). Added what the consolidation
+  had missed: floods lowest first (environment_state.md, 23 Oct) made exact by height; groundwater per node for wells; only physics
+  that ends in leverage (generator.md §7, 3 Nov); the earlier designs named in the summary.
 - 16 Nov 2026 (later): rewritten as a consolidation, after Zach asked whether the land's quantities at different speeds had been
   specced before. They had: the three speeds agreed on 8 Nov (37.2's message to 37.4; cited in base_fertility.md, L-71), 02zp's five
   layers and four clocks, environment_state.md, the scheduler spec, process_model.md's clocks. The first draft had re-derived the
@@ -252,7 +270,7 @@ they acted on?
 
 ## Sources
 
-37.2's message to 37.4 of 8 Nov (the three speeds; this session's record); docs/review/37_growth/02zzl_environment_gaps.md;
+37.2's message to 37.4 of 8 Nov (the three speeds; this session's record); docs/review/37_growth/02zzl_environment_gaps.md (§4, the history); review 38.04 (places design); generator.md (§2, §7; D2-173, D2-174); 02q_environment_model.py; engine_overhaul.md;
 02zp_ecosystems_deep_dive.md §4 (layers and clocks), §15 (the land fields), §16; proposals/environment_state.md, base_fertility.md
 (D4-112), weather_scheduler.md (D4-113), process_model.md (D4-103 clocks), ecosystems.md, wild_systems.md, wild_layer.md §3.10,
 land_kept.md (D2-208), river_and_water.md (D2-209), environment_catalogue.md, crop_growth.md, building_risks.md;

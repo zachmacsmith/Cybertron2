@@ -95,3 +95,37 @@ fertility, dung); felling (scrub, sight); the beaver's dam (meadow, fish); wild 
   ecosystems.md (disturbance and succession); crop_growth.md §2 (L-68); building_risks.md (L-48); phase3_variance_and_risk.md (L-73);
   L-10 irrigation, L-21 fire, L-34 works on physical facts, L-71 the land's fast stocks, L-100 landscapes; Q-50 one grid or several;
   river_and_water.md (D2-209, being built).
+
+## 4. Every earlier consideration of the land's hidden state, in order (surveyed 16 Nov, at Zach's request)
+
+Found by searching both repositories' histories (Cybertron 1 before the split, this one after) for hidden state, hidden variables,
+water table, water level, river level or reach, groundwater, soil moisture or water, wetness, floods, fast and slow stocks, and
+reading each hit. Two senses run through it: the land's **physical** hidden state (water, soil, fuel), and hidden state as
+**information** people must infer through signs.
+
+| Date | Where | What it said | What became of it |
+|---|---|---|---|
+| 22 Oct | review 38.04 places design (`docs/review/38_space_engine/04_places_design.md`) | each kind of land draws a **hidden quality** within its ranges; a **hidden climate** of two axes (temperature, moisture); incident base rates by kind (floods, fire, fever); **signs** of the hidden state, local ("the river is running high for spring") | the climate axes became the weather scheduler (D4-109); kinds of land became the generator's terrains |
+| 23 Oct | proposals/environment.md and the model `02q_environment_model.py` | one scheduler: eras, years, spells, incidents and spreads; **hazard = base × drivers × exposure (local state)**; paired draws | decided D2-69 to D2-79 (spec/environment/scheduler.md); only the weather built |
+| 23 Oct | proposals/environment_state.md (first version), 02q's cascade demo | Zach: "risks should draw on shared state that can interact (a flood raising water levels, contamination, infection)", "many often-invisible parameters"; **hidden variables** on parcels, waters, buildings, herds, people, nodes, each relaxing to a baseline, one step a day; hazards read them; cascades (a wet spell, the water table, a latrine, the well, flux) | discussion; flagged L-23 (24 Oct); none of its new variables built |
+| 23 Oct | environment_state.md §7 to §10 | **layers below people's reach**: the sky, **groundwater per node** (water table, recharge, cleanness), **the river on its water parcels** (level, flow, silt, cleanness), wetland, soil (moisture, fertility, depth, salt, spores), living things (vegetation, fuel dryness, pests); cross-layer paths (wells fail before the river; clearing raises floods downstream; draining a fen floods below; a tanner upstream fouls the river); **water as a need**; latrines and middens; the first sixteen variables | as above, L-23 |
+| 23 Oct | environment_state.md (Zach: rivers use up parcels) | **rivers take land** as water parcels, a brook a feature; **floods spread from them by adjacency, lowest neighbours first** (meadow, then fields, then houses); the same river continues downstream | water parcels built; floods not |
+| 23 Oct | visibility (D2-99 to D2-103) | sight read each day from the land's state (vegetation, crop, snow, smoke); **computed, not stored** | built |
+| 24 Oct | D2-114 to D2-117 (parcel_graph.md) | parcels as a graph of neighbours with a side and a height | built (`adj`, `side`, `height`) |
+| 1 to 3 Nov | proposals/generator.md (D2-173, D2-174), generator_stage1.md | **a world under the graph**: a mesh of cells kept as ground truth, carrying water, soil, groundwater depth and each cell's **exposure to hazards** (flood plain, fire-prone heath); systems that can read it later: **floods by height**, sight across ridges, bridges by width, water by groundwater depth. **§7: only physics that bottoms out in leverage.** Stage 1 left "the tier 1 environment (year severity, soil moisture, floods, river level)" to stage 2 | the mesh built and kept (D2-208), not loaded by the engine; stage 2 not begun |
+| 5 Nov | 02zo (proposals swept) | environment_state's six questions parked in L-23; rivers as water parcels and visibility built | |
+| 7 Nov | proposals/engine_overhaul.md, process_model.md (D4-103) | hidden state benched as **"hooks only"**: hazards' triggers read named state variables; water as a need folded in minimally; every rate names its **clock** (day, year, life) | the clocks built; the hooks partly (D4-113) |
+| 7 Nov | proposals/water_and_preservation.md | water ecosystems by type (brook, river, mere, fen, coast), the gear ladder, fixed works | discussion; brief 5 builds part |
+| 7 Nov | proposals/living_populations.md §0 | **populations are hidden state; people infer them** through signs, never numbers | the principle for the wild layer (built) |
+| 8 Nov | **37.2 to 37.4, agreed by Zach in principle**: the land at **three speeds** | **fixed** (elevation, exposure, texture as water held and drainage, depth, base fertility, position, rain factor, sea distance, river class, the downstream link); **slow** (a fertility offset, a **wetness offset** moved by drains and dams, a **vegetation state**); **fast** (**soil water, snow, river flow, fuel dryness**, one stock and one rule each, in the parcel's `state`) | fixed fields written (D4-112 reads base fertility); fertility built as the slow offset; wetness offset, vegetation, fast stocks not built; never recorded as a decision |
+| 8 Nov | 02zp ecosystems deep dive §4, §15, §16 | **five layers** (ground, conditions, vegetation, populations, uses) on **four clocks** (day, season, year, decades); sixteen loops; the land fields as written; "37.4 builds the fast stocks"; a calibration backlog waiting on them | the land fields built; the rest not |
+| 8 Nov | proposals/base_fertility.md (D4-112), weather_scheduler.md (D4-113) | base fertility, multiplicative; **the renewal hook** hands each stock's rule the weather and the land | built; the hook unused by any rule |
+| 8 Nov | proposals/phase3_variance_and_risk.md | the scheduler as data; exposure as a registered function of local state; damp fuel; prior work: **a land-surface bucket per place** (Manabe) for soil water, snow and river flow routed downstream | discussion; L-73 |
+| 9 Nov | wild_layer.md §3.10; OPEN L-71 | the fast stocks as **the foundation** the wild layer reads (slugs, eel runs, frozen ground); flagged | not built; the wild layer runs its own soil bucket from rain alone |
+| 9 Nov | 02zr critique and purpose brief §3.3 | **hidden state and an information economy**: lags, quirks and false lore people must read | principle for the wild layer |
+| 16 Nov | this note and proposals/environment_systems.md | the gaps inventoried; the consolidation | discussion (OPEN Q-52) |
+
+**What the consolidation must keep from these and had not:** floods reaching parcels lowest first (23 Oct), which "floods by
+height" (3 Nov) makes exact; groundwater per node as a carrier with wells failing before the river (23 Oct); each cell's exposure
+to hazards (3 Nov); only physics that ends in leverage (3 Nov); hazards reading named variables through registered exposure
+functions (7 and 8 Nov); and hidden state as something people infer (7 and 9 Nov).
