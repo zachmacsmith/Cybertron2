@@ -54,6 +54,7 @@ def dist(a, b):
 class Build:
     def __init__(self, spec: dict, seed: int):
         self.seed = seed
+        self.sharp = float(spec.get("sharp", D.SHARP))
         self.span = int(spec.get("span", 100))
         self.V = {v: d["at"] for v, d in spec["villages"].items()}
         self.off = spec.get("off")
@@ -208,7 +209,10 @@ class Build:
 
     def cands(self, var):
         kind, key = var.id.split(":", 1)
-        return getattr(self, "c_" + kind)(key)
+        out = getattr(self, "c_" + kind)(key)
+        if self.sharp != 1 and (kind == "pairs" or kind == "par" and self.P[key].kind == "present" and self.P[key].age < 16):
+            out = [(k, w ** self.sharp) for k, w in out]          # a household's couples and children: the likeliest reading
+        return out
 
     def blame(self, var):
         """The decisions a decision reads: where its conflict set goes when it has no candidate at all."""
@@ -268,7 +272,10 @@ class Build:
                 gap = self.P[m].age - self.P[f].age
                 if -5 <= gap <= 25:                                 # a couple explains the children they could have borne
                     n = sum(1 for k in self.hh[h]["members"] if self.P[k].age < 16 and 16 <= self.P[f].age - self.P[k].age <= 45)
-                    rec([r for r in rest2 if r != b], pairs + [(m, f)], w * D.gap_w(gap) * 3 * (1 + 4 * n))
+                    sib = any(o not in (m, f) and self.P[o].sex == "f" and 16 <= self.P[o].age - self.P[m].age <= 45
+                              and 16 <= self.P[o].age - self.P[f].age <= 45 for o in self.hh[h]["members"])
+                    rec([r for r in rest2 if r != b], pairs + [(m, f)],
+                        w * D.gap_w(gap) * 3 * (1 + 4 * n) * (D.SIBLIKE if sib else 1.0))
 
         rec(ad, [], 1.0)
         return out
@@ -342,6 +349,8 @@ class Build:
             w *= (self.spacing(q, b) if pq.sex == "f" else 1.0) * self.res_w(x, r) * self.co(x, [q])
             ga = a - D.GAP[0] if pq.sex == "m" else a + D.GAP[0]          # the dead spouse's age then, about
             w *= 1 - D.survive(ga, ga - b)                                 # and dead now
+            w *= self.barren_since(q, b)
+
             out.append((("with", q), max(w, EPS)))
         if v in self.F and b < self.F[v] and not minor:
             out.append((("came",), D.CAME_RATE * D.FBAR))
@@ -362,15 +371,37 @@ class Build:
                 out = [(k, w) for k, w in out if all(q in mem(k) for q in want)]
         return out
 
+    def barren_since(self, q, b):
+        """A dead first spouse who fathered (or bore) a child in year b means q's living marriage came later and has no child
+        living now: the chance a married mother of q's household bore none that lived, from about b + 2 to now."""
+        p = self.P[q]
+        if not p.unions:
+            return 1.0
+        mates = [self.C[c] for c in p.unions if self.C[c].ghost != q]
+        if not mates:
+            return 1.0
+        c = mates[0]
+        m = self.P[c.m]
+        if m.born is None:
+            return 1.0
+        pr = 1.0
+        for y in range(b + 2, 1):
+            pr *= 1 - D.fert(y - m.born) * D.S(-y)
+        return pr
+
     def co(self, x, livers):
         """Living in one household is evidence of kin: a child lives with a living parent; a grown son or an unmarried daughter
         living with an elder is mostly that elder's child (forward model: 9 in 10); a wife mostly lives with her husband's."""
         p = self.P[x]
-        if p.kind != "present" or not livers:
+        if p.kind != "present":
+            return 1.0
+        if p.age < 16 and not livers:
+            return D.FOSTER                                      # both parents dead: raised in another's house
+        if not livers:
             return 1.0
         same = any(self.P[q].hh == p.hh for q in livers)
         if p.age < 16:
-            return 1.0 if same else 0.03
+            return 1.0 if same else D.AWAY
         if p.sex == "f" and self.married(x):
             return 1.0
         return D.CO if same else 1.0

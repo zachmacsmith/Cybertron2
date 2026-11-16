@@ -1,19 +1,19 @@
-{'seeds': 40, 'solved': 40, 'refusals': [], 'deterministic': 40, 'seconds_mean': 0.173, 'seconds_max': 0.8, 'backjumps_total': 0, 'worlds_with_backjumps': 0, 'null_failed': [(42, 'step limit')], 'violations': 0, 'violation_examples': []}
-| mother_age_mean | 29.859 | 28.792 | 30.108 |
-| mother_age_sd | 6.529 | 7.109 | 7.523 |
-| first_birth_age | 24.433 | 23.036 | 26.591 |
-| birth_gap_median | 2.712 | 2.938 | 3.026 |
-| completed_family | 4.76 | 4.654 | 2.884 |
-| families_9plus | 1.4 | 2.15 | 1.154 |
-| died_under_15 | 0.215 | 0.256 | 0.298 |
-| adult_age_at_death | 50.179 | 48.667 | 50.187 |
-| adults_with_living_parent | 0.568 | 0.564 | 0.09 |
-| wives_from_other_village | 0.609 | 0.594 | 0.786 |
-| wives_from_off_map | 0.054 | 0.048 | 0.209 |
-| adults_sibling_other_household | 0.404 | 0.495 | 0.059 |
-| adults_sibling_other_village | 0.598 | 0.471 | 0.167 |
-| adults_sib_or_cousin_other_village | 0.895 | 0.72 | 0.446 |
-| parent_couples_per_present | 0.36 | 0.401 | 0.876 |
-| grandparent_couples_per_present | 0.261 | 0.278 | 1.118 |
-| persons_in_past | 258.575 | 267.075 | 961 |
-{'living_parents_same': 0.449, 'no_living_parent_same': 0.723} {'living_parents_same': 0.017, 'no_living_parent_same': 0.959}
+{'seeds': 40, 'solved': 40, 'refusals': [], 'deterministic': 40, 'seconds_mean': 0.153, 'seconds_max': 0.687, 'backjumps_total': 0, 'worlds_with_backjumps': 0, 'null_failed': [(42, 'step limit')], 'violations': 0, 'violation_examples': []}
+| mother_age_mean | 29.859 | 28.869 | 30.108 |
+| mother_age_sd | 6.529 | 7.056 | 7.523 |
+| first_birth_age | 24.433 | 23.042 | 26.591 |
+| birth_gap_median | 2.712 | 2.95 | 3.026 |
+| completed_family | 4.76 | 4.98 | 2.884 |
+| families_9plus | 1.4 | 2.45 | 1.154 |
+| died_under_15 | 0.215 | 0.251 | 0.298 |
+| adult_age_at_death | 50.179 | 49.881 | 50.187 |
+| adults_with_living_parent | 0.568 | 0.551 | 0.09 |
+| wives_from_other_village | 0.609 | 0.581 | 0.786 |
+| wives_from_off_map | 0.054 | 0.054 | 0.209 |
+| adults_sibling_other_household | 0.404 | 0.481 | 0.059 |
+| adults_sibling_other_village | 0.598 | 0.465 | 0.167 |
+| adults_sib_or_cousin_other_village | 0.895 | 0.726 | 0.446 |
+| parent_couples_per_present | 0.36 | 0.369 | 0.876 |
+| grandparent_couples_per_present | 0.261 | 0.255 | 1.118 |
+| persons_in_past | 258.575 | 256.575 | 961 |
+{'living_parents_same': 0.558, 'no_living_parent_same': 0.734} {'living_parents_same': 0.017, 'no_living_parent_same': 0.959}

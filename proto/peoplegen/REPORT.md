@@ -40,7 +40,7 @@ Each candidate weighs:
 ### 1. Never rejected; refused only by name
 
 - **Forward presents pinned:** 40 of 40 built on seeds 1 to 40, and 40 of 40 on held-out seeds 41 to 80. None was refused.
-  - Mean time 0.14 s, at most 0.9 s, for 60 to 250 living people and 230 to 300 people in the past.
+  - Mean time 0.11 s, at most 0.7 s, for 60 to 250 living people and 230 to 300 people in the past.
   - Backjumps: 3 in all 80 worlds. Realistic presents rarely conflict.
 - **Mixes:** two mixes, 20 seeds each.
   - The default mix: 70% couples with children, 15% old couples, 15% three generations.
@@ -75,23 +75,23 @@ The null arm keeps the same decisions and constraints but weights every allowed 
 
 | | Truth (forward) | Built | Null |
 |---|---|---|---|
-| Mother's age at a birth (mean / sd) | 30.0 / 6.7 | 28.8 / 7.1 | 30.2 / 7.4 |
-| Mother's age at first birth | 24.7 | 22.9 | 26.7 |
+| Mother's age at a birth (mean / sd) | 30.0 / 6.7 | 29.1 / 7.0 | 30.2 / 7.4 |
+| Mother's age at first birth | 24.7 | 23.2 | 26.7 |
 | Birth interval (median, years) | 2.7 | 2.9 | 3.0 |
-| Births to a completed family | 4.73 | 4.69 | 2.84 |
-| Couples with 9 or more births, per world | 1.45 | 1.6 (2.2 held out) | 1.55 |
+| Births to a completed family | 4.73 | 4.87 | 2.84 |
+| Couples with 9 or more births, per world | 1.45 | 1.85 (2.45 held out) | 1.55 |
 | Died under 15 | 22% | 25% | 29% |
-| Age at death, adults | 50.7 | 49.0 | 50.5 |
-| Adults with a living parent | 54% | 54% | 9% |
-| Wives born in another village | 63% | 56% | 78% |
+| Age at death, adults | 50.7 | 50.8 | 50.5 |
+| Adults with a living parent | 54% | 53% | 9% |
+| Wives born in another village | 63% | 57% | 78% |
 | Wives born off the map | 7% | 6% | 23% |
 | Adults with a sibling in another household of the village | 40% | 46% | 6% |
-| Adults with a sibling in another village | 59% | 46% | 14% |
-| Adults with a sibling or cousin in another village | 89% | 71% | 41% |
-| Parent couples per living person | 0.36 | 0.40 | 0.89 |
-| Grandparent couples per living person | 0.28 | 0.27 | 1.14 |
-| People in the past | 239 | 238 | 882 |
-| Living people given the true living parents | | 49% | 2% |
+| Adults with a sibling in another village | 59% | 45% | 14% |
+| Adults with a sibling or cousin in another village | 89% | 73% | 41% |
+| Parent couples per living person | 0.36 | 0.36 | 0.89 |
+| Grandparent couples per living person | 0.28 | 0.25 | 1.14 |
+| People in the past | 239 | 228 | 882 |
+| Living people given the true living parents (only the test has a truth: see below) | | 60% (56% held out) | 2% |
 
 **How to read it:**
 - **Demography:** the built pasts match the forward model on every count, to within about a year or a tenth.
@@ -101,13 +101,38 @@ The null arm keeps the same decisions and constraints but weights every allowed 
   - most kin across villages is reproduced.
 - **The null arm** is wrong on all the structural counts, by a factor of 3 to 10. The forward model's weights do the work; the
   constraints alone do not.
-- **Living people given the true living parents: 49%.** This is not a failure of the method. Ages alone often cannot tell a step-parent from a parent, or a
-  lodger from a nephew. The build gives one likely past, not the true one. The null arm gets 2%.
+- **Living people given the true living parents: 60%** (49% in the first version; corrected 16 Nov, below).
+  - **Only the test has a true past.** A forward simulation makes a world. Everything but each person's age, sex and household
+    is hidden, and the build makes a past for what is left. In use there is no truth: the build's past is the past.
+  - **Measured over 3,194 living people whose true parent is also living:**
+
+    | Where the true living parent lives | Share given the same living parents |
+    |---|---|
+    | Children, both parents at home | 88% |
+    | Children, one parent at home | 60% (most of the rest are given the parent's present spouse: a step-parent read as a parent) |
+    | Adults, both parents at home | 63% |
+    | Adults, a parent elsewhere in the village | 8 to 21% |
+    | Adults, a parent in another village | 2 to 8% |
+
+  - **What cannot be read from ages:** a parent who lives in another household or village, a step-parent, and which of two
+    couples in one house a child belongs to (11% of children living with both parents go to the house's other couple).
+  - **What was wrong and is fixed:** in the first version only 73% of children living with both parents got them. Four faults
+    in the weights:
+    - a child living apart from a living parent cost 0.03, against the forward model's 0.0015;
+    - a child joining a couple that was already dead paid no cost for being fostered;
+    - a dead first spouse for a married parent was charged nothing for the childless marriage it implies, and when the
+      youngest child drew it, the older siblings had to follow;
+    - a brother and sister living with their mother could be paired as a couple (the forward model says such a pair is a couple
+      a fifth as often).
+  - **A household's own couples and children now take the likeliest reading** (weights cubed, SHARP); adults and the past are
+    still drawn. Taking the likeliest parents for everyone gave unlikely populations: families of 5.6 against 4.7, and no
+    off-map wives.
+  - **If a test needs exact living kin, pin it:** the mix forms pin head, spouse, child and parent roles. This test pinned none.
 
 **The biases that remain (calibration, not design):**
 - **Siblings in other villages are under-made:** 46% against 59%, and siblings or cousins 71% against 89%. Siblings in other households of the same village are over-made: 46% against 40%. Merges happen, but too many stay in the home village.
-- **First births come 1.8 years young.** The marriage year is drawn after the children, so fill can add an early birth.
-- **A few too many very large families on held-out seeds:** 2.2 per world against 1.4.
+- **First births come 1.5 years young.** The marriage year is drawn after the children, so fill can add an early birth.
+- **Too many very large families:** 1.85 per world against 1.45 (2.45 against 1.4 held out).
 
 ### 4. Stability under edits
 
@@ -116,11 +141,11 @@ same seed without them.
 
 | Edit | Decisions changed (soft / fresh) | Living people given other parents (soft / fresh) |
 |---|---|---|
-| A newborn added to one household | 0.1% / 0.2% | 0% / 0.2% |
-| The second household made a family of seven | 2.3% / 7.3% | 2.0% / 7.5% |
-| The last household removed | 2.1% / 7.9% | 2.4% / 8.5% |
+| A newborn added to one household | 0% / 0.8% | 0% / 1.2% |
+| The second household made a family of seven | 1.7% / 4.8% | 1.5% / 4.3% |
+| The last household removed | 1.4% / 5.9% | 1.5% / 6.3% |
 
-Keyed orders alone already keep about 92% of a world. The soft pins keep about 98%.
+Keyed orders alone already keep about 95% of a world. The soft pins keep about 98.5%.
 
 **What still moves:** the decisions downstream of a changed one, whose candidates changed. For example, a couple the edit removed
 was someone's parents.
@@ -138,7 +163,7 @@ was someone's parents.
 | Every village pinned as founded 20 years ago | Built. Everyone over 20 came from outside the record. |
 
 **The flags** mark decisions where the constraints ruled out at least half of the model's weight, couples of nine or more, and
-villages under 25 years old. A mix world has 3.6 to 4 flags. This is the report the proposal asked for: where a pin forced an
+villages under 25 years old. A mix world has 2.9 to 3.2 flags. This is the report the proposal asked for: where a pin forced an
 unlikely past.
 
 ### 6. Reading the histories
@@ -209,4 +234,6 @@ heads' kin and memories. It reads as a history, and it is consistent by construc
   - the past couples per household.
 - **Next calibration:** merges across villages (siblings in other villages) and the marriage year before the children.
 
-*Current as of 14 Nov 2026.*
+Example pasts to read: `results/examples.md` (`python -m proto.peoplegen.examples`).
+
+*Current as of 16 Nov 2026.*

@@ -4,165 +4,144 @@ Village foundings, built against true: Eastwick -46 (-23), Northby -72 (-100), S
 
 ## Foundings, marriages and the last 15 years' deaths, in order (year 0 is now)
 
-- -101: Richard Hayward married Felice Carter at Westcot
-- -99: Bennet Miller married Idonea Shaw at Westcot
-- -98: Thurstan Holt married Philippa Hurst at Westcot
-- -97: Bennet Miller and Idonea Shaw came to Westcot and built one of its first houses
-- -97: Richard Hayward and Felice Carter came to Westcot and built one of its first houses
-- -96: Hob Miller married Alys Wood at Westcot
-- -89: Reynold Hale married Maud Hurst at Westcot
-- -88: Thurstan Hale married Avice Croft at Westcot
+- -109: Stephen Cole married Joyce Shaw at Westcot
+- -97: Jordan Ashdown and Ysolt Webb came to Westcot and built one of its first houses
+- -97: Stephen Cole and Joyce Shaw came to Westcot and built one of its first houses
+- -96: Jordan Ashdown married Ysolt Webb at Westcot
+- -94: Absolon Carter married Rose Moor at Westcot
+- -93: Thurstan Holt married Philippa Hurst at Westcot
+- -86: Edric Reed married Hawise Reed at Westcot
+- -83: Hamon Pike married Edith Miller at Westcot
 - -73: Colin Shaw married Dionisia Slade at Northby
-- -73: Jocelin Miller married Petronel Hayward at Westcot
-- -73: Wat Cole married Petronel Lane at Northby
+- -72: Bennet Pike and Joan Ridley came to Northby and built one of its first houses
 - -72: Colin Shaw and Dionisia Slade came to Northby and built one of its first houses
-- -72: Wat Cole and Petronel Lane came to Northby from Kingsmarket and built one of its first houses
-- -72: Daniel Miller married Wymarc Miller at Westcot
-- -71: Elias Hale married Emma Holt at Westcot
-- -70: Aldric Miller married Beatrix Holt at Westcot
-- -65: Bennet Hale married Joan Hale at Westcot
-- -59: Godwin Hale married Hawise Webb at Northby
+- -72: Bennet Pike married Joan Ridley at Northby
+- -71: Elias Cole married Emma Holt at Westcot
+- -71: Godwin Webb married Margery Ford at Northby
+- -71: Otes Ashdown married Gunnild Carter at Westcot
+- -70: Aldric Wood married Beatrix Cole at Westcot
+- -63: Godwin Tanner married Isolde Reed of Westcot at Northby
+- -59: Lucas Ashdown married Margery Pike at Westcot
 - -55: Hob Slade married Cassandra Hurst at Northby
-- -55: Tobin Wood married Idonea Fenn at Eastwick
-- -54: Reynold Fenn married Beatrix Croft of Kingsmarket at Eastwick
-- -51: Hamon Hale married Emma Miller at Westcot
-- -50: Odo Miller married Agnes Shaw at Northby
-- -47: Edric Miller married Joyce Hale at Westcot
-- -47: William Pike married Agnes Miller of Westcot at Northby
-- -46: Reynold Fenn and Beatrix Croft came to Eastwick from Kingsmarket and built one of its first houses
-- -46: Tobin Wood and Idonea Fenn came to Eastwick from Kingsmarket and built one of its first houses
-- -44: Absolon Miller married Richolda Miller at Westcot
-- -44: Oliver Hale married Amice Miller at Westcot
-- -43: Warin Tanner married Ursula Hale at Eastwick
-- -42: Fulk Brook married Matilda Cole of Northby at Southam
-- -42: Ralf Miller married Edith Cole of Northby at Westcot
-- -41: Ursula Cole went to Kingsmarket
-- -41: Wat Miller married Godiva Hale at Westcot
-- -40: Richard Lane married Margery Hale of Westcot at Northby
-- -39: Herbert Hale went to Kingsmarket
-- -37: Fulk Brook and Matilda Cole came to Southam from Kingsmarket and built one of its first houses
-- -37: Hamon Miller and Gunnild Tanner came to Southam from Westcot and built one of its first houses
-- -36: Oliver Hale married Richolda Miller at Westcot
-- -35: Reynold Slade married Lucy Hale at Northby
-- -34: Jory Cole went to Kingsmarket
-- -34: Piers Miller went to Kingsmarket
-- -30: Lucy Miller went to Kingsmarket
+- -50: Odo Pike married Agnes Shaw at Northby
+- -47: Edric Webb married Isabel Cole at Westcot
+- -47: William Pike married Agnes Webb at Northby
+- -46: Warin Tanner and Ursula Pike came to Eastwick from Kingsmarket and built one of its first houses
+- -46: William Thatcher and Christian Tanner came to Eastwick from Kingsmarket and built one of its first houses
+- -44: Wymond Pike went to Kingsmarket
+- -44: Oliver Ashdown married Richolda Wood at Westcot
+- -43: Katherine Ashdown went to Kingsmarket
+- -43: Warin Tanner married Ursula Pike of Northby at Eastwick
+- -43: William Thatcher married Christian Tanner of Northby at Eastwick
+- -42: Edric Ashdown married Edith Cole at Westcot
+- -42: Fulk Brook married Olive Slade at Southam
+- -42: Hamon Reed married Emma Ashdown at Westcot
+- -40: Richard Lane married Margery Wood of Westcot at Northby
+- -37: Fulk Brook and Olive Slade came to Southam from Kingsmarket and built one of its first houses
+- -37: Peter Ashdown and Sibyl Fenn came to Southam from Westcot and built one of its first houses
+- -37: Denise Pike went to Kingsmarket
+- -35: Reynold Slade married Lucy Ashdown of Westcot at Northby
 - -30: Wymarc Shaw went to Kingsmarket
-- -30: Geoffrey Slade married Katherine Miller of Westcot at Eastwick
-- -30: Wat Miller married Sibyl Hale at Westcot
-- -27: Helewise Hale went to Kingsmarket
-- -26: Susanna Miller went to Kingsmarket
-- -25: Payn Fenn went to Kingsmarket
-- -25: Stephen Hale married Letice Wood of Eastwick at Northby
+- -30: Osric Tanner married Sibyl Ashdown at Westcot
+- -29: Stephen Ashdown went to Kingsmarket
+- -29: Bennet Ashdown married Isabel Tanner of Northby at Westcot
+- -29: Peter Ashdown married Sibyl Fenn at Southam
+- -25: Stephen Pike married Letice Tanner at Northby
 - -25: Warin Croft married Tiffany Tanner at Eastwick
-- -24: Jory Hale went to Kingsmarket
-- -23: Alard Miller married Matilda Hale at Northby
-- -23: Jordan Miller married Emma Hale at Westcot
-- -23: Payn Miller married Richolda Hale at Westcot
-- -22: Fulk Hale went to Kingsmarket
+- -24: Jory Tanner went to Kingsmarket
+- -23: Daniel Ashdown married Emma Slade of Northby at Westcot
+- -23: Elias Tanner married Katherine Webb of Westcot at Eastwick
+- -23: Payn Webb married Richolda Reed at Westcot
+- -23: Wat Pike married Joyce Tanner at Northby
 - -21: Aldric Lane married Elena Pike at Northby
-- -20: Lucas Miller married Mariot Wood at Eastwick
-- -19: Hamo Hale married Sarra Hale of Northby at Westcot
-- -18: Annora Miller went to Kingsmarket
-- -17: Osric Fenn went to Kingsmarket
-- -16: Colin Miller married Lucy Lane of Northby at Westcot
-- -16: Hamon Miller married Gunnild Tanner of Eastwick at Southam
-- -16: William Miller married Ysolt Hale at Westcot
-- -15: Gilbert Slade married Gunnild Hale at Northby
-- -15: Oliver Fenn married Cecily Hale of Northby at Eastwick
-- -14: Avice Holt died (old age)
-- -14: Nigel Cole died (a fever)
-- -14: Nigel Hale died (a fever)
-- -14: Saer Hale married Isolde Brook of Southam at Westcot
+- -20: Jordan Pike married Mariot Ridley of Kingsmarket at Eastwick
+- -16: Hamon Ashdown married Gunnild Tanner of Eastwick at Southam
+- -15: Gillian Reed went to Kingsmarket
+- -15: Geoffrey Slade married Felice Tanner at Northby
+- -14: Christian Tanner died (a fever)
+- -14: Nigel Ashdown died (a fever)
+- -14: Saer Reed married Isolde Brook of Southam at Westcot
 - -13: Dionisia Slade died (old age)
+- -13: Gunnild Carter died (old age)
 - -13: Lettice Croft died (a fever)
-- -13: Rohese Hayward died (old age)
-- -13: Hob Lane married Maud Miller at Northby
-- -12: Sarra Hale died (a fever)
+- -13: William Thatcher died (a fever)
+- -13: Hob Lane married Maud Pike at Northby
+- -13: Otes Tanner married Lucy Lane of Northby at Westcot
+- -13: Simkin Ashdown married Orabel Webb at Westcot
 - -12: Simkin Lane died (a fever)
-- -12: William Miller died (a fever)
-- -12: Warin Miller went to Kingsmarket
-- -11: Fulk Miller died (a fever)
-- -11: Jocelin Miller died (old age)
-- -11: Herbert Wood went to Kingsmarket
-- -11: Matthew Miller went to Kingsmarket
-- -10: Colin Miller died (a fever)
-- -10: Emma Hale died (a fever)
-- -10: Thomasin Hale died (a fever)
+- -12: Odo Ashdown went to Kingsmarket
+- -11: Fulk Webb died (a fever)
+- -11: Isabel Tanner died (a fever)
+- -11: Otes Ashdown died (old age)
+- -10: Emma Slade died (a fever)
+- -10: Thomasin Cole died (a fever)
+- -10: Ellen Thatcher went to Kingsmarket
 - -10: Idonea Pike went to Kingsmarket
-- -10: Hamo Hale married Orabel Miller at Westcot
-- -10: Hamon Slade married Lettice Lane at Northby
-- -10: Odo Slade married Thomasin Miller of Westcot at Northby
-- -9: Godwin Miller died (the hard winter)
-- -9: Henry Miller died (the hard winter)
-- -9: Lambert Hale died (the hard winter)
-- -9: Nichola Hale died (the hard winter)
-- -9: Reynold Fenn died (the hard winter)
-- -9: Tobin Wood died (the hard winter)
+- -10: Odo Slade married Thomasin Ashdown of Westcot at Northby
+- -9: Gilbert Pike died (the hard winter)
 - -9: Warin Croft died (the hard winter)
-- -9: Wymarc Miller died (the hard winter)
 - -9: Drew Lane went to Kingsmarket
-- -8: Edric Miller died (old age)
-- -8: Matilda Cole died (old age)
-- -8: Ralf Miller died (a fever)
-- -8: Adam Slade married Lettice Miller of Westcot at Southam
-- -8: Fulk Slade married Tiffany Hale at Northby
-- -7: Oliver Fenn died (a fever)
+- -9: Hamon Slade married Lettice Lane at Northby
+- -8: Edric Ashdown died (a fever)
+- -8: Edric Webb died (old age)
+- -8: Lambert Ashdown died (old age)
+- -8: Olive Slade died (old age)
 - -7: Reynold Slade died (a fever)
-- -6: Cecily Hale died (a fever)
-- -6: Gilbert Slade died (a fever)
+- -7: Fulk Slade married Tiffany Pike at Northby
+- -7: Hamon Tanner married Letice Ashdown at Westcot
+- -6: Geoffrey Slade died (a fever)
+- -6: Peter Ashdown died (a fever)
 - -6: Warin Tanner died (old age)
-- -6: Ysolt Hale died (a fever)
-- -6: Elias Miller married Agatha Miller at Westcot
-- -6: Godwin Lane married Sabina Miller of Westcot at Northby
-- -6: Otes Miller married Letice Hale at Westcot
-- -5: Emma Miller died (old age)
-- -5: Geoffrey Slade died (a fever)
-- -5: Joan Hale died (old age)
+- -5: Avice Carter died (old age)
+- -5: Emma Ashdown died (old age)
 - -5: Margery Shaw died (a fever)
-- -5: Nichola Miller died (a fever)
-- -5: Elias Tanner married Katherine Miller of Westcot at Eastwick
-- -5: Herbert Miller married Lucy Lane of Northby at Westcot
-- -4: Hamon Hale died (old age)
-- -4: Hawise Webb died (old age)
-- -4: Mariot Miller died (a fever)
-- -3: Agnes Miller died (old age)
+- -4: Hamon Reed died (old age)
+- -4: Isolde Reed died (old age)
+- -4: Mariot Ashdown died (a fever)
+- -4: Godwin Lane married Sabina Thatcher of Eastwick at Northby
+- -3: Agnes Webb died (old age)
+- -3: Bennet Ashdown died (a fever)
+- -3: Stephen Thatcher died (a fever)
 - -3: Drew Croft went to Kingsmarket
-- -3: William Pike married Cassandra Cole at Northby
-- -2: Odo Miller died (old age)
-- -2: Peter Miller went to Kingsmarket
+- -3: William Pike married Cassandra Cole of Westcot at Northby
+- -2: Odo Pike died (old age)
+- -2: Geoffrey Ashdown went to Kingsmarket
+- -2: Hawise Ashdown went to Kingsmarket
+- -2: Adam Ashdown married Lettice Tanner of Westcot at Southam
+- -2: Fulk Tanner married Agatha Webb at Westcot
+- -1: Aldric Webb died (the hard winter)
 - -1: Gunnild Tanner died (the hard winter)
-- -1: Ivo Miller died (the hard winter)
 - -1: Ivo Slade went to Kingsmarket
-- -1: Edric Lane married Petronel Miller of Eastwick at Southam
-- -1: Tobin Hale married Denise Hale of Westcot at Eastwick
-- 0: Clement Hale married Helewise Lane of Northby at Eastwick
-- 0: Drew Miller married Alice Miller at Westcot
+- -1: Edric Lane married Petronel Pike of Eastwick at Southam
+- -1: Tobin Hale married Denise Tanner at Eastwick
+- 0: Clement Pike married Helewise Lane of Northby at Eastwick
+- 0: Drew Ashdown married Alice Webb at Westcot
 
 ## Three heads as they will be told it (memories in years here; the spec writes the engine's winters)
 
-**Payn Miller** (adult, h23): kin living: Lucas Miller (cousin); Mariot Wood (cousin's wife); Tobin Hale (niece's husband); Denise Hale (niece); Alard Miller (cousin); Matilda Hale (cousin's wife); Maud Miller (cousin); Hob Lane (cousin's husband)
-  - Father Absolon Miller died 36 years ago (the hard winter).
-  - Grandmother Petronel Hayward died 24 years ago (the hard winter).
-  - Grandfather Jocelin Miller died 11 years ago (old age).
-  - Grandfather Aldric Miller died 36 years ago (the hard winter).
-  - Daughter Cassandra Miller died 13 years ago (in the cradle).
-  - Daughter Philippa Miller died 4 years ago (a childhood fever).
-  - Brother Nigel Hale died 14 years ago (a fever).
-  - Sister Nichola Miller died 5 years ago (a fever).
-**Elias Tanner** (adult, h25): kin living: Katherine Miller (wife); Hamon Miller (brother-in-law); Robin Miller (nephew); Orabel Miller (sister-in-law); Richard Miller (nephew); Olive Hale (niece); Matilda Miller (niece)
+**Payn Webb** (adult, h23): kin living: Katherine Webb (sister); Elias Tanner (brother-in-law); Agnes Tanner (niece); Tobin Tanner (nephew); Ralf Tanner (nephew); Cecily Tanner (niece); Tobin Hale (niece's husband); Denise Tanner (niece)
+  - Father Edric Webb died 8 years ago (old age).
+  - Grandmother Emma Holt died 32 years ago (a fever).
+  - Grandmother Margery Ford died 19 years ago (old age).
+  - Grandfather Godwin Webb died 29 years ago (old age).
+  - Daughter Godiva Webb died 13 years ago (in the cradle).
+  - Daughter Philippa Webb died 4 years ago (a childhood fever).
+  - Brother Aldric Webb died last year (the hard winter).
+  - Brother Fulk Webb died 11 years ago (a fever).
+**Elias Tanner** (adult, h25): kin living: Katherine Webb (wife); Agnes Tanner (daughter); Tobin Tanner (son); Ralf Tanner (son); Cecily Tanner (daughter); Jordan Pike (cousin); Mariot Ridley (cousin's wife); Tobin Hale (son-in-law)
   - Hard winters you remember: 36 years ago, 25 years ago, 24 years ago, 17 years ago, 9 years ago, last year.
-  - Wife's husband Geoffrey Slade died 5 years ago (a fever).
   - Sister Gunnild Tanner died last year (the hard winter).
-  - Mother Ursula Hale died 20 years ago (a fever).
+  - Mother Ursula Pike died 20 years ago (a fever).
   - Father Warin Tanner died 6 years ago (old age).
+  - Grandmother Joan Ridley died 19 years ago (old age).
+  - Grandfather Bennet Pike died 33 years ago (old age).
   - Sister Alice Tanner died 31 years ago (in the cradle).
-**Hamon Miller** (adult, h27): kin living: Katherine Miller (cousin); Elias Tanner (brother-in-law); Elena Pike (cousin); Aldric Lane (cousin's husband); William Pike (uncle); Cassandra Cole (aunt); Sabina Pike (cousin); Sabina Miller (cousin)
+**Hamon Ashdown** (adult, h27): kin living: Katherine Webb (cousin); Elias Tanner (brother-in-law); Agnes Tanner (niece); Tobin Tanner (nephew); Ralf Tanner (nephew); Cecily Tanner (niece); Tobin Hale (niece's husband); Denise Tanner (niece)
+  - Uncle's wife Agnes Webb died 3 years ago (old age).
   - Mother Edith Cole died 16 years ago (a fever).
-  - Father Ralf Miller died 8 years ago (a fever).
-  - Uncle's wife Godiva Hale died 33 years ago (a fever).
-  - Grandmother Wymarc Miller died 9 years ago (the hard winter).
-  - Grandmother Petronel Lane died 15 years ago (old age).
-  - Brother Oliver Miller died 29 years ago (in the cradle).
-  - Brother Gervase Miller died 23 years ago (in the cradle).
-  - Son Ancel Miller died 7 years ago (in the cradle).
+  - Father Edric Ashdown died 8 years ago (a fever).
+  - Grandmother Gunnild Carter died 13 years ago (old age).
+  - Grandfather Otes Ashdown died 11 years ago (old age).
+  - Grandmother Emma Holt died 32 years ago (a fever).
+  - Brother Henry Ashdown died 29 years ago (in the cradle).
+  - Brother Gervase Ashdown died 23 years ago (in the cradle).

@@ -20,7 +20,7 @@ def names(b) -> dict:
             return sur[i]
         p = P[i]
         c = C.get(p.pc) if p.pc else None
-        if c and P[c.f].kind not in ("off",) and depth < 12:
+        if c and depth < 12:
             s = surname(c.f, depth + 1)
         else:
             s = SURNAMES[int(u(b.seed, "surname", i) * len(SURNAMES))]
@@ -66,19 +66,21 @@ def history(b, N) -> list:
     off = (b.off or {}).get("name", "beyond the map")
     where = lambda r: off if r == "OFF" else r
     H = []
-    for v, F in sorted(b.F.items(), key=lambda t: t[1]):
-        cs = sorted([c for c in b.C.values() if c.res == v and c.kids], key=lambda c: min(b.P[k].born for k in c.kids))[:2]
+    for v, F in sorted(b.F.items(), key=lambda t: t[1]):              # the first couple to settle, dated when they settled
+        start = lambda c: max(F, min([c.wed] + [b.P[k].born for k in c.kids] if c.wed is not None else [b.P[k].born for k in c.kids]))
+        cs = sorted([c for c in b.C.values() if c.res == v and c.kids], key=lambda c: (start(c), c.id))[:1]
         for c in cs:
             f = b.P[c.f]
             fc = b.C.get(f.pc) if f.pc else None
-            frm = f"from {where(fc.res)}" if fc and fc.res != v else ("from " + off if f.came else "")
-            H.append({"year": F, "kind": "founding", "who": [N[c.f], N[c.m]],
-                      "text": f"{N[c.f]} and {N[c.m]} came to {v} {frm} and built one of its first houses".replace("  ", " ")})
+            frm = (f" from {where(fc.res)}" if fc and fc.res != v else " from elsewhere" if f.came or not fc else "")
+            H.append({"year": start(c), "kind": "founding", "who": [N[c.f], N[c.m]],
+                      "text": f"{N[c.f]} and {N[c.m]} came to {v}{frm} and built its first house"})
     for c in b.C.values():
         if c.wed is not None and c.res != "OFF":
             o = lambda q: (b.C[b.P[q].pc].res if b.P[q].pc else None)
             ow = o(c.m)
-            text = f"{N[c.f]} married {N[c.m]}" + (f" of {where(ow)}" if ow and ow != c.res else "") + f" at {c.res}"
+            at = f" at {c.res}" if c.wed >= b.F.get(c.res, -999) else ""          # before the village was there: married elsewhere
+            text = f"{N[c.f]} married {N[c.m]}" + (f" of {where(ow)}" if ow and ow != c.res else "") + at
             H.append({"year": c.wed, "kind": "marriage", "who": [N[c.f], N[c.m]], "text": text})
     for i, p in b.P.items():
         if p.died is not None and (p.kind != "fill" or p.died - p.born >= 5):

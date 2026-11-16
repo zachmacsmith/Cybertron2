@@ -424,6 +424,17 @@ fitted to people; capacity is tunable through a holistic richness, not one lever
       state, and pins filter.
   - Calibrations left: OPEN L-108.
 
+- **16 Nov 2026:** Zach questioned the 49% of living people given their true living parents. The breakdown showed faults: only
+  73% of children living with both parents got them. Four faults were found in the backward weights and fixed:
+  - the cost of living apart from a living parent;
+  - fostering by a dead couple;
+  - the childless marriage a dead first spouse implies;
+  - sibling-like pairings.
+
+  A household's couples and children now take the likeliest reading. Results: 88% of such children, 60% overall. What is left
+  cannot be read from ages: parents in other households, step-parents, two couples in one house. Statistics unchanged or
+  closer. Example pasts: `proto/peoplegen/results/examples.md`.
+
 ## Sources
 
 - generator.md (D2-173 to D2-175, §2 to §5, §9), generator_stage1.md, temperate_landscapes.md (D2-191), land_kept.md (W-25).
