@@ -58,6 +58,8 @@ def base(name: str, seed: int) -> dict:
     return {"name": name, "seed": seed, "days": DAYS, "calendar": dict(CALENDAR), "climate": {"era": "steady"},   # the weather scheduler
                                                                                        # (D4-109): rain by place, so the runs' rain cue fires
             "children": {"on": True, "dial": "low"}, "packs": ["wild", "water"],
+            # the standard settings every current world carries (38.70 flaw 5; run.py's settings_line warns when one is off)
+            "view": "beliefs", "evening": True, "tags": True, "ages": True, "llm": {"week_stop": 0.5},
             "bot_travel": False, "bot_reap": "ripe", "cast": dict(CAST)}
 
 
