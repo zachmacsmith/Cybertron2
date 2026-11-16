@@ -1,0 +1,2436 @@
+{
+ "nodes": [
+  {
+   "id": "food_detoxification",
+   "label": "Detoxifying wild foods",
+   "domain": "food",
+   "kind": "technique",
+   "start": -20000,
+   "date_src": "general",
+   "place": "worldwide (manioc, acorns, cycads)",
+   "paradigm": "foraging",
+   "desc": "Grating, soaking, leaching, fermenting and cooking in the right order made poisonous staples safe, with no idea of cyanide or tannin. Found by trial and kept by copying the successful: Henrich's model case of adaptation without understanding. Date rough.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "nixtamalisation",
+   "label": "Nixtamalisation of maize",
+   "domain": "food",
+   "kind": "technique",
+   "start": -1500,
+   "date_src": "part",
+   "place": "Mesoamerica",
+   "paradigm": "horticultural_tribal",
+   "desc": "Cooking maize in lime or ash water releases niacin, making maize a sufficient staple (roughly 1500 to 1200 BC, rough). Europe took maize without the method and got pellagra among the poor (Casal, Asturias 1735, memory): know-how travelled less well than the crop.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "collective_brain",
+   "label": "Collective brain (skill pool)",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -50000,
+   "date_src": "general",
+   "place": "everywhere; modelled by Henrich",
+   "paradigm": "foraging",
+   "desc": "A complex skill lasts only while enough connected people practise it and learners copy the best. Kline and Boyd (2010): island population predicts fishing toolkit size and complexity across ten Oceanic societies (checked). Contested by Vaesen et al. (2016).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "tasmanian_skill_loss",
+   "label": "Tasmanian loss of skills",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -10000,
+   "date_src": "part",
+   "place": "Tasmania",
+   "paradigm": "foraging",
+   "desc": "Cut off by rising seas, Tasmania had about 24 tool types at contact (checked): no hafted or bone tools, no fish taken. Henrich reads it as loss in a small population (contested). Depth of know-how is lost faster than it is built.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "written_craft_recipes",
+   "label": "Written craft recipes",
+   "domain": "information",
+   "kind": "practice",
+   "start": -650,
+   "date_src": "part",
+   "place": "Nineveh (Assyrian glass texts); later Theophilus, about 1120",
+   "paradigm": "agrarian_empire",
+   "desc": "Steps for batches and furnaces written down with rites alongside, and little theory (memory). The first form in which craft know-how left the hand: recipes without reasons.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "printed_craft_manuals",
+   "label": "Printed craft manuals",
+   "domain": "information",
+   "kind": "practice",
+   "start": 1540,
+   "date_src": "part",
+   "place": "Italy and Saxony (Biringuccio 1540, Agricola 1556)",
+   "paradigm": "early_modern_state",
+   "desc": "Mining, smelting, assay and glass put into print as methods (memory); books of secrets ran to dozens of editions. Print lowered the cost of reaching know-how that guilds held close.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "encyclopedie_plates",
+   "label": "Encyclopedie plates of trades",
+   "domain": "information",
+   "kind": "practice",
+   "start": 1751,
+   "date_src": "part",
+   "place": "Paris",
+   "paradigm": "early_modern_state",
+   "desc": "Diderot and d'Alembert's Encyclopedie (1751 to 1772) with eleven volumes of plates of trades (memory): craft methods opened to any literate reader. A key cut in Mokyr's access costs.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "hereditary_crafts",
+   "label": "Hereditary crafts and castes",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -2500,
+   "date_src": "general",
+   "place": "Egypt, Mesopotamia; India's jati",
+   "paradigm": "early_state",
+   "desc": "Know-how passed parent to child within lineages or endogamous groups: cheap to transmit, narrow in reach, inherited like land. Even medieval masters were often masters' sons (part 05).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "craft_secrecy",
+   "label": "Craft secrecy as property",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1291,
+   "date_src": "part",
+   "place": "Murano, Venice",
+   "paradigm": "commercial_city_state",
+   "desc": "Venice moved its glass furnaces to Murano in 1291 and forbade glassmakers to emigrate (memory). A secret earns a monopoly rent but risks loss with its holders; most 1851 exhibits were protected by secrecy, not patents (part 07).",
+   "chokepoint": true,
+   "part": "15"
+  },
+  {
+   "id": "murano_glass",
+   "label": "Murano glass monopoly",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1291,
+   "date_src": "part",
+   "place": "Murano, Venice",
+   "paradigm": "commercial_city_state",
+   "desc": "Venice's island glass industry, held by secrecy and emigration bans, made the clearest glass of its day. Its fugitive workers spread facon de Venise glass across Europe in the 16th and 17th centuries (memory).",
+   "chokepoint": true,
+   "part": "15"
+  },
+  {
+   "id": "venetian_cristallo",
+   "label": "Venetian cristallo glass",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 1450,
+   "date_src": "part",
+   "place": "Murano",
+   "paradigm": "commercial_city_state",
+   "desc": "Nearly colourless soda glass from purified Levantine plant ash and selected sand, credited to Angelo Barovier about 1450 (memory). Clear glass was the precondition for lenses and fine instruments.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "meissen_porcelain",
+   "label": "Meissen hard-paste porcelain",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1710,
+   "date_src": "part",
+   "place": "Dresden and Meissen, Saxony",
+   "paradigm": "early_modern_state",
+   "desc": "Bottger and Tschirnhaus found a hard-paste body about 1708; the works opened 1710 under oath-bound arcanists, who later defected (memory). Import substitution of Chinese porcelain after centuries of failed copying.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "chamberlen_forceps",
+   "label": "Chamberlen forceps secret",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1600,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "The obstetric forceps kept as a family secret for over a century and published in the 1730s (memory): know-how held as household property.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "industrial_espionage",
+   "label": "Machine espionage (Lombe, Slater)",
+   "domain": "textiles",
+   "kind": "practice",
+   "start": 1717,
+   "date_src": "part",
+   "place": "Piedmont to Derby; Britain to Rhode Island",
+   "paradigm": "early_modern_state",
+   "desc": "John Lombe drew Italian silk-throwing machines (1716 to 1717) for the Derby silk mill, about 1721 (memory); Slater carried Arkwright's system in his head in 1789 (part 07). Tacit know-how moved with people despite export bans.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "derby_silk_mill",
+   "label": "Lombe's Derby silk mill",
+   "domain": "textiles",
+   "kind": "industry",
+   "start": 1721,
+   "date_src": "part",
+   "place": "Derby",
+   "paradigm": "early_modern_state",
+   "desc": "Water-powered silk throwing on copied Italian machines, protected by Thomas Lombe's 1718 patent; often called England's first factory (memory).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "journeyman_years",
+   "label": "Journeymen's travels",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1400,
+   "date_src": "general",
+   "place": "German and central European towns",
+   "paradigm": "commercial_city_state",
+   "desc": "Journeymen moved between masters and towns (Wanderjahre), carrying methods; Epstein argued this was the main channel of technical diffusion (contested, Ogilvie). The masterpiece certified the skill before mastership.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "balance_and_weights",
+   "label": "Balance and standard weights",
+   "domain": "exchange",
+   "kind": "technique",
+   "start": -3000,
+   "date_src": "part",
+   "place": "Egypt and Mesopotamia",
+   "paradigm": "early_state",
+   "desc": "An equal-arm beam judged against weights kept to a standard by an authority (rough date). The basis of silver by weight, fair trade and assay; Lavoisier's mass balance (1789) rested on a better one.",
+   "chokepoint": false,
+   "part": "15",
+   "wide": -2600
+  },
+  {
+   "id": "steelyard",
+   "label": "Steelyard",
+   "domain": "exchange",
+   "kind": "technique",
+   "start": -300,
+   "date_src": "general",
+   "place": "Rome",
+   "paradigm": "agrarian_empire",
+   "desc": "A beam with one sliding weight for quick weighing of bulk goods at markets and customs (memory).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "touchstone",
+   "label": "Touchstone assay",
+   "domain": "exchange",
+   "kind": "technique",
+   "start": -550,
+   "date_src": "part",
+   "place": "Lydia",
+   "paradigm": "agrarian_empire",
+   "desc": "A gold streak on a black stone compared with streaks of touch-needles of known alloy: quick, cheap, nearly non-destructive, good to a few parts in a hundred (rough). The check behind gold coin and plate.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "fire_assay_mint_trial",
+   "label": "Fire assay and mint trial",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1282,
+   "date_src": "part",
+   "place": "London (Trial of the Pyx)",
+   "paradigm": "feudal_manorial",
+   "desc": "Cupel and assay balance give silver or gold content to a part in a thousand (rough); England tested its coin publicly from 1282 (memory). Let mints be audited and ores be valued before purchase.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "calendar_marks",
+   "label": "Calendar marks and gnomon",
+   "domain": "information",
+   "kind": "technique",
+   "start": -3200,
+   "date_src": "part",
+   "place": "Newgrange; Babylon; China",
+   "paradigm": "horticultural_tribal",
+   "desc": "Solstice alignments (Newgrange about 3200 BC, memory), heliacal risings and the gnomon's noon shadow read the year. Guo Shoujing's 40-foot gnomon (1276 to 1279) fixed the tropical year closely (memory). Local sowing windows stayed lore.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "measuring_rod",
+   "label": "Measuring rods and survey chains",
+   "domain": "building",
+   "kind": "technique",
+   "start": -3000,
+   "date_src": "part",
+   "place": "Egypt (royal cubit about 52 cm)",
+   "paradigm": "early_state",
+   "desc": "A master length held by an authority, copied as rods and ropes; Gunter's 66-foot chain (1620, memory) made the acre ten square chains. Fields, cadastres, rent and tax by area depend on it.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "triangulation_survey",
+   "label": "Triangulation and national surveys",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1615,
+   "date_src": "part",
+   "place": "Netherlands (Snellius); France (Cassini); Ordnance Survey 1791",
+   "paradigm": "early_modern_state",
+   "desc": "Angles measured with divided instruments from a base line give whole countries' maps (memory). State science before laboratories.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "water_clock",
+   "label": "Water clocks",
+   "domain": "information",
+   "kind": "technique",
+   "start": -1400,
+   "date_src": "part",
+   "place": "Karnak, Egypt",
+   "paradigm": "early_state",
+   "desc": "Regulated flow measured hours, including at night, for temples and courts (memory). Su Song's tower at Kaifeng (1092) drove an armillary sphere through a water-wheel escapement (memory).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "su_song_clock",
+   "label": "Su Song's astronomical clock",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1092,
+   "date_src": "part",
+   "place": "Kaifeng, Song China",
+   "paradigm": "agrarian_empire",
+   "desc": "A water-driven clock tower with an escapement, finished 1092 (memory); not continued after the city fell. A Song technique on a narrow base.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "mechanical_clock",
+   "label": "Mechanical clock (verge and foliot)",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1280,
+   "date_src": "part",
+   "place": "western Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "Weight-driven iron wheels regulated by a verge escapement, first for monastic hours and cathedrals, then town towers from the mid-14th century (memory). Clockmakers became a school of gear-cutting that fed machine building.",
+   "chokepoint": false,
+   "part": "15",
+   "wide": 1350
+  },
+  {
+   "id": "public_clock_time",
+   "label": "Public clock time and work hours",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1350,
+   "date_src": "part",
+   "place": "towns of Italy, Flanders, England",
+   "paradigm": "commercial_city_state",
+   "desc": "Town clocks and work bells set equal hours and wages by time (Landes, Thompson; memory); the long tightening of time discipline ran into the factory day.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "pendulum_clock",
+   "label": "Pendulum clock",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1656,
+   "date_src": "part",
+   "place": "The Hague (Huygens)",
+   "paradigm": "early_modern_state",
+   "desc": "Huygens's clocks erred under a minute a day, later under ten seconds (checked); the anchor escapement (about 1670) and balance spring (1675) followed. Precision timekeeping for astronomy and as a standard.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "magnetic_compass",
+   "label": "Magnetic compass",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1088,
+   "date_src": "part",
+   "place": "Song China; Europe about 1190",
+   "paradigm": "agrarian_empire",
+   "desc": "A magnetised steel needle shows north in any weather: described by Shen Kuo 1088, used at sea by about 1100, in Europe by about 1190 (memory). Needs lodestone and good steel.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "portolan_charts",
+   "label": "Portolan charts and rutters",
+   "domain": "transport",
+   "kind": "practice",
+   "start": 1275,
+   "date_src": "part",
+   "place": "Pisa, Genoa (Carta Pisana)",
+   "paradigm": "commercial_city_state",
+   "desc": "Charts drawn from compass bearings and pilots' records (about 1275, memory); rutters wrote down the local facts of soundings, landmarks and tides.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "astrolabe_quadrant",
+   "label": "Astrolabe, quadrant and octant",
+   "domain": "information",
+   "kind": "technique",
+   "start": -150,
+   "date_src": "general",
+   "place": "Hellenistic Alexandria; Islamic world; Portugal",
+   "paradigm": "agrarian_empire",
+   "desc": "Brass instruments with divided scales read a star's altitude for latitude and time; perfected in the Islamic world, mariner's astrolabe in the 1480s, Hadley's octant 1731 (memory).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "marine_chronometer",
+   "label": "Marine chronometer",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1761,
+   "date_src": "part",
+   "place": "London (Harrison)",
+   "paradigm": "early_modern_state",
+   "desc": "A spring timekeeper holding home-port time gives longitude. Harrison's H4 lost about 5 seconds in 81 days to Jamaica, 1761 to 1762 (checked). Cheap only in the 19th century.",
+   "chokepoint": false,
+   "part": "15",
+   "wide": 1830
+  },
+  {
+   "id": "longitude_prize",
+   "label": "Longitude prize",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1714,
+   "date_src": "part",
+   "place": "London (Board of Longitude)",
+   "paradigm": "early_modern_state",
+   "desc": "Parliament offered up to 20,000 pounds for longitude at sea to half a degree (checked). Harrison got about 8,750 pounds by petition in 1773 (checked); the Board paid many smaller awards and funded the Nautical Almanac (1767, memory).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "spectacles",
+   "label": "Spectacles and the lens trade",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1286,
+   "date_src": "part",
+   "place": "Pisa; Venice by 1300 to 1301",
+   "paradigm": "commercial_city_state",
+   "desc": "Ground convex lenses for reading, about 1286 (checked); organised manufacture in Venice by 1300 to 1301 (checked); cheap pedlar goods by the 16th century. Longer working sight for scribes and fine craftsmen (Landes, contested).",
+   "chokepoint": false,
+   "part": "15",
+   "wide": 1500
+  },
+  {
+   "id": "telescope",
+   "label": "Telescope",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1608,
+   "date_src": "part",
+   "place": "Middelburg, Netherlands",
+   "paradigm": "early_modern_state",
+   "desc": "Two spectacle lenses in a tube; Lipperhey's patent petition (2 October 1608) was refused as too easy to copy, and he was paid 300 guilders for an instrument (checked). Galileo saw Jupiter's moons in 1610.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "microscope",
+   "label": "Microscope",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1620,
+   "date_src": "part",
+   "place": "Netherlands; London (Hooke 1665); Delft (Leeuwenhoek)",
+   "paradigm": "early_modern_state",
+   "desc": "Compound microscopes from the 1620s; Leeuwenhoek's single lenses about 270 times showed animalcules in 1676 (memory). Microbes were seen two centuries before they were tied to disease.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "lead_crystal_glass",
+   "label": "Lead crystal glass",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 1674,
+   "date_src": "part",
+   "place": "London (Ravenscroft)",
+   "paradigm": "early_modern_state",
+   "desc": "Dense, brilliant lead glass from coal-fired furnaces (memory); its dispersion let Dollond pair crown and flint glass in achromatic lenses (1758, memory).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "optical_glass",
+   "label": "Optical glass industry",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1806,
+   "date_src": "part",
+   "place": "Benediktbeuern (Fraunhofer); Jena (Schott, Abbe, Zeiss 1884)",
+   "paradigm": "industrial",
+   "desc": "Stirred, homogeneous glasses designed for optics (memory). Its line runs to Zeiss, sole maker of the optics for ASML's EUV machines (part 13).",
+   "chokepoint": true,
+   "part": "15",
+   "wide": 1884
+  },
+  {
+   "id": "barometer_vacuum",
+   "label": "Barometer and air pump",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1643,
+   "date_src": "part",
+   "place": "Florence (Torricelli); Magdeburg; Oxford",
+   "paradigm": "early_modern_state",
+   "desc": "A mercury column showed air has weight (1643); Pascal 1648; Guericke's and Boyle's pumps in the 1650s (memory). The epistemic base of the atmospheric engine, in Mokyr's reading (contested).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "thermometer",
+   "label": "Mercury thermometer",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1714,
+   "date_src": "part",
+   "place": "Amsterdam (Fahrenheit)",
+   "paradigm": "early_modern_state",
+   "desc": "Galileo's thermoscope about 1593 became a measuring instrument with even-bore tubes, mercury (1714) and fixed scales (Fahrenheit 1724, Celsius 1742) (memory). Brewers and dyers worked by degrees.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "alembic_still",
+   "label": "Alembic and glass still",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 800,
+   "date_src": "general",
+   "place": "Alexandria; Baghdad",
+   "paradigm": "agrarian_empire",
+   "desc": "Glass and copper stills refined in the Islamic world separate the volatile part of a substance (memory). The chemist's bench: perfume, spirits, mineral acids.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "distilled_spirits",
+   "label": "Distilled spirits",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1150,
+   "date_src": "part",
+   "place": "Salerno",
+   "paradigm": "feudal_manorial",
+   "desc": "Aqua vitae distilled from wine (12th century, memory): a medical then a drinking trade; later taxed by strength measured with a hydrometer.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "acid_parting",
+   "label": "Aqua fortis parting of gold",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1300,
+   "date_src": "part",
+   "place": "Italy and central Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "Nitric acid from the still dissolves silver from gold (about 1300, memory), joining assay and refining to glassware.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "brewing_instruments",
+   "label": "Thermometer and saccharometer in brewing",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1762,
+   "date_src": "part",
+   "place": "London (Combrune 1762; Richardson 1784)",
+   "paradigm": "industrial",
+   "desc": "Mash heat by thermometer and malt bought by measured extract (memory): an old craft moved onto instruments, then into laboratories.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "carlsberg_laboratory",
+   "label": "Carlsberg Laboratory",
+   "domain": "food",
+   "kind": "institution",
+   "start": 1875,
+   "date_src": "part",
+   "place": "Copenhagen",
+   "paradigm": "industrial",
+   "desc": "A brewer's research laboratory: Hansen's pure yeast culture (1883) and Sorensen's pH scale (1909) (memory). Industrial research began in old food trades as well as new chemistry.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "lab_glassware",
+   "label": "Borosilicate laboratory glass",
+   "domain": "materials",
+   "kind": "good",
+   "start": 1893,
+   "date_src": "part",
+   "place": "Jena (Schott); Corning (Pyrex 1915)",
+   "paradigm": "industrial",
+   "desc": "Heat- and acid-resistant glass for apparatus (memory); the research laboratory is built of it.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "dividing_engine",
+   "label": "Dividing engine",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1775,
+   "date_src": "part",
+   "place": "London (Ramsden)",
+   "paradigm": "industrial",
+   "desc": "Machine division of instrument scales; the Board of Longitude paid Ramsden to publish it (memory), so accurate sextants could be made in quantity. Precision makes precision.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "instrument_makers",
+   "label": "London instrument makers",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 1700,
+   "date_src": "general",
+   "place": "London",
+   "paradigm": "early_modern_state",
+   "desc": "Brass, glass and divided-scale makers exporting across Europe (rough); their workshops trained mechanics. Watt was Glasgow University's instrument maker.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "gauges_standards",
+   "label": "Gauges, gauge blocks and standards labs",
+   "domain": "metals",
+   "kind": "institution",
+   "start": 1841,
+   "date_src": "part",
+   "place": "US armouries; Paris (metre 1799); Berlin PTR 1887; NPL 1900; NBS 1901",
+   "paradigm": "industrial",
+   "desc": "Go and no-go gauges at the US armouries, Johansson's gauge blocks (1896) and national standards laboratories made units a public good (memory). Electrical units needed them before power could be sold.",
+   "chokepoint": false,
+   "part": "15",
+   "wide": 1900
+  },
+  {
+   "id": "astronomical_diaries",
+   "label": "Babylonian astronomical diaries",
+   "domain": "information",
+   "kind": "practice",
+   "start": -652,
+   "date_src": "part",
+   "place": "Babylon",
+   "paradigm": "agrarian_empire",
+   "desc": "Nightly records of sky, weather, river levels and prices from about 652 BC to the first century BC (memory): the longest run of ancient observations, from which period relations were found.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "manorial_accounts",
+   "label": "Manorial account rolls",
+   "domain": "information",
+   "kind": "practice",
+   "start": 1208,
+   "date_src": "part",
+   "place": "Winchester bishopric",
+   "paradigm": "feudal_manorial",
+   "desc": "Reeves' yearly accounts of seed, yield, prices and wages; Winchester's pipe rolls survive from 1208 (memory). A control instrument whose long run is now the evidence for medieval yields.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "husbandry_treatises",
+   "label": "Husbandry treatises",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1280,
+   "date_src": "part",
+   "place": "England (Walter of Henley)",
+   "paradigm": "feudal_manorial",
+   "desc": "Advice on oxen and horses, seed rates and checking reeves (memory): the first farm-management books, leaning on the accounts.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "parish_registers",
+   "label": "Parish registers",
+   "domain": "information",
+   "kind": "practice",
+   "start": 1538,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "Baptisms, marriages and burials recorded by order from 1538 (memory): the source of historical demography.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "bills_of_mortality",
+   "label": "Bills of mortality",
+   "domain": "information",
+   "kind": "practice",
+   "start": 1603,
+   "date_src": "part",
+   "place": "London",
+   "paradigm": "early_modern_state",
+   "desc": "Weekly counts of burials by cause from the parish clerks, begun 1592, resumed 1603, printed every Thursday (checked).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "political_arithmetic",
+   "label": "Graunt's political arithmetic",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1662,
+   "date_src": "part",
+   "place": "London",
+   "paradigm": "early_modern_state",
+   "desc": "Graunt read seventy years of bills (1662): sex ratios, seasons, plague years; London about 384,000 people against guesses of two million (checked). Petty named the method.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "life_table",
+   "label": "Life tables",
+   "domain": "exchange",
+   "kind": "technique",
+   "start": 1693,
+   "date_src": "part",
+   "place": "Breslau data; London (Halley)",
+   "paradigm": "early_modern_state",
+   "desc": "Halley's table from Breslau's records priced annuities (1693, memory); the Equitable (1762) priced life policies by age (memory).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "vital_registration",
+   "label": "Civil registration of deaths",
+   "domain": "information",
+   "kind": "institution",
+   "start": 1837,
+   "date_src": "part",
+   "place": "England and Wales (General Register Office; Farr)",
+   "paradigm": "industrial",
+   "desc": "Deaths registered with cause, organised by William Farr from 1839 (memory). Snow's 1854 comparison used it: 315 cholera deaths per 10,000 houses on the downstream company against 37 on Lambeth's (checked).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "controlled_trial",
+   "label": "Controlled comparison trials",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1747,
+   "date_src": "part",
+   "place": "HMS Salisbury (Lind)",
+   "paradigm": "early_modern_state",
+   "desc": "Lind gave twelve scurvy patients six treatments in pairs; citrus cured (memory). The navy issued lemon juice generally only in 1795.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "rothamsted_trials",
+   "label": "Rothamsted field trials",
+   "domain": "food",
+   "kind": "institution",
+   "start": 1843,
+   "date_src": "part",
+   "place": "Rothamsted, Hertfordshire",
+   "paradigm": "industrial",
+   "desc": "Lawes and Gilbert's plots from 1843; Broadbalk wheat is the oldest continuing field experiment (checked). Settled the nitrogen question against Liebig (memory) while Lawes sold superphosphate.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "experimental_statistics",
+   "label": "Statistics of experiments",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1908,
+   "date_src": "part",
+   "place": "Dublin (Gosset at Guinness); Rothamsted (Fisher 1919)",
+   "paradigm": "industrial",
+   "desc": "The t-test for small brewery samples (1908, memory); Fisher hired at Rothamsted in 1919 built replication, blocking and analysis of variance (checked), and randomisation. The basis of randomised trials.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "experiment_stations",
+   "label": "Agricultural experiment stations",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1852,
+   "date_src": "part",
+   "place": "Mockern, Saxony; US Hatch Act 1887",
+   "paradigm": "industrial",
+   "desc": "State-funded farm research (memory), tied in the US to land-grant colleges; the route by which hybrid maize came out of public research.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "bakewell_breeding",
+   "label": "Bakewell's progeny-tested breeding",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1760,
+   "date_src": "part",
+   "place": "Dishley, Leicestershire",
+   "paradigm": "industrial",
+   "desc": "Close breeding and letting rams to judge them by their offspring (memory). New Leicester sheep fattened fast; the method was the point.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "stud_herd_books",
+   "label": "Stud and herd books",
+   "domain": "information",
+   "kind": "practice",
+   "start": 1791,
+   "date_src": "part",
+   "place": "England (General Stud Book 1791; Coates's Herd Book 1822)",
+   "paradigm": "industrial",
+   "desc": "Recorded pedigree made a beast's line a priced good (memory): the book was the instrument.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "beet_progeny_selection",
+   "label": "Sugar beet progeny selection",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1850,
+   "date_src": "part",
+   "place": "France (Louis de Vilmorin)",
+   "paradigm": "industrial",
+   "desc": "Mothers chosen by their offspring's sugar content raised beet sugar from roughly 6 to 7% to well over 12% (memory, rough), feeding Europe's beet sugar against cane.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "mendelian_breeding",
+   "label": "Mendelian plant breeding",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1900,
+   "date_src": "part",
+   "place": "Europe; Cambridge (Biffen 1905)",
+   "paradigm": "industrial",
+   "desc": "Mendel (1866), rediscovered 1900, gave breeders a theory: rust-resistant wheats, then hybrid maize and the Green Revolution wheats (memory).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "industrial_enlightenment",
+   "label": "Industrial Enlightenment",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1700,
+   "date_src": "part",
+   "place": "Britain and western Europe",
+   "paradigm": "early_modern_state",
+   "desc": "Mokyr: propositional knowledge widened along with techniques, and access costs fell through print, societies, lectures and journals (about 1700 to 1850). Contested by Allen (incentives) and by evidence that many inventions owed little to science.",
+   "chokepoint": false,
+   "part": "15",
+   "wide": 1800
+  },
+  {
+   "id": "alexandria_museum",
+   "label": "Museum of Alexandria",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -280,
+   "date_src": "part",
+   "place": "Alexandria",
+   "paradigm": "agrarian_empire",
+   "desc": "Royal patronage of scholars on stipends: Euclid, Eratosthenes, Ctesibius, Hero (memory). Prestige science with engineers and astronomers attached to a court.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "house_of_wisdom",
+   "label": "House of Wisdom",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 830,
+   "date_src": "part",
+   "place": "Baghdad",
+   "paradigm": "agrarian_empire",
+   "desc": "Abbasid translation of Greek, Persian and Indian works and astronomy for calendar and prayer times (memory).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "observatory_patronage",
+   "label": "Princely observatories",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1259,
+   "date_src": "part",
+   "place": "Maragha 1259; Samarkand 1420s; Uraniborg 1576",
+   "paradigm": "agrarian_empire",
+   "desc": "Rulers and waqf endowments funded instruments and observers: al-Tusi at Maragha, Ulugh Beg, Tycho Brahe (memory). Patronage as a courtly gift economy (Biagioli).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "monastic_learning",
+   "label": "Monastic learning and works",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 529,
+   "date_src": "general",
+   "place": "Benedictine and Cistercian houses",
+   "paradigm": "feudal_manorial",
+   "desc": "Copying, literacy, estate improvement, water power and ironworks; the canonical hours may have driven the first mechanical clocks (memory). Long-lived holders of records and craft (part 16).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "medieval_university",
+   "label": "Medieval university",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1088,
+   "date_src": "part",
+   "place": "Bologna; Paris and Oxford by about 1200",
+   "paradigm": "feudal_manorial",
+   "desc": "Law, medicine, theology and arts; about 60 to 80 in Europe by 1500 (rough, memory). A pool of the literate for church and state; crafts stayed outside.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "research_university",
+   "label": "Research university and teaching lab",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1826,
+   "date_src": "part",
+   "place": "Giessen (Liebig); Berlin 1810",
+   "paradigm": "industrial",
+   "desc": "Teaching laboratories trained chemists by the hundred and joined research to teaching (memory); they supplied the dye firms' PhDs (part 08).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "scientific_academies",
+   "label": "Scientific academies",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1660,
+   "date_src": "part",
+   "place": "London (Royal Society 1660); Paris (Academie 1666)",
+   "paradigm": "early_modern_state",
+   "desc": "Societies of natural philosophers; the French academy paid members and advised the state on inventions (memory).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "scientific_journals",
+   "label": "Scientific journals",
+   "domain": "information",
+   "kind": "practice",
+   "start": 1665,
+   "date_src": "part",
+   "place": "Paris and London",
+   "paradigm": "early_modern_state",
+   "desc": "Journal des scavans and Philosophical Transactions (1665) made the dated printed report the unit of credit (memory); built on correspondence networks and the post.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "inducement_prizes",
+   "label": "Inducement prizes",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1754,
+   "date_src": "part",
+   "place": "London (Society of Arts); Paris",
+   "paradigm": "early_modern_state",
+   "desc": "Rewards for set problems: Society of Arts premiums, the Academie's soda prize (1775), Appert's 12,000 francs (1810) (memory). Suited to known targets, as patents suit unknown ones.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "us_examined_patents",
+   "label": "Examined US patents and a patent market",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1790,
+   "date_src": "part",
+   "place": "United States (Acts of 1790, 1836)",
+   "paradigm": "industrial",
+   "desc": "Cheap examined patents; Lamoreaux and Sokoloff found an active trade in patent rights through agents and lawyers (memory). Invention became a specialised trade.",
+   "chokepoint": false,
+   "part": "15",
+   "wide": 1836
+  },
+  {
+   "id": "collective_invention",
+   "label": "Collective invention",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1811,
+   "date_src": "part",
+   "place": "Cornwall; Cleveland, England",
+   "paradigm": "industrial",
+   "desc": "Engineers shared performance data after Watt's patent lapsed (part 07) and ironmasters shared furnace designs (Allen 1983, memory): improvement without patents.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "menlo_park",
+   "label": "Edison's invention factory",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1876,
+   "date_src": "part",
+   "place": "Menlo Park, New Jersey",
+   "paradigm": "industrial",
+   "desc": "Machinists, glassblowers, chemists and a library aiming at a minor invention every ten days (memory); produced the electric lighting system. Invention sold as a service.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "osrd_wartime_science",
+   "label": "Wartime science contracts (OSRD)",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1941,
+   "date_src": "part",
+   "place": "United States",
+   "paradigm": "industrial",
+   "desc": "Bush's office contracted universities and firms for radar, the proximity fuze and penicillin scale-up (memory).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "manhattan_project",
+   "label": "Manhattan Project",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1942,
+   "date_src": "part",
+   "place": "Oak Ridge, Hanford, Los Alamos",
+   "paradigm": "industrial",
+   "desc": "About 2.2 billion dollars and about 130,000 people at peak (June 1944); over 90% of the cost went to plants (checked). An industrial programme on a few years of physics.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "public_science_funding",
+   "label": "Public science funding agencies",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1950,
+   "date_src": "part",
+   "place": "United States (NSF 1950, ARPA and NASA 1958)",
+   "paradigm": "service_information",
+   "desc": "After Science, the Endless Frontier (1945): grants for basic research; ARPA funded ARPANET and early computing (memory).",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "darpa",
+   "label": "ARPA (DARPA)",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1958,
+   "date_src": "part",
+   "place": "Washington",
+   "paradigm": "service_information",
+   "desc": "Founded after Sputnik (memory); funded the ARPANET (1969) and much early computing; defence buying took the first integrated circuits.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "soviet_science_cities",
+   "label": "Soviet science cities",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1957,
+   "date_src": "part",
+   "place": "Akademgorodok, Novosibirsk",
+   "paradigm": "socialist_planned",
+   "desc": "Academy institutes apart from production; enterprises had weak reasons to adopt innovations (Berliner, memory). Strong science, weak diffusion.",
+   "chokepoint": false,
+   "part": "15"
+  },
+  {
+   "id": "rd_sector",
+   "label": "R&D as a sector",
+   "domain": "institutions",
+   "kind": "industry",
+   "start": 1950,
+   "date_src": "general",
+   "place": "OECD, China",
+   "paradigm": "service_information",
+   "desc": "World R&D over 2.75 trillion dollars in 2023, nearly 2% of world GDP (checked); business did 74% of OECD R&D (checked); Israel 6.3% and Korea 5.0% of GDP.",
+   "chokepoint": false,
+   "part": "15",
+   "wide": 2023
+  },
+  {
+   "id": "venture_capital",
+   "label": "Venture capital",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1946,
+   "date_src": "part",
+   "place": "Boston; Silicon Valley",
+   "paradigm": "service_information",
+   "desc": "Finance for firms whose main asset is know-how (ARD 1946, memory).",
+   "chokepoint": false,
+   "part": "15"
+  }
+ ],
+ "edges": [
+  {
+   "from": "stone_tools",
+   "to": "heat_treated_stone",
+   "type": "enables",
+   "note": "better flaking of known stone",
+   "src": "part"
+  },
+  {
+   "from": "heat_treated_stone",
+   "to": "pottery",
+   "type": "enables",
+   "note": "the long pyrotechnology chain",
+   "src": "general"
+  },
+  {
+   "from": "fire",
+   "to": "food_detoxification",
+   "type": "enables",
+   "note": "cooking in the right order",
+   "src": "part"
+  },
+  {
+   "from": "foraging",
+   "to": "food_detoxification",
+   "type": "enables",
+   "note": "poisonous staples made safe",
+   "src": "part"
+  },
+  {
+   "from": "food_detoxification",
+   "to": "nixtamalisation",
+   "type": "enables",
+   "note": "same logic: process without reason",
+   "src": "general"
+  },
+  {
+   "from": "lime",
+   "to": "nixtamalisation",
+   "type": "input",
+   "note": "lime water releases niacin",
+   "src": "part"
+  },
+  {
+   "from": "nixtamalisation",
+   "to": "maize_old_world",
+   "type": "enables",
+   "note": "maize crossed, method did not: pellagra",
+   "src": "part"
+  },
+  {
+   "from": "collective_brain",
+   "to": "tasmanian_skill_loss",
+   "type": "enables",
+   "note": "small isolated pool lost complex skills",
+   "src": "part"
+  },
+  {
+   "from": "hafting_composite_tools",
+   "to": "tasmanian_skill_loss",
+   "type": "enables",
+   "note": "complex tools are what was lost",
+   "src": "part"
+  },
+  {
+   "from": "fishing",
+   "to": "tasmanian_skill_loss",
+   "type": "enables",
+   "note": "fish taking dropped late in Tasmania",
+   "src": "part"
+  },
+  {
+   "from": "foraging",
+   "to": "collective_brain",
+   "type": "enables",
+   "note": "skills held across connected bands",
+   "src": "part"
+  },
+  {
+   "from": "collective_brain",
+   "to": "cities",
+   "type": "enables",
+   "note": "larger pools, more invention (part 12)",
+   "src": "general"
+  },
+  {
+   "from": "writing",
+   "to": "written_craft_recipes",
+   "type": "enables",
+   "note": "recipes set down with rites",
+   "src": "part"
+  },
+  {
+   "from": "glass",
+   "to": "written_craft_recipes",
+   "type": "enables",
+   "note": "Assyrian glass texts",
+   "src": "part"
+  },
+  {
+   "from": "written_craft_recipes",
+   "to": "printed_craft_manuals",
+   "type": "enables",
+   "note": "recipes into print",
+   "src": "part"
+  },
+  {
+   "from": "printing",
+   "to": "printed_craft_manuals",
+   "type": "enables",
+   "note": "craft methods in print",
+   "src": "part"
+  },
+  {
+   "from": "printed_craft_manuals",
+   "to": "encyclopedie_plates",
+   "type": "enables",
+   "note": "whole trades illustrated",
+   "src": "part"
+  },
+  {
+   "from": "printing",
+   "to": "encyclopedie_plates",
+   "type": "enables",
+   "note": "plates printed in volume",
+   "src": "part"
+  },
+  {
+   "from": "industrial_enlightenment",
+   "to": "encyclopedie_plates",
+   "type": "enables",
+   "note": "publishing the trades for use",
+   "src": "part"
+  },
+  {
+   "from": "household_production",
+   "to": "hereditary_crafts",
+   "type": "enables",
+   "note": "know-how passed parent to child",
+   "src": "part"
+  },
+  {
+   "from": "hereditary_crafts",
+   "to": "guilds",
+   "type": "enables",
+   "note": "masters' sons became masters",
+   "src": "general"
+  },
+  {
+   "from": "hereditary_crafts",
+   "to": "apprenticeship",
+   "type": "replaces",
+   "note": "skill moved outside the family",
+   "src": "part"
+  },
+  {
+   "from": "guilds",
+   "to": "craft_secrecy",
+   "type": "enables",
+   "note": "know-how as a club good",
+   "src": "part"
+  },
+  {
+   "from": "craft_secrecy",
+   "to": "murano_glass",
+   "type": "enables",
+   "note": "emigration bans held the monopoly",
+   "src": "part"
+  },
+  {
+   "from": "forest_glass",
+   "to": "murano_glass",
+   "type": "enables",
+   "note": "glassmaking moved to soda glass",
+   "src": "general"
+  },
+  {
+   "from": "murano_glass",
+   "to": "venetian_cristallo",
+   "type": "enables",
+   "note": "clear glass from purified ash",
+   "src": "part"
+  },
+  {
+   "from": "alkali_soda",
+   "to": "venetian_cristallo",
+   "type": "input",
+   "note": "Levantine plant ash",
+   "src": "part"
+  },
+  {
+   "from": "jingdezhen_porcelain",
+   "to": "meissen_porcelain",
+   "type": "replaces",
+   "note": "European porcelain freed from imports",
+   "src": "part"
+  },
+  {
+   "from": "craft_secrecy",
+   "to": "meissen_porcelain",
+   "type": "enables",
+   "note": "oath-bound arcanists",
+   "src": "part"
+  },
+  {
+   "from": "craft_secrecy",
+   "to": "chamberlen_forceps",
+   "type": "enables",
+   "note": "a medical secret as family property",
+   "src": "part"
+  },
+  {
+   "from": "silk_reeling",
+   "to": "industrial_espionage",
+   "type": "enables",
+   "note": "Italian throwing machines copied",
+   "src": "part"
+  },
+  {
+   "from": "industrial_espionage",
+   "to": "derby_silk_mill",
+   "type": "enables",
+   "note": "Lombe's drawings",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "derby_silk_mill",
+   "type": "enables",
+   "note": "water-powered throwing",
+   "src": "part"
+  },
+  {
+   "from": "derby_silk_mill",
+   "to": "mechanised_spinning",
+   "type": "enables",
+   "note": "the factory model before cotton",
+   "src": "general"
+  },
+  {
+   "from": "industrial_espionage",
+   "to": "mechanised_spinning",
+   "type": "enables",
+   "note": "Slater took the water frame to America",
+   "src": "part"
+  },
+  {
+   "from": "apprenticeship",
+   "to": "journeyman_years",
+   "type": "enables",
+   "note": "trained men travel between masters",
+   "src": "part"
+  },
+  {
+   "from": "guilds",
+   "to": "journeyman_years",
+   "type": "enables",
+   "note": "masterpiece and mobility rules",
+   "src": "part"
+  },
+  {
+   "from": "journeyman_years",
+   "to": "industrial_espionage",
+   "type": "enables",
+   "note": "know-how moves with people",
+   "src": "general"
+  },
+  {
+   "from": "clay_tokens",
+   "to": "balance_and_weights",
+   "type": "enables",
+   "note": "counting before weighing",
+   "src": "general"
+  },
+  {
+   "from": "balance_and_weights",
+   "to": "silver_by_weight",
+   "type": "enables",
+   "note": "silver weighed as money",
+   "src": "part"
+  },
+  {
+   "from": "balance_and_weights",
+   "to": "indus_chert_weights",
+   "type": "enables",
+   "note": "standard weights across sites",
+   "src": "part"
+  },
+  {
+   "from": "balance_and_weights",
+   "to": "steelyard",
+   "type": "enables",
+   "note": "one sliding weight for bulk",
+   "src": "part"
+  },
+  {
+   "from": "balance_and_weights",
+   "to": "fire_assay_mint_trial",
+   "type": "enables",
+   "note": "weight before and after cupelling",
+   "src": "part"
+  },
+  {
+   "from": "cupellation",
+   "to": "fire_assay_mint_trial",
+   "type": "enables",
+   "note": "bone-ash cupel separates base metals",
+   "src": "part"
+  },
+  {
+   "from": "coinage",
+   "to": "fire_assay_mint_trial",
+   "type": "enables",
+   "note": "mints needed auditing",
+   "src": "part"
+  },
+  {
+   "from": "coinage",
+   "to": "touchstone",
+   "type": "enables",
+   "note": "gold coin needed a quick test",
+   "src": "general"
+  },
+  {
+   "from": "touchstone",
+   "to": "fire_assay_mint_trial",
+   "type": "replaces",
+   "note": "precision assay over the streak test",
+   "src": "general"
+  },
+  {
+   "from": "alembic_still",
+   "to": "acid_parting",
+   "type": "enables",
+   "note": "aqua fortis from the still",
+   "src": "part"
+  },
+  {
+   "from": "fire_assay_mint_trial",
+   "to": "acid_parting",
+   "type": "enables",
+   "note": "parting completes the gold assay",
+   "src": "general"
+  },
+  {
+   "from": "tally_sticks",
+   "to": "manorial_accounts",
+   "type": "enables",
+   "note": "receipts behind the account",
+   "src": "general"
+  },
+  {
+   "from": "calendar_marks",
+   "to": "state_taxation",
+   "type": "enables",
+   "note": "dates for dues and taxes",
+   "src": "part"
+  },
+  {
+   "from": "calendar_marks",
+   "to": "water_clock",
+   "type": "enables",
+   "note": "sky time to measured hours",
+   "src": "general"
+  },
+  {
+   "from": "measuring_rod",
+   "to": "census_cadastre",
+   "type": "enables",
+   "note": "fields measured for tax",
+   "src": "part"
+  },
+  {
+   "from": "property_in_land",
+   "to": "measuring_rod",
+   "type": "enables",
+   "note": "plots to measure for rent",
+   "src": "general"
+  },
+  {
+   "from": "measuring_rod",
+   "to": "triangulation_survey",
+   "type": "enables",
+   "note": "base lines and chains",
+   "src": "part"
+  },
+  {
+   "from": "astrolabe_quadrant",
+   "to": "triangulation_survey",
+   "type": "enables",
+   "note": "divided angle instruments",
+   "src": "part"
+  },
+  {
+   "from": "telescope",
+   "to": "triangulation_survey",
+   "type": "enables",
+   "note": "sighting and Jupiter's-moon longitudes",
+   "src": "part"
+  },
+  {
+   "from": "water_clock",
+   "to": "su_song_clock",
+   "type": "enables",
+   "note": "water-wheel escapement",
+   "src": "part"
+  },
+  {
+   "from": "monastic_learning",
+   "to": "mechanical_clock",
+   "type": "enables",
+   "note": "canonical hours to ring",
+   "src": "part"
+  },
+  {
+   "from": "bloomery_iron",
+   "to": "mechanical_clock",
+   "type": "input",
+   "note": "forged iron wheels",
+   "src": "part"
+  },
+  {
+   "from": "mechanical_clock",
+   "to": "public_clock_time",
+   "type": "enables",
+   "note": "town towers and work bells",
+   "src": "part"
+  },
+  {
+   "from": "public_clock_time",
+   "to": "factory_system",
+   "type": "enables",
+   "note": "time discipline",
+   "src": "general"
+  },
+  {
+   "from": "mechanical_clock",
+   "to": "pendulum_clock",
+   "type": "replaces",
+   "note": "the pendulum regulates instead of the foliot",
+   "src": "part"
+  },
+  {
+   "from": "mechanical_clock",
+   "to": "mechanised_spinning",
+   "type": "enables",
+   "note": "clockmakers built the water frame",
+   "src": "part"
+  },
+  {
+   "from": "pendulum_clock",
+   "to": "marine_chronometer",
+   "type": "enables",
+   "note": "precision timekeeping for longitude",
+   "src": "general"
+  },
+  {
+   "from": "longitude_prize",
+   "to": "marine_chronometer",
+   "type": "enables",
+   "note": "prize and Board funding",
+   "src": "part"
+  },
+  {
+   "from": "marine_chronometer",
+   "to": "steamship",
+   "type": "enables",
+   "note": "longitude on ocean routes",
+   "src": "general"
+  },
+  {
+   "from": "instrument_makers",
+   "to": "machine_tools",
+   "type": "enables",
+   "note": "mechanics trained in instrument shops",
+   "src": "part"
+  },
+  {
+   "from": "magnetic_compass",
+   "to": "portolan_charts",
+   "type": "enables",
+   "note": "bearings drawn as charts",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "magnetic_compass",
+   "type": "enables",
+   "note": "sailing out of sight of land",
+   "src": "general"
+  },
+  {
+   "from": "magnetic_compass",
+   "to": "venice_mude",
+   "type": "enables",
+   "note": "winter sailing by compass",
+   "src": "general"
+  },
+  {
+   "from": "astrolabe_quadrant",
+   "to": "manila_galleon",
+   "type": "enables",
+   "note": "latitude sailing across oceans",
+   "src": "general"
+  },
+  {
+   "from": "astrolabe_quadrant",
+   "to": "longitude_prize",
+   "type": "enables",
+   "note": "lunar distance rival method",
+   "src": "general"
+  },
+  {
+   "from": "alexandria_museum",
+   "to": "astrolabe_quadrant",
+   "type": "enables",
+   "note": "Hellenistic astronomy",
+   "src": "general"
+  },
+  {
+   "from": "glass",
+   "to": "spectacles",
+   "type": "input",
+   "note": "clear glass or crystal ground to lenses",
+   "src": "part"
+  },
+  {
+   "from": "venetian_cristallo",
+   "to": "telescope",
+   "type": "input",
+   "note": "clear lens glass",
+   "src": "part"
+  },
+  {
+   "from": "spectacles",
+   "to": "telescope",
+   "type": "enables",
+   "note": "lens grinders made the telescope",
+   "src": "part"
+  },
+  {
+   "from": "spectacles",
+   "to": "microscope",
+   "type": "enables",
+   "note": "same lens trade",
+   "src": "part"
+  },
+  {
+   "from": "telescope",
+   "to": "microscope",
+   "type": "enables",
+   "note": "compound optics",
+   "src": "general"
+  },
+  {
+   "from": "intellectual_property",
+   "to": "telescope",
+   "type": "enables",
+   "note": "Lipperhey's refused patent petition",
+   "src": "part"
+  },
+  {
+   "from": "coal_glass_furnace",
+   "to": "lead_crystal_glass",
+   "type": "enables",
+   "note": "coal-fired furnace glass",
+   "src": "part"
+  },
+  {
+   "from": "lead_crystal_glass",
+   "to": "optical_glass",
+   "type": "enables",
+   "note": "crown and flint achromats",
+   "src": "part"
+  },
+  {
+   "from": "telescope",
+   "to": "optical_glass",
+   "type": "enables",
+   "note": "demand for better lenses",
+   "src": "part"
+  },
+  {
+   "from": "optical_glass",
+   "to": "photolithography",
+   "type": "enables",
+   "note": "precision lens making",
+   "src": "general"
+  },
+  {
+   "from": "optical_glass",
+   "to": "euv_lithography",
+   "type": "enables",
+   "note": "Zeiss sole optics supplier",
+   "src": "part"
+  },
+  {
+   "from": "microscope",
+   "to": "germ_theory",
+   "type": "enables",
+   "note": "microbes seen, then tied to disease",
+   "src": "part"
+  },
+  {
+   "from": "huancavelica_mercury",
+   "to": "barometer_vacuum",
+   "type": "input",
+   "note": "mercury from the silver chain",
+   "src": "part"
+  },
+  {
+   "from": "crown_mercury",
+   "to": "thermometer",
+   "type": "input",
+   "note": "mercury filling",
+   "src": "part"
+  },
+  {
+   "from": "glass",
+   "to": "barometer_vacuum",
+   "type": "input",
+   "note": "glass tubes",
+   "src": "part"
+  },
+  {
+   "from": "barometer_vacuum",
+   "to": "steam_engine",
+   "type": "enables",
+   "note": "air has weight: atmospheric engine",
+   "src": "part"
+  },
+  {
+   "from": "barometer_vacuum",
+   "to": "thermometer",
+   "type": "enables",
+   "note": "sealed glass tube technique",
+   "src": "general"
+  },
+  {
+   "from": "thermometer",
+   "to": "brewing_instruments",
+   "type": "enables",
+   "note": "mash by degrees",
+   "src": "part"
+  },
+  {
+   "from": "brewing",
+   "to": "brewing_instruments",
+   "type": "enables",
+   "note": "an old craft on instruments",
+   "src": "part"
+  },
+  {
+   "from": "instrument_makers",
+   "to": "rotative_engine",
+   "type": "enables",
+   "note": "Watt trained as an instrument maker",
+   "src": "part"
+  },
+  {
+   "from": "glass",
+   "to": "alembic_still",
+   "type": "input",
+   "note": "glass vessels",
+   "src": "part"
+  },
+  {
+   "from": "alembic_still",
+   "to": "distilled_spirits",
+   "type": "enables",
+   "note": "wine to aqua vitae",
+   "src": "part"
+  },
+  {
+   "from": "alembic_still",
+   "to": "sulphuric_acid",
+   "type": "enables",
+   "note": "oil of vitriol before lead chambers",
+   "src": "general"
+  },
+  {
+   "from": "glass",
+   "to": "lab_glassware",
+   "type": "enables",
+   "note": "special glasses",
+   "src": "general"
+  },
+  {
+   "from": "optical_glass",
+   "to": "lab_glassware",
+   "type": "enables",
+   "note": "Schott's Jena glassworks",
+   "src": "part"
+  },
+  {
+   "from": "lab_glassware",
+   "to": "rd_sector",
+   "type": "input",
+   "note": "laboratory apparatus",
+   "src": "part"
+  },
+  {
+   "from": "dividing_engine",
+   "to": "machine_tools",
+   "type": "enables",
+   "note": "precision makes precision",
+   "src": "part"
+  },
+  {
+   "from": "cannon_boring_mill",
+   "to": "dividing_engine",
+   "type": "enables",
+   "note": "precise metalwork",
+   "src": "general"
+  },
+  {
+   "from": "machine_tools",
+   "to": "gauges_standards",
+   "type": "enables",
+   "note": "micrometers and gauges",
+   "src": "part"
+  },
+  {
+   "from": "interchangeable_parts",
+   "to": "gauges_standards",
+   "type": "enables",
+   "note": "armoury gauges spread to all workshops",
+   "src": "part"
+  },
+  {
+   "from": "standard_screw_threads",
+   "to": "gauges_standards",
+   "type": "enables",
+   "note": "shared thread standard",
+   "src": "part"
+  },
+  {
+   "from": "gauges_standards",
+   "to": "electric_grid",
+   "type": "enables",
+   "note": "units before power sold by the kWh",
+   "src": "part"
+  },
+  {
+   "from": "instrument_makers",
+   "to": "dividing_engine",
+   "type": "enables",
+   "note": "Ramsden's trade",
+   "src": "part"
+  },
+  {
+   "from": "balance_and_weights",
+   "to": "gauges_standards",
+   "type": "enables",
+   "note": "kept standards to state laboratories",
+   "src": "general"
+  },
+  {
+   "from": "writing",
+   "to": "astronomical_diaries",
+   "type": "enables",
+   "note": "nightly records kept for centuries",
+   "src": "part"
+  },
+  {
+   "from": "temple_palace_economy",
+   "to": "astronomical_diaries",
+   "type": "enables",
+   "note": "scribes paid by temples",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "manorial_accounts",
+   "type": "enables",
+   "note": "reeve accounts to the lord",
+   "src": "part"
+  },
+  {
+   "from": "record_keeping",
+   "to": "manorial_accounts",
+   "type": "enables",
+   "note": "written accounting",
+   "src": "part"
+  },
+  {
+   "from": "manorial_accounts",
+   "to": "husbandry_treatises",
+   "type": "enables",
+   "note": "advice drawn from accounts",
+   "src": "part"
+  },
+  {
+   "from": "tithe",
+   "to": "parish_registers",
+   "type": "enables",
+   "note": "parish as record unit",
+   "src": "general"
+  },
+  {
+   "from": "parish_registers",
+   "to": "bills_of_mortality",
+   "type": "enables",
+   "note": "clerks' burial counts",
+   "src": "part"
+  },
+  {
+   "from": "bills_of_mortality",
+   "to": "political_arithmetic",
+   "type": "enables",
+   "note": "seventy years read for patterns",
+   "src": "part"
+  },
+  {
+   "from": "printing",
+   "to": "bills_of_mortality",
+   "type": "enables",
+   "note": "printed weekly",
+   "src": "part"
+  },
+  {
+   "from": "political_arithmetic",
+   "to": "life_table",
+   "type": "enables",
+   "note": "population regularities",
+   "src": "part"
+  },
+  {
+   "from": "life_insurance",
+   "to": "life_table",
+   "type": "enables",
+   "note": "annuities needed pricing",
+   "src": "general"
+  },
+  {
+   "from": "parish_registers",
+   "to": "vital_registration",
+   "type": "replaces",
+   "note": "civil registration of causes",
+   "src": "part"
+  },
+  {
+   "from": "vital_registration",
+   "to": "germ_theory",
+   "type": "enables",
+   "note": "Snow's comparison of water companies",
+   "src": "part"
+  },
+  {
+   "from": "vital_registration",
+   "to": "public_health_acts",
+   "type": "enables",
+   "note": "death statistics as evidence",
+   "src": "general"
+  },
+  {
+   "from": "piped_water",
+   "to": "germ_theory",
+   "type": "enables",
+   "note": "two water companies, a natural experiment",
+   "src": "part"
+  },
+  {
+   "from": "controlled_trial",
+   "to": "pharma_rnd_trials",
+   "type": "enables",
+   "note": "controlled comparison",
+   "src": "general"
+  },
+  {
+   "from": "experimental_statistics",
+   "to": "pharma_rnd_trials",
+   "type": "enables",
+   "note": "randomised trials",
+   "src": "part"
+  },
+  {
+   "from": "superphosphate",
+   "to": "rothamsted_trials",
+   "type": "enables",
+   "note": "Lawes's fertiliser money and question",
+   "src": "part"
+  },
+  {
+   "from": "rothamsted_trials",
+   "to": "experimental_statistics",
+   "type": "enables",
+   "note": "Fisher hired for the records, 1919",
+   "src": "part"
+  },
+  {
+   "from": "brewing_instruments",
+   "to": "experimental_statistics",
+   "type": "enables",
+   "note": "Gosset's brewery samples",
+   "src": "general"
+  },
+  {
+   "from": "carlsberg_laboratory",
+   "to": "experimental_statistics",
+   "type": "enables",
+   "note": "brewing as a science",
+   "src": "part"
+  },
+  {
+   "from": "brewing_instruments",
+   "to": "carlsberg_laboratory",
+   "type": "enables",
+   "note": "measured brewing to laboratory",
+   "src": "part"
+  },
+  {
+   "from": "rothamsted_trials",
+   "to": "experiment_stations",
+   "type": "enables",
+   "note": "model for state stations",
+   "src": "general"
+  },
+  {
+   "from": "experiment_stations",
+   "to": "hybrid_maize_seed",
+   "type": "enables",
+   "note": "public research bred hybrids",
+   "src": "part"
+  },
+  {
+   "from": "research_university",
+   "to": "experiment_stations",
+   "type": "enables",
+   "note": "land-grant colleges",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "bakewell_breeding",
+   "type": "enables",
+   "note": "selection by eye to progeny tests",
+   "src": "part"
+  },
+  {
+   "from": "wool_sheep",
+   "to": "bakewell_breeding",
+   "type": "enables",
+   "note": "New Leicester sheep",
+   "src": "part"
+  },
+  {
+   "from": "bakewell_breeding",
+   "to": "stud_herd_books",
+   "type": "enables",
+   "note": "pedigree recorded",
+   "src": "part"
+  },
+  {
+   "from": "stud_herd_books",
+   "to": "broiler_genetics",
+   "type": "enables",
+   "note": "pedigree breeding as a business",
+   "src": "general"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "beet_progeny_selection",
+   "type": "enables",
+   "note": "selection by offspring",
+   "src": "general"
+  },
+  {
+   "from": "cane_sugar_crystal",
+   "to": "beet_progeny_selection",
+   "type": "replaces",
+   "note": "beet sugar substituted for cane",
+   "src": "part"
+  },
+  {
+   "from": "beet_progeny_selection",
+   "to": "mendelian_breeding",
+   "type": "enables",
+   "note": "progeny testing then theory",
+   "src": "general"
+  },
+  {
+   "from": "mendelian_breeding",
+   "to": "hybrid_maize_seed",
+   "type": "enables",
+   "note": "hybrid vigour bred",
+   "src": "part"
+  },
+  {
+   "from": "mendelian_breeding",
+   "to": "green_revolution",
+   "type": "enables",
+   "note": "dwarf wheats",
+   "src": "part"
+  },
+  {
+   "from": "scientific_academies",
+   "to": "industrial_enlightenment",
+   "type": "enables",
+   "note": "natural philosophy for use",
+   "src": "part"
+  },
+  {
+   "from": "industrial_enlightenment",
+   "to": "useful_knowledge_societies",
+   "type": "enables",
+   "note": "philosophers met manufacturers",
+   "src": "part"
+  },
+  {
+   "from": "coffee_houses",
+   "to": "industrial_enlightenment",
+   "type": "enables",
+   "note": "lectures and talk",
+   "src": "general"
+  },
+  {
+   "from": "industrial_enlightenment",
+   "to": "chlorine_bleach",
+   "type": "enables",
+   "note": "Berthollet to Tennant",
+   "src": "part"
+  },
+  {
+   "from": "industrial_enlightenment",
+   "to": "steam_engine",
+   "type": "enables",
+   "note": "widening epistemic base",
+   "src": "part"
+  },
+  {
+   "from": "scientific_academies",
+   "to": "scientific_journals",
+   "type": "enables",
+   "note": "printed reports",
+   "src": "part"
+  },
+  {
+   "from": "merchant_letters",
+   "to": "scientific_journals",
+   "type": "enables",
+   "note": "correspondence networks",
+   "src": "general"
+  },
+  {
+   "from": "postal_service",
+   "to": "scientific_journals",
+   "type": "enables",
+   "note": "the Republic of Letters by post",
+   "src": "part"
+  },
+  {
+   "from": "printing",
+   "to": "scientific_journals",
+   "type": "enables",
+   "note": "dated priority in print",
+   "src": "part"
+  },
+  {
+   "from": "scientific_journals",
+   "to": "industrial_enlightenment",
+   "type": "enables",
+   "note": "access costs fall",
+   "src": "part"
+  },
+  {
+   "from": "alexandria_museum",
+   "to": "house_of_wisdom",
+   "type": "enables",
+   "note": "Greek works translated",
+   "src": "general"
+  },
+  {
+   "from": "house_of_wisdom",
+   "to": "observatory_patronage",
+   "type": "enables",
+   "note": "Islamic astronomy",
+   "src": "general"
+  },
+  {
+   "from": "observatory_patronage",
+   "to": "scientific_academies",
+   "type": "enables",
+   "note": "state-paid observation",
+   "src": "general"
+  },
+  {
+   "from": "paper",
+   "to": "house_of_wisdom",
+   "type": "input",
+   "note": "Baghdad paper for translations",
+   "src": "general"
+  },
+  {
+   "from": "temple_palace_economy",
+   "to": "monastic_learning",
+   "type": "enables",
+   "note": "religious houses hold records",
+   "src": "general"
+  },
+  {
+   "from": "monastic_learning",
+   "to": "medieval_university",
+   "type": "enables",
+   "note": "schools to universities",
+   "src": "general"
+  },
+  {
+   "from": "medieval_university",
+   "to": "scientific_academies",
+   "type": "enables",
+   "note": "the literate pool",
+   "src": "general"
+  },
+  {
+   "from": "medieval_university",
+   "to": "research_university",
+   "type": "replaces",
+   "note": "teaching to research",
+   "src": "part"
+  },
+  {
+   "from": "research_university",
+   "to": "synthetic_dyes",
+   "type": "enables",
+   "note": "PhD chemists for the dye firms",
+   "src": "part"
+  },
+  {
+   "from": "research_university",
+   "to": "industrial_research_lab",
+   "type": "enables",
+   "note": "trained chemists by the hundred",
+   "src": "part"
+  },
+  {
+   "from": "inducement_prizes",
+   "to": "canning",
+   "type": "enables",
+   "note": "Appert's prize",
+   "src": "part"
+  },
+  {
+   "from": "inducement_prizes",
+   "to": "leblanc_process",
+   "type": "enables",
+   "note": "Academie soda prize",
+   "src": "part"
+  },
+  {
+   "from": "longitude_prize",
+   "to": "inducement_prizes",
+   "type": "enables",
+   "note": "prizes for set problems",
+   "src": "general"
+  },
+  {
+   "from": "patent_system",
+   "to": "us_examined_patents",
+   "type": "enables",
+   "note": "patent law adopted and cheapened",
+   "src": "general"
+  },
+  {
+   "from": "us_examined_patents",
+   "to": "menlo_park",
+   "type": "enables",
+   "note": "invention sold through patents",
+   "src": "part"
+  },
+  {
+   "from": "patent_system",
+   "to": "collective_invention",
+   "type": "replaces",
+   "note": "sharing after patents lapsed",
+   "src": "part"
+  },
+  {
+   "from": "menlo_park",
+   "to": "incandescent_lamp",
+   "type": "enables",
+   "note": "the lighting system",
+   "src": "part"
+  },
+  {
+   "from": "research_university",
+   "to": "osrd_wartime_science",
+   "type": "enables",
+   "note": "universities under contract",
+   "src": "part"
+  },
+  {
+   "from": "osrd_wartime_science",
+   "to": "penicillin_fermentation",
+   "type": "enables",
+   "note": "penicillin scale-up",
+   "src": "part"
+  },
+  {
+   "from": "osrd_wartime_science",
+   "to": "manhattan_project",
+   "type": "enables",
+   "note": "state science organised",
+   "src": "part"
+  },
+  {
+   "from": "manhattan_project",
+   "to": "nuclear_power",
+   "type": "enables",
+   "note": "reactors and enrichment plants",
+   "src": "part"
+  },
+  {
+   "from": "manhattan_project",
+   "to": "public_science_funding",
+   "type": "enables",
+   "note": "Endless Frontier case",
+   "src": "general"
+  },
+  {
+   "from": "public_science_funding",
+   "to": "darpa",
+   "type": "enables",
+   "note": "post-Sputnik agencies",
+   "src": "part"
+  },
+  {
+   "from": "darpa",
+   "to": "internet",
+   "type": "enables",
+   "note": "ARPANET funded",
+   "src": "part"
+  },
+  {
+   "from": "darpa",
+   "to": "integrated_circuit",
+   "type": "enables",
+   "note": "defence bought first chips",
+   "src": "general"
+  },
+  {
+   "from": "research_university",
+   "to": "soviet_science_cities",
+   "type": "enables",
+   "note": "academy institutes",
+   "src": "general"
+  },
+  {
+   "from": "public_science_funding",
+   "to": "rd_sector",
+   "type": "enables",
+   "note": "states pay basic research",
+   "src": "part"
+  },
+  {
+   "from": "industrial_research_lab",
+   "to": "rd_sector",
+   "type": "enables",
+   "note": "business does three quarters",
+   "src": "part"
+  },
+  {
+   "from": "venture_capital",
+   "to": "rd_sector",
+   "type": "enables",
+   "note": "finance for know-how firms",
+   "src": "part"
+  },
+  {
+   "from": "joint_stock_company",
+   "to": "venture_capital",
+   "type": "enables",
+   "note": "equity stakes",
+   "src": "general"
+  },
+  {
+   "from": "rd_sector",
+   "to": "pharma_rnd_trials",
+   "type": "enables",
+   "note": "drug pipeline",
+   "src": "part"
+  },
+  {
+   "from": "rd_sector",
+   "to": "euv_lithography",
+   "type": "enables",
+   "note": "decades of R&D to a chokepoint",
+   "src": "part"
+  },
+  {
+   "from": "intellectual_property",
+   "to": "patent_system",
+   "type": "enables",
+   "note": "Venice to England",
+   "src": "general"
+  },
+  {
+   "from": "astrolabe_quadrant",
+   "to": "observatory_patronage",
+   "type": "enables",
+   "note": "instruments for observatories",
+   "src": "general"
+  },
+  {
+   "from": "dividing_engine",
+   "to": "gauges_standards",
+   "type": "enables",
+   "note": "machine-divided scales",
+   "src": "general"
+  },
+  {
+   "from": "markets_fairs",
+   "to": "steelyard",
+   "type": "enables",
+   "note": "bulk weighing at markets",
+   "src": "general"
+  }
+ ]
+}

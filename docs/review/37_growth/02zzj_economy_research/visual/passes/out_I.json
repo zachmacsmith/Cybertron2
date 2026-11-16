@@ -1,0 +1,2714 @@
+{
+ "nodes": [
+  {
+   "id": "work_feast",
+   "label": "Work feast",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -7000,
+   "date_src": "general",
+   "place": "worldwide; the Luo of Kenya, the Andes (minka)",
+   "paradigm": "horticultural_tribal",
+   "desc": "A household brews beer and cooks, and neighbours come to clear a field, raise a house or bring in a harvest; the meal is the payment. It needs a grain surplus and brewing, and mobilises labour beyond the household without wages; the Inca mit'a and English boon days are its scaled-up forms.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "competitive_feasting",
+   "label": "Competitive feasting",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -12000,
+   "date_src": "general",
+   "place": "Levant (Natufian), later the Northwest Coast and Melanesia",
+   "paradigm": "gift_economy",
+   "desc": "Ambitious hosts turn a storable surplus into debts, alliances and rank by giving feasts (Hayden; Dietler's \"empowering\" feast). Hayden argues the drive to produce feast foods pushed domestication itself (contested).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "potlatch",
+   "label": "Potlatch",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 0,
+   "date_src": "general",
+   "place": "Northwest Coast of North America",
+   "paradigm": "gift_economy",
+   "desc": "Chiefs gave away or destroyed goods (oil, blankets, coppers) to validate names and rank, on a surplus of stored salmon. Suttles read it as spreading food between villages whose runs failed in different years; Canada banned it 1885 to 1951 (part 06).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "moka_exchange",
+   "label": "Moka pig exchange",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1700,
+   "date_src": "general",
+   "place": "Highland New Guinea",
+   "paradigm": "gift_economy",
+   "desc": "Big men competed in giving pigs, storing a good year's surplus as claims on others in a bad one. It rested on sweet potato as pig fodder (Strathern; part 06).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "boon_days",
+   "label": "Harvest boon days",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1150,
+   "date_src": "general",
+   "place": "English manors",
+   "paradigm": "feudal_manorial",
+   "desc": "Tenants reaped the lord's demesne at harvest and were fed bread and ale, sometimes meat or fish, the amounts written in the custumal (memory, Bennett). The work feast under lordship: labour dues paid back partly in food.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "votive_hoards",
+   "label": "Votive metal hoards",
+   "domain": "metals",
+   "kind": "practice",
+   "start": -2000,
+   "date_src": "general",
+   "place": "Bronze Age Europe: rivers and bogs",
+   "paradigm": "chiefdom",
+   "desc": "Axes, swords and rings deposited in water and bogs and never recovered: offerings, stores or a way to keep metal scarce (Bradley; contested). Demand for metal outside use that kept the copper and tin routes busy.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "temple_lending",
+   "label": "Temple loans of grain and silver",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -2000,
+   "date_src": "general",
+   "place": "Old Babylonian Sippar (temple of Shamash)",
+   "paradigm": "early_state",
+   "desc": "Temples lent barley and silver, sometimes to the poor at low interest, sometimes at the Hammurabi rates, with the god as witness to the bond (memory). Sanctity raised the cost of default; stores accumulated from offerings were the capital.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "naditu_investors",
+   "label": "Naditu cloistered investors",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -1880,
+   "date_src": "general",
+   "place": "Sippar, Old Babylonian period",
+   "paradigm": "early_state",
+   "desc": "Women dedicated to Shamash lived in a cloister but bought and leased fields, lent silver and barley at interest and hired labour, with contracts witnessed at the temple (Harris 1975; memory). A religious status that let a person invest capital outside her family's control.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "temple_tithe_esru",
+   "label": "Temple tithe (eshru)",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -626,
+   "date_src": "part",
+   "place": "Neo-Babylonian Uruk (Eanna) and Sippar (Ebabbar)",
+   "paradigm": "agrarian_empire",
+   "desc": "A tenth of produce and some trade paid to the great temples by people across the region and by the king (memory, Jursa); the temples also let estates to rent farmers for fixed amounts. The oldest well-documented regular tithe to a temple.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "egyptian_temple_estates",
+   "label": "Egyptian temple estates",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -1500,
+   "date_src": "general",
+   "place": "New Kingdom Egypt; Amun at Karnak",
+   "paradigm": "agrarian_empire",
+   "desc": "Temples held estates along the Nile with herds, fleets, mines and villages; in Papyrus Harris I the Theban temple administered about 80% of temple land and 86% of temple livestock (checked as a summary figure; argued). An owner of revenue more than a farmer of everything.",
+   "chokepoint": false,
+   "part": "16",
+   "wide": -1150
+  },
+  {
+   "id": "wilbour_land_register",
+   "label": "Temple land register",
+   "domain": "information",
+   "kind": "technique",
+   "start": -1140,
+   "date_src": "part",
+   "place": "Middle Egypt (Wilbour Papyrus, year 4 of Ramesses V)",
+   "paradigm": "agrarian_empire",
+   "desc": "A register of fields with their holders and the dues owed to temples and crown (checked as an official register). Shows small holders farming land whose revenue belonged to a temple.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "reversion_of_offerings",
+   "label": "Offerings as temple pay",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -2500,
+   "date_src": "general",
+   "place": "Egyptian temples",
+   "paradigm": "early_state",
+   "desc": "Food offered to the god each day was taken back from the altar and shared out to priests and staff by fixed shares (unchecked): the offering list was the payroll. Priests served a month at a time in rotating groups.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "sanctuary_treasuries",
+   "label": "Sanctuary treasuries",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -550,
+   "date_src": "general",
+   "place": "Delphi, Olympia, the Athenian Acropolis, Ephesus",
+   "paradigm": "commercial_city_state",
+   "desc": "Cities and kings kept dedications and deposits at sanctuaries; Athens borrowed several thousand talents from Athena's treasure in the Peloponnesian War (memory: about 5,600), and the Phocians melted Delphi's offerings to pay mercenaries (contested amount). Sanctity made them the safest stores.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "delos_temple_loans",
+   "label": "Delos temple loans",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -450,
+   "date_src": "general",
+   "place": "Temple of Apollo, Delos",
+   "paradigm": "commercial_city_state",
+   "desc": "The temple lent to island cities and private persons on recorded contracts naming principal, interest, pledged houses or land, guarantors and witnesses (checked), usually at 10% a year (unchecked). Defaulters lost their pledges: a god with a lender's remedies.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "temple_mint_treasury",
+   "label": "Treasury and mint in temples",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -269,
+   "date_src": "general",
+   "place": "Rome: temple of Saturn (aerarium), Juno Moneta (mint)",
+   "paradigm": "agrarian_empire",
+   "desc": "Rome kept its state treasury in the temple of Saturn and its mint at the temple of Juno Moneta, whence \"money\" and \"mint\" (unchecked). Coin and reserve put under the gods' protection.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "sacrificial_meat",
+   "label": "Sacrifice as meat supply",
+   "domain": "food",
+   "kind": "practice",
+   "start": -700,
+   "date_src": "general",
+   "place": "Greek and Roman towns",
+   "paradigm": "commercial_city_state",
+   "desc": "The gods received bones and fat, the worshippers the meat, and the surplus was sold in the market (unchecked). Sacrifice was an abattoir with a calendar.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "chola_temple_bank",
+   "label": "Chola temple lending",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1010,
+   "date_src": "part",
+   "place": "Rajarajesvara temple, Thanjavur",
+   "paradigm": "agrarian_empire",
+   "desc": "The temple lent gold to village assemblies in the Kaveri delta, interest due yearly in paddy (3 kuruni per kasu) or money at 12.5% a year (checked); the principal seems never to have been repaid, so the loans were perpetual rents financing clearance and irrigation.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "lamp_herd_endowment",
+   "label": "Herds endowed for lamps",
+   "domain": "food",
+   "kind": "institution",
+   "start": 1010,
+   "date_src": "part",
+   "place": "Thanjavur",
+   "paradigm": "agrarian_empire",
+   "desc": "Each perpetual lamp was endowed with 96 ewes, or 48 cows, or 16 she-buffaloes given to shepherds who owed a fixed measure of ghee daily (checked). Perpetual sharecropping of herds with the temple as owner of the capital.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "monastic_mills_presses",
+   "label": "Monastic mills and oil presses",
+   "domain": "energy",
+   "kind": "industry",
+   "start": 650,
+   "date_src": "general",
+   "place": "Tang China",
+   "paradigm": "agrarian_empire",
+   "desc": "Buddhist monasteries owned water mills and oil presses and rented them out, with land worked by tenants and bondsmen (memory, Gernet). Like the European church, they held much of the capital that needed a stream.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "inexhaustible_treasury",
+   "label": "Inexhaustible treasuries",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 600,
+   "date_src": "general",
+   "place": "Huadu monastery, Chang'an",
+   "paradigm": "agrarian_empire",
+   "desc": "A Sanjie-sect fund that lent its gifts, free to the poor and at interest to others; monasteries also ran pawnshops and lent seed grain (memory; pawnshop origin contested).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "huichang_dissolution",
+   "label": "Huichang dissolution",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 845,
+   "date_src": "part",
+   "place": "Tang China",
+   "paradigm": "agrarian_empire",
+   "desc": "The court closed about 4,600 monasteries and 40,000 hermitages and returned 260,500 monks and nuns and 150,000 serfs to the tax registers (checked); land was taken and bronze melted for coin. The first dissolution with numbers.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "incense_road",
+   "label": "Incense road",
+   "domain": "exchange",
+   "kind": "industry",
+   "start": -1000,
+   "date_src": "general",
+   "place": "South Arabia to the Mediterranean",
+   "paradigm": "agrarian_empire",
+   "desc": "Frankincense and myrrh carried by caravan from South Arabia for temple and funeral use across the Mediterranean world (unchecked). A long-distance trade made by ritual demand.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "beeswax_lights",
+   "label": "Beeswax altar lights",
+   "domain": "energy",
+   "kind": "good",
+   "start": 800,
+   "date_src": "general",
+   "place": "Latin Christendom; wax from Russia and the Baltic",
+   "paradigm": "feudal_manorial",
+   "desc": "The rule that altar lights be of beeswax made wax a main export of Russia and the Baltic through Novgorod (memory). Tallow served households; wax served churches and the rich.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "fast_days",
+   "label": "Fast days and fish demand",
+   "domain": "food",
+   "kind": "practice",
+   "start": 600,
+   "date_src": "general",
+   "place": "Latin Christendom",
+   "paradigm": "feudal_manorial",
+   "desc": "Meat was forbidden on Fridays, often Wednesdays and Saturdays, in Lent and Advent: perhaps 40% of days, nearly half in 13th-century England (checked, secondary). Northern Europe met the demand with salt herring and stockfish; how far the rule drove the trade is contested.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "fish_day_statute",
+   "label": "Fish days by statute",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1563,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "Protestant England kept fish days by law to support fishermen and the navy, adding Wednesday in 1563 (unchecked). A ritual rule turned industrial policy.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "monastic_viticulture",
+   "label": "Monastic vineyards",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1110,
+   "date_src": "general",
+   "place": "Burgundy (Clos de Vougeot), the Rhine, the Moselle",
+   "paradigm": "feudal_manorial",
+   "desc": "Wine for the Eucharist and for sale kept vineyards north of the Alps in church hands; the Cistercians planted the Clos de Vougeot in the 12th century.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "cathedral_building",
+   "label": "Cathedral and church building",
+   "domain": "building",
+   "kind": "industry",
+   "start": 1050,
+   "date_src": "part",
+   "place": "France and England",
+   "paradigm": "feudal_manorial",
+   "desc": "Churches were the largest buildings and the largest stores of labour and timber (part 01); Gimpel claimed France quarried more stone in 1050 to 1350 than ancient Egypt (contested). Demand for masons, lime, lead, glass and timber over decades per site.",
+   "chokepoint": false,
+   "part": "16",
+   "wide": 1200
+  },
+  {
+   "id": "bell_founding",
+   "label": "Church bell founding",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 800,
+   "date_src": "general",
+   "place": "Latin Christendom",
+   "paradigm": "feudal_manorial",
+   "desc": "Every parish wanted bells, cast in bronze by itinerant founders; the same skill later cast cannon. The Tang suppression melted temple bells for coin.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "tithe_barn",
+   "label": "Tithe barn",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1200,
+   "date_src": "general",
+   "place": "England and France",
+   "paradigm": "feudal_manorial",
+   "desc": "Every tenth sheaf was left standing and carted to the tithe owner's barn, so the church held a store of grain, straw, hay and wool to thresh, sell or use (unchecked). Some great barns served tithe and demesne at once.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "parish_appropriation",
+   "label": "Appropriated parishes",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1150,
+   "date_src": "general",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "A monastery or college took over a parish's great tithes and paid a vicar from the small ones; by 1500 perhaps a third of English parishes (memory, rough). After the dissolution lay impropriators collected these tithes for three centuries.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "church_courts",
+   "label": "Church courts",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1072,
+   "date_src": "general",
+   "place": "England (separated from secular courts under William I)",
+   "paradigm": "feudal_manorial",
+   "desc": "Heard tithe suits, wills, marriage and \"breach of faith\" debts sworn on oath (unchecked); tithe cases were among their commonest (memory). Sanctions were penance and excommunication.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "papal_taxation",
+   "label": "Papal taxation",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1199,
+   "date_src": "general",
+   "place": "Latin Christendom",
+   "paradigm": "feudal_manorial",
+   "desc": "Peter's pence, annates, crusading tenths and clerical subsidies made the papacy a fiscal power across kingdoms (unchecked). Moving the money to Rome made Florentine and Sienese companies papal bankers, paying by bills and buying English wool with the collections.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "saladin_tithe",
+   "label": "Saladin tithe",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1188,
+   "date_src": "part",
+   "place": "England and France",
+   "paradigm": "feudal_manorial",
+   "desc": "A tenth of movables and income levied for the Third Crusade: England's first general tax on personal property and a model for the lay subsidies (unchecked).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "tithe_commutation",
+   "label": "Tithe commutation",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1836,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "industrial",
+   "desc": "Tithe in kind was commuted to a money rent charge on land, mapped parish by parish in the tithe surveys, and ended in 1977 (unchecked). France had abolished tithe outright on 4 August 1789.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "zakat_ushr",
+   "label": "Zakat and ushr",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 630,
+   "date_src": "general",
+   "place": "the Islamic world",
+   "paradigm": "agrarian_empire",
+   "desc": "Zakat is an annual alms of usually 2.5% of wealth above a threshold, owed to named classes; ushr is a tenth of the produce of rain-fed land and a twentieth of irrigated land, allowing for the cost of water (unchecked).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "church_tax",
+   "label": "Church tax with income tax",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1919,
+   "date_src": "general",
+   "place": "Germany, Austria, Switzerland, the Nordic countries",
+   "paradigm": "industrial",
+   "desc": "The state collects 8 to 9% of income tax from registered members for their church; German Catholic dioceses received EUR 6.51 billion in 2023, both churches about EUR 13 billion (checked).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "benedictine_monastery",
+   "label": "Self-sufficient monastery",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 530,
+   "date_src": "part",
+   "place": "Monte Cassino; the Plan of St Gall (about 820)",
+   "paradigm": "feudal_manorial",
+   "desc": "The Rule of St Benedict wanted water, a mill, a garden and the crafts inside the walls; the Plan of St Gall draws a mill, grain kiln, three breweries, bakeries, smithy, fuller, tannery and stalls (unchecked). The village's catalogue of trades inside one long-lived institution.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "monastic_polyptych",
+   "label": "Monastic estate survey",
+   "domain": "information",
+   "kind": "technique",
+   "start": 825,
+   "date_src": "general",
+   "place": "Saint-Germain-des-Pres (polyptych of Irminon)",
+   "paradigm": "feudal_manorial",
+   "desc": "A list of an abbey's manors with thousands of tenant households and their labour weeks and payments in hens, eggs, wood, wine and coin (memory). The classical manor is known first from monastic records.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "cluniac_network",
+   "label": "Cluniac network",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 910,
+   "date_src": "part",
+   "place": "Cluny, Burgundy",
+   "paradigm": "feudal_manorial",
+   "desc": "Over a thousand dependent houses living on rents, gifts for prayers and an annual census from the kings of Castile paid from tribute taken from Muslim kingdoms (memory). An economy of intercession spent on building.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "cistercian_grange",
+   "label": "Cistercian grange",
+   "domain": "food",
+   "kind": "institution",
+   "start": 1120,
+   "date_src": "general",
+   "place": "Cistercian abbeys across Europe; 77 in England and Wales",
+   "paradigm": "feudal_manorial",
+   "desc": "Consolidated farms within a day's journey of the abbey, worked directly, specialised as arable, sheep, cattle, horses, fisheries, mines or salt; often made by removing the peasants already there. About 500 abbeys by 1200 (memory); 77 in England and Wales (checked).",
+   "chokepoint": false,
+   "part": "16",
+   "wide": 1200
+  },
+  {
+   "id": "conversi",
+   "label": "Lay brothers (conversi)",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1120,
+   "date_src": "general",
+   "place": "Cistercian granges",
+   "paradigm": "feudal_manorial",
+   "desc": "Men under vows who did the farm work at the granges; in the 12th century they outnumbered choir monks in many houses and declined before 1350, after which granges were let (checked). Hired servants did much of the work even early.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "monastic_wool_forward",
+   "label": "Monastic wool sold forward",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1270,
+   "date_src": "general",
+   "place": "Yorkshire and Welsh Cistercian houses; Florentine and Flemish buyers",
+   "paradigm": "feudal_manorial",
+   "desc": "Merchants contracted for an abbey's clip years ahead and paid in advance; Pegolotti lists English monasteries by name with their wool prices (memory). Advances were credit, and abbeys fell into debt when murrain killed their flocks.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "monastic_water_system",
+   "label": "Monastic water system",
+   "domain": "energy",
+   "kind": "infrastructure",
+   "start": 1136,
+   "date_src": "general",
+   "place": "Clairvaux on the Aube",
+   "paradigm": "feudal_manorial",
+   "desc": "A diverted river drove the grain mill, then the brewery, fulling stocks and tannery, then flushed the drains (memory, a 12th-century description). Many uses of one stream under one owner, without the quarrel.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "monastic_forge",
+   "label": "Monastic water-powered forge",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 1150,
+   "date_src": "general",
+   "place": "Fontenay, Rievaulx, Bordesley",
+   "paradigm": "feudal_manorial",
+   "desc": "Cistercian forges used diverted streams to drive hammers; Bordesley had a water-powered metalworking mill (memory). The monastery's land, stream and long horizon carried the capital.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "mort_gage",
+   "label": "Mort-gage loans",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1100,
+   "date_src": "general",
+   "place": "northern Europe; abbeys and crusading knights",
+   "paradigm": "feudal_manorial",
+   "desc": "Knights pledged land to abbeys for cash, the lender taking the land's revenue without reducing the debt: a return past the usury rule (unchecked). Monasteries were then among the few holders of coin and plate.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "valor_ecclesiasticus",
+   "label": "Valor Ecclesiasticus",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1535,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "A national survey of church income made to assess a tax of a tenth, which doubled as the inventory for the dissolution; monastic net income about GBP 136,000 a year (checked, one study; other summaries GBP 160,000 gross, contested).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "dissolution_monasteries",
+   "label": "Dissolution of the monasteries",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1536,
+   "date_src": "part",
+   "place": "England and Wales",
+   "paradigm": "early_modern_state",
+   "desc": "About 800 or more houses closed 1536 to 1541 (memory); about two-thirds of their land sold or granted by 1547 and most of the rest by 1554 (checked). A land market on a new scale; Crown receipts estimated at GBP 0.8 to 1.3 million to 1547, mostly spent on war (contested).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "statute_of_mortmain",
+   "label": "Statute of Mortmain",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1279,
+   "date_src": "part",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "Forbade gifts of land to the church without licence, because land in the \"dead hand\" never died, married or forfeited and so yielded the lord no feudal incidents (unchecked). A state limiting endowment to protect its revenue.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "biens_nationaux",
+   "label": "Church land and the assignats",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1789,
+   "date_src": "part",
+   "place": "France",
+   "paradigm": "early_modern_state",
+   "desc": "The National Assembly nationalised church property (perhaps 6 to 10% of land, rough) and sold it at auction; the assignats were issued against it and became paper money that collapsed by 1796 (unchecked).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "desamortizacion",
+   "label": "Spanish disentailment",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1836,
+   "date_src": "part",
+   "place": "Spain (Mendizabal; Madoz 1855)",
+   "paradigm": "industrial",
+   "desc": "Monastic land and later municipal commons auctioned to pay the public debt; who gained is contested. Mexico's Lerdo law (1856) did the same to church and Indian community land.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "pilgrimage_road",
+   "label": "Pilgrimage road",
+   "domain": "transport",
+   "kind": "infrastructure",
+   "start": 950,
+   "date_src": "general",
+   "place": "Camino de Santiago; routes to Rome and Canterbury",
+   "paradigm": "feudal_manorial",
+   "desc": "The Codex Calixtinus (about 1140) guides pilgrims by stage, safe rivers and unjust tolls (unchecked); kings chartered towns along the camino for settlers and built bridges and hospitals. Roads, inns and credit for pilgrims served trade too.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "hajj_caravan",
+   "label": "Hajj caravan",
+   "domain": "transport",
+   "kind": "institution",
+   "start": 632,
+   "date_src": "general",
+   "place": "Cairo and Damascus to Mecca",
+   "paradigm": "agrarian_empire",
+   "desc": "The yearly pilgrimage caravans were trade caravans too, and pilgrims traded at Mecca and on the way (unchecked; part 11). Today about 1.8 million hajj pilgrims a year (memory).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "pilgrim_hospices",
+   "label": "Pilgrim hospices and hospitals",
+   "domain": "building",
+   "kind": "institution",
+   "start": 1080,
+   "date_src": "general",
+   "place": "Jerusalem (the Hospitallers), the camino, Alpine passes",
+   "paradigm": "feudal_manorial",
+   "desc": "Endowed houses that lodged, fed and nursed travellers on the routes; the Hospitallers began as a pilgrims' hospital in Jerusalem. Lodging before commercial inns were common.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "indulgences",
+   "label": "Indulgences for works",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1095,
+   "date_src": "general",
+   "place": "Latin Christendom",
+   "paradigm": "feudal_manorial",
+   "desc": "Remission of penance granted for crusading, pilgrimage or gifts to works: bridges, churches and later St Peter's were funded this way (unchecked). Their sale helped provoke the Reformation.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "bridge_brotherhoods",
+   "label": "Bridges built by indulgence",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1177,
+   "date_src": "general",
+   "place": "Avignon (Saint-Benezet); England",
+   "paradigm": "feudal_manorial",
+   "desc": "Bishops granted indulgences to givers to bridge building, and bridges carried chapels kept by hermits; the Freres Pontifes are linked with Avignon (contested). Public works paid by devotion.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "sabbath_shmita",
+   "label": "Sabbath and sabbatical year",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -600,
+   "date_src": "general",
+   "place": "Judah and the diaspora",
+   "paradigm": "agrarian_empire",
+   "desc": "Rest for household, servants and beasts on the seventh day; land fallow and debts released every seventh year (Deuteronomy 15; unchecked). The debt release later needed the prozbul to keep credit alive.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "sunday_rest",
+   "label": "Sunday rest",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 321,
+   "date_src": "part",
+   "place": "Roman empire (Constantine), then Latin Christendom",
+   "paradigm": "agrarian_empire",
+   "desc": "Constantine ordered Sunday rest for townspeople in 321; councils and Carolingian law extended it to field work (unchecked). Shared rest coordinated work, worship and later market days.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "holy_days",
+   "label": "Holy days of obligation",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 600,
+   "date_src": "general",
+   "place": "Latin Christendom",
+   "paradigm": "feudal_manorial",
+   "desc": "About 40 to 50 feast days a year on top of Sundays in the English village (part 05): about a hundred days without full field work, fewer at harvest (rough). Voth counts about 53 lost from London years by 1800.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "quarter_days",
+   "label": "Quarter days",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1200,
+   "date_src": "general",
+   "place": "England (Lady Day, Midsummer, Michaelmas, Christmas)",
+   "paradigm": "feudal_manorial",
+   "desc": "Rents fell due, servants were hired and paid, tenancies turned and debts were reckoned on the great feasts; Michaelmas began the manorial accounting year (unchecked). The feast was the clock for promises.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "feast_day_fairs",
+   "label": "Fairs on saints' days",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1096,
+   "date_src": "part",
+   "place": "Winchester (St Giles), London (Bartholomew Fair 1133), Saint-Denis (Lendit)",
+   "paradigm": "feudal_manorial",
+   "desc": "Fairs were held on the feast of the local church's saint, often with a church as lord taking tolls and stall rents and running the fair court; at St Giles's all other trade in Winchester stopped (memory).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "church_ales",
+   "label": "Church ales",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1400,
+   "date_src": "general",
+   "place": "English parishes",
+   "paradigm": "feudal_manorial",
+   "desc": "Parishes brewed ale from parishioners' grain and sold it back at a feast for the church fabric and the poor; often the largest parish income before the Reformation (memory, Hutton). A work feast turned fundraiser for a common store.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "reformation_holy_day_cut",
+   "label": "Holy days cut",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1536,
+   "date_src": "part",
+   "place": "England, then Protestant Europe",
+   "paradigm": "early_modern_state",
+   "desc": "England abolished feasts in harvest and the law terms in 1536 (unchecked); Protestant churches kept Sundays and a few great feasts. Whether this raised output is part of the industrious revolution and Weber debates (contested).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "computus_hours",
+   "label": "Computus and canonical hours",
+   "domain": "information",
+   "kind": "technique",
+   "start": 725,
+   "date_src": "general",
+   "place": "Northumbria (Bede), monasteries",
+   "paradigm": "feudal_manorial",
+   "desc": "Fixing Easter needed astronomy and arithmetic kept in monasteries, and the canonical hours divided the monk's day, rung by bells that also gave the village its hours of work.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "mechanical_clock",
+   "label": "Mechanical clock",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1283,
+   "date_src": "general",
+   "place": "English and Italian monasteries and cathedrals",
+   "paradigm": "feudal_manorial",
+   "desc": "The verge-and-foliot clock appeared in the late 13th century; the need to ring the canonical hours is one argument for its origin (contested, Landes). A shared time signal as a public good.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "prozbul",
+   "label": "Prozbul",
+   "domain": "institutions",
+   "kind": "technique",
+   "start": -30,
+   "date_src": "general",
+   "place": "Judaea (Hillel)",
+   "paradigm": "agrarian_empire",
+   "desc": "A creditor transferred his loan to a court before the sabbatical year so it would not be released, because lenders had stopped lending as the year approached (unchecked). A rule that killed credit and a contract invented to save it.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "usury_ban",
+   "label": "Christian usury ban",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 325,
+   "date_src": "general",
+   "place": "Latin Christendom",
+   "paradigm": "feudal_manorial",
+   "desc": "Interest forbidden to clergy at Nicaea (325), to laymen under Charlemagne (789); Lateran councils of 1139 and 1179 excommunicated usurers and denied them burial (unchecked). It shaped credit into partnerships, bills, rent charges and pawn banks rather than stopping it.",
+   "chokepoint": false,
+   "part": "16",
+   "wide": 1139
+  },
+  {
+   "id": "usury_exceptions",
+   "label": "Usury exceptions",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1250,
+   "date_src": "general",
+   "place": "scholastic theology",
+   "paradigm": "feudal_manorial",
+   "desc": "Compensation was allowed for loss suffered (damnum emergens), profit forgone (lucrum cessans), late payment and, grudgingly, risk; each opened a door for lenders (unchecked; Noonan).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "rent_charge_census",
+   "label": "Rent charge (census)",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1200,
+   "date_src": "general",
+   "place": "Germany and the Low Countries (Rentenkauf, renten)",
+   "paradigm": "feudal_manorial",
+   "desc": "The lender bought a perpetual annual rent secured on land or a town's revenues, redeemable only by the seller; accepted by popes in 1425 and 1455 (unchecked). The basis of town and state debt.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "triple_contract",
+   "label": "Triple contract",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1514,
+   "date_src": "part",
+   "place": "Augsburg (Eck, the Fuggers)",
+   "paradigm": "commercial_city_state",
+   "desc": "A partnership plus insurance of the capital plus sale of uncertain profit: a fixed-interest loan in three legal parts, condemned by Sixtus V in 1586 (unchecked).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "interest_cap_1545",
+   "label": "Legal interest cap",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1545,
+   "date_src": "part",
+   "place": "England; Calvin's letter the same year",
+   "paradigm": "early_modern_state",
+   "desc": "The English statute of 1545 allowed interest up to 10% (repealed 1552, restored 1571) and Calvin accepted moderate interest: a cap replaces the ban (unchecked).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "licensed_jewish_lending",
+   "label": "Licensed Jewish lending",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1100,
+   "date_src": "general",
+   "place": "England, France, the Rhineland; Italian towns by condotta",
+   "paradigm": "feudal_manorial",
+   "desc": "The Christian ban did not bind Jews, and exclusion from guilds and land left lending among their few trades; rulers licensed and taxed them, and Italian towns set rates of 20 to 40% on small pawns by charter (memory). Exposed to tallage and expulsion (England 1290).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "archae_debt_registry",
+   "label": "Registered debt chests",
+   "domain": "information",
+   "kind": "institution",
+   "start": 1194,
+   "date_src": "part",
+   "place": "England (Exchequer of the Jews)",
+   "paradigm": "feudal_manorial",
+   "desc": "After bonds were burned in the massacres of 1189 to 1190, every loan had to be registered in a chest in a main town, the bond's copy under joint keys (unchecked): a public register of private debts kept because the Crown taxed them.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "heter_iska",
+   "label": "Heter iska",
+   "domain": "exchange",
+   "kind": "technique",
+   "start": 1550,
+   "date_src": "general",
+   "place": "Poland and Central Europe",
+   "paradigm": "early_modern_state",
+   "desc": "Jewish law bans interest between Jews; the heter iska recasts a loan as a partnership with a fixed return unless a loss is proved under conditions no borrower can meet (unchecked). Israeli banks use it today.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "riba_prohibition",
+   "label": "Riba prohibition",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 630,
+   "date_src": "general",
+   "place": "Arabia, then the Islamic world",
+   "paradigm": "agrarian_empire",
+   "desc": "The Qur'an forbids riba (increase on a loan) and gharar (excessive uncertainty); credit ran through partnerships, credit sales, legal devices and transfer instruments instead (unchecked).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "credit_sale_hiyal",
+   "label": "Credit sales and legal devices",
+   "domain": "exchange",
+   "kind": "technique",
+   "start": 800,
+   "date_src": "general",
+   "place": "the Islamic world",
+   "paradigm": "agrarian_empire",
+   "desc": "A higher price for deferred payment is a sale, not a loan; the double sale (bay al-ina) and other hiyal carried interest-like returns, accepted by some schools and condemned by others (unchecked).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "cash_waqf",
+   "label": "Cash waqf",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1450,
+   "date_src": "general",
+   "place": "Ottoman empire",
+   "paradigm": "agrarian_empire",
+   "desc": "Endowments of cash lent their capital at about 10 to 15% through sale-and-resale forms to fund mosques and schools; upheld by Ebussuud in the 1540s, they became the main lenders in Ottoman towns (memory, Mandaville).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "islamic_banking",
+   "label": "Islamic banking",
+   "domain": "exchange",
+   "kind": "industry",
+   "start": 1963,
+   "date_src": "part",
+   "place": "Mit Ghamr (Egypt); Dubai Islamic Bank and IsDB 1975",
+   "paradigm": "service_information",
+   "desc": "Banks under riba rules, mostly using murabaha (a cost-plus deferred sale critics say mimics interest) and sukuk; about USD 3.88 trillion of assets in 2024 by the IFSB, or 5 to 6 trillion on wider counts (checked).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "chantries",
+   "label": "Chantries",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1300,
+   "date_src": "general",
+   "place": "England and Latin Christendom",
+   "paradigm": "feudal_manorial",
+   "desc": "Land or rents endowed to pay priests to sing masses for a soul; about 2,400 in England when dissolved in 1547 (memory), many keeping schools.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "endowed_colleges",
+   "label": "Endowed colleges and hospitals",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1123,
+   "date_src": "general",
+   "place": "St Bartholomew's London (1123); Oxford and Cambridge",
+   "paradigm": "feudal_manorial",
+   "desc": "Corporations endowed in perpetuity with land and rents for teaching, care or prayer; Oxford and Cambridge colleges remain large landowners. The western counterpart of the waqf.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "use_and_trust",
+   "label": "Use and trust",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1220,
+   "date_src": "general",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "Land held by some for the benefit of others, in part to provide for friars who could not own property and to evade feudal dues; Gaudiosi argued it borrowed from the waqf (contested).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "templar_banking",
+   "label": "Templar banking",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1120,
+   "date_src": "general",
+   "place": "Paris and London Temples; houses to Syria",
+   "paradigm": "feudal_manorial",
+   "desc": "Deposits from lords and kings (Joinville left 360 livres at Acre in 1250), the French royal treasury at the Paris Temple with statements several times a year (checked), transfers for crusaders and loans to kings. Ended when Philip IV, in their debt, arrested every Templar in France on 13 October 1307 (checked).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "teutonic_order_state",
+   "label": "Teutonic Order state",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1230,
+   "date_src": "general",
+   "place": "Prussia",
+   "paradigm": "feudal_manorial",
+   "desc": "A religious order ruling a territory, with the Baltic amber monopoly and large grain exports through Danzig (memory).",
+   "chokepoint": true,
+   "part": "16"
+  },
+  {
+   "id": "jesuit_haciendas",
+   "label": "Jesuit haciendas",
+   "domain": "food",
+   "kind": "institution",
+   "start": 1576,
+   "date_src": "general",
+   "place": "New Spain and Peru (Santa Lucia, Mexico)",
+   "paradigm": "plantation_slave",
+   "desc": "Colleges financed by sugar estates worked by enslaved Africans, cattle ranches, vineyards and textile obrajes, run with careful accounts (memory, Konrad); sold after the expulsion of 1767.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "guarani_reductions",
+   "label": "Guarani reductions",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1609,
+   "date_src": "part",
+   "place": "Paraguay, Argentina, Brazil",
+   "paradigm": "frontier_settler",
+   "desc": "Thirty mission towns under the Jesuits, peaking at about 141,000 people in 1732 and halved by epidemics in 1733 to 1740 (checked); they sold yerba mate into the La Plata market (checked, qualitative).",
+   "chokepoint": false,
+   "part": "16",
+   "wide": 1732
+  },
+  {
+   "id": "quaker_network",
+   "label": "Quaker trading network",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1660,
+   "date_src": "general",
+   "place": "England, Pennsylvania, the Atlantic",
+   "paradigm": "early_modern_state",
+   "desc": "Barred from universities and office, Quakers went into trade, iron and banking; meetings disciplined members for debt and bankruptcy and could disown them, and they were early to sell at fixed prices (unchecked). Darby, Huntsman, Lloyds, Barclays, Pease, Cadbury.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "protestant_literacy",
+   "label": "Bible literacy",
+   "domain": "information",
+   "kind": "practice",
+   "start": 1525,
+   "date_src": "general",
+   "place": "Protestant Germany, then Scotland and Scandinavia",
+   "paradigm": "early_modern_state",
+   "desc": "Luther's call to read the Bible spread schooling; Becker and Woessmann (2009) find Protestant counties of 1871 Prussia richer, with literacy explaining practically all the gap (checked). Cantoni (2015) finds no effect on city growth (checked).",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "monastic_alms",
+   "label": "Monastic alms",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 600,
+   "date_src": "general",
+   "place": "monasteries of Latin Christendom",
+   "paradigm": "feudal_manorial",
+   "desc": "Alms at the gate, funeral doles, hospitals and almshouses; Savine found only about 3% of monastic income as alms in the Valor (memory), later historians more (contested). Ended in England with the dissolution.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "common_chest",
+   "label": "Common chest",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1523,
+   "date_src": "part",
+   "place": "Leisnig and Wittenberg; Ypres 1525",
+   "paradigm": "early_modern_state",
+   "desc": "Protestant towns pooled confiscated endowments and gifts in a chest run by elected stewards, banned begging, registered the poor and relieved by need (unchecked): the model for the English parish poor rate.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "religious_fraternities",
+   "label": "Religious fraternities",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1250,
+   "date_src": "general",
+   "place": "parishes and crafts of Latin Christendom",
+   "paradigm": "feudal_manorial",
+   "desc": "Members paid dues for masses, funerals and aid in sickness and poverty; also drinking clubs and credit circles (unchecked). Forerunners of friendly societies.",
+   "chokepoint": false,
+   "part": "16"
+  },
+  {
+   "id": "halal_kosher_cert",
+   "label": "Halal and kosher certification",
+   "domain": "food",
+   "kind": "institution",
+   "start": 1923,
+   "date_src": "general",
+   "place": "USA (Orthodox Union), Malaysia (JAKIM), Brazil and Australia as exporters",
+   "paradigm": "industrial",
+   "desc": "Religious food rules applied as standards at the slaughterhouse, processor and ingredient supplier; certifiers are chokepoints a supplier must pass to sell into a market (unchecked).",
+   "chokepoint": true,
+   "part": "16"
+  }
+ ],
+ "edges": [
+  {
+   "from": "brewing",
+   "to": "work_feast",
+   "type": "input",
+   "note": "beer is the work feast's payment",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "work_feast",
+   "type": "enables",
+   "note": "grain surplus to brew and bake",
+   "src": "part"
+  },
+  {
+   "from": "reciprocal_work_parties",
+   "to": "work_feast",
+   "type": "enables",
+   "note": "work party with beer made explicit",
+   "src": "part"
+  },
+  {
+   "from": "work_feast",
+   "to": "inca_mita",
+   "type": "enables",
+   "note": "state fed and gave chicha to workers",
+   "src": "part"
+  },
+  {
+   "from": "work_feast",
+   "to": "boon_days",
+   "type": "enables",
+   "note": "work feast under a lord",
+   "src": "part"
+  },
+  {
+   "from": "labour_dues",
+   "to": "boon_days",
+   "type": "enables",
+   "note": "boon work owed to the lord",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "boon_days",
+   "type": "enables",
+   "note": "demesne reaped by tenants",
+   "src": "part"
+  },
+  {
+   "from": "work_feast",
+   "to": "church_ales",
+   "type": "enables",
+   "note": "feast turned into a fundraiser",
+   "src": "part"
+  },
+  {
+   "from": "competitive_feasting",
+   "to": "monumental_feasting",
+   "type": "enables",
+   "note": "feasts gathered labour for monuments",
+   "src": "part"
+  },
+  {
+   "from": "delayed_return_property",
+   "to": "competitive_feasting",
+   "type": "enables",
+   "note": "storable surplus to give away",
+   "src": "general"
+  },
+  {
+   "from": "salmon_economies",
+   "to": "potlatch",
+   "type": "enables",
+   "note": "stored salmon surplus",
+   "src": "part"
+  },
+  {
+   "from": "competitive_feasting",
+   "to": "potlatch",
+   "type": "enables",
+   "note": "rank won by giving",
+   "src": "part"
+  },
+  {
+   "from": "competitive_feasting",
+   "to": "moka_exchange",
+   "type": "enables",
+   "note": "big men compete in pigs",
+   "src": "part"
+  },
+  {
+   "from": "gift_exchange",
+   "to": "moka_exchange",
+   "type": "enables",
+   "note": "obligations held in memory",
+   "src": "part"
+  },
+  {
+   "from": "hxaro_partnership",
+   "to": "potlatch",
+   "type": "enables",
+   "note": "gift as insurance between groups",
+   "src": "general"
+  },
+  {
+   "from": "competitive_feasting",
+   "to": "redistribution",
+   "type": "enables",
+   "note": "patron feast as redistribution's return leg",
+   "src": "part"
+  },
+  {
+   "from": "bronze",
+   "to": "votive_hoards",
+   "type": "input",
+   "note": "metal withdrawn from use",
+   "src": "part"
+  },
+  {
+   "from": "tin_route",
+   "to": "votive_hoards",
+   "type": "enables",
+   "note": "metal arriving over long routes",
+   "src": "general"
+  },
+  {
+   "from": "prestige_goods_exchange",
+   "to": "votive_hoards",
+   "type": "enables",
+   "note": "valuables as offerings",
+   "src": "general"
+  },
+  {
+   "from": "temple_palace_economy",
+   "to": "temple_lending",
+   "type": "enables",
+   "note": "stores accumulated from offerings",
+   "src": "part"
+  },
+  {
+   "from": "credit_accounting",
+   "to": "temple_lending",
+   "type": "enables",
+   "note": "loans in barley and silver units",
+   "src": "part"
+  },
+  {
+   "from": "interest_caps_hammurabi",
+   "to": "temple_lending",
+   "type": "enables",
+   "note": "standard rates for temple loans",
+   "src": "part"
+  },
+  {
+   "from": "temple_palace_economy",
+   "to": "naditu_investors",
+   "type": "enables",
+   "note": "cloister attached to temple",
+   "src": "part"
+  },
+  {
+   "from": "temple_lending",
+   "to": "naditu_investors",
+   "type": "enables",
+   "note": "contracts witnessed at the temple",
+   "src": "part"
+  },
+  {
+   "from": "temple_palace_economy",
+   "to": "temple_tithe_esru",
+   "type": "enables",
+   "note": "temple estates collect a tenth",
+   "src": "part"
+  },
+  {
+   "from": "temple_tithe_esru",
+   "to": "tithe",
+   "type": "enables",
+   "note": "older tenth paid to a temple",
+   "src": "general"
+  },
+  {
+   "from": "temple_palace_economy",
+   "to": "egyptian_temple_estates",
+   "type": "enables",
+   "note": "great household on the Nile",
+   "src": "part"
+  },
+  {
+   "from": "basin_irrigation_nile",
+   "to": "egyptian_temple_estates",
+   "type": "enables",
+   "note": "flood-fed estates",
+   "src": "part"
+  },
+  {
+   "from": "egyptian_temple_estates",
+   "to": "wilbour_land_register",
+   "type": "enables",
+   "note": "dues recorded field by field",
+   "src": "part"
+  },
+  {
+   "from": "census_cadastre",
+   "to": "wilbour_land_register",
+   "type": "enables",
+   "note": "land registers for dues",
+   "src": "part"
+  },
+  {
+   "from": "writing",
+   "to": "wilbour_land_register",
+   "type": "enables",
+   "note": "hieratic register",
+   "src": "part"
+  },
+  {
+   "from": "grain_rations",
+   "to": "reversion_of_offerings",
+   "type": "enables",
+   "note": "offerings shared as rations",
+   "src": "part"
+  },
+  {
+   "from": "reversion_of_offerings",
+   "to": "egyptian_temple_estates",
+   "type": "enables",
+   "note": "offering list as payroll",
+   "src": "part"
+  },
+  {
+   "from": "egyptian_temple_estates",
+   "to": "ration_strike",
+   "type": "enables",
+   "note": "strikers sat in at temple granaries",
+   "src": "part"
+  },
+  {
+   "from": "uruk_temple_economy",
+   "to": "record_keeping",
+   "type": "enables",
+   "note": "temple accounts as first records",
+   "src": "part"
+  },
+  {
+   "from": "coinage",
+   "to": "sanctuary_treasuries",
+   "type": "input",
+   "note": "coin and plate deposited",
+   "src": "part"
+  },
+  {
+   "from": "sanctuary_treasuries",
+   "to": "delos_temple_loans",
+   "type": "enables",
+   "note": "temple capital lent out",
+   "src": "part"
+  },
+  {
+   "from": "sealed_bond",
+   "to": "delos_temple_loans",
+   "type": "enables",
+   "note": "written bonds with sureties",
+   "src": "general"
+  },
+  {
+   "from": "sanctuary_treasuries",
+   "to": "funded_public_debt",
+   "type": "enables",
+   "note": "cities borrowed from gods' treasure",
+   "src": "general"
+  },
+  {
+   "from": "coinage",
+   "to": "temple_mint_treasury",
+   "type": "enables",
+   "note": "mint housed in a temple",
+   "src": "part"
+  },
+  {
+   "from": "sanctuary_treasuries",
+   "to": "temple_mint_treasury",
+   "type": "enables",
+   "note": "treasury under the gods' protection",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "sacrificial_meat",
+   "type": "input",
+   "note": "beasts for sacrifice",
+   "src": "part"
+  },
+  {
+   "from": "sacrificial_meat",
+   "to": "markets_fairs",
+   "type": "input",
+   "note": "surplus meat sold in market",
+   "src": "part"
+  },
+  {
+   "from": "chola_temple_bank",
+   "to": "irrigation_farming",
+   "type": "enables",
+   "note": "loans financed delta clearance",
+   "src": "part"
+  },
+  {
+   "from": "temple_lending",
+   "to": "chola_temple_bank",
+   "type": "enables",
+   "note": "temple capital lent to villages",
+   "src": "general"
+  },
+  {
+   "from": "milk_dairy",
+   "to": "lamp_herd_endowment",
+   "type": "input",
+   "note": "ghee from endowed herds",
+   "src": "part"
+  },
+  {
+   "from": "lamp_herd_endowment",
+   "to": "chola_temple_bank",
+   "type": "enables",
+   "note": "temple as owner of capital",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "monastic_mills_presses",
+   "type": "enables",
+   "note": "water mills owned by monasteries",
+   "src": "part"
+  },
+  {
+   "from": "monastic_mills_presses",
+   "to": "inexhaustible_treasury",
+   "type": "enables",
+   "note": "rents became loanable funds",
+   "src": "part"
+  },
+  {
+   "from": "inexhaustible_treasury",
+   "to": "pawnbroking",
+   "type": "enables",
+   "note": "monastery pawnshops (origin contested)",
+   "src": "part"
+  },
+  {
+   "from": "monastic_mills_presses",
+   "to": "huichang_dissolution",
+   "type": "enables",
+   "note": "monastic capital the state took",
+   "src": "part"
+  },
+  {
+   "from": "huichang_dissolution",
+   "to": "copper_cash",
+   "type": "input",
+   "note": "bronze images melted for coin",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "incense_road",
+   "type": "enables",
+   "note": "caravans to the Mediterranean",
+   "src": "part"
+  },
+  {
+   "from": "camel_caravan",
+   "to": "incense_road",
+   "type": "enables",
+   "note": "caravans from South Arabia",
+   "src": "general"
+  },
+  {
+   "from": "beeswax_lights",
+   "to": "hanse_kontor",
+   "type": "enables",
+   "note": "wax from Novgorod",
+   "src": "general"
+  },
+  {
+   "from": "tallow_candle",
+   "to": "beeswax_lights",
+   "type": "replaces",
+   "note": "wax for altars, tallow for homes",
+   "src": "part"
+  },
+  {
+   "from": "fast_days",
+   "to": "stockfish_trade",
+   "type": "enables",
+   "note": "meatless days demanded fish",
+   "src": "part"
+  },
+  {
+   "from": "fast_days",
+   "to": "herring_salting_trade",
+   "type": "enables",
+   "note": "salt herring for Lent",
+   "src": "part"
+  },
+  {
+   "from": "fast_days",
+   "to": "fishponds",
+   "type": "enables",
+   "note": "fresh fish for fast days",
+   "src": "part"
+  },
+  {
+   "from": "salt_preservation",
+   "to": "fast_days",
+   "type": "enables",
+   "note": "fish kept for the fast",
+   "src": "part"
+  },
+  {
+   "from": "fast_days",
+   "to": "fish_day_statute",
+   "type": "enables",
+   "note": "ritual rule kept by statute",
+   "src": "part"
+  },
+  {
+   "from": "fish_day_statute",
+   "to": "herring_buss",
+   "type": "enables",
+   "note": "supported fishing fleets",
+   "src": "general"
+  },
+  {
+   "from": "benedictine_monastery",
+   "to": "monastic_viticulture",
+   "type": "enables",
+   "note": "wine for the Eucharist",
+   "src": "part"
+  },
+  {
+   "from": "stone_masonry",
+   "to": "cathedral_building",
+   "type": "enables",
+   "note": "masons for great churches",
+   "src": "part"
+  },
+  {
+   "from": "lime_mortar",
+   "to": "cathedral_building",
+   "type": "input",
+   "note": "mortar by the thousand tonnes",
+   "src": "part"
+  },
+  {
+   "from": "timber",
+   "to": "cathedral_building",
+   "type": "input",
+   "note": "roofs and scaffolds",
+   "src": "part"
+  },
+  {
+   "from": "glass",
+   "to": "cathedral_building",
+   "type": "input",
+   "note": "window glass",
+   "src": "part"
+  },
+  {
+   "from": "mason_lodges",
+   "to": "cathedral_building",
+   "type": "enables",
+   "note": "crews and lodges on site",
+   "src": "part"
+  },
+  {
+   "from": "bronze",
+   "to": "bell_founding",
+   "type": "input",
+   "note": "bell metal",
+   "src": "part"
+  },
+  {
+   "from": "cathedral_building",
+   "to": "bell_founding",
+   "type": "enables",
+   "note": "towers and bells",
+   "src": "part"
+  },
+  {
+   "from": "tithe",
+   "to": "tithe_barn",
+   "type": "enables",
+   "note": "tithe in kind needed a store",
+   "src": "part"
+  },
+  {
+   "from": "granary_storage",
+   "to": "tithe_barn",
+   "type": "enables",
+   "note": "barn as store",
+   "src": "part"
+  },
+  {
+   "from": "tithe",
+   "to": "parish_appropriation",
+   "type": "enables",
+   "note": "great tithes to a distant abbey",
+   "src": "part"
+  },
+  {
+   "from": "parish_appropriation",
+   "to": "dissolution_monasteries",
+   "type": "enables",
+   "note": "tithes passed to lay impropriators",
+   "src": "part"
+  },
+  {
+   "from": "tithe",
+   "to": "church_courts",
+   "type": "enables",
+   "note": "tithe suits",
+   "src": "part"
+  },
+  {
+   "from": "law_courts",
+   "to": "church_courts",
+   "type": "enables",
+   "note": "separate jurisdiction",
+   "src": "part"
+  },
+  {
+   "from": "tithe",
+   "to": "papal_taxation",
+   "type": "enables",
+   "note": "church fiscal claims",
+   "src": "general"
+  },
+  {
+   "from": "papal_taxation",
+   "to": "bardi_peruzzi_banks",
+   "type": "enables",
+   "note": "Florentines as papal collectors",
+   "src": "part"
+  },
+  {
+   "from": "papal_taxation",
+   "to": "bills_of_exchange",
+   "type": "enables",
+   "note": "remitting taxes to Rome",
+   "src": "part"
+  },
+  {
+   "from": "papal_taxation",
+   "to": "english_wool_export",
+   "type": "enables",
+   "note": "collections spent on wool",
+   "src": "part"
+  },
+  {
+   "from": "saladin_tithe",
+   "to": "lay_subsidy",
+   "type": "enables",
+   "note": "model for taxes on movables",
+   "src": "part"
+  },
+  {
+   "from": "tithe",
+   "to": "saladin_tithe",
+   "type": "enables",
+   "note": "the tenth as a tax form",
+   "src": "part"
+  },
+  {
+   "from": "tithe",
+   "to": "tithe_commutation",
+   "type": "replaces",
+   "note": "money rent charge for tithe in kind",
+   "src": "part"
+  },
+  {
+   "from": "tithe",
+   "to": "zakat_ushr",
+   "type": "enables",
+   "note": "parallel religious levy",
+   "src": "general"
+  },
+  {
+   "from": "zakat_ushr",
+   "to": "waqf",
+   "type": "enables",
+   "note": "obligation of giving",
+   "src": "general"
+  },
+  {
+   "from": "tithe",
+   "to": "church_tax",
+   "type": "replaces",
+   "note": "church levy collected by the state",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "church_tax",
+   "type": "enables",
+   "note": "collected with income tax",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "benedictine_monastery",
+   "type": "enables",
+   "note": "mill within the walls",
+   "src": "part"
+  },
+  {
+   "from": "brewing",
+   "to": "benedictine_monastery",
+   "type": "enables",
+   "note": "three breweries at St Gall",
+   "src": "part"
+  },
+  {
+   "from": "benedictine_monastery",
+   "to": "monastic_polyptych",
+   "type": "enables",
+   "note": "abbeys kept estate records",
+   "src": "part"
+  },
+  {
+   "from": "monastic_polyptych",
+   "to": "lordship_manor",
+   "type": "enables",
+   "note": "bipartite manor first recorded",
+   "src": "part"
+  },
+  {
+   "from": "record_keeping",
+   "to": "monastic_polyptych",
+   "type": "enables",
+   "note": "written estate surveys",
+   "src": "part"
+  },
+  {
+   "from": "benedictine_monastery",
+   "to": "cluniac_network",
+   "type": "enables",
+   "note": "reformed Benedictine houses",
+   "src": "part"
+  },
+  {
+   "from": "cluniac_network",
+   "to": "cathedral_building",
+   "type": "enables",
+   "note": "Cluny III, largest church",
+   "src": "part"
+  },
+  {
+   "from": "benedictine_monastery",
+   "to": "cistercian_grange",
+   "type": "enables",
+   "note": "reform against Cluny's wealth",
+   "src": "part"
+  },
+  {
+   "from": "conversi",
+   "to": "cistercian_grange",
+   "type": "enables",
+   "note": "lay brothers worked granges",
+   "src": "part"
+  },
+  {
+   "from": "cistercian_grange",
+   "to": "enclosure",
+   "type": "enables",
+   "note": "villages cleared for sheep",
+   "src": "part"
+  },
+  {
+   "from": "cistercian_grange",
+   "to": "wool_sheep",
+   "type": "enables",
+   "note": "sheep granges",
+   "src": "general"
+  },
+  {
+   "from": "cistercian_grange",
+   "to": "monastic_wool_forward",
+   "type": "enables",
+   "note": "abbey clips sold ahead",
+   "src": "part"
+  },
+  {
+   "from": "monastic_wool_forward",
+   "to": "english_wool_export",
+   "type": "input",
+   "note": "monastic wool to Italy and Flanders",
+   "src": "part"
+  },
+  {
+   "from": "monastic_wool_forward",
+   "to": "wool_staple",
+   "type": "enables",
+   "note": "wool trade the staple taxed",
+   "src": "general"
+  },
+  {
+   "from": "bardi_peruzzi_banks",
+   "to": "monastic_wool_forward",
+   "type": "enables",
+   "note": "Italian advances to abbeys",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "monastic_water_system",
+   "type": "enables",
+   "note": "grain mill first on the channel",
+   "src": "part"
+  },
+  {
+   "from": "monastic_water_system",
+   "to": "fulling_mill",
+   "type": "enables",
+   "note": "fulling stocks downstream",
+   "src": "part"
+  },
+  {
+   "from": "monastic_water_system",
+   "to": "tanning",
+   "type": "enables",
+   "note": "tannery on the same stream",
+   "src": "part"
+  },
+  {
+   "from": "monastic_water_system",
+   "to": "monastic_forge",
+   "type": "enables",
+   "note": "diverted streams drove hammers",
+   "src": "part"
+  },
+  {
+   "from": "monastic_forge",
+   "to": "water_bloomery_hammer",
+   "type": "enables",
+   "note": "monastery as forge site",
+   "src": "part"
+  },
+  {
+   "from": "charcoal",
+   "to": "monastic_forge",
+   "type": "input",
+   "note": "fuel for the forge",
+   "src": "general"
+  },
+  {
+   "from": "cistercian_grange",
+   "to": "fishponds",
+   "type": "enables",
+   "note": "fisheries granges",
+   "src": "part"
+  },
+  {
+   "from": "monastic_water_system",
+   "to": "mill_soke",
+   "type": "enables",
+   "note": "church held ~43% of powered mills",
+   "src": "part"
+  },
+  {
+   "from": "benedictine_monastery",
+   "to": "mort_gage",
+   "type": "enables",
+   "note": "abbeys held coin and plate",
+   "src": "part"
+  },
+  {
+   "from": "mort_gage",
+   "to": "mortgage_market",
+   "type": "enables",
+   "note": "word and form of the mortgage",
+   "src": "general"
+  },
+  {
+   "from": "valor_ecclesiasticus",
+   "to": "dissolution_monasteries",
+   "type": "enables",
+   "note": "inventory for the dissolution",
+   "src": "part"
+  },
+  {
+   "from": "record_keeping",
+   "to": "valor_ecclesiasticus",
+   "type": "enables",
+   "note": "national survey of income",
+   "src": "part"
+  },
+  {
+   "from": "dissolution_monasteries",
+   "to": "peasant_land_market",
+   "type": "enables",
+   "note": "land market on a new scale",
+   "src": "part"
+  },
+  {
+   "from": "dissolution_monasteries",
+   "to": "enclosure",
+   "type": "enables",
+   "note": "new owners reorganised land (contested)",
+   "src": "part"
+  },
+  {
+   "from": "dissolution_monasteries",
+   "to": "old_poor_law",
+   "type": "enables",
+   "note": "alms ended; poor rate followed",
+   "src": "part"
+  },
+  {
+   "from": "statute_of_mortmain",
+   "to": "dissolution_monasteries",
+   "type": "enables",
+   "note": "land in the dead hand",
+   "src": "general"
+  },
+  {
+   "from": "biens_nationaux",
+   "to": "paper_money",
+   "type": "enables",
+   "note": "assignats backed by church land",
+   "src": "part"
+  },
+  {
+   "from": "dissolution_monasteries",
+   "to": "biens_nationaux",
+   "type": "enables",
+   "note": "same pattern, later and larger",
+   "src": "general"
+  },
+  {
+   "from": "biens_nationaux",
+   "to": "desamortizacion",
+   "type": "enables",
+   "note": "pattern repeated in Spain",
+   "src": "general"
+  },
+  {
+   "from": "desamortizacion",
+   "to": "funded_public_debt",
+   "type": "enables",
+   "note": "sales paid the public debt",
+   "src": "part"
+  },
+  {
+   "from": "huichang_dissolution",
+   "to": "dissolution_monasteries",
+   "type": "enables",
+   "note": "same motives: land, metal, taxpayers",
+   "src": "general"
+  },
+  {
+   "from": "roads",
+   "to": "pilgrimage_road",
+   "type": "enables",
+   "note": "routes to shrines",
+   "src": "part"
+  },
+  {
+   "from": "pilgrimage_road",
+   "to": "chartered_market_town",
+   "type": "enables",
+   "note": "towns chartered on the camino",
+   "src": "part"
+  },
+  {
+   "from": "pilgrimage_road",
+   "to": "inns",
+   "type": "enables",
+   "note": "lodging on routes",
+   "src": "part"
+  },
+  {
+   "from": "pilgrimage_road",
+   "to": "pilgrim_hospices",
+   "type": "enables",
+   "note": "hospices along the road",
+   "src": "part"
+  },
+  {
+   "from": "pilgrim_hospices",
+   "to": "endowed_colleges",
+   "type": "enables",
+   "note": "hospitals as endowed corporations",
+   "src": "general"
+  },
+  {
+   "from": "indulgences",
+   "to": "bridge_brotherhoods",
+   "type": "enables",
+   "note": "gifts for bridges rewarded",
+   "src": "part"
+  },
+  {
+   "from": "bridge_brotherhoods",
+   "to": "bridges_pontage",
+   "type": "enables",
+   "note": "bridges kept by chapels",
+   "src": "part"
+  },
+  {
+   "from": "indulgences",
+   "to": "cathedral_building",
+   "type": "enables",
+   "note": "indulgences funded churches",
+   "src": "part"
+  },
+  {
+   "from": "pilgrimage_road",
+   "to": "indulgences",
+   "type": "enables",
+   "note": "pilgrimage rewarded",
+   "src": "general"
+  },
+  {
+   "from": "caravanserai_funduq",
+   "to": "hajj_caravan",
+   "type": "enables",
+   "note": "inns on the routes",
+   "src": "part"
+  },
+  {
+   "from": "camel_caravan",
+   "to": "hajj_caravan",
+   "type": "enables",
+   "note": "caravans of thousands",
+   "src": "part"
+  },
+  {
+   "from": "hajj_caravan",
+   "to": "long_distance_trade",
+   "type": "enables",
+   "note": "pilgrims traded on the way",
+   "src": "part"
+  },
+  {
+   "from": "hajj_caravan",
+   "to": "west_african_gold",
+   "type": "enables",
+   "note": "Mansa Musa's gold in Cairo",
+   "src": "part"
+  },
+  {
+   "from": "sabbath_shmita",
+   "to": "sunday_rest",
+   "type": "enables",
+   "note": "weekly rest day",
+   "src": "general"
+  },
+  {
+   "from": "sabbath_shmita",
+   "to": "prozbul",
+   "type": "enables",
+   "note": "debt release killed lending",
+   "src": "part"
+  },
+  {
+   "from": "debt_cancellation",
+   "to": "sabbath_shmita",
+   "type": "enables",
+   "note": "periodic release of debts",
+   "src": "general"
+  },
+  {
+   "from": "sunday_rest",
+   "to": "holy_days",
+   "type": "enables",
+   "note": "feast days added to Sundays",
+   "src": "general"
+  },
+  {
+   "from": "sunday_rest",
+   "to": "markets_fairs",
+   "type": "enables",
+   "note": "Sunday gatherings became market days",
+   "src": "part"
+  },
+  {
+   "from": "holy_days",
+   "to": "feast_day_fairs",
+   "type": "enables",
+   "note": "fair on the patron's feast",
+   "src": "part"
+  },
+  {
+   "from": "feast_day_fairs",
+   "to": "fair_courts",
+   "type": "enables",
+   "note": "fair court as church franchise",
+   "src": "part"
+  },
+  {
+   "from": "feast_day_fairs",
+   "to": "champagne_fairs",
+   "type": "enables",
+   "note": "fairs on the feast calendar",
+   "src": "general"
+  },
+  {
+   "from": "market_charters",
+   "to": "feast_day_fairs",
+   "type": "enables",
+   "note": "fair granted by charter",
+   "src": "part"
+  },
+  {
+   "from": "holy_days",
+   "to": "quarter_days",
+   "type": "enables",
+   "note": "great feasts as due dates",
+   "src": "part"
+  },
+  {
+   "from": "quarter_days",
+   "to": "reckoning_days",
+   "type": "enables",
+   "note": "debts reckoned on feasts",
+   "src": "part"
+  },
+  {
+   "from": "quarter_days",
+   "to": "hiring_fairs",
+   "type": "enables",
+   "note": "servants hired at Michaelmas, Martinmas",
+   "src": "part"
+  },
+  {
+   "from": "brewing",
+   "to": "church_ales",
+   "type": "input",
+   "note": "ale brewed for the feast",
+   "src": "part"
+  },
+  {
+   "from": "church_ales",
+   "to": "religious_fraternities",
+   "type": "enables",
+   "note": "parish finance",
+   "src": "general"
+  },
+  {
+   "from": "holy_days",
+   "to": "reformation_holy_day_cut",
+   "type": "replaces",
+   "note": "fewer feasts, more working days",
+   "src": "part"
+  },
+  {
+   "from": "reformation_holy_day_cut",
+   "to": "industrious_revolution",
+   "type": "enables",
+   "note": "more working days (contested)",
+   "src": "part"
+  },
+  {
+   "from": "benedictine_monastery",
+   "to": "computus_hours",
+   "type": "enables",
+   "note": "monks kept the tables and hours",
+   "src": "part"
+  },
+  {
+   "from": "computus_hours",
+   "to": "mechanical_clock",
+   "type": "enables",
+   "note": "ringing the hours (contested)",
+   "src": "part"
+  },
+  {
+   "from": "bell_founding",
+   "to": "computus_hours",
+   "type": "enables",
+   "note": "bells rang the hours",
+   "src": "part"
+  },
+  {
+   "from": "interest_caps_hammurabi",
+   "to": "usury_ban",
+   "type": "replaces",
+   "note": "cap becomes ban",
+   "src": "general"
+  },
+  {
+   "from": "usury_ban",
+   "to": "usury_exceptions",
+   "type": "enables",
+   "note": "exceptions to the rule",
+   "src": "part"
+  },
+  {
+   "from": "usury_exceptions",
+   "to": "bills_of_exchange",
+   "type": "enables",
+   "note": "interest hidden in exchange rates",
+   "src": "part"
+  },
+  {
+   "from": "usury_ban",
+   "to": "commenda",
+   "type": "enables",
+   "note": "partnership instead of loan",
+   "src": "part"
+  },
+  {
+   "from": "usury_ban",
+   "to": "rent_charge_census",
+   "type": "enables",
+   "note": "bought rent not a loan",
+   "src": "part"
+  },
+  {
+   "from": "rent_charge_census",
+   "to": "funded_public_debt",
+   "type": "enables",
+   "note": "town and state debt as rents",
+   "src": "part"
+  },
+  {
+   "from": "usury_ban",
+   "to": "mort_gage",
+   "type": "enables",
+   "note": "revenue instead of interest",
+   "src": "part"
+  },
+  {
+   "from": "usury_ban",
+   "to": "triple_contract",
+   "type": "enables",
+   "note": "fixed return in three parts",
+   "src": "part"
+  },
+  {
+   "from": "commenda",
+   "to": "triple_contract",
+   "type": "enables",
+   "note": "partnership as first leg",
+   "src": "part"
+  },
+  {
+   "from": "insurance",
+   "to": "triple_contract",
+   "type": "enables",
+   "note": "insurance as second leg",
+   "src": "general"
+  },
+  {
+   "from": "usury_ban",
+   "to": "pawnbroking",
+   "type": "enables",
+   "note": "monti di pieta charging costs",
+   "src": "part"
+  },
+  {
+   "from": "usury_ban",
+   "to": "licensed_jewish_lending",
+   "type": "enables",
+   "note": "ban did not bind Jews",
+   "src": "part"
+  },
+  {
+   "from": "licensed_jewish_lending",
+   "to": "archae_debt_registry",
+   "type": "enables",
+   "note": "crown registered Jewish bonds",
+   "src": "part"
+  },
+  {
+   "from": "archae_debt_registry",
+   "to": "statute_merchant",
+   "type": "enables",
+   "note": "public registers of debt",
+   "src": "general"
+  },
+  {
+   "from": "licensed_jewish_lending",
+   "to": "bardi_peruzzi_banks",
+   "type": "replaces",
+   "note": "Italians lent after 1290 expulsion",
+   "src": "part"
+  },
+  {
+   "from": "licensed_jewish_lending",
+   "to": "pawnbroking",
+   "type": "enables",
+   "note": "monti founded to compete",
+   "src": "part"
+  },
+  {
+   "from": "usury_ban",
+   "to": "interest_cap_1545",
+   "type": "replaces",
+   "note": "cap replaces ban",
+   "src": "part"
+  },
+  {
+   "from": "interest_cap_1545",
+   "to": "goldsmith_bankers",
+   "type": "enables",
+   "note": "open interest at legal rate",
+   "src": "general"
+  },
+  {
+   "from": "prozbul",
+   "to": "heter_iska",
+   "type": "enables",
+   "note": "Jewish legal workarounds",
+   "src": "general"
+  },
+  {
+   "from": "commenda",
+   "to": "heter_iska",
+   "type": "enables",
+   "note": "loan recast as partnership",
+   "src": "general"
+  },
+  {
+   "from": "riba_prohibition",
+   "to": "qirad",
+   "type": "enables",
+   "note": "partnership instead of loan",
+   "src": "part"
+  },
+  {
+   "from": "riba_prohibition",
+   "to": "credit_sale_hiyal",
+   "type": "enables",
+   "note": "credit sale instead of loan",
+   "src": "part"
+  },
+  {
+   "from": "riba_prohibition",
+   "to": "hawala",
+   "type": "enables",
+   "note": "transfer fee not riba",
+   "src": "general"
+  },
+  {
+   "from": "qirad",
+   "to": "commenda",
+   "type": "enables",
+   "note": "commenda from qirad (contested)",
+   "src": "part"
+  },
+  {
+   "from": "waqf",
+   "to": "cash_waqf",
+   "type": "enables",
+   "note": "endowment of cash",
+   "src": "part"
+  },
+  {
+   "from": "credit_sale_hiyal",
+   "to": "cash_waqf",
+   "type": "enables",
+   "note": "lent via sale and resale",
+   "src": "part"
+  },
+  {
+   "from": "riba_prohibition",
+   "to": "islamic_banking",
+   "type": "enables",
+   "note": "banks under riba rules",
+   "src": "part"
+  },
+  {
+   "from": "credit_sale_hiyal",
+   "to": "islamic_banking",
+   "type": "enables",
+   "note": "murabaha cost-plus sale",
+   "src": "part"
+  },
+  {
+   "from": "banking",
+   "to": "islamic_banking",
+   "type": "enables",
+   "note": "modern bank form",
+   "src": "part"
+  },
+  {
+   "from": "waqf",
+   "to": "caravanserai_funduq",
+   "type": "enables",
+   "note": "inns paid by endowed rents",
+   "src": "part"
+  },
+  {
+   "from": "statute_of_mortmain",
+   "to": "use_and_trust",
+   "type": "enables",
+   "note": "evading limits on gifts",
+   "src": "general"
+  },
+  {
+   "from": "chantries",
+   "to": "dissolution_monasteries",
+   "type": "enables",
+   "note": "chantries dissolved 1547",
+   "src": "general"
+  },
+  {
+   "from": "corporation",
+   "to": "endowed_colleges",
+   "type": "enables",
+   "note": "endowed corporations",
+   "src": "part"
+  },
+  {
+   "from": "endowed_colleges",
+   "to": "chantries",
+   "type": "enables",
+   "note": "endowed prayer and schools",
+   "src": "general"
+  },
+  {
+   "from": "waqf",
+   "to": "use_and_trust",
+   "type": "enables",
+   "note": "trust from waqf (contested)",
+   "src": "part"
+  },
+  {
+   "from": "use_and_trust",
+   "to": "joint_stock_company",
+   "type": "enables",
+   "note": "trusteeship of property",
+   "src": "general"
+  },
+  {
+   "from": "pilgrimage_road",
+   "to": "templar_banking",
+   "type": "enables",
+   "note": "order founded to protect pilgrims",
+   "src": "part"
+  },
+  {
+   "from": "templar_banking",
+   "to": "banking",
+   "type": "enables",
+   "note": "deposits, transfers, royal treasury",
+   "src": "part"
+  },
+  {
+   "from": "templar_banking",
+   "to": "bills_of_exchange",
+   "type": "enables",
+   "note": "transfer without moving coin (contested)",
+   "src": "general"
+  },
+  {
+   "from": "templar_banking",
+   "to": "teutonic_order_state",
+   "type": "enables",
+   "note": "military-order model",
+   "src": "general"
+  },
+  {
+   "from": "amber_road",
+   "to": "teutonic_order_state",
+   "type": "enables",
+   "note": "amber monopoly",
+   "src": "part"
+  },
+  {
+   "from": "teutonic_order_state",
+   "to": "baltic_grain_trade",
+   "type": "input",
+   "note": "grain via Danzig",
+   "src": "part"
+  },
+  {
+   "from": "atlantic_sugar_plantation",
+   "to": "jesuit_haciendas",
+   "type": "enables",
+   "note": "sugar estates financed colleges",
+   "src": "part"
+  },
+  {
+   "from": "slavery",
+   "to": "jesuit_haciendas",
+   "type": "enables",
+   "note": "enslaved workers on estates",
+   "src": "part"
+  },
+  {
+   "from": "jesuit_haciendas",
+   "to": "guarani_reductions",
+   "type": "enables",
+   "note": "order ran planned economies",
+   "src": "general"
+  },
+  {
+   "from": "guarani_reductions",
+   "to": "long_distance_trade",
+   "type": "input",
+   "note": "yerba mate to La Plata",
+   "src": "part"
+  },
+  {
+   "from": "guarani_reductions",
+   "to": "jingdezhen_porcelain",
+   "type": "enables",
+   "note": "Jesuits reported Chinese crafts",
+   "src": "general"
+  },
+  {
+   "from": "quaker_network",
+   "to": "coke",
+   "type": "enables",
+   "note": "Darby a Quaker",
+   "src": "part"
+  },
+  {
+   "from": "quaker_network",
+   "to": "crucible_steel",
+   "type": "enables",
+   "note": "Huntsman a Quaker",
+   "src": "part"
+  },
+  {
+   "from": "quaker_network",
+   "to": "country_banks",
+   "type": "enables",
+   "note": "Lloyds, Barclays, Gurneys",
+   "src": "part"
+  },
+  {
+   "from": "quaker_network",
+   "to": "railway",
+   "type": "enables",
+   "note": "Stockton and Darlington financiers",
+   "src": "part"
+  },
+  {
+   "from": "maghribi_coalition",
+   "to": "quaker_network",
+   "type": "enables",
+   "note": "community enforcement",
+   "src": "general"
+  },
+  {
+   "from": "printing",
+   "to": "protestant_literacy",
+   "type": "enables",
+   "note": "presses spread Bibles",
+   "src": "part"
+  },
+  {
+   "from": "protestant_literacy",
+   "to": "industrious_revolution",
+   "type": "enables",
+   "note": "human-capital channel (contested)",
+   "src": "general"
+  },
+  {
+   "from": "benedictine_monastery",
+   "to": "monastic_alms",
+   "type": "enables",
+   "note": "alms at the gate",
+   "src": "part"
+  },
+  {
+   "from": "tithe",
+   "to": "monastic_alms",
+   "type": "enables",
+   "note": "quarter of tithe for the poor",
+   "src": "part"
+  },
+  {
+   "from": "monastic_alms",
+   "to": "common_chest",
+   "type": "replaces",
+   "note": "municipal relief replaced alms",
+   "src": "part"
+  },
+  {
+   "from": "dissolution_monasteries",
+   "to": "common_chest",
+   "type": "enables",
+   "note": "confiscated endowments funded chest",
+   "src": "general"
+  },
+  {
+   "from": "common_chest",
+   "to": "old_poor_law",
+   "type": "enables",
+   "note": "model for parish rate",
+   "src": "part"
+  },
+  {
+   "from": "religious_fraternities",
+   "to": "friendly_societies",
+   "type": "enables",
+   "note": "dues for sickness and burial",
+   "src": "part"
+  },
+  {
+   "from": "guilds",
+   "to": "religious_fraternities",
+   "type": "enables",
+   "note": "craft fraternities",
+   "src": "general"
+  },
+  {
+   "from": "old_poor_law",
+   "to": "welfare_state",
+   "type": "enables",
+   "note": "parish relief to state",
+   "src": "general"
+  },
+  {
+   "from": "meatpacking",
+   "to": "halal_kosher_cert",
+   "type": "enables",
+   "note": "certified at the packer",
+   "src": "part"
+  },
+  {
+   "from": "fast_days",
+   "to": "halal_kosher_cert",
+   "type": "enables",
+   "note": "religious food rules",
+   "src": "general"
+  }
+ ]
+}

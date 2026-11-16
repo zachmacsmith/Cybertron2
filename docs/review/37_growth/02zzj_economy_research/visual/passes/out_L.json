@@ -1,0 +1,2778 @@
+{
+ "nodes": [
+  {
+   "id": "hindu_arabic_numerals",
+   "label": "Hindu-Arabic numerals",
+   "domain": "information",
+   "kind": "technique",
+   "start": 500,
+   "date_src": "general",
+   "wide": 1500,
+   "place": "India; via Baghdad (al-Khwarizmi, c. 825) to Italy (Fibonacci, 1202)",
+   "paradigm": "agrarian_empire",
+   "desc": "Place-value digits with a zero, worked out in India by about the 6th century, taken up in Abbasid Baghdad and carried to Italy by Fibonacci's Liber Abaci (1202). Written arithmetic on paper replaced the counting board for merchants, and made long ledgers, interest and exchange sums quick to check.",
+   "chokepoint": false,
+   "part": ""
+  },
+  {
+   "id": "magnetic_compass",
+   "label": "Magnetic compass",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1040,
+   "date_src": "general",
+   "wide": 1300,
+   "place": "Song China (navigation by about 1100); Europe and the Indian Ocean by about 1190",
+   "paradigm": "agrarian_empire",
+   "desc": "A magnetised needle that shows north in cloud and out of sight of land. Used by Song pilots by about 1100, known in the Mediterranean by the 1190s; it let ships keep sailing in winter overcast and, with charts, made ocean crossings and set seasons of shipping more regular.",
+   "chokepoint": false,
+   "part": ""
+  },
+  {
+   "id": "cannon_founding",
+   "label": "Cannon founding",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 1280,
+   "date_src": "general",
+   "wide": 1450,
+   "place": "Yuan China (c. 1288); Europe from the 1320s; cast-iron guns in the Weald from 1543",
+   "paradigm": "early_modern_state",
+   "desc": "Casting gun barrels from bronze by bell-founders, then from cheap blast-furnace iron. Needed gunpowder, a foundry and a state buyer; it made war a matter of money and furnaces, and naval and siege guns drove iron demand until Wilkinson bored cannon from the solid (1774), the method that bored Watt's cylinders (part 07).",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "muskets_firearms",
+   "label": "Handguns and muskets",
+   "domain": "metals",
+   "kind": "good",
+   "start": 1450,
+   "date_src": "general",
+   "wide": 1600,
+   "place": "Europe and the Ottoman empire; later the US armouries",
+   "paradigm": "early_modern_state",
+   "desc": "Hand-held guns (matchlock from about 1450, flintlock from about 1610) that made infantry with little training effective. Made by gunsmiths in towns, then in state armouries, where the American system of interchangeable parts was worked out (part 07); guns were also a main trade good for furs and captives.",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "ocean_ships_caravel",
+   "label": "Caravels and carracks",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1440,
+   "date_src": "general",
+   "wide": 1500,
+   "place": "Portugal and Castile",
+   "paradigm": "maritime_trading",
+   "desc": "Ocean-going ships combining northern hulls and square sails with the Mediterranean lateen sail, navigated by compass and latitude sailing. They carried the Portuguese down Africa, to India (1498) and across the Atlantic, and with them sugar, captives, silver, crops and disease (part 11).",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "printing_press",
+   "label": "Movable-type press",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1450,
+   "date_src": "general",
+   "wide": 1500,
+   "place": "Mainz (Gutenberg); earlier movable type in Song China (Bi Sheng, 1040s) and Korea (1377)",
+   "paradigm": "commercial_city_state",
+   "desc": "Cast metal type set in a screw press and printed on rag paper. By 1500 Europe had printed perhaps 20 million copies; cheap print carried price lists, arithmetic and bookkeeping manuals (Pacioli, 1494), technical books and later newspapers.",
+   "chokepoint": false,
+   "part": ""
+  },
+  {
+   "id": "european_porcelain",
+   "label": "European porcelain",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1710,
+   "date_src": "general",
+   "wide": 1770,
+   "place": "Meissen (Saxony); Sevres; Wedgwood's Etruria, Stoke",
+   "paradigm": "early_modern_state",
+   "desc": "European kilns imitating the Chinese porcelain imported by the East India companies: Delft tin-glaze, true porcelain at Meissen (1710), Wedgwood's creamware at Etruria (1769). The pottery works became one of the first centralised manufactories, with fine division of labour and clocking-in (part 07).",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "silk_throwing_mill",
+   "label": "Water-powered silk throwing",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1280,
+   "date_src": "general",
+   "wide": 1500,
+   "place": "Lucca and Bologna; copied at Derby (Lombe, 1721)",
+   "paradigm": "commercial_city_state",
+   "desc": "Water-driven machines that twisted reeled silk into thread on hundreds of spindles at once, guarded as a trade secret in Lucca and Bologna. Lombe's copy at Derby (1721) was a powered precursor of the cotton factory (part 07).",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "fustian_cloth",
+   "label": "Fustian (cotton-linen)",
+   "domain": "textiles",
+   "kind": "good",
+   "start": 1150,
+   "date_src": "general",
+   "wide": 1450,
+   "place": "northern Italy; south Germany (Barchent) from the 1370s; Lancashire from about 1600",
+   "paradigm": "commercial_city_state",
+   "desc": "Cloth with a linen warp and a cotton weft, made from cotton imported from the Levant. It moved from Italy to the Augsburg and Ulm putting-out trades and then to Lancashire, where the fustian makers were the industry that mechanised cotton spinning grew out of.",
+   "chokepoint": false,
+   "part": ""
+  },
+  {
+   "id": "calico_printing",
+   "label": "European calico printing",
+   "domain": "textiles",
+   "kind": "industry",
+   "start": 1676,
+   "date_src": "general",
+   "wide": 1780,
+   "place": "London; Mulhouse; Lancashire (Peel's)",
+   "paradigm": "early_modern_state",
+   "desc": "Printing fast colours on cotton with mordants and wood blocks, learned from Indian chintz, then with copper rollers (1783). Protected by the Calico Acts' ban on Indian prints, it grew into the Lancashire finishing trade that bought bleach and dyes (part 07).",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "turkey_red_dyeing",
+   "label": "Turkey red dyeing",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1747,
+   "date_src": "general",
+   "wide": 1800,
+   "place": "Ottoman and Indian method; Rouen (1747); Vale of Leven, Scotland (1785)",
+   "paradigm": "early_modern_state",
+   "desc": "A long, oil-and-alum mordant madder process giving a fast bright red on cotton, brought from the Levant and India by Greek dyers to France and then to Glasgow. The Vale of Leven Turkey-red works were a main finishing trade (part 07) until synthetic alizarin (1868).",
+   "chokepoint": false,
+   "part": "07"
+  },
+  {
+   "id": "tobacco_plantation",
+   "label": "Tobacco plantations",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1612,
+   "date_src": "general",
+   "wide": 1700,
+   "place": "Virginia and Maryland (Chesapeake)",
+   "paradigm": "plantation_slave",
+   "desc": "An American crop (part 11) grown for export in Virginia from 1612, first by indentured servants and then by enslaved Africans. It exhausted soils and pushed settlement west, and its customs revenue and the Glasgow and London tobacco merchants tied the colony to European finance.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "coffee_trade",
+   "label": "Coffee trade",
+   "domain": "food",
+   "kind": "good",
+   "start": 1450,
+   "date_src": "general",
+   "wide": 1700,
+   "place": "Yemen (Mocha); then Java, Saint-Domingue and Brazil",
+   "paradigm": "maritime_trading",
+   "desc": "An Ethiopian plant grown in Yemen and shipped through the Red Sea (part 11 lists it among Old World crops sent to the Americas). Europe's coffee houses (London 1652) drank it first from Mocha, then from Dutch Java and the slave plantations of the Caribbean and Brazil.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "tea_trade",
+   "label": "Canton tea trade",
+   "domain": "food",
+   "kind": "good",
+   "start": 1700,
+   "date_src": "general",
+   "wide": 1780,
+   "place": "Canton (Guangzhou) to London and Amsterdam",
+   "paradigm": "maritime_trading",
+   "desc": "Chinese tea bought at Canton for silver by the East India companies, the largest of their China imports by the mid-18th century. Silver bought silk, porcelain and tea (part 11); the drain of silver to pay for tea was later reversed by Bengal opium.",
+   "chokepoint": false,
+   "part": ""
+  },
+  {
+   "id": "cassava_africa",
+   "label": "Cassava in Africa",
+   "domain": "food",
+   "kind": "good",
+   "start": 1550,
+   "date_src": "general",
+   "wide": 1750,
+   "place": "Kongo and West Africa, from Brazil",
+   "paradigm": "early_modern_state",
+   "desc": "An American root (part 11: a famine crop and staple in central Africa) brought from Brazil by the Portuguese. It grows on poor soil and keeps in the ground, so it fed people through drought and war, and as flour it victualled slave ships.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "american_depopulation",
+   "label": "American epidemic collapse",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1520,
+   "date_src": "part",
+   "wide": 1600,
+   "place": "the Americas",
+   "paradigm": "plantation_slave",
+   "desc": "Smallpox, measles and influenza from the Old World killed about 56 million people in the Americas by 1600, roughly 90 per cent (Koch and others 2019, contested in detail; part 11). The collapse emptied land for plantations and cattle and left a labour shortage filled by forced labour and the Atlantic slave trade.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "japanese_silver",
+   "label": "Japanese silver (Iwami)",
+   "domain": "metals",
+   "kind": "resource",
+   "start": 1530,
+   "date_src": "general",
+   "wide": 1600,
+   "place": "Iwami Ginzan and other Japanese mines",
+   "paradigm": "feudal_manorial",
+   "desc": "Silver mined in Japan from the 1520s and refined by cupellation brought from Korea (1533). With American silver it supplied China, whose money and taxes ran on silver after paper failed (part 11); Portuguese and Chinese ships carried it to the mainland.",
+   "chokepoint": false,
+   "part": "11"
+  },
+  {
+   "id": "venetian_glass",
+   "label": "Murano glass",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1291,
+   "date_src": "general",
+   "wide": 1450,
+   "place": "Murano, Venice",
+   "paradigm": "commercial_city_state",
+   "desc": "Venice's glass industry, moved to Murano in 1291, using Levantine plant-ash soda and Syrian methods; clear cristallo (c. 1450) and mirrors. Its guild kept the secrets by law, and its skills and workers were later lured to France and England.",
+   "chokepoint": false,
+   "part": ""
+  },
+  {
+   "id": "jacquard_loom",
+   "label": "Jacquard loom",
+   "domain": "textiles",
+   "kind": "technique",
+   "start": 1804,
+   "date_src": "general",
+   "wide": 1830,
+   "place": "Lyon",
+   "paradigm": "industrial",
+   "desc": "A loom attachment that lifts warp threads by a chain of punched cards, replacing the drawloom's draw-boy for patterned silk. Its cards were the model for Babbage's engine and Hollerith's census tabulator.",
+   "chokepoint": false,
+   "part": ""
+  },
+  {
+   "id": "carolina_rice",
+   "label": "Carolina rice plantations",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1690,
+   "date_src": "general",
+   "wide": 1750,
+   "place": "South Carolina and Georgia lowcountry",
+   "paradigm": "plantation_slave",
+   "desc": "Tidal wet-rice fields on slave plantations, worked with the rice skills of enslaved West Africans (Carney, contested in degree). With indigo it made the Carolina lowcountry one of the richest slave economies.",
+   "chokepoint": false,
+   "part": ""
+  }
+ ],
+ "edges": [
+  {
+   "from": "gunpowder",
+   "to": "cannon_founding",
+   "type": "input",
+   "note": "powder fired the first guns",
+   "src": "general"
+  },
+  {
+   "from": "bronze",
+   "to": "cannon_founding",
+   "type": "enables",
+   "note": "bell-founders cast bronze guns",
+   "src": "general"
+  },
+  {
+   "from": "blast_furnace",
+   "to": "cannon_founding",
+   "type": "input",
+   "note": "cast-iron guns from Wealden furnaces, 1543",
+   "src": "general"
+  },
+  {
+   "from": "cannon_founding",
+   "to": "cannon_boring_mill",
+   "type": "enables",
+   "note": "Wilkinson's mill bored cannon from the solid",
+   "src": "part"
+  },
+  {
+   "from": "cannon_founding",
+   "to": "fiscal_military_state",
+   "type": "enables",
+   "note": "gunpowder war made states borrow and tax",
+   "src": "general"
+  },
+  {
+   "from": "cannon_founding",
+   "to": "portuguese_cartaz",
+   "type": "enables",
+   "note": "passes sold at gunpoint from armed ships",
+   "src": "part"
+  },
+  {
+   "from": "cannon_founding",
+   "to": "venice_arsenal",
+   "type": "enables",
+   "note": "arsenal cast and mounted galley guns (later form)",
+   "src": "general"
+  },
+  {
+   "from": "gunpowder",
+   "to": "muskets_firearms",
+   "type": "input",
+   "note": "powder for hand guns",
+   "src": "general"
+  },
+  {
+   "from": "muskets_firearms",
+   "to": "interchangeable_parts",
+   "type": "enables",
+   "note": "armouries made muskets with interchangeable parts",
+   "src": "part"
+  },
+  {
+   "from": "muskets_firearms",
+   "to": "atlantic_slave_trade",
+   "type": "input",
+   "note": "guns traded for captives",
+   "src": "general"
+  },
+  {
+   "from": "muskets_firearms",
+   "to": "fur_trade",
+   "type": "input",
+   "note": "guns traded for furs",
+   "src": "general"
+  },
+  {
+   "from": "gunpowder",
+   "to": "deep_coal_mining",
+   "type": "enables",
+   "note": "blasting rock in shafts",
+   "src": "general"
+  },
+  {
+   "from": "gunpowder",
+   "to": "bridgewater_canal",
+   "type": "enables",
+   "note": "blasting cuttings and tunnels",
+   "src": "general"
+  },
+  {
+   "from": "saltpetre",
+   "to": "chilean_nitrate",
+   "type": "replaces",
+   "note": "Chilean nitrate replaced nitre beds for powder",
+   "src": "general"
+  },
+  {
+   "from": "suftaja",
+   "to": "bills_of_exchange",
+   "type": "enables",
+   "note": "transfer bill preceded Italian bills; link debated",
+   "src": "general"
+  },
+  {
+   "from": "sakk",
+   "to": "cheque_clearing",
+   "type": "enables",
+   "note": "sakk the root of 'cheque'",
+   "src": "part"
+  },
+  {
+   "from": "hawala",
+   "to": "bill_endorsement",
+   "type": "enables",
+   "note": "assignable debt, like later endorsement",
+   "src": "general"
+  },
+  {
+   "from": "jahbadh_bankers",
+   "to": "hawala",
+   "type": "enables",
+   "note": "bankers transferred debts between clients",
+   "src": "general"
+  },
+  {
+   "from": "hawala",
+   "to": "mobile_money",
+   "type": "enables",
+   "note": "agent networks move value without banks",
+   "src": "general"
+  },
+  {
+   "from": "qirad",
+   "to": "commenda",
+   "type": "enables",
+   "note": "commenda follows the earlier qirad",
+   "src": "part"
+  },
+  {
+   "from": "maghribi_reputation",
+   "to": "maghribi_coalition",
+   "type": "enables",
+   "note": "Geniza traders' reputation enforcement",
+   "src": "part"
+  },
+  {
+   "from": "islamic_paper_mill",
+   "to": "maghribi_reputation",
+   "type": "enables",
+   "note": "Geniza business letters on paper",
+   "src": "general"
+  },
+  {
+   "from": "monsoon_ocean_trade",
+   "to": "shroffs_hundi",
+   "type": "enables",
+   "note": "Indian Ocean trade needed remittance",
+   "src": "general"
+  },
+  {
+   "from": "waqf",
+   "to": "corporation",
+   "type": "enables",
+   "note": "endowment form; link to trusts debated",
+   "src": "general"
+  },
+  {
+   "from": "property_in_land",
+   "to": "waqf",
+   "type": "input",
+   "note": "endowed rents from land and shops",
+   "src": "general"
+  },
+  {
+   "from": "writing",
+   "to": "hindu_arabic_numerals",
+   "type": "enables",
+   "note": "written digits with place value",
+   "src": "general"
+  },
+  {
+   "from": "hindu_arabic_numerals",
+   "to": "double_entry",
+   "type": "enables",
+   "note": "Fibonacci's abacus arithmetic for ledgers",
+   "src": "general"
+  },
+  {
+   "from": "hindu_arabic_numerals",
+   "to": "jahbadh_bankers",
+   "type": "enables",
+   "note": "Indian numerals reckoning in Baghdad",
+   "src": "general"
+  },
+  {
+   "from": "hindu_arabic_numerals",
+   "to": "compagnia",
+   "type": "enables",
+   "note": "abacus schools trained Florentine clerks",
+   "src": "general"
+  },
+  {
+   "from": "hindu_arabic_numerals",
+   "to": "bills_of_exchange",
+   "type": "enables",
+   "note": "exchange-rate sums on paper",
+   "src": "general"
+  },
+  {
+   "from": "islamic_paper_mill",
+   "to": "hindu_arabic_numerals",
+   "type": "enables",
+   "note": "paper spread written arithmetic (later form)",
+   "src": "general"
+  },
+  {
+   "from": "paper",
+   "to": "printing",
+   "type": "input",
+   "note": "block printing on paper",
+   "src": "general"
+  },
+  {
+   "from": "printing",
+   "to": "printing_press",
+   "type": "enables",
+   "note": "print known; movable type in China, Korea",
+   "src": "general"
+  },
+  {
+   "from": "fabriano_paper",
+   "to": "printing_press",
+   "type": "input",
+   "note": "rag paper for the press",
+   "src": "general"
+  },
+  {
+   "from": "printing_press",
+   "to": "double_entry",
+   "type": "enables",
+   "note": "Pacioli's printed manual, 1494 (later spread)",
+   "src": "part"
+  },
+  {
+   "from": "printing_press",
+   "to": "price_currents",
+   "type": "enables",
+   "note": "printed price lists",
+   "src": "part"
+  },
+  {
+   "from": "printing_press",
+   "to": "newspapers",
+   "type": "enables",
+   "note": "presses printed weekly news",
+   "src": "general"
+  },
+  {
+   "from": "printing_press",
+   "to": "useful_knowledge_societies",
+   "type": "enables",
+   "note": "printed technical books and journals",
+   "src": "general"
+  },
+  {
+   "from": "printing_press",
+   "to": "intellectual_property",
+   "type": "enables",
+   "note": "printers' privileges led to copyright",
+   "src": "general"
+  },
+  {
+   "from": "paper",
+   "to": "merchant_letters",
+   "type": "input",
+   "note": "cheap paper for commercial letters",
+   "src": "part"
+  },
+  {
+   "from": "linen_rags",
+   "to": "fabriano_paper",
+   "type": "input",
+   "note": "European rag paper",
+   "src": "general"
+  },
+  {
+   "from": "watermill",
+   "to": "fabriano_paper",
+   "type": "enables",
+   "note": "water-driven stampers beat rags",
+   "src": "general"
+  },
+  {
+   "from": "wood_pulp",
+   "to": "newspapers",
+   "type": "input",
+   "note": "cheap newsprint (later form)",
+   "src": "general"
+  },
+  {
+   "from": "scribal_schools",
+   "to": "state_taxation",
+   "type": "enables",
+   "note": "trained scribes kept tax accounts",
+   "src": "general"
+  },
+  {
+   "from": "scribal_schools",
+   "to": "old_assyrian_trade",
+   "type": "enables",
+   "note": "literate merchants wrote their own letters",
+   "src": "general"
+  },
+  {
+   "from": "state_courier_relay",
+   "to": "mongol_yam",
+   "type": "enables",
+   "note": "relay post form inherited",
+   "src": "general"
+  },
+  {
+   "from": "drawloom_brocade",
+   "to": "jacquard_loom",
+   "type": "enables",
+   "note": "card-driven drawloom for patterned silk",
+   "src": "general"
+  },
+  {
+   "from": "jacquard_loom",
+   "to": "punched_card_tabulator",
+   "type": "enables",
+   "note": "Hollerith copied punched cards",
+   "src": "general"
+  },
+  {
+   "from": "jacquard_loom",
+   "to": "computer",
+   "type": "enables",
+   "note": "cards as stored program (Babbage)",
+   "src": "general"
+  },
+  {
+   "from": "weaving",
+   "to": "jacquard_loom",
+   "type": "enables",
+   "note": "loom automated by cards",
+   "src": "general"
+  },
+  {
+   "from": "double_entry",
+   "to": "managerial_enterprise",
+   "type": "enables",
+   "note": "railway cost accounts built on ledgers",
+   "src": "general"
+  },
+  {
+   "from": "chinese_cast_iron",
+   "to": "blast_furnace",
+   "type": "enables",
+   "note": "earlier Chinese form; transfer unproven",
+   "src": "general"
+  },
+  {
+   "from": "water_bellows",
+   "to": "blast_furnace",
+   "type": "enables",
+   "note": "water-blown furnace; transfer debated",
+   "src": "general"
+  },
+  {
+   "from": "water_trip_hammer",
+   "to": "water_bloomery_hammer",
+   "type": "enables",
+   "note": "cam hammers; westward spread debated",
+   "src": "general"
+  },
+  {
+   "from": "water_trip_hammer",
+   "to": "fulling_mill",
+   "type": "enables",
+   "note": "cam hammers full cloth",
+   "src": "general"
+  },
+  {
+   "from": "monsoon_ocean_trade",
+   "to": "damascus_blades",
+   "type": "input",
+   "note": "wootz cakes shipped from India",
+   "src": "general"
+  },
+  {
+   "from": "bog_iron_ore",
+   "to": "water_bloomery_hammer",
+   "type": "input",
+   "note": "local ore for water bloomeries",
+   "src": "general"
+  },
+  {
+   "from": "coal",
+   "to": "hot_blast",
+   "type": "input",
+   "note": "raw coal and blackband ore with hot blast",
+   "src": "general"
+  },
+  {
+   "from": "hot_blast",
+   "to": "iron_hull_steamship",
+   "type": "input",
+   "note": "cheap Clyde pig iron for hulls",
+   "src": "general"
+  },
+  {
+   "from": "steamship",
+   "to": "seaborne_iron_ore",
+   "type": "enables",
+   "note": "bulk ore carriers",
+   "src": "general"
+  },
+  {
+   "from": "seaborne_iron_ore",
+   "to": "direct_reduced_iron",
+   "type": "input",
+   "note": "ore pellets for DRI",
+   "src": "general"
+  },
+  {
+   "from": "state_taxation",
+   "to": "crown_mercury",
+   "type": "enables",
+   "note": "crown monopoly of mercury",
+   "src": "part"
+  },
+  {
+   "from": "inca_mita",
+   "to": "huancavelica_mercury",
+   "type": "enables",
+   "note": "mita drafts sent to the mercury mine",
+   "src": "general"
+  },
+  {
+   "from": "cupellation",
+   "to": "potosi_silver",
+   "type": "enables",
+   "note": "lead smelting in huayra furnaces first",
+   "src": "general"
+  },
+  {
+   "from": "cupellation",
+   "to": "japanese_silver",
+   "type": "enables",
+   "note": "haifuki cupellation from Korea, 1533",
+   "src": "general"
+  },
+  {
+   "from": "japanese_silver",
+   "to": "single_whip_reform",
+   "type": "input",
+   "note": "Japanese silver flowed to China",
+   "src": "part"
+  },
+  {
+   "from": "japanese_silver",
+   "to": "ming_silver_by_weight",
+   "type": "input",
+   "note": "later supply for Ming silver money",
+   "src": "part"
+  },
+  {
+   "from": "potosi_silver",
+   "to": "single_whip_reform",
+   "type": "input",
+   "note": "American silver let taxes be paid in silver",
+   "src": "part"
+  },
+  {
+   "from": "spanish_dollar",
+   "to": "mughal_zabt",
+   "type": "input",
+   "note": "American silver reached India",
+   "src": "general"
+  },
+  {
+   "from": "spanish_dollar",
+   "to": "dadni_advances",
+   "type": "input",
+   "note": "silver paid Indian weavers' advances",
+   "src": "general"
+  },
+  {
+   "from": "spanish_dollar",
+   "to": "joint_stock_company",
+   "type": "input",
+   "note": "companies paid Asia in silver",
+   "src": "part"
+  },
+  {
+   "from": "spanish_dollar",
+   "to": "tea_trade",
+   "type": "input",
+   "note": "silver bought tea at Canton",
+   "src": "part"
+  },
+  {
+   "from": "spanish_dollar",
+   "to": "baltic_grain_trade",
+   "type": "input",
+   "note": "silver later paid for Baltic grain",
+   "src": "part"
+  },
+  {
+   "from": "iron_edged_tools",
+   "to": "iron_hoe_money",
+   "type": "input",
+   "note": "standard hoes became money",
+   "src": "general"
+  },
+  {
+   "from": "west_african_gold",
+   "to": "gold_dinar",
+   "type": "input",
+   "note": "Bambuk gold minted at Sijilmasa",
+   "src": "part"
+  },
+  {
+   "from": "west_african_gold",
+   "to": "florin",
+   "type": "input",
+   "note": "Saharan gold behind Italy's gold coin",
+   "src": "general"
+  },
+  {
+   "from": "gold_dinar",
+   "to": "florin",
+   "type": "enables",
+   "note": "Mediterranean gold coin revived in Italy",
+   "src": "general"
+  },
+  {
+   "from": "west_african_gold",
+   "to": "ghana_gold_toll",
+   "type": "enables",
+   "note": "nugget rule held the gold price",
+   "src": "part"
+  },
+  {
+   "from": "saharan_rock_salt",
+   "to": "ghana_gold_toll",
+   "type": "input",
+   "note": "salt taxed in and out",
+   "src": "part"
+  },
+  {
+   "from": "monsoon_ocean_trade",
+   "to": "cowrie_money",
+   "type": "input",
+   "note": "Maldive cowries shipped west",
+   "src": "part"
+  },
+  {
+   "from": "cowrie_money",
+   "to": "atlantic_slave_trade",
+   "type": "input",
+   "note": "cowries paid for captives",
+   "src": "general"
+  },
+  {
+   "from": "shell_beads",
+   "to": "cowrie_money",
+   "type": "enables",
+   "note": "shells as value, much later as money",
+   "src": "general"
+  },
+  {
+   "from": "shell_beads",
+   "to": "spondylus_trade",
+   "type": "enables",
+   "note": "ornament shells exchanged far",
+   "src": "general"
+  },
+  {
+   "from": "prestige_goods_exchange",
+   "to": "gold_working_varna",
+   "type": "enables",
+   "note": "gold as display of rank",
+   "src": "part"
+  },
+  {
+   "from": "jingdezhen_porcelain",
+   "to": "european_porcelain",
+   "type": "enables",
+   "note": "imported china was the model",
+   "src": "general"
+  },
+  {
+   "from": "blue_and_white_ware",
+   "to": "european_porcelain",
+   "type": "enables",
+   "note": "Delft and Meissen copied blue-and-white",
+   "src": "general"
+  },
+  {
+   "from": "kiln",
+   "to": "european_porcelain",
+   "type": "enables",
+   "note": "high-fired kilns",
+   "src": "general"
+  },
+  {
+   "from": "european_porcelain",
+   "to": "manufactory",
+   "type": "enables",
+   "note": "Wedgwood's Etruria division of labour",
+   "src": "part"
+  },
+  {
+   "from": "joint_stock_company",
+   "to": "european_porcelain",
+   "type": "enables",
+   "note": "company imports built the market",
+   "src": "general"
+  },
+  {
+   "from": "kaolin_china_stone",
+   "to": "blue_and_white_ware",
+   "type": "input",
+   "note": "porcelain body",
+   "src": "part"
+  },
+  {
+   "from": "kaolin_china_stone",
+   "to": "imperial_kiln",
+   "type": "input",
+   "note": "Gaoling clay for the imperial wares",
+   "src": "part"
+  },
+  {
+   "from": "dragon_kiln",
+   "to": "imperial_kiln",
+   "type": "enables",
+   "note": "long kilns fired the court wares",
+   "src": "part"
+  },
+  {
+   "from": "potters_wheel",
+   "to": "jingdezhen_porcelain",
+   "type": "enables",
+   "note": "wheel-thrown porcelain",
+   "src": "general"
+  },
+  {
+   "from": "potters_wheel",
+   "to": "uruk_temple_economy",
+   "type": "enables",
+   "note": "wheel-made jars for temple stores",
+   "src": "general"
+  },
+  {
+   "from": "glass",
+   "to": "venetian_glass",
+   "type": "enables",
+   "note": "Syrian and Byzantine glassmaking",
+   "src": "general"
+  },
+  {
+   "from": "alkali_soda",
+   "to": "venetian_glass",
+   "type": "input",
+   "note": "Levantine plant-ash soda",
+   "src": "general"
+  },
+  {
+   "from": "venetian_glass",
+   "to": "cast_plate_glass",
+   "type": "enables",
+   "note": "French plate rivalled Venetian mirrors",
+   "src": "general"
+  },
+  {
+   "from": "venetian_glass",
+   "to": "intellectual_property",
+   "type": "enables",
+   "note": "Venetian craft secrets and patents, 1474",
+   "src": "general"
+  },
+  {
+   "from": "guilds",
+   "to": "venetian_glass",
+   "type": "enables",
+   "note": "glass guild guarded the secrets",
+   "src": "general"
+  },
+  {
+   "from": "indian_cotton_cloth",
+   "to": "mechanised_spinning",
+   "type": "enables",
+   "note": "machines made to copy Indian calico",
+   "src": "part"
+  },
+  {
+   "from": "indian_cotton_cloth",
+   "to": "spinning_mule",
+   "type": "enables",
+   "note": "mule spun yarn to match Indian muslins",
+   "src": "part"
+  },
+  {
+   "from": "indian_cotton_cloth",
+   "to": "calico_printing",
+   "type": "enables",
+   "note": "Indian prints were the model",
+   "src": "part"
+  },
+  {
+   "from": "mordant_chintz",
+   "to": "calico_printing",
+   "type": "enables",
+   "note": "Indian mordant methods copied",
+   "src": "general"
+  },
+  {
+   "from": "calico_acts",
+   "to": "calico_printing",
+   "type": "enables",
+   "note": "ban on Indian prints later protected printers",
+   "src": "general"
+  },
+  {
+   "from": "calico_printing",
+   "to": "chlorine_bleach",
+   "type": "enables",
+   "note": "printers needed bleached cloth",
+   "src": "part"
+  },
+  {
+   "from": "calico_printing",
+   "to": "synthetic_dyes",
+   "type": "enables",
+   "note": "printworks the market for dyes",
+   "src": "general"
+  },
+  {
+   "from": "calico_printing",
+   "to": "mechanised_spinning",
+   "type": "enables",
+   "note": "printers' demand for cotton cloth",
+   "src": "general"
+  },
+  {
+   "from": "woad_madder",
+   "to": "turkey_red_dyeing",
+   "type": "input",
+   "note": "madder root for the red",
+   "src": "general"
+  },
+  {
+   "from": "mordant_chintz",
+   "to": "turkey_red_dyeing",
+   "type": "enables",
+   "note": "Indian and Levantine mordant red",
+   "src": "general"
+  },
+  {
+   "from": "alum",
+   "to": "turkey_red_dyeing",
+   "type": "input",
+   "note": "alum mordant",
+   "src": "general"
+  },
+  {
+   "from": "turkey_red_dyeing",
+   "to": "synthetic_alizarin_indigo",
+   "type": "replaces",
+   "note": "synthetic alizarin replaced madder red",
+   "src": "general"
+  },
+  {
+   "from": "cotton",
+   "to": "fustian_cloth",
+   "type": "input",
+   "note": "Levantine cotton weft",
+   "src": "general"
+  },
+  {
+   "from": "flax_linen",
+   "to": "fustian_cloth",
+   "type": "input",
+   "note": "linen warp",
+   "src": "general"
+  },
+  {
+   "from": "arab_crop_package",
+   "to": "fustian_cloth",
+   "type": "enables",
+   "note": "Islamic cotton reached Italy",
+   "src": "general"
+  },
+  {
+   "from": "fustian_cloth",
+   "to": "putting_out",
+   "type": "enables",
+   "note": "south German Barchent putting-out",
+   "src": "general"
+  },
+  {
+   "from": "fustian_cloth",
+   "to": "mechanised_spinning",
+   "type": "enables",
+   "note": "Lancashire fustian makers mechanised cotton",
+   "src": "general"
+  },
+  {
+   "from": "charkha",
+   "to": "spinning_wheel",
+   "type": "enables",
+   "note": "wheel spread west from India",
+   "src": "general"
+  },
+  {
+   "from": "churka_gin",
+   "to": "cotton_gin",
+   "type": "enables",
+   "note": "roller gin earlier; saw gin new",
+   "src": "general"
+  },
+  {
+   "from": "sericulture",
+   "to": "silk_throwing_mill",
+   "type": "input",
+   "note": "silkworms reached Italy via Byzantium",
+   "src": "general"
+  },
+  {
+   "from": "silk_reeling",
+   "to": "silk_throwing_mill",
+   "type": "input",
+   "note": "reeled silk to twist",
+   "src": "general"
+  },
+  {
+   "from": "watermill",
+   "to": "silk_throwing_mill",
+   "type": "enables",
+   "note": "water wheel drives the spindles",
+   "src": "general"
+  },
+  {
+   "from": "silk_throwing_mill",
+   "to": "factory_system",
+   "type": "enables",
+   "note": "Lombe's Derby mill a powered precursor",
+   "src": "part"
+  },
+  {
+   "from": "sericulture",
+   "to": "imperial_weaving_bureaus",
+   "type": "input",
+   "note": "raw silk for court weaving",
+   "src": "general"
+  },
+  {
+   "from": "silk_tax_cloth",
+   "to": "imperial_weaving_bureaus",
+   "type": "enables",
+   "note": "silk owed to the state",
+   "src": "general"
+  },
+  {
+   "from": "cotton_plantation",
+   "to": "cottonseed_oil",
+   "type": "byproduct",
+   "note": "seed left after ginning",
+   "src": "general"
+  },
+  {
+   "from": "cottonseed_oil",
+   "to": "global_feed_trade",
+   "type": "input",
+   "note": "cottonseed cake as feed",
+   "src": "general"
+  },
+  {
+   "from": "global_garment_chain",
+   "to": "secondhand_clothing_trade",
+   "type": "byproduct",
+   "note": "used fast fashion exported",
+   "src": "general"
+  },
+  {
+   "from": "container_shipping",
+   "to": "secondhand_clothing_trade",
+   "type": "enables",
+   "note": "bales shipped in containers",
+   "src": "general"
+  },
+  {
+   "from": "multi_fibre_arrangement",
+   "to": "global_garment_chain",
+   "type": "enables",
+   "note": "quotas spread sewing to new countries",
+   "src": "part"
+  },
+  {
+   "from": "bretton_woods",
+   "to": "multi_fibre_arrangement",
+   "type": "enables",
+   "note": "GATT trade rules framed the quotas",
+   "src": "general"
+  },
+  {
+   "from": "woad",
+   "to": "florentine_wool_cloth",
+   "type": "input",
+   "note": "woad blue for woollens",
+   "src": "general"
+  },
+  {
+   "from": "ochre",
+   "to": "dyeing",
+   "type": "input",
+   "note": "earth pigments",
+   "src": "general"
+  },
+  {
+   "from": "tannin_extracts",
+   "to": "chrome_tanning",
+   "type": "replaces",
+   "note": "chrome salts replaced vegetable tannins",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "ocean_ships_caravel",
+   "type": "enables",
+   "note": "lateen and square rig combined",
+   "src": "general"
+  },
+  {
+   "from": "magnetic_compass",
+   "to": "ocean_ships_caravel",
+   "type": "enables",
+   "note": "compass navigation on the ocean",
+   "src": "general"
+  },
+  {
+   "from": "ocean_ships_caravel",
+   "to": "atlantic_sugar_plantation",
+   "type": "enables",
+   "note": "Portuguese ships reached Madeira and Sao Tome",
+   "src": "part"
+  },
+  {
+   "from": "ocean_ships_caravel",
+   "to": "atlantic_slave_trade",
+   "type": "enables",
+   "note": "ships down the African coast",
+   "src": "part"
+  },
+  {
+   "from": "ocean_ships_caravel",
+   "to": "portuguese_cartaz",
+   "type": "enables",
+   "note": "armed ships in the Indian Ocean",
+   "src": "part"
+  },
+  {
+   "from": "ocean_ships_caravel",
+   "to": "manila_galleon",
+   "type": "enables",
+   "note": "ocean hulls for the Pacific",
+   "src": "general"
+  },
+  {
+   "from": "ocean_ships_caravel",
+   "to": "maize_old_world",
+   "type": "enables",
+   "note": "Atlantic crossings carried maize",
+   "src": "part"
+  },
+  {
+   "from": "ocean_ships_caravel",
+   "to": "potato_old_world",
+   "type": "enables",
+   "note": "Atlantic crossings carried the potato",
+   "src": "part"
+  },
+  {
+   "from": "ocean_ships_caravel",
+   "to": "cassava_africa",
+   "type": "enables",
+   "note": "Portuguese ships brought cassava from Brazil",
+   "src": "part"
+  },
+  {
+   "from": "ocean_ships_caravel",
+   "to": "american_depopulation",
+   "type": "enables",
+   "note": "ships carried Old World diseases",
+   "src": "part"
+  },
+  {
+   "from": "ocean_ships_caravel",
+   "to": "dutch_fluyt",
+   "type": "enables",
+   "note": "ocean hull designs evolved",
+   "src": "general"
+  },
+  {
+   "from": "magnetic_compass",
+   "to": "venice_mude",
+   "type": "enables",
+   "note": "winter convoys by compass",
+   "src": "general"
+  },
+  {
+   "from": "magnetic_compass",
+   "to": "monsoon_ocean_trade",
+   "type": "enables",
+   "note": "compass used by later Indian Ocean pilots",
+   "src": "general"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "maize_old_world",
+   "type": "input",
+   "note": "Mesoamerican maize carried over",
+   "src": "general"
+  },
+  {
+   "from": "maize_old_world",
+   "to": "atlantic_slave_trade",
+   "type": "input",
+   "note": "maize later fed slave ships and ports",
+   "src": "general"
+  },
+  {
+   "from": "maize_old_world",
+   "to": "global_feed_trade",
+   "type": "input",
+   "note": "maize later the main feed grain",
+   "src": "general"
+  },
+  {
+   "from": "andean_terraces",
+   "to": "potato_old_world",
+   "type": "input",
+   "note": "Andean tuber carried to Europe",
+   "src": "general"
+  },
+  {
+   "from": "potato_old_world",
+   "to": "industrial_town",
+   "type": "enables",
+   "note": "potatoes fed urban growth (Nunn and Qian)",
+   "src": "part"
+  },
+  {
+   "from": "hoe_cultivation",
+   "to": "sweet_potato_china",
+   "type": "enables",
+   "note": "hoe-dug upland plots",
+   "src": "general"
+  },
+  {
+   "from": "hoe_cultivation",
+   "to": "cassava_africa",
+   "type": "enables",
+   "note": "hoe-planted root crop",
+   "src": "general"
+  },
+  {
+   "from": "cassava_africa",
+   "to": "atlantic_slave_trade",
+   "type": "input",
+   "note": "cassava flour later victualled slave ships",
+   "src": "general"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "american_depopulation",
+   "type": "enables",
+   "note": "crowd diseases from Old World herds",
+   "src": "general"
+  },
+  {
+   "from": "american_depopulation",
+   "to": "atlantic_slave_trade",
+   "type": "enables",
+   "note": "labour shortage filled with captives (later growth)",
+   "src": "part"
+  },
+  {
+   "from": "american_depopulation",
+   "to": "tobacco_plantation",
+   "type": "enables",
+   "note": "emptied land for plantations",
+   "src": "part"
+  },
+  {
+   "from": "american_depopulation",
+   "to": "potosi_mita",
+   "type": "enables",
+   "note": "mita drew on shrunken populations",
+   "src": "general"
+  },
+  {
+   "from": "atlantic_slave_trade",
+   "to": "tobacco_plantation",
+   "type": "input",
+   "note": "enslaved labour after indentured servants",
+   "src": "general"
+  },
+  {
+   "from": "joint_stock_company",
+   "to": "tobacco_plantation",
+   "type": "enables",
+   "note": "Virginia Company colony",
+   "src": "general"
+  },
+  {
+   "from": "tobacco_plantation",
+   "to": "cotton_plantation",
+   "type": "enables",
+   "note": "Chesapeake slave plantation form moved south",
+   "src": "general"
+  },
+  {
+   "from": "tobacco_plantation",
+   "to": "excise",
+   "type": "enables",
+   "note": "tobacco duties a large revenue",
+   "src": "general"
+  },
+  {
+   "from": "monsoon_ocean_trade",
+   "to": "coffee_trade",
+   "type": "enables",
+   "note": "Red Sea shipping from Mocha",
+   "src": "general"
+  },
+  {
+   "from": "coffee_trade",
+   "to": "coffee_houses",
+   "type": "input",
+   "note": "Mocha coffee for London houses",
+   "src": "part"
+  },
+  {
+   "from": "coffee_trade",
+   "to": "atlantic_slave_trade",
+   "type": "enables",
+   "note": "Caribbean and Brazilian coffee estates",
+   "src": "general"
+  },
+  {
+   "from": "royal_exchange",
+   "to": "coffee_houses",
+   "type": "enables",
+   "note": "brokers moved to Exchange Alley",
+   "src": "general"
+  },
+  {
+   "from": "coffee_houses",
+   "to": "insurance",
+   "type": "enables",
+   "note": "Lloyd's coffee house underwriting, 1688 (later form)",
+   "src": "general"
+  },
+  {
+   "from": "joint_stock_company",
+   "to": "tea_trade",
+   "type": "enables",
+   "note": "East India Company's China trade",
+   "src": "general"
+  },
+  {
+   "from": "industrious_revolution",
+   "to": "tea_trade",
+   "type": "enables",
+   "note": "households worked more to buy groceries",
+   "src": "general"
+  },
+  {
+   "from": "atlantic_sugar_plantation",
+   "to": "tea_trade",
+   "type": "input",
+   "note": "sugar sweetened British tea",
+   "src": "general"
+  },
+  {
+   "from": "wet_rice_farming",
+   "to": "carolina_rice",
+   "type": "enables",
+   "note": "West African rice skills",
+   "src": "general"
+  },
+  {
+   "from": "atlantic_slave_trade",
+   "to": "carolina_rice",
+   "type": "input",
+   "note": "enslaved rice growers",
+   "src": "general"
+  },
+  {
+   "from": "indigo",
+   "to": "carolina_rice",
+   "type": "enables",
+   "note": "indigo paired with rice on lowcountry estates",
+   "src": "general"
+  },
+  {
+   "from": "molasses_rum",
+   "to": "atlantic_slave_trade",
+   "type": "input",
+   "note": "rum later traded for captives",
+   "src": "general"
+  },
+  {
+   "from": "cane_sugar_crystal",
+   "to": "mamluk_sugar_refining",
+   "type": "enables",
+   "note": "Indian crystallising method spread west",
+   "src": "part"
+  },
+  {
+   "from": "cane_sugar_crystal",
+   "to": "atlantic_sugar_plantation",
+   "type": "enables",
+   "note": "sugar chain passed to the Atlantic",
+   "src": "part"
+  },
+  {
+   "from": "irrigation_farming",
+   "to": "treadle_chain_pump",
+   "type": "enables",
+   "note": "lifting water to paddies",
+   "src": "general"
+  },
+  {
+   "from": "fanning_mill",
+   "to": "threshing_machine",
+   "type": "enables",
+   "note": "threshers added fanners",
+   "src": "general"
+  },
+  {
+   "from": "fanning_mill",
+   "to": "combine_harvester",
+   "type": "enables",
+   "note": "cleaning fan inside the combine",
+   "src": "general"
+  },
+  {
+   "from": "turnips_root_fodder",
+   "to": "capitalist_tenant_farm",
+   "type": "enables",
+   "note": "Holkham's turnip husbandry",
+   "src": "part"
+  },
+  {
+   "from": "malting",
+   "to": "porter_breweries",
+   "type": "input",
+   "note": "brown malt for porter",
+   "src": "general"
+  },
+  {
+   "from": "porter_breweries",
+   "to": "rotative_engine",
+   "type": "enables",
+   "note": "London breweries bought early engines",
+   "src": "general"
+  },
+  {
+   "from": "penicillin_fermentation",
+   "to": "pharma_rnd_trials",
+   "type": "enables",
+   "note": "antibiotic firms built drug R&D",
+   "src": "general"
+  },
+  {
+   "from": "penicillin_fermentation",
+   "to": "biologics",
+   "type": "enables",
+   "note": "deep-tank culture for biologics",
+   "src": "general"
+  },
+  {
+   "from": "frozen_food",
+   "to": "supermarket",
+   "type": "enables",
+   "note": "freezer cabinets in stores",
+   "src": "general"
+  },
+  {
+   "from": "chain_stores",
+   "to": "self_service_store",
+   "type": "enables",
+   "note": "chains adopted self-service",
+   "src": "general"
+  },
+  {
+   "from": "hybrid_maize_seed",
+   "to": "broiler_genetics",
+   "type": "enables",
+   "note": "hybrid breeding applied to birds",
+   "src": "general"
+  },
+  {
+   "from": "meat_inspection_antitrust",
+   "to": "drug_regulation",
+   "type": "enables",
+   "note": "1906 food and drug law led to 1938",
+   "src": "general"
+  },
+  {
+   "from": "drug_regulation",
+   "to": "pharma_rnd_trials",
+   "type": "enables",
+   "note": "efficacy law forced clinical trials",
+   "src": "general"
+  },
+  {
+   "from": "superphosphate",
+   "to": "basic_slag_fertiliser",
+   "type": "enables",
+   "note": "phosphate fertiliser market already there",
+   "src": "general"
+  },
+  {
+   "from": "phosphate_rock",
+   "to": "green_revolution",
+   "type": "input",
+   "note": "phosphate fertiliser",
+   "src": "general"
+  },
+  {
+   "from": "monumental_feasting",
+   "to": "cereal_domestication",
+   "type": "enables",
+   "note": "feasting demand for grain (contested)",
+   "src": "general"
+  },
+  {
+   "from": "temple_palace_economy",
+   "to": "field_salinisation",
+   "type": "enables",
+   "note": "state push for yields over-watered fields",
+   "src": "general"
+  },
+  {
+   "from": "nets",
+   "to": "fishing_nets",
+   "type": "enables",
+   "note": "knotted nets reused for fish",
+   "src": "general"
+  },
+  {
+   "from": "shellfish_gathering",
+   "to": "fishing",
+   "type": "enables",
+   "note": "coastal foraging led to fishing",
+   "src": "general"
+  },
+  {
+   "from": "llama_caravans",
+   "to": "chuno_charki",
+   "type": "input",
+   "note": "llama meat dried as ch'arki",
+   "src": "general"
+  },
+  {
+   "from": "drying_smoking",
+   "to": "chuno_charki",
+   "type": "enables",
+   "note": "freeze-drying in Andean frost",
+   "src": "general"
+  },
+  {
+   "from": "llama_caravans",
+   "to": "vertical_archipelago",
+   "type": "enables",
+   "note": "llama trains joined the zones",
+   "src": "general"
+  },
+  {
+   "from": "granary_storage",
+   "to": "horrea",
+   "type": "enables",
+   "note": "stored grain at state scale",
+   "src": "general"
+  },
+  {
+   "from": "athenian_grain_policy",
+   "to": "frumentatio_dole",
+   "type": "enables",
+   "note": "city grain policy precedent",
+   "src": "general"
+  },
+  {
+   "from": "roman_annona",
+   "to": "civic_grain_office",
+   "type": "enables",
+   "note": "state grain supply tradition",
+   "src": "general"
+  },
+  {
+   "from": "civic_grain_office",
+   "to": "police_des_grains",
+   "type": "enables",
+   "note": "city grain provisioning",
+   "src": "general"
+  },
+  {
+   "from": "khipu",
+   "to": "qollqa_storehouses",
+   "type": "enables",
+   "note": "stores counted on knotted cords",
+   "src": "part"
+  },
+  {
+   "from": "khipu",
+   "to": "inca_staple_finance",
+   "type": "enables",
+   "note": "accounts on cords",
+   "src": "part"
+  },
+  {
+   "from": "droving",
+   "to": "smithfield_droving",
+   "type": "enables",
+   "note": "droving to London's market",
+   "src": "part"
+  },
+  {
+   "from": "pack_animals",
+   "to": "periodic_market_system",
+   "type": "enables",
+   "note": "a day's walk to market",
+   "src": "general"
+  },
+  {
+   "from": "regulated_commons",
+   "to": "fishing_quotas",
+   "type": "enables",
+   "note": "stints on a commons, now tradable",
+   "src": "general"
+  },
+  {
+   "from": "salt_fish",
+   "to": "cod_moratorium",
+   "type": "enables",
+   "note": "five centuries of cod fishing ended",
+   "src": "general"
+  },
+  {
+   "from": "legumes_clover",
+   "to": "synthetic_nitrogen",
+   "type": "replaces",
+   "note": "factory nitrogen for clover",
+   "src": "part"
+  },
+  {
+   "from": "hops_beer",
+   "to": "hopped_beer",
+   "type": "enables",
+   "note": "hopped beer spread to England",
+   "src": "part"
+  },
+  {
+   "from": "baltic_grain_trade",
+   "to": "serfdom",
+   "type": "enables",
+   "note": "second serfdom east of the Elbe (later form)",
+   "src": "general"
+  },
+  {
+   "from": "intellectual_property",
+   "to": "patent_system",
+   "type": "enables",
+   "note": "Venetian patents to the Statute of Monopolies",
+   "src": "general"
+  },
+  {
+   "from": "guilds",
+   "to": "friendly_societies",
+   "type": "enables",
+   "note": "mutual aid from guild fraternities",
+   "src": "general"
+  },
+  {
+   "from": "friendly_societies",
+   "to": "social_insurance",
+   "type": "enables",
+   "note": "sick funds folded into state insurance",
+   "src": "general"
+  },
+  {
+   "from": "factory_acts",
+   "to": "welfare_state",
+   "type": "enables",
+   "note": "state regulation of work",
+   "src": "general"
+  },
+  {
+   "from": "factory_acts",
+   "to": "economic_regulation",
+   "type": "enables",
+   "note": "inspectors as regulatory model",
+   "src": "general"
+  },
+  {
+   "from": "railway",
+   "to": "economic_regulation",
+   "type": "enables",
+   "note": "railway regulation, 1887",
+   "src": "general"
+  },
+  {
+   "from": "economic_regulation",
+   "to": "utility_franchise",
+   "type": "enables",
+   "note": "commission regulation of utilities",
+   "src": "general"
+  },
+  {
+   "from": "law_courts",
+   "to": "police_force",
+   "type": "enables",
+   "note": "courts needed policing",
+   "src": "general"
+  },
+  {
+   "from": "land_registry",
+   "to": "mortgage_market",
+   "type": "enables",
+   "note": "registered title secures mortgages",
+   "src": "general"
+  },
+  {
+   "from": "professional_licensing",
+   "to": "producer_services",
+   "type": "enables",
+   "note": "licensed law and accounting firms",
+   "src": "general"
+  },
+  {
+   "from": "payment_in_kind",
+   "to": "servants_in_husbandry",
+   "type": "enables",
+   "note": "board and lodging as pay",
+   "src": "general"
+  },
+  {
+   "from": "peasant_land_market",
+   "to": "copyhold",
+   "type": "enables",
+   "note": "land transfers recorded in court rolls",
+   "src": "part"
+  },
+  {
+   "from": "statute_merchant",
+   "to": "wool_staple",
+   "type": "enables",
+   "note": "staple courts registered merchant debts",
+   "src": "general"
+  },
+  {
+   "from": "assumpsit",
+   "to": "goldsmith_bankers",
+   "type": "enables",
+   "note": "informal promises and notes enforceable",
+   "src": "general"
+  },
+  {
+   "from": "weir_rights",
+   "to": "river_ordinances",
+   "type": "enables",
+   "note": "weir quarrels led to river rules",
+   "src": "general"
+  },
+  {
+   "from": "community_responsibility",
+   "to": "hanseatic_league",
+   "type": "enables",
+   "note": "towns liable for members' debts",
+   "src": "general"
+  },
+  {
+   "from": "forest_law",
+   "to": "rabbit_warren",
+   "type": "enables",
+   "note": "free warren grants",
+   "src": "general"
+  },
+  {
+   "from": "rabbit_warren",
+   "to": "poaching_game_laws",
+   "type": "enables",
+   "note": "warrens guarded against poachers",
+   "src": "part"
+  },
+  {
+   "from": "quarantine",
+   "to": "lazaretto",
+   "type": "enables",
+   "note": "quarantine needed a station",
+   "src": "part"
+  },
+  {
+   "from": "pawnbroking",
+   "to": "consumer_credit",
+   "type": "enables",
+   "note": "lending to households on goods",
+   "src": "general"
+  },
+  {
+   "from": "corporation",
+   "to": "pawnbroking",
+   "type": "enables",
+   "note": "monte di pieta as a charitable body",
+   "src": "general"
+  },
+  {
+   "from": "markets_fairs",
+   "to": "peculium_slave_agents",
+   "type": "enables",
+   "note": "slaves ran shops and ships",
+   "src": "general"
+  },
+  {
+   "from": "kanesh_caravan_firms",
+   "to": "merchant_treaties_court",
+   "type": "enables",
+   "note": "caravan firms needed a karum court",
+   "src": "part"
+  },
+  {
+   "from": "credit_accounting",
+   "to": "debt_cancellation",
+   "type": "enables",
+   "note": "debts on account cancelled",
+   "src": "general"
+  },
+  {
+   "from": "debt_cancellation",
+   "to": "interest_caps_hammurabi",
+   "type": "enables",
+   "note": "royal regulation of debt",
+   "src": "general"
+  },
+  {
+   "from": "redistribution",
+   "to": "ration_strike",
+   "type": "enables",
+   "note": "rations late from the store",
+   "src": "general"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "amber_road",
+   "type": "enables",
+   "note": "routes a thousand km long",
+   "src": "general"
+  },
+  {
+   "from": "boats",
+   "to": "kula_ring",
+   "type": "enables",
+   "note": "canoe voyages between islands",
+   "src": "general"
+  },
+  {
+   "from": "hxaro_partnership",
+   "to": "obsidian_exchange",
+   "type": "enables",
+   "note": "partners as trade channels",
+   "src": "general"
+  },
+  {
+   "from": "mudbrick",
+   "to": "cities",
+   "type": "input",
+   "note": "mudbrick cities",
+   "src": "general"
+  },
+  {
+   "from": "mudbrick",
+   "to": "brick",
+   "type": "enables",
+   "note": "fired brick from mudbrick",
+   "src": "general"
+  },
+  {
+   "from": "state_taxation",
+   "to": "price_edict",
+   "type": "enables",
+   "note": "tax reform alongside price edict",
+   "src": "general"
+  },
+  {
+   "from": "denarius",
+   "to": "price_edict",
+   "type": "enables",
+   "note": "prices fixed in denarii",
+   "src": "general"
+  },
+  {
+   "from": "denarius",
+   "to": "carolingian_money_account",
+   "type": "enables",
+   "note": "denier from the Roman denarius",
+   "src": "general"
+  },
+  {
+   "from": "carolingian_money_account",
+   "to": "tally_sticks",
+   "type": "enables",
+   "note": "Exchequer counted pounds, shillings, pence",
+   "src": "general"
+  },
+  {
+   "from": "steam_struck_coinage",
+   "to": "token_coinage",
+   "type": "enables",
+   "note": "steam presses struck token coins",
+   "src": "general"
+  },
+  {
+   "from": "gold_standard",
+   "to": "token_coinage",
+   "type": "enables",
+   "note": "silver tokens under gold, 1816",
+   "src": "general"
+  },
+  {
+   "from": "bill_clearing_fairs",
+   "to": "clearing_house",
+   "type": "enables",
+   "note": "netting bills, as at Piacenza",
+   "src": "general"
+  },
+  {
+   "from": "clearing_house",
+   "to": "swift_messaging",
+   "type": "enables",
+   "note": "interbank clearing went electronic",
+   "src": "general"
+  },
+  {
+   "from": "price_currents",
+   "to": "london_corn_exchange",
+   "type": "enables",
+   "note": "printed corn prices",
+   "src": "general"
+  },
+  {
+   "from": "london_corn_exchange",
+   "to": "world_grain_market",
+   "type": "enables",
+   "note": "Mark Lane priced imported grain",
+   "src": "general"
+  },
+  {
+   "from": "state_taxation",
+   "to": "city_coal_dues",
+   "type": "enables",
+   "note": "dues on coal for city works",
+   "src": "general"
+  },
+  {
+   "from": "guilds",
+   "to": "newcastle_hostmen",
+   "type": "enables",
+   "note": "a guild holding the coal chokepoint",
+   "src": "general"
+  },
+  {
+   "from": "sankin_kotai",
+   "to": "tamagawa_aqueduct",
+   "type": "enables",
+   "note": "lords' households swelled Edo",
+   "src": "general"
+  },
+  {
+   "from": "fiscal_military_state",
+   "to": "machinery_export_ban",
+   "type": "enables",
+   "note": "mercantilist state guarded skills",
+   "src": "general"
+  },
+  {
+   "from": "portuguese_cartaz",
+   "to": "joint_stock_company",
+   "type": "enables",
+   "note": "armed trade copied by the companies",
+   "src": "general"
+  },
+  {
+   "from": "useful_knowledge_societies",
+   "to": "industrial_research_lab",
+   "type": "enables",
+   "note": "organised science for industry",
+   "src": "general"
+  },
+  {
+   "from": "smile_curve_value_capture",
+   "to": "smartphone",
+   "type": "enables",
+   "note": "brands keep design, outsource assembly",
+   "src": "general"
+  },
+  {
+   "from": "lean_supplier_networks",
+   "to": "global_value_chains",
+   "type": "enables",
+   "note": "supplier networks went global",
+   "src": "general"
+  },
+  {
+   "from": "iso_container_standard",
+   "to": "double_stack_rail",
+   "type": "enables",
+   "note": "standard boxes stack on rail",
+   "src": "general"
+  },
+  {
+   "from": "informal_settlements",
+   "to": "megacity_systems",
+   "type": "input",
+   "note": "much of megacity housing",
+   "src": "general"
+  },
+  {
+   "from": "software_industry",
+   "to": "digital_platforms",
+   "type": "enables",
+   "note": "software firms built platforms",
+   "src": "general"
+  },
+  {
+   "from": "software_industry",
+   "to": "eda_software",
+   "type": "enables",
+   "note": "chip design became software",
+   "src": "general"
+  },
+  {
+   "from": "critical_minerals",
+   "to": "export_controls",
+   "type": "enables",
+   "note": "minerals became export weapons",
+   "src": "general"
+  },
+  {
+   "from": "synthetic_drugs",
+   "to": "api_fine_chemicals",
+   "type": "enables",
+   "note": "organic synthesis for active ingredients",
+   "src": "general"
+  },
+  {
+   "from": "spectrum_licensing",
+   "to": "mobile_phone",
+   "type": "enables",
+   "note": "licensed spectrum for cellular",
+   "src": "general"
+  },
+  {
+   "from": "cryptocurrency",
+   "to": "cbdc",
+   "type": "enables",
+   "note": "crypto spurred state digital money",
+   "src": "general"
+  },
+  {
+   "from": "electronic_payments",
+   "to": "instant_payments",
+   "type": "enables",
+   "note": "account payments made instant",
+   "src": "general"
+  },
+  {
+   "from": "mobile_phone",
+   "to": "instant_payments",
+   "type": "enables",
+   "note": "payments by phone",
+   "src": "general"
+  },
+  {
+   "from": "telegraphic_transfer",
+   "to": "electronic_payments",
+   "type": "enables",
+   "note": "wire transfer precursor",
+   "src": "general"
+  },
+  {
+   "from": "telegraphic_transfer",
+   "to": "swift_messaging",
+   "type": "enables",
+   "note": "bank messages by wire, then network",
+   "src": "general"
+  },
+  {
+   "from": "telegraph",
+   "to": "gutta_percha",
+   "type": "enables",
+   "note": "cable insulation demand",
+   "src": "general"
+  },
+  {
+   "from": "sand_gravel_aggregates",
+   "to": "float_glass",
+   "type": "input",
+   "note": "silica sand",
+   "src": "general"
+  },
+  {
+   "from": "sand_gravel_aggregates",
+   "to": "megacity_systems",
+   "type": "input",
+   "note": "aggregate for concrete cities",
+   "src": "general"
+  },
+  {
+   "from": "standard_screw_threads",
+   "to": "moving_assembly_line",
+   "type": "enables",
+   "note": "standard fasteners",
+   "src": "general"
+  },
+  {
+   "from": "standard_screw_threads",
+   "to": "locomotive_works",
+   "type": "enables",
+   "note": "standard threads in engine shops (later form)",
+   "src": "general"
+  },
+  {
+   "from": "portsmouth_block_mills",
+   "to": "interchangeable_parts",
+   "type": "enables",
+   "note": "first machine-tool mass production",
+   "src": "general"
+  },
+  {
+   "from": "steam_engine",
+   "to": "portsmouth_block_mills",
+   "type": "input",
+   "note": "steam-driven machines",
+   "src": "general"
+  },
+  {
+   "from": "electric_grid",
+   "to": "uranium_enrichment",
+   "type": "input",
+   "note": "diffusion plants ate power",
+   "src": "general"
+  },
+  {
+   "from": "multipurpose_dams",
+   "to": "uranium_enrichment",
+   "type": "input",
+   "note": "TVA power for Oak Ridge",
+   "src": "general"
+  },
+  {
+   "from": "steam_turbine",
+   "to": "nuclear_power",
+   "type": "enables",
+   "note": "reactor heat raises steam",
+   "src": "general"
+  },
+  {
+   "from": "electric_grid",
+   "to": "nuclear_power",
+   "type": "enables",
+   "note": "plants sell into the grid",
+   "src": "general"
+  },
+  {
+   "from": "windmill",
+   "to": "dutch_peat_economy",
+   "type": "enables",
+   "note": "wind pumps drained peat polders",
+   "src": "general"
+  },
+  {
+   "from": "windmill",
+   "to": "solar_wind",
+   "type": "enables",
+   "note": "wind turbine heir of the windmill",
+   "src": "general"
+  },
+  {
+   "from": "town_gas",
+   "to": "natural_gas",
+   "type": "replaces",
+   "note": "natural gas replaced coal gas",
+   "src": "general"
+  },
+  {
+   "from": "diesel_engine",
+   "to": "highways_trucking",
+   "type": "input",
+   "note": "diesel trucks",
+   "src": "general"
+  },
+  {
+   "from": "diesel_engine",
+   "to": "container_shipping",
+   "type": "input",
+   "note": "diesel ships",
+   "src": "general"
+  },
+  {
+   "from": "diesel_engine",
+   "to": "tractor",
+   "type": "input",
+   "note": "diesel tractors",
+   "src": "general"
+  },
+  {
+   "from": "oil_lamp",
+   "to": "kerosene_refining",
+   "type": "enables",
+   "note": "lamps took kerosene",
+   "src": "part"
+  },
+  {
+   "from": "roman_aqueducts",
+   "to": "croton_aqueduct",
+   "type": "enables",
+   "note": "gravity aqueduct model revived",
+   "src": "general"
+  },
+  {
+   "from": "pozzolana",
+   "to": "cement_concrete",
+   "type": "enables",
+   "note": "hydraulic cement idea revived (Smeaton)",
+   "src": "general"
+  },
+  {
+   "from": "camel_caravan",
+   "to": "silk_roads",
+   "type": "enables",
+   "note": "camels carried relay trade",
+   "src": "part"
+  },
+  {
+   "from": "turnpike_trusts",
+   "to": "highway_finance",
+   "type": "enables",
+   "note": "road finance by tolls, then taxes",
+   "src": "general"
+  },
+  {
+   "from": "jet_engine",
+   "to": "commercial_airlines",
+   "type": "enables",
+   "note": "jet airliners (later form)",
+   "src": "general"
+  },
+  {
+   "from": "fulling_mill",
+   "to": "factory_system",
+   "type": "enables",
+   "note": "water-powered cloth mill precedent",
+   "src": "general"
+  },
+  {
+   "from": "salt_preservation",
+   "to": "refrigeration_cold_chain",
+   "type": "replaces",
+   "note": "cold replaced salt for keeping meat",
+   "src": "general"
+  },
+  {
+   "from": "glass",
+   "to": "vacuum_tube",
+   "type": "input",
+   "note": "glass envelopes",
+   "src": "general"
+  },
+  {
+   "from": "glass",
+   "to": "fibre_optic_backbone",
+   "type": "input",
+   "note": "silica glass drawn into fibre",
+   "src": "general"
+  },
+  {
+   "from": "rubber",
+   "to": "pneumatic_tyre",
+   "type": "input",
+   "note": "rubber tyres",
+   "src": "general"
+  },
+  {
+   "from": "railway",
+   "to": "meatpacking",
+   "type": "enables",
+   "note": "rail brought hogs to the packers",
+   "src": "general"
+  },
+  {
+   "from": "machine_tools",
+   "to": "motor_vehicle",
+   "type": "enables",
+   "note": "machined engine parts",
+   "src": "general"
+  },
+  {
+   "from": "joint_stock_company",
+   "to": "railway",
+   "type": "enables",
+   "note": "railway companies raised share capital",
+   "src": "general"
+  },
+  {
+   "from": "horse_collar",
+   "to": "work_horses",
+   "type": "enables",
+   "note": "collar let horses pull hard",
+   "src": "part"
+  },
+  {
+   "from": "arab_crop_package",
+   "to": "atlantic_sugar_plantation",
+   "type": "enables",
+   "note": "cane spread west under Islamic rule",
+   "src": "part"
+  },
+  {
+   "from": "cotton",
+   "to": "arab_crop_package",
+   "type": "input",
+   "note": "cotton in the crop package",
+   "src": "part"
+  },
+  {
+   "from": "atlantic_slave_trade",
+   "to": "cotton_plantation",
+   "type": "input",
+   "note": "enslaved labour for cotton",
+   "src": "part"
+  },
+  {
+   "from": "inca_mita",
+   "to": "mita_draft",
+   "type": "enables",
+   "note": "Toledo turned the mit'a into the mita",
+   "src": "part"
+  },
+  {
+   "from": "jiaozi_receipts",
+   "to": "paper_money",
+   "type": "enables",
+   "note": "private receipts became state notes",
+   "src": "part"
+  },
+  {
+   "from": "athenian_owl",
+   "to": "denarius",
+   "type": "enables",
+   "note": "Greek silver coin as model",
+   "src": "general"
+  },
+  {
+   "from": "telegraph",
+   "to": "world_grain_market",
+   "type": "enables",
+   "note": "prices wired between markets",
+   "src": "part"
+  },
+  {
+   "from": "steamship",
+   "to": "world_grain_market",
+   "type": "enables",
+   "note": "cheap ocean grain freight",
+   "src": "part"
+  },
+  {
+   "from": "wet_rice_farming",
+   "to": "song_wet_rice",
+   "type": "enables",
+   "note": "paddy farming intensified",
+   "src": "part"
+  },
+  {
+   "from": "work_horses",
+   "to": "horse_haulage",
+   "type": "enables",
+   "note": "horses bred for draught",
+   "src": "part"
+  },
+  {
+   "from": "mining_shares",
+   "to": "stock_exchange",
+   "type": "enables",
+   "note": "share trading began with mines",
+   "src": "general"
+  },
+  {
+   "from": "commenda",
+   "to": "joint_stock_company",
+   "type": "enables",
+   "note": "pooled capital, now permanent",
+   "src": "general"
+  },
+  {
+   "from": "venice_mude",
+   "to": "insurance",
+   "type": "enables",
+   "note": "convoy cargoes insured",
+   "src": "general"
+  },
+  {
+   "from": "paper_money",
+   "to": "fiat_money",
+   "type": "enables",
+   "note": "inconvertible notes first issued in China",
+   "src": "general"
+  },
+  {
+   "from": "monsoon_ocean_trade",
+   "to": "joint_stock_company",
+   "type": "enables",
+   "note": "companies formed for the Asian trade",
+   "src": "general"
+  },
+  {
+   "from": "indigo",
+   "to": "synthetic_alizarin_indigo",
+   "type": "replaces",
+   "note": "BASF indigo ended the trade, 1897",
+   "src": "part"
+  },
+  {
+   "from": "woad_madder",
+   "to": "synthetic_alizarin_indigo",
+   "type": "replaces",
+   "note": "synthetic alizarin ended madder growing",
+   "src": "general"
+  },
+  {
+   "from": "jingdezhen_porcelain",
+   "to": "manila_galleon",
+   "type": "input",
+   "note": "porcelain shipped to Acapulco",
+   "src": "general"
+  },
+  {
+   "from": "drawloom_brocade",
+   "to": "manila_galleon",
+   "type": "input",
+   "note": "Chinese silks for Mexico",
+   "src": "general"
+  },
+  {
+   "from": "atlantic_sugar_plantation",
+   "to": "industrious_revolution",
+   "type": "enables",
+   "note": "sugar among new consumer goods",
+   "src": "general"
+  },
+  {
+   "from": "indian_handloom",
+   "to": "indian_cotton_cloth",
+   "type": "enables",
+   "note": "handloom craft behind the printed cottons",
+   "src": "part"
+  },
+  {
+   "from": "silk_reeling",
+   "to": "silk_roads",
+   "type": "input",
+   "note": "silk went west",
+   "src": "part"
+  },
+  {
+   "from": "telephone",
+   "to": "mobile_phone",
+   "type": "enables",
+   "note": "telephone network and numbering",
+   "src": "general"
+  },
+  {
+   "from": "radio",
+   "to": "mobile_phone",
+   "type": "enables",
+   "note": "cellular radio",
+   "src": "general"
+  },
+  {
+   "from": "semiconductors",
+   "to": "solar_wind",
+   "type": "enables",
+   "note": "silicon solar cell, Bell Labs 1954",
+   "src": "general"
+  },
+  {
+   "from": "gas_lighting",
+   "to": "town_gas",
+   "type": "enables",
+   "note": "gas lighting spread to towns",
+   "src": "part"
+  },
+  {
+   "from": "steam_engine",
+   "to": "locomotive_works",
+   "type": "enables",
+   "note": "locomotives built from stationary engines",
+   "src": "general"
+  },
+  {
+   "from": "cast_iron",
+   "to": "iron_frame_mill",
+   "type": "input",
+   "note": "cast-iron columns",
+   "src": "part"
+  },
+  {
+   "from": "elevator",
+   "to": "steel_frame",
+   "type": "enables",
+   "note": "lifts made tall frames pay",
+   "src": "general"
+  },
+  {
+   "from": "flemish_cloth",
+   "to": "broadcloth_export",
+   "type": "enables",
+   "note": "Flemish weavers settled in England",
+   "src": "general"
+  },
+  {
+   "from": "english_wool_export",
+   "to": "florentine_wool_cloth",
+   "type": "input",
+   "note": "English wool later fed Florence",
+   "src": "general"
+  },
+  {
+   "from": "boats",
+   "to": "sail",
+   "type": "enables",
+   "note": "sail on hulls",
+   "src": "general"
+  },
+  {
+   "from": "brass_manillas",
+   "to": "atlantic_slave_trade",
+   "type": "input",
+   "note": "manillas paid for captives",
+   "src": "general"
+  },
+  {
+   "from": "qhapaq_nan",
+   "to": "potosi_silver",
+   "type": "enables",
+   "note": "Inca roads carried supplies to Potosi",
+   "src": "general"
+  },
+  {
+   "from": "woods_preservation_law",
+   "to": "plantation_forestry",
+   "type": "enables",
+   "note": "state care of timber supply",
+   "src": "general"
+  },
+  {
+   "from": "naval_oak_regulation",
+   "to": "plantation_forestry",
+   "type": "enables",
+   "note": "navy oak drove state forestry",
+   "src": "general"
+  },
+  {
+   "from": "european_marriage_pattern",
+   "to": "industrious_revolution",
+   "type": "enables",
+   "note": "households of working couples",
+   "src": "general"
+  },
+  {
+   "from": "wool_customs",
+   "to": "bardi_peruzzi_banks",
+   "type": "enables",
+   "note": "Edward III pledged wool customs to Florentines",
+   "src": "general"
+  },
+  {
+   "from": "tally_sticks",
+   "to": "funded_public_debt",
+   "type": "enables",
+   "note": "Exchequer tallies as state debt",
+   "src": "general"
+  },
+  {
+   "from": "book_credit",
+   "to": "consumer_credit",
+   "type": "enables",
+   "note": "shop credit became instalment credit",
+   "src": "general"
+  },
+  {
+   "from": "reckoning_days",
+   "to": "clearing_house",
+   "type": "enables",
+   "note": "settling mutual debts by netting",
+   "src": "general"
+  },
+  {
+   "from": "copyhold",
+   "to": "enclosure",
+   "type": "enables",
+   "note": "weak title eased enclosure",
+   "src": "general"
+  },
+  {
+   "from": "clay_roof_tiles",
+   "to": "fire_regulations",
+   "type": "enables",
+   "note": "tiles ordered for thatch",
+   "src": "part"
+  },
+  {
+   "from": "hand_quern",
+   "to": "flour_milling",
+   "type": "replaces",
+   "note": "powered mills replaced the quern",
+   "src": "part"
+  },
+  {
+   "from": "potash",
+   "to": "glass",
+   "type": "input",
+   "note": "plant-ash alkali for glass",
+   "src": "general"
+  },
+  {
+   "from": "soap_boiling",
+   "to": "industrial_soap",
+   "type": "enables",
+   "note": "soap trade moved to soda works",
+   "src": "part"
+  },
+  {
+   "from": "horn_bone_glue",
+   "to": "packer_byproducts",
+   "type": "enables",
+   "note": "old by-product trades industrialised",
+   "src": "part"
+  },
+  {
+   "from": "carcass_joint_products",
+   "to": "packer_byproducts",
+   "type": "enables",
+   "note": "every part of the carcass sold",
+   "src": "part"
+  },
+  {
+   "from": "silk_roads",
+   "to": "quarantine",
+   "type": "enables",
+   "note": "plague came along the Silk Roads, 1346",
+   "src": "part"
+  },
+  {
+   "from": "silk_roads",
+   "to": "statute_of_labourers",
+   "type": "enables",
+   "note": "plague via the steppe; labour scarce after 1348",
+   "src": "general"
+  },
+  {
+   "from": "roman_aqueducts",
+   "to": "cloaca_maxima",
+   "type": "input",
+   "note": "aqueduct overflow flushed the drain (later form)",
+   "src": "general"
+  },
+  {
+   "from": "city_coal_dues",
+   "to": "metropolitan_board_works",
+   "type": "input",
+   "note": "coal dues paid for the Embankment",
+   "src": "general"
+  }
+ ]
+}

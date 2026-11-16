@@ -1,0 +1,2519 @@
+{
+ "nodes": [
+  {
+   "id": "raiding_and_feud",
+   "label": "Raiding and feud",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -10000,
+   "date_src": "general",
+   "place": "forager and early farming groups everywhere",
+   "paradigm": "horticultural_tribal",
+   "desc": "Raids and feuds between bands and villages, with the same spears and bows used in hunting. Stores, herds and captives made raiding pay; the share of adult deaths by violence is put near a seventh by some (contested).",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "settlement_walls",
+   "label": "Village walls and palisades",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": -8000,
+   "date_src": "general",
+   "place": "Jericho; Neolithic enclosures",
+   "paradigm": "horticultural_tribal",
+   "desc": "Walls, ditches and palisades round villages that held stores and herds; Jericho's wall and tower (about 8000 BC) may be the first (purpose contested). Walls and stores were insurance against raids as granaries were against bad years.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "war_captive_slaving",
+   "label": "War captives as slaves",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -3000,
+   "date_src": "general",
+   "place": "Mesopotamia; Greece and Rome; West Africa",
+   "paradigm": "early_state",
+   "desc": "War was the main source of slaves in most slave societies; captives went to mines, galleys, estates and households. Barbary corsairs alone may have taken 1 to 1.25 million Europeans in 1530-1780 (contested).",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "ransom_of_captives",
+   "label": "Ransom of captives",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1100,
+   "date_src": "general",
+   "place": "medieval Europe and the Mediterranean",
+   "paradigm": "feudal_manorial",
+   "desc": "Knights and rich captives were capital, released for payment; John II of France's ransom (1360) was 3 million ecus (unchecked). Religious orders raised funds to ransom captives from North Africa.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "bronze_weapons",
+   "label": "Bronze arms",
+   "domain": "metals",
+   "kind": "good",
+   "start": -2500,
+   "date_src": "general",
+   "place": "Near East and Aegean",
+   "paradigm": "early_state",
+   "desc": "Daggers, spearheads and from about 1600 BC swords cast in moulds and hammered hard. Tin came from far away, so bronze armies rested on thousand-km routes that the Late Bronze Age collapse ran backwards.",
+   "chokepoint": false,
+   "part": "14",
+   "wide": -1600
+  },
+  {
+   "id": "composite_bow",
+   "label": "Composite bow",
+   "domain": "materials",
+   "kind": "good",
+   "start": -2300,
+   "date_src": "general",
+   "place": "Mesopotamia and the steppe",
+   "paradigm": "pastoral_nomadic",
+   "desc": "A wooden core with horn on the belly and sinew on the back, bound with hide or fish glue: the carcass's joint products. Each layer must dry; a week or two of work spreads over months to a year or more of curing (checked, secondary). Time capital that suits dry lands and horsemen.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "chariot_warfare",
+   "label": "Chariot warfare",
+   "domain": "transport",
+   "kind": "technique",
+   "start": -1800,
+   "date_src": "general",
+   "place": "steppe edge, Near East, Egypt, China",
+   "paradigm": "early_state",
+   "desc": "A system: bred and trained horses, spoked wheels, bent wood, leather, bronze fittings, a composite bow and two trained men, plus fodder. Several thousand chariots are said to have fought at Kadesh (1274 BC, contested).",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "iron_weapons",
+   "label": "Iron arms",
+   "domain": "metals",
+   "kind": "good",
+   "start": -1100,
+   "date_src": "general",
+   "place": "Anatolia, Assyria, then everywhere",
+   "paradigm": "agrarian_empire",
+   "desc": "Bloomery iron from local ore and charcoal armed far more men than bronze; arms and tools came from the same smith and bloom. Assyria was among the first armies equipped largely with iron (rough).",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "hoplite_panoply",
+   "label": "Hoplite panoply",
+   "domain": "metals",
+   "kind": "good",
+   "start": -700,
+   "date_src": "general",
+   "place": "Greek city-states",
+   "paradigm": "early_state",
+   "desc": "Bronze helmet and greaves, a linen or bronze cuirass and a wood-and-bronze shield, bought by the citizen himself. Owning it defined the hoplite class: arms as household capital.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "crossbow",
+   "label": "Crossbow",
+   "domain": "metals",
+   "kind": "technique",
+   "start": -400,
+   "date_src": "general",
+   "place": "Warring States China; Europe from about the 10th century",
+   "paradigm": "agrarian_empire",
+   "desc": "Moves the archer's skill into a machine: trigger, stock, prod and winding gear. Qin and Han arsenals cast bronze triggers and arrowheads to standard sizes (unchecked).",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1100
+  },
+  {
+   "id": "torsion_artillery",
+   "label": "Torsion artillery",
+   "domain": "materials",
+   "kind": "technique",
+   "start": -350,
+   "date_src": "general",
+   "place": "Greek and Roman armies",
+   "paradigm": "agrarian_empire",
+   "desc": "Catapults storing energy in skeins of sinew or hair, built by engineers from timber and iron fittings. Another claim on the carcass's sinew.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "steppe_horse_archers",
+   "label": "Steppe horse archers",
+   "domain": "transport",
+   "kind": "technique",
+   "start": -700,
+   "date_src": "general",
+   "place": "Scythians, Xiongnu, Turks, Mongols",
+   "paradigm": "pastoral_nomadic",
+   "desc": "Composite bows shot from horses fed on grass, not oats, with several mounts a rider (three to five for the Mongols, contested). The farming states' hardest input to match was horses in numbers.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "heqin_tribute",
+   "label": "Heqin tribute to the steppe",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -198,
+   "date_src": "part",
+   "place": "Han and Song China to the Xiongnu and Liao",
+   "paradigm": "agrarian_empire",
+   "desc": "Silk, grain and wine paid to the Xiongnu from 198 BC; the Song paid the Liao 200,000 bolts of silk and 100,000 taels of silver a year after 1005 (unchecked). Barfield's outer frontier strategy; the silk went west along the Silk Roads.",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1005
+  },
+  {
+   "id": "tea_horse_trade",
+   "label": "Tea for horses",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1074,
+   "date_src": "part",
+   "place": "Song Sichuan and the Tibetan frontier",
+   "paradigm": "agrarian_empire",
+   "desc": "China could not breed enough warhorses on farmland, so the Song Tea and Horse Agency traded Sichuan tea for Tibetan and Inner Asian horses (memory, P. Smith); the Ming ran frontier tea-horse markets. The horse as a steppe-held chokepoint.",
+   "chokepoint": true,
+   "part": "14"
+  },
+  {
+   "id": "assyrian_tribute",
+   "label": "Assyrian tribute and deportation",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -880,
+   "date_src": "general",
+   "place": "Neo-Assyrian empire",
+   "paradigm": "agrarian_empire",
+   "desc": "Annual campaigns took tribute in metal, horses, cloth and timber from vassals, and deported conquered peoples to farm and build in the core; deportees in the millions over three centuries (Oded, contested).",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "roman_war_booty",
+   "label": "Roman booty and indemnities",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": -200,
+   "date_src": "general",
+   "place": "Roman Republic",
+   "paradigm": "agrarian_empire",
+   "desc": "Conquest paid in booty, indemnities and slaves; after the Macedonian booty of 167 BC citizens stopped paying direct tax (unchecked). Plunder turned into provincial taxation.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "danegeld",
+   "label": "Danegeld and heregeld",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 991,
+   "date_src": "general",
+   "place": "Anglo-Saxon England",
+   "paradigm": "feudal_manorial",
+   "desc": "Silver paid to Viking armies: £48,000 in 1012 and £72,000 plus £10,500 from London in 1018 (checked, secondary). The heregeld (1012 to 1051) turned the payment into a standing tax to keep a hired fleet.",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1012
+  },
+  {
+   "id": "mongol_conquest_tribute",
+   "label": "Mongol conquest and tribute",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1206,
+   "date_src": "general",
+   "place": "Mongol empire",
+   "paradigm": "pastoral_nomadic",
+   "desc": "Conquest, then census, tribute and taxes; artisans spared and moved to Karakorum and China; ortogh merchant partnerships financed by the nobility. One power over the whole road joined Eurasian trade.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "stirrup",
+   "label": "Stirrup",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 300,
+   "date_src": "general",
+   "place": "China and the steppe",
+   "paradigm": "pastoral_nomadic",
+   "desc": "Spread westward by the 8th century. Lynn White's claim that it made feudalism through shock cavalry is widely rejected (contested), but it is part of the warhorse's gear chain with saddle, bit and shoe.",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 700
+  },
+  {
+   "id": "roman_fabricae",
+   "label": "Roman state arms works",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 290,
+   "date_src": "general",
+   "place": "late Roman empire",
+   "paradigm": "agrarian_empire",
+   "desc": "Some 35 fabricae for shields, armour, arrows, artillery and swords listed in the Notitia Dignitatum (memory), staffed by hereditary workers. The state as arms maker.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "mail_armour",
+   "label": "Mail armour",
+   "domain": "metals",
+   "kind": "good",
+   "start": -300,
+   "date_src": "general",
+   "place": "Celtic Europe; Rome; medieval Europe and Islam",
+   "paradigm": "agrarian_empire",
+   "desc": "A shirt of about 20,000 to 30,000 riveted iron rings (rough), 10 to 15 kg, months of a mailmaker's work. It made drawn wire a war good.",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1000
+  },
+  {
+   "id": "wire_drawing_mill",
+   "label": "Water-powered wire drawing",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1350,
+   "date_src": "general",
+   "place": "Nuremberg",
+   "paradigm": "commercial_city_state",
+   "desc": "Iron drawn through dies by water power from the 14th century (memory). Served mail, pins, cards for wool and later cable.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "gambeson",
+   "label": "Quilted armour",
+   "domain": "textiles",
+   "kind": "good",
+   "start": 1000,
+   "date_src": "general",
+   "place": "medieval Europe and Asia",
+   "paradigm": "feudal_manorial",
+   "desc": "Layers of linen or cotton stuffed with wool or tow: the poor man's body armour and the lining under mail. A war demand on the cloth trades.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "hide_armour",
+   "label": "Hide and hardened leather armour",
+   "domain": "textiles",
+   "kind": "good",
+   "start": -1500,
+   "date_src": "general",
+   "place": "widespread",
+   "paradigm": "early_state",
+   "desc": "Ox and horse hide boiled or waxed into shields, helmets and body armour; a demand on tanning. economy_later.md's hide armour (4 hides) is this.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "plate_armour",
+   "label": "Plate armour",
+   "domain": "metals",
+   "kind": "good",
+   "start": 1380,
+   "date_src": "general",
+   "place": "Milan, Augsburg, Nuremberg, Innsbruck, Greenwich",
+   "paradigm": "feudal_manorial",
+   "desc": "Sheet iron and steel beaten, hardened and polished with water-powered hammers and mills; a field harness about 20 to 25 kg, perhaps a year's wages of a craftsman (rough). A dear good of a few armourer towns.",
+   "chokepoint": true,
+   "part": "14",
+   "wide": 1450
+  },
+  {
+   "id": "destrier",
+   "label": "The warhorse",
+   "domain": "energy",
+   "kind": "good",
+   "start": 1000,
+   "date_src": "general",
+   "place": "medieval Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "The costliest item of medieval war: a destrier valued at £80 in late 13th-century England, £100 in 1339 (checked, secondary, after Davis). Needed studs, good grass and oats; the crown valued horses at muster to compensate losses.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "army_forage",
+   "label": "Army foraging",
+   "domain": "food",
+   "kind": "practice",
+   "start": -700,
+   "date_src": "general",
+   "place": "every pre-railway army",
+   "paradigm": "agrarian_empire",
+   "desc": "An army's horses ate more by weight than its men, about 10 kg of grain and hay a horse a day; fodder could not be carried far, so armies foraged and moved (van Creveld, unchecked). The organic economy's land limit made violent.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "purveyance",
+   "label": "Purveyance",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1250,
+   "date_src": "general",
+   "place": "England and France",
+   "paradigm": "feudal_manorial",
+   "desc": "The king's officers bought or seized food, carts and horses for the household and armies at low prices: a tax in kind and a constant grievance (part 05).",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "counterweight_trebuchet",
+   "label": "Counterweight trebuchet",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 1150,
+   "date_src": "general",
+   "place": "Mediterranean; Edward I's Warwolf at Stirling 1304",
+   "paradigm": "feudal_manorial",
+   "desc": "Long timbers, iron fittings, rope and a crew; built by carpenters on site. Sieges drew carpenters and miners from the trades.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "motte_and_bailey",
+   "label": "Motte and bailey castle",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1000,
+   "date_src": "general",
+   "place": "Normandy; England after 1066",
+   "paradigm": "feudal_manorial",
+   "desc": "Earth mound and timber palisade built fast with conquered labour; several hundred in England within a generation of 1066 (rough).",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1070
+  },
+  {
+   "id": "stone_castle",
+   "label": "Stone castle",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1070,
+   "date_src": "general",
+   "place": "Europe, the Crusader states, Wales",
+   "paradigm": "feudal_manorial",
+   "desc": "Held crossings, passes and ports, taxed what passed and protected markets. Edward I's Welsh castles cost about £80,000 in 1277-1304; Beaumaris about £14,500, with some 400 masons at work in 1295 (checked, secondary).",
+   "chokepoint": true,
+   "part": "14",
+   "wide": 1280
+  },
+  {
+   "id": "incastellamento",
+   "label": "Fortified hill villages",
+   "domain": "building",
+   "kind": "practice",
+   "start": 950,
+   "date_src": "general",
+   "place": "central Italy (Lazio)",
+   "paradigm": "feudal_manorial",
+   "desc": "Lords gathered scattered peasants into walled hill villages, reshaping land, settlement and lordship at once (Toubert, unchecked). Insecurity setting the shape of the village.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "bastide_towns",
+   "label": "Bastides and castle boroughs",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1250,
+   "date_src": "general",
+   "place": "Gascony; Edward I's Wales",
+   "paradigm": "feudal_manorial",
+   "desc": "Planned walled towns beside conquest castles, with a market and burgage plots for settlers: the castle protected the market and the market paid the castle.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "benefice_vassalage",
+   "label": "Benefice and vassalage",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 750,
+   "date_src": "general",
+   "place": "Carolingian Francia",
+   "paradigm": "feudal_manorial",
+   "desc": "Land granted to a sworn follower for armed service where coin was scarce and armoured horsemen dear: the start of feudal tenure.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "knight_fee",
+   "label": "Knight's fee",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1066,
+   "date_src": "general",
+   "place": "Norman England",
+   "paradigm": "feudal_manorial",
+   "desc": "Land enough to keep one mounted man, his horses and kit: often about five hides or later £20 a year (rough). William I set each baron a quota (servitium debitum); the Cartae Baronum of 1166 surveyed them (checked). The manor read from the other end.",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1166
+  },
+  {
+   "id": "castle_guard",
+   "label": "Castle-guard service",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1070,
+   "date_src": "general",
+   "place": "Norman England",
+   "paradigm": "feudal_manorial",
+   "desc": "A tenant's duty to garrison a lord's castle for a set time each year, later commuted to castle-guard rents.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "scutage",
+   "label": "Scutage",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1100,
+   "date_src": "general",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "Shield money: cash instead of knight service, used to hire soldiers who would serve longer than forty days. The military tenure turning into a tax.",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1159
+  },
+  {
+   "id": "iqta_timar",
+   "label": "Iqta and timar",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 936,
+   "date_src": "general",
+   "place": "Buyid, Seljuk and Mamluk states; Ottoman empire",
+   "paradigm": "agrarian_empire",
+   "desc": "The right to collect a district's revenue in return for keeping cavalry: the Islamic and Ottoman counterpart of the fief, with tens of thousands of timariots in the 16th century (memory).",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1450
+  },
+  {
+   "id": "condottieri",
+   "label": "Mercenary companies",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1350,
+   "date_src": "general",
+   "place": "Italian city-states; Swiss cantons",
+   "paradigm": "commercial_city_state",
+   "desc": "Soldiers hired by contract (condotta); the Swiss exported pike infantry by treaty. Rich small states turned money and credit into force.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "military_entrepreneur",
+   "label": "Military entrepreneurs and contributions",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1625,
+   "date_src": "general",
+   "place": "Thirty Years' War Germany",
+   "paradigm": "early_modern_state",
+   "desc": "Colonels owned regiments; Wallenstein raised perhaps 100,000 men on his own credit and kept them by levying contributions on occupied land (memory). War fed war: taxation by the army itself.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "protection_rent",
+   "label": "Protection sold as a product",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1300,
+   "date_src": "general",
+   "place": "Venice and its convoys",
+   "paradigm": "commercial_city_state",
+   "desc": "Lane (1958): governments produce protection; whoever gets it cheaper than rivals earns a protection rent (checked). Venice's convoys, the Portuguese cartaz and the chartered companies sold it.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "privateering",
+   "label": "Privateering and prize courts",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1560,
+   "date_src": "general",
+   "place": "England, the Dutch Republic, France",
+   "paradigm": "maritime_trading",
+   "desc": "Letters of marque licensed private ships to seize enemy shipping; prize courts turned seizure into property. Elizabethan prizes ran at about £100,000 to £200,000 a year (memory, Andrews); abolished by the Declaration of Paris (1856).",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "spanish_flota",
+   "label": "Spanish treasure fleets",
+   "domain": "transport",
+   "kind": "institution",
+   "start": 1564,
+   "date_src": "general",
+   "place": "Seville, Havana and the Americas",
+   "paradigm": "early_modern_state",
+   "desc": "Two armed convoys a year carried silver and goods between Spain and the Americas (unchecked): safety bought with pulses of arrival that set fairs and prices.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "voc_company_war",
+   "label": "VOC's right to make war",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1602,
+   "date_src": "general",
+   "place": "Dutch East Indies",
+   "paradigm": "maritime_trading",
+   "desc": "The charter let the company make treaties, build forts and wage war; the conquest of Banda (1621) seized the nutmeg monopoly by killing or enslaving its people (unchecked). Force making a monopoly.",
+   "chokepoint": true,
+   "part": "14"
+  },
+  {
+   "id": "eic_company_army",
+   "label": "East India Company army",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1757,
+   "date_src": "general",
+   "place": "Bengal, Madras, Bombay",
+   "paradigm": "early_modern_state",
+   "desc": "After Plassey and the diwani of Bengal (1765) land revenue paid the armies that won more revenue. About 237,000 men in 1823 (checked, secondary), more than the British Army: a company turned fiscal-military state.",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1823
+  },
+  {
+   "id": "gun_slave_cycle",
+   "label": "Guns for captives",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1650,
+   "date_src": "general",
+   "place": "West Africa",
+   "paradigm": "plantation_slave",
+   "desc": "European guns and powder traded for captives let raiding states buy more guns; hundreds of thousands of guns a year by the late 18th century (memory, Inikori). How far it drove the trade is contested.",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1780
+  },
+  {
+   "id": "nitre_beds",
+   "label": "Nitre beds",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 1550,
+   "date_src": "general",
+   "place": "Europe (France, Sweden, Germany)",
+   "paradigm": "early_modern_state",
+   "desc": "Trenches of dung, urine, rotting plants, lime and ash watered for months or years, then leached and boiled for saltpetre (checked, secondary). Gunpowder competed with the fields for the same nitrogen.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "saltpetre_men",
+   "label": "Saltpetre men",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1590,
+   "date_src": "general",
+   "place": "England; Sweden; France",
+   "paradigm": "early_modern_state",
+   "desc": "Licensed diggers with the right to enter barns, dovecotes and houses for nitrous earth, a grievance under Charles I (memory, Cressy). Sweden levied saltpetre on peasants from Gustav Vasa on (checked).",
+   "chokepoint": true,
+   "part": "14"
+  },
+  {
+   "id": "indian_saltpetre",
+   "label": "Bihar saltpetre trade",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1650,
+   "date_src": "general",
+   "place": "Bihar and Bengal",
+   "paradigm": "early_modern_state",
+   "desc": "Village earth refined by specialist castes, shipped by the East India Company; its 1693 charter required 500 tons a year for the government (checked, secondary). The chokepoint passed from the farmyard to a company.",
+   "chokepoint": true,
+   "part": "14",
+   "wide": 1700
+  },
+  {
+   "id": "corned_powder",
+   "label": "Corned powder and powder mills",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1450,
+   "date_src": "general",
+   "place": "Europe; Chilworth from 1626",
+   "paradigm": "early_modern_state",
+   "desc": "About 75:15:10 saltpetre, charcoal and sulphur ground wet in water-driven stamp or edge-runner mills and pressed into grains that burned evenly and stored well. Powder mills shared streams with corn and fulling mills.",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1626
+  },
+  {
+   "id": "bronze_cannon",
+   "label": "Bronze cannon",
+   "domain": "metals",
+   "kind": "good",
+   "start": 1326,
+   "date_src": "general",
+   "place": "Europe; Ottoman empire",
+   "paradigm": "commercial_city_state",
+   "desc": "Cast by bell founders in loam moulds; dear in copper and tin but safe, bulging before bursting. Bells were melted for guns in crises (Peter the Great after Narva, memory).",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1500
+  },
+  {
+   "id": "cast_iron_cannon",
+   "label": "Cast-iron guns",
+   "domain": "metals",
+   "kind": "good",
+   "start": 1543,
+   "date_src": "general",
+   "place": "Sussex Weald, then Sweden",
+   "paradigm": "early_modern_state",
+   "desc": "From the blast furnace at perhaps a third or a quarter of bronze's price (memory). Tied guns to ironworks and charcoal woods, later coke.",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1650
+  },
+  {
+   "id": "swedish_gun_founding",
+   "label": "Swedish gun founding",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 1620,
+   "date_src": "general",
+   "place": "Finspang and the Bergslagen",
+   "paradigm": "early_modern_state",
+   "desc": "Walloon smiths brought by Louis De Geer made Sweden Europe's gun founder for the Dutch and others (memory).",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "solid_cast_boring",
+   "label": "Casting solid and boring",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1713,
+   "date_src": "general",
+   "place": "Switzerland and France (Maritz); Woolwich (Verbruggen)",
+   "paradigm": "early_modern_state",
+   "desc": "Guns cast solid and bored out gave a truer bore and sounder metal (memory). The step before Wilkinson's boring mill, which bored Watt's cylinders.",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1775
+  },
+  {
+   "id": "musket",
+   "label": "Musket",
+   "domain": "metals",
+   "kind": "good",
+   "start": 1500,
+   "date_src": "general",
+   "place": "Europe; Japan from 1543; Ottoman empire",
+   "paradigm": "early_modern_state",
+   "desc": "From the arquebus to the flintlock and socket bayonet; a recruit trained in weeks, so the cost of an army moved from the man's skill to the state's purse.",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1700
+  },
+  {
+   "id": "gunmaking_trades",
+   "label": "Gunmaking by putting-out",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 1550,
+   "date_src": "general",
+   "place": "Liege, Brescia, Suhl, Birmingham, Tula, Sakai",
+   "paradigm": "early_modern_state",
+   "desc": "Barrels, locks, stocks and furniture made by separate trades and set up by a gunmaker; Birmingham supplied millions of muskets and barrels in the Napoleonic wars (rough).",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1800
+  },
+  {
+   "id": "proof_house",
+   "label": "Proof houses",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1637,
+   "date_src": "general",
+   "place": "London (1637); Birmingham (1813)",
+   "paradigm": "early_modern_state",
+   "desc": "Every barrel fired with an overload and stamped: a quality institution that made the parts of a putting-out chain tradeable.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "military_revolution",
+   "label": "Military revolution",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1560,
+   "date_src": "general",
+   "place": "the Dutch Republic, Sweden, then Europe",
+   "paradigm": "early_modern_state",
+   "desc": "Drill, volley fire, bastion forts and bigger standing armies made war far dearer (Roberts 1956; Parker 1988, armies about tenfold, contested). The cost needed revenue, credit and officials.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "bastion_fort",
+   "label": "Bastion fortress",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1500,
+   "date_src": "general",
+   "place": "Italy, then Europe and its colonies",
+   "paradigm": "early_modern_state",
+   "desc": "Low, thick earth-backed walls with angled bastions beat cannon but cost so much they could ruin a city; longer sieges needed bigger armies (Parker, contested).",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1600
+  },
+  {
+   "id": "royal_dockyards",
+   "label": "Royal dockyards",
+   "domain": "transport",
+   "kind": "industry",
+   "start": 1547,
+   "date_src": "general",
+   "place": "Chatham, Portsmouth, Plymouth",
+   "paradigm": "early_modern_state",
+   "desc": "Among the largest industrial establishments of 18th-century Britain, thousands of workers each in war (memory, Coleman).",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1750
+  },
+  {
+   "id": "navy_victualling",
+   "label": "Navy victualling",
+   "domain": "food",
+   "kind": "institution",
+   "start": 1683,
+   "date_src": "general",
+   "place": "Deptford and Portsmouth",
+   "paradigm": "early_modern_state",
+   "desc": "The Victualling Board ran bakeries, breweries and salting works: the largest buyer of cattle, grain and casks (rough).",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "ship_of_the_line",
+   "label": "Ship of the line",
+   "domain": "transport",
+   "kind": "good",
+   "start": 1650,
+   "date_src": "general",
+   "place": "England, the Dutch Republic, France",
+   "paradigm": "early_modern_state",
+   "desc": "A 74-gun ship took about 3,000 loads of timber, of the order of 2,000 oaks or 57 acres of oak wood (checked, early 19th-century estimates). Navies were the first standing industrial customers.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "baltic_naval_stores",
+   "label": "Baltic naval stores",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1600,
+   "date_src": "general",
+   "place": "Riga, Stockholm, the Sound",
+   "paradigm": "early_modern_state",
+   "desc": "Masts from Riga, hemp from Russia, tar from Sweden through the Stockholm Tar Company's monopoly (1648, memory). Naval stores became diplomacy.",
+   "chokepoint": true,
+   "part": "14"
+  },
+  {
+   "id": "broad_arrow_masts",
+   "label": "Broad arrow mast reserve",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1691,
+   "date_src": "general",
+   "place": "New England",
+   "paradigm": "frontier_settler",
+   "desc": "The crown marked large white pines for the navy's masts from 1691 (memory); bounties on American tar from 1705 aimed to break the Swedish monopoly.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "copper_sheathing",
+   "label": "Copper sheathing",
+   "domain": "transport",
+   "kind": "technique",
+   "start": 1761,
+   "date_src": "general",
+   "place": "Royal Navy",
+   "paradigm": "early_modern_state",
+   "desc": "Copper plates against shipworm and fouling; pulled Anglesey's Parys Mountain copper into the navy (memory).",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1780
+  },
+  {
+   "id": "springfield_armory",
+   "label": "Federal armouries",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 1794,
+   "date_src": "general",
+   "place": "Springfield and Harpers Ferry",
+   "paradigm": "industrial",
+   "desc": "The Ordnance Department paid for uniform parts: Hall's rifles, made with jigs, gauges and special machines, were judged interchangeable in 1827 (memory, M. R. Smith). Armoury practice passed to sewing machines and cars.",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1827
+  },
+  {
+   "id": "blanchard_lathe",
+   "label": "Copying lathe",
+   "domain": "metals",
+   "kind": "technique",
+   "start": 1818,
+   "date_src": "general",
+   "place": "Springfield Armory",
+   "paradigm": "industrial",
+   "desc": "Thomas Blanchard's lathe turned irregular gunstocks from a pattern: special-purpose machinery for one part.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "krupp_steel_guns",
+   "label": "Krupp cast-steel guns",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 1851,
+   "date_src": "general",
+   "place": "Essen",
+   "paradigm": "industrial",
+   "desc": "Crucible cast steel guns sold to Prussia and dozens of states, outclassing French bronze in 1870; 12,000 to 16,000 workers in the early 1870s, about 71,000 by 1912 (checked, secondary).",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1870
+  },
+  {
+   "id": "naval_arms_race",
+   "label": "Ironclads and armour plate",
+   "domain": "metals",
+   "kind": "industry",
+   "start": 1859,
+   "date_src": "general",
+   "place": "Britain, France, Germany",
+   "paradigm": "industrial",
+   "desc": "Ironclads, face-hardened nickel-steel armour, great forging presses, turbines, mechanical fire control and oil fuel (the British stake in Persian oil, 1914) all came from the naval race.",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1906
+  },
+  {
+   "id": "high_explosives",
+   "label": "Smokeless powder and high explosives",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1846,
+   "date_src": "general",
+   "place": "Germany, Sweden, France, Britain",
+   "paradigm": "industrial",
+   "desc": "Guncotton (1846), dynamite (1867), smokeless powders (from 1884) and TNT tied war to nitric acid and coal tar (toluene from coke ovens). Britain's 1915 shell crisis made the Ministry of Munitions.",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1890
+  },
+  {
+   "id": "osrd_wartime_research",
+   "label": "Wartime research contracts",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1940,
+   "date_src": "general",
+   "place": "OSRD and MIT's Radiation Laboratory, USA",
+   "paradigm": "industrial",
+   "desc": "The state paid universities and firms for research to a military need: the cavity magnetron and radar, the proximity fuze, and the model for postwar research funding.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "manhattan_project",
+   "label": "Manhattan Project",
+   "domain": "energy",
+   "kind": "institution",
+   "start": 1942,
+   "date_src": "general",
+   "place": "Oak Ridge, Hanford, Los Alamos",
+   "paradigm": "industrial",
+   "desc": "About $2 billion and over 100,000 workers (unchecked): enrichment and reactors at industrial scale, the base of civil nuclear power.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "naval_reactors",
+   "label": "Naval reactors",
+   "domain": "energy",
+   "kind": "technique",
+   "start": 1954,
+   "date_src": "general",
+   "place": "USS Nautilus; Shippingport 1957",
+   "paradigm": "industrial",
+   "desc": "The submarine pressurised-water reactor became the design of civil nuclear power (unchecked).",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "sage_air_defence",
+   "label": "SAGE air defence",
+   "domain": "information",
+   "kind": "infrastructure",
+   "start": 1958,
+   "date_src": "general",
+   "place": "USA",
+   "paradigm": "industrial",
+   "desc": "Real-time networked computers for air defence: core memory, terminals and modems at scale (cost contested); its lessons fed the Sabre airline booking system.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "ic_military_procurement",
+   "label": "Missile and Apollo chip buying",
+   "domain": "information",
+   "kind": "practice",
+   "start": 1962,
+   "date_src": "part",
+   "place": "Minuteman II and Apollo, USA",
+   "paradigm": "service_information",
+   "desc": "The US government bought 100% of IC output in 1962, 72% in 1965 and 53% in 1966; Apollo took about 200,000 ICs at $20 to $30 each (checked, secondary). Volume carried chips down the learning curve.",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1965
+  },
+  {
+   "id": "arpa",
+   "label": "ARPA",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1958,
+   "date_src": "general",
+   "place": "US Department of Defense",
+   "paradigm": "service_information",
+   "desc": "Founded after Sputnik to fund advanced research; paid for packet switching and the ARPANET (1969).",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "gps",
+   "label": "GPS",
+   "domain": "information",
+   "kind": "infrastructure",
+   "start": 1978,
+   "date_src": "general",
+   "place": "US Air Force Navstar",
+   "paradigm": "service_information",
+   "desc": "First satellite 1978, full operation 1995, civil signal undegraded from 2000 (unchecked): a military system turned into the clock and map of logistics and phones.",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1995
+  },
+  {
+   "id": "defence_procurement",
+   "label": "Defence procurement",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1950,
+   "date_src": "general",
+   "place": "USA and other industrial states",
+   "paradigm": "service_information",
+   "desc": "A permanent military buyer paying early, dear and in volume to strict specifications; US defence spending 14% of GDP in 1953, 6% in 1986, about 3% around 2000 (checked, secondary). Whether it crowds out civil research is contested.",
+   "chokepoint": false,
+   "part": "14"
+  },
+  {
+   "id": "war_paper_inflation",
+   "label": "War finance by paper money",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1775,
+   "date_src": "general",
+   "place": "the Continental, the assignats, 1797-1821 Britain, 1923 Germany",
+   "paradigm": "early_modern_state",
+   "desc": "Continental dollars, assignats, suspension of gold payments and the hyperinflation of 1923 (unchecked): war was the commonest cause of high inflation before the 1970s (rough).",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1923
+  },
+  {
+   "id": "war_income_tax",
+   "label": "Income tax for war",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1799,
+   "date_src": "general",
+   "place": "Britain (Pitt, 1799); USA (1861, 1913, 1943)",
+   "paradigm": "industrial",
+   "desc": "Pitt's income tax for the French war, the US Civil War tax, and withholding from 1943 that took US taxpayers from a few million to over forty million (memory). Spending rose in war and did not fall back (Peacock and Wiseman).",
+   "chokepoint": false,
+   "part": "14",
+   "wide": 1943
+  },
+  {
+   "id": "peace_dividend",
+   "label": "Peace dividend",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1991,
+   "date_src": "general",
+   "place": "USA and NATO after the Cold War",
+   "paradigm": "service_information",
+   "desc": "US defence spending fell from about 6% of GDP in 1986 to about 3% around 2000 (checked, secondary). Earlier peaces (Pax Romana, Pax Mongolica, Pax Britannica) lowered protection costs over wide areas.",
+   "chokepoint": false,
+   "part": "14"
+  }
+ ],
+ "edges": [
+  {
+   "from": "wooden_spears",
+   "to": "raiding_and_feud",
+   "type": "enables",
+   "note": "the same spears hunt and fight",
+   "src": "part"
+  },
+  {
+   "from": "bow_and_arrow",
+   "to": "raiding_and_feud",
+   "type": "enables",
+   "note": "the bow serves hunting and war",
+   "src": "part"
+  },
+  {
+   "from": "storage_pits_caches",
+   "to": "raiding_and_feud",
+   "type": "enables",
+   "note": "stores invite raiding",
+   "src": "part"
+  },
+  {
+   "from": "raiding_and_feud",
+   "to": "settlement_walls",
+   "type": "enables",
+   "note": "walls answer raids on stores",
+   "src": "part"
+  },
+  {
+   "from": "granary_storage",
+   "to": "settlement_walls",
+   "type": "enables",
+   "note": "stores worth defending",
+   "src": "part"
+  },
+  {
+   "from": "raiding_and_feud",
+   "to": "war_captive_slaving",
+   "type": "enables",
+   "note": "captives taken in raids",
+   "src": "part"
+  },
+  {
+   "from": "war_captive_slaving",
+   "to": "slavery",
+   "type": "enables",
+   "note": "war the main source of slaves",
+   "src": "part"
+  },
+  {
+   "from": "war_captive_slaving",
+   "to": "ransom_of_captives",
+   "type": "enables",
+   "note": "a captive as capital",
+   "src": "part"
+  },
+  {
+   "from": "copper_smelting",
+   "to": "bronze_weapons",
+   "type": "input",
+   "note": "copper for blades",
+   "src": "part"
+  },
+  {
+   "from": "tin_route",
+   "to": "bronze_weapons",
+   "type": "input",
+   "note": "tin from a thousand km away",
+   "src": "part"
+  },
+  {
+   "from": "bronze",
+   "to": "bronze_weapons",
+   "type": "input",
+   "note": "alloy cast into arms",
+   "src": "part"
+  },
+  {
+   "from": "bow_and_arrow",
+   "to": "composite_bow",
+   "type": "enables",
+   "note": "the bow made stronger and shorter",
+   "src": "part"
+  },
+  {
+   "from": "horn_bone_glue",
+   "to": "composite_bow",
+   "type": "input",
+   "note": "horn belly and hide glue",
+   "src": "part"
+  },
+  {
+   "from": "carcass_joint_products",
+   "to": "composite_bow",
+   "type": "input",
+   "note": "sinew, horn and glue",
+   "src": "part"
+  },
+  {
+   "from": "horse_riding_chariots",
+   "to": "chariot_warfare",
+   "type": "enables",
+   "note": "horses trained for draught",
+   "src": "part"
+  },
+  {
+   "from": "wheel_cart",
+   "to": "chariot_warfare",
+   "type": "enables",
+   "note": "spoked wheel from wheelwrights",
+   "src": "general"
+  },
+  {
+   "from": "composite_bow",
+   "to": "chariot_warfare",
+   "type": "enables",
+   "note": "archer's weapon on the car",
+   "src": "part"
+  },
+  {
+   "from": "bronze_weapons",
+   "to": "chariot_warfare",
+   "type": "input",
+   "note": "bronze fittings and arms",
+   "src": "part"
+  },
+  {
+   "from": "tanning",
+   "to": "chariot_warfare",
+   "type": "input",
+   "note": "leather harness and car",
+   "src": "part"
+  },
+  {
+   "from": "bloomery_iron",
+   "to": "iron_weapons",
+   "type": "input",
+   "note": "local ore and charcoal",
+   "src": "part"
+  },
+  {
+   "from": "bronze_weapons",
+   "to": "iron_weapons",
+   "type": "replaces",
+   "note": "iron frees arms from tin",
+   "src": "part"
+  },
+  {
+   "from": "bronze",
+   "to": "hoplite_panoply",
+   "type": "input",
+   "note": "bronze helmet and shield facing",
+   "src": "part"
+  },
+  {
+   "from": "flax_linen",
+   "to": "hoplite_panoply",
+   "type": "input",
+   "note": "linen cuirass",
+   "src": "part"
+  },
+  {
+   "from": "bronze",
+   "to": "crossbow",
+   "type": "input",
+   "note": "cast bronze triggers",
+   "src": "part"
+  },
+  {
+   "from": "bow_and_arrow",
+   "to": "crossbow",
+   "type": "replaces",
+   "note": "skill moved into the machine",
+   "src": "part"
+  },
+  {
+   "from": "carcass_joint_products",
+   "to": "torsion_artillery",
+   "type": "input",
+   "note": "sinew skeins for springs",
+   "src": "part"
+  },
+  {
+   "from": "timber",
+   "to": "torsion_artillery",
+   "type": "input",
+   "note": "frames",
+   "src": "part"
+  },
+  {
+   "from": "composite_bow",
+   "to": "steppe_horse_archers",
+   "type": "enables",
+   "note": "shot from horseback",
+   "src": "part"
+  },
+  {
+   "from": "horse_riding_chariots",
+   "to": "steppe_horse_archers",
+   "type": "enables",
+   "note": "riding replaces the chariot",
+   "src": "part"
+  },
+  {
+   "from": "transhumance",
+   "to": "steppe_horse_archers",
+   "type": "enables",
+   "note": "herds give many mounts on grass",
+   "src": "general"
+  },
+  {
+   "from": "chariot_warfare",
+   "to": "steppe_horse_archers",
+   "type": "replaces",
+   "note": "mounted archers outlast chariots",
+   "src": "general"
+  },
+  {
+   "from": "steppe_horse_archers",
+   "to": "heqin_tribute",
+   "type": "enables",
+   "note": "raids extract tribute",
+   "src": "part"
+  },
+  {
+   "from": "heqin_tribute",
+   "to": "silk_roads",
+   "type": "input",
+   "note": "tribute silk travels west",
+   "src": "part"
+  },
+  {
+   "from": "steppe_horse_archers",
+   "to": "tea_horse_trade",
+   "type": "enables",
+   "note": "steppe holds the horse supply",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "tea_horse_trade",
+   "type": "enables",
+   "note": "frontier trade in bulk goods",
+   "src": "general"
+  },
+  {
+   "from": "iron_weapons",
+   "to": "assyrian_tribute",
+   "type": "enables",
+   "note": "iron-armed campaign armies",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "assyrian_tribute",
+   "type": "enables",
+   "note": "counting and collectors behind tribute",
+   "src": "part"
+  },
+  {
+   "from": "war_captive_slaving",
+   "to": "roman_war_booty",
+   "type": "enables",
+   "note": "captives sold as booty",
+   "src": "part"
+  },
+  {
+   "from": "roman_war_booty",
+   "to": "roman_annona",
+   "type": "enables",
+   "note": "conquered provinces feed Rome",
+   "src": "general"
+  },
+  {
+   "from": "raiding_and_feud",
+   "to": "danegeld",
+   "type": "enables",
+   "note": "threat of the raid priced",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "danegeld",
+   "type": "enables",
+   "note": "assessment by hides",
+   "src": "general"
+  },
+  {
+   "from": "danegeld",
+   "to": "lay_subsidy",
+   "type": "enables",
+   "note": "geld precedes national taxes",
+   "src": "general"
+  },
+  {
+   "from": "coinage",
+   "to": "danegeld",
+   "type": "enables",
+   "note": "silver pennies counted out",
+   "src": "general"
+  },
+  {
+   "from": "steppe_horse_archers",
+   "to": "mongol_conquest_tribute",
+   "type": "enables",
+   "note": "horse archers conquer",
+   "src": "part"
+  },
+  {
+   "from": "mongol_conquest_tribute",
+   "to": "mongol_yam",
+   "type": "enables",
+   "note": "one power holds the road",
+   "src": "part"
+  },
+  {
+   "from": "silk_roads",
+   "to": "mongol_conquest_tribute",
+   "type": "enables",
+   "note": "the road the Mongols protected",
+   "src": "part"
+  },
+  {
+   "from": "steppe_horse_archers",
+   "to": "stirrup",
+   "type": "enables",
+   "note": "steppe gear spreads west",
+   "src": "general"
+  },
+  {
+   "from": "stirrup",
+   "to": "destrier",
+   "type": "enables",
+   "note": "seat for shock cavalry",
+   "src": "general"
+  },
+  {
+   "from": "han_salt_iron_monopoly",
+   "to": "roman_fabricae",
+   "type": "enables",
+   "note": "parallel: state arms and iron works",
+   "src": "general"
+  },
+  {
+   "from": "iron_weapons",
+   "to": "roman_fabricae",
+   "type": "enables",
+   "note": "state makes arms",
+   "src": "part"
+  },
+  {
+   "from": "bloomery_iron",
+   "to": "mail_armour",
+   "type": "input",
+   "note": "iron for rings",
+   "src": "part"
+  },
+  {
+   "from": "mail_armour",
+   "to": "wire_drawing_mill",
+   "type": "enables",
+   "note": "demand for wire",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "wire_drawing_mill",
+   "type": "enables",
+   "note": "water power on the dies",
+   "src": "general"
+  },
+  {
+   "from": "flax_linen",
+   "to": "gambeson",
+   "type": "input",
+   "note": "linen layers",
+   "src": "part"
+  },
+  {
+   "from": "wool_sheep",
+   "to": "gambeson",
+   "type": "input",
+   "note": "wool stuffing",
+   "src": "general"
+  },
+  {
+   "from": "tanning",
+   "to": "hide_armour",
+   "type": "input",
+   "note": "boiled or waxed hide",
+   "src": "part"
+  },
+  {
+   "from": "water_trip_hammer",
+   "to": "plate_armour",
+   "type": "enables",
+   "note": "water hammers and polishing mills",
+   "src": "part"
+  },
+  {
+   "from": "bloomery_iron",
+   "to": "plate_armour",
+   "type": "input",
+   "note": "sheet iron and steel",
+   "src": "part"
+  },
+  {
+   "from": "mail_armour",
+   "to": "plate_armour",
+   "type": "replaces",
+   "note": "plate answers the bow",
+   "src": "part"
+  },
+  {
+   "from": "crossbow",
+   "to": "plate_armour",
+   "type": "enables",
+   "note": "armour raced the bolt",
+   "src": "general"
+  },
+  {
+   "from": "draught_animals",
+   "to": "destrier",
+   "type": "enables",
+   "note": "horse breeding",
+   "src": "general"
+  },
+  {
+   "from": "oats_fodder",
+   "to": "destrier",
+   "type": "input",
+   "note": "oats for a hard-worked horse",
+   "src": "part"
+  },
+  {
+   "from": "hay_meadow",
+   "to": "destrier",
+   "type": "input",
+   "note": "hay a horse's year",
+   "src": "part"
+  },
+  {
+   "from": "draught_animals",
+   "to": "army_forage",
+   "type": "input",
+   "note": "fodder outweighs rations",
+   "src": "part"
+  },
+  {
+   "from": "horse_riding_chariots",
+   "to": "army_forage",
+   "type": "enables",
+   "note": "horses dictate supply",
+   "src": "part"
+  },
+  {
+   "from": "oats_fodder",
+   "to": "destrier",
+   "type": "enables",
+   "note": "oats bind cavalry to land",
+   "src": "part"
+  },
+  {
+   "from": "army_forage",
+   "to": "purveyance",
+   "type": "enables",
+   "note": "the crown seizes supply",
+   "src": "part"
+  },
+  {
+   "from": "timber",
+   "to": "counterweight_trebuchet",
+   "type": "input",
+   "note": "long timbers",
+   "src": "part"
+  },
+  {
+   "from": "cordage",
+   "to": "counterweight_trebuchet",
+   "type": "input",
+   "note": "rope",
+   "src": "general"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "motte_and_bailey",
+   "type": "enables",
+   "note": "conquered labour builds it",
+   "src": "part"
+  },
+  {
+   "from": "motte_and_bailey",
+   "to": "stone_castle",
+   "type": "replaces",
+   "note": "stone resists fire and siege",
+   "src": "part"
+  },
+  {
+   "from": "stone_masonry",
+   "to": "stone_castle",
+   "type": "enables",
+   "note": "masons by the hundred",
+   "src": "part"
+  },
+  {
+   "from": "lime_mortar",
+   "to": "stone_castle",
+   "type": "input",
+   "note": "lime by the shipload",
+   "src": "part"
+  },
+  {
+   "from": "motte_and_bailey",
+   "to": "movement_tolls",
+   "type": "enables",
+   "note": "castles at crossings take tolls",
+   "src": "part"
+  },
+  {
+   "from": "stone_castle",
+   "to": "bastide_towns",
+   "type": "enables",
+   "note": "castle protects planned town",
+   "src": "part"
+  },
+  {
+   "from": "chartered_market_town",
+   "to": "bastide_towns",
+   "type": "enables",
+   "note": "charter and market planned with castle",
+   "src": "part"
+  },
+  {
+   "from": "raiding_and_feud",
+   "to": "incastellamento",
+   "type": "enables",
+   "note": "insecurity shapes villages",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "incastellamento",
+   "type": "enables",
+   "note": "lords gather peasants",
+   "src": "part"
+  },
+  {
+   "from": "benefice_vassalage",
+   "to": "knight_fee",
+   "type": "enables",
+   "note": "land for armed service",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "knight_fee",
+   "type": "enables",
+   "note": "manor's dues feed the knight",
+   "src": "part"
+  },
+  {
+   "from": "labour_dues",
+   "to": "knight_fee",
+   "type": "input",
+   "note": "peasant labour keeps a knight",
+   "src": "part"
+  },
+  {
+   "from": "destrier",
+   "to": "knight_fee",
+   "type": "enables",
+   "note": "a horse needs a holding",
+   "src": "part"
+  },
+  {
+   "from": "mail_armour",
+   "to": "knight_fee",
+   "type": "enables",
+   "note": "kit sets the fee's size",
+   "src": "part"
+  },
+  {
+   "from": "knight_fee",
+   "to": "castle_guard",
+   "type": "enables",
+   "note": "garrison duty owed",
+   "src": "part"
+  },
+  {
+   "from": "knight_fee",
+   "to": "scutage",
+   "type": "replaces",
+   "note": "money instead of service",
+   "src": "part"
+  },
+  {
+   "from": "coinage",
+   "to": "scutage",
+   "type": "enables",
+   "note": "service commuted to coin",
+   "src": "general"
+  },
+  {
+   "from": "scutage",
+   "to": "lay_subsidy",
+   "type": "enables",
+   "note": "service money becomes general tax",
+   "src": "general"
+  },
+  {
+   "from": "knight_fee",
+   "to": "freehold_tenure",
+   "type": "enables",
+   "note": "military tenure becomes ordinary land",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "iqta_timar",
+   "type": "enables",
+   "note": "revenue assigned to cavalry",
+   "src": "part"
+  },
+  {
+   "from": "iqta_timar",
+   "to": "mughal_zabt",
+   "type": "enables",
+   "note": "jagir assignments in the same line",
+   "src": "general"
+  },
+  {
+   "from": "coinage",
+   "to": "condottieri",
+   "type": "enables",
+   "note": "cash pays contract soldiers",
+   "src": "part"
+  },
+  {
+   "from": "condottieri",
+   "to": "military_entrepreneur",
+   "type": "enables",
+   "note": "colonels own regiments",
+   "src": "general"
+  },
+  {
+   "from": "state_taxation",
+   "to": "military_entrepreneur",
+   "type": "replaces",
+   "note": "the army taxes occupied land",
+   "src": "part"
+  },
+  {
+   "from": "venice_mude",
+   "to": "protection_rent",
+   "type": "enables",
+   "note": "convoys sold safe passage",
+   "src": "part"
+  },
+  {
+   "from": "protection_rent",
+   "to": "portuguese_cartaz",
+   "type": "enables",
+   "note": "passes sold at gunpoint",
+   "src": "part"
+  },
+  {
+   "from": "protection_rent",
+   "to": "privateering",
+   "type": "enables",
+   "note": "seizure licensed and judged",
+   "src": "general"
+  },
+  {
+   "from": "law_courts",
+   "to": "privateering",
+   "type": "enables",
+   "note": "prize courts make it property",
+   "src": "part"
+  },
+  {
+   "from": "privateering",
+   "to": "joint_stock_company",
+   "type": "enables",
+   "note": "prize dividends; WIC at Matanzas",
+   "src": "part"
+  },
+  {
+   "from": "protection_rent",
+   "to": "spanish_flota",
+   "type": "enables",
+   "note": "armed convoys for silver",
+   "src": "part"
+  },
+  {
+   "from": "potosi_silver",
+   "to": "spanish_flota",
+   "type": "input",
+   "note": "silver carried home",
+   "src": "part"
+  },
+  {
+   "from": "joint_stock_company",
+   "to": "voc_company_war",
+   "type": "enables",
+   "note": "company with charter powers",
+   "src": "part"
+  },
+  {
+   "from": "protection_rent",
+   "to": "voc_company_war",
+   "type": "enables",
+   "note": "trade and force bundled",
+   "src": "part"
+  },
+  {
+   "from": "voc_company_war",
+   "to": "eic_company_army",
+   "type": "enables",
+   "note": "model for company armies",
+   "src": "general"
+  },
+  {
+   "from": "joint_stock_company",
+   "to": "eic_company_army",
+   "type": "enables",
+   "note": "a company becomes a state",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "eic_company_army",
+   "type": "input",
+   "note": "Bengal land revenue pays the army",
+   "src": "part"
+  },
+  {
+   "from": "fiscal_military_state",
+   "to": "eic_company_army",
+   "type": "enables",
+   "note": "revenue-funded army copied",
+   "src": "general"
+  },
+  {
+   "from": "war_captive_slaving",
+   "to": "gun_slave_cycle",
+   "type": "enables",
+   "note": "raids yield captives",
+   "src": "part"
+  },
+  {
+   "from": "atlantic_slave_trade",
+   "to": "gun_slave_cycle",
+   "type": "enables",
+   "note": "coastal demand for captives",
+   "src": "part"
+  },
+  {
+   "from": "musket",
+   "to": "gun_slave_cycle",
+   "type": "input",
+   "note": "guns traded for captives",
+   "src": "part"
+  },
+  {
+   "from": "manure",
+   "to": "nitre_beds",
+   "type": "input",
+   "note": "dung and urine for nitre",
+   "src": "part"
+  },
+  {
+   "from": "lime",
+   "to": "nitre_beds",
+   "type": "input",
+   "note": "lime and ash layers",
+   "src": "part"
+  },
+  {
+   "from": "saltpetre",
+   "to": "nitre_beds",
+   "type": "enables",
+   "note": "made on purpose",
+   "src": "part"
+  },
+  {
+   "from": "potash",
+   "to": "saltpetre",
+   "type": "input",
+   "note": "ash converts the nitre",
+   "src": "part"
+  },
+  {
+   "from": "saltpetre",
+   "to": "saltpetre_men",
+   "type": "enables",
+   "note": "state claims the earth",
+   "src": "part"
+  },
+  {
+   "from": "saltpetre_men",
+   "to": "indian_saltpetre",
+   "type": "replaces",
+   "note": "imports end the diggers' role",
+   "src": "part"
+  },
+  {
+   "from": "saltpetre",
+   "to": "indian_saltpetre",
+   "type": "enables",
+   "note": "demand met from Bihar",
+   "src": "part"
+  },
+  {
+   "from": "joint_stock_company",
+   "to": "indian_saltpetre",
+   "type": "enables",
+   "note": "the EIC holds the trade",
+   "src": "part"
+  },
+  {
+   "from": "indian_saltpetre",
+   "to": "chilean_nitrate",
+   "type": "replaces",
+   "note": "nitrate for explosives and fields",
+   "src": "part"
+  },
+  {
+   "from": "saltpetre",
+   "to": "corned_powder",
+   "type": "input",
+   "note": "three quarters of the mix",
+   "src": "part"
+  },
+  {
+   "from": "charcoal",
+   "to": "corned_powder",
+   "type": "input",
+   "note": "chosen woods",
+   "src": "part"
+  },
+  {
+   "from": "watermill",
+   "to": "corned_powder",
+   "type": "enables",
+   "note": "stamp and edge-runner mills",
+   "src": "part"
+  },
+  {
+   "from": "gunpowder",
+   "to": "corned_powder",
+   "type": "enables",
+   "note": "corning improves the powder",
+   "src": "part"
+  },
+  {
+   "from": "gunpowder",
+   "to": "bronze_cannon",
+   "type": "enables",
+   "note": "propellant",
+   "src": "part"
+  },
+  {
+   "from": "bronze",
+   "to": "bronze_cannon",
+   "type": "input",
+   "note": "bell metal",
+   "src": "part"
+  },
+  {
+   "from": "lost_wax_casting",
+   "to": "bronze_cannon",
+   "type": "enables",
+   "note": "bell founders' moulding",
+   "src": "general"
+  },
+  {
+   "from": "blast_furnace",
+   "to": "cast_iron_cannon",
+   "type": "enables",
+   "note": "guns poured from the furnace",
+   "src": "part"
+  },
+  {
+   "from": "cast_iron",
+   "to": "cast_iron_cannon",
+   "type": "input",
+   "note": "cheap iron guns",
+   "src": "part"
+  },
+  {
+   "from": "bronze_cannon",
+   "to": "cast_iron_cannon",
+   "type": "replaces",
+   "note": "a third the price, frees copper",
+   "src": "part"
+  },
+  {
+   "from": "cast_iron_cannon",
+   "to": "swedish_gun_founding",
+   "type": "enables",
+   "note": "Walloon smiths carry the craft",
+   "src": "part"
+  },
+  {
+   "from": "cast_iron_cannon",
+   "to": "solid_cast_boring",
+   "type": "enables",
+   "note": "cast solid, then bored",
+   "src": "part"
+  },
+  {
+   "from": "solid_cast_boring",
+   "to": "cannon_boring_mill",
+   "type": "enables",
+   "note": "boring perfected",
+   "src": "part"
+  },
+  {
+   "from": "cannon_boring_mill",
+   "to": "watt_engine",
+   "type": "enables",
+   "note": "bored cylinders hold steam",
+   "src": "part"
+  },
+  {
+   "from": "gunpowder",
+   "to": "musket",
+   "type": "enables",
+   "note": "hand firearms",
+   "src": "part"
+  },
+  {
+   "from": "bloomery_iron",
+   "to": "musket",
+   "type": "input",
+   "note": "barrel skelp",
+   "src": "part"
+  },
+  {
+   "from": "musket",
+   "to": "gunmaking_trades",
+   "type": "enables",
+   "note": "parts made by separate trades",
+   "src": "part"
+  },
+  {
+   "from": "putting_out",
+   "to": "gunmaking_trades",
+   "type": "enables",
+   "note": "set up by a gunmaker",
+   "src": "part"
+  },
+  {
+   "from": "gunmaking_trades",
+   "to": "proof_house",
+   "type": "enables",
+   "note": "proof makes parts tradeable",
+   "src": "part"
+  },
+  {
+   "from": "guilds",
+   "to": "proof_house",
+   "type": "enables",
+   "note": "gunmakers' company proves barrels",
+   "src": "part"
+  },
+  {
+   "from": "musket",
+   "to": "military_revolution",
+   "type": "enables",
+   "note": "drill and volley fire",
+   "src": "part"
+  },
+  {
+   "from": "bronze_cannon",
+   "to": "bastion_fort",
+   "type": "enables",
+   "note": "walls must resist cannon",
+   "src": "part"
+  },
+  {
+   "from": "bastion_fort",
+   "to": "military_revolution",
+   "type": "enables",
+   "note": "longer sieges, bigger armies",
+   "src": "part"
+  },
+  {
+   "from": "military_revolution",
+   "to": "fiscal_military_state",
+   "type": "enables",
+   "note": "war's cost needs revenue",
+   "src": "part"
+  },
+  {
+   "from": "funded_public_debt",
+   "to": "fiscal_military_state",
+   "type": "enables",
+   "note": "war on credit",
+   "src": "part"
+  },
+  {
+   "from": "central_bank",
+   "to": "fiscal_military_state",
+   "type": "enables",
+   "note": "Bank of England's war loan",
+   "src": "part"
+  },
+  {
+   "from": "excise",
+   "to": "fiscal_military_state",
+   "type": "enables",
+   "note": "excise pays for war",
+   "src": "part"
+  },
+  {
+   "from": "venice_arsenal",
+   "to": "royal_dockyards",
+   "type": "enables",
+   "note": "state shipyards on a large scale",
+   "src": "general"
+  },
+  {
+   "from": "royal_dockyards",
+   "to": "ship_of_the_line",
+   "type": "enables",
+   "note": "built and refitted",
+   "src": "part"
+  },
+  {
+   "from": "naval_oak_regulation",
+   "to": "ship_of_the_line",
+   "type": "input",
+   "note": "about 2,000 oaks a ship",
+   "src": "part"
+  },
+  {
+   "from": "timber",
+   "to": "ship_of_the_line",
+   "type": "input",
+   "note": "3,000 loads of timber",
+   "src": "part"
+  },
+  {
+   "from": "ropewalk",
+   "to": "ship_of_the_line",
+   "type": "input",
+   "note": "rope and rigging",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "ship_of_the_line",
+   "type": "enables",
+   "note": "sailing warship",
+   "src": "general"
+  },
+  {
+   "from": "cast_iron_cannon",
+   "to": "ship_of_the_line",
+   "type": "input",
+   "note": "broadside guns",
+   "src": "part"
+  },
+  {
+   "from": "hemp",
+   "to": "baltic_naval_stores",
+   "type": "input",
+   "note": "Russian hemp",
+   "src": "part"
+  },
+  {
+   "from": "baltic_naval_stores",
+   "to": "ship_of_the_line",
+   "type": "input",
+   "note": "masts, tar, hemp",
+   "src": "part"
+  },
+  {
+   "from": "baltic_naval_stores",
+   "to": "broad_arrow_masts",
+   "type": "replaces",
+   "note": "colonial masts and tar",
+   "src": "part"
+  },
+  {
+   "from": "copper_mining",
+   "to": "copper_sheathing",
+   "type": "input",
+   "note": "Parys Mountain copper",
+   "src": "part"
+  },
+  {
+   "from": "ship_of_the_line",
+   "to": "copper_sheathing",
+   "type": "enables",
+   "note": "wooden hulls need protection",
+   "src": "part"
+  },
+  {
+   "from": "ship_of_the_line",
+   "to": "navy_victualling",
+   "type": "enables",
+   "note": "fleets need feeding",
+   "src": "part"
+  },
+  {
+   "from": "salt_preservation",
+   "to": "navy_victualling",
+   "type": "input",
+   "note": "salt beef and pork",
+   "src": "part"
+  },
+  {
+   "from": "brewing",
+   "to": "navy_victualling",
+   "type": "input",
+   "note": "beer for crews",
+   "src": "part"
+  },
+  {
+   "from": "barrel_cooperage",
+   "to": "navy_victualling",
+   "type": "input",
+   "note": "casks",
+   "src": "part"
+  },
+  {
+   "from": "royal_dockyards",
+   "to": "portsmouth_block_mills",
+   "type": "enables",
+   "note": "the navy's demand for blocks",
+   "src": "part"
+  },
+  {
+   "from": "springfield_armory",
+   "to": "interchangeable_parts",
+   "type": "enables",
+   "note": "armouries paid for uniform parts",
+   "src": "part"
+  },
+  {
+   "from": "springfield_armory",
+   "to": "blanchard_lathe",
+   "type": "enables",
+   "note": "armoury pays for special machines",
+   "src": "part"
+  },
+  {
+   "from": "musket",
+   "to": "springfield_armory",
+   "type": "enables",
+   "note": "muskets and rifles the product",
+   "src": "part"
+  },
+  {
+   "from": "crucible_steel",
+   "to": "krupp_steel_guns",
+   "type": "enables",
+   "note": "cast steel ingots",
+   "src": "part"
+  },
+  {
+   "from": "cast_iron_cannon",
+   "to": "krupp_steel_guns",
+   "type": "replaces",
+   "note": "steel outclasses bronze and iron",
+   "src": "part"
+  },
+  {
+   "from": "krupp_steel_guns",
+   "to": "naval_arms_race",
+   "type": "enables",
+   "note": "armour and guns race",
+   "src": "part"
+  },
+  {
+   "from": "bessemer_steel",
+   "to": "naval_arms_race",
+   "type": "input",
+   "note": "steel in bulk",
+   "src": "general"
+  },
+  {
+   "from": "naval_arms_race",
+   "to": "steam_turbine",
+   "type": "enables",
+   "note": "turbines for warships",
+   "src": "part"
+  },
+  {
+   "from": "naval_arms_race",
+   "to": "oil_petroleum",
+   "type": "enables",
+   "note": "navy moves to oil fuel",
+   "src": "part"
+  },
+  {
+   "from": "coal_tar_chemicals",
+   "to": "high_explosives",
+   "type": "input",
+   "note": "toluene for TNT",
+   "src": "part"
+  },
+  {
+   "from": "sulphuric_acid",
+   "to": "high_explosives",
+   "type": "input",
+   "note": "nitration acids",
+   "src": "part"
+  },
+  {
+   "from": "high_explosives",
+   "to": "synthetic_nitrogen",
+   "type": "enables",
+   "note": "blockade pushes nitric acid from air",
+   "src": "part"
+  },
+  {
+   "from": "gunpowder",
+   "to": "high_explosives",
+   "type": "replaces",
+   "note": "smokeless powder and TNT",
+   "src": "part"
+  },
+  {
+   "from": "radar",
+   "to": "osrd_wartime_research",
+   "type": "enables",
+   "note": "the magnetron programme",
+   "src": "part"
+  },
+  {
+   "from": "radar",
+   "to": "air_traffic_control",
+   "type": "enables",
+   "note": "radar for civil skies",
+   "src": "part"
+  },
+  {
+   "from": "osrd_wartime_research",
+   "to": "manhattan_project",
+   "type": "enables",
+   "note": "state-funded big science",
+   "src": "general"
+  },
+  {
+   "from": "manhattan_project",
+   "to": "uranium_enrichment",
+   "type": "enables",
+   "note": "enrichment at industrial scale",
+   "src": "part"
+  },
+  {
+   "from": "manhattan_project",
+   "to": "naval_reactors",
+   "type": "enables",
+   "note": "reactor know-how",
+   "src": "part"
+  },
+  {
+   "from": "naval_reactors",
+   "to": "nuclear_power",
+   "type": "enables",
+   "note": "PWR becomes civil design",
+   "src": "part"
+  },
+  {
+   "from": "computer",
+   "to": "sage_air_defence",
+   "type": "enables",
+   "note": "Whirlwind to SAGE",
+   "src": "part"
+  },
+  {
+   "from": "sage_air_defence",
+   "to": "software_industry",
+   "type": "enables",
+   "note": "real-time programming at scale",
+   "src": "general"
+  },
+  {
+   "from": "defence_procurement",
+   "to": "ic_military_procurement",
+   "type": "enables",
+   "note": "missiles and Apollo buy chips",
+   "src": "part"
+  },
+  {
+   "from": "ic_military_procurement",
+   "to": "microprocessor",
+   "type": "enables",
+   "note": "volume made chips cheap",
+   "src": "general"
+  },
+  {
+   "from": "integrated_circuit",
+   "to": "ic_military_procurement",
+   "type": "enables",
+   "note": "chips bought in volume",
+   "src": "part"
+  },
+  {
+   "from": "defence_procurement",
+   "to": "arpa",
+   "type": "enables",
+   "note": "post-Sputnik research agency",
+   "src": "part"
+  },
+  {
+   "from": "arpa",
+   "to": "internet",
+   "type": "enables",
+   "note": "ARPANET funded",
+   "src": "part"
+  },
+  {
+   "from": "defence_procurement",
+   "to": "gps",
+   "type": "enables",
+   "note": "Navstar for the military",
+   "src": "part"
+  },
+  {
+   "from": "jet_engine",
+   "to": "air_freight",
+   "type": "enables",
+   "note": "jet airliners from tankers",
+   "src": "part"
+  },
+  {
+   "from": "osrd_wartime_research",
+   "to": "defence_procurement",
+   "type": "enables",
+   "note": "research contracts become standing",
+   "src": "general"
+  },
+  {
+   "from": "coin_debasement",
+   "to": "war_paper_inflation",
+   "type": "replaces",
+   "note": "paper instead of debasement",
+   "src": "part"
+  },
+  {
+   "from": "paper_money",
+   "to": "war_paper_inflation",
+   "type": "enables",
+   "note": "notes printed for war",
+   "src": "part"
+  },
+  {
+   "from": "gold_standard",
+   "to": "war_paper_inflation",
+   "type": "replaces",
+   "note": "convertibility suspended in war",
+   "src": "part"
+  },
+  {
+   "from": "fiscal_military_state",
+   "to": "war_income_tax",
+   "type": "enables",
+   "note": "new tax for the French war",
+   "src": "part"
+  },
+  {
+   "from": "war_income_tax",
+   "to": "welfare_state",
+   "type": "enables",
+   "note": "taxes did not fall back",
+   "src": "part"
+  },
+  {
+   "from": "defence_procurement",
+   "to": "peace_dividend",
+   "type": "enables",
+   "note": "spending to cut",
+   "src": "part"
+  },
+  {
+   "from": "granary_storage",
+   "to": "army_forage",
+   "type": "enables",
+   "note": "the same stores feed armies",
+   "src": "general"
+  },
+  {
+   "from": "oak_bark",
+   "to": "naval_oak_regulation",
+   "type": "enables",
+   "note": "tanners and navy want the same oak",
+   "src": "general"
+  },
+  {
+   "from": "coppice",
+   "to": "corned_powder",
+   "type": "input",
+   "note": "powder-wood coppices",
+   "src": "part"
+  },
+  {
+   "from": "ship_of_the_line",
+   "to": "iron_hull_steamship",
+   "type": "replaces",
+   "note": "iron frees navies from oak",
+   "src": "part"
+  },
+  {
+   "from": "interchangeable_parts",
+   "to": "moving_assembly_line",
+   "type": "enables",
+   "note": "armoury practice to cars",
+   "src": "part"
+  },
+  {
+   "from": "defence_procurement",
+   "to": "export_controls",
+   "type": "enables",
+   "note": "arms technology as strategy",
+   "src": "general"
+  },
+  {
+   "from": "iron_weapons",
+   "to": "damascus_blades",
+   "type": "enables",
+   "note": "prized blades of crucible steel",
+   "src": "part"
+  }
+ ]
+}

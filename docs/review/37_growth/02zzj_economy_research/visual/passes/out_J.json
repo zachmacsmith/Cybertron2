@@ -1,0 +1,2080 @@
+{
+ "nodes": [
+  {
+   "id": "unpaid_household_work",
+   "label": "Unpaid household work",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -100000,
+   "date_src": "general",
+   "place": "everywhere",
+   "paradigm": "foraging",
+   "desc": "Processing food, fetching water and fuel, making cloth, washing, bearing and nursing children, caring for the sick and old: work a household does for itself and could buy. It took more hours than any field task and is left out of national accounts. Today about 16.4 billion hours a day, 76.2% by women, worth about 9% of world GDP at a minimum wage [checked, ILO 2018].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "sexual_division_labour",
+   "label": "Division of labour by sex",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -100000,
+   "date_src": "general",
+   "place": "everywhere",
+   "paradigm": "foraging",
+   "desc": "Tasks nearly always men's (large game, metal, lumbering) and nearly always women's (cooking, grinding, fetching water and fuel, spinning) across 185 coded societies [memory, Murdock and Provost 1973]. Judith Brown's explanation: women took tasks compatible with minding small children. New tools and scale moved tasks across the line.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "grandmothering",
+   "label": "Grandmother provisioning",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -300000,
+   "date_src": "general",
+   "place": "Africa (Hadza evidence)",
+   "paradigm": "foraging",
+   "desc": "Older women's foraging for their daughters' children, argued to let humans wean early and raise children faster than apes (Hawkes's grandmother hypothesis) [contested]. The first care shared beyond the mother.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "long_nursing_birth_spacing",
+   "label": "Long nursing, spaced births",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -200000,
+   "date_src": "general",
+   "place": "foraging bands",
+   "paradigm": "foraging",
+   "desc": "Breastfeeding for three to four years kept births spaced among foragers; it was the largest single care task and the main contraceptive. Farmers weaned earlier on porridge and milk and had more children (part 05 §6.1).",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "children_household_labour",
+   "label": "Children's household labour",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -8500,
+   "date_src": "general",
+   "place": "farming households",
+   "paradigm": "horticultural_tribal",
+   "desc": "Children fetched, scared birds, gleaned, minded geese and infants, herded and carded from about 5 to 7, did adult tasks at lower output from about 12. Net consumers into their teens among foragers and Maya farmers [memory, Kaplan; Kramer], but labour and old-age insurance in sum (Caldwell's wealth flows) [contested].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "metate_grinding",
+   "label": "Metate maize grinding",
+   "domain": "food",
+   "kind": "technique",
+   "start": -1500,
+   "date_src": "general",
+   "place": "Mesoamerica",
+   "paradigm": "horticultural_tribal",
+   "desc": "Women ground nixtamalised maize on a stone metate for tortillas every day: 3 to 5 hours a day for a family, 35 to 40 hours a week on tortillas [checked, estimates: Bauer 1990, Laudan]. About one adult in five was in effect a full-time grinder.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "village_maize_mill",
+   "label": "Village maize mill",
+   "domain": "food",
+   "kind": "technique",
+   "start": 1900,
+   "date_src": "general",
+   "place": "Mexico",
+   "paradigm": "industrial",
+   "desc": "Powered mills for wet maize dough (molinos de nixtamal) spread through Mexican villages in the twentieth century and freed the hours spent at the metate, as the watermill had freed quern time in Europe.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "water_fuel_fetching",
+   "label": "Water and fuel fetching",
+   "domain": "building",
+   "kind": "practice",
+   "start": -100000,
+   "date_src": "general",
+   "place": "everywhere without pipes",
+   "paradigm": "foraging",
+   "desc": "Carrying a family's water from well or river and gathering firewood, dung or turf, mostly by women and children. Women and girls still spend about 200 million hours a day collecting water; a rural sub-Saharan round trip averages 33 minutes [checked, UNICEF 2016].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "washing_day",
+   "label": "Washing day",
+   "domain": "materials",
+   "kind": "practice",
+   "start": 1200,
+   "date_src": "general",
+   "place": "north-west Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "Water carried and heated, clothes soaked in wood-ash lye or soap, beaten, boiled, rinsed, wrung, dried and ironed: most of a Monday, with ironing on Tuesday, in nineteenth-century English and American homes [unchecked]. The heaviest regular household task after grinding and spinning.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "laundresses",
+   "label": "Washerwomen and laundresses",
+   "domain": "institutions",
+   "kind": "industry",
+   "start": 1200,
+   "date_src": "general",
+   "place": "European towns",
+   "paradigm": "feudal_manorial",
+   "desc": "Washing sold by poor women to townspeople and the better off: one of the commonest women's trades in towns from the middle ages and among the first household tasks to be bought.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "steam_laundry",
+   "label": "Steam laundries",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1860,
+   "date_src": "general",
+   "place": "Britain, United States",
+   "paradigm": "industrial",
+   "desc": "Commercial laundries with steam boilers, washing machines and mangles took household and hotel washing in the later nineteenth century; Chinese hand laundries served the American West from the 1850s [unchecked].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "domestic_spinning_time",
+   "label": "Spinning as women's spare time",
+   "domain": "textiles",
+   "kind": "practice",
+   "start": -5000,
+   "date_src": "general",
+   "place": "fibre-using societies",
+   "paradigm": "horticultural_tribal",
+   "desc": "Spinning by spindle filled every gap in women's day because it could be picked up and put down while minding children or beasts. A coarse linen shirt took about 500 hours of spindle spinning [rough, reconstructions]; 'spinster' and the distaff made it the emblem of women's work.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "ready_made_clothing",
+   "label": "Sewing machine and ready-made clothes",
+   "domain": "textiles",
+   "kind": "industry",
+   "start": 1850,
+   "date_src": "general",
+   "place": "United States, Britain",
+   "paradigm": "industrial",
+   "desc": "The sewing machine and the ready-made clothing trade moved sewing and much mending out of the house from the mid-nineteenth century [unchecked].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "farm_wife_dairy",
+   "label": "The farm wife's dairy",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1100,
+   "date_src": "general",
+   "place": "north-west Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "Milking, butter and cheese were women's work in most of north-west Europe, and the dairy's sales often the wife's to manage. Voigtländer and Voth tie the post-plague shift to pasture, where women had paid work, to late marriage (part 05).",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "cheese_factory",
+   "label": "Cheese factory",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1851,
+   "date_src": "general",
+   "place": "New York State",
+   "paradigm": "industrial",
+   "desc": "Factory cheesemaking from pooled farm milk, from the 1850s in the United States, moved the work from farm women to men in factories [unchecked]; English large dairies of the late eighteenth century had begun the shift [memory, Valenze].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "village_midwife",
+   "label": "Village midwife",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1200,
+   "date_src": "general",
+   "place": "Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "Midwives and 'wise women' were the first health workers of most villages; in England they were licensed by bishops in the early modern period [unchecked]. Women also laid out the dead.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "man_midwife",
+   "label": "Man-midwives and forceps",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1730,
+   "date_src": "general",
+   "place": "Britain, France",
+   "paradigm": "early_modern_state",
+   "desc": "Male accoucheurs with forceps took well-off births from midwives in the eighteenth century; maternity hospitals took childbirth out of the house in the twentieth [unchecked]. A women's skill passing to men with tools and training.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "female_farming_systems",
+   "label": "Female farming systems",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -7000,
+   "date_src": "general",
+   "place": "sub-Saharan Africa, parts of South-east Asia",
+   "paradigm": "horticultural_tribal",
+   "desc": "Boserup (1970): hoe cultivation where women did most field work and men cleared, herded and fought. Land plentiful and labour scarce, so a wife's labour was wealth: polygyny and bride-price followed.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "plough_gender_roles",
+   "label": "Plough-based gender roles",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -3500,
+   "date_src": "general",
+   "place": "Eurasia",
+   "paradigm": "early_state",
+   "desc": "The plough needs strength and does not mix with child care, so men took the fields and women the house. Descendants of plough societies have lower female labour force participation and less equal attitudes today, instrumented by soil suitability [checked, Alesina, Giuliano and Nunn 2013].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "male_breadwinner_household",
+   "label": "Male breadwinner household",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1830,
+   "date_src": "general",
+   "place": "Britain, United States",
+   "paradigm": "industrial",
+   "desc": "The family wage for a man and a wife at home, pressed by unions and reformers and reinforced by factory acts; married women left paid work for a century. In 1890 only about 2.5% of married white US women were recorded in the labour force [checked, Goldin via Olivetti].",
+   "chokepoint": false,
+   "part": "17",
+   "wide": 1900
+  },
+  {
+   "id": "marriage_bars",
+   "label": "Marriage bars",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1870,
+   "date_src": "general",
+   "place": "Britain, United States",
+   "paradigm": "industrial",
+   "desc": "Rules forbidding the employment of married women as teachers, clerks and civil servants, until the 1940s and 1950s (the British civil service bar ended in 1946) [unchecked].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "womens_clerical_work",
+   "label": "Women's clerical work",
+   "domain": "information",
+   "kind": "practice",
+   "start": 1880,
+   "date_src": "general",
+   "place": "United States, Britain",
+   "paradigm": "industrial",
+   "desc": "Typists, telephonists and clerks from the 1880s: the white-collar work that raised married women's participation along Goldin's U [unchecked].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "contraceptive_pill",
+   "label": "Contraceptive pill",
+   "domain": "materials",
+   "kind": "good",
+   "start": 1960,
+   "date_src": "general",
+   "place": "United States",
+   "paradigm": "service_information",
+   "desc": "Reliable contraception let women plan careers and invest in long training (Goldin and Katz 2002) [unchecked]; one of several causes of women's entry to paid work.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "womens_paid_work_rise",
+   "label": "Married women's paid work",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1960,
+   "date_src": "general",
+   "place": "rich countries",
+   "paradigm": "service_information",
+   "desc": "Goldin's U: married women's participation falls with industrialisation and rises with schooling and services. Appliances alone account for about 28 of a 51-point rise in a calibrated model [checked, Greenwood, Seshadri and Yorukoglu 2005]; 606 million women are still kept out by care [checked, ILO].",
+   "chokepoint": false,
+   "part": "17",
+   "wide": 1980
+  },
+  {
+   "id": "housework_hours_fall",
+   "label": "Fall in housework hours",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1920,
+   "date_src": "general",
+   "place": "United States",
+   "paradigm": "industrial",
+   "desc": "Meals, laundry and cleaning fell from about 58 hours a week in 1900 to 18 in 1975 [checked, Lebergott via Greenwood and others]; full-time housewives' hours stayed near 50 to 55 [contested, Vanek; Cowan's 'more work for mother'].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "fosterage",
+   "label": "Fosterage",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 600,
+   "date_src": "general",
+   "place": "Ireland, Iceland; West Africa today",
+   "paradigm": "chiefdom",
+   "desc": "Children raised in another household for alliance, training or keep: regulated by early Irish law with fees, and still common in West Africa, where in some countries a fifth or more of children live away from their mothers [rough, memory].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "child_oblation",
+   "label": "Child oblation",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 530,
+   "date_src": "general",
+   "place": "western monasteries",
+   "paradigm": "feudal_manorial",
+   "desc": "Children given to a monastery for life, often with land; a way to place surplus children and endow a house. Binding oblation ended in the twelfth century [unchecked].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "pauper_apprenticeship",
+   "label": "Pauper apprenticeship",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1601,
+   "date_src": "general",
+   "place": "England",
+   "paradigm": "early_modern_state",
+   "desc": "Parish overseers bound poor children to masters until 21 or 24, later to the early water mills where no town supplied labour [unchecked].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "wet_nursing",
+   "label": "Wet-nursing",
+   "domain": "institutions",
+   "kind": "industry",
+   "start": -1750,
+   "date_src": "general",
+   "place": "Mesopotamia to modern Europe",
+   "paradigm": "early_state",
+   "desc": "A market in milk and infant care, regulated already in Hammurabi's laws [memory]. In Paris in 1780 only about 1,000 of 21,000 newborns were nursed by their mothers [checked, secondary]; infants put out died at far higher rates [rough].",
+   "chokepoint": false,
+   "part": "17",
+   "wide": 1700
+  },
+  {
+   "id": "bureau_des_nourrices",
+   "label": "Paris wet-nurse bureau",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1769,
+   "date_src": "general",
+   "place": "Paris",
+   "paradigm": "early_modern_state",
+   "desc": "A municipal bureau registering country wet-nurses and collecting their fees for artisan and shopkeeping families (Sussman) [unchecked]: care placed through an office.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "foundling_hospital",
+   "label": "Foundling hospitals",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1445,
+   "date_src": "general",
+   "place": "Florence (Innocenti); London 1739",
+   "paradigm": "commercial_city_state",
+   "desc": "Institutions taking abandoned infants, also used by poor parents to place children for a time; mortality often over half in the first year [rough].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "child_labour_mills",
+   "label": "Child labour in mills",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1771,
+   "date_src": "general",
+   "place": "Lancashire, Derbyshire",
+   "paradigm": "industrial",
+   "desc": "Children pieced threads and scavenged under machines; child labour rose 1790 to 1850 and factory and outworkers' children started well below age 10 [checked, Humphries 2010, from 600 autobiographies].",
+   "chokepoint": false,
+   "part": "17",
+   "wide": 1830
+  },
+  {
+   "id": "compulsory_schooling",
+   "label": "Compulsory schooling",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1763,
+   "date_src": "general",
+   "place": "Prussia; England and Wales 1880",
+   "paradigm": "early_modern_state",
+   "desc": "State-required schooling moved children's days from work to school and reversed the flow of wealth between generations (Caldwell) [unchecked dates].",
+   "chokepoint": false,
+   "part": "17",
+   "wide": 1880
+  },
+  {
+   "id": "adopted_heirs",
+   "label": "Adopted heirs (mukoyoshi)",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1600,
+   "date_src": "general",
+   "place": "Japan; Rome before",
+   "paradigm": "early_modern_state",
+   "desc": "Adopting an adult son or son-in-law to run the house. About 10% of postwar Japanese family-firm successions went to non-blood heirs, whose firms outperformed blood heirs' [checked, Mehrotra and others 2013].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "bride_service",
+   "label": "Bride service",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -20000,
+   "date_src": "general",
+   "place": "foragers, hoe farmers",
+   "paradigm": "foraging",
+   "desc": "The groom works for the bride's family for a time, paying in labour for the labour and children that move with her.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "bride_price",
+   "label": "Bride-price",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -7000,
+   "date_src": "general",
+   "place": "sub-Saharan Africa, Asia, Oceania",
+   "paradigm": "horticultural_tribal",
+   "desc": "Goods (cattle, hoes, iron bars) from the groom's kin to the bride's, circulating to pay for sons' wives; in two thirds of 1,167 societies in Murdock's atlas [checked, Anderson 2007]. An educated daughter commands more, so school building raised girls' schooling only where it is paid [checked, Ashraf and others 2020].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "polygyny",
+   "label": "Polygyny",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -7000,
+   "date_src": "general",
+   "place": "most recorded societies",
+   "paradigm": "horticultural_tribal",
+   "desc": "Allowed in most societies of the Ethnographic Atlas [memory, about 85%], general where women's farm labour and herds were wealth.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "dowry",
+   "label": "Dowry",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": -1750,
+   "date_src": "general",
+   "place": "Mesopotamia; Europe and Asia",
+   "paradigm": "early_state",
+   "desc": "Property from the bride's family to her or the couple, often her inheritance paid early. Under 4% of the atlas's societies but most of Eurasia's people [checked, Anderson 2007]; paid in about 95% of rural Indian marriages 1960 to 2008, real value stable [checked]. Returnable if she died childless in Babylon and Rome [memory].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "diverging_devolution",
+   "label": "Diverging devolution",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -3000,
+   "date_src": "general",
+   "place": "plough Eurasia",
+   "paradigm": "agrarian_empire",
+   "desc": "Goody (1976): where land is scarce and farming intensive, property passes to daughters as well as sons, so families control whom daughters marry, marriage is between equals and dowry replaces bridewealth [contested].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "dower_mahr",
+   "label": "Dower and mahr",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 610,
+   "date_src": "general",
+   "place": "Arabia; England",
+   "paradigm": "agrarian_empire",
+   "desc": "A husband's provision for his wife: the Islamic mahr, owed to her, part deferred to divorce or death; English dower, a life interest in a third of the husband's lands [unchecked]. Secured the widow's living.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "morning_gift",
+   "label": "Morning gift",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 600,
+   "date_src": "general",
+   "place": "Germanic and Anglo-Saxon Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "The husband's gift to the wife after the wedding night, hers to keep; named in early Anglo-Saxon law [memory] and merged later into dower.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "church_kin_marriage_rules",
+   "label": "Church bans on cousin marriage",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 506,
+   "date_src": "general",
+   "place": "western Christendom",
+   "paradigm": "feudal_manorial",
+   "desc": "Bans on marrying cousins (to the seventh degree, cut to the fourth in 1215), in-laws and godkin, with discouraged adoption and required consent. Goody: they weakened lineages and sent property to the church; Schulz and Henrich: they bred impersonal trust [contested].",
+   "chokepoint": false,
+   "part": "17",
+   "wide": 1100
+  },
+  {
+   "id": "caste_endogamy",
+   "label": "Caste endogamy and hypergamy",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -500,
+   "date_src": "general",
+   "place": "South Asia",
+   "paradigm": "agrarian_empire",
+   "desc": "Marriage inside caste, with women marrying up; as grooms' incomes became unequal, dowries rose instead of falling as in Europe (Anderson 2003) [unchecked].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "monte_delle_doti",
+   "label": "Florentine dowry fund",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1425,
+   "date_src": "part",
+   "place": "Florence",
+   "paradigm": "commercial_city_state",
+   "desc": "A father deposited at a girl's birth; the sum matured with interest at marriage after 7.5 or 15 years and stayed with the commune if she died. Records cover about 32,000 girls 1425 to 1545 [checked]; it doubled as public borrowing and is argued to have fed dowry inflation [contested].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "marriage_migration_insurance",
+   "label": "Marriage across villages as insurance",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1000,
+   "date_src": "general",
+   "place": "South Asia",
+   "paradigm": "agrarian_empire",
+   "desc": "Households with riskier harvests marry daughters to more distant villages, and marriage-migration lowers the variance of food consumption [checked, Rosenzweig and Stark 1989; contested by Fulford 2013].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "stem_family",
+   "label": "Stem family (one heir)",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1200,
+   "date_src": "general",
+   "place": "Japan, Catalonia, Pyrenees, Alps",
+   "paradigm": "feudal_manorial",
+   "desc": "One child inherits the whole holding and lives with the parents; the others leave, marry heirs or stay unmarried. Kept farms viable and lowered marriage rates [rough].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "entail_settlement",
+   "label": "Entail and strict settlement",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1650,
+   "date_src": "general",
+   "place": "England; mayorazgo in Spain",
+   "paradigm": "early_modern_state",
+   "desc": "Tied an estate to a line of heirs so no holder could sell; English settled estates still carried mortgages and portions for younger children, a base for borrowing (Habakkuk) [unchecked].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "islamic_inheritance_shares",
+   "label": "Islamic fixed inheritance shares",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 632,
+   "date_src": "general",
+   "place": "Islamic world",
+   "paradigm": "agrarian_empire",
+   "desc": "Fixed shares for many heirs (a daughter half a son's) split merchant fortunes at each death and kept partnerships small, by Kuran's argument; the waqf held property whole outside inheritance [contested].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "code_civil_equal_division",
+   "label": "Equal division by law",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1804,
+   "date_src": "general",
+   "place": "France",
+   "paradigm": "industrial",
+   "desc": "The Civil Code made partible inheritance general; holdings fragmented and people stayed on small farms [unchecked; rough].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "retirement_contracts",
+   "label": "Retirement contracts",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1250,
+   "date_src": "general",
+   "place": "English manors",
+   "paradigm": "feudal_manorial",
+   "desc": "A holding surrendered in the manor court to an heir or stranger for food, a room and clothes for life (Richard Smith; part 05 §6.5). Inheritance within life, entered on the roll.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "coverture",
+   "label": "Coverture",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1200,
+   "date_src": "general",
+   "place": "England",
+   "paradigm": "feudal_manorial",
+   "desc": "A wife's movables passed to her husband and she could not contract in her own name; widows, free of it, held dower, ran shops and brewhouses and lent.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "married_womens_property_acts",
+   "label": "Married Women's Property Acts",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1870,
+   "date_src": "general",
+   "place": "England",
+   "paradigm": "industrial",
+   "desc": "Acts of 1870 and 1882 let married women own and contract [unchecked], ending coverture.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "younger_sons_migration",
+   "label": "Younger sons' migration",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1200,
+   "date_src": "general",
+   "place": "impartible regions of Europe",
+   "paradigm": "early_modern_state",
+   "desc": "Impartible inheritance pushed non-heirs into service, crafts, towns, armies and overseas, while partible regions kept people on small holdings with rural industry (Habakkuk 1955; Thirsk 1961) [contested].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "chinese_lineage_trust",
+   "label": "Chinese lineage trusts",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1050,
+   "date_src": "general",
+   "place": "south China",
+   "paradigm": "agrarian_empire",
+   "desc": "Lineages with ancestral halls, genealogies and trust land whose rent paid for rites, schools, relief and loans; Fan Zhongyan's charitable estate is the founding case [memory]. The clan, not the corporation, as the unit of cooperation (Greif and Tabellini 2017) [checked, argument; contested].",
+   "chokepoint": false,
+   "part": "17",
+   "wide": 1600
+  },
+  {
+   "id": "lineage_trust_firms",
+   "label": "Lineage trusts as firms",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1750,
+   "date_src": "general",
+   "place": "Zigong, Sichuan",
+   "paradigm": "early_modern_state",
+   "desc": "Salt merchants used lineage trusts as shareholding vehicles owning wells, furnaces and pipelines before company law (Zelin 2005) [unchecked].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "kin_risk_sharing",
+   "label": "Village kin risk-sharing",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": -7000,
+   "date_src": "general",
+   "place": "farming villages",
+   "paradigm": "horticultural_tribal",
+   "desc": "Gifts and loans among kin and neighbours insure much of a household's own bad luck, though not fully (Townsend 1994) [unchecked]; the same claims tax success, so people hide windfalls from kin (Jakiela and Ozier 2016) [memory].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "caste_business_networks",
+   "label": "Caste business networks",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1700,
+   "date_src": "general",
+   "place": "India (Marwari, Parsi, Chettiar)",
+   "paradigm": "early_modern_state",
+   "desc": "Trade and credit through caste and kin networks; the Hindu Undivided Family is still a legal and tax entity [unchecked]. The same networks insure members and slow migration (Munshi and Rosenzweig) [contested].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "remittances",
+   "label": "Migrant remittances",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1850,
+   "date_src": "general",
+   "place": "worldwide",
+   "paradigm": "industrial",
+   "desc": "Kin insurance at world scale: migrants' transfers home now exceed foreign aid to low and middle-income countries [rough]. The return flow of global care chains.",
+   "chokepoint": false,
+   "part": "17",
+   "wide": 1990
+  },
+  {
+   "id": "medici_bank",
+   "label": "Medici bank partnerships",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1397,
+   "date_src": "general",
+   "place": "Florence",
+   "paradigm": "commercial_city_state",
+   "desc": "A family holding partnership over separate branch partnerships, each with a manager holding a share: the family limited its exposure to any branch and bound non-kin managers (de Roover) [unchecked].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "fugger_house",
+   "label": "Fugger family firm",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1494,
+   "date_src": "general",
+   "place": "Augsburg",
+   "paradigm": "commercial_city_state",
+   "desc": "Jakob Fugger's family company in mining, cloth and lending to the Habsburgs; partnership contracts kept control in the male line [unchecked].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "diaspora_family_networks",
+   "label": "Diaspora family trading houses",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1605,
+   "date_src": "general",
+   "place": "New Julfa Armenians; Sephardic and Huguenot houses",
+   "paradigm": "commercial_city_state",
+   "desc": "Merchant families spread kin across ports and used marriage to bind partners where no court reached [unchecked].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "mitsui_house",
+   "label": "Mitsui house firm",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1673,
+   "date_src": "general",
+   "place": "Edo and Kyoto",
+   "paradigm": "early_modern_state",
+   "desc": "A merchant ie with a house code, common property and headship passed to the most able, by adoption if needed [unchecked]; grew into a zaibatsu.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "zaibatsu",
+   "label": "Zaibatsu",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1880,
+   "date_src": "general",
+   "place": "Japan",
+   "paradigm": "industrial",
+   "desc": "Family-controlled holding companies over banks and industries (Mitsui, Mitsubishi, Sumitomo), dissolved 1945 to 1947 and reborn as looser keiretsu [unchecked].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "chaebol",
+   "label": "Chaebol",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1961,
+   "date_src": "general",
+   "place": "South Korea",
+   "paradigm": "industrial",
+   "desc": "Family-controlled groups of affiliated firms (Samsung 1938, Hyundai 1947) built with state credit [unchecked].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "family_controlled_firms",
+   "label": "Family control of listed firms",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1900,
+   "date_src": "general",
+   "place": "outside the US and UK",
+   "paradigm": "service_information",
+   "desc": "Most large listed firms outside the United States and Britain have a controlling owner, usually a family, often through pyramids [unchecked, La Porta and others 1999]. Succession to a family CEO lowers performance in Danish data [memory, Bennedsen and others 2007].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "domestic_service",
+   "label": "Domestic service",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1400,
+   "date_src": "general",
+   "place": "Europe",
+   "paradigm": "feudal_manorial",
+   "desc": "Servants did much of the better-off household's work; in England and Wales the largest occupation for women through the nineteenth century, over a million female servants by 1881 [unchecked]. Shrank with appliances and better jobs, then returned as migrant domestic work (about 75 million domestic workers today [memory, ILO]).",
+   "chokepoint": false,
+   "part": "17",
+   "wide": 1850
+  },
+  {
+   "id": "infant_schools_nurseries",
+   "label": "Infant schools and nurseries",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1816,
+   "date_src": "general",
+   "place": "New Lanark; France 1844; Fröbel 1837",
+   "paradigm": "industrial",
+   "desc": "Owen's infant school, French crèches and Fröbel's kindergarten took the care of small children out of the house for working mothers and for schooling [unchecked].",
+   "chokepoint": false,
+   "part": "17",
+   "wide": 1960
+  },
+  {
+   "id": "voluntary_hospital",
+   "label": "Voluntary hospitals",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1720,
+   "date_src": "general",
+   "place": "London",
+   "paradigm": "early_modern_state",
+   "desc": "Hospitals funded by subscribers for the sick poor, beside workhouse infirmaries; until the twentieth century most people were nursed at home [unchecked].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "trained_nursing",
+   "label": "Trained nursing",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1860,
+   "date_src": "general",
+   "place": "London (Nightingale school)",
+   "paradigm": "industrial",
+   "desc": "Nursing made a trained paid profession for women; care at the bedside moved from kin to hospital staff [unchecked].",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "care_economy",
+   "label": "Paid care economy",
+   "domain": "institutions",
+   "kind": "industry",
+   "start": 1960,
+   "date_src": "general",
+   "place": "worldwide",
+   "paradigm": "service_information",
+   "desc": "Education, health, social work and domestic work: about 381 million workers, 11.5% of world employment, about 249 million of them women [checked, ILO 2018]. Productivity barely rises, so its cost grows with wages (Baumol).",
+   "chokepoint": false,
+   "part": "17",
+   "wide": 2000
+  },
+  {
+   "id": "global_care_chains",
+   "label": "Global care chains",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1980,
+   "date_src": "general",
+   "place": "Philippines, Latin America to rich countries",
+   "paradigm": "service_information",
+   "desc": "A migrant woman cares for a richer family's children or parents while kin at home care for hers (Hochschild 2000) [unchecked]; remittances flow back.",
+   "chokepoint": false,
+   "part": "17"
+  },
+  {
+   "id": "household_accounting",
+   "label": "Measuring household production",
+   "domain": "information",
+   "kind": "technique",
+   "start": 1934,
+   "date_src": "general",
+   "place": "United States; time-use surveys from the 1960s",
+   "paradigm": "industrial",
+   "desc": "Margaret Reid's third-party test (work is production if one could pay someone else to do it), time-use diaries and satellite accounts, which value unpaid household work at about a fifth to two fifths of GDP [rough].",
+   "chokepoint": false,
+   "part": "17"
+  }
+ ],
+ "edges": [
+  {
+   "from": "cooking",
+   "to": "unpaid_household_work",
+   "type": "enables",
+   "note": "processing food made daily household work",
+   "src": "part"
+  },
+  {
+   "from": "unpaid_household_work",
+   "to": "household_production",
+   "type": "enables",
+   "note": "household work underlies household production",
+   "src": "part"
+  },
+  {
+   "from": "sexual_division_labour",
+   "to": "unpaid_household_work",
+   "type": "enables",
+   "note": "assigned most household work to women",
+   "src": "part"
+  },
+  {
+   "from": "long_nursing_birth_spacing",
+   "to": "sexual_division_labour",
+   "type": "enables",
+   "note": "tasks had to suit nursing mothers",
+   "src": "part"
+  },
+  {
+   "from": "grandmothering",
+   "to": "long_nursing_birth_spacing",
+   "type": "enables",
+   "note": "shared provisioning let mothers wean earlier",
+   "src": "part"
+  },
+  {
+   "from": "grandmothering",
+   "to": "sexual_division_labour",
+   "type": "enables",
+   "note": "older women's foraging shaped tasks",
+   "src": "part"
+  },
+  {
+   "from": "foraging",
+   "to": "sexual_division_labour",
+   "type": "enables",
+   "note": "gathering and hunting split by sex",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "children_household_labour",
+   "type": "enables",
+   "note": "fields gave children tasks and value",
+   "src": "part"
+  },
+  {
+   "from": "saddle_quern",
+   "to": "metate_grinding",
+   "type": "enables",
+   "note": "grinding slab carried into maize processing",
+   "src": "part"
+  },
+  {
+   "from": "metate_grinding",
+   "to": "village_maize_mill",
+   "type": "replaces",
+   "note": "freed 3 to 5 hours a day per family",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "village_maize_mill",
+   "type": "enables",
+   "note": "engine-driven village mills",
+   "src": "general"
+  },
+  {
+   "from": "hand_quern",
+   "to": "flour_milling",
+   "type": "replaces",
+   "note": "grinding moved from wife to miller",
+   "src": "part"
+  },
+  {
+   "from": "fire",
+   "to": "water_fuel_fetching",
+   "type": "enables",
+   "note": "the hearth needed daily fuel",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "water_fuel_fetching",
+   "type": "input",
+   "note": "firewood gathered by women and children",
+   "src": "part"
+  },
+  {
+   "from": "water_fuel_fetching",
+   "to": "unpaid_household_work",
+   "type": "enables",
+   "note": "carrying took hours daily",
+   "src": "part"
+  },
+  {
+   "from": "water_fuel_fetching",
+   "to": "piped_water",
+   "type": "replaces",
+   "note": "pipes ended carrying water",
+   "src": "part"
+  },
+  {
+   "from": "piped_water",
+   "to": "housework_hours_fall",
+   "type": "enables",
+   "note": "no more hauling and heating water",
+   "src": "part"
+  },
+  {
+   "from": "water_fuel_fetching",
+   "to": "washing_day",
+   "type": "input",
+   "note": "water carried for the wash",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "washing_day",
+   "type": "input",
+   "note": "fire to boil the wash",
+   "src": "part"
+  },
+  {
+   "from": "soap_boiling",
+   "to": "washing_day",
+   "type": "input",
+   "note": "lye and soap for washing",
+   "src": "part"
+  },
+  {
+   "from": "washing_day",
+   "to": "laundresses",
+   "type": "enables",
+   "note": "washing sold to townspeople",
+   "src": "part"
+  },
+  {
+   "from": "cities",
+   "to": "laundresses",
+   "type": "enables",
+   "note": "town households bought washing",
+   "src": "part"
+  },
+  {
+   "from": "laundresses",
+   "to": "steam_laundry",
+   "type": "replaces",
+   "note": "washing moved into works",
+   "src": "part"
+  },
+  {
+   "from": "steam_engine",
+   "to": "steam_laundry",
+   "type": "enables",
+   "note": "steam boilers and mangles",
+   "src": "general"
+  },
+  {
+   "from": "industrial_soap",
+   "to": "steam_laundry",
+   "type": "input",
+   "note": "cheap soda soap",
+   "src": "part"
+  },
+  {
+   "from": "washing_day",
+   "to": "household_appliances",
+   "type": "replaces",
+   "note": "washing machines took the wash day",
+   "src": "part"
+  },
+  {
+   "from": "spinning",
+   "to": "domestic_spinning_time",
+   "type": "enables",
+   "note": "spindle work fitted round child care",
+   "src": "part"
+  },
+  {
+   "from": "sexual_division_labour",
+   "to": "domestic_spinning_time",
+   "type": "enables",
+   "note": "spinning as women's interruptible task",
+   "src": "part"
+  },
+  {
+   "from": "domestic_spinning_time",
+   "to": "putting_out",
+   "type": "enables",
+   "note": "merchants bought women's spinning hours",
+   "src": "part"
+  },
+  {
+   "from": "domestic_spinning_time",
+   "to": "mechanised_spinning",
+   "type": "replaces",
+   "note": "mills took spinning out of homes",
+   "src": "part"
+  },
+  {
+   "from": "domestic_spinning_time",
+   "to": "industrious_revolution",
+   "type": "enables",
+   "note": "women's time sold for new goods",
+   "src": "part"
+  },
+  {
+   "from": "weaving",
+   "to": "ready_made_clothing",
+   "type": "enables",
+   "note": "cloth for bought garments",
+   "src": "general"
+  },
+  {
+   "from": "factory_system",
+   "to": "ready_made_clothing",
+   "type": "enables",
+   "note": "factory cloth and garment shops",
+   "src": "general"
+  },
+  {
+   "from": "milk_dairy",
+   "to": "farm_wife_dairy",
+   "type": "enables",
+   "note": "milking and cheese as women's work",
+   "src": "part"
+  },
+  {
+   "from": "cheese_making",
+   "to": "farm_wife_dairy",
+   "type": "enables",
+   "note": "the dairy's product",
+   "src": "part"
+  },
+  {
+   "from": "farm_wife_dairy",
+   "to": "cheese_factory",
+   "type": "replaces",
+   "note": "cheesemaking moved to men in factories",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "cheese_factory",
+   "type": "enables",
+   "note": "milk pooled and cheese shipped",
+   "src": "general"
+  },
+  {
+   "from": "farm_wife_dairy",
+   "to": "european_marriage_pattern",
+   "type": "enables",
+   "note": "pasture gave women paid work (Voigtländer-Voth)",
+   "src": "part"
+  },
+  {
+   "from": "brewing",
+   "to": "brewsters_alewives",
+   "type": "enables",
+   "note": "household ale sold in turns",
+   "src": "part"
+  },
+  {
+   "from": "brewsters_alewives",
+   "to": "porter_breweries",
+   "type": "replaces",
+   "note": "capital and licences moved brewing to men",
+   "src": "part"
+  },
+  {
+   "from": "brewsters_alewives",
+   "to": "hopped_beer",
+   "type": "replaces",
+   "note": "keeping beer favoured large brewers",
+   "src": "part"
+  },
+  {
+   "from": "assize_bread_ale",
+   "to": "brewsters_alewives",
+   "type": "enables",
+   "note": "alewives fined and regulated in manor courts",
+   "src": "part"
+  },
+  {
+   "from": "village_midwife",
+   "to": "man_midwife",
+   "type": "replaces",
+   "note": "forceps and training moved births to men",
+   "src": "part"
+  },
+  {
+   "from": "sexual_division_labour",
+   "to": "female_farming_systems",
+   "type": "enables",
+   "note": "women as the hoe farmers",
+   "src": "part"
+  },
+  {
+   "from": "cereal_domestication",
+   "to": "female_farming_systems",
+   "type": "enables",
+   "note": "hoe plots worked by women",
+   "src": "part"
+  },
+  {
+   "from": "plough",
+   "to": "plough_gender_roles",
+   "type": "enables",
+   "note": "plough pulled women out of fields",
+   "src": "part"
+  },
+  {
+   "from": "draught_animals",
+   "to": "plough_gender_roles",
+   "type": "enables",
+   "note": "heavy teams handled by men",
+   "src": "part"
+  },
+  {
+   "from": "sexual_division_labour",
+   "to": "plough_gender_roles",
+   "type": "enables",
+   "note": "care-compatible tasks rule",
+   "src": "part"
+  },
+  {
+   "from": "plough_gender_roles",
+   "to": "diverging_devolution",
+   "type": "enables",
+   "note": "land as wealth, women in the house",
+   "src": "part"
+  },
+  {
+   "from": "female_farming_systems",
+   "to": "polygyny",
+   "type": "enables",
+   "note": "more wives worked more fields",
+   "src": "part"
+  },
+  {
+   "from": "female_farming_systems",
+   "to": "bride_price",
+   "type": "enables",
+   "note": "women's labour was the value moved",
+   "src": "part"
+  },
+  {
+   "from": "plough_gender_roles",
+   "to": "womens_paid_work_rise",
+   "type": "enables",
+   "note": "plough legacy lowers women's participation today",
+   "src": "part"
+  },
+  {
+   "from": "factory_system",
+   "to": "male_breadwinner_household",
+   "type": "enables",
+   "note": "work left home, wives stayed",
+   "src": "part"
+  },
+  {
+   "from": "factory_acts",
+   "to": "male_breadwinner_household",
+   "type": "enables",
+   "note": "limited women's and children's hours",
+   "src": "part"
+  },
+  {
+   "from": "trade_unions",
+   "to": "male_breadwinner_household",
+   "type": "enables",
+   "note": "pressed for a family wage",
+   "src": "part"
+  },
+  {
+   "from": "male_breadwinner_household",
+   "to": "marriage_bars",
+   "type": "enables",
+   "note": "norm written into hiring rules",
+   "src": "part"
+  },
+  {
+   "from": "industrious_revolution",
+   "to": "male_breadwinner_household",
+   "type": "replaces",
+   "note": "de Vries: hours went back into home",
+   "src": "part"
+  },
+  {
+   "from": "telephone",
+   "to": "womens_clerical_work",
+   "type": "enables",
+   "note": "telephonists and clerks",
+   "src": "general"
+  },
+  {
+   "from": "womens_clerical_work",
+   "to": "womens_paid_work_rise",
+   "type": "enables",
+   "note": "white-collar work without stigma",
+   "src": "part"
+  },
+  {
+   "from": "compulsory_schooling",
+   "to": "womens_paid_work_rise",
+   "type": "enables",
+   "note": "schooled women entered offices",
+   "src": "part"
+  },
+  {
+   "from": "contraceptive_pill",
+   "to": "womens_paid_work_rise",
+   "type": "enables",
+   "note": "careers could be planned",
+   "src": "part"
+  },
+  {
+   "from": "household_appliances",
+   "to": "housework_hours_fall",
+   "type": "enables",
+   "note": "machines cut washing and cleaning",
+   "src": "part"
+  },
+  {
+   "from": "electricity",
+   "to": "household_appliances",
+   "type": "enables",
+   "note": "wired houses first",
+   "src": "part"
+  },
+  {
+   "from": "consumer_credit",
+   "to": "household_appliances",
+   "type": "enables",
+   "note": "appliances bought on instalments",
+   "src": "part"
+  },
+  {
+   "from": "canning",
+   "to": "housework_hours_fall",
+   "type": "enables",
+   "note": "bought food cut cooking",
+   "src": "part"
+  },
+  {
+   "from": "housework_hours_fall",
+   "to": "womens_paid_work_rise",
+   "type": "enables",
+   "note": "28 of 51 points in one model",
+   "src": "part"
+  },
+  {
+   "from": "male_breadwinner_household",
+   "to": "womens_paid_work_rise",
+   "type": "replaces",
+   "note": "dual earners replaced the breadwinner norm",
+   "src": "part"
+  },
+  {
+   "from": "womens_paid_work_rise",
+   "to": "care_economy",
+   "type": "enables",
+   "note": "care bought when both partners work",
+   "src": "part"
+  },
+  {
+   "from": "children_household_labour",
+   "to": "servants_in_husbandry",
+   "type": "enables",
+   "note": "youths moved to households needing hands",
+   "src": "part"
+  },
+  {
+   "from": "children_household_labour",
+   "to": "fosterage",
+   "type": "enables",
+   "note": "children placed in other households",
+   "src": "part"
+  },
+  {
+   "from": "children_household_labour",
+   "to": "apprenticeship",
+   "type": "enables",
+   "note": "boys bound for training and labour",
+   "src": "part"
+  },
+  {
+   "from": "children_household_labour",
+   "to": "child_oblation",
+   "type": "enables",
+   "note": "surplus children placed in monasteries",
+   "src": "part"
+  },
+  {
+   "from": "old_poor_law",
+   "to": "pauper_apprenticeship",
+   "type": "enables",
+   "note": "parishes bound poor children out",
+   "src": "part"
+  },
+  {
+   "from": "pauper_apprenticeship",
+   "to": "child_labour_mills",
+   "type": "enables",
+   "note": "parish apprentices staffed water mills",
+   "src": "part"
+  },
+  {
+   "from": "mechanised_spinning",
+   "to": "child_labour_mills",
+   "type": "enables",
+   "note": "machines with tasks for small hands",
+   "src": "part"
+  },
+  {
+   "from": "factory_system",
+   "to": "child_labour_mills",
+   "type": "enables",
+   "note": "mills employed children by the hundred",
+   "src": "part"
+  },
+  {
+   "from": "child_labour_mills",
+   "to": "factory_acts",
+   "type": "enables",
+   "note": "acts first limited children's hours",
+   "src": "part"
+  },
+  {
+   "from": "printing",
+   "to": "compulsory_schooling",
+   "type": "enables",
+   "note": "cheap books for mass schooling",
+   "src": "general"
+  },
+  {
+   "from": "long_nursing_birth_spacing",
+   "to": "wet_nursing",
+   "type": "enables",
+   "note": "milk could be sold",
+   "src": "part"
+  },
+  {
+   "from": "cities",
+   "to": "wet_nursing",
+   "type": "enables",
+   "note": "town mothers put babies out",
+   "src": "part"
+  },
+  {
+   "from": "wet_nursing",
+   "to": "bureau_des_nourrices",
+   "type": "enables",
+   "note": "Paris organised its nurse market",
+   "src": "part"
+  },
+  {
+   "from": "wet_nursing",
+   "to": "foundling_hospital",
+   "type": "enables",
+   "note": "foundling hospitals hired nurses",
+   "src": "part"
+  },
+  {
+   "from": "cities",
+   "to": "foundling_hospital",
+   "type": "enables",
+   "note": "urban abandonment of infants",
+   "src": "part"
+  },
+  {
+   "from": "household_production",
+   "to": "adopted_heirs",
+   "type": "enables",
+   "note": "the house outlived the bloodline",
+   "src": "part"
+  },
+  {
+   "from": "adopted_heirs",
+   "to": "mitsui_house",
+   "type": "enables",
+   "note": "headship passed to the able",
+   "src": "part"
+  },
+  {
+   "from": "adopted_heirs",
+   "to": "family_controlled_firms",
+   "type": "enables",
+   "note": "adopted heirs beat blood heirs",
+   "src": "part"
+  },
+  {
+   "from": "sexual_division_labour",
+   "to": "bride_service",
+   "type": "enables",
+   "note": "the groom pays in labour",
+   "src": "part"
+  },
+  {
+   "from": "bride_service",
+   "to": "bride_price",
+   "type": "replaces",
+   "note": "goods paid instead of years of work",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "bride_price",
+   "type": "input",
+   "note": "cattle as bridewealth",
+   "src": "part"
+  },
+  {
+   "from": "bride_price",
+   "to": "polygyny",
+   "type": "enables",
+   "note": "wealthy men took more wives",
+   "src": "part"
+  },
+  {
+   "from": "diverging_devolution",
+   "to": "dowry",
+   "type": "enables",
+   "note": "daughter's inheritance paid at marriage",
+   "src": "part"
+  },
+  {
+   "from": "property_in_land",
+   "to": "diverging_devolution",
+   "type": "enables",
+   "note": "scarce heritable land",
+   "src": "part"
+  },
+  {
+   "from": "dowry",
+   "to": "monte_delle_doti",
+   "type": "enables",
+   "note": "dowry inflation prompted a fund",
+   "src": "part"
+  },
+  {
+   "from": "banking",
+   "to": "monte_delle_doti",
+   "type": "enables",
+   "note": "deposits with interest",
+   "src": "general"
+  },
+  {
+   "from": "monte_delle_doti",
+   "to": "fiscal_military_state",
+   "type": "enables",
+   "note": "dowry deposits as public debt",
+   "src": "part"
+  },
+  {
+   "from": "dowry",
+   "to": "dower_mahr",
+   "type": "enables",
+   "note": "dowry returned or matched by dower",
+   "src": "part"
+  },
+  {
+   "from": "morning_gift",
+   "to": "dower_mahr",
+   "type": "replaces",
+   "note": "morning gift merged into dower",
+   "src": "part"
+  },
+  {
+   "from": "dower_mahr",
+   "to": "coverture",
+   "type": "enables",
+   "note": "widows' living under coverture",
+   "src": "part"
+  },
+  {
+   "from": "church_kin_marriage_rules",
+   "to": "european_marriage_pattern",
+   "type": "enables",
+   "note": "consent and weak lineages",
+   "src": "part"
+  },
+  {
+   "from": "church_kin_marriage_rules",
+   "to": "corporation",
+   "type": "enables",
+   "note": "weak kin, non-kin bodies (contested)",
+   "src": "part"
+  },
+  {
+   "from": "church_kin_marriage_rules",
+   "to": "guilds",
+   "type": "enables",
+   "note": "cooperation with non-kin (contested)",
+   "src": "part"
+  },
+  {
+   "from": "kin_risk_sharing",
+   "to": "marriage_migration_insurance",
+   "type": "enables",
+   "note": "kin placed in other villages",
+   "src": "part"
+  },
+  {
+   "from": "marriage_migration_insurance",
+   "to": "remittances",
+   "type": "enables",
+   "note": "transfers between kin across places",
+   "src": "part"
+  },
+  {
+   "from": "dowry",
+   "to": "peasant_land_market",
+   "type": "enables",
+   "note": "land moved at marriages",
+   "src": "part"
+  },
+  {
+   "from": "property_in_land",
+   "to": "primogeniture",
+   "type": "enables",
+   "note": "heritable land to divide or keep",
+   "src": "part"
+  },
+  {
+   "from": "primogeniture",
+   "to": "stem_family",
+   "type": "enables",
+   "note": "one heir variant with co-resident parents",
+   "src": "part"
+  },
+  {
+   "from": "primogeniture",
+   "to": "younger_sons_migration",
+   "type": "enables",
+   "note": "non-heirs left the land",
+   "src": "part"
+  },
+  {
+   "from": "stem_family",
+   "to": "younger_sons_migration",
+   "type": "enables",
+   "note": "non-heirs left or stayed unmarried",
+   "src": "part"
+  },
+  {
+   "from": "younger_sons_migration",
+   "to": "servants_in_husbandry",
+   "type": "enables",
+   "note": "non-heirs into service",
+   "src": "part"
+  },
+  {
+   "from": "younger_sons_migration",
+   "to": "apprenticeship",
+   "type": "enables",
+   "note": "non-heirs into crafts",
+   "src": "part"
+  },
+  {
+   "from": "primogeniture",
+   "to": "putting_out",
+   "type": "enables",
+   "note": "partible regions bred rural industry (Thirsk)",
+   "src": "part"
+  },
+  {
+   "from": "primogeniture",
+   "to": "entail_settlement",
+   "type": "enables",
+   "note": "estates kept whole by trust",
+   "src": "part"
+  },
+  {
+   "from": "law_courts",
+   "to": "entail_settlement",
+   "type": "enables",
+   "note": "courts upheld settlements",
+   "src": "general"
+  },
+  {
+   "from": "primogeniture",
+   "to": "code_civil_equal_division",
+   "type": "replaces",
+   "note": "equal shares made general by law",
+   "src": "part"
+  },
+  {
+   "from": "islamic_inheritance_shares",
+   "to": "waqf",
+   "type": "enables",
+   "note": "endowments held property whole",
+   "src": "part"
+  },
+  {
+   "from": "islamic_inheritance_shares",
+   "to": "qirad",
+   "type": "enables",
+   "note": "partnerships split at death stayed small",
+   "src": "part"
+  },
+  {
+   "from": "peasant_land_market",
+   "to": "retirement_contracts",
+   "type": "enables",
+   "note": "holdings surrendered for maintenance",
+   "src": "part"
+  },
+  {
+   "from": "manor_court",
+   "to": "retirement_contracts",
+   "type": "enables",
+   "note": "entered on the court roll",
+   "src": "part"
+  },
+  {
+   "from": "retirement_contracts",
+   "to": "old_poor_law",
+   "type": "replaces",
+   "note": "parish relief for those without heirs",
+   "src": "part"
+  },
+  {
+   "from": "coverture",
+   "to": "married_womens_property_acts",
+   "type": "replaces",
+   "note": "wives allowed to own and contract",
+   "src": "part"
+  },
+  {
+   "from": "married_womens_property_acts",
+   "to": "womens_paid_work_rise",
+   "type": "enables",
+   "note": "women's earnings their own",
+   "src": "part"
+  },
+  {
+   "from": "demand_sharing",
+   "to": "kin_risk_sharing",
+   "type": "enables",
+   "note": "sharing norms carried into villages",
+   "src": "part"
+  },
+  {
+   "from": "property_in_land",
+   "to": "chinese_lineage_trust",
+   "type": "enables",
+   "note": "lineage land held in trust",
+   "src": "part"
+  },
+  {
+   "from": "writing",
+   "to": "chinese_lineage_trust",
+   "type": "enables",
+   "note": "written genealogies",
+   "src": "general"
+  },
+  {
+   "from": "chinese_lineage_trust",
+   "to": "lineage_trust_firms",
+   "type": "enables",
+   "note": "trusts used as shareholding vehicles",
+   "src": "part"
+  },
+  {
+   "from": "salt_making",
+   "to": "lineage_trust_firms",
+   "type": "enables",
+   "note": "Zigong brine wells owned by trusts",
+   "src": "part"
+  },
+  {
+   "from": "kin_risk_sharing",
+   "to": "old_poor_law",
+   "type": "replaces",
+   "note": "the parish insured strangers by tax",
+   "src": "part"
+  },
+  {
+   "from": "kin_risk_sharing",
+   "to": "friendly_societies",
+   "type": "replaces",
+   "note": "members' funds instead of kin",
+   "src": "part"
+  },
+  {
+   "from": "kin_risk_sharing",
+   "to": "caste_business_networks",
+   "type": "enables",
+   "note": "kin credit and insurance in trade",
+   "src": "part"
+  },
+  {
+   "from": "caste_endogamy",
+   "to": "caste_business_networks",
+   "type": "enables",
+   "note": "marriage kept networks closed",
+   "src": "part"
+  },
+  {
+   "from": "kin_risk_sharing",
+   "to": "social_insurance",
+   "type": "replaces",
+   "note": "state pensions replaced children's support",
+   "src": "part"
+  },
+  {
+   "from": "household_production",
+   "to": "kanesh_caravan_firms",
+   "type": "enables",
+   "note": "family firms with sons as agents",
+   "src": "part"
+  },
+  {
+   "from": "compagnia",
+   "to": "medici_bank",
+   "type": "enables",
+   "note": "family partnership extended to branches",
+   "src": "part"
+  },
+  {
+   "from": "double_entry",
+   "to": "medici_bank",
+   "type": "enables",
+   "note": "branch accounts",
+   "src": "general"
+  },
+  {
+   "from": "medici_bank",
+   "to": "fugger_house",
+   "type": "enables",
+   "note": "family banking model",
+   "src": "general"
+  },
+  {
+   "from": "bills_of_exchange",
+   "to": "fugger_house",
+   "type": "enables",
+   "note": "transfers across Habsburg lands",
+   "src": "general"
+  },
+  {
+   "from": "maghribi_reputation",
+   "to": "diaspora_family_networks",
+   "type": "enables",
+   "note": "kin and coalition across ports",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "diaspora_family_networks",
+   "type": "enables",
+   "note": "ports to bind with kin",
+   "src": "general"
+  },
+  {
+   "from": "mitsui_house",
+   "to": "zaibatsu",
+   "type": "enables",
+   "note": "house firm grew into a holding group",
+   "src": "part"
+  },
+  {
+   "from": "zaibatsu",
+   "to": "keiretsu_supplier_network",
+   "type": "replaces",
+   "note": "dissolved family groups regrouped as keiretsu",
+   "src": "part"
+  },
+  {
+   "from": "zaibatsu",
+   "to": "chaebol",
+   "type": "enables",
+   "note": "model of family groups",
+   "src": "general"
+  },
+  {
+   "from": "joint_stock_company",
+   "to": "family_controlled_firms",
+   "type": "enables",
+   "note": "families kept blocks of shares",
+   "src": "part"
+  },
+  {
+   "from": "limited_liability",
+   "to": "family_controlled_firms",
+   "type": "enables",
+   "note": "firms outlived families",
+   "src": "part"
+  },
+  {
+   "from": "children_household_labour",
+   "to": "compulsory_schooling",
+   "type": "replaces",
+   "note": "school days replaced work days",
+   "src": "part"
+  },
+  {
+   "from": "household_production",
+   "to": "retirement_contracts",
+   "type": "enables",
+   "note": "the holding traded for keep",
+   "src": "part"
+  },
+  {
+   "from": "servants_in_husbandry",
+   "to": "domestic_service",
+   "type": "enables",
+   "note": "service as a life stage",
+   "src": "part"
+  },
+  {
+   "from": "domestic_service",
+   "to": "household_appliances",
+   "type": "replaces",
+   "note": "machines replaced maids",
+   "src": "general"
+  },
+  {
+   "from": "domestic_service",
+   "to": "global_care_chains",
+   "type": "replaces",
+   "note": "migrant domestic workers returned",
+   "src": "part"
+  },
+  {
+   "from": "factory_system",
+   "to": "infant_schools_nurseries",
+   "type": "enables",
+   "note": "working mothers needed care",
+   "src": "part"
+  },
+  {
+   "from": "infant_schools_nurseries",
+   "to": "care_economy",
+   "type": "enables",
+   "note": "childcare sold or provided",
+   "src": "part"
+  },
+  {
+   "from": "voluntary_hospital",
+   "to": "trained_nursing",
+   "type": "enables",
+   "note": "hospitals needed trained nurses",
+   "src": "part"
+  },
+  {
+   "from": "trained_nursing",
+   "to": "care_economy",
+   "type": "enables",
+   "note": "care as paid profession",
+   "src": "part"
+  },
+  {
+   "from": "welfare_state",
+   "to": "care_economy",
+   "type": "enables",
+   "note": "state pays for care",
+   "src": "part"
+  },
+  {
+   "from": "social_insurance",
+   "to": "care_economy",
+   "type": "enables",
+   "note": "pensions and care funded",
+   "src": "part"
+  },
+  {
+   "from": "demographic_transition",
+   "to": "care_economy",
+   "type": "enables",
+   "note": "ageing raises demand for care",
+   "src": "part"
+  },
+  {
+   "from": "unpaid_household_work",
+   "to": "care_economy",
+   "type": "replaces",
+   "note": "care moves from home to market",
+   "src": "part"
+  },
+  {
+   "from": "care_economy",
+   "to": "global_care_chains",
+   "type": "enables",
+   "note": "rich-country demand pulls migrants",
+   "src": "part"
+  },
+  {
+   "from": "unpaid_household_work",
+   "to": "household_accounting",
+   "type": "enables",
+   "note": "work to be counted",
+   "src": "part"
+  },
+  {
+   "from": "unpaid_household_work",
+   "to": "household_appliances",
+   "type": "replaces",
+   "note": "machines cut housework",
+   "src": "part"
+  },
+  {
+   "from": "unpaid_household_work",
+   "to": "industrious_revolution",
+   "type": "enables",
+   "note": "household hours redirected to market",
+   "src": "part"
+  },
+  {
+   "from": "unpaid_household_work",
+   "to": "domestic_service",
+   "type": "enables",
+   "note": "work bought from servants",
+   "src": "part"
+  }
+ ]
+}

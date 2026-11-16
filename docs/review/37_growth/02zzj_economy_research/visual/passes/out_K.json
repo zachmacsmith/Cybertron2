@@ -1,0 +1,2475 @@
+{
+ "nodes": [
+  {
+   "id": "zoonoses_from_herds",
+   "label": "Zoonoses from herds",
+   "domain": "food",
+   "kind": "practice",
+   "start": -6000,
+   "date_src": "general",
+   "place": "Near East and Eurasian farming villages",
+   "paradigm": "horticultural_tribal",
+   "desc": "Living with cattle, sheep, pigs and fowl passed animal diseases to people: measles from rinderpest, influenza from birds via pigs and poultry, brucellosis and anthrax as herders' and tanners' diseases. It needed domestic herds kept beside houses; it made farming villages sicker than forager bands.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "crowd_diseases",
+   "label": "Crowd diseases",
+   "domain": "building",
+   "kind": "practice",
+   "start": -528,
+   "date_src": "part",
+   "place": "Eurasian cities and their hinterlands",
+   "paradigm": "agrarian_empire",
+   "desc": "Measles, smallpox and other immunising diseases persist only where a population of a few hundred thousand supplies new children each year (unchecked). Measles split from rinderpest around 528 BCE (range 1174 BCE to 165 CE) by a molecular clock (checked). Towns became reservoirs and the urban sink began.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "black_death_wage_shock",
+   "label": "Black Death wage shock",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1347,
+   "date_src": "part",
+   "place": "Europe and the Mediterranean",
+   "paradigm": "feudal_manorial",
+   "desc": "Plague killed a third to a half of Europe in 1347 to 1352 and recurred for three centuries. English real farm wages rose by about two thirds despite the labour statutes (parts 05, 06); land went to sheep, labourers ate and dressed better, and sumptuary law followed.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "columbian_die_off",
+   "label": "Columbian die-off",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1493,
+   "date_src": "part",
+   "place": "The Americas",
+   "paradigm": "early_modern_state",
+   "desc": "Smallpox, measles, influenza, then malaria and yellow fever killed about 56 million in the Americas by 1600, roughly 90% (contested in detail, part 11). Land without labour made the mita, the encomienda and the Atlantic slave trade's plantations.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "malaria_settlement_limit",
+   "label": "Malaria limits settlement",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1500,
+   "date_src": "general",
+   "place": "Marshes of Europe; West Africa; the Caribbean",
+   "paradigm": "early_modern_state",
+   "desc": "Malaria and yellow fever made marshes, coasts and the tropics deadly to newcomers: in West Africa often half of new European arrivals died in their first year (unchecked). Europeans traded from forts rather than settled, and planters bought enslaved Africans with partial immunity (contested).",
+   "chokepoint": true,
+   "part": "18"
+  },
+  {
+   "id": "marsh_drainage",
+   "label": "Marsh and fen drainage",
+   "domain": "building",
+   "kind": "infrastructure",
+   "start": 1630,
+   "date_src": "general",
+   "place": "English Fens; Roman Campagna; Pontine Marshes",
+   "paradigm": "early_modern_state",
+   "desc": "Draining marshes made land, waterways and health at once: the Fens from the 17th century, the Pontine Marshes in the 1930s. Burial rates in marsh parishes had run far above upland ones (Dobson, unchecked).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "jesuits_bark_quinine",
+   "label": "Cinchona bark and quinine",
+   "domain": "materials",
+   "kind": "good",
+   "start": 1630,
+   "date_src": "part",
+   "wide": 1850,
+   "place": "Andes (Loja); then Europe",
+   "paradigm": "early_modern_state",
+   "desc": "Andean cinchona bark was taken up by Jesuits as a fever cure in the 1630s; Pelletier and Caventou isolated quinine in 1820 (checked). Prophylaxis from the 1850s opened the African interior to European armies and traders.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "cinchona_plantations",
+   "label": "Java cinchona plantations",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1854,
+   "date_src": "part",
+   "wide": 1900,
+   "place": "Java (Dutch East Indies)",
+   "paradigm": "plantation_slave",
+   "desc": "Seeds taken from the Andes despite export bans grew into Dutch plantations of high-yield Cinchona ledgeriana that dominated world quinine; a 1913 Quinine Agreement is called the first pharmaceutical cartel (checked, secondary). Japan's capture of Java in 1942 cut the Allies off.",
+   "chokepoint": true,
+   "part": "18"
+  },
+  {
+   "id": "mosquito_control",
+   "label": "Mosquito control",
+   "domain": "building",
+   "kind": "technique",
+   "start": 1901,
+   "date_src": "general",
+   "wide": 1914,
+   "place": "Havana; Panama Canal Zone",
+   "paradigm": "industrial",
+   "desc": "Draining, oiling and screening against mosquitoes once their role was known. The French Panama canal lost perhaps 20,000 workers to fever (rough); the American canal succeeded after Gorgas's campaign (1904 to 1914).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "hookworm_campaign",
+   "label": "Hookworm eradication",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1909,
+   "date_src": "part",
+   "place": "American South",
+   "paradigm": "industrial",
+   "desc": "The Rockefeller Sanitary Commission's campaign (1909 to 1914) raised school attendance and later earnings in the most infected counties (Bleakley 2007, unchecked): disease as a tax on human capital.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "rinderpest_panzootic",
+   "label": "Rinderpest in Africa",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1887,
+   "date_src": "part",
+   "place": "Horn of Africa to the Cape, 1887 to 1897",
+   "paradigm": "pastoral_nomadic",
+   "desc": "Cattle plague swept from the Horn to the Cape and killed perhaps 80 to 90% of cattle in many places (rough), bringing famine to herders and bush and tsetse onto abandoned grazing. Rinderpest was declared eradicated in 2011 (memory).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "state_veterinary_cull",
+   "label": "Compulsory cull with compensation",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1866,
+   "date_src": "part",
+   "place": "Britain",
+   "paradigm": "industrial",
+   "desc": "Britain's cattle plague of 1865 to 1867 brought compulsory slaughter with compensation and a state veterinary service (memory): the state destroying private beasts to protect a shared stock, repeated in the 2001 foot-and-mouth cull (about six million animals, rough).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "household_herbal_healing",
+   "label": "Household herbal healing",
+   "domain": "materials",
+   "kind": "practice",
+   "start": -10000,
+   "date_src": "general",
+   "place": "Every society",
+   "paradigm": "horticultural_tribal",
+   "desc": "Most healing in history was done at home, mostly by women, with simples from the garden and hedge; cunning folk and wise women sold it by reputation. It needs plant knowledge passed down, and no institution.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "licensed_midwives",
+   "label": "Licensed midwives",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1512,
+   "date_src": "general",
+   "wide": 1902,
+   "place": "England (bishops' licences)",
+   "paradigm": "early_modern_state",
+   "desc": "Midwifery was licensed by English bishops from the early 16th century (memory), with oaths not to hide or swap infants; men-midwives with forceps entered in the 18th century, and the Midwives Act came in 1902 (memory).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "barber_surgeons",
+   "label": "Barber-surgeons",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1540,
+   "date_src": "part",
+   "place": "London and other towns",
+   "paradigm": "early_modern_state",
+   "desc": "A craft of the hands (bleeding, bones, teeth, wounds, amputations), organised as a guild with apprentices; London's Company of Barber-Surgeons dates from 1540 (memory). Armies were its school.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "college_of_physicians",
+   "label": "Licensed physicians",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1518,
+   "date_src": "general",
+   "place": "Universities of Salerno, Montpellier, Paris; London",
+   "paradigm": "early_modern_state",
+   "desc": "Learned diagnosis and prescription sold by university graduates, with a college licensing practice in a city (London 1518, memory). It held a monopoly that the apothecaries later broke.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "apothecaries_society",
+   "label": "Apothecaries' Society",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1617,
+   "date_src": "part",
+   "wide": 1815,
+   "place": "London",
+   "paradigm": "early_modern_state",
+   "desc": "Apothecaries left the Grocers' Company for their own Society in 1617; the Rose case (Lords, 1704) let them prescribe as well as dispense, and the 1815 Act made the Society the licensing body for general practice (all checked). The general practitioner grew from the drug shop.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "materia_medica_trade",
+   "label": "Drug and spice trade",
+   "domain": "exchange",
+   "kind": "industry",
+   "start": 1100,
+   "date_src": "general",
+   "place": "Venice, Alexandria, Canton; caravan and monsoon routes",
+   "paradigm": "commercial_city_state",
+   "desc": "An apothecary's shelves drew on world trade: pepper and ginger, Chinese rhubarb, Socotra aloes, Egyptian senna, opium, sugar as medicine, guaiacum wood for syphilis (a Fugger monopoly, memory) and Venetian theriac certified by officials. High value for weight, few ports of entry, adulteration a constant risk.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "bimaristan",
+   "label": "Bimaristan hospitals",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 800,
+   "date_src": "general",
+   "wide": 1284,
+   "place": "Baghdad, Damascus, Cairo",
+   "paradigm": "agrarian_empire",
+   "desc": "Endowed hospitals of the Islamic world with wards, physicians and pharmacies, paid for by waqf; Cairo's al-Mansuri dates from 1284 (memory). They join charity, endowment and learned medicine.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "voluntary_hospitals",
+   "label": "Charitable hospitals",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1123,
+   "date_src": "general",
+   "wide": 1721,
+   "place": "London (St Bartholomew's 1123; Guy's 1721)",
+   "paradigm": "feudal_manorial",
+   "desc": "Monastic infirmaries and endowed hospitals gave beds, food and care; 18th-century voluntary hospitals ran on subscriptions and became teaching and surgical centres (memory). Later the rates and the state paid.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "patent_medicines",
+   "label": "Patent medicines",
+   "domain": "exchange",
+   "kind": "industry",
+   "start": 1700,
+   "date_src": "general",
+   "place": "England, then America",
+   "paradigm": "early_modern_state",
+   "desc": "Branded remedies sold by advertisement, among the largest advertisers in 18th- and 19th-century newspapers; a market in hope before drug acts and proof of efficacy.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "bengal_opium_monopoly",
+   "label": "Bengal opium monopoly",
+   "domain": "exchange",
+   "kind": "institution",
+   "start": 1773,
+   "date_src": "general",
+   "place": "Bengal; Calcutta auctions; Canton",
+   "paradigm": "early_modern_state",
+   "desc": "The East India Company held a monopoly of Bengal opium and sold it to private traders who smuggled it into China to pay for tea; silver began to flow out of China, and the Opium Wars (1839 to 1842, 1856 to 1860) followed (memory). Drug, luxury, smuggling and finance in one chain.",
+   "chokepoint": true,
+   "part": "18"
+  },
+  {
+   "id": "smallpox_vaccination",
+   "label": "Smallpox inoculation and vaccine",
+   "domain": "materials",
+   "kind": "technique",
+   "start": 1721,
+   "date_src": "general",
+   "wide": 1800,
+   "place": "Ottoman lands to England (1721); Jenner (1796)",
+   "paradigm": "early_modern_state",
+   "desc": "Inoculation with smallpox matter came to England from the Ottoman world in 1721; Jenner's cowpox vaccine (1796) was the first mass preventive, made from cows (memory). It began the end of the crowd diseases' toll.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "vital_registration",
+   "label": "Mortality statistics",
+   "domain": "information",
+   "kind": "institution",
+   "start": 1603,
+   "date_src": "general",
+   "wide": 1837,
+   "place": "London bills of mortality; Farr's registration",
+   "paradigm": "early_modern_state",
+   "desc": "Weekly bills of mortality and then civil registration (1837) with William Farr's analysis showed which districts killed (memory). Statistics made the case for sanitation and public health.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "urban_penalty",
+   "label": "Urban penalty",
+   "domain": "building",
+   "kind": "practice",
+   "start": 1830,
+   "date_src": "part",
+   "place": "Manchester, Liverpool, London",
+   "paradigm": "industrial",
+   "desc": "Industrial crowding made towns deadlier before they became healthier: life expectancy in Manchester and Liverpool in the 1830s and 1840s ran well below England's average (Szreter, unchecked). Typhoid, tuberculosis and infant diarrhoea killed more than cholera, but cholera moved Parliament.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "wood_fuel_shortage",
+   "label": "Local wood famines",
+   "domain": "energy",
+   "kind": "practice",
+   "start": 1300,
+   "date_src": "part",
+   "place": "London; English towns 1550 to 1650; Venice",
+   "paradigm": "feudal_manorial",
+   "desc": "Woods near towns and fuel-hungry trades were cut faster than they grew, so fuel and great timber became dear within carting range. Nef's national 'timber crisis' is contested: ironmasters managed coppices and the shortage was local (Flinn, Hammersley). The answers were moving industry, managing woods, laws, or coal.",
+   "chokepoint": true,
+   "part": "18"
+  },
+  {
+   "id": "smoke_regulation",
+   "label": "Smoke nuisance rules",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1306,
+   "date_src": "general",
+   "place": "London",
+   "paradigm": "feudal_manorial",
+   "desc": "A royal proclamation of 1306 against burning sea coal in London (memory) and Evelyn's Fumifugium (1661) proposals to move smoky trades out had little effect for three centuries.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "tokugawa_forestry",
+   "label": "Tokugawa regenerative forestry",
+   "domain": "materials",
+   "kind": "institution",
+   "start": 1670,
+   "date_src": "part",
+   "wide": 1750,
+   "place": "Japan",
+   "paradigm": "early_modern_state",
+   "desc": "Old-growth forest was logged out by about 1670 for castles, temples and towns; felling bans and inventories, then planted forests, turned exploitation to regeneration (Totman 1989, checked as an argument), partly by coercion and partly by village self-rule over common woods.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "chesapeake_tobacco",
+   "label": "Chesapeake tobacco and old fields",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1612,
+   "date_src": "general",
+   "wide": 1700,
+   "place": "Virginia and Maryland",
+   "paradigm": "plantation_slave",
+   "desc": "Tobacco drew hard on the soil: planters cropped a field three or four years, left it as old field and cleared new ground (rough). The economy moved west with the frontier and leaned on enslaved labour to clear land; marl and lime came later as remedies (memory).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "dust_bowl_soil_conservation",
+   "label": "Dust Bowl and soil conservation",
+   "domain": "food",
+   "kind": "institution",
+   "start": 1935,
+   "date_src": "part",
+   "place": "Southern Great Plains, USA",
+   "paradigm": "industrial",
+   "desc": "Ploughing the Plains in wet years, then drought and wind, blew the soil away in the 1930s; the Soil Conservation Service (1935), contour ploughing, shelterbelts and paying farmers to retire land answered it (memory).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "aral_sea_salinisation",
+   "label": "Aral Sea and modern salinity",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1960,
+   "date_src": "general",
+   "place": "Amu Darya and Syr Darya basins; the Indus",
+   "paradigm": "socialist_planned",
+   "desc": "Soviet cotton irrigation took the rivers that fed the Aral Sea, which shrank to a small fraction of its volume with salt and dust blown off its bed (memory). Canal irrigation in the Indus basin waterlogged and salted land until tube wells lowered the water (rough).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "megafauna_overkill",
+   "label": "Megafauna extinctions",
+   "domain": "food",
+   "kind": "practice",
+   "start": -13000,
+   "date_src": "general",
+   "place": "The Americas and Australia",
+   "paradigm": "foraging",
+   "desc": "Mammoths, giant sloths and other large animals vanished as people arrived; human overkill against climate change is contested. The first depletion of a wild stock.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "bison_hide_hunt",
+   "label": "Bison hide hunt",
+   "domain": "textiles",
+   "kind": "industry",
+   "start": 1871,
+   "date_src": "part",
+   "place": "Great Plains, USA",
+   "paradigm": "frontier_settler",
+   "desc": "Once tanners could use bison hides for belting and leather and railways could carry them, hunters cut perhaps 30 to 60 million bison (c. 1800) to about 500 to 540 counted by Hornaday in 1889 (checked). A commons taken for a distant market.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "lacey_act",
+   "label": "Wildlife trade law",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1900,
+   "date_src": "general",
+   "place": "USA",
+   "paradigm": "industrial",
+   "desc": "The Lacey Act (1900) banned interstate trade in game taken illegally (memory): regulating the market rather than the hunt.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "whaling_moratorium",
+   "label": "Whaling convention and moratorium",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1946,
+   "date_src": "general",
+   "wide": 1986,
+   "place": "International Whaling Commission",
+   "paradigm": "industrial",
+   "desc": "Right, bowhead, sperm and blue whales were hunted down in turn; the 1946 convention and the 1986 moratorium closed the hunt (memory).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "river_close_seasons",
+   "label": "Close seasons and net rules",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1285,
+   "date_src": "general",
+   "place": "English and European rivers",
+   "paradigm": "feudal_manorial",
+   "desc": "Medieval rivers had close seasons for salmon, rules on net mesh and on weirs that blocked the whole river, and fisheries let by lease (memory; Magna Carta's weir clause in part 05).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "rivers_pollution_act",
+   "label": "River pollution law",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1876,
+   "date_src": "general",
+   "place": "Britain",
+   "paradigm": "industrial",
+   "desc": "The Rivers Pollution Prevention Act 1876 (memory) followed the Great Stink and the sewers: the river as a shared sink brought under statute.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "clean_air_act",
+   "label": "Clean Air Act",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1956,
+   "date_src": "part",
+   "place": "Britain",
+   "paradigm": "industrial",
+   "desc": "London's smog of December 1952 killed about 4,000 by the count at the time and 10,000 to 12,000 by later estimates (checked); the Clean Air Act 1956 brought smokeless zones and controls on domestic and industrial smoke (checked).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "leaded_petrol",
+   "label": "Leaded petrol",
+   "domain": "energy",
+   "kind": "good",
+   "start": 1923,
+   "date_src": "general",
+   "wide": 1970,
+   "place": "USA, then worldwide",
+   "paradigm": "industrial",
+   "desc": "Tetraethyl lead stopped engine knock and spread lead into the air and children's blood worldwide; phased out by 2021 (memory). A pollution built into a fuel.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "so2_cap_and_trade",
+   "label": "Sulphur cap-and-trade",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1990,
+   "date_src": "general",
+   "place": "USA (Clean Air Act Amendments)",
+   "paradigm": "service_information",
+   "desc": "Tradable allowances for power stations' sulphur dioxide cut acid rain at lower cost than expected (rough): pricing a sink.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "montreal_protocol",
+   "label": "Montreal Protocol",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1987,
+   "date_src": "general",
+   "place": "Worldwide",
+   "paradigm": "service_information",
+   "desc": "The 1987 treaty phased out CFCs that thinned the ozone layer (memory): the clearest global commons regulated successfully.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "carbon_pricing",
+   "label": "Carbon pricing",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 2005,
+   "date_src": "general",
+   "place": "European Union (ETS), then others",
+   "paradigm": "service_information",
+   "desc": "Permits or taxes on carbon dioxide, with standards and subsidies for substitutes; the atmosphere as a priced commons (memory).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "greenland_walrus_ivory",
+   "label": "Greenland walrus ivory",
+   "domain": "exchange",
+   "kind": "industry",
+   "start": 1000,
+   "date_src": "general",
+   "place": "Norse Greenland to Norway and Europe",
+   "paradigm": "maritime_trading",
+   "desc": "Norse Greenland paid its way in walrus ivory; when elephant ivory returned to Europe and the climate cooled, the colony lost its export and was abandoned in the 15th century (contested). A trade-dependent outpost rather than a simple ecocide.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "pepper_trade",
+   "label": "Pepper and spice trade",
+   "domain": "exchange",
+   "kind": "industry",
+   "start": 1,
+   "date_src": "general",
+   "wide": 1500,
+   "place": "Malabar coast; Red Sea; Venice and Alexandria",
+   "paradigm": "agrarian_empire",
+   "desc": "Pepper from Malabar, cinnamon from Ceylon, cloves and nutmeg from the Moluccas and Banda: high value for weight paid for monsoon voyages and caravans. Venice and Alexandria held the western end until the Portuguese Cape route (1498).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "banda_nutmeg_monopoly",
+   "label": "Banda nutmeg monopoly",
+   "domain": "food",
+   "kind": "institution",
+   "start": 1621,
+   "date_src": "part",
+   "place": "Banda Islands",
+   "paradigm": "maritime_trading",
+   "desc": "Nutmeg and mace grew only on the Bandas. The Dutch East India Company took them in 1621, killing, enslaving or driving out most of perhaps 13,000 to 15,000 people (checked as to the range), and replanted them as slave-worked groves.",
+   "chokepoint": true,
+   "part": "18"
+  },
+  {
+   "id": "byzantine_silk_monopoly",
+   "label": "Byzantine silk monopoly",
+   "domain": "textiles",
+   "kind": "institution",
+   "start": 552,
+   "date_src": "general",
+   "place": "Constantinople",
+   "paradigm": "agrarian_empire",
+   "desc": "Silkworm eggs smuggled from Central Asia in the 550s (Procopius, memory) let Byzantium make silk under imperial workshops and a state monopoly; Lucca, Venice and Lyon followed.",
+   "chokepoint": true,
+   "part": "18"
+  },
+  {
+   "id": "tyrian_purple",
+   "label": "Tyrian purple",
+   "domain": "textiles",
+   "kind": "good",
+   "start": -1500,
+   "date_src": "general",
+   "place": "Tyre and Sidon, Levant coast",
+   "paradigm": "early_state",
+   "desc": "Dye from murex snail glands: about 12,000 snails gave 1.4 g in Friedländer's 1908 to 1909 experiment (checked), enough to trim one garment. Purple marked Roman senators and Byzantine emperors, and imperial workshops held its monopoly.",
+   "chokepoint": true,
+   "part": "18"
+  },
+  {
+   "id": "cochineal_dye",
+   "label": "Cochineal",
+   "domain": "textiles",
+   "kind": "good",
+   "start": 1520,
+   "date_src": "part",
+   "place": "Oaxaca, New Spain",
+   "paradigm": "early_modern_state",
+   "desc": "Scale insects raised on prickly pear by Indigenous households; about 70,000 dried insects to a pound of red dye, and New Spain's second export after silver (checked, secondary). Spain kept the insect at home; aniline dyes ended its reign after 1856.",
+   "chokepoint": true,
+   "part": "18"
+  },
+  {
+   "id": "canton_tea_trade",
+   "label": "Canton tea trade",
+   "domain": "exchange",
+   "kind": "industry",
+   "start": 1700,
+   "date_src": "general",
+   "wide": 1784,
+   "place": "Canton (Guangzhou); the East India Company",
+   "paradigm": "early_modern_state",
+   "desc": "Chinese tea bought at Canton through licensed merchants under the East India Company's monopoly became Britain's mass drink; high duties made it the most smuggled good until 1784, and opium paid for it later.",
+   "chokepoint": true,
+   "part": "18"
+  },
+  {
+   "id": "tea_plant_transfer",
+   "label": "Tea transferred to India",
+   "domain": "food",
+   "kind": "industry",
+   "start": 1848,
+   "date_src": "general",
+   "wide": 1880,
+   "place": "Assam; Darjeeling; Ceylon",
+   "paradigm": "plantation_slave",
+   "desc": "Robert Fortune took tea plants and growers out of China in 1848 to 1851 (memory); Assam and Ceylon plantations ended China's monopoly.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "meissen_porcelain",
+   "label": "Meissen porcelain",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1710,
+   "date_src": "general",
+   "place": "Meissen, Saxony",
+   "paradigm": "early_modern_state",
+   "desc": "Böttger and Tschirnhaus made European hard-paste porcelain about 1708 to 1710 (memory), under the Saxon elector's monopoly and secrecy, ending dependence on Chinese imports.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "wedgwood_creamware",
+   "label": "Wedgwood creamware",
+   "domain": "materials",
+   "kind": "industry",
+   "start": 1765,
+   "date_src": "general",
+   "place": "Staffordshire potteries; London showrooms",
+   "paradigm": "industrial",
+   "desc": "Josiah Wedgwood sold 'Queen's Ware' to the middle classes with royal patronage, showrooms, pattern books, travellers and fixed prices: the consumer revolution as marketing (McKendrick).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "sumptuary_laws",
+   "label": "Sumptuary laws",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1363,
+   "date_src": "part",
+   "place": "Rome, Italian cities, England, Ming China, Tokugawa Japan",
+   "paradigm": "feudal_manorial",
+   "desc": "Laws fixing who might wear, eat or display what. England's Statute concerning Diet and Apparel of 1363 (checked) answered post-plague wages; others aimed to stop bullion leaving or protect home industry. Widely evaded; status goods are positional.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "great_household_feasting",
+   "label": "Great-household hospitality",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1200,
+   "date_src": "general",
+   "place": "Medieval noble and church households",
+   "paradigm": "feudal_manorial",
+   "desc": "Lords spent much of their income on food, drink, livery cloth and hospitality (Dyer: often half or more on food and drink, rough): surplus turned into standing, retainers and alliance.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "consumer_revolution",
+   "label": "Consumer revolution",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1680,
+   "date_src": "part",
+   "wide": 1760,
+   "place": "England and the Dutch Republic",
+   "paradigm": "early_modern_state",
+   "desc": "Households bought far more china, pewter, clocks, looking-glasses, printed cottons and tea things from the later 17th century (Weatherill, Shammas; counts unchecked). With the industrious revolution, demand that pulled proto-industry and the factory.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "fashion_cycle",
+   "label": "Fashion as an industry",
+   "domain": "textiles",
+   "kind": "practice",
+   "start": 1700,
+   "date_src": "general",
+   "place": "Lyon silk; Paris fashion dolls and plates",
+   "paradigm": "early_modern_state",
+   "desc": "Lyon's designers changed silk patterns each season and fashion dolls and plates carried styles across Europe (memory); Simmel's trickle-down: the rich move on as others imitate.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "luxury_conglomerates",
+   "label": "Luxury brand groups",
+   "domain": "exchange",
+   "kind": "industry",
+   "start": 1987,
+   "date_src": "general",
+   "place": "Paris, Milan",
+   "paradigm": "service_information",
+   "desc": "Personal luxury goods are a market of a few hundred billion euros a year (about 360 billion in 2023, rough), with margins from brands, controlled scarcity and owned retail rather than materials.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "de_beers_cartel",
+   "label": "De Beers diamond cartel",
+   "domain": "materials",
+   "kind": "institution",
+   "start": 1888,
+   "date_src": "general",
+   "wide": 1947,
+   "place": "Kimberley; London",
+   "paradigm": "industrial",
+   "desc": "De Beers controlled most rough diamond trade for much of the 20th century and marketed scarcity ('a diamond is forever', 1947), until supply diversified and synthetics arrived (memory).",
+   "chokepoint": true,
+   "part": "18"
+  },
+  {
+   "id": "counterfeit_goods",
+   "label": "Counterfeit goods",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1990,
+   "date_src": "general",
+   "place": "Worldwide",
+   "paradigm": "service_information",
+   "desc": "Fake brands and medicines put at about 2.5% of world trade in 2016 (OECD and EUIPO, rough): luxury's and pharma's shadow trade.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "hue_and_cry",
+   "label": "Hue and cry",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 900,
+   "date_src": "general",
+   "place": "English villages",
+   "paradigm": "feudal_manorial",
+   "desc": "Anyone robbed raised the cry and all had to follow the thief from village to village (memory): policing as a duty of neighbours, beside frankpledge.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "watch_and_ward",
+   "label": "Watch and ward",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1285,
+   "date_src": "part",
+   "place": "England (Statute of Winchester)",
+   "paradigm": "feudal_manorial",
+   "desc": "The Statute of Winchester (1285) shut town gates at night, set watchmen and cleared brush 200 feet each side of highways against ambush (memory).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "thief_takers",
+   "label": "Thief-takers",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1690,
+   "date_src": "general",
+   "place": "London",
+   "paradigm": "early_modern_state",
+   "desc": "Private recovery of stolen goods for reward; Jonathan Wild (hanged 1725) ran theft and return together (memory). Recovery by reward before prevention by patrol.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "bow_street_runners",
+   "label": "Bow Street Runners",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1749,
+   "date_src": "general",
+   "place": "London",
+   "paradigm": "early_modern_state",
+   "desc": "Paid officers attached to a magistrate (1749, memory): the step between thief-takers and the Metropolitan Police.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "highway_robbery",
+   "label": "Brigandage and highway robbery",
+   "domain": "transport",
+   "kind": "practice",
+   "start": 500,
+   "date_src": "general",
+   "place": "Roads of Eurasia; later Europe, the Balkans, China",
+   "paradigm": "agrarian_empire",
+   "desc": "Bandits thrived where states were weak or borders near; Hobsbawm's social bandit is contested by Blok. Caravans went armed or escorted, and states that cleared the roads widened markets.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "cilician_piracy",
+   "label": "Cilician piracy",
+   "domain": "transport",
+   "kind": "practice",
+   "start": -140,
+   "date_src": "general",
+   "place": "Eastern Mediterranean",
+   "paradigm": "agrarian_empire",
+   "desc": "Raids and slaving that fed Delos's slave market until Pompey's command of 67 BCE cleared the sea (memory).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "wokou_piracy",
+   "label": "Wokou piracy",
+   "domain": "transport",
+   "kind": "practice",
+   "start": 1350,
+   "date_src": "general",
+   "wide": 1567,
+   "place": "China, Korea and Japan coasts",
+   "paradigm": "agrarian_empire",
+   "desc": "Japanese and Chinese smugglers and raiders fed by Ming bans on private sea trade; the raids fell after the ban was lifted in 1567 (memory). Piracy as the shadow of a trade ban.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "barbary_corsairs",
+   "label": "Barbary corsairs",
+   "domain": "transport",
+   "kind": "practice",
+   "start": 1530,
+   "date_src": "part",
+   "place": "Algiers, Tunis, Tripoli, Salé",
+   "paradigm": "early_modern_state",
+   "desc": "Raids on ships and coasts for ransom and slaves: Davis estimates 1 to 1.25 million Europeans enslaved 1530 to 1780 (checked as his estimate; contested). States paid tribute or sent fleets.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "privateering",
+   "label": "Privateering",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1560,
+   "date_src": "general",
+   "wide": 1856,
+   "place": "England, France, the Netherlands, Spain",
+   "paradigm": "early_modern_state",
+   "desc": "States licensed private ships to seize enemy merchants: war as a business, ended among signatories by the Declaration of Paris (1856, memory).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "somali_piracy",
+   "label": "Somali piracy",
+   "domain": "transport",
+   "kind": "practice",
+   "start": 2005,
+   "date_src": "part",
+   "place": "Gulf of Aden and Indian Ocean",
+   "paradigm": "service_information",
+   "desc": "Ransom piracy cost $7 to 12 billion in 2010 and about $7 billion in 2011, of which ransoms were about 2%; faster steaming, patrols, guards and insurance were the rest (Oceans Beyond Piracy, checked). The cost of predation is mostly the cost of avoiding it.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "tea_smuggling",
+   "label": "Tea smuggling",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 1720,
+   "date_src": "part",
+   "place": "English Channel coasts",
+   "paradigm": "early_modern_state",
+   "desc": "With duties near 119%, gangs such as the Hawkhurst Gang ran much of England's tea in from the Continent; the Commutation Act of 1784 cut the duty to 12.5% and legal sales rose (checked).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "commutation_act",
+   "label": "Commutation Act duty cut",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1784,
+   "date_src": "part",
+   "place": "Britain",
+   "paradigm": "early_modern_state",
+   "desc": "The tea duty cut from 119% to 12.5% (checked) took the smugglers' margin: a lower duty raising more revenue, as Adam Smith argued.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "gabelle_salt_tax",
+   "label": "Gabelle and salt smuggling",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1340,
+   "date_src": "general",
+   "place": "France",
+   "paradigm": "feudal_manorial",
+   "desc": "France's salt tax made salt many times dearer in some provinces than others; the faux-sauniers who carried it across were hunted by a large armed customs force (memory).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "milled_coinage",
+   "label": "Milled coin and recoinage",
+   "domain": "exchange",
+   "kind": "technique",
+   "start": 1662,
+   "date_src": "general",
+   "wide": 1696,
+   "place": "London Mint",
+   "paradigm": "early_modern_state",
+   "desc": "Hammered coin invited clipping and sweating; milled edges from 1662 and the Great Recoinage of 1696 under Newton at the Mint answered it (memory).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "hallmarking",
+   "label": "Hallmarking",
+   "domain": "metals",
+   "kind": "institution",
+   "start": 1300,
+   "date_src": "general",
+   "wide": 1478,
+   "place": "London Goldsmiths",
+   "paradigm": "feudal_manorial",
+   "desc": "The goldsmiths' assay and mark guaranteed silver and gold fineness from 1300 (memory): a guild search turned into a standard.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "cloth_seals_aulnage",
+   "label": "Cloth seals and searchers",
+   "domain": "textiles",
+   "kind": "institution",
+   "start": 1350,
+   "date_src": "general",
+   "place": "England and Flanders",
+   "paradigm": "feudal_manorial",
+   "desc": "Royal aulnagers and guild searchers measured and sealed each cloth against stretching and short length (memory): a seal as a quality and measure certificate.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "food_adulteration",
+   "label": "Food adulteration",
+   "domain": "food",
+   "kind": "practice",
+   "start": 1750,
+   "date_src": "part",
+   "place": "London and industrial cities",
+   "paradigm": "industrial",
+   "desc": "Alum in bread, water in milk and beer, coloured tea leaves; Accum's treatise (early 19th century) exposed it. Cheating grew with the distance between maker and buyer.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "food_adulteration_acts",
+   "label": "Food and drug purity acts",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1860,
+   "date_src": "part",
+   "wide": 1875,
+   "place": "Britain; USA 1906",
+   "paradigm": "industrial",
+   "desc": "The Bradford sweets poisoning of 1858 (over 200 poisoned, 21 dead, checked) helped pass the Adulteration of Food Act (1860), then the Sale of Food and Drugs Act (1875, memory), with public analysts.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "guard_labour",
+   "label": "Guard labour",
+   "domain": "institutions",
+   "kind": "practice",
+   "start": 1900,
+   "date_src": "general",
+   "place": "Modern economies",
+   "paradigm": "industrial",
+   "desc": "Police, guards, supervisors and prison staff as a share of the workforce, larger where inequality is higher (Bowles and Jayadev, contested): labour taken from making to protect what is made.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "equal_arm_balance",
+   "label": "Equal-arm balance",
+   "domain": "exchange",
+   "kind": "technique",
+   "start": -3000,
+   "date_src": "general",
+   "place": "Egypt and Mesopotamia",
+   "paradigm": "early_state",
+   "desc": "The balance and set weights let silver, metals and spices be traded and taxed by weight; with sworn weights it is the first measuring instrument of trade.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "qin_standardisation",
+   "label": "Qin standardisation",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": -221,
+   "date_src": "part",
+   "place": "China",
+   "paradigm": "agrarian_empire",
+   "desc": "In 221 BCE the Qin made weights, measures, coin, script and axle widths one across the empire, with inscribed standard weights (memory).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "exchequer_standards",
+   "label": "Exchequer standards",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1215,
+   "date_src": "part",
+   "place": "Westminster; English towns",
+   "paradigm": "feudal_manorial",
+   "desc": "Magna Carta clause 35 (1215) ordered one measure of wine, ale and corn (the London quarter) and one breadth of dyed cloth through the realm (checked); standards kept at the Exchequer and copies sent to towns. Local measures survived for centuries.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "weights_inspectors",
+   "label": "Inspectors of weights and measures",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1835,
+   "date_src": "general",
+   "place": "English counties and boroughs",
+   "paradigm": "industrial",
+   "desc": "Local inspectors under 19th-century acts, later trading standards officers (memory), with imperial units made uniform in 1824.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "metric_system",
+   "label": "Metric system",
+   "domain": "information",
+   "kind": "institution",
+   "start": 1795,
+   "date_src": "part",
+   "wide": 1840,
+   "place": "France",
+   "paradigm": "early_modern_state",
+   "desc": "Designed 1790 to 1795 from the meridian and water, decimal throughout; platinum metre and kilogram deposited 1799 and compulsory in France only from 1840 (memory). France had had hundreds of units in many local variants (unchecked).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "metre_convention",
+   "label": "Metre Convention and BIPM",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1875,
+   "date_src": "part",
+   "place": "Paris; Sèvres",
+   "paradigm": "industrial",
+   "desc": "Signed on 20 May 1875 by seventeen states, it set up the International Bureau of Weights and Measures with new prototypes (checked); Britain signed in 1884 (checked).",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "si_constants",
+   "label": "SI from constants",
+   "domain": "information",
+   "kind": "institution",
+   "start": 2019,
+   "date_src": "part",
+   "place": "BIPM",
+   "paradigm": "service_information",
+   "desc": "In 2019 every SI base unit was redefined from fixed constants of nature, the kilogram from Planck's constant (memory): the standard handed from a metal cylinder to physics.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "railway_gauge_standard",
+   "label": "Standard railway gauge",
+   "domain": "transport",
+   "kind": "institution",
+   "start": 1846,
+   "date_src": "general",
+   "place": "Britain",
+   "paradigm": "industrial",
+   "desc": "The Gauge Act of 1846 after the 'gauge war' (memory) let wagons run through between companies.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "standard_time",
+   "label": "Standard time zones",
+   "domain": "information",
+   "kind": "institution",
+   "start": 1847,
+   "date_src": "general",
+   "wide": 1884,
+   "place": "British railways; North America 1883; Greenwich 1884",
+   "paradigm": "industrial",
+   "desc": "Railway time from 1847, North American zones in 1883 and the Greenwich meridian in 1884 (memory) let timetables and telegraphs agree.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "national_standards_labs",
+   "label": "National standards laboratories",
+   "domain": "information",
+   "kind": "institution",
+   "start": 1900,
+   "date_src": "general",
+   "place": "NPL (Britain 1900); NBS (USA 1901)",
+   "paradigm": "industrial",
+   "desc": "State laboratories keeping and testing standards for industry (memory): measurement as a public good supplied by the state.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "iso_standards_body",
+   "label": "ISO",
+   "domain": "institutions",
+   "kind": "institution",
+   "start": 1947,
+   "date_src": "general",
+   "place": "Geneva",
+   "paradigm": "industrial",
+   "desc": "The International Organization for Standardization (1947, memory) coordinates interface standards, among them container sizes.",
+   "chokepoint": false,
+   "part": "18"
+  },
+  {
+   "id": "benchmark_fraud",
+   "label": "Benchmark and test fraud",
+   "domain": "exchange",
+   "kind": "practice",
+   "start": 2012,
+   "date_src": "part",
+   "place": "London (LIBOR); emissions tests (2015)",
+   "paradigm": "service_information",
+   "desc": "The rigging of LIBOR (2012) and Volkswagen's emissions defeat device (2015): short weight in a measure that prices trillions or certifies millions of cars.",
+   "chokepoint": false,
+   "part": "18"
+  }
+ ],
+ "edges": [
+  {
+   "from": "animal_domestication",
+   "to": "zoonoses_from_herds",
+   "type": "enables",
+   "note": "herds beside houses passed diseases to people",
+   "src": "part"
+  },
+  {
+   "from": "milk_dairy",
+   "to": "zoonoses_from_herds",
+   "type": "enables",
+   "note": "dairy milk carried bovine tuberculosis",
+   "src": "part"
+  },
+  {
+   "from": "zoonoses_from_herds",
+   "to": "crowd_diseases",
+   "type": "enables",
+   "note": "measles split from rinderpest",
+   "src": "part"
+  },
+  {
+   "from": "cities",
+   "to": "crowd_diseases",
+   "type": "enables",
+   "note": "only big populations keep immunising diseases alive",
+   "src": "part"
+  },
+  {
+   "from": "crowd_diseases",
+   "to": "urban_penalty",
+   "type": "enables",
+   "note": "towns as disease reservoirs and sinks",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "black_death_wage_shock",
+   "type": "enables",
+   "note": "plague travelled with ships and caravans",
+   "src": "part"
+  },
+  {
+   "from": "crowd_diseases",
+   "to": "columbian_die_off",
+   "type": "enables",
+   "note": "Old World crowd diseases met unexposed peoples",
+   "src": "part"
+  },
+  {
+   "from": "black_death_wage_shock",
+   "to": "statute_of_labourers",
+   "type": "enables",
+   "note": "wage freeze attempted after the plague",
+   "src": "part"
+  },
+  {
+   "from": "black_death_wage_shock",
+   "to": "enclosure_for_sheep",
+   "type": "enables",
+   "note": "scarce labour turned land to pasture",
+   "src": "part"
+  },
+  {
+   "from": "black_death_wage_shock",
+   "to": "sumptuary_laws",
+   "type": "enables",
+   "note": "labourers dressing above their station",
+   "src": "part"
+  },
+  {
+   "from": "black_death_wage_shock",
+   "to": "quarantine",
+   "type": "enables",
+   "note": "plague recurrence prompted isolation",
+   "src": "part"
+  },
+  {
+   "from": "columbian_die_off",
+   "to": "potosi_mita",
+   "type": "enables",
+   "note": "labour drafted from the survivors",
+   "src": "part"
+  },
+  {
+   "from": "columbian_die_off",
+   "to": "atlantic_slave_trade",
+   "type": "enables",
+   "note": "empty land filled with enslaved labour",
+   "src": "part"
+  },
+  {
+   "from": "malaria_settlement_limit",
+   "to": "atlantic_slave_trade",
+   "type": "enables",
+   "note": "partial immunity shaped planters' choice of labour",
+   "src": "part"
+  },
+  {
+   "from": "malaria_settlement_limit",
+   "to": "marsh_drainage",
+   "type": "enables",
+   "note": "drainage cured ague as well as made land",
+   "src": "part"
+  },
+  {
+   "from": "irrigation_farming",
+   "to": "malaria_settlement_limit",
+   "type": "enables",
+   "note": "standing water bred mosquitoes",
+   "src": "general"
+  },
+  {
+   "from": "malaria_settlement_limit",
+   "to": "jesuits_bark_quinine",
+   "type": "enables",
+   "note": "fevers made the bark valuable",
+   "src": "part"
+  },
+  {
+   "from": "materia_medica_trade",
+   "to": "jesuits_bark_quinine",
+   "type": "enables",
+   "note": "bark joined the apothecary's imported drugs",
+   "src": "part"
+  },
+  {
+   "from": "jesuits_bark_quinine",
+   "to": "cinchona_plantations",
+   "type": "enables",
+   "note": "seeds taken despite Andean export bans",
+   "src": "part"
+  },
+  {
+   "from": "cinchona_plantations",
+   "to": "synthetic_drugs",
+   "type": "enables",
+   "note": "loss of Java pushed synthetic antimalarials",
+   "src": "part"
+  },
+  {
+   "from": "germ_theory",
+   "to": "mosquito_control",
+   "type": "enables",
+   "note": "knowing the vector made control possible",
+   "src": "part"
+  },
+  {
+   "from": "mosquito_control",
+   "to": "panama_canal",
+   "type": "enables",
+   "note": "the canal succeeded after Gorgas's campaign",
+   "src": "part"
+  },
+  {
+   "from": "germ_theory",
+   "to": "hookworm_campaign",
+   "type": "enables",
+   "note": "a known parasite, a known cure",
+   "src": "general"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "rinderpest_panzootic",
+   "type": "enables",
+   "note": "dense herds carried the cattle plague",
+   "src": "general"
+  },
+  {
+   "from": "household_herbal_healing",
+   "to": "licensed_midwives",
+   "type": "enables",
+   "note": "birth skill became a licensed office",
+   "src": "part"
+  },
+  {
+   "from": "household_herbal_healing",
+   "to": "materia_medica_trade",
+   "type": "enables",
+   "note": "home simples beside imported drugs",
+   "src": "part"
+  },
+  {
+   "from": "guilds",
+   "to": "barber_surgeons",
+   "type": "enables",
+   "note": "a craft guild with apprentices",
+   "src": "part"
+  },
+  {
+   "from": "guilds",
+   "to": "apothecaries_society",
+   "type": "enables",
+   "note": "apothecaries left the Grocers' Company",
+   "src": "part"
+  },
+  {
+   "from": "materia_medica_trade",
+   "to": "apothecaries_society",
+   "type": "input",
+   "note": "imported drugs on the apothecary's shelves",
+   "src": "part"
+  },
+  {
+   "from": "college_of_physicians",
+   "to": "apothecaries_society",
+   "type": "replaces",
+   "note": "apothecaries won the right to prescribe",
+   "src": "part"
+  },
+  {
+   "from": "pepper_trade",
+   "to": "materia_medica_trade",
+   "type": "enables",
+   "note": "spices sold as drugs by grocers",
+   "src": "part"
+  },
+  {
+   "from": "cane_sugar_crystal",
+   "to": "materia_medica_trade",
+   "type": "input",
+   "note": "sugar first sold as medicine",
+   "src": "part"
+  },
+  {
+   "from": "waqf",
+   "to": "bimaristan",
+   "type": "enables",
+   "note": "endowments paid for wards and physicians",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "voluntary_hospitals",
+   "type": "enables",
+   "note": "monastic and endowed infirmaries",
+   "src": "general"
+  },
+  {
+   "from": "newspapers",
+   "to": "patent_medicines",
+   "type": "enables",
+   "note": "advertising sold branded remedies",
+   "src": "part"
+  },
+  {
+   "from": "patent_medicines",
+   "to": "drug_regulation",
+   "type": "enables",
+   "note": "proof of efficacy answered quackery",
+   "src": "general"
+  },
+  {
+   "from": "canton_tea_trade",
+   "to": "bengal_opium_monopoly",
+   "type": "enables",
+   "note": "tea demand created the opium trade",
+   "src": "part"
+  },
+  {
+   "from": "quarantine",
+   "to": "lazaretto",
+   "type": "enables",
+   "note": "isolation at an island hospital",
+   "src": "part"
+  },
+  {
+   "from": "smallpox_vaccination",
+   "to": "demographic_transition",
+   "type": "enables",
+   "note": "fewer childhood deaths",
+   "src": "part"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "smallpox_vaccination",
+   "type": "input",
+   "note": "vaccine made from cows",
+   "src": "part"
+  },
+  {
+   "from": "vital_registration",
+   "to": "public_health_acts",
+   "type": "enables",
+   "note": "statistics showed which districts killed",
+   "src": "part"
+  },
+  {
+   "from": "vital_registration",
+   "to": "medical_officers_health",
+   "type": "enables",
+   "note": "sanitary statistics for officers",
+   "src": "part"
+  },
+  {
+   "from": "urban_penalty",
+   "to": "public_health_acts",
+   "type": "enables",
+   "note": "cholera and fever moved Parliament",
+   "src": "part"
+  },
+  {
+   "from": "urban_penalty",
+   "to": "bazalgette_sewers",
+   "type": "enables",
+   "note": "the crisis behind intercepting sewers",
+   "src": "general"
+  },
+  {
+   "from": "synthetic_drugs",
+   "to": "pharma_rnd_trials",
+   "type": "enables",
+   "note": "part 13's drug chain",
+   "src": "part"
+  },
+  {
+   "from": "friendly_societies",
+   "to": "social_insurance",
+   "type": "enables",
+   "note": "sick clubs before compulsory insurance",
+   "src": "part"
+  },
+  {
+   "from": "bimaristan",
+   "to": "voluntary_hospitals",
+   "type": "enables",
+   "note": "hospital as an endowed institution",
+   "src": "general"
+  },
+  {
+   "from": "wood_fuel",
+   "to": "wood_fuel_shortage",
+   "type": "enables",
+   "note": "fuel cut faster than it grew near towns",
+   "src": "part"
+  },
+  {
+   "from": "firewood_ring",
+   "to": "wood_fuel_shortage",
+   "type": "enables",
+   "note": "carting cost bounded the fuel ring",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel_shortage",
+   "to": "london_sea_coal",
+   "type": "enables",
+   "note": "sea coal replaced scarce firewood",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel_shortage",
+   "to": "woods_preservation_law",
+   "type": "enables",
+   "note": "laws rationed woods",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel_shortage",
+   "to": "naval_oak_regulation",
+   "type": "enables",
+   "note": "great oak reserved for navies",
+   "src": "part"
+  },
+  {
+   "from": "wood_fuel_shortage",
+   "to": "tokugawa_forestry",
+   "type": "enables",
+   "note": "logged-out Japan turned to regeneration",
+   "src": "part"
+  },
+  {
+   "from": "tokugawa_forestry",
+   "to": "plantation_forestry",
+   "type": "enables",
+   "note": "planted forests as a managed stock",
+   "src": "general"
+  },
+  {
+   "from": "regulated_commons",
+   "to": "tokugawa_forestry",
+   "type": "enables",
+   "note": "village self-rule over common woods",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "smoke_regulation",
+   "type": "enables",
+   "note": "coal smoke prompted the 1306 ban",
+   "src": "part"
+  },
+  {
+   "from": "coal",
+   "to": "clean_air_act",
+   "type": "enables",
+   "note": "coal smoke killed in the 1952 smog",
+   "src": "part"
+  },
+  {
+   "from": "smoke_regulation",
+   "to": "clean_air_act",
+   "type": "replaces",
+   "note": "effective law after six centuries of nuisance",
+   "src": "part"
+  },
+  {
+   "from": "leblanc_waste",
+   "to": "alkali_act",
+   "type": "enables",
+   "note": "acid gas damage forced inspection",
+   "src": "part"
+  },
+  {
+   "from": "bazalgette_sewers",
+   "to": "rivers_pollution_act",
+   "type": "enables",
+   "note": "river as a shared sink under statute",
+   "src": "general"
+  },
+  {
+   "from": "river_ordinances",
+   "to": "rivers_pollution_act",
+   "type": "replaces",
+   "note": "national statute for town ordinances",
+   "src": "general"
+  },
+  {
+   "from": "petrol_diesel",
+   "to": "leaded_petrol",
+   "type": "input",
+   "note": "lead added to petrol against knock",
+   "src": "general"
+  },
+  {
+   "from": "motor_vehicle",
+   "to": "leaded_petrol",
+   "type": "enables",
+   "note": "engine knock in higher-compression cars",
+   "src": "general"
+  },
+  {
+   "from": "electric_grid",
+   "to": "so2_cap_and_trade",
+   "type": "enables",
+   "note": "power-station sulphur caused acid rain",
+   "src": "general"
+  },
+  {
+   "from": "alkali_act",
+   "to": "so2_cap_and_trade",
+   "type": "enables",
+   "note": "inspection before priced permits",
+   "src": "part"
+  },
+  {
+   "from": "so2_cap_and_trade",
+   "to": "carbon_pricing",
+   "type": "enables",
+   "note": "tradable permits as the model",
+   "src": "general"
+  },
+  {
+   "from": "montreal_protocol",
+   "to": "carbon_pricing",
+   "type": "enables",
+   "note": "a global atmospheric commons regulated",
+   "src": "general"
+  },
+  {
+   "from": "oil_petroleum",
+   "to": "carbon_pricing",
+   "type": "enables",
+   "note": "fossil carbon priced to curb warming",
+   "src": "general"
+  },
+  {
+   "from": "solar_wind",
+   "to": "carbon_pricing",
+   "type": "enables",
+   "note": "substitutes that the price favours",
+   "src": "general"
+  },
+  {
+   "from": "chesapeake_tobacco",
+   "to": "cotton_plantation",
+   "type": "enables",
+   "note": "the same soil-mining path west",
+   "src": "general"
+  },
+  {
+   "from": "slavery",
+   "to": "chesapeake_tobacco",
+   "type": "enables",
+   "note": "enslaved labour cleared new ground",
+   "src": "part"
+  },
+  {
+   "from": "plough",
+   "to": "dust_bowl_soil_conservation",
+   "type": "enables",
+   "note": "ploughed Plains blew away in drought",
+   "src": "part"
+  },
+  {
+   "from": "tractor",
+   "to": "dust_bowl_soil_conservation",
+   "type": "enables",
+   "note": "mechanised breaking of the Plains",
+   "src": "general"
+  },
+  {
+   "from": "andean_terraces",
+   "to": "dust_bowl_soil_conservation",
+   "type": "enables",
+   "note": "old answer to erosion on slopes",
+   "src": "part"
+  },
+  {
+   "from": "field_salinisation",
+   "to": "aral_sea_salinisation",
+   "type": "enables",
+   "note": "the same salt mechanism, measured now",
+   "src": "part"
+  },
+  {
+   "from": "irrigation_farming",
+   "to": "aral_sea_salinisation",
+   "type": "enables",
+   "note": "canals without drainage",
+   "src": "part"
+  },
+  {
+   "from": "cotton",
+   "to": "aral_sea_salinisation",
+   "type": "enables",
+   "note": "Soviet cotton took the rivers",
+   "src": "part"
+  },
+  {
+   "from": "hunting",
+   "to": "megafauna_overkill",
+   "type": "enables",
+   "note": "first depletion of a wild stock",
+   "src": "part"
+  },
+  {
+   "from": "tanning",
+   "to": "bison_hide_hunt",
+   "type": "enables",
+   "note": "tanners learned to use bison hides",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "bison_hide_hunt",
+   "type": "enables",
+   "note": "rail carried hides to market",
+   "src": "part"
+  },
+  {
+   "from": "bison_hide_hunt",
+   "to": "lacey_act",
+   "type": "enables",
+   "note": "depletion prompted wildlife law",
+   "src": "general"
+  },
+  {
+   "from": "whaling",
+   "to": "whaling_moratorium",
+   "type": "enables",
+   "note": "species hunted down in turn",
+   "src": "part"
+  },
+  {
+   "from": "fish_weirs",
+   "to": "river_close_seasons",
+   "type": "enables",
+   "note": "weirs and nets regulated",
+   "src": "part"
+  },
+  {
+   "from": "weir_rights",
+   "to": "river_close_seasons",
+   "type": "enables",
+   "note": "fisheries let by lease",
+   "src": "part"
+  },
+  {
+   "from": "river_close_seasons",
+   "to": "fishing_quotas",
+   "type": "enables",
+   "note": "old rules before quotas",
+   "src": "general"
+  },
+  {
+   "from": "regulated_commons",
+   "to": "river_close_seasons",
+   "type": "enables",
+   "note": "commons rules applied to fish",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "greenland_walrus_ivory",
+   "type": "enables",
+   "note": "ivory sold in Europe paid for the colony",
+   "src": "part"
+  },
+  {
+   "from": "fur_trade",
+   "to": "bison_hide_hunt",
+   "type": "enables",
+   "note": "commercial hunting frontier moved west",
+   "src": "general"
+  },
+  {
+   "from": "poaching_game_laws",
+   "to": "lacey_act",
+   "type": "enables",
+   "note": "game law became trade law",
+   "src": "general"
+  },
+  {
+   "from": "monsoon_ocean_trade",
+   "to": "pepper_trade",
+   "type": "enables",
+   "note": "monsoon voyages to Malabar",
+   "src": "part"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "pepper_trade",
+   "type": "enables",
+   "note": "high value for weight paid the route",
+   "src": "part"
+  },
+  {
+   "from": "pepper_trade",
+   "to": "portuguese_cartaz",
+   "type": "enables",
+   "note": "Portuguese sold sea passes for spice routes",
+   "src": "part"
+  },
+  {
+   "from": "pepper_trade",
+   "to": "banda_nutmeg_monopoly",
+   "type": "enables",
+   "note": "company fought for the narrowest spice source",
+   "src": "part"
+  },
+  {
+   "from": "joint_stock_company",
+   "to": "banda_nutmeg_monopoly",
+   "type": "enables",
+   "note": "the VOC's fleets and forts",
+   "src": "part"
+  },
+  {
+   "from": "sericulture",
+   "to": "byzantine_silk_monopoly",
+   "type": "enables",
+   "note": "smuggled silkworm eggs",
+   "src": "part"
+  },
+  {
+   "from": "silk_roads",
+   "to": "byzantine_silk_monopoly",
+   "type": "enables",
+   "note": "silk had come overland",
+   "src": "part"
+  },
+  {
+   "from": "dyeing",
+   "to": "tyrian_purple",
+   "type": "enables",
+   "note": "murex dyeing on the Levant coast",
+   "src": "part"
+  },
+  {
+   "from": "tyrian_purple",
+   "to": "sumptuary_laws",
+   "type": "enables",
+   "note": "purple reserved to rank",
+   "src": "part"
+  },
+  {
+   "from": "dyeing",
+   "to": "cochineal_dye",
+   "type": "enables",
+   "note": "insect red for wool and silk",
+   "src": "part"
+  },
+  {
+   "from": "cochineal_dye",
+   "to": "aniline_dyes",
+   "type": "replaces",
+   "note": "aniline red ended cochineal's reign",
+   "src": "part"
+  },
+  {
+   "from": "tyrian_purple",
+   "to": "synthetic_dyes",
+   "type": "replaces",
+   "note": "dibromoindigo made, not gathered",
+   "src": "general"
+  },
+  {
+   "from": "joint_stock_company",
+   "to": "canton_tea_trade",
+   "type": "enables",
+   "note": "East India Company monopoly",
+   "src": "part"
+  },
+  {
+   "from": "canton_tea_trade",
+   "to": "tea_smuggling",
+   "type": "enables",
+   "note": "high duties on legal tea",
+   "src": "part"
+  },
+  {
+   "from": "canton_tea_trade",
+   "to": "tea_plant_transfer",
+   "type": "replaces",
+   "note": "Assam and Ceylon tea broke China's monopoly",
+   "src": "part"
+  },
+  {
+   "from": "coffee_houses",
+   "to": "consumer_revolution",
+   "type": "enables",
+   "note": "new drinks, new habits",
+   "src": "general"
+  },
+  {
+   "from": "jingdezhen_porcelain",
+   "to": "meissen_porcelain",
+   "type": "enables",
+   "note": "Chinese imports set the target",
+   "src": "part"
+  },
+  {
+   "from": "kaolin_china_stone",
+   "to": "meissen_porcelain",
+   "type": "input",
+   "note": "hard-paste needs kaolin",
+   "src": "general"
+  },
+  {
+   "from": "meissen_porcelain",
+   "to": "wedgwood_creamware",
+   "type": "enables",
+   "note": "European ceramics for wider markets",
+   "src": "general"
+  },
+  {
+   "from": "consumer_revolution",
+   "to": "wedgwood_creamware",
+   "type": "enables",
+   "note": "marketing to new middle-class demand",
+   "src": "part"
+  },
+  {
+   "from": "industrious_revolution",
+   "to": "consumer_revolution",
+   "type": "enables",
+   "note": "households worked more to buy goods",
+   "src": "part"
+  },
+  {
+   "from": "cane_sugar_crystal",
+   "to": "consumer_revolution",
+   "type": "input",
+   "note": "sugar from medicine to mass food",
+   "src": "part"
+  },
+  {
+   "from": "indian_cotton_cloth",
+   "to": "consumer_revolution",
+   "type": "input",
+   "note": "printed cottons for households",
+   "src": "part"
+  },
+  {
+   "from": "consumer_revolution",
+   "to": "fashion_cycle",
+   "type": "enables",
+   "note": "goods bought to be in fashion",
+   "src": "part"
+  },
+  {
+   "from": "silk_reeling",
+   "to": "fashion_cycle",
+   "type": "input",
+   "note": "Lyon silk patterns changed by season",
+   "src": "part"
+  },
+  {
+   "from": "fashion_cycle",
+   "to": "secondhand_clothing_trade",
+   "type": "enables",
+   "note": "servants bought into fashion second-hand",
+   "src": "part"
+  },
+  {
+   "from": "fashion_cycle",
+   "to": "department_store",
+   "type": "enables",
+   "note": "fashion sold under one roof",
+   "src": "general"
+  },
+  {
+   "from": "sumptuary_laws",
+   "to": "calico_acts",
+   "type": "enables",
+   "note": "protecting home industry by consumption law",
+   "src": "part"
+  },
+  {
+   "from": "monumental_feasting",
+   "to": "great_household_feasting",
+   "type": "enables",
+   "note": "feasts as the oldest status good",
+   "src": "part"
+  },
+  {
+   "from": "lordship_manor",
+   "to": "great_household_feasting",
+   "type": "enables",
+   "note": "rent spent on hospitality and livery",
+   "src": "part"
+  },
+  {
+   "from": "prestige_goods_exchange",
+   "to": "pepper_trade",
+   "type": "enables",
+   "note": "luxuries carried far before bulk",
+   "src": "part"
+  },
+  {
+   "from": "broadcast_advertising",
+   "to": "luxury_conglomerates",
+   "type": "enables",
+   "note": "brands built by advertising",
+   "src": "general"
+  },
+  {
+   "from": "department_store",
+   "to": "luxury_conglomerates",
+   "type": "enables",
+   "note": "owned retail and display",
+   "src": "general"
+  },
+  {
+   "from": "de_beers_cartel",
+   "to": "luxury_conglomerates",
+   "type": "enables",
+   "note": "controlled scarcity as a model",
+   "src": "general"
+  },
+  {
+   "from": "luxury_conglomerates",
+   "to": "counterfeit_goods",
+   "type": "enables",
+   "note": "brand value invites fakes",
+   "src": "part"
+  },
+  {
+   "from": "generic_drugs",
+   "to": "counterfeit_goods",
+   "type": "enables",
+   "note": "fake medicines in cheap chains",
+   "src": "general"
+  },
+  {
+   "from": "hue_and_cry",
+   "to": "frankpledge",
+   "type": "enables",
+   "note": "neighbourly policing formalised in tithings",
+   "src": "part"
+  },
+  {
+   "from": "hue_and_cry",
+   "to": "watch_and_ward",
+   "type": "enables",
+   "note": "duties of neighbours set in statute",
+   "src": "part"
+  },
+  {
+   "from": "watch_and_ward",
+   "to": "thief_takers",
+   "type": "replaces",
+   "note": "private reward recovery in the city",
+   "src": "part"
+  },
+  {
+   "from": "thief_takers",
+   "to": "bow_street_runners",
+   "type": "replaces",
+   "note": "paid officers instead of reward men",
+   "src": "part"
+  },
+  {
+   "from": "bow_street_runners",
+   "to": "metropolitan_police",
+   "type": "enables",
+   "note": "the step to a patrolling force",
+   "src": "part"
+  },
+  {
+   "from": "police_force",
+   "to": "guard_labour",
+   "type": "enables",
+   "note": "guarding as a share of labour",
+   "src": "part"
+  },
+  {
+   "from": "insurance",
+   "to": "guard_labour",
+   "type": "enables",
+   "note": "risk spread beside guarding",
+   "src": "general"
+  },
+  {
+   "from": "roads",
+   "to": "highway_robbery",
+   "type": "enables",
+   "note": "traffic worth robbing",
+   "src": "general"
+  },
+  {
+   "from": "highway_robbery",
+   "to": "caravanserai_funduq",
+   "type": "enables",
+   "note": "inns as strongholds",
+   "src": "part"
+  },
+  {
+   "from": "highway_robbery",
+   "to": "movement_tolls",
+   "type": "enables",
+   "note": "robbery licensed as toll",
+   "src": "part"
+  },
+  {
+   "from": "sail",
+   "to": "cilician_piracy",
+   "type": "enables",
+   "note": "seaborne raiding",
+   "src": "general"
+  },
+  {
+   "from": "slavery",
+   "to": "cilician_piracy",
+   "type": "enables",
+   "note": "captives sold at Delos",
+   "src": "part"
+  },
+  {
+   "from": "venice_mude",
+   "to": "barbary_corsairs",
+   "type": "enables",
+   "note": "convoys against corsairs",
+   "src": "general"
+  },
+  {
+   "from": "container_shipping",
+   "to": "somali_piracy",
+   "type": "enables",
+   "note": "rich traffic past a weak state",
+   "src": "general"
+  },
+  {
+   "from": "excise",
+   "to": "tea_smuggling",
+   "type": "enables",
+   "note": "high duty made running pay",
+   "src": "part"
+  },
+  {
+   "from": "tea_smuggling",
+   "to": "commutation_act",
+   "type": "enables",
+   "note": "smuggling forced the duty cut",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "gabelle_salt_tax",
+   "type": "enables",
+   "note": "salt taxed by province",
+   "src": "part"
+  },
+  {
+   "from": "salt_making",
+   "to": "gabelle_salt_tax",
+   "type": "input",
+   "note": "salt as a taxed necessity",
+   "src": "general"
+  },
+  {
+   "from": "han_salt_iron_monopoly",
+   "to": "gabelle_salt_tax",
+   "type": "enables",
+   "note": "the same monopoly and its shadow",
+   "src": "part"
+  },
+  {
+   "from": "coinage",
+   "to": "milled_coinage",
+   "type": "enables",
+   "note": "hammered coin invited clipping",
+   "src": "part"
+  },
+  {
+   "from": "coin_debasement",
+   "to": "milled_coinage",
+   "type": "enables",
+   "note": "recoinage restored coin's weight",
+   "src": "part"
+  },
+  {
+   "from": "guilds",
+   "to": "hallmarking",
+   "type": "enables",
+   "note": "goldsmiths' assay and mark",
+   "src": "part"
+  },
+  {
+   "from": "guilds",
+   "to": "cloth_seals_aulnage",
+   "type": "enables",
+   "note": "guild searchers of cloth",
+   "src": "part"
+  },
+  {
+   "from": "cities",
+   "to": "food_adulteration",
+   "type": "enables",
+   "note": "distance between maker and buyer",
+   "src": "part"
+  },
+  {
+   "from": "food_adulteration",
+   "to": "food_adulteration_acts",
+   "type": "enables",
+   "note": "Bradford poisoning moved Parliament",
+   "src": "part"
+  },
+  {
+   "from": "food_adulteration_acts",
+   "to": "meat_inspection_antitrust",
+   "type": "enables",
+   "note": "purity law spread to the US",
+   "src": "part"
+  },
+  {
+   "from": "food_adulteration_acts",
+   "to": "drug_regulation",
+   "type": "enables",
+   "note": "food and drug purity together",
+   "src": "general"
+  },
+  {
+   "from": "equal_arm_balance",
+   "to": "silver_shekel",
+   "type": "enables",
+   "note": "silver weighed out by the shekel",
+   "src": "part"
+  },
+  {
+   "from": "equal_arm_balance",
+   "to": "indus_chert_weights",
+   "type": "enables",
+   "note": "set weights for the balance",
+   "src": "part"
+  },
+  {
+   "from": "equal_arm_balance",
+   "to": "materia_medica_trade",
+   "type": "enables",
+   "note": "drugs and spices sold by weight",
+   "src": "general"
+  },
+  {
+   "from": "writing",
+   "to": "qin_standardisation",
+   "type": "enables",
+   "note": "script unified with measures",
+   "src": "part"
+  },
+  {
+   "from": "state_taxation",
+   "to": "qin_standardisation",
+   "type": "enables",
+   "note": "uniform measures to assess tax",
+   "src": "part"
+  },
+  {
+   "from": "markets_fairs",
+   "to": "exchequer_standards",
+   "type": "enables",
+   "note": "one measure of corn, wine, ale",
+   "src": "part"
+  },
+  {
+   "from": "exchequer_standards",
+   "to": "assize_bread_ale",
+   "type": "enables",
+   "note": "sworn measures for the assize",
+   "src": "part"
+  },
+  {
+   "from": "exchequer_standards",
+   "to": "cloth_seals_aulnage",
+   "type": "enables",
+   "note": "one breadth of cloth",
+   "src": "part"
+  },
+  {
+   "from": "exchequer_standards",
+   "to": "weights_inspectors",
+   "type": "replaces",
+   "note": "local inspectors for market clerks",
+   "src": "part"
+  },
+  {
+   "from": "exchequer_standards",
+   "to": "metric_system",
+   "type": "replaces",
+   "note": "decimal units from nature",
+   "src": "part"
+  },
+  {
+   "from": "metric_system",
+   "to": "metre_convention",
+   "type": "enables",
+   "note": "international prototypes at Sèvres",
+   "src": "part"
+  },
+  {
+   "from": "metre_convention",
+   "to": "national_standards_labs",
+   "type": "enables",
+   "note": "national copies and testing",
+   "src": "part"
+  },
+  {
+   "from": "metre_convention",
+   "to": "si_constants",
+   "type": "enables",
+   "note": "units redefined from constants",
+   "src": "part"
+  },
+  {
+   "from": "standard_screw_threads",
+   "to": "national_standards_labs",
+   "type": "enables",
+   "note": "precision fit needs reference standards",
+   "src": "general"
+  },
+  {
+   "from": "railway",
+   "to": "railway_gauge_standard",
+   "type": "enables",
+   "note": "through running between companies",
+   "src": "part"
+  },
+  {
+   "from": "railway",
+   "to": "standard_time",
+   "type": "enables",
+   "note": "timetables needed one time",
+   "src": "part"
+  },
+  {
+   "from": "telegraph",
+   "to": "standard_time",
+   "type": "enables",
+   "note": "time signals sent by wire",
+   "src": "general"
+  },
+  {
+   "from": "iso_standards_body",
+   "to": "iso_container_standard",
+   "type": "enables",
+   "note": "box sizes agreed",
+   "src": "part"
+  },
+  {
+   "from": "standard_screw_threads",
+   "to": "iso_standards_body",
+   "type": "enables",
+   "note": "interface standards locked in",
+   "src": "general"
+  },
+  {
+   "from": "grain_grading",
+   "to": "benchmark_fraud",
+   "type": "enables",
+   "note": "commodities priced by standard measures",
+   "src": "general"
+  },
+  {
+   "from": "stock_exchange",
+   "to": "benchmark_fraud",
+   "type": "enables",
+   "note": "benchmarks priced trillions",
+   "src": "general"
+  },
+  {
+   "from": "weights_inspectors",
+   "to": "benchmark_fraud",
+   "type": "enables",
+   "note": "short weight in a new form",
+   "src": "general"
+  },
+  {
+   "from": "census_cadastre",
+   "to": "national_standards_labs",
+   "type": "enables",
+   "note": "measuring to tax, then for markets",
+   "src": "general"
+  },
+  {
+   "from": "coin_debasement",
+   "to": "benchmark_fraud",
+   "type": "enables",
+   "note": "the issuer bending the measure",
+   "src": "general"
+  },
+  {
+   "from": "long_distance_trade",
+   "to": "wokou_piracy",
+   "type": "enables",
+   "note": "banned private trade turned to smuggling and raids",
+   "src": "part"
+  },
+  {
+   "from": "muhtasib",
+   "to": "weights_inspectors",
+   "type": "enables",
+   "note": "market officers as the older model",
+   "src": "general"
+  },
+  {
+   "from": "assize_bread_ale",
+   "to": "food_adulteration_acts",
+   "type": "replaces",
+   "note": "national purity law for the local assize",
+   "src": "general"
+  },
+  {
+   "from": "animal_domestication",
+   "to": "state_veterinary_cull",
+   "type": "enables",
+   "note": "herd plagues threatened a shared stock",
+   "src": "general"
+  },
+  {
+   "from": "byzantine_silk_monopoly",
+   "to": "fashion_cycle",
+   "type": "input",
+   "note": "European silk for seasonal fashions",
+   "src": "general"
+  },
+  {
+   "from": "sail",
+   "to": "privateering",
+   "type": "enables",
+   "note": "armed merchant ships licensed to seize",
+   "src": "general"
+  }
+ ]
+}

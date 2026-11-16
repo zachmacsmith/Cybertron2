@@ -12,12 +12,13 @@ Page: https://claude.ai/artifact/MGPhiBe42BscFep6MB8VrN (private to Zach; `index
 
 ## What it shows
 
-- **Dependency web:** 908 techniques, industries, goods, infrastructures and institutions in ten domain lanes, placed at their
-  first significant appearance anywhere, with 1,828 links between them:
-  - "needs" (1,174): a technique, capital, institution or route;
-  - "input" (456): a material, fuel or power;
-  - "switch" (168): a substitution that freed a chain;
-  - "by-product" (30): a joint product that became an industry.
+- **Dependency web:** 1,335 techniques, industries, goods, infrastructures and institutions in ten domain lanes, placed at their
+  first significant appearance anywhere, with 3,114 links between them (16 Nov: parts 14 to 18 added, and a linking pass of
+  356 links and 20 bridge nodes between civilisations and periods, 278 of them from general knowledge and marked so):
+  - "needs" (2,208): a technique, capital, institution or route;
+  - "input" (630): a material, fuel or power;
+  - "switch" (244): a substitution that freed a chain;
+  - "by-product" (32): a joint product that became an industry.
 - **Time and unlocking:** the time axis is piecewise, and each era is widened by how much happened in it. A year scrubber with a
   sparkline unlocks things as time passes.
 - **A node:** clicking one shows its direct links, the whole chain behind it, or everything it led to, with its notes and the part
@@ -37,7 +38,7 @@ seed vocabulary (`passes/BRIEF.md`, outputs in `passes/`). `build.py` merges the
 Rebuild with `python3 build.py passes` from this folder.
 
 Limits:
-- **Dates:** 450 of the 908 come from general knowledge rather than the part (marked "date: general"), because several parts date
+- **Dates:** 739 of the 1,335 come from general knowledge rather than the part (marked "date: general"; 450 of 908 before 16 Nov), because several parts date
   by decade or not at all.
 - **Backward links:** about 60 links run backwards in time, because a node is dated to its earliest form while the link concerns
   a later one (the bloomery's charcoal, wage labour's spread).

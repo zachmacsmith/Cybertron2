@@ -11,7 +11,7 @@ merged and built historically."
 > is proposed for building because it appears here. The border for now, and how something crosses it, is in
 > [02zzk_medieval_border.md](../02zzk_medieval_border.md).
 
-Thirteen parts, about 144,000 words, written by thirteen research agents and read and indexed here by 37.2. Research to design from:
+Eighteen parts, about 200,000 words: thirteen written 15 Nov, and parts 14 to 18 added 16 Nov after the border note (02zzk) found those domains missing; all by research agents and read and indexed here by 37.2. Research to design from:
 nothing in it is proposed for building or decided. It extends 02zzi (a first frame from memory), 02zzh (layers and trees) and
 proposals/economy_web.md (chains of different shapes), and it is read against the engine as built (part 09).
 
@@ -32,6 +32,11 @@ proposals/economy_web.md (chains of different shapes), and it is read against th
 | [11 ancient and world economies](11_ancient_and_world_economies.md) | Rome; Han and Song China; India; the Islamic world; the Inca, the Aztecs, Saharan gold and salt, the Swahili coast; the Silk Roads, the Indian Ocean, the Columbian exchange | ~9,800 |
 | [12 cities as economies](12_cities_as_economies.md) | a city's metabolism per head; fifteen cities from Uruk to megacities; why cities grow and scaling laws; the city's own trades; infrastructure as layers | ~9,400 |
 | [13 modern global industries](13_modern_global_industries.md) | Ford to Toyota to global value chains; seven chains traced end to end (car, smartphone, T-shirt, bread and chicken, steel, a drug, a building); logistics; energy systems; services; today's chokepoints | ~10,600 |
+| [14 war and force](14_war_and_force.md) | arms chains from the spear and bow to industrial arms and 20th-century procurement; force as organisation (the knight's fee, tribute, plunder, protection rent, chartered companies); war and the state; the steppe; where war's chains meet the rest | ~10,700 |
+| [15 knowledge-making](15_knowledge_making.md) | discovery before science; secrecy and apprenticeship; instruments as extended senses and their chains; records and counting; Mokyr's two kinds of knowledge; patrons, academies, prizes, patents, labs and state science | ~11,100 |
+| [16 religion and ritual](16_religion_and_ritual.md) | feasting; temples as stores, banks and landlords; tithe; monasteries as producers and their dissolution; pilgrimage; the religious calendar; usury and its workarounds; waqf; orders as networks | ~11,500 |
+| [17 household, care and kinship](17_household_care_kinship.md) | unpaid household work and time budgets; the division of labour by sex and age; children's labour; marriage transfers and inheritance; kin groups as insurance; care moving into the market and state; family firms | ~11,900 |
+| [18 health, environment, luxury, crime and measures](18_health_environment_luxury_crime_measures.md) | disease and healing as economic forces; depletion and pollution; luxury chains and consumption; crime, fraud and the institutions against them; weights, measures and standards | ~11,000 |
 
 ## The arc in one table
 
