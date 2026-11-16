@@ -182,6 +182,8 @@ def night(w) -> dict:
                     w.apply("destroy", place, src=cid, item="meat", qty=q, why="went off")
                     w.apply("create", place, dst=cid, item="rotting meat", qty=q, why="rot")
                 continue
+            if c["kind"] == "set" and (c.get("set") or {}).get("method") == "trap in water":   # alive in the water until
+                continue                                                                        # lifted (D2-211)
             r, becomes = decay_rate(w, c, item)
             if q > 1e-9 and r > 0:
                 place = w.place_of(("container", cid))
@@ -330,7 +332,7 @@ def spoil_rate(p, item, where, season, cold, fittings=()) -> float:
     s = float(table.get("frozen", 1.0)) if cold else (float(table.get("warm", 1.0)) if season == "summer" else 1.0)
     if where == "store":
         keep = min([1.0] + [float(FITTINGS[f_].get("spoil", 1.0)) for f_ in fittings if f_ in FITTINGS])
-        return base * float(p["house_spoil"]) * keep * s
+        return base * float(p["house_spoil"]) * keep * s * float(table.get("store", 1.0))   # fresh fish x2 (D2-212)
     if where == "hand":
         return base * s
     if base <= 0:
@@ -598,12 +600,8 @@ def _wear_night(w, bid, b, p) -> bool:
         causes.append("snow")
     if lab == "heavy rain" and int((w.s["parcels"].get(b.get("parcel")) or {}).get("height", 1)) == 0 and st_ != "stone":
         causes.append("flood")
-    if b.get("monument") == "weir":                                           # a weir: worn by the river in flood and by ice (brief 5 §3.1)
-        causes = [c for c in causes if c in ("unmended",)]
-        if w.cold(node):
-            causes.append("ice")
-        if lab == "heavy rain":
-            causes.append("flood")
+    if b.get("monument") == "weir":                                           # a weir wears by its sections, by the river (D2-210:
+        return False                                                           # wild._weir_wear)
     lv = BL.level(b)
     if lv in (3, 4) and w.d - int(b.get("level_since", -999) if b.get("level_since") is not None else -999) >= int(W["unmended_days"]) \
             and b.get("level_since") is not None:

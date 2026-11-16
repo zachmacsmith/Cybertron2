@@ -405,6 +405,12 @@ def building_line(here, bid) -> str:
     if here.has_gap(b):                                                 # a weir's or a mill's gap (brief 5 §3, §3a), as it stands
         head += (f"; its gap {WL.gap(b)}" if WL.is_weir(b) else
                  "; its hatches " + ("shut, the water held above the dam" if WL.gap(b) == "shut" else "drawn, the water let past"))
+        if WL.is_weir(b):                                                       # its sections as they stand (D2-210)
+            secs = WL.sections(b)
+            words = [("stone-footed " if sc.get("foot") else "") + sc["m"] + f" {BL.LEVELS[int(sc['level'])]}" for sc in secs]
+            head += f"; {len(secs)} section{'s' if len(secs) != 1 else ''} ({', '.join(words)})"
+            if b.get("weir_work"):
+                head += f"; {'a timber section' if b['weir_work']['part'] == 'timber' else 'a stone footing'} under way"
         if WL.is_weir(b) and b.get("crew"):
             head += f"; worked by {', '.join(b['crew'])}"
     desc = (b.get("description") or {}).get("text")

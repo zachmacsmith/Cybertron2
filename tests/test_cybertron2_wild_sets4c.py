@@ -179,8 +179,8 @@ def test_a_remembered_set_thing_never_says_empty_unless_seen_so_and_says_when_it
     assert all("empty" not in x for x in _lying(w, SETTER))
     assert "empty" not in TH.describe(w, w.s["containers"][_line(w)])
     traps = _line(w, method="trap in water", parcel="wb_wen", set_day=8)
-    _catch(w, traps, kind="eel", day=8, goods={"meat": 0.2})
-    _catch(w, traps, kind="eel", day=8, goods={"meat": 0.2})
+    _catch(w, traps, kind="eel", day=8, goods={"fish": 0.2})                    # eels are fish goods (D2-216)
+    _catch(w, traps, kind="eel", day=8, goods={"fish": 0.2})
     w.s["day"] = 9
     texts = [f["text"] for f in _facts(w, traps, SETTER) if f.get("who") == "setter"]
     assert texts == ["two eels in your wicker traps at the Wen"]

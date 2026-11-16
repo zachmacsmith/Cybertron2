@@ -1,46 +1,172 @@
 {
- "saltwell weir shut, dam shut": {
-  "millham_weir": {
-   "eel": 68,
-   "salmon": 4,
-   "lamprey": 1
+ "one section each, both shut, dam shut": {
+  "Saltwell": {
+   "food": 6.0,
+   "heads": {
+    "salmon": 2
+   },
+   "run_nights": 1,
+   "lost": [
+    11
+   ],
+   "flows": {
+    "high": 2,
+    "spate": 2,
+    "normal": 10,
+    "low": 17,
+    "flood": 1
+   },
+   "upkeep_share": 0.66,
+   "water": "large"
   },
-  "saltwell_weir": {
-   "eel": 66,
-   "salmon": 3,
-   "lamprey": 3
+  "Millham": {
+   "food": 3.0,
+   "heads": {
+    "salmon": 2
+   },
+   "run_nights": 1,
+   "lost": [
+    12
+   ],
+   "flows": {
+    "high": 5,
+    "spate": 2,
+    "normal": 8,
+    "low": 16,
+    "flood": 1
+   },
+   "upkeep_share": 0.72,
+   "water": "large"
   },
-  "salmon_past_saltwell": 5.3,
-  "spawned_above": 0.0,
-  "return_due_above": 7.54,
-  "return_due_all": 91.45
+  "salmon_past_saltwell": 6.3,
+  "return_due_above": 10.26
  },
- "saltwell weir open, dam shut": {
-  "millham_weir": {
-   "eel": 81,
-   "salmon": 4,
-   "lamprey": 1
+ "full weirs, both shut, dam shut": {
+  "Saltwell": {
+   "food": 6.0,
+   "heads": {
+    "salmon": 2
+   },
+   "run_nights": 1,
+   "lost": [
+    11,
+    4,
+    10,
+    6
+   ],
+   "flows": {
+    "high": 2,
+    "spate": 2,
+    "normal": 10,
+    "low": 17,
+    "flood": 1
+   },
+   "upkeep_share": 0.463,
+   "water": "large"
   },
-  "saltwell_weir": {
-   "eel": 6
+  "Millham": {
+   "food": 15.0,
+   "heads": {
+    "salmon": 7
+   },
+   "run_nights": 1,
+   "lost": [
+    12,
+    11,
+    12,
+    9
+   ],
+   "flows": {
+    "high": 5,
+    "spate": 2,
+    "normal": 8,
+    "low": 16,
+    "flood": 1
+   },
+   "upkeep_share": 0.659,
+   "water": "large"
   },
-  "salmon_past_saltwell": 5.3,
-  "spawned_above": 0.0,
-  "return_due_above": 11.42,
-  "return_due_all": 95.33
+  "salmon_past_saltwell": 4.3,
+  "return_due_above": 7.54
  },
- "saltwell weir open, dam open": {
-  "millham_weir": {
-   "eel": 81,
-   "salmon": 5,
-   "lamprey": 4
+ "one section, Saltwell's open, dam shut": {
+  "Saltwell": {
+   "food": 0.0,
+   "heads": {},
+   "run_nights": 1,
+   "lost": [
+    9
+   ],
+   "flows": {
+    "high": 2,
+    "spate": 2,
+    "normal": 10,
+    "low": 17,
+    "flood": 1
+   },
+   "upkeep_share": 0.54,
+   "water": "large"
   },
-  "saltwell_weir": {
-   "eel": 6
+  "Millham": {
+   "food": 3.0,
+   "heads": {
+    "salmon": 2
+   },
+   "run_nights": 1,
+   "lost": [
+    12
+   ],
+   "flows": {
+    "high": 5,
+    "spate": 2,
+    "normal": 8,
+    "low": 16,
+    "flood": 1
+   },
+   "upkeep_share": 0.72,
+   "water": "large"
   },
-  "salmon_past_saltwell": 11.3,
-  "spawned_above": 0.0,
-  "return_due_above": 18.07,
-  "return_due_all": 101.98
+  "salmon_past_saltwell": 6.3,
+  "return_due_above": 12.47
+ },
+ "one section, Saltwell's open, dam open": {
+  "Saltwell": {
+   "food": 0.0,
+   "heads": {},
+   "run_nights": 1,
+   "lost": [
+    9
+   ],
+   "flows": {
+    "high": 2,
+    "spate": 2,
+    "normal": 10,
+    "low": 17,
+    "flood": 1
+   },
+   "upkeep_share": 0.54,
+   "water": "large"
+  },
+  "Millham": {
+   "food": 3.0,
+   "heads": {
+    "salmon": 2
+   },
+   "run_nights": 1,
+   "lost": [
+    12
+   ],
+   "flows": {
+    "high": 5,
+    "spate": 2,
+    "normal": 8,
+    "low": 16,
+    "flood": 1
+   },
+   "upkeep_share": 0.72,
+   "water": "large"
+  },
+  "salmon_past_saltwell": 13.3,
+  "return_due_above": 19.85
  }
 }

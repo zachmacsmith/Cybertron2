@@ -106,7 +106,8 @@ DECAY = {
     "drying meat": {"open_dry": 1.0, "open_wet": 3.0, "buried": 1, "warm": 1.5, "frozen": 0.2, "smoke": 0.25},   # rain spoils it; smoke keeps flies off
     "cheese": {"open_dry": 3, "open_wet": 5, "buried": 1, "warm": 1.5, "frozen": 0.3},
     "hide": {"abs": {"open_dry": 0.01, "open_wet": 0.03, "buried": 0.02}},
-    "fresh fish": {"open_dry": 2, "open_wet": 2.5, "buried": 1, "warm": 1.5, "frozen": 0.1},       # as fresh meat (calibrate)
+    "fresh fish": {"open_dry": 2, "open_wet": 2.5, "buried": 1, "warm": 1.5, "frozen": 0.1,        # as fresh meat (calibrate),
+                   "store": 2.0},                                         # but twice as badly in a store (D2-212)
     "default": {"open_dry": 2, "open_wet": 4, "buried": 1, "warm": 1.2, "frozen": 0.5},   # goods the table does not name (37.4; calibrate)
 }
 
@@ -323,13 +324,28 @@ MONUMENTS = {
              "units": 24, "basic": True, "structure": "timber", "site": "river", "crew": 2, "pack": "wild",
              "aliases": ["fish weir", "a weir", "a fish weir", "eel weir", "build a weir", "build weir"]},
 }
-# The river's works (brief 5 §3, §3a; D2-209; calibrate): a weir's gap shut takes `shut` of each run passing when sound (less as it
-# wears, `by_level`), open `open`; setting the gap shut puts the traps in (`units`), opening takes them out. A water wheel on a river
-# a run passes has a gap too (a new one shut): shut, it grinds at full and its dam stops `stop` of a run going up (held below it that
-# night) and sends a run going down through the race, where a trap in water takes `race` of it; open, it grinds at `open_rate`
-# (Q-51, default taken: half) and the runs pass.
-WATER_WORKS = {"weir": {"shut": 0.5, "open": 0.05, "by_level": {5: 1.0, 4: 0.8, 3: 0.6, 2: 0.3, 1: 0.1, 0: 0.0},
-                        "units": {"shut": 2, "open": 1}},
+# The river's works (brief 5 §3, §3a, §3b; D2-209, D2-210; calibrate). A weir is built in sections (D2-210): the first of stakes and
+# wattle (the MONUMENTS row), then up to `most` timber sections, each upgradeable with a stone footing; with its gap shut each sound
+# section takes `share` of a run passing and holds `hold` food a night (less as it wears, `by_level`); open, `open` of that. A night's
+# catch is the share, capped by what the weir holds less what is in its traps unlifted. Each section wears a night by Poisson(`base` x
+# its material x the water x the flow (from the catchment's rain today and half of yesterday's, over the mean, `flow_at`) x `gap_high`
+# with the gap shut in high water or above x ice (`ice`, `thaw` the night the ice breaks)) levels; a level is mended at `mend` of the
+# section's build. Setting the gap shut puts the traps in (`units`), opening takes them out. A trap in water on a running river is
+# wrecked on a spate night at `wreck` (D2-211: fish alive in it until then). A water wheel on a river a run passes has a gap too (a new
+# one shut): shut, it grinds at full and its dam stops `stop` of a run going up (held below it that night) and sends a run going down
+# through the race, where a trap in water takes `race` of it; open, it grinds at `open_rate` (Q-51, default taken: half), the runs pass.
+WATER_WORKS = {"weir": {"sections": {"wattle": {"share": 0.30, "hold": 10.0, "wear": 1.0},
+                                     "timber": {"share": 0.07, "hold": 7.0, "wear": 0.5, "materials": {"timber": 10}, "units": 25,
+                                                "most": 3},
+                                     "footing": {"wear": 0.1, "materials": {"stone": 10}, "units": 15}},
+                        "open": 0.1, "by_level": {5: 1.0, 4: 0.8, 3: 0.6, 2: 0.3, 1: 0.1, 0: 0.0},
+                        "wear": {"base": 0.143, "water": {"lowland": 1.0, "large": 1.5, "beck": 2.0}, "beck_m": 150.0,
+                                 "flow": {"low": 0.5, "normal": 1.0, "high": 2.0, "spate": 5.0, "flood": 15.0},
+                                 "flow_at": [[0.3, "low"], [1.5, "normal"], [3.0, "high"], [5.0, "spate"]], "gap_high": 1.5,
+                                 "ice": 3.0, "thaw": 5.0},
+                        "mend": 0.06, "units": {"shut": 2, "open": 1}},
+               "trap": {"wreck": {"spate": 0.5, "flood": 0.85},           # a flood very likely, not always (D2-218)
+                        "hold": 3.0},                       # a set trap in water, in the river or a race, holds this food (D2-213)
                "mill": {"stop": 0.5, "race": 0.5, "open_rate": 0.5, "units": {"shut": 1, "open": 1}}}
 # Extravagance in tiers (D2-171; calibrate): materials and work multiplied; noticed further (signs.BUILDING, layout, roads).
 TIERS = {

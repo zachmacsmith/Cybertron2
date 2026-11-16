@@ -239,19 +239,40 @@ def take_one(m, st, day, kind, i) -> bool:
     return True
 
 
-def take_share(st, day, g, share, dirs=("down", "up"), kinds=None) -> dict:
-    """A share of every pulse at stretch g today (a weir, the race): {kind: heads taken}, the pulses thinned."""
-    out = {}
+def take_share(st, day, g, share, dirs=("down", "up"), kinds=None, room=None, worth=None) -> dict:
+    """A share of every pulse at stretch g today (a weir, the race): {kind: heads taken}, the pulses thinned. With `room` (food) and
+    `worth` ({kind: food a head}), the take is cut, kind by kind in proportion, to what there is room for (a weir's hold, D2-210)."""
+    want = []
     for p in today(None, st, day):
         if p["g"] != g or p["dir"] not in dirs or (kinds is not None and p["k"] not in kinds):
             continue
         n = float(p["n"])
         q = math.floor(n * float(share) + 0.5) if n >= 1 else 0
+        if q > 0:
+            want.append([p, q])
+    if room is not None and want:
+        food = sum(q * float((worth or {}).get(p["k"], 0.0)) for p, q in want)
+        if food > float(room) + 1e-9:
+            f = max(0.0, float(room)) / food
+            for x in want:
+                x[1] = math.floor(x[1] * f + 1e-9)
+    out = {}
+    for p, q in want:
         if q <= 0:
             continue
-        p["n"] = round(n - q, 4)
+        p["n"] = round(float(p["n"]) - q, 4)
         out[p["k"]] = out.get(p["k"], 0) + int(q)
     return out
+
+
+def flow(nt, g, mem, flow_at) -> str:
+    """The river's flow at a stretch tonight, from its catchment's rain (today and half of yesterday's, over the mean; until a river
+    level exists, D2-210): the first class whose bound it is under, else the last ("flood")."""
+    r = (catch_rain(nt, g, mem, 0) + 0.5 * catch_rain(nt, g, mem, 1)) / RAIN_MEAN
+    for bound, name in flow_at:
+        if r < float(bound):
+            return name
+    return "flood"
 
 
 # ---------------------------------------------------------------------- the night
