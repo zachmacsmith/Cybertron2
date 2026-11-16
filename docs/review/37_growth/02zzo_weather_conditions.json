@@ -1,0 +1,1934 @@
+{
+ "lowland": {
+  "stands for": "plain lowland, 900 mm, 9 C (the default)",
+  "world": "lowland.yaml",
+  "nodes": {
+   "s1": {
+    "generator": {
+     "name": "Fleetford",
+     "kind": "settlement",
+     "height m": 42.3,
+     "rain mm a year": 732.0,
+     "mean temp C": 9.0,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1048,
+     "wet days (>= 1 mm)": 0.36,
+     "heaviest day mm": 54.8,
+     "mean temp C": 9.4,
+     "by season": {
+      "spring": 8.0,
+      "summer": 15.7,
+      "autumn": 10.9,
+      "winter": 3.2
+     },
+     "frost nights": 0.19,
+     "winter frost nights": 0.6,
+     "days below 0 C mean": 0.048,
+     "snow days (falling)": 0.025,
+     "mean wind m/s": 5.6,
+     "gale days (>= 17 m/s)": 0.019
+    },
+    "water, two clocks": {
+     "river km in reach": 6.0,
+     "reaches above": 2,
+     "days a year by band": {
+      "dry": 10.1,
+      "low": 2.5,
+      "normal": 8.7,
+      "high": 3.9,
+      "spate": 4.7,
+      "flood": 2.3
+     },
+     "days a year the river stands 1 m up": 4.5,
+     "soil under a quarter full, days a year": 12.0,
+     "snow lying, days a year": 1.3,
+     "land within 2 m of the river": 0.21
+    }
+   },
+   "s2": {
+    "generator": {
+     "name": "Leacombe",
+     "kind": "settlement",
+     "height m": 45.2,
+     "rain mm a year": 715.0,
+     "mean temp C": 8.3,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 986,
+     "wet days (>= 1 mm)": 0.36,
+     "heaviest day mm": 46.3,
+     "mean temp C": 9.6,
+     "by season": {
+      "spring": 8.3,
+      "summer": 16.1,
+      "autumn": 10.6,
+      "winter": 3.2
+     },
+     "frost nights": 0.2,
+     "winter frost nights": 0.61,
+     "days below 0 C mean": 0.044,
+     "snow days (falling)": 0.022,
+     "mean wind m/s": 5.7,
+     "gale days (>= 17 m/s)": 0.023
+    },
+    "water, two clocks": {
+     "river km in reach": 9.2,
+     "reaches above": 4,
+     "days a year by band": {
+      "dry": 9.2,
+      "low": 3.7,
+      "normal": 8.2,
+      "high": 5.5,
+      "spate": 4.4,
+      "flood": 1.1
+     },
+     "days a year the river stands 1 m up": 2.4,
+     "soil under a quarter full, days a year": 11.8,
+     "snow lying, days a year": 0.6,
+     "land within 2 m of the river": 0.48
+    }
+   },
+   "s3": {
+    "generator": {
+     "name": "Meadworth",
+     "kind": "settlement",
+     "height m": 56.6,
+     "rain mm a year": 887.0,
+     "mean temp C": 8.3,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1001,
+     "wet days (>= 1 mm)": 0.37,
+     "heaviest day mm": 53.2,
+     "mean temp C": 9.3,
+     "by season": {
+      "spring": 7.8,
+      "summer": 15.8,
+      "autumn": 10.5,
+      "winter": 3.0
+     },
+     "frost nights": 0.2,
+     "winter frost nights": 0.61,
+     "days below 0 C mean": 0.045,
+     "snow days (falling)": 0.03,
+     "mean wind m/s": 5.8,
+     "gale days (>= 17 m/s)": 0.02
+    },
+    "water, two clocks": {
+     "river km in reach": 7.2,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 8.9,
+      "low": 4.0,
+      "normal": 8.0,
+      "high": 4.7,
+      "spate": 4.5,
+      "flood": 1.9
+     },
+     "days a year the river stands 1 m up": 3.9,
+     "soil under a quarter full, days a year": 11.2,
+     "snow lying, days a year": 0.9,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "t1": {
+    "generator": {
+     "name": "Marham",
+     "kind": "wild or town",
+     "height m": 60.8,
+     "rain mm a year": 727.0,
+     "mean temp C": 8.3,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1010,
+     "wet days (>= 1 mm)": 0.38,
+     "heaviest day mm": 53.8,
+     "mean temp C": 9.3,
+     "by season": {
+      "spring": 7.7,
+      "summer": 16.0,
+      "autumn": 10.5,
+      "winter": 2.9
+     },
+     "frost nights": 0.2,
+     "winter frost nights": 0.61,
+     "days below 0 C mean": 0.045,
+     "snow days (falling)": 0.025,
+     "mean wind m/s": 5.8,
+     "gale days (>= 17 m/s)": 0.027
+    },
+    "water, two clocks": {
+     "river km in reach": 4.7,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 9.4,
+      "low": 3.6,
+      "normal": 7.5,
+      "high": 5.8,
+      "spate": 4.8,
+      "flood": 0.9
+     },
+     "days a year the river stands 1 m up": 2.8,
+     "soil under a quarter full, days a year": 10.9,
+     "snow lying, days a year": 0.8,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "w1": {
+    "generator": {
+     "name": "Hazeley",
+     "kind": "wild or town",
+     "height m": 93.4,
+     "rain mm a year": 707.0,
+     "mean temp C": 8.4,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1088,
+     "wet days (>= 1 mm)": 0.38,
+     "heaviest day mm": 45.9,
+     "mean temp C": 9.0,
+     "by season": {
+      "spring": 7.6,
+      "summer": 15.5,
+      "autumn": 10.1,
+      "winter": 2.8
+     },
+     "frost nights": 0.22,
+     "winter frost nights": 0.61,
+     "days below 0 C mean": 0.05,
+     "snow days (falling)": 0.033,
+     "mean wind m/s": 6.1,
+     "gale days (>= 17 m/s)": 0.03
+    },
+    "water, two clocks": {
+     "river km in reach": 0.6,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 8.0,
+      "low": 3.9,
+      "normal": 10.1,
+      "high": 6.8,
+      "spate": 3.0,
+      "flood": 0.2
+     },
+     "days a year the river stands 1 m up": 0.9,
+     "soil under a quarter full, days a year": 10.8,
+     "snow lying, days a year": 1.1,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "w2": {
+    "generator": {
+     "name": "Ashley",
+     "kind": "wild or town",
+     "height m": 61.6,
+     "rain mm a year": 774.0,
+     "mean temp C": 8.5,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 990,
+     "wet days (>= 1 mm)": 0.36,
+     "heaviest day mm": 53.2,
+     "mean temp C": 9.4,
+     "by season": {
+      "spring": 8.0,
+      "summer": 15.7,
+      "autumn": 10.7,
+      "winter": 3.3
+     },
+     "frost nights": 0.19,
+     "winter frost nights": 0.6,
+     "days below 0 C mean": 0.044,
+     "snow days (falling)": 0.025,
+     "mean wind m/s": 5.8,
+     "gale days (>= 17 m/s)": 0.03
+    },
+    "water, two clocks": {
+     "river km in reach": 4.0,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 8.9,
+      "low": 4.0,
+      "normal": 8.2,
+      "high": 5.5,
+      "spate": 4.7,
+      "flood": 0.7
+     },
+     "days a year the river stands 1 m up": 2.5,
+     "soil under a quarter full, days a year": 13.3,
+     "snow lying, days a year": 0.6,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "w3": {
+    "generator": {
+     "name": "Birchley",
+     "kind": "wild or town",
+     "height m": 39.9,
+     "rain mm a year": 778.0,
+     "mean temp C": 8.1,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 986,
+     "wet days (>= 1 mm)": 0.37,
+     "heaviest day mm": 48.2,
+     "mean temp C": 9.4,
+     "by season": {
+      "spring": 7.6,
+      "summer": 16.2,
+      "autumn": 10.6,
+      "winter": 3.2
+     },
+     "frost nights": 0.19,
+     "winter frost nights": 0.58,
+     "days below 0 C mean": 0.041,
+     "snow days (falling)": 0.027,
+     "mean wind m/s": 5.7,
+     "gale days (>= 17 m/s)": 0.014
+    },
+    "water, two clocks": {
+     "river km in reach": 1.4,
+     "reaches above": 2,
+     "days a year by band": {
+      "dry": 9.1,
+      "low": 3.6,
+      "normal": 8.6,
+      "high": 5.7,
+      "spate": 3.8,
+      "flood": 1.2
+     },
+     "days a year the river stands 1 m up": 3.0,
+     "soil under a quarter full, days a year": 13.2,
+     "snow lying, days a year": 0.8,
+     "land within 2 m of the river": 0.0
+    }
+   }
+  }
+ },
+ "dry": {
+  "stands for": "plain lowland in a dry climate, 500 mm, 10 C",
+  "world": "dry.yaml",
+  "nodes": {
+   "s1": {
+    "generator": {
+     "name": "Fleetford",
+     "kind": "settlement",
+     "height m": 42.1,
+     "rain mm a year": 409.0,
+     "mean temp C": 10.1,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1046,
+     "wet days (>= 1 mm)": 0.36,
+     "heaviest day mm": 54.8,
+     "mean temp C": 9.4,
+     "by season": {
+      "spring": 8.0,
+      "summer": 15.7,
+      "autumn": 10.9,
+      "winter": 3.2
+     },
+     "frost nights": 0.19,
+     "winter frost nights": 0.6,
+     "days below 0 C mean": 0.048,
+     "snow days (falling)": 0.025,
+     "mean wind m/s": 5.6,
+     "gale days (>= 17 m/s)": 0.019
+    },
+    "water, two clocks": {
+     "river km in reach": 6.2,
+     "reaches above": 2,
+     "days a year by band": {
+      "dry": 10.1,
+      "low": 2.5,
+      "normal": 8.7,
+      "high": 3.9,
+      "spate": 4.6,
+      "flood": 2.3
+     },
+     "days a year the river stands 1 m up": 4.5,
+     "soil under a quarter full, days a year": 12.0,
+     "snow lying, days a year": 1.3,
+     "land within 2 m of the river": 0.21
+    }
+   },
+   "s2": {
+    "generator": {
+     "name": "Leacombe",
+     "kind": "settlement",
+     "height m": 47.5,
+     "rain mm a year": 397.0,
+     "mean temp C": 9.3,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 995,
+     "wet days (>= 1 mm)": 0.36,
+     "heaviest day mm": 46.3,
+     "mean temp C": 9.5,
+     "by season": {
+      "spring": 8.3,
+      "summer": 16.1,
+      "autumn": 10.5,
+      "winter": 3.2
+     },
+     "frost nights": 0.2,
+     "winter frost nights": 0.61,
+     "days below 0 C mean": 0.044,
+     "snow days (falling)": 0.025,
+     "mean wind m/s": 5.7,
+     "gale days (>= 17 m/s)": 0.022
+    },
+    "water, two clocks": {
+     "river km in reach": 9.2,
+     "reaches above": 4,
+     "days a year by band": {
+      "dry": 9.0,
+      "low": 3.5,
+      "normal": 8.7,
+      "high": 5.4,
+      "spate": 4.4,
+      "flood": 0.9
+     },
+     "days a year the river stands 1 m up": 2.4,
+     "soil under a quarter full, days a year": 11.6,
+     "snow lying, days a year": 0.6,
+     "land within 2 m of the river": 0.45
+    }
+   },
+   "s3": {
+    "generator": {
+     "name": "Meadworth",
+     "kind": "settlement",
+     "height m": 55.3,
+     "rain mm a year": 393.0,
+     "mean temp C": 9.5,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1020,
+     "wet days (>= 1 mm)": 0.37,
+     "heaviest day mm": 56.3,
+     "mean temp C": 9.3,
+     "by season": {
+      "spring": 7.9,
+      "summer": 15.9,
+      "autumn": 10.5,
+      "winter": 3.1
+     },
+     "frost nights": 0.19,
+     "winter frost nights": 0.59,
+     "days below 0 C mean": 0.047,
+     "snow days (falling)": 0.028,
+     "mean wind m/s": 5.8,
+     "gale days (>= 17 m/s)": 0.02
+    },
+    "water, two clocks": {
+     "river km in reach": 4.0,
+     "reaches above": 1,
+     "days a year by band": {
+      "dry": 9.8,
+      "low": 3.5,
+      "normal": 7.2,
+      "high": 4.5,
+      "spate": 4.8,
+      "flood": 2.1
+     },
+     "days a year the river stands 1 m up": 4.3,
+     "soil under a quarter full, days a year": 11.1,
+     "snow lying, days a year": 0.8,
+     "land within 2 m of the river": 0.47
+    }
+   },
+   "w1": {
+    "generator": {
+     "name": "Hazeley",
+     "kind": "wild or town",
+     "height m": 93.4,
+     "rain mm a year": 393.0,
+     "mean temp C": 9.4,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1014,
+     "wet days (>= 1 mm)": 0.38,
+     "heaviest day mm": 49.7,
+     "mean temp C": 9.1,
+     "by season": {
+      "spring": 7.5,
+      "summer": 15.9,
+      "autumn": 10.3,
+      "winter": 2.6
+     },
+     "frost nights": 0.21,
+     "winter frost nights": 0.62,
+     "days below 0 C mean": 0.048,
+     "snow days (falling)": 0.027,
+     "mean wind m/s": 6.1,
+     "gale days (>= 17 m/s)": 0.031
+    },
+    "water, two clocks": {
+     "river km in reach": 0.6,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 8.6,
+      "low": 3.9,
+      "normal": 10.8,
+      "high": 6.5,
+      "spate": 2.1,
+      "flood": 0.1
+     },
+     "days a year the river stands 1 m up": 0.4,
+     "soil under a quarter full, days a year": 10.8,
+     "snow lying, days a year": 0.7,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "w2": {
+    "generator": {
+     "name": "Ashley",
+     "kind": "wild or town",
+     "height m": 68.3,
+     "rain mm a year": 482.0,
+     "mean temp C": 9.5,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1071,
+     "wet days (>= 1 mm)": 0.37,
+     "heaviest day mm": 52.2,
+     "mean temp C": 9.1,
+     "by season": {
+      "spring": 7.6,
+      "summer": 15.5,
+      "autumn": 10.4,
+      "winter": 2.9
+     },
+     "frost nights": 0.2,
+     "winter frost nights": 0.6,
+     "days below 0 C mean": 0.052,
+     "snow days (falling)": 0.03,
+     "mean wind m/s": 5.9,
+     "gale days (>= 17 m/s)": 0.022
+    },
+    "water, two clocks": {
+     "river km in reach": 2.5,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 8.8,
+      "low": 3.5,
+      "normal": 9.1,
+      "high": 6.3,
+      "spate": 3.6,
+      "flood": 0.7
+     },
+     "days a year the river stands 1 m up": 2.0,
+     "soil under a quarter full, days a year": 11.3,
+     "snow lying, days a year": 1.2,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "w3": {
+    "generator": {
+     "name": "Birchley",
+     "kind": "wild or town",
+     "height m": 45.2,
+     "rain mm a year": 408.0,
+     "mean temp C": 9.0,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 967,
+     "wet days (>= 1 mm)": 0.37,
+     "heaviest day mm": 38.8,
+     "mean temp C": 9.6,
+     "by season": {
+      "spring": 8.4,
+      "summer": 15.7,
+      "autumn": 10.7,
+      "winter": 3.7
+     },
+     "frost nights": 0.18,
+     "winter frost nights": 0.54,
+     "days below 0 C mean": 0.03,
+     "snow days (falling)": 0.011,
+     "mean wind m/s": 5.6,
+     "gale days (>= 17 m/s)": 0.019
+    },
+    "water, two clocks": {
+     "river km in reach": 1.4,
+     "reaches above": 2,
+     "days a year by band": {
+      "dry": 9.2,
+      "low": 4.1,
+      "normal": 7.7,
+      "high": 5.2,
+      "spate": 4.5,
+      "flood": 1.4
+     },
+     "days a year the river stands 1 m up": 3.0,
+     "soil under a quarter full, days a year": 13.5,
+     "snow lying, days a year": 0.4,
+     "land within 2 m of the river": 0.0
+    }
+   }
+  }
+ },
+ "coast and shadow": {
+  "stands for": "a coastal strip under a 560 m range, west wind: the wet coast, the range, the lee",
+  "world": "coast_and_shadow.yaml",
+  "nodes": {
+   "s1": {
+    "generator": {
+     "name": "Hayby",
+     "kind": "settlement",
+     "height m": 47.4,
+     "rain mm a year": 812.0,
+     "mean temp C": 8.5,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1048,
+     "wet days (>= 1 mm)": 0.36,
+     "heaviest day mm": 54.8,
+     "mean temp C": 9.4,
+     "by season": {
+      "spring": 8.0,
+      "summer": 15.7,
+      "autumn": 10.9,
+      "winter": 3.1
+     },
+     "frost nights": 0.19,
+     "winter frost nights": 0.61,
+     "days below 0 C mean": 0.048,
+     "snow days (falling)": 0.027,
+     "mean wind m/s": 5.6,
+     "gale days (>= 17 m/s)": 0.022
+    },
+    "water, two clocks": {
+     "river km in reach": 6.6,
+     "reaches above": 1,
+     "days a year by band": {
+      "dry": 10.1,
+      "low": 2.9,
+      "normal": 7.7,
+      "high": 3.6,
+      "spate": 4.5,
+      "flood": 3.2
+     },
+     "days a year the river stands 1 m up": 5.5,
+     "soil under a quarter full, days a year": 12.2,
+     "snow lying, days a year": 1.3,
+     "land within 2 m of the river": 0.72
+    }
+   },
+   "s2": {
+    "generator": {
+     "name": "Leacombe",
+     "kind": "settlement",
+     "height m": 40.1,
+     "rain mm a year": 734.0,
+     "mean temp C": 9.4,
+     "sea km": 3.4
+    },
+    "engine weather": {
+     "rain mm a real year": 996,
+     "wet days (>= 1 mm)": 0.37,
+     "heaviest day mm": 48.3,
+     "mean temp C": 9.6,
+     "by season": {
+      "spring": 8.3,
+      "summer": 16.1,
+      "autumn": 10.6,
+      "winter": 3.3
+     },
+     "frost nights": 0.2,
+     "winter frost nights": 0.61,
+     "days below 0 C mean": 0.044,
+     "snow days (falling)": 0.022,
+     "mean wind m/s": 5.6,
+     "gale days (>= 17 m/s)": 0.017
+    },
+    "water, two clocks": {
+     "river km in reach": 6.9,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 9.5,
+      "low": 3.7,
+      "normal": 7.6,
+      "high": 5.6,
+      "spate": 4.5,
+      "flood": 1.1
+     },
+     "days a year the river stands 1 m up": 2.7,
+     "soil under a quarter full, days a year": 11.3,
+     "snow lying, days a year": 0.6,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "s3": {
+    "generator": {
+     "name": "Brookford",
+     "kind": "settlement",
+     "height m": 58.7,
+     "rain mm a year": 748.0,
+     "mean temp C": 8.1,
+     "sea km": 6.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1007,
+     "wet days (>= 1 mm)": 0.37,
+     "heaviest day mm": 52.4,
+     "mean temp C": 9.3,
+     "by season": {
+      "spring": 7.7,
+      "summer": 15.8,
+      "autumn": 10.5,
+      "winter": 3.0
+     },
+     "frost nights": 0.21,
+     "winter frost nights": 0.64,
+     "days below 0 C mean": 0.048,
+     "snow days (falling)": 0.03,
+     "mean wind m/s": 5.7,
+     "gale days (>= 17 m/s)": 0.02
+    },
+    "water, two clocks": {
+     "river km in reach": 8.0,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 8.7,
+      "low": 4.2,
+      "normal": 7.5,
+      "high": 4.4,
+      "spate": 4.0,
+      "flood": 3.2
+     },
+     "days a year the river stands 1 m up": 5.0,
+     "soil under a quarter full, days a year": 11.3,
+     "snow lying, days a year": 1.1,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "t1": {
+    "generator": {
+     "name": "Cragby",
+     "kind": "wild or town",
+     "height m": 84.5,
+     "rain mm a year": 922.0,
+     "mean temp C": 8.5,
+     "sea km": 2.7
+    },
+    "engine weather": {
+     "rain mm a real year": 1030,
+     "wet days (>= 1 mm)": 0.39,
+     "heaviest day mm": 54.1,
+     "mean temp C": 9.1,
+     "by season": {
+      "spring": 7.5,
+      "summer": 15.8,
+      "autumn": 10.4,
+      "winter": 2.7
+     },
+     "frost nights": 0.21,
+     "winter frost nights": 0.62,
+     "days below 0 C mean": 0.048,
+     "snow days (falling)": 0.03,
+     "mean wind m/s": 6.0,
+     "gale days (>= 17 m/s)": 0.028
+    },
+    "water, two clocks": {
+     "river km in reach": 0.0,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 9.5,
+      "low": 3.6,
+      "normal": 7.0,
+      "high": 5.3,
+      "spate": 4.8,
+      "flood": 1.9
+     },
+     "days a year the river stands 1 m up": 4.0,
+     "soil under a quarter full, days a year": 10.0,
+     "snow lying, days a year": 0.8,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "w1": {
+    "generator": {
+     "name": "Hazeley",
+     "kind": "wild or town",
+     "height m": 103.6,
+     "rain mm a year": 707.0,
+     "mean temp C": 8.4,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1104,
+     "wet days (>= 1 mm)": 0.38,
+     "heaviest day mm": 48.7,
+     "mean temp C": 8.8,
+     "by season": {
+      "spring": 7.4,
+      "summer": 15.1,
+      "autumn": 10.2,
+      "winter": 2.7
+     },
+     "frost nights": 0.21,
+     "winter frost nights": 0.61,
+     "days below 0 C mean": 0.056,
+     "snow days (falling)": 0.033,
+     "mean wind m/s": 6.2,
+     "gale days (>= 17 m/s)": 0.033
+    },
+    "water, two clocks": {
+     "river km in reach": 0.0,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 8.6,
+      "low": 3.6,
+      "normal": 9.6,
+      "high": 6.2,
+      "spate": 3.6,
+      "flood": 0.4
+     },
+     "days a year the river stands 1 m up": 1.8,
+     "soil under a quarter full, days a year": 10.8,
+     "snow lying, days a year": 1.4,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "w2": {
+    "generator": {
+     "name": "Stanlow",
+     "kind": "wild or town",
+     "height m": 496.5,
+     "rain mm a year": 2572.0,
+     "mean temp C": 6.4,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1148,
+     "wet days (>= 1 mm)": 0.45,
+     "heaviest day mm": 46.1,
+     "mean temp C": 6.7,
+     "by season": {
+      "spring": 5.5,
+      "summer": 13.0,
+      "autumn": 7.7,
+      "winter": 0.6
+     },
+     "frost nights": 0.3,
+     "winter frost nights": 0.74,
+     "days below 0 C mean": 0.128,
+     "snow days (falling)": 0.086,
+     "mean wind m/s": 9.7,
+     "gale days (>= 17 m/s)": 0.144
+    },
+    "water, two clocks": {
+     "river km in reach": 0.0,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 7.0,
+      "low": 5.0,
+      "normal": 10.4,
+      "high": 6.7,
+      "spate": 2.5,
+      "flood": 0.3
+     },
+     "days a year the river stands 1 m up": 1.1,
+     "soil under a quarter full, days a year": 4.0,
+     "snow lying, days a year": 3.6,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "w3": {
+    "generator": {
+     "name": "Scarley",
+     "kind": "wild or town",
+     "height m": 442.5,
+     "rain mm a year": 3473.0,
+     "mean temp C": 5.5,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1211,
+     "wet days (>= 1 mm)": 0.45,
+     "heaviest day mm": 51.6,
+     "mean temp C": 6.8,
+     "by season": {
+      "spring": 5.0,
+      "summer": 13.4,
+      "autumn": 8.0,
+      "winter": 0.6
+     },
+     "frost nights": 0.32,
+     "winter frost nights": 0.78,
+     "days below 0 C mean": 0.116,
+     "snow days (falling)": 0.092,
+     "mean wind m/s": 9.2,
+     "gale days (>= 17 m/s)": 0.109
+    },
+    "water, two clocks": {
+     "river km in reach": 0.3,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 5.8,
+      "low": 5.0,
+      "normal": 12.2,
+      "high": 6.0,
+      "spate": 2.7,
+      "flood": 0.3
+     },
+     "days a year the river stands 1 m up": 1.5,
+     "soil under a quarter full, days a year": 4.7,
+     "snow lying, days a year": 3.5,
+     "land within 2 m of the river": 0.0
+    }
+   }
+  }
+ },
+ "mountains": {
+  "stands for": "uplands rising to about 1500 m",
+  "world": "mountains.yaml",
+  "nodes": {
+   "s1": {
+    "generator": {
+     "name": "Hayby",
+     "kind": "settlement",
+     "height m": 41.4,
+     "rain mm a year": 801.0,
+     "mean temp C": 9.4,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1038,
+     "wet days (>= 1 mm)": 0.36,
+     "heaviest day mm": 54.8,
+     "mean temp C": 9.4,
+     "by season": {
+      "spring": 8.0,
+      "summer": 15.7,
+      "autumn": 10.9,
+      "winter": 3.2
+     },
+     "frost nights": 0.19,
+     "winter frost nights": 0.6,
+     "days below 0 C mean": 0.048,
+     "snow days (falling)": 0.025,
+     "mean wind m/s": 5.5,
+     "gale days (>= 17 m/s)": 0.017
+    },
+    "water, two clocks": {
+     "river km in reach": 5.7,
+     "reaches above": 1,
+     "days a year by band": {
+      "dry": 10.2,
+      "low": 2.8,
+      "normal": 8.0,
+      "high": 4.1,
+      "spate": 4.5,
+      "flood": 2.5
+     },
+     "days a year the river stands 1 m up": 4.6,
+     "soil under a quarter full, days a year": 12.3,
+     "snow lying, days a year": 1.3,
+     "land within 2 m of the river": 0.39
+    }
+   },
+   "s2": {
+    "generator": {
+     "name": "Leawick",
+     "kind": "settlement",
+     "height m": 62.6,
+     "rain mm a year": 776.0,
+     "mean temp C": 8.2,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 992,
+     "wet days (>= 1 mm)": 0.36,
+     "heaviest day mm": 46.7,
+     "mean temp C": 9.4,
+     "by season": {
+      "spring": 8.2,
+      "summer": 16.0,
+      "autumn": 10.5,
+      "winter": 3.1
+     },
+     "frost nights": 0.2,
+     "winter frost nights": 0.61,
+     "days below 0 C mean": 0.044,
+     "snow days (falling)": 0.028,
+     "mean wind m/s": 5.8,
+     "gale days (>= 17 m/s)": 0.019
+    },
+    "water, two clocks": {
+     "river km in reach": 3.8,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 9.3,
+      "low": 3.5,
+      "normal": 6.9,
+      "high": 4.6,
+      "spate": 5.1,
+      "flood": 2.5
+     },
+     "days a year the river stands 1 m up": 5.2,
+     "soil under a quarter full, days a year": 11.8,
+     "snow lying, days a year": 0.6,
+     "land within 2 m of the river": 0.24
+    }
+   },
+   "s3": {
+    "generator": {
+     "name": "Leaden",
+     "kind": "settlement",
+     "height m": 216.8,
+     "rain mm a year": 707.0,
+     "mean temp C": 7.8,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1130,
+     "wet days (>= 1 mm)": 0.42,
+     "heaviest day mm": 53.1,
+     "mean temp C": 8.3,
+     "by season": {
+      "spring": 6.8,
+      "summer": 14.8,
+      "autumn": 9.5,
+      "winter": 2.0
+     },
+     "frost nights": 0.24,
+     "winter frost nights": 0.68,
+     "days below 0 C mean": 0.069,
+     "snow days (falling)": 0.053,
+     "mean wind m/s": 7.2,
+     "gale days (>= 17 m/s)": 0.047
+    },
+    "water, two clocks": {
+     "river km in reach": 2.7,
+     "reaches above": 4,
+     "days a year by band": {
+      "dry": 5.7,
+      "low": 5.5,
+      "normal": 12.6,
+      "high": 6.5,
+      "spate": 1.6,
+      "flood": 0.0
+     },
+     "days a year the river stands 1 m up": 0.3,
+     "soil under a quarter full, days a year": 6.7,
+     "snow lying, days a year": 1.9,
+     "land within 2 m of the river": 0.06
+    }
+   },
+   "t1": {
+    "generator": {
+     "name": "Marton",
+     "kind": "wild or town",
+     "height m": 67.6,
+     "rain mm a year": 782.0,
+     "mean temp C": 8.7,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1004,
+     "wet days (>= 1 mm)": 0.37,
+     "heaviest day mm": 54.0,
+     "mean temp C": 9.2,
+     "by season": {
+      "spring": 7.6,
+      "summer": 15.9,
+      "autumn": 10.6,
+      "winter": 2.8
+     },
+     "frost nights": 0.2,
+     "winter frost nights": 0.61,
+     "days below 0 C mean": 0.044,
+     "snow days (falling)": 0.022,
+     "mean wind m/s": 5.9,
+     "gale days (>= 17 m/s)": 0.027
+    },
+    "water, two clocks": {
+     "river km in reach": 7.5,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 9.4,
+      "low": 3.8,
+      "normal": 6.8,
+      "high": 4.8,
+      "spate": 5.0,
+      "flood": 2.3
+     },
+     "days a year the river stands 1 m up": 4.5,
+     "soil under a quarter full, days a year": 9.8,
+     "snow lying, days a year": 0.6,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "w1": {
+    "generator": {
+     "name": "Hazeley",
+     "kind": "wild or town",
+     "height m": 40.5,
+     "rain mm a year": 778.0,
+     "mean temp C": 8.1,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 970,
+     "wet days (>= 1 mm)": 0.36,
+     "heaviest day mm": 39.6,
+     "mean temp C": 9.4,
+     "by season": {
+      "spring": 8.1,
+      "summer": 15.9,
+      "autumn": 10.4,
+      "winter": 3.1
+     },
+     "frost nights": 0.2,
+     "winter frost nights": 0.59,
+     "days below 0 C mean": 0.045,
+     "snow days (falling)": 0.023,
+     "mean wind m/s": 5.6,
+     "gale days (>= 17 m/s)": 0.016
+    },
+    "water, two clocks": {
+     "river km in reach": 3.5,
+     "reaches above": 2,
+     "days a year by band": {
+      "dry": 8.6,
+      "low": 4.0,
+      "normal": 8.4,
+      "high": 6.0,
+      "spate": 4.4,
+      "flood": 0.6
+     },
+     "days a year the river stands 1 m up": 2.1,
+     "soil under a quarter full, days a year": 12.6,
+     "snow lying, days a year": 0.8,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "w2": {
+    "generator": {
+     "name": "Ashden",
+     "kind": "wild or town",
+     "height m": 150.4,
+     "rain mm a year": 956.0,
+     "mean temp C": 7.3,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1039,
+     "wet days (>= 1 mm)": 0.4,
+     "heaviest day mm": 36.3,
+     "mean temp C": 9.0,
+     "by season": {
+      "spring": 7.8,
+      "summer": 15.2,
+      "autumn": 9.9,
+      "winter": 3.0
+     },
+     "frost nights": 0.2,
+     "winter frost nights": 0.59,
+     "days below 0 C mean": 0.044,
+     "snow days (falling)": 0.019,
+     "mean wind m/s": 6.6,
+     "gale days (>= 17 m/s)": 0.034
+    },
+    "water, two clocks": {
+     "river km in reach": 1.8,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 7.8,
+      "low": 4.5,
+      "normal": 8.9,
+      "high": 4.3,
+      "spate": 4.3,
+      "flood": 2.1
+     },
+     "days a year the river stands 1 m up": 4.5,
+     "soil under a quarter full, days a year": 10.6,
+     "snow lying, days a year": 0.5,
+     "land within 2 m of the river": 1.0
+    }
+   },
+   "w3": {
+    "generator": {
+     "name": "Scarley",
+     "kind": "wild or town",
+     "height m": 441.2,
+     "rain mm a year": 2268.0,
+     "mean temp C": 6.2,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1204,
+     "wet days (>= 1 mm)": 0.46,
+     "heaviest day mm": 52.8,
+     "mean temp C": 6.8,
+     "by season": {
+      "spring": 5.2,
+      "summer": 13.5,
+      "autumn": 8.0,
+      "winter": 0.7
+     },
+     "frost nights": 0.31,
+     "winter frost nights": 0.74,
+     "days below 0 C mean": 0.119,
+     "snow days (falling)": 0.075,
+     "mean wind m/s": 9.3,
+     "gale days (>= 17 m/s)": 0.12
+    },
+    "water, two clocks": {
+     "river km in reach": 6.2,
+     "reaches above": 2,
+     "days a year by band": {
+      "dry": 6.0,
+      "low": 5.7,
+      "normal": 12.2,
+      "high": 6.1,
+      "spate": 2.0,
+      "flood": 0.1
+     },
+     "days a year the river stands 1 m up": 0.6,
+     "soil under a quarter full, days a year": 4.3,
+     "snow lying, days a year": 2.9,
+     "land within 2 m of the river": 0.0
+    }
+   }
+  }
+ },
+ "fen floodplain": {
+  "stands for": "a fen basin open to the sea, a large river through it",
+  "world": "fen_floodplain.yaml",
+  "nodes": {
+   "s1": {
+    "generator": {
+     "name": "Mosswick",
+     "kind": "settlement",
+     "height m": 14.2,
+     "rain mm a year": 707.0,
+     "mean temp C": 8.8,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1011,
+     "wet days (>= 1 mm)": 0.35,
+     "heaviest day mm": 54.8,
+     "mean temp C": 9.6,
+     "by season": {
+      "spring": 8.2,
+      "summer": 15.9,
+      "autumn": 11.1,
+      "winter": 3.4
+     },
+     "frost nights": 0.18,
+     "winter frost nights": 0.57,
+     "days below 0 C mean": 0.047,
+     "snow days (falling)": 0.023,
+     "mean wind m/s": 5.3,
+     "gale days (>= 17 m/s)": 0.017
+    },
+    "water, two clocks": {
+     "river km in reach": 5.1,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 10.4,
+      "low": 2.6,
+      "normal": 7.0,
+      "high": 3.7,
+      "spate": 4.5,
+      "flood": 3.8
+     },
+     "days a year the river stands 1 m up": 6.2,
+     "soil under a quarter full, days a year": 12.3,
+     "snow lying, days a year": 1.1,
+     "land within 2 m of the river": 0.56
+    }
+   },
+   "s2": {
+    "generator": {
+     "name": "Brookwick",
+     "kind": "settlement",
+     "height m": 39.7,
+     "rain mm a year": 707.0,
+     "mean temp C": 9.3,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 983,
+     "wet days (>= 1 mm)": 0.35,
+     "heaviest day mm": 51.2,
+     "mean temp C": 9.6,
+     "by season": {
+      "spring": 8.3,
+      "summer": 16.1,
+      "autumn": 10.7,
+      "winter": 3.3
+     },
+     "frost nights": 0.19,
+     "winter frost nights": 0.61,
+     "days below 0 C mean": 0.045,
+     "snow days (falling)": 0.02,
+     "mean wind m/s": 5.6,
+     "gale days (>= 17 m/s)": 0.016
+    },
+    "water, two clocks": {
+     "river km in reach": 6.8,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 9.9,
+      "low": 3.2,
+      "normal": 7.5,
+      "high": 5.2,
+      "spate": 4.5,
+      "flood": 1.7
+     },
+     "days a year the river stands 1 m up": 3.6,
+     "soil under a quarter full, days a year": 11.4,
+     "snow lying, days a year": 0.6,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "s3": {
+    "generator": {
+     "name": "Meadworth",
+     "kind": "settlement",
+     "height m": 55.9,
+     "rain mm a year": 707.0,
+     "mean temp C": 8.0,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 991,
+     "wet days (>= 1 mm)": 0.37,
+     "heaviest day mm": 50.0,
+     "mean temp C": 9.3,
+     "by season": {
+      "spring": 7.7,
+      "summer": 15.8,
+      "autumn": 10.6,
+      "winter": 3.0
+     },
+     "frost nights": 0.21,
+     "winter frost nights": 0.64,
+     "days below 0 C mean": 0.048,
+     "snow days (falling)": 0.027,
+     "mean wind m/s": 5.7,
+     "gale days (>= 17 m/s)": 0.027
+    },
+    "water, two clocks": {
+     "river km in reach": 4.8,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 8.6,
+      "low": 4.8,
+      "normal": 8.2,
+      "high": 4.1,
+      "spate": 4.3,
+      "flood": 2.0
+     },
+     "days a year the river stands 1 m up": 4.3,
+     "soil under a quarter full, days a year": 11.2,
+     "snow lying, days a year": 0.9,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "w1": {
+    "generator": {
+     "name": "Hazeley",
+     "kind": "wild or town",
+     "height m": 65.6,
+     "rain mm a year": 707.0,
+     "mean temp C": 8.9,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1018,
+     "wet days (>= 1 mm)": 0.37,
+     "heaviest day mm": 54.7,
+     "mean temp C": 9.3,
+     "by season": {
+      "spring": 7.7,
+      "summer": 15.9,
+      "autumn": 10.6,
+      "winter": 2.9
+     },
+     "frost nights": 0.2,
+     "winter frost nights": 0.62,
+     "days below 0 C mean": 0.044,
+     "snow days (falling)": 0.022,
+     "mean wind m/s": 5.8,
+     "gale days (>= 17 m/s)": 0.022
+    },
+    "water, two clocks": {
+     "river km in reach": 4.3,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 8.5,
+      "low": 4.1,
+      "normal": 9.4,
+      "high": 7.0,
+      "spate": 2.6,
+      "flood": 0.2
+     },
+     "days a year the river stands 1 m up": 0.8,
+     "soil under a quarter full, days a year": 11.4,
+     "snow lying, days a year": 0.5,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "w2": {
+    "generator": {
+     "name": "Brookhope",
+     "kind": "wild or town",
+     "height m": 42.9,
+     "rain mm a year": 712.0,
+     "mean temp C": 8.6,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1028,
+     "wet days (>= 1 mm)": 0.36,
+     "heaviest day mm": 51.3,
+     "mean temp C": 9.2,
+     "by season": {
+      "spring": 7.7,
+      "summer": 15.6,
+      "autumn": 10.6,
+      "winter": 3.0
+     },
+     "frost nights": 0.2,
+     "winter frost nights": 0.59,
+     "days below 0 C mean": 0.048,
+     "snow days (falling)": 0.028,
+     "mean wind m/s": 5.6,
+     "gale days (>= 17 m/s)": 0.02
+    },
+    "water, two clocks": {
+     "river km in reach": 5.2,
+     "reaches above": 1,
+     "days a year by band": {
+      "dry": 9.7,
+      "low": 3.0,
+      "normal": 8.2,
+      "high": 5.2,
+      "spate": 4.7,
+      "flood": 1.4
+     },
+     "days a year the river stands 1 m up": 3.3,
+     "soil under a quarter full, days a year": 12.2,
+     "snow lying, days a year": 0.8,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "w3": {
+    "generator": {
+     "name": "Birchley",
+     "kind": "wild or town",
+     "height m": 55.9,
+     "rain mm a year": 707.0,
+     "mean temp C": 8.2,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1005,
+     "wet days (>= 1 mm)": 0.37,
+     "heaviest day mm": 49.9,
+     "mean temp C": 9.4,
+     "by season": {
+      "spring": 7.9,
+      "summer": 15.6,
+      "autumn": 10.7,
+      "winter": 3.3
+     },
+     "frost nights": 0.19,
+     "winter frost nights": 0.6,
+     "days below 0 C mean": 0.044,
+     "snow days (falling)": 0.023,
+     "mean wind m/s": 5.7,
+     "gale days (>= 17 m/s)": 0.022
+    },
+    "water, two clocks": {
+     "river km in reach": 3.9,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 8.4,
+      "low": 4.1,
+      "normal": 8.8,
+      "high": 5.2,
+      "spate": 4.6,
+      "flood": 0.9
+     },
+     "days a year the river stands 1 m up": 3.0,
+     "soil under a quarter full, days a year": 13.0,
+     "snow lying, days a year": 0.8,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "w4": {
+    "generator": {
+     "name": "Hazelthorpe",
+     "kind": "wild or town",
+     "height m": 77.6,
+     "rain mm a year": 707.0,
+     "mean temp C": 7.9,
+     "sea km": 7.2
+    },
+    "engine weather": {
+     "rain mm a real year": 1042,
+     "wet days (>= 1 mm)": 0.37,
+     "heaviest day mm": 46.8,
+     "mean temp C": 9.1,
+     "by season": {
+      "spring": 7.4,
+      "summer": 15.8,
+      "autumn": 10.4,
+      "winter": 3.0
+     },
+     "frost nights": 0.2,
+     "winter frost nights": 0.59,
+     "days below 0 C mean": 0.052,
+     "snow days (falling)": 0.025,
+     "mean wind m/s": 6.1,
+     "gale days (>= 17 m/s)": 0.025
+    },
+    "water, two clocks": {
+     "river km in reach": 0.9,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 9.3,
+      "low": 3.6,
+      "normal": 8.4,
+      "high": 6.1,
+      "spate": 3.6,
+      "flood": 0.8
+     },
+     "days a year the river stands 1 m up": 2.3,
+     "soil under a quarter full, days a year": 12.7,
+     "snow lying, days a year": 1.2,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "w5": {
+    "generator": {
+     "name": "Birchby",
+     "kind": "wild or town",
+     "height m": 50.4,
+     "rain mm a year": 924.0,
+     "mean temp C": 7.9,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1045,
+     "wet days (>= 1 mm)": 0.37,
+     "heaviest day mm": 58.1,
+     "mean temp C": 9.4,
+     "by season": {
+      "spring": 7.9,
+      "summer": 15.7,
+      "autumn": 10.8,
+      "winter": 3.2
+     },
+     "frost nights": 0.19,
+     "winter frost nights": 0.61,
+     "days below 0 C mean": 0.047,
+     "snow days (falling)": 0.025,
+     "mean wind m/s": 5.8,
+     "gale days (>= 17 m/s)": 0.019
+    },
+    "water, two clocks": {
+     "river km in reach": 1.4,
+     "reaches above": 2,
+     "days a year by band": {
+      "dry": 7.8,
+      "low": 4.2,
+      "normal": 10.1,
+      "high": 6.2,
+      "spate": 3.2,
+      "flood": 0.5
+     },
+     "days a year the river stands 1 m up": 1.2,
+     "soil under a quarter full, days a year": 11.1,
+     "snow lying, days a year": 1.0,
+     "land within 2 m of the river": 0.0
+    }
+   }
+  }
+ },
+ "cold north": {
+  "stands for": "plain lowland in a cold climate, 6 C",
+  "world": "cold_north.yaml",
+  "nodes": {
+   "s1": {
+    "generator": {
+     "name": "Fleetford",
+     "kind": "settlement",
+     "height m": 42.3,
+     "rain mm a year": 651.0,
+     "mean temp C": 6.0,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1046,
+     "wet days (>= 1 mm)": 0.36,
+     "heaviest day mm": 54.8,
+     "mean temp C": 9.4,
+     "by season": {
+      "spring": 8.0,
+      "summer": 15.7,
+      "autumn": 10.9,
+      "winter": 3.2
+     },
+     "frost nights": 0.19,
+     "winter frost nights": 0.6,
+     "days below 0 C mean": 0.048,
+     "snow days (falling)": 0.025,
+     "mean wind m/s": 5.6,
+     "gale days (>= 17 m/s)": 0.019
+    },
+    "water, two clocks": {
+     "river km in reach": 6.0,
+     "reaches above": 2,
+     "days a year by band": {
+      "dry": 10.1,
+      "low": 2.5,
+      "normal": 8.7,
+      "high": 3.9,
+      "spate": 4.7,
+      "flood": 2.3
+     },
+     "days a year the river stands 1 m up": 4.5,
+     "soil under a quarter full, days a year": 12.0,
+     "snow lying, days a year": 1.3,
+     "land within 2 m of the river": 0.21
+    }
+   },
+   "s2": {
+    "generator": {
+     "name": "Leacombe",
+     "kind": "settlement",
+     "height m": 45.2,
+     "rain mm a year": 635.0,
+     "mean temp C": 5.3,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 984,
+     "wet days (>= 1 mm)": 0.36,
+     "heaviest day mm": 46.3,
+     "mean temp C": 9.6,
+     "by season": {
+      "spring": 8.3,
+      "summer": 16.1,
+      "autumn": 10.6,
+      "winter": 3.2
+     },
+     "frost nights": 0.2,
+     "winter frost nights": 0.61,
+     "days below 0 C mean": 0.044,
+     "snow days (falling)": 0.022,
+     "mean wind m/s": 5.7,
+     "gale days (>= 17 m/s)": 0.022
+    },
+    "water, two clocks": {
+     "river km in reach": 9.0,
+     "reaches above": 4,
+     "days a year by band": {
+      "dry": 9.2,
+      "low": 3.6,
+      "normal": 8.2,
+      "high": 5.5,
+      "spate": 4.4,
+      "flood": 1.1
+     },
+     "days a year the river stands 1 m up": 2.4,
+     "soil under a quarter full, days a year": 11.8,
+     "snow lying, days a year": 0.6,
+     "land within 2 m of the river": 0.48
+    }
+   },
+   "s3": {
+    "generator": {
+     "name": "Meadworth",
+     "kind": "settlement",
+     "height m": 44.6,
+     "rain mm a year": 629.0,
+     "mean temp C": 5.5,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1013,
+     "wet days (>= 1 mm)": 0.37,
+     "heaviest day mm": 56.0,
+     "mean temp C": 9.4,
+     "by season": {
+      "spring": 7.9,
+      "summer": 15.9,
+      "autumn": 10.6,
+      "winter": 3.2
+     },
+     "frost nights": 0.19,
+     "winter frost nights": 0.59,
+     "days below 0 C mean": 0.042,
+     "snow days (falling)": 0.027,
+     "mean wind m/s": 5.7,
+     "gale days (>= 17 m/s)": 0.019
+    },
+    "water, two clocks": {
+     "river km in reach": 6.3,
+     "reaches above": 22,
+     "days a year by band": {
+      "dry": 8.6,
+      "low": 3.7,
+      "normal": 10.2,
+      "high": 5.2,
+      "spate": 4.0,
+      "flood": 0.2
+     },
+     "days a year the river stands 1 m up": 1.3,
+     "soil under a quarter full, days a year": 11.2,
+     "snow lying, days a year": 0.8,
+     "land within 2 m of the river": 0.4
+    }
+   },
+   "w1": {
+    "generator": {
+     "name": "Hazeley",
+     "kind": "wild or town",
+     "height m": 93.4,
+     "rain mm a year": 629.0,
+     "mean temp C": 5.4,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1014,
+     "wet days (>= 1 mm)": 0.38,
+     "heaviest day mm": 49.8,
+     "mean temp C": 9.1,
+     "by season": {
+      "spring": 7.5,
+      "summer": 15.9,
+      "autumn": 10.3,
+      "winter": 2.6
+     },
+     "frost nights": 0.21,
+     "winter frost nights": 0.62,
+     "days below 0 C mean": 0.048,
+     "snow days (falling)": 0.027,
+     "mean wind m/s": 6.1,
+     "gale days (>= 17 m/s)": 0.03
+    },
+    "water, two clocks": {
+     "river km in reach": 0.6,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 8.6,
+      "low": 3.9,
+      "normal": 10.8,
+      "high": 6.5,
+      "spate": 2.1,
+      "flood": 0.1
+     },
+     "days a year the river stands 1 m up": 0.4,
+     "soil under a quarter full, days a year": 10.8,
+     "snow lying, days a year": 0.7,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "w2": {
+    "generator": {
+     "name": "Ashley",
+     "kind": "wild or town",
+     "height m": 75.5,
+     "rain mm a year": 800.0,
+     "mean temp C": 5.5,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 1077,
+     "wet days (>= 1 mm)": 0.38,
+     "heaviest day mm": 52.2,
+     "mean temp C": 9.1,
+     "by season": {
+      "spring": 7.5,
+      "summer": 15.4,
+      "autumn": 10.3,
+      "winter": 2.9
+     },
+     "frost nights": 0.2,
+     "winter frost nights": 0.6,
+     "days below 0 C mean": 0.053,
+     "snow days (falling)": 0.03,
+     "mean wind m/s": 5.9,
+     "gale days (>= 17 m/s)": 0.025
+    },
+    "water, two clocks": {
+     "river km in reach": 1.5,
+     "reaches above": 0,
+     "days a year by band": {
+      "dry": 8.7,
+      "low": 3.7,
+      "normal": 9.1,
+      "high": 6.0,
+      "spate": 3.8,
+      "flood": 0.7
+     },
+     "days a year the river stands 1 m up": 2.0,
+     "soil under a quarter full, days a year": 11.1,
+     "snow lying, days a year": 1.2,
+     "land within 2 m of the river": 0.0
+    }
+   },
+   "w3": {
+    "generator": {
+     "name": "Birchley",
+     "kind": "wild or town",
+     "height m": 45.2,
+     "rain mm a year": 653.0,
+     "mean temp C": 5.0,
+     "sea km": 99.0
+    },
+    "engine weather": {
+     "rain mm a real year": 967,
+     "wet days (>= 1 mm)": 0.37,
+     "heaviest day mm": 38.8,
+     "mean temp C": 9.6,
+     "by season": {
+      "spring": 8.4,
+      "summer": 15.7,
+      "autumn": 10.7,
+      "winter": 3.7
+     },
+     "frost nights": 0.18,
+     "winter frost nights": 0.53,
+     "days below 0 C mean": 0.03,
+     "snow days (falling)": 0.011,
+     "mean wind m/s": 5.6,
+     "gale days (>= 17 m/s)": 0.019
+    },
+    "water, two clocks": {
+     "river km in reach": 1.4,
+     "reaches above": 2,
+     "days a year by band": {
+      "dry": 9.2,
+      "low": 4.0,
+      "normal": 7.7,
+      "high": 5.3,
+      "spate": 4.5,
+      "flood": 1.3
+     },
+     "days a year the river stands 1 m up": 2.9,
+     "soil under a quarter full, days a year": 13.5,
+     "snow lying, days a year": 0.4,
+     "land within 2 m of the river": 0.0
+    }
+   }
+  }
+ },
+ "by height alone": {
+  "0 m": {
+   "rain mm a real year": 990,
+   "wet days (>= 1 mm)": 0.34,
+   "heaviest day mm": 54.8,
+   "mean temp C": 9.7,
+   "by season": {
+    "spring": 8.3,
+    "summer": 16.0,
+    "autumn": 11.2,
+    "winter": 3.4
+   },
+   "frost nights": 0.18,
+   "winter frost nights": 0.56,
+   "days below 0 C mean": 0.047,
+   "snow days (falling)": 0.023,
+   "mean wind m/s": 5.2,
+   "gale days (>= 17 m/s)": 0.017
+  },
+  "250 m": {
+   "rain mm a real year": 1104,
+   "wet days (>= 1 mm)": 0.42,
+   "heaviest day mm": 46.3,
+   "mean temp C": 8.2,
+   "by season": {
+    "spring": 7.0,
+    "summer": 14.8,
+    "autumn": 9.2,
+    "winter": 1.9
+   },
+   "frost nights": 0.24,
+   "winter frost nights": 0.66,
+   "days below 0 C mean": 0.07,
+   "snow days (falling)": 0.055,
+   "mean wind m/s": 7.5,
+   "gale days (>= 17 m/s)": 0.061
+  },
+  "500 m": {
+   "rain mm a real year": 1189,
+   "wet days (>= 1 mm)": 0.44,
+   "heaviest day mm": 53.2,
+   "mean temp C": 6.4,
+   "by season": {
+    "spring": 4.9,
+    "summer": 13.0,
+    "autumn": 7.6,
+    "winter": 0.2
+   },
+   "frost nights": 0.34,
+   "winter frost nights": 0.83,
+   "days below 0 C mean": 0.142,
+   "snow days (falling)": 0.1,
+   "mean wind m/s": 9.7,
+   "gale days (>= 17 m/s)": 0.145
+  },
+  "1000 m": {
+   "rain mm a real year": 1220,
+   "wet days (>= 1 mm)": 0.5,
+   "heaviest day mm": 53.8,
+   "mean temp C": 3.2,
+   "by season": {
+    "spring": 1.6,
+    "summer": 9.9,
+    "autumn": 4.4,
+    "winter": -3.2
+   },
+   "frost nights": 0.56,
+   "winter frost nights": 0.97,
+   "days below 0 C mean": 0.287,
+   "snow days (falling)": 0.28,
+   "mean wind m/s": 14.1,
+   "gale days (>= 17 m/s)": 0.311
+  },
+  "1500 m": {
+   "rain mm a real year": 1306,
+   "wet days (>= 1 mm)": 0.51,
+   "heaviest day mm": 45.9,
+   "mean temp C": -0.2,
+   "by season": {
+    "spring": -1.6,
+    "summer": 6.3,
+    "autumn": 1.0,
+    "winter": -6.4
+   },
+   "frost nights": 0.74,
+   "winter frost nights": 1.0,
+   "days below 0 C mean": 0.508,
+   "snow days (falling)": 0.422,
+   "mean wind m/s": 18.6,
+   "gale days (>= 17 m/s)": 0.447
+  }
+ }
+}
