@@ -142,8 +142,8 @@ def main():
                 if not got:
                     continue
                 fu = statistics.mean(got)
-                if cell.startswith("weir"):                                # shut for that night (3 units), and shut for the season
-                    out.append((d, f"{cal['season']} {cal['day']}", node, run, f"{cell} (shut that night)", 1, round(fu / 3.0, 3)))
+                if cell.startswith("weir"):                                # a run night counts 3 units (D2-219); and kept shut, 1
+                    out.append((d, f"{cal['season']} {cal['day']}", node, run, f"{cell} (3 units: D2-219)", 1, round(fu / 3.0, 3)))
                     print(*out[-1], flush=True)
                     cell, fu = f"{cell} (lift only)", fu / 1.0
                 out.append((d, f"{cal['season']} {cal['day']}", node, run, cell, len(got), round(fu, 3)))
