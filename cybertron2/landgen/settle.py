@@ -88,6 +88,17 @@ def site_score(L: Land) -> np.ndarray:
     return np.where(bad, -np.inf, score)
 
 
+
+def lakes(L, pin: dict):
+    """The lakes a pin `on: lake` may sit by: those of at least `lake_km2` (default 1 km2), so a village pinned to a mere is not
+    sited by a pond of two cells."""
+    lab, n = F.components(L.lake)
+    if not n:
+        return L.lake
+    km2 = np.bincount(lab.ravel())[1:] * L.g.km * L.g.km
+    keep = [k + 1 for k in range(n) if km2[k] >= float(pin.get("lake_km2", 1.0))]
+    return np.isin(lab, keep) if keep else L.lake
+
 def _pin_mask(L: Land, pin: dict, name: str) -> np.ndarray:
     g = L.g
     ok = np.ones(g.shape, dtype=bool)
@@ -113,8 +124,8 @@ def _pin_mask(L: Land, pin: dict, name: str) -> np.ndarray:
         ok &= np.isfinite(d)
     elif on == "sea":
         ok &= L.c < 1.5
-    elif on == "lake":
-        _, d = P._spread(g, L.lake, np.ones(g.shape), 4, how="near")
+    elif on == "lake":                                                     # beside a lake of at least `lake_km2` (a mere, not a pond)
+        _, d = P._spread(g, lakes(L, pin), np.ones(g.shape), 4, how="near")
         ok &= np.isfinite(d)
     for res in pin.get("resources") or []:                                 # "copper in the hills", "stone": the ore or the rock near
         src = L.ore if res == "copper" else np.isin(L.terrain, [P.TERRAIN_NAMES.index(t) for t in ("hills", "rock", "chalk down")])
@@ -315,9 +326,10 @@ def allocate(L: Land, conf: dict, base: dict, s: Settlement, claimed: np.ndarray
     s.facts["woods"] = take("wood", units, lambda rc: L.cover[rc] == "forest" or tn(rc) in V.WOOD_OK)
     s.facts["waste"] = take("waste", waste_units, lambda rc: tn(rc) in V.WASTE_COVER or L.cover[rc] in ("heath", "moor", "fen"))
     near_water = [rc for rc in order[:400] if (L.river[rc] >= 2 or L.lake[rc]) and not claimed[rc]]
-    if s.pin.get("on") == "big river":                                     # the large river's own cells, nearest the site first:
-        r0, c0 = s.site                                                    # the travel costs skip them (_cost_from), so they are
-        big = np.argwhere((L.river >= 3) & ~claimed & ~L.sea)              # found by distance, within the village's reach
+    own = {"big river": (L.river >= 3) & ~L.lake, "lake": lakes(L, s.pin)}.get(s.pin.get("on"))
+    if own is not None:                                                    # the large river's or the lake's own cells, nearest the
+        r0, c0 = s.site                                                    # site first: the travel costs skip them (_cost_from), so
+        big = np.argwhere(own & ~claimed & ~L.sea)                         # they are found by distance, within the village's reach
         dist = np.hypot(L.g.x[big[:, 0], big[:, 1]] - L.g.x[r0, c0], L.g.y[big[:, 0], big[:, 1]] - L.g.y[r0, c0])
         near_water = [tuple(map(int, big[i])) for i in np.argsort(dist, kind="stable") if dist[i] <= float(conf["field_km"])][:2] or near_water
     for rc in near_water[:2]:
@@ -516,7 +528,8 @@ def parcels(L: Land, conf: dict, s: Settlement, land: dict) -> list:
         if p.cover == "scrub":
             p.wood_kind = "scrub"
         p.facts = {"terrain": p.terrain, "soil": p.soil, "height_m": round(h), "slope": round(sl, 1), "wet": round(wet, 2),
-                   "river": int(L.river[rr, cc].max()), "spring": bool(L.spring[rr, cc].any()), "seam": bool(L.ore[rr, cc].any())}
+                   "river": int(L.river[rr, cc].max()), "spring": bool(L.spring[rr, cc].any()), "seam": bool(L.ore[rr, cc].any()),
+                   "lake": bool(L.lake[rr, cc].any())}
         out.append(p)
     cell_of = {rc: i for i, p in enumerate(out) for rc in p.cells}
     adj = {i: set() for i in range(len(out))}

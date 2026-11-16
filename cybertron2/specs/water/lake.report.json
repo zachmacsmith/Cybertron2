@@ -1,12 +1,12 @@
 {
- "seed": 3,
+ "seed": 9,
  "pins": {},
  "targets": {
   "Meresby": {
    "households": 3,
    "people": 14,
    "food": 0.6,
-   "heat": 0.6,
+   "heat": 0.65,
    "plots_wanted": 15,
    "fields": 15,
    "wood_wanted": 5,
@@ -37,7 +37,7 @@
   },
   "capacity": {
    "kind": "design",
-   "ok": false,
+   "ok": true,
    "detail": {
     "Meresby": 0.7
    }
@@ -59,21 +59,23 @@
   },
   "chokepoint": {
    "kind": "design",
-   "ok": false,
-   "detail": []
+   "ok": true,
+   "detail": [
+    "Meresby-w1: narrows"
+   ]
   },
   "roads about a day": {
    "kind": "design",
    "ok": true,
    "detail": {
-    "1": 1
+    "1": 3
    }
   },
   "parcels per node": {
    "kind": "design",
    "ok": true,
    "detail": {
-    "Meresby": 10
+    "Meresby": 11
    }
   },
   "access gates": {
@@ -103,7 +105,7 @@
     "Meresby": {
      "people": 14,
      "share": 0.7,
-     "target": 0.6
+     "target": 0.65
     }
    }
   },
@@ -111,25 +113,25 @@
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "14 people; the land keeps 26 for good (0.54 of it)"
+   "detail": "14 people; the land keeps 30 for good (0.47 of it)"
   },
   "economy: food over the run": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "14 days need 179 meals; store, crops ripening and the land give 412 (0.43)"
+   "detail": "14 days need 179 meals; store, crops ripening and the land give 465 (0.39)"
   },
   "economy: region heat": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "14 people; the land keeps 45 for good (0.31 of it)"
+   "detail": "14 people; the land keeps 96 for good (0.15 of it)"
   },
   "economy: heat over the run": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "14 days need 42 heat (3 hearths, 0 cold nights); store and the woods' flow give 336 (0.13); the woods stand at 38300 more"
+   "detail": "14 days need 60 heat (3 hearths, 2.0 cold nights); store and the woods' flow give 610 (0.10); the woods stand at 100400 more"
   },
   "economy: carrying burden": {
    "kind": "economy",
@@ -145,9 +147,9 @@
     "short": [],
     "share_of_people": 0.0,
     "days_of_food_a_member": {
-     "the Hunts": 6.8,
-     "the Wards": 6.8,
-     "the Marshs": 6.8
+     "the Coles": 6.8,
+     "the Shepherds": 6.8,
+     "the Hales": 6.8
     }
    }
   },
@@ -161,7 +163,7 @@
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "3 couples; about 4 births in 14 days if they try often; the region would be at 0.67 of its land"
+   "detail": "3 couples; about 4 births in 14 days if they try often; the region would be at 0.59 of its land"
   },
   "economy: succession": {
    "kind": "economy",
@@ -174,32 +176,32 @@
    "ok": true,
    "detail": {
     "said": {
-     "Meresby": "stoat 20.95 (a group needs 1), wild boar 17.54 (a group needs 2), fox 16.06 (a group needs 1), wolf 2.2 (a group needs 3), brown bear 0.32 (a group needs 1)"
+     "Meresby": "wild boar 25.29 (a group needs 2), stoat 18.34 (a group needs 1), fox 14.14 (a group needs 1), wolf 2.61 (a group needs 3), brown bear 0.56 (a group needs 1)"
     },
     "by village": {
      "Meresby": {
       "wild boar": {
-       "heads": 17.54,
+       "heads": 25.29,
        "least": 2,
        "range_km2": 40.0
       },
       "fox": {
-       "heads": 16.06,
+       "heads": 14.14,
        "least": 1,
        "reach": "ring"
       },
       "stoat": {
-       "heads": 20.95,
+       "heads": 18.34,
        "least": 1,
        "reach": "ring"
       },
       "wolf": {
-       "heads": 2.2,
+       "heads": 2.61,
        "least": 3,
        "range_km2": 200.0
       },
       "brown bear": {
-       "heads": 0.32,
+       "heads": 0.56,
        "least": 1,
        "range_km2": 300.0
       }
@@ -224,17 +226,35 @@
    "name": "Meresby",
    "kind": "village",
    "site_km": [
-    25.95,
-    23.0
+    22.7,
+    25.8
    ],
-   "parcels": 10
+   "parcels": 11
   },
   "w1": {
-   "name": "Hazelhope",
+   "name": "Ashley",
    "kind": "wild",
    "site_km": [
-    45.11,
-    41.39
+    28.16,
+    5.59
+   ],
+   "parcels": 2
+  },
+  "w2": {
+   "name": "Hazeley",
+   "kind": "wild",
+   "site_km": [
+    35.41,
+    38.27
+   ],
+   "parcels": 2
+  },
+  "w3": {
+   "name": "Oakhope",
+   "kind": "wild",
+   "site_km": [
+    14.72,
+    47.23
    ],
    "parcels": 2
   }
@@ -276,8 +296,8 @@
  },
  "design": {
   "water_parcels": {
-   "Meresby_8": 2
+   "Meresby_9": 2
   },
-  "lake_km2_at_home": 12.85
+  "lake_km2_at_home": 2.61
  }
 }

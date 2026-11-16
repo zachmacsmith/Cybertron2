@@ -98,8 +98,10 @@ class Namer:
             return self.pick(key, [f"{node_name} Moor", "the Rough", "Thorn Bank", "the Brakes"])
         if c == "rock":
             return self.pick(key, ["the Scar", "the Crags", f"{node_name} Scar"])
-        if c == "water":
-            return self.pick(key, ([f"the {river}"] if river else []) + ["the Brook", "the Mere", f"{node_name} Water"])
+        if c == "water":                                                   # a lake's water is a mere or a pool, a river's its river
+            if p.facts.get("lake"):
+                return self.pick(key, ["the Mere", "the Pool", f"{node_name} Mere", f"{node_name} Water"])
+            return self.pick(key, ([f"the {river}"] if river else []) + ["the Brook", f"{node_name} Water"])
         return self.pick(key, [f"{sidew} {c.title()}"])
 
 

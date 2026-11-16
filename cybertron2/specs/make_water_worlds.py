@@ -50,7 +50,7 @@ RUNS_PLACES = {                             # three stations on the large river,
 RUNS_AT_Y = {"Highpool": 0.74, "Middleham": 0.5, "Lowstrand": 0.26}
 RUNS_DAYS = 60                              # past a salmon return under the compressed year (D2-209: one world year, 32 days)
 LAKE_PLACES = {
-    "Meresby": {"households": 3, "on": "lake", "at": [25.0, 21.0], "within": 6.0, "food_share": 0.6},
+    "Meresby": {"households": 3, "on": "lake", "lake_km2": 2.0, "at": [25.0, 21.0], "within": 6.0, "food_share": 0.6},   # on the mere
 }
 
 
@@ -279,7 +279,9 @@ def lake_check(world: dict) -> dict:
         from cybertron2.engine.world import World
         w = World(copy.deepcopy(world))
         land = (w.s.get("wild") or {}).get("land") or {}
-        lake_km2 = round(sum(float(v.get("lake_km2") or 0) for v in land.get("areas", {}).values() if v.get("node") == node), 2)
+        lake_km2 = round(sum(float(v.get("lake_km2") or 0) for v in land.get("areas", {}).values()     # the village's own land
+                             if v.get("node") == node and v.get("kind") in ("home", "ring")), 2)                   # (home and ring), not
+                                                                                                                  # the wild beyond
     except Exception as e:  # noqa: BLE001
         lake_km2 = f"error: {e}"
     return {"water_parcels": water, "lake_km2_at_home": lake_km2}
@@ -338,7 +340,7 @@ def ok(which: str, report: dict) -> bool:
     if which == "river":
         sm = report.get("spring_and_mill") or {}
         return bool(d.get("saltwell_above_millham") and sm.get("spring") and sm.get("mill") and d.get("wild_areas_on_the_big_river"))
-    return isinstance(d.get("lake_km2_at_home"), float) and d["lake_km2_at_home"] > 0
+    return isinstance(d.get("lake_km2_at_home"), float) and d["lake_km2_at_home"] >= 1.0   # the mere reaches the village's land
 
 
 def main():
