@@ -188,8 +188,13 @@ the weir can hold and what people can keep (Zach: "storage and keeping food does
    a batch over 3 to 4 nights) or one salt spring supplies quickly (1 salt for 4 fish); fresh fish spoil in days. So the weir, the
    smokehouses, salt and fuel bind together, as the research found (02zzj parts 06, 10: storage, not the catch, made a run into
    wealth).
-9. **Proposed, not decided: fresh fish spoil faster than meat**, about 0.5 a night against meat's 0.3 (the data has fish "as
-   meat"): fish goes off within a day in warmth, a carcass can hang for days in cool weather.
+9. **Keeping fresh fish** (D2-211; checked in `docs/review/37_growth/02zzm_fish_keeping_cal.py`): fresh fish spoil at meat's rate
+   (0.3 a night in hand, before the store and the season); **fish alive in a set trap or a weir do not spoil until lifted** (the river
+   keeps them; the otter and a spate are the risks). The check: indoors the base rate matters little (a full weir's season with one
+   smokehouse loses 6% at 0.3 and 10% at 0.5), because a house's store keeps fresh food at ×0.3; what decides winter food is the
+   processing (no smokehouse and no salt keeps nothing). **Proposed, not decided:** fish keep twice as badly as meat indoors (×2:
+   about 18% a night in a house, 9% with bins), so one smokehouse loses about 12% of a full weir's run, salt or a second smokehouse
+   nearly none, and none at all about 30% (OPEN Q-54).
 
 ## 4. The kinds on the water
 
@@ -434,6 +439,9 @@ generate; nothing in the engine changes for it.
   measured salmon nights at 4.5 to 17 food a unit with no cap (38.72). Zach: "storage and keeping food does become the real
   bottleneck"; "a weir seems like quite high upkeep ... a lot more than a house"; "if you think the numbers above match that then it
   is fine". Fresh fish spoiling faster than meat proposed (§3b.9).
+- 16 Nov 2026: §3b.9 revised after a calibration check (02zzm): Zach, "30% could be fine" and "I agree that fish in the trap should
+  be fine" (D2-211); the check showed the base rate matters little indoors, so the proposal is now fish keeping ×2 worse than meat in
+  a house (OPEN Q-54).
 
 ## Sources
 

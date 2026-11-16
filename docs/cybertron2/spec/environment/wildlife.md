@@ -76,5 +76,6 @@ is, these rules wait for it.
   have a gap, open or shut, that decides what passes; the salmon's return is one world year; no custom about the water is seeded.
 - **The weir** (D2-210): one a water parcel, built in sections, its catch capped a night, worn by the river's flow far more than
   a house; keeping the catch is the bottleneck.
+- **Fresh fish** (D2-211): spoil as meat in hand; alive in a trap or a weir until lifted.
 
-*Current as of 16 Nov 2026: D2-192 to D2-198, D2-204 to D2-206, D2-209, D2-210.*
+*Current as of 16 Nov 2026: D2-192 to D2-198, D2-204 to D2-206, D2-209 to D2-211.*
