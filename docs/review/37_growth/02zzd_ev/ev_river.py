@@ -2,13 +2,13 @@
 by hand at a village's water, a sound shut weir, and a trap in a shut mill's race, on each night of a run through the autumn, against
 the nights with no run. Beside ev_region.py (brief 4c's hunting harness); CYB_ROOT = the branch checkout (default: this repository).
 
-    python3 ev_river.py [WORLD.yaml] [DAYS] [TRIES]      default: cybertron2/specs/water/river.yaml, 14 days, 12 tries a cell
+    python3 ev_river.py [WORLD.yaml] [DAYS] [TRIES] [noclimate]   default: cybertron2/specs/water/river.yaml, 14 days, 12 tries a cell
 
 The world is stepped night by night as it is (no one acting), each morning kept; each cell is tried on a copy of that morning:
 - `trap`: wicker traps set at the village's river water (1 unit), what is in them after the night;
 - `net`: a net at the water (2 units), what is taken;
 - `hand`: fishing by hand (1 unit), from the run only (the resident fish left out);
-- `weir`: a sound weir at the water with its gap shut, its traps after the night: a unit a night if it is kept shut through the
+- `weir`, `weir full`: a sound weir of one section, and of four (D2-210), at the water with its gap shut, its traps after the night: a unit a night if it is kept shut through the
   season and lifted each morning ("lift only"), three if it is shut for that night alone (2 units) and lifted (1);
 - `race`: a trap set in the race of a shut water mill (1 unit; Millham only), what is in it after the night.
 Each row: day, village, the run there that day (heads by kind and direction), cell, tries, food a unit (mean), food a try. The skill is
@@ -97,7 +97,7 @@ def try_hunt(w0, node, salt, tech, units):
     return got / units
 
 
-def try_weir(w0, node, salt):
+def try_weir(w0, node, salt, full=False):
     w = salted(copy.deepcopy(w0), salt)
     crew = who(w, node)[:2]
     pid = water(w, node)
@@ -105,6 +105,9 @@ def try_weir(w0, node, salt):
                                                              "rooms": [], "monument": "weir", "tier": "plain", "unfinished": None,
                                                              "crew": crew, "gap": "shut"})
     w.s["buildings"][bid]["built_day"] = w.d
+    if full:                                                                 # a full weir (D2-210): the first section and three timber
+        w.s["buildings"][bid]["sections"] = [{"m": "wattle", "foot": False, "level": 5}] + \
+            [{"m": "timber", "foot": False, "level": 5} for _ in range(3)]
     NI.night(w)
     cid = WL.weir_trap(w, bid)
     return food(w.s["containers"][cid]["goods"])                             # a night's catch: a unit to lift, 2 to shut
@@ -112,6 +115,8 @@ def try_weir(w0, node, salt):
 
 def main():
     spec = yaml.safe_load(open(SPEC))
+    if "noclimate" in sys.argv[4:]:                                          # the runs on the window's set nights (RUN.no_weather)
+        spec.pop("climate", None)
     w = World(spec)
     m = WL.model(w)
     out = []
@@ -127,19 +132,20 @@ def main():
                     key = f"{p['k']} {'held' if p.get('held') else p['dir']}"
                     run[key] = round(run.get(key, 0.0) + float(p["n"]), 1)
             cells = {"trap": lambda s: try_set(w, node, s), "net": lambda s: try_hunt(w, node, s, "net", 2.0),
-                     "hand": lambda s: try_hunt(w, node, s, "fish by hand", 1.0), "weir": lambda s: try_weir(w, node, s)}
+                     "hand": lambda s: try_hunt(w, node, s, "fish by hand", 1.0), "weir": lambda s: try_weir(w, node, s),
+                     "weir full": lambda s: try_weir(w, node, s, True)}
             if WL.mills(w, node):
                 cells["race"] = lambda s: try_set(w, node, s, mill=True)
             for cell, f in cells.items():
-                n = 1 if cell == "weir" else TRIES
+                n = 1 if cell.startswith("weir") else TRIES
                 got = [x for x in (f(f"{d}{node}{cell}{i}") for i in range(n)) if x is not None]
                 if not got:
                     continue
                 fu = statistics.mean(got)
-                if cell == "weir":                                         # shut for that night (3 units), and shut for the season
-                    out.append((d, f"{cal['season']} {cal['day']}", node, run, "weir (shut that night)", 1, round(fu / 3.0, 3)))
+                if cell.startswith("weir"):                                # shut for that night (3 units), and shut for the season
+                    out.append((d, f"{cal['season']} {cal['day']}", node, run, f"{cell} (shut that night)", 1, round(fu / 3.0, 3)))
                     print(*out[-1], flush=True)
-                    cell, fu = "weir (lift only)", fu / 1.0
+                    cell, fu = f"{cell} (lift only)", fu / 1.0
                 out.append((d, f"{cal['season']} {cal['day']}", node, run, cell, len(got), round(fu, 3)))
                 print(*out[-1], flush=True)
         NI.night(w)

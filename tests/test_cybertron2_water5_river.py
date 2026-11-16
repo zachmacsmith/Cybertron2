@@ -119,7 +119,7 @@ def test_a_run_reaches_each_stretch_below_on_its_lag_day_thinner_by_what_was_tak
     assert out[False]["v:Millham"][0] == lag >= 2                                  # a day or more per stretch, by its river's length
     assert out[False]["v:Millham"][1] == pytest.approx(100.0, abs=1.0)             # nobody took any: all of it passes
     assert out[True]["v:Millham"][0] == lag
-    assert out[True]["v:Millham"][1] == pytest.approx(50.0, abs=1.0)               # the shut weir above took its half
+    assert out[True]["v:Millham"][1] == pytest.approx(70.0, abs=1.0)               # the shut weir above took its 30% (D2-210)
 
 
 def _eel_cue_tomorrow(w, m, d) -> bool:
@@ -167,8 +167,8 @@ def test_a_shut_weir_takes_about_its_share_and_an_open_one_little(river, monkeyp
         N.night(w)
         c = w.s["containers"][WL.weir_trap(w, bid)]
         got[gap] = round(float(c["goods"].get("meat", 0.0)) / float(WK.TAKEN["eel"]["goods"]["meat"]))
-    assert got["shut"] == 20                                                       # half
-    assert got["open"] <= 3
+    assert got["shut"] == 12                                                       # a section's 30% (D2-210)
+    assert got["open"] <= 2
 
 
 def test_a_worn_weir_takes_less(river, monkeypatch):
@@ -180,7 +180,7 @@ def test_a_worn_weir_takes_less(river, monkeypatch):
     w.s["wild"]["state"]["pop"]["otter"] = [0.0] * WL.model(w).n
     N.night(w)
     c = w.s["containers"][WL.weir_trap(w, bid)]
-    assert round(float(c["goods"]["meat"]) / 0.2) == 15                            # 0.5 x 0.3 of the run at a holed weir
+    assert round(float(c["goods"]["meat"]) / 0.2) == 9                             # 0.3 x 0.3 of the run at a holed weir (D2-210)
 
 
 def test_the_weir_is_crew_work_built_on_a_river_and_its_gap_set_by_its_crew(river):
@@ -297,7 +297,7 @@ def test_a_trap_in_the_race_takes_the_weirs_share_of_a_run_going_down(river, mon
         pulse(w, "Millham", n=60.0)
         rec = N.night(w)
         got[trap] = ((rec["wild"].get("runs") or {}).get("race") or {}).get(bid, {}).get("eel", 0)
-    assert got[True] == 30 and got[False] == 0
+    assert got[True] == 10 and got[False] == 0                                     # half of 60, held to a trap's 3 food (D2-213)
 
 
 def test_the_mills_gap_is_set_by_those_who_manage_it(river):
@@ -426,3 +426,227 @@ def test_no_kind_is_named_in_the_run_rule():
             node.body = node.body[1:] or [ast.Pass()]
     code = ast.unparse(tree).lower()
     assert not [x for x in sorted(words) if re.search(r"\b" + x + r"s?\b", code)]
+
+
+# ---------------------------------------------------------------------- the weir in sections, its cap and its upkeep (§3b, D2-210)
+from cybertron2.engine.data import ITEMS, WATER_WORKS                                   # noqa: E402
+
+WW = WATER_WORKS["weir"]
+
+
+def full_weir(w, node, foot=False, gap="shut"):
+    bid = put_weir(w, node, gap=gap)
+    w.s["buildings"][bid]["sections"] = [{"m": "wattle", "foot": foot, "level": 5}] + \
+        [{"m": "timber", "foot": foot, "level": 5} for _ in range(int(WW["sections"]["timber"]["most"]))]
+    return bid
+
+
+def no_robbers(w):
+    w.s["wild"]["state"]["pop"]["otter"] = [0.0] * WL.model(w).n
+
+
+def test_the_weirs_ladder_adds_share_and_hold_a_section_at_a_time(river):
+    w = fresh(river)
+    bid = put_weir(w, "Saltwell")
+    b = w.s["buildings"][bid]
+    assert WL.weir_share(b) == pytest.approx(0.30) and WL.weir_hold(b) == pytest.approx(10.0)
+    a, c = b["crew"]
+    hands = w.s["containers"][Here(w, a).hands]["goods"]
+    hands["timber"], hands["stone"] = 40, 20
+    for part, n in (("weir section", 3), ("stone footing", 1)):
+        for _ in range(n):
+            for i in range(30):
+                w.s["today"] = R.blank_today()
+                r = do(w, (a, c)[i % 2], {"do": "build", "what": part, "at": b["name"]})
+                if r.startswith("You finished"):
+                    break
+                assert "units of work left" in r, r
+    b = w.s["buildings"][bid]
+    assert len(WL.sections(b)) == 4 and WL.sections(b)[0]["foot"] and not WL.sections(b)[1]["foot"]
+    assert WL.weir_share(b) == pytest.approx(0.51) and WL.weir_hold(b) == pytest.approx(31.0)   # about half and 30 food
+    assert hands["timber"] == pytest.approx(10) and hands["stone"] == pytest.approx(10)          # each part its own cost: the difference
+    refused(w, a, {"do": "build", "what": "weir section", "at": b["name"]}, "all its sections")
+    b["gap"] = "open"
+    assert WL.weir_share(b) == pytest.approx(0.051)
+
+
+def test_a_nights_catch_is_capped_by_what_the_weir_holds_less_what_is_unlifted(river, monkeypatch):
+    no_new_runs(monkeypatch)
+    w = fresh(river)
+    no_robbers(w)
+    bid = put_weir(w, "Saltwell")
+    pulse(w, "Saltwell", n=200.0)                                                  # 30% is 60 eels, 18 food: more than it holds
+    N.night(w)
+    food = lambda: sum(float(q) * ITEMS[i]["food"] for i, q in w.s["containers"][WL.weir_trap(w, bid)]["goods"].items())  # noqa: E731
+    assert food() == pytest.approx(WL.weir_hold(w.s["buildings"][bid]), abs=0.31)   # capped at about 10 food
+    morning(w, w.d + 1)
+    pulse(w, "Saltwell", n=200.0)
+    N.night(w)
+    assert food() == pytest.approx(10.0, abs=0.61)                                 # unlifted, the traps were full: little more
+
+
+def test_weirs_on_one_stretch_take_in_turn_from_upstream(river, monkeypatch):
+    no_new_runs(monkeypatch)
+    w = fresh(river)
+    no_robbers(w)
+    waters = sorted((pid for pid, p in w.s["parcels"].items() if p["node"] == "Saltwell" and WL._river_parcel(w, pid)),
+                    key=lambda q: -WL._upstream(w, q))
+    assert len(waters) >= 2 and WL._upstream(w, waters[0]) > WL._upstream(w, waters[1])
+    crew = adults(w, "Saltwell")[:2]
+    ids = []
+    for pid in reversed(waters[:2]):                                               # the downstream one built first: order is the river's
+        bid = w.apply("raise", "Saltwell", node="Saltwell", parcel=pid, rec={"name": f"weir {pid}", "structure": "timber", "fittings": {},
+                                                                              "rooms": [], "monument": "weir", "tier": "plain",
+                                                                              "unfinished": None, "crew": crew, "gap": "shut"})
+        ids.append(bid)
+    pulse(w, "Saltwell", n=20.0)
+    rec = N.night(w)
+    got = rec["wild"]["runs"]["weir"]
+    down_id, up_id = ids
+    assert got[up_id]["eel"] == 6 and got[down_id]["eel"] == 4                    # 30% of 20, then 30% of the 14 let through
+
+
+def _mean_lost(w, m, b, bid, flow, n=600):
+    tot = 0
+    secs0 = [dict(x) for x in WL.sections(b)]
+    for d in range(n):
+        w.s["day"] = 1000 + d
+        b["sections"] = [dict(x, level=5) for x in secs0]
+        tot += sum(WL._weir_wear(w, m, bid, b, flow))
+    return tot / n / len(secs0)
+
+
+def test_the_river_wears_a_weir_by_flow_and_material(river, monkeypatch):
+    """D2-210: Poisson(base x material x water x flow x the gap shut in high water) levels a night; ice left out (a mild spell)."""
+    monkeypatch.setattr(type(river), "cold", lambda self, at, day=None: False)
+    w = fresh(river)
+    m = WL.model(w)
+    monkeypatch.setattr(WL, "water_kind", lambda w_, m_, pid: "lowland")
+    E = WW["wear"]
+    bid = put_weir(w, "Saltwell", gap="open")
+    b = w.s["buildings"][bid]
+    b["sections"] = [{"m": "wattle", "foot": False, "level": 5}]
+    for flow in ("low", "normal", "spate"):
+        assert _mean_lost(w, m, b, bid, flow) == pytest.approx(E["base"] * E["flow"][flow], rel=0.25)
+    b["sections"] = [{"m": "timber", "foot": False, "level": 5}]
+    assert _mean_lost(w, m, b, bid, "spate") == pytest.approx(E["base"] * 0.5 * E["flow"]["spate"], rel=0.25)
+    b["sections"] = [{"m": "timber", "foot": True, "level": 5}]
+    assert _mean_lost(w, m, b, bid, "spate") == pytest.approx(E["base"] * 0.1 * E["flow"]["spate"], rel=0.4)
+    b["sections"] = [{"m": "wattle", "foot": False, "level": 5}]
+    assert 1 / (E["base"] * E["flow"]["normal"]) == pytest.approx(7.0, abs=0.1)    # a level a week of normal flow, lowland wattle
+
+
+def test_a_flood_with_the_gap_shut_takes_a_section_more_often_than_with_it_open(river, monkeypatch):
+    """D2-210: a flood with the gap shut usually takes the section (on a large river), with it open about half the damage."""
+    monkeypatch.setattr(type(river), "cold", lambda self, at, day=None: False)
+    w = fresh(river)
+    m = WL.model(w)
+    monkeypatch.setattr(WL, "water_kind", lambda w_, m_, pid: "large")
+    res = {}
+    for gap in ("shut", "open"):
+        bid = put_weir(w, "Millham", gap=gap)
+        b = w.s["buildings"][bid]
+        taken = lost = 0
+        for d in range(300):
+            w.s["day"] = 2000 + d
+            b["sections"] = [{"m": "wattle", "foot": False, "level": 5}]
+            n = WL._weir_wear(w, m, bid, b, "flood")[0]
+            lost += n
+            taken += n >= 5
+        res[gap] = (taken / 300, lost / 300)
+        w.s["buildings"].pop(bid)
+    assert res["shut"][0] > 0.45 and res["open"][0] < 0.25
+    assert res["open"][1] == pytest.approx(res["shut"][1] / 1.5, rel=0.15)
+
+
+def test_a_full_weirs_upkeep_on_a_lowland_river_is_a_quarter_to_a_third_of_its_cost(river):
+    """D2-210's upkeep target, from the river world's own year of flow (the catchment's rain) and frost, the gap open: the levels a
+    section loses in expectation x a level's mending (`mend` of the section's build)."""
+    from cybertron2.engine.data import MONUMENTS
+    w = fresh(river)
+    m = WL.model(w)
+    nt = RU.net(m)
+    E = WW["wear"]
+    nodes = sorted(set(m.nodes))
+    Y = w.year_days()
+    wx = [WL.weather(w, nodes, d) for d in range(0, 5 * Y + 1)]
+    x = 0.0
+    for d in range(1, 5 * Y + 1):
+        mem = {nd: [wx[d][nd]["rain"], wx[d - 1][nd]["rain"]] for nd in nodes}
+        ice = E["ice"] if w.cold("Saltwell", d) else (E["thaw"] if d >= 2 and w.cold("Saltwell", d - 1) and w.cold("Saltwell", d - 2) else 1.0)
+        x += E["flow"][RU.flow(nt, "v:Saltwell", mem, E["flow_at"])] * ice
+    x /= 5.0
+    share = {mat: E["base"] * f * x * WW["mend"] for mat, f in (("wattle", 1.0), ("timber", 0.5), ("foot", 0.1))}
+    assert 0.35 <= share["wattle"] <= 0.55 and 0.18 <= share["timber"] <= 0.28 and 0.03 <= share["foot"] <= 0.1
+    c1 = MONUMENTS["weir"]["units"]
+    c2 = WW["sections"]["timber"]["units"]
+    full = (share["wattle"] * c1 + 3 * share["timber"] * c2) / (c1 + 3 * c2)
+    assert 0.25 <= full <= 0.34
+
+
+def test_a_weir_is_mended_a_section_and_a_level_at_a_time(river):
+    w = fresh(river)
+    bid = put_weir(w, "Saltwell")
+    b = w.s["buildings"][bid]
+    b["sections"] = [{"m": "wattle", "foot": False, "level": 5}, {"m": "timber", "foot": False, "level": 2}]
+    a = b["crew"][0]
+    w.s["containers"][Here(w, a).hands]["goods"]["timber"] = 5
+    w.s["know"].setdefault(a, {})
+    r = do(w, a, {"do": "work", "what": "repair", "at": b["name"]})
+    assert "mended a section" in r and WL.sections(w.s["buildings"][bid])[1]["level"] == 3
+    assert w.s["containers"][Here(w, a).hands]["goods"]["timber"] == pytest.approx(4)   # 6% of 10 timber: one
+
+
+def test_fish_alive_in_a_weir_or_a_trap_do_not_spoil_until_lifted(river, monkeypatch):
+    """D2-211: the catch in a trap in water or a weir keeps; a snare's goes off."""
+    no_new_runs(monkeypatch)
+    w = fresh(river)
+    no_robbers(w)
+    bid = put_weir(w, "Saltwell")
+    pulse(w, "Saltwell", n=20.0)
+    N.night(w)
+    cid = WL.weir_trap(w, bid)
+    had = dict(w.s["containers"][cid]["goods"])
+    for d in range(w.d + 1, w.d + 4):
+        morning(w, d)
+        N.night(w)
+    assert w.s["containers"][cid]["goods"] == had and had
+
+
+def test_a_spate_wrecks_a_trap_in_the_river(river, monkeypatch):
+    no_new_runs(monkeypatch)
+    w = fresh(river)
+    no_robbers(w)
+    who = adults(w, "Saltwell")[0]
+    do(w, who, {"do": "gather", "what": "trap in water", "at": w.s["parcels"][water(w, "Saltwell")]["name"]})
+    monkeypatch.setattr(RU, "flow", lambda *a, **k: "flood")
+    rec = N.night(w)
+    assert rec["wild"]["runs"].get("wrecked")
+
+
+def test_fresh_fish_keep_twice_as_badly_as_meat_in_a_store_and_alike_in_hand(river):
+    """D2-212: x2 on the store's rate for fresh fish; in hand as meat."""
+    from cybertron2.engine import night as NI
+    p = river.p
+    for fit in ([], ["bins"]):
+        fish = NI.spoil_rate(p, "fish", "store", "autumn", False, fittings=fit)
+        meat = NI.spoil_rate(p, "meat", "store", "autumn", False, fittings=fit)
+        assert fish == pytest.approx(2 * meat)
+    assert NI.spoil_rate(p, "fish", "hand", "autumn", False) == pytest.approx(NI.spoil_rate(p, "meat", "hand", "autumn", False))
+    assert NI.spoil_rate(p, "fish", "store", "autumn", False) == pytest.approx(0.18, abs=0.01)
+
+
+def test_a_set_trap_holds_about_three_food_in_the_river_or_the_race(river, monkeypatch):
+    """D2-213: a trap in a shut mill's race takes its share of a run going down, up to what a trap holds; not an uncapped weir."""
+    no_new_runs(monkeypatch)
+    w = fresh(river)
+    no_robbers(w)
+    bid, mill = WL.mills(w, "Millham")[0]
+    who = adults(w, "Millham")[0]
+    do(w, who, {"do": "gather", "what": "trap in water", "at": w.s["parcels"][WL.mill_water(w, mill)]["name"]})
+    pulse(w, "Millham", n=200.0)
+    rec = N.night(w)
+    cid = next(c for c, x in w.s["containers"].items() if x.get("kind") == "set" and x.get("by") == who)
+    food = sum(float(q) * ITEMS[i]["food"] for i, q in w.s["containers"][cid]["goods"].items())
+    assert food <= WATER_WORKS["trap"]["hold"] + 1e-9 and food >= WATER_WORKS["trap"]["hold"] - 0.31
+    assert rec["wild"]["runs"]["race"][bid]["eel"] == 10                           # 100 eels came through the race; it held 10

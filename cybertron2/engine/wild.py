@@ -957,6 +957,11 @@ def _set_night(w, m, st) -> dict:
         tries = _poisson(rng, meet * total * effort, max(0, room)) if total > 0 else 0   # (brief 4 §2.10:
         skill = float(((w.s["know"].get(c.get("by")) or {}).get(tech) or {}).get("skill", KN.curve(tech)[0]))   # the run shows)
         got = []
+        cap = None
+        if tech == "trap in water":                                       # a set trap in water holds about 3 food (D2-213)
+            from cybertron2.engine.data import ITEMS, WATER_WORKS
+            cap = float(WATER_WORKS["trap"]["hold"]) - sum(float(q) * float((ITEMS.get(i) or {}).get("food", 0.0))
+                                                            for i, q in c["goods"].items())
         for _ in range(tries):
             u, acc = rng.random() * total, 0.0
             for k, i, wgt in cand:
@@ -967,6 +972,10 @@ def _set_night(w, m, st) -> dict:
             p = chance(0.6 * skill * float(sp["base"]) * (1 - float(tk.get("flee", 0.5))) * MT.factor(mind, k))   # brief 4c §3.1 (0.6 keeps brief 4's catch within about 6%)
             if rng.random() >= p:
                 continue
+            if cap is not None:                                           # no room for it: it swims free
+                if _food_of(k) > cap + 1e-9:
+                    continue
+                cap -= _food_of(k)
             r_ = run[k][i] if k in run else 0.0
             if r_ > 0 and rng.random() < r_ / (r_ + pop[k][i]):          # one of the run's
                 from cybertron2.wild import runs as RU
@@ -2878,12 +2887,85 @@ def mills(w, node) -> list:
             and (b.get("fittings") or {}).get("water wheel") and has_gap(w, b)]
 
 
+def sections(b) -> list:
+    """A weir's sections (D2-210), the first of wattle, as [{"m": wattle | timber, "foot": a stone footing, "level": 5 to 0}]; a weir
+    built before the sections is its first, at the building's level."""
+    from cybertron2.engine import buildings as BL
+    if b.get("sections"):
+        return [dict(x) for x in b["sections"]]
+    return [{"m": "wattle", "foot": False, "level": BL.level(b)}]
+
+
 def weir_share(b) -> float:
-    """What a weir takes of each run passing tonight: by its gap, less as it wears (brief 5 §3.2)."""
+    """What a weir takes of each run passing tonight (D2-210): each section's share by its condition, all of it x `open` with the gap
+    open."""
+    from cybertron2.engine.data import WATER_WORKS
+    W = WATER_WORKS["weir"]
+    x = sum(float(W["sections"][sc["m"]]["share"]) * float(W["by_level"].get(int(sc["level"]), 0.0)) for sc in sections(b))
+    return x * (float(W["open"]) if gap(b) == "open" else 1.0)
+
+
+def weir_hold(b) -> float:
+    """What a weir's traps hold a night, in food (D2-210): each section's by its condition."""
+    from cybertron2.engine.data import WATER_WORKS
+    W = WATER_WORKS["weir"]
+    return sum(float(W["sections"][sc["m"]]["hold"]) * float(W["by_level"].get(int(sc["level"]), 0.0)) for sc in sections(b))
+
+
+def _upstream(w, pid) -> int:
+    """How far up its village's water a parcel lies: the steps along the parcels' `down` to where the water leaves (D2-210: weirs take
+    in turn from upstream)."""
+    n, q, seen = 0, pid, set()
+    while q in w.s["parcels"] and q not in seen:
+        seen.add(q)
+        q = (w.s["parcels"][q].get("land") or {}).get("down")
+        n += 1
+    return n
+
+
+def water_kind(w, m, pid) -> str:
+    """A weir's water (D2-210): an upland beck (a brook high up), a large river (the stretch holds big river), else a lowland river."""
+    from cybertron2.engine.data import WATER_WORKS
+    from cybertron2.wild import runs as RU
+    land = (w.s["parcels"].get(pid) or {}).get("land") or {}
+    if land.get("river") == "brook" and float(land.get("elevation", 0.0)) >= float(WATER_WORKS["weir"]["wear"]["beck_m"]):
+        return "beck"
+    return "large" if float(RU.net(m).big.get(f"v:{w.s['parcels'][pid]['node']}", 0.0)) > 0 else "lowland"
+
+
+def _food_of(kind) -> float:
+    from cybertron2.engine.data import ITEMS, RESOURCES
+    return sum(float(q) * float((ITEMS.get(i) or {}).get("food", 0.0))
+               for i, q in ((((RESOURCES.get(kind) or {}).get("taken") or {}).get("goods")) or {}).items())
+
+
+def _weir_wear(w, m, bid, b, flow) -> list:
+    """A weir's sections worn tonight (D2-210): each loses Poisson(base x material x water x flow x the gap shut in high water x ice)
+    levels; the building's level is its best section's. Returns the levels each lost."""
     from cybertron2.engine import buildings as BL
     from cybertron2.engine.data import WATER_WORKS
     W = WATER_WORKS["weir"]
-    return float(W[gap(b)]) * float(W["by_level"].get(BL.level(b), 0.0))
+    E = W["wear"]
+    node = b["node"]
+    ice = float(E["ice"]) if w.cold(node) else (float(E["thaw"]) if w.d >= 2 and w.cold(node, w.d - 1) and w.cold(node, w.d - 2) else 1.0)
+    high = flow in ("high", "spate", "flood")
+    x = float(E["base"]) * float(E["water"][water_kind(w, m, b["parcel"])]) * float(E["flow"][flow]) * ice \
+        * (float(E["gap_high"]) if high and gap(b) == "shut" else 1.0)
+    secs = sections(b)
+    lost = []
+    for j, sc in enumerate(secs):
+        mat = float(W["sections"]["footing"]["wear"]) if sc.get("foot") else float(W["sections"][sc["m"]]["wear"])
+        n = _poisson(w.rng("weir-wear", w.d, bid, j), x * mat, 5) if int(sc["level"]) > 0 else 0
+        lost.append(n)
+        sc["level"] = max(0, int(sc["level"]) - n)
+    if any(lost):
+        w.apply("set", node, ref=("building", bid), field="sections", value=secs)
+        best = max(int(sc["level"]) for sc in secs)
+        if best != BL.level(b):
+            BL.set_level(w, node, bid, best)
+        w.apply("set", node, ref=("building", bid), field="broke", value={"day": w.d, "level": best, "by": [flow] + (["ice"] if ice > 1 else []),
+                                                                          "sections": lost})
+    return lost
 
 
 def mill_rate(w, b) -> float:
@@ -2938,10 +3020,11 @@ def _catch_into(w, node, cid, kind, heads, why) -> None:
 
 
 def _runs_night(w, m) -> dict:
-    """The river's night (brief 5): each shut weir takes its share of the runs at its village into its traps, a trap set in a shut
-    mill's race takes its share of a run going down, the otters rob the unwatched traps in the water, and the runs move on (with
-    tomorrow's cue, and the dams shut tonight holding a run going up as it arrives)."""
-    from cybertron2.engine.data import WATER_WORKS
+    """The river's night (brief 5): each weir, from upstream, takes its share of the runs at its village into its traps, up to what
+    they hold (D2-210); a trap set in a shut mill's race takes its share of a run going down; the otters rob the unwatched traps in the
+    water; the river's flow wears the weirs and a spate wrecks the traps; and the runs move on (with tomorrow's cue, and the dams shut
+    tonight holding a run going up as it arrives)."""
+    from cybertron2.engine.data import ITEMS, WATER_WORKS
     from cybertron2.wild import runs as RU
     import copy
     st = w.s["wild"]["state"]
@@ -2955,11 +3038,13 @@ def _runs_night(w, m) -> dict:
         g = f"v:{node}"
         if g not in nt.members:
             continue
-        for bid, b in weirs(w, node):                                     # the weirs' traps (§3.2)
+        for bid, b in sorted(weirs(w, node), key=lambda x: (-_upstream(w, x[1]["parcel"]), x[0])):   # from upstream (D2-210)
             if not _river_parcel(w, b["parcel"]):
                 continue
             cid = _weir_trap_make(w, bid, b)
-            got = RU.take_share(st, day, g, weir_share(b))
+            worth = {k: _food_of(k) for k in RU.runners(m.kinds)}
+            held = sum(float(q) * float((ITEMS.get(i) or {}).get("food", 0.0)) for i, q in w.s["containers"][cid]["goods"].items())
+            got = RU.take_share(st, day, g, weir_share(b), room=max(0.0, weir_hold(b) - held), worth=worth)
             for k, q in sorted(got.items()):
                 _catch_into(w, node, cid, k, q, "the weir")
                 out.setdefault("weir", {}).setdefault(bid, {})[k] = q
@@ -2972,7 +3057,9 @@ def _runs_night(w, m) -> dict:
                          and (c.get("set") or {}).get("sprung") is None), None)
             if trap is None:
                 continue
-            got = RU.take_share(st, day, g, float(WATER_WORKS["mill"]["race"]), dirs=("down",))
+            held = sum(float(q) * float((ITEMS.get(i) or {}).get("food", 0.0)) for i, q in w.s["containers"][trap]["goods"].items())
+            got = RU.take_share(st, day, g, float(WATER_WORKS["mill"]["race"]), dirs=("down",),   # a trap's hold (D2-213)
+                                room=max(0.0, float(WATER_WORKS["trap"]["hold"]) - held), worth={k: _food_of(k) for k in RU.runners(m.kinds)})
             for k, q in sorted(got.items()):
                 _catch_into(w, node, trap, k, q, "the mill race")
                 out.setdefault("race", {}).setdefault(bid, {})[k] = q
@@ -2980,7 +3067,37 @@ def _runs_night(w, m) -> dict:
     if out_:
         out["robbed"] = out_
     nodes = sorted(set(m.nodes))
-    eff = RU.advance(m, st, day, weather(w, nodes, w.d), weather(w, nodes, w.d + 1), stops=_dam_stops(w, m), weather=_climate(w))
+    wx_today = weather(w, nodes, w.d)                                     # the river's flow tonight (D2-210), from the catchment's rain
+    mem = {nd: [float((wx_today.get(nd) or {}).get("rain", 0.0))] + list((st["runs"].get("rain") or {}).get(nd) or [])
+           for nd in sorted(set(nodes) | set((st["runs"].get("rain") or {})))}
+    flows = {}
+    for node in sorted({b.get("node") for b in w.s["buildings"].values() if b.get("node") in w.s["nodes"]} |
+                       {c.get("node") for c in w.s["containers"].values() if c.get("kind") == "set"}):
+        g = f"v:{node}"
+        if g in nt.members:
+            flows[node] = RU.flow(nt, g, mem, WATER_WORKS["weir"]["wear"]["flow_at"])
+    for node, fl in sorted(flows.items()):
+        for bid, b in weirs(w, node):                                     # the river wears the weirs (D2-210)
+            lost = _weir_wear(w, m, bid, b, fl)
+            if any(lost):
+                out.setdefault("wear", {})[bid] = {"flow": fl, "lost": lost}
+        wreck = float((WATER_WORKS["trap"]["wreck"]).get(fl, 0.0))
+        if wreck > 0:                                                     # a spate wrecks the traps in the river (D2-211)
+            for cid, c in sorted(w.s["containers"].items()):
+                sp = c.get("set") or {}
+                if c.get("kind") != "set" or c.get("node") != node or sp.get("method") != "trap in water" or sp.get("weir") \
+                        or sp.get("sprung") is not None or not _river_parcel(w, c.get("parcel")):
+                    continue
+                if w.rng("trap-wreck", w.d, cid).random() < wreck:
+                    for item, q in sorted(c["goods"].items()):
+                        if float(q) > 1e-9:
+                            w.apply("destroy", node, src=cid, item=item, qty=float(q), why="swept away in the spate")
+                    w.apply("set_thing", node, cid=cid, field="catch", value=[])
+                    w.apply("set_thing", node, cid=cid, field="set", value=dict(sp, sprung=w.d, wrecked=fl))
+                    out.setdefault("wrecked", []).append(cid)
+    if flows:
+        out["flow"] = flows
+    eff = RU.advance(m, st, day, wx_today, weather(w, nodes, w.d + 1), stops=_dam_stops(w, m), weather=_climate(w))
     if any(eff.values()):
         out["moved"] = eff
     held = {p["g"]: True for p in RU.today(m, st, day + 1) if p.get("held")}
