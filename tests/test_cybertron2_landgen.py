@@ -316,3 +316,19 @@ def test_the_same_world_whatever_the_hash_seed():
         assert r.returncode == 0, r.stderr[-2000:]
         outs.append(json.loads(r.stdout.strip().splitlines()[-1]))
     assert outs[0] == outs[1]
+def test_a_brine_spring_and_a_village_on_the_big_river():
+    """Brief 5 §1 and §4b (D2-209): `has: brine spring` puts a brine stock on the village's lowest open ground, with its words;
+    `on: big river` sets the village by the large river and cuts its water parcels from it (the travel costs skip its cells)."""
+    s = spec(features=[{"kind": "river", "name": "r", "through": [[0.5, 1.0], [0.5, 0.0]], "flow": "large"}], settlements=1,
+             places={"Saltby": {"on": "big river", "has": ["brine spring"], "at": [15.0, 15.0], "within": 6.0}})
+    world, cells, report = W.generate(s)
+    assert not report["refused"]
+    node = next(v for v in world["nodes"].values() if v["name"] == "Saltby")
+    springs = [p for p in node["parcels"].values() if p.get("spring") == "brine"]
+    assert len(springs) == 1 and springs[0]["state"]["brine"] == V.BRINE and "brine spring" in springs[0]["text"]
+    assert springs[0]["cover"] in ("meadow", "pasture", "scrub", "heath", "fen")
+    water = [pid for pid, p in node["parcels"].items() if p["cover"] == "water"]
+    assert water                                                         # every cell of the village's water is on the large river
+    place, river = np.asarray(cells["place"]), np.asarray(cells["river"])
+    for pid in water:
+        assert (place == pid).any() and (river[place == pid] >= 3).all(), pid
