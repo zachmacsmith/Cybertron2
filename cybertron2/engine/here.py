@@ -419,6 +419,26 @@ class Here:
         from cybertron2.engine import keeping as KP
         return KP.fuel_nights(self._w, bid)
 
+    def river_parcel(self, pid) -> bool:
+        """Whether a parcel here is water on a river (brief 5 §3)."""
+        from cybertron2.engine import wild as WL
+        return bool(WL._river_parcel(self._w, pid))
+
+    def has_gap(self, b) -> bool:
+        """Whether a building is a weir or a water mill with a gap (brief 5 §3, §3a)."""
+        from cybertron2.engine import wild as WL
+        return bool(WL.has_gap(self._w, b))
+
+    def mill_water(self, b):
+        """The water parcel a mill holds (brief 5 §3a)."""
+        from cybertron2.engine import wild as WL
+        return WL.mill_water(self._w, b)
+
+    def mill_rate(self, b) -> float:
+        """The water wheel's grinding rate by its gap (brief 5 §3a)."""
+        from cybertron2.engine import wild as WL
+        return WL.mill_rate(self._w, b)
+
     def near_spring(self, pid, kind="brine") -> bool:
         from cybertron2.engine import keeping as KP
         return KP.near_spring(self._w, pid, kind)

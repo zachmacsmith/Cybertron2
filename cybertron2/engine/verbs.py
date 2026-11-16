@@ -778,7 +778,7 @@ def _make(here, mind, a, party):
         worn_fac = fac
         if b is not None and "water wheel" in fits:                            # its gap open: the head of water lost (brief 5 §3a)
             from cybertron2.engine import wild as WL
-            fac *= WL.mill_rate(here._w, b)
+            fac *= here.mill_rate(b)
         mult = TRY[lvl]["inputs"] if fac == 1.0 else TRY[lvl]["inputs"] * fac
         why = KN.shortfall(here, mind, tech, mult, extra=extra)
         if why:
@@ -976,13 +976,13 @@ def _monument(here, mind, a, party, pid, what):
     crew = []
     if d.get("site") == "river":                                              # a weir: across a river, by a declared crew (brief 5 §3)
         from cybertron2.engine import parties as PT, wild as WL
-        if not WL._river_parcel(here._w, pid):
+        if not here.river_parcel(pid):
             raise Refused(f"{d['label'][2:]} is built across a river: at a place of water on a river here")
         if any(WL.is_weir(b) and b["parcel"] == pid for b in here.buildings().values()):
             raise Refused(f"there is a weir across {par['name']} already")
         for x in PT._names(a.get("with")):
-            n_ = PT._person(here._w, x)
-            if n_ and n_ != here.name and n_ not in crew and here._w.s["people"][n_].get("alive", True) and here._w.at(n_) == here.node:
+            n_ = here.person(x)                                            # a living person here (at the node)
+            if n_ and n_ != here.name and n_ not in crew:
                 crew.append(n_)
         if len(crew) + 1 < int(d.get("crew", 1)):
             raise Refused(f"{d['label'][2:]} is crew work: name who builds it with you (\"with\": one or more people here)")
@@ -1881,13 +1881,11 @@ def _set(here, mind, a, party):
 
 def _gap_site(here, at):
     """The weir or water mill a gap is set at: named, or the one at the place named, or the only one here."""
-    from cybertron2.engine import wild as WL
-    w = here._w
-    gaps = [bid for bid, b in sorted(here.buildings().items()) if not b.get("unfinished") and WL.has_gap(w, b)]
+    gaps = [bid for bid, b in sorted(here.buildings().items()) if not b.get("unfinished") and here.has_gap(b)]
     bid = here.building(at) if at else None
     if bid is None and at:
         pid = here.parcel(at)
-        bid = next((x for x in gaps if here.buildings()[x]["parcel"] == pid or WL.mill_water(w, here.buildings()[x]) == pid), None)
+        bid = next((x for x in gaps if here.buildings()[x]["parcel"] == pid or here.mill_water(here.buildings()[x]) == pid), None)
     if bid is None and not at and len(gaps) == 1:
         bid = gaps[0]
     if bid is None or bid not in gaps:
