@@ -293,3 +293,26 @@ def test_a_higher_sea_drowns_land_joined_to_it_and_a_cold_climate_has_a_tree_lin
     assert all(edge[lab == k].any() for k in range(1, n + 1))
     cold = _land(temperature_c=3.0)
     assert np.isin(cold.eco, EC.FORESTS).mean() < 0.5 * np.isin(base.eco, EC.FORESTS).mean()
+
+
+def test_the_same_world_whatever_the_hash_seed():
+    """Ties (the commonest terrain, soil or ecosystem of a parcel's cells) break by first occurrence, never by a set's order, so
+    a world is the same in any process (PYTHONHASHSEED; found remaking brief 5's lake world, 16 Nov)."""
+    import json
+    import os
+    import subprocess
+    import sys
+    code = ("import json, sys; sys.path.insert(0, '.'); sys.path.insert(0, 'tests');"
+            "import test_cybertron2_landgen as T; from cybertron2.landgen import write as W;"
+            "s = T.spec(configuration='twin bays split by a spur', spacing_km=8.0,"
+            " places={'Northby': {'at': 'north_bay.head'}, 'Southby': {'at': 'south_bay.head'}});"
+            "w, _, _ = W.generate(s);"
+            "print(json.dumps(w['nodes'], sort_keys=True, default=str))")
+    outs = []
+    for h in ("1", "2"):
+        env = dict(os.environ, PYTHONHASHSEED=h)
+        r = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, env=env, timeout=600,
+                           cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        assert r.returncode == 0, r.stderr[-2000:]
+        outs.append(json.loads(r.stdout.strip().splitlines()[-1]))
+    assert outs[0] == outs[1]
