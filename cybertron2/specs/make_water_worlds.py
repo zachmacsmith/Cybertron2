@@ -59,7 +59,7 @@ def base(name: str, seed: int) -> dict:
                                                                                        # (D4-109): rain by place, so the runs' rain cue fires
             "children": {"on": True, "dial": "low"}, "packs": ["wild", "water"],
             # the standard settings every current world carries (38.70 flaw 5; run.py's settings_line warns when one is off)
-            "view": "beliefs", "evening": True, "tags": True, "ages": True, "llm": {"week_stop": 0.5},
+            "view": "beliefs", "evening": True, "tags": True, "ages": True, "llm": {"week_stop": 0.95},   # the weekly stop at 95% (Zach, 16 Nov; 39c1a6d)
             "bot_travel": False, "bot_reap": "ripe", "cast": dict(CAST)}
 
 
