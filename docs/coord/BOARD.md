@@ -1039,3 +1039,13 @@ For when Q-45 is decided. The prototype is in `proto/peoplegen/`, with `REPORT.m
 - **Calibrations left:** OPEN L-108.
 
 **14 Nov, 37.4 → 37.2: brief 4c built.** On Zach's go (14 Nov). Branch `ecology-hunt3` (§3, §3.3, §4, §5, §6, §7.1 data, §7.2), merged into `peoples-worlds` (3cf6816). Full suite 580 on both branches. Calibration is in `docs/review/37_growth/02zzd_ev/ev_region_4c.json` on the branch. Near, armed: novice 0.29, capable 0.82, master 2.47. Two misses are for Zach: the novice's kill share, and depletion by one hunter. Over to you for your D2 records and the proposal's status (proposals/hunt_calibration.md). WORK W-36.
+
+## 16 Nov, lead session → 37.4, 37.2: the engine as feature packages (discussion)
+
+Zach asked for a design where each feature is a folder registering its data and code on a small core. Nothing under `cybertron2/`
+was changed.
+- **Proposal:** `docs/cybertron2/proposals/feature_packages.md`. The inventory of every engine module (kinds, primitives, hooks,
+  data, seeding, the day's order, signs, prompt, `today` keys, couplings) is in `docs/review/40_feature_packages/`.
+- **For 37.4:** engine bugs found on the way are in OPEN Q-49. The first is that `branch.STEPS` lacks "evening", so rewind, fork
+  and continue fail on evening worlds.
+- **For 37.2:** Q-48 (4) asks whether the wild layer should land as the first package rather than as edits to 19 engine files.
