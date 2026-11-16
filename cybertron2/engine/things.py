@@ -161,7 +161,7 @@ def _describe(w, c) -> str:
     if c.get("beast"):
         return f"a dead {c['beast']} lies at {where}" + (": past eating" if not carcass_fresh(w, c) else "")
     if c.get("kind") == "set":                                              # never "empty": only a look says so (4c §4.3)
-        what = "wicker traps set in the water" if is_trap(c) else "a line of snares set"
+        what = "the weir's traps" if is_weir(c) else ("wicker traps set in the water" if is_trap(c) else "a line of snares set")
         cw = catch_words(w, c) or g
         if (c.get("set") or {}).get("sprung") is not None:
             return f"{what} at {where}, spent" + (f", with {cw} in them" if cw else "")
@@ -281,6 +281,20 @@ def is_trap(c) -> bool:
     return (c.get("set") or {}).get("method") == "trap in water"
 
 
+def is_weir(c) -> bool:
+    """A weir's own traps (brief 5 §3.4): a set thing like any other, worked by the weir's crew."""
+    return bool((c.get("set") or {}).get("weir"))
+
+
+def owns_set(c, name) -> bool:
+    """Whether one set this thing (or works the weir it belongs to): taking from it is no robbery."""
+    return c.get("by") == name or (is_weir(c) and name in (c.get("crew") or []))
+
+
+def trap_noun(c) -> str:
+    return "weir's traps" if is_weir(c) else ("wicker traps" if is_trap(c) else "snares")
+
+
 def set_about(w, c) -> bool:
     """A set thing still lying where it was set, to be looked over: live, or spent within `spent_days`."""
     sp = c.get("set") if c.get("kind") == "set" else None
@@ -329,7 +343,7 @@ def catch_words(w, c) -> str:
     """'a brown hare', 'two brown hares and a fox', 'three eels'."""
     n = {}
     for x in catch(w, c):
-        n[x["kind"]] = n.get(x["kind"], 0) + 1
+        n[x["kind"]] = n.get(x["kind"], 0) + int(x.get("n", 1))
     bits = [(("an " if k[0] in "aeiou" else "a ") + k) if q == 1 else f"{NUM[q] if q < len(NUM) else 'a dozen or more'} {_plural(k)}"
             for k, q in sorted(n.items(), key=lambda kv: (-kv[1], kv[0]))]
     return " and ".join(bits)
@@ -339,7 +353,7 @@ def look_text(w, c, whose="your") -> str:
     """The look one who knows a set thing gives it on its parcel (brief 4c §4.1): what it holds now, in world words."""
     st = set_state(w, c)
     where = parcel_name(w, c)
-    noun = "wicker traps" if is_trap(c) else "snares"
+    noun = trap_noun(c)
     if st["catch"]:
         cw = catch_words(w, c)
         one = len(st["catch"]) == 1
@@ -367,8 +381,10 @@ def set_line(w, name, c, r, daystr) -> str:
     """The remembered line of a set thing (brief 4c §4.3), never "empty" unless seen so: 'a line of snares you set at the Ham
     (winter day 4)'; seen again, as it was then: '..., with a brown hare caught in them (as you saw it on winter day 6)'."""
     where = parcel_name(w, c)
-    mine = c.get("by") == name
-    if is_trap(c):
+    mine = owns_set(c, name)
+    if is_weir(c):
+        base = f"the traps of the weir you work at {where}" if mine else f"the traps of the weir at {where}"
+    elif is_trap(c):
         base = f"wicker traps you set in the water at {where}" if mine else f"wicker traps set in the water at {where}"
     else:
         base = f"a line of snares you set at {where}" if mine else f"a line of snares set at {where}"
@@ -382,6 +398,8 @@ def set_line(w, name, c, r, daystr) -> str:
 
 def set_words(c) -> tuple:
     """The words a set thing is named by in an act ('the snares', 'my traps'), loosely."""
+    if is_weir(c):
+        return ("weir", "trap", "wicker", "eel", "salmon")
     return ("trap", "wicker", "eel") if is_trap(c) else ("snare", "noose")
 
 

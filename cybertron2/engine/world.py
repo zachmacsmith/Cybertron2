@@ -292,6 +292,9 @@ class World:
                                "tier": b.get("tier", "plain"), "description": None, "lines": [], "changes": []}
         if b.get("monument"):
             s["buildings"][bid]["monument"] = b["monument"]
+        for k in ("crew", "gap"):                                               # a weir's crew, a weir's or a mill's gap (brief 5 §3)
+            if b.get(k) is not None:
+                s["buildings"][bid][k] = list(b[k]) if isinstance(b[k], list) else b[k]
         if b.get("description"):                                                # seeded words (a world file)
             s["buildings"][bid]["description"] = {"text": str(b["description"]), "by": b.get("household") or "", "day": -1}
         for i, ln in enumerate(b.get("lines") or []):

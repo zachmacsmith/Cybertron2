@@ -54,6 +54,15 @@ KINDS = {
                   migrant=("autumn", "winter"), arrive=150, people=0.3, ref=150, wave=1, uses="meat, feathers, down", shy=0.9),
     "eel": K(0.5, "omni", 1.0, 0.3, {"water": 1.0, "wet": 0.8}, {"inverts": 1, "fish": 1, "aquatic": 1}, people=0.3, move=0.05,
              ref=150, wave=1, uses="food that keeps smoked; rent", shy=0.2),
+    # brief 5 §4 (the river): fish that only run (`RUNS`): never a resident stock (a migrant that arrives as no one), only the run's
+    # pulses; and the otter, resident by the water (calibrate)
+    "salmon": K(4.0, "carn", 0, 0, {"bigriver": 1.0}, {"fish": 1}, migrant=("autumn", "winter"), arrive=0.0, move=0.0, wave=6,
+                uses="food that keeps salted or smoked; the lord's fishery", shy=0.2),
+    "lamprey": K(0.15, "carn", 0, 0, {"river": 1.0}, {"fish": 1}, migrant=("spring",), arrive=0.0, move=0.0, wave=6,
+                 uses="for the lord's table", shy=0.2),
+    "otter": K(8.0, "carn", 1.0, 0.25, {"water": 1.0, "river": 0.5, "wet": 0.3}, {"eel": 3, "fish": 4, "wildfowl": 0.5, "inverts": 0.5},
+               terr=0.3, people=0.05, move=0.1, ref=0.3, wave=6, fidelity=0.6, uses="pelt", damage="robs the eel traps and the weir",
+               shy=0.7),
     "voles and mice": K(0.025, "gran", 16.0, 2.5, {"open": 0.6, "wood": 0.4, "farm": 0.3},
                         {"seeds": 3, "grass": 2, "roots": 1, "inverts": 1, "crops": 1}, breed=("spring", "summer", "autumn"),
                         starve=1.5, move=0.2, ref=3000, wave=2, damage="crops, stores", shy=0.3, litters="through"),
@@ -628,6 +637,9 @@ TAKEN = {
                    "litter": {"home": "den", "if": {"seasons": {0: (0, 7)}}, "n": 3}},       # cubs at the earth in spring (D2-204: on the kind)
     # D2-204 (brief 1): an eel trap took eels that gave nothing (no row); a night's lift is several eels (calibrate)
     "eel":        {"family": ["eel", "eels", "fish"], "detect": 0.4, "flee": 0.3, "goods": {"meat": 0.2}},
+    "salmon":     {"family": ["salmon", "fish"], "detect": 0.4, "flee": 0.4, "goods": {"meat": 2.0}},       # brief 5 §4 (calibrate)
+    "lamprey":    {"family": ["lamprey", "lampreys", "fish"], "detect": 0.4, "flee": 0.3, "goods": {"meat": 0.3}},
+    "otter":      {"family": ["otter", "otters", "vermin"], "detect": 0.1, "flee": 0.6, "goods": {"hide": 1}},
     "wolf":       {"family": ["wolf", "wolves", "big game"], "detect": 0.12, "flee": 0.5, "danger": {"wound": 0.25, "kill": 0.04},
                    "goods": {"hide": 1}},
     "brown bear": {"family": ["bear", "big game"], "detect": 0.1, "flee": 0.3, "danger": {"wound": 0.5, "kill": 0.12},
@@ -829,8 +841,50 @@ TRAITS = {
     "wolf":       {"size": "large", "runs": True, "social": "group", "home": "den", "water": False},
     "brown bear": {"size": "large", "runs": False, "social": "solitary", "home": "den", "water": False},
     "wildfowl":   {"size": "small", "runs": False, "social": "flock", "home": "none", "water": True},
-    "eel":        {"size": "small", "runs": False, "social": "solitary", "home": "none", "water": True, "mover": "cue"},
+    "eel":        {"size": "small", "runs": False, "social": "solitary", "home": "none", "water": True, "mover": "run"},
+    "salmon":     {"size": "medium", "runs": False, "social": "flock", "home": "none", "water": True, "mover": "run"},   # a run is a shoal
+    "lamprey":    {"size": "small", "runs": False, "social": "solitary", "home": "none", "water": True, "mover": "run"},
+    "otter":      {"size": "medium", "runs": True, "social": "solitary", "home": "holt", "water": True},
 }
+# The runs along the river (brief 5 §2, §4; wild/runs.py; calibrate): a kind with `mover: run` runs `dir` (down to the sea, up to
+# spawn) in its window (seasons {index: (first day, last day)}) on its cue, read over the catchment (`rain_after_dry`: days dry before
+# a heavy rain; `spate`: the catchment's rain over x its mean); `night`, the share of what is still to run that goes on a cue night.
+# Down: `year`, the share of each river area's stock that runs in a year (the silver eels). Up: the return (`r` back a spawner a year
+# on, at most `cap_km` a km of the head water's river; `seed_km` spawners a km at world build), `where` the rivers it runs ("river":
+# any; "big river": a river whose way to the sea holds big river). The salmon's three years compressed to one world year (D2-209).
+RUNS = {
+    "eel": {"dir": "down", "seasons": {2: (0, 7)}, "cue": {"rain_after_dry": 2}, "night": 0.6, "year": 0.2},
+    "salmon": {"dir": "up", "seasons": {2: (0, 7), 3: (0, 3)}, "cue": {"spate": 1.2}, "night": 0.35, "where": "big river",
+               "return": {"r": 2.0, "cap_km": 1.5, "seed_km": 1.0}},
+    "lamprey": {"dir": "up", "seasons": {0: (0, 7)}, "cue": {"spate": 1.0}, "night": 0.35, "where": "river",
+                "return": {"r": 2.0, "cap_km": 3.0, "seed_km": 2.0}},
+}
+# how fast a run goes down or up the river (km a day; calibrate: about a day a 10 km, brief 5 §2.2); `dense`: how much thicker a run
+# is in the water people fish than spread over its area (the take's density, brief 5 §2.4; calibrate); the otter at the set things
+# in water at night (brief 5 §4: a chance a night x the otters about the village, the share of a catch it takes, at most `most` heads)
+RUN = {"km_a_day": 10.0, "dense": 3.0, "no_weather": (1, 4)}     # no_weather: a world without the climate runs on these days of the window
+ROB_SETS = {"rob": 0.1, "share": 0.3, "most": 4, "least": 0.5}
+# the signs of the river (brief 5 §3.5, §3a.5, §4; guides/senses.md): a run at the village's water on its night (nearby as it happens;
+# the practised read it), fish held below a shut dam (plain to anyone there), a weir's or a mill's gap set (lingering a day), the
+# year's run thinner or better than last year's (for the practised, the day after its window), a robber's traces at the traps.
+# {kind}: the kind's plural; {place}: the water.
+RUN_SIGNS = {
+    "down": [R("all", "sight", 0.6, (0, 0), "the water at {place} alive with {kind} in the dark, all going downstream", cond="night"),
+             R("knows", "sight", 0.8, (0, 0), "the {kind} are running at {place} tonight: the traps and the weirs on the river will fill")],
+    "up": [R("all", "sight", 0.9, (0, 0), "{kind} going up through {place}, leaping at the shallows"),
+           R("knows", "sight", 0.7, (0, 0), "the {kind} are running up the river at {place}: a run night")],
+    "held": [R("all", "sight", 1.2, (0, 0), "{kind} leaping at the dam by {place} and falling back: they cannot get up past it"),
+             R("knows", "sight", 0.7, (0, 0), "{kind} crowding in the pool below the dam at {place}: net them, or draw the hatches and let them up")],
+    "thin": [R("knows", "sight", 0.7, (0, 0), "the {kind} run was thin this year at {place}: about {share} of last year's")],
+    "good": [R("knows", "sight", 0.6, (0, 0), "a good {kind} run this year at {place}, more than last year's")],
+    "gap": {"weir": {"shut": [R("all", "sight", 0.9, (0, 1), "the gap of {work} shut, the wicker traps in it")],
+                     "open": [R("all", "sight", 0.9, (0, 1), "the gap of {work} open, the river running through")]},
+            "mill": {"shut": [R("all", "sight", 0.9, (0, 1), "the hatches of {work} shut; the water stands high above the dam")],
+                     "open": [R("all", "sight", 0.9, (0, 1), "the hatches of {work} drawn; the water runs past the wheel, and the wheel turns slow")]}},
+    "robbed": {"otter": [R("all", "sight", 0.6, (0, 1), "an otter's spraint on the stones by {place}, and fish scales"),
+                         R("knows", "sight", 0.7, (0, 1), "an otter has been at the traps at {place} in the night: it will be back while there are fish in them")]},
+}
+WATER_ROBBERS = ["otter"]                                    # the kinds that rob the set things in water at night
 
 
 def rows() -> dict:

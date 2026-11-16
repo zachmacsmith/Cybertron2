@@ -592,6 +592,12 @@ def _wear_night(w, bid, b, p) -> bool:
         causes.append("snow")
     if lab == "heavy rain" and int((w.s["parcels"].get(b.get("parcel")) or {}).get("height", 1)) == 0 and st_ != "stone":
         causes.append("flood")
+    if b.get("monument") == "weir":                                           # a weir: worn by the river in flood and by ice (brief 5 §3.1)
+        causes = [c for c in causes if c in ("unmended",)]
+        if w.cold(node):
+            causes.append("ice")
+        if lab == "heavy rain":
+            causes.append("flood")
     lv = BL.level(b)
     if lv in (3, 4) and w.d - int(b.get("level_since", -999) if b.get("level_since") is not None else -999) >= int(W["unmended_days"]) \
             and b.get("level_since") is not None:
