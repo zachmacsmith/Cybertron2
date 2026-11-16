@@ -1,352 +1,510 @@
-# The engine as a small core and feature packages
+# The engine as a small core and feature packages: design specification
 
-**Status:** discussion (16 Nov 2026). Nothing decided, nothing built.
+**Status:** ready for a decision (16 Nov 2026). Nothing decided, nothing built. This is written as a specification so that it can be
+decided part by part. Once a part is decided, its rules move to `spec/core/` (architecture.md and new files) with decision numbers.
+Until then they are proposals, not spec.
+
 **Owner:** lead session (C1 wrap-up), for 37.4 (the code under `cybertron2/` is 37.4's) and Zach.
 
 ## Summary
 
-Today a feature is spread across the engine. The wild layer is the clearest case: it has its own folder (`cybertron2/wild/`,
-on the `ecology` branches), yet it also edits 19 existing engine files: `signs.py` +400 lines, `data.py`, `verbs.py`, `world.py`,
-`schema.py`, `renewal.py`, `perceive.py`, `prompt.py`, `run.py`, `night.py`, `settle.py` and more. It also edits four
-land-generator files and the capacity model.
+Today a feature is spread across the engine. The clearest case is the wild layer: it has its own folder (`cybertron2/wild/`, on
+the `ecology` branches) and still edits 19 existing engine files, including 400 lines of `signs.py`.
 
-The proposal has three parts:
-- **A core** that holds only what every world has: places, people, goods in containers, rights, time and chance, the chokepoint,
-  the day's scheduler, the model calls, the record, the agent's view, the technique engine and the machinery of the senses and
-  the prompt.
-- **Packages.** Everything else becomes a package: one folder per feature. Each package declares, in one manifest, everything it
-  adds to the core: entity kinds and fields, data rows, primitives and hooks, seeding, steps of the day, verbs and yield kinds,
-  signs, prompt lines, urgent calls, capacity declarations and tests.
-- **One direction of dependency.** The core never imports a package; a test enforces it.
+This specification turns the engine into four things:
+- **A small core,** which holds only what every world has.
+- **Packages:** one folder per feature, each declaring in one manifest everything it adds.
+- **One rule for combinations:** everything registered carries `requires` and `unless`, so a row or a step that belongs to two
+  packages exists only when both are on, whichever folder holds it.
+- **An object model of six categories** (space, layers, bodies, populations, records, minds), each with a base shape that every
+  kind in it shares.
 
-A feature is then mostly labelled data on the core's primitives. Code is needed only for:
-- a new kind of thing in the world (a herd);
-- a new kind of change (a yield kind);
-- a process with its own dynamics (a night step);
-- the context its signs read.
+**The work is large:**
+- **Size:** about 14,000 lines moved, 7,000 to 9,000 rewritten and 3,000 new, from an engine of 20,400.
+- **Time:** about 25 to 37 builder-days for the whole migration (§10), against the 12 active days it took to build the engine.
+- **The cheaper path:** phases 0 to 3 (about 12 to 19 days) give most of the benefit; the rest moves when it is next touched.
 
-A package that needs a new primitive names it in its manifest.
-
-The inventory behind this note is in [docs/review/40_feature_packages/](../../review/40_feature_packages/) (five files, A to E,
-with line numbers).
-
-## What the engine is made of today (the inventory, in brief)
-
-| Layer | Today | Findings that matter here |
-|---|---|---|
-| Size | `engine/` 20,449 lines in 46 files | Nine files hold 55%: `verbs.py` 2,009, `signs.py` 1,969, `farm.py` 1,519, `run.py` 1,306, `world.py` 1,075 |
-| Imports | 26 of the 44 engine modules form one import loop | Function-level imports hide it: 162 of them; with them taken out there is no loop at module level |
-| State (`World.s`) | 25 top-level keys; records of node, road, parcel, building, herd, container, person, institution, claim, offer and agreement | About 20 of a parcel's 29 fields belong to one feature (farming, fences, combat, forests, meetings); people and buildings are the same. `schema.FIELDS` is one closed list |
-| Primitives | 36 in `PRIMITIVES` | About 14 are generic: transfer, create, destroy, draw, add_res, set_res, set, set_thing, new_thing, depart, arrive, transit, harm, wear. Nine call into features: `draw`, `claim`, `end_claim`, `plots`, `shares`, `set_share` call farm; `new_herd`, `split_herd`, `new_thing` call tags; `die` calls things, life and roads; `born` calls generate, knowledge and perceive |
-| Hooks | The mechanism exists; 3 after-hooks are registered (agreements' credit on transfer; buildings' overflow on create and transfer); no before-hooks | The core calls features directly where a hook would do |
-| Entity kinds | Hard-coded in `place_of`, `p_set` and the claim refs | Adding a kind means editing all three |
-| Data | 47 tables in `data.py`, already roughly in feature order | `TECHNIQUES`, `FUSE` and `MODIFIERS` are added to by later sections (features already "register" rows, by hand). Only `ITEMS`, `RESOURCES` and `TECHNIQUES` carry `pack`. Derived tables (EDIBLE, TOOLS, WEAPONS, CROP_OF) ignore packs. `PHYSICS` is one bag of every feature's numbers |
-| World build | `World.__init__` runs 27 ordered steps | It seeds woods, grass, fences, field works, crops, herds, rooms, households, claims, knowledge, minds and things inline |
-| Agent's view | `Here` has about 80 methods | About 45 of them are thin wrappers that import a feature (weather 7, things 12, life 5, herds 4, tags 3, layout 3) |
-| Verbs | 38 verbs | `gather`, `work` and `make` are generic over data. 21 yield kinds dispatch through one if/elif hub (`verbs._technique`); 4 have outcome distributions for the capacity model; farm's yield kinds are listed in three places. About 30 special cases keyed on a name hide features in generic code (`tech == "fell"`, `"method: cairn"`, stone building gated on knowing the fencing technique `wall`) |
-| Senses | 34 sign tables | `signs.facts` is one walker over eight features. `signs.context()` is one context shared by six tables. FIELD's per-holding rows are picked by position (`range(3, 10)`). Tables mix features (PERSON has rows from slaughter, hunting, leading a beast, guarding, care). On the road the "one noticing rule" is three code paths |
-| Prompt | 8 system blocks, 13 turn sections | `prompt.py` imports about ten features and holds their prose. `view.py` zips prompt lines against a subject list built separately, so one added line breaks it. Blocks are spliced in by replacing the text "Reply with JSON only." |
-| The day | Steps dawn, decide, talk, work, evening, settle, night, memory | The night's order is written by hand in three places (`run.py`, `night.night` with 22 steps, `farm.night`), with 22 ordering dependencies between steps. `today` is a shared blackboard: 19 keys set at dawn, about 20 more added by verbs, farm, labour, roads, fuse, night and the evening |
-| Between features | | Result lines are a message bus: "You said (" counts units, "Refused: travel: you carry" triggers the lighten call, "You offered " is parsed for the offer id, and the published views re-parse "You told". A rewording breaks budget, lighten and the views |
-
-**Bugs found on the way.** They are worth fixing whatever is decided here; listed for 37.4 in OPEN.md.
-1. **The evening step breaks branching.** `branch.STEPS` has no "evening", so `rewind`, `fork` and `continue` raise `ValueError`
-   on any world with `evening:` (for example `specs/fishing/water.yaml` and the goal probes). Checked in Python.
-2. **A change journaled under the wrong step.** `labour.close_day` runs between two steps, so its changes are journaled under a
-   step that is already committed.
-3. **A dangling reference.** `data.py` names a `roads.CHALLENGES` that does not exist.
-4. **Dead or out-of-date code:**
-   - `knowledge.ready` lines 185-209 cannot be reached;
-   - `chronicle.py` is imported nowhere and parses prompt headers;
-   - `farm.frost_kills` is the rule from before D4-106 and is still used by `capacity/cal.py`, so the capacity model can differ
-     from the engine;
-   - `farm._f_default` and `forests.fuel_order` read the global `PHYSICS`, so a world's own physics is ignored there.
-5. **Young beasts never grow** into cows, oxen or bulls.
+The inventory behind it is in [docs/review/40_feature_packages/](../../review/40_feature_packages/) (five files, A to E).
 
 ## The proposal
 
-### 1. The core: what every world has
+### 1. Principles
 
-The core is the object model, the primitives, and the machinery that runs them. It holds no feature's nouns.
+- **P1. The core never imports a package.** Packages import the core and the packages they declare. A test enforces this.
+- **P2. Every change of state is a primitive applied through the chokepoint** (D4-34, kept). The only exception is a driven layer
+  (§2.2), which is computed and never written.
+- **P3. Features are data on the core's primitives.** A package adds code only for:
+  - a new kind of thing;
+  - a new kind of change (a yield kind);
+  - a process with its own dynamics;
+  - the context its signs read.
+  Everything else is rows.
+- **P4. Everything a package registers is declared in its manifest.** That covers rows, kinds, primitives, hooks, phases, verbs,
+  signs, prompt lines, terms and tests. The core assembles the world from the manifests of the packages that are on.
+- **P5. A registration exists only when its `requires` are all on and none of its `unless` is.** The package that defines it is
+  always required.
+- **P6. Nothing depends on position.** Rows, phases and prompt lines have stable names; order is declared, never implied by where
+  something sits in a list.
+- **P7. A package off is a clean null arm.** The world without a package differs from the world with it only by what that package
+  registers. Draws are keyed by stable names, so other things are not perturbed.
+- **P8. Code beside data is visible.** A manifest page shows each package's lines of code against its rows of data.
 
-**Entity kinds in the core:**
-- **Node** and **parcel**: the parcel graph, cover, size, adjacency and stocks by resource key.
-- **Road**: an edge with days and stretches.
-- **Person**: alive, where, transit, hands.
-- **Container**: goods with a place: hands, a store, something left at a spot.
-- **Group**: members and offices, kind-free.
-- **Claim**: rights over any claimable kind.
-- **Event** and **act**.
+### 2. The object model
 
-Building, herd, offer and agreement become kinds that packages register.
+Everything in a world belongs to one of six categories. A **kind** is registered within a category, by the core or a package, and
+inherits the category's base shape.
 
-**Core primitives,** generic over kinds (about 14, close to the generic set that exists now):
+| Category | What it is | Base shape every kind has | Kinds today (and from packages) |
+|---|---|---|---|
+| **Space** | where things are | id, name, size, neighbours, position (height, coordinates), cover | node, parcel, road with stretches; the wild layer's areas (§2.6) |
+| **Layer** | a value at every place of a space, changing over time | name, space it is defined on, values per cell, clock, rule of change, *driven* or *coupled*, how it is sensed | weather, snow lying, stocks, soil fertility, crop growth on a holding |
+| **Body** | a located physical thing | id, kind, place, exists (alive, built, ended), condition, contents or make-up, name or tag, claimable, sense subject, mobility | person, container (hands, store, pile, remains, carcass), building, storm; from packages herd group, wild group, legend beast |
+| **Population** | counts, not individuals | kind (a species row), where (parcel or area), counts by class, capacity, condition, rule of change, how one individual is drawn out and put back | plant and game stocks, herds, wild kinds by area |
+| **Record** | a social fact with no body | id, kind, parties, where and when made, since and until, status, terms | claim, group (household), offer, agreement; later law |
+| **Mind** | private to one person | owner, subject, day last seen, source (saw, heard, seeded) | knowledge and skill, beliefs, memory, places and kin known |
+
+Outside the world proper:
+- **Happenings:** events and acts. Short-lived, at a place, with an actor, sense and salience; the input to the senses.
+- **Types:** data rows that instances point to (species, items, techniques, covers, crops, fittings, ecosystems).
+
+#### 2.1 The kind registry
+
+A kind declares the fields below. The registry replaces three hard-coded chains (`place_of`, `p_set`'s table map, the claim refs)
+and the single closed `schema.FIELDS`.
+
+| Field | Meaning |
+|---|---|
+| `name`, `category`, `table` | the kind and where its records live in `World.s` |
+| `place` | how its place is found: a node and parcel, a road and stretch, an area, or "origin" for records |
+| `fields` | its schema fragment: name, type, unit, clock; joined into the world schema with a version (D4-100) |
+| `claimable`, `container`, `subject` | whether it can be held; whether it holds goods; whether signs can be about it (and under what subject key) |
+| `named` | how agents refer to it: name, tag (D4-68), household name |
+| `rule` | for layers and populations: its rule of change and what steps it |
+| `requires` | as for every registration |
+
+Packages may add fields to core kinds (`person.stage` from life, `parcel.crop` from farming). Those fields are part of that
+package's schema fragment and exist only when it is on.
+
+#### 2.2 Layers: driven or coupled
+
+- **A driven layer** is a pure function of the seed, the spec and the day. It is computed, never written, so every arm of an
+  experiment meets it the same (D4-4).
+- **A coupled layer** is state, written by primitives.
+
+The weather is driven today. `climate.py` computes it from day 0 and keeps it in a cache on the world object, outside `World.s`. It
+has three scales:
+- **for the region:** era, the year's anomaly, the weather type;
+- **at each node:** fields of temperature, low, rain and wind, alike between near nodes and carried from day to day;
+- **storms:** bodies with a birth day, start, velocity, radius and wind.
+
+Stocks, snow, soil and crop growth are coupled.
+
+**Rule:** a layer declares which it is. A driven layer cannot be changed by any act or by a fork's intervention; making the weather
+answer to the world (fires, cleared forest), or letting a fork set a storm, means making it coupled (open question 7).
+
+#### 2.3 Populations, and drawing individuals out
+
+The engine has three incompatible forms of population today:
+- parcel stocks `{S, K, r}`;
+- herd role counts;
+- the wild layer's density arrays by area.
+
+**Proposed:** one base shape for all three, and **one rule for individuals.** Where people meet a population, the package draws
+concrete individuals from it as bodies: a hunted beast, a wild group near a field, a legend. While they exist they leave the count,
+and what remains of them returns to it. A kind registers its draw and return functions. A test checks that counts are kept across a
+draw and a return.
+
+#### 2.4 Wildlife
+
+Wildlife is a population by area (the food web's step), groups near people, and legends: §2.3's rule applied. It is in the `wild`
+package. Kept herds are the `animals` package's population kind, and the two share species rows (02zv C1's traits). Individual beasts
+with their own record (a trained ox, a dog; 02zv C8) are a body kind for later.
+
+#### 2.5 Ecosystems
+
+An ecosystem is a **type**: a row saying which stocks and foods a piece of land has, at what rates, and which kinds find habitat
+there. The generator writes it on the parcel (`parcels.ecosystem`, on the ecology branch). It has no state of its own: its state is
+the state of its layers and populations. Succession (forest to scrub and back) is a slow coupled layer.
+
+#### 2.6 Two grids
+
+The engine's places are nodes and parcels. The wild layer runs on the generator's areas, with a bridge between the two. D2-208 now
+keeps the generator's 150 m cells with every world. There are two choices (open question 6):
+- **(a)** the cells become the base space, and parcels and areas are groupings of cells;
+- **(b)** each layer keeps its own grid and declares how it maps to the others.
+
+This specification does not depend on the choice. The kind registry's `place` field carries either.
+
+### 3. The core
+
+Modules (indicative):
+- `core/world.py`: state, chokepoint, hooks, causes, events, acts;
+- `core/kinds.py`;
+- `core/primitives.py`;
+- `core/places.py`: the graph and routes (today's `layout.py` parcel graph);
+- `core/goods.py`: containers, the base columns of items, carrying;
+- `core/rights.py`: claims, groups, may-take, may-enter;
+- `core/time.py`: calendar, clocks, keyed draws;
+- `core/phases.py`;
+- `core/call/`: decide, responders, conversations, tally, usage stops;
+- `core/record/`: journal, branching, views, schema assembly;
+- `core/view/`: `Here`, `Mind`, memory, knowledge levels and skill;
+- `core/techniques.py`: resolve, site, readiness, shortfall, tools, skill, inputs and outputs, wear, with registries for yield kinds,
+  site kinds and readiness by `draws`;
+- `core/senses/`: the noticing rule, subject tables, emit and roll as one code path;
+- `core/prompt/`: slots, the reply-schema assembly;
+- `core/fuse.py`: the registry of urgent calls;
+- `core/work.py`: the generic work loop;
+- `core/packages.py`: the loader, the manifest, the `requires` filter, the manifest page.
+
+**Primitives in the core** (from today's 36, of which about 14 are already generic):
 
 | Primitive | Does |
 |---|---|
-| `spawn(kind, place, record)` / `retire(ref)` | a new entity of a registered kind; its end. The new form of `new_thing`, `raise`, `new_herd`, `offer`, `agree` and `born`'s record |
-| `set(ref, field, value)` | any declared field of any registered kind; replaces the hard-coded kind table in `p_set` |
+| `spawn(kind, place, record)`, `retire(ref)` | a new entity of a registered kind; its end |
+| `set(ref, field, value)` | any declared field of any registered kind |
 | `transfer`, `create`, `destroy` | goods between containers, into being, out of being |
-| `draw`, `add`, `set_stock` | a stock on a parcel (today `draw`, `add_res`, `set_res`, without the crop branch) |
-| `move(ref, to)` | a person or a mobile entity between places (`depart`, `arrive` and `transit` unified, with the road stretch) |
-| `claim`, `end_claim` | rights; packages hook them (farming's holdings follow claims) |
+| `draw`, `add`, `set_stock` | a population or a coupled layer's cell |
+| `move(ref, to)` | a person or a mobile body between places (today's `depart`, `arrive`, `transit`) |
+| `claim`, `end_claim` | rights over a claimable kind |
 | `join`, `leave` | group membership |
-| `harm`, `die` | a body; packages hook `die` (life's succession and inheritance; things' remains) |
-| `wear` | uses on a carried tool |
-| `learn` | a person's level in a technique |
+| `harm`, `die` | a body |
+| `wear` | uses on a tool |
+| `learn` | a level in a technique |
 
-A package may register a **compound primitive** (`split_herd`, `plots`, `born`). It is a named composition of core primitives
-applied inside it, and the journal marks those inner calls `within`, as nested applies are marked today. Each compound primitive is
-listed with its package in the manifest page (below).
+**Compound primitives** are registered by packages: named compositions of core primitives, whose inner calls the journal marks
+`within`. Examples are `split_herd`, `plots` and `born`. Every compound primitive is listed on the manifest page.
 
-**Machinery in the core:**
-- the chokepoint (`apply`, hooks before and after, causes, the journal);
-- the entity-kind registry (place rule, fields, claimable, container, subject of senses, how it is named);
-- seeding by registered steps;
-- the scheduler (a phase list, below);
-- model calls (decide, responders, conversations, tally, usage stops);
-- the record (journal, branching, views, schema assembled from fragments);
-- time (calendar, clocks, keyed randomness);
-- `Here` and `Mind` (place-scoped, extended by namespaced package views);
-- the technique engine (resolve, site, readiness, shortfall, tools, skill, inputs and outputs, wear) with registries for yield kinds,
-  site kinds and readiness checks;
-- knowledge levels and skill;
-- memory;
-- the noticing rule and the sign machinery (rows, `when`/`text`, `own`, `reach`, `knows`/`lay`, bundles, emit, roll), as one code
-  path;
-- prompt assembly from slots, and reply-schema assembly from fragments;
-- the urgent-call (fuse) registry;
-- the generic work loop (interleaving, budget, cost, refused-dedupe, fallback);
-- structured results in place of result strings.
+**Hooks** replace the nine places where a core primitive calls a feature today:
+- `farm.sync` after `claim`, `end_claim` and `plots`;
+- `life.on_death` and things' remains after `die`;
+- tags after `spawn`;
+- the crop branch of `draw` becomes farming's population kind.
 
-### 2. A package: one folder, one manifest
+### 4. Packages
 
-Each package is a folder under `cybertron2/packages/`. Its `__init__.py` holds one `Package(...)` manifest, a literal so that
-it can be searched. The slots below cover everything the five inventories found the engine doing; most packages use few of them.
+#### 4.1 A folder
 
-| Slot | What it registers | Replaces today |
+```
+cybertron2/packages/animals/
+  __init__.py        PACKAGE = Package(...)          the manifest (below)
+  data.py            species rows; items, techniques, fittings rows it adds
+  kinds.py           the herd kind and its fields
+  prims.py           split_herd, merge_herd
+  phases.py          wander, graze and feed, the herd's night on a road
+  yields.py          herd, milk, slaughter
+  signs.py           rows for the herd, parcel and person subject tables
+  prompt.py          "Leading:", the beast lines
+  seed.py            the spec's `herds:`; grass on grazing covers
+  with_farming.py    trampling, the grazed field's soil   (requires animals, farming)
+  with_roads.py      the pack ox, herds lost on roads      (requires animals, roads)
+  capacity.py        declarations for the capacity model
+  tests/
+```
+
+#### 4.2 The manifest
+
+```python
+PACKAGE = Package(
+    name="animals", requires=("land",), optional=("farming", "roads", "enclosure"), standard=False,
+    kinds=[Kind("herd", category="population", table="herds", place="parcel|road", claimable=True,
+                subject="herd", named="tag", fields=HERD_FIELDS, rule="animals.feed")],
+    fields={"person": {"led": ...}},
+    data={"SPECIES": SPECIES, "ITEMS": ITEM_ROWS, "TECHNIQUES": TECH_ROWS},
+    physics={"animals": {...}},
+    primitives={"split_herd": split_herd, "merge_herd": merge_herd},
+    hooks=[],
+    seed=[Seed("animals.herds", after=("core.places", "core.claims"), fn=seed_herds)],
+    phases=[Phase("animals.wander", in_="night", after=("farming.crops", "enclosure.fences"), fn=wander),
+            Phase("animals.feed", in_="night", after=("land.regrow", "animals.wander", "food.spoil"), fn=feed)],
+    today={"driven": dict},
+    verbs={"drive": Verb(args=..., cost=1, doc=..., when=has_herds, handler=drive)},
+    yields={"milk": Yield(apply=milk, ready=milk_ready), "slaughter": ..., "herd": ...},
+    terms={"carry": pack_ox_carry},
+    here={"animals": HerdView},
+    signs=SIGN_ROWS, prompt=PROMPT_LINES, fuse=[], incidents={"stray": stray},
+    capacity=CAPACITY, bot=bot_rows, views=VIEW_TABLES,
+)
+```
+
+Rows in `with_farming.py` and `with_roads.py` carry `requires=("farming",)` or `("roads",)`. The loader adds the package's own
+name.
+
+#### 4.3 The slots
+
+| Slot | Registers | Replaces today |
 |---|---|---|
-| `requires`, `optional` | other packages it needs, or works with when on | implicit imports |
-| `kinds` | new entity kinds (table, place rule, fields, claimable, container, tag namer), and fields added to core kinds (`person.stage`, `parcel.crop`) | the kind chains in `place_of`, `p_set`, claim refs; `schema.FIELDS` as one list |
-| `data` | its own tables, and rows added to shared tables (ITEMS, TECHNIQUES, RESOURCES, FITTINGS, COVERS' ambient lines, EVENT_EXTENT, NOTICING presence); rows are tagged with the package's name automatically | one `data.py`; `pack` on three tables only |
-| `physics` | its section of the world's numbers (`p.animals`, `p.farming`), with the clocks of its rates | one `PHYSICS` bag; `clocks.RATES` as one list |
-| `primitives`, `hooks` | compound primitives; before and after hooks on any primitive | the nine core primitives that call features; `AG.install` and `BL.install` called from `World.__init__` |
-| `seed` | spec sections it reads, as ordered steps (`after=`), and its filter for `variants.one_node` | 27 inline steps in `World.__init__` |
-| `phases` | steps of the day it adds, each named, with `after=` and `before=` | the night written in three places; the settle step naming every feature; `run.dawn`'s incidents |
-| `today` | day keys it owns, with their start value, kept under its own name (`today["roads"]`) | the shared blackboard |
-| `verbs` | verb rows (args, cost, doc, `when`, handler) only for new kinds of act; otherwise technique rows on `gather`, `work`, `make` | one `VERB` and `HANDLERS` |
-| `yields`, `sites`, `ready` | yield kinds (apply, optional distribution for capacity, readiness, counts as practice, result words); site kinds (`at` keys); readiness by `draws` | the `_technique` if/elif hub; `knowledge.ready`'s string switch; three copies of the farm kinds |
-| `renewal` | renewal rules, each with what steps it (night, or its own process) | `NIGHTLY` as a tuple of names |
-| `terms` | terms added to the core's named sums: needs (food), units, carrying capacity, load, cold, visibility, food sources, company | closed formulas in `needs.food`, `World.units_for`, `capacity`, `load`, `cold`, `environment.visibility` |
-| `here` | a namespaced view (`here.animals.herd(x)`) and mind stores it keeps (`beasts`, `land`) | 45 thin wrappers in `Here` |
-| `signs` | sign tables by subject kind, a context provider for its own state, a walker that names the subjects it speaks about, event kinds (extent, dawn, routine, witness-only, lasting), ambient lines; rows it adds to another package's subject table | `signs.facts`; the shared `context()`; keyword-matched lasting memory |
-| `prompt` | lines into named slots (system "how life works", Here's place line, a building's line, You, sections of its own); reply-schema fragments and their handlers in the talk step; urgent-call words; night narration from its night record keys; record keys for the day log | `prompt.py`'s prose; the string splice; `night_lines`; the day print |
-| `fuse` | urgent-call kinds (source, detector, choices, words, bot answer) | `fuse.py` holding the raid; road kinds registered as an import side effect |
-| `incidents` | spec incident kinds (`stray`, `fire`, `death`) | the if-chain in `run.dawn` |
-| `capacity` | the pure functions and distributions the carrying-capacity model reads | the capacity model importing feature internals |
-| `bot` | its part of the scripted bot's plan and urgent answers | `bot_plan` and `bot_fuse` knowing every feature |
-| `views` | its tables in the exported record | `exchange.view_tables` |
-| `tests` | its own tests and fixtures, in the folder | 40 test files at the root |
+| `requires`, `optional`, `standard` | hard dependencies; packages it works with; on by default | implicit imports; the water pack's switch |
+| `kinds`, `fields` | new kinds (§2.1); fields on other kinds | the hard-coded kind chains; one `schema.FIELDS` |
+| `data` | its tables; rows added to shared tables | one `data.py`; `pack` on three tables |
+| `physics` | its section of the world's numbers, with clocks for its rates | one `PHYSICS`; one `clocks.RATES` |
+| `primitives`, `hooks` | compound primitives; hooks before and after any primitive | nine core primitives calling features; installs in `World.__init__` |
+| `seed` | spec sections it reads, as ordered steps; its filter for `variants.one_node` | 27 inline steps in `World.__init__` |
+| `phases` | steps of the day, named, with `in_`, `after`, `before`, and what they read and write | the night written in three places; the settle step naming every feature |
+| `today` | day keys it owns, kept under its name | the shared blackboard |
+| `verbs`, `yields`, `sites`, `ready` | verbs for new kinds of act; yield kinds; site kinds; readiness by `draws` | one `VERB`; the `_technique` hub; `knowledge.ready`'s switch |
+| `renewal` | rules, and what steps each | `NIGHTLY` as names |
+| `terms` | terms in the core's named sums: food need, units, carrying, load, cold, visibility, food sources, company | closed formulas in `needs.food`, `units_for`, `capacity`, `load`, `cold`, `visibility` |
+| `here` | a namespaced view (`here.animals`); mind stores it keeps | 45 wrappers in `Here` |
+| `signs` | rows for subject tables; its context namespace; its walker; event kinds; ambient lines | `signs.facts`; the shared `context()`; lasting memory by keyword |
+| `prompt` | lines into named slots; reply-schema fragments and their handlers; urgent-call words; night narration; record keys | `prompt.py`'s prose; the string splice; `night_lines` |
+| `fuse`, `incidents` | urgent-call kinds; spec incident kinds | fuse.py holding the raid; `run.dawn`'s if-chain |
+| `capacity`, `bot`, `views` | capacity declarations; its part of the scripted bot; its exported tables | the capacity model importing internals; `bot_plan`; `exchange.view_tables` |
+| `tests` | its tests and fixtures | 39 test files at the root |
 
-**Integrations** sit in the package that arrives later, in a file named for the other package. For example
-`animals/with_farming.py` holds trampling and the grazed field's soil; it is loaded only when both packages are on. This is where
-today's couplings go: `h.ate` passed from trampling to feeding; pack oxen on roads; dogs at a slaughter; stalls in buildings.
+#### 4.4 `requires` and `unless`
 
-**Packs become packages.** A package that is off has none of its rows, and none of its phases, signs, prompt lines or verbs. Today
-a pack only switches rows, so a world with the water pack off still carries its sign rows and prompt prose. A set of standard
-packages is on by default, so older world files load as before.
+Every registration may carry `requires` (all must be on) and `unless` (none may be on): rows, kinds' fields, phases, prompt lines,
+verbs, yield kinds, terms, hooks and fuse kinds. The loader adds the defining package to `requires` and drops what fails. A
+package's own `requires` is different: a hard dependency, without which the world does not build.
 
-**The manifest page.** `python -m cybertron2.engine manifest` prints, for a world, every package with its registrations, the phase
-order as resolved, and each package's lines of code against its rows of data. The registry makes "where does X happen" a lookup
-rather than a grep, and it keeps the growth of code beside data in sight.
+Integration files (`with_farming.py`) are where combined registrations are kept for maintenance. Correctness comes from `requires`,
+not from where the file is.
 
-### 3. The day as a phase list
+**Packs become packages.** Today's `pack` on a row is `requires` with one name. A package that is off has none of its rows, phases,
+signs, prompt lines or verbs. Today a pack only switches rows.
 
-There is one list of phases. The scheduler, branching (`branch.STEPS`) and the spec read it, so the evening bug cannot recur. A
-step that commits is a phase with `commit=True`. Packages add sub-phases with `after=` and `before=`.
-- The order is resolved once per world: a topological sort, with ties broken by package order.
-- It is written into the journal's meta.
-- A test fails on a cycle or on a dependency that is not declared: a phase reading a `today` key or a field that another package
-  writes in the same step must declare it.
+### 5. Senses
 
-The night's 22 dependencies (inventory C §2.4) become `after=` lines next to the steps they constrain. For example:
-- `food.eat` comes after `fire.house_fires` and `life.care_gifts`;
-- `animals.feed` comes after `land.regrow`, `farming.crops` and `animals.wander`.
+**Subject tables.** Sign tables are kept by subject kind (person, parcel, building, herd, thing, sky, road), owned by the core.
+Packages add rows to them. A row lives in the folder of the most specific package that gives it meaning; that is a rule for
+maintenance, not for correctness.
 
-The runner's state becomes an explicit object, not `locals()` through `CARRY`.
+**The row** (fields added to today's rows):
 
-### 4. Animals: a new kind of thing, not one primitive
+| Field | Meaning |
+|---|---|
+| `name` | stable within the table; the sign id becomes `<subject>#<table>.<name>` (today `#<table><index>`) |
+| `requires`, `unless` | §4.4 |
+| `replaces` | names a row this one takes the place of when both hold (on a grazed pasture, "grazed bare" replaces "bare") |
+| `rank` | precedence among rows that hold together; replaces today's lowest-index rule (`perceive.py:516`) and `HOLDING_ROWS = range(3, 10)` |
+| today's keys | `when`, `text`, `sense`, `own`, `tags`, `knack`, `knows`, `lay`, `reach`, `night`, `who`, `eye`, `land`, `peek`, `gate` |
 
-**A herd is already its own kind of entity:**
-- It has a place: a parcel, or a road with a stretch.
-- It has claims, tags and signs, and its own primitives (`new_herd`, `split_herd`).
-- It is a count of beasts by role, not individual animals.
+**Contexts by namespace.** A row reads `x.<package>.<field>` (`x.animals.slaughter`, `x.farming.crop`). Each package provides its
+namespace for a subject. Namespaces are computed on first read, so a row that is never evaluated costs nothing.
 
-**An `animals` package registers:**
-- **The kind:** `herd` (fields, the place rule including roads, claimable, tag namer).
-- **A species table:** roles, breeding, milk, dung, fodder need per head, nights to starve, what slaughter gives. Today only
-  cattle exists, partly as `PHYSICS.cattle` and partly as code.
-- **Compound primitives:** `split_herd` and `merge_herd`.
-- **Phases:** wander and graze and feed (after the land's regrowth, the crops and the fences), plus the herd's night on a road.
-- **Techniques and yield kinds:** herd, milk, slaughter, gather dung; and the `drive` verb.
-- **Signs:** HERD, ASTRAY, EMPTY, DRIVEN, SLAUGHTER, and the rows it adds to PERSON (leading a beast, blood from a slaughter).
-- **Prompt and capacity:** its prompt lines and its capacity declarations.
-- **Integrations:** `with_farming` (trampling, grazing), `with_roads` (the pack ox, herds lost on roads, urgent calls about found and
-  split herds) and `with_enclosure`.
+**The declaration test.** Every row is evaluated against fixture contexts that contain only the namespaces its `requires` names.
+Touching any other namespace fails the test, so a missing `requires` cannot pass silently.
 
-**The wild layer's kinds are a second kind of the same family.** The `ecology` branches keep wild populations by area, not at a
-place. Kept herds and wild populations should share the species rows: the traits of 02zv's C1. That makes a sheep or a goat a
-species row. A wild kind is a row on the other kind, with D2-203's module for its behaviour inside its package. Individual beasts
-(a trained ox with a bond, a dog; 02zv C8) would be a third kind, registered when needed.
+**One code path for chance.** The road's `roll` with `mult=1`, the traces' own multiplier and `least=True` become parameters of the
+one noticing rule (D4-75), or rows declared as exempt with a reason.
 
-The same test answers when something needs a new kind of entity: does it have a place and state of its own that changes over
-time? A herd, a building and an agreement do. A crop does not; it is fields on a parcel's holding.
+**Keyed draws.** Each sign's notice draw is keyed by its id: `rng("notice", day, person, sign_id)`. Today one sequence per person
+per day is consumed in candidate order (`perceive.py:370`, 383 to 428), so any added or removed row shifts every later draw. This
+changes behaviour, so existing runs do not replay under the new code; it needs a decision (open question 4).
 
-### 5. The packages, as cut from the inventories
+### 6. The day
 
-About 22. Each name says what the folder holds. "Standard" means it is on by default.
+- **One phase list.** The scheduler, branching and the spec read it.
+  - Steps that commit (dawn, decide, talk, work, evening, settle, night, memory) are core phases.
+  - Packages add sub-phases with `in_`, `after` and `before`, and declare the `today` keys and fields they read and write.
+  - The order is resolved once per world by a topological sort, with ties broken by package order, and written into the
+    journal's meta.
+  - A test fails on a cycle, or on a phase that reads what another phase in the same step writes without declaring the order.
+  - The night's 22 dependencies (inventory C §2.4) become `after` lines.
+- **`today` by package:** `today["roads"]["travel"]`. This is a schema change (D4-100).
+- **The runner is an object,** not `locals()` through `CARRY`.
+- **Structured results.** An act's result is `{kind, text, data}`. Budget, the lighten call, offer ids and the exported views read
+  `data`, never the wording.
+- **Request keys keep today's scheme.** A call that moves to another phase keeps its key, or a mapping is kept, so that runs started
+  before the change can still resume.
 
-| Package | Holds (from today's modules) | Standard |
+### 7. The packages
+
+About 22. "Standard" means on by default, so older world files load as they do now.
+
+| Package | Holds | Standard |
 |---|---|---|
-| `land` | covers' words and ambient lines; wild stocks (plants, game, seam, quarry); gathering techniques (forage, hunt, mine, quarry); WILD and HUNTED signs; land memory | yes |
-| `weather` | climate scheduler, environment queries, SKY signs, the cold and visibility terms | yes |
-| `woods` | forests (trees, young, dead), felling, firewood; their renewal rules | yes |
-| `fire` | hearths and fires at night, heat, fuel order, open fires; the warmth terms in needs | yes |
+| `land` | covers' words and ambient lines; wild stocks; gathering (forage, hunt, mine, quarry); WILD and HUNTED signs; land memory | yes |
+| `weather` | the climate scheduler (a driven layer), environment queries, SKY signs, the cold and visibility terms | yes |
+| `woods` | forests, felling, firewood; their renewal rules | yes |
+| `fire` | hearths and fires at night, heat, fuel order, open fires; warmth terms | yes |
 | `food` | eating, hunger, starvation, cooking, spoilage | yes |
-| `shelter` | sleeping places, beds, gear (tent, bedroll), camps; `sleep`, `host`, `grant`; the shelter terms | yes |
+| `shelter` | sleeping places, beds, gear, camps; `sleep`, `host`, `grant`; shelter terms | yes |
 | `buildings` | structures, rooms, fittings, stores and overflow, tiers, monuments, repair, breaks | yes |
-| `writing` | lines on buildings, `write`, `erase`, reading | no |
+| `writing` | lines on buildings | no |
 | `making` | recipes, fitting wear, mending | yes |
-| `farming` | crops, holdings, soil, field works, sowing lore; `plots`, `shares` | per world |
+| `farming` | crops, holdings, soil, field works, sowing lore | per world |
 | `enclosure` | fences and gates | per world |
-| `animals` | herds (above) | per world |
-| `wild` | the ecology branch's populations, methods and carcass decay | per world |
+| `animals` | herds (§2.3, §4) | per world |
+| `wild` | the ecology branch's populations, groups, legends, methods, carcass decay | per world |
 | `water` | fish and salt (the existing pack) | per world |
 | `things` | piles, remains, carcasses, hiding, searching | yes |
-| `burial` | graves, cairns, the `bury` technique | yes |
-| `life` | stages, partners, birth, children, care, death, succession, inheritance | per world (`children:`) |
+| `burial` | graves, cairns | yes |
+| `life` | stages, partners, birth, children, care, death, succession, inheritance | per world |
 | `households` | group rules, `join`, `admit`, `found`, offices | yes |
 | `exchange` | offers, agreements, settlement, debts | yes |
 | `conflict` | attack, guard, fights, raids, thefts | yes |
-| `roads` | travel, landmarks, traces, encounters, hidden ways | per world (with roads) |
+| `roads` | travel, landmarks, traces, encounters, hidden ways | per world |
 | `teaching` | watch, teach, learn, crafts heard | yes |
 | `labour` | fatigue, work's food, skill fading | yes |
 | `evening` | the evening step and meeting | per world |
-| `tags` | referent tags and naming | per world |
+| `tags` | referent tags | per world |
 
-There are two cut lines to decide (open questions 1 and 2): whether `food`, `shelter` and `fire` are packages or core, and whether
-`writing` and `burial` stand alone.
+### 8. Tests and guards
 
-### 6. Order of work
+| Test | Guards |
+|---|---|
+| Golden journals | each scripted world's journal before and after a change is byte-identical, except where a decided change says otherwise (today's `test_bot_run_is_deterministic` only checks a run repeats under the same code) |
+| Prompt snapshot | the system and turn prompts of the scripted worlds |
+| Import layers | P1; packages import only the core and their declared packages |
+| Declaration | §5's namespace test; the same for phases' reads and writes |
+| Null arm | a world with a package off has none of its registrations (from the manifest page) |
+| Acceptance 1 | a new species (sheep) is rows in `packages/animals/` only |
+| Acceptance 2 | a new feature with its own kind, phase, verb and signs (bees and a hive) is one new folder, no file outside it changed |
+| Populations | counts kept across a draw of individuals and their return |
 
-Each step must leave every scripted (bot) run byte-identical to the same run before the step. Today's test
-(`test_bot_run_is_deterministic`) only checks that a run repeats under the same code, so step 0 adds two tests:
-- a golden comparison of the scripted worlds' journals before and after a change;
-- a prompt snapshot, so that a moved prompt line is caught.
+### 9. Order of work
 
-0. **Guards and fixes, no change of behaviour:**
-   - the bugs above, the evening branching bug first;
-   - a prompt-snapshot test over the scripted worlds;
-   - the import-layer test, reporting only.
-1. **Registries in the core, with no code moved:**
-   - the kind registry, replacing the chains in `place_of`, `p_set` and the claim refs;
-   - schema fragments;
-   - the phase list, with `branch.STEPS` read from it;
-   - `today` keys declared with owners;
-   - hooks in place of the nine core-to-feature calls (`farm.sync` on claim, `life.on_death` on die, tags on spawn).
+| Phase | Work | Behaviour |
+|---|---|---|
+| 0 | Fix OPEN Q-49's bugs, the evening branching bug first; golden journals, prompt snapshot, import-layer test (reporting) | unchanged, except the bugs |
+| 1 | Core registries with no code moved: kinds, schema fragments, phase list (with `branch.STEPS` from it), `today` keys with owners, hooks for the nine callouts, the runner object, the loader and `requires` filter generalising packs. Breaks the 26-module import loop | unchanged |
+| 1b | Stable sign names, `rank`, `replaces`; keyed notice draws; structured results | changes noticing draws (decision) |
+| 2 | The wild layer lands as `packages/wild/` (its 19 engine edits re-expressed as registrations) | as the branch |
+| 3 | `animals` moved out as the pilot; acceptance test 1 | unchanged |
+| 4 | The rest, least coupled first: water, writing, tags, burial, teaching, labour, roads, evening; then farming, enclosure; then buildings, shelter, fire, food, life, with the signs and prompt split | unchanged |
+| 5 (separate decisions) | Populations in one form; layers first-class; the grid choice (§2.6); weather coupled if wanted | behaviour changes |
 
-   This breaks the 26-module loop. It is the largest gain for its size, and it is worth doing even if nothing else here is
-   accepted.
-2. **The wild layer lands as the first package.** It is new code that is not merged yet, so it is the cheapest to place well, and
-   it is the acceptance test: merged as `packages/wild/` with no edit to `signs.py`, `prompt.py`, `verbs.py` or `world.py` beyond a
-   registry the core already has.
-3. **`animals` as the first package moved out of the engine.** It touches every slot, and it is the example asked about.
-   Acceptance: a second species (sheep) is added as data rows in `packages/animals/` only.
-4. **The rest, the least coupled first:** water, writing, tags, burial, teaching, labour, roads, evening; then farming and
-   enclosure; then buildings, shelter, fire, food, life.
+### 10. Estimate
 
-### Acceptance tests
+From the inventory and the engine's size by file. A **builder-day** is one active day of a building session, the unit in which
+the engine was built: it took about 23,800 lines added over 12 active days (23 Oct to 12 Nov), and the wild branch 8,200 over 4.
+A refactor is slower per line than new code, because every step is checked against the golden journals and the full suite. The
+ranges carry that uncertainty.
 
-Like fishing for the process model (D4-103), each acceptance test is a feature added with a limit on what it may touch:
-1. A new species: rows in one folder.
-2. A new feature with its own entity kind, process, verb and signs, for example bees and a hive: one new folder, and no file
-   outside it changed.
-3. The import-layer test passes: no core module imports a package, and packages import only the core and the packages they
-   declare.
-4. A world with a package off has none of its rows, phases, signs or prompt lines; checked by the manifest page.
+| Phase | Lines moved | Lines rewritten | Lines new (code and tests) | Builder-days |
+|---|---|---|---|---|
+| 0 Guards and bugs | 0 | about 100 | about 600 | 1 to 2 |
+| 1 Core registries | 0 | about 1,500 (`world.py`, `run.py`, `branch.py`, `schema.py`, `here.py`, farm, life and tags callouts) | about 1,500 (loader, kinds, phases, `requires`, runner object) | 4 to 6 |
+| 1b Sign names, draws, results | 0 | about 900 (names on about 490 rows, mostly generated; perceive; result readers in run, evening, exchange) | about 200 | 2 to 3 |
+| 2 Wild as a package | about 3,900 (its own modules) | about 1,300 (its 19 engine edits as registrations) | about 300 | 3 to 5 |
+| 3 Animals | about 2,000 | about 500 | about 400 | 3 to 4 |
+| 4 The rest | about 12,000 | about 5,000 (signs walker and contexts about 1,000; prompt into slots about 700; view about 200; the technique hub about 600; night into phases about 500; run's feature logic about 700; `Here` namespaces about 400; needs terms about 300; the rest) | about 800 | 12 to 17 |
+| Tests (across phases) | 39 files move into packages | about 2,500 (37 files import engine modules; about 625 references by module alias) | (above) | included |
+| **Total, phases 0 to 4** | **about 14,000 of the engine's 20,400** | **about 7,000 to 9,000** | **about 3,000 to 4,000** | **about 25 to 37** |
+| 5 Object model | | about 2,500 and up (populations about 1,500; layers about 1,000; the grid choice could double this) | | 5 to 15 |
+
+**What it comes to:**
+- **Diff size:** the git diff for phases 0 to 4 is about 35,000 to 45,000 lines, since moves count twice.
+- **Net size:** the engine grows by about 1,500 to 3,000 lines: the registries add code, and removing the special cases and the
+  duplicates takes some away.
+- **Calendar time:** at the engine's own pace (12 active days in three and a half weeks), 25 to 37 builder-days is about five to
+  nine weeks for one session. After phase 1, phase 4's packages can be split between two sessions, since they no longer share
+  files, which brings it to about four to six weeks.
+- **Conflicts:** 37.2 and 37.4 keep building content on branches during this. Each package's move needs a short freeze on the
+  files it takes, and work in flight has to be rebased.
+
+**The cheaper path** is phases 0, 1, 1b, 2 and 3: about 12 to 19 builder-days and 7,000 to 9,000 lines of diff.
+- **What it gets:** the dependency inversion, the `requires` rule, the phase list, stable sign names, the wild layer as a package
+  and a proven pilot.
+- **After that:** new features are written as packages, and old code moves into packages when it is next substantially edited, the
+  strangler pattern. The whole migration then costs little extra, but it never finishes on a date, and the core carries both forms
+  for a while.
+
+## What the inventory found
+
+| Layer | Today | What matters here |
+|---|---|---|
+| Size | `engine/` 20,449 lines in 46 files | nine files hold 55%: `verbs.py` 2,009, `signs.py` 1,969, `farm.py` 1,519, `run.py` 1,306, `world.py` 1,075 |
+| Imports | 26 of the 44 engine modules form one import loop | 162 function-level imports hide it; with them taken out there is no loop at module level |
+| State | 25 top-level keys | about 20 of a parcel's 29 fields belong to one feature; `schema.FIELDS` is one closed list |
+| Primitives | 36 | about 14 generic; nine call into features |
+| Hooks | 3 after-hooks registered, no before-hooks | the core calls features directly instead |
+| Data | 47 tables in `data.py` | `TECHNIQUES`, `FUSE`, `MODIFIERS` added to by hand; `pack` on three tables; derived tables ignore packs; one `PHYSICS` bag |
+| World build | 27 ordered steps in `World.__init__` | woods, grass, fences, works, crops, herds, rooms, households, claims, minds seeded inline |
+| Agent's view | about 80 methods on `Here` | about 45 thin wrappers importing features |
+| Verbs | 38 verbs, 21 yield kinds | one if/elif hub; 4 kinds with distributions; farm kinds listed three times; about 30 special cases keyed on names |
+| Senses | 34 sign tables | one walker over eight features; one shared context; rows picked by position; tables mixing features; three chance paths on the road |
+| Prompt | 8 system blocks, 13 turn sections | prose of about ten features in `prompt.py`; `view.py` zips lines by position; blocks spliced by string replace |
+| The day | 8 steps | the night written by hand in three places with 22 dependencies; `today` with about 40 keys and no owner; result lines used as a message bus |
+
+The bugs found on the way are in OPEN Q-49.
 
 ## Why
 
-- **Growth.** Hundreds of content items are queued (02zv's ledger, 02zzj's economy research). At the wild layer's rate of 19
-  engine files for one feature, each feature raises the cost of the next. A package confines the cost to its folder.
-- **The design rules already point here:**
-  - D4-24 (the world grows by data on a small set of verbs);
+- **Growth.** 02zv's ledger and 02zzj's economy research queue hundreds of content items. At the wild layer's rate (19 engine files
+  for one feature), each feature raises the cost of the next. A package confines it to a folder.
+- **The design rules point here:**
+  - D4-24 (the world grows by data on a few verbs);
   - D4-34 (one chokepoint with hooks);
   - D4-103 (each process declared once, beside its code);
-  - D2-203 (a wild kind's behaviour as a module of its own, acting only through primitives).
+  - D2-203 (a wild kind as a module acting only through primitives).
 
-  Packages are where those declarations live. The process model says what the economy is; packages say where each part of it is
-  kept.
-- **Clarity.** "What does farming do?" is answered by one folder and one manifest, not by a grep across 20 files.
-- **Null arms.** A package off is the clean null arm of an experiment (scenario_design.md). That holds only if code, signs and
-  prompt lines switch off with the rows, which packs do not do today.
+  Packages are where those declarations live.
+- **Clarity.** One feature is one folder and one manifest.
+- **Clean null arms** (scenario_design.md). P7 makes "the world without X" exactly the world minus X's registrations.
 
 ## What is weak about this design
 
-- **Indirection.** Registries make control flow harder to follow by reading one function: the night becomes a sorted list, not a
-  sequence on the page. The manifest page and the resolved phase order in the journal answer this only in part.
-- **Twenty-two folders may be too many.** Some packages (writing, burial) are a few hundred lines. Fewer, larger packages are a
-  reasonable alternative (open question 1).
-- **The context of signs is the hardest part to split.** Today one context per parcel is computed for six tables. Per-package
-  context providers need to be lazy (computed on first read), or the cost of perception rises with every package.
-- **Replays across the change.** Iteration order of registries can change the order of events and applies, so the package order
-  must be fixed and recorded. Request keys must keep their scheme: the meeting's calls are keyed under the last talk step today. Old
-  runs replay under their own code (the journal records the code sha); new code promises only that scripted runs stay identical
-  step by step.
-- **It does not by itself make content data.** 02zv's C1 to C3 (traits, consolidated verbs, methods as data) do that. This
-  proposal is where that content would live; it is not a substitute for it.
+- **Indirection.** The night becomes a sorted list, not a sequence on the page. The manifest page and the resolved order in the
+  journal answer this only in part.
+- **Twenty-two packages may be too fine;** about 12 is a reasonable alternative.
+- **Sign contexts must be lazy,** or the cost of perception grows with every package.
+- **It does not make content into data by itself;** 02zv's C1 to C3 do that. This is where that content would live.
+- **The estimate is uncertain.** No refactor of this size has been done on this engine. The pace figures come from new code, and
+  the full suite is slow to run, which sets the pace of checking.
 
 ## Alternatives considered
 
-1. **Keep the layout; break the cycles only.** That is step 1 alone: hooks and registries, with no folders. It is cheap and gets
-   most of the dependency gain, but a feature still edits `signs.py`, `prompt.py` and `data.py`.
-2. **Folders by technical role** (`signs/`, `prompt/`, `verbs/`, each split by feature inside). It is closer to today and needs less
-   registry, but a feature still spans five folders.
-3. **A full entity-component-system.** The plain-JSON state, the primitives and the journal already give what a component-system
-   gives for replay. Rewriting to one is a large cost for little gain here.
+1. **Break the cycles only:** phase 1 alone. Cheap, and most of the dependency gain; but a feature still edits the shared signs,
+   prompt and data files.
+2. **Folders by technical role** (`signs/`, `prompt/`, `verbs/`, each split by feature). Closer to today, but a feature still spans
+   five folders.
+3. **A full entity-component system.** The JSON state, primitives and journal already give its benefits for replay; rewriting to one
+   costs a great deal for little here.
+4. **Integration only by file loading** (this proposal's first draft). Replaced by `requires` on every registration (History, 16 Nov).
 
 ## Open questions
 
-1. **How fine to cut:** about 22 packages, or about 12 (merging writing into buildings, burial into things, teaching and labour
-   into the core, fire and shelter into one)?
-2. **Food, shelter and fire:** packages that are on by default, or core? Every world eats and sleeps, but treating them as packages
-   keeps the core free of nouns.
-3. **`today` kept under each package's name:** a schema change (D4-100 bump). Acceptable?
-4. **Order against the wild layer:** step 1 before the wild branch is merged, then the wild layer lands as a package (recommended);
-   or merge the wild layer as it is, then move it?
-5. **Who builds it:** this is 37.4's code. Step 1 blocks nothing else; its size is a guess until 37.4 looks (perhaps a few
-   days).
+1. **How fine to cut:** about 22 packages, or about 12?
+2. **Food, shelter and fire:** standard packages, or core?
+3. **`today` by package:** a D4-100 schema change. Acceptable?
+4. **Keyed notice draws (§5):** they change what people notice in existing worlds, so runs from before do not replay under the new
+   code. Accept, as phase 1b?
+5. **Scope and pace:**
+   - the whole migration (25 to 37 builder-days);
+   - the cheaper path (12 to 19), then packages as features are touched;
+   - phase 1 only.
+6. **The grid (§2.6):** the 150 m cells as the base space, or one grid per layer with mappings? This is a decision of its own,
+   outside the estimate.
+7. **Weather (§2.2):** keep it driven (every arm meets the same weather, and no fork can set a storm), or allow a coupled weather
+   later?
+8. **Order against the wild layer,** and who builds: phase 1 before the wild branch merges, then the wild layer as the first package
+   (recommended)? Is it 37.4's to build?
 
 ## Affects
 
-- spec/core/architecture.md (the core and packages);
+On decision:
+- spec/core/architecture.md (principles, core, packages);
+- a new spec/core/objects.md (the six categories, the kind registry, layers, populations);
 - spec/core/round.md and spec/record/execution.md (the phase list; the evening step);
 - spec/core/world_schema.md (fragments; `today` by package);
 - spec/core/processes.md (packs become packages);
-- guides/senses.md (sign tables by subject kind; one noticing code path on the road).
+- guides/senses.md and spec/information/ (subject tables, row names, keyed draws).
 
 ## History
 
-- **16 Nov 2026:** proposed. Zach: "do a deeper dive to think about a cleaner way to separate each package into an actual package of
-  related features and data etc. the code should be a clear set of primitives to exist with the world, with features mostly being
-  labelled data on these primitives ... if each package had everything relevant, what would be all the things it would need to
+- **16 Nov 2026: proposed.** Zach: "do a deeper dive to think about a cleaner way to separate each package into an actual package
+  of related features and data etc. the code should be a clear set of primitives to exist with the world, with features mostly
+  being labelled data on these primitives ... if each package had everything relevant, what would be all the things it would need to
   register. I like the idea of each being its own folder." Built on a read of every engine module (docs/review/40_feature_packages/).
+- **16 Nov 2026: revised into a design specification,** with an estimate.
+  - **The object model added (§2).** Zach asked what each object type has and what almost everything requires, what kind of object
+    weather is, and what wildlife and ecosystems are. The answer: six categories with base shapes; layers driven or coupled;
+    populations with the rule for drawing individuals out; ecosystems as types.
+  - **Integration by loading files replaced by `requires` and `unless` on every registration.** Zach: "each sign can register which
+    other packages it requires ... we only include the subset where all package requirements are fulfilled". Added with it: subject
+    tables, stable row names, `rank` and `replaces`, the namespace declaration test, and keyed notice draws.
+  - Zach asked for it as a spec with the work estimated (§9, §10). It is kept as a proposal until decided, per the folder's rules.
 
 ## Sources
 
 - docs/review/40_feature_packages/inventory_A.md to inventory_E.md;
-- spec/core/architecture.md, processes.md;
-- proposals/engine_overhaul.md, process_model.md;
-- docs/review/37_growth/02zv_wild_consolidation.md (C1 to C5, §4 packs);
-- the `ecology` branches (`cybertron2/wild/`, `engine/wild.py`);
-- WORK W-43.
+- spec/core/architecture.md, processes.md, world_schema.md;
+- proposals/engine_overhaul.md, process_model.md, wild_layer.md;
+- docs/review/37_growth/02zv_wild_consolidation.md (C1 to C5, C8, §4);
+- `engine/climate.py`;
+- the `ecology-hunt3` branch (`cybertron2/wild/ecology.py`, `engine/wild.py`, schema 5);
+- git history of `cybertron2/engine/` (pace);
+- WORK W-43; OPEN Q-48 to Q-50.

@@ -1049,3 +1049,8 @@ was changed.
 - **For 37.4:** engine bugs found on the way are in OPEN Q-49. The first is that `branch.STEPS` lacks "evening", so rewind, fork
   and continue fail on evening worlds.
 - **For 37.2:** Q-48 (4) asks whether the wild layer should land as the first package rather than as edits to 19 engine files.
+
+**16 Nov, lead session → 37.4, 37.2: feature packages revised.** `proposals/feature_packages.md` is now a design specification,
+ready for Zach's decision. It adds an object model of six categories (§2), `requires` and `unless` on every registration (§4.4), and
+sign rows with stable names and keyed draws (§5). It estimates the work (§10): 25 to 37 builder-days for the whole migration, or 12
+to 19 for the cheaper path. Asks: OPEN Q-48 and Q-50 (one grid or several).
