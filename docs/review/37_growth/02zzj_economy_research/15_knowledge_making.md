@@ -222,27 +222,27 @@ weight, clipped coin, false measures (weights and measures as regulation are par
 
 ### 3.1 The main instruments
 
-| Instrument | First (place) | What it senses | Needs | What it made possible or discoverable | Tag |
-|---|---|---|---|---|---|
-| **tally and token** | notched bones (contested), tokens from about 8000 BC (part 10), split tallies in medieval Europe (part 04) | counts and debts beyond memory | wood or clay; a convention | credit, tax, the first accounts and writing | firm (tokens); contested (Palaeolithic bones) |
-| **equal-arm balance and weights** | Egypt and Mesopotamia by about 3000 BC (*rough*); Indus chert weights from about 2600 BC (part 10) | mass | bronze or wood beam, a pivot, stone or metal weights to a standard | silver by weight as money (part 04), fair trade, assay, later quantitative chemistry | rough |
-| **calendar marks and gnomon** | Newgrange's winter-solstice light box about 3200 BC (*memory*); the gnomon in Babylon and China | the date by the sun; noon | stones, a post, a level floor | sowing windows, festivals, tax dates; the length of the year | memory |
-| **measuring rod, rope and chain** | Egyptian royal cubit (about 52 cm, *rough*); rope-stretchers; Gunter's chain of 66 feet (1620, *memory*) | length and area | a master rod kept by an authority | fields, plots, buildings, the cadastre (part 05); rent and tax by area | rough |
-| **touchstone** | Lydia, sixth century BC (*memory*) | gold fineness, by the colour of a streak beside needles of known alloy | a fine-grained black stone, a set of touch-needles | trust in gold coin and plate; hallmarking | memory |
-| **cupel and fire assay** | cupellation of silver from about 2500 BC (part 03) | silver and gold content, by weight before and after | bone-ash cupels, lead, a furnace, an assay balance | mint control (England's Trial of the Pyx, recorded from 1282, *memory*), ore valuation, mining finance | memory |
-| **water clock** | Egyptian clepsydra at Karnak, about 1400 BC (*memory*); Ctesibius about 250 BC; Su Song's clock tower at Kaifeng with an escapement, 1088 to 1092 (*memory*) | hours, including at night | vessels, a regulated flow, gears | temple and court time; astronomy | memory |
-| **mechanical clock** | verge-and-foliot clocks in Europe in the late thirteenth century (*memory*) | equal hours | forged iron wheels, weights, an escapement; smiths and locksmiths | the monastic hours, then town time, work time, wages by the hour; a school of gear-cutters | memory |
-| **pendulum clock** | Huygens, 1656 | time to seconds | precision wheels; a pendulum | astronomy; Huygens's own clocks erred under a minute a day, later under ten seconds; the common claim of "fifteen minutes to fifteen seconds" is a round figure (*checked*) | checked |
-| **compass** | China: described by Shen Kuo (1088), used at sea by about 1100; Europe by about 1190 (Neckam) (*memory*) | north, in any weather | lodestone, a steel needle, a card | sailing out of sight of land in overcast seasons; portolan charts (about 1275) | memory |
-| **astrolabe, quadrant, octant** | Hellenistic astrolabe; perfected in the Islamic world; mariner's astrolabe in Portugal in the 1480s; Hadley's octant 1731 (*memory*) | the altitude of the sun or a star, hence latitude and time | brass (copper and zinc), engraving, divided scales | latitude sailing; surveying; astronomy | memory |
-| **marine chronometer** | Harrison's H4, tried 1761 to 1762 | time at the home port, hence longitude | springs, bimetal compensation, jewelled bearings | position at sea; H4 lost about 5 seconds in 81 days to Jamaica (*checked*) | checked |
-| **spectacles** | Pisa, about 1286; organised manufacture in Venice by 1300 to 1301 (*checked*) | near vision restored | clear glass or rock crystal; grinding and polishing; frames | longer working lives for scribes and fine craftsmen (Landes, *contested*); a lens trade | checked |
-| **telescope** | Middelburg, 1608 (Lipperhey's patent petition) | distant objects | two spectacle lenses; a tube | Galileo's moons of Jupiter (1610); navigation and war; surveying | checked |
-| **microscope** | compound microscopes from the 1620s; Hooke's *Micrographia* (1665); Leeuwenhoek's single lenses, about 270 times (*memory*) | small objects | lenses, brass, glass beads | cells, "animalcules" (1676), sperm, the structure of materials; microbes, without a theory for two centuries | memory |
-| **barometer and air pump** | Torricelli 1643; Pascal's Puy de Dôme 1648; Guericke and Boyle in the 1650s (*memory*) | air pressure; the vacuum | mercury, glass tubes; brass pumps | that air has weight, which the atmospheric engine rests on (§5); the weather glass | memory |
-| **thermometer** | Galileo's thermoscope about 1593; sealed spirit thermometers in Florence in the 1650s; Fahrenheit's mercury thermometer 1714, his scale 1724; Celsius 1742 (*memory*) | temperature, on a shared scale | mercury or spirit; fine glass tube; a standard scale | brewing and dyeing by degrees; chemistry; meteorology; medicine | memory |
-| **still and glassware** | Alexandrian stills; the Islamic alembic (al-Razi, ninth to tenth century); spirits at Salerno in the twelfth century (*memory*) | the volatile part of a substance | glass or copper vessels, a furnace, cooling water | spirits, rosewater and perfumes, mineral acids (aqua fortis to part gold from silver), the chemist's bench | memory |
-| **dividing engine, micrometer, gauges** | Ramsden's dividing engine 1775; Maudslay's bench micrometer about 1805; Whitworth's measuring machine (1850s, a millionth of an inch claimed); Johansson's gauge blocks 1896 (*memory*) | length to fine tolerance | precision screws; hardened steel; a standard | accurate instruments in quantity; interchangeable parts (part 07); standard threads (1841) | memory |
+| Instrument | First | What it senses | Needs | What it opened |
+|---|---|---|---|---|
+| **tally and token** | tokens about 8000 BC (part 10); split tallies, medieval Europe (part 04) | counts and debts beyond memory | wood or clay; a convention | credit, tax, accounts, writing |
+| **balance and weights** | about 3000 BC (*rough*); Indus chert weights about 2600 BC (part 10) | mass | a beam and pivot; weights to a standard | silver money, fair trade, assay, quantitative chemistry |
+| **calendar marks and gnomon** | Newgrange about 3200 BC (*memory*) | the date; noon | stones, a post, a level floor | sowing windows, festivals, tax dates |
+| **rod, rope and chain** | Egyptian royal cubit, about 52 cm (*rough*); Gunter's chain 1620 (*memory*) | length and area | a master rod held by an authority | plots, cadastres, rent and tax by area |
+| **touchstone** | Lydia, sixth century BC (*memory*) | gold fineness | a black stone; touch-needles | trust in gold coin and plate |
+| **cupel and fire assay** | about 2500 BC (part 03) | silver and gold content | bone-ash cupels, lead, furnace, assay balance | mint audits, ore valuation, mining finance |
+| **water clock** | Karnak about 1400 BC; Su Song's escapement 1092 (*memory*) | hours, also at night | vessels, regulated flow, gears | temple and court time; astronomy |
+| **mechanical clock** | Europe, late thirteenth century (*memory*) | equal hours | iron wheels, weights, an escapement | town and work time; gear-cutting skills |
+| **pendulum clock** | Huygens 1656 (*checked*) | seconds | precise wheels, a pendulum | astronomy; regulators for other clocks |
+| **compass** | China by 1088; Europe about 1190 (*memory*) | north in any weather | lodestone, steel needle | sailing out of sight of land; portolan charts |
+| **astrolabe, quadrant, octant** | Hellenistic; Islamic refinement; octant 1731 (*memory*) | a star's altitude: latitude, time | brass, engraving, divided scales | latitude sailing; surveying |
+| **marine chronometer** | Harrison's H4, 1761 (*checked*) | home-port time: longitude | springs, compensation, jewelled bearings | position at sea |
+| **spectacles** | about 1286, Pisa (*checked*) | near sight restored | clear glass or crystal; grinding | longer working lives; a lens trade |
+| **telescope** | 1608, Middelburg (*checked*) | the distant | two spectacle lenses | Jupiter's moons; navigation, war, survey |
+| **microscope** | 1620s; Leeuwenhoek about 270 times (*memory*) | the small | lenses, brass | cells, microbes, fibres |
+| **barometer and air pump** | 1643; 1650s (*memory*) | air pressure; vacuum | mercury, glass, brass pumps | the atmospheric engine; weather |
+| **thermometer** | thermoscope about 1593; mercury 1714 (*memory*) | heat on a shared scale | mercury, even-bore tube, fixed points | brewing and dyeing by degrees; chemistry |
+| **still and glassware** | Alexandria; the Islamic alembic (*memory*) | the volatile part | glass or copper vessels, furnace, water | spirits, perfume, acids, assay |
+| **dividing engine, micrometer, gauges** | 1775; about 1805; 1896 (*memory*) | length to fine tolerance | precision screws, hardened steel | instruments in quantity; interchangeable parts |
 
 ### 3.2 Counting and weighing: the oldest instruments
 
@@ -275,7 +275,7 @@ compared with streaks from touch-needles of known fineness, sometimes with acid 
 cheap and nearly non-destructive, and it was good to a few parts in a hundred in practised hands (*rough*). The **cupel** is a
 shallow dish of bone ash. Lead and a weighed sample are heated on it, the lead oxidises and soaks into the cupel taking the base
 metals with it, and the silver or gold bead left is weighed (part 03's `cupellation`, from about 2500 BC). With an assay balance,
-fire assay was accurate to a part in a thousand or better (*rough*). It let mints be audited (the Trial of the Pyx), lets ores be
+fire assay was accurate to a part in a thousand or better (*rough*). It let mints be audited (England's Trial of the Pyx, recorded from 1282, *memory*), lets ores be
 valued before they are bought, and let mining companies raise money on assays. **Parting** gold from silver with aqua fortis (nitric
 acid, from the still) joined assay to the chemist's glassware by about 1300 (*memory*).
 
@@ -301,7 +301,7 @@ acid, from the still) joined assay to the chemist's glassware by about 1300 (*me
 
 ### 3.6 Finding the way: compass, astrolabe, sextant, chart
 
-Navigation shows instruments joining a chain with charts and records. The compass needed a lodestone and good steel to magnetise.
+Navigation shows instruments joining a chain with charts and records. Shen Kuo described the magnetic needle in 1088, Chinese ships used it by about 1100, and Alexander Neckam wrote of it in Europe about 1190 (*memory*). The compass needed a lodestone and good steel to magnetise.
 The astrolabe and quadrant needed brass, engraving and accurately divided scales. Portolan charts were drawn from compass bearings
 and pilots' records, and the first surviving one, the Carta Pisana, dates from about 1275 (*memory*). Pilots' rutters wrote down
 the local facts: soundings, landmarks, tides. Ramsden's dividing engine (1775) divided sextant scales mechanically and accurately,
@@ -659,16 +659,14 @@ large:
   estimates built on UNESCO, OECD and Eurostat data).
 - **Who does it.** Business performed **74%** of OECD R&D in 2023 (66% in 2010), and 66% in the EU (*checked*). Israel (6.3% of GDP)
   and South Korea (5.0%) are the most R&D-intensive economies; the OECD as a whole spends about 2.7% (*checked*).
-- **Its structure.** Basic research is mostly done in universities and government laboratories and paid for by states. Applied
-  research and development are mostly done in firms. Venture capital (American Research and Development, 1946, *memory*) finances
-  firms whose main asset is know-how. University patenting grew after the US Bayh-Dole Act (1980, *memory*). The largest R&D spenders
-  are in software and internet services, pharmaceuticals, cars and semiconductors (*rough*).
+- **Its structure.** States pay for most basic research, done in universities and government laboratories; firms do most
+  development. Venture capital (from 1946, *memory*) finances firms whose main asset is know-how. The largest spenders are in
+  software, pharmaceuticals, cars and semiconductors (*rough*).
 - **Its chokepoints.** Part 08 calls ASML's EUV lithography "a chokepoint of knowledge, built over decades with no substitute", and
   part 13 lists Zeiss as its sole optics supplier. Drug development runs through randomised trials that cost hundreds of millions
   to billions per approved drug (part 13; *contested* in its size).
-- **What persists from the village.** Tacit knowledge still moves with people. Firms cluster where skilled workers can change jobs
-  (Silicon Valley's mobility, California's non-enforcement of non-compete clauses, *contested*). Trade secrets remain the main
-  protection for process know-how. Apprenticeship survives as the postdoc and the residency.
+- **What persists from the village.** Tacit knowledge still moves with people, so firms cluster where skilled workers change jobs;
+  trade secrets still protect most process know-how; apprenticeship survives as the postdoc and the residency.
 
 ## 7. How knowledge-making joined the economy's chains
 

@@ -107,9 +107,8 @@ heads).
 - **The chariot was a system, not a weapon.** It needed horses bred and trained (the Hittite horse-training text of Kikkuli,
   around 1400 BC, *unchecked*), spoked wheels and bent wood from wheelwrights, leather, bronze fittings, a composite bow and a
   trained archer and driver, and fodder. At Kadesh (1274 BC) Egypt and the Hittites are said to have fielded several thousand
-  chariots between them (*contested*). Palaces kept chariot workshops, horse lists and inventories of wheels in their archives
-  (Linear B tablets at Knossos and Pylos list chariots and wheels, part 10 §5, *unchecked*). The horse and the spoked wheel
-  together came from the steppe edge (horse_riding_chariots, part 10).
+  chariots between them (*contested*). Palace archives (Linear B at Knossos and Pylos) list
+  chariots and wheels (*unchecked*); horse and spoked wheel came from the steppe edge (horse_riding_chariots, part 10).
 
 ### 1.4 Iron arms and the state arms works
 
@@ -291,11 +290,9 @@ standard). The earliest written formula is Chinese (the *Wujing Zongyao*, 1044, 
 - **The naval race drove heavy industry**: ironclads (from 1859), face-hardened nickel-steel armour plate, great forging
   presses, steam turbines, mechanical fire control, and oil fuel, which took the British state into Persian oil in 1914
   (*unchecked*).
-- **Chemistry of explosives.** Guncotton (1846), nitroglycerine and Nobel's dynamite (1867), smokeless powders (Poudre B, 1884;
-  cordite, 1889) and TNT and picric acid tied war to the coal-tar and acid trades (coal_tar_chemicals, sulphuric_acid, part 07 §6,
-  part 08 §3): toluene from coke ovens and gasworks, nitric and sulphuric acid by the tens of thousands of tons (*rough*). The 1915
-  shell crisis in Britain produced the Ministry of Munitions, national factories and about a million munitions workers, many of them
-  women (*rough*).
+- **Explosives** (guncotton 1846, dynamite 1867, smokeless powders from 1884, TNT) tied war to coal tar and acids
+  (coal_tar_chemicals, sulphuric_acid; parts 07 §6, 08 §3). Britain's 1915 shell crisis produced the Ministry of Munitions and
+  about a million munitions workers (*rough*).
 
 ### 1.14 The 20th century: procurement as a driver of technology
 
@@ -442,10 +439,8 @@ standard). The earliest written formula is Chinese (the *Wujing Zongyao*, 1044, 
   between Seville and the Americas through Havana (*unchecked*); British convoys in the wars of 1793 to 1815 and in both world wars.
   A convoy trades speed and the timing of markets for safety: goods arrive in pulses (economy_web's "pulse"), and the fair or the
   price jumps with the fleet.
-- **Insurance prices war.** Marine insurance (insurance; Lloyd's, part 04) charged war-risk premiums that rose and fell with the
-  sea war; the premium is the market's price of insecurity, and the protection rent of §2.6 is visible in it (*rough*). The same
-  logic returned with Somali piracy (2008 to 2011) and the Red Sea attacks of 2023 to 2024, when ships went round the Cape
-  (*memory*).
+- **Insurance prices war**: marine war-risk premiums (insurance, part 04) are the market's price of insecurity, back again with
+  Somali piracy and the Red Sea attacks of 2023 to 2024 (*memory*).
 
 ### 2.9 Chartered companies with armies
 
@@ -506,10 +501,9 @@ standard). The earliest written formula is Chinese (the *Wujing Zongyao*, 1044, 
 
 - **Debasement** was the old way to pay for war: the Roman denarius, Henry VIII's Great Debasement of 1544 to 1551 (coin_debasement,
   part 04 §2).
-- **Paper money and war**: the Continental dollar (1775 to 1779), the French assignats (1790s), the Bank of England's suspension
-  of gold payments from 1797 to 1821, the US greenbacks (1862), every major belligerent's suspension of gold in 1914, and Germany's
-  war debt leading to the hyperinflation of 1923 (*unchecked*, standard). War is the commonest cause of high inflation before the
-  1970s (*rough*).
+- **Paper money and war**: the Continental dollar, the assignats, Britain's suspension of gold payments (1797 to 1821), the
+  greenbacks, the suspensions of 1914 and Germany's 1923 hyperinflation (*unchecked*): war was the commonest cause of high
+  inflation before the 1970s (*rough*).
 - **Taxes that stayed.** Pitt's income tax (1799) for the French war, repealed in 1816; the US Civil War income tax; the
   Sixteenth Amendment (1913) and the First World War; in the Second, US income tax by withholding (1943) and a jump from a few
   million to over forty million taxpayers (*memory*). Keynes's *How to Pay for the War* (1940) proposed deferred pay to keep
@@ -588,9 +582,7 @@ Insecurity costs most when nothing is happening, because people arrange their li
   travel from Italy to China peaked in the early 14th century, and plague travelled the same way in the 1340s (part 11 §6).
 - **The steppe closed.** Gunpowder and the agrarian empires' revenue ended the steppe's edge. Russia advanced with Cossack
   fortified lines; the Qing destroyed the Dzungars in the 1750s (Perdue, *China Marches West*, *unchecked*). After that, the
-  steppe was a frontier of farmers, not a source of conquerors. A late echo in the Americas: the Comanche, mounted on horses taken
-  from Spanish herds, built a raiding and trading empire on the southern plains in the 18th and 19th centuries (Hämäläinen,
-  *unchecked*).
+  steppe was a frontier of farmers, not a source of conquerors. (A late echo: the Comanche raiding and trading empire on Spanish horses, Hämäläinen, *unchecked*.)
 
 ## 6. How the chains of war joined the rest of the web
 

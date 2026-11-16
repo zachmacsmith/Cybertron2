@@ -280,55 +280,38 @@ Part 05 (§3.3) gives the rules: great tithes (grain, hay, wood) to the rector, 
 produce) to the vicar, collection in the field by counting stooks. Part 02 puts it at a tenth of the sheaves after reaping. A few
 details bear on the village as an economy.
 
-- **In kind, in the field, before the household's share.** The farmer left every tenth sheaf standing in the field, and the
-  rector's men carted them to the **tithe barn**. The tithe owner thus held a store of grain, straw, hay and wool, and had to thresh,
-  sell or use it. Some of the largest medieval barns (Bradford-on-Avon, built for Shaftesbury Abbey) were tithe and demesne barns at
-  once (*unchecked*).
-- **Disputes.** Every new crop, new land and new practice raised a tithe dispute: was hay titheable, was a mill, were turnips,
-  were wages, was land newly reclaimed from waste ("novalia")? Church courts heard tithe cases in large numbers; they were among
-  the commonest suits in early modern England (*memory*). Tithe was a tax on innovation as well as output, because new crops were
-  usually brought under it after argument.
-- **Appropriation.** A monastery or college that took over a parish (appropriated it) took the great tithes and paid a vicar a
-  stipend from the small tithes. By the early sixteenth century a large share of English parishes were appropriated, so that the
-  tithe of a village often fed a distant abbey (*rough*: about a third of parishes is often given, *memory*). After the
-  dissolution these tithes passed to lay owners ("impropriators"), so lay landlords collected tithe for three more centuries.
-- **The tithe as a statistic.** Because it was a fixed share of the crop, a tithe series is an output series. Joseph Goy and
-  Emmanuel Le Roy Ladurie used French tithe records to estimate grain output from the fourteenth to the eighteenth century
-  (*memory*). Tithe farms (the right to collect a parish's tithe, auctioned each year) give its expected value in money.
-- **Burden.** A tenth of gross output, with seed a quarter, meant a household kept about two-thirds of its harvest (part 02) and
-  then paid rent and dues (part 05 §3.4: rent and services a tenth to a quarter). Tithe fell on gross produce, so it took a larger
-  share of the net income of poor land than of good land, and of tillage than of pasture (the costs of ploughing are not deducted)
-  (*unchecked*, standard reasoning; an old complaint by economists from Adam Smith to Ricardo).
+- **In kind, in the field, before the household's share.** Every tenth sheaf was left standing and carted to the **tithe barn**,
+  so the tithe owner held a store of grain, straw, hay and wool to thresh, sell or use (*unchecked*).
+- **Disputes.** Every new crop or practice raised a dispute: was hay titheable, were turnips, was land newly reclaimed? Tithe suits
+  were among the commonest in English church courts (*memory*). Tithe taxed innovation as well as output.
+- **Appropriation.** A monastery or college that took over a parish took the great tithes and paid a vicar from the small ones; by
+  1500 perhaps a third of English parishes were appropriated (*memory*, *rough*), so a village's tithe often fed a distant abbey.
+  After the dissolution these tithes passed to lay "impropriators", who collected them for three more centuries.
+- **A statistic.** A fixed share of the crop makes a tithe series an output series: Goy and Le Roy Ladurie estimated French grain
+  output from tithe records (*memory*). Tithe farms, auctioned yearly, give its expected value in money.
+- **Burden.** After seed and tithe a household kept about two-thirds of its harvest (part 02), then paid rent and dues (part 05
+  §3.4). Because tithe fell on gross produce, it took more of the net income of poor land than good, and of tillage than pasture
+  (*unchecked*; Smith's and Ricardo's complaint).
 
 ### 4.3 Papal and clerical taxation, and the bankers
 
-- **Peter's pence** (an annual payment from England and elsewhere to Rome, from the Anglo-Saxon period), **annates** (the first
-  year's income of a benefice, paid by a new holder), **crusading tenths** and **clerical subsidies** made the papacy a fiscal
-  power across Latin Christendom (*unchecked*).
-- **The Saladin tithe** (1188), a tenth of movable goods and income levied by Henry II and Philip II for the Third Crusade, was the
-  first general tax on personal property in England and a model for later lay subsidies (part 05, `lay_subsidy`) (*unchecked*).
-- **Moving the money to Rome** was the papacy's great practical problem, and its solution made international banking. From the
-  thirteenth century Florentine, Sienese and Lucchese companies (the Bardi, the Peruzzi, the Spini, later the Medici, who were the
-  papal bankers) collected papal taxes in England, France and Germany and paid them out in Rome or Avignon by bills of exchange
-  (part 04 §9.1) (*unchecked*). In England they also bought the monasteries' wool with the money (§5.2), so tax and trade cleared
-  against each other: papal revenue in England became wool shipped to Florence and florins paid in Italy. The papacy was the
-  largest single customer of the bill of exchange in its first century.
+- **Peter's pence, annates, crusading tenths and clerical subsidies** made the papacy a fiscal power across Latin Christendom; the
+  **Saladin tithe** (1188), a tenth of movables for the Third Crusade, was England's first general tax on personal property and a
+  model for the lay subsidies (part 05) (*unchecked*).
+- **Moving the money to Rome** made international banking. From the thirteenth century Florentine and Sienese companies (the Bardi,
+  the Peruzzi, later the Medici) collected papal taxes in England and France and paid them in Rome or Avignon by bills of exchange
+  (part 04 §9.1), and in England spent the collections on monastic wool (§5.2), so tax and trade cleared against each other
+  (*unchecked*). The papacy was among the bill of exchange's largest early customers (*rough*).
 
 ### 4.4 The end of compulsory tithe
 
-- **France** abolished tithe on the night of 4 August 1789 (*unchecked*, standard), and the National Assembly nationalised church
-  land in November 1789 (§5.6).
-- **England** commuted tithe to a money rent charge on land in 1836 (*unchecked*, part 05), assessed by the Tithe Commission's
-  parish maps, which are one of the best surveys of English land use ever made (*unchecked*). The rent charge was converted into
-  annuities in 1936 and ended in 1977 (*unchecked*).
-- **Islamic law** has its own levies: **zakat**, an annual alms on wealth above a threshold, usually 2.5% on money and trade goods
-  and set rates on herds; and **ʿushr**, a tenth of the produce of rain-fed land and a twentieth of irrigated land, the lower rate
-  allowing for the cost of watering (*unchecked*, standard). Early Islamic states collected zakat as a tax; most now leave it
-  voluntary, with a few (Saudi Arabia, Malaysia's states, Pakistan for some decades) collecting it by law.
-- **Church taxes today.** Germany, Austria, Switzerland and the Nordic countries collect a church tax with the income tax from
-  registered members (in Germany 8 or 9% of income tax). German Catholic dioceses received **€6.51 billion in 2023** (*checked*),
-  down from a record €6.84 billion in 2022 as members left; both churches together took about €13 billion (*checked*, IW Köln for
-  2022). Tithing survives voluntarily among Latter-day Saints, many evangelical and Pentecostal churches, and others.
+- **France** abolished tithe on 4 August 1789 and nationalised church land that November (§5.6); **England** commuted it to a
+  money rent charge in 1836, mapped parish by parish in the tithe surveys, and ended the charge in 1977 (*unchecked*).
+- **Islamic law** has **zakat**, an annual alms of usually 2.5% on wealth above a threshold, and **ʿushr**, a tenth of the produce
+  of rain-fed land and a twentieth of irrigated land, the lower rate allowing for the cost of watering (*unchecked*, standard).
+- **Church taxes today.** Germany collects church tax with income tax (8 or 9% of it) from registered members: Catholic dioceses
+  received **€6.51 billion in 2023**, down from a record €6.84 billion in 2022, and both churches about €13 billion (*checked*).
+  Voluntary tithing survives among Latter-day Saints and many evangelical churches.
 
 ## 5. Monasteries as landlords, farmers and makers
 
