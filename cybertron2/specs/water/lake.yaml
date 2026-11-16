@@ -3199,6 +3199,12 @@ agents:
       weed:
         level: known
         skill: 1.36
+      net:
+        level: known
+        skill: 1.2
+      trap in water:
+        level: known
+        skill: 1.2
     aware_of:
       medium room: you have seen the Coles at it all your life
     holdings:
@@ -3268,6 +3274,12 @@ agents:
       weed:
         level: known
         skill: 1.34
+      net:
+        level: known
+        skill: 1.2
+      trap in water:
+        level: known
+        skill: 1.2
     aware_of:
       medium room: you have seen the Coles at it all your life
     holdings: {}

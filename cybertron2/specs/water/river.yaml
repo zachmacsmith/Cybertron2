@@ -390,7 +390,7 @@ nodes:
             S: 8.0
             r: 0.3
       Saltwell_10:
-        name: the Brook
+        name: Saltwell Water
         cover: water
         size: 1
         side: west
@@ -708,7 +708,7 @@ nodes:
           sea_km: 99.0
           river: none
       Millham_7:
-        name: Millham Water
+        name: the Brook
         cover: water
         size: 1
         side: east
@@ -738,7 +738,7 @@ nodes:
             S: 8.0
             r: 0.3
       Millham_8:
-        name: the Mere
+        name: the Nene
         cover: water
         size: 1
         side: east
@@ -3891,6 +3891,12 @@ agents:
       weed:
         level: known
         skill: 1.41
+      net:
+        level: known
+        skill: 1.2
+      trap in water:
+        level: known
+        skill: 1.2
     aware_of:
       plough: you have seen the Fenns at it all your life
       mine: you have seen the Coles at it all your life
@@ -3969,6 +3975,12 @@ agents:
       weed:
         level: known
         skill: 1.38
+      net:
+        level: known
+        skill: 1.2
+      trap in water:
+        level: known
+        skill: 1.2
     aware_of:
       plough: you have seen the Fenns at it all your life
       mine: you have seen the Coles at it all your life
@@ -4797,6 +4809,12 @@ agents:
       weed:
         level: known
         skill: 1.43
+      net:
+        level: known
+        skill: 1.2
+      trap in water:
+        level: known
+        skill: 1.2
     aware_of:
       plough: you have seen the Fenns at it all your life
       mine: you have seen the Coles at it all your life
@@ -4874,6 +4892,12 @@ agents:
       weed:
         level: known
         skill: 1.36
+      net:
+        level: known
+        skill: 1.2
+      trap in water:
+        level: known
+        skill: 1.2
     aware_of:
       plough: you have seen the Fenns at it all your life
       mine: you have seen the Coles at it all your life
@@ -5097,6 +5121,12 @@ agents:
       weed:
         level: known
         skill: 1.02
+      net:
+        level: known
+        skill: 1.2
+      trap in water:
+        level: known
+        skill: 1.2
     aware_of:
       plough: you have seen the Fenns at it all your life
       mine: you have seen the Coles at it all your life

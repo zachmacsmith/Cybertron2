@@ -174,6 +174,36 @@ def spring_and_mill(world: dict) -> dict:
     return out
 
 
+FISHER = {"net": 1.2, "trap in water": 1.2}            # a fishing household's crafts (Zach, 16 Nov: "let a fishing household know nets and
+                                                          # traps"), a stopgap for proposals/livelihood_archetypes.md
+
+
+def _fish(p: dict) -> float:
+    f = (p.get("state") or {}).get("fish", 0)
+    return float(f.get("K", 0) if isinstance(f, dict) else f or 0)
+
+
+def fishers(world: dict, every: bool = False) -> dict:
+    """At each village with fish in its water, one household (its largest; `every`: all, for the runs-only world) knows nets and
+    wicker traps: its adults and elders. Returns {village: [households]}."""
+    out = {}
+    for node, nd in world["nodes"].items():
+        if not any(p["cover"] == "water" and _fish(p) > 0 for p in nd["parcels"].values()):
+            continue
+        hhs = _households(world, node)
+        if not hhs:
+            continue
+        pick = sorted(hhs) if every else [max(hhs, key=lambda h: (len(hhs[h]), h))]
+        for h in pick:
+            for n in hhs[h]:
+                a = world["agents"][n]
+                if a.get("stage") in ("adult", "elder"):
+                    for t, sk in FISHER.items():
+                        a.setdefault("knows", {}).setdefault(t, {"level": "known", "skill": sk})
+        out[nd.get("name", node)] = pick
+    return out
+
+
 RUNS_STORE = {"dried meat": 4, "roots": 6, "acorns": 6, "berries": 4}   # a household's late-summer larder: weeks, not a winter
 
 
@@ -323,6 +353,7 @@ def make(which: str, seed: int):
     if world.get("agents") and not report.get("refused"):
         report["water_stocks"] = water_stocks(world)
         report["fuel"] = stock_fuel(world)
+        report["fishers"] = fishers(world, every=(which == "runs"))
         if which == "river":
             report["spring_and_mill"] = spring_and_mill(world)
             report["design"] = river_check(world)

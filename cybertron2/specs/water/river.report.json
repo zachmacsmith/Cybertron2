@@ -365,6 +365,14 @@
   "firewood": 30,
   "timber": 20
  },
+ "fishers": {
+  "Saltwell": [
+   "Shepherd"
+  ],
+  "Millham": [
+   "Moor"
+  ]
+ },
  "spring_and_mill": {
   "spring": {
    "parcel": "Saltwell_2",

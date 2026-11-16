@@ -294,6 +294,11 @@
   "firewood": 30,
   "timber": 20
  },
+ "fishers": {
+  "Meresby": [
+   "Shepherd"
+  ]
+ },
  "design": {
   "water_parcels": {
    "Meresby_9": 2

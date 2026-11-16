@@ -437,6 +437,23 @@
   "firewood": 30,
   "timber": 20
  },
+ "fishers": {
+  "Highpool": [
+   "Brook",
+   "Marsh",
+   "Shepherd"
+  ],
+  "Middleham": [
+   "Field",
+   "Fletcher",
+   "Hart"
+  ],
+  "Lowstrand": [
+   "Cotter",
+   "Wood",
+   "Wright"
+  ]
+ },
  "no_farming": {
   "fields to scrub": 6,
   "herds removed": 9,
