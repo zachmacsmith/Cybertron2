@@ -192,9 +192,9 @@ the weir can hold and what people can keep (Zach: "storage and keeping food does
    (0.3 a night in hand, before the store and the season); **fish alive in a set trap or a weir do not spoil until lifted** (the river
    keeps them; the otter and a spate are the risks). The check: indoors the base rate matters little (a full weir's season with one
    smokehouse loses 6% at 0.3 and 10% at 0.5), because a house's store keeps fresh food at ×0.3; what decides winter food is the
-   processing (no smokehouse and no salt keeps nothing). **Proposed, not decided:** fish keep twice as badly as meat indoors (×2:
-   about 18% a night in a house, 9% with bins), so one smokehouse loses about 12% of a full weir's run, salt or a second smokehouse
-   nearly none, and none at all about 30% (OPEN Q-54).
+   processing (no smokehouse and no salt keeps nothing). **Fish keep twice as badly as meat in a store** (D2-212: ×2 on the
+   store's rate, about 18% a night in a house, 9% with bins), so one smokehouse loses about 12% of a full weir's run, salt or a
+   second smokehouse nearly none, and none at all about 30%, keeping nothing for winter.
 
 ## 4. The kinds on the water
 
@@ -442,6 +442,7 @@ generate; nothing in the engine changes for it.
 - 16 Nov 2026: §3b.9 revised after a calibration check (02zzm): Zach, "30% could be fine" and "I agree that fish in the trap should
   be fine" (D2-211); the check showed the base rate matters little indoors, so the proposal is now fish keeping ×2 worse than meat in
   a house (OPEN Q-54).
+- 16 Nov 2026: Zach: "I think fish should keep twice as badly in storage" (D2-212); §3b.9 updated.
 
 ## Sources
 
