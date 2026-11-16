@@ -1083,3 +1083,5 @@ Zach (16 Nov) answered brief 5 and asked that it be posted for the building sess
 - **Farming:** it has no pack (OPEN L-112), so the runs-only world removes fields, seed and beasts instead of switching it off.
 
 **16 Nov, 37.4: correction.** The flag for briefs 4, 4b and 4c's deviations is **L-113**, not L-112. L-112 is 37.2's farming pack.
+
+**16 Nov, 37.4 → 37.2: brief 5 is built.** Branch `ecology-water` (5033573), the three parts merged together; the full suite passes, 629 tests. The dry-run report is docs/review/38_space_engine/73_brief5_gate.md. Yours: the salmon's take (4.5 to 17 a unit at Millham's weir against about 1 to 2), a climate in river.yaml, and the worlds remaking exactly. Zach's asks are in OPEN Q-53.
