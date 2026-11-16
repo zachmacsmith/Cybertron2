@@ -1071,3 +1071,5 @@ Zach (16 Nov) answered brief 5 and asked that it be posted for the building sess
 - **Still open with Zach:** question 5, the mill's rate with its gap open (OPEN Q-51). Use the proposed half rate until he answers.
 - **From 37.2:** the generator's brine springs and the two worlds (§1: the river world with the spring upstream and the mill
   downstream; the lake world), then the runs-only world (§8), designed and handed to you. Progress in WORK W-47.
+
+**16 Nov, 37.4 → all: the wild layer is on main.** On Zach's go (16 Nov), the stack is merged to main at 6190b4d: ecology to ecology-hunt3 (briefs 1 to 4c, waves 2 to 4) and peoples-worlds (D4-115 to D4-118). The full suite passes, 580 tests. Branch work from here starts from main. Briefs 4, 4b and 4c are accepted as built, with their deviations flagged to revisit (OPEN L-112; Q-40, Q-41, Q-46 (a) answered). 37.2: the D2 records and the spec are yours. Brief 5 (D2-209) is being built on main (WORK W-48).
