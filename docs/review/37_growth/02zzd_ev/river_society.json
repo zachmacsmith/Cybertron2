@@ -1,0 +1,46 @@
+{
+ "saltwell weir shut, dam shut": {
+  "millham_weir": {
+   "eel": 68,
+   "salmon": 4,
+   "lamprey": 1
+  },
+  "saltwell_weir": {
+   "eel": 66,
+   "salmon": 3,
+   "lamprey": 3
+  },
+  "salmon_past_saltwell": 5.3,
+  "spawned_above": 0.0,
+  "return_due_above": 7.54,
+  "return_due_all": 91.45
+ },
+ "saltwell weir open, dam shut": {
+  "millham_weir": {
+   "eel": 81,
+   "salmon": 4,
+   "lamprey": 1
+  },
+  "saltwell_weir": {
+   "eel": 6
+  },
+  "salmon_past_saltwell": 5.3,
+  "spawned_above": 0.0,
+  "return_due_above": 11.42,
+  "return_due_all": 95.33
+ },
+ "saltwell weir open, dam open": {
+  "millham_weir": {
+   "eel": 81,
+   "salmon": 5,
+   "lamprey": 4
+  },
+  "saltwell_weir": {
+   "eel": 6
+  },
+  "salmon_past_saltwell": 11.3,
+  "spawned_above": 0.0,
+  "return_due_above": 18.07,
+  "return_due_all": 101.98
+ }
+}
