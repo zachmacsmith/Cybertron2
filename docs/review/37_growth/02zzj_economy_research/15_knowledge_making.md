@@ -105,9 +105,7 @@ Trial before science was neither blind nor random. It had four features that mat
    knowing why it is good, and so does bad practice tied to a successful person.
 4. **Local and contingent results.** Most of what trial found was true of one place: which field drains, where the good clay lies,
    when the frost leaves the valley, which oak stand gives the best bark, when the salmon run, which spring is safe. These were the
-   largest part of a farmer's or craftsman's knowledge, and they did not transfer. Advice literature from Hesiod's *Works and Days*
-   (about 700 BC) to Walter of Henley's *Husbandry* (about 1280) mixes general rules with exhortations to watch one's own land
-   (*memory*).
+   largest part of a farmer's or craftsman's knowledge, and they did not transfer.
 
 Michael Polanyi's "we can know more than we can tell" (1966) names what made this knowledge hard to move: **tacit knowledge**, held
 in the hand and the eye (*memory*). Harry Collins's study of the TEA laser in the 1970s showed it lasted into modern science.
@@ -367,8 +365,8 @@ and 11; `huancavelica_mercury`, `crown_mercury`, `patio_process`). Instruments t
   a liquid that expands evenly (mercury, by Fahrenheit, 1714), and fixed points for a shared scale (Fahrenheit 1724, Celsius 1742)
   (*memory*). Brewers were among its first industrial users: Michael Combrune's *Theory and Practice of Brewing* (1762) made the
   thermometer the mash-tun's instrument, and John Richardson's saccharometer (1784) let brewers buy malt by the extract it gave
-  (*memory*). Joseph Black's work on latent heat (about 1761) came out of the Glasgow distillers' and physicians' world, and Watt was
-  the university's instrument maker (part 07; *contested* how much Watt's condenser owed to Black).
+  (*memory*). At Glasgow, Watt was the
+  university's instrument maker beside Joseph Black, who found latent heat (part 07; *contested* how much the condenser owed to Black).
 
 ### 3.10 Stills, glassware and the chemist's bench
 
@@ -539,8 +537,8 @@ propositional knowledge. What they cannot know is the local, contingent kind (§
 | Frederick II of Denmark | Tycho Brahe's Uraniborg on Hven, from 1576 (*memory*) | the best naked-eye instruments ever made; decades of observations | prestige; a fief to Tycho; reportedly a sizeable share of crown income (*contested*) |
 | the Medici | Galileo as court mathematician, 1610 (*memory*) | his work, after he named Jupiter's moons the "Medicean stars" | prestige exchanged for a dedication |
 
-Mario Biagioli's reading is that patronage science was a courtly gift economy: discoveries were presented to a patron as gifts and
-repaid with position (*memory*). It funded instruments and observers but not much craft.
+Patronage science was a courtly
+gift economy, discoveries given and repaid with position (Biagioli, *memory*). It paid for instruments and observers, not craft.
 
 ### 6.2 Temples and monasteries
 

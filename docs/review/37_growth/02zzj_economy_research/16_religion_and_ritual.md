@@ -305,7 +305,7 @@ details bear on the village as an economy.
 
 ### 4.4 The end of compulsory tithe
 
-- **France** abolished tithe on 4 August 1789 and nationalised church land that November (§5.6); **England** commuted it to a
+- **France** abolished tithe on 4 August 1789 and nationalised church land that November (§5.5); **England** commuted it to a
   money rent charge in 1836, mapped parish by parish in the tithe surveys, and ended the charge in 1977 (*unchecked*).
 - **Islamic law** has **zakat**, an annual alms of usually 2.5% on wealth above a threshold, and **ʿushr**, a tenth of the produce
   of rain-fed land and a twentieth of irrigated land, the lower rate allowing for the cost of watering (*unchecked*, standard).
@@ -317,24 +317,15 @@ details bear on the village as an economy.
 
 ### 5.1 Benedictines: the self-sufficient house
 
-The Rule of St Benedict (about 530) required monks to work with their hands and the monastery to hold within its walls "water, a
-mill, a garden and the various crafts" so that monks need not wander outside (chapter 66; *unchecked*, standard). The ideal
-**Plan of St Gall** (about 820), a drawing for a model monastery, shows a mill, a mortar house, a kiln for drying grain, three
-breweries (for monks, guests and pilgrims, and the poor), bakeries, a cooper's and a turner's shop, a smithy, a goldsmith, a
-fuller, a shoemaker and saddler, a tannery, granaries, stables for horses, oxen, cows, goats, pigs and sheep, a poultry yard, a
-herb garden and an infirmary (*unchecked*). It is the medieval village's catalogue of trades (part 05 §1.4) gathered inside one
-institution.
-
-Large Carolingian monasteries were the greatest estates of their age. The **polyptych of Irminon** (about 823 to 829) lists the
-lands of Saint-Germain-des-Prés near Paris: thousands of tenant families on its manors (*mansi*), each owing labour weeks,
-ploughing services, payments in chickens, eggs, wood, wine and coin (*memory*: on the order of 2,000 to 2,800 households). It is
-the founding document of the "bipartite" manor of demesne and tenant holdings (part 05 §3.1): the classical manor is known first
-from monastic estates because monasteries kept records.
-
-**Cluny** (founded 910) built the richest religious network of the eleventh and twelfth centuries, with over a thousand dependent
-houses, living on rents, gifts for prayers and an annual cash census from the kings of Castile paid out of the tribute (*parias*)
-taken from Muslim kingdoms (*memory*: 2,000 gold pieces a year under Alfonso VI). Its great church (Cluny III, begun 1088) was the
-largest in Christendom until St Peter's was rebuilt. Cluny's economy was liturgy: it sold intercession and spent on building.
+The Rule of St Benedict (about 530) wanted the monastery to hold "water, a mill, a garden and the various crafts" within its walls
+(chapter 66; *unchecked*). The ideal **Plan of St Gall** (about 820) draws a mill, a mortar house, a grain kiln, three breweries
+(for monks, guests and the poor), bakeries, cooper, turner, smith, fuller, shoemaker, tannery, granaries and stalls for every beast
+(*unchecked*): the village's catalogue of trades (part 05 §1.4) inside one institution. The **polyptych of Irminon** (about 825)
+lists Saint-Germain-des-Prés's manors with thousands of tenant households owing labour weeks, ploughing and payments in hens, eggs,
+wood, wine and coin (*memory*); the classical bipartite manor (part 05 §3.1) is known first from monastic estates because
+monasteries kept records. **Cluny** (910) built a network of over a thousand houses living on rents, gifts for prayers and an
+annual census from the kings of Castile paid out of tribute taken from Muslim kingdoms (*memory*): an economy of intercession spent
+on building.
 
 ### 5.2 Cistercians: granges, lay brothers, wool and water
 
@@ -345,68 +336,46 @@ and by the fourteenth century they had taken on most of the incomes they first r
 
 - **Spread.** About 500 abbeys of men by 1200 and over 700 by 1300 across Europe (*memory*); in England and Wales 77 abbeys,
   most founded by 1153 (*checked*).
-- **The grange.** Instead of tenant manors, a Cistercian abbey worked its land directly through **granges**: consolidated farms,
-  ideally within a day's journey of the abbey, each with a barn, a chapel and buildings for workers, specialised as arable,
-  sheep, cattle, horse-breeding, fisheries, mines or salt (*unchecked*). Granges were often made by buying out or removing the
-  peasants already there; the order's clearances of villages for sheep runs are an early case of what part 05 (§2.5) calls
-  enclosure.
-- **Lay brothers (*conversi*).** Illiterate men who took vows and did the farm work, living at the granges with a shorter round of
-  prayer; in the twelfth century they outnumbered the choir monks in many houses, and they declined steeply before 1350, after
-  which the granges were let to tenants (*checked*, Cambridge companion; Donkin). Recent work stresses that hired servants
-  (*familia*) did much of the work even early (*checked* as a reading).
-- **Wool.** English Cistercian houses (Fountains, Rievaulx, Meaux, Tintern and many in Yorkshire and Wales) were among the
-  largest producers of export wool. Italian and Flemish merchants contracted for the clip years ahead and paid in advance; the
-  Florentine merchant Pegolotti's manual (about 1320s to 1340) lists English monasteries by name with the price of their wool
-  (*memory*). Advance sales were credit, and several abbeys fell deep into debt to the merchants when murrain killed their flocks
-  (*memory*: Meaux's chronicle). This is the chain of part 03 (`english_wool_export`) and part 04 (`wool_staple`) seen from the
-  supplier: a religious order as the export producer, Italian bankers as its buyer and creditor, papal taxes cleared against it
-  (§4.3).
-- **Iron.** Cistercian houses ran forges in Burgundy, Champagne, Yorkshire and Sweden. The forge building at **Fontenay** (twelfth
-  century) used a diverted stream to drive hammers (*memory*); Rievaulx worked iron at Laskill and elsewhere, and excavation at
-  **Bordesley** abbey found a water-powered metalworking mill of the twelfth and thirteenth centuries (*memory*, Astill). Part 03's
-  water-powered bloomery and hammer (`water_bloomery_hammer`) lists the site as "the lord's or a monastery's".
-- **Water.** A twelfth-century description of Clairvaux follows the river Aube, led through the abbey in a channel, as it
-  drives the mill for grain, then the brewery, then the fulling stocks, then the tannery, then flushes the drains (*memory*: the
-  *Descriptio positionis seu situationis monasterii Clarae-Vallensis*). It is the river with many claims of 02zzk §2, inside one
-  wall and under one owner, which removes the quarrel. Cistercians also drained marsh (Ter Duinen and Ter Doest in Flanders, the
-  Fens) and built fishponds (part 03, `fishponds`).
-- **Vineyards and salt.** The Clos de Vougeot in Burgundy was a Cistercian vineyard from the twelfth century; the order also held
-  salt works (Salins, Lüneburg shares; *memory*).
-- **Was it an industrial revolution?** Jean Gimpel's *The Medieval Machine* (1976) called the twelfth and thirteenth centuries an
-  industrial revolution, with the Cistercians as its factories (*contested*). Part 05 (§2.4) gives a sober figure: about 43% of
-  English powered mills in the fourteenth century belonged to the church (*checked* there, Adam Lucas). The church owned so much of
-  the water-powered capital because it owned so much land and had the long horizon and the records that capital needs; whether
-  monks invented much is doubtful, but they spread and kept what worked.
+- **The grange.** Instead of tenant manors, an abbey worked its land through **granges**: consolidated farms, ideally within a
+  day's journey, with barn, chapel and quarters, specialised as arable, sheep, cattle, horses, fisheries, mines or salt
+  (*unchecked*). Granges were often made by removing the peasants already there: an early enclosure (part 05 §2.5).
+- **Lay brothers (*conversi*)** took vows and did the farm work at the granges; in the twelfth century they outnumbered the choir
+  monks in many houses, and they declined before 1350, after which granges were let (*checked*). Hired servants did much of the
+  work even early (*checked* as a recent reading).
+- **Wool.** Fountains, Rievaulx, Meaux, Tintern and other houses were among England's largest producers of export wool. Italian
+  and Flemish merchants bought the clip years ahead and paid in advance; Pegolotti's merchant manual (about 1320s to 1340) lists
+  English monasteries by name with their wool prices (*memory*). Advances were credit, and abbeys fell into debt when murrain killed
+  their flocks (*memory*, Meaux). Parts 03 and 04's wool chain seen from the supplier: an order as producer, Italian bankers as
+  buyer and creditor, papal taxes cleared against it (§4.3).
+- **Iron.** Cistercian forges worked in Burgundy, Yorkshire and Sweden; Fontenay's forge used a diverted stream to drive hammers,
+  and Bordesley abbey had a water-powered metalworking mill in the twelfth and thirteenth centuries (*memory*). Part 03's
+  water-powered bloomery lists the site as "the lord's or a monastery's".
+- **Water.** A twelfth-century description of Clairvaux follows the river Aube through the abbey as it drives the grain mill, then
+  the brewery, the fulling stocks and the tannery, then flushes the drains (*memory*): 02zzk's river with many claims, inside one
+  wall under one owner, which removes the quarrel. Cistercians also drained marsh, built fishponds (part 03) and planted vineyards
+  (the Clos de Vougeot).
+- **An industrial revolution?** Gimpel (*The Medieval Machine*, 1976) said so (*contested*). The sober figure is part 05's: about
+  43% of English powered mills in the fourteenth century were the church's (*checked* there). The church held so much water-powered
+  capital because it held land, a long horizon and records; it spread and kept what worked more than it invented.
 
 ### 5.3 Monasteries as lenders and hosts
 
-- **Lenders.** Before the rise of Italian banks, monasteries were among the few holders of coin and plate in northern Europe.
-  Crusaders and indebted knights pledged land to abbeys for cash, often in the *mort-gage* form in which the lender took the land's
-  revenue without reducing the debt, an evasion of the usury rule that let the abbey earn a return (*unchecked*; the origin of the
-  word "mortgage" is often traced here). From the thirteenth century monasteries more often borrowed than lent.
-- **Hosts.** The Rule told monks to receive guests as Christ; great abbeys fed travellers, pilgrims and the poor at the gate, and
-  their guesthouses were inns before there were many inns (part 04, `inns`). The cost could be large: kings and lords claimed
-  hospitality for their retinues (*corrodies*, pensions of food and lodging, were sold or granted, sometimes as an annuity bought for
-  cash, a hidden loan; *unchecked*).
-- **Records and archives.** Monasteries kept charters, cartularies, chronicles and accounts. Their archives are where most medieval
-  economic history comes from, and they were also a service: lords and towns deposited documents with them.
+- **Lenders.** Before the Italian banks, monasteries were among northern Europe's few holders of coin and plate. Knights pledged
+  land for cash in the *mort-gage* form, the lender taking the land's revenue without reducing the debt, a return past the usury
+  rule (*unchecked*). From the thirteenth century monasteries more often borrowed than lent; they sold *corrodies* (food and
+  lodging for life) for cash, a hidden annuity (*unchecked*).
+- **Hosts and archives.** Great abbeys fed travellers and the poor at the gate; their guesthouses were inns before there were many
+  inns (part 04). Their charters and accounts are where most medieval economic history comes from.
 
-### 5.4 The friars, the towns and the pawn bank
+### 5.4 The friars and the pawn bank
 
-The mendicant orders (Franciscans 1209, Dominicans 1216) lived in towns on alms rather than land. Their economic thinking was
-sharp: Peter John Olivi (about 1295) wrote on price, value and the merchant's legitimate profit, and Franciscans founded the
-**monti di pietà** from 1462 at Perugia, charitable pawn banks lending to the poor on pledges at low interest to drive out
-moneylenders (part 04, `pawnbroking`) (*unchecked*). Bernardino of Siena preached against usury and on just price. The friars were
-the first economists of the market town.
+The mendicant orders (Franciscans 1209, Dominicans 1216) lived in towns on alms. Peter John Olivi (about 1295) wrote on price and the
+merchant's legitimate profit, and Franciscans founded the **monti di pietà** (Perugia, 1462), pawn banks lending to the poor at low
+interest to drive out moneylenders (part 04) (*unchecked*): the first economists of the market town. Elsewhere the pattern repeats:
+Tibetan monasteries held land, herds and serfs (*contested* how much); Russia's Trinity-Sergius Lavra held over 100,000 serfs before
+the secularisation of 1764 (*memory*).
 
-### 5.5 Elsewhere
-
-Tibetan monasteries held land, herds and serfs and lent grain and money; before 1950 a large share of Tibet's arable was held by
-monasteries (*contested*). Theravada monasteries in Sri Lanka and South-East Asia held irrigated land and tanks granted by kings
-(*memory*). Coptic and Ethiopian monasteries, Orthodox monasteries in Russia (the Trinity-Sergius Lavra held over 100,000 serfs in
-the eighteenth century before Catherine II's secularisation of 1764; *memory*) repeat the pattern.
-
-### 5.6 Dissolution as a land market
+### 5.5 Dissolution as a land market
 
 | Dissolution | When | What was taken | What became of it |
 |---|---|---|---|
@@ -418,125 +387,85 @@ the eighteenth century before Catherine II's secularisation of 1764; *memory*) r
 | **Spain (Mendizábal)** | 1836 on | monastic land, later (Madoz, 1855) municipal commons too | auctions to pay the public debt; bought largely by urban and noble buyers (*contested* who gained) |
 | **Mexico (Lerdo law)** | 1856 | corporate land of the church and of Indian communities | sales to tenants and buyers; a cause of the Reform War |
 
-**England in detail.** The **Valor Ecclesiasticus** (1535) was a national survey of church income, made to assess a new tax of a
-tenth; it doubled as the inventory for the dissolution. The **act of 1536** dissolved houses with income under £200 a year; the
-greater houses surrendered "voluntarily" from 1538 and an **act of 1539** confirmed it. The Crown's income from the estates and
-sales was large: estimates of the receipts from 1536 to 1547 run from about £800,000 from sales to about £1.3 million in all
-(*checked* as the range of estimates found; *contested*). Most went to war with France and Scotland in the 1540s. The land passed
-mainly to existing landowners, courtiers, officials and lawyers, who resold much of it, so that a market in land on a scale
-England had not seen opened within a decade (*unchecked*). Tawney's "rise of the gentry" (1941) made the transfer the root of a
-new class and so of the Civil War (*contested*, the "storm over the gentry"). Heldring, Robinson and Vollmer (NBER w21450, 2015 and
-revisions) argue that parishes where monastic land entered the market later had more enclosure, more agricultural innovation and
-more textile mills, because the land left the church's fixed, customary tenures for owners who could reorganise it (*memory* for
-the findings; *contested*). The dissolution also ended most monastic alms and hospitality (part 05 §6.5), and within sixty years
-England had a compulsory poor rate (§12).
+**England.** The **Valor Ecclesiasticus** (1535), a survey of church income for a new tax of a tenth, doubled as the inventory.
+The act of 1536 dissolved houses worth under £200 a year; the greater houses surrendered from 1538, confirmed in 1539. Estimates of
+the Crown's receipts to 1547 run from about £800,000 from sales to about £1.3 million in all (*checked* as the range; *contested*),
+most spent on war with France and Scotland. The land went to landowners, courtiers, officials and lawyers who resold much of it: a
+land market on a new scale within a decade (*unchecked*). Tawney's "rise of the gentry" (1941) made this the root of a new class
+(*contested*). Heldring, Robinson and Vollmer argue that parishes where monastic land entered the market later had more enclosure,
+innovation and textile mills, because it left fixed customary tenures for owners who could reorganise it (*memory*; *contested*).
+Monastic alms ended (part 05 §6.5), and within sixty years England had a compulsory poor rate (§12).
 
-The pattern across all of these: a religious institution accumulates land over centuries through gifts it may not sell (the "dead
-hand", §9); its land is managed for stability, not profit; a state short of money takes it; it is sold fast, cheaply, to people
-with capital; and the new owners manage it for rent. Each dissolution was a one-off transfer of capital from an endowment economy
-to a market one.
+The pattern: an institution accumulates land over centuries through gifts it may not sell (the "dead hand", §9) and manages it for
+stability; a state short of money takes it; it is sold fast to people with capital, who manage it for rent. Each dissolution moved
+capital from an endowment economy to a market one at a stroke.
 
 ## 6. Pilgrimage as trade and travel infrastructure
 
-Pilgrimage moved large numbers of people over long distances on a calendar, and the roads, bridges, inns, hospitals, markets and
-credit that served them served trade too.
+Pilgrimage moved many people over long distances on a calendar, and the roads, bridges, inns, hospitals and credit that served it
+served trade too.
 
-- **Santiago de Compostela.** From the tenth century the shrine of St James drew pilgrims across France and northern Spain. The
-  **Codex Calixtinus** (about 1140) includes a guide to the four French routes, the stages, the towns, the rivers that are safe to
-  drink and the tolls that are unjust (*unchecked*). Along the camino the kings of León and Castile chartered towns with privileges
-  for settlers (many of them French, *francos*), built bridges and founded hospitals; Puente la Reina and Estella are towns made by
-  the road (*memory*). Pilgrims wore the scallop shell, sold at the shrine.
-- **Rome.** Boniface VIII's first jubilee (1300) offered a plenary indulgence to those who came; the chronicler Giovanni Villani
-  wrote of 200,000 pilgrims in the city at any time (*contested*, a chronicler's number). Later jubilees were fixed every 50, then 25
-  years, with large flows of coin to Rome.
-- **English shrines.** Canterbury (Becket, from 1170), Walsingham, Hailes and others drew pilgrims whose offerings paid for building
-  and whose spending made the shrine towns. Pilgrim badges in lead and tin were cast in moulds by the hundred thousand (*rough*)
-  and are found across Europe: a small metal trade made by devotion.
-- **The hajj.** The pilgrimage to Mecca, owed once in a lifetime by those able, has run since the seventh century. It moved people
-  and goods across the Islamic world each year (part 11 §4.1) and joined a fair: pilgrims traded at Mecca and on the way, and the
-  great caravans from Cairo and Damascus were trade caravans as well (*unchecked*). Mansa Musa's hajj of 1324 (part 11) spent so
-  much gold in Cairo that its price fell there for years. The Ottoman state paid large subsidies to the Bedouin tribes on the route
-  and to the holy cities (*memory*). Today the hajj and umrah are a major part of the Saudi service economy (*rough*: about 1.8
-  million hajj pilgrims in 2024, and many millions for umrah; *memory*).
-- **India.** Hindu pilgrimage to tirthas (Varanasi, Puri, Tirupati, the Kumbh Mela) supported brahmin guides (*pandas*) who kept
-  genealogical registers of pilgrim families for generations (*unchecked*), temple towns and fairs; the 2025 Kumbh Mela at
-  Prayagraj was claimed by the state to have drawn over 600 million visits over six weeks (*contested*, an official count).
-- **Infrastructure.** Pilgrimage paid for works that a market would not have built on its own:
-  - **bridges**: the Frères Pontifes are traditionally linked with the bridge at Avignon (twelfth century; *contested*); bishops
-    granted indulgences to those who gave to bridge building, and bridges carried chapels and were kept by hermits (part 04,
-    `bridges_pontage`) (*unchecked*);
-  - **hospices and hospitals** along the routes, endowed and run by orders (the Hospitallers began as a hospital for pilgrims in
-    Jerusalem, about 1070s to 1113);
-  - **roads and protection**: the military orders were founded to protect pilgrims (§10);
-  - **credit**: a pilgrim could deposit money with the Templars at home and draw on it in the East (§10).
-- **Pilgrimage and disease.** Large gatherings carried epidemics: cholera spread from the hajj and the Kumbh in the nineteenth
-  century and prompted the first international sanitary conferences (1851 on) and quarantine stations on the route (*unchecked*;
-  part 05, `quarantine`).
+- **Santiago de Compostela.** The **Codex Calixtinus** (about 1140) guides pilgrims along the four French routes, naming stages,
+  safe rivers and unjust tolls (*unchecked*). The kings of León and Castile chartered towns along the camino with privileges for
+  settlers, many of them French, and built bridges and hospitals: Puente la Reina and Estella are towns made by the road (*memory*).
+- **Rome and the English shrines.** Villani wrote of 200,000 pilgrims in Rome at once in the first jubilee of 1300 (*contested*).
+  Canterbury, Walsingham and Hailes drew offerings that paid for building, and pilgrim badges cast in lead and tin by the hundred
+  thousand (*rough*) are found across Europe: a small metal trade made by devotion.
+- **The hajj.** The caravans from Cairo and Damascus to Mecca were trade caravans too, and pilgrims traded at Mecca and on the way
+  (part 11 §4.1) (*unchecked*); Mansa Musa's gold depressed its price in Cairo after 1324 (part 11). Today the hajj (about 1.8
+  million in 2024, *memory*) and the umrah are a large part of Saudi Arabia's service economy.
+- **India.** Pilgrimage to tirthas supported temple towns, fairs and brahmin guides who kept genealogies of pilgrim families
+  (*unchecked*); the state claimed over 600 million visits to the 2025 Kumbh Mela (*contested*, an official count).
+- **Infrastructure.** Pilgrimage paid for works a market alone would not have built: **bridges** (bishops granted indulgences to
+  those who gave to bridge-building, and bridges carried chapels kept by hermits; part 04 `bridges_pontage`; *unchecked*);
+  **hospices** (the Hospitallers began as a pilgrims' hospital in Jerusalem); **protection** (the military orders, §10); and
+  **credit** (deposit with the Templars at home, draw in the East, §10). Gatherings also spread cholera in the nineteenth century,
+  prompting the first international sanitary conferences (1851) and quarantine on the routes (*unchecked*; part 05 `quarantine`).
 
 ## 7. Calendars, feast days, fairs and the rhythm of work
 
 ### 7.1 Days of rest
 
-- **The Jewish Sabbath** forbade work on the seventh day for the household, its servants and its beasts; the **sabbatical year**
-  (*shmita*) left land fallow every seventh year and released debts (Deuteronomy 15) (*unchecked*, standard). The debt release is
-  the origin of one of the best-known workarounds (§8.1).
-- **Sunday.** Constantine ordered rest on Sunday for townspeople in 321, exempting farm work (*unchecked*, standard). Church councils
-  and Carolingian law extended the rule to field work. Medieval English law and custom kept Sunday free of servile work and, after
-  long argument, of markets (§7.3).
-- **Holy days.** On top of Sundays the medieval western calendar had many feast days of obligation, on which people were to hear mass
-  and abstain from servile work: part 05 (§1.3) gives about **40 to 50 holy days** for the English village, and Voth about 53 lost
-  from London working years between 1750 and 1800 (part 05 §1.9, *checked* there). With Sundays that is about 100 days a year
-  without full field work, less in harvest, when dispensations and boon days put everyone in the fields (*rough*).
-- **The Reformation cut holy days.** In England an act and injunctions of 1536 abolished feasts falling in harvest and in the law
-  terms (*unchecked*), and Protestant churches generally reduced the calendar to Sundays and a few great feasts; Catholic countries
-  kept more. Whether the fall in holy days raised output is part of the "industrious revolution" argument (part 05 §1.9: de Vries
-  against Allen and Weisdorf) and of the Weber debate (§11). One estimate for early modern Europe puts the Protestant gain at a few
-  weeks of work a year (*memory*; *contested*).
-- **Secular calendars.** The French Revolutionary calendar replaced the week with a ten-day *décade*, one day of rest in ten, from
-  1793 to 1805; the Soviet "continuous week" (1929 to 1940) staggered rest days so that factories never stopped. Both failed, partly
-  because families could not rest together (*unchecked*). The rhythm of shared rest is an economic coordination device as much as a
-  religious one.
-- **Today.** Sunday trading laws in Europe (the UK Sunday Trading Act 1994; Germany's *Ladenschlussgesetz*); US "blue laws"; the
-  Friday and Saturday weekend in most Muslim-majority states, with the UAE moving to Saturday and Sunday in 2022 partly to align with
-  world markets (*unchecked*). Ramadan changes working hours and output: Campante and Yanagizawa-Drott (2015) found that longer daily
-  fasting hours in Ramadan lowered output growth in Muslim countries while raising reported well-being (*memory*; *contested*).
+- **Sabbath and Sunday.** The Jewish Sabbath rested household, servants and beasts on the seventh day, and the sabbatical year
+  (*shmita*) fallowed land and released debts (Deuteronomy 15). Constantine ordered Sunday rest for townspeople in 321; councils and
+  Carolingian law extended it to field work (*unchecked*, standard).
+- **Holy days.** Part 05 (§1.3) gives about **40 to 50 holy days** a year for the English village on top of Sundays, and Voth about
+  53 lost from London working years between 1750 and 1800 (part 05 §1.9, *checked* there): about a hundred days a year without full
+  field work, fewer at harvest, when boon days and dispensations put everyone in the fields (*rough*).
+- **The Reformation cut them.** England abolished feasts falling in harvest and the law terms in 1536 (*unchecked*); Protestant
+  churches kept Sundays and a few great feasts, Catholic countries more. Whether this raised output belongs to the industrious
+  revolution argument (part 05 §1.9) and the Weber debate (§11) (*contested*).
+- **Shared rest as coordination.** The French Revolution's ten-day *décade* (1793 to 1805) and the Soviet staggered "continuous
+  week" (1929 to 1940) both failed, partly because families could not rest together (*unchecked*). Sunday trading laws, US blue laws
+  and the Friday weekend of Muslim-majority states survive; the UAE moved to Saturday and Sunday in 2022 partly to align with world
+  markets (*unchecked*). Longer Ramadan fasting hours lower measured output growth (Campante and Yanagizawa-Drott 2015; *memory*,
+  *contested*).
 
 ### 7.2 Quarter days and the reckoning
 
-The great feasts were the economy's calendar. In England the **quarter days**, Lady Day (25 March), Midsummer (24 June),
-Michaelmas (29 September) and Christmas, were when rents fell due, servants were hired and paid, tenancies began and ended, and
-debts were reckoned (part 04, `reckoning_days`; part 05, `hiring_fairs`). Michaelmas was the end of the farming year and the
-start of the manorial accounting year (*unchecked*). Scotland used Candlemas, Whitsunday, Lammas and Martinmas. Rents in kind were
-tied to feasts too: hens at Christmas, eggs at Easter (*unchecked*). A promise "to pay at Michaelmas" needed no date in a world
-without calendars on the wall; the feast was the clock.
+The great feasts were the economy's clock. In England the **quarter days**, Lady Day (25 March), Midsummer, Michaelmas (29
+September) and Christmas, were when rents fell due, servants were hired and paid, tenancies turned over and debts were reckoned
+(part 04 `reckoning_days`; part 05 `hiring_fairs`); Michaelmas began the manorial accounting year, and rents in kind came as hens at
+Christmas and eggs at Easter (*unchecked*). A promise "to pay at Michaelmas" needed no written date.
 
 ### 7.3 Fairs on feast days
 
-- **The fair as a feast.** Medieval fairs were usually held on and around the feast of the saint of the local church or abbey, and
-  the word *feria* means a holy day (*unchecked*). The lord of the fair was often a church: the bishop of Winchester held **St
-  Giles's fair** (granted 1096) on the hill outside the city, one of the largest in England, with its own court and the bishop's
-  right to close all other trade in Winchester while it ran (*memory*); the prior of St Bartholomew's held **Bartholomew Fair** in
-  London from 1133; the abbey of Saint-Denis held the **Lendit** fair near Paris (*memory*). The fair's tolls and stall rents were
-  church income; its court (the piepowder court, part 04 `fair_courts`) was a church franchise.
-- **Markets and Sunday.** Many early markets met on Sundays at the church door, where people gathered anyway. From the late twelfth
-  century the church pressed to move them; English charters moved many markets to weekdays in the thirteenth century, and the
-  Statute of Winchester (1285) forbade fairs and markets in churchyards (*unchecked*). The weekly market day of part 04 was often the
-  old Sunday gathering moved to a weekday.
-- **Church ales.** Parishes raised money for the church fabric and the poor by brewing ale and selling it at a feast (Whitsun ales,
-  church ales, bid-ales for a needy neighbour) (*unchecked*). Churchwardens' accounts show these feasts as the largest single source
-  of parish income in many places before the Reformation (*memory*, Hutton). They were suppressed by Puritans in the late sixteenth
-  and seventeenth centuries. A church ale is a work feast turned into a fundraiser: grain given by parishioners, brewed in the church
-  house, sold back to them, the profit to a common store.
-- **Harvest and boon.** The lord's harvest boons ended with a feast (part 05 boon days); the harvest home and the Lammas loaf
-  (first bread of the new crop, offered in church on 1 August) marked the farming year (*unchecked*).
+- **The fair as a feast.** Fairs were usually held on the feast of the local church's saint (*feria* means a holy day), and their
+  lord was often a church: the bishop of Winchester's **St Giles's fair** (granted 1096), during which all other trade in the city
+  stopped; the priory's **Bartholomew Fair** in London (from 1133); Saint-Denis's **Lendit** (*memory*). Tolls, stall rents and the
+  fair court (part 04 `fair_courts`) were church income and franchise.
+- **Markets and Sunday.** Early markets met on Sundays at the church door, where people gathered anyway; thirteenth-century charters
+  moved many to weekdays, and the Statute of Winchester (1285) forbade markets in churchyards (*unchecked*). Part 04's weekly market
+  day was often the Sunday gathering moved.
+- **Church ales.** Parishes brewed ale from parishioners' gifts of grain and sold it back at a feast for the church fabric and the
+  poor; churchwardens' accounts show these as the largest source of parish income in many places before the Reformation (*memory*,
+  Hutton). A work feast turned into a fundraiser, with the profit going to a common store; Puritans suppressed them.
 
 ### 7.4 Calendars as knowledge
 
-Fixing the date of Easter (the *computus*) needed astronomy and arithmetic, and monasteries kept the tables. The canonical hours
-divided the day for monks, and the need to ring them at the right time is one of the arguments for why the mechanical clock appeared
-in late thirteenth-century Europe, first in monasteries and cathedrals (*contested*: Landes, *Revolution in Time*; others stress
-towns and astronomy). Church bells told the village the hours of work: the curfew, the angelus. A shared time signal is a public
-good the church supplied.
+Fixing Easter (the *computus*) needed astronomy and arithmetic kept in monasteries, and the need to ring the canonical hours is one
+argument for why the mechanical clock appeared in monasteries and cathedrals in the late thirteenth century (*contested*, Landes).
+Church bells gave the village its hours of work: a shared time signal, a public good the church supplied.
 
 ## 8. Religious rules on lending and their workarounds
 
@@ -774,7 +703,7 @@ trade, manufacturing and banking. Its members became disproportionately prominen
 | **Kurt Samuelsson** (1957), **Hugh Trevor-Roper** | capitalism flourished in Catholic Italy, Flanders and southern Germany before the Reformation; Calvinist leaders were not pro-capitalist | |
 | **Becker and Woessmann** (2009) | across 452 Prussian counties in 1871 Protestants were richer, and their higher literacy (from Luther's call to read the Bible) explains practically all of the gap; distance to Wittenberg as an instrument | *checked*: a human-capital, not a work-ethic, channel |
 | **Cantoni** (2015) | across 272 German cities, 1300 to 1900, Protestantism had no effect on city growth | *checked*; consistent with Becker and Woessmann if the effect was rural or through schooling |
-| **Cantoni, Dittmar and Yuchtman** (2018) | after the Reformation, resources shifted from religious to secular uses in Protestant Germany: students from theology to law and administration, building from churches to palaces and offices | *memory* for the findings; the reallocation reading of the dissolution (§5.6) |
+| **Cantoni, Dittmar and Yuchtman** (2018) | after the Reformation, resources shifted from religious to secular uses in Protestant Germany: students from theology to law and administration, building from churches to palaces and offices | *memory* for the findings; the reallocation reading of the dissolution (§5.5) |
 | **Dittmar** (2011), **Rubin** (2014) | printing presses spread first and Protestantism took hold where there were presses | *memory*; links religion to part 07's print and literacy |
 | **Barro and McCleary** (2003) | across countries, belief (in heaven and hell) is associated with growth and church attendance with lower growth, given belief: belief per hour of ritual matters | *contested* (reverse causation; data) |
 | **Iannaccone, Stark, Finke** (1990s) | "supply-side" religious economies: competition raises participation; strictness makes strong groups | the US against European state churches; *contested* |
@@ -907,7 +836,7 @@ own, as with knowing-that (02zzk, discovery).
 
 Temple and palace economies at the scale of a state (§2.1 to §2.2); sanctuary banks and state treasuries (§2.3 to §2.4); Chola and
 Tang temple and monastic finance (§2.5 to §2.6); papal taxation and the banking it made (§4.3); the Cistercian order as an
-international enterprise and the wool export trade (§5.2); dissolutions as national land markets and fiscal windfalls (§5.6);
+international enterprise and the wool export trade (§5.2); dissolutions as national land markets and fiscal windfalls (§5.5);
 Santiago, Rome, the hajj and the Kumbh as networks (§6); the usury doctrine and its contracts (§8; bills of exchange are already map
 only in 02zzk); Jewish and Islamic finance (§8.3 to §8.4); waqf, mortmain and endowments (§9); the Templars, the Jesuits, the Quakers
 and other networks (§10); the Weber debate (§11); the common chest and modern religious charity (§12); church taxes, halal and
