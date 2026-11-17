@@ -811,7 +811,11 @@ def _herd_on(here, key, a, role=None):
                                                 or want == str(here.herds()[hid].get("tag") or "").lower())), None)
     if not hs:
         raise Refused("there are no beasts there")
-    return pick or hs[0]
+    if pick:
+        return pick
+    mine = here.household()                                                   # unnamed: one's own household's beasts first (38.75)
+    own = [hid for hid in hs if any(c["claimant"] in (here.name, mine) for c in here.claims(("herd", hid)))]
+    return (own or hs)[0]
 
 
 def ground_mult(p, par) -> float:

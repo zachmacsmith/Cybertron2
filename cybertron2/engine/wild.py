@@ -455,7 +455,9 @@ def work_notices(here, mind, tech, key) -> str:
             seen += got
             if find and rng.random() < float(find["p"]):
                 here.apply("create", dst=here.hands, item=find["item"], qty=1, why="found")
-                seen[-1] += f" (you picked up the {find['item']})"
+                seen[-1] += (f"; {find['took']}" if find.get("took") else "") + f" (you picked up the {find['item']})"
+            elif find and find.get("left"):                                     # the find did not come: said as what happened
+                seen[-1] += f"; {find['left']}"
     return (" You noticed " + "; and ".join(seen[:2]) + ".") if seen else ""
 
 
@@ -1153,10 +1155,21 @@ def _edge_of(w, pid) -> str:
     return pid
 
 
-def _trace(traces, pid, kind, what, day, n, scare=None, by=None):
+def _trace(traces, pid, kind, what, day, n, scare=None, by=None, **extra):
     lst = [t for t in traces.get(pid, []) if day - int(t["day"]) <= 3]
-    lst.append({k: v for k, v in dict(kind=kind, what=what, day=day, n=int(n), scare=scare, by=by).items() if v is not None})
+    lst.append({k: v for k, v in dict(kind=kind, what=what, day=day, n=int(n), scare=scare, by=by, **extra).items() if v is not None})
     traces[pid] = lst
+
+
+def _raid_words(w, t, tgt) -> dict:
+    """What a raid's sign names (signs pass, 17 Nov): the dead beast of a carcass, the house at whose door food was left."""
+    if t.get("what") == "carcass":
+        return {"beast": (w.s["containers"].get(tgt) or {}).get("beast")}
+    if t.get("what") == "left out":
+        c = w.s["containers"].get(tgt) or {}
+        bid = c.get("in") or c.get("door")
+        return {"house": (w.s["buildings"].get(bid) or {}).get("name")}
+    return {}
 
 
 # ---------------------------------------------------------------------- conditions and effects (02zq; wild_systems.md §6, §10)
@@ -1864,9 +1877,10 @@ def _groups(w, m, st) -> dict:
                         g["rest"] = w.d + int(np_["answer"].get("rest", np_["answer"].get("off_days", 2)))
                         _trace(traces, parcel, kind, "turned", w.d, g["n"], scare, (seen or {}).get("by"))
                         return {"at": tgt, "what": t.get("what"), "turned": True, "scare": scare}, gap
+                words = _raid_words(w, t, tgt)                             # before the raid: what it names (signs pass)
                 res = _raid(w, g, np_, kind, t, tgt, parcel, scare, rng)
                 tr = ("raid" if _did(res) else "tried") + (f":{t['sign']}" if t.get("sign") and _did(res) else "")
-                _trace(traces, parcel, kind, tr, w.d, g["n"], scare, (seen or {}).get("by"))
+                _trace(traces, parcel, kind, tr, w.d, g["n"], scare, (seen or {}).get("by"), **(words if _did(res) else {}))
                 return {"at": tgt, "what": t.get("what"), "turned": False, "scare": scare, **res}, gap
 
             probe = int(t.get("probe") or 0) if t.get("what") in ("items", "hens") else 0
@@ -2181,6 +2195,9 @@ def _ground(m, land, node, areas, rng_word, km2) -> dict:
     return out
 
 
+WARY_SEEN = 0.3      # the learned wariness at which an ordinary hunter sees the game is shy ("a little wary", kinds.WARY_WORDS)
+
+
 def learned(wary) -> float:
     """What a kind's wariness does (brief 4b §2.1): it grows with the wariness and tops out (WARY `most`): game hunted hard is very
     shy, never impossible to come on."""
@@ -2474,6 +2491,10 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
     if runs is not None:
         here.apply("set_wild", path=["state", "runs", "pulses"], value=runs["runs"]["pulses"])
     _put_pressure(here, pressure, wary)
+    passed = sorted(k for k, v in wary.items() for i, x in enumerate(v)                 # game grown wary today (signs pass, 17 Nov):
+                    if learned(wary0.get(k, v)[i]) < WARY_SEEN <= learned(x))        # for the hunter on this ground, the day it passes
+    if passed:
+        here.apply("set_wild", path=["wary_seen", key], value={"day": here.day, "kinds": passed})
     flesh_left = float(left.get("meat", 0.0))
     if left and (flesh_left > 0 or left.get("offal")):                     # what could not be carried is cut and left (§2.4)
         if rng_word == "near" and key in here.parcels():

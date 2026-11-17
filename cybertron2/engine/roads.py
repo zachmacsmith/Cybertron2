@@ -336,8 +336,8 @@ def _notices(w, members, t, pos, ps):
             for text in SG.roll(rows, x, rng, know=know, rule=lambda row, c=c: rule(row, TH.own(w, c))):
                 _note(w, n, text)
         for x in w.s.get("traces", []):                                 # traces of others who passed (D2-88): fading
-            if x["road"] != road_id or x["pos"] != pos or n in x["by"] or w.d - x["day"] < 1:
-                continue
+            if x["road"] != road_id or x["pos"] != pos or n in x["by"] or (w.d - x["day"] < 1 and x["kind"] != "fight"):
+                continue                                                # a fight's: seen the same day too (signs pass)
             fade = 1 - (w.d - x["day"]) / float(ROADS["trace_days"][x["kind"]])
             snow = 3.0 if EV.snow_lying(w, road_id) and x["kind"] == "tracks" else 1.0
             for text in SG.roll(SG.TRACE, SG.trace_context(w, x), rng, mult=0.3 * fade * snow * sight * eye, know=know):
@@ -839,7 +839,19 @@ def settle_meeting(w, e) -> list:
             out.append({"by": at["by"], "target": tgt, "outcome": "fled"})
             continue
         out.append(ST.duel(w, e["road"], at["by"], tgt, at["aim"]))
+        _fight_trace(w, e, at["by"], tgt)
     return out
+
+
+def _fight_trace(w, e, by, tgt) -> None:
+    """A fight on the road leaves its trace on the stretch (signs pass, 17 Nov; read like the FIGHT bundle): seen there that day and
+    the next (ROADS trace_days), by any who pass but the two."""
+    def bound(n):
+        tr = (w.s["people"].get(n) or {}).get("transit") or {}
+        return w.s["nodes"].get(tr.get("to"), {}).get("name") if tr.get("to") else None
+    toward = bound(by) or bound(tgt) or "the road's end"
+    w.apply("traces", e["road"], add=[{"road": e["road"], "pos": e["pos"], "day": w.d, "kind": "fight", "n": 2, "toward": toward,
+                                      "by": [by, tgt]}], day=w.d)
 
 
 # ---------------------------------------------------------------------- arrival (D2-97)

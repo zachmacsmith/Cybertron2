@@ -325,6 +325,7 @@ def set_state(w, c) -> dict:
             "birds": oldest is not None and flesh_q > 1e-9 and w.d - oldest >= int(S["birds_after"]),
             "bad": bool(cs) and flesh_q > 1e-9 and meat <= 1e-9, "spent": (c.get("set") or {}).get("sprung") is not None,
             "robbed": not cs and bool(rb) and w.d - int(rb.get("day", -99)) <= int(S["robbed_days"]),
+            "robbed_wild": not cs and bool(c.get("robbed_by")) and w.d - int((c.get("robbed_by") or {}).get("day", -99)) <= int(S["robbed_days"]),
             "night": w.d > int((c.get("set") or {}).get("set_day", w.d))}
 
 
@@ -360,9 +361,14 @@ def look_text(w, c, whose="your") -> str:
         t = (f"{cw} in {whose} {noun} at {where}" if is_trap(c)
              else f"{cw} {'hangs' if one else 'hang'} in {whose} {noun} at {where}")
         return t + (", gone bad and stinking" if st["bad"] else "") + (": they will catch no more" if st["spent"] else "")
+    if st["robbed_wild"] and is_trap(c) and not st["robbed"]:                    # an otter at them (brief 5 §4; signs pass)
+        return (f"{whose} wicker traps at {where} torn at the neck, scales and a fish head on the withies: something has had what was "
+                "in them")
     if st["robbed"]:
         return (f"{whose} wicker traps at {where} have been lifted and emptied by someone, and put back crooked" if is_trap(c)
                 else f"{whose} snares at {where} have been emptied by someone: a noose pulled open, the grass trodden round it")
+    if st["spent"] and (c.get("set") or {}).get("wrecked") and is_trap(c):    # a spate's (D2-211; signs pass)
+        return f"{whose} wicker traps at {where} smashed against the bank in the spate: they will catch no more"
     if st["spent"]:
         return (f"{whose} wicker traps at {where} are fouled and broken, with nothing in them: they will catch no more" if is_trap(c)
                 else f"{whose} snares at {where} are sprung or broken, with nothing in them: they will catch no more")

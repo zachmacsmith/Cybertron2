@@ -13,6 +13,9 @@ from cybertron2.engine.data import DECAY, EDIBLE, FITTINGS, ITEMS, THINGS
 FIRE = tuple(f for f, d in FITTINGS.items() if d.get("fire"))
 from cybertron2.engine.world import Refused
 
+GOING_OFF = ("fish", "dried fish", "salt fish")   # store goods whose going off is smelt the morning after (signs pass, 17 Nov)
+GOING_OFF_LEAST = 0.2                                # at least this much lost in the night to be smelt (calibrate)
+
 
 def night(w) -> dict:
     s, p = w.s, w.p
@@ -161,12 +164,15 @@ def night(w) -> dict:
                 hz = min(1.0, a["frailty"] + float(p["hazard"]["step"]) * (k - 1))
                 if w.rng("hazard", w.d, name).random() < hz or k >= int(p["hazard"]["max_rounds"]):
                     place = w.place_of(("person", name))
+                    told = LF.death_told(w, name, where)                        # the household and the housemates (38.75)
                     w.apply("die", place, person=name, cause="starvation")
                     rec["deaths"].append(name)
                     if place in s["nodes"]:
-                        w.event(place, "death", f"{name} died in the night, of hunger", target=name, salience=1.0, tags=["death", "food"])
+                        w.event(place, "death", f"{name} died in the night, of hunger", target=name, salience=1.0,
+                                tags=["death", "food", "family"], **told)
     rec["life"] = LF.night(w, today, rec, where)                              # conception, births, the young, old age (D2-138 to D2-150)
     rec["deaths"] += rec["life"]["deaths"] + rec["life"]["old_age"]
+    off = {}
     for cid, c in list(s["containers"].items()):                              # spoilage, by condition (D2-58, D2-87)
         if c["kind"] == "hands" and not s["people"][c["of"]]["alive"]:
             continue
@@ -189,12 +195,18 @@ def night(w) -> dict:
                 place = w.place_of(("container", cid))
                 lost = w.apply("destroy", place, src=cid, item=item, qty=round(q * min(1.0, r), 6), why="spoilt")
                 rec["spoiled"][item] = round(rec["spoiled"].get(item, 0.0) + lost, 4)
+                if c["kind"] == "stock" and item in GOING_OFF and lost > 1e-9:       # fish going off in a store: its smell, the
+                    off.setdefault(c["of"], {})[item] = off.get(c["of"], {}).get(item, 0.0) + lost   # morning after (signs pass)
                 if becomes and lost > 1e-9:
                     w.apply("create", place, dst=cid, item=becomes, qty=lost, why="rot")
         rk = c.get("rack")
         if rk and not rk.get("done") and KP.nights_done(w, rk) >= int(rk["nights"]):   # dry after its nights (brief 4 §5, 4c §6;
                                                                                          # a smokehouse's, nights of fire: 5 §4a)
             _dried(w, cid, c, rk)
+    for bid, items in off.items():                                            # what went off, kept for its sign
+        if bid in s["buildings"] and sum(items.values()) >= float(GOING_OFF_LEAST):
+            w.apply("set", s["buildings"][bid]["node"], ref=("building", bid), field="spoilt",
+                    value={"day": w.d, "items": {i: round(q, 3) for i, q in sorted(items.items())}})
     for bid, b in s["buildings"].items():                                       # a camp falls in after its nights (D2-68)
         if levelled:                                                            # shelter in levels: no fixed life (brief 4 §3)
             break

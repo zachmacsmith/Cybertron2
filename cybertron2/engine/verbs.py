@@ -754,6 +754,9 @@ def _technique(here, mind, a, party, verb):
 
 
 # ---------------------------------------------------------------------- making
+BATCH_LEAST = 0.1        # the least of a batch's inputs worth hanging (38.75: "0.0286 drying meat" held a rack 3 nights; calibrate)
+
+
 def _make(here, mind, a, party):
     tech = KN.resolve(a.get("what"), "make")
     if tech is None or TECHNIQUES[tech]["verb"] != "make":
@@ -787,6 +790,12 @@ def _make(here, mind, a, party):
         share = KN.batch_share(here, tech, mult, extra)                        # whatever one has, up to the batch (brief 4c §6.1)
         if t.get("rack") and b is not None:                                    # as much as the racks there have room for (5 §4a)
             share = min(share, here.rack_room(site[1], tech) / max(1e-12, sum(float(q) for q in t["gives"].values())))
+        if t.get("batch"):                                                     # not a batch of almost nothing (38.75): a hare's
+            ins = {i: float(q) * mult * share for i, q in (t.get("inputs") or {}).items() if isinstance(q, (int, float))}
+            if ins and sum(ins.values()) < float(BATCH_LEAST) - 1e-9:          # meat (0.7) still hangs (brief 4c §6.1)
+                have = ", ".join(f"{round(q, 2):g} {i}" for i, q in ins.items())
+                res.append(f"Refused: make {tech}: there is too little to make a batch ({have}): it takes at least {BATCH_LEAST:g}")
+                break
         _consume(here, t.get("inputs") or {}, mult * share, extra)
         if b is not None and fits and WE.on(here.p):
             WE.use(here, site[1], fits, sum(v for v in (t.get("inputs") or {}).values() if isinstance(v, (int, float))) * fac * share)
@@ -830,7 +839,7 @@ def _make(here, mind, a, party):
                 worn += " (the mill's gap is open: the water runs past, and the wheel turns slow)"
             if t.get("animals"):                                               # others' beasts: allowed and seen (D4-114)
                 worn += FM.beasts_note(here, t)
-            res.append(f"You made {', '.join(f'{q:g} {it}' for it, q in gives.items())}" + (f" at {site[2]}" if site and site[1] else "") + worn
+            res.append(f"You made {', '.join(f'{round(q, 2):g} {it}' for it, q in gives.items())}" + (f" at {site[2]}" if site and site[1] else "") + worn
                        + full + "." + (f" (You are now {rose} at it.)" if rose else ""))
         else:
             res.append(f"Your try at {KN.label(tech)} failed and the materials are spoilt." + (f" (You are now {rose} at it.)" if rose else ""))
@@ -2021,6 +2030,11 @@ def _travel(here, mind, a, party):
         raise Refused(f'say where in "to" (a place, or a way as the roads name it); from here: {ways or "nowhere"}')
     r = here.road_to(a.get("to"))
     if r is None:
+        pid = here.parcel(a.get("to"))
+        if pid is not None:                                                     # a place in this village, not a road away (38.75)
+            nm = here.parcels()[pid]["name"]
+            raise Refused(f"{nm} is here at {here.node_name}, not a road away: name it as where you work in the act itself "
+                          f"(\"at\": \"{nm}\"), and you go there to do it")
         ways = ", ".join(f"{n} ({k} day{'s' if k > 1 else ''})" for _, n, k, _t in here.roads())
         raise Refused(f"there is no way from here to {a.get('to')!r}; from here you can go to {ways or 'nowhere'}")
     to, days, track = r
