@@ -328,7 +328,7 @@ nodes:
         size: 1
         side: east
         height: 0
-        text: running water, low by the water
+        text: a broad slow river
         adj:
         - Saltwell_10
         - Saltwell_6
@@ -360,7 +360,7 @@ nodes:
         size: 1
         side: south
         height: 0
-        text: running water, low by the water
+        text: a broad slow river
         adj:
         - Saltwell_10
         terrain: water
@@ -680,7 +680,7 @@ nodes:
         size: 1
         side: west
         height: 0
-        text: running water, low by the water
+        text: a broad slow river
         adj:
         - Millham_1
         - Millham_9
@@ -712,7 +712,7 @@ nodes:
         size: 1
         side: west
         height: 0
-        text: running water, low by the water
+        text: a broad slow river
         adj:
         - Millham_1
         terrain: water
@@ -1211,6 +1211,15 @@ buildings:
       dung: 10
       wooden plough: 1
       harness: 2
+  hunt_salthouse:
+    parcel: Saltwell_2
+    household: Hunt
+    structure: wattle
+    name: the Salt House
+    fittings:
+      brine pan: 1
+    stock:
+      firewood: 20
 herds:
   hunt_cattle:
     name: the Hunt cattle

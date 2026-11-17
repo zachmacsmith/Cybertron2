@@ -517,6 +517,7 @@
    "parcel": "Highpool_7",
    "name": "the Brine Meadow",
    "held_by": "Brook",
+   "salt_house": "brook_salthouse",
    "salter_craft": true
   },
   "mill": {
@@ -629,5 +630,6 @@
     ]
    }
   }
- }
+ },
+ "craft_gates": []
 }

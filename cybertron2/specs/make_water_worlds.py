@@ -206,6 +206,11 @@ def spring_and_mill(world: dict, spring_at: str = "Saltwell", mill_at: str = "Mi
         world["nodes"][up]["parcels"][spring]["holder"] = salter
         world["nodes"][up]["parcels"][spring]["name"] = "the Brine Meadow"   # the generator's name may borrow another's (a "Mill Meadow")
         out["spring"] = {"parcel": spring, "name": world["nodes"][up]["parcels"][spring]["name"], "held_by": salter}
+        bid = f"{salter.lower()}_salthouse"                              # the pan at the spring: the salter's craft needs one, and no
+        world["buildings"][bid] = {"parcel": spring, "household": salter, "structure": "wattle",   # one could build it (37.4's world
+                                   "name": "the Salt House", "fittings": {"brine pan": 1},         # check, 17 Nov: the runs world's
+                                   "stock": {"firewood": 20}}                                       # salt was shut from day 0)
+        out["spring"]["salt_house"] = bid
         if "boil salt" in TECHNIQUES:
             for n in hhs[salter]:
                 a = world["agents"][n]
@@ -466,10 +471,23 @@ def make(which: str, seed: int):
             report["design"]["frontier"] = runs_frontier(world)
         else:
             report["design"] = lake_check(world)
+        report["craft_gates"] = craft_gates(world)
     return s, world, cells, report
 
 
+def craft_gates(world: dict):
+    """37.4's world check (cybertron2.world_checks, W-58): every craft a world gives can be done where its knower lives. None
+    where the check is not on this branch yet."""
+    try:
+        from cybertron2 import world_checks as WC
+    except ImportError:
+        return None
+    return [list(g) for g in WC.gates(world)]
+
+
 def ok(which: str, report: dict) -> bool:
+    if report.get("craft_gates"):                                          # a craft no one can do where they live: refused
+        return False
     d = report.get("design") or {}
     if which == "runs":
         sm = report.get("spring_and_mill") or {}
