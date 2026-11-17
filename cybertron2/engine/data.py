@@ -46,6 +46,9 @@ ITEMS = {
     # weight, the same food, keeping four times as long as dried meat
     "smoking fish": {"pack": "water", "weight": 1, "food": 1.0, "spoil": 0.15, "cook": True, "raw": 0.6, "decay": "drying meat"},
     "smoked fish": {"pack": "water", "weight": 1, "food": 2.0, "spoil": 0.005, "decay": "dried meat"},
+    # fish on a hearth's rack (D4-122): hung in the house's smoke as meat is, dried to half the weight; keeps as dried meat (calibrate)
+    "drying fish": {"pack": "water", "weight": 1, "food": 1.0, "spoil": 0.15, "cook": True, "raw": 0.6, "decay": "drying meat"},
+    "dried fish": {"pack": "water", "weight": 1, "food": 2.0, "spoil": 0.02, "decay": "dried meat"},
     "meat": {"weight": 1, "food": 1.5, "spoil": 0.30, "cook": True, "raw": 0.8, "decay": "fresh meat"},                 # dense, spoils fresh (D2-41)
     "milk": {"weight": 1, "food": 0.5, "spoil": 1.0},                  # the same day (D2-42)
     "hen": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},
@@ -599,6 +602,10 @@ TECHNIQUES = {
                  "at": {"fittings": ["hearth", "fire ring"]}, "inputs": {"meat": 8}, "units": 1, "gives": {"drying meat": 8},
                  "batch": True,                                                 # whatever one has, up to the batch (brief 4c §6.1)
                  "rack": {"nights": 3, "into": "dried meat", "ratio": 0.5}, "tags": ["food", "cooking"]},   # cut and hung in a batch (brief 4 §5.1)
+    "dry fish": {"pack": "water", "verb": "make", "label": "drying fish over a fire", "aliases": ["drying fish", "dry the fish",
+                 "hang fish to dry"], "basic": True, "at": {"fittings": ["hearth", "fire ring"]}, "inputs": {"fish": 8}, "units": 1,
+                 "gives": {"drying fish": 8}, "batch": True,                   # fish on the hearth's rack as meat (D4-122): one batch a
+                 "rack": {"nights": 3, "into": "dried fish", "ratio": 0.5}, "tags": ["food", "cooking", "fishing"]},   # rack, up to 8
     "cheese": {"verb": "make", "label": "making cheese", "aliases": ["cheesemaking"], "at": {"fittings": ["cellar"]},
                "inputs": {"milk": 6, "salt": 0.2}, "units": 1, "gives": {"cheese": 1}, "tags": ["food", "animals"], "trade": "herder"},
     "charcoal": {"verb": "make", "label": "burning charcoal", "aliases": ["charcoal burning"], "at": {"covers": ["forest"]},
@@ -862,7 +869,7 @@ ENV = {
     "crop_high_from": 0.6,                                          # ... from this share of its growing time until reaped
     "smoke": 0.7,                                                   # a parcel with smoke that day
     "felled": {"below": 0.3, "sight": 0.8},                         # a wood felled below this share of its timber is open ground
-    "smoke_tags": ["smithing"], "smoke_techs": ["charcoal", "smelt", "dry meat", "smoke fish", "smoke meat", "tend the smoke", "boil salt"],
+    "smoke_tags": ["smithing"], "smoke_techs": ["charcoal", "smelt", "dry meat", "dry fish", "smoke fish", "smoke meat", "tend the smoke", "boil salt"],
     "mask": {"very": 0.3, "loud": 0.6},                             # D2-100: quieter sounds near something very loud, or loud
     "loud_kinds": {"fight": "very", "raid": "very", "threat": "very"},
     "loud_tags": {"smithing": "loud"}, "loud_techs": {"mill": "loud", "water mill": "loud", "grind": "loud"},
@@ -1025,7 +1032,7 @@ ROADS = {
     "flee": 0.5,
     "waves": 3,                             # a meeting's conversation (D2-110)
     "notices": 5,                           # "On the way" lines on arrival (D2-97)
-    "trace_days": {"tracks": 3, "ashes": 10, "ruts": 60},   # D2-88
+    "trace_days": {"tracks": 3, "ashes": 10, "ruts": 60, "fight": 2},   # D2-88; a fight's: that day and the next (signs pass)
     # hidden ways (D2-90, D2-92, D2-98): a hidden end shows only while its parcel's sight is this or less; its own conspicuousness, and
     # how much each party passing wears it; open land (or a wood felled below `felled` of its standing timber) shows it at `exposed`;
     # unused it grows back over about a season in forest or scrub; worn to `exposed` it is a path everyone at the node knows

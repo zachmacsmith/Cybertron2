@@ -342,7 +342,7 @@ def night(w, today, rec, where) -> dict:
         _conceive(w, today, rec, where, out)
     _pregnancies(w, today, rec, where, out)
     _young(w, today, rec, where, out)
-    _old_age(w, out)
+    _old_age(w, out, where)
     _childhood(w, today, rec)
     return out
 
@@ -450,15 +450,28 @@ def _young(w, today, rec, where, out):
         if w.rng("young", w.d, name).random() < p:
             place = w.place_of(("person", name))
             cause = "neglect" if a["stage"] == "infant" and units <= 0 else ("hunger" if name in rec["missed"] else "a fever")
+            told = death_told(w, name, where)
             w.apply("die", place, person=name, cause=cause)
             out["deaths"].append(name)
             if place in w.s["nodes"]:
-                hh = w.household_of(name)
                 w.event(place, "death", f"{name}, a {a['stage']}, died in the night", target=name, salience=0.9, tags=["death", "family"],
-                        concerns=w.members(hh) if hh else [])
+                        **told)
 
 
-def _old_age(w, out):
+def death_told(w, name, where=None) -> dict:
+    """Who is told of a death in the night, and where it was (38.75): every member of the dead one's household and everyone who slept
+    under the same roof that night, read as what happened in their own house (perceive.happened_to). Computed before the death is
+    applied. Returns the event's {concerns, about}."""
+    hh = w.household_of(name)
+    told = set(w.members(hh)) if hh else set()
+    bid = (where or {}).get(name)
+    if bid:
+        told |= {n for n, b in (where or {}).items() if b == bid}
+    told.discard(name)
+    return {"concerns": sorted(told), "about": [f"building:{bid}"] if bid else []}
+
+
+def _old_age(w, out, where=None):
     """Beyond hunger, cold and wounds: an adult 0.001 a night, an elder 0.01 doubling every 20 days of old age (D2-149)."""
     oa = LIFE["old_age"]
     for name in w.living():
@@ -476,10 +489,12 @@ def _old_age(w, out):
         if w.rng("old-age", w.d, name).random() < min(1.0, p):
             place = w.place_of(("person", name))
             cause = "old age" if a["stage"] == "elder" else "a sudden illness"     # an adult's risk is not age (D2-149)
+            told = death_told(w, name, where)
             w.apply("die", place, person=name, cause=cause)
             out["old_age"].append(name)
             if place in w.s["nodes"]:
-                w.event(place, "death", f"{name} died in the night, of {cause}", target=name, salience=1.0, tags=["death"])
+                w.event(place, "death", f"{name} died in the night, of {cause}", target=name, salience=1.0, tags=["death", "family"],
+                        **told)
 
 
 def _childhood(w, today, rec):

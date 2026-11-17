@@ -132,7 +132,7 @@ NEAR_PEOPLE = {
         "targets": [{"seasons": {1: (3, 7), 2: (0, 4)}, "attr": 1.0, "trample": 0.012},     # milk-ripe to harvest, into autumn
                                                                                          # (to day 4: 37.2, 14 Nov, calibrate (4c); a mast
                                                                                          # year keeps them in the woods: WHEN's drive 0.3)
-                    {"what": "carcass", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.5, "stages": ["rotting"], "eat": 2.0},   # rooting at the dead (brief 3)
+                    {"what": "carcass", "sign": "carcass", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.5, "stages": ["rotting"], "eat": 2.0},   # rooting at the dead (brief 3)
                     {"seasons": {0: (0, 5)}, "attr": 0.3, "trample": 0.006}],              # the sown corn
         "drive": {"base": 0.35, "hunger": 0.5}, "memory_days": 3, "return_p": 0.85, "lead_nights": 2, "lead_sign_p": 0.9,
         "answer": {"type": "habituate", "turn_p": 0.9, "gain": 0.3, "decay": 0.01, "rest": 2},
@@ -150,14 +150,14 @@ NEAR_PEOPLE = {
     "wolf": {
         "gather": "far",                                                                     # a pack ranges far beyond one ring
         "targets": [{"what": "herd", "seasons": {3: (0, 7), 0: (0, 2)}, "attr": 1.0},          # late winter: hunger at the fold
-                    {"what": "carcass", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 1.0, "stages": ["fresh", "rotting"], "eat": 3.0, "digs": True},
+                    {"what": "carcass", "sign": "carcass", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 1.0, "stages": ["fresh", "rotting"], "eat": 3.0, "digs": True},
                     {"what": "herd", "seasons": {0: (3, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.35}],
         "drive": {"base": 0.03, "hunger": 0.9}, "memory_days": 4, "return_p": 0.7, "lead_nights": 2, "lead_sign_p": 0.7,
         "answer": {"type": "scared_off", "turn_p": 0.8, "off_days": 3},
         "harm": {"dog": {"turn_p": 0.9, "harm_p": 0.15}}, "wary_after_harm": 10, "met_share": 1.0,
     },
     "brown bear": {
-        "gather": "far", "targets": [{"what": "carcass", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 1.0, "stages": ["fresh"], "eat": 8.0, "cache": [2, 4]}],                                                    # only in a hungry spring (WHEN)
+        "gather": "far", "targets": [{"what": "carcass", "sign": "carcass", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 1.0, "stages": ["fresh"], "eat": 8.0, "cache": [2, 4]}],                                                    # only in a hungry spring (WHEN)
         "drive": {"base": 0.05, "hunger": 0.5}, "memory_days": 2, "return_p": 0.6, "lead_nights": 1, "lead_sign_p": 0.8,
         "answer": {"type": "scared_off", "turn_p": 0.7, "off_days": 3},
         "harm": {"dog": {"turn_p": 0.8, "harm_p": 0.05}}, "wary_after_harm": 10, "met_share": 1.0,
@@ -184,9 +184,9 @@ NEAR_PEOPLE = {
                      "attr": 1.0, "probe": 2},                                                    # cubs to feed; tries the doors (D2-207)
                     {"what": "items", "items": ["hen"], "door": True, "heads": 2, "all_p": 0.3,
                      "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.35, "probe": 2},
-                    {"what": "carcass", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.8,     # the dead (brief 3)
+                    {"what": "carcass", "sign": "carcass", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.8,     # the dead (brief 3)
                      "stages": ["fresh", "rotting"], "eat": 0.6, "digs": True},
-                    {"what": "left out", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.5, "share": 0.6}],  # food at a door
+                    {"what": "left out", "sign": "door", "seasons": {0: (0, 7), 1: (0, 7), 2: (0, 7), 3: (0, 7)}, "attr": 0.5, "share": 0.6}],  # food at a door
         "drive": {"base": 0.1, "hunger": 0.4}, "memory_days": 2, "return_p": 0.8, "lead_nights": 2, "lead_sign_p": 0.6,
         "answer": {"type": "scared_off", "turn_p": 0.85, "off_days": 3},
         "harm": {"dog": {"turn_p": 0.9, "harm_p": 0.1}}, "wary_after_harm": 10, "met_share": 1.0,
@@ -367,6 +367,10 @@ RAID_SIGNS = {
     "stores": {"wild boar": [R("all", "sound", 1.4, (0, 0), "a crashing and grunting at the store at {place} in the night", cond="night"),
                              R("all", "sight", 0.95, (1, 2), "the store at {place} broken into in the night: sacks torn, grain trampled into the mud")]},
     "hay": {"red deer": [R("all", "sight", 0.9, (1, 2), "the hay at {place} pulled out and trampled, deer slots all round it in the snow")]},
+    # a raid on the dead or on food left out (signs pass, 17 Nov): any kind ("*"), named by what it took
+    "carcass": {"*": [R("all", "sight", 0.95, (1, 2), "the dead {beast} at {place} dragged and torn open in the night, the ground trodden round it"),
+                      R("knows", "sight", 0.8, (1, 2), "{kinds} were at the dead {beast} at {place}")]},
+    "door": {"*": [R("all", "sight", 0.9, (1, 1), "what was left at the door of {house} is gone: scraps and tracks")]},
     "bark": {"red deer": [R("lay", "sight", 0.8, (1, 2), "the bark stripped from the young trees in {place}"),
                           R("knows", "sight", 0.8, (1, 2), "deer have stripped the young ash in {place}: the coppice regrowth will die back")]},
 }
@@ -417,8 +421,10 @@ WORK_NOTICES = {
              {"kind": "wild boar", "if": {"wounded": True}, "rows": [R("knows", "sight", 0.8, (0, 0), "a blood trail into the thicket"),
                                                                      R("expert", "sight", 0.8, (0, 0), "a wounded boar lying up in the thicket: the most dangerous beast in the wood; go in with others or not at all")]},
              {"kind": "wolf", "if": {}, "rows": [R("expert", "sight", 0.4, (0, 0), "ravens wheeling over the far wood: a kill there")]},
-             {"kind": "voles and mice", "if": {}, "find": {"item": "cat", "p": 0.5},          # a stray to bring home (D2-206)
-              "rows": [R("all", "sight", 0.08, (0, 0), "a lean half-wild cat hunting mice along the hedge; it came to your hand")]}],
+             {"kind": "voles and mice", "if": {},                                         # a stray to bring home (D2-206); its
+              "find": {"item": "cat", "p": 0.5, "took": "it came to your hand",            # coming to hand said only when it does (38.75)
+                       "left": "it watched you a while and slipped back into the hedge"},
+              "rows": [R("all", "sight", 0.08, (0, 0), "a lean half-wild cat hunting mice along the hedge")]}],
     "gather wild food": [{"kind": None, "if": {"seasons": {1: (5, 7)}}, "mast_coming": True,
                           "rows": [R("expert", "sight", 0.5, (0, 0), "the acorns setting thick on the old oaks: a mast year this autumn")]},
                          {"kind": None, "if": {"seasons": {2: (0, 2)}}, "berries_heavy": True,

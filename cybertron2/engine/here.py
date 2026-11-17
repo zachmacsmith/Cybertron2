@@ -88,7 +88,27 @@ class Here:
                 other = r["b"] if r["a"] == self.node else r["a"]
                 nm = self._w.s["nodes"][other]["name"] if self._w.knows_place(self.name, other) else r.get("way", "an unexplored way")
                 out.append((other, nm, r["days"], r.get("track", False)))
+        names = [x[1] for x in out]                                             # ways of the same name told apart by where they
+        if len(set(names)) < len(names):                                        # lead (38.75: "the open road" three times)
+            out = [(o, f"{nm} {self._heading(o)}" if names.count(nm) > 1 else nm, d, t) for o, nm, d, t in out]
+            seen = {}
+            for i, (o, nm, d, t) in enumerate(out):                             # still the same: numbered
+                seen[nm] = seen.get(nm, 0) + 1
+                if [x[1] for x in out].count(nm) > 1:
+                    out[i] = (o, f"{nm} ({seen[nm]})", d, t)
         return sorted(out, key=lambda x: x[1])
+
+    def _heading(self, other) -> str:
+        """Which way a road leaves here, by the places' positions: 'to the north', 'to the south-east'; '' without positions."""
+        a, b = (self._w.s["nodes"].get(self.node) or {}).get("xy"), (self._w.s["nodes"].get(other) or {}).get("xy")
+        if not a or not b:
+            return ""
+        import math
+        dx, dy = float(b[0]) - float(a[0]), float(b[1]) - float(a[1])
+        if abs(dx) + abs(dy) < 1e-9:
+            return ""
+        ang = math.degrees(math.atan2(dx, dy)) % 360                            # 0 north (y up), 90 east
+        return "to the " + ["north", "north-east", "east", "south-east", "south", "south-west", "west", "north-west"][int((ang + 22.5) // 45) % 8]
 
     # ------------------------------------------------------------------ me
     @property

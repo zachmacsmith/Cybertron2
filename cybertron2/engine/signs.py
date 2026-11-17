@@ -518,6 +518,15 @@ BROKE = [
          text=lambda x: f"a fresh crack down {x.nm}'s wall, fallen daub at its foot"),
 ]
 
+# A weir's wear (brief 5 §3.1; signs pass 17 Nov): its sections torn by a flood, or by ice. Nearby: the hole seen, the morning after;
+# conditional: in ice. Not the house's roof coming in (wild.weir_wear writes `broke` with its sections lost).
+WEIR_BROKE = [
+    dict(when=lambda x: x.age <= 2 and not x.ice, own=1.0, sense="sight", tags=["fishing", "building"],
+         text=lambda x: f"stakes torn out of {x.nm}, a stretch of wattle gone: the river runs through the hole"),
+    dict(when=lambda x: x.age <= 2 and x.ice, own=1.0, sense="sight", tags=["fishing", "building"],
+         text=lambda x: f"ice piled against {x.nm}, the stakes leaning"),
+]
+
 # A burial (the day's bury acts at a parcel). Doer: the work of it (frozen ground, or the weight). Nearby: the digging seen and heard.
 # Lingering: the grave (THING). Conditional: frost.
 BURIAL = [
@@ -584,7 +593,8 @@ SKY = [
          text=lambda x: "a heavy, yellow-grey sky: snow before long"),
     # graded by the day's values (D4-111): the extremes plain, the slight ones faint
     dict(when=lambda x: x.climate and x.low <= -6, own=2.0, sense="touch", tags=["season", "farming", "shelter"],
-         text=lambda x: "a killing frost: the ground rings like iron and the water is frozen through; anything tender out of doors is lost"),
+         text=lambda x: "a killing frost: the ground rings like iron; anything tender out of doors is lost"),   # no ice named: the
+    # water stays fishable in a frost (38.75), so the sign does not claim it frozen
     dict(when=lambda x: x.climate and 22 <= x.temp < 26, own=1.2, sense="touch", tags=["season"],
          text=lambda x: "a hot, close day: the beasts crowd the shade and the work goes slowly"),
     dict(when=lambda x: x.climate and x.temp >= 26, own=2.0, sense="touch", tags=["season", "danger"],
@@ -793,6 +803,7 @@ BUILDING = [
          text=lambda x: f"hammering from {x.nm}"),
     dict(when=lambda x: "water mill" in x.made, sense="sound", p=0.4, tags=["food"], text=lambda x: f"the creak and splash of the wheel at {x.nm}"),
     dict(when=lambda x: "dry meat" in x.made, sense="smell", p=0.3, tags=["food"], text=lambda x: f"the smell of meat drying in smoke at {x.nm}"),
+    dict(when=lambda x: "dry fish" in x.made, sense="smell", p=0.3, tags=["food"], text=lambda x: f"the smell of fish drying in smoke at {x.nm}"),   # D4-122
     dict(when=lambda x: "cheese" in x.made, sense="smell", p=0.25, tags=["food", "animals"],
          text=lambda x: f"the sour smell of cheese-making from {x.nm}"),
     dict(when=lambda x: {"smelt"} & x.made, sense="smell", p=0.3, tags=["craft", "mining"],
@@ -826,6 +837,10 @@ BUILDING = [
          text=lambda x: f"the salter's fire at {x.nm} has burned all day, and the woodpile beside it gone down"),
     dict(when=lambda x: x.salt_age is not None and 0 < x.salt_age <= 2, reach="near", own=0.6, sense="sight", tags=["salt"],
          text=lambda x: f"white crusts of salt on the rim of the pan at {x.nm}"),
+    # fish going off in a store (signs pass, 17 Nov): it spoils at x2 there and goes to nothing, so no rotting good is left; the
+    # smell, the morning after, for those in it or at it
+    dict(when=lambda x: x.going_off, reach="near", own=1.2, sense="smell", tags=["food", "fishing"],
+         text=lambda x: f"the {x.going_off} in {x.nm}'s store going soft and starting to smell: it will not keep"),
     # food rotting in the store (D4-74)
     dict(when=lambda x: x.rotting and not x.cold, own=0.8, sense="smell", tags=["food"],
          text=lambda x: f"a stink of {x.rotting[0]} from {x.nm}'s store"),
@@ -1055,6 +1070,9 @@ def building_context(here, bid):
     x.makers = {k: " and ".join(v) for k, v in makers.items()}
     x.makers_any = lambda techs: " and ".join(dict.fromkeys(n for t in sorted(techs) for n in makers.get(t, [])))
     x.rotting = [i for i, q in st.items() if ITEMS.get(i, {}).get("rot") and q > 0.2]
+    sp = b.get("spoilt") or {}
+    x.going_off = " and ".join(i for i in (sp.get("items") or {}) if i in st and st.get(i, 0.0) > 0.05) \
+        if sp.get("day") is not None and here.day - int(sp["day"]) == 0 else ""
     from cybertron2.engine import keeping as KP                                # the smokehouse and the brine pan (brief 5 §4)
     sm, rs = b.get("smoke") or {}, KP.active_racks(here._w, bid) if b["fittings"].get("smoke racks") else {}
     what = " and ".join(sorted({i.replace("smoking ", "") for c in rs.values() for i, q in c["goods"].items() if q > 1e-9
@@ -1385,6 +1403,10 @@ THING = [
     dict(when=lambda x: x.seed and not x.body and x.rained and x.hidden != "buried", sense="sight", p=0.8, reach="near",
          tags=["food"],
          text=lambda x: f"the {x.seed_words} {x.at} {'is' if ' and ' not in x.seed_words else 'are'} dark with wet and going mouldy"),
+    # rain on meat or fish drying at a fire outdoors (signs pass, 17 Nov; rain spoils it x3, DECAY "drying meat"): at the parcel
+    # only, only while it rains
+    dict(when=lambda x: x.drying_out and x.wet_now and x.weather != "snow", own=1.0, reach="near", sense="sight", tags=["food"],
+         text=lambda x: f"rain on the {x.drying_out} drying by the fire at {x.where}: wet and slimy, flies at it"),
     dict(when=lambda x: x.meat and not x.body and x.warm and x.age >= 1 and x.hidden != "buried", sense="sight", p=0.7,
          reach="near", tags=["food"],
          text=lambda x: f"the meat {x.at} is turning, and flies are at it"),
@@ -1541,6 +1563,14 @@ ROAD = [
 # Traces others left on the road (D2-88). Anyone reads the way they go and roughly how old they are; one who hunts reads how many,
 # and how long ago, from the edges of a print or the warmth of ashes.
 TRACE = [
+    # a fight on the road (signs pass, 17 Nov; as the FIGHT bundle): the scuffed ground, read by a hunter for who and which way;
+    # in snow, the blood. That day and the next.
+    dict(when=lambda x: x.kind == "fight" and x.age <= 1 and not x.snow, sense="sight", p=1.0, tags=["travel", "danger"],
+         text=lambda x: "the ground by the road trampled and scuffed, dark spots of blood on it"),
+    dict(when=lambda x: x.kind == "fight" and x.age <= 1, sense="sight", p=1.0, knows="hunt", tags=["travel", "danger"],
+         text=lambda x: f"{_folk(x.n)} fought here, a day or two since: one went on toward {x.toward}, one back"),
+    dict(when=lambda x: x.kind == "fight" and x.age <= 1 and x.snow, sense="sight", p=1.0, tags=["travel", "danger"],
+         text=lambda x: "blood trodden into the snow by the road"),
     # tracks
     dict(when=lambda x: x.kind == "tracks" and not x.snow and not x.heavy, sense="sight", p=1.0, tags=["travel"],
          text=lambda x: f"{x.many} tracks going toward {x.toward}, {x.when}"),
@@ -1706,6 +1736,8 @@ def thing_context(w, c):
     x.grave_left = max(0, __import__("math").ceil(round(TH.bury_need(w, c) * (1.0 - x.grave_done), 3) - 1e-6)) if x.grave_done else 0
     x.grave_idle = w.d - int(g.get("day", w.d)) if g else 0
     x.wet_now = EV.wet(w, at)
+    x.drying_out = "" if indoors or not c.get("rack") else " and ".join(           # a rack outside, not yet dry (signs pass)
+        i.replace("drying ", "") for i in sorted(items) if i.startswith("drying ") and ITEMS.get(i, {}).get("decay") == "drying meat")
     x.cairn_age = w.d - int(c["cairn_day"]) if c.get("cairn_day") is not None else 99
     x.set_line = c["kind"] == "set" and bool(c.get("set"))                    # a set snare line or traps (brief 4c §4)
     if x.set_line:
@@ -1913,11 +1945,17 @@ def _aftermath(here, add) -> None:
     _wild_when(here, add)                                                      # the kinds' conditional layers and phases as they start
     _wild_sites(here, add)                                                     # heronries, rookeries, lodges (wave 5)
     _wild_river(here, add)                                                     # the runs, the weirs and the mill's gap (brief 5)
+    _wild_thaw(here, add)                                                      # fowl back on the water with the thaw (signs pass)
+    _wild_wary(here, add)                                                      # game grown shy where it is hunted (signs pass)
+    _road_coming(here, add)                                                    # a party on the last stretch in (signs pass)
     _wild_rare(here, add)                                                      # rare regimes and the elders' tales (L4)
     for bid, b in here.buildings().items():
         sub, live = [f"building:{bid}"], _dwellers(here, bid)
+        from cybertron2.engine import wild as _WL
+        weir = _WL.is_weir(b)
         for field, rows, most, extra in (("fire_hit", FIRE, 3, {}), ("raided", RAID, 1, {}), ("theft", THEFT, 1, {}),
-                                         ("broke", BROKE, 2, {})):
+                                         ("broke", WEIR_BROKE if weir else BROKE, 2,
+                                          {"ice": "ice" in ((b.get("broke") or {}).get("by") or [])} if weir else {})):
             rec = b.get(field) or {}
             if rec_age(rec, most):
                 x = event_context(here, b["name"], rec["day"], outcome=rec.get("outcome"), item=rec.get("item", "food"),
@@ -2015,6 +2053,18 @@ def _wild_emit(here, rows, x, sub, pid, add, name, fmt, age, who=None, tags=("an
         spot_rows(here, [row], x, sub, here.node, pid, add, name=f"{name}{j}", only=only, **kw)
 
 
+def _kinds_word(kind) -> str:
+    """A wild kind as many: 'wolves', 'foxes', 'wild boar', 'brown bears' (signs pass, 17 Nov)."""
+    from cybertron2.engine import things as TH
+    same = {"wild boar", "red deer", "roe deer", "fallow deer", "deer", "sheep"}
+    if kind in same:
+        return kind
+    if kind.endswith("f"):
+        return kind[:-1] + "ves"
+    p = TH._plural(kind)
+    return p if p != kind else kind + "s"
+
+
 def _wild_traces(here, pid, p, sub, add) -> None:
     """What wild groups left on this parcel (wild_layer.md §3.5-3.6, D2-197): the kind's bundle for each trace (at the wood's edge,
     a raid, turned by a watch), and a watch's own night; read two ways by `knows`/`lay`, in the kinds' data."""
@@ -2025,9 +2075,12 @@ def _wild_traces(here, pid, p, sub, add) -> None:
             continue
         x = event_context(here, p["name"], tr["day"], n=tr["n"])
         scare = SCARE_WORDS.get(tr.get("scare"), tr.get("scare") or "watch")
-        fmt = dict(n=tr["n"], place=p["name"], scare=scare)
+        from cybertron2.engine import things as TH
+        fmt = dict(n=tr["n"], place=p["name"], scare=scare, beast=tr.get("beast") or "beast", house=tr.get("house") or "the house",
+                   kinds=_kinds_word(tr.get("kind") or "beast"))
         what, _, sort = tr["what"].partition(":")
-        rows = ((RAID_SIGNS.get(sort) or {}).get(tr.get("kind")) if sort else None) or (SIGNS.get(tr.get("kind")) or {}).get(what) \
+        by_kind = RAID_SIGNS.get(sort) or {} if sort else {}
+        rows = (by_kind.get(tr.get("kind")) or by_kind.get("*") if sort else None) or (SIGNS.get(tr.get("kind")) or {}).get(what) \
             or WATCH_SIGNS.get(what) or []
         rows = list(rows) + list((EXPERT_SIGNS.get(tr.get("kind")) or {}).get(what) or [])
         from cybertron2.engine import wild as WL
@@ -2260,6 +2313,92 @@ def _wild_sites(here, add) -> None:
             emit("harm", at=site["harm_at"])
 
 
+def _road_coming(here, add) -> None:
+    """A party on a road's last stretch toward this village, seen far off (signs pass, 17 Nov): by day and not in rain or snow, the
+    rule lowering sight in fog and the dark. Where it is seen from, the village's built parcel, is a presentation choice: the engine
+    does not place a road's end within the village; the built ground is where people stand and look out (deterministic: the first
+    built parcel)."""
+    from cybertron2.engine import roads as RD
+    w = here._w
+    if here.wet() or here.weather() in ("snow", "heavy rain"):
+        return
+    built = next((pid for pid, p in sorted(here.parcels().items()) if p["cover"] == "built"), None)
+    if built is None:
+        return
+    parties = {}
+    for n in w.living():
+        t = w.s["people"][n].get("transit")
+        if not t or t.get("to") != here.node or t.get("road") not in w.s["roads"]:
+            continue
+        if RD.stretch_of(w, t) < int(w.s["roads"][t["road"]]["days"]):
+            continue                                                           # not yet on the last stretch in
+        parties.setdefault((t["road"], int(t["arrive"])), []).append(n)
+    for (rid, _), members in sorted(parties.items()):
+        r = w.s["roads"][rid]
+        frm = r["a"] if r["b"] == here.node else r["b"]
+        nm = here.place_name(frm) if frm in w.s["nodes"] else "the road"
+        armed = any(w.weapon(m) for m in members)
+        text = f"figures on the road from {nm}, still far off, coming this way" + ("; one of them carries a club or a spear" if armed else "")
+        x = event_context(here, here.parcels()[built]["name"], here.day)
+        spot_rows(here, [dict(when=lambda x: True, own=0.8, sense="sight", tags=["travel"], text=lambda x, t=text: t)],
+                  x, [f"parcel:{built}"], here.node, built, add, name=f"coming{rid}", only=[p for p in here.people() if p not in members])
+
+
+def _wild_wary(here, add) -> None:
+    """Game grown shy on a hunted ground (brief 4b §2.1; signs pass, 17 Nov): for those who know hunting, on the parcel, the day its
+    learned wariness passes `wild.WARY_SEEN` (wild.hunt keeps the day in `wary_seen`); the experts read it in a hunt's notices."""
+    seen = ((here._w.s.get("wild") or {}).get("wary_seen") or {})
+    for pid, rec in sorted(seen.items()):
+        if pid not in here.parcels() or int(rec.get("day", -9)) != here.day:
+            continue
+        kinds = sorted({"deer" if k.endswith("deer") else _kinds_word(k) for k in rec.get("kinds") or []})
+        if not kinds:
+            continue
+        x = event_context(here, here.parcels()[pid]["name"], here.day)
+        what = " and ".join(kinds)
+        spot_rows(here, [dict(when=lambda x: True, own=0.9, sense="sight", tags=["hunting", "food"],
+                              text=lambda x, t=f"the {what} break and run long before you are near: hunted too often here": t)],
+                  x, [f"parcel:{pid}"], here.node, pid, add, name=f"wildwary{pid}", knows="hunt")
+
+
+def _wild_thaw(here, add) -> None:
+    """Fowl back on the water with the thaw (brief 5 §4; kinds.OPEN_WATER; signs pass, 17 Nov): the first day not frozen after a frost
+    that froze some of the village's water over; for fowlers, fewer than before when the great freeze held (REGIMES, frozen_run 4,
+    which killed a share of them)."""
+    from cybertron2.engine import wild as WL
+    from cybertron2.wild.kinds import OPEN_WATER, REGIMES
+    w = here._w
+    wild = w.s.get("wild") or {}
+    st = wild.get("state") or {}
+    land = wild.get("land") or {}
+    if "wildfowl" not in (st.get("pop") or {}) or here.node not in (land.get("home") or {}) or not here.day:
+        return
+    if WL.frozen_run(w, here.node, here.day) > 0:
+        return
+    before = WL.frozen_run(w, here.node, here.day - 1, most=8)
+    m = WL.model(w)
+    ri = next((i for i, a in enumerate(m.ids) if land["areas"][a]["kind"] == "ring" and land["areas"][a]["node"] == here.node), None)
+    if ri is None or float(st["pop"]["wildfowl"][ri]) <= 0:
+        return
+    parts = {k: v for k, v in WL._water_parts(m, ri).items() if v > 1e-9}
+    if not parts or before <= min(int(OPEN_WATER["hold"][k]) for k in parts):
+        return                                                                 # none of its water froze over: nothing came back
+    water = [pid for pid, p in sorted(here.parcels().items()) if p["cover"] == "water"]
+    if not water:
+        return
+    at = water[0]
+    x = event_context(here, here.parcels()[at]["name"], here.day)
+    nm = here.parcels()[at]["name"]
+    great = before >= int(REGIMES["great freeze"]["if"]["frozen_run"])
+    rows = [dict(when=lambda x: True, own=0.9, sense="sight", tags=["animals", "food"],
+                 text=lambda x: f"duck and geese back on the water at {nm} with the thaw")]
+    spot_rows(here, rows, x, [f"parcel:{at}"], here.node, at, add, name="wildthaw", **({"lay": "net"} if great else {}))
+    if great:
+        spot_rows(here, [dict(when=lambda x: True, own=0.8, sense="sight", tags=["animals", "food"],
+                              text=lambda x: f"duck and geese back on the water at {nm} with the thaw, fewer than before the freeze")],
+                  x, [f"parcel:{at}"], here.node, at, add, name="wildthawn", knows="net")
+
+
 def _wild_river(here, add) -> None:
     """The river's signs (brief 5 §3.5, §3a.5, §4; kinds.RUN_SIGNS): a run at the village's water today (the practised read it as a run
     night); fish held below a shut dam, plain to anyone at its water; a weir's or a mill's gap set, that day and the next; the year's
@@ -2327,6 +2466,34 @@ def _wild_river(here, add) -> None:
         if 0 <= age <= 1 and rows:
             _wild_emit(here, rows, x, [f"parcel:{c['parcel']}"], c["parcel"], add, f"wildrob{cid}",
                        dict(fmt0, place=here.parcels()[c["parcel"]]["name"]), age, tags=("animals", "food"), key="trap in water")
+    from cybertron2.engine.data import ITEMS, WATER_WORKS
+    run_now = any(n >= 3.0 for n in now.values())
+    for cid, c in sorted(w.s["containers"].items()):                         # traps full in a run; smashed in a spate (signs pass)
+        sp = c.get("set") or {}
+        if c.get("kind") != "set" or c.get("node") != here.node or sp.get("method") != "trap in water" or c.get("parcel") not in here.parcels():
+            continue
+        pname = here.parcels()[c["parcel"]]["name"]
+        sub = [f"parcel:{c['parcel']}"]
+        if sp.get("weir"):
+            b = w.s["buildings"].get(sp["weir"]) or {}
+            hold, keepers = WL.weir_hold(b) if b else 0.0, list(b.get("crew") or [])
+        else:
+            hold, keepers = float(WATER_WORKS["trap"]["hold"]), [c.get("by")]
+        held = sum(float(q) * float((ITEMS.get(i) or {}).get("food", 0.0)) for i, q in c["goods"].items())
+        if run_now and sp.get("sprung") is None and hold > 0 and held >= hold - 0.25:
+            row = dict(when=lambda x: True, own=1.0, sense="sight", tags=["fishing", "food"],
+                       text=lambda x, t=f"the traps at {pname} crammed full: whatever comes down now goes past": t)
+            spot_rows(here, [row], x, sub, here.node, c["parcel"], add, name=f"wildfull{cid}", only=[k for k in keepers if k])
+        wk = sp.get("wrecked")
+        if wk and sp.get("sprung") is not None and 0 <= here.day - int(sp["sprung"]) <= 1:
+            mine = [k for k in ([c.get("by")] + list(keepers)) if k]
+            others = [n for n in here.people() if n not in mine]
+            spot_rows(here, [dict(when=lambda x: True, own=1.0, sense="sight", tags=["fishing", "food"],
+                                  text=lambda x, t=f"your wicker traps at {pname} smashed against the bank in the spate": t)],
+                      x, sub, here.node, c["parcel"], add, name=f"wildwreck{cid}", only=mine)
+            spot_rows(here, [dict(when=lambda x: True, own=0.6, sense="sight", tags=["fishing"],
+                                  text=lambda x, t=f"broken wicker in the reeds below {pname}": t)],
+                      x, sub, here.node, c["parcel"], add, name=f"wildwreckx{cid}", only=others)
 
 
 def _wild_rare(here, add) -> None:
