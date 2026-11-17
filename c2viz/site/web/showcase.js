@@ -5,13 +5,21 @@
 //   "tiles":  the same, but four of the run's places side by side when it has four lived in (else one), moving together,
 //             and a mark for how many more it has
 const SEASON = { spring: "var(--spring)", summer: "var(--summer)", autumn: "var(--autumn)", winter: "var(--winter)" };
-const TITLES = { wb2_wenbridge: "Wenbridge", d1_duo: "Duo", f1_frontier: "Frontier camps", c1_combe: "Combe" };
-const MODELS = { wb2_wenbridge: "Opus 5.5 · Sonnet 5.5 · Haiku 5.5", d1_duo: "Opus 4.5 · Opus 4.7 · Sonnet 4.6 · Haiku 4.5",
-  f1_frontier: "Opus 5.5 · Sonnet 5.5", c1_combe: "Opus 5.5 · Sonnet 5.5" };
+// the runs it plays, in order, with their names (their models come from the catalog)
+const TITLES = { water_lake_r2: "The lake", pw1_opus_sonnet_r1: "Peoples", wild_region_s7: "Wild region", wb2_wenbridge: "Wenbridge",
+  f1_frontier: "Frontier camps", c1_combe: "Combe", d1_duo: "Duo" };
 import * as R from "./render.js";                         // the drawing is done on its own thread, so the page never stalls
+import { catalog, file, short } from "./common.js";
+const MODELS = {};
 const cache = {};
+// a run from its viewer files on the Hub: its head and every day, read by the renderer's thread and by the page
 function run(key) {
-  return cache[key] = cache[key] || Promise.all([R.load(key, [`data/full/${key}.json`]), fetch(`data/full/${key}.json`).then((r) => r.json())]).then(([, V]) => {
+  return cache[key] = cache[key] || catalog().then((cat) => {
+    const r = cat[key] || {}, urls = [file(key, "head.json"), ...Array.from({ length: r.days || 0 }, (_, d) => file(key, `day/${d}.json`))];
+    MODELS[key] = (r.models || []).map(short).join(" · ");
+    return Promise.all([R.load(key, urls), Promise.all(urls.map((u) => fetch(u).then((x) => x.json())))]);
+  }).then(([, [head, ...days]]) => {
+    const V = { ...head, days };
     V.key = key;
     V.series = V.days.map((d) => { const at = {}; let alive = 0;
       for (const p of Object.values(d.people)) if (p.alive) { alive++; if (p.at) at[p.at] = (at[p.at] || 0) + 1; }
@@ -69,7 +77,7 @@ export async function showcase(root, mode, opts = {}) {
   const panel = (V, nodes, d, hot, phase) => {
     const s = V.series[d], st = V.static, here = nodes.reduce((a, n) => a + (s.at[n] || 0), 0);
     Q(".sc-where").textContent = `${nodes.length === 1 ? st.nodes[nodes[0]].name + " · " : ""}day ${d + 1} of ${V.days.length} · ${s.season}${phase ? " · " + phase : ""}`;
-    Q(".sc-title").textContent = TITLES[V.key]; Q(".sc-models").textContent = MODELS[V.key];
+    Q(".sc-title").textContent = TITLES[V.key] || V.key; Q(".sc-models").textContent = MODELS[V.key] || "";
     Q(".sc-open").href = `run.html?id=${encodeURIComponent("hub:" + V.key)}&day=${d + 1}`;     // the explorer, at this day
     Q(".sc-nums").innerHTML = `<div><b>${here}</b><span>${nodes.length === 1 ? "here" : "in these places"}</span></div><div><b>${s.alive}</b><span>alive, of ${V.series[0].alive}</span></div>
       <div><b>${Object.keys(st.nodes).length}</b><span>places</span></div>`;
@@ -104,7 +112,7 @@ export async function showcase(root, mode, opts = {}) {
   // (opts.prev, opts.next) slide to the run before or after, which starts again from its first day.
   // a run's first picture takes the renderer seconds (it lays out the whole world first), so the run after the one playing
   // is made ready while it plays, and the showcase opens on a quick one
-  const ORDER = ["wb2_wenbridge", "f1_frontier", "d1_duo", "c1_combe"], DAY_MS = 900;
+  const ORDER = ["water_lake_r2", "pw1_opus_sonnet_r1", "wild_region_s7", "wb2_wenbridge", "f1_frontier", "c1_combe", "d1_duo"], DAY_MS = 900;
   const ready = {};
   const prepare = (key) => ready[key] = ready[key] || run(key).then(async (V) => {
     const busy = busiest(V, 0, V.days.length - 1), nodes = busy.slice(0, mode === "tiles" && busy.length >= 4 ? 4 : 1);   // four tiles or one

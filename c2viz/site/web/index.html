@@ -59,7 +59,7 @@
     <div>
       <h1>An atlas of AI societies</h1>
       <p class="lede">Each run is a world of places joined by roads. Agents act where they stand and see only where they are, so a society's shape is partly its map: who could reach whom, and how many days it took.</p>
-      <p class="meta">55 runs · Claude Opus, Sonnet and Haiku · every day rebuilt from the engine's journal</p>
+      <p class="meta"><span data-count="N runs">Runs</span> · Claude Opus, Sonnet and Haiku · every day rebuilt from the engine's journal</p>
     </div>
     <div>
       <div class="atlas" data-run="f1_frontier" style="aspect-ratio:1184/927"><img src="img/f1_frontier-world.png" alt="Pixel map of the frontier: woods, rivers and camps"><svg></svg><span class="hint">Hover for the places</span></div>
@@ -67,7 +67,7 @@
     </div>
   </section>
 
-  <h2><span>Featured runs</span><a href="runs.html">All 55 runs →</a></h2>
+  <h2><span>Featured runs</span><a href="runs.html" data-count="All N runs →">All runs →</a></h2>
   <div class="cards" id="cards"></div>
 
   <svg class="ridge" data-seed="31" preserveAspectRatio="none" style="margin-top:56px"></svg>
@@ -76,7 +76,7 @@
   <footer>Cybertron 2 · <a href="https://zachmacsmith.com">Zach Macaskill-Smith</a> · code MIT, data CC BY 4.0</footer>
 </div>
 <script type="module">
-import { RUNS, load, ledger, overlay } from "./common.js";
+import { FEATURED, catalog, file, load, ledger, overlay } from "./common.js";
 import { showcase } from "./showcase.js";
 document.querySelectorAll(".ridge").forEach((svg) => {
   const W = 1120, H = 16, u = 4; let d = "", y = 10, s = +svg.dataset.seed;
@@ -86,25 +86,41 @@ document.querySelectorAll(".ridge").forEach((svg) => {
   svg.innerHTML = `<path d="${d} V${H} H0 Z" fill="#f3f0f6"/><path d="${d}" fill="none" stroke="#c4507a" stroke-width="1.5"/>`;
 });
 const mode = new URLSearchParams(location.search).get("mode") || "tiles";       // the chosen version; ?mode=places or days for the others
-// the featured cards go up at once from what is known of each run; the maps fade in as they load, and the days and the
-// graph of places fill in when the runs' data has come
 const ready = (img) => { const on = () => img.classList.add("ready"); img.complete && img.naturalWidth ? on() : img.addEventListener("load", on); };
 document.querySelectorAll(".atlas img").forEach(ready);
-const IMG = { wb2_wenbridge: "wb2_wenbridge-world.png", f1_frontier: "f1_frontier-world.png", c3_combe_rich: "c3_combe_rich-world.png", d1_duo: "d1_duo-world.png" };
-const host = document.getElementById("cards");
-for (const r of RUNS) {
-  const c = document.createElement("article"); c.className = "card";
-  const href = `run.html?id=${encodeURIComponent("hub:" + r.key)}`;                // the run in the explorer
-  c.innerHTML = `<a href="${href}" aria-label="Explore ${r.title}"><div class="atlas" data-run="${r.key}"><img src="img/${IMG[r.key]}" alt=""><svg></svg></div></a>
-    <h3><a href="${href}">${r.title}</a></h3><p>${r.line}</p>
-    <div class="stat"><span><b>${r.places}</b> places</span><span><b>${r.people}</b> people</span><span><b>${r.days}</b> days</span></div>
-    <div class="days small">${'<i class="todo"></i>'.repeat(r.days)}</div>`;
-  host.append(c); ready(c.querySelector("img"));
+
+// the featured cards: their words at once; their maps saved with the site (card_images.py: img/<run>-world.png, and where each
+// place is in img/worldpos.json, with the roads) and their graph of places over it on hover; their numbers and days from the catalog
+const NS = "http://www.w3.org/2000/svg", el = (t, a, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); p.append(e); return e; };
+function graph(svg, g) {
+  const pos = Object.fromEntries(g.nodes.map((n) => [n.id, n])), S = g.w / 500;
+  svg.setAttribute("viewBox", `0 0 ${g.w} ${g.h}`); svg.setAttribute("preserveAspectRatio", "xMidYMid slice");
+  for (const r of g.roads || []) { const a = pos[r.a], b = pos[r.b]; if (!a || !b) continue;
+    for (const [cls, wd] of [["case", 4], ["edge", 1.6]]) el("line", { x1: a.cx, y1: a.cy, x2: b.cx, y2: b.cy, class: cls, "stroke-width": S * wd, "stroke-dasharray": r.days > 1 && cls === "edge" ? `${S * 5} ${S * 4}` : "" }, svg); }
+  for (const n of g.nodes) el("circle", { cx: n.cx, cy: n.cy, r: S * (4 + Math.sqrt(n.pop) * 4), class: "node" + (n.pop ? " on" : "") }, svg);
 }
-const runs = await load(), by = Object.fromEntries(runs.map((r) => [r.key, r]));
-for (const c of host.children) ledger(c.querySelector(".days"), by[c.querySelector(".atlas").dataset.run]);
-await Promise.all([...document.querySelectorAll(".atlas")].map((a) => overlay(a.querySelector("svg"), by[a.dataset.run], { labels: !a.closest(".card") })));
-// the showcase last: its runs are large and drawing them is heavy, so the maps' graphs of places come first
+const WP = fetch("img/worldpos.json").then((r) => r.json());
+const host = document.getElementById("cards");
+const cards = FEATURED.map((f) => {
+  const c = document.createElement("article"); c.className = "card";
+  const href = `run.html?id=${encodeURIComponent("hub:" + f.key)}`;                // the run in the explorer
+  c.innerHTML = `<a href="${href}" aria-label="Explore ${f.title}"><div class="atlas"><img src="img/${f.key}-world.png" alt=""><svg></svg></div></a>
+    <h3><a href="${href}">${f.title}</a></h3><p>${f.line}</p>
+    <div class="stat"><span><b>–</b> places</span><span><b>–</b> people</span><span><b>–</b> days</span></div><div class="days small"></div>`;
+  host.append(c); ready(c.querySelector("img")); return c;
+});
+WP.then((wp) => FEATURED.forEach((f, i) => wp[f.key] && graph(cards[i].querySelector("svg"), wp[f.key])));
+const cat = await catalog();
+const n = Object.keys(cat).length;
+document.querySelectorAll("[data-count]").forEach((e) => (e.textContent = e.dataset.count.replace("N", n)));
+FEATURED.forEach((f, i) => {
+  const r = cat[f.key], c = cards[i]; if (!r) return;
+  c.querySelector(".stat").innerHTML = `<span><b>${r.places}</b> places</span><span><b>${r.people}</b> people</span><span><b>${r.days}</b> days</span>`;
+  ledger(c.querySelector(".days"), r);
+});
+// the hero's graph of places first (its picture is saved), then the cards' maps, two at a time
+load().then((hero) => overlay(document.querySelector(".hero .atlas svg"), hero, { labels: true }));
+// the showcase: its runs are large and drawing them is heavy (on the renderer's own thread)
 document.getElementById("showcase").classList.add("sc-" + mode);
 showcase(document.getElementById("showcase"), mode, { prev: document.getElementById("scPrev"), next: document.getElementById("scNext") });
 </script>

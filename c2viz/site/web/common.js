@@ -1,26 +1,33 @@
-// Shared data and small drawings for the Cybertron 2 design mockups. Every number here comes from the runs' own data
-// (data/*.json, saved from the c2viz server): places and roads from each run's head, people and seasons from its days.
-export const RUNS = [
-  { key: "wb2_wenbridge", title: "Wenbridge", days: 30, people: 12, places: 3,
-    models: ["Opus 5.5", "Sonnet 5.5", "Haiku 5.5"],
+// Shared data and small drawings for the Cybertron 2 site's home page. Every number comes from the runs' own data: the hero's
+// from its saved copy (data/), the featured runs' and the showcase's from their viewer files.
+// The runs: their viewer files on the Hub (c2viz/site/viewer_publish.py), or from ?data=<base> / self.C2_DATA holding the same layout
+export const HF = "https://huggingface.co/datasets/zachmacsmith/cybertron2-runs/resolve/main";
+export const BASE = (new URLSearchParams(location.search).get("data") || self.C2_DATA || HF).replace(/\/$/, "");
+export const file = (name, p) => `${BASE}/runs/${name}/viewer/${p}`;
+let CAT = null;
+export const catalog = () => CAT = CAT || fetch(`${BASE}/viewer/catalog.json`).then((r) => r.json()).then((c) => Object.fromEntries(c.runs.map((r) => [r.name, r])));
+export const short = (m) => m.replace(/^claude-/, "").replace(/-(\d+)-(\d+)$/, " $1.$2").replace(/-(\d+)$/, " $1").replace(/^\w/, (c) => c.toUpperCase());
+
+// the featured runs, chosen by hand; their numbers come from the catalog
+export const FEATURED = [
+  { key: "pw1_opus_sonnet_r1", title: "Peoples",
+    line: "Twenty people across eleven places for a hundred days, three years. Ten children are born; seven people are alive at the end." },
+  { key: "wild_region_s7", title: "Wild region",
+    line: "Thirty-seven people in ten places of wild country, through all four seasons. Twenty-nine see it out." },
+  { key: "wb2_wenbridge", title: "Wenbridge",
     line: "Twelve people in five households across a village, a wood and a hill. Three are alive at the end." },
-  { key: "f1_frontier", title: "Frontier camps", days: 38, people: 10, places: 12,
-    models: ["Opus 5.5", "Sonnet 5.5"],
-    line: "Ten people spread over twelve places joined by a ring of one-day roads, most of them wild." },
-  { key: "c3_combe_rich", title: "Combe, rich", days: 80, people: 3, places: 4,
-    models: ["Opus 5.5", "Sonnet 5.5"],
-    line: "Three people, four places and eighty days: the longest run, and nobody dies." },
-  { key: "d1_duo", title: "Duo", days: 10, people: 14, places: 2,
-    models: ["Opus 4.5", "Opus 4.7", "Sonnet 4.6", "Haiku 4.5"],
-    line: "Two villages two days apart, four households of fourteen people." },
+  { key: "water_lake_r2", title: "The lake",
+    line: "Fourteen people in four places by a lake, from spring through to winter." },
 ];
+
+// the hero's map: the frontier on day 20, its picture saved (img/), its places where the renderer put them (img/worldpos.json)
+export const HERO = { key: "f1_frontier" };
 
 export async function load() {
   const j = (p) => fetch(p).then((r) => r.json());
-  // all at once: the runs' days and every head in parallel
-  const [days, ...heads] = await Promise.all([j("data/days.json"), ...RUNS.map((r) => j(`data/${r.key}.head.json`))]);
-  RUNS.forEach((r, i) => { r.head = heads[i]; r.series = days[r.key]; });
-  return RUNS;
+  const [days, head] = await Promise.all([j("data/days.json"), j(`data/${HERO.key}.head.json`)]);
+  HERO.head = head; HERO.series = days[HERO.key];
+  return HERO;
 }
 
 const NS = "http://www.w3.org/2000/svg";
@@ -79,7 +86,7 @@ export function chart(svg, run, { w = 600, h = 120, steps = false, band = 8, axi
 
 // one cell a day: the season's colour, fading as people die; a death is a mark above the cell
 export function ledger(host, run) {
-  const s = run.series, max = s[0].alive;
+  const s = run.series || run.strip, max = (s[0] || {}).alive || 1;
   host.innerHTML = s.map((p, i) => {
     const died = i > 0 && p.alive < s[i - 1].alive;
     return `<i style="background:${SEASON[p.season]};opacity:${0.35 + 0.65 * p.alive / max}" class="${died ? "death" : ""}" title="Day ${i + 1}: ${p.alive} alive, ${p.season}"></i>`;
@@ -89,7 +96,7 @@ export function ledger(host, run) {
 // the graph of places drawn over the world map, each node where the renderer put the place (img/worldpos.json)
 let WP = null;
 export async function overlay(svg, run, { labels = true } = {}) {
-  WP = WP || fetch("img/worldpos.json").then((r) => r.json());                   // one fetch, shared by every map
+  WP = WP || fetch("img/worldpos.json").then((r) => r.json());                   // one fetch, shared by every map (the hero's)
   const P = (await WP)[run.key], pos = Object.fromEntries(P.nodes.map((n) => [n.id, [n.cx, n.cy]])), at = (run.series[P.day] || {}).at || {};
   svg.setAttribute("viewBox", `0 0 ${P.w} ${P.h}`); svg.setAttribute("preserveAspectRatio", "xMidYMid slice"); svg.innerHTML = "";
   const S = P.w / 500;
