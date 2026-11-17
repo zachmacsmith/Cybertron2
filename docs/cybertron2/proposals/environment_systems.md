@@ -1,7 +1,6 @@
 # Environment systems: the land at three speeds, on the places the engine already has
 
-**Status:** partly accepted: D2-221 (three speeds), D2-222 (places), D2-223 (spread functions), D2-224 (events from stocks), D2-225 (order), D2-226 (floodplains now), D2-227 (harsher places), D2-228 (calibration across worlds), with D2-214 (two clocks); (6) the frequencies still open (17 Nov).
-build yet.
+**Status:** partly accepted: D2-221 (three speeds), D2-222 (places), D2-223 (spread functions), D2-224 (events from stocks), D2-225 (order), D2-226 (floodplains now), D2-227 (harsher places), D2-228 (calibration across worlds), with D2-214 (two clocks); (6) the frequencies still open (17 Nov). Nothing built yet.
 **Owner:** 37.2 (design, the generator, the wild layer); 37.4 (the engine).
 **Affects:** spec/environment/ (scheduler.md, resources.md, a new file for the land's stocks); spec/world/generation.md;
 `engine/climate.py`, `engine/renewal.py`, `engine/night.py`, `engine/farm.py`, `engine/roads.py`, `engine/forests.py`,
