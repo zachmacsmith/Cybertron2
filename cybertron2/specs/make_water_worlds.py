@@ -269,7 +269,9 @@ def no_farming(world: dict, keep=()) -> dict:
                     st.pop(k)
                 p["text"] = "rough ground by the river: thorn, bramble and coarse grass, never ploughed"
                 fields += 1
-    gone = [h for h, x in (world.get("herds") or {}).items() if x.get("node") not in keep]
+    node_of_parcel = {pid: nid for nid, n in world["nodes"].items() for pid in (n.get("parcels") or {})}
+    gone = [h for h, x in (world.get("herds") or {}).items()                # a herd by its node, or the node of its parcel
+            if (x.get("node") or node_of_parcel.get(x.get("parcel"))) not in keep]
     herds = len(gone)
     for h in gone:
         world["herds"].pop(h)

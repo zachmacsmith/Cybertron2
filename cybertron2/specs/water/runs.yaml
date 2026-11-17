@@ -584,7 +584,7 @@ nodes:
           drain_rate: 0.25
           depth: 1.14
           base_fertility: 1.15
-          position: hollow
+          position: slope
           rain_factor: 0.968
           sea_km: 99.0
           river: none
@@ -1008,7 +1008,7 @@ nodes:
           drain_rate: 0.08
           depth: 1.11
           base_fertility: 1.05
-          position: hollow
+          position: slope
           rain_factor: 1.003
           sea_km: 99.0
           river: none
@@ -1253,7 +1253,7 @@ nodes:
           drain_rate: 0.25
           depth: 1.18
           base_fertility: 1.15
-          position: hollow
+          position: slope
           rain_factor: 0.993
           sea_km: 99.0
           river: none
@@ -2589,7 +2589,59 @@ buildings:
       dung: 10
       wooden plough: 1
       harness: 2
-herds: {}
+herds:
+  field_cattle:
+    name: the Field cattle
+    kind: cattle
+    parcel: Middleham_4
+    cows: 2
+    oxen: 2
+    bulls: 1
+    young: 1
+    in_milk: 1
+    holder: Field
+  fletcher_cattle:
+    name: the Fletcher cows
+    kind: cattle
+    parcel: Middleham_4
+    cows: 2
+    young: 1
+    in_milk: 1
+    holder: Fletcher
+  hart_cattle:
+    name: the Hart cows
+    kind: cattle
+    parcel: Middleham_4
+    cows: 2
+    young: 1
+    in_milk: 1
+    holder: Hart
+  wood_cattle:
+    name: the Wood cattle
+    kind: cattle
+    parcel: Lowstrand_3
+    cows: 2
+    oxen: 2
+    bulls: 1
+    young: 1
+    in_milk: 1
+    holder: Wood
+  wright_cattle:
+    name: the Wright cows
+    kind: cattle
+    parcel: Lowstrand_3
+    cows: 2
+    young: 1
+    in_milk: 1
+    holder: Wright
+  cotter_cattle:
+    name: the Cotter cows
+    kind: cattle
+    parcel: Lowstrand_3
+    cows: 2
+    young: 1
+    in_milk: 1
+    holder: Cotter
 wild:
   land:
     version: 1
