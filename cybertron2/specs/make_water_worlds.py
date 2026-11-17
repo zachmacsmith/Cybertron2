@@ -320,20 +320,20 @@ def lake_check(world: dict) -> dict:
 
 
 def river_sites(s: dict, at_y: dict = None) -> dict:
-    """A first pass over the land alone: for each village, a cell of the large river (class 3) near its latitude, closest to the
-    river's middle course; the village is pinned within 1.5 km of it, so its water parcels are on the large river (§1)."""
+    """A first pass over the land alone: for each village, a cell of the main large river near its latitude (of the class-3 cells
+    there, the one draining the most land); the village is pinned within 1.5 km of it, so its water parcels are on the large river
+    (§1)."""
     import numpy as np
     with contextlib.redirect_stdout(io.StringIO()):
         _, cells, _ = W.generate(copy.deepcopy(s), people=False)
-    x, y, r = np.asarray(cells["x"]), np.asarray(cells["y"]), np.asarray(cells["river"])
+    x, y, r, acc = np.asarray(cells["x"]), np.asarray(cells["y"]), np.asarray(cells["river"]), np.asarray(cells["acc"])
     big = r >= 3
-    mid = float(np.median(x[big])) if big.any() else S / 2
     out = {}
     for name, fy in (at_y or RIVER_AT_Y).items():
         for band in (1.0, 2.0, 3.0, 4.0):
             m = big & (np.abs(y - fy * S) <= band)
-            if m.any():
-                i = int(np.flatnonzero(m.ravel())[np.argmin(np.abs(x.ravel()[m.ravel()] - mid))])
+            if m.any():                                                    # the main river: at this latitude the one carrying the
+                i = int(np.flatnonzero(m.ravel())[np.argmax(acc.ravel()[m.ravel()])])   # most water (a large tributary may be beside it)
                 out[name] = [round(float(x.ravel()[i]), 2), round(float(y.ravel()[i]), 2)]
                 break
     return out

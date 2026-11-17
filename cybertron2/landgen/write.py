@@ -245,6 +245,8 @@ def generate(spec: dict, path: str | None = None, people: bool = False, describe
     by_key = {v["name"]: k for k, v in report["nodes"].items()}
     spec2 = copy.deepcopy(spec)
     spec2.setdefault("generate", {})["_people"] = {by_key[n]: c for n, c in counts.items() if c}
+    spec2["generate"]["_names"] = {k: v["name"] for k, v in report["nodes"].items()}   # the land resized for them may name the place
+                                                                                       # otherwise, and the people go by its name
     return _generate(spec2, path, True, describe, out_path)
 
 
@@ -252,6 +254,7 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
     gen = dict(spec.get("generate") or {})
     conf = _conf(gen)
     conf["_people"] = gen.get("_people") or {}
+    conf["_names"] = gen.get("_names") or {}
     seed = int(gen.get("seed", spec.get("seed", 1)))
     settings = _base_settings(spec, path)
     report = {"seed": seed, "pins": {}, "targets": {}, "checks": {}, "generated": [], "deviations": [
@@ -280,7 +283,8 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
     for k in places:
         namer.used.add(k)
     for s in allnodes:
-        s.name = s.key if s.key in places else namer.place(s.key, _place_facts(L, s, roads))
+        s.name = (s.key if s.key in places else conf["_names"].get(s.key)          # the second pass keeps the first's names: the
+                  or namer.place(s.key, _place_facts(L, s, roads)))                  # people are drawn by them (D2-161)
     model = None
     if describe:
         cast = settings.get("cast") or {}

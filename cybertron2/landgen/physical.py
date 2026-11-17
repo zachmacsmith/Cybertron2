@@ -214,6 +214,47 @@ def _spread(g: Grid, src: np.ndarray, val: np.ndarray, steps: int, how="max"):
     return out, dist
 
 
+
+def _floodplains(g: Grid, conf: dict, h: np.ndarray, acc: np.ndarray, recv, riv: np.ndarray, sea: np.ndarray, mf: dict) -> np.ndarray:
+    """A valley floor along every river (D2-226), the floor's half-width growing with the river (floodplain_km x sqrt(area drained /
+    river_km2), at most floodplain_max_km) and narrowed where the river falls steeply (an upland beck runs in a V; a lowland river
+    on a wide flat), lying floodplain_rise_m above the river's channel (low at the bank, higher at the floor's edge), with the
+    valley's sides beyond rising at valley_side_m_km until they meet the land. The land is only ever lowered. A fen is left as it is
+    (water spreads on the flat already). Before this the valley was a notch one cell wide, the river 14 to 24 m below the land
+    beside it (02zzn §3.1)."""
+    ny, nx = g.shape
+    H = h.ravel()
+    grad = np.zeros(H.size)
+    rr = np.flatnonzero(riv.ravel())
+    for i in rr:                                                           # the river's fall to the next cell down, per km
+        j = recv[i]
+        if j >= 0:
+            d = g.km * (1.4142 if (i // nx != j // nx and i % nx != j % nx) else 1.0)
+            grad[i] = max(0.0, (H[i] - H[j]) / (d * 1000.0))
+    grad = grad.reshape(g.shape)
+    half = np.clip(float(conf["floodplain_km"]) * np.sqrt(acc / float(conf["river_km2"])), 0, float(conf["floodplain_max_km"]))
+    half = half * np.clip(float(conf["floodplain_grad"]) / np.maximum(grad, 1e-6), 0.15, 1.0) * riv
+    lo, hi = conf["floodplain_rise_m"]
+    side = float(conf["valley_side_m_km"])                               # steeper sides where the river falls fast (up to 3x)
+    reach = int(np.ceil((float(conf["floodplain_max_km"]) + float(conf.get("valley_side_reach_km", 1.5))) / g.km))
+    out = h.copy()
+    fen = mf["systems"]["fen"] > 0.5
+    # one pass per river size, largest first, so a cell beside a big river takes the big river's floor even if a brook is nearer
+    for cls_lo, cls_hi in ((conf["large_km2"], np.inf), (conf["medium_km2"], conf["large_km2"]), (conf["river_km2"], conf["medium_km2"])):
+        src = riv & (acc >= cls_lo) & (acc < cls_hi)
+        if not src.any():
+            continue
+        zr, dist = _spread(g, src, h, reach, how="near")                  # the nearest such river's channel height, distance in cells
+        hw, _ = _spread(g, src, half, reach, how="near")                  # and its floor's half-width, km
+        steep, _ = _spread(g, src, np.clip(grad / float(conf["floodplain_grad"]), 1.0, 3.0), reach, how="near")
+        d_km = dist * g.km
+        ok = np.isfinite(dist) & ~src & ~sea & ~fen
+        zr, hw, steep = np.nan_to_num(zr), np.nan_to_num(hw), np.nan_to_num(steep, nan=1.0)
+        floor = zr + lo + (hi - lo) * np.clip(d_km / np.maximum(hw, 1e-6), 0, 1)
+        surface = np.where(d_km <= hw, floor, zr + hi + side * steep * (d_km - hw))
+        out = np.where(ok, np.minimum(out, surface), out)
+    return out
+
 def build(conf: dict, g: Grid, prims: list) -> Land:
     mf = M.compose(g, prims)
     h = elevation(g, conf, mf)
@@ -231,10 +272,14 @@ def build(conf: dict, g: Grid, prims: list) -> Land:
         acc = accumulate(g, recv, order, rain, sea)
         if cut:
             riv = acc >= conf["river_km2"]
-            cut_m = np.clip(conf["incision_m"] * np.sqrt(acc / conf["river_km2"]), 0, 40) * riv
-            cut_m = cut_m * (mf["systems"]["fen"] <= 0.5)                 # a fen is not cut into valleys: water spreads on the flat
-            side = np.maximum.reduce([g.shifted(cut_m, dr, dc, 0.0) for dr, dc in F.N8]) * (~riv)   # the valley's sides
-            h = h - cut_m - 0.4 * side
+            # the channel is cut from the drained surface (Z: the land with its hollows filled, so it only ever falls downstream),
+            # a little below it by the river's size; not from the raw land by a depth that grows with the flow, which left pits
+            # where low ground met a deep cut, and the breach then dragged the whole river down to the deepest pit (02zzn §3.1:
+            # 42% of a large river's cells below 1 m)
+            chan = np.clip(float(conf["channel_m"]) * np.sqrt(acc / conf["river_km2"]), float(conf["channel_m"]),
+                           float(conf["channel_max_m"]))
+            chan = np.where(mf["systems"]["fen"] > 0.5, float(conf["channel_m"]), chan)   # a fen's rivers lie in the flat
+            h = np.where(riv, np.minimum(h, Z - chan), h)
     # a closed hollow holds water only where this landscape makes lakes (meres in fens, tarns in uplands, a laid lake) and it is
     # deep and large enough; every other hollow is breached, its outlet cut through the rim, as river country drains
     # (temperate_landscapes.md §3b)
@@ -249,7 +294,16 @@ def build(conf: dict, g: Grid, prims: list) -> Land:
         cap = max(1, int(round(ok.sum() * area / 1000.0 * conf["lakes_per_1000km2"])))   # a few tarns or meres, the largest
         for k in sorted(cand, key=lambda k: -vol[k])[:cap]:
             lake |= lab == k
+    # a hollow deeper than breach_max_m is filled to that depth below its spill (a flat basin, which the wetness reads), so the
+    # breach cuts its rim by at most that: cutting the whole way dragged every river below a deep hollow down to the hollow's floor
+    # for kilometres (a canyon 20 to 40 m below its banks: 02zzn §3.1)
+    h = np.where(~lake & ~sea & (Z - h > float(conf["breach_max_m"])), Z - float(conf["breach_max_m"]), h)
     h = _breach(g, h, Z, recv, order, lake)
+    Z, recv, order = flood(g, h, sea)
+    acc = accumulate(g, recv, order, rain, sea)
+    # valley floors along the rivers as they finally run (D2-226), then the flow once more over the floored land
+    riv = (acc >= conf["river_km2"]) & ~sea & ~lake
+    h = _floodplains(g, conf, h, acc, recv, riv, sea, mf)
     Z, recv, order = flood(g, h, sea)
     acc = accumulate(g, recv, order, rain, sea)
     river = np.select([acc >= conf["large_km2"], acc >= conf["medium_km2"], acc >= conf["river_km2"]], [3, 2, 1], 0) * ~sea * ~lake
