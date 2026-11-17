@@ -62,7 +62,7 @@ Ranges are wide on purpose. They say a place of this kind looks like this, not a
   (02zzo) were found this way, one world at a time.
 - **Weather:** climate from the land (Q-56) is calibrated on rows 1 to 7 and 12.
 - **Water:** the two-clock river model (02zzn) and the flow levels (D2-218) on every world with rivers.
-- **Ecosystems:** the wild layer's calibration backlog (02zp §16) and the water measure's fish-eaters (W-52) across all twelve.
+- **Ecosystems:** the wild layer's calibration backlog (02zp §16) and the water measure's fish-eaters (W-60) across all twelve.
 
 ## Why
 
