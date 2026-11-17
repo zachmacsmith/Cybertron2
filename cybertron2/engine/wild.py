@@ -724,12 +724,14 @@ def _dam(w, sid, site, up, direct=False) -> None:
     par = w.s["parcels"][site["parcel"]]
     near = [q for q in [site["parcel"]] + list(par.get("adj") or []) if q in w.s["parcels"]]
     k0 = dict(site.get("k0") or {})
+    seen = set()                                                            # a water body's stock raised once (D2-229)
     for q in near:
         p_ = w.s["parcels"][q]
         for key, mult, covers in ((d["floods"]["res"], d["floods"]["K"], d["floods"]["covers"]), ("fish", d["fish"], ["water"])):
             r = (p_.get("res") or {}).get(key)
-            if not r or p_["cover"] not in covers:
+            if not r or p_["cover"] not in covers or id(r) in seen:
                 continue
+            seen.add(id(r))
             base = float(k0.get(f"{q}|{key}", r["K"]))
             k0[f"{q}|{key}"] = base
             K = round(base * (float(mult) if up else 1.0), 4)
@@ -832,11 +834,12 @@ def _sites_night(w, m, st) -> dict:
 
 def _site_stock(w, node, e_) -> dict:
     """{parcel: stock standing} of a site's `eats` stock on the village's parcels of its covers."""
+    from cybertron2.engine import waters as WA
     out = {}
     for q, par in sorted(w.s["parcels"].items()):
         r = (par.get("res") or {}).get(e_["res"])
-        if par["node"] == node and par["cover"] in e_["covers"] and r and float(r["S"]) > 0:
-            out[q] = float(r["S"])
+        if par["node"] == node and par["cover"] in e_["covers"] and r and float(r["S"]) > 0 and WA.lead(w, q, e_["res"]):
+            out[q] = float(r["S"])                                             # a water body's stock once (D2-229)
     return out
 
 

@@ -829,6 +829,8 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
     start_day = 0
     if mode == "continue":                                                  # the world as it was at the end of that day
         w.s = restored["world"]
+        from cybertron2.engine import waters as WA
+        WA.link(w)                                                          # a body's stock one record again (D2-229)
         start_day = int(at.split(".")[0][1:]) + 1
     backend = backend or os.environ.get("LLM_BACKEND") or "claude_code"
     out.mkdir(parents=True, exist_ok=True)

@@ -249,6 +249,8 @@ class World:
             TH.remember(self, who, cid, "put")
         from cybertron2.engine import buildings as BL
         BL.install(self)                                                       # what does not fit in a store lies at its door (D2-155)
+        from cybertron2.engine import waters as WA
+        WA.seed(self, spec)                                                    # one fish stock a water body (D2-229)
         if "wild" in PK.of(self):                                              # the wild layer (wild_layer.md, D2-199): its land
             from cybertron2.engine import wild as WL                           # summary and starting populations; no other world
             WL.seed(self)                                                      # holds the key

@@ -14,9 +14,9 @@ stores) are versioned with the memory and knowledge code, not here; `today` is t
 import hashlib
 import json
 
-WORLD_SCHEMA = 10
+WORLD_SCHEMA = 11
 
-TOP = ["acts", "agreements", "buildings", "claims", "containers", "day", "events", "fuse_calls", "herds", "institutions", "know", "left", "life", "log", "mind", "nodes", "offers", "parcels", "people", "roads", "seq", "tag_seq", "today", "traces", "wild", "world_schema"]
+TOP = ["acts", "agreements", "buildings", "claims", "containers", "day", "events", "fuse_calls", "herds", "institutions", "know", "left", "life", "log", "mind", "nodes", "offers", "parcels", "people", "roads", "seq", "tag_seq", "today", "traces", "waters", "wild", "world_schema"]
 
 TODAY = ["_departed", "_floor", "admits", "awake", "care", "care_by", "care_gift", "children_work", "day_seen", "drawn", "fights", "fire", "fled", "fuse", "green_cut", "guards", "heard", "joins", "learn", "left", "memory_done", "night_watch", "partner", "partners", "parties", "party_acts", "road", "route", "skipped_morning", "sleep", "soaked", "teach", "thefts", "travel", "travel_choices", "travel_morning", "try", "turned", "units", "watch", "worked"]
 
@@ -41,7 +41,7 @@ def fingerprint() -> str:
     return hashlib.sha256(text.encode()).hexdigest()[:16]
 
 
-FINGERPRINTS = {1: "e1d55a118a64e158", 2: "a421982d8386594d", 3: "c601af88f077aa24", 4: "b08305180595888d", 5: "9c6e6d410f57a40c", 6: "6597e0afc9349ad3", 7: "7fefb87aabce2038", 8: "aba44cca82e7403d", 9: "bf685e5d5b3959ea", 10: "04526b5802ec003f"}                                                    # the declared shape of each version
+FINGERPRINTS = {1: "e1d55a118a64e158", 2: "a421982d8386594d", 3: "c601af88f077aa24", 4: "b08305180595888d", 5: "9c6e6d410f57a40c", 6: "6597e0afc9349ad3", 7: "7fefb87aabce2038", 8: "aba44cca82e7403d", 9: "bf685e5d5b3959ea", 10: "04526b5802ec003f", 11: "e6cef8cc799bf08e"}                                                    # the declared shape of each version
 
 
 def unknown(s) -> list:

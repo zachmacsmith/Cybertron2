@@ -532,11 +532,13 @@ def _grow(w):
     p = w.p
     from cybertron2.engine import renewal as RN
     season = w.calendar()["season"]
+    done = set()                                                                         # a body's stock is renewed once (D2-229)
     for pid, par in w.s["parcels"].items():
         for key, r in par["res"].items():
             rule = RN.of(key, r)                                                         # woods: forests.night (D2-156)
-            if rule not in RN.NIGHTLY or r["K"] <= 0:
+            if rule not in RN.NIGHTLY or r["K"] <= 0 or id(r) in done:
                 continue
+            done.add(id(r))
             S = RN.RULES[rule](p, r, RN.context(w, par, winter=winter, season=season))   # with its place's weather (D4-113)
             if S != r["S"]:
                 w.apply("set_res", par["node"], parcel=pid, key=key, fields={"S": S})
