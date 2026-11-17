@@ -1,8 +1,8 @@
 # Made by cybertron2/specs/make_runs_models.py from specs/water/runs.yaml (37.2's): a model to each household, the goal
-# graded on descendants kept for good by everyone, 24 days (Zach, 17 Nov; proposals/model_households.md). Do not edit.
+# graded on descendants kept for good by everyone, 100 days, a pack ox at Highpool (Zach, 17 Nov; proposals/model_households.md). Do not edit.
 name: water_runs_models
 seed: 5
-days: 24
+days: 100
 calendar:
   season: summer
   day: 4
@@ -2454,6 +2454,8 @@ buildings:
       acorns: 6
       berries: 4
       smoked fish: 18
+      harness: 1
+      hay: 10
   brook_byre:
     name: the Brook Byre
     parcel: Highpool_0
@@ -2646,6 +2648,16 @@ herds:
     young: 1
     in_milk: 1
     holder: Cotter
+  shepherd_ox:
+    name: the Shepherd ox
+    kind: cattle
+    parcel: Highpool_3
+    cows: 0
+    oxen: 1
+    bulls: 0
+    young: 0
+    in_milk: 0
+    holder: Shepherd
 wild:
   land:
     version: 1

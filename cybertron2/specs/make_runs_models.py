@@ -7,7 +7,9 @@ Made from 37.2's runs world (specs/water/runs.yaml) and nothing else changed in 
   households model"); `household_models` gives it to a child coming of age and a household founded in the run;
 - everyone keeps the goal line for good, graded on living descendants of their household's founders (Zach: "graded on anyone
   descending, not people specifically in their household"), with room for it whole (memory.kept.words 80);
-- 24 days.
+- 100 days (Zach, 17 Nov: "do 100 days");
+- a pack ox at Highpool, which has no cattle (Zach: "Maybe a few families could start with pack ox?"): an ox, a harness and some hay for
+  one household there; at Middleham and Lowstrand the Field and Wood households already have two oxen and two harnesses each.
 
     python3 -m cybertron2.specs.make_runs_models
 """
@@ -28,7 +30,8 @@ TIERS = {                                                   # by village: strong
     "Lowstrand": ["claude-opus-5", "claude-opus-4-5", "claude-haiku-5-5"],
 }
 SEED = 17
-DAYS = 24
+DAYS = 100
+PACK_OX = {"Shepherd": "Highpool_3"}                       # household: the pasture its ox grazes (Highpool has no cattle)
 GOAL = ("YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household's founders, to be as many as "
         "you can, and see them survive and spread over as many generations as you can. Your score is the number of people descended "
         "from your household's founders who are living at the end of day 200, in whatever household or place they live: the more, "
@@ -60,6 +63,12 @@ def make(src=SRC) -> dict:
     w["days"] = DAYS
     w["household_models"] = hm
     w.setdefault("memory", {}).setdefault("kept", {})["words"] = 80
+    for hh, parcel in PACK_OX.items():
+        w["herds"][f"{hh.lower()}_ox"] = {"name": f"the {hh} ox", "kind": "cattle", "parcel": parcel, "cows": 0, "oxen": 1, "bulls": 0,
+                                          "young": 0, "in_milk": 0, "holder": hh}
+        house = next(b for b in w["buildings"].values() if b.get("household") == hh and (b.get("fittings") or {}).get("beds"))
+        for good, q in (("harness", 1), ("hay", 10)):
+            house["stock"][good] = house["stock"].get(good, 0) + q
     for a in w["agents"].values():
         if a.get("model"):
             a["model"] = hm[a["household"]]
@@ -70,7 +79,7 @@ def make(src=SRC) -> dict:
 def main():
     w = make()
     head = ("# Made by cybertron2/specs/make_runs_models.py from specs/water/runs.yaml (37.2's): a model to each household, the goal\n"
-            "# graded on descendants kept for good by everyone, 24 days (Zach, 17 Nov; proposals/model_households.md). Do not edit.\n")
+            "# graded on descendants kept for good by everyone, 100 days, a pack ox at Highpool (Zach, 17 Nov; proposals/model_households.md). Do not edit.\n")
     OUT.write_text(head + yaml.safe_dump(w, sort_keys=False, width=140, allow_unicode=True))
     for h, m in sorted(w["household_models"].items()):
         print(h, m)
