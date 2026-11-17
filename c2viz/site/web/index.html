@@ -6,6 +6,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="site.css">
+<!-- the hero's and the featured cards' maps (common.js FEATURED), fetched at once, before the page's script runs -->
+<link rel="preload" as="image" href="img/f1_frontier-world.webp" fetchpriority="high">
+<link rel="preload" as="image" href="img/pw1_opus_sonnet_r1-world.webp"><link rel="preload" as="image" href="img/wild_region_s7-world.webp">
+<link rel="preload" as="image" href="img/wb2_wenbridge-world.webp"><link rel="preload" as="image" href="img/water_lake_r2-world.webp">
 <style>
   .hero { display: grid; grid-template-columns: 5fr 7fr; gap: 48px; padding: 48px 0 24px; align-items: center; }
   @media (max-width: 860px) { .hero { grid-template-columns: 1fr; gap: 24px; padding-top: 28px; } }
@@ -62,7 +66,7 @@
       <p class="meta"><span data-count="N runs">Runs</span> · Claude Opus, Sonnet and Haiku · every day rebuilt from the engine's journal</p>
     </div>
     <div>
-      <div class="atlas" data-run="f1_frontier" style="aspect-ratio:1184/927"><img src="img/f1_frontier-world.png" alt="Pixel map of the frontier: woods, rivers and camps"><svg></svg><span class="hint">Hover for the places</span></div>
+      <div class="atlas" data-run="f1_frontier" style="aspect-ratio:1184/927"><img src="img/f1_frontier-world.webp" fetchpriority="high" alt="Pixel map of the frontier: woods, rivers and camps"><svg></svg><span class="hint">Hover for the places</span></div>
       <div class="cap"><span>Frontier camps, day 20 of 38</span><span>12 places · 12 roads · red: people there today</span></div>
     </div>
   </section>
@@ -89,7 +93,7 @@ const mode = new URLSearchParams(location.search).get("mode") || "tiles";       
 const ready = (img) => { const on = () => img.classList.add("ready"); img.complete && img.naturalWidth ? on() : img.addEventListener("load", on); };
 document.querySelectorAll(".atlas img").forEach(ready);
 
-// the featured cards: their words at once; their maps saved with the site (card_images.py: img/<run>-world.png, and where each
+// the featured cards: their words at once; their maps saved with the site (card_images.py: img/<run>-world.webp, and where each
 // place is in img/worldpos.json, with the roads) and their graph of places over it on hover; their numbers and days from the catalog
 const NS = "http://www.w3.org/2000/svg", el = (t, a, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); p.append(e); return e; };
 function graph(svg, g) {
@@ -104,7 +108,7 @@ const host = document.getElementById("cards");
 const cards = FEATURED.map((f) => {
   const c = document.createElement("article"); c.className = "card";
   const href = `run.html?id=${encodeURIComponent("hub:" + f.key)}`;                // the run in the explorer
-  c.innerHTML = `<a href="${href}" aria-label="Explore ${f.title}"><div class="atlas"><img src="img/${f.key}-world.png" alt=""><svg></svg></div></a>
+  c.innerHTML = `<a href="${href}" aria-label="Explore ${f.title}"><div class="atlas"><img src="img/${f.key}-world.webp" alt=""><svg></svg></div></a>
     <h3><a href="${href}">${f.title}</a></h3><p>${f.line}</p>
     <div class="stat"><span><b>–</b> places</span><span><b>–</b> people</span><span><b>–</b> days</span></div><div class="days small"></div>`;
   host.append(c); ready(c.querySelector("img")); return c;

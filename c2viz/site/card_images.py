@@ -1,5 +1,5 @@
 """The home page's featured maps, drawn once and saved with the site: each run's world on one day, by the c2viz renderer in a
-headless browser, as web/img/<run>-world.png, with where it put each place (and the roads) in web/img/worldpos.json.
+headless browser, as web/img/<run>-world.webp (at most 640 pixels wide: a card shows it at about 260), with where it put each place (and the roads) in web/img/worldpos.json.
 
     python3 c2viz/site/card_images.py pw1_opus_sonnet_r1 wild_region_s7 wb2_wenbridge water_lake_r2 [--day 4]
 
@@ -29,11 +29,22 @@ def get(url: str):
         return json.load(r)
 
 
+def save(png: bytes, path: Path, width: int) -> None:
+    """A drawn world as WebP (about a quarter of the PNG), no wider than `width`; worldpos.json keeps the drawing's own pixels."""
+    import io
+    from PIL import Image
+    im = Image.open(io.BytesIO(png)).convert("RGB")
+    if im.width > width:
+        im = im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
+    im.save(path, "WEBP", quality=88, method=6)
+
+
 def main(argv=None) -> None:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("runs", nargs="+")
     ap.add_argument("--day", type=int, default=4, help="the day drawn, from 0 (default 4: day 5, the people settled in)")
     ap.add_argument("--base", default=HF, help="where the viewer files are")
+    ap.add_argument("--width", type=int, default=640, help="the saved picture's largest width (the hero's: 1200)")
     a = ap.parse_args(argv)
     from playwright.sync_api import sync_playwright
     pos_file = IMG / "worldpos.json"
@@ -54,7 +65,7 @@ def main(argv=None) -> None:
                 return { png: cv.toDataURL("image/png"), w: cv.width, h: cv.height,
                          nodes: r.hotspots.filter((h) => h.kind === "node").map((h) => ({ id: h.id, cx: h.cx, cy: h.cy, label: h.label, pop: h.pop || 0 })) };
             }""", [head, days, day])
-            (IMG / f"{key}-world.png").write_bytes(base64.b64decode(out["png"].split(",", 1)[1]))
+            save(base64.b64decode(out["png"].split(",", 1)[1]), IMG / f"{key}-world.webp", a.width)
             pos[key] = {"w": out["w"], "h": out["h"], "day": day, "nodes": out["nodes"],
                         "roads": [{"a": r["a"], "b": r["b"], "days": r["days"]} for r in (head["static"].get("roads") or {}).values()]}
             print(f"  {key}: day {day + 1}, {out['w']}x{out['h']}, {len(out['nodes'])} places", flush=True)

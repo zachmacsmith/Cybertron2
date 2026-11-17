@@ -27,7 +27,7 @@ HERE = Path(__file__).resolve().parent
 C2VIZ = HERE.parent
 WEB = HERE / "web"                                                          # the site's pages (home, runs); the explorer is run.html
 TYPES = {".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8",
-         ".json": "application/json", ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml"}
+         ".json": "application/json", ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".svg": "image/svg+xml"}
 SEASONS = ["spring", "summer", "autumn", "winter"]
 
 

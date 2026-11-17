@@ -8,7 +8,8 @@ let CAT = null;
 export const catalog = () => CAT = CAT || fetch(`${BASE}/viewer/catalog.json`).then((r) => r.json()).then((c) => Object.fromEntries(c.runs.map((r) => [r.name, r])));
 export const short = (m) => m.replace(/^claude-/, "").replace(/-(\d+)-(\d+)$/, " $1.$2").replace(/-(\d+)$/, " $1").replace(/^\w/, (c) => c.toUpperCase());
 
-// the featured runs, chosen by hand; their numbers come from the catalog
+// the featured runs, chosen by hand; their numbers come from the catalog. Changing them: draw their maps (card_images.py) and
+// update the preload links in index.html's head
 export const FEATURED = [
   { key: "pw1_opus_sonnet_r1", title: "Peoples",
     line: "Twenty people across eleven places for a hundred days, three years. Ten children are born; seven people are alive at the end." },
