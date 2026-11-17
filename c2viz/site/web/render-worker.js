@@ -7,6 +7,14 @@ const runs = {};
 const json = (u) => fetch(u).then((r) => { if (!r.ok) throw new Error(`${u}: ${r.status}`); return r.json(); });
 self.onmessage = async ({ data: m }) => {
   try {
+    if (m.op === "set") {                                                // a run handed over whole by the page (its head and days so far)
+      runs[m.key] = Promise.resolve(m.V);
+      return self.postMessage({ id: m.id });
+    }
+    if (m.op === "add") {                                                // its next day, as it arrives
+      (await runs[m.key]).days.push(m.day);
+      return self.postMessage({ id: m.id });
+    }
     if (m.op === "load") {
       if (!runs[m.key]) runs[m.key] = (async () => {
         if (m.urls.length === 1) return json(m.urls[0]);                 // a whole viz.json
