@@ -171,8 +171,11 @@ def waters(L, nodes, label, areas, km: float) -> dict:
                 ai = label[r, c]
                 ai = ai[ai >= 0]
                 body = reach_of.get(f"a{int(np.bincount(ai).argmax())}") if ai.size else None
-            if body:
-                out[body]["parcels"].append(p.pid)
+            if body is None:                                               # water too small to be a river (a brook, a pool, wet
+                body = f"water:{p.pid}"                                    # ground by a spring): its own small body
+                out[body] = {"kind": "brook" if (np.asarray(L.river)[r, c] > 0).any() or (np.asarray(L.wet)[r, c] < 0.9).any()
+                             else "pool", "km2": round(len(p.cells) * cell_km2, 4), "areas": {}, "parcels": []}
+            out[body]["parcels"].append(p.pid)
     for b in out.values():
         b["parcels"].sort()
     return out
