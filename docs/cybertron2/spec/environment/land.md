@@ -23,6 +23,8 @@ land. Calibration is across a distribution of worlds.
 - D2-225: the order: phase 0 (the fixed land read) with brief 5; then water; then cover and fire; then soil and silt. Each behind
   a world setting, with dry runs and a null arm.
 - D2-220: the weather at a place works around that place's climate as the land holds it (scheduler.md).
+- D2-229: one fish stock per water body: a lake's resident fish one stock, fished from every water parcel on it and the same as the
+  wild layer's fish there; a river's one stock per reach. The world lists its water bodies and each water parcel names its body.
 - D2-226: the generator's valleys have floors that widen with the river (a few cells for a beck, about 0.5 to 1 km for a medium
   river, 1 to 2 km for a large one), 0.5 to 3 m above the river, with the valley sides beyond.
 - D2-227: frozen waterways and hard winters come from a place's own climate (colder worlds, uplands, the north), not the cold era.
@@ -38,4 +40,4 @@ Every rate is `calibrate` (docs/review/37_growth/02zzn_environment_prototype.py 
 
 proposals/environment_systems.md; proposals/climate_from_land.md; docs/review/37_growth/02zzl_environment_gaps.md, 02zzn, 02zzo.
 
-*Current as of 17 Nov 2026: D2-214, D2-220 to D2-228.*
+*Current as of 17 Nov 2026: D2-214, D2-220 to D2-229.*
