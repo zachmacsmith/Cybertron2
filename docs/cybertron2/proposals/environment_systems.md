@@ -1,6 +1,6 @@
 # Environment systems: the land at three speeds, on the places the engine already has
 
-**Status:** discussion (16 Nov 2026; revised the same day as a consolidation of the earlier designs). Nothing decided, nothing to
+**Status:** partly accepted: D2-221 (three speeds), D2-222 (places), D2-223 (spread functions), D2-224 (events from stocks), D2-225 (order), D2-226 (floodplains now), D2-227 (harsher places), D2-228 (calibration across worlds), with D2-214 (two clocks); (6) the frequencies still open (17 Nov).
 build yet.
 **Owner:** 37.2 (design, the generator, the wild layer); 37.4 (the engine).
 **Affects:** spec/environment/ (scheduler.md, resources.md, a new file for the land's stocks); spec/world/generation.md;
@@ -260,6 +260,9 @@ they acted on?
 
 ## History
 
+- 17 Nov 2026: Zach answered Q-52: (1) to (5) yes (D2-221 to D2-225; spreading "through defined spread functions"); (8) fix the
+  floodplains now (D2-226); (9) some places harsher (D2-227); and calibrate across a distribution of core test worlds, expected to
+  differ (D2-228). (6), the frequencies, explained and still open.
 - 16 Nov 2026 (night, later): Zach decided two clocks (D2-214): day schedules on the engine day, the seasonal stocks scaled by
   the year's length. Q-52 (7) closed. He asked for the weather tested across conditions (dry, mountains, floodplains, coast).
 - 16 Nov 2026 (night): the water half prototyped offline on brief 5's river world (02zzn, script and results beside it). Findings:
