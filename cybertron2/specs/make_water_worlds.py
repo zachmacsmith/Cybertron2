@@ -109,19 +109,45 @@ def lake_spec(seed: int) -> dict:
 
 
 # ---------------------------------------------------------------------- edits after generation, said here
-def water_stocks(world: dict) -> dict:
-    """Resident fish in every water parcel (K 8 a unit of size, the peoples worlds' value, make_peoples.water_stocks; OPEN L-75);
-    no parcel run: brief 5's runs are kinds along the river."""
-    n = 0
-    for node in world["nodes"].values():
-        for p in node["parcels"].values():
-            if p["cover"] == "water":
-                st = p.setdefault("state", {})
-                if "fish" not in st:
-                    k = round(8.0 * float(p.get("size", 1)), 1)
-                    st["fish"] = {"K": k, "S": k, "r": 0.3}
-                    n += 1
-    return {"water parcels stocked": n}
+LAKE_FISH = 7500.0    # a lake's standing stock, fish a km² (calibrate): about 150 kg a hectare at about 2 kg a fish unit (an eel 0.2, a
+                      # salmon 2); a stock is not scaled by the short year (Zach, 17 Nov: "it's a pretty big lake")
+LAKE_TURNOVER = 0.4   # a lake's yearly production as a share of its stock (calibrate); the flow is scaled by the 32-day year, as harvests
+                      # are: r a night = 4 x production a world year / K / year_days, so the most it can give for good is about
+                      # LAKE_TURNOVER x K x 32/365 a world year
+
+
+def water_stocks(world: dict, year_days: int = 32) -> dict:
+    """Resident fish in every water parcel (K 8 a unit of size, r 0.3, the peoples worlds' value, make_peoples.water_stocks; OPEN
+    L-75); a village's largest water parcel on a lake (at least 0.5 km² in its home and ring) holds the lake's stock by area, with a
+    slow regrowth (LAKE_FISH, LAKE_TURNOVER). No parcel run: brief 5's runs are kinds along the river."""
+    areas = (((world.get("wild") or {}).get("land") or {}).get("areas") or {})
+    lake = {}
+    for a in areas.values():
+        if a.get("node") and a.get("kind") in ("home", "ring"):
+            lake[a["node"]] = lake.get(a["node"], 0.0) + float(a.get("lake_km2") or 0.0)
+    n, lakes = 0, {}
+    for nid, node in world["nodes"].items():
+        water = [pid for pid, p in node["parcels"].items() if p["cover"] == "water"]
+        mere = max(water, key=lambda pid: (float(node["parcels"][pid].get("size", 1)), pid)) \
+            if water and lake.get(nid, 0.0) >= 0.5 else None
+        for pid in water:
+            p = node["parcels"][pid]
+            st = p.setdefault("state", {})
+            if "fish" in st:
+                continue
+            if pid == mere:
+                k = round(LAKE_FISH * lake[nid], 0)
+                prod = LAKE_TURNOVER * k * year_days / 365.0                 # a world year's most, for good
+                r = round(4.0 * prod / k / year_days, 5)
+                st["fish"] = {"K": k, "S": k, "r": r, "renewal": "threshold"}   # plain regrowth, no 1% refill of the gap (a "fast"
+                                                                             # stock's); below 15% of K it does not come back
+                lakes[node.get("name", nid)] = {"parcel": pid, "lake_km2": round(lake[nid], 2), "fish_K": k, "r": r,
+                                                "most_a_year": round(prod, 0)}
+            else:
+                k = round(8.0 * float(p.get("size", 1)), 1)
+                st["fish"] = {"K": k, "S": k, "r": 0.3}
+            n += 1
+    return {"water parcels stocked": n, "lakes": lakes}
 
 
 FUEL = {"firewood": 30, "timber": 20}       # a house's autumn nights and the turn of winter (make_wild_region.stock_fuel)

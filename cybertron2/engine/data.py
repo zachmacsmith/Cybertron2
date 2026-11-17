@@ -551,11 +551,11 @@ TECHNIQUES = {
     # Fishing and salt (D4-103's acceptance test; water_and_preservation.md §4, §5: the gear ladder's first rungs; calibrate)
     "fish by hand": {"pack": "water", "verb": "gather", "label": "fishing by hand (tickling trout, groping under the banks)", "basic": True,
                      "aliases": ["fish", "fishing", "tickle trout", "catch fish"], "at": {"covers": ["water"]}, "draws": "fish",
-                     "yield": {"kind": "stock", "base": 0.6}, "units": 1, "gives": "fish", "tags": ["food", "fishing"],
+                     "yield": {"kind": "stock", "base": 0.6, "spread": 0.5}, "units": 1, "gives": "fish", "tags": ["food", "fishing"],
                      "run": True},                                     # and from a run in the water, where one is (brief 5 §3a.2)
     "angle": {"pack": "water", "verb": "gather", "label": "fishing with a rod and line", "basic": True,
               "aliases": ["angling", "rod fishing", "fish with a rod", "fish with rod and line"], "at": {"covers": ["water"]},
-              "draws": "fish", "yield": {"kind": "stock", "base": 1.5}, "uses": {"fishing rod": 1}, "units": 1, "gives": "fish",
+              "draws": "fish", "yield": {"kind": "stock", "base": 1.5, "spread": 0.5}, "uses": {"fishing rod": 1}, "units": 1, "gives": "fish",
               "tags": ["food", "fishing"]},
     "fishing rod": {"pack": "water", "verb": "make", "label": "making a fishing rod and line", "aliases": ["make a rod", "rod and line"], "basic": True,
                     "inputs": {"timber": 0.5, "hide": 0.1}, "units": 1, "gives": {"fishing rod": 1}, "tags": ["fishing", "craft"]},
