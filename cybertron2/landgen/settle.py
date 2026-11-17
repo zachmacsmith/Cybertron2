@@ -331,11 +331,7 @@ def allocate(L: Land, conf: dict, base: dict, s: Settlement, claimed: np.ndarray
         r0, c0 = s.site                                                    # site first: the travel costs skip them (_cost_from), so
         big = np.argwhere(own & ~claimed & ~L.sea)                         # they are found by distance, within the village's reach
         dist = np.hypot(L.g.x[big[:, 0], big[:, 1]] - L.g.x[r0, c0], L.g.y[big[:, 0], big[:, 1]] - L.g.y[r0, c0])
-        ranked = [tuple(map(int, big[i])) for i in np.argsort(dist, kind="stable") if dist[i] <= float(conf["field_km"])]
-        if ranked:                                                         # the nearest cell and one beside it, so the village's
-            first = ranked[0]                                              # water is one parcel of the river or the lake, not two
-            nbr = [rc for rc in ranked[1:60] if max(abs(rc[0] - first[0]), abs(rc[1] - first[1])) == 1]   # (one weir a parcel)
-            near_water = [first] + (nbr[:1] or ranked[1:2])
+        near_water = [tuple(map(int, big[i])) for i in np.argsort(dist, kind="stable") if dist[i] <= float(conf["field_km"])][:2] or near_water
     for rc in near_water[:2]:
         out[rc] = "water"
     return out
