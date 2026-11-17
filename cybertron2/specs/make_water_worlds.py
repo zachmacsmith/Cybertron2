@@ -99,6 +99,8 @@ def runs_spec(seed: int) -> dict:
     s = base("water_runs", seed)
     s["days"] = RUNS_DAYS
     s["lifespan"] = RUNS_LIFESPAN
+    s["runs_set_nights"] = True               # the runs on their windows' set nights though the climate is on (Zach, 17 Nov: the cue
+                                              # by the river's level, D2-215, is not built; read by engine/wild.py, 37.4's)
     s["cast"] = {"head": "claude-sonnet-5-5", "middle": "claude-sonnet-5-5", "rest": "claude-haiku-5-5", "youth": "claude-haiku-5-5"}
     s["generate"] = {
         "seed": seed, "settlements": 3, "household_size": 3, "spacing_km": 11.0, "warn_only": ["capacity"],
@@ -247,6 +249,8 @@ def fishers(world: dict, every: bool = False) -> dict:
     return out
 
 
+HIGHPOOL_LARDER = {"smoked fish": 3}       # a person, at Highpool (no fields, the most people): 6 meals each, so it starts at about
+                                           # its 24-day need and trade and the runs decide its surplus, not its survival (Zach, 17 Nov)
 RUNS_STORE = {"dried meat": 4, "roots": 6, "acorns": 6, "berries": 4}   # a household's late-summer larder: weeks, not a winter
 
 
@@ -294,6 +298,23 @@ def no_farming(world: dict, keep=()) -> dict:
         for k in ("sow", "reap", "hoe", "weed", "milk", "select seed", "plough"):
             (a.get("knows") or {}).pop(k, None)
     return {"fields to scrub": fields, "herds removed": herds, "farm goods removed": food, "larder a house": RUNS_STORE}
+
+
+def highpool_larder(world: dict) -> dict:
+    """Highpool's households each keep HIGHPOOL_LARDER a member in their house."""
+    nid = node_of(world, "Highpool")
+    out = {}
+    for hh, members in _households(world, nid).items():
+        house = next((k for k, b in world["buildings"].items() if b.get("household") == hh and b.get("stock") is not None
+                      and (b.get("fittings") or {}).get("beds")
+                      and str(b.get("parcel", "")).startswith(nid + "_")), None)
+        if house is None:
+            continue
+        stock = world["buildings"][house]["stock"]
+        for g_, q in HIGHPOOL_LARDER.items():
+            stock[g_] = stock.get(g_, 0) + q * len(members)
+        out[hh] = {g_: q * len(members) for g_, q in HIGHPOOL_LARDER.items()}
+    return out
 
 
 def runs_cast(world: dict) -> dict:
@@ -438,6 +459,7 @@ def make(which: str, seed: int):
         elif which == "runs":
             report["no_farming"] = no_farming(world, keep={node_of(world, n) for n in RUNS_FARM})
             report["spring_and_mill"] = spring_and_mill(world, "Highpool", "Middleham")
+            report["highpool_larder"] = highpool_larder(world)
             report["cast_opus"] = runs_cast(world)
             report["design"] = runs_check(world)
             report["design"]["fields"] = runs_fields(world)

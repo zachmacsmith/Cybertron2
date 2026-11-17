@@ -29,6 +29,7 @@ cast:
   rest: claude-haiku-5-5
   youth: claude-haiku-5-5
 lifespan: 64
+runs_set_nights: true
 generated:
   by: cybertron2.landgen
   seed: 5
@@ -584,7 +585,7 @@ nodes:
           drain_rate: 0.25
           depth: 1.14
           base_fertility: 1.15
-          position: slope
+          position: hollow
           rain_factor: 0.968
           sea_km: 99.0
           river: none
@@ -1008,7 +1009,7 @@ nodes:
           drain_rate: 0.08
           depth: 1.11
           base_fertility: 1.05
-          position: slope
+          position: hollow
           rain_factor: 1.003
           sea_km: 99.0
           river: none
@@ -1253,7 +1254,7 @@ nodes:
           drain_rate: 0.25
           depth: 1.18
           base_fertility: 1.15
-          position: slope
+          position: hollow
           rain_factor: 0.993
           sea_km: 99.0
           river: none
@@ -2186,7 +2187,7 @@ nodes:
           drain_rate: 0.25
           depth: 0.87
           base_fertility: 0.819
-          position: slope
+          position: ridge
           rain_factor: 0.983
           sea_km: 99.0
           river: none
@@ -2405,6 +2406,7 @@ buildings:
       roots: 6
       acorns: 6
       berries: 4
+      smoked fish: 15
   brook_forge:
     name: Brook's Forge
     parcel: Highpool_0
@@ -2433,6 +2435,7 @@ buildings:
       roots: 6
       acorns: 6
       berries: 4
+      smoked fish: 21
   shepherd_house:
     name: Shepherd House
     parcel: Highpool_0
@@ -2450,6 +2453,7 @@ buildings:
       roots: 6
       acorns: 6
       berries: 4
+      smoked fish: 18
   brook_byre:
     name: the Brook Byre
     parcel: Highpool_0
