@@ -49,7 +49,7 @@ nodes:
         height: 1
         text: houses round a trodden green
         adj:
-        - Meresby_11
+        - Meresby_12
         - Meresby_2
         - Meresby_3
         - Meresby_4
@@ -79,7 +79,7 @@ nodes:
         height: 0
         text: ploughland, on good loam, low by the water
         adj:
-        - Meresby_11
+        - Meresby_12
         fertility: 1.24
         terrain: river floodplain
         soil: loam
@@ -217,7 +217,7 @@ nodes:
         text: grazing, on good loam
         adj:
         - Meresby_0
-        - Meresby_11
+        - Meresby_12
         - Meresby_2
         - Meresby_6
         - Meresby_7
@@ -395,20 +395,21 @@ nodes:
       Meresby_10:
         name: the Mere
         cover: water
-        size: 2
+        size: 1
         side: north
         height: 0
         text: running water, low by the water
         adj:
+        - Meresby_11
         - Meresby_9
         terrain: water
         soil: peat
         ecosystem: water
         land:
-          elevation: 62.7
-          exposure: 0.34
+          elevation: 62.8
+          exposure: 0.32
           texture: peat
-          held_mm: 344.5
+          held_mm: 344.0
           drain_rate: 0.05
           depth: 1.15
           base_fertility: 1.265
@@ -417,13 +418,45 @@ nodes:
           sea_km: 99.0
           river: none
           down: out
+          water_body: lake:L1
+        state:
+          fish:
+            K: 8.0
+            S: 8.0
+            r: 0.3
+      Meresby_11:
+        name: the Pool
+        cover: water
+        size: 1
+        side: north
+        height: 0
+        text: running water, low by the water
+        adj:
+        - Meresby_10
+        terrain: water
+        soil: peat
+        ecosystem: water
+        land:
+          elevation: 62.7
+          exposure: 0.34
+          texture: peat
+          held_mm: 345.0
+          drain_rate: 0.05
+          depth: 1.15
+          base_fertility: 1.265
+          position: hollow
+          rain_factor: 0.957
+          sea_km: 99.0
+          river: none
+          down: out
+          water_body: lake:L1
         state:
           fish:
             K: 9619.0
             S: 9619.0
             r: 0.00438
             renewal: threshold
-      Meresby_11:
+      Meresby_12:
         name: West Field
         cover: field
         size: 6
@@ -654,6 +687,7 @@ wild:
         - Meresby_1
         - Meresby_10
         - Meresby_11
+        - Meresby_12
         - Meresby_2
         - Meresby_3
         - Meresby_4
@@ -664,7 +698,7 @@ wild:
         - Meresby_9
         km2: 0.7875
         xy_km:
-        - 25.83
+        - 25.84
         - 22.26
         cover:
           built: 0.1125
@@ -2459,7 +2493,7 @@ wild:
     links:
     - - a0
       - a2
-      - 8.7
+      - 9.0
     - - a1
       - a3
       - 1.8
@@ -2780,6 +2814,300 @@ wild:
     home:
       Meresby: a0
       w1: a1
+    waters:
+      lake:L1:
+        kind: lake
+        km2: 37.9575
+        areas:
+          a0: 0.045
+          a2: 1.2375
+          a27: 7.8075
+          a28: 20.9025
+          a34: 0.0225
+          a35: 7.9425
+        parcels:
+        - Meresby_10
+        - Meresby_11
+      reach:Meresby:
+        kind: reach
+        river_km: 2.25
+        big_river_km: 0.0
+        areas:
+          a2: 2.25
+        parcels: []
+      reach:a4:
+        kind: reach
+        river_km: 12.3
+        big_river_km: 4.8
+        areas:
+          a4: 12.3
+        parcels: []
+      reach:a5:
+        kind: reach
+        river_km: 2.25
+        big_river_km: 0.0
+        areas:
+          a5: 2.25
+        parcels: []
+      reach:a6:
+        kind: reach
+        river_km: 3.9
+        big_river_km: 0.0
+        areas:
+          a6: 3.9
+        parcels: []
+      reach:a7:
+        kind: reach
+        river_km: 9.0
+        big_river_km: 7.95
+        areas:
+          a7: 9.0
+        parcels: []
+      reach:a8:
+        kind: reach
+        river_km: 4.95
+        big_river_km: 0.0
+        areas:
+          a8: 4.95
+        parcels: []
+      reach:a9:
+        kind: reach
+        river_km: 2.4
+        big_river_km: 0.0
+        areas:
+          a9: 2.4
+        parcels: []
+      reach:a10:
+        kind: reach
+        river_km: 2.4
+        big_river_km: 0.0
+        areas:
+          a10: 2.4
+        parcels: []
+      reach:a11:
+        kind: reach
+        river_km: 10.95
+        big_river_km: 7.8
+        areas:
+          a11: 10.95
+        parcels: []
+      reach:a12:
+        kind: reach
+        river_km: 3.75
+        big_river_km: 0.0
+        areas:
+          a12: 3.75
+        parcels: []
+      reach:a13:
+        kind: reach
+        river_km: 0.3
+        big_river_km: 0.0
+        areas:
+          a13: 0.3
+        parcels: []
+      reach:a14:
+        kind: reach
+        river_km: 11.55
+        big_river_km: 8.1
+        areas:
+          a14: 11.55
+        parcels: []
+      reach:a15:
+        kind: reach
+        river_km: 10.2
+        big_river_km: 0.0
+        areas:
+          a15: 10.2
+        parcels: []
+      reach:a16:
+        kind: reach
+        river_km: 7.35
+        big_river_km: 0.0
+        areas:
+          a16: 7.35
+        parcels: []
+      reach:a19:
+        kind: reach
+        river_km: 19.65
+        big_river_km: 0.0
+        areas:
+          a19: 19.65
+        parcels: []
+      reach:a20:
+        kind: reach
+        river_km: 5.85
+        big_river_km: 0.0
+        areas:
+          a20: 5.85
+        parcels: []
+      reach:a21:
+        kind: reach
+        river_km: 11.4
+        big_river_km: 9.75
+        areas:
+          a21: 11.4
+        parcels: []
+      reach:a22:
+        kind: reach
+        river_km: 9.9
+        big_river_km: 2.7
+        areas:
+          a22: 9.9
+        parcels: []
+      reach:a23:
+        kind: reach
+        river_km: 9.3
+        big_river_km: 0.0
+        areas:
+          a23: 9.3
+        parcels: []
+      reach:a25:
+        kind: reach
+        river_km: 7.65
+        big_river_km: 0.0
+        areas:
+          a25: 7.65
+        parcels: []
+      reach:a26:
+        kind: reach
+        river_km: 2.85
+        big_river_km: 0.0
+        areas:
+          a26: 2.85
+        parcels: []
+      reach:a27:
+        kind: reach
+        river_km: 2.25
+        big_river_km: 0.0
+        areas:
+          a27: 2.25
+        parcels: []
+      reach:a28:
+        kind: reach
+        river_km: 4.5
+        big_river_km: 4.5
+        areas:
+          a28: 4.5
+        parcels: []
+      reach:a29:
+        kind: reach
+        river_km: 12.45
+        big_river_km: 3.0
+        areas:
+          a29: 12.45
+        parcels: []
+      reach:a30:
+        kind: reach
+        river_km: 12.9
+        big_river_km: 0.0
+        areas:
+          a30: 12.9
+        parcels: []
+      reach:a32:
+        kind: reach
+        river_km: 17.85
+        big_river_km: 6.15
+        areas:
+          a32: 17.85
+        parcels: []
+      reach:a33:
+        kind: reach
+        river_km: 3.45
+        big_river_km: 0.3
+        areas:
+          a33: 3.45
+        parcels: []
+      reach:a34:
+        kind: reach
+        river_km: 9.45
+        big_river_km: 9.45
+        areas:
+          a34: 9.45
+        parcels: []
+      reach:a35:
+        kind: reach
+        river_km: 4.35
+        big_river_km: 1.65
+        areas:
+          a35: 4.35
+        parcels: []
+      reach:a36:
+        kind: reach
+        river_km: 7.8
+        big_river_km: 0.6
+        areas:
+          a36: 7.8
+        parcels: []
+      reach:a37:
+        kind: reach
+        river_km: 3.45
+        big_river_km: 0.0
+        areas:
+          a37: 3.45
+        parcels: []
+      reach:a39:
+        kind: reach
+        river_km: 1.95
+        big_river_km: 1.95
+        areas:
+          a39: 1.95
+        parcels: []
+      reach:a40:
+        kind: reach
+        river_km: 12.45
+        big_river_km: 8.25
+        areas:
+          a40: 12.45
+        parcels: []
+      reach:a41:
+        kind: reach
+        river_km: 5.85
+        big_river_km: 0.0
+        areas:
+          a41: 5.85
+        parcels: []
+      reach:a42:
+        kind: reach
+        river_km: 5.4
+        big_river_km: 0.0
+        areas:
+          a42: 5.4
+        parcels: []
+      reach:a43:
+        kind: reach
+        river_km: 3.9
+        big_river_km: 0.0
+        areas:
+          a43: 3.9
+        parcels: []
+      reach:a44:
+        kind: reach
+        river_km: 1.95
+        big_river_km: 0.0
+        areas:
+          a44: 1.95
+        parcels: []
+      reach:a45:
+        kind: reach
+        river_km: 3.9
+        big_river_km: 0.0
+        areas:
+          a45: 3.9
+        parcels: []
+      reach:a48:
+        kind: reach
+        river_km: 0.75
+        big_river_km: 0.0
+        areas:
+          a48: 0.75
+        parcels: []
+      reach:a50:
+        kind: reach
+        river_km: 2.4
+        big_river_km: 0.0
+        areas:
+          a50: 2.4
+        parcels: []
 claims: []
 agents:
   Simkin:

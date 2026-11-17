@@ -109,8 +109,8 @@
    "ok": true,
    "detail": {
     "Highpool": 10,
-    "Middleham": 10,
-    "Lowstrand": 9
+    "Middleham": 11,
+    "Lowstrand": 10
    }
   },
   "access gates": {
@@ -355,7 +355,7 @@
     22.36,
     24.73
    ],
-   "parcels": 10
+   "parcels": 11
   },
   "Lowstrand": {
    "name": "Lowstrand",
@@ -364,7 +364,7 @@
     8.89,
     12.31
    ],
-   "parcels": 9
+   "parcels": 10
   },
   "w1": {
    "name": "Craghurst",
@@ -430,7 +430,7 @@
  },
  "refused": [],
  "water_stocks": {
-  "water parcels stocked": 3,
+  "water parcels stocked": 5,
   "lakes": {}
  },
  "fuel": {

@@ -73,7 +73,7 @@
    "kind": "design",
    "ok": true,
    "detail": {
-    "Meresby": 12
+    "Meresby": 13
    }
   },
   "access gates": {
@@ -174,12 +174,12 @@
    "ok": true,
    "detail": {
     "said": {
-     "Meresby": "stoat 20.77 (a group needs 1), wild boar 16.02 (a group needs 2), fox 15.83 (a group needs 1), wolf 2.06 (a group needs 3), brown bear 0.3 (a group needs 1)"
+     "Meresby": "stoat 20.77 (a group needs 1), wild boar 16.03 (a group needs 2), fox 15.83 (a group needs 1), wolf 2.06 (a group needs 3), brown bear 0.3 (a group needs 1)"
     },
     "by village": {
      "Meresby": {
       "wild boar": {
-       "heads": 16.02,
+       "heads": 16.03,
        "least": 2,
        "range_km2": 40.0
       },
@@ -227,7 +227,7 @@
     25.97,
     22.25
    ],
-   "parcels": 12
+   "parcels": 13
   },
   "w1": {
    "name": "Hazelhope",
@@ -267,10 +267,10 @@
  },
  "refused": [],
  "water_stocks": {
-  "water parcels stocked": 1,
+  "water parcels stocked": 2,
   "lakes": {
    "Meresby": {
-    "parcel": "Meresby_10",
+    "parcel": "Meresby_11",
     "lake_km2": 1.28,
     "fish_K": 9619.0,
     "r": 0.00438,
@@ -290,7 +290,8 @@
  },
  "design": {
   "water_parcels": {
-   "Meresby_10": 2
+   "Meresby_10": 1,
+   "Meresby_11": 1
   },
   "lake_km2_at_home": 1.28
  }

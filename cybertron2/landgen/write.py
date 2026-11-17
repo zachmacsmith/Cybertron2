@@ -426,6 +426,11 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
     world["herds"] = herds
     from cybertron2.wild import areas as WA                                 # the land summary for the wild layer (wild_layer.md
     world["wild"] = {"land": WA.build(L, allnodes, float(conf["km"]))}       # §3.1, D2-199); read only by a world with the wild pack
+    for body, wb in world["wild"]["land"]["waters"].items():               # each water parcel names its water body (D2-229)
+        for pid in wb["parcels"]:
+            for nd in nodes.values():
+                if pid in (nd.get("parcels") or {}):
+                    nd["parcels"][pid].setdefault("land", {})["water_body"] = body
     world.setdefault("claims", [])
     world["lines"] = lines
     n = len(lines)

@@ -50,11 +50,11 @@ nodes:
         text: houses round a trodden green
         adj:
         - Saltwell_1
+        - Saltwell_10
         - Saltwell_2
         - Saltwell_3
         - Saltwell_4
         - Saltwell_5
-        - Saltwell_9
         terrain: river terrace
         soil: loam
         ecosystem: grassland
@@ -79,10 +79,10 @@ nodes:
         text: ploughland, on heavy clay, low by the water
         adj:
         - Saltwell_0
+        - Saltwell_10
         - Saltwell_2
         - Saltwell_5
         - Saltwell_7
-        - Saltwell_9
         fertility: 1.37
         terrain: river floodplain
         soil: clay
@@ -116,8 +116,8 @@ nodes:
         adj:
         - Saltwell_0
         - Saltwell_1
+        - Saltwell_10
         - Saltwell_3
-        - Saltwell_9
         state:
           plants:
             K: 1.3
@@ -325,35 +325,67 @@ nodes:
       Saltwell_8:
         name: Saltwell Water
         cover: water
-        size: 2
-        side: south
+        size: 1
+        side: east
         height: 0
         text: running water, low by the water
         adj:
+        - Saltwell_10
         - Saltwell_6
-        - Saltwell_9
         terrain: water
-        soil: clay
+        soil: loam
         ecosystem: water
         land:
           elevation: 62.4
           exposure: 0.34
           texture: loam
-          held_mm: 201.9
+          held_mm: 201.7
           drain_rate: 0.25
           depth: 1.19
-          base_fertility: 1.179
+          base_fertility: 1.15
+          position: hollow
+          rain_factor: 1.0
+          sea_km: 99.0
+          river: river
+          down: Saltwell_9
+          water_body: reach:Saltwell
+        state:
+          fish:
+            K: 8.0
+            S: 8.0
+            r: 0.3
+      Saltwell_9:
+        name: the Brook
+        cover: water
+        size: 1
+        side: south
+        height: 0
+        text: running water, low by the water
+        adj:
+        - Saltwell_10
+        terrain: water
+        soil: clay
+        ecosystem: water
+        land:
+          elevation: 62.3
+          exposure: 0.34
+          texture: clay
+          held_mm: 177.6
+          drain_rate: 0.08
+          depth: 1.18
+          base_fertility: 1.208
           position: hollow
           rain_factor: 1.0
           sea_km: 99.0
           river: river
           down: out
+          water_body: reach:Saltwell
         state:
           fish:
-            K: 16.0
-            S: 16.0
+            K: 8.0
+            S: 8.0
             r: 0.3
-      Saltwell_9:
+      Saltwell_10:
         name: Clay Field
         cover: field
         size: 6
@@ -365,6 +397,7 @@ nodes:
         - Saltwell_1
         - Saltwell_2
         - Saltwell_8
+        - Saltwell_9
         fertility: 1.37
         terrain: river floodplain
         soil: clay
@@ -381,7 +414,7 @@ nodes:
           rain_factor: 1.0
           sea_km: 99.0
           river: none
-        holder: Marsh
+        holder: Ward
         state:
           last_crop: fallow
     xy:
@@ -405,7 +438,7 @@ nodes:
         - Millham_2
         - Millham_3
         - Millham_4
-        - Millham_8
+        - Millham_9
         terrain: clay vale
         soil: clay
         ecosystem: grassland
@@ -434,6 +467,7 @@ nodes:
         - Millham_5
         - Millham_7
         - Millham_8
+        - Millham_9
         fertility: 1.37
         terrain: river floodplain
         soil: clay
@@ -505,7 +539,7 @@ nodes:
         - Millham_2
         - Millham_4
         - Millham_5
-        - Millham_8
+        - Millham_9
         state:
           plants:
             K: 4.0
@@ -540,7 +574,7 @@ nodes:
         adj:
         - Millham_0
         - Millham_3
-        - Millham_8
+        - Millham_9
         state:
           plants:
             K: 5.8
@@ -643,7 +677,39 @@ nodes:
       Millham_7:
         name: the Nene
         cover: water
-        size: 2
+        size: 1
+        side: west
+        height: 0
+        text: running water, low by the water
+        adj:
+        - Millham_1
+        - Millham_9
+        terrain: water
+        soil: clay
+        ecosystem: water
+        land:
+          elevation: 36.7
+          exposure: 0.24
+          texture: clay
+          held_mm: 177.6
+          drain_rate: 0.08
+          depth: 1.18
+          base_fertility: 1.208
+          position: hollow
+          rain_factor: 0.966
+          sea_km: 99.0
+          river: river
+          down: Millham_8
+          water_body: reach:Millham
+        state:
+          fish:
+            K: 8.0
+            S: 8.0
+            r: 0.3
+      Millham_8:
+        name: Millham Water
+        cover: water
+        size: 1
         side: west
         height: 0
         text: running water, low by the water
@@ -665,12 +731,13 @@ nodes:
           sea_km: 99.0
           river: river
           down: out
+          water_body: reach:Millham
         state:
           fish:
-            K: 16.0
-            S: 16.0
+            K: 8.0
+            S: 8.0
             r: 0.3
-      Millham_8:
+      Millham_9:
         name: West Field
         cover: field
         size: 8
@@ -682,6 +749,7 @@ nodes:
         - Millham_1
         - Millham_3
         - Millham_4
+        - Millham_7
         fertility: 1.37
         terrain: river floodplain
         soil: clay
@@ -956,7 +1024,7 @@ roads:
         side: south
       Millham:
         parcels:
-        - Millham_8
+        - Millham_9
         side: west
     stretches:
       1:
@@ -1209,6 +1277,7 @@ wild:
         parcels:
         - Saltwell_0
         - Saltwell_1
+        - Saltwell_10
         - Saltwell_2
         - Saltwell_3
         - Saltwell_4
@@ -1260,10 +1329,11 @@ wild:
         - Millham_6
         - Millham_7
         - Millham_8
+        - Millham_9
         km2: 0.7875
         xy_km:
-        - 25.77
-        - 15.35
+        - 25.78
+        - 15.36
         cover:
           built: 0.1125
           field: 0.3375
@@ -3212,7 +3282,7 @@ wild:
       - 6.9
     - - a1
       - a6
-      - 6.45
+      - 6.15
     - - a1
       - a20
       - 0.45
@@ -3577,6 +3647,335 @@ wild:
       w1: a2
       w2: a3
       w3: a4
+    waters:
+      lake:L1:
+        kind: lake
+        km2: 12.6225
+        areas:
+          a38: 0.4725
+          a39: 2.16
+          a45: 2.43
+          a46: 7.56
+        parcels: []
+      lake:L2:
+        kind: lake
+        km2: 1.125
+        areas:
+          a48: 1.125
+        parcels: []
+      lake:L3:
+        kind: lake
+        km2: 1.89
+        areas:
+          a47: 1.89
+        parcels: []
+      reach:Saltwell:
+        kind: reach
+        river_km: 5.55
+        big_river_km: 2.7
+        areas:
+          a0: 0.3
+          a5: 5.25
+        parcels:
+        - Saltwell_8
+        - Saltwell_9
+      reach:Millham:
+        kind: reach
+        river_km: 8.1
+        big_river_km: 7.35
+        areas:
+          a1: 0.3
+          a6: 7.8
+        parcels:
+        - Millham_7
+        - Millham_8
+      reach:w2:
+        kind: reach
+        river_km: 0.6
+        big_river_km: 0.0
+        areas:
+          a8: 0.6
+        parcels: []
+      reach:w3:
+        kind: reach
+        river_km: 2.7
+        big_river_km: 0.0
+        areas:
+          a9: 2.7
+        parcels: []
+      reach:a10:
+        kind: reach
+        river_km: 12.3
+        big_river_km: 4.8
+        areas:
+          a10: 12.3
+        parcels: []
+      reach:a11:
+        kind: reach
+        river_km: 2.25
+        big_river_km: 0.0
+        areas:
+          a11: 2.25
+        parcels: []
+      reach:a12:
+        kind: reach
+        river_km: 3.9
+        big_river_km: 0.0
+        areas:
+          a12: 3.9
+        parcels: []
+      reach:a13:
+        kind: reach
+        river_km: 10.2
+        big_river_km: 7.95
+        areas:
+          a13: 10.2
+        parcels: []
+      reach:a14:
+        kind: reach
+        river_km: 4.95
+        big_river_km: 0.0
+        areas:
+          a14: 4.95
+        parcels: []
+      reach:a15:
+        kind: reach
+        river_km: 2.4
+        big_river_km: 0.0
+        areas:
+          a15: 2.4
+        parcels: []
+      reach:a16:
+        kind: reach
+        river_km: 2.4
+        big_river_km: 0.0
+        areas:
+          a16: 2.4
+        parcels: []
+      reach:a17:
+        kind: reach
+        river_km: 10.95
+        big_river_km: 7.8
+        areas:
+          a17: 10.95
+        parcels: []
+      reach:a18:
+        kind: reach
+        river_km: 3.75
+        big_river_km: 0.0
+        areas:
+          a18: 3.75
+        parcels: []
+      reach:a19:
+        kind: reach
+        river_km: 0.3
+        big_river_km: 0.0
+        areas:
+          a19: 0.3
+        parcels: []
+      reach:a20:
+        kind: reach
+        river_km: 8.25
+        big_river_km: 5.25
+        areas:
+          a20: 8.25
+        parcels: []
+      reach:a21:
+        kind: reach
+        river_km: 10.2
+        big_river_km: 0.0
+        areas:
+          a21: 10.2
+        parcels: []
+      reach:a22:
+        kind: reach
+        river_km: 7.35
+        big_river_km: 0.0
+        areas:
+          a22: 7.35
+        parcels: []
+      reach:a25:
+        kind: reach
+        river_km: 19.65
+        big_river_km: 0.0
+        areas:
+          a25: 19.65
+        parcels: []
+      reach:a26:
+        kind: reach
+        river_km: 6.75
+        big_river_km: 0.0
+        areas:
+          a26: 6.75
+        parcels: []
+      reach:a27:
+        kind: reach
+        river_km: 10.65
+        big_river_km: 10.35
+        areas:
+          a27: 10.65
+        parcels: []
+      reach:a28:
+        kind: reach
+        river_km: 9.9
+        big_river_km: 2.7
+        areas:
+          a28: 9.9
+        parcels: []
+      reach:a29:
+        kind: reach
+        river_km: 9.3
+        big_river_km: 0.0
+        areas:
+          a29: 9.3
+        parcels: []
+      reach:a31:
+        kind: reach
+        river_km: 7.65
+        big_river_km: 0.0
+        areas:
+          a31: 7.65
+        parcels: []
+      reach:a32:
+        kind: reach
+        river_km: 2.85
+        big_river_km: 0.0
+        areas:
+          a32: 2.85
+        parcels: []
+      reach:a33:
+        kind: reach
+        river_km: 5.7
+        big_river_km: 0.0
+        areas:
+          a33: 5.7
+        parcels: []
+      reach:a34:
+        kind: reach
+        river_km: 13.2
+        big_river_km: 9.6
+        areas:
+          a34: 13.2
+        parcels: []
+      reach:a35:
+        kind: reach
+        river_km: 12.15
+        big_river_km: 0.0
+        areas:
+          a35: 12.15
+        parcels: []
+      reach:a36:
+        kind: reach
+        river_km: 13.5
+        big_river_km: 0.0
+        areas:
+          a36: 13.5
+        parcels: []
+      reach:a38:
+        kind: reach
+        river_km: 16.95
+        big_river_km: 6.0
+        areas:
+          a38: 16.95
+        parcels: []
+      reach:a39:
+        kind: reach
+        river_km: 5.55
+        big_river_km: 0.0
+        areas:
+          a39: 5.55
+        parcels: []
+      reach:a40:
+        kind: reach
+        river_km: 4.95
+        big_river_km: 0.0
+        areas:
+          a40: 4.95
+        parcels: []
+      reach:a41:
+        kind: reach
+        river_km: 7.95
+        big_river_km: 0.0
+        areas:
+          a41: 7.95
+        parcels: []
+      reach:a42:
+        kind: reach
+        river_km: 7.95
+        big_river_km: 0.0
+        areas:
+          a42: 7.95
+        parcels: []
+      reach:a43:
+        kind: reach
+        river_km: 1.8
+        big_river_km: 0.0
+        areas:
+          a43: 1.8
+        parcels: []
+      reach:a45:
+        kind: reach
+        river_km: 0.9
+        big_river_km: 0.9
+        areas:
+          a45: 0.9
+        parcels: []
+      reach:a46:
+        kind: reach
+        river_km: 10.05
+        big_river_km: 0.0
+        areas:
+          a46: 10.05
+        parcels: []
+      reach:a47:
+        kind: reach
+        river_km: 5.4
+        big_river_km: 0.0
+        areas:
+          a47: 5.4
+        parcels: []
+      reach:a48:
+        kind: reach
+        river_km: 4.35
+        big_river_km: 0.0
+        areas:
+          a48: 4.35
+        parcels: []
+      reach:a49:
+        kind: reach
+        river_km: 3.45
+        big_river_km: 0.0
+        areas:
+          a49: 3.45
+        parcels: []
+      reach:a50:
+        kind: reach
+        river_km: 6.75
+        big_river_km: 0.0
+        areas:
+          a50: 6.75
+        parcels: []
+      reach:a51:
+        kind: reach
+        river_km: 3.9
+        big_river_km: 0.0
+        areas:
+          a51: 3.9
+        parcels: []
+      reach:a54:
+        kind: reach
+        river_km: 2.55
+        big_river_km: 2.55
+        areas:
+          a54: 2.55
+        parcels: []
+      reach:a56:
+        kind: reach
+        river_km: 2.4
+        big_river_km: 0.0
+        areas:
+          a56: 2.4
+        parcels: []
 claims: []
 agents:
   Baldwin:
