@@ -287,7 +287,16 @@
  },
  "refused": [],
  "water_stocks": {
-  "water parcels stocked": 1
+  "water parcels stocked": 1,
+  "lakes": {
+   "Meresby": {
+    "parcel": "Meresby_9",
+    "lake_km2": 2.61,
+    "fish_K": 19575.0,
+    "r": 0.00438,
+    "most_a_year": 686.0
+   }
+  }
  },
  "fuel": {
   "houses": 3,

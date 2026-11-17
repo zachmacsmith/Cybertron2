@@ -214,6 +214,7 @@ def test_the_dam_cuts_the_meadows_hay_and_raises_the_fish_and_breaking_it_revers
     w = _world(lake)
     pl = _places(w)
     BROOK, LODGE, LEAZE = pl["water"], pl["lodge"], pl["flooded"][0]
+    _small_water(w, BROOK)                                                  # the dam's pond on a small water's stock
     sid = _site(w, "lodge", LODGE, 3)
     hay0, fish0 = (dict(w.s["parcels"][LEAZE]["res"]["grass"]), dict(w.s["parcels"][BROOK]["res"]["fish"]))
     WL._dam(w, sid, w.s["wild"]["sites"][sid], True, direct=True)
@@ -246,13 +247,17 @@ def test_the_dam_cuts_the_meadows_hay_and_raises_the_fish_and_breaking_it_revers
 
 
 # ---------------------------------------------------------------------------------------------------------- the heronry
-def _herons(lake, nests, fish_k=None, nights=8):
+def _small_water(w, pid, k=16.0):
+    """The water as a small one (the mere's own stock is sized by its area, make_water_worlds.water_stocks): K k, a fast stock."""
+    w.s["parcels"][pid]["res"]["fish"] = {"K": float(k), "S": float(k), "r": 0.3}
+
+
+def _herons(lake, nests, fish_k=16.0, nights=8):
     w = _world(lake, keep=0)
     pl = _places(w)
     BROOK = pl["water"]
     _site(w, "heronry", pl["wood"], nests)
-    if fish_k is not None:
-        w.s["parcels"][BROOK]["res"]["fish"].update(K=float(fish_k), S=float(fish_k))
+    _small_water(w, BROOK, fish_k)
     for _ in range(nights):
         N.night(w)
         w.s["day"] += 1

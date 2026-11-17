@@ -604,8 +604,8 @@ def _technique(here, mind, a, party, verb):
     after = ""                                                                 # what was noticed on the way, after the outcome
     if y["kind"] == "stock":
         r = here.parcels()[key]["res"][t["draws"]]
-        got = here.apply("draw", parcel=key, key=t["draws"], qty=YD.dist(y, r, m, tm, refuge=here.p["refuge"],
-                                                                                     b=RN.response(t["draws"], r)).sample(rng))
+        got = here.apply("draw", parcel=key, key=t["draws"], qty=round(YD.dist(y, r, m, tm, refuge=here.p["refuge"],
+                                                                                           b=RN.response(t["draws"], r)).sample(rng), 2))
         if t.get("run"):                                                        # a run in the water there (brief 5 §3a.2)
             from cybertron2.engine import wild as WL
             _, run_words = WL.run_take(here, mind, tech, key, int(t["units"]))

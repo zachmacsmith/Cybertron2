@@ -22,7 +22,11 @@ def dist(y, r, m=1.0, tm=1.0, weapon=1.0, refuge=0.1, b=1.0):
     k = y["kind"]
     if k == "stock":                                                   # a share of a renewable stock, less as it thins (D4-7)
         want = y["base"] * density(r, b) * m * tm if b != 1.0 else y["base"] * r["S"] / r["K"] * m * tm
-        return Const(round(max(0.0, min(want, r["S"] - refuge * r["K"])), 2))
+        room = max(0.0, r["S"] - refuge * r["K"])
+        if y.get("spread"):                                            # luck in the catch: a draw about the same mean (Zach, 17 Nov)
+            s = float(y["spread"])
+            return Scaled(Uniform(1.0 - s, 1.0 + s), max(0.0, want), cap=room)
+        return Const(round(max(0.0, min(want, room)), 2))
     if k == "chance":                                                  # a hunt: a chance by the stock, a size by luck and the weapon
         catch = Scaled(Uniform(*y["range"]), m * weapon, cap=r["S"])
         return If(y["p"] * r["S"] / r["K"] if b == 1.0 else y["p"] * density(r, b), Joint(catch, {g: Bern(pr) for g, pr in (y.get("by") or {}).items()}))

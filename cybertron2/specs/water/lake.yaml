@@ -384,9 +384,10 @@ nodes:
           down: out
         state:
           fish:
-            K: 16.0
-            S: 16.0
-            r: 0.3
+            K: 19575.0
+            S: 19575.0
+            r: 0.00438
+            renewal: threshold
       Meresby_10:
         name: North Field
         cover: field
