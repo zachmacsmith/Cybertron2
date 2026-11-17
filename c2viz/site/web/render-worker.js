@@ -27,8 +27,10 @@ self.onmessage = async ({ data: m }) => {
     const V = await runs[m.key], cv = new OffscreenCanvas(1, 1);
     const out = m.kind === "world" ? C2Pixel.world(cv, V, m.day) : m.kind === "nodeAt" ? C2Pixel.nodeAt(cv, V, m.node, m.day, m.t) : C2Pixel.node(cv, V, m.node, m.day);
     const bitmap = cv.transferToImageBitmap();
-    self.postMessage({ id: m.id, bitmap, width: out.width, height: out.height, phase: out.phase,
-      hotspots: out.hotspots.map(({ kind, id, label, cx, cy, pop }) => ({ kind, id, label, cx, cy, pop })) }, [bitmap]);
+    // every hotspot whole (its plain fields: what it is, where, its words), and where the map would be centred
+    const plain = (h) => Object.fromEntries(Object.entries(h).filter(([, v]) => typeof v !== "function"));
+    self.postMessage({ id: m.id, bitmap, width: out.width, height: out.height, phase: out.phase, focus: out.focus,
+      hotspots: out.hotspots.map(plain) }, [bitmap]);
   } catch (e) {
     self.postMessage({ id: m.id, error: String(e && e.message || e) });
   }
