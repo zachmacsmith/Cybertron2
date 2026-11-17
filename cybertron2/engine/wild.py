@@ -105,7 +105,7 @@ def seed(w) -> None:
         wx_next = weather(w, nodes, off + d + 1)
         EC.step(m, st, k0 + d, wx, draws(w, k0 + d, "history"), history=True)
         if rivers:
-            RU.advance(m, st, k0 + d, wx, wx_next, weather=_climate(w))
+            RU.advance(m, st, k0 + d, wx, wx_next, weather=_runs_cued(w))
     if rivers:                                                            # the run's own nights start with no run under way
         st["runs"]["pulses"], st["runs"]["rain"], st["runs"]["tally"] = [], {}, {}
     st["day"] = -1
@@ -2843,6 +2843,12 @@ def _climate(w) -> bool:
     return bool(CL.on(w))
 
 
+def _runs_cued(w) -> bool:
+    """Whether the runs start on their weather cue (with the climate on) or on their windows' set nights: a world may set
+    `runs_set_nights` to keep the climate and still run them on set nights (D2-231: the cue by the river's level, D2-215, not built)."""
+    return _climate(w) and not (getattr(w, "spec", None) or {}).get("runs_set_nights")
+
+
 def _river_parcel(w, pid) -> bool:
     p = w.s["parcels"].get(pid) or {}
     return p.get("cover") == "water" and (p.get("land") or {}).get("river") not in (None, "none")
@@ -3097,7 +3103,7 @@ def _runs_night(w, m) -> dict:
                     out.setdefault("wrecked", []).append(cid)
     if flows:
         out["flow"] = flows
-    eff = RU.advance(m, st, day, wx_today, weather(w, nodes, w.d + 1), stops=_dam_stops(w, m), weather=_climate(w))
+    eff = RU.advance(m, st, day, wx_today, weather(w, nodes, w.d + 1), stops=_dam_stops(w, m), weather=_runs_cued(w))
     if any(eff.values()):
         out["moved"] = eff
     held = {p["g"]: True for p in RU.today(m, st, day + 1) if p.get("held")}
