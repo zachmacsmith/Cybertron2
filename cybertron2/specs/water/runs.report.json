@@ -524,6 +524,17 @@
    "held_by": "Fletcher"
   }
  },
+ "highpool_larder": {
+  "Brook": {
+   "smoked fish": 15
+  },
+  "Marsh": {
+   "smoked fish": 21
+  },
+  "Shepherd": {
+   "smoked fish": 18
+  }
+ },
  "cast_opus": {
   "Highpool": "Marsh",
   "Middleham": "Hart",
