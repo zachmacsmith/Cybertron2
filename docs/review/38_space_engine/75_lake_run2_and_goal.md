@@ -10,6 +10,8 @@ The goal run (`lake_goal.yaml`) differs only by one line kept for good by everyo
 
 Run 2 is the null arm. One run each: n = 1, so differences are readings, not effects.
 
+**Correction (17 Nov, later):** the goal line was cut at 25 words, the default length of a line kept for good, so every prompt showed only "YOUR GOAL, on which you will be graded: grow your household's people to be as many as you can, and see them survive and spread". The score, the day 200 and "the more, the better" never reached anyone. My dry-run check counted the line but did not read it whole. The run tested a graded aim to grow, not the scored rule. Worlds with a long kept line set `memory.kept.words` (80, as the peoples worlds do); the runs world with a model to each household does.
+
 ## The numbers
 
 | | Run 2 (no goal) | Goal run |
