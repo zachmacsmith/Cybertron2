@@ -6,45 +6,67 @@
 
 ## Summary
 
-The weather keeps the engine's regional machinery: eras, the year's anomaly, the day's weather type, moving storms, and local
-fields that are alike between near places. What changes is that each place's climate, the level that machinery works around,
-comes from the generated land:
-- its mean temperature;
-- its rain a year, with the rain shadow and the wet fells;
-- the sea's nearness, for milder winters, fewer frosts, more wind and sea fog;
-- the prevailing wind, for where storms come from.
+A place's weather is drawn from its climate, and its climate comes from its land. The climate has two levels.
 
-Today the engine reads only a node's height (02zzo §1). A dry world, a cold world and a wet coast all get the same weather.
+- **The region's climate** is the weather machinery's own parameters, one set per world: the seasons' temperatures, how often each
+  weather type comes and how long it holds, how much each type rains, how often storms come and from where, the base wind. Today
+  these are the fixed CLIMATE constants (lowland England). They should come from the world's land: its temperature, its wetness,
+  its prevailing wind and how near the sea is. The eras act on this level, as now.
+- **The place's response** to each type: how much warmer or colder it runs, and how much of a westerly's rain it gets (a windward
+  fell more, the lee less), how far its nights drop on a clear night (a frost hollow inland more, the coast less), how windy and
+  foggy it is. These come from the place's own land (its height, its rain a year, the sea's distance, its exposure).
+
+Which types come how often is regional: within one world (about 50 km) every village has the same westerly day. What differs
+between villages is what that westerly does to each. Across worlds the type mix differs: a dry world has more settled days, not only
+less rain on its wet ones.
+
+The generator's fields set both levels, and the long-run statistics at each place must come out as the land says (its rain a
+year, its mean temperature). The machinery that draws the day (types that hold, local fields alike between near places, storms)
+does not change.
 
 ## The proposal
 
-1. **The generator writes each node's climate.** Next to `rain_mm` (already written) and `elevation`:
-   - `temp_c`: the mean of the node's cells' temperature (the world's `temperature_c`, the lapse, the north to south gradient);
-   - `sea_km`: the nearest sea from the node's land;
-   - the world's `wind` (the prevailing side) at the world's top level.
-   Additive: worlds without these fall back as today.
-2. **Temperature.** At a node with `temp_c`, a season's mean is the engine's seasonal shape around the node's level:
-   `temp_c + (CLIMATE temp[season] − mean of CLIMATE temp)`. The lapse is not applied again, since `temp_c` already holds the
-   height. A hand-made world that gives only `elevation` keeps today's lapse.
-3. **The sea.**
-   - **Seasons:** the swing between summer and winter shrinks near the sea, to about 0.75 of inland at the shore, rising to full
-     by about 20 km (calibrate).
-   - **Nights:** the gap between day and night shrinks to about 0.6 at the shore, full by about 10 km.
-   - So coastal winters are milder and coastal frosts fewer.
-   - **Wind** is about 1.25 × within 2 km of the sea.
-   - **Fog:** sea fog adds to the chance in spring and summer within 3 km.
-4. **Rain.** At a node with `rain_mm`, its real year's rain is about `rain_mm`. The ratio k = `rain_mm` ÷ the engine's own
-   sea-level year (about 1,000 mm by 02zzo; measured once and kept as a constant) is split half into how often (wet-day odds ×
-   √k, capped) and half into how much (amount × √k), as the year's wetness already is. The height term in the wet-day odds
-   (`orographic`) is dropped where `rain_mm` is given, since the generator's sweep already wets the fells and dries the lee.
-5. **The wind.** The world's prevailing side sets the storms' heading (CLIMATE `storms.heading`), so storms come from the wet side.
-6. **Unchanged:** the regional type of the day, the year's anomaly and eras, the local fields and their correlation by distance,
-   and the storms' tracks. Weather stays regional and changes day to day; the climate is the place's own.
-7. **The check** (02zzo's script, rerun):
-   - each node's engine rain a year within ±15% of its `rain_mm`, and its mean temperature within 0.5 °C of `temp_c`;
-   - coastal nodes have fewer winter frost nights than inland nodes at the same height;
-   - the dry, lowland and cold worlds differ as their settings say;
-   - the two-clock water then differs too: the dry world's rivers spate less, and its soil dries longer.
+### What to build now (the smallest change that removes the contradictions)
+
+1. **The generator writes the inputs** (37.2, about half a day). Per node, beside `rain_mm` and `elevation`: `temp_c` (its cells'
+   mean), `sea_km`, `exposure` (its parcels' mean). Per world, in `generated`: the world's `temperature_c`, `rain_mm` and `wind`.
+   Physical facts only; the engine derives the parameters, so a hand-made world can give the same fields.
+2. **A climate profile, derived at build** (37.4, about one to two builder days). One function computes, from those fields:
+   - *the region's parameters:* the seasons' temperatures centred on the world's `temperature_c`; the type weights tilted by the
+     world's wetness (a dry world towards settled and easterly, a wet one towards westerly and cyclonic), with the rain amount
+     scaled so the world's mean year meets its `rain_mm`; the storms' heading from the `wind`;
+   - *each node's response:* its temperature offset (`temp_c` against the world's, which holds height and the north to south
+     gradient); its rain factor (`rain_mm` against the world's), applied mostly to the onshore wet types, so the windward fells wet
+     and the lee dries; its seasonal swing and night drop narrowed near the sea (about 0.75 and 0.6 at the shore, full by 20 and
+     10 km); its wind by height, the sea and exposure; sea fog near the coast in spring and summer.
+   It is computed once from fixed land and kept in the same cache as the weather. It is not state, and it adds no schema change.
+   The scheduler reads these parameters where it now reads the global constants and the height terms. Without the fields
+   (hand-made worlds), it falls back to today's lapse and height rules exactly, so old worlds replay the same.
+3. **One check as a test:** 02zzo's script on generated worlds. It requires:
+   - each node's rain a year within ±15% of its `rain_mm`, and its mean temperature within 0.5 °C of `temp_c`;
+   - the coast with fewer winter frosts than inland at the same height;
+   - the dry world with fewer wet days and more settled days than the wet one.
+
+This removes the glaring faults: dry, cold and wet worlds now differ; the fells are wet and the lee dry; the coast is mild and
+windy. Every reader of the weather follows without change, because `env(place, day)` (D4-111) is unchanged.
+
+### What it leaves for later, and where each slots in
+
+- **Weather per area or per cell** (Q-50): the profile is a function of a place's land fields, so it applies unchanged to any
+  group of cells once the grid is chosen.
+- **Microclimate per parcel:** frost hollows, aspect, shelter by woods. A parcel-level response term, read by the night and the
+  crops; the same shape as the node's response.
+- **A coupled climate** (Q-48 (7)): clearing, snow lying and soil moisture feeding back on the local weather. The profile
+  recomputed at the year's turn from the slow layer. That turns the weather layer from driven to coupled, which is a decision of
+  its own. Built now, the weather stays driven: every arm meets the same weather.
+- **New regional regimes** (continental, maritime, upland, northern; lake effects; the sea's lag): more regional parameters, or
+  type tables per regime, chosen from the world's settings.
+
+### How it fits the feature packages (Q-48)
+
+The profile is the climate half of the `weather` package's data: one pure function from a space's land fields to the scheduler's
+parameters. It adds no state, no new verbs and no new place kind, and keeps the query (`env`). It is written as its own function
+with its inputs listed, so the package cut can move it whole, and nothing the migration does would need undoing.
 
 ## Why
 
@@ -63,17 +85,23 @@ often as a wet one. A coastal village frosts as hard as an inland one.
 
 ## Open questions
 
-1. The design as above (Q-56 (1))?
-2. The constants: the sea's reach, the shrink factors, the wind factor, the reference year's rain (calibrate).
+1. The design as above (Q-56 (1)): two levels, the region's parameters and the place's response, both from the land; built as
+   one derived profile now, the deep system later?
+2. The constants: the type tilt by wetness, the onshore share of the rain factor, the sea's reach and shrink factors, the wind
+   factors (calibrate, with 02zzo's check).
 
 ## Affects
 
-- `cybertron2/landgen/write.py`: node `temp_c`, `sea_km`; world `wind`.
+- `cybertron2/landgen/write.py`: node `temp_c`, `sea_km`, `exposure`; the world's `temperature_c`, `rain_mm`, `wind` in `generated`.
 - `cybertron2/engine/climate.py` and CLIMATE in `engine/data.py`.
 - Every reader of the weather (crops, woods, decay, the night, signs, the ecology, the water on two clocks) follows without change.
 
 ## History
 
+- 17 Nov 2026: revised after Zach: "surely the weather depends on the climate of a place? So like climate takes the land
+  parameters as input to tune like the metaparameters for what weather is most common, alongside the macro eras". Now two levels:
+  the region's parameters (the type mix, the seasons, the rain, the storms; eras act here) and each place's response to each type,
+  both from the land; the smallest build (a derived profile) set apart from what waits, and fitted to the feature packages (Q-48).
 - 16 Nov 2026: written by 37.2 after 02zzo's test across conditions, and Zach's statement (D2-220).
 
 ## Sources
