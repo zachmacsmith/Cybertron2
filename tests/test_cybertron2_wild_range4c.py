@@ -25,6 +25,17 @@ def generated():
     return world
 
 
+@pytest.fixture(scope="module")
+def neighbours():
+    """A layout with a neighbour's wild area within a pack's range of s1 (seed 3). The floodplains generator (D2-226) sites seed 7's
+    villages farther apart (the nearest 23.6 km), so no pack's range there reaches two villages."""
+    world, cells, report = W.generate({"name": "t", "seed": 3, "days": 10, "calendar": {"season": "summer", "day": 4, "season_days": 8},
+                                       "generate": {"seed": 3, "configuration": "settled lowland and frontier", "spacing_km": 8.0,
+                                                    "settlements": 4}})
+    world.setdefault("agents", {})
+    return world
+
+
 def build(world, history=2):
     s = copy.deepcopy(world)
     s["packs"], s["climate"] = ["wild"], {"era": "steady"}
@@ -73,8 +84,8 @@ def _s1_herds(w):
     return {h: FM.head(x) for h, x in w.s["herds"].items() if x.get("node") == "s1"}
 
 
-def test_a_pack_next_to_a_village_with_it_in_range_raids_its_unwatched_herd(generated, monkeypatch):
-    w = build(generated)
+def test_a_pack_next_to_a_village_with_it_in_range_raids_its_unwatched_herd(neighbours, monkeypatch):
+    w = build(neighbours)
     m, land, home = _areas(w)
     R = math.sqrt(WL._range_km2(m, "wolf") / math.pi)
     near = [a for a in m.ids if land["areas"][a]["kind"] == "wild" and land["areas"][a]["node"] != "s1"
@@ -229,10 +240,10 @@ def test_a_ranging_kinds_young_stay_at_home_and_disperse_grown_at_the_years_turn
         y1 = y
 
 
-def test_a_node_with_nothing_to_come_for_is_no_village(generated, monkeypatch):
+def test_a_node_with_nothing_to_come_for_is_no_village(neighbours, monkeypatch):
     """§7.2: a ranging group's villages, and the generator's check, are the nodes with something to come for (a herd out, a field
     with a crop, a store with goods, the dead); a node stripped of all of them is left out."""
-    w = build(generated)
+    w = build(neighbours)
     m, land, home = _areas(w)
     R = math.sqrt(WL._range_km2(m, "wolf") / math.pi)
     near = [a for a in m.ids if land["areas"][a]["kind"] == "wild" and land["areas"][a]["node"] != "s1"

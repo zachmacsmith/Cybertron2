@@ -1098,7 +1098,8 @@ def test_killing_the_old_sow_scatters_the_sounder(generated):
     m, ri = _ring(w, WL)
     w.s["wild"]["state"]["pop"]["wild boar"][ri] = 60.0 / m.km2[ri]
     N.night(w)
-    gid = "wild boar@s1"
+    w.s["wild"]["state"]["pop"]["wild boar"][ri] = 60.0 / m.km2[ri]          # set again after the night: on the remade land (D2-226)
+    gid = "wild boar@s1"                                                        # the night's movement leaves the ring without boar
     g = w.s["wild"]["groups"][gid]
     w.s["wild"]["groups"][gid] = dict(g, n=1, leader={"name": "the old sow", "alive": True})      # one beast: the kill is she
     for i in range(60):                                                          # armed and practised: no crew counted by events now

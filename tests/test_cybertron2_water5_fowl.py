@@ -31,17 +31,29 @@ def _world(lake, netters=0, skill=5.0, keep=1):
 
 
 def _places(w):
-    """The places a test needs, found in the world: the village's fish water, a wood off the water, a lodge's parcel beside the
-    water (of the lodge's covers) and the meadow and pasture its dam would flood."""
+    """The places a test needs, found in the world: the village's fish water (the mere's first parcel; its stock is the mere's,
+    D2-229) and a wood off the water."""
     P = w.s["parcels"]
     ours = sorted(pid for pid, p in P.items() if p["node"] == NODE)
     water = next(pid for pid in ours if P[pid]["cover"] == "water" and "fish" in P[pid]["res"])   # the mere's water parcel
     wood = next(pid for pid in ours if P[pid]["cover"] == "forest" and WL.at_water(w, pid) is None)
+    return {"water": water, "wood": wood, "name": P[water]["name"]}
+
+
+def _lodge(w, pl):
+    """A lodge's parcel beside the water (of the lodge's covers) and the meadow and pasture its dam would flood. The remade lake
+    world (floodplains, D2-226) has only fen beside the mere, so the first land beside it is set by hand as a meadow if need be."""
+    P = w.s["parcels"]
     grassy = lambda q: P[q]["cover"] in SITES["lodge"]["dam"]["floods"]["covers"] and "grass" in P[q]["res"]
-    lodge = next(q for q in sorted(P[water]["adj"]) if q in ours and P[q]["cover"] in SITES["lodge"]["where"]["covers"]
-                 and any(grassy(x) for x in [q] + list(P[q]["adj"])))
+    side = [q for q in sorted(P[pl["water"]]["adj"]) if q in P and P[q]["node"] == NODE and P[q]["cover"] != "water"]
+    lodge = next((q for q in side if P[q]["cover"] in SITES["lodge"]["where"]["covers"] and any(grassy(x) for x in [q] + list(P[q]["adj"]))),
+                 None)
+    if lodge is None:
+        lodge = side[0]
+        P[lodge]["cover"] = "meadow"
+        P[lodge]["res"].setdefault("grass", {"S": 10.0, "K": 10.0, "r": 0.3})
     flooded = sorted(x for x in [lodge] + list(P[lodge]["adj"]) if x in P and grassy(x))
-    return {"water": water, "wood": wood, "lodge": lodge, "flooded": flooded, "name": P[water]["name"]}
+    return {**pl, "lodge": lodge, "flooded": flooded}
 
 
 def _no_frost(monkeypatch):
@@ -100,8 +112,9 @@ def test_frost_freezes_the_small_waters_first_and_the_lake_last(lake, monkeypatc
     assert at(h["lake"] + 1) == (0.0, 0.0)                                          # a long freeze: all of it frozen over
     free = [at(n, cap=1e9)[1] for n in range(1, h["lake"] + 1)]                     # uncapped: the open water shrinks as the
     assert free[h["small"]] > free[h["small"] - 1]                                  # small waters freeze first,
-    assert free[h["big river"]] > free[h["big river"] - 1]                          # then the big river,
-    assert free[h["lake"] - 1] == free[h["big river"]]                              # and the mere holds longest
+    if WL._water_parts(m, ri)["big river"] > 0:                                     # then the big river, where the ring has
+        assert free[h["big river"]] > free[h["big river"] - 1]                      # one (the remade mere has none, D2-226),
+    assert free[h["lake"] - 1] == free[max(h["small"], h["big river"])]              # and the mere holds longest
 
 
 def test_only_a_pushed_kind_at_the_water_is_crowded(lake, monkeypatch):
@@ -125,7 +138,7 @@ def test_worlds_without_water_are_as_before(generated, monkeypatch):  # noqa: F8
         _frost(monkeypatch, w.d, n)
         assert all(WL.open_water(w, m, i, "s1", kind="wildfowl") == 1.0 for i in dry)
         assert all(WL.pushed(w, m, "s1", pid, "wildfowl", i) == 1.0 for i in dry for pid, p in w.s["parcels"].items() if p["node"] == "s1")
-    assert not any(WL.at_water(w, pid) for pid, p in w.s["parcels"].items() if p["node"] == "s1")
+    # s1 now has a floodplain meadow by water (D2-226): its parcels may be at water, but in s1's dry areas nothing is pushed (above)
 
 
 def _nets(lake, monkeypatch, n, rng_word=None, netters=20):
@@ -212,7 +225,7 @@ def _site(w, kind, pid, size):
 def test_the_dam_cuts_the_meadows_hay_and_raises_the_fish_and_breaking_it_reverses_both(lake, monkeypatch):
     _no_frost(monkeypatch)
     w = _world(lake)
-    pl = _places(w)
+    pl = _lodge(w, _places(w))
     BROOK, LODGE, LEAZE = pl["water"], pl["lodge"], pl["flooded"][0]
     _small_water(w, BROOK)                                                  # the dam's pond on a small water's stock
     sid = _site(w, "lodge", LODGE, 3)

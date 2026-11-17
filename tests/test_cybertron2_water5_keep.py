@@ -308,13 +308,24 @@ def test_boiling_salt_burns_firewood_at_its_rate_at_saltwells_spring():
     assert "it needs 4 firewood" in do(w, RP["salter"], do="make", what="boil salt")   # no firewood, no salt
 
 
+def _far_from_spring():
+    """A parcel of the spring's village neither at the spring nor beside it (the remade river world puts the salter's house beside
+    the Brine Meadow, so the test sets its own building away from it)."""
+    w = World(copy.deepcopy(RIVER))
+    near = {RP["spring"]} | set(w.s["parcels"][RP["spring"]]["adj"])
+    return next(p for p, x in sorted(w.s["parcels"].items()) if x["node"] == RP["node"] and p not in near and x["cover"] != "water")
+
+
 def test_a_brine_pan_is_set_only_at_or_beside_a_spring():
-    w = world(RIVER)
+    far = _far_from_spring()
+    bare = salthouse(far, RP["household"])
+    bare["salthouse"]["fittings"] = {}
+    w = world(RIVER, bare)
     salter(w, RP["salter"])
     hand(w, RP["salter"], copper=2, timber=4)
-    r = do(w, RP["salter"], do="build", what="salt pan", at=RP["house_name"])     # "salt pan" names the brine pan when building
+    r = do(w, RP["salter"], do="build", what="salt pan", at="the Salt House")      # "salt pan" names the brine pan when building
     assert r.startswith("Refused") and "brine spring" in r, r
-    w2 = world(RIVER, salthouse(RP["house_parcel"], RP["household"]))                     # a pan away from the spring: nothing to boil
+    w2 = world(RIVER, salthouse(far, RP["household"]))                                     # a pan away from the spring: nothing to boil
     salter(w2, RP["salter"])
     r = do(w2, RP["salter"], do="make", what="boil salt")
     assert r.startswith("Refused") and "no brine spring" in r, r
