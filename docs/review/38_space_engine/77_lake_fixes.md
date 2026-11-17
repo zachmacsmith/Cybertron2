@@ -22,8 +22,9 @@ tests/test_cybertron2_lake_fixes.py.
 4. **The cat sign said "it came to your hand" when it did not.** A find row now carries what is said when it comes ("it came to your
    hand") and when it does not ("it watched you a while and slipped back into the hedge"). The draws are unchanged.
 5. **A drying batch printed unrounded** ("2.9525"). The made line rounds to 2 places; what is stored is unchanged.
-6. **A drying batch of nearly nothing** ("0.0286 drying meat (from 0 meat)") held the rack 3 nights. A batch of less than 1 of its input
-   is refused: "there is too little to make a batch (...): it takes at least 1".
+6. **A drying batch of nearly nothing** ("0.0286 drying meat (from 0 meat)") held the rack 3 nights.
+   - The fix: a batch of less than 0.1 of its input is refused (`verbs.BATCH_LEAST`, calibrate): "there is too little to make a batch (...): it takes at least 0.1".
+   - It is 0.1, not 1 as asked, because brief 4c §6.1 lets a hare's meat (0.7) hang, and its test holds that.
 7. **The killing frost said "the water is frozen through"** on water that stays fishable. The water clause is dropped (Zach: ice
    stopping fishing is ignored for now).
 
@@ -59,6 +60,8 @@ outside, a party's transit.
 
 - The fault and rack tests: 8.
 - The signs pass: 10.
-- The full suite: see WORK W-57, which has the count at the push.
+- The full suite on `lake-fixes`: 659 pass and 15 fail. The 15 are 37.2's list on the old layouts (water5_fowl 9, water5_river 2,
+  water5_keep 1, wild 1, wild_range4c 2), which are the other fork's on `water-bodies`.
+- The world schema is now 11 (`buildings.spoilt`). If `water-bodies` also bumps it, the merge renumbers one of them.
 
 *Current as of 17 Nov 2026.*

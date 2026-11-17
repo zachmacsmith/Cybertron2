@@ -87,6 +87,7 @@ The day's record (`today`): `_departed`, `_floor`, `admits`, `awake`, `care`, `c
 | 8 | 10 Nov 2026 (ecology branch) | buildings `level`, `level_since` (shelter in five levels); containers' carcass and rack fields (`birds`, `burnt`, `cached`, `caught`, `depth`, `dug`, `eaten`, ...; briefs 3 and 4) | D2-199 |
 | 9 | 10 Nov 2026 (ecology branch) | `today` gains the declared hunting parties' fields (brief 4b) | D2-199 |
 | 10 | 13 Nov 2026 | `institutions.model`: a household's model, set when a household is founded in a world that gives its households models (`household_models`); its youths take it at coming of age (D4-117). Built on branch `peoples-worlds` (from `ecology-hunt2`, whose versions 5 to 9 are on that branch) | D4-117 |
+| 11 | 17 Nov 2026 (branch `lake-fixes`) | `buildings.spoilt`: what of a store's fish went off in the night (`{day, items}`), for its smell the morning after; and, outside the declared shape, the wild layer's `wary_seen` (by parcel) and a road trace of kind `fight` (W-57, the signs pass of 17 Nov) | D4-122 (built with it); signs_pass_17nov.md |
 
 **Before version 1 (version 0).** Runs from 24 Oct to 4 Nov have a journal but no number. These are the known changes to the
 shape in that time, reconstructed from the decisions. The list is incomplete; the git history of `cybertron2/engine/` is the
@@ -118,4 +119,4 @@ authority.
 proposals/run_data_interface.md; cybertron2/engine/schema.py; spec/record/journal.md (the journal's own `schema`, which versions
 its tables, not the world inside them).
 
-*Current as of 13 Nov 2026: D4-100, D4-103 (version 2), D4-104, D4-106 (version 3), D4-112 (version 4), D4-117 (version 10); versions 5 to 9 from the wild layer's branches, merged to main 16 Nov.*
+*Current as of 17 Nov 2026: D4-100, D4-103 (version 2), D4-104, D4-106 (version 3), D4-112 (version 4), D4-117 (version 10); versions 5 to 9 from the wild layer's branches, merged to main 16 Nov; version 11 on branch `lake-fixes` (W-57).*

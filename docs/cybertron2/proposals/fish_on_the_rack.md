@@ -25,7 +25,7 @@ at half the weight (food 2.0 a unit, keeping as dried meat). It shares the heart
 - **One rack:** fish and meat count against the same rack's room (`keeping.room`: what hangs with the drying-meat decay), so a hearth holds
   one batch of 8 of either or both.
 - **A sign:** the smell of fish drying in smoke at a house, as for meat (`signs.py`).
-- **The same batch minimum** as meat: a batch of less than 1 fish is refused (W-57).
+- **The same batch minimum** as meat: a batch of less than 0.1 fish is refused (W-57).
 
 ## Why
 
