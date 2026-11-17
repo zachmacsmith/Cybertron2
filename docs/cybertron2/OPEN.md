@@ -109,6 +109,7 @@ flagged; strike it through when it is built or decided.
 
 | # | Later | Decision | Designed in | Waits on | Owner |
 |---|---|---|---|---|---|
+| L-116 | **The wild layer's fish and a water body, two ways** (default taken, 17 Nov: the body is the one source of truth; the food web reads its fullness each night, and its own take of fish is not written back): a two-way link, the food web's fish (kg a km² of water) tied to the people's fish by a conversion | D2-229 | docs/review/38_space_engine/76_water_bodies_build.md; cybertron2/engine/waters.py | Zach, if wanted; the conversion is 37.2's calibration (D2-228) | 37.4 |
 | L-1 | Signs of slow change on long journeys | D2-89 | proposals/journeys.md §3 | slow states (eras, environment_state.md) | 37.2 |
 | L-2 | Scavengers, with wild animals that attack herds and hunters and are drawn to food | D2-95 | things_in_places.md §6 | wild animals as a system | 37.2 |
 | L-3 | **(Closed 2 Nov: built: D4-75's noticing carries sound and smell by steps, with own salience.)** Smell, simple: own salience and short reach | D2-101 | visibility.md §5 | nothing (any time) | 37.4 |

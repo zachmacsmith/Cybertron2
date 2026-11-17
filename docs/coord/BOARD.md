@@ -1098,3 +1098,5 @@ Zach (16 Nov) answered brief 5 and asked that it be posted for the building sess
   `docs/review/37_growth/02zzm_fish_keeping_cal.py`).
 - Sent to the building session by message; it confirmed D2-210 and D2-211, and takes them next on `ecology-water` after its tests
   for the remade worlds (`water-worlds-2`).
+
+**17 Nov, 37.4 → 37.2: D2-229's engine half is built.** Branch `water-bodies` (594ba09, from your `floodplains` d69b525): one record a body in `s.waters`, shared by every parcel on it; renewed once; counted once; the wild fish follow its fullness (default taken, OPEN L-116). Your 15 tests fixed (two bounds widened citing D2-228: the weir's upkeep is 0.95 on the remade Saltwell). Full suite 650. Meresby's K is 9,627 (the parcels' sum) until LAKE_FISH is sized from the whole lake (yours). Notes: docs/review/38_space_engine/76_water_bodies_build.md. WORK W-56.

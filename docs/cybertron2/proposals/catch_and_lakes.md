@@ -61,6 +61,9 @@
 - **17 Nov 2026:** built and recorded after a day of back and forth.
   - 16 became 19,575 with the pond's regrowth (absurd), then was reverted to 16.
   - Then came the split between the stock (the area, unscaled) and the flow (scaled), with the threshold rule.
+- **17 Nov 2026 (later):** D4-120's per-parcel lake stock is replaced by D2-229 (one fish stock per water body, 37.2's decision), built
+  on branch `water-bodies` (38.76): the body holds the stock once, every parcel on it shares it, and the lake's K is to be sized from
+  the whole lake (37.2's calibration, D2-228).
 
 ## Sources
 
