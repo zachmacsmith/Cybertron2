@@ -43,12 +43,27 @@ RIVER_PLACES = {                            # `at` is set on the generated land'
 }
 RIVER_AT_Y = {"Saltwell": 0.68, "Millham": 0.3}     # where along the river (share of the window's side, south to north)
 RUNS_PLACES = {                             # three stations on the large river, `at` set on it as for the river world
-    "Highpool": {"households": 3, "on": "big river", "within": 1.5, "food_share": 0.6},
-    "Middleham": {"households": 3, "on": "big river", "within": 1.5, "food_share": 0.6},
+    "Highpool": {"households": 3, "on": "big river", "has": ["brine spring"], "within": 1.5, "food_share": 0.6},   # salt, no fields
+    "Middleham": {"households": 3, "on": "big river", "has": ["mill site"], "within": 1.5, "food_share": 0.6},      # the mill and fields
     "Lowstrand": {"households": 3, "on": "big river", "within": 1.5, "food_share": 0.6},
 }
 RUNS_AT_Y = {"Highpool": 0.74, "Middleham": 0.5, "Lowstrand": 0.26}
+# places to expand into (Zach via 37.4, 17 Nov: "add some further places that have more wood and stone if they want to expand out"):
+# land no one holds, a day or more out by road, each with good timber, stone to quarry, a clearing to build on and water by it
+FRONTIER_MIX = {"open": 0.35, "wood": 0.45, "waste": 0.05, "rock": 0.15}
+RUNS_FRONTIER = {
+    "Stanwood": {"vacant": True, "room": 2, "mix": FRONTIER_MIX, "resources": ["stone"], "fish": True,
+                 "days_out": {"from": "Highpool", "days": 1.0}},
+    "Hartcliffe": {"vacant": True, "room": 2, "mix": FRONTIER_MIX, "resources": ["stone"], "fish": True,
+                   "days_out": {"from": "Middleham", "days": 1.0}},
+    "Thornholt": {"vacant": True, "room": 2, "mix": FRONTIER_MIX, "resources": ["stone"], "fish": True,
+                  "days_out": {"from": "Lowstrand", "days": 1.5}},
+}
 RUNS_DAYS = 60                              # past a salmon return under the compressed year (D2-209: one world year, 32 days)
+RUNS_FARM = ("Middleham", "Lowstrand")       # the lower villages keep their fields on the floodplain (Zach via 37.4, 17 Nov)
+RUNS_LIFESPAN = 64                           # as the peoples worlds (Zach, 13 Nov), with a 16-year history: founders 36 to 42 at the
+RUNS_HISTORY = -16                           # run (Q-60 a; the 26-year history made them elders in a week); younger families, so up to
+                                             # 2 children a household (children_max 18; at 8 no tree fits)
 LAKE_PLACES = {
     "Meresby": {"households": 3, "on": "lake", "lake_km2": 2.0, "at": [25.0, 21.0], "within": 6.0, "food_share": 0.6},   # on the mere
 }
@@ -83,13 +98,14 @@ def river_spec(seed: int) -> dict:
 def runs_spec(seed: int) -> dict:
     s = base("water_runs", seed)
     s["days"] = RUNS_DAYS
+    s["lifespan"] = RUNS_LIFESPAN
     s["cast"] = {"head": "claude-sonnet-5-5", "middle": "claude-sonnet-5-5", "rest": "claude-haiku-5-5", "youth": "claude-haiku-5-5"}
     s["generate"] = {
         "seed": seed, "settlements": 3, "household_size": 3, "spacing_km": 11.0, "warn_only": ["capacity"],
-        "bounds": {"per_min": 1, "per_spread": 5, "children_max": 8}, "sim": {"start": -26},   # wider than the river world's: nine
+        "bounds": {"per_min": 1, "per_spread": 5, "children_max": 18}, "sim": {"start": RUNS_HISTORY},   # wider than the river world's: nine
                                                                                               # households need a looser people tree
         "features": copy.deepcopy(river_spec(seed)["generate"]["features"]),
-        "places": copy.deepcopy(RUNS_PLACES)}
+        "places": {**copy.deepcopy(RUNS_PLACES), **copy.deepcopy(RUNS_FRONTIER)}}
     return s
 
 
@@ -173,13 +189,14 @@ def node_of(world: dict, name: str) -> str:
     return next(k for k, v in world["nodes"].items() if v.get("name") == name)
 
 
-def spring_and_mill(world: dict) -> dict:
+def spring_and_mill(world: dict, spring_at: str = "Saltwell", mill_at: str = "Millham") -> dict:
     """Who holds the spring and the mill. The spring's parcel goes to Saltwell's smallest household (a claim, as fields are held);
     the salter's craft is given once the engine has `boil salt` (brief 5 §4b), so the world stands on either branch. The mill is
-    the generator's (pin `mill site`: millstones and a water wheel, held by the miller's household)."""
+    the generator's (pin `mill site`: millstones and a water wheel, held by the miller's household). The river world's spring is at
+    Saltwell and its mill at Millham; the runs world's at Highpool and Middleham."""
     from cybertron2.engine.data import TECHNIQUES
     out = {}
-    up = node_of(world, "Saltwell")
+    up = node_of(world, spring_at)
     spring = next((pid for pid, p in world["nodes"][up]["parcels"].items() if p.get("spring") == "brine"), None)
     if spring:
         hhs = _households(world, up)
@@ -193,7 +210,7 @@ def spring_and_mill(world: dict) -> dict:
                 if a.get("stage") in ("adult", "elder"):
                     a.setdefault("knows", {}).setdefault("boil salt", {"level": "known", "skill": 1.2})
             out["spring"]["salter_craft"] = True
-    low = node_of(world, "Millham")
+    low = node_of(world, mill_at)
     mill = next((k for k, b in world["buildings"].items() if (b.get("fittings") or {}).get("water wheel")
                  and str(b.get("parcel", "")).startswith(low + "_")), None)
     out["mill"] = {"building": mill, "held_by": world["buildings"][mill]["household"]} if mill else None
@@ -233,13 +250,15 @@ def fishers(world: dict, every: bool = False) -> dict:
 RUNS_STORE = {"dried meat": 4, "roots": 6, "acorns": 6, "berries": 4}   # a household's late-summer larder: weeks, not a winter
 
 
-def no_farming(world: dict) -> dict:
+def no_farming(world: dict, keep=()) -> dict:
     """The runs-only world's edits after generation (§8): fields become rough ground (scrub), herds are gone, and no grain, beans,
     flour or bread is stored anywhere, so nothing can be sown or eaten from a harvest; each house holds a late-summer larder
     (RUNS_STORE) and the stocked fuel. The farming crafts stay known (they are basic and carry no pack), but with no seed, field
     or beast they lead nowhere: an engine `farming` pack would make the arm exact (handed to the building session)."""
     fields = 0
-    for node in world["nodes"].values():
+    for nid, node in world["nodes"].items():
+        if nid in keep:                                                    # a village that keeps its fields, herds and stores
+            continue
         for p in node["parcels"].values():
             if p["cover"] == "field":
                 p["cover"] = "scrub"
@@ -250,12 +269,14 @@ def no_farming(world: dict) -> dict:
                     st.pop(k)
                 p["text"] = "rough ground by the river: thorn, bramble and coarse grass, never ploughed"
                 fields += 1
-    herds = len(world.get("herds") or {})
-    world["herds"] = {}
+    gone = [h for h, x in (world.get("herds") or {}).items() if x.get("node") not in keep]
+    herds = len(gone)
+    for h in gone:
+        world["herds"].pop(h)
     food = 0
     for b in world["buildings"].values():
         stock = b.get("stock")
-        if stock is None:
+        if stock is None or str(b.get("parcel", "")).rsplit("_", 1)[0] in keep:
             continue
         for g_ in ("grain", "rye", "beans", "flour", "meal", "bread", "hay", "straw", "wooden plough", "harness"):
             if g_ in stock:
@@ -264,7 +285,10 @@ def no_farming(world: dict) -> dict:
         if (b.get("fittings") or {}).get("beds"):
             for g_, q in RUNS_STORE.items():
                 stock[g_] = stock.get(g_, 0) + q
-    for a in world["agents"].values():
+    farmers = {n for nid in keep for hh in _households(world, nid).values() for n in hh}
+    for n, a in world["agents"].items():
+        if n in farmers:
+            continue
         for k in ("sow", "reap", "hoe", "weed", "milk", "select seed", "plough"):
             (a.get("knows") or {}).pop(k, None)
     return {"fields to scrub": fields, "herds removed": herds, "farm goods removed": food, "larder a house": RUNS_STORE}
@@ -281,6 +305,32 @@ def runs_cast(world: dict) -> dict:
             if world["agents"][n].get("model") and world["agents"][n].get("stage") in ("adult", "elder"):
                 world["agents"][n]["model"] = "claude-opus-5-5"
         out[name] = lead
+    return out
+
+
+def runs_fields(world: dict) -> dict:
+    """The lower villages' fields: how many, and how many on the river's floodplain (the generator's terrain)."""
+    out = {}
+    for name in RUNS_FARM:
+        ps = [p for p in world["nodes"][node_of(world, name)]["parcels"].values() if p["cover"] == "field"]
+        out[name] = {"fields": len(ps), "units": sum(p["size"] for p in ps),
+                     "on the floodplain": sum(p["size"] for p in ps if p.get("terrain") == "river floodplain")}
+    return out
+
+
+def runs_frontier(world: dict) -> dict:
+    """Each place to expand into: its land by cover, its stone and wood, and its roads' days to the stations."""
+    out = {}
+    for name in RUNS_FRONTIER:
+        nid = next((k for k, v in world["nodes"].items() if v.get("name") == name), None)
+        if nid is None:
+            out[name] = None
+            continue
+        cov = {}
+        for p in world["nodes"][nid]["parcels"].values():
+            cov[p["cover"]] = cov.get(p["cover"], 0) + p["size"]
+        roads = [r for r in world["roads"] if nid in (r[0], r[1])]
+        out[name] = {"land": cov, "roads": [[r[1] if r[0] == nid else r[0], r[2]] for r in roads]}
     return out
 
 
@@ -384,9 +434,12 @@ def make(which: str, seed: int):
             report["spring_and_mill"] = spring_and_mill(world)
             report["design"] = river_check(world)
         elif which == "runs":
-            report["no_farming"] = no_farming(world)
+            report["no_farming"] = no_farming(world, keep={node_of(world, n) for n in RUNS_FARM})
+            report["spring_and_mill"] = spring_and_mill(world, "Highpool", "Middleham")
             report["cast_opus"] = runs_cast(world)
             report["design"] = runs_check(world)
+            report["design"]["fields"] = runs_fields(world)
+            report["design"]["frontier"] = runs_frontier(world)
         else:
             report["design"] = lake_check(world)
     return s, world, cells, report
@@ -395,7 +448,10 @@ def make(which: str, seed: int):
 def ok(which: str, report: dict) -> bool:
     d = report.get("design") or {}
     if which == "runs":
-        return all(v["reached"] for k, v in d.items() if " above " in k) and all(x > 0 for x in d["big_river_km"].values())
+        sm = report.get("spring_and_mill") or {}
+        return (all(v["reached"] for k, v in d.items() if " above " in k) and all(x > 0 for x in d["big_river_km"].values())
+                and bool(sm.get("spring")) and bool(sm.get("mill")) and all(f["fields"] > 0 for f in d["fields"].values())
+                and all(v and v["roads"] for v in d["frontier"].values()))
     if which == "river":
         sm = report.get("spring_and_mill") or {}
         return bool(d.get("saltwell_above_millham") and sm.get("spring") and sm.get("mill") and d.get("wild_areas_on_the_big_river"))
