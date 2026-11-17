@@ -674,6 +674,15 @@ WILD = [
          eye=True, land=("game", "thin"), text=lambda x: f"{x.nm} is hunted out: what game is left there will not breed back"),
     dict(when=lambda x: x.r("game") is not None and x.r("game") > 0.75, sense="sound", p=0.06, tags=["food", "hunting"],
          text=lambda x: f"something heavy moving in the undergrowth of {x.nm} at dusk"),
+    # a water's resident fish thinning or plenty (signs pass 17 Nov, sign 9; read from the water body's one stock, D2-229): luck in the
+    # catch (D4-119) makes one bad day no evidence, so the stock itself is what these read
+    dict(when=lambda x: x.r("fish") is not None and x.r("fish") < 0.35, sense="sight", p=lambda x: _thin(x.r("fish")),
+         tags=["food", "fishing"], eye=True, land=("fish", "thin"), text=lambda x: f"the water at {x.nm} is quiet: few fish rising"),
+    dict(when=lambda x: x.r("fish") is not None and x.r("fish") < 0.35, sense="sight", p=lambda x: _thin(x.r("fish"), lo=0.05, hi=0.3),
+         tags=["food", "fishing"], knack="angle", eye=True, land=("fish", "thin"),
+         text=lambda x: f"the fish at {x.nm} have been fished hard: fewer of them, and slow to come back"),
+    dict(when=lambda x: x.r("fish") is not None and x.r("fish") > 0.75, sense="sight", p=0.06, tags=["food", "fishing"],
+         land=("fish", "good"), text=lambda x: f"fish rising all along {x.nm}"),
     dict(when=lambda x: _bare(x, "wood"), sense="sight", p=0.6, tags=["timber"], eye=True, land=("timber", "bare"),
          text=lambda x: f"no standing timber left in {x.nm}: stumps and brush only"),
     dict(when=lambda x: x.r("wood") is not None and x.r("wood") < 0.35 and not _bare(x, "wood"), sense="sight", p=lambda x: _thin(x.r("wood")),
