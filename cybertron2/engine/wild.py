@@ -146,6 +146,8 @@ def night(w, rec) -> None:
     scale, pools = _shared_pre(w, m, st)                                  # what the land's plants hold for the wild kinds (D2-202)
     scale["stores"] = harvest
     lent = _dead_to_pool(w, m, st)                                        # the dead lying open feed the carrion eaters (brief 3 §3)
+    from cybertron2.engine import waters as WA
+    WA.to_wild(w, m, st)                                                  # a water body's fish, as full as its stock (D2-229)
     eff = EC.step(m, st, eco_day(w), weather(w, sorted(set(m.nodes)), w.d), draws(w, eco_day(w)), scale=scale)
     _dead_from_pool(w, m, st, eff, lent)
     _regime_kills(w, m, st)                                               # a great freeze (L4)

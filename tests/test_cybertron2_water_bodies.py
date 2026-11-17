@@ -88,3 +88,19 @@ def test_a_world_without_waters_is_unchanged():
     fishy = [p for p, x in w.s["parcels"].items() if "fish" in x["res"]]
     assert fishy and len({id(w.s["parcels"][p]["res"]["fish"]) for p in fishy}) == len(fishy)
     assert all(WA.lead(w, p, "fish") for p in fishy)
+
+
+def test_the_wild_fish_on_a_body_follow_its_stock(lake):
+    """The default taken (OPEN L-116): before the night's food web, each area on the body holds fish at its cap x the body's
+    fullness, so people's fishing thins the fish the wild kinds find there."""
+    from cybertron2.engine import wild as WL
+    w = _world(lake)
+    bid, b, pids = _mere(w)
+    m = WL.model(w)
+    st = copy.deepcopy(w.s["wild"]["state"])
+    b["fish"]["S"] = round(b["fish"]["K"] * 0.25, 4)
+    WA.to_wild(w, m, st)
+    cap = m.cap("fish")
+    for a in b["areas"]:
+        i = m.ids.index(a)
+        assert st["stock"]["fish"][i] == pytest.approx(float(cap[i]) * 0.25, abs=0.01)

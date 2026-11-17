@@ -6,6 +6,11 @@ each water parcel's body (`land.water_body`). The world holds each body's stocks
 reader and every primitive (draw, set_res, add_res) that goes through the parcel changes the body's stock. A saved world (JSON)
 keeps the values on both; `link` makes them one object again when a world is restored.
 
+The wild layer's fish in the body's areas follow the body (`to_wild`, default taken, OPEN L-116): before each night's food web, each
+area on a body holds fish at its cap times the body's fullness (S/K), so what people take from the lake thins the fish the otters,
+herons and eels find there. The food web's own take of fish is not written back to the body (its fish-eaters that rob or draw on
+the parcels, the heronry and the otter, already take from the body's record).
+
 Two rules keep the shared stock counted once: the night renews a stock once (night._grow skips a record it has renewed), and
 anything that sums or scales stocks over parcels takes a body's stock at its lead parcel only (`lead`): the capacity model, a site's
 share of the village's stock, a beaver dam's raise.
@@ -28,7 +33,7 @@ def seed(w, spec) -> None:
         pids += sorted(p for p, par in w.s["parcels"].items() if (par.get("land") or {}).get("water_body") == bid and p not in pids)
         if not pids:
             continue
-        rec = {"kind": b.get("kind", ""), "parcels": sorted(pids)}
+        rec = {"kind": b.get("kind", ""), "parcels": sorted(pids), "areas": dict(b.get("areas") or {})}
         for key in SHARED:
             own = [(p, w.s["parcels"][p]["res"][key]) for p in rec["parcels"] if key in w.s["parcels"][p]["res"]]
             if not own:
@@ -69,3 +74,20 @@ def lead(w, pid, key) -> bool:
         return True
     bid = body_of(w, pid)
     return bid is None or key not in w.s["waters"][bid] or w.s["waters"][bid]["parcels"][0] == pid
+
+
+def to_wild(w, m, st) -> None:
+    """The wild layer's fish in each body's areas set to the body's fullness, before the night's food web (D2-229; default taken)."""
+    fish = (st.get("stock") or {}).get("fish")
+    if fish is None or not w.s.get("waters"):
+        return
+    cap = m.cap("fish")
+    idx = {a: i for i, a in enumerate(m.ids)}
+    for bid, b in sorted(w.s["waters"].items()):
+        r = b.get("fish")
+        if not r or float(r["K"]) <= 0:
+            continue
+        f = max(0.0, min(1.0, float(r["S"]) / float(r["K"])))
+        for a in sorted(b.get("areas") or {}):
+            if a in idx:
+                fish[idx[a]] = round(float(cap[idx[a]]) * f, 2)
