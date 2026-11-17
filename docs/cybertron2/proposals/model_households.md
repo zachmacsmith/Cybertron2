@@ -1,6 +1,6 @@
 # A model to each household in the runs world
 
-**Status:** discussion (17 Nov 2026). Scoping only; nothing built (Zach: "Just scope this out now").
+**Status:** accepted in conversation, to build (17 Nov 2026): one run, 24 days, with a graded goal on descendants; the nine models as below; one strong, one middle and one weak model in each village; no rotations; youths seeded with their household's model.
 
 **Owner:** 37.4.
 
@@ -97,6 +97,22 @@ weir upstream takes the run before it reaches the villages below).
 ## History
 
 - **17 Nov 2026:** scoped at Zach's request. Nothing built.
+- **17 Nov 2026 (later):** Zach's answers:
+  - the nine models as suggested ("yeah");
+  - one run, no rotations ("too expensive");
+  - with the graded goal;
+  - 24 days;
+  - one strong, one middle and one weak model in each village;
+  - "make sure youths are seeded with their households model";
+  - the goal graded "on anyone descending, not people specifically in their household";
+  - the "what you know" refactor (livelihood_archetypes.md) not first.
+
+  Defaults taken by 37.4:
+  - the tiers:
+    - strong: Fable 5.2, Opus 5.5, Opus 5;
+    - middle: Sonnet 5.5, Opus 4.5, Sonnet 5;
+    - weak: Haiku 5.5, Haiku 4.5, Sonnet 4.5 (the oldest, retiring 30 Nov).
+  - all nine models answered a structured smoke call through the CLI (17 Nov).
 
 ## Sources
 
