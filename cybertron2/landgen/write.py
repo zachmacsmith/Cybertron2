@@ -157,6 +157,15 @@ def _words(p) -> dict:
     return out
 
 
+def _water_words(p) -> str:
+    """A water parcel by what its water is: a lake still, a river by its size (37.4's lake runs read "running water, low by the
+    water" for the mere)."""
+    f = p.facts or {}
+    if f.get("lake"):
+        return "open water of the mere, still and deep"
+    return {3: "a broad slow river", 2: "the river, running between banks"}.get(int(f.get("river", 0) or 0), "a brook, quick and shallow")
+
+
 def _text(p, node_name: str) -> str:
     """A template description from a parcel's facts (the fallback when no model writes it, D2-179)."""
     from cybertron2.landgen import ecology as EC
@@ -167,9 +176,9 @@ def _text(p, node_name: str) -> str:
                         "managed wood": "coppiced, " + (tree or "hazel under oak standards")}.get(p.wood_kind or "", tree or "woodland"),
              "heath": "heather and gorse on thin sand", "moor": "wet peaty moor", "fen": "reed and sedge over standing water",
              "saltmarsh": "salt grass and creeks", "scrub": "thorn and rough grass", "rock": "bare rock and scree",
-             "water": "running water"}.get(p.cover, p.cover)
+             "water": _water_words(p)}.get(p.cover, p.cover)
     soil = {"clay": "heavy clay", "sand": "light sand", "chalk": "thin chalky soil", "loam": "good loam", "peat": "black peat"}.get(p.soil, p.soil)
-    where = {0: "low by the water", 1: "", 2: "on the slope", 3: "up on the tops"}[p.height]
+    where = {0: "low by the water", 1: "", 2: "on the slope", 3: "up on the tops"}[p.height] if p.cover != "water" else ""
     bits = [words] + ([f"on {soil}"] if p.cover in ("field", "meadow", "pasture") else []) + ([where] if where else [])
     return ", ".join(bits)
 
