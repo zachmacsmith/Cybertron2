@@ -105,7 +105,7 @@ def seed(w) -> None:
         wx_next = weather(w, nodes, off + d + 1)
         EC.step(m, st, k0 + d, wx, draws(w, k0 + d, "history"), history=True)
         if rivers:
-            RU.advance(m, st, k0 + d, wx, wx_next, weather=_climate(w))
+            RU.advance(m, st, k0 + d, wx, wx_next, weather=_runs_by_weather(w))
     if rivers:                                                            # the run's own nights start with no run under way
         st["runs"]["pulses"], st["runs"]["rain"], st["runs"]["tally"] = [], {}, {}
     st["day"] = -1
@@ -2843,6 +2843,12 @@ def _stores(w, node, share) -> float:
 
 
 # ---------------------------------------------------------------------- the river: runs, weirs, the mill's gap (brief 5 §2, §3, §3a)
+def _runs_by_weather(w) -> bool:
+    """Whether the fish runs follow the weather's cue: with a climate, unless the world sets the runs on their windows' set nights
+    (`runs_set_nights`, D2-231: the runs world's model-per-household run, until the flow rule D2-215 is built)."""
+    return bool(_climate(w)) and not w.spec.get("runs_set_nights")
+
+
 def _climate(w) -> bool:
     from cybertron2.engine import climate as CL
     return bool(CL.on(w))
@@ -3102,7 +3108,7 @@ def _runs_night(w, m) -> dict:
                     out.setdefault("wrecked", []).append(cid)
     if flows:
         out["flow"] = flows
-    eff = RU.advance(m, st, day, wx_today, weather(w, nodes, w.d + 1), stops=_dam_stops(w, m), weather=_climate(w))
+    eff = RU.advance(m, st, day, wx_today, weather(w, nodes, w.d + 1), stops=_dam_stops(w, m), weather=_runs_by_weather(w))
     if any(eff.values()):
         out["moved"] = eff
     held = {p["g"]: True for p in RU.today(m, st, day + 1) if p.get("held")}
