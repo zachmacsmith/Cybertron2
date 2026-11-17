@@ -1,6 +1,7 @@
 """Build the website's files for published runs and put them on the Hub, beside each run's journal.
 
-    python -m c2viz.site.viewer_publish                 # every published run whose viewer files are missing or out of date
+    python -m c2viz.site.viewer_publish                 # the published runs that have no viewer files yet
+    python -m c2viz.site.viewer_publish --refresh       # ... and those built by an older c2viz (after the viewer's code changed)
     python -m c2viz.site.viewer_publish --only p1_brookend --force
     python -m c2viz.site.viewer_publish --no-upload --out /tmp/viewer   # build only, to look at
     python -m c2viz.site.viewer_publish --local         # build from runs already on this machine, no network ...
@@ -17,8 +18,8 @@ saved as plain JSON the browser reads directly:
     <folder>/<run>/viewer/thumb.jpg      the runs page's small map of day 1, when one has been drawn (by the site, in a browser)
     viewer/catalog.json                  every run with viewer files: its summary and its days in brief (the runs page's list)
 
-These files are derived: when c2viz's code changes (a new code_key), run this again and they are rebuilt from the journals, with
-no run played again. Nothing here reads or changes the engine.
+These files are derived: when c2viz's code changes (a new code_key), `--refresh` rebuilds them from the journals, with no run played
+again; a plain run builds only the runs that have none. Nothing here reads or changes the engine.
 """
 from __future__ import annotations
 
@@ -110,7 +111,8 @@ def main(argv=None) -> None:
     ap.add_argument("--repo", default=None, help="the dataset of published runs (default: the project's)")
     ap.add_argument("--folder", default=None, help="the folder in the dataset that holds the runs (default: the engine's)")
     ap.add_argument("--only", nargs="*", help="these runs only (their names)")
-    ap.add_argument("--force", action="store_true", help="rebuild even when the published files are up to date")
+    ap.add_argument("--force", action="store_true", help="rebuild every run, even those built by this code")
+    ap.add_argument("--refresh", action="store_true", help="also rebuild runs whose files an older c2viz built (by default only runs with none are built)")
     ap.add_argument("--out", default=None, help="where to build (default: a folder in the cache)")
     ap.add_argument("--no-upload", action="store_true", help="build only")
     ap.add_argument("--local", action="store_true", help="build from the runs already imported on this machine, with no network; then upload with --upload-only")
@@ -146,8 +148,8 @@ def main(argv=None) -> None:
             continue
         if not a.local and not a.force:
             old = published_index(repo, folder, r["name"], cat.sha)
-            if old and old.get("code_key") == key:
-                print(f"  {r['name']}: up to date", flush=True)
+            if old and (old.get("code_key") == key or not a.refresh):  # built already (by this code, or an older one unless --refresh)
+                print(f"  {r['name']}: up to date" if old.get("code_key") == key else f"  {r['name']}: built (older c2viz {old.get('code_key')}; --refresh rebuilds)", flush=True)
                 if r["name"] in catalog:                                    # its summary and dates, fresh; the journal's own date
                     have = mine.get(rid)                                    # if it is on this machine
                     catalog[r["name"]] |= {k: r.get(k) for k in SUMMARY} | {"played": old.get("played") or (played(have["path"]) if have else None)}
