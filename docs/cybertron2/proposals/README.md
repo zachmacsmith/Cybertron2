@@ -451,3 +451,5 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 16 Nov | the weather takes each place's climate from the generated land | accepted in principle: D2-220 | [climate_from_land.md](climate_from_land.md) |
 | 17 Nov | the environment: three speeds, places, spread functions, events from stocks, order, floodplains now, harsher places, calibration across worlds | accepted: D2-221 to D2-228 | [environment_systems.md](environment_systems.md) |
 | 17 Nov | luck in the catch; a lake's fish by its size; a fishing household | retrospective, accepted: D4-119 to D4-121 | [catch_and_lakes.md](catch_and_lakes.md) |
+| 17 Nov | fish on the hearth rack | retrospective, accepted: D4-122 | [fish_on_the_rack.md](fish_on_the_rack.md) |
+| 17 Nov | a signs pass after the lake runs (11 built, 1 to follow, 1 deferred) | retrospective, accepted in conversation | [signs_pass_17nov.md](signs_pass_17nov.md) |
