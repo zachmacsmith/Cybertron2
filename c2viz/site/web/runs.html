@@ -75,7 +75,7 @@ const rows = document.getElementById("rows"), R = [];
 const when = (r) => r.played || r.exported || "";
 const date = (t) => t ? new Date(t).toLocaleDateString(undefined, { day: "numeric", month: "short" }) : "";
 for (const r of runs) {
-  const days = r.planned_days ?? r.days, href = `run.html?id=${encodeURIComponent(r.id)}`, tr = document.createElement("tr");
+  const days = r.days ?? r.planned_days, href = `run.html?id=${encodeURIComponent(r.id)}`, tr = document.createElement("tr");
   tr.innerHTML = `<td class="map"><a href="${href}" aria-label="Explore ${esc(r.title)}"><div class="atlas"><img alt=""><svg></svg><div class="tl idle"><div class="px3"><i></i><i></i><i></i></div><span></span></div></div></a></td>
     <td><div class="t"><a href="${href}">${esc((r.title || r.name).replace(/_/g, " "))}</a><small>${esc(r.name)}</small>${r.source === "local" ? `<span class="tag">this machine</span>` : ""}</div>
       <div class="mods">${(r.models || []).map(short).join(" · ")}${when(r) ? `<span class="when"> · ${date(when(r))}</span>` : ""}</div><div class="days small">${'<i class="todo"></i>'.repeat(days || 0)}</div></td>
