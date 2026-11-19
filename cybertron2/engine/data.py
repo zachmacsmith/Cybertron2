@@ -757,7 +757,8 @@ PHYSICS = {
     "game_threshold": 0.15,                                              # below this share of capacity game does not come back
     "combat": {"base": [0.5, 1.5], "guard": 2.0, "asleep": 0.5, "units": 3, "raid_share": 0.5, "fight_wear": 4},
     "teach": {"units_teacher": 2, "units_learner": 2, "skill_share": 0.3,
-              "hunt_share": 0.15},   # the hunt's methods: a day closes this share of the gap to the teacher, x2 a youth (brief 4c §3.3)
+              "hunt_share": 0.15,    # the hunt's methods: a day closes this share of the gap to the teacher, x2 a youth (brief 4c §3.3)
+              "any_craft_from_day": 0},   # from this day a lesson named differently by the learner is in the teacher's craft (D4-123)
     "watch": {"units": 4},
     "notes": {"max": 8, "words": 150, "open": 2},
     "felt_watched": 0.3,

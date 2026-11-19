@@ -163,19 +163,28 @@ def duel(w, place, by, t, aim, helpers=(), guarding=False, rng=None, wear_attack
 
 
 def settle_teaching(w, today) -> dict:
-    """Teaching happens when a teach and a learn match the same day, both at one node: the hunt's methods over many days (brief 4c
-    §3.3), everything else in one day (`_teach_day`)."""
+    """Teaching happens when a teacher and a learner set the time aside for each other the same day, both at one node: the hunt's
+    methods over many days (brief 4c §3.3), everything else in one day (`_teach_day`). If they named different crafts, the lesson is
+    in the teacher's, and both are told what was taught and what was asked for (D4-123)."""
     out = {}
+    loose = int(w.s["day"]) >= int(w.p["teach"].get("any_craft_from_day", 0))     # before it, the crafts named must match (D4-123)
     for t in today["teach"]:
-        match = next((l for l in today["learn"] if l["by"] == t["to"] and l["from"] == t["by"] and l["tech"] == t["tech"]), None)
+        pair = [l for l in today["learn"] if l["by"] == t["to"] and l["from"] == t["by"]]
+        match = next((l for l in pair if l["tech"] == t["tech"]), None) or (pair[0] if pair and loose else None)
         label = KN.label(t["tech"])
         if not match or w.at(t["by"]) != w.at(t["to"]):
             out.setdefault(t["by"], []).append(f"You meant to teach {t['to']} {label}, but {t['to']} did not set aside time to learn.")
             continue
+        if match["tech"] != t["tech"]:        # each named a different craft: the lesson is in what the teacher teaches (Zach, 19 Nov)
+            asked = KN.label(match["tech"])
+            out.setdefault(t["by"], []).append(f"{t['to']} wanted to learn {asked}, but you taught {label} instead, so they learnt {label}.")
+            out.setdefault(t["to"], []).append(f"You wanted to learn {asked}, but {t['by']} taught {label} instead, so you learnt {label}.")
         (_teach_days if KN.hard(t["tech"]) else _teach_day)(w, t, label, out)
     for l in today["learn"]:
-        if not any(t["by"] == l["from"] and t["to"] == l["by"] and t["tech"] == l["tech"] for t in today["teach"]):
-            out.setdefault(l["by"], []).append(f"You meant to learn from {l['from']}, but {l['from']} did not set aside time to teach you.")
+        if not any(t["by"] == l["from"] and t["to"] == l["by"] and (loose or t["tech"] == l["tech"]) for t in today["teach"]):
+            what = f" {KN.label(l['tech'])}" if loose else ""
+            out.setdefault(l["by"], []).append(f"You meant to learn{what} from {l['from']}, but {l['from']} did not set aside time to "
+                                               "teach you.")
     return out
 
 

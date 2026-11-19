@@ -128,6 +128,14 @@ class Journal:
             self._x("INSERT INTO segments (kind, first_step, code_sha, parent, responders) VALUES (?, ?, ?, ?, ?)",
                     (kind, None, prov["code_sha"], None, dumps({})))
 
+    def go_on(self, at, first) -> None:
+        """Going on from the checkpoint at `at` with no replay (run.py resume_last, D4-124): open attempts aborted, and a segment
+        that starts at `first`, the next live step."""
+        prov = provenance()
+        self._x("UPDATE steps SET status = 'aborted' WHERE status = 'open'")
+        self._x("INSERT INTO segments (kind, first_step, code_sha, parent, responders) VALUES (?, ?, ?, ?, ?)",
+                ("resume_last", first, prov["code_sha"], at, dumps({})))
+
     def abandon_day(self, day) -> None:
         """A day dropped by the fail-stop: its steps aborted, its failed calls set aside (not answers: asked again on resume)."""
         pat = f"d{day}.%"
