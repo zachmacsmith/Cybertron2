@@ -163,7 +163,7 @@ q.addEventListener("input", filter);
 const sortSel = document.getElementById("sort");
 function order() {
   const az = (a, b) => (a.r.title || a.r.name).localeCompare(b.r.title || b.r.name) || a.r.name.localeCompare(b.r.name);
-  const by = sortSel.value === "az" ? az : (a, b) => when(b.r).localeCompare(when(a.r)) || az(a, b);
+  const by = sortSel.value === "az" ? az : (a, b) => when(b.r).localeCompare(when(a.r)) || (b.r.exported || "").localeCompare(a.r.exported || "") || az(a, b);   // a run carried on: the later one first
   [...R].sort(by).forEach((x) => rows.append(x.tr));
   pump();
 }
