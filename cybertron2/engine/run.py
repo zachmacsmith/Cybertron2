@@ -817,7 +817,7 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
         if mode == "continue":
             at = json.loads(dict(JN.read(src, "SELECT key, value FROM meta"))["continue"])["at"]
             restored = JN.checkpoint(src, at)
-        if mode == "resume_last":                                           # from the end of the last day done, with no replay (D4-124)
+        if mode == "resume_last":                                           # from the end of the last day done (D4-124)
             done = [s for (s,) in JN.read(src, "SELECT step FROM steps WHERE status = 'committed' AND step LIKE '%.memory'")]
             if not done:
                 raise SystemExit(f"{src}: no finished day to go on from")
@@ -858,15 +858,15 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
         J.meta("capacity", day0_capacity(spec))                            # the run's own baseline (D4-103; economic_calibration G)
     elif mode in ("continue", "resume_last"):
         J.until = until
-        if mode == "resume_last":
-            J.go_on(at, f"d{start_day}.dawn")
+        if mode == "resume_last":                                           # the steps committed after that day replayed from the record
+            J.resume(strict=False, until=until, kind="resume_last")
         if days:
             J.meta("spec", spec)                                            # a later resume plays to the new length
     else:
         J.resume(strict=mode == "replay", until=until)
     J.after_commit = lambda step: BR.after_commit(w, J, step)
-    if mode == "resume_last":                                               # interventions put in after that day, not yet applied
-        BR.after_commit(w, J, at, only_new=True)
+    if mode == "resume_last":                                               # interventions after that day: never in its checkpoint
+        BR.after_commit(w, J, at)
     stopped = None
     if mode in ("resume", "resume_last") and (out / "STOPPED.md").exists():               # a resumed run shows only a current stop
         with open(out / "stop_history.md", "a") as h:

@@ -135,12 +135,11 @@ def continue_(run, at, out) -> Path:
 
 
 # ---------------------------------------------------------------------- applied while a run is played (run.py: J.after_commit)
-def after_commit(w, J, step, only_new=False) -> None:
+def after_commit(w, J, step) -> None:
     """After a step's commit: the fork's settings from its fork point, and the interventions due after this step. Done on every
-    play of the run (a resume reproduces them); recorded as applied the first time. `only_new`: a run going on from a checkpoint
-    (run.py resume_last), whose state already holds what was applied before: only those not yet applied."""
+    play of the run (a resume reproduces them); recorded as applied the first time."""
     fk = J.fork
-    if fk and fk["at"] == step and not only_new:
+    if fk and fk["at"] == step:
         if fk.get("salt"):
             w.s["salt"] = fk["salt"]
         for name, responder in (fk.get("responders") or {}).items():
@@ -148,8 +147,6 @@ def after_commit(w, J, step, only_new=False) -> None:
                 model = responder.split(":", 1)[1] if responder.startswith("model:") else responder
                 w.apply("set", w.place_of(("person", name)), ref=("person", name), field="model", value=model)
     for iid, x, applied in J.interventions_after(step):
-        if only_new and applied:
-            continue
         quiet, J.quiet = J.quiet, J.quiet and bool(applied)                # its first application is written, even in a replay
         with w.cause(actor="(intervention)", verb="intervention", for_=x.get("note")):
             if x["op"] == "event":

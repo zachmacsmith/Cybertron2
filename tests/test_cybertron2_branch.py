@@ -71,8 +71,9 @@ def test_continue_from_the_end_of_a_day_under_this_code(parent, tmp_path):
 
 
 def test_resume_from_last_goes_on_from_the_last_day_done_without_replay_and_applies_new_interventions(parent, tmp_path):
-    """D4-124: `resume --from-last` restores the end of the last finished day and plays on; it reaches the same end as the run
-    played through, and an intervention put in after that day is applied once."""
+    """D4-124: `resume --from-last` restores the end of the last finished day, replays only the steps committed after it, and plays
+    on; it reaches the same end as the run played through, from the end of a day or from inside one, and an intervention put in
+    after that day is applied."""
     BR.rewind(parent, "d2.memory", tmp_path / "rl")
     (tmp_path / "rl" / "days.jsonl").write_text("kept\n")
     R.run(None, tmp_path / "rl", mode="resume_last")
@@ -94,3 +95,10 @@ def test_resume_from_last_goes_on_from_the_last_day_done_without_replay_and_appl
     R.run(None, tmp_path / "rl2", mode="resume_last")
     assert json.loads(_end(tmp_path / "rl2"))["know"][who]["boil salt"]["level"] in ("capable", "known")
     assert JN.read(tmp_path / "rl2" / "run.db", "SELECT applied FROM interventions")[0][0] is not None
+
+
+def test_resume_from_last_inside_a_day_replays_only_that_days_committed_steps(parent, tmp_path):
+    BR.rewind(parent, "d3.work", tmp_path / "mid")
+    R.run(None, tmp_path / "mid", mode="resume_last")
+    assert _end(tmp_path / "mid") == _end(parent)
+    assert [json.loads(x)["day"] for x in (tmp_path / "mid" / "days.jsonl").read_text().splitlines()] == [3, 4]
