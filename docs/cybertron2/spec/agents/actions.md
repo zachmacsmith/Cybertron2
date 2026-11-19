@@ -86,4 +86,10 @@ then from the stores at this place one may take from: the household's store, its
 what came from where: "You gave 3 grain to Ellen. (from the Hearne hut's store: 3 grain)". Away from home one has only what one
 carries.
 
-*Current as of 2 Nov 2026: D4-24, D4-29, D4-32, D4-35, D4-36, D4-37, D2-93, D2-94, D2-96, D2-111, D2-112, D4-76, D4-94, D4-95, D4-96, D4-97.*
+## Teaching
+
+- D4-123: a lesson happens when a teacher (`teach`) and a learner (`learn`) set time aside for each other the same day at one place;
+  it is in the craft the teacher names, and if the learner named another both are told what was taught and what was asked for. A
+  learn with no teacher that day says which craft it was for. `teach.any_craft_from_day` (decided: 0) is the day this starts.
+
+*Current as of 19 Nov 2026: D4-24, D4-29, D4-32, D4-35, D4-36, D4-37, D2-93, D2-94, D2-96, D2-111, D2-112, D4-76, D4-94, D4-95, D4-96, D4-97, D4-123.*

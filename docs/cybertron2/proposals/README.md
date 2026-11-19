@@ -453,4 +453,5 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 17 Nov | the runs world for the model-per-household run: Highpool's larder; the runs on set nights for the run | accepted: D2-230, D2-231 | [river_and_water.md](river_and_water.md) |
 | 17 Nov | luck in the catch; a lake's fish by its size; a fishing household | retrospective, accepted: D4-119 to D4-121 | [catch_and_lakes.md](catch_and_lakes.md) |
 | 17 Nov | fish on the hearth rack | retrospective, accepted: D4-122 | [fish_on_the_rack.md](fish_on_the_rack.md) |
+| 19 Nov | a lesson is in the teacher's craft | retrospective, accepted: D4-123 | [lesson_in_teachers_craft.md](lesson_in_teachers_craft.md) |
 | 17 Nov | a signs pass after the lake runs (11 built, 1 to follow, 1 deferred) | retrospective, accepted in conversation | [signs_pass_17nov.md](signs_pass_17nov.md) |
