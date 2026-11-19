@@ -12,8 +12,8 @@ A lesson happens when a teacher and a learner set time aside for each other the 
 
 - `settle.settle_teaching`: the teach and the learn are paired by teacher, learner and place.
   - The craft named by the teacher is the one taught.
-  - On a mismatch, the teacher hears "X came to learn A; you taught B".
-  - The learner hears "You came to learn A from Y, but Y taught you B", then the usual lesson line.
+  - On a mismatch, the teacher hears "X wanted to learn A, but you taught B instead, so they learnt B".
+  - The learner hears "You wanted to learn A, but Y taught B instead, so you learnt B", then the usual lesson line.
 - An unanswered learn: "You meant to learn A from Y, but Y did not set aside time to teach you."
 - `PHYSICS["teach"]["any_craft_from_day"]` (decided: 0). Before that day, the crafts named must match, with the old wording, so a resumed run replays its earlier days exactly.
 - The runs world's model run (W-58) starts it at day 14 (`any_craft_from_day: 13` in the run's stored spec). Two interventions follow day 13:
@@ -45,6 +45,7 @@ Zach (19 Nov): "surely they can be the same skill they feel similar enough? Fix 
 ## History
 
 - **19 Nov 2026:** built at Zach's request on branch `runs-models`; recorded as D4-123.
+- **19 Nov 2026:** wording changed at Zach's word ("something like 'you wanted to learn x but they taught y instead so you learnt y'").
 
 ## Sources
 
