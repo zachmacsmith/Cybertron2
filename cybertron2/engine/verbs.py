@@ -1004,13 +1004,23 @@ def _monument(here, mind, a, party, pid, what):
     if BL.ground_total(par) > 0:
         _ground_check(here, pid, int(SPACE["monument_ground"]), d["label"])
     t = TIERS[how]
-    _consume(here, {i: q * float(t["materials"]) for i, q in d["materials"].items()}, TRY[lvl]["inputs"],
+    mats, units, first = dict(d["materials"]), float(d["units"]), None
+    if d.get("site") == "river" and (a.get("structure") or a.get("material")):  # a weir's first section in either material (W-69)
+        from cybertron2.wild import gear as GR
+        first = STRUCTURE_WORDS.get(str(a.get("structure") or a.get("material")).strip().lower())
+        if first not in GR.MATERIALS:
+            raise Refused(f"a weir's section is wattle or timber, not {a.get('structure') or a.get('material')!r}")
+        c = GR.cost(0, first)
+        mats, units = c["materials"], float(c["units"])
+    _consume(here, {i: q * float(t["materials"]) for i, q in mats.items()}, TRY[lvl]["inputs"],
              here.party_container(party) if party else None)
     name = str(a.get("name") or "").strip()[:40] or f"the {what} on {par['name']}"
     bid = here.apply("raise", node=here.node, parcel=pid, rec={"name": name, "structure": d["structure"], "fittings": {}, "rooms": [],
                                                                  "monument": what, "tier": how,
-                                                                 "unfinished": {"blueprint": what, "units_left": float(d["units"]) * float(t["work"])},
-                                                                 **({"crew": [here.name] + crew, "gap": "shut"} if d.get("site") == "river" else {})})
+                                                                 "unfinished": {"blueprint": what, "units_left": units * float(t["work"])},
+                                                                 **({"crew": [here.name] + crew, "gap": "shut"} if d.get("site") == "river" else {}),
+                                                                 **({"sections": [{"m": first, "foot": False, "level": 5}]}
+                                                                    if first and first != "wattle" else {})})
     if a.get("describe"):
         here.apply("set", ref=("building", bid), field="description",
                    value={"text": BL.cap_text(a["describe"], "description"), "by": here.name, "day": here.day})
@@ -1100,6 +1110,8 @@ def _upgrade(here, mind, a, party):
                                                                          "tech": tech, "by": here.name})
         here.record("build", "upgrade", party)
         return _works_progress(here, mind, bid, started=True)
+    if b.get("monument") == "weir" and to == "timber":                       # a weir's wattle section rebuilt in timber (W-69)
+        return _weir_part(here, mind, a, party, "upgrade")
     if b.get("monument"):
         raise Refused(f"{b['name']} is a monument: raise its tier (\"how\") instead")
     order = SPACE["order"]
@@ -1127,50 +1139,70 @@ def _works_words(wk) -> str:
     return f"work to make it {TIERS[wk['to']]['words']}"
 
 
-# a weir's parts (D2-210): a further timber section, or a stone footing under the next section without one
-WEIR_PARTS = {"weir section": "timber", "a weir section": "timber", "timber section": "timber", "section": "timber",
-              "another section": "timber", "weir footing": "footing", "stone footing": "footing", "footing": "footing",
-              "a stone footing": "footing"}
+# a weir's parts (D2-210; W-69): a further section (timber unless "structure" says wattle; "wattle section" one of wattle), a stone
+# footing under the next section without one, or the first wattle section rebuilt in timber for the difference
+WEIR_PARTS = {"weir section": "section", "a weir section": "section", "timber section": "timber", "section": "section",
+              "another section": "section", "wattle section": "wattle", "a wattle section": "wattle", "a timber section": "timber",
+              "weir footing": "footing", "stone footing": "footing", "footing": "footing", "a stone footing": "footing",
+              "section upgrade": "upgrade", "upgrade section": "upgrade", "upgrade a section": "upgrade", "weir upgrade": "upgrade",
+              "upgrade the weir": "upgrade", "timber upgrade": "upgrade", "rebuild a section in timber": "upgrade"}
+WEIR_PART_WORDS = {"timber": "a timber section", "wattle": "a wattle section", "footing": "a stone footing",
+                   "upgrade": "a section rebuilt in timber"}
 
 
 def _weir_part(here, mind, a, party, part):
-    """Adding to a weir (D2-210): its materials when the part is begun, then its work, two units an action (more with skill), by anyone
-    who builds at it; a timber section (up to `most`) or a stone footing for the next section without one. A part begun is finished
-    before another is begun."""
+    """Adding to a weir (D2-210; wild/gear.py, W-69): its materials when the part is begun, then its work, two units an action (more
+    with skill), by anyone who builds at it: a further section of wattle or timber (up to `most` added), a stone footing for the next
+    section without one, or the first wattle section rebuilt in timber, for the difference of the two materials (its level kept).
+    A part begun is finished before another is begun."""
     from cybertron2.engine import wild as WL
-    from cybertron2.engine.data import WATER_WORKS
-    W = WATER_WORKS["weir"]["sections"]
+    from cybertron2.wild import gear as GR
     bid = here.building(a.get("at")) if a.get("at") else None
     if bid is None:
         bid = next((x for x, b in sorted(here.buildings().items()) if WL.is_weir(b) and not b.get("unfinished")), None)
     b = here.buildings().get(bid) if bid else None
     if b is None or not WL.is_weir(b) or b.get("unfinished"):
         raise Refused("say which weir here to add to (\"at\": the weir)")
+    if part == "section":
+        part = STRUCTURE_WORDS.get(str(a.get("structure") or a.get("material") or "timber").strip().lower())
+        if part not in GR.MATERIALS:
+            raise Refused(f"a weir's section is wattle or timber, not {a.get('structure') or a.get('material')!r}")
     _level(mind, "weir")
     wk = dict(b.get("weir_work") or {})
     secs = WL.sections(b)
     if not wk:
-        if part == "timber" and sum(1 for sc in secs if sc["m"] == "timber") >= int(W["timber"]["most"]):
-            raise Refused(f"{b['name']} has all its sections: {len(secs)}")
-        if part == "footing" and all(sc.get("foot") for sc in secs):
-            raise Refused(f"every section of {b['name']} stands on a stone footing")
-        _consume(here, W[part]["materials"], 1.0, here.party_container(party) if party else None)
-        wk = {"part": part, "units_left": float(W[part]["units"])}
+        if part in GR.MATERIALS:
+            if len(secs) - 1 >= GR.most_added():
+                raise Refused(f"{b['name']} has all its sections: {len(secs)}")
+            c = GR.cost(len(secs), part)
+        elif part == "footing":
+            if all(sc.get("foot") for sc in secs):
+                raise Refused(f"every section of {b['name']} stands on a stone footing")
+            from cybertron2.engine.data import WATER_WORKS
+            c = {"materials": WATER_WORKS["weir"]["footing"]["materials"], "units": WATER_WORKS["weir"]["footing"]["units"]}
+        else:
+            if not any(sc["m"] == "wattle" for sc in secs):
+                raise Refused(f"every section of {b['name']} is timber already")
+            c = GR.upgrade_cost("wattle", "timber")
+        _consume(here, c["materials"], 1.0, here.party_container(party) if party else None)
+        wk = {"part": part, "units_left": float(c["units"])}
     elif wk["part"] != part:
-        raise Refused(f"{b['name']} has {'a section' if wk['part'] == 'timber' else 'a footing'} under way: finish that first")
+        raise Refused(f"{b['name']} has {WEIR_PART_WORDS.get(wk['part'], 'a part')} under way: finish that first")
     _at_work(here, bid)
     wk["units_left"] = round(max(0.0, float(wk["units_left"]) - 2 * KN.skill(mind, "weir") * here.yield_mult()), 2)
-    what = "a timber section" if part == "timber" else "a stone footing"
+    what = WEIR_PART_WORDS[part]
     if wk["units_left"] > 1e-9:
         here.apply("set", ref=("building", bid), field="weir_work", value=wk)
         here.event("build", f"{here.name} was working on {b['name']}", actor=here.name, about=[f"building:{bid}"], salience=0.2,
                    tags=["building"])
         return f"You worked on {what} for {b['name']}: about {show(wk['units_left'])} units of work left."
     here.apply("set", ref=("building", bid), field="weir_work", value=None)
-    if part == "timber":
-        secs.append({"m": "timber", "foot": False, "level": 5})
-    else:
+    if part in GR.MATERIALS:
+        secs.append({"m": part, "foot": False, "level": 5})
+    elif part == "footing":
         next(sc for sc in secs if not sc.get("foot"))["foot"] = True
+    else:
+        next(sc for sc in secs if sc["m"] == "wattle")["m"] = "timber"
     here.apply("set", ref=("building", bid), field="sections", value=secs)
     here.event("build", f"{here.name} finished {what} on {b['name']}", actor=here.name, about=[f"building:{bid}"], salience=0.4,
                tags=["building", "fishing"])
@@ -1178,11 +1210,12 @@ def _weir_part(here, mind, a, party, part):
 
 
 def _weir_mend(here, bid, m) -> str:
-    """Mending a weir (D2-210): its worst section a level, for `mend` of that section's build in materials (at least one of each) when
-    the mending starts, and its work, two units an action."""
+    """Mending a weir (D2-210): its worst section a level, for `mend` of that section's build (by its place and material, with its
+    footing: wild/gear.py) in materials (at least one of each) when the mending starts, and its work, two units an action."""
     import math as _m
     from cybertron2.engine import buildings as BL, wild as WL
-    from cybertron2.engine.data import MONUMENTS, WATER_WORKS
+    from cybertron2.engine.data import WATER_WORKS
+    from cybertron2.wild import gear as GR
     W = WATER_WORKS["weir"]
     b = here.buildings()[bid]
     secs = WL.sections(b)
@@ -1192,12 +1225,8 @@ def _weir_mend(here, bid, m) -> str:
         if int(secs[j]["level"]) >= 5:
             return f"{b['name']} is sound: there is nothing to mend."
         sc = secs[j]
-        build = dict(MONUMENTS["weir"]["materials"]) if sc["m"] == "wattle" else dict(W["sections"]["timber"]["materials"])
-        units = float(MONUMENTS["weir"]["units"] if sc["m"] == "wattle" else W["sections"]["timber"]["units"])
-        if sc.get("foot"):
-            for k, v in W["sections"]["footing"]["materials"].items():
-                build[k] = build.get(k, 0) + v
-            units += float(W["sections"]["footing"]["units"])
+        c = GR.cost(j, sc["m"], bool(sc.get("foot")))
+        build, units = c["materials"], float(c["units"])
         need = {k: max(1, _m.ceil(float(v) * float(W["mend"]) - 1e-9)) for k, v in build.items()}
         _consume(here, need, extra=b["stock"] if here.may_take(b["stock"]) else None)
         md = {"units_left": round(units * float(W["mend"]), 2), "day": here.day, "section": j}

@@ -339,34 +339,50 @@ MONUMENTS = {
     "cairn": {"label": "a cairn", "materials": {"stone": 6}, "units": 3, "basic": True, "structure": "stone",
               "aliases": ["a cairn", "heap of stones"]},
     # a fish weir (brief 5 §3, D2-209; calibrate): a standing work across a river at a water parcel, built by a declared crew
-    # (`with`), with a condition (floods and ice wear it, mended like a building) and a gap set open or shut (WATER_WORKS)
+    # (`with`), with a condition (floods and ice wear it, mended like a building) and a gap set open or shut (WATER_WORKS); its
+    # materials and units are its first section's in wattle (WATER_WORKS weir: position.first + material.wattle, W-69); built with
+    # "structure": timber, the first section is timber and costs the difference more (wild/gear.py)
     "weir": {"label": "a fish weir (stakes and wattle across the river, wicker traps in its gap)", "materials": {"timber": 12},
              "units": 24, "basic": True, "structure": "timber", "site": "river", "crew": 2, "pack": "wild",
              "aliases": ["fish weir", "a weir", "a fish weir", "eel weir", "build a weir", "build weir"]},
 }
-# The river's works (brief 5 §3, §3a, §3b; D2-209, D2-210; calibrate). A weir is built in sections (D2-210): the first of stakes and
-# wattle (the MONUMENTS row), then up to `most` timber sections, each upgradeable with a stone footing; with its gap shut each sound
-# section takes `share` of a run passing and holds `hold` kg a night (less as it wears, `by_level`); open, `open` of that. A night's
-# catch is the share, capped by what the weir holds less what is in its traps unlifted. Each section wears a night by Poisson(`base` x
-# its material x the water x the flow (from the catchment's rain today and half of yesterday's, over the mean, `flow_at`) x `gap_high`
-# with the gap shut in high water or above x ice (`ice`, `thaw` the night the ice breaks)) levels; a level is mended at `mend` of the
-# section's build. Setting the gap shut puts the traps in (`units`), opening takes them out. A trap in water on a running river is
-# wrecked on a spate night at `wreck` (D2-211: fish alive in it until then). A water wheel on a river a run passes has a gap too (a new
-# one shut): shut, it grinds at full and its dam stops `stop` of a run going up (held below it that night) and sends a run going down
-# through the race, where a trap in water takes `race` of it; open, it grinds at `open_rate` (Q-51, default taken: half), the runs pass.
-# The holds are in kg of the catch's goods (fish about 1 kg gutted a unit), not food (D2-258): a wattle section about 100 kg on a
-# peak night (a real weir's traps; was 10 food, about 22 kg on the unit of D2-258: x 4.6), a timber section 70 (in the old ratio
+# The river's works (brief 5 §3, §3a, §3b; D2-209, D2-210; calibrate). A weir is built in sections (D2-210). **Position decides a
+# section's share and hold; material decides its wear and cost** (W-69, 20 Nov: the material names had stood for position). The first
+# section (index 0) takes `share` 0.30 of a run passing and holds `hold` 100 kg a night; each added one (up to `most`) 0.07 and 70 kg,
+# less as it wears (`by_level`); open, `open` of that. Any section, the first included, is wattle (wear 1.0) or timber (wear 0.5);
+# a stone footing under a section makes it wear at `footing` wear whatever it is. A section's cost is its material's, and the first's
+# adds the weir's own stakes across the river and its trap (`position.first` materials and units): a wattle first section is the
+# MONUMENTS row (12 timber, 24 units: 7 + 5, 9 + 15), a timber added one 10 timber and 25 units, as built before; a timber first
+# section 17 timber and 34 units, a wattle added one 5 and 15. A wattle section upgraded to timber costs the difference (D2-210).
+# A night's catch is the share, capped by what the weir holds less what is in its traps unlifted, and shared with the other gear in the
+# same parcel in proportion to the shares (wild/gear.py). Each section wears a night by Poisson(`base` x its material x the water x the
+# flow (from the catchment's rain today and half of yesterday's, over the mean, `flow_at`) x `gap_high` with the gap shut in high water
+# or above x ice (`ice`, `thaw` the night the ice breaks)) levels; a level is mended at `mend` of the section's build. Setting the gap
+# shut puts the traps in (`units`), opening takes them out. A trap in water on a running river is wrecked on a spate night at `wreck`
+# (D2-211: fish alive in it until then). A water wheel on a river a run passes has a gap too (a new one shut): shut, it grinds at full
+# and its dam stops `stop` of a run going up (held below it that night) and sends a run going down through the race, where a trap in
+# water takes `race` of it; open, it grinds at `open_rate` (Q-51, default taken: half), the runs pass.
+# The holds are in kg of the catch's goods (fish about 1 kg gutted a unit), not food (D2-258): a first section about 100 kg on a
+# peak night (a real weir's traps; was 10 food, about 22 kg on the unit of D2-258: x 4.6), an added section 70 (in the old ratio
 # 7/10), a set trap 10 kg (17 eels, 3 salmon; was 3 food, about 6.5 kg: x 1.5). What the holds do not bind, keeping the catch must
 # (fresh fish's spoilage, salt, the racks and smokehouses, their fuel).
-WATER_WORKS = {"weir": {"sections": {"wattle": {"share": 0.30, "hold": 100.0, "wear": 1.0},
-                                     "timber": {"share": 0.07, "hold": 70.0, "wear": 0.5, "materials": {"timber": 10}, "units": 25,
-                                                "most": 3},
-                                     "footing": {"wear": 0.1, "materials": {"stone": 10}, "units": 15}},
+# The wear calibrated to D2-210's year (W-69, 20 Nov; docs/review/37_growth/02zzw_water_fixes.md), measured on the runs world's large,
+# icy river (Eelmouth: about 12 low, 9 normal, 4 high, 4 spate and 3 flood nights and 6 frozen ones a year) with the gap kept right
+# (open in high water without a run): a wattle section about 0.50 of its cost a year, timber 0.25, stone-footed 0.05, a full weir
+# (wattle and three timber) 0.31. Was high 2, spate 5, flood 15, gap_high 1.5, ice 3, thaw 5, a large river 1.5: wattle 1.27 a
+# year there, timber 0.67, a full weir 0.82, and a flood night took a wattle section with the gap open or shut. A level a week of
+# normal flow on a lowland river (`base`) is kept. Now a spate costs a wattle section about 0.4 levels with the gap open and 0.9
+# shut, a flood 0.9 and 1.7 (D2-210's "a flood with the gap shut usually takes the section" gives way to its year's upkeep).
+WATER_WORKS = {"weir": {"position": {"first": {"share": 0.30, "hold": 100.0, "materials": {"timber": 7}, "units": 9},
+                                     "added": {"share": 0.07, "hold": 70.0, "most": 3}},
+                        "material": {"wattle": {"wear": 1.0, "materials": {"timber": 5}, "units": 15},
+                                     "timber": {"wear": 0.5, "materials": {"timber": 10}, "units": 25}},
+                        "footing": {"wear": 0.1, "materials": {"stone": 10}, "units": 15},
                         "open": 0.1, "by_level": {5: 1.0, 4: 0.8, 3: 0.6, 2: 0.3, 1: 0.1, 0: 0.0},
-                        "wear": {"base": 0.143, "water": {"lowland": 1.0, "large": 1.5, "beck": 2.0}, "beck_m": 150.0,
-                                 "flow": {"low": 0.5, "normal": 1.0, "high": 2.0, "spate": 5.0, "flood": 15.0},
-                                 "flow_at": [[0.3, "low"], [1.5, "normal"], [3.0, "high"], [5.0, "spate"]], "gap_high": 1.5,
-                                 "ice": 3.0, "thaw": 5.0},
+                        "wear": {"base": 0.143, "water": {"lowland": 1.0, "large": 1.2, "beck": 2.0}, "beck_m": 150.0,
+                                 "flow": {"low": 0.5, "normal": 1.0, "high": 1.5, "spate": 2.5, "flood": 5.0},
+                                 "flow_at": [[0.3, "low"], [1.5, "normal"], [3.0, "high"], [5.0, "spate"]], "gap_high": 2.0,
+                                 "ice": 1.5, "thaw": 2.0},
                         "mend": 0.06, "units": {"shut": 2, "open": 1}},
                "trap": {"wreck": {"spate": 0.5, "flood": 0.85},           # a flood very likely, not always (D2-218)
                         "hold": 10.0},                      # a set trap in water, in the river or a race, holds this many kg (D2-213, D2-258)

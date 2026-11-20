@@ -441,7 +441,7 @@ WW = WATER_WORKS["weir"]
 def full_weir(w, node, foot=False, gap="shut"):
     bid = put_weir(w, node, gap=gap)
     w.s["buildings"][bid]["sections"] = [{"m": "wattle", "foot": foot, "level": 5}] + \
-        [{"m": "timber", "foot": foot, "level": 5} for _ in range(int(WW["sections"]["timber"]["most"]))]
+        [{"m": "timber", "foot": foot, "level": 5} for _ in range(int(WW["position"]["added"]["most"]))]
     return bid
 
 
@@ -541,8 +541,11 @@ def test_the_river_wears_a_weir_by_flow_and_material(river, monkeypatch):
     assert 1 / (E["base"] * E["flow"]["normal"]) == pytest.approx(7.0, abs=0.1)    # a level a week of normal flow, lowland wattle
 
 
-def test_a_flood_with_the_gap_shut_takes_a_section_more_often_than_with_it_open(river, monkeypatch):
-    """D2-210: a flood with the gap shut usually takes the section (on a large river), with it open about half the damage."""
+def test_a_flood_with_the_gap_shut_wears_a_section_clearly_more_than_with_it_open(river, monkeypatch):
+    """D2-210: the gap shut in high water wears the weir the faster (x `gap_high`). Re-pinned with the wear calibrated to D2-210's
+    year (W-69, 20 Nov; 02zzw_water_fixes.md): a flood night took a wattle section on a large river with the gap open or shut
+    (0.5 and more of the nights), which put a weir's yearly upkeep at three times D2-210's band; now a flood costs a wattle section
+    about 1.7 levels shut and 0.9 open, and rarely takes it whole."""
     monkeypatch.setattr(type(river), "cold", lambda self, at, day=None: False)
     w = fresh(river)
     m = WL.model(w)
@@ -560,10 +563,11 @@ def test_a_flood_with_the_gap_shut_takes_a_section_more_often_than_with_it_open(
             taken += n >= 5
         res[gap] = (taken / 300, lost / 300)
         w.s["buildings"].pop(bid)
-    assert res["shut"][0] > 0.45 and res["open"][0] < 0.25
-    # open about two-thirds of the damage; the ratio narrows where floods often reach the cap of levels a night (the remade river's
-    # wetter catchment, D2-226), so the bound is wider than one world's value (calibration across worlds, D2-228)
-    assert res["open"][1] < res["shut"][1] and res["open"][1] == pytest.approx(res["shut"][1] / 1.5, rel=0.25)
+    E = WW["wear"]
+    lam = E["base"] * E["water"]["large"] * E["flow"]["flood"]
+    assert res["open"][1] == pytest.approx(lam, rel=0.2) and res["shut"][1] == pytest.approx(lam * E["gap_high"], rel=0.2)
+    assert res["shut"][1] > 1.6 * res["open"][1]                                     # shutting clearly costs more
+    assert res["shut"][0] < 0.15 and res["open"][0] < 0.03
 
 
 def test_a_full_weirs_upkeep_on_a_lowland_river_is_a_quarter_to_a_third_of_its_cost(river):
@@ -585,15 +589,15 @@ def test_a_full_weirs_upkeep_on_a_lowland_river_is_a_quarter_to_a_third_of_its_c
     x /= 5.0
     share = {mat: E["base"] * f * x * WW["mend"] for mat, f in (("wattle", 1.0), ("timber", 0.5), ("foot", 0.1))}
     # D2-210's target (wattle 0.35 to 0.55 of its cost a year, a full weir a quarter to a third) was met on the river world as first
-    # made; the remade world's Saltwell catchment (floodplains, D2-226) gives about 0.95. One world's value is not pinned: the
-    # target is re-checked across the calibration worlds (D2-228; OPEN, 37.2). Here: the materials keep their order and ratios,
-    # and the upkeep stays under the weir's whole cost a year.
+    # made; the remade world's Saltwell catchment (floodplains, D2-226) gave about 0.95 (a full weir 0.75). Re-pinned to the band
+    # with the wear calibrated on the runs world (W-69, 20 Nov; test_cybertron2_water_fixes, 02zzw_water_fixes.md): Saltwell's
+    # wattle about 0.47, a full weir about 0.29, the gap open all year (this expectation leaves out the cap of 5 levels a night).
     assert share["timber"] == pytest.approx(0.5 * share["wattle"]) and share["foot"] == pytest.approx(0.1 * share["wattle"])
-    assert 0.2 <= share["wattle"] <= 1.2
+    assert 0.35 <= share["wattle"] <= 0.55, share
     c1 = MONUMENTS["weir"]["units"]
-    c2 = WW["sections"]["timber"]["units"]
+    c2 = WW["material"]["timber"]["units"]
     full = (share["wattle"] * c1 + 3 * share["timber"] * c2) / (c1 + 3 * c2)
-    assert 0.15 <= full < 1.0, full
+    assert 0.25 <= full <= 0.34, full
 
 
 def test_a_weir_is_mended_a_section_and_a_level_at_a_time(river):
