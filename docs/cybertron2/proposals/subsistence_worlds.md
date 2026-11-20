@@ -141,6 +141,7 @@ change (the switches, 37.4), the data rows that miss their targets, W-64 and W-6
 
 ## History
 
+- 20 Nov 2026: accepted in part: D2-255 (A very skilled hunter brings in a disproportionate amount of food, more still on).
 - 20 Nov 2026: written by 37.2 at Zach's request, from D2-242, 02zzd's measurements, brief 5 §8's runs-only world and L-112.
 
 ## Sources
