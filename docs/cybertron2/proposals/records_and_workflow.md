@@ -485,6 +485,42 @@ most things two hops from a build. The question behind it, "how much of what we 
 unbuilt decisions per thread and area. That is the 22 to 24 Oct failure (gates, ledgers, tools decided, never built) made
 visible. `records area` and the brief list unbuilt decisions with their age.
 
+## 14. Closing things without losing what still matters
+
+Zach (20 Nov): "old decisions might not be pinned to a thread that is mostly resolved but that decision or question actually is
+still relevant ... resolved (as decided by you should be a different option so we can later revisit and it should be clear things
+you might have mistakenly resolved vs me knowing) but you can also flag things as potentially still relevant / that I should
+revisit".
+
+**Every resolution says who made it.** Closing anything (a thread done, merged into another, dropped; an ask answered; an offer
+taken; a deferral dropped) sets `by:` to one of four values:
+
+| `by:` | Means | Shown |
+|---|---|---|
+| `zach` | Zach said so, in his own words (quoted in `answer` or `sources`) | settled |
+| `agent` | an agent judged it resolved | **provisional:** listed in the digest for Zach to confirm in batches, and still found by `area` and `find` |
+| `default` | its default date passed with no answer | provisional, as `agent` |
+| `relayed` | Zach's answer, carried by another session | provisional until confirmed once (Q-60's case) |
+
+An agent can never write `by: zach`. Confirming in the digest turns `agent`, `default` and `relayed` into `zach`.
+
+**Revisit.** Any item, closed or open, may carry `revisit:` with a reason ("may still hold after the water refactor"). It keeps
+the item in the brief and the digest whatever its state. An agent sets it when it closes something with doubt; Zach sets it when
+he wants a question back later.
+
+**Closing a thread settles its children first.** `records close W-n` lists the thread's open items and refuses to close until each
+is:
+- moved to another thread (a new `parent`);
+- closed itself, with its `by:`;
+- or marked `revisit:` and kept open, under the thread's parent or a named one.
+
+**Decisions do not live by their thread.** A decision is live until it is replaced, whatever happens to the thread it came from.
+`area` lists it, the spec cites it, and closing or merging the thread changes nothing about it. So a resolved thread cannot carry
+a still-relevant decision away with it.
+
+An open ask under a closed thread is impossible, given the rule above. An ask closed provisionally stays findable, and shows as
+provisional.
+
 ## Open questions
 
 OPEN Q-64:
@@ -513,6 +549,9 @@ OPEN Q-64:
 16. Commit types in the subject (`build W-48: ...`; design, decide, build, fix, run, record, upkeep), inferred from the paths and
     corrected by the agent, with `Builds:` naming what code implements; "how far from built" as unbuilt decisions per thread and
     area and the last build's date, not a shortest path?
+17. Resolutions by whom (§14): `by:` zach, agent, default or relayed, the last three provisional until Zach confirms in the
+    digest; `revisit:` with a reason on any item; a thread closes only after each open child is moved, closed or marked revisit;
+    decisions stay live by area whatever their thread?
 12. Ids written as `[[Q-63]]` in the items, so the folder opens in Obsidian with its links and graph, or as plain ids that only
     the tool links?
 
@@ -523,6 +562,8 @@ Every session's habits (CLAUDE.md's work rules); `tools/` (hygiene folded into `
 
 ## History
 
+- 20 Nov 2026: §14 added after Zach: every resolution names who made it (zach, agent, default, relayed), with the last three
+  provisional; a revisit flag; closing a thread settles its children; decisions live by area. Q-64 (17).
 - 20 Nov 2026: §13 added after Zach: freshness against links (with `reviewed:` and `describes:`, which also covers the spec's
   mechanics against the code), commit types with `Builds:`, and unbuilt decisions in place of a shortest path. Q-64 (15), (16).
 - 20 Nov 2026: §12 added after Zach: documents are nodes with the same header as items; queries show by level (in full, then
