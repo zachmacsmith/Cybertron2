@@ -2,7 +2,7 @@
 
 ## Open
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70 · Verbs and livelihood archetypes, before the engine rework]] (queued)
-- [[W-69 Subsistence worlds|W-69 · Subsistence worlds]] (queued)
+- [[W-69 Subsistence worlds|W-69 · Subsistence worlds]] (active)
 - [[W-68 37.2's spec catch-up|W-68 · 37.2's spec catch-up]] (queued)
 - [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]] (queued)
 - [[W-65 Tracking threads automatically|W-65 · Tracking threads automatically]] (active)

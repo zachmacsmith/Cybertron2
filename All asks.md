@@ -1,6 +1,7 @@
 # All asks
 
 ## Open
+- [[Q-66 Subsistence worlds|Q-66 · Subsistence worlds]] (open)
 - [[Q-62 recordexecution.md and resume --from-last|Q-62 · record/execution.md and `resume --from-last`]] (open)
 - [[Q-56 The land the engine reads|Q-56 · The land the engine reads]] (open)
 - [[Q-53 Brief 5 as built|Q-53 · Brief 5 as built]] (open)

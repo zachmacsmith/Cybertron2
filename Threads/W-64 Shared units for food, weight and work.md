@@ -21,6 +21,8 @@ not begun; recorded on arrival so it is not lost (02zzp pattern 1). Sits with th
 
 
 ## Mentioned by
+- [[Q-66 Subsistence worlds|Q-66 · Subsistence worlds]]
 - [[W-69 Subsistence worlds|W-69 · Subsistence worlds]]
 - [[L-137 Stores may be too strong against preserving|L-137 · Stores may be too strong against preserving]]
+- [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
 - *and 1 index or audit notes*

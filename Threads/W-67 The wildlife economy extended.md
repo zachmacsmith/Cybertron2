@@ -53,3 +53,4 @@ started
 - [[L-125 Brief 5's fen and boats half (pack K4's rest)|L-125 · Brief 5's fen and boats half (pack K4's rest)]]
 - [[L-126 The wildlife's core mechanisms not built|L-126 · The wildlife's core mechanisms not built]]
 - [[L-131 The wild layer's live points from briefs 1 to 3|L-131 · The wild layer's live points from briefs 1 to 3]]
+- [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]

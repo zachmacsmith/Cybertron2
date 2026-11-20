@@ -22,3 +22,4 @@ conversation (20 Nov: "can a village survive off just runs (should be possible?)
 
 ## Mentioned by
 - [[W-69 Subsistence worlds|W-69 · Subsistence worlds]]
+- [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]

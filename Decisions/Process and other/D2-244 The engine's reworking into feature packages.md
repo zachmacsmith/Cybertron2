@@ -24,3 +24,4 @@ conversation (20 Nov: "This is still postponed but I think we should flag it so 
 ## Mentioned by
 - [[Q-48 The engine as feature packages|Q-48 · The engine as feature packages]]
 - [[L-133 The engine as feature packages postponed, kept in mind|L-133 · The engine as feature packages: postponed, kept in mind]]
+- [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]

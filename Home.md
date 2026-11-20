@@ -4,8 +4,9 @@
 
 [The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.
 
-## Waiting on you (7)
+## Waiting on you (8)
 - [[Q-27 The verb list|Q-27 · The verb list]]
+- [[Q-66 Subsistence worlds|Q-66 · Subsistence worlds]]
 - [[Q-56 The land the engine reads|Q-56 · The land the engine reads]]
 - [[Q-53 Brief 5 as built|Q-53 · Brief 5 as built]]
 - [[Q-47 The border for now|Q-47 · The border for now]]
@@ -19,7 +20,7 @@
 - [[W-69 Subsistence worlds|W-69 · Subsistence worlds]]: revisit: soon (Zach, 20 Nov: something I want to revisit soon)
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70 · Verbs and livelihood archetypes, before the engine rework]]: revisit: soon (Zach, 20 Nov: 'that one sooner')
 
-## Active threads (14)
+## Active threads (15)
 
 **37.2**
 - [[W-29 A multi-village wild region and its live run|W-29 · A multi-village wild region and its live run]]  
@@ -34,6 +35,8 @@
   next: Zach's answers to the four explained asks (Q-58, Q-51, Q-53 a and b, Q-46 d and e); 37.4's own pass (Q-42…
 - [[W-65 Tracking threads automatically|W-65 · Tracking threads automatically]]  
   next: the header pass over the spec files and proposals; run threads labelled as such, with their branch (D2-238)…
+- [[W-69 Subsistence worlds|W-69 · Subsistence worlds]]  
+  next: Zach's answers to Q-66; then shared units (W-64), the switches (37.4), the bots, the grid
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|W-2 · Build briefs 2 and 3, the 20 dry test arms, the spring live run]]  
@@ -80,8 +83,8 @@
 - [[W-28 The Cybertron 2 website|W-28 · The Cybertron 2 website]]  
   next: Zach sets up the Netlify site and the subdomain; `python -m c2viz.site.viewer_publish` after each publish…
 
-## Queued and paused (9)
-[[W-12 Forays (proposalsforays.md)|W-12]] Forays (proposals/forays.md), [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-64 Shared units for food, weight and work|W-64]] Shared units for food, weight and work, [[W-67 The wildlife economy extended|W-67]] The wildlife economy extended, [[W-68 37.2's spec catch-up|W-68]] 37.2's spec catch-up, [[W-69 Subsistence worlds|W-69]] Subsistence worlds, [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
+## Queued and paused (8)
+[[W-12 Forays (proposalsforays.md)|W-12]] Forays (proposals/forays.md), [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-64 Shared units for food, weight and work|W-64]] Shared units for food, weight and work, [[W-67 The wildlife economy extended|W-67]] The wildlife economy extended, [[W-68 37.2's spec catch-up|W-68]] 37.2's spec catch-up, [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
 
 ## Decided this week (54)
 - [[D2-252 The calibration suite measures how the worlds differ, world by world…|D2-252 · The calibration suite measures how the worlds differ, world by world…]]
