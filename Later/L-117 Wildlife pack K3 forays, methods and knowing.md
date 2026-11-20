@@ -29,4 +29,5 @@ forays, places in memory and names, land features, cord and the coppice's produc
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
 - [[Proposal the wild layer, one general system for ecosystems and…|Proposal: the wild layer, one general system for ecosystems and…]]
 - [[02zzp what was started and left, 22 Oct to 19 Nov, and how to notice…|02zzp: what was started and left, 22 Oct to 19 Nov, and how to notice…]]
+- [[Why the villagers of the runs world did not fish|Why the villagers of the runs world did not fish]]
 - *and 5 index or audit notes*

@@ -28,4 +28,5 @@ a looser rain cue; runs three to five times larger now; a wetter era
 - [[A signs pass after the lake runs (17 Nov)|A signs pass after the lake runs (17 Nov)]]
 - [[Wildlife|Wildlife]]
 - [[The water fixes the weir by position and material, gear sharing a…|The water fixes: the weir by position and material, gear sharing a…]]
+- [[Why the villagers of the runs world did not fish|Why the villagers of the runs world did not fish]]
 - *and 1 index or audit notes*

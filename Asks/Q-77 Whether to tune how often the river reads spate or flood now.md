@@ -15,3 +15,7 @@ updated: "2026-11-20"
 
 ## Linked
 - parent: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+
+
+## Mentioned by
+- [[Why the villagers of the runs world did not fish|Why the villagers of the runs world did not fish]]
