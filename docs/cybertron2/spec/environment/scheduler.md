@@ -25,6 +25,8 @@ edges, as the edge's terrain allows.
 - D2-77: the first-world set of kinds; every kind is data.
 - D2-78: six spreading patterns: adjacency, contact, carriage, flow, track, place-bound.
 - D2-79: windfalls follow possession and claims; no rule of their own.
+- D2-220: the weather at a place works around that place's climate as the generated land holds it: its temperature, its rain a
+  year, the sea's nearness, the prevailing wind (proposals/climate_from_land.md).
 
 ## Mechanics
 
@@ -100,4 +102,4 @@ its risks. Per incident: day, place, kind, parameters, cause. Per edge: what it 
 
 38.04 §3; devlog 37.4 #4-#6; proposals/environment.md, environment_catalogue.md; 02q_environment_model.py.
 
-*Current as of 23 Oct 2026: D4-4 to D4-6, D2-69 to D2-74, D2-76 to D2-79, D2-99, D2-104.*
+*Current as of 16 Nov 2026: D4-4 to D4-6, D2-69 to D2-74, D2-76 to D2-79, D2-99, D2-104, D2-220.*

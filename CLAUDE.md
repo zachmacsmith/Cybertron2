@@ -17,6 +17,11 @@ are in `docs/review/37_growth/`.
 Zach (9 Nov): "every time we start on something new it has to be added to the currently working and we can track how large the
 unfinished work goes."
 
+**The records are items, written with one tool** (D2-232 to D2-239): `python3 tools/records.py` (the skill
+`.claude/skills/records` says which call for which event). OPEN.md, WORK.md and DECISIONS.md are views rendered from
+`docs/cybertron2/items/`; a hand edit to a view is taken in at the next render, but write with the tool. Status answers come
+from `records status`; commits from `records commit` (typed subjects and trailers, D2-235).
+
 - **Starting anything new** (a task, a brief, a phase, a build, a review, a run): first add a row to `docs/cybertron2/WORK.md`, "In
   progress" (owner and session, started, where, what it is), then begin.
 - **Stopping before it is done** (Zach turns to something else, a phase or a brief is left part-way, the session ends): update the
@@ -27,6 +32,12 @@ unfinished work goes."
 - **A mechanic or system to flesh out later:** a row in OPEN.md's "Flagged for later (deferred)", with what it waits on.
 - **Before designing in an area:** read its rows in OPEN.md and WORK.md, and the code that already does it; cite both.
 - **Before ending a session:** run `python3 tools/hygiene.py`, fix what is yours, then `python3 tools/hygiene.py --record`.
+
+## The engine's later rework is kept in mind
+
+The engine's cut into feature packages is postponed, and flagged (D2-244, OPEN L-133): until it is built, every engine change
+keeps to its seams. A feature added now is written as its own unit, with its data, verbs, signs and processes listed together,
+so the cut can move it whole. Read `docs/cybertron2/proposals/feature_packages.md` §9 and §10 before a large engine change.
 
 ## Visuals are drawn from the engine
 
@@ -81,8 +92,8 @@ Full rules: `docs/cybertron2/README.md`.
 **Rules:**
 - The spec says what, not why. Every spec rule cites a decision; parameters are `decided` or `calibrate`. Anything undecided goes in
   `proposals/` or `OPEN.md`, not the spec.
-- Never edit another owner's spec section or proposal: propose on the board or add to `OPEN.md` under that owner. Code under
-  `cybertron2/` is changed only by 37.4 unless agreed on the board.
+- Never edit another owner's spec section or proposal: propose on the board or add to `OPEN.md` under that owner. Code changes live
+  under a thread (D2-237): any session may change code, named for its thread; the area's owner is named on the merge.
 - Ask Zach before treating anything as decided; a question he answers in conversation is a decision only when he states it.
 - A session note that a proposal or the spec supersedes gets one line at its top pointing there; nothing is deleted.
 - Small commits; `git pull --rebase` before every push. On a conflict in a shared log or index, keep both sides.

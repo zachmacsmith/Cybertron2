@@ -1,7 +1,6 @@
 # Environment systems: the land at three speeds, on the places the engine already has
 
-**Status:** discussion (16 Nov 2026; revised the same day as a consolidation of the earlier designs). Nothing decided, nothing to
-build yet.
+**Status:** partly accepted: D2-221 (three speeds), D2-222 (places), D2-223 (spread functions), D2-224 (events from stocks), D2-225 (order), D2-226 (floodplains now), D2-227 (harsher places), D2-228 (calibration across worlds), with D2-214 (two clocks); (6) the frequencies still open (17 Nov). Nothing built yet.
 **Owner:** 37.2 (design, the generator, the wild layer); 37.4 (the engine).
 **Affects:** spec/environment/ (scheduler.md, resources.md, a new file for the land's stocks); spec/world/generation.md;
 `engine/climate.py`, `engine/renewal.py`, `engine/night.py`, `engine/farm.py`, `engine/roads.py`, `engine/forests.py`,
@@ -252,10 +251,27 @@ they acted on?
    true externals?
 5. **Order:** phase 0 now with brief 5; then water; then cover and fire; then soil and silt?
 6. **How often** under the compressed year: spates once or twice a year in a wet lowland, a meadow flood every year or two, a hard
-   freeze every few years, a dry spell most summers?
+   freeze every few years, a dry spell most summers? (Measured in 02zzn: on two clocks, close to this except the freeze.)
+7. **Two clocks:** decided, D2-214.
+8. **Floodplains** (02zzn §3.1): fix the generator's valley floors now, which remakes brief 5's worlds while 37.4 builds on them,
+   or after brief 5's build?
+9. **Ice** (02zzn §3.3): frozen waterways need a colder base climate in the generator (upland or northern worlds); is that wanted?
 
 ## History
 
+- 17 Nov 2026: Zach answered Q-52: (1) to (5) yes (D2-221 to D2-225; spreading "through defined spread functions"); (8) fix the
+  floodplains now (D2-226); (9) some places harsher (D2-227); and calibrate across a distribution of core test worlds, expected to
+  differ (D2-228). (6), the frequencies, explained and still open.
+- 16 Nov 2026 (night, later): Zach decided two clocks (D2-214): day schedules on the engine day, the seasonal stocks scaled by
+  the year's length. Q-52 (7) closed. He asked for the weather tested across conditions (dry, mountains, floodplains, coast).
+- 16 Nov 2026 (night): the water half prototyped offline on brief 5's river world (02zzn, script and results beside it). Findings:
+  - the generator makes no floodplains (rivers lie in a cut one cell wide, 14 to 24 m deep), so floods by height reach no parcel;
+  - on one clock the seasonal loops never happen;
+  - on two clocks (seasonal stores at 365 ÷ year days a day, the weather's events at one day) the river has a year;
+  - ice comes only from cold snaps and hardly at all in lowland worlds;
+  - clearing upstream is a weak loop at the scale of a large river;
+  - a weir's yearly wear is about 1.25 × normal flow on one clock and 2 to 3 × on two.
+  Added Q-52 (7) to (9).
 - 16 Nov 2026: written by 37.2 at Zach's request, after the waters discussion, widened to the whole environment (02zzl's
   inventory).
 - 16 Nov 2026 (later still): Zach asked for a survey of every earlier consideration of hidden state ("we first considered hidden

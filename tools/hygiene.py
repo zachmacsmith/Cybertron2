@@ -335,11 +335,16 @@ def check_asks(today, days):
 
 
 def record(today, counts):
-    text = read(WORK)
+    # WORK.md is a view rendered from the items (D2-232): the size log lives in its template, then the view is rendered.
+    tmpl = os.path.join(C2, "items", "_views", "WORK.md")
+    target = tmpl if os.path.exists(tmpl) else WORK
+    text = read(target)
     line = f"| {today} | {counts['in progress']} | {counts['paused']} | {counts['asks']} | {counts['deferred']} | {counts['chores']} |"
     lines = [l for l in text.rstrip("\n").split("\n") if not l.startswith(f"| {today} |")]
-    with open(WORK, "w", encoding="utf-8") as f:
+    with open(target, "w", encoding="utf-8") as f:
         f.write("\n".join(lines + [line]) + "\n")
+    if target == tmpl:
+        subprocess.run([sys.executable, os.path.join(ROOT, "tools", "records.py"), "render"], cwd=ROOT)
 
 
 # ---------------------------------------------------------------------- the report

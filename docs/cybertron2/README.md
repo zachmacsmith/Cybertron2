@@ -62,8 +62,9 @@ board. Something Zach asks to have built straight away is built first and writte
    and the proposals). Each spec file ends with "Current as of" and the decision numbers it reflects.
 5. **Nothing is deleted.** A session note or proposal the spec replaces gets one line at its top pointing to the spec file. Design
    thinking from now on goes into `proposals/`, not session notes.
-6. **Code under `cybertron2/` is changed only by 37.4**, unless agreed on the board first. The spec is what the code is reviewed
-   against.
+6. **Code changes live under a thread** (D2-237, replacing "code under `cybertron2/` is changed only by 37.4"): any session may
+   change code, on a branch or in commits named for its thread (D2-235); the area's owner is named on the merge, and an objection
+   is an ask. The spec is what the code is reviewed against.
 7. **Small commits; `git pull --rebase` before every push.** The spec is split into areas and small files so two sessions rarely
    touch the same file.
 8. **Work logs record work, not decisions.** Board posts stay short and cite spec sections and decision numbers.

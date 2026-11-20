@@ -4,7 +4,9 @@ __pycache__/
 *.egg-info/
 .pytest_cache/
 .DS_Store
-.claude/
+.claude/*
+!.claude/settings.json
+!.claude/skills/
 # run outputs and the persistent shared archive (publish selected runs separately)
 out/
 runs/

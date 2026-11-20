@@ -1,6 +1,6 @@
 # Proposal: the wild layer, one general system for ecosystems and wildlife, built from the generated land into the engine
 
-**Status:** accepted to build on the `ecology` branch: D2-199 (9 Nov); open questions 2 to 7 still open. Nothing on main. **Owner:** 37.2 (the layer's design, the generator
+**Status:** accepted to build on the `ecology` branch: D2-199 (9 Nov); open questions 2 to 7 still open. Merged into main 16 Nov (7ddc1c8: briefs 1 to 4c, waves 1 to 5); brief 5 (pack K4) on unmerged branches; the plan's later packs and mechanisms deferred as OPEN L-117 to L-127. **Owner:** 37.2 (the layer's design, the generator
 side, the kinds' data); the engine changes are 37.4's (CLAUDE.md), so §8 names who would build what.
 
 **Affects:**
@@ -383,6 +383,8 @@ Code on the branch, not on main. All 433 tests pass there, including 35 for the 
 
 ## History
 
+- 19 Nov 2026: status brought up to date: merged into main 16 Nov; the later packs (K3, K5 to K12), the fen half of K4, the
+  unbuilt core mechanisms and the calibration backlog recorded as deferred rows (OPEN L-117 to L-127), none had a row before.
 - 9 Nov: proposed after Zach's points that wave 1 was not built as general systems and that everything should build up from the
   generated environment; reconciles living_populations.md (and 37.4's review of it), W2, node_ecology.md, the interface experiments
   and wild_systems.md.

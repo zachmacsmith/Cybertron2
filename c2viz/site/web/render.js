@@ -12,6 +12,9 @@ const owner = (key) => { if (!owners.has(key)) owners.set(key, workers[turn++ % 
 
 const loading = new Map();
 export const load = (key, urls) => { if (!loading.has(key)) loading.set(key, ask(owner(key), { op: "load", key, urls })); return loading.get(key); };
+// a run the page has fetched itself, handed over (`set`), then its days one by one as they come (`add`): fetched once, not twice
+export const set = (key, V) => { const p = ask(owner(key), { op: "set", key, V }); loading.set(key, p); return p; };
+export const add = (key, day) => ask(owner(key), { op: "add", key, day });
 export const draw = (key, kind, node, day, t) => ask(owner(key), { op: "draw", key, kind, node, day, t });
 export function paint(cv, f) {
   if (cv.width !== f.width || cv.height !== f.height) { cv.width = f.width; cv.height = f.height; }

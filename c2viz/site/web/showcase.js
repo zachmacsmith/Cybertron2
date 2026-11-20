@@ -5,20 +5,41 @@
 //   "tiles":  the same, but four of the run's places side by side when it has four lived in (else one), moving together,
 //             and a mark for how many more it has
 const SEASON = { spring: "var(--spring)", summer: "var(--summer)", autumn: "var(--autumn)", winter: "var(--winter)" };
-const TITLES = { wb2_wenbridge: "Wenbridge", d1_duo: "Duo", f1_frontier: "Frontier camps", c1_combe: "Combe" };
-const MODELS = { wb2_wenbridge: "Opus 5.5 · Sonnet 5.5 · Haiku 5.5", d1_duo: "Opus 4.5 · Opus 4.7 · Sonnet 4.6 · Haiku 4.5",
-  f1_frontier: "Opus 5.5 · Sonnet 5.5", c1_combe: "Opus 5.5 · Sonnet 5.5" };
+// the runs it plays, in order, with their names (their models come from the catalog)
+const TITLES = { water_lake_r2: "The lake", pw1_opus_sonnet_r1: "Peoples", wild_region_s7: "Wild region", wb2_wenbridge: "Wenbridge",
+  f1_frontier: "Frontier camps", c1_combe: "Combe", d1_duo: "Duo" };
 import * as R from "./render.js";                         // the drawing is done on its own thread, so the page never stalls
+import { catalog, file, short } from "./common.js";
+const MODELS = {};
 const cache = {};
+// a day in brief: the people alive, and how many at each place
+const brief = (d) => { const at = {}; let alive = 0;
+  for (const p of Object.values(d.people)) if (p.alive) { alive++; if (p.at) at[p.at] = (at[p.at] || 0) + 1; }
+  return { alive, at, season: (d.calendar || {}).season }; };
+// a run from its viewer files on the Hub: its head and first few days, enough to start playing, handed to the renderer's thread;
+// then the rest of its days in order, a few at a time, each added to the page's copy and the renderer's as it comes. Its whole
+// length and its days in brief (the chart) come from the catalog. V.arrived() resolves when another day has come.
+const FIRST = 6, AHEAD = 4;
 function run(key) {
-  return cache[key] = cache[key] || Promise.all([R.load(key, [`data/full/${key}.json`]), fetch(`data/full/${key}.json`).then((r) => r.json())]).then(([, V]) => {
-    V.key = key;
-    V.series = V.days.map((d) => { const at = {}; let alive = 0;
-      for (const p of Object.values(d.people)) if (p.alive) { alive++; if (p.at) at[p.at] = (at[p.at] || 0) + 1; }
-      return { alive, at, season: (d.calendar || {}).season }; });
+  return cache[key] = cache[key] || catalog().then(async (cat) => {
+    const r = cat[key] || {}, total = r.days || 0, get = (d) => fetch(file(key, d == null ? "head.json" : `day/${d}.json`)).then((x) => x.json());
+    MODELS[key] = (r.models || []).map(short).join(" · ");
+    const n0 = Math.min(total, FIRST), [head, ...first] = await Promise.all([get(), ...Array.from({ length: n0 }, (_, d) => get(d))]);
+    const V = { ...head, days: first, key, total, strip: r.strip || [] }, waiting = [];
+    V.series = first.map(brief);
+    V.arrived = () => new Promise((ok) => waiting.push(ok));
+    await R.set(key, { ...head, days: first.slice() });
+    (async () => {
+      for (let d = n0; d < total; d += AHEAD) {
+        const got = await Promise.all(Array.from({ length: Math.min(AHEAD, total - d) }, (_, k) => get(d + k)));
+        for (const day of got) { V.days.push(day); V.series.push(brief(day)); R.add(key, day); }
+        waiting.splice(0).forEach((ok) => ok());
+      }
+    })();
     return V;
   });
 }
+const until = async (V, d) => { while (V.days.length <= d) await V.arrived(); };   // day d has come
 // the places with the most people over days d0..d1, most first
 const busiest = (V, d0, d1) => { const tot = {}; for (let d = d0; d <= d1; d++) for (const k in V.series[d].at) tot[k] = (tot[k] || 0) + V.series[d].at[k];
   return Object.entries(tot).sort((a, b) => b[1] - a[1]).map(([k]) => k); };
@@ -27,7 +48,7 @@ const NS = "http://www.w3.org/2000/svg";
 const el = (t, a, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); p && p.append(e); return e; };
 // people alive by day, drawn up to day `upto` on an axis fixed to the whole run
 function chart(svg, V, upto) {
-  const s = V.series, n = s.length, max = Math.max(...s.map((d) => d.alive)), w = 420, h = 140, L = 24, B = 26;
+  const s = V.strip.length ? V.strip : V.series, n = s.length, max = Math.max(...s.map((d) => d.alive)), w = 420, h = 140, L = 24, B = 26;   // the whole run, from the catalog
   svg.setAttribute("viewBox", `0 0 ${w} ${h}`); svg.innerHTML = "";
   const X = (i) => L + (w - L - 6) * i / Math.max(1, n - 1), Y = (v) => 8 + (h - B - 14) * (1 - v / max);
   for (const v of [0, max]) { el("line", { x1: L, x2: w - 6, y1: Y(v), y2: Y(v), class: "grid" }, svg); el("text", { x: L - 6, y: Y(v) + 4, class: "tick", "text-anchor": "end" }, svg).textContent = v; }
@@ -68,8 +89,8 @@ export async function showcase(root, mode, opts = {}) {
   };
   const panel = (V, nodes, d, hot, phase) => {
     const s = V.series[d], st = V.static, here = nodes.reduce((a, n) => a + (s.at[n] || 0), 0);
-    Q(".sc-where").textContent = `${nodes.length === 1 ? st.nodes[nodes[0]].name + " · " : ""}day ${d + 1} of ${V.days.length} · ${s.season}${phase ? " · " + phase : ""}`;
-    Q(".sc-title").textContent = TITLES[V.key]; Q(".sc-models").textContent = MODELS[V.key];
+    Q(".sc-where").textContent = `${nodes.length === 1 ? st.nodes[nodes[0]].name + " · " : ""}day ${d + 1} of ${V.total} · ${s.season}${phase ? " · " + phase : ""}`;
+    Q(".sc-title").textContent = TITLES[V.key] || V.key; Q(".sc-models").textContent = MODELS[V.key] || "";
     Q(".sc-open").href = `run.html?id=${encodeURIComponent("hub:" + V.key)}&day=${d + 1}`;     // the explorer, at this day
     Q(".sc-nums").innerHTML = `<div><b>${here}</b><span>${nodes.length === 1 ? "here" : "in these places"}</span></div><div><b>${s.alive}</b><span>alive, of ${V.series[0].alive}</span></div>
       <div><b>${Object.keys(st.nodes).length}</b><span>places</span></div>`;
@@ -82,7 +103,8 @@ export async function showcase(root, mode, opts = {}) {
     const SCENES = [["wb2_wenbridge", 3, "wenbridge"], ["f1_frontier", 4, "gormhold"], ["d1_duo", 2, "wynford"], ["c1_combe", 12, "combe"], ["wb2_wenbridge", 20, "wenbridge"]];
     const DAY_MS = 7000, DAYS = 3;
     for (let i = 0; ; i = (i + 1) % SCENES.length) {
-      const [key, d0, one] = SCENES[i], V = await run(key), d1 = Math.min(V.days.length - 1, d0 + DAYS - 1);
+      const [key, d0, one] = SCENES[i], V = await run(key), d1 = Math.min(V.total - 1, d0 + DAYS - 1);
+      await until(V, d1);
       const nodes = [one];
       await Promise.all(nodes.map((n) => R.draw(key, "nodeAt", n, d0, -0.1)));     // the slow first picture, before the fade
       const S = layer(V, nodes, Object.keys(V.static.nodes).length - nodes.length, "fade");
@@ -104,7 +126,7 @@ export async function showcase(root, mode, opts = {}) {
   // (opts.prev, opts.next) slide to the run before or after, which starts again from its first day.
   // a run's first picture takes the renderer seconds (it lays out the whole world first), so the run after the one playing
   // is made ready while it plays, and the showcase opens on a quick one
-  const ORDER = ["wb2_wenbridge", "f1_frontier", "d1_duo", "c1_combe"], DAY_MS = 900;
+  const ORDER = ["water_lake_r2", "pw1_opus_sonnet_r1", "wild_region_s7", "wb2_wenbridge", "f1_frontier", "c1_combe", "d1_duo"], DAY_MS = 900;
   const ready = {};
   const prepare = (key) => ready[key] = ready[key] || run(key).then(async (V) => {
     const busy = busiest(V, 0, V.days.length - 1), nodes = busy.slice(0, mode === "tiles" && busy.length >= 4 ? 4 : 1);   // four tiles or one
@@ -117,7 +139,8 @@ export async function showcase(root, mode, opts = {}) {
     const { V, nodes } = P; let fr = P.first; delete ready[ORDER[i]];          // its first picture is used once; drawn again next time
     prepare(ORDER[(i + 1) % ORDER.length]); prepare(ORDER[(i - 1 + ORDER.length) % ORDER.length]);   // the runs either side, for the arrows
     const S = layer(V, nodes, mode === "tiles" ? Object.keys(V.static.nodes).length - nodes.length : 0, how);
-    for (let d = 0; d < V.days.length && live(); d++) {
+    for (let d = 0; d < V.total && live(); d++) {
+      await until(V, d); if (!live()) return;                               // the days come while it plays; rarely, it waits for one
       const t0 = performance.now();
       if (d) fr = await Promise.all(nodes.map((n) => R.draw(V.key, "node", n, d)));
       if (!live()) return;

@@ -105,7 +105,6 @@
 <div class="map loading" id="map"><div class="loader" id="loader"><div class="px3"><i></i><i></i><i></i></div><span id="loadmsg">Fetching the run</span></div><div class="stage" id="stage"><canvas id="cv"></canvas></div></div>
 <div class="tip" id="tip"></div>
 <div class="talk" id="talk" hidden><div class="th"><span id="talkday">What they said</span><small id="talkn"></small><button id="talkx" aria-label="Hide the messages" title="Hide">–</button></div><div class="tb" id="talkb"></div></div>
-<script src="c2pixel.js"></script>
 <script>
 "use strict";
 // a run's viz streamed from the site's server (c2viz/site/server.py): the head (the world, every building it ever had), then each day
@@ -135,7 +134,11 @@ document.title = String(V.meta.name).replace(/_/g, " ").replace(/^\w/, (c) => c.
 say("building day 1…");
 const r0 = await pull("day/0"); if (!r0.ok) { say("could not build day 1: " + ((await r0.json().catch(() => ({}))).error || r0.status), true); return; }
 V.days.push(await r0.json());
-mapEl.classList.remove("loading");
+// the drawing is done on the renderer's own thread (web/render.js, render-worker.js), so the page answers while a world is laid
+// out (seconds, the first time) and while a day plays: it gets the run here, then each day as it comes
+const Render = await import("./render.js"), KEY = "run:" + RID;
+await Render.set(KEY, { ...V, days: V.days.slice() });
+say("laying out the world…");
 const S = { day: 0, node: null, hot: [], playing: false, timer: null };
 const $ = (s) => document.querySelector(s), cv = $("#cv"), map = $("#map"), stage = $("#stage"), tip = $("#tip");
 const nice = (n) => String(n || "").replace(/_/g, " ").replace(/^\w/, (c) => c.toUpperCase());   // "two_valleys" as "Two valleys"
@@ -148,22 +151,34 @@ S.zoom = +q.get("z") || 0; S.zoomW = +q.get("zw") || 0; S.full = q.has("full"); 
 // the least zoom at which a map covers the whole frame (in quarter steps): the default, so the world runs to the window's edges
 const cover = (r) => Math.max(1, Math.ceil(Math.max(map.clientWidth / r.width, map.clientHeight / r.height) * 4) / 4);
 let shown = null;
+// a frame is asked of the renderer's thread; one at a time, and a change while one is drawn asks again once it is done (the latest
+// state then), so a slow picture never queues up behind itself
+let drawing = false, again = false;
 function render() {
-  const d = V.days[S.day], cal = d.calendar || {};
-  const tl = S.node && V.days[S.day].timeline;
-  const r = S.node ? (tl && S.t != null ? C2Pixel.nodeAt(cv, V, S.node, S.day, S.t) : C2Pixel.node(cv, V, S.node, S.day)) : C2Pixel.world(cv, V, S.day);
-  $("#dayctl").hidden = !tl; if (tl) $("#clock").value = Math.round((S.t ?? 1.15) * 100);
+  if (drawing) { again = true; return; }
+  drawing = true; again = false;
+  const day = S.day, node = S.node, t = S.t, tl = node && V.days[day].timeline;
+  Render.draw(KEY, node ? (tl && t != null ? "nodeAt" : "node") : "world", node, day, t)
+    .then((r) => { Render.paint(cv, r); show(r, day, node); })
+    .catch((e) => say("could not draw: " + (e.message || e), true))
+    .finally(() => { drawing = false; if (again) render(); });
+}
+function show(r, day, node) {
+  if (mapEl.classList.contains("loading")) { mapEl.classList.remove("loading"); say(`${V.days.length} of ${TOTAL} days`, false, V.days.length < TOTAL); }
+  const d = V.days[day], cal = d.calendar || {};
+  const tl = node && d.timeline;
+  $("#dayctl").hidden = !tl; if (tl && S.t != null) $("#clock").value = Math.round(S.t * 100); else if (tl) $("#clock").value = 115;
   S.hot = r.hotspots;
   // a place close up is drawn at a fixed pixel size and panned (drag, or scroll); the region fits the page
   // both scales are drawn at a fixed pixel size and panned (drag, or scroll): a larger world is a larger map, not a smaller one
   if (!S.zoomW) S.zoomW = S.autoW = cover(r);
-  if (S.node && S.zoomFor !== S.node) { S.zoom = S.autoZ = cover(r); S.zoomFor = S.node; }   // each place opens covering the frame
-  stage.style.width = S.full ? "100%" : r.width * (S.node ? S.zoom : S.zoomW) + "px";
-  $("#hint").textContent = S.node ? "drag to pan · + / − to zoom · Esc for the region" : "drag to pan · + / − to zoom · click a place to go in";
-  if (shown !== (S.node || "")) { shown = S.node || ""; const z = S.node ? S.zoom : S.zoomW, fc = r.focus || [r.width / 2, r.height / 2];
+  if (node && S.zoomFor !== node) { S.zoom = S.autoZ = cover(r); S.zoomFor = node; }   // each place opens covering the frame
+  stage.style.width = S.full ? "100%" : r.width * (node ? S.zoom : S.zoomW) + "px";
+  $("#hint").textContent = node ? "drag to pan · + / − to zoom · Esc for the region" : "drag to pan · + / − to zoom · click a place to go in";
+  if (shown !== (node || "")) { shown = node || ""; const z = node ? S.zoom : S.zoomW, fc = r.focus || [r.width / 2, r.height / 2];
     map.scrollLeft = fc[0] * z - map.clientWidth / 2; map.scrollTop = fc[1] * z - map.clientHeight / 2; }
   $("#day").textContent = `Day ${d.day + 1}${cal.season ? " · " + cal.season : ""}${r.phase ? " · " + r.phase : ""}`;
-  $("#slider").value = S.day; $("#back").hidden = !S.node; $("#where").textContent = S.node ? ST.nodes[S.node].name : `${Object.keys(ST.nodes).length} places`;
+  $("#slider").value = day; $("#back").hidden = !node; $("#where").textContent = node ? ST.nodes[node].name : `${Object.keys(ST.nodes).length} places`;
   stage.querySelectorAll(".lab,.ping").forEach((e) => e.remove());
   const k = 100 / r.width, kh = 100 / r.height;
   const lab = (cls, x, y, html) => { const e = document.createElement("div"); e.className = "lab " + cls; e.style.left = x * k + "%"; e.style.top = y * kh + "%"; e.innerHTML = html;
@@ -279,9 +294,9 @@ render();
 // the rest of the days, in order; the slider grows as they come, and a day asked for in the link is shown when it arrives
 (async () => {
   for (let d = 1; d < TOTAL; d++) {
-    say(`building day ${d + 1} of ${TOTAL}…`);
+    if (!mapEl.classList.contains("loading")) say(`building day ${d + 1} of ${TOTAL}…`);   // until the world is drawn, the loader says so
     const r = await pull("day/" + d); if (!r.ok) { say(`day ${d + 1}: ` + ((await r.json().catch(() => ({}))).error || r.status), true); return; }
-    V.days.push(await r.json()); $("#slider").max = V.days.length - 1;
+    const day = await r.json(); V.days.push(day); Render.add(KEY, day); $("#slider").max = V.days.length - 1;
     if (d === wantDay) setDay(d);
   }
   say(`${TOTAL} day${TOTAL === 1 ? "" : "s"}`, false, false);

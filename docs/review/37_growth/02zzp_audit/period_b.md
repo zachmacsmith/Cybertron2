@@ -1,0 +1,112 @@
+# Period B (4 to 10 Nov 2026): initiatives against their records
+
+Sources: Zach's messages in msgs_b.md (4 Nov 18:21 to 10 Nov 07:55; nothing from 5 Nov 05:14 to 7 Nov 22:44, nothing on 11 Nov);
+`git log --all` on /home/user/cybertron2; current main (a38b1c7, 19 Nov): docs/cybertron2/WORK.md, OPEN.md, DECISIONS.md,
+proposals/, spec/, docs/review/37_growth/. WORK.md did not exist until 93fbe74 (9 Nov 19:54), so nothing before that has a W-row
+unless it was back-filled.
+
+Classes: **D** done, recorded; **PR** partial, recorded; **PU** partial, unrecorded; **R** redirected; **X** dropped silently;
+**S** stale record (the work moved on, the record did not).
+
+| # | date asked | initiative | what happened (evidence) | record | class |
+|---|---|---|---|---|---|
+| 1 | 4 Nov 18:21 | Water ecosystems in rivers and marshes, fishing gear, the coast, boats for fishing and trade | Surveyed in chat 4 Nov; written up only on 7 Nov after Zach asked (f9b0922, proposals/water_and_preservation.md). River half became brief 5 (river_and_water.md, D2-209, 16 Nov), built on `ecology-water`, not merged | water_and_preservation.md still "discussion ... Nothing decided, nothing to build", History stops 7 Nov; fen and boats L-125, coast L-122, water travel L-38; merge W-48, W-62 | PR (status stale) |
+| 2 | 4 Nov 18:29 | Smoking sheds as slow preservation | water_and_preservation.md §7 (smokehouse); in brief 5 (D2-209), built on `ecology-water` / `5-keep`, unmerged | W-48, W-62, Q-53 | PR |
+| 3 | 4 Nov 18:30, 18:33 | How much food spoiled in past runs; did they dry meat | Measured over 38 runs and 19 turn logs: water_and_preservation.md §2 | proposal History 4 Nov | D |
+| 4 | 5 Nov 05:01-05:06 | Best next things; are the proposals kept up? sweep them | Sweep of all proposals by subagents: ca51032 (02zo_open_decisions.md), a510ed0, f458a74, 49d16ef, 11ba264 | statuses and History entries dated 5 Nov | D |
+| 5 | 7 Nov 22:44 | Write up the water discussion as a proposal | f9b0922 (3 days after the talk, only on asking) | proposal exists | D |
+| 6 | 7 Nov 23:41-23:50 | A generalised ecology layer: resident places, wandering, migration, populations as a field that collapses when observed | proposals/living_populations.md (93b4efa, de54435, f47350c, 42b1ef1). Then Zach's "too big" correction moved the design to node_ecology, wild_systems, wild_layer (D2-199, built) | status still "discussion (8 Nov). Nothing decided, nothing to build"; no "superseded by" anywhere; README log row 418 the same | R (switch unrecorded) |
+| 7 | 7 Nov 23:55 to 8 Nov 00:08 | Design the first key wildlife: diversity, value, rarity, specialist hunting; hounds; other niches; general mechanisms | wildlife.md, D2-192 to D2-196 (c7e6bc1, 7fb42be); spec/environment/wildlife.md. Built differently: wild/kinds.py puts boar, roe, woodpigeon, rats in wave 1 and brown bear in wave 5; waves re-cut in wild_systems.md §13 (c893412, never decided) and then into packs K0-K11 (02zv) | wildlife.md status "Not built"; the spec's wave table (D2-192) matches neither the code nor §13; D2-192 marked "replaced in part" only for techniques (D2-204) | S |
+| 8 | 8 Nov 00:13; 9 Nov 07:26-07:28 | Wild plants by environment; plant ecosystems at a slow scale | wild_plants.md (dca1310, 7e6b6c9). Step 1 decided D2-200 to D2-202 and built (7d5ffa2, 8b4379d). Steps 2-4 (succession, materials, herbs) left in discussion | proposal status only; no WORK or OPEN row | PU |
+| 9 | 8 Nov 00:13, 00:16 | Economies from wildlife and plants; ways to domesticate; tools and skills; richness at the bottom of the economy | husbandry.md (140b624, e070553), discussion; carried into 02zs to 02zu and packs | L-119 (K6 keeping), L-121 (K8 crafts), L-111 | PR |
+| 10 | 8 Nov 00:20 | Plants overgrowing unkept buildings; animals nesting; dominance by conditions; diets | wild_plants.md §6 "ruins join succession" (7e6b6c9), not built; nests: owls in `wild.nests` (brief 2); lodgers L-124 | ruins and succession: no row | PU |
+| 11 | 8 Nov 00:34 | Cattle as a special case of a wild lineage, so domestication reduces to the same system | husbandry.md §7 (e070553): wild, kept, feral as a population's state | L-119 waits on "herds generalised into beasts (husbandry.md §7c)"; husbandry status "discussion" | PR |
+| 12 | 8 Nov 00:41-01:37 | Deep dive: interacting webs, calibrated on generated and weird worlds, iterate, cut | 02zp parts one and two (735f0f4, ba0f2da, 6e9b0ad, b59e21a), many interrupted rounds | 02zp; its §17 "Decisions for Zach" (a ~30-kind web, megafauna era pack, bustard cut, resolution by kind) never became OPEN rows (overtaken); backlog only as L-127 on 19 Nov | D |
+| 13 | 8 Nov 01:37, 02:39 | Change the generator where it is the problem: absolute wetness, land that can drown | b4fb26c, 5ef36fe on `climate-calibration`, merged (D4-112, D4-113) | 02zp §15; spec/world/generation.md still not compiled (L-101, W-9 paused) | D |
+| 14 | 8 Nov 02:38-03:06 | Population model: fragile kinds allowed, shared food, bears should persist, standard stabilisers | W2 model with stabilisers (6e9b0ad, b59e21a); 02zp §11-14 | 02zp (prototype, later superseded) | D |
+| 15 | 8 Nov 03:13 | Couple the food web to the new weather | wild/ecology.py reads the climate by place (D4-111) | W-8 paused since 8 Nov ("check after W-2") | PR |
+| 16 | 8 Nov 04:32-18:03 | Do ecosystems touch the economy and society? design for the node first | node_ecology.md (26b5b13), 02zp part three; replaced within hours by wild_systems.md and then wild_layer.md | node_ecology "discussion ... nothing built"; README outcome log row 431 dated "?"; no superseded note | R (switch unrecorded) |
+| 17 | 8 Nov 22:45-22:51 | Experiment with interface levels between parcels and the large-scale web | 02zp part four (e8f603a) | 02zp | D |
+| 18 | 8 Nov 23:00-23:27 | Rarer discrete populations, coarse far and fine near (between Rain World and an ecosystem), layered kinds with diverse mechanics, research | wild_systems.md (0ff5379), research report (02zp §22), D2-197, D2-198 (0f4804a); built as the wild layer (areas fine near villages, 9d418ff; waves 2-5) | wild_systems.md status "Nothing built" | S |
+| 19 | 9 Nov 00:28-01:14 | LLM tests, not deterministic predictions; kinds only in some places; final wave system; wave 1 with targeted tests | 02zp parts five and six (bcdd716, c893412, f1b9798, a5d9352: Haiku and Sonnet, 28 runs) | 02zp | D |
+| 20 | 9 Nov 02:44 | The experiments should also have Opus | baffb42 "Opus in the LLM tests' models (not yet run)"; Zach then "Don't run yet"; 02zp §31 "No Opus". Opus later sat at household heads in engine agent runs 1-6 (wild_layer.md History) | nothing says the prototype's Opus arm was dropped | R (unrecorded) |
+| 21 | 9 Nov 02:45-04:10 | Build it as real engine work, a general layer, on 37.2's own branch | wild_layer.md (d982c1f, d417b95), D2-199 (af1365c), phases 0-3 (9d418ff, ca7f69f); merged to main 16 Nov (7ddc1c8) | W-6 done; D2-199 to D2-203 not in spec (W-5 queued 10 days) | D |
+| 22 | 9 Nov 05:06-05:56 | Hunting: a quarry or a range, chance finds; a small agent run; then wave 2 | b7ade4d, 61436d0, agent runs 1-2 | wild_layer.md History; replaced by general methods (D2-204, recorded) | D |
+| 23 | 9 Nov 06:23 | Sweep every wild mechanism for sign bundles (the hunt as its own sensing process); build the other waves; small LLM runs | f3a0874, 4a53755, 7eac5da, 1ff123f, ed60c02; runs 3-6 | wild_layer.md History (runs 1-4 "scratchpad runs, not committed") | D |
+| 24 | 9 Nov 07:15 | Night work "by lantern": a general way to act at night | 568f971 (a field watch follows D2-21); 02zq one-off 1 | L-102 (times of day), Q-31 (guard as the watch) | PR |
+| 25 | 9 Nov 07:19 | Audit one-offs that break general rules | 02zq §2, §4d (a5fd646, 5878db4): 1, 2, 4, 5 done; 3 hens to husbandry; 6 in part; 7 (the mast's signs as its own function), 8 (presentation spots unnamed), 9 (the herd's `ill` field on 37.4's record, outside the schema) open | 02zq session note only (10 maps to L-123) | PU |
+| 26 | 9 Nov 07:19, 08:21 | Every specced layer and expert reading for each kind; herd disease; test runs | dbdb2af, 078bd65, 1ff123f, ed60c02; runs 4-6 | wild_layer.md, 02zq | D |
+| 27 | 9 Nov 14:19-14:45 | Real behaviour per kind (bears that hibernate), modules per kind, constitutionally different kinds, redesign all | wild_behaviour.md (b5ae962, 8a1bd82), D2-203. Never built as modules: cybertron2/wild/ has no behaviour package, hibernate is a K() flag; replaced in practice by traits and general methods (02zr-02zv, D2-204) | D2-203 stands, not marked replaced; v3 waits Q-32 (W-4, 10 days) | R (partly recorded) |
+| 28 | 9 Nov 15:15-15:16 | An outside critique agent, with a brief on what the wildlife is for | 02zr brief (0a3a9ac), 02zr critique (0221c22) | session notes | D |
+| 29 | 9 Nov 15:57, 16:20 | No attention budget; no forced social mechanisms; general responses, not a box per kind; forest law only a test | 02zs (ea3b2b1), 02zv; D2-204 | Q-32 (3) open: D2-194 and forest law as world options only | PR |
+| 30 | 9 Nov 16:08, 16:45; 10 Nov 00:40-00:41 | Forays: storied routes, an intent read by a small model, the route as guided exploration | forays.md (e2dad3c, 07aa4eb); split off 10 Nov | L-105, W-12 paused, Q-33; README index still "discussion (9 Nov)" | PR |
+| 31 | 9 Nov 16:25 | Second pass: dependences and ladders from the new economy | 02zt (ea3b2b1) | session note | D |
+| 32 | 9 Nov 16:53-16:55 | Third pass: supply chains, labour against capital, actions; decay and scavenging | 02zu (89c9b74) | session note; scavenging decided D2-205 | D |
+| 33 | 9 Nov 18:15 (5) | How people discover new crafts | 0bc24f8 | L-103 | PR |
+| 34 | 9 Nov 18:15 (6) | Consolidate into core changes and content packs, losing nothing | 02zv (1174211, 20bf5b5, 91cbbf8) | core not built L-126; packs L-117 to L-125; Q-32 | PR |
+| 35 | 9 Nov 18:22 | Graves dug up less than bodies left out; manual lists only known methods | D2-204, D2-205 (f02cc2c); built in briefs 1 and 3 | spec wildlife.md | D |
+| 36 | 9 Nov 18:33-19:06 | Briefs complete enough for 37.4; compare against the built engine; briefs past stage 1; send to 37.4 | 02zw, methods_and_encounters.md, wild_raiders_and_works.md, carcass_and_decay.md (db40459), D2-207; built (59c8e0e, f290e2c, cc4d342), merged 16 Nov (7ddc1c8) | the three proposals still say "to be built"; W-2 still "active ... merging to `ecology` (Zach's go)" | S |
+| 37 | 9 Nov 19:12-19:50 | Meta-analysis of the process; a hygiene script; asks vs deferred vs in progress; the CLAUDE.md rule | a8e7850 (tools/hygiene.py), 93fbe74 (WORK.md, OPEN kinds), 02zz_open_sorting.md; the analysis itself only in chat | W-3 still "active", untouched since 9 Nov | S |
+| 38 | 9 Nov 19:21-19:33 | Test worlds for after the build; one or two LLM worlds, not 21 | 02zy (cbd5550, 2d95456); the spring live run ($9.87; published, 55ec0d9) | late-summer run "needs Zach's go" on W-2 (a stale row) | PR |
+| 39 | 9 Nov 20:33-21:12 | Fable 5.2 and 5.1 against Opus, small runs with LLM casts | 02zza, 02zzb, 02zzc | W-17 to W-20 done | D |
+| 40 | 9 Nov 21:48-22:04 | Graded house damage, gales, camps cheap to build and dear to keep, cats that choose; are foxes taking food | shelter_damage.md, cats.md (98f66a7, 9f728cc, 010064a, 43a284d); built as brief 4 stages B and C (28fc06f, d10e237), merged 16 Nov | both proposals "Nothing decided or built"; W-21 "waiting on Zach (Q-37 a and d)" | S |
+| 41 | 9 Nov 21:55 | Wildlife hurting people (wolves drawn to food at camps; a fuse with a watcher) | one line in shelter_damage.md §4 ("animals come for food, not for people ... calibrate, rare"); not in brief 4; not built (engine/wild.py danger is the hunter's only) | no row | PU |
+| 42 | 9 Nov 22:21-23:18 | Hunting against farming: expected values in generated worlds; labour-intensive, high ceiling | 02zzd (eb593f0, 6c5b349), taken into brief 4 and then brief 4c (hunt_calibration.md), merged | W-22 still "waiting: Zach's go on the changes ... then a rerun" | S |
+| 43 | 9 Nov 23:14 | Does a hunter forage on the way when he finds no game? | No trace in 02zzd, hunt_and_fixes.md, hunt_followups.md or hunt_calibration.md (unsure: may have been answered in chat) | none | X |
+| 44 | 9 Nov 23:38; 10 Nov 00:20 | The descendants benchmark on a ladder of worlds | descendants_benchmark.md (eb593f0); deferred; later 37.4's peoples worlds (W-34, 13 Nov) | L-104, W-23 done | PR |
+| 45 | 10 Nov 00:20 | Write the next brief | brief 4 hunt_and_fixes.md (7d12b3c, f02ccff); built 58bb2d3, merged 16 Nov | proposal "Not merged: waits on Zach"; W-27 "active ... merging to `ecology`"; no D2 row (Q-39, Q-46 a) | S |
+| 46 | 10 Nov 00:43 | The world file must keep the land it runs on | D2-208 (4f32553), land_kept.md; nothing built (no land file anywhere in cybertron2/) | W-25 waiting on "the how" | PR |
+| 47 | 10 Nov 00:46 | Rewrite the briefs without forays | f02ccff | hunt_and_fixes.md History | D |
+| 48 | 10 Nov 03:16-03:52 | wild_tame, recovery with a lag, the dead cow and rats; parties (hunt with X), carry, led beast, caching | hunt_followups.md (dfb9c0a to c67ad56); built 8158674, merged; caching to forays | proposal "Not merged: waits on Zach"; W-30 "Left ... the merge into ecology"; Q-41, L-105, L-113 | S |
+| 49 | 10 Nov 03:36 | Bring deer into an empty forest and let them breed? | no trace | none | X |
+| 50 | 10 Nov 03:58 | Is brief 5 written? | river_and_water.md drafted (f02ccff, 509a481), revised and built 16 Nov, not merged | W-48, W-62, Q-53 | PR |
+| 51 | 10 Nov 03:58-05:47 | A multi-village run: one village with much higher capacity, more frontiers, no cap on wild nodes, travelling traders with pack oxen, a mill | 6702cd7, d97811b, 21a939b, 3933be8 | W-29; 02zze_wild_region.md describes the world as of 05:17 (before the traders and the cast) | D |
+| 52 | 10 Nov 05:28 | Use the engine's own visualiser for the map | 02zze_wild_region.png is d97811b's, from before the remark; no c2viz map committed (unsure what was used afterwards) | none | X |
+| 53 | 10 Nov 05:50-06:19 | Models (a Haiku-only and an Opus-only family, a Fable 5.2 seat); aims as planted memories; ages; fewer people; lifespan back to 32; firewood; autumn start | 3933be8, a253d9e, 53fc52b | W-29 | D |
+| 54 | 10 Nov 06:02 | Why the generator is so slow; optimise it | 02zzf (b514a8c): rejection sampling with deep copies (67%), everything done twice; fixes proposed, none built | only as "left" on W-29 | PR (weak) |
+| 55 | 10 Nov 06:12 | The household family-tree seeder "kinda sucks" | nothing then; taken up on 14 Nov as generation_redesign.md and proto/peoplegen (c2viz session) | W-38, W-39, Q-45 | PR |
+| 56 | 10 Nov 06:23-07:48 | Sample conversations, plans, households, Fable; is the wildlife engaged? | chat only; 02zze has no results; the outcome is one line on W-29 | W-29 "Left: the write-up against the bot null arm" | PR |
+| 57 | 10 Nov 07:49 | Upload the run to Hugging Face | ec00276 (wild_region_s7 published) | W-29 still "publish on Zach's go" | S |
+| 58 | 10 Nov 07:55 | Investigate trading (trade between places, the seeded traders, why the rich did not sell) and why the growth family had one child | no document; the HF summary line only; W-29's engine gaps ("no loans of goods; hunting never killed") are in no OPEN row | none | PU |
+
+## Counts by class
+
+| Class | Count |
+|---|---|
+| done, recorded | 20 |
+| partial, recorded | 17 |
+| partial, unrecorded | 5 |
+| redirected | 4 |
+| dropped silently | 3 |
+| stale record | 9 |
+| **total** | **58** |
+
+Stale records also seen as secondary marks: water_and_preservation.md (row 1), forays in the README index (row 30), 02zze (rows
+51, 56). Also, WORK numbers collide: W-28 (website and brief 4b), W-29 (37.4's brief 4b row overwritten by 6702cd7, restored as W-30
+in 752209a), W-34 twice, W-38 twice, W-39 twice.
+
+## Patterns
+
+- **A redirect makes a new file; the old one is never closed.** Each time Zach corrected the course of the ecology design (8 Nov
+  "you got too big", 9 Nov "plainly badly undesigned", "Wtf were you building?"), the work moved to a new proposal (living_populations,
+  then node_ecology, wild_systems, wild_layer, wild_behaviour, then 02zr-02zv). None of the old ones says it was superseded, and two
+  standing decisions (D2-192's waves, D2-203's modules per kind) still read as current though the code went another way.
+- **Handover at build time breaks the status line.** 37.2 writes a brief, 37.4 builds it and merges it, and nobody goes back to the
+  brief. Briefs 1 to 4b, shelter_damage and cats, and 02zzd (W-22) all still say "to be built", "waiting" or "not merged" after the
+  16 Nov merge (7ddc1c8).
+- **Rows are written against a branch plan that changed.** W-2, W-27 and W-30 wait on "merging to `ecology`"; the layer went
+  straight to main. Records naming a branch go stale when the merge path changes.
+- **Before 9 Nov 19:54 there was nowhere to put work in progress.** The 4 to 8 Nov work (water, the deep dive, husbandry, plants)
+  exists only as proposals and session notes; their own "Decisions for Zach" lists (02zp §17) never reached OPEN, and their leftovers
+  (plants steps 2-4, ruins, the 02zq one-offs) stay in the notes.
+- **What a live run teaches is spoken, not written.** The region run (10 Nov) had nine requests for sampling and analysis, then the
+  session went quiet for two days; 02zze stops before the run, and the trading and fertility findings exist only in chat and one HF
+  summary line. Engine gaps found in runs (no loans of goods) never reach OPEN.
+- **Sub-questions inside long messages get lost.** Foraging on a hunt, restocking deer, people hurt by wildlife at camps, the c2viz
+  map, the Opus arm: each was one clause in a longer message, and none has a trace.
+- **Interruptions and restarts cost the reasons.** The 8 Nov deep dive and the 10 Nov run were interrupted a dozen times ("round 3"
+  restarted, a run cancelled and remade); what was tried before the restart survives only in commits like baffb42 "not yet run".
+- **Decisions lag what is built.** Briefs 4, 4b and 4c have no D2 rows (Q-39, Q-46 a); D2-199 to D2-203 are not in the spec (W-5,
+  queued and not begun); the generator's decisions are in no spec file (L-101, W-9 paused since 3 Nov).
+- **The hygiene report sees age, not truth.** It flags W-2, W-3, W-21, W-22, W-27, W-29 and W-30 as "untouched" or "waiting", but
+  it cannot tell that their work was finished by someone else; a check of each row's named branch or commit against main would.
