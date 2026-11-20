@@ -316,7 +316,7 @@ def method_after(name, b=BASIS) -> tuple:
     m = METHODS[name]
     goods = m["goods"]
     if name.startswith("hunting") or name.startswith("snares") or name.startswith("netting"):
-        f = HUNT_FACTOR.get(name, 1.0)
+        f = _hunt_factor(HUNT_MIX[name], b)
     else:
         n = per_kg_now(goods)
         f = per_kg_rec(goods, b) / n if n else 1.0
@@ -332,18 +332,18 @@ def method_after(name, b=BASIS) -> tuple:
 
 
 # the hunt: food a kill moves by kind; the near hunt's take is mostly roe and hares for the capable, deer for the master (4c)
-def _hunt_factor(mix) -> float:
+def _hunt_factor(mix, b=BASIS) -> float:
     now = sum(w * kill_food_now(k) for k, w in mix.items())
-    new = sum(w * kill_food(k) for k, w in mix.items())
+    new = sum(w * kill_food(k, b) for k, w in mix.items())
     return new / now
 
 
-HUNT_FACTOR = {
-    "hunting, novice armed, near": _hunt_factor({"brown hare": 0.7, "woodpigeon": 0.2, "roe deer": 0.1}),
-    "hunting, capable armed, near": _hunt_factor({"roe deer": 0.5, "brown hare": 0.4, "woodpigeon": 0.1}),
-    "hunting, master armed, near": _hunt_factor({"red deer": 0.4, "roe deer": 0.4, "wild boar": 0.2}),
-    "snares, lifted (hares)": _hunt_factor({"brown hare": 1.0}),
-    "netting fowl (2 units)": _hunt_factor({"wildfowl": 1.0}),
+HUNT_MIX = {                                   # what each hunter's take is, by food (4c's targets; an assumption)
+    "hunting, novice armed, near": {"brown hare": 0.7, "woodpigeon": 0.2, "roe deer": 0.1},
+    "hunting, capable armed, near": {"roe deer": 0.5, "brown hare": 0.4, "woodpigeon": 0.1},
+    "hunting, master armed, near": {"red deer": 0.4, "roe deer": 0.4, "wild boar": 0.2},
+    "snares, lifted (hares)": {"brown hare": 1.0},
+    "netting fowl (2 units)": {"wildfowl": 1.0},
 }
 
 

@@ -2553,5 +2553,2660 @@
     }
    ]
   }
+ },
+ "capacity": {
+  "runs_models": {
+   "now": {
+    "world": "runs_models",
+    "people": 45,
+    "levels": {
+     "bare": {
+      "supported": 3.18,
+      "ratio": 0.07,
+      "food_a_unit": 0.48,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "fish": 173.6
+      }
+     },
+     "standing": {
+      "supported": 35.62,
+      "ratio": 0.79,
+      "food_a_unit": 1.38,
+      "food_a_plot": 21.3,
+      "food_a_year": {
+       "fields": 616.4,
+       "fish": 289.3,
+       "herds": 184.3
+      }
+     },
+     "worked": {
+      "supported": 168.44,
+      "ratio": 3.74,
+      "food_a_unit": 1.35,
+      "food_a_plot": 156.6,
+      "food_a_year": {
+       "fields": 4541.8,
+       "fish": 289.3,
+       "herds": 220.0
+      }
+     },
+     "best": {
+      "supported": 308.04,
+      "ratio": 6.85,
+      "food_a_unit": 2.09,
+      "food_a_plot": 292.4,
+      "food_a_year": {
+       "fields": 8478.9,
+       "fish": 289.3,
+       "herds": 220.0
+      }
+     },
+     "ceiling": {
+      "supported": 734.82,
+      "ratio": 16.33,
+      "food_a_unit": 2.11,
+      "food_a_plot": 282.9,
+      "food_a_year": {
+       "fields": 20933.9,
+       "fish": 289.3,
+       "herds": 220.0
+      }
+     }
+    },
+    "nodes": {
+     "Highpool": {
+      "people": 18,
+      "standing": {
+       "supported": 1.03,
+       "ratio": 0.06,
+       "food_a_year": {
+        "fish": 33.8
+       }
+      },
+      "worked": {
+       "supported": 1.1,
+       "ratio": 0.06,
+       "food_a_year": {
+        "fish": 33.8
+       }
+      },
+      "best": {
+       "supported": 1.15,
+       "ratio": 0.06,
+       "food_a_year": {
+        "fish": 33.8
+       }
+      }
+     },
+     "Middleham": {
+      "people": 14,
+      "standing": {
+       "supported": 14.24,
+       "ratio": 1.02,
+       "food_a_year": {
+        "fields": 307.4,
+        "fish": 33.8,
+        "herds": 92.2
+       }
+      },
+      "worked": {
+       "supported": 81.65,
+       "ratio": 5.83,
+       "food_a_year": {
+        "fields": 2283.0,
+        "fish": 33.8,
+        "herds": 110.0
+       }
+      },
+      "best": {
+       "supported": 152.55,
+       "ratio": 10.9,
+       "food_a_year": {
+        "fields": 4265.3,
+        "fish": 33.8,
+        "herds": 110.0
+       }
+      }
+     },
+     "Lowstrand": {
+      "people": 13,
+      "standing": {
+       "supported": 13.18,
+       "ratio": 1.01,
+       "food_a_year": {
+        "fields": 309.0,
+        "fish": 33.8,
+        "herds": 92.2
+       }
+      },
+      "worked": {
+       "supported": 74.52,
+       "ratio": 5.73,
+       "food_a_year": {
+        "fields": 2258.8,
+        "fish": 33.8,
+        "herds": 110.0
+       }
+      },
+      "best": {
+       "supported": 138.98,
+       "ratio": 10.69,
+       "food_a_year": {
+        "fields": 4213.6,
+        "fish": 33.8,
+        "herds": 110.0
+       }
+      }
+     }
+    }
+   },
+   "goods": {
+    "world": "runs_models",
+    "people": 45,
+    "levels": {
+     "bare": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "food_a_unit": null,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "fish": 79.8
+      }
+     },
+     "standing": {
+      "supported": 30.42,
+      "ratio": 0.68,
+      "food_a_unit": 1.26,
+      "food_a_plot": 21.8,
+      "food_a_year": {
+       "fields": 631.3,
+       "fish": 133.1,
+       "herds": 176.9
+      }
+     },
+     "worked": {
+      "supported": 167.76,
+      "ratio": 3.73,
+      "food_a_unit": 1.36,
+      "food_a_plot": 160.4,
+      "food_a_year": {
+       "fields": 4650.8,
+       "fish": 133.1,
+       "herds": 249.8
+      }
+     },
+     "best": {
+      "supported": 317.82,
+      "ratio": 7.06,
+      "food_a_unit": 2.17,
+      "food_a_plot": 306.4,
+      "food_a_year": {
+       "fields": 8885.5,
+       "fish": 133.1,
+       "herds": 249.8
+      }
+     },
+     "ceiling": {
+      "supported": 765.4,
+      "ratio": 17.01,
+      "food_a_unit": 2.2,
+      "food_a_plot": 296.4,
+      "food_a_year": {
+       "fields": 21936.7,
+       "fish": 133.1,
+       "herds": 249.8
+      }
+     }
+    },
+    "nodes": {
+     "Highpool": {
+      "people": 18,
+      "standing": {
+       "supported": 0.0,
+       "ratio": 0.0,
+       "food_a_year": {
+        "fish": 15.6
+       }
+      },
+      "worked": {
+       "supported": 0.0,
+       "ratio": 0.0,
+       "food_a_year": {
+        "fish": 15.6
+       }
+      },
+      "best": {
+       "supported": 0.49,
+       "ratio": 0.03,
+       "food_a_year": {
+        "fish": 15.6
+       }
+      }
+     },
+     "Middleham": {
+      "people": 14,
+      "standing": {
+       "supported": 13.72,
+       "ratio": 0.98,
+       "food_a_year": {
+        "fields": 314.9,
+        "fish": 15.6,
+        "herds": 88.5
+       }
+      },
+      "worked": {
+       "supported": 83.44,
+       "ratio": 5.96,
+       "food_a_year": {
+        "fields": 2337.8,
+        "fish": 15.6,
+        "herds": 124.9
+       }
+      },
+      "best": {
+       "supported": 159.65,
+       "ratio": 11.4,
+       "food_a_year": {
+        "fields": 4469.6,
+        "fish": 15.6,
+        "herds": 124.9
+       }
+      }
+     },
+     "Lowstrand": {
+      "people": 13,
+      "standing": {
+       "supported": 12.71,
+       "ratio": 0.98,
+       "food_a_year": {
+        "fields": 316.5,
+        "fish": 15.6,
+        "herds": 88.5
+       }
+      },
+      "worked": {
+       "supported": 76.16,
+       "ratio": 5.86,
+       "food_a_year": {
+        "fields": 2313.0,
+        "fish": 15.6,
+        "herds": 124.9
+       }
+      },
+      "best": {
+       "supported": 145.45,
+       "ratio": 11.19,
+       "food_a_year": {
+        "fields": 4415.8,
+        "fish": 15.6,
+        "herds": 124.9
+       }
+      }
+     }
+    }
+   },
+   "needs": {
+    "world": "runs_models",
+    "people": 45,
+    "levels": {
+     "bare": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "food_a_unit": null,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "fish": 79.8
+      }
+     },
+     "standing": {
+      "supported": 36.32,
+      "ratio": 0.81,
+      "food_a_unit": 1.26,
+      "food_a_plot": 21.8,
+      "food_a_year": {
+       "fields": 631.3,
+       "fish": 133.1,
+       "herds": 176.9
+      }
+     },
+     "worked": {
+      "supported": 201.04,
+      "ratio": 4.47,
+      "food_a_unit": 1.36,
+      "food_a_plot": 160.4,
+      "food_a_year": {
+       "fields": 4650.8,
+       "fish": 133.1,
+       "herds": 249.8
+      }
+     },
+     "best": {
+      "supported": 385.68,
+      "ratio": 8.57,
+      "food_a_unit": 2.17,
+      "food_a_plot": 306.4,
+      "food_a_year": {
+       "fields": 8885.5,
+       "fish": 133.1,
+       "herds": 249.8
+      }
+     },
+     "ceiling": {
+      "supported": 929.11,
+      "ratio": 20.65,
+      "food_a_unit": 2.2,
+      "food_a_plot": 296.4,
+      "food_a_year": {
+       "fields": 21936.7,
+       "fish": 133.1,
+       "herds": 249.8
+      }
+     }
+    },
+    "nodes": {
+     "Highpool": {
+      "people": 18,
+      "standing": {
+       "supported": 0.0,
+       "ratio": 0.0,
+       "food_a_year": {
+        "fish": 15.6
+       }
+      },
+      "worked": {
+       "supported": 0.5,
+       "ratio": 0.03,
+       "food_a_year": {
+        "fish": 15.6
+       }
+      },
+      "best": {
+       "supported": 0.53,
+       "ratio": 0.03,
+       "food_a_year": {
+        "fish": 15.6
+       }
+      }
+     },
+     "Middleham": {
+      "people": 14,
+      "standing": {
+       "supported": 16.64,
+       "ratio": 1.19,
+       "food_a_year": {
+        "fields": 314.9,
+        "fish": 15.6,
+        "herds": 88.5
+       }
+      },
+      "worked": {
+       "supported": 100.48,
+       "ratio": 7.18,
+       "food_a_year": {
+        "fields": 2337.8,
+        "fish": 15.6,
+        "herds": 124.9
+       }
+      },
+      "best": {
+       "supported": 194.5,
+       "ratio": 13.89,
+       "food_a_year": {
+        "fields": 4469.6,
+        "fish": 15.6,
+        "herds": 124.9
+       }
+      }
+     },
+     "Lowstrand": {
+      "people": 13,
+      "standing": {
+       "supported": 15.04,
+       "ratio": 1.16,
+       "food_a_year": {
+        "fields": 316.5,
+        "fish": 15.6,
+        "herds": 88.5
+       }
+      },
+      "worked": {
+       "supported": 89.51,
+       "ratio": 6.89,
+       "food_a_year": {
+        "fields": 2313.0,
+        "fish": 15.6,
+        "herds": 124.9
+       }
+      },
+      "best": {
+       "supported": 172.93,
+       "ratio": 13.3,
+       "food_a_year": {
+        "fields": 4415.8,
+        "fish": 15.6,
+        "herds": 124.9
+       }
+      }
+     }
+    }
+   }
+  },
+  "brookend": {
+   "goods": {
+    "world": "brookend",
+    "people": 8,
+    "levels": {
+     "bare": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "food_a_unit": null,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "wild plants": 28.0,
+       "game": 12.5
+      }
+     },
+     "standing": {
+      "supported": 19.62,
+      "ratio": 2.45,
+      "food_a_unit": 1.23,
+      "food_a_plot": 16.8,
+      "food_a_year": {
+       "fields": 435.8,
+       "wild plants": 28.0,
+       "game": 23.4,
+       "herds": 147.5
+      }
+     },
+     "worked": {
+      "supported": 120.2,
+      "ratio": 15.03,
+      "food_a_unit": 1.06,
+      "food_a_plot": 131.3,
+      "food_a_year": {
+       "fields": 3412.5,
+       "wild plants": 28.0,
+       "game": 23.4,
+       "herds": 329.5
+      }
+     },
+     "best": {
+      "supported": 213.08,
+      "ratio": 26.64,
+      "food_a_unit": 1.86,
+      "food_a_plot": 235.8,
+      "food_a_year": {
+       "fields": 6131.9,
+       "wild plants": 28.0,
+       "game": 23.4,
+       "herds": 329.5
+      }
+     },
+     "ceiling": {
+      "supported": 285.09,
+      "ratio": 35.64,
+      "food_a_unit": 1.9,
+      "food_a_plot": 238.2,
+      "food_a_year": {
+       "fields": 8338.0,
+       "wild plants": 21.0,
+       "game": 23.4,
+       "herds": 329.5
+      }
+     }
+    },
+    "nodes": {
+     "brookend": {
+      "people": 8,
+      "standing": {
+       "supported": 19.62,
+       "ratio": 2.45,
+       "food_a_year": {
+        "fields": 435.8,
+        "wild plants": 28.0,
+        "game": 23.4,
+        "herds": 147.5
+       }
+      },
+      "worked": {
+       "supported": 120.2,
+       "ratio": 15.03,
+       "food_a_year": {
+        "fields": 3412.5,
+        "wild plants": 28.0,
+        "game": 23.4,
+        "herds": 329.5
+       }
+      },
+      "best": {
+       "supported": 213.08,
+       "ratio": 26.64,
+       "food_a_year": {
+        "fields": 6131.9,
+        "wild plants": 28.0,
+        "game": 23.4,
+        "herds": 329.5
+       }
+      }
+     }
+    }
+   },
+   "needs": {
+    "world": "brookend",
+    "people": 8,
+    "levels": {
+     "bare": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "food_a_unit": null,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "wild plants": 28.0,
+       "game": 12.5
+      }
+     },
+     "standing": {
+      "supported": 23.15,
+      "ratio": 2.89,
+      "food_a_unit": 1.23,
+      "food_a_plot": 16.8,
+      "food_a_year": {
+       "fields": 435.8,
+       "wild plants": 28.0,
+       "game": 23.4,
+       "herds": 147.5
+      }
+     },
+     "worked": {
+      "supported": 141.16,
+      "ratio": 17.64,
+      "food_a_unit": 1.06,
+      "food_a_plot": 131.3,
+      "food_a_year": {
+       "fields": 3412.5,
+       "wild plants": 28.0,
+       "game": 23.4,
+       "herds": 329.5
+      }
+     },
+     "best": {
+      "supported": 254.91,
+      "ratio": 31.86,
+      "food_a_unit": 1.86,
+      "food_a_plot": 235.8,
+      "food_a_year": {
+       "fields": 6131.9,
+       "wild plants": 28.0,
+       "game": 23.4,
+       "herds": 329.5
+      }
+     },
+     "ceiling": {
+      "supported": 341.24,
+      "ratio": 42.66,
+      "food_a_unit": 1.9,
+      "food_a_plot": 238.2,
+      "food_a_year": {
+       "fields": 8338.0,
+       "wild plants": 21.0,
+       "game": 23.4,
+       "herds": 329.5
+      }
+     }
+    },
+    "nodes": {
+     "brookend": {
+      "people": 8,
+      "standing": {
+       "supported": 23.15,
+       "ratio": 2.89,
+       "food_a_year": {
+        "fields": 435.8,
+        "wild plants": 28.0,
+        "game": 23.4,
+        "herds": 147.5
+       }
+      },
+      "worked": {
+       "supported": 141.16,
+       "ratio": 17.64,
+       "food_a_year": {
+        "fields": 3412.5,
+        "wild plants": 28.0,
+        "game": 23.4,
+        "herds": 329.5
+       }
+      },
+      "best": {
+       "supported": 254.91,
+       "ratio": 31.86,
+       "food_a_year": {
+        "fields": 6131.9,
+        "wild plants": 28.0,
+        "game": 23.4,
+        "herds": 329.5
+       }
+      }
+     }
+    }
+   },
+   "now": {
+    "world": "brookend",
+    "people": 8,
+    "levels": {
+     "bare": {
+      "supported": 1.77,
+      "ratio": 0.22,
+      "food_a_unit": 0.34,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "wild plants": 67.7,
+       "game": 31.2
+      }
+     },
+     "standing": {
+      "supported": 21.97,
+      "ratio": 2.75,
+      "food_a_unit": 1.29,
+      "food_a_plot": 16.4,
+      "food_a_year": {
+       "fields": 425.4,
+       "wild plants": 67.7,
+       "game": 58.5,
+       "herds": 153.6
+      }
+     },
+     "worked": {
+      "supported": 117.18,
+      "ratio": 14.65,
+      "food_a_unit": 1.03,
+      "food_a_plot": 128.2,
+      "food_a_year": {
+       "fields": 3332.6,
+       "wild plants": 67.7,
+       "game": 58.5,
+       "herds": 242.9
+      }
+     },
+     "best": {
+      "supported": 207.89,
+      "ratio": 25.99,
+      "food_a_unit": 1.82,
+      "food_a_plot": 230.4,
+      "food_a_year": {
+       "fields": 5989.1,
+       "wild plants": 67.7,
+       "game": 58.5,
+       "herds": 242.9
+      }
+     },
+     "ceiling": {
+      "supported": 277.86,
+      "ratio": 34.73,
+      "food_a_unit": 1.85,
+      "food_a_plot": 232.7,
+      "food_a_year": {
+       "fields": 8143.8,
+       "wild plants": 50.8,
+       "game": 58.5,
+       "herds": 242.9
+      }
+     }
+    },
+    "nodes": {
+     "brookend": {
+      "people": 8,
+      "standing": {
+       "supported": 21.97,
+       "ratio": 2.75,
+       "food_a_year": {
+        "fields": 425.4,
+        "wild plants": 67.7,
+        "game": 58.5,
+        "herds": 153.6
+       }
+      },
+      "worked": {
+       "supported": 117.18,
+       "ratio": 14.65,
+       "food_a_year": {
+        "fields": 3332.6,
+        "wild plants": 67.7,
+        "game": 58.5,
+        "herds": 242.9
+       }
+      },
+      "best": {
+       "supported": 207.89,
+       "ratio": 25.99,
+       "food_a_year": {
+        "fields": 5989.1,
+        "wild plants": 67.7,
+        "game": 58.5,
+        "herds": 242.9
+       }
+      }
+     }
+    }
+   }
+  },
+  "lake": {
+   "goods": {
+    "world": "lake",
+    "people": 14,
+    "levels": {
+     "bare": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "food_a_unit": null,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "fish": 75.6
+      }
+     },
+     "standing": {
+      "supported": 15.6,
+      "ratio": 1.11,
+      "food_a_unit": 0.89,
+      "food_a_plot": 19.9,
+      "food_a_year": {
+       "fields": 298.0,
+       "fish": 126.1,
+       "herds": 88.5
+      }
+     },
+     "worked": {
+      "supported": 52.73,
+      "ratio": 3.77,
+      "food_a_unit": 1.26,
+      "food_a_plot": 95.2,
+      "food_a_year": {
+       "fields": 1428.1,
+       "fish": 126.1,
+       "herds": 124.9
+      }
+     },
+     "best": {
+      "supported": 82.36,
+      "ratio": 5.88,
+      "food_a_unit": 1.21,
+      "food_a_plot": 155.3,
+      "food_a_year": {
+       "fields": 2329.1,
+       "fish": 126.1,
+       "herds": 124.9
+      }
+     },
+     "ceiling": {
+      "supported": 109.35,
+      "ratio": 7.81,
+      "food_a_unit": 1.21,
+      "food_a_plot": 151.1,
+      "food_a_year": {
+       "fields": 3173.2,
+       "fish": 126.1,
+       "herds": 124.9
+      }
+     }
+    },
+    "nodes": {
+     "Meresby": {
+      "people": 14,
+      "standing": {
+       "supported": 15.6,
+       "ratio": 1.11,
+       "food_a_year": {
+        "fields": 298.0,
+        "fish": 126.1,
+        "herds": 88.5
+       }
+      },
+      "worked": {
+       "supported": 52.73,
+       "ratio": 3.77,
+       "food_a_year": {
+        "fields": 1428.1,
+        "fish": 126.1,
+        "herds": 124.9
+       }
+      },
+      "best": {
+       "supported": 82.36,
+       "ratio": 5.88,
+       "food_a_year": {
+        "fields": 2329.1,
+        "fish": 126.1,
+        "herds": 124.9
+       }
+      }
+     }
+    }
+   },
+   "needs": {
+    "world": "lake",
+    "people": 14,
+    "levels": {
+     "bare": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "food_a_unit": null,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "fish": 75.6
+      }
+     },
+     "standing": {
+      "supported": 18.06,
+      "ratio": 1.29,
+      "food_a_unit": 0.89,
+      "food_a_plot": 19.9,
+      "food_a_year": {
+       "fields": 298.0,
+       "fish": 126.1,
+       "herds": 88.5
+      }
+     },
+     "worked": {
+      "supported": 62.1,
+      "ratio": 4.44,
+      "food_a_unit": 1.26,
+      "food_a_plot": 95.2,
+      "food_a_year": {
+       "fields": 1428.1,
+       "fish": 126.1,
+       "herds": 124.9
+      }
+     },
+     "best": {
+      "supported": 96.87,
+      "ratio": 6.92,
+      "food_a_unit": 1.21,
+      "food_a_plot": 155.3,
+      "food_a_year": {
+       "fields": 2329.1,
+       "fish": 126.1,
+       "herds": 124.9
+      }
+     },
+     "ceiling": {
+      "supported": 128.64,
+      "ratio": 9.19,
+      "food_a_unit": 1.21,
+      "food_a_plot": 151.1,
+      "food_a_year": {
+       "fields": 3173.2,
+       "fish": 126.1,
+       "herds": 124.9
+      }
+     }
+    },
+    "nodes": {
+     "Meresby": {
+      "people": 14,
+      "standing": {
+       "supported": 18.06,
+       "ratio": 1.29,
+       "food_a_year": {
+        "fields": 298.0,
+        "fish": 126.1,
+        "herds": 88.5
+       }
+      },
+      "worked": {
+       "supported": 62.1,
+       "ratio": 4.44,
+       "food_a_year": {
+        "fields": 1428.1,
+        "fish": 126.1,
+        "herds": 124.9
+       }
+      },
+      "best": {
+       "supported": 96.87,
+       "ratio": 6.92,
+       "food_a_year": {
+        "fields": 2329.1,
+        "fish": 126.1,
+        "herds": 124.9
+       }
+      }
+     }
+    }
+   },
+   "now": {
+    "world": "lake",
+    "people": 14,
+    "levels": {
+     "bare": {
+      "supported": 2.69,
+      "ratio": 0.19,
+      "food_a_unit": 0.45,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "fish": 164.4
+      }
+     },
+     "standing": {
+      "supported": 20.41,
+      "ratio": 1.46,
+      "food_a_unit": 1.1,
+      "food_a_plot": 19.4,
+      "food_a_year": {
+       "fields": 290.9,
+       "fish": 274.1,
+       "herds": 92.2
+      }
+     },
+     "worked": {
+      "supported": 54.65,
+      "ratio": 3.9,
+      "food_a_unit": 1.29,
+      "food_a_plot": 89.4,
+      "food_a_year": {
+       "fields": 1341.0,
+       "fish": 274.1,
+       "herds": 110.0
+      }
+     },
+     "best": {
+      "supported": 80.26,
+      "ratio": 5.73,
+      "food_a_unit": 1.17,
+      "food_a_plot": 142.1,
+      "food_a_year": {
+       "fields": 2131.9,
+       "fish": 274.1,
+       "herds": 110.0
+      }
+     },
+     "ceiling": {
+      "supported": 104.92,
+      "ratio": 7.49,
+      "food_a_unit": 1.16,
+      "food_a_plot": 138.3,
+      "food_a_year": {
+       "fields": 2905.2,
+       "fish": 274.1,
+       "herds": 110.0
+      }
+     }
+    },
+    "nodes": {
+     "Meresby": {
+      "people": 14,
+      "standing": {
+       "supported": 20.41,
+       "ratio": 1.46,
+       "food_a_year": {
+        "fields": 290.9,
+        "fish": 274.1,
+        "herds": 92.2
+       }
+      },
+      "worked": {
+       "supported": 54.65,
+       "ratio": 3.9,
+       "food_a_year": {
+        "fields": 1341.0,
+        "fish": 274.1,
+        "herds": 110.0
+       }
+      },
+      "best": {
+       "supported": 80.26,
+       "ratio": 5.73,
+       "food_a_year": {
+        "fields": 2131.9,
+        "fish": 274.1,
+        "herds": 110.0
+       }
+      }
+     }
+    }
+   }
+  },
+  "river": {
+   "goods": {
+    "world": "river",
+    "people": 26,
+    "levels": {
+     "bare": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "food_a_unit": null,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "fish": 18.7
+      }
+     },
+     "standing": {
+      "supported": 24.86,
+      "ratio": 0.96,
+      "food_a_unit": 1.96,
+      "food_a_plot": 22.6,
+      "food_a_year": {
+       "fields": 610.6,
+       "fish": 31.1,
+       "herds": 176.9
+      }
+     },
+     "worked": {
+      "supported": 103.06,
+      "ratio": 3.96,
+      "food_a_unit": 1.56,
+      "food_a_plot": 112.5,
+      "food_a_year": {
+       "fields": 3038.3,
+       "fish": 31.1,
+       "herds": 249.8
+      }
+     },
+     "best": {
+      "supported": 260.63,
+      "ratio": 10.02,
+      "food_a_unit": 2.42,
+      "food_a_plot": 291.9,
+      "food_a_year": {
+       "fields": 7881.4,
+       "fish": 31.1,
+       "herds": 249.8
+      }
+     },
+     "ceiling": {
+      "supported": 367.03,
+      "ratio": 14.12,
+      "food_a_unit": 2.33,
+      "food_a_plot": 280.5,
+      "food_a_year": {
+       "fields": 11219.5,
+       "fish": 31.1,
+       "herds": 249.8
+      }
+     }
+    },
+    "nodes": {
+     "Saltwell": {
+      "people": 12,
+      "standing": {
+       "supported": 11.4,
+       "ratio": 0.95,
+       "food_a_year": {
+        "fields": 271.3,
+        "fish": 15.6,
+        "herds": 88.5
+       }
+      },
+      "worked": {
+       "supported": 49.49,
+       "ratio": 4.12,
+       "food_a_year": {
+        "fields": 1454.3,
+        "fish": 15.6,
+        "herds": 124.9
+       }
+      },
+      "best": {
+       "supported": 125.65,
+       "ratio": 10.47,
+       "food_a_year": {
+        "fields": 3785.0,
+        "fish": 15.6,
+        "herds": 124.9
+       }
+      }
+     },
+     "Millham": {
+      "people": 14,
+      "standing": {
+       "supported": 13.37,
+       "ratio": 0.95,
+       "food_a_year": {
+        "fields": 339.3,
+        "fish": 15.6,
+        "herds": 88.5
+       }
+      },
+      "worked": {
+       "supported": 53.34,
+       "ratio": 3.81,
+       "food_a_year": {
+        "fields": 1584.0,
+        "fish": 15.6,
+        "herds": 124.9
+       }
+      },
+      "best": {
+       "supported": 134.75,
+       "ratio": 9.62,
+       "food_a_year": {
+        "fields": 4096.4,
+        "fish": 15.6,
+        "herds": 124.9
+       }
+      }
+     }
+    }
+   },
+   "needs": {
+    "world": "river",
+    "people": 26,
+    "levels": {
+     "bare": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "food_a_unit": null,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "fish": 18.7
+      }
+     },
+     "standing": {
+      "supported": 29.44,
+      "ratio": 1.13,
+      "food_a_unit": 1.96,
+      "food_a_plot": 22.6,
+      "food_a_year": {
+       "fields": 610.6,
+       "fish": 31.1,
+       "herds": 176.9
+      }
+     },
+     "worked": {
+      "supported": 121.33,
+      "ratio": 4.67,
+      "food_a_unit": 1.56,
+      "food_a_plot": 112.5,
+      "food_a_year": {
+       "fields": 3038.3,
+       "fish": 31.1,
+       "herds": 249.8
+      }
+     },
+     "best": {
+      "supported": 310.0,
+      "ratio": 11.92,
+      "food_a_unit": 2.42,
+      "food_a_plot": 291.9,
+      "food_a_year": {
+       "fields": 7881.4,
+       "fish": 31.1,
+       "herds": 249.8
+      }
+     },
+     "ceiling": {
+      "supported": 436.29,
+      "ratio": 16.78,
+      "food_a_unit": 2.33,
+      "food_a_plot": 280.5,
+      "food_a_year": {
+       "fields": 11219.5,
+       "fish": 31.1,
+       "herds": 249.8
+      }
+     }
+    },
+    "nodes": {
+     "Saltwell": {
+      "people": 12,
+      "standing": {
+       "supported": 13.5,
+       "ratio": 1.12,
+       "food_a_year": {
+        "fields": 271.3,
+        "fish": 15.6,
+        "herds": 88.5
+       }
+      },
+      "worked": {
+       "supported": 58.12,
+       "ratio": 4.84,
+       "food_a_year": {
+        "fields": 1454.3,
+        "fish": 15.6,
+        "herds": 124.9
+       }
+      },
+      "best": {
+       "supported": 149.47,
+       "ratio": 12.46,
+       "food_a_year": {
+        "fields": 3785.0,
+        "fish": 15.6,
+        "herds": 124.9
+       }
+      }
+     },
+     "Millham": {
+      "people": 14,
+      "standing": {
+       "supported": 15.8,
+       "ratio": 1.13,
+       "food_a_year": {
+        "fields": 339.3,
+        "fish": 15.6,
+        "herds": 88.5
+       }
+      },
+      "worked": {
+       "supported": 62.93,
+       "ratio": 4.5,
+       "food_a_year": {
+        "fields": 1584.0,
+        "fish": 15.6,
+        "herds": 124.9
+       }
+      },
+      "best": {
+       "supported": 160.3,
+       "ratio": 11.45,
+       "food_a_year": {
+        "fields": 4096.4,
+        "fish": 15.6,
+        "herds": 124.9
+       }
+      }
+     }
+    }
+   },
+   "now": {
+    "world": "river",
+    "people": 26,
+    "levels": {
+     "bare": {
+      "supported": 0.7,
+      "ratio": 0.03,
+      "food_a_unit": 0.5,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "fish": 40.6
+      }
+     },
+     "standing": {
+      "supported": 25.8,
+      "ratio": 0.99,
+      "food_a_unit": 1.86,
+      "food_a_plot": 22.1,
+      "food_a_year": {
+       "fields": 596.1,
+       "fish": 67.7,
+       "herds": 184.3
+      }
+     },
+     "worked": {
+      "supported": 97.98,
+      "ratio": 3.77,
+      "food_a_unit": 1.74,
+      "food_a_plot": 105.3,
+      "food_a_year": {
+       "fields": 2843.6,
+       "fish": 67.7,
+       "herds": 220.0
+      }
+     },
+     "best": {
+      "supported": 252.09,
+      "ratio": 9.7,
+      "food_a_unit": 2.32,
+      "food_a_plot": 281.9,
+      "food_a_year": {
+       "fields": 7612.6,
+       "fish": 67.7,
+       "herds": 220.0
+      }
+     },
+     "ceiling": {
+      "supported": 354.35,
+      "ratio": 13.63,
+      "food_a_unit": 2.24,
+      "food_a_plot": 270.6,
+      "food_a_year": {
+       "fields": 10823.1,
+       "fish": 67.7,
+       "herds": 220.0
+      }
+     }
+    },
+    "nodes": {
+     "Saltwell": {
+      "people": 12,
+      "standing": {
+       "supported": 11.9,
+       "ratio": 0.99,
+       "food_a_year": {
+        "fields": 264.8,
+        "fish": 33.8,
+        "herds": 92.2
+       }
+      },
+      "worked": {
+       "supported": 47.03,
+       "ratio": 3.92,
+       "food_a_year": {
+        "fields": 1355.3,
+        "fish": 33.8,
+        "herds": 110.0
+       }
+      },
+      "best": {
+       "supported": 120.1,
+       "ratio": 10.01,
+       "food_a_year": {
+        "fields": 3611.7,
+        "fish": 33.8,
+        "herds": 110.0
+       }
+      }
+     },
+     "Millham": {
+      "people": 14,
+      "standing": {
+       "supported": 13.8,
+       "ratio": 0.99,
+       "food_a_year": {
+        "fields": 331.3,
+        "fish": 33.8,
+        "herds": 92.2
+       }
+      },
+      "worked": {
+       "supported": 50.74,
+       "ratio": 3.62,
+       "food_a_year": {
+        "fields": 1488.3,
+        "fish": 33.8,
+        "herds": 110.0
+       }
+      },
+      "best": {
+       "supported": 131.76,
+       "ratio": 9.41,
+       "food_a_year": {
+        "fields": 4001.0,
+        "fish": 33.8,
+        "herds": 110.0
+       }
+      }
+     }
+    }
+   }
+  },
+  "w1": {
+   "goods": {
+    "world": "w1",
+    "people": 20,
+    "levels": {
+     "bare": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "food_a_unit": null,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "fish": 56.0
+      }
+     },
+     "standing": {
+      "supported": 10.45,
+      "ratio": 0.52,
+      "food_a_unit": 0.92,
+      "food_a_plot": 16.8,
+      "food_a_year": {
+       "fields": 150.8,
+       "fish": 93.4,
+       "herds": 118.0
+      }
+     },
+     "worked": {
+      "supported": 43.24,
+      "ratio": 2.16,
+      "food_a_unit": 1.18,
+      "food_a_plot": 131.3,
+      "food_a_year": {
+       "fields": 1181.3,
+       "fish": 93.4,
+       "herds": 190.8
+      }
+     },
+     "best": {
+      "supported": 77.29,
+      "ratio": 3.86,
+      "food_a_unit": 1.75,
+      "food_a_plot": 252.0,
+      "food_a_year": {
+       "fields": 2268.4,
+       "fish": 93.4,
+       "herds": 190.8
+      }
+     },
+     "ceiling": {
+      "supported": 814.55,
+      "ratio": 40.73,
+      "food_a_unit": 1.95,
+      "food_a_plot": 250.7,
+      "food_a_year": {
+       "fields": 26571.3,
+       "fish": 93.4,
+       "herds": 190.8
+      }
+     }
+    },
+    "nodes": {
+     "Ashford": {
+      "people": 10,
+      "standing": {
+       "supported": 4.17,
+       "ratio": 0.42,
+       "food_a_year": {
+        "fields": 83.8,
+        "herds": 59.0
+       }
+      },
+      "worked": {
+       "supported": 22.27,
+       "ratio": 2.23,
+       "food_a_year": {
+        "fields": 656.3,
+        "herds": 95.4
+       }
+      },
+      "best": {
+       "supported": 41.18,
+       "ratio": 4.12,
+       "food_a_year": {
+        "fields": 1260.2,
+        "herds": 95.4
+       }
+      }
+     },
+     "Brockley": {
+      "people": 10,
+      "standing": {
+       "supported": 3.71,
+       "ratio": 0.37,
+       "food_a_year": {
+        "fields": 67.0,
+        "herds": 59.0
+       }
+      },
+      "worked": {
+       "supported": 18.4,
+       "ratio": 1.84,
+       "food_a_year": {
+        "fields": 525.0,
+        "herds": 95.4
+       }
+      },
+      "best": {
+       "supported": 33.53,
+       "ratio": 3.35,
+       "food_a_year": {
+        "fields": 1008.2,
+        "herds": 95.4
+       }
+      }
+     }
+    }
+   },
+   "needs": {
+    "world": "w1",
+    "people": 20,
+    "levels": {
+     "bare": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "food_a_unit": null,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "fish": 56.0
+      }
+     },
+     "standing": {
+      "supported": 11.86,
+      "ratio": 0.59,
+      "food_a_unit": 0.92,
+      "food_a_plot": 16.8,
+      "food_a_year": {
+       "fields": 150.8,
+       "fish": 93.4,
+       "herds": 118.0
+      }
+     },
+     "worked": {
+      "supported": 49.63,
+      "ratio": 2.48,
+      "food_a_unit": 1.18,
+      "food_a_plot": 131.3,
+      "food_a_year": {
+       "fields": 1181.3,
+       "fish": 93.4,
+       "herds": 190.8
+      }
+     },
+     "best": {
+      "supported": 89.85,
+      "ratio": 4.49,
+      "food_a_unit": 1.75,
+      "food_a_plot": 252.0,
+      "food_a_year": {
+       "fields": 2268.4,
+       "fish": 93.4,
+       "herds": 190.8
+      }
+     },
+     "ceiling": {
+      "supported": 949.2,
+      "ratio": 47.46,
+      "food_a_unit": 1.95,
+      "food_a_plot": 250.7,
+      "food_a_year": {
+       "fields": 26571.3,
+       "fish": 93.4,
+       "herds": 190.8
+      }
+     }
+    },
+    "nodes": {
+     "Ashford": {
+      "people": 10,
+      "standing": {
+       "supported": 4.87,
+       "ratio": 0.49,
+       "food_a_year": {
+        "fields": 83.8,
+        "herds": 59.0
+       }
+      },
+      "worked": {
+       "supported": 25.71,
+       "ratio": 2.57,
+       "food_a_year": {
+        "fields": 656.3,
+        "herds": 95.4
+       }
+      },
+      "best": {
+       "supported": 48.05,
+       "ratio": 4.8,
+       "food_a_year": {
+        "fields": 1260.2,
+        "herds": 95.4
+       }
+      }
+     },
+     "Brockley": {
+      "people": 10,
+      "standing": {
+       "supported": 4.33,
+       "ratio": 0.43,
+       "food_a_year": {
+        "fields": 67.0,
+        "herds": 59.0
+       }
+      },
+      "worked": {
+       "supported": 21.26,
+       "ratio": 2.13,
+       "food_a_year": {
+        "fields": 525.0,
+        "herds": 95.4
+       }
+      },
+      "best": {
+       "supported": 39.13,
+       "ratio": 3.91,
+       "food_a_year": {
+        "fields": 1008.2,
+        "herds": 95.4
+       }
+      }
+     }
+    }
+   },
+   "now": {
+    "world": "w1",
+    "people": 20,
+    "levels": {
+     "bare": {
+      "supported": 2.14,
+      "ratio": 0.11,
+      "food_a_unit": 0.5,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "fish": 121.8
+      }
+     },
+     "standing": {
+      "supported": 13.88,
+      "ratio": 0.69,
+      "food_a_unit": 1.13,
+      "food_a_plot": 16.4,
+      "food_a_year": {
+       "fields": 147.3,
+       "fish": 203.0,
+       "herds": 122.9
+      }
+     },
+     "worked": {
+      "supported": 44.79,
+      "ratio": 2.24,
+      "food_a_unit": 1.21,
+      "food_a_plot": 128.2,
+      "food_a_year": {
+       "fields": 1153.6,
+       "fish": 203.0,
+       "herds": 158.6
+      }
+     },
+     "best": {
+      "supported": 76.5,
+      "ratio": 3.83,
+      "food_a_unit": 1.71,
+      "food_a_plot": 240.6,
+      "food_a_year": {
+       "fields": 2165.2,
+       "fish": 203.0,
+       "herds": 158.6
+      }
+     },
+     "ceiling": {
+      "supported": 779.58,
+      "ratio": 38.98,
+      "food_a_unit": 1.86,
+      "food_a_plot": 239.3,
+      "food_a_year": {
+       "fields": 25363.4,
+       "fish": 203.0,
+       "herds": 158.6
+      }
+     }
+    },
+    "nodes": {
+     "Ashford": {
+      "people": 10,
+      "standing": {
+       "supported": 4.18,
+       "ratio": 0.42,
+       "food_a_year": {
+        "fields": 81.8,
+        "herds": 61.4
+       }
+      },
+      "worked": {
+       "supported": 21.28,
+       "ratio": 2.13,
+       "food_a_year": {
+        "fields": 640.9,
+        "herds": 79.3
+       }
+      },
+      "best": {
+       "supported": 38.89,
+       "ratio": 3.89,
+       "food_a_year": {
+        "fields": 1202.9,
+        "herds": 79.3
+       }
+      }
+     },
+     "Brockley": {
+      "people": 10,
+      "standing": {
+       "supported": 3.72,
+       "ratio": 0.37,
+       "food_a_year": {
+        "fields": 65.5,
+        "herds": 61.4
+       }
+      },
+      "worked": {
+       "supported": 17.52,
+       "ratio": 1.75,
+       "food_a_year": {
+        "fields": 512.7,
+        "herds": 79.3
+       }
+      },
+      "best": {
+       "supported": 31.6,
+       "ratio": 3.16,
+       "food_a_year": {
+        "fields": 962.3,
+        "herds": 79.3
+       }
+      }
+     }
+    }
+   }
+  },
+  "water": {
+   "goods": {
+    "world": "water",
+    "people": 8,
+    "levels": {
+     "bare": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "food_a_unit": null,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "fish": 39.6,
+       "wild plants": 3.5
+      }
+     },
+     "standing": {
+      "supported": 3.16,
+      "ratio": 0.4,
+      "food_a_unit": 0.6,
+      "food_a_plot": 16.8,
+      "food_a_year": {
+       "fields": 33.5,
+       "fish": 66.0,
+       "wild plants": 3.5
+      }
+     },
+     "worked": {
+      "supported": 6.7,
+      "ratio": 0.84,
+      "food_a_unit": 0.6,
+      "food_a_plot": 73.7,
+      "food_a_year": {
+       "fields": 147.4,
+       "fish": 66.0,
+       "wild plants": 3.5
+      }
+     },
+     "best": {
+      "supported": 8.71,
+      "ratio": 1.09,
+      "food_a_unit": 0.7,
+      "food_a_plot": 103.2,
+      "food_a_year": {
+       "fields": 206.5,
+       "fish": 66.0,
+       "wild plants": 3.5
+      }
+     },
+     "ceiling": {
+      "supported": 16.01,
+      "ratio": 2.0,
+      "food_a_unit": 0.79,
+      "food_a_plot": 109.6,
+      "food_a_year": {
+       "fields": 438.2,
+       "fish": 66.0
+      }
+     }
+    },
+    "nodes": {
+     "ferrybank": {
+      "people": 8,
+      "standing": {
+       "supported": 3.16,
+       "ratio": 0.4,
+       "food_a_year": {
+        "fields": 33.5,
+        "fish": 66.0,
+        "wild plants": 3.5
+       }
+      },
+      "worked": {
+       "supported": 6.7,
+       "ratio": 0.84,
+       "food_a_year": {
+        "fields": 147.4,
+        "fish": 66.0,
+        "wild plants": 3.5
+       }
+      },
+      "best": {
+       "supported": 8.71,
+       "ratio": 1.09,
+       "food_a_year": {
+        "fields": 206.5,
+        "fish": 66.0,
+        "wild plants": 3.5
+       }
+      }
+     }
+    }
+   },
+   "needs": {
+    "world": "water",
+    "people": 8,
+    "levels": {
+     "bare": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "food_a_unit": null,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "fish": 39.6,
+       "wild plants": 3.5
+      }
+     },
+     "standing": {
+      "supported": 3.57,
+      "ratio": 0.45,
+      "food_a_unit": 0.6,
+      "food_a_plot": 16.8,
+      "food_a_year": {
+       "fields": 33.5,
+       "fish": 66.0,
+       "wild plants": 3.5
+      }
+     },
+     "worked": {
+      "supported": 7.6,
+      "ratio": 0.95,
+      "food_a_unit": 0.6,
+      "food_a_plot": 73.7,
+      "food_a_year": {
+       "fields": 147.4,
+       "fish": 66.0,
+       "wild plants": 3.5
+      }
+     },
+     "best": {
+      "supported": 10.0,
+      "ratio": 1.25,
+      "food_a_unit": 0.7,
+      "food_a_plot": 103.2,
+      "food_a_year": {
+       "fields": 206.5,
+       "fish": 66.0,
+       "wild plants": 3.5
+      }
+     },
+     "ceiling": {
+      "supported": 18.52,
+      "ratio": 2.31,
+      "food_a_unit": 0.79,
+      "food_a_plot": 109.6,
+      "food_a_year": {
+       "fields": 438.2,
+       "fish": 66.0
+      }
+     }
+    },
+    "nodes": {
+     "ferrybank": {
+      "people": 8,
+      "standing": {
+       "supported": 3.57,
+       "ratio": 0.45,
+       "food_a_year": {
+        "fields": 33.5,
+        "fish": 66.0,
+        "wild plants": 3.5
+       }
+      },
+      "worked": {
+       "supported": 7.6,
+       "ratio": 0.95,
+       "food_a_year": {
+        "fields": 147.4,
+        "fish": 66.0,
+        "wild plants": 3.5
+       }
+      },
+      "best": {
+       "supported": 10.0,
+       "ratio": 1.25,
+       "food_a_year": {
+        "fields": 206.5,
+        "fish": 66.0,
+        "wild plants": 3.5
+       }
+      }
+     }
+    }
+   },
+   "now": {
+    "world": "water",
+    "people": 8,
+    "levels": {
+     "bare": {
+      "supported": 1.39,
+      "ratio": 0.17,
+      "food_a_unit": 0.9,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "fish": 86.0,
+       "wild plants": 8.5
+      }
+     },
+     "standing": {
+      "supported": 5.9,
+      "ratio": 0.74,
+      "food_a_unit": 1.07,
+      "food_a_plot": 16.4,
+      "food_a_year": {
+       "fields": 32.7,
+       "fish": 143.4,
+       "wild plants": 8.5
+      }
+     },
+     "worked": {
+      "supported": 9.38,
+      "ratio": 1.17,
+      "food_a_unit": 0.81,
+      "food_a_plot": 71.9,
+      "food_a_year": {
+       "fields": 143.9,
+       "fish": 143.4,
+       "wild plants": 8.5
+      }
+     },
+     "best": {
+      "supported": 11.33,
+      "ratio": 1.42,
+      "food_a_unit": 0.89,
+      "food_a_plot": 100.8,
+      "food_a_year": {
+       "fields": 201.6,
+       "fish": 143.4,
+       "wild plants": 8.5
+      }
+     },
+     "ceiling": {
+      "supported": 18.28,
+      "ratio": 2.29,
+      "food_a_unit": 0.89,
+      "food_a_plot": 107.0,
+      "food_a_year": {
+       "fields": 427.8,
+       "fish": 143.4
+      }
+     }
+    },
+    "nodes": {
+     "ferrybank": {
+      "people": 8,
+      "standing": {
+       "supported": 5.9,
+       "ratio": 0.74,
+       "food_a_year": {
+        "fields": 32.7,
+        "fish": 143.4,
+        "wild plants": 8.5
+       }
+      },
+      "worked": {
+       "supported": 9.38,
+       "ratio": 1.17,
+       "food_a_year": {
+        "fields": 143.9,
+        "fish": 143.4,
+        "wild plants": 8.5
+       }
+      },
+      "best": {
+       "supported": 11.33,
+       "ratio": 1.42,
+       "food_a_year": {
+        "fields": 201.6,
+        "fish": 143.4,
+        "wild plants": 8.5
+       }
+      }
+     }
+    }
+   }
+  },
+  "wenbridge": {
+   "goods": {
+    "world": "wenbridge",
+    "people": 12,
+    "levels": {
+     "bare": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "food_a_unit": null,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "wild plants": 14.9,
+       "game": 7.3
+      }
+     },
+     "standing": {
+      "supported": 2.62,
+      "ratio": 0.22,
+      "food_a_unit": 0.6,
+      "food_a_plot": 16.8,
+      "food_a_year": {
+       "fields": 67.0,
+       "wild plants": 14.9,
+       "game": 13.7
+      }
+     },
+     "worked": {
+      "supported": 13.0,
+      "ratio": 1.08,
+      "food_a_unit": 0.85,
+      "food_a_plot": 105.2,
+      "food_a_year": {
+       "fields": 420.9,
+       "wild plants": 14.9,
+       "game": 13.7
+      }
+     },
+     "best": {
+      "supported": 24.97,
+      "ratio": 2.08,
+      "food_a_unit": 1.22,
+      "food_a_plot": 201.4,
+      "food_a_year": {
+       "fields": 805.6,
+       "wild plants": 14.9,
+       "game": 13.7
+      }
+     },
+     "ceiling": {
+      "supported": 59.02,
+      "ratio": 4.92,
+      "food_a_unit": 1.42,
+      "food_a_plot": 215.6,
+      "food_a_year": {
+       "fields": 1940.3,
+       "wild plants": 7.9,
+       "game": 13.7
+      }
+     }
+    },
+    "nodes": {
+     "wenbridge": {
+      "people": 12,
+      "standing": {
+       "supported": 2.04,
+       "ratio": 0.17,
+       "food_a_year": {
+        "fields": 67.0,
+        "wild plants": 6.1
+       }
+      },
+      "worked": {
+       "supported": 12.43,
+       "ratio": 1.04,
+       "food_a_year": {
+        "fields": 420.9,
+        "wild plants": 6.1
+       }
+      },
+      "best": {
+       "supported": 24.39,
+       "ratio": 2.03,
+       "food_a_year": {
+        "fields": 805.6,
+        "wild plants": 6.1
+       }
+      }
+     }
+    }
+   },
+   "needs": {
+    "world": "wenbridge",
+    "people": 12,
+    "levels": {
+     "bare": {
+      "supported": 0.0,
+      "ratio": 0.0,
+      "food_a_unit": null,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "wild plants": 14.9,
+       "game": 7.3
+      }
+     },
+     "standing": {
+      "supported": 2.88,
+      "ratio": 0.24,
+      "food_a_unit": 0.6,
+      "food_a_plot": 16.8,
+      "food_a_year": {
+       "fields": 67.0,
+       "wild plants": 14.9,
+       "game": 13.7
+      }
+     },
+     "worked": {
+      "supported": 14.69,
+      "ratio": 1.22,
+      "food_a_unit": 0.85,
+      "food_a_plot": 105.2,
+      "food_a_year": {
+       "fields": 420.9,
+       "wild plants": 14.9,
+       "game": 13.7
+      }
+     },
+     "best": {
+      "supported": 28.71,
+      "ratio": 2.39,
+      "food_a_unit": 1.22,
+      "food_a_plot": 201.4,
+      "food_a_year": {
+       "fields": 805.6,
+       "wild plants": 14.9,
+       "game": 13.7
+      }
+     },
+     "ceiling": {
+      "supported": 68.21,
+      "ratio": 5.68,
+      "food_a_unit": 1.42,
+      "food_a_plot": 215.6,
+      "food_a_year": {
+       "fields": 1940.3,
+       "wild plants": 7.9,
+       "game": 13.7
+      }
+     }
+    },
+    "nodes": {
+     "wenbridge": {
+      "people": 12,
+      "standing": {
+       "supported": 2.34,
+       "ratio": 0.19,
+       "food_a_year": {
+        "fields": 67.0,
+        "wild plants": 6.1
+       }
+      },
+      "worked": {
+       "supported": 14.15,
+       "ratio": 1.18,
+       "food_a_year": {
+        "fields": 420.9,
+        "wild plants": 6.1
+       }
+      },
+      "best": {
+       "supported": 28.15,
+       "ratio": 2.35,
+       "food_a_year": {
+        "fields": 805.6,
+        "wild plants": 6.1
+       }
+      }
+     }
+    }
+   },
+   "now": {
+    "world": "wenbridge",
+    "people": 12,
+    "levels": {
+     "bare": {
+      "supported": 0.9,
+      "ratio": 0.07,
+      "food_a_unit": 0.28,
+      "food_a_plot": 0.0,
+      "food_a_year": {
+       "wild plants": 35.9,
+       "game": 18.2
+      }
+     },
+     "standing": {
+      "supported": 3.87,
+      "ratio": 0.32,
+      "food_a_unit": 0.85,
+      "food_a_plot": 16.4,
+      "food_a_year": {
+       "fields": 65.5,
+       "wild plants": 35.9,
+       "game": 34.1
+      }
+     },
+     "worked": {
+      "supported": 14.01,
+      "ratio": 1.17,
+      "food_a_unit": 0.91,
+      "food_a_plot": 102.8,
+      "food_a_year": {
+       "fields": 411.0,
+       "wild plants": 35.9,
+       "game": 34.1
+      }
+     },
+     "best": {
+      "supported": 25.18,
+      "ratio": 2.1,
+      "food_a_unit": 1.23,
+      "food_a_plot": 192.7,
+      "food_a_year": {
+       "fields": 770.6,
+       "wild plants": 35.9,
+       "game": 34.1
+      }
+     },
+     "ceiling": {
+      "supported": 57.4,
+      "ratio": 4.78,
+      "food_a_unit": 1.38,
+      "food_a_plot": 206.2,
+      "food_a_year": {
+       "fields": 1855.8,
+       "wild plants": 19.0,
+       "game": 34.1
+      }
+     }
+    },
+    "nodes": {
+     "wenbridge": {
+      "people": 12,
+      "standing": {
+       "supported": 2.27,
+       "ratio": 0.19,
+       "food_a_year": {
+        "fields": 65.5,
+        "wild plants": 14.8
+       }
+      },
+      "worked": {
+       "supported": 12.4,
+       "ratio": 1.03,
+       "food_a_year": {
+        "fields": 411.0,
+        "wild plants": 14.8
+       }
+      },
+      "best": {
+       "supported": 23.57,
+       "ratio": 1.96,
+       "food_a_year": {
+        "fields": 770.6,
+        "wild plants": 14.8
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "sensitivity": {
+  "2000 kcal, 1.5 h": {
+   "breakeven": {
+    "ration": 1.05,
+    "work_food": 0.075,
+    "self": 0.25,
+    "household": 0.425,
+    "day_6_units": 1.5
+   },
+   "goods": {
+    "grain": 0.896,
+    "bread": 1.664,
+    "meat": 0.75,
+    "fish": 0.575,
+    "milk": 0.32,
+    "greens": 0.14,
+    "berries": 0.214,
+    "hazel nuts": 1.35,
+    "acorn meal": 1.85
+   },
+   "animals": {
+    "red deer": 24.705,
+    "roe deer": 6.098,
+    "brown hare": 0.938,
+    "eel": 0.331,
+    "salmon": 1.761,
+    "cow": 114.0
+   },
+   "methods": {
+    "farming, plough-broken": [
+     3.01,
+     3.01
+    ],
+    "gathering, autumn": [
+     0.68,
+     1.1
+    ],
+    "hunting, master armed, near": [
+     2.34,
+     2.34
+    ],
+    "angling (rod and line)": [
+     0.86,
+     0.86
+    ]
+   },
+   "real": {
+    "farming, plough-broken": [
+     3.0,
+     5.25
+    ],
+    "gathering, autumn": [
+     0.75,
+     2.25
+    ],
+    "hunting, master armed, near": [
+     1.12,
+     3.0
+    ],
+    "angling (rod and line)": [
+     0.23,
+     1.35
+    ]
+   }
+  },
+  "2000 kcal, 2.0 h": {
+   "breakeven": {
+    "ration": 1.05,
+    "work_food": 0.1,
+    "self": 0.275,
+    "household": 0.45,
+    "day_6_units": 1.65
+   },
+   "goods": {
+    "grain": 0.896,
+    "bread": 1.664,
+    "meat": 0.75,
+    "fish": 0.575,
+    "milk": 0.32,
+    "greens": 0.14,
+    "berries": 0.214,
+    "hazel nuts": 1.35,
+    "acorn meal": 1.85
+   },
+   "animals": {
+    "red deer": 24.705,
+    "roe deer": 6.098,
+    "brown hare": 0.938,
+    "eel": 0.331,
+    "salmon": 1.761,
+    "cow": 114.0
+   },
+   "methods": {
+    "farming, plough-broken": [
+     3.01,
+     3.01
+    ],
+    "gathering, autumn": [
+     0.68,
+     1.1
+    ],
+    "hunting, master armed, near": [
+     2.34,
+     2.34
+    ],
+    "angling (rod and line)": [
+     0.86,
+     0.86
+    ]
+   },
+   "real": {
+    "farming, plough-broken": [
+     4.0,
+     7.0
+    ],
+    "gathering, autumn": [
+     1.0,
+     3.0
+    ],
+    "hunting, master armed, near": [
+     1.5,
+     4.0
+    ],
+    "angling (rod and line)": [
+     0.3,
+     1.8
+    ]
+   }
+  },
+  "2500 kcal, 1.5 h": {
+   "breakeven": {
+    "ration": 0.84,
+    "work_food": 0.06,
+    "self": 0.2,
+    "household": 0.34,
+    "day_6_units": 1.2
+   },
+   "goods": {
+    "grain": 0.717,
+    "bread": 1.331,
+    "meat": 0.6,
+    "fish": 0.46,
+    "milk": 0.256,
+    "greens": 0.112,
+    "berries": 0.171,
+    "hazel nuts": 1.08,
+    "acorn meal": 1.48
+   },
+   "animals": {
+    "red deer": 19.764,
+    "roe deer": 4.879,
+    "brown hare": 0.75,
+    "eel": 0.265,
+    "salmon": 1.409,
+    "cow": 91.2
+   },
+   "methods": {
+    "farming, plough-broken": [
+     2.41,
+     2.41
+    ],
+    "gathering, autumn": [
+     0.55,
+     0.88
+    ],
+    "hunting, master armed, near": [
+     1.87,
+     1.87
+    ],
+    "angling (rod and line)": [
+     0.69,
+     0.69
+    ]
+   },
+   "real": {
+    "farming, plough-broken": [
+     2.4,
+     4.2
+    ],
+    "gathering, autumn": [
+     0.6,
+     1.8
+    ],
+    "hunting, master armed, near": [
+     0.9,
+     2.4
+    ],
+    "angling (rod and line)": [
+     0.18,
+     1.08
+    ]
+   }
+  },
+  "2500 kcal, 2.0 h": {
+   "breakeven": {
+    "ration": 0.84,
+    "work_food": 0.08,
+    "self": 0.22,
+    "household": 0.36,
+    "day_6_units": 1.32
+   },
+   "goods": {
+    "grain": 0.717,
+    "bread": 1.331,
+    "meat": 0.6,
+    "fish": 0.46,
+    "milk": 0.256,
+    "greens": 0.112,
+    "berries": 0.171,
+    "hazel nuts": 1.08,
+    "acorn meal": 1.48
+   },
+   "animals": {
+    "red deer": 19.764,
+    "roe deer": 4.879,
+    "brown hare": 0.75,
+    "eel": 0.265,
+    "salmon": 1.409,
+    "cow": 91.2
+   },
+   "methods": {
+    "farming, plough-broken": [
+     2.41,
+     2.41
+    ],
+    "gathering, autumn": [
+     0.55,
+     0.88
+    ],
+    "hunting, master armed, near": [
+     1.87,
+     1.87
+    ],
+    "angling (rod and line)": [
+     0.69,
+     0.69
+    ]
+   },
+   "real": {
+    "farming, plough-broken": [
+     3.2,
+     5.6
+    ],
+    "gathering, autumn": [
+     0.8,
+     2.4
+    ],
+    "hunting, master armed, near": [
+     1.2,
+     3.2
+    ],
+    "angling (rod and line)": [
+     0.24,
+     1.44
+    ]
+   }
+  },
+  "3000 kcal, 1.5 h": {
+   "breakeven": {
+    "ration": 0.7,
+    "work_food": 0.05,
+    "self": 0.167,
+    "household": 0.283,
+    "day_6_units": 1.0
+   },
+   "goods": {
+    "grain": 0.597,
+    "bread": 1.109,
+    "meat": 0.5,
+    "fish": 0.383,
+    "milk": 0.213,
+    "greens": 0.093,
+    "berries": 0.142,
+    "hazel nuts": 0.9,
+    "acorn meal": 1.234
+   },
+   "animals": {
+    "red deer": 16.47,
+    "roe deer": 4.066,
+    "brown hare": 0.625,
+    "eel": 0.221,
+    "salmon": 1.174,
+    "cow": 76.0
+   },
+   "methods": {
+    "farming, plough-broken": [
+     2.0,
+     2.0
+    ],
+    "gathering, autumn": [
+     0.46,
+     0.73
+    ],
+    "hunting, master armed, near": [
+     1.56,
+     1.56
+    ],
+    "angling (rod and line)": [
+     0.57,
+     0.57
+    ]
+   },
+   "real": {
+    "farming, plough-broken": [
+     2.0,
+     3.5
+    ],
+    "gathering, autumn": [
+     0.5,
+     1.5
+    ],
+    "hunting, master armed, near": [
+     0.75,
+     2.0
+    ],
+    "angling (rod and line)": [
+     0.15,
+     0.9
+    ]
+   }
+  },
+  "3000 kcal, 2.0 h": {
+   "breakeven": {
+    "ration": 0.7,
+    "work_food": 0.067,
+    "self": 0.183,
+    "household": 0.3,
+    "day_6_units": 1.1
+   },
+   "goods": {
+    "grain": 0.597,
+    "bread": 1.109,
+    "meat": 0.5,
+    "fish": 0.383,
+    "milk": 0.213,
+    "greens": 0.093,
+    "berries": 0.142,
+    "hazel nuts": 0.9,
+    "acorn meal": 1.234
+   },
+   "animals": {
+    "red deer": 16.47,
+    "roe deer": 4.066,
+    "brown hare": 0.625,
+    "eel": 0.221,
+    "salmon": 1.174,
+    "cow": 76.0
+   },
+   "methods": {
+    "farming, plough-broken": [
+     2.0,
+     2.0
+    ],
+    "gathering, autumn": [
+     0.46,
+     0.73
+    ],
+    "hunting, master armed, near": [
+     1.56,
+     1.56
+    ],
+    "angling (rod and line)": [
+     0.57,
+     0.57
+    ]
+   },
+   "real": {
+    "farming, plough-broken": [
+     2.67,
+     4.67
+    ],
+    "gathering, autumn": [
+     0.67,
+     2.0
+    ],
+    "hunting, master armed, near": [
+     1.0,
+     2.67
+    ],
+    "angling (rod and line)": [
+     0.2,
+     1.2
+    ]
+   }
+  }
  }
 }
