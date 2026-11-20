@@ -9,15 +9,13 @@ updated: "2026-11-20"
 
 *active · 37.2 · touched 20 Nov (today)*
 
-> **Next:** after the merge ([[W-62 Merging the water work from its twelve branches into main|W-62]]): the value lookup and data change ([[D2-258 The food values are put on one physical basis|D2-258]]), the switches ([[O-3 Build the switches that turn a food source off in a world|O-3]]), competent fishing bots, the arms remade, then the low and high live runs (Zach, 20 Nov: '4. yes')
+> **Next:** the lookup, the switches and the bots (three agents); then the data change and the remake
 
 ## What it is
 **Subsistence worlds: a village off the runs alone, and off hunting alone**: Zach, 20 Nov ([[D2-242 Subsistence test worlds|D2-242]]): the runs world did not test whether a village can live off runs alone (it has fields; fish looks badly calibrated). Build a set of calibration worlds: runs only, hunting only; each survivable at medium skill and capital, with a surplus up to a bound at more. Folded in: fish nutrition (the eel at a fifth of its real food, [[W-64 Food, weight and work on one basis|W-64]]), the run numbers, the river frequencies ([[Q-52 Environment systems|Q-52]] 6), the brook fished out ([[Q-57 Fishing, from the lake run|Q-57]] c), hunting against farming ([[Q-46 Brief 4c as built|Q-46]] b, c; [[W-22 Hunting against farming and gathering in generated worlds|W-22]]'s measured changes)
 
 ## Done so far, and what is left
-20 Nov: the runs-only world built at Zach's word ('Can you build just the water / runs testing world?'): Eelmouth, 12 people on a large river, nothing farmed, no resident fish, two compressed years; three arms on one land (low: novices, traps, nothing to keep fish with; medium: capable, nets, smoke racks; high: masters, a three-section weir, smoke racks, a salt house); the engine now keeps a seeded weir's sections (world.py, 37.4 named on the merge); a bots' smoke test ran 16 days without error. Found: the first larder lasted five days (now 8); the generic bots never fish, so a livelihood bot is owed before any comparison; meadow and common still offer sowing with no seed.
-
-**Left:** the food values ([[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Q-70]]) and bigger runs, then remake; the switches (37.4); competent fishing bots; Zach's go for the low and high live runs
+20 Nov: the runs-only world built and on main ([[W-62 Merging the water work from its twelve branches into main|W-62]]); in hand: the food values checked against USDA's SR Legacy tables (downloaded from fdc.nal.usda.gov after a new Cybertron environment allowed the host), the switches (branch w69-switches), competent fishing bots (branch w69-bots); then the data change ([[D2-258 The food values are put on one physical basis|D2-258]]), the arms remade, the low and high live runs (Zach's go)
 
 ## Where
 - `branch w69-runs-world (worktree /home/user/c2-w69): cybertron2/specs/make_nutrition_runs.py, cybertron2/specs/nutrition/ (runs_low, runs_medium, runs_high)`

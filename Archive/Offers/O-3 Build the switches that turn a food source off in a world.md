@@ -21,7 +21,3 @@ about a day: packs on by default with packs_off (farming's rows tagged), a world
 
 ## Linked
 - parent: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
-
-
-## Mentioned by
-- [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
