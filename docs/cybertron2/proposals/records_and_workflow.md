@@ -92,10 +92,18 @@ link written by hand.
 **Ids.** The series stay flat, never nested under threads (thread_tracking.md, "The ids"). A new id comes from `records new`
 after a fetch. The commit hook refuses an id already on main, and the push check refuses a duplicate.
 
-**The spec is rendered from the decisions.** Each decision item carries its area (`spec: environment/land`) and the rule as
-stated. A spec page is its area's live decisions in order, with the replaced ones left out. Hand-written prose stays possible
-for structure (headings, a table that groups rules), but a decision is in the spec the moment it is recorded. This removes the
-most-lost write in 02zzp: about 50 decisions in no spec file, and W-9 and W-10 not begun since 2 and 3 Nov.
+**The spec stays hand-written, and the tool writes its decided lines.** Each decision item carries its area
+(`area: environment/land`) and its rule, stated as a rule. `records decide` appends that line, with its id, to the area file's
+"Decided" section in the same call. When a decision is replaced, the tool marks the old line, and the check refuses the commit
+until the line is rewritten. People may regroup and reword the lines freely; the check only needs every live decision cited
+once.
+
+This removes the most-lost write in 02zzp: about 50 decisions are in no spec file, and W-9 and W-10 have not been begun since 2
+and 3 Nov. The rest of the spec is untouched (§11).
+
+(Revised 20 Nov. The first draft rendered the whole spec from decisions. But the "Decided" sections are only 13% of the spec's
+words: 6,900 of 52,300. The other 87% describe the mechanics as built, with their parameters and checks, and no decision is
+their source.)
 
 **The other layers keep their form:**
 - **Proposals:** one file per idea, with its History. The status covers the decision axis only; the build axis is derived.
@@ -296,6 +304,63 @@ software at all. Against it:
 
 37.2 prefers the files, and this is Zach's to weigh (Q-64 (10)).
 
+## 10. Keeping it light
+
+Zach (20 Nov): "I also don't want the other fail-state, that every small ask i give you turns into a massive amount of updating
+this and that and that and adds massive latency."
+
+**Today, measured from 1 Nov to 20 Nov:**
+- 651 commits; 275 (42%) touch at least one register (WORK, OPEN, DECISIONS, the index, the board);
+- 80 (12%) touch nothing but registers;
+- a commit that records a decision touches a median of 6 files.
+
+Each write is a hand edit inside a large file: grep for the row, read around it, patch it. That costs time and tokens on every
+event, and is the step that gets skipped.
+
+**The design's rules for weight:**
+1. **Record only what outlives the turn.** That is:
+   - a decision;
+   - something left open (an ask, a promise, a deferral);
+   - a thread starting, pausing, ending or changing its next step;
+   - a stage move (built, merged, run).
+
+   A question answered in the turn, an explanation, or a fix made and committed needs no record beyond its commit. The stop check
+   fires only on a promise or an offer left in the reply.
+2. **One event is one call.** `records decide` writes the decision, its spec line and a dated line in the proposal's History, and
+   closes the ask, in one call that reads nothing large. Today that is about six edits.
+3. **Records ride in the work's commit.** The tool notes each event in a local pending file. `records commit "<subject>"`
+   commits the work with the trailers written from those events. No separate commits for records, and no trailers typed by hand.
+4. **Expensive work happens off the agent's turn.** The views, the status page and the full truth checks run in the Action after
+   the push. The commit check looks only at the commit's own diff, in under a second. The brief runs once at the start.
+5. **Nothing is copied.** The outcome log, proposal status lines, "Current as of", last touched, where the work is and the
+   built state are all derived, so none is ever written.
+
+**What a small ask costs, then:**
+- a question answered: nothing;
+- a fix: the commit;
+- "flag it for later": one call (`records new L ...`);
+- a numbered reply to the digest: one call per answer, in one commit.
+
+## 11. Against today's proposals and spec
+
+| Today | Holds | In this design | Gained | Lost or at risk |
+|---|---|---|---|---|
+| **Proposal** file (Status, Owner, Summary, The proposal, Why, Alternatives, Open questions, Affects, History, Sources) | the thinking: options, reasons, the record of revisions | kept as it is, as the narrative. Its Status covers the decision axis only; its open questions are its Q items (`parent:` the proposal), listed by the tool, not copied; its History gets a dated line from `records decide` | no more Status lines that lie about building (38 of 137 today); questions in one place, not in both the proposal and OPEN | nothing |
+| **Outcome log** (proposals/README.md) | each idea's outcome by date | derived from the decision items and proposal states | no hand rows (96 commits touched the index since 1 Nov); no "?" dates | the log's one-line wording, written by hand today |
+| **DECISIONS.md** | every decision, with source and what it replaces | the decision items; DECISIONS.md becomes their rendered view | a `rule` field written as the rule; `replaces` as an edge the tools follow | nothing: the same fields |
+| **Spec "Decided" sections** (13% of the spec) | the current rules, citing decisions | still hand-written; the tool appends each new rule line and marks replaced ones | no decision left out of the spec | none, unless an agent never regroups the appended lines (cosmetic) |
+| **Spec mechanics, parameters and checks** (87%) | how the engine works as built: tables, values, code pointers | untouched | (not addressed) | **still unchecked against the code.** A later check could hold the code pointers in these sections (`engine/renewal.py`) against the files, and the parameters against the data tables |
+| **OPEN.md** (asks, conflicts, deferred) | one row each, grouped by area | items; OPEN.md rendered, grouped as now | one-step context from `show`; defaults with dates; parents | the convenience of one file to scan by hand, which the rendered view keeps |
+| **WORK.md** | threads | thread items with `next`; WORK.md rendered | the next step, the branch and last touched, kept true | nothing |
+| **Session notes** | long analysis | kept; plan and issue lists in them tagged with ids | lists that become rows | nothing |
+| **The board** | talk between sessions | hand-offs only (Q-64 (4)) | | its status table, which was already stale |
+
+**Improving?** On every point 02zzp measured: lost upkeep, untrue statuses, branches unseen, asks never put to Zach. The thinking
+(proposals, session notes, the spec's mechanics) is untouched.
+
+**The one real gap** is that the spec's mechanics can drift from the code with nothing to notice. That was so before as well,
+and it is the next thing to check once this is built.
+
 ## Open questions
 
 OPEN Q-64:
@@ -305,7 +370,8 @@ OPEN Q-64:
 4. The board for hand-offs between sessions only, with no status table (§6)?
 5. The ask digest as Zach's interface: at most about 8 asks, each one choice with a recommendation and a default date, at the
    start of each burst and on demand (§6)?
-6. The spec rendered from the decisions (§3), with hand-written prose only for structure?
+6. The spec's decided lines written by `records decide` into the hand-written spec, with replaced lines marked and refused until
+   rewritten (§3; revised from rendering the whole spec)?
 7. Any session may change code on a thread branch, with the area's owner named on the merge (§5)? This replaces the 37.4-only
    rule.
 8. A sheet of changes from the defaults before every paid run and every brief handed over (§4)?
@@ -313,6 +379,8 @@ OPEN Q-64:
    `relates` with a reason), mentions as free links, `show` one step deep?
 10. Files in the repository with one script and a skill (recommended), or GitHub Issues?
 11. A soft limit on active threads for each owner, flagged in the brief (about 6)?
+13. The rules for weight (§10): record only what outlives the turn; one call per event; records in the work's commit, with
+    trailers written by the tool?
 12. Ids written as `[[Q-63]]` in the items, so the folder opens in Obsidian with its links and graph, or as plain ids that only
     the tool links?
 
@@ -323,6 +391,9 @@ Every session's habits (CLAUDE.md's work rules); `tools/` (hygiene folded into `
 
 ## History
 
+- 20 Nov 2026: §10 (keeping it light) and §11 (against today's proposals and spec) added after Zach's questions on latency and on
+  what is lost. §3's spec rendering replaced by the tool writing decided lines into the hand-written spec, since the decided
+  sections are 13% of the spec's words. Q-64 (6) revised; (13) added.
 - 20 Nov 2026: §9 added after Zach's questions on a tool, edges and a graph: flat item headers, five edge types, a one-step
   query, one script and a skill (no MCP server, no database), the ideas borrowed, GitHub Issues weighed; Q-64 (9) to (12).
 - 20 Nov 2026: §6 written from 02zzq §2 (how Zach works well). This added the ask digest, the spec rendered from decisions, the
