@@ -1,6 +1,8 @@
 # Subsistence worlds: can each livelihood keep a village on its own?
 
-**Status:** discussion (20 Nov 2026). Decided in principle: D2-242. The design below is for Zach's choices (OPEN Q-66).
+**Status:** discussion (20 Nov 2026). Decided in principle: D2-242; hunting's return D2-255. The design below is for Zach's choices
+(OPEN Q-66). Revised 20 Nov: live runs are the test and bots the comparison; the surplus ceilings raised and measured as people fed
+per food worker; skill seeded by arm.
 
 **Owner:** 37.2 (the worlds, the targets, the report); 37.4 for any engine switch they need. WORK W-69.
 
@@ -16,8 +18,9 @@ grid of skill and capital (and village size), and must meet three tests:
 The surplus in isolation matters because it is what makes specialisation and trade possible (D2-242). So a third stage puts
 specialists side by side, to check that trade makes both better off.
 
-The first two stages are measured with scripted bots, at no model cost, so the numbers describe the world, not a model. A few live
-runs follow only where a livelihood works on paper.
+The test is a small set of live runs: villages seeded at chosen skill levels (a village of capable hunters; one master hunter
+among novices), with the cast scenario_design asks for. Scripted bots that are good at each livelihood run the same worlds beside
+them, at no model cost. The bots show what the world allows; the models show what agents make of it.
 
 ## The proposal
 
@@ -45,12 +48,21 @@ runs follow only where a livelihood works on paper.
 | **Medium** | capable | the ordinary kit of the livelihood: a weapon and snares; a rod and traps; a granary or bins; a drying rack |
 | **High** | a master | developed capital: an ox plough and a mill; a weir with a smokehouse and salt; a herd with a dairy; nets and a boat once built |
 
-- **Village size** is a third axis: two households and six, on the same land, so density shows. It matters most for hunting.
-- **The grid:**
-  - all nine of skill × capital at two sizes, two seeds and two years: 7 livelihoods × 9 × 2 × 2 = 252 bot runs;
-  - or a cheaper cut: the diagonal (low-low, medium-medium, high-high) plus the two corners (high skill with low capital, and the
-    reverse), which is 140 runs.
-- **A bad year** at medium-medium for each, using the eras' hard winter or a dry year, shows the risk as well as the mean.
+- **Skill is seeded,** not learned in the run. Each arm starts its people at a chosen level, so "a village of capable hunters" and
+  "one master hunter among novices" are two arms, and the value of one master shows directly.
+- **Village size:** small, two or three households (about 8 to 12 people), and large, six (about 30), on the same land, so density
+  shows. It matters most for hunting, fishing and the runs.
+- **Live runs, the test.** For each livelihood, three arms on its small village:
+  - everyone capable, with medium capital;
+  - one master among novices, with medium capital;
+  - masters, with high capital.
+
+  That is 7 × 3 = 21 runs. A run lasts about two compressed years (two winters). Each household head is Opus, the middle Sonnet,
+  the rest Haiku (scenario_design §2). Past runs cost about $0.04 to $0.07 a person-day, so a small village over about 48 days
+  costs about $20 to $35, and the 21 runs about $400 to $700. A first cut of 12 runs (the low and high arms of each, without
+  gathering alone) costs about $250 to $400. Each needs Zach's go.
+- **Bots, the comparison.** Scripted bots that do each livelihood competently run the full grid of skill × capital × size on the
+  same worlds, with two seeds and a bad year, at no cost. They are the ceiling the models are read against.
 
 ### What is measured
 
@@ -63,6 +75,28 @@ For each livelihood, level and size:
 - **the stores at winter's end,** the binding constraint for runs, hunting and herding.
 
 ### The targets (calibrate; wide on purpose)
+
+**Measured as people fed per food worker,** over a year with its winter. A household of five with two workers needs about 2.5 to
+live off itself. Anything above that feeds someone else: a specialist, a lord, a town. That surplus is what makes specialisation
+and a complex society possible (D2-242), so the high ceilings sit well above subsistence (Zach, 20 Nov: "should the ceiling for
+surplus be able to be even higher").
+
+| Livelihood | Low (novice, little capital) | Medium (capable; must survive) | High (master, capital) | What bounds the high end |
+|---|---|---|---|---|
+| Arable | 1.5 to 2.5: thin | 2.5 to 4 | 5 to 8 (plough, oxen, manure, mill, good land) | land, seed, draught beasts, the harvest's labour peak |
+| Herding | 1.5 to 2.5 | 2.5 to 3.5 | 4 to 6 (a dairy, hay made) | grazing, winter fodder |
+| Hunting | under 1.5: fails | 2.5 to 3, small village only | 4 to 8 per master, more on trips out to other nodes (D2-255) | the game (territory, wariness, a wood hunted down), the carry home, the learning (about half a life) |
+| Resident fishing | 1.5 to 2.5 | 2.5 to 4 | 4 to 6 | the stock and its recovery |
+| Runs, with preserving | fails in winter (nothing kept) | 2.5 to 4 | 6 to 15 in a good year (weir, salt, smokehouse) | the run's size and the preserving capacity |
+| Foraging | 1.5 to 2.5 | 2.5 to 3.5, low density | 3.5 to 5 | the seasons and the territory |
+| Gathering alone | fails in winter | fails in winter, except a mast year | — | the winter |
+
+**A note on history.** Medieval farming fed about one other household in every four or five. That supported lords, towns and
+crafts at about 10 to 20% of the people. The ceilings here are deliberately higher, so that specialisation can show within a run
+of weeks. They are bought with skill, capital and work, and bounded by the land and the stocks, so food still binds
+(scenario_design: capacity at least 1.25 times demand, and food at most about 30% of actions in a mixed world).
+
+The first draft's bands follow, kept for reference.
 
 | Livelihood | Low skill, low capital | Medium, medium (must survive) | High, high (surplus) | Density it allows |
 |---|---|---|---|---|
@@ -93,14 +127,18 @@ A livelihood that fails its row means a calibration to fix, or a missing piece, 
    livelihood needs a plan: sow and keep seed; graze and make hay; hunt and set snares; fish and trap; mind the run and preserve.
 4. **The high tiers that are not built:** nets and bows (pack K3), dogs and husbandry (K6), boats (brief 5's fen half). Until
    then the high rows use what exists, and the report says which tier is missing (W-67).
+5. **Hunting trips out to other nodes** (D2-255). A master's high end comes from going further. Far hunting within a node and
+   hunting parties exist (briefs 4b and 4c); trips of several days to other nodes are forays (W-12). Until forays are built, the
+   hunting row's high end is measured without them, and the report says so.
+6. **A wood that runs down** (Q-46 (c), now in W-69). Daily hunting of one wood should fall to about half its return within a
+   season, or the master's return has no limit.
 5. **The engine's weather reads only height** (Q-56) until climate from the land is built. Worlds differ in land and wild life
    now; their weather will differ later.
 
 ### The stages
 
-1. **Isolation, with bots:** the grid above, free. It gives a table per livelihood, and fixes for what misses its row.
-2. **A few live runs** where stage 1 says a livelihood works: does a cast of models find it? Each is read against its bot null
-   arm, as scenario_design asks.
+1. **The bots' grid** first, since it is free: it shows whether the world can do it at all, and the fixes for what misses its row.
+2. **The live runs:** the 21 (or 12) arms above, each read against the bots on the same world and against the targets.
 3. **Specialists side by side:** two or three villages, each with one livelihood (a runs village, a farming village, a herding
    one) and a road between them. Does trade make both better off than isolation, and do they find it? This is the point of D2-242.
 
@@ -128,10 +166,13 @@ any one livelihood can carry a village, so nothing says whether specialising cou
 
 OPEN Q-66:
 1. The livelihoods: the five plus herding, foraging and gathering alone as a control? Add the coast and mixed farming later?
-2. The grid: all nine skill × capital cells, or the diagonal and the two corners?
-3. Bots first (free), then a few live runs only where a livelihood works on paper?
-4. The prerequisites in this order: shared units (W-64), the switches (37.4), the bots, then the grid?
-5. The target bands above, as a first cut to calibrate against?
+2. The live arms: three per livelihood (all capable; one master among novices; masters with capital), 21 runs at about $400 to
+   $700, or a first 12 at about $250 to $400?
+3. The bots as the comparison, running the full grid free?
+4. The targets as people fed per food worker, with the high ceilings in the table (arable 5 to 8, the runs 6 to 15, a master
+   hunter 4 to 8)?
+5. The prerequisites in order: shared units (W-64), the switches (37.4), a wood running down (Q-46 c), the bots, then the live
+   runs, with forays later for the hunting trips?
 6. Stage 3, specialists side by side, as the goal of the series?
 
 ## Affects
@@ -141,6 +182,15 @@ change (the switches, 37.4), the data rows that miss their targets, W-64 and W-6
 
 ## History
 
+- 20 Nov 2026: revised after Zach.
+  - Hunting: a master brings in a disproportionate amount, more on trips out to other nodes (D2-255), so hunting can keep a small
+    group. The first draft's cap of 1.2 times was wrong.
+  - Surplus: the ceilings were raised and measured as people fed per food worker, since the surplus is what supports
+    specialists and a complex society.
+  - Skill is seeded by arm.
+  - Live runs are the test (Zach: "I meant a smaller number of actual llm runs"), with competent bots as the comparison, and
+    the cost estimated.
+  - The hunting trips and a wood running down were added as prerequisites.
 - 20 Nov 2026: accepted in part: D2-255 (A very skilled hunter brings in a disproportionate amount of food, more still on).
 - 20 Nov 2026: written by 37.2 at Zach's request, from D2-242, 02zzd's measurements, brief 5 §8's runs-only world and L-112.
 
