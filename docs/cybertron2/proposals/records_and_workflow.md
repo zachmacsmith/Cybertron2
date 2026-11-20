@@ -361,6 +361,76 @@ event, and is the step that gets skipped.
 **The one real gap** is that the spec's mechanics can drift from the code with nothing to notice. That was so before as well,
 and it is the next thing to check once this is built.
 
+## 12. Documents in the web, and reading without losing things
+
+Zach (20 Nov): "show the directly relevant things in full, show potentially connected things as summaries or at least small
+descriptions / mentions of the edges so that you know they exist ... explore like a directory cd ls"; "I don't think everything
+can be appropriately stored in short decision statements ... each contains the appropriate metadata so that when something
+relevant is explored the existence of the doc pops up ... deeper documents are things pinned to and caught up in the web".
+
+**One kind of node.** Spec files, proposals, session notes, run reports and briefs stay where they are, as long documents. Each
+gains the same flat header as an item:
+- `id` (its path);
+- `kind` (spec, proposal, note, report, brief);
+- `title`;
+- `summary` (two or three lines on what it holds, not on its status);
+- `threads`;
+- `area`;
+- for a proposal, its decision state.
+
+The decisions a document reflects, and the documents and items that mention it, are read from its text. **A small node is an
+item; a large node is a document. The schema is the same,** so a query about a thread or an area finds the documents pinned to it
+as readily as the asks.
+
+**What a query shows, by level:**
+
+| Level | Shown | Why |
+|---|---|---|
+| the node asked for | in full if it is an item; if a document, its header, summary and outline (its headings), and its decided lines and open questions in full | prose is read by opening the file; what binds (rules) and what is open (asks) must never hang on a summary |
+| its direct links | one line each: id, kind, state, title, and the edge type; grouped by edge type, with counts | to know they exist, and what they are, without reading them |
+| what mentions it | titles, counted | the backlinks |
+| further | nothing; `show` that node | stays bounded; exploring is a step at a time, like `cd` and `ls` |
+
+**The verbs for exploring:**
+- `records show <id>`: the node, as above;
+- `records ls <id>`: its children and links, one line each;
+- `records tree <thread>`: the sub-threads, items and documents under a thread;
+- `records area <name>`: every live decision in the area, in full, and every document and open item in it, one line each;
+- `records find <words>`: titles, summaries and text.
+
+A list is never cut silently: past its limit it ends "and 12 more: `records ls W-62 --all`".
+
+**So that decisions do not fall away.** Recall is made by construction and checked; it does not depend on the query being clever:
+- every live decision has an area, and `area` lists all of them in full;
+- every open ask and promise has a parent, and its thread's `tree` lists it;
+- the push check flags **orphans**: a decision with no area, an item with no parent, a document with no thread or area;
+- the push check flags **dead ends**: a thread whose decisions are not reachable from its documents.
+
+**Summaries go stale too.** A summary says what a document holds, not its state; states are always derived. The push check flags
+a document whose body has changed a lot since its summary was last edited ("summary may be stale"). The brief lists these for
+their owner.
+
+**Moving the existing documents across:** about 410 documents (67 spec files, 141 proposals, about 200 session notes).
+- The spec files and proposals get headers in one pass: a script drafts each from the file's title, owner and the ids it
+  mentions; the summaries are written by hand or by an agent and checked.
+- Session notes get one when next touched. Until then the tool shows the first heading in place of a summary.
+
+**Example** (`records show W-66`, from today's records):
+
+```
+W-66  thread  waiting  37.2  "The design of the records and the workflow"
+  next: Zach's answers to Q-64 and Q-63; then W-65 builds it
+  parent: (root)       touched: 20 Nov (9ce7011)     branch: none
+  waits_on  Q-64 ask open "How the records, the scripts and git carry the design" (13 choices)
+            Q-63 ask open "A commit schema and ids for threads"
+  blocks    W-65 thread waiting "Tracking threads automatically"
+  docs      proposals/records_and_workflow.md  proposal discussion  "How documents are stored, staged ..." 
+            proposals/thread_tracking.md       proposal discussion  "A registry, hooks, checks and a commit schema"
+            review/37_growth/02zzq_...md       note                 "The records as measured; how Zach works well"
+            review/37_growth/02zzp_...md       note                 "What was started and left, 22 Oct to 19 Nov"
+  mentioned by  3 (OPEN Q-61, Q-63, Q-64)
+```
+
 ## Open questions
 
 OPEN Q-64:
@@ -381,6 +451,9 @@ OPEN Q-64:
 11. A soft limit on active threads for each owner, flagged in the brief (about 6)?
 13. The rules for weight (§10): record only what outlives the turn; one call per event; records in the work's commit, with
     trailers written by the tool?
+14. Documents as nodes (§12): a flat header with a summary on every spec file, proposal and session note; a query showing
+    the node in full (a document's decided lines and open questions in full, its prose as summary and outline), its links one
+    line each, nothing further; orphan, dead-end and stale-summary checks?
 12. Ids written as `[[Q-63]]` in the items, so the folder opens in Obsidian with its links and graph, or as plain ids that only
     the tool links?
 
@@ -391,6 +464,9 @@ Every session's habits (CLAUDE.md's work rules); `tools/` (hygiene folded into `
 
 ## History
 
+- 20 Nov 2026: §12 added after Zach: documents are nodes with the same header as items; queries show by level (in full, then
+  one line, then nothing); recall made by construction (areas, parents) and checked (orphans, dead ends, stale summaries); the
+  example of `show`. Q-64 (14).
 - 20 Nov 2026: §10 (keeping it light) and §11 (against today's proposals and spec) added after Zach's questions on latency and on
   what is lost. §3's spec rendering replaced by the tool writing decided lines into the hand-written spec, since the decided
   sections are 13% of the spec's words. Q-64 (6) revised; (13) added.
