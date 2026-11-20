@@ -46,6 +46,12 @@ import make_calibration_worlds as MK  # noqa: E402
 _spec = importlib.util.spec_from_file_location("proto", os.path.join(HERE, "02zzn_environment_prototype.py"))
 PR = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(PR)
+_spec = importlib.util.spec_from_file_location("nutrition", os.path.join(HERE, "02zzt_nutrition.py"))
+NU = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(NU)
+NUTRITION = True                            # --no-nutrition skips the acts and the land's year (about 1.5 minutes a world)
+ARABLE = {"river floodplain", "river terrace", "clay vale", "lowland loam", "sandy ground", "chalk down"}   # good arable: these, under 8
+                                                                                                        # degrees and not waterlogged
 
 EXP = yaml.safe_load(open(os.path.join(CAL, "expectations.yaml")))
 OUT_JSON = os.path.join(HERE, "02zzt_calibration_suite.json")
@@ -214,6 +220,7 @@ def ecology(w, years) -> dict:
     k0 = WL.eco_day(w, 0)
     rivers = RU.active(m)
     tot = {k: [] for k in m.names}
+    runs_at = {}                                                         # run heads at each village's water, summed a day (per year)
     land_km2 = float(np.sum(m.km2))
     def totals():
         return {k: float(np.sum(np.array(st["pop"][k]) * m.km2)) for k in m.names}
@@ -226,6 +233,11 @@ def ecology(w, years) -> dict:
         EC.step(m, st, k0 + d, wx, WL.draws(w, k0 + d, "suite"), history=True)
         if rivers:
             RU.advance(m, st, k0 + d, wx, wx_next, weather=WL._runs_cued(w))
+            for pu in (st.get("runs") or {}).get("pulses") or []:
+                g = str(pu.get("g", ""))
+                if g.startswith("v:s") and int(pu.get("d", -1)) == k0 + d:
+                    key = (g[2:], pu.get("k"))
+                    runs_at[key] = runs_at.get(key, 0.0) + float(pu.get("n", 0.0))
         if d % (Y // 4) == 0:
             for k, v in totals().items():
                 tot[k].append(v)
@@ -253,7 +265,10 @@ def ecology(w, years) -> dict:
                     "head a km2 (each year's highest season, mean)": round(float(yv.mean()) / land_km2, 4),
                     "last 5 / first 5 years": round(l5 / f5, 2) if f5 > 0 else None, "suitability max": round(suit, 2),
                     "where": {fe: round(float(np.sum(where * m.f[fe])), 3) for fe in ("wood", "grassy", "heath", "wet", "water", "farm")}}
-    return {"kinds": kinds, "runaway": bad, "died out in range": gone, "slow to settle (the history too short)": slow,
+    runs = {}
+    for (v, k), n in runs_at.items():
+        runs.setdefault(v, {})[k] = round(n / years, 1)
+    return {"runs active": bool(rivers), "run heads at a village's water a year (summed a day)": runs, "kinds": kinds, "runaway": bad, "died out in range": gone, "slow to settle (the history too short)": slow,
             "settles above three times its reference density": high, "years": years, "areas": int(m.n), "land km2": round(land_km2, 1)}
 
 
@@ -312,6 +327,17 @@ def run_one(args) -> dict:
         out["collapse"].append(f"ecology: {type(e).__name__}: {e}")
         out["trace"] = traceback.format_exc()[-1500:]
     out["times"]["ecology"] = round(time.time() - t0, 1)
+    tn = np.asarray(cells["terrain_names"])[cells["terrain"]]
+    land = ~cells["sea"] & (tn != "water")
+    good = np.isin(tn, list(ARABLE)) & (cells["slope"] < 8) & (cells["wet"] < 0.85)
+    out["arable share"] = round(float((good & land).sum() / max(1, land.sum())), 3)
+    if NUTRITION:
+        try:
+            out["nutrition"] = NU.nutrition(sp)
+        except Exception as e:  # noqa: BLE001
+            out["collapse"].append(f"nutrition: {type(e).__name__}: {e}")
+            out["trace"] = traceback.format_exc()[-1500:]
+    out["times"]["nutrition"] = round(time.time() - t0, 1)
     out["villages"] = {n: {"name": sp["nodes"][n]["name"], "elevation": sp["nodes"][n].get("elevation"),
                            "rain_mm": sp["nodes"][n].get("rain_mm"), **(out["land"]["nodes"].get(n) or {})} for n in villages}
     return out
@@ -592,6 +618,294 @@ def md_tables(results, rng_rows, ords) -> str:
     return "\n".join(L)
 
 
+# ---------------------------------------------------------------------- the widened sections (Zach, 20 Nov): nutrition, wildlife,
+# weather and its likelihood, environments, and an overview
+MAIN_KINDS = ("red deer", "roe deer", "wild boar", "brown hare", "wildfowl", "eel", "otter", "fox", "wolf", "brown bear")
+CAP_SOURCES = ("fields", "herds", "wild plants", "game", "fish")
+
+
+def _food_of(kind) -> float:
+    from cybertron2.engine.data import ITEMS
+    from cybertron2.wild.kinds import TAKEN
+    g = (TAKEN.get(kind) or {}).get("goods") or {}
+    return sum(float(q) * float((ITEMS.get(i) or {}).get("food", 0.0)) * (1.5 if i == "meat" else 1.0) for i, q in g.items())
+
+
+def _mean(xs):
+    xs = [x for x in xs if x is not None]
+    return float(np.mean(xs)) if xs else None
+
+
+def _cap(r, lvl):
+    """The capacity model's sources at a level, the mean over the villages: {source: {food a year, food a unit, people fed alone}}."""
+    v = ((r.get("nutrition") or {}).get("land year") or {}).get("villages") or {}
+    out = {}
+    for src in CAP_SOURCES:
+        rows = [x[lvl]["by source"][src] for x in v.values() if src in x[lvl]["by source"]]
+        if rows:
+            out[src] = {k: _mean([q.get(k) for q in rows]) for k in ("food a year", "food a unit", "people fed alone")}
+    return out
+
+
+def _acts(r):
+    a = ((r.get("nutrition") or {}).get("acts") or {})
+    return {(x["method"], x.get("range"), x.get("at"), x.get("level")): x for x in a.get("acts") or [] if x.get("level")}
+
+
+def _act(r, method, rng=None, level="master", cover=None):
+    hits = [x for (m, rg, at, lv), x in _acts(r).items() if m == method and rg == rng and lv == level]
+    if cover is not None:
+        hits = hits[cover:cover + 1]
+    return _mean([x.get("food a unit") for x in hits])
+
+
+def break_even(r) -> float | None:
+    """Food a unit of work that keeps a household: an eater's year over a worker's year, times 1.5 eaters a worker (a household of
+    five with about three working: a presentation choice, named)."""
+    ly = (r.get("nutrition") or {}).get("land year") or {}
+    if not ly:
+        return None
+    return round(1.5 * ly["eats a day"] * MK.YEAR_DAYS / ly["units a year"], 3)
+
+
+def candidates(r) -> list:
+    """(name, food a unit) of every source and act measured, for the best-source column."""
+    c = [(f"{k} (worked)", v["food a unit"]) for k, v in _cap(r, "worked").items() if v.get("food a unit")]
+    for m, rg in (("hunt the wild", "near"), ("hunt the wild", "the wood around"), ("hunt the wild", "far")):
+        c.append((f"hunting {rg} (master)", _act(r, m, rg)))
+    c += [("gathering (master)", _act(r, "gather wild food")), ("angling (master)", _act(r, "angle")),
+          ("fishing by hand (master)", _act(r, "fish by hand")), ("eel traps (master)", _act(r, "trap in water", "near")),
+          ("nets (master)", _act(r, "net", "near"))]
+    return [(n, v) for n, v in c if v is not None]
+
+
+def alone(r) -> list:
+    """The sources that could feed a village by themselves: a return over the break-even, and (for the land's sources) food a year
+    for the village's nine people (three households of three, the suite's) or more. Hunting and gathering are read by return only:
+    what the wild land gives a year is the ecology's and is not summed here."""
+    be = break_even(r)
+    if be is None:
+        return []
+    out = []
+    for k, v in _cap(r, "worked").items():
+        if v.get("food a unit") and v["food a unit"] >= be and (v.get("people fed alone") or 0) >= 9:
+            out.append(k)
+    for n, v in candidates(r):
+        if not n.endswith("(worked)") and v >= be:
+            out.append(n + ", by return")
+    return out
+
+
+def md_overview(results) -> str:
+    names = {w["id"]: w["name"] for w in MK.WORLDS}
+    L = ["| World | best food a unit of work (master where a skill) | share of land good arable | commonest kinds by mass a km² |"
+         " wet days (engine) | frost nights (engine) | flood years (water) | rain mm, mean °C (generator) |",
+         "|---|---|---|---|---|---|---|---|"]
+    from cybertron2.wild.kinds import KINDS
+    for w in MK.WORLDS:
+        rs = [r for r in results if r["world"] == w["id"]]
+        best = []
+        for r in rs:
+            c = candidates(r)
+            if c:
+                n, v = max(c, key=lambda x: x[1])
+                best.append(f"{n} {v:.2f}")
+        mass = {}
+        for r in rs:
+            for k, x in ((r.get("ecology") or {}).get("kinds") or {}).items():
+                d = x.get("head a km2 (each year's highest season, mean)") or 0
+                mass[k] = mass.get(k, 0.0) + d * float(KINDS[k]["mass"]) / len(rs)
+        top = ", ".join(k for k, _ in sorted(mass.items(), key=lambda kv: -kv[1])[:3])
+        ew = [((r.get("engine weather") or {}).get("villages") or {}) for r in rs]
+        wm = [water_measures(r) for r in rs]
+        gw = [gen_weather(r) for r in rs]
+        L.append(f"| {w['id']} {names[w['id']]} | {'; '.join(best) or '-'} | {fmt(_mean([r.get('arable share') for r in rs]))} | {top} | "
+                 f"{fmt(_mean([e.get('wet_days') for e in ew]))} | {fmt(_mean([e.get('frost_nights') for e in ew]))} | "
+                 f"{fmt(_mean([x.get('flood_years') for x in wm]))} | {fmt(_mean([g['rain_mm'] for g in gw]))}, {fmt(_mean([g['mean_temp_c'] for g in gw]))} |")
+    return "\n".join(L) + "\n"
+
+
+def md_nutrition(results) -> str:
+    names = {w["id"]: w["name"] for w in MK.WORLDS}
+    L = ["### Sources of nutrition: the land's year at the villages (the capacity model)\n",
+         "The mean over each world's three villages. People supported by level (bare: wild food only, raw; standing: the fields as"
+         " they are; worked: the best crops and fallow, broken, weeded, manured; best: all the world's techniques reach). Food a unit"
+         " of work and people fed by that source alone a year, at `worked` (the village's land is sized for nine people: D2-161's"
+         " 60 to 70% of capacity). The share lost in store is preserving's effect, from the house store (standing) to the best store"
+         " the world reaches.\n",
+         "| World | seed | supported: bare / standing / worked / best | fields | herds | wild plants | game | fish | lost in store: standing → best |",
+         "|---|---|---|---|---|---|---|---|---|"]
+    for r in results:
+        v = ((r.get("nutrition") or {}).get("land year") or {}).get("villages") or {}
+        if not v:
+            continue
+        sup = " / ".join(fmt(_mean([x[l]["people supported"] for x in v.values()])) for l in NU.LEVELS_CAP)
+        cap = _cap(r, "worked")
+        cell = lambda k: (f"{cap[k]['food a unit']:.2f} a unit, {cap[k]['people fed alone']:.1f} fed" if k in cap and cap[k]["food a unit"] else "-")
+        lost = f"{fmt(_mean([x['standing']['lost in store share'] for x in v.values()]))} → {fmt(_mean([x['best']['lost in store share'] for x in v.values()]))}"
+        L.append(f"| {r['world']} {names[r['world']]} | {r['seed']} | {sup} | " + " | ".join(cell(k) for k in CAP_SOURCES) + f" | {lost} |")
+    L.append("")
+    L.append("### Sources of nutrition: the acts, food a unit of work (02zzd's harness, autumn, a probe person, fresh copies)\n")
+    L.append("At one village a world (the one with the most water). Hunting the wild armed, at the hunt's curve: novice x1, capable"
+             " x3, master x8 (20 tries a cell); gathering, fishing and the water traps at the basic curve's novice, middle and top"
+             " (12 tries). n / c / m: novice / capable / master. `-`: no such ground at the village. The break-even is the food a unit"
+             " that keeps a household (1.5 eaters a worker).\n")
+    L.append("| World | seed | village | hunt near | hunt the wood around | hunt far | gather (wood) | gather (open) | eel traps | nets | fish by hand | angle | break-even |")
+    L.append("|---|---|---|---|---|---|---|---|---|---|---|---|---|")
+    for r in results:
+        a = (r.get("nutrition") or {}).get("acts") or {}
+        if not a.get("acts"):
+            continue
+        acts = a["acts"]
+        def trio(method, rng=None, idx=0):
+            ats = []
+            for x in acts:
+                if x["method"] == method and x.get("range") == rng and x.get("at") not in ats:
+                    ats.append(x.get("at"))
+            if len(ats) <= idx or ats[idx] is None:
+                return "-"
+            at = ats[idx]
+            vals = [next((x.get("food a unit") for x in acts if x["method"] == method and x.get("range") == rng and x.get("at") == at
+                          and x.get("level") == lv), None) for lv in ("novice", "capable", "master")]
+            return " / ".join(fmt(v) for v in vals)
+        L.append(f"| {r['world']} {names[r['world']]} | {r['seed']} | {a['village']} | {trio('hunt the wild', 'near')} | "
+                 f"{trio('hunt the wild', 'the wood around')} | {trio('hunt the wild', 'far')} | {trio('gather wild food')} | "
+                 f"{trio('gather wild food', None, 1)} | {trio('trap in water', 'near')} | {trio('net', 'near')} | {trio('fish by hand')} | "
+                 f"{trio('angle')} | {fmt(break_even(r))} |")
+    L.append("")
+    L.append("### Sources of nutrition: what could feed a village alone, and the runs\n")
+    L.append("A source of the land's year that returns the break-even or more and gives the village's nine people a year; an act that"
+             " returns the break-even or more (its land's yearly yield is not summed here: the hunt's is the ecology's). The runs: heads"
+             " at the villages' water a year (the sum over the days a run stands there, `wild/runs.py`) and the food they are worth"
+             " (salmon 2 fish, lamprey 0.3 meat, an eel 0.2 fish a head: `wild/kinds.py` TAKEN), the mean over the villages.\n")
+    L.append("| World | seed | could feed a village alone | the runs at the villages a year |")
+    L.append("|---|---|---|---|")
+    for r in results:
+        e = r.get("ecology") or {}
+        runs = e.get("run heads at a village's water a year (summed a day)") or {}
+        vil = sorted(n for n in (r.get("villages") or {}))
+        tot = {}
+        for v in vil:
+            for k, n in (runs.get(v) or {}).items():
+                tot[k] = tot.get(k, 0.0) + n / max(1, len(vil))
+        rs = "; ".join(f"{k} {n:.0f} heads, {n * _food_of(k):.0f} food" for k, n in sorted(tot.items())) if tot else (
+            "runs on, none at the villages" if e.get("runs active") else "no runs (no river the runs use)")
+        L.append(f"| {r['world']} {names[r['world']]} | {r['seed']} | {', '.join(alone(r)) or 'none'} | {rs} |")
+    L.append("")
+    L.append("### Arable by soil and ground, pooled over the suite (the capacity model, `worked`)\n")
+    pool = {}
+    for r in results:
+        for x in (((r.get("nutrition") or {}).get("land year") or {}).get("villages") or {}).values():
+            for k, q in (x["worked"].get("fields by soil / ground") or {}).items():
+                b = pool.setdefault(k, {"plots": 0.0, "food": 0.0, "worlds": set()})
+                b["plots"] += q["plots"]
+                b["food"] += q["plots"] * q["food a plot a year"]
+                b["worlds"].add(r["world"])
+    L.append("| Soil / ground | plots in the suite | food a plot a year | worlds |")
+    L.append("|---|---|---|---|")
+    for k, b in sorted(pool.items(), key=lambda kv: -kv[1]["food"] / max(kv[1]["plots"], 1e-9)):
+        L.append(f"| {k} | {b['plots']:.0f} | {b['food'] / max(b['plots'], 1e-9):.1f} | {', '.join(sorted(b['worlds']))} |")
+    L.append("")
+    return "\n".join(L)
+
+
+def md_wildlife(results) -> str:
+    names = {w["id"]: w["name"] for w in MK.WORLDS}
+    L = ["### Wildlife: densities a km² over the whole land (each year's highest season, the mean over the suite's years)\n",
+         "Where: the share of a kind's heads (after the history) on wood, grass, heath, wet ground and water, by its areas' features"
+         " (pooled over the suite in the last table). Flags: a kind absent where its range includes the land, or one running away"
+         " (section Collapse and the ecology settling above).\n",
+         "| World | seed | " + " | ".join(MAIN_KINDS) + " | flags |", "|---|---|" + "---|" * (len(MAIN_KINDS) + 1)]
+    for r in results:
+        e = r.get("ecology") or {}
+        k = e.get("kinds") or {}
+        flags = (e.get("runaway") or []) + (e.get("died out in range") or [])
+        L.append(f"| {r['world']} {names[r['world']]} | {r['seed']} | " + " | ".join(
+            fmt((k.get(x) or {}).get("head a km2 (each year's highest season, mean)")) for x in MAIN_KINDS) + f" | {'; '.join(flags) or 'none'} |")
+    L.append("")
+    L.append("| Kind | where its heads are (wood / grass / heath / wet / water / farmed), the mean over the suite |")
+    L.append("|---|---|")
+    from cybertron2.wild.kinds import KINDS
+    for kind in KINDS:
+        ws = [((r.get("ecology") or {}).get("kinds") or {}).get(kind, {}).get("where") for r in results]
+        ws = [x for x in ws if x]
+        if ws:
+            L.append(f"| {kind} | " + " / ".join(fmt(_mean([x[f] for x in ws])) for f in ("wood", "grassy", "heath", "wet", "water", "farm")) + " |")
+    L.append("")
+    return "\n".join(L)
+
+
+def md_weather(results) -> str:
+    names = {w["id"]: w["name"] for w in MK.WORLDS}
+    types = ("settled", "westerly", "cyclonic", "northerly", "easterly", "storm")
+    L = ["### Weather and its likelihood, a real year at the villages\n",
+         "The engine's weather (`climate.py`): the share of days of each weather type (Lamb's), the days a year of each label it"
+         " gives, and the storms. The water on the engine's weather (02zzn, two clocks). The generator's climate holds a year's rain"
+         " and mean only. The engine reads only height, so the rows of one seed differ only by the villages' heights (the known gap,"
+         " OPEN Q-56).\n",
+         "| World | seed | types: " + " / ".join(types) + " | clear / rain / heavy rain / fog / snow / gale days | wet days | frost nights | storm days |"
+         " snow lying | rain between years (CV) | spates / floods a year | flood years | low water | ice days | generator: rain mm, mean °C |",
+         "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+    for r in results:
+        e = r.get("engine weather") or {}
+        v = e.get("villages") or {}
+        t = e.get("types (share of days)") or {}
+        lab = e.get("labels (days a real year)") or {}
+        wm = water_measures(r)
+        g = gen_weather(r)
+        L.append(f"| {r['world']} {names[r['world']]} | {r['seed']} | " + " / ".join(fmt(t.get(x, 0.0)) for x in types) + " | "
+                 + " / ".join(fmt(lab.get(x, 0.0)) for x in ("clear", "rain", "heavy rain", "fog", "snow", "gale")) + " | "
+                 f"{fmt(v.get('wet_days'))} | {fmt(v.get('frost_nights'))} | {fmt(v.get('storm_days'))} | {fmt(wm.get('snow_lying_days'))} | "
+                 f"{fmt(v.get('rain a year, coefficient of variation between years'))} | {fmt(wm.get('spates_a_year'))} / {fmt(wm.get('floods_a_year'))} | "
+                 f"{fmt(wm.get('flood_years'))} | {fmt(wm.get('low_water_share'))} | {fmt(wm.get('ice_days'))} | {fmt(g['rain_mm'])}, {fmt(g['mean_temp_c'])} |")
+    L.append("")
+    L.append("At named places of the land (the engine's weather at each place's height; the generator's rain and mean there):\n")
+    L.append("| World | seed | place | generator rain mm (mean), mean °C | engine rain mm, wet days, frost nights, snow lying, wind m/s, ice days |")
+    L.append("|---|---|---|---|---|")
+    for r in results:
+        pr = ((r.get("engine weather") or {}).get("probes") or {})
+        for k, x in pr.items():
+            g = r["land"]["probes"].get(PROBE[k]) or {}
+            L.append(f"| {r['world']} {names[r['world']]} | {r['seed']} | {k} | {fmt(g.get('rain mm mean'))}, {fmt(g.get('mean temp C'))} | "
+                     f"{fmt(x.get('rain_mm'))}, {fmt(x.get('wet_days'))}, {fmt(x.get('frost_nights'))}, {fmt(x.get('snow_lying_days'))}, "
+                     f"{fmt(x.get('wind_ms'))}, {fmt(x.get('ice_days'))} |")
+    L.append("")
+    return "\n".join(L)
+
+
+def md_environment(results) -> str:
+    names = {w["id"]: w["name"] for w in MK.WORLDS}
+    L = ["### Environments: soils, ground and cover\n",
+         "Over the whole land, from the cells. Soil depth and water held as `landgen/write.py` gives a parcel (`depth` x 1.2, AWC by"
+         " texture); drainage the texture's share a day; fertility the cells' multiplier.\n",
+         "| World | seed | sand / loam / clay / chalk / peat | depth m | held mm | drain | fertility | slope p95° | over 10° | wet ground |"
+         " floodplain / terrace | good arable | tree line m | commonest ecosystems |",
+         "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+    for r in results:
+        Ld = r["land"]
+        tx = Ld["texture"]
+        so = Ld["soil"]
+        eco = ", ".join(f"{k} {v:.2f}" for k, v in sorted(Ld["ecosystem"].items(), key=lambda kv: -kv[1])[:4])
+        tl = Ld["tree line"]["lowest land too cold for wood, m"]
+        L.append(f"| {r['world']} {names[r['world']]} | {r['seed']} | " + " / ".join(fmt(tx[k]) for k in ("sand", "loam", "clay", "chalk", "peat"))
+                 + f" | {fmt(so['depth m mean'])} | {fmt(so['held mm mean'])} | {fmt(so['drain mean'])} | {fmt(so['fertility mean'])} | "
+                 f"{fmt(Ld['slope']['p95 deg'])} | {fmt(Ld['slope']['share over 10 deg'])} | {fmt(Ld['wet ground share (wet >= 0.75)'])} | "
+                 f"{fmt(Ld['floodplain share'])} / {fmt(Ld['terrace share'])} | {fmt(r.get('arable share'))} | {fmt(tl) if tl else 'above the land'} | {eco} |")
+    L.append("")
+    return "\n".join(L)
+
+
+def write_block(name: str, text: str) -> None:
+    begin, end = f"<!-- {name}:begin (written by 02zzt_calibration_suite.py) -->", f"<!-- {name}:end -->"
+    old = open(OUT_MD).read()
+    if begin not in old:
+        old = old.rstrip() + f"\n\n{begin}\n{end}\n"
+    a, rest = old.split(begin, 1)
+    _, b = rest.split(end, 1)
+    with open(OUT_MD, "w") as f:
+        f.write(a + begin + "\n\n" + text + "\n" + end + b)
+
+
 def write_md(text: str) -> None:
     begin, end = "<!-- suite:begin (written by 02zzt_calibration_suite.py) -->", "<!-- suite:end -->"
     old = open(OUT_MD).read() if os.path.exists(OUT_MD) else f"# 02zzt: the calibration suite\n\n{begin}\n{end}\n"
@@ -608,6 +922,8 @@ def main(argv=None):
     ids = a[a.index("--only") + 1].split(",") if "--only" in a else [w["id"] for w in MK.WORLDS]
     years = int(a[a.index("--years") + 1]) if "--years" in a else YEARS
     jobs = int(a[a.index("--jobs") + 1]) if "--jobs" in a else 4
+    global NUTRITION
+    NUTRITION = "--no-nutrition" not in a
     if "--make" in a or not os.path.exists(os.path.join(MK.SUMMARY_DIR, "index.json")):
         MK.make_all(ids, jobs=jobs)
     todo = [(w, s, years) for w, s in MK.made() if w in ids]
@@ -634,6 +950,9 @@ def main(argv=None):
     with open(OUT_JSON, "w") as f:
         json.dump(out, f, indent=1, default=float)
     write_md(md_tables(results, rng_rows, ords))
+    if any(r.get("nutrition") for r in results):
+        write_block("overview", md_overview(results))
+        write_block("widened", "\n".join((md_nutrition(results), md_wildlife(results), md_weather(results), md_environment(results))))
     return 0
 
 

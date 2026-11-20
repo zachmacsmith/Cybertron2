@@ -16,6 +16,13 @@ but see that our calibrations generalize in relatively expected ways ... Don't e
   layer's 10-year history), its weather (`climate.py`) over 20 engine years, 02zzn's water on two clocks, and the ecology
   (`wild/ecology.py`) stepped on for 60 more years.
 
+## At a glance
+
+A row per world, the two seeds side by side where they differ (section 7 has each in full). Measured.
+
+<!-- overview:begin (written by 02zzt_calibration_suite.py) -->
+<!-- overview:end -->
+
 ## 1. What was made
 
 All 24 worlds generate at their first seeds; none was refused and none crashed (measured). The settings each world uses, and why,
@@ -558,3 +565,12 @@ built: only fault 9's small fix was built (section 1).
 - **The runs (salmon, lamprey):** they live in the runs' own store (`wild/runs.py`), not in the populations read here.
 - **Densities of the kinds against real places:** only presence and the settling against `ref` are read. The ecology's densities
   wait until the weather and the covers differ by world.
+
+## 7. Across the twelve: nutrition, wildlife, weather and its likelihood, environments
+
+Zach (20 Nov): "The calibration should look how different sources of nutrition, different wildlife, different weather conditions
+and likelihood, different world environments (e.g. soil types etc.) all vary across these worlds." Measured with the engine's own
+models offline (`02zzt_nutrition.py`: the capacity model, D4-102, and 02zzd's harness of the acts); the reading is in section 8.
+
+<!-- widened:begin (written by 02zzt_calibration_suite.py) -->
+<!-- widened:end -->
