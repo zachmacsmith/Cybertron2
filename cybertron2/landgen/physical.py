@@ -292,7 +292,9 @@ def build(conf: dict, g: Grid, prims: list) -> Land:
         ok = mf["lake_ok"]
         cand = [k for k in range(1, n + 1) if sizes[k] * area >= conf["lake_min_km2"] and ok[lab == k].mean() > 0.5]
         cap = max(1, int(round(ok.sum() * area / 1000.0 * conf["lakes_per_1000km2"])))   # a few tarns or meres, the largest
-        for k in sorted(cand, key=lambda k: -vol[k])[:cap]:
+        laid = mf.get("laid_lake")                                         # a lake the file lays is always kept, outside the cap: in
+        mine = [k for k in cand if laid is not None and laid[lab == k].any()]   # upland country ten larger tarns crowded it out (W-54)
+        for k in mine + sorted((k for k in cand if k not in mine), key=lambda k: -vol[k])[:cap]:
             lake |= lab == k
     # a hollow deeper than breach_max_m is filled to that depth below its spill (a flat basin, which the wetness reads), so the
     # breach cuts its rim by at most that: cutting the whole way dragged every river below a deep hollow down to the hollow's floor
