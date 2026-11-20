@@ -32,6 +32,9 @@ is in proposals.
 - D2-247: A process of bulk goods has a most it takes at once, not a least: one may process less for the same work, which is less worth it, and asking for more processes the most (the drying rack's up-to batch, brief 4c §6.1, made the rule for milling, baking, salting, drying hay, leaching, charcoal and cheese); making a whole thing (a tool, a plough, a tent) still takes its inputs whole
 - D2-258: The food values are put on one physical basis (proposals/shared_units.md; 02zzu), each value checked against FoodData Central before the data change: greens, berries, watercress and samphire lowered to their real energy, meat and fish units at their real energy, farm beasts raised, acorn meal raised; the runs at a real river's size (3 to 6 times today, salmon spread up the river), the gear's holds at real gear's in kg (a trap about 10 kg, a weir section about 100 kg on a peak night, nets when built), with keeping the catch (spoilage, gutting work, salt, racks and smokehouses, fuel) as the binding limit; resident fish stocks about 2.2 times; a master hunter below plough farming per hour of work, still feeding many
 - D2-259: The food values are anchored on real values (D2-258): a value within about 20% of its FoodData Central figure is kept as it is; balance is made through named levers (food per unit of work, run and stock sizes, gear holds, spoilage, the compressed year), each departure from the real value written beside the data with its factor and reason
+- D2-260: Milking at its real yield (D2-258): about 3 kg of milk a cow a day and six cows milked a unit of work, so milk at its real 0.256 food a kg keeps dairy near its real food a unit of work
+- D2-261: The older generic game stocks are counted in the new meat unit (x 2.5, D2-258), so a wood keeps the food its game had
+- D2-262: The runs at a real river's size (D2-258): the salmon spawning along the whole river at a real river's density (12 to 40 times the old runs at the lower stations), and the weir's year at the lowest stations allowed to exceed D2-210's by the larger runs and holds (about 3 to 4 times)
 
 ## Mechanics
 
@@ -200,4 +203,4 @@ the soil in words ("tired", "good"), their seed in store, their tools and whethe
 [02l_farming.md](../../../review/37_growth/02l_farming.md), [02j_end_uses.md](../../../review/37_growth/02j_end_uses.md),
 [02d_ladders.md](../../../review/37_growth/02d_ladders.md); proposals/farming.md, proposals/tools.md.
 
-*Current as of 20 Nov 2026 (food values on one basis, anchored on real values): H-6, D2-11 to D2-19, D2-23, D2-42, D2-43, D2-46, D2-47, D2-48, D2-52, D2-53, D2-54, D2-58, D2-59, D2-60, D2-61, D2-62, D2-64, D2-65, D2-66, D2-67, D2-130, D2-156, D2-157, D2-167, D2-172, D2-247, D2-258, D2-259.*
+*Current as of 20 Nov 2026 (food values on one basis, anchored on real values): H-6, D2-11 to D2-19, D2-23, D2-42, D2-43, D2-46, D2-47, D2-48, D2-52, D2-53, D2-54, D2-58, D2-59, D2-60, D2-61, D2-62, D2-64, D2-65, D2-66, D2-67, D2-130, D2-156, D2-157, D2-167, D2-172, D2-247, D2-258 to D2-262.*
