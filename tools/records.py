@@ -161,9 +161,10 @@ def title_of(it) -> str:
     if it.get("title"):
         return str(it["title"])
     b = re.sub(r"~~", "", it.get("body", ""))
-    m = re.match(r"\s*(?:\*\*\(Closed[^*]*\)\*\*\s*)?\*\*(.+?)\*\*", b)
+    b = re.sub(r"^\s*\*\*\((?:Closed|Answered|Resolved)[^*]*\)\*\*\s*", "", b)
+    m = re.match(r"\s*\*\*(.+?)\*\*", b)
     t = m.group(1) if m else b
-    t = re.sub(r"\s+", " ", t).strip()
+    t = re.sub(r"\s+", " ", t).strip().rstrip(":;,")
     return t if len(t) <= 110 else t[:107] + "..."
 
 
@@ -1151,11 +1152,45 @@ def cmd_branches(web) -> int:
 def _slug(s: str) -> str:
     s = re.sub(r"[\\/:*?\"<>|#^\[\]`]", "", s)
     s = re.sub(r"\s+", " ", s).strip()
-    return s[:70].rstrip(" .")
+    return s[:80].rstrip(" .")
+
+
+def _cut(s: str, n: int) -> str:
+    s = re.sub(r"\s+", " ", s).strip()
+    if len(s) <= n:
+        return s
+    c = s[:n].rsplit(" ", 1)[0].rstrip(",;:(")
+    return c + "…"
+
+
+def short_title(n) -> str:
+    """A readable title: the bold lead of a row, else its first clause, cut at a word."""
+    t = title_of(n).rstrip(".")
+    if len(t) > 60:
+        m = re.match(r"(.{12,}?)(?::\s| \(|; | - )", t)
+        if m:
+            t = m.group(1)
+    return _cut(t, 70)
+
+
+def _body_md(n) -> str:
+    """A table cell as prose: the bold lead it repeats dropped, numbered parts as a list, 'Left:' and 'done:' on lines."""
+    b = n.get("body", "") or ""
+    b = re.sub(r"^\*\*\(Closed[^*]*\)\*\*\s*", "", b)
+    lead = title_of(n)
+    b = re.sub(r"^\*\*" + re.escape(lead) + r"\*\*\s*:?\s*", "", b) if lead else b
+    parts = re.split(r"\s*\((\d{1,2})\)\s+", b)
+    if len(parts) >= 5:
+        out = [parts[0].rstrip(" :;")] if parts[0].strip() else []
+        for k in range(1, len(parts) - 1, 2):
+            out.append(f"{parts[k]}. " + parts[k + 1].strip().rstrip(";"))
+        b = "\n".join(out)
+    b = re.sub(r"[.;]\s+(Left(?:, in order)?:|left:|Done so far:|done:|Next:)", r".\n\n**\1**", b)
+    return b.strip()
 
 
 def cmd_vault(web, out) -> int:
-    """A derived Obsidian vault (Zach, 20 Nov): readable notes, linked, live items apart from the archive. Never edited."""
+    """A derived Obsidian vault (D2-240): readable notes by kind, linked, the live apart from the archive. Never edited."""
     import shutil
     out = os.path.abspath(out)
     keep = (".git", ".obsidian", ".gitignore")
@@ -1172,93 +1207,206 @@ def cmd_vault(web, out) -> int:
         shutil.rmtree(p) if os.path.isdir(p) and not os.path.islink(p) else os.remove(p)
     folder = {"thread": "Threads", "ask": "Asks", "offer": "Offers", "deferred": "Later", "conflict": "Conflicts",
               "decision": "Decisions", "spec": "Spec", "proposal": "Proposals", "note": "Notes"}
-    names = {}
+    # Documents that mention very many ids are indexes or audits: they are kept, but not listed as "mentioned by".
+    index_docs = {d for d, doc in web.docs.items()
+                  if len(set(re.findall(r"\b(" + ID_RE + r")\b", doc.get("body", "")))) > 60}
+    names, short = {}, {}
     for nid, n in web.items.items():
+        short[nid] = short_title(n)
         sub = folder[n["kind"]]
-        if is_closed(n) and n["kind"] != "decision":
-            sub = os.path.join("Archive", sub)
         if n["kind"] == "decision":
-            a = (web.area_of(nid) or ["no area"])[0]
-            sub = os.path.join(sub, _slug(a.replace("/", " - ")))
-            if is_closed(n):
-                sub = os.path.join("Archive", "Decisions replaced")
-        names[nid] = os.path.join(sub, _slug(f"{nid} {title_of(n)}"))
+            a = (web.area_of(nid) or [""])[0]
+            sub = os.path.join("Archive", "Decisions replaced") if is_closed(n) else \
+                os.path.join(sub, _slug(a.replace("/", " - ")) if a else "Process and other")
+        elif is_closed(n):
+            sub = os.path.join("Archive", sub)
+        names[nid] = os.path.join(sub, _slug(f"{nid} {short[nid]}"))
     for nid, d in web.docs.items():
+        short[nid] = _cut(d["title"], 70)
         sub = folder[d["kind"]]
         if d["kind"] == "spec":
             sub = os.path.join(sub, os.path.dirname(d["area"]))
-        names[nid] = os.path.join(sub, _slug(os.path.basename(nid)[:-3] + " " + d["title"])[:80])
+        elif d["kind"] == "note":
+            sub = os.path.join(sub, os.path.basename(os.path.dirname(nid)))
+        names[nid] = os.path.join(sub, _slug(short[nid]))
+    areas = sorted({d["area"] for d in web.docs.values() if d.get("area")})
+    area_page = {a: os.path.join("Areas", f"{a.replace('/', ' - ')}") for a in areas}
 
     def link(i, full=False):
         if i not in names:
             return i
-        label = web.docs[i]["title"][:60] if i.endswith(".md") else (f"{i}: {title_of(web.node(i))[:70]}" if full else i)
+        label = (f"{i} · {short[i]}" if full else i) if not i.endswith(".md") else short[i]
         return f"[[{os.path.basename(names[i])}|{label}]]"
 
+    def alink(a):
+        return f"[[{os.path.basename(area_page[a])}|{a}]]" if a in area_page else a
+
     def linkify(text):
-        return re.sub(r"\b(" + ID_RE + r")\b", lambda m: link(m.group(1)) if m.group(1) in names else m.group(1), text)
+        return re.sub(r"\b(" + ID_RE + r")\b", lambda m: link(m.group(1)), text)
 
     def write(rel, text):
         p = os.path.join(out, rel + ".md")
         os.makedirs(os.path.dirname(p), exist_ok=True)
         open(p, "w", encoding="utf-8").write(text)
 
-    for nid, n in list(web.items.items()) + list(web.docs.items()):
-        head = {"id": nid, "kind": n.get("kind"), "state": n.get("state", ""), "owner": n.get("owner", ""),
-                "updated": updated(n)}
-        if n.get("by"):
-            head["by"] = n["by"]
-        fm = "---\n" + "\n".join(f"{k}: {dump_value(v)}" for k, v in head.items() if v) + \
-             f"\ntags: [{n.get('kind')}, {'closed' if is_closed(n) else 'open'}]\n---\n"
-        parts = [f"# {title_of(n)}\n"]
-        meta = [f"**{k}**: {linkify(str(n[k]))}" for k in ("state", "by", "owner", "next", "revisit", "where", "waits_on_text",
-                                                             "default", "default_on", "started", "touched", "done", "source",
-                                                             "replaces_text", "summary") if n.get(k)]
-        if meta:
-            parts.append("\n".join("- " + m for m in meta) + "\n")
-        edges = [(e, o) for e in EDGES for o in as_list(n.get(e))]
-        if edges:
-            parts.append("## Links\n" + "\n".join(f"- {e}: {link(o, True)}" for e, o in edges) + "\n")
-        kids = web.children.get(nid, [])
-        if kids:
-            parts.append("## Under this\n" + "\n".join(f"- {link(k, True)} ({web.items[k].get('state', '')})" for k in sorted(kids, key=num)) + "\n")
-        parts.append("## Text\n" + linkify(n.get("body", "")) + "\n")
-        ments = sorted(web.mentions.get(nid, set()), key=lambda x: (x.endswith(".md"), num(x)))
-        if ments:
-            parts.append("## Mentioned by\n" + "\n".join(f"- {link(m, True)}" for m in ments[:60]) + "\n")
-        write(names[nid], fm + "\n".join(parts))
-    # the start page and the area pages
-    live = sorted((it for it in web.items.values() if it["kind"] == "thread" and not is_closed(it)), key=lambda x: num(x["id"]))
-    home = ["# Cybertron 2: the records\n", f"Rebuilt from the repository's main branch after every push (last: {TODAY}); "
-            "the Git plugin pulls it. Read only: edits here are overwritten, so ask a session to change the records.\n",
-            "## Live threads\n"]
-    for o in sorted({it.get("owner", "?").split(" ")[0] for it in live}):
-        home.append(f"### {o}")
-        home += [f"- {link(it['id'], True)} ({it.get('state', '')}, {it.get('touched', '')})" for it in live
-                 if it.get("owner", "?").split(" ")[0] == o]
-        home.append("")
-    asks = [it for it in web.items.values() if it["kind"] == "ask" and not is_closed(it)]
-    home.append(f"## Open asks ({len(asks)})")
-    home += [f"- {link(a['id'], True)}" for a in sorted(asks, key=lambda x: -num(x["id"])[1])]
-    areas = sorted({d["area"] for d in web.docs.values() if d.get("area")})
-    home.append("\n## Areas of the world\n" + "\n".join(f"- [[Area {a.replace('/', ' - ')}|{a}]]" for a in areas))
-    write("Home", "\n".join(home) + "\n")
+    def ago(d):
+        try:
+            k = (TODAY - dt.date.fromisoformat(iso(d) or d)).days
+            return "today" if k == 0 else f"{k} day{'s' if k != 1 else ''} ago"
+        except ValueError:
+            return d
+
+    def mentions(nid):
+        ms = [m for m in web.mentions.get(nid, set()) if m not in index_docs]
+        order = {"decision": 0, "ask": 1, "thread": 2, "deferred": 3, "offer": 4, "conflict": 5}
+        ms.sort(key=lambda m: (m.endswith(".md"), order.get((web.node(m) or {}).get("kind"), 9), num(m)))
+        hidden = len([m for m in web.mentions.get(nid, set()) if m in index_docs])
+        if not ms and not hidden:
+            return ""
+        lines = [f"- {link(m, True)}" for m in ms[:40]]
+        if len(ms) > 40:
+            lines.append(f"- … and {len(ms) - 40} more")
+        if hidden:
+            lines.append(f"- *and {hidden} index or audit notes*")
+        return "\n## Mentioned by\n" + "\n".join(lines) + "\n"
+
+    def links_block(n):
+        rows = [f"- {e.replace('_', ' ')}: {link(o, True)}" for e in EDGES for o in as_list(n.get(e))]
+        kids = sorted(web.children.get(n["id"], []), key=num)
+        rows += [f"- under it: {link(k, True)} ({web.items[k].get('state', '')})" for k in kids]
+        return ("\n## Linked\n" + "\n".join(rows) + "\n") if rows else ""
+
+    def head(n):
+        fm = {"id": n["id"], "kind": n.get("kind"), "state": n.get("state", ""), "updated": updated(n)}
+        return "---\n" + "\n".join(f"{k}: {dump_value(v)}" for k, v in fm.items() if v) + "\n---\n"
+
+    for nid, n in web.items.items():
+        k = n["kind"]
+        st = n.get("state", "")
+        if n.get("by") and is_closed(n):
+            st += f", by {n['by']}" + (" (provisional)" if n["by"] != "zach" else "")
+        lines = [head(n), f"# {nid} · {short[nid]}\n"]
+        if k == "thread":
+            lines.append(f"*{st} · {n.get('owner', '')} · touched {n.get('touched', '')} ({ago(n.get('touched', ''))})*\n")
+            nxt = n.get("next") or _left(n.get("notes", ""))
+            if nxt:
+                lines.append(f"> **Next:** {linkify(nxt)}\n")
+            if len(title_of(n)) > len(short[nid]) + 3:
+                lines.append("## What it is\n" + linkify(_body_md(n) or title_of(n)) + "\n")
+            if n.get("notes") or n.get("done"):
+                lines.append("## Done so far, and what is left\n" + linkify(_body_md({"body": n.get("done") or n.get("notes", "")})) + "\n")
+            if n.get("where"):
+                lines.append("## Where\n" + "\n".join(f"- `{w.strip()}`" if "/" in w or "." in w else f"- {w.strip()}"
+                                                     for w in re.split(r";\s*", n["where"]) if w.strip()) + "\n")
+        elif k == "decision":
+            a = web.area_of(nid)
+            lines.append(f"*{st} · {n.get('date', '')}" + (f" · spec: {', '.join(alink(x) for x in a)}" if a else "") + "*\n")
+            lines.append("## The rule\n" + linkify(_body_md(n)) + "\n")
+            if n.get("source"):
+                lines.append("## Where it came from\n" + linkify(n["source"]) + "\n")
+            if n.get("replaces_text"):
+                lines.append("## What it replaced\n" + linkify(n["replaces_text"]) + "\n")
+        else:
+            lines.append(f"*{st} · {n.get('owner', '')}*\n")
+            lines.append("## " + {"ask": "The question", "deferred": "Later", "offer": "The offer", "conflict": "The conflict"}
+                         .get(k, "Text") + "\n" + linkify(_body_md(n)) + "\n")
+            for f, label in (("recommend", "Recommended"), ("default", "Default"), ("default_on", "Default applies on"),
+                             ("answer", "Zach's answer"), ("decision", "Decided"), ("designed_in", "Designed in"),
+                             ("waits_on_text", "Waits on"), ("resolution", "Proposed resolution"), ("where", "Where"),
+                             ("revisit", "Revisit")):
+                if n.get(f):
+                    lines.append(f"**{label}:** {linkify(str(n[f]))}\n")
+        lines.append(links_block(n))
+        lines.append(mentions(nid))
+        write(names[nid], "\n".join(x for x in lines if x))
+    for nid, d in web.docs.items():
+        intro = [f"---\nid: {dump_value(nid)}\nkind: {d['kind']}\nupdated: {dump_value(updated(d))}\n---\n"]
+        meta = [f"*{d['kind']}" + (f" · {d['state']}" if d.get("state") else "") + f" · `{nid}`" +
+                (f" · area {alink(d['area'])}" if d.get("area") else "") + "*"]
+        if d.get("summary"):
+            meta.append(f"\n> {linkify(d['summary'])}")
+        body = re.sub(r"^# .+\n", "", d["body"], count=1)
+        write(names[nid], intro[0] + f"# {d['title']}\n\n" + "\n".join(meta) + "\n\n" + linkify(body) + mentions(nid))
+    # area pages
     for a in areas:
         d = next(x for x in web.docs.values() if x.get("area") == a)
         cited = sorted(set(re.findall(r"\b(" + ID_RE + r")\b", d["body"])), key=num)
-        lines = [f"# {a}: {d['title']}\n", d.get("summary", ""), "", f"The spec: {link(d['id'])}\n", "## Decisions"]
-        lines += [f"- {link(c, True)}{' (replaced)' if is_closed(web.items[c]) else ''}" for c in cited
-                  if c in web.items and web.items[c]["kind"] == "decision"]
-        lines += ["", "## Open here"] + [f"- {link(c, True)}" for c in cited if c in web.items and web.items[c]["kind"] != "decision"
-                                         and not is_closed(web.items[c])]
-        write(os.path.join("Areas", f"Area {a.replace('/', ' - ')}"), "\n".join(lines) + "\n")
+        decs = [c for c in cited if c in web.items and web.items[c]["kind"] == "decision"]
+        live = [c for c in decs if not is_closed(web.items[c])]
+        lines = [f"# {a}\n", f"*{d['title']}* · the spec: {link(d['id'])}\n"]
+        if d.get("summary"):
+            lines.append(f"> {d['summary']}\n")
+        lines.append(f"## Decided ({len(live)})")
+        for c in live:
+            lines.append(f"- **{link(c)}** {short[c]}")
+        gone = [c for c in decs if c not in live]
+        if gone:
+            lines.append(f"\n*Replaced: {', '.join(link(c) for c in gone)}*")
+        opens = [c for c in cited if c in web.items and web.items[c]["kind"] != "decision" and not is_closed(web.items[c])]
+        if opens:
+            lines.append("\n## Open here")
+            lines += [f"- {link(c, True)} ({web.items[c].get('state', '')})" for c in opens]
+        write(area_page[a], "\n".join(lines) + "\n")
+    # the start page and its indexes
+    live = [it for it in web.items.values() if it["kind"] == "thread" and not is_closed(it)]
+    owner = lambda it: it.get("owner", "?").split(" ")[0]
+    asks = [it for it in web.items.values() if it["kind"] == "ask" and not is_closed(it)]
+    mine = [a for a in asks if "Zach" in a.get("owner", "")]
+    waits = {}
+    for x in web.items.values():
+        for w in as_list(x.get("waits_on")):
+            waits[w] = waits.get(w, 0) + 1
+    mine.sort(key=lambda a: (-waits.get(a["id"], 0), -num(a["id"])[1]))
+    home = ["# Cybertron 2\n", f"*The records, rebuilt from main after every push (last {TODAY}). Read only: ask a session to "
+            "change anything.*\n", f"## Waiting on you ({len(mine)})"]
+    home += [f"- {link(a['id'], True)}" for a in mine[:12]]
+    if len(mine) > 12:
+        home.append(f"- … all of them: [[All asks]]")
+    att = [it for it in web.items.values() if (is_closed(it) and it.get("by") in ("agent", "default", "relayed"))
+           or it.get("revisit")]
+    if att:
+        home.append("\n## To confirm or revisit")
+        home += [f"- {link(it['id'], True)}: " + (f"closed by {it['by']}" if is_closed(it) else f"revisit: {it['revisit']}")
+                 for it in att[:12]]
+    for stname, label in (("active", "Active"), ("waiting", "Waiting")):
+        rows = [it for it in live if it.get("state", "").startswith(stname)]
+        home.append(f"\n## {label} threads ({len(rows)})")
+        for o in sorted({owner(it) for it in rows}):
+            home.append(f"\n**{o}**")
+            for it in sorted((x for x in rows if owner(x) == o), key=lambda x: num(x["id"])):
+                nxt = it.get("next") or _left(it.get("notes", ""))
+                home.append(f"- {link(it['id'], True)}" + (f"  \n  next: {_cut(nxt, 110)}" if nxt else ""))
+    rest = [it for it in live if not it.get("state", "").startswith(("active", "waiting"))]
+    if rest:
+        home.append(f"\n## Queued and paused ({len(rest)})")
+        home.append(", ".join(f"{link(it['id'])} {short[it['id']]}" for it in sorted(rest, key=lambda x: num(x["id"]))))
+    recent = sorted((it for it in web.items.values() if it["kind"] == "decision" and it.get("created", "") >= str(TODAY - dt.timedelta(days=7))),
+                    key=lambda x: (x.get("created", ""), num(x["id"])[1]), reverse=True)
+    if recent:
+        home.append(f"\n## Decided this week ({len(recent)})")
+        home += [f"- {link(it['id'], True)}" for it in recent[:15]]
+    home.append("\n## The world, by area")
+    tops = {}
+    for a in areas:
+        tops.setdefault(a.split("/")[0], []).append(a)
+    for top, sub in sorted(tops.items()):
+        home.append(f"- **{top}**: " + ", ".join(f"[[{os.path.basename(area_page[a])}|{a.split('/', 1)[-1]}]]" for a in sub))
+    home.append("\n## Everything\n[[All threads]] · [[All asks]] · [[All deferred]] · [[All offers]]")
+    write("Home", "\n".join(home) + "\n")
+    for title, kind in (("All threads", "thread"), ("All asks", "ask"), ("All deferred", "deferred"), ("All offers", "offer")):
+        its = sorted((it for it in web.items.values() if it["kind"] == kind), key=lambda x: (is_closed(x), -num(x["id"])[1]))
+        lines = [f"# {title}\n", "## Open"] + [f"- {link(it['id'], True)} ({it.get('state', '')})" for it in its if not is_closed(it)]
+        closed = [it for it in its if is_closed(it)]
+        if closed:
+            lines += [f"\n## Closed ({len(closed)})"] + [f"- {link(it['id'], True)}" for it in closed]
+        write(title, "\n".join(lines) + "\n")
     open(os.path.join(out, ".records-vault"), "w").write("made by tools/records.py vault; rebuilt after every push to main\n")
     if not os.path.exists(os.path.join(out, ".gitignore")):
         open(os.path.join(out, ".gitignore"), "w").write(".obsidian/\n.trash/\n")
     app = os.path.join(out, ".obsidian", "app.json")
     if not os.path.exists(app):
         os.makedirs(os.path.dirname(app), exist_ok=True)
-        json.dump({"defaultViewMode": "preview", "showFrontmatter": False}, open(app, "w"))
+        json.dump({"defaultViewMode": "preview", "propertiesInDocument": "hidden"}, open(app, "w"))
     print(f"vault written: {out} ({len(names)} notes; open the folder in Obsidian and start from Home)")
     return 0
 
