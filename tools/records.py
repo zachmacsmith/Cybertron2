@@ -1358,7 +1358,8 @@ def cmd_vault(web, out) -> int:
             waits[w] = waits.get(w, 0) + 1
     mine.sort(key=lambda a: (-waits.get(a["id"], 0), -num(a["id"])[1]))
     home = ["# Cybertron 2\n", f"*The records, rebuilt from main after every push (last {TODAY}). Read only: ask a session to "
-            "change anything.*\n", f"## Waiting on you ({len(mine)})"]
+            "change anything.*\n", "[The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.\n",
+            f"## Waiting on you ({len(mine)})"]
     home += [f"- {link(a['id'], True)}" for a in mine[:12]]
     if len(mine) > 12:
         home.append(f"- … all of them: [[All asks]]")
