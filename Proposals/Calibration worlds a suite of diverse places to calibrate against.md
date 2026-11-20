@@ -100,6 +100,7 @@ every calibration of weather, water and the wild layer.
 
 ## History
 
+- 20 Nov 2026: accepted in part: [[D2-252 The calibration suite measures how the worlds differ, world by world…|D2-252]] (The calibration suite measures how the worlds differ, world by world and side by).
 - 20 Nov 2026: accepted in part: [[D2-245 The calibration suite is all twelve worlds of…|D2-245]] (The calibration suite is all twelve worlds of proposals/calibration_worlds.md (l).
 - 17 Nov 2026: written by 37.2 after Zach's statement ([[D2-228 Calibrate across a distribution of worlds|D2-228]]).
 

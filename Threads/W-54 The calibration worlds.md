@@ -9,7 +9,7 @@ updated: "2026-11-20"
 
 *active · 37.2 · touched 20 Nov (today)*
 
-> **Next:** an agent building the twelve worlds at two seeds ([[D2-245 The calibration suite is all twelve worlds of…|D2-245]]), their expectations, the suite report and the generator audit; then read its results
+> **Next:** the agent building the twelve worlds, widened to [[D2-252 The calibration suite measures how the worlds differ, world by world…|D2-252]] (nutrition, wildlife, weather and its likelihood, environments, with an overview table); then read its results
 
 ## What it is
 The calibration worlds ([[D2-228 Calibrate across a distribution of worlds|D2-228]]) and a generator audit across them
@@ -27,10 +27,12 @@ done: the suite proposed (twelve worlds, expectations, ordering and collapse che
 ## Linked
 - replaces: [[W-11 Landscapes still to tune|W-11 · Landscapes still to tune]]
 - under it: [[D2-245 The calibration suite is all twelve worlds of…|D2-245 · The calibration suite is all twelve worlds of…]] (live)
+- under it: [[D2-252 The calibration suite measures how the worlds differ, world by world…|D2-252 · The calibration suite measures how the worlds differ, world by world…]] (live)
 
 
 ## Mentioned by
 - [[D2-245 The calibration suite is all twelve worlds of…|D2-245 · The calibration suite is all twelve worlds of…]]
+- [[D2-252 The calibration suite measures how the worlds differ, world by world…|D2-252 · The calibration suite measures how the worlds differ, world by world…]]
 - [[W-7 The ecology branch's next steps|W-7 · The ecology branch's next steps]]
 - [[W-11 Landscapes still to tune|W-11 · Landscapes still to tune]]
 - [[W-53 Floodplains in the generator now|W-53 · Floodplains in the generator now]]

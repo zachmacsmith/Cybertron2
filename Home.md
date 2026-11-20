@@ -27,7 +27,7 @@
 - [[W-51 The weather across conditions|W-51 · The weather across conditions]]  
   next: Zach's answers to Q-56; the generator's half (node temp_c, sea_km, wind) when he agrees; the flow-level rule…
 - [[W-54 The calibration worlds|W-54 · The calibration worlds]]  
-  next: an agent building the twelve worlds at two seeds (D2-245), their expectations, the suite report and the…
+  next: the agent building the twelve worlds, widened to D2-252 (nutrition, wildlife, weather and its likelihood…
 - [[W-60 The ecology's water measure counted each lake and the large river…|W-60 · The ecology's water measure counted each lake and the large river…]]  
   next: heron, otter, fish-taking fowl and the fish stock against their real densities, rescale or confirm; the 4c…
 - [[W-63 An audit of what was started and left|W-63 · An audit of what was started and left]]  
@@ -83,7 +83,8 @@
 ## Queued and paused (9)
 [[W-12 Forays (proposalsforays.md)|W-12]] Forays (proposals/forays.md), [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-64 Shared units for food, weight and work|W-64]] Shared units for food, weight and work, [[W-67 The wildlife economy extended|W-67]] The wildlife economy extended, [[W-68 37.2's spec catch-up|W-68]] 37.2's spec catch-up, [[W-69 Subsistence worlds|W-69]] Subsistence worlds, [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
 
-## Decided this week (53)
+## Decided this week (54)
+- [[D2-252 The calibration suite measures how the worlds differ, world by world…|D2-252 · The calibration suite measures how the worlds differ, world by world…]]
 - [[D2-251 Every technique, fitting and thing to build says what it does and why…|D2-251 · Every technique, fitting and thing to build says what it does and why…]]
 - [[D2-250 Boar raid fields into autumn, to autumn day 4, weaker in a mast year|D2-250 · Boar raid fields into autumn, to autumn day 4, weaker in a mast year]]
 - [[D2-249 Wild kinds have birth windows of their own, and the year's young are…|D2-249 · Wild kinds have birth windows of their own, and the year's young are…]]
@@ -98,7 +99,6 @@
 - [[D2-240 The Obsidian vault is a local folder Zach opens whenever he likes…|D2-240 · The Obsidian vault is a local folder Zach opens whenever he likes…]]
 - [[D2-239 Zach's views and the hand-offs|D2-239 · Zach's views and the hand-offs]]
 - [[D2-238 Branches|D2-238 · Branches]]
-- [[D2-237 Code changes live under a thread|D2-237 · Code changes live under a thread]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]

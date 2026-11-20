@@ -23,5 +23,4 @@ conversation (20 Nov: "58: I agree with all twelve. Can you get an agent on buil
 
 ## Mentioned by
 - [[Q-58 The calibration worlds|Q-58 · The calibration worlds]]
-- [[W-54 The calibration worlds|W-54 · The calibration worlds]]
 - [[Calibration worlds a suite of diverse places to calibrate against|Calibration worlds: a suite of diverse places to calibrate against]]
