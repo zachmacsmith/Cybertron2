@@ -25,7 +25,16 @@ DEFAULTS = {
     "river_km2": 15.0,            # a river
     "medium_km2": 45.0,
     "large_km2": 150.0,
-    "incision_m": 5.0,
+    "incision_m": 5.0,            # no longer read (D2-226): the channel is cut from the drained surface, channel_m below it
+    "channel_m": 0.5,             # a river's channel below its drained surface at its start, growing with the root of the area
+    "channel_max_m": 2.5,         # drained, at most this (a large lowland river about 1.5 to 2.5 m below its banks)
+    "floodplain_km": 0.25,        # a valley floor's half-width at a river's start (river_km2), growing with the root of the area
+    "floodplain_max_km": 1.0,     # drained: about 0.5 km wide for a beck, 0.9 for a medium river, 1.6 to 2 for a large one (D2-226)
+    "floodplain_grad": 0.006,     # a river falling faster than this (m a m) runs in a narrower floor, down to 0.15 of it (uplands)
+    "floodplain_rise_m": [0.5, 3.0],   # the floor's height above the river's channel: at the bank, at the floor's edge
+    "valley_side_m_km": 120.0,    # the valley's sides beyond the floor (about 7 degrees), until they meet the land
+    "valley_side_reach_km": 1.5,
+    "breach_max_m": 6.0,          # a hollow is drained by cutting its rim at most this deep; deeper, it is filled to that (02zzn)
     "lake_m": 4.0,                # a hollow deeper than this holds a lake; shallower ones drain across
     "tilt_m_km": 0.8,             # the land rises this much a km away from the windward side, so rivers run somewhere            # valleys cut by flow: this much x sqrt(area / river_km2), at most 40 m
     "capacity": [0.6, 0.7],       # D2-161: people at 60 to 70% of what the scarcest flow keeps
@@ -111,6 +120,8 @@ PER_UNIT = {
 }
 GAME_PER_UNIT = {"managed wood": 1.3, "copse": 0.5, "old forest": 3.5}
 SEAM = {"S": 60, "K": 60}          # copper ore in a seam (region_c's Coppergate size)
+BRINE = {"S": 1000, "K": 1000, "r": 0.0}   # a brine spring (D2-56; brief 5 §4b): drawn and boiled, it does not run dry (calibrate)
+BRINE_TEXT = "A brine spring wells up here: the water tastes of salt, and the grass round it is thin and white-crusted."
 QUARRY_PER_UNIT = 100              # stone in a rock parcel a unit of size (wenbridge's quarry: 200 in a parcel of size 1, finite)
 
 # ---------------------------------------------------------------------- the vocabulary (D2-173; stage 1 §11c)

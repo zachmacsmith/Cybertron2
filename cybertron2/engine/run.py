@@ -393,22 +393,10 @@ def dawn(w) -> None:
                 place = w.at(who)
                 w.apply("die", place, person=who, cause=inc.get("cause", "old age"))
                 w.event(place, "death", f"{who} died in the night", target=who, salience=1.0, tags=["death"], dawn=True)
-        if inc["kind"] == "fire":
-            bid = inc["building"]
-            b = w.s["buildings"][bid]
-            from cybertron2.engine import buildings as BL
-            safe = BL.vaulted(b, w.goods(b["stock"]))                          # a vault does not burn (D2-49)
-            for item, q in list(w.goods(b["stock"]).items()):
-                share = float(inc.get("food", 0.85)) if item in EDIBLE else float(inc.get("other", 0.5))
-                w.apply("destroy", node, src=b["stock"], item=item, qty=max(0.0, q - safe.get(item, 0.0)) * share, why="fire")
-            if b.get("level") is not None:                                     # in levels: a fire takes it to holed or worse (brief 4 §3)
-                BL.set_level(w, node, bid, min(BL.level(b), 2) - (int(inc.get("damage", 1)) - 1))
-            else:
-                w.apply("set", node, ref=("building", bid), field="condition", value=max(0, b["condition"] - int(inc.get("damage", 1))))
-            w.apply("set", node, ref=("building", bid), field="fire_hit", value={"day": w.d})   # for its signs (D4-74)
-            live = [m for m in w.living() if bid in w.homes(m)]
-            w.event(node, "fire", f"fire broke out in {b['name']} in the night: the store is burnt, most of its food is gone and the roof "
-                    "is damaged", about=[f"building:{bid}"], salience=0.95, tags=["danger", "food", "shelter"], concerns=live, dawn=True)
+        if inc["kind"] == "fire":                                           # a fire in the night (keeping.burn_building)
+            from cybertron2.engine import keeping as KP
+            KP.burn_building(w, node, inc["building"], float(inc.get("food", 0.85)), float(inc.get("other", 0.5)),
+                             int(inc.get("damage", 1)), w.d)
     for x in [x for x in w.s.get("left", []) if x["day"] == w.d - 1]:
         b = w.s["buildings"][x["building"]]
         live = [m for m in w.living() if x["building"] in w.homes(m)]
@@ -793,6 +781,9 @@ def settings_line(spec) -> str:
     """The world's settings at the start of a run, and a warning for any standard one that is off."""
     keys = ("view", "evening", "tags", "ages", "lifespan", "packs", "children", "memory", "memory_at_evening", "llm")
     line = "settings: " + "; ".join(f"{k}={spec.get(k)!r}" for k in keys)
+    dev = [k for k in ("runs_set_nights", "household_models") if spec.get(k)]          # deviations a world declares (D2-231, D4-115)
+    if dev:
+        line += "; " + "; ".join(f"{k}={spec.get(k)!r}" for k in dev)
     off = [k for k, v in STANDARD.items() if spec.get(k) != v]
     return line + (f"\nWARNING: standard settings off in this world: {', '.join(off)}" if off else "")
 
@@ -826,6 +817,12 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
         if mode == "continue":
             at = json.loads(dict(JN.read(src, "SELECT key, value FROM meta"))["continue"])["at"]
             restored = JN.checkpoint(src, at)
+        if mode == "resume_last":                                           # from the end of the last day done (D4-124)
+            done = [s for (s,) in JN.read(src, "SELECT step FROM steps WHERE status = 'committed' AND step LIKE '%.memory'")]
+            if not done:
+                raise SystemExit(f"{src}: no finished day to go on from")
+            at = max(done, key=lambda s: int(s.split(".")[0][1:]))
+            restored = JN.checkpoint(src, at)
             if days:                                                        # played on past the world's own length
                 spec["days"] = int(days)
         if mode == "replay":                                                # never touch the run itself
@@ -839,15 +836,17 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
             shutil.copy(src, out / "run.db")
     w = World(spec)
     start_day = 0
-    if mode == "continue":                                                  # the world as it was at the end of that day
+    if mode in ("continue", "resume_last"):                                 # the world as it was at the end of that day
         w.s = restored["world"]
+        from cybertron2.engine import waters as WA
+        WA.link(w)                                                          # a body's stock one record again (D2-229)
         start_day = int(at.split(".")[0][1:]) + 1
     backend = backend or os.environ.get("LLM_BACKEND") or "claude_code"
     out.mkdir(parents=True, exist_ok=True)
     systems = {n: PR.system_prompt(Here(w, n), Mind(w, n)) for n in w.agents_acting()}
     (out / "run.json").write_text(json.dumps({"spec": spec, "backend": backend, "systems": systems,
                                               "models": {n: a["model"] for n, a in w.s["people"].items()}}, indent=1))
-    files = {k: open(out / f"{k}.jsonl", "w") for k in ("turns", "days", "perception", "memory")}
+    files = {k: open(out / f"{k}.jsonl", "a" if mode == "resume_last" else "w") for k in ("turns", "days", "perception", "memory")}
     conv = Conversations(out, chunk=int((spec.get("memory") or {}).get("chunk", 3)), backend=backend)
     if mode == "start":
         for f in ("run.db", "run.db-wal", "run.db-shm"):                   # a fresh run: a fresh journal
@@ -857,22 +856,26 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
         J.start(spec, w.seed, {n: (a["model"] if a.get("model") in (None, "bot") else f"model:{a['model']}") for n, a in w.s["people"].items()})
         J.until = until
         J.meta("capacity", day0_capacity(spec))                            # the run's own baseline (D4-103; economic_calibration G)
-    elif mode == "continue":
+    elif mode in ("continue", "resume_last"):
         J.until = until
+        if mode == "resume_last":                                           # the steps committed after that day replayed from the record
+            J.resume(strict=False, until=until, kind="resume_last")
         if days:
             J.meta("spec", spec)                                            # a later resume plays to the new length
     else:
         J.resume(strict=mode == "replay", until=until)
     J.after_commit = lambda step: BR.after_commit(w, J, step)
+    if mode == "resume_last":                                               # interventions after that day: never in its checkpoint
+        BR.after_commit(w, J, at)
     stopped = None
-    if mode == "resume" and (out / "STOPPED.md").exists():               # a resumed run shows only a current stop
+    if mode in ("resume", "resume_last") and (out / "STOPPED.md").exists():               # a resumed run shows only a current stop
         with open(out / "stop_history.md", "a") as h:
             h.write((out / "STOPPED.md").read_text() + "\n")
         (out / "STOPPED.md").unlink()
     cost = 0.0
     last_system = dict(systems)
     extra_cost = [0.0]
-    if mode == "continue":                                                  # the runner as it was: conversations, cost, systems
+    if mode in ("continue", "resume_last"):                                 # the runner as it was: conversations, cost, systems
         r = JN.unslim(restored["runner"], out / "run.db")
         cost = float(r["cost"])
         conv.c = {n: {**c, "session": None} for n, c in r["conversations"].items()}
@@ -1210,6 +1213,8 @@ def main(argv=None):
     g.add_argument("--until")
     g.add_argument("--backend")
     g.add_argument("--workers", type=int, default=12)
+    g.add_argument("--from-last", action="store_true", help="go on from the end of the last finished day, without replaying the "
+                   "days before it (interventions put in after that day are applied)")
     p = sub.add_parser("replay")
     p.add_argument("run")
     p.add_argument("--to", help="stop after this step")
@@ -1279,7 +1284,8 @@ def main(argv=None):
         print(run(args.spec, args.out, args.backend, args.days, args.workers, args.bots, args.seed, until=args.until,
                   responders=dict(a.split("=", 1) for a in args.as_)))
     elif args.cmd == "resume":
-        print(run(None, args.run, args.backend, workers=args.workers, until=args.until, mode="resume"))
+        print(run(None, args.run, args.backend, workers=args.workers, until=args.until,
+                  mode="resume_last" if args.from_last else "resume"))
     elif args.cmd == "rewind":
         print(BR.rewind(args.run, args.to, args.out))
     elif args.cmd == "fork":

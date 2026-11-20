@@ -1,0 +1,633 @@
+{
+ "seed": 5,
+ "pins": {},
+ "targets": {
+  "Highpool": {
+   "households": 3,
+   "people": 18,
+   "food": 0.6,
+   "heat": 0.63,
+   "plots_wanted": 19,
+   "fields": 19,
+   "wood_wanted": 6,
+   "woods": 6,
+   "waste": 3
+  },
+  "Middleham": {
+   "households": 3,
+   "people": 14,
+   "food": 0.6,
+   "heat": 0.69,
+   "plots_wanted": 15,
+   "fields": 15,
+   "wood_wanted": 5,
+   "woods": 5,
+   "waste": 3
+  },
+  "Lowstrand": {
+   "households": 3,
+   "people": 13,
+   "food": 0.6,
+   "heat": 0.67,
+   "plots_wanted": 14,
+   "fields": 14,
+   "wood_wanted": 4,
+   "woods": 4,
+   "waste": 3
+  }
+ },
+ "checks": {
+  "rivers run downhill": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "0 river cells drain uphill"
+  },
+  "laid rivers run where laid": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "1 laid"
+  },
+  "every pin met": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "a pin not met is refused when it is placed"
+  },
+  "settlements placed": {
+   "kind": "design",
+   "ok": true,
+   "detail": "6 of 3 at 11.0 km apart"
+  },
+  "capacity": {
+   "kind": "design",
+   "ok": false,
+   "detail": {
+    "Highpool": 0.75,
+    "Middleham": 0.7,
+    "Lowstrand": 0.82
+   }
+  },
+  "dependence": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Highpool": [
+     "stone",
+     "metal"
+    ],
+    "Middleham": [
+     "stone",
+     "metal"
+    ],
+    "Lowstrand": [
+     "stone",
+     "metal"
+    ]
+   }
+  },
+  "reachable by land": {
+   "kind": "design",
+   "ok": true,
+   "detail": []
+  },
+  "chokepoint": {
+   "kind": "design",
+   "ok": true,
+   "detail": [
+    "Highpool-w4: pass"
+   ]
+  },
+  "roads about a day": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "1": 9
+   }
+  },
+  "parcels per node": {
+   "kind": "design",
+   "ok": false,
+   "detail": {
+    "Highpool": 13,
+    "Middleham": 11,
+    "Lowstrand": 10,
+    "Stanwood": 7,
+    "Hartcliffe": 5,
+    "Thornholt": 7
+   }
+  },
+  "access gates": {
+   "kind": "design",
+   "ok": true,
+   "detail": "the bot dry run checks them once the people exist (scenario_design)"
+  },
+  "makes its own landscape": {
+   "kind": "design",
+   "ok": true,
+   "detail": "no promise for this configuration"
+  },
+  "lakes where lakes belong": {
+   "kind": "design",
+   "ok": true,
+   "detail": "3 lakes; 0 outside fen or upland systems (0.0 a 1,000 km2)"
+  },
+  "wood share by how long settled": {
+   "kind": "design",
+   "ok": true,
+   "detail": "0.30 of the land in wood (settled: settled, 0.30)"
+  },
+  "capacity, people as generated": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Highpool": {
+     "people": 18,
+     "share": 0.75,
+     "target": 0.63
+    },
+    "Middleham": {
+     "people": 14,
+     "share": 0.7,
+     "target": 0.69
+    },
+    "Lowstrand": {
+     "people": 13,
+     "share": 0.82,
+     "target": 0.67
+    }
+   }
+  },
+  "economy: region food": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "45 people; the land keeps 93 for good (0.48 of it)"
+  },
+  "economy: food over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "60 days need 2340 meals; store, crops ripening and the land give 3995 (0.59)"
+  },
+  "economy: region heat": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "45 people; the land keeps 275 for good (0.16 of it)"
+  },
+  "economy: heat over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "60 days need 954 heat (10 hearths, 11.8 cold nights); store and the woods' flow give 6713 (0.14); the woods stand at 285745 more"
+  },
+  "economy: carrying burden": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {}
+  },
+  "economy: households' runway": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {
+    "short": [],
+    "share_of_people": 0.0,
+    "days_of_food_a_member": {
+     "the Brooks": 6.8,
+     "the Marshs": 6.8,
+     "the Shepherds": 6.8,
+     "the Fields": 6.8,
+     "the Fletchers": 6.8,
+     "the Harts": 6.8,
+     "the Woods": 6.8,
+     "the Wrights": 6.8,
+     "the Cotters": 6.8
+    }
+   }
+  },
+  "economy: fuel": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "every hearth has wood in store or woods at hand"
+  },
+  "economy: room to grow": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "9 couples; about 22 births in 60 days if they try often; the region would be at 0.72 of its land"
+  },
+  "economy: succession": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": false,
+   "detail": [
+    "the Brooks: Lambert (42%), Mabel (45%) likely to die in the run; 0 grown left for 3",
+    "the Marshs: Jocelin (48%), Alice (40%) likely to die in the run; 0 grown left for 5",
+    "the Shepherds: Fulk (45%), Sabina (43%) likely to die in the run; 0 grown left for 4",
+    "the Fields: Osric (48%), Orabel (45%) likely to die in the run; 0 grown left for 2",
+    "the Fletchers: Hamo (47%), Annora (45%) likely to die in the run; 0 grown left for 3",
+    "the Harts: Henry (45%), Elena (43%) likely to die in the run; 0 grown left for 3",
+    "the Woods: Odo (48%), Idonea (41%) likely to die in the run; 0 grown left for 2",
+    "the Wrights: Aldric (47%), Lucy (41%) likely to die in the run; 0 grown left for 3",
+    "the Cotters: Warin (43%), Avice (46%) likely to die in the run; 0 grown left for 2"
+   ]
+  },
+  "predators within range": {
+   "kind": "wild",
+   "ok": true,
+   "detail": {
+    "said": {
+     "Highpool": "stoat 21.82 (a group needs 1), fox 16.44 (a group needs 1), wild boar 13.78 (a group needs 2), wolf 2.96 (a group needs 3), brown bear 1.84 (a group needs 1)",
+     "Lowstrand": "stoat 22.59 (a group needs 1), fox 17.19 (a group needs 1), wild boar 4.24 (a group needs 2), wolf 2.4 (a group needs 3), brown bear 0.4 (a group needs 1)",
+     "Middleham": "stoat 22.52 (a group needs 1), fox 17.17 (a group needs 1), wild boar 6.27 (a group needs 2), wolf 2.29 (a group needs 3), brown bear 0.35 (a group needs 1)"
+    },
+    "by village": {
+     "Highpool": {
+      "wild boar": {
+       "heads": 13.78,
+       "least": 2,
+       "range_km2": 40.0
+      },
+      "fox": {
+       "heads": 16.44,
+       "least": 1,
+       "reach": "ring"
+      },
+      "stoat": {
+       "heads": 21.82,
+       "least": 1,
+       "reach": "ring"
+      },
+      "wolf": {
+       "heads": 2.96,
+       "least": 3,
+       "range_km2": 200.0
+      },
+      "brown bear": {
+       "heads": 1.84,
+       "least": 1,
+       "range_km2": 300.0
+      }
+     },
+     "Lowstrand": {
+      "wild boar": {
+       "heads": 4.24,
+       "least": 2,
+       "range_km2": 40.0
+      },
+      "fox": {
+       "heads": 17.19,
+       "least": 1,
+       "reach": "ring"
+      },
+      "stoat": {
+       "heads": 22.59,
+       "least": 1,
+       "reach": "ring"
+      },
+      "wolf": {
+       "heads": 2.4,
+       "least": 3,
+       "range_km2": 200.0
+      },
+      "brown bear": {
+       "heads": 0.4,
+       "least": 1,
+       "range_km2": 300.0
+      }
+     },
+     "Middleham": {
+      "wild boar": {
+       "heads": 6.27,
+       "least": 2,
+       "range_km2": 40.0
+      },
+      "fox": {
+       "heads": 17.17,
+       "least": 1,
+       "reach": "ring"
+      },
+      "stoat": {
+       "heads": 22.52,
+       "least": 1,
+       "reach": "ring"
+      },
+      "wolf": {
+       "heads": 2.29,
+       "least": 3,
+       "range_km2": 200.0
+      },
+      "brown bear": {
+       "heads": 0.35,
+       "least": 1,
+       "range_km2": 300.0
+      }
+     }
+    }
+   }
+  }
+ },
+ "generated": [],
+ "deviations": [
+  "cells on a jittered square grid, not Poisson-disc points with Delaunay neighbours (scipy not installed)",
+  "cells saved as .npz, not parquet (pyarrow not installed)",
+  "people: generate.py once for the region as it stands (no kin between villages yet: 37.4's, later)"
+ ],
+ "descriptions": {
+  "model": null,
+  "written": 0,
+  "failed": 0
+ },
+ "nodes": {
+  "Highpool": {
+   "name": "Highpool",
+   "kind": "village",
+   "site_km": [
+    25.32,
+    37.47
+   ],
+   "parcels": 13
+  },
+  "Middleham": {
+   "name": "Middleham",
+   "kind": "village",
+   "site_km": [
+    22.36,
+    24.73
+   ],
+   "parcels": 11
+  },
+  "Lowstrand": {
+   "name": "Lowstrand",
+   "kind": "village",
+   "site_km": [
+    8.89,
+    12.31
+   ],
+   "parcels": 10
+  },
+  "Stanwood": {
+   "name": "Stanwood",
+   "kind": "vacant",
+   "site_km": [
+    39.12,
+    43.6
+   ],
+   "parcels": 7
+  },
+  "Hartcliffe": {
+   "name": "Hartcliffe",
+   "kind": "vacant",
+   "site_km": [
+    39.28,
+    9.28
+   ],
+   "parcels": 5
+  },
+  "Thornholt": {
+   "name": "Thornholt",
+   "kind": "vacant",
+   "site_km": [
+    16.62,
+    45.1
+   ],
+   "parcels": 7
+  },
+  "w1": {
+   "name": "Oakhurst",
+   "kind": "wild",
+   "site_km": [
+    11.37,
+    49.68
+   ],
+   "parcels": 2
+  },
+  "w2": {
+   "name": "Cragton",
+   "kind": "wild",
+   "site_km": [
+    33.46,
+    45.88
+   ],
+   "parcels": 2
+  },
+  "w3": {
+   "name": "Ashurst",
+   "kind": "wild",
+   "site_km": [
+    45.11,
+    49.79
+   ],
+   "parcels": 2
+  },
+  "w4": {
+   "name": "Scarlow",
+   "kind": "wild",
+   "site_km": [
+    25.09,
+    46.92
+   ],
+   "parcels": 2
+  }
+ },
+ "anchors": {
+  "the_river.source": [
+   23.0,
+   50.0
+  ],
+  "the_river.mouth": [
+   25.0,
+   0.0
+  ],
+  "the_river.point_1": [
+   25.0,
+   41.0
+  ],
+  "the_river.point_2": [
+   25.0,
+   25.0
+  ],
+  "the_river.point_3": [
+   26.0,
+   9.0
+  ],
+  "fells": [
+   25.0,
+   44.5
+  ],
+  "north_fells": [
+   25.0,
+   47.5
+  ],
+  "upper_waters": [
+   25.0,
+   45.0
+  ]
+ },
+ "refused": [],
+ "water_stocks": {
+  "water parcels stocked": 8,
+  "lakes": {
+   "Stanwood": {
+    "parcel": "Stanwood_5",
+    "lake_km2": 0.56,
+    "fish_K": 4219.0,
+    "r": 0.00438,
+    "most_a_year": 148.0
+   }
+  }
+ },
+ "fuel": {
+  "houses": 9,
+  "firewood": 30,
+  "timber": 20
+ },
+ "fishers": {
+  "Highpool": [
+   "Brook",
+   "Marsh",
+   "Shepherd"
+  ],
+  "Middleham": [
+   "Field",
+   "Fletcher",
+   "Hart"
+  ],
+  "Lowstrand": [
+   "Cotter",
+   "Wood",
+   "Wright"
+  ]
+ },
+ "no_farming": {
+  "fields to scrub": 4,
+  "herds removed": 3,
+  "farm goods removed": 10,
+  "larder a house": {
+   "dried meat": 4,
+   "roots": 6,
+   "acorns": 6,
+   "berries": 4
+  }
+ },
+ "spring_and_mill": {
+  "spring": {
+   "parcel": "Highpool_7",
+   "name": "the Brine Meadow",
+   "held_by": "Brook",
+   "salter_craft": true
+  },
+  "mill": {
+   "building": "Middleham_mill",
+   "held_by": "Fletcher"
+  }
+ },
+ "highpool_larder": {
+  "Brook": {
+   "smoked fish": 15
+  },
+  "Marsh": {
+   "smoked fish": 21
+  },
+  "Shepherd": {
+   "smoked fish": 18
+  }
+ },
+ "cast_opus": {
+  "Highpool": "Marsh",
+  "Middleham": "Hart",
+  "Lowstrand": "Wright"
+ },
+ "design": {
+  "big_river_km": {
+   "Highpool": 0.3,
+   "Middleham": 0.3,
+   "Lowstrand": 0.3
+  },
+  "Highpool above Middleham": {
+   "reached": true,
+   "river_km": 21.9
+  },
+  "Middleham above Lowstrand": {
+   "reached": true,
+   "river_km": 45.0
+  },
+  "fields": {
+   "Middleham": {
+    "fields": 3,
+    "units": 15,
+    "on the floodplain": 15
+   },
+   "Lowstrand": {
+    "fields": 2,
+    "units": 14,
+    "on the floodplain": 14
+   }
+  },
+  "frontier": {
+   "Stanwood": {
+    "land": {
+     "meadow": 5,
+     "pasture": 2,
+     "forest": 11,
+     "heath": 1,
+     "rock": 6,
+     "water": 2
+    },
+    "roads": [
+     [
+      "Highpool",
+      1
+     ],
+     [
+      "w2",
+      1
+     ],
+     [
+      "w3",
+      1
+     ]
+    ]
+   },
+   "Hartcliffe": {
+    "land": {
+     "meadow": 9,
+     "forest": 11,
+     "rock": 6,
+     "water": 2
+    },
+    "roads": [
+     [
+      "Middleham",
+      1
+     ]
+    ]
+   },
+   "Thornholt": {
+    "land": {
+     "pasture": 10,
+     "forest": 11,
+     "rock": 5,
+     "water": 2,
+     "meadow": 1
+    },
+    "roads": [
+     [
+      "Highpool",
+      1
+     ],
+     [
+      "w1",
+      1
+     ],
+     [
+      "w4",
+      1
+     ]
+    ]
+   }
+  }
+ }
+}

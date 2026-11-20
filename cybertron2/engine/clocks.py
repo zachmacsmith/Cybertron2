@@ -23,14 +23,14 @@ RATES = [
     ("TECHNIQUES.*.set.life", "day"),                                     # a set snare or trap lasts so many nights (brief 2)
     ("TECHNIQUES.*.rack.nights", "day"),                                  # meat dries on a rack so many nights (brief 4)
     ("PHYSICS.cattle.stray", "day"), ("PHYSICS.cattle.starve_nights", "day"), ("PHYSICS.fuel.*", "day"), ("PHYSICS.heat.*", "day"),
-    ("RESOURCES.*.r", "day"),
+    ("RESOURCES.*.r", "day"), ("PHYSICS.smokehouse.fire.*", "day"),      # a smokehouse's fire a night (brief 5 §4a)
     # the year clock
     ("CROPS.*.share", "year"), ("FORESTS.kinds.*.grow", "year"), ("FORESTS.kinds.*.regrow", "year"), ("FORESTS.shed", "year"),
     ("FORESTS.rot", "year"), ("PHYSICS.cattle.births", "year"), ("PHYSICS.cattle.dung", "year"),
     ("PHYSICS.cattle.in_milk_share", "year"), ("PHYSICS.farming.fallow", "year"),
     ("FENCES.*.mend", "year"),                                          # a fence's mending a year (D4-114)
     # occasions and uses
-    ("FORESTS.gale", "event"), ("PHYSICS.cattle.survive", "event"), ("PHYSICS.cattle.hungry_milk", "event"),
+    ("FORESTS.gale", "event"), ("PHYSICS.smokehouse.spread.*", "event"), ("PHYSICS.cattle.survive", "event"), ("PHYSICS.cattle.hungry_milk", "event"),
     ("PHYSICS.labour.work_food", "use"), ("PHYSICS.labour.over_food", "use"), ("PHYSICS.labour.step", "use"),
     ("PHYSICS.labour.guard_food", "event"), ("PHYSICS.labour.fade_rate", "year"), ("PHYSICS.labour.fade_after", "year"),
     ("FITTINGS.*.wear.life", "use"), ("FITTINGS.*.wear.years", "year"),

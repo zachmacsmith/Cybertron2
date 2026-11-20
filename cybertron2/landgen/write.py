@@ -157,6 +157,15 @@ def _words(p) -> dict:
     return out
 
 
+def _water_words(p) -> str:
+    """A water parcel by what its water is: a lake still, a river by its size (37.4's lake runs read "running water, low by the
+    water" for the mere)."""
+    f = p.facts or {}
+    if f.get("lake"):
+        return "open water of the mere, still and deep"
+    return {3: "a broad slow river", 2: "the river, running between banks"}.get(int(f.get("river", 0) or 0), "a brook, quick and shallow")
+
+
 def _text(p, node_name: str) -> str:
     """A template description from a parcel's facts (the fallback when no model writes it, D2-179)."""
     from cybertron2.landgen import ecology as EC
@@ -167,9 +176,9 @@ def _text(p, node_name: str) -> str:
                         "managed wood": "coppiced, " + (tree or "hazel under oak standards")}.get(p.wood_kind or "", tree or "woodland"),
              "heath": "heather and gorse on thin sand", "moor": "wet peaty moor", "fen": "reed and sedge over standing water",
              "saltmarsh": "salt grass and creeks", "scrub": "thorn and rough grass", "rock": "bare rock and scree",
-             "water": "running water"}.get(p.cover, p.cover)
+             "water": _water_words(p)}.get(p.cover, p.cover)
     soil = {"clay": "heavy clay", "sand": "light sand", "chalk": "thin chalky soil", "loam": "good loam", "peat": "black peat"}.get(p.soil, p.soil)
-    where = {0: "low by the water", 1: "", 2: "on the slope", 3: "up on the tops"}[p.height]
+    where = {0: "low by the water", 1: "", 2: "on the slope", 3: "up on the tops"}[p.height] if p.cover != "water" else ""
     bits = [words] + ([f"on {soil}"] if p.cover in ("field", "meadow", "pasture") else []) + ([where] if where else [])
     return ", ".join(bits)
 
@@ -245,6 +254,8 @@ def generate(spec: dict, path: str | None = None, people: bool = False, describe
     by_key = {v["name"]: k for k, v in report["nodes"].items()}
     spec2 = copy.deepcopy(spec)
     spec2.setdefault("generate", {})["_people"] = {by_key[n]: c for n, c in counts.items() if c}
+    spec2["generate"]["_names"] = {k: v["name"] for k, v in report["nodes"].items()}   # the land resized for them may name the place
+                                                                                       # otherwise, and the people go by its name
     return _generate(spec2, path, True, describe, out_path)
 
 
@@ -252,6 +263,7 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
     gen = dict(spec.get("generate") or {})
     conf = _conf(gen)
     conf["_people"] = gen.get("_people") or {}
+    conf["_names"] = gen.get("_names") or {}
     seed = int(gen.get("seed", spec.get("seed", 1)))
     settings = _base_settings(spec, path)
     report = {"seed": seed, "pins": {}, "targets": {}, "checks": {}, "generated": [], "deviations": [
@@ -280,7 +292,8 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
     for k in places:
         namer.used.add(k)
     for s in allnodes:
-        s.name = s.key if s.key in places else namer.place(s.key, _place_facts(L, s, roads))
+        s.name = (s.key if s.key in places else conf["_names"].get(s.key)          # the second pass keeps the first's names: the
+                  or namer.place(s.key, _place_facts(L, s, roads)))                  # people are drawn by them (D2-161)
     model = None
     if describe:
         cast = settings.get("cast") or {}
@@ -320,6 +333,15 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
             if land:
                 entry["land"] = land                                       # fixed land (02zp; D4-112, D4-113)
             pars[p.pid] = entry
+        if "brine spring" in (s.pin.get("has") or []):                    # a brine spring (D2-56; brief 5 §4b), pinned: on the place's
+            open_ = sorted((p for p in s.parcels if p.cover in ("meadow", "pasture", "scrub", "heath", "fen")),   # lowest open ground,
+                           key=lambda p: (p.height, p.pid))                # where springs rise; a stock the engine reads once it knows brine
+            if not open_:
+                raise ST.Refused(f"{s.name}: a brine spring needs open ground (meadow, pasture or waste) on its land")
+            e = pars[open_[0].pid]
+            e.setdefault("state", {})["brine"] = dict(V.BRINE)
+            e["text"] = (str(e["text"]).rstrip(" .") + ". " + V.BRINE_TEXT).strip()
+            e["spring"] = "brine"
         kind_words = {"village": f"a village of {s.households} households", "stop": "a stopping place on the road",
                       "vacant": "land no one lives on or holds",
                       "wild": {"forest": "old forest, far from any village", "hills": "broken hill country, stony"}.get(s.facts.get("wild"), "wild country")}
@@ -413,6 +435,11 @@ def _generate(spec: dict, path, people: bool, describe: bool, out_path, provisio
     world["herds"] = herds
     from cybertron2.wild import areas as WA                                 # the land summary for the wild layer (wild_layer.md
     world["wild"] = {"land": WA.build(L, allnodes, float(conf["km"]))}       # §3.1, D2-199); read only by a world with the wild pack
+    for body, wb in world["wild"]["land"]["waters"].items():               # each water parcel names its water body (D2-229)
+        for pid in wb["parcels"]:
+            for nd in nodes.values():
+                if pid in (nd.get("parcels") or {}):
+                    nd["parcels"][pid].setdefault("land", {})["water_body"] = body
     world.setdefault("claims", [])
     world["lines"] = lines
     n = len(lines)

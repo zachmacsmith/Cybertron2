@@ -84,10 +84,15 @@ def test_any_batch_up_to_8_and_refused_only_with_no_meat():
     w = world()
     hand(w, "Odo", meat=0.7)                                                   # a hare's meat
     assert "0.7 drying meat" in do(w, "Odo", do="make", what="dry meat")
-    hand(w, "Isolde", meat=11)                                                 # more than a batch: 8 hang, 3 are left
-    do(w, "Isolde", do="make", what="dry meat")
-    assert max(c["goods"].get("drying meat", 0) for c in racks(w).values()) == 8.0
-    assert abs(w.goods(w.hands("Isolde")).get("meat", 0) - 3.0) < 1e-9
+    hand(w, "Isolde", meat=11)                                                 # more than the rack's room: 7.3 hang, 3.7 are left
+    do(w, "Isolde", do="make", what="dry meat")                                # (the hearth's rack holds a batch of 8: brief 5 §4a)
+    assert abs(sum(c["goods"].get("drying meat", 0) for c in racks(w).values()) - 8.0) < 1e-9
+    assert abs(w.goods(w.hands("Isolde")).get("meat", 0) - 3.7) < 1e-9
+    w2 = world()
+    hand(w2, "Isolde", meat=11)                                                # more than a batch: 8 hang, 3 are left
+    do(w2, "Isolde", do="make", what="dry meat")
+    assert max(c["goods"].get("drying meat", 0) for c in racks(w2).values()) == 8.0
+    assert abs(w2.goods(w2.hands("Isolde")).get("meat", 0) - 3.0) < 1e-9
     w.s["containers"][w.hands("Hamo")]["goods"]["meat"] = 0.0
     store(w, "hale_house")["meat"] = 0.0
     r = do(w, "Hamo", do="make", what="dry meat")

@@ -68,3 +68,37 @@ def test_continue_from_the_end_of_a_day_under_this_code(parent, tmp_path):
         BR.continue_(parent, "d2.work", tmp_path / "c2")                   # only from the end of a day
     found = BR.branches(parent)["branches"]
     assert any(b["kind"] == "continue" and b["at"] == "d2.memory" for b in found)
+
+
+def test_resume_from_last_goes_on_from_the_last_day_done_without_replay_and_applies_new_interventions(parent, tmp_path):
+    """D4-124: `resume --from-last` restores the end of the last finished day, replays only the steps committed after it, and plays
+    on; it reaches the same end as the run played through, from the end of a day or from inside one, and an intervention put in
+    after that day is applied."""
+    BR.rewind(parent, "d2.memory", tmp_path / "rl")
+    (tmp_path / "rl" / "days.jsonl").write_text("kept\n")
+    R.run(None, tmp_path / "rl", mode="resume_last")
+    assert _end(tmp_path / "rl") == _end(parent)
+    lines = (tmp_path / "rl" / "days.jsonl").read_text().splitlines()
+    assert lines[0] == "kept" and [json.loads(x)["day"] for x in lines[1:]] == [3, 4]     # appended, days 3 and 4 only
+    kinds = [k for (k,) in JN.read(tmp_path / "rl" / "run.db", "SELECT kind FROM segments ORDER BY id")]
+    assert kinds[-1] == "resume_last"
+    BR.rewind(parent, "d2.memory", tmp_path / "rl2")
+    w2 = JN.checkpoint(parent / "run.db", "d2.memory")["world"]
+    who = next(n for n, p in w2["people"].items() if p["alive"] and p["stage"] == "adult")
+    import sqlite3
+    con = sqlite3.connect(str(tmp_path / "rl2" / "run.db"))
+    con.execute("INSERT INTO interventions (submitted, applied) VALUES (?, NULL)", (json.dumps(
+        {"after": "d2.memory", "op": "learn", "place": w2["people"][who]["at"],
+         "args": {"person": who, "tech": "boil salt", "level": "capable", "source": "test"}, "note": "test"}),))
+    con.commit()
+    con.close()
+    R.run(None, tmp_path / "rl2", mode="resume_last")
+    assert json.loads(_end(tmp_path / "rl2"))["know"][who]["boil salt"]["level"] in ("capable", "known")
+    assert JN.read(tmp_path / "rl2" / "run.db", "SELECT applied FROM interventions")[0][0] is not None
+
+
+def test_resume_from_last_inside_a_day_replays_only_that_days_committed_steps(parent, tmp_path):
+    BR.rewind(parent, "d3.work", tmp_path / "mid")
+    R.run(None, tmp_path / "mid", mode="resume_last")
+    assert _end(tmp_path / "mid") == _end(parent)
+    assert [json.loads(x)["day"] for x in (tmp_path / "mid" / "days.jsonl").read_text().splitlines()] == [3, 4]

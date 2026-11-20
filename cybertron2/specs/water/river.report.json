@@ -1,0 +1,408 @@
+{
+ "seed": 3,
+ "pins": {},
+ "targets": {
+  "Saltwell": {
+   "households": 3,
+   "people": 12,
+   "food": 0.6,
+   "heat": 0.61,
+   "plots_wanted": 12,
+   "fields": 12,
+   "wood_wanted": 4,
+   "woods": 4,
+   "waste": 3
+  },
+  "Millham": {
+   "households": 3,
+   "people": 14,
+   "food": 0.6,
+   "heat": 0.63,
+   "plots_wanted": 15,
+   "fields": 15,
+   "wood_wanted": 5,
+   "woods": 5,
+   "waste": 3
+  }
+ },
+ "checks": {
+  "rivers run downhill": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "0 river cells drain uphill"
+  },
+  "laid rivers run where laid": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "1 laid"
+  },
+  "every pin met": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "a pin not met is refused when it is placed"
+  },
+  "settlements placed": {
+   "kind": "design",
+   "ok": true,
+   "detail": "2 of 2 at 17.0 km apart"
+  },
+  "capacity": {
+   "kind": "design",
+   "ok": false,
+   "detail": {
+    "Saltwell": 0.75,
+    "Millham": 0.7
+   }
+  },
+  "dependence": {
+   "kind": "design",
+   "ok": false,
+   "detail": {
+    "Saltwell": [
+     "stone",
+     "metal"
+    ],
+    "Millham": [
+     "stone",
+     "metal"
+    ]
+   }
+  },
+  "reachable by land": {
+   "kind": "design",
+   "ok": true,
+   "detail": []
+  },
+  "chokepoint": {
+   "kind": "design",
+   "ok": true,
+   "detail": [
+    "Saltwell-w1: pass",
+    "Saltwell-w3: pass"
+   ]
+  },
+  "roads about a day": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "1": 4
+   }
+  },
+  "parcels per node": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Saltwell": 11,
+    "Millham": 10
+   }
+  },
+  "access gates": {
+   "kind": "design",
+   "ok": true,
+   "detail": "the bot dry run checks them once the people exist (scenario_design)"
+  },
+  "makes its own landscape": {
+   "kind": "design",
+   "ok": true,
+   "detail": "no promise for this configuration"
+  },
+  "lakes where lakes belong": {
+   "kind": "design",
+   "ok": true,
+   "detail": "3 lakes; 0 outside fen or upland systems (0.0 a 1,000 km2)"
+  },
+  "wood share by how long settled": {
+   "kind": "design",
+   "ok": true,
+   "detail": "0.30 of the land in wood (settled: settled, 0.30)"
+  },
+  "capacity, people as generated": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Saltwell": {
+     "people": 12,
+     "share": 0.75,
+     "target": 0.61
+    },
+    "Millham": {
+     "people": 14,
+     "share": 0.7,
+     "target": 0.63
+    }
+   }
+  },
+  "economy: region food": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "26 people; the land keeps 49 for good (0.53 of it)"
+  },
+  "economy: food over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "14 days need 342 meals; store, crops ripening and the land give 799 (0.43)"
+  },
+  "economy: region heat": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "26 people; the land keeps 111 for good (0.23 of it)"
+  },
+  "economy: heat over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "14 days need 84 heat (6 hearths, 0 cold nights); store and the woods' flow give 781 (0.11); the woods stand at 106200 more"
+  },
+  "economy: carrying burden": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {}
+  },
+  "economy: households' runway": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {
+    "short": [],
+    "share_of_people": 0.0,
+    "days_of_food_a_member": {
+     "the Hunts": 6.8,
+     "the Wards": 6.8,
+     "the Marshs": 6.8,
+     "the Haywards": 6.8,
+     "the Lowes": 6.8,
+     "the Hobbs": 6.8
+    }
+   }
+  },
+  "economy: fuel": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "every hearth has wood in store or woods at hand"
+  },
+  "economy: room to grow": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "6 couples; about 7 births in 14 days if they try often; the region would be at 0.67 of its land"
+  },
+  "economy: succession": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "nobody grown is likely to die in the run"
+  },
+  "predators within range": {
+   "kind": "wild",
+   "ok": true,
+   "detail": {
+    "said": {
+     "Millham": "stoat 22.27 (a group needs 1), fox 16.94 (a group needs 1), wild boar 5.26 (a group needs 2), wolf 2.48 (a group needs 3), brown bear 0.53 (a group needs 1)",
+     "Saltwell": "stoat 22.86 (a group needs 1), fox 17.24 (a group needs 1), wild boar 4.33 (a group needs 2), wolf 2.24 (a group needs 3), brown bear 0.57 (a group needs 1)"
+    },
+    "by village": {
+     "Millham": {
+      "wild boar": {
+       "heads": 5.26,
+       "least": 2,
+       "range_km2": 40.0
+      },
+      "fox": {
+       "heads": 16.94,
+       "least": 1,
+       "reach": "ring"
+      },
+      "stoat": {
+       "heads": 22.27,
+       "least": 1,
+       "reach": "ring"
+      },
+      "wolf": {
+       "heads": 2.48,
+       "least": 3,
+       "range_km2": 200.0
+      },
+      "brown bear": {
+       "heads": 0.53,
+       "least": 1,
+       "range_km2": 300.0
+      }
+     },
+     "Saltwell": {
+      "wild boar": {
+       "heads": 4.33,
+       "least": 2,
+       "range_km2": 40.0
+      },
+      "fox": {
+       "heads": 17.24,
+       "least": 1,
+       "reach": "ring"
+      },
+      "stoat": {
+       "heads": 22.86,
+       "least": 1,
+       "reach": "ring"
+      },
+      "wolf": {
+       "heads": 2.24,
+       "least": 3,
+       "range_km2": 200.0
+      },
+      "brown bear": {
+       "heads": 0.57,
+       "least": 1,
+       "range_km2": 300.0
+      }
+     }
+    }
+   }
+  }
+ },
+ "generated": [],
+ "deviations": [
+  "cells on a jittered square grid, not Poisson-disc points with Delaunay neighbours (scipy not installed)",
+  "cells saved as .npz, not parquet (pyarrow not installed)",
+  "people: generate.py once for the region as it stands (no kin between villages yet: 37.4's, later)"
+ ],
+ "descriptions": {
+  "model": null,
+  "written": 0,
+  "failed": 0
+ },
+ "nodes": {
+  "Saltwell": {
+   "name": "Saltwell",
+   "kind": "village",
+   "site_km": [
+    30.19,
+    32.67
+   ],
+   "parcels": 11
+  },
+  "Millham": {
+   "name": "Millham",
+   "kind": "village",
+   "site_km": [
+    25.77,
+    15.43
+   ],
+   "parcels": 10
+  },
+  "w1": {
+   "name": "Flinthope",
+   "kind": "wild",
+   "site_km": [
+    20.12,
+    40.09
+   ],
+   "parcels": 2
+  },
+  "w2": {
+   "name": "Oakhurst",
+   "kind": "wild",
+   "site_km": [
+    44.81,
+    41.37
+   ],
+   "parcels": 2
+  },
+  "w3": {
+   "name": "Stanley",
+   "kind": "wild",
+   "site_km": [
+    32.06,
+    41.5
+   ],
+   "parcels": 2
+  }
+ },
+ "anchors": {
+  "the_river.source": [
+   23.0,
+   50.0
+  ],
+  "the_river.mouth": [
+   25.0,
+   0.0
+  ],
+  "the_river.point_1": [
+   25.0,
+   41.0
+  ],
+  "the_river.point_2": [
+   25.0,
+   25.0
+  ],
+  "the_river.point_3": [
+   26.0,
+   9.0
+  ],
+  "fells": [
+   25.0,
+   44.5
+  ],
+  "north_fells": [
+   25.0,
+   47.5
+  ],
+  "upper_waters": [
+   25.0,
+   45.0
+  ]
+ },
+ "refused": [],
+ "water_stocks": {
+  "water parcels stocked": 4,
+  "lakes": {}
+ },
+ "fuel": {
+  "houses": 6,
+  "firewood": 30,
+  "timber": 20
+ },
+ "fishers": {
+  "Saltwell": [
+   "Ward"
+  ],
+  "Millham": [
+   "Hayward"
+  ]
+ },
+ "spring_and_mill": {
+  "spring": {
+   "parcel": "Saltwell_2",
+   "name": "the Brine Meadow",
+   "held_by": "Hunt",
+   "salter_craft": true
+  },
+  "mill": {
+   "building": "Millham_mill",
+   "held_by": "Lowe"
+  }
+ },
+ "design": {
+  "saltwell_area": "a0",
+  "millham_area": "a6",
+  "saltwell_above_millham": true,
+  "chain": [
+   "a0",
+   "a5",
+   "a34",
+   "a27",
+   "a6"
+  ],
+  "areas_between": 3,
+  "river_km_between": 36.9,
+  "big_river_km": {
+   "Saltwell": 0.3,
+   "Millham": 7.0
+  },
+  "wild_areas_on_the_big_river": 10
+ }
+}

@@ -25,6 +25,17 @@ def generated():
     return world
 
 
+@pytest.fixture(scope="module")
+def neighbours():
+    """A layout with a neighbour's wild area within a pack's range of s1 (seed 3). The floodplains generator (D2-226) sites seed 7's
+    villages farther apart (the nearest 23.6 km), so no pack's range there reaches two villages."""
+    world, cells, report = W.generate({"name": "t", "seed": 3, "days": 10, "calendar": {"season": "summer", "day": 4, "season_days": 8},
+                                       "generate": {"seed": 3, "configuration": "settled lowland and frontier", "spacing_km": 8.0,
+                                                    "settlements": 4}})
+    world.setdefault("agents", {})
+    return world
+
+
 def build(world, history=2):
     s = copy.deepcopy(world)
     s["packs"], s["climate"] = ["wild"], {"era": "steady"}
@@ -73,8 +84,8 @@ def _s1_herds(w):
     return {h: FM.head(x) for h, x in w.s["herds"].items() if x.get("node") == "s1"}
 
 
-def test_a_pack_next_to_a_village_with_it_in_range_raids_its_unwatched_herd(generated, monkeypatch):
-    w = build(generated)
+def test_a_pack_next_to_a_village_with_it_in_range_raids_its_unwatched_herd(neighbours, monkeypatch):
+    w = build(neighbours)
     m, land, home = _areas(w)
     R = math.sqrt(WL._range_km2(m, "wolf") / math.pi)
     near = [a for a in m.ids if land["areas"][a]["kind"] == "wild" and land["areas"][a]["node"] != "s1"
@@ -161,6 +172,9 @@ def test_kinds_without_a_range_keep_the_rule_they_had_exactly(monkeypatch):
             monkeypatch.delitem(row["group"], "range_km2")
     monkeypatch.setitem(WK.KINDS["wolf"], "terr", 0.03)
     monkeypatch.setitem(WK.KINDS["wild boar"]["group"], "size", [3, 14])
+    for k in [k for k, r in WK.KINDS.items() if r.get("wave") == 6]:               # brief 5's kinds of the river and its runs, off
+        monkeypatch.delitem(WK.KINDS, k)
+    monkeypatch.setattr(WK, "RUNS", {})
     corn = dict(WK.NEAR_PEOPLE["wild boar"]["targets"][0], seasons={1: (3, 7), 2: (0, 1)})   # the corn's autumn as before (37.2, 14 Nov)
     monkeypatch.setitem(WK.NEAR_PEOPLE["wild boar"], "targets", [corn] + WK.NEAR_PEOPLE["wild boar"]["targets"][1:])
     log = _scenario(monkeypatch)
@@ -226,10 +240,10 @@ def test_a_ranging_kinds_young_stay_at_home_and_disperse_grown_at_the_years_turn
         y1 = y
 
 
-def test_a_node_with_nothing_to_come_for_is_no_village(generated, monkeypatch):
+def test_a_node_with_nothing_to_come_for_is_no_village(neighbours, monkeypatch):
     """§7.2: a ranging group's villages, and the generator's check, are the nodes with something to come for (a herd out, a field
     with a crop, a store with goods, the dead); a node stripped of all of them is left out."""
-    w = build(generated)
+    w = build(neighbours)
     m, land, home = _areas(w)
     R = math.sqrt(WL._range_km2(m, "wolf") / math.pi)
     near = [a for a in m.ids if land["areas"][a]["kind"] == "wild" and land["areas"][a]["node"] != "s1"

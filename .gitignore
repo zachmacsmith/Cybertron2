@@ -19,3 +19,6 @@ docs/assets/candidates/
 _site/
 cybertron2/specs/wild_region/
 cybertron2/specs/wild_tests/
+
+# brief 5 worlds: the fine land is remade exactly from the seed (make_water_worlds.py), not committed
+cybertron2/specs/water/*.cells.npz

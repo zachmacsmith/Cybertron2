@@ -249,6 +249,8 @@ class World:
             TH.remember(self, who, cid, "put")
         from cybertron2.engine import buildings as BL
         BL.install(self)                                                       # what does not fit in a store lies at its door (D2-155)
+        from cybertron2.engine import waters as WA
+        WA.seed(self, spec)                                                    # one fish stock a water body (D2-229)
         if "wild" in PK.of(self):                                              # the wild layer (wild_layer.md, D2-199): its land
             from cybertron2.engine import wild as WL                           # summary and starting populations; no other world
             WL.seed(self)                                                      # holds the key
@@ -292,6 +294,9 @@ class World:
                                "tier": b.get("tier", "plain"), "description": None, "lines": [], "changes": []}
         if b.get("monument"):
             s["buildings"][bid]["monument"] = b["monument"]
+        for k in ("crew", "gap"):                                               # a weir's crew, a weir's or a mill's gap (brief 5 §3)
+            if b.get(k) is not None:
+                s["buildings"][bid][k] = list(b[k]) if isinstance(b[k], list) else b[k]
         if b.get("description"):                                                # seeded words (a world file)
             s["buildings"][bid]["description"] = {"text": str(b["description"]), "by": b.get("household") or "", "day": -1}
         for i, ln in enumerate(b.get("lines") or []):

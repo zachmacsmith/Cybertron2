@@ -128,7 +128,57 @@ def build(L, nodes, km: float) -> dict:
                 break
         down[aid] = to
     home = {a["node"]: aid for aid, a in areas.items() if a["kind"] == "home"}
-    return {"version": 1, "km": km, "ring_km": RING_KM, "block_km": BLOCK_KM, "areas": areas, "links": links, "down": down, "home": home}
+    return {"version": 1, "km": km, "ring_km": RING_KM, "block_km": BLOCK_KM, "areas": areas, "links": links, "down": down, "home": home,
+            "waters": waters(L, nodes, label, areas, km)}
+
+
+def waters(L, nodes, label, areas, km: float) -> dict:
+    """The water bodies (D2-229): each lake one body, whatever areas and parcels it spans; each river-bearing area one reach, a village's home and ring together (D2-222).
+    A body holds its water's resident fish as one stock; every water parcel on it fishes that stock, and the wild layer's fish in its
+    areas are the same stock. {id: {kind, km2 (a lake's whole area) or river_km, areas {area: km2 or river km}, parcels [ids]}}; a
+    water parcel goes to the lake its cells are most in, else to the reach of the area its cells are most in."""
+    from cybertron2.landgen import field as F
+    cell_km2 = km * km
+    lake = np.asarray(L.lake, dtype=bool)
+    lab, n = F.components(lake)
+    out = {}
+    for k in range(1, n + 1):
+        m = lab == k
+        ar = {}
+        for i, c in zip(*np.unique(label[m], return_counts=True)):
+            if i >= 0:
+                ar[f"a{int(i)}"] = round(float(c) * cell_km2, 4)
+        out[f"lake:L{k}"] = {"kind": "lake", "km2": round(float(m.sum()) * cell_km2, 4), "areas": ar, "parcels": []}
+    reach_of = {}                                                          # a village's home and ring are one reach (its parcels
+    for aid, a in areas.items():                                           # hold only a cell or two of the river that runs on
+        if float(a.get("river_km") or 0) <= 0:                             # through its ring: 02zzn); each wild area its own
+            continue
+        key = f"reach:{a['node']}" if a["kind"] in ("home", "ring") and a.get("node") else f"reach:{aid}"
+        reach_of[aid] = key
+        b = out.setdefault(key, {"kind": "reach", "river_km": 0.0, "big_river_km": 0.0, "areas": {}, "parcels": []})
+        b["river_km"] = round(b["river_km"] + float(a["river_km"]), 3)
+        b["big_river_km"] = round(b["big_river_km"] + float(a.get("big_river_km") or 0), 3)
+        b["areas"][aid] = a["river_km"]
+    for s in nodes:
+        for p in s.parcels:
+            if p.cover != "water" or not p.cells:
+                continue
+            r, c = np.array([tuple(x) for x in p.cells]).T
+            ls = lab[r, c]
+            if (ls > 0).any():
+                body = f"lake:L{int(np.bincount(ls[ls > 0]).argmax())}"
+            else:
+                ai = label[r, c]
+                ai = ai[ai >= 0]
+                body = reach_of.get(f"a{int(np.bincount(ai).argmax())}") if ai.size else None
+            if body is None:                                               # water too small to be a river (a brook, a pool, wet
+                body = f"water:{p.pid}"                                    # ground by a spring): its own small body
+                out[body] = {"kind": "brook" if (np.asarray(L.river)[r, c] > 0).any() or (np.asarray(L.wet)[r, c] < 0.9).any()
+                             else "pool", "km2": round(len(p.cells) * cell_km2, 4), "areas": {}, "parcels": []}
+            out[body]["parcels"].append(p.pid)
+    for b in out.values():
+        b["parcels"].sort()
+    return out
 
 
 def _nearest_node(L, sites, km):

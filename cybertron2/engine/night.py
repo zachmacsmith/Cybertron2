@@ -13,6 +13,9 @@ from cybertron2.engine.data import DECAY, EDIBLE, FITTINGS, ITEMS, THINGS
 FIRE = tuple(f for f, d in FITTINGS.items() if d.get("fire"))
 from cybertron2.engine.world import Refused
 
+GOING_OFF = ("fish", "dried fish", "salt fish")   # store goods whose going off is smelt the morning after (signs pass, 17 Nov)
+GOING_OFF_LEAST = 0.2                                # at least this much lost in the night to be smelt (calibrate)
+
 
 def night(w) -> dict:
     s, p = w.s, w.p
@@ -71,6 +74,8 @@ def night(w) -> dict:
         w.apply("set", b["node"], ref=("building", bid), field="warm", value=warm)
         if sleepers:
             rec["hearth"][bid] = {"sleepers": len(sleepers), "lit": lit, "warm": round(warm, 2)}
+    from cybertron2.engine import keeping as KP
+    KP.night(w, rec)                                                            # smokehouse fires: tended, fuelled, caught (brief 5 §4a)
     fires = open_fires(w, today, where, rec)                                  # fires in the open, shared by 4 (D2-159)
     rec["care"] = LF.care_gifts(w, today)                                       # the largest care's food, and what is passed on (D4-64)
     tents = {}                                                                  # a tent sleeps two (D2-68): who shares whose
@@ -159,12 +164,15 @@ def night(w) -> dict:
                 hz = min(1.0, a["frailty"] + float(p["hazard"]["step"]) * (k - 1))
                 if w.rng("hazard", w.d, name).random() < hz or k >= int(p["hazard"]["max_rounds"]):
                     place = w.place_of(("person", name))
+                    told = LF.death_told(w, name, where)                        # the household and the housemates (38.75)
                     w.apply("die", place, person=name, cause="starvation")
                     rec["deaths"].append(name)
                     if place in s["nodes"]:
-                        w.event(place, "death", f"{name} died in the night, of hunger", target=name, salience=1.0, tags=["death", "food"])
+                        w.event(place, "death", f"{name} died in the night, of hunger", target=name, salience=1.0,
+                                tags=["death", "food", "family"], **told)
     rec["life"] = LF.night(w, today, rec, where)                              # conception, births, the young, old age (D2-138 to D2-150)
     rec["deaths"] += rec["life"]["deaths"] + rec["life"]["old_age"]
+    off = {}
     for cid, c in list(s["containers"].items()):                              # spoilage, by condition (D2-58, D2-87)
         if c["kind"] == "hands" and not s["people"][c["of"]]["alive"]:
             continue
@@ -180,16 +188,25 @@ def night(w) -> dict:
                     w.apply("destroy", place, src=cid, item="meat", qty=q, why="went off")
                     w.apply("create", place, dst=cid, item="rotting meat", qty=q, why="rot")
                 continue
+            if c["kind"] == "set" and (c.get("set") or {}).get("method") == "trap in water":   # alive in the water until
+                continue                                                                        # lifted (D2-211)
             r, becomes = decay_rate(w, c, item)
             if q > 1e-9 and r > 0:
                 place = w.place_of(("container", cid))
                 lost = w.apply("destroy", place, src=cid, item=item, qty=round(q * min(1.0, r), 6), why="spoilt")
                 rec["spoiled"][item] = round(rec["spoiled"].get(item, 0.0) + lost, 4)
+                if c["kind"] == "stock" and item in GOING_OFF and lost > 1e-9:       # fish going off in a store: its smell, the
+                    off.setdefault(c["of"], {})[item] = off.get(c["of"], {}).get(item, 0.0) + lost   # morning after (signs pass)
                 if becomes and lost > 1e-9:
                     w.apply("create", place, dst=cid, item=becomes, qty=lost, why="rot")
         rk = c.get("rack")
-        if rk and not rk.get("done") and w.d - int(rk["day"]) + 1 >= int(rk["nights"]):   # dry after its nights (brief 4 §5, 4c §6)
+        if rk and not rk.get("done") and KP.nights_done(w, rk) >= int(rk["nights"]):   # dry after its nights (brief 4 §5, 4c §6;
+                                                                                         # a smokehouse's, nights of fire: 5 §4a)
             _dried(w, cid, c, rk)
+    for bid, items in off.items():                                            # what went off, kept for its sign
+        if bid in s["buildings"] and sum(items.values()) >= float(GOING_OFF_LEAST):
+            w.apply("set", s["buildings"][bid]["node"], ref=("building", bid), field="spoilt",
+                    value={"day": w.d, "items": {i: round(q, 3) for i, q in sorted(items.items())}})
     for bid, b in s["buildings"].items():                                       # a camp falls in after its nights (D2-68)
         if levelled:                                                            # shelter in levels: no fixed life (brief 4 §3)
             break
@@ -280,7 +297,8 @@ def _dried(w, cid, c, rk) -> None:
     stored = 0.0
     bid = c.get("in") or c.get("door")
     b = w.s["buildings"].get(bid)
-    if b is not None and b.get("stock") in w.s["containers"] and dried > 1e-9:
+    from cybertron2.engine import keeping as KP
+    if b is not None and b.get("stock") in w.s["containers"] and dried > 1e-9 and KP.done_into_store(w, c, bid):
         have = float(c["goods"].get(rk["into"], 0.0))
         stored = round(min(have, BL.room_for(b, w.goods(b["stock"]), rk["into"])), 4)
         if stored > 1e-6:
@@ -310,7 +328,9 @@ def decay_rate(w, c, item) -> tuple:
     if c["kind"] in TH.KINDS:
         cond = "buried" if c.get("hidden") == "buried" or c.get("buried") is not None else ("open_wet" if EV.wet(w, node) else "open_dry")
         table = DECAY.get(ITEMS.get(item, {}).get("decay") or "default", DECAY["default"])
-        if (c.get("rack") or {}).get("smoke"):                                  # in the hearth's smoke: dry, the flies kept off (brief 4 §5)
+        rk = c.get("rack") or {}
+        if rk.get("smoke") and not (rk.get("smokehouse") and rk.get("out") == w.d):   # in the smoke: dry, the flies kept off (brief 4
+                                                                                     # §5); a smokehouse's fire out: the open (5 §4a)
             return spoil_rate(w.p, item, "open_dry", season, cold) * float(table.get("smoke", 1.0)), table.get("becomes")
         return spoil_rate(w.p, item, cond, season, cold), table.get("becomes")
     return spoil_rate(w.p, item, "hand", season, cold), None
@@ -324,7 +344,7 @@ def spoil_rate(p, item, where, season, cold, fittings=()) -> float:
     s = float(table.get("frozen", 1.0)) if cold else (float(table.get("warm", 1.0)) if season == "summer" else 1.0)
     if where == "store":
         keep = min([1.0] + [float(FITTINGS[f_].get("spoil", 1.0)) for f_ in fittings if f_ in FITTINGS])
-        return base * float(p["house_spoil"]) * keep * s
+        return base * float(p["house_spoil"]) * keep * s * float(table.get("store", 1.0))   # fresh fish x2 (D2-212)
     if where == "hand":
         return base * s
     if base <= 0:
@@ -524,11 +544,13 @@ def _grow(w):
     p = w.p
     from cybertron2.engine import renewal as RN
     season = w.calendar()["season"]
+    done = set()                                                                         # a body's stock is renewed once (D2-229)
     for pid, par in w.s["parcels"].items():
         for key, r in par["res"].items():
             rule = RN.of(key, r)                                                         # woods: forests.night (D2-156)
-            if rule not in RN.NIGHTLY or r["K"] <= 0:
+            if rule not in RN.NIGHTLY or r["K"] <= 0 or id(r) in done:
                 continue
+            done.add(id(r))
             S = RN.RULES[rule](p, r, RN.context(w, par, winter=winter, season=season))   # with its place's weather (D4-113)
             if S != r["S"]:
                 w.apply("set_res", par["node"], parcel=pid, key=key, fields={"S": S})
@@ -592,6 +614,8 @@ def _wear_night(w, bid, b, p) -> bool:
         causes.append("snow")
     if lab == "heavy rain" and int((w.s["parcels"].get(b.get("parcel")) or {}).get("height", 1)) == 0 and st_ != "stone":
         causes.append("flood")
+    if b.get("monument") == "weir":                                           # a weir wears by its sections, by the river (D2-210:
+        return False                                                           # wild._weir_wear)
     lv = BL.level(b)
     if lv in (3, 4) and w.d - int(b.get("level_since", -999) if b.get("level_since") is not None else -999) >= int(W["unmended_days"]) \
             and b.get("level_since") is not None:

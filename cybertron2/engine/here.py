@@ -88,7 +88,27 @@ class Here:
                 other = r["b"] if r["a"] == self.node else r["a"]
                 nm = self._w.s["nodes"][other]["name"] if self._w.knows_place(self.name, other) else r.get("way", "an unexplored way")
                 out.append((other, nm, r["days"], r.get("track", False)))
+        names = [x[1] for x in out]                                             # ways of the same name told apart by where they
+        if len(set(names)) < len(names):                                        # lead (38.75: "the open road" three times)
+            out = [(o, f"{nm} {self._heading(o)}" if names.count(nm) > 1 else nm, d, t) for o, nm, d, t in out]
+            seen = {}
+            for i, (o, nm, d, t) in enumerate(out):                             # still the same: numbered
+                seen[nm] = seen.get(nm, 0) + 1
+                if [x[1] for x in out].count(nm) > 1:
+                    out[i] = (o, f"{nm} ({seen[nm]})", d, t)
         return sorted(out, key=lambda x: x[1])
+
+    def _heading(self, other) -> str:
+        """Which way a road leaves here, by the places' positions: 'to the north', 'to the south-east'; '' without positions."""
+        a, b = (self._w.s["nodes"].get(self.node) or {}).get("xy"), (self._w.s["nodes"].get(other) or {}).get("xy")
+        if not a or not b:
+            return ""
+        import math
+        dx, dy = float(b[0]) - float(a[0]), float(b[1]) - float(a[1])
+        if abs(dx) + abs(dy) < 1e-9:
+            return ""
+        ang = math.degrees(math.atan2(dx, dy)) % 360                            # 0 north (y up), 90 east
+        return "to the " + ["north", "north-east", "east", "south-east", "south", "south-west", "west", "north-west"][int((ang + 22.5) // 45) % 8]
 
     # ------------------------------------------------------------------ me
     @property
@@ -405,6 +425,47 @@ class Here:
         household knows them without a roll (brief 4c §6.4)."""
         return {cid: c for cid, c in self._w.s["containers"].items() if c.get("kind") == "pile" and c.get("node") == self.node
                 and not c.get("hidden") and (c.get("in") == bid or c.get("door") == bid)}
+
+    # the smokehouse and the brine spring (brief 5 §4a, §4b; keeping.py)
+    def rack_room(self, bid, tech) -> float:
+        from cybertron2.engine import keeping as KP
+        return KP.room(self._w, bid, tech)
+
+    def rack_full(self, bid, tech) -> str:
+        from cybertron2.engine import keeping as KP
+        return KP.full_words(self._w, bid, tech)
+
+    def smoke_fuel_nights(self, bid) -> int:
+        from cybertron2.engine import keeping as KP
+        return KP.fuel_nights(self._w, bid)
+
+    def river_parcel(self, pid) -> bool:
+        """Whether a parcel here is water on a river (brief 5 §3)."""
+        from cybertron2.engine import wild as WL
+        return bool(WL._river_parcel(self._w, pid))
+
+    def has_gap(self, b) -> bool:
+        """Whether a building is a weir or a water mill with a gap (brief 5 §3, §3a)."""
+        from cybertron2.engine import wild as WL
+        return bool(WL.has_gap(self._w, b))
+
+    def mill_water(self, b):
+        """The water parcel a mill holds (brief 5 §3a)."""
+        from cybertron2.engine import wild as WL
+        return WL.mill_water(self._w, b)
+
+    def mill_rate(self, b) -> float:
+        """The water wheel's grinding rate by its gap (brief 5 §3a)."""
+        from cybertron2.engine import wild as WL
+        return WL.mill_rate(self._w, b)
+
+    def near_spring(self, pid, kind="brine") -> bool:
+        from cybertron2.engine import keeping as KP
+        return KP.near_spring(self._w, pid, kind)
+
+    def hung_by_household(self, c, bid) -> bool:
+        """A rack hung by one of the household that holds the building it hangs in."""
+        return c.get("by") in self._w.s["people"] and bid in self._w.homes(c["by"])
 
     def thing(self, cid) -> dict:
         c = self._w.s["containers"].get(cid)

@@ -165,6 +165,12 @@ def _craft_note(tech) -> str:
                 bits.append("ground floor only")
         if tech in MONUMENTS:
             bits.append("a monument: no room, 3 lines")
+        if f.get("apart"):                                                     # a smokehouse (brief 5 §4a)
+            bits.append("in a building of its own, with no beds or hearth")
+        if f.get("spring"):                                                    # a brine pan (brief 5 §4b)
+            bits.append(f"only in a building at or beside a {f['spring']} spring")
+    if t.get("manual"):                                                        # how it is done, for those who know it (brief 5 §6)
+        bits.append(t["manual"])
     return tech + (f" ({', '.join(bits)})" if bits else "")
 
 
@@ -395,6 +401,18 @@ def building_line(here, bid) -> str:
         wk = b.get("works")
         if wk:
             head += f"; {V._works_words(wk)} under way"
+    from cybertron2.engine import wild as WL
+    if here.has_gap(b):                                                 # a weir's or a mill's gap (brief 5 §3, §3a), as it stands
+        head += (f"; its gap {WL.gap(b)}" if WL.is_weir(b) else
+                 "; its hatches " + ("shut, the water held above the dam" if WL.gap(b) == "shut" else "drawn, the water let past"))
+        if WL.is_weir(b):                                                       # its sections as they stand (D2-210)
+            secs = WL.sections(b)
+            words = [("stone-footed " if sc.get("foot") else "") + sc["m"] + f" {BL.LEVELS[int(sc['level'])]}" for sc in secs]
+            head += f"; {len(secs)} section{'s' if len(secs) != 1 else ''} ({', '.join(words)})"
+            if b.get("weir_work"):
+                head += f"; {'a timber section' if b['weir_work']['part'] == 'timber' else 'a stone footing'} under way"
+        if WL.is_weir(b) and b.get("crew"):
+            head += f"; worked by {', '.join(b['crew'])}"
     desc = (b.get("description") or {}).get("text")
     return head + (f"; held by {held}" if held else "") + (f"; its builders' words: \u201c{BL.cap_text(desc, 'description')}\u201d" if desc else "")
 
@@ -590,7 +608,11 @@ def house_known(here, bid, daily=False) -> list:
             for i, q in c["goods"].items():
                 door[i] = door.get(i, 0.0) + float(q)
             continue
-        at = "on the rack by the hearth" if c.get("in") == bid else "on the rack by the fire at its door"
+        house = bool(rk.get("smokehouse"))                                     # a smokehouse's racks (brief 5 §4a.5): below
+        at = "on the smoke racks" if house else "on the rack by the hearth" if c.get("in") == bid else "on the rack by the fire at its door"
+        dry = "smoked" if house else "dry"
+        if not rk.get("done") and house:
+            continue
         if not rk.get("done"):
             q = sum(float(v) for i, v in c["goods"].items() if ITEMS.get(i, {}).get("decay") == "drying meat")
             if q > 1e-6:
@@ -600,22 +622,28 @@ def house_known(here, bid, daily=False) -> list:
         into, dried, stored = rk["into"], float(rk.get("dried", 0.0)), float(rk.get("stored", 0.0))
         rest = float(c["goods"].get(into, 0.0))
         if int(rk["done"]) == here.day - 1 and dried > 1e-6:
+            theirs = house and not here.hung_by_household(c, bid)
             if rest <= 1e-6:
-                out.append(f"dry overnight: about {show(round(dried, 1))} {into}, put in the store")
+                out.append(f"{dry} overnight: about {show(round(dried, 1))} {into}, put in the store")
+            elif theirs:
+                out.append(f"{dry} overnight: about {show(round(dried, 1))} {into}, {at} for {c['by']}, who hung it")
             elif stored > 1e-6:
-                out.append(f"dry overnight: about {show(round(dried, 1))} {into}; {show(round(stored, 1))} put in the store, and "
+                out.append(f"{dry} overnight: about {show(round(dried, 1))} {into}; {show(round(stored, 1))} put in the store, and "
                            f"{show(round(rest, 1))} left {at}: the store is full")
             else:
-                out.append(f"dry overnight: about {show(round(dried, 1))} {into}, left {at}: the store has no room for it")
+                out.append(f"{dry} overnight: about {show(round(dried, 1))} {into}, left {at}: the store has no room for it")
         elif rest > 1e-6:
-            out.append(f"{at}: {show(round(rest, 1))} {into}, dry, waiting to be taken")
+            out.append(f"{at}: {show(round(rest, 1))} {into}, {dry}, waiting to be taken")
+    if b["fittings"].get("smoke racks"):                                       # what cures, its fire and fuel (brief 5 §4a.5)
+        from cybertron2.engine import keeping as KP
+        out += KP.house_lines(here, bid)
     door = {i: q for i, q in door.items() if q > 0.05}
     if door:
         food = _meals(door)
         out.append("left at its door: " + ", ".join(f"{show(q)} {i}" for i, q in sorted(door.items(), key=lambda kv: -kv[1]))
                    + (f" (food worth {show(food)} meals)" if food > 0.05 else ""))
     if (not b["fittings"].get("beds") and b.get("built_day") is not None and not b.get("unfinished") and b.get("structure") != "camp"
-            and not b.get("monument")):
+            and not b.get("monument") and not any(b["fittings"].get(f_) for f_ in ("smoke racks", "brine pan"))):   # a work-house (5 §4)
         hearth = any(b["fittings"].get(f_) for f_ in ("hearth", "fire ring"))
         out.append(f"{b['name']} has no beds{'' if hearth else ' or hearth'}: no one can sleep there yet")
     return out

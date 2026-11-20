@@ -144,9 +144,10 @@ def wild(ctx, par):
     if par["id"] in ctx.as_field:
         return []
     out = []
+    from cybertron2.engine import waters as WA
     for key, res in (par.get("res") or {}).items():
-        if RN.of(key, res) not in RN.NIGHTLY or float(res.get("K", 0)) <= 0:
-            continue
+        if RN.of(key, res) not in RN.NIGHTLY or float(res.get("K", 0)) <= 0 or not WA.lead(ctx.w, par["id"], key):
+            continue                                                            # a water body's stock counted once (D2-229)
         gs = [(t, d) for t, d in _gatherers(key) if _usable(ctx, t, d)]
         if not gs:
             continue
