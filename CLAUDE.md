@@ -17,6 +17,11 @@ are in `docs/review/37_growth/`.
 Zach (9 Nov): "every time we start on something new it has to be added to the currently working and we can track how large the
 unfinished work goes."
 
+**The records are items, written with one tool** (D2-232 to D2-239): `python3 tools/records.py` (the skill
+`.claude/skills/records` says which call for which event). OPEN.md, WORK.md and DECISIONS.md are views rendered from
+`docs/cybertron2/items/`; a hand edit to a view is taken in at the next render, but write with the tool. Status answers come
+from `records status`; commits from `records commit` (typed subjects and trailers, D2-235).
+
 - **Starting anything new** (a task, a brief, a phase, a build, a review, a run): first add a row to `docs/cybertron2/WORK.md`, "In
   progress" (owner and session, started, where, what it is), then begin.
 - **Stopping before it is done** (Zach turns to something else, a phase or a brief is left part-way, the session ends): update the
