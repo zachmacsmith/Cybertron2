@@ -305,6 +305,32 @@
    "berries": 4
   }
  },
+ "larder": {
+  "Brook": {
+   "people": 5,
+   "food": 44.0,
+   "goods": {
+    "dried meat": 7,
+    "roots": 28
+   }
+  },
+  "Marsh": {
+   "people": 5,
+   "food": 44.0,
+   "goods": {
+    "dried meat": 7,
+    "roots": 28
+   }
+  },
+  "Shepherd": {
+   "people": 2,
+   "food": 17.6,
+   "goods": {
+    "dried meat": 3,
+    "roots": 11
+   }
+  }
+ },
  "design": {
   "big_river_km": 0.3,
   "weir_water": "Eelmouth_8",

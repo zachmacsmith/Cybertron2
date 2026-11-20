@@ -16,7 +16,7 @@ Made by `cybertron2/specs/make_nutrition_runs.py`, seed 5.
 - **What makes it runs-only:**
   - no fields, seed or herds, and no farm goods in store;
   - no resident fish stocked;
-  - a late-summer larder of weeks, not a winter;
+  - a larder of about 8 days of food (dried meat and roots), enough to reach the autumn runs and no more;
   - game and wild plants at the land's own level.
 
   The people know only their fishing crafts at the arm's level. This isolation is approximate: exact per-world switches for game

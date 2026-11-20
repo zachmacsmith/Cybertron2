@@ -47,6 +47,9 @@ ARMS = {
              "weir": ["wattle", "timber", "timber"], "racks": True, "salt": True},
 }
 SALT_STORE = 10                               # the high arm's salt house: salt for about 40 fish (salt fish: 4 fish to 1 salt)
+LARDER_DAYS = 8                               # the larder carries the village to the autumn runs (the eels' set nights fall about days 5 to
+                                              # 8 of the run) with a little margin, and no further: the winter is what the runs give
+LARDER = {"dried meat": 0.5, "roots": 0.5}       # its make-up, as shares of the food
 
 
 def spec(seed: int) -> dict:
@@ -125,6 +128,31 @@ def _salt_house(world, nid, hh):
     return {"spring": spring, "salt_house": bid, "salt": SALT_STORE}
 
 
+def larder(world: dict) -> dict:
+    """Each house's larder replaced by LARDER_DAYS of its people's food (a person about 1.1 food a day with work), as LARDER's goods
+    by their food value: enough to reach the runs, not a winter. (The first maker's larder, the runs world's RUNS_STORE, fed 12
+    people for five days.)"""
+    from cybertron2.engine.data import ITEMS
+    nid = _node(world)
+    out = {}
+    for hh, members in WW._households(world, nid).items():
+        bid = next((k for k, b in world["buildings"].items() if b.get("household") == hh and (b.get("fittings") or {}).get("beds")
+                    and b.get("stock") is not None and str(b.get("parcel", "")).startswith(nid + "_")), None)
+        if bid is None:
+            continue
+        stock = world["buildings"][bid]["stock"]
+        for g in WW.RUNS_STORE:
+            stock.pop(g, None)
+        need = 1.1 * LARDER_DAYS * len(members)
+        put = {}
+        for g, share in LARDER.items():
+            fv = float(ITEMS[g]["food"]) or 1.0
+            put[g] = round(need * share / fv)
+            stock[g] = stock.get(g, 0) + put[g]
+        out[hh] = {"people": len(members), "food": round(need, 1), "goods": put}
+    return out
+
+
 def check(world: dict) -> dict:
     """The village is on the large river, its water has a parcel for a weir, and the runs pass it."""
     from cybertron2.engine.world import World
@@ -149,6 +177,7 @@ def make(seed: int):
         return s, None, None, report
     report["fuel"] = WW.stock_fuel(world)
     report["no_farming"] = WW.no_farming(world)
+    report["larder"] = larder(world)
     report["design"] = check(world)
     return s, world, cells, report
 

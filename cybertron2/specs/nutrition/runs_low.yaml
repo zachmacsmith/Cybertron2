@@ -96,7 +96,7 @@ nodes:
           drain_rate: 0.08
           depth: 1.19
           base_fertility: 1.181
-          position: hollow
+          position: slope
           rain_factor: 1.042
           sea_km: 99.0
           river: none
@@ -245,7 +245,7 @@ nodes:
           drain_rate: 0.25
           depth: 1.19
           base_fertility: 1.025
-          position: hollow
+          position: slope
           rain_factor: 0.993
           sea_km: 99.0
           river: none
@@ -598,10 +598,8 @@ buildings:
     stock:
       timber: 28
       firewood: 60
-      dried meat: 4
-      roots: 6
-      acorns: 6
-      berries: 4
+      dried meat: 7
+      roots: 28
   marsh_house:
     name: Marsh House
     parcel: Eelmouth_0
@@ -615,10 +613,8 @@ buildings:
     stock:
       timber: 28
       firewood: 60
-      dried meat: 4
-      roots: 6
-      acorns: 6
-      berries: 4
+      dried meat: 7
+      roots: 28
   shepherd_house:
     name: Shepherd House
     parcel: Eelmouth_0
@@ -632,10 +628,8 @@ buildings:
     stock:
       timber: 28
       firewood: 42
-      dried meat: 4
-      roots: 6
-      acorns: 6
-      berries: 4
+      dried meat: 3
+      roots: 11
   brook_byre:
     name: the Brook Byre
     parcel: Eelmouth_0
