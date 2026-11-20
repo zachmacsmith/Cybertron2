@@ -92,8 +92,12 @@ link written by hand.
 **Ids.** The series stay flat, never nested under threads (thread_tracking.md, "The ids"). A new id comes from `records new`
 after a fetch. The commit hook refuses an id already on main, and the push check refuses a duplicate.
 
+**The spec is rendered from the decisions.** Each decision item carries its area (`spec: environment/land`) and the rule as
+stated. A spec page is its area's live decisions in order, with the replaced ones left out. Hand-written prose stays possible
+for structure (headings, a table that groups rules), but a decision is in the spec the moment it is recorded. This removes the
+most-lost write in 02zzp: about 50 decisions in no spec file, and W-9 and W-10 not begun since 2 and 3 Nov.
+
 **The other layers keep their form:**
-- **Spec:** what is decided, each rule citing its decision.
 - **Proposals:** one file per idea, with its History. The status covers the decision axis only; the build axis is derived.
 - **Session notes:** long analysis. A list of plans or issues in a note must tag each line with an id or "dropped"; a check finds
   untagged lines.
@@ -108,6 +112,7 @@ after a fetch. The commit hook refuses an id already on main, and the push check
 | The end of every reply | `records stopcheck` (Stop hook) | a reply that promises, offers or leaves work, with no record changed in the turn, is sent back | the agent |
 | Every push to main | the Action | every truth check (hygiene's and 02zzp's); the views rendered; the status page rebuilt; the ids whose code has just reached main listed (the merge checklist) | the run's summary; the next brief |
 | Weekly | a scheduled task | a digest page: what moved, what is stuck and on what, asks older than a week with their defaults, the size of unfinished work against last week | Zach |
+| Before any paid run or build handed over | `records sheet <world or brief>` | the settings against the defaults; what has been added or changed since Zach last looked; a map or picture where there is one | Zach, before he says go |
 | On demand | `records new`, `close`, `move`, `show <id>` (the tree under a thread), `status` | the agent's verbs; every status answer comes from `status`, not memory | the agent, then Zach in chat |
 
 **Zach runs nothing.** He reads the desk (the status page: his asks with context, recommendations and defaults; what moved; what is
@@ -116,6 +121,12 @@ stuck) and answers in chat, as now.
 ## 5. Git
 
 - **Records go to main, always,** in the same commit as the work they describe. Docs already do.
+- **Who changes code.** Any session may change code, on a short-lived branch named for its thread, with a row. The owner of the
+  area (37.4 for the engine) is named on the merge, and their objection is an ask. This replaces "code under `cybertron2/` is
+  changed only by 37.4", which Zach overrode on 1 Nov, 9 Nov and 17 Nov.
+- **Code built without a decision opens an ask.** A commit that changes code under a thread with no decision behind it opens a
+  "built without decision" ask, the retrospective proposal's trigger. Today 37.4 writes these and 37.2 almost never does (about 45
+  against 1).
 - **Code is merged early, with new behaviour switched off.** A branch per thread, named for it (`w62-water`), one level deep:
   nothing branches from an unmerged branch except a fix merged back within a day. The branch merges to main once the tests pass,
   with any new behaviour behind a world-spec switch that is off by default. **Zach's go then moves from "merge" to "switch on".**
@@ -131,7 +142,35 @@ stuck) and answers in chat, as now.
 
 ## 6. How it fits the way Zach works
 
-(From the review of how Zach works well, 02zzq §2; written after it.)
+Measured in 02zzq §2, from Zach's messages since 22 Oct, the commits and the records. Each finding is followed by what the design
+takes from it.
+
+| What works, or fails, for Zach | Evidence | So the design |
+|---|---|---|
+| **Numbered asks, answered in terse numbered replies,** are the fastest route from a question to a recorded rule | the reply is committed 1 to 3 minutes after it; the 22 Oct to 2 Nov period, rich in numbered replies, gave 191 of the 231 D2 rows | makes the **ask digest the interface** (below) |
+| A digest he asks for gets answered; asks never put to him stay open | "List out the open questions to me with context for each" (16 Nov): 25 asks, answered in 27 minutes, 8 decisions a minute later; 57 Q rows open; he never cites an OPEN id unprompted | shows the digest at the start of each burst and on demand; parses his numbered reply at once |
+| **"Yes to all" on a long menu** records quickly but loses what was meant | the 22 to 24 Oct burst decided gates, ledgers, specialised tools and node raids, never built; "did you build the complex behavioral mechanisms… I thought the first was what you were adding?" (9 Nov) | keeps a digest to about 8 asks, each one choice; a decision gets its build axis, so "decided, not built" shows in the brief |
+| **A record that is one row lands; prose owed elsewhere does not** | "flag", "defer", "add the rule": the row in the same minute; the spec: 84 commits by 2 Nov, 37 since; about 50 decisions in no spec file; W-9 and W-10 not begun since 2 and 3 Nov | records every event as **one item**; **the spec is rendered from the decisions**, not written out after them (§3) |
+| **Measurements he can check** become decisions fast, and the decisions hold | "Why did it take them 24 times": model at 18:31, D2-162 built at 18:38 (29 Oct); the food table on 17 Nov gave D2-230 in 12 minutes; prototypes he could not judge went badly (9 Nov) | puts a measurement or a picture with any ask it can settle |
+| **A brief handed to 37.4** gets built fastest, and nothing closes the records afterwards | Package F decided 05:52, built 06:13 (24 Oct); brief 1 in 50 minutes (9 Nov); briefs 4 to 4c built with no D rows; 17 proposals say "not built" of code on main | records closing itself at the merge (§5); the build axis derived |
+| **Circling a topic** gives real work; the open stretch without asks gives most of the losses | ecology through four proposals in 30 hours, then built; 7 to 15 Nov: 289 messages, almost no numbered asks, 17 D2 rows, and "you just redescribed what we already have" | gives each area **one page of what already exists** (`records show area:<name>`: its proposals, decisions, code and rows), read before designing in it; offers a digest when a burst has gone a while with no asks |
+| **A redirection loses nothing when the old thread is parked in the same turn** | kept: L-33, Package E, forays (L-105), the one-parcel revert; lost: four ecology proposals never marked replaced, the 3 Nov generator critique followed by 38 silent hours | has the stop check park the old thread (a row, or "replaced by"), keyed by its id in the commit trailers |
+| **His probing questions** find what the records hide: done or not, promises dropped, things changed without telling him, what a claim rests on | about 39 "did you / you were gonna" questions; "Did u do it?"; Q-59; "I don't know why you changed that" (the lifespan) | puts each item's merge state, the open promises, **a sheet of changes from the defaults before any paid run or build**, and the checks behind any "done" in the desk |
+| He reads **chat, pictures and run data,** not the registers | the board named 4 times, last "don't post anything more on the board for now" (8 Nov); three running records he asked for on 22 Oct stopped within a day; "Generate an image… so I can check it before running" caught the wild-node cap | sends nothing to Zach through a register; the desk page and the digest in chat are his views |
+| **Bursts with long gaps,** about ten threads touched at once | 21 bursts of 0.1 to 17.6 hours, gaps up to 131 hours; 10 of 21 returns open with a status question, each answered from memory | answers every status question from `records status`; the brief opens each session; the weekly digest covers the gaps |
+| **Records that carried weight** were one-row appends in a series of their own | DECISIONS (by session, never collided); the deferred table (each row quotes him); WORK (the only thing that carried items across compactions) | keeps these as items; drops what went stale by hand (Status lines, the board's status table, "Current as of", the outcome log) by deriving them |
+| **The rule that only 37.4 changes code** is overridden and makes branches multiply | overridden on 1 Nov, 9 Nov and 17 Nov ("Make the changes yourself and tell them"); 13 branches ahead of main | replaces it with: any session changes code on a short-lived thread branch with a row, merged behind a switch; the area's owner is named on the merge (§5) |
+| He needs **plain meanings** of the records' words | about 69 "what is…" messages: clappers, a spate wreck, the year's length; "wdym hen is a good?" exposed a design fault | names briefs and packages beside ids (he speaks in them: "brief 5", "package C"); keeps a glossary of world terms that the digest links to |
+
+**The ask digest.** Numbered asks, at most about 8, one choice each. Each carries:
+- its context in two or three lines, with a measurement or a picture where one can settle it;
+- 37.2's recommendation;
+- a default and the date it applies;
+- its urgency (what waits on it).
+
+It comes at the start of a burst, when he asks, and when a burst has gone a while without asks. His numbered reply is recorded
+item by item in the same minute: a decision only where he states one; "default taken" where he says "sure" to a recommendation,
+named as such.
 
 ## 7. The fail states, and what catches each
 
@@ -163,9 +202,13 @@ OPEN Q-64:
 1. The store: one file per item (B, recommended), keep the tables (A), or the registry (C)?
 2. Merge early behind switches, with Zach's go on switching on rather than on merging?
 3. Views rendered only by the bot and never edited by hand?
-4. The board (§6)?
-5. Asks to Zach in numbered batches at natural pauses, each with a recommendation and a default that applies after a set number
-   of days?
+4. The board for hand-offs between sessions only, with no status table (§6)?
+5. The ask digest as Zach's interface: at most about 8 asks, each one choice with a recommendation and a default date, at the
+   start of each burst and on demand (§6)?
+6. The spec rendered from the decisions (§3), with hand-written prose only for structure?
+7. Any session may change code on a thread branch, with the area's owner named on the merge (§5)? This replaces the 37.4-only
+   rule.
+8. A sheet of changes from the defaults before every paid run and every brief handed over (§4)?
 
 ## Affects
 
@@ -174,6 +217,8 @@ Every session's habits (CLAUDE.md's work rules); `tools/` (hygiene folded into `
 
 ## History
 
+- 20 Nov 2026: §6 written from 02zzq §2 (how Zach works well). This added the ask digest, the spec rendered from decisions, the
+  pre-run sheet, an area page before designing, code changed by any session on thread branches, and plain words.
 - 20 Nov 2026: written by 37.2 at Zach's request, after 02zzp and thread_tracking.md.
 
 ## Sources
