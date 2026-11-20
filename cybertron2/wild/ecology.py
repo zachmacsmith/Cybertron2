@@ -44,8 +44,14 @@ def features(land: dict) -> tuple:
     heath = cov("heath", "moor")
     field = cov("field")
     wet = np.clip(cov("fen", "saltmarsh") + eco("alder carr", "wet grassland", "reedbed"), 0, 1)
-    water = np.clip(cov("water") + np.array([a["lake_km2"] + 0.12 * a["river_km"] * km + 0.6 * a["big_river_km"] * km for a in A]) / km2,
-                    0, 1)
+    # water as a share of the land: the water cover (lakes and the large river's cells are water already) less what of the large
+    # river's cells is bank (its channel fills about 0.6 of a 150 m cell, as the fowl's split reads it: engine/wild.py _water_parts),
+    # plus the small streams, which run under meadow and wood (about 0.12 of a cell's width). Lakes and the large river were
+    # counted twice before (in the cover and again by length and area: 37.4's finding, 16 Nov)
+    water = np.clip(np.maximum(cov("water") * km2 - np.array([0.4 * a["big_river_km"] * km for a in A]),
+                               np.array([a["lake_km2"] for a in A]))
+                    + np.array([0.12 * max(0.0, a["river_km"] - a["big_river_km"]) * km for a in A]), 0, None) / km2
+    water = np.clip(water, 0, 1)
     farm = np.clip(home * (field + grassy + cov("built")) + ring * 0.4 * (grassy + field), 0, 1)
     f = {"wood": wood, "shrub": shrub, "open": np.clip(1 - wood - cov("water"), 0, 1), "grassy": grassy, "heath": heath, "wet": wet,
          "water": water, "rock": np.array([a["rock"] for a in A]), "old": np.array([a["old_wood_km2"] for a in A]) / km2,
