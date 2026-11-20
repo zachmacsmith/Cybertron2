@@ -20,8 +20,8 @@
     "kind": "lake",
     "name": "the_mere",
     "at": [
-     0.5,
-     0.52
+     0.22,
+     0.45
     ],
     "r": 0.06
    }
@@ -31,7 +31,7 @@
   "lake_min_km2": 0.1,
   "seed": 2
  },
- "settings why": "upland and moor with a laid mere (brief 5's lake primitive), its beck and outflow left to the land's own drainage (a laid beck into it was refused on 3 of 4 seeds: 'laid rivers run where laid'), tarns where the upland's hollows allow (lake_min_km2 0.1 lets the smaller ones stand); 1,400 mm and 9 C at a Lakeland valley foot (Keswick, Ambleside 1,450 to 1,800)",
+ "settings why": "upland and moor with a laid mere (brief 5's lake primitive) at the fells' foot, its beck and outflow left to the land's own drainage, and tarns where the upland's hollows allow (lake_min_km2 0.1 lets the smaller ones stand); a seed whose mere does not hold 1 km2 is refused (the laid lake came out 0 to 37 km2 by seed: the audit). On the fells' flank the mere never held (the land falls 200 m across it), and a laid beck into it was refused on 3 of 4 seeds ('laid rivers run where laid'). 1,400 mm and 9 C at a Lakeland valley foot (Keswick, Ambleside 1,450 to 1,800)",
  "generator checks": {
   "rivers run downhill": true,
   "laid rivers run where laid": true,
@@ -50,173 +50,180 @@
   "predators within range": true
  },
  "land": {
-  "land km2": 2442.0,
+  "land km2": 2402.0,
   "sea share": 0.0,
   "height": {
-   "median m": 121.0,
-   "p95 m": 615.9,
+   "median m": 122.9,
+   "p95 m": 619.1,
    "max m": 1131.0,
-   "share over 300 m": 0.2042,
-   "share over 500 m": 0.0925,
-   "share over 1000 m": 0.0011
+   "share over 300 m": 0.2072,
+   "share over 500 m": 0.094,
+   "share over 1000 m": 0.0012
   },
   "slope": {
-   "median deg": 2.0,
-   "p95 deg": 13.7,
-   "share over 10 deg": 0.0977,
-   "share over 25 deg": 0.0055
+   "median deg": 2.1,
+   "p95 deg": 13.9,
+   "share over 10 deg": 0.1002,
+   "share over 25 deg": 0.006
   },
   "terrain": {
-   "chalk down": 0.0488,
-   "clay vale": 0.148,
-   "hills": 0.1024,
-   "lowland loam": 0.3746,
-   "moor": 0.0075,
-   "river floodplain": 0.1249,
-   "river terrace": 0.083,
-   "rock": 0.0016,
-   "sandy ground": 0.0167,
-   "upland pasture": 0.0652,
-   "water": 0.0271
+   "chalk down": 0.0473,
+   "clay vale": 0.1475,
+   "hills": 0.104,
+   "lowland loam": 0.3725,
+   "moor": 0.0051,
+   "river floodplain": 0.113,
+   "river terrace": 0.0835,
+   "rock": 0.0017,
+   "sandy ground": 0.0165,
+   "upland pasture": 0.0658,
+   "water": 0.043
   },
-  "floodplain share": 0.1249,
-  "terrace share": 0.083,
+  "floodplain share": 0.113,
+  "terrace share": 0.0835,
   "low ground": {
-   "share of land within 2 m of a river": 0.1641,
-   "share of land within 3 km of a river of class 2+ that is within 2 m of it": 0.223
+   "share of land within 2 m of a river": 0.1536,
+   "share of land within 3 km of a river of class 2+ that is within 2 m of it": 0.2098
   },
-  "wet ground share (wet >= 0.75)": 0.0813,
+  "wet ground share (wet >= 0.75)": 0.0768,
   "texture": {
-   "sand": 0.0881,
-   "loam": 0.658,
-   "clay": 0.1864,
-   "chalk": 0.0676,
+   "sand": 0.0891,
+   "loam": 0.6663,
+   "clay": 0.1862,
+   "chalk": 0.0584,
    "peat": 0.0
   },
   "soil": {
    "depth m mean": 1.01,
-   "held mm mean": 157.4,
-   "drain mean": 0.25,
-   "fertility mean": 0.92
+   "held mm mean": 157.0,
+   "drain mean": 0.249,
+   "fertility mean": 0.919
   },
   "cover": {
-   "fen": 0.0159,
-   "forest": 0.2919,
+   "fen": 0.0148,
+   "forest": 0.2871,
    "heath": 0.0014,
-   "meadow": 0.0966,
-   "moor": 0.1151,
-   "pasture": 0.4505,
-   "rock": 0.0016,
-   "water": 0.0271
+   "meadow": 0.0871,
+   "moor": 0.1143,
+   "pasture": 0.4506,
+   "rock": 0.0017,
+   "water": 0.043
   },
   "ecosystem": {
-   "alder carr": 0.0085,
-   "bare rock": 0.0016,
-   "beech wood": 0.0097,
-   "birch and pine wood": 0.0042,
-   "blanket bog": 0.0018,
-   "chalk grassland": 0.0139,
-   "fen": 0.0159,
-   "grassland": 0.2658,
-   "hay meadow": 0.0628,
-   "hill pasture": 0.1709,
+   "alder carr": 0.0082,
+   "bare rock": 0.0017,
+   "beech wood": 0.0094,
+   "birch and pine wood": 0.004,
+   "blanket bog": 0.0016,
+   "chalk grassland": 0.0128,
+   "fen": 0.0148,
+   "grassland": 0.2654,
+   "hay meadow": 0.0548,
+   "hill pasture": 0.1724,
    "lowland heath": 0.0014,
-   "moor": 0.1134,
-   "oak-ash wood": 0.0776,
-   "upland oak wood": 0.1919,
-   "water": 0.0271,
-   "wet grassland": 0.0337
+   "moor": 0.1127,
+   "oak-ash wood": 0.0756,
+   "upland oak wood": 0.1899,
+   "water": 0.043,
+   "wet grassland": 0.0323
   },
   "tree line": {
-   "lowest land too cold for wood, m": 619.2,
-   "highest wood (p99), m": 442.2,
-   "land above the tree line share": 0.0458
+   "lowest land too cold for wood, m": 619.1,
+   "highest wood (p99), m": 442.4,
+   "land above the tree line share": 0.0467
   },
   "water": {
-   "lake share": 0.024,
-   "lakes": 10,
-   "largest lake km2": 17.39,
+   "lake share": 0.0399,
+   "lakes": 12,
+   "largest lake km2": 38.41,
    "river km by class": {
-    "1": 152.7,
-    "2": 104.0,
-    "3": 51.9
+    "1": 141.8,
+    "2": 101.1,
+    "3": 52.2
    },
-   "springs": 284
+   "springs": 299
   },
   "climate (the generator's)": {
    "rain mm": {
-    "median": 1197.2,
+    "median": 1199.3,
     "p5": 1100.4,
-    "p95": 3156.2
+    "p95": 3202.0
    },
-   "mean temp C": 7.71,
+   "mean temp C": 7.7,
    "coldest land C": 1.46
   },
   "probes": {
    "all land": {
-    "cells": 108533,
-    "height m": 121.0,
-    "rain mm": 1197.2,
-    "mean temp C": 7.71,
-    "wet": 0.376,
-    "held mm": 157.4,
-    "drain": 0.25
+    "cells": 106756,
+    "height m": 122.9,
+    "rain mm": 1199.3,
+    "rain mm mean": 1534.0,
+    "mean temp C": 7.7,
+    "wet": 0.371,
+    "held mm": 157.0,
+    "drain": 0.249
    },
    "coast (within 3 km of the sea)": {
     "cells": 0
    },
    "inland lowland (over 10 km from the sea, under 150 m)": {
-    "cells": 63688,
-    "height m": 85.1,
-    "rain mm": 1210.4,
+    "cells": 61980,
+    "height m": 83.5,
+    "rain mm": 1214.1,
+    "rain mm mean": 1497.0,
     "mean temp C": 8.59,
-    "wet": 0.453,
-    "held mm": 173.2,
-    "drain": 0.229
+    "wet": 0.451,
+    "held mm": 173.3,
+    "drain": 0.227
    },
    "tops (the highest 5% of land)": {
-    "cells": 5427,
-    "height m": 703.4,
-    "rain mm": 1276.6,
-    "mean temp C": 3.93,
-    "wet": 0.152,
-    "held mm": 81.7,
-    "drain": 0.292
+    "cells": 5338,
+    "height m": 706.6,
+    "rain mm": 1293.6,
+    "rain mm mean": 1820.0,
+    "mean temp C": 3.92,
+    "wet": 0.145,
+    "held mm": 79.8,
+    "drain": 0.291
    },
    "on sand": {
-    "cells": 9557,
-    "height m": 116.0,
-    "rain mm": 1212.3,
-    "mean temp C": 7.72,
-    "wet": 0.313,
+    "cells": 9517,
+    "height m": 117.8,
+    "rain mm": 1215.1,
+    "rain mm mean": 1454.0,
+    "mean temp C": 7.71,
+    "wet": 0.312,
     "held mm": 71.1,
     "drain": 0.5
    },
    "on loam": {
-    "cells": 71410,
-    "height m": 159.4,
-    "rain mm": 1187.1,
+    "cells": 71128,
+    "height m": 160.2,
+    "rain mm": 1188.1,
+    "rain mm mean": 1589.0,
     "mean temp C": 7.52,
-    "wet": 0.363,
-    "held mm": 167.5,
+    "wet": 0.359,
+    "held mm": 167.4,
     "drain": 0.25
    },
    "on clay": {
-    "cells": 20233,
-    "height m": 92.2,
-    "rain mm": 1246.6,
+    "cells": 19879,
+    "height m": 93.7,
+    "rain mm": 1243.9,
+    "rain mm mean": 1450.0,
     "mean temp C": 8.5,
-    "wet": 0.501,
-    "held mm": 169.0,
+    "wet": 0.496,
+    "held mm": 168.9,
     "drain": 0.08
    },
    "on chalk": {
-    "cells": 7333,
-    "height m": 103.7,
+    "cells": 6232,
+    "height m": 182.2,
     "rain mm": 1100.4,
-    "mean temp C": 7.34,
-    "wet": 0.239,
-    "held mm": 138.5,
+    "rain mm mean": 1291.0,
+    "mean temp C": 7.13,
+    "wet": 0.195,
+    "held mm": 132.6,
     "drain": 0.4
    },
    "on peat": {
@@ -260,7 +267,7 @@
      8.25
     ],
     "sea km": 99.0,
-    "terrain": "river floodplain",
+    "terrain": "clay vale",
     "mean temp C": 9.26
    },
    "w1": {

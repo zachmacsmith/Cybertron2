@@ -23,7 +23,7 @@
     "dependence",
     "chokepoint"
    ],
-   "seconds": 14.7
+   "seconds": 1.3
   },
   {
    "world": "w01",
@@ -35,7 +35,7 @@
     "dependence",
     "chokepoint"
    ],
-   "seconds": 19.9
+   "seconds": 1.2
   },
   {
    "world": "w02",
@@ -47,7 +47,7 @@
     "dependence",
     "chokepoint"
    ],
-   "seconds": 16.8
+   "seconds": 1.3
   },
   {
    "world": "w02",
@@ -59,7 +59,7 @@
     "dependence",
     "chokepoint"
    ],
-   "seconds": 16.5
+   "seconds": 1.2
   },
   {
    "world": "w03",
@@ -71,7 +71,7 @@
     "dependence",
     "chokepoint"
    ],
-   "seconds": 17.3
+   "seconds": 1.6
   },
   {
    "world": "w03",
@@ -83,7 +83,7 @@
     "dependence",
     "chokepoint"
    ],
-   "seconds": 16.9
+   "seconds": 1.4
   },
   {
    "world": "w04",
@@ -93,7 +93,7 @@
    "warnings": [
     "capacity"
    ],
-   "seconds": 18.4
+   "seconds": 1.6
   },
   {
    "world": "w04",
@@ -103,7 +103,7 @@
    "warnings": [
     "capacity"
    ],
-   "seconds": 19.4
+   "seconds": 1.3
   },
   {
    "world": "w05",
@@ -113,7 +113,7 @@
    "warnings": [
     "capacity"
    ],
-   "seconds": 19.5
+   "seconds": 1.4
   },
   {
    "world": "w05",
@@ -123,7 +123,7 @@
    "warnings": [
     "capacity"
    ],
-   "seconds": 17.3
+   "seconds": 1.3
   },
   {
    "world": "w06",
@@ -133,7 +133,7 @@
    "warnings": [
     "capacity"
    ],
-   "seconds": 16.6
+   "seconds": 1.4
   },
   {
    "world": "w06",
@@ -143,7 +143,7 @@
    "warnings": [
     "capacity"
    ],
-   "seconds": 17.1
+   "seconds": 1.4
   },
   {
    "world": "w07",
@@ -155,7 +155,7 @@
     "dependence",
     "chokepoint"
    ],
-   "seconds": 15.4
+   "seconds": 1.2
   },
   {
    "world": "w07",
@@ -167,7 +167,7 @@
     "dependence",
     "chokepoint"
    ],
-   "seconds": 19.3
+   "seconds": 1.0
   },
   {
    "world": "w08",
@@ -179,7 +179,7 @@
     "dependence",
     "chokepoint"
    ],
-   "seconds": 17.8
+   "seconds": 1.9
   },
   {
    "world": "w08",
@@ -191,7 +191,7 @@
     "dependence",
     "chokepoint"
    ],
-   "seconds": 16.9
+   "seconds": 1.9
   },
   {
    "world": "w09",
@@ -203,7 +203,7 @@
     "dependence",
     "chokepoint"
    ],
-   "seconds": 16.9
+   "seconds": 1.5
   },
   {
    "world": "w09",
@@ -215,7 +215,7 @@
     "dependence",
     "chokepoint"
    ],
-   "seconds": 19.6
+   "seconds": 1.6
   },
   {
    "world": "w10",
@@ -226,7 +226,7 @@
     "capacity",
     "dependence"
    ],
-   "seconds": 17.6
+   "seconds": 1.5
   },
   {
    "world": "w10",
@@ -238,7 +238,7 @@
     "dependence",
     "chokepoint"
    ],
-   "seconds": 17.3
+   "seconds": 1.5
   },
   {
    "world": "w11",
@@ -250,7 +250,7 @@
     "dependence",
     "chokepoint"
    ],
-   "seconds": 21.4
+   "seconds": 1.4
   },
   {
    "world": "w11",
@@ -262,27 +262,29 @@
     "dependence",
     "chokepoint"
    ],
-   "seconds": 18.5
+   "seconds": 1.5
   },
   {
    "world": "w12",
    "seed": 1,
    "path": "cybertron2/specs/calibration/worlds/w12_lake_country_s1.yaml",
+   "mere km2": 1.51,
    "ok": true,
    "warnings": [
     "capacity"
    ],
-   "seconds": 20.9
+   "seconds": 1.4
   },
   {
    "world": "w12",
    "seed": 2,
    "path": "cybertron2/specs/calibration/worlds/w12_lake_country_s2.yaml",
+   "mere km2": 37.21,
    "ok": true,
    "warnings": [
     "capacity"
    ],
-   "seconds": 16.5
+   "seconds": 1.4
   }
  ]
 }

@@ -239,7 +239,12 @@ orderings:
   - {name: the wet west's coast frosts less than the cold north, a: [w03, coast, frost_nights], b: [w07, villages, frost_nights],
      from: proposal, generator_stand_in: "mean_temp_c, more (the generator has no frost)"}
   - {name: the fells are wetter than the lee, a: [w04, lee, rain_mm], b: [w04, fells, rain_mm], from: proposal}
-  - {name: the fen floods more than the chalk, a: [w10, villages, flooded], b: [w08, villages, flooded], from: proposal}
+  - {name: the fells' slopes facing the wind are wetter than the slopes facing away, a: [w04, fells facing away, rain_mm],
+     b: [w04, fells facing the wind, rain_mm], from: "row 4 (it should pass; the gap's size is read in the audit)"}
+  - {name: the fen floods more than the chalk, a: [w10, villages, flooded], b: [w08, villages, flooded], from: proposal,
+     generator_stand_in: "the villages' land within 1 m of a river"}
+  - {name: the fen's land lies nearer its rivers than the chalk's, a: [w10, land, low_ground_share], b: [w08, land, low_ground_share],
+     from: "proposal (the fen floods more than the chalk), read on the whole land"}
   - {name: the sand holds less water than the clay, a: [w11, on sand, held_mm], b: [w10, vale, held_mm], from: proposal}
   - {name: the wet west is wetter than the lowland, a: [w01, villages, rain_mm], b: [w03, villages, rain_mm], from: "rows 1 and 3"}
   - {name: the wet west has more wet days than the dry east, a: [w02, villages, wet_days], b: [w03, villages, wet_days], from: "rows 2 and 3"}

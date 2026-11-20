@@ -90,11 +90,14 @@ WORLDS = [
      "generate": {"configuration": "sand country", "rain_mm": 650.0, "temperature_c": 10.0},
      "why": "the table names the configuration; 650 mm and 10 C between the Brecks (Santon Downham, 600) and the New Forest (800)"},
     {"id": "w12", "slug": "lake_country", "name": "Lake country", "stands_for": "the Lakes, a mere district",
-     "generate": {**_upland(560.0, 0.0, [{"kind": "lake", "name": "the_mere", "at": [0.5, 0.52], "r": 0.06}]),
+     "generate": {**_upland(560.0, 0.0, [{"kind": "lake", "name": "the_mere", "at": [0.22, 0.45], "r": 0.06}]),
                   "rain_mm": 1400.0, "temperature_c": 9.0, "lake_min_km2": 0.1},
-     "why": "upland and moor with a laid mere (brief 5's lake primitive), its beck and outflow left to the land's own drainage "
-            "(a laid beck into it was refused on 3 of 4 seeds: 'laid rivers run where laid'), tarns where the upland's hollows "
-            "allow (lake_min_km2 0.1 lets the smaller ones stand); 1,400 mm and 9 C at a Lakeland valley foot (Keswick, Ambleside 1,450 to 1,800)"},
+     "require_lake": {"at": [0.22, 0.45], "km": 5.0, "km2": 1.0},
+     "why": "upland and moor with a laid mere (brief 5's lake primitive) at the fells' foot, its beck and outflow left to the land's "
+            "own drainage, and tarns where the upland's hollows allow (lake_min_km2 0.1 lets the smaller ones stand); a seed whose "
+            "mere does not hold 1 km2 is refused (the laid lake came out 0 to 37 km2 by seed: the audit). On the fells' flank the "
+            "mere never held (the land falls 200 m across it), and a laid beck into it was refused on 3 of 4 seeds ('laid rivers run "
+            "where laid'). 1,400 mm and 9 C at a Lakeland valley foot (Keswick, Ambleside 1,450 to 1,800)"},
 ]
 BY_ID = {w["id"]: w for w in WORLDS}
 
@@ -135,6 +138,7 @@ def group_stats(cells, m) -> dict:
     depth = np.clip(1 - cells["slope"][m] / 25.0, 0.1, 1.0) * 1.2                # physical.py's depth, as write.py's land.depth
     held = np.vectorize(AWC_MM.get)(tex) * depth
     return {"cells": int(m.sum()), "height m": _q(cells["h"][m], 50), "rain mm": _q(cells["rain"][m], 50) if "rain" in cells else None,
+            "rain mm mean": round(float(cells["rain"][m].mean()), 0) if "rain" in cells else None,
             "mean temp C": round(float(cells["temp"][m].mean()), 2), "wet": round(float(cells["wet"][m].mean()), 3),
             "held mm": round(float(held.mean()), 1), "drain": round(float(np.vectorize(DRAIN.get)(tex).mean()), 3)}
 
@@ -149,6 +153,10 @@ def probes(world_id: str, cells) -> dict:
            "tops (the highest 5% of land)": land & (h >= np.percentile(h[land], 95))}
     if world_id == "w04":                                                  # the range lies at x 0.4 of the window, 0.1 wide
         out["fells (the range, over 300 m)"] = land & (h >= 300) & (np.abs(x / S - 0.4) < 0.12)
+        up = np.zeros(h.shape, dtype=bool)
+        up[:, :-1] = h[:, 1:] > h[:, :-1] + 1.0                           # rising to the east: facing the west wind
+        out["fells, the slopes facing the wind"] = out["fells (the range, over 300 m)"] & up
+        out["fells, the slopes facing away"] = out["fells (the range, over 300 m)"] & ~up
         out["lee (east of the range, under 200 m)"] = land & (x / S > 0.56) & (h < 200)
         out["windward strip (west of the range, under 100 m)"] = land & (x / S < 0.3) & (h < 100) & ~cells["sea"]
     if world_id == "w10":
@@ -304,6 +312,15 @@ def make_one(world_id: str, seed: int, force: bool = False) -> dict:
         if report["refused"]:
             return {**row, "ok": False, "refused": "refused by checks: " + ", ".join(report["refused"]),
                     "seconds": round(time.time() - t0, 1)}
+        need = world.get("require_lake")
+        if need:                                                           # the suite's own design check: the laid mere holds water
+            S = float(np.max(cells["x"]))
+            d = np.hypot(cells["x"] - need["at"][0] * S, cells["y"] - need["at"][1] * S)
+            km2 = float((np.asarray(cells["lake"]) & (d <= need["km"])).sum()) * 0.0225
+            if km2 < need["km2"]:
+                return {**row, "ok": False, "refused": f"the laid mere holds {km2:.2f} km2 (wants {need['km2']})",
+                        "seconds": round(time.time() - t0, 1)}
+            row["mere km2"] = round(km2, 2)
         W.write(w_, cells, report, path, None)
     import yaml
     w_ = yaml.safe_load(open(path))
@@ -316,6 +333,11 @@ def make_one(world_id: str, seed: int, force: bool = False) -> dict:
     with open(os.path.join(SUMMARY_DIR, stem(world, seed) + ".json"), "w") as f:
         json.dump(summ, f, indent=1, default=float)
     warn = [k for k, v in rep["checks"].items() if not v["ok"]]
+    if world.get("require_lake") and "mere km2" not in row:
+        S = float(np.max(cells["x"]))
+        need = world["require_lake"]
+        d = np.hypot(cells["x"] - need["at"][0] * S, cells["y"] - need["at"][1] * S)
+        row["mere km2"] = round(float((cells["lake"] & (d <= need["km"])).sum()) * 0.0225, 2)
     return {**row, "ok": True, "warnings": warn, "seconds": round(time.time() - t0, 1)}
 
 

@@ -141,6 +141,7 @@
     "cells": 94024,
     "height m": 82.6,
     "rain mm": 1140.2,
+    "rain mm mean": 1365.0,
     "mean temp C": 9.47,
     "wet": 0.44,
     "held mm": 175.2,
@@ -150,6 +151,7 @@
     "cells": 6697,
     "height m": 51.9,
     "rain mm": 3282.5,
+    "rain mm mean": 3595.0,
     "mean temp C": 9.64,
     "wet": 0.532,
     "held mm": 160.9,
@@ -159,6 +161,7 @@
     "cells": 75934,
     "height m": 86.0,
     "rain mm": 1120.3,
+    "rain mm mean": 1191.0,
     "mean temp C": 9.44,
     "wet": 0.435,
     "held mm": 177.7,
@@ -168,6 +171,7 @@
     "cells": 4702,
     "height m": 122.5,
     "rain mm": 1134.8,
+    "rain mm mean": 1184.0,
     "mean temp C": 9.33,
     "wet": 0.338,
     "held mm": 174.2,
@@ -177,6 +181,7 @@
     "cells": 8345,
     "height m": 76.5,
     "rain mm": 1150.5,
+    "rain mm mean": 1396.0,
     "mean temp C": 9.53,
     "wet": 0.373,
     "held mm": 79.9,
@@ -186,6 +191,7 @@
     "cells": 55625,
     "height m": 79.7,
     "rain mm": 1132.9,
+    "rain mm mean": 1368.0,
     "mean temp C": 9.49,
     "wet": 0.443,
     "held mm": 193.2,
@@ -195,6 +201,7 @@
     "cells": 24689,
     "height m": 85.1,
     "rain mm": 1145.7,
+    "rain mm mean": 1334.0,
     "mean temp C": 9.46,
     "wet": 0.492,
     "held mm": 170.6,
@@ -204,6 +211,7 @@
     "cells": 5365,
     "height m": 100.5,
     "rain mm": 1168.3,
+    "rain mm mean": 1432.0,
     "mean temp C": 9.19,
     "wet": 0.273,
     "held mm": 158.6,
@@ -237,7 +245,7 @@
      20.26
     ],
     "sea km": 99.0,
-    "terrain": "river floodplain",
+    "terrain": "clay vale",
     "mean temp C": 9.78
    },
    "s3": {
@@ -250,7 +258,7 @@
      40.69
     ],
     "sea km": 99.0,
-    "terrain": "river floodplain",
+    "terrain": "clay vale",
     "mean temp C": 9.23
    },
    "w1": {
