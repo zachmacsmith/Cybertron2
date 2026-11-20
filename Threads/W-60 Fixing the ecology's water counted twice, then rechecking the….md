@@ -26,7 +26,6 @@ done: the measure fixed (water feature about halves: river world 44 to 20 km2); 
 
 ## Mentioned by
 - [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]]
-- [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
 - [[L-127 The ecology's calibration backlog|The ecology's calibration backlog (L-127)]]
 - [[Calibration worlds a suite of diverse places to calibrate against|Calibration worlds: a suite of diverse places to calibrate against]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]

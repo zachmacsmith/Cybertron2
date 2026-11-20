@@ -15,7 +15,7 @@ updated: "2026-11-20"
 Shared units for food, weight and work (Zach via 37.4, 19 Nov; proposals/shared_units.md §"The analysis asked of 37.2"): one basis (a unit about a kg, a food about a day's need, work a fixed share of a day), food values from energy density, yields from real weights, returns from historical rates; for the calibration worlds ([[D2-228 Calibrate across a distribution of worlds|D2-228]]). Found: an eel at a fifth of its real food
 
 ## Done so far, and what is left
-not begun; recorded on arrival so it is not lost (02zzp pattern 1). Sits with the calibration worlds ([[W-54 The twelve calibration worlds and an audit of the generator across…|W-54]]) and the water measure's recheck ([[W-60 Fixing the ecology's water counted twice, then rechecking the…|W-60]])
+in progress 20 Nov: an agent doing the six-part analysis (02zzu_shared_units.*); the table and its script written, the write-up not yet
 
 ## Where
 - `docs/cybertron2/proposals/shared_units.md`

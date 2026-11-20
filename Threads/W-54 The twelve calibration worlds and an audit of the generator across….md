@@ -36,7 +36,6 @@ done: the suite proposed (twelve worlds, expectations, ordering and collapse che
 - [[W-7 The ecology branch's next steps|The ecology branch's next steps (W-7)]]
 - [[W-11 Landscapes still to tune|Landscapes still to tune (W-11)]]
 - [[W-53 Floodplains in the generator|Floodplains in the generator (W-53)]]
-- [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 - [[L-127 The ecology's calibration backlog|The ecology's calibration backlog (L-127)]]
 - [[Calibration worlds a suite of diverse places to calibrate against|Calibration worlds: a suite of diverse places to calibrate against]]
