@@ -28,6 +28,7 @@ conversation (20 Nov: "1. I agree")
 - [[W-60 Fixing the ecology's water counted twice, then rechecking the…|Fixing the ecology's water counted twice, then rechecking the… (W-60)]]
 - [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+- [[L-139 A hen killed in a raid gives its meat|A hen killed in a raid gives its meat (L-139)]]
 - [[Shared units food value, weight and work on one basis|Shared units: food value, weight and work on one basis]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
