@@ -21,4 +21,5 @@ tags: [decision, open]
 **The Obsidian vault is a local folder Zach opens whenever he likes, kept up to date automatically to match the live records, with nothing to download: a generated branch (vault) that the push check rebuilds after every push to main, cloned once and pulled by Obsidian's Git plugin; its .obsidian settings stay local. The generated branch is exempt from [[D2-238 Branches|D2-238]]'s rule on branches**
 
 ## Mentioned by
+- [[W-65 Tracking threads automatically (Zach, 20 Nov Go build it, after 0|W-65: Tracking threads automatically (Zach, 20 Nov: "Go build it", after 02z]]
 - [[records_and_workflow Records and workflow how the documents, the scrip|Records and workflow: how the documents, the scripts and git]]
