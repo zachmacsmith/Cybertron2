@@ -1,11 +1,16 @@
 # The records' checks on every push to main (D2-233 to D2-235): the views against their items, the pushed commits' trailers,
-# hygiene, the branches, and a derived Obsidian vault to download. Only a view out of step, or a broken item, fails the run;
+# hygiene, the branches, and the Obsidian vault rebuilt on its own branch `vault` (D2-240). Only a view out of step, or a broken item, fails the run;
 # the rest is reported in the run's summary (a direct push to main cannot be refused).
 name: records
 on:
   push:
     branches: [main]
   workflow_dispatch:
+concurrency:
+  group: records
+  cancel-in-progress: false
+permissions:
+  contents: write
 jobs:
   records:
     runs-on: ubuntu-latest
@@ -34,13 +39,23 @@ jobs:
           python3 tools/records.py branches >> "$GITHUB_STEP_SUMMARY" || true
           echo '## Hygiene' >> "$GITHUB_STEP_SUMMARY"
           python3 tools/hygiene.py >> "$GITHUB_STEP_SUMMARY" || true
-      - name: The vault
+      - name: The vault, rebuilt on its own branch (D2-240)
         if: always()
-        run: python3 tools/records.py vault records-vault
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: records-vault
-          path: records-vault
-          include-hidden-files: true
-          retention-days: 30
+        run: |
+          git config user.name "records-bot"
+          git config user.email "records-bot@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin vault >/dev/null; then
+            git fetch -q origin vault:refs/remotes/origin/vault
+            git worktree add -q vault-out origin/vault
+            git -C vault-out checkout -q -B vault origin/vault
+          else
+            git worktree add -q --detach vault-out
+            git -C vault-out checkout -q --orphan vault
+            git -C vault-out rm -rfq . >/dev/null 2>&1 || true
+          fi
+          python3 tools/records.py vault vault-out
+          cd vault-out
+          git add -A
+          if git diff --cached --quiet; then echo "vault unchanged"; exit 0; fi
+          git commit -q -m "vault: rebuilt from main ${GITHUB_SHA::7}"
+          git push -q origin vault

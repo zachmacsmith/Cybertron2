@@ -1154,9 +1154,18 @@ def cmd_vault(web, out) -> int:
     """A derived Obsidian vault (Zach, 20 Nov): readable notes, linked, live items apart from the archive. Never edited."""
     import shutil
     out = os.path.abspath(out)
-    if os.path.exists(out) and not os.path.exists(os.path.join(out, ".records-vault")):
+    keep = (".git", ".obsidian", ".gitignore")
+    if os.path.exists(out) and [n for n in os.listdir(out) if n not in keep] \
+            and not os.path.exists(os.path.join(out, ".records-vault")):
         raise SystemExit(f"{out} exists and is not a vault this tool made; choose another folder")
-    shutil.rmtree(out, ignore_errors=True)
+    # Regenerate in place (D2-240): the notes are replaced, but a git checkout (.git) and Obsidian's own settings
+    # (.obsidian, kept local by .gitignore) stay, so a clone of the vault branch can be pulled into.
+    os.makedirs(out, exist_ok=True)
+    for n in os.listdir(out):
+        if n in keep:
+            continue
+        p = os.path.join(out, n)
+        shutil.rmtree(p) if os.path.isdir(p) and not os.path.islink(p) else os.remove(p)
     folder = {"thread": "Threads", "ask": "Asks", "offer": "Offers", "deferred": "Later", "conflict": "Conflicts",
               "decision": "Decisions", "spec": "Spec", "proposal": "Proposals", "note": "Notes"}
     names = {}
@@ -1216,8 +1225,9 @@ def cmd_vault(web, out) -> int:
         write(names[nid], fm + "\n".join(parts))
     # the start page and the area pages
     live = sorted((it for it in web.items.values() if it["kind"] == "thread" and not is_closed(it)), key=lambda x: num(x["id"]))
-    home = ["# Cybertron 2: the records\n", f"Made {TODAY} from the repository by `tools/records.py vault`. Read only: it is "
-            "rebuilt each time.\n", "## Live threads\n"]
+    home = ["# Cybertron 2: the records\n", f"Rebuilt from the repository's main branch after every push (last: {TODAY}); "
+            "the Git plugin pulls it. Read only: edits here are overwritten, so ask a session to change the records.\n",
+            "## Live threads\n"]
     for o in sorted({it.get("owner", "?").split(" ")[0] for it in live}):
         home.append(f"### {o}")
         home += [f"- {link(it['id'], True)} ({it.get('state', '')}, {it.get('touched', '')})" for it in live
@@ -1238,9 +1248,13 @@ def cmd_vault(web, out) -> int:
         lines += ["", "## Open here"] + [f"- {link(c, True)}" for c in cited if c in web.items and web.items[c]["kind"] != "decision"
                                          and not is_closed(web.items[c])]
         write(os.path.join("Areas", f"Area {a.replace('/', ' - ')}"), "\n".join(lines) + "\n")
-    open(os.path.join(out, ".records-vault"), "w").write(str(TODAY))
-    os.makedirs(os.path.join(out, ".obsidian"), exist_ok=True)
-    json.dump({"defaultViewMode": "preview", "showFrontmatter": False}, open(os.path.join(out, ".obsidian", "app.json"), "w"))
+    open(os.path.join(out, ".records-vault"), "w").write("made by tools/records.py vault; rebuilt after every push to main\n")
+    if not os.path.exists(os.path.join(out, ".gitignore")):
+        open(os.path.join(out, ".gitignore"), "w").write(".obsidian/\n.trash/\n")
+    app = os.path.join(out, ".obsidian", "app.json")
+    if not os.path.exists(app):
+        os.makedirs(os.path.dirname(app), exist_ok=True)
+        json.dump({"defaultViewMode": "preview", "showFrontmatter": False}, open(app, "w"))
     print(f"vault written: {out} ({len(names)} notes; open the folder in Obsidian and start from Home)")
     return 0
 
