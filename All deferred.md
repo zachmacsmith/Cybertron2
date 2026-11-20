@@ -1,6 +1,7 @@
 # All deferred
 
 ## Open
+- [[L-138 Hens lay on the old clock|Hens lay on the old clock (L-138)]] (open)
 - [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]] (open)
 - [[L-136 News of a famine does not travel|News of a famine does not travel (L-136)]] (open)
 - [[L-135 Debts of the dead are never settled|Debts of the dead are never settled (L-135)]] (open)

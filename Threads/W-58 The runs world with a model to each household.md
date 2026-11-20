@@ -25,4 +25,5 @@ paused during day 29 (19 Nov 21:47, Zach: usage over 95%): days 1-28 committed, 
 - [[Resume from the last finished day, without replay|Resume from the last finished day, without replay]]
 - [[Shared units food value, weight and work on one basis|Shared units: food value, weight and work on one basis]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
+- [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
 - *and 2 index or audit notes*

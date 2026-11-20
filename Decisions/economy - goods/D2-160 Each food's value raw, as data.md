@@ -26,3 +26,4 @@ grain, flour and beans worth nothing without a fire; fresh meat full raw
 - [[Proposal recipes for the first worlds|Proposal: recipes for the first worlds]]
 - [[Goods|Goods]]
 - [[02zb build brief for 37.4 forests, fuel and warmth, eating raw…|02zb: build brief for 37.4: forests, fuel and warmth, eating raw…]]
+- [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]

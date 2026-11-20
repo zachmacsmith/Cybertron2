@@ -32,6 +32,7 @@ proposals/recipes.md §16
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
 - [[17 The household's own work, care and kinship (16 Nov 2026)|17: The household's own work, care and kinship (16 Nov 2026)]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
+- [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
 - [[Review 38.21 a ladder of three worlds for the interconnected systems|Review 38.21: a ladder of three worlds for the interconnected systems]]
 - [[Review 38.22 the first two worlds of the ladder, run with LLM agents|Review 38.22: the first two worlds of the ladder, run with LLM agents]]
 - [[Review 38.23 the region run (the third world of the ladder)|Review 38.23: the region run (the third world of the ladder)]]

@@ -24,4 +24,5 @@ updated: "2026-11-20"
 - [[W-34 Worlds for the peoples benchmark|Worlds for the peoples benchmark (W-34)]]
 - [[Luck in the catch, a lake's fish by its size, and a fishing household|Luck in the catch, a lake's fish by its size, and a fishing household]]
 - [[Proposal world generation as one history, with pins met in the loop|Proposal: world generation as one history, with pins met in the loop]]
+- [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
 - [[38.71 From a world with these properties to a world what went…|38.71: From "a world with these properties" to a world: what went…]]

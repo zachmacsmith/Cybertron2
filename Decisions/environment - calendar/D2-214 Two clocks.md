@@ -26,6 +26,7 @@ every rate real per engine day (one clock: no seasonal loops in a 24 to 40 day y
 - [[W-15 The land's fast stocks|The land's fast stocks (W-15)]]
 - [[W-49 Environment systems|Environment systems (W-49)]]
 - [[W-51 Testing the weather across dry, cold, coastal and mountain worlds…|Testing the weather across dry, cold, coastal and mountain worlds… (W-51)]]
+- [[L-138 Hens lay on the old clock|Hens lay on the old clock (L-138)]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
 - [[The calendar|The calendar]]
 - [[The land and its stocks|The land and its stocks]]

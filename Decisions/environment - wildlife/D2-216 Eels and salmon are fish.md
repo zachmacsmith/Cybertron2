@@ -25,4 +25,5 @@ eel and salmon as meat (eel 0.2, salmon 2.0)
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[Shared units food value, weight and work on one basis|Shared units: food value, weight and work on one basis]]
 - [[Wildlife|Wildlife]]
+- [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
 - [[38.74 The lake world's first live run (W-50) what came of the water|38.74: The lake world's first live run (W-50): what came of the water]]
