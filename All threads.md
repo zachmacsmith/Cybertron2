@@ -6,7 +6,7 @@
 - [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|Writing 37.2's decisions into the spec (about 52 missing) (W-68)]] (queued)
 - [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]] (queued)
 - [[W-65 The records system|The records system (W-65)]] (active)
-- [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]] (queued)
+- [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]] (active)
 - [[W-63 The audit of work started and left, and the triage of open asks and…|The audit of work started and left, and the triage of open asks and… (W-63)]] (active)
 - [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]] (waiting)
 - [[W-60 Fixing the ecology's water counted twice, then rechecking the…|Fixing the ecology's water counted twice, then rechecking the… (W-60)]] (active)

@@ -1,8 +1,9 @@
 # All asks
 
 ## Open
+- [[Q-69 The basis for food and work|The basis for food and work (Q-69)]] (open)
+- [[Q-68 How high the surplus can go in the medieval worlds, against the…|How high the surplus can go in the medieval worlds, against the… (Q-68)]] (open)
 - [[Q-67 Confirm three rules the sessions follow without your own words behind…|Confirm three rules the sessions follow without your own words behind… (Q-67)]] (open)
-- [[Q-66 The nutrition worlds|The nutrition worlds (Q-66)]] (open)
 - [[Q-62 recordexecution.md and resume --from-last|record/execution.md and `resume --from-last` (Q-62)]] (open)
 - [[Q-56 How the weather should follow each place's climate from the generated…|How the weather should follow each place's climate from the generated… (Q-56)]] (open)
 - [[Q-53 Merging the water work|Merging the water work (Q-53)]] (open)
@@ -36,7 +37,8 @@
 - [[Q-RR3 The human player's first interface|The human player's first interface (Q-RR3)]] (open)
 - [[Q-RR5 A replay test with shuffled completion order of model calls|A replay test with shuffled completion order of model calls (Q-RR5)]] (open)
 
-## Closed (42)
+## Closed (43)
+- [[Q-66 The nutrition worlds|The nutrition worlds (Q-66)]]
 - [[Q-65 Delete the 16 empty branches|Delete the 16 empty branches (Q-65)]]
 - [[Q-64 The records as items with rendered views, one tool and a skill…|The records as items with rendered views, one tool and a skill… (Q-64)]]
 - [[Q-63 A commit schema|A commit schema (Q-63)]]

@@ -137,9 +137,8 @@ A livelihood that fails its row means a calibration to fix, or a missing piece, 
    livelihood needs a plan: sow and keep seed; graze and make hay; hunt and set snares; fish and trap; mind the run and preserve.
 4. **The high tiers that are not built:** nets and bows (pack K3), dogs and husbandry (K6), boats (brief 5's fen half). Until
    then the high rows use what exists, and the report says which tier is missing ([[W-67 Extending the wildlife economy|W-67]]).
-5. **Hunting trips out to other nodes** ([[D2-255 A very skilled hunter brings in a disproportionate amount of food…|D2-255]]). A master's high end comes from going further. Far hunting within a node and
-   hunting parties exist (briefs 4b and 4c); trips of several days to other nodes are forays ([[W-12 Forays trips out into the land and back, with what is found and told|W-12]]). Until forays are built, the
-   hunting row's high end is measured without them, and the report says so.
+5. **Hunting trips out to wild nodes** ([[D2-255 A very skilled hunter brings in a disproportionate amount of food…|D2-255]], [[D2-256 A hunting trip is travelling out to a wild node, camping there…|D2-256]]): travel to a wild node, camp, hunt there, carry the food back. Every piece is
+   built; whether they chain well (the carry, spoilage over days, drying at the camp) is untested, and the bots test it first.
 6. **A wood that runs down** ([[Q-46 Brief 4c as built|Q-46]] (c), now in [[W-69 Nutrition worlds|W-69]]). Daily hunting of one wood should fall to about half its return within a
    season, or the master's return has no limit.
 5. **The engine's weather reads only height** ([[Q-56 How the weather should follow each place's climate from the generated…|Q-56]]) until climate from the land is built. Worlds differ in land and wild life
@@ -192,6 +191,12 @@ change (the switches, 37.4), the data rows that miss their targets, [[W-64 Food,
 
 ## History
 
+- 20 Nov 2026: Zach's answers. Decided as [[D2-257 The nutrition worlds|D2-257]]: seven livelihoods, the first 12 live runs on small villages, bots as the comparison,
+  the food values fixed first. A hunting trip is travelling to a wild node, camping, hunting and carrying the food back, built
+  from what exists ([[D2-256 A hunting trip is travelling out to a wild node, camping there…|D2-256]]), so forays are no prerequisite. The high ceilings become later technology's; the medieval worlds take a
+  lower band, "lower ... but still not too low" ([[Q-68 How high the surplus can go in the medieval worlds, against the…|Q-68]]). "The runs can be relatively small" is read as small live runs (fewer people,
+  cheaper).
+- 20 Nov 2026: accepted in part: [[D2-257 The nutrition worlds|D2-257]] (The nutrition worlds: seven livelihoods tested alone (arable, herding, hunting a).
 - 20 Nov 2026: revised after Zach.
   - Hunting: a master brings in a disproportionate amount, more on trips out to other nodes ([[D2-255 A very skilled hunter brings in a disproportionate amount of food…|D2-255]]), so hunting can keep a small
     group. The first draft's cap of 1.2 times was wrong.

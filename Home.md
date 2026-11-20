@@ -4,10 +4,11 @@
 
 [The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.
 
-## Waiting on you (9)
+## Waiting on you (10)
 - [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)]]
+- [[Q-69 The basis for food and work|The basis for food and work (Q-69)]]
+- [[Q-68 How high the surplus can go in the medieval worlds, against the…|How high the surplus can go in the medieval worlds, against the… (Q-68)]]
 - [[Q-67 Confirm three rules the sessions follow without your own words behind…|Confirm three rules the sessions follow without your own words behind… (Q-67)]]
-- [[Q-66 The nutrition worlds|The nutrition worlds (Q-66)]]
 - [[Q-56 How the weather should follow each place's climate from the generated…|How the weather should follow each place's climate from the generated… (Q-56)]]
 - [[Q-53 Merging the water work|Merging the water work (Q-53)]]
 - [[Q-47 Where the economy stops for now|Where the economy stops for now (Q-47)]]
@@ -21,7 +22,7 @@
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]: revisit: soon (Zach, 20 Nov: something I want to revisit soon)
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]: revisit: soon (Zach, 20 Nov: 'that one sooner')
 
-## Active threads (15)
+## Active threads (16)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -34,6 +35,8 @@
   next: heron, otter, fish-taking fowl and the fish stock against their real densities, rescale or confirm; the 4c…
 - [[W-63 The audit of work started and left, and the triage of open asks and…|The audit of work started and left, and the triage of open asks and… (W-63)]]  
   next: Zach's answers to the four explained asks (Q-58, Q-51, Q-53 a and b, Q-46 d and e); 37.4's own pass (Q-42…
+- [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]  
+  next: the analysis asked by 37.4 (proposals/shared_units.md): the energy and edible table for every food and…
 - [[W-65 The records system|The records system (W-65)]]  
   next: the header pass over the spec files and proposals; run threads labelled as such, with their branch (D2-238)…
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]  
@@ -84,10 +87,12 @@
 - [[W-28 The Cybertron 2 website|The Cybertron 2 website (W-28)]]  
   next: Zach sets up the Netlify site and the subdomain; `python -m c2viz.site.viewer_publish` after each publish…
 
-## Queued and paused (8)
-[[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-64 Food, weight and work on one basis|W-64]] Food, weight and work on one basis, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
+## Queued and paused (7)
+[[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
 
-## Decided this week (57)
+## Decided this week (59)
+- [[D2-257 The nutrition worlds|The nutrition worlds (D2-257)]]
+- [[D2-256 A hunting trip is travelling out to a wild node, camping there…|A hunting trip is travelling out to a wild node, camping there… (D2-256)]]
 - [[D2-255 A very skilled hunter brings in a disproportionate amount of food…|A very skilled hunter brings in a disproportionate amount of food… (D2-255)]]
 - [[D2-254 Everything shown to Zach names each question, proposal, thread or…|Everything shown to Zach names each question, proposal, thread or… (D2-254)]]
 - [[D2-253 Zach's decisions about the process and its mechanisms are kept…|Zach's decisions about the process and its mechanisms are kept… (D2-253)]]
@@ -101,8 +106,6 @@
 - [[D2-245 The calibration suite is all twelve worlds of…|The calibration suite is all twelve worlds of… (D2-245)]]
 - [[D2-244 The engine's reworking into feature packages|The engine's reworking into feature packages (D2-244)]]
 - [[D2-243 The verbs and the livelihood archetypes are reshaped first, as their…|The verbs and the livelihood archetypes are reshaped first, as their… (D2-243)]]
-- [[D2-242 Subsistence test worlds|Subsistence test worlds (D2-242)]]
-- [[D2-241 The runs world for the model-per-household run as built and run|The runs world for the model-per-household run as built and run (D2-241)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]

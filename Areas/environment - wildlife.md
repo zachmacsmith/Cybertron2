@@ -4,7 +4,7 @@
 
 > The wild kinds that live on the land, how they are taken, and the rights in them. The mechanism they live on (a field over the land, one movement rule, observation as the collapse) is a proposal (proposals/living_populations.md) and not yet decided; until it is, these rules wait for it.
 
-## Decided (25)
+## Decided (26)
 - [[D2-192 The first wild kinds come in four waves|The first wild kinds come in four waves (D2-192)]]
 - [[D2-193 Dangerous kinds can wound or kill the hunter|Dangerous kinds can wound or kill the hunter (D2-193)]]
 - [[D2-194 A world may give rights in wild kinds by law at its start|A world may give rights in wild kinds by law at its start (D2-194)]]
@@ -30,3 +30,4 @@
 - [[D2-249 Wild kinds have birth windows of their own, and the year's young are…|Wild kinds have birth windows of their own, and the year's young are… (D2-249)]]
 - [[D2-250 Boar raid fields into autumn, to autumn day 4, weaker in a mast year|Boar raid fields into autumn, to autumn day 4, weaker in a mast year (D2-250)]]
 - [[D2-255 A very skilled hunter brings in a disproportionate amount of food…|A very skilled hunter brings in a disproportionate amount of food… (D2-255)]]
+- [[D2-256 A hunting trip is travelling out to a wild node, camping there…|A hunting trip is travelling out to a wild node, camping there… (D2-256)]]

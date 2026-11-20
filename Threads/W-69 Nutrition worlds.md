@@ -27,18 +27,24 @@ started
 - relates: [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
 - under it: [[D2-247 A process of bulk goods has a most it takes at once, not a least|A process of bulk goods has a most it takes at once, not a least (D2-247)]] (live)
 - under it: [[D2-255 A very skilled hunter brings in a disproportionate amount of food…|A very skilled hunter brings in a disproportionate amount of food… (D2-255)]] (live)
+- under it: [[D2-256 A hunting trip is travelling out to a wild node, camping there…|A hunting trip is travelling out to a wild node, camping there… (D2-256)]] (live)
+- under it: [[D2-257 The nutrition worlds|The nutrition worlds (D2-257)]] (live)
 - under it: [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]] (open)
 - under it: [[O-2 Make the eleven bulk processes take up to their batch|Make the eleven bulk processes take up to their batch (O-2)]] (open)
-- under it: [[Q-66 The nutrition worlds|The nutrition worlds (Q-66)]] (open)
+- under it: [[Q-66 The nutrition worlds|The nutrition worlds (Q-66)]] (closed)
+- under it: [[Q-68 How high the surplus can go in the medieval worlds, against the…|How high the surplus can go in the medieval worlds, against the… (Q-68)]] (open)
 
 
 ## Mentioned by
 - [[D2-247 A process of bulk goods has a most it takes at once, not a least|A process of bulk goods has a most it takes at once, not a least (D2-247)]]
 - [[D2-255 A very skilled hunter brings in a disproportionate amount of food…|A very skilled hunter brings in a disproportionate amount of food… (D2-255)]]
+- [[D2-256 A hunting trip is travelling out to a wild node, camping there…|A hunting trip is travelling out to a wild node, camping there… (D2-256)]]
+- [[D2-257 The nutrition worlds|The nutrition worlds (D2-257)]]
 - [[Q-46 Brief 4c as built|Brief 4c as built (Q-46)]]
 - [[Q-52 Environment systems|Environment systems (Q-52)]]
 - [[Q-57 Fishing, from the lake run|Fishing, from the lake run (Q-57)]]
 - [[Q-66 The nutrition worlds|The nutrition worlds (Q-66)]]
+- [[Q-68 How high the surplus can go in the medieval worlds, against the…|How high the surplus can go in the medieval worlds, against the… (Q-68)]]
 - [[W-22 Hunting against farming and gathering in generated worlds|Hunting against farming and gathering in generated worlds (W-22)]]
 - [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]]
 - [[O-2 Make the eleven bulk processes take up to their batch|Make the eleven bulk processes take up to their batch (O-2)]]

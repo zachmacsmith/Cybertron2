@@ -1,13 +1,13 @@
 ---
 id: Q-66
 kind: ask
-state: open
+state: closed
 updated: "2026-11-20"
 ---
 
 # The nutrition worlds (Q-66)
 
-*open · Zach (37.2)*
+*closed, by zach · Zach (37.2)*
 
 ## The question
 **The nutrition worlds** (proposals/subsistence_worlds.md, revised 20 Nov)
@@ -19,6 +19,8 @@ updated: "2026-11-20"
 6. specialists side by side as the series' goal?
 
 **Recommended:** yes; the first 12 live runs, then the rest once the 12 read well
+
+**Zach's answer:** I agree with your questions. 2. I'd the 12 first. 3. yes. 4. idk bout that. 5. yeah (20 Nov)
 
 **Where:** docs/cybertron2/proposals/subsistence_worlds.md
 
