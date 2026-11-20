@@ -33,6 +33,12 @@ from `records status`; commits from `records commit` (typed subjects and trailer
 - **Before designing in an area:** read its rows in OPEN.md and WORK.md, and the code that already does it; cite both.
 - **Before ending a session:** run `python3 tools/hygiene.py`, fix what is yours, then `python3 tools/hygiene.py --record`.
 
+## The engine's later rework is kept in mind
+
+The engine's cut into feature packages is postponed, and flagged (D2-244, OPEN L-133): until it is built, every engine change
+keeps to its seams. A feature added now is written as its own unit, with its data, verbs, signs and processes listed together,
+so the cut can move it whole. Read `docs/cybertron2/proposals/feature_packages.md` §9 and §10 before a large engine change.
+
 ## Visuals are drawn from the engine
 
 Zach (24 Oct): any visualisation (maps, scenes, sprites, charts of a world) must be grounded in how the engine actually works.

@@ -552,9 +552,7 @@ def next_id(prefix) -> str:
     used = set(load_items())
     for line in git("ls-tree", "--name-only", "origin/main", "docs/cybertron2/items/").split():
         used.add(os.path.basename(line)[:-3])
-    for path in VIEW_FILES.values():
-        if os.path.exists(path):
-            used |= set(re.findall(r"\b(" + re.escape(prefix) + r"-\d+)", open(path, encoding="utf-8").read()))
+    # Only ids that exist (here or on main) count: a mention in text is not an item, and must not use a number up.
     n = max([num(u)[1] for u in used if num(u)[0] == prefix] + [0]) + 1
     return f"{prefix}-{n}"
 
