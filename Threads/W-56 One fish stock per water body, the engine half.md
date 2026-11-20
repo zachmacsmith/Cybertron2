@@ -28,4 +28,4 @@ built on `water-bodies` (594ba09, pushed; not merged): the body's stock, once a 
 - [[W-58 The runs world with a model to each household|W-58 · The runs world with a model to each household]]
 - [[A signs pass after the lake runs (17 Nov)|A signs pass after the lake runs (17 Nov)]]
 - [[38.76 One fish stock per water body, the engine half (D2-229), as…|38.76: One fish stock per water body, the engine half (D2-229), as…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

@@ -22,4 +22,4 @@ updated: "2026-11-20"
 - [[L-108 Calibrating the backward people build|L-108 · Calibrating the backward people build]]
 - [[17 The household's own work, care and kinship (16 Nov 2026)|17: The household's own work, care and kinship (16 Nov 2026)]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

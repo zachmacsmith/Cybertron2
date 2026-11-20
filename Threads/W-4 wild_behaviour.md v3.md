@@ -23,4 +23,4 @@ waits on [[Q-32 02zv §6's decisions still open|Q-32]] (02zv §6, items still op
 - [[Q-32 02zv §6's decisions still open|Q-32 · 02zv §6's decisions still open]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[02zzp what was started and left, 22 Oct to 19 Nov, and how to notice…|02zzp: what was started and left, 22 Oct to 19 Nov, and how to notice…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

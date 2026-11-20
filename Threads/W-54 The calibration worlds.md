@@ -30,4 +30,4 @@ done: the suite proposed (twelve worlds, expectations, ordering and collapse che
 - [[L-127 The ecology's calibration backlog|L-127 · The ecology's calibration backlog]]
 - [[Calibration worlds a suite of diverse places to calibrate against|Calibration worlds: a suite of diverse places to calibrate against]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

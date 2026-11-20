@@ -18,4 +18,4 @@ updated: "2026-11-20"
 ## Mentioned by
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|W-2 · Build briefs 2 and 3, the 20 dry test arms, the spring live run]]
 - [[The hunt over time, and what briefs 1 to 3 left build brief 4|The hunt over time, and what briefs 1 to 3 left: build brief 4]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

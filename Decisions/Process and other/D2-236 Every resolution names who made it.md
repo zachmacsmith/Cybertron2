@@ -14,3 +14,7 @@ updated: "2026-11-20"
 
 ## Where it came from
 proposals/records_and_workflow.md §14; conversation (20 Nov, ask 5: "5. yes. And you can still resolve things as resolved by you if it seems obvious, it just has to be def marked as you unless I said so")
+
+
+## Mentioned by
+- *and 1 index or audit notes*

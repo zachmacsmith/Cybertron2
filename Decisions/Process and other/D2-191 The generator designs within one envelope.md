@@ -39,4 +39,4 @@ one terrain mixing landform, vegetation and distance; lakes in every hollow; for
 - [[02zp · Ecosystems that interact a deep dive, with models on…|02zp · Ecosystems that interact: a deep dive, with models on…]]
 - [[02zr wild behaviour, an outside critique (9 Nov)|02zr: wild behaviour, an outside critique (9 Nov)]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

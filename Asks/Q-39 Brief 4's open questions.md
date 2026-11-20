@@ -19,4 +19,4 @@ updated: "2026-11-20"
 - [[Q-46 Brief 4c as built|Q-46 · Brief 4c as built]]
 - [[W-27 Build brief 4|W-27 · Build brief 4]]
 - [[The hunt over time, and what briefs 1 to 3 left build brief 4|The hunt over time, and what briefs 1 to 3 left: build brief 4]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

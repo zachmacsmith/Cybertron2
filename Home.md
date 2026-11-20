@@ -19,7 +19,7 @@
 - [[Q-47 The border for now|Q-47 · The border for now]]
 - … all of them: [[All asks]]
 
-## Active threads (13)
+## Active threads (14)
 
 **37.2**
 - [[W-3 Records restructure|W-3 · Records restructure]]
@@ -29,6 +29,8 @@
   next: Zach's answers; the maker and the suite report; the audit, including how much water a village gets (the…
 - [[W-60 The ecology's water measure counted each lake and the large river…|W-60 · The ecology's water measure counted each lake and the large river…]]  
   next: heron, otter, fish-taking fowl and the fish stock against their real densities, rescale or confirm; the 4c…
+- [[W-63 An audit of what was started and left|W-63 · An audit of what was started and left]]  
+  next: Zach's answers to the triage digest (02zzr); then apply each with the tool and send 37.4 its part (Q-27…
 - [[W-65 Tracking threads automatically|W-65 · Tracking threads automatically]]  
   next: the header pass over the spec files and proposals; run threads labelled as such, with their branch (D2-238)…
 
@@ -49,7 +51,7 @@
 - [[W-57 The lake runs' seven engine faults|W-57 · The lake runs' seven engine faults]]  
   next: merge (Zach), a bot run to measure the new rows' chances, item 9 after W-56
 
-## Waiting threads (15)
+## Waiting threads (14)
 
 **37.2**
 - [[W-4 wild_behaviour.md v3|W-4 · wild_behaviour.md v3]]
@@ -69,8 +71,6 @@
 - [[W-59 The runs world for the model-per-household run|W-59 · The runs world for the model-per-household run]]  
   next: Zach to confirm Q-60's relayed answers, then record them
 - [[W-62 The water work is on eight unmerged branches, none on main|W-62 · The water work is on eight unmerged branches, none on main]]
-- [[W-63 An audit of what was started and left|W-63 · An audit of what was started and left]]  
-  next: Zach's answers (Q-61); then the triage, 37.2's catch-up and the first mechanisms
 
 **37.4**
 - [[W-14 Claims and ownership by physics, part 2|W-14 · Claims and ownership by physics, part 2]]  

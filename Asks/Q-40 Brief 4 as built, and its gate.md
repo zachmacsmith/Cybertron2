@@ -21,4 +21,4 @@ updated: "2026-11-20"
 - [[The hunt over time, and what briefs 1 to 3 left build brief 4|The hunt over time, and what briefs 1 to 3 left: build brief 4]]
 - [[Hunting that pays a beginner, snares that are lifted, and predators…|Hunting that pays a beginner, snares that are lifted, and predators…]]
 - [[The hunt after brief 4 game that remembers, slow recovery, and…|The hunt after brief 4: game that remembers, slow recovery, and…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

@@ -44,4 +44,4 @@ updated: "2026-11-20"
 - [[02zx the wild layer's build log (37.4 building 37.2's briefs, D2-207)|02zx: the wild layer's build log (37.4 building 37.2's briefs, D2-207)]]
 - [[14 War, force and the economy (16 Nov 2026)|14: War, force and the economy (16 Nov 2026)]]
 - [[38.27 Package D (children and reproduction) built; the Hollins world|38.27: Package D (children and reproduction) built; the Hollins world]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

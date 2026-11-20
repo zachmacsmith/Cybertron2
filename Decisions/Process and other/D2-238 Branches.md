@@ -23,3 +23,4 @@ merging only at Zach's go, in large merges
 - [[D2-240 The Obsidian vault is a local folder Zach opens whenever he likes…|D2-240 · The Obsidian vault is a local folder Zach opens whenever he likes…]]
 - [[Q-65 Delete the 16 empty branches|Q-65 · Delete the 16 empty branches]]
 - [[W-65 Tracking threads automatically|W-65 · Tracking threads automatically]]
+- *and 1 index or audit notes*

@@ -21,4 +21,4 @@ the calibration backlog is deferred as OPEN [[L-127 The ecology's calibration ba
 
 ## Mentioned by
 - [[L-127 The ecology's calibration backlog|L-127 · The ecology's calibration backlog]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

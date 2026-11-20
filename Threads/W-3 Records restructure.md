@@ -23,4 +23,4 @@ in this commit.
 
 ## Mentioned by
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
-- *and 5 index or audit notes*
+- *and 6 index or audit notes*

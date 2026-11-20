@@ -18,3 +18,7 @@ not begun; recorded on arrival so it is not lost (02zzp pattern 1). Sits with th
 ## Where
 - `docs/cybertron2/proposals/shared_units.md`
 - board 19 Nov
+
+
+## Mentioned by
+- *and 1 index or audit notes*

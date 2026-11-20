@@ -28,4 +28,4 @@ updated: "2026-11-20"
 - [[L-126 The wildlife's core mechanisms not built|L-126 · The wildlife's core mechanisms not built]]
 - [[Climate from the land|Climate from the land]]
 - [[The engine as a small core and feature packages design specification|The engine as a small core and feature packages: design specification]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

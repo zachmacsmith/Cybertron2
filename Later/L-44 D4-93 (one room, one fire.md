@@ -25,4 +25,4 @@ updated: "2026-11-20"
 - [[One room, one fire; the night says what fuel was missing; a theft at…|One room, one fire; the night says what fuel was missing; a theft at…]]
 - [[02zl · Can a world feed its people Past runs and the pre-run checks|02zl · Can a world feed its people? Past runs and the pre-run checks]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

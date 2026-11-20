@@ -29,4 +29,4 @@ live run done: 30 days on `ecology-hunt2` ($75.01; weekly window 92%, so not ext
 - [[W-30 Build brief 4b|W-30 · Build brief 4b]]
 - [[02zze a wild region with dependence four villages, one rich…|02zze: a wild region with dependence: four villages, one rich…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

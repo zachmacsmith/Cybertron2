@@ -17,3 +17,5 @@ updated: "2026-11-20"
 
 ## Mentioned by
 - [[W-34 Worlds for the peoples benchmark|W-34 · Worlds for the peoples benchmark]]
+- [[W-63 An audit of what was started and left|W-63 · An audit of what was started and left]]
+- *and 1 index or audit notes*

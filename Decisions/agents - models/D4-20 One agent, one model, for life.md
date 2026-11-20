@@ -32,3 +32,4 @@ devlog #16, 09 §3b.5
 - [[38.27 Package D (children and reproduction) built; the Hollins world|38.27: Package D (children and reproduction) built; the Hollins world]]
 - [[38.42 the paired Combe run, as now against the evening…|38.42: the paired Combe run, as now against the evening…]]
 - [[38.75 Lake run 2, and the same world with a graded population goal|38.75: Lake run 2, and the same world with a graded population goal]]
+- *and 1 index or audit notes*

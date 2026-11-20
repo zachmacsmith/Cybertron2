@@ -31,4 +31,4 @@ analysis written; the web designed as a discussion proposal (economy_web.md), re
 - [[W-39b Prototype of generation_redesign.md §4.3 and §4.5 for people|W-39b · Prototype of generation_redesign.md §4.3 and §4.5 for people]]
 - [[L-121 Wildlife pack K8 crafts and wild goods|L-121 · Wildlife pack K8: crafts and wild goods]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
-- *and 4 index or audit notes*
+- *and 5 index or audit notes*

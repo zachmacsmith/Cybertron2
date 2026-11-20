@@ -3,7 +3,7 @@
 ## Open
 - [[W-65 Tracking threads automatically|W-65 · Tracking threads automatically]] (active)
 - [[W-64 Shared units for food, weight and work|W-64 · Shared units for food, weight and work]] (queued)
-- [[W-63 An audit of what was started and left|W-63 · An audit of what was started and left]] (waiting)
+- [[W-63 An audit of what was started and left|W-63 · An audit of what was started and left]] (active)
 - [[W-62 The water work is on eight unmerged branches, none on main|W-62 · The water work is on eight unmerged branches, none on main]] (waiting)
 - [[W-60 The ecology's water measure counted each lake and the large river…|W-60 · The ecology's water measure counted each lake and the large river…]] (active)
 - [[W-59 The runs world for the model-per-household run|W-59 · The runs world for the model-per-household run]] (waiting)

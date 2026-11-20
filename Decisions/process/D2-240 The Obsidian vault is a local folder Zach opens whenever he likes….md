@@ -23,3 +23,4 @@ conversation (20 Nov: "No obsidian should not be making an obsidian vault zip, I
 ## Mentioned by
 - [[W-65 Tracking threads automatically|W-65 · Tracking threads automatically]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]
+- *and 1 index or audit notes*

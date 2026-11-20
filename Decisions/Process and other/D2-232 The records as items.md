@@ -24,3 +24,4 @@ the hand-kept tables as the store
 - [[W-66 The design of the records and the workflow|W-66 · The design of the records and the workflow]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
+- *and 1 index or audit notes*

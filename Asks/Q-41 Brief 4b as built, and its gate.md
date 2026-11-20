@@ -22,4 +22,4 @@ updated: "2026-11-20"
 - [[L-113 Briefs 4, 4b and 4c's deviations, to revisit|L-113 · Briefs 4, 4b and 4c's deviations, to revisit]]
 - [[Hunting that pays a beginner, snares that are lifted, and predators…|Hunting that pays a beginner, snares that are lifted, and predators…]]
 - [[The hunt after brief 4 game that remembers, slow recovery, and…|The hunt after brief 4: game that remembers, slow recovery, and…]]
-- *and 4 index or audit notes*
+- *and 5 index or audit notes*

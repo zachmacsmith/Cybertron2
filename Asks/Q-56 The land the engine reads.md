@@ -25,4 +25,4 @@ updated: "2026-11-20"
 - [[Climate from the land|Climate from the land]]
 - [[02zzo the weather across conditions, and what the engine leaves…|02zzo: the weather across conditions, and what the engine leaves…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

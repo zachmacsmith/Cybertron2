@@ -26,4 +26,4 @@ done: seed 5, 45 people; herds kept; Highpool's larder ([[D2-230 Highpool's lard
 
 ## Mentioned by
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

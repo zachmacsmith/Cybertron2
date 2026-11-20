@@ -21,4 +21,4 @@ designed (discussion); split off as its own track (OPEN [[L-105 Forays as their 
 
 ## Mentioned by
 - [[Q-33 forays.md's open questions|Q-33 · forays.md's open questions]]
-- *and 4 index or audit notes*
+- *and 5 index or audit notes*

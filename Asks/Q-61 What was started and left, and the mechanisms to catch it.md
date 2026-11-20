@@ -21,3 +21,4 @@ updated: "2026-11-20"
 - [[W-63 An audit of what was started and left|W-63 · An audit of what was started and left]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]
 - [[02zzp what was started and left, 22 Oct to 19 Nov, and how to notice…|02zzp: what was started and left, 22 Oct to 19 Nov, and how to notice…]]
+- *and 1 index or audit notes*

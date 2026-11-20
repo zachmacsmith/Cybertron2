@@ -20,3 +20,4 @@ updated: "2026-11-20"
 - [[Hunting that pays a beginner, snares that are lifted, and predators…|Hunting that pays a beginner, snares that are lifted, and predators…]]
 - [[02zx the wild layer's build log (37.4 building 37.2's briefs, D2-207)|02zx: the wild layer's build log (37.4 building 37.2's briefs, D2-207)]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
+- *and 1 index or audit notes*

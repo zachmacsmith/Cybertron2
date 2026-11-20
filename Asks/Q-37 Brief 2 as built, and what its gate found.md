@@ -21,4 +21,4 @@ updated: "2026-11-20"
 - [[Cats that choose where to live|Cats that choose where to live]]
 - [[The hunt over time, and what briefs 1 to 3 left build brief 4|The hunt over time, and what briefs 1 to 3 left: build brief 4]]
 - [[Damage to shelter in levels, by structure and weather; camps as…|Damage to shelter in levels, by structure and weather; camps as…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

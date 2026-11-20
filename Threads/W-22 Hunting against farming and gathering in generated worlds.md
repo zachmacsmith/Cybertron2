@@ -26,4 +26,4 @@ measured in four generated worlds (unarmed) and three (armed), with depletion ru
 ## Mentioned by
 - [[02zzd hunting, gathering and farming, food per unit of work…|02zzd: hunting, gathering and farming, food per unit of work…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
-- *and 4 index or audit notes*
+- *and 5 index or audit notes*

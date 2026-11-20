@@ -27,4 +27,4 @@ updated: "2026-11-20"
 - [[L-118 Wildlife pack K5 wood and frontier|L-118 · Wildlife pack K5: wood and frontier]]
 - [[L-119 Wildlife pack K6 keeping|L-119 · Wildlife pack K6: keeping]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

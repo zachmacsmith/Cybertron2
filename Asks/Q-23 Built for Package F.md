@@ -33,4 +33,4 @@ Built for Package F (24 Oct), choices the spec left open, for Zach to confirm or
 - [[38.28 Package F (forests, fuel in heat, eating raw, seeding below…|38.28: Package F (forests, fuel in heat, eating raw, seeding below…]]
 - [[38.45 the building package, as built (brief 02zh)|38.45: the building package, as built (brief 02zh)]]
 - [[38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

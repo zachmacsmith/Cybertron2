@@ -26,4 +26,4 @@ decided and written.
 ## Mentioned by
 - [[Proposal world generation as one history, with pins met in the loop|Proposal: world generation as one history, with pins met in the loop]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

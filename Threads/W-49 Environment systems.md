@@ -31,4 +31,4 @@ proposal accepted in part 17 Nov ([[D2-221 The land in three speeds|D2-221]] to 
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
 - [[02zzn the water half of the environment, prototyped on the river…|02zzn: the water half of the environment, prototyped on the river…]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

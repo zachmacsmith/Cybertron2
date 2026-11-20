@@ -22,4 +22,4 @@ not begun
 ## Mentioned by
 - [[Proposal world generation as one history, with pins met in the loop|Proposal: world generation as one history, with pins met in the loop]]
 - [[02zzd hunting, gathering and farming, food per unit of work…|02zzd: hunting, gathering and farming, food per unit of work…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*
