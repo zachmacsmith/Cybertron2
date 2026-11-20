@@ -1,0 +1,341 @@
+{
+ "world": "w11",
+ "seed": 1,
+ "name": "Sand and heath",
+ "stands for": "the Brecks, the New Forest",
+ "generate": {
+  "settlements": 3,
+  "household_size": 3,
+  "warn_only": [
+   "capacity"
+  ],
+  "configuration": "sand country",
+  "rain_mm": 650.0,
+  "temperature_c": 10.0,
+  "seed": 1
+ },
+ "settings why": "the table names the configuration; 650 mm and 10 C between the Brecks (Santon Downham, 600) and the New Forest (800)",
+ "generator checks": {
+  "rivers run downhill": true,
+  "laid rivers run where laid": true,
+  "every pin met": true,
+  "settlements placed": true,
+  "capacity": false,
+  "dependence": false,
+  "reachable by land": true,
+  "chokepoint": false,
+  "roads about a day": true,
+  "parcels per node": true,
+  "access gates": true,
+  "makes its own landscape": true,
+  "lakes where lakes belong": true,
+  "wood share by how long settled": true,
+  "predators within range": true
+ },
+ "land": {
+  "land km2": 2504.4,
+  "sea share": 0.0,
+  "height": {
+   "median m": 88.4,
+   "p95 m": 136.7,
+   "max m": 194.9,
+   "share over 300 m": 0.0,
+   "share over 500 m": 0.0,
+   "share over 1000 m": 0.0
+  },
+  "slope": {
+   "median deg": 1.2,
+   "p95 deg": 2.8,
+   "share over 10 deg": 0.0,
+   "share over 25 deg": 0.0
+  },
+  "terrain": {
+   "chalk down": 0.0234,
+   "clay vale": 0.0723,
+   "fen": 0.0001,
+   "lowland loam": 0.3478,
+   "moor": 0.0,
+   "river floodplain": 0.1061,
+   "river terrace": 0.0852,
+   "sandy ground": 0.3627,
+   "water": 0.0022
+  },
+  "floodplain share": 0.1061,
+  "terrace share": 0.0852,
+  "low ground": {
+   "share of land within 2 m of a river": 0.1196,
+   "share of land within 3 km of a river of class 2+ that is within 2 m of it": 0.1261
+  },
+  "wet ground share (wet >= 0.75)": 0.0319,
+  "texture": {
+   "sand": 0.459,
+   "loam": 0.4318,
+   "clay": 0.0848,
+   "chalk": 0.0243,
+   "peat": 0.0
+  },
+  "soil": {
+   "depth m mean": 1.14,
+   "held mm mean": 138.3,
+   "drain mean": 0.354,
+   "fertility mean": 0.875
+  },
+  "cover": {
+   "fen": 0.0098,
+   "forest": 0.2993,
+   "heath": 0.1328,
+   "meadow": 0.1038,
+   "moor": 0.0,
+   "pasture": 0.4521,
+   "water": 0.0022
+  },
+  "ecosystem": {
+   "alder carr": 0.003,
+   "beech wood": 0.0084,
+   "birch and pine wood": 0.2283,
+   "blanket bog": 0.0,
+   "chalk grassland": 0.0147,
+   "fen": 0.0098,
+   "grassland": 0.4373,
+   "hay meadow": 0.0902,
+   "lowland heath": 0.1328,
+   "oak-ash wood": 0.0596,
+   "water": 0.0022,
+   "wet grassland": 0.0136
+  },
+  "tree line": {
+   "lowest land too cold for wood, m": null,
+   "highest wood (p99), m": 170.3,
+   "land above the tree line share": 0.0
+  },
+  "water": {
+   "lake share": 0.0,
+   "lakes": 0,
+   "largest lake km2": 0.0,
+   "river km by class": {
+    "1": 146.7,
+    "2": 84.6,
+    "3": 37.2
+   },
+   "springs": 163
+  },
+  "climate (the generator's)": {
+   "rain mm": {
+    "median": 533.3,
+    "p5": 510.9,
+    "p95": 1062.8
+   },
+   "mean temp C": 9.42,
+   "coldest land C": 8.49
+  },
+  "probes": {
+   "all land": {
+    "cells": 111308,
+    "height m": 88.4,
+    "rain mm": 533.3,
+    "mean temp C": 9.42,
+    "wet": 0.183,
+    "held mm": 138.3,
+    "drain": 0.354
+   },
+   "coast (within 3 km of the sea)": {
+    "cells": 0
+   },
+   "inland lowland (over 10 km from the sea, under 150 m)": {
+    "cells": 108620,
+    "height m": 87.6,
+    "rain mm": 533.5,
+    "mean temp C": 9.43,
+    "wet": 0.187,
+    "held mm": 139.9,
+    "drain": 0.35
+   },
+   "tops (the highest 5% of land)": {
+    "cells": 5566,
+    "height m": 149.5,
+    "rain mm": 526.9,
+    "mean temp C": 8.97,
+    "wet": 0.048,
+    "held mm": 79.1,
+    "drain": 0.494
+   },
+   "on sand": {
+    "cells": 51094,
+    "height m": 96.5,
+    "rain mm": 539.9,
+    "mean temp C": 9.33,
+    "wet": 0.14,
+    "held mm": 79.1,
+    "drain": 0.5
+   },
+   "on loam": {
+    "cells": 48068,
+    "height m": 83.7,
+    "rain mm": 520.4,
+    "mean temp C": 9.45,
+    "wet": 0.212,
+    "held mm": 193.7,
+    "drain": 0.25
+   },
+   "on clay": {
+    "cells": 9444,
+    "height m": 72.7,
+    "rain mm": 552.0,
+    "mean temp C": 9.65,
+    "wet": 0.304,
+    "held mm": 171.2,
+    "drain": 0.08
+   },
+   "on chalk": {
+    "cells": 2702,
+    "height m": 91.7,
+    "rain mm": 538.6,
+    "mean temp C": 9.73,
+    "wet": 0.065,
+    "held mm": 159.3,
+    "drain": 0.4
+   },
+   "on peat": {
+    "cells": 0
+   }
+  },
+  "nodes": {
+   "s1": {
+    "name": "Meadworth",
+    "kind": "village",
+    "elevation": 71.9,
+    "rain_mm": 511.0,
+    "xy": [
+     11.44,
+     26.98
+    ],
+    "sea km": 99.0,
+    "terrain": "river floodplain",
+    "mean temp C": 9.5
+   },
+   "s2": {
+    "name": "Marford",
+    "kind": "village",
+    "elevation": 90.8,
+    "rain_mm": 532.0,
+    "xy": [
+     44.14,
+     23.41
+    ],
+    "sea km": 99.0,
+    "terrain": "river floodplain",
+    "mean temp C": 9.46
+   },
+   "s3": {
+    "name": "Marworth",
+    "kind": "village",
+    "elevation": 58.9,
+    "rain_mm": 511.0,
+    "xy": [
+     13.2,
+     44.27
+    ],
+    "sea km": 99.0,
+    "terrain": "river floodplain",
+    "mean temp C": 9.04
+   },
+   "w1": {
+    "name": "Oakhurst",
+    "kind": "other",
+    "elevation": 82.0,
+    "rain_mm": 522.0,
+    "xy": [
+     12.95,
+     7.61
+    ],
+    "sea km": 99.0,
+    "terrain": "clay vale",
+    "mean temp C": 9.99
+   },
+   "w2": {
+    "name": "Hazeley",
+    "kind": "other",
+    "elevation": 78.1,
+    "rain_mm": 552.0,
+    "xy": [
+     17.29,
+     15.29
+    ],
+    "sea km": 99.0,
+    "terrain": "sandy ground",
+    "mean temp C": 9.78
+   },
+   "w3": {
+    "name": "Birchope",
+    "kind": "other",
+    "elevation": 154.7,
+    "rain_mm": 620.0,
+    "xy": [
+     23.71,
+     27.74
+    ],
+    "sea km": 99.0,
+    "terrain": "sandy ground",
+    "mean temp C": 8.91
+   },
+   "w4": {
+    "name": "Birchley",
+    "kind": "other",
+    "elevation": 115.0,
+    "rain_mm": 627.0,
+    "xy": [
+     38.85,
+     36.15
+    ],
+    "sea km": 99.0,
+    "terrain": "sandy ground",
+    "mean temp C": 8.92
+   },
+   "t1": {
+    "name": "Hazelholt",
+    "kind": "other",
+    "elevation": 158.1,
+    "rain_mm": 511.0,
+    "xy": [
+     27.33,
+     23.38
+    ],
+    "sea km": 99.0,
+    "terrain": "sandy ground",
+    "mean temp C": 9.02
+   }
+  },
+  "water allocation": {
+   "Meadworth": {
+    "water parcels": 0,
+    "water cells": 0,
+    "river km in reach (class 1+ / 2+)": [
+     5.1,
+     0.0
+    ],
+    "lake km2 in reach": 0.0,
+    "shore km in reach": 0.0
+   },
+   "Marford": {
+    "water parcels": 1,
+    "water cells": 2,
+    "river km in reach (class 1+ / 2+)": [
+     4.2,
+     4.2
+    ],
+    "lake km2 in reach": 0.0,
+    "shore km in reach": 0.0
+   },
+   "Marworth": {
+    "water parcels": 0,
+    "water cells": 0,
+    "river km in reach (class 1+ / 2+)": [
+     7.9,
+     1.1
+    ],
+    "lake km2 in reach": 0.0,
+    "shore km in reach": 0.0
+   }
+  }
+ }
+}

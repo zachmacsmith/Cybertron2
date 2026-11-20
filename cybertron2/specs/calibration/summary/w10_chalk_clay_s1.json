@@ -1,0 +1,319 @@
+{
+ "world": "w10",
+ "seed": 1,
+ "name": "Chalk and clay",
+ "stands for": "the downs and their vale",
+ "generate": {
+  "settlements": 3,
+  "household_size": 3,
+  "warn_only": [
+   "capacity"
+  ],
+  "configuration": "scarp and vale",
+  "rain_mm": 800.0,
+  "temperature_c": 10.0,
+  "seed": 1
+ },
+ "settings why": "the table names the configuration; 800 mm and 10 C from the downs' stations (Marlborough, Wantage)",
+ "generator checks": {
+  "rivers run downhill": true,
+  "laid rivers run where laid": true,
+  "every pin met": true,
+  "settlements placed": true,
+  "capacity": false,
+  "dependence": false,
+  "reachable by land": true,
+  "chokepoint": true,
+  "roads about a day": true,
+  "parcels per node": true,
+  "access gates": true,
+  "makes its own landscape": true,
+  "lakes where lakes belong": true,
+  "wood share by how long settled": true,
+  "predators within range": true
+ },
+ "land": {
+  "land km2": 2503.0,
+  "sea share": 0.0,
+  "height": {
+   "median m": 117.7,
+   "p95 m": 272.4,
+   "max m": 307.0,
+   "share over 300 m": 0.0012,
+   "share over 500 m": 0.0,
+   "share over 1000 m": 0.0
+  },
+  "slope": {
+   "median deg": 1.3,
+   "p95 deg": 2.9,
+   "share over 10 deg": 0.0,
+   "share over 25 deg": 0.0
+  },
+  "terrain": {
+   "chalk down": 0.3675,
+   "clay vale": 0.4271,
+   "hills": 0.0005,
+   "lowland loam": 0.0404,
+   "river floodplain": 0.1207,
+   "river terrace": 0.0347,
+   "sandy ground": 0.0062,
+   "water": 0.0028
+  },
+  "floodplain share": 0.1207,
+  "terrace share": 0.0347,
+  "low ground": {
+   "share of land within 2 m of a river": 0.1463,
+   "share of land within 3 km of a river of class 2+ that is within 2 m of it": 0.1587
+  },
+  "wet ground share (wet >= 0.75)": 0.0441,
+  "texture": {
+   "sand": 0.0098,
+   "loam": 0.0518,
+   "clay": 0.5019,
+   "chalk": 0.4366,
+   "peat": 0.0
+  },
+  "soil": {
+   "depth m mean": 1.13,
+   "held mm mean": 165.4,
+   "drain mean": 0.233,
+   "fertility mean": 0.953
+  },
+  "cover": {
+   "fen": 0.0116,
+   "forest": 0.2992,
+   "heath": 0.0029,
+   "meadow": 0.123,
+   "pasture": 0.5605,
+   "water": 0.0028
+  },
+  "ecosystem": {
+   "alder carr": 0.0056,
+   "beech wood": 0.0229,
+   "birch and pine wood": 0.0026,
+   "chalk grassland": 0.3385,
+   "fen": 0.0116,
+   "grassland": 0.2176,
+   "hay meadow": 0.1046,
+   "hill pasture": 0.0044,
+   "lowland heath": 0.0029,
+   "oak-ash wood": 0.2668,
+   "upland oak wood": 0.0013,
+   "water": 0.0028,
+   "wet grassland": 0.0184
+  },
+  "tree line": {
+   "lowest land too cold for wood, m": null,
+   "highest wood (p99), m": 277.5,
+   "land above the tree line share": 0.0
+  },
+  "water": {
+   "lake share": 0.0,
+   "lakes": 0,
+   "largest lake km2": 0.0,
+   "river km by class": {
+    "1": 145.5,
+    "2": 94.5,
+    "3": 46.6
+   },
+   "springs": 167
+  },
+  "climate (the generator's)": {
+   "rain mm": {
+    "median": 658.6,
+    "p5": 628.8,
+    "p95": 1309.1
+   },
+   "mean temp C": 8.98,
+   "coldest land C": 7.38
+  },
+  "probes": {
+   "all land": {
+    "cells": 111245,
+    "height m": 117.7,
+    "rain mm": 658.6,
+    "mean temp C": 8.98,
+    "wet": 0.256,
+    "held mm": 165.4,
+    "drain": 0.233
+   },
+   "coast (within 3 km of the sea)": {
+    "cells": 0
+   },
+   "inland lowland (over 10 km from the sea, under 150 m)": {
+    "cells": 61468,
+    "height m": 89.3,
+    "rain mm": 655.5,
+    "mean temp C": 9.76,
+    "wet": 0.325,
+    "held mm": 170.7,
+    "drain": 0.101
+   },
+   "tops (the highest 5% of land)": {
+    "cells": 5563,
+    "height m": 281.6,
+    "rain mm": 652.8,
+    "mean temp C": 7.74,
+    "wet": 0.103,
+    "held mm": 157.8,
+    "drain": 0.397
+   },
+   "downs (chalk)": {
+    "cells": 48566,
+    "height m": 242.9,
+    "rain mm": 661.2,
+    "mean temp C": 8.03,
+    "wet": 0.167,
+    "held mm": 158.2,
+    "drain": 0.4
+   },
+   "vale (clay)": {
+    "cells": 55835,
+    "height m": 87.7,
+    "rain mm": 654.6,
+    "mean temp C": 9.81,
+    "wet": 0.33,
+    "held mm": 170.8,
+    "drain": 0.08
+   },
+   "on sand": {
+    "cells": 1086,
+    "height m": 133.7,
+    "rain mm": 733.2,
+    "mean temp C": 8.89,
+    "wet": 0.21,
+    "held mm": 77.7,
+    "drain": 0.5
+   },
+   "on loam": {
+    "cells": 5758,
+    "height m": 131.1,
+    "rain mm": 676.4,
+    "mean temp C": 9.05,
+    "wet": 0.292,
+    "held mm": 190.0,
+    "drain": 0.25
+   },
+   "on clay": {
+    "cells": 55835,
+    "height m": 87.7,
+    "rain mm": 654.6,
+    "mean temp C": 9.81,
+    "wet": 0.33,
+    "held mm": 170.8,
+    "drain": 0.08
+   },
+   "on chalk": {
+    "cells": 48566,
+    "height m": 242.9,
+    "rain mm": 661.2,
+    "mean temp C": 8.03,
+    "wet": 0.167,
+    "held mm": 158.2,
+    "drain": 0.4
+   },
+   "on peat": {
+    "cells": 0
+   }
+  },
+  "nodes": {
+   "s1": {
+    "name": "Watworth",
+    "kind": "village",
+    "elevation": 100.2,
+    "rain_mm": 629.0,
+    "xy": [
+     36.73,
+     23.86
+    ],
+    "sea km": 99.0,
+    "terrain": "clay vale",
+    "mean temp C": 9.37
+   },
+   "s2": {
+    "name": "Marford",
+    "kind": "village",
+    "elevation": 144.9,
+    "rain_mm": 635.0,
+    "xy": [
+     19.91,
+     27.86
+    ],
+    "sea km": 99.0,
+    "terrain": "river floodplain",
+    "mean temp C": 8.96
+   },
+   "s3": {
+    "name": "Marworth",
+    "kind": "village",
+    "elevation": 36.5,
+    "rain_mm": 1022.0,
+    "xy": [
+     3.29,
+     14.53
+    ],
+    "sea km": 99.0,
+    "terrain": "river floodplain",
+    "mean temp C": 10.07
+   },
+   "w1": {
+    "name": "Oakcombe",
+    "kind": "other",
+    "elevation": 54.9,
+    "rain_mm": 629.0,
+    "xy": [
+     9.43,
+     4.17
+    ],
+    "sea km": 99.0,
+    "terrain": "clay vale",
+    "mean temp C": 10.29
+   },
+   "w2": {
+    "name": "Hazeley",
+    "kind": "other",
+    "elevation": 120.3,
+    "rain_mm": 629.0,
+    "xy": [
+     42.25,
+     13.03
+    ],
+    "sea km": 99.0,
+    "terrain": "clay vale",
+    "mean temp C": 9.58
+   }
+  },
+  "water allocation": {
+   "Watworth": {
+    "water parcels": 1,
+    "water cells": 2,
+    "river km in reach (class 1+ / 2+)": [
+     5.7,
+     5.7
+    ],
+    "lake km2 in reach": 0.0,
+    "shore km in reach": 0.0
+   },
+   "Marford": {
+    "water parcels": 1,
+    "water cells": 2,
+    "river km in reach (class 1+ / 2+)": [
+     7.5,
+     4.5
+    ],
+    "lake km2 in reach": 0.0,
+    "shore km in reach": 0.0
+   },
+   "Marworth": {
+    "water parcels": 1,
+    "water cells": 2,
+    "river km in reach (class 1+ / 2+)": [
+     7.5,
+     6.0
+    ],
+    "lake km2 in reach": 0.0,
+    "shore km in reach": 0.0
+   }
+  }
+ }
+}

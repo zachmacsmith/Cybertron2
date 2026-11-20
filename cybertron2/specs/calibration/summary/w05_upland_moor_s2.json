@@ -1,0 +1,309 @@
+{
+ "world": "w05",
+ "seed": 2,
+ "name": "Upland and moor",
+ "stands for": "the Pennines",
+ "generate": {
+  "settlements": 3,
+  "household_size": 3,
+  "warn_only": [
+   "capacity"
+  ],
+  "configuration": "upland and moor",
+  "rain_mm": 950.0,
+  "temperature_c": 9.0,
+  "seed": 2
+ },
+ "settings why": "the table names the configuration; 950 mm and 9 C at the Pennines' lowland foot (Bradford, Bingley)",
+ "generator checks": {
+  "rivers run downhill": true,
+  "laid rivers run where laid": true,
+  "every pin met": true,
+  "settlements placed": true,
+  "capacity": false,
+  "dependence": true,
+  "reachable by land": true,
+  "chokepoint": true,
+  "roads about a day": true,
+  "parcels per node": true,
+  "access gates": true,
+  "makes its own landscape": true,
+  "lakes where lakes belong": true,
+  "wood share by how long settled": true,
+  "predators within range": true
+ },
+ "land": {
+  "land km2": 2442.7,
+  "sea share": 0.0,
+  "height": {
+   "median m": 121.0,
+   "p95 m": 617.1,
+   "max m": 1131.0,
+   "share over 300 m": 0.2043,
+   "share over 500 m": 0.0931,
+   "share over 1000 m": 0.0011
+  },
+  "slope": {
+   "median deg": 2.0,
+   "p95 deg": 13.8,
+   "share over 10 deg": 0.0985,
+   "share over 25 deg": 0.0057
+  },
+  "terrain": {
+   "chalk down": 0.0486,
+   "clay vale": 0.1292,
+   "hills": 0.1028,
+   "lowland loam": 0.4016,
+   "moor": 0.0027,
+   "river floodplain": 0.1122,
+   "river terrace": 0.0653,
+   "rock": 0.0017,
+   "sandy ground": 0.0459,
+   "upland pasture": 0.0631,
+   "water": 0.0268
+  },
+  "floodplain share": 0.1122,
+  "terrace share": 0.0653,
+  "low ground": {
+   "share of land within 2 m of a river": 0.1475,
+   "share of land within 3 km of a river of class 2+ that is within 2 m of it": 0.2079
+  },
+  "wet ground share (wet >= 0.75)": 0.0543,
+  "texture": {
+   "sand": 0.0881,
+   "loam": 0.6833,
+   "clay": 0.161,
+   "chalk": 0.0676,
+   "peat": 0.0
+  },
+  "soil": {
+   "depth m mean": 1.01,
+   "held mm mean": 157.9,
+   "drain mean": 0.255,
+   "fertility mean": 0.916
+  },
+  "cover": {
+   "fen": 0.0126,
+   "forest": 0.292,
+   "heath": 0.001,
+   "meadow": 0.0867,
+   "moor": 0.1113,
+   "pasture": 0.4679,
+   "rock": 0.0017,
+   "water": 0.0268
+  },
+  "ecosystem": {
+   "alder carr": 0.0053,
+   "bare rock": 0.0017,
+   "beech wood": 0.0069,
+   "birch and pine wood": 0.0159,
+   "blanket bog": 0.0014,
+   "chalk grassland": 0.0166,
+   "fen": 0.0126,
+   "grassland": 0.2698,
+   "hay meadow": 0.0641,
+   "hill pasture": 0.1814,
+   "lowland heath": 0.001,
+   "moor": 0.1099,
+   "oak-ash wood": 0.0735,
+   "upland oak wood": 0.1903,
+   "water": 0.0268,
+   "wet grassland": 0.0226
+  },
+  "tree line": {
+   "lowest land too cold for wood, m": 620.4,
+   "highest wood (p99), m": 442.3,
+   "land above the tree line share": 0.0459
+  },
+  "water": {
+   "lake share": 0.0242,
+   "lakes": 10,
+   "largest lake km2": 17.62,
+   "river km by class": {
+    "1": 150.9,
+    "2": 97.8,
+    "3": 44.5
+   },
+   "springs": 238
+  },
+  "climate (the generator's)": {
+   "rain mm": {
+    "median": 812.2,
+    "p5": 746.7,
+    "p95": 2157.0
+   },
+   "mean temp C": 7.71,
+   "coldest land C": 1.46
+  },
+  "probes": {
+   "all land": {
+    "cells": 108564,
+    "height m": 121.0,
+    "rain mm": 812.2,
+    "mean temp C": 7.71,
+    "wet": 0.288,
+    "held mm": 157.9,
+    "drain": 0.255
+   },
+   "coast (within 3 km of the sea)": {
+    "cells": 0
+   },
+   "inland lowland (over 10 km from the sea, under 150 m)": {
+    "cells": 63707,
+    "height m": 85.3,
+    "rain mm": 821.3,
+    "mean temp C": 8.59,
+    "wet": 0.36,
+    "held mm": 174.2,
+    "drain": 0.237
+   },
+   "tops (the highest 5% of land)": {
+    "cells": 5429,
+    "height m": 704.3,
+    "rain mm": 875.2,
+    "mean temp C": 3.93,
+    "wet": 0.096,
+    "held mm": 80.3,
+    "drain": 0.291
+   },
+   "on sand": {
+    "cells": 9564,
+    "height m": 115.7,
+    "rain mm": 822.3,
+    "mean temp C": 7.72,
+    "wet": 0.234,
+    "held mm": 71.0,
+    "drain": 0.5
+   },
+   "on loam": {
+    "cells": 74182,
+    "height m": 148.0,
+    "rain mm": 795.3,
+    "mean temp C": 7.56,
+    "wet": 0.276,
+    "held mm": 168.4,
+    "drain": 0.25
+   },
+   "on clay": {
+    "cells": 17482,
+    "height m": 92.4,
+    "rain mm": 879.6,
+    "mean temp C": 8.51,
+    "wet": 0.416,
+    "held mm": 168.9,
+    "drain": 0.08
+   },
+   "on chalk": {
+    "cells": 7336,
+    "height m": 103.7,
+    "rain mm": 746.7,
+    "mean temp C": 7.34,
+    "wet": 0.168,
+    "held mm": 137.8,
+    "drain": 0.4
+   },
+   "on peat": {
+    "cells": 0
+   }
+  },
+  "nodes": {
+   "s1": {
+    "name": "Brookford",
+    "kind": "village",
+    "elevation": 145.7,
+    "rain_mm": 870.0,
+    "xy": [
+     15.35,
+     34.04
+    ],
+    "sea km": 99.0,
+    "terrain": "river floodplain",
+    "mean temp C": 7.76
+   },
+   "s2": {
+    "name": "Haywick",
+    "kind": "village",
+    "elevation": 81.2,
+    "rain_mm": 830.0,
+    "xy": [
+     42.17,
+     8.15
+    ],
+    "sea km": 99.0,
+    "terrain": "river terrace",
+    "mean temp C": 8.98
+   },
+   "s3": {
+    "name": "Welwick",
+    "kind": "village",
+    "elevation": 52.2,
+    "rain_mm": 1654.0,
+    "xy": [
+     2.11,
+     14.06
+    ],
+    "sea km": 99.0,
+    "terrain": "river floodplain",
+    "mean temp C": 8.95
+   },
+   "w1": {
+    "name": "Flinthurst",
+    "kind": "other",
+    "elevation": 323.9,
+    "rain_mm": 1874.0,
+    "xy": [
+     23.39,
+     34.68
+    ],
+    "sea km": 99.0,
+    "terrain": "hills",
+    "mean temp C": 6.61
+   },
+   "t1": {
+    "name": "Meadham",
+    "kind": "other",
+    "elevation": 78.4,
+    "rain_mm": 925.0,
+    "xy": [
+     21.93,
+     9.61
+    ],
+    "sea km": 99.0,
+    "terrain": "lowland loam",
+    "mean temp C": 8.95
+   }
+  },
+  "water allocation": {
+   "Brookford": {
+    "water parcels": 1,
+    "water cells": 2,
+    "river km in reach (class 1+ / 2+)": [
+     4.2,
+     4.2
+    ],
+    "lake km2 in reach": 0.0,
+    "shore km in reach": 0.0
+   },
+   "Haywick": {
+    "water parcels": 0,
+    "water cells": 0,
+    "river km in reach (class 1+ / 2+)": [
+     5.8,
+     1.2
+    ],
+    "lake km2 in reach": 0.0,
+    "shore km in reach": 0.0
+   },
+   "Welwick": {
+    "water parcels": 2,
+    "water cells": 2,
+    "river km in reach (class 1+ / 2+)": [
+     4.8,
+     3.3
+    ],
+    "lake km2 in reach": 0.0,
+    "shore km in reach": 0.0
+   }
+  }
+ }
+}

@@ -1,0 +1,388 @@
+{
+ "world": "w04",
+ "seed": 2,
+ "name": "Coast under mountains",
+ "stands for": "west Scotland's coast, the Lakes' west side",
+ "generate": {
+  "settlements": 3,
+  "household_size": 3,
+  "warn_only": [
+   "capacity"
+  ],
+  "configuration": "coastal strip under mountains",
+  "rain_mm": 1200.0,
+  "temperature_c": 9.0,
+  "wild_shore": true,
+  "seed": 2
+ },
+ "settings why": "the table names the configuration and the west wind; 1,200 mm and 9 C from west Scotland's coastal stations (Tiree, Dunstaffnage)",
+ "generator checks": {
+  "rivers run downhill": true,
+  "laid rivers run where laid": true,
+  "every pin met": true,
+  "settlements placed": true,
+  "capacity": false,
+  "dependence": true,
+  "reachable by land": true,
+  "chokepoint": true,
+  "roads about a day": true,
+  "parcels per node": true,
+  "access gates": true,
+  "makes its own landscape": true,
+  "lakes where lakes belong": true,
+  "wood share by how long settled": true,
+  "predators within range": true
+ },
+ "land": {
+  "land km2": 2135.8,
+  "sea share": 0.146,
+  "height": {
+   "median m": 99.5,
+   "p95 m": 555.9,
+   "max m": 787.5,
+   "share over 300 m": 0.1606,
+   "share over 500 m": 0.0693,
+   "share over 1000 m": 0.0
+  },
+  "slope": {
+   "median deg": 1.6,
+   "p95 deg": 12.6,
+   "share over 10 deg": 0.0935,
+   "share over 25 deg": 0.0004
+  },
+  "terrain": {
+   "chalk down": 0.0574,
+   "clay vale": 0.1675,
+   "coast": 0.0014,
+   "fen": 0.0,
+   "hills": 0.0874,
+   "lowland loam": 0.3542,
+   "moor": 0.0075,
+   "river floodplain": 0.1434,
+   "river terrace": 0.0815,
+   "rock": 0.0,
+   "saltmarsh": 0.0001,
+   "sandy ground": 0.029,
+   "upland pasture": 0.0667,
+   "water": 0.0038
+  },
+  "floodplain share": 0.1434,
+  "terrace share": 0.0815,
+  "low ground": {
+   "share of land within 2 m of a river": 0.1587,
+   "share of land within 3 km of a river of class 2+ that is within 2 m of it": 0.2092
+  },
+  "wet ground share (wet >= 0.75)": 0.0772,
+  "texture": {
+   "sand": 0.088,
+   "loam": 0.6444,
+   "clay": 0.2051,
+   "chalk": 0.0625,
+   "peat": 0.0
+  },
+  "soil": {
+   "depth m mean": 1.04,
+   "held mm mean": 160.6,
+   "drain mean": 0.247,
+   "fertility mean": 0.936
+  },
+  "cover": {
+   "fen": 0.0184,
+   "forest": 0.2989,
+   "heath": 0.0037,
+   "meadow": 0.1138,
+   "moor": 0.0966,
+   "pasture": 0.4645,
+   "rock": 0.0,
+   "saltmarsh": 0.0002,
+   "water": 0.0038
+  },
+  "ecosystem": {
+   "alder carr": 0.012,
+   "bare rock": 0.0,
+   "beech wood": 0.0218,
+   "birch and pine wood": 0.0225,
+   "blanket bog": 0.0006,
+   "chalk grassland": 0.0293,
+   "dune grassland": 0.0014,
+   "fen": 0.0184,
+   "grassland": 0.4213,
+   "hay meadow": 0.0838,
+   "hill pasture": 0.0126,
+   "lowland heath": 0.0037,
+   "moor": 0.096,
+   "oak-ash wood": 0.1637,
+   "saltmarsh": 0.0002,
+   "upland oak wood": 0.0789,
+   "water": 0.0038,
+   "wet grassland": 0.03
+  },
+  "tree line": {
+   "lowest land too cold for wood, m": 592.0,
+   "highest wood (p99), m": 441.3,
+   "land above the tree line share": 0.0142
+  },
+  "water": {
+   "lake share": 0.0,
+   "lakes": 0,
+   "largest lake km2": 0.0,
+   "river km by class": {
+    "1": 148.2,
+    "2": 59.5,
+    "3": 54.9
+   },
+   "springs": 202
+  },
+  "climate (the generator's)": {
+   "rain mm": {
+    "median": 983.3,
+    "p5": 943.2,
+    "p95": 3918.7
+   },
+   "mean temp C": 7.94,
+   "coldest land C": 3.5
+  },
+  "probes": {
+   "all land": {
+    "cells": 94925,
+    "height m": 99.5,
+    "rain mm": 983.3,
+    "mean temp C": 7.94,
+    "wet": 0.38,
+    "held mm": 160.6,
+    "drain": 0.247
+   },
+   "coast (within 3 km of the sea)": {
+    "cells": 6672,
+    "height m": 55.4,
+    "rain mm": 2836.6,
+    "mean temp C": 8.65,
+    "wet": 0.51,
+    "held mm": 163.3,
+    "drain": 0.246
+   },
+   "inland lowland (over 10 km from the sea, under 150 m)": {
+    "cells": 55736,
+    "height m": 94.2,
+    "rain mm": 943.2,
+    "mean temp C": 8.38,
+    "wet": 0.406,
+    "held mm": 175.7,
+    "drain": 0.237
+   },
+   "tops (the highest 5% of land)": {
+    "cells": 4747,
+    "height m": 628.2,
+    "rain mm": 1201.2,
+    "mean temp C": 4.95,
+    "wet": 0.161,
+    "held mm": 105.2,
+    "drain": 0.28
+   },
+   "fells (the range, over 300 m)": {
+    "cells": 15242,
+    "height m": 471.8,
+    "rain mm": 1269.3,
+    "mean temp C": 5.85,
+    "wet": 0.227,
+    "held mm": 115.3,
+    "drain": 0.269
+   },
+   "lee (east of the range, under 200 m)": {
+    "cells": 48772,
+    "height m": 92.2,
+    "rain mm": 944.2,
+    "mean temp C": 8.4,
+    "wet": 0.409,
+    "held mm": 176.7,
+    "drain": 0.237
+   },
+   "windward strip (west of the range, under 100 m)": {
+    "cells": 14308,
+    "height m": 65.8,
+    "rain mm": 1483.7,
+    "mean temp C": 8.55,
+    "wet": 0.471,
+    "held mm": 164.5,
+    "drain": 0.244
+   },
+   "on sand": {
+    "cells": 8356,
+    "height m": 96.6,
+    "rain mm": 1032.3,
+    "mean temp C": 8.15,
+    "wet": 0.333,
+    "held mm": 74.3,
+    "drain": 0.5
+   },
+   "on loam": {
+    "cells": 61168,
+    "height m": 102.4,
+    "rain mm": 958.1,
+    "mean temp C": 7.76,
+    "wet": 0.37,
+    "held mm": 171.1,
+    "drain": 0.25
+   },
+   "on clay": {
+    "cells": 19469,
+    "height m": 93.6,
+    "rain mm": 1007.6,
+    "mean temp C": 8.4,
+    "wet": 0.475,
+    "held mm": 168.7,
+    "drain": 0.08
+   },
+   "on chalk": {
+    "cells": 5932,
+    "height m": 105.0,
+    "rain mm": 1007.9,
+    "mean temp C": 7.88,
+    "wet": 0.243,
+    "held mm": 148.4,
+    "drain": 0.4
+   },
+   "on peat": {
+    "cells": 0
+   }
+  },
+  "nodes": {
+   "s1": {
+    "name": "Brookford",
+    "kind": "village",
+    "elevation": 66.7,
+    "rain_mm": 945.0,
+    "xy": [
+     45.27,
+     33.0
+    ],
+    "sea km": 99.0,
+    "terrain": "river floodplain",
+    "mean temp C": 8.33
+   },
+   "s2": {
+    "name": "Haywick",
+    "kind": "village",
+    "elevation": 41.6,
+    "rain_mm": 1155.0,
+    "xy": [
+     11.68,
+     40.32
+    ],
+    "sea km": 5.1,
+    "terrain": "river floodplain",
+    "mean temp C": 8.26
+   },
+   "s3": {
+    "name": "Welwick",
+    "kind": "village",
+    "elevation": 92.9,
+    "rain_mm": 1091.0,
+    "xy": [
+     28.78,
+     16.32
+    ],
+    "sea km": 99.0,
+    "terrain": "river floodplain",
+    "mean temp C": 8.66
+   },
+   "w1": {
+    "name": "Hazelham",
+    "kind": "other",
+    "elevation": 132.3,
+    "rain_mm": 1101.0,
+    "xy": [
+     47.98,
+     17.21
+    ],
+    "sea km": 99.0,
+    "terrain": "clay vale",
+    "mean temp C": 8.37
+   },
+   "w2": {
+    "name": "Hayhurst",
+    "kind": "other",
+    "elevation": 82.5,
+    "rain_mm": 943.0,
+    "xy": [
+     46.77,
+     47.53
+    ],
+    "sea km": 99.0,
+    "terrain": "clay vale",
+    "mean temp C": 7.79
+   },
+   "w3": {
+    "name": "Flinthurst",
+    "kind": "other",
+    "elevation": 357.1,
+    "rain_mm": 943.0,
+    "xy": [
+     22.06,
+     11.7
+    ],
+    "sea km": 99.0,
+    "terrain": "hills",
+    "mean temp C": 7.08
+   },
+   "w4": {
+    "name": "Craghurst",
+    "kind": "other",
+    "elevation": 402.2,
+    "rain_mm": 3345.0,
+    "xy": [
+     18.4,
+     42.48
+    ],
+    "sea km": 99.0,
+    "terrain": "hills",
+    "mean temp C": 5.87
+   },
+   "t1": {
+    "name": "Stancombe",
+    "kind": "other",
+    "elevation": 192.4,
+    "rain_mm": 943.0,
+    "xy": [
+     24.49,
+     34.76
+    ],
+    "sea km": 99.0,
+    "terrain": "lowland loam",
+    "mean temp C": 7.46
+   }
+  },
+  "water allocation": {
+   "Brookford": {
+    "water parcels": 1,
+    "water cells": 2,
+    "river km in reach (class 1+ / 2+)": [
+     7.3,
+     1.3
+    ],
+    "lake km2 in reach": 0.0,
+    "shore km in reach": 0.0
+   },
+   "Haywick": {
+    "water parcels": 1,
+    "water cells": 2,
+    "river km in reach (class 1+ / 2+)": [
+     8.8,
+     6.8
+    ],
+    "lake km2 in reach": 0.0,
+    "shore km in reach": 0.0
+   },
+   "Welwick": {
+    "water parcels": 1,
+    "water cells": 2,
+    "river km in reach (class 1+ / 2+)": [
+     7.2,
+     3.0
+    ],
+    "lake km2 in reach": 0.0,
+    "shore km in reach": 0.0
+   }
+  }
+ }
+}
