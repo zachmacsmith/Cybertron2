@@ -18,6 +18,12 @@ from cybertron2.engine import farm as FM
 from cybertron2.engine.data import CROPS as CROPS_
 
 
+def _farming() -> bool:
+    """Farming's pack is on in the world in hand (W-69: a world may switch it off)."""
+    from cybertron2.engine import packs as PK
+    return PK.on({"pack": "farming"})
+
+
 def _k(n) -> str:
     return f"{n} day{'s' if n != 1 else ''}"
 
@@ -163,8 +169,8 @@ PASTURE = [
          knack="herd", text=lambda x: f"the grass on {x.nm} will not carry the beasts much longer"),
     dict(when=lambda x: x.grass is not None and x.grass > 0.8, sense="sight", p=0.06, tags=["animals"],
          text=lambda x: f"good grass on {x.nm}"),
-    dict(when=lambda x: x.grass is not None and x.grass > 0.7 and x.season == "summer", sense="sight", p=0.15, tags=["animals"],
-         knack="hay", text=lambda x: f"the grass on {x.nm} is long enough to cut for hay"),
+    dict(when=lambda x: x.grass is not None and x.grass > 0.7 and x.season == "summer" and _farming(), sense="sight", p=0.15,
+         tags=["animals"], knack="hay", text=lambda x: f"the grass on {x.nm} is long enough to cut for hay"),
     dict(when=lambda x: x.grass is not None and x.grass < 0.6 and x.season == "winter", sense="sight", p=0.15,
          tags=["animals", "food", "season"], knack="herd",
          text=lambda x: f"the grass on {x.nm} hardly grows in winter: what is eaten now comes back slowly till spring"),

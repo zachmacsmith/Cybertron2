@@ -113,7 +113,7 @@ METHODS.update({
                      "yield": {"kind": "wild_young"}, "units": 1, "gives": "", "tags": ["food", "hunting"],
                      "note": "take the young from a heronry or rookery in their season"},
     "pest work": {"verb": "work", "label": "working the pests off a crop (picking them off, pinching out the tops)", "basic": True,
-                  "pack": "wild", "aliases": ["pick slugs at dusk", "pick slugs", "slug the field", "go slugging", "pick off the slugs",
+                  "pack": ["wild", "farming"], "aliases": ["pick slugs at dusk", "pick slugs", "slug the field", "go slugging", "pick off the slugs",
                                               "pick slugs by lantern", "top the beans", "top beans", "pinch out the beans",
                                               "pinch the bean tops", "clear the grubs off the beans", "clear the grubs",
                                               "pick off the grubs", "kill the grubs", "pests", "pest the field"],

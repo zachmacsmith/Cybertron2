@@ -107,8 +107,11 @@ def seed_world(w) -> list:
     """D2-129: each technique in KNOWN_SOMEWHERE that nobody knows is given to one person, chosen by a keyed draw among the adults whose
     trade fits (else any adult). Returns [(tech, person)] seeded."""
     from cybertron2.engine.data import KNOWN_SOMEWHERE
+    from cybertron2.engine import packs as PK
     out = []
     for tech, words in KNOWN_SOMEWHERE.items():
+        if not PK.on(TECHNIQUES[tech], PK.of(w)):                              # a craft of a pack off (W-69: dibbling, with farming)
+            continue
         if any((w.s["know"].get(n) or {}).get(tech, {}).get("level") == "known" for n in w.living()):
             continue
         adults = [n for n in w.living() if w.s["people"][n]["stage"] == "adult"]
