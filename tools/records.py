@@ -423,7 +423,84 @@ def render_view(view, items) -> str:
     return tmpl
 
 
+def view_rows(view):
+    """The table rows of a view as it stands: [(table name, cells)], with the same table detection as the migration."""
+    path = VIEW_FILES[view]
+    if not os.path.exists(path):
+        return []
+    lines = open(path, encoding="utf-8").read().split("\n")
+    out, heads, i = [], [], 0
+    while i < len(lines):
+        line = lines[i]
+        if line.startswith("## "):
+            heads.append(line)
+        if line.startswith("| ") and i + 1 < len(lines) and re.match(r"\|[-| ]+\|$", lines[i + 1]):
+            header = split_cells(line)
+            j = i + 2
+            rows = []
+            while j < len(lines) and lines[j].startswith("|"):
+                rows.append(lines[j])
+                j += 1
+            first = split_cells(rows[0])[0] if rows else ""
+            tb = _which_table(view, header, first, heads)
+            if tb:
+                out += [(tb, split_cells(r)) for r in rows]
+            i = j
+            continue
+        i += 1
+    return out
+
+
+def sync_from_views() -> list:
+    """Take in hand edits to the views (D2-232: the views are rendered, but a session that edits one by hand must not lose
+    its edit): a row that differs from what its item renders updates the item; a row with a new id becomes an item."""
+    items = load_items()
+    changed = []
+    for view in VIEW_FILES:
+        if not os.path.exists(os.path.join(VIEWS, f"{view}.md")):
+            continue
+        rendered = {}
+        for line in render_view(view, items).split("\n"):
+            if line.startswith("|"):
+                c = split_cells(line)
+                rendered[c[0].strip("~ ")] = c
+        for tb, c in view_rows(view):
+            rid = c[0].strip("~ ")
+            if not re.fullmatch(ID_RE, rid) or rendered.get(rid) == c:
+                continue
+            it = items.get(rid) or {"id": rid, "kind": kind_of(rid), "path": os.path.join(ITEMS, f"{rid}.md"),
+                                     "created": str(TODAY), "table": tb[1],
+                                     "seq": max([float(x.get("seq", 0) or 0) for x in items.values()] + [0]) + 1}
+            for f, v in zip(tb[2][1:], c[1:]):
+                it[f] = v
+            if len(c) > len(tb[2]):
+                it["extra_cells"] = c[len(tb[2]):]
+            elif "extra_cells" in it:
+                del it["extra_cells"]
+            struck = c[0].startswith("~~")
+            if it["kind"] == "thread":
+                if it.get("table") != tb[1]:
+                    it["table"] = tb[1]
+                    it["seq"] = max([float(x.get("seq", 0) or 0) for x in items.values() if x["kind"] == "thread"] + [0]) + 1
+                if tb[1] == "done":
+                    it["state"] = it.get("state") if is_closed(it) else "done"
+            elif it["kind"] != "decision":
+                if struck and not is_closed(it):
+                    it["state"], it["by"] = "closed", it.get("by") or "agent"
+                elif not struck and is_closed(it):
+                    it["state"] = "open"
+                it["struck"] = "yes" if struck else ""
+            write_item(it)
+            items[rid] = it
+            changed.append(rid)
+    if changed:
+        print(f"took in hand edits to the views: {', '.join(changed)}", file=sys.stderr)
+    return changed
+
+
 def render(check=False) -> int:
+    if not check:
+        sync_from_views()
     items = load_items()
     bad = 0
     for view, path in VIEW_FILES.items():
@@ -1166,6 +1243,64 @@ def cmd_vault(web, out) -> int:
     return 0
 
 
+def cmd_export(web, out) -> int:
+    """The desk's data (D2-239): Zach's asks, the live threads, what needs his attention, the branches, recent decisions."""
+    os.makedirs(out, exist_ok=True)
+    def age(d):
+        try:
+            return (TODAY - dt.date.fromisoformat(iso(d) or d)).days
+        except ValueError:
+            return None
+    waiting = {}
+    for x in web.items.values():
+        for w in as_list(x.get("waits_on")):
+            waiting[w] = waiting.get(w, 0) + 1
+    asks = [{"id": a["id"], "ask": title_of(a), "owner": a.get("owner", ""), "waited_on_by": waiting.get(a["id"], 0),
+             "recommend": a.get("recommend", ""), "default": a.get("default", ""), "default_on": a.get("default_on", "")}
+            for a in web.items.values() if a["kind"] == "ask" and not is_closed(a) and "Zach" in a.get("owner", "")]
+    asks.sort(key=lambda r: (-r["waited_on_by"], -num(r["id"])[1]))
+    threads = []
+    for it in web.items.values():
+        if it["kind"] == "thread" and not is_closed(it):
+            threads.append({"id": it["id"], "owner": it.get("owner", "").split(" ")[0], "state": it.get("state", ""),
+                            "touched": it.get("touched", ""), "days_since": age(it.get("touched", "")),
+                            "work": title_of(it), "next": (it.get("next") or _left(it.get("notes", "")))[:240]})
+    order = {"active": 0, "waiting": 1, "queued": 2, "paused": 3}
+    threads.sort(key=lambda r: (r["owner"], order.get(r["state"].split(" ")[0], 9), -num(r["id"])[1]))
+    attention = []
+    for it in web.items.values():
+        if is_closed(it) and it.get("by") in ("agent", "default", "relayed"):
+            attention.append({"id": it["id"], "what": title_of(it), "why": f"closed by {it['by']}: confirm or reopen"})
+        if it.get("revisit"):
+            attention.append({"id": it["id"], "what": title_of(it), "why": f"revisit: {it['revisit']}"})
+        if it["kind"] == "offer" and not is_closed(it) and it.get("default_on") and str(it["default_on"]) <= str(TODAY):
+            attention.append({"id": it["id"], "what": title_of(it), "why": f"past its default ({it.get('default', '')})"})
+    for o in sorted({r["owner"] for r in threads}):
+        n = sum(1 for r in threads if r["owner"] == o and r["state"] == "active")
+        if n > 6:
+            attention.append({"id": o, "what": f"{n} active threads", "why": "over the soft limit of 6: revisit (D2-239)"})
+    named = " ".join(json.dumps(it, ensure_ascii=False) for it in web.items.values())
+    branches = []
+    for name, n, d in branches_ahead():
+        th = sorted({i for i, it in web.items.items() if it["kind"] == "thread" and name in json.dumps(it, ensure_ascii=False)},
+                    key=num)
+        branches.append({"branch": name, "ahead": n, "last": d, "threads": ", ".join(th[:4]) or "none"})
+    branches.sort(key=lambda r: r["last"], reverse=True)
+    recent = []
+    for it in web.items.values():
+        if it["kind"] == "decision" and it.get("created") and age(it["created"]) is not None and age(it["created"]) <= 14:
+            recent.append({"id": it["id"], "date": it["created"], "decision": title_of(it),
+                           "area": ", ".join(web.area_of(it["id"])) or ("process" if "[no spec]" in it.get("body", "") else ""),
+                           "state": it.get("state", "")})
+    recent.sort(key=lambda r: (r["date"], num(r["id"])[1]), reverse=True)
+    for name, rows in (("asks", asks), ("threads", threads), ("attention", attention), ("branches", branches),
+                       ("decisions", recent)):
+        json.dump(rows, open(os.path.join(out, f"{name}.json"), "w"), ensure_ascii=False, indent=0)
+    print(f"exported to {out}: {len(asks)} asks, {len(threads)} threads, {len(attention)} for attention, "
+          f"{len(branches)} branches, {len(recent)} recent decisions")
+    return 0
+
+
 # ---------------------------------------------------------------------- main
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
@@ -1225,6 +1360,7 @@ def main(argv=None) -> int:
     sub.add_parser("check-commits").add_argument("range")
     sub.add_parser("branches")
     sub.add_parser("vault").add_argument("out")
+    sub.add_parser("export").add_argument("out")
     for h in ("stopcheck", "commit-check"):
         sub.add_parser(h)
     a = ap.parse_args(argv)
@@ -1291,6 +1427,8 @@ def main(argv=None) -> int:
         return cmd_pack(web, a.ids)
     if c == "branches":
         return cmd_branches(web)
+    if c == "export":
+        return cmd_export(web, a.out)
     if c == "vault":
         return cmd_vault(web, a.out)
     return 1
