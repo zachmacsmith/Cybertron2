@@ -53,7 +53,7 @@ def test_a_sections_cost_is_its_materials_and_the_firsts_adds_the_weirs_stakes()
     assert GR.cost(0, "timber")["materials"]["timber"] > GR.cost(0, "wattle")["materials"]["timber"]                      # timber dearer
     assert GR.cost(2, "wattle")["materials"]["timber"] < GR.cost(2, "timber")["materials"]["timber"]
     up = GR.upgrade_cost("wattle", "timber")
-    assert up == {"materials": {"timber": 5.0}, "units": 10.0}
+    assert up == {"materials": {"timber": 4.0}, "units": 9.0}
     assert up["materials"]["timber"] == GR.cost(0, "timber")["materials"]["timber"] - GR.cost(0, "wattle")["materials"]["timber"]
     foot = GR.cost(1, "timber", foot=True)
     assert foot["materials"] == {"timber": 10, "stone": 10} and foot["units"] == 40
@@ -79,18 +79,18 @@ def test_a_weir_built_in_timber_and_a_wattle_section_upgraded_for_the_difference
     pid = water(w, node)
     r = do(w, a, {"do": "build", "what": "weir", "at": w.s["parcels"][pid]["name"], "with": c, "structure": "timber"})
     assert not r.startswith("Refused"), r
-    assert hands["timber"] == pytest.approx(60 - 17)                                   # the first section in timber: 7 + 10
+    assert hands["timber"] == pytest.approx(60 - 16)                                   # the first section in timber: 6 + 10
     bid = next(x for x, b in w.s["buildings"].items() if WL.is_weir(b) and b["parcel"] == pid)
     b = w.s["buildings"][bid]
-    assert MONUMENTS["weir"]["units"] < b["unfinished"]["units_left"] <= 34.0          # 34 units, less the first action's work
+    assert MONUMENTS["weir"]["units"] < b["unfinished"]["units_left"] <= 33.0          # 33 units, less the first action's work
     b["unfinished"] = None
     assert WL.sections(b)[0]["m"] == "timber" and WL.weir_share(b) == pytest.approx(0.30)
     r = _work_until_done(w, (a, c), {"do": "build", "what": "wattle section", "at": b["name"]})
-    assert hands["timber"] == pytest.approx(43 - 5)                                    # an added wattle section: 5 timber
+    assert hands["timber"] == pytest.approx(44 - 6)                                    # an added wattle section: 6 timber
     assert [sc["m"] for sc in WL.sections(w.s["buildings"][bid])] == ["timber", "wattle"]
     w.s["buildings"][bid]["sections"][1]["level"] = 3
     r = _work_until_done(w, (a, c), {"do": "build", "what": "section upgrade", "at": b["name"]})
-    assert hands["timber"] == pytest.approx(38 - 5)                                    # the difference: 10 - 5
+    assert hands["timber"] == pytest.approx(38 - 4)                                    # the difference: 10 - 6
     secs = WL.sections(w.s["buildings"][bid])
     assert [sc["m"] for sc in secs] == ["timber", "timber"] and secs[1]["level"] == 3   # rebuilt in timber, its wear kept
     refused(w, a, {"do": "build", "what": "section upgrade", "at": b["name"]}, "timber already")
@@ -106,7 +106,7 @@ def test_the_upgrade_verb_rebuilds_a_weirs_wattle_section_in_timber(river):
     w.s["containers"][Here(w, a).hands]["goods"]["timber"] = 10
     _work_until_done(w, (a, c), {"do": "build", "what": "upgrade", "at": b["name"], "to": "timber"})
     assert WL.sections(w.s["buildings"][bid])[0]["m"] == "timber"
-    assert w.s["containers"][Here(w, a).hands]["goods"]["timber"] == pytest.approx(5)
+    assert w.s["containers"][Here(w, a).hands]["goods"]["timber"] == pytest.approx(6)
 
 
 # ---------------------------------------------------------------------- 2. gear sharing a run

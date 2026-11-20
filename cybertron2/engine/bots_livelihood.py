@@ -484,8 +484,12 @@ def phase_a(day, who, search_at=0) -> tuple:
 # the runs' knobs (calibrate): traps kept in the water by each fisher and by the keeper; the least surplus worth a batch at the smoke
 # racks, at a hearth's rack, in the salt tub; the salt a household keeps before it boils more, and the firewood it must have to;
 # nets on a shoal's night; the weir's gap worked; a member's most mends a day; traps out of the windows; the river's heights no trap
-# is set into (none: the eels run on the rain, and in the measured runs traps set into spates and floods still paid, W-69)
-@policy("runs", traps=8, keeper_traps=3, smoke_least=6.0, dry_least=3.0, salt_least=4.0, salt_keep=8.0, boil_wood=12.0, net=True,
+# is set into (none: the eels run on the rain, and in the measured runs traps set into spates and floods still paid, W-69); the traps
+# each fisher of a household that holds a weir keeps (its keeper none): since the gear shares a run (wild/gear.py, 20 Nov) the weir
+# takes its share whatever the traps beside it, and its lift is one act for its whole catch where each trap's is an act for a kg or
+# two, so the weir's household keeps its work for keeping the catch (measured: with 8 traps a fisher its members spent whole days
+# lifting traps and its keeper had no units left to salt)
+@policy("runs", traps=8, keeper_traps=3, weir_traps=2, smoke_least=6.0, dry_least=3.0, salt_least=4.0, salt_keep=8.0, boil_wood=12.0, net=True,
         gap=True, mend_most=2, off_season_traps=0, trap_stop=())
 def runs(day, p) -> None:
     """Fishing the river's runs (W-69). The run windows are the fisher's year; the run at the water and the river's height are read
@@ -497,7 +501,7 @@ def runs(day, p) -> None:
       - the keeper (the head): the surplus over tonight's suppers smoked at the house's racks (the fire tended while a batch hangs),
         dried at the hearth, salted with salt to hand; salt boiled at the household's pan when it runs low; their own few traps;
       - the others: a net on a night a shoal is at the water; traps in the river through the windows (`traps` each, `keeper_traps`
-        the keeper's), set whatever the river (a spate smashes half of them, a flood most, but the run comes with the water);
+        the keeper's; in the weir's household `weir_traps` each and none the keeper's), set whatever the river (a spate smashes half of them, a flood most, but the run comes with the water);
         the first of them firewood when the store is short;
       - then wild food where it is worth the work (`_common_b`), else rest."""
     season = run_season(day)
@@ -594,7 +598,7 @@ def _keeper(day, p, coming, season, flow, supper) -> None:
                 and day.reach("firewood") >= float(s["boil_wood"]):
             p.add("b", {"do": "make", "what": "boil salt"}, 1)               # salt for the run's surplus, at the household's pan
             p.add("b", {"do": "move", "item": "salt", "qty": 999, "to": "store", "at": day.bname(home)})
-    _set_traps(day, p, season, int(s["keeper_traps"]), flow)
+    _set_traps(day, p, season, 0 if _weir(day, day.members[0])[0] else int(s["keeper_traps"]), flow)
     if len(day.members) == 1:
         _gather_wood(day, p, _wood_units(day))
 
@@ -606,7 +610,7 @@ def _fisher(day, p, season, run, flow) -> None:
     if s.get("net") and day.knows("net") and any(k in run for k in _shoals(day)):
         for pid in river_parcels(day)[:1]:
             p.add("b", {"do": "gather", "what": "net", "at": day.pname(pid)}, 2)
-    _set_traps(day, p, season, int(s["traps"]), flow)
+    _set_traps(day, p, season, int(s["weir_traps"] if _weir(day, day.members[0])[0] else s["traps"]), flow)
     if day.role == 1:
         _gather_wood(day, p, _wood_units(day))
 

@@ -352,8 +352,8 @@ MONUMENTS = {
 # less as it wears (`by_level`); open, `open` of that. Any section, the first included, is wattle (wear 1.0) or timber (wear 0.5);
 # a stone footing under a section makes it wear at `footing` wear whatever it is. A section's cost is its material's, and the first's
 # adds the weir's own stakes across the river and its trap (`position.first` materials and units): a wattle first section is the
-# MONUMENTS row (12 timber, 24 units: 7 + 5, 9 + 15), a timber added one 10 timber and 25 units, as built before; a timber first
-# section 17 timber and 34 units, a wattle added one 5 and 15. A wattle section upgraded to timber costs the difference (D2-210).
+# MONUMENTS row (12 timber, 24 units: 6 + 6, 8 + 16), a timber added one 10 timber and 25 units, as built before; a timber first
+# section 16 timber and 33 units, a wattle added one 6 and 16 (a level's mend of any section stays at 1 timber and under 2 units). A wattle section upgraded to timber costs the difference (D2-210).
 # A night's catch is the share, capped by what the weir holds less what is in its traps unlifted, and shared with the other gear in the
 # same parcel in proportion to the shares (wild/gear.py). Each section wears a night by Poisson(`base` x its material x the water x the
 # flow (from the catchment's rain today and half of yesterday's, over the mean, `flow_at`) x `gap_high` with the gap shut in high water
@@ -373,9 +373,9 @@ MONUMENTS = {
 # year there, timber 0.67, a full weir 0.82, and a flood night took a wattle section with the gap open or shut. A level a week of
 # normal flow on a lowland river (`base`) is kept. Now a spate costs a wattle section about 0.4 levels with the gap open and 0.9
 # shut, a flood 0.9 and 1.7 (D2-210's "a flood with the gap shut usually takes the section" gives way to its year's upkeep).
-WATER_WORKS = {"weir": {"position": {"first": {"share": 0.30, "hold": 100.0, "materials": {"timber": 7}, "units": 9},
+WATER_WORKS = {"weir": {"position": {"first": {"share": 0.30, "hold": 100.0, "materials": {"timber": 6}, "units": 8},
                                      "added": {"share": 0.07, "hold": 70.0, "most": 3}},
-                        "material": {"wattle": {"wear": 1.0, "materials": {"timber": 5}, "units": 15},
+                        "material": {"wattle": {"wear": 1.0, "materials": {"timber": 6}, "units": 16},
                                      "timber": {"wear": 0.5, "materials": {"timber": 10}, "units": 25}},
                         "footing": {"wear": 0.1, "materials": {"stone": 10}, "units": 15},
                         "open": 0.1, "by_level": {5: 1.0, 4: 0.8, 3: 0.6, 2: 0.3, 1: 0.1, 0: 0.0},
