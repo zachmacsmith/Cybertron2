@@ -356,7 +356,12 @@ A peak night at Lowstrand offers 333 kg and the section takes its 100. What foll
 
 ### Tests
 
-- The full suite at 4c8def4d: TESTS_RESULT.
+- **The full suite**, rebased on b4076951: 700 passed, 1 failed, 2 skipped. After the rebase on 81a830ea (the fishing bots), the
+  new and touched tests pass (66: `test_bots_livelihood`, `branch`, `switches`, `water5_river`).
+- **The one failure is left as found:** `test_cybertron2_wide.py::test_firewood_is_had_in_every_village_and_each_is_seeded_below_what_it_keeps`.
+  With `capacity.WILD` at 4, Westmere's 4 people are 0.83 of what its land keeps (4.8), against the test's bound of 0.8. That is
+  a real reading of the new values: the woods feed less on the legacy forage and game. It is not an old value, so the test is not
+  re-pinned. Either the wide world gets a little more land, or the bound is for Zach with Q-71.
 - 18 tests failed at first. All 18 pass on the code before the change.
 - Their fixes, each with a comment in the test:
   - **The old value, re-pinned in units:** 12 tests;
@@ -370,7 +375,65 @@ A peak night at Lowstrand offers 333 kg and the section takes its 100. What foll
 
 ### The bot runs (32 days, `--bots`, before b4076951 and after 4c8def4d)
 
-BOTS_TABLE
+The generic bots, the committed worlds as they stand (not regenerated). The runs are this session's own (not kept in the
+repository). The store counts every container's food at each code's values.
+
+| World | Arm | Alive at day 32 | Deaths (first) | Hunger at the end | Food in store, start -> end |
+|---|---|---|---|---|---|
+| river (`water/river.yaml`, 26 people) | before | 0 (all dead by day 24) | 25 starved, 1 old age (day 11) | - | 176.8 -> 46.4 (40 of it meat on the dead) |
+| | after | 0 (all dead by day 23) | 24 starved, 1 old age, 1 poisoned by mushrooms (day 9) | - | 176.8 -> 59.9 (53 meat) |
+| Brookend (`plenty/brookend.yaml`, 8 people) | before | 8 | none | all 0 | 268.5 -> 133.1 |
+| | after, the committed larder | 8 | none | 3 at -1 (a household's supper missed on day 32) | 259.6 -> 106.7 |
+| | after, the maker's larder (cheese 15.5) | 8 | none | all 0 | 268.5 -> 111.8 |
+
+Read:
+- The generic bots starve the river world on either code: they do not fish or keep, and its fields are not worked in time. The
+  change moves the first death two days sooner, by a mushroom poisoning: a gatherer picks 3.3 times the kg, and the poison's
+  chance follows the kg taken. The famine itself comes at the same days (18 to 23).
+- Brookend holds on either code. It eats the same (317 against 320 food). It ends about 20 to 26 food poorer in grain, eaten in
+  place of the meat, cheese and wild food that are worth less now. With the committed larder (cheese 10) one household runs out
+  on the last night. The maker's re-sized larder removes that.
+
+**The nutrition arms** (`nutrition/runs_<arm>.yaml`, `--bots runs`, the competent fishing bots of 81a830ea, 64 days, 12
+people; after = this branch rebased on 81a830ea). "Before" is the bots' figures on today's values (W-69, its bot
+summary). The committed arms carry their larders in units: dried meat 17 and roots 67, 104.6 food before
+and 38.0 now. So each arm is run twice: as committed, and with the larder put back to its 104.6 food. That is what
+`make_nutrition_runs` would write, since it sizes the larder from food shares; the arms were not regenerated. The runs are this
+session's own, read with the W-69 bots' analysis on this code's values. Catch is in food, the fish's fate in fish units
+(about kg).
+
+| Arm | Catch by gear, food | Kept made (fish units) | Fresh fish: eaten / robbed / spoilt / swept away in a spate | Store at the first winter (day 12), food (alive) | Second winter (day 44) | Deaths: all 12 by day | Fish food a unit of fishing | People fed by fish |
+|---|---|---|---|---|---|---|---|---|
+| low, before | trap eel 66, lamprey 0.4, fowl 1.3 | none | 31.6 / 11.2 / 0 / 20.4 | 22.6 (11) | - | 24 | 0.17 | 2.1 |
+| low, after, committed larder | trap eel 110 | 18.5 dried | 58 / 29 / 2 / 89 | 4.1 (4) | - | 34 | 0.53 | 2.5 |
+| low, after, larder 104.6 | trap eel 363, fowl 1, lamprey 1 | 47 dried | 288 / 86 / 9 / 219 | 42.8 (11) | - | 34 | 0.56 | 8.1 |
+| medium, before | trap eel 77, lamprey 0.9 | none | 34 / 14.2 / 0 / 23.8 | 21.0 (11) | - | 24 | 0.18 | 2.4 |
+| medium, after, committed larder | trap eel 129 | 28 smoked, 3 dried | 45 / 29 / 1 / 112 | 4.6 (4) | - | 34 | 0.61 | 2.9 |
+| medium, after, larder 104.6 | trap eel 431 (97 in year 2), net salmon 18 | 70 smoked (83 lost to a smokehouse fire) | 164 / 85 / 14 / 302 | 15.8 (9) | 28.4 (2) | 54 | 0.72 | 6.4 |
+| high, before | trap eel 82, weir eel 2.8, lamprey 1.3, fowl 1.3 | none | 36 / 13.4 / 3.4 / 26.6 | 23.5 (11) | 16.8 (1) | 11 by day 37; 1 alive at 64 | 0.17 | 1.05 |
+| high, after, committed larder | trap eel 214, weir eel 9, net salmon 3 | 59 smoked | 63 / 58 / 1 / 160 | 8.8 (5) | - | 37 | 0.72 | 4.7 |
+| high, after, larder 104.6 | trap eel 481 (121 in year 2), weir eel 15 and salmon 28, net salmon 9 | 92 smoked, 6 dried (116 lost to fire) | 208 / 97 / 17 / 339 | 11.6 (10) | 53.7 (2) | 56 | 0.84 | 7.3 |
+
+Read:
+- **On the new values the bots catch 1.6 to 6 times the food, and they keep some of it for the first time.** Fishing gives 0.53
+  to 0.84 food a unit, against 0.17 before. That is above a household's 0.36 and inside angling's and the race's real range. The
+  traps' 10 kg holds and the runs 4 to 5 times larger do it.
+- **Still nobody lives through the year** in any arm. With the larder at its old food, the medium and high arms reach the second
+  winter with 2 alive and 28 to 54 food in store, and die by days 54 to 56. Low dies by day 34.
+- **What binds now is not the hold.** It is what happens to a catch:
+  - **spates:** traps wrecked with their catch, 219 to 339 kg a run, about as much as is eaten;
+  - **otters at the traps:** 85 to 97 kg, about 20% of the trap catch;
+  - **smokehouse fires:** 83 to 116 kg in the two richer arms;
+  - **keeping is small:** 47 to 98 kg kept, against 360 to 480 food of eels caught.
+- **The bots' gaps still stand:**
+  - traps and the weir draw on the same run, traps first: the weir took 43 food in the high arm against the traps' 481;
+  - the weir is wrecked by floods in a night or two;
+  - the salmon run is larger (387 a year at the river world's lower station, above), but nets and the weir took only 3 to 37
+    food of it (not measured at Eelmouth itself);
+  - otters take about a fifth of the trap catch.
+- No mechanics were built for any of this.
+- **The committed arms should be regenerated with the data change.** As they stand their larders hold a third of their food, and
+  the low arm starves before the runs come.
 
 ### Gaps found
 
