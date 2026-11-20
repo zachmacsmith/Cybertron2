@@ -2,6 +2,8 @@
 
 *The records, rebuilt from main after every push (last 2026-11-20). Read only: ask a session to change anything.*
 
+[The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.
+
 ## Waiting on you (35)
 - [[Q-65 Delete the 16 empty branches|Q-65 · Delete the 16 empty branches]]
 - [[Q-61 What was started and left, and the mechanisms to catch it|Q-61 · What was started and left, and the mechanisms to catch it]]
