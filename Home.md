@@ -41,7 +41,7 @@
 - [[W-65 The records system|The records system (W-65)]]  
   next: the header pass over the spec files and proposals; run threads labelled as such, with their branch (D2-238)…
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]  
-  next: the lookup, the switches and the bots (three agents); then the data change and the remake
+  next: the food-value change (branch w64-food-values, agent); then remake the arms (seed the weir with its crew)…
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  

@@ -9,13 +9,15 @@ updated: "2026-11-20"
 
 *active · 37.2 · touched 20 Nov (today)*
 
-> **Next:** the lookup, the switches and the bots (three agents); then the data change and the remake
+> **Next:** the food-value change (branch w64-food-values, agent); then remake the arms (seed the weir with its crew), the bots rerun, then the low and high live runs
 
 ## What it is
 **Subsistence worlds: a village off the runs alone, and off hunting alone**: Zach, 20 Nov ([[D2-242 Subsistence test worlds|D2-242]]): the runs world did not test whether a village can live off runs alone (it has fields; fish looks badly calibrated). Build a set of calibration worlds: runs only, hunting only; each survivable at medium skill and capital, with a surplus up to a bound at more. Folded in: fish nutrition (the eel at a fifth of its real food, [[W-64 Food, weight and work on one basis|W-64]]), the run numbers, the river frequencies ([[Q-52 Environment systems|Q-52]] 6), the brook fished out ([[Q-57 Fishing, from the lake run|Q-57]] c), hunting against farming ([[Q-46 Brief 4c as built|Q-46]] b, c; [[W-22 Hunting against farming and gathering in generated worlds|W-22]]'s measured changes)
 
 ## Done so far, and what is left
-20 Nov: the runs-only world built and on main ([[W-62 Merging the water work from its twelve branches into main|W-62]]); in hand: the food values checked against USDA's SR Legacy tables (downloaded from fdc.nal.usda.gov after a new Cybertron environment allowed the host), the switches (branch w69-switches), competent fishing bots (branch w69-bots); then the data change ([[D2-258 The food values are put on one physical basis|D2-258]]), the arms remade, the low and high live runs (Zach's go)
+20 Nov: the runs-only world on main ([[W-62 Merging the water work from its twelve branches into main|W-62]]); the USDA lookup done (02zzu_lookup); the switches merged (b4076951); the fishing bots merged (81a830ea, --bots runs): on today values every arm starves by the first winter (fish 0.17 food a unit, nothing ever kept). Bot gaps: traps take a run before the weir; floods wreck the weir in a night or two whatever the gap; salmon run a handful of heads; otters take about 15% of traps; the maker seeds the weir with no crew; no sign of tonight river height; acts play in rounds across people, 10-act cap.
+
+**Next:** the data change ([[D2-258 The food values are put on one physical basis|D2-258]]), the arms remade, the bots rerun, the low and high live runs (Zach go)
 
 ## Where
 - `branch w69-runs-world (worktree /home/user/c2-w69): cybertron2/specs/make_nutrition_runs.py, cybertron2/specs/nutrition/ (runs_low, runs_medium, runs_high)`
