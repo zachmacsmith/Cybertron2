@@ -178,7 +178,10 @@ COVERS = {
 # How each resource comes back (D4-7) and how it is seen (in words, never numbers: environment/resources.md).
 RESOURCES = {
     "plants": {"renewal": "fast", "low": "{name} has been picked over: little wild food left", "high": "{name} is thick with berries, nuts and greens"},
-    "game": {"renewal": "threshold", "off_with": ["wild"], "low": "few fresh tracks in {name}: the game is thin", "high": "fresh deer slots and droppings along the rides of {name}"},
+    "game": {"renewal": "threshold", "off_with": ["wild"], "low": "few fresh tracks in {name}: the game is thin", "high": "fresh deer slots and droppings along the rides of {name}",
+             # a spec counts its game in the old meat unit (1.5 food, 3,750 kcal): its K and S are x 2.5 into the meat unit (0.6 food)
+             # when the world is built (D2-261), so the hand-made specs, the makers and the generator keep their woods' food unedited
+             "spec_unit": 2.5},
     "wood": {"renewal": "slow", "low": "{name} is thinned out: stumps where the big trees stood", "high": ""},     # the trees (D2-156)
     "young": {"renewal": "young", "low": "", "high": ""},                 # young growth: cut for firewood (D2-156)
     "dead": {"renewal": "dead", "low": "", "high": ""},                   # dead wood: gathered for firewood (D2-156)
@@ -396,7 +399,8 @@ TECHNIQUES = {
                "at": {"covers": ["forest", "meadow", "pasture", "scrub", "heath", "moor", "fen", "saltmarsh"]}, "draws": "plants", "yield": {"kind": "stock", "base": 1.2},
                "units": 1, "gives": "wild food", "tags": ["food"]},
     "hunt": {"verb": "gather", "label": "hunting game", "aliases": ["hunting"], "basic": True, "at": {"covers": ["forest"]}, "off_with": ["wild"],
-             "draws": "game", "yield": {"kind": "chance", "p": 0.35, "range": [5, 15], "by": {"hide": 0.25}},   # a kill's meat x 2.5 on the 1,500 kcal unit (D2-258)
+             "draws": "game", "yield": {"kind": "chance", "p": 0.35, "range": [5, 15], "by": {"hide": 0.25}},   # a kill's meat x 2.5 on the 1,500 kcal unit (D2-258), its stock
+             # x 2.5 too (RESOURCES game spec_unit, D2-261): a kill takes the share of the wood's game it took, as often, for the food
              "weapon": {"none": 0.3, "armed": 1.0}, "wear": 0.3, "units": 2, "gives": "meat", "tags": ["food", "hunting", "animals"]},
     "fell": {"verb": "gather", "label": "felling timber", "aliases": ["felling", "chop timber", "cut wood"], "basic": True,
              "at": {"covers": ["forest"]}, "draws": "wood", "yield": {"kind": "fixed", "base": 3.0},
@@ -522,8 +526,9 @@ TECHNIQUES = {
                     "at": {"covers": ["pasture", "meadow", "field"]}, "draws": "dung", "yield": {"kind": "fixed", "base": 5.0}, "units": 1,
                     "gives": "dung", "tags": ["animals", "farming"]},
     "milk": {"pack": "farming", "verb": "work", "label": "milking (a cow in milk)", "aliases": ["milking"], "at": {"covers": ["pasture", "meadow", "field", "heath", "moor", "fen", "saltmarsh"]},
-             "draws": "herd", "yield": {"kind": "milk", "cows": 3, "each": 1.6}, "units": 1, "gives": "milk", "tags": ["food", "animals"],
-             "trade": "herder"},
+             "draws": "herd", "yield": {"kind": "milk", "cows": 6, "each": 3.0}, "units": 1, "gives": "milk", "tags": ["food", "animals"],
+             "trade": "herder"},   # a medieval cow's 3 kg a day (Trow-Smith), six cows a unit by hand (D2-260; 02zzu): 4.6 food a unit
+                                   # at milk's 0.256 a kg (was 3 cows at 1.6 milk; a cow's day 0.77 food, 0.8 on the old values)
     "slaughter": {"verb": "work", "label": "slaughtering a beast", "aliases": ["butcher", "kill a cow"], "basic": True,
                   "at": {"covers": ["pasture", "meadow", "field", "heath", "moor", "fen", "saltmarsh", "built"]}, "draws": "herd",
                   # meat a head (D2-258; 02zzu): live weight x dressing x a medieval carcass's edible share 0.70 (Albarella), at 1,500
@@ -629,6 +634,8 @@ TECHNIQUES = {
                  "rack": {"nights": 3, "into": "dried fish", "ratio": 0.5}, "tags": ["food", "cooking", "fishing"]},   # rack, up to 8
     "cheese": {"pack": "farming", "verb": "make", "label": "making cheese", "aliases": ["cheesemaking"], "at": {"fittings": ["cellar"]},
                "inputs": {"milk": 6, "salt": 0.2}, "units": 1, "gives": {"cheese": 1}, "tags": ["food", "animals"], "trade": "herder"},
+    # 6 milk (1.54 food) make a cheese of 1.61, 5% more than went in, for a unit and 0.2 salt: kept, within D2-259's 20% (a real hard
+    # cheese takes about 10, 02zzu; 1.2 food a unit of the chain against 1.1 on the old values)
     "charcoal": {"verb": "make", "label": "burning charcoal", "aliases": ["charcoal burning"], "at": {"covers": ["forest"]},
                  "inputs": {"timber": 5}, "units": 2, "gives": {"charcoal": 1}, "tags": ["timber", "craft"], "trade": "woodsman"},
     "wooden plough": {"pack": "farming", "verb": "make", "label": "making a plough", "aliases": ["make a plough"], "inputs": {"timber": 4, "copper": 1},

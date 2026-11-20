@@ -36,7 +36,7 @@ import sys
 import yaml
 
 from cybertron2.engine import capacity as CAP, farm as FM
-from cybertron2.engine.data import ITEMS
+from cybertron2.engine.data import ITEMS, TECHNIQUES
 
 THRESHOLDS = {
     "region_share_refuse": 1.0,     # people / what the land keeps: above this, the region cannot feed itself in a year
@@ -103,13 +103,13 @@ def run_balance(w, days: int, nid=None, folk=None) -> dict:
     woods = sum(p["size"] for p in pars if p["cover"] in ("forest", "scrub"))
     fields = sum(p["size"] for p in pars if p["cover"] == "field")
     grain = float(ITEMS["grain"]["food"])
-    # the wild's standing plants and game, and the cows in milk (a milking a day: data TECHNIQUES milk, 1.6 a cow), which yearly
+    # the wild's standing plants and game, and the cows in milk (a milking a day: data TECHNIQUES milk, each a cow), which yearly
     # capacity leaves out; w1 and w2 lived on them through runs their crops and store alone would not have fed
     wild = sum(float((p["res"].get("plants") or {}).get("S", 0)) * float(ITEMS["wild food"]["food"])
                + float((p["res"].get("game") or {}).get("S", 0)) * float(ITEMS["meat"]["food"])
                for p in pars if isinstance(p.get("res"), dict))
     herds = [h for h in w.s["herds"].values() if nid is None or _herd_node(w, h) == nid]
-    milk = sum(int(h.get("in_milk", 0)) for h in herds) * 1.6 * float(ITEMS["milk"]["food"]) * days
+    milk = sum(int(h.get("in_milk", 0)) for h in herds) * float(TECHNIQUES["milk"]["yield"]["each"]) * float(ITEMS["milk"]["food"]) * days
     have_food = _stock(w, "food", nid) + crops * grain + wild + milk + woods * CAP.WILD * days / year \
         + fields * (CAP.PLOT["grain"] - CAP.PLOT["seed"]) * grain * max(0, days - year) / year
     hearths = max(1, -(-len(folk) // int(CAP.PEOPLE_A_HEARTH)))                # households keep a fire each; about 4.5 to a hearth

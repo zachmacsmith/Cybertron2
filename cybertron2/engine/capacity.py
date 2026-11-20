@@ -6,8 +6,11 @@ from __future__ import annotations
 from cybertron2.engine.data import FORESTS
 
 PLOT = {"grain": 64, "seed": 16}          # a plot of size 1 broken and weeded: about 64 grain a year from 16 seed (02l, D4-38)
-WILD = 4                                  # food a year a unit of forest or scrub, forage and game (02za): 10 on the old values,
-                                          # x 0.4 under D2-258 (wild food 1.0 -> 0.41, meat 1.5 -> 0.6; the stocks' units kept)
+WILD = 8                                  # food a year a unit of forest or scrub, forage and game (02za): 10 on the old values;
+                                          # D2-258 cut both to 0.4 (4); D2-261 gives the game its food back (its stock x 2.5).
+                                          # Game is 0.56 to 0.77 of a wood's sustained food on the old values, so the generator's
+                                          # woods keep 0.74 (managed wood) to 0.86 (old forest) of it, 8 at their mid; the hand-made
+                                          # woods 0.78 (02zzu_lookup.md, Applied: D2-260, D2-261)
 PEOPLE_A_HEARTH = 4.5
 FIREWOOD_HEAT = 0.5
 

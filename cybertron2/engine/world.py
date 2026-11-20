@@ -67,6 +67,11 @@ def merge(base, over):
     return out
 
 
+def _unit(key) -> float:
+    """A stock's spec unit in its goods' units (RESOURCES spec_unit): the old game is x 2.5 into the meat unit (D2-261)."""
+    return float(RESOURCES[key].get("spec_unit", 1.0))
+
+
 def load_spec(path) -> dict:
     """A world's spec; `base: <path>` makes it a variant: the base, with this file's keys merged over it (a comparison arm, a dry
     run). Lists replace; tables merge."""
@@ -112,7 +117,7 @@ class World:
                 woods = FO.seed(p["cover"], int(p.get("size", 1)), st, year=4 * self.season_len)                 # trees, young growth, dead wood (D2-156)
                 if isinstance(st.get("wood"), dict) and st["wood"].get("kind"):
                     st.pop("wood")
-                res = {k: {"S": float(v["S"]), "K": float(v["K"]), "r": float(v.get("r", 0.3)),
+                res = {k: {"S": float(v["S"]) * _unit(k), "K": float(v["K"]) * _unit(k), "r": float(v.get("r", 0.3)),
                            **{x: v[x] for x in ("run_K", "run_r", "run_seasons", "renewal", "response") if x in v}} if k != "seam" else
                        {"S": float(v.get("S", v.get("left", 0))), "K": float(v.get("K", v.get("S", v.get("left", 0)))), "r": 0.0}
                        for k, v in st.items() if k in RESOURCES and PK.on(RESOURCES[k], PK.of(self)) and SW.res_on(spec, k)}   # a pack
