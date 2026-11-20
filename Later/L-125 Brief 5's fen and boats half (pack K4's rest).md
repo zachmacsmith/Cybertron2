@@ -19,5 +19,9 @@ punts and coracles; the decoy pond and its quiet zone; crane, bittern and draina
 **Waits on:** brief 5 merged to main ([[Q-53 Brief 5 as built|Q-53]] c); boats stage A; a trained dog (K6) for the decoy
 
 
+## Linked
+- parent: [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
+
+
 ## Mentioned by
 - *and 3 index or audit notes*

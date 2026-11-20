@@ -8,6 +8,3 @@
 - **[[D4-18 Institutions grow from households|D4-18]]** Institutions grow from households
 - **[[D4-23 Holding is a recognised claim|D4-23]]** Holding is a recognised claim
 - **[[D4-36 Moving is general, not a feature|D4-36]]** Moving is general, not a feature
-
-## Open here
-- [[Q-26 Built without decisions, found by the 5 Nov sweep of 37.4's proposals|Q-26 · Built without decisions, found by the 5 Nov sweep of 37.4's proposals]] (open)

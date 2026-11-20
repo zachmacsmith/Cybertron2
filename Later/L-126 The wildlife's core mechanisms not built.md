@@ -19,5 +19,10 @@ C4 shared perception and wind direction; C8 kept populations with bonds and bree
 **Waits on:** the packs that need them (K3, K5 to K7); [[Q-48 The engine as feature packages|Q-48]] and [[Q-50 One grid or several|Q-50]] (the engine as packages; one grid)
 
 
+## Linked
+- parent: [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
+
+
 ## Mentioned by
+- [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
 - *and 2 index or audit notes*

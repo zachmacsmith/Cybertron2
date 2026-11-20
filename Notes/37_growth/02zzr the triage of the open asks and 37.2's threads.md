@@ -26,7 +26,7 @@ Closures will carry `by: zach` where he decides, and `by: agent` or `by: default
 
 | Ask | Why it can close |
 |---|---|
-| [[Q-14 The whole agenda of open decisions in the proposals, by what each…|Q-14]] | Its own text says "Closed 2 Nov: replaced by review 38.51". It was never struck through |
+| [[Q-14 (Closed 2 Nov|Q-14]] | Its own text says "Closed 2 Nov: replaced by review 38.51". It was never struck through |
 | [[Q-25 Zach's decisions now open, in one list|Q-25]] | The 2 Nov "one list" (38.51). Its items went to [[Q-21 Built for Package C|Q-21]] to [[Q-23 Built for Package F|Q-23]] and later decisions; the digest ([[D2-239 Zach's views and the hand-offs|D2-239]]) replaces lists like it |
 | [[Q-40 Brief 4 as built, and its gate|Q-40]], [[Q-41 Brief 4b as built, and its gate|Q-41]] | Answered 16 Nov in Zach's words, as quoted in [[L-113 Briefs 4, 4b and 4c's deviations, to revisit|L-113]]: "flag these deviations for me to revisit later but still merge". Briefs 4 and 4b are on main; the deviations live in [[L-113 Briefs 4, 4b and 4c's deviations, to revisit|L-113]] |
 | [[Q-44 Brief 4c before the build|Q-44]] | Brief 4c before the build. It was built and merged (6190b4d). Its open parts are [[Q-46 Brief 4c as built|Q-46]] (b) to (e) |

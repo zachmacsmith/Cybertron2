@@ -22,6 +22,7 @@ seed searches for a world that fits
 ## Mentioned by
 - [[Q-7 First land kinds|Q-7 · First land kinds]]
 - [[W-9 Compile the generator into specworldgeneration.md|W-9 · Compile the generator into spec/world/generation.md]]
+- [[W-68 37.2's spec catch-up|W-68 · 37.2's spec catch-up]]
 - [[L-101 Compile the generator into specworldgeneration.md|L-101 · Compile the generator into spec/world/generation.md]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
 - [[Proposal world generation as one history, with pins met in the loop|Proposal: world generation as one history, with pins met in the loop]]

@@ -1,0 +1,21 @@
+---
+id: Q-31
+kind: ask
+state: closed
+updated: "2026-11-20"
+---
+
+# Q-31 · Does `guard the field` become D2-21's watch?
+
+*closed, by zach · 37.4 with 37.2, Zach to decide (open since 8 Nov)*
+
+## The question
+(02zo A2): the wild layer's night guard of a field and [[D2-21 The watch|D2-21]]'s watch are two acts; 02zq's one-off 1 merged their costs (568f971), not the acts
+
+**Zach's answer:** 1, 2, 3yes (20 Nov, to the triage digest 02zzr)
+
+**Where:** docs/review/37_growth/02zo_open_decisions.md A2
+
+
+## Mentioned by
+- *and 5 index or audit notes*

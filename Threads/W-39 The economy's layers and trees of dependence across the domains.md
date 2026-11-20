@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # W-39 · The economy's layers and trees of dependence across the domains
 
-*waiting · 37.2 (session "Thicker economy exploration") · touched 15 Nov (5 days ago)*
+*waiting · 37.2 (session "Thicker economy exploration") · touched 20 Nov (today)*
 
 > **Next:** Zach's choices (its open questions); then briefs; 15 Nov: 02zzi, how the economy could scale beyond the village (kinds of good, the limits, a sequence of societies with branches, mechanisms, what each would need, what scaling asks of the engine)
 
@@ -27,6 +27,7 @@ analysis written; the web designed as a discussion proposal (economy_web.md), re
 
 
 ## Mentioned by
+- [[Q-47 The border for now|Q-47 · The border for now]]
 - [[W-38 Generation redesign|W-38 · Generation redesign]]
 - [[W-39b Prototype of generation_redesign.md §4.3 and §4.5 for people|W-39b · Prototype of generation_redesign.md §4.3 and §4.5 for people]]
 - [[L-121 Wildlife pack K8 crafts and wild goods|L-121 · Wildlife pack K8: crafts and wild goods]]

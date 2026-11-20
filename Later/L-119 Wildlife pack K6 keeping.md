@@ -19,6 +19,10 @@ dogs with types, training bonds and the kennel; hens, ducks and geese kept, gees
 **Waits on:** 37.4's herds generalised into beasts (husbandry.md §7c); [[L-36 Livestock kinds beyond cattle and herds moved with the seasons|L-36]]; [[Q-32 02zv §6's decisions still open|Q-32]] (8) dogs first
 
 
+## Linked
+- parent: [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
+
+
 ## Mentioned by
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - *and 3 index or audit notes*

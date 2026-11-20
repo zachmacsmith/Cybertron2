@@ -1,6 +1,8 @@
 # All deferred
 
 ## Open
+- [[L-133 The engine as feature packages postponed, kept in mind|L-133 · The engine as feature packages: postponed, kept in mind]] (open)
+- [[L-131 The wild layer's live points from briefs 1 to 3|L-131 · The wild layer's live points from briefs 1 to 3]] (open)
 - [[L-129 A wiki of the world's rules, generated from the development process…|L-129 · A wiki of the world's rules, generated from the development process…]] (open)
 - [[L-128 'salt pan' names two things|L-128 · 'salt pan' names two things]] (open)
 - [[L-127 The ecology's calibration backlog|L-127 · The ecology's calibration backlog]] (open)

@@ -1,6 +1,10 @@
 # All threads
 
 ## Open
+- [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70 · Verbs and livelihood archetypes, before the engine rework]] (queued)
+- [[W-69 Subsistence worlds|W-69 · Subsistence worlds]] (queued)
+- [[W-68 37.2's spec catch-up|W-68 · 37.2's spec catch-up]] (queued)
+- [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]] (queued)
 - [[W-65 Tracking threads automatically|W-65 · Tracking threads automatically]] (active)
 - [[W-64 Shared units for food, weight and work|W-64 · Shared units for food, weight and work]] (queued)
 - [[W-63 An audit of what was started and left|W-63 · An audit of what was started and left]] (active)
@@ -25,23 +29,12 @@
 - [[W-28 The Cybertron 2 website|W-28 · The Cybertron 2 website]] (waiting)
 - [[W-27 Build brief 4|W-27 · Build brief 4]] (active)
 - [[W-25 The world keeps its land|W-25 · The world keeps its land]] (waiting)
-- [[W-22 Hunting against farming and gathering in generated worlds|W-22 · Hunting against farming and gathering in generated worlds]] (waiting)
-- [[W-21 Proposals for Q-37|W-21 · Proposals for Q-37]] (waiting)
 - [[W-16 The engine overhaul|W-16 · The engine overhaul]] (paused)
 - [[W-14 Claims and ownership by physics, part 2|W-14 · Claims and ownership by physics, part 2]] (waiting)
 - [[W-13 Brookend survival world, rerun p2|W-13 · Brookend survival world, rerun p2]] (paused)
-- [[W-12 Forays (proposalsforays.md)|W-12 · Forays (proposals/forays.md)]] (paused)
-- [[W-11 Landscapes still to tune|W-11 · Landscapes still to tune]] (paused)
-- [[W-10 37.2's spec write-ups owed since 2 and 3 Nov|W-10 · 37.2's spec write-ups owed since 2 and 3 Nov]] (paused)
-- [[W-9 Compile the generator into specworldgeneration.md|W-9 · Compile the generator into spec/world/generation.md]] (paused)
-- [[W-8 Couple the food web to 37.4's weather and climate|W-8 · Couple the food web to 37.4's weather and climate]] (paused)
-- [[W-7 The ecology branch's next steps|W-7 · The ecology branch's next steps]] (paused)
-- [[W-5 37.2's own hygiene items|W-5 · 37.2's own hygiene items]] (queued)
-- [[W-4 wild_behaviour.md v3|W-4 · wild_behaviour.md v3]] (waiting)
-- [[W-3 Records restructure|W-3 · Records restructure]] (active)
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|W-2 · Build briefs 2 and 3, the 20 dry test arms, the spring live run]] (active)
 
-## Closed (31)
+## Closed (42)
 - [[W-66 The design of the records and the workflow|W-66 · The design of the records and the workflow]]
 - [[W-61 An introduction for the Vanderbilt AI Safety fellows' final projects|W-61 · An introduction for the Vanderbilt AI Safety fellows' final projects]]
 - [[W-55 The lake world with a graded population goal|W-55 · The lake world with a graded population goal]]
@@ -66,10 +59,21 @@
 - [[W-26 Build brief 5 river and water (K4 without fen and boats)|W-26 · Build brief 5: river and water (K4 without fen and boats)]]
 - [[W-24 Build brief 4 written (hunt_and_fixes.md)|W-24 · Build brief 4 written (hunt_and_fixes.md)]]
 - [[W-23 A benchmark by living descendants on a ladder of worlds|W-23 · A benchmark by living descendants on a ladder of worlds]]
+- [[W-22 Hunting against farming and gathering in generated worlds|W-22 · Hunting against farming and gathering in generated worlds]]
+- [[W-21 Proposals for Q-37|W-21 · Proposals for Q-37]]
 - [[W-20 Paired probes, round 3|W-20 · Paired probes, round 3]]
 - [[W-19 Paired probes, round 2 a full LLM cast, Fable 5.2 (02zzc)|W-19 · Paired probes, round 2: a full LLM cast, Fable 5.2 (02zzc)]]
 - [[W-18 Small paired probes, Fable 5.2 against Opus 5.5, three situations|W-18 · Small paired probes, Fable 5.2 against Opus 5.5, three situations]]
 - [[W-17 A Fable 5.2 probe in run 6's world|W-17 · A Fable 5.2 probe in run 6's world]]
 - [[W-15 The land's fast stocks|W-15 · The land's fast stocks]]
+- [[W-12 Forays (proposalsforays.md)|W-12 · Forays (proposals/forays.md)]]
+- [[W-11 Landscapes still to tune|W-11 · Landscapes still to tune]]
+- [[W-10 37.2's spec write-ups owed since 2 and 3 Nov|W-10 · 37.2's spec write-ups owed since 2 and 3 Nov]]
+- [[W-9 Compile the generator into specworldgeneration.md|W-9 · Compile the generator into spec/world/generation.md]]
+- [[W-8 Couple the food web to 37.4's weather and climate|W-8 · Couple the food web to 37.4's weather and climate]]
+- [[W-7 The ecology branch's next steps|W-7 · The ecology branch's next steps]]
 - [[W-6 Merging the wild layer into main|W-6 · Merging the wild layer into main]]
+- [[W-5 37.2's own hygiene items|W-5 · 37.2's own hygiene items]]
+- [[W-4 wild_behaviour.md v3|W-4 · wild_behaviour.md v3]]
+- [[W-3 Records restructure|W-3 · Records restructure]]
 - [[W-1 Build brief 1|W-1 · Build brief 1]]

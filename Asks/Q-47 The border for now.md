@@ -14,6 +14,8 @@ updated: "2026-11-20"
 
 **Where:** docs/review/37_growth/02zzk_medieval_border.md
 
+**Revisit:** kept open on purpose with [[W-39 The economy's layers and trees of dependence across the domains|W-39]] (Zach, 20 Nov)
+
 
 ## Mentioned by
 - [[W-42 Where to draw the border for now|W-42 · Where to draw the border for now]]

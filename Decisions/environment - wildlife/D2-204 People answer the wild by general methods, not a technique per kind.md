@@ -23,6 +23,7 @@ conversation ("bespoke single actions should in general usually instead be using
 - [[D2-192 The first wild kinds come in four waves|D2-192 · The first wild kinds come in four waves]]
 - [[Q-32 02zv §6's decisions still open|Q-32 · 02zv §6's decisions still open]]
 - [[W-1 Build brief 1|W-1 · Build brief 1]]
+- [[W-4 wild_behaviour.md v3|W-4 · wild_behaviour.md v3]]
 - [[Methods and encounters people answer the wild by general methods…|Methods and encounters: people answer the wild by general methods…]]
 - [[Wildlife|Wildlife]]
 - [[02zzp what was started and left, 22 Oct to 19 Nov, and how to notice…|02zzp: what was started and left, 22 Oct to 19 Nov, and how to notice…]]

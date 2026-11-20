@@ -4,25 +4,27 @@
 
 [The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.
 
-## Waiting on you (35)
-- [[Q-65 Delete the 16 empty branches|Q-65 · Delete the 16 empty branches]]
-- [[Q-61 What was started and left, and the mechanisms to catch it|Q-61 · What was started and left, and the mechanisms to catch it]]
-- [[Q-60 The water worlds' people, and the runs world for the…|Q-60 · The water worlds' people, and the runs world for the…]]
+## Waiting on you (10)
+- [[Q-27 The verb list|Q-27 · The verb list]]
 - [[Q-58 The calibration worlds|Q-58 · The calibration worlds]]
-- [[Q-57 Fishing, from the lake run|Q-57 · Fishing, from the lake run]]
 - [[Q-56 The land the engine reads|Q-56 · The land the engine reads]]
 - [[Q-53 Brief 5 as built|Q-53 · Brief 5 as built]]
-- [[Q-52 Environment systems|Q-52 · Environment systems]]
 - [[Q-51 Brief 5 (river and water)|Q-51 · Brief 5 (river and water)]]
-- [[Q-50 One grid or several|Q-50 · One grid or several]]
-- [[Q-48 The engine as feature packages|Q-48 · The engine as feature packages]]
 - [[Q-47 The border for now|Q-47 · The border for now]]
-- … all of them: [[All asks]]
+- [[Q-46 Brief 4c as built|Q-46 · Brief 4c as built]]
+- [[Q-45 Generation redesign|Q-45 · Generation redesign]]
+- [[Q-43 Before the second peoples run|Q-43 · Before the second peoples run]]
+- [[Q-42 The peoples benchmark before any run|Q-42 · The peoples benchmark before any run]]
 
-## Active threads (14)
+## To confirm or revisit
+- [[Q-47 The border for now|Q-47 · The border for now]]: revisit: kept open on purpose with W-39 (Zach, 20 Nov)
+- [[W-39 The economy's layers and trees of dependence across the domains|W-39 · The economy's layers and trees of dependence across the domains]]: revisit: kept open on purpose (Zach, 20 Nov: 'this should be another thread of its own purposefully kept open')
+- [[W-69 Subsistence worlds|W-69 · Subsistence worlds]]: revisit: soon (Zach, 20 Nov: something I want to revisit soon)
+- [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70 · Verbs and livelihood archetypes, before the engine rework]]: revisit: soon (Zach, 20 Nov: 'that one sooner')
+
+## Active threads (13)
 
 **37.2**
-- [[W-3 Records restructure|W-3 · Records restructure]]
 - [[W-51 The weather across conditions|W-51 · The weather across conditions]]  
   next: Zach's answers to Q-56; the generator's half (node temp_c, sea_km, wind) when he agrees; the flow-level rule…
 - [[W-54 The calibration worlds|W-54 · The calibration worlds]]  
@@ -51,13 +53,9 @@
 - [[W-57 The lake runs' seven engine faults|W-57 · The lake runs' seven engine faults]]  
   next: merge (Zach), a bot run to measure the new rows' chances, item 9 after W-56
 
-## Waiting threads (14)
+## Waiting threads (11)
 
 **37.2**
-- [[W-4 wild_behaviour.md v3|W-4 · wild_behaviour.md v3]]
-- [[W-21 Proposals for Q-37|W-21 · Proposals for Q-37]]
-- [[W-22 Hunting against farming and gathering in generated worlds|W-22 · Hunting against farming and gathering in generated worlds]]  
-  next: Zach's go on the changes (02zzd table), then 37.4's code and 37.2's ecology (pressure, game near people)…
 - [[W-25 The world keeps its land|W-25 · The world keeps its land]]  
   next: Zach on the how (tile size, past runs); 37.2's generator part; 37.4's engine and record part
 - [[W-29 A multi-village wild region and its live run|W-29 · A multi-village wild region and its live run]]  
@@ -85,10 +83,14 @@
 - [[W-28 The Cybertron 2 website|W-28 · The Cybertron 2 website]]  
   next: Zach sets up the Netlify site and the subdomain; `python -m c2viz.site.viewer_publish` after each publish…
 
-## Queued and paused (11)
-[[W-5 37.2's own hygiene items|W-5]] 37.2's own hygiene items, [[W-7 The ecology branch's next steps|W-7]] The ecology branch's next steps, [[W-8 Couple the food web to 37.4's weather and climate|W-8]] Couple the food web to 37.4's weather and climate, [[W-9 Compile the generator into specworldgeneration.md|W-9]] Compile the generator into spec/world/generation.md, [[W-10 37.2's spec write-ups owed since 2 and 3 Nov|W-10]] 37.2's spec write-ups owed since 2 and 3 Nov, [[W-11 Landscapes still to tune|W-11]] Landscapes still to tune, [[W-12 Forays (proposalsforays.md)|W-12]] Forays (proposals/forays.md), [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-64 Shared units for food, weight and work|W-64]] Shared units for food, weight and work
+## Queued and paused (8)
+[[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-64 Shared units for food, weight and work|W-64]] Shared units for food, weight and work, [[W-67 The wildlife economy extended|W-67]] The wildlife economy extended, [[W-68 37.2's spec catch-up|W-68]] 37.2's spec catch-up, [[W-69 Subsistence worlds|W-69]] Subsistence worlds, [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
 
-## Decided this week (42)
+## Decided this week (46)
+- [[D2-244 The engine's reworking into feature packages|D2-244 · The engine's reworking into feature packages]]
+- [[D2-243 The verbs and the livelihood archetypes are reshaped first, as their…|D2-243 · The verbs and the livelihood archetypes are reshaped first, as their…]]
+- [[D2-242 Subsistence test worlds|D2-242 · Subsistence test worlds]]
+- [[D2-241 The runs world for the model-per-household run as built and run|D2-241 · The runs world for the model-per-household run as built and run]]
 - [[D2-240 The Obsidian vault is a local folder Zach opens whenever he likes…|D2-240 · The Obsidian vault is a local folder Zach opens whenever he likes…]]
 - [[D2-239 Zach's views and the hand-offs|D2-239 · Zach's views and the hand-offs]]
 - [[D2-238 Branches|D2-238 · Branches]]
@@ -100,10 +102,6 @@
 - [[D2-232 The records as items|D2-232 · The records as items]]
 - [[D4-124 Resume from the last finished day|D4-124 · Resume from the last finished day]]
 - [[D4-123 A lesson is in the teacher's craft|D4-123 · A lesson is in the teacher's craft]]
-- [[D2-231 The runs world's runs on set nights|D2-231 · The runs world's runs on set nights]]
-- [[D2-230 Highpool's larder in the runs world|D2-230 · Highpool's larder in the runs world]]
-- [[D2-229 One fish stock per water body|D2-229 · One fish stock per water body]]
-- [[D2-228 Calibrate across a distribution of worlds|D2-228 · Calibrate across a distribution of worlds]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]

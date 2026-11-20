@@ -21,6 +21,7 @@ one terrain mixing landform, vegetation and distance; lakes in every hollow; for
 
 ## Mentioned by
 - [[W-9 Compile the generator into specworldgeneration.md|W-9 · Compile the generator into spec/world/generation.md]]
+- [[W-68 37.2's spec catch-up|W-68 · 37.2's spec catch-up]]
 - [[L-100 Landscapes still to tune|L-100 · Landscapes still to tune]]
 - [[L-101 Compile the generator into specworldgeneration.md|L-101 · Compile the generator into spec/world/generation.md]]
 - [[Proposal environments, ecosystems and how they cluster|Proposal: environments, ecosystems and how they cluster]]

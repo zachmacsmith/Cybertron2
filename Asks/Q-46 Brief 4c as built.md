@@ -16,6 +16,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
+- [[W-69 Subsistence worlds|W-69 · Subsistence worlds]]
 - [[L-113 Briefs 4, 4b and 4c's deviations, to revisit|L-113 · Briefs 4, 4b and 4c's deviations, to revisit]]
 - [[Hunting that pays a beginner, snares that are lifted, and predators…|Hunting that pays a beginner, snares that are lifted, and predators…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]

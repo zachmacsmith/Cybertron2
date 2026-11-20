@@ -17,3 +17,7 @@ hedges, banks, walls, pales and mesh as barriers with properties on parcel edges
 **Designed in:** docs/review/37_growth/02zv_wild_consolidation.md §4
 
 **Waits on:** core C12 (works on edges, visibility) not built; [[L-24 Fences on the borders between parcels|L-24]] fences on borders; [[Q-50 One grid or several|Q-50]] (the grid)
+
+
+## Linked
+- parent: [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]

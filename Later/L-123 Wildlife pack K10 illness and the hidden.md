@@ -19,5 +19,9 @@ rabies; the fen ague; the adder; murrain meat and milk; ergot; liver fluke; flie
 **Waits on:** illness in people ([[Q-16 Disease mortality, the units of the sick, immunity, nursing, a healer|Q-16]], [[L-9 Disease (mortality, the sick, immunity, nursing, a healer)|L-9]])
 
 
+## Linked
+- parent: [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
+
+
 ## Mentioned by
 - *and 1 index or audit notes*

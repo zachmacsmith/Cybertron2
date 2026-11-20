@@ -21,6 +21,7 @@ one break rate and a 2-timber repair for every building
 
 ## Mentioned by
 - [[Q-37 Brief 2 as built, and what its gate found|Q-37 · Brief 2 as built, and what its gate found]]
+- [[L-131 The wild layer's live points from briefs 1 to 3|L-131 · The wild layer's live points from briefs 1 to 3]]
 - [[What can happen to buildings and fittings, by weather and use…|What can happen to buildings and fittings, by weather and use…]]
 - [[Proposal buildings from parts|Proposal: buildings from parts]]
 - [[Households and dwellings membership, use and home are data that…|Households and dwellings: membership, use and home are data that…]]

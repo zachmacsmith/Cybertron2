@@ -17,6 +17,7 @@ devlog #16, 09 §3b.5
 
 
 ## Mentioned by
+- [[D2-241 The runs world for the model-per-household run as built and run|D2-241 · The runs world for the model-per-household run as built and run]]
 - [[D4-117 A youth's model is its household's|D4-117 · A youth's model is its household's]]
 - [[Q-60 The water worlds' people, and the runs world for the…|Q-60 · The water worlds' people, and the runs world for the…]]
 - [[A benchmark by living descendants, on a ladder of worlds|A benchmark by living descendants, on a ladder of worlds]]

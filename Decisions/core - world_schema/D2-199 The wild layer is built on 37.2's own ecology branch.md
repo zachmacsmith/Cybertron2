@@ -21,6 +21,7 @@ wave 1 as a model beside the engine (02zp part six)
 
 ## Mentioned by
 - [[W-5 37.2's own hygiene items|W-5 · 37.2's own hygiene items]]
+- [[W-68 37.2's spec catch-up|W-68 · 37.2's spec catch-up]]
 - [[Carcasses, decay and what comes to them|Carcasses, decay and what comes to them]]
 - [[Proposal world generation as one history, with pins met in the loop|Proposal: world generation as one history, with pins met in the loop]]
 - [[Methods and encounters people answer the wild by general methods…|Methods and encounters: people answer the wild by general methods…]]

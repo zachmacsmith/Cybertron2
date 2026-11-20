@@ -21,6 +21,7 @@ conversation ("Animals can add specific mechanisms / code but it should just be 
 
 ## Mentioned by
 - [[W-5 37.2's own hygiene items|W-5 · 37.2's own hygiene items]]
+- [[W-68 37.2's spec catch-up|W-68 · 37.2's spec catch-up]]
 - [[The engine as a small core and feature packages design specification|The engine as a small core and feature packages: design specification]]
 - [[Forays going out from the village and coming back|Forays: going out from the village and coming back]]
 - [[Methods and encounters people answer the wild by general methods…|Methods and encounters: people answer the wild by general methods…]]

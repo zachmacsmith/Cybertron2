@@ -19,5 +19,9 @@ tanning and leather; parchment, seals, quills; sinew, gut, glue, bowstrings, the
 **Waits on:** documents ([[D2-24 The first-world goods include copper, salt, documents, hides and…|D2-24]]); clothing ([[D2-10 Clothing is parked|D2-10]], parked); bees (K6); economy_web.md ([[W-39 The economy's layers and trees of dependence across the domains|W-39]])
 
 
+## Linked
+- parent: [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
+
+
 ## Mentioned by
 - *and 2 index or audit notes*

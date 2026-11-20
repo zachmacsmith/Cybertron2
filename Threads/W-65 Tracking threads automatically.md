@@ -31,12 +31,13 @@ built and on main 20 Nov (d2b130c to fdd1edb): tools/records.py and records_hook
 ## Linked
 - under it: [[D2-240 The Obsidian vault is a local folder Zach opens whenever he likes…|D2-240 · The Obsidian vault is a local folder Zach opens whenever he likes…]] (live)
 - under it: [[O-1 A first wiki generated from the spec as it stands, as a private page…|O-1 · A first wiki generated from the spec as it stands, as a private page…]] (open)
-- under it: [[Q-65 Delete the 16 empty branches|Q-65 · Delete the 16 empty branches]] (open)
+- under it: [[Q-65 Delete the 16 empty branches|Q-65 · Delete the 16 empty branches]] (closed)
 
 
 ## Mentioned by
 - [[D2-240 The Obsidian vault is a local folder Zach opens whenever he likes…|D2-240 · The Obsidian vault is a local folder Zach opens whenever he likes…]]
 - [[Q-65 Delete the 16 empty branches|Q-65 · Delete the 16 empty branches]]
+- [[W-3 Records restructure|W-3 · Records restructure]]
 - [[L-129 A wiki of the world's rules, generated from the development process…|L-129 · A wiki of the world's rules, generated from the development process…]]
 - [[O-1 A first wiki generated from the spec as it stands, as a private page…|O-1 · A first wiki generated from the spec as it stands, as a private page…]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]

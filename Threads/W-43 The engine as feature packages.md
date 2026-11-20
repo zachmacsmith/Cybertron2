@@ -20,6 +20,15 @@ inventory written (five files); the proposal revised into a design specification
 - `docs/review/40_feature_packages/`
 
 
+## Linked
+- under it: [[D2-243 The verbs and the livelihood archetypes are reshaped first, as their…|D2-243 · The verbs and the livelihood archetypes are reshaped first, as their…]] (live)
+- under it: [[D2-244 The engine's reworking into feature packages|D2-244 · The engine's reworking into feature packages]] (live)
+- under it: [[L-133 The engine as feature packages postponed, kept in mind|L-133 · The engine as feature packages: postponed, kept in mind]] (open)
+
+
 ## Mentioned by
+- [[D2-243 The verbs and the livelihood archetypes are reshaped first, as their…|D2-243 · The verbs and the livelihood archetypes are reshaped first, as their…]]
+- [[D2-244 The engine's reworking into feature packages|D2-244 · The engine's reworking into feature packages]]
+- [[L-133 The engine as feature packages postponed, kept in mind|L-133 · The engine as feature packages: postponed, kept in mind]]
 - [[The engine as a small core and feature packages design specification|The engine as a small core and feature packages: design specification]]
 - *and 1 index or audit notes*

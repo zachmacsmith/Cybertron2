@@ -25,7 +25,12 @@ proposal accepted in part 17 Nov ([[D2-221 The land in three speeds|D2-221]] to 
 - `docs/review/37_growth/02zzn_environment_prototype.md`
 
 
+## Linked
+- replaces: [[W-8 Couple the food web to 37.4's weather and climate|W-8 · Couple the food web to 37.4's weather and climate]]
+
+
 ## Mentioned by
+- [[W-8 Couple the food web to 37.4's weather and climate|W-8 · Couple the food web to 37.4's weather and climate]]
 - [[W-15 The land's fast stocks|W-15 · The land's fast stocks]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]

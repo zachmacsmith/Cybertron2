@@ -20,6 +20,7 @@ the hand-kept tables as the store
 
 
 ## Mentioned by
+- [[Q-61 What was started and left, and the mechanisms to catch it|Q-61 · What was started and left, and the mechanisms to catch it]]
 - [[Q-64 The records as items with rendered views, one tool and a skill…|Q-64 · The records as items with rendered views, one tool and a skill…]]
 - [[W-66 The design of the records and the workflow|W-66 · The design of the records and the workflow]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]

@@ -19,7 +19,12 @@ updated: "2026-11-20"
 **Waits on:** [[D2-208 The world keeps the land it runs on|D2-208]]'s land kept (land_kept.md); briefs 4 onward; Zach taking it up
 
 
+## Linked
+- relates: [[Q-57 Fishing, from the lake run|Q-57 · Fishing, from the lake run]]
+
+
 ## Mentioned by
+- [[Q-57 Fishing, from the lake run|Q-57 · Fishing, from the lake run]]
 - [[W-12 Forays (proposalsforays.md)|W-12 · Forays (proposals/forays.md)]]
 - [[L-117 Wildlife pack K3 forays, methods and knowing|L-117 · Wildlife pack K3: forays, methods and knowing]]
 - [[Forays going out from the village and coming back|Forays: going out from the village and coming back]]

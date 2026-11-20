@@ -20,11 +20,13 @@ calibration on the worlds of each brief
 
 
 ## Mentioned by
+- [[D2-242 Subsistence test worlds|D2-242 · Subsistence test worlds]]
 - [[Q-52 Environment systems|Q-52 · Environment systems]]
 - [[Q-58 The calibration worlds|Q-58 · The calibration worlds]]
 - [[W-49 Environment systems|W-49 · Environment systems]]
 - [[W-54 The calibration worlds|W-54 · The calibration worlds]]
 - [[W-64 Shared units for food, weight and work|W-64 · Shared units for food, weight and work]]
+- [[W-69 Subsistence worlds|W-69 · Subsistence worlds]]
 - [[L-116 The wild layer's fish and a water body, two ways|L-116 · The wild layer's fish and a water body, two ways]]
 - [[L-127 The ecology's calibration backlog|L-127 · The ecology's calibration backlog]]
 - [[Calibration worlds a suite of diverse places to calibrate against|Calibration worlds: a suite of diverse places to calibrate against]]

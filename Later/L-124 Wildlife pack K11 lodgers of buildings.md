@@ -19,5 +19,9 @@ jackdaws in chimneys; deathwatch beetle, woodworm, dry rot; black rats in thatch
 **Waits on:** building upkeep and risks (engine overhaul phase 3)
 
 
+## Linked
+- parent: [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
+
+
 ## Mentioned by
 - *and 2 index or audit notes*

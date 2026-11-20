@@ -17,3 +17,7 @@ the sounder's route graph, matriarch and splitting; the mast's two years and pan
 **Designed in:** docs/review/37_growth/02zv_wild_consolidation.md §4
 
 **Waits on:** [[Q-32 02zv §6's decisions still open|Q-32]]; worlds with boar and deer (3 of 20 generated villages); pigs (K6) for pannage
+
+
+## Linked
+- parent: [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]

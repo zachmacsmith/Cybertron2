@@ -22,4 +22,5 @@ updated: "2026-11-20"
 - [[Q-41 Brief 4b as built, and its gate|Q-41 · Brief 4b as built, and its gate]]
 - [[Q-46 Brief 4c as built|Q-46 · Brief 4c as built]]
 - [[W-36 Build brief 4c, then the merge of the wild layer|W-36 · Build brief 4c, then the merge of the wild layer]]
+- [[L-131 The wild layer's live points from briefs 1 to 3|L-131 · The wild layer's live points from briefs 1 to 3]]
 - *and 4 index or audit notes*

@@ -19,8 +19,13 @@ forays, places in memory and names, land features, cord and the coppice's produc
 **Waits on:** Zach: [[Q-32 02zv §6's decisions still open|Q-32]] (1), (2); [[Q-33 forays.md's open questions|Q-33]] forays ([[L-105 Forays as their own track|L-105]]); 37.4's belief store for lore
 
 
+## Linked
+- parent: [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
+
+
 ## Mentioned by
 - [[W-6 Merging the wild layer into main|W-6 · Merging the wild layer into main]]
+- [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
 - [[Proposal the wild layer, one general system for ecosystems and…|Proposal: the wild layer, one general system for ecosystems and…]]
 - [[02zzp what was started and left, 22 Oct to 19 Nov, and how to notice…|02zzp: what was started and left, 22 Oct to 19 Nov, and how to notice…]]

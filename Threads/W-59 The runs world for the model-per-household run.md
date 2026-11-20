@@ -24,6 +24,13 @@ done: seed 5, 45 people; herds kept; Highpool's larder ([[D2-230 Highpool's lard
 - `wild/areas.py`
 
 
+## Linked
+- under it: [[D2-241 The runs world for the model-per-household run as built and run|D2-241 · The runs world for the model-per-household run as built and run]] (live)
+- under it: [[D2-242 Subsistence test worlds|D2-242 · Subsistence test worlds]] (live)
+
+
 ## Mentioned by
+- [[D2-241 The runs world for the model-per-household run as built and run|D2-241 · The runs world for the model-per-household run as built and run]]
+- [[D2-242 Subsistence test worlds|D2-242 · Subsistence test worlds]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
 - *and 3 index or audit notes*

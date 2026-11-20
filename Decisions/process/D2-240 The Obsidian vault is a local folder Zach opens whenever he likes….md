@@ -21,6 +21,7 @@ conversation (20 Nov: "No obsidian should not be making an obsidian vault zip, I
 
 
 ## Mentioned by
+- [[Q-61 What was started and left, and the mechanisms to catch it|Q-61 · What was started and left, and the mechanisms to catch it]]
 - [[W-65 Tracking threads automatically|W-65 · Tracking threads automatically]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]
 - *and 1 index or audit notes*

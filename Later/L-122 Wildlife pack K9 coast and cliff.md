@@ -19,5 +19,9 @@ seabird cliffs with the climber and the rope-holder; seals and the stranded whal
 **Waits on:** coastal worlds in use; the tide (water_and_preservation.md §6)
 
 
+## Linked
+- parent: [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
+
+
 ## Mentioned by
 - *and 2 index or audit notes*
