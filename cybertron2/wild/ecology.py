@@ -145,7 +145,9 @@ def presence(land: dict, ids: list) -> np.ndarray:
 class Model:
     """What does not change: the areas, their features and foods, the kinds compiled."""
 
-    def __init__(self, land: dict, kinds: dict | None = None, Y: int = 32, knobs: dict | None = None):
+    def __init__(self, land: dict, kinds: dict | None = None, Y: int = 32, knobs: dict | None = None, off=(), runs_off=()):
+        """off: kinds a world switches off (wild/switches.py, W-69): no land suits them, so they start at none and none come; runs_off:
+        the kinds whose runs do not run (wild/runs.py)."""
         self.land, self.Y, self.S = land, Y, Y // 4
         self.knobs = knobs or {}
         self.ids, self.km2, self.f, self.res = features(land)
@@ -154,6 +156,9 @@ class Model:
         self.kinds = {n: dict(k, diet=expand(k["diet"], k["mass"])) for n, k in (kinds or WK.KINDS).items()}
         self.names = list(self.kinds)
         self.suit = {n: suitability(self.f, self.kinds[n]) for n in self.names}
+        self.off, self.runs_off = frozenset(off), frozenset(runs_off) | frozenset(off)
+        for n_ in self.off & set(self.names):
+            self.suit[n_] = np.zeros(len(self.f["land"]))
         self.crowd_at = {n: 3.0 * damuth(self.kinds[n]["mass"], self.kinds[n]["cls"]) * self.knobs.get("crowd", 1.0) for n in self.names}
         self.nodes = [land["areas"][a]["node"] for a in self.ids]
         self.home = np.array([land["areas"][a]["kind"] == "home" and land["areas"][a].get("settled", True) for a in self.ids])

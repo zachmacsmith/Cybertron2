@@ -30,9 +30,9 @@ ITEMS = {
     "salt": {"weight": 1, "food": 0.0, "spoil": 0.0},                  # D2-24, D2-56
     "hay": {"weight": 1, "food": 0.0, "spoil": 0.0, "fodder": 1.0},    # cut from pasture in summer (D4-42)
     # A crop reaped green (D4-106): little food (the green ears roasted), good fodder; heats and spoils unless dried to hay
-    "green grain": {"weight": 1, "food": 0.15, "spoil": 0.2, "fodder": 0.8, "decay": "green crop"},
-    "green rye": {"weight": 1, "food": 0.15, "spoil": 0.2, "fodder": 0.8, "decay": "green crop"},
-    "green beans": {"weight": 1, "food": 0.3, "spoil": 0.2, "fodder": 0.6, "decay": "green crop"},
+    "green grain": {"pack": "farming", "weight": 1, "food": 0.15, "spoil": 0.2, "fodder": 0.8, "decay": "green crop"},
+    "green rye": {"pack": "farming", "weight": 1, "food": 0.15, "spoil": 0.2, "fodder": 0.8, "decay": "green crop"},
+    "green beans": {"pack": "farming", "weight": 1, "food": 0.3, "spoil": 0.2, "fodder": 0.6, "decay": "green crop"},
     "straw": {"weight": 1, "food": 0.0, "spoil": 0.0, "fodder": 1.0},  # from the grain harvest (D4-42)
     "dung": {"weight": 1, "food": 0.0, "spoil": 0.0},                  # manure (D2-18, D4-39)
     "charcoal": {"weight": 2, "food": 0.0, "spoil": 0.0, "heat": 6.0},  # from 5 timber, made at the wood (D2-56); burns in a hearth (D2-157)
@@ -51,7 +51,7 @@ ITEMS = {
     "dried fish": {"pack": "water", "weight": 1, "food": 2.0, "spoil": 0.02, "decay": "dried meat"},
     "meat": {"weight": 1, "food": 1.5, "spoil": 0.30, "cook": True, "raw": 0.8, "decay": "fresh meat"},                 # dense, spoils fresh (D2-41)
     "milk": {"weight": 1, "food": 0.5, "spoil": 1.0},                  # the same day (D2-42)
-    "hen": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},
+    "hen": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": ["wild", "farming"]},
     "cat": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # a cat in a store keeps the mice down (D2-206; brief 2 K1)   # kept hens in a house's store: they lay (wild_layer.md, wave 2)
     "egg": {"weight": 0.1, "food": 0.6, "spoil": 0.05, "cook": True, "raw": 0.5, "pack": "wild"},
     # wild plants' goods (wild_plants.md §2, D2-200): fresh ones spoil fast, nuts keep for months; acorns are bitter until leached
@@ -90,7 +90,7 @@ ITEMS = {
     "crude weapon": {"weight": 1, "food": 0.0, "spoil": 0.0, "weapon": 2.0, "life": 10, "seen": True},     # D2-46: about 3 fights
     "pack": {"weight": 1, "food": 0.0, "spoil": 0.0, "carry": 10, "seen": True},      # on foot 10, with a pack 20 (02g §3; calibrate)
     "handcart": {"weight": 0, "food": 0.0, "spoil": 0.0, "carry": 30, "track": True, "seen": True},   # 40 in all, on a track (02g §3)
-    "wooden plough": {"weight": 4, "food": 0.0, "spoil": 0.0, "life": 60, "seen": True},       # D2-23; recipes.md §2 (60 plots)
+    "wooden plough": {"pack": "farming", "weight": 4, "food": 0.0, "spoil": 0.0, "life": 60, "seen": True},       # D2-23; recipes.md §2 (60 plots)
     "harness": {"weight": 1, "food": 0.0, "spoil": 0.0, "life": 80, "seen": True},             # D2-23; 80 days' use
     "bedroll": {"weight": 1, "food": 0.0, "spoil": 0.0, "life": 40, "seen": True, "camp": "bedroll"},    # D2-68: about 40 nights
     "tent": {"weight": 6, "food": 0.0, "spoil": 0.0, "life": 30, "seen": True, "camp": "tent"},          # D2-68: sleeps 2
@@ -121,13 +121,13 @@ DECAY = {
 # Before D4-106: grow for a share of the year from the day sown; the cold kills what is still
 # growing unless it is hardy; each takes from the soil and restores it toward a level.
 CROPS = {
-    "grain": {"seed": "grain", "gives": "grain", "share": 0.25, "growth": {"spring": 1.0, "summer": 1.0, "autumn": 0.5, "winter": 0.0},
+    "grain": {"pack": "farming", "seed": "grain", "gives": "grain", "share": 0.25, "growth": {"spring": 1.0, "summer": 1.0, "autumn": 0.5, "winter": 0.0},
               "green": "green grain", "yield": 1.0, "hardy": False, "takes": 0.15, "restores": [0.10, 1.0], "straw": True,
               "names": ["barley", "oats", "wheat", "grain"]},
-    "winter grain": {"seed": "rye", "gives": "rye", "share": 0.33, "growth": {"spring": 1.0, "summer": 1.0, "autumn": 0.6, "winter": 0.1},
+    "winter grain": {"pack": "farming", "seed": "rye", "gives": "rye", "share": 0.33, "growth": {"spring": 1.0, "summer": 1.0, "autumn": 0.6, "winter": 0.1},
                      "needs_winter": 0.4, "green": "green rye", "yield": 1.0, "hardy": True, "takes": 0.15, "restores": [0.10, 1.0], "straw": True,
                      "names": ["rye", "winter grain"]},
-    "legumes": {"seed": "beans", "gives": "beans", "share": 0.17, "growth": {"spring": 0.8, "summer": 1.0, "autumn": 0.4, "winter": 0.0},
+    "legumes": {"pack": "farming", "seed": "beans", "gives": "beans", "share": 0.17, "growth": {"spring": 0.8, "summer": 1.0, "autumn": 0.4, "winter": 0.0},
                 "green": "green beans", "yield": 0.6, "hardy": False, "takes": 0.0, "restores": [0.40, 1.0], "straw": False,
                 "names": ["beans", "peas", "legumes"]},
 }
@@ -137,7 +137,7 @@ TURF = ["meadow", "pasture", "heath", "scrub"]     # ground with turf: seed thro
 # Lore (D4-105): what a family knows from long practice and is never told by the rules: seeded as lines kept for good (D4-64) to
 # those it fits, passed on as kept lines are. `to`: "farmers" (the adults of a household, or a person, holding a field). The text
 # is made from the data (lore.py). A world turns one off with `lore: {sowing: false}`.
-LORE = {"sowing": {"to": "farmers"}}
+LORE = {"sowing": {"to": "farmers", "pack": "farming"}}
 SEED_CROP = {d["seed"]: c for c, d in CROPS.items()}
 EDIBLE = tuple(i for i, v in ITEMS.items() if v["food"] > 0)
 TOOLS = tuple(sorted((i for i, v in ITEMS.items() if v.get("tool")), key=lambda i: -("crude", "copper").index(ITEMS[i]["tool"])))
@@ -389,7 +389,7 @@ TECHNIQUES = {
                  "gives": "firewood", "tags": ["timber", "woodland", "fuel"]},                                   # D2-156, D2-157
     # clearing new ground for a field (Zach, 24 Oct: "Can they not clear land at all and make new plots?"): grass or scrub broken
     # up, stones and roots got out; a wood must be felled to scrub first. The whole parcel becomes a field when its work is done
-    "clear": {"verb": "work", "label": "clearing new ground for a field (turf, roots and stones out)", "basic": True,
+    "clear": {"pack": "farming", "verb": "work", "label": "clearing new ground for a field (turf, roots and stones out)", "basic": True,
               "aliases": ["clear ground", "clear land", "clearing", "make a field", "break new ground", "grub up"],
               "at": {"covers": ["meadow", "pasture", "scrub"]}, "draws": "plot", "yield": {"kind": "clear"},
               "tools": {"bare": 0.4, "crude": 1.0, "copper": 1.5}, "wear": 1, "units": 1, "gives": "", "tags": ["farming", "building"]},
@@ -404,37 +404,37 @@ TECHNIQUES = {
                "draws": "quarry", "yield": {"kind": "fixed", "base": 2.0}, "tools": {"crude": 1.0, "copper": 1.5}, "wear": 2, "units": 2,
                "gives": "stone", "tags": ["building", "craft"], "trade": "mason"},
     # Farming (D2-53, D2-54, D2-59, D4-38 to D4-40; 02l §2 scaled to the plot of about 16 seed, calibrate)
-    "sow": {"verb": "work", "label": "sowing a field broadcast (seed thrown)", "aliases": ["sowing", "plant", "broadcast"], "basic": True,
+    "sow": {"pack": "farming", "verb": "work", "label": "sowing a field broadcast (seed thrown)", "aliases": ["sowing", "plant", "broadcast"], "basic": True,
             "at": {"covers": ["field", "meadow", "pasture", "heath", "scrub"]}, "draws": "plot", "yield": {"kind": "sow", "seed": 6.0, "worth": 1.0}, "units": 1, "gives": "",
             "tags": ["farming"]},
-    "hoe": {"verb": "work", "label": "breaking the soil with a hoe", "aliases": ["hoeing", "dig", "break the soil"], "basic": True,
+    "hoe": {"pack": "farming", "verb": "work", "label": "breaking the soil with a hoe", "aliases": ["hoeing", "dig", "break the soil"], "basic": True,
             "at": {"covers": ["field"]}, "draws": "plot", "yield": {"kind": "break", "plots": 0.0625, "stone": 1.0},
             "tools": {"bare": 0.5, "crude": 1.0, "copper": 1.5}, "wear": 0.5, "units": 1, "gives": "", "tags": ["farming"]},
-    "plough": {"verb": "work", "label": "ploughing with a yoked pair of oxen", "aliases": ["ploughing", "plow"], "at": {"covers": ["field"]},
+    "plough": {"pack": "farming", "verb": "work", "label": "ploughing with a yoked pair of oxen", "aliases": ["ploughing", "plow"], "at": {"covers": ["field"]},
                "draws": "plot", "yield": {"kind": "break", "plots": 0.25, "stone": 1.0}, "animals": {"oxen": 2},
                "uses": {"wooden plough": 1, "harness": 2}, "units": 1, "gives": "", "tags": ["farming", "animals"], "trade": "farmer"},
-    "ditch": {"verb": "work", "label": "ditching and banking wet ground", "aliases": ["ditches", "drain", "ditch and bank"],
+    "ditch": {"pack": "farming", "verb": "work", "label": "ditching and banking wet ground", "aliases": ["ditches", "drain", "ditch and bank"],
               "at": {"covers": ["field"]}, "draws": "plot", "yield": {"kind": "works", "ground": "wet", "units": 40.0, "upkeep": 1.5},
               "tools": {"bare": 0.5, "crude": 1.0, "copper": 1.5}, "wear": 0.75, "units": 1, "gives": "", "tags": ["farming"],
               "trade": "farmer", "crew": True},                                     # D2-66: 40 units a plot by a crew led by one who knows how
-    "terrace": {"verb": "work", "label": "terracing hill ground", "aliases": ["terraces", "terracing"], "at": {"covers": ["field"]},
+    "terrace": {"pack": "farming", "verb": "work", "label": "terracing hill ground", "aliases": ["terraces", "terracing"], "at": {"covers": ["field"]},
                 "draws": "plot", "yield": {"kind": "works", "ground": "hill", "units": 60.0, "upkeep": 1.5, "stone": 6.0},
                 "tools": {"bare": 0.5, "crude": 1.0, "copper": 1.5}, "wear": 0.75, "units": 1, "gives": "", "tags": ["farming"],
                 "trade": "farmer", "crew": True},                                   # D2-66: 60 units and 6 stone a plot
-    "select seed": {"verb": "work", "label": "selecting seed from the best of a ripe crop", "aliases": ["seed selection"],
+    "select seed": {"pack": "farming", "verb": "work", "label": "selecting seed from the best of a ripe crop", "aliases": ["seed selection"],
                     "at": {"covers": ["field"]}, "draws": "crop", "yield": {"kind": "select"}, "units": 1, "gives": "", "tags": ["farming"],
                     "trade": "farmer"},                               # D2-65: one who knows it sows crops that ripen 15% sooner
-    "weed": {"verb": "work", "label": "weeding a growing crop", "aliases": ["weeding", "tend"], "basic": True,
+    "weed": {"pack": "farming", "verb": "work", "label": "weeding a growing crop", "aliases": ["weeding", "tend"], "basic": True,
              "at": {"covers": ["field", "meadow", "pasture", "heath", "scrub"]},
              "draws": "crop", "yield": {"kind": "tend"}, "units": 1, "gives": "", "tags": ["farming"]},
-    "manure": {"verb": "work", "label": "manuring a field", "aliases": ["manuring", "spread dung"], "basic": True, "at": {"covers": ["field"]},
+    "manure": {"pack": "farming", "verb": "work", "label": "manuring a field", "aliases": ["manuring", "spread dung"], "basic": True, "at": {"covers": ["field"]},
                "draws": "plot", "yield": {"kind": "manure", "plots": 0.1875}, "inputs": {"dung": 1.9}, "units": 1, "gives": "",
                "tags": ["farming", "animals"]},
-    "reap": {"verb": "work", "label": "reaping a crop", "aliases": ["reaping", "harvest"], "basic": True,
+    "reap": {"pack": "farming", "verb": "work", "label": "reaping a crop", "aliases": ["reaping", "harvest"], "basic": True,
              "at": {"covers": ["field", "meadow", "pasture", "heath", "scrub"]},
              "draws": "crop", "yield": {"kind": "crop", "plots": 0.125, "straw": 4.7}, "tools": {"bare": 0.6, "crude": 1.0, "copper": 1.5},
              "wear": 0.25, "units": 1, "gives": "grain", "tags": ["food", "farming", "harvest"]},
-    "hay": {"verb": "gather", "label": "cutting hay", "aliases": ["cut hay", "haymaking", "mow"], "basic": True, "at": {"covers": ["pasture", "meadow"]},
+    "hay": {"pack": "farming", "verb": "gather", "label": "cutting hay", "aliases": ["cut hay", "haymaking", "mow"], "basic": True, "at": {"covers": ["pasture", "meadow"]},
                 "draws": "grass", "yield": {"kind": "fixed", "base": 3.0}, "tools": {"bare": 0.3, "crude": 1.0, "copper": 1.5}, "wear": 0.5,
                 "by_season": {"spring": 0.5, "summer": 1.0, "autumn": 0.3, "winter": 0.0}, "units": 1, "gives": "hay", "tags": ["animals", "farming"]},
     # Cattle (D2-63, D4-41, D4-44, D4-45; 02o, calibrate)
@@ -460,7 +460,7 @@ TECHNIQUES = {
     "leach acorns": {"verb": "make", "label": "boiling acorns in changes of water at a hearth till the bitterness is gone", "basic": True,
                      "aliases": ["leach", "leaching acorns", "acorn meal"], "pack": "wild", "at": {"fittings": ["hearth"]},
                      "inputs": {"acorns": 3}, "units": 1, "gives": {"acorn meal": 2}, "tags": ["food", "cooking"]},
-    "burn the stubble": {"verb": "work", "label": "burning the stubble after the harvest", "basic": True, "pack": "wild",
+    "burn the stubble": {"verb": "work", "label": "burning the stubble after the harvest", "basic": True, "pack": ["wild", "farming"],
                          "aliases": ["burn stubble", "fire the stubble"], "at": {"covers": ["field"]}, "draws": "guard",
                          "yield": {"kind": "wild_guard", "load": "slugs", "cut": 0.3, "days": 16, "thin": {"slugs": 0.3},
                                    "done": "You burned off the stubble in {place}."}, "units": 2, "gives": "", "tags": ["farming"]},
@@ -500,10 +500,10 @@ TECHNIQUES = {
     "shut the gate": {"verb": "work", "label": "shutting a gate", "basic": True, "aliases": ["shut gate", "close the gate", "close gate"],
                       "at": {"covers": ["pasture", "meadow", "field", "scrub"]}, "draws": "plot", "yield": {"kind": "gate", "gate": "shut"},
                       "units": 0, "gives": "", "tags": ["animals"]},
-    "dung": {"verb": "gather", "label": "gathering dung", "aliases": ["gather dung", "collect dung"], "basic": True,
+    "dung": {"pack": "farming", "verb": "gather", "label": "gathering dung", "aliases": ["gather dung", "collect dung"], "basic": True,
                     "at": {"covers": ["pasture", "meadow", "field"]}, "draws": "dung", "yield": {"kind": "fixed", "base": 5.0}, "units": 1,
                     "gives": "dung", "tags": ["animals", "farming"]},
-    "milk": {"verb": "work", "label": "milking (a cow in milk)", "aliases": ["milking"], "at": {"covers": ["pasture", "meadow", "field", "heath", "moor", "fen", "saltmarsh"]},
+    "milk": {"pack": "farming", "verb": "work", "label": "milking (a cow in milk)", "aliases": ["milking"], "at": {"covers": ["pasture", "meadow", "field", "heath", "moor", "fen", "saltmarsh"]},
              "draws": "herd", "yield": {"kind": "milk", "cows": 3, "each": 1.6}, "units": 1, "gives": "milk", "tags": ["food", "animals"],
              "trade": "herder"},
     "slaughter": {"verb": "work", "label": "slaughtering a beast", "aliases": ["butcher", "kill a cow"], "basic": True,
@@ -539,7 +539,7 @@ TECHNIQUES = {
              "tags": ["food", "cooking"]},
     "water mill": {"verb": "make", "label": "milling grain at a water mill", "aliases": ["water milling"], "basic": True,
                    "at": {"fittings": ["water wheel"]}, "inputs": {"grain": 200}, "units": 2, "gives": {"flour": 200}, "tags": ["food", "cooking"]},   # D4-97
-    "dry fodder": {"verb": "make", "label": "drying a green crop into hay", "aliases": ["dry hay", "make hay of", "dry green crop"],
+    "dry fodder": {"pack": "farming", "verb": "make", "label": "drying a green crop into hay", "aliases": ["dry hay", "make hay of", "dry green crop"],
                    "basic": True, "inputs": {"green crop": {"green grain": 10, "green rye": 10, "green beans": 10}}, "units": 1,
                    "gives": {"hay": 8}, "tags": ["animals", "farming"]},                                  # D4-106 (calibrate)
     "pack": {"verb": "make", "label": "making a pack", "aliases": ["backpack"], "basic": True, "inputs": {"hide": 1, "timber": 1},
@@ -606,11 +606,11 @@ TECHNIQUES = {
                  "hang fish to dry"], "basic": True, "at": {"fittings": ["hearth", "fire ring"]}, "inputs": {"fish": 8}, "units": 1,
                  "gives": {"drying fish": 8}, "batch": True,                   # fish on the hearth's rack as meat (D4-122): one batch a
                  "rack": {"nights": 3, "into": "dried fish", "ratio": 0.5}, "tags": ["food", "cooking", "fishing"]},   # rack, up to 8
-    "cheese": {"verb": "make", "label": "making cheese", "aliases": ["cheesemaking"], "at": {"fittings": ["cellar"]},
+    "cheese": {"pack": "farming", "verb": "make", "label": "making cheese", "aliases": ["cheesemaking"], "at": {"fittings": ["cellar"]},
                "inputs": {"milk": 6, "salt": 0.2}, "units": 1, "gives": {"cheese": 1}, "tags": ["food", "animals"], "trade": "herder"},
     "charcoal": {"verb": "make", "label": "burning charcoal", "aliases": ["charcoal burning"], "at": {"covers": ["forest"]},
                  "inputs": {"timber": 5}, "units": 2, "gives": {"charcoal": 1}, "tags": ["timber", "craft"], "trade": "woodsman"},
-    "wooden plough": {"verb": "make", "label": "making a plough", "aliases": ["make a plough"], "inputs": {"timber": 4, "copper": 1},
+    "wooden plough": {"pack": "farming", "verb": "make", "label": "making a plough", "aliases": ["make a plough"], "inputs": {"timber": 4, "copper": 1},
                       "tools": {"crude": 1.0, "copper": 1.0}, "units": 4, "gives": {"wooden plough": 1}, "tags": ["farming", "craft"],
                       "trade": "carpenter"},
     "bedroll": {"verb": "make", "label": "making a bedroll", "aliases": ["blanket roll"], "basic": True, "inputs": {"hide": 1}, "units": 1,
@@ -644,7 +644,7 @@ TECHNIQUES.update({
     "hidden: buried": {"verb": "modifier", "label": "burying something to hide it", "aliases": ["bury it", "buried", "cache"],
                        "modifies": ["give:place"], "key": "hidden", "value": "buried", "untaught": "tryable",
                        "changes": {"hidden": "buried", "units": 2}, "units": 2, "gives": "", "tags": ["hiding"]},
-    "method: dibble": {"verb": "modifier", "label": "dibbling seed (set by hand, seed by seed)", "aliases": ["dibble", "dibbling", "set seed"],
+    "method: dibble": {"pack": "farming", "verb": "modifier", "label": "dibbling seed (set by hand, seed by seed)", "aliases": ["dibble", "dibbling", "set seed"],
                        "modifies": ["work:sow"], "key": "method", "value": "dibble", "untaught": "no",
                        "changes": {"yield": {"seed": 2.0, "worth": 1.67}, "word": "dibbled"}, "units": 0, "gives": "",
                        "tags": ["farming"], "trade": "farmer"},                                      # D2-54, D2-94: 3x the work, 0.6x the seed

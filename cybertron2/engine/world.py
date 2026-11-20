@@ -102,6 +102,8 @@ class World:
         from cybertron2.engine.schema import WORLD_SCHEMA
         s["world_schema"] = WORLD_SCHEMA                                   # the shape of this record (spec/core/world_schema.md, D4-100)
         from cybertron2.engine import packs as PK
+        from cybertron2.wild import switches as SW
+        farming = PK.on({"pack": "farming"}, PK.of(self))                   # farming switched off: no field works or crop (W-69)
         for nid, n in spec["nodes"].items():
             s["nodes"][nid] = {"name": n["name"], "text": n.get("text", ""), "unexplored": bool(n.get("unexplored"))}      # D4-47
             for pid, p in (n.get("parcels") or {}).items():
@@ -113,7 +115,8 @@ class World:
                 res = {k: {"S": float(v["S"]), "K": float(v["K"]), "r": float(v.get("r", 0.3)),
                            **{x: v[x] for x in ("run_K", "run_r", "run_seasons", "renewal", "response") if x in v}} if k != "seam" else
                        {"S": float(v.get("S", v.get("left", 0))), "K": float(v.get("K", v.get("S", v.get("left", 0)))), "r": 0.0}
-                       for k, v in st.items() if k in RESOURCES and PK.on(RESOURCES[k], PK.of(self))}   # a pack off: no stock (D4-103)
+                       for k, v in st.items() if k in RESOURCES and PK.on(RESOURCES[k], PK.of(self)) and SW.res_on(spec, k)}   # a pack
+                                                                       # off: no stock (D4-103); nor a food source switched off (W-69)
                 res.update(woods)
                 cp = self.p["cattle"]
                 share = float((cp.get("grazing") or {"pasture": 1.0, "meadow": 1.0}).get(p["cover"], 0.0))
@@ -136,12 +139,12 @@ class World:
                     par["fence"] = {"kind": fz.get("kind", "wood"), "units": need, "level": int(fz.get("level", 2)), "built": True,
                                     "gate": fz.get("gate", "shut"), "mend": float(fz.get("mended", 0.25)) * need,   # kept this season
                                     "pending": {}, "since": -1}
-                if st.get("works"):                                                  # seeded field works (D2-66): {done: plots}
+                if st.get("works") and farming:                                      # seeded field works (D2-66): {done: plots}
                     gw = st["works"]
                     tech_y = 40.0 if p.get("ground") == "wet" else 60.0
                     par["works"] = {"ground": p.get("ground"), "done": float(gw.get("done", par["size"])), "kept": 0.0, "pending": {},
                                     "units": float(gw.get("done", par["size"])) * tech_y}
-                if st.get("crop"):
+                if st.get("crop") and farming:
                     from cybertron2.engine import farm as FM
                     fam = FM.CROP_OF.get(str(st["crop"].get("kind", "grain")).lower(), "grain")
                     par["crop"] = FM.normalise_crop(par, st["crop"], 0, FM.grow_days(self.year_days(), fam))

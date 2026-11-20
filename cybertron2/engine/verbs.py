@@ -2431,7 +2431,8 @@ def _order(here, mind, a, party):
         return "Your household's children do no work now."
     tech = KN.resolve(what, None)
     if tech not in LIFE["children_work"]:
-        raise Refused(f"children can do only {', '.join(LIFE['children_work'])}")
+        from cybertron2.engine import packs as PK
+        raise Refused(f"children can do only {', '.join(t for t in LIFE['children_work'] if PK.on(TECHNIQUES[t]))}")
     at = a.get("at")
     if at:
         _site(here, mind, tech, at)                                           # a place here it can be done

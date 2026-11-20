@@ -95,8 +95,9 @@ def seed(w, name) -> None:
     if a.get("stage") in LF.MINOR:
         return
     holders = None
+    from cybertron2.engine import packs as PK
     for key, row in LORE.items():
-        if isinstance(off, dict) and off.get(key) is False:
+        if isinstance(off, dict) and off.get(key) is False or not PK.on(row, PK.of(w)):   # turned off, or its pack is (W-69)
             continue
         holders = farmers(w) if holders is None else holders
         if fits(w, name, row["to"], holders):
