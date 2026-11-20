@@ -1,7 +1,6 @@
 # All threads
 
 ## Open
-- [[W-71 How carrying works in the live runs|How carrying works in the live runs (W-71)]] (queued)
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]] (queued)
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]] (active)
 - [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|Writing 37.2's decisions into the spec (about 52 missing) (W-68)]] (queued)
@@ -34,7 +33,8 @@
 - [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]] (queued)
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]] (active)
 
-## Closed (43)
+## Closed (44)
+- [[W-71 How carrying works in the live runs|How carrying works in the live runs (W-71)]]
 - [[W-66 The design of the records and the workflow|The design of the records and the workflow (W-66)]]
 - [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]]
 - [[W-61 An introduction for the Vanderbilt AI Safety fellows' final projects|An introduction for the Vanderbilt AI Safety fellows' final projects (W-61)]]

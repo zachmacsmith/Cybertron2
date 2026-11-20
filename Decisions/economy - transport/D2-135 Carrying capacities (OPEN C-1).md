@@ -29,4 +29,5 @@ review 02u
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
 - [[04 Exchange, money, credit, markets, information and transport, from…|04: Exchange, money, credit, markets, information and transport, from…]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
+- [[02zzv carrying in the live runs|02zzv: carrying in the live runs]]
 - *and 1 index or audit notes*

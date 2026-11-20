@@ -31,7 +31,7 @@ done 20 Nov: the six-part analysis (02zzu_shared_units.md, .json, .py) on 1 food
 - under it: [[L-139 A hen killed in a raid gives its meat|A hen killed in a raid gives its meat (L-139)]] (open)
 - under it: [[Q-69 The basis for food and work|The basis for food and work (Q-69)]] (open)
 - under it: [[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Adopt the food values on one basis, and fix the runs, the weir and… (Q-70)]] (closed)
-- under it: [[W-71 How carrying works in the live runs|How carrying works in the live runs (W-71)]] (queued)
+- under it: [[W-71 How carrying works in the live runs|How carrying works in the live runs (W-71)]] (done)
 
 
 ## Mentioned by
@@ -46,4 +46,5 @@ done 20 Nov: the six-part analysis (02zzu_shared_units.md, .json, .py) on 1 food
 - [[L-139 A hen killed in a raid gives its meat|A hen killed in a raid gives its meat (L-139)]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
+- [[02zzv carrying in the live runs|02zzv: carrying in the live runs]]
 - *and 1 index or audit notes*
