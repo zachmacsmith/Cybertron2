@@ -29,4 +29,5 @@ conversation (Zach: "fix the ox lending, fences, lore and Green, then rerun"; "t
 - [[Holding land and fixed things|Holding land and fixed things]]
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
 - [[02zw the reviews' proposals against how the engine already works (9…|02zw: the reviews' proposals against how the engine already works (9…]]
+- [[02zzs the wild region's 30-day live run (10 Nov), written up|02zzs: the wild region's 30-day live run (10 Nov), written up]]
 - *and 1 index or audit notes*

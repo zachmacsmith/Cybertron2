@@ -24,6 +24,7 @@ updated: "2026-11-20"
 
 ## Mentioned by
 - [[Q-47 The border for now|Q-47 · The border for now]]
+- [[W-29 A multi-village wild region and its live run|W-29 · A multi-village wild region and its live run]]
 - [[Hunting that pays a beginner, snares that are lifted, and predators…|Hunting that pays a beginner, snares that are lifted, and predators…]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[02zzi how an economy could scale beyond the medieval village (15 Nov…|02zzi: how an economy could scale beyond the medieval village (15 Nov…]]
@@ -41,4 +42,5 @@ updated: "2026-11-20"
 - [[Brief a new part of the 02zzj economy research folder|Brief: a new part of the 02zzj economy research folder]]
 - [[02zzk where to draw the border for now the medieval village and…|02zzk: where to draw the border for now: the medieval village and…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
+- [[02zzs the wild region's 30-day live run (10 Nov), written up|02zzs: the wild region's 30-day live run (10 Nov), written up]]
 - *and 2 index or audit notes*

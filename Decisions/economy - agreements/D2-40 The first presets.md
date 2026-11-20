@@ -26,6 +26,7 @@ agreements.md §3, hiring.md §2
 - [[37.2 work log agriculture and a thicker economy|37.2 work log: agriculture and a thicker economy]]
 - [[02zc the systems of cybertron2 as they stand|02zc: the systems of cybertron2 as they stand]]
 - [[05 Labour, property, institutions, the state, and population from…|05: Labour, property, institutions, the state, and population: from…]]
+- [[02zzs the wild region's 30-day live run (10 Nov), written up|02zzs: the wild region's 30-day live run (10 Nov), written up]]
 - [[Review 38.15 the valley, three villages over 20 days (run m2_V)|Review 38.15: the valley, three villages over 20 days (run m2_V)]]
 - [[Review 38.16 where M1 was built too narrowly, system by system…|Review 38.16: where M1 was built too narrowly, system by system…]]
 - [[Review 38.17 the rebuilt engine (cybertron2engine), its model…|Review 38.17: the rebuilt engine (`cybertron2/engine/`), its model…]]

@@ -1,6 +1,9 @@
 # All deferred
 
 ## Open
+- [[L-136 News of a famine does not travel|L-136 · News of a famine does not travel]] (open)
+- [[L-135 Debts of the dead are never settled|L-135 · Debts of the dead are never settled]] (open)
+- [[L-134 No loans of goods|L-134 · No loans of goods]] (open)
 - [[L-133 The engine as feature packages postponed, kept in mind|L-133 · The engine as feature packages: postponed, kept in mind]] (open)
 - [[L-131 The wild layer's live points from briefs 1 to 3|L-131 · The wild layer's live points from briefs 1 to 3]] (open)
 - [[L-129 A wiki of the world's rules, generated from the development process…|L-129 · A wiki of the world's rules, generated from the development process…]] (open)

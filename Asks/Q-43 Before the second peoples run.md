@@ -18,7 +18,9 @@ updated: "2026-11-20"
 ## Mentioned by
 - [[Q-44 Brief 4c before the build|Q-44 · Brief 4c before the build]]
 - [[W-63 An audit of what was started and left|W-63 · An audit of what was started and left]]
+- [[L-136 News of a famine does not travel|L-136 · News of a famine does not travel]]
 - [[Hunting that pays a beginner, snares that are lifted, and predators…|Hunting that pays a beginner, snares that are lifted, and predators…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
+- [[02zzs the wild region's 30-day live run (10 Nov), written up|02zzs: the wild region's 30-day live run (10 Nov), written up]]
 - [[38.70b Twin Hollows run 1, what the agents said and did (qualitative)|38.70b: Twin Hollows run 1, what the agents said and did (qualitative)]]
 - *and 3 index or audit notes*

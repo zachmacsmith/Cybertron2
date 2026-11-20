@@ -7,9 +7,9 @@ updated: "2026-11-20"
 
 # W-54 · The calibration worlds
 
-*active · 37.2 · touched 17 Nov (3 days ago)*
+*active · 37.2 · touched 20 Nov (today)*
 
-> **Next:** Zach's answers; the maker and the suite report; the audit, including how much water a village gets (the allocator gives at most two cells of water whatever the land has; it should follow the shore and river length in reach, a parcel per continuous stretch)
+> **Next:** an agent building the twelve worlds at two seeds ([[D2-245 The calibration suite is all twelve worlds of…|D2-245]]), their expectations, the suite report and the generator audit; then read its results
 
 ## What it is
 The calibration worlds ([[D2-228 Calibrate across a distribution of worlds|D2-228]]) and a generator audit across them
@@ -20,7 +20,8 @@ done: the suite proposed (twelve worlds, expectations, ordering and collapse che
 **Left:** Zach's answers; the maker and the suite report; the audit, including how much water a village gets (the allocator gives at most two cells of water whatever the land has; it should follow the shore and river length in reach, a parcel per continuous stretch)
 
 ## Where
-- `docs/cybertron2/proposals/calibration_worlds.md`
+- `branch w54-calibration-worlds (floodplains + main), worktree /home/user/c2-w54: cybertron2/specs/calibration/`
+- `docs/review/37_growth/02zzt_calibration_suite.*`
 
 
 ## Linked
