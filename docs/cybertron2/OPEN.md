@@ -114,6 +114,7 @@ unanswered is neither lost nor re-asked. Written by `python3 tools/records.py ne
 
 | # | Offer or promise | Default | Default on | Owner |
 |---|---|---|---|---|
+| O-1 | **A first wiki generated from the spec as it stands, as a private page, to judge how far it is from readable** | wait for Zach's go | 2026-12-04 | 37.2 |
 
 ## Flagged for later (deferred)
 
