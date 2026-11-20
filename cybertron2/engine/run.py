@@ -41,7 +41,10 @@ def blank_today() -> dict:
 
 
 # ---------------------------------------------------------------------- a scripted bot (smoke tests only)
-def bot_plan(w, name, talk=None) -> dict:
+def bot_plan(w, name, talk=None, kind="decision") -> dict:
+    from cybertron2.engine import bots_livelihood as BLV
+    if BLV.on(w):                                                         # a world's livelihood bots (W-69, D2-256)
+        return BLV.plan(w, name, talk, kind)
     here, mind = Here(w, name), Mind(w, name)
     can, _ = KN.options(here, mind)
     acts = []
@@ -168,7 +171,7 @@ def decide(w, name, text, opening, system, backend, conv, talk=None, schema=None
         if J:
             J.request(key, name, kind, None, None, system, None, text, "bot")
         try:
-            out = bot_fuse(w, name, fuse) if fuse else bot_plan(w, name, talk)
+            out = bot_fuse(w, name, fuse) if fuse else bot_plan(w, name, talk, kind)
         except Exception as e:                                             # the failure is the answer on record
             if J:
                 J.response(key, [{"error": repr(e)[:500]}], {"_error": repr(e)[:500]}, None, {}, "bot")
@@ -806,6 +809,9 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
         print(settings_line(spec), flush=True)
         if bots:
             spec["bots"] = True                                             # those who come of age are bots too
+            if isinstance(bots, str):                                       # --bots POLICY: a livelihood's bots (W-69)
+                from cybertron2.engine import bots_livelihood as BLV
+                spec["bot_livelihood"] = BLV.check(bots)
             for a in spec["agents"].values():
                 if a.get("model"):
                     a["model"] = "bot"
@@ -1207,7 +1213,8 @@ def main(argv=None):
     r.add_argument("--days", type=int)
     r.add_argument("--backend")
     r.add_argument("--workers", type=int, default=12)
-    r.add_argument("--bots", action="store_true")
+    r.add_argument("--bots", nargs="?", const=True, default=False, metavar="POLICY",
+                   help="everyone scripted; with a livelihood's POLICY (e.g. runs), its competent bots (bots_livelihood.py)")
     r.add_argument("--seed", type=int)
     r.add_argument("--until", help="pause after this step's commit, e.g. d10.memory")
     r.add_argument("--as", dest="as_", action="append", default=[], help="NAME=human|bot|model:<id>")
