@@ -10,15 +10,15 @@ updated: "2026-11-20"
 *open · Zach (37.2)*
 
 ## The question
-**Subsistence worlds: the livelihoods, the levels and the order**: proposals/subsistence_worlds.md
-1. seven livelihoods: arable, herding (added), hunting and trapping, resident fishing, the runs with preserving, foraging (added), gathering alone (a control); the coast and mixed farming later?
-2. the full 3 x 3 grid of skill and capital at two village sizes (252 bot runs), or the diagonal and two corners (140)?
-3. bots first (free), live runs only where a livelihood works on paper?
-4. prerequisites in order: shared units ([[W-64 Food, weight and work on one basis|W-64]]), the switches for each food source (37.4; [[L-112 A farming pack|L-112]]), competent livelihood bots, then the grid?
-5. the target bands as a first cut?
-6. stage 3, specialists side by side, as the series' goal?
+**The nutrition worlds** (proposals/subsistence_worlds.md, revised 20 Nov)
+1. seven livelihoods (arable, herding, hunting and trapping, resident fishing, the runs with preserving, foraging, gathering alone as a control); the coast and mixed farming later?
+2. the live arms: three per livelihood (all capable; one master among novices; masters with capital), 21 runs at about $400 to $700, or a first 12 at about $250 to $400?
+3. competent bots as the comparison, running the full grid free?
+4. targets as people fed per food worker, high ceilings arable 5 to 8, the runs 6 to 15, a master hunter 4 to 8?
+5. the order: shared units, the switches, the wood running down, the bots, then the live runs; forays later for hunting trips?
+6. specialists side by side as the series' goal?
 
-**Recommended:** yes to all, with the full grid (it is free)
+**Recommended:** yes; the first 12 live runs, then the rest once the 12 read well
 
 **Where:** docs/cybertron2/proposals/subsistence_worlds.md
 

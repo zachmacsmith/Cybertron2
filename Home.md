@@ -87,7 +87,8 @@
 ## Queued and paused (8)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-64 Food, weight and work on one basis|W-64]] Food, weight and work on one basis, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
 
-## Decided this week (56)
+## Decided this week (57)
+- [[D2-255 A very skilled hunter brings in a disproportionate amount of food…|A very skilled hunter brings in a disproportionate amount of food… (D2-255)]]
 - [[D2-254 Everything shown to Zach names each question, proposal, thread or…|Everything shown to Zach names each question, proposal, thread or… (D2-254)]]
 - [[D2-253 Zach's decisions about the process and its mechanisms are kept…|Zach's decisions about the process and its mechanisms are kept… (D2-253)]]
 - [[D2-252 The calibration suite measures how the worlds differ, world by world…|The calibration suite measures how the worlds differ, world by world… (D2-252)]]
@@ -102,7 +103,6 @@
 - [[D2-243 The verbs and the livelihood archetypes are reshaped first, as their…|The verbs and the livelihood archetypes are reshaped first, as their… (D2-243)]]
 - [[D2-242 Subsistence test worlds|Subsistence test worlds (D2-242)]]
 - [[D2-241 The runs world for the model-per-household run as built and run|The runs world for the model-per-household run as built and run (D2-241)]]
-- [[D2-240 The Obsidian vault is a local folder Zach opens whenever he likes…|The Obsidian vault is a local folder Zach opens whenever he likes… (D2-240)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]
