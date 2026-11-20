@@ -1,6 +1,6 @@
 # Records and workflow: how the documents, the scripts and git carry the design
 
-**Status:** discussion (OPEN Q-64). Takes in proposals/thread_tracking.md (W-65, Q-63) as its part on threads and commits.
+**Status:** accepted: D2-232 to D2-239 (20 Nov).
 
 **Owner:** 37.2 (WORK W-66). The engine's branches and merges are 37.4's to agree (§5).
 
@@ -521,6 +521,30 @@ a still-relevant decision away with it.
 An open ask under a closed thread is impossible, given the rule above. An ask closed provisionally stays findable, and shows as
 provisional.
 
+## 15. Supported later: a wiki of the world's rules, and releases
+
+(Zach, 20 Nov: "the documentation process can also generate documentation for the parts of the engine that is actually coded
+based on the sections deciding in-game mechanics ... a wiki that I could even put on the website ... version releases where
+threads / features are packaged together ... their changes automatically folded under and the wiki updated". Deferred as OPEN
+L-129; not built.)
+
+**What the design already gives it:**
+- spec files by area, each with a summary, its decided lines and the code it `describes:`;
+- `Builds:` trailers that tie code to decisions and threads;
+- commit types.
+
+**What it would add:**
+- a `release` node (a tag such as `v0.3`) whose notes are the threads and decisions built between it and the last tag, grouped by
+  area;
+- a renderer that writes the spec's areas as wiki pages, each saying which release last changed it;
+- a filter, so that only what is built and on main is shown, without quotes or internal notes.
+
+The hard part is the prose. The spec says what, not why, in the builders' terms, and a reader needs plainer pages. Either the
+mechanics sections are written for a reader, or each area gets a short reader's summary.
+
+**Effort:** the release notes are about a day once the trailers exist; the wiki pages one to two days on the c2viz site. To keep
+this possible, the area names follow the spec folders, and nothing internal goes into a spec's mechanics.
+
 ## Open questions
 
 OPEN Q-64:
@@ -562,6 +586,7 @@ Every session's habits (CLAUDE.md's work rules); `tools/` (hygiene folded into `
 
 ## History
 
+- 20 Nov 2026: accepted (D2-232 to D2-239) from Zach's answers to the digest; built as WORK W-65.
 - 20 Nov 2026: §14 added after Zach: every resolution names who made it (zach, agent, default, relayed), with the last three
   provisional; a revisit flag; closing a thread settles its children; decisions live by area. Q-64 (17).
 - 20 Nov 2026: §13 added after Zach: freshness against links (with `reviewed:` and `describes:`, which also covers the spec's

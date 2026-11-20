@@ -1,7 +1,6 @@
 # Thread tracking: a registry, hooks, checks and a commit schema
 
-**Status:** discussion (OPEN Q-61 (2), Q-63). The mechanisms in "Built" are being built at Zach's word (20 Nov: "Go build it"); the
-commit schema is not built.
+**Status:** accepted: D2-235 (and D2-232 to D2-234) (20 Nov).
 
 **Owner:** 37.2 (process tooling; WORK W-65).
 
@@ -128,6 +127,7 @@ session, CLAUDE.md's work rules, and the OPEN.md row layout (a parent-thread cel
 
 ## History
 
+- 20 Nov 2026: accepted (D2-235 (and D2-232 to D2-234)) from Zach's answers to the digest; built as WORK W-65.
 - 20 Nov 2026: trailers must share the last paragraph with the attribution lines (git ignores them otherwise).
 - 20 Nov 2026: written by 37.2 after Zach's question on a commit schema, with the W-65 mechanisms then being built.
 

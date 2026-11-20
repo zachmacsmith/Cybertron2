@@ -81,8 +81,8 @@ Full rules: `docs/cybertron2/README.md`.
 **Rules:**
 - The spec says what, not why. Every spec rule cites a decision; parameters are `decided` or `calibrate`. Anything undecided goes in
   `proposals/` or `OPEN.md`, not the spec.
-- Never edit another owner's spec section or proposal: propose on the board or add to `OPEN.md` under that owner. Code under
-  `cybertron2/` is changed only by 37.4 unless agreed on the board.
+- Never edit another owner's spec section or proposal: propose on the board or add to `OPEN.md` under that owner. Code changes live
+  under a thread (D2-237): any session may change code, named for its thread; the area's owner is named on the merge.
 - Ask Zach before treating anything as decided; a question he answers in conversation is a decision only when he states it.
 - A session note that a proposal or the spec supersedes gets one line at its top pointing there; nothing is deleted.
 - Small commits; `git pull --rebase` before every push. On a conflict in a shared log or index, keep both sides.
