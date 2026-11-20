@@ -4,8 +4,9 @@
 
 [The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.
 
-## Waiting on you (9)
+## Waiting on you (10)
 - [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)]]
+- [[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Whether salting fish and meat stays at 4 kg a unit of work (Q-73)]]
 - [[Q-69 The basis for food and work|The basis for food and work (Q-69)]]
 - [[Q-68 How high the surplus can go in the medieval worlds, against the…|How high the surplus can go in the medieval worlds, against the… (Q-68)]]
 - [[Q-67 Confirm three rules the sessions follow without your own words behind…|Confirm three rules the sessions follow without your own words behind… (Q-67)]]
@@ -37,7 +38,7 @@
 - [[W-63 The audit of work started and left, and the triage of open asks and…|The audit of work started and left, and the triage of open asks and… (W-63)]]  
   next: Zach's answers to the four explained asks (Q-58, Q-51, Q-53 a and b, Q-46 d and e); 37.4's own pass (Q-42…
 - [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]  
-  next: the lookup of every value against FoodData Central, then the data change (D2-258), best on main after the…
+  next: for Zach: the asks Q-71 to Q-73; then merge w64-food-values to main (37.2's data; 37.4 the run nights)
 - [[W-65 The records system|The records system (W-65)]]  
   next: the header pass over the spec files and proposals; run threads labelled as such, with their branch (D2-238)…
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]  
@@ -88,7 +89,10 @@
 ## Queued and paused (7)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
 
-## Decided this week (61)
+## Decided this week (64)
+- [[D2-262 The runs at a real river's size|The runs at a real river's size (D2-262)]]
+- [[D2-261 The older generic game stocks are counted in the new meat unit|The older generic game stocks are counted in the new meat unit (D2-261)]]
+- [[D2-260 Milking at its real yield|Milking at its real yield (D2-260)]]
 - [[D2-259 The food values are anchored on real values|The food values are anchored on real values (D2-259)]]
 - [[D2-258 The food values are put on one physical basis|The food values are put on one physical basis (D2-258)]]
 - [[D2-257 The nutrition worlds|The nutrition worlds (D2-257)]]
@@ -101,9 +105,6 @@
 - [[D2-250 Boar raid fields into autumn, to autumn day 4, weaker in a mast year|Boar raid fields into autumn, to autumn day 4, weaker in a mast year (D2-250)]]
 - [[D2-249 Wild kinds have birth windows of their own, and the year's young are…|Wild kinds have birth windows of their own, and the year's young are… (D2-249)]]
 - [[D2-248 A hearth, fire ring or smoke rack dries one batch at a time|A hearth, fire ring or smoke rack dries one batch at a time (D2-248)]]
-- [[D2-247 A process of bulk goods has a most it takes at once, not a least|A process of bulk goods has a most it takes at once, not a least (D2-247)]]
-- [[D2-246 With a mill's gap open|With a mill's gap open (D2-246)]]
-- [[D2-245 The calibration suite is all twelve worlds of…|The calibration suite is all twelve worlds of… (D2-245)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]

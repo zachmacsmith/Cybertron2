@@ -23,3 +23,4 @@ found by the shared-units analysis (02zzu): laying still runs on node_ecology's 
 - [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
 - [[L-139 A hen killed in a raid gives its meat|A hen killed in a raid gives its meat (L-139)]]
 - [[Shared units food value, weight and work on one basis|Shared units: food value, weight and work on one basis]]
+- [[02zzu lookup the food values checked against USDA FoodData Central|02zzu lookup: the food values checked against USDA FoodData Central]]

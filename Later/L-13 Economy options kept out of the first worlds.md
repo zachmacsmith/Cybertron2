@@ -25,4 +25,5 @@ Economy options kept out of the first worlds: slash and burn, armour, nets, boat
 - [[Proposal water and wetland life, fishing, preservation, and boats|Proposal: water and wetland life, fishing, preservation, and boats]]
 - [[Proposal the first wild kinds (what lives on the land, what each is…|Proposal: the first wild kinds (what lives on the land, what each is…]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
+- [[02zzu lookup the food values checked against USDA FoodData Central|02zzu lookup: the food values checked against USDA FoodData Central]]
 - *and 2 index or audit notes*

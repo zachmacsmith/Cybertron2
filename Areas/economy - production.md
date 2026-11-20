@@ -4,7 +4,7 @@
 
 > Food comes from foraging (the bottom rung) and from fields. Farming has a short minimum (sow, reap) and optional stages that cost work and raise the return. Crops ripen into a harvest window. Seed is kept back. Cattle pull the plough and dung the soil. Tools are a small set chosen by what each depen
 
-## Decided (41)
+## Decided (45)
 - [[D2-11 Farming's minimum is short, the other stages optional|Farming's minimum is short, the other stages optional (D2-11)]]
 - [[D2-12 A harvest window|A harvest window (D2-12)]]
 - [[D2-13 Worlds start with farming under way|Worlds start with farming under way (D2-13)]]
@@ -38,9 +38,13 @@
 - [[D2-163 Land is held in plot shares within a parcel|Land is held in plot shares within a parcel (D2-163)]]
 - [[D2-167 The mill ladder bites|The mill ladder bites (D2-167)]]
 - [[D2-172 A field carries one crop for each holding on it|A field carries one crop for each holding on it (D2-172)]]
+- [[D2-210 The weir in sections, capped, with upkeep by the river|The weir in sections, capped, with upkeep by the river (D2-210)]]
 - [[D2-247 A process of bulk goods has a most it takes at once, not a least|A process of bulk goods has a most it takes at once, not a least (D2-247)]]
 - [[D2-258 The food values are put on one physical basis|The food values are put on one physical basis (D2-258)]]
 - [[D2-259 The food values are anchored on real values|The food values are anchored on real values (D2-259)]]
+- [[D2-260 Milking at its real yield|Milking at its real yield (D2-260)]]
+- [[D2-261 The older generic game stocks are counted in the new meat unit|The older generic game stocks are counted in the new meat unit (D2-261)]]
+- [[D2-262 The runs at a real river's size|The runs at a real river's size (D2-262)]]
 - [[D4-19 Short childhoods counted in rounds|Short childhoods counted in rounds (D4-19)]]
 - [[D4-21 Worlds are seeded as a society with a past|Worlds are seeded as a society with a past (D4-21)]]
 - [[D4-23 Holding is a recognised claim|Holding is a recognised claim (D4-23)]]
