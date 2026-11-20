@@ -196,6 +196,106 @@ named as such.
 4. **Git:** branch names and merging behind switches. This needs Zach's choice and 37.4's agreement; then the water branches are
    merged (W-62).
 
+## 9. The items as a small graph, and the tool that writes them
+
+(Revised 20 Nov after Zach: "can't threads branch, or be related to others ... Should any item like an open question potentially be
+able to add an edge to another one if it seems potentially relevant to it? ... Should this be somewhat graph-like like obsidian?
+... I don't want the software for this itself to be a big complex thing.")
+
+**An item is a markdown file with a flat header.** `docs/cybertron2/items/Q-63.md`: a YAML front matter of flat keys and lists,
+then the prose. This is the format Obsidian reads as properties and links, and GitHub shows as a table. Nothing nests, which keeps
+the parser small and the metadata short.
+
+**Every kind shares these fields:**
+
+| Field | Holds |
+|---|---|
+| `id`, `kind` | Q-63, ask |
+| `title` | one line in plain words, using the names Zach uses ("brief 5", "the runs world") |
+| `owner` | 37.2, 37.4, Zach |
+| `state` | one of the kind's states (§2) |
+| `created` | the date |
+| `parent` | the thread it belongs to (a thread's parent is a larger thread) |
+| typed edges | see below, each a list of ids |
+| `sources` | files, commits, quotes |
+
+**Each kind adds a few fields:**
+
+| Kind | Adds |
+|---|---|
+| thread (W) | `next` (the next step, one line); `branch`; at done, `checks` (what it passed) |
+| ask (Q) | `to`; `recommend`; `default` and `default_on`; `answer` (Zach's words and the date) |
+| offer or promise (O) | `default` and `default_on` |
+| deferred (L) | `waits_on`: the trigger, as an id or in words |
+| decision (D) | `rule` (stated as a rule, not as "replaces X"); `area` (the spec page); `quote` (Zach's words); `date` |
+| run | `commit`; `world`; `models`; `report` |
+
+**Read from git and from the text, never written:** last touched, commits, files changed, build state, and backlinks (every item
+that mentions or links this one).
+
+**The edges.** A small fixed set, each one used by a tool:
+
+| Edge | Meaning | Used by |
+|---|---|---|
+| `parent` | part of a larger thread (threads branch into sub-threads) | the tree; the brief |
+| `blocks` / `waits_on` | cannot move until the other does | the brief's "stuck on"; the digest's urgency |
+| `replaces` | this supersedes that (a thread merged into another, a decision replaced) | the spec render; closing the old path |
+| `decides` | a decision settles this ask | closing asks |
+| `relates` | worth reading together, **with a one-line reason** | `show` lists it after the typed edges |
+
+Any id mentioned in an item's text is already a weak link, derived like Obsidian's backlinks and costing nothing. So `relates` is
+only for a link the text does not make. Its reason is required, because no check can tell whether a relevance link still holds.
+
+**The query.** `records show Q-63` prints one bounded packet of about 40 lines:
+- the item itself;
+- its chain of parents up to the root thread (titles only);
+- its open children;
+- each typed edge with that item's state;
+- the `relates` links with their reasons;
+- the titles of the items that mention it;
+- its last three commits.
+
+Nothing is followed further than one step: a further step pulls in half the project.
+
+**The tool.**
+- One script, `tools/records.py`, in the standard library alone.
+- Its verbs: `new`, `set`, `link`, `close`, `show`, `find`, `status`, `digest`, `brief`, `sheet`, `commit-check`, `stopcheck`.
+- Each event is one call. For example, `records decide Q-63 --rule "..." --area process --quote "..."` writes the D item, closes
+  the ask and links them.
+- **A project skill** (`.claude/skills/records/SKILL.md`) holds the rules now spread through CLAUDE.md: decisions only on Zach's
+  own statement, "default taken" for a "sure", a row for every commitment, the digest's form. It names the verb for each event.
+- The hooks enforce what the skill teaches.
+
+**Not built:**
+- an MCP server (a process to run and configure in every session, where one shell call does the same);
+- a database;
+- search by meaning;
+- links proposed by similarity;
+- a graph picture as a working view.
+
+**Size:** the script is about 600 to 800 lines, the hooks three short commands, the Action about 30 lines, the skill a page.
+
+### Ideas borrowed
+
+| From | The idea | Here |
+|---|---|---|
+| Architecture decision records | one file a decision, never edited, superseded by a later one | decision items with `replaces` |
+| Issue trackers (Linear, GitHub issues) | few states; sub-issues; a few relation types (blocks, related, duplicate); "Closes #n" in a commit closes the issue | the states, the edges, the trailers |
+| Event sourcing | an append-only log of events; views are derived | principle 1: items and commits as the log, views rendered |
+| Zettelkasten and Obsidian | small notes, links in the text, backlinks for free | mentions as links; the item format |
+| Getting Things Done | capture everything at once; every project has a next action; a weekly review | the stop check; `next` on every thread; the weekly digest |
+| Kanban | a limit on work in progress makes the pile visible | the brief flags an owner with more than about 6 active threads (37.2 has 19 in progress) |
+| Trunk-based development | merge daily, with unfinished work behind flags | §5 |
+
+**The real alternative: GitHub Issues** (sub-issues, "blocked by", labels, closing from commits, a board for Zach), with no
+software at all. Against it:
+- the records leave the repository, so agents need a network call for each read and cannot grep;
+- a record cannot change in the same commit as the work;
+- the spec cannot be rendered from issues without a sync;
+- the diff checks cannot see issue changes.
+
+37.2 prefers the files, and this is Zach's to weigh (Q-64 (10)).
+
 ## Open questions
 
 OPEN Q-64:
@@ -209,6 +309,12 @@ OPEN Q-64:
 7. Any session may change code on a thread branch, with the area's owner named on the merge (§5)? This replaces the 37.4-only
    rule.
 8. A sheet of changes from the defaults before every paid run and every brief handed over (§4)?
+9. The items as a small graph (§9): flat headers, five edge types (`parent`, `blocks`/`waits_on`, `replaces`, `decides`,
+   `relates` with a reason), mentions as free links, `show` one step deep?
+10. Files in the repository with one script and a skill (recommended), or GitHub Issues?
+11. A soft limit on active threads for each owner, flagged in the brief (about 6)?
+12. Ids written as `[[Q-63]]` in the items, so the folder opens in Obsidian with its links and graph, or as plain ids that only
+    the tool links?
 
 ## Affects
 
@@ -217,6 +323,8 @@ Every session's habits (CLAUDE.md's work rules); `tools/` (hygiene folded into `
 
 ## History
 
+- 20 Nov 2026: §9 added after Zach's questions on a tool, edges and a graph: flat item headers, five edge types, a one-step
+  query, one script and a skill (no MCP server, no database), the ideas borrowed, GitHub Issues weighed; Q-64 (9) to (12).
 - 20 Nov 2026: §6 written from 02zzq §2 (how Zach works well). This added the ask digest, the spec rendered from decisions, the
   pre-run sheet, an area page before designing, code changed by any session on thread branches, and plain words.
 - 20 Nov 2026: written by 37.2 at Zach's request, after 02zzp and thread_tracking.md.
