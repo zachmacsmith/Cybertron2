@@ -292,7 +292,8 @@ class World:
                                "tier": b.get("tier", "plain"), "description": None, "lines": [], "changes": []}
         if b.get("monument"):
             s["buildings"][bid]["monument"] = b["monument"]
-        for k in ("crew", "gap"):                                               # a weir's crew, a weir's or a mill's gap (brief 5 §3)
+        for k in ("crew", "gap", "sections"):                                   # a weir's crew, a weir's or a mill's gap (brief 5 §3), and a
+                                                                                # weir's sections (D2-210), so a world can seed a weir built
             if b.get(k) is not None:
                 s["buildings"][bid][k] = list(b[k]) if isinstance(b[k], list) else b[k]
         if b.get("description"):                                                # seeded words (a world file)

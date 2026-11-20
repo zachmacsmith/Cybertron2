@@ -1,0 +1,335 @@
+{
+ "seed": 5,
+ "pins": {},
+ "targets": {
+  "Eelmouth": {
+   "households": 3,
+   "people": 12,
+   "food": 0.6,
+   "heat": 0.6,
+   "plots_wanted": 12,
+   "fields": 12,
+   "wood_wanted": 4,
+   "woods": 4,
+   "waste": 3
+  }
+ },
+ "checks": {
+  "rivers run downhill": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "0 river cells drain uphill"
+  },
+  "laid rivers run where laid": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "1 laid"
+  },
+  "every pin met": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "a pin not met is refused when it is placed"
+  },
+  "settlements placed": {
+   "kind": "design",
+   "ok": true,
+   "detail": "1 of 1 at 17.0 km apart"
+  },
+  "capacity": {
+   "kind": "design",
+   "ok": false,
+   "detail": {
+    "Eelmouth": 0.75
+   }
+  },
+  "dependence": {
+   "kind": "design",
+   "ok": false,
+   "detail": {
+    "Eelmouth": [
+     "stone",
+     "metal"
+    ]
+   }
+  },
+  "reachable by land": {
+   "kind": "design",
+   "ok": true,
+   "detail": []
+  },
+  "chokepoint": {
+   "kind": "design",
+   "ok": true,
+   "detail": [
+    "Eelmouth-w2: pass"
+   ]
+  },
+  "roads about a day": {
+   "kind": "design",
+   "ok": false,
+   "detail": {
+    "1": 1,
+    "2": 1
+   }
+  },
+  "parcels per node": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Eelmouth": 10
+   }
+  },
+  "access gates": {
+   "kind": "design",
+   "ok": true,
+   "detail": "the bot dry run checks them once the people exist (scenario_design)"
+  },
+  "makes its own landscape": {
+   "kind": "design",
+   "ok": true,
+   "detail": "no promise for this configuration"
+  },
+  "lakes where lakes belong": {
+   "kind": "design",
+   "ok": true,
+   "detail": "3 lakes; 0 outside fen or upland systems (0.0 a 1,000 km2)"
+  },
+  "wood share by how long settled": {
+   "kind": "design",
+   "ok": true,
+   "detail": "0.30 of the land in wood (settled: settled, 0.30)"
+  },
+  "capacity, people as generated": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Eelmouth": {
+     "people": 12,
+     "share": 0.75,
+     "target": 0.6
+    }
+   }
+  },
+  "economy: region food": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "12 people; the land keeps 23 for good (0.52 of it)"
+  },
+  "economy: food over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "64 days need 666 meals; store, crops ripening and the land give 1160 (0.57)"
+  },
+  "economy: region heat": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "12 people; the land keeps 66 for good (0.18 of it)"
+  },
+  "economy: heat over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "64 days need 282 heat (3 hearths, 10.0 cold nights); store and the woods' flow give 1736 (0.16); the woods stand at 67900 more"
+  },
+  "economy: carrying burden": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {}
+  },
+  "economy: households' runway": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {
+    "short": [],
+    "share_of_people": 0.0,
+    "days_of_food_a_member": {
+     "the Brooks": 6.8,
+     "the Marshs": 6.8,
+     "the Shepherds": 6.8
+    }
+   }
+  },
+  "economy: fuel": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "every hearth has wood in store or woods at hand"
+  },
+  "economy: room to grow": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "3 couples; about 8 births in 64 days if they try often; the region would be at 0.87 of its land"
+  },
+  "economy: succession": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": false,
+   "detail": [
+    "the Brooks: Oliver (47%), Katherine (46%) likely to die in the run; 0 grown left for 3",
+    "the Marshs: Peter (49%), Nichola (50%) likely to die in the run; 0 grown left for 3"
+   ]
+  },
+  "predators within range": {
+   "kind": "wild",
+   "ok": true,
+   "detail": {
+    "said": {
+     "Eelmouth": "stoat 22.89 (a group needs 1), fox 17.48 (a group needs 1), wolf 2.25 (a group needs 3), wild boar 2.16 (a group needs 2), brown bear 0.21 (a group needs 1)"
+    },
+    "by village": {
+     "Eelmouth": {
+      "wild boar": {
+       "heads": 2.16,
+       "least": 2,
+       "range_km2": 40.0
+      },
+      "fox": {
+       "heads": 17.48,
+       "least": 1,
+       "reach": "ring"
+      },
+      "stoat": {
+       "heads": 22.89,
+       "least": 1,
+       "reach": "ring"
+      },
+      "wolf": {
+       "heads": 2.25,
+       "least": 3,
+       "range_km2": 200.0
+      },
+      "brown bear": {
+       "heads": 0.21,
+       "least": 1,
+       "range_km2": 300.0
+      }
+     }
+    }
+   }
+  }
+ },
+ "generated": [],
+ "deviations": [
+  "cells on a jittered square grid, not Poisson-disc points with Delaunay neighbours (scipy not installed)",
+  "cells saved as .npz, not parquet (pyarrow not installed)",
+  "people: generate.py once for the region as it stands (no kin between villages yet: 37.4's, later)"
+ ],
+ "descriptions": {
+  "model": null,
+  "written": 0,
+  "failed": 0
+ },
+ "nodes": {
+  "Eelmouth": {
+   "name": "Eelmouth",
+   "kind": "village",
+   "site_km": [
+    9.88,
+    14.71
+   ],
+   "parcels": 10
+  },
+  "w1": {
+   "name": "Oakhurst",
+   "kind": "wild",
+   "site_km": [
+    10.65,
+    39.01
+   ],
+   "parcels": 2
+  },
+  "w2": {
+   "name": "Cragton",
+   "kind": "wild",
+   "site_km": [
+    28.77,
+    41.74
+   ],
+   "parcels": 2
+  }
+ },
+ "anchors": {
+  "the_river.source": [
+   23.0,
+   50.0
+  ],
+  "the_river.mouth": [
+   25.0,
+   0.0
+  ],
+  "the_river.point_1": [
+   25.0,
+   41.0
+  ],
+  "the_river.point_2": [
+   25.0,
+   25.0
+  ],
+  "the_river.point_3": [
+   26.0,
+   9.0
+  ],
+  "fells": [
+   25.0,
+   44.5
+  ],
+  "north_fells": [
+   25.0,
+   47.5
+  ],
+  "upper_waters": [
+   25.0,
+   45.0
+  ]
+ },
+ "refused": [],
+ "fuel": {
+  "houses": 3,
+  "firewood": 30,
+  "timber": 20
+ },
+ "no_farming": {
+  "fields to scrub": 2,
+  "herds removed": 3,
+  "farm goods removed": 10,
+  "larder a house": {
+   "dried meat": 4,
+   "roots": 6,
+   "acorns": 6,
+   "berries": 4
+  }
+ },
+ "design": {
+  "big_river_km": 0.3,
+  "weir_water": "Eelmouth_8",
+  "spring": true,
+  "wild_upstream": 15
+ },
+ "arm": {
+  "arm": "high",
+  "households": 3,
+  "people": 12,
+  "smoke racks": 3,
+  "weir": {
+   "parcel": "Eelmouth_8",
+   "sections": [
+    "wattle",
+    "timber",
+    "timber"
+   ],
+   "held_by": "Marsh"
+  },
+  "salt": {
+   "spring": "Eelmouth_7",
+   "salt_house": "marsh_salthouse",
+   "salt": 10
+  }
+ },
+ "craft_gates": []
+}
