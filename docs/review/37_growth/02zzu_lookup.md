@@ -448,4 +448,54 @@ Read:
 - **`make_wild_tests.EEL_GOOD`** is still "meat" (stale since D2-216, before this change).
 - **`tools/records.py`** cannot run `whoami` or keep its pending file in a git worktree (`.git` is a file there).
 
+### D2-260, D2-261 applied (20 Nov)
+
+37.2, W-64, the same branch. The two gaps above that Zach decided (milking, Q-72; the old game, Q-71).
+
+- **Milking** (`TECHNIQUES.milk`): 6 cows a unit at 3 kg each (was 3 at 1.6). That is 4.6 food a unit at skill 1, against
+  farming's 1.4 to 2.8 and the real 6.4 to 11 (under the real, ahead of the plough, as part 4 predicted). A cow's day is 0.77 food
+  (0.8 on the old values). The capacity model reads the technique. The economy check (`landgen/economy.py`) had the old 1.6
+  written in; it reads the technique now. At Brookend, Hugh (skill 1.2) milks the 7 cows in milk in 2 units for 25.2 milk, 6.5
+  food. That was 3 units for 3.4 food on D2-258 alone, and 6.7 food on the old values.
+- **Cheese is kept at 6 milk.** 6 milk (1.54 food) make 1.61 of cheese: 5% more food than went in, for a unit of work and 0.2 salt.
+  That is within D2-259's 20%, and there is nothing to exploit in it. The chain (milking and the cheese) gives 1.2 food a unit
+  of work, kept, against 1.1 on the old values. 02zzu's 10 milk to a cheese stays open.
+- **The old game** (`RESOURCES.game.spec_unit` 2.5, `World` as it is built): a spec's game K and S are read in the old meat unit
+  and multiplied by 2.5 into the meat unit. Why there:
+  - the 30 hand-made specs, the makers and the generator are not edited;
+  - the state then counts meat units, so every reader of the stock reads it right with no factor (the economy check's S x meat
+    food, the capacity model, the signs' S/K);
+  - a saved state is not converted twice.
+
+  Two other places were looked at and not used:
+  - the makers alone, as Q-71 recommended: the committed specs would stay at 0.4 until regenerated;
+  - the kill a unit of stock: every reader of S would need the factor.
+
+  The legacy hunt's kill stays 5 to 15. A kill takes the same share of its wood as 2 to 6 did of the old stock, at the same
+  chance, for the same food: 1.05 food a unit at a full stock, armed, as before D2-258. A probe (the Holm at Wenbridge, an armed
+  hunter, 20 hunts on each of 20 seeds, no nights) gives the same result as the pre-D2-258 hunt on every seed: 54 kills, 0.42
+  food a unit over the hunting-out, 0.05 of K left. On D2-258 alone it was 26 kills, 0.18 food a unit, and 0.01 of K left.
+- **`capacity.WILD` 4 -> 8.** It had been cut by 0.4 for the forage and the game together. The forage stays at 0.41 of its old
+  food (02zzu accepted it). The game gets its food back. On the regrowth rule, a year's greatest sustained take a unit of wood on
+  the old values (24 nights, the winter at 0.25):
+
+  | Wood (stocks a unit) | Forage | Game | Old food | Game's share | D2-258 alone | With D2-261 |
+  |---|---|---|---|---|---|---|
+  | hand-made (plants 2, game 3) | 3.17 | 3.66 | 8.7 | 0.63 | 0.40 | 0.78 |
+  | generated old forest (1.2, 3.5) | 1.90 | 4.27 | 8.3 | 0.77 | 0.40 | 0.86 |
+  | generated managed wood (1.2, 1.3) | 1.90 | 1.59 | 4.3 | 0.56 | 0.40 | 0.74 |
+  | scrub (1.0, no game) | 1.59 | 0 | 1.6 | 0 | 0.41 | 0.41 |
+
+  WILD sizes the generator's fields, so 8 is taken at the generated woods' mid (0.74 to 0.86 of the old 10). It is the
+  generator's own figure and is not measured on a generated world. Scrub keeps only 0.41: its WILD is generous, as it was before.
+- **The wide world's test now passes,** but only just: Westmere's 4 people are exactly 0.80 of what its land keeps (5.0), at the
+  bound. At WILD 7.8 (the hand-made woods' 0.78) it would fail by 0.002. 8 was chosen on the generator's woods, not for the test,
+  and the bound was not loosened.
+- **The full suite:** 716 passed, 2 skipped, at f8e5a971. No digest was re-pinned.
+- **The generic bot runs** (32 days, `--bots`, before 15c6b1e7 and after) are the same on Brookend (8 alive, 3 at -1 at the end,
+  store 259.6 -> 106.7), the frontier camps (all 10 starved by day 29, store 235.4 -> 0) and valley_s5 (all 17 dead by day 11). The
+  generic bots never hunt or milk. Their options are cut at 10, in the techniques' order, before `milk`, and the first 4 are
+  taken: reap first, then alphabetically, so hunting is never among them. So the runs cannot show either change. The probes above
+  are the check. valley_s5 milked once, for 0.2 more food eaten.
+
 *Current as of 20 Nov 2026.*
