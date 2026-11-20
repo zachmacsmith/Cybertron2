@@ -191,6 +191,15 @@ change (the switches, 37.4), the data rows that miss their targets, [[W-64 Food,
 
 ## History
 
+- 20 Nov 2026: the runs bots built ([[W-69 Nutrition worlds|W-69]], branch w69-bots): `cybertron2/engine/bots_livelihood.py`, chosen per run by
+  `--bots runs`, its own unit ([[D2-244 The engine's reworking into feature packages|D2-244]]). Each household fishes by plain rules from what it can see: traps through the run windows,
+  lifted each morning; a net when a shoal is at the water; the weir's gap shut whenever a run is there, mended on any night short
+  of a spate; the surplus over the night's suppers smoked, dried or salted; wild food where a gather is worth its work, else rest.
+  On today's food values (the eel at 0.2) no arm keeps the village over 64 days: the bots' villages starve in the first winter
+  (median death day 19 to 20, the generic bots' 13); traps land 68 to 87 food in the first autumn, the high arm's weir 3 (the traps
+  thin the run before it), the nets none (the salmon run is a few heads); fishing returns about 0.17 food a unit, a person fed per
+  full-time fisher, no better than wild food; nothing is ever smoked, dried or salted, as the catch never passes the suppers. To be
+  read again on [[D2-259 The food values are anchored on real values|D2-259]]'s values.
 - 20 Nov 2026: accepted in part: [[D2-258 The food values are put on one physical basis|D2-258]] (The food values are put on one physical basis (proposals/shared_units.md; 02zzu)).
 - 20 Nov 2026: Zach's answers. Decided as [[D2-257 The nutrition worlds|D2-257]]: seven livelihoods, the first 12 live runs on small villages, bots as the comparison,
   the food values fixed first. A hunting trip is travelling to a wild node, camping, hunting and carrying the food back, built
