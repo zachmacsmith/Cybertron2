@@ -29,6 +29,7 @@ is in proposals.
 - D2-60: the food ladder (whole 0.7, ground 1.0, bread 1.3). D2-61: the mill ladder. D2-62: dried meat.
 - D2-66: field works (ditches and banks on wet ground, terraces on hills). D2-67: irrigation later.
 - D2-46: weapons wear, with a small chance of breaking. D2-47: cheese. D2-48: specialised tools.
+- D2-247: A process of bulk goods has a most it takes at once, not a least: one may process less for the same work, which is less worth it, and asking for more processes the most (the drying rack's up-to batch, brief 4c §6.1, made the rule for milling, baking, salting, drying hay, leaching, charcoal and cheese); making a whole thing (a tool, a plough, a tent) still takes its inputs whole
 
 ## Mechanics
 
