@@ -281,7 +281,7 @@ class Web:
         st = n.get("state", "")
         by = f" by {n['by']}" if n.get("by") and n.get("by") != "zach" and is_closed(n) else ""
         rev = "  revisit" if n.get("revisit") else ""
-        return f"  {edge:<10}{i}  {n.get('kind', '')} {st}{by}  \"{title_of(n)}\"{rev}  [{updated(n)}]"
+        return f"  {edge:<10}{title_of(n)} ({i}; {n.get('kind', '')} {st}{by}){rev}  [{updated(n)}]"
 
     def area_of(self, i) -> list:
         """The spec files that cite a decision (its area), or the area field."""
@@ -648,8 +648,7 @@ def cmd_tree(web, i, depth=0, seen=None):
 
 
 def cmd_area(web, name):
-    docs = [d for d in web.docs.values() if d.get("area") and (d["area"] == name or d["area"].startswith(name + "/")
-                                                                or name in d["area"])]
+    docs = [d for d in web.docs.values() if d.get("area") and (d["area"] == name or d["area"].startswith(name + "/"))]
     if not docs:
         print(f"no spec area matches {name!r}; areas: " + ", ".join(sorted({d['area'].split('/')[0] for d in web.docs.values() if d.get('area')})))
         return 1
@@ -708,7 +707,7 @@ def cmd_status(web, owner=None):
         print(f"{o}: {len(its)} live ({len(act)} active)" + ("  ! over the soft limit of 6 active: revisit" if len(act) > 6 else ""))
         for it in sorted(its, key=lambda x: (x.get("state") != "active", num(x["id"]))):
             nxt = it.get("next") or _left(it.get("notes", ""))
-            print(f"  {it['id']} {it.get('state', '')} [{it.get('touched', '')}] {title_of(it)[:80]}")
+            print(f"  {title_of(it)[:80]} ({it['id']}, {it.get('state', '')}, touched {it.get('touched', '')})")
             if nxt:
                 print(f"      next: {nxt[:150]}")
     asks = [it for it in web.items.values() if it["kind"] == "ask" and not is_closed(it)
@@ -747,7 +746,7 @@ def cmd_brief(web):
             print(f"\n{st} ({len(rows)}):" + ("  ! over the soft limit of 6: revisit" if st == "active" and len(rows) > 6 else ""))
         for it in sorted(rows, key=lambda x: num(x["id"])):
             nxt = it.get("next") or _left(it.get("notes", ""))
-            print(f"  {it['id']} [{it.get('touched', '')}] {title_of(it)[:70]}" + (f"\n      next: {nxt[:140]}" if nxt else ""))
+            print(f"  {title_of(it)[:70]} ({it['id']}, touched {it.get('touched', '')})" + (f"\n      next: {nxt[:140]}" if nxt else ""))
     for st in ("queued", "paused"):
         rows = [it for it in mine if it.get("state", "").startswith(st)]
         if rows:
@@ -779,7 +778,7 @@ def cmd_digest(web, limit=8):
     asks.sort(key=lambda a: (-waiting[a["id"]], -num(a["id"])[1]))
     print(f"# Asks for Zach: {len(asks)} open; the {min(limit, len(asks))} most waited on\n")
     for k, a in enumerate(asks[:limit], 1):
-        print(f"{k}. {a['id']}: {title_of(a)}")
+        print(f"{k}. {title_of(a)} ({a['id']})")
         for f in ("recommend", "default", "default_on"):
             if a.get(f):
                 print(f"   {f}: {a[f]}")
@@ -1233,7 +1232,7 @@ def cmd_vault(web, out) -> int:
     def link(i, full=False):
         if i not in names:
             return i
-        label = (f"{i} · {short[i]}" if full else i) if not i.endswith(".md") else short[i]
+        label = (f"{short[i]} ({i})" if full else i) if not i.endswith(".md") else short[i]
         return f"[[{os.path.basename(names[i])}|{label}]]"
 
     def alink(a):
@@ -1283,7 +1282,7 @@ def cmd_vault(web, out) -> int:
         st = n.get("state", "")
         if n.get("by") and is_closed(n):
             st += f", by {n['by']}" + (" (provisional)" if n["by"] != "zach" else "")
-        lines = [head(n), f"# {nid} · {short[nid]}\n"]
+        lines = [head(n), f"# {short[nid]} ({nid})\n"]
         if k == "thread":
             lines.append(f"*{st} · {n.get('owner', '')} · touched {n.get('touched', '')} ({ago(n.get('touched', ''))})*\n")
             nxt = n.get("next") or _left(n.get("notes", ""))
@@ -1336,7 +1335,7 @@ def cmd_vault(web, out) -> int:
             lines.append(f"> {d['summary']}\n")
         lines.append(f"## Decided ({len(live)})")
         for c in live:
-            lines.append(f"- **{link(c)}** {short[c]}")
+            lines.append(f"- {link(c, True)}")
         gone = [c for c in decs if c not in live]
         if gone:
             lines.append(f"\n*Replaced: {', '.join(link(c) for c in gone)}*")

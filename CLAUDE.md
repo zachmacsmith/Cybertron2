@@ -22,6 +22,11 @@ unfinished work goes."
 `docs/cybertron2/items/`; a hand edit to a view is taken in at the next render, but write with the tool. Status answers come
 from `records status`; commits from `records commit` (typed subjects and trailers, D2-235).
 
+**How Zach is told about things** (D2-254): always name a question, proposal, thread or decision by a short plain description
+of what it actually is, with its id in brackets after it ("whether a village can live off the runs alone (Q-66)"), never a bare
+id. Zach's rules about the process and its mechanisms are all in `docs/cybertron2/spec/process/how_we_work.md` (D2-253): add
+each new one there (`records decide --area process/how_we_work`).
+
 - **Starting anything new** (a task, a brief, a phase, a build, a review, a run): first add a row to `docs/cybertron2/WORK.md`, "In
   progress" (owner and session, started, where, what it is), then begin.
 - **Stopping before it is done** (Zach turns to something else, a phase or a brief is left part-way, the session ends): update the

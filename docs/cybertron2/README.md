@@ -9,6 +9,9 @@ Where to look:
 - **Every decision, with what it replaced:** [DECISIONS.md](DECISIONS.md). Owned jointly by the sessions working on cybertron2; edited
 under the rules below. Set up 22 Oct 2026 by the 37.4 session at Zach's request.
 
+**How we work** (the process, the records, commits, branches, what waits on Zach): [spec/process/how_we_work.md](spec/process/how_we_work.md)
+(D2-253), one place for every rule Zach has set about the process.
+
 ## Four layers
 
 | Layer | What it holds | Where | Who writes |

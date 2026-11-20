@@ -56,6 +56,9 @@ turn. A question you answered in the turn, an explanation, or a fix that is comm
 
 ## Rules
 
+- **Name things for Zach by description first** (D2-254): "the nutrition worlds' livelihoods and levels (Q-66)", never a bare
+  id. When you create an item, give it a `title` that says accurately what it asks or does, in plain words.
+- **A process decision** goes to `--area process/how_we_work` (D2-253).
 - **Decisions only on Zach's own statement,** quoted. A "sure" to your recommendation is "default taken" (`--by default`), not a
   decision.
 - **Every new ask, offer and deferral has a parent thread.** Every code change has a thread (D2-237).
