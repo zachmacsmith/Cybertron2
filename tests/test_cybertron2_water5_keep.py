@@ -316,16 +316,23 @@ def _far_from_spring():
     return next(p for p, x in sorted(w.s["parcels"].items()) if x["node"] == RP["node"] and p not in near and x["cover"] != "water")
 
 
+def _no_seeded_pan(spec):
+    """The river world without the salt house its maker seeds at the spring (the salter's pan, 1863003), so a test can set its own."""
+    s = copy.deepcopy(spec)
+    s["buildings"] = {k: b for k, b in s["buildings"].items() if not (b.get("fittings") or {}).get("brine pan")}
+    return s
+
+
 def test_a_brine_pan_is_set_only_at_or_beside_a_spring():
     far = _far_from_spring()
     bare = salthouse(far, RP["household"])
     bare["salthouse"]["fittings"] = {}
-    w = world(RIVER, bare)
+    w = world(_no_seeded_pan(RIVER), bare)
     salter(w, RP["salter"])
     hand(w, RP["salter"], copper=2, timber=4)
     r = do(w, RP["salter"], do="build", what="salt pan", at="the Salt House")      # "salt pan" names the brine pan when building
     assert r.startswith("Refused") and "brine spring" in r, r
-    w2 = world(RIVER, salthouse(far, RP["household"]))                                     # a pan away from the spring: nothing to boil
+    w2 = world(_no_seeded_pan(RIVER), salthouse(far, RP["household"]))                     # a pan away from the spring: nothing to boil
     salter(w2, RP["salter"])
     r = do(w2, RP["salter"], do="make", what="boil salt")
     assert r.startswith("Refused") and "no brine spring" in r, r

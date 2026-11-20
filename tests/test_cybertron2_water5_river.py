@@ -297,7 +297,9 @@ def test_a_trap_in_the_race_takes_the_weirs_share_of_a_run_going_down(river, mon
         pulse(w, "Millham", n=60.0)
         rec = N.night(w)
         got[trap] = ((rec["wild"].get("runs") or {}).get("race") or {}).get(bid, {}).get("eel", 0)
-    assert got[True] == 15 and got[False] == 0                                     # half of 60, held to a trap's 3 food: 15 eels (D2-213, D2-216)
+    eel = WL._food_of("eel")                                                       # half of 60, held to a trap's 3 food (D2-213, D2-216):
+    assert abs(got[True] * eel - WATER_WORKS["trap"]["hold"]) <= eel + 1e-9 and got[False] == 0   # 15 eels on the old layout, 14 on the
+                                                                                   # remade river world
 
 
 def test_the_mills_gap_is_set_by_those_who_manage_it(river):
@@ -669,4 +671,6 @@ def test_a_set_trap_holds_about_three_food_in_the_river_or_the_race(river, monke
     cid = next(c for c, x in w.s["containers"].items() if x.get("kind") == "set" and x.get("by") == who)
     food = sum(float(q) * ITEMS[i]["food"] for i, q in w.s["containers"][cid]["goods"].items())
     assert food <= WATER_WORKS["trap"]["hold"] + 1e-9 and food >= WATER_WORKS["trap"]["hold"] - 0.31
-    assert rec["wild"]["runs"]["race"][bid]["eel"] == 15                           # 100 eels came through the race; it held 15 (D2-216)
+    eel = WL._food_of("eel")                                                       # 100 eels came through the race; it held its 3 food of them
+    assert abs(rec["wild"]["runs"]["race"][bid]["eel"] * eel - WATER_WORKS["trap"]["hold"]) <= eel + 1e-9   # (D2-213, D2-216): the count
+                                                                                   # follows the world's layout (14 on the remade river world)

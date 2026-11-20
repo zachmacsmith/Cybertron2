@@ -161,7 +161,8 @@ def _scenario(monkeypatch):
 
 # the scenario's digest on the code before brief 4c (8158674, ecology-hunt3): 16 raids in 12 nights by boar, wolves (two cows, a calf,
 # the dead), the fox, deer, stoats and the flock. Regenerate it on that commit if the ecology's data change (kinds.py, methods.py).
-BEFORE_4C = "a8dada811634fe2f"
+BEFORE_4C = "d6fa6437ddd39806"   # re-pinned 20 Nov on the water merge (W-62): the ecology now counts each lake and the large river
+                                  # once (water-measure 4a0a98f, W-60), which changes every world's water feature; was "a8dada811634fe2f"
 
 
 def test_kinds_without_a_range_keep_the_rule_they_had_exactly(monkeypatch):
