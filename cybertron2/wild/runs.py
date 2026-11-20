@@ -135,6 +135,14 @@ class Net:
             out.append(g)
         return out
 
+    def spawns(self, where, spread=None) -> list:
+        """Where an up-run spawns: its head waters (`heads`), or with `spread` "river" every stretch of the rivers it runs, each by its
+        own river km (D2-258: salmon spawn in gravel along the main stem and every tributary, not only in the head waters)."""
+        if spread != "river":
+            return self.heads(where)
+        return [g for g in sorted(self.members) if self.km[g] > 0
+                and (where != "big river" or any(self.big[h] > 0 for h in self.path_up(g)))]
+
     def lag(self, a, b, km_a_day) -> int:
         return max(1, int(round((self.km.get(a, 0.0) + self.km.get(b, 0.0)) / 2.0 / float(km_a_day))))
 
@@ -206,14 +214,15 @@ def ended(m, day, seasons) -> bool:
 
 
 def seed(m, st) -> None:
-    """At world build: each head water's spawners for the first return (`seed_km` a km of its river)."""
+    """At world build: each spawning stretch's spawners for the first return (`seed_km` a km of its river): the head waters, or every
+    stretch for a run that spawns along the river (`spawn: river`)."""
     nt = net(m)
     R = state(st)
     for k, r in runners_of(m).items():
         if r["dir"] != "up":
             continue
         ret = r["return"]
-        R["spawned"][k] = {g: round(float(ret["seed_km"]) * nt.km[g], 4) for g in nt.heads(r.get("where", "river"))}
+        R["spawned"][k] = {g: round(float(ret["seed_km"]) * nt.km[g], 4) for g in nt.spawns(r.get("where", "river"), r.get("spawn"))}
 
 
 def today(m, st, day) -> list:
@@ -245,8 +254,8 @@ def take_one(m, st, day, kind, i) -> bool:
 
 
 def take_share(st, day, g, share, dirs=("down", "up"), kinds=None, room=None, worth=None) -> dict:
-    """A share of every pulse at stretch g today (a weir, the race): {kind: heads taken}, the pulses thinned. With `room` (food) and
-    `worth` ({kind: food a head}), the take is cut, kind by kind in proportion, to what there is room for (a weir's hold, D2-210)."""
+    """A share of every pulse at stretch g today (a weir, the race): {kind: heads taken}, the pulses thinned. With `room` (kg, D2-258) and
+    `worth` ({kind: kg a head}), the take is cut, kind by kind in proportion, to what there is room for (a weir's hold, D2-210)."""
     want = []
     for p in today(None, st, day):
         if p["g"] != g or p["dir"] not in dirs or (kinds is not None and p["k"] not in kinds):

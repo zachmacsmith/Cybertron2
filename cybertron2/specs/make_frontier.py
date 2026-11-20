@@ -74,7 +74,7 @@ def frontier():
             f"{nid}_brook": {"name": f"{name} Brook", "cover": "water", "size": 1, "side": "west", "height": 0, "text": "a quick brook"}}}
         buildings[f"{nid}_camp"] = {"name": f"the {short} camp", "parcel": f"{nid}_camp", "household": short, "structure": "camp", "size": 4,
                                     "fittings": {"beds": 4, "fire ring": 1}, "lasts_until": 14,
-                                    "stock": {"dried meat": 4, "firewood": 6}}         # a lean-to keeps little (D2-176)
+                                    "stock": {"dried meat": 10, "firewood": 6}}        # a lean-to keeps little (D2-176)
     for nid, name, kind in wilds:
         nodes[nid] = wild_node(nid, name, {"forest": "deep woods", "meadow": "open meadows", "hill": "high fells"}[kind], kind)
     ring = ["ashby", "e1", "e2", "bramley", "e3", "e4", "coldwell", "e5", "e6"]
@@ -90,7 +90,7 @@ def frontier():
         for who, sex, partner, model in ((h[0], h[1], s[0], "claude-opus-5-5"), (s[0], s[1], h[0], "claude-sonnet-5-5")):
             rel = {partner: "your wife" if sex == "m" else "your husband"}
             carry = ({"crude tool": 1, "coin": 2, "timber": 6, "stone": 6, "straw": 10} if model == "claude-opus-5-5"
-                     else {"crude tool": 1, "coin": 2, "grain": 30, "beans": 10, "dried meat": 4})   # what they came with, in hand
+                     else {"crude tool": 1, "coin": 2, "grain": 30, "beans": 10, "dried meat": 10})   # what they came with, in hand
             agents[who] = person(who, short, sex, -38, partner, rel, model, mem, aim, carry, craft)
     # the raiders (Zach, 2 Nov): a family with plenty and weapons, a few days off the ring, meaning to be the only folk in the land
     nodes["gormhold"] = {"name": "Gormhold", "parcels": {
@@ -105,7 +105,7 @@ def frontier():
     roads += [road("gormhold", "r1", 1, "hills"), road("r1", "r2", 1, "woodland"), road("r2", "e3", 1, "woodland")]
     buildings["gorm_hall"] = {"name": "the Gorm Hall", "parcel": "gorm_yard", "household": "Gorm", "structure": "timber", "size": 6,
                               "fittings": {"beds": 6, "hearth": 1, "bins": 1},
-                              "stock": {"grain": 80, "beans": 20, "dried meat": 40, "timber": 20, "firewood": 40, "hide": 6, "tent": 1}}
+                              "stock": {"grain": 80, "beans": 20, "dried meat": 100, "timber": 20, "firewood": 40, "hide": 6, "tent": 1}}
     gmem = ["The Gorm have always taken what they wanted from weaker folk, by fear or by the spear.",
             "Word came that new folk have settled somewhere beyond Wolfscar and Blackmere, with stores and no weapons."]
     gaim = "Make the Gorm the only folk in this land: find the other families, take what they have, and be rid of them."
@@ -114,7 +114,7 @@ def frontier():
             ("Rurik", "m", "claude-sonnet-5-5", {"Ulf": "your brother", "Hilde": "your brother's wife", "Ketil": "your cousin"}, None),
             ("Ketil", "m", "claude-haiku-5-5", {"Ulf": "your cousin", "Hilde": "your cousin's wife", "Rurik": "your cousin"}, None)]
     for who, sex, model, rel, partner in gorm:
-        agents[who] = person(who, "Gorm", sex, -40, partner, rel, model, gmem, gaim, {"crude weapon": 1, "crude tool": 1, "dried meat": 2},
+        agents[who] = person(who, "Gorm", sex, -40, partner, rel, model, gmem, gaim, {"crude weapon": 1, "crude tool": 1, "dried meat": 5},
                              {"small room": {"level": "known", "skill": 1.0}})
     w["customs"] = [{"text": "The Gorm mean to be the only folk in this land: we take what others have, and drive out or kill every other "
                              "family until none is left but us.", "households": ["Gorm"]},
@@ -147,13 +147,13 @@ def wild():
                 roads.append(road(grid[r][c], grid[r + 1][c], 1, "river valley"))
     buildings = {"band_camp": {"name": "the band's camp", "parcel": "w1_lea", "household": "Wolf", "structure": "camp", "size": 4,
                                "fittings": {"beds": 4, "fire ring": 1}, "lasts_until": 6,
-                               "stock": {"dried meat": 3, "firewood": 1, "tent": 1}}}          # a lean-to keeps little (D2-176)
+                               "stock": {"dried meat": 7.5, "firewood": 1, "tent": 1}}}        # a lean-to keeps little (D2-176)
     mem = ["Your people, the Wolf band, have never kept a house: you follow the game and the seasons from place to place.",
            "In the cold, game is hard to find and the greens die back: the old ones dried meat in the autumn and carried it.",
            "Elkmere's lea, Deepholt's woods and Birchlea are places you have camped before; there is more land beyond that no one of you "
            "has walked."]
     aim = "Keep the Wolf band fed, warm and growing through the year, wherever the land is best."
-    holdings = {"crude tool": 1, "crude weapon": 1, "bedroll": 1, "dried meat": 4}
+    holdings = {"crude tool": 1, "crude weapon": 1, "bedroll": 1, "dried meat": 10}   # dried meat x 2.5 throughout: its days of food kept (D2-258)
     agents = {}
     for who, sex, partner, model in (("Bran", "m", "Wren", "claude-opus-5-5"), ("Wren", "f", "Bran", "claude-sonnet-5-5"),
                                      ("Tam", "m", "Sorrel", "claude-sonnet-5-5"), ("Sorrel", "f", "Tam", "claude-haiku-5-5")):

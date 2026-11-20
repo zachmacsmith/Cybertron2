@@ -193,10 +193,10 @@ def test_goods_at_the_door_and_a_new_building_without_beds_are_in_the_house_line
     w = world()
     pid = w.s["buildings"]["reed_house"]["parcel"]
     cid = w.apply("new_thing", "millbrook", node="millbrook", parcel=pid, kind="pile", by="Odo", door="reed_house")
-    w.apply("create", "millbrook", dst=cid, item="dried meat", qty=3.0)
+    w.apply("create", "millbrook", dst=cid, item="dried meat", qty=7.5)        # 9 meals at dried meat's 1.2 (D2-258; was 3 at 3.0)
     w.apply("create", "millbrook", dst=cid, item="timber", qty=2.0)
     lines = PR.house_known(Here(w, "Odo"), "reed_house")
-    assert "left at its door: 3 dried meat, 2 timber (food worth 9 meals)" in lines, lines
+    assert "left at its door: 7.5 dried meat, 2 timber (food worth 9 meals)" in lines, lines
     w.s["buildings"]["hale_house"]["fittings"] = {"bins": 1}                   # built in the run, no beds, no hearth
     w.s["buildings"]["hale_house"]["built_day"] = 0
     assert "Hale House has no beds or hearth: no one can sleep there yet" in PR.house_known(Here(w, "Hamo"), "hale_house")
@@ -211,7 +211,7 @@ def test_the_store_line_counts_food_at_the_door_as_the_nights_meal_reaches_it():
     store(w, "reed_house").update({"grain": 0.0, "bread": 14.0 / float(ITEMS["bread"]["food"])})   # 14 meals in the store
     pid = w.s["buildings"]["reed_house"]["parcel"]
     cid = w.apply("new_thing", "millbrook", node="millbrook", parcel=pid, kind="pile", by="Odo", door="reed_house")
-    w.apply("create", "millbrook", dst=cid, item="dried meat", qty=3.0)        # 9 meals at the door
+    w.apply("create", "millbrook", dst=cid, item="dried meat", qty=7.5)        # 9 meals at the door (dried meat 1.2, D2-258)
     other = w.apply("new_thing", "millbrook", node="millbrook", parcel=pid, kind="pile", by="Hamo", door="hale_house")
     w.apply("create", "millbrook", dst=other, item="dried meat", qty=5.0)      # another house's door: not ours to eat
     h = Here(w, "Odo")
@@ -223,4 +223,4 @@ def test_the_store_line_counts_food_at_the_door_as_the_nights_meal_reaches_it():
     assert "food worth 14 meals, and 9 more at its door" in "\n".join(PR._house_lines(h, Mind(w, "Odo")))
     store(w, "reed_house")["bread"] = 0.0                                       # nothing in the store: the meal eats from the door
     rec = night(w)
-    assert rec["ate"].get("Odo", 0) > 0 and w.goods(cid).get("dried meat", 0) < 3.0
+    assert rec["ate"].get("Odo", 0) > 0 and w.goods(cid).get("dried meat", 0) < 7.5

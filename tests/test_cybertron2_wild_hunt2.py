@@ -160,11 +160,12 @@ def _deer_hunt(w, names, ox=None, day=0):
     return WL.hunt(Here(w, names[0]), ms, "stalk", wood, "the wood", y, a)
 
 
-def test_a_party_of_three_brings_a_red_deer_home_whole_and_one_alone_leaves_most_of_it(generated):  # noqa: F811
-    w0, _ = _party_world(generated)
+def test_a_party_of_four_brings_a_red_deer_home_whole_and_one_alone_leaves_most_of_it(generated):  # noqa: F811
+    # four, not three (D2-258): a red deer is 33 meat on the 1,500 kcal unit (was 20), more than three hands carry at 10 each
+    w0, _ = _party_world(generated, n=4)
     whole = alone = None
     for day in range(30):
-        r = _deer_hunt(copy.deepcopy(w0), ["H0", "H1", "H2"], day=day)
+        r = _deer_hunt(copy.deepcopy(w0), ["H0", "H1", "H2", "H3"], day=day)
         if "took it" in r["lines"]["H0"] and whole is None:
             whole = r
         r1 = _deer_hunt(copy.deepcopy(w0), ["H0"], day=day)
@@ -174,8 +175,8 @@ def test_a_party_of_three_brings_a_red_deer_home_whole_and_one_alone_leaves_most
             break
     assert whole and alone
     first = whole["lines"]["H0"].split("took it: ")[1].split(";")[0]
-    assert "20 meat" in first, whole["lines"]["H0"]                              # three hands carry it all
-    assert sum(whole["food"].values()) >= 20 - 1e-6
+    assert "33 meat" in first, whole["lines"]["H0"]                              # four hands carry it all
+    assert sum(whole["food"].values()) >= 33 - 1e-6
     assert 8 <= alone["food"]["H0"] <= 10 and "left" in alone["lines"]["H0"], alone["lines"]["H0"]
 
 

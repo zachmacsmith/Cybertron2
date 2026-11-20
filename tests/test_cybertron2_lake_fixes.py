@@ -263,7 +263,7 @@ def test_traps_crammed_full_in_a_run_are_seen_by_their_setter(monkeypatch):
     pid = next(p for p, x in sorted(w.s["parcels"].items()) if x["node"] == node and WL2._river_parcel(w, p))
     who = next(n for n in w.living() if w.at(n) == node)
     cid = w.apply("new_thing", node, node=node, parcel=pid, kind="set", by=who, set={"method": "trap in water", "set_day": w.d - 1})
-    w.s["containers"][cid]["goods"]["fish"] = 3.0
+    w.s["containers"][cid]["goods"]["fish"] = 10.0                             # a trap's hold, 10 kg (D2-258; was 3 food)
     monkeypatch.setattr(RU2, "today", lambda m, st, day: [{"g": f"v:{node}", "k": "eel", "dir": "down", "n": 9.0}])
     out = []
     SG2._wild_river(Here(w, who), lambda about, text, sal, *a, **k: out.append((text, k)))

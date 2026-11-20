@@ -216,3 +216,286 @@ The hen, the rabbit and a kilogram of whole trout are reference rows: the engine
 
 Read: the verdicts and figures here are measured from the USDA tables; the proxies, the live weights not from 02zzu, and the
 choice between a modern carcass refuse and 02zzu's are judgements, named in each row.
+
+## Applied (20 Nov)
+
+37.2, 20 Nov 2026, W-64, branch `w64-food-values` (on main `b4076951`, with the food-source switches). The data change of D2-258
+under D2-259's rule. Every departure from a checked value is written beside the data with its factor and reason. The model's
+re-run is [02zzu_applied.py](02zzu_applied.py).
+
+### The values changed
+
+- **Goods** (`engine/data.py` ITEMS): the 26 of the change table above, as proposed:
+  - meat, drying and smoking meat 0.6 (raw 0.32); dried and smoked meat 1.2; salt meat 0.57 (raw 0.24);
+  - fish and its kept forms 0.46 (raw 0.28); dried and smoked fish 0.92;
+  - milk 0.256; cheese 1.61;
+  - greens 0.098; roots 0.263 (raw 0.13); mushrooms 0.107 (raw 0.053); watercress 0.041; samphire 0.061 (raw 0.049);
+  - berries 0.167; hedge fruit 0.33 (raw 0.165); hazel nuts 1.03; raw acorns 0.034; the legacy wild food 0.41;
+  - green grain and green rye 0.24.
+- **Kept** with a comment saying so: the grain ladder, beans, green beans, beech nuts, acorn meal, tallow (0) and the egg.
+- **Kills** (`wild/kinds.py` TAKEN, colonies), goods a head:
+  - meat: red deer 33, roe 8.1, boar 29, hare 1.25, woodpigeon 0.15, wildfowl 0.56, bear 121;
+  - fish: eel 0.58, salmon 3.06, lamprey 0.19 (it was meat);
+  - from the nests: young heron 0.37 meat, young rook 0.11.
+- **Slaughter** (`TECHNIQUES.slaughter`): cow 150 meat, ox and bull 210, young 48, on 02zzu's medieval carcass share (0.70).
+  USDA's modern carcass (20% bone) would give 12% more, which is within D2-259's 20%.
+- **Carrion:** a unit of meat is 3 kg of carrion (`THINGS.carcass_kg`, was 5), so a red deer's 33 units are about its 90 kg.
+  The pull of the dead is measured against a red deer's 33 (`CARCASS_PULL.ref`, was 20).
+- **The egg (a choice):** the egg good is a kilogram of eggs (weight 1, was 0.1), and hens lay `wild.EGG_KG` (0.045 kg) an egg.
+  This is the smaller change: the good's food stays at 0.6, which the check keeps (+19%), and one line of the laying changes. The
+  other way, an egg a unit, would have changed the good's food, raw value and weight as well. A hen's spring day is now 0.135
+  food (was 0.1). Laying is still on the old clock (L-138).
+
+### The levers
+
+Each lever is named beside the data with its factor:
+
+| Lever | Where | Factor | Why |
+|---|---|---|---|
+| resident fish stocks | `make_peoples.RESIDENT_FISH`, `make_water_worlds.RESIDENT_FISH`, the fishing probe | x 2.2 (K 8 -> 17.6 a unit of size; the sea 26.4; the probe's 10 -> 22, run 40 -> 88) | the stock is counted in fish units, whose food fell to 0.46. Not checked against a real standing biomass (a unit of size has no hectares) |
+| the lake's stock | `make_water_worlds.LAKE_FISH` | 7,500 -> 16,500 a km² | the old 7,500 was 150 kg of **whole** fish a hectare at 2 kg a unit. On the gutted unit (about 0.53 of the whole fish) that is about 8,000, within 7% of 7,500, so the base is kept and the lever applied. 16,500 is about 330 kg whole a hectare, the top of a real lake's 50 to 300 |
+| the eel run | `RUNS.eel.year` 0.2 -> 0.6, the eel's `b` 1.0 -> 3.0 (KINDS) | runs x 4.2 to 5 | measured below. At `year` 0.6 alone the history emptied the stock to a fifth, and the runs fell. `b` stands for the elvers that come up from the sea. The standing eel stock is now about 1.5 times what it was |
+| the salmon run | `RUNS.salmon`: `spawn: river` (wild/runs.py `Net.spawns`), `cap_km` 1.5 -> 6, `seed_km` 1 -> 6 | spawning along the whole big river, by its km | Middleham now sees salmon. The runs are 12 to 40 times the old at the lower stations, at a real river's low to middle (part 6) |
+| the lamprey run | `RUNS.lamprey` `cap_km` 3 -> 9, `seed_km` 2 -> 6 | x 3 | |
+| the gear's holds | `WATER_WORKS`, in kg of the catch's goods (`wild.held_kg`, `_kg_of`) | a wattle section 10 food -> 100 kg, a timber section 7 -> 70 kg, a set trap 3 food -> 10 kg (`SETS` heads 6 -> 20) | real gear's kg (D2-258). A fish unit weighs 1 kg in the game: 0.86 kg of whole eel, 1.3 kg of whole salmon |
+| gathering's kg a unit | `plants.PLANTS[k].kg` (`wild.forage`) | greens, watercress and samphire x 5; berries and mushrooms x 3.3 | real picking rates: greens about 3 kg an hour (2 to 4), soft fruit and mushrooms about 2 (1 to 3). Nuts, acorns, hedge fruit and roots keep the base |
+| the plant niche's floor | `plants.niche` | 0.3 -> 0.03 | sized by food, the cheap leaves fell under the old floor, and a parcel's plants lost up to a third of their food (02zzu choice 11) |
+| the legacy hunt | `TECHNIQUES.hunt` range | [2, 6] -> [5, 15] | a kill's food is kept on the new meat unit (02zzu part 5). The game stocks are not scaled (Q-71) |
+| the wild's capacity | `engine/capacity.WILD` | 10 -> 4 food a year a unit of wood | the legacy forage and game on the new values. The generator sizes fields by what the woods leave |
+
+**Larders** re-sized in the makers so their days of food are unchanged:
+- the Croft house's dried meat in the food probe: 10 -> 25;
+- the frontier's and the wild bands' dried meat x 2.5, Gormhold 40 -> 100;
+- Croft House's cheese at Brookend: 10 -> 15.5;
+- Highpool's smoked fish: 3 -> 6.5 a person;
+- the runs world's late-summer store (`RUNS_STORE`): dried meat 10, roots 18.5, acorns 17.6, berries 19.2 (20.6 food a house, as before);
+- Weirford's salt fish in the wild region: 12 -> 26.
+
+The nutrition runs' larder is made from food shares and follows by itself. The generator's own house stocks are grain and beans,
+which did not change.
+
+**Committed worlds that would change if regenerated** (none was regenerated):
+- `fishing/water.yaml`, `fishing/dry.yaml`;
+- `goal_probe/food_*.yaml`;
+- `frontier_camps.yaml`, `wild_bands.yaml`;
+- `plenty/brookend.yaml`;
+- `peoples/w1.yaml`, `peoples/w4.yaml`;
+- `water/river.yaml`, `lake.yaml`, `lake_goal.yaml`, `runs.yaml`, `runs_models.yaml`;
+- `nutrition/runs_*.yaml`;
+- the wild region;
+- every generated world, through `capacity.WILD`.
+
+The hand-made worlds whose larders are meat, wild food or cheese lose that food as they stand. Two examples:
+- `valley_s5.yaml`: Fenn House's meat and wild food, 10.7 food -> 4.3;
+- the 30 specs with a legacy `game` stock (Q-71).
+
+The runs and the plants are not stored in the specs: they are seeded or sized when a world is built, so a committed world gets them
+without being regenerated.
+
+### Food a unit of work by method, before and after
+
+"Before" is 02zzu's measured rate on the old values. "02zzu" is its prediction (for gathering, with its rate fix). "Applied" is the
+measured rate times the engine's data now against the old values, at the same kg a unit, with the gathering's `kg` applied by
+kind. Real is the real range of part 1 on the basis (2,500 kcal, 2 h).
+
+| Method | Before | 02zzu | Applied | Real | Verdict |
+|---|---|---|---|---|---|
+| farming, unbroken ground, crude reap | 1.77 | 1.81 | 1.77 | 1.6-3.6 | in range |
+| farming, hoe-broken | 1.37 | 1.40 | 1.37 | 1.2-2.4 | in range |
+| farming, plough-broken | 2.35 | 2.41 | 2.35 | 3.2-5.6 | pays, a little under the real |
+| farming, plough and copper reap | 2.80 | 2.87 | 2.80 | 3.6-6.0 | pays, a little under |
+| milking (3 cows a unit) | 2.4 | 1.23 (4.6 with its rate fix) | 1.23 | 6.4-11 | far under: the rate fix was not applied (Q-72) |
+| gathering, autumn | 1.07-1.72 | 0.55-0.88 | 0.64-1.03 | 0.8-2.4 | in range (mushrooms and berries at their kg) |
+| gathering, spring and summer | 0.28-0.77 | 0.16-0.43 | 0.17-0.48 | 0.24-1.1 | in range |
+| gathering, winter | 0.19-0.43 | 0.08-0.17 | 0.09-0.19 | 0.12-0.64 | never pays, as in life |
+| leaching acorns (the gain) | 1.7 | 2.84 | 1.90 | 0.8-1.4 | rich: acorn meal kept at 1.0, not 02zzu's 1.48 |
+| hunting, novice armed, near | 0.2-0.3 | 0.14-0.22 | 0.14-0.21 | 0.08-0.32 | never pays, as in life |
+| hunting, capable armed, near | 0.7 | 0.51 | 0.50 | 0.4-1.2 | in range |
+| hunting, master armed, near | 2.5 | 1.87 | 1.74 | 1.2-3.2 | in range, under the ploughman (Q-70 e); the boar at SR's 122 kcal |
+| snares, lifted (hares) | 0.9 | 0.64 | 0.64 | 0.4-1.2 | in range |
+| netting fowl (2 units) | 0.11-0.70 | 0.08-0.49 | 0.08-0.52 | 0.24-2.2 | pays at the top |
+| fishing by hand (full stock) | 0.6 | 0.28 | 0.28 | 0.16-0.72 | feeds the fisher |
+| angling | 1.5 | 0.69 | 0.69 | 0.24-1.4 | in range |
+| eel trap, resident, a night | 0.02-0.08 | 0.01-0.04 | 0.01-0.04 | 0.16-1.2 | far under (measured before 4c; the eel stock is now x 1.5 and the trap's hold x 3) |
+| legacy hunt (full stock, armed) | 1.05 | - | 1.05 | 0.4-1.2 | in range (the kill x 2.5) |
+| legacy forage (full stock) | 1.2 | - | 0.49 | 0.24-2.4 | in range |
+| the mills and ovens (the gain) | 0.9, 9.6, 30; 3, 10 | +2% | unchanged | none | a design gain |
+
+**The weir, a year, on the run pulses recorded with no one acting** (36 nights, `02zzu_shared_units.py runs` on each code; one
+wattle section; 02zzu's work):
+
+| Station | Eels a year, before -> after | Salmon a year | Lampreys a year | Weir food a year, before -> after | Food a unit | Nights its hold binds | 02zzu's real-run mid |
+|---|---|---|---|---|---|---|---|
+| Highpool (runs) | 36 -> 181 | 0.5 -> 46 | 0 | 2.5 -> 34 | 0.09 -> 1.24 | 0 of 10 | 2.8 |
+| Middleham (runs) | 101 -> 473 | 0.5 -> 99 | 0 | 6.4 -> 80 | 0.22 -> 2.81 | 0 of 11 | 3.9 |
+| Lowstrand (runs) | 474 -> 2,124 | 21 -> 848 | 26 -> 77 | 44.5 -> 278 | 1.29 -> 8.09 | 3 of 17 (a peak night offers 333 kg) | 4.2 |
+| Saltwell (river) | 73 -> 338 | 10 -> 124 | 10 -> 32 | 11.5 -> 80 | 0.38 -> 2.64 | 0 of 13 | 3.0 |
+| Millham (river) | 278 -> 1,164 | 31 -> 387 | 35 -> 106 | 39.8 -> 216 | 1.27 -> 6.89 | 2 of 14 (152 kg) | 4.3 |
+
+(The "before" eel counts are on main as it stands, lower than 02zzu's runs-models checkout: 36 against 74 at Highpool.) The weir
+now pays at every station, as part 6 found for a real river. At the two lowest stations it is above 02zzu's mid (6.9 and 8.1
+against 4.2 and 4.3), because the hold D2-258 chose (100 kg on a peak night) is above part 6's 30 kg. That is 216 to 278 food a
+year for one section, against D2-210's 60 to 70, and inside the real 4 to 48 a unit of a run night. The run nights are not yet
+concentrated (37.4's part).
+
+### What binds the keeping of a catch (no mechanics built)
+
+A peak night at Lowstrand offers 333 kg and the section takes its 100. What follows the catch:
+- **Fresh fish spoils at 0.30 a night** (in a house's store, twice meat's rate there). A night's 100 kg left fresh is about 50 kg
+  after two nights. **Binds.**
+- **Gutting:** no step. The fish unit is gutted weight and arrives gutted, so gutting costs no work. **Does not bind (a gap).**
+- **Salt:** `salt fish` takes 1 salt to 4 fish, the real 1 kg to 4 or 5. It takes a unit of work for 4 kg (2 kg an hour), so 100 kg
+  is 25 salt and 25 units. A saltmarsh pan gives 1 salt a unit (in summer). Boiling salt gives 4 a unit for 4 firewood. **Binds
+  hard:** the salting rate is several times under a real one with gutting (Q-73).
+- **Racks and smokehouses:** a smokehouse's racks take a batch of 40 for 3 nights, about 13 kg a night of capacity each. It is
+  tended daily and burns 1 firewood a night. A hearth's rack takes 8 for 3 nights. **Binds:** a peak night needs about 8
+  smokehouses' nights.
+- **Fuel:** 1 firewood a smokehouse night and 1 a salt boiled. **Binds lightly,** behind the racks and the salting work.
+- **Nets:** no fish net exists. The `net` method is fowling, and D2-258's "nets when built" waits on the gear ladder
+  (water_and_preservation.md: a seine needs flax or hemp, L-13). **A gap.**
+
+### Tests
+
+- **The full suite**, rebased on b4076951: 700 passed, 1 failed, 2 skipped. After the rebase on 81a830ea (the fishing bots), the
+  new and touched tests pass (66: `test_bots_livelihood`, `branch`, `switches`, `water5_river`).
+- **The one failure is left as found:** `test_cybertron2_wide.py::test_firewood_is_had_in_every_village_and_each_is_seeded_below_what_it_keeps`.
+  With `capacity.WILD` at 4, Westmere's 4 people are 0.83 of what its land keeps (4.8), against the test's bound of 0.8. That is
+  a real reading of the new values: the woods feed less on the legacy forage and game. It is not an old value, so the test is not
+  re-pinned. Either the wide world gets a little more land, or the bound is for Zach with Q-71.
+- 18 tests failed at first. All 18 pass on the code before the change.
+- Their fixes, each with a comment in the test:
+  - **The old value, re-pinned in units:** 12 tests;
+  - **the 4c ecology digest re-pinned:** it is the old digest again with `data.py`, `kinds.py` and `wild.py` put back at 44d10eb7;
+  - **the red deer test now uses a party of four:** a party of three cannot carry a 33-meat deer at 10 each (02zzu choice 12);
+  - **the hosting test tops up valley_s5's larder** to its old days of food.
+- **Three resume tests** (`test_cybertron2_branch.py`) failed because people now starve in valley_s5 by day 3 (7 of 17 dead by
+  day 5, against 2 before). That exposed a real bug: the night record kept live references to the day's offers. When an offerer
+  died later, the straight run rewrote the earlier days' records, and a run resumed from a day's end did not. The record now keeps
+  a copy (`engine/run.py`).
+
+### The bot runs (32 days, `--bots`, before b4076951 and after 4c8def4d)
+
+The generic bots, the committed worlds as they stand (not regenerated). The runs are this session's own (not kept in the
+repository). The store counts every container's food at each code's values.
+
+| World | Arm | Alive at day 32 | Deaths (first) | Hunger at the end | Food in store, start -> end |
+|---|---|---|---|---|---|
+| river (`water/river.yaml`, 26 people) | before | 0 (all dead by day 24) | 25 starved, 1 old age (day 11) | - | 176.8 -> 46.4 (40 of it meat on the dead) |
+| | after | 0 (all dead by day 23) | 24 starved, 1 old age, 1 poisoned by mushrooms (day 9) | - | 176.8 -> 59.9 (53 meat) |
+| Brookend (`plenty/brookend.yaml`, 8 people) | before | 8 | none | all 0 | 268.5 -> 133.1 |
+| | after, the committed larder | 8 | none | 3 at -1 (a household's supper missed on day 32) | 259.6 -> 106.7 |
+| | after, the maker's larder (cheese 15.5) | 8 | none | all 0 | 268.5 -> 111.8 |
+
+Read:
+- The generic bots starve the river world on either code: they do not fish or keep, and its fields are not worked in time. The
+  change moves the first death two days sooner, by a mushroom poisoning: a gatherer picks 3.3 times the kg, and the poison's
+  chance follows the kg taken. The famine itself comes at the same days (18 to 23).
+- Brookend holds on either code. It eats the same (317 against 320 food). It ends about 20 to 26 food poorer in grain, eaten in
+  place of the meat, cheese and wild food that are worth less now. With the committed larder (cheese 10) one household runs out
+  on the last night. The maker's re-sized larder removes that.
+
+**The nutrition arms** (`nutrition/runs_<arm>.yaml`, `--bots runs`, the competent fishing bots of 81a830ea, 64 days, 12
+people; after = this branch rebased on 81a830ea). "Before" is the bots' figures on today's values (W-69, its bot
+summary). The committed arms carry their larders in units: dried meat 17 and roots 67, 104.6 food before
+and 38.0 now. So each arm is run twice: as committed, and with the larder put back to its 104.6 food. That is what
+`make_nutrition_runs` would write, since it sizes the larder from food shares; the arms were not regenerated. The runs are this
+session's own, read with the W-69 bots' analysis on this code's values. Catch is in food, the fish's fate in fish units
+(about kg).
+
+| Arm | Catch by gear, food | Kept made (fish units) | Fresh fish: eaten / robbed / spoilt / swept away in a spate | Store at the first winter (day 12), food (alive) | Second winter (day 44) | Deaths: all 12 by day | Fish food a unit of fishing | People fed by fish |
+|---|---|---|---|---|---|---|---|---|
+| low, before | trap eel 66, lamprey 0.4, fowl 1.3 | none | 31.6 / 11.2 / 0 / 20.4 | 22.6 (11) | - | 24 | 0.17 | 2.1 |
+| low, after, committed larder | trap eel 110 | 18.5 dried | 58 / 29 / 2 / 89 | 4.1 (4) | - | 34 | 0.53 | 2.5 |
+| low, after, larder 104.6 | trap eel 363, fowl 1, lamprey 1 | 47 dried | 288 / 86 / 9 / 219 | 42.8 (11) | - | 34 | 0.56 | 8.1 |
+| medium, before | trap eel 77, lamprey 0.9 | none | 34 / 14.2 / 0 / 23.8 | 21.0 (11) | - | 24 | 0.18 | 2.4 |
+| medium, after, committed larder | trap eel 129 | 28 smoked, 3 dried | 45 / 29 / 1 / 112 | 4.6 (4) | - | 34 | 0.61 | 2.9 |
+| medium, after, larder 104.6 | trap eel 431 (97 in year 2), net salmon 18 | 70 smoked (83 lost to a smokehouse fire) | 164 / 85 / 14 / 302 | 15.8 (9) | 28.4 (2) | 54 | 0.72 | 6.4 |
+| high, before | trap eel 82, weir eel 2.8, lamprey 1.3, fowl 1.3 | none | 36 / 13.4 / 3.4 / 26.6 | 23.5 (11) | 16.8 (1) | 11 by day 37; 1 alive at 64 | 0.17 | 1.05 |
+| high, after, committed larder | trap eel 214, weir eel 9, net salmon 3 | 59 smoked | 63 / 58 / 1 / 160 | 8.8 (5) | - | 37 | 0.72 | 4.7 |
+| high, after, larder 104.6 | trap eel 481 (121 in year 2), weir eel 15 and salmon 28, net salmon 9 | 92 smoked, 6 dried (116 lost to fire) | 208 / 97 / 17 / 339 | 11.6 (10) | 53.7 (2) | 56 | 0.84 | 7.3 |
+
+Read:
+- **On the new values the bots catch 1.6 to 6 times the food, and they keep some of it for the first time.** Fishing gives 0.53
+  to 0.84 food a unit, against 0.17 before. That is above a household's 0.36 and inside angling's and the race's real range. The
+  traps' 10 kg holds and the runs 4 to 5 times larger do it.
+- **Still nobody lives through the year** in any arm. With the larder at its old food, the medium and high arms reach the second
+  winter with 2 alive and 28 to 54 food in store, and die by days 54 to 56. Low dies by day 34.
+- **What binds now is not the hold.** It is what happens to a catch:
+  - **spates:** traps wrecked with their catch, 219 to 339 kg a run, about as much as is eaten;
+  - **otters at the traps:** 85 to 97 kg, about 20% of the trap catch;
+  - **smokehouse fires:** 83 to 116 kg in the two richer arms;
+  - **keeping is small:** 47 to 98 kg kept, against 360 to 480 food of eels caught.
+- **The bots' gaps still stand:**
+  - traps and the weir draw on the same run, traps first: the weir took 43 food in the high arm against the traps' 481;
+  - the weir is wrecked by floods in a night or two;
+  - the salmon run is larger (387 a year at the river world's lower station, above), but nets and the weir took only 3 to 37
+    food of it (not measured at Eelmouth itself);
+  - otters take about a fifth of the trap catch.
+- No mechanics were built for any of this.
+- **The committed arms should be regenerated with the data change.** As they stand their larders hold a third of their food, and
+  the low arm starves before the runs come.
+
+### Gaps found
+
+- **The legacy game and forage stocks** are counted in their goods' units and were not scaled. Legacy woods hold 0.4 of their old
+  food (Q-71). `valley_s5.yaml` starves sooner on its meat and wild food.
+- **Milking** at the real milk value is 1.2 a unit, against a real 6.4 to 11 (Q-72). The cheese is still 6 milk (02zzu proposed
+  10).
+- **Keeping:** the salting rate (Q-73), gutting with no work, and no fish nets.
+- **The hens** are on the old clock (L-138), and a killed hen gives no meat (0.6 food on SR).
+- **The weir at the lowest stations** is 3 to 4 times D2-210's year (the 100 kg hold). Concentrating the run nights (37.4) will
+  change it.
+- **`make_wild_tests.EEL_GOOD`** is still "meat" (stale since D2-216, before this change).
+- **`tools/records.py`** cannot run `whoami` or keep its pending file in a git worktree (`.git` is a file there).
+
+### D2-260, D2-261 applied (20 Nov)
+
+37.2, W-64, the same branch. The two gaps above that Zach decided (milking, Q-72; the old game, Q-71).
+
+- **Milking** (`TECHNIQUES.milk`): 6 cows a unit at 3 kg each (was 3 at 1.6). That is 4.6 food a unit at skill 1, against
+  farming's 1.4 to 2.8 and the real 6.4 to 11 (under the real, ahead of the plough, as part 4 predicted). A cow's day is 0.77 food
+  (0.8 on the old values). The capacity model reads the technique. The economy check (`landgen/economy.py`) had the old 1.6
+  written in; it reads the technique now. At Brookend, Hugh (skill 1.2) milks the 7 cows in milk in 2 units for 25.2 milk, 6.5
+  food. That was 3 units for 3.4 food on D2-258 alone, and 6.7 food on the old values.
+- **Cheese is kept at 6 milk.** 6 milk (1.54 food) make 1.61 of cheese: 5% more food than went in, for a unit of work and 0.2 salt.
+  That is within D2-259's 20%, and there is nothing to exploit in it. The chain (milking and the cheese) gives 1.2 food a unit
+  of work, kept, against 1.1 on the old values. 02zzu's 10 milk to a cheese stays open.
+- **The old game** (`RESOURCES.game.spec_unit` 2.5, `World` as it is built): a spec's game K and S are read in the old meat unit
+  and multiplied by 2.5 into the meat unit. Why there:
+  - the 30 hand-made specs, the makers and the generator are not edited;
+  - the state then counts meat units, so every reader of the stock reads it right with no factor (the economy check's S x meat
+    food, the capacity model, the signs' S/K);
+  - a saved state is not converted twice.
+
+  Two other places were looked at and not used:
+  - the makers alone, as Q-71 recommended: the committed specs would stay at 0.4 until regenerated;
+  - the kill a unit of stock: every reader of S would need the factor.
+
+  The legacy hunt's kill stays 5 to 15. A kill takes the same share of its wood as 2 to 6 did of the old stock, at the same
+  chance, for the same food: 1.05 food a unit at a full stock, armed, as before D2-258. A probe (the Holm at Wenbridge, an armed
+  hunter, 20 hunts on each of 20 seeds, no nights) gives the same result as the pre-D2-258 hunt on every seed: 54 kills, 0.42
+  food a unit over the hunting-out, 0.05 of K left. On D2-258 alone it was 26 kills, 0.18 food a unit, and 0.01 of K left.
+- **`capacity.WILD` 4 -> 8.** It had been cut by 0.4 for the forage and the game together. The forage stays at 0.41 of its old
+  food (02zzu accepted it). The game gets its food back. On the regrowth rule, a year's greatest sustained take a unit of wood on
+  the old values (24 nights, the winter at 0.25):
+
+  | Wood (stocks a unit) | Forage | Game | Old food | Game's share | D2-258 alone | With D2-261 |
+  |---|---|---|---|---|---|---|
+  | hand-made (plants 2, game 3) | 3.17 | 3.66 | 8.7 | 0.63 | 0.40 | 0.78 |
+  | generated old forest (1.2, 3.5) | 1.90 | 4.27 | 8.3 | 0.77 | 0.40 | 0.86 |
+  | generated managed wood (1.2, 1.3) | 1.90 | 1.59 | 4.3 | 0.56 | 0.40 | 0.74 |
+  | scrub (1.0, no game) | 1.59 | 0 | 1.6 | 0 | 0.41 | 0.41 |
+
+  WILD sizes the generator's fields, so 8 is taken at the generated woods' mid (0.74 to 0.86 of the old 10). It is the
+  generator's own figure and is not measured on a generated world. Scrub keeps only 0.41: its WILD is generous, as it was before.
+- **The wide world's test now passes,** but only just: Westmere's 4 people are exactly 0.80 of what its land keeps (5.0), at the
+  bound. At WILD 7.8 (the hand-made woods' 0.78) it would fail by 0.002. 8 was chosen on the generator's woods, not for the test,
+  and the bound was not loosened.
+- **The full suite:** 716 passed, 2 skipped, at f8e5a971. No digest was re-pinned.
+- **The generic bot runs** (32 days, `--bots`, before 15c6b1e7 and after) are the same on Brookend (8 alive, 3 at -1 at the end,
+  store 259.6 -> 106.7), the frontier camps (all 10 starved by day 29, store 235.4 -> 0) and valley_s5 (all 17 dead by day 11). The
+  generic bots never hunt or milk. Their options are cut at 10, in the techniques' order, before `milk`, and the first 4 are
+  taken: reap first, then alphabetically, so hunting is never among them. So the runs cannot show either change. The probes above
+  are the check. valley_s5 milked once, for 0.2 more food eaten.
+
+*Current as of 20 Nov 2026.*

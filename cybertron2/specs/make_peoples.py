@@ -270,16 +270,22 @@ def cast(world: dict, key: str) -> dict:
     return world
 
 
+RESIDENT_FISH = 2.2     # a named lever (D2-258, D2-259): resident fish a unit of size x 2.2, so a fishing world's fish keep their food
+                        # under the fish unit's real energy (0.46 a unit, was 1.0; 02zzu part 5); not checked against a real standing
+                        # biomass (a unit of size has no hectares yet)
+
+
 def water_stocks(world: dict) -> dict:
     """Fish and salt, which the land generator does not yet stock (the water pack came after it; OPEN L-75): each water parcel holds
-    fish (K 8 a unit of size; the sea's 12), and a big river a run of salmon in autumn; each saltmarsh parcel salt to pan. The stocks'
-    shapes are the fishing probe's (make_fishing_probe.py). Edits after generation, said here."""
+    fish (K 17.6 a unit of size; the sea's 26.4), and a big river a run of salmon in autumn; each saltmarsh parcel salt to pan. The
+    stocks' shapes are the fishing probe's (make_fishing_probe.py). Edits after generation, said here. The resident stocks are 2.2
+    times the old 8 and 12 (RESIDENT_FISH, D2-258): the stock is counted in fish units (about 1 kg gutted), whose food fell to 0.46."""
     for n in world["nodes"].values():
         for p in n["parcels"].values():
             st = p.setdefault("state", {})
             size = float(p.get("size", 1))
             if p["cover"] == "water" and "fish" not in st:
-                k = round((12.0 if "sea" in str(p.get("terrain", "")) or "coast" in str(p.get("terrain", "")) else 8.0) * size, 1)
+                k = round((12.0 if "sea" in str(p.get("terrain", "")) or "coast" in str(p.get("terrain", "")) else 8.0) * RESIDENT_FISH * size, 1)
                 st["fish"] = {"K": k, "S": k, "r": 0.3}
                 if (p.get("land") or {}).get("river_class", 0) >= 3 or "river" in str(p.get("text", "")).lower() and size >= 2:
                     st["fish"].update({"run_K": 4 * k, "run_r": 0.35, "run_seasons": ["autumn"]})

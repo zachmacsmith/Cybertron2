@@ -75,7 +75,7 @@ def world() -> dict:
             "thorne_house": house("Thorne House", "Thorne", "timber", {"beds": 3, "hearth": 1, "bins": 2},
                                   {"grain": 170, "beans": 30, "firewood": 40, "timber": 6, "crude tool": 2}),
             "croft_house": house("Croft House", "Croft", "timber", {"beds": 3, "hearth": 1, "bins": 1},
-                                 {"grain": 45, "cheese": 10, "hay": 30, "firewood": 30, "timber": 4, "hide": 2}),
+                                 {"grain": 45, "cheese": 15.5, "hay": 30, "firewood": 30, "timber": 4, "hide": 2}),   # cheese x 1.55: its food kept (D2-258)
             "mill_house": house("the Mill House", "Miller", "stone", {"beds": 2, "hearth": 1, "bins": 1, "millstones": 1, "oven": 1},
                                 {"grain": 50, "flour": 40, "firewood": 40, "timber": 8, "stone": 6}, rooms=[{"kind": "hall"}]),
         },

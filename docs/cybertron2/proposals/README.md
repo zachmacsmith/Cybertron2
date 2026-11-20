@@ -460,4 +460,4 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 19 Nov | resume from the last finished day | retrospective, accepted: D4-124 | [resume_from_last.md](resume_from_last.md) |
 | 17 Nov | a signs pass after the lake runs (11 built, 1 to follow, 1 deferred) | retrospective, accepted in conversation | [signs_pass_17nov.md](signs_pass_17nov.md) |
 | 20 Nov | the records as items in a small web of documents, one tool, typed commits, resolutions by whom, code under a thread, branches merged early | accepted: D2-232 to D2-239 | [records_and_workflow.md](records_and_workflow.md), [thread_tracking.md](thread_tracking.md) |
-| 20 Nov | food, weight and work on one basis; the runs, gear holds and fish stocks at real sizes; real values within about 20% kept, balance through named levers | partly accepted: D2-258, D2-259 | [shared_units.md](shared_units.md) |
+| 20 Nov | food, weight and work on one basis; the runs, gear holds and fish stocks at real sizes; real values within about 20% kept, balance through named levers | partly accepted: D2-258 to D2-262 | [shared_units.md](shared_units.md) |

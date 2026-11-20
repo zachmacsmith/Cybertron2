@@ -249,7 +249,7 @@ def test_milking_and_slaughter_by_role():
     w.s["know"]["Edric"]["milk"] = {"level": "known", "skill": 1.0, "seen": 0, "wins": 0, "fails": 0, "source": "", "since": -1}
     assert do(w, "Edric", do="work", what="milk", at=w.s["parcels"]["mb_pasture"]["name"]).startswith("You got")
     r = do(w, "Edric", do="work", what="slaughter", at=w.s["parcels"]["mb_pasture"]["name"], item="ox")
-    assert "50 meat" in r and w.s["herds"]["cattle"]["oxen"] == 1
+    assert "210 meat" in r and w.s["herds"]["cattle"]["oxen"] == 1                # an ox's meat on the 1,500 kcal unit (D2-258, was 50)
 
 
 # ---------------------------------------------------------------------- food, fuel, camps
