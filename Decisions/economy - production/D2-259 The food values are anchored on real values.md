@@ -23,3 +23,4 @@ conversation (20 Nov: "conversation (20 Nov: "Iagree with u", to: anchor on real
 ## Mentioned by
 - [[Shared units food value, weight and work on one basis|Shared units: food value, weight and work on one basis]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
+- [[02zzu lookup the food values checked against USDA FoodData Central|02zzu lookup: the food values checked against USDA FoodData Central]]
