@@ -982,6 +982,7 @@ def _spec_line(path, did, rule, replaces):
     for r in replaces:
         t = re.sub(r"^(- .*\b" + re.escape(r) + r"\b.*)$", r"\1 **(replaced by " + did + r": rewrite this line)**", t, flags=re.M)
     open(path, "w", encoding="utf-8").write(t)
+    note("paths", os.path.relpath(path, ROOT))
 
 
 def _history(proposal, text):
@@ -992,6 +993,7 @@ def _history(proposal, text):
     entry = f"- {TODAY.day} {TODAY.strftime('%b %Y')}: {text}."
     t = re.sub(r"^## History\n\n", "## History\n\n" + entry + "\n", t, count=1, flags=re.M)
     open(p, "w", encoding="utf-8").write(t)
+    note("paths", os.path.relpath(p, ROOT))
 
 
 def infer_type(paths) -> str:
@@ -1024,7 +1026,8 @@ def cmd_commit(msg, typ, thread, paths, body, builds):
     if builds:
         p["builds"] = sorted(set(p.get("builds", []) + as_list(builds)), key=num)
     render()
-    git("add", "--", os.path.relpath(ITEMS, ROOT), *[os.path.relpath(v, ROOT) for v in VIEW_FILES.values()], *paths)
+    git("add", "--", os.path.relpath(ITEMS, ROOT), *[os.path.relpath(v, ROOT) for v in VIEW_FILES.values()], *paths,
+        *p.get("paths", []))
     staged = [l for l in git("diff", "--cached", "--name-only").split("\n") if l]
     if not staged:
         raise SystemExit("nothing staged")

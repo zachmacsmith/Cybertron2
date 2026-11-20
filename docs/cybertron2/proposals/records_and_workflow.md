@@ -586,6 +586,7 @@ Every session's habits (CLAUDE.md's work rules); `tools/` (hygiene folded into `
 
 ## History
 
+- 20 Nov 2026: accepted in part: D2-240 (The Obsidian vault is a local folder Zach opens whenever he likes, kept up to da).
 - 20 Nov 2026: accepted (D2-232 to D2-239) from Zach's answers to the digest; built as WORK W-65.
 - 20 Nov 2026: §14 added after Zach: every resolution names who made it (zach, agent, default, relayed), with the last three
   provisional; a revisit flag; closing a thread settles its children; decisions live by area. Q-64 (17).
