@@ -25,9 +25,11 @@ done: the suite proposed (twelve worlds, expectations, ordering and collapse che
 
 ## Linked
 - replaces: [[W-11 Landscapes still to tune|W-11 · Landscapes still to tune]]
+- under it: [[D2-245 The calibration suite is all twelve worlds of…|D2-245 · The calibration suite is all twelve worlds of…]] (live)
 
 
 ## Mentioned by
+- [[D2-245 The calibration suite is all twelve worlds of…|D2-245 · The calibration suite is all twelve worlds of…]]
 - [[W-7 The ecology branch's next steps|W-7 · The ecology branch's next steps]]
 - [[W-11 Landscapes still to tune|W-11 · Landscapes still to tune]]
 - [[W-53 Floodplains in the generator now|W-53 · Floodplains in the generator now]]

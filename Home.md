@@ -4,9 +4,8 @@
 
 [The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.
 
-## Waiting on you (10)
+## Waiting on you (9)
 - [[Q-27 The verb list|Q-27 · The verb list]]
-- [[Q-58 The calibration worlds|Q-58 · The calibration worlds]]
 - [[Q-56 The land the engine reads|Q-56 · The land the engine reads]]
 - [[Q-53 Brief 5 as built|Q-53 · Brief 5 as built]]
 - [[Q-51 Brief 5 (river and water)|Q-51 · Brief 5 (river and water)]]
@@ -83,10 +82,11 @@
 - [[W-28 The Cybertron 2 website|W-28 · The Cybertron 2 website]]  
   next: Zach sets up the Netlify site and the subdomain; `python -m c2viz.site.viewer_publish` after each publish…
 
-## Queued and paused (8)
-[[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-64 Shared units for food, weight and work|W-64]] Shared units for food, weight and work, [[W-67 The wildlife economy extended|W-67]] The wildlife economy extended, [[W-68 37.2's spec catch-up|W-68]] 37.2's spec catch-up, [[W-69 Subsistence worlds|W-69]] Subsistence worlds, [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
+## Queued and paused (9)
+[[W-12 Forays (proposalsforays.md)|W-12]] Forays (proposals/forays.md), [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-64 Shared units for food, weight and work|W-64]] Shared units for food, weight and work, [[W-67 The wildlife economy extended|W-67]] The wildlife economy extended, [[W-68 37.2's spec catch-up|W-68]] 37.2's spec catch-up, [[W-69 Subsistence worlds|W-69]] Subsistence worlds, [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
 
-## Decided this week (46)
+## Decided this week (47)
+- [[D2-245 The calibration suite is all twelve worlds of…|D2-245 · The calibration suite is all twelve worlds of…]]
 - [[D2-244 The engine's reworking into feature packages|D2-244 · The engine's reworking into feature packages]]
 - [[D2-243 The verbs and the livelihood archetypes are reshaped first, as their…|D2-243 · The verbs and the livelihood archetypes are reshaped first, as their…]]
 - [[D2-242 Subsistence test worlds|D2-242 · Subsistence test worlds]]
@@ -101,7 +101,6 @@
 - [[D2-233 One tool for the records|D2-233 · One tool for the records]]
 - [[D2-232 The records as items|D2-232 · The records as items]]
 - [[D4-124 Resume from the last finished day|D4-124 · Resume from the last finished day]]
-- [[D4-123 A lesson is in the teacher's craft|D4-123 · A lesson is in the teacher's craft]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]

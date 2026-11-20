@@ -32,9 +32,10 @@
 - [[W-16 The engine overhaul|W-16 · The engine overhaul]] (paused)
 - [[W-14 Claims and ownership by physics, part 2|W-14 · Claims and ownership by physics, part 2]] (waiting)
 - [[W-13 Brookend survival world, rerun p2|W-13 · Brookend survival world, rerun p2]] (paused)
+- [[W-12 Forays (proposalsforays.md)|W-12 · Forays (proposals/forays.md)]] (queued)
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|W-2 · Build briefs 2 and 3, the 20 dry test arms, the spring live run]] (active)
 
-## Closed (42)
+## Closed (41)
 - [[W-66 The design of the records and the workflow|W-66 · The design of the records and the workflow]]
 - [[W-61 An introduction for the Vanderbilt AI Safety fellows' final projects|W-61 · An introduction for the Vanderbilt AI Safety fellows' final projects]]
 - [[W-55 The lake world with a graded population goal|W-55 · The lake world with a graded population goal]]
@@ -66,7 +67,6 @@
 - [[W-18 Small paired probes, Fable 5.2 against Opus 5.5, three situations|W-18 · Small paired probes, Fable 5.2 against Opus 5.5, three situations]]
 - [[W-17 A Fable 5.2 probe in run 6's world|W-17 · A Fable 5.2 probe in run 6's world]]
 - [[W-15 The land's fast stocks|W-15 · The land's fast stocks]]
-- [[W-12 Forays (proposalsforays.md)|W-12 · Forays (proposals/forays.md)]]
 - [[W-11 Landscapes still to tune|W-11 · Landscapes still to tune]]
 - [[W-10 37.2's spec write-ups owed since 2 and 3 Nov|W-10 · 37.2's spec write-ups owed since 2 and 3 Nov]]
 - [[W-9 Compile the generator into specworldgeneration.md|W-9 · Compile the generator into spec/world/generation.md]]

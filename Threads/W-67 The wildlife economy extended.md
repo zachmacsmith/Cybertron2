@@ -32,10 +32,12 @@ started
 - under it: [[L-125 Brief 5's fen and boats half (pack K4's rest)|L-125 · Brief 5's fen and boats half (pack K4's rest)]] (open)
 - under it: [[L-126 The wildlife's core mechanisms not built|L-126 · The wildlife's core mechanisms not built]] (open)
 - under it: [[L-131 The wild layer's live points from briefs 1 to 3|L-131 · The wild layer's live points from briefs 1 to 3]] (open)
+- under it: [[W-12 Forays (proposalsforays.md)|W-12 · Forays (proposals/forays.md)]] (queued)
 
 
 ## Mentioned by
 - [[Q-57 Fishing, from the lake run|Q-57 · Fishing, from the lake run]]
+- [[W-12 Forays (proposalsforays.md)|W-12 · Forays (proposals/forays.md)]]
 - [[L-117 Wildlife pack K3 forays, methods and knowing|L-117 · Wildlife pack K3: forays, methods and knowing]]
 - [[L-118 Wildlife pack K5 wood and frontier|L-118 · Wildlife pack K5: wood and frontier]]
 - [[L-119 Wildlife pack K6 keeping|L-119 · Wildlife pack K6: keeping]]

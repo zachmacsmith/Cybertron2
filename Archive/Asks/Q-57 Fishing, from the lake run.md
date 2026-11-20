@@ -18,6 +18,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
+- [[W-12 Forays (proposalsforays.md)|W-12 · Forays (proposals/forays.md)]]
 - [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
 - [[W-69 Subsistence worlds|W-69 · Subsistence worlds]]
 - [[L-105 Forays as their own track|L-105 · Forays as their own track]]

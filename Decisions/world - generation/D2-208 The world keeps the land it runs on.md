@@ -19,7 +19,6 @@ world/generation.md
 ## Mentioned by
 - [[Q-50 One grid or several|Q-50 · One grid or several]]
 - [[Q-56 The land the engine reads|Q-56 · The land the engine reads]]
-- [[W-12 Forays (proposalsforays.md)|W-12 · Forays (proposals/forays.md)]]
 - [[W-25 The world keeps its land|W-25 · The world keeps its land]]
 - [[L-105 Forays as their own track|L-105 · Forays as their own track]]
 - [[Climate from the land|Climate from the land]]

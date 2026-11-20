@@ -20,6 +20,7 @@ updated: "2026-11-20"
 
 
 ## Linked
+- parent: [[W-12 Forays (proposalsforays.md)|W-12 · Forays (proposals/forays.md)]]
 - relates: [[Q-57 Fishing, from the lake run|Q-57 · Fishing, from the lake run]]
 
 
