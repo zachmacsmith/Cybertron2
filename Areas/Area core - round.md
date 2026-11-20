@@ -1,0 +1,22 @@
+# core/round: The round
+
+A round is a day. Everyone at a node decides at once; only the talk step asks anyone again. Travel ends a day, and the traveller decides at the place it arrives.
+
+The spec: [[round The round|The round]]
+
+## Decisions
+- [[D2-80 Fuse events are rare|D2-80: Fuse events are rare:]]
+- [[D2-81 Which events have a fuse in the first worlds|D2-81: Which events have a fuse in the first worlds:]]
+- [[D2-84 The urgent call continues the agent's own conversation|D2-84: The urgent call continues the agent's own conversation:]]
+- [[D4-8 Arrive, then decide|D4-8: Arrive, then decide]]
+- [[D4-10 Both kinds of distance edges with a length (travellers in transi|D4-10: Both kinds of distance: edges with a length (travellers in transit mak]]
+- [[D4-13 A round is a day|D4-13: A round is a day]]
+- [[D4-14 Everyone plans at once|D4-14: Everyone plans at once]]
+- [[D4-15 Speech is not a round late|D4-15: Speech is not a round late]]
+- [[D4-25 Who hears and who is woken|D4-25: Who hears and who is woken]]
+- [[D4-28 Agents write their own memory at set times|D4-28: Agents write their own memory at set times]]
+- [[D4-65 An evening at the hearth, and one wave of answers|D4-65: An evening at the hearth, and one wave of answers:]]
+- [[D4-66 The evening settles the night|D4-66: The evening settles the night:]]
+- [[D4-67 Setting off in the morning or at nightfall|D4-67: Setting off in the morning or at nightfall:]]
+
+## Open here

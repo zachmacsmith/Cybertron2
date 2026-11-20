@@ -1,0 +1,107 @@
+---
+id: docs/cybertron2/spec/agents/actions.md
+kind: spec
+updated: "2026-11-19"
+tags: [spec, open]
+---
+# What agents can do
+
+- **summary**: A small set of verbs acts on many objects; new and richer acts are added as data on those verbs, and agents come to know them in the world, not from a complete manual. Moving house is one of the things agents can do, not a special feature.
+
+## Text
+# What agents can do
+
+## Summary
+
+A small set of verbs acts on many objects; new and richer acts are added as data on those verbs, and agents come to know them in
+the world, not from a complete manual. Moving house is one of the things agents can do, not a special feature.
+
+## Decided
+
+- [[D4-24 The world grows by data, and agents explore and learn it|D4-24]]: the world grows by data, and agents explore and learn it: new and richer actions are added as data (techniques, fittings,
+  settings, powers, clauses) on a small set of verbs, and agents come to know them in the world (seeing, being told, taught,
+  reading, trying), not from a complete manual.
+- [[D4-29 No aims for now|D4-29]]: no aims (agents/aims.md).
+- [[D4-32 Too heavy to set off the traveller is told and chooses what to l|D4-32]]: too heavy to set off: choose what to leave (economy/transport.md).
+- [[D4-36 Moving is general, not a feature|D4-36]]: a person can join another household, take up an empty house, or build one (institutions/membership.md).
+- [[D4-37 Whoever is owed may count a debt paid|D4-37]]: whoever is owed may count a debt paid (`release`); goods given or left to a creditor are credited against what is owed.
+- [[D2-111 leave folds into give|D2-111]]: `give` takes `to:` a person, a household, a building or a place; `leave`, `put`, `drop` and `hide` are giving to a place; a
+  give that cannot reach its recipient is left at its door (world/things_in_places.md).
+- [[D2-93 Modifiers on verbs|D2-93]], [[D2-94 for (D2-37) and the sowing method (D2-54) are modifiers|D2-94]], [[D2-112 Modifiers are techniques|D2-112]]: modifiers on verbs are techniques (agents/modifiers.md): `for`, `hidden`, the sowing method.
+- [[D2-96 Rot and burial|D2-96]]: `bury` is work on a body, offered only where one lies (world/things_in_places.md).
+
+## Mechanics
+
+- **Verbs** are few; what each acts on (techniques, recipes, blueprints, fittings) is data ([[D4-24 The world grows by data, and agents explore and learn it|D4-24]]).
+- **What an agent is shown** of the techniques is what it knows of (knowledge.md, a proposal): what it has not heard of is not
+  listed ([[D4-24 The world grows by data, and agents explore and learn it|D4-24]]).
+- Every act is done at the node the agent is at, on things there ([[D4-35 Everything happens in a place|D4-35]]).
+
+## Open
+
+- The verb list: proposals/verbs.md (ready for a decision).
+
+## Sources
+
+proposals/verbs.md, proposals/knowledge.md; 38.06.
+
+## Fallback ([[D4-76 A fallback each person sets|D4-76]])
+
+A reply may give `fallback`: acts for units left over once the plan is done (an act refused, a resource run out, a plan too short).
+They are done in order, again and again, until the units are used or none of them can be done. Free acts and travel are not taken as
+fallback.
+
+## Acts made to work as they read ([[D4-94 Acts made to work as they read|D4-94]])
+
+- **A fire in the open** (`fire`) takes 4 heat from what one carries, firewood first, as the night burns it ([[D2-157 Fuel in heat|D2-157]]): 8 firewood or
+  2 timber. Its refusal says so.
+- **`take` from a thing** finds it by a tag anywhere in what one writes ("pack T7 at Gorse Bank"), or by its place or the door it
+  lies at named within a phrase. A tag that is not here, or that holds no such good, is refused as that.
+- **`move` into a full store** puts in what fits and leaves the rest at its door, as `give` does ([[D2-155 Storage takes space|D2-155]], [[D4-89 Goods left at a door stay the house's|D4-89]]).
+- **A work leg** may say what the work is for, kept as a note on the agreement: "work 2 days on the water wheel". Payments may run
+  "every day".
+- **A camp takes only beds and a fire ring.** The build list shows buildings and rooms apart from fittings, which go inside a
+  building named in "at".
+
+## What a refusal says ([[D4-95 What a refusal says|D4-95]])
+
+A refusal says what stopped the act, and enough to choose differently, without telling what one has not sensed:
+- **A good not in hand** names where it is among the stores one may use ("the Hearne hut's store holds 10"). Work done for a
+  household puts what it gives straight into its store.
+- **A good short in a store** names who of those sharing it took some today ("Ellen took 4 from the store today").
+- **A good that is made** says how ("flour is made by milling grain at dressed millstones").
+- **Beasts already watched or milked today** name who did it.
+- **A craft not done at the place named** lists where here it is done, by the land's cover.
+- **A door one may not set** says who sets it (those who manage the building: its holder's head, and who of them is here).
+- **Work for, or an exchange for, a party with no one and no store here** says so, and what to do instead.
+- **"Picked bare" and "not ripe" stay as they are.** One who goes to a place and tries the work there sees the place by the rule,
+  as one who worked there does, so its signs can hint at when it will be ripe.
+- **`pin`** takes a note by its title in any case, or by its text.
+- **A household's head or heir** cannot be one the namer knows is dead. Succession counts only the living either way.
+
+## Refused once, not tried again ([[D4-97 Decisions on 38.51's list|D4-97]])
+
+An act refused once is not tried again that day if the plan lists it again; the result says "(listed N times; tried once, not
+again)".
+
+## Building in stone is stone walling ([[D4-97 Decisions on 38.51's list|D4-97]])
+
+Stone rooms, storeys and upgrades, mending a stone building, carving in stone, and a mason's fitting one has not learned oneself
+are all stone walling (the `wall` technique), at one's walling level. Anyone who knew a mason's craft at the start of a world also
+knows walling.
+
+## Using the store at home ([[D4-96 Using the store at home|D4-96]])
+
+Acts that use goods (making, building, paying, and now giving to a person or leaving at a place) take them from one's hands first,
+then from the stores at this place one may take from: the household's store, its woodpile, what lies at its door. The result says
+what came from where: "You gave 3 grain to Ellen. (from the Hearne hut's store: 3 grain)". Away from home one has only what one
+carries.
+
+## Teaching
+
+- [[D4-123 A lesson is in the teacher's craft|D4-123]]: a lesson happens when a teacher (`teach`) and a learner (`learn`) set time aside for each other the same day at one place;
+  it is in the craft the teacher names, and if the learner named another both are told what was taught and what was asked for. A
+  learn with no teacher that day says which craft it was for. `teach.any_craft_from_day` (decided: 0) is the day this starts.
+
+*Current as of 19 Nov 2026: [[D4-24 The world grows by data, and agents explore and learn it|D4-24]], [[D4-29 No aims for now|D4-29]], [[D4-32 Too heavy to set off the traveller is told and chooses what to l|D4-32]], [[D4-35 Everything happens in a place|D4-35]], [[D4-36 Moving is general, not a feature|D4-36]], [[D4-37 Whoever is owed may count a debt paid|D4-37]], [[D2-93 Modifiers on verbs|D2-93]], [[D2-94 for (D2-37) and the sowing method (D2-54) are modifiers|D2-94]], [[D2-96 Rot and burial|D2-96]], [[D2-111 leave folds into give|D2-111]], [[D2-112 Modifiers are techniques|D2-112]], [[D4-76 A fallback each person sets|D4-76]], [[D4-94 Acts made to work as they read|D4-94]], [[D4-95 What a refusal says|D4-95]], [[D4-96 Using the store at home|D4-96]], [[D4-97 Decisions on 38.51's list|D4-97]], [[D4-123 A lesson is in the teacher's craft|D4-123]].*
+

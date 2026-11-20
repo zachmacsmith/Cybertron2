@@ -1,0 +1,197 @@
+---
+id: docs/cybertron2/spec/information/noticing.md
+kind: spec
+updated: "2026-11-03"
+tags: [spec, open]
+---
+# Noticing things at a place, and on the road
+
+- **summary**: One rule decides who notices a thing at a spot: goods left or hidden, remains, a herd, a camp, traces, a hidden way's end. It works through ordinary perception (the daily spontaneous notice, attending, salience: [[D4-48 A state shows itself as a bundle of signs, not one line|D4-48]]), from the thing's own conspicuousness, the place's visibility, where the observer
+
+## Text
+# Noticing things at a place, and on the road
+
+## Summary
+
+One rule decides who notices a thing at a spot: goods left or hidden, remains, a herd, a camp, traces, a hidden way's end. It works
+through ordinary perception (the daily spontaneous notice, attending, salience: [[D4-48 A state shows itself as a bundle of signs, not one line|D4-48]]), from the thing's own conspicuousness, the
+place's visibility, where the observer is and what it is doing, its attention, its eye for the land, and fresh traces. Travellers
+notice things on the road each day the same way, and remember them on arrival.
+
+Written by 37.2 at Zach's request (23 Oct), from proposals/things_in_places.md, journeys.md and hidden_ways.md; the area is
+37.4's. It extends information/perception.md and signs.md.
+
+## Decided
+
+- [[D2-85 One noticing rule for every thing at a spot|D2-85]]: one noticing rule for every thing at a spot, through the daily notice, attending and salience.
+- [[D2-86 A find on the road worth taking gives a short call|D2-86]]: a find on the road worth taking gives a fuse call only if noticed at all.
+- [[D2-88 Traces left by passers|D2-88]]: traces left by passers persist, fade, and can be read by later travellers.
+- [[D2-89 Signs of slow change on long journeys later, flagged|D2-89]]: signs of slow change on long journeys later (OPEN [[L-1 Signs of slow change on long journeys|L-1]]), as data in the sign registry.
+- [[D2-91 One knack for spotting things the eye for the land|D2-91]]: one knack for spotting things, the eye for the land ([[D4-50 How bare a place is, is a perception like any other|D4-50]]), raised by practice.
+- [[D2-97 Daily notices on the road|D2-97]]: daily notices on the road, remembered on arrival.
+- [[D2-98 Hidden ways are found by the noticing rule|D2-98]]: hidden ways are found by this rule (world/roads.md).
+- [[D2-102 A thing's conspicuousness is its own|D2-102]]: a thing's conspicuousness is its own x the place's sight.
+- [[D4-53 Every sign and every event is noticed by the one noticing rule|D4-53]]: every sign and event by this one rule, each reaching as far as what it is.
+- [[D2-115 Acting senses along the way|D2-115]]: presence along the way and next door (world/parcel_graph.md).
+- [[D4-75 Every perceived line about the world comes from the one noticing|D4-75]]: every perceived line about the world comes from this one rule; sound and smell carry by steps in the parcel graph.
+
+## Mechanics
+
+### The rule ([[D2-85 One noticing rule for every thing at a spot|D2-85]], [[D2-102 A thing's conspicuousness is its own|D2-102]])
+
+For each person and each thing at a spot where the person is, each day (keyed draw, [[D2-70 Paired draws|D2-70]]):
+
+**chance = the thing's own conspicuousness x the place's visibility for its sense x presence x attention x the eye x traces**,
+capped at 1. What is noticed shows through its signs ([[D4-48 A state shows itself as a bundle of signs, not one line|D4-48]]).
+
+### Every sign and event, and how far it reaches ([[D4-53 Every sign and every event is noticed by the one noticing rule|D4-53]])
+
+- **One rule for all:** every sign (crops, fields, pastures, wild land, herds, buildings, people, the sky, things at a spot) and every
+  event is noticed by the rule above; a sign's base chance multiplies it. Nothing is noticed for being merely salient or relevant;
+  relevance only orders what one has noticed.
+- **Extent:** each kind of sign or event reaches as far as what it is:
+
+  | Extent | Who can notice it | Kinds |
+  |---|---|---|
+  | the node | everyone at the node (presence 1) | the sky and the weather; a death, a fire, an alarm, a fight, a threat, a raid; arrivals and departures; a household joined, a claim or grant made |
+  | a parcel | by presence there (worked, passed, next door, elsewhere) | crops, fields, pastures, wild land, herds; work, a trade, a gift, a theft, a gate opened; a person (where it worked) |
+  | a building | those inside (who live there: presence 1), and by presence on its parcel | its signs; goods stored or left there, making, hosting, building |
+  | a stretch of road, or the whole road | those on it (world/roads.md) | daily notices, meetings, finds, traces |
+
+- A person's signs reach those of its household at the node as if inside.
+
+| Factor | Values |
+|---|---|
+| own conspicuousness | the table below |
+| visibility | the place's sight (or sound) that day (environment/visibility.md) |
+| presence | hunting there 1.0; foraging 0.7; herding 0.5; fixed work in the parcel (felling, farming, building) 0.5; passing through it on the way 0.3; next to where one works 0.3 (things of 0.5 or more; [[D4-98 A herd is seen|D4-98]]); at the node elsewhere 0.05 (things of 0.8 or more); on that stretch of road 1.0 (world/parcel_graph.md, [[D2-115 Acting senses along the way|D2-115]]) |
+| attention (perception.md) | none x1; attending to the place x3; attending to it, then working in it (a search) x5 |
+| the eye for the land ([[D4-50 How bare a place is, is a perception like any other|D4-50]], [[D2-91 One knack for spotting things the eye for the land|D2-91]]) | none x0.5; ordinary x1; keen x3; raised by practice at roaming work (hunting, foraging, trapping, scouting) and by finding things |
+| traces | fresh tracks or disturbed ground leading to it x2; a party passed lately x5 |
+
+**Own conspicuousness:**
+
+| Thing | Own |
+|---|---|
+| a body | 0.9 (on built ground in a settlement 1.0) |
+| goods in the open, by their weight w | 1 − exp(−w / 4.34): about 0.37 at 2, 0.9 at 10, 1 from 40 ([[D4-90 How much lies there, by its bulk|D4-90]]); buried, at most 0.4 |
+| a herd (also heard) | 0.95 |
+| a camp, used lately | 0.7 |
+| traces: tracks, ashes, ruts | 0.3, fading (below) |
+| a hidden way's end | 0.03, rising with use (world/roads.md) |
+| hidden under brush | x0.2 (untaught x0.4) |
+| buried | x0.03 (untaught x0.06) |
+
+### Every perceived line by the one rule ([[D4-75 Every perceived line about the world comes from the one noticing|D4-75]])
+
+- **What goes through it:** every line about the world outside oneself: signs at a spot (crops, fields, herds, buildings, people,
+  events and their aftermath), signs of things, events, what concerns one, dawn lines, the attended subject, the place's ambient
+  lines when attending the place, what one worked on, glimpses of others, feeling watched, and notices on the road. What one knows
+  of one's own body, carriage and units is shown directly; what was said lives in the conversation; neither is a sense.
+- **The chance:** a sign's base chance (its row's `p`, 1 unless set) x own x visibility for its sense x presence x attention x the
+  eye, capped at 1 only after the base chance. A sign row sets how plain it is (`own`; above 1 for what is plain from far off), its
+  sense, its conditions and its scope (who reads it at all: the doer, the others, those inside); never a final chance.
+- **Sound and smell carry:** presence for them is at least the carry for the number of steps in the parcel graph from where one was
+  that day (the parcels one worked or crossed, one's spot) to the sign's parcel, times the sense's visibility (cover, weather, the
+  night, masking). Touch reaches only where one is.
+- **Visibility:** sight and sound by the cover, the land's state and the weather (environment/visibility.md); at night sight x0.1
+  and sound x1.2 (signs sensed in the dark); smell and touch x1. A sound of own 1 or more is not masked by louder ones. Signs open to
+  everyone at the place take the open air's visibility for their sense; signs about the sky and the weather itself take none.
+- **The eye** ([[D2-91 One knack for spotting things the eye for the land|D2-91]]) multiplies sight only.
+- **Reach**, a row's shorthand for its rule inputs: **near**, a close look: the spot itself, attention x2; **around**: the spot and
+  next door.
+- **Those always there:** those who live in a house read its signs, and a household its members', with presence 1 and no
+  visibility; a thing in one's own house (or left at its door) with attention x3.
+- **Attention:** attending to a place x3, searching it x5 (as before); a subject one attends to (a person, a house, a herd) is sought
+  out: presence at least 0.5 and attention x5; the place in general: its ambient lines, the same way (up to 4); what one worked on
+  that day is read with attention x3 (up to 4 lines a parcel, into one's beliefs).
+- **What concerns one:** read in full (presence 1) when it happened to one or in one's own house; otherwise by the rule.
+- **Glimpses:** where others spent the day, by the rule, a person at work being own 2; one's household always.
+- **On the road:** presence 1 on one's stretch; visibility by the terrain and the weather for each sign's sense; the road underfoot
+  and the weather on it are read as one is in them.
+- **In the night:** a sign sensed in the dark is read from where one sleeps (the house's parcel, else where one was), with the
+  night's visibility.
+- **A theft seen** (settle): one slipping into a house is own 0.4; those of the house at home read it inside; one attending the house
+  or the place seeks it out. **Woken by a break-in** (fuse, [[D2-81 Which events have a fuse in the first worlds|D2-81]]): the watcher's, the dog's and the walls' values are own, read
+  inside; a neighbour's own is 0.3, read by the night's sound and steps from where they sleep.
+
+| Factor ([[D4-75 Every perceived line about the world comes from the one noticing|D4-75]]) | Value | Status |
+|---|---|---|
+| carry, sound (steps 0, 1, 2, 3, further) | 0.5, 0.45, 0.2, 0.1, 0.05 | calibrate |
+| carry, smell | 0.5, 0.3, 0.12, 0.05, 0 | calibrate |
+| touch reaches | the spot only | decided |
+| attention: close look, own house, subject, working | x2, x3, x5, x3 | calibrate |
+| a loud sound (not masked) | own 1 or more | calibrate |
+| a person at work (glimpses) | own 2 | calibrate |
+| one slipping into a house (a theft) | own 0.4 | calibrate |
+| a break-in heard by a neighbour | own 0.3 | calibrate |
+| night | sight x0.1, sound x1.2 ([[D2-99 Visibility per place and sense|D2-99]]) | calibrate |
+
+### How much lies there ([[D4-90 How much lies there, by its bulk|D4-90]])
+
+Goods in the open read in three degrees, each by the rule:
+- **from afar:** a heap by its size, "a heap" (10 weight or more), "a large heap" (40 or more), "a great heap" (100 or more), "of
+  something"; under 10, "a bundle";
+- **a close look** (reach near): each good with the band it falls in, on the ladder 1, 2, 3, 5, 8, 12, 20, 30, 50, 80, 120, 200,
+  300, 500, 800, 1200, 2000: "a large heap of grain (perhaps 80 to 120) and straw (perhaps 5 to 8)";
+- **attending** to it (by its tag, or to its parcel): a count, to about 1 under 20 and about 5 above: "about 95 grain".
+
+Food spoiling in the open signs by its bulk: rotting meat's smell has own 0.6 × (amount / 10, at least 1, at most 2 in all), and
+from 30 a stench over the whole parcel (own amount / 20, at most 3); a wet heap of grain or other stores (10 or more) a musty smell
+(own amount / 60, at most 1.5); 40 or more left out two days, rats by day (sight, 0.6) and at night (sound, 0.5) ([[D4-90 How much lies there, by its bulk|D4-90]]).
+
+### Traces ([[D2-88 Traces left by passers|D2-88]])
+
+Passers leave traces on the stretch or parcel they pass: tracks (fade in about 3 days; snow lying makes them plain), a camp's
+ashes (about 10 days), cart ruts (about a season). A trace's conspicuousness falls as it fades; what it says ("fresh cart ruts going
+east"; "tracks of a herd, two days old") is read by the eye for the land.
+
+### On the road ([[D2-97 Daily notices on the road|D2-97]])
+
+- Each day in transit, the traveller gets a **daily notice** as at home: what on its stretch it notices by the rule above (other
+  travellers seen far off, herds, a body, a camp, traces, the land and the weather, landmarks and their state).
+- It cannot act on them in transit, except through a fuse call (a meeting, a find worth taking, serious trouble:
+  conflict/fuse_events.md).
+- **On arrival** its notices open the turn prompt as memories: "On the way: smoke from a camp at the forest's edge; the ford was
+  high; a dead ox by the road." Up to 5 lines; a long journey's are summarised.
+- A **find worth taking** (goods, a body and what it carried, a herd once herds wander) noticed on the road gives the finder a
+  fuse call ([[D2-86 A find on the road worth taking gives a short call|D2-86]]); unnoticed, it stays where it is.
+
+## Data
+
+Per thing at a spot: its own conspicuousness and signs. Per person: its eye for the land and its practice. Per traveller: the day's
+notices on the road, held until arrival.
+
+### Searching when taking ([[D4-70 Taking from a place one does not know holds the thing is a searc|D4-70]])
+
+Taking from a parcel (`take {"from": a parcel}`) a good one knows of no thing there holding: one looks the parcel over. Each thing
+there holding the good that one did not know of is found with chance min(1, own x visibility x 5 (a search's attention) x eye),
+own including its hiding (THINGS "hidden": under brush 0.2 taught, buried 0.03 taught). The first found is known from then on, from a
+close look, and taken from; none found: "you looked over P and found no G lying there". A slaughter's result says where its goods
+went.
+
+## Parameters
+
+| Parameter | Value | Status |
+|---|---|---|
+| own conspicuousness, presence, attention, eye, traces | above | proposed; calibrate |
+| trace lives | tracks 3 days, ashes 10, ruts a season | proposed; calibrate |
+| arrival lines | up to 5 | proposed; calibrate |
+
+## What agents see
+
+Things they notice, as signs in their daily notice ("a pack lies under the hazel at the wood's edge"); on arrival, "On the way:
+...". What they found and who saw them take it.
+
+## Open
+
+- Signs of slow change on long journeys (OPEN [[L-1 Signs of slow change on long journeys|L-1]]).
+- Smell (OPEN [[L-3 (Closed 2 Nov built D4-75's noticing carries sound and smell by st|L-3]]).
+
+## Sources
+
+[proposals/things_in_places.md](../../proposals/things_in_places.md), [journeys.md](../../proposals/journeys.md),
+[hidden_ways.md](../../proposals/hidden_ways.md), [visibility.md](../../proposals/visibility.md).
+
+*Current as of 2 Nov 2026: [[D2-85 One noticing rule for every thing at a spot|D2-85]], [[D2-86 A find on the road worth taking gives a short call|D2-86]], [[D2-88 Traces left by passers|D2-88]], [[D2-89 Signs of slow change on long journeys later, flagged|D2-89]], [[D2-91 One knack for spotting things the eye for the land|D2-91]], [[D2-97 Daily notices on the road|D2-97]], [[D2-98 Hidden ways are found by the noticing rule|D2-98]], [[D2-102 A thing's conspicuousness is its own|D2-102]], [[D2-115 Acting senses along the way|D2-115]], [[D4-53 Every sign and every event is noticed by the one noticing rule|D4-53]], [[D4-70 Taking from a place one does not know holds the thing is a searc|D4-70]], [[D4-75 Every perceived line about the world comes from the one noticing|D4-75]], [[D4-90 How much lies there, by its bulk|D4-90]], [[D4-98 A herd is seen|D4-98]].*
+

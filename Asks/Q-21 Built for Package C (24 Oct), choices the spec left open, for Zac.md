@@ -1,0 +1,25 @@
+---
+id: Q-21
+kind: ask
+state: open
+owner: "37.4, Zach to confirm (livestock items: 37.2)"
+updated: "2026-11-20"
+tags: [ask, open]
+---
+# Built for Package C (24 Oct), choices the spec left open, for Zach to confirm or change: (1) what draws a h...
+
+- **state**: open
+- **owner**: 37.4, Zach to confirm (livestock items: 37.2)
+- **where**: review 38.25
+
+## Text
+Built for Package C (24 Oct), choices the spec left open, for Zach to confirm or change: (1) what draws a herd's step: the share of its need it would eat on a parcel (grazing, or a crop at the 1% trampling rate), plus a ripe crop's pull while much of it is left, and water when hungry; cows in milk that wandered walk home at dusk (a shut fence round home lets them in at its odds); the pull falls off 0.8 a step, and a fenced parcel counts at its odds; (2) "good pasture" is grazing at 0.3 of its best or more; a fed herd on poorer grazing also roams up to 8 steps; (3) a herd in a crop is fed only by what it tramples (1% a head), so a hungry herd leaves a trampled field; (4) a fence has levels whole, gappy and down: a herd gets through a gappy wood fence at 0.6 and a gappy wall at 0.2; a quarter of the build in mending brings a gappy fence back a level; materials go in with the work in proportion; a fence in a world file counts as mended this season; (5) walling is a mason's craft (a crew led by one who knows it); `work {what: shut the gate}` is also an act (0 units); (6) a herd drifting off the road's end it came from goes to its home parcel; off the far end, onto the road's end parcel there, with an event at that node (salience 0.6); (7) in the find call, driving a herd a stretch back costs the party two days, going after a group that broke away one; `accompany {to: back}` turns the party back with the herd; the taker's claim is access and withdrawal, grounds "found"; (8) a group that split off rejoins its herd when they are on one parcel the next day; (9) `searching` matches a herd's name, its holders' name, or "cattle", "herd", "beasts"; (10) offers in a meeting close when the meeting ends; an agreement made there has the road as its place; (11) a hidden end worn to 0.8 is a path everyone at the node knows; a wood felled below 0.3 of its timber is open ground to the eye (sight 0.8) for all noticing; unused, wear falls to about a twentieth over a season; (12) dibbling goes to an adult whose trade names farm work (sow, seed, reap, plough, hoe, field), drawn by a keyed draw; (13) the way from where one slept starts at one's house at the node, else the built ground; the arrival overview is drawn from the built ground and its houses, the striking fittings (a mill, a smithy, a bake oven, a granary), crops, herds, woods and water, and how many people are about; (14) the default road terrain is farmland; (15) generation does not make parcels yet, so sides and heights come only from world files (default centre and 1, not spoken) [stale (5 Nov, from 37.2's sweep): the landscape generator now writes each parcel's side and height, landgen/write.py]; (16) the old rule that a stray herd walks home after a day is removed.
+
+## Mentioned by
+- [[Q-25 Zach's decisions now open, in one list|Q-25: Zach's decisions now open, in one list]]
+- [[parcel_graph Proposal the parcel graph (where things are inside a node|Proposal: the parcel graph (where things are inside a node)]]
+- [[02zo_open_decisions 02zo · What is open in 37.2's area, after sweeping|02zo · What is open in 37.2's area, after sweeping every pro]]
+- [[02zz_open_sorting 02zz sorting OPEN.md's open rows into the new kinds|02zz: sorting OPEN.md's open rows into the new kinds (draft,]]
+- [[period_a Period A (22 Oct to 3 Nov 2026) initiatives against their rec|Period A (22 Oct to 3 Nov 2026): initiatives against their r]]
+- [[25_package_c Review 38.25 Package C built and run (37.2's brief 02s) t|Review 38.25: Package C built and run (37.2's brief 02s): th]]
+- [[51_open_decisions 38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]

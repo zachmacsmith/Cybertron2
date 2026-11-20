@@ -1,0 +1,152 @@
+---
+id: docs/cybertron2/proposals/buildings_integration.md
+kind: proposal
+state: mostly settled. Package E (02y) was deferred until this was worked out (Zach, 24 Oct), then replaced by the building package (02zh), built ...
+owner: "37.2"
+updated: "2026-11-05"
+tags: [proposal, closed]
+---
+# Proposal: how buildings fit the other systems (before Package E is built)
+
+- **state**: mostly settled. Package E (02y) was deferred until this was worked out (Zach, 24 Oct), then replaced by the building package (02zh), built ...
+- **owner**: 37.2
+- **summary**: how buildings meet every other system; eight decisions before Package E: fuel and timber (woods too small; firewood apart from timber), beds for members, heating by floor, building ground as a claim, children, room access, fire and floods, materials over roads
+
+## Text
+# Proposal: how buildings fit the other systems (before Package E is built)
+
+**Status:** mostly settled. Package E (02y) was deferred until this was worked out (Zach, 24 Oct), then replaced by the building
+package (02zh), built 3 Nov (review 38.45). Decided and built: fuel ([[D2-156 A forest is three stocks|D2-156]] to [[D2-159 Shelter and fire are separate|D2-159]]; Package F), beds ([[D2-165 Household members need beds too|D2-165]], [[D4-86 Beds (D2-165), the defaults confirmed|D4-86]]), a hearth's
+reach ([[D2-159 Shelter and fire are separate|D2-159]], [[D4-93 One room, one fire|D4-93]]). Still open: 2 questions (4 in part, building ground as a claim; 5, room bookings), listed in Open
+questions. **Owner:** 37.2. **Affects:**
+spec/economy/buildings.md and every file named below.
+
+## Summary
+
+Buildings touch almost every system. Most connections are already consistent (rooms as speech channels, raids by structure, home
+derived from use, spoilage by fitting). Eight need a decision before Package E is built, because building it without them would
+either do nothing (nobody needs to build) or break something (fuel, beds, ground). The largest is fuel: timber is both what houses
+are built of and what every hearth burns, and the worlds' woods are far too small for either, so they are stripped within days.
+
+## 1. What already fits
+
+| System | How buildings meet it | State |
+|---|---|---|
+| parcel graph ([[D2-114 A node's parcels form a graph of neighbours, shaped by the envi|D2-114]] to [[D2-116 The village as a whole|D2-116]]) | buildings stand on parcels; built ground's sight 0.7; the village overview names notable buildings | fits |
+| noticing and visibility ([[D2-85 One noticing rule for every thing at a spot|D2-85]], [[D2-99 Visibility per place and sense|D2-99]]) | inside a building one sees its room only; goods inside are unseen from outside; a building's signs (smoke when the fire is lit, a light at night, the roof mending) | fits |
+| speech ([[D2-7 Speech at a node|D2-7]], [[D4-30 Speaking in a building is one general action for any building|D4-30]]) | speaking in a building reaches those with access to it | fits; per building, not per room |
+| fuse events ([[D2-81 Which events have a fuse in the first worlds|D2-81]], [[D2-118 Build choices confirmed (OPEN Q-20 1, 3, 4)|D2-118]]) | a raid's fuse by structure (wattle none, timber 1 act, stone 3) | fits; an upgrade changes it |
+| raids and defence ([[D2-20 Three kinds of attack|D2-20]], [[D2-51 A node raid can include orders to burn|D2-51]]) | walls multiply defence; stone less likely to be picked; burn orders | fits |
+| households ([[D4-36 Moving is general, not a feature|D4-36]]) | home derived from use; occupy an empty house; build one | fits |
+| decay ([[D2-58 Grain spoils a little|D2-58]], [[D2-87 Left things are held by nobody|D2-87]]) | bins, granary floor and cellar slow spoilage | fits; storage capacity new in E |
+| agreements and hiring ([[D2-31 One system of agreements made of legs|D2-31]] to [[D2-40 The first presets|D2-40]]) | `for` on build; wages for builders; a house paid for in instalments | fits |
+
+## 2. What needs a decision
+
+### 2a. Fuel and timber (the largest)
+
+- **Timber is both the building material and the only fuel.** A hearth burns 21 over a 24-day run; a cottage takes about 13 timber
+  to build. Every house built is most of a winter's fire.
+- **The worlds' woods are too small.** Standing wood near the villages is 7 to 75 timber a unit of forest size (hamlet's Hollow Wood
+  55, region_c's copses 10 to 20 with no regrowth, Deep Wood 420 for size 6), and regrowth (r 0.03) gives a size-2 wood about 0.45
+  timber a day at most, against 2 to 3.5 a day for a village's hearths. So every run mines its near woods bare within one or two
+  weeks. A year of burning (24 days) should not strip a wood that took a century to grow.
+- **Proposed:**
+  1. **Size woods by kind and size:** standing timber per unit of size about 300 for old forest, 100 for a managed wood, 40 for a
+     copse, none for scrub; regrowth slow for old forest, faster for coppice (cut in rotation). Felling a whole old wood should take
+     years, so labour and carrying, not the stock, bind.
+  2. **Firewood apart from timber:** dead wood, brush and coppice poles as **firewood**, gathered by anyone (3 a unit) from a fast
+     regrowing pool in woods and scrub (about 5 a unit of size, regrowing in days), burnable but not buildable; timber (felled from
+     standing trees, with a tool) builds and can also burn. This is the historical split (commoners' firewood rights against the
+     lord's timber) and lets houses and fires stop competing for the same stock.
+  3. **Small woods near villages, large forests beyond (Zach, 24 Oct):** a village's own wood is small and regrows (a copse or coppice
+     giving perhaps 10 to 30% of its fuel each year), while old forest spans several nodes one or two days out, with large standing
+     stock and slow regrowth. Getting wood then pushes people outward: woodcutters' camps ([[D2-68 Camps and portable shelter|D2-68]]), forest villages that sell wood,
+     roads and hidden ways through woodland, and new settlements cleared in the forest (with E's clearing). To stay possible
+     (38.23 died of fuel out of reach): **charcoal burns in a hearth** (proposed: 1 charcoal gives the heat of 3 timber at the weight
+     of 1 timber), so distant fuel can be carried at a third of the weight, at the cost of 40% of the wood and 2 units a charcoal; and
+     the capacity check counts carrying.
+     For a village of 4 hearths (84 timber a run) whose copse gives 12: the rest from a forest 1 day out is 8 pack trips (8
+     carrier-days, about 3% of its adults' days); from 2 days out, 24 carrier-days (10%); as charcoal from 2 days out, about 8.
+- Any of these needs the capacity check (38.21) to compare fuel and building needs against what woods give back, not what stands.
+
+### 2b. Beds and who sleeps where
+
+- The engine lets household members sleep at home whatever the beds (night.py: "members sleep at home always"); only guests need a
+  free bed. E's rule "people housed are the beds" is then empty for families.
+- **Proposed:** members need a bed too, or sleep as `damaged` shelter (1.2 food, 1.5 cold) on the floor; **an infant shares its
+  carer's bed; two children share one.** Then a family growing (Package D) needs beds, so floor, so a room.
+
+### 2c. Heating a larger building
+
+- Fuel is per building with a fire (0.5 a night, 2 cold) whatever its size: a hall for 25 burns what a cottage does.
+- **Proposed:** a hearth warms 12 spaces; fuel scales with floor heated (a hall needs about 3 hearths' fuel, or its far end is
+  `no_fuel` in the cold).
+
+### 2d. Who may build where
+
+- Today anyone may build on any built ground or scrub. With ground limited, a household's yard, the common and another's garden
+  differ.
+- **Proposed:** building on a parcel is a claim like any other ([[D4-23 Holding is a recognised claim|D4-23]]): the engine enforces only possession, so anyone can build,
+  but on ground another household claims it is seen and disputed by custom or law; a parcel's ground can be claimed in part (spaces
+  of it). Clearing makes a claim with grounds `cleared`.
+
+### 2e. Children (Package D)
+
+- Infants and children sleep in their household's house (2b); a new partnership forming a household needs a house: occupy an empty
+  one, join, or build ([[D4-36 Moving is general, not a feature|D4-36]]), so ground and timber become the limit on new households.
+
+### 2f. Rooms and access
+
+- Access is per building now ([[D4-30 Speaking in a building is one general action for any building|D4-30]]). With rooms, a hall's room may be booked while the house's rooms stay private.
+- **Proposed:** keep access per building in E; booking a room as an agreement whose leg grants access for days (a leg type agreements
+  do not yet have).
+
+### 2g. Fire and floods (later: [[L-21 Fire house fire and wildfire in the scheduler, spreading along th|L-21]], [[L-23 Water as a need, and the land's hidden state (water table, wells,|L-23]])
+
+- Density makes fire spread ([[D2-72 Fires spread with the node's conditions, and between nodes|D2-72]], [[D2-78 Six spreading patterns|D2-78]]: neighbouring buildings); storeys make escape harder ([[D2-50 Fire kills|D2-50]]); low parcels (height 0) flood
+  and wet their stores. E should record each building's parcel, structure and storeys so these can read them later.
+
+### 2h. Materials over roads
+
+- Timber barely travels one road by pack and stone (weight 3) less (02u), so stone houses stand near quarries and fieldstone;
+  Barleyfield builds dear. This is intended (a dependence), but it should be checked in the capacity check with E's costs.
+
+## Open questions (for Zach)
+
+1. Fuel: now worked out as a system in [forests.md](forests.md). Size woods by kind (2a.1), split firewood from timber (2a.2), small woods with forests beyond and charcoal in hearths
+   (2a.3)? — Decided: [[D2-156 A forest is three stocks|D2-156]] (woods as three stocks at real sizes by kind: old forest about 2,500 timber a unit of size, a managed
+   wood 600, a copse 300, not 2a.1's numbers; each world sets the push by its near woods), [[D2-157 Fuel in heat|D2-157]] (firewood apart from timber;
+   charcoal 6 heat, burning in a hearth), [[D2-158 Default rights in woods|D2-158]] (rights in woods), [[D2-161 Seed nodes below what they sustain|D2-161]] (capacity checks count yearly flows). Built: forests.py
+   (Package F; OPEN [[Q-23 Built for Package F (24 Oct), choices the spec left open, for Zac|Q-23]]).
+2. Beds for members, with infants sharing and two children a bed (2b)? **Answered 3 Nov: members need beds; seeded houses
+   start with them ([[D2-165 Household members need beds too|D2-165]]); the sharing rules to confirm.** — Confirmed 2 Nov: [[D4-86 Beds (D2-165), the defaults confirmed|D4-86]]; built (38.45 part 5; data.py PHYSICS beds).
+3. A hearth warming 12 spaces, fuel scaling with floor (2c)? — Decided: [[D2-159 Shelter and fire are separate|D2-159]] (a hearth fully warms 12 spaces, a fire ring
+   half-warms 6) and [[D4-93 One room, one fire|D4-93]] (each hearth burns its own heat; one room, one fire). Built: night.py warms by floor (OPEN [[Q-24 Built for the building package (02zh, 3 Nov), readings of the bri|Q-24]] (9)).
+4. Building ground as a claim, disputed by custom (2d)? — In part: as built under [[D4-23 Holding is a recognised claim|D4-23]], building on ground another holds is not
+   refused, and a new building is claimed with grounds `built`; clearing for building makes a claim with grounds `cleared` (02zh
+   §8, built). Still open: claiming part of a parcel's ground (spaces of it); [[D2-163 Land is held in plot shares within a parcel|D2-163]]'s plot shares are for fields.
+5. Room bookings as an access leg in agreements, later (2f)? — Still open: not built (02zh, "Not in this package"); spec
+   economy/buildings.md lists it as open. Access stays per building ([[D4-30 Speaking in a building is one general action for any building|D4-30]]).
+
+## History
+
+- 24 Oct: Zach: defer Package E; first consider how buildings integrate with the other systems; and the little forests seem to be
+  stripped bare quickly in every run. Written.
+
+- 24 Oct: Zach: smaller woods near villages, with forests across several nodes, so getting timber pushes societies out into
+  the forests. Added as 2a.3 with charcoal in hearths and the carrying it costs.
+
+- 3 Nov: Zach: household members need beds, and houses start with them ([[D2-165 Household members need beds too|D2-165]]). Calibration of every building and fitting:
+  [02zf](../../review/37_growth/02zf_buildings_calibration.py).
+
+- 5 Nov: Swept against DECISIONS, the spec and what is built (37.2): fuel, beds and heating are decided and built; Package E
+  became 02zh, built 3 Nov, recording each building's parcel, structure and storeys (2g); questions 4 (in part) and 5 stay open.
+
+## Sources
+
+[spec/economy/buildings.md](../spec/economy/buildings.md), [02x](../../review/37_growth/02x_housing_model.py),
+[02u](../../review/37_growth/02u_transport_check.md), [38.23](../../review/38_space_engine/23_region_run.md);
+cybertron2/engine/night.py (sleeping places, fuel), cybertron2/specs/*.yaml (wood stocks); [[D2-7 Speech at a node|D2-7]], [[D2-20 Three kinds of attack|D2-20]], [[D2-50 Fire kills|D2-50]], [[D2-51 A node raid can include orders to burn|D2-51]], [[D2-58 Grain spoils a little|D2-58]], [[D2-72 Fires spread with the node's conditions, and between nodes|D2-72]],
+[[D2-78 Six spreading patterns|D2-78]], [[D2-81 Which events have a fuse in the first worlds|D2-81]], [[D2-85 One noticing rule for every thing at a spot|D2-85]], [[D2-87 Left things are held by nobody|D2-87]], [[D2-99 Visibility per place and sense|D2-99]], [[D2-114 A node's parcels form a graph of neighbours, shaped by the envi|D2-114]] to [[D2-116 The village as a whole|D2-116]], [[D2-118 Build choices confirmed (OPEN Q-20 1, 3, 4)|D2-118]], [[D4-23 Holding is a recognised claim|D4-23]], [[D4-30 Speaking in a building is one general action for any building|D4-30]], [[D4-36 Moving is general, not a feature|D4-36]].
+
