@@ -90,6 +90,7 @@ every calibration of weather, water and the wild layer.
 
 ## History
 
+- 20 Nov 2026: accepted in part: D2-245 (The calibration suite is all twelve worlds of proposals/calibration_worlds.md (l).
 - 17 Nov 2026: written by 37.2 after Zach's statement (D2-228).
 
 ## Sources
