@@ -9,7 +9,7 @@ updated: "2026-11-20"
 
 *active · 37.2 · touched 20 Nov (today)*
 
-> **Next:** the order: the water work merged to main ([[Q-53 Merging the water work|Q-53]], Zach's go and 37.4), then the food-value data change ([[D2-258 The food values are put on one physical basis|D2-258]]) and the switches ([[O-3 Build the switches that turn a food source off in a world|O-3]]), then competent fishing bots (Zach, 20 Nov: '2. yes'), the arms remade, then the low and high live runs on his go
+> **Next:** after the merge ([[W-62 Merging the water work from its twelve branches into main|W-62]]): the value lookup and data change ([[D2-258 The food values are put on one physical basis|D2-258]]), the switches ([[O-3 Build the switches that turn a food source off in a world|O-3]]), competent fishing bots, the arms remade, then the low and high live runs (Zach, 20 Nov: '4. yes')
 
 ## What it is
 **Subsistence worlds: a village off the runs alone, and off hunting alone**: Zach, 20 Nov ([[D2-242 Subsistence test worlds|D2-242]]): the runs world did not test whether a village can live off runs alone (it has fields; fish looks badly calibrated). Build a set of calibration worlds: runs only, hunting only; each survivable at medium skill and capital, with a surplus up to a bound at more. Folded in: fish nutrition (the eel at a fifth of its real food, [[W-64 Food, weight and work on one basis|W-64]]), the run numbers, the river frequencies ([[Q-52 Environment systems|Q-52]] 6), the brook fished out ([[Q-57 Fishing, from the lake run|Q-57]] c), hunting against farming ([[Q-46 Brief 4c as built|Q-46]] b, c; [[W-22 Hunting against farming and gathering in generated worlds|W-22]]'s measured changes)
@@ -34,7 +34,7 @@ updated: "2026-11-20"
 - under it: [[D2-257 The nutrition worlds|The nutrition worlds (D2-257)]] (live)
 - under it: [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]] (open)
 - under it: [[O-2 Make the eleven bulk processes take up to their batch|Make the eleven bulk processes take up to their batch (O-2)]] (open)
-- under it: [[O-3 Build the switches that turn a food source off in a world|Build the switches that turn a food source off in a world (O-3)]] (open)
+- under it: [[O-3 Build the switches that turn a food source off in a world|Build the switches that turn a food source off in a world (O-3)]] (accepted)
 - under it: [[Q-66 The nutrition worlds|The nutrition worlds (Q-66)]] (closed)
 - under it: [[Q-68 How high the surplus can go in the medieval worlds, against the…|How high the surplus can go in the medieval worlds, against the… (Q-68)]] (open)
 

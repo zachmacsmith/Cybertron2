@@ -8,7 +8,7 @@
 - [[W-65 The records system|The records system (W-65)]] (active)
 - [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]] (active)
 - [[W-63 The audit of work started and left, and the triage of open asks and…|The audit of work started and left, and the triage of open asks and… (W-63)]] (active)
-- [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]] (waiting)
+- [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]] (active)
 - [[W-60 Fixing the ecology's water counted twice, then rechecking the…|Fixing the ecology's water counted twice, then rechecking the… (W-60)]] (active)
 - [[W-59 The runs world for the model-per-household run|The runs world for the model-per-household run (W-59)]] (waiting)
 - [[W-58 The runs world with a model to each household|The runs world with a model to each household (W-58)]] (paused)
