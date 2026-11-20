@@ -30,4 +30,5 @@ deferred 20 Nov: deferred as [[L-105 Forays as their own track|L-105]] (02zzr)
 ## Mentioned by
 - [[Q-33 forays.md's open questions|forays.md's open questions (Q-33)]]
 - [[L-105 Forays as their own track|Forays as their own track (L-105)]]
+- [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
 - *and 5 index or audit notes*
