@@ -19,8 +19,13 @@ paused during day 29 (19 Nov 21:47, Zach: usage over 95%): days 1-28 committed, 
 - `branch `runs-models`: specs/make_runs_models.py, specs/water/runs_models.yaml`
 
 
+## Linked
+- under it: [[L-140 A death in the day's work|A death in the day's work (L-140)]] (open)
+
+
 ## Mentioned by
 - [[L-128 'salt pan' names two things|'salt pan' names two things (L-128)]]
+- [[L-140 A death in the day's work|A death in the day's work (L-140)]]
 - [[A lesson is in the teacher's craft|A lesson is in the teacher's craft]]
 - [[Resume from the last finished day, without replay|Resume from the last finished day, without replay]]
 - [[Shared units food value, weight and work on one basis|Shared units: food value, weight and work on one basis]]

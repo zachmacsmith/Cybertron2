@@ -1,6 +1,7 @@
 # All deferred
 
 ## Open
+- [[L-140 A death in the day's work|A death in the day's work (L-140)]] (open)
 - [[L-139 A hen killed in a raid gives its meat|A hen killed in a raid gives its meat (L-139)]] (open)
 - [[L-138 Hens lay on the old clock|Hens lay on the old clock (L-138)]] (open)
 - [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]] (open)
