@@ -398,7 +398,7 @@ nodes:
         size: 1
         side: north
         height: 0
-        text: running water, low by the water
+        text: open water of the mere, still and deep
         adj:
         - Meresby_11
         - Meresby_9
@@ -430,7 +430,7 @@ nodes:
         size: 1
         side: north
         height: 0
-        text: running water, low by the water
+        text: open water of the mere, still and deep
         adj:
         - Meresby_10
         terrain: water

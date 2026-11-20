@@ -585,7 +585,7 @@ nodes:
           drain_rate: 0.25
           depth: 1.14
           base_fertility: 1.15
-          position: hollow
+          position: slope
           rain_factor: 0.968
           sea_km: 99.0
           river: none
@@ -1009,7 +1009,7 @@ nodes:
           drain_rate: 0.08
           depth: 1.11
           base_fertility: 1.05
-          position: hollow
+          position: slope
           rain_factor: 1.003
           sea_km: 99.0
           river: none
@@ -1254,7 +1254,7 @@ nodes:
           drain_rate: 0.25
           depth: 1.18
           base_fertility: 1.15
-          position: hollow
+          position: slope
           rain_factor: 0.993
           sea_km: 99.0
           river: none
@@ -2593,6 +2593,15 @@ buildings:
       dung: 10
       wooden plough: 1
       harness: 2
+  brook_salthouse:
+    parcel: Highpool_7
+    household: Brook
+    structure: wattle
+    name: the Salt House
+    fittings:
+      brine pan: 1
+    stock:
+      firewood: 20
 herds:
   field_cattle:
     name: the Field cattle

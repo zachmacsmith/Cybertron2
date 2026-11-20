@@ -379,6 +379,7 @@
    "parcel": "Saltwell_2",
    "name": "the Brine Meadow",
    "held_by": "Hunt",
+   "salt_house": "hunt_salthouse",
    "salter_craft": true
   },
   "mill": {
@@ -404,5 +405,6 @@
    "Millham": 7.0
   },
   "wild_areas_on_the_big_river": 10
- }
+ },
+ "craft_gates": []
 }
