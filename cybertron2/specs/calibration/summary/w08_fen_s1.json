@@ -1,0 +1,331 @@
+{
+ "world": "w08",
+ "seed": 1,
+ "name": "Fen basin",
+ "stands for": "the Fens",
+ "generate": {
+  "settlements": 3,
+  "household_size": 3,
+  "warn_only": [
+   "capacity"
+  ],
+  "configuration": "fen with islands",
+  "rain_mm": 600.0,
+  "temperature_c": 10.0,
+  "seed": 1
+ },
+ "settings why": "the table names the configuration; 600 mm and 10 C from the Fens' stations (Cambridge, Wisbech)",
+ "generator checks": {
+  "rivers run downhill": true,
+  "laid rivers run where laid": true,
+  "every pin met": true,
+  "settlements placed": true,
+  "capacity": false,
+  "dependence": false,
+  "reachable by land": true,
+  "chokepoint": false,
+  "roads about a day": true,
+  "parcels per node": true,
+  "access gates": true,
+  "makes its own landscape": true,
+  "lakes where lakes belong": true,
+  "wood share by how long settled": true,
+  "predators within range": true
+ },
+ "land": {
+  "land km2": 2309.5,
+  "sea share": 0.076,
+  "height": {
+   "median m": 46.4,
+   "p95 m": 84.3,
+   "max m": 114.0,
+   "share over 300 m": 0.0,
+   "share over 500 m": 0.0,
+   "share over 1000 m": 0.0
+  },
+  "slope": {
+   "median deg": 0.8,
+   "p95 deg": 2.2,
+   "share over 10 deg": 0.0013,
+   "share over 25 deg": 0.0
+  },
+  "terrain": {
+   "chalk down": 0.0018,
+   "clay vale": 0.1601,
+   "coast": 0.0014,
+   "fen": 0.1804,
+   "hills": 0.0,
+   "lowland loam": 0.4283,
+   "moor": 0.0,
+   "river floodplain": 0.0771,
+   "river terrace": 0.0972,
+   "saltmarsh": 0.0001,
+   "sandy ground": 0.0489,
+   "water": 0.0046
+  },
+  "floodplain share": 0.0771,
+  "terrace share": 0.0972,
+  "low ground": {
+   "share of land within 2 m of a river": 0.2409,
+   "share of land within 3 km of a river of class 2+ that is within 2 m of it": 0.2687
+  },
+  "wet ground share (wet >= 0.75)": 0.1527,
+  "texture": {
+   "sand": 0.1052,
+   "loam": 0.5366,
+   "clay": 0.1898,
+   "chalk": 0.0018,
+   "peat": 0.1666
+  },
+  "soil": {
+   "depth m mean": 1.15,
+   "held mm mean": 205.6,
+   "drain mean": 0.211,
+   "fertility mean": 1.042
+  },
+  "cover": {
+   "fen": 0.1858,
+   "forest": 0.2986,
+   "heath": 0.0048,
+   "meadow": 0.1323,
+   "moor": 0.0,
+   "pasture": 0.3727,
+   "saltmarsh": 0.0011,
+   "water": 0.0046
+  },
+  "ecosystem": {
+   "alder carr": 0.0228,
+   "beech wood": 0.001,
+   "birch and pine wood": 0.0439,
+   "blanket bog": 0.0,
+   "chalk grassland": 0.0009,
+   "dune grassland": 0.0013,
+   "fen": 0.1181,
+   "grassland": 0.3705,
+   "hay meadow": 0.0215,
+   "lowland heath": 0.0048,
+   "oak-ash wood": 0.2309,
+   "reedbed": 0.0678,
+   "saltmarsh": 0.0011,
+   "upland oak wood": 0.0,
+   "water": 0.0046,
+   "wet grassland": 0.1108
+  },
+  "tree line": {
+   "lowest land too cold for wood, m": null,
+   "highest wood (p99), m": 98.1,
+   "land above the tree line share": 0.0
+  },
+  "water": {
+   "lake share": 0.0,
+   "lakes": 0,
+   "largest lake km2": 0.0,
+   "river km by class": {
+    "1": 73.2,
+    "2": 93.5,
+    "3": 71.0
+   },
+   "springs": 69
+  },
+  "climate (the generator's)": {
+   "rain mm": {
+    "median": 471.6,
+    "p5": 471.6,
+    "p95": 1037.7
+   },
+   "mean temp C": 9.72,
+   "coldest land C": 8.57
+  },
+  "probes": {
+   "all land": {
+    "cells": 102643,
+    "height m": 46.4,
+    "rain mm": 471.6,
+    "rain mm mean": 561.0,
+    "mean temp C": 9.72,
+    "wet": 0.395,
+    "held mm": 205.6,
+    "drain": 0.211
+   },
+   "coast (within 3 km of the sea)": {
+    "cells": 6933,
+    "height m": 46.6,
+    "rain mm": 471.6,
+    "rain mm mean": 515.0,
+    "mean temp C": 9.72,
+    "wet": 0.311,
+    "held mm": 164.8,
+    "drain": 0.222
+   },
+   "inland lowland (over 10 km from the sea, under 150 m)": {
+    "cells": 84201,
+    "height m": 46.8,
+    "rain mm": 471.6,
+    "rain mm mean": 571.0,
+    "mean temp C": 9.71,
+    "wet": 0.395,
+    "held mm": 207.4,
+    "drain": 0.211
+   },
+   "tops (the highest 5% of land)": {
+    "cells": 5133,
+    "height m": 89.1,
+    "rain mm": 483.7,
+    "rain mm mean": 586.0,
+    "mean temp C": 9.54,
+    "wet": 0.144,
+    "held mm": 163.4,
+    "drain": 0.299
+   },
+   "on sand": {
+    "cells": 10793,
+    "height m": 53.2,
+    "rain mm": 509.5,
+    "rain mm mean": 635.0,
+    "mean temp C": 9.61,
+    "wet": 0.221,
+    "held mm": 79.9,
+    "drain": 0.5
+   },
+   "on loam": {
+    "cells": 55079,
+    "height m": 53.6,
+    "rain mm": 471.6,
+    "rain mm mean": 577.0,
+    "mean temp C": 9.65,
+    "wet": 0.293,
+    "held mm": 195.0,
+    "drain": 0.25
+   },
+   "on clay": {
+    "cells": 19478,
+    "height m": 50.1,
+    "rain mm": 479.8,
+    "rain mm mean": 551.0,
+    "mean temp C": 9.74,
+    "wet": 0.376,
+    "held mm": 171.8,
+    "drain": 0.08
+   },
+   "on chalk": {
+    "cells": 189,
+    "height m": 82.5,
+    "rain mm": 471.6,
+    "rain mm mean": 493.0,
+    "mean temp C": 9.55,
+    "wet": 0.017,
+    "held mm": 159.7,
+    "drain": 0.4
+   },
+   "on peat": {
+    "cells": 17104,
+    "height m": 1.2,
+    "rain mm": 471.6,
+    "rain mm mean": 476.0,
+    "mean temp C": 9.99,
+    "wet": 0.858,
+    "held mm": 358.1,
+    "drain": 0.05
+   }
+  },
+  "nodes": {
+   "s1": {
+    "name": "Watworth",
+    "kind": "village",
+    "elevation": 36.9,
+    "rain_mm": 510.0,
+    "xy": [
+     14.54,
+     42.25
+    ],
+    "sea km": 99.0,
+    "terrain": "river floodplain",
+    "mean temp C": 9.25
+   },
+   "s2": {
+    "name": "Marford",
+    "kind": "village",
+    "elevation": 47.0,
+    "rain_mm": 514.0,
+    "xy": [
+     10.37,
+     8.0
+    ],
+    "sea km": 99.0,
+    "terrain": "river floodplain",
+    "mean temp C": 10.2
+   },
+   "s3": {
+    "name": "Meadwick",
+    "kind": "village",
+    "elevation": 31.5,
+    "rain_mm": 472.0,
+    "xy": [
+     29.69,
+     5.23
+    ],
+    "sea km": 99.0,
+    "terrain": "clay vale",
+    "mean temp C": 10.38
+   },
+   "w1": {
+    "name": "Oakhurst",
+    "kind": "other",
+    "elevation": 69.0,
+    "rain_mm": 472.0,
+    "xy": [
+     13.83,
+     16.67
+    ],
+    "sea km": 99.0,
+    "terrain": "clay vale",
+    "mean temp C": 9.8
+   },
+   "t1": {
+    "name": "Fleetholt",
+    "kind": "other",
+    "elevation": 47.0,
+    "rain_mm": 472.0,
+    "xy": [
+     10.65,
+     25.24
+    ],
+    "sea km": 99.0,
+    "terrain": "river terrace",
+    "mean temp C": 9.64
+   }
+  },
+  "water allocation": {
+   "Watworth": {
+    "water parcels": 1,
+    "water cells": 2,
+    "river km in reach (class 1+ / 2+)": [
+     8.2,
+     2.5
+    ],
+    "lake km2 in reach": 0.0,
+    "shore km in reach": 0.0
+   },
+   "Marford": {
+    "water parcels": 1,
+    "water cells": 2,
+    "river km in reach (class 1+ / 2+)": [
+     7.5,
+     4.8
+    ],
+    "lake km2 in reach": 0.0,
+    "shore km in reach": 0.0
+   },
+   "Meadwick": {
+    "water parcels": 0,
+    "water cells": 0,
+    "river km in reach (class 1+ / 2+)": [
+     0.6,
+     0.0
+    ],
+    "lake km2 in reach": 0.0,
+    "shore km in reach": 0.0
+   }
+  }
+ }
+}

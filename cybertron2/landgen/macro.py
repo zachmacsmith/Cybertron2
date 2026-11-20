@@ -95,6 +95,7 @@ def compose(g: Grid, prims: list) -> dict:
     ore = np.zeros(g.shape, dtype=bool)
     systems = {k: np.zeros(g.shape) for k in SYSTEMS}
     lake_ok = np.zeros(g.shape, dtype=bool)
+    laid_lake = np.zeros(g.shape, dtype=bool)                              # a lake the file lays: kept whatever the cap (W-54)
     rivers, anchors = [], {}
     A = lambda name, key, pt: anchors.__setitem__(f"{name}.{key}" if key else name, [float(pt[0]), float(pt[1])])
     for p in prims:
@@ -191,6 +192,7 @@ def compose(g: Grid, prims: list) -> dict:
                 add -= 25.0 * b
                 wet += b
                 lake_ok |= b > 0.3
+                laid_lake |= b > 0.6
             else:                                                              # a fen: flat, wet peat, its own system
                 flat = np.maximum(flat, np.clip(1.6 * b, 0, 1))
                 wet += 0.95 * b
@@ -234,7 +236,7 @@ def compose(g: Grid, prims: list) -> dict:
         else:
             raise ValueError(f"unknown primitive kind {k!r}")
     lake_ok |= systems["fen"] > 0.5
-    return {"px": px, "py": py, "ore": ore, "systems": systems, "lake_ok": lake_ok, "land": land, "add": add, "tex": tex, "wild": np.clip(wild, 0, 1), "wet": np.clip(wet, 0, 1),
+    return {"px": px, "py": py, "ore": ore, "systems": systems, "lake_ok": lake_ok, "laid_lake": laid_lake, "land": land, "add": add, "tex": tex, "wild": np.clip(wild, 0, 1), "wet": np.clip(wet, 0, 1),
             "moist": np.clip(moist, 0, 1), "flat": np.clip(flat, 0, 1), "rivers": rivers,
             "anchors": {k: [v[0] * g.size_km, v[1] * g.size_km] for k, v in anchors.items()}}
 

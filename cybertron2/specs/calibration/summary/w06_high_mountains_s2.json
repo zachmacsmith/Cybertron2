@@ -1,0 +1,333 @@
+{
+ "world": "w06",
+ "seed": 2,
+ "name": "High mountains",
+ "stands for": "the Highlands, a cold extreme (D2-227)",
+ "generate": {
+  "settlements": 3,
+  "household_size": 3,
+  "warn_only": [
+   "capacity"
+  ],
+  "configuration": "upland and moor",
+  "configuration_params": {
+   "moor": {
+    "height": 900.0
+   }
+  },
+  "features": [
+   {
+    "kind": "massif",
+    "name": "summit",
+    "at": [
+     0.78,
+     0.78
+    ],
+    "r": 0.12,
+    "height": 300.0
+   }
+  ],
+  "rain_mm": 1100.0,
+  "temperature_c": 8.5,
+  "seed": 2
+ },
+ "settings why": "upland and moor with its moor raised from 560 to 900 m and a 300 m summit laid on it (existing settings: configuration_params and a massif), so the tops reach about 1,500 m (1,150 and 450 made 1,950 m); 1,100 mm and 8.5 C at a Highland glen's foot (Fort Augustus, Braemar)",
+ "generator checks": {
+  "rivers run downhill": true,
+  "laid rivers run where laid": true,
+  "every pin met": true,
+  "settlements placed": true,
+  "capacity": false,
+  "dependence": true,
+  "reachable by land": true,
+  "chokepoint": true,
+  "roads about a day": true,
+  "parcels per node": true,
+  "access gates": true,
+  "makes its own landscape": true,
+  "lakes where lakes belong": true,
+  "wood share by how long settled": true,
+  "predators within range": true
+ },
+ "land": {
+  "land km2": 2440.6,
+  "sea share": 0.0,
+  "height": {
+   "median m": 135.9,
+   "p95 m": 931.1,
+   "max m": 1619.5,
+   "share over 300 m": 0.2743,
+   "share over 500 m": 0.1647,
+   "share over 1000 m": 0.0373
+  },
+  "slope": {
+   "median deg": 2.4,
+   "p95 deg": 20.2,
+   "share over 10 deg": 0.1605,
+   "share over 25 deg": 0.0282
+  },
+  "terrain": {
+   "chalk down": 0.0457,
+   "clay vale": 0.1275,
+   "hills": 0.1276,
+   "lowland loam": 0.342,
+   "moor": 0.006,
+   "river floodplain": 0.1236,
+   "river terrace": 0.0729,
+   "rock": 0.0151,
+   "sandy ground": 0.0316,
+   "upland pasture": 0.0805,
+   "water": 0.0277
+  },
+  "floodplain share": 0.1236,
+  "terrace share": 0.0729,
+  "low ground": {
+   "share of land within 2 m of a river": 0.1593,
+   "share of land within 3 km of a river of class 2+ that is within 2 m of it": 0.2209
+  },
+  "wet ground share (wet >= 0.75)": 0.0622,
+  "texture": {
+   "sand": 0.0878,
+   "loam": 0.6839,
+   "clay": 0.1599,
+   "chalk": 0.0683,
+   "peat": 0.0
+  },
+  "soil": {
+   "depth m mean": 0.96,
+   "held mm mean": 149.1,
+   "drain mean": 0.255,
+   "fertility mean": 0.878
+  },
+  "cover": {
+   "fen": 0.0126,
+   "forest": 0.2917,
+   "heath": 0.0036,
+   "meadow": 0.0805,
+   "moor": 0.1668,
+   "pasture": 0.4022,
+   "rock": 0.0151,
+   "water": 0.0277
+  },
+  "ecosystem": {
+   "alder carr": 0.0088,
+   "bare rock": 0.0151,
+   "beech wood": 0.0133,
+   "birch and pine wood": 0.0057,
+   "blanket bog": 0.0021,
+   "chalk grassland": 0.0111,
+   "fen": 0.0126,
+   "grassland": 0.2667,
+   "hay meadow": 0.058,
+   "hill pasture": 0.1243,
+   "lowland heath": 0.0036,
+   "moor": 0.1647,
+   "oak-ash wood": 0.0814,
+   "upland oak wood": 0.1825,
+   "water": 0.0277,
+   "wet grassland": 0.0225
+  },
+  "tree line": {
+   "lowest land too cold for wood, m": 558.5,
+   "highest wood (p99), m": 442.6,
+   "land above the tree line share": 0.1464
+  },
+  "water": {
+   "lake share": 0.0241,
+   "lakes": 10,
+   "largest lake km2": 12.67,
+   "river km by class": {
+    "1": 140.1,
+    "2": 114.5,
+    "3": 59.5
+   },
+   "springs": 262
+  },
+  "climate (the generator's)": {
+   "rain mm": {
+    "median": 962.2,
+    "p5": 864.6,
+    "p95": 3039.8
+   },
+   "mean temp C": 6.76,
+   "coldest land C": -2.55
+  },
+  "probes": {
+   "all land": {
+    "cells": 108470,
+    "height m": 135.9,
+    "rain mm": 962.2,
+    "rain mm mean": 1294.0,
+    "mean temp C": 6.76,
+    "wet": 0.316,
+    "held mm": 149.1,
+    "drain": 0.255
+   },
+   "coast (within 3 km of the sea)": {
+    "cells": 0
+   },
+   "inland lowland (over 10 km from the sea, under 150 m)": {
+    "cells": 57715,
+    "height m": 84.0,
+    "rain mm": 962.3,
+    "rain mm mean": 1197.0,
+    "mean temp C": 8.11,
+    "wet": 0.402,
+    "held mm": 173.1,
+    "drain": 0.234
+   },
+   "tops (the highest 5% of land)": {
+    "cells": 5425,
+    "height m": 1092.8,
+    "rain mm": 1076.1,
+    "rain mm mean": 1712.0,
+    "mean temp C": 0.84,
+    "wet": 0.128,
+    "held mm": 59.2,
+    "drain": 0.297
+   },
+   "on sand": {
+    "cells": 9527,
+    "height m": 129.2,
+    "rain mm": 958.8,
+    "rain mm mean": 1205.0,
+    "mean temp C": 6.73,
+    "wet": 0.259,
+    "held mm": 66.8,
+    "drain": 0.5
+   },
+   "on loam": {
+    "cells": 74185,
+    "height m": 183.2,
+    "rain mm": 961.8,
+    "rain mm mean": 1356.0,
+    "mean temp C": 6.53,
+    "wet": 0.304,
+    "held mm": 157.6,
+    "drain": 0.25
+   },
+   "on clay": {
+    "cells": 17349,
+    "height m": 90.0,
+    "rain mm": 994.7,
+    "rain mm mean": 1179.0,
+    "mean temp C": 8.0,
+    "wet": 0.454,
+    "held mm": 168.0,
+    "drain": 0.08
+   },
+   "on chalk": {
+    "cells": 7409,
+    "height m": 105.5,
+    "rain mm": 869.8,
+    "rain mm mean": 1060.0,
+    "mean temp C": 6.17,
+    "wet": 0.186,
+    "held mm": 126.2,
+    "drain": 0.4
+   },
+   "on peat": {
+    "cells": 0
+   }
+  },
+  "nodes": {
+   "s1": {
+    "name": "Brookford",
+    "kind": "village",
+    "elevation": 103.4,
+    "rain_mm": 984.0,
+    "xy": [
+     11.3,
+     36.91
+    ],
+    "sea km": 99.0,
+    "terrain": "river floodplain",
+    "mean temp C": 7.46
+   },
+   "s2": {
+    "name": "Meadham",
+    "kind": "village",
+    "elevation": 37.3,
+    "rain_mm": 915.0,
+    "xy": [
+     7.49,
+     8.5
+    ],
+    "sea km": 99.0,
+    "terrain": "river floodplain",
+    "mean temp C": 8.76
+   },
+   "s3": {
+    "name": "Welwick",
+    "kind": "village",
+    "elevation": 98.1,
+    "rain_mm": 865.0,
+    "xy": [
+     46.38,
+     10.52
+    ],
+    "sea km": 99.0,
+    "terrain": "river floodplain",
+    "mean temp C": 8.26
+   },
+   "w1": {
+    "name": "Flinthurst",
+    "kind": "other",
+    "elevation": 302.2,
+    "rain_mm": 2254.0,
+    "xy": [
+     20.96,
+     34.15
+    ],
+    "sea km": 99.0,
+    "terrain": "hills",
+    "mean temp C": 6.26
+   },
+   "t1": {
+    "name": "Leaham",
+    "kind": "other",
+    "elevation": 84.4,
+    "rain_mm": 949.0,
+    "xy": [
+     26.86,
+     6.32
+    ],
+    "sea km": 99.0,
+    "terrain": "lowland loam",
+    "mean temp C": 8.51
+   }
+  },
+  "water allocation": {
+   "Brookford": {
+    "water parcels": 1,
+    "water cells": 2,
+    "river km in reach (class 1+ / 2+)": [
+     4.8,
+     4.8
+    ],
+    "lake km2 in reach": 0.0,
+    "shore km in reach": 0.0
+   },
+   "Meadham": {
+    "water parcels": 0,
+    "water cells": 0,
+    "river km in reach (class 1+ / 2+)": [
+     2.2,
+     0.0
+    ],
+    "lake km2 in reach": 0.0,
+    "shore km in reach": 0.0
+   },
+   "Welwick": {
+    "water parcels": 2,
+    "water cells": 2,
+    "river km in reach (class 1+ / 2+)": [
+     6.8,
+     6.8
+    ],
+    "lake km2 in reach": 0.0,
+    "shore km in reach": 0.0
+   }
+  }
+ }
+}

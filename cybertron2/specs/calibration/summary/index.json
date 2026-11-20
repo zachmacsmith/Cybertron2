@@ -1,0 +1,290 @@
+{
+ "made by": "cybertron2/specs/calibration/make_calibration_worlds.py",
+ "seeds": [
+  1,
+  2
+ ],
+ "spare": [
+  3,
+  4,
+  5,
+  6,
+  7,
+  8
+ ],
+ "rows": [
+  {
+   "world": "w01",
+   "seed": 1,
+   "path": "cybertron2/specs/calibration/worlds/w01_lowland_s1.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity",
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 1.3
+  },
+  {
+   "world": "w01",
+   "seed": 2,
+   "path": "cybertron2/specs/calibration/worlds/w01_lowland_s2.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity",
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 1.2
+  },
+  {
+   "world": "w02",
+   "seed": 1,
+   "path": "cybertron2/specs/calibration/worlds/w02_dry_east_s1.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity",
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 1.3
+  },
+  {
+   "world": "w02",
+   "seed": 2,
+   "path": "cybertron2/specs/calibration/worlds/w02_dry_east_s2.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity",
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 1.2
+  },
+  {
+   "world": "w03",
+   "seed": 1,
+   "path": "cybertron2/specs/calibration/worlds/w03_wet_west_s1.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity",
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 1.6
+  },
+  {
+   "world": "w03",
+   "seed": 2,
+   "path": "cybertron2/specs/calibration/worlds/w03_wet_west_s2.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity",
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 1.4
+  },
+  {
+   "world": "w04",
+   "seed": 1,
+   "path": "cybertron2/specs/calibration/worlds/w04_coast_mountains_s1.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity"
+   ],
+   "seconds": 1.6
+  },
+  {
+   "world": "w04",
+   "seed": 2,
+   "path": "cybertron2/specs/calibration/worlds/w04_coast_mountains_s2.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity"
+   ],
+   "seconds": 1.3
+  },
+  {
+   "world": "w05",
+   "seed": 1,
+   "path": "cybertron2/specs/calibration/worlds/w05_upland_moor_s1.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity"
+   ],
+   "seconds": 1.4
+  },
+  {
+   "world": "w05",
+   "seed": 2,
+   "path": "cybertron2/specs/calibration/worlds/w05_upland_moor_s2.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity"
+   ],
+   "seconds": 1.3
+  },
+  {
+   "world": "w06",
+   "seed": 1,
+   "path": "cybertron2/specs/calibration/worlds/w06_high_mountains_s1.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity"
+   ],
+   "seconds": 1.4
+  },
+  {
+   "world": "w06",
+   "seed": 2,
+   "path": "cybertron2/specs/calibration/worlds/w06_high_mountains_s2.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity"
+   ],
+   "seconds": 1.4
+  },
+  {
+   "world": "w07",
+   "seed": 1,
+   "path": "cybertron2/specs/calibration/worlds/w07_cold_north_s1.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity",
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 1.2
+  },
+  {
+   "world": "w07",
+   "seed": 2,
+   "path": "cybertron2/specs/calibration/worlds/w07_cold_north_s2.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity",
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 1.0
+  },
+  {
+   "world": "w08",
+   "seed": 1,
+   "path": "cybertron2/specs/calibration/worlds/w08_fen_s1.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity",
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 1.9
+  },
+  {
+   "world": "w08",
+   "seed": 2,
+   "path": "cybertron2/specs/calibration/worlds/w08_fen_s2.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity",
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 1.9
+  },
+  {
+   "world": "w09",
+   "seed": 1,
+   "path": "cybertron2/specs/calibration/worlds/w09_estuary_s1.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity",
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 1.5
+  },
+  {
+   "world": "w09",
+   "seed": 2,
+   "path": "cybertron2/specs/calibration/worlds/w09_estuary_s2.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity",
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 1.6
+  },
+  {
+   "world": "w10",
+   "seed": 1,
+   "path": "cybertron2/specs/calibration/worlds/w10_chalk_clay_s1.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity",
+    "dependence"
+   ],
+   "seconds": 1.5
+  },
+  {
+   "world": "w10",
+   "seed": 2,
+   "path": "cybertron2/specs/calibration/worlds/w10_chalk_clay_s2.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity",
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 1.5
+  },
+  {
+   "world": "w11",
+   "seed": 1,
+   "path": "cybertron2/specs/calibration/worlds/w11_sand_heath_s1.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity",
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 1.4
+  },
+  {
+   "world": "w11",
+   "seed": 2,
+   "path": "cybertron2/specs/calibration/worlds/w11_sand_heath_s2.yaml",
+   "ok": true,
+   "warnings": [
+    "capacity",
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 1.5
+  },
+  {
+   "world": "w12",
+   "seed": 1,
+   "path": "cybertron2/specs/calibration/worlds/w12_lake_country_s1.yaml",
+   "mere km2": 1.51,
+   "ok": true,
+   "warnings": [
+    "capacity"
+   ],
+   "seconds": 1.4
+  },
+  {
+   "world": "w12",
+   "seed": 2,
+   "path": "cybertron2/specs/calibration/worlds/w12_lake_country_s2.yaml",
+   "mere km2": 37.21,
+   "ok": true,
+   "warnings": [
+    "capacity"
+   ],
+   "seconds": 1.4
+  }
+ ]
+}

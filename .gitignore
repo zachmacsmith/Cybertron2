@@ -23,3 +23,6 @@ cybertron2/specs/wild_tests/
 # brief 5 worlds: the fine land is remade exactly from the seed (make_water_worlds.py), not committed
 cybertron2/specs/water/*.cells.npz
 cybertron2/specs/nutrition/*.cells.npz
+
+# the calibration suite's worlds (W-54): remade exactly from their seeds by specs/calibration/make_calibration_worlds.py
+cybertron2/specs/calibration/worlds/
