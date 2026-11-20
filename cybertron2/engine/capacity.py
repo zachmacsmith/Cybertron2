@@ -6,7 +6,8 @@ from __future__ import annotations
 from cybertron2.engine.data import FORESTS
 
 PLOT = {"grain": 64, "seed": 16}          # a plot of size 1 broken and weeded: about 64 grain a year from 16 seed (02l, D4-38)
-WILD = 10                                 # food a year a unit of forest or scrub, forage and game (02za)
+WILD = 4                                  # food a year a unit of forest or scrub, forage and game (02za): 10 on the old values,
+                                          # x 0.4 under D2-258 (wild food 1.0 -> 0.41, meat 1.5 -> 0.6; the stocks' units kept)
 PEOPLE_A_HEARTH = 4.5
 FIREWOOD_HEAT = 0.5
 

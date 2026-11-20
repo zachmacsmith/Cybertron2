@@ -56,7 +56,7 @@ def food(version, told_cattle=True):
     w["buildings"] = {
         "ashby_house": house("the Ashby house", "hf_green", "Ashby", {"grain": 30, "beans": 4, "firewood": 30}),
         "webb_house": house("the Webb house", "hf_green", "Webb", {"grain": 80, "beans": 10, "firewood": 30}),
-        "croft_house": house("the Croft house", "hf_green", "Croft", {"grain": 20, "dried meat": 10, "firewood": 30})}
+        "croft_house": house("the Croft house", "hf_green", "Croft", {"grain": 20, "dried meat": 25, "firewood": 30})}   # dried meat x 2.5: its days of food kept (D2-258)
     g = [LINES[version]] if version != "none" else []
     milk = {**FARM, **K("herd", "milk", "slaughter")}
     w["agents"] = {

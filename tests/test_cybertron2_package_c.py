@@ -416,7 +416,8 @@ def test_a_beast_that_starves_leaves_a_carcass_fit_to_eat_for_a_day_then_gone_of
     FM.night(w)
     cs = [c for c in w.s["containers"].values() if c["kind"] == "carcass"]
     assert len(cs) == 1 and cs[0]["parcel"] == h["parcel"] and cs[0]["beast"] == "cow"
-    assert abs(cs[0]["goods"]["meat"] - 40 * 0.25) < 1e-9                         # starved: a quarter of slaughter's meat (calibrate)
+    assert abs(cs[0]["goods"]["meat"] - 150 * 0.25) < 1e-9                        # starved: a quarter of slaughter's meat (calibrate);
+                                                                                   # a cow's 150 meat (D2-258, was 40)
     assert cs[0]["kind"] in TH.KINDS and TH.carcass_fresh(w, cs[0])
     w.s["day"] += 1
     assert TH.carcass_fresh(w, cs[0])                                               # the next day: still good

@@ -180,7 +180,8 @@ def test_a_worn_weir_takes_less(river, monkeypatch):
     w.s["wild"]["state"]["pop"]["otter"] = [0.0] * WL.model(w).n
     N.night(w)
     c = w.s["containers"][WL.weir_trap(w, bid)]
-    assert round(float(c["goods"]["fish"]) / 0.2) == 9                             # 0.3 x 0.3 of the run at a holed weir (D2-210)
+    assert round(float(c["goods"]["fish"]) / float(WK.TAKEN["eel"]["goods"]["fish"])) == 9   # 0.3 x 0.3 of the run at a holed weir
+                                                                                   # (D2-210); the eel's fish from the data (D2-258)
 
 
 def test_the_weir_is_crew_work_built_on_a_river_and_its_gap_set_by_its_crew(river):
@@ -297,9 +298,10 @@ def test_a_trap_in_the_race_takes_the_weirs_share_of_a_run_going_down(river, mon
         pulse(w, "Millham", n=60.0)
         rec = N.night(w)
         got[trap] = ((rec["wild"].get("runs") or {}).get("race") or {}).get(bid, {}).get("eel", 0)
-    eel = WL._food_of("eel")                                                       # half of 60, held to a trap's 3 food (D2-213, D2-216):
-    assert abs(got[True] * eel - WATER_WORKS["trap"]["hold"]) <= eel + 1e-9 and got[False] == 0   # 15 eels on the old layout, 14 on the
-                                                                                   # remade river world
+    eel = WL._kg_of("eel")                                                         # half of 60, held to a trap's 10 kg (D2-213, D2-216, D2-258):
+    assert WATER_WORKS["trap"]["hold"] - 3 * eel <= got[True] * eel <= WATER_WORKS["trap"]["hold"] + 1e-9 and got[False] == 0
+    # 15 eels on the old layout, 14 on the remade river world at 3 food; at 10 kg (D2-258) the trap's own night takes one or two of the
+    # run's eels before the race's share comes (16 by the race, 17 in the trap)
 
 
 def test_the_mills_gap_is_set_by_those_who_manage_it(river):
@@ -451,7 +453,7 @@ def test_the_weirs_ladder_adds_share_and_hold_a_section_at_a_time(river):
     w = fresh(river)
     bid = put_weir(w, "Saltwell")
     b = w.s["buildings"][bid]
-    assert WL.weir_share(b) == pytest.approx(0.30) and WL.weir_hold(b) == pytest.approx(10.0)
+    assert WL.weir_share(b) == pytest.approx(0.30) and WL.weir_hold(b) == pytest.approx(100.0)    # kg (D2-258; was 10 food)
     a, c = b["crew"]
     hands = w.s["containers"][Here(w, a).hands]["goods"]
     hands["timber"], hands["stone"] = 40, 20
@@ -465,7 +467,7 @@ def test_the_weirs_ladder_adds_share_and_hold_a_section_at_a_time(river):
                 assert "units of work left" in r, r
     b = w.s["buildings"][bid]
     assert len(WL.sections(b)) == 4 and WL.sections(b)[0]["foot"] and not WL.sections(b)[1]["foot"]
-    assert WL.weir_share(b) == pytest.approx(0.51) and WL.weir_hold(b) == pytest.approx(31.0)   # about half and 30 food
+    assert WL.weir_share(b) == pytest.approx(0.51) and WL.weir_hold(b) == pytest.approx(310.0)  # about half and 310 kg (D2-258)
     assert hands["timber"] == pytest.approx(10) and hands["stone"] == pytest.approx(10)          # each part its own cost: the difference
     refused(w, a, {"do": "build", "what": "weir section", "at": b["name"]}, "all its sections")
     b["gap"] = "open"
@@ -477,14 +479,15 @@ def test_a_nights_catch_is_capped_by_what_the_weir_holds_less_what_is_unlifted(r
     w = fresh(river)
     no_robbers(w)
     bid = put_weir(w, "Saltwell")
-    pulse(w, "Saltwell", n=200.0)                                                  # 30% is 60 eels, 18 food: more than it holds
-    N.night(w)
-    food = lambda: sum(float(q) * ITEMS[i]["food"] for i, q in w.s["containers"][WL.weir_trap(w, bid)]["goods"].items())  # noqa: E731
-    assert food() == pytest.approx(WL.weir_hold(w.s["buildings"][bid]), abs=0.31)   # capped at about 10 food
+    pulse(w, "Saltwell", n=800.0)                                                  # 30% is 240 eels, 139 kg: more than it holds
+    N.night(w)                                                                     # (the hold in kg, D2-258; was 200 eels and food)
+    kg = lambda: WL.held_kg(w.s["containers"][WL.weir_trap(w, bid)])  # noqa: E731
+    eel = WL._kg_of("eel")
+    assert kg() == pytest.approx(WL.weir_hold(w.s["buildings"][bid]), abs=eel)    # capped at about 100 kg
     morning(w, w.d + 1)
-    pulse(w, "Saltwell", n=200.0)
+    pulse(w, "Saltwell", n=800.0)
     N.night(w)
-    assert food() == pytest.approx(10.0, abs=0.61)                                 # unlifted, the traps were full: little more
+    assert kg() == pytest.approx(100.0, abs=2 * eel)                               # unlifted, the traps were full: little more
 
 
 def test_weirs_on_one_stretch_take_in_turn_from_upstream(river, monkeypatch):
@@ -654,11 +657,11 @@ def test_fresh_fish_keep_twice_as_badly_as_meat_in_a_store_and_alike_in_hand(riv
         assert fish == pytest.approx(2 * meat)
     assert NI.spoil_rate(p, "fish", "hand", "autumn", False) == pytest.approx(NI.spoil_rate(p, "meat", "hand", "autumn", False))
     assert NI.spoil_rate(p, "fish", "store", "autumn", False) == pytest.approx(0.18, abs=0.01)
-    assert set(WK.TAKEN["eel"]["goods"]) == {"fish"} and WK.TAKEN["salmon"]["goods"] == {"fish": 2.0}   # so it reaches them (D2-216)
-    assert ITEMS["fish"]["food"] * WK.TAKEN["salmon"]["goods"]["fish"] == 2.0
+    assert set(WK.TAKEN["eel"]["goods"]) == {"fish"} and WK.TAKEN["salmon"]["goods"] == {"fish": 3.06}  # so it reaches them (D2-216)
+    assert ITEMS["fish"]["food"] * WK.TAKEN["salmon"]["goods"]["fish"] == pytest.approx(1.41, abs=0.01)   # a salmon's 1.41 (D2-258)
 
 
-def test_a_set_trap_holds_about_three_food_in_the_river_or_the_race(river, monkeypatch):
+def test_a_set_trap_holds_about_ten_kg_in_the_river_or_the_race(river, monkeypatch):
     """D2-213: a trap in a shut mill's race takes its share of a run going down, up to what a trap holds; not an uncapped weir."""
     no_new_runs(monkeypatch)
     w = fresh(river)
@@ -669,8 +672,9 @@ def test_a_set_trap_holds_about_three_food_in_the_river_or_the_race(river, monke
     pulse(w, "Millham", n=200.0)
     rec = N.night(w)
     cid = next(c for c, x in w.s["containers"].items() if x.get("kind") == "set" and x.get("by") == who)
-    food = sum(float(q) * ITEMS[i]["food"] for i, q in w.s["containers"][cid]["goods"].items())
-    assert food <= WATER_WORKS["trap"]["hold"] + 1e-9 and food >= WATER_WORKS["trap"]["hold"] - 0.31
-    eel = WL._food_of("eel")                                                       # 100 eels came through the race; it held its 3 food of them
-    assert abs(rec["wild"]["runs"]["race"][bid]["eel"] * eel - WATER_WORKS["trap"]["hold"]) <= eel + 1e-9   # (D2-213, D2-216): the count
-                                                                                   # follows the world's layout (14 on the remade river world)
+    kg = WL.held_kg(w.s["containers"][cid])                                        # the hold in kg (D2-258; was 3 food)
+    eel = WL._kg_of("eel")                                                         # 100 eels came through the race; it held its 10 kg of them
+    assert kg <= WATER_WORKS["trap"]["hold"] + 1e-9 and kg >= WATER_WORKS["trap"]["hold"] - eel
+    n = rec["wild"]["runs"]["race"][bid]["eel"]                                    # (D2-213, D2-216): the race's eels fill it, after the
+    assert WATER_WORKS["trap"]["hold"] - 3 * eel <= n * eel <= WATER_WORKS["trap"]["hold"] + 1e-9   # one or two its own night took
+                                                                                   # (15 and 17 in all on the remade river world, D2-258)

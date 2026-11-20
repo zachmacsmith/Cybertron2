@@ -27,26 +27,31 @@ LAYERS = {
 # each kind: its layer; the good it gives; its seasons (share of its peak); how fast it comes (r a night toward its season's level)
 # and goes after (rot); where it grows (covers, ecosystems as multipliers; needs: wet ground, the coast); its year (swing: a keyed
 # draw, "mast" (the trees' mast), ("load", name) (a load's level) or "spring" (the spring's warmth)); ease (how much a unit of
-# gathering gets of it); poison (the share of a take an untaught gatherer may come to harm by).
+# gathering gets of it); poison (the share of a take an untaught gatherer may come to harm by); kg (the kilograms a unit of gathering
+# picks of it against the gathering's base, 1 if not given).
+# `kg` is a real-value correction (D2-258, D2-259; 02zzu part 4): the base (about 1.2 kg a unit of 2 hours) is a third of real
+# picking for leaves and soft fruit, which were cheap a kg and are now at their real energy. Greens, cress and samphire are cut at
+# about 3 kg an hour (2 to 4), berries and a mushroom flush picked at about 2 (1 to 3): x 5 and x 3.3, so a unit of spring and summer
+# gathering stays at the real 0.24 to 1.1 food. Nuts, acorns, hedge fruit and roots keep the base (their food a unit is already real).
 PLANTS = {
     "wild greens": {"layer": "ground", "item": "greens", "seasons": {"spring": 1.0, "summer": 0.5, "autumn": 0.3, "winter": 0.1},
                     "r": 0.4, "rot": 0.3, "covers": {"forest": 0.6, "scrub": 0.9, "meadow": 0.9, "pasture": 0.6, "fen": 0.7},
-                    "eco": {"oak-ash wood": 1.3, "alder carr": 1.4, "wet grassland": 1.2}, "fertile": 1.0, "swing": ("draw", 0.15), "ease": 1.0,
+                    "eco": {"oak-ash wood": 1.3, "alder carr": 1.4, "wet grassland": 1.2}, "fertile": 1.0, "swing": ("draw", 0.15), "ease": 1.0, "kg": 5.0,
                     "words": "nettles, sorrel and wild garlic"},
     "roots": {"layer": "ground", "item": "roots", "seasons": {"spring": 0.6, "summer": 0.6, "autumn": 0.8, "winter": 0.4},
               "r": 0.2, "rot": 0.1, "covers": {"pasture": 1.0, "meadow": 0.8, "heath": 0.5, "moor": 0.3, "fen": 0.6},
               "eco": {"wet grassland": 1.2}, "swing": ("draw", 0.1), "ease": 0.5, "words": "pignut and silverweed"},
     "mushrooms": {"layer": "ground", "item": "mushrooms", "seasons": {"summer": 0.2, "autumn": 1.0}, "r": 0.6, "rot": 0.5,
                   "covers": {"forest": 1.0, "pasture": 0.7, "meadow": 0.6, "scrub": 0.5}, "eco": {"beech wood": 1.3, "oak-ash wood": 1.0},
-                  "swing": ("load", "fungi"), "ease": 1.0, "poison": 0.12, "words": "ceps, chanterelles and field mushrooms"},
+                  "swing": ("load", "fungi"), "ease": 1.0, "kg": 3.3, "poison": 0.12, "words": "ceps, chanterelles and field mushrooms"},
     "watercress": {"layer": "ground", "item": "watercress", "seasons": {"spring": 0.8, "summer": 1.0, "autumn": 0.4}, "r": 0.4,
                    "rot": 0.3, "covers": {"meadow": 1.0, "fen": 1.0, "pasture": 0.6, "forest": 0.4}, "eco": {"alder carr": 1.5},
-                   "needs": "wet", "swing": ("draw", 0.15), "ease": 1.0, "words": "watercress and brooklime"},
+                   "needs": "wet", "swing": ("draw", 0.15), "ease": 1.0, "kg": 5.0, "words": "watercress and brooklime"},
     "samphire": {"layer": "ground", "item": "samphire", "seasons": {"summer": 1.0, "autumn": 0.5}, "r": 0.4, "rot": 0.3,
-                 "covers": {"saltmarsh": 1.0}, "needs": "coast", "swing": ("draw", 0.1), "ease": 1.0, "words": "samphire"},
+                 "covers": {"saltmarsh": 1.0}, "needs": "coast", "swing": ("draw", 0.1), "ease": 1.0, "kg": 5.0, "words": "samphire"},
     "berries": {"layer": "shrub", "item": "berries", "seasons": {"summer": 1.0, "autumn": 0.5}, "r": 0.4, "rot": 0.35,
                 "covers": {"scrub": 1.0, "forest": 0.5, "heath": 0.8, "moor": 0.8, "pasture": 0.3, "meadow": 0.3},
-                "swing": ("spring", 0.5), "ease": 1.0, "words": "brambles, bilberries and wild strawberries"},
+                "swing": ("spring", 0.5), "ease": 1.0, "kg": 3.3, "words": "brambles, bilberries and wild strawberries"},
     "hedge fruit": {"layer": "shrub", "item": "hedge fruit", "seasons": {"autumn": 1.0, "winter": 0.4}, "r": 0.4, "rot": 0.2,
                     "covers": {"scrub": 1.0, "pasture": 0.6, "meadow": 0.5, "forest": 0.3}, "swing": ("draw", 0.3), "ease": 1.0,
                     "words": "crab apples, sloes, haws and hips"},
@@ -122,7 +127,8 @@ def niche(par: dict, total: float, food=None) -> dict:
         tot = sum(v * v for v in s.values())
         for k, v in s.items():
             fv = float((food or {}).get(PLANTS[k]["item"], 1.0)) if layer != "canopy" else 1.0
-            K = total * share * (v * v / tot) / max(mean_season(k), 0.1) / max(fv, 0.3)
+            K = total * share * (v * v / tot) / max(mean_season(k), 0.1) / max(fv, 0.03)   # 0.03 (was 0.3, which no good was under):
+                                                                                            # leaves at their real energy keep their food (D2-258)
             if K > 1e-3:
                 out[k] = round(K, 4)
     return out

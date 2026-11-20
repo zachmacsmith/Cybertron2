@@ -52,7 +52,10 @@ KINDS = {
               breed=("spring", "summer", "autumn", "winter"), move=0.05, ref=100, wave=1, damage="stores", shy=0.0, litters="through"),   # in the barns all year
     "wildfowl": K(1.0, "gran", 0, 0, {"wet": 1.0, "water": 1.0}, {"aquatic": 4, "seeds": 1, "inverts": 1},
                   migrant=("autumn", "winter"), arrive=150, people=0.3, ref=150, wave=1, uses="meat, feathers, down", shy=0.9),
-    "eel": K(0.5, "omni", 1.0, 0.3, {"water": 1.0, "wet": 0.8}, {"inverts": 1, "fish": 1, "aquatic": 1}, people=0.3, move=0.05,
+    # the eel's b 3.0 (was 1.0) is a named lever (D2-258, D2-259): eels do not breed in the river, they come up from the sea as elvers,
+    # so b stands for that recruitment; at 3.0 the stock carries a silver-eel run of RUNS.eel's 0.6 a year (at 1.0 that run emptied the
+    # stock to a fifth: measured, 02zzu_lookup.md "Applied"); the standing stock is then about 1.5 times what it was
+    "eel": K(0.5, "omni", 3.0, 0.3, {"water": 1.0, "wet": 0.8}, {"inverts": 1, "fish": 1, "aquatic": 1}, people=0.3, move=0.05,
              ref=150, wave=1, uses="food that keeps smoked; rent", shy=0.2),
     # brief 5 §4 (the river): fish that only run (`RUNS`): never a resident stock (a migrant that arrives as no one), only the run's
     # pulses; and the otter, resident by the water (calibrate)
@@ -474,11 +477,11 @@ SITES = {
                 "season": SPRING, "leaves": 0.35, "hard_winter": {"frozen": 3, "crash": 0.5},
                 "troubled_by": ["fell", "hunt the wild", "stalk", "drive", "gather young"],   # at the nests, not the quiet work (D2-204 names)
                 "eats": {"res": "fish", "covers": ["water"], "each": 0.02, "most": 0.2, "follows": 1.0},   # brief 5 §4 (calibrate)
-                "take": {"season": {0: (3, 7)}, "item": "meat", "each": 0.3, "most": 4, "words": "young herons from the nests"}},
+                "take": {"season": {0: (3, 7)}, "item": "meat", "each": 0.37, "most": 4, "words": "young herons from the nests"}},   # 1.2 kg, squab proxy (D2-258)
     "rookery": {"home": "colony", "where": {"covers": ["forest", "scrub"], "beside": ["field"]}, "p": 0.8, "size": (20, 70), "cap": 80, "grow": 0.2,
                 "season": SPRING, "leaves": 0.0, "hard_winter": {"frozen": 4, "crash": 0.2},
                 "harm": {"crops": ["grain", "winter grain"], "age": (0, 6), "share": 0.00015, "beside": True, "watch_stops": True},
-                "take": {"season": {0: (4, 7)}, "item": "meat", "each": 0.12, "most": 10, "words": "young rooks from the nests"}},
+                "take": {"season": {0: (4, 7)}, "item": "meat", "each": 0.11, "most": 10, "words": "young rooks from the nests"}},   # 0.35 kg, squab proxy (D2-258)
     "lodge": {"home": "lodge", "where": {"covers": ["forest", "scrub", "meadow"], "river": True}, "p": 0.15, "size": (2, 6), "cap": 6, "grow": 0.15,
               "season": {1: (0, 7)}, "leaves": 0.0, "rare": True,
               "dam": {"floods": {"covers": ["meadow", "pasture"], "res": "grass", "K": 0.6}, "fish": 1.3, "dead": 20.0, "rebuild_seasons": 1},
@@ -623,33 +626,34 @@ RAVENS_OVER = {"min_carrion": 20.0, "lay": "ravens wheeling over the wood", "kno
 
 # how a kind is taken (wild_layer.md §3.7; D2-192, D2-193): detect, the chance a searcher in good habitat comes on one; flee, the
 # chance it gets away once found; danger to the taker found alone (a crew or a dog divides it); family, the words people look for it
-# by; goods, what a kill gives (engine food for meat: real content x Y/365, node_ecology.md).
+# by; goods, what a kill gives: a head's meat or fish on the units of D2-258 (meat 1,500 kcal, fish 1,150 kcal a unit), so its food
+# a head is the real one (02zzu_lookup.md: live weight x dressing x the edible share x FDC's kcal; proxies named there).
 TAKEN = {
     "red deer":   {"family": ["deer", "red deer", "stag", "hind", "venison", "big game", "game"], "detect": 0.35, "flee": 0.55,
-                   "goods": {"meat": 20.0, "hide": 1},           # on the cow's scale, about 3 kg a meat (brief 4 §2.5)
+                   "goods": {"meat": 33.0, "hide": 1},           # 90 kg, 19.8 food a head (D2-258)
                    "calibrate": {"drive": 0.15}},   # a drive is made for the sounder: deer break back through the beaters (D2-204 §4)
-    "roe deer":   {"family": ["deer", "roe", "roe deer", "venison", "game"], "detect": 0.3, "flee": 0.5, "goods": {"meat": 4.5, "hide": 1},
+    "roe deer":   {"family": ["deer", "roe", "roe deer", "venison", "game"], "detect": 0.3, "flee": 0.5, "goods": {"meat": 8.1, "hide": 1},   # 22 kg, 4.9 food
                    "calibrate": {"snare": 0.03}},   # a hare's noose seldom holds a roe (D2-204 §4)
     "wild boar":  {"family": ["boar", "wild boar", "pig", "swine", "sounder", "big game", "game"], "detect": 0.3, "flee": 0.35,
-                   "danger": {"wound": 0.3, "kill": 0.03}, "goods": {"meat": 15.0, "hide": 1},
+                   "danger": {"wound": 0.3, "kill": 0.03}, "goods": {"meat": 29.0, "hide": 1},   # 70 kg, 17.3 food (FDC 122 kcal)
                    "calibrate": {"stalk": 0.12}},   # a sounder in the thicket is not stalked as a deer is (D2-204 §4)
-    "brown hare": {"family": ["hare", "hares", "small game", "game"], "detect": 0.5, "flee": 0.5, "goods": {"meat": 0.7}},
-    "woodpigeon": {"family": ["pigeon", "pigeons", "birds", "small game"], "detect": 0.4, "flee": 0.75, "goods": {"meat": 0.1},
+    "brown hare": {"family": ["hare", "hares", "small game", "game"], "detect": 0.5, "flee": 0.5, "goods": {"meat": 1.25}},   # 3.5 kg; wild rabbit proxy
+    "woodpigeon": {"family": ["pigeon", "pigeons", "birds", "small game"], "detect": 0.4, "flee": 0.75, "goods": {"meat": 0.15},   # squab proxy
                    "calibrate": {"net": 0.1}},      # pigeons seldom come down to the fowler's nets and decoys (D2-204 §4)
-    "wildfowl":   {"family": ["fowl", "duck", "ducks", "geese", "birds", "wildfowl"], "detect": 0.5, "flee": 0.6, "goods": {"meat": 0.3},
+    "wildfowl":   {"family": ["fowl", "duck", "ducks", "geese", "birds", "wildfowl"], "detect": 0.5, "flee": 0.6, "goods": {"meat": 0.56},   # a mallard, 1.1 kg
                    "calibrate": {"trap in water": 0.1}},   # a duck drowned in an eel trap now and then, no more (D2-204 §4)
     "stoat":      {"family": ["stoat", "stoats", "weasel", "ermine", "vermin"], "detect": 0.1, "flee": 0.7, "goods": {"hide": 1}},
     "fox":        {"family": ["fox", "foxes", "vermin"], "detect": 0.15, "flee": 0.6, "goods": {"hide": 1},
                    "litter": {"home": "den", "if": {"seasons": {0: (0, 7)}}, "n": 3}},       # cubs at the earth in spring (D2-204: on the kind)
     # D2-204 (brief 1): an eel trap took eels that gave nothing (no row); a night's lift is several eels (calibrate)
-    "eel":        {"family": ["eel", "eels", "fish"], "detect": 0.4, "flee": 0.3, "goods": {"fish": 0.2}},     # fish goods (D2-216)
-    "salmon":     {"family": ["salmon", "fish"], "detect": 0.4, "flee": 0.4, "goods": {"fish": 2.0}},       # brief 5 §4; fish (D2-216)
-    "lamprey":    {"family": ["lamprey", "lampreys", "fish"], "detect": 0.4, "flee": 0.3, "goods": {"meat": 0.3}},
+    "eel":        {"family": ["eel", "eels", "fish"], "detect": 0.4, "flee": 0.3, "goods": {"fish": 0.58}},    # fish goods (D2-216); 0.5 kg, 0.27 food
+    "salmon":     {"family": ["salmon", "fish"], "detect": 0.4, "flee": 0.4, "goods": {"fish": 3.06}},      # brief 5 §4; fish (D2-216); 4 kg, 1.41 food
+    "lamprey":    {"family": ["lamprey", "lampreys", "fish"], "detect": 0.4, "flee": 0.3, "goods": {"fish": 0.19}},   # fish, not meat (D2-258): 0.15 kg, 0.09 food; eel proxy
     "otter":      {"family": ["otter", "otters", "vermin"], "detect": 0.1, "flee": 0.6, "goods": {"hide": 1}},
     "wolf":       {"family": ["wolf", "wolves", "big game"], "detect": 0.12, "flee": 0.5, "danger": {"wound": 0.25, "kill": 0.04},
                    "goods": {"hide": 1}},
     "brown bear": {"family": ["bear", "big game"], "detect": 0.1, "flee": 0.3, "danger": {"wound": 0.5, "kill": 0.12},
-                   "goods": {"meat": 40.0, "hide": 2}},
+                   "goods": {"meat": 121.0, "hide": 2}},   # 250 kg, 72 food on the checked value (60 before, -17%)
 }
 
 
@@ -807,7 +811,7 @@ STORE_STOPS = {"granary": {"keep": 0.3, "for": {"climbs": True, "gap": "tiny"}},
 # a cat comes by itself to a store with mice (D2-206): a chance each season (no dog), and leaves an empty store or a dog's house;
 # a barn owl takes an owl hole in spring with a chance if nobody sleeps in that building (calibrate)
 # The dead and what comes to them (brief 3 §3, calibrate): a carcass row's attraction is its attr times the most flesh at the node
-# against `ref` (units of meat), a shallow grave `dig` of that; a group that fed at the dead there has, for `spill_nights` nights,
+# against `ref` (units of meat: 33, a red deer's on the unit of D2-258; was 20), a shallow grave `dig` of that; a group that fed at the dead there has, for `spill_nights` nights,
 # its drive times `spill_drive` and may pick any of its rows (the fox at the dead calf tries the hens)
 # a tallow light (brief 3 §5, calibrate): night work at a load by it does this much more, and burns the light down
 LIGHT = {"item": "tallow light", "night_work": 1.3}
@@ -827,7 +831,7 @@ REACH = {"km": 2.5}
 # toward land emptier than its own, `drift` a day of its numbers x the link's share of its border x how much emptier, emptiness read
 # from a density smoothed over `tau` days; the young of the breeding season disperse `young` of them over the season the same way
 DRIFT = {"drift": 0.03, "tau": 6.0, "young": 0.3}
-CARCASS_PULL = {"ref": 20.0, "dig": 0.1, "spill_nights": 3, "spill_drive": 1.5}
+CARCASS_PULL = {"ref": 33.0, "dig": 0.1, "spill_nights": 3, "spill_drive": 1.5}
 CAT = {"settle_p": 0.15, "fed_p": 0.4, "prey": "voles and mice", "prey_least": 50.0, "stray_p": 0.08, "item": "cat",
        "fed_days": 3}                         # cats.md §3 (brief 4 §4.1): fed lately (food left out at the house), it settles likelier
 # food left out at a house's door (D2-85 things there): what draws a cat, and the fox and rats too (brief 4 §4.1)
@@ -858,12 +862,19 @@ TRAITS = {
 # Down: `year`, the share of each river area's stock that runs in a year (the silver eels). Up: the return (`r` back a spawner a year
 # on, at most `cap_km` a km of the head water's river; `seed_km` spawners a km at world build), `where` the rivers it runs ("river":
 # any; "big river": a river whose way to the sea holds big river). The salmon's three years compressed to one world year (D2-209).
+# The run sizes are a named lever (D2-258, D2-259; 02zzu part 6): a real river's, compressed to the engine's year by catchment. The
+# silver eels' `year` 0.6 (was 0.2), with the eel's recruitment b 3.0 (KINDS, was 1.0): the runs 4.2 to 5 times what they were, toward
+# Burrishoole's 20 to 50 a km2 of catchment a year x 32/365 (the low end at Highpool and Saltwell); the salmon spawn along the
+# whole big river by km (`spawn: river`, was the head waters only) at `cap_km` 6 (was 1.5): about 6 returning a km of river above a
+# station a year, toward a real river's 5 to 20 a km2 compressed (measured, the runs world: Highpool 46, Middleham 99, Lowstrand 848 a
+# year, was 0, 0, 21; the river world: Saltwell 124, Millham 387, was 10, 31: at a real river's low to middle); seeded at that level
+# (`seed_km` = `cap_km`: Beverton-Holt's settled level at r 2), so the first year runs as the later ones; the lamprey x 3 (cap 9).
 RUNS = {
-    "eel": {"dir": "down", "seasons": {2: (0, 7)}, "cue": {"rain_after_dry": 2}, "night": 0.6, "year": 0.2},
-    "salmon": {"dir": "up", "seasons": {2: (0, 7), 3: (0, 3)}, "cue": {"spate": 1.2}, "night": 0.35, "where": "big river",
-               "return": {"r": 2.0, "cap_km": 1.5, "seed_km": 1.0}},
+    "eel": {"dir": "down", "seasons": {2: (0, 7)}, "cue": {"rain_after_dry": 2}, "night": 0.6, "year": 0.6},
+    "salmon": {"dir": "up", "seasons": {2: (0, 7), 3: (0, 3)}, "cue": {"spate": 1.2}, "night": 0.35, "where": "big river", "spawn": "river",
+               "return": {"r": 2.0, "cap_km": 6.0, "seed_km": 6.0}},
     "lamprey": {"dir": "up", "seasons": {0: (0, 7)}, "cue": {"spate": 1.0}, "night": 0.35, "where": "river",
-                "return": {"r": 2.0, "cap_km": 3.0, "seed_km": 2.0}},
+                "return": {"r": 2.0, "cap_km": 9.0, "seed_km": 6.0}},
 }
 # how fast a run goes down or up the river (km a day; calibrate: about a day a 10 km, brief 5 §2.2); `dense`: how much thicker a run
 # is in the water people fish than spread over its area (the take's density, brief 5 §2.4; calibrate); the otter at the set things

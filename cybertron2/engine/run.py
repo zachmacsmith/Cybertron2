@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import concurrent.futures as cf
+import copy
 import json
 import os
 import time
@@ -1159,7 +1160,8 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
             for n, lg in per["agents"].items():
                 files["perception"].write(json.dumps({"day": day, "agent": n, **lg}) + "\n")
             files["perception"].write(json.dumps({"day": day, "facts": per["facts"]}) + "\n")
-            rec.update(cost_usd=round(cost, 4), talked=sorted(talked), offers={k: v for k, v in w.s["offers"].items() if v.get("day", day) == day},
+            rec.update(cost_usd=round(cost, 4), talked=sorted(talked), offers={k: copy.deepcopy(v) for k, v in w.s["offers"].items() if v.get("day", day) == day},   # a copy: the live offer
+                       # closing later (its offerer dead) must not rewrite this day's record, or a run resumed from a day's end differs
                        agreements_made=[k for k, v in w.s["agreements"].items() if v.get("day") == day and not v.get("seeded")], settled=settled,
                        teaching=today["teach"], learning=today["learn"], joins=today["joins"], admits=today["admits"], watch=today["watch"],
                        thefts=today["thefts"], attend=attend, errors=errors)

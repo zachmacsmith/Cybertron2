@@ -22,8 +22,8 @@ from cybertron2.wild import switches as SW
 
 KG_PER_FOOD = 10.0             # an engine food (365/Y real person-days, node_ecology.md) as kg of grain or forage (calibrate)
 DRY_STORES = ("grain", "rye", "oats", "beans", "meal", "flour")   # what wild kinds get at in a store (calibrate)
-EGG_FOOD = 0.02                 # food an egg is worth at real content x Y/365 (calibrate)
-ITEM_EGG_FOOD = 0.6             # the ITEMS row's food a unit of eggs (so qty x 0.6 is the food laid)
+EGG_KG = 0.045                  # an egg in shell, kg (a medieval hen's small egg): the egg good is a kg of eggs (D2-258), so an egg is
+                                # 0.027 food at its 0.6 a kg (was EGG_FOOD 0.02 an egg on a 0.1-weight good of 0.6 food)
 HENS_A_HOUSE = 6                # hens a household keeps, seeded with the wild pack (calibrate)
 HISTORY_YEARS = 10              # the history before the run (calibrate)
 HISTORY_AHEAD_YEARS = 200       # the climate's days used for it: this many years past the run's start
@@ -644,7 +644,7 @@ def forage(here, mind, tech, key, place_name, out, mult, y, a) -> tuple:
     got, food = {}, 0.0
     from cybertron2.engine.data import ITEMS
     for k, v in sorted(wt.items()):
-        take = round(min(avail[k], q * v / tw), 2)
+        take = round(min(avail[k], q * v / tw * float(PL.PLANTS[k].get("kg", 1.0))), 2)   # kg a unit by kind (D2-258)
         if take <= 1e-6:
             continue
         here.apply("draw", parcel=key, key=k, qty=take)
@@ -976,10 +976,9 @@ def _set_night(w, m, st) -> dict:
         skill = float(((w.s["know"].get(c.get("by")) or {}).get(tech) or {}).get("skill", KN.curve(tech)[0]))   # the run shows)
         got = []
         cap = None
-        if tech == "trap in water":                                       # a set trap in water holds about 3 food (D2-213)
-            from cybertron2.engine.data import ITEMS, WATER_WORKS
-            cap = float(WATER_WORKS["trap"]["hold"]) - sum(float(q) * float((ITEMS.get(i) or {}).get("food", 0.0))
-                                                            for i, q in c["goods"].items())
+        if tech == "trap in water":                                       # a set trap in water holds about 10 kg (D2-213, D2-258)
+            from cybertron2.engine.data import WATER_WORKS
+            cap = float(WATER_WORKS["trap"]["hold"]) - held_kg(c)
         for _ in range(tries):
             u, acc = rng.random() * total, 0.0
             for k, i, wgt in cand:
@@ -991,9 +990,9 @@ def _set_night(w, m, st) -> dict:
             if rng.random() >= p:
                 continue
             if cap is not None:                                           # no room for it: it swims free
-                if _food_of(k) > cap + 1e-9:
+                if _kg_of(k) > cap + 1e-9:
                     continue
-                cap -= _food_of(k)
+                cap -= _kg_of(k)
             r_ = run[k][i] if k in run else 0.0
             if r_ > 0 and rng.random() < r_ / (r_ + pop[k][i] * SW.resident(w.spec, k)):   # one of the run's
                 from cybertron2.wild import runs as RU
@@ -2138,7 +2137,7 @@ def _hens_lay(w) -> None:
         n = float((w.s["containers"].get(b["stock"], {}).get("goods") or {}).get("hen", 0))
         if n >= 1:
             si = ["spring", "summer", "autumn", "winter"].index(w.calendar()["season"])
-            eggs = round(n * (5.0, 4.0, 2.0, 0.5)[si] * EGG_FOOD / ITEM_EGG_FOOD, 2)
+            eggs = round(n * (5.0, 4.0, 2.0, 0.5)[si] * EGG_KG, 2)          # kg laid (eggs a hen on the old clock: OPEN L-138)
             if eggs > 0:
                 w.apply("create", b["node"], dst=b["stock"], item="egg", qty=eggs, why="laid")
 
@@ -2950,7 +2949,7 @@ def weir_share(b) -> float:
 
 
 def weir_hold(b) -> float:
-    """What a weir's traps hold a night, in food (D2-210): each section's by its condition."""
+    """What a weir's traps hold a night, in kg (D2-210, D2-258): each section's by its condition."""
     from cybertron2.engine.data import WATER_WORKS
     W = WATER_WORKS["weir"]
     return sum(float(W["sections"][sc["m"]]["hold"]) * float(W["by_level"].get(int(sc["level"]), 0.0)) for sc in sections(b))
@@ -2977,10 +2976,19 @@ def water_kind(w, m, pid) -> str:
     return "large" if float(RU.net(m).big.get(f"v:{w.s['parcels'][pid]['node']}", 0.0)) > 0 else "lowland"
 
 
-def _food_of(kind) -> float:
+def _kg_of(kind) -> float:
+    """What a head of a kind weighs in a trap, in kg: its taken goods that are food (D2-258: holds in kg, not food)."""
     from cybertron2.engine.data import ITEMS, RESOURCES
-    return sum(float(q) * float((ITEMS.get(i) or {}).get("food", 0.0))
-               for i, q in ((((RESOURCES.get(kind) or {}).get("taken") or {}).get("goods")) or {}).items())
+    return sum(float(q) * float((ITEMS.get(i) or {}).get("weight", 1.0))
+               for i, q in ((((RESOURCES.get(kind) or {}).get("taken") or {}).get("goods")) or {}).items()
+               if float((ITEMS.get(i) or {}).get("food", 0.0)) > 0)
+
+
+def held_kg(c) -> float:
+    """The kg of food a set thing or a weir's traps hold (D2-258)."""
+    from cybertron2.engine.data import ITEMS
+    return sum(float(q) * float((ITEMS.get(i) or {}).get("weight", 1.0)) for i, q in c["goods"].items()
+               if float((ITEMS.get(i) or {}).get("food", 0.0)) > 0)
 
 
 def _weir_wear(w, m, bid, b, flow) -> list:
@@ -3086,8 +3094,8 @@ def _runs_night(w, m) -> dict:
             if not _river_parcel(w, b["parcel"]):
                 continue
             cid = _weir_trap_make(w, bid, b)
-            worth = {k: _food_of(k) for k in RU.runners_of(m)}
-            held = sum(float(q) * float((ITEMS.get(i) or {}).get("food", 0.0)) for i, q in w.s["containers"][cid]["goods"].items())
+            worth = {k: _kg_of(k) for k in RU.runners_of(m)}           # the hold in kg (D2-258)
+            held = held_kg(w.s["containers"][cid])
             got = RU.take_share(st, day, g, weir_share(b), room=max(0.0, weir_hold(b) - held), worth=worth)
             for k, q in sorted(got.items()):
                 _catch_into(w, node, cid, k, q, "the weir")
@@ -3101,9 +3109,9 @@ def _runs_night(w, m) -> dict:
                          and (c.get("set") or {}).get("sprung") is None), None)
             if trap is None:
                 continue
-            held = sum(float(q) * float((ITEMS.get(i) or {}).get("food", 0.0)) for i, q in w.s["containers"][trap]["goods"].items())
-            got = RU.take_share(st, day, g, float(WATER_WORKS["mill"]["race"]), dirs=("down",),   # a trap's hold (D2-213)
-                                room=max(0.0, float(WATER_WORKS["trap"]["hold"]) - held), worth={k: _food_of(k) for k in RU.runners_of(m)})
+            held = held_kg(w.s["containers"][trap])
+            got = RU.take_share(st, day, g, float(WATER_WORKS["mill"]["race"]), dirs=("down",),   # a trap's hold in kg (D2-213, D2-258)
+                                room=max(0.0, float(WATER_WORKS["trap"]["hold"]) - held), worth={k: _kg_of(k) for k in RU.runners_of(m)})
             for k, q in sorted(got.items()):
                 _catch_into(w, node, trap, k, q, "the mill race")
                 out.setdefault("race", {}).setdefault(bid, {})[k] = q

@@ -18,54 +18,67 @@ PHYSICS     the numbers of the day and the night
 from __future__ import annotations
 
 ITEMS = {
+    # the grain ladder, kept under D2-259 (within 1% of FDC SR Legacy, 02zzu_lookup.md): bread is the grain's whole energy at
+    # 2,500 kcal a food; boiled whole grain 0.54 and meal or flour 0.77 of it, design factors (D2-60, D4-107); raw grain 0.15 (D2-160)
     "grain": {"weight": 1, "food": 0.7, "spoil": 0.0167, "cook": True, "raw": 0.2, "decay": "grain"},  # boiled whole at a hearth (D2-60); seed (D2-17); spoils
                                                                        # 0.5% a day in a house, less in bins, a cellar, a granary (D2-58)
     "rye": {"weight": 1, "food": 0.7, "spoil": 0.0167, "cook": True, "raw": 0.2, "decay": "grain"},    # winter grain (D2-53)
-    "beans": {"weight": 1, "food": 0.6, "spoil": 0.0167, "cook": True, "raw": 0.0, "decay": "grain"},  # legumes: less food, restore the soil (D2-53)
+    "beans": {"weight": 1, "food": 0.6, "spoil": 0.0167, "cook": True, "raw": 0.0, "decay": "grain"},  # legumes: less food, restore the soil (D2-53);
+    # kept under D2-259: 0.6 is -20% of FDC's 0.75 on grain's rung (split peas, broad beans), a design factor of about 0.8 (D2-53's "less food")
     "flour": {"weight": 1, "food": 1.0, "spoil": 0.0167, "cook": True, "raw": 0.5, "decay": "grain"},  # mill flour: porridge, and bread (D2-60, D2-167)
     "meal": {"weight": 1, "food": 1.0, "spoil": 0.0167, "cook": True, "raw": 0.5, "decay": "grain"},   # hand-ground: porridge only, no bread (D2-167)
     "bread": {"weight": 1, "food": 1.3, "spoil": 0.05, "decay": "bread"},                # keeps, eaten without a hearth (D2-60)
-    "dried meat": {"weight": 1, "food": 3.0, "spoil": 0.02, "decay": "dried meat"},           # meat dried to half its weight (D2-62)
-    "cheese": {"weight": 1, "food": 2.5, "spoil": 0.02, "decay": "cheese"},               # 6 milk (D2-47, D2-56)
+    "dried meat": {"weight": 1, "food": 1.2, "spoil": 0.02, "decay": "dried meat"},           # meat dried to half its weight (D2-62): 2 x meat (D2-258)
+    "cheese": {"weight": 1, "food": 1.61, "spoil": 0.02, "decay": "cheese"},              # 6 milk (D2-47, D2-56); a kg of hard cheese, FDC 403 kcal (D2-258)
     "salt": {"weight": 1, "food": 0.0, "spoil": 0.0},                  # D2-24, D2-56
     "hay": {"weight": 1, "food": 0.0, "spoil": 0.0, "fodder": 1.0},    # cut from pasture in summer (D4-42)
     # A crop reaped green (D4-106): little food (the green ears roasted), good fodder; heats and spoils unless dried to hay
-    "green grain": {"pack": "farming", "weight": 1, "food": 0.15, "spoil": 0.2, "fodder": 0.8, "decay": "green crop"},
-    "green rye": {"pack": "farming", "weight": 1, "food": 0.15, "spoil": 0.2, "fodder": 0.8, "decay": "green crop"},
+    # 0.24: no FDC figure for an immature cereal; 02zzu's estimate (40 to 90 kcal a 100 g) (D2-258)
+    "green grain": {"pack": "farming", "weight": 1, "food": 0.24, "spoil": 0.2, "fodder": 0.8, "decay": "green crop"},
+    "green rye": {"pack": "farming", "weight": 1, "food": 0.24, "spoil": 0.2, "fodder": 0.8, "decay": "green crop"},
+    # green beans kept under D2-259 (-12% of FDC's young broad beans in the pod)
     "green beans": {"pack": "farming", "weight": 1, "food": 0.3, "spoil": 0.2, "fodder": 0.6, "decay": "green crop"},
     "straw": {"weight": 1, "food": 0.0, "spoil": 0.0, "fodder": 1.0},  # from the grain harvest (D4-42)
     "dung": {"weight": 1, "food": 0.0, "spoil": 0.0},                  # manure (D2-18, D4-39)
     "charcoal": {"weight": 2, "food": 0.0, "spoil": 0.0, "heat": 6.0},  # from 5 timber, made at the wood (D2-56); burns in a hearth (D2-157)
     "firewood": {"weight": 1, "food": 0.0, "spoil": 0.0, "heat": 0.5},  # dead wood or young growth; burns only (D2-157)
-    "wild food": {"weight": 1, "food": 1.0, "spoil": 0.15},
+    "wild food": {"weight": 1, "food": 0.41, "spoil": 0.15},       # the legacy forage's mix: 02zzu's autumn mix on the checked values (D2-258)
     # fishing and salt (D4-103's acceptance test; content: proposals/water_and_preservation.md, calibrate)
-    "fish": {"pack": "water", "weight": 1, "food": 1.0, "spoil": 0.30, "cook": True, "raw": 0.6, "decay": "fresh fish"},   # fresh: spoils as meat does
-    "salt fish": {"pack": "water", "weight": 1, "food": 1.0, "spoil": 0.01, "cook": True, "raw": 0.6, "decay": "dried meat"},   # keeps for months
+    # fish: a unit is 1,150 kcal of flesh, about 1 kg gutted and headed (an eel's 0.63 kg, a pike's 1.3; 02zzu, D2-258); raw at the
+    # game's raw/cooked 0.6 (fire matters: a design factor, kept)
+    "fish": {"pack": "water", "weight": 1, "food": 0.46, "spoil": 0.30, "cook": True, "raw": 0.28, "decay": "fresh fish"},   # fresh: spoils as meat does
+    "salt fish": {"pack": "water", "weight": 1, "food": 0.46, "spoil": 0.01, "cook": True, "raw": 0.28, "decay": "dried meat"},   # keeps for months
     "fishing rod": {"pack": "water", "weight": 1, "food": 0.0, "spoil": 0.0, "life": 30, "seen": True},              # a rod, a line of hair or gut
     # the smokehouse (brief 5 §4a; calibrate): a batch curing on its racks (as meat drying on a hearth's rack), then smoked: half the
     # weight, the same food, keeping four times as long as dried meat
-    "smoking fish": {"pack": "water", "weight": 1, "food": 1.0, "spoil": 0.15, "cook": True, "raw": 0.6, "decay": "drying meat"},
-    "smoked fish": {"pack": "water", "weight": 1, "food": 2.0, "spoil": 0.005, "decay": "dried meat"},
+    "smoking fish": {"pack": "water", "weight": 1, "food": 0.46, "spoil": 0.15, "cook": True, "raw": 0.28, "decay": "drying meat"},
+    "smoked fish": {"pack": "water", "weight": 1, "food": 0.92, "spoil": 0.005, "decay": "dried meat"},   # 2 x fish (D2-258)
     # fish on a hearth's rack (D4-122): hung in the house's smoke as meat is, dried to half the weight; keeps as dried meat (calibrate)
-    "drying fish": {"pack": "water", "weight": 1, "food": 1.0, "spoil": 0.15, "cook": True, "raw": 0.6, "decay": "drying meat"},
-    "dried fish": {"pack": "water", "weight": 1, "food": 2.0, "spoil": 0.02, "decay": "dried meat"},
-    "meat": {"weight": 1, "food": 1.5, "spoil": 0.30, "cook": True, "raw": 0.8, "decay": "fresh meat"},                 # dense, spoils fresh (D2-41)
-    "milk": {"weight": 1, "food": 0.5, "spoil": 1.0},                  # the same day (D2-42)
+    "drying fish": {"pack": "water", "weight": 1, "food": 0.46, "spoil": 0.15, "cook": True, "raw": 0.28, "decay": "drying meat"},
+    "dried fish": {"pack": "water", "weight": 1, "food": 0.92, "spoil": 0.02, "decay": "dried meat"},   # 2 x fish (D2-258)
+    # meat: a unit is 1,500 kcal of what is eaten (1.25 kg of venison, 0.76 kg of beef; 02zzu, D2-258); raw at the game's raw/cooked
+    # 0.53 (fire matters: a design factor, kept)
+    "meat": {"weight": 1, "food": 0.6, "spoil": 0.30, "cook": True, "raw": 0.32, "decay": "fresh meat"},                # dense, spoils fresh (D2-41)
+    "milk": {"weight": 1, "food": 0.256, "spoil": 1.0},                # the same day (D2-42); a kg, FDC 64 kcal (D2-258)
     "hen": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": ["wild", "farming"]},
     "cat": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # a cat in a store keeps the mice down (D2-206; brief 2 K1)   # kept hens in a house's store: they lay (wild_layer.md, wave 2)
-    "egg": {"weight": 0.1, "food": 0.6, "spoil": 0.05, "cook": True, "raw": 0.5, "pack": "wild"},
+    # a kg of eggs in shell (wild.EGG_KG an egg, D2-258): 0.6 kept under D2-259 (+19% of FDC's 0.50, borderline)
+    "egg": {"weight": 1, "food": 0.6, "spoil": 0.05, "cook": True, "raw": 0.5, "pack": "wild"},
     # wild plants' goods (wild_plants.md §2, D2-200): fresh ones spoil fast, nuts keep for months; acorns are bitter until leached
-    "greens": {"weight": 1, "food": 0.6, "spoil": 0.3, "pack": "wild"},
-    "roots": {"weight": 1, "food": 0.8, "spoil": 0.05, "cook": True, "raw": 0.4, "pack": "wild"},
-    "mushrooms": {"weight": 1, "food": 0.6, "spoil": 0.3, "cook": True, "raw": 0.3, "pack": "wild"},
-    "watercress": {"weight": 1, "food": 0.4, "spoil": 0.3, "pack": "wild"},
-    "samphire": {"weight": 1, "food": 0.5, "spoil": 0.2, "cook": True, "raw": 0.4, "pack": "wild"},
-    "berries": {"weight": 1, "food": 0.8, "spoil": 0.25, "pack": "wild"},
-    "hedge fruit": {"weight": 1, "food": 0.6, "spoil": 0.03, "cook": True, "raw": 0.3, "pack": "wild"},
-    "hazel nuts": {"weight": 1, "food": 1.6, "spoil": 0.004, "pack": "wild"},
-    "beech nuts": {"weight": 1, "food": 1.2, "spoil": 0.006, "pack": "wild"},
-    "acorns": {"weight": 1, "food": 0.1, "spoil": 0.01, "pack": "wild"},
-    "acorn meal": {"weight": 1, "food": 1.0, "spoil": 0.02, "cook": True, "raw": 0.3, "pack": "wild"},
+    # the wild plants: a kg as gathered (in shell, unleached), on FDC SR Legacy (02zzu_lookup.md, D2-258); the raw values at the
+    # game's raw/cooked ratio (a design factor, kept)
+    "greens": {"weight": 1, "food": 0.098, "spoil": 0.3, "pack": "wild"},                                     # nettles and dock, 22 to 42 kcal
+    "roots": {"weight": 1, "food": 0.263, "spoil": 0.05, "cook": True, "raw": 0.13, "pack": "wild"},          # on SR proxies (parsnip, burdock, salsify)
+    "mushrooms": {"weight": 1, "food": 0.107, "spoil": 0.3, "cook": True, "raw": 0.053, "pack": "wild"},
+    "watercress": {"weight": 1, "food": 0.041, "spoil": 0.3, "pack": "wild"},                                 # 11 kcal: water
+    "samphire": {"weight": 1, "food": 0.061, "spoil": 0.2, "cook": True, "raw": 0.049, "pack": "wild"},       # on an SR proxy (purslane)
+    "berries": {"weight": 1, "food": 0.167, "spoil": 0.25, "pack": "wild"},
+    "hedge fruit": {"weight": 1, "food": 0.33, "spoil": 0.03, "cook": True, "raw": 0.165, "pack": "wild"},
+    "hazel nuts": {"weight": 1, "food": 1.03, "spoil": 0.004, "pack": "wild"},                                # in shell: the kernel 0.41
+    "beech nuts": {"weight": 1, "food": 1.2, "spoil": 0.006, "pack": "wild"},                                 # kept: -15% of FDC's 1.41
+    # raw acorns: FDC's 0.96 x 0.035, a design factor for the tannin (inedible unleached), so leaching is the way in (02zzu)
+    "acorns": {"weight": 1, "food": 0.034, "spoil": 0.01, "pack": "wild"},
+    "acorn meal": {"weight": 1, "food": 1.0, "spoil": 0.02, "cook": True, "raw": 0.3, "pack": "wild"},       # kept: -18% of 1.22 (borderline)
     "antler": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # a cast antler: horn for handles and combs
     "beaver pelt": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # a fine fur for trade
     "clappers": {"weight": 0.5, "food": 0.0, "spoil": 0.0, "pack": "wild"},
@@ -74,11 +87,12 @@ ITEMS = {
     "timber": {"weight": 2, "food": 0.0, "spoil": 0.0, "heat": 2.0},   # D2-24; 2 heat (D2-157)
     "stone": {"weight": 3, "food": 0.0, "spoil": 0.0},                 # D2-3, D2-24
     "hide": {"weight": 1, "food": 0.0, "spoil": 0.0, "decay": "hide"},                  # D2-24
-    "tallow": {"weight": 1, "food": 0.0, "spoil": 0.0},                                  # a beast's fat, rendered or not (brief 3 §5)
-    "drying meat": {"weight": 1, "food": 1.5, "spoil": 0.15, "cook": True, "raw": 0.8, "decay": "drying meat"},   # on a rack: the flies
-    "salt meat": {"weight": 1, "food": 1.4, "spoil": 0.003, "cook": True, "raw": 0.6, "decay": "dried meat"},     # keeps for months
-    "smoking meat": {"weight": 1, "food": 1.5, "spoil": 0.15, "cook": True, "raw": 0.8, "decay": "drying meat"},   # brief 5 §4a
-    "smoked meat": {"weight": 1, "food": 3.0, "spoil": 0.005, "decay": "dried meat"},                             # brief 5 §4a
+    "tallow": {"weight": 1, "food": 0.0, "spoil": 0.0},                                  # a beast's fat, rendered or not (brief 3 §5);
+    # food 0 against FDC's 3.6 a kg: a design choice, the lights' good (02zzu choice 6; whether it is famine food is for Zach)
+    "drying meat": {"weight": 1, "food": 0.6, "spoil": 0.15, "cook": True, "raw": 0.32, "decay": "drying meat"},  # on a rack: the flies
+    "salt meat": {"weight": 1, "food": 0.57, "spoil": 0.003, "cook": True, "raw": 0.24, "decay": "dried meat"},   # keeps for months; 0.95 x meat
+    "smoking meat": {"weight": 1, "food": 0.6, "spoil": 0.15, "cook": True, "raw": 0.32, "decay": "drying meat"},  # brief 5 §4a
+    "smoked meat": {"weight": 1, "food": 1.2, "spoil": 0.005, "decay": "dried meat"},                             # brief 5 §4a; 2 x meat
     "offal": {"weight": 1, "food": 0.0, "spoil": 0.0},                                   # what is left in a carcass taken from: the
                                                                                           # night's rot by its size (night.py, brief 3 §2)
     "tallow light": {"weight": 0.2, "food": 0.0, "spoil": 0.0},                          # a rush or rag dipped in tallow: night work by it
@@ -329,7 +343,7 @@ MONUMENTS = {
 }
 # The river's works (brief 5 §3, §3a, §3b; D2-209, D2-210; calibrate). A weir is built in sections (D2-210): the first of stakes and
 # wattle (the MONUMENTS row), then up to `most` timber sections, each upgradeable with a stone footing; with its gap shut each sound
-# section takes `share` of a run passing and holds `hold` food a night (less as it wears, `by_level`); open, `open` of that. A night's
+# section takes `share` of a run passing and holds `hold` kg a night (less as it wears, `by_level`); open, `open` of that. A night's
 # catch is the share, capped by what the weir holds less what is in its traps unlifted. Each section wears a night by Poisson(`base` x
 # its material x the water x the flow (from the catchment's rain today and half of yesterday's, over the mean, `flow_at`) x `gap_high`
 # with the gap shut in high water or above x ice (`ice`, `thaw` the night the ice breaks)) levels; a level is mended at `mend` of the
@@ -337,8 +351,12 @@ MONUMENTS = {
 # wrecked on a spate night at `wreck` (D2-211: fish alive in it until then). A water wheel on a river a run passes has a gap too (a new
 # one shut): shut, it grinds at full and its dam stops `stop` of a run going up (held below it that night) and sends a run going down
 # through the race, where a trap in water takes `race` of it; open, it grinds at `open_rate` (Q-51, default taken: half), the runs pass.
-WATER_WORKS = {"weir": {"sections": {"wattle": {"share": 0.30, "hold": 10.0, "wear": 1.0},
-                                     "timber": {"share": 0.07, "hold": 7.0, "wear": 0.5, "materials": {"timber": 10}, "units": 25,
+# The holds are in kg of the catch's goods (fish about 1 kg gutted a unit), not food (D2-258): a wattle section about 100 kg on a
+# peak night (a real weir's traps; was 10 food, about 22 kg on the unit of D2-258: x 4.6), a timber section 70 (in the old ratio
+# 7/10), a set trap 10 kg (17 eels, 3 salmon; was 3 food, about 6.5 kg: x 1.5). What the holds do not bind, keeping the catch must
+# (fresh fish's spoilage, salt, the racks and smokehouses, their fuel).
+WATER_WORKS = {"weir": {"sections": {"wattle": {"share": 0.30, "hold": 100.0, "wear": 1.0},
+                                     "timber": {"share": 0.07, "hold": 70.0, "wear": 0.5, "materials": {"timber": 10}, "units": 25,
                                                 "most": 3},
                                      "footing": {"wear": 0.1, "materials": {"stone": 10}, "units": 15}},
                         "open": 0.1, "by_level": {5: 1.0, 4: 0.8, 3: 0.6, 2: 0.3, 1: 0.1, 0: 0.0},
@@ -348,7 +366,7 @@ WATER_WORKS = {"weir": {"sections": {"wattle": {"share": 0.30, "hold": 10.0, "we
                                  "ice": 3.0, "thaw": 5.0},
                         "mend": 0.06, "units": {"shut": 2, "open": 1}},
                "trap": {"wreck": {"spate": 0.5, "flood": 0.85},           # a flood very likely, not always (D2-218)
-                        "hold": 3.0},                       # a set trap in water, in the river or a race, holds this food (D2-213)
+                        "hold": 10.0},                      # a set trap in water, in the river or a race, holds this many kg (D2-213, D2-258)
                "mill": {"stop": 0.5, "race": 0.5, "open_rate": 0.5, "units": {"shut": 1, "open": 1}}}
 # Extravagance in tiers (D2-171; calibrate): materials and work multiplied; noticed further (signs.BUILDING, layout, roads).
 TIERS = {
@@ -378,7 +396,7 @@ TECHNIQUES = {
                "at": {"covers": ["forest", "meadow", "pasture", "scrub", "heath", "moor", "fen", "saltmarsh"]}, "draws": "plants", "yield": {"kind": "stock", "base": 1.2},
                "units": 1, "gives": "wild food", "tags": ["food"]},
     "hunt": {"verb": "gather", "label": "hunting game", "aliases": ["hunting"], "basic": True, "at": {"covers": ["forest"]}, "off_with": ["wild"],
-             "draws": "game", "yield": {"kind": "chance", "p": 0.35, "range": [2, 6], "by": {"hide": 0.25}},
+             "draws": "game", "yield": {"kind": "chance", "p": 0.35, "range": [5, 15], "by": {"hide": 0.25}},   # a kill's meat x 2.5 on the 1,500 kcal unit (D2-258)
              "weapon": {"none": 0.3, "armed": 1.0}, "wear": 0.3, "units": 2, "gives": "meat", "tags": ["food", "hunting", "animals"]},
     "fell": {"verb": "gather", "label": "felling timber", "aliases": ["felling", "chop timber", "cut wood"], "basic": True,
              "at": {"covers": ["forest"]}, "draws": "wood", "yield": {"kind": "fixed", "base": 3.0},
@@ -508,9 +526,12 @@ TECHNIQUES = {
              "trade": "herder"},
     "slaughter": {"verb": "work", "label": "slaughtering a beast", "aliases": ["butcher", "kill a cow"], "basic": True,
                   "at": {"covers": ["pasture", "meadow", "field", "heath", "moor", "fen", "saltmarsh", "built"]}, "draws": "herd",
-                  "yield": {"kind": "slaughter", "gives": {"cows": {"meat": 40, "hide": 2, "tallow": 4}, "oxen": {"meat": 50, "hide": 2, "tallow": 4},
-                                                          "bulls": {"meat": 50, "hide": 2, "tallow": 4},
-                                                          "young": {"meat": 10, "hide": 1, "tallow": 1}}},   # tallow: brief 3 §5 (calibrate)
+                  # meat a head (D2-258; 02zzu): live weight x dressing x a medieval carcass's edible share 0.70 (Albarella), at 1,500
+                  # kcal a unit: a cow 300 kg (91 food), an ox or bull 400 kg (126), a young beast 120 kg (29, the lookup's veal);
+                  # USDA's modern carcass (20% bone) would give 12% more, within D2-259's 20%
+                  "yield": {"kind": "slaughter", "gives": {"cows": {"meat": 150, "hide": 2, "tallow": 4}, "oxen": {"meat": 210, "hide": 2, "tallow": 4},
+                                                          "bulls": {"meat": 210, "hide": 2, "tallow": 4},
+                                                          "young": {"meat": 48, "hide": 1, "tallow": 1}}},   # tallow: brief 3 §5 (calibrate)
                   "units": 2, "gives": "meat", "tags": ["food", "animals"]},
     # Mending a worn fitting (D4-103 phase 2; building_risks.md: capital has upkeep): it works at full again (calibrate)
     "dress millstones": {"verb": "work", "label": "dressing worn millstones (recutting their furrows)", "aliases": ["dress the stones"],
@@ -903,7 +924,8 @@ THINGS = {
                       "medium": {"fresh": 1, "rot": 0.4, "burn": {"units": 2, "firewood": 6}},
                       "large": {"fresh": 2, "rot": 0.3, "burn": {"units": 4, "firewood": 12}}},
     "carcass_rot_season": {"spring": 1.0, "summer": 1.5, "autumn": 1.0, "winter": 0.5}, "carcass_gone": 0.05,
-    "carcass_offal": 0.25, "body_mass": 30, "carcass_kg": 5.0,      # offal as a share of the meat; a unit of meat as kg of carrion
+    "carcass_offal": 0.25, "body_mass": 30, "carcass_kg": 3.0,      # offal as a share of the meat; a unit of meat as kg of carrion
+                                                                   # (3: a red deer's 33 units about its 90 kg; was 5 at 20 units, D2-258)
     "hidden": {"under brush": [0.2, 0.4], "buried": [0.03, 0.06], "off the road": [0.2, 0.2]},
     # a set snare or trap, seen (brief 2 §4; brief 4c §4; calibrate): its own conspicuousness empty, spent (sprung), with a beast
     # caught in it (`caught`, while the catch is fresh: up to `fresh_days` after the night it was caught), and x`birds` once the birds

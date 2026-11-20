@@ -189,7 +189,8 @@ def seed_traders_and_mill(world: dict) -> dict:
     - a water mill at Weirford (millstones and a water wheel on its green, beside the river), held by its largest household, whose
       people know how to work and keep it."""
     out = {}
-    for node, oxen, goods in (("Corneby", 2, {"coin": 30, "hide": 4}), ("Weirford", 1, {"coin": 10, "salt": 10, "salt fish": 12})):
+    # salt fish 26 (was 12): its food kept under the fish unit of D2-258 (0.46 a unit, was 1.0)
+    for node, oxen, goods in (("Corneby", 2, {"coin": 30, "hide": 4}), ("Weirford", 1, {"coin": 10, "salt": 10, "salt fish": 26})):
         hhs = _households(world, node)
         hh = min(hhs, key=lambda h: (len(hhs[h]), h))
         pasture = next(pid for pid, p in sorted(world["nodes"][node]["parcels"].items()) if p.get("cover") in ("pasture", "meadow"))

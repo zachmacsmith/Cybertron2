@@ -2494,8 +2494,9 @@ def _wild_river(here, add) -> None:
             hold, keepers = WL.weir_hold(b) if b else 0.0, list(b.get("crew") or [])
         else:
             hold, keepers = float(WATER_WORKS["trap"]["hold"]), [c.get("by")]
-        held = sum(float(q) * float((ITEMS.get(i) or {}).get("food", 0.0)) for i, q in c["goods"].items())
-        if run_now and sp.get("sprung") is None and hold > 0 and held >= hold - 0.25:
+        held = WL.held_kg(c)                                                   # holds in kg (D2-258): full when the
+        least = min([WL._kg_of(k) for (k, _), n in now.items() if n >= 1.0] or [0.25])   # smallest head running would not fit
+        if run_now and sp.get("sprung") is None and hold > 0 and held > hold - max(0.25, least):
             row = dict(when=lambda x: True, own=1.0, sense="sight", tags=["fishing", "food"],
                        text=lambda x, t=f"the traps at {pname} crammed full: whatever comes down now goes past": t)
             spot_rows(here, [row], x, sub, here.node, c["parcel"], add, name=f"wildfull{cid}", only=[k for k in keepers if k])

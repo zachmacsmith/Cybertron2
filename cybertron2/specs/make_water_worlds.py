@@ -127,15 +127,19 @@ def lake_spec(seed: int) -> dict:
 
 
 # ---------------------------------------------------------------------- edits after generation, said here
-LAKE_FISH = 7500.0    # a lake's standing stock, fish a km² (calibrate): about 150 kg a hectare at about 2 kg a fish unit (an eel 0.2, a
-                      # salmon 2); a stock is not scaled by the short year (Zach, 17 Nov: "it's a pretty big lake")
+RESIDENT_FISH = 2.2   # a named lever (D2-258, D2-259): resident stocks x 2.2 (see make_peoples.RESIDENT_FISH)
+LAKE_FISH = 7500.0 * RESIDENT_FISH   # a lake's standing stock, fish units a km² (calibrate): 7,500 was about 150 kg of whole fish a
+                      # hectare at about 2 kg a fish unit; on the unit of D2-258 (about 1 kg gutted, about 0.53 of the whole fish) 150 kg
+                      # whole is about 8,000 a km², within 7% of 7,500, so the base is kept and the lever applied (16,500: about 330 kg
+                      # whole a hectare, the top of a real lake's 50 to 300); a stock is not scaled by the short year (Zach, 17 Nov:
+                      # "it's a pretty big lake")
 LAKE_TURNOVER = 0.4   # a lake's yearly production as a share of its stock (calibrate); the flow is scaled by the 32-day year, as harvests
                       # are: r a night = 4 x production a world year / K / year_days, so the most it can give for good is about
                       # LAKE_TURNOVER x K x 32/365 a world year
 
 
 def water_stocks(world: dict, year_days: int = 32) -> dict:
-    """Resident fish in every water parcel (K 8 a unit of size, r 0.3, the peoples worlds' value, make_peoples.water_stocks; OPEN
+    """Resident fish in every water parcel (K 8 x RESIDENT_FISH a unit of size, r 0.3, the peoples worlds' value, make_peoples.water_stocks; OPEN
     L-75); a village's largest water parcel on a lake (at least 0.5 km² in its home and ring) holds the lake's stock by area, with a
     slow regrowth (LAKE_FISH, LAKE_TURNOVER). No parcel run: brief 5's runs are kinds along the river."""
     areas = (((world.get("wild") or {}).get("land") or {}).get("areas") or {})
@@ -162,7 +166,7 @@ def water_stocks(world: dict, year_days: int = 32) -> dict:
                 lakes[node.get("name", nid)] = {"parcel": pid, "lake_km2": round(lake[nid], 2), "fish_K": k, "r": r,
                                                 "most_a_year": round(prod, 0)}
             else:
-                k = round(8.0 * float(p.get("size", 1)), 1)
+                k = round(8.0 * RESIDENT_FISH * float(p.get("size", 1)), 1)
                 st["fish"] = {"K": k, "S": k, "r": 0.3}
             n += 1
     return {"water parcels stocked": n, "lakes": lakes}
@@ -254,9 +258,10 @@ def fishers(world: dict, every: bool = False) -> dict:
     return out
 
 
-HIGHPOOL_LARDER = {"smoked fish": 3}       # a person, at Highpool (no fields, the most people): 6 meals each, so it starts at about
+HIGHPOOL_LARDER = {"smoked fish": 6.5}     # a person, at Highpool (no fields, the most people): 6 meals each, so it starts at about
                                            # its 24-day need and trade and the runs decide its surplus, not its survival (Zach, 17 Nov)
-RUNS_STORE = {"dried meat": 4, "roots": 6, "acorns": 6, "berries": 4}   # a household's late-summer larder: weeks, not a winter
+# the larders in units re-sized so their days of food are as before the values of D2-258 (6 food a person at Highpool; 20.6 a house)
+RUNS_STORE = {"dried meat": 10, "roots": 18.5, "acorns": 17.6, "berries": 19.2}   # a household's late-summer larder: weeks, not a winter
 
 
 def no_farming(world: dict, keep=()) -> dict:

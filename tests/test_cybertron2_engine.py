@@ -183,6 +183,9 @@ def test_joining_a_household_by_asking_and_being_admitted():
 
 def test_hosting_shelters_and_feeds_only_if_asked():
     w = world()
+    st = w.s["containers"][w.s["buildings"]["fenn_house"]["stock"]]["goods"]   # valley_s5's larder at its old days of food: meat and
+    st.update({"meat": 13.25, "wild food": 6.6})                               # wild food x 2.5 and 2.44 under D2-258 (the world is not
+                                                                               # regenerated; it was 5.3 and 2.7)
     for x in ("Warin", "Osric"):
         w.s["people"][x]["at"] = "ashwood"
         w.s["containers"][w.hands(x)]["goods"] = {}

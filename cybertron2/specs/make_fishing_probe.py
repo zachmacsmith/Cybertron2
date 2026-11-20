@@ -30,10 +30,10 @@ def world(arm: str) -> dict:
                      "text": "a green above the ferry with three houses on it", "adj": ["fb_river", "fb_field", "fb_mead", "fb_copse"]},
         "fb_river": {"name": "the Wen", "cover": "water", "size": 1, "side": "west", "height": 0,
                      "text": "a broad slow river; in autumn the salmon come up it",
-                     "state": {"fish": {"K": 10, "S": 10, "r": 0.3, "run_K": 40, "run_r": 0.35, "run_seasons": ["autumn"]}},
+                     "state": {"fish": {"K": 22, "S": 22, "r": 0.3, "run_K": 88, "run_r": 0.35, "run_seasons": ["autumn"]}},   # x 2.2 (D2-258)
                      "adj": ["fb_marsh", "fb_mead"]},
         "fb_mere": {"name": "Black Mere", "cover": "water", "size": 1, "side": "north", "height": 0,
-                    "text": "a dark mere among the reeds", "state": {"fish": {"K": 8, "S": 8, "r": 0.3}}, "adj": ["fb_copse"]},
+                    "text": "a dark mere among the reeds", "state": {"fish": {"K": 17.6, "S": 17.6, "r": 0.3}}, "adj": ["fb_copse"]},   # x 2.2 (D2-258)
         "fb_marsh": {"name": "the Saltings", "cover": "saltmarsh", "size": 2, "side": "south", "height": 0,
                      "text": "saltmarsh by the river's mouth, with old salt pans", "state": {"salt": {"K": 1000, "S": 1000, "r": 0.0}},
                      "adj": ["fb_river"]},
