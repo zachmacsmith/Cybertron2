@@ -31,6 +31,7 @@ done 20 Nov: the six-part analysis (02zzu_shared_units.md, .json, .py) on 1 food
 - under it: [[L-139 A hen killed in a raid gives its meat|A hen killed in a raid gives its meat (L-139)]] (open)
 - under it: [[Q-69 The basis for food and work|The basis for food and work (Q-69)]] (open)
 - under it: [[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Adopt the food values on one basis, and fix the runs, the weir and… (Q-70)]] (closed)
+- under it: [[W-71 How carrying works in the live runs|How carrying works in the live runs (W-71)]] (queued)
 
 
 ## Mentioned by
@@ -39,6 +40,7 @@ done 20 Nov: the six-part analysis (02zzu_shared_units.md, .json, .py) on 1 food
 - [[Q-69 The basis for food and work|The basis for food and work (Q-69)]]
 - [[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Adopt the food values on one basis, and fix the runs, the weir and… (Q-70)]]
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+- [[W-71 How carrying works in the live runs|How carrying works in the live runs (W-71)]]
 - [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]]
 - [[L-138 Hens lay on the old clock|Hens lay on the old clock (L-138)]]
 - [[L-139 A hen killed in a raid gives its meat|A hen killed in a raid gives its meat (L-139)]]
