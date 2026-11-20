@@ -341,7 +341,11 @@
   "arm": "high",
   "households": 3,
   "people": 12,
-  "smoke racks": 3,
+  "smokehouses": {
+   "brook_smokehouse": "Eelmouth_9",
+   "marsh_smokehouse": "Eelmouth_1",
+   "shepherd_smokehouse": "Eelmouth_9"
+  },
   "weir": {
    "parcel": "Eelmouth_8",
    "sections": [

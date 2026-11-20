@@ -9,11 +9,17 @@ switches for game and fish, 37.4's prerequisite in D2-256.)
 Three arms on the same land and people, differing only in skill and capital (D2-256: seeded skill):
 - low: novices; hand fishing and traps in the water known roughly; no weir, no smoke racks, no salt: nothing can be kept but by
   eating it, so the test is whether a run's glut carries a winter (it should not);
-- medium: capable; traps and nets known; smoke racks at each house; no weir and no salt;
+- medium: capable; traps and nets known; a smokehouse for each household, apart from the houses; no weir and no salt;
 - high: masters; traps, nets, the weir, smoking and salting known well; a weir of three timber sections built on the village's
   river water (the first in timber too, as a master's village on a flood river would build it: position decides a section's share
   and hold, material its wear, W-69), worked by its crew (the holding household's adults who know the weir, so its traps are known);
-  smoke racks at each house; a salt house with a brine pan at the village's brine spring, and salt in store.
+  a smokehouse for each household; a salt house with a brine pan at the village's brine spring, and salt in store.
+
+The smokehouses stand apart, as brief 5 §4a builds them ("its own building, apart ... on another parcel than the houses"; whose:
+its builder's household): each household's on a scrub parcel off the houses' Street, so a fire in one takes that smokehouse and what
+hangs or lies in it, never a house and its store (a fire spreads only within its parcel, keeping.catch). Until 20 Nov the racks were
+a fitting in each house on the Street, and the bot runs lost 253 to 283 food a run in the high arm to fires that spread house to
+house (02zzw_water_fixes.md).
 
     python3 cybertron2/specs/make_nutrition_runs.py [--seeds 5,7,9] [--out DIR]
 
@@ -97,10 +103,7 @@ def apply_arm(world: dict, arm: str) -> dict:
     houses = {hh: next((k for k, b in world["buildings"].items() if b.get("household") == hh and (b.get("fittings") or {}).get("beds")
                         and str(b.get("parcel", "")).startswith(nid + "_")), None) for hh in hhs}
     if a["racks"]:
-        for hh, bid in houses.items():
-            if bid:
-                world["buildings"][bid].setdefault("fittings", {})["smoke racks"] = 1
-        out["smoke racks"] = sum(1 for b in houses.values() if b)
+        out["smokehouses"] = _smokehouses(world, nid, [hh for hh, bid in houses.items() if bid])
     lead = max(hhs, key=lambda h: (len(hhs[h]), h))
     if a["weir"]:
         pid = _river_water(world, nid)
@@ -118,6 +121,27 @@ def apply_arm(world: dict, arm: str) -> dict:
     else:
         for bid in [k for k, b in world["buildings"].items() if (b.get("fittings") or {}).get("brine pan")]:
             world["buildings"].pop(bid)                                # no pan in the low and medium arms
+    return out
+
+
+SMOKEHOUSE_FUEL = 6                            # firewood in a new smokehouse's store: its first batch's nights and a little over
+
+
+def _smokehouses(world, nid, hhs) -> dict:
+    """A wattle smokehouse with smoke racks for each household (brief 5 §4a.1, .5), on the village's scrub parcels that hold no house,
+    the largest first, one a parcel while they last (then shared: a fire there reaches only the other smokehouse)."""
+    housed = {b["parcel"] for b in world["buildings"].values() if (b.get("fittings") or {}).get("beds")}
+    ground = sorted((pid for pid, p in world["nodes"][nid]["parcels"].items() if p["cover"] == "scrub" and pid not in housed),
+                    key=lambda q: (-int(world["nodes"][nid]["parcels"][q].get("size", 1)), q))
+    if not ground:
+        raise RuntimeError("no scrub away from the houses for the smokehouses")
+    out = {}
+    for j, hh in enumerate(sorted(hhs)):
+        bid = f"{hh.lower()}_smokehouse"
+        pid = ground[j % len(ground)]
+        world["buildings"][bid] = {"parcel": pid, "household": hh, "structure": "wattle", "name": f"the {hh} Smokehouse",
+                                   "fittings": {"smoke racks": 1}, "stock": {"firewood": SMOKEHOUSE_FUEL}}
+        out[bid] = pid
     return out
 
 

@@ -598,7 +598,6 @@ buildings:
       beds: 6
       hearth: 1
       bins: 1
-      smoke racks: 1
     stock:
       timber: 28
       firewood: 60
@@ -614,7 +613,6 @@ buildings:
       beds: 6
       hearth: 1
       bins: 1
-      smoke racks: 1
     stock:
       timber: 28
       firewood: 60
@@ -630,7 +628,6 @@ buildings:
       beds: 4
       hearth: 1
       bins: 1
-      smoke racks: 1
     stock:
       timber: 28
       firewood: 42
@@ -646,6 +643,33 @@ buildings:
       bins: 1
     stock:
       dung: 10
+  brook_smokehouse:
+    parcel: Eelmouth_9
+    household: Brook
+    structure: wattle
+    name: the Brook Smokehouse
+    fittings:
+      smoke racks: 1
+    stock:
+      firewood: 6
+  marsh_smokehouse:
+    parcel: Eelmouth_1
+    household: Marsh
+    structure: wattle
+    name: the Marsh Smokehouse
+    fittings:
+      smoke racks: 1
+    stock:
+      firewood: 6
+  shepherd_smokehouse:
+    parcel: Eelmouth_9
+    household: Shepherd
+    structure: wattle
+    name: the Shepherd Smokehouse
+    fittings:
+      smoke racks: 1
+    stock:
+      firewood: 6
   marsh_weir:
     parcel: Eelmouth_8
     node: Eelmouth
