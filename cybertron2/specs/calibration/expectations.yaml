@@ -1,0 +1,304 @@
+# The calibration suite's expectations (proposals/calibration_worlds.md, "The expectations"; D2-228, D2-245; WORK W-54).
+#
+# For each of the twelve worlds, the ranges a real place of its kind shows, written before calibrating and drawn from the places
+# each stands for. Ranges are wide on purpose: "a place of this kind looks like this", not a number to hit. A range is [low, high];
+# null means no expectation (the measure says nothing about this kind of place, or the generator cannot make it yet).
+#
+# Where each number is measured (docs/review/37_growth/02zzt_calibration_suite.py):
+#   weather   at the world's villages (the settled valleys and lowland, not the tops), per real year. Two columns: the generator's
+#             climate (rain_mm, mean_temp_c only: it has no seasons, days or wind) and the engine's weather (climate.py, D4-109)
+#             over 20 engine years, put per real year (a day's share x 365), as 02zzo did.
+#   land      over the whole window's land, from the cells (150 m).
+#   water     at the villages, on 02zzn's two-clock water model (a storm one day, the seasonal stores at 365/32 days a day).
+#   ecosystems the share of the window's land (sea left out) in each group; present / absent: ecosystems found on at least 0.1%
+#             of the land / on none of it.
+#   wildlife  present: kinds of the wild layer with at least 0.01 a km2 over the window after its history (engine/wild.py).
+#
+# The real numbers are the Met Office's 1991-2020 station normals and the land's own descriptions in the sources below, as read
+# and rounded; the ranges are widened well past them (about a third either side, or more where places of a kind differ), so a
+# few per cent's error in a source does not move a verdict.
+
+units:
+  rain_mm: rain a year, mm
+  wet_days: days a year with 1 mm or more
+  mean_temp_c: a year's mean air temperature, C
+  winter_c: the winter quarter's mean, C (engine only)
+  summer_c: the summer quarter's mean, C (engine only)
+  frost_nights: nights a year with the low below 0 C (air frost)
+  snow_lying_days: days a year with snow lying (over 5 mm water held as snow, 02zzn)
+  wind_ms: mean wind, m/s
+  gale_days: days a year with the wind at 17 m/s or more
+  max_height_m: the land's highest point, m
+  share_over_500m: share of land over 500 m
+  share_over_10deg: share of land steeper than 10 degrees
+  floodplain_share: share of land the generator calls river floodplain
+  terrace_share: share of land it calls river terrace
+  low_ground_share: share of land within 2 m of a river of class 2 or more (height above the river, f)
+  wet_ground_share: share of land with wetness 0.75 or more
+  treeline_m: the lowest land too cold for wood (a year's mean under treeline_c), m; null where no land is that cold
+  above_treeline_share: share of land above the tree line
+  spates_a_year: spates begun a year at a village (flow 4 to 8 x the median)
+  floods_a_year: floods begun a year at a village (flow over 8 x the median)
+  flood_years: share of years with the river at least 1 m above normal at least once
+  low_water_share: share of the year the river is low or dry (under 0.6 x the median)
+  ice_days: days a real year with 5 cm or more of ice on still water (Stefan's law on the weather, 02zzn)
+  woodland_share: share of land in wood (cover forest)
+  heath_share: lowland heath
+  moor_share: moor and blanket bog
+  wetland_share: fen, reedbed, alder carr and wet grassland
+  saltmarsh_share: saltmarsh
+  lake_share: lakes (meres and tarns)
+
+worlds:
+  w01:
+    name: Lowland river country
+    stands_for: the English midlands
+    sources: [metoffice_normals, midlands, floodplain_meadows, ea_flood_freq, uk_woodland]
+    weather: {rain_mm: [600, 1000], wet_days: [100, 150], mean_temp_c: [8.5, 11], winter_c: [2.5, 6], summer_c: [14.5, 18],
+              frost_nights: [25, 70], snow_lying_days: [0, 20], wind_ms: [3, 6], gale_days: [0, 5]}
+    land: {max_height_m: [80, 350], share_over_500m: [0, 0], share_over_10deg: [0, 0.08], floodplain_share: [0.04, 0.2],
+           terrace_share: [0.02, 0.2], low_ground_share: [0.04, 0.3], wet_ground_share: [0.03, 0.25], treeline_m: null,
+           above_treeline_share: [0, 0]}
+    water: {spates_a_year: [0.3, 3], floods_a_year: [0.1, 1], flood_years: [0.2, 0.8], low_water_share: [0.05, 0.35], ice_days: [0, 10]}
+    ecosystems: {woodland_share: [0.15, 0.4], heath_share: [0, 0.05], moor_share: [0, 0.01], wetland_share: [0.02, 0.15],
+                 saltmarsh_share: [0, 0], lake_share: [0, 0.005],
+                 present: [oak-ash wood, hay meadow, grassland], absent: [moor, blanket bog, saltmarsh]}
+    wildlife: {present: [roe deer, brown hare, fox, voles and mice, woodpigeon, eel]}
+
+  w02:
+    name: Dry east
+    stands_for: East Anglia, a rain shadow
+    sources: [metoffice_normals, east_anglia, brecks, ea_flood_freq]
+    weather: {rain_mm: [450, 700], wet_days: [85, 125], mean_temp_c: [9, 11.5], winter_c: [2.5, 6], summer_c: [15, 19],
+              frost_nights: [25, 70], snow_lying_days: [0, 20], wind_ms: [3, 6], gale_days: [0, 5]}
+    land: {max_height_m: [50, 300], share_over_500m: [0, 0], share_over_10deg: [0, 0.06], floodplain_share: [0.03, 0.18],
+           terrace_share: [0.02, 0.2], low_ground_share: [0.03, 0.3], wet_ground_share: [0.01, 0.15], treeline_m: null,
+           above_treeline_share: [0, 0]}
+    water: {spates_a_year: [0.1, 1.5], floods_a_year: [0, 0.5], flood_years: [0.05, 0.5], low_water_share: [0.15, 0.6], ice_days: [0, 15]}
+    ecosystems: {woodland_share: [0.1, 0.4], heath_share: [0, 0.15], moor_share: [0, 0.01], wetland_share: [0, 0.12],
+                 saltmarsh_share: [0, 0], lake_share: [0, 0.005],
+                 present: [oak-ash wood, grassland], absent: [moor, blanket bog, saltmarsh]}
+    wildlife: {present: [roe deer, brown hare, fox, voles and mice, woodpigeon]}
+
+  w03:
+    name: Wet west, maritime
+    stands_for: Devon, west Wales
+    sources: [metoffice_normals, devon_wales, saltmarsh_uk, ea_flood_freq]
+    weather: {rain_mm: [850, 2000], wet_days: [140, 200], mean_temp_c: [9.5, 12], winter_c: [5, 9], summer_c: [14, 17.5],
+              frost_nights: [0, 30], snow_lying_days: [0, 5], wind_ms: [5, 8.5], gale_days: [2, 30]}
+    land: {max_height_m: [60, 450], share_over_500m: [0, 0.02], share_over_10deg: [0, 0.2], floodplain_share: [0.02, 0.15],
+           terrace_share: [0.01, 0.15], low_ground_share: [0.02, 0.25], wet_ground_share: [0.05, 0.35], treeline_m: null,
+           above_treeline_share: [0, 0]}
+    water: {spates_a_year: [1, 6], floods_a_year: [0.2, 2], flood_years: [0.4, 1], low_water_share: [0, 0.25], ice_days: [0, 2]}
+    ecosystems: {woodland_share: [0.15, 0.45], heath_share: [0, 0.08], moor_share: [0, 0.05], wetland_share: [0.02, 0.2],
+                 saltmarsh_share: [0.0005, 0.03], lake_share: [0, 0.005],
+                 present: [oak-ash wood, saltmarsh, grassland], absent: [blanket bog, chalk grassland]}
+    wildlife: {present: [roe deer, fox, voles and mice, eel, otter]}
+
+  w04:
+    name: Coast under mountains
+    stands_for: west Scotland's coast, the Lakes' west side
+    sources: [metoffice_normals, west_scotland, lakes_rain, uk_treeline]
+    # at the villages (on the windward strip and in the lee); the fells and the lee are compared in the ordering checks
+    weather: {rain_mm: [900, 2200], wet_days: [150, 230], mean_temp_c: [8, 11], winter_c: [3, 7], summer_c: [12.5, 16],
+              frost_nights: [5, 50], snow_lying_days: [0, 15], wind_ms: [5, 9], gale_days: [5, 50]}
+    land: {max_height_m: [500, 1100], share_over_500m: [0.02, 0.3], share_over_10deg: [0.08, 0.5], floodplain_share: [0.01, 0.12],
+           terrace_share: [0, 0.12], low_ground_share: [0.01, 0.2], wet_ground_share: [0.05, 0.4], treeline_m: [350, 700],
+           above_treeline_share: [0, 0.25]}
+    water: {spates_a_year: [1, 8], floods_a_year: [0.3, 3], flood_years: [0.4, 1], low_water_share: [0, 0.25], ice_days: [0, 10]}
+    ecosystems: {woodland_share: [0.1, 0.45], heath_share: [0, 0.05], moor_share: [0.05, 0.45], wetland_share: [0.01, 0.15],
+                 saltmarsh_share: [0, 0.02], lake_share: [0, 0.02],
+                 present: [moor, upland oak wood], absent: [chalk grassland, beech wood]}
+    wildlife: {present: [red deer, roe deer, fox, voles and mice, eel, raven]}
+
+  w05:
+    name: Upland and moor
+    stands_for: the Pennines
+    sources: [metoffice_normals, pennines, moor_house, uk_treeline]
+    weather: {rain_mm: [800, 1600], wet_days: [140, 210], mean_temp_c: [7, 10], winter_c: [1.5, 5], summer_c: [13, 16.5],
+              frost_nights: [35, 100], snow_lying_days: [3, 40], wind_ms: [4, 8], gale_days: [1, 25]}
+    land: {max_height_m: [450, 950], share_over_500m: [0.02, 0.3], share_over_10deg: [0.06, 0.4], floodplain_share: [0.01, 0.1],
+           terrace_share: [0, 0.12], low_ground_share: [0.01, 0.2], wet_ground_share: [0.08, 0.45], treeline_m: [400, 650],
+           above_treeline_share: [0.02, 0.3]}
+    water: {spates_a_year: [0.5, 6], floods_a_year: [0.1, 2], flood_years: [0.3, 1], low_water_share: [0, 0.3], ice_days: [0, 30]}
+    ecosystems: {woodland_share: [0.05, 0.35], heath_share: [0, 0.05], moor_share: [0.1, 0.55], wetland_share: [0.01, 0.15],
+                 saltmarsh_share: [0, 0], lake_share: [0, 0.02],
+                 present: [moor, blanket bog, hill pasture, upland oak wood], absent: [saltmarsh, chalk grassland]}
+    wildlife: {present: [red deer, roe deer, brown hare, fox, voles and mice, raven]}
+
+  w06:
+    name: High mountains
+    stands_for: the Highlands, a cold extreme (D2-227)
+    sources: [metoffice_normals, highlands, cairngorm, uk_treeline]
+    # at the villages, which lie in the glens; the tops are read in the ordering checks
+    weather: {rain_mm: [800, 2200], wet_days: [150, 230], mean_temp_c: [5.5, 9], winter_c: [-1, 4], summer_c: [11.5, 15.5],
+              frost_nights: [60, 150], snow_lying_days: [10, 80], wind_ms: [4, 9], gale_days: [2, 40]}
+    land: {max_height_m: [1100, 1600], share_over_500m: [0.1, 0.55], share_over_10deg: [0.15, 0.65], floodplain_share: [0, 0.08],
+           terrace_share: [0, 0.1], low_ground_share: [0, 0.15], wet_ground_share: [0.05, 0.4], treeline_m: [450, 700],
+           above_treeline_share: [0.1, 0.5]}
+    water: {spates_a_year: [0.5, 6], floods_a_year: [0.1, 2], flood_years: [0.3, 1], low_water_share: [0, 0.3], ice_days: [5, 90]}
+    ecosystems: {woodland_share: [0.05, 0.35], heath_share: [0, 0.05], moor_share: [0.15, 0.6], wetland_share: [0, 0.12],
+                 saltmarsh_share: [0, 0], lake_share: [0, 0.03],
+                 present: [moor, blanket bog, bare rock, upland oak wood], absent: [saltmarsh, chalk grassland]}
+    wildlife: {present: [red deer, fox, voles and mice, raven]}
+
+  w07:
+    name: Cold north
+    stands_for: a northern lowland (6 C at sea level, colder than any British lowland; read as a southern Scandinavian or Baltic plain)
+    sources: [nordic_normals, lake_ice, boreal_woods]
+    weather: {rain_mm: [550, 950], wet_days: [100, 160], mean_temp_c: [4.5, 7.5], winter_c: [-5, 1.5], summer_c: [13, 17.5],
+              frost_nights: [80, 170], snow_lying_days: [30, 120], wind_ms: [3, 6], gale_days: [0, 8]}
+    land: {max_height_m: [80, 350], share_over_500m: [0, 0], share_over_10deg: [0, 0.08], floodplain_share: [0.04, 0.2],
+           terrace_share: [0.02, 0.2], low_ground_share: [0.04, 0.3], wet_ground_share: [0.05, 0.3], treeline_m: null,
+           above_treeline_share: [0, 0]}
+    water: {spates_a_year: [0.3, 3], floods_a_year: [0.1, 1], flood_years: [0.2, 0.8], low_water_share: [0.05, 0.4], ice_days: [20, 120]}
+    ecosystems: {woodland_share: [0.15, 0.45], heath_share: [0, 0.08], moor_share: [0, 0.05], wetland_share: [0.02, 0.2],
+                 saltmarsh_share: [0, 0], lake_share: [0, 0.005],
+                 present: [birch and pine wood, grassland], absent: [beech wood, saltmarsh]}
+    wildlife: {present: [roe deer, fox, voles and mice, brown hare]}
+
+  w08:
+    name: Fen basin
+    stands_for: the Fens
+    sources: [metoffice_normals, fens, fen_floods]
+    weather: {rain_mm: [480, 750], wet_days: [90, 130], mean_temp_c: [9, 11.5], winter_c: [2.5, 6], summer_c: [15, 18.5],
+              frost_nights: [25, 75], snow_lying_days: [0, 20], wind_ms: [3.5, 6.5], gale_days: [0, 8]}
+    land: {max_height_m: [5, 150], share_over_500m: [0, 0], share_over_10deg: [0, 0.03], floodplain_share: [0, 0.2],
+           terrace_share: [0, 0.15], low_ground_share: [0.15, 0.9], wet_ground_share: [0.3, 0.9], treeline_m: null,
+           above_treeline_share: [0, 0]}
+    water: {spates_a_year: [0.2, 3], floods_a_year: [0.1, 1.5], flood_years: [0.3, 1], low_water_share: [0.05, 0.4], ice_days: [0, 15]}
+    ecosystems: {woodland_share: [0.02, 0.35], heath_share: [0, 0.05], moor_share: [0, 0.01], wetland_share: [0.3, 0.9],
+                 saltmarsh_share: [0, 0.05], lake_share: [0, 0.05],
+                 present: [fen, reedbed, alder carr, wet grassland], absent: [moor, blanket bog, chalk grassland, upland oak wood]}
+    wildlife: {present: [wildfowl, eel, otter, voles and mice]}
+
+  w09:
+    name: Estuary and saltmarsh
+    stands_for: the Severn, the Humber
+    sources: [metoffice_normals, estuaries, saltmarsh_uk]
+    weather: {rain_mm: [550, 950], wet_days: [100, 150], mean_temp_c: [9, 11.5], winter_c: [3, 7], summer_c: [15, 18],
+              frost_nights: [15, 60], snow_lying_days: [0, 15], wind_ms: [4, 7], gale_days: [0, 10]}
+    land: {max_height_m: [20, 250], share_over_500m: [0, 0], share_over_10deg: [0, 0.05], floodplain_share: [0.03, 0.25],
+           terrace_share: [0.01, 0.2], low_ground_share: [0.08, 0.6], wet_ground_share: [0.12, 0.6], treeline_m: null,
+           above_treeline_share: [0, 0]}
+    water: {spates_a_year: [0.2, 3], floods_a_year: [0.1, 1.5], flood_years: [0.2, 1], low_water_share: [0.05, 0.4], ice_days: [0, 10]}
+    ecosystems: {woodland_share: [0.05, 0.35], heath_share: [0, 0.05], moor_share: [0, 0.01], wetland_share: [0.1, 0.6],
+                 saltmarsh_share: [0.003, 0.08], lake_share: [0, 0.03],
+                 present: [saltmarsh, reedbed, fen, wet grassland], absent: [moor, blanket bog]}
+    wildlife: {present: [wildfowl, eel, otter, voles and mice]}
+
+  w10:
+    name: Chalk and clay
+    stands_for: the downs and their vale
+    sources: [metoffice_normals, downs, chalk_streams]
+    weather: {rain_mm: [650, 1000], wet_days: [105, 150], mean_temp_c: [9, 11.5], winter_c: [2.5, 6], summer_c: [15, 18],
+              frost_nights: [30, 75], snow_lying_days: [0, 20], wind_ms: [3.5, 6.5], gale_days: [0, 8]}
+    land: {max_height_m: [150, 350], share_over_500m: [0, 0], share_over_10deg: [0, 0.12], floodplain_share: [0.02, 0.15],
+           terrace_share: [0.01, 0.15], low_ground_share: [0.02, 0.25], wet_ground_share: [0.03, 0.3], treeline_m: null,
+           above_treeline_share: [0, 0]}
+    water: {spates_a_year: [0.05, 2], floods_a_year: [0, 0.6], flood_years: [0, 0.6], low_water_share: [0.1, 0.5], ice_days: [0, 10]}
+    ecosystems: {woodland_share: [0.1, 0.4], heath_share: [0, 0.05], moor_share: [0, 0.01], wetland_share: [0.01, 0.15],
+                 saltmarsh_share: [0, 0], lake_share: [0, 0.005],
+                 present: [chalk grassland, beech wood, oak-ash wood, grassland], absent: [moor, blanket bog, saltmarsh]}
+    wildlife: {present: [roe deer, brown hare, fox, voles and mice, woodpigeon]}
+
+  w11:
+    name: Sand and heath
+    stands_for: the Brecks, the New Forest
+    sources: [metoffice_normals, brecks, new_forest]
+    weather: {rain_mm: [500, 900], wet_days: [90, 140], mean_temp_c: [9, 11.5], winter_c: [2, 6], summer_c: [15, 18.5],
+              frost_nights: [40, 110], snow_lying_days: [0, 20], wind_ms: [3, 6], gale_days: [0, 6]}
+    land: {max_height_m: [40, 220], share_over_500m: [0, 0], share_over_10deg: [0, 0.05], floodplain_share: [0.01, 0.12],
+           terrace_share: [0.01, 0.15], low_ground_share: [0.01, 0.2], wet_ground_share: [0, 0.12], treeline_m: null,
+           above_treeline_share: [0, 0]}
+    water: {spates_a_year: [0.05, 1.5], floods_a_year: [0, 0.5], flood_years: [0, 0.5], low_water_share: [0.15, 0.6], ice_days: [0, 15]}
+    ecosystems: {woodland_share: [0.1, 0.45], heath_share: [0.12, 0.6], moor_share: [0, 0.01], wetland_share: [0, 0.1],
+                 saltmarsh_share: [0, 0], lake_share: [0, 0.005],
+                 present: [lowland heath, birch and pine wood], absent: [moor, blanket bog, saltmarsh]}
+    wildlife: {present: [roe deer, brown hare, fox, voles and mice]}
+
+  w12:
+    name: Lake country
+    stands_for: the Lakes, a mere district
+    sources: [metoffice_normals, lakes_rain, lake_ice, uk_treeline]
+    weather: {rain_mm: [1000, 2500], wet_days: [160, 230], mean_temp_c: [7.5, 10.5], winter_c: [2, 5.5], summer_c: [13, 16.5],
+              frost_nights: [25, 80], snow_lying_days: [2, 30], wind_ms: [4, 8], gale_days: [1, 30]}
+    land: {max_height_m: [500, 1000], share_over_500m: [0.02, 0.3], share_over_10deg: [0.08, 0.5], floodplain_share: [0.01, 0.1],
+           terrace_share: [0, 0.12], low_ground_share: [0.01, 0.2], wet_ground_share: [0.08, 0.45], treeline_m: [400, 650],
+           above_treeline_share: [0, 0.3]}
+    water: {spates_a_year: [0.3, 5], floods_a_year: [0.1, 2], flood_years: [0.3, 1], low_water_share: [0, 0.3], ice_days: [0, 30]}
+    ecosystems: {woodland_share: [0.1, 0.4], heath_share: [0, 0.05], moor_share: [0.05, 0.45], wetland_share: [0.01, 0.15],
+                 saltmarsh_share: [0, 0], lake_share: [0.01, 0.08],
+                 present: [water, moor, upland oak wood], absent: [saltmarsh, chalk grassland]}
+    wildlife: {present: [red deer, roe deer, wildfowl, eel, otter, fox, raven]}
+
+# Orderings (the proposal's check 2): pairs that must come out in a known order whatever the constants. `a` and `b` are
+# [world, where, measure]; `where` is `villages` or a probe named in make_calibration_worlds.probes. a < b unless `more`.
+orderings:
+  - {name: the dry east is drier than the lowland, a: [w02, villages, rain_mm], b: [w01, villages, rain_mm], from: proposal}
+  - {name: the wet west's coast frosts less than the cold north, a: [w03, coast, frost_nights], b: [w07, villages, frost_nights],
+     from: proposal, generator_stand_in: "mean_temp_c, more (the generator has no frost)"}
+  - {name: the fells are wetter than the lee, a: [w04, lee, rain_mm], b: [w04, fells, rain_mm], from: proposal}
+  - {name: the fen floods more than the chalk, a: [w10, villages, flooded], b: [w08, villages, flooded], from: proposal}
+  - {name: the sand holds less water than the clay, a: [w11, on sand, held_mm], b: [w10, vale, held_mm], from: proposal}
+  - {name: the wet west is wetter than the lowland, a: [w01, villages, rain_mm], b: [w03, villages, rain_mm], from: "rows 1 and 3"}
+  - {name: the wet west has more wet days than the dry east, a: [w02, villages, wet_days], b: [w03, villages, wet_days], from: "rows 2 and 3"}
+  - {name: the cold north is colder than the lowland, a: [w07, villages, mean_temp_c], b: [w01, villages, mean_temp_c], from: "rows 1 and 7"}
+  - {name: the cold north has more ice than the lowland, a: [w01, villages, ice_days], b: [w07, villages, ice_days], from: "row 7: frozen still water"}
+  - {name: the wet west's coast is windier than the lowland, a: [w01, villages, wind_ms], b: [w03, coast, wind_ms], from: "row 3: windy"}
+  - {name: the high mountains' tops are colder than the upland's, a: [w06, tops, mean_temp_c], b: [w05, tops, mean_temp_c], from: "rows 5 and 6"}
+  - {name: snow lies longer on the mountains' tops than in the lowland, a: [w01, villages, snow_lying_days], b: [w06, tops, snow_lying_days], from: "row 6: long snow"}
+  - {name: the wet west's rivers are flashier than the dry east's, a: [w02, villages, spates_a_year], b: [w03, villages, spates_a_year], from: "rows 2 and 3"}
+  - {name: the dry east has more low water than the wet west, a: [w03, villages, low_water_share], b: [w02, villages, low_water_share], from: "rows 2 and 3"}
+  - {name: the fen has more wet ground than the lowland, a: [w01, land, wet_ground_share], b: [w08, land, wet_ground_share], from: "row 8"}
+  - {name: the estuary has more saltmarsh than the lowland, a: [w01, land, saltmarsh_share], b: [w09, land, saltmarsh_share], from: "row 9"}
+  - {name: the sand has more heath than the lowland, a: [w01, land, heath_share], b: [w11, land, heath_share], from: "row 11"}
+  - {name: the downs lie drier than the vale, a: [w10, downs, wet], b: [w10, vale, wet], from: "row 10"}
+  - {name: the lake country has more lake than the upland, a: [w05, land, lake_share], b: [w12, land, lake_share], from: "row 12"}
+  - {name: the mountains have less arable ground than the lowland, a: [w06, land, field_ok_share], b: [w01, land, field_ok_share], from: "row 6: little arable"}
+
+sources:
+  metoffice_normals: "Met Office, UK climate averages 1991-2020, station normals (rain, days of 1 mm or more, mean, max and min
+    temperature, air frost days): Birmingham Airport, Sutton Bonington (midlands); Cambridge NIAB, Wattisham (East Anglia);
+    Plymouth Mountbatten, Exeter, Aberporth (Devon, west Wales); Tiree, Dunstaffnage (west Scotland); Bradford, Bingley,
+    Moor House (the Pennines); Braemar, Fort Augustus, Cairngorm summit (the Highlands); Hull, Bristol (estuaries); Marlborough
+    (downs); Santon Downham (the Brecks); Keswick, Ambleside, Seathwaite (the Lakes); and the same series' snow lying and wind."
+  midlands: "Natural England, National Character Areas: Trent Valley Washlands, Avon Valley, Dunsmore and Feldon (landform,
+    floodplain and terraces, wood cover)."
+  floodplain_meadows: "Floodplain Meadows Partnership, the meadows' hydrology (meadows flooding most winters, 0.5 to 2 m above the
+    river's normal level)."
+  ea_flood_freq: "Environment Agency and CEH, the Flood Estimation Handbook: bankfull flow about every 1 to 2 years on lowland
+    rivers; flashy upland and western rivers several times a year; chalk streams groundwater-fed with rare spates."
+  uk_woodland: "Rackham, The History of the Countryside (1986): Domesday England about 15% wood; a settled lowland 15 to 35%."
+  east_anglia: "Natural England NCAs: South Suffolk and North Essex Clayland, Breckland; the driest region of Britain."
+  brecks: "Breckland NCA 85; Dolman and others on the Brecks' climate (frost hollows, air frost in any month, about 600 mm)."
+  devon_wales: "Natural England NCAs: Devon Redlands, the Culm; NRW Landmap: Ceredigion coast (oak woods, flashy rivers)."
+  saltmarsh_uk: "JNCC and the Saltmarsh Extent of England and Wales: saltmarsh along estuaries and sheltered western coasts."
+  west_scotland: "NatureScot Landscape Character Assessment: Argyll and Lochaber coasts; the rain gradient from coast (1,100 to 1,600)
+    to the hills (2,500 to 4,000)."
+  lakes_rain: "The Lake District's rain gradient: St Bees about 1,000 mm, Seathwaite about 3,500, Penrith in the lee about 850
+    (Met Office normals; Manley, Climate and the British Scene)."
+  pennines: "Natural England NCAs: Dark Peak, South Pennines, North Pennines (moor and blanket bog above about 400 m, cloughs,
+    reservoirs and tarns, tops to 893 m at Cross Fell)."
+  moor_house: "Moor House NNR (556 m): about 2,000 mm a year, mean about 5.5 C, snow lying about 50 to 70 days (ECN records)."
+  uk_treeline: "Natural tree line in Britain about 450 to 650 m (Pennines and Lakes lower, the Cairngorms' pine to about 650 m);
+    Pears, Mountains and Moorlands."
+  highlands: "NatureScot LCAs: Cairngorms, Lochaber; Braemar (339 m): mean about 7 C, air frost about 130 days, snow lying about
+    50 days."
+  cairngorm: "Cairngorm summit (1,245 m) weather station: mean about 1 C, gales on many days, snow lying 150 days or more."
+  nordic_normals: "Norwegian and Swedish meteorological institutes' 1991-2020 normals for lowland stations near 6 C mean (Oslo
+    Blindern, Uppsala, Linköping): 550 to 750 mm, winter -4 to 0 C, frost nights 100 to 160, snow cover 40 to 110 days."
+  lake_ice: "Lake and river ice records: southern Scandinavian lakes frozen 60 to 120 days a year; English lakes rarely freeze over
+    (Windermere completely in 1895, 1929, 1946, 1963), tarns more often."
+  boreal_woods: "Hemiboreal forest: birch and Scots pine with oak at its northern edge; beech's natural northern limit in southern
+    Sweden."
+  fens: "Natural England NCA 46, The Fens; Darby, The Medieval Fenland (meres, reed, sedge, eels and fowl, islands of higher
+    ground such as Ely)."
+  fen_floods: "The Fens before drainage flooded most winters over wide areas (Darby; the washes still do)."
+  estuaries: "Natural England NCAs: Severn and Avon Vales, Humberhead Levels, Humber Estuary (tidal flats, saltmarsh, warp land,
+    winter wildfowl)."
+  downs: "Natural England NCAs: North Wessex Downs, Vale of White Horse, Berkshire and Marlborough Downs (chalk grassland, beech
+    hangers, springs at the scarp foot, a wet clay vale)."
+  chalk_streams: "Environment Agency, The State of England's Chalk Streams (2004): groundwater-fed, steady flows, winterbournes
+    dry in late summer."
+  new_forest: "New Forest NCA 131: heath, valley mire, pine and birch on sand and gravel, about 800 mm."
