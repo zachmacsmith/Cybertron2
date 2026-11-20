@@ -39,3 +39,4 @@ conversation (20 Nov: "1. I agree")
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[02zzu lookup the food values checked against USDA FoodData Central|02zzu lookup: the food values checked against USDA FoodData Central]]
 - [[02zzx how fast fish and meat were salted by hand|02zzx: how fast fish and meat were salted by hand]]
+- [[02zzz the runs world's three live runs, against the bots and the…|02zzz: the runs world's three live runs, against the bots and the…]]

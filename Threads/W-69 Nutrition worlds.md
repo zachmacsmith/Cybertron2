@@ -9,15 +9,13 @@ updated: "2026-11-20"
 
 *active · 37.2 · touched 20 Nov (today)*
 
-> **Next:** the three live runs (low, medium, high; 64 days; Opus heads, Sonnet middle, Haiku the rest), started 20 Nov on main 98b2f7f7, in the scratchpad live/; then the write-up against the bots and the targets
+> **Next:** Zach: the legibility fixes ([[Q-78 Whether to build the fishing legibility fixes|Q-78]]), salting rate ([[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Q-73]]), medium keeping ([[Q-76 Whether the runs world's medium arm needs more keeping capital|Q-76]]); then the three live runs again
 
 ## What it is
 **Subsistence worlds: a village off the runs alone, and off hunting alone**: Zach, 20 Nov ([[D2-242 Subsistence test worlds|D2-242]]): the runs world did not test whether a village can live off runs alone (it has fields; fish looks badly calibrated). Build a set of calibration worlds: runs only, hunting only; each survivable at medium skill and capital, with a surplus up to a bound at more. Folded in: fish nutrition (the eel at a fifth of its real food, [[W-64 Food, weight and work on one basis|W-64]]), the run numbers, the river frequencies ([[Q-52 Environment systems|Q-52]] 6), the brook fished out ([[Q-57 Fishing, from the lake run|Q-57]] c), hunting against farming ([[Q-46 Brief 4c as built|Q-46]] b, c; [[W-22 Hunting against farming and gathering in generated worlds|W-22]]'s measured changes)
 
 ## Done so far, and what is left
-20 Nov: the runs-only world on main ([[W-62 Merging the water work from its twelve branches into main|W-62]]); the USDA lookup done (02zzu_lookup); the switches merged (b4076951); the fishing bots merged (81a830ea, --bots runs): on today values every arm starves by the first winter (fish 0.17 food a unit, nothing ever kept). Bot gaps: traps take a run before the weir; floods wreck the weir in a night or two whatever the gap; salmon run a handful of heads; otters take about 15% of traps; the maker seeds the weir with no crew; no sign of tonight river height; acts play in rounds across people, 10-act cap.
-
-**Next:** the data change ([[D2-258 The food values are put on one physical basis|D2-258]]), the arms remade, the bots rerun, the low and high live runs (Zach go)
+20 Nov: food values ([[D2-258 The food values are put on one physical basis|D2-258]] to [[D2-262 The runs at a real river's size|D2-262]]) and water fixes merged; bots on the runs arms: high 9.1 fed a fisher, 5 alive at 64; low and medium starve. Live runs (02zzz, $62.76): high 9 of 12 alive at 64 on its weir, 2.7 fed a fisher, 26 food at the end, 3 starved on day 17 with 200 food in a neighbour store; low and medium barely fished (18 and 23 food) and starved in the first winter; why: 02zzy. Runs in the session scratchpad live/, not published (no HF token)
 
 ## Where
 - `branch w69-runs-world (worktree /home/user/c2-w69): cybertron2/specs/make_nutrition_runs.py, cybertron2/specs/nutrition/ (runs_low, runs_medium, runs_high)`
@@ -41,6 +39,7 @@ updated: "2026-11-20"
 - under it: [[Q-75 Whether D2-210's yearly upkeep band wins over the river proposal's…|Whether D2-210's yearly upkeep band wins over the river proposal's… (Q-75)]] (open)
 - under it: [[Q-76 Whether the runs world's medium arm needs more keeping capital|Whether the runs world's medium arm needs more keeping capital (Q-76)]] (open)
 - under it: [[Q-77 Whether to tune how often the river reads spate or flood now|Whether to tune how often the river reads spate or flood now (Q-77)]] (open)
+- under it: [[Q-78 Whether to build the fishing legibility fixes|Whether to build the fishing legibility fixes (Q-78)]] (open)
 
 
 ## Mentioned by
@@ -57,6 +56,7 @@ updated: "2026-11-20"
 - [[Q-75 Whether D2-210's yearly upkeep band wins over the river proposal's…|Whether D2-210's yearly upkeep band wins over the river proposal's… (Q-75)]]
 - [[Q-76 Whether the runs world's medium arm needs more keeping capital|Whether the runs world's medium arm needs more keeping capital (Q-76)]]
 - [[Q-77 Whether to tune how often the river reads spate or flood now|Whether to tune how often the river reads spate or flood now (Q-77)]]
+- [[Q-78 Whether to build the fishing legibility fixes|Whether to build the fishing legibility fixes (Q-78)]]
 - [[W-22 Hunting against farming and gathering in generated worlds|Hunting against farming and gathering in generated worlds (W-22)]]
 - [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]]
 - [[O-2 Make the eleven bulk processes take up to their batch|Make the eleven bulk processes take up to their batch (O-2)]]
@@ -66,3 +66,4 @@ updated: "2026-11-20"
 - [[02zzu lookup the food values checked against USDA FoodData Central|02zzu lookup: the food values checked against USDA FoodData Central]]
 - [[The water fixes the weir by position and material, gear sharing a…|The water fixes: the weir by position and material, gear sharing a…]]
 - [[Why the villagers of the runs world did not fish|Why the villagers of the runs world did not fish]]
+- [[02zzz the runs world's three live runs, against the bots and the…|02zzz: the runs world's three live runs, against the bots and the…]]

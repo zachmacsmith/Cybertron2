@@ -24,7 +24,6 @@ done 20 Nov: merged to main 20 Nov at Zach's word ('u can do the merge'): runs-m
 - [[W-53 Floodplains in the generator|Floodplains in the generator (W-53)]]
 - [[W-54 The twelve calibration worlds and an audit of the generator across…|The twelve calibration worlds and an audit of the generator across… (W-54)]]
 - [[W-60 Fixing the ecology's water counted twice, then rechecking the…|Fixing the ecology's water counted twice, then rechecking the… (W-60)]]
-- [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - *and 4 index or audit notes*

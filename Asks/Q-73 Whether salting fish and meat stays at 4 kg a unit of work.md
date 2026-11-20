@@ -25,6 +25,8 @@ updated: "2026-11-20"
 
 ## Mentioned by
 - [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
+- [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 - [[02zzu lookup the food values checked against USDA FoodData Central|02zzu lookup: the food values checked against USDA FoodData Central]]
 - [[The water fixes the weir by position and material, gear sharing a…|The water fixes: the weir by position and material, gear sharing a…]]
 - [[02zzx how fast fish and meat were salted by hand|02zzx: how fast fish and meat were salted by hand]]
+- [[02zzz the runs world's three live runs, against the bots and the…|02zzz: the runs world's three live runs, against the bots and the…]]
