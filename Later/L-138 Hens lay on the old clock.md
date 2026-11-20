@@ -21,3 +21,4 @@ found by the shared-units analysis (02zzu): laying still runs on node_ecology's 
 
 ## Mentioned by
 - [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
+- [[Shared units food value, weight and work on one basis|Shared units: food value, weight and work on one basis]]
