@@ -105,6 +105,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | Q-62 | **record/execution.md and `resume --from-last` (D4-124; 37.4, 19 Nov)**: the spec says a resume loads the last committed checkpoint; the code's plain resume replays from day 1, and `--from-last` does what the spec says. Should the spec name both, and which is the default? | proposals/resume_from_last.md | 37.1 |
 | ~~Q-63~~ | **(Closed 20 Nov: D2-235.)** A commit schema: types, trailers checked against the diff, flat ids with a parent link, from now | docs/cybertron2/proposals/thread_tracking.md | Zach (37.2) |
 | ~~Q-64~~ | **(Closed 20 Nov: D2-232 to D2-239.)** The records as items with rendered views, one tool and a skill, documents in the web, typed commits, resolutions by whom, code under a thread, branches merged early but not to an extreme, Zach's views and context packs for hand-offs | docs/cybertron2/proposals/records_and_workflow.md | Zach (37.2; 37.4 for (2)) |
+| Q-65 | **Delete the 16 empty branches**: 16 remote branches hold nothing that is not on main (4c-dry, 4c-hunt, 4c-pred, 4c-sets, climate-calibration, ecology, ecology-calibrate, ecology-carcass, ecology-hunt2, ecology-hunt3, ecology-methods, ecology-raiders, peoples-worlds, use-by-physics, weather-by-place, w65-records; records branches). D2-238: no empty branches. This session's git proxy refuses deletes (403), so they need deleting on GitHub, or a token that may delete | python3 tools/records.py branches | Zach (37.2) |
 
 ## Offers and promises
 

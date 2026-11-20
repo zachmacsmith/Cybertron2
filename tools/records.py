@@ -498,8 +498,10 @@ def sync_from_views() -> list:
     return changed
 
 
-def render(check=False) -> int:
-    if not check:
+def render(check=False, sync=False) -> int:
+    """Write the views from the items. `sync` first takes in hand edits; the writing verbs sync at their start instead,
+    before they change an item, so that their own change is never mistaken for an edit to the view."""
+    if sync and not check:
         sync_from_views()
     items = load_items()
     bad = 0
@@ -1365,11 +1367,13 @@ def main(argv=None) -> int:
         sub.add_parser(h)
     a = ap.parse_args(argv)
     c = a.cmd
+    if c in ("new", "set", "link", "close", "decide", "commit"):
+        sync_from_views()
     if c == "migrate":
         migrate()
         return render()
     if c == "render":
-        return render(check=a.check)
+        return render(check=a.check, sync=True)
     if c == "check":
         return check(a.strict)
     if c == "whoami":
