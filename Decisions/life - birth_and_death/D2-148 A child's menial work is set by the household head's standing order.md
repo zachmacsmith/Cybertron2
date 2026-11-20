@@ -1,0 +1,28 @@
+---
+id: D2-148
+kind: decision
+state: live
+updated: "2026-11-20"
+---
+
+# D2-148 · A child's menial work is set by the household head's standing order
+
+*live · 24 Oct · spec: [[life - birth_and_death|life/birth_and_death]]*
+
+## The rule
+([[D4-16 Routine work runs on standing orders the agent sets|D4-16]])
+
+## Where it came from
+children.md
+
+
+## Mentioned by
+- [[Proposal children as a choice, counted in days (costs, care, growing…|Proposal: children as a choice, counted in days (costs, care, growing…]]
+- [[Proposal the economy plan for cybertron2|Proposal: the economy plan for cybertron2]]
+- [[Proposal life (partners, children, growing up, death, inheritance)|Proposal: life (partners, children, growing up, death, inheritance)]]
+- [[Birth and death partners, children, growing up, old age, succession|Birth and death: partners, children, growing up, old age, succession]]
+- [[02zb build brief for 37.4 forests, fuel and warmth, eating raw…|02zb: build brief for 37.4: forests, fuel and warmth, eating raw…]]
+- [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
+- [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
+- [[17 The household's own work, care and kinship (16 Nov 2026)|17: The household's own work, care and kinship (16 Nov 2026)]]
+- [[38.27 Package D (children and reproduction) built; the Hollins world|38.27: Package D (children and reproduction) built; the Hollins world]]

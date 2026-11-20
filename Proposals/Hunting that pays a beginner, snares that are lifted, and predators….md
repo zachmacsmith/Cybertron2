@@ -1,0 +1,461 @@
+---
+id: docs/cybertron2/proposals/hunt_calibration.md
+kind: proposal
+updated: "2026-11-14"
+---
+# Hunting that pays a beginner, snares that are lifted, and predators that reach the villages: build brief 4c
+
+*proposal · built (14 Nov) by 37.4, merged into peoples-worlds; awaiting Zach's decision (OPEN Q-46) · `docs/cybertron2/proposals/hunt_calibration.md`*
+
+> build brief 4c: hunting as a baseline (bare hands, a novice) times multipliers for gear, skill and familiarity, as 1 - exp(-x); kill-rate targets against farming (a novice with a weapon kills on about half their trips); a set thing's catch found by going to it, plainer to all, remembered without "empty"; the party bonus for drives only; drying any batch up to 8; predators that reach the villages (the wolves and boar falling from the first night, groups that range over several nodes)
+
+
+**Status:** built and gated (14 Nov) by 37.4 on `ecology-hunt3` (e98d893, merge f58764f) and merged into `peoples-worlds`
+(3cf6816); 580 tests pass on both. Zach's go relayed by 37.4 (14 Nov: "Can you build brief 4c for wildlife"); parts agreed with 37.2
+on 13 Nov (§3.3, §6). Not merged into main; no DECISIONS rows yet: Zach to confirm (OPEN [[Q-46 Brief 4c as built|Q-46]]), with two misses and §7.4.
+**Build brief 4c** for the wild layer, after brief 4b (`hunt_followups.md`) and before brief 5 (`river_and_water.md`). It answers the
+wild region run (02zze, 30 days) and the first peoples run (38.70, 100 days), both on briefs 1 to 4b as built.
+**Owner:** 37.2:
+- the author;
+- the data in `wild/kinds.py` (`HUNT`, `HUNTED`, kinds' `flee`, `near_people`, the ecology rows) and `wild/methods.py` (method rows,
+  gear multipliers) is 37.2's, and so is §7.1's ecology check, done before the build;
+- 37.4 builds it, as for briefs 4 and 4b; the skill curve (`engine/data.py` `SKILL`), noticing (`engine/things.py`) and the
+  remembered line (`engine/prompt.py`) are 37.4's (§8).
+
+**Affects:**
+- spec/environment/wildlife.md (on the merge of briefs 1 to 4b);
+- `engine/data.py` TECHNIQUES `dry meat` (§6);
+- on the branch: `wild/kinds.py`, `wild/methods.py`, `engine/data.py` (`SKILL`), `engine/wild.py` (`hunt`, `_set_night`),
+  `engine/things.py` (`own`, `_describe`, the remembered text), `engine/perceive.py`, `engine/wild.py` `_groups` and `_count` (§7).
+
+## Summary
+
+The wild region's 30-day live run (02zze; 38 people, four villages, briefs 1 to 4b as built) took **nothing by hunting**:
+- 57 planned hunts of the wild and 6 stalks. Hunters met 2 or 3 beasts a trip (roe, hare, woodpigeon), and every one "got away".
+- 25 snare lines and water traps were set. They caught about 17 hares and 5 eels, and **none was ever lifted**: the catches rotted
+  in the snares.
+
+Measured on the region's own world (the harness of 02zzd, 80 tries a cell; §10), the hunt as built gives a novice almost nothing:
+
+| Method, the wood around | Novice (skill 0.4) | Capable (1.0) | Master (2.3) |
+|---|---|---|---|
+| hunt the wild, unarmed | 0.00 to 0.03 | 0.03 to 0.07 | 0.09 to 0.17 |
+| hunt the wild, armed | 0.03 to 0.09 | 0.06 to 0.21 | 0.23 to 0.32 |
+| stalk, unarmed | 0.00 to 0.08 | 0.08 to 0.11 | 0.13 to 0.19 |
+| stalk, armed | 0.06 to 0.14 | 0.33 to 0.55 | 0.70 to 1.06 |
+| hunt the wild far, armed | 0.04 to 0.11 | 0.19 to 0.32 | 0.52 to 0.71 |
+
+(food a unit of work, the range across the four villages; for scale, winter gathering gives 0.2 to 0.3, farming 1.4 to 2.8.)
+
+Why:
+1. **The factors multiply to almost nothing.** A beast met is taken with `take_k` 0.25 x skill x the weapon factor x (1 - flee) x
+   familiarity: for a novice unarmed after a hare, 0.25 x 0.4 x 0.3 x 0.5 x 1.12 = 1.7%. None of the factors is wrong by itself.
+2. **Almost no one carries a weapon.** A crude weapon is 1 timber and 1 unit and multiplies the take three to five times; the methods
+   line says "a weapon helps"; four existed in the region.
+3. **Practice cannot lift a novice out of it.** The hunt's curve runs 0.4 to 3.0 with tau 150 units, so capable (1.0) needs about 40
+   units of hunting. At these odds that is 40 units with nothing to show, and agents give up first (Durand: "Snares and hunting have
+   failed all along").
+4. **A catch in a snare is never seen.** The setter stood at the parcel while the catch lay there (Colin at the Ham on five days,
+   Sabina at the Mere on three, Ancel on Holtham Common on three), and no prompt ever showed it: a set thing's conspicuousness is
+   0.12 and a catch adds only its bulk. The remembered line said "a line of snares set at the Ham, **empty** (you put it there, winter
+   day 4)", and that word passed into the agents' own memories as fact ("Snares at Holtham Common and Cow Close stay empty").
+
+Snares, once lifted, were the one method that paid: about 0.9 food a unit in the run.
+
+**The first peoples run** (38.70; Twin Hollows, 100 days, the same code) repeated it and added two more:
+- **Hunting:** 285 hunts met about 600 beasts and took 15 hares and 2 pigeons (10.7 meat), about 2.8% of beasts met: what the
+  stacked factors give. Many hunted bare-handed. Deer were seen and stalked once, and stalking was taught twice and dropped.
+- **Snares:** 112 lines set; 18.7 meat lifted in 35 takes (there, agents worked out lifting for themselves); several catches rotted.
+- **Drying:** `dry meat` takes exactly 8 meat, so 52 tries were refused, 9 of them at 7.8 meat after a night's spoilage (OPEN [[Q-43 Before the second peoples run|Q-43]]).
+- **No predator came near people or herds in 100 days.** A dry run of the same world (§7) shows why: the wolves and boar are at nodes
+  where no one lives; a group raids only at its own node; and the wolves and boar fall from the first night (wolves within reach of
+  Ashford from 3.8 to 2.1 in 12 days, below a pack's least size of 3 by day 4).
+
+With no predators and almost no hunting, the wild layer in these runs was a drain on crops and nothing else: no reason to guard
+herds, no shared hunts, none of the dependence it was meant to add.
+
+## 1. For the builder
+
+**Read:**
+- briefs 4 and 4b and their gates (02zx; OPEN [[Q-40 Brief 4 as built, and its gate|Q-40]], [[Q-41 Brief 4b as built, and its gate|Q-41]]);
+- 02zzd and its scripts (`docs/review/37_growth/02zzd_ev/`), with `ev_region.py` (§10);
+- 38.70 flaw 6 (the peoples run's wildlife) and §7's dry-run trace (`pred_trace.py`, §10);
+- `docs/cybertron2/guides/senses.md` before §4;
+- on the branch:
+  - `engine/wild.py`: `hunt` (`p_take`), `_set_night`;
+  - `wild/kinds.py`: `HUNT`, `HUNTED`, the kinds' `flee` and `detect`;
+  - `wild/methods.py`: the method rows and `weapon` factors, `FAMILIAR`;
+  - `engine/data.py`: `SKILL`;
+  - `engine/knowledge.py`: `curve`, `skill_of_practice`, `tried`;
+  - `engine/things.py`: `own`, `_describe`, `remember`;
+  - `engine/prompt.py`: `_things_lines`;
+  - `engine/wild.py`: `_groups`, `_count`, `_reach`; `wild/kinds.py`: `near_people` for wolf, boar, bear;
+  - `engine/data.py`: TECHNIQUES `dry meat`.
+
+**Do not:**
+- tell anyone about a catch they are not at;
+- name kinds in rule code;
+- change farming or gathering;
+- change the master's near target.
+
+Dry runs only.
+
+**Branch:** from main after briefs 1 to 4b are merged; otherwise `ecology-hunt3` from `ecology-hunt2`. Runs are now on
+`peoples-worlds` (from `ecology-hunt2`), so it should take 4c too: by merge, or a cherry-pick agreed with 37.4.
+
+## 2. Targets (for Zach)
+
+**How often, and what.** A trip near home is 3 units (the hunt's 2 and the wood around's 1). Targets for a wood not hunted lately:
+
+| Hunter | A kill on | Mostly | Food a unit | A trip gives |
+|---|---|---|---|---|
+| novice, bare hands | about 1 trip in 4 | hares and birds | about 0.1 | about 0.3 |
+| novice, armed | **about 1 trip in 2** | hares and birds; a roe now and then | 0.2 to 0.3 | about 0.75 |
+| capable, armed | most trips | a roe about 1 trip in 4 | about 0.7 | about 2 |
+| master, armed | nearly every trip | deer, capped by the carry near home | **about 2.5** (Zach, 13 Nov: above the best gatherer) | about 7 |
+| far, alone (6 units a trip) | novice about 0.5, capable about 1.0, master about 2 (the carry) | | | |
+| far, a party with a pack ox | | | 4 to 5 a person-unit (the master's 4 to 5 is a party's: OPEN [[Q-40 Brief 4 as built, and its gate|Q-40]] a, [[Q-41 Brief 4b as built, and its gate|Q-41]] a) | |
+
+Why a novice kills on about half their trips: in the run, hunters gave up after 3 to 5 blank trips (Durand, Thomasin, Gillian, Osric).
+At a kill in 1 trip of 2, four blank trips in a row happen to about 6% of novices; at 1 in 5, to 41%, and practice never starts.
+Big game stays gated by skill, so practice pays.
+
+**Against farming and the rest** (food a unit of work, 02zzd; a person eats 1 food a day and has 5 to 7 units):
+
+| Way of getting food | Food a unit | A day's work (6 units) feeds | When it comes |
+|---|---|---|---|
+| farming, plough and copper reap | 2.8 | about 17 person-days | at the harvest, once a year; bounded by land |
+| farming, unbroken ground, crude reap | 1.8 | about 11 | the same |
+| farming, hoe-broken | 1.4 | about 8 | the same |
+| milk, three cows | up to 2.4 | up to 14 | daily, by the herd |
+| gathering, autumn | 1.1 to 1.7 | 7 to 10 | a few days a parcel |
+| snares, lifted (the run) | about 0.9 | about 5 | by night, for days |
+| **hunting, master near** | **about 2.5** | **about 15** | **at once; any season; spoils unless dried** |
+| **hunting, capable near** | **about 0.7** | **about 4** | |
+| gathering, winter | 0.2 to 0.4 | 1 to 2.5 | |
+| **hunting, novice armed near** | **0.2 to 0.3** | **1.2 to 1.8** | |
+| hunting, novice now (as built) | 0.01 to 0.09 | under 0.5 | |
+
+So:
+- a novice hunter is level with winter gathering: a lean-season fallback, not a living;
+- a capable hunter is about a third of a farmer; a master, on fresh ground, is above the best gatherer (about 2 in fresh woods, 1.7
+  a skilled gatherer in autumn) and near a farmer on unbroken ground (Zach, 13 Nov: "a master hunter being below a skilled gatherer
+  feels somewhat nonsensical"). Hunting's ceiling is far above gathering's (skill x8 against x1.5), so it is the thing worth
+  learning, teaching and doing together (§3.3);
+- hunting's advantages are that it comes at once and in any season, and needs no land; its costs are depletion, spoilage and the
+  carry.
+
+**These are rates on fresh ground.** Hunting the same wood every day falls well below them as it empties and the game grows wary
+(02zzd: daily stalking fell to 0.18 a unit over 16 days; brief 4b's wariness and slow recovery). The sustained yield of a village's
+woods is what keeps hunting from replacing farming, not the per-trip rate.
+
+Snare lines stay as they are (0.2 to 1.1 a unit, brief 4), once their catch can be found (§4).
+
+## 3. The form, and the levers
+
+### 3.1 The chance as a baseline times multipliers (Zach, 13 Nov)
+
+Today a beast met is taken with `take_k` 0.25 x skill (0.4 to 3.0) x the weapon factor (`none` 0.2 to 0.3, `armed` 1.0) x
+(1 - flee) x familiarity (1 + 0.35 x familiar), clipped at 0.95. "Armed = 1.0" is a ceiling: a bow would need a factor above 1 or
+every factor rescaled, and the ceiling moves with each mechanic added. Instead:
+
+- **The baseline is what everyone always has:** bare hands, a novice, a kind not known. Its rate is `base` (by method), calibrated to
+  §2's bare-handed novice.
+- **Everything else multiplies above it:**
+  - **gear:** a crude weapon about x3 (club or crude spear; calibrate), and later a hunting spear, a bow, nets and a dog each their own
+    multiplier on the methods they serve, as data on the gear (02zv C1: properties on gear);
+  - **skill:** a novice x1, rising with practice to about x8 for a master (the hunt's curve as a multiplier: `SKILL["hard"]` from
+    (0.4, 3.0) to (1.0, about 8.0); its pace in §3.3; calibrate). Gathering's curve stays (1.0 to 1.5);
+  - **familiarity:** as built (1 + 0.35 x familiar);
+  - **the kind:** its `flee` stays a share, (1 - flee), since it is a property of the beast and not a gain.
+- **The chance from the product:** p = 1 - exp(-base x the product of the multipliers), in place of the product clipped at 0.95.
+  Multipliers then compose without a ceiling, returns diminish as the chance nears certainty, and at low odds it is almost the
+  product itself, so the novice end calibrates directly.
+
+The same form for a set thing's catch (`_set_night`) and for the party's members (`detect` by more eyes, as built).
+
+Farming's tools are already close to this: the crude tool is 1.0, copper x1.5 to 2, bare hands a reduction (reap 0.6, hay 0.3, fell
+0.25); a better tool goes in above copper without rescaling. They stay as they are; making bare hands their baseline would be for
+consistency only.
+
+### 3.2 The levers, in order
+
+Calibrated on §10's harness until §2 holds; stop at the first that fits:
+1. **`base` by method** for the bare-handed novice (§2's first row).
+2. **The crude weapon's multiplier** for the armed novice (about x3; calibrate).
+3. **The skill multiplier's top** for the capable and the master (about x8 at the top; the pace as §3.3).
+4. **The far take:** the armed master far is 0.52 to 0.71 here against about 2 alone. Before changing anything, find why: 37.4's gate
+   measured 1.45 on its own world, so the far land of each world and the carry are the first suspects.
+
+Also look into two open findings:
+- the drive's food in run 5's world (x2.40, unexplained, OPEN [[Q-36 Brief 1 as built differs from the brief in 16 places|Q-36]]);
+- the far novice at 0.19 against about 0.5 (OPEN [[Q-41 Brief 4b as built, and its gate|Q-41]] d).
+
+### 3.3 Hunting worth learning: the pace, learning together, teaching over days (Zach, 13 Nov)
+
+The peoples run (100 days): the most persistent hunters went from 0.43 to about 1.05 (Hamon, Jocelin), a fifth of the way up the
+hunt's curve, while 28 of 29 gatherers reached gathering's cap of 1.5. At lifespan 32 an adult has about 120 units in all, and the
+curve's tau of 150 puts a master out of reach of any life. A party gave no learning (each member practised by their own units), and
+teaching lifted a learner once and then refused.
+
+1. **The pace, scaled to a life** (as other spans are, [[D2-153 The lifespan is a world setting that scales every part of a life|D2-153]]): capable (about x3) after about 30 units of hunting, about a week of
+   regular hunting; master (about x8) after about half an adult life of steady hunting (about 60 units at lifespan 32, 120 at 64).
+   The hunt's tau becomes a share of the adult span in units (calibrate).
+2. **Learning by hunting with someone better:** in a party, each member's practice counts x (1 + the leader's lead over them as a
+   share of the leader's skill), up to about x2 for a novice behind a master. A kill counts for more practice than a miss.
+3. **Youths learn twice as fast** by practice, as they do when taught (the teaching rule's x2).
+4. **Teaching over many days:** a day of teaching (`teach` and `learn` matched, both their units) closes about 15% of the gap
+   between learner and teacher (30% for a youth), with no level cap, each day giving less as the gap closes. Today's one jump to
+   capable, then refusal, goes. A master can raise an apprentice over a season.
+5. Familiarity with kinds passes in teaching as built (`teach_familiar`), and in a party as the members see the leader's kills.
+
+## 4. Set things: a catch found by going to it
+
+The engine never tells a setter what their snares hold. They find out by going there, through the one noticing rule ([[D4-75 Every perceived line about the world comes from the one noticing rule|D4-75]]).
+1. **One knows where one's own set things are.** Someone at a parcel (working it, or on it) who set a thing there, or has seen it
+   there, looks it over:
+   - its state shows as a sign at that parcel ("a hare hangs in your snares at the Ham"; "eels in the wicker traps at the Mere");
+   - the conspicuousness for one who knows the place is high (about 0.9; calibrate);
+   - for others, the noticing rule is as built.
+2. **A catch shows itself.** A beast caught raises the thing's own conspicuousness (about 0.4 while fresh; calibrate). After a day,
+   birds come to it as to a carcass (brief 3's `birds`), so a passer-by may find it and take it, leaving the theft trace ([[D4-48 A state shows itself as a bundle of signs, not one line|D4-48]]) for
+   those who know the line.
+3. **The remembered line, wording only** (Zach, 12 Nov):
+   - a set thing is remembered without "empty": "a line of snares you set at the Ham (winter day 4)";
+   - when it is seen again, as it was then: "with a hare caught in them (as you saw it on winter day 6)", or "nothing caught in them
+     (as you saw it on winter day 6)".
+   - Nothing else in the remembered things changes. OPEN [[L-106 MAJOR what the engine remembers and settles for agents, and…|L-106]] holds the wider question of what the engine keeps for agents.
+4. **Lifting:** `take {"from": "the snares at the Ham"}` already empties a known thing. The method's line in the manual says it in
+   world terms: "come back to your snares and take what is in them". "Lift the snares" and "check the snares" become aliases of that
+   take.
+
+Signs follow `guides/senses.md`: grounded in the thing's state, a change, worth acting on, shown only at the parcel.
+
+## 5. The party bonus (for Zach; OPEN [[Q-41 Brief 4b as built, and its gate|Q-41]] b)
+
+A party of three takes about 1.9 times a lone hunter's food a person-unit in the wood around, from the crew's kill bonus
+(x1.25 a member).
+
+Proposed:
+- the bonus for `drive` only, where a crew is the method;
+- for other methods, a party's gain is the carry and the danger shared (brief 4b), and finding beasts by more eyes (`detect` per
+  member, as built).
+
+## 6. Drying, and what a household knows of its own house (OPEN [[Q-43 Before the second peoples run|Q-43]]; Zach, 13 Nov)
+
+The peoples run dried 472 meat into 203 dried meat, then lost 70 of it on the racks: a batch stays in a pile at the door after it
+is dry, spoiling at outdoor rates and open to the fox and vermin, and nothing tells anyone it is done. The store line's "food worth N
+meals" leaves out food at the door, though the night's meal eats from it. People starved beside it: the Hales at Ashford (days 45 to
+48) next to 30 to 33 dried meat at the Reeds' door; Gunnora and Denis away from home with their household's at its door. And `dry
+meat` took exactly 8, so 52 tries were refused.
+
+1. **Any batch up to 8:** `dry meat` hangs whatever meat one has, up to 8, for the same unit and the same 3 nights, and gives half
+   its weight in dried meat. A hare's 0.7 can be dried.
+2. **At a hearth, the batch hangs inside, in the smoke:** part of the building, not a pile at its door. The fox and rats reach it
+   only as they reach the store (an open door, a gappy or holed house, brief 4's levels); it spoils at the smoked rate (about 3% over
+   3 nights). At a fire ring in the open, it hangs outside as a pile, as built.
+3. **When it is dry, it goes into the house's store** if there is room; otherwise it stays on the rack until taken.
+4. **One's own house is known without a roll** (37.4's view; a proposal on the board): anyone in the house sees, every day, in the
+   house's lines:
+   - the rack: "On the rack by the hearth: 6 meat drying, 1 night left"; "Dry overnight: about 3 dried meat, put in the store";
+   - goods left at its door, and the food among them;
+   - its fire, its cat;
+   - a room without beds or a hearth: "the new room has no beds or hearth: no one can sleep there yet".
+   The noticing rule stays for everything else: other houses, fields, woods.
+5. **The store line counts the door:** "food worth 14 meals, and 9 more at its door".
+
+Not here: the smokehouse goes to brief 5 (river_and_water.md), where the runs make it needed; tallow's uses wait for K8 and evening
+acts (OPEN [[L-107 Tallow's real uses|L-107]]).
+
+## 7. Predators: pressure that reaches the villages
+
+**What the peoples world shows** (a dry run of `peoples/w1.yaml` with bots, 12 days, the count each night within reach of each node;
+`pred_trace.py`):
+
+| Kind | Within reach of Ashford | Of Brockley | Where it is | Night 1 to night 12 |
+|---|---|---|---|---|
+| wolf | 3.8 | 1.0 | every node, most at Coppice Hill (5.8), Brock Heath (4.9) | falls about 45% everywhere (Ashford 3.8 to 2.1) |
+| wild boar | 1.2 | 0.1 | Lower Meads (25.9), t1 (9.1), Coppice Hill (6.0), no one living there | falls 20 to 30% |
+| brown bear | 0.06 | 0 | Coppice Hill (1.7) | steady |
+| red deer | 34.6 | 41.6 | | falls about 7% |
+
+So, in order of effect:
+1. **The wolves and boar fall from the first night,** everywhere alike, villages or not: faster than the ecology's own mortality
+   (wolf m 0.30 a year, about 1% a day at 32-day years) can explain. Either the world starts them far above what the ecology holds, or
+   something takes them (starvation, a rule misfiring). A pack needs 3, so by night 4 no village has one.
+2. **A group is tied to one node.** It condenses from that node's reach and raids only there. A wolf pack ranges 100 to 300 km², over
+   several nodes; a pack at Brock Heath, next to Brockley, never comes to Brockley's herd. The same for a bear.
+3. **Even when present, the drive is low:** the herd's attraction is 1.0 only in winter and early spring and 0.35 otherwise, times
+   0.03 plus 0.9 x the area's hunger; with deer plentiful, hunger is near 0, so about 1% a night. That is right for well-fed wolves
+   (they prefer wild prey) but leaves pressure to hard winters only.
+4. **Boar live where people do not:** the ring near a village is thin for them by design (presence by distance, brief 4b), and these
+   worlds put the woods' boar at empty nodes.
+
+**7.1 The ecology check (37.2, done 14 Nov).** Traced each night's deaths by cause for wolf and boar on the peoples world (the
+ecology step instrumented in a scratch copy; 320 nights of the world's history, then the run):
+- **Not the seeding:** the world runs its history before day 0, so it starts at the ecology's own seasonal balance.
+- **Not starvation:** wolves eat 1.4 to 1.5 times their need and boar 1.1 to 1.2; condition stays at 1.0; starvation deaths 0.
+- **The spring birth pulse, then its cull.** Both breed once, on spring's first day (`litters: burst`), and the run starts on spring
+  day 1: wolves go from 69 to 170 across the map that night, boar from 7,330 to 15,730. The young count at once against the
+  wolves' territorial limit (`terr` 0.03 x suitability: deaths of 8% a night at first, falling) and the boar's crowding (3% a night
+  at first). The "fall from the first night" is that cull back toward the year's balance.
+- **The real gap is the pack's size against one node's reach.** Before the births, the map holds about 1.6 wolves per 150 km²
+  (0.011 a km², the territorial limit binding), against a pack's least of 3. A node's reach never holds a pack except just after the
+  births. Boar hold about 23 per 20 km² overall but are thin on busy land near the villages (presence by distance, brief 4b).
+
+**The fix (data, 37.2's values; 37.4 sets them in the files while building):**
+1. **Wolf `terr` from 0.03 to about 0.06** (calibrate): about 3 adults per 150 km² before the births, within real wolf densities of
+   about 1 to 4 per 100 km².
+2. **`range_km2` (§7.2):** wolf about 200, brown bear about 300, wild boar about 20; deer and fox as built.
+3. **A group counts adults:** the season's young (already held for kinds with `fidelity`, `st["young"]`) are left out of a group's
+   count until the next year, so a pack does not appear in spring and vanish as the young die.
+4. No change to the seeding or the diet rows.
+
+**7.2 Groups that range** (37.4's `_groups` with 37.2's data): a kind with a large range (`range_km2` on the kind: wolf about 150,
+bear about 200, boar about 20, fox and deer as built) condenses over the nodes within its range of its densest area, not one node's
+reach. When it sets out, it picks a target among the villages in its range: by the target's attraction, the distance, and what it
+remembers (the herd seen, the herd that was unwatched). One pack is one group, wherever it raids; its traces and signs show at the
+village it comes to. Kinds with a small range keep today's rule.
+
+**7.3 Targets** (dry runs with bots; a world with wolves within range of a village with an unwatched herd on open pasture):
+- in winter, signs of wolves at the edge most weeks, and a beast lost about once in two or three weeks unless the herd is watched,
+  folded or kept by a dog;
+- in summer, with deer plentiful, rarely;
+- after a hard winter or where the deer are hunted out, more often (the hunger term, as built);
+- boar at a field in a wooded village most autumn weeks (the 3 to 10% of need, 02zr).
+The generator's report names, for each village, the predators within range (a check, not a refusal).
+
+## 8. Touches in 37.4's files
+
+- `engine/data.py`: `SKILL["hard"]` as a multiplier (§3.1).
+- `engine/wild.py`: `hunt`'s `p_take` and `_set_night`'s catch as 1 - exp(-base x multipliers) (§3.1).
+- `engine/things.py`: `own` for a set thing with a catch; the setter's look at a known thing; `_describe`'s remembered wording.
+- `engine/perceive.py`: the look at a known thing on the parcel, through the one noticing rule.
+- `engine/prompt.py`: none beyond the wording, unless the remembered text is built there.
+- `engine/wild.py`: the crew's kill bonus by method (§5).
+- `engine/data.py`: TECHNIQUES `dry meat` takes up to 8 (§6); `SKILL["hard"]`'s top and pace (§3.3).
+- `engine/knowledge.py`: practice in a party by the leader's lead; youths x2; teaching closes a share of the gap each day (§3.3).
+- `engine/settle.py`: `settle_teaching` without the level cap (§3.3).
+- `engine/verbs.py` and `engine/night.py`: the rack inside a house with a hearth; a dry batch into the store (§6).
+- `engine/prompt.py`: the house's lines (rack, door goods, fire, cat, rooms without beds or a hearth); the store line with the door
+  (§6.4, §6.5).
+- `engine/wild.py`: `_groups` and `_count` for ranging kinds (§7.2).
+- The manual: the snare's and the trap's lines (§4.4).
+- **37.2's own:** `wild/methods.py` (`base` by method; gear multipliers in place of the `weapon` rows), `wild/kinds.py` (any `flee`
+  or `HUNT` change; `range_km2`; §7.1's fix), the generator's predator check, the harnesses and their worlds.
+
+## 9. Tests (the gate)
+
+**Unit:**
+- A setter working the parcel of their own line sees its catch on the morning after it is caught (at the calibrated chance); one not
+  at the parcel sees nothing new.
+- A stranger at the parcel finds a line with a catch more often than an empty one; birds over it after a day raise that.
+- A remembered set thing never says "empty" unless that is what was seen, and says when it was seen.
+- `lift the snares` at the parcel takes the catch into hand.
+- The chance is 1 - exp(-base x multipliers): bare-handed novice at `base`; each gear and skill multiplier raises it; no clip.
+- Practice raises the skill multiplier from 1 toward its top.
+- `dry meat` with 3 meat hangs 3 and gives 1.5 dried meat after 3 nights; at a hearth the batch is inside the house and a fox at the
+  door does not reach it; on the fourth morning it is in the store.
+- A household member sees the rack's state each morning; a stranger in the village does not.
+- The store line's count includes food at the door, and matches what the night's meal can reach.
+- Practice in a party led by a master raises a novice about twice as fast as alone; ten days' teaching bring a youth near the
+  teacher; a master's food a unit on fresh ground is about 2.5, and well below that after a week of daily hunting of one wood.
+- A wolf pack at a node next to a village, with that village in its range, raids its unwatched herd; one at a node out of range
+  does not.
+- A world's wolves and boar hold near their start over 32 nights with no hunting (§7.1).
+
+**Calibration** (§10's harness, the region world and 02zzd's worlds, at least 80 tries a cell): §2's kill rates and food a unit within
+about a third, on fresh ground; and daily hunting of one wood over 16 days falling well below them (as 02zzd).
+
+**Society-level** (dry, scripted bots set and lift lines): the catch lifted in the bots' arm against the catch left in the run; and
+§7.3's predator targets on the peoples world and the region, over 32 nights with bots. (The peoples world's bots all starve by day
+14, OPEN [[Q-35 Run findings with no owner yet|Q-35]]: §7's trace ran on the ecology alone; the society test needs bots that feed themselves, or a world for it.)
+
+**Regression:**
+- worlds without the wild pack unchanged;
+- the probe worlds with bots;
+- all tests pass.
+
+**Gate:** the above and a short dry-run report to Zach. A live arm only if he allows it: the region world again against the 30-day
+run, or the next peoples run against the first, reading kills, snares lifted, weapons made, hunting kept up past the first week,
+predators at the villages, and watches and folds kept.
+
+## 10. The harnesses
+
+**The hunt:** `docs/review/37_growth/02zzd_ev/ev_region.py` (CYB_ROOT = a checkout of the branch): for each village's wood, `hunt the wild` and
+`stalk` near and `hunt the wild` far, by novice, capable and master, armed and unarmed, on fresh copies of the world at its start
+(nothing depletes between tries). Its results on brief 4b as built are in `ev_region_4b.json` beside it.
+
+**Predators:** `docs/review/37_growth/02zzd_ev/pred_trace.py` (CYB_ROOT, the world, the days): runs a world dry with bots and records,
+each night, the count of each whole-counted kind within reach of each node (`_count`) and its groups (`days.jsonl` `near`). Its
+trace of the peoples world on `peoples-worlds` is in `pred_trace_peoples_w1.json`.
+
+## Why
+
+- Zach (12 Nov): "I feel like overall hunting numbers are too low, especially with the novice being practically zero right now?"
+- The region run: no kill in 63 hunts and stalks; 22 catches never lifted.
+- 38.70 (Zach, 13 Nov: "this other run seemed to mirror the same failures"): 17 kills in 285 hunts, no predator in 100 days.
+- Hunting matters to the design as a skill that grows, a reason for parties, weapons and dogs, and a lean-season fallback; at about
+  0.01 a unit it is none of these.
+
+## Alternatives considered
+
+- **Tell the setter each morning what their sets hold:** rejected (Zach, 12 Nov: "the engine shouldn't tell them. They should have to
+  decide to go and check").
+- **Raise `take_k` alone:** lifts the master as much as the novice and leaves the practice ladder as steep.
+- **Keep reductions from a ceiling** (armed = 1.0, unarmed x0.3): numerically the same for one factor, but the ceiling moves with
+  every new gear or mechanic (Zach, 13 Nov).
+- **Keep the product clipped at 0.95:** stacked multipliers (gear, skill, a dog, a party) pass certainty and pile up at the clip.
+- **Leave the novice near zero as realistic:** an untrained hunter did poorly, but a method that never pays is never practised, so
+  no one becomes a hunter.
+
+## Open questions (for Zach)
+
+1. §2's targets: kill rates (a novice armed on about half their trips) and food a unit, against farming.
+2. §5: the party bonus for drives only.
+3. Whether the region world (02zze) is the calibration world, beside 02zzd's.
+4. §6: drying any batch up to 8, the rack inside, the household's own house known without a roll (agreed, Zach 13 Nov).
+5. §7.2: groups that range over several nodes (a change to how raids work), and §7.3's predator targets.
+6. Whether `peoples-worlds` takes 4c (the runs are there now).
+
+## History
+
+- 14 Nov 2026: built and gated by 37.4 (ev_region_4c.json, 80 tries a cell, region seed 7, mean of four villages). Hunt the wild near,
+  armed: novice 0.29 a unit (kills on 23% of trips), bare 0.12 (12%), capable 0.82 (46%), master 2.47 (90%); far 0.43, 1.11, 2.10;
+  stalk near 0.33, 1.04, 2.86. As built: `take_base` by method (hunt the wild 0.25, stalk 0.06, drive 0.1, net 0.25, den work 0.2);
+  the crude weapon x2 (hunt the wild), x5 (stalk), x6 (drive), x1.25 (den work); skill a geometric curve x1 to x8 over `top_hard` 50
+  units scaled by the life; meetings x max(1, skill/3)^1.05 above capable (without it the master stays at 1.1); a kill's practice
+  x1.5, behind a better leader up to x2, a youth's x2; teaching 15% of the gap a day (30% a youth) for the hunt's methods only; the
+  crew bonus for the drive only; set catches 1 - exp(-0.6 x ...), within about 6% of brief 4's rates. Predators: wolf `terr` 0.06;
+  `range_km2` wolf 200, bear 300, boar 40; boar's least group 2; villages are nodes with something to raid; the season's young stay
+  home and last year's disperse at the year's turn. pred_trace on peoples w1 (32 nights, bots fed): grown wolves in range of each
+  village flat at 2.25 to 2.29; winter raids by wolves, a calf and a cow at Ashford (nights 29, 31) and two calves and a cow at
+  Brockley (27 to 31); a bear at a carcass; boar at Ashford's field on nights 13, 15 and 17 with an autumn crop standing.
+  Misses: (1) the novice kills on 23% of trips against about half, food a unit on target (the near wood meets about 0.9 beasts a
+  trip); (2) one master hunting one wood daily for 16 days stays at 2 to 3 a unit (the ring holds about 230 large beasts), so the
+  sustained yield does not fall below fresh ground as §2 says, and a master's sustained 2.5 would beat farming's 1.8 on unbroken
+  ground; (3) the boar's field rows end on autumn day 1.
+- 14 Nov 2026: §7.1 done by 37.2 (Zach's go on 4c, relayed by 37.4): not the seeding and not starvation, but the spring birth
+  pulse culled by the territorial limit and crowding; a node's reach never holds a pack; the fix in wolf `terr`, `range_km2`, and
+  groups counting adults.
+- 13 Nov 2026: Zach agreed hunting worth learning and the rack with one's own house's signs; the master's target raised to about
+  2.5 ("a master hunter being below a skilled gatherer feels somewhat nonsensical"); §3.3 the pace, learning in a party, teaching
+  over days; §6 the rack inside, a dry batch into the store, the household's own house known without a roll, the store line with
+  the door. Tallow as food dropped (historically tallow went to candles, soap and grease; OPEN [[L-107 Tallow's real uses|L-107]]); the smokehouse moved to brief 5
+  (its value is scale and long keeping, needed with the runs).
+- 13 Nov 2026: written up for the build (Zach: "write up 4c"): the first peoples run's evidence (38.70 flaw 6); §6 drying any batch
+  up to 8 (OPEN [[Q-43 Before the second peoples run|Q-43]]); §7 predators, from a dry trace of the peoples world (wolves and boar falling from the first night, groups tied
+  to one node, the drive low when prey is plentiful), with the ecology check (37.2), ranging groups (37.4) and targets; the branch
+  note for `peoples-worlds`.
+- 13 Nov 2026: §2 and §3 rewritten (Zach, 13 Nov: "rather than times 0.3 for being unarmed, surely it should be increased if you
+  are armed"; "Is a kill every 4 to 7 trips too bad?"; "Compare to the amount of food to get from farming"): the chance as a baseline
+  (bare hands, a novice) times multipliers for gear, skill and familiarity, as 1 - exp(-x); kill-rate targets beside food a unit (a
+  novice armed on about half their trips, since agents quit after 3 to 5 blank trips; the earlier 4 to 7 trips did not match 0.3 a unit
+  for small game); the comparison with farming, milk and gathering; the targets as rates on fresh ground.
+- 12 Nov 2026: written by 37.2 from the wild region run (02zze) and Zach's questions on it ("Did they forget / remember they had set
+  traps?"; "Surely noticing should fit with signs?"; the wording fix for "empty"; hunting too low for the novice).
+
+## Sources
+
+02zze (the run); 38.70 (the peoples run, flaw 6); 02zzd and its harnesses; hunt_and_fixes.md (brief 4); hunt_followups.md (brief 4b); 02zx; OPEN [[Q-36 Brief 1 as built differs from the brief in 16 places|Q-36]], [[Q-40 Brief 4 as built, and its gate|Q-40]], [[Q-41 Brief 4b as built, and its gate|Q-41]],
+[[L-106 MAJOR what the engine remembers and settles for agents, and…|L-106]], [[Q-35 Run findings with no owner yet|Q-35]], [[Q-43 Before the second peoples run|Q-43]]; guides/senses.md; [[D4-48 A state shows itself as a bundle of signs, not one line|D4-48]], [[D4-70 Taking from a place one does not know holds the thing is a search|D4-70]], [[D4-75 Every perceived line about the world comes from the one noticing rule|D4-75]].

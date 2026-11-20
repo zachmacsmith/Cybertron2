@@ -2,22 +2,25 @@
 id: L-102
 kind: deferred
 state: open
-owner: 37.2 with 37.4
 updated: "2026-11-20"
-tags: [deferred, open]
 ---
-# Acting at different times of the day, as one general system:
 
-- **state**: open
-- **owner**: 37.2 with 37.4
-- **waits_on_text**: Zach returning to it
+# L-102 · Acting at different times of the day, as one general system
 
-## Text
+*open · 37.2 with 37.4*
+
+## Later
 **Acting at different times of the day, as one general system:** in the evening people can plan acts for the evening, through the night, or for rising early at dawn; one system for every night or dawn act now handled one by one (the watch, [[D2-21 The watch|D2-21]]; setting off at nightfall or in the morning, [[D4-8 Arrive, then decide|D4-8]], [[D4-67 Setting off in the morning or at nightfall|D4-67]]; the wild layer's night watch and work by lantern; forays and camps), and how it bears on sleep, needs, hunger, tiredness and the day's units
 
+**Decided:** 9 Nov (Zach: "a general system that can encompass all the new things we are exploring ... we will come back to this")
+
+**Designed in:** not yet; related: spec/agents/work.md Open (working late and exhaustion, 38.06 §3), proposals/day_route.md Open (time of day), departure_times.md, 02zq one-offs (lantern work)
+
+**Waits on:** Zach returning to it
+
+
 ## Mentioned by
-- [[L-107 Tallow's real uses|L-107: Tallow's real uses]]
-- [[forays Forays going out from the village and coming back|Forays: going out from the village and coming back]]
-- [[02zv_wild_consolidation 02zv the wild layer consolidated core engine c|02zv: the wild layer consolidated: core engine changes, cont]]
-- [[02zz_open_sorting 02zz sorting OPEN.md's open rows into the new kinds|02zz: sorting OPEN.md's open rows into the new kinds (draft,]]
-- [[period_b Period B (4 to 10 Nov 2026) initiatives against their records|Period B (4 to 10 Nov 2026): initiatives against their recor]]
+- [[L-107 Tallow's real uses|L-107 · Tallow's real uses]]
+- [[Forays going out from the village and coming back|Forays: going out from the village and coming back]]
+- [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
+- *and 2 index or audit notes*

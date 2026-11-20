@@ -3,23 +3,26 @@ id: D2-95
 kind: decision
 state: live
 updated: "2026-11-20"
-tags: [decision, open]
 ---
-# Scavengers later
 
-- **state**: live
-- **source**: things_in_places.md §6
+# D2-95 · Scavengers later
 
-## Text
-**Scavengers later**, flagged, together with wild animals (attacking herds and hunters, drawn to food)
+*live · 23 Oct · spec: [[world - things_in_places|world/things_in_places]]*
+
+## The rule
+, flagged, together with wild animals (attacking herds and hunters, drawn to food)
+
+## Where it came from
+things_in_places.md §6
+
 
 ## Mentioned by
-- [[L-2 Scavengers, with wild animals that attack herds and hunters and ar|L-2: Scavengers, with wild animals that attack herds and hunters and are dr]]
-- [[living_populations Proposal living populations on the land (a generali|Proposal: living populations on the land (a generalised ecol]]
-- [[objects_in_world Proposal objects placed in the world|Proposal: objects placed in the world]]
-- [[senses Proposal the senses across every system|Proposal: the senses across every system]]
-- [[things_in_places Proposal things left in places, and who finds them|Proposal: things left in places, and who finds them]]
-- [[wildlife Proposal the first wild kinds (what lives on the land, what e|Proposal: the first wild kinds (what lives on the land, what]]
-- [[things_in_places Things in places putting down, hiding, the dead, buri|Things in places: putting down, hiding, the dead, burial]]
-- [[02zu_wild_chains_capital_actions 02zu chains, capital and actions; dec|02zu: chains, capital and actions; decay and scavenging (9 N]]
-- [[02zv_wild_consolidation 02zv the wild layer consolidated core engine c|02zv: the wild layer consolidated: core engine changes, cont]]
+- [[L-2 Scavengers, with wild animals that attack herds and hunters and are…|L-2 · Scavengers, with wild animals that attack herds and hunters and are…]]
+- [[Proposal living populations on the land (a generalised ecology layer)|Proposal: living populations on the land (a generalised ecology layer)]]
+- [[Proposal objects placed in the world|Proposal: objects placed in the world]]
+- [[Proposal the senses across every system|Proposal: the senses across every system]]
+- [[Proposal things left in places, and who finds them|Proposal: things left in places, and who finds them]]
+- [[Proposal the first wild kinds (what lives on the land, what each is…|Proposal: the first wild kinds (what lives on the land, what each is…]]
+- [[Things in places putting down, hiding, the dead, burial|Things in places: putting down, hiding, the dead, burial]]
+- [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
+- [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]

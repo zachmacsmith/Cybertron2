@@ -3,16 +3,19 @@ id: D2-134
 kind: decision
 state: live
 updated: "2026-11-20"
-tags: [decision, open]
 ---
-# Riders in a cart
 
-- **state**: live
-- **source**: proposals/transport_and_lodging.md
+# D2-134 · Riders in a cart
 
-## Text
-**Riders in a cart** sleep as in a damaged house: a night on the road costs 1.2 food (1.5 in the cold)
+*live · 24 Oct · spec: [[economy - lodging|economy/lodging]], [[economy - transport|economy/transport]]*
+
+## The rule
+sleep as in a damaged house: a night on the road costs 1.2 food (1.5 in the cold)
+
+## Where it came from
+proposals/transport_and_lodging.md
+
 
 ## Mentioned by
-- [[lodging Lodging hosts and inns|Lodging: hosts and inns]]
-- [[transport Transport|Transport]]
+- [[Lodging hosts and inns|Lodging: hosts and inns]]
+- [[Transport|Transport]]

@@ -2,19 +2,22 @@
 id: L-124
 kind: deferred
 state: open
-owner: 37.2, 37.4
 updated: "2026-11-20"
-tags: [deferred, open]
 ---
-# Wildlife pack K11: lodgers of buildings
 
-- **state**: open
-- **owner**: 37.2, 37.4
-- **waits_on_text**: building upkeep and risks (engine overhaul phase 3)
+# L-124 · Wildlife pack K11: lodgers of buildings
 
-## Text
-**Wildlife pack K11: lodgers of buildings**: jackdaws in chimneys; deathwatch beetle, woodworm, dry rot; black rats in thatch
+*open · 37.2, 37.4*
+
+## Later
+jackdaws in chimneys; deathwatch beetle, woodworm, dry rot; black rats in thatch
+
+**Decided:** later (02zv §4)
+
+**Designed in:** docs/review/37_growth/02zv_wild_consolidation.md §4
+
+**Waits on:** building upkeep and risks (engine overhaul phase 3)
+
 
 ## Mentioned by
-- [[period_b Period B (4 to 10 Nov 2026) initiatives against their records|Period B (4 to 10 Nov 2026): initiatives against their recor]]
-- [[records Records audit what the documents say against what is true (19|Records audit: what the documents say against what is true (]]
+- *and 2 index or audit notes*

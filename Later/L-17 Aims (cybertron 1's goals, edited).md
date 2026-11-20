@@ -2,18 +2,21 @@
 id: L-17
 kind: deferred
 state: open
-owner: "37.4"
 updated: "2026-11-20"
-tags: [deferred, open]
 ---
-# Aims (cybertron 1's goals, edited)
 
-- **state**: open
-- **owner**: 37.4
+# L-17 · Aims (cybertron 1's goals, edited)
 
-## Text
+*open · 37.4*
+
+## Later
 Aims (cybertron 1's goals, edited)
 
+**Decided:** [[D4-29 No aims for now|D4-29]]
+
+**Designed in:** spec/agents/aims.md
+
+
 ## Mentioned by
-- [[02zz_open_sorting 02zz sorting OPEN.md's open rows into the new kinds|02zz: sorting OPEN.md's open rows into the new kinds (draft,]]
-- [[51_open_decisions 38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]
+- [[38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]
+- *and 1 index or audit notes*

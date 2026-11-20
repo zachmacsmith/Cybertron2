@@ -2,18 +2,22 @@
 id: L-18
 kind: deferred
 state: open
-owner: 37.2 with 37.3
 updated: "2026-11-20"
-tags: [deferred, open]
 ---
-# An institution's stamp on coin
 
-- **state**: open
-- **owner**: 37.2 with 37.3
-- **waits_on_text**: institutions
+# L-18 · An institution's stamp on coin
 
-## Text
+*open · 37.2 with 37.3*
+
+## Later
 An institution's stamp on coin
 
+**Decided:** [[D2-28 Copper coin|D2-28]]
+
+**Designed in:** exchange_and_money.md
+
+**Waits on:** institutions
+
+
 ## Mentioned by
-- [[02zz_open_sorting 02zz sorting OPEN.md's open rows into the new kinds|02zz: sorting OPEN.md's open rows into the new kinds (draft,]]
+- *and 1 index or audit notes*

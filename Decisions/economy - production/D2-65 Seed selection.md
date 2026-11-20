@@ -3,19 +3,22 @@ id: D2-65
 kind: decision
 state: live
 updated: "2026-11-20"
-tags: [decision, open]
 ---
-# Seed selection
 
-- **state**: live
-- **source**: farming.md
+# D2-65 · Seed selection
 
-## Text
-**Seed selection** is a farming technique, learned by practice over several harvests: the sower's crops ripen about 15% sooner
+*live · 23 Oct · spec: [[economy - production|economy/production]]*
+
+## The rule
+is a farming technique, learned by practice over several harvests: the sower's crops ripen about 15% sooner
+
+## Where it came from
+farming.md
+
 
 ## Mentioned by
-- [[environment Proposal the environment over time (one scheduler for eras|Proposal: the environment over time (one scheduler for eras,]]
-- [[environment_catalogue Proposal what can happen (eras, weather, hazards|Proposal: what can happen (eras, weather, hazards that sprea]]
-- [[farming Proposal farming|Proposal: farming]]
-- [[production Production foraging, farming and tools|Production: foraging, farming and tools]]
-- [[02_farming_herding_food 02 Farming, herding and food, from the first f|02: Farming, herding and food, from the first fields to the ]]
+- [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
+- [[Proposal what can happen (eras, weather, hazards that spread, and…|Proposal: what can happen (eras, weather, hazards that spread, and…]]
+- [[Proposal farming|Proposal: farming]]
+- [[Production foraging, farming and tools|Production: foraging, farming and tools]]
+- [[02 Farming, herding and food, from the first fields to the global…|02: Farming, herding and food, from the first fields to the global…]]

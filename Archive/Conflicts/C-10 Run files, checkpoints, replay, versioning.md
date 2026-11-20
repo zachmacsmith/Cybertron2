@@ -2,18 +2,20 @@
 id: C-10
 kind: conflict
 state: closed
-owner: 37.4 to confirm
 updated: "2026-11-20"
-tags: [conflict, closed]
 ---
-# Run files, checkpoints, replay, versioning
 
-- **state**: closed
-- **owner**: 37.4 to confirm
-- **where**: spec/core/README `records.md` (37.4, to compile) vs spec/record/ (37.1, [[D1-4 proposalsrun_record.md is adopted as the spec area record|D1-4]])
+# C-10 · Run files, checkpoints, replay, versioning
 
-## Text
+*closed · 37.4 to confirm*
+
+## The conflict
 Run files, checkpoints, replay, versioning
 
+**Proposed resolution:** `core/records.md` becomes a pointer to spec/record/; `core/events.md` keeps what an event is, record/journal.md how events are stored
+
+**Where:** spec/core/README `records.md` (37.4, to compile) vs spec/record/ (37.1, [[D1-4 proposalsrun_record.md is adopted as the spec area record|D1-4]])
+
+
 ## Mentioned by
-- [[run_record Proposal the run record and the run backend|Proposal: the run record and the run backend]]
+- [[Proposal the run record and the run backend|Proposal: the run record and the run backend]]

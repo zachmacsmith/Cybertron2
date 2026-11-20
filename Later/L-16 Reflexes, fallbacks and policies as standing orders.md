@@ -2,17 +2,20 @@
 id: L-16
 kind: deferred
 state: open
-owner: "37.4"
 updated: "2026-11-20"
-tags: [deferred, open]
 ---
-# Reflexes, fallbacks and policies as standing orders
 
-- **state**: open
-- **owner**: 37.4
+# L-16 · Reflexes, fallbacks and policies as standing orders
 
-## Text
+*open · 37.4*
+
+## Later
 Reflexes, fallbacks and policies as standing orders
 
+**Decided:** [[D4-16 Routine work runs on standing orders the agent sets|D4-16]]
+
+**Designed in:** 38.06 §4
+
+
 ## Mentioned by
-- [[02zz_open_sorting 02zz sorting OPEN.md's open rows into the new kinds|02zz: sorting OPEN.md's open rows into the new kinds (draft,]]
+- *and 1 index or audit notes*

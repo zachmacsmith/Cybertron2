@@ -2,19 +2,23 @@
 id: L-6
 kind: deferred
 state: open
-owner: 37.2 with 37.4
 updated: "2026-11-20"
-tags: [deferred, open]
 ---
-# Overlapping fuse events in depth
 
-- **state**: open
-- **owner**: 37.2 with 37.4
-- **waits_on_text**: fuse events built
+# L-6 · Overlapping fuse events in depth
 
-## Text
+*open · 37.2 with 37.4*
+
+## Later
 Overlapping fuse events in depth
 
+**Decided:** [[D2-82 Overlapping events, a simple rule for now|D2-82]]
+
+**Designed in:** fuse_events.md; [[Q-19 Overlapping fuse events in more depth|Q-19]]
+
+**Waits on:** fuse events built
+
+
 ## Mentioned by
-- [[fuse_events Fuse events time to respond|Fuse events: time to respond]]
-- [[02zz_open_sorting 02zz sorting OPEN.md's open rows into the new kinds|02zz: sorting OPEN.md's open rows into the new kinds (draft,]]
+- [[Fuse events time to respond|Fuse events: time to respond]]
+- *and 1 index or audit notes*

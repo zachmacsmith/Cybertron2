@@ -3,17 +3,22 @@ id: D2-15
 kind: decision
 state: live
 updated: "2026-11-20"
-tags: [decision, open]
 ---
-# More hands on a plot raise its yield
 
-- **state**: live
-- **source**: 02l §2
-- **replaces_text**: the old engine's two tends
+# D2-15 · More hands on a plot raise its yield
 
-## Text
-**More hands on a plot raise its yield** on a saturating curve; cattle add to it; part of the return to labour comes from doing the further stages
+*live · 22 Oct · spec: [[economy - production|economy/production]]*
+
+## The rule
+on a saturating curve; cattle add to it; part of the return to labour comes from doing the further stages
+
+## Where it came from
+02l §2
+
+## What it replaced
+the old engine's two tends
+
 
 ## Mentioned by
-- [[farming Proposal farming|Proposal: farming]]
-- [[production Production foraging, farming and tools|Production: foraging, farming and tools]]
+- [[Proposal farming|Proposal: farming]]
+- [[Production foraging, farming and tools|Production: foraging, farming and tools]]

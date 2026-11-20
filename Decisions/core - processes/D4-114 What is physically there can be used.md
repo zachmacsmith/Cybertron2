@@ -1,0 +1,32 @@
+---
+id: D4-114
+kind: decision
+state: live
+updated: "2026-11-20"
+---
+
+# D4-114 · What is physically there can be used
+
+*live · 8 Nov · spec: [[core - processes|core/processes]], [[world - holding|world/holding]]*
+
+## The rule
+(proposals/use_by_physics.md, retrospective): any beast at the place can be worked (millstones, plough, pack ox) whoever holds it, and working another's is seen ([[D4-23 Holding is a recognised claim|D4-23]]'s rule for land, extended to beasts); a wood fence loses a level a year (not a season) unless mended a quarter of its build that year, not in its first year, and a fallen one keeps half its build; the sowing lore names each crop's best and good halves of the seasons
+
+## Where it came from
+conversation (Zach: "fix the ox lending, fences, lore and Green, then rerun"; "the general default should be that anyone can use a thing if they physically could ... the consequences are then social")
+
+## What it replaced
+[[D4-105 Sowing windows are lore, not rules|D4-105]]'s lore text (best season only); [[D2-130 Fences go round a parcel for now a parcel is fenced or not|D2-130]]'s "a level each season" (as built)
+
+
+## Mentioned by
+- [[Q-30 livestock.md's fence upkeep (D2-130) and D4-114|Q-30 · livestock.md's fence upkeep (D2-130) and D4-114]]
+- [[W-13 Brookend survival world, rerun p2|W-13 · Brookend survival world, rerun p2]]
+- [[Proposal ecology designed from the node outward|Proposal: ecology designed from the node outward]]
+- [[Proposal what is physically possible is possible; the consequences…|Proposal: what is physically possible is possible; the consequences…]]
+- [[Raiders, displacement and set works what every village meets|Raiders, displacement and set works: what every village meets]]
+- [[The declared process model|The declared process model]]
+- [[Holding land and fixed things|Holding land and fixed things]]
+- [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
+- [[02zw the reviews' proposals against how the engine already works (9…|02zw: the reviews' proposals against how the engine already works (9…]]
+- *and 1 index or audit notes*

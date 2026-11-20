@@ -3,17 +3,20 @@ id: D2-16
 kind: decision
 state: live
 updated: "2026-11-20"
-tags: [decision, open]
 ---
-# Nodes differ in land pressure:
 
-- **state**: live
-- **source**: 02l §5
+# D2-16 · Nodes differ in land pressure
 
-## Text
+*live · 22 Oct · spec: [[economy - production|economy/production]]*
+
+## The rule
 **Nodes differ in land pressure:** some short of land, some of people
 
+## Where it came from
+02l §5
+
+
 ## Mentioned by
-- [[farming Proposal farming|Proposal: farming]]
-- [[generator_stage1 Proposal the generator, stage 1 (a spec for review be|Proposal: the generator, stage 1 (a spec for review before i]]
-- [[production Production foraging, farming and tools|Production: foraging, farming and tools]]
+- [[Proposal farming|Proposal: farming]]
+- [[Proposal the generator, stage 1 (a spec for review before it is…|Proposal: the generator, stage 1 (a spec for review before it is…]]
+- [[Production foraging, farming and tools|Production: foraging, farming and tools]]

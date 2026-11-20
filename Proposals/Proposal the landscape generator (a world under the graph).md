@@ -1,0 +1,515 @@
+---
+id: docs/cybertron2/proposals/generator.md
+kind: proposal
+updated: "2026-11-05"
+---
+# Proposal: the landscape generator (a world under the graph)
+
+*proposal · partly accepted: D2-173 to D2-175 here, D2-177 to D2-188 through stage 1, D2-189 to D2-191 since. ... · `docs/cybertron2/proposals/generator.md`*
+
+> the landscape generator (a world under the graph)
+
+
+**Status:** partly accepted: [[D2-173 The generator fills in around what a world file gives|D2-173]] to [[D2-175 Land use in rings round a settlement|D2-175]] here, [[D2-177 The generator's first stage writes today's world format plus the…|D2-177]] to [[D2-188 Macro features are compositions of primitives|D2-188]] through stage 1, [[D2-189 Rough grazing on the waste covers|D2-189]] to [[D2-191 The generator designs within one envelope|D2-191]] since. Built: stage 1 at
+Zach's request (3 Nov; [generator_stage1.md](generator_stage1.md), review 02zj, cybertron2/landgen/), with the land rebuilt within
+one envelope by [temperate_landscapes.md](temperate_landscapes.md) ([[D2-191 The generator designs within one envelope|D2-191]]). Not built: §2e (the engine does not read the mesh in a
+run: [[D2-177 The generator's first stage writes today's world format plus the…|D2-177]]). Still open: 4 questions, all deferred by Zach (3 Nov: build the generator without deciding them; OPEN [[L-33 Growth to towns fixed nodes, faster edges, reach by place|L-33]], [[L-35 Distance inside a node|L-35]]):
+wild land split when used (2, with 7), places and reach (3), roads only or across country (6), places finer with use (7). Listed in
+Open questions.
+
+- **Decided in part (3 Nov):** the generator fills in around what a world file gives ([[D2-173 The generator fills in around what a world file gives|D2-173]]); a mesh kept as ground truth
+  with the graph derived from it ([[D2-174 A world under the graph|D2-174]]); land-use rings as the default layout ([[D2-175 Land use in rings round a settlement|D2-175]]).
+- **For discussion:** the world under the graph (§2 to §5), and the questions at the end. *(5 Nov: §2 to §5 decided and built
+  through stage 1, except §2e.)*
+- Design only. Not to be built until Zach asks (README rule 10). *(Zach asked on 3 Nov; stage 1 built.)*
+
+**Owner:** 37.2, with 37.4. **Affects:**
+- spec/world/generation.md (37.4's: to be compiled from this when decided), places.md, parcel_graph.md, roads.md, edges.md;
+- spec/environment/ (37.2's);
+- seeding/populations.md (people, second);
+- the capacity check (capacity.py).
+
+It extends 38.04 §6, which generated one point per node.
+
+## Summary
+
+Generate a **world under the graph**:
+- a continuous landscape of land, water and climate, at a resolution finer than parcels;
+- then **derive** the abstractions agents act on: nodes as settlements and their reach, parcels as patches of one cover, roads as
+  least-cost routes with their landmarks.
+
+The graph stays the way agents and the engine meet the world; the map underneath is the ground truth it is compressed from.
+
+**Configurable ([[D2-173 The generator fills in around what a world file gives|D2-173]]).** A world file is the input with gaps: what it gives is pinned, and the rest is filled in around it,
+reproducibly, without seed searches.
+
+**What the map is for:**
+- rivers that run somewhere;
+- fords where rivers are shallow;
+- passes where ridges are low;
+- soil where silt settles;
+- floods by height;
+- groundwater and wells;
+- line of sight;
+- room to grow into: wild land not yet in any parcel, cleared and claimed later;
+- the map the visualiser draws.
+
+## 1. Decided ([[D2-173 The generator fills in around what a world file gives|D2-173]])
+
+- **The world file is the input, with gaps.** What it gives is pinned:
+  - exact values;
+  - ranges;
+  - descriptions from a vocabulary mapped to ranges ("short of wood", "rich bottomland", "on a river", "a hill village").
+- **Generation runs in layers around the pins.**
+  - Draws are keyed per element ([[D2-70 Paired draws|D2-70]]), so a change touches only what depends on it.
+  - Targets (capacity at 60 to 70% of flows, food's share of work, a village short of fuel) are met by adjusting what is unpinned.
+- **Pins win where the physics allows.** A pin the physics can't meet is refused, with the reason.
+- **Descriptions of places** are written by a model once and frozen into the output.
+- **The output** is a complete world file, frozen with the run.
+- **Order:** the land and region first; pins for people second.
+
+## 2. The world under the graph (for discussion)
+
+### 2a. What it is
+
+- **The mesh.** A mesh of cells on a hidden plane: about a hectare to a few hectares each, so a parcel is a patch of cells and a
+  node is thousands of them.
+- **What each cell carries:**
+  - elevation;
+  - temperature and moisture (climate);
+  - drainage: flow, and whether a river or lake runs here;
+  - groundwater depth;
+  - soil depth and fertility;
+  - cover (vegetation);
+  - resources: stone, ore, clay, peat, game, fish;
+  - exposure to hazards: flood plain, fire-prone heath, avalanche slope.
+- **Its relation to the graph.** The mesh is never shown to agents. It is the ground truth that the graph is compressed from, and
+  that the visualiser draws.
+
+### 2b. The physical layers, in order
+
+| Layer | From | Gives | Pins it takes |
+|---|---|---|---|
+| **elevation** | noise shaped by ranges, a coast or lake; no erosion simulation | hills, valleys, ridges, passes (low points on ridges) | "a range to the north", "a pass between Hollins and Wenmoor", a height at a place |
+| **climate** | latitude or a north-south gradient, elevation (colder high), prevailing wind (wet windward, rain shadow lee) | temperature and moisture per cell | "a dry east", "a cold upland" |
+| **hydrology** | each cell drains to its lowest neighbour; flow accumulates; lakes fill hollows; wetland where flat and wet; springs where groundwater meets a slope | rivers (width and depth by flow), lakes, fens, springs; fords where a river is wide and shallow; narrows where it is deep | "a river from the hills through Barleyfield", "a ford at Millford", "a fen south of the village" |
+| **soil** | slope (thin on steep ground), parent material, river silt (deep and rich on flood plains), drainage | depth, fertility, wetness | "rich bottomland", "poor stony soil" |
+| **cover** | climate, soil, height (a biome table: 38.04 §2's kinds) | old forest, woodland, heath or moor, grassland, fen, rock | "old forest two days out", "short of wood" |
+| **resources** | the terrain: stone on steep and high ground, ore by a geology mask, clay by rivers, peat on wet moor, game in forest, fish in rivers | where each can be got and how much | "copper in the hills", "no stone near the village" |
+| **hazards** | height and cover: flood plain, fire-prone heath, avalanche slope | each cell's exposure, read by the scheduler ([[D2-69 The scheduler's layers|D2-69]]) | |
+
+### 2c. The human layer
+
+- **Siting.** Settlement sites are scored on:
+  - fresh water;
+  - flat fertile land;
+  - a river crossing;
+  - fuel within reach;
+  - shelter and defence.
+
+  Founders take the best. Sites are spaced by a day's walk.
+- **Pins:** "four villages", "a market town at the ford", "a forest hamlet".
+- **Land use rings** around each site (the von Thünen pattern), from the site outward:
+  1. gardens and closes;
+  2. fields;
+  3. pasture and meadow (meadow by the water);
+  4. woodland and waste.
+
+  This is infield and outfield without any distance rule.
+- **Roads:**
+  - least-cost routes between sites over the terrain: slope, cover and water;
+  - fords and bridges where a route crosses a river;
+  - passes where it crosses a ridge;
+  - narrows where it threads a gorge;
+  - minor ways through cover become hidden ways.
+
+### 2d. Deriving the graph
+
+- **Nodes.** A node is a settlement site and its reach: the land within a few hours' walk, out and back in a day ([[D4-11 Node scale if you could go there and be back before nightfall, it is…|D4-11]]). Wild
+  places people go (a forest a day out, a pass, a camp) are nodes where a road needs a stop.
+- **Parcels:**
+  - contiguous patches of one cover within a node, merged and capped at about 6 to 15, so the overview stays readable;
+  - each with its size, side and height, and its neighbours read from the mesh.
+- **Wild land.** Land in a node that is in no worked parcel is **wild land**: the moor, the waste, the deep wood. It is held as a few
+  large parcels, which can be split when part is cleared or claimed. This gives the frontier, and growth without re-drawing nodes
+  ([[L-33 Growth to towns fixed nodes, faster edges, reach by place|L-33]]).
+- **Edges.** An edge is a route's length in day stretches, its terrain by stretch from the cells it crosses, and its landmarks where
+  it crosses features ([[D2-104 Roads have stretches|D2-104]] to [[D2-107 First-world landmarks|D2-107]]).
+- **Per-place state:**
+  - each parcel's resources come from the sums over its cells (a wood's trees from its cover and size, [[D2-156 A forest is three stocks|D2-156]]);
+  - each parcel's fertility from its soil;
+  - each node's groundwater and each river reach from hydrology (environment_state.md, [[L-23 Water as a need, and the land's hidden state|L-23]]).
+
+### 2e. Through a run
+
+*Not built: stage 1 writes today's world format plus the mesh, with no engine change ([[D2-177 The generator's first stage writes today's world format plus the…|D2-177]]), so nothing in a run reads or
+changes the cells yet.*
+
+- **The mesh is kept as the ground truth.**
+  - Felling and clearing change cells' cover, and the parcels follow.
+  - Rivers and hills don't change.
+- **Systems that can read it later:**
+  - floods by height;
+  - sight across ridges ([[D2-74 Some signs carry between nodes|D2-74]]);
+  - bridges by a river's width ([[L-34 Works on the land's physical facts wait for the landscape generator|L-34]]);
+  - water by groundwater depth;
+  - the visualiser's map.
+
+## 3. Pins, targets and checks
+
+- **Pins** are given by place name or by feature, at any layer. Each layer generates only what is unpinned, treating pins as fixed:
+  - a river given is laid first and the land shaped so that it runs downhill;
+  - a height given is a point the elevation passes through.
+- **Targets** are met by monotone adjustment of what is unpinned:
+  - capacity of each node at 60 to 70% of flows ([[D2-161 Seed nodes below what they sustain|D2-161]]), through wood and plots;
+  - fuel or food as the scarce thing in a named village;
+  - a road's length in days.
+- **Checks** before a world is used: 38.04 §6, plus the scenario_design rules, made automatic:
+  - rivers run downhill;
+  - land kinds fit their height and moisture;
+  - capacity is in range;
+  - no node is self-sufficient, and each settlement depends on at least two others;
+  - at least one chokepoint;
+  - every access gate reachable.
+
+## 4. Descriptions
+
+**What gets written:** each place, parcel, road stretch and landmark gets a description, written by a model from its facts:
+- cover;
+- height and side;
+- soil;
+- water;
+- what is near;
+- what a local would say of it.
+
+**How it stays consistent:** the description is written once and frozen into the output file. The facts are stored beside the
+words, so the engine's signs and the text never disagree.
+
+## 5. People (second)
+
+`generate.py` already grows a society from founding couples. With the land generated, founders settle by the siting scores, and
+pins name:
+- households;
+- persons;
+- ties;
+- trades;
+- models ([[D4-20 One agent, one model, for life|D4-20]]);
+- customs ([[D4-64 Lines kept for good, passed on through care, replacing customs|D4-64]]).
+
+The generator fills in the rest around them, keyed per element in the same way.
+
+## 6. Where nodes come from: the world or the observer (discussion, 3 Nov)
+
+*Deferred by Zach, not decided: the generator was built without it; growth to towns is flagged (OPEN [[L-33 Growth to towns fixed nodes, faster edges, reach by place|L-33]]), and distance inside a
+node is "not for now" ([[L-35 Distance inside a node|L-35]]).*
+
+Zach: "the node being a property of the observer, not the world?" The extreme form: travel can go to any point, and each agent's
+node is what lies within a day's reach of where it stands.
+
+**What the node does today:**
+- who is together;
+- who hears speech to the town;
+- who can trade face to face;
+- the overview of a place;
+- the seat of an institution;
+- the scope of incidents and of the capacity check;
+- arrive-then-decide;
+- the names people know places by.
+
+**What an observer's node would break:**
+- **Co-presence:** reaches overlap without being equal, so A can be "here" for B while B is not for A.
+- **Speech to the town, and face-to-face offers:** they lose a shared audience.
+- **Names:** "Barleyfield" still needs to be one shared place, or people can't agree to meet there, claim there or remember it.
+- **The safeguards:** the bounded overview, arrive-then-decide and the checked worlds are built on fixed nodes.
+
+**Proposed middle:**
+- **Places are the world's.** The mesh's land is all in places: worked parcels, and wild land as large parcels, everywhere. They are
+  joined by links with travel times: about none inside a settlement, days along a road, slower across country.
+- **Reach is the observer's.** What one can get to and back from today is computed from where one stands, the links and one's means
+  of travel ([[L-33 Growth to towns fixed nodes, faster edges, reach by place|L-33]]).
+- **A node is a derived label:** a settlement and the places within its day, used for:
+  - names;
+  - the overview;
+  - institutions' seats;
+  - the capacity check and incidents.
+
+  It never draws the line of who is present: that is the place (parcel, building).
+- **Off the graph, places appear where people go.** The whole land already exists in the mesh, so when someone sets off across
+  country in a new direction, the place they reach is derived from the mesh on demand, keyed so it is always the same place. It is
+  then an unexplored place made known ([[D4-47 Some places start unexplored|D4-47]]). Nothing is invented and nothing re-drawn.
+- **It reduces to today's worlds** while everyone stays on the roads. A hand-made world is the same graph, with links of about
+  nothing inside a node and days along an edge.
+
+**The cost:**
+- the engine's "same node" rules move to place and reach ([[L-33 Growth to towns fixed nodes, faster edges, reach by place|L-33]]'s refactor);
+- more, larger wild parcels to show.
+
+So: the generator outputs this general form now, with today's nodes derived from it. The engine keeps its node rules until that
+refactor is wanted.
+
+**Two ways to go on from here (Zach, 3 Nov: "the two are quite a big divergence"):**
+- **A, roads only:** travel only along roads and hidden ways, as today, with the wild as scenery.
+- **C, across country:** every place has links to its neighbours, so anyone can head off in any direction. Positions are still
+  places, so presence stays shared. In the wild:
+  - **Setting off:** `travel {to}` a known place, or `travel {direction}`.
+  - **The day:** one passes through several wild places, sensing each, and decides only if something happens; on arrival at
+    nightfall one decides.
+  - **Getting lost:** without a known way one may drift to another neighbour, less with the eye for the land.
+  - **Paths:** repeated crossings make a link a path, so roads emerge from use.
+
+  Positions are the size of today's parcels near a settlement, and large in the wild (a few km across, an hour or two to cross;
+  about 5 to 15 of them in a day's walk).
+
+**Building the generator does not need this decided.** Its output is the general form: places covering all the land, links with
+travel times everywhere (roads as the cheap ones), and today's nodes, parcels and roads derived from them. Today's engine reads the
+derived view; C would read the rest.
+
+## 7. How much physics: only what bottoms out in leverage (discussion, 3 Nov)
+
+*Built as proposed in stage 1 (flow accumulation, one incision pass, rule-based soils, one wind sweep: 02zj); the leverage check is
+[[D2-180 The generator's checks in two kinds|D2-180]]'s design checks, with the supply-chain and junction checks flagged (OPEN [[L-49 Automated supply-chain and dependence checks for generated worlds|L-49]]).*
+
+Zach: terrain matters for leverage (which land is most useful, where the best resources are), so complexity that does not end in
+tangible differences is not worth much.
+
+**What a full erosion and climate simulation would add:**
+- dendritic valleys and ridges that look carved;
+- floodplains and alluvial fans with deep soil;
+- sediment in rivers;
+- rain shadows and climate belts that follow the terrain.
+
+**What it would cost:**
+- **Time:** hydraulic erosion on a mesh of about 100,000 cells takes seconds to minutes in numpy, once per world, frozen. Time is
+  not the problem.
+- **Design and tuning:** many parameters, with outcomes hard to steer.
+- **Pins:** erosion moves terrain, so a pinned height or river can be worn away, and honouring pins gets much harder.
+- **Readability:** the causes of a valley become hard to trace.
+
+**What leverage needs from terrain:**
+- the best farmland concentrated and contested (silt-rich valley floors, fens worth draining);
+- crossings and passes as chokepoints;
+- resources unevenly spread (stone, ore, clay, old wood);
+- water reliable in some places and not others (springs, the water table);
+- distance trade-offs (near fields against far woods).
+
+**Proposed: cheap approximations** that give all of these and keep pins:
+- flow accumulation for rivers;
+- one incision pass, cutting valleys in proportion to flow;
+- rule-based soils: deep and rich where low and flat beside a large river, thin on slopes;
+- one wind sweep for moisture and a rain shadow.
+
+No erosion or climate simulation. And a **leverage check** on every generated world:
+- the share of the best land in a few places;
+- the chokepoints;
+- the spread of each resource;
+- which village needs which.
+
+That check, not realism, is the generator's measure of success.
+
+## 8. Places that get finer with use (discussion, 3 Nov)
+
+*Deferred by Zach, not decided: outlined for comparison only ("outline the split to look at"); the leaning below is 37.2's.*
+
+Zach: would the large wild places become finer grained when land is cleared and settled? And is splitting the right level of
+abstraction, or will it depend on too many edge cases? Three ways, outlined so they can be compared.
+
+### 8a. Split on use
+
+A wild place splits when an act needs only part of it. The cells the act needs (one connected patch, next to land already worked
+or on the side one came in, sized by the act) become a place of their own; the rest stays wild.
+
+**What triggers a split:** only physical change:
+- clearing part of it;
+- building on it;
+- fencing part of it.
+
+A claim on part of a wild place is a plot share of it ([[D2-163 Land is held in plot shares within a parcel|D2-163]]) and needs no split.
+
+**Edge cases and the rule for each:**
+
+| Case | Rule |
+|---|---|
+| which cells | one connected patch of the act's size, next to worked land or the side entered from, as compact as the cells allow; keyed draws break ties |
+| work over several days (clearing) | the split happens when the work starts, as "being cleared", so the work has a place |
+| two acts in one wild place on one day | two splits, in the order of the acts; they may border each other |
+| a camp in the wild | no split: a camp goes up anywhere and takes no ground |
+| stocks (trees, game, dead wood) | divided by the cells' own values, so the split gets what grows on its cells |
+| things lying there, herds, a hidden way's end | each goes with the cell it lies on (things and herds would record a cell, chosen by a keyed draw when they come to be there) |
+| a claim on the whole wild place | the split part stays under it; clearing another's land is use, seen and disputed ([[D4-23 Holding is a recognised claim|D4-23]]) |
+| what people believed of the wild place | beliefs stay with the parent; the new place is unknown until seen or told |
+| tiny slivers | a split is at least one plot's worth; a remainder smaller than that joins the split |
+| many small splits round a village | never merged in the world; the overview groups adjacent places of one cover and holder |
+| land abandoned | the place stays and its cover returns to scrub, then wood; never merged back |
+| names | the one who cleared it may name it; otherwise a plain description |
+
+**Risk:** every system that keeps something per place (stocks, things, herds, claims, beliefs, hidden ways, signs) must say what
+happens at a split. That is about ten rules now, and one more for each system added later.
+
+### 8b. Fine places everywhere, grouped when shown
+
+Places are made fine from the start over the whole map: about the size of a parcel, 5 to 20 ha, thousands in a region. They never
+split or merge.
+- **What agents meet:** groups, adjacent places of one cover and holder, shown as one ("the high moor", 40 places), much as a node
+  is a label over places.
+- **When land is cleared:** places change cover and leave their group, so the group's line changes and nothing in the world is
+  re-partitioned.
+
+**The cost:**
+- many places in the state (cheap for the engine);
+- grouping in perception and in the overview;
+- descriptions per group that change when groups do (templated, or re-written and frozen when a group changes).
+
+**The gain:** none of 8a's edge cases. Stocks, things, herds, claims and beliefs are per place, as now, and stay put.
+
+### 8c. Counts inside one place
+
+A wild place stays one place, and clearing part of it is a count ("4 plots cleared by the Hobbs"), like plot shares. It's cheapest,
+but a place then holds several covers at once: a field inside the moor, with its own crop, fence and herd rules. That breaks one
+cover a place (§2d). Rejected unless the others prove worse.
+
+### Comparison
+
+| | 8a: split on use | 8b: fine places, grouped | 8c: counts |
+|---|---|---|---|
+| state | few places, re-partitioned | many places, fixed | few places, mixed covers |
+| rules per system at a split | about ten, growing | none | none, but every system handles mixed cover |
+| what agents see | the places as they are | groups, re-formed as land changes | the place, with counts |
+| determinism | keyed by parent and order | fixed from generation | fixed |
+| fits [[L-33 Growth to towns fixed nodes, faster edges, reach by place|L-33]] (towns) | yes | yes, most naturally: density is finer places shown | poorly |
+
+**Leaning:** 8b. The world never re-partitions, so the edge cases of 8a can't arise. The abstraction moves into how things are
+shown (groups), which is where the readability problem actually is. It needs a test that grouping keeps an overview readable, and
+that agents can act on one place inside a group ("the north end of the high moor").
+
+## 9. Prior work to build on
+
+From 37.2's knowledge, not checked against the sources on 3 Nov.
+
+| Generator | What it does | What to take | What to avoid |
+|---|---|---|---|
+| **Minecraft (1.18+)**, multi-noise | the biome is the nearest match on a few axes (continentalness, erosion, weirdness from which peaks and valleys come, temperature, humidity); every value keyed by coordinates | cover from a few axes; coordinate-keyed draws, so an edit stays local | rivers carved by noise, with no drainage |
+| **Red Blob Games, Polygonal Map Generation** (mapgen2, mapgen4) | a mesh of polygons; rivers downhill along its edges; moisture from water; a biome lookup; mapgen4 adds wind and rain shadow, and painted mountains and valleys filled in live | the mesh and hydrology layers; painting as the model for pins | |
+| **Azgaar's Fantasy Map Generator** (open source) | mesh, heightmap templates, climate, rivers, biomes, then cultures, states, towns placed by suitability, routes; each layer editable and regenerable alone | a layered pipeline regenerable layer by layer; settlement scoring; routes | its political layers are lore |
+| **Dwarf Fortress** | user-set fields (elevation, rainfall, temperature, drainage), erosion, then a simulated history | land first, history second ([[D4-21 Worlds are seeded as a society with a past|D4-21]]'s society with a past) | rejecting and regenerating worlds that miss their parameters: a seed search |
+| **RimWorld** | biomes by per-biome scoring functions, not hard thresholds | scores let pins tilt a choice smoothly ("short of wood" lowers forest's score) | |
+| **Civilization map scripts** | balanced starting positions with guaranteed resources near | targets per settlement enforced by placement, not luck | |
+
+**Methods underneath:**
+- **Water:** depression filling (Priority-Flood, Barnes and others), then flow accumulation, as in GIS: rivers reach an outlet, and
+  lakes fill hollows.
+- **Biome tables:** the Whittaker diagram (temperature against rainfall); Holdridge life zones as a finer alternative.
+- **Terrain shape:** layered and domain-warped noise; ridged noise for mountains.
+- **Fill-in for discrete layouts:** constraint solvers (answer set programming for content generation, Smith and Mateas) and Wave
+  Function Collapse. For fields, pins act as control points the noise blends through.
+- **Settlement geography:** von Thünen's land-use rings; Christaller's central place theory (spacing, and which place becomes the
+  market); least-cost paths for roads.
+
+## 10. The terrain catalogue (discussion, 3 Nov)
+
+*Decided: [[D2-183 The terrain catalogue|D2-183]]; revised by [[D2-191 The generator designs within one envelope|D2-191]] (temperate_landscapes.md): terrain is now the base environment only ("woodland" and "deep
+forest" are gone from it; a wood's type and depth are its parcel's ecosystem), "sandy heath" is "sandy ground", and peat is added.*
+
+**Terrains and covers are different things.**
+- A **terrain** is what the land is: its soil, water, slope, exposure, resources and hazards. It comes from the physical layers.
+- A **cover** is what the land is used as now: field, pasture, forest, built ground and so on. It changes with work.
+
+A terrain sets which covers a place can take and how well each does. This extends 38.04 §2's node kinds. Terrains marked new were
+missing.
+
+**The parameters a terrain sets**, each chosen because it ends in leverage:
+
+| Parameter | Values | What it changes |
+|---|---|---|
+| soil texture (workability) | light (sand), loam, heavy (clay), thin (chalk, stone) | the work of breaking the soil; heavy soil needs an ox team for good yields; light soil dries out in drought |
+| soil fertility | a range (about 0.6 to 1.4 of the plot's base) | yields, before cropping wears it down ([[D4-39 Soil|D4-39]]) |
+| wetness | dry, moist, wet, flooded in season | floods, waterlogging, meadows, fens worth draining |
+| slope and altitude | flat to steep; low to high | ploughability (terraces on slopes, [[D2-66 Field works in the first worlds, before weather exists|D2-66]]), a shorter growing season and harder winters high up |
+| exposure | sheltered to open | the cold rules and the cost of a night out ([[H-5 Shelter houses with upkeep and rare breaks|H-5]], [[D4-12 A night out costs 1.5 food|D4-12]]) |
+| resources | by terrain (below) | supply chains |
+| grazing by season | summer only, all year, winter only | when and where herds can be |
+| travel | a cost factor and the cover it gives | roads' pace, hidden ways, sight |
+| hazards | flood, drought, frost hollow, fire, rockfall | the scheduler's exposure ([[D2-69 The scheduler's layers|D2-69]]) |
+
+**The terrains:**
+
+| Terrain | Soil, water, slope | Covers it takes | Resources | Leverage it creates |
+|---|---|---|---|---|
+| river floodplain | deep, rich, wet; floods in wet years | meadow, field (at risk), water | fish, reeds, hay; a mill's flow; fords | the best and riskiest land; mills and fords |
+| **river terrace** (new) | light loam, dry, flat, above the flood | field, built ground | gravel | the natural village site |
+| **clay vale** (new) | heavy, rich, moist | field (with an ox team), pasture, woodland | clay | ox holders decide who can farm it well |
+| lowland loam | loam, moist, gentle | field, pasture, woodland | | the ordinary farmland |
+| **sandy heath** (new) | light, poor, dry | heath (rough grazing), scrub, poor field | heather, bracken, turf | marginal land for the land-poor; dries out first in drought |
+| **chalk or limestone down** (new) | thin, dry, springs at the foot | pasture, poor field | building stone, flint | spring-line villages: water is the chokepoint |
+| woodland | moderate, moist | forest (copse, coppice), clearable to field | timber, firewood, game; pig fattening (later) | fuel and building supply |
+| deep forest | moderate, wet, unsettled | old forest | old timber, big game | a barrier with value; frontier |
+| hills | thin, stony, sloping, colder | pasture, poor field, rock | stone, ore | stone and metal |
+| **upland summer pasture** (new) | thin, high, open; snow in winter | pasture in summer only | | herds moved up and back each year: commons, herders, seasonal leverage (moving livestock flagged, OPEN [[L-36 Livestock kinds beyond cattle and herds moved with the seasons|L-36]]) |
+| moor | peaty, wet, high, open | rough grazing | peat (fuel) | fuel where wood is short |
+| fen | peaty, waterlogged, flat | fen; field once drained (a works project) | fish, fowl, reeds | draining is collective work: an institution |
+| coast and **saltmarsh** (saltmarsh new) | salt, wet, flat | saltmarsh grazing, beach | salt, fish | salt keeps food: a long-distance trade good |
+| pass, gorge | rock, steep | none | | chokepoints for travel |
+
+**How they shape societies:**
+- **A small village** lives on the mix of terrains in its reach. One terrain means correlated risk. A village on the line between two
+  (a terrace above a floodplain, the foot of a down) is buffered. The generator should site villages on these lines (§2c), as
+  history did.
+- **A region** specialises by terrain and trades:
+  - upland cattle, stone and ore against lowland grain;
+  - forest timber and charcoal against grain;
+  - coastal salt and fish against everything.
+
+  Its terrains buffer each other against the year: a drought spares the floodplain, and a wet year spares the hills. So trade,
+  marriage and credit between them work as insurance, and whoever holds the line between them (a ford, a pass, a market) gains.
+- **Supply chains.** Terrain sets each link of a chain apart, so carrying binds and the junctions are worth holding:
+
+| Chain | Where each link sits |
+|---|---|
+| grain, mill, bread | floodplain or vale; a river with a drop, often where the hills meet the valley; the village or town |
+| timber, charcoal, smelting, tools | woodland; at the wood (charcoal is light); the hills, where the ore is; the smith |
+| stone, then halls, mills, walls | hills, downs or rock; village-scale building ([[D2-166 Large capital costs village-scale work|D2-166]]) |
+| salt, then salted meat and cheese, then travel food | coast; pastoral land; roads and towns |
+| hides, then harness and parchment | pastoral land; farms and, later, writing |
+
+  The generator's check (§7) asks that each chain's links lie in different places, and that at least one place where two chains
+  meet is worth holding.
+
+**Later, flagged:**
+- livestock kinds beyond cattle (sheep for downs and uplands, pigs for woodland, horses) and herds moved with the seasons ([[L-36 Livestock kinds beyond cattle and herds moved with the seasons|L-36]]);
+- wildlife by terrain: kinds of game and predators ([[L-37 Wildlife by terrain|L-37]]);
+- water as a need, and sickness ([[L-23 Water as a need, and the land's hidden state|L-23]], [[Q-16 Disease mortality, the units of the sick, immunity, nursing, a healer|Q-16]]).
+
+## Open questions (for Zach)
+
+1. ~~A mesh kept as ground truth~~: decided ([[D2-174 A world under the graph|D2-174]]).
+2. A node's parcels covering all its land, with wild land as large parcels split when cleared or claimed (§2d). Zach: to address
+   with 3. — still open, deferred with 3 and 7; stage 1 makes wild nodes for large wild areas ([[D2-181 (Roads and region amended by D2-182.)|D2-181]]) and holds land in plot
+   shares ([[D2-163 Land is held in plot shares within a parcel|D2-163]]), with no splitting.
+3. Places as the world's, reach as the observer's, nodes as a derived label, places appearing where people go off the graph (§6)?
+   — still open, deferred (OPEN [[L-33 Growth to towns fixed nodes, faster edges, reach by place|L-33]], [[L-35 Distance inside a node|L-35]]).
+4. Cheap approximations and a leverage check in place of erosion and climate simulation (§7)? — built so in stage 1 (02zj); the
+   checks are [[D2-180 The generator's checks in two kinds|D2-180]]'s, the supply-chain part flagged ([[L-49 Automated supply-chain and dependence checks for generated worlds|L-49]]).
+5. ~~Land-use rings as the default~~: decided ([[D2-175 Land use in rings round a settlement|D2-175]]).
+6. Roads only (A) or across country (C) (§6): not needed to build the generator. — still open, deferred; today's engine is A.
+7. Places finer with use: split on use (8a), fine places grouped when shown (8b), or counts (8c)? — still open, deferred.
+8. ~~The terrain catalogue (§10): the terrains, their parameters, and the new ones (terrace, clay vale, heath, downs, upland
+   summer pasture, saltmarsh)?~~ decided: [[D2-183 The terrain catalogue|D2-183]], revised by [[D2-191 The generator designs within one envelope|D2-191]].
+
+## History
+
+- 3 Nov: Zach: start with the generator; worlds highly configurable for land and people, arbitrary specifics filled in around,
+  reproducibly, with no seed search; then pins win where physics allows, a vocabulary of descriptions, model-written descriptions
+  frozen, land first ([[D2-173 The generator fills in around what a world file gives|D2-173]]); then: what to explore, given a broader world with nodes as a compression of it. Written.
+- 3 Nov: Zach: a mesh as ground truth ([[D2-174 A world under the graph|D2-174]]); rings by default ([[D2-175 Land use in rings round a settlement|D2-175]]); add the prior work (§9); is the node the observer's
+  or the world's (§6); what would erosion and climate simulation add, given that terrain matters for leverage (§7). Written.
+- 3 Nov: Zach: how nodes as labels differ; across country or roads only, a big divergence; would wild places get finer when
+  cleared; build the generator without deciding; outline the split to look at. Added §6's two ways and §8 (three ways, compared).
+- 3 Nov: Zach: which terrains, their parameters, what is missing, how they shape villages, regions and supply chains; then
+  settle the catalogue and write stage 1 in full for review. Added §10; stage 1 in [generator_stage1.md](generator_stage1.md).
+- 5 Nov: Swept against DECISIONS, the spec and what is built (37.2): stage 1 is decided ([[D2-177 The generator's first stage writes today's world format plus the…|D2-177]] to [[D2-188 Macro features are compositions of primitives|D2-188]]) and built, and the land
+  rebuilt ([[D2-191 The generator designs within one envelope|D2-191]]); questions 4 and 8 settled; 2, 3, 6 and 7 deferred by Zach, still open.
+
+## Sources
+
+[38.04 §2, §5, §6](../../review/38_space_engine/04_places_design.md); spec/world/generation.md ([[D4-22 The landscape is generated physical-first|D4-22]]);
+[environment_state.md](environment_state.md) ([[L-23 Water as a need, and the land's hidden state|L-23]]); [parcel_graph.md](parcel_graph.md); [road_layout.md](road_layout.md);
+OPEN [[L-33 Growth to towns fixed nodes, faster edges, reach by place|L-33]] to [[L-35 Distance inside a node|L-35]]; [[D2-70 Paired draws|D2-70]], [[D2-104 Roads have stretches|D2-104]] to [[D2-107 First-world landmarks|D2-107]], [[D2-156 A forest is three stocks|D2-156]], [[D2-161 Seed nodes below what they sustain|D2-161]], [[D4-11 Node scale if you could go there and be back before nightfall, it is…|D4-11]].

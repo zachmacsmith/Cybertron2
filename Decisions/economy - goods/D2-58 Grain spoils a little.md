@@ -3,20 +3,25 @@ id: D2-58
 kind: decision
 state: live
 updated: "2026-11-20"
-tags: [decision, open]
 ---
-# Grain spoils a little:
 
-- **state**: live
-- **source**: 02n; conversation
-- **replaces_text**: grain never spoiling (the engine as built)
+# D2-58 · Grain spoils a little
 
-## Text
+*live · 23 Oct · spec: [[economy - goods|economy/goods]], [[economy - production|economy/production]]*
+
+## The rule
 **Grain spoils a little:** about 0.5% a day in a house, 0.25% in bins, 0.1% in a cellar or granary (about 18%, 10% and 4% over a 40-day year)
 
+## Where it came from
+02n; conversation
+
+## What it replaced
+grain never spoiling (the engine as built)
+
+
 ## Mentioned by
-- [[buildings_integration Proposal how buildings fit the other systems (be|Proposal: how buildings fit the other systems (before Packag]]
-- [[farming Proposal farming|Proposal: farming]]
-- [[things_in_places Proposal things left in places, and who finds them|Proposal: things left in places, and who finds them]]
-- [[goods Goods|Goods]]
-- [[production Production foraging, farming and tools|Production: foraging, farming and tools]]
+- [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
+- [[Proposal farming|Proposal: farming]]
+- [[Proposal things left in places, and who finds them|Proposal: things left in places, and who finds them]]
+- [[Goods|Goods]]
+- [[Production foraging, farming and tools|Production: foraging, farming and tools]]

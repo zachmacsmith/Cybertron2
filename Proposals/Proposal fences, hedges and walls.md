@@ -1,0 +1,76 @@
+---
+id: docs/cybertron2/proposals/fences.md
+kind: proposal
+updated: "2026-11-05"
+---
+# Proposal: fences, hedges and walls
+
+*proposal · partly accepted: D2-126, D2-130, D2-132 (fences round a parcel, wood or a stone wall, and gates; built: data.py FENCES, farm.py, herds.py) ... · `docs/cybertron2/proposals/fences.md`*
+
+> fences, hedges and walls
+
+
+**Status:** partly accepted: [[D2-126 Fences are built with herd wandering|D2-126]], [[D2-130 Fences go round a parcel for now a parcel is fenced or not|D2-130]], [[D2-132 Gates open and close by themselves|D2-132]] (fences round a parcel, wood or a stone wall, and gates; built: data.py FENCES,
+farm.py, herds.py); the rest (fences on borders, hedges, night folds, wolves) in discussion, flagged for later (OPEN [[L-24 Fences on the borders between parcels|L-24]]). **Owner:** 37.4 (author; the mechanism: herds, parcels, incidents); 37.2 for the numbers (field works,
+livestock). **Affects:** spec/economy/livestock.md, production.md (field works, [[D2-66 Field works in the first worlds, before weather exists|D2-66]]), spec/world/places.md, conflict/ (predators,
+rustling), cybertron2/engine (farm.py, signs.py).
+
+## Summary
+
+Today beasts are kept only by watching: a herd someone herds that day stays put; an unwatched one has a chance each night of getting
+into a neighbouring field with a crop standing and eating and trampling it (the Thornes lost their rye this way in the hamlet run).
+Fences would turn that daily labour into capital: a field work on a parcel (like ditches and terraces, [[D2-66 Field works in the first worlds, before weather exists|D2-66]]) that keeps beasts in or
+out, wears, needs mending, and can be upgraded from a hedge or wattle fence to a stone wall.
+
+## The proposal
+
+| Work | Materials and labour (a plot's edge; calibrate) | What it does | Upkeep |
+|---|---|---|---|
+| **hedge or wattle fence** | timber (about 4 a plot) and about 10 units | beasts on a fenced pasture stray about a quarter as often; a fenced field keeps strays out at the same rate | some mending each season, or it decays a level ([[D2-66 Field works in the first worlds, before weather exists|D2-66]]'s rule) |
+| **stone wall** (an upgrade of a fence, or new) | stone (about 8 a plot, fieldstone or quarried) and about 20 units; a mason knows it best | strays almost never; when predators exist, far fewer beasts lost | little upkeep |
+| **gate** | part of either | a gate left open after work is the weak point: a sign others can notice ("the gate of the Common is standing open") | |
+
+- **Whose:** a fence belongs to the plot (it passes with the land, [[D4-23 Holding is a recognised claim|D4-23]]), like [[D2-66 Field works in the first worlds, before weather exists|D2-66]]'s works; a fence on a boundary between two holders
+  is a joint work, and who mends it is a question for custom or an agreement.
+- **Built as a project:** work by anyone on the plot's edge, led by someone who knows it for a stone wall (mason), anyone for a hedge.
+- **Signs** ([[D4-48 A state shows itself as a bundle of signs, not one line|D4-48]]): a fence whole, gapped, broken by beasts; a gate open; a wall going up.
+
+## Why
+
+- It makes keeping beasts a choice between labour (herding every day) and capital (a fence and its upkeep), as historically.
+- It gives fieldstone ([[D2-56 Recipe changes from the chain analysis|D2-56]]) and the quarry another use, and a mason a trade at the farm.
+- Common pastures fenced and stinted raise the questions institutions answer: who builds, who mends, how many beasts each may put
+  in (livestock.md's commons problem).
+- When predators (wolves) come with the scheduler's incidents, walls and folds are the defence; until then fences stop only straying.
+
+## Alternatives considered
+
+1. Herding only (as built): labour every day, no capital; kept for unfenced land.
+2. A fence as a building: rejected; it belongs to a parcel's edge, not a lot, and works like [[D2-66 Field works in the first worlds, before weather exists|D2-66]]'s field works.
+
+## Open questions
+
+1. The numbers (timber, stone, units, stray chances, upkeep): 37.2. [built: data.py FENCES, with the numbers in spec
+   economy/livestock.md "Fences and gates" under [[D2-130 Fences go round a parcel for now a parcel is fenced or not|D2-130]] (wood 4 timber and 10 units, stone 8 stone and 20 units, x the square root of
+   the parcel's size; through 0.3 and 0.05 a day; a wood fence loses a level a season unmended; status proposed, calibrate); a stone
+   wall is led by one who knows walling, [[D4-97 Decisions on 38.51's list|D4-97]] (8)]
+2. Edges: is a fence per parcel (all round it) or per boundary between two parcels (shared)? [decided: [[D2-130 Fences go round a parcel for now a parcel is fenced or not|D2-130]]: round a parcel for
+   now, a parcel fenced or not (amending [[D2-126 Fences are built with herd wandering|D2-126]]'s borders); fences on borders flagged for later, OPEN [[L-24 Fences on the borders between parcels|L-24]]]
+3. Predators: wolves as incidents drawn by the scheduler, taking unfenced and unwatched beasts; when? [still open (5 Nov): flagged
+   for later in OPEN [[L-24 Fences on the borders between parcels|L-24]] (wolves), with [[L-2 Scavengers, with wild animals that attack herds and hunters and are…|L-2]] (wild animals that attack herds) and [[L-37 Wildlife by terrain|L-37]] (wildlife by terrain); no predators in the
+   engine (checked engine/*.py)]
+4. Folds and stalls ([[D2-45 Cellar and stalls|D2-45]]): penning beasts at night near the house, against both straying and predators. [built in part: stalls
+   ([[D2-45 Cellar and stalls|D2-45]]; data.py FITTINGS, farm.py: beasts in stalls in winter eat less and cannot be driven off); night folds still open (5 Nov):
+   flagged for later, OPEN [[L-24 Fences on the borders between parcels|L-24]]]
+
+## History
+
+- 23 Oct: Zach asked whether herds need fences or only herding, and suggested timber fences around plots, upgraded to stone, for lower
+  chances of escaping cattle or wolves attacking. Written up at his request.
+- 5 Nov: swept (37.4): fences round a parcel (wood, or a stone wall led by one who knows walling) and gates are decided ([[D2-126 Fences are built with herd wandering|D2-126]],
+  [[D2-130 Fences go round a parcel for now a parcel is fenced or not|D2-130]], [[D2-132 Gates open and close by themselves|D2-132]], [[D4-97 Decisions on 38.51's list|D4-97]] (8)) and built (herds.py, farm.py, data.py FENCES; a gappy fence and an open gate are signs, signs.py), and
+  stalls are built ([[D2-45 Cellar and stalls|D2-45]]). Still open, flagged for later (OPEN [[L-24 Fences on the borders between parcels|L-24]]): fences on borders, hedges, night folds and wolves.
+
+## Sources
+
+[[D2-45 Cellar and stalls|D2-45]], [[D2-56 Recipe changes from the chain analysis|D2-56]], [[D2-66 Field works in the first worlds, before weather exists|D2-66]], [[D4-23 Holding is a recognised claim|D4-23]], [[D4-44 Breeding happens on its own|D4-44]], [[D4-45 Cattle eat|D4-45]], [[D4-48 A state shows itself as a bundle of signs, not one line|D4-48]]; the hamlet run (runs/w1_hamlet, day 7: cattle in the rye).
