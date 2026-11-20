@@ -1,15 +1,15 @@
 ---
 id: W-64
 kind: thread
-state: waiting
+state: active
 updated: "2026-11-20"
 ---
 
 # Food, weight and work on one basis (W-64)
 
-*waiting · 37.2 · touched 20 Nov (today)*
+*active · 37.2 · touched 20 Nov (today)*
 
-> **Next:** Zach on [[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Q-70]]; then the value lookup and the data change
+> **Next:** the lookup of every value against FoodData Central, then the data change ([[D2-258 The food values are put on one physical basis|D2-258]]), best on main after the water merge ([[Q-53 Merging the water work|Q-53]])
 
 ## What it is
 Shared units for food, weight and work (Zach via 37.4, 19 Nov; proposals/shared_units.md §"The analysis asked of 37.2"): one basis (a unit about a kg, a food about a day's need, work a fixed share of a day), food values from energy density, yields from real weights, returns from historical rates; for the calibration worlds ([[D2-228 Calibrate across a distribution of worlds|D2-228]]). Found: an eel at a fifth of its real food
@@ -25,12 +25,14 @@ done 20 Nov: the six-part analysis (02zzu_shared_units.md, .json, .py) on 1 food
 
 
 ## Linked
+- under it: [[D2-258 The food values are put on one physical basis|The food values are put on one physical basis (D2-258)]] (live)
 - under it: [[L-138 Hens lay on the old clock|Hens lay on the old clock (L-138)]] (open)
 - under it: [[Q-69 The basis for food and work|The basis for food and work (Q-69)]] (open)
-- under it: [[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Adopt the food values on one basis, and fix the runs, the weir and… (Q-70)]] (open)
+- under it: [[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Adopt the food values on one basis, and fix the runs, the weir and… (Q-70)]] (closed)
 
 
 ## Mentioned by
+- [[D2-258 The food values are put on one physical basis|The food values are put on one physical basis (D2-258)]]
 - [[Q-69 The basis for food and work|The basis for food and work (Q-69)]]
 - [[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Adopt the food values on one basis, and fix the runs, the weir and… (Q-70)]]
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]

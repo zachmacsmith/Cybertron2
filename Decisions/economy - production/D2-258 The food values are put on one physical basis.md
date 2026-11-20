@@ -1,0 +1,30 @@
+---
+id: D2-258
+kind: decision
+state: live
+updated: "2026-11-20"
+---
+
+# The food values are put on one physical basis (D2-258)
+
+*live · 20 Nov · spec: [[economy - production|economy/production]]*
+
+## The rule
+**The food values are put on one physical basis (proposals/shared_units.md; 02zzu), each value checked against FoodData Central before the data change: greens, berries, watercress and samphire lowered to their real energy, meat and fish units at their real energy, farm beasts raised, acorn meal raised; the runs at a real river's size (3 to 6 times today, salmon spread up the river), the gear's holds at real gear's in kg (a trap about 10 kg, a weir section about 100 kg on a peak night, nets when built), with keeping the catch (spoilage, gutting work, salt, racks and smokehouses, fuel) as the binding limit; resident fish stocks about 2.2 times; a master hunter below plough farming per hour of work, still feeding many**
+
+## Where it came from
+conversation (20 Nov: "1. I agree")
+
+
+## Linked
+- parent: [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
+- decides: [[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Adopt the food values on one basis, and fix the runs, the weir and… (Q-70)]]
+
+
+## Mentioned by
+- [[Q-69 The basis for food and work|The basis for food and work (Q-69)]]
+- [[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Adopt the food values on one basis, and fix the runs, the weir and… (Q-70)]]
+- [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
+- [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+- [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
+- [[Production foraging, farming and tools|Production: foraging, farming and tools]]

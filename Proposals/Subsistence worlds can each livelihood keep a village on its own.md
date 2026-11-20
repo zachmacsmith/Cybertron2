@@ -191,6 +191,7 @@ change (the switches, 37.4), the data rows that miss their targets, [[W-64 Food,
 
 ## History
 
+- 20 Nov 2026: accepted in part: [[D2-258 The food values are put on one physical basis|D2-258]] (The food values are put on one physical basis (proposals/shared_units.md; 02zzu)).
 - 20 Nov 2026: Zach's answers. Decided as [[D2-257 The nutrition worlds|D2-257]]: seven livelihoods, the first 12 live runs on small villages, bots as the comparison,
   the food values fixed first. A hunting trip is travelling to a wild node, camping, hunting and carrying the food back, built
   from what exists ([[D2-256 A hunting trip is travelling out to a wild node, camping there…|D2-256]]), so forays are no prerequisite. The high ceilings become later technology's; the medieval worlds take a

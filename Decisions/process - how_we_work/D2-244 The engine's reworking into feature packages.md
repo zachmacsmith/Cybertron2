@@ -24,5 +24,6 @@ conversation (20 Nov: "This is still postponed but I think we should flag it so 
 ## Mentioned by
 - [[Q-48 The engine as feature packages|The engine as feature packages (Q-48)]]
 - [[L-133 The engine as feature packages postponed, kept in mind|The engine as feature packages: postponed, kept in mind (L-133)]]
+- [[O-3 Build the switches that turn a food source off in a world|Build the switches that turn a food source off in a world (O-3)]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
