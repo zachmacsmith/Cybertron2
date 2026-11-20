@@ -1,0 +1,46 @@
+# The records' checks on every push to main (D2-233 to D2-235): the views against their items, the pushed commits' trailers,
+# hygiene, the branches, and a derived Obsidian vault to download. Only a view out of step, or a broken item, fails the run;
+# the rest is reported in the run's summary (a direct push to main cannot be refused).
+name: records
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  records:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Items and views
+        run: |
+          echo '## Items and views' >> "$GITHUB_STEP_SUMMARY"
+          python3 tools/records.py check | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: The pushed commits
+        if: always()
+        run: |
+          BEFORE="${{ github.event.before }}"
+          if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then BEFORE="HEAD~1"; fi
+          echo '## The pushed commits (D2-235)' >> "$GITHUB_STEP_SUMMARY"
+          python3 tools/records.py check-commits "$BEFORE..${{ github.sha }}" >> "$GITHUB_STEP_SUMMARY" || true
+      - name: Hygiene and branches
+        if: always()
+        run: |
+          echo '## Branches (D2-238)' >> "$GITHUB_STEP_SUMMARY"
+          python3 tools/records.py branches >> "$GITHUB_STEP_SUMMARY" || true
+          echo '## Hygiene' >> "$GITHUB_STEP_SUMMARY"
+          python3 tools/hygiene.py >> "$GITHUB_STEP_SUMMARY" || true
+      - name: The vault
+        if: always()
+        run: python3 tools/records.py vault records-vault
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: records-vault
+          path: records-vault
+          include-hidden-files: true
+          retention-days: 30

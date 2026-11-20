@@ -24,6 +24,15 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 |---|---|---|---|
 <!-- records:asks -->
 
+## Offers and promises
+
+What a session offered or promised Zach (D2-233, D2-239): each with its default and the date it applies, so an offer left
+unanswered is neither lost nor re-asked. Written by `python3 tools/records.py new O ...`; closed with who settled it (D2-236).
+
+| # | Offer or promise | Default | Default on | Owner |
+|---|---|---|---|---|
+<!-- records:offers -->
+
 ## Flagged for later (deferred)
 
 Things Zach decided to add later, or parked, with where each is designed and what it waits on. Add a row whenever something is

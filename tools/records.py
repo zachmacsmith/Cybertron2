@@ -179,10 +179,16 @@ _touch_cache: dict = {}
 
 
 def last_touch(path) -> str:
-    """The date of the last commit touching a path (or '' if none)."""
-    if path not in _touch_cache:
-        _touch_cache[path] = git("log", "-1", "--format=%ad", "--date=short", "--", path).strip()
-    return _touch_cache[path]
+    """The date of the last commit touching a path (or '' if none), from one pass over the history."""
+    if not _touch_cache:
+        _touch_cache["__loaded__"] = "1"
+        day = ""
+        for line in git("log", "--format=@%ad", "--date=short", "--name-only", "--since=2026-10-01").split("\n"):
+            if line.startswith("@"):
+                day = line[1:]
+            elif line and line not in _touch_cache:
+                _touch_cache[line] = day
+    return _touch_cache.get(path, "")
 
 
 def branches_ahead() -> list:
@@ -1007,6 +1013,159 @@ def _render_diff():
     return out
 
 
+# ---------------------------------------------------------------------- the push check of commits, branches, the vault
+def check_commits(rng) -> int:
+    """Each commit in a range (the push) against D2-235: trailers present and readable; ids it names exist in its tree.
+    Reports, never fails: a direct push to main cannot be refused (D2-235)."""
+    out = git("log", "--no-merges", "--format=%H%x1f%s%x1f%(trailers:key=Agent,valueonly,separator=%x2c)%x1f"
+              "%(trailers:key=Thread,valueonly,separator=%x2c)%x1f%(trailers:key=Opens,valueonly,separator=%x2c)%x1e", rng)
+    probs = []
+    n = 0
+    for rec in out.split("\x1e"):
+        rec = rec.strip()
+        if not rec:
+            continue
+        n += 1
+        h, subj, agent, thread, opens = (rec.split("\x1f") + [""] * 5)[:5]
+        tag = f"{h[:7]} {subj[:70]}"
+        if not git("ls-tree", "--name-only", h, "docs/cybertron2/items/").strip():
+            continue  # before the records existed
+        if not agent.strip():
+            probs.append(f"{tag}: no Agent trailer git can read")
+        if not thread.strip() and not subj.startswith("upkeep"):
+            probs.append(f"{tag}: no Thread trailer")
+        tree = set(os.path.basename(x)[:-3] for x in git("ls-tree", "--name-only", h, "docs/cybertron2/items/").split())
+        for i in as_list(thread) + as_list(opens):
+            if re.fullmatch(ID_RE, i) and i not in tree:
+                probs.append(f"{tag}: names {i}, not an item in that commit")
+        if not re.match(r"(" + "|".join(TYPES) + r")\b", subj):
+            probs.append(f"{tag}: the subject does not start with a type ({', '.join(TYPES)})")
+    print(f"{n} commits checked; {len(probs)} problems")
+    for p in probs:
+        print("- " + p)
+    return 0
+
+
+def cmd_branches(web) -> int:
+    """Branches against main (D2-238): ahead with their thread, or empty (fully merged) and so clutter."""
+    named = " ".join(json.dumps(it, ensure_ascii=False) for it in web.items.values())
+    ahead, empty = [], []
+    for b in git("for-each-ref", "--format=%(refname:short)", "refs/remotes/origin").split():
+        if b in ("origin/main", "origin/HEAD", "origin"):
+            continue
+        name = b.replace("origin/", "")
+        n = int(git("rev-list", "--count", f"origin/main..{b}").strip() or 0)
+        d = git("log", "-1", "--format=%ad", "--date=short", b).strip()
+        (ahead if n else empty).append((name, n, d))
+    print(f"ahead of main ({len(ahead)}):")
+    for name, n, d in sorted(ahead, key=lambda x: x[2], reverse=True):
+        th = sorted({i for i, it in web.items.items() if name in json.dumps(it, ensure_ascii=False)}, key=num)[:4]
+        print(f"  {name:<28} +{n:<4} {d}  " + (", ".join(th) if th else "NO THREAD names it"))
+    print(f"empty (all on main), can be deleted ({len(empty)}): " + ", ".join(f"{n} ({d})" for n, _, d in sorted(empty)))
+    return 0
+
+
+def _slug(s: str) -> str:
+    s = re.sub(r"[\\/:*?\"<>|#^\[\]`]", "", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return s[:70].rstrip(" .")
+
+
+def cmd_vault(web, out) -> int:
+    """A derived Obsidian vault (Zach, 20 Nov): readable notes, linked, live items apart from the archive. Never edited."""
+    import shutil
+    out = os.path.abspath(out)
+    if os.path.exists(out) and not os.path.exists(os.path.join(out, ".records-vault")):
+        raise SystemExit(f"{out} exists and is not a vault this tool made; choose another folder")
+    shutil.rmtree(out, ignore_errors=True)
+    folder = {"thread": "Threads", "ask": "Asks", "offer": "Offers", "deferred": "Later", "conflict": "Conflicts",
+              "decision": "Decisions", "spec": "Spec", "proposal": "Proposals", "note": "Notes"}
+    names = {}
+    for nid, n in web.items.items():
+        sub = folder[n["kind"]]
+        if is_closed(n) and n["kind"] != "decision":
+            sub = os.path.join("Archive", sub)
+        if n["kind"] == "decision":
+            a = (web.area_of(nid) or ["no area"])[0]
+            sub = os.path.join(sub, _slug(a.replace("/", " - ")))
+            if is_closed(n):
+                sub = os.path.join("Archive", "Decisions replaced")
+        names[nid] = os.path.join(sub, _slug(f"{nid} {title_of(n)}"))
+    for nid, d in web.docs.items():
+        sub = folder[d["kind"]]
+        if d["kind"] == "spec":
+            sub = os.path.join(sub, os.path.dirname(d["area"]))
+        names[nid] = os.path.join(sub, _slug(os.path.basename(nid)[:-3] + " " + d["title"])[:80])
+
+    def link(i, full=False):
+        if i not in names:
+            return i
+        label = web.docs[i]["title"][:60] if i.endswith(".md") else (f"{i}: {title_of(web.node(i))[:70]}" if full else i)
+        return f"[[{os.path.basename(names[i])}|{label}]]"
+
+    def linkify(text):
+        return re.sub(r"\b(" + ID_RE + r")\b", lambda m: link(m.group(1)) if m.group(1) in names else m.group(1), text)
+
+    def write(rel, text):
+        p = os.path.join(out, rel + ".md")
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        open(p, "w", encoding="utf-8").write(text)
+
+    for nid, n in list(web.items.items()) + list(web.docs.items()):
+        head = {"id": nid, "kind": n.get("kind"), "state": n.get("state", ""), "owner": n.get("owner", ""),
+                "updated": updated(n)}
+        if n.get("by"):
+            head["by"] = n["by"]
+        fm = "---\n" + "\n".join(f"{k}: {dump_value(v)}" for k, v in head.items() if v) + \
+             f"\ntags: [{n.get('kind')}, {'closed' if is_closed(n) else 'open'}]\n---\n"
+        parts = [f"# {title_of(n)}\n"]
+        meta = [f"**{k}**: {linkify(str(n[k]))}" for k in ("state", "by", "owner", "next", "revisit", "where", "waits_on_text",
+                                                             "default", "default_on", "started", "touched", "done", "source",
+                                                             "replaces_text", "summary") if n.get(k)]
+        if meta:
+            parts.append("\n".join("- " + m for m in meta) + "\n")
+        edges = [(e, o) for e in EDGES for o in as_list(n.get(e))]
+        if edges:
+            parts.append("## Links\n" + "\n".join(f"- {e}: {link(o, True)}" for e, o in edges) + "\n")
+        kids = web.children.get(nid, [])
+        if kids:
+            parts.append("## Under this\n" + "\n".join(f"- {link(k, True)} ({web.items[k].get('state', '')})" for k in sorted(kids, key=num)) + "\n")
+        parts.append("## Text\n" + linkify(n.get("body", "")) + "\n")
+        ments = sorted(web.mentions.get(nid, set()), key=lambda x: (x.endswith(".md"), num(x)))
+        if ments:
+            parts.append("## Mentioned by\n" + "\n".join(f"- {link(m, True)}" for m in ments[:60]) + "\n")
+        write(names[nid], fm + "\n".join(parts))
+    # the start page and the area pages
+    live = sorted((it for it in web.items.values() if it["kind"] == "thread" and not is_closed(it)), key=lambda x: num(x["id"]))
+    home = ["# Cybertron 2: the records\n", f"Made {TODAY} from the repository by `tools/records.py vault`. Read only: it is "
+            "rebuilt each time.\n", "## Live threads\n"]
+    for o in sorted({it.get("owner", "?").split(" ")[0] for it in live}):
+        home.append(f"### {o}")
+        home += [f"- {link(it['id'], True)} ({it.get('state', '')}, {it.get('touched', '')})" for it in live
+                 if it.get("owner", "?").split(" ")[0] == o]
+        home.append("")
+    asks = [it for it in web.items.values() if it["kind"] == "ask" and not is_closed(it)]
+    home.append(f"## Open asks ({len(asks)})")
+    home += [f"- {link(a['id'], True)}" for a in sorted(asks, key=lambda x: -num(x["id"])[1])]
+    areas = sorted({d["area"] for d in web.docs.values() if d.get("area")})
+    home.append("\n## Areas of the world\n" + "\n".join(f"- [[Area {a.replace('/', ' - ')}|{a}]]" for a in areas))
+    write("Home", "\n".join(home) + "\n")
+    for a in areas:
+        d = next(x for x in web.docs.values() if x.get("area") == a)
+        cited = sorted(set(re.findall(r"\b(" + ID_RE + r")\b", d["body"])), key=num)
+        lines = [f"# {a}: {d['title']}\n", d.get("summary", ""), "", f"The spec: {link(d['id'])}\n", "## Decisions"]
+        lines += [f"- {link(c, True)}{' (replaced)' if is_closed(web.items[c]) else ''}" for c in cited
+                  if c in web.items and web.items[c]["kind"] == "decision"]
+        lines += ["", "## Open here"] + [f"- {link(c, True)}" for c in cited if c in web.items and web.items[c]["kind"] != "decision"
+                                         and not is_closed(web.items[c])]
+        write(os.path.join("Areas", f"Area {a.replace('/', ' - ')}"), "\n".join(lines) + "\n")
+    open(os.path.join(out, ".records-vault"), "w").write(str(TODAY))
+    os.makedirs(os.path.join(out, ".obsidian"), exist_ok=True)
+    json.dump({"defaultViewMode": "preview", "showFrontmatter": False}, open(os.path.join(out, ".obsidian", "app.json"), "w"))
+    print(f"vault written: {out} ({len(names)} notes; open the folder in Obsidian and start from Home)")
+    return 0
+
+
 # ---------------------------------------------------------------------- main
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
@@ -1063,6 +1222,9 @@ def main(argv=None) -> int:
     sub.add_parser("migrate")
     sub.add_parser("whoami").add_argument("name", nargs="?")
     sub.add_parser("ack").add_argument("why")
+    sub.add_parser("check-commits").add_argument("range")
+    sub.add_parser("branches")
+    sub.add_parser("vault").add_argument("out")
     for h in ("stopcheck", "commit-check"):
         sub.add_parser(h)
     a = ap.parse_args(argv)
@@ -1093,6 +1255,8 @@ def main(argv=None) -> int:
         return 0
     if c == "commit":
         return cmd_commit(a.m, a.type, a.thread, a.paths, a.body, a.builds)
+    if c == "check-commits":
+        return check_commits(a.range)
     if c == "ack":
         open(os.path.join(GITDIR, "records-ack"), "w").write(f"{dt.datetime.now(dt.timezone.utc).isoformat()} {a.why}\n")
         print("acknowledged: the stop check passes for this turn")
@@ -1125,6 +1289,10 @@ def main(argv=None) -> int:
         return cmd_digest(web, a.limit)
     if c == "pack":
         return cmd_pack(web, a.ids)
+    if c == "branches":
+        return cmd_branches(web)
+    if c == "vault":
+        return cmd_vault(web, a.out)
     return 1
 
 

@@ -106,6 +106,14 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | ~~Q-63~~ | **(Closed 20 Nov: D2-235.)** A commit schema: types, trailers checked against the diff, flat ids with a parent link, from now | docs/cybertron2/proposals/thread_tracking.md | Zach (37.2) |
 | ~~Q-64~~ | **(Closed 20 Nov: D2-232 to D2-239.)** The records as items with rendered views, one tool and a skill, documents in the web, typed commits, resolutions by whom, code under a thread, branches merged early but not to an extreme, Zach's views and context packs for hand-offs | docs/cybertron2/proposals/records_and_workflow.md | Zach (37.2; 37.4 for (2)) |
 
+## Offers and promises
+
+What a session offered or promised Zach (D2-233, D2-239): each with its default and the date it applies, so an offer left
+unanswered is neither lost nor re-asked. Written by `python3 tools/records.py new O ...`; closed with who settled it (D2-236).
+
+| # | Offer or promise | Default | Default on | Owner |
+|---|---|---|---|---|
+
 ## Flagged for later (deferred)
 
 Things Zach decided to add later, or parked, with where each is designed and what it waits on. Add a row whenever something is
