@@ -1,0 +1,2557 @@
+{
+ "table": {
+  "basis": {
+   "kcal_food": 2500.0,
+   "hours_unit": 2.0,
+   "year_days": 32,
+   "base_kcal": 2100.0,
+   "work_kcal_h": 100.0,
+   "shares": {
+    "infant": 0.4,
+    "child": 0.6,
+    "youth": 1.0,
+    "adult": 1.0,
+    "elder": 0.8,
+    "pregnant_add": 0.1,
+    "nursing_add": 0.2
+   }
+  },
+  "breakeven": {
+   "ration": 0.84,
+   "work_food": 0.08,
+   "self": 0.22,
+   "household": 0.36,
+   "day_6_units": 1.32
+  },
+  "goods": {
+   "grain": {
+    "unit": "1 kg threshed grain (barley, oats, wheat)",
+    "kcal_100g": [
+     327,
+     340,
+     389
+    ],
+    "edible": 0.92,
+    "kcal_a_unit": 3128,
+    "now": 0.7,
+    "now_raw": 0.2,
+    "physical": 1.251,
+    "design_factor": 0.56,
+    "recommended": 0.717,
+    "recommended_raw": 0.205,
+    "factor": 1.02,
+    "source": "USDA 20004 barley hulled 354, 20072 wheat hard red winter 327, 20038 oats 389; edible 0.92 (oat and barley husk)",
+    "confidence": "standard",
+    "note": "boiled whole: the ladder's bottom rung (D2-60)"
+   },
+   "rye": {
+    "unit": "1 kg threshed rye",
+    "kcal_100g": [
+     325,
+     338,
+     345
+    ],
+    "edible": 1.0,
+    "kcal_a_unit": 3380,
+    "now": 0.7,
+    "now_raw": 0.2,
+    "physical": 1.352,
+    "design_factor": 0.52,
+    "recommended": 0.717,
+    "recommended_raw": 0.205,
+    "factor": 1.02,
+    "source": "USDA 20062 rye grain 338",
+    "confidence": "standard",
+    "note": "as grain"
+   },
+   "beans": {
+    "unit": "1 kg dried shelled beans or peas",
+    "kcal_100g": [
+     330,
+     341,
+     350
+    ],
+    "edible": 1.0,
+    "kcal_a_unit": 3410,
+    "now": 0.6,
+    "now_raw": 0.0,
+    "physical": 1.364,
+    "design_factor": 0.53,
+    "recommended": 0.723,
+    "recommended_raw": 0.0,
+    "factor": 1.21,
+    "source": "USDA 16052 broad beans mature 341; 16085 split peas 341",
+    "confidence": "standard",
+    "note": "boiled: the same rung as whole grain; D2-53 'less food' kept or not (part 3)"
+   },
+   "meal": {
+    "unit": "the meal of 1 kg grain (hand-ground, unsifted)",
+    "kcal_100g": [
+     330,
+     340,
+     350
+    ],
+    "edible": 1.0,
+    "kcal_a_unit": 3400,
+    "now": 1.0,
+    "now_raw": 0.5,
+    "physical": 1.36,
+    "design_factor": 0.74,
+    "recommended": 1.024,
+    "recommended_raw": 0.512,
+    "factor": 1.02,
+    "source": "USDA 20080 whole-wheat flour 340",
+    "confidence": "standard",
+    "note": "porridge (D2-167): the middle rung"
+   },
+   "flour": {
+    "unit": "the flour of 1 kg grain (mill, lightly sifted)",
+    "kcal_100g": [
+     340,
+     350,
+     364
+    ],
+    "edible": 0.97,
+    "kcal_a_unit": 3395,
+    "now": 1.0,
+    "now_raw": 0.5,
+    "physical": 1.358,
+    "design_factor": 0.74,
+    "recommended": 1.024,
+    "recommended_raw": 0.512,
+    "factor": 1.02,
+    "source": "USDA 20080 340, 20481 white 364",
+    "confidence": "standard",
+    "note": "porridge or bread: the middle rung"
+   },
+   "bread": {
+    "unit": "the bread of 1 kg flour (about 1.4 kg of loaves)",
+    "kcal_100g": [
+     247,
+     252,
+     266
+    ],
+    "edible": 1.4,
+    "kcal_a_unit": 3528,
+    "now": 1.3,
+    "now_raw": null,
+    "physical": 1.411,
+    "design_factor": 1.0,
+    "recommended": 1.331,
+    "recommended_raw": null,
+    "factor": 1.02,
+    "source": "USDA 18075 whole-wheat bread 252; 1 kg flour bakes about 1.4 kg",
+    "confidence": "standard",
+    "note": "the top rung: the grain's whole energy (no gain past it)"
+   },
+   "green grain": {
+    "unit": "1 kg of green ears and straw",
+    "kcal_100g": [
+     40,
+     60,
+     90
+    ],
+    "edible": 1.0,
+    "kcal_a_unit": 600,
+    "now": 0.15,
+    "now_raw": null,
+    "physical": 0.24,
+    "design_factor": 1.0,
+    "recommended": 0.24,
+    "recommended_raw": null,
+    "factor": 1.6,
+    "source": "est (green cereal forage, mostly water)",
+    "confidence": "estimate",
+    "note": ""
+   },
+   "green rye": {
+    "unit": "as green grain",
+    "kcal_100g": [
+     40,
+     60,
+     90
+    ],
+    "edible": 1.0,
+    "kcal_a_unit": 600,
+    "now": 0.15,
+    "now_raw": null,
+    "physical": 0.24,
+    "design_factor": 1.0,
+    "recommended": 0.24,
+    "recommended_raw": null,
+    "factor": 1.6,
+    "source": "est",
+    "confidence": "estimate",
+    "note": ""
+   },
+   "green beans": {
+    "unit": "1 kg green pods",
+    "kcal_100g": [
+     60,
+     90,
+     120
+    ],
+    "edible": 0.6,
+    "kcal_a_unit": 540,
+    "now": 0.3,
+    "now_raw": null,
+    "physical": 0.216,
+    "design_factor": 1.0,
+    "recommended": 0.216,
+    "recommended_raw": null,
+    "factor": 0.72,
+    "source": "USDA 11052 snap beans 31; broad beans immature 11088 72",
+    "confidence": "estimate",
+    "note": ""
+   },
+   "meat": {
+    "unit": "1,500 kcal of edible meat (about 1 kg: 1.25 kg venison, 0.6 kg fat beef)",
+    "kcal_100g": [
+     114,
+     150,
+     250
+    ],
+    "edible": 1.0,
+    "kcal_a_unit": 1500,
+    "now": 1.5,
+    "now_raw": 0.8,
+    "physical": 0.6,
+    "design_factor": 1.0,
+    "recommended": 0.6,
+    "recommended_raw": 0.32,
+    "factor": 0.4,
+    "source": "USDA 17164 deer 120, 17165 wild boar 122, 13000s beef composite 200-290, 17178 rabbit wild 114",
+    "confidence": "standard",
+    "note": "cooked; raw 0.53 of cooked kept as a design factor (fire matters)"
+   },
+   "drying meat": {
+    "unit": "meat on the rack",
+    "kcal_100g": null,
+    "edible": null,
+    "kcal_a_unit": null,
+    "now": 1.5,
+    "now_raw": 0.8,
+    "physical": null,
+    "design_factor": 1.0,
+    "recommended": 0.6,
+    "recommended_raw": 0.32,
+    "factor": 0.4,
+    "source": "rule 5",
+    "confidence": "rule",
+    "note": ""
+   },
+   "smoking meat": {
+    "unit": "meat in the smoke",
+    "kcal_100g": null,
+    "edible": null,
+    "kcal_a_unit": null,
+    "now": 1.5,
+    "now_raw": 0.8,
+    "physical": null,
+    "design_factor": 1.0,
+    "recommended": 0.6,
+    "recommended_raw": 0.32,
+    "factor": 0.4,
+    "source": "rule 5",
+    "confidence": "rule",
+    "note": ""
+   },
+   "dried meat": {
+    "unit": "half the weight of the meat that made it",
+    "kcal_100g": null,
+    "edible": null,
+    "kcal_a_unit": null,
+    "now": 3.0,
+    "now_raw": null,
+    "physical": null,
+    "design_factor": 1.0,
+    "recommended": 1.2,
+    "recommended_raw": null,
+    "factor": 0.4,
+    "source": "rule 5 (D2-62)",
+    "confidence": "rule",
+    "note": ""
+   },
+   "smoked meat": {
+    "unit": "half the weight of the meat that made it",
+    "kcal_100g": null,
+    "edible": null,
+    "kcal_a_unit": null,
+    "now": 3.0,
+    "now_raw": null,
+    "physical": null,
+    "design_factor": 1.0,
+    "recommended": 1.2,
+    "recommended_raw": null,
+    "factor": 0.4,
+    "source": "rule 5",
+    "confidence": "rule",
+    "note": ""
+   },
+   "salt meat": {
+    "unit": "meat salted in a tub, the same weight",
+    "kcal_100g": null,
+    "edible": null,
+    "kcal_a_unit": null,
+    "now": 1.4,
+    "now_raw": 0.6,
+    "physical": null,
+    "design_factor": 1.0,
+    "recommended": 0.57,
+    "recommended_raw": 0.244,
+    "factor": 0.41,
+    "source": "rule 5",
+    "confidence": "rule",
+    "note": ""
+   },
+   "fish": {
+    "unit": "1,150 kcal of edible fish (about 1 kg gutted and headed river fish)",
+    "kcal_100g": [
+     88,
+     115,
+     184
+    ],
+    "edible": 1.0,
+    "kcal_a_unit": 1150,
+    "now": 1.0,
+    "now_raw": 0.6,
+    "physical": 0.46,
+    "design_factor": 1.0,
+    "recommended": 0.46,
+    "recommended_raw": 0.276,
+    "factor": 0.46,
+    "source": "USDA 15xxx trout rainbow wild 119, pike 88, perch 91, carp 127, eel 15025 184, Atlantic salmon wild 15076 142",
+    "confidence": "standard",
+    "note": "cooked; raw 0.6 of cooked kept"
+   },
+   "salt fish": {
+    "unit": "fish salted, the same weight",
+    "kcal_100g": null,
+    "edible": null,
+    "kcal_a_unit": null,
+    "now": 1.0,
+    "now_raw": 0.6,
+    "physical": null,
+    "design_factor": 1.0,
+    "recommended": 0.46,
+    "recommended_raw": 0.276,
+    "factor": 0.46,
+    "source": "rule 5",
+    "confidence": "rule",
+    "note": ""
+   },
+   "drying fish": {
+    "unit": "fish on the rack",
+    "kcal_100g": null,
+    "edible": null,
+    "kcal_a_unit": null,
+    "now": 1.0,
+    "now_raw": 0.6,
+    "physical": null,
+    "design_factor": 1.0,
+    "recommended": 0.46,
+    "recommended_raw": 0.276,
+    "factor": 0.46,
+    "source": "rule 5",
+    "confidence": "rule",
+    "note": ""
+   },
+   "smoking fish": {
+    "unit": "fish in the smoke",
+    "kcal_100g": null,
+    "edible": null,
+    "kcal_a_unit": null,
+    "now": 1.0,
+    "now_raw": 0.6,
+    "physical": null,
+    "design_factor": 1.0,
+    "recommended": 0.46,
+    "recommended_raw": 0.276,
+    "factor": 0.46,
+    "source": "rule 5",
+    "confidence": "rule",
+    "note": ""
+   },
+   "dried fish": {
+    "unit": "half the weight",
+    "kcal_100g": null,
+    "edible": null,
+    "kcal_a_unit": null,
+    "now": 2.0,
+    "now_raw": null,
+    "physical": null,
+    "design_factor": 1.0,
+    "recommended": 0.92,
+    "recommended_raw": null,
+    "factor": 0.46,
+    "source": "rule 5",
+    "confidence": "rule",
+    "note": ""
+   },
+   "smoked fish": {
+    "unit": "half the weight",
+    "kcal_100g": null,
+    "edible": null,
+    "kcal_a_unit": null,
+    "now": 2.0,
+    "now_raw": null,
+    "physical": null,
+    "design_factor": 1.0,
+    "recommended": 0.92,
+    "recommended_raw": null,
+    "factor": 0.46,
+    "source": "rule 5",
+    "confidence": "rule",
+    "note": ""
+   },
+   "milk": {
+    "unit": "1 kg whole cow's milk",
+    "kcal_100g": [
+     61,
+     64,
+     70
+    ],
+    "edible": 1.0,
+    "kcal_a_unit": 640,
+    "now": 0.5,
+    "now_raw": null,
+    "physical": 0.256,
+    "design_factor": 1.0,
+    "recommended": 0.256,
+    "recommended_raw": null,
+    "factor": 0.51,
+    "source": "USDA 01077 whole milk 61; medieval milk fatter (Trow-Smith)",
+    "confidence": "standard",
+    "note": ""
+   },
+   "cheese": {
+    "unit": "1 kg hard cheese (from about 10 kg milk)",
+    "kcal_100g": [
+     330,
+     400,
+     410
+    ],
+    "edible": 1.0,
+    "kcal_a_unit": 4000,
+    "now": 2.5,
+    "now_raw": null,
+    "physical": 1.6,
+    "design_factor": 1.0,
+    "recommended": 1.6,
+    "recommended_raw": null,
+    "factor": 0.64,
+    "source": "USDA 01009 cheddar 403; skim-milk hard cheese about 330",
+    "confidence": "standard",
+    "note": "the engine's 6 milk to a cheese becomes 10 (part 2)"
+   },
+   "egg": {
+    "unit": "1 kg eggs in shell (about 20 medieval eggs)",
+    "kcal_100g": [
+     143,
+     143,
+     150
+    ],
+    "edible": 0.88,
+    "kcal_a_unit": 1258,
+    "now": 0.6,
+    "now_raw": 0.5,
+    "physical": 0.503,
+    "design_factor": 1.0,
+    "recommended": 0.503,
+    "recommended_raw": 0.419,
+    "factor": 0.84,
+    "source": "USDA 01123 egg whole raw 143; shell 0.12 (MW)",
+    "confidence": "standard",
+    "note": "the engine's egg unit is on the old compressed clock (part 2)"
+   },
+   "greens": {
+    "unit": "1 kg nettle tops, sorrel, ramsons",
+    "kcal_100g": [
+     22,
+     35,
+     42
+    ],
+    "edible": 0.8,
+    "kcal_a_unit": 280,
+    "now": 0.6,
+    "now_raw": null,
+    "physical": 0.112,
+    "design_factor": 1.0,
+    "recommended": 0.112,
+    "recommended_raw": null,
+    "factor": 0.19,
+    "source": "USDA 35205 nettles blanched 42; 11616 dock 22",
+    "confidence": "standard",
+    "note": ""
+   },
+   "roots": {
+    "unit": "1 kg pignut and silverweed roots",
+    "kcal_100g": [
+     50,
+     80,
+     110
+    ],
+    "edible": 0.8,
+    "kcal_a_unit": 640,
+    "now": 0.8,
+    "now_raw": 0.4,
+    "physical": 0.256,
+    "design_factor": 1.0,
+    "recommended": 0.256,
+    "recommended_raw": 0.128,
+    "factor": 0.32,
+    "source": "est: no table; comparable roots USDA 11298 parsnip 75, 11104 burdock 72",
+    "confidence": "estimate",
+    "note": ""
+   },
+   "mushrooms": {
+    "unit": "1 kg ceps, chanterelles, field mushrooms",
+    "kcal_100g": [
+     22,
+     32,
+     38
+    ],
+    "edible": 0.9,
+    "kcal_a_unit": 288,
+    "now": 0.6,
+    "now_raw": 0.3,
+    "physical": 0.115,
+    "design_factor": 1.0,
+    "recommended": 0.115,
+    "recommended_raw": 0.058,
+    "factor": 0.19,
+    "source": "USDA 11239 chanterelle 32 (38 in some releases), 11260 white mushroom 22",
+    "confidence": "standard",
+    "note": ""
+   },
+   "watercress": {
+    "unit": "1 kg watercress and brooklime",
+    "kcal_100g": [
+     11,
+     11,
+     20
+    ],
+    "edible": 0.85,
+    "kcal_a_unit": 94,
+    "now": 0.4,
+    "now_raw": null,
+    "physical": 0.037,
+    "design_factor": 1.0,
+    "recommended": 0.037,
+    "recommended_raw": null,
+    "factor": 0.09,
+    "source": "USDA 11591 watercress 11",
+    "confidence": "standard",
+    "note": ""
+   },
+   "samphire": {
+    "unit": "1 kg marsh samphire",
+    "kcal_100g": [
+     15,
+     22,
+     30
+    ],
+    "edible": 0.85,
+    "kcal_a_unit": 187,
+    "now": 0.5,
+    "now_raw": 0.4,
+    "physical": 0.075,
+    "design_factor": 1.0,
+    "recommended": 0.075,
+    "recommended_raw": 0.06,
+    "factor": 0.15,
+    "source": "est: no USDA row; about 20 to 25 kcal (glasswort composition)",
+    "confidence": "estimate",
+    "note": ""
+   },
+   "berries": {
+    "unit": "1 kg brambles, bilberries, wild strawberries",
+    "kcal_100g": [
+     32,
+     45,
+     57
+    ],
+    "edible": 0.95,
+    "kcal_a_unit": 428,
+    "now": 0.8,
+    "now_raw": null,
+    "physical": 0.171,
+    "design_factor": 1.0,
+    "recommended": 0.171,
+    "recommended_raw": null,
+    "factor": 0.21,
+    "source": "USDA 09042 blackberries 43, 09050 blueberries 57, 09316 strawberries 32",
+    "confidence": "standard",
+    "note": ""
+   },
+   "hedge fruit": {
+    "unit": "1 kg crab apples, sloes, haws, hips",
+    "kcal_100g": [
+     50,
+     75,
+     162
+    ],
+    "edible": 0.7,
+    "kcal_a_unit": 525,
+    "now": 0.6,
+    "now_raw": 0.3,
+    "physical": 0.21,
+    "design_factor": 1.0,
+    "recommended": 0.21,
+    "recommended_raw": 0.105,
+    "factor": 0.35,
+    "source": "USDA 09003 apple 52 (crab 76), 09136 rose hips 162; stones and cores 0.3",
+    "confidence": "standard",
+    "note": ""
+   },
+   "hazel nuts": {
+    "unit": "1 kg hazel nuts in shell",
+    "kcal_100g": [
+     628,
+     628,
+     646
+    ],
+    "edible": 0.43,
+    "kcal_a_unit": 2700,
+    "now": 1.6,
+    "now_raw": null,
+    "physical": 1.08,
+    "design_factor": 1.0,
+    "recommended": 1.08,
+    "recommended_raw": null,
+    "factor": 0.68,
+    "source": "USDA 12120 hazelnuts 628; kernel 0.40 to 0.45 of the nut in shell",
+    "confidence": "standard",
+    "note": ""
+   },
+   "beech nuts": {
+    "unit": "1 kg beech mast in husk",
+    "kcal_100g": [
+     576,
+     576,
+     576
+    ],
+    "edible": 0.6,
+    "kcal_a_unit": 3456,
+    "now": 1.2,
+    "now_raw": null,
+    "physical": 1.382,
+    "design_factor": 1.0,
+    "recommended": 1.382,
+    "recommended_raw": null,
+    "factor": 1.15,
+    "source": "USDA 12014 beechnuts dried 576; kernel about 0.6",
+    "confidence": "standard",
+    "note": ""
+   },
+   "acorns": {
+    "unit": "1 kg acorns in shell, unleached",
+    "kcal_100g": [
+     387,
+     387,
+     387
+    ],
+    "edible": 0.75,
+    "kcal_a_unit": 2902,
+    "now": 0.1,
+    "now_raw": null,
+    "physical": 1.161,
+    "design_factor": 0.035,
+    "recommended": 0.041,
+    "recommended_raw": null,
+    "factor": 0.41,
+    "source": "USDA 12058 acorns raw 387; bitter until leached",
+    "confidence": "standard",
+    "note": "raw acorns kept almost inedible (tannin): a physical fact, stated as a factor"
+   },
+   "acorn meal": {
+    "unit": "the leached meal of 1.5 kg acorns (3 acorns make 2)",
+    "kcal_100g": null,
+    "edible": null,
+    "kcal_a_unit": null,
+    "now": 1.0,
+    "now_raw": null,
+    "physical": null,
+    "design_factor": 1.0,
+    "recommended": 1.48,
+    "recommended_raw": null,
+    "factor": 1.48,
+    "source": "USDA 12060 acorn flour 501; leaching loses about 15%",
+    "confidence": "estimate",
+    "note": ""
+   },
+   "wild food": {
+    "unit": "a legacy gathered mix (older worlds)",
+    "kcal_100g": null,
+    "edible": null,
+    "kcal_a_unit": null,
+    "now": 1.0,
+    "now_raw": null,
+    "physical": null,
+    "design_factor": 1.0,
+    "recommended": 0.414,
+    "recommended_raw": null,
+    "factor": 0.41,
+    "source": "the autumn mix below",
+    "confidence": "rule",
+    "note": ""
+   },
+   "tallow": {
+    "unit": "1 kg rendered or raw fat",
+    "kcal_100g": [
+     900,
+     900,
+     902
+    ],
+    "edible": 1.0,
+    "kcal_a_unit": 9000,
+    "now": 0.0,
+    "now_raw": null,
+    "physical": 3.6,
+    "design_factor": 0.0,
+    "recommended": 0.0,
+    "recommended_raw": null,
+    "factor": null,
+    "source": "USDA 04001 beef tallow 902",
+    "confidence": "standard",
+    "note": "kept inedible on purpose: it is the lights' good (brief 3 \u00a75); real fat is the densest food there is"
+   },
+   "offal": {
+    "unit": "what is left of a carcass",
+    "kcal_100g": null,
+    "edible": null,
+    "kcal_a_unit": null,
+    "now": 0.0,
+    "now_raw": null,
+    "physical": null,
+    "design_factor": 1.0,
+    "recommended": 0.0,
+    "recommended_raw": null,
+    "factor": null,
+    "source": "engine",
+    "confidence": "rule",
+    "note": ""
+   }
+  },
+  "animals": {
+   "red deer": {
+    "live_kg": [
+     60,
+     90,
+     150
+    ],
+    "dressing": 0.57,
+    "edible_of_carcass": 0.75,
+    "offal_of_live": 0.03,
+    "kcal_a_kg_eaten": 1200,
+    "edible_kg": 41.18,
+    "food_a_head_now": 30.0,
+    "food_a_head_basis": 19.764,
+    "food_a_head_range": [
+     13.176,
+     32.94
+    ],
+    "factor": 0.66,
+    "good": "meat",
+    "goods_now": 20.0,
+    "goods_recommended": 32.94,
+    "source": "Mitchell; USDA 17164",
+    "confidence": "standard",
+    "note": "engine mass 90 (a hind to a woodland stag); larder weight about 0.7 of live, carcass 0.55 to 0.6"
+   },
+   "roe deer": {
+    "live_kg": [
+     18,
+     22,
+     30
+    ],
+    "dressing": 0.6,
+    "edible_of_carcass": 0.72,
+    "offal_of_live": 0.03,
+    "kcal_a_kg_eaten": 1200,
+    "edible_kg": 10.16,
+    "food_a_head_now": 6.75,
+    "food_a_head_basis": 4.879,
+    "food_a_head_range": [
+     3.992,
+     6.653
+    ],
+    "factor": 0.72,
+    "good": "meat",
+    "goods_now": 4.5,
+    "goods_recommended": 8.13,
+    "source": "Mitchell (roe); USDA 17164",
+    "confidence": "standard",
+    "note": ""
+   },
+   "wild boar": {
+    "live_kg": [
+     50,
+     70,
+     120
+    ],
+    "dressing": 0.68,
+    "edible_of_carcass": 0.7,
+    "offal_of_live": 0.03,
+    "kcal_a_kg_eaten": 1600,
+    "edible_kg": 35.42,
+    "food_a_head_now": 22.5,
+    "food_a_head_basis": 22.669,
+    "food_a_head_range": [
+     16.192,
+     38.861
+    ],
+    "factor": 1.01,
+    "good": "meat",
+    "goods_now": 15.0,
+    "goods_recommended": 37.78,
+    "source": "USDA 17165 wild boar 122 lean; autumn fat raises it",
+    "confidence": "standard",
+    "note": ""
+   },
+   "brown hare": {
+    "live_kg": [
+     3.0,
+     3.5,
+     4.5
+    ],
+    "dressing": 0.6,
+    "edible_of_carcass": 0.75,
+    "offal_of_live": 0.02,
+    "kcal_a_kg_eaten": 1140,
+    "edible_kg": 1.65,
+    "food_a_head_now": 1.05,
+    "food_a_head_basis": 0.75,
+    "food_a_head_range": [
+     0.643,
+     0.964
+    ],
+    "factor": 0.71,
+    "good": "meat",
+    "goods_now": 0.7,
+    "goods_recommended": 1.25,
+    "source": "USDA 17178 rabbit wild 114",
+    "confidence": "standard",
+    "note": ""
+   },
+   "woodpigeon": {
+    "live_kg": [
+     0.45,
+     0.5,
+     0.55
+    ],
+    "dressing": 0.5,
+    "edible_of_carcass": 0.7,
+    "offal_of_live": 0.0,
+    "kcal_a_kg_eaten": 1420,
+    "edible_kg": 0.17,
+    "food_a_head_now": 0.15,
+    "food_a_head_basis": 0.099,
+    "food_a_head_range": [
+     0.089,
+     0.109
+    ],
+    "factor": 0.66,
+    "good": "meat",
+    "goods_now": 0.1,
+    "goods_recommended": 0.17,
+    "source": "USDA 05153 squab meat 142",
+    "confidence": "standard",
+    "note": ""
+   },
+   "wildfowl": {
+    "live_kg": [
+     0.9,
+     1.1,
+     1.3
+    ],
+    "dressing": 0.6,
+    "edible_of_carcass": 0.7,
+    "offal_of_live": 0.0,
+    "kcal_a_kg_eaten": 1700,
+    "edible_kg": 0.46,
+    "food_a_head_now": 0.45,
+    "food_a_head_basis": 0.314,
+    "food_a_head_range": [
+     0.257,
+     0.371
+    ],
+    "factor": 0.7,
+    "good": "meat",
+    "goods_now": 0.3,
+    "goods_recommended": 0.52,
+    "source": "USDA 05141 duck wild meat 123, with skin 211",
+    "confidence": "standard",
+    "note": "a mallard; geese are four times as much"
+   },
+   "brown bear": {
+    "live_kg": [
+     150,
+     250,
+     350
+    ],
+    "dressing": 0.6,
+    "edible_of_carcass": 0.7,
+    "offal_of_live": 0.03,
+    "kcal_a_kg_eaten": 1610,
+    "edible_kg": 112.5,
+    "food_a_head_now": 60.0,
+    "food_a_head_basis": 72.45,
+    "food_a_head_range": [
+     43.47,
+     101.43
+    ],
+    "factor": 1.21,
+    "good": "meat",
+    "goods_now": 40.0,
+    "goods_recommended": 120.75,
+    "source": "USDA 17146 bear 161",
+    "confidence": "standard",
+    "note": ""
+   },
+   "eel": {
+    "live_kg": [
+     0.1,
+     0.5,
+     1.5
+    ],
+    "dressing": 1.0,
+    "edible_of_carcass": 0.72,
+    "offal_of_live": 0.0,
+    "kcal_a_kg_eaten": 1840,
+    "edible_kg": 0.36,
+    "food_a_head_now": 0.2,
+    "food_a_head_basis": 0.265,
+    "food_a_head_range": [
+     0.053,
+     0.795
+    ],
+    "factor": 1.32,
+    "good": "fish",
+    "goods_now": 0.2,
+    "goods_recommended": 0.58,
+    "source": "Tesch (sizes); USDA 15025 eel 184 (checked); FAO-fish edible about 0.7",
+    "confidence": "checked",
+    "note": "engine mass 0.5; a run's mean is nearer 0.2 to 0.4 kg where males are many (Tesch)"
+   },
+   "salmon": {
+    "live_kg": [
+     2.0,
+     4.0,
+     8.0
+    ],
+    "dressing": 1.0,
+    "edible_of_carcass": 0.62,
+    "offal_of_live": 0.0,
+    "kcal_a_kg_eaten": 1420,
+    "edible_kg": 2.48,
+    "food_a_head_now": 2.0,
+    "food_a_head_basis": 1.409,
+    "food_a_head_range": [
+     0.704,
+     2.817
+    ],
+    "factor": 0.7,
+    "good": "fish",
+    "goods_now": 2.0,
+    "goods_recommended": 3.06,
+    "source": "USDA 15076 Atlantic salmon wild 142; FAO-fish edible 0.6 to 0.65",
+    "confidence": "standard",
+    "note": "grilse 2 to 3.5 kg, multi-sea-winter 4 to 8"
+   },
+   "lamprey": {
+    "live_kg": [
+     0.05,
+     0.15,
+     1.5
+    ],
+    "dressing": 1.0,
+    "edible_of_carcass": 0.8,
+    "offal_of_live": 0.0,
+    "kcal_a_kg_eaten": 2000,
+    "edible_kg": 0.12,
+    "food_a_head_now": 0.45,
+    "food_a_head_basis": 0.096,
+    "food_a_head_range": [
+     0.032,
+     0.96
+    ],
+    "factor": 0.21,
+    "good": "fish",
+    "goods_now": 0.3,
+    "goods_recommended": 0.21,
+    "source": "est (lampreys are fatty; no USDA row)",
+    "confidence": "estimate",
+    "note": "the engine gives it meat 0.3; river lamprey 0.05 to 0.15 kg, sea lamprey 1 to 2"
+   },
+   "cow": {
+    "live_kg": [
+     250,
+     300,
+     350
+    ],
+    "dressing": 0.5,
+    "edible_of_carcass": 0.7,
+    "offal_of_live": 0.03,
+    "kcal_a_kg_eaten": 2000,
+    "edible_kg": 114.0,
+    "food_a_head_now": 60.0,
+    "food_a_head_basis": 91.2,
+    "food_a_head_range": [
+     76.0,
+     106.4
+    ],
+    "factor": 1.52,
+    "good": "meat",
+    "goods_now": 40.0,
+    "goods_recommended": 152.0,
+    "source": "Albarella (size); beef carcass yields; USDA beef composite",
+    "confidence": "standard",
+    "note": "slaughter gives 40 meat, 2 hide, 4 tallow"
+   },
+   "ox": {
+    "live_kg": [
+     350,
+     400,
+     500
+    ],
+    "dressing": 0.52,
+    "edible_of_carcass": 0.7,
+    "offal_of_live": 0.03,
+    "kcal_a_kg_eaten": 2000,
+    "edible_kg": 157.6,
+    "food_a_head_now": 75.0,
+    "food_a_head_basis": 126.08,
+    "food_a_head_range": [
+     110.32,
+     157.6
+    ],
+    "factor": 1.68,
+    "good": "meat",
+    "goods_now": 50.0,
+    "goods_recommended": 210.13,
+    "source": "as cow",
+    "confidence": "standard",
+    "note": ""
+   },
+   "young": {
+    "live_kg": [
+     80,
+     120,
+     160
+    ],
+    "dressing": 0.55,
+    "edible_of_carcass": 0.7,
+    "offal_of_live": 0.04,
+    "kcal_a_kg_eaten": 1500,
+    "edible_kg": 51.0,
+    "food_a_head_now": 15.0,
+    "food_a_head_basis": 30.6,
+    "food_a_head_range": [
+     20.4,
+     40.8
+    ],
+    "factor": 2.04,
+    "good": "meat",
+    "goods_now": 10.0,
+    "goods_recommended": 51.0,
+    "source": "as cow (a calf or yearling)",
+    "confidence": "estimate",
+    "note": ""
+   }
+  },
+  "methods": {
+   "farming, unbroken ground, crude reap": {
+    "now": [
+     1.77,
+     1.77
+    ],
+    "after": [
+     1.81,
+     1.81
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     2000,
+     4500
+    ],
+    "real_food_a_unit": [
+     1.6,
+     3.6
+    ],
+    "verdict_after": "pays, within the real range",
+    "source": "Titow; Campbell; Clark",
+    "confidence": "standard",
+    "note": "seed ratio 3.5 to 4; 10 to 11 person-days an acre with the plough; the hoe 25 to 30"
+   },
+   "farming, hoe-broken": {
+    "now": [
+     1.37,
+     1.37
+    ],
+    "after": [
+     1.4,
+     1.4
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     1500,
+     3000
+    ],
+    "real_food_a_unit": [
+     1.2,
+     2.4
+    ],
+    "verdict_after": "pays, within the real range",
+    "source": "Clark; est (spade or hoe 1/20 to 1/10 acre a day)",
+    "confidence": "estimate",
+    "note": ""
+   },
+   "farming, plough-broken": {
+    "now": [
+     2.35,
+     2.35
+    ],
+    "after": [
+     2.41,
+     2.41
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     4000,
+     7000
+    ],
+    "real_food_a_unit": [
+     3.2,
+     5.6
+    ],
+    "verdict_after": "pays, within the real range",
+    "source": "Titow; Clark; Henley (an acre a day a team)",
+    "confidence": "standard",
+    "note": ""
+   },
+   "farming, plough and copper reap": {
+    "now": [
+     2.8,
+     2.8
+    ],
+    "after": [
+     2.87,
+     2.87
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     4500,
+     7500
+    ],
+    "real_food_a_unit": [
+     3.6,
+     6.0
+    ],
+    "verdict_after": "pays, within the real range",
+    "source": "as above",
+    "confidence": "standard",
+    "note": ""
+   },
+   "milking (3 cows a unit)": {
+    "now": [
+     2.4,
+     2.4
+    ],
+    "after": [
+     1.23,
+     1.23
+    ],
+    "after_with_rate_fix": [
+     4.61,
+     4.61
+    ],
+    "real_kcal_an_hour": [
+     8000,
+     14000
+    ],
+    "real_food_a_unit": [
+     6.4,
+     11.2
+    ],
+    "verdict_after": "pays, within the real range",
+    "source": "Trow-Smith (about 3 kg a cow a day); hand milking 6 to 10 cows an hour",
+    "confidence": "estimate",
+    "note": "milking alone, not the herd's keep"
+   },
+   "gathering, autumn": {
+    "now": [
+     1.07,
+     1.72
+    ],
+    "after": [
+     0.55,
+     0.88
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     1000,
+     3000
+    ],
+    "real_food_a_unit": [
+     0.8,
+     2.4
+    ],
+    "verdict_after": "pays, within the real range",
+    "source": "Holst (hazel); Kelly (nuts, acorns 1,000 to 1,500 with leaching)",
+    "confidence": "standard",
+    "note": "novice to skilled; mostly nuts"
+   },
+   "gathering, spring and summer": {
+    "now": [
+     0.28,
+     0.77
+    ],
+    "after": [
+     0.06,
+     0.17
+    ],
+    "after_with_rate_fix": [
+     0.16,
+     0.43
+    ],
+    "real_kcal_an_hour": [
+     300,
+     1400
+    ],
+    "real_food_a_unit": [
+     0.24,
+     1.12
+    ],
+    "verdict_after": "pays, within the real range",
+    "source": "est: greens 2 to 4 kg an hour at 300 kcal/kg; berries 1 to 3 kg an hour at 450",
+    "confidence": "estimate",
+    "note": ""
+   },
+   "gathering, winter": {
+    "now": [
+     0.19,
+     0.43
+    ],
+    "after": [
+     0.08,
+     0.17
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     150,
+     800
+    ],
+    "real_food_a_unit": [
+     0.12,
+     0.64
+    ],
+    "verdict_after": "never pays (below the worker's own need)",
+    "source": "est",
+    "confidence": "estimate",
+    "note": ""
+   },
+   "leach acorns (3 -> 2 meal, 1 unit)": {
+    "now": [
+     1.7,
+     1.7
+    ],
+    "after": [
+     2.84,
+     2.84
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     1000,
+     1800
+    ],
+    "real_food_a_unit": [
+     0.8,
+     1.44
+    ],
+    "verdict_after": "pays, within the real range",
+    "source": "Kelly (acorns with processing)",
+    "confidence": "standard",
+    "note": "the gain a unit of leaching"
+   },
+   "hunting, novice armed, near": {
+    "now": [
+     0.2,
+     0.3
+    ],
+    "after": [
+     0.14,
+     0.22
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     100,
+     400
+    ],
+    "real_food_a_unit": [
+     0.08,
+     0.32
+    ],
+    "verdict_after": "never pays (below the worker's own need)",
+    "source": "Hill (Ache: misses most trips); Kelly",
+    "confidence": "standard",
+    "note": "4c target"
+   },
+   "hunting, capable armed, near": {
+    "now": [
+     0.7,
+     0.7
+    ],
+    "after": [
+     0.51,
+     0.51
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     500,
+     1500
+    ],
+    "real_food_a_unit": [
+     0.4,
+     1.2
+    ],
+    "verdict_after": "pays, within the real range",
+    "source": "Hill; Kelly",
+    "confidence": "standard",
+    "note": "4c target"
+   },
+   "hunting, master armed, near": {
+    "now": [
+     2.5,
+     2.5
+    ],
+    "after": [
+     1.87,
+     1.87
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     1500,
+     4000
+    ],
+    "real_food_a_unit": [
+     1.2,
+     3.2
+    ],
+    "verdict_after": "pays, within the real range",
+    "source": "Hill (Ache men about 1,300 kcal an hour hunting, best hunters more); Kelly (deer post-encounter 18,000 to 31,000)",
+    "confidence": "standard",
+    "note": "4c target (D2-255)"
+   },
+   "snares, lifted (hares)": {
+    "now": [
+     0.9,
+     0.9
+    ],
+    "after": [
+     0.64,
+     0.64
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     500,
+     1500
+    ],
+    "real_food_a_unit": [
+     0.4,
+     1.2
+    ],
+    "verdict_after": "pays, within the real range",
+    "source": "Simms (jackrabbit 13,500 post-encounter; snaring by line)",
+    "confidence": "estimate",
+    "note": "the wild region run"
+   },
+   "netting fowl (2 units)": {
+    "now": [
+     0.11,
+     0.7
+    ],
+    "after": [
+     0.08,
+     0.49
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     300,
+     2700
+    ],
+    "real_food_a_unit": [
+     0.24,
+     2.16
+    ],
+    "verdict_after": "pays, within the real range",
+    "source": "Simms (ducks 1,975 to 2,700 post-encounter)",
+    "confidence": "standard",
+    "note": "38.73's 0.15 to 0.93 meat an act"
+   },
+   "fish by hand (full stock)": {
+    "now": [
+     0.6,
+     0.6
+    ],
+    "after": [
+     0.28,
+     0.28
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     200,
+     900
+    ],
+    "real_food_a_unit": [
+     0.16,
+     0.72
+    ],
+    "verdict_after": "feeds the worker, not a household",
+    "source": "est (groping, tickling: 0.2 to 0.8 kg an hour)",
+    "confidence": "estimate",
+    "note": ""
+   },
+   "angling (rod and line)": {
+    "now": [
+     1.5,
+     1.5
+    ],
+    "after": [
+     0.69,
+     0.69
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     300,
+     1800
+    ],
+    "real_food_a_unit": [
+     0.24,
+     1.44
+    ],
+    "verdict_after": "pays, within the real range",
+    "source": "Kelly (hook and line, wide range)",
+    "confidence": "standard",
+    "note": ""
+   },
+   "eel trap, resident (a night)": {
+    "now": [
+     0.02,
+     0.08
+    ],
+    "after": [
+     0.01,
+     0.04
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     200,
+     1500
+    ],
+    "real_food_a_unit": [
+     0.16,
+     1.2
+    ],
+    "verdict_after": "never pays (below the worker's own need); far below the real rate",
+    "source": "est",
+    "confidence": "estimate",
+    "note": "02zzd; eels 0.1 then"
+   },
+   "trap in a mill race, run night": {
+    "now": [
+     1.1,
+     6.5
+    ],
+    "after": [
+     1.46,
+     8.61
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     5000,
+     40000
+    ],
+    "real_food_a_unit": [
+     4.0,
+     32.0
+    ],
+    "verdict_after": "pays, within the real range",
+    "source": "Darby (a mill's eels); est",
+    "confidence": "estimate",
+    "note": "38.73"
+   },
+   "weir, eel run night (3 units)": {
+    "now": [
+     0.3,
+     1.4
+    ],
+    "after": [
+     0.4,
+     1.85
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     5000,
+     40000
+    ],
+    "real_food_a_unit": [
+     4.0,
+     32.0
+    ],
+    "verdict_after": "far below the real rate",
+    "source": "Darby; Poole; est",
+    "confidence": "estimate",
+    "note": "38.73 Saltwell"
+   },
+   "weir, salmon run night (3 units)": {
+    "now": [
+     4.5,
+     5.5
+    ],
+    "after": [
+     3.17,
+     3.87
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     5000,
+     60000
+    ],
+    "real_food_a_unit": [
+     4.0,
+     48.0
+    ],
+    "verdict_after": "pays, within the real range",
+    "source": "Bush; est",
+    "confidence": "estimate",
+    "note": "38.73 Millham, before D2-210's hold"
+   },
+   "hand mill (3 grain -> 3 meal)": {
+    "now": [
+     0.9,
+     0.9
+    ],
+    "after": [
+     0.92,
+     0.92
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     0,
+     0
+    ],
+    "real_food_a_unit": [
+     0.0,
+     0.0
+    ],
+    "verdict_after": "a design gain: physically no food is made",
+    "source": "quern: 1 to 2 kg an hour",
+    "confidence": "estimate",
+    "note": "physically no food is made: the work saved is the mill's worth"
+   },
+   "ox mill (64 grain, 2 units)": {
+    "now": [
+     9.6,
+     9.6
+    ],
+    "after": [
+     9.82,
+     9.82
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     0,
+     0
+    ],
+    "real_food_a_unit": [
+     0.0,
+     0.0
+    ],
+    "verdict_after": "a design gain: physically no food is made",
+    "source": "D4-97, D4-107",
+    "confidence": "rule",
+    "note": ""
+   },
+   "water mill (200 grain, 2 units)": {
+    "now": [
+     30.0,
+     30.0
+    ],
+    "after": [
+     30.7,
+     30.7
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     0,
+     0
+    ],
+    "real_food_a_unit": [
+     0.0,
+     0.0
+    ],
+    "verdict_after": "a design gain: physically no food is made",
+    "source": "D4-97, D4-107",
+    "confidence": "rule",
+    "note": ""
+   },
+   "baking at a hearth (10 flour, 1 unit)": {
+    "now": [
+     3.0,
+     3.0
+    ],
+    "after": [
+     3.07,
+     3.07
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     0,
+     0
+    ],
+    "real_food_a_unit": [
+     0.0,
+     0.0
+    ],
+    "verdict_after": "a design gain: physically no food is made",
+    "source": "D2-60",
+    "confidence": "rule",
+    "note": ""
+   },
+   "oven bread (100 flour, 3 units)": {
+    "now": [
+     10.0,
+     10.0
+    ],
+    "after": [
+     10.23,
+     10.23
+    ],
+    "after_with_rate_fix": null,
+    "real_kcal_an_hour": [
+     0,
+     0
+    ],
+    "real_food_a_unit": [
+     0.0,
+     0.0
+    ],
+    "verdict_after": "a design gain: physically no food is made",
+    "source": "D4-97",
+    "confidence": "rule",
+    "note": ""
+   }
+  },
+  "sources": {
+   "USDA": "USDA ARS, FoodData Central, SR Legacy (2019): energy a 100 g edible portion, raw unless stated; NDB number given",
+   "MW": "McCance and Widdowson's The Composition of Foods, 7th summary ed. (PHE/RSC 2015; CoFID 2021): edible portions",
+   "FAO-fish": "FAO Fisheries Technical Paper 309 (1989), Yield and nutritional value of the commercially more important fish species",
+   "FAO-WHO": "FAO/WHO/UNU, Human energy requirements, FAO Food and Nutrition Technical Report 1 (2004)",
+   "Compendium": "Ainsworth et al., 2011 Compendium of Physical Activities (METs for farming, hand tools, hunting, fishing)",
+   "Titow": "J. Z. Titow, Winchester Yields (1972): seed ratios and yields an acre on the bishop's estates, 1209 to 1349",
+   "Campbell": "B. M. S. Campbell, English Seigniorial Agriculture 1250-1450 (2000): yields, seeding rates, crop mixes",
+   "Clark": "G. Clark, 'Labour productivity in English agriculture, 1300-1860', in Campbell and Overton (eds), Land, Labour and Livestock (1991): days an acre by task",
+   "Henley": "Walter of Henley's Husbandry and the Seneschaucy (c. 1280; ed. Oschinsky 1971): a plough's acre a day; dairy yields",
+   "Langdon": "J. Langdon, Horses, Oxen and Technological Innovation (1986): plough teams and their work",
+   "Kelly": "R. L. Kelly, The Lifeways of Hunter-Gatherers (2nd ed. 2013), ch. 3, return rates by resource (post-encounter, kcal an hour)",
+   "Simms": "S. R. Simms, Behavioral Ecology and Hunter-Gatherer Foraging (BAR S381, 1987): Great Basin return rates",
+   "Hill": "Hill, Kaplan, Hawkes and Hurtado, 'Foraging decisions among Ache hunter-gatherers', Ethology and Sociobiology 8 (1987)",
+   "Holst": "D. Holst, 'Hazelnut economy of early Holocene hunter-gatherers', Journal of Archaeological Science 37 (2010)",
+   "Mitchell": "Mitchell, Staines and Welch, Ecology of Red Deer (1977); BDS larder weights; carcass yields of red and roe deer",
+   "Albarella": "U. Albarella, 'Size, power, wool and veal: zooarchaeological evidence for late medieval innovations' (1997); medieval cattle withers heights, so live weights of about 250 to 350 kg",
+   "Trow-Smith": "R. Trow-Smith, A History of British Livestock Husbandry to 1700 (1957): medieval milk yields",
+   "Poole": "Poole et al., 'Long-term variation in numbers and biomass of silver eels being produced in two European river systems', ICES J. Mar. Sci. 75 (2018): Burrishoole over 4,000 silver eels a year before 1982, about 2,000 after; 1.1 to 1.2 kg/ha a year",
+   "Tesch": "F.-W. Tesch, The Eel (5th ed. 2003): silver eel sizes (males about 0.1 kg, females 0.3 to 1.5 kg)",
+   "WGEEL": "ICES WGEEL reports: glass eel recruitment since 1980 at a few to ten per cent of 1960-79 levels",
+   "Darby": "H. C. Darby, The Domesday Geography of Eastern England (1952, 1971): eel renders in sticks of 25; mills and fisheries rendering hundreds to thousands of eels a year",
+   "Bush": "River Bush salmon station (AFBI, Northern Ireland; Hansard written answers 1990-95): wild smolts 17,000 to 23,000 a year (1987-91), sea catch of Bush fish about 4,800 to 5,900 (1987-89); catchment about 340 km2 (recalled)",
+   "quern": "ethnographic and experimental quern rates: about 1 to 2 kg of grain an hour by rotary quern (estimate from the experimental literature; check)",
+   "est": "estimate (no table gives it): the reasoning is in the note"
+  },
+  "real_runs": {
+   "eel": {
+    "heads_km2": [
+     20,
+     50,
+     150
+    ],
+    "src": "Poole (Burrishoole about 2,000 to 4,000+ a year from about 90 km2: 22 to 45); WGEEL (pre-1980 recruitment several times today's)",
+    "conf": "standard (Burrishoole); estimate (the high end)"
+   },
+   "salmon": {
+    "heads_km2": [
+     5,
+     10,
+     20
+    ],
+    "src": "Bush (about 20,000 smolts and 5,000+ adults taken at sea from about 340 km2)",
+    "conf": "estimate"
+   }
+  },
+  "weir": {
+   "share": 0.3,
+   "hold_food": 10.0,
+   "build_units": 24,
+   "timber": 12,
+   "fell_units_a_timber": 0.6666666666666666,
+   "upkeep_share": 0.45,
+   "shut_units": 2,
+   "open_units": 1,
+   "lift_units": 1,
+   "hold_kg_rec": 30.0
+  },
+  "compress": 0.0877
+ },
+ "runs": {
+  "runs_models.yaml": {
+   "world": "runs_models.yaml",
+   "villages": {
+    "Highpool": {
+     "river_km_here": 5.1,
+     "stretches_above": 4,
+     "river_km_above": 15.2,
+     "catchment_km2": 107.7
+    },
+    "Middleham": {
+     "river_km_here": 4.8,
+     "stretches_above": 7,
+     "river_km_above": 32.5,
+     "catchment_km2": 234.6
+    },
+    "Lowstrand": {
+     "river_km_here": 5.7,
+     "stretches_above": 23,
+     "river_km_above": 141.3,
+     "catchment_km2": 1049.7
+    }
+   },
+   "nights": [
+    {
+     "d": 0,
+     "cal": "summer 4",
+     "run": {}
+    },
+    {
+     "d": 1,
+     "cal": "summer 5",
+     "run": {}
+    },
+    {
+     "d": 2,
+     "cal": "summer 6",
+     "run": {}
+    },
+    {
+     "d": 3,
+     "cal": "summer 7",
+     "run": {}
+    },
+    {
+     "d": 4,
+     "cal": "summer 8",
+     "run": {}
+    },
+    {
+     "d": 5,
+     "cal": "autumn 1",
+     "run": {}
+    },
+    {
+     "d": 6,
+     "cal": "autumn 2",
+     "run": {
+      "Highpool|eel|down": 14.38,
+      "Lowstrand|eel|down": 16.57,
+      "Middleham|eel|down": 21.97
+     }
+    },
+    {
+     "d": 7,
+     "cal": "autumn 3",
+     "run": {
+      "Highpool|eel|down": 12.78,
+      "Lowstrand|eel|down": 26.09,
+      "Middleham|eel|down": 31.24,
+      "Lowstrand|salmon|up": 7.33
+     }
+    },
+    {
+     "d": 8,
+     "cal": "autumn 4",
+     "run": {
+      "Highpool|eel|down": 17.48,
+      "Lowstrand|eel|down": 61.34,
+      "Middleham|eel|down": 14.03
+     }
+    },
+    {
+     "d": 9,
+     "cal": "autumn 5",
+     "run": {
+      "Highpool|eel|down": 14.27,
+      "Lowstrand|eel|down": 103.78,
+      "Middleham|eel|down": 23.17
+     }
+    },
+    {
+     "d": 10,
+     "cal": "autumn 6",
+     "run": {
+      "Highpool|eel|down": 5.11,
+      "Lowstrand|eel|down": 88.55,
+      "Middleham|eel|down": 25.28,
+      "Lowstrand|salmon|up": 4.76
+     }
+    },
+    {
+     "d": 11,
+     "cal": "autumn 7",
+     "run": {
+      "Highpool|eel|down": 6.99,
+      "Lowstrand|eel|down": 78.78,
+      "Middleham|eel|down": 23.09,
+      "Middleham|salmon|up": 0.16
+     }
+    },
+    {
+     "d": 12,
+     "cal": "autumn 8",
+     "run": {
+      "Highpool|eel|down": 3.41,
+      "Lowstrand|eel|down": 70.93,
+      "Middleham|eel|down": 14.27
+     }
+    },
+    {
+     "d": 13,
+     "cal": "winter 1",
+     "run": {
+      "Lowstrand|eel|down": 54.44,
+      "Middleham|eel|down": 5.11
+     }
+    },
+    {
+     "d": 14,
+     "cal": "winter 2",
+     "run": {
+      "Lowstrand|eel|down": 51.65,
+      "Middleham|eel|down": 6.99,
+      "Highpool|salmon|up": 0.16,
+      "Middleham|salmon|up": 0.1
+     }
+    },
+    {
+     "d": 15,
+     "cal": "winter 3",
+     "run": {
+      "Lowstrand|eel|down": 30.31,
+      "Middleham|eel|down": 3.41
+     }
+    },
+    {
+     "d": 16,
+     "cal": "winter 4",
+     "run": {
+      "Lowstrand|eel|down": 17.8
+     }
+    },
+    {
+     "d": 17,
+     "cal": "winter 5",
+     "run": {
+      "Lowstrand|eel|down": 11.98,
+      "Highpool|salmon|up": 0.1,
+      "Lowstrand|salmon|up": 8.85
+     }
+    },
+    {
+     "d": 18,
+     "cal": "winter 6",
+     "run": {
+      "Lowstrand|eel|down": 6.99
+     }
+    },
+    {
+     "d": 19,
+     "cal": "winter 7",
+     "run": {
+      "Lowstrand|eel|down": 3.41
+     }
+    },
+    {
+     "d": 20,
+     "cal": "winter 8",
+     "run": {}
+    },
+    {
+     "d": 21,
+     "cal": "spring 1",
+     "run": {
+      "Middleham|salmon|up": 0.19
+     }
+    },
+    {
+     "d": 22,
+     "cal": "spring 2",
+     "run": {}
+    },
+    {
+     "d": 23,
+     "cal": "spring 3",
+     "run": {
+      "Lowstrand|lamprey|up": 9.0
+     }
+    },
+    {
+     "d": 24,
+     "cal": "spring 4",
+     "run": {
+      "Highpool|salmon|up": 0.19
+     }
+    },
+    {
+     "d": 25,
+     "cal": "spring 5",
+     "run": {}
+    },
+    {
+     "d": 26,
+     "cal": "spring 6",
+     "run": {
+      "Lowstrand|lamprey|up": 5.85
+     }
+    },
+    {
+     "d": 27,
+     "cal": "spring 7",
+     "run": {}
+    },
+    {
+     "d": 28,
+     "cal": "spring 8",
+     "run": {}
+    },
+    {
+     "d": 29,
+     "cal": "summer 1",
+     "run": {
+      "Lowstrand|lamprey|up": 10.88
+     }
+    },
+    {
+     "d": 30,
+     "cal": "summer 2",
+     "run": {}
+    },
+    {
+     "d": 31,
+     "cal": "summer 3",
+     "run": {}
+    },
+    {
+     "d": 32,
+     "cal": "summer 4",
+     "run": {}
+    },
+    {
+     "d": 33,
+     "cal": "summer 5",
+     "run": {}
+    },
+    {
+     "d": 34,
+     "cal": "summer 6",
+     "run": {}
+    },
+    {
+     "d": 35,
+     "cal": "summer 7",
+     "run": {}
+    }
+   ],
+   "weir": [
+    {
+     "village": "Highpool",
+     "river_km_here": 5.1,
+     "stretches_above": 4,
+     "river_km_above": 15.2,
+     "catchment_km2": 107.7,
+     "heads_year": {
+      "eel": 74.4,
+      "salmon": 0.5
+     },
+     "now": {
+      "food": 4.7,
+      "run_nights": 10,
+      "work": 27.4,
+      "food_a_unit": 0.17,
+      "first_year_food_a_unit": 0.11
+     },
+     "values on the basis": {
+      "food": 6.1,
+      "run_nights": 10,
+      "work": 27.4,
+      "food_a_unit": 0.22,
+      "first_year_food_a_unit": 0.14
+     },
+     "values and a 30 kg hold": {
+      "food": 6.1,
+      "run_nights": 10,
+      "work": 27.4,
+      "food_a_unit": 0.22,
+      "first_year_food_a_unit": 0.14
+     },
+     "real run, low": {
+      "heads_year": {
+       "eel": 189.0,
+       "salmon": 47.0
+      },
+      "food": 35.0,
+      "run_nights": 7,
+      "work": 24.4,
+      "food_a_unit": 1.43,
+      "first_year_food_a_unit": 0.83
+     },
+     "real run, mid": {
+      "heads_year": {
+       "eel": 472.0,
+       "salmon": 94.0
+      },
+      "food": 67.2,
+      "run_nights": 7,
+      "work": 24.4,
+      "food_a_unit": 2.75,
+      "first_year_food_a_unit": 1.6
+     },
+     "real run, high": {
+      "heads_year": {
+       "eel": 1416.0,
+       "salmon": 189.0
+      },
+      "food": 74.0,
+      "run_nights": 7,
+      "work": 24.4,
+      "food_a_unit": 3.03,
+      "first_year_food_a_unit": 1.76
+     }
+    },
+    {
+     "village": "Middleham",
+     "river_km_here": 4.8,
+     "stretches_above": 7,
+     "river_km_above": 32.5,
+     "catchment_km2": 234.6,
+     "heads_year": {
+      "eel": 168.6,
+      "salmon": 0.5
+     },
+     "now": {
+      "food": 10.4,
+      "run_nights": 11,
+      "work": 28.4,
+      "food_a_unit": 0.37,
+      "first_year_food_a_unit": 0.23
+     },
+     "values on the basis": {
+      "food": 13.6,
+      "run_nights": 11,
+      "work": 28.4,
+      "food_a_unit": 0.48,
+      "first_year_food_a_unit": 0.3
+     },
+     "values and a 30 kg hold": {
+      "food": 13.6,
+      "run_nights": 11,
+      "work": 28.4,
+      "food_a_unit": 0.48,
+      "first_year_food_a_unit": 0.3
+     },
+     "real run, low": {
+      "heads_year": {
+       "eel": 411.0,
+       "salmon": 103.0
+      },
+      "food": 76.2,
+      "run_nights": 10,
+      "work": 27.4,
+      "food_a_unit": 2.78,
+      "first_year_food_a_unit": 1.69
+     },
+     "real run, mid": {
+      "heads_year": {
+       "eel": 1028.0,
+       "salmon": 206.0
+      },
+      "food": 105.4,
+      "run_nights": 10,
+      "work": 27.4,
+      "food_a_unit": 3.85,
+      "first_year_food_a_unit": 2.34
+     },
+     "real run, high": {
+      "heads_year": {
+       "eel": 3085.0,
+       "salmon": 411.0
+      },
+      "food": 105.6,
+      "run_nights": 10,
+      "work": 27.4,
+      "food_a_unit": 3.86,
+      "first_year_food_a_unit": 2.35
+     }
+    },
+    {
+     "village": "Lowstrand",
+     "river_km_here": 5.7,
+     "stretches_above": 23,
+     "river_km_above": 141.3,
+     "catchment_km2": 1049.7,
+     "heads_year": {
+      "eel": 622.6,
+      "salmon": 20.9
+     },
+     "now": {
+      "food": 49.9,
+      "run_nights": 14,
+      "work": 31.4,
+      "food_a_unit": 1.59,
+      "first_year_food_a_unit": 1.02
+     },
+     "values on the basis": {
+      "food": 58.3,
+      "run_nights": 14,
+      "work": 31.4,
+      "food_a_unit": 1.86,
+      "first_year_food_a_unit": 1.19
+     },
+     "values and a 30 kg hold": {
+      "food": 58.3,
+      "run_nights": 14,
+      "work": 31.4,
+      "food_a_unit": 1.86,
+      "first_year_food_a_unit": 1.19
+     },
+     "real run, low": {
+      "heads_year": {
+       "eel": 1841.0,
+       "salmon": 460.0
+      },
+      "food": 112.7,
+      "run_nights": 14,
+      "work": 31.4,
+      "food_a_unit": 3.59,
+      "first_year_food_a_unit": 2.3
+     },
+     "real run, mid": {
+      "heads_year": {
+       "eel": 4601.0,
+       "salmon": 920.0
+      },
+      "food": 131.9,
+      "run_nights": 14,
+      "work": 31.4,
+      "food_a_unit": 4.2,
+      "first_year_food_a_unit": 2.69
+     },
+     "real run, high": {
+      "heads_year": {
+       "eel": 13804.0,
+       "salmon": 1841.0
+      },
+      "food": 143.4,
+      "run_nights": 14,
+      "work": 31.4,
+      "food_a_unit": 4.57,
+      "first_year_food_a_unit": 2.93
+     }
+    }
+   ]
+  },
+  "river.yaml": {
+   "world": "river.yaml",
+   "villages": {
+    "Saltwell": {
+     "river_km_here": 5.55,
+     "stretches_above": 5,
+     "river_km_above": 41.0,
+     "catchment_km2": 267.1
+    },
+    "Millham": {
+     "river_km_here": 8.1,
+     "stretches_above": 16,
+     "river_km_above": 130.1,
+     "catchment_km2": 886.0
+    }
+   },
+   "nights": [
+    {
+     "d": 0,
+     "cal": "summer 4",
+     "run": {}
+    },
+    {
+     "d": 1,
+     "cal": "summer 5",
+     "run": {}
+    },
+    {
+     "d": 2,
+     "cal": "summer 6",
+     "run": {}
+    },
+    {
+     "d": 3,
+     "cal": "summer 7",
+     "run": {}
+    },
+    {
+     "d": 4,
+     "cal": "summer 8",
+     "run": {}
+    },
+    {
+     "d": 5,
+     "cal": "autumn 1",
+     "run": {}
+    },
+    {
+     "d": 6,
+     "cal": "autumn 2",
+     "run": {
+      "Millham|eel|down": 26.05,
+      "Saltwell|eel|down": 22.02
+     }
+    },
+    {
+     "d": 7,
+     "cal": "autumn 3",
+     "run": {
+      "Millham|eel|down": 41.61,
+      "Saltwell|eel|down": 55.39
+     }
+    },
+    {
+     "d": 8,
+     "cal": "autumn 4",
+     "run": {
+      "Millham|eel|down": 73.01,
+      "Millham|salmon|up": 8.99,
+      "Millham|salmon|held": 8.0
+     }
+    },
+    {
+     "d": 9,
+     "cal": "autumn 5",
+     "run": {
+      "Millham|eel|down": 96.07
+     }
+    },
+    {
+     "d": 10,
+     "cal": "autumn 6",
+     "run": {
+      "Millham|eel|down": 80.79,
+      "Millham|salmon|up": 6.04,
+      "Millham|salmon|held": 5.0
+     }
+    },
+    {
+     "d": 11,
+     "cal": "autumn 7",
+     "run": {
+      "Millham|eel|down": 18.67,
+      "Millham|salmon|up": 4.17,
+      "Millham|salmon|held": 3.0,
+      "Saltwell|salmon|up": 3.11
+     }
+    },
+    {
+     "d": 12,
+     "cal": "autumn 8",
+     "run": {
+      "Millham|salmon|up": 2.68,
+      "Millham|salmon|held": 2.0
+     }
+    },
+    {
+     "d": 13,
+     "cal": "winter 1",
+     "run": {
+      "Millham|salmon|up": 3.03,
+      "Saltwell|salmon|up": 2.32
+     }
+    },
+    {
+     "d": 14,
+     "cal": "winter 2",
+     "run": {
+      "Millham|salmon|up": 1.97,
+      "Saltwell|salmon|up": 1.16
+     }
+    },
+    {
+     "d": 15,
+     "cal": "winter 3",
+     "run": {
+      "Millham|salmon|up": 1.28,
+      "Saltwell|salmon|up": 0.41
+     }
+    },
+    {
+     "d": 16,
+     "cal": "winter 4",
+     "run": {
+      "Saltwell|salmon|up": 0.91
+     }
+    },
+    {
+     "d": 17,
+     "cal": "winter 5",
+     "run": {
+      "Millham|salmon|up": 0.83,
+      "Saltwell|salmon|up": 0.59
+     }
+    },
+    {
+     "d": 18,
+     "cal": "winter 6",
+     "run": {
+      "Millham|salmon|up": 1.55,
+      "Saltwell|salmon|up": 0.38
+     }
+    },
+    {
+     "d": 19,
+     "cal": "winter 7",
+     "run": {}
+    },
+    {
+     "d": 20,
+     "cal": "winter 8",
+     "run": {
+      "Saltwell|salmon|up": 0.25
+     }
+    },
+    {
+     "d": 21,
+     "cal": "spring 1",
+     "run": {
+      "Saltwell|salmon|up": 0.47
+     }
+    },
+    {
+     "d": 22,
+     "cal": "spring 2",
+     "run": {}
+    },
+    {
+     "d": 23,
+     "cal": "spring 3",
+     "run": {}
+    },
+    {
+     "d": 24,
+     "cal": "spring 4",
+     "run": {}
+    },
+    {
+     "d": 25,
+     "cal": "spring 5",
+     "run": {}
+    },
+    {
+     "d": 26,
+     "cal": "spring 6",
+     "run": {}
+    },
+    {
+     "d": 27,
+     "cal": "spring 7",
+     "run": {
+      "Millham|lamprey|up": 11.89,
+      "Millham|lamprey|held": 13.0
+     }
+    },
+    {
+     "d": 28,
+     "cal": "spring 8",
+     "run": {}
+    },
+    {
+     "d": 29,
+     "cal": "summer 1",
+     "run": {}
+    },
+    {
+     "d": 30,
+     "cal": "summer 2",
+     "run": {
+      "Millham|lamprey|up": 23.26,
+      "Millham|lamprey|held": 23.0,
+      "Saltwell|lamprey|up": 3.49
+     }
+    },
+    {
+     "d": 31,
+     "cal": "summer 3",
+     "run": {}
+    },
+    {
+     "d": 32,
+     "cal": "summer 4",
+     "run": {}
+    },
+    {
+     "d": 33,
+     "cal": "summer 5",
+     "run": {
+      "Saltwell|lamprey|up": 6.92
+     }
+    },
+    {
+     "d": 34,
+     "cal": "summer 6",
+     "run": {}
+    },
+    {
+     "d": 35,
+     "cal": "summer 7",
+     "run": {}
+    }
+   ],
+   "weir": [
+    {
+     "village": "Saltwell",
+     "river_km_here": 5.55,
+     "stretches_above": 5,
+     "river_km_above": 41.0,
+     "catchment_km2": 267.1,
+     "heads_year": {
+      "eel": 77.4,
+      "salmon": 9.6
+     },
+     "now": {
+      "food": 10.4,
+      "run_nights": 11,
+      "work": 28.4,
+      "food_a_unit": 0.37,
+      "first_year_food_a_unit": 0.23
+     },
+     "values on the basis": {
+      "food": 10.2,
+      "run_nights": 11,
+      "work": 28.4,
+      "food_a_unit": 0.36,
+      "first_year_food_a_unit": 0.22
+     },
+     "values and a 30 kg hold": {
+      "food": 10.2,
+      "run_nights": 11,
+      "work": 28.4,
+      "food_a_unit": 0.36,
+      "first_year_food_a_unit": 0.22
+     },
+     "real run, low": {
+      "heads_year": {
+       "eel": 468.0,
+       "salmon": 117.0
+      },
+      "food": 63.8,
+      "run_nights": 11,
+      "work": 28.4,
+      "food_a_unit": 2.24,
+      "first_year_food_a_unit": 1.39
+     },
+     "real run, mid": {
+      "heads_year": {
+       "eel": 1171.0,
+       "salmon": 234.0
+      },
+      "food": 83.9,
+      "run_nights": 11,
+      "work": 28.4,
+      "food_a_unit": 2.95,
+      "first_year_food_a_unit": 1.82
+     },
+     "real run, high": {
+      "heads_year": {
+       "eel": 3513.0,
+       "salmon": 468.0
+      },
+      "food": 105.1,
+      "run_nights": 11,
+      "work": 28.4,
+      "food_a_unit": 3.7,
+      "first_year_food_a_unit": 2.28
+     }
+    },
+    {
+     "village": "Millham",
+     "river_km_here": 8.1,
+     "stretches_above": 16,
+     "river_km_above": 130.1,
+     "catchment_km2": 886.0,
+     "heads_year": {
+      "eel": 336.2,
+      "salmon": 30.5
+     },
+     "now": {
+      "food": 38.5,
+      "run_nights": 12,
+      "work": 29.4,
+      "food_a_unit": 1.31,
+      "first_year_food_a_unit": 0.82
+     },
+     "values on the basis": {
+      "food": 39.6,
+      "run_nights": 12,
+      "work": 29.4,
+      "food_a_unit": 1.35,
+      "first_year_food_a_unit": 0.84
+     },
+     "values and a 30 kg hold": {
+      "food": 39.6,
+      "run_nights": 12,
+      "work": 29.4,
+      "food_a_unit": 1.35,
+      "first_year_food_a_unit": 0.84
+     },
+     "real run, low": {
+      "heads_year": {
+       "eel": 1554.0,
+       "salmon": 388.0
+      },
+      "food": 113.8,
+      "run_nights": 12,
+      "work": 29.4,
+      "food_a_unit": 3.87,
+      "first_year_food_a_unit": 2.42
+     },
+     "real run, mid": {
+      "heads_year": {
+       "eel": 3884.0,
+       "salmon": 777.0
+      },
+      "food": 125.1,
+      "run_nights": 12,
+      "work": 29.4,
+      "food_a_unit": 4.26,
+      "first_year_food_a_unit": 2.66
+     },
+     "real run, high": {
+      "heads_year": {
+       "eel": 11652.0,
+       "salmon": 1554.0
+      },
+      "food": 126.8,
+      "run_nights": 12,
+      "work": 29.4,
+      "food_a_unit": 4.31,
+      "first_year_food_a_unit": 2.7
+     }
+    }
+   ]
+  }
+ }
+}
