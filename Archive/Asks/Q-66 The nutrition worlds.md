@@ -31,5 +31,4 @@ updated: "2026-11-20"
 
 ## Mentioned by
 - [[D2-254 Everything shown to Zach names each question, proposal, thread or…|Everything shown to Zach names each question, proposal, thread or… (D2-254)]]
-- [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]

@@ -39,7 +39,7 @@
 - [[W-65 The records system|The records system (W-65)]]  
   next: the header pass over the spec files and proposals; run threads labelled as such, with their branch (D2-238)…
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]  
-  next: Zach's answers to Q-66; then shared units (W-64), the switches (37.4), the bots, the grid
+  next: Zach on Q-70 (the food values and run sizes), then remake the arms; competent fishing bots; the live runs on…
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  

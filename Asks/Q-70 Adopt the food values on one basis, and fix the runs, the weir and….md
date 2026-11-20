@@ -23,5 +23,6 @@ from the shared-units analysis (02zzu, 20 Nov), on 1 food = 2,500 kcal and a uni
 
 ## Mentioned by
 - [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
+- [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 - [[L-138 Hens lay on the old clock|Hens lay on the old clock (L-138)]]
 - [[Shared units food value, weight and work on one basis|Shared units: food value, weight and work on one basis]]
