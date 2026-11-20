@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-RR3 · The human player's first interface
+# The human player's first interface (Q-RR3)
 
 *open · 37.1*
 

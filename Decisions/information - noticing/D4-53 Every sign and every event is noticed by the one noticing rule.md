@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-53 · Every sign and every event is noticed by the one noticing rule
+# Every sign and every event is noticed by the one noticing rule (D4-53)
 
 *live · 24 Oct · spec: [[information - noticing|information/noticing]]*
 

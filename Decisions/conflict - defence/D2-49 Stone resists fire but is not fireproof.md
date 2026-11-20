@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-49 · Stone resists fire but is not fireproof
+# Stone resists fire but is not fireproof (D2-49)
 
 *live · 23 Oct · spec: [[conflict - defence|conflict/defence]], [[conflict - raids|conflict/raids]], [[economy - buildings|economy/buildings]]*
 
@@ -17,7 +17,7 @@ proposals/buildings.md; conversation
 
 
 ## Mentioned by
-- [[L-21 Fire house fire and wildfire in the scheduler, spreading along the…|L-21 · Fire: house fire and wildfire in the scheduler, spreading along the…]]
+- [[L-21 Fire house fire and wildfire in the scheduler, spreading along the…|Fire: house fire and wildfire in the scheduler, spreading along the… (L-21)]]
 - [[Proposal attacks, buildings and walls|Proposal: attacks, buildings and walls]]
 - [[Proposal buildings from parts|Proposal: buildings from parts]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]

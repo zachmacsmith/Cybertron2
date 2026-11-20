@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-13 · A round is a day
+# A round is a day (D4-13)
 
 *live · 22 Oct · spec: [[core - round|core/round]], [[environment - calendar|environment/calendar]]*
 
@@ -17,7 +17,7 @@ conversation; 05 §1
 
 
 ## Mentioned by
-- [[Q-4 Year length in days; season lengths|Q-4 · Year length in days; season lengths]]
+- [[Q-4 Year length in days; season lengths|Year length in days; season lengths (Q-4)]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
 - [[Proposal recipes for the first worlds|Proposal: recipes for the first worlds]]
 - [[Proposal shelter|Proposal: shelter]]

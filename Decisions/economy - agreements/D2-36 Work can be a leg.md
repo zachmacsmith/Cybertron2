@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-36 · Work can be a leg
+# Work can be a leg (D2-36)
 
 *live · 23 Oct · spec: [[economy - agreements|economy/agreements]]*
 

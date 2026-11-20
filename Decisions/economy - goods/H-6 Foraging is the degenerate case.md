@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# H-6 · Foraging is the degenerate case
+# Foraging is the degenerate case (H-6)
 
 *live · 22 Oct · spec: [[economy - goods|economy/goods]], [[economy - production|economy/production]]*
 

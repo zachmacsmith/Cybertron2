@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-67 · Setting off in the morning or at nightfall
+# Setting off in the morning or at nightfall (D4-67)
 
 *live · 2 Nov · spec: [[core - round|core/round]], [[information - prompts|information/prompts]], [[world - roads|world/roads]]*
 
@@ -20,7 +20,7 @@ conversation ("should people be able to set off either in the morning or evening
 
 
 ## Mentioned by
-- [[L-102 Acting at different times of the day, as one general system|L-102 · Acting at different times of the day, as one general system]]
+- [[L-102 Acting at different times of the day, as one general system|Acting at different times of the day, as one general system (L-102)]]
 - [[Setting off in the morning or at nightfall|Setting off in the morning or at nightfall]]
 - [[The round|The round]]
 - [[Prompts|Prompts]]

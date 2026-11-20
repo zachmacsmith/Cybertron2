@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-247 · A process of bulk goods has a most it takes at once, not a least
+# A process of bulk goods has a most it takes at once, not a least (D2-247)
 
 *live · 20 Nov · spec: [[economy - production|economy/production]]*
 
@@ -17,9 +17,9 @@ conversation (20 Nov: "just as hearths should have 8 as a max for hanging meat, 
 
 
 ## Linked
-- parent: [[W-69 Subsistence worlds|W-69 · Subsistence worlds]]
+- parent: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 
 
 ## Mentioned by
-- [[O-2 Make the eleven bulk processes take up to their batch|O-2 · Make the eleven bulk processes take up to their batch]]
+- [[O-2 Make the eleven bulk processes take up to their batch|Make the eleven bulk processes take up to their batch (O-2)]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]

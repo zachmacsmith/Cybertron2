@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-86 · Beds (D2-165), the defaults confirmed
+# Beds (D2-165), the defaults confirmed (D4-86)
 
 *live · 2 Nov · spec: [[economy - buildings|economy/buildings]], [[life - birth_and_death|life/birth_and_death]]*
 
@@ -20,9 +20,9 @@ conversation ("I agree with these")
 
 
 ## Mentioned by
-- [[D2-184 People in a generated world|D2-184 · People in a generated world]]
-- [[D4-87 A baby sleeps where its mother sleeps|D4-87 · A baby sleeps where its mother sleeps]]
-- [[Q-24a Q-24 settled in part by Zach|Q-24a · Q-24 settled in part by Zach]]
+- [[D2-184 People in a generated world|People in a generated world (D2-184)]]
+- [[D4-87 A baby sleeps where its mother sleeps|A baby sleeps where its mother sleeps (D4-87)]]
+- [[Q-24a Q-24 settled in part by Zach|Q-24 settled in part by Zach (Q-24a)]]
 - [[A baby sleeps with its mother; a partner's death shown only once known|A baby sleeps with its mother; a partner's death shown only once known]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
 - [[Proposal the generator, stage 1 (a spec for review before it is…|Proposal: the generator, stage 1 (a spec for review before it is…]]

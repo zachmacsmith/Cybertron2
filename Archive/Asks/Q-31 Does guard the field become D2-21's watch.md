@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-31 · Does `guard the field` become D2-21's watch?
+# Does `guard the field` become D2-21's watch? (Q-31)
 
 *closed, by zach · 37.4 with 37.2, Zach to decide (open since 8 Nov)*
 

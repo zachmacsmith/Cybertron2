@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-198 · Kinds answer people's scares in different ways
+# Kinds answer people's scares in different ways (D2-198)
 
 *live · 8 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-96 · Rot and burial
+# Rot and burial (D2-96)
 
 *live · 23 Oct · spec: [[agents - actions|agents/actions]], [[economy - goods|economy/goods]], [[world - things_in_places|world/things_in_places]]*
 
@@ -17,9 +17,9 @@ things_in_places.md §6
 
 
 ## Mentioned by
-- [[D4-99 Graves dug by many, over days|D4-99 · Graves dug by many, over days]]
-- [[L-9 Disease (mortality, the sick, immunity, nursing, a healer)|L-9 · Disease (mortality, the sick, immunity, nursing, a healer)]]
-- [[L-66 A grave cannot be dug in winter Done|L-66 · A grave cannot be dug in winter **Done**]]
+- [[D4-99 Graves dug by many, over days|Graves dug by many, over days (D4-99)]]
+- [[L-9 Disease (mortality, the sick, immunity, nursing, a healer)|Disease (mortality, the sick, immunity, nursing, a healer) (L-9)]]
+- [[L-66 A grave cannot be dug in winter Done|A grave cannot be dug in winter **Done** (L-66)]]
 - [[Proposal buildings people make their own (descriptions and lines…|Proposal: buildings people make their own (descriptions and lines…]]
 - [[Carcasses, decay and what comes to them|Carcasses, decay and what comes to them]]
 - [[Graves dug by many, over days; a cairn after burial; an unfinished…|Graves dug by many, over days; a cairn after burial; an unfinished…]]

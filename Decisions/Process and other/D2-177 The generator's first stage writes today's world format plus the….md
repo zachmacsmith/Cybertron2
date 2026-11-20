@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-177 · The generator's first stage writes today's world format plus the…
+# The generator's first stage writes today's world format plus the… (D2-177)
 
 *live · 3 Nov*
 

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-241 · The runs world for the model-per-household run as built and run
+# The runs world for the model-per-household run as built and run (D2-241)
 
 *live · 20 Nov*
 
@@ -17,9 +17,9 @@ conversation (20 Nov: "Lol well I already built this and has been running so YES
 
 
 ## Linked
-- parent: [[W-59 The runs world for the model-per-household run|W-59 · The runs world for the model-per-household run]]
-- decides: [[Q-60 The water worlds' people, and the runs world for the…|Q-60 · The water worlds' people, and the runs world for the…]]
+- parent: [[W-59 The runs world for the model-per-household run|The runs world for the model-per-household run (W-59)]]
+- decides: [[Q-60 The water worlds' people, and the runs world for the…|The water worlds' people, and the runs world for the… (Q-60)]]
 
 
 ## Mentioned by
-- [[Q-60 The water worlds' people, and the runs world for the…|Q-60 · The water worlds' people, and the runs world for the…]]
+- [[Q-60 The water worlds' people, and the runs world for the…|The water worlds' people, and the runs world for the… (Q-60)]]

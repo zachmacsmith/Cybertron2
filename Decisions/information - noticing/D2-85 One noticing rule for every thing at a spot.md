@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-85 · One noticing rule for every thing at a spot
+# One noticing rule for every thing at a spot (D2-85)
 
 *live · 23 Oct · spec: [[information - noticing|information/noticing]], [[information - perception|information/perception]], [[world - places|world/places]], [[world - things_in_places|world/things_in_places]]*
 
@@ -20,7 +20,7 @@ a rule per kind of thing
 
 
 ## Mentioned by
-- [[D2-98 Hidden ways are found by the noticing rule|D2-98 · Hidden ways are found by the noticing rule]]
+- [[D2-98 Hidden ways are found by the noticing rule|Hidden ways are found by the noticing rule (D2-98)]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
 - [[Carcasses, decay and what comes to them|Carcasses, decay and what comes to them]]
 - [[Cats that choose where to live|Cats that choose where to live]]

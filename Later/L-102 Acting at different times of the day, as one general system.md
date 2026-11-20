@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-102 · Acting at different times of the day, as one general system
+# Acting at different times of the day, as one general system (L-102)
 
 *open · 37.2 with 37.4*
 
@@ -20,7 +20,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[L-107 Tallow's real uses|L-107 · Tallow's real uses]]
+- [[L-107 Tallow's real uses|Tallow's real uses (L-107)]]
 - [[Forays going out from the village and coming back|Forays: going out from the village and coming back]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
 - *and 2 index or audit notes*

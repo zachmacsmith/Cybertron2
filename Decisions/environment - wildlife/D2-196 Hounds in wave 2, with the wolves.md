@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-196 · Hounds in wave 2, with the wolves
+# Hounds in wave 2, with the wolves (D2-196)
 
 *live · 8 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 

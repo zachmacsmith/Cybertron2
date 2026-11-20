@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-215 · The weir's runs: the river's level, then re-measure
+# The weir's runs: the river's level, then re-measure (D2-215)
 
 *live · 16 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 
@@ -20,9 +20,9 @@ a looser rain cue; runs three to five times larger now; a wetter era
 
 
 ## Mentioned by
-- [[D2-231 The runs world's runs on set nights|D2-231 · The runs world's runs on set nights]]
-- [[Q-55 The weir as built, measured|Q-55 · The weir as built, measured]]
-- [[L-114 The river high or in spate as a sign|L-114 · The river high or in spate as a sign]]
+- [[D2-231 The runs world's runs on set nights|The runs world's runs on set nights (D2-231)]]
+- [[Q-55 The weir as built, measured|The weir as built, measured (Q-55)]]
+- [[L-114 The river high or in spate as a sign|The river high or in spate as a sign (L-114)]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[A signs pass after the lake runs (17 Nov)|A signs pass after the lake runs (17 Nov)]]
 - [[Wildlife|Wildlife]]

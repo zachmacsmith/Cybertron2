@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-52 · Skill by practice on all work
+# Skill by practice on all work (D2-52)
 
 *live · 23 Oct · spec: [[agents - modifiers|agents/modifiers]], [[economy - production|economy/production]]*
 

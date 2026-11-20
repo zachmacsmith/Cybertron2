@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-3 · Talk-step waves (one or two)
+# Talk-step waves (one or two) (Q-3)
 
 *open · 37.4*
 

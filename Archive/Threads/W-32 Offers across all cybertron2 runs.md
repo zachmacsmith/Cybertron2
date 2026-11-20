@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-32 · Offers across all cybertron2 runs
+# Offers across all cybertron2 runs (W-32)
 
 *done · 37.4 · touched  ()*
 

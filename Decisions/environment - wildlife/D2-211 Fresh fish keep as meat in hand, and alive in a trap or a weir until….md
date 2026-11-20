@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-211 · Fresh fish keep as meat in hand, and alive in a trap or a weir until…
+# Fresh fish keep as meat in hand, and alive in a trap or a weir until… (D2-211)
 
 *live · 16 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 
@@ -20,8 +20,8 @@ the proposal of 0.5 a night
 
 
 ## Mentioned by
-- [[D2-216 Eels and salmon are fish|D2-216 · Eels and salmon are fish]]
-- [[Q-54 Fresh fish meat's rate in hand|Q-54 · Fresh fish: meat's rate in hand]]
+- [[D2-216 Eels and salmon are fish|Eels and salmon are fish (D2-216)]]
+- [[Q-54 Fresh fish meat's rate in hand|Fresh fish: meat's rate in hand (Q-54)]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[Wildlife|Wildlife]]
 - [[02zzq the records and the workflow as they are, and how Zach works…|02zzq: the records and the workflow as they are, and how Zach works…]]

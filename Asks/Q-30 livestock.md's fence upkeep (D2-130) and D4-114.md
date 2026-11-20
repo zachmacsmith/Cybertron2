@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-30 · livestock.md's fence upkeep (D2-130) and D4-114
+# livestock.md's fence upkeep (D2-130) and D4-114 (Q-30)
 
 *open · open*
 

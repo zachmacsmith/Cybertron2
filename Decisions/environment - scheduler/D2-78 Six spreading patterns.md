@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-78 · Six spreading patterns
+# Six spreading patterns (D2-78)
 
 *live · 23 Oct · spec: [[environment - scheduler|environment/scheduler]]*
 

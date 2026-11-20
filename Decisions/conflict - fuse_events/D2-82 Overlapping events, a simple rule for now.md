@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-82 · Overlapping events, a simple rule for now
+# Overlapping events, a simple rule for now (D2-82)
 
 *live · 23 Oct · spec: [[conflict - fuse_events|conflict/fuse_events]]*
 
@@ -17,7 +17,7 @@ conversation ("implement something but flag this")
 
 
 ## Mentioned by
-- [[Q-19 Overlapping fuse events in more depth|Q-19 · Overlapping fuse events in more depth]]
-- [[L-6 Overlapping fuse events in depth|L-6 · Overlapping fuse events in depth]]
+- [[Q-19 Overlapping fuse events in more depth|Overlapping fuse events in more depth (Q-19)]]
+- [[L-6 Overlapping fuse events in depth|Overlapping fuse events in depth (L-6)]]
 - [[Proposal fuse events (time to respond)|Proposal: fuse events (time to respond)]]
 - [[Fuse events time to respond|Fuse events: time to respond]]

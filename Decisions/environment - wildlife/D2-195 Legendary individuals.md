@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-195 · Legendary individuals
+# Legendary individuals (D2-195)
 
 *live · 8 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 

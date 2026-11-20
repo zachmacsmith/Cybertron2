@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-88 · Traces left by passers
+# Traces left by passers (D2-88)
 
 *live · 23 Oct · spec: [[information - noticing|information/noticing]]*
 

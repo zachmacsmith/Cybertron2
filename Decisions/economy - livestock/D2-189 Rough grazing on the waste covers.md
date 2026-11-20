@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-189 · Rough grazing on the waste covers
+# Rough grazing on the waste covers (D2-189)
 
 *live · 2 Nov · spec: [[economy - livestock|economy/livestock]]*
 
@@ -20,7 +20,7 @@ waste land closed to herds
 
 
 ## Mentioned by
-- [[L-41 Herds on the new covers Done decided D2-189|L-41 · Herds on the new covers **Done:** decided D2-189]]
+- [[L-41 Herds on the new covers Done decided D2-189|Herds on the new covers **Done:** decided D2-189 (L-41)]]
 - [[Proposal the landscape generator (a world under the graph)|Proposal: the landscape generator (a world under the graph)]]
 - [[Proposal the layout inside a node (parcels, features, and things on…|Proposal: the layout inside a node (parcels, features, and things on…]]
 - [[Proposal livestock|Proposal: livestock]]

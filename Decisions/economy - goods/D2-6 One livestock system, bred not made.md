@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-6 · One livestock system, bred not made
+# One livestock system, bred not made (D2-6)
 
 *live · 22 Oct · spec: [[economy - goods|economy/goods]], [[economy - livestock|economy/livestock]]*
 
@@ -20,7 +20,7 @@ cattle and horses are kinds of livestock that breed from a herd; wild herds live
 
 
 ## Mentioned by
-- [[L-36 Livestock kinds beyond cattle and herds moved with the seasons|L-36 · Livestock kinds beyond cattle and herds moved with the seasons]]
+- [[L-36 Livestock kinds beyond cattle and herds moved with the seasons|Livestock kinds beyond cattle and herds moved with the seasons (L-36)]]
 - [[Proposal what can happen (eras, weather, hazards that spread, and…|Proposal: what can happen (eras, weather, hazards that spread, and…]]
 - [[Proposal livestock|Proposal: livestock]]
 - [[Proposal recipes for the first worlds|Proposal: recipes for the first worlds]]

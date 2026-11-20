@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-15 · More hands on a plot raise its yield
+# More hands on a plot raise its yield (D2-15)
 
 *live · 22 Oct · spec: [[economy - production|economy/production]]*
 

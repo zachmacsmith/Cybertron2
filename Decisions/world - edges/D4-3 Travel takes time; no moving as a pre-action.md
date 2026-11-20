@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-3 · Travel takes time; no moving as a pre-action
+# Travel takes time; no moving as a pre-action (D4-3)
 
 *live · 22 Oct · spec: [[world - edges|world/edges]]*
 
@@ -20,6 +20,6 @@ replaced in part by [[D4-8 Arrive, then decide|D4-8]]
 
 
 ## Mentioned by
-- [[D4-8 Arrive, then decide|D4-8 · Arrive, then decide]]
+- [[D4-8 Arrive, then decide|Arrive, then decide (D4-8)]]
 - [[Edges and travel|Edges and travel]]
 - [[02zd cybertron2 as a response to cybertron 1|02zd: cybertron2 as a response to cybertron 1]]

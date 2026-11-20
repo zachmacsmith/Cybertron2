@@ -5,11 +5,11 @@ state: waiting
 updated: "2026-11-20"
 ---
 
-# W-30 · Build brief 4b
+# Build brief 4b (W-30)
 
 *waiting · 37.4 · touched 10 Nov (10 days ago)*
 
-> **Next:** Zach on [[Q-41 Brief 4b as built, and its gate|Q-41]], the merge into ecology, a live run. (Was [[W-29 A multi-village wild region and its live run|W-29]]: that number was taken by 37.2's region world in 6702cd7, which replaced this row)
+> **Next:** Zach on [[Q-41 Brief 4b as built, and its gate|Q-41]], the merge into ecology, a live run. (Was [[W-29 Writing up the 10 Nov wild-region live run|W-29]]: that number was taken by 37.2's region world in 6702cd7, which replaced this row)
 
 ## What it is
 Build brief 4b (hunt_followups.md): stage A wariness, the history by distance, lagged recovery, births through the season, carrion's draw (37.2's ecology); stage B declared hunting parties, the catch by carry, a led beast; the gate
@@ -17,7 +17,7 @@ Build brief 4b (hunt_followups.md): stage A wariness, the history by distance, l
 ## Done so far, and what is left
 built and gated on the branch (`8158674`, 538 tests pass); write-up in 02zx (brief 4b) and OPEN [[Q-41 Brief 4b as built, and its gate|Q-41]].
 
-**Left:** Zach on [[Q-41 Brief 4b as built, and its gate|Q-41]], the merge into ecology, a live run. (Was [[W-29 A multi-village wild region and its live run|W-29]]: that number was taken by 37.2's region world in 6702cd7, which replaced this row)
+**Left:** Zach on [[Q-41 Brief 4b as built, and its gate|Q-41]], the merge into ecology, a live run. (Was [[W-29 Writing up the 10 Nov wild-region live run|W-29]]: that number was taken by 37.2's region world in 6702cd7, which replaced this row)
 
 ## Where
 - branch `ecology-hunt2` (from `ecology-calibrate`)

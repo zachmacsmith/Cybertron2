@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-21 · The watch
+# The watch (D2-21)
 
 *live · 22 Oct · spec: [[conflict - defence|conflict/defence]], [[conflict - fuse_events|conflict/fuse_events]], [[core - world_schema|core/world_schema]], [[life - birth_and_death|life/birth_and_death]]*
 
@@ -17,9 +17,9 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[Q-12 Decisions made with 37.2 that belong in 37.4's spec areas and are not…|Q-12 · Decisions made with 37.2 that belong in 37.4's spec areas and are not…]]
-- [[Q-31 Does guard the field become D2-21's watch|Q-31 · Does `guard the field` become D2-21's watch?]]
-- [[L-102 Acting at different times of the day, as one general system|L-102 · Acting at different times of the day, as one general system]]
+- [[Q-12 Decisions made with 37.2 that belong in 37.4's spec areas and are not…|Decisions made with 37.2 that belong in 37.4's spec areas and are not… (Q-12)]]
+- [[Q-31 Does guard the field become D2-21's watch|Does `guard the field` become D2-21's watch? (Q-31)]]
+- [[L-102 Acting at different times of the day, as one general system|Acting at different times of the day, as one general system (L-102)]]
 - [[Proposal attacks, buildings and walls|Proposal: attacks, buildings and walls]]
 - [[Carcasses, decay and what comes to them|Carcasses, decay and what comes to them]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]

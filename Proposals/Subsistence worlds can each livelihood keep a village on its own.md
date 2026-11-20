@@ -10,9 +10,9 @@ updated: "2026-11-20"
 > nutrition calibration worlds: each livelihood alone (arable, herding, hunting, resident fishing, the runs, foraging, gathering as a control) on a grid of skill, capital and village size, measured with bots; then a few live runs; then specialists side by side
 
 
-**Status:** discussion (20 Nov 2026). Decided in principle: [[D2-242 Subsistence test worlds|D2-242]]. The design below is for Zach's choices (OPEN [[Q-66 Subsistence worlds|Q-66]]).
+**Status:** discussion (20 Nov 2026). Decided in principle: [[D2-242 Subsistence test worlds|D2-242]]. The design below is for Zach's choices (OPEN [[Q-66 The nutrition worlds|Q-66]]).
 
-**Owner:** 37.2 (the worlds, the targets, the report); 37.4 for any engine switch they need. WORK [[W-69 Subsistence worlds|W-69]].
+**Owner:** 37.2 (the worlds, the targets, the report); 37.4 for any engine switch they need. WORK [[W-69 Nutrition worlds|W-69]].
 
 ## Summary
 
@@ -93,7 +93,7 @@ A livelihood that fails its row means a calibration to fix, or a missing piece, 
 
 ### What it needs first
 
-1. **Food on one basis** ([[W-64 Shared units for food, weight and work|W-64]], shared units). Fish food values are wrong: an eel gives a fifth of its real food. Until the
+1. **Food on one basis** ([[W-64 Food, weight and work on one basis|W-64]], shared units). Fish food values are wrong: an eel gives a fifth of its real food. Until the
    units are right, the fishing and runs rows measure the bug.
 2. **A switch for each food source.** Farming cannot be switched off (OPEN [[L-112 A farming pack|L-112]]): its rows carry no pack, so a world can only
    remove fields, seed and beasts. Each world must also be able to lack game, fish or a run. The clean way is a `farming` pack
@@ -102,8 +102,8 @@ A livelihood that fails its row means a calibration to fix, or a missing piece, 
 3. **Bots that do each livelihood competently**, or the grid measures the bot. Scripted bots exist for the null arms. Each
    livelihood needs a plan: sow and keep seed; graze and make hay; hunt and set snares; fish and trap; mind the run and preserve.
 4. **The high tiers that are not built:** nets and bows (pack K3), dogs and husbandry (K6), boats (brief 5's fen half). Until
-   then the high rows use what exists, and the report says which tier is missing ([[W-67 The wildlife economy extended|W-67]]).
-5. **The engine's weather reads only height** ([[Q-56 The land the engine reads|Q-56]]) until climate from the land is built. Worlds differ in land and wild life
+   then the high rows use what exists, and the report says which tier is missing ([[W-67 Extending the wildlife economy|W-67]]).
+5. **The engine's weather reads only height** ([[Q-56 How the weather should follow each place's climate from the generated…|Q-56]]) until climate from the land is built. Worlds differ in land and wild life
    now; their weather will differ later.
 
 ### The stages
@@ -136,18 +136,18 @@ any one livelihood can carry a village, so nothing says whether specialising cou
 
 ## Open questions
 
-OPEN [[Q-66 Subsistence worlds|Q-66]]:
+OPEN [[Q-66 The nutrition worlds|Q-66]]:
 1. The livelihoods: the five plus herding, foraging and gathering alone as a control? Add the coast and mixed farming later?
 2. The grid: all nine skill × capital cells, or the diagonal and the two corners?
 3. Bots first (free), then a few live runs only where a livelihood works on paper?
-4. The prerequisites in this order: shared units ([[W-64 Shared units for food, weight and work|W-64]]), the switches (37.4), the bots, then the grid?
+4. The prerequisites in this order: shared units ([[W-64 Food, weight and work on one basis|W-64]]), the switches (37.4), the bots, then the grid?
 5. The target bands above, as a first cut to calibrate against?
 6. Stage 3, specialists side by side, as the goal of the series?
 
 ## Affects
 
 `cybertron2/specs/` (a subsistence maker beside the calibration suite), the bots (`cybertron2/` null-arm agents), one small engine
-change (the switches, 37.4), the data rows that miss their targets, [[W-64 Shared units for food, weight and work|W-64]] and [[W-67 The wildlife economy extended|W-67]].
+change (the switches, 37.4), the data rows that miss their targets, [[W-64 Food, weight and work on one basis|W-64]] and [[W-67 Extending the wildlife economy|W-67]].
 
 ## History
 

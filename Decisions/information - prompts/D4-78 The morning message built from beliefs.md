@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-78 · The morning message built from beliefs
+# The morning message built from beliefs (D4-78)
 
 *live · 1 Nov · spec: [[information - prompts|information/prompts]]*
 

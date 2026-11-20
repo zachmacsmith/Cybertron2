@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-170 · A line costs its own engraving
+# A line costs its own engraving (D2-170)
 
 *live · 3 Nov · spec: [[economy - buildings|economy/buildings]]*
 

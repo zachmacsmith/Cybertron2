@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-33 · Seeded knowledge of other lines' crafts is awareness, not skill
+# Seeded knowledge of other lines' crafts is awareness, not skill (D4-33)
 
 *live · 23 Oct · spec: [[information - perception|information/perception]], [[life - birth_and_death|life/birth_and_death]], [[seeding - populations|seeding/populations]]*
 

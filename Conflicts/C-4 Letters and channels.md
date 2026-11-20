@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# C-4 · Letters and channels
+# Letters and channels (C-4)
 
 *open · 37.4 with 37.2*
 

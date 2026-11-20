@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-73 · One's beasts as one last knew of them, kept short
+# One's beasts as one last knew of them, kept short (D4-73)
 
 *live · 2 Nov · spec: [[information - perception|information/perception]]*
 

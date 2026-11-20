@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-40 · (Done 3 Nov: D4-89 and D4-91 written into economy/buildings.md, D4-92…
+# (Done 3 Nov: D4-89 and D4-91 written into economy/buildings.md, D4-92… (L-40)
 
 *open · 37.2*
 

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-31 · One system of agreements made of legs
+# One system of agreements made of legs (D2-31)
 
 *live · 23 Oct · spec: [[economy - agreements|economy/agreements]]*
 

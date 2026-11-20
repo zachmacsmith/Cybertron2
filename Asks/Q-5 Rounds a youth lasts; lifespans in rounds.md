@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-5 · Rounds a youth lasts; lifespans in rounds
+# Rounds a youth lasts; lifespans in rounds (Q-5)
 
 *open · 37.4 (37.1)*
 

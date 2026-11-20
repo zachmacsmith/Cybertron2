@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-60 · The food ladder
+# The food ladder (D2-60)
 
 *live · 23 Oct · spec: [[economy - buildings|economy/buildings]], [[economy - goods|economy/goods]], [[economy - production|economy/production]]*
 

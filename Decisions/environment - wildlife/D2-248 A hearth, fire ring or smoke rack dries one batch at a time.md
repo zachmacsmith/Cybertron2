@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-248 · A hearth, fire ring or smoke rack dries one batch at a time
+# A hearth, fire ring or smoke rack dries one batch at a time (D2-248)
 
 *live · 20 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 
@@ -17,9 +17,9 @@ conversation (20 Nov: "53: a - yes only one batch otherwise its against the poin
 
 
 ## Linked
-- parent: [[W-48 Build brief 5, river and water|W-48 · Build brief 5, river and water]]
+- parent: [[W-48 Build brief 5, river and water|Build brief 5, river and water (W-48)]]
 
 
 ## Mentioned by
-- [[Q-53 Brief 5 as built|Q-53 · Brief 5 as built]]
+- [[Q-53 Merging the water work|Merging the water work (Q-53)]]
 - [[Wildlife|Wildlife]]

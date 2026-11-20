@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-4 · Year length in days; season lengths
+# Year length in days; season lengths (Q-4)
 
 *open · 37.4*
 

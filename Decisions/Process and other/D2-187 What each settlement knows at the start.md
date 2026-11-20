@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-187 · What each settlement knows at the start
+# What each settlement knows at the start (D2-187)
 
 *live · 3 Nov*
 

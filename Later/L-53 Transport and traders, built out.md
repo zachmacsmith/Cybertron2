@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-53 · Transport and traders, built out
+# Transport and traders, built out (L-53)
 
 *open · 37.2 (design), 37.4*
 
@@ -20,7 +20,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[L-52 The carrying burden is an incomplete measure|L-52 · The carrying burden is an incomplete measure]]
+- [[L-52 The carrying burden is an incomplete measure|The carrying burden is an incomplete measure (L-52)]]
 - [[The dependence ladder (OPEN L-50)|The dependence ladder (OPEN L-50)]]
 - [[Proposal the economy plan for cybertron2|Proposal: the economy plan for cybertron2]]
 - [[Proposal environments, ecosystems and how they cluster|Proposal: environments, ecosystems and how they cluster]]

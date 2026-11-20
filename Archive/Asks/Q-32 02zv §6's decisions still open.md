@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-32 · 02zv §6's decisions still open
+# 02zv §6's decisions still open (Q-32)
 
 *closed, by zach · Zach (blocks WORK W-4)*
 
@@ -24,9 +24,9 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-4 wild_behaviour.md v3|W-4 · wild_behaviour.md v3]]
-- [[L-117 Wildlife pack K3 forays, methods and knowing|L-117 · Wildlife pack K3: forays, methods and knowing]]
-- [[L-118 Wildlife pack K5 wood and frontier|L-118 · Wildlife pack K5: wood and frontier]]
-- [[L-119 Wildlife pack K6 keeping|L-119 · Wildlife pack K6: keeping]]
+- [[W-4 wild_behaviour.md v3|wild_behaviour.md v3 (W-4)]]
+- [[L-117 Wildlife pack K3 forays, methods and knowing|Wildlife pack K3: forays, methods and knowing (L-117)]]
+- [[L-118 Wildlife pack K5 wood and frontier|Wildlife pack K5: wood and frontier (L-118)]]
+- [[L-119 Wildlife pack K6 keeping|Wildlife pack K6: keeping (L-119)]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - *and 4 index or audit notes*

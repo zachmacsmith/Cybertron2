@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-85 · A seeded building gets some free floor by default
+# A seeded building gets some free floor by default (D4-85)
 
 *live · 2 Nov · spec: [[economy - buildings|economy/buildings]]*
 
@@ -20,6 +20,6 @@ seeded buildings with no free floor unless the file gave it (02zh §1)
 
 
 ## Mentioned by
-- [[Q-24a Q-24 settled in part by Zach|Q-24a · Q-24 settled in part by Zach]]
+- [[Q-24a Q-24 settled in part by Zach|Q-24 settled in part by Zach (Q-24a)]]
 - [[Proposal the generator, stage 1 (a spec for review before it is…|Proposal: the generator, stage 1 (a spec for review before it is…]]
 - [[Buildings|Buildings]]

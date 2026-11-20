@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-184 · People in a generated world
+# People in a generated world (D2-184)
 
 *live · 3 Nov*
 

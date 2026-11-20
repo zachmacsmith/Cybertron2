@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-64 · The records as items with rendered views, one tool and a skill…
+# The records as items with rendered views, one tool and a skill… (Q-64)
 
 *closed · Zach (37.2; 37.4 for (2))*
 

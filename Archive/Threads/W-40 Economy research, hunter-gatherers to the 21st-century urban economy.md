@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-40 · Economy research, hunter-gatherers to the 21st-century urban economy
+# Economy research, hunter-gatherers to the 21st-century urban economy (W-40)
 
 *done · 37.2 (session "Thicker economy exploration") with thirteen research agents · touched  ()*
 

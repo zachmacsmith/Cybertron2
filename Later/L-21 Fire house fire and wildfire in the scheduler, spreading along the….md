@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-21 · Fire: house fire and wildfire in the scheduler, spreading along the…
+# Fire: house fire and wildfire in the scheduler, spreading along the… (L-21)
 
 *open · 37.2 with 37.4*
 

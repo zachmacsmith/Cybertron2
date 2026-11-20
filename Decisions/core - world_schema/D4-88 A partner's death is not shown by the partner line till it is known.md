@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-88 · A partner's death is not shown by the partner line till it is known
+# A partner's death is not shown by the partner line till it is known (D4-88)
 
 *live · 2 Nov · spec: [[core - world_schema|core/world_schema]], [[life - birth_and_death|life/birth_and_death]]*
 

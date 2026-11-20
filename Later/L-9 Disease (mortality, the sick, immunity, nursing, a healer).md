@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-9 · Disease (mortality, the sick, immunity, nursing, a healer)
+# Disease (mortality, the sick, immunity, nursing, a healer) (L-9)
 
 *open · 37.2 with 37.1*
 
@@ -18,8 +18,8 @@ Disease (mortality, the sick, immunity, nursing, a healer); rot's risk feeds it 
 
 
 ## Mentioned by
-- [[D2-149 Old age is tuned to a chosen life expectancy under each health regime|D2-149 · Old age is tuned to a chosen life expectancy under each health regime]]
-- [[L-123 Wildlife pack K10 illness and the hidden|L-123 · Wildlife pack K10: illness and the hidden]]
+- [[D2-149 Old age is tuned to a chosen life expectancy under each health regime|Old age is tuned to a chosen life expectancy under each health regime (D2-149)]]
+- [[L-123 Wildlife pack K10 illness and the hidden|Wildlife pack K10: illness and the hidden (L-123)]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
 - [[Proposal what can happen (eras, weather, hazards that spread, and…|Proposal: what can happen (eras, weather, hazards that spread, and…]]

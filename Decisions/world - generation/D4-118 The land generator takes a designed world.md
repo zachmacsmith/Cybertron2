@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-118 · The land generator takes a designed world
+# The land generator takes a designed world (D4-118)
 
 *live · 13 Nov · spec: [[world - generation|world/generation]]*
 
@@ -20,8 +20,8 @@ none
 
 
 ## Mentioned by
-- [[Q-42 The peoples benchmark before any run|Q-42 · The peoples benchmark before any run]]
-- [[W-34 Worlds for the peoples benchmark|W-34 · Worlds for the peoples benchmark]]
+- [[Q-42 The peoples benchmark's design before any run|The peoples benchmark's design before any run (Q-42)]]
+- [[W-34 Worlds for the peoples benchmark|Worlds for the peoples benchmark (W-34)]]
 - [[A model to each household in the runs world|A model to each household in the runs world]]
 - [[The peoples benchmark worlds where each model is a people|The peoples benchmark: worlds where each model is a people]]
 - [[Generating a landscape|Generating a landscape]]

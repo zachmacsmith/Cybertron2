@@ -46,7 +46,7 @@ at half the weight (food 2.0 a unit, keeping as dried meat). It shares the heart
 ## Alternatives considered
 
 - Fish only in a smokehouse (as before). It kept the smokehouse's role, but left a fishing household nothing at the hearth.
-- A separate rack for fish at a hearth. This would double a hearth's drying, against the one-batch rule (brief 5 choice 1, OPEN [[Q-53 Brief 5 as built|Q-53]]).
+- A separate rack for fish at a hearth. This would double a hearth's drying, against the one-batch rule (brief 5 choice 1, OPEN [[Q-53 Merging the water work|Q-53]]).
 
 ## Open questions
 

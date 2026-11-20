@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-186 · Names from parts, descriptions by the model
+# Names from parts, descriptions by the model (D2-186)
 
 *live · 3 Nov*
 

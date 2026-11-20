@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-45 · Cattle eat
+# Cattle eat (D4-45)
 
 *live · 23 Oct · spec: [[economy - livestock|economy/livestock]]*
 

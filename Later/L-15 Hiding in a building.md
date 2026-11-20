@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-15 · Hiding in a building
+# Hiding in a building (L-15)
 
 *open · 37.4*
 

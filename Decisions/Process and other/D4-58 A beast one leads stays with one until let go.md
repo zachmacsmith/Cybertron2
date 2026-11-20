@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-58 · A beast one leads stays with one until let go
+# A beast one leads stays with one until let go (D4-58)
 
 *live · 24 Oct*
 

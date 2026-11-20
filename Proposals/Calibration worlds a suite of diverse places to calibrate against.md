@@ -68,11 +68,11 @@ Ranges are wide on purpose. They say a place of this kind looks like this, not a
 
 ### How it is used
 
-- **The generator audit** ([[W-54 The calibration worlds|W-54]]): generate the suite and read the land checks first. The trench (02zzn) and the unread climate
+- **The generator audit** ([[W-54 The twelve calibration worlds and an audit of the generator across…|W-54]]): generate the suite and read the land checks first. The trench (02zzn) and the unread climate
   (02zzo) were found this way, one world at a time.
-- **Weather:** climate from the land ([[Q-56 The land the engine reads|Q-56]]) is calibrated on rows 1 to 7 and 12.
+- **Weather:** climate from the land ([[Q-56 How the weather should follow each place's climate from the generated…|Q-56]]) is calibrated on rows 1 to 7 and 12.
 - **Water:** the two-clock river model (02zzn) and the flow levels ([[D2-218 Set traps in high water|D2-218]]) on every world with rivers.
-- **Ecosystems:** the wild layer's calibration backlog (02zp §16) and the water measure's fish-eaters ([[W-60 The ecology's water measure counted each lake and the large river…|W-60]]) across all twelve.
+- **Ecosystems:** the wild layer's calibration backlog (02zp §16) and the water measure's fish-eaters ([[W-60 Fixing the ecology's water counted twice, then rechecking the…|W-60]]) across all twelve.
 
 ## Why
 

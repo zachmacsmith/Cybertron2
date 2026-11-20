@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-73 · Phase 3's rest
+# Phase 3's rest (L-73)
 
 *open · 37.4*
 
@@ -20,6 +20,6 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-16 The engine overhaul|W-16 · The engine overhaul]]
+- [[W-16 The engine overhaul|The engine overhaul (W-16)]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
 - *and 3 index or audit notes*

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-138 · A child only by choice
+# A child only by choice (D2-138)
 
 *live · 24 Oct · spec: [[life - birth_and_death|life/birth_and_death]]*
 
@@ -20,7 +20,7 @@ automatic births
 
 
 ## Mentioned by
-- [[L-12 Children and life (we'll come back to this)|L-12 · Children and life ("we'll come back to this")]]
+- [[L-12 Children and life (we'll come back to this)|Children and life ("we'll come back to this") (L-12)]]
 - [[Proposal children as a choice, counted in days (costs, care, growing…|Proposal: children as a choice, counted in days (costs, care, growing…]]
 - [[A benchmark by living descendants, on a ladder of worlds|A benchmark by living descendants, on a ladder of worlds]]
 - [[Proposal fertility and replacement|Proposal: fertility and replacement]]

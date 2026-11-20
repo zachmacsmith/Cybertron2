@@ -5,7 +5,7 @@ state: merged
 updated: "2026-11-20"
 ---
 
-# W-9 · Compile the generator into spec/world/generation.md
+# Compile the generator into spec/world/generation.md (W-9)
 
 *merged, by zach · 37.2 · touched 3 Nov (17 days ago)*
 
@@ -13,14 +13,14 @@ updated: "2026-11-20"
 Compile the generator into spec/world/generation.md (OPEN [[L-101 Compile the generator into specworldgeneration.md|L-101]])
 
 ## Done so far, and what is left
-merged 20 Nov: merged into [[W-68 37.2's spec catch-up|W-68]]
+merged 20 Nov: merged into [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]]
 
 ## Where
 - `docs/cybertron2/spec/world/generation.md`
 
 
 ## Mentioned by
-- [[W-68 37.2's spec catch-up|W-68 · 37.2's spec catch-up]]
+- [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|Writing 37.2's decisions into the spec (about 52 missing) (W-68)]]
 - [[Proposal world generation as one history, with pins met in the loop|Proposal: world generation as one history, with pins met in the loop]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]

@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-114 · The river high or in spate as a sign
+# The river high or in spate as a sign (L-114)
 
 *open · 37.4*
 
@@ -20,5 +20,5 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-57 The lake runs' seven engine faults|W-57 · The lake runs' seven engine faults]]
+- [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]]
 - [[38.77 The lake runs' faults, fish on the hearth rack, and a signs…|38.77: The lake runs' faults, fish on the hearth rack, and a signs…]]

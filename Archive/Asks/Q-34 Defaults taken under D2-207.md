@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-34 · Defaults taken under D2-207
+# Defaults taken under D2-207 (Q-34)
 
 *closed, by zach · Zach*
 

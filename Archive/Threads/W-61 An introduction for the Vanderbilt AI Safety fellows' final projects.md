@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-61 · An introduction for the Vanderbilt AI Safety fellows' final projects
+# An introduction for the Vanderbilt AI Safety fellows' final projects (W-61)
 
 *done · lead session (C1 wrap-up) · touched 17 Nov (3 days ago)*
 

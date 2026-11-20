@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-62 · production.md "Farming" and plot shares as built **Done**
+# production.md "Farming" and plot shares as built **Done** (L-62)
 
 *open · 37.2*
 

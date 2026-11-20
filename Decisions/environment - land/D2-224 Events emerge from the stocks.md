@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-224 · Events emerge from the stocks
+# Events emerge from the stocks (D2-224)
 
 *live · 17 Nov · spec: [[environment - land|environment/land]]*
 

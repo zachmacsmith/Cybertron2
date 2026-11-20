@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-134 · Riders in a cart
+# Riders in a cart (D2-134)
 
 *live · 24 Oct · spec: [[economy - lodging|economy/lodging]], [[economy - transport|economy/transport]]*
 

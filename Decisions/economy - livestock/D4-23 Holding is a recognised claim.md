@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-23 · Holding is a recognised claim
+# Holding is a recognised claim (D4-23)
 
 *live · 22 Oct · spec: [[economy - livestock|economy/livestock]], [[economy - production|economy/production]], [[economy - transport|economy/transport]], [[institutions - membership|institutions/membership]], [[world - holding|world/holding]], [[world - things_in_places|world/things_in_places]]*
 
@@ -20,11 +20,11 @@ the old engine's holder field enforced by the engine
 
 
 ## Mentioned by
-- [[D2-59 The plot's numbers|D2-59 · The plot's numbers]]
-- [[D2-79 Windfalls have no rule of their own|D2-79 · Windfalls have no rule of their own]]
-- [[D2-87 Left things are held by nobody|D2-87 · Left things are held by nobody]]
-- [[D4-114 What is physically there can be used|D4-114 · What is physically there can be used]]
-- [[Q-11 Who holds a plot|Q-11 · Who holds a plot]]
+- [[D2-59 The plot's numbers|The plot's numbers (D2-59)]]
+- [[D2-79 Windfalls have no rule of their own|Windfalls have no rule of their own (D2-79)]]
+- [[D2-87 Left things are held by nobody|Left things are held by nobody (D2-87)]]
+- [[D4-114 What is physically there can be used|What is physically there can be used (D4-114)]]
+- [[Q-11 Who holds a plot|Who holds a plot (Q-11)]]
 - [[Acts made to work as they read|Acts made to work as they read]]
 - [[Proposal agreements and obligations (one system for trade, credit…|Proposal: agreements and obligations (one system for trade, credit…]]
 - [[Proposal beliefs, values and customs (flagged for later OPEN L-25)|Proposal: beliefs, values and customs (flagged for later: OPEN L-25)]]

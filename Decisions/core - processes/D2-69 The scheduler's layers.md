@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-69 · The scheduler's layers
+# The scheduler's layers (D2-69)
 
 *live · 23 Oct · spec: [[core - processes|core/processes]], [[environment - scheduler|environment/scheduler]]*
 
@@ -17,8 +17,8 @@ proposals/environment.md §3-§5
 
 
 ## Mentioned by
-- [[D2-224 Events emerge from the stocks|D2-224 · Events emerge from the stocks]]
-- [[D4-109 The weather scheduler|D4-109 · The weather scheduler]]
+- [[D2-224 Events emerge from the stocks|Events emerge from the stocks (D2-224)]]
+- [[D4-109 The weather scheduler|The weather scheduler (D4-109)]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
 - [[Proposal the hidden state of places and things (shared variables…|Proposal: the hidden state of places and things (shared variables…]]

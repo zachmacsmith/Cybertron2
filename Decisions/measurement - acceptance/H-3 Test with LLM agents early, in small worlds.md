@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# H-3 · Test with LLM agents early, in small worlds
+# Test with LLM agents early, in small worlds (H-3)
 
 *live · 22 Oct · spec: [[measurement - acceptance|measurement/acceptance]]*
 

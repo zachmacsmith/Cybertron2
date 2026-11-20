@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-24 · Built for the building package
+# Built for the building package (Q-24)
 
 *closed, by zach · 37.2 (Zach to confirm (1))*
 
@@ -27,9 +27,9 @@ Built for the building package (02zh, 3 Nov), readings of the brief and what cou
 
 
 ## Mentioned by
-- [[D4-84 A camp keeps little|D4-84 · A camp keeps little]]
-- [[D4-85 A seeded building gets some free floor by default|D4-85 · A seeded building gets some free floor by default]]
-- [[Q-24a Q-24 settled in part by Zach|Q-24a · Q-24 settled in part by Zach]]
+- [[D4-84 A camp keeps little|A camp keeps little (D4-84)]]
+- [[D4-85 A seeded building gets some free floor by default|A seeded building gets some free floor by default (D4-85)]]
+- [[Q-24a Q-24 settled in part by Zach|Q-24 settled in part by Zach (Q-24a)]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
 - [[38.45 the building package, as built (brief 02zh)|38.45: the building package, as built (brief 02zh)]]

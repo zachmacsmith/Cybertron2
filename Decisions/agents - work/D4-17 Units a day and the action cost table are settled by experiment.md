@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-17 · Units a day and the action cost table are **settled by experiment**
+# Units a day and the action cost table are **settled by experiment** (D4-17)
 
 *live · 22 Oct · spec: [[agents - work|agents/work]], [[economy - money_and_markets|economy/money_and_markets]], [[environment - calendar|environment/calendar]]*
 
@@ -17,7 +17,7 @@ devlog #13, 06 §6
 
 
 ## Mentioned by
-- [[Q-1 Work units a day and the cost table (by experiment)|Q-1 · Work units a day and the cost table (by experiment)]]
+- [[Q-1 Work units a day and the cost table (by experiment)|Work units a day and the cost table (by experiment) (Q-1)]]
 - [[Economic calibration one time scale, and mechanics that make…|Economic calibration: one time scale, and mechanics that make…]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
 - [[Proposal exchange and money|Proposal: exchange and money]]

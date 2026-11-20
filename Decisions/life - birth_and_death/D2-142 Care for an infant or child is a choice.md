@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-142 · Care for an infant or child is a choice
+# Care for an infant or child is a choice (D2-142)
 
 *live · 24 Oct · spec: [[life - birth_and_death|life/birth_and_death]]*
 

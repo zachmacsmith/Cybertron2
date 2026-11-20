@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-206 · The cat comes by itself or is found
+# The cat comes by itself or is found (D2-206)
 
 *live · 9 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 

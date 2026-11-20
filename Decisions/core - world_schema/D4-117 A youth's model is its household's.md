@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-117 · A youth's model is its household's
+# A youth's model is its household's (D4-117)
 
 *live · 13 Nov · spec: [[core - world_schema|core/world_schema]], [[life - birth_and_death|life/birth_and_death]]*
 
@@ -20,7 +20,7 @@ conversation (Zach: "IF an assigned household has a given model, then new [peopl
 
 
 ## Mentioned by
-- [[Q-42 The peoples benchmark before any run|Q-42 · The peoples benchmark before any run]]
+- [[Q-42 The peoples benchmark's design before any run|The peoples benchmark's design before any run (Q-42)]]
 - [[The peoples benchmark worlds where each model is a people|The peoples benchmark: worlds where each model is a people]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[Birth and death partners, children, growing up, old age, succession|Birth and death: partners, children, growing up, old age, succession]]

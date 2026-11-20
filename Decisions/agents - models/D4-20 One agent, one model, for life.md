@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-20 · One agent, one model, for life
+# One agent, one model, for life (D4-20)
 
 *live · 22 Oct · spec: [[agents - models|agents/models]], [[life - birth_and_death|life/birth_and_death]], [[life - life_stages|life/life_stages]]*
 
@@ -17,9 +17,9 @@ devlog #16, 09 §3b.5
 
 
 ## Mentioned by
-- [[D2-241 The runs world for the model-per-household run as built and run|D2-241 · The runs world for the model-per-household run as built and run]]
-- [[D4-117 A youth's model is its household's|D4-117 · A youth's model is its household's]]
-- [[Q-60 The water worlds' people, and the runs world for the…|Q-60 · The water worlds' people, and the runs world for the…]]
+- [[D2-241 The runs world for the model-per-household run as built and run|The runs world for the model-per-household run as built and run (D2-241)]]
+- [[D4-117 A youth's model is its household's|A youth's model is its household's (D4-117)]]
+- [[Q-60 The water worlds' people, and the runs world for the…|The water worlds' people, and the runs world for the… (Q-60)]]
 - [[A benchmark by living descendants, on a ladder of worlds|A benchmark by living descendants, on a ladder of worlds]]
 - [[Proposal the landscape generator (a world under the graph)|Proposal: the landscape generator (a world under the graph)]]
 - [[Proposal life (partners, children, growing up, death, inheritance)|Proposal: life (partners, children, growing up, death, inheritance)]]

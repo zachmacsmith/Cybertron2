@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-52 · The carrying burden is an incomplete measure
+# The carrying burden is an incomplete measure (L-52)
 
 *open · 37.2*
 

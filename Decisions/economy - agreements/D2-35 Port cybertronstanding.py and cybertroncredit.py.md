@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-35 · Port `cybertron/standing.py` and `cybertron/credit.py`
+# Port `cybertron/standing.py` and `cybertron/credit.py` (D2-35)
 
 *live · 23 Oct · spec: [[economy - agreements|economy/agreements]]*
 

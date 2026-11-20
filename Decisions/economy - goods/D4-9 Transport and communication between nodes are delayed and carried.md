@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-9 · Transport and communication between nodes are delayed and carried
+# Transport and communication between nodes are delayed and carried (D4-9)
 
 *live · 22 Oct · spec: [[economy - goods|economy/goods]], [[economy - money_and_markets|economy/money_and_markets]], [[economy - transport|economy/transport]], [[information - letters_and_documents|information/letters_and_documents]]*
 

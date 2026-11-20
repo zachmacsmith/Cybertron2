@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-51 · A traveller can decide at departure not to stop for others
+# A traveller can decide at departure not to stop for others (D4-51)
 
 *live · 24 Oct · spec: [[world - roads|world/roads]]*
 

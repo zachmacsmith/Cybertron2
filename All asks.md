@@ -1,80 +1,81 @@
 # All asks
 
 ## Open
-- [[Q-66 Subsistence worlds|Q-66 · Subsistence worlds]] (open)
-- [[Q-62 recordexecution.md and resume --from-last|Q-62 · record/execution.md and `resume --from-last`]] (open)
-- [[Q-56 The land the engine reads|Q-56 · The land the engine reads]] (open)
-- [[Q-53 Brief 5 as built|Q-53 · Brief 5 as built]] (open)
-- [[Q-49 Engine bugs found by the package inventory|Q-49 · Engine bugs found by the package inventory]] (open)
-- [[Q-47 The border for now|Q-47 · The border for now]] (open)
-- [[Q-45 Generation redesign|Q-45 · Generation redesign]] (open)
-- [[Q-43 Before the second peoples run|Q-43 · Before the second peoples run]] (open)
-- [[Q-42 The peoples benchmark before any run|Q-42 · The peoples benchmark before any run]] (open)
-- [[Q-35 Run findings with no owner yet|Q-35 · Run findings with no owner yet]] (open)
-- [[Q-30 livestock.md's fence upkeep (D2-130) and D4-114|Q-30 · livestock.md's fence upkeep (D2-130) and D4-114]] (open)
-- [[Q-29 scheduler.md and the weather scheduler (D4-109)|Q-29 · scheduler.md and the weather scheduler (D4-109)]] (open)
-- [[Q-28 The economy check counts crops that winter will clear|Q-28 · The economy check counts crops that winter will clear]] (open)
-- [[Q-27 The verb list|Q-27 · The verb list]] (open)
-- [[Q-24a Q-24 settled in part by Zach|Q-24a · Q-24 settled in part by Zach]] (open)
-- [[Q-19 Overlapping fuse events in more depth|Q-19 · Overlapping fuse events in more depth]] (open)
-- [[Q-18 D2-74 amends D4-35|Q-18 · D2-74 amends D4-35]] (open)
-- [[Q-17 Edge terrain data|Q-17 · Edge terrain data]] (open)
-- [[Q-16 Disease mortality, the units of the sick, immunity, nursing, a healer|Q-16 · Disease: mortality, the units of the sick, immunity, nursing, a healer]] (open)
-- [[Q-10 The first LLM world for M1|Q-10 · The first LLM world for M1]] (open)
-- [[Q-9 37.2's open decisions in 02f §6, 02g §7, 02h §9, 02i §8, 02j, 02k|Q-9 · 37.2's open decisions in 02f §6, 02g §7, 02h §9, 02i §8, 02j, 02k]] (open)
-- [[Q-8 Which signs, incidents and eras first|Q-8 · Which signs, incidents and eras first]] (open)
-- [[Q-7 First land kinds|Q-7 · First land kinds]] (open)
-- [[Q-6 Settlement limit a hard cap or a crowding cost|Q-6 · Settlement limit: a hard cap or a crowding cost]] (open)
-- [[Q-5 Rounds a youth lasts; lifespans in rounds|Q-5 · Rounds a youth lasts; lifespans in rounds]] (open)
-- [[Q-4 Year length in days; season lengths|Q-4 · Year length in days; season lengths]] (open)
-- [[Q-3 Talk-step waves (one or two)|Q-3 · Talk-step waves (one or two)]] (open)
-- [[Q-2 (Deferred 2 Nov, D4-97|Q-2 · (Deferred 2 Nov, D4-97]] (open)
-- [[Q-1 Work units a day and the cost table (by experiment)|Q-1 · Work units a day and the cost table (by experiment)]] (open)
-- [[Q-RR1 Checkpoint at every step, or every day plus the step's changes|Q-RR1 · Checkpoint at every step, or every day plus the step's changes]] (open)
-- [[Q-RR2 On resume, restore each agent's running conversation exactly|Q-RR2 · On resume, restore each agent's running conversation exactly]] (open)
-- [[Q-RR3 The human player's first interface|Q-RR3 · The human player's first interface]] (open)
-- [[Q-RR5 A replay test with shuffled completion order of model calls|Q-RR5 · A replay test with shuffled completion order of model calls]] (open)
+- [[Q-67 Confirm three rules the sessions follow without your own words behind…|Confirm three rules the sessions follow without your own words behind… (Q-67)]] (open)
+- [[Q-66 The nutrition worlds|The nutrition worlds (Q-66)]] (open)
+- [[Q-62 recordexecution.md and resume --from-last|record/execution.md and `resume --from-last` (Q-62)]] (open)
+- [[Q-56 How the weather should follow each place's climate from the generated…|How the weather should follow each place's climate from the generated… (Q-56)]] (open)
+- [[Q-53 Merging the water work|Merging the water work (Q-53)]] (open)
+- [[Q-49 Engine bugs found by the package inventory|Engine bugs found by the package inventory (Q-49)]] (open)
+- [[Q-47 Where the economy stops for now|Where the economy stops for now (Q-47)]] (open)
+- [[Q-45 The generation redesign|The generation redesign (Q-45)]] (open)
+- [[Q-43 Fixes before a second peoples run|Fixes before a second peoples run (Q-43)]] (open)
+- [[Q-42 The peoples benchmark's design before any run|The peoples benchmark's design before any run (Q-42)]] (open)
+- [[Q-35 Run findings with no owner yet|Run findings with no owner yet (Q-35)]] (open)
+- [[Q-30 livestock.md's fence upkeep (D2-130) and D4-114|livestock.md's fence upkeep (D2-130) and D4-114 (Q-30)]] (open)
+- [[Q-29 scheduler.md and the weather scheduler (D4-109)|scheduler.md and the weather scheduler (D4-109) (Q-29)]] (open)
+- [[Q-28 The economy check counts crops that winter will clear|The economy check counts crops that winter will clear (Q-28)]] (open)
+- [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)]] (open)
+- [[Q-24a Q-24 settled in part by Zach|Q-24 settled in part by Zach (Q-24a)]] (open)
+- [[Q-19 Overlapping fuse events in more depth|Overlapping fuse events in more depth (Q-19)]] (open)
+- [[Q-18 D2-74 amends D4-35|D2-74 amends D4-35 (Q-18)]] (open)
+- [[Q-17 Edge terrain data|Edge terrain data (Q-17)]] (open)
+- [[Q-16 Disease mortality, the units of the sick, immunity, nursing, a healer|Disease: mortality, the units of the sick, immunity, nursing, a healer (Q-16)]] (open)
+- [[Q-10 The first LLM world for M1|The first LLM world for M1 (Q-10)]] (open)
+- [[Q-9 37.2's open decisions in 02f §6, 02g §7, 02h §9, 02i §8, 02j, 02k|37.2's open decisions in 02f §6, 02g §7, 02h §9, 02i §8, 02j, 02k (Q-9)]] (open)
+- [[Q-8 Which signs, incidents and eras first|Which signs, incidents and eras first (Q-8)]] (open)
+- [[Q-7 First land kinds|First land kinds (Q-7)]] (open)
+- [[Q-6 Settlement limit a hard cap or a crowding cost|Settlement limit: a hard cap or a crowding cost (Q-6)]] (open)
+- [[Q-5 Rounds a youth lasts; lifespans in rounds|Rounds a youth lasts; lifespans in rounds (Q-5)]] (open)
+- [[Q-4 Year length in days; season lengths|Year length in days; season lengths (Q-4)]] (open)
+- [[Q-3 Talk-step waves (one or two)|Talk-step waves (one or two) (Q-3)]] (open)
+- [[Q-2 (Deferred 2 Nov, D4-97|(Deferred 2 Nov, D4-97 (Q-2)]] (open)
+- [[Q-1 Work units a day and the cost table (by experiment)|Work units a day and the cost table (by experiment) (Q-1)]] (open)
+- [[Q-RR1 Checkpoint at every step, or every day plus the step's changes|Checkpoint at every step, or every day plus the step's changes (Q-RR1)]] (open)
+- [[Q-RR2 On resume, restore each agent's running conversation exactly|On resume, restore each agent's running conversation exactly (Q-RR2)]] (open)
+- [[Q-RR3 The human player's first interface|The human player's first interface (Q-RR3)]] (open)
+- [[Q-RR5 A replay test with shuffled completion order of model calls|A replay test with shuffled completion order of model calls (Q-RR5)]] (open)
 
 ## Closed (42)
-- [[Q-65 Delete the 16 empty branches|Q-65 · Delete the 16 empty branches]]
-- [[Q-64 The records as items with rendered views, one tool and a skill…|Q-64 · The records as items with rendered views, one tool and a skill…]]
-- [[Q-63 A commit schema|Q-63 · A commit schema]]
-- [[Q-61 What was started and left, and the mechanisms to catch it|Q-61 · What was started and left, and the mechanisms to catch it]]
-- [[Q-60 The water worlds' people, and the runs world for the…|Q-60 · The water worlds' people, and the runs world for the…]]
-- [[Q-59 One fish stock per water body|Q-59 · One fish stock per water body]]
-- [[Q-58 The calibration worlds|Q-58 · The calibration worlds]]
-- [[Q-57 Fishing, from the lake run|Q-57 · Fishing, from the lake run]]
-- [[Q-55 The weir as built, measured|Q-55 · The weir as built, measured]]
-- [[Q-54 Fresh fish meat's rate in hand|Q-54 · Fresh fish: meat's rate in hand]]
-- [[Q-52 Environment systems|Q-52 · Environment systems]]
-- [[Q-51 Brief 5 (river and water)|Q-51 · Brief 5 (river and water)]]
-- [[Q-50 One grid or several|Q-50 · One grid or several]]
-- [[Q-48 The engine as feature packages|Q-48 · The engine as feature packages]]
-- [[Q-46 Brief 4c as built|Q-46 · Brief 4c as built]]
-- [[Q-44 Brief 4c before the build|Q-44 · Brief 4c before the build]]
-- [[Q-41 Brief 4b as built, and its gate|Q-41 · Brief 4b as built, and its gate]]
-- [[Q-40 Brief 4 as built, and its gate|Q-40 · Brief 4 as built, and its gate]]
-- [[Q-39 Brief 4's open questions|Q-39 · Brief 4's open questions]]
-- [[Q-38 Brief 3 as built, and its gate|Q-38 · Brief 3 as built, and its gate]]
-- [[Q-37 Brief 2 as built, and what its gate found|Q-37 · Brief 2 as built, and what its gate found]]
-- [[Q-36 Brief 1 as built differs from the brief in 16 places|Q-36 · Brief 1 as built differs from the brief in 16 places]]
-- [[Q-34 Defaults taken under D2-207|Q-34 · Defaults taken under D2-207]]
-- [[Q-33 forays.md's open questions|Q-33 · forays.md's open questions]]
-- [[Q-32 02zv §6's decisions still open|Q-32 · 02zv §6's decisions still open]]
-- [[Q-31 Does guard the field become D2-21's watch|Q-31 · Does `guard the field` become D2-21's watch?]]
-- [[Q-26 Built without decisions, found by the 5 Nov sweep of 37.4's proposals|Q-26 · Built without decisions, found by the 5 Nov sweep of 37.4's proposals]]
-- [[Q-25 Zach's decisions now open, in one list|Q-25 · Zach's decisions now open, in one list]]
-- [[Q-24 Built for the building package|Q-24 · Built for the building package]]
-- [[Q-23 Built for Package F|Q-23 · Built for Package F]]
-- [[Q-22 Built for Package D|Q-22 · Built for Package D]]
-- [[Q-21 Built for Package C|Q-21 · Built for Package C]]
-- [[Q-20 Built for Package A and B|Q-20 · Built for Package A and B]]
-- [[Q-14 (Closed 2 Nov|Q-14 · (Closed 2 Nov]]
-- [[Q-13 D4-37 (whoever is owed may release a debt|Q-13 · D4-37 (whoever is owed may release a debt]]
-- [[Q-12 Decisions made with 37.2 that belong in 37.4's spec areas and are not…|Q-12 · Decisions made with 37.2 that belong in 37.4's spec areas and are not…]]
-- [[Q-11 Who holds a plot|Q-11 · Who holds a plot]]
-- [[Q-K1 Kept for good|Q-K1 · Kept for good]]
-- [[Q-K2 Kept for good for weak models on D4-28's queue (Haiku)|Q-K2 · Kept for good for weak models on D4-28's queue (Haiku)]]
-- [[Q-K3 Whether the memory request asks outright when a place opens|Q-K3 · Whether the memory request asks outright when a place opens]]
-- [[Q-RR4 The physical writes outside World.apply|Q-RR4 · The physical writes outside `World.apply`]]
-- [[Q-RR6 Who builds R1|Q-RR6 · Who builds R1]]
+- [[Q-65 Delete the 16 empty branches|Delete the 16 empty branches (Q-65)]]
+- [[Q-64 The records as items with rendered views, one tool and a skill…|The records as items with rendered views, one tool and a skill… (Q-64)]]
+- [[Q-63 A commit schema|A commit schema (Q-63)]]
+- [[Q-61 What was started and left, and the mechanisms to catch it|What was started and left, and the mechanisms to catch it (Q-61)]]
+- [[Q-60 The water worlds' people, and the runs world for the…|The water worlds' people, and the runs world for the… (Q-60)]]
+- [[Q-59 One fish stock per water body|One fish stock per water body (Q-59)]]
+- [[Q-58 The calibration worlds|The calibration worlds (Q-58)]]
+- [[Q-57 Fishing, from the lake run|Fishing, from the lake run (Q-57)]]
+- [[Q-55 The weir as built, measured|The weir as built, measured (Q-55)]]
+- [[Q-54 Fresh fish meat's rate in hand|Fresh fish: meat's rate in hand (Q-54)]]
+- [[Q-52 Environment systems|Environment systems (Q-52)]]
+- [[Q-51 Brief 5 (river and water)|Brief 5 (river and water) (Q-51)]]
+- [[Q-50 One grid or several|One grid or several (Q-50)]]
+- [[Q-48 The engine as feature packages|The engine as feature packages (Q-48)]]
+- [[Q-46 Brief 4c as built|Brief 4c as built (Q-46)]]
+- [[Q-44 Brief 4c before the build|Brief 4c before the build (Q-44)]]
+- [[Q-41 Brief 4b as built, and its gate|Brief 4b as built, and its gate (Q-41)]]
+- [[Q-40 Brief 4 as built, and its gate|Brief 4 as built, and its gate (Q-40)]]
+- [[Q-39 Brief 4's open questions|Brief 4's open questions (Q-39)]]
+- [[Q-38 Brief 3 as built, and its gate|Brief 3 as built, and its gate (Q-38)]]
+- [[Q-37 Brief 2 as built, and what its gate found|Brief 2 as built, and what its gate found (Q-37)]]
+- [[Q-36 Brief 1 as built differs from the brief in 16 places|Brief 1 as built differs from the brief in 16 places (Q-36)]]
+- [[Q-34 Defaults taken under D2-207|Defaults taken under D2-207 (Q-34)]]
+- [[Q-33 forays.md's open questions|forays.md's open questions (Q-33)]]
+- [[Q-32 02zv §6's decisions still open|02zv §6's decisions still open (Q-32)]]
+- [[Q-31 Does guard the field become D2-21's watch|Does `guard the field` become D2-21's watch? (Q-31)]]
+- [[Q-26 Built without decisions, found by the 5 Nov sweep of 37.4's proposals|Built without decisions, found by the 5 Nov sweep of 37.4's proposals (Q-26)]]
+- [[Q-25 Zach's decisions now open, in one list|Zach's decisions now open, in one list (Q-25)]]
+- [[Q-24 Built for the building package|Built for the building package (Q-24)]]
+- [[Q-23 Built for Package F|Built for Package F (Q-23)]]
+- [[Q-22 Built for Package D|Built for Package D (Q-22)]]
+- [[Q-21 Built for Package C|Built for Package C (Q-21)]]
+- [[Q-20 Built for Package A and B|Built for Package A and B (Q-20)]]
+- [[Q-14 (Closed 2 Nov|(Closed 2 Nov (Q-14)]]
+- [[Q-13 D4-37 (whoever is owed may release a debt|D4-37 (whoever is owed may release a debt (Q-13)]]
+- [[Q-12 Decisions made with 37.2 that belong in 37.4's spec areas and are not…|Decisions made with 37.2 that belong in 37.4's spec areas and are not… (Q-12)]]
+- [[Q-11 Who holds a plot|Who holds a plot (Q-11)]]
+- [[Q-K1 Kept for good|Kept for good (Q-K1)]]
+- [[Q-K2 Kept for good for weak models on D4-28's queue (Haiku)|Kept for good for weak models on D4-28's queue (Haiku) (Q-K2)]]
+- [[Q-K3 Whether the memory request asks outright when a place opens|Whether the memory request asks outright when a place opens (Q-K3)]]
+- [[Q-RR4 The physical writes outside World.apply|The physical writes outside `World.apply` (Q-RR4)]]
+- [[Q-RR6 Who builds R1|Who builds R1 (Q-RR6)]]

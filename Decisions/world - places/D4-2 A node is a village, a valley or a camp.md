@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-2 · A node is a village, a valley or a camp
+# A node is a village, a valley or a camp (D4-2)
 
 *live · 22 Oct · spec: [[world - places|world/places]]*
 

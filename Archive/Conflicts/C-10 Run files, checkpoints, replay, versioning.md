@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# C-10 · Run files, checkpoints, replay, versioning
+# Run files, checkpoints, replay, versioning (C-10)
 
 *closed · 37.4 to confirm*
 

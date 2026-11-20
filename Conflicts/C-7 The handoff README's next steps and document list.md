@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# C-7 · The handoff README's next steps and document list
+# The handoff README's next steps and document list (C-7)
 
 *open · 37.4*
 

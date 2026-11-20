@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-37 · Whoever is owed may count a debt paid
+# Whoever is owed may count a debt paid (D4-37)
 
 *live · 23 Oct · spec: [[agents - actions|agents/actions]], [[economy - agreements|economy/agreements]]*
 
@@ -20,7 +20,7 @@ agreements settled only by the engine's settlement
 
 
 ## Mentioned by
-- [[Q-13 D4-37 (whoever is owed may release a debt|Q-13 · D4-37 (whoever is owed may release a debt]]
+- [[Q-13 D4-37 (whoever is owed may release a debt|D4-37 (whoever is owed may release a debt (Q-13)]]
 - [[Proposal the verbs, and what each agent is shown|Proposal: the verbs, and what each agent is shown]]
 - [[What agents can do|What agents can do]]
 - [[Agreements legs, settlement, ledgers and presets|Agreements: legs, settlement, ledgers and presets]]

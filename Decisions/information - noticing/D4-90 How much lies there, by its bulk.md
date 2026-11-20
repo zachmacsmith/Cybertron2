@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-90 · How much lies there, by its bulk
+# How much lies there, by its bulk (D4-90)
 
 *live · 2 Nov · spec: [[information - noticing|information/noticing]]*
 

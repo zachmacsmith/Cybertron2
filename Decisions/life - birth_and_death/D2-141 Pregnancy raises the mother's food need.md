@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-141 · Pregnancy raises the mother's food need
+# Pregnancy raises the mother's food need (D2-141)
 
 *live · 24 Oct · spec: [[life - birth_and_death|life/birth_and_death]]*
 

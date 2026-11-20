@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-130 · Fences go round a parcel for now: a parcel is fenced or not
+# Fences go round a parcel for now: a parcel is fenced or not (D2-130)
 
 *live · 24 Oct · spec: [[core - processes|core/processes]], [[economy - livestock|economy/livestock]], [[economy - production|economy/production]], [[world - holding|world/holding]]*
 
@@ -20,10 +20,10 @@ fences on borders now
 
 
 ## Mentioned by
-- [[D4-114 What is physically there can be used|D4-114 · What is physically there can be used]]
-- [[Q-30 livestock.md's fence upkeep (D2-130) and D4-114|Q-30 · livestock.md's fence upkeep (D2-130) and D4-114]]
-- [[L-11 Fences, hedges and walls for herds|L-11 · Fences, hedges and walls for herds]]
-- [[L-24 Fences on the borders between parcels|L-24 · Fences on the borders between parcels]]
+- [[D4-114 What is physically there can be used|What is physically there can be used (D4-114)]]
+- [[Q-30 livestock.md's fence upkeep (D2-130) and D4-114|livestock.md's fence upkeep (D2-130) and D4-114 (Q-30)]]
+- [[L-11 Fences, hedges and walls for herds|Fences, hedges and walls for herds (L-11)]]
+- [[L-24 Fences on the borders between parcels|Fences on the borders between parcels (L-24)]]
 - [[Proposal fences, hedges and walls|Proposal: fences, hedges and walls]]
 - [[Proposal the layout inside a node (parcels, features, and things on…|Proposal: the layout inside a node (parcels, features, and things on…]]
 - [[Proposal livestock|Proposal: livestock]]

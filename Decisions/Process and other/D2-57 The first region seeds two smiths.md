@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-57 · The first region seeds two smiths
+# The first region seeds two smiths (D2-57)
 
 *live · 23 Oct*
 

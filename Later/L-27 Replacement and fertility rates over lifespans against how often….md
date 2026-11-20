@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-27 · Replacement and fertility rates over lifespans against how often…
+# Replacement and fertility rates over lifespans against how often… (L-27)
 
 *open · 37.2 with 37.4*
 
@@ -20,7 +20,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[L-12 Children and life (we'll come back to this)|L-12 · Children and life ("we'll come back to this")]]
+- [[L-12 Children and life (we'll come back to this)|Children and life ("we'll come back to this") (L-12)]]
 - [[Proposal fertility and replacement|Proposal: fertility and replacement]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]

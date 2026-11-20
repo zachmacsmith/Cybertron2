@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-152 · Any two people of opposite sex at the same node can try for a child…
+# Any two people of opposite sex at the same node can try for a child… (D2-152)
 
 *live · 24 Oct · spec: [[life - birth_and_death|life/birth_and_death]]*
 

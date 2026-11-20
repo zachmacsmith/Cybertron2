@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-109 · The weather scheduler
+# The weather scheduler (D4-109)
 
 *live · 8 Nov · spec: [[core - processes|core/processes]], [[environment - scheduler|environment/scheduler]]*
 
@@ -20,10 +20,10 @@ the drawn spells of [[D2-69 The scheduler's layers|D2-69]] (a run of a type is n
 
 
 ## Mentioned by
-- [[D2-220 The weather takes each place's climate from the generated land|D2-220 · The weather takes each place's climate from the generated land]]
-- [[D4-111 Every weather query names its place|D4-111 · Every weather query names its place]]
-- [[Q-29 scheduler.md and the weather scheduler (D4-109)|Q-29 · scheduler.md and the weather scheduler (D4-109)]]
-- [[W-16 The engine overhaul|W-16 · The engine overhaul]]
+- [[D2-220 The weather takes each place's climate from the generated land|The weather takes each place's climate from the generated land (D2-220)]]
+- [[D4-111 Every weather query names its place|Every weather query names its place (D4-111)]]
+- [[Q-29 scheduler.md and the weather scheduler (D4-109)|scheduler.md and the weather scheduler (D4-109) (Q-29)]]
+- [[W-16 The engine overhaul|The engine overhaul (W-16)]]
 - [[Carcasses, decay and what comes to them|Carcasses, decay and what comes to them]]
 - [[Climate from the land|Climate from the land]]
 - [[Proposal world generation as one history, with pins met in the loop|Proposal: world generation as one history, with pins met in the loop]]

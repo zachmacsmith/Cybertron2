@@ -10,7 +10,7 @@ updated: "2026-11-10"
 
 ![The region](02zze_wild_region.png)
 
-37.2, 10 Nov 2026 (WORK [[W-29 A multi-village wild region and its live run|W-29]]). Zach (10 Nov): design a multi-village world testing the new wildlife across land and dependence;
+37.2, 10 Nov 2026 (WORK [[W-29 Writing up the 10 Nov wild-region live run|W-29]]). Zach (10 Nov): design a multi-village world testing the new wildlife across land and dependence;
 "make the carrying capacity of one of the villages much larger than the others, the overall carrying capacity should support the
 base number of models". Generated, not run live: a live run needs Zach's go, and should come after brief 4b.
 

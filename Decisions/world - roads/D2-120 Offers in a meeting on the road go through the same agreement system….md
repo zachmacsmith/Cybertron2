@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-120 · Offers in a meeting on the road go through the same agreement system…
+# Offers in a meeting on the road go through the same agreement system… (D2-120)
 
 *live · 24 Oct · spec: [[world - roads|world/roads]]*
 

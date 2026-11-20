@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-62 · record/execution.md and `resume --from-last`
+# record/execution.md and `resume --from-last` (Q-62)
 
 *open · 37.1*
 

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-5 · Fuse events
+# Fuse events (D2-5)
 
 *live · 22 Oct · spec: [[conflict - defence|conflict/defence]], [[conflict - fuse_events|conflict/fuse_events]]*
 
@@ -17,9 +17,9 @@ are worth adding (rare; only a subset of people woken); **gates** check arrivals
 
 
 ## Mentioned by
-- [[D2-81 Which events have a fuse in the first worlds|D2-81 · Which events have a fuse in the first worlds]]
-- [[D2-110 A meeting on the road is a fuse event with a short conversation|D2-110 · A meeting on the road is a fuse event with a short conversation]]
-- [[Q-12 Decisions made with 37.2 that belong in 37.4's spec areas and are not…|Q-12 · Decisions made with 37.2 that belong in 37.4's spec areas and are not…]]
+- [[D2-81 Which events have a fuse in the first worlds|Which events have a fuse in the first worlds (D2-81)]]
+- [[D2-110 A meeting on the road is a fuse event with a short conversation|A meeting on the road is a fuse event with a short conversation (D2-110)]]
+- [[Q-12 Decisions made with 37.2 that belong in 37.4's spec areas and are not…|Decisions made with 37.2 that belong in 37.4's spec areas and are not… (Q-12)]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
 - [[Proposal what can happen (eras, weather, hazards that spread, and…|Proposal: what can happen (eras, weather, hazards that spread, and…]]
 - [[Proposal fuse events (time to respond)|Proposal: fuse events (time to respond)]]

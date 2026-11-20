@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-72 · Fires spread with the node's conditions, and between nodes
+# Fires spread with the node's conditions, and between nodes (D2-72)
 
 *live · 23 Oct · spec: [[environment - scheduler|environment/scheduler]]*
 
@@ -17,8 +17,8 @@ conversation
 
 
 ## Mentioned by
-- [[Q-17 Edge terrain data|Q-17 · Edge terrain data]]
-- [[L-21 Fire house fire and wildfire in the scheduler, spreading along the…|L-21 · Fire: house fire and wildfire in the scheduler, spreading along the…]]
+- [[Q-17 Edge terrain data|Edge terrain data (Q-17)]]
+- [[L-21 Fire house fire and wildfire in the scheduler, spreading along the…|Fire: house fire and wildfire in the scheduler, spreading along the… (L-21)]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]

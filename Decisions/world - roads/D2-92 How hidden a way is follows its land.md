@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-92 · How hidden a way is follows its land
+# How hidden a way is follows its land (D2-92)
 
 *live · 23 Oct · spec: [[world - roads|world/roads]]*
 

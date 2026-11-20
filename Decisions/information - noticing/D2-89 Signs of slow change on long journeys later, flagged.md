@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-89 · Signs of slow change on long journeys: later, flagged
+# Signs of slow change on long journeys: later, flagged (D2-89)
 
 *live · 23 Oct · spec: [[information - noticing|information/noticing]]*
 
@@ -17,7 +17,7 @@ journeys.md §3
 
 
 ## Mentioned by
-- [[L-1 Signs of slow change on long journeys|L-1 · Signs of slow change on long journeys]]
+- [[L-1 Signs of slow change on long journeys|Signs of slow change on long journeys (L-1)]]
 - [[Proposal what travellers see on the way|Proposal: what travellers see on the way]]
 - [[Noticing things at a place, and on the road|Noticing things at a place, and on the road]]
 - [[02r build brief for 37.4 fuse events, noticing, things in places…|02r: build brief for 37.4: fuse events, noticing, things in places…]]

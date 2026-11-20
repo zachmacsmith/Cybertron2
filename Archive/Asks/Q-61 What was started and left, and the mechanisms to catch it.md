@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-61 · What was started and left, and the mechanisms to catch it
+# What was started and left, and the mechanisms to catch it (Q-61)
 
 *closed, by zach · Zach (37.2, 37.4)*
 
@@ -20,7 +20,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-63 An audit of what was started and left|W-63 · An audit of what was started and left]]
+- [[W-63 The audit of work started and left, and the triage of open asks and…|The audit of work started and left, and the triage of open asks and… (W-63)]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]
 - [[02zzp what was started and left, 22 Oct to 19 Nov, and how to notice…|02zzp: what was started and left, 22 Oct to 19 Nov, and how to notice…]]
 - *and 1 index or audit notes*

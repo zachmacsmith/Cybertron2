@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-103 · Visibility is computed, not stored
+# Visibility is computed, not stored (D2-103)
 
 *live · 23 Oct · spec: [[environment - visibility|environment/visibility]]*
 

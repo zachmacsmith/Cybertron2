@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-33 · The economy that emerged across runs
+# The economy that emerged across runs (W-33)
 
 *done · 37.4 · touched  ()*
 

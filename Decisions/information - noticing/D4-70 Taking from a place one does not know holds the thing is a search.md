@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-70 · Taking from a place one does not know holds the thing is a search
+# Taking from a place one does not know holds the thing is a search (D4-70)
 
 *live · 2 Nov · spec: [[information - noticing|information/noticing]]*
 
@@ -20,7 +20,7 @@ a take from a place refused unless the thing had been noticed before
 
 
 ## Mentioned by
-- [[D2-164 Space inside a parcel is a count, not positions|D2-164 · Space inside a parcel is a count, not positions]]
+- [[D2-164 Space inside a parcel is a count, not positions|Space inside a parcel is a count, not positions (D2-164)]]
 - [[Carcasses, decay and what comes to them|Carcasses, decay and what comes to them]]
 - [[Hunting that pays a beginner, snares that are lifted, and predators…|Hunting that pays a beginner, snares that are lifted, and predators…]]
 - [[Proposal objects placed in the world|Proposal: objects placed in the world]]

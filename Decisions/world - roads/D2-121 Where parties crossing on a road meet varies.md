@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-121 · Where parties crossing on a road meet varies
+# Where parties crossing on a road meet varies (D2-121)
 
 *live · 24 Oct · spec: [[world - roads|world/roads]]*
 

@@ -5,42 +5,42 @@
 > Food comes from foraging (the bottom rung) and from fields. Farming has a short minimum (sow, reap) and optional stages that cost work and raise the return. Crops ripen into a harvest window. Seed is kept back. Cattle pull the plough and dung the soil. Tools are a small set chosen by what each depen
 
 ## Decided (39)
-- **[[D2-11 Farming's minimum is short, the other stages optional|D2-11]]** Farming's minimum is short, the other stages optional
-- **[[D2-12 A harvest window|D2-12]]** A harvest window
-- **[[D2-13 Worlds start with farming under way|D2-13]]** Worlds start with farming under way
-- **[[D2-14 First worlds farm with the hoe and the ox plough only|D2-14]]** First worlds farm with **the hoe and the ox plough** only
-- **[[D2-15 More hands on a plot raise its yield|D2-15]]** More hands on a plot raise its yield
-- **[[D2-16 Nodes differ in land pressure|D2-16]]** Nodes differ in land pressure
-- **[[D2-17 Seed is kept back|D2-17]]** Seed is kept back
-- **[[D2-18 Cattle on the farm|D2-18]]** Cattle on the farm
-- **[[D2-19 First worlds start with a short metal ladder|D2-19]]** First worlds start with a short metal ladder
-- **[[D2-23 The tool set|D2-23]]** The tool set
-- **[[D2-42 Milk|D2-42]]** Milk
-- **[[D2-43 The basic set and the ten trades|D2-43]]** The basic set and the ten trades
-- **[[D2-46 Weapons wear|D2-46]]** Weapons wear
-- **[[D2-47 Cheese|D2-47]]** Cheese
-- **[[D2-48 Specialised tools|D2-48]]** Specialised tools
-- **[[D2-52 Skill by practice on all work|D2-52]]** Skill by practice on all work
-- **[[D2-53 Crops grow from the day they are sown, and the cold is the season's…|D2-53]]** Crops grow from the day they are sown, and the cold is the season's…
-- **[[D2-54 Sowing takes work per unit of seed|D2-54]]** Sowing takes work per unit of seed
-- **[[D2-58 Grain spoils a little|D2-58]]** Grain spoils a little
-- **[[D2-59 The plot's numbers|D2-59]]** The plot's numbers
-- **[[D2-60 The food ladder|D2-60]]** The food ladder
-- **[[D2-61 A mill ladder built by adding parts|D2-61]]** A mill ladder built by adding parts
-- **[[D2-62 Dried meat|D2-62]]** Dried meat
-- **[[D2-64 A master farmer's skill raises yield as well as cutting work|D2-64]]** A master farmer's skill raises yield as well as cutting work
-- **[[D2-65 Seed selection|D2-65]]** Seed selection
-- **[[D2-66 Field works in the first worlds, before weather exists|D2-66]]** Field works in the first worlds, before weather exists
-- **[[D2-67 Irrigation is for later|D2-67]]** Irrigation is for later
-- **[[D2-130 Fences go round a parcel for now a parcel is fenced or not|D2-130]]** Fences go round a parcel for now: a parcel is fenced or not
-- **[[D2-156 A forest is three stocks|D2-156]]** A forest is three stocks
-- **[[D2-157 Fuel in heat|D2-157]]** Fuel in heat
-- **[[D2-163 Land is held in plot shares within a parcel|D2-163]]** Land is held in plot shares within a parcel
-- **[[D2-167 The mill ladder bites|D2-167]]** The mill ladder bites
-- **[[D2-172 A field carries one crop for each holding on it|D2-172]]** A field carries one crop for each holding on it
-- **[[D2-247 A process of bulk goods has a most it takes at once, not a least|D2-247]]** A process of bulk goods has a most it takes at once, not a least
-- **[[D4-19 Short childhoods counted in rounds|D4-19]]** Short childhoods counted in rounds
-- **[[D4-21 Worlds are seeded as a society with a past|D4-21]]** Worlds are seeded as a society with a past
-- **[[D4-23 Holding is a recognised claim|D4-23]]** Holding is a recognised claim
-- **[[D4-40 The plot unit|D4-40]]** The plot unit
-- **[[H-6 Foraging is the degenerate case|H-6]]** Foraging is the degenerate case
+- [[D2-11 Farming's minimum is short, the other stages optional|Farming's minimum is short, the other stages optional (D2-11)]]
+- [[D2-12 A harvest window|A harvest window (D2-12)]]
+- [[D2-13 Worlds start with farming under way|Worlds start with farming under way (D2-13)]]
+- [[D2-14 First worlds farm with the hoe and the ox plough only|First worlds farm with **the hoe and the ox plough** only (D2-14)]]
+- [[D2-15 More hands on a plot raise its yield|More hands on a plot raise its yield (D2-15)]]
+- [[D2-16 Nodes differ in land pressure|Nodes differ in land pressure (D2-16)]]
+- [[D2-17 Seed is kept back|Seed is kept back (D2-17)]]
+- [[D2-18 Cattle on the farm|Cattle on the farm (D2-18)]]
+- [[D2-19 First worlds start with a short metal ladder|First worlds start with a short metal ladder (D2-19)]]
+- [[D2-23 The tool set|The tool set (D2-23)]]
+- [[D2-42 Milk|Milk (D2-42)]]
+- [[D2-43 The basic set and the ten trades|The basic set and the ten trades (D2-43)]]
+- [[D2-46 Weapons wear|Weapons wear (D2-46)]]
+- [[D2-47 Cheese|Cheese (D2-47)]]
+- [[D2-48 Specialised tools|Specialised tools (D2-48)]]
+- [[D2-52 Skill by practice on all work|Skill by practice on all work (D2-52)]]
+- [[D2-53 Crops grow from the day they are sown, and the cold is the season's…|Crops grow from the day they are sown, and the cold is the season's… (D2-53)]]
+- [[D2-54 Sowing takes work per unit of seed|Sowing takes work per unit of seed (D2-54)]]
+- [[D2-58 Grain spoils a little|Grain spoils a little (D2-58)]]
+- [[D2-59 The plot's numbers|The plot's numbers (D2-59)]]
+- [[D2-60 The food ladder|The food ladder (D2-60)]]
+- [[D2-61 A mill ladder built by adding parts|A mill ladder built by adding parts (D2-61)]]
+- [[D2-62 Dried meat|Dried meat (D2-62)]]
+- [[D2-64 A master farmer's skill raises yield as well as cutting work|A master farmer's skill raises yield as well as cutting work (D2-64)]]
+- [[D2-65 Seed selection|Seed selection (D2-65)]]
+- [[D2-66 Field works in the first worlds, before weather exists|Field works in the first worlds, before weather exists (D2-66)]]
+- [[D2-67 Irrigation is for later|Irrigation is for later (D2-67)]]
+- [[D2-130 Fences go round a parcel for now a parcel is fenced or not|Fences go round a parcel for now: a parcel is fenced or not (D2-130)]]
+- [[D2-156 A forest is three stocks|A forest is three stocks (D2-156)]]
+- [[D2-157 Fuel in heat|Fuel in heat (D2-157)]]
+- [[D2-163 Land is held in plot shares within a parcel|Land is held in plot shares within a parcel (D2-163)]]
+- [[D2-167 The mill ladder bites|The mill ladder bites (D2-167)]]
+- [[D2-172 A field carries one crop for each holding on it|A field carries one crop for each holding on it (D2-172)]]
+- [[D2-247 A process of bulk goods has a most it takes at once, not a least|A process of bulk goods has a most it takes at once, not a least (D2-247)]]
+- [[D4-19 Short childhoods counted in rounds|Short childhoods counted in rounds (D4-19)]]
+- [[D4-21 Worlds are seeded as a society with a past|Worlds are seeded as a society with a past (D4-21)]]
+- [[D4-23 Holding is a recognised claim|Holding is a recognised claim (D4-23)]]
+- [[D4-40 The plot unit|The plot unit (D4-40)]]
+- [[H-6 Foraging is the degenerate case|Foraging is the degenerate case (H-6)]]

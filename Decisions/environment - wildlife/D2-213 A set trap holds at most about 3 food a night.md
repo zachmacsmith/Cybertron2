@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-213 · A set trap holds at most about 3 food a night
+# A set trap holds at most about 3 food a night (D2-213)
 
 *live · 16 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 

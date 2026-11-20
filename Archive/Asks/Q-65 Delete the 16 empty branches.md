@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-65 · Delete the 16 empty branches
+# Delete the 16 empty branches (Q-65)
 
 *closed, by zach · Zach (37.2)*
 
@@ -20,7 +20,7 @@ updated: "2026-11-20"
 
 
 ## Linked
-- parent: [[W-65 Tracking threads automatically|W-65 · Tracking threads automatically]]
+- parent: [[W-65 The records system|The records system (W-65)]]
 
 
 ## Mentioned by

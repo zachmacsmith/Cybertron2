@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-56 · Recipe changes from the chain analysis
+# Recipe changes from the chain analysis (D2-56)
 
 *live · 23 Oct · spec: [[economy - buildings|economy/buildings]], [[economy - goods|economy/goods]]*
 
@@ -20,8 +20,8 @@ proposals/recipes.md; 02p
 
 
 ## Mentioned by
-- [[D2-209 Brief 5 (river and water) is built|D2-209 · Brief 5 (river and water) is built]]
-- [[W-45 Brief 5 revised from the economy research|W-45 · Brief 5 revised from the economy research]]
+- [[D2-209 Brief 5 (river and water) is built|Brief 5 (river and water) is built (D2-209)]]
+- [[W-45 Brief 5 revised from the economy research|Brief 5 revised from the economy research (W-45)]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]
 - [[Proposal fences, hedges and walls|Proposal: fences, hedges and walls]]
 - [[Proposal the forest as a system (trees, young growth, dead wood…|Proposal: the forest as a system (trees, young growth, dead wood…]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-1 · Coin is carried; debts move only as information
+# Coin is carried; debts move only as information (D2-1)
 
 *live · 22 Oct · spec: [[economy - agreements|economy/agreements]], [[economy - goods|economy/goods]], [[economy - money_and_markets|economy/money_and_markets]]*
 

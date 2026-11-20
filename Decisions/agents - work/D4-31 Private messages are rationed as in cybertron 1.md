@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-31 · Private messages are rationed as in cybertron 1
+# Private messages are rationed as in cybertron 1 (D4-31)
 
 *live · 23 Oct · spec: [[agents - work|agents/work]], [[information - speech|information/speech]]*
 

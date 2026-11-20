@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-167 · The mill ladder bites
+# The mill ladder bites (D2-167)
 
 *live · 3 Nov · spec: [[economy - buildings|economy/buildings]], [[economy - production|economy/production]]*
 

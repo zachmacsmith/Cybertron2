@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-242 · Subsistence test worlds
+# Subsistence test worlds (D2-242)
 
 *live · 20 Nov*
 
@@ -17,9 +17,9 @@ conversation (20 Nov: "can a village survive off just runs (should be possible?)
 
 
 ## Linked
-- parent: [[W-59 The runs world for the model-per-household run|W-59 · The runs world for the model-per-household run]]
+- parent: [[W-59 The runs world for the model-per-household run|The runs world for the model-per-household run (W-59)]]
 
 
 ## Mentioned by
-- [[W-69 Subsistence worlds|W-69 · Subsistence worlds]]
+- [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]

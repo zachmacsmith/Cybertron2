@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-112 · A `farming` pack
+# A `farming` pack (L-112)
 
 *open · 37.4*
 
@@ -20,8 +20,8 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[Q-66 Subsistence worlds|Q-66 · Subsistence worlds]]
-- [[W-47 Brief 5's worlds and the runs-only world|W-47 · Brief 5's worlds and the runs-only world]]
+- [[Q-66 The nutrition worlds|The nutrition worlds (Q-66)]]
+- [[W-47 Brief 5's worlds and the runs-only world|Brief 5's worlds and the runs-only world (W-47)]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
 - *and 1 index or audit notes*

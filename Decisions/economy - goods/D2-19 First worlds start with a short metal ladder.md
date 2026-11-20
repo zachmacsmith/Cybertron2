@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-19 · First worlds start with a short metal ladder
+# First worlds start with a short metal ladder (D2-19)
 
 *live · 22 Oct · spec: [[economy - goods|economy/goods]], [[economy - production|economy/production]]*
 
@@ -17,7 +17,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[L-13 Economy options kept out of the first worlds|L-13 · Economy options kept out of the first worlds]]
+- [[L-13 Economy options kept out of the first worlds|Economy options kept out of the first worlds (L-13)]]
 - [[Proposal attacks, buildings and walls|Proposal: attacks, buildings and walls]]
 - [[Proposal options kept for later (goods, tools, methods)|Proposal: options kept for later (goods, tools, methods)]]
 - [[Proposal recipes for the first worlds|Proposal: recipes for the first worlds]]

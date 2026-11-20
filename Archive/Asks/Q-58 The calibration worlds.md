@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-58 · The calibration worlds
+# The calibration worlds (Q-58)
 
 *closed, by zach · Zach (37.2)*
 
@@ -20,6 +20,6 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[D2-245 The calibration suite is all twelve worlds of…|D2-245 · The calibration suite is all twelve worlds of…]]
-- [[W-63 An audit of what was started and left|W-63 · An audit of what was started and left]]
+- [[D2-245 The calibration suite is all twelve worlds of…|The calibration suite is all twelve worlds of… (D2-245)]]
+- [[W-63 The audit of work started and left, and the triage of open asks and…|The audit of work started and left, and the triage of open asks and… (W-63)]]
 - *and 2 index or audit notes*

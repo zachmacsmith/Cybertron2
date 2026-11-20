@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-36 · Livestock kinds beyond cattle and herds moved with the seasons
+# Livestock kinds beyond cattle and herds moved with the seasons (L-36)
 
 *open · 37.2*
 
@@ -20,7 +20,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[L-119 Wildlife pack K6 keeping|L-119 · Wildlife pack K6: keeping]]
+- [[L-119 Wildlife pack K6 keeping|Wildlife pack K6: keeping (L-119)]]
 - [[Proposal environments, ecosystems and how they cluster|Proposal: environments, ecosystems and how they cluster]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]
 - [[Proposal the landscape generator (a world under the graph)|Proposal: the landscape generator (a world under the graph)]]

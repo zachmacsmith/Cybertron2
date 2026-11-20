@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-68 · Short tags, and names given
+# Short tags, and names given (D4-68)
 
 *live · 2 Nov · spec: [[core - world_schema|core/world_schema]], [[information - prompts|information/prompts]]*
 

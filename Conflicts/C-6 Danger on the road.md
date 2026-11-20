@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# C-6 · Danger on the road
+# Danger on the road (C-6)
 
 *open · 37.4*
 
@@ -18,7 +18,7 @@ Danger on the road
 
 
 ## Mentioned by
-- [[Q-17 Edge terrain data|Q-17 · Edge terrain data]]
+- [[Q-17 Edge terrain data|Edge terrain data (Q-17)]]
 - [[Proposal transport and lodging|Proposal: transport and lodging]]
 - [[Transport|Transport]]
 - [[Edges and travel|Edges and travel]]

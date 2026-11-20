@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-103 · The engine overhaul goes ahead, in phases
+# The engine overhaul goes ahead, in phases (D4-103)
 
 *live · 7 Nov · spec: [[core - processes|core/processes]], [[core - world_schema|core/world_schema]], [[measurement - capacity|measurement/capacity]]*
 
@@ -20,11 +20,11 @@ new
 
 
 ## Mentioned by
-- [[D4-104 Renewal and packs; each stock its own rule|D4-104 · Renewal and packs; each stock its own rule]]
-- [[D4-105 Sowing windows are lore, not rules|D4-105 · Sowing windows are lore, not rules]]
-- [[D4-106 Can apart from works|D4-106 · Can apart from works]]
-- [[D4-107 Processing keeps its food gain, for now|D4-107 · Processing keeps its food gain, for now]]
-- [[L-112 A farming pack|L-112 · A `farming` pack]]
+- [[D4-104 Renewal and packs; each stock its own rule|Renewal and packs; each stock its own rule (D4-104)]]
+- [[D4-105 Sowing windows are lore, not rules|Sowing windows are lore, not rules (D4-105)]]
+- [[D4-106 Can apart from works|Can apart from works (D4-106)]]
+- [[D4-107 Processing keeps its food gain, for now|Processing keeps its food gain, for now (D4-107)]]
+- [[L-112 A farming pack|A `farming` pack (L-112)]]
 - [[Proposal crops grow by the season; can apart from works; what a…|Proposal: crops grow by the season; "can" apart from "works"; what a…]]
 - [[Economic calibration one time scale, and mechanics that make…|Economic calibration: one time scale, and mechanics that make…]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]

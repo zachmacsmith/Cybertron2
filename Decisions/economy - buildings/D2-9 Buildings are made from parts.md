@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-9 · Buildings are made from parts
+# Buildings are made from parts (D2-9)
 
 *live · 22 Oct · spec: [[economy - buildings|economy/buildings]]*
 

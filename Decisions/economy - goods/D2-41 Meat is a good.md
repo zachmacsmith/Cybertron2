@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-41 · Meat is a good
+# Meat is a good (D2-41)
 
 *live · 23 Oct · spec: [[economy - goods|economy/goods]]*
 

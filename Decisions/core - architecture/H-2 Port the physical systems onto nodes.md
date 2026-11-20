@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# H-2 · Port the physical systems onto nodes
+# Port the physical systems onto nodes (H-2)
 
 *live · 22 Oct · spec: [[core - architecture|core/architecture]]*
 

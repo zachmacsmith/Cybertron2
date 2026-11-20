@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-84 · The urgent call continues the agent's own conversation
+# The urgent call continues the agent's own conversation (D2-84)
 
 *live · 23 Oct · spec: [[conflict - defence|conflict/defence]], [[conflict - fuse_events|conflict/fuse_events]], [[core - round|core/round]], [[information - prompts|information/prompts]]*
 

@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# C-8 · Environment design for the old engine
+# Environment design for the old engine (C-8)
 
 *open · 37.4*
 

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-45 · Cellar and stalls
+# Cellar and stalls (D2-45)
 
 *live · 23 Oct · spec: [[economy - buildings|economy/buildings]]*
 

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-28 · Agents write their own memory at set times
+# Agents write their own memory at set times (D4-28)
 
 *live · 23 Oct · spec: [[core - round|core/round]], [[information - memory|information/memory]]*
 
@@ -20,9 +20,9 @@ the engine's summary band of one-line days (partly replaced by [[D4-61 An agent 
 
 
 ## Mentioned by
-- [[D4-61 An agent rewrites its one memory each stretch, within a length that…|D4-61 · An agent rewrites its one memory each stretch, within a length that…]]
-- [[Q-K2 Kept for good for weak models on D4-28's queue (Haiku)|Q-K2 · Kept for good for weak models on D4-28's queue (Haiku)]]
-- [[L-28 Kept for good|L-28 · Kept for good]]
+- [[D4-61 An agent rewrites its one memory each stretch, within a length that…|An agent rewrites its one memory each stretch, within a length that… (D4-61)]]
+- [[Q-K2 Kept for good for weak models on D4-28's queue (Haiku)|Kept for good for weak models on D4-28's queue (Haiku) (Q-K2)]]
+- [[L-28 Kept for good|Kept for good (L-28)]]
 - [[What an agent is shown the world and its rules, not choices made for…|What an agent is shown: the world and its rules, not choices made for…]]
 - [[Memory rewritten, its length set by age|Memory rewritten, its length set by age]]
 - [[Proposal what an agent is shown each round, attention, and…|Proposal: what an agent is shown each round, attention, and…]]

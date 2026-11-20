@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-44 · D4-93 (one room, one fire
+# D4-93 (one room, one fire (L-44)
 
 *open · 37.2*
 
@@ -20,9 +20,9 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-10 37.2's spec write-ups owed since 2 and 3 Nov|W-10 · 37.2's spec write-ups owed since 2 and 3 Nov]]
-- [[W-68 37.2's spec catch-up|W-68 · 37.2's spec catch-up]]
-- [[L-49 Automated supply-chain and dependence checks for generated worlds|L-49 · Automated supply-chain and dependence checks for generated worlds]]
+- [[W-10 37.2's spec write-ups owed since 2 and 3 Nov|37.2's spec write-ups owed since 2 and 3 Nov (W-10)]]
+- [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|Writing 37.2's decisions into the spec (about 52 missing) (W-68)]]
+- [[L-49 Automated supply-chain and dependence checks for generated worlds|Automated supply-chain and dependence checks for generated worlds (L-49)]]
 - [[One room, one fire; the night says what fuel was missing; a theft at…|One room, one fire; the night says what fuel was missing; a theft at…]]
 - [[02zl · Can a world feed its people Past runs and the pre-run checks|02zl · Can a world feed its people? Past runs and the pre-run checks]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]

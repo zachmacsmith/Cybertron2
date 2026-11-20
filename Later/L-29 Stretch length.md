@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-29 · Stretch length
+# Stretch length (L-29)
 
 *open · 37.4*
 

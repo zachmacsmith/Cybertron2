@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-71 · Risks attach to things
+# Risks attach to things (D2-71)
 
 *live · 23 Oct · spec: [[environment - scheduler|environment/scheduler]], [[world - roads|world/roads]], [[world - things_in_places|world/things_in_places]]*
 
@@ -17,8 +17,8 @@ conversation
 
 
 ## Mentioned by
-- [[D2-87 Left things are held by nobody|D2-87 · Left things are held by nobody]]
-- [[D2-224 Events emerge from the stocks|D2-224 · Events emerge from the stocks]]
+- [[D2-87 Left things are held by nobody|Left things are held by nobody (D2-87)]]
+- [[D2-224 Events emerge from the stocks|Events emerge from the stocks (D2-224)]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
 - [[Proposal the hidden state of places and things (shared variables…|Proposal: the hidden state of places and things (shared variables…]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]

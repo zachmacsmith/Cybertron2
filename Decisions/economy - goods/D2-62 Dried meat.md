@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-62 · Dried meat
+# Dried meat (D2-62)
 
 *live · 23 Oct · spec: [[economy - goods|economy/goods]], [[economy - production|economy/production]]*
 

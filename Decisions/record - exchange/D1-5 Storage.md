@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D1-5 · Storage
+# Storage (D1-5)
 
 *live · 24 Oct · spec: [[record - exchange|record/exchange]], [[record - journal|record/journal]]*
 

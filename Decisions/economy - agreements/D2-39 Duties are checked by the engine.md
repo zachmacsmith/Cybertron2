@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-39 · Duties are checked by the engine
+# Duties are checked by the engine (D2-39)
 
 *live · 23 Oct · spec: [[economy - agreements|economy/agreements]]*
 

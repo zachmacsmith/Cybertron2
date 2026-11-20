@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-56 · One knows one's beasts by memory and noticing, not by a list
+# One knows one's beasts by memory and noticing, not by a list (D4-56)
 
 *live · 24 Oct*
 

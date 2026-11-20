@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-124 · A herd lost on a road
+# A herd lost on a road (D2-124)
 
 *live · 24 Oct · spec: [[economy - livestock|economy/livestock]]*
 

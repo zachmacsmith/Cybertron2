@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-95 · What a refusal says
+# What a refusal says (D4-95)
 
 *live · 2 Nov · spec: [[agents - actions|agents/actions]]*
 

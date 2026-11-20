@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-199 · The wild layer is built on 37.2's own `ecology` branch
+# The wild layer is built on 37.2's own `ecology` branch (D2-199)
 
 *live · 9 Nov · spec: [[core - world_schema|core/world_schema]]*
 
@@ -20,8 +20,8 @@ wave 1 as a model beside the engine (02zp part six)
 
 
 ## Mentioned by
-- [[W-5 37.2's own hygiene items|W-5 · 37.2's own hygiene items]]
-- [[W-68 37.2's spec catch-up|W-68 · 37.2's spec catch-up]]
+- [[W-5 37.2's own hygiene items|37.2's own hygiene items (W-5)]]
+- [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|Writing 37.2's decisions into the spec (about 52 missing) (W-68)]]
 - [[Carcasses, decay and what comes to them|Carcasses, decay and what comes to them]]
 - [[Proposal world generation as one history, with pins met in the loop|Proposal: world generation as one history, with pins met in the loop]]
 - [[Methods and encounters people answer the wild by general methods…|Methods and encounters: people answer the wild by general methods…]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-182 · Roads are mostly a day long
+# Roads are mostly a day long (D2-182)
 
 *live · 3 Nov*
 
@@ -20,5 +20,5 @@ conversation ("most roads should be more like 1 day. 3 days for a road should be
 
 
 ## Mentioned by
-- [[D2-181 (Roads and region amended by D2-182.)|D2-181 · (Roads and region amended by D2-182.)]]
+- [[D2-181 (Roads and region amended by D2-182.)|(Roads and region amended by D2-182.) (D2-181)]]
 - [[Proposal the generator, stage 1 (a spec for review before it is…|Proposal: the generator, stage 1 (a spec for review before it is…]]

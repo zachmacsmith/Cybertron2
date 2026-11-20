@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-37 · Brief 2 as built, and what its gate found
+# Brief 2 as built, and what its gate found (Q-37)
 
 *closed, by zach · Zach (37.4 building)*
 
@@ -18,9 +18,9 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|W-2 · Build briefs 2 and 3, the 20 dry test arms, the spring live run]]
-- [[W-21 Proposals for Q-37|W-21 · Proposals for Q-37]]
-- [[L-131 The wild layer's live points from briefs 1 to 3|L-131 · The wild layer's live points from briefs 1 to 3]]
+- [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]
+- [[W-21 Proposals for Q-37|Proposals for Q-37 (W-21)]]
+- [[L-131 The wild layer's live points from briefs 1 to 3|The wild layer's live points from briefs 1 to 3 (L-131)]]
 - [[Cats that choose where to live|Cats that choose where to live]]
 - [[The hunt over time, and what briefs 1 to 3 left build brief 4|The hunt over time, and what briefs 1 to 3 left: build brief 4]]
 - [[Damage to shelter in levels, by structure and weather; camps as…|Damage to shelter in levels, by structure and weather; camps as…]]

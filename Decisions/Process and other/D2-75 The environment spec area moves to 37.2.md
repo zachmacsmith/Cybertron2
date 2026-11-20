@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-75 · The environment spec area moves to 37.2
+# The environment spec area moves to 37.2 (D2-75)
 
 *live · 23 Oct*
 

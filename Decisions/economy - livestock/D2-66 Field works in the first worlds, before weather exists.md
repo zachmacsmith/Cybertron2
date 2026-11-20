@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-66 · Field works in the first worlds, before weather exists
+# Field works in the first worlds, before weather exists (D2-66)
 
 *live · 23 Oct · spec: [[economy - livestock|economy/livestock]], [[economy - production|economy/production]]*
 
@@ -17,7 +17,7 @@ proposals/farming.md; conversation
 
 
 ## Mentioned by
-- [[Q-56 The land the engine reads|Q-56 · The land the engine reads]]
+- [[Q-56 How the weather should follow each place's climate from the generated…|How the weather should follow each place's climate from the generated… (Q-56)]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
 - [[Proposal what can happen (eras, weather, hazards that spread, and…|Proposal: what can happen (eras, weather, hazards that spread, and…]]
 - [[Proposal the hidden state of places and things (shared variables…|Proposal: the hidden state of places and things (shared variables…]]

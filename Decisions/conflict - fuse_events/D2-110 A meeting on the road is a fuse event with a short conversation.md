@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-110 · A meeting on the road is a fuse event with a short conversation
+# A meeting on the road is a fuse event with a short conversation (D2-110)
 
 *live · 23 Oct · spec: [[conflict - fuse_events|conflict/fuse_events]], [[world - edges|world/edges]], [[world - roads|world/roads]]*
 
@@ -20,7 +20,7 @@ a meeting as one wave of decisions
 
 
 ## Mentioned by
-- [[D4-51 A traveller can decide at departure not to stop for others|D4-51 · A traveller can decide at departure not to stop for others]]
+- [[D4-51 A traveller can decide at departure not to stop for others|A traveller can decide at departure not to stop for others (D4-51)]]
 - [[Passing by on the road choosing at departure not to stop for others|Passing by on the road: choosing at departure not to stop for others]]
 - [[Proposal meetings on the road (travellers, lost herds, ambushes)|Proposal: meetings on the road (travellers, lost herds, ambushes)]]
 - [[Proposal the layout of a road (stretches and landmarks)|Proposal: the layout of a road (stretches and landmarks)]]

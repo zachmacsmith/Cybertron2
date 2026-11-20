@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-39 · Soil
+# Soil (D4-39)
 
 *live · 23 Oct*
 

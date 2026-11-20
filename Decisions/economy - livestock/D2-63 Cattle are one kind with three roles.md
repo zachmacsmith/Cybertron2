@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-63 · Cattle are one kind with three roles
+# Cattle are one kind with three roles (D2-63)
 
 *live · 23 Oct · spec: [[economy - livestock|economy/livestock]]*
 
@@ -20,7 +20,7 @@ four kinds (cows, bulls, oxen, calves) as separate goods
 
 
 ## Mentioned by
-- [[D4-41 Oxen are a role within cattle, not a kind|D4-41 · Oxen are a role within cattle, not a kind]]
-- [[D4-44 Breeding happens on its own|D4-44 · Breeding happens on its own]]
+- [[D4-41 Oxen are a role within cattle, not a kind|Oxen are a role within cattle, not a kind (D4-41)]]
+- [[D4-44 Breeding happens on its own|Breeding happens on its own (D4-44)]]
 - [[Proposal livestock|Proposal: livestock]]
 - [[Livestock|Livestock]]

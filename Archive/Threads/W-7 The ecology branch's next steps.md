@@ -5,7 +5,7 @@ state: dropped
 updated: "2026-11-20"
 ---
 
-# W-7 · The ecology branch's next steps
+# The ecology branch's next steps (W-7)
 
 *dropped, by zach · 37.2 · touched 19 Nov (1 day ago)*
 
@@ -20,5 +20,5 @@ dropped 20 Nov: overtaken by the briefs; the backlog is [[L-127 The ecology's ca
 
 
 ## Mentioned by
-- [[L-127 The ecology's calibration backlog|L-127 · The ecology's calibration backlog]]
+- [[L-127 The ecology's calibration backlog|The ecology's calibration backlog (L-127)]]
 - *and 2 index or audit notes*

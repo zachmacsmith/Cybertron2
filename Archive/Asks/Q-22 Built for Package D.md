@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-22 · Built for Package D
+# Built for Package D (Q-22)
 
 *closed, by zach · 37.4, Zach to confirm*
 

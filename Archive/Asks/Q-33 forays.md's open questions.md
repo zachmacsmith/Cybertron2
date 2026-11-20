@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-33 · forays.md's open questions
+# forays.md's open questions (Q-33)
 
 *closed, by zach · Zach with 37.2 (blocks WORK W-12, W-24)*
 
@@ -18,5 +18,5 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[L-117 Wildlife pack K3 forays, methods and knowing|L-117 · Wildlife pack K3: forays, methods and knowing]]
+- [[L-117 Wildlife pack K3 forays, methods and knowing|Wildlife pack K3: forays, methods and knowing (L-117)]]
 - *and 3 index or audit notes*

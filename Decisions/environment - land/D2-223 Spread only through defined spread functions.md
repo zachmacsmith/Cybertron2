@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-223 · Spread only through defined spread functions
+# Spread only through defined spread functions (D2-223)
 
 *live · 17 Nov · spec: [[environment - land|environment/land]]*
 

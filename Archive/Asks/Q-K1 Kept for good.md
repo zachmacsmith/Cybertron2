@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-K1 · Kept for good
+# Kept for good (Q-K1)
 
 *closed · 37.4*
 

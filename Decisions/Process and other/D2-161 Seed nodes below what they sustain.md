@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-161 · Seed nodes below what they sustain
+# Seed nodes below what they sustain (D2-161)
 
 *live · 24 Oct*
 
@@ -20,8 +20,8 @@ worlds seeded at the most people their stocks carry for a run
 
 
 ## Mentioned by
-- [[D2-181 (Roads and region amended by D2-182.)|D2-181 · (Roads and region amended by D2-182.)]]
-- [[D2-184 People in a generated world|D2-184 · People in a generated world]]
+- [[D2-181 (Roads and region amended by D2-182.)|(Roads and region amended by D2-182.) (D2-181)]]
+- [[D2-184 People in a generated world|People in a generated world (D2-184)]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
 - [[Proposal fertility and replacement|Proposal: fertility and replacement]]
 - [[Proposal the forest as a system (trees, young growth, dead wood…|Proposal: the forest as a system (trees, young growth, dead wood…]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-124 · Resume from the last finished day
+# Resume from the last finished day (D4-124)
 
 *live · 19 Nov*
 
@@ -20,6 +20,6 @@ a resume replayed every committed step from day 1
 
 
 ## Mentioned by
-- [[Q-62 recordexecution.md and resume --from-last|Q-62 · record/execution.md and `resume --from-last`]]
-- [[W-58 The runs world with a model to each household|W-58 · The runs world with a model to each household]]
+- [[Q-62 recordexecution.md and resume --from-last|record/execution.md and `resume --from-last` (Q-62)]]
+- [[W-58 The runs world with a model to each household|The runs world with a model to each household (W-58)]]
 - [[Resume from the last finished day, without replay|Resume from the last finished day, without replay]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-227 · Some places are harsher
+# Some places are harsher (D2-227)
 
 *live · 17 Nov · spec: [[environment - land|environment/land]]*
 
@@ -20,7 +20,7 @@ frozen waters in every world via the cold era
 
 
 ## Mentioned by
-- [[Q-52 Environment systems|Q-52 · Environment systems]]
+- [[Q-52 Environment systems|Environment systems (Q-52)]]
 - [[Calibration worlds a suite of diverse places to calibrate against|Calibration worlds: a suite of diverse places to calibrate against]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
 - [[The land and its stocks|The land and its stocks]]

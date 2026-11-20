@@ -5,23 +5,23 @@
 > A small set of verbs acts on many objects; new and richer acts are added as data on those verbs, and agents come to know them in the world, not from a complete manual. Moving house is one of the things agents can do, not a special feature.
 
 ## Decided (20)
-- **[[D2-93 Modifiers on verbs|D2-93]]** Modifiers on verbs
-- **[[D2-94 for (D2-37) and the sowing method (D2-54) are modifiers|D2-94]]** `for` (D2-37) and the sowing method (D2-54) are modifiers
-- **[[D2-96 Rot and burial|D2-96]]** Rot and burial
-- **[[D2-111 leave folds into give|D2-111]]** `leave` folds into `give`
-- **[[D2-112 Modifiers are techniques|D2-112]]** Modifiers are techniques
-- **[[D2-155 Storage takes space|D2-155]]** Storage takes space
-- **[[D2-157 Fuel in heat|D2-157]]** Fuel in heat
-- **[[D4-24 The world grows by data, and agents explore and learn it|D4-24]]** The world grows by data, and agents explore and learn it
-- **[[D4-29 No aims for now|D4-29]]** No aims for now
-- **[[D4-32 Too heavy to set off|D4-32]]** Too heavy to set off
-- **[[D4-35 Everything happens in a place|D4-35]]** Everything happens in a place
-- **[[D4-36 Moving is general, not a feature|D4-36]]** Moving is general, not a feature
-- **[[D4-37 Whoever is owed may count a debt paid|D4-37]]** Whoever is owed may count a debt paid
-- **[[D4-76 A fallback each person sets|D4-76]]** A fallback each person sets
-- **[[D4-89 Goods left at a door stay the house's|D4-89]]** Goods left at a door stay the house's
-- **[[D4-94 Acts made to work as they read|D4-94]]** Acts made to work as they read
-- **[[D4-95 What a refusal says|D4-95]]** What a refusal says
-- **[[D4-96 Using the store at home|D4-96]]** Using the store at home
-- **[[D4-97 Decisions on 38.51's list|D4-97]]** Decisions on 38.51's list
-- **[[D4-123 A lesson is in the teacher's craft|D4-123]]** A lesson is in the teacher's craft
+- [[D2-93 Modifiers on verbs|Modifiers on verbs (D2-93)]]
+- [[D2-94 for (D2-37) and the sowing method (D2-54) are modifiers|`for` (D2-37) and the sowing method (D2-54) are modifiers (D2-94)]]
+- [[D2-96 Rot and burial|Rot and burial (D2-96)]]
+- [[D2-111 leave folds into give|`leave` folds into `give` (D2-111)]]
+- [[D2-112 Modifiers are techniques|Modifiers are techniques (D2-112)]]
+- [[D2-155 Storage takes space|Storage takes space (D2-155)]]
+- [[D2-157 Fuel in heat|Fuel in heat (D2-157)]]
+- [[D4-24 The world grows by data, and agents explore and learn it|The world grows by data, and agents explore and learn it (D4-24)]]
+- [[D4-29 No aims for now|No aims for now (D4-29)]]
+- [[D4-32 Too heavy to set off|Too heavy to set off (D4-32)]]
+- [[D4-35 Everything happens in a place|Everything happens in a place (D4-35)]]
+- [[D4-36 Moving is general, not a feature|Moving is general, not a feature (D4-36)]]
+- [[D4-37 Whoever is owed may count a debt paid|Whoever is owed may count a debt paid (D4-37)]]
+- [[D4-76 A fallback each person sets|A fallback each person sets (D4-76)]]
+- [[D4-89 Goods left at a door stay the house's|Goods left at a door stay the house's (D4-89)]]
+- [[D4-94 Acts made to work as they read|Acts made to work as they read (D4-94)]]
+- [[D4-95 What a refusal says|What a refusal says (D4-95)]]
+- [[D4-96 Using the store at home|Using the store at home (D4-96)]]
+- [[D4-97 Decisions on 38.51's list|Decisions on 38.51's list (D4-97)]]
+- [[D4-123 A lesson is in the teacher's craft|A lesson is in the teacher's craft (D4-123)]]

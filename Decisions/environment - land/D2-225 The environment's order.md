@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-225 · The environment's order
+# The environment's order (D2-225)
 
 *live · 17 Nov · spec: [[environment - land|environment/land]]*
 
@@ -20,7 +20,7 @@ conversation (17 Nov, to OPEN [[Q-52 Environment systems|Q-52]]: "5. sure")
 
 
 ## Mentioned by
-- [[Q-52 Environment systems|Q-52 · Environment systems]]
+- [[Q-52 Environment systems|Environment systems (Q-52)]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
 - [[The land and its stocks|The land and its stocks]]
 - *and 1 index or audit notes*

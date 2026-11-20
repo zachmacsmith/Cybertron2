@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-3 · Large buildings and buildings of 2-3 storeys must have stone
+# Large buildings and buildings of 2-3 storeys must have stone (D2-3)
 
 *live · 22 Oct · spec: [[economy - buildings|economy/buildings]], [[economy - goods|economy/goods]]*
 

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-29 · No aims for now
+# No aims for now (D4-29)
 
 *live · 23 Oct · spec: [[agents - actions|agents/actions]], [[agents - aims|agents/aims]], [[information - prompts|information/prompts]], [[seeding - populations|seeding/populations]]*
 
@@ -20,8 +20,8 @@ in-world aims in every prompt (scenario_design §3, 38.11)
 
 
 ## Mentioned by
-- [[D2-144 No loyalty mechanic for now|D2-144 · No loyalty mechanic for now]]
-- [[L-17 Aims (cybertron 1's goals, edited)|L-17 · Aims (cybertron 1's goals, edited)]]
+- [[D2-144 No loyalty mechanic for now|No loyalty mechanic for now (D2-144)]]
+- [[L-17 Aims (cybertron 1's goals, edited)|Aims (cybertron 1's goals, edited) (L-17)]]
 - [[Proposal children as a choice, counted in days (costs, care, growing…|Proposal: children as a choice, counted in days (costs, care, growing…]]
 - [[Customs held by households|Customs held by households]]
 - [[What agents can do|What agents can do]]

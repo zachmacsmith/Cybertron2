@@ -849,6 +849,6 @@ Standard works relied on from memory (to check before use):
   Innovation Decision in Soviet Industry*
 
 In the project: 02zzj parts 01 to 13 (cited by number, especially 03, 04, 05 §1.7 and §2.6, 06, 07 §4.4 and §7.3, 08 §3.1, 10, 12,
-13); 02zzk_medieval_border.md §2 and §3; OPEN [[L-103 Crafting and discovering new things|L-103]], [[L-106 MAJOR what the engine remembers and settles for agents, and…|L-106]], [[L-109 The full-history map is not a backlog|L-109]], [[Q-47 The border for now|Q-47]]; WORK [[W-44 The missing domains and a linking pass|W-44]]; docs/cybertron2/proposals/knowledge.md (§3, §4c,
+13); 02zzk_medieval_border.md §2 and §3; OPEN [[L-103 Crafting and discovering new things|L-103]], [[L-106 MAJOR what the engine remembers and settles for agents, and…|L-106]], [[L-109 The full-history map is not a backlog|L-109]], [[Q-47 Where the economy stops for now|Q-47]]; WORK [[W-44 The missing domains and a linking pass|W-44]]; docs/cybertron2/proposals/knowledge.md (§3, §4c,
 §6, §7); cybertron2/engine/knowledge.py, data.py (`TRY`, `LEVELS`, `KNOWN_SOMEWHERE`), perceive.py (`chance_of`, `knack`);
 docs/cybertron2/guides/senses.md; proposals/wild_systems.md §9; proposals/agreements.md; part 09 §1, §2 and §9.

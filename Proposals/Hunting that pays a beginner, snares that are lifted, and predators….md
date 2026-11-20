@@ -66,7 +66,7 @@ Snares, once lifted, were the one method that paid: about 0.9 food a unit in the
 - **Hunting:** 285 hunts met about 600 beasts and took 15 hares and 2 pigeons (10.7 meat), about 2.8% of beasts met: what the
   stacked factors give. Many hunted bare-handed. Deer were seen and stalked once, and stalking was taught twice and dropped.
 - **Snares:** 112 lines set; 18.7 meat lifted in 35 takes (there, agents worked out lifting for themselves); several catches rotted.
-- **Drying:** `dry meat` takes exactly 8 meat, so 52 tries were refused, 9 of them at 7.8 meat after a night's spoilage (OPEN [[Q-43 Before the second peoples run|Q-43]]).
+- **Drying:** `dry meat` takes exactly 8 meat, so 52 tries were refused, 9 of them at 7.8 meat after a night's spoilage (OPEN [[Q-43 Fixes before a second peoples run|Q-43]]).
 - **No predator came near people or herds in 100 days.** A dry run of the same world (§7) shows why: the wolves and boar are at nodes
   where no one lives; a group raids only at its own node; and the wolves and boar fall from the first night (wolves within reach of
   Ashford from 3.8 to 2.1 in 12 days, below a pack's least size of 3 by day 4).
@@ -241,7 +241,7 @@ Proposed:
 - for other methods, a party's gain is the carry and the danger shared (brief 4b), and finding beasts by more eyes (`detect` per
   member, as built).
 
-## 6. Drying, and what a household knows of its own house (OPEN [[Q-43 Before the second peoples run|Q-43]]; Zach, 13 Nov)
+## 6. Drying, and what a household knows of its own house (OPEN [[Q-43 Fixes before a second peoples run|Q-43]]; Zach, 13 Nov)
 
 The peoples run dried 472 meat into 203 dried meat, then lost 70 of it on the racks: a batch stays in a pile at the door after it
 is dry, spoiling at outdoor rates and open to the fox and vermin, and nothing tells anyone it is done. The store line's "food worth N
@@ -444,7 +444,7 @@ trace of the peoples world on `peoples-worlds` is in `pred_trace_peoples_w1.json
   the door. Tallow as food dropped (historically tallow went to candles, soap and grease; OPEN [[L-107 Tallow's real uses|L-107]]); the smokehouse moved to brief 5
   (its value is scale and long keeping, needed with the runs).
 - 13 Nov 2026: written up for the build (Zach: "write up 4c"): the first peoples run's evidence (38.70 flaw 6); §6 drying any batch
-  up to 8 (OPEN [[Q-43 Before the second peoples run|Q-43]]); §7 predators, from a dry trace of the peoples world (wolves and boar falling from the first night, groups tied
+  up to 8 (OPEN [[Q-43 Fixes before a second peoples run|Q-43]]); §7 predators, from a dry trace of the peoples world (wolves and boar falling from the first night, groups tied
   to one node, the drive low when prey is plentiful), with the ecology check (37.2), ranging groups (37.4) and targets; the branch
   note for `peoples-worlds`.
 - 13 Nov 2026: §2 and §3 rewritten (Zach, 13 Nov: "rather than times 0.3 for being unarmed, surely it should be increased if you
@@ -458,4 +458,4 @@ trace of the peoples world on `peoples-worlds` is in `pred_trace_peoples_w1.json
 ## Sources
 
 02zze (the run); 38.70 (the peoples run, flaw 6); 02zzd and its harnesses; hunt_and_fixes.md (brief 4); hunt_followups.md (brief 4b); 02zx; OPEN [[Q-36 Brief 1 as built differs from the brief in 16 places|Q-36]], [[Q-40 Brief 4 as built, and its gate|Q-40]], [[Q-41 Brief 4b as built, and its gate|Q-41]],
-[[L-106 MAJOR what the engine remembers and settles for agents, and…|L-106]], [[Q-35 Run findings with no owner yet|Q-35]], [[Q-43 Before the second peoples run|Q-43]]; guides/senses.md; [[D4-48 A state shows itself as a bundle of signs, not one line|D4-48]], [[D4-70 Taking from a place one does not know holds the thing is a search|D4-70]], [[D4-75 Every perceived line about the world comes from the one noticing rule|D4-75]].
+[[L-106 MAJOR what the engine remembers and settles for agents, and…|L-106]], [[Q-35 Run findings with no owner yet|Q-35]], [[Q-43 Fixes before a second peoples run|Q-43]]; guides/senses.md; [[D4-48 A state shows itself as a bundle of signs, not one line|D4-48]], [[D4-70 Taking from a place one does not know holds the thing is a search|D4-70]], [[D4-75 Every perceived line about the world comes from the one noticing rule|D4-75]].

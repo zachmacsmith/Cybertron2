@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-76 · Eras in four families
+# Eras in four families (D2-76)
 
 *live · 23 Oct · spec: [[environment - scheduler|environment/scheduler]]*
 
@@ -20,10 +20,10 @@ outside raiders as scripted incidents
 
 
 ## Mentioned by
-- [[D4-109 The weather scheduler|D4-109 · The weather scheduler]]
-- [[Q-8 Which signs, incidents and eras first|Q-8 · Which signs, incidents and eras first]]
-- [[L-22 Raiders and other outside agents arriving with goals|L-22 · Raiders and other outside agents arriving with goals]]
-- [[C-8 Environment design for the old engine|C-8 · Environment design for the old engine]]
+- [[D4-109 The weather scheduler|The weather scheduler (D4-109)]]
+- [[Q-8 Which signs, incidents and eras first|Which signs, incidents and eras first (Q-8)]]
+- [[L-22 Raiders and other outside agents arriving with goals|Raiders and other outside agents arriving with goals (L-22)]]
+- [[C-8 Environment design for the old engine|Environment design for the old engine (C-8)]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
 - [[Proposal what can happen (eras, weather, hazards that spread, and…|Proposal: what can happen (eras, weather, hazards that spread, and…]]
 - [[Proposal living populations on the land (a generalised ecology layer)|Proposal: living populations on the land (a generalised ecology layer)]]

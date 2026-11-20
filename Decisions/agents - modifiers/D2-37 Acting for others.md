@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-37 · Acting for others
+# Acting for others (D2-37)
 
 *live · 23 Oct · spec: [[agents - modifiers|agents/modifiers]], [[economy - agreements|economy/agreements]]*
 
@@ -17,7 +17,7 @@ hiring.md §1; conversation
 
 
 ## Mentioned by
-- [[D2-94 for (D2-37) and the sowing method (D2-54) are modifiers|D2-94 · `for` (D2-37) and the sowing method (D2-54) are modifiers]]
+- [[D2-94 for (D2-37) and the sowing method (D2-54) are modifiers|`for` (D2-37) and the sowing method (D2-54) are modifiers (D2-94)]]
 - [[Proposal agreements and obligations (one system for trade, credit…|Proposal: agreements and obligations (one system for trade, credit…]]
 - [[Proposal farming|Proposal: farming]]
 - [[Proposal hiring (work for someone else)|Proposal: hiring (work for someone else)]]

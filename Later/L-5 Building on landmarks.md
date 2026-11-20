@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-5 · Building on landmarks
+# Building on landmarks (L-5)
 
 *open · 37.2 with 37.4*
 
@@ -20,7 +20,7 @@ Building on landmarks: bridges, ferries, huts at a pass, wells, waystations, tol
 
 
 ## Mentioned by
-- [[D2-108 Building on landmarks later|D2-108 · Building on landmarks later]]
+- [[D2-108 Building on landmarks later|Building on landmarks later (D2-108)]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]
 - [[Proposal the layout of a road (stretches and landmarks)|Proposal: the layout of a road (stretches and landmarks)]]
 - [[Proposal transport and lodging|Proposal: transport and lodging]]

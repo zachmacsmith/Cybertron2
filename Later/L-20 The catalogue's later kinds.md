@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-20 · The catalogue's later kinds
+# The catalogue's later kinds (L-20)
 
 *open · 37.2*
 

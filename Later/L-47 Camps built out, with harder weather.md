@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-47 · Camps built out, with harder weather
+# Camps built out, with harder weather (L-47)
 
 *open · 37.4*
 
@@ -20,8 +20,8 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[L-46 Levels of fire|L-46 · Levels of fire]]
-- [[L-48 What can happen to buildings and fittings, by weather and use|L-48 · What can happen to buildings and fittings, by weather and use]]
+- [[L-46 Levels of fire|Levels of fire (L-46)]]
+- [[L-48 What can happen to buildings and fittings, by weather and use|What can happen to buildings and fittings, by weather and use (L-48)]]
 - [[What can happen to buildings and fittings, by weather and use…|What can happen to buildings and fittings, by weather and use…]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]
 - [[Levels of fire, and camps built out (flagged for later)|Levels of fire, and camps built out (flagged for later)]]

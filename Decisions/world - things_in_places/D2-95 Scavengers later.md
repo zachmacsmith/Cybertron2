@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-95 · Scavengers later
+# Scavengers later (D2-95)
 
 *live · 23 Oct · spec: [[world - things_in_places|world/things_in_places]]*
 
@@ -17,7 +17,7 @@ things_in_places.md §6
 
 
 ## Mentioned by
-- [[L-2 Scavengers, with wild animals that attack herds and hunters and are…|L-2 · Scavengers, with wild animals that attack herds and hunters and are…]]
+- [[L-2 Scavengers, with wild animals that attack herds and hunters and are…|Scavengers, with wild animals that attack herds and hunters and are… (L-2)]]
 - [[Proposal living populations on the land (a generalised ecology layer)|Proposal: living populations on the land (a generalised ecology layer)]]
 - [[Proposal objects placed in the world|Proposal: objects placed in the world]]
 - [[Proposal the senses across every system|Proposal: the senses across every system]]

@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-117 · Wildlife pack K3: forays, methods and knowing
+# Wildlife pack K3: forays, methods and knowing (L-117)
 
 *open · 37.2 (design), 37.4*
 
@@ -20,12 +20,12 @@ forays, places in memory and names, land features, cord and the coppice's produc
 
 
 ## Linked
-- parent: [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
+- parent: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 
 
 ## Mentioned by
-- [[W-6 Merging the wild layer into main|W-6 · Merging the wild layer into main]]
-- [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
+- [[W-6 Merging the wild layer into main|Merging the wild layer into main (W-6)]]
+- [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
 - [[Proposal the wild layer, one general system for ecosystems and…|Proposal: the wild layer, one general system for ecosystems and…]]
 - [[02zzp what was started and left, 22 Oct to 19 Nov, and how to notice…|02zzp: what was started and left, 22 Oct to 19 Nov, and how to notice…]]

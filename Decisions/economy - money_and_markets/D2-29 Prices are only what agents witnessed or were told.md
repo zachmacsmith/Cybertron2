@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-29 · Prices are only what agents witnessed or were told
+# Prices are only what agents witnessed or were told (D2-29)
 
 *live · 23 Oct · spec: [[economy - money_and_markets|economy/money_and_markets]], [[information - perception|information/perception]], [[information - prompts|information/prompts]]*
 

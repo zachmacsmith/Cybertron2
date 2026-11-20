@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-31 · D4-79's rules
+# D4-79's rules (L-31)
 
 *open · 37.1*
 

@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-17 · Aims (cybertron 1's goals, edited)
+# Aims (cybertron 1's goals, edited) (L-17)
 
 *open · 37.4*
 

@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-13 · Economy options kept out of the first worlds
+# Economy options kept out of the first worlds (L-13)
 
 *open · 37.2*
 

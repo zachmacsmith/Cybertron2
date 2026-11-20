@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-20 · Paired probes, round 3
+# Paired probes, round 3 (W-20)
 
 *done · 37.2 · touched  ()*
 

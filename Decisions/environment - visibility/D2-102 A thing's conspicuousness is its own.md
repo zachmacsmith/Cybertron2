@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-102 · A thing's conspicuousness is its own
+# A thing's conspicuousness is its own (D2-102)
 
 *live · 23 Oct · spec: [[environment - visibility|environment/visibility]], [[information - noticing|information/noticing]], [[information - perception|information/perception]]*
 

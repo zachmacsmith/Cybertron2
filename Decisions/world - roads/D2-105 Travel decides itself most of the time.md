@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-105 · Travel decides itself most of the time
+# Travel decides itself most of the time (D2-105)
 
 *live · 23 Oct · spec: [[world - roads|world/roads]]*
 

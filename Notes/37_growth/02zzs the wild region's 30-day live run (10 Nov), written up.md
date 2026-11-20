@@ -8,7 +8,7 @@ updated: "2026-11-20"
 *note · `docs/review/37_growth/02zzs_wild_region_run.md`*
 
 
-37.2's subagent, 20 Nov 2026 (WORK [[W-29 A multi-village wild region and its live run|W-29]]). Zach (20 Nov): "Get a subagent to revisit and do a writeup, see if it can find our
+37.2's subagent, 20 Nov 2026 (WORK [[W-29 Writing up the 10 Nov wild-region live run|W-29]]). Zach (20 Nov): "Get a subagent to revisit and do a writeup, see if it can find our
 transcripts from around then too, and what we found / what engine gaps were there." Read-only. No model was run. The world's
 design and its dry run are in [02zze](02zze_wild_region.md). This note covers the live run. **Measured** means I read it from the
 run's own files. **Said** means it comes from the session's replies of 10 and 12 Nov and I did not re-derive it.
@@ -105,8 +105,8 @@ Facts are measured. The readings come from the session's analysis of 10 Nov, whi
 | **Snares never lifted**; the remembered "empty" was taken as fact | 12 Nov | **Fixed in code** | Brief 4c §4: the setter sees a catch at the parcel, and the remembered line says "empty" only if it was seen so (`engine/things.py` 276 to 370, `engine/perceive.py` 236, 422). Untested live here |
 | **The engine remembers and settles for agents:** state snapshots, a perfect agreements ledger, automatic payment | 12 Nov | **Open, deferred** | OPEN [[L-106 MAJOR what the engine remembers and settles for agents, and…|L-106]] (major, not decided) |
 | **Debts of the dead:** Herbert's agreement with Ivo, one tool owed, stays open | 10 Nov | **Open** | `engine/agreements.py` `_present_for`: "nothing is paid to the dead"; no heir or estate rule; no OPEN row found |
-| **No news of famine reaches the rich village** | 10 Nov | **Open** | No row of its own. The peoples run's "news of a death does not spread" is in OPEN [[Q-43 Before the second peoples run|Q-43]] |
-| The maker: the seeded couples' and carriers' ages, `ages: true`, stores only to the harvest, Stanmoor's distance from charcoal | 10 Nov | **Open** (world, not engine) | `make_wild_region.py` is unchanged since 53fc52b (10 Nov); the same questions for the peoples worlds are in OPEN [[Q-43 Before the second peoples run|Q-43]] |
+| **No news of famine reaches the rich village** | 10 Nov | **Open** | No row of its own. The peoples run's "news of a death does not spread" is in OPEN [[Q-43 Fixes before a second peoples run|Q-43]] |
+| The maker: the seeded couples' and carriers' ages, `ages: true`, stores only to the harvest, Stanmoor's distance from charcoal | 10 Nov | **Open** (world, not engine) | `make_wild_region.py` is unchanged since 53fc52b (10 Nov); the same questions for the peoples worlds are in OPEN [[Q-43 Fixes before a second peoples run|Q-43]] |
 | The generator's speed (02zzf) | 10 Nov | **Open** | None of the fixes is built (02zzp records.md row 5); the landgen commits since then are unrelated |
 
 ## What is left
@@ -116,7 +116,7 @@ Facts are measured. The readings come from the session's analysis of 10 Nov, whi
    which this read-only task does not cover.
 3. **Publishing is already done.** Zach asked on 10 Nov ("Also upload to hugging face"). The run is `runs/wild_region_s7` in
    `zachmacsmith/cybertron2-runs`. I checked it read-only on 20 Nov: 55 files, covering the journal, views, viewer, run and manifest.
-   Its index line is committed (ec00276). [[W-29 A multi-village wild region and its live run|W-29]]'s "publish on Zach's go" is stale. Any republish, for example with this note linked,
+   Its index line is committed (ec00276). [[W-29 Writing up the 10 Nov wild-region live run|W-29]]'s "publish on Zach's go" is stale. Any republish, for example with this note linked,
    needs his go.
 4. **A rerun after brief 4c and the maker's fixes.** That needs Zach's go, and it is paid.
 
@@ -136,5 +136,5 @@ Facts are measured. The readings come from the session's analysis of 10 Nov, whi
   - 02zzp_audit/period_b.md, 02zzp_audit/records.md;
   - 02zzr_triage.md;
   - proposals/hunt_calibration.md;
-  - OPEN [[Q-43 Before the second peoples run|Q-43]], [[Q-46 Brief 4c as built|Q-46]], [[L-106 MAJOR what the engine remembers and settles for agents, and…|L-106]], [[L-113 Briefs 4, 4b and 4c's deviations, to revisit|L-113]];
+  - OPEN [[Q-43 Fixes before a second peoples run|Q-43]], [[Q-46 Brief 4c as built|Q-46]], [[L-106 MAJOR what the engine remembers and settles for agents, and…|L-106]], [[L-113 Briefs 4, 4b and 4c's deviations, to revisit|L-113]];
   - [[D2-40 The first presets|D2-40]], [[D4-114 What is physically there can be used|D4-114]].

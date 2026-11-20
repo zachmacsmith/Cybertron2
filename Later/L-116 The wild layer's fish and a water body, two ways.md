@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-116 · The wild layer's fish and a water body, two ways
+# The wild layer's fish and a water body, two ways (L-116)
 
 *open · 37.4*
 
@@ -20,6 +20,6 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-56 One fish stock per water body, the engine half|W-56 · One fish stock per water body, the engine half]]
+- [[W-56 One fish stock per water body, the engine half|One fish stock per water body, the engine half (W-56)]]
 - [[38.76 One fish stock per water body, the engine half (D2-229), as…|38.76: One fish stock per water body, the engine half (D2-229), as…]]
 - *and 2 index or audit notes*

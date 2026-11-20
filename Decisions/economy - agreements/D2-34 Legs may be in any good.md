@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-34 · Legs may be in any good
+# Legs may be in any good (D2-34)
 
 *live · 23 Oct · spec: [[economy - agreements|economy/agreements]]*
 

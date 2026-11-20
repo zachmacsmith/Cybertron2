@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-36 · Moving is general, not a feature
+# Moving is general, not a feature (D4-36)
 
 *live · 23 Oct · spec: [[agents - actions|agents/actions]], [[institutions - membership|institutions/membership]], [[life - birth_and_death|life/birth_and_death]]*
 

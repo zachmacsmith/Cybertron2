@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-14 · Clothing
+# Clothing (L-14)
 
 *open · 37.2*
 
@@ -18,7 +18,7 @@ Clothing
 
 
 ## Mentioned by
-- [[L-36 Livestock kinds beyond cattle and herds moved with the seasons|L-36 · Livestock kinds beyond cattle and herds moved with the seasons]]
+- [[L-36 Livestock kinds beyond cattle and herds moved with the seasons|Livestock kinds beyond cattle and herds moved with the seasons (L-36)]]
 - [[Proposal what people make of wild things economies, husbandry…|Proposal: what people make of wild things: economies, husbandry…]]
 - [[Proposal wild plants, and the slow ecosystems they make|Proposal: wild plants, and the slow ecosystems they make]]
 - [[Proposal the first wild kinds (what lives on the land, what each is…|Proposal: the first wild kinds (what lives on the land, what each is…]]

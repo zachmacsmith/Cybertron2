@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-63 · A herd in the place's layout
+# A herd in the place's layout (L-63)
 
 *open · 37.4*
 

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-230 · Highpool's larder in the runs world
+# Highpool's larder in the runs world (D2-230)
 
 *live · 17 Nov*
 
@@ -20,7 +20,7 @@ Highpool at 0.70 of its 24-day need
 
 
 ## Mentioned by
-- [[W-59 The runs world for the model-per-household run|W-59 · The runs world for the model-per-household run]]
+- [[W-59 The runs world for the model-per-household run|The runs world for the model-per-household run (W-59)]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]

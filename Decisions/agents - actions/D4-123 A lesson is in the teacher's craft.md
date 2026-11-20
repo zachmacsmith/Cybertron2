@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-123 · A lesson is in the teacher's craft
+# A lesson is in the teacher's craft (D4-123)
 
 *live · 19 Nov · spec: [[agents - actions|agents/actions]]*
 
@@ -20,7 +20,7 @@ the crafts named had to match exactly, and a mismatch was reported to each as th
 
 
 ## Mentioned by
-- [[W-58 The runs world with a model to each household|W-58 · The runs world with a model to each household]]
-- [[L-128 'salt pan' names two things|L-128 · 'salt pan' names two things]]
+- [[W-58 The runs world with a model to each household|The runs world with a model to each household (W-58)]]
+- [[L-128 'salt pan' names two things|'salt pan' names two things (L-128)]]
 - [[A lesson is in the teacher's craft|A lesson is in the teacher's craft]]
 - [[What agents can do|What agents can do]]

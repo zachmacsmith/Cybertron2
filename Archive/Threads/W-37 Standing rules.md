@@ -5,7 +5,7 @@ state: discussion
 updated: "2026-11-20"
 ---
 
-# W-37 · Standing rules
+# Standing rules (W-37)
 
 *discussion · 37.4 · touched 13 Nov (7 days ago)*
 

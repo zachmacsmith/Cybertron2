@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-14 · Everyone plans at once
+# Everyone plans at once (D4-14)
 
 *live · 22 Oct · spec: [[core - round|core/round]]*
 

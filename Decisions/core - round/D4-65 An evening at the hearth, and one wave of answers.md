@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-65 · An evening at the hearth, and one wave of answers
+# An evening at the hearth, and one wave of answers (D4-65)
 
 *live · 2 Nov · spec: [[core - round|core/round]], [[information - prompts|information/prompts]], [[information - speech|information/speech]]*
 
@@ -20,8 +20,8 @@ conversation ("I do think having an evening at the building or camp where people
 
 
 ## Mentioned by
-- [[Q-3 Talk-step waves (one or two)|Q-3 · Talk-step waves (one or two)]]
-- [[C-3 Speech at a node one talk step|C-3 · Speech at a node: one talk step]]
+- [[Q-3 Talk-step waves (one or two)|Talk-step waves (one or two) (Q-3)]]
+- [[C-3 Speech at a node one talk step|Speech at a node: one talk step (C-3)]]
 - [[Proposal the economics of information|Proposal: the economics of information]]
 - [[When people talk, and what it costs by reach, with an evening at the…|When people talk, and what it costs: by reach, with an evening at the…]]
 - [[Standing rules how a household eats, and what it keeps back|Standing rules: how a household eats, and what it keeps back]]

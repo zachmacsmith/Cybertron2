@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-RR1 · Checkpoint at every step, or every day plus the step's changes
+# Checkpoint at every step, or every day plus the step's changes (Q-RR1)
 
 *open · 37.1*
 

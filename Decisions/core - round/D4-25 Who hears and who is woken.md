@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-25 · Who hears and who is woken
+# Who hears and who is woken (D4-25)
 
 *live · 23 Oct · spec: [[core - round|core/round]], [[information - speech|information/speech]]*
 
@@ -20,8 +20,8 @@ M1's talk step, which asked again everyone who heard anything
 
 
 ## Mentioned by
-- [[D4-65 An evening at the hearth, and one wave of answers|D4-65 · An evening at the hearth, and one wave of answers]]
-- [[C-3 Speech at a node one talk step|C-3 · Speech at a node: one talk step]]
+- [[D4-65 An evening at the hearth, and one wave of answers|An evening at the hearth, and one wave of answers (D4-65)]]
+- [[C-3 Speech at a node one talk step|Speech at a node: one talk step (C-3)]]
 - [[Proposal the economics of information|Proposal: the economics of information]]
 - [[Proposal the verbs, and what each agent is shown|Proposal: the verbs, and what each agent is shown]]
 - [[The round|The round]]

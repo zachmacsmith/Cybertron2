@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-30 · Speaking in a building is one general action for any building
+# Speaking in a building is one general action for any building (D4-30)
 
 *live · 23 Oct · spec: [[information - speech|information/speech]]*
 

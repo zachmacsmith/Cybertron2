@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-7 · Speech at a node
+# Speech at a node (D2-7)
 
 *live · 22 Oct · spec: [[information - speech|information/speech]]*
 
@@ -17,7 +17,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[D4-25 Who hears and who is woken|D4-25 · Who hears and who is woken]]
+- [[D4-25 Who hears and who is woken|Who hears and who is woken (D4-25)]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
 - [[Proposal gates (entry to a place)|Proposal: gates (entry to a place)]]
 - [[Proposal the economics of information|Proposal: the economics of information]]

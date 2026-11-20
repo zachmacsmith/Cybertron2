@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-175 · Land use in rings round a settlement
+# Land use in rings round a settlement (D2-175)
 
 *live · 3 Nov*
 

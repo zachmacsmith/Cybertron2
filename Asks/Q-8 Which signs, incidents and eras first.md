@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-8 · Which signs, incidents and eras first
+# Which signs, incidents and eras first (Q-8)
 
 *open · 37.4*
 

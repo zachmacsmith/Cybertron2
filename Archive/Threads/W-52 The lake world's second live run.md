@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-52 · The lake world's second live run
+# The lake world's second live run (W-52)
 
 *done · 37.4 · touched  ()*
 

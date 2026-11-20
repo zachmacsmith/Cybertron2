@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-104 · Roads have stretches
+# Roads have stretches (D2-104)
 
 *live · 23 Oct · spec: [[environment - scheduler|environment/scheduler]], [[world - edges|world/edges]], [[world - roads|world/roads]]*
 

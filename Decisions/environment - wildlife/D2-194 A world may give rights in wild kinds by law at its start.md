@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-194 · A world may give rights in wild kinds by law at its start
+# A world may give rights in wild kinds by law at its start (D2-194)
 
 *live · 8 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 
@@ -17,7 +17,7 @@ conversation ("Yes to all")
 
 
 ## Mentioned by
-- [[Q-32 02zv §6's decisions still open|Q-32 · 02zv §6's decisions still open]]
+- [[Q-32 02zv §6's decisions still open|02zv §6's decisions still open (Q-32)]]
 - [[Proposal what people make of wild things economies, husbandry…|Proposal: what people make of wild things: economies, husbandry…]]
 - [[Proposal ecology designed from the node outward|Proposal: ecology designed from the node outward]]
 - [[Proposal wild behaviour, kinds composed of facets, each a module of…|Proposal: wild behaviour, kinds composed of facets, each a module of…]]

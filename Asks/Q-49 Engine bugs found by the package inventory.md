@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-49 · Engine bugs found by the package inventory
+# Engine bugs found by the package inventory (Q-49)
 
 *open · 37.4*
 
@@ -16,5 +16,5 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-43 The engine as feature packages|W-43 · The engine as feature packages]]
+- [[W-43 The engine as feature packages|The engine as feature packages (W-43)]]
 - [[The engine as a small core and feature packages design specification|The engine as a small core and feature packages: design specification]]

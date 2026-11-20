@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-209 · Brief 5 (river and water) is built
+# Brief 5 (river and water) is built (D2-209)
 
 *live · 16 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 
@@ -20,14 +20,14 @@ conversation (16 Nov: "1. yes. 2. yes. 3. sure. 4. I'll be passing this to the o
 
 
 ## Mentioned by
-- [[D2-210 The weir in sections, capped, with upkeep by the river|D2-210 · The weir in sections, capped, with upkeep by the river]]
-- [[Q-51 Brief 5 (river and water)|Q-51 · Brief 5 (river and water)]]
-- [[Q-60 The water worlds' people, and the runs world for the…|Q-60 · The water worlds' people, and the runs world for the…]]
-- [[W-26 Build brief 5 river and water (K4 without fen and boats)|W-26 · Build brief 5: river and water (K4 without fen and boats)]]
-- [[W-45 Brief 5 revised from the economy research|W-45 · Brief 5 revised from the economy research]]
-- [[W-48 Build brief 5, river and water|W-48 · Build brief 5, river and water]]
-- [[L-110 Salt's fuel, to recalibrate|L-110 · Salt's fuel, to recalibrate]]
-- [[L-111 The hunting and resources build, a soon follow-up|L-111 · The hunting and resources build, a soon follow-up]]
+- [[D2-210 The weir in sections, capped, with upkeep by the river|The weir in sections, capped, with upkeep by the river (D2-210)]]
+- [[Q-51 Brief 5 (river and water)|Brief 5 (river and water) (Q-51)]]
+- [[Q-60 The water worlds' people, and the runs world for the…|The water worlds' people, and the runs world for the… (Q-60)]]
+- [[W-26 Build brief 5 river and water (K4 without fen and boats)|Build brief 5: river and water (K4 without fen and boats) (W-26)]]
+- [[W-45 Brief 5 revised from the economy research|Brief 5 revised from the economy research (W-45)]]
+- [[W-48 Build brief 5, river and water|Build brief 5, river and water (W-48)]]
+- [[L-110 Salt's fuel, to recalibrate|Salt's fuel, to recalibrate (L-110)]]
+- [[L-111 The hunting and resources build, a soon follow-up|The hunting and resources build, a soon follow-up (L-111)]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[Wildlife|Wildlife]]

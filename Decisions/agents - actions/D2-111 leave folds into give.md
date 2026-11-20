@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-111 · `leave` folds into `give`
+# `leave` folds into `give` (D2-111)
 
 *live · 23 Oct · spec: [[agents - actions|agents/actions]], [[agents - modifiers|agents/modifiers]], [[world - things_in_places|world/things_in_places]]*
 

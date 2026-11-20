@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-140 · Partnering is both people's choice
+# Partnering is both people's choice (D2-140)
 
 *live · 24 Oct · spec: [[life - birth_and_death|life/birth_and_death]]*
 

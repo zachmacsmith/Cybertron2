@@ -823,4 +823,4 @@ among the Coast Salish"; Tawney, R. H. (1926), *Religion and the Rise of Capital
 Ethik und der Geist des Kapitalismus*; Youings, J. (1971), *The Dissolution of the Monasteries*.
 
 In the project: 02zzk_medieval_border.md (§2, §3); parts 01, 02, 03, 04, 05, 06, 09, 10, 11 and 12 of this folder; OPEN [[L-106 MAJOR what the engine remembers and settles for agents, and…|L-106]],
-[[L-109 The full-history map is not a backlog|L-109]], [[Q-47 The border for now|Q-47]]; spec/environment/calendar.md; spec/world/things_in_places.md; spec/economy/buildings.md; spec/information/memory.md.
+[[L-109 The full-history map is not a backlog|L-109]], [[Q-47 Where the economy stops for now|Q-47]]; spec/environment/calendar.md; spec/world/things_in_places.md; spec/economy/buildings.md; spec/information/memory.md.

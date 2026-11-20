@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-12 · Decisions made with 37.2 that belong in 37.4's spec areas and are not…
+# Decisions made with 37.2 that belong in 37.4's spec areas and are not… (Q-12)
 
 *closed · 37.4*
 

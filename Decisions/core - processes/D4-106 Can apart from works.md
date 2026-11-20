@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-106 · Can apart from works
+# Can apart from works (D4-106)
 
 *live · 8 Nov · spec: [[core - processes|core/processes]], [[core - world_schema|core/world_schema]], [[information - signs|information/signs]], [[measurement - capacity|measurement/capacity]]*
 
@@ -20,7 +20,7 @@ conversation ("Surely they should be able to sow whenever they want just the far
 
 
 ## Mentioned by
-- [[Q-49 Engine bugs found by the package inventory|Q-49 · Engine bugs found by the package inventory]]
+- [[Q-49 Engine bugs found by the package inventory|Engine bugs found by the package inventory (Q-49)]]
 - [[Proposal crops grow by the season; can apart from works; what a…|Proposal: crops grow by the season; "can" apart from "works"; what a…]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]
 - [[Proposal phase 3 of the engine overhaul, variance and risk (the…|Proposal: phase 3 of the engine overhaul, variance and risk (the…]]

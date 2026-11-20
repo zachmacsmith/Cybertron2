@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-2 · One merchant household with a cart is seeded in the first region
+# One merchant household with a cart is seeded in the first region (D2-2)
 
 *live · 22 Oct · spec: [[economy - money_and_markets|economy/money_and_markets]], [[economy - transport|economy/transport]]*
 

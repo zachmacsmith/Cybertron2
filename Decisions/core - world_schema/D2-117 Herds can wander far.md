@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-117 · Herds can wander far
+# Herds can wander far (D2-117)
 
 *live · 24 Oct · spec: [[core - world_schema|core/world_schema]], [[economy - livestock|economy/livestock]]*
 

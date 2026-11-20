@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-66 · The design of the records and the workflow
+# The design of the records and the workflow (W-66)
 
 *done · 37.2 · touched  ()*
 

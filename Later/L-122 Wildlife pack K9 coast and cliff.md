@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-122 · Wildlife pack K9: coast and cliff
+# Wildlife pack K9: coast and cliff (L-122)
 
 *open · 37.2, 37.4*
 
@@ -20,7 +20,7 @@ seabird cliffs with the climber and the rope-holder; seals and the stranded whal
 
 
 ## Linked
-- parent: [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
+- parent: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 
 
 ## Mentioned by

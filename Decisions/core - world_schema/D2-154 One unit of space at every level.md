@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-154 · One unit of space at every level
+# One unit of space at every level (D2-154)
 
 *live · 24 Oct · spec: [[core - world_schema|core/world_schema]], [[economy - buildings|economy/buildings]], [[world - places|world/places]]*
 
@@ -20,8 +20,8 @@ fittings without space; capacity fixed by blueprint
 
 
 ## Mentioned by
-- [[Q-6 Settlement limit a hard cap or a crowding cost|Q-6 · Settlement limit: a hard cap or a crowding cost]]
-- [[C-2 Building limits slots by land kind|C-2 · Building limits: slots by land kind]]
+- [[Q-6 Settlement limit a hard cap or a crowding cost|Settlement limit: a hard cap or a crowding cost (Q-6)]]
+- [[C-2 Building limits slots by land kind|Building limits: slots by land kind (C-2)]]
 - [[What can happen to buildings and fittings, by weather and use…|What can happen to buildings and fittings, by weather and use…]]
 - [[Proposal buildings from parts|Proposal: buildings from parts]]
 - [[Proposal farming|Proposal: farming]]

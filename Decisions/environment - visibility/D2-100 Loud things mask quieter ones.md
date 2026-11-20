@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-100 · Loud things mask quieter ones
+# Loud things mask quieter ones (D2-100)
 
 *live · 23 Oct · spec: [[environment - visibility|environment/visibility]]*
 

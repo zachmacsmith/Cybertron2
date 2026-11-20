@@ -5,7 +5,7 @@ state: active
 updated: "2026-11-20"
 ---
 
-# W-31 · Goal probe, round 3
+# Goal probe, round 3 (W-31)
 
 *active · 37.4 · touched 12 Nov (8 days ago)*
 

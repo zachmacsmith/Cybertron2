@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-23 · Built for Package F
+# Built for Package F (Q-23)
 
 *closed, by zach · 37.4, Zach to confirm (resources, fuel: 37.2)*
 
@@ -28,8 +28,8 @@ Built for Package F (24 Oct), choices the spec left open, for Zach to confirm or
 
 
 ## Mentioned by
-- [[Q-24 Built for the building package|Q-24 · Built for the building package]]
-- [[Q-25 Zach's decisions now open, in one list|Q-25 · Zach's decisions now open, in one list]]
+- [[Q-24 Built for the building package|Built for the building package (Q-24)]]
+- [[Q-25 Zach's decisions now open, in one list|Zach's decisions now open, in one list (Q-25)]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[38.28 Package F (forests, fuel in heat, eating raw, seeding below…|38.28: Package F (forests, fuel in heat, eating raw, seeding below…]]

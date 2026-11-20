@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-48 · The engine as feature packages
+# The engine as feature packages (Q-48)
 
 *closed, by zach · Zach (then 37.4)*
 
@@ -26,10 +26,10 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[D2-244 The engine's reworking into feature packages|D2-244 · The engine's reworking into feature packages]]
-- [[W-43 The engine as feature packages|W-43 · The engine as feature packages]]
-- [[L-126 The wildlife's core mechanisms not built|L-126 · The wildlife's core mechanisms not built]]
-- [[L-133 The engine as feature packages postponed, kept in mind|L-133 · The engine as feature packages: postponed, kept in mind]]
+- [[D2-244 The engine's reworking into feature packages|The engine's reworking into feature packages (D2-244)]]
+- [[W-43 The engine as feature packages|The engine as feature packages (W-43)]]
+- [[L-126 The wildlife's core mechanisms not built|The wildlife's core mechanisms not built (L-126)]]
+- [[L-133 The engine as feature packages postponed, kept in mind|The engine as feature packages: postponed, kept in mind (L-133)]]
 - [[Climate from the land|Climate from the land]]
 - [[The engine as a small core and feature packages design specification|The engine as a small core and feature packages: design specification]]
 - *and 2 index or audit notes*

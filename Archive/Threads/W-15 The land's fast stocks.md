@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-15 · The land's fast stocks
+# The land's fast stocks (W-15)
 
 *done · 37.4 with 37.2 · touched  ()*
 

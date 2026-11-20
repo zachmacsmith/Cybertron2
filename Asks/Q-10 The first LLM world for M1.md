@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-10 · The first LLM world for M1
+# The first LLM world for M1 (Q-10)
 
 *open · 37.4 with 37.2*
 

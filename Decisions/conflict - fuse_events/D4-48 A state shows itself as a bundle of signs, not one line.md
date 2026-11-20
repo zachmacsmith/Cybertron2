@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-48 · A state shows itself as a bundle of signs, not one line
+# A state shows itself as a bundle of signs, not one line (D4-48)
 
 *live · 23 Oct · spec: [[conflict - fuse_events|conflict/fuse_events]], [[information - noticing|information/noticing]], [[information - perception|information/perception]]*
 
@@ -20,8 +20,8 @@ one line per state (perceive.py as built)
 
 
 ## Mentioned by
-- [[D2-85 One noticing rule for every thing at a spot|D2-85 · One noticing rule for every thing at a spot]]
-- [[D2-89 Signs of slow change on long journeys later, flagged|D2-89 · Signs of slow change on long journeys: later, flagged]]
+- [[D2-85 One noticing rule for every thing at a spot|One noticing rule for every thing at a spot (D2-85)]]
+- [[D2-89 Signs of slow change on long journeys later, flagged|Signs of slow change on long journeys: later, flagged (D2-89)]]
 - [[Proposal fences, hedges and walls|Proposal: fences, hedges and walls]]
 - [[Forays going out from the village and coming back|Forays: going out from the village and coming back]]
 - [[Proposal hidden ways (edges no one knows until they are found)|Proposal: hidden ways (edges no one knows until they are found)]]

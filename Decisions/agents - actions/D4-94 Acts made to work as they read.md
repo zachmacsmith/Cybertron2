@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-94 · Acts made to work as they read
+# Acts made to work as they read (D4-94)
 
 *live · 2 Nov · spec: [[agents - actions|agents/actions]]*
 
@@ -20,7 +20,7 @@ timber-only open fires; bare-tag take; move refused when full; strict work legs;
 
 
 ## Mentioned by
-- [[L-45 D4-94's parts in 37.2's files|L-45 · D4-94's parts in 37.2's files]]
+- [[L-45 D4-94's parts in 37.2's files|D4-94's parts in 37.2's files (L-45)]]
 - [[Acts made to work as they read|Acts made to work as they read]]
 - [[Proposal the verbs, and what each agent is shown|Proposal: the verbs, and what each agent is shown]]
 - [[What agents can do|What agents can do]]

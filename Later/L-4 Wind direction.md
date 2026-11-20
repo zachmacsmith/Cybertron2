@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-4 · Wind direction
+# Wind direction (L-4)
 
 *open · 37.2*
 

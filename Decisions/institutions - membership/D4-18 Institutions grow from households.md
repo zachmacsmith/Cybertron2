@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-18 · Institutions grow from households
+# Institutions grow from households (D4-18)
 
 *live · 22 Oct · spec: [[institutions - membership|institutions/membership]]*
 

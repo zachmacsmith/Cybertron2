@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-39 · Plate tectonics for the macro layer
+# Plate tectonics for the macro layer (L-39)
 
 *open · 37.2*
 
@@ -20,7 +20,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[D2-178 The macro layer is templates and noise|D2-178 · The macro layer is templates and noise]]
+- [[D2-178 The macro layer is templates and noise|The macro layer is templates and noise (D2-178)]]
 - [[Proposal environments, ecosystems and how they cluster|Proposal: environments, ecosystems and how they cluster]]
 - [[Proposal the generator, stage 1 (a spec for review before it is…|Proposal: the generator, stage 1 (a spec for review before it is…]]
 - *and 2 index or audit notes*

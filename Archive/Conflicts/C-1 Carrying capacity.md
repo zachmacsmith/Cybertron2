@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# C-1 · Carrying capacity
+# Carrying capacity (C-1)
 
 *closed · 37.2 (numbers)*
 
@@ -18,7 +18,7 @@ Carrying capacity: on foot 20, pack 35, animal +60, cart +150
 
 
 ## Mentioned by
-- [[D2-135 Carrying capacities (OPEN C-1)|D2-135 · Carrying capacities (OPEN C-1)]]
+- [[D2-135 Carrying capacities (OPEN C-1)|Carrying capacities (OPEN C-1) (D2-135)]]
 - [[Proposal the economy plan for cybertron2|Proposal: the economy plan for cybertron2]]
 - [[Proposal transport and lodging|Proposal: transport and lodging]]
 - [[Transport|Transport]]

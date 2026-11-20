@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-6 · Overlapping fuse events in depth
+# Overlapping fuse events in depth (L-6)
 
 *open · 37.2 with 37.4*
 

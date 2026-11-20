@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-210 · The weir in sections, capped, with upkeep by the river
+# The weir in sections, capped, with upkeep by the river (D2-210)
 
 *live · 16 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 
@@ -20,7 +20,7 @@ the weir of [[D2-209 Brief 5 (river and water) is built|D2-209]] as one work wit
 
 
 ## Mentioned by
-- [[W-26 Build brief 5 river and water (K4 without fen and boats)|W-26 · Build brief 5: river and water (K4 without fen and boats)]]
+- [[W-26 Build brief 5 river and water (K4 without fen and boats)|Build brief 5: river and water (K4 without fen and boats) (W-26)]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[Wildlife|Wildlife]]
 - [[02zzn the water half of the environment, prototyped on the river…|02zzn: the water half of the environment, prototyped on the river…]]

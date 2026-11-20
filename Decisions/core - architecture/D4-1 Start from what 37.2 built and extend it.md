@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-1 · Start from what 37.2 built and extend it
+# Start from what 37.2 built and extend it (D4-1)
 
 *live · 22 Oct · spec: [[core - architecture|core/architecture]]*
 

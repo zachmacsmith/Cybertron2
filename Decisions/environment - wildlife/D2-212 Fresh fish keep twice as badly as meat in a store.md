@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-212 · Fresh fish keep twice as badly as meat in a store
+# Fresh fish keep twice as badly as meat in a store (D2-212)
 
 *live · 16 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 
@@ -20,8 +20,8 @@ fish kept as meat in a store
 
 
 ## Mentioned by
-- [[D2-216 Eels and salmon are fish|D2-216 · Eels and salmon are fish]]
-- [[Q-54 Fresh fish meat's rate in hand|Q-54 · Fresh fish: meat's rate in hand]]
+- [[D2-216 Eels and salmon are fish|Eels and salmon are fish (D2-216)]]
+- [[Q-54 Fresh fish meat's rate in hand|Fresh fish: meat's rate in hand (Q-54)]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[Wildlife|Wildlife]]
 - [[02zzq the records and the workflow as they are, and how Zach works…|02zzq: the records and the workflow as they are, and how Zach works…]]

@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-17 · Edge terrain data
+# Edge terrain data (Q-17)
 
 *open · 37.4*
 
@@ -16,7 +16,7 @@ Edge terrain data (what an edge's land is: plain, woodland, ridge, river, marsh)
 
 
 ## Mentioned by
-- [[D2-104 Roads have stretches|D2-104 · Roads have stretches]]
+- [[D2-104 Roads have stretches|Roads have stretches (D2-104)]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
 - [[Proposal meetings on the road (travellers, lost herds, ambushes)|Proposal: meetings on the road (travellers, lost herds, ambushes)]]
 - [[Proposal the layout of a road (stretches and landmarks)|Proposal: the layout of a road (stretches and landmarks)]]

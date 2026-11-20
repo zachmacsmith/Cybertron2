@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-125 · `searching` is a travel modifier known to all
+# `searching` is a travel modifier known to all (D2-125)
 
 *live · 24 Oct · spec: [[agents - modifiers|agents/modifiers]], [[economy - livestock|economy/livestock]], [[world - roads|world/roads]]*
 
@@ -17,7 +17,7 @@ verb_modifiers.md
 
 
 ## Mentioned by
-- [[L-8 Herds wandering onto edges|L-8 · Herds wandering onto edges]]
+- [[L-8 Herds wandering onto edges|Herds wandering onto edges (L-8)]]
 - [[Proposal livestock|Proposal: livestock]]
 - [[Proposal the verbs, and what each agent is shown|Proposal: the verbs, and what each agent is shown]]
 - [[Modifiers ways of doing an act|Modifiers: ways of doing an act]]

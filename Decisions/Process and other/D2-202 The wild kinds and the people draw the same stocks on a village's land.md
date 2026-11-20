@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-202 · The wild kinds and the people draw the same stocks on a village's land
+# The wild kinds and the people draw the same stocks on a village's land (D2-202)
 
 *live · 9 Nov*
 

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-149 · Old age is tuned to a chosen life expectancy under each health regime
+# Old age is tuned to a chosen life expectancy under each health regime (D2-149)
 
 *live · 24 Oct · spec: [[life - birth_and_death|life/birth_and_death]]*
 

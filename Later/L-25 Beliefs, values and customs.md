@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-25 · Beliefs, values and customs
+# Beliefs, values and customs (L-25)
 
 *open · 37.2 with 37.3, 37.4 (in part decided by D4-64: customs are lines people keep for good, passed on with care, let go by choice; values, firmness and drift remain)*
 
@@ -20,8 +20,8 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[D4-57 A custom can be held by households, not only by places|D4-57 · A custom can be held by households, not only by places]]
-- [[L-26 Care's effects beyond survival|L-26 · Care's effects beyond survival]]
+- [[D4-57 A custom can be held by households, not only by places|A custom can be held by households, not only by places (D4-57)]]
+- [[L-26 Care's effects beyond survival|Care's effects beyond survival (L-26)]]
 - [[What an agent is shown the world and its rules, not choices made for…|What an agent is shown: the world and its rules, not choices made for…]]
 - [[Proposal beliefs, values and customs (flagged for later OPEN L-25)|Proposal: beliefs, values and customs (flagged for later: OPEN L-25)]]
 - [[Proposal buildings people make their own (descriptions and lines…|Proposal: buildings people make their own (descriptions and lines…]]

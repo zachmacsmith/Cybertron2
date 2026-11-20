@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-23 · A benchmark by living descendants on a ladder of worlds
+# A benchmark by living descendants on a ladder of worlds (W-23)
 
 *done · 37.2 · touched  ()*
 

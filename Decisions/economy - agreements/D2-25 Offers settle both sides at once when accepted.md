@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-25 · Offers settle both sides at once when accepted
+# Offers settle both sides at once when accepted (D2-25)
 
 *live · 23 Oct · spec: [[economy - agreements|economy/agreements]], [[economy - money_and_markets|economy/money_and_markets]], [[world - roads|world/roads]]*
 

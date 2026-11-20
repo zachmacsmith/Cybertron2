@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-70 · Paired draws
+# Paired draws (D2-70)
 
 *live · 23 Oct · spec: [[conflict - fuse_events|conflict/fuse_events]], [[economy - livestock|economy/livestock]], [[environment - scheduler|environment/scheduler]], [[information - noticing|information/noticing]], [[life - birth_and_death|life/birth_and_death]], [[world - parcel_graph|world/parcel_graph]]*
 

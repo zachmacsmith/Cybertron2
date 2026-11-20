@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-87 · A baby sleeps where its mother sleeps
+# A baby sleeps where its mother sleeps (D4-87)
 
 *live · 2 Nov · spec: [[life - birth_and_death|life/birth_and_death]]*
 

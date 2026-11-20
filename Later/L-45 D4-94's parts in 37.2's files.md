@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-45 · D4-94's parts in 37.2's files
+# D4-94's parts in 37.2's files (L-45)
 
 *open · 37.2*
 
@@ -20,8 +20,8 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-10 37.2's spec write-ups owed since 2 and 3 Nov|W-10 · 37.2's spec write-ups owed since 2 and 3 Nov]]
-- [[W-68 37.2's spec catch-up|W-68 · 37.2's spec catch-up]]
+- [[W-10 37.2's spec write-ups owed since 2 and 3 Nov|37.2's spec write-ups owed since 2 and 3 Nov (W-10)]]
+- [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|Writing 37.2's decisions into the spec (about 52 missing) (W-68)]]
 - [[Acts made to work as they read|Acts made to work as they read]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
 - *and 3 index or audit notes*

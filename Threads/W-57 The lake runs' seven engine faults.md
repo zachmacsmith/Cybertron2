@@ -5,7 +5,7 @@ state: active
 updated: "2026-11-20"
 ---
 
-# W-57 · The lake runs' seven engine faults
+# The lake runs' seven engine faults (W-57)
 
 *active · 37.4 · touched 17 Nov (3 days ago)*
 
@@ -24,7 +24,7 @@ built and pushed (lake-fixes 47774a0): the seven faults, fish on the hearth rack
 
 
 ## Mentioned by
-- [[W-58 The runs world with a model to each household|W-58 · The runs world with a model to each household]]
+- [[W-58 The runs world with a model to each household|The runs world with a model to each household (W-58)]]
 - [[Fish on the hearth rack|Fish on the hearth rack]]
 - [[A signs pass after the lake runs (17 Nov)|A signs pass after the lake runs (17 Nov)]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]

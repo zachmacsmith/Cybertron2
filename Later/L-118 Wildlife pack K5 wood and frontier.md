@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-118 · Wildlife pack K5: wood and frontier
+# Wildlife pack K5: wood and frontier (L-118)
 
 *open · 37.2 (design), 37.4*
 
@@ -20,4 +20,4 @@ the sounder's route graph, matriarch and splitting; the mast's two years and pan
 
 
 ## Linked
-- parent: [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
+- parent: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]

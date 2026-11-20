@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-120 · A lake's fish by its size
+# A lake's fish by its size (D4-120)
 
 *live · 17 Nov*
 
@@ -20,7 +20,7 @@ K 8 a unit of parcel size for a lake (replaced by [[D2-229 One fish stock per wa
 
 
 ## Mentioned by
-- [[D2-229 One fish stock per water body|D2-229 · One fish stock per water body]]
+- [[D2-229 One fish stock per water body|One fish stock per water body (D2-229)]]
 - [[Luck in the catch, a lake's fish by its size, and a fishing household|Luck in the catch, a lake's fish by its size, and a fishing household]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[38.76 One fish stock per water body, the engine half (D2-229), as…|38.76: One fish stock per water body, the engine half (D2-229), as…]]

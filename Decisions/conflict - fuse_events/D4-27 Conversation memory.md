@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-27 · Conversation memory
+# Conversation memory (D4-27)
 
 *live · 23 Oct · spec: [[conflict - fuse_events|conflict/fuse_events]], [[information - memory|information/memory]], [[information - prompts|information/prompts]]*
 
@@ -20,9 +20,9 @@ M1's fresh call each day with engine-written memory bands
 
 
 ## Mentioned by
-- [[D2-84 The urgent call continues the agent's own conversation|D2-84 · The urgent call continues the agent's own conversation]]
-- [[D4-26 Agents think and see their own past reasoning|D4-26 · Agents think and see their own past reasoning]]
-- [[L-29 Stretch length|L-29 · Stretch length]]
+- [[D2-84 The urgent call continues the agent's own conversation|The urgent call continues the agent's own conversation (D2-84)]]
+- [[D4-26 Agents think and see their own past reasoning|Agents think and see their own past reasoning (D4-26)]]
+- [[L-29 Stretch length|Stretch length (L-29)]]
 - [[What an agent is shown the world and its rules, not choices made for…|What an agent is shown: the world and its rules, not choices made for…]]
 - [[Proposal fuse events (time to respond)|Proposal: fuse events (time to respond)]]
 - [[Proposal what an agent is shown each round, attention, and…|Proposal: what an agent is shown each round, attention, and…]]

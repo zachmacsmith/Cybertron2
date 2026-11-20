@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-35 · Distance inside a node
+# Distance inside a node (L-35)
 
 *open · 37.2 with 37.4*
 
@@ -20,7 +20,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[L-33 Growth to towns fixed nodes, faster edges, reach by place|L-33 · Growth to towns: fixed nodes, faster edges, reach by place]]
+- [[L-33 Growth to towns fixed nodes, faster edges, reach by place|Growth to towns: fixed nodes, faster edges, reach by place (L-33)]]
 - [[Economic calibration one time scale, and mechanics that make…|Economic calibration: one time scale, and mechanics that make…]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]
 - [[Proposal the landscape generator (a world under the graph)|Proposal: the landscape generator (a world under the graph)]]

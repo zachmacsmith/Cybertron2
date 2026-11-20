@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# C-11 · Weapons: spec/conflict/combat.md and D2-46 name a "blade", but…
+# Weapons: spec/conflict/combat.md and D2-46 name a "blade", but… (C-11)
 
 *open · 37.4*
 
@@ -18,6 +18,6 @@ Weapons: spec/conflict/combat.md and [[D2-46 Weapons wear|D2-46]] name a "blade"
 
 
 ## Mentioned by
-- [[W-44 The missing domains and a linking pass|W-44 · The missing domains and a linking pass]]
+- [[W-44 The missing domains and a linking pass|The missing domains and a linking pass (W-44)]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - *and 1 index or audit notes*

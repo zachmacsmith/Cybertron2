@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-44 · Breeding happens on its own
+# Breeding happens on its own (D4-44)
 
 *live · 23 Oct · spec: [[economy - livestock|economy/livestock]]*
 

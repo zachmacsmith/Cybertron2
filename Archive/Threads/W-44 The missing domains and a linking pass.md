@@ -5,12 +5,12 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-44 · The missing domains and a linking pass
+# The missing domains and a linking pass (W-44)
 
 *done · 37.2 with six research agents · touched  ()*
 
 ## What it is
-The missing domains and a linking pass (Zach, 16 Nov, OPEN [[Q-47 The border for now|Q-47]] c): five research parts (14 war and force, 15 knowledge-making, 16 religion and ritual, 17 household, care and kinship, 18 health, environment, luxury, crime and measures), each with its extraction into the web; one linking pass over the web; then rebuild Flint to Fab
+The missing domains and a linking pass (Zach, 16 Nov, OPEN [[Q-47 Where the economy stops for now|Q-47]] c): five research parts (14 war and force, 15 knowledge-making, 16 religion and ritual, 17 household, care and kinship, 18 health, environment, luxury, crime and measures), each with its extraction into the web; one linking pass over the web; then rebuild Flint to Fab
 
 ## Done so far, and what is left
 16 Nov: parts 14 to 18 written (about 56,000 words) and extracted; linking pass (356 links, 20 bridge nodes); Flint to Fab rebuilt and republished (1,335 nodes, 3,114 links); README updated; [[C-11 Weapons specconflictcombat.md and D2-46 name a blade, but…|C-11]] (blade vs crude weapon) for 37.4 (docs/review/37_growth/02zzj_economy_research/ (parts 14 to 18); visual/)

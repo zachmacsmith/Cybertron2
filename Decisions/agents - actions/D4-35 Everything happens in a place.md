@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-35 · Everything happens in a place
+# Everything happens in a place (D4-35)
 
 *live · 23 Oct · spec: [[agents - actions|agents/actions]], [[conflict - combat|conflict/combat]], [[conflict - raids|conflict/raids]], [[core - architecture|core/architecture]], [[environment - scheduler|environment/scheduler]], [[information - letters_and_documents|information/letters_and_documents]], [[information - perception|information/perception]], [[information - signs|information/signs]], [[measurement - acceptance|measurement/acceptance]], [[world - places|world/places]]*
 
@@ -20,8 +20,8 @@ M1's per-feature node filters
 
 
 ## Mentioned by
-- [[D2-74 Some signs carry between nodes|D2-74 · Some signs carry between nodes]]
-- [[Q-18 D2-74 amends D4-35|Q-18 · D2-74 amends D4-35]]
+- [[D2-74 Some signs carry between nodes|Some signs carry between nodes (D2-74)]]
+- [[Q-18 D2-74 amends D4-35|D2-74 amends D4-35 (Q-18)]]
 - [[What an agent is shown the world and its rules, not choices made for…|What an agent is shown: the world and its rules, not choices made for…]]
 - [[Knowing one's beasts memory and noticing, not a list|Knowing one's beasts: memory and noticing, not a list]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]

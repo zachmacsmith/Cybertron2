@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-81 · Which events have a fuse in the first worlds
+# Which events have a fuse in the first worlds (D2-81)
 
 *live · 23 Oct · spec: [[conflict - fuse_events|conflict/fuse_events]], [[core - round|core/round]], [[information - noticing|information/noticing]], [[world - edges|world/edges]], [[world - roads|world/roads]]*
 
@@ -20,7 +20,7 @@ arrivals at a shut gate at night as a fuse event
 
 
 ## Mentioned by
-- [[D2-86 A find on the road worth taking gives a short call|D2-86 · A find on the road worth taking gives a short call]]
+- [[D2-86 A find on the road worth taking gives a short call|A find on the road worth taking gives a short call (D2-86)]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
 - [[Proposal fuse events (time to respond)|Proposal: fuse events (time to respond)]]
 - [[Proposal meetings on the road (travellers, lost herds, ambushes)|Proposal: meetings on the road (travellers, lost herds, ambushes)]]

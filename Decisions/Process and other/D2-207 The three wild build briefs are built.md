@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-207 · The three wild build briefs are built
+# The three wild build briefs are built (D2-207)
 
 *live · 9 Nov*
 
@@ -17,8 +17,8 @@ conversation ("8 yes"; "Get the other agent to build this: send it the specs and
 
 
 ## Mentioned by
-- [[Q-34 Defaults taken under D2-207|Q-34 · Defaults taken under D2-207]]
-- [[W-1 Build brief 1|W-1 · Build brief 1]]
+- [[Q-34 Defaults taken under D2-207|Defaults taken under D2-207 (Q-34)]]
+- [[W-1 Build brief 1|Build brief 1 (W-1)]]
 - [[Carcasses, decay and what comes to them|Carcasses, decay and what comes to them]]
 - [[Methods and encounters people answer the wild by general methods…|Methods and encounters: people answer the wild by general methods…]]
 - [[Raiders, displacement and set works what every village meets|Raiders, displacement and set works: what every village meets]]

@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# O-2 · Make the eleven bulk processes take up to their batch
+# Make the eleven bulk processes take up to their batch (O-2)
 
 *open · 37.2*
 
@@ -18,4 +18,4 @@ add the existing up-to batch (brief 4c §6.1) to mill, water mill, grind, bread,
 
 
 ## Linked
-- parent: [[W-69 Subsistence worlds|W-69 · Subsistence worlds]]
+- parent: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]

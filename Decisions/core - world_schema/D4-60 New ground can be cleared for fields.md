@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-60 · New ground can be cleared for fields
+# New ground can be cleared for fields (D4-60)
 
 *live · 24 Oct · spec: [[core - world_schema|core/world_schema]], [[world - holding|world/holding]]*
 

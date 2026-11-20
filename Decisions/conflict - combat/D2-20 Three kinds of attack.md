@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-20 · Three kinds of attack
+# Three kinds of attack (D2-20)
 
 *live · 22 Oct · spec: [[conflict - combat|conflict/combat]], [[conflict - defence|conflict/defence]], [[conflict - raids|conflict/raids]], [[economy - buildings|economy/buildings]], [[economy - goods|economy/goods]]*
 

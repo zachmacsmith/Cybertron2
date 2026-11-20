@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-52 · Environment systems
+# Environment systems (Q-52)
 
 *closed, by zach · Zach (37.2, 37.4)*
 
@@ -24,16 +24,16 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[D2-214 Two clocks|D2-214 · Two clocks]]
-- [[D2-221 The land in three speeds|D2-221 · The land in three speeds]]
-- [[D2-222 The environment's places|D2-222 · The environment's places]]
-- [[D2-223 Spread only through defined spread functions|D2-223 · Spread only through defined spread functions]]
-- [[D2-224 Events emerge from the stocks|D2-224 · Events emerge from the stocks]]
-- [[D2-225 The environment's order|D2-225 · The environment's order]]
-- [[D2-226 Floodplains in the generator, now|D2-226 · Floodplains in the generator, now]]
-- [[D2-227 Some places are harsher|D2-227 · Some places are harsher]]
-- [[W-49 Environment systems|W-49 · Environment systems]]
-- [[W-69 Subsistence worlds|W-69 · Subsistence worlds]]
+- [[D2-214 Two clocks|Two clocks (D2-214)]]
+- [[D2-221 The land in three speeds|The land in three speeds (D2-221)]]
+- [[D2-222 The environment's places|The environment's places (D2-222)]]
+- [[D2-223 Spread only through defined spread functions|Spread only through defined spread functions (D2-223)]]
+- [[D2-224 Events emerge from the stocks|Events emerge from the stocks (D2-224)]]
+- [[D2-225 The environment's order|The environment's order (D2-225)]]
+- [[D2-226 Floodplains in the generator, now|Floodplains in the generator, now (D2-226)]]
+- [[D2-227 Some places are harsher|Some places are harsher (D2-227)]]
+- [[W-49 Environment systems|Environment systems (W-49)]]
+- [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
 - [[02zzn the water half of the environment, prototyped on the river…|02zzn: the water half of the environment, prototyped on the river…]]

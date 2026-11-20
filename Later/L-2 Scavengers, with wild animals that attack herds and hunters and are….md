@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-2 · Scavengers, with wild animals that attack herds and hunters and are…
+# Scavengers, with wild animals that attack herds and hunters and are… (L-2)
 
 *open · 37.2*
 

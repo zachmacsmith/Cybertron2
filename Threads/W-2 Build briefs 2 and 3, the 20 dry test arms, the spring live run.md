@@ -5,7 +5,7 @@ state: active
 updated: "2026-11-20"
 ---
 
-# W-2 · Build briefs 2 and 3, the 20 dry test arms, the spring live run
+# Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)
 
 *active · 37.4 · touched 9 Nov (11 days ago)*
 
@@ -24,6 +24,6 @@ brief 2 built and gated, 61 dry arms read, the spring live run done ($9.87); bri
 
 
 ## Mentioned by
-- [[W-8 Couple the food web to 37.4's weather and climate|W-8 · Couple the food web to 37.4's weather and climate]]
+- [[W-8 Couple the food web to 37.4's weather and climate|Couple the food web to 37.4's weather and climate (W-8)]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - *and 3 index or audit notes*

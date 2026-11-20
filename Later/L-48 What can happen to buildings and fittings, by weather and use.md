@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-48 · What can happen to buildings and fittings, by weather and use
+# What can happen to buildings and fittings, by weather and use (L-48)
 
 *open · 37.4*
 
@@ -20,7 +20,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[D4-97 Decisions on 38.51's list|D4-97 · Decisions on 38.51's list]]
+- [[D4-97 Decisions on 38.51's list|Decisions on 38.51's list (D4-97)]]
 - [[What can happen to buildings and fittings, by weather and use…|What can happen to buildings and fittings, by weather and use…]]
 - [[Proposal buildings from parts|Proposal: buildings from parts]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]

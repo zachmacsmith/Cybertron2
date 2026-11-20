@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-50 · How bare a place is, is a perception like any other
+# How bare a place is, is a perception like any other (D4-50)
 
 *live · 23 Oct · spec: [[information - noticing|information/noticing]], [[information - perception|information/perception]]*
 
@@ -20,7 +20,7 @@ the place list always saying what can be done at a place, bare or not
 
 
 ## Mentioned by
-- [[D2-91 One knack for spotting things the eye for the land|D2-91 · One knack for spotting things: the eye for the land]]
+- [[D2-91 One knack for spotting things the eye for the land|One knack for spotting things: the eye for the land (D2-91)]]
 - [[Proposal the forest as a system (trees, young growth, dead wood…|Proposal: the forest as a system (trees, young growth, dead wood…]]
 - [[Proposal hidden ways (edges no one knows until they are found)|Proposal: hidden ways (edges no one knows until they are found)]]
 - [[Proposal the senses across every system|Proposal: the senses across every system]]

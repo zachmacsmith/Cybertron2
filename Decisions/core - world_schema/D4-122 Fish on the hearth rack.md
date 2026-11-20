@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-122 · Fish on the hearth rack
+# Fish on the hearth rack (D4-122)
 
 *live · 17 Nov · spec: [[core - world_schema|core/world_schema]]*
 
@@ -20,8 +20,8 @@ conversation ("fish can go on the hearth rack")
 
 
 ## Mentioned by
-- [[W-57 The lake runs' seven engine faults|W-57 · The lake runs' seven engine faults]]
-- [[L-115 Dried fish in the economy spec|L-115 · Dried fish in the economy spec]]
+- [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]]
+- [[L-115 Dried fish in the economy spec|Dried fish in the economy spec (L-115)]]
 - [[Fish on the hearth rack|Fish on the hearth rack]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[38.77 The lake runs' faults, fish on the hearth rack, and a signs…|38.77: The lake runs' faults, fish on the hearth rack, and a signs…]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-55 · Labour need not be scarce
+# Labour need not be scarce (D2-55)
 
 *live · 23 Oct*
 
@@ -20,6 +20,6 @@ the proposal to force breaking the soil
 
 
 ## Mentioned by
-- [[D4-38 The farming stages' work and returns are 02l §2's|D4-38 · The farming stages' work and returns are 02l §2's]]
+- [[D4-38 The farming stages' work and returns are 02l §2's|The farming stages' work and returns are 02l §2's (D4-38)]]
 - [[Proposal the economy plan for cybertron2|Proposal: the economy plan for cybertron2]]
 - *and 1 index or audit notes*

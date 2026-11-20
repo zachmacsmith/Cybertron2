@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-100 · Landscapes still to tune
+# Landscapes still to tune (L-100)
 
 *open · 37.2*
 
@@ -20,7 +20,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-11 Landscapes still to tune|W-11 · Landscapes still to tune]]
+- [[W-11 Landscapes still to tune|Landscapes still to tune (W-11)]]
 - [[Proposal environments, ecosystems and how they cluster|Proposal: environments, ecosystems and how they cluster]]
 - [[Proposal landscapes that make sense, within one environmental…|Proposal: landscapes that make sense, within one environmental…]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]

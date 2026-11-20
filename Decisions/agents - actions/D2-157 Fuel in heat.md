@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-157 · Fuel in heat
+# Fuel in heat (D2-157)
 
 *live · 24 Oct · spec: [[agents - actions|agents/actions]], [[economy - goods|economy/goods]], [[economy - lodging|economy/lodging]], [[economy - production|economy/production]]*
 
@@ -20,7 +20,7 @@ timber as the only fuel
 
 
 ## Mentioned by
-- [[L-44 D4-93 (one room, one fire|L-44 · D4-93 (one room, one fire]]
+- [[L-44 D4-93 (one room, one fire|D4-93 (one room, one fire (L-44)]]
 - [[What can happen to buildings and fittings, by weather and use…|What can happen to buildings and fittings, by weather and use…]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
 - [[Levels of fire, and camps built out (flagged for later)|Levels of fire, and camps built out (flagged for later)]]

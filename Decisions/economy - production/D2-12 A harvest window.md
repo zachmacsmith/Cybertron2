@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-12 · A harvest window
+# A harvest window (D2-12)
 
 *live · 22 Oct · spec: [[economy - production|economy/production]]*
 

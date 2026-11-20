@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-K2 · Kept for good for weak models on D4-28's queue (Haiku)
+# Kept for good for weak models on D4-28's queue (Haiku) (Q-K2)
 
 *closed · 37.4*
 

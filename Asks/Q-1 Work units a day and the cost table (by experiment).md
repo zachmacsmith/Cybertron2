@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-1 · Work units a day and the cost table (by experiment)
+# Work units a day and the cost table (by experiment) (Q-1)
 
 *open · 37.4*
 

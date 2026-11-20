@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-21 · Built for Package C
+# Built for Package C (Q-21)
 
 *closed, by zach · 37.4, Zach to confirm (livestock items: 37.2)*
 
@@ -34,7 +34,7 @@ Built for Package C (24 Oct), choices the spec left open, for Zach to confirm or
 
 
 ## Mentioned by
-- [[Q-25 Zach's decisions now open, in one list|Q-25 · Zach's decisions now open, in one list]]
+- [[Q-25 Zach's decisions now open, in one list|Zach's decisions now open, in one list (Q-25)]]
 - [[Proposal the parcel graph (where things are inside a node)|Proposal: the parcel graph (where things are inside a node)]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[Review 38.25 Package C built and run (37.2's brief 02s) the parcel…|Review 38.25: Package C built and run (37.2's brief 02s): the parcel…]]

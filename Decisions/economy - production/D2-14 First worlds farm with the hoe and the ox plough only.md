@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-14 · First worlds farm with **the hoe and the ox plough** only
+# First worlds farm with **the hoe and the ox plough** only (D2-14)
 
 *live · 22 Oct · spec: [[economy - production|economy/production]]*
 
@@ -17,7 +17,7 @@ First worlds farm with **the hoe and the ox plough** only (slash and burn, irrig
 
 
 ## Mentioned by
-- [[L-13 Economy options kept out of the first worlds|L-13 · Economy options kept out of the first worlds]]
+- [[L-13 Economy options kept out of the first worlds|Economy options kept out of the first worlds (L-13)]]
 - [[Proposal options kept for later (goods, tools, methods)|Proposal: options kept for later (goods, tools, methods)]]
 - [[Proposal farming|Proposal: farming]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]

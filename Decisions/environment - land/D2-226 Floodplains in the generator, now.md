@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-226 · Floodplains in the generator, now
+# Floodplains in the generator, now (D2-226)
 
 *live · 17 Nov · spec: [[environment - land|environment/land]]*
 
@@ -20,8 +20,8 @@ a one-cell V-notch 14 to 24 m deep; fixing after brief 5's build
 
 
 ## Mentioned by
-- [[Q-52 Environment systems|Q-52 · Environment systems]]
-- [[W-53 Floodplains in the generator now|W-53 · Floodplains in the generator now]]
+- [[Q-52 Environment systems|Environment systems (Q-52)]]
+- [[W-53 Floodplains in the generator|Floodplains in the generator (W-53)]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
 - [[The land and its stocks|The land and its stocks]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]

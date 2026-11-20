@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-75 · Every perceived line about the world comes from the one noticing rule
+# Every perceived line about the world comes from the one noticing rule (D4-75)
 
 *live · 2 Nov · spec: [[information - noticing|information/noticing]], [[information - perception|information/perception]], [[information - signs|information/signs]]*
 
@@ -20,9 +20,9 @@ conversation ("are these senses being given direct chances? Are they not using t
 
 
 ## Mentioned by
-- [[D4-71 A slaughter shows itself|D4-71 · A slaughter shows itself]]
-- [[L-3 Smell, simple own salience and short reach|L-3 · Smell, simple: own salience and short reach]]
-- [[L-63 A herd in the place's layout|L-63 · A herd in the place's layout]]
+- [[D4-71 A slaughter shows itself|A slaughter shows itself (D4-71)]]
+- [[L-3 Smell, simple own salience and short reach|Smell, simple: own salience and short reach (L-3)]]
+- [[L-63 A herd in the place's layout|A herd in the place's layout (L-63)]]
 - [[Proposal crops grow by the season; can apart from works; what a…|Proposal: crops grow by the season; "can" apart from "works"; what a…]]
 - [[Every perceived line by the one noticing rule|Every perceived line by the one noticing rule]]
 - [[The engine as a small core and feature packages design specification|The engine as a small core and feature packages: design specification]]

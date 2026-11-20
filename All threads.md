@@ -1,79 +1,79 @@
 # All threads
 
 ## Open
-- [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70 · Verbs and livelihood archetypes, before the engine rework]] (queued)
-- [[W-69 Subsistence worlds|W-69 · Subsistence worlds]] (active)
-- [[W-68 37.2's spec catch-up|W-68 · 37.2's spec catch-up]] (queued)
-- [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]] (queued)
-- [[W-65 Tracking threads automatically|W-65 · Tracking threads automatically]] (active)
-- [[W-64 Shared units for food, weight and work|W-64 · Shared units for food, weight and work]] (queued)
-- [[W-63 An audit of what was started and left|W-63 · An audit of what was started and left]] (active)
-- [[W-62 The water work is on eight unmerged branches, none on main|W-62 · The water work is on eight unmerged branches, none on main]] (waiting)
-- [[W-60 The ecology's water measure counted each lake and the large river…|W-60 · The ecology's water measure counted each lake and the large river…]] (active)
-- [[W-59 The runs world for the model-per-household run|W-59 · The runs world for the model-per-household run]] (waiting)
-- [[W-58 The runs world with a model to each household|W-58 · The runs world with a model to each household]] (paused)
-- [[W-57 The lake runs' seven engine faults|W-57 · The lake runs' seven engine faults]] (active)
-- [[W-56 One fish stock per water body, the engine half|W-56 · One fish stock per water body, the engine half]] (active)
-- [[W-54 The calibration worlds|W-54 · The calibration worlds]] (active)
-- [[W-53 Floodplains in the generator now|W-53 · Floodplains in the generator now]] (waiting)
-- [[W-51 The weather across conditions|W-51 · The weather across conditions]] (active)
-- [[W-49 Environment systems|W-49 · Environment systems]] (waiting)
-- [[W-48 Build brief 5, river and water|W-48 · Build brief 5, river and water]] (active)
-- [[W-43 The engine as feature packages|W-43 · The engine as feature packages]] (waiting)
-- [[W-39 The economy's layers and trees of dependence across the domains|W-39 · The economy's layers and trees of dependence across the domains]] (waiting)
-- [[W-34 Worlds for the peoples benchmark|W-34 · Worlds for the peoples benchmark]] (active)
-- [[W-34b Worlds for the population benchmark, the peoples variant|W-34b · Worlds for the population benchmark, the peoples variant]] (active)
-- [[W-31 Goal probe, round 3|W-31 · Goal probe, round 3]] (active)
-- [[W-30 Build brief 4b|W-30 · Build brief 4b]] (waiting)
-- [[W-29 A multi-village wild region and its live run|W-29 · A multi-village wild region and its live run]] (active)
-- [[W-28 The Cybertron 2 website|W-28 · The Cybertron 2 website]] (waiting)
-- [[W-27 Build brief 4|W-27 · Build brief 4]] (active)
-- [[W-25 The world keeps its land|W-25 · The world keeps its land]] (waiting)
-- [[W-16 The engine overhaul|W-16 · The engine overhaul]] (paused)
-- [[W-14 Claims and ownership by physics, part 2|W-14 · Claims and ownership by physics, part 2]] (waiting)
-- [[W-13 Brookend survival world, rerun p2|W-13 · Brookend survival world, rerun p2]] (paused)
-- [[W-12 Forays (proposalsforays.md)|W-12 · Forays (proposals/forays.md)]] (queued)
-- [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|W-2 · Build briefs 2 and 3, the 20 dry test arms, the spring live run]] (active)
+- [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]] (queued)
+- [[W-69 Nutrition worlds|Nutrition worlds (W-69)]] (active)
+- [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|Writing 37.2's decisions into the spec (about 52 missing) (W-68)]] (queued)
+- [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]] (queued)
+- [[W-65 The records system|The records system (W-65)]] (active)
+- [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]] (queued)
+- [[W-63 The audit of work started and left, and the triage of open asks and…|The audit of work started and left, and the triage of open asks and… (W-63)]] (active)
+- [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]] (waiting)
+- [[W-60 Fixing the ecology's water counted twice, then rechecking the…|Fixing the ecology's water counted twice, then rechecking the… (W-60)]] (active)
+- [[W-59 The runs world for the model-per-household run|The runs world for the model-per-household run (W-59)]] (waiting)
+- [[W-58 The runs world with a model to each household|The runs world with a model to each household (W-58)]] (paused)
+- [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]] (active)
+- [[W-56 One fish stock per water body, the engine half|One fish stock per water body, the engine half (W-56)]] (active)
+- [[W-54 The twelve calibration worlds and an audit of the generator across…|The twelve calibration worlds and an audit of the generator across… (W-54)]] (active)
+- [[W-53 Floodplains in the generator|Floodplains in the generator (W-53)]] (waiting)
+- [[W-51 Testing the weather across dry, cold, coastal and mountain worlds…|Testing the weather across dry, cold, coastal and mountain worlds… (W-51)]] (active)
+- [[W-49 Environment systems|Environment systems (W-49)]] (waiting)
+- [[W-48 Build brief 5, river and water|Build brief 5, river and water (W-48)]] (active)
+- [[W-43 The engine as feature packages|The engine as feature packages (W-43)]] (waiting)
+- [[W-39 The economy's web of dependence and how far it should reach|The economy's web of dependence and how far it should reach (W-39)]] (waiting)
+- [[W-34 Worlds for the peoples benchmark|Worlds for the peoples benchmark (W-34)]] (active)
+- [[W-34b Worlds for the population benchmark, the peoples variant|Worlds for the population benchmark, the peoples variant (W-34b)]] (active)
+- [[W-31 Goal probe, round 3|Goal probe, round 3 (W-31)]] (active)
+- [[W-30 Build brief 4b|Build brief 4b (W-30)]] (waiting)
+- [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]] (active)
+- [[W-28 The Cybertron 2 website|The Cybertron 2 website (W-28)]] (waiting)
+- [[W-27 Build brief 4|Build brief 4 (W-27)]] (active)
+- [[W-25 Keeping each world's full 150 m land with it|Keeping each world's full 150 m land with it (W-25)]] (waiting)
+- [[W-16 The engine overhaul|The engine overhaul (W-16)]] (paused)
+- [[W-14 Claims and ownership by physics, part 2|Claims and ownership by physics, part 2 (W-14)]] (waiting)
+- [[W-13 Brookend survival world, rerun p2|Brookend survival world, rerun p2 (W-13)]] (paused)
+- [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]] (queued)
+- [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]] (active)
 
 ## Closed (41)
-- [[W-66 The design of the records and the workflow|W-66 · The design of the records and the workflow]]
-- [[W-61 An introduction for the Vanderbilt AI Safety fellows' final projects|W-61 · An introduction for the Vanderbilt AI Safety fellows' final projects]]
-- [[W-55 The lake world with a graded population goal|W-55 · The lake world with a graded population goal]]
-- [[W-52 The lake world's second live run|W-52 · The lake world's second live run]]
-- [[W-50 The lake world's live run|W-50 · The lake world's live run]]
-- [[W-47 Brief 5's worlds and the runs-only world|W-47 · Brief 5's worlds and the runs-only world]]
-- [[W-46 Do agents in the runs form new partnerships, pair up when grown, or…|W-46 · Do agents in the runs form new partnerships, pair up when grown, or…]]
-- [[W-45 Brief 5 revised from the economy research|W-45 · Brief 5 revised from the economy research]]
-- [[W-44 The missing domains and a linking pass|W-44 · The missing domains and a linking pass]]
-- [[W-42 Where to draw the border for now|W-42 · Where to draw the border for now]]
-- [[W-41 An interactive visual of the economy research|W-41 · An interactive visual of the economy research]]
-- [[W-40 Economy research, hunter-gatherers to the 21st-century urban economy|W-40 · Economy research, hunter-gatherers to the 21st-century urban economy]]
-- [[W-39b Prototype of generation_redesign.md §4.3 and §4.5 for people|W-39b · Prototype of generation_redesign.md §4.3 and §4.5 for people]]
-- [[W-38 Generation redesign|W-38 · Generation redesign]]
-- [[W-38b What went wrong building the peoples worlds, from properties to a…|W-38b · What went wrong building the peoples worlds, from properties to a…]]
-- [[W-37 Standing rules|W-37 · Standing rules]]
-- [[W-36 Build brief 4c, then the merge of the wild layer|W-36 · Build brief 4c, then the merge of the wild layer]]
-- [[W-35 The first peoples run|W-35 · The first peoples run]]
-- [[W-33 The economy that emerged across runs|W-33 · The economy that emerged across runs]]
-- [[W-32 Offers across all cybertron2 runs|W-32 · Offers across all cybertron2 runs]]
-- [[W-28b Build brief 4b written|W-28b · Build brief 4b written]]
-- [[W-26 Build brief 5 river and water (K4 without fen and boats)|W-26 · Build brief 5: river and water (K4 without fen and boats)]]
-- [[W-24 Build brief 4 written (hunt_and_fixes.md)|W-24 · Build brief 4 written (hunt_and_fixes.md)]]
-- [[W-23 A benchmark by living descendants on a ladder of worlds|W-23 · A benchmark by living descendants on a ladder of worlds]]
-- [[W-22 Hunting against farming and gathering in generated worlds|W-22 · Hunting against farming and gathering in generated worlds]]
-- [[W-21 Proposals for Q-37|W-21 · Proposals for Q-37]]
-- [[W-20 Paired probes, round 3|W-20 · Paired probes, round 3]]
-- [[W-19 Paired probes, round 2 a full LLM cast, Fable 5.2 (02zzc)|W-19 · Paired probes, round 2: a full LLM cast, Fable 5.2 (02zzc)]]
-- [[W-18 Small paired probes, Fable 5.2 against Opus 5.5, three situations|W-18 · Small paired probes, Fable 5.2 against Opus 5.5, three situations]]
-- [[W-17 A Fable 5.2 probe in run 6's world|W-17 · A Fable 5.2 probe in run 6's world]]
-- [[W-15 The land's fast stocks|W-15 · The land's fast stocks]]
-- [[W-11 Landscapes still to tune|W-11 · Landscapes still to tune]]
-- [[W-10 37.2's spec write-ups owed since 2 and 3 Nov|W-10 · 37.2's spec write-ups owed since 2 and 3 Nov]]
-- [[W-9 Compile the generator into specworldgeneration.md|W-9 · Compile the generator into spec/world/generation.md]]
-- [[W-8 Couple the food web to 37.4's weather and climate|W-8 · Couple the food web to 37.4's weather and climate]]
-- [[W-7 The ecology branch's next steps|W-7 · The ecology branch's next steps]]
-- [[W-6 Merging the wild layer into main|W-6 · Merging the wild layer into main]]
-- [[W-5 37.2's own hygiene items|W-5 · 37.2's own hygiene items]]
-- [[W-4 wild_behaviour.md v3|W-4 · wild_behaviour.md v3]]
-- [[W-3 Records restructure|W-3 · Records restructure]]
-- [[W-1 Build brief 1|W-1 · Build brief 1]]
+- [[W-66 The design of the records and the workflow|The design of the records and the workflow (W-66)]]
+- [[W-61 An introduction for the Vanderbilt AI Safety fellows' final projects|An introduction for the Vanderbilt AI Safety fellows' final projects (W-61)]]
+- [[W-55 The lake world with a graded population goal|The lake world with a graded population goal (W-55)]]
+- [[W-52 The lake world's second live run|The lake world's second live run (W-52)]]
+- [[W-50 The lake world's live run|The lake world's live run (W-50)]]
+- [[W-47 Brief 5's worlds and the runs-only world|Brief 5's worlds and the runs-only world (W-47)]]
+- [[W-46 Do agents in the runs form new partnerships, pair up when grown, or…|Do agents in the runs form new partnerships, pair up when grown, or… (W-46)]]
+- [[W-45 Brief 5 revised from the economy research|Brief 5 revised from the economy research (W-45)]]
+- [[W-44 The missing domains and a linking pass|The missing domains and a linking pass (W-44)]]
+- [[W-42 Where to draw the border for now|Where to draw the border for now (W-42)]]
+- [[W-41 An interactive visual of the economy research|An interactive visual of the economy research (W-41)]]
+- [[W-40 Economy research, hunter-gatherers to the 21st-century urban economy|Economy research, hunter-gatherers to the 21st-century urban economy (W-40)]]
+- [[W-39b Prototype of generation_redesign.md §4.3 and §4.5 for people|Prototype of generation_redesign.md §4.3 and §4.5 for people (W-39b)]]
+- [[W-38 Generation redesign|Generation redesign (W-38)]]
+- [[W-38b What went wrong building the peoples worlds, from properties to a…|What went wrong building the peoples worlds, from properties to a… (W-38b)]]
+- [[W-37 Standing rules|Standing rules (W-37)]]
+- [[W-36 Build brief 4c, then the merge of the wild layer|Build brief 4c, then the merge of the wild layer (W-36)]]
+- [[W-35 The first peoples run|The first peoples run (W-35)]]
+- [[W-33 The economy that emerged across runs|The economy that emerged across runs (W-33)]]
+- [[W-32 Offers across all cybertron2 runs|Offers across all cybertron2 runs (W-32)]]
+- [[W-28b Build brief 4b written|Build brief 4b written (W-28b)]]
+- [[W-26 Build brief 5 river and water (K4 without fen and boats)|Build brief 5: river and water (K4 without fen and boats) (W-26)]]
+- [[W-24 Build brief 4 written (hunt_and_fixes.md)|Build brief 4 written (hunt_and_fixes.md) (W-24)]]
+- [[W-23 A benchmark by living descendants on a ladder of worlds|A benchmark by living descendants on a ladder of worlds (W-23)]]
+- [[W-22 Hunting against farming and gathering in generated worlds|Hunting against farming and gathering in generated worlds (W-22)]]
+- [[W-21 Proposals for Q-37|Proposals for Q-37 (W-21)]]
+- [[W-20 Paired probes, round 3|Paired probes, round 3 (W-20)]]
+- [[W-19 Paired probes, round 2 a full LLM cast, Fable 5.2 (02zzc)|Paired probes, round 2: a full LLM cast, Fable 5.2 (02zzc) (W-19)]]
+- [[W-18 Small paired probes, Fable 5.2 against Opus 5.5, three situations|Small paired probes, Fable 5.2 against Opus 5.5, three situations (W-18)]]
+- [[W-17 A Fable 5.2 probe in run 6's world|A Fable 5.2 probe in run 6's world (W-17)]]
+- [[W-15 The land's fast stocks|The land's fast stocks (W-15)]]
+- [[W-11 Landscapes still to tune|Landscapes still to tune (W-11)]]
+- [[W-10 37.2's spec write-ups owed since 2 and 3 Nov|37.2's spec write-ups owed since 2 and 3 Nov (W-10)]]
+- [[W-9 Compile the generator into specworldgeneration.md|Compile the generator into spec/world/generation.md (W-9)]]
+- [[W-8 Couple the food web to 37.4's weather and climate|Couple the food web to 37.4's weather and climate (W-8)]]
+- [[W-7 The ecology branch's next steps|The ecology branch's next steps (W-7)]]
+- [[W-6 Merging the wild layer into main|Merging the wild layer into main (W-6)]]
+- [[W-5 37.2's own hygiene items|37.2's own hygiene items (W-5)]]
+- [[W-4 wild_behaviour.md v3|wild_behaviour.md v3 (W-4)]]
+- [[W-3 Records restructure|Records restructure (W-3)]]
+- [[W-1 Build brief 1|Build brief 1 (W-1)]]

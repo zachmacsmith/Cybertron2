@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-80 · Fuse events are rare
+# Fuse events are rare (D2-80)
 
 *live · 23 Oct · spec: [[conflict - defence|conflict/defence]], [[conflict - fuse_events|conflict/fuse_events]], [[core - round|core/round]], [[world - roads|world/roads]]*
 
@@ -17,7 +17,7 @@ conversation ("They shouldn't be that common")
 
 
 ## Mentioned by
-- [[D2-105 Travel decides itself most of the time|D2-105 · Travel decides itself most of the time]]
+- [[D2-105 Travel decides itself most of the time|Travel decides itself most of the time (D2-105)]]
 - [[Proposal fuse events (time to respond)|Proposal: fuse events (time to respond)]]
 - [[Proposal the layout of a road (stretches and landmarks)|Proposal: the layout of a road (stretches and landmarks)]]
 - [[Defence walls, the watch, gates and time to respond|Defence: walls, the watch, gates and time to respond]]

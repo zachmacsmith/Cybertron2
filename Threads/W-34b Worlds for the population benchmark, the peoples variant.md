@@ -5,7 +5,7 @@ state: active
 updated: "2026-11-20"
 ---
 
-# W-34b · Worlds for the population benchmark, the peoples variant
+# Worlds for the population benchmark, the peoples variant (W-34b)
 
 *active · 37.4 · touched 13 Nov (7 days ago)*
 
@@ -20,4 +20,4 @@ started
 
 
 ## Mentioned by
-- [[W-65 Tracking threads automatically|W-65 · Tracking threads automatically]]
+- [[W-65 The records system|The records system (W-65)]]

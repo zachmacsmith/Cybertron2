@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-46 · Levels of fire
+# Levels of fire (L-46)
 
 *open · 37.4*
 

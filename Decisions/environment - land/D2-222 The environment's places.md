@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-222 · The environment's places
+# The environment's places (D2-222)
 
 *live · 17 Nov · spec: [[environment - land|environment/land]]*
 
@@ -20,7 +20,7 @@ stepping the cells
 
 
 ## Mentioned by
-- [[D2-229 One fish stock per water body|D2-229 · One fish stock per water body]]
+- [[D2-229 One fish stock per water body|One fish stock per water body (D2-229)]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
 - [[The land and its stocks|The land and its stocks]]
 - *and 1 index or audit notes*

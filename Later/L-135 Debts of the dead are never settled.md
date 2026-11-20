@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-135 · Debts of the dead are never settled
+# Debts of the dead are never settled (L-135)
 
 *open · 37.4 (engine)*
 
@@ -16,4 +16,4 @@ engine/agreements.py pays nothing to the dead and has no heir rule (02zzs); foun
 
 
 ## Linked
-- parent: [[W-29 A multi-village wild region and its live run|W-29 · A multi-village wild region and its live run]]
+- parent: [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]

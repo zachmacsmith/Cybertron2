@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-11 · Fences, hedges and walls for herds
+# Fences, hedges and walls for herds (L-11)
 
 *open · 37.4*
 

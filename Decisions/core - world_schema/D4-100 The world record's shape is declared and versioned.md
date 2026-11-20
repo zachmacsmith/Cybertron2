@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-100 · The world record's shape is declared and versioned
+# The world record's shape is declared and versioned (D4-100)
 
 *live · 4 Nov · spec: [[core - world_schema|core/world_schema]]*
 
@@ -20,7 +20,7 @@ none (the world's shape was unversioned; only the journal's tables had a schema)
 
 
 ## Mentioned by
-- [[Q-48 The engine as feature packages|Q-48 · The engine as feature packages]]
+- [[Q-48 The engine as feature packages|The engine as feature packages (Q-48)]]
 - [[The engine as a small core and feature packages design specification|The engine as a small core and feature packages: design specification]]
 - [[A fixed data interface for runs versioned shapes, one read layer…|A fixed data interface for runs: versioned shapes, one read layer…]]
 - [[Proposal the wild layer, one general system for ecosystems and…|Proposal: the wild layer, one general system for ecosystems and…]]

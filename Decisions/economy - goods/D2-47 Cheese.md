@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-47 · Cheese
+# Cheese (D2-47)
 
 *live · 23 Oct · spec: [[economy - goods|economy/goods]], [[economy - production|economy/production]]*
 

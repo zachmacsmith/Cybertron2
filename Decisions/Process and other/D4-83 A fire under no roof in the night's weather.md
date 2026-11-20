@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-83 · A fire under no roof in the night's weather
+# A fire under no roof in the night's weather (D4-83)
 
 *live · 2 Nov*
 
@@ -20,7 +20,7 @@ camp and open fires the same in all weather
 
 
 ## Mentioned by
-- [[L-32 D4-83 (a fire under no roof in the night's weather|L-32 · D4-83 (a fire under no roof in the night's weather]]
+- [[L-32 D4-83 (a fire under no roof in the night's weather|D4-83 (a fire under no roof in the night's weather (L-32)]]
 - [[What can happen to buildings and fittings, by weather and use…|What can happen to buildings and fittings, by weather and use…]]
 - [[Proposal what can happen (eras, weather, hazards that spread, and…|Proposal: what can happen (eras, weather, hazards that spread, and…]]
 - [[Levels of fire, and camps built out (flagged for later)|Levels of fire, and camps built out (flagged for later)]]

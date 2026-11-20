@@ -52,7 +52,7 @@ and apart from the land. Most of the problems Zach has hit come from those two c
 | **Targets met by monotone adjustment** of what is unpinned; "reproducibly, **without seed searches**" | Land is sized **once**, open loop, by settle.py's own formula; the engine's capacity is checked **afterwards**, and the world is refused. Getting a world means searching seeds (on 8 Nov, 1 of 16 tries passed). |
 | **Pins win where physics allows;** a pin it can't meet is refused **with the reason** | Pins that fail are refused with a reason (good). Targets that fail refuse the whole world. A refused world is not written, so it cannot be looked at. |
 | **Land first, people second, the same keyed way;** founders settle by the siting scores | People are generated **after** the land, by a separate generator that knows nothing of it; the land is then sized **again** for the people it got (two passes). |
-| **A world under the graph**, the graph derived from it | Built (cells, parcels from cells, roads from cells). The engine does not keep the cells in a run ([[D2-177 The generator's first stage writes today's world format plus the…|D2-177]]; [[W-25 The world keeps its land|W-25]] is adding it). |
+| **A world under the graph**, the graph derived from it | Built (cells, parcels from cells, roads from cells). The engine does not keep the cells in a run ([[D2-177 The generator's first stage writes today's world format plus the…|D2-177]]; [[W-25 Keeping each world's full 150 m land with it|W-25]] is adding it). |
 
 ## 2. Flaws of the environment generator
 
@@ -456,8 +456,8 @@ fitted to people; capacity is tunable through a holistic richness, not one lever
 
 ## Sources
 
-- generator.md ([[D2-173 The generator fills in around what a world file gives|D2-173]] to [[D2-175 Land use in rings round a settlement|D2-175]], §2 to §5, §9), generator_stage1.md, temperate_landscapes.md ([[D2-191 The generator designs within one envelope|D2-191]]), land_kept.md ([[W-25 The world keeps its land|W-25]]).
+- generator.md ([[D2-173 The generator fills in around what a world file gives|D2-173]] to [[D2-175 Land use in rings round a settlement|D2-175]], §2 to §5, §9), generator_stage1.md, temperate_landscapes.md ([[D2-191 The generator designs within one envelope|D2-191]]), land_kept.md ([[W-25 Keeping each world's full 150 m land with it|W-25]]).
 - Code: `cybertron2/landgen/settle.py` (allocate, targets), `cybertron2/landgen/write.py` (_generate, checks),
   `cybertron2/engine/capacity.py` (node), `cybertron2/engine/generate.py` (simulate, build).
-- OPEN [[L-75 The generator's lakes and heat target|L-75]] (lakes and the heat target), [[L-101 Compile the generator into specworldgeneration.md|L-101]] (the generator's spec), [[Q-28 The economy check counts crops that winter will clear|Q-28]] (the economy check); WORK [[W-9 Compile the generator into specworldgeneration.md|W-9]], [[W-11 Landscapes still to tune|W-11]], [[W-25 The world keeps its land|W-25]], [[W-34 Worlds for the peoples benchmark|W-34]].
+- OPEN [[L-75 The generator's lakes and heat target|L-75]] (lakes and the heat target), [[L-101 Compile the generator into specworldgeneration.md|L-101]] (the generator's spec), [[Q-28 The economy check counts crops that winter will clear|Q-28]] (the economy check); WORK [[W-9 Compile the generator into specworldgeneration.md|W-9]], [[W-11 Landscapes still to tune|W-11]], [[W-25 Keeping each world's full 150 m land with it|W-25]], [[W-34 Worlds for the peoples benchmark|W-34]].
 - c2viz notes: 3 Nov gallery (75 of 75 built parcels overfull; 17 of 18 worlds at 30% wood), 8 Nov (1 of 16 seeds passed).

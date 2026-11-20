@@ -41,18 +41,18 @@ Outcome key: **done**; **done (late)**; **done after reminder** (Zach had to ask
 | 9 Nov 22:19 | "I can write the forays brief now" | deferred by Zach (10 Nov) | [[L-105 Forays as their own track|L-105]] |
 | 9 Nov 23:21 | "When the sweep finishes I'll set measured hunting ... against these" | done: 02zzd (10 Nov 00:15) | yes |
 | 10 Nov 00:35; 07:53 | HF upload of 37.2's own runs (Fable probe, 18 paired probes, wild runs 1 to 6, llm_runs): "If you confirm, I'll stage ..."; "Want those uploaded the same way?" | **dropped**: no answer either time, never raised again; `publish_hf.py` lists only `wild_region_s7`; compaction 10 carried it | no |
-| 10 Nov 00:45 | land_kept: "should I write my generator part now" | not done: no land hash/land file in landgen | [[W-25 The world keeps its land|W-25]] "waiting" 9 days |
+| 10 Nov 00:45 | land_kept: "should I write my generator part now" | not done: no land hash/land file in landgen | [[W-25 Keeping each world's full 150 m land with it|W-25]] "waiting" 9 days |
 | 10 Nov 02:26, 03:53, 12 Nov, 14 Nov | "I owe it two test worlds" (brief 5) | done (late, 6 days): [[W-47 Brief 5's worlds and the runs-only world|W-47]], `water-worlds` cc6f38d, 16 Nov | yes |
 | 10 Nov 02:51 | rats down 21%: "It's in my code, so I'll look into it" | done 03:22 (02zzd addendum) | yes |
 | 10 Nov 03:37 | "Should I note [catching and releasing live deer] in the wood-and-frontier brief's plan and the content list (02zv) now?" | **dropped**: Zach moved to hunting parties; no note in 02zv, OPEN or proposals | no |
-| 10 Nov 03:59 | "Should I start designing the world and fixing the generator now" | done: 02zze, make_wild_region.py | yes ([[W-29 A multi-village wild region and its live run|W-29]]) |
+| 10 Nov 03:59 | "Should I start designing the world and fixing the generator now" | done: 02zze, make_wild_region.py | yes ([[W-29 Writing up the 10 Nov wild-region live run|W-29]]) |
 | 10 Nov 05:51 | fix the trade lines, regenerate younger, set the cast | done 06:12 | yes |
-| 10 Nov 06:12 | generator speed: fixes "proposed and await Zach's go" (02zzf, b514a8c) | not done, never re-raised | only inside [[W-29 A multi-village wild region and its live run|W-29]]'s text |
-| 10 Nov 06:12 | the family-tree seeder: "A better design ..." | by others: c2viz session's generation_redesign.md ([[Q-45 Generation redesign|Q-45]]) | yes (not 37.2's) |
+| 10 Nov 06:12 | generator speed: fixes "proposed and await Zach's go" (02zzf, b514a8c) | not done, never re-raised | only inside [[W-29 Writing up the 10 Nov wild-region live run|W-29]]'s text |
+| 10 Nov 06:12 | the family-tree seeder: "A better design ..." | by others: c2viz session's generation_redesign.md ([[Q-45 The generation redesign|Q-45]]) | yes (not 37.2's) |
 | 10 Nov 06:24 | firewood: "I'll check it" in the new run | done 06:26 (14% of acts) | n/a |
 | 10 Nov 06:32 | "I'll check whether 'with' appears in the hunting act's description" | **unsure**: no evidence found | no |
 | 10 Nov 06:52 | plough lent as a sale: "agents have no way to express renting out capital ... an engine gap worth flagging" | **dropped**: no row in OPEN or engine_gaps; "loan" appears only in 02zze as a question | no |
-| 10 Nov 08:01 | fertile-window seeding "That's my mistake"; `ages: true` unset | by others: 37.4's [[Q-43 Before the second peoples run|Q-43]]; later [[Q-60 The water worlds' people, and the runs world for the…|Q-60]] | yes (by 37.4) |
+| 10 Nov 08:01 | fertile-window seeding "That's my mistake"; `ages: true` unset | by others: 37.4's [[Q-43 Fixes before a second peoples run|Q-43]]; later [[Q-60 The water worlds' people, and the runs world for the…|Q-60]] | yes (by 37.4) |
 | 12 Nov 21:16 | "the status lines of briefs 1 to 3 still say 'to be built' ... Those files are mine to fix" | **dropped**: all three still "to be built" on main, 19 Nov | no |
 | 12 Nov 22:08, 22:13 | [[L-106 MAJOR what the engine remembers and settles for agents, and…|L-106]] (memory and ledger revisit); brief 4c written | done: OPEN [[L-106 MAJOR what the engine remembers and settles for agents, and…|L-106]]; 893f6a1 | yes |
 | 13 Nov 17:52 | 4c §7.1: "I check it before the build" (wolves and boar decline) | done 14 Nov 21:51 (8674eff) | yes |
@@ -72,18 +72,18 @@ Outcome key: **done**; **done (late)**; **done after reminder** (Zach had to ask
 | 16 Nov 19:23 | "After that I'll write the waters proposal for discussion" | **done after reminder**: Zach 20:20 "you were gonna do the waters / envrionments proposal?"; environment_systems.md 20:28 | yes |
 | 16 Nov 19:27 | "[[W-47 Brief 5's worlds and the runs-only world|W-47]] is my next job: brine springs, two test worlds, then the runs-only world" | done 19:59 | yes |
 | 16 Nov 22:19 | the water prototype ("Logging it and starting now") | **done after reminder**: Zach 22:18 "Next u were gonna continue the hidden state etc one?"; 02zzn | yes |
-| 16 Nov 22:50 | the flow-level rule ([[D2-218 Set traps in high water|D2-218]], 37.2's): "I'll set it once the weather is fixed" | not done; [[D2-218 Set traps in high water|D2-218]] also in no spec file | [[W-51 The weather across conditions|W-51]] "active", untouched since 16 Nov |
+| 16 Nov 22:50 | the flow-level rule ([[D2-218 Set traps in high water|D2-218]], 37.2's): "I'll set it once the weather is fixed" | not done; [[D2-218 Set traps in high water|D2-218]] also in no spec file | [[W-51 Testing the weather across dry, cold, coastal and mountain worlds…|W-51]] "active", untouched since 16 Nov |
 | 16 Nov 23:11 | eels as fish: "I'll check it once they report it built" | done 23:16 (reported built) | yes |
-| 16 Nov 23:43 | water-measure: "Before it merges, I'll check those species against real densities ... update one replay test" | **not done**: branch `water-measure` 4a0a98f untouched; [[W-62 The water work is on eight unmerged branches, none on main|W-62]] says it blocks the water merge | [[W-60 The ecology's water measure counted each lake and the large river…|W-60]] "active", untouched 3 days |
-| 17 Nov 00:09 | climate from land, "Generator (mine, about half a day)" | not done; waits on [[Q-56 The land the engine reads|Q-56]] | [[W-51 The weather across conditions|W-51]] |
+| 16 Nov 23:43 | water-measure: "Before it merges, I'll check those species against real densities ... update one replay test" | **not done**: branch `water-measure` 4a0a98f untouched; [[W-62 Merging the water work from its twelve branches into main|W-62]] says it blocks the water merge | [[W-60 Fixing the ecology's water counted twice, then rechecking the…|W-60]] "active", untouched 3 days |
+| 17 Nov 00:09 | climate from land, "Generator (mine, about half a day)" | not done; waits on [[Q-56 How the weather should follow each place's climate from the generated…|Q-56]] | [[W-51 Testing the weather across dry, cold, coastal and mountain worlds…|W-51]] |
 | 17 Nov 00:55; 04:14 | lake fish constants "left for me to calibrate ... across the test-world suite" | not done | no explicit row ([[D4-120 A lake's fish by its size|D4-120]] calls it calibrate; listed only in the 19 Nov chat) |
-| 17 Nov 03:52 | water per village (two-cell cap): "I'll add that to the generator audit ([[W-54 The calibration worlds|W-54]])" | recorded | [[W-54 The calibration worlds|W-54]] |
+| 17 Nov 03:52 | water per village (two-cell cap): "I'll add that to the generator audit ([[W-54 The twelve calibration worlds and an audit of the generator across…|W-54]])" | recorded | [[W-54 The twelve calibration worlds and an audit of the generator across…|W-54]] |
 | 17 Nov 04:20 | founders' ages "in one remake after 37.4's branch lands" | done for the runs world 04:49; **unsure** for the river and lake worlds | partly |
 | 17 Nov 04:49 | "The river and lake worlds ... still need remaking ... I'll do that next" | done 06:01 | yes |
 | 17 Nov 04:53 | the generator's food check counts unreachable food: (19 Nov: "I said on 17 Nov I'd fix it to count only food within a day's work, and haven't") | **dropped**; the 17 Nov text where it was promised is cut off in the extract | no (old [[Q-28 The economy check counts crops that winter will clear|Q-28]] is a different overcount) |
 | 17 Nov 04:49 to 06:01 | "I'll record them [[[Q-60 The water worlds' people, and the runs world for the…|Q-60]]'s relayed answers] as decisions once you confirm" (asked four times) | waiting; [[D2-230 Highpool's larder in the runs world|D2-230]], [[D2-231 The runs world's runs on set nights|D2-231]] also in no spec file | [[Q-60 The water worlds' people, and the runs world for the…|Q-60]] |
 | 19 Nov 05:06 | "Stale records: ... I'll fix both" | done 05:15 ([[W-6 Merging the wild layer into main|W-6]] to Done; wild_layer.md) | yes |
-| 19 Nov 05:15 | catch-up pass on my share (33 decisions into the spec, 7 replaced, 11 WORK rows, triggers) | proposed, not begun | [[W-63 An audit of what was started and left|W-63]] (the audit) |
+| 19 Nov 05:15 | catch-up pass on my share (33 decisions into the spec, 7 replaced, 11 WORK rows, triggers) | proposed, not begun | [[W-63 The audit of work started and left, and the triage of open asks and…|W-63]] (the audit) |
 
 ## 2. Switches
 
@@ -100,7 +100,7 @@ Outcome key: **done**; **done (late)**; **done after reminder** (Zach had to ask
 | 9 Nov 22:21 | animal encounters; shelter and cats proposals | hunting's value | Zach's question | wild_encounters **lost**; shelter_damage and cats "waiting" ([[W-21 Proposals for Q-37|W-21]]), 10 days |
 | 10 Nov 00:15 | the hunting measurement | the descendants benchmark | Zach's idea | benchmark deferred ([[L-104 MAJOR the descendants benchmark|L-104]]); hunting resumed as brief 4 |
 | 10 Nov 00:35 | brief 4 | the HF upload | a 37.4 message | **lost**: never answered, never recorded |
-| 10 Nov 00:41 | brief 4 with forays | a land grid and keeping the land ([[D2-208 The world keeps the land it runs on|D2-208]]) | Zach's route-module idea | forays [[L-105 Forays as their own track|L-105]]; land_kept generator part [[W-25 The world keeps its land|W-25]] "waiting" 9 days |
+| 10 Nov 00:41 | brief 4 with forays | a land grid and keeping the land ([[D2-208 The world keeps the land it runs on|D2-208]]) | Zach's route-module idea | forays [[L-105 Forays as their own track|L-105]]; land_kept generator part [[W-25 Keeping each world's full 150 m land with it|W-25]] "waiting" 9 days |
 | 10 Nov 03:59 | brief 5's owed test worlds ("I can make those while 37.4 builds 4b") | the four-village region and its live run | Zach's question | resumed 16 Nov (6 days later) |
 | 10 Nov 06:12 | launching the run | generator speed (02zzf) | Zach ("why does it take infinite time") | fixes never taken up; no row of their own |
 | 10 Nov 07:58 | run analyses (compaction 10) | trading and fertility | Zach's questions | the HF backlog dropped after the compaction carried it |
@@ -110,9 +110,9 @@ Outcome key: **done**; **done (late)**; **done after reminder** (Zach had to ask
 | 15 Nov 20:22 | discovery ([[L-103 Crafting and discovering new things|L-103]] proposal offered) | the Civilization comparison, then the border note | Zach's question | **lost**: offer never answered or recorded |
 | 16 Nov 19:31 | the waters proposal ("after that I'll write") | brief 5's worlds | Zach "Start on your part now" | resumed only after Zach's reminder at 20:20 |
 | 16 Nov 21:46 | the environment consolidation and its prototype | the weir's size, cost and upkeep ([[D2-210 The weir in sections, capped, with upkeep by the river|D2-210]] to 213) | Zach's questions | resumed only after Zach's reminder at 22:18 |
-| 16 Nov 23:43 | the climate questions | the water-measure bug (from 37.4), then floodplains, water bodies | a 37.4 bug report, then new bugs | [[W-60 The ecology's water measure counted each lake and the large river…|W-60]] recalibration "active", untouched since 16 Nov; blocks the water merge |
+| 16 Nov 23:43 | the climate questions | the water-measure bug (from 37.4), then floodplains, water bodies | a 37.4 bug report, then new bugs | [[W-60 Fixing the ecology's water counted twice, then rechecking the…|W-60]] recalibration "active", untouched since 16 Nov; blocks the water merge |
 | 17 Nov 04:21 | the floodplains handover | the runs world for the model-per-household run | 37.4 relaying Zach's answers | food-check fix **lost**; lake fish calibration unrecorded |
-| 17 Nov 05:56 | (runs world handed over) | the salt-house bug | a 37.4 bug report | then idle to 19 Nov; [[W-51 The weather across conditions|W-51]], [[W-54 The calibration worlds|W-54]], [[W-60 The ecology's water measure counted each lake and the large river…|W-60]] untouched |
+| 17 Nov 05:56 | (runs world handed over) | the salt-house bug | a 37.4 bug report | then idle to 19 Nov; [[W-51 Testing the weather across dry, cold, coastal and mountain worlds…|W-51]], [[W-54 The twelve calibration worlds and an audit of the generator across…|W-54]], [[W-60 Fixing the ecology's water counted twice, then rechecking the…|W-60]] untouched |
 
 ## 3. Counts
 
@@ -135,14 +135,14 @@ Outcome key: **done**; **done (late)**; **done after reminder** (Zach had to ask
    twice), the HF upload (twice), the deer note, [[L-103 Crafting and discovering new things|L-103]], the kept-beasts brief.
 2. **Bugs found mid-task chain into each other.** 16 to 17 Nov: prototype → floodplain bug → weather across conditions → lake-by-a-pond
    bug → water counted twice (37.4) → one-parcel fix (reverted) → water bodies → runs world → missing livestock → missing brine pan.
-   Each was fixed and "handed over", and the checks owed on the earlier ones ([[W-60 The ecology's water measure counted each lake and the large river…|W-60]], lake fish, the food check) fell away.
+   Each was fixed and "handed over", and the checks owed on the earlier ones ([[W-60 Fixing the ecology's water counted twice, then rechecking the…|W-60]], lake fish, the food check) fell away.
 3. **Messages from 37.4 open new work** (HF upload, water-measure, relayed answers for the runs world, the salt pan). Answers relayed by
    37.4 cannot be recorded as decisions, so they pile up as asks ([[Q-46 Brief 4c as built|Q-46]], [[Q-60 The water worlds' people, and the runs world for the…|Q-60]]) that the assistant re-asks 3 to 4 times instead of
    taking a stated default, which CLAUDE.md allows.
 4. **Compactions are not the main leak.** Only the two immediate fixes clearly vanished at a compaction (8). wild_encounters and the HF
    upload were in the summaries (9, 10) and were dropped anyway. The leak is in what gets picked back up, not in memory.
 5. **What gets lost:** small owed write-ups (wild_encounters, the deer note, [[L-103 Crafting and discovering new things|L-103]], the kept-beasts brief); checks and calibrations
-   (climate, the drive's ×2.4, part 03's figures, [[W-60 The ecology's water measure counted each lake and the large river…|W-60]], lake fish, the food check); record upkeep (brief status lines, [[D2-200 Wild plant kinds replace the single plants stock in worlds with the…|D2-200]] to 203
+   (climate, the drive's ×2.4, part 03's figures, [[W-60 Fixing the ecology's water counted twice, then rechecking the…|W-60]], lake fish, the food check); record upkeep (brief status lines, [[D2-200 Wild plant kinds replace the single plants stock in worlds with the…|D2-200]] to 203
    into the spec, the sim.py path); publishing (the HF runs). Building and research almost never get lost; upkeep and verification do.
 6. **Zach has to catch the drops.** 16 Nov 20:20 ("you were gonna do the waters / envrionments proposal?"), 22:06 ("Did you write up the
    weir and hand over ...?"), 22:18 ("Next u were gonna continue the hidden state etc one?"), 17 Nov 05:04 ("Did u do it?").
@@ -157,11 +157,11 @@ Outcome key: **done**; **done (late)**; **done after reminder** (Zach had to ask
      was withdrawn at 05:13.
 8. **Rows that exist go stale.**
    - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|W-2]], [[W-27 Build brief 4|W-27]] and [[W-30 Build brief 4b|W-30]] are still "active" or "waiting", though those briefs were built and merged on 16 Nov.
-   - [[W-22 Hunting against farming and gathering in generated worlds|W-22]] and [[W-29 A multi-village wild region and its live run|W-29]] are "waiting", though the work is done.
+   - [[W-22 Hunting against farming and gathering in generated worlds|W-22]] and [[W-29 Writing up the 10 Nov wild-region live run|W-29]] are "waiting", though the work is done.
    - [[W-3 Records restructure|W-3]] has been "active" since 9 Nov.
    - The tracking system built on 9 Nov was kept up for new rows, not for closing them.
 9. **Long research tangents displace the build queue.** From 14 to 16 Nov, the economy research (18 parts, Flint to Fab, the border
    note) ran while these waited: 4c's records, the kept-beasts brief, birth windows, the hunting and materials brief (later
    benched), and [[W-5 37.2's own hygiene items|W-5]].
-10. **"Waiting on Zach" goes unanswered.** Asks grew from 30 to 50. Rows have waited 9 to 10 days ([[W-4 wild_behaviour.md v3|W-4]], [[W-21 Proposals for Q-37|W-21]], [[W-25 The world keeps its land|W-25]], [[Q-32 02zv §6's decisions still open|Q-32]], [[Q-35 Run findings with no owner yet|Q-35]]) with no
+10. **"Waiting on Zach" goes unanswered.** Asks grew from 30 to 50. Rows have waited 9 to 10 days ([[W-4 wild_behaviour.md v3|W-4]], [[W-21 Proposals for Q-37|W-21]], [[W-25 Keeping each world's full 150 m land with it|W-25]], [[Q-32 02zv §6's decisions still open|Q-32]], [[Q-35 Run findings with no owner yet|Q-35]]) with no
     default taken and no re-raise, except when Zach asked for a list (16 Nov 23:47).

@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-74 · What Cybertron 2 lacks for a society richer than Cybertron 1's
+# What Cybertron 2 lacks for a society richer than Cybertron 1's (L-74)
 
 *open · 37.4*
 

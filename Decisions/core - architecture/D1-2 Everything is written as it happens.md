@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D1-2 · Everything is written as it happens
+# Everything is written as it happens (D1-2)
 
 *live · 23 Oct · spec: [[core - architecture|core/architecture]], [[record - execution|record/execution]], [[record - views|record/views]]*
 

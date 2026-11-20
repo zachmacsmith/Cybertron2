@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-93 · One room, one fire
+# One room, one fire (D4-93)
 
 *live · 2 Nov*
 
@@ -20,7 +20,7 @@ hearths + rings each burning; "no timber in its store"; the store's theft wordin
 
 
 ## Mentioned by
-- [[L-44 D4-93 (one room, one fire|L-44 · D4-93 (one room, one fire]]
+- [[L-44 D4-93 (one room, one fire|D4-93 (one room, one fire (L-44)]]
 - [[What can happen to buildings and fittings, by weather and use…|What can happen to buildings and fittings, by weather and use…]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
 - [[Levels of fire, and camps built out (flagged for later)|Levels of fire, and camps built out (flagged for later)]]

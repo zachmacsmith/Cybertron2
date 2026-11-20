@@ -5,7 +5,7 @@ state: waiting
 updated: "2026-11-20"
 ---
 
-# W-28 · The Cybertron 2 website
+# The Cybertron 2 website (W-28)
 
 *waiting · site (c2viz, session "Cybertron website") · touched 10 Nov (10 days ago)*
 
@@ -25,6 +25,6 @@ built and pushed; viewer files for all 64 published runs uploaded (c2viz code_ke
 
 
 ## Mentioned by
-- [[W-28b Build brief 4b written|W-28b · Build brief 4b written]]
+- [[W-28b Build brief 4b written|Build brief 4b written (W-28b)]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
 - *and 2 index or audit notes*

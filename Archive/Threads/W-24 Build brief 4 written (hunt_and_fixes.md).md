@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-24 · Build brief 4 written (hunt_and_fixes.md)
+# Build brief 4 written (hunt_and_fixes.md) (W-24)
 
 *done · 37.2 · touched  ()*
 
@@ -14,6 +14,6 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[Q-33 forays.md's open questions|Q-33 · forays.md's open questions]]
-- [[W-27 Build brief 4|W-27 · Build brief 4]]
+- [[Q-33 forays.md's open questions|forays.md's open questions (Q-33)]]
+- [[W-27 Build brief 4|Build brief 4 (W-27)]]
 - *and 1 index or audit notes*

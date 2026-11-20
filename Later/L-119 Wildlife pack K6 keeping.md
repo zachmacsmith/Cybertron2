@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-119 · Wildlife pack K6: keeping
+# Wildlife pack K6: keeping (L-119)
 
 *open · 37.4 (husbandry), 37.2*
 
@@ -20,7 +20,7 @@ dogs with types, training bonds and the kennel; hens, ducks and geese kept, gees
 
 
 ## Linked
-- parent: [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
+- parent: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 
 
 ## Mentioned by

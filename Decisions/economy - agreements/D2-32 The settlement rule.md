@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-32 · The settlement rule
+# The settlement rule (D2-32)
 
 *live · 23 Oct · spec: [[economy - agreements|economy/agreements]], [[world - roads|world/roads]]*
 
@@ -20,7 +20,7 @@ cybertron 1's legs moving goods anywhere
 
 
 ## Mentioned by
-- [[L-106 MAJOR what the engine remembers and settles for agents, and…|L-106 · MAJOR: what the engine remembers and settles for agents, and…]]
+- [[L-106 MAJOR what the engine remembers and settles for agents, and…|MAJOR: what the engine remembers and settles for agents, and… (L-106)]]
 - [[Place as the engine's foundation everything is somewhere, and an…|Place as the engine's foundation: everything is somewhere, and an…]]
 - [[Agreements legs, settlement, ledgers and presets|Agreements: legs, settlement, ledgers and presets]]
 - [[Roads stretches, landmarks, crossing and meetings|Roads: stretches, landmarks, crossing and meetings]]

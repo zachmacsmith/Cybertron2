@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-132 · Gates open and close by themselves
+# Gates open and close by themselves (D2-132)
 
 *live · 24 Oct · spec: [[core - world_schema|core/world_schema]], [[economy - livestock|economy/livestock]]*
 

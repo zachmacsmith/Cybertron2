@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-169 · Buildings carry what their people write
+# Buildings carry what their people write (D2-169)
 
 *live · 3 Nov · spec: [[economy - buildings|economy/buildings]]*
 
@@ -20,7 +20,7 @@ a church as a designed building
 
 
 ## Mentioned by
-- [[D2-170 A line costs its own engraving|D2-170 · A line costs its own engraving]]
+- [[D2-170 A line costs its own engraving|A line costs its own engraving (D2-170)]]
 - [[What an agent is shown the world and its rules, not choices made for…|What an agent is shown: the world and its rules, not choices made for…]]
 - [[Proposal buildings people make their own (descriptions and lines…|Proposal: buildings people make their own (descriptions and lines…]]
 - [[Proposal the economics of information|Proposal: the economics of information]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-63 · A page for playing an agent
+# A page for playing an agent (D4-63)
 
 *live · 31 Oct*
 

@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-18 · D2-74 amends D4-35
+# D2-74 amends D4-35 (Q-18)
 
 *open · 37.4*
 

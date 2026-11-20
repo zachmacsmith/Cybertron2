@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-33 · Growth to towns: fixed nodes, faster edges, reach by place
+# Growth to towns: fixed nodes, faster edges, reach by place (L-33)
 
 *open · 37.2 with 37.4*
 

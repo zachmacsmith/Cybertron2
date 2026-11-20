@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-197 · Lead times and creature memory are set in engine days, never less…
+# Lead times and creature memory are set in engine days, never less… (D2-197)
 
 *live · 8 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 

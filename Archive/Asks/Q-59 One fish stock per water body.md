@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-59 · One fish stock per water body
+# One fish stock per water body (Q-59)
 
 *closed · Zach*
 
@@ -16,7 +16,7 @@ One fish stock per water body (lakes whole, rivers by reach); the generator writ
 
 
 ## Mentioned by
-- [[D2-229 One fish stock per water body|D2-229 · One fish stock per water body]]
+- [[D2-229 One fish stock per water body|One fish stock per water body (D2-229)]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]
 - [[02zzq the records and the workflow as they are, and how Zach works…|02zzq: the records and the workflow as they are, and how Zach works…]]
 - *and 1 index or audit notes*

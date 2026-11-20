@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# C-2 · Building limits: slots by land kind
+# Building limits: slots by land kind (C-2)
 
 *open · 37.4 with 37.2*
 

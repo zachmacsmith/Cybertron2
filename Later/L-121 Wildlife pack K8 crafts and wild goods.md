@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-121 · Wildlife pack K8: crafts and wild goods
+# Wildlife pack K8: crafts and wild goods (L-121)
 
 *open · 37.2 (design), 37.4*
 
@@ -16,11 +16,11 @@ tanning and leather; parchment, seals, quills; sinew, gut, glue, bowstrings, the
 
 **Designed in:** docs/review/37_growth/02zv_wild_consolidation.md §4
 
-**Waits on:** documents ([[D2-24 The first-world goods include copper, salt, documents, hides and…|D2-24]]); clothing ([[D2-10 Clothing is parked|D2-10]], parked); bees (K6); economy_web.md ([[W-39 The economy's layers and trees of dependence across the domains|W-39]])
+**Waits on:** documents ([[D2-24 The first-world goods include copper, salt, documents, hides and…|D2-24]]); clothing ([[D2-10 Clothing is parked|D2-10]], parked); bees (K6); economy_web.md ([[W-39 The economy's web of dependence and how far it should reach|W-39]])
 
 
 ## Linked
-- parent: [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
+- parent: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 
 
 ## Mentioned by

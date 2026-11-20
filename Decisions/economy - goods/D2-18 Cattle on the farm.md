@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-18 · Cattle on the farm
+# Cattle on the farm (D2-18)
 
 *live · 22 Oct · spec: [[economy - goods|economy/goods]], [[economy - livestock|economy/livestock]], [[economy - production|economy/production]]*
 
@@ -17,7 +17,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[D4-45 Cattle eat|D4-45 · Cattle eat]]
+- [[D4-45 Cattle eat|Cattle eat (D4-45)]]
 - [[Proposal farming|Proposal: farming]]
 - [[Proposal livestock|Proposal: livestock]]
 - [[Proposal recipes for the first worlds|Proposal: recipes for the first worlds]]

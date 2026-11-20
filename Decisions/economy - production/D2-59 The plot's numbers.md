@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-59 · The plot's numbers
+# The plot's numbers (D2-59)
 
 *live · 23 Oct · spec: [[economy - production|economy/production]]*
 

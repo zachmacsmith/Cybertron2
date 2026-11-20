@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-153 · The lifespan is a world setting that scales every part of a life
+# The lifespan is a world setting that scales every part of a life (D2-153)
 
 *live · 24 Oct · spec: [[life - birth_and_death|life/birth_and_death]], [[life - life_stages|life/life_stages]]*
 
@@ -20,10 +20,10 @@ youth 12 and adult 50 days fixed
 
 
 ## Mentioned by
-- [[D2-162 Shorter waits for children, a higher chance|D2-162 · Shorter waits for children, a higher chance]]
-- [[D4-116 Lifespan 64 in the peoples worlds; the year unchanged|D4-116 · Lifespan 64 in the peoples worlds; the year unchanged]]
-- [[Q-5 Rounds a youth lasts; lifespans in rounds|Q-5 · Rounds a youth lasts; lifespans in rounds]]
-- [[L-12 Children and life (we'll come back to this)|L-12 · Children and life ("we'll come back to this")]]
+- [[D2-162 Shorter waits for children, a higher chance|Shorter waits for children, a higher chance (D2-162)]]
+- [[D4-116 Lifespan 64 in the peoples worlds; the year unchanged|Lifespan 64 in the peoples worlds; the year unchanged (D4-116)]]
+- [[Q-5 Rounds a youth lasts; lifespans in rounds|Rounds a youth lasts; lifespans in rounds (Q-5)]]
+- [[L-12 Children and life (we'll come back to this)|Children and life ("we'll come back to this") (L-12)]]
 - [[Proposal children as a choice, counted in days (costs, care, growing…|Proposal: children as a choice, counted in days (costs, care, growing…]]
 - [[A benchmark by living descendants, on a ladder of worlds|A benchmark by living descendants, on a ladder of worlds]]
 - [[Proposal fertility and replacement|Proposal: fertility and replacement]]

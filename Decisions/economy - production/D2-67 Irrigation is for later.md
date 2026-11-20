@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-67 · Irrigation is for later
+# Irrigation is for later (D2-67)
 
 *live · 23 Oct · spec: [[economy - production|economy/production]]*
 
@@ -17,7 +17,7 @@ farming.md
 
 
 ## Mentioned by
-- [[L-10 Irrigation|L-10 · Irrigation]]
+- [[L-10 Irrigation|Irrigation (L-10)]]
 - [[Proposal options kept for later (goods, tools, methods)|Proposal: options kept for later (goods, tools, methods)]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]
 - [[Proposal farming|Proposal: farming]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-22 · The landscape is generated physical-first
+# The landscape is generated physical-first (D4-22)
 
 *live · 22 Oct · spec: [[world - generation|world/generation]]*
 
@@ -17,8 +17,8 @@ conversation ("I like this"); 04 §5-6
 
 
 ## Mentioned by
-- [[L-34 Works on the land's physical facts wait for the landscape generator|L-34 · Works on the land's physical facts wait for the landscape generator]]
-- [[L-101 Compile the generator into specworldgeneration.md|L-101 · Compile the generator into spec/world/generation.md]]
+- [[L-34 Works on the land's physical facts wait for the landscape generator|Works on the land's physical facts wait for the landscape generator (L-34)]]
+- [[L-101 Compile the generator into specworldgeneration.md|Compile the generator into spec/world/generation.md (L-101)]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
 - [[Proposal the hidden state of places and things (shared variables…|Proposal: the hidden state of places and things (shared variables…]]
 - [[Proposal the landscape generator (a world under the graph)|Proposal: the landscape generator (a world under the graph)]]

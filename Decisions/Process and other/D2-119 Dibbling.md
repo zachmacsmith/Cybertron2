@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-119 · Dibbling
+# Dibbling (D2-119)
 
 *live · 24 Oct*
 
@@ -20,5 +20,5 @@ nobody knowing it
 
 
 ## Mentioned by
-- [[D2-129 Dibbling at least one person in the whole world knows it by default|D2-129 · Dibbling: at least one person in the whole world knows it by default]]
+- [[D2-129 Dibbling at least one person in the whole world knows it by default|Dibbling: at least one person in the whole world knows it by default (D2-129)]]
 - [[Proposal farming|Proposal: farming]]

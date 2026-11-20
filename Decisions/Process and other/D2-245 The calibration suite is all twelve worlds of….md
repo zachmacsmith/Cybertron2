@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-245 · The calibration suite is all twelve worlds of…
+# The calibration suite is all twelve worlds of… (D2-245)
 
 *live · 20 Nov*
 
@@ -17,10 +17,10 @@ conversation (20 Nov: "58: I agree with all twelve. Can you get an agent on buil
 
 
 ## Linked
-- parent: [[W-54 The calibration worlds|W-54 · The calibration worlds]]
-- decides: [[Q-58 The calibration worlds|Q-58 · The calibration worlds]]
+- parent: [[W-54 The twelve calibration worlds and an audit of the generator across…|The twelve calibration worlds and an audit of the generator across… (W-54)]]
+- decides: [[Q-58 The calibration worlds|The calibration worlds (Q-58)]]
 
 
 ## Mentioned by
-- [[Q-58 The calibration worlds|Q-58 · The calibration worlds]]
+- [[Q-58 The calibration worlds|The calibration worlds (Q-58)]]
 - [[Calibration worlds a suite of diverse places to calibrate against|Calibration worlds: a suite of diverse places to calibrate against]]

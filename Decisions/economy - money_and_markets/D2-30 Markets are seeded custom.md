@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-30 · Markets are seeded custom
+# Markets are seeded custom (D2-30)
 
 *live · 23 Oct · spec: [[economy - money_and_markets|economy/money_and_markets]]*
 

@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# C-5 · Riders who travel and strike in one round
+# Riders who travel and strike in one round (C-5)
 
 *open · 37.4 (Zach to confirm)*
 
@@ -18,7 +18,7 @@ Riders who travel and strike in one round
 
 
 ## Mentioned by
-- [[D2-83 Riders|D2-83 · Riders]]
+- [[D2-83 Riders|Riders (D2-83)]]
 - [[Proposal attacks, buildings and walls|Proposal: attacks, buildings and walls]]
 - [[Proposal fuse events (time to respond)|Proposal: fuse events (time to respond)]]
 - [[Raids on a building and on a whole node|Raids: on a building and on a whole node]]

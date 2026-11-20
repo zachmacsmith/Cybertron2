@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-84 · A camp keeps little
+# A camp keeps little (D4-84)
 
 *live · 2 Nov · spec: [[economy - buildings|economy/buildings]], [[economy - lodging|economy/lodging]]*
 
@@ -20,8 +20,8 @@ conversation ("camps should have very limited stores"; "You decide an appropriat
 
 
 ## Mentioned by
-- [[D2-176 (Replaced by D4-84.)|D2-176 · (Replaced by D4-84.)]]
-- [[Q-24a Q-24 settled in part by Zach|Q-24a · Q-24 settled in part by Zach]]
+- [[D2-176 (Replaced by D4-84.)|(Replaced by D4-84.) (D2-176)]]
+- [[Q-24a Q-24 settled in part by Zach|Q-24 settled in part by Zach (Q-24a)]]
 - [[Damage to shelter in levels, by structure and weather; camps as…|Damage to shelter in levels, by structure and weather; camps as…]]
 - [[Proposal transport and lodging|Proposal: transport and lodging]]
 - [[Buildings|Buildings]]

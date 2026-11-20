@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-76 · The intermarried peoples world
+# The intermarried peoples world (L-76)
 
 *open · *
 
@@ -20,4 +20,4 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-34 Worlds for the peoples benchmark|W-34 · Worlds for the peoples benchmark]]
+- [[W-34 Worlds for the peoples benchmark|Worlds for the peoples benchmark (W-34)]]

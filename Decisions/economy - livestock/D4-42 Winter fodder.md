@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-42 · Winter fodder
+# Winter fodder (D4-42)
 
 *live · 23 Oct · spec: [[economy - livestock|economy/livestock]]*
 

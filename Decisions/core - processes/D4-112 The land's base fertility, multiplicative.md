@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-112 · The land's base fertility, multiplicative
+# The land's base fertility, multiplicative (D4-112)
 
 *live · 8 Nov · spec: [[core - processes|core/processes]], [[core - world_schema|core/world_schema]]*
 

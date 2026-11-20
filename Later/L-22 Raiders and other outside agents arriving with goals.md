@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-22 · Raiders and other outside agents arriving with goals
+# Raiders and other outside agents arriving with goals (L-22)
 
 *open · 37.4*
 

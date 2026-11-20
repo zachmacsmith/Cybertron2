@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-36 · Build brief 4c, then the merge of the wild layer
+# Build brief 4c, then the merge of the wild layer (W-36)
 
 *done · 37.4 · touched  ()*
 

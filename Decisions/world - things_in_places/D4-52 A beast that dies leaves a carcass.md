@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-52 · A beast that dies leaves a carcass
+# A beast that dies leaves a carcass (D4-52)
 
 *live · 24 Oct · spec: [[world - things_in_places|world/things_in_places]]*
 

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-229 · One fish stock per water body
+# One fish stock per water body (D2-229)
 
 *live · 17 Nov · spec: [[environment - land|environment/land]]*
 
@@ -20,11 +20,11 @@ a stock on each water parcel, sized by the lake within the village's own land ([
 
 
 ## Mentioned by
-- [[D4-120 A lake's fish by its size|D4-120 · A lake's fish by its size]]
-- [[Q-59 One fish stock per water body|Q-59 · One fish stock per water body]]
-- [[W-53 Floodplains in the generator now|W-53 · Floodplains in the generator now]]
-- [[W-56 One fish stock per water body, the engine half|W-56 · One fish stock per water body, the engine half]]
-- [[L-116 The wild layer's fish and a water body, two ways|L-116 · The wild layer's fish and a water body, two ways]]
+- [[D4-120 A lake's fish by its size|A lake's fish by its size (D4-120)]]
+- [[Q-59 One fish stock per water body|One fish stock per water body (Q-59)]]
+- [[W-53 Floodplains in the generator|Floodplains in the generator (W-53)]]
+- [[W-56 One fish stock per water body, the engine half|One fish stock per water body, the engine half (W-56)]]
+- [[L-116 The wild layer's fish and a water body, two ways|The wild layer's fish and a water body, two ways (L-116)]]
 - [[Luck in the catch, a lake's fish by its size, and a fishing household|Luck in the catch, a lake's fish by its size, and a fishing household]]
 - [[A model to each household in the runs world|A model to each household in the runs world]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]

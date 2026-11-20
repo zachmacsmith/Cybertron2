@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-127 · Driving a found herd
+# Driving a found herd (D2-127)
 
 *live · 24 Oct · spec: [[economy - livestock|economy/livestock]]*
 

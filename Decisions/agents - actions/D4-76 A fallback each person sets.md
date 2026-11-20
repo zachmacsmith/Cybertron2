@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-76 · A fallback each person sets
+# A fallback each person sets (D4-76)
 
 *live · 2 Nov · spec: [[agents - actions|agents/actions]]*
 

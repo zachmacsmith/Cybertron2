@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-41 · An interactive visual of the economy research
+# An interactive visual of the economy research (W-41)
 
 *done · 37.2 · touched  ()*
 

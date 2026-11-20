@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-114 · What is physically there can be used
+# What is physically there can be used (D4-114)
 
 *live · 8 Nov · spec: [[core - processes|core/processes]], [[world - holding|world/holding]]*
 
@@ -20,8 +20,8 @@ conversation (Zach: "fix the ox lending, fences, lore and Green, then rerun"; "t
 
 
 ## Mentioned by
-- [[Q-30 livestock.md's fence upkeep (D2-130) and D4-114|Q-30 · livestock.md's fence upkeep (D2-130) and D4-114]]
-- [[W-13 Brookend survival world, rerun p2|W-13 · Brookend survival world, rerun p2]]
+- [[Q-30 livestock.md's fence upkeep (D2-130) and D4-114|livestock.md's fence upkeep (D2-130) and D4-114 (Q-30)]]
+- [[W-13 Brookend survival world, rerun p2|Brookend survival world, rerun p2 (W-13)]]
 - [[Proposal ecology designed from the node outward|Proposal: ecology designed from the node outward]]
 - [[Proposal what is physically possible is possible; the consequences…|Proposal: what is physically possible is possible; the consequences…]]
 - [[Raiders, displacement and set works what every village meets|Raiders, displacement and set works: what every village meets]]

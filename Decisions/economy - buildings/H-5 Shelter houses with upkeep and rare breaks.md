@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# H-5 · Shelter: houses with upkeep and rare breaks
+# Shelter: houses with upkeep and rare breaks (H-5)
 
 *live · 22 Oct · spec: [[economy - buildings|economy/buildings]], [[economy - lodging|economy/lodging]]*
 

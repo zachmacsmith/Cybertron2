@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-72 · No sign asserts an act or a feeling the person did not choose
+# No sign asserts an act or a feeling the person did not choose (D4-72)
 
 *live · 2 Nov · spec: [[information - signs|information/signs]]*
 

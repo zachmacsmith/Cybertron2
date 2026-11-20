@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-1 · Signs of slow change on long journeys
+# Signs of slow change on long journeys (L-1)
 
 *open · 37.2*
 

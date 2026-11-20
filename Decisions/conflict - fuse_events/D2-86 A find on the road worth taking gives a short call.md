@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-86 · A find on the road worth taking gives a short call
+# A find on the road worth taking gives a short call (D2-86)
 
 *live · 23 Oct · spec: [[conflict - fuse_events|conflict/fuse_events]], [[information - noticing|information/noticing]]*
 

@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-28b · Build brief 4b written
+# Build brief 4b written (W-28b)
 
 *done · 37.2 · touched  ()*
 
@@ -17,4 +17,4 @@ Build brief 4b written (hunt_followups.md): wariness, history by distance, recov
 
 
 ## Mentioned by
-- [[W-65 Tracking threads automatically|W-65 · Tracking threads automatically]]
+- [[W-65 The records system|The records system (W-65)]]

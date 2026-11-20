@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-25 · Zach's decisions now open, in one list
+# Zach's decisions now open, in one list (Q-25)
 
 *closed, by zach · Zach*
 

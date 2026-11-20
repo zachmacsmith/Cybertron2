@@ -78,7 +78,7 @@ What this changes:
 
 **The store.** Three ways to do it:
 
-| | A: keep the tables | B: one file per item | C: one registry (what [[W-65 Tracking threads automatically|W-65]] began) |
+| | A: keep the tables | B: one file per item | C: one registry (what [[W-65 The records system|W-65]] began) |
 |---|---|---|---|
 | How | OPEN, WORK and DECISIONS stay markdown tables; a tool derives and checks | `docs/cybertron2/items/[[Q-63 A commit schema|Q-63]].md`: a short header (id, kind, state, parent thread, dates, waits on) and the prose; OPEN.md, WORK.md and the decision log are rendered from these files | `threads.json` holds the fields; WORK.md is rendered from it |
 | Writes per stage change | the same 3 to 6, but checked | 1: the item's header (the views are derived) | 1 to 2 |
@@ -212,7 +212,7 @@ named as such.
 2. **The hooks:** the commit check with the trailers, the stop check, the start brief. About a day.
 3. **The Action and the page:** the checks, the bot's renders, the status page, the weekly digest. About a day.
 4. **Git:** branch names and merging behind switches. This needs Zach's choice and 37.4's agreement; then the water branches are
-   merged ([[W-62 The water work is on eight unmerged branches, none on main|W-62]]).
+   merged ([[W-62 Merging the water work from its twelve branches into main|W-62]]).
 
 ## 9. The items as a small graph, and the tool that writes them
 
@@ -408,7 +408,7 @@ as readily as the asks.
 - `records area <name>`: every live decision in the area, in full, and every document and open item in it, one line each;
 - `records find <words>`: titles, summaries and text.
 
-A list is never cut silently: past its limit it ends "and 12 more: `records ls [[W-62 The water work is on eight unmerged branches, none on main|W-62]] --all`".
+A list is never cut silently: past its limit it ends "and 12 more: `records ls [[W-62 Merging the water work from its twelve branches into main|W-62]] --all`".
 
 **So that decisions do not fall away.** Recall is made by construction and checked; it does not depend on the query being clever:
 - every live decision has an area, and `area` lists all of them in full;
@@ -429,11 +429,11 @@ their owner.
 
 ```
 [[W-66 The design of the records and the workflow|W-66]]  thread  waiting  37.2  "The design of the records and the workflow"
-  next: Zach's answers to [[Q-64 The records as items with rendered views, one tool and a skill…|Q-64]] and [[Q-63 A commit schema|Q-63]]; then [[W-65 Tracking threads automatically|W-65]] builds it
+  next: Zach's answers to [[Q-64 The records as items with rendered views, one tool and a skill…|Q-64]] and [[Q-63 A commit schema|Q-63]]; then [[W-65 The records system|W-65]] builds it
   parent: (root)       touched: 20 Nov (9ce7011)     branch: none
   waits_on  [[Q-64 The records as items with rendered views, one tool and a skill…|Q-64]] ask open "How the records, the scripts and git carry the design" (13 choices)
             [[Q-63 A commit schema|Q-63]] ask open "A commit schema and ids for threads"
-  blocks    [[W-65 Tracking threads automatically|W-65]] thread waiting "Tracking threads automatically"
+  blocks    [[W-65 The records system|W-65]] thread waiting "Tracking threads automatically"
   docs      proposals/records_and_workflow.md  proposal discussion  "How documents are stored, staged ..." 
             proposals/thread_tracking.md       proposal discussion  "A registry, hooks, checks and a commit schema"
             review/37_growth/02zzq_...md       note                 "The records as measured; how Zach works well"
@@ -597,7 +597,7 @@ Every session's habits (CLAUDE.md's work rules); `tools/` (hygiene folded into `
 ## History
 
 - 20 Nov 2026: accepted in part: [[D2-240 The Obsidian vault is a local folder Zach opens whenever he likes…|D2-240]] (The Obsidian vault is a local folder Zach opens whenever he likes, kept up to da).
-- 20 Nov 2026: accepted ([[D2-232 The records as items|D2-232]] to [[D2-239 Zach's views and the hand-offs|D2-239]]) from Zach's answers to the digest; built as WORK [[W-65 Tracking threads automatically|W-65]].
+- 20 Nov 2026: accepted ([[D2-232 The records as items|D2-232]] to [[D2-239 Zach's views and the hand-offs|D2-239]]) from Zach's answers to the digest; built as WORK [[W-65 The records system|W-65]].
 - 20 Nov 2026: §14 added after Zach: every resolution names who made it (zach, agent, default, relayed), with the last three
   provisional; a revisit flag; closing a thread settles its children; decisions live by area. [[Q-64 The records as items with rendered views, one tool and a skill…|Q-64]] (17).
 - 20 Nov 2026: §13 added after Zach: freshness against links (with `reviewed:` and `describes:`, which also covers the spec's

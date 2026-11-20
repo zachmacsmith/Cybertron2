@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-71 · A slaughter shows itself
+# A slaughter shows itself (D4-71)
 
 *live · 2 Nov · spec: [[core - world_schema|core/world_schema]], [[information - signs|information/signs]]*
 
@@ -17,7 +17,7 @@ conversation ("slaughter and related should have some pretty visceral senses for
 
 
 ## Mentioned by
-- [[D4-75 Every perceived line about the world comes from the one noticing rule|D4-75 · Every perceived line about the world comes from the one noticing rule]]
+- [[D4-75 Every perceived line about the world comes from the one noticing rule|Every perceived line about the world comes from the one noticing rule (D4-75)]]
 - [[Every perceived line by the one noticing rule|Every perceived line by the one noticing rule]]
 - [[Proposal the senses across every system|Proposal: the senses across every system]]
 - [[Events and their aftermath show themselves|Events and their aftermath show themselves]]

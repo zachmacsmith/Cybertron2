@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-135 · Carrying capacities (OPEN C-1)
+# Carrying capacities (OPEN C-1) (D2-135)
 
 *live · 24 Oct · spec: [[economy - transport|economy/transport]]*
 
@@ -20,7 +20,7 @@ review 02u
 
 
 ## Mentioned by
-- [[C-1 Carrying capacity|C-1 · Carrying capacity]]
+- [[C-1 Carrying capacity|Carrying capacity (C-1)]]
 - [[Proposal the economy plan for cybertron2|Proposal: the economy plan for cybertron2]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]
 - [[Proposal transport and lodging|Proposal: transport and lodging]]

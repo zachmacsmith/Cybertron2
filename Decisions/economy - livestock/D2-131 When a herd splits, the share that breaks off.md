@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-131 · When a herd splits, the share that breaks off
+# When a herd splits, the share that breaks off (D2-131)
 
 *live · 24 Oct · spec: [[economy - livestock|economy/livestock]]*
 

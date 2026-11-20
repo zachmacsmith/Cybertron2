@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-205 · Carcasses and bodies are scavenged
+# Carcasses and bodies are scavenged (D2-205)
 
 *live · 9 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 
@@ -17,7 +17,7 @@ conversation ("7. Yes"; earlier: "graves being dug up should be a lot less likel
 
 
 ## Mentioned by
-- [[Q-32 02zv §6's decisions still open|Q-32 · 02zv §6's decisions still open]]
+- [[Q-32 02zv §6's decisions still open|02zv §6's decisions still open (Q-32)]]
 - [[Carcasses, decay and what comes to them|Carcasses, decay and what comes to them]]
 - [[Wildlife|Wildlife]]
 - *and 2 index or audit notes*

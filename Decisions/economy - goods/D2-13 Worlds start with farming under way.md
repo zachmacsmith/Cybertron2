@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-13 · Worlds start with farming under way
+# Worlds start with farming under way (D2-13)
 
 *live · 22 Oct · spec: [[economy - goods|economy/goods]], [[economy - production|economy/production]]*
 
@@ -17,7 +17,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[D2-184 People in a generated world|D2-184 · People in a generated world]]
+- [[D2-184 People in a generated world|People in a generated world (D2-184)]]
 - [[Proposal farming|Proposal: farming]]
 - [[Proposal the generator, stage 1 (a spec for review before it is…|Proposal: the generator, stage 1 (a spec for review before it is…]]
 - [[Goods|Goods]]

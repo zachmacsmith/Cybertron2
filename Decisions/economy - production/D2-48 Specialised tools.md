@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-48 · Specialised tools
+# Specialised tools (D2-48)
 
 *live · 23 Oct · spec: [[economy - production|economy/production]]*
 

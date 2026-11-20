@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-98 · A herd is seen
+# A herd is seen (D4-98)
 
 *live · 3 Nov · spec: [[information - noticing|information/noticing]], [[information - signs|information/signs]], [[world - parcel_graph|world/parcel_graph]]*
 
@@ -20,7 +20,7 @@ next door 0.1 ([[D2-115 Acting senses along the way|D2-115]])
 
 
 ## Mentioned by
-- [[L-63 A herd in the place's layout|L-63 · A herd in the place's layout]]
+- [[L-63 A herd in the place's layout|A herd in the place's layout (L-63)]]
 - [[A herd seen its sighting at the spec's own, and presence next door…|A herd seen: its sighting at the spec's own, and presence next door…]]
 - [[Proposal the parcel graph (where things are inside a node)|Proposal: the parcel graph (where things are inside a node)]]
 - [[Noticing things at a place, and on the road|Noticing things at a place, and on the road]]

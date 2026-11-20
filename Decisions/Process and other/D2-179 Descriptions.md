@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-179 · Descriptions
+# Descriptions (D2-179)
 
 *live · 3 Nov*
 
@@ -17,6 +17,6 @@ conversation ("5. you choose"); 37.2's choice
 
 
 ## Mentioned by
-- [[D2-186 Names from parts, descriptions by the model|D2-186 · Names from parts, descriptions by the model]]
+- [[D2-186 Names from parts, descriptions by the model|Names from parts, descriptions by the model (D2-186)]]
 - [[Proposal the generator, stage 1 (a spec for review before it is…|Proposal: the generator, stage 1 (a spec for review before it is…]]
 - [[02zj the landscape generator, stage 1, as built|02zj: the landscape generator, stage 1, as built]]

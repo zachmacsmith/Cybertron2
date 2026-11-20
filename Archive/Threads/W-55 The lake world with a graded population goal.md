@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-55 · The lake world with a graded population goal
+# The lake world with a graded population goal (W-55)
 
 *done · 37.4 · touched  ()*
 

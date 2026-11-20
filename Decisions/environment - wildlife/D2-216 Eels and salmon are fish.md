@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-216 · Eels and salmon are fish
+# Eels and salmon are fish (D2-216)
 
 *live · 16 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 
@@ -20,8 +20,8 @@ eel and salmon as meat (eel 0.2, salmon 2.0)
 
 
 ## Mentioned by
-- [[Q-57 Fishing, from the lake run|Q-57 · Fishing, from the lake run]]
-- [[W-50 The lake world's live run|W-50 · The lake world's live run]]
+- [[Q-57 Fishing, from the lake run|Fishing, from the lake run (Q-57)]]
+- [[W-50 The lake world's live run|The lake world's live run (W-50)]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[Shared units food value, weight and work on one basis|Shared units: food value, weight and work on one basis]]
 - [[Wildlife|Wildlife]]

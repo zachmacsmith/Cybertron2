@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-82 · The day's sightings at the hearth
+# The day's sightings at the hearth (D4-82)
 
 *live · 2 Nov · spec: [[information - perception|information/perception]], [[information - speech|information/speech]]*
 
@@ -20,7 +20,7 @@ the day's sightings shown only next morning, as "What you saw yesterday"
 
 
 ## Mentioned by
-- [[L-30 Whether speech to the house is free in the morning too|L-30 · Whether speech to the house is free in the morning too]]
+- [[L-30 Whether speech to the house is free in the morning too|Whether speech to the house is free in the morning too (L-30)]]
 - [[Proposal what an agent is shown each round, attention, and…|Proposal: what an agent is shown each round, attention, and…]]
 - [[When people talk, and what it costs by reach, with an evening at the…|When people talk, and what it costs: by reach, with an evening at the…]]
 - [[Perception what an agent sees and knows|Perception: what an agent sees and knows]]

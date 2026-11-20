@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-89 · Goods left at a door stay the house's
+# Goods left at a door stay the house's (D4-89)
 
 *live · 2 Nov · spec: [[agents - actions|agents/actions]], [[core - world_schema|core/world_schema]], [[economy - buildings|economy/buildings]], [[economy - lodging|economy/lodging]], [[world - things_in_places|world/things_in_places]]*
 
@@ -20,8 +20,8 @@ conversation ("sure they can stay owned"; "the Hearnes should definitely be able
 
 
 ## Mentioned by
-- [[D4-92 A house's fire burns its store's fuel, then its woodpile at the door|D4-92 · A house's fire burns its store's fuel, then its woodpile at the door]]
-- [[L-40 (Done 3 Nov D4-89 and D4-91 written into economybuildings.md, D4-92…|L-40 · (Done 3 Nov: D4-89 and D4-91 written into economy/buildings.md, D4-92…]]
+- [[D4-92 A house's fire burns its store's fuel, then its woodpile at the door|A house's fire burns its store's fuel, then its woodpile at the door (D4-92)]]
+- [[L-40 (Done 3 Nov D4-89 and D4-91 written into economybuildings.md, D4-92…|(Done 3 Nov: D4-89 and D4-91 written into economy/buildings.md, D4-92… (L-40)]]
 - [[What can happen to buildings and fittings, by weather and use…|What can happen to buildings and fittings, by weather and use…]]
 - [[One room, one fire; the night says what fuel was missing; a theft at…|One room, one fire; the night says what fuel was missing; a theft at…]]
 - [[How much lies there heaps seen by their bulk, counted when attended…|How much lies there: heaps seen by their bulk, counted when attended…]]

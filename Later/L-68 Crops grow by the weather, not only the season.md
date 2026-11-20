@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-68 · Crops grow by the weather, not only the season
+# Crops grow by the weather, not only the season (L-68)
 
 *open · 37.4*
 
@@ -20,7 +20,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[L-73 Phase 3's rest|L-73 · Phase 3's rest]]
+- [[L-73 Phase 3's rest|Phase 3's rest (L-73)]]
 - [[Proposal crops grow by the season; can apart from works; what a…|Proposal: crops grow by the season; "can" apart from "works"; what a…]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
 - [[Proposal phase 3 of the engine overhaul, variance and risk (the…|Proposal: phase 3 of the engine overhaul, variance and risk (the…]]

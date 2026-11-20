@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-35 · Run findings with no owner yet
+# Run findings with no owner yet (Q-35)
 
 *open · to assign: 37.1 (life), 37.4 (bots)*
 

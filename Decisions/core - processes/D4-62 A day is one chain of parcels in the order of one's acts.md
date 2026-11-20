@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-62 · A day is one chain of parcels in the order of one's acts
+# A day is one chain of parcels in the order of one's acts (D4-62)
 
 *live · 24 Oct · spec: [[core - processes|core/processes]], [[core - world_schema|core/world_schema]], [[world - parcel_graph|world/parcel_graph]]*
 
@@ -20,8 +20,8 @@ conversation ("build a path chain the actions in order, and save this"); proposa
 
 
 ## Mentioned by
-- [[D2-115 Acting senses along the way|D2-115 · Acting senses along the way]]
-- [[D4-105 Sowing windows are lore, not rules|D4-105 · Sowing windows are lore, not rules]]
+- [[D2-115 Acting senses along the way|Acting senses along the way (D2-115)]]
+- [[D4-105 Sowing windows are lore, not rules|Sowing windows are lore, not rules (D4-105)]]
 - [[Proposal crops grow by the season; can apart from works; what a…|Proposal: crops grow by the season; "can" apart from "works"; what a…]]
 - [[A day as a chain of parcels|A day as a chain of parcels]]
 - [[Economic calibration one time scale, and mechanics that make…|Economic calibration: one time scale, and mechanics that make…]]

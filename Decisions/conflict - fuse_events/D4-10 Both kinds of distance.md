@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-10 · Both kinds of distance
+# Both kinds of distance (D4-10)
 
 *live · 22 Oct · spec: [[conflict - fuse_events|conflict/fuse_events]], [[core - round|core/round]], [[economy - transport|economy/transport]], [[world - edges|world/edges]], [[world - roads|world/roads]]*
 
@@ -17,8 +17,8 @@ devlog #10, 05 §2
 
 
 ## Mentioned by
-- [[D2-81 Which events have a fuse in the first worlds|D2-81 · Which events have a fuse in the first worlds]]
-- [[D2-182 Roads are mostly a day long|D2-182 · Roads are mostly a day long]]
+- [[D2-81 Which events have a fuse in the first worlds|Which events have a fuse in the first worlds (D2-81)]]
+- [[D2-182 Roads are mostly a day long|Roads are mostly a day long (D2-182)]]
 - [[Setting off in the morning or at nightfall|Setting off in the morning or at nightfall]]
 - [[Proposal fuse events (time to respond)|Proposal: fuse events (time to respond)]]
 - [[Proposal what travellers see on the way|Proposal: what travellers see on the way]]

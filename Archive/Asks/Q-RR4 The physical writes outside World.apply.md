@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-RR4 · The physical writes outside `World.apply`
+# The physical writes outside `World.apply` (Q-RR4)
 
 *closed · 37.4*
 

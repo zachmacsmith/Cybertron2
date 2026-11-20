@@ -5,7 +5,7 @@ state: active
 updated: "2026-11-20"
 ---
 
-# W-27 · Build brief 4
+# Build brief 4 (W-27)
 
 *active · 37.4 · touched 10 Nov (10 days ago)*
 
@@ -24,8 +24,8 @@ built and gated: 521 tests; 02zzd's harness on target in the wood around; losses
 
 
 ## Mentioned by
-- [[Q-39 Brief 4's open questions|Q-39 · Brief 4's open questions]]
-- [[W-24 Build brief 4 written (hunt_and_fixes.md)|W-24 · Build brief 4 written (hunt_and_fixes.md)]]
+- [[Q-39 Brief 4's open questions|Brief 4's open questions (Q-39)]]
+- [[W-24 Build brief 4 written (hunt_and_fixes.md)|Build brief 4 written (hunt_and_fixes.md) (W-24)]]
 - [[Cats that choose where to live|Cats that choose where to live]]
 - [[The hunt over time, and what briefs 1 to 3 left build brief 4|The hunt over time, and what briefs 1 to 3 left: build brief 4]]
 - [[Damage to shelter in levels, by structure and weather; camps as…|Damage to shelter in levels, by structure and weather; camps as…]]

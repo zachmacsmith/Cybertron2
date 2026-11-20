@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-113 · Briefs 4, 4b and 4c's deviations, to revisit
+# Briefs 4, 4b and 4c's deviations, to revisit (L-113)
 
 *open · *
 
@@ -18,10 +18,10 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[Q-40 Brief 4 as built, and its gate|Q-40 · Brief 4 as built, and its gate]]
-- [[Q-41 Brief 4b as built, and its gate|Q-41 · Brief 4b as built, and its gate]]
-- [[Q-46 Brief 4c as built|Q-46 · Brief 4c as built]]
-- [[W-36 Build brief 4c, then the merge of the wild layer|W-36 · Build brief 4c, then the merge of the wild layer]]
-- [[L-131 The wild layer's live points from briefs 1 to 3|L-131 · The wild layer's live points from briefs 1 to 3]]
+- [[Q-40 Brief 4 as built, and its gate|Brief 4 as built, and its gate (Q-40)]]
+- [[Q-41 Brief 4b as built, and its gate|Brief 4b as built, and its gate (Q-41)]]
+- [[Q-46 Brief 4c as built|Brief 4c as built (Q-46)]]
+- [[W-36 Build brief 4c, then the merge of the wild layer|Build brief 4c, then the merge of the wild layer (W-36)]]
+- [[L-131 The wild layer's live points from briefs 1 to 3|The wild layer's live points from briefs 1 to 3 (L-131)]]
 - [[02zzs the wild region's 30-day live run (10 Nov), written up|02zzs: the wild region's 30-day live run (10 Nov), written up]]
 - *and 4 index or audit notes*

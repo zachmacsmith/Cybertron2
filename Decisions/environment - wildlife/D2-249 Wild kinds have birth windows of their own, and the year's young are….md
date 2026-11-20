@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-249 · Wild kinds have birth windows of their own, and the year's young are…
+# Wild kinds have birth windows of their own, and the year's young are… (D2-249)
 
 *live · 20 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 
@@ -17,7 +17,7 @@ conversation (20 Nov: "q46: d) yeah")
 
 
 ## Linked
-- parent: [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
+- parent: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 
 
 ## Mentioned by

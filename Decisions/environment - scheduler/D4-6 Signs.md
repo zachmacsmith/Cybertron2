@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-6 · Signs
+# Signs (D4-6)
 
 *live · 22 Oct · spec: [[environment - scheduler|environment/scheduler]], [[information - perception|information/perception]], [[information - signs|information/signs]]*
 

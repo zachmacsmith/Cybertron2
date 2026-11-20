@@ -10,7 +10,7 @@ updated: "2026-11-17"
 > each place's weather works around its climate as the generated land holds it (temperature, rain a year, the sea, the prevailing wind)
 
 
-**Status:** accepted in principle: [[D2-220 The weather takes each place's climate from the generated land|D2-220]] (16 Nov). The design below is in discussion (OPEN [[Q-56 The land the engine reads|Q-56]]).
+**Status:** accepted in principle: [[D2-220 The weather takes each place's climate from the generated land|D2-220]] (16 Nov). The design below is in discussion (OPEN [[Q-56 How the weather should follow each place's climate from the generated…|Q-56]]).
 
 **Owner:** 37.2 (the environment, [[D2-75 The environment spec area moves to 37.2|D2-75]]). The engine's `climate.py` is 37.4's to build; the generator's half is 37.2's.
 
@@ -95,7 +95,7 @@ often as a wet one. A coastal village frosts as hard as an inland one.
 
 ## Open questions
 
-1. The design as above ([[Q-56 The land the engine reads|Q-56]] (1)): two levels, the region's parameters and the place's response, both from the land; built as
+1. The design as above ([[Q-56 How the weather should follow each place's climate from the generated…|Q-56]] (1)): two levels, the region's parameters and the place's response, both from the land; built as
    one derived profile now, the deep system later?
 2. The constants: the type tilt by wetness, the onshore share of the rain factor, the sea's reach and shrink factors, the wind
    factors (calibrate, with 02zzo's check).

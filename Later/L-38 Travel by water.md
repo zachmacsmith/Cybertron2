@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-38 · Travel by water
+# Travel by water (L-38)
 
 *open · 37.2 (designed with fishing, salt, the coast and preservation: proposals/water_and_preservation.md, 7 Nov)*
 

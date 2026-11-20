@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-104 · MAJOR: the descendants benchmark
+# MAJOR: the descendants benchmark (L-104)
 
 *open · 37.2 (design and worlds), 37.4 (runs and engine)*
 
@@ -20,10 +20,10 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[D4-115 The peoples benchmark's worlds|D4-115 · The peoples benchmark's worlds]]
-- [[W-23 A benchmark by living descendants on a ladder of worlds|W-23 · A benchmark by living descendants on a ladder of worlds]]
-- [[W-34 Worlds for the peoples benchmark|W-34 · Worlds for the peoples benchmark]]
-- [[W-34b Worlds for the population benchmark, the peoples variant|W-34b · Worlds for the population benchmark, the peoples variant]]
+- [[D4-115 The peoples benchmark's worlds|The peoples benchmark's worlds (D4-115)]]
+- [[W-23 A benchmark by living descendants on a ladder of worlds|A benchmark by living descendants on a ladder of worlds (W-23)]]
+- [[W-34 Worlds for the peoples benchmark|Worlds for the peoples benchmark (W-34)]]
+- [[W-34b Worlds for the population benchmark, the peoples variant|Worlds for the population benchmark, the peoples variant (W-34b)]]
 - [[A benchmark by living descendants, on a ladder of worlds|A benchmark by living descendants, on a ladder of worlds]]
 - [[The world keeps the land it runs on|The world keeps the land it runs on]]
 - [[The peoples benchmark worlds where each model is a people|The peoples benchmark: worlds where each model is a people]]

@@ -5,9 +5,9 @@ state: waiting
 updated: "2026-11-20"
 ---
 
-# W-59 · The runs world for the model-per-household run
+# The runs world for the model-per-household run (W-59)
 
-*waiting · 37.2 · touched 19 Nov (1 day ago)*
+*waiting · 37.2 · touched 20 Nov (today)*
 
 > **Next:** Zach to confirm [[Q-60 The water worlds' people, and the runs world for the…|Q-60]]'s relayed answers, then record them
 
@@ -25,12 +25,12 @@ done: seed 5, 45 people; herds kept; Highpool's larder ([[D2-230 Highpool's lard
 
 
 ## Linked
-- under it: [[D2-241 The runs world for the model-per-household run as built and run|D2-241 · The runs world for the model-per-household run as built and run]] (live)
-- under it: [[D2-242 Subsistence test worlds|D2-242 · Subsistence test worlds]] (live)
+- under it: [[D2-241 The runs world for the model-per-household run as built and run|The runs world for the model-per-household run as built and run (D2-241)]] (live)
+- under it: [[D2-242 Subsistence test worlds|Subsistence test worlds (D2-242)]] (live)
 
 
 ## Mentioned by
-- [[D2-241 The runs world for the model-per-household run as built and run|D2-241 · The runs world for the model-per-household run as built and run]]
-- [[D2-242 Subsistence test worlds|D2-242 · Subsistence test worlds]]
+- [[D2-241 The runs world for the model-per-household run as built and run|The runs world for the model-per-household run as built and run (D2-241)]]
+- [[D2-242 Subsistence test worlds|Subsistence test worlds (D2-242)]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
 - *and 3 index or audit notes*

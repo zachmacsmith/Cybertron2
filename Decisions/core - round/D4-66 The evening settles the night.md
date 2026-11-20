@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-66 · The evening settles the night
+# The evening settles the night (D4-66)
 
 *live · 2 Nov · spec: [[core - round|core/round]], [[information - speech|information/speech]]*
 
@@ -20,7 +20,7 @@ two-sided acts chosen in the same morning only
 
 
 ## Mentioned by
-- [[C-3 Speech at a node one talk step|C-3 · Speech at a node: one talk step]]
+- [[C-3 Speech at a node one talk step|Speech at a node: one talk step (C-3)]]
 - [[Households and dwellings membership, use and home are data that…|Households and dwellings: membership, use and home are data that…]]
 - [[Proposal shelter|Proposal: shelter]]
 - [[When people talk, and what it costs by reach, with an evening at the…|When people talk, and what it costs: by reach, with an evening at the…]]

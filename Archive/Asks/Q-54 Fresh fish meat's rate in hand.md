@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-54 · Fresh fish: meat's rate in hand
+# Fresh fish: meat's rate in hand (Q-54)
 
 *closed · resolved*
 

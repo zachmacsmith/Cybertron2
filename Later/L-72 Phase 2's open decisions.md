@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-72 · Phase 2's open decisions
+# Phase 2's open decisions (L-72)
 
 *open · 37.4*
 
@@ -20,5 +20,5 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-16 The engine overhaul|W-16 · The engine overhaul]]
+- [[W-16 The engine overhaul|The engine overhaul (W-16)]]
 - *and 2 index or audit notes*

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-114 · A node's parcels form a graph of neighbours, shaped by the…
+# A node's parcels form a graph of neighbours, shaped by the… (D2-114)
 
 *live · 24 Oct · spec: [[world - parcel_graph|world/parcel_graph]]*
 

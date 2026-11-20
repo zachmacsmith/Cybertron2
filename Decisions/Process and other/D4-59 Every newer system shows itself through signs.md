@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-59 · Every newer system shows itself through signs
+# Every newer system shows itself through signs (D4-59)
 
 *live · 24 Oct*
 

@@ -5,7 +5,7 @@ state: waiting
 updated: "2026-11-20"
 ---
 
-# W-14 · Claims and ownership by physics, part 2
+# Claims and ownership by physics, part 2 (W-14)
 
 *waiting · 37.4 · touched 8 Nov (12 days ago)*
 

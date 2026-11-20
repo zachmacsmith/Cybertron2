@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-126 · The wildlife's core mechanisms not built
+# The wildlife's core mechanisms not built (L-126)
 
 *open · 37.4 (engine), 37.2*
 
@@ -20,9 +20,9 @@ C4 shared perception and wind direction; C8 kept populations with bonds and bree
 
 
 ## Linked
-- parent: [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
+- parent: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 
 
 ## Mentioned by
-- [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
+- [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 - *and 2 index or audit notes*

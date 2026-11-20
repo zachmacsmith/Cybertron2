@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-81 · Who stole is known only to those who saw it
+# Who stole is known only to those who saw it (D4-81)
 
 *live · 2 Nov · spec: [[information - perception|information/perception]], [[world - things_in_places|world/things_in_places]]*
 

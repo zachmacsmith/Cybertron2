@@ -8,7 +8,7 @@ updated: "2026-11-19"
 *note · `docs/review/37_growth/02zzp_audit_of_paths.md`*
 
 
-37.2, 19 Nov 2026. WORK [[W-63 An audit of what was started and left|W-63]]. Zach: "what different paths of building things have we gone down and then ended up doing something
+37.2, 19 Nov 2026. WORK [[W-63 The audit of work started and left, and the triage of open asks and…|W-63]]. Zach: "what different paths of building things have we gone down and then ended up doing something
 else, and how much of this has been documented vs missed entirely? What sorts of mechanisms would help us better notice what is
 being missed so I have a better sense of always what has been partially worked on and how much progress and you do too"; "look at
 patterns ... Can you also look through your transcript as well."
@@ -65,7 +65,7 @@ The largest redirections, each one a design path begun and then replaced:
 | The engine overhaul's phases 3 to 5 ([[D4-103 The engine overhaul goes ahead, in phases|D4-103]]) | the wildlife briefs, then brief 5 | phase 3's proposal in discussion; phases 4 and 5 had no rows |
 | The economy web (economy_web.md) after Zach's critique of 15 Nov | the economy research folder (02zzj) | no: the proposal was never revised and has no History entry |
 | The runs-only test world (brief 5 §8, cc6f38d) | the model-per-household runs world with fields (dd54509) | in part: [[Q-60 The water worlds' people, and the runs world for the…|Q-60]] (c) asks to confirm; the runs-only run was never made |
-| Climate calibration against real weather (promised 8 and 9 Nov) | consolidation, then the briefs; it came back as [[W-51 The weather across conditions|W-51]] on 16 Nov | no row for a week |
+| Climate calibration against real weather (promised 8 and 9 Nov) | consolidation, then the briefs; it came back as [[W-51 Testing the weather across dry, cold, coastal and mountain worlds…|W-51]] on 16 Nov | no row for a week |
 | Stage 1 of the generator, "ready to build" (1 Nov) | parts built, parts left; the 3 Nov critique (flat forest, vanished lakes, water's paths) | no: partly met only on 17 Nov ([[D2-226 Floodplains in the generator, now|D2-226]]) |
 | A large set of 22 to 24 Oct decisions (gates, ledgers, specialised tools, node raids, room bookings) | the packages that built some of them | no: the spec states the rest as if they hold |
 
@@ -87,7 +87,7 @@ The largest redirections, each one a design path begun and then replaced:
 6. **Plans in session notes never become rows.** The pack plan, the calibration backlog (02zp §16), the run reports' issue lists (38.78
    §5: 16 issues; 38.71 §4: 12 world-building features), the 02zp §17 decision lists: rows only when Zach says "flag".
 7. **Bug chains crowd out the checks owed on earlier fixes.** 16 to 17 Nov: trench, pond, water counted twice, a one-parcel fix
-   reverted, water bodies, missing livestock, missing brine pan; each handed over, and the recalibration owed on the first ([[W-60 The ecology's water measure counted each lake and the large river…|W-60]])
+   reverted, water bodies, missing livestock, missing brine pan; each handed over, and the recalibration owed on the first ([[W-60 Fixing the ecology's water counted twice, then rechecking the…|W-60]])
    untouched since.
 8. **Status runs ahead of the record, and of the truth.** "Stage 1 is ready to build" (1 Nov), "every specced layer" (9 Nov), "My
    part of brief 5 is done" (16 Nov, before four generator faults), "Every check passes" (17 Nov, before no livestock and no brine

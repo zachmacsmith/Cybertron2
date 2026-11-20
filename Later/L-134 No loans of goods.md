@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-134 · No loans of goods
+# No loans of goods (L-134)
 
 *open · 37.4 (engine)*
 
@@ -16,4 +16,4 @@ a lent plough became a sale: the only loan preset is money; an offer returning t
 
 
 ## Linked
-- parent: [[W-29 A multi-village wild region and its live run|W-29 · A multi-village wild region and its live run]]
+- parent: [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]

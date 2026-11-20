@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-217 · The weir's wear as built
+# The weir's wear as built (D2-217)
 
 *live · 16 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 

@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-7 · First land kinds
+# First land kinds (Q-7)
 
 *open · 37.4*
 

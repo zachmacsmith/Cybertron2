@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-13 · D4-37 (whoever is owed may release a debt
+# D4-37 (whoever is owed may release a debt (Q-13)
 
 *closed · 37.2*
 

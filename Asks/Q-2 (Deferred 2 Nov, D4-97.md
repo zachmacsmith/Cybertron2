@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-2 · (Deferred 2 Nov, D4-97
+# (Deferred 2 Nov, D4-97 (Q-2)
 
 *open · 37.4*
 
@@ -16,7 +16,7 @@ Overexertion costs (x1.5, x2, exhaustion)
 
 
 ## Mentioned by
-- [[D4-97 Decisions on 38.51's list|D4-97 · Decisions on 38.51's list]]
+- [[D4-97 Decisions on 38.51's list|Decisions on 38.51's list (D4-97)]]
 - [[Economic calibration one time scale, and mechanics that make…|Economic calibration: one time scale, and mechanics that make…]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]
 - [[Proposal what an agent is shown each round, attention, and…|Proposal: what an agent is shown each round, attention, and…]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-33 · Ledgers
+# Ledgers (D2-33)
 
 *live · 23 Oct · spec: [[economy - agreements|economy/agreements]]*
 
@@ -17,7 +17,7 @@ agreements.md §5
 
 
 ## Mentioned by
-- [[L-106 MAJOR what the engine remembers and settles for agents, and…|L-106 · MAJOR: what the engine remembers and settles for agents, and…]]
+- [[L-106 MAJOR what the engine remembers and settles for agents, and…|MAJOR: what the engine remembers and settles for agents, and… (L-106)]]
 - [[Agreements legs, settlement, ledgers and presets|Agreements: legs, settlement, ledgers and presets]]
 - [[02zzi how an economy could scale beyond the medieval village (15 Nov…|02zzi: how an economy could scale beyond the medieval village (15 Nov…]]
 - [[04 Exchange, money, credit, markets, information and transport, from…|04: Exchange, money, credit, markets, information and transport, from…]]

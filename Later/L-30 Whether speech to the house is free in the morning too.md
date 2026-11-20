@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-30 · Whether speech to the house is free in the morning too
+# Whether speech to the house is free in the morning too (L-30)
 
 *open · 37.4*
 

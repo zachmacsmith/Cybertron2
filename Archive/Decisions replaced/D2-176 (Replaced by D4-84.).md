@@ -5,7 +5,7 @@ state: replaced
 updated: "2026-11-20"
 ---
 
-# D2-176 · (Replaced by D4-84.)
+# (Replaced by D4-84.) (D2-176)
 
 *replaced · 3 Nov · spec: [[economy - buildings|economy/buildings]], [[economy - lodging|economy/lodging]]*
 
@@ -20,8 +20,8 @@ Zach to 37.4, 2 Nov ("Yes, camps should have very limited stores"); the number a
 
 
 ## Mentioned by
-- [[D4-84 A camp keeps little|D4-84 · A camp keeps little]]
-- [[Q-24a Q-24 settled in part by Zach|Q-24a · Q-24 settled in part by Zach]]
+- [[D4-84 A camp keeps little|A camp keeps little (D4-84)]]
+- [[Q-24a Q-24 settled in part by Zach|Q-24 settled in part by Zach (Q-24a)]]
 - [[Buildings|Buildings]]
 - [[Lodging hosts and inns|Lodging: hosts and inns]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]

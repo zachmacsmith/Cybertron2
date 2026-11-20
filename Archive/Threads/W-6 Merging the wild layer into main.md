@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-6 · Merging the wild layer into main
+# Merging the wild layer into main (W-6)
 
 *done · 37.2 with 37.4 · touched  ()*
 

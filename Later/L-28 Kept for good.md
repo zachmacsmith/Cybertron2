@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-28 · Kept for good
+# Kept for good (L-28)
 
 *open · 37.4*
 

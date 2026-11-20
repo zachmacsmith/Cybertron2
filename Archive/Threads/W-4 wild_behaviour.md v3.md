@@ -5,7 +5,7 @@ state: dropped
 updated: "2026-11-20"
 ---
 
-# W-4 · wild_behaviour.md v3
+# wild_behaviour.md v3 (W-4)
 
 *dropped, by zach · 37.2 · touched 9 Nov (11 days ago)*
 
@@ -20,7 +20,7 @@ dropped 20 Nov: replaced by [[D2-204 People answer the wild by general methods, 
 
 
 ## Mentioned by
-- [[Q-32 02zv §6's decisions still open|Q-32 · 02zv §6's decisions still open]]
+- [[Q-32 02zv §6's decisions still open|02zv §6's decisions still open (Q-32)]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[02zzp what was started and left, 22 Oct to 19 Nov, and how to notice…|02zzp: what was started and left, 22 Oct to 19 Nov, and how to notice…]]
 - *and 4 index or audit notes*

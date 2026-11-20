@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-23 · The tool set
+# The tool set (D2-23)
 
 *live · 23 Oct · spec: [[conflict - combat|conflict/combat]], [[economy - goods|economy/goods]], [[economy - livestock|economy/livestock]], [[economy - production|economy/production]], [[economy - transport|economy/transport]]*
 

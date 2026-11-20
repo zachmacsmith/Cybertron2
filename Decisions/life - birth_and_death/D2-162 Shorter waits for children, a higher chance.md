@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-162 · Shorter waits for children, a higher chance
+# Shorter waits for children, a higher chance (D2-162)
 
 *live · 29 Oct · spec: [[life - birth_and_death|life/birth_and_death]]*
 
@@ -20,8 +20,8 @@ conversation ("your 2, 1, 0.8 makes sense. 5 days was way too long"); proposals/
 
 
 ## Mentioned by
-- [[Q-22 Built for Package D|Q-22 · Built for Package D]]
-- [[L-27 Replacement and fertility rates over lifespans against how often…|L-27 · Replacement and fertility rates over lifespans against how often…]]
+- [[Q-22 Built for Package D|Built for Package D (Q-22)]]
+- [[L-27 Replacement and fertility rates over lifespans against how often…|Replacement and fertility rates over lifespans against how often… (L-27)]]
 - [[Proposal children as a choice, counted in days (costs, care, growing…|Proposal: children as a choice, counted in days (costs, care, growing…]]
 - [[A benchmark by living descendants, on a ladder of worlds|A benchmark by living descendants, on a ladder of worlds]]
 - [[Proposal fertility and replacement|Proposal: fertility and replacement]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-64 · Lines kept for good, passed on through care, replacing customs
+# Lines kept for good, passed on through care, replacing customs (D4-64)
 
 *live · 1 Nov · spec: [[core - processes|core/processes]], [[information - memory|information/memory]], [[life - birth_and_death|life/birth_and_death]], [[seeding - populations|seeding/populations]]*
 
@@ -20,11 +20,11 @@ conversation ("I would adopt it where ... whoever gives care that day ... whoeve
 
 
 ## Mentioned by
-- [[D4-57 A custom can be held by households, not only by places|D4-57 · A custom can be held by households, not only by places]]
-- [[Q-K1 Kept for good|Q-K1 · Kept for good]]
-- [[L-12 Children and life (we'll come back to this)|L-12 · Children and life ("we'll come back to this")]]
-- [[L-25 Beliefs, values and customs|L-25 · Beliefs, values and customs]]
-- [[L-28 Kept for good|L-28 · Kept for good]]
+- [[D4-57 A custom can be held by households, not only by places|A custom can be held by households, not only by places (D4-57)]]
+- [[Q-K1 Kept for good|Kept for good (Q-K1)]]
+- [[L-12 Children and life (we'll come back to this)|Children and life ("we'll come back to this") (L-12)]]
+- [[L-25 Beliefs, values and customs|Beliefs, values and customs (L-25)]]
+- [[L-28 Kept for good|Kept for good (L-28)]]
 - [[What an agent is shown the world and its rules, not choices made for…|What an agent is shown: the world and its rules, not choices made for…]]
 - [[Proposal buildings people make their own (descriptions and lines…|Proposal: buildings people make their own (descriptions and lines…]]
 - [[Forays going out from the village and coming back|Forays: going out from the village and coming back]]

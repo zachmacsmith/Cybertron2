@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-181 · (Roads and region amended by D2-182.)
+# (Roads and region amended by D2-182.) (D2-181)
 
 *live · 3 Nov*
 
@@ -20,7 +20,7 @@ the 30 km region and 2 km field ring first proposed
 
 
 ## Mentioned by
-- [[D2-182 Roads are mostly a day long|D2-182 · Roads are mostly a day long]]
+- [[D2-182 Roads are mostly a day long|Roads are mostly a day long (D2-182)]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
 - [[Proposal the landscape generator (a world under the graph)|Proposal: the landscape generator (a world under the graph)]]
 - [[Proposal the generator, stage 1 (a spec for review before it is…|Proposal: the generator, stage 1 (a spec for review before it is…]]

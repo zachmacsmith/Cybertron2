@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-69 · Work costs out of scale with a short year
+# Work costs out of scale with a short year (L-69)
 
 *open · 37.4*
 
@@ -20,6 +20,6 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-13 Brookend survival world, rerun p2|W-13 · Brookend survival world, rerun p2]]
+- [[W-13 Brookend survival world, rerun p2|Brookend survival world, rerun p2 (W-13)]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
 - *and 1 index or audit notes*

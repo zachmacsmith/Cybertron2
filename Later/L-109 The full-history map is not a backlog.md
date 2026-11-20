@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-109 · The full-history map is not a backlog
+# The full-history map is not a backlog (L-109)
 
 *open · 37.2*
 
@@ -20,7 +20,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[Q-47 The border for now|Q-47 · The border for now]]
+- [[Q-47 Where the economy stops for now|Where the economy stops for now (Q-47)]]
 - [[14 War, force and the economy (16 Nov 2026)|14: War, force and the economy (16 Nov 2026)]]
 - [[15 Knowledge-making discovery, instruments, records and the…|15: Knowledge-making: discovery, instruments, records and the…]]
 - [[16 Religion, ritual and the economy (16 Nov 2026)|16: Religion, ritual and the economy (16 Nov 2026)]]

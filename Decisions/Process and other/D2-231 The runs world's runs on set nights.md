@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-231 · The runs world's runs on set nights
+# The runs world's runs on set nights (D2-231)
 
 *live · 17 Nov*
 
@@ -20,7 +20,7 @@ the runs on the rain cue, which fires 1 to 3 nights a year in the steady climate
 
 
 ## Mentioned by
-- [[W-59 The runs world for the model-per-household run|W-59 · The runs world for the model-per-household run]]
+- [[W-59 The runs world for the model-per-household run|The runs world for the model-per-household run (W-59)]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]

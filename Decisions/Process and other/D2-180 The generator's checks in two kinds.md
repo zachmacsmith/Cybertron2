@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-180 · The generator's checks in two kinds
+# The generator's checks in two kinds (D2-180)
 
 *live · 3 Nov*
 

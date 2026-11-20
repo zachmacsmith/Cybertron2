@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-115 · Dried fish in the economy spec
+# Dried fish in the economy spec (L-115)
 
 *open · 37.2*
 

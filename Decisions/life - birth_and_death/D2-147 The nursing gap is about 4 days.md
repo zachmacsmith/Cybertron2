@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-147 · The nursing gap is about 4 days
+# The nursing gap is about 4 days (D2-147)
 
 *live · 24 Oct · spec: [[life - birth_and_death|life/birth_and_death]]*
 
@@ -17,7 +17,7 @@ children.md
 
 
 ## Mentioned by
-- [[D2-162 Shorter waits for children, a higher chance|D2-162 · Shorter waits for children, a higher chance]]
+- [[D2-162 Shorter waits for children, a higher chance|Shorter waits for children, a higher chance (D2-162)]]
 - [[Proposal children as a choice, counted in days (costs, care, growing…|Proposal: children as a choice, counted in days (costs, care, growing…]]
 - [[Proposal fertility and replacement|Proposal: fertility and replacement]]
 - [[Proposal life (partners, children, growing up, death, inheritance)|Proposal: life (partners, children, growing up, death, inheritance)]]

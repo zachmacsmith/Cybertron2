@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-37 · Wildlife by terrain
+# Wildlife by terrain (L-37)
 
 *open · 37.2*
 

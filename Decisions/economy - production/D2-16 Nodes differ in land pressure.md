@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-16 · Nodes differ in land pressure
+# Nodes differ in land pressure (D2-16)
 
 *live · 22 Oct · spec: [[economy - production|economy/production]]*
 

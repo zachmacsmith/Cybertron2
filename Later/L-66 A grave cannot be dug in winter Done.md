@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-66 · A grave cannot be dug in winter **Done**
+# A grave cannot be dug in winter **Done** (L-66)
 
 *open · 37.4 (with 37.2: the numbers are D2-96)*
 

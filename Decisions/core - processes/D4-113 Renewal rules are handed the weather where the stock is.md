@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-113 · Renewal rules are handed the weather where the stock is
+# Renewal rules are handed the weather where the stock is (D4-113)
 
 *live · 8 Nov · spec: [[core - processes|core/processes]]*
 
@@ -20,11 +20,11 @@ new
 
 
 ## Mentioned by
-- [[Q-29 scheduler.md and the weather scheduler (D4-109)|Q-29 · scheduler.md and the weather scheduler (D4-109)]]
-- [[W-8 Couple the food web to 37.4's weather and climate|W-8 · Couple the food web to 37.4's weather and climate]]
-- [[W-15 The land's fast stocks|W-15 · The land's fast stocks]]
-- [[W-16 The engine overhaul|W-16 · The engine overhaul]]
-- [[L-71 The land's fast stocks|L-71 · The land's fast stocks]]
+- [[Q-29 scheduler.md and the weather scheduler (D4-109)|scheduler.md and the weather scheduler (D4-109) (Q-29)]]
+- [[W-8 Couple the food web to 37.4's weather and climate|Couple the food web to 37.4's weather and climate (W-8)]]
+- [[W-15 The land's fast stocks|The land's fast stocks (W-15)]]
+- [[W-16 The engine overhaul|The engine overhaul (W-16)]]
+- [[L-71 The land's fast stocks|The land's fast stocks (L-71)]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
 - [[Proposal the weather scheduler (eras, years, daily types, weather…|Proposal: the weather scheduler (eras, years, daily types, weather…]]
 - [[Proposal the wild layer, one general system for ecosystems and…|Proposal: the wild layer, one general system for ecosystems and…]]

@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-40 · Brief 4 as built, and its gate
+# Brief 4 as built, and its gate (Q-40)
 
 *closed, by zach · Zach (37.4 building)*
 
@@ -18,8 +18,8 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-27 Build brief 4|W-27 · Build brief 4]]
-- [[L-113 Briefs 4, 4b and 4c's deviations, to revisit|L-113 · Briefs 4, 4b and 4c's deviations, to revisit]]
+- [[W-27 Build brief 4|Build brief 4 (W-27)]]
+- [[L-113 Briefs 4, 4b and 4c's deviations, to revisit|Briefs 4, 4b and 4c's deviations, to revisit (L-113)]]
 - [[The hunt over time, and what briefs 1 to 3 left build brief 4|The hunt over time, and what briefs 1 to 3 left: build brief 4]]
 - [[Hunting that pays a beginner, snares that are lifted, and predators…|Hunting that pays a beginner, snares that are lifted, and predators…]]
 - [[The hunt after brief 4 game that remembers, slow recovery, and…|The hunt after brief 4: game that remembers, slow recovery, and…]]

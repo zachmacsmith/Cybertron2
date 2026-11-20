@@ -5,7 +5,7 @@ state: replaced
 updated: "2026-11-20"
 ---
 
-# D4-77 · The evening's add-ons
+# The evening's add-ons (D4-77)
 
 *replaced · 2 Nov · spec: [[information - speech|information/speech]]*
 
@@ -21,8 +21,8 @@ conversation ("Add the evening add ons"); proposals/speech_order.md points 5 to 
 
 
 ## Mentioned by
-- [[D4-80 The memory is asked in its own call after the night, not at the…|D4-80 · The memory is asked in its own call after the night, not at the…]]
-- [[L-30 Whether speech to the house is free in the morning too|L-30 · Whether speech to the house is free in the morning too]]
+- [[D4-80 The memory is asked in its own call after the night, not at the…|The memory is asked in its own call after the night, not at the… (D4-80)]]
+- [[L-30 Whether speech to the house is free in the morning too|Whether speech to the house is free in the morning too (L-30)]]
 - [[When people talk, and what it costs by reach, with an evening at the…|When people talk, and what it costs: by reach, with an evening at the…]]
 - [[Proposal the verbs, and what each agent is shown|Proposal: the verbs, and what each agent is shown]]
 - [[Speech at a node|Speech at a node]]

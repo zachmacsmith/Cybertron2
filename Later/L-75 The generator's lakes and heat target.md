@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-75 · The generator's lakes and heat target
+# The generator's lakes and heat target (L-75)
 
 *open · *
 
@@ -20,8 +20,8 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[Q-57 Fishing, from the lake run|Q-57 · Fishing, from the lake run]]
-- [[W-34 Worlds for the peoples benchmark|W-34 · Worlds for the peoples benchmark]]
+- [[Q-57 Fishing, from the lake run|Fishing, from the lake run (Q-57)]]
+- [[W-34 Worlds for the peoples benchmark|Worlds for the peoples benchmark (W-34)]]
 - [[Luck in the catch, a lake's fish by its size, and a fishing household|Luck in the catch, a lake's fish by its size, and a fishing household]]
 - [[Proposal world generation as one history, with pins met in the loop|Proposal: world generation as one history, with pins met in the loop]]
 - [[38.71 From a world with these properties to a world what went…|38.71: From "a world with these properties" to a world: what went…]]

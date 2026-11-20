@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-67 · Two cairns
+# Two cairns (L-67)
 
 *open · 37.4 with 37.2*
 

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-61 · An agent rewrites its one memory each stretch, within a length that…
+# An agent rewrites its one memory each stretch, within a length that… (D4-61)
 
 *live · 24 Oct · spec: [[information - memory|information/memory]]*
 
@@ -20,8 +20,8 @@ conversation ("rather than forming a new memory every 3 days, they rewrite their
 
 
 ## Mentioned by
-- [[D4-28 Agents write their own memory at set times|D4-28 · Agents write their own memory at set times]]
-- [[L-106 MAJOR what the engine remembers and settles for agents, and…|L-106 · MAJOR: what the engine remembers and settles for agents, and…]]
+- [[D4-28 Agents write their own memory at set times|Agents write their own memory at set times (D4-28)]]
+- [[L-106 MAJOR what the engine remembers and settles for agents, and…|MAJOR: what the engine remembers and settles for agents, and… (L-106)]]
 - [[What an agent is shown the world and its rules, not choices made for…|What an agent is shown: the world and its rules, not choices made for…]]
 - [[Forays going out from the village and coming back|Forays: going out from the village and coming back]]
 - [[Kept for good a few lines an agent keeps word for word|Kept for good: a few lines an agent keeps word for word]]

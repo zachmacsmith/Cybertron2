@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-7 · Resources by how they come back
+# Resources by how they come back (D4-7)
 
 *live · 22 Oct · spec: [[environment - resources|environment/resources]]*
 

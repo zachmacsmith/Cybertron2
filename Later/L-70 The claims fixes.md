@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-70 · The claims fixes
+# The claims fixes (L-70)
 
 *open · 37.4*
 
@@ -20,6 +20,6 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-14 Claims and ownership by physics, part 2|W-14 · Claims and ownership by physics, part 2]]
+- [[W-14 Claims and ownership by physics, part 2|Claims and ownership by physics, part 2 (W-14)]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
 - *and 1 index or audit notes*

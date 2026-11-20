@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-15 · Speech is not a round late
+# Speech is not a round late (D4-15)
 
 *live · 22 Oct · spec: [[core - round|core/round]], [[information - speech|information/speech]]*
 
@@ -20,7 +20,7 @@ the phase-0 rule (speech heard at round end)
 
 
 ## Mentioned by
-- [[D4-25 Who hears and who is woken|D4-25 · Who hears and who is woken]]
+- [[D4-25 Who hears and who is woken|Who hears and who is woken (D4-25)]]
 - [[The round|The round]]
 - [[Speech at a node|Speech at a node]]
 - [[02zd cybertron2 as a response to cybertron 1|02zd: cybertron2 as a response to cybertron 1]]

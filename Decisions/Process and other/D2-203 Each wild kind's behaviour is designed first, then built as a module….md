@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-203 · Each wild kind's behaviour is designed first, then built as a module…
+# Each wild kind's behaviour is designed first, then built as a module… (D2-203)
 
 *live · 9 Nov*
 
@@ -20,8 +20,8 @@ conversation ("Animals can add specific mechanisms / code but it should just be 
 
 
 ## Mentioned by
-- [[W-5 37.2's own hygiene items|W-5 · 37.2's own hygiene items]]
-- [[W-68 37.2's spec catch-up|W-68 · 37.2's spec catch-up]]
+- [[W-5 37.2's own hygiene items|37.2's own hygiene items (W-5)]]
+- [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|Writing 37.2's decisions into the spec (about 52 missing) (W-68)]]
 - [[The engine as a small core and feature packages design specification|The engine as a small core and feature packages: design specification]]
 - [[Forays going out from the village and coming back|Forays: going out from the village and coming back]]
 - [[Methods and encounters people answer the wild by general methods…|Methods and encounters: people answer the wild by general methods…]]

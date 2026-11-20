@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-80 · The memory is asked in its own call after the night, not at the…
+# The memory is asked in its own call after the night, not at the… (D4-80)
 
 *live · 2 Nov · spec: [[information - speech|information/speech]]*
 
@@ -20,7 +20,7 @@ conversation ("make sure there isn't a large degradation from the previous memor
 
 
 ## Mentioned by
-- [[D4-77 The evening's add-ons|D4-77 · The evening's add-ons]]
+- [[D4-77 The evening's add-ons|The evening's add-ons (D4-77)]]
 - [[When people talk, and what it costs by reach, with an evening at the…|When people talk, and what it costs: by reach, with an evening at the…]]
 - [[Speech at a node|Speech at a node]]
 - [[38.44 the memory asked at the evening against the memory asked on…|38.44: the memory asked at the evening against the memory asked on…]]

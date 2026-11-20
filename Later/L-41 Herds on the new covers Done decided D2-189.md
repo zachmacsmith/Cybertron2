@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-41 · Herds on the new covers **Done:** decided D2-189
+# Herds on the new covers **Done:** decided D2-189 (L-41)
 
 *open · 37.2*
 
@@ -18,5 +18,5 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[D2-189 Rough grazing on the waste covers|D2-189 · Rough grazing on the waste covers]]
+- [[D2-189 Rough grazing on the waste covers|Rough grazing on the waste covers (D2-189)]]
 - *and 2 index or audit notes*

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-47 · Some places start unexplored
+# Some places start unexplored (D4-47)
 
 *live · 23 Oct · spec: [[information - perception|information/perception]], [[world - edges|world/edges]], [[world - places|world/places]], [[world - roads|world/roads]]*
 
@@ -17,7 +17,7 @@ conversation ("can it have a few nodes that start unexplored, like e.g. a quarry
 
 
 ## Mentioned by
-- [[D2-187 What each settlement knows at the start|D2-187 · What each settlement knows at the start]]
+- [[D2-187 What each settlement knows at the start|What each settlement knows at the start (D2-187)]]
 - [[Forays going out from the village and coming back|Forays: going out from the village and coming back]]
 - [[Proposal the landscape generator (a world under the graph)|Proposal: the landscape generator (a world under the graph)]]
 - [[Proposal the generator, stage 1 (a spec for review before it is…|Proposal: the generator, stage 1 (a spec for review before it is…]]

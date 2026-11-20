@@ -8,7 +8,7 @@ updated: "2026-11-16"
 *note · `docs/review/37_growth/02zzo_weather_conditions.md`*
 
 
-37.2, 16 Nov 2026. WORK [[W-51 The weather across conditions|W-51]]. Zach: "try test the weather in different conditions, like dry places, high mountains, flood plains,
+37.2, 16 Nov 2026. WORK [[W-51 Testing the weather across dry, cold, coastal and mountain worlds…|W-51]]. Zach: "try test the weather in different conditions, like dry places, high mountains, flood plains,
 the coast etc to see that it makes sense across these". Then, on seeing the first result: "weather should DEFINITELY NOT be
 independent from the generator? How many other things are generated but not used?" ([[D2-220 The weather takes each place's climate from the generated land|D2-220]].)
 
@@ -98,4 +98,4 @@ ground is; where springs rise; and how high ground stands above its river.
 ## 3. What follows
 
 - **Climate from the land ([[D2-220 The weather takes each place's climate from the generated land|D2-220]]):** design in `docs/cybertron2/proposals/climate_from_land.md`.
-- **The rest of the list:** this is environment_systems.md's phase 0 (the engine reads the land's fields). Its order is OPEN [[Q-56 The land the engine reads|Q-56]].
+- **The rest of the list:** this is environment_systems.md's phase 0 (the engine reads the land's fields). Its order is OPEN [[Q-56 How the weather should follow each place's climate from the generated…|Q-56]].

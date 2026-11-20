@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-28 · Copper coin
+# Copper coin (D2-28)
 
 *live · 23 Oct · spec: [[economy - goods|economy/goods]], [[economy - money_and_markets|economy/money_and_markets]]*
 
@@ -17,7 +17,7 @@ exchange_and_money.md §5
 
 
 ## Mentioned by
-- [[L-18 An institution's stamp on coin|L-18 · An institution's stamp on coin]]
+- [[L-18 An institution's stamp on coin|An institution's stamp on coin (L-18)]]
 - [[Proposal the economy plan for cybertron2|Proposal: the economy plan for cybertron2]]
 - [[Goods|Goods]]
 - [[Money and markets|Money and markets]]

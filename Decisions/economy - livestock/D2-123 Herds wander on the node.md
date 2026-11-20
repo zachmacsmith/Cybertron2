@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-123 · Herds wander on the node
+# Herds wander on the node (D2-123)
 
 *live · 24 Oct · spec: [[economy - livestock|economy/livestock]], [[world - holding|world/holding]]*
 
@@ -17,7 +17,7 @@ livestock.md
 
 
 ## Mentioned by
-- [[L-8 Herds wandering onto edges|L-8 · Herds wandering onto edges]]
+- [[L-8 Herds wandering onto edges|Herds wandering onto edges (L-8)]]
 - [[Proposal what people make of wild things economies, husbandry…|Proposal: what people make of wild things: economies, husbandry…]]
 - [[Proposal livestock|Proposal: livestock]]
 - [[Raiders, displacement and set works what every village meets|Raiders, displacement and set works: what every village meets]]

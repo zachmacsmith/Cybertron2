@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-145 · A child's total cost before it becomes an agent is a world setting
+# A child's total cost before it becomes an agent is a world setting (D2-145)
 
 *live · 24 Oct · spec: [[life - birth_and_death|life/birth_and_death]]*
 

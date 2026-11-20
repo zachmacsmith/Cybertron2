@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-65 · Seed selection
+# Seed selection (D2-65)
 
 *live · 23 Oct · spec: [[economy - production|economy/production]]*
 

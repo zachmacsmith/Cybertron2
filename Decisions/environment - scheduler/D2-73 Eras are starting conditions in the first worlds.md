@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-73 · Eras are starting conditions in the first worlds
+# Eras are starting conditions in the first worlds (D2-73)
 
 *live · 23 Oct · spec: [[environment - scheduler|environment/scheduler]]*
 

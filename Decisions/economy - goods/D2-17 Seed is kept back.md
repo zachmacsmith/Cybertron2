@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-17 · Seed is kept back
+# Seed is kept back (D2-17)
 
 *live · 22 Oct · spec: [[economy - goods|economy/goods]], [[economy - production|economy/production]]*
 

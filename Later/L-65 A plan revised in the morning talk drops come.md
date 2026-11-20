@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-65 · A plan revised in the morning talk drops `come`
+# A plan revised in the morning talk drops `come` (L-65)
 
 *open · 37.4*
 

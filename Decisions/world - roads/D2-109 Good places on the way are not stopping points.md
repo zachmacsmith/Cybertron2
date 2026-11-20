@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-109 · Good places on the way are not stopping points
+# Good places on the way are not stopping points (D2-109)
 
 *live · 23 Oct · spec: [[world - roads|world/roads]]*
 

@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-46 · Brief 4c as built
+# Brief 4c as built (Q-46)
 
 *closed, by zach · Zach*
 
@@ -18,10 +18,10 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[D2-250 Boar raid fields into autumn, to autumn day 4, weaker in a mast year|D2-250 · Boar raid fields into autumn, to autumn day 4, weaker in a mast year]]
-- [[W-63 An audit of what was started and left|W-63 · An audit of what was started and left]]
-- [[W-69 Subsistence worlds|W-69 · Subsistence worlds]]
-- [[L-113 Briefs 4, 4b and 4c's deviations, to revisit|L-113 · Briefs 4, 4b and 4c's deviations, to revisit]]
+- [[D2-250 Boar raid fields into autumn, to autumn day 4, weaker in a mast year|Boar raid fields into autumn, to autumn day 4, weaker in a mast year (D2-250)]]
+- [[W-63 The audit of work started and left, and the triage of open asks and…|The audit of work started and left, and the triage of open asks and… (W-63)]]
+- [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+- [[L-113 Briefs 4, 4b and 4c's deviations, to revisit|Briefs 4, 4b and 4c's deviations, to revisit (L-113)]]
 - [[Hunting that pays a beginner, snares that are lifted, and predators…|Hunting that pays a beginner, snares that are lifted, and predators…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[02zzs the wild region's 30-day live run (10 Nov), written up|02zzs: the wild region's 30-day live run (10 Nov), written up]]

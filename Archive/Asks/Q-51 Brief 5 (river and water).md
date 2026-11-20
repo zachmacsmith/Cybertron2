@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-51 · Brief 5 (river and water)
+# Brief 5 (river and water) (Q-51)
 
 *closed, by zach · Zach (37.2)*
 
@@ -18,8 +18,8 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[D2-246 With a mill's gap open|D2-246 · With a mill's gap open]]
-- [[W-45 Brief 5 revised from the economy research|W-45 · Brief 5 revised from the economy research]]
-- [[W-63 An audit of what was started and left|W-63 · An audit of what was started and left]]
+- [[D2-246 With a mill's gap open|With a mill's gap open (D2-246)]]
+- [[W-45 Brief 5 revised from the economy research|Brief 5 revised from the economy research (W-45)]]
+- [[W-63 The audit of work started and left, and the triage of open asks and…|The audit of work started and left, and the triage of open asks and… (W-63)]]
 - [[38.73 Brief 5 (river and water) as built the dry-run report for the…|38.73: Brief 5 (river and water) as built: the dry-run report for the…]]
 - *and 2 index or audit notes*

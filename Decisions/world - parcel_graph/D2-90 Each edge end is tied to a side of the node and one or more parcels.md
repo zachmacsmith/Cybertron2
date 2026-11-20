@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-90 · Each edge end is tied to a side of the node and one or more parcels
+# Each edge end is tied to a side of the node and one or more parcels (D2-90)
 
 *live · 23 Oct · spec: [[world - parcel_graph|world/parcel_graph]], [[world - roads|world/roads]]*
 

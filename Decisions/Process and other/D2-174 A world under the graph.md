@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-174 · A world under the graph
+# A world under the graph (D2-174)
 
 *live · 3 Nov*
 

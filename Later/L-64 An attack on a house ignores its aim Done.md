@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-64 · An attack on a house ignores its aim **Done**
+# An attack on a house ignores its aim **Done** (L-64)
 
 *open · 37.4*
 
@@ -20,7 +20,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[D4-101 An attack on a house with aim hurt sets on those inside|D4-101 · An attack on a house with aim hurt sets on those inside]]
+- [[D4-101 An attack on a house with aim hurt sets on those inside|An attack on a house with aim hurt sets on those inside (D4-101)]]
 - [[Proposal attacks, buildings and walls|Proposal: attacks, buildings and walls]]
 - [[An attack on a house to hurt sets on the people inside|An attack on a house to hurt sets on the people inside]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]

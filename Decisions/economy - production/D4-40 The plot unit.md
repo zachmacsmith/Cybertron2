@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-40 · The plot unit
+# The plot unit (D4-40)
 
 *live · 23 Oct · spec: [[economy - production|economy/production]]*
 

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-106 · Experience lowers the chance of things going wrong on the road
+# Experience lowers the chance of things going wrong on the road (D2-106)
 
 *live · 23 Oct · spec: [[world - roads|world/roads]]*
 

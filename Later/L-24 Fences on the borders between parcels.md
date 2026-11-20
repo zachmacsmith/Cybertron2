@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-24 · Fences on the borders between parcels
+# Fences on the borders between parcels (L-24)
 
 *open · 37.2 with 37.4*
 
@@ -20,9 +20,9 @@ Fences on the borders between parcels (rather than round a parcel); hedges; nigh
 
 
 ## Mentioned by
-- [[D2-130 Fences go round a parcel for now a parcel is fenced or not|D2-130 · Fences go round a parcel for now: a parcel is fenced or not]]
-- [[L-11 Fences, hedges and walls for herds|L-11 · Fences, hedges and walls for herds]]
-- [[L-120 Wildlife pack K7 land works and infrastructure|L-120 · Wildlife pack K7: land works and infrastructure]]
+- [[D2-130 Fences go round a parcel for now a parcel is fenced or not|Fences go round a parcel for now: a parcel is fenced or not (D2-130)]]
+- [[L-11 Fences, hedges and walls for herds|Fences, hedges and walls for herds (L-11)]]
+- [[L-120 Wildlife pack K7 land works and infrastructure|Wildlife pack K7: land works and infrastructure (L-120)]]
 - [[Proposal fences, hedges and walls|Proposal: fences, hedges and walls]]
 - [[Proposal what people make of wild things economies, husbandry…|Proposal: what people make of wild things: economies, husbandry…]]
 - [[Proposal livestock|Proposal: livestock]]

@@ -5,7 +5,7 @@ state: active
 updated: "2026-11-20"
 ---
 
-# W-56 · One fish stock per water body, the engine half
+# One fish stock per water body, the engine half (W-56)
 
 *active · 37.4 · touched 17 Nov (3 days ago)*
 
@@ -24,8 +24,8 @@ built on `water-bodies` (594ba09, pushed; not merged): the body's stock, once a 
 
 
 ## Mentioned by
-- [[W-57 The lake runs' seven engine faults|W-57 · The lake runs' seven engine faults]]
-- [[W-58 The runs world with a model to each household|W-58 · The runs world with a model to each household]]
+- [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]]
+- [[W-58 The runs world with a model to each household|The runs world with a model to each household (W-58)]]
 - [[A signs pass after the lake runs (17 Nov)|A signs pass after the lake runs (17 Nov)]]
 - [[38.76 One fish stock per water body, the engine half (D2-229), as…|38.76: One fish stock per water body, the engine half (D2-229), as…]]
 - *and 4 index or audit notes*

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-137 · The next region world
+# The next region world (D2-137)
 
 *live · 24 Oct*
 

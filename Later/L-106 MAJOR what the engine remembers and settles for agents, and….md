@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-106 · MAJOR: what the engine remembers and settles for agents, and…
+# MAJOR: what the engine remembers and settles for agents, and… (L-106)
 
 *open · 37.4 (prompt, perception, agreements), 37.2 (proposal)*
 
@@ -23,8 +23,8 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[Q-47 The border for now|Q-47 · The border for now]]
-- [[W-29 A multi-village wild region and its live run|W-29 · A multi-village wild region and its live run]]
+- [[Q-47 Where the economy stops for now|Where the economy stops for now (Q-47)]]
+- [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]
 - [[Hunting that pays a beginner, snares that are lifted, and predators…|Hunting that pays a beginner, snares that are lifted, and predators…]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[02zzi how an economy could scale beyond the medieval village (15 Nov…|02zzi: how an economy could scale beyond the medieval village (15 Nov…]]

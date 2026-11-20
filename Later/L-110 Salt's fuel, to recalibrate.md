@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-110 · Salt's fuel, to recalibrate
+# Salt's fuel, to recalibrate (L-110)
 
 *open · 37.2*
 
@@ -20,8 +20,8 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[D2-209 Brief 5 (river and water) is built|D2-209 · Brief 5 (river and water) is built]]
-- [[W-45 Brief 5 revised from the economy research|W-45 · Brief 5 revised from the economy research]]
+- [[D2-209 Brief 5 (river and water) is built|Brief 5 (river and water) is built (D2-209)]]
+- [[W-45 Brief 5 revised from the economy research|Brief 5 revised from the economy research (W-45)]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[38.73 Brief 5 (river and water) as built the dry-run report for the…|38.73: Brief 5 (river and water) as built: the dry-run report for the…]]
 - *and 1 index or audit notes*

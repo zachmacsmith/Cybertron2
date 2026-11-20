@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-87 · Left things are held by nobody
+# Left things are held by nobody (D2-87)
 
 *live · 23 Oct · spec: [[economy - goods|economy/goods]], [[life - birth_and_death|life/birth_and_death]], [[world - places|world/places]], [[world - things_in_places|world/things_in_places]]*
 
@@ -20,7 +20,7 @@ the leaver keeping a claim the engine enforces
 
 
 ## Mentioned by
-- [[D4-89 Goods left at a door stay the house's|D4-89 · Goods left at a door stay the house's]]
+- [[D4-89 Goods left at a door stay the house's|Goods left at a door stay the house's (D4-89)]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
 - [[How much lies there heaps seen by their bulk, counted when attended…|How much lies there: heaps seen by their bulk, counted when attended…]]
 - [[Proposal the layout inside a node (parcels, features, and things on…|Proposal: the layout inside a node (parcels, features, and things on…]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-21 · Worlds are seeded as a society with a past
+# Worlds are seeded as a society with a past (D4-21)
 
 *live · 22 Oct · spec: [[economy - production|economy/production]], [[seeding - populations|seeding/populations]]*
 

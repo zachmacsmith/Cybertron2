@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-164 · Space inside a parcel is a count, not positions
+# Space inside a parcel is a count, not positions (D2-164)
 
 *live · 3 Nov · spec: [[economy - buildings|economy/buildings]]*
 
@@ -17,7 +17,7 @@ conversation ("yes counts")
 
 
 ## Mentioned by
-- [[C-2 Building limits slots by land kind|C-2 · Building limits: slots by land kind]]
+- [[C-2 Building limits slots by land kind|Building limits: slots by land kind (C-2)]]
 - [[Proposal buildings from parts|Proposal: buildings from parts]]
 - [[Proposal farming|Proposal: farming]]
 - [[Proposal the layout inside a node (parcels, features, and things on…|Proposal: the layout inside a node (parcels, features, and things on…]]

@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-16 · Disease: mortality, the units of the sick, immunity, nursing, a healer
+# Disease: mortality, the units of the sick, immunity, nursing, a healer (Q-16)
 
 *open · 37.2 with 37.1*
 
@@ -16,10 +16,10 @@ Disease: mortality, the units of the sick, immunity, nursing, a healer (Zach: ne
 
 
 ## Mentioned by
-- [[D2-87 Left things are held by nobody|D2-87 · Left things are held by nobody]]
-- [[D2-96 Rot and burial|D2-96 · Rot and burial]]
-- [[L-9 Disease (mortality, the sick, immunity, nursing, a healer)|L-9 · Disease (mortality, the sick, immunity, nursing, a healer)]]
-- [[L-123 Wildlife pack K10 illness and the hidden|L-123 · Wildlife pack K10: illness and the hidden]]
+- [[D2-87 Left things are held by nobody|Left things are held by nobody (D2-87)]]
+- [[D2-96 Rot and burial|Rot and burial (D2-96)]]
+- [[L-9 Disease (mortality, the sick, immunity, nursing, a healer)|Disease (mortality, the sick, immunity, nursing, a healer) (L-9)]]
+- [[L-123 Wildlife pack K10 illness and the hidden|Wildlife pack K10: illness and the hidden (L-123)]]
 - [[Proposal environments, ecosystems and how they cluster|Proposal: environments, ecosystems and how they cluster]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
 - [[Proposal what can happen (eras, weather, hazards that spread, and…|Proposal: what can happen (eras, weather, hazards that spread, and…]]

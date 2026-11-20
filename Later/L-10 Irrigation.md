@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-10 · Irrigation
+# Irrigation (L-10)
 
 *open · 37.2*
 

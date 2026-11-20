@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-171 · Extravagance in tiers
+# Extravagance in tiers (D2-171)
 
 *live · 3 Nov · spec: [[economy - buildings|economy/buildings]]*
 

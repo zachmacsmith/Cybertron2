@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-77 · The first-world set
+# The first-world set (D2-77)
 
 *live · 23 Oct · spec: [[environment - scheduler|environment/scheduler]]*
 
@@ -17,8 +17,8 @@ environment_catalogue.md §6
 
 
 ## Mentioned by
-- [[L-20 The catalogue's later kinds|L-20 · The catalogue's later kinds]]
-- [[L-37 Wildlife by terrain|L-37 · Wildlife by terrain]]
+- [[L-20 The catalogue's later kinds|The catalogue's later kinds (L-20)]]
+- [[L-37 Wildlife by terrain|Wildlife by terrain (L-37)]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
 - [[Proposal what can happen (eras, weather, hazards that spread, and…|Proposal: what can happen (eras, weather, hazards that spread, and…]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]

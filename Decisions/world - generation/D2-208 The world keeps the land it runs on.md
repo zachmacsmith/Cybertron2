@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-208 · The world keeps the land it runs on
+# The world keeps the land it runs on (D2-208)
 
 *live · 10 Nov · spec: [[world - generation|world/generation]]*
 
@@ -17,10 +17,10 @@ world/generation.md
 
 
 ## Mentioned by
-- [[Q-50 One grid or several|Q-50 · One grid or several]]
-- [[Q-56 The land the engine reads|Q-56 · The land the engine reads]]
-- [[W-25 The world keeps its land|W-25 · The world keeps its land]]
-- [[L-105 Forays as their own track|L-105 · Forays as their own track]]
+- [[Q-50 One grid or several|One grid or several (Q-50)]]
+- [[Q-56 How the weather should follow each place's climate from the generated…|How the weather should follow each place's climate from the generated… (Q-56)]]
+- [[W-25 Keeping each world's full 150 m land with it|Keeping each world's full 150 m land with it (W-25)]]
+- [[L-105 Forays as their own track|Forays as their own track (L-105)]]
 - [[Climate from the land|Climate from the land]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
 - [[The engine as a small core and feature packages design specification|The engine as a small core and feature packages: design specification]]

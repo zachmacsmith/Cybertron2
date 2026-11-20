@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-102 · Carrying capacity is measured, by level, from the engine's own rules
+# Carrying capacity is measured, by level, from the engine's own rules (D4-102)
 
 *live · 7 Nov · spec: [[core - processes|core/processes]], [[measurement - capacity|measurement/capacity]]*
 
@@ -20,7 +20,7 @@ the economy check's fixed numbers (engine/capacity.py PLOT and WILD, landgen/eco
 
 
 ## Mentioned by
-- [[Q-28 The economy check counts crops that winter will clear|Q-28 · The economy check counts crops that winter will clear]]
+- [[Q-28 The economy check counts crops that winter will clear|The economy check counts crops that winter will clear (Q-28)]]
 - [[Carrying capacity what a world's land feeds and keeps warm, by…|Carrying capacity: what a world's land feeds and keeps warm, by…]]
 - [[A benchmark by living descendants, on a ladder of worlds|A benchmark by living descendants, on a ladder of worlds]]
 - [[Economic calibration one time scale, and mechanics that make…|Economic calibration: one time scale, and mechanics that make…]]

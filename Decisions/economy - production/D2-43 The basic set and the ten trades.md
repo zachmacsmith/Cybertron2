@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-43 · The basic set and the ten trades
+# The basic set and the ten trades (D2-43)
 
 *live · 23 Oct · spec: [[economy - production|economy/production]]*
 
@@ -17,7 +17,7 @@ recipes.md §5
 
 
 ## Mentioned by
-- [[D4-41 Oxen are a role within cattle, not a kind|D4-41 · Oxen are a role within cattle, not a kind]]
+- [[D4-41 Oxen are a role within cattle, not a kind|Oxen are a role within cattle, not a kind (D4-41)]]
 - [[What an agent is shown the world and its rules, not choices made for…|What an agent is shown: the world and its rules, not choices made for…]]
 - [[Proposal farming|Proposal: farming]]
 - [[Proposal what agents know they can do (actions, recipes, buildings)|Proposal: what agents know they can do (actions, recipes, buildings)]]

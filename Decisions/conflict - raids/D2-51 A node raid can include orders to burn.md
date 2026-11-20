@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-51 · A node raid can include orders to burn
+# A node raid can include orders to burn (D2-51)
 
 *live · 23 Oct · spec: [[conflict - raids|conflict/raids]]*
 
@@ -17,8 +17,8 @@ proposals/attacks_and_walls.md; conversation
 
 
 ## Mentioned by
-- [[Q-12 Decisions made with 37.2 that belong in 37.4's spec areas and are not…|Q-12 · Decisions made with 37.2 that belong in 37.4's spec areas and are not…]]
-- [[L-21 Fire house fire and wildfire in the scheduler, spreading along the…|L-21 · Fire: house fire and wildfire in the scheduler, spreading along the…]]
+- [[Q-12 Decisions made with 37.2 that belong in 37.4's spec areas and are not…|Decisions made with 37.2 that belong in 37.4's spec areas and are not… (Q-12)]]
+- [[L-21 Fire house fire and wildfire in the scheduler, spreading along the…|Fire: house fire and wildfire in the scheduler, spreading along the… (L-21)]]
 - [[Proposal attacks, buildings and walls|Proposal: attacks, buildings and walls]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
 - [[Proposal what can happen (eras, weather, hazards that spread, and…|Proposal: what can happen (eras, weather, hazards that spread, and…]]

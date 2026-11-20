@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-45 · Brief 5 revised from the economy research
+# Brief 5 revised from the economy research (W-45)
 
 *done · 37.2 · touched  ()*
 

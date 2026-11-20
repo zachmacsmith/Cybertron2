@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-26 · Agents think and see their own past reasoning
+# Agents think and see their own past reasoning (D4-26)
 
 *live · 23 Oct · spec: [[information - memory|information/memory]], [[information - prompts|information/prompts]]*
 

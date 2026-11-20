@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-58 · Grain spoils a little
+# Grain spoils a little (D2-58)
 
 *live · 23 Oct · spec: [[economy - goods|economy/goods]], [[economy - production|economy/production]]*
 

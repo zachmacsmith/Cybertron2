@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-158 · Default rights in woods
+# Default rights in woods (D2-158)
 
 *live · 24 Oct · spec: [[environment - resources|environment/resources]], [[world - holding|world/holding]]*
 
@@ -17,7 +17,7 @@ forests.md §4
 
 
 ## Mentioned by
-- [[D4-97 Decisions on 38.51's list|D4-97 · Decisions on 38.51's list]]
+- [[D4-97 Decisions on 38.51's list|Decisions on 38.51's list (D4-97)]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
 - [[Proposal shelter|Proposal: shelter]]
 - [[Resources and how they come back|Resources and how they come back]]

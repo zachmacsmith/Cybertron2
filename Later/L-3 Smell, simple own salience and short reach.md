@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-3 · Smell, simple: own salience and short reach
+# Smell, simple: own salience and short reach (L-3)
 
 *open · 37.4*
 

@@ -749,7 +749,7 @@ birth_and_death.md; spec/institutions/membership.md):
   succession of the head ([[D2-143 Inheritance and the head's succession are the household's own rules|D2-143]], [[D2-163 Land is held in plot shares within a parcel|D2-163]]; `life.on_death`, `plot_heirs`).
 - **The quern** (grind, about 3 grain a unit) against the ox mill and water mill, and bread at the hearth or oven ([[D2-60 The food ladder|D2-60]], [[D2-167 The mill ladder bites|D2-167]],
   [[D4-97 Decisions on 38.51's list|D4-97]]): the first rung of household processing given up to shared capital.
-- **The generator's kin** (generation_redesign.md, OPEN [[Q-45 Generation redesign|Q-45]]): genealogies built backward, a regional marriage market, kin between
+- **The generator's kin** (generation_redesign.md, OPEN [[Q-45 The generation redesign|Q-45]]): genealogies built backward, a regional marriage market, kin between
   villages.
 
 ### Inside the medieval village and market town
@@ -770,7 +770,7 @@ birth_and_death.md; spec/institutions/membership.md):
   every agreement lacks (below).
 - **Inheritance rules and their effects.** The three rules exist and are household choices; their historical effects (partible
   fragments plots and keeps people; eldest makes younger children leave, take service or found elsewhere) are things the descendants
-  benchmark (OPEN [[L-104 MAJOR the descendants benchmark|L-104]]) could read in the runs, with the generator's kin between villages ([[Q-45 Generation redesign|Q-45]]) as the base. Rosenzweig and
+  benchmark (OPEN [[L-104 MAJOR the descendants benchmark|L-104]]) could read in the runs, with the generator's kin between villages ([[Q-45 The generation redesign|Q-45]]) as the base. Rosenzweig and
   Stark's marriage across villages with different harvests is the historical form of the dependence between villages that
   generation_redesign.md wants.
 - **Service, fosterage and wet-nursing.** A youth can already join another household and work `for` it (hiring.md); service is that
@@ -872,7 +872,7 @@ Zelin, M. (2005), *The Merchants of Zigong*.
 
 In the project: parts 01, 02, 03, 04, 05, 07, 08, 09, 10, 11, 12 of this folder; 02zzk_medieval_border.md (§1, §2, §3);
 spec/life/birth_and_death.md ([[D2-138 A child only by choice|D2-138]] to [[D2-153 The lifespan is a world setting that scales every part of a life|D2-153]], [[D2-162 Shorter waits for children, a higher chance|D2-162]], [[D4-64 Lines kept for good, passed on through care, replacing customs|D4-64]]), spec/life/life_stages.md, spec/institutions/membership.md ([[D4-18 Institutions grow from households|D4-18]],
-[[D4-23 Holding is a recognised claim|D4-23]], [[D4-36 Moving is general, not a feature|D4-36]]), spec/agents/work.md; proposals/households.md, children.md, hiring.md, generation_redesign.md (OPEN [[Q-45 Generation redesign|Q-45]]),
+[[D4-23 Holding is a recognised claim|D4-23]], [[D4-36 Moving is general, not a feature|D4-36]]), spec/agents/work.md; proposals/households.md, children.md, hiring.md, generation_redesign.md (OPEN [[Q-45 The generation redesign|Q-45]]),
 descendants_benchmark.md (OPEN [[L-104 MAJOR the descendants benchmark|L-104]]); OPEN [[L-25 Beliefs, values and customs|L-25]], [[L-26 Care's effects beyond survival|L-26]], [[L-106 MAJOR what the engine remembers and settles for agents, and…|L-106]]; `cybertron2/engine/life.py` (`on_death`, `plot_heirs`,
 `children_work`), `data.py` (`grind`, `mill`, `bread`), `verbs.py` (`join`, `admit`, care); docs/scenario_design.md.
 

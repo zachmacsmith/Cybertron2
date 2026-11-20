@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-12 · A night out costs 1.5 food
+# A night out costs 1.5 food (D4-12)
 
 *live · 22 Oct · spec: [[economy - lodging|economy/lodging]], [[world - edges|world/edges]], [[world - roads|world/roads]]*
 

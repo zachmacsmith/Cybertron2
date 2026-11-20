@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-136 · The pack ox
+# The pack ox (D2-136)
 
 *live · 24 Oct · spec: [[economy - transport|economy/transport]]*
 

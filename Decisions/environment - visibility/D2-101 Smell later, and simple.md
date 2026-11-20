@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-101 · Smell later, and simple
+# Smell later, and simple (D2-101)
 
 *live · 23 Oct · spec: [[environment - visibility|environment/visibility]]*
 
@@ -20,8 +20,8 @@ wind direction now
 
 
 ## Mentioned by
-- [[L-3 Smell, simple own salience and short reach|L-3 · Smell, simple: own salience and short reach]]
-- [[L-4 Wind direction|L-4 · Wind direction]]
+- [[L-3 Smell, simple own salience and short reach|Smell, simple: own salience and short reach (L-3)]]
+- [[L-4 Wind direction|Wind direction (L-4)]]
 - [[Every perceived line by the one noticing rule|Every perceived line by the one noticing rule]]
 - [[Proposal the parcel graph (where things are inside a node)|Proposal: the parcel graph (where things are inside a node)]]
 - [[Proposal visibility (what a place and the day let the senses reach)|Proposal: visibility (what a place and the day let the senses reach)]]

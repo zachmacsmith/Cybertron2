@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-118 · Build choices confirmed (OPEN Q-20 1, 3, 4)
+# Build choices confirmed (OPEN Q-20 1, 3, 4) (D2-118)
 
 *live · 24 Oct*
 
@@ -17,6 +17,6 @@ review 38.24; conversation
 
 
 ## Mentioned by
-- [[Q-20 Built for Package A and B|Q-20 · Built for Package A and B]]
+- [[Q-20 Built for Package A and B|Built for Package A and B (Q-20)]]
 - [[Proposal attacks, buildings and walls|Proposal: attacks, buildings and walls]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]

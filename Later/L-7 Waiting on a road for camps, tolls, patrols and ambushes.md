@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-7 · Waiting on a road for camps, tolls, patrols and ambushes
+# Waiting on a road for camps, tolls, patrols and ambushes (L-7)
 
 *open · 37.4*
 

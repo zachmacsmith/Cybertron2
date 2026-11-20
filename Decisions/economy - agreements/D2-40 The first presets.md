@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-40 · The first presets
+# The first presets (D2-40)
 
 *live · 23 Oct · spec: [[economy - agreements|economy/agreements]]*
 

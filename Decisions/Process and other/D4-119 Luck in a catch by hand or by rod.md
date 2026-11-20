@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-119 · Luck in a catch by hand or by rod
+# Luck in a catch by hand or by rod (D4-119)
 
 *live · 17 Nov*
 

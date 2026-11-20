@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-120 · Wildlife pack K7: land works and infrastructure
+# Wildlife pack K7: land works and infrastructure (L-120)
 
 *open · 37.2 (design), 37.4*
 
@@ -20,4 +20,4 @@ hedges, banks, walls, pales and mesh as barriers with properties on parcel edges
 
 
 ## Linked
-- parent: [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
+- parent: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]

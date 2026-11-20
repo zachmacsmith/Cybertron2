@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-26 · Offers to anyone at the node, open while the offerer stays, in lots
+# Offers to anyone at the node, open while the offerer stays, in lots (D2-26)
 
 *live · 23 Oct · spec: [[economy - money_and_markets|economy/money_and_markets]]*
 

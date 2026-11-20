@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-19 · Paired probes, round 2: a full LLM cast, Fable 5.2 (02zzc)
+# Paired probes, round 2: a full LLM cast, Fable 5.2 (02zzc) (W-19)
 
 *done · 37.2 · touched  ()*
 

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D1-4 · proposals/run_record.md is adopted as the spec area `record/`
+# proposals/run_record.md is adopted as the spec area `record/` (D1-4)
 
 *live · 24 Oct · spec: [[core - architecture|core/architecture]], [[record - branching|record/branching]], [[record - exchange|record/exchange]], [[record - execution|record/execution]], [[record - human_play|record/human_play]], [[record - journal|record/journal]], [[record - views|record/views]]*
 
@@ -17,8 +17,8 @@ Zach, 37.1 conversation ("compile these proposals into a spec"); spec/record/
 
 
 ## Mentioned by
-- [[D1-5 Storage|D1-5 · Storage]]
-- [[C-10 Run files, checkpoints, replay, versioning|C-10 · Run files, checkpoints, replay, versioning]]
+- [[D1-5 Storage|Storage (D1-5)]]
+- [[C-10 Run files, checkpoints, replay, versioning|Run files, checkpoints, replay, versioning (C-10)]]
 - [[The engine's architecture|The engine's architecture]]
 - [[Branching rewind, fork, replicates, interventions|Branching: rewind, fork, replicates, interventions]]
 - [[Export, publish, import|Export, publish, import]]

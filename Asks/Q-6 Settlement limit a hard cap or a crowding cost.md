@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-6 · Settlement limit: a hard cap or a crowding cost
+# Settlement limit: a hard cap or a crowding cost (Q-6)
 
 *open · 37.4*
 

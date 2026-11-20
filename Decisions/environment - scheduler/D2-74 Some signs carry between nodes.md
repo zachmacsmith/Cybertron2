@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-74 · Some signs carry between nodes
+# Some signs carry between nodes (D2-74)
 
 *live · 23 Oct · spec: [[environment - scheduler|environment/scheduler]], [[environment - visibility|environment/visibility]]*
 
@@ -20,8 +20,8 @@ conversation
 
 
 ## Mentioned by
-- [[Q-17 Edge terrain data|Q-17 · Edge terrain data]]
-- [[Q-18 D2-74 amends D4-35|Q-18 · D2-74 amends D4-35]]
+- [[Q-17 Edge terrain data|Edge terrain data (Q-17)]]
+- [[Q-18 D2-74 amends D4-35|D2-74 amends D4-35 (Q-18)]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
 - [[Proposal the landscape generator (a world under the graph)|Proposal: the landscape generator (a world under the graph)]]
 - [[Proposal phase 3 of the engine overhaul, variance and risk (the…|Proposal: phase 3 of the engine overhaul, variance and risk (the…]]

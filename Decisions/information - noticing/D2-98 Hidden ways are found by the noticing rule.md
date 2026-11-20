@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-98 · Hidden ways are found by the noticing rule
+# Hidden ways are found by the noticing rule (D2-98)
 
 *live · 23 Oct · spec: [[information - noticing|information/noticing]], [[world - roads|world/roads]]*
 

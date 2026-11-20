@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-96 · Using the store at home
+# Using the store at home (D4-96)
 
 *live · 2 Nov · spec: [[agents - actions|agents/actions]], [[core - world_schema|core/world_schema]]*
 

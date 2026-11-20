@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-228 · Calibrate across a distribution of worlds
+# Calibrate across a distribution of worlds (D2-228)
 
 *live · 17 Nov · spec: [[environment - land|environment/land]]*
 
@@ -20,15 +20,15 @@ calibration on the worlds of each brief
 
 
 ## Mentioned by
-- [[D2-242 Subsistence test worlds|D2-242 · Subsistence test worlds]]
-- [[Q-52 Environment systems|Q-52 · Environment systems]]
-- [[Q-58 The calibration worlds|Q-58 · The calibration worlds]]
-- [[W-49 Environment systems|W-49 · Environment systems]]
-- [[W-54 The calibration worlds|W-54 · The calibration worlds]]
-- [[W-64 Shared units for food, weight and work|W-64 · Shared units for food, weight and work]]
-- [[W-69 Subsistence worlds|W-69 · Subsistence worlds]]
-- [[L-116 The wild layer's fish and a water body, two ways|L-116 · The wild layer's fish and a water body, two ways]]
-- [[L-127 The ecology's calibration backlog|L-127 · The ecology's calibration backlog]]
+- [[D2-242 Subsistence test worlds|Subsistence test worlds (D2-242)]]
+- [[Q-52 Environment systems|Environment systems (Q-52)]]
+- [[Q-58 The calibration worlds|The calibration worlds (Q-58)]]
+- [[W-49 Environment systems|Environment systems (W-49)]]
+- [[W-54 The twelve calibration worlds and an audit of the generator across…|The twelve calibration worlds and an audit of the generator across… (W-54)]]
+- [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
+- [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+- [[L-116 The wild layer's fish and a water body, two ways|The wild layer's fish and a water body, two ways (L-116)]]
+- [[L-127 The ecology's calibration backlog|The ecology's calibration backlog (L-127)]]
 - [[Calibration worlds a suite of diverse places to calibrate against|Calibration worlds: a suite of diverse places to calibrate against]]
 - [[Luck in the catch, a lake's fish by its size, and a fishing household|Luck in the catch, a lake's fish by its size, and a fishing household]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]

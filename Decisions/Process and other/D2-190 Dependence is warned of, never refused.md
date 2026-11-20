@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-190 · Dependence is warned of, never refused
+# Dependence is warned of, never refused (D2-190)
 
 *live · 2 Nov*
 
@@ -20,9 +20,9 @@ the carrying burden as a refusal (02zl first draft)
 
 
 ## Mentioned by
-- [[L-50 Calibrate the carrying burden|L-50 · Calibrate the carrying burden]]
-- [[L-52 The carrying burden is an incomplete measure|L-52 · The carrying burden is an incomplete measure]]
-- [[L-53 Transport and traders, built out|L-53 · Transport and traders, built out]]
+- [[L-50 Calibrate the carrying burden|Calibrate the carrying burden (L-50)]]
+- [[L-52 The carrying burden is an incomplete measure|The carrying burden is an incomplete measure (L-52)]]
+- [[L-53 Transport and traders, built out|Transport and traders, built out (L-53)]]
 - [[The dependence ladder (OPEN L-50)|The dependence ladder (OPEN L-50)]]
 - [[02zl · Can a world feed its people Past runs and the pre-run checks|02zl · Can a world feed its people? Past runs and the pre-run checks]]
 - *and 1 index or audit notes*

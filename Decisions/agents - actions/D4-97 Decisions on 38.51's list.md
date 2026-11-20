@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-97 · Decisions on 38.51's list
+# Decisions on 38.51's list (D4-97)
 
 *live · 2 Nov · spec: [[agents - actions|agents/actions]], [[core - processes|core/processes]], [[life - birth_and_death|life/birth_and_death]]*
 
@@ -30,9 +30,9 @@ the old ladder, an oven anywhere, a common coppice, no fuel line, babies' risk b
 
 
 ## Mentioned by
-- [[Q-2 (Deferred 2 Nov, D4-97|Q-2 · (Deferred 2 Nov, D4-97]]
-- [[L-60 Should the store line give food in meals and fuel in nights, or leave…|L-60 · Should the store line give food in meals and fuel in nights, or leave…]]
-- [[L-61 D4-97's parts in 37.2's files|L-61 · D4-97's parts in 37.2's files]]
+- [[Q-2 (Deferred 2 Nov, D4-97|(Deferred 2 Nov, D4-97 (Q-2)]]
+- [[L-60 Should the store line give food in meals and fuel in nights, or leave…|Should the store line give food in meals and fuel in nights, or leave… (L-60)]]
+- [[L-61 D4-97's parts in 37.2's files|D4-97's parts in 37.2's files (L-61)]]
 - [[What an agent is shown the world and its rules, not choices made for…|What an agent is shown: the world and its rules, not choices made for…]]
 - [[What can happen to buildings and fittings, by weather and use…|What can happen to buildings and fittings, by weather and use…]]
 - [[Proposal buildings from parts|Proposal: buildings from parts]]

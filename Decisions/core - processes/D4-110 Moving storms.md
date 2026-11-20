@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-110 · Moving storms
+# Moving storms (D4-110)
 
 *live · 8 Nov · spec: [[core - processes|core/processes]], [[information - signs|information/signs]]*
 

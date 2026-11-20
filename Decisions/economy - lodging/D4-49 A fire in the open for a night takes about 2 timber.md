@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-49 · A fire in the open for a night takes about 2 timber
+# A fire in the open for a night takes about 2 timber (D4-49)
 
 *live · 23 Oct · spec: [[economy - lodging|economy/lodging]]*
 
@@ -20,7 +20,7 @@ no fire in the open; a camp's fire at a house's rate (engine as built)
 
 
 ## Mentioned by
-- [[D2-159 Shelter and fire are separate|D2-159 · Shelter and fire are separate]]
+- [[D2-159 Shelter and fire are separate|Shelter and fire are separate (D2-159)]]
 - [[Levels of fire, and camps built out (flagged for later)|Levels of fire, and camps built out (flagged for later)]]
 - [[An open fire and a camp what fire away from a house costs|An open fire and a camp: what fire away from a house costs]]
 - [[Damage to shelter in levels, by structure and weather; camps as…|Damage to shelter in levels, by structure and weather; camps as…]]

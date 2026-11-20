@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-39 · Brief 4's open questions
+# Brief 4's open questions (Q-39)
 
 *closed, by zach · Zach*
 
@@ -18,7 +18,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[Q-46 Brief 4c as built|Q-46 · Brief 4c as built]]
-- [[W-27 Build brief 4|W-27 · Build brief 4]]
+- [[Q-46 Brief 4c as built|Brief 4c as built (Q-46)]]
+- [[W-27 Build brief 4|Build brief 4 (W-27)]]
 - [[The hunt over time, and what briefs 1 to 3 left build brief 4|The hunt over time, and what briefs 1 to 3 left: build brief 4]]
 - *and 4 index or audit notes*

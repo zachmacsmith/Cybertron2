@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-101 · An attack on a house with aim hurt sets on those inside
+# An attack on a house with aim hurt sets on those inside (D4-101)
 
 *live · 7 Nov · spec: [[conflict - raids|conflict/raids]]*
 
@@ -20,7 +20,7 @@ an attack on a house was a raid for food whatever its aim (OPEN [[L-64 An attack
 
 
 ## Mentioned by
-- [[L-64 An attack on a house ignores its aim Done|L-64 · An attack on a house ignores its aim **Done**]]
+- [[L-64 An attack on a house ignores its aim Done|An attack on a house ignores its aim **Done** (L-64)]]
 - [[An attack on a house to hurt sets on the people inside|An attack on a house to hurt sets on the people inside]]
 - [[Raids on a building and on a whole node|Raids: on a building and on a whole node]]
 - [[14 War, force and the economy (16 Nov 2026)|14: War, force and the economy (16 Nov 2026)]]

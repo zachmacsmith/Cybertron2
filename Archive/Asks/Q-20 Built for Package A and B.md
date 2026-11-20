@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-20 · Built for Package A and B
+# Built for Package A and B (Q-20)
 
 *closed · 37.4, Zach to confirm*
 
@@ -23,11 +23,11 @@ Built for Package A and B (24 Oct), choices the spec left open, for Zach to conf
 
 
 ## Mentioned by
-- [[D2-118 Build choices confirmed (OPEN Q-20 1, 3, 4)|D2-118 · Build choices confirmed (OPEN Q-20 1, 3, 4)]]
-- [[D2-119 Dibbling|D2-119 · Dibbling]]
-- [[D2-120 Offers in a meeting on the road go through the same agreement system…|D2-120 · Offers in a meeting on the road go through the same agreement system…]]
-- [[D2-121 Where parties crossing on a road meet varies|D2-121 · Where parties crossing on a road meet varies]]
-- [[D2-122 Every road has a terrain by default|D2-122 · Every road has a terrain by default]]
+- [[D2-118 Build choices confirmed (OPEN Q-20 1, 3, 4)|Build choices confirmed (OPEN Q-20 1, 3, 4) (D2-118)]]
+- [[D2-119 Dibbling|Dibbling (D2-119)]]
+- [[D2-120 Offers in a meeting on the road go through the same agreement system…|Offers in a meeting on the road go through the same agreement system… (D2-120)]]
+- [[D2-121 Where parties crossing on a road meet varies|Where parties crossing on a road meet varies (D2-121)]]
+- [[D2-122 Every road has a terrain by default|Every road has a terrain by default (D2-122)]]
 - [[02s build brief for 37.4 the parcel graph, herds, fences, hidden…|02s: build brief for 37.4: the parcel graph, herds, fences, hidden…]]
 - [[Review 38.24 Packages A and B built and run (37.2's brief 02r)|Review 38.24: Packages A and B built and run (37.2's brief 02r)]]
 - [[Review 38.25 Package C built and run (37.2's brief 02s) the parcel…|Review 38.25: Package C built and run (37.2's brief 02s): the parcel…]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-252 · The calibration suite measures how the worlds differ, world by world…
+# The calibration suite measures how the worlds differ, world by world… (D2-252)
 
 *live · 20 Nov*
 
@@ -17,9 +17,9 @@ conversation (20 Nov: "The calibration should look how different sources of nutr
 
 
 ## Linked
-- parent: [[W-54 The calibration worlds|W-54 · The calibration worlds]]
+- parent: [[W-54 The twelve calibration worlds and an audit of the generator across…|The twelve calibration worlds and an audit of the generator across… (W-54)]]
 
 
 ## Mentioned by
-- [[W-54 The calibration worlds|W-54 · The calibration worlds]]
+- [[W-54 The twelve calibration worlds and an audit of the generator across…|The twelve calibration worlds and an audit of the generator across… (W-54)]]
 - [[Calibration worlds a suite of diverse places to calibrate against|Calibration worlds: a suite of diverse places to calibrate against]]

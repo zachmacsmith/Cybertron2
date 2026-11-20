@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-94 · `for` (D2-37) and the sowing method (D2-54) are modifiers
+# `for` (D2-37) and the sowing method (D2-54) are modifiers (D2-94)
 
 *live · 23 Oct · spec: [[agents - actions|agents/actions]], [[agents - modifiers|agents/modifiers]]*
 

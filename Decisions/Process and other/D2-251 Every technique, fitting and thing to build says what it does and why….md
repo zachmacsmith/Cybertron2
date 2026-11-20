@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-251 · Every technique, fitting and thing to build says what it does and why…
+# Every technique, fitting and thing to build says what it does and why… (D2-251)
 
 *live · 20 Nov*
 
@@ -17,8 +17,8 @@ conversation (20 Nov: "I think different techniques / things to build should com
 
 
 ## Linked
-- parent: [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70 · Verbs and livelihood archetypes, before the engine rework]]
+- parent: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
 
 
 ## Mentioned by
-- [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70 · Verbs and livelihood archetypes, before the engine rework]]
+- [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]

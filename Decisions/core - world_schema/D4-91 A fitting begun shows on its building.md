@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-91 · A fitting begun shows on its building
+# A fitting begun shows on its building (D4-91)
 
 *live · 2 Nov · spec: [[core - world_schema|core/world_schema]], [[economy - buildings|economy/buildings]]*
 
@@ -20,7 +20,7 @@ a begun fitting not shown
 
 
 ## Mentioned by
-- [[L-40 (Done 3 Nov D4-89 and D4-91 written into economybuildings.md, D4-92…|L-40 · (Done 3 Nov: D4-89 and D4-91 written into economy/buildings.md, D4-92…]]
+- [[L-40 (Done 3 Nov D4-89 and D4-91 written into economybuildings.md, D4-92…|(Done 3 Nov: D4-89 and D4-91 written into economy/buildings.md, D4-92… (L-40)]]
 - [[How much lies there heaps seen by their bulk, counted when attended…|How much lies there: heaps seen by their bulk, counted when attended…]]
 - [[Proposal the senses across every system|Proposal: the senses across every system]]
 - [[The world record's shape and its version|The world record's shape and its version]]

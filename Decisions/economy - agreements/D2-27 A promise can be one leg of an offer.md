@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-27 · A promise can be one leg of an offer
+# A promise can be one leg of an offer (D2-27)
 
 *live · 23 Oct · spec: [[economy - agreements|economy/agreements]], [[economy - money_and_markets|economy/money_and_markets]]*
 

@@ -73,7 +73,7 @@ carried, and not in WORK or OPEN. Items that survive only as a proposal's "Open 
 | 7 | The signs sweep (_wild_traces, eaten, mast, hunt notices, tests, records) | done: 767041b |
 | 7 | Waves 3, 4 and 5 | done: 767041b, c9b6259, b32f092 |
 | 7 | One more small LLM run | done: runs 3 to 6 |
-| 7 | Climate calibration (task 28) | **vanished**: dropped from the lists; "summer too cool" (C9) was never recorded; it came back as [[W-51 The weather across conditions|W-51]] at Zach's request (16 Nov) |
+| 7 | Climate calibration (task 28) | **vanished**: dropped from the lists; "summer too cool" (C9) was never recorded; it came back as [[W-51 Testing the weather across dry, cold, coastal and mountain worlds…|W-51]] at Zach's request (16 Nov) |
 | 7 | The calibration backlog | recorded: [[W-7 The ecology branch's next steps|W-7]]; later [[L-127 The ecology's calibration backlog|L-127]] (19 Nov) |
 | 7 | Capacity under a harvest (37.4's) | **vanished** (proposal only): living_populations step 2a, wild_layer §3.3 |
 | 7 | Husbandry: sheep, poultry and hounds as beasts | recorded: [[L-36 Livestock kinds beyond cattle and herds moved with the seasons|L-36]] (1 Nov); [[L-119 Wildlife pack K6 keeping|L-119]] (19 Nov) |
@@ -91,20 +91,20 @@ carried, and not in WORK or OPEN. Items that survive only as a proposal's "Open 
 | 9 | Side-by-side of live_spring_seed7 against run 6 | **vanished** |
 | 9 | Tweak list to 37.4 once Zach confirms | done: became brief 4 (hunt_and_fixes.md, [[W-24 Build brief 4 written (hunt_and_fixes.md)|W-24]]); the "summer too cool" item was lost |
 | 9 | Write proposals/wild_encounters.md (animal attacks on people as a fuse event) | **vanished**: last said "not written yet" (9 Nov 22:02) |
-| 9 | The forays build brief | recorded: [[L-105 Forays as their own track|L-105]], [[W-12 Forays (proposalsforays.md)|W-12]], [[Q-33 forays.md's open questions|Q-33]] |
+| 9 | The forays build brief | recorded: [[L-105 Forays as their own track|L-105]], [[W-12 Forays trips out into the land and back, with what is found and told|W-12]], [[Q-33 forays.md's open questions|Q-33]] |
 | 9 | [[Q-37 Brief 2 as built, and what its gate found|Q-37]] decisions | recorded: [[Q-37 Brief 2 as built, and what its gate found|Q-37]], [[W-21 Proposals for Q-37|W-21]] |
 | 9 | 02zv §6 decisions ([[Q-32 02zv §6's decisions still open|Q-32]]) | recorded: [[Q-32 02zv §6's decisions still open|Q-32]] |
 | 9 | The 02zz sorting check | recorded: [[W-3 Records restructure|W-3]] (still "active" since 9 Nov) |
 | 9 | [[W-5 37.2's own hygiene items|W-5]] | recorded: [[W-5 37.2's own hygiene items|W-5]] |
 | 10 (10 Nov 07:58) | Report the trade and children investigation | done: 08:01 |
 | 10 | Check whether elders can conceive | done: 08:00 ("you must both be grown adults") |
-| 10 | Write up the run against the bot null arm | recorded: [[W-29 A multi-village wild region and its live run|W-29]] "Left" (not done; last touched 10 Nov) |
-| 10 | Fix: loans or rentals of goods | recorded: [[W-29 A multi-village wild region and its live run|W-29]] |
+| 10 | Write up the run against the bot null arm | recorded: [[W-29 Writing up the 10 Nov wild-region live run|W-29]] "Left" (not done; last touched 10 Nov) |
+| 10 | Fix: loans or rentals of goods | recorded: [[W-29 Writing up the 10 Nov wild-region live run|W-29]] |
 | 10 | Fix: hunting odds for the unskilled; how visible parties are | done: brief 4c (hunt_calibration.md); whether parties are visible in the manual was not traced |
 | 10 | Fix: Stanmoor's isolation and the charcoal knowledge | **vanished** |
 | 10 | Fix: debts of the dead | **vanished** |
 | 10 | Fix: Haiku repeating failing actions | **vanished** |
-| 10 | Seeder redesign proposal for 37.4 (age structure, partnering) | **vanished** as 37.2's: never written; the ground was covered by other sessions ([[Q-43 Before the second peoples run|Q-43]], [[W-46 Do agents in the runs form new partnerships, pair up when grown, or…|W-46]], generation redesign [[W-38 Generation redesign|W-38]]/[[W-39 The economy's layers and trees of dependence across the domains|W-39]]) |
+| 10 | Seeder redesign proposal for 37.4 (age structure, partnering) | **vanished** as 37.2's: never written; the ground was covered by other sessions ([[Q-43 Fixes before a second peoples run|Q-43]], [[W-46 Do agents in the runs form new partnerships, pair up when grown, or…|W-46]], generation redesign [[W-38 Generation redesign|W-38]]/[[W-39 The economy's web of dependence and how far it should reach|W-39]]) |
 | 10 | Zach's go on the generator speed fixes (02zzf) | carried |
 | 10 | Brief 5's go, and the two test worlds owed | carried |
 | 10 | HF upload of the other runs (Fable probes, pair runs, wild_run1-6) | **vanished**: only a standing rule in C11; not uploaded or recorded (logs in the scratchpad) |
@@ -114,11 +114,11 @@ carried, and not in WORK or OPEN. Items that survive only as a proposal's "Open 
 | 11 | [[W-40 Economy research, hunter-gatherers to the 21st-century urban economy|W-40]] to done; task #41 | done: WORK Done |
 | 11 | Report to Zach | done |
 | 11 | [[Q-46 Brief 4c as built|Q-46]] | carried ((b) to (d)) |
-| 11 | economy_web.md open questions | recorded: [[W-39 The economy's layers and trees of dependence across the domains|W-39]], [[L-111 The hunting and resources build, a soon follow-up|L-111]] |
+| 11 | economy_web.md open questions | recorded: [[W-39 The economy's web of dependence and how far it should reach|W-39]], [[L-111 The hunting and resources build, a soon follow-up|L-111]] |
 | 11 | Stage 1 materials brief; kept-beasts brief | recorded: [[L-111 The hunting and resources build, a soon follow-up|L-111]] (16 Nov); [[L-119 Wildlife pack K6 keeping|L-119]] (19 Nov) |
 | 11 | Brief 5's go | done: [[D2-209 Brief 5 (river and water) is built|D2-209]] (16 Nov) |
 | 11 | The merge questions | done: merged 16 Nov (6190b4d, 7ddc1c8; [[W-6 Merging the wild layer into main|W-6]], [[W-36 Build brief 4c, then the merge of the wild layer|W-36]]) |
-| 11 | Generator speed fixes (02zzf) | recorded: only in [[W-29 A multi-village wild region and its live run|W-29]]'s "Left"; dropped from C12; not done |
+| 11 | Generator speed fixes (02zzf) | recorded: only in [[W-29 Writing up the 10 Nov wild-region live run|W-29]]'s "Left"; dropped from C12; not done |
 | 11 | Brief 5's two test worlds | done: [[W-47 Brief 5's worlds and the runs-only world|W-47]], cd41833 |
 | 11 | The signs audit | carried |
 | 11 | The berries-line repetition fix | carried |
@@ -128,13 +128,13 @@ carried, and not in WORK or OPEN. Items that survive only as a proposal's "Open 
 | 12 | [[Q-52 Environment systems|Q-52]] | recorded: answered 17 Nov ([[D2-221 The land in three speeds|D2-221]] to [[D2-228 Calibrate across a distribution of worlds|D2-228]]); (6) open |
 | 12 | [[Q-46 Brief 4c as built|Q-46]] (b)-(d) | recorded: [[Q-46 Brief 4c as built|Q-46]] |
 | 12 | Record briefs 4, 4b and 4c as decisions | recorded: [[Q-46 Brief 4c as built|Q-46]] (a) and [[Q-39 Brief 4's open questions|Q-39]], answered 16 Nov "accepted as built"; no DECISIONS rows written |
-| 12 | [[Q-47 The border for now|Q-47]], the border | recorded: [[Q-47 The border for now|Q-47]] |
+| 12 | [[Q-47 Where the economy stops for now|Q-47]], the border | recorded: [[Q-47 Where the economy stops for now|Q-47]] |
 | 12 | The hunting and resources build brief | recorded: [[L-111 The hunting and resources build, a soon follow-up|L-111]] |
 | 12 | The waters' fish groups | done: [[D2-229 One fish stock per water body|D2-229]], [[W-56 One fish stock per water body, the engine half|W-56]] |
 | 12 | The signs audit | **vanished**: never in OPEN or WORK; 37.4's signs pass of 17 Nov (signs_pass_17nov.md) overlaps in part |
 | 12 | The berries-line fix | **vanished**: never recorded, not done |
 | 12 | The [[L-106 MAJOR what the engine remembers and settles for agents, and…|L-106]] proposal | recorded: [[L-106 MAJOR what the engine remembers and settles for agents, and…|L-106]] |
-| 12 | Respond to 37.4's calibration results | done: [[W-60 The ecology's water measure counted each lake and the large river…|W-60]], 4a0a98f (16 Nov 23:43) |
+| 12 | Respond to 37.4's calibration results | done: [[W-60 Fixing the ecology's water counted twice, then rechecking the…|W-60]], 4a0a98f (16 Nov 23:43) |
 | 12 | Hygiene | done in part: the last --record row is 16 Nov |
 
 **Counts (each summary's pending list counted on its own, 111 items):** done 51, carried 7, recorded 33, vanished 20 (3 of them
@@ -188,8 +188,8 @@ the v1 justification). After C10 it sat idle until 12 Nov.
   Q1-4 (until the 19 Nov sweep added [[L-117 Wildlife pack K3 forays, methods and knowing|L-117]] to [[L-127 The ecology's calibration backlog|L-127]]). Proposal statuses go stale ("discussion" after the work moved on).
 - **Write-ups owed are the most fragile.** Of five owed (the null-arm write-up, wild_encounters, the seeder proposal, the
   takeover gap analysis, the briefs 4 to 4c DECISIONS rows), none is written. The null-arm write-up and the decision rows are
-  recorded ([[W-29 A multi-village wild region and its live run|W-29]], [[Q-46 Brief 4c as built|Q-46]]) but stuck.
-- **Recorded does not mean moving.** [[W-3 Records restructure|W-3]] is "active" and [[W-5 37.2's own hygiene items|W-5]] "queued" since 9 Nov, [[W-29 A multi-village wild region and its live run|W-29]]'s "Left" is untouched since 10 Nov,
+  recorded ([[W-29 Writing up the 10 Nov wild-region live run|W-29]], [[Q-46 Brief 4c as built|Q-46]]) but stuck.
+- **Recorded does not mean moving.** [[W-3 Records restructure|W-3]] is "active" and [[W-5 37.2's own hygiene items|W-5]] "queued" since 9 Nov, [[W-29 Writing up the 10 Nov wild-region live run|W-29]]'s "Left" is untouched since 10 Nov,
   and [[Q-29 scheduler.md and the weather scheduler (D4-109)|Q-29]] and [[Q-30 livestock.md's fence upkeep (D2-130) and D4-114|Q-30]] have been open since 8 Nov. Recording stops the loss but not the drift.
 - **The summaries did not grow steadily.** In total length they run 17k to 32k characters, peaking at C9 (32k, 35 pending
   bullets), then 29k, 26k and 23k. Their pending sections run 0.4k to 2.4k. They replace older items rather than build on them,

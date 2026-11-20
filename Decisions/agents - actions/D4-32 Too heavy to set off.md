@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-32 · Too heavy to set off
+# Too heavy to set off (D4-32)
 
 *live · 23 Oct · spec: [[agents - actions|agents/actions]], [[economy - transport|economy/transport]], [[information - prompts|information/prompts]], [[world - edges|world/edges]], [[world - things_in_places|world/things_in_places]]*
 

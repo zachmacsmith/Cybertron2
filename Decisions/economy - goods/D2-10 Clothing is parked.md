@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-10 · Clothing is parked
+# Clothing is parked (D2-10)
 
 *live · 22 Oct · spec: [[economy - goods|economy/goods]]*
 
@@ -20,8 +20,8 @@ the direction "clothing as a worn stock"
 
 
 ## Mentioned by
-- [[L-14 Clothing|L-14 · Clothing]]
-- [[L-121 Wildlife pack K8 crafts and wild goods|L-121 · Wildlife pack K8: crafts and wild goods]]
+- [[L-14 Clothing|Clothing (L-14)]]
+- [[L-121 Wildlife pack K8 crafts and wild goods|Wildlife pack K8: crafts and wild goods (L-121)]]
 - [[Proposal options kept for later (goods, tools, methods)|Proposal: options kept for later (goods, tools, methods)]]
 - [[Proposal resources and goods|Proposal: resources and goods]]
 - [[Proposal shelter|Proposal: shelter]]

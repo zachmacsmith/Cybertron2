@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# O-1 · A first wiki generated from the spec as it stands, as a private page…
+# A first wiki generated from the spec as it stands, as a private page… (O-1)
 
 *open · 37.2*
 
@@ -18,8 +18,8 @@ updated: "2026-11-20"
 
 
 ## Linked
-- parent: [[W-65 Tracking threads automatically|W-65 · Tracking threads automatically]]
-- relates: [[L-129 A wiki of the world's rules, generated from the development process…|L-129 · A wiki of the world's rules, generated from the development process…]]
+- parent: [[W-65 The records system|The records system (W-65)]]
+- relates: [[L-129 A wiki of the world's rules, generated from the development process…|A wiki of the world's rules, generated from the development process… (L-129)]]
 
 
 ## Mentioned by

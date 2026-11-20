@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-24 · The world grows by data, and agents explore and learn it
+# The world grows by data, and agents explore and learn it (D4-24)
 
 *live · 23 Oct · spec: [[agents - actions|agents/actions]], [[agents - modifiers|agents/modifiers]], [[core - architecture|core/architecture]], [[information - prompts|information/prompts]]*
 
@@ -17,7 +17,7 @@ proposals/verbs.md, knowledge.md
 
 
 ## Mentioned by
-- [[D2-185 Heath, moor, fen and saltmarsh are covers|D2-185 · Heath, moor, fen and saltmarsh are covers]]
+- [[D2-185 Heath, moor, fen and saltmarsh are covers|Heath, moor, fen and saltmarsh are covers (D2-185)]]
 - [[What an agent is shown the world and its rules, not choices made for…|What an agent is shown: the world and its rules, not choices made for…]]
 - [[Proposal buildings people make their own (descriptions and lines…|Proposal: buildings people make their own (descriptions and lines…]]
 - [[The economy as a web of chains of different shapes|The economy as a web of chains of different shapes]]

@@ -5,7 +5,7 @@ state: deferred
 updated: "2026-11-20"
 ---
 
-# W-21 · Proposals for Q-37
+# Proposals for Q-37 (W-21)
 
 *deferred, by zach · 37.2 (session "Thicker economy exploration") · touched 9 Nov (11 days ago)*
 
@@ -20,6 +20,6 @@ deferred 20 Nov: deferred with the houses point, [[L-131 The wild layer's live p
 
 
 ## Mentioned by
-- [[L-131 The wild layer's live points from briefs 1 to 3|L-131 · The wild layer's live points from briefs 1 to 3]]
+- [[L-131 The wild layer's live points from briefs 1 to 3|The wild layer's live points from briefs 1 to 3 (L-131)]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - *and 4 index or audit notes*

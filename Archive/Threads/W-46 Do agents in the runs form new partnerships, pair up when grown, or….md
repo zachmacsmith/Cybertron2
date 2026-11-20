@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-46 · Do agents in the runs form new partnerships, pair up when grown, or…
+# Do agents in the runs form new partnerships, pair up when grown, or… (W-46)
 
 *done · c2viz session · touched  ()*
 

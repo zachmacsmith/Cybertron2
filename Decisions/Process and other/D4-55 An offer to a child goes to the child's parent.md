@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-55 · An offer to a child goes to the child's parent
+# An offer to a child goes to the child's parent (D4-55)
 
 *live · 24 Oct*
 

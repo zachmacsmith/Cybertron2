@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-4 · External change is separate from internal consequences
+# External change is separate from internal consequences (D4-4)
 
 *live · 22 Oct · spec: [[environment - resources|environment/resources]], [[environment - scheduler|environment/scheduler]]*
 
@@ -17,7 +17,7 @@ devlog #4
 
 
 ## Mentioned by
-- [[C-8 Environment design for the old engine|C-8 · Environment design for the old engine]]
+- [[C-8 Environment design for the old engine|Environment design for the old engine (C-8)]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
 - [[Proposal the hidden state of places and things (shared variables…|Proposal: the hidden state of places and things (shared variables…]]
 - [[The engine as a small core and feature packages design specification|The engine as a small core and feature packages: design specification]]

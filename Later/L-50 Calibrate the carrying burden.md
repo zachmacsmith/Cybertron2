@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-50 · Calibrate the carrying burden
+# Calibrate the carrying burden (L-50)
 
 *open · 37.2 (design), 37.4 (runs)*
 
@@ -20,7 +20,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[L-53 Transport and traders, built out|L-53 · Transport and traders, built out]]
+- [[L-53 Transport and traders, built out|Transport and traders, built out (L-53)]]
 - [[The dependence ladder (OPEN L-50)|The dependence ladder (OPEN L-50)]]
 - [[A benchmark by living descendants, on a ladder of worlds|A benchmark by living descendants, on a ladder of worlds]]
 - [[Proposal the economy plan for cybertron2|Proposal: the economy plan for cybertron2]]

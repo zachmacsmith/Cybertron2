@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-11 · Who holds a plot
+# Who holds a plot (Q-11)
 
 *closed · 37.4*
 

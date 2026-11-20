@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-105 · Sowing windows are lore, not rules
+# Sowing windows are lore, not rules (D4-105)
 
 *live · 8 Nov · spec: [[core - processes|core/processes]], [[core - world_schema|core/world_schema]]*
 
@@ -20,8 +20,8 @@ sowing refusal, the rules' crop line, phase 2's fade and wear values ([[D4-103 T
 
 
 ## Mentioned by
-- [[D4-106 Can apart from works|D4-106 · Can apart from works]]
-- [[D4-114 What is physically there can be used|D4-114 · What is physically there can be used]]
+- [[D4-106 Can apart from works|Can apart from works (D4-106)]]
+- [[D4-114 What is physically there can be used|What is physically there can be used (D4-114)]]
 - [[Proposal crops grow by the season; can apart from works; what a…|Proposal: crops grow by the season; "can" apart from "works"; what a…]]
 - [[Economic calibration one time scale, and mechanics that make…|Economic calibration: one time scale, and mechanics that make…]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]

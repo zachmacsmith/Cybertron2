@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-74 · Events and their aftermath show themselves as bundles
+# Events and their aftermath show themselves as bundles (D4-74)
 
 *live · 2 Nov · spec: [[core - world_schema|core/world_schema]], [[information - perception|information/perception]], [[information - signs|information/signs]]*
 
@@ -17,8 +17,8 @@ conversation ("Get the agent to add bundles for the 18 it ranked"; the four kind
 
 
 ## Mentioned by
-- [[D4-81 Who stole is known only to those who saw it|D4-81 · Who stole is known only to those who saw it]]
-- [[Q-8 Which signs, incidents and eras first|Q-8 · Which signs, incidents and eras first]]
+- [[D4-81 Who stole is known only to those who saw it|Who stole is known only to those who saw it (D4-81)]]
+- [[Q-8 Which signs, incidents and eras first|Which signs, incidents and eras first (Q-8)]]
 - [[Every perceived line by the one noticing rule|Every perceived line by the one noticing rule]]
 - [[An attack on a house to hurt sets on the people inside|An attack on a house to hurt sets on the people inside]]
 - [[Proposal what an agent is shown each round, attention, and…|Proposal: what an agent is shown each round, attention, and…]]

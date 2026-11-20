@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-22 · Any party may raid a node
+# Any party may raid a node (D2-22)
 
 *live · 22 Oct · spec: [[conflict - raids|conflict/raids]]*
 
@@ -20,7 +20,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[Q-12 Decisions made with 37.2 that belong in 37.4's spec areas and are not…|Q-12 · Decisions made with 37.2 that belong in 37.4's spec areas and are not…]]
+- [[Q-12 Decisions made with 37.2 that belong in 37.4's spec areas and are not…|Decisions made with 37.2 that belong in 37.4's spec areas and are not… (Q-12)]]
 - [[Proposal attacks, buildings and walls|Proposal: attacks, buildings and walls]]
 - [[Proposal what can happen (eras, weather, hazards that spread, and…|Proposal: what can happen (eras, weather, hazards that spread, and…]]
 - [[Raids on a building and on a whole node|Raids: on a building and on a whole node]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-8 · Arrive, then decide
+# Arrive, then decide (D4-8)
 
 *live · 22 Oct · spec: [[core - round|core/round]], [[economy - transport|economy/transport]], [[world - edges|world/edges]], [[world - roads|world/roads]]*
 
@@ -20,11 +20,11 @@ devlog #8, 05 §2
 
 
 ## Mentioned by
-- [[D2-83 Riders|D2-83 · Riders]]
-- [[D4-3 Travel takes time; no moving as a pre-action|D4-3 · Travel takes time; no moving as a pre-action]]
-- [[D4-67 Setting off in the morning or at nightfall|D4-67 · Setting off in the morning or at nightfall]]
-- [[L-102 Acting at different times of the day, as one general system|L-102 · Acting at different times of the day, as one general system]]
-- [[C-5 Riders who travel and strike in one round|C-5 · Riders who travel and strike in one round]]
+- [[D2-83 Riders|Riders (D2-83)]]
+- [[D4-3 Travel takes time; no moving as a pre-action|Travel takes time; no moving as a pre-action (D4-3)]]
+- [[D4-67 Setting off in the morning or at nightfall|Setting off in the morning or at nightfall (D4-67)]]
+- [[L-102 Acting at different times of the day, as one general system|Acting at different times of the day, as one general system (L-102)]]
+- [[C-5 Riders who travel and strike in one round|Riders who travel and strike in one round (C-5)]]
 - [[Proposal attacks, buildings and walls|Proposal: attacks, buildings and walls]]
 - [[Setting off in the morning or at nightfall|Setting off in the morning or at nightfall]]
 - [[Proposal fuse events (time to respond)|Proposal: fuse events (time to respond)]]

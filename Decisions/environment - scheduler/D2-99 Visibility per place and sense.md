@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-99 · Visibility per place and sense
+# Visibility per place and sense (D2-99)
 
 *live · 23 Oct · spec: [[environment - scheduler|environment/scheduler]], [[environment - visibility|environment/visibility]], [[information - noticing|information/noticing]], [[information - prompts|information/prompts]]*
 

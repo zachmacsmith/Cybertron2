@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-192 · The first wild kinds come in four waves
+# The first wild kinds come in four waves (D2-192)
 
 *live · 8 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 
@@ -20,7 +20,7 @@ game as one generic stock; replaced in part by [[D2-204 People answer the wild b
 
 
 ## Mentioned by
-- [[D2-204 People answer the wild by general methods, not a technique per kind|D2-204 · People answer the wild by general methods, not a technique per kind]]
+- [[D2-204 People answer the wild by general methods, not a technique per kind|People answer the wild by general methods, not a technique per kind (D2-204)]]
 - [[Proposal what people make of wild things economies, husbandry…|Proposal: what people make of wild things: economies, husbandry…]]
 - [[Methods and encounters people answer the wild by general methods…|Methods and encounters: people answer the wild by general methods…]]
 - [[Proposal ecology designed from the node outward|Proposal: ecology designed from the node outward]]

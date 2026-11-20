@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# C-3 · Speech at a node: one talk step
+# Speech at a node: one talk step (C-3)
 
 *open · 37.4*
 

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-11 · Node scale: if you could go there and be back before nightfall, it is…
+# Node scale: if you could go there and be back before nightfall, it is… (D4-11)
 
 *live · 22 Oct · spec: [[world - places|world/places]]*
 
@@ -17,8 +17,8 @@ devlog #11, 04 §1
 
 
 ## Mentioned by
-- [[L-33 Growth to towns fixed nodes, faster edges, reach by place|L-33 · Growth to towns: fixed nodes, faster edges, reach by place]]
-- [[L-35 Distance inside a node|L-35 · Distance inside a node]]
+- [[L-33 Growth to towns fixed nodes, faster edges, reach by place|Growth to towns: fixed nodes, faster edges, reach by place (L-33)]]
+- [[L-35 Distance inside a node|Distance inside a node (L-35)]]
 - [[Proposal the economy plan for cybertron2|Proposal: the economy plan for cybertron2]]
 - [[Proposal the landscape generator (a world under the graph)|Proposal: the landscape generator (a world under the graph)]]
 - [[Proposal the generator, stage 1 (a spec for review before it is…|Proposal: the generator, stage 1 (a spec for review before it is…]]

@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-47 · Brief 5's worlds and the runs-only world
+# Brief 5's worlds and the runs-only world (W-47)
 
 *done · 37.2 · touched  ()*
 
@@ -17,7 +17,7 @@ Brief 5's worlds and the runs-only world (Zach, 16 Nov: "design the world while 
 
 
 ## Mentioned by
-- [[W-48 Build brief 5, river and water|W-48 · Build brief 5, river and water]]
+- [[W-48 Build brief 5, river and water|Build brief 5, river and water (W-48)]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[38.73 Brief 5 (river and water) as built the dry-run report for the…|38.73: Brief 5 (river and water) as built: the dry-run report for the…]]
 - *and 3 index or audit notes*

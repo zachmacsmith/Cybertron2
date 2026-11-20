@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-133 · The engine as feature packages: postponed, kept in mind
+# The engine as feature packages: postponed, kept in mind (L-133)
 
 *open · 37.2*
 
@@ -16,9 +16,9 @@ Zach, 20 Nov ([[D2-244 The engine's reworking into feature packages|D2-244]]): p
 
 
 ## Linked
-- parent: [[W-43 The engine as feature packages|W-43 · The engine as feature packages]]
-- relates: [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70 · Verbs and livelihood archetypes, before the engine rework]]
+- parent: [[W-43 The engine as feature packages|The engine as feature packages (W-43)]]
+- relates: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
 
 
 ## Mentioned by
-- [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70 · Verbs and livelihood archetypes, before the engine rework]]
+- [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]

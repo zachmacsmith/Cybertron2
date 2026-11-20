@@ -5,7 +5,7 @@ state: paused
 updated: "2026-11-20"
 ---
 
-# W-13 · Brookend survival world, rerun p2
+# Brookend survival world, rerun p2 (W-13)
 
 *paused · 37.4 · touched 8 Nov (12 days ago)*
 

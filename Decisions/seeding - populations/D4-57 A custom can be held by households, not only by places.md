@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-57 · A custom can be held by households, not only by places
+# A custom can be held by households, not only by places (D4-57)
 
 *live · 24 Oct · spec: [[seeding - populations|seeding/populations]]*
 
@@ -20,7 +20,7 @@ customs held by everyone at a node (OPEN [[L-25 Beliefs, values and customs|L-25
 
 
 ## Mentioned by
-- [[D4-64 Lines kept for good, passed on through care, replacing customs|D4-64 · Lines kept for good, passed on through care, replacing customs]]
+- [[D4-64 Lines kept for good, passed on through care, replacing customs|Lines kept for good, passed on through care, replacing customs (D4-64)]]
 - [[Customs held by households|Customs held by households]]
 - [[Kept for good a few lines an agent keeps word for word|Kept for good: a few lines an agent keeps word for word]]
 - [[Seeded populations|Seeded populations]]

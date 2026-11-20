@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-60 · Should the store line give food in meals and fuel in nights, or leave…
+# Should the store line give food in meals and fuel in nights, or leave… (L-60)
 
 *open · 37.4*
 
@@ -20,6 +20,6 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[D4-97 Decisions on 38.51's list|D4-97 · Decisions on 38.51's list]]
+- [[D4-97 Decisions on 38.51's list|Decisions on 38.51's list (D4-97)]]
 - [[What an agent is shown the world and its rules, not choices made for…|What an agent is shown: the world and its rules, not choices made for…]]
 - *and 2 index or audit notes*

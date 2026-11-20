@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-166 · Large capital costs village-scale work
+# Large capital costs village-scale work (D2-166)
 
 *live · 3 Nov · spec: [[economy - buildings|economy/buildings]]*
 

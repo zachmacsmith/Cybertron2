@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-16 · Reflexes, fallbacks and policies as standing orders
+# Reflexes, fallbacks and policies as standing orders (L-16)
 
 *open · 37.4*
 

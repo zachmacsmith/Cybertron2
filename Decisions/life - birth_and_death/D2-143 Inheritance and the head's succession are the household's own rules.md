@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-143 · Inheritance and the head's succession are the household's own rules
+# Inheritance and the head's succession are the household's own rules (D2-143)
 
 *live · 24 Oct · spec: [[life - birth_and_death|life/birth_and_death]], [[world - holding|world/holding]]*
 

@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-63 · A commit schema
+# A commit schema (Q-63)
 
 *closed · Zach (37.2)*
 

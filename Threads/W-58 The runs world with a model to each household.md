@@ -5,7 +5,7 @@ state: paused
 updated: "2026-11-20"
 ---
 
-# W-58 · The runs world with a model to each household
+# The runs world with a model to each household (W-58)
 
 *paused · 37.4 · touched 17 Nov (3 days ago)*
 
@@ -20,7 +20,7 @@ paused during day 29 (19 Nov 21:47, Zach: usage over 95%): days 1-28 committed, 
 
 
 ## Mentioned by
-- [[L-128 'salt pan' names two things|L-128 · 'salt pan' names two things]]
+- [[L-128 'salt pan' names two things|'salt pan' names two things (L-128)]]
 - [[A lesson is in the teacher's craft|A lesson is in the teacher's craft]]
 - [[Resume from the last finished day, without replay|Resume from the last finished day, without replay]]
 - [[Shared units food value, weight and work on one basis|Shared units: food value, weight and work on one basis]]

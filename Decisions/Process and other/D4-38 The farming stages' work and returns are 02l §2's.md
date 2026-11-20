@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-38 · The farming stages' work and returns are 02l §2's
+# The farming stages' work and returns are 02l §2's (D4-38)
 
 *live · 23 Oct*
 

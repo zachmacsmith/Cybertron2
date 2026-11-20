@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-172 · A field carries one crop for each holding on it
+# A field carries one crop for each holding on it (D2-172)
 
 *live · 3 Nov · spec: [[core - world_schema|core/world_schema]], [[economy - production|economy/production]], [[world - holding|world/holding]]*
 

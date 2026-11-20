@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-K3 · Whether the memory request asks outright when a place opens
+# Whether the memory request asks outright when a place opens (Q-K3)
 
 *closed · 37.4*
 

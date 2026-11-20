@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-4 · Agents are never told someone is missing
+# Agents are never told someone is missing (D2-4)
 
 *live · 22 Oct · spec: [[economy - transport|economy/transport]], [[information - perception|information/perception]], [[information - prompts|information/prompts]], [[life - birth_and_death|life/birth_and_death]]*
 

@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-38 · Brief 3 as built, and its gate
+# Brief 3 as built, and its gate (Q-38)
 
 *closed, by zach · Zach (37.4 building)*
 
@@ -18,7 +18,7 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|W-2 · Build briefs 2 and 3, the 20 dry test arms, the spring live run]]
-- [[L-131 The wild layer's live points from briefs 1 to 3|L-131 · The wild layer's live points from briefs 1 to 3]]
+- [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]
+- [[L-131 The wild layer's live points from briefs 1 to 3|The wild layer's live points from briefs 1 to 3 (L-131)]]
 - [[The hunt over time, and what briefs 1 to 3 left build brief 4|The hunt over time, and what briefs 1 to 3 left: build brief 4]]
 - *and 2 index or audit notes*

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D1-3 · The inverse of publishing
+# The inverse of publishing (D1-3)
 
 *live · 23 Oct · spec: [[record - exchange|record/exchange]]*
 

@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-51 · `landgen.physical._spread` reaches farther than its steps
+# `landgen.physical._spread` reaches farther than its steps (L-51)
 
 *open · 37.2*
 
@@ -20,6 +20,6 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-11 Landscapes still to tune|W-11 · Landscapes still to tune]]
+- [[W-11 Landscapes still to tune|Landscapes still to tune (W-11)]]
 - [[The dependence ladder (OPEN L-50)|The dependence ladder (OPEN L-50)]]
 - *and 1 index or audit notes*

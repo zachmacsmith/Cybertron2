@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-19 · Overlapping fuse events in more depth
+# Overlapping fuse events in more depth (Q-19)
 
 *open · 37.2 with 37.4*
 
@@ -16,8 +16,8 @@ Overlapping fuse events in more depth ([[D2-82 Overlapping events, a simple rule
 
 
 ## Mentioned by
-- [[D2-82 Overlapping events, a simple rule for now|D2-82 · Overlapping events, a simple rule for now]]
-- [[L-6 Overlapping fuse events in depth|L-6 · Overlapping fuse events in depth]]
+- [[D2-82 Overlapping events, a simple rule for now|Overlapping events, a simple rule for now (D2-82)]]
+- [[L-6 Overlapping fuse events in depth|Overlapping fuse events in depth (L-6)]]
 - [[Proposal fuse events (time to respond)|Proposal: fuse events (time to respond)]]
 - [[Defence walls, the watch, gates and time to respond|Defence: walls, the watch, gates and time to respond]]
 - [[Fuse events time to respond|Fuse events: time to respond]]

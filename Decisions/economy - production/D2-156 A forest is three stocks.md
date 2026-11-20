@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-156 · A forest is three stocks
+# A forest is three stocks (D2-156)
 
 *live · 24 Oct · spec: [[economy - production|economy/production]], [[environment - resources|environment/resources]]*
 

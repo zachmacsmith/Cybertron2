@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-188 · Macro features are compositions of primitives
+# Macro features are compositions of primitives (D2-188)
 
 *live · 3 Nov*
 
@@ -20,7 +20,7 @@ conversation ("yes")
 
 
 ## Mentioned by
-- [[Q-7 First land kinds|Q-7 · First land kinds]]
+- [[Q-7 First land kinds|First land kinds (Q-7)]]
 - [[Proposal the landscape generator (a world under the graph)|Proposal: the landscape generator (a world under the graph)]]
 - [[Proposal the generator, stage 1 (a spec for review before it is…|Proposal: the generator, stage 1 (a spec for review before it is…]]
 - [[02zj the landscape generator, stage 1, as built|02zj: the landscape generator, stage 1, as built]]

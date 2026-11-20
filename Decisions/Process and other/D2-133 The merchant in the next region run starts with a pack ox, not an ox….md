@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-133 · The merchant in the next region run starts with a pack ox, not an ox…
+# The merchant in the next region run starts with a pack ox, not an ox… (D2-133)
 
 *live · 24 Oct*
 

@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-18 · An institution's stamp on coin
+# An institution's stamp on coin (L-18)
 
 *open · 37.2 with 37.3*
 

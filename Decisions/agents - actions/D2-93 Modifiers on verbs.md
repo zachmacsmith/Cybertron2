@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-93 · Modifiers on verbs
+# Modifiers on verbs (D2-93)
 
 *live · 23 Oct · spec: [[agents - actions|agents/actions]], [[agents - modifiers|agents/modifiers]], [[world - things_in_places|world/things_in_places]]*
 
@@ -20,7 +20,7 @@ an unknown modifier refused outright
 
 
 ## Mentioned by
-- [[L-19 Further verb modifiers (going quietly, working carefully)|L-19 · Further verb modifiers (going quietly, working carefully)]]
+- [[L-19 Further verb modifiers (going quietly, working carefully)|Further verb modifiers (going quietly, working carefully) (L-19)]]
 - [[Proposal buildings people make their own (descriptions and lines…|Proposal: buildings people make their own (descriptions and lines…]]
 - [[Proposal crops grow by the season; can apart from works; what a…|Proposal: crops grow by the season; "can" apart from "works"; what a…]]
 - [[Proposal what agents know they can do (actions, recipes, buildings)|Proposal: what agents know they can do (actions, recipes, buildings)]]

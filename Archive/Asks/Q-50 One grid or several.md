@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-50 · One grid or several
+# One grid or several (Q-50)
 
 *closed, by zach · Zach (with 37.2, 37.4)*
 
@@ -18,11 +18,11 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[D2-222 The environment's places|D2-222 · The environment's places]]
-- [[Q-48 The engine as feature packages|Q-48 · The engine as feature packages]]
-- [[W-43 The engine as feature packages|W-43 · The engine as feature packages]]
-- [[L-120 Wildlife pack K7 land works and infrastructure|L-120 · Wildlife pack K7: land works and infrastructure]]
-- [[L-126 The wildlife's core mechanisms not built|L-126 · The wildlife's core mechanisms not built]]
+- [[D2-222 The environment's places|The environment's places (D2-222)]]
+- [[Q-48 The engine as feature packages|The engine as feature packages (Q-48)]]
+- [[W-43 The engine as feature packages|The engine as feature packages (W-43)]]
+- [[L-120 Wildlife pack K7 land works and infrastructure|Wildlife pack K7: land works and infrastructure (L-120)]]
+- [[L-126 The wildlife's core mechanisms not built|The wildlife's core mechanisms not built (L-126)]]
 - [[Climate from the land|Climate from the land]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
 - [[The engine as a small core and feature packages design specification|The engine as a small core and feature packages: design specification]]

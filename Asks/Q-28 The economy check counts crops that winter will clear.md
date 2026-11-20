@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-28 · The economy check counts crops that winter will clear
+# The economy check counts crops that winter will clear (Q-28)
 
 *open · 37.2*
 
@@ -16,7 +16,7 @@ landgen/economy.py counts every standing crop whose `ripe_day` falls within the 
 
 
 ## Mentioned by
-- [[D4-102 Carrying capacity is measured, by level, from the engine's own rules|D4-102 · Carrying capacity is measured, by level, from the engine's own rules]]
+- [[D4-102 Carrying capacity is measured, by level, from the engine's own rules|Carrying capacity is measured, by level, from the engine's own rules (D4-102)]]
 - [[Carrying capacity what a world's land feeds and keeps warm, by…|Carrying capacity: what a world's land feeds and keeps warm, by…]]
 - [[Proposal world generation as one history, with pins met in the loop|Proposal: world generation as one history, with pins met in the loop]]
 - [[A declared process model the engine says what its economy is, as…|A declared process model: the engine says what its economy is, as…]]

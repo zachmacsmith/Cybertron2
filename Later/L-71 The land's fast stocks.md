@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-71 · The land's fast stocks
+# The land's fast stocks (L-71)
 
 *open · 37.4 with 37.2*
 

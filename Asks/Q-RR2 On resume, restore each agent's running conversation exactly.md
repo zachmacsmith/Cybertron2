@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-RR2 · On resume, restore each agent's running conversation exactly
+# On resume, restore each agent's running conversation exactly (Q-RR2)
 
 *open · 37.1*
 

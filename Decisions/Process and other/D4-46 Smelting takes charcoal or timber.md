@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-46 · Smelting takes charcoal or timber
+# Smelting takes charcoal or timber (D4-46)
 
 *live · 23 Oct*
 

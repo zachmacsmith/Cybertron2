@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D1-1 · The run record supports everything cybertron 1's instrument did
+# The run record supports everything cybertron 1's instrument did (D1-1)
 
 *live · 23 Oct · spec: [[record - branching|record/branching]], [[record - exchange|record/exchange]], [[record - execution|record/execution]], [[record - human_play|record/human_play]], [[record - journal|record/journal]], [[record - views|record/views]]*
 

@@ -87,7 +87,7 @@ on its own clocks, added as rows, which the carrying-capacity model must read wi
 - **Social and institutional systems:** law.md, beliefs_and_values.md ([[L-25 Beliefs, values and customs|L-25]]), gates.md, attacks_and_walls.md, households.md,
   notes.md.
 - **seeing.md and senses.md:** each new risk and system needs its signs (guides/senses.md), but the sense model itself stays as it is.
-- **The verb list (OPEN [[Q-27 The verb list|Q-27]]) and knowledge.md:** one consequence matters. With processes declared, "what you can do here" and a
+- **The verb list (OPEN [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Q-27]]) and knowledge.md:** one consequence matters. With processes declared, "what you can do here" and a
   refusal's next step can be generated from them ([[D4-95 What a refusal says|D4-95]]; the water-wheel debts of 38.59). Whether the prompt lists options at all is
   a separate decision, given the menu effect (38.57 lesson 15).
 - **run_data_interface.md part 2:** separate, but take one item now: the run stores its day-0 capacity report (economic_calibration G).

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-68 · Camps and portable shelter
+# Camps and portable shelter (D2-68)
 
 *live · 23 Oct · spec: [[economy - buildings|economy/buildings]], [[economy - lodging|economy/lodging]]*
 
@@ -17,7 +17,7 @@ proposals/transport_and_lodging.md; conversation
 
 
 ## Mentioned by
-- [[D4-47 Some places start unexplored|D4-47 · Some places start unexplored]]
+- [[D4-47 Some places start unexplored|Some places start unexplored (D4-47)]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
 - [[A fire under no roof in the night's weather|A fire under no roof in the night's weather]]
 - [[Forays going out from the village and coming back|Forays: going out from the village and coming back]]

@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-128 · 'salt pan' names two things
+# 'salt pan' names two things (L-128)
 
 *open · 37.4*
 

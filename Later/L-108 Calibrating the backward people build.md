@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-108 · Calibrating the backward people build
+# Calibrating the backward people build (L-108)
 
 *open · 37.4 (with the c2viz session's prototype)*
 
@@ -16,9 +16,9 @@ updated: "2026-11-20"
 
 **Designed in:** proto/peoplegen/
 
-**Waits on:** Zach's decision on the present population as input ([[Q-45 Generation redesign|Q-45]], decision 3) and a build brief for generate.py
+**Waits on:** Zach's decision on the present population as input ([[Q-45 The generation redesign|Q-45]], decision 3) and a build brief for generate.py
 
 
 ## Mentioned by
-- [[W-39b Prototype of generation_redesign.md §4.3 and §4.5 for people|W-39b · Prototype of generation_redesign.md §4.3 and §4.5 for people]]
+- [[W-39b Prototype of generation_redesign.md §4.3 and §4.5 for people|Prototype of generation_redesign.md §4.3 and §4.5 for people (W-39b)]]
 - [[Proposal world generation as one history, with pins met in the loop|Proposal: world generation as one history, with pins met in the loop]]

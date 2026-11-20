@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-43 · recipes.md's numbers are the engine's calibrate base
+# recipes.md's numbers are the engine's calibrate base (D4-43)
 
 *live · 23 Oct*
 

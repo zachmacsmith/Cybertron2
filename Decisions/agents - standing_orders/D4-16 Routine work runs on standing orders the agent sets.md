@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-16 · Routine work runs on standing orders the agent sets
+# Routine work runs on standing orders the agent sets (D4-16)
 
 *live · 22 Oct · spec: [[agents - standing_orders|agents/standing_orders]]*
 
@@ -17,8 +17,8 @@ conversation; 06 §4, §6
 
 
 ## Mentioned by
-- [[D2-148 A child's menial work is set by the household head's standing order|D2-148 · A child's menial work is set by the household head's standing order]]
-- [[L-16 Reflexes, fallbacks and policies as standing orders|L-16 · Reflexes, fallbacks and policies as standing orders]]
+- [[D2-148 A child's menial work is set by the household head's standing order|A child's menial work is set by the household head's standing order (D2-148)]]
+- [[L-16 Reflexes, fallbacks and policies as standing orders|Reflexes, fallbacks and policies as standing orders (L-16)]]
 - [[Proposal agreements and obligations (one system for trade, credit…|Proposal: agreements and obligations (one system for trade, credit…]]
 - [[Proposal children as a choice, counted in days (costs, care, growing…|Proposal: children as a choice, counted in days (costs, care, growing…]]
 - [[Proposal the economy plan for cybertron2|Proposal: the economy plan for cybertron2]]

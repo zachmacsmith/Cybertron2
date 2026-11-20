@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-23 · Water as a need, and the land's hidden state
+# Water as a need, and the land's hidden state (L-23)
 
 *open · 37.2*
 

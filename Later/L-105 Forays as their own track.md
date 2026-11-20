@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-105 · Forays as their own track
+# Forays as their own track (L-105)
 
 *open · 37.2 (design, land, animals placed), 37.4 (act, walk, interpreter)*
 
@@ -20,14 +20,14 @@ updated: "2026-11-20"
 
 
 ## Linked
-- parent: [[W-12 Forays (proposalsforays.md)|W-12 · Forays (proposals/forays.md)]]
-- relates: [[Q-57 Fishing, from the lake run|Q-57 · Fishing, from the lake run]]
+- parent: [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]]
+- relates: [[Q-57 Fishing, from the lake run|Fishing, from the lake run (Q-57)]]
 
 
 ## Mentioned by
-- [[Q-57 Fishing, from the lake run|Q-57 · Fishing, from the lake run]]
-- [[W-12 Forays (proposalsforays.md)|W-12 · Forays (proposals/forays.md)]]
-- [[L-117 Wildlife pack K3 forays, methods and knowing|L-117 · Wildlife pack K3: forays, methods and knowing]]
+- [[Q-57 Fishing, from the lake run|Fishing, from the lake run (Q-57)]]
+- [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]]
+- [[L-117 Wildlife pack K3 forays, methods and knowing|Wildlife pack K3: forays, methods and knowing (L-117)]]
 - [[Forays going out from the village and coming back|Forays: going out from the village and coming back]]
 - [[The hunt over time, and what briefs 1 to 3 left build brief 4|The hunt over time, and what briefs 1 to 3 left: build brief 4]]
 - [[The hunt after brief 4 game that remembers, slow recovery, and…|The hunt after brief 4: game that remembers, slow recovery, and…]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-112 · Modifiers are techniques
+# Modifiers are techniques (D2-112)
 
 *live · 23 Oct · spec: [[agents - actions|agents/actions]], [[agents - modifiers|agents/modifiers]]*
 

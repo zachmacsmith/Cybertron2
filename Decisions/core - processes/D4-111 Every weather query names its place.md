@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-111 · Every weather query names its place
+# Every weather query names its place (D4-111)
 
 *live · 8 Nov · spec: [[core - processes|core/processes]], [[information - signs|information/signs]]*
 
@@ -20,8 +20,8 @@ replaces [[D4-109 The weather scheduler|D4-109]]'s reference-node default
 
 
 ## Mentioned by
-- [[Q-29 scheduler.md and the weather scheduler (D4-109)|Q-29 · scheduler.md and the weather scheduler (D4-109)]]
-- [[W-8 Couple the food web to 37.4's weather and climate|W-8 · Couple the food web to 37.4's weather and climate]]
+- [[Q-29 scheduler.md and the weather scheduler (D4-109)|scheduler.md and the weather scheduler (D4-109) (Q-29)]]
+- [[W-8 Couple the food web to 37.4's weather and climate|Couple the food web to 37.4's weather and climate (W-8)]]
 - [[Climate from the land|Climate from the land]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
 - [[Damage to shelter in levels, by structure and weather; camps as…|Damage to shelter in levels, by structure and weather; camps as…]]

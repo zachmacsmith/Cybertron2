@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-24a · Q-24 settled in part by Zach
+# Q-24 settled in part by Zach (Q-24a)
 
 *open · DECISIONS D4-84 to D4-86*
 

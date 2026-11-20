@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-200 · Wild plant kinds replace the single `plants` stock in worlds with the…
+# Wild plant kinds replace the single `plants` stock in worlds with the… (D2-200)
 
 *live · 9 Nov*
 

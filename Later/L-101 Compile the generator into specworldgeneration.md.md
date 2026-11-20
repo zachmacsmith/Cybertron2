@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-101 · Compile the generator into spec/world/generation.md
+# Compile the generator into spec/world/generation.md (L-101)
 
 *open · 37.2*
 
@@ -20,8 +20,8 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-9 Compile the generator into specworldgeneration.md|W-9 · Compile the generator into spec/world/generation.md]]
-- [[W-68 37.2's spec catch-up|W-68 · 37.2's spec catch-up]]
+- [[W-9 Compile the generator into specworldgeneration.md|Compile the generator into spec/world/generation.md (W-9)]]
+- [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|Writing 37.2's decisions into the spec (about 52 missing) (W-68)]]
 - [[Proposal world generation as one history, with pins met in the loop|Proposal: world generation as one history, with pins met in the loop]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]

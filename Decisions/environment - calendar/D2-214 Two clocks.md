@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-214 · Two clocks
+# Two clocks (D2-214)
 
 *live · 16 Nov · spec: [[environment - calendar|environment/calendar]], [[environment - land|environment/land]], [[environment - wildlife|environment/wildlife]]*
 
@@ -20,12 +20,12 @@ every rate real per engine day (one clock: no seasonal loops in a 24 to 40 day y
 
 
 ## Mentioned by
-- [[D2-215 The weir's runs the river's level, then re-measure|D2-215 · The weir's runs: the river's level, then re-measure]]
-- [[Q-52 Environment systems|Q-52 · Environment systems]]
-- [[Q-56 The land the engine reads|Q-56 · The land the engine reads]]
-- [[W-15 The land's fast stocks|W-15 · The land's fast stocks]]
-- [[W-49 Environment systems|W-49 · Environment systems]]
-- [[W-51 The weather across conditions|W-51 · The weather across conditions]]
+- [[D2-215 The weir's runs the river's level, then re-measure|The weir's runs: the river's level, then re-measure (D2-215)]]
+- [[Q-52 Environment systems|Environment systems (Q-52)]]
+- [[Q-56 How the weather should follow each place's climate from the generated…|How the weather should follow each place's climate from the generated… (Q-56)]]
+- [[W-15 The land's fast stocks|The land's fast stocks (W-15)]]
+- [[W-49 Environment systems|Environment systems (W-49)]]
+- [[W-51 Testing the weather across dry, cold, coastal and mountain worlds…|Testing the weather across dry, cold, coastal and mountain worlds… (W-51)]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
 - [[The calendar|The calendar]]
 - [[The land and its stocks|The land and its stocks]]

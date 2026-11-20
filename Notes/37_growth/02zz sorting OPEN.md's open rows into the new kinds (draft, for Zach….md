@@ -25,7 +25,7 @@ rows go to their places, and rows owned by 37.4 or 37.1 are moved by those sessi
 | [[Q-21 Built for Package C|Q-21]], [[Q-22 Built for Package D|Q-22]], [[Q-23 Built for Package F|Q-23]] | 24 Oct | Zach | choices 37.4 made building packages C, D and F, "for Zach to confirm or change": 16 days, no answer recorded |
 | [[Q-26 Built without decisions, found by the 5 Nov sweep of 37.4's proposals|Q-26]] | 5 Nov | Zach | choices built without decisions, from 37.4's sweep |
 | [[Q-25 Zach's decisions now open, in one list|Q-25]] | 2 Nov | Zach | "Zach's decisions now open, in one list" |
-| [[Q-27 The verb list|Q-27]] | 23 Oct | Zach | the verb list (38 built against about 24): [[D2-204 People answer the wild by general methods, not a technique per kind|D2-204]] and 02zw §1 now bear on it (the verbs stay; their objects generalise) |
+| [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Q-27]] | 23 Oct | Zach | the verb list (38 built against about 24): [[D2-204 People answer the wild by general methods, not a technique per kind|D2-204]] and 02zw §1 now bear on it (the verbs stay; their objects generalise) |
 | [[Q-9 37.2's open decisions in 02f §6, 02g §7, 02h §9, 02i §8, 02j, 02k|Q-9]] | 22 Oct | Zach with 37.2 | 37.2's open decisions in 02f to 02k: probably mostly overtaken; 37.2 to check each and close or re-ask |
 | [[Q-24 Built for the building package|Q-24]], [[Q-24a Q-24 settled in part by Zach|Q-24a]] | 3 Nov | 37.2 (Zach to confirm one) | readings of the building package for 37.2 to confirm: 37.2's own, never done |
 | Q-RR1, Q-RR2, Q-RR3, Q-RR5 | 24 Oct | 37.1 with Zach | the run record's open choices |
@@ -67,7 +67,7 @@ rows go to their places, and rows owned by 37.4 or 37.1 are moved by those sessi
 | [[L-37 Wildlife by terrain|L-37]] wildlife by terrain | built on `ecology` (wild/areas.py, habitats by cover and ecosystem): done when merged |
 | [[L-24 Fences on the borders between parcels|L-24]], [[L-11 Fences, hedges and walls for herds|L-11]] fences on borders, hedges, folds, wolves | brief 2 reads fences and doors by size; hedges and folds stay deferred (02zw C12) |
 | [[L-4 Wind direction|L-4]] wind direction; [[L-19 Further verb modifiers (going quietly, working carefully)|L-19]] going quietly | deferred together as 02zw C4 (shared perception needs a wind direction in the climate) |
-| [[L-35 Distance inside a node|L-35]] distance inside a node | proposals/forays.md (WORK [[W-12 Forays (proposalsforays.md)|W-12]]) |
+| [[L-35 Distance inside a node|L-35]] distance inside a node | proposals/forays.md (WORK [[W-12 Forays trips out into the land and back, with what is found and told|W-12]]) |
 | [[L-23 Water as a need, and the land's hidden state|L-23]] middens and the land's hidden state | the midden is deferred with the kite (02zv, later pack); the rest stays deferred |
 | [[L-20 The catalogue's later kinds|L-20]] the catalogue's later kinds (anthrax) | anthrax as the black bane field, deferred (02zv K10) |
 | [[L-36 Livestock kinds beyond cattle and herds moved with the seasons|L-36]] livestock beyond cattle; [[L-13 Economy options kept out of the first worlds|L-13]] nets and boats | 02zv K6 (keeping) and K8 (crafts); stay deferred, linked |

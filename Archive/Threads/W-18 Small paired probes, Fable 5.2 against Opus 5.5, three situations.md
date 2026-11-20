@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-18 · Small paired probes, Fable 5.2 against Opus 5.5, three situations
+# Small paired probes, Fable 5.2 against Opus 5.5, three situations (W-18)
 
 *done · 37.2 · touched  ()*
 

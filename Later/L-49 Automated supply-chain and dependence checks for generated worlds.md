@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-49 · Automated supply-chain and dependence checks for generated worlds
+# Automated supply-chain and dependence checks for generated worlds (L-49)
 
 *open · 37.2*
 

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-201 · A gatherer who does not know a poisonous plant may come to harm by it
+# A gatherer who does not know a poisonous plant may come to harm by it (D2-201)
 
 *live · 9 Nov*
 

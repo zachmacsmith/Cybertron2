@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-79 · Windfalls have no rule of their own
+# Windfalls have no rule of their own (D2-79)
 
 *live · 23 Oct · spec: [[environment - resources|environment/resources]], [[environment - scheduler|environment/scheduler]]*
 

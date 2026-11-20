@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-193 · Dangerous kinds can wound or kill the hunter
+# Dangerous kinds can wound or kill the hunter (D2-193)
 
 *live · 8 Nov · spec: [[environment - wildlife|environment/wildlife]]*
 
@@ -20,7 +20,7 @@ hunting with no risk to the hunter
 
 
 ## Mentioned by
-- [[D2-196 Hounds in wave 2, with the wolves|D2-196 · Hounds in wave 2, with the wolves]]
+- [[D2-196 Hounds in wave 2, with the wolves|Hounds in wave 2, with the wolves (D2-196)]]
 - [[Carcasses, decay and what comes to them|Carcasses, decay and what comes to them]]
 - [[Proposal what people make of wild things economies, husbandry…|Proposal: what people make of wild things: economies, husbandry…]]
 - [[Proposal wild behaviour, kinds composed of facets, each a module of…|Proposal: wild behaviour, kinds composed of facets, each a module of…]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# H-7 · Perception matters most
+# Perception matters most (H-7)
 
 *live · 22 Oct · spec: [[information - perception|information/perception]]*
 
@@ -17,7 +17,7 @@ what agents see, and how it changes, is the main design surface
 
 
 ## Mentioned by
-- [[Q-12 Decisions made with 37.2 that belong in 37.4's spec areas and are not…|Q-12 · Decisions made with 37.2 that belong in 37.4's spec areas and are not…]]
+- [[Q-12 Decisions made with 37.2 that belong in 37.4's spec areas and are not…|Decisions made with 37.2 that belong in 37.4's spec areas and are not… (Q-12)]]
 - [[Proposal the senses across every system|Proposal: the senses across every system]]
 - [[Proposal transport and lodging|Proposal: transport and lodging]]
 - [[Perception what an agent sees and knows|Perception: what an agent sees and knows]]

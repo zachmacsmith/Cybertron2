@@ -5,12 +5,12 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-220 · The weather takes each place's climate from the generated land
+# The weather takes each place's climate from the generated land (D2-220)
 
 *live · 16 Nov · spec: [[environment - land|environment/land]], [[environment - scheduler|environment/scheduler]]*
 
 ## The rule
-(proposals/climate_from_land.md): the engine's weather is not independent of the generator; the regional machinery (eras, years, types, storms, local fields) works around each place's own climate as the land holds it (its temperature, its rain a year with shadows and wet fells, the sea's nearness, the prevailing wind); the design is in the proposal (OPEN [[Q-56 The land the engine reads|Q-56]])
+(proposals/climate_from_land.md): the engine's weather is not independent of the generator; the regional machinery (eras, years, types, storms, local fields) works around each place's own climate as the land holds it (its temperature, its rain a year with shadows and wet fells, the sea's nearness, the prevailing wind); the design is in the proposal (OPEN [[Q-56 How the weather should follow each place's climate from the generated…|Q-56]])
 
 ## Where it came from
 conversation (16 Nov: "weather should DEFINITELY NOT be independent from the generator"), after docs/review/37_growth/02zzo_weather_conditions.md
@@ -20,8 +20,8 @@ the weather reading only a node's height ([[D4-109 The weather scheduler|D4-109]
 
 
 ## Mentioned by
-- [[Q-56 The land the engine reads|Q-56 · The land the engine reads]]
-- [[W-51 The weather across conditions|W-51 · The weather across conditions]]
+- [[Q-56 How the weather should follow each place's climate from the generated…|How the weather should follow each place's climate from the generated… (Q-56)]]
+- [[W-51 Testing the weather across dry, cold, coastal and mountain worlds…|Testing the weather across dry, cold, coastal and mountain worlds… (W-51)]]
 - [[Climate from the land|Climate from the land]]
 - [[The land and its stocks|The land and its stocks]]
 - [[The scheduler external change|The scheduler: external change]]

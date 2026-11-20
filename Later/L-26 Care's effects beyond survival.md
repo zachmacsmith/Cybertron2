@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-26 · Care's effects beyond survival
+# Care's effects beyond survival (L-26)
 
 *open · 37.2 with 37.4*
 
@@ -20,8 +20,8 @@ Care's effects beyond survival: a cared-for child growing into a healthier (less
 
 
 ## Mentioned by
-- [[D2-150 Care bears on survival only for now|D2-150 · Care bears on survival only for now]]
-- [[L-12 Children and life (we'll come back to this)|L-12 · Children and life ("we'll come back to this")]]
+- [[D2-150 Care bears on survival only for now|Care bears on survival only for now (D2-150)]]
+- [[L-12 Children and life (we'll come back to this)|Children and life ("we'll come back to this") (L-12)]]
 - [[Proposal children as a choice, counted in days (costs, care, growing…|Proposal: children as a choice, counted in days (costs, care, growing…]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]
 - [[Birth and death partners, children, growing up, old age, succession|Birth and death: partners, children, growing up, old age, succession]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-155 · Storage takes space
+# Storage takes space (D2-155)
 
 *live · 24 Oct · spec: [[agents - actions|agents/actions]], [[core - world_schema|core/world_schema]], [[economy - buildings|economy/buildings]]*
 
@@ -20,7 +20,7 @@ unlimited stores; a cellar of 8 stone and 8 units
 
 
 ## Mentioned by
-- [[L-40 (Done 3 Nov D4-89 and D4-91 written into economybuildings.md, D4-92…|L-40 · (Done 3 Nov: D4-89 and D4-91 written into economy/buildings.md, D4-92…]]
+- [[L-40 (Done 3 Nov D4-89 and D4-91 written into economybuildings.md, D4-92…|(Done 3 Nov: D4-89 and D4-91 written into economy/buildings.md, D4-92… (L-40)]]
 - [[Proposal buildings from parts|Proposal: buildings from parts]]
 - [[How much lies there heaps seen by their bulk, counted when attended…|How much lies there: heaps seen by their bulk, counted when attended…]]
 - [[Households and dwellings membership, use and home are data that…|Households and dwellings: membership, use and home are data that…]]

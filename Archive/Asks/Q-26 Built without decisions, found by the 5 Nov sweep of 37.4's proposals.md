@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-26 · Built without decisions, found by the 5 Nov sweep of 37.4's proposals
+# Built without decisions, found by the 5 Nov sweep of 37.4's proposals (Q-26)
 
 *closed, by zach · 37.4, Zach to confirm*
 

@@ -5,7 +5,7 @@ state: closed
 updated: "2026-11-20"
 ---
 
-# Q-57 · Fishing, from the lake run
+# Fishing, from the lake run (Q-57)
 
 *closed, by zach · Zach (37.2, 37.4)*
 
@@ -18,8 +18,8 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
-- [[W-12 Forays (proposalsforays.md)|W-12 · Forays (proposals/forays.md)]]
-- [[W-67 The wildlife economy extended|W-67 · The wildlife economy extended]]
-- [[W-69 Subsistence worlds|W-69 · Subsistence worlds]]
-- [[L-105 Forays as their own track|L-105 · Forays as their own track]]
+- [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]]
+- [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+- [[L-105 Forays as their own track|Forays as their own track (L-105)]]
 - *and 1 index or audit notes*

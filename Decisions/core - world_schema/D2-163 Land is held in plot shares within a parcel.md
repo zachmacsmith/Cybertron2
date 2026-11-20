@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-163 · Land is held in plot shares within a parcel
+# Land is held in plot shares within a parcel (D2-163)
 
 *live · 3 Nov · spec: [[core - world_schema|core/world_schema]], [[economy - production|economy/production]], [[world - holding|world/holding]]*
 
@@ -20,7 +20,7 @@ the engine's whole-parcel claims
 
 
 ## Mentioned by
-- [[D2-172 A field carries one crop for each holding on it|D2-172 · A field carries one crop for each holding on it]]
+- [[D2-172 A field carries one crop for each holding on it|A field carries one crop for each holding on it (D2-172)]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
 - [[Proposal farming|Proposal: farming]]
 - [[Proposal the landscape generator (a world under the graph)|Proposal: the landscape generator (a world under the graph)]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-126 · Fences are built with herd wandering
+# Fences are built with herd wandering (D2-126)
 
 *live · 24 Oct*
 
@@ -20,7 +20,7 @@ herding only
 
 
 ## Mentioned by
-- [[D2-130 Fences go round a parcel for now a parcel is fenced or not|D2-130 · Fences go round a parcel for now: a parcel is fenced or not]]
+- [[D2-130 Fences go round a parcel for now a parcel is fenced or not|Fences go round a parcel for now: a parcel is fenced or not (D2-130)]]
 - [[Proposal fences, hedges and walls|Proposal: fences, hedges and walls]]
 - [[Proposal livestock|Proposal: livestock]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]

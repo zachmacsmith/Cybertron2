@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-148 · A child's menial work is set by the household head's standing order
+# A child's menial work is set by the household head's standing order (D2-148)
 
 *live · 24 Oct · spec: [[life - birth_and_death|life/birth_and_death]]*
 

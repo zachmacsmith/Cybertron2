@@ -12,7 +12,7 @@ updated: "2026-11-20"
 
 **Status:** accepted: [[D2-235 Commits typed and labelled|D2-235]] (and [[D2-232 The records as items|D2-232]] to [[D2-234 Documents in the web|D2-234]]) (20 Nov).
 
-**Owner:** 37.2 (process tooling; WORK [[W-65 Tracking threads automatically|W-65]]).
+**Owner:** 37.2 (process tooling; WORK [[W-65 The records system|W-65]]).
 
 ## Summary
 
@@ -27,7 +27,7 @@ which Zach asked to have built, and a commit schema, which he asked about on 20 
 
 ## The proposal
 
-### Built ([[W-65 Tracking threads automatically|W-65]])
+### Built ([[W-65 The records system|W-65]])
 
 1. **The registry** (`docs/cybertron2/threads.json`, `tools/threads.py`). It holds each W row's cells together with what a table
    cell cannot hold: the branches, the asks the row waits on, the next step. It also holds the offers and promises (O-n, each with
@@ -50,14 +50,14 @@ only from the last paragraph, so they go in one block with the attribution lines
 whose trailers git does not see):
 
 ```
-WORK [[W-65 Tracking threads automatically|W-65]]: the registry and WORK.md rendered from it
+WORK [[W-65 The records system|W-65]]: the registry and WORK.md rendered from it
 
 <body>
 
 Agent: 37.2
-Thread: [[W-65 Tracking threads automatically|W-65]]
+Thread: [[W-65 The records system|W-65]]
 Opens: [[O-1 A first wiki generated from the spec as it stands, as a private page…|O-1]], [[Q-63 A commit schema|Q-63]]
-Closes: [[W-63 An audit of what was started and left|W-63]]
+Closes: [[W-63 The audit of work started and left, and the triage of open asks and…|W-63]]
 Decides: [[D2-232 The records as items|D2-232]]
 Co-Authored-By: ...
 Claude-Session: ...
@@ -71,7 +71,7 @@ Claude-Session: ...
 | `Closes:` | when it ends one | W rows moved to Done; Q, L or O rows closed or struck | the row moves or is struck in the diff |
 | `Decides:` | when DECISIONS gains a row | the D ids | the row is added to DECISIONS.md, citing Zach's own words |
 
-**The tree.** Each new Q, L and O row names its parent thread in a cell (`thread: [[W-65 Tracking threads automatically|W-65]]`), and the registry keeps the same link. The
+**The tree.** Each new Q, L and O row names its parent thread in a cell (`thread: [[W-65 The records system|W-65]]`), and the registry keeps the same link. The
 outline is derived from these links, with no hand upkeep:
 - per thread: its commits, the files they changed, the ids they opened and closed, its last touch, its branches;
 - per id: the thread it belongs to and the commit that opened it.
@@ -96,7 +96,7 @@ are the gaps 02zzp found by hand.
 
 The parent link gives the tree without these faults.
 
-**Collisions.** The shared W series has already collided seven times: [[W-28 The Cybertron 2 website|W-28]], [[W-34 Worlds for the peoples benchmark|W-34]], [[W-38 Generation redesign|W-38]] and [[W-39 The economy's layers and trees of dependence across the domains|W-39]] are each used twice, and [[W-49 Environment systems|W-49]], [[W-52 The lake world's second live run|W-52]]
+**Collisions.** The shared W series has already collided seven times: [[W-28 The Cybertron 2 website|W-28]], [[W-34 Worlds for the peoples benchmark|W-34]], [[W-38 Generation redesign|W-38]] and [[W-39 The economy's web of dependence and how far it should reach|W-39]] are each used twice, and [[W-49 Environment systems|W-49]], [[W-52 The lake world's second live run|W-52]]
 and [[W-57 The lake runs' seven engine faults|W-57]] had to be renumbered. They happen when two sessions take a number before either has pushed. The fix: `threads.py next Q`
 gives the next number after a fetch, the commit hook refuses an id already on main, and the push check refuses a duplicate. The
 second session to push then renumbers during its rebase.
@@ -114,7 +114,7 @@ claims (opened, closed) with what its diff did.
 
 ## Alternatives considered
 
-- **Ids nested under threads** ([[W-65 Tracking threads automatically|W-65]].Q1). Rejected for the reasons under "The ids".
+- **Ids nested under threads** ([[W-65 The records system|W-65]].Q1). Rejected for the reasons under "The ids".
 - **Series by session for all kinds** (W2-n, Q4-n, as the decisions already are). This would end collisions outright, at the cost
   of two id formats in the documents for good. Worth taking only if collisions go on after the push check.
 - **Free-form subjects only** (today's habit: 141 of the last 400 subjects name a W row). These are readable, but they cannot be
@@ -137,9 +137,9 @@ session, CLAUDE.md's work rules, and the OPEN.md row layout (a parent-thread cel
 
 ## History
 
-- 20 Nov 2026: accepted ([[D2-235 Commits typed and labelled|D2-235]] (and [[D2-232 The records as items|D2-232]] to [[D2-234 Documents in the web|D2-234]])) from Zach's answers to the digest; built as WORK [[W-65 Tracking threads automatically|W-65]].
+- 20 Nov 2026: accepted ([[D2-235 Commits typed and labelled|D2-235]] (and [[D2-232 The records as items|D2-232]] to [[D2-234 Documents in the web|D2-234]])) from Zach's answers to the digest; built as WORK [[W-65 The records system|W-65]].
 - 20 Nov 2026: trailers must share the last paragraph with the attribution lines (git ignores them otherwise).
-- 20 Nov 2026: written by 37.2 after Zach's question on a commit schema, with the [[W-65 Tracking threads automatically|W-65]] mechanisms then being built.
+- 20 Nov 2026: written by 37.2 after Zach's question on a commit schema, with the [[W-65 The records system|W-65]] mechanisms then being built.
 
 ## Sources
 

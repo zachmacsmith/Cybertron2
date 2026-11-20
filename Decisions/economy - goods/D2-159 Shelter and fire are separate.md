@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-159 · Shelter and fire are separate
+# Shelter and fire are separate (D2-159)
 
 *live · 24 Oct · spec: [[economy - goods|economy/goods]], [[economy - lodging|economy/lodging]]*
 
@@ -20,8 +20,8 @@ a fire per person in the open; one fire warming any number
 
 
 ## Mentioned by
-- [[Q-24 Built for the building package|Q-24 · Built for the building package]]
-- [[L-44 D4-93 (one room, one fire|L-44 · D4-93 (one room, one fire]]
+- [[Q-24 Built for the building package|Built for the building package (Q-24)]]
+- [[L-44 D4-93 (one room, one fire|D4-93 (one room, one fire (L-44)]]
 - [[What can happen to buildings and fittings, by weather and use…|What can happen to buildings and fittings, by weather and use…]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
 - [[Levels of fire, and camps built out (flagged for later)|Levels of fire, and camps built out (flagged for later)]]

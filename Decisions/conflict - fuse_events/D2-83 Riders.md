@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-83 · Riders
+# Riders (D2-83)
 
 *live · 23 Oct · spec: [[conflict - fuse_events|conflict/fuse_events]]*
 

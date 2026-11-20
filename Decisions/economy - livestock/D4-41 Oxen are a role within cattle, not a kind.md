@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-41 · Oxen are a role within cattle, not a kind
+# Oxen are a role within cattle, not a kind (D4-41)
 
 *live · 23 Oct · spec: [[economy - livestock|economy/livestock]]*
 

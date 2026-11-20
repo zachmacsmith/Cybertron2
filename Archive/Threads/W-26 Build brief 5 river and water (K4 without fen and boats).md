@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-26 · Build brief 5: river and water (K4 without fen and boats)
+# Build brief 5: river and water (K4 without fen and boats) (W-26)
 
 *done · 37.2 (session "Thicker economy exploration") · touched  ()*
 

@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-1 · Build brief 1
+# Build brief 1 (W-1)
 
 *done · 37.4 · touched  ()*
 

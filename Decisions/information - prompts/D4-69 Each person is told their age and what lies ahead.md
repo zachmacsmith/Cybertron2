@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-69 · Each person is told their age and what lies ahead
+# Each person is told their age and what lies ahead (D4-69)
 
 *live · 2 Nov · spec: [[information - prompts|information/prompts]]*
 
@@ -17,7 +17,7 @@ conversation ("build all five", after the c3 finding that the couple did not kno
 
 
 ## Mentioned by
-- [[C-9 Ages calendar years|C-9 · Ages: calendar years]]
+- [[C-9 Ages calendar years|Ages: calendar years (C-9)]]
 - [[Each person told their age and what lies ahead|Each person told their age and what lies ahead]]
 - [[Proposal what an agent is shown each round, attention, and…|Proposal: what an agent is shown each round, attention, and…]]
 - [[Prompts|Prompts]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-91 · One knack for spotting things: the eye for the land
+# One knack for spotting things: the eye for the land (D2-91)
 
 *live · 23 Oct · spec: [[agents - modifiers|agents/modifiers]], [[information - noticing|information/noticing]], [[information - perception|information/perception]]*
 

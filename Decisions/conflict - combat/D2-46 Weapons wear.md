@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-46 · Weapons wear
+# Weapons wear (D2-46)
 
 *live · 23 Oct · spec: [[conflict - combat|conflict/combat]], [[economy - production|economy/production]]*
 
@@ -20,7 +20,7 @@ combat.py's weapon used up in every fight
 
 
 ## Mentioned by
-- [[C-11 Weapons specconflictcombat.md and D2-46 name a blade, but…|C-11 · Weapons: spec/conflict/combat.md and D2-46 name a "blade", but…]]
+- [[C-11 Weapons specconflictcombat.md and D2-46 name a blade, but…|Weapons: spec/conflict/combat.md and D2-46 name a "blade", but… (C-11)]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
 - [[Proposal recipes for the first worlds|Proposal: recipes for the first worlds]]
 - [[Combat attacks on a person|Combat: attacks on a person]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-165 · Household members need beds too
+# Household members need beds too (D2-165)
 
 *live · 3 Nov · spec: [[economy - buildings|economy/buildings]]*
 
@@ -20,8 +20,8 @@ night.py's rule that members sleep at home whatever the beds
 
 
 ## Mentioned by
-- [[D4-86 Beds (D2-165), the defaults confirmed|D4-86 · Beds (D2-165), the defaults confirmed]]
-- [[Q-24 Built for the building package|Q-24 · Built for the building package]]
+- [[D4-86 Beds (D2-165), the defaults confirmed|Beds (D2-165), the defaults confirmed (D4-86)]]
+- [[Q-24 Built for the building package|Built for the building package (Q-24)]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
 - [[Proposal shelter|Proposal: shelter]]
 - [[Buildings|Buildings]]

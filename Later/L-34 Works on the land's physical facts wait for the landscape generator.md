@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-34 · Works on the land's physical facts wait for the landscape generator
+# Works on the land's physical facts wait for the landscape generator (L-34)
 
 *open · 37.2 with 37.4*
 

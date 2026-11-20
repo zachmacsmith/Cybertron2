@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-115 · Acting senses along the way
+# Acting senses along the way (D2-115)
 
 *live · 24 Oct · spec: [[information - noticing|information/noticing]], [[world - parcel_graph|world/parcel_graph]]*
 
@@ -20,8 +20,8 @@ sensing only the parcel acted on (its path rule replaced by [[D4-62 A day is one
 
 
 ## Mentioned by
-- [[D4-62 A day is one chain of parcels in the order of one's acts|D4-62 · A day is one chain of parcels in the order of one's acts]]
-- [[D4-98 A herd is seen|D4-98 · A herd is seen]]
+- [[D4-62 A day is one chain of parcels in the order of one's acts|A day is one chain of parcels in the order of one's acts (D4-62)]]
+- [[D4-98 A herd is seen|A herd is seen (D4-98)]]
 - [[A day as a chain of parcels|A day as a chain of parcels]]
 - [[Forays going out from the village and coming back|Forays: going out from the village and coming back]]
 - [[Proposal the parcel graph (where things are inside a node)|Proposal: the parcel graph (where things are inside a node)]]

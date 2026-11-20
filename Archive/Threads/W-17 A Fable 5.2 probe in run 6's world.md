@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-17 · A Fable 5.2 probe in run 6's world
+# A Fable 5.2 probe in run 6's world (W-17)
 
 *done · 37.2 · touched  ()*
 

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-61 · A mill ladder built by adding parts
+# A mill ladder built by adding parts (D2-61)
 
 *live · 23 Oct · spec: [[economy - buildings|economy/buildings]], [[economy - goods|economy/goods]], [[economy - production|economy/production]]*
 

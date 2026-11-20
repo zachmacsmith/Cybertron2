@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-151 · The cost dial is built with a low and a high setting
+# The cost dial is built with a low and a high setting (D2-151)
 
 *live · 24 Oct · spec: [[life - birth_and_death|life/birth_and_death]]*
 

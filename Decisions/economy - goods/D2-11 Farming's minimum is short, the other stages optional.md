@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-11 · Farming's minimum is short, the other stages optional
+# Farming's minimum is short, the other stages optional (D2-11)
 
 *live · 22 Oct · spec: [[economy - goods|economy/goods]], [[economy - production|economy/production]]*
 
@@ -20,7 +20,7 @@ the old engine's fixed sow, tend, reap
 
 
 ## Mentioned by
-- [[D4-38 The farming stages' work and returns are 02l §2's|D4-38 · The farming stages' work and returns are 02l §2's]]
+- [[D4-38 The farming stages' work and returns are 02l §2's|The farming stages' work and returns are 02l §2's (D4-38)]]
 - [[Proposal farming|Proposal: farming]]
 - [[Proposal recipes for the first worlds|Proposal: recipes for the first worlds]]
 - [[Goods|Goods]]

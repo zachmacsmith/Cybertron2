@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-8 · Herds wandering onto edges
+# Herds wandering onto edges (L-8)
 
 *open · 37.2 with 37.4*
 

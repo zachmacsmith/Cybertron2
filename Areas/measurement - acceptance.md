@@ -5,6 +5,6 @@
 > The engine is tested with LLM agents early, in small worlds; scripted bots are smoke tests only.
 
 ## Decided (3)
-- **[[D4-35 Everything happens in a place|D4-35]]** Everything happens in a place
-- **[[H-1 Space is a new engine in its own package, cybertron2|H-1]]** Space is a **new engine in its own package**, `cybertron2/`
-- **[[H-3 Test with LLM agents early, in small worlds|H-3]]** Test with LLM agents early, in small worlds
+- [[D4-35 Everything happens in a place|Everything happens in a place (D4-35)]]
+- [[H-1 Space is a new engine in its own package, cybertron2|Space is a **new engine in its own package**, `cybertron2/` (H-1)]]
+- [[H-3 Test with LLM agents early, in small worlds|Test with LLM agents early, in small worlds (H-3)]]

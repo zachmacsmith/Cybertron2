@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-34 · Rebuild the M1 engine on the designed general core
+# Rebuild the M1 engine on the designed general core (D4-34)
 
 *live · 23 Oct · spec: [[core - architecture|core/architecture]], [[world - things_in_places|world/things_in_places]]*
 

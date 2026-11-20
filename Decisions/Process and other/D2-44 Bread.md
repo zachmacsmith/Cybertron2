@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-44 · Bread
+# Bread (D2-44)
 
 *live · 23 Oct*
 
@@ -17,7 +17,7 @@ proposals/recipes.md §10
 
 
 ## Mentioned by
-- [[D2-60 The food ladder|D2-60 · The food ladder]]
+- [[D2-60 The food ladder|The food ladder (D2-60)]]
 - [[Proposal recipes for the first worlds|Proposal: recipes for the first worlds]]
 - [[Proposal things left in places, and who finds them|Proposal: things left in places, and who finds them]]
 - [[37.2n Labour scarcity, grinding and mills, and the plot unit|37.2n Labour scarcity, grinding and mills, and the plot unit]]

@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-108 · Work and its hunger are felt
+# Work and its hunger are felt (D4-108)
 
 *live · 8 Nov · spec: [[core - processes|core/processes]]*
 

@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# L-103 · Crafting and discovering new things
+# Crafting and discovering new things (L-103)
 
 *open · 37.2 with 37.4*
 

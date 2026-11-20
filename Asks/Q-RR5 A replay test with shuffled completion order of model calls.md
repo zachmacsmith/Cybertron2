@@ -5,7 +5,7 @@ state: open
 updated: "2026-11-20"
 ---
 
-# Q-RR5 · A replay test with shuffled completion order of model calls
+# A replay test with shuffled completion order of model calls (Q-RR5)
 
 *open · 37.1*
 

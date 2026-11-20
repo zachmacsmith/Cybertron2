@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-19 · Short childhoods counted in rounds
+# Short childhoods counted in rounds (D4-19)
 
 *live · 22 Oct · spec: [[agents - work|agents/work]], [[conflict - defence|conflict/defence]], [[economy - production|economy/production]], [[information - prompts|information/prompts]], [[life - birth_and_death|life/birth_and_death]], [[life - life_stages|life/life_stages]], [[seeding - populations|seeding/populations]]*
 
@@ -20,8 +20,8 @@ devlog #15, 09 §3b
 
 
 ## Mentioned by
-- [[D2-153 The lifespan is a world setting that scales every part of a life|D2-153 · The lifespan is a world setting that scales every part of a life]]
-- [[C-9 Ages calendar years|C-9 · Ages: calendar years]]
+- [[D2-153 The lifespan is a world setting that scales every part of a life|The lifespan is a world setting that scales every part of a life (D2-153)]]
+- [[C-9 Ages calendar years|Ages: calendar years (C-9)]]
 - [[Proposal attacks, buildings and walls|Proposal: attacks, buildings and walls]]
 - [[Proposal children as a choice, counted in days (costs, care, growing…|Proposal: children as a choice, counted in days (costs, care, growing…]]
 - [[Proposal hiring (work for someone else)|Proposal: hiring (work for someone else)]]

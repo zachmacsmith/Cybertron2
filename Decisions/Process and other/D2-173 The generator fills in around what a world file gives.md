@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-173 · The generator fills in around what a world file gives
+# The generator fills in around what a world file gives (D2-173)
 
 *live · 3 Nov*
 
@@ -20,10 +20,10 @@ seed searches for a world that fits
 
 
 ## Mentioned by
-- [[Q-7 First land kinds|Q-7 · First land kinds]]
-- [[W-9 Compile the generator into specworldgeneration.md|W-9 · Compile the generator into spec/world/generation.md]]
-- [[W-68 37.2's spec catch-up|W-68 · 37.2's spec catch-up]]
-- [[L-101 Compile the generator into specworldgeneration.md|L-101 · Compile the generator into spec/world/generation.md]]
+- [[Q-7 First land kinds|First land kinds (Q-7)]]
+- [[W-9 Compile the generator into specworldgeneration.md|Compile the generator into spec/world/generation.md (W-9)]]
+- [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|Writing 37.2's decisions into the spec (about 52 missing) (W-68)]]
+- [[L-101 Compile the generator into specworldgeneration.md|Compile the generator into spec/world/generation.md (L-101)]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
 - [[Proposal world generation as one history, with pins met in the loop|Proposal: world generation as one history, with pins met in the loop]]
 - [[Proposal the landscape generator (a world under the graph)|Proposal: the landscape generator (a world under the graph)]]

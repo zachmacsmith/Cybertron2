@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-92 · A house's fire burns its store's fuel, then its woodpile at the door
+# A house's fire burns its store's fuel, then its woodpile at the door (D4-92)
 
 *live · 2 Nov · spec: [[economy - lodging|economy/lodging]]*
 
@@ -20,7 +20,7 @@ fuel from the store only
 
 
 ## Mentioned by
-- [[L-40 (Done 3 Nov D4-89 and D4-91 written into economybuildings.md, D4-92…|L-40 · (Done 3 Nov: D4-89 and D4-91 written into economy/buildings.md, D4-92…]]
+- [[L-40 (Done 3 Nov D4-89 and D4-91 written into economybuildings.md, D4-92…|(Done 3 Nov: D4-89 and D4-91 written into economy/buildings.md, D4-92… (L-40)]]
 - [[How much lies there heaps seen by their bulk, counted when attended…|How much lies there: heaps seen by their bulk, counted when attended…]]
 - [[Damage to shelter in levels, by structure and weather; camps as…|Damage to shelter in levels, by structure and weather; camps as…]]
 - [[Lodging hosts and inns|Lodging: hosts and inns]]

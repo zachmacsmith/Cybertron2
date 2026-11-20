@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-113 · Travellers can wait out a block
+# Travellers can wait out a block (D2-113)
 
 *live · 23 Oct · spec: [[world - edges|world/edges]], [[world - roads|world/roads]]*
 

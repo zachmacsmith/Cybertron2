@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-97 · Daily notices on the road
+# Daily notices on the road (D2-97)
 
 *live · 23 Oct · spec: [[information - noticing|information/noticing]], [[information - prompts|information/prompts]], [[world - edges|world/edges]]*
 

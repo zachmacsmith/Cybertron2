@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-107 · Processing keeps its food gain, for now
+# Processing keeps its food gain, for now (D4-107)
 
 *live · 8 Nov · spec: [[core - processes|core/processes]]*
 

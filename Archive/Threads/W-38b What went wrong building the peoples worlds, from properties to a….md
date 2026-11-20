@@ -5,7 +5,7 @@ state: done
 updated: "2026-11-20"
 ---
 
-# W-38b · What went wrong building the peoples worlds, from properties to a…
+# What went wrong building the peoples worlds, from properties to a… (W-38b)
 
 *done · 37.4 · touched  ()*
 
@@ -17,4 +17,4 @@ What went wrong building the peoples worlds, from properties to a world, and the
 
 
 ## Mentioned by
-- [[W-65 Tracking threads automatically|W-65 · Tracking threads automatically]]
+- [[W-65 The records system|The records system (W-65)]]

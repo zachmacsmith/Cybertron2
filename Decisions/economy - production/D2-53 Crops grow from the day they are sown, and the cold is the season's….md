@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-53 · Crops grow from the day they are sown, and the cold is the season's…
+# Crops grow from the day they are sown, and the cold is the season's… (D2-53)
 
 *live · 23 Oct · spec: [[economy - production|economy/production]]*
 
@@ -20,7 +20,7 @@ crops growing through winter (the engine as built)
 
 
 ## Mentioned by
-- [[D4-39 Soil|D4-39 · Soil]]
+- [[D4-39 Soil|Soil (D4-39)]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
 - [[Proposal what can happen (eras, weather, hazards that spread, and…|Proposal: what can happen (eras, weather, hazards that spread, and…]]
 - [[Proposal farming|Proposal: farming]]

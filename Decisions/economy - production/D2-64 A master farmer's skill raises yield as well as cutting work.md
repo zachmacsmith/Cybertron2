@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-64 · A master farmer's skill raises yield as well as cutting work
+# A master farmer's skill raises yield as well as cutting work (D2-64)
 
 *live · 23 Oct · spec: [[economy - production|economy/production]]*
 

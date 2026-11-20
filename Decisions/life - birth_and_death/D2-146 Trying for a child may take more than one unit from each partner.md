@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D2-146 · Trying for a child may take more than one unit from each partner
+# Trying for a child may take more than one unit from each partner (D2-146)
 
 *live · 24 Oct · spec: [[life - birth_and_death|life/birth_and_death]]*
 
@@ -17,7 +17,7 @@ children.md §2
 
 
 ## Mentioned by
-- [[D2-162 Shorter waits for children, a higher chance|D2-162 · Shorter waits for children, a higher chance]]
+- [[D2-162 Shorter waits for children, a higher chance|Shorter waits for children, a higher chance (D2-162)]]
 - [[Proposal children as a choice, counted in days (costs, care, growing…|Proposal: children as a choice, counted in days (costs, care, growing…]]
 - [[Proposal fertility and replacement|Proposal: fertility and replacement]]
 - [[Proposal life (partners, children, growing up, death, inheritance)|Proposal: life (partners, children, growing up, death, inheritance)]]

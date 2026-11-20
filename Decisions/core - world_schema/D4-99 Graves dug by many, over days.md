@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-99 · Graves dug by many, over days
+# Graves dug by many, over days (D4-99)
 
 *live · 4 Nov · spec: [[core - world_schema|core/world_schema]], [[world - things_in_places|world/things_in_places]]*
 
@@ -20,8 +20,8 @@ a burial done by one person in one act, of the whole grave's units ([[D2-96 Rot 
 
 
 ## Mentioned by
-- [[L-66 A grave cannot be dug in winter Done|L-66 · A grave cannot be dug in winter **Done**]]
-- [[L-67 Two cairns|L-67 · Two cairns]]
+- [[L-66 A grave cannot be dug in winter Done|A grave cannot be dug in winter **Done** (L-66)]]
+- [[L-67 Two cairns|Two cairns (L-67)]]
 - [[Proposal buildings people make their own (descriptions and lines…|Proposal: buildings people make their own (descriptions and lines…]]
 - [[Carcasses, decay and what comes to them|Carcasses, decay and what comes to them]]
 - [[Graves dug by many, over days; a cairn after burial; an unfinished…|Graves dug by many, over days; a cairn after burial; an unfinished…]]

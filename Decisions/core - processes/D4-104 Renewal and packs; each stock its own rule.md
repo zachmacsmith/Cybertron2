@@ -5,7 +5,7 @@ state: live
 updated: "2026-11-20"
 ---
 
-# D4-104 · Renewal and packs; each stock its own rule
+# Renewal and packs; each stock its own rule (D4-104)
 
 *live · 7 Nov · spec: [[core - processes|core/processes]], [[core - world_schema|core/world_schema]]*
 
