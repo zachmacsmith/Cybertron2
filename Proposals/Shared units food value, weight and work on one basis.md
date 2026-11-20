@@ -120,6 +120,7 @@ These energy densities are approximate, from memory, and are to be checked again
 
 ## History
 
+- 20 Nov 2026: accepted in part: [[D2-259 The food values are anchored on real values|D2-259]] (The food values are anchored on real values ([[D2-258 The food values are put on one physical basis|D2-258]]): a value within about 20% o).
 - **19 Nov 2026:** drafted by 37.4 at Zach's request, after the weir analysis on the runs world showed the eel at a fifth of its real value. Sent to 37.2 for the analysis.
 - **20 Nov 2026:** 37.2's analysis done (02zzu_shared_units.md, with a .json table and .py), on 1 food = 2,500 kcal and a unit = 2 hours (the basis is [[Q-69 The basis for food and work|Q-69]]). Findings against this proposal:
   - **The eel premise was wrong.** At the engine's 0.5 kg an eel is about 0.27 food against 0.2 now: fairly valued. The "fifth" came from counting a kilogram of whole fish as a day's food. The salmon is overvalued (about 1.4 against 2.0).

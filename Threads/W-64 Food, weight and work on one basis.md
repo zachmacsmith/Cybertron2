@@ -26,6 +26,7 @@ done 20 Nov: the six-part analysis (02zzu_shared_units.md, .json, .py) on 1 food
 
 ## Linked
 - under it: [[D2-258 The food values are put on one physical basis|The food values are put on one physical basis (D2-258)]] (live)
+- under it: [[D2-259 The food values are anchored on real values|The food values are anchored on real values (D2-259)]] (live)
 - under it: [[L-138 Hens lay on the old clock|Hens lay on the old clock (L-138)]] (open)
 - under it: [[Q-69 The basis for food and work|The basis for food and work (Q-69)]] (open)
 - under it: [[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Adopt the food values on one basis, and fix the runs, the weir and… (Q-70)]] (closed)
@@ -33,6 +34,7 @@ done 20 Nov: the six-part analysis (02zzu_shared_units.md, .json, .py) on 1 food
 
 ## Mentioned by
 - [[D2-258 The food values are put on one physical basis|The food values are put on one physical basis (D2-258)]]
+- [[D2-259 The food values are anchored on real values|The food values are anchored on real values (D2-259)]]
 - [[Q-69 The basis for food and work|The basis for food and work (Q-69)]]
 - [[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Adopt the food values on one basis, and fix the runs, the weir and… (Q-70)]]
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
