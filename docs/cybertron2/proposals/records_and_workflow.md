@@ -431,6 +431,60 @@ W-66  thread  waiting  37.2  "The design of the records and the workflow"
   mentioned by  3 (OPEN Q-61, Q-63, Q-64)
 ```
 
+## 13. Freshness against the edges, typed commits, and how far from built
+
+Zach (20 Nov): "Each thing should be clear when it was last updated vs comparison to the edges to it were last updated. And the
+commits should have types: e.g building code could label which things it edits ... One derived measure could be like shortest
+path to last built commit ... or is that too much?"
+
+**Freshness.** Every node shows its last update, read from git. Each of its links shows the linked node's last update too, and
+the node is flagged when a link is newer than the node itself:
+
+```
+proposals/climate_from_land.md  proposal  discussion   updated 17 Nov
+  ! 2 links newer: engine/climate.py (built 19 Nov, 3 commits), D2-231 (19 Nov)
+```
+
+- **Not every newer link means stale.** The flag is a count shown at the place, not an error.
+- **Reviewing clears it without editing.** An owner who has read the newer links and found nothing to change sets `reviewed:` in
+  the header, and the flag counts only what is newer than that.
+- **Documents name the code they describe.** A spec file's mechanics name their code (`describes: engine/renewal.py`), and the
+  same freshness test applies. When the code has commits after its spec file, the file shows "code newer by 4 commits". This
+  closes the gap left open in §11: the 87% of the spec that describes mechanics now notices when the code moves.
+
+**Commit types.** The subject starts with a type and the main thread: `build W-48: the weir's gap downstream`.
+
+| Type | Means | Must touch |
+|---|---|---|
+| `design` | proposals, session notes, briefs | docs |
+| `decide` | decisions recorded | a new decision item |
+| `build` | new code or data | `cybertron2/`, `c2viz/` or `specs/` |
+| `fix` | a fault mended | code, and an item naming the fault |
+| `run` | a run made, stopped or published | a run item |
+| `record` | records only (asks, threads, offers, statuses) | items only |
+| `upkeep` | hygiene, links, wording | anything; no thread needed |
+
+- **Inferred, then corrected.** `records commit` takes the type from the paths changed (code means build, a new decision means
+  decide, only items means record), and the agent corrects it where the intent differs (build or fix). The commit check holds
+  the type against the paths.
+- **`Builds:` says what the code implements.** A build or fix commit names the decisions and threads it implements (`Builds:
+  D2-229, W-48`). A decision's built state is then a fact with a commit behind it, not an inference, and its "built" line shows
+  the commit and whether it is on main.
+- **Recent commits are a query.** "The latest commits in this thread or its direct links" is `records log <id>`, one line each:
+  date, type, subject.
+
+**How far from built.** Two plain measures, in place of a shortest path:
+- **per decision:** built or not, by which commit, and whether that commit is on main;
+- **per thread:**
+  - the date of its last `build` commit;
+  - how many of its decisions are unbuilt;
+  - its branch's commits not on main.
+
+A shortest path in hops measures how densely people link more than how far work is from code. A single `relates` edge would put
+most things two hops from a build. The question behind it, "how much of what we decided is real", is answered directly by
+unbuilt decisions per thread and area. That is the 22 to 24 Oct failure (gates, ledgers, tools decided, never built) made
+visible. `records area` and the brief list unbuilt decisions with their age.
+
 ## Open questions
 
 OPEN Q-64:
@@ -454,6 +508,11 @@ OPEN Q-64:
 14. Documents as nodes (§12): a flat header with a summary on every spec file, proposal and session note; a query showing
     the node in full (a document's decided lines and open questions in full, its prose as summary and outline), its links one
     line each, nothing further; orphan, dead-end and stale-summary checks?
+15. Freshness (§13): each node's last update against its links', a "links newer" count with `reviewed:` to clear it, and
+    `describes:` on spec files so code newer than its spec shows?
+16. Commit types in the subject (`build W-48: ...`; design, decide, build, fix, run, record, upkeep), inferred from the paths and
+    corrected by the agent, with `Builds:` naming what code implements; "how far from built" as unbuilt decisions per thread and
+    area and the last build's date, not a shortest path?
 12. Ids written as `[[Q-63]]` in the items, so the folder opens in Obsidian with its links and graph, or as plain ids that only
     the tool links?
 
@@ -464,6 +523,8 @@ Every session's habits (CLAUDE.md's work rules); `tools/` (hygiene folded into `
 
 ## History
 
+- 20 Nov 2026: §13 added after Zach: freshness against links (with `reviewed:` and `describes:`, which also covers the spec's
+  mechanics against the code), commit types with `Builds:`, and unbuilt decisions in place of a shortest path. Q-64 (15), (16).
 - 20 Nov 2026: §12 added after Zach: documents are nodes with the same header as items; queries show by level (in full, then
   one line, then nothing); recall made by construction (areas, parents) and checked (orphans, dead ends, stale summaries); the
   example of `show`. Q-64 (14).
