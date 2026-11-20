@@ -4,10 +4,8 @@
 - [[Q-62 recordexecution.md and resume --from-last|Q-62 · record/execution.md and `resume --from-last`]] (open)
 - [[Q-56 The land the engine reads|Q-56 · The land the engine reads]] (open)
 - [[Q-53 Brief 5 as built|Q-53 · Brief 5 as built]] (open)
-- [[Q-51 Brief 5 (river and water)|Q-51 · Brief 5 (river and water)]] (open)
 - [[Q-49 Engine bugs found by the package inventory|Q-49 · Engine bugs found by the package inventory]] (open)
 - [[Q-47 The border for now|Q-47 · The border for now]] (open)
-- [[Q-46 Brief 4c as built|Q-46 · Brief 4c as built]] (open)
 - [[Q-45 Generation redesign|Q-45 · Generation redesign]] (open)
 - [[Q-43 Before the second peoples run|Q-43 · Before the second peoples run]] (open)
 - [[Q-42 The peoples benchmark before any run|Q-42 · The peoples benchmark before any run]] (open)
@@ -36,7 +34,7 @@
 - [[Q-RR3 The human player's first interface|Q-RR3 · The human player's first interface]] (open)
 - [[Q-RR5 A replay test with shuffled completion order of model calls|Q-RR5 · A replay test with shuffled completion order of model calls]] (open)
 
-## Closed (40)
+## Closed (42)
 - [[Q-65 Delete the 16 empty branches|Q-65 · Delete the 16 empty branches]]
 - [[Q-64 The records as items with rendered views, one tool and a skill…|Q-64 · The records as items with rendered views, one tool and a skill…]]
 - [[Q-63 A commit schema|Q-63 · A commit schema]]
@@ -48,8 +46,10 @@
 - [[Q-55 The weir as built, measured|Q-55 · The weir as built, measured]]
 - [[Q-54 Fresh fish meat's rate in hand|Q-54 · Fresh fish: meat's rate in hand]]
 - [[Q-52 Environment systems|Q-52 · Environment systems]]
+- [[Q-51 Brief 5 (river and water)|Q-51 · Brief 5 (river and water)]]
 - [[Q-50 One grid or several|Q-50 · One grid or several]]
 - [[Q-48 The engine as feature packages|Q-48 · The engine as feature packages]]
+- [[Q-46 Brief 4c as built|Q-46 · Brief 4c as built]]
 - [[Q-44 Brief 4c before the build|Q-44 · Brief 4c before the build]]
 - [[Q-41 Brief 4b as built, and its gate|Q-41 · Brief 4b as built, and its gate]]
 - [[Q-40 Brief 4 as built, and its gate|Q-40 · Brief 4 as built, and its gate]]

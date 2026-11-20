@@ -22,4 +22,5 @@ not begun; recorded on arrival so it is not lost (02zzp pattern 1). Sits with th
 
 ## Mentioned by
 - [[W-69 Subsistence worlds|W-69 · Subsistence worlds]]
+- [[L-137 Stores may be too strong against preserving|L-137 · Stores may be too strong against preserving]]
 - *and 1 index or audit notes*

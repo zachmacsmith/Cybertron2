@@ -24,10 +24,16 @@ started
 - replaces: [[W-22 Hunting against farming and gathering in generated worlds|W-22 · Hunting against farming and gathering in generated worlds]]
 - relates: [[W-54 The calibration worlds|W-54 · The calibration worlds]]
 - relates: [[W-64 Shared units for food, weight and work|W-64 · Shared units for food, weight and work]]
+- under it: [[D2-247 A process of bulk goods has a most it takes at once, not a least|D2-247 · A process of bulk goods has a most it takes at once, not a least]] (live)
+- under it: [[L-137 Stores may be too strong against preserving|L-137 · Stores may be too strong against preserving]] (open)
+- under it: [[O-2 Make the eleven bulk processes take up to their batch|O-2 · Make the eleven bulk processes take up to their batch]] (open)
 
 
 ## Mentioned by
+- [[D2-247 A process of bulk goods has a most it takes at once, not a least|D2-247 · A process of bulk goods has a most it takes at once, not a least]]
 - [[Q-46 Brief 4c as built|Q-46 · Brief 4c as built]]
 - [[Q-52 Environment systems|Q-52 · Environment systems]]
 - [[Q-57 Fishing, from the lake run|Q-57 · Fishing, from the lake run]]
 - [[W-22 Hunting against farming and gathering in generated worlds|W-22 · Hunting against farming and gathering in generated worlds]]
+- [[L-137 Stores may be too strong against preserving|L-137 · Stores may be too strong against preserving]]
+- [[O-2 Make the eleven bulk processes take up to their batch|O-2 · Make the eleven bulk processes take up to their batch]]

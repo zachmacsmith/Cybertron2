@@ -1,6 +1,7 @@
 # All deferred
 
 ## Open
+- [[L-137 Stores may be too strong against preserving|L-137 · Stores may be too strong against preserving]] (open)
 - [[L-136 News of a famine does not travel|L-136 · News of a famine does not travel]] (open)
 - [[L-135 Debts of the dead are never settled|L-135 · Debts of the dead are never settled]] (open)
 - [[L-134 No loans of goods|L-134 · No loans of goods]] (open)

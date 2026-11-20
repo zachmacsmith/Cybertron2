@@ -21,6 +21,8 @@ started
 
 
 ## Linked
+- under it: [[D2-249 Wild kinds have birth windows of their own, and the year's young are…|D2-249 · Wild kinds have birth windows of their own, and the year's young are…]] (live)
+- under it: [[D2-250 Boar raid fields into autumn, to autumn day 4, weaker in a mast year|D2-250 · Boar raid fields into autumn, to autumn day 4, weaker in a mast year]] (live)
 - under it: [[L-117 Wildlife pack K3 forays, methods and knowing|L-117 · Wildlife pack K3: forays, methods and knowing]] (open)
 - under it: [[L-118 Wildlife pack K5 wood and frontier|L-118 · Wildlife pack K5: wood and frontier]] (open)
 - under it: [[L-119 Wildlife pack K6 keeping|L-119 · Wildlife pack K6: keeping]] (open)
@@ -36,6 +38,8 @@ started
 
 
 ## Mentioned by
+- [[D2-249 Wild kinds have birth windows of their own, and the year's young are…|D2-249 · Wild kinds have birth windows of their own, and the year's young are…]]
+- [[D2-250 Boar raid fields into autumn, to autumn day 4, weaker in a mast year|D2-250 · Boar raid fields into autumn, to autumn day 4, weaker in a mast year]]
 - [[Q-57 Fishing, from the lake run|Q-57 · Fishing, from the lake run]]
 - [[W-12 Forays (proposalsforays.md)|W-12 · Forays (proposals/forays.md)]]
 - [[L-117 Wildlife pack K3 forays, methods and knowing|L-117 · Wildlife pack K3: forays, methods and knowing]]

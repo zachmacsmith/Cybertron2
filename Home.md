@@ -4,13 +4,11 @@
 
 [The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.
 
-## Waiting on you (9)
+## Waiting on you (7)
 - [[Q-27 The verb list|Q-27 · The verb list]]
 - [[Q-56 The land the engine reads|Q-56 · The land the engine reads]]
 - [[Q-53 Brief 5 as built|Q-53 · Brief 5 as built]]
-- [[Q-51 Brief 5 (river and water)|Q-51 · Brief 5 (river and water)]]
 - [[Q-47 The border for now|Q-47 · The border for now]]
-- [[Q-46 Brief 4c as built|Q-46 · Brief 4c as built]]
 - [[Q-45 Generation redesign|Q-45 · Generation redesign]]
 - [[Q-43 Before the second peoples run|Q-43 · Before the second peoples run]]
 - [[Q-42 The peoples benchmark before any run|Q-42 · The peoples benchmark before any run]]
@@ -85,7 +83,13 @@
 ## Queued and paused (9)
 [[W-12 Forays (proposalsforays.md)|W-12]] Forays (proposals/forays.md), [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-64 Shared units for food, weight and work|W-64]] Shared units for food, weight and work, [[W-67 The wildlife economy extended|W-67]] The wildlife economy extended, [[W-68 37.2's spec catch-up|W-68]] 37.2's spec catch-up, [[W-69 Subsistence worlds|W-69]] Subsistence worlds, [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
 
-## Decided this week (47)
+## Decided this week (53)
+- [[D2-251 Every technique, fitting and thing to build says what it does and why…|D2-251 · Every technique, fitting and thing to build says what it does and why…]]
+- [[D2-250 Boar raid fields into autumn, to autumn day 4, weaker in a mast year|D2-250 · Boar raid fields into autumn, to autumn day 4, weaker in a mast year]]
+- [[D2-249 Wild kinds have birth windows of their own, and the year's young are…|D2-249 · Wild kinds have birth windows of their own, and the year's young are…]]
+- [[D2-248 A hearth, fire ring or smoke rack dries one batch at a time|D2-248 · A hearth, fire ring or smoke rack dries one batch at a time]]
+- [[D2-247 A process of bulk goods has a most it takes at once, not a least|D2-247 · A process of bulk goods has a most it takes at once, not a least]]
+- [[D2-246 With a mill's gap open|D2-246 · With a mill's gap open]]
 - [[D2-245 The calibration suite is all twelve worlds of…|D2-245 · The calibration suite is all twelve worlds of…]]
 - [[D2-244 The engine's reworking into feature packages|D2-244 · The engine's reworking into feature packages]]
 - [[D2-243 The verbs and the livelihood archetypes are reshaped first, as their…|D2-243 · The verbs and the livelihood archetypes are reshaped first, as their…]]
@@ -95,12 +99,6 @@
 - [[D2-239 Zach's views and the hand-offs|D2-239 · Zach's views and the hand-offs]]
 - [[D2-238 Branches|D2-238 · Branches]]
 - [[D2-237 Code changes live under a thread|D2-237 · Code changes live under a thread]]
-- [[D2-236 Every resolution names who made it|D2-236 · Every resolution names who made it]]
-- [[D2-235 Commits typed and labelled|D2-235 · Commits typed and labelled]]
-- [[D2-234 Documents in the web|D2-234 · Documents in the web]]
-- [[D2-233 One tool for the records|D2-233 · One tool for the records]]
-- [[D2-232 The records as items|D2-232 · The records as items]]
-- [[D4-124 Resume from the last finished day|D4-124 · Resume from the last finished day]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]

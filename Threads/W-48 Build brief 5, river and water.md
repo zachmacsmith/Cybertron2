@@ -24,7 +24,14 @@ built and gated (16 Nov): the three parts merged on ecology-water (5033573), the
 - parts on 5-river (§2, §3, §3a, eel, salmon, lamprey, otter), 5-keep (§4a, §4b, §4c), 5-fowl (fowl, beaver, heron)
 
 
+## Linked
+- under it: [[D2-246 With a mill's gap open|D2-246 · With a mill's gap open]] (live)
+- under it: [[D2-248 A hearth, fire ring or smoke rack dries one batch at a time|D2-248 · A hearth, fire ring or smoke rack dries one batch at a time]] (live)
+
+
 ## Mentioned by
+- [[D2-246 With a mill's gap open|D2-246 · With a mill's gap open]]
+- [[D2-248 A hearth, fire ring or smoke rack dries one batch at a time|D2-248 · A hearth, fire ring or smoke rack dries one batch at a time]]
 - [[W-26 Build brief 5 river and water (K4 without fen and boats)|W-26 · Build brief 5: river and water (K4 without fen and boats)]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]
 - [[38.73 Brief 5 (river and water) as built the dry-run report for the…|38.73: Brief 5 (river and water) as built: the dry-run report for the…]]

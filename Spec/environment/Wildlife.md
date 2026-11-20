@@ -1,7 +1,7 @@
 ---
 id: docs/cybertron2/spec/environment/wildlife.md
 kind: spec
-updated: "2026-11-16"
+updated: "2026-11-20"
 ---
 # Wildlife
 
@@ -29,6 +29,10 @@ is, these rules wait for it.
 - [[D2-196 Hounds in wave 2, with the wolves|D2-196]]: hounds in wave 2, hawks in wave 3.
 - [[D2-197 Lead times and creature memory are set in engine days, never less…|D2-197]]: lead times and creature memory in engine days, never less than one.
 - [[D2-198 Kinds answer people's scares in different ways|D2-198]]: kinds answer scares in different ways: get used to them, are scared off, leave for good, or do not answer.
+- [[D2-246 With a mill's gap open|D2-246]]: With a mill's gap open (its hatches up, the river let past the wheel), the mill grinds at half its rate
+- [[D2-248 A hearth, fire ring or smoke rack dries one batch at a time|D2-248]]: A hearth, fire ring or smoke rack dries one batch at a time; the hearth rack's loss of a glut stays as built (23 to 30% of 40 meat)
+- [[D2-249 Wild kinds have birth windows of their own, and the year's young are…|D2-249]]: Wild kinds have birth windows of their own, and the year's young are a class of their own
+- [[D2-250 Boar raid fields into autumn, to autumn day 4, weaker in a mast year|D2-250]]: Boar raid fields into autumn, to autumn day 4, weaker in a mast year
 
 ## Mechanics
 

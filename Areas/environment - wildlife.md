@@ -4,7 +4,7 @@
 
 > The wild kinds that live on the land, how they are taken, and the rights in them. The mechanism they live on (a field over the land, one movement rule, observation as the collapse) is a proposal (proposals/living_populations.md) and not yet decided; until it is, these rules wait for it.
 
-## Decided (20)
+## Decided (24)
 - **[[D2-192 The first wild kinds come in four waves|D2-192]]** The first wild kinds come in four waves
 - **[[D2-193 Dangerous kinds can wound or kill the hunter|D2-193]]** Dangerous kinds can wound or kill the hunter
 - **[[D2-194 A world may give rights in wild kinds by law at its start|D2-194]]** A world may give rights in wild kinds by law at its start
@@ -25,3 +25,7 @@
 - **[[D2-216 Eels and salmon are fish|D2-216]]** Eels and salmon are fish
 - **[[D2-217 The weir's wear as built|D2-217]]** The weir's wear as built
 - **[[D2-219 A run night's work counts shutting|D2-219]]** A run night's work counts shutting
+- **[[D2-246 With a mill's gap open|D2-246]]** With a mill's gap open
+- **[[D2-248 A hearth, fire ring or smoke rack dries one batch at a time|D2-248]]** A hearth, fire ring or smoke rack dries one batch at a time
+- **[[D2-249 Wild kinds have birth windows of their own, and the year's young are…|D2-249]]** Wild kinds have birth windows of their own, and the year's young are…
+- **[[D2-250 Boar raid fields into autumn, to autumn day 4, weaker in a mast year|D2-250]]** Boar raid fields into autumn, to autumn day 4, weaker in a mast year

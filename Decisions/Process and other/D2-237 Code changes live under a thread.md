@@ -17,3 +17,7 @@ proposals/records_and_workflow.md §5; conversation (20 Nov, ask 7: "Yeah code c
 
 ## What it replaced
 code under `cybertron2/` changed only by 37.4 (README rule 6)
+
+
+## Mentioned by
+- [[O-2 Make the eleven bulk processes take up to their batch|O-2 · Make the eleven bulk processes take up to their batch]]

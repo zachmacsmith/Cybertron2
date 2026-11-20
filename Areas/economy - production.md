@@ -4,7 +4,7 @@
 
 > Food comes from foraging (the bottom rung) and from fields. Farming has a short minimum (sow, reap) and optional stages that cost work and raise the return. Crops ripen into a harvest window. Seed is kept back. Cattle pull the plough and dung the soil. Tools are a small set chosen by what each depen
 
-## Decided (38)
+## Decided (39)
 - **[[D2-11 Farming's minimum is short, the other stages optional|D2-11]]** Farming's minimum is short, the other stages optional
 - **[[D2-12 A harvest window|D2-12]]** A harvest window
 - **[[D2-13 Worlds start with farming under way|D2-13]]** Worlds start with farming under way
@@ -38,6 +38,7 @@
 - **[[D2-163 Land is held in plot shares within a parcel|D2-163]]** Land is held in plot shares within a parcel
 - **[[D2-167 The mill ladder bites|D2-167]]** The mill ladder bites
 - **[[D2-172 A field carries one crop for each holding on it|D2-172]]** A field carries one crop for each holding on it
+- **[[D2-247 A process of bulk goods has a most it takes at once, not a least|D2-247]]** A process of bulk goods has a most it takes at once, not a least
 - **[[D4-19 Short childhoods counted in rounds|D4-19]]** Short childhoods counted in rounds
 - **[[D4-21 Worlds are seeded as a society with a past|D4-21]]** Worlds are seeded as a society with a past
 - **[[D4-23 Holding is a recognised claim|D4-23]]** Holding is a recognised claim

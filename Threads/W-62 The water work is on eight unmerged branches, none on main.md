@@ -20,6 +20,7 @@ fold them into one branch, test it, and merge to main on Zach's go (OPEN [[Q-53 
 
 
 ## Mentioned by
+- [[Q-53 Brief 5 as built|Q-53 · Brief 5 as built]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - *and 4 index or audit notes*
