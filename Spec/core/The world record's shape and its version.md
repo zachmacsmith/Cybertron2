@@ -117,6 +117,7 @@ authority.
 | a begun fitting shown on its building: buildings `fitting_work` | [[D4-91 A fitting begun shows on its building|D4-91]] |
 | what an act drew from the stores: `today.drawn` | [[D4-96 Using the store at home|D4-96]] |
 | graves dug over days and cairns after burial: containers `grave`, `cairn_day`, `cairn_by` | [[D4-99 Graves dug by many, over days|D4-99]] |
+| one fish stock a water body: top-level `waters` {body: {kind, parcels, fish}}; each parcel on it holds the same record (version 11) | [[D2-229 One fish stock per water body|D2-229]] |
 
 ## What readers should do
 
@@ -129,4 +130,4 @@ authority.
 proposals/run_data_interface.md; cybertron2/engine/schema.py; spec/record/journal.md (the journal's own `schema`, which versions
 its tables, not the world inside them).
 
-*Current as of 17 Nov 2026: [[D4-100 The world record's shape is declared and versioned|D4-100]], [[D4-103 The engine overhaul goes ahead, in phases|D4-103]] (version 2), [[D4-104 Renewal and packs; each stock its own rule|D4-104]], [[D4-106 Can apart from works|D4-106]] (version 3), [[D4-112 The land's base fertility, multiplicative|D4-112]] (version 4), [[D4-117 A youth's model is its household's|D4-117]] (version 10); versions 5 to 9 from the wild layer's branches, merged to main 16 Nov; version 11 on branch `lake-fixes` ([[W-57 The lake runs' seven engine faults|W-57]]).*
+*Current as of 17 Nov 2026: [[D4-100 The world record's shape is declared and versioned|D4-100]], [[D4-103 The engine overhaul goes ahead, in phases|D4-103]] (version 2), [[D4-104 Renewal and packs; each stock its own rule|D4-104]], [[D4-106 Can apart from works|D4-106]] (version 3), [[D4-112 The land's base fertility, multiplicative|D4-112]] (version 4), [[D4-117 A youth's model is its household's|D4-117]] (version 10), [[D2-229 One fish stock per water body|D2-229]] (version 11, 17 Nov); versions 5 to 9 from the wild layer's branches, merged to main 16 Nov.*

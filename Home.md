@@ -18,10 +18,12 @@
 ## To confirm or revisit
 - [[Q-47 Where the economy stops for now|Where the economy stops for now (Q-47)]]: revisit: kept open on purpose with W-39 (Zach, 20 Nov)
 - [[W-39 The economy's web of dependence and how far it should reach|The economy's web of dependence and how far it should reach (W-39)]]: revisit: kept open on purpose (Zach, 20 Nov: 'this should be another thread of its own purposefully kept open')
+- [[W-53 Floodplains in the generator|Floodplains in the generator (W-53)]]: closed by agent
+- [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]]: closed by agent
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]: revisit: soon (Zach, 20 Nov: something I want to revisit soon)
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]: revisit: soon (Zach, 20 Nov: 'that one sooner')
 
-## Active threads (17)
+## Active threads (16)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -29,11 +31,9 @@
 - [[W-51 Testing the weather across dry, cold, coastal and mountain worlds…|Testing the weather across dry, cold, coastal and mountain worlds… (W-51)]]  
   next: Zach's answers to Q-56; the generator's half (node temp_c, sea_km, wind) when he agrees; the flow-level rule…
 - [[W-54 The twelve calibration worlds and an audit of the generator across…|The twelve calibration worlds and an audit of the generator across… (W-54)]]  
-  next: the agent building the twelve worlds, widened to D2-252 (nutrition, wildlife, weather and its likelihood…
+  next: Zach on the audit's faults (which to fix, each remakes every world); climate from the land (Q-56); then rerun…
 - [[W-60 Fixing the ecology's water counted twice, then rechecking the…|Fixing the ecology's water counted twice, then rechecking the… (W-60)]]  
-  next: heron, otter, fish-taking fowl and the fish stock against their real densities, rescale or confirm; the 4c…
-- [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]]  
-  next: find the branch tips, merge them into one integration branch from main, resolve, adapt the tests built on the…
+  next: the water counted once is on main (W-62); the recheck of the heron, otter, fish-taking fowl and the fish…
 - [[W-63 The audit of work started and left, and the triage of open asks and…|The audit of work started and left, and the triage of open asks and… (W-63)]]  
   next: Zach's answers to the four explained asks (Q-58, Q-51, Q-53 a and b, Q-46 d and e); 37.4's own pass (Q-42…
 - [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]  
@@ -60,7 +60,7 @@
 - [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]]  
   next: merge (Zach), a bot run to measure the new rows' chances, item 9 after W-56
 
-## Waiting threads (9)
+## Waiting threads (8)
 
 **37.2**
 - [[W-25 Keeping each world's full 150 m land with it|Keeping each world's full 150 m land with it (W-25)]]  
@@ -69,8 +69,6 @@
   next: Zach's choices (its open questions); then briefs; 15 Nov: 02zzi, how the economy could scale beyond the…
 - [[W-49 Environment systems|Environment systems (W-49)]]  
   next: Q-52 (6), the frequencies; phase 0 then phase 1 (water) to brief once climate from the land (Q-56) is settled
-- [[W-53 Floodplains in the generator|Floodplains in the generator (W-53)]]  
-  next: 37.4 merges and adapts its tests; LAKE_FISH calibrated across the calibration worlds (W-54)
 - [[W-59 The runs world for the model-per-household run|The runs world for the model-per-household run (W-59)]]  
   next: Zach to confirm Q-60's relayed answers, then record them
 

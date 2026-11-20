@@ -35,6 +35,7 @@ worlds seeded at the most people their stocks carry for a run
 - [[02zj the landscape generator, stage 1, as built|02zj: the landscape generator, stage 1, as built]]
 - [[02zze a wild region with dependence four villages, one rich…|02zze: a wild region with dependence: four villages, one rich…]]
 - [[02zzf why the generator is slow, and how to make it fast|02zzf: why the generator is slow, and how to make it fast]]
+- [[02zzt the calibration suite, its first results, and the generator…|02zzt: the calibration suite, its first results, and the generator…]]
 - [[38.28 Package F (forests, fuel in heat, eating raw, seeding below…|38.28: Package F (forests, fuel in heat, eating raw, seeding below…]]
 - [[38.37 Everything an agent is shown inventory, origins, what it does…|38.37: Everything an agent is shown: inventory, origins, what it does…]]
 - *and 1 index or audit notes*

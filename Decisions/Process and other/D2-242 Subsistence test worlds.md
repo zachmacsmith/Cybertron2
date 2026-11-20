@@ -23,4 +23,5 @@ conversation (20 Nov: "can a village survive off just runs (should be possible?)
 ## Mentioned by
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
+- [[02zzt the calibration suite, its first results, and the generator…|02zzt: the calibration suite, its first results, and the generator…]]
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]

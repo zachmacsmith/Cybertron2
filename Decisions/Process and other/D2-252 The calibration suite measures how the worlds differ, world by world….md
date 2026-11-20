@@ -21,5 +21,4 @@ conversation (20 Nov: "The calibration should look how different sources of nutr
 
 
 ## Mentioned by
-- [[W-54 The twelve calibration worlds and an audit of the generator across…|The twelve calibration worlds and an audit of the generator across… (W-54)]]
 - [[Calibration worlds a suite of diverse places to calibrate against|Calibration worlds: a suite of diverse places to calibrate against]]

@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # One fish stock per water body (D2-229)
 
-*live · 17 Nov · spec: [[environment - land|environment/land]]*
+*live · 17 Nov · spec: [[core - world_schema|core/world_schema]], [[environment - land|environment/land]]*
 
 ## The rule
 a lake's resident fish are one stock, sized by the whole lake and fished from every water parcel on it, and the wild layer's fish in its areas are the same stock; a river's resident fish are one stock per reach ([[D2-222 The environment's places|D2-222]]); the generator writes the water bodies (lakes and reaches: id, area, the areas and parcels on each) and tags each water parcel with its body; the engine holds the stock on the body; a very large lake may later be split into basins
@@ -29,6 +29,7 @@ a stock on each water parcel, sized by the lake within the village's own land ([
 - [[A model to each household in the runs world|A model to each household in the runs world]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]
 - [[A signs pass after the lake runs (17 Nov)|A signs pass after the lake runs (17 Nov)]]
+- [[The world record's shape and its version|The world record's shape and its version]]
 - [[The land and its stocks|The land and its stocks]]
 - [[02zzq the records and the workflow as they are, and how Zach works…|02zzq: the records and the workflow as they are, and how Zach works…]]
 - [[38.76 One fish stock per water body, the engine half (D2-229), as…|38.76: One fish stock per water body, the engine half (D2-229), as…]]

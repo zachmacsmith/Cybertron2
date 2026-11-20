@@ -34,6 +34,7 @@ the economy check's fixed numbers (engine/capacity.py PLOT and WILD, landgen/eco
 - [[02zzi how an economy could scale beyond the medieval village (15 Nov…|02zzi: how an economy could scale beyond the medieval village (15 Nov…]]
 - [[08 the technology paradigms after the first industrial revolution…|08: the technology paradigms after the first industrial revolution…]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
+- [[02zzt the calibration suite, its first results, and the generator…|02zzt: the calibration suite, its first results, and the generator…]]
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
 - [[38.60 Carrying capacity the model, the worlds, and every past run…|38.60: Carrying capacity: the model, the worlds, and every past run…]]
 - [[38.69 Worlds for the peoples benchmark (design, for discussion)|38.69: Worlds for the peoples benchmark (design, for discussion)]]

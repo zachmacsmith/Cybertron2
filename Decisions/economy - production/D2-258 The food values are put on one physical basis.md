@@ -24,6 +24,7 @@ conversation (20 Nov: "1. I agree")
 ## Mentioned by
 - [[Q-69 The basis for food and work|The basis for food and work (Q-69)]]
 - [[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Adopt the food values on one basis, and fix the runs, the weir and… (Q-70)]]
+- [[W-60 Fixing the ecology's water counted twice, then rechecking the…|Fixing the ecology's water counted twice, then rechecking the… (W-60)]]
 - [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]

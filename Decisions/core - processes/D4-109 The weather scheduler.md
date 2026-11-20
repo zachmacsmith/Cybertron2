@@ -40,4 +40,5 @@ the drawn spells of [[D2-69 The scheduler's layers|D2-69]] (a run of a type is n
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
 - [[02zzn the water half of the environment, prototyped on the river…|02zzn: the water half of the environment, prototyped on the river…]]
 - [[02zzo the weather across conditions, and what the engine leaves…|02zzo: the weather across conditions, and what the engine leaves…]]
+- [[02zzt the calibration suite, its first results, and the generator…|02zzt: the calibration suite, its first results, and the generator…]]
 - *and 3 index or audit notes*

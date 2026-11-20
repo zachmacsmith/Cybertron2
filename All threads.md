@@ -8,14 +8,12 @@
 - [[W-65 The records system|The records system (W-65)]] (active)
 - [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]] (active)
 - [[W-63 The audit of work started and left, and the triage of open asks and…|The audit of work started and left, and the triage of open asks and… (W-63)]] (active)
-- [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]] (active)
 - [[W-60 Fixing the ecology's water counted twice, then rechecking the…|Fixing the ecology's water counted twice, then rechecking the… (W-60)]] (active)
 - [[W-59 The runs world for the model-per-household run|The runs world for the model-per-household run (W-59)]] (waiting)
 - [[W-58 The runs world with a model to each household|The runs world with a model to each household (W-58)]] (paused)
 - [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]] (active)
 - [[W-56 One fish stock per water body, the engine half|One fish stock per water body, the engine half (W-56)]] (active)
 - [[W-54 The twelve calibration worlds and an audit of the generator across…|The twelve calibration worlds and an audit of the generator across… (W-54)]] (active)
-- [[W-53 Floodplains in the generator|Floodplains in the generator (W-53)]] (waiting)
 - [[W-51 Testing the weather across dry, cold, coastal and mountain worlds…|Testing the weather across dry, cold, coastal and mountain worlds… (W-51)]] (active)
 - [[W-49 Environment systems|Environment systems (W-49)]] (waiting)
 - [[W-48 Build brief 5, river and water|Build brief 5, river and water (W-48)]] (active)
@@ -35,10 +33,12 @@
 - [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]] (queued)
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]] (active)
 
-## Closed (41)
+## Closed (43)
 - [[W-66 The design of the records and the workflow|The design of the records and the workflow (W-66)]]
+- [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]]
 - [[W-61 An introduction for the Vanderbilt AI Safety fellows' final projects|An introduction for the Vanderbilt AI Safety fellows' final projects (W-61)]]
 - [[W-55 The lake world with a graded population goal|The lake world with a graded population goal (W-55)]]
+- [[W-53 Floodplains in the generator|Floodplains in the generator (W-53)]]
 - [[W-52 The lake world's second live run|The lake world's second live run (W-52)]]
 - [[W-50 The lake world's live run|The lake world's live run (W-50)]]
 - [[W-47 Brief 5's worlds and the runs-only world|Brief 5's worlds and the runs-only world (W-47)]]
