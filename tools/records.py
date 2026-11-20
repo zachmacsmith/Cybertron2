@@ -1036,7 +1036,8 @@ def cmd_commit(msg, typ, thread, paths, body, builds):
     if not threads and typ != "upkeep":
         raise SystemExit("commit: name a thread (--thread W-n), or --type upkeep (D2-235)")
     main = threads[0] if threads else ""
-    subject = msg if re.match(r"(" + "|".join(TYPES) + r")\b", msg) else f"{typ} {main}: {msg}".replace(" : ", ": ")
+    typed = re.match(r"(" + "|".join(TYPES) + r") (" + ID_RE + r"|[\w./-]+):", msg)
+    subject = msg if typed else f"{typ} {main}: {msg}".replace(" : ", ": ")
     agent = agent_name() or "unknown"
     att = ATTRIBUTION or _attribution()
     text = subject + ("\n\n" + body if body else "") + "\n\n" + "\n".join(trailers(agent, threads, p) + att)
