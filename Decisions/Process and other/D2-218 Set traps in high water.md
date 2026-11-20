@@ -24,4 +24,5 @@ a flood always wrecking a set trap
 - [[Calibration worlds a suite of diverse places to calibrate against|Calibration worlds: a suite of diverse places to calibrate against]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
+- [[The water fixes the weir by position and material, gear sharing a…|The water fixes: the weir by position and material, gear sharing a…]]
 - *and 1 index or audit notes*

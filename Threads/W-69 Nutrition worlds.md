@@ -61,5 +61,7 @@ updated: "2026-11-20"
 - [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]]
 - [[O-2 Make the eleven bulk processes take up to their batch|Make the eleven bulk processes take up to their batch (O-2)]]
 - [[O-3 Build the switches that turn a food source off in a world|Build the switches that turn a food source off in a world (O-3)]]
+- [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
 - [[02zzu lookup the food values checked against USDA FoodData Central|02zzu lookup: the food values checked against USDA FoodData Central]]
+- [[The water fixes the weir by position and material, gear sharing a…|The water fixes: the weir by position and material, gear sharing a…]]

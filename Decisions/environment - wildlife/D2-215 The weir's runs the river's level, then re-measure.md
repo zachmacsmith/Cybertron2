@@ -27,4 +27,5 @@ a looser rain cue; runs three to five times larger now; a wetter era
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[A signs pass after the lake runs (17 Nov)|A signs pass after the lake runs (17 Nov)]]
 - [[Wildlife|Wildlife]]
+- [[The water fixes the weir by position and material, gear sharing a…|The water fixes: the weir by position and material, gear sharing a…]]
 - *and 1 index or audit notes*

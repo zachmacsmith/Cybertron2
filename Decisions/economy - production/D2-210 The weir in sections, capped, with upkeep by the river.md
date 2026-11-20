@@ -30,4 +30,5 @@ the weir of [[D2-209 Brief 5 (river and water) is built|D2-209]] as one work wit
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[02zzu lookup the food values checked against USDA FoodData Central|02zzu lookup: the food values checked against USDA FoodData Central]]
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
+- [[The water fixes the weir by position and material, gear sharing a…|The water fixes: the weir by position and material, gear sharing a…]]
 - *and 2 index or audit notes*

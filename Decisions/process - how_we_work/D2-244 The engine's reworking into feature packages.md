@@ -27,3 +27,4 @@ conversation (20 Nov: "This is still postponed but I think we should flag it so 
 - [[O-3 Build the switches that turn a food source off in a world|Build the switches that turn a food source off in a world (O-3)]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
+- [[The water fixes the weir by position and material, gear sharing a…|The water fixes: the weir by position and material, gear sharing a…]]
