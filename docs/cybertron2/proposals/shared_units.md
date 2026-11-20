@@ -1,6 +1,6 @@
 # Shared units: food value, weight and work on one basis
 
-**Status:** discussion (19 Nov 2026). An analysis is asked of 37.2. Nothing has been changed.
+**Status:** discussion (19 Nov 2026); 37.2's analysis done 20 Nov (docs/review/37_growth/02zzu_shared_units.md), Zach's choices are OPEN Q-69 and Q-70. Nothing has been changed in code.
 
 **Owner:** 37.4 (drafted). The analysis and the calibration are for 37.2, as the economy's owner and the owner of the calibration worlds (D2-228). The data tables are engine data (`engine/data.py` ITEMS, `wild/kinds.py` goods), so the change itself is 37.4's.
 
@@ -17,7 +17,7 @@ The engine's food values and yields were set one decision at a time, for balance
 ## What prompted it (the runs world, 17 to 19 Nov)
 
 - **The weir's case.** At Lowstrand, the best place on the river, a wattle weir would take about 5 food a run night (24 food over five run nights). At Middleham and Highpool it would take 1 to 2. Spending its 24 units fishing by hand gives about 12. So the weir pays only at Lowstrand, and the runs look poor everywhere. (Analysis in the session, from the run's own pulses: `runs/water_runs_models_r1`, days 6 to 10.)
-- **The cause is the eel's value.** An eel is 0.2 food. Its value was chosen so that a full trap (3 food) would hold about 15 eels (brief 5 §3b, D2-216), not from what an eel weighs. A real silver eel is 0.5 to 1.5 kg and fatty: half a day's to a day and a half's food. A salmon is 2 food here against 3 to 5 real.
+- **The cause is the eel's value.** *(Corrected 20 Nov, see History: the analysis finds the eel fairly valued and the run sizes the cause.)* An eel is 0.2 food. Its value was chosen so that a full trap (3 food) would hold about 15 eels (brief 5 §3b, D2-216), not from what an eel weighs. A real silver eel is 0.5 to 1.5 kg and fatty: half a day's to a day and a half's food. A salmon is 2 food here against 3 to 5 real.
 
 ## The values now, and their implied bases
 
@@ -111,6 +111,13 @@ These energy densities are approximate, from memory, and are to be checked again
 ## History
 
 - **19 Nov 2026:** drafted by 37.4 at Zach's request, after the weir analysis on the runs world showed the eel at a fifth of its real value. Sent to 37.2 for the analysis.
+- **20 Nov 2026:** 37.2's analysis done (02zzu_shared_units.md, with a .json table and .py), on 1 food = 2,500 kcal and a unit = 2 hours (the basis is Q-69). Findings against this proposal:
+  - **The eel premise was wrong.** At the engine's 0.5 kg an eel is about 0.27 food against 0.2 now: fairly valued. The "fifth" came from counting a kilogram of whole fish as a day's food. The salmon is overvalued (about 1.4 against 2.0).
+  - **What decides the weir is the run sizes, not the values.** The weir does not pay at Highpool or Middleham on any values (0.22 and 0.48 food a unit after the fix). Eel runs are 2.5 to 7 times below a real river's, salmon 20 to several hundred times (spawning only in head waters, `cap_km` 1.5). Recommended: runs 3 to 6 times larger, salmon spread up the river by km, the weir's hold in kg (about 30 kg), and fewer, denser run nights. Compressing the year while keeping the real number of run nights makes each night a twelfth of a real one; the nights are the engine's (37.4).
+  - **Fishing worlds lose about half their fish food** under the basis (the lake world 1.46 to 1.11 of need); resident stocks need about 2.2 times.
+  - **The grain ladder barely moves** (bread at 1.3 is already grain's whole energy). Greens, berries, watercress and samphire fall to a tenth to a fifth; meat and fish units become 1,500 and 1,150 kcal; farm beasts rise 1.5 to 2 times.
+  - **Hens lay on node_ecology's old clock** (L-138).
+  - Most values were recalled, not looked up; a lookup pass comes before any data change. Zach's choices are Q-70; nothing changes in code until he answers.
 
 ## Sources
 
