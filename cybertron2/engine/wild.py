@@ -18,6 +18,7 @@ import math
 import numpy as np
 
 from cybertron2.engine import packs as PK
+from cybertron2.wild import switches as SW
 
 KG_PER_FOOD = 10.0             # an engine food (365/Y real person-days, node_ecology.md) as kg of grain or forage (calibrate)
 DRY_STORES = ("grain", "rye", "oats", "beans", "meal", "flour")   # what wild kinds get at in a store (calibrate)
@@ -36,8 +37,9 @@ def model(w):
     m = w.__dict__.get("_wild_model")                                     # not state: rebuilt from the land summary on demand
     if m is None:
         from cybertron2.wild import ecology as EC
+        from cybertron2.wild import switches as SW
         knobs = dict((w.spec.get("wild") or {}).get("knobs") or {})
-        m = EC.Model(w.s["wild"]["land"], Y=w.year_days(), knobs=knobs)
+        m = EC.Model(w.s["wild"]["land"], Y=w.year_days(), knobs=knobs, off=SW.kinds_off(w.spec), runs_off=SW.runs_off(w.spec))
         w.__dict__["_wild_model"] = m
     return m
 
@@ -119,7 +121,9 @@ def seed(w) -> None:
             k.setdefault("hunt the wild", dict(k["hunt"]))
     from cybertron2.wild import methods as MT
     MT.seed_by_land(w)                                                     # methods by upbringing and the land (D2-204 §6)
-    for bid, b in w.s["buildings"].items():                               # each household's hens, in its house's store
+    for bid, b in w.s["buildings"].items():                               # each household's hens, in its house's store; kept hens
+        if not PK.on({"pack": "farming"}, PK.of(w)):                        # are farming's (W-69)
+            break
         if (b.get("fittings") or {}).get("beds") and b.get("stock") and b["stock"] in w.s["containers"]:
             g = w.s["containers"][b["stock"]].setdefault("goods", {})
             g.setdefault("hen", float(HENS_A_HOUSE))
@@ -467,14 +471,16 @@ def work_notices(here, mind, tech, key) -> str:
 def _seed_plants(w) -> None:
     """At world build: each parcel's single `plants` capacity becomes the wild plant kinds that suit it (wild/plants.niche), each
     at its season's level now. A parcel no kind suits keeps its `plants`."""
-    from cybertron2.wild import plants as PL
+    from cybertron2.wild import plants as PL, switches as SW
     season = w.calendar()["season"]
+    off = SW.plants_off(w.spec)
     for pid, par in sorted(w.s["parcels"].items()):
         pr = par["res"].get("plants")
         if not pr or float(pr.get("K", 0) or 0) <= 0:
             continue
         from cybertron2.engine.data import ITEMS
         kinds = PL.niche(par, float(pr["K"]), food={k: v.get("food", 1.0) for k, v in ITEMS.items()})
+        kinds = {k: K for k, K in kinds.items() if k not in off}            # a plant kind a world switches off (W-69)
         if not kinds:
             continue
         del par["res"]["plants"]
@@ -701,11 +707,15 @@ def _site_candidates(w, node, where) -> list:
 def _seed_sites(w) -> None:
     """At world build: each village's sites where its land suits them (kinds.SITES), by a keyed draw; a beaver's dam is standing."""
     from cybertron2.wild.kinds import SITES
+    from cybertron2.wild import switches as SW
+    off = SW.sites_off(w.spec)                                            # sites a world switches off (W-69)
     sites = {}
     for node in sorted({p["node"] for p in w.s["parcels"].values()}):
         if node not in ((w.s["wild"].get("land") or {}).get("home") or {}):
             continue
         for kind, sp in sorted(SITES.items()):
+            if kind in off:
+                continue
             cand = _site_candidates(w, node, sp["where"])
             r = w.rng("wild-site", node, kind)
             if not cand or r.random() >= float(sp["p"]):
@@ -949,7 +959,8 @@ def _set_night(w, m, st) -> dict:
                 if all(tr.get(t) == v for t, v in (r.get("for") or {}).items()):
                     x *= float(r.get("x", 1.0))
             for i in areas:                                                # by density on the ground the sets cover (brief 4 §2.10):
-                dens = pop[k][i] + (run[k][i] if k in run else 0.0)        # the village's own land, and half that from the ring
+                dens = pop[k][i] * SW.resident(w.spec, k) + (run[k][i] if k in run else 0.0)   # the village's own land, and half that
+                                                                            # from the ring (no resident fish: a run's only, W-69)
                 cnt = dens * float(m.km2[i])
                 gr = min(float(m.km2[i]), float(sp.get("ground", 0.2)) * (1.0 if m.home[i] else 0.5))
                 wgt = dens * gr * float(tk.get("detect", 0.2)) * float(tw) * x * MT.factor(mind, k)
@@ -984,7 +995,7 @@ def _set_night(w, m, st) -> dict:
                     continue
                 cap -= _food_of(k)
             r_ = run[k][i] if k in run else 0.0
-            if r_ > 0 and rng.random() < r_ / (r_ + pop[k][i]):          # one of the run's
+            if r_ > 0 and rng.random() < r_ / (r_ + pop[k][i] * SW.resident(w.spec, k)):   # one of the run's
                 from cybertron2.wild import runs as RU
                 import copy
                 runs = runs if runs is not None else {"runs": copy.deepcopy(st["runs"])}
@@ -2345,7 +2356,8 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
         focus = (3.0 if k in want else 0.4) if want else 1.0
         x = when_for(k) * max(fam(mb, k) for mb in members) * focus * float(tw) * finds   # familiarity with the kind (D2-204 §5): the party's best
         for i in areas:
-            dens = float(st["pop"][k][i]) * pushed(w, m, here.node, key, k, i) + (run[k][i] if k in run else 0.0)   # the cold's push onto open water (brief 5 §4); a run passing today (§2.4)
+            dens = float(st["pop"][k][i]) * pushed(w, m, here.node, key, k, i) * SW.resident(w.spec, k) \
+                + (run[k][i] if k in run else 0.0)   # the cold's push onto open water (brief 5 §4); a run passing today (§2.4); W-69
             shy = 1.0 + float(WARY["detect"]) * learned(wary0[k][i])        # game that has learned people is harder to come on (4b §2.1)
             lam = dens * float(tk.get("detect", 0.2)) * efx[k]["detect"] * x / (1.0 + 0.5 * min(4.0, pressure0[k][i])) / shy \
                 * ground[i] * float(HUNT["meet"]) * (float(LEAD["seen"]) if led else 1.0)   # a beast led: the game knows them sooner
@@ -2426,7 +2438,7 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
         pop = pops.setdefault(k, [float(v) for v in st["pop"][k]])
         wary[k][i] = round(wary[k][i] + float(WARY["take"]) / max(1.0, pop[i] * float(m.km2[i])), 4)   # the share of them taken
         r_ = run[k][i] if k in run else 0.0
-        if r_ > 0 and rng.random() < r_ / (r_ + pop[i]):                   # one of the run's (brief 5 §2.4)
+        if r_ > 0 and rng.random() < r_ / (r_ + pop[i] * SW.resident(w.spec, k)):   # one of the run's (brief 5 §2.4; W-69)
             from cybertron2.wild import runs as RU
             import copy
             runs = runs if runs is not None else {"runs": copy.deepcopy(st["runs"])}
@@ -3074,7 +3086,7 @@ def _runs_night(w, m) -> dict:
             if not _river_parcel(w, b["parcel"]):
                 continue
             cid = _weir_trap_make(w, bid, b)
-            worth = {k: _food_of(k) for k in RU.runners(m.kinds)}
+            worth = {k: _food_of(k) for k in RU.runners_of(m)}
             held = sum(float(q) * float((ITEMS.get(i) or {}).get("food", 0.0)) for i, q in w.s["containers"][cid]["goods"].items())
             got = RU.take_share(st, day, g, weir_share(b), room=max(0.0, weir_hold(b) - held), worth=worth)
             for k, q in sorted(got.items()):
@@ -3091,7 +3103,7 @@ def _runs_night(w, m) -> dict:
                 continue
             held = sum(float(q) * float((ITEMS.get(i) or {}).get("food", 0.0)) for i, q in w.s["containers"][trap]["goods"].items())
             got = RU.take_share(st, day, g, float(WATER_WORKS["mill"]["race"]), dirs=("down",),   # a trap's hold (D2-213)
-                                room=max(0.0, float(WATER_WORKS["trap"]["hold"]) - held), worth={k: _food_of(k) for k in RU.runners(m.kinds)})
+                                room=max(0.0, float(WATER_WORKS["trap"]["hold"]) - held), worth={k: _food_of(k) for k in RU.runners_of(m)})
             for k, q in sorted(got.items()):
                 _catch_into(w, node, trap, k, q, "the mill race")
                 out.setdefault("race", {}).setdefault(bid, {})[k] = q

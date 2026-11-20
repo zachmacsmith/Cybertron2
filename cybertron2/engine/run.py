@@ -784,6 +784,9 @@ def settings_line(spec) -> str:
     dev = [k for k in ("runs_set_nights", "household_models", "packs_off") if spec.get(k)]   # deviations a world declares (D2-231,
     if dev:                                                                              # D4-115); farming switched off (W-69)
         line += "; " + "; ".join(f"{k}={spec.get(k)!r}" for k in dev)
+    sw = {k: v for k, v in (spec.get("wild") or {}).items() if k in ("kinds_off", "runs_off", "resident_fish")}
+    if sw:                                                                              # the wild's food sources switched (W-69)
+        line += "; " + "; ".join(f"wild.{k}={v!r}" for k, v in sw.items())
     off = [k for k, v in STANDARD.items() if spec.get(k) != v]
     return line + (f"\nWARNING: standard settings off in this world: {', '.join(off)}" if off else "")
 

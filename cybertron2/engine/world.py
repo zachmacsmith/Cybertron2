@@ -102,6 +102,7 @@ class World:
         from cybertron2.engine.schema import WORLD_SCHEMA
         s["world_schema"] = WORLD_SCHEMA                                   # the shape of this record (spec/core/world_schema.md, D4-100)
         from cybertron2.engine import packs as PK
+        from cybertron2.wild import switches as SW
         farming = PK.on({"pack": "farming"}, PK.of(self))                   # farming switched off: no field works or crop (W-69)
         for nid, n in spec["nodes"].items():
             s["nodes"][nid] = {"name": n["name"], "text": n.get("text", ""), "unexplored": bool(n.get("unexplored"))}      # D4-47
@@ -114,7 +115,8 @@ class World:
                 res = {k: {"S": float(v["S"]), "K": float(v["K"]), "r": float(v.get("r", 0.3)),
                            **{x: v[x] for x in ("run_K", "run_r", "run_seasons", "renewal", "response") if x in v}} if k != "seam" else
                        {"S": float(v.get("S", v.get("left", 0))), "K": float(v.get("K", v.get("S", v.get("left", 0)))), "r": 0.0}
-                       for k, v in st.items() if k in RESOURCES and PK.on(RESOURCES[k], PK.of(self))}   # a pack off: no stock (D4-103)
+                       for k, v in st.items() if k in RESOURCES and PK.on(RESOURCES[k], PK.of(self)) and SW.res_on(spec, k)}   # a pack
+                                                                       # off: no stock (D4-103); nor a food source switched off (W-69)
                 res.update(woods)
                 cp = self.p["cattle"]
                 share = float((cp.get("grazing") or {"pasture": 1.0, "meadow": 1.0}).get(p["cover"], 0.0))

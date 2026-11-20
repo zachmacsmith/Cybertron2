@@ -34,9 +34,14 @@ RAIN_MEAN = 3.4                                   # the climate's mean rain a da
 MEMORY = 4                                        # days of rain kept by node
 
 
-def runners(kinds=None) -> dict:
-    """The kinds that run, with their rows."""
-    return {k: r for k, r in sorted(WK.RUNS.items()) if k in (kinds if kinds is not None else WK.KINDS)}
+def runners(kinds=None, off=()) -> dict:
+    """The kinds that run, with their rows; none of those a world switches off (`off`: the model's runs_off, W-69)."""
+    return {k: r for k, r in sorted(WK.RUNS.items()) if k in (kinds if kinds is not None else WK.KINDS) and k not in off}
+
+
+def runners_of(m) -> dict:
+    """The kinds that run in a model's world."""
+    return runners(m.kinds, getattr(m, "runs_off", ()))
 
 
 # ---------------------------------------------------------------------- the river as stretches
@@ -145,7 +150,7 @@ def net(m):
 
 def active(m) -> bool:
     """Whether the land has a river that a kind runs (a world without rivers, or without a running kind, is as it was)."""
-    return bool(net(m).members) and bool(runners(m.kinds))
+    return bool(net(m).members) and bool(runners_of(m))
 
 
 def on_river(m, node) -> bool:
@@ -204,7 +209,7 @@ def seed(m, st) -> None:
     """At world build: each head water's spawners for the first return (`seed_km` a km of its river)."""
     nt = net(m)
     R = state(st)
-    for k, r in runners(m.kinds).items():
+    for k, r in runners_of(m).items():
         if r["dir"] != "up":
             continue
         ret = r["return"]
@@ -308,7 +313,7 @@ def advance(m, st, day, wx, ahead, stops=None, weather=True) -> dict:
         return eff
     nt = net(m)
     R = state(st)
-    K = runners(m.kinds)
+    K = runners_of(m)
     mem = R.setdefault("rain", {})
     for nd in sorted({n_ for g in nt.catch for n_ in nt.catch[g]}):        # today's rain into the memory
         mem[nd] = [round(float((wx.get(nd) or {}).get("rain", 0.0)), 3)] + list(mem.get(nd) or [])[:MEMORY - 1]
