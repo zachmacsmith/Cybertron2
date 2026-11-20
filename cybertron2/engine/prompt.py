@@ -410,7 +410,7 @@ def building_line(here, bid) -> str:
             words = [("stone-footed " if sc.get("foot") else "") + sc["m"] + f" {BL.LEVELS[int(sc['level'])]}" for sc in secs]
             head += f"; {len(secs)} section{'s' if len(secs) != 1 else ''} ({', '.join(words)})"
             if b.get("weir_work"):
-                head += f"; {'a timber section' if b['weir_work']['part'] == 'timber' else 'a stone footing'} under way"
+                head += f"; {V.WEIR_PART_WORDS.get(b['weir_work']['part'], 'work')} under way"
         if WL.is_weir(b) and b.get("crew"):
             head += f"; worked by {', '.join(b['crew'])}"
     desc = (b.get("description") or {}).get("text")

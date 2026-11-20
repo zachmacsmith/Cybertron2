@@ -128,6 +128,14 @@ class Day:
     def fits(self, f) -> int:
         return int(((self.home_b or {}).get("fittings") or {}).get(f) or 0)
 
+    def smokehouse(self):
+        """The household's smoke racks here: its smokehouse, a building of its own apart from the houses (brief 5 §4a), else racks
+        in the house itself (an older world); None without."""
+        from cybertron2.engine import keeping as KP
+        own = [b for b in self.w.homes(self.name) if self.w.s["buildings"][b]["node"] == self.node
+               and KP.is_smokehouse(self.w.s["buildings"][b])]
+        return sorted(own, key=lambda b: (b == self.home, b))[0] if own else None
+
     def knows(self, tech, who=None) -> bool:
         k = ((self.w.s["know"].get(who or self.name) or {}).get(tech) or {})
         if k:
@@ -210,7 +218,7 @@ def _store_moves(day, who, coming: dict, keep: float = 0.0) -> list:
 def _firewood_need(day) -> float:
     """Firewood the household wants in store: its hearths' nights (cold nights burn four times as much) and a smoke fire's."""
     nights = float(day.s["fuel_nights"])
-    smoke = 1.0 if day.fits("smoke racks") else 0.0
+    smoke = 1.0 if day.smokehouse() else 0.0                               # carried to a smokehouse apart (`_smokehouse_fuel`)
     return max(float(day.s["fuel_least"]), nights * (day.hearth_fuel() + smoke))
 
 
@@ -484,9 +492,13 @@ def phase_a(day, who, search_at=0) -> tuple:
 # the runs' knobs (calibrate): traps kept in the water by each fisher and by the keeper; the least surplus worth a batch at the smoke
 # racks, at a hearth's rack, in the salt tub; the salt a household keeps before it boils more, and the firewood it must have to;
 # nets on a shoal's night; the weir's gap worked; a member's most mends a day; traps out of the windows; the river's heights no trap
-# is set into (none: the eels run on the rain, and in the measured runs traps set into spates and floods still paid, W-69)
-@policy("runs", traps=8, keeper_traps=3, smoke_least=6.0, dry_least=3.0, salt_least=4.0, salt_keep=8.0, boil_wood=12.0, net=True,
-        gap=True, mend_most=2, off_season_traps=0, trap_stop=())
+# is set into (none: the eels run on the rain, and in the measured runs traps set into spates and floods still paid, W-69); the traps
+# each fisher of a household that holds a weir keeps (its keeper none): since the gear shares a run (wild/gear.py, 20 Nov) the weir
+# takes its share whatever the traps beside it, and its lift is one act for its whole catch where each trap's is an act for a kg or
+# two, so the weir's household keeps its work for keeping the catch (measured: with 8 traps a fisher its members spent whole days
+# lifting traps and its keeper had no units left to salt)
+@policy("runs", traps=8, keeper_traps=3, weir_traps=2, smoke_least=6.0, dry_least=3.0, salt_least=4.0, salt_keep=8.0, boil_wood=12.0, net=True,
+        gap=True, mend_most=2, off_season_traps=0, trap_stop=(), smoke_fuel_nights=3)
 def runs(day, p) -> None:
     """Fishing the river's runs (W-69). The run windows are the fisher's year; the run at the water and the river's height are read
     each morning (their signs); the weir is the household's main gear where it has one.
@@ -497,7 +509,7 @@ def runs(day, p) -> None:
       - the keeper (the head): the surplus over tonight's suppers smoked at the house's racks (the fire tended while a batch hangs),
         dried at the hearth, salted with salt to hand; salt boiled at the household's pan when it runs low; their own few traps;
       - the others: a net on a night a shoal is at the water; traps in the river through the windows (`traps` each, `keeper_traps`
-        the keeper's), set whatever the river (a spate smashes half of them, a flood most, but the run comes with the water);
+        the keeper's; in the weir's household `weir_traps` each and none the keeper's), set whatever the river (a spate smashes half of them, a flood most, but the run comes with the water);
         the first of them firewood when the store is short;
       - then wild food where it is worth the work (`_common_b`), else rest."""
     season = run_season(day)
@@ -570,13 +582,18 @@ def _keeper(day, p, coming, season, flow, supper) -> None:
         from cybertron2.engine import keeping as KP
         home = day.home
         loaded = False
-        if day.fits("smoke racks"):
-            room = KP.room(w, home, "smoke fish")
-            if fish >= float(s["smoke_least"]) and room >= float(s["smoke_least"]) and day.knows("smoke fish"):
+        sh = day.smokehouse()
+        if sh:
+            _smokehouse_keep(day, p, sh)
+            room = KP.room(w, sh, "smoke fish")
+            load = fish >= float(s["smoke_least"]) and room >= float(s["smoke_least"]) and day.knows("smoke fish")
+            if (load or KP.active_racks(w, sh)) and sh != home:
+                _smokehouse_fuel(day, p, sh)
+            if load:
                 loaded = p.add("b", {"do": "make", "what": "smoke fish"}, 1)            # loading lights the fire for tonight
                 fish -= min(fish, room)
-            if not loaded and KP.active_racks(w, home) and day.knows("tend the smoke"):
-                p.add("b", {"do": "work", "what": "tend the smoke", "at": day.bname(home)}, 1)   # or the fire dies and the batch spoils
+            if not loaded and KP.active_racks(w, sh) and day.knows("tend the smoke"):
+                p.add("b", {"do": "work", "what": "tend the smoke", "at": day.bname(sh)}, 1)   # or the fire dies and the batch spoils
         if day.fits("hearth"):
             room = KP.room(w, home, "dry fish")
             if fish >= float(s["dry_least"]) and room >= float(s["dry_least"]) and day.knows("dry fish"):
@@ -594,9 +611,37 @@ def _keeper(day, p, coming, season, flow, supper) -> None:
                 and day.reach("firewood") >= float(s["boil_wood"]):
             p.add("b", {"do": "make", "what": "boil salt"}, 1)               # salt for the run's surplus, at the household's pan
             p.add("b", {"do": "move", "item": "salt", "qty": 999, "to": "store", "at": day.bname(home)})
-    _set_traps(day, p, season, int(s["keeper_traps"]), flow)
+    _set_traps(day, p, season, 0 if _weir(day, day.members[0])[0] else int(s["keeper_traps"]), flow)
     if len(day.members) == 1:
         _gather_wood(day, p, _wood_units(day))
+
+
+KEPT = ("smoked fish", "smoked meat")
+
+
+def _smokehouse_keep(day, p, sh) -> None:
+    """A batch done lies in the smokehouse's store (keeping.done_into_store): the keeper brings it to the house's store, out of the
+    fire's way (a take, then a move: brief 5 §4a; W-69)."""
+    if sh == day.home or not day.home_b:
+        return
+    g = day.w.goods(day.w.s["buildings"][sh]["stock"])
+    for item in KEPT:
+        q = float(g.get(item, 0.0))
+        if q > 1e-6 and p.add("b", {"do": "take", "item": item, "qty": round(q, 4), "from": day.bname(sh)}, 1):
+            p.add("b", {"do": "move", "item": item, "qty": round(q, 4), "to": "store", "at": day.bname(day.home)})
+
+
+def _smokehouse_fuel(day, p, sh) -> None:
+    """Firewood carried from the house's store to the smokehouse's while it holds under `smoke_fuel_nights` of fire (its fire burns
+    from its own store or the woodpile at its door: keeping.fuel_cids)."""
+    from cybertron2.engine import keeping as KP
+    want = int(day.s.get("smoke_fuel_nights", 3))
+    have = KP.fuel_nights(day.w, sh)
+    if have >= want or not day.home_b:
+        return
+    q = min(float(day.store().get("firewood", 0.0)), float(want - have + 1))
+    if q >= 1 and p.add("b", {"do": "take", "item": "firewood", "qty": q, "from": day.bname(day.home)}, 1):
+        p.add("b", {"do": "move", "item": "firewood", "qty": q, "to": "store", "at": day.bname(sh)})
 
 
 def _fisher(day, p, season, run, flow) -> None:
@@ -606,7 +651,7 @@ def _fisher(day, p, season, run, flow) -> None:
     if s.get("net") and day.knows("net") and any(k in run for k in _shoals(day)):
         for pid in river_parcels(day)[:1]:
             p.add("b", {"do": "gather", "what": "net", "at": day.pname(pid)}, 2)
-    _set_traps(day, p, season, int(s["traps"]), flow)
+    _set_traps(day, p, season, int(s["weir_traps"] if _weir(day, day.members[0])[0] else s["traps"]), flow)
     if day.role == 1:
         _gather_wood(day, p, _wood_units(day))
 

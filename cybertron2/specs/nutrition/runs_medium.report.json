@@ -7,8 +7,8 @@
    "people": 12,
    "food": 0.6,
    "heat": 0.6,
-   "plots_wanted": 12,
-   "fields": 12,
+   "plots_wanted": 13,
+   "fields": 13,
    "wood_wanted": 4,
    "woods": 4,
    "waste": 3
@@ -114,13 +114,13 @@
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "12 people; the land keeps 23 for good (0.52 of it)"
+   "detail": "12 people; the land keeps 24 for good (0.51 of it)"
   },
   "economy: food over the run": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "64 days need 666 meals; store, crops ripening and the land give 1160 (0.57)"
+   "detail": "64 days need 666 meals; store, crops ripening and the land give 1123 (0.59)"
   },
   "economy: region heat": {
    "kind": "economy",
@@ -164,7 +164,7 @@
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "3 couples; about 8 births in 64 days if they try often; the region would be at 0.87 of its land"
+   "detail": "3 couples; about 8 births in 64 days if they try often; the region would be at 0.85 of its land"
   },
   "economy: succession": {
    "kind": "economy",
@@ -180,27 +180,27 @@
    "ok": true,
    "detail": {
     "said": {
-     "Eelmouth": "stoat 22.89 (a group needs 1), fox 17.48 (a group needs 1), wolf 2.25 (a group needs 3), wild boar 2.16 (a group needs 2), brown bear 0.21 (a group needs 1)"
+     "Eelmouth": "stoat 22.87 (a group needs 1), fox 17.47 (a group needs 1), wolf 2.24 (a group needs 3), wild boar 2.17 (a group needs 2), brown bear 0.21 (a group needs 1)"
     },
     "by village": {
      "Eelmouth": {
       "wild boar": {
-       "heads": 2.16,
+       "heads": 2.17,
        "least": 2,
        "range_km2": 40.0
       },
       "fox": {
-       "heads": 17.48,
+       "heads": 17.47,
        "least": 1,
        "reach": "ring"
       },
       "stoat": {
-       "heads": 22.89,
+       "heads": 22.87,
        "least": 1,
        "reach": "ring"
       },
       "wolf": {
-       "heads": 2.25,
+       "heads": 2.24,
        "least": 3,
        "range_km2": 200.0
       },
@@ -299,10 +299,10 @@
   "herds removed": 3,
   "farm goods removed": 10,
   "larder a house": {
-   "dried meat": 4,
-   "roots": 6,
-   "acorns": 6,
-   "berries": 4
+   "dried meat": 10,
+   "roots": 18.5,
+   "acorns": 17.6,
+   "berries": 19.2
   }
  },
  "larder": {
@@ -310,24 +310,24 @@
    "people": 5,
    "food": 44.0,
    "goods": {
-    "dried meat": 7,
-    "roots": 28
+    "dried meat": 18,
+    "roots": 84
    }
   },
   "Marsh": {
    "people": 5,
    "food": 44.0,
    "goods": {
-    "dried meat": 7,
-    "roots": 28
+    "dried meat": 18,
+    "roots": 84
    }
   },
   "Shepherd": {
    "people": 2,
    "food": 17.6,
    "goods": {
-    "dried meat": 3,
-    "roots": 11
+    "dried meat": 7,
+    "roots": 33
    }
   }
  },
@@ -341,7 +341,11 @@
   "arm": "medium",
   "households": 3,
   "people": 12,
-  "smoke racks": 3
+  "smokehouses": {
+   "brook_smokehouse": "Eelmouth_9",
+   "marsh_smokehouse": "Eelmouth_1",
+   "shepherd_smokehouse": "Eelmouth_9"
+  }
  },
  "craft_gates": []
 }

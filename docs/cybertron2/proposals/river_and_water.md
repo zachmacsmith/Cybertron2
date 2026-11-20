@@ -415,6 +415,30 @@ generate; nothing in the engine changes for it.
 
 ## History
 
+- 20 Nov 2026: three of §3b's weir rules changed, built at Zach's request (20 Nov: "after the water fixed"; earlier, on the
+  sections table: "Why is timber weir section less? Isn't timber better or nah?"), W-69, branch `w69-water-fixes`
+  (cybertron2/wild/gear.py; docs/review/37_growth/02zzw_water_fixes.md). No decision is added; the values calibrate.
+  - **Position and material split.** The sections' material names had stood for their place (the first always wattle, the added
+    ones timber). Now a section's place decides its share and hold (the first 30% and 100 kg, each added one 7% and 70 kg, up to
+    three added, as D2-210) and its material its wear and cost (wattle wear 1.0, timber 0.5; a stone footing a tenth). Any section,
+    the first included, may be wattle or timber. The cost: wattle 6 timber and 16 units, timber 10 and 25, and the first section
+    adds the weir's stakes across the river and its trap (6 timber, 8 units), so a wattle first section is as built (12, 24) and a
+    timber added one as before (10, 25); a timber first section 16 and 33; a wattle section upgraded to timber pays the difference
+    (4 timber, 9 units; its wear kept). An old list of sections means what it did. Default taken on the split of the first
+    section's cost (base and material), for Zach.
+  - **Gear in one parcel shares a run.** Traps set in the water took their heads from a run before the weir took its share of what
+    was left (the high arm's bots: traps 481 food, the weir 43). Within a parcel there is no position between them, so the weir,
+    a race trap and the set traps there now take each its share of the run passing, in proportion (scaled down together if the
+    shares pass the whole run), each capped by its own hold; a set trap's share is what it met of the run that night. Between
+    parcels a run going down meets the upstream gear first and a run going up the downstream gear first (D2-210's "in turn from
+    upstream", for the run's way; before, the weirs took upstream first for every run).
+  - **The wear calibrated to D2-210's year.** On the runs world's large, icy river a wattle section cost 1.27 of its build a year
+    to keep, timber 0.67, a full weir 0.82, and a flood took a wattle section whatever the gap. Now high x1.5 (was 2), spate x2.5
+    (5), flood x5 (15), the gap shut in high water x2 (1.5), ice x1.5 (3), thaw x2 (5), a large river x1.2 (1.5); a level a week of
+    normal flow on a lowland river kept. With the gap kept right: wattle 0.50, timber 0.25, stone-footed 0.05, a full weir 0.31 (the
+    river world's Saltwell 0.46 and 0.29); the gap shut in high water all year 0.51. §3b.6's per-night targets (a spate one or two
+    levels, a flood with the gap shut usually the section) cannot hold with the year's band on a river with about 4 spates and 3
+    floods a compressed year: a flood now costs a wattle section about 1.7 levels shut and 0.9 open. For Zach.
 - 17 Nov 2026: the runs world remade for the model-per-household run (proposals/model_households.md): Highpool's larder (D2-230), the
   runs on set nights for this run (D2-231); fields at the lower villages, a spring and a mill, places to expand into and the
   people's ages relayed by 37.4 and waiting on Zach's confirmation (OPEN Q-60).

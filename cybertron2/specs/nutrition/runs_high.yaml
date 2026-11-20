@@ -51,12 +51,12 @@ nodes:
         height: 1
         text: houses round a trodden green
         adj:
-        - Eelmouth_1
         - Eelmouth_2
         - Eelmouth_3
         - Eelmouth_4
         - Eelmouth_5
         - Eelmouth_6
+        - Eelmouth_9
         terrain: river terrace
         soil: loam
         ecosystem: grassland
@@ -69,7 +69,7 @@ nodes:
           depth: 1.1
           base_fertility: 1.0
           position: slope
-          rain_factor: 0.954
+          rain_factor: 0.952
           sea_km: 99.0
           river: none
       Eelmouth_1:
@@ -80,24 +80,22 @@ nodes:
         height: 0
         text: 'rough ground by the river: thorn, bramble and coarse grass, never ploughed'
         adj:
-        - Eelmouth_0
         - Eelmouth_3
-        - Eelmouth_4
         - Eelmouth_5
         - Eelmouth_9
         terrain: river floodplain
         soil: clay
         ecosystem: hay meadow
         land:
-          elevation: 42.6
+          elevation: 42.5
           exposure: 0.39
           texture: clay
           held_mm: 179.0
           drain_rate: 0.08
           depth: 1.19
-          base_fertility: 1.181
+          base_fertility: 1.207
           position: slope
-          rain_factor: 1.042
+          rain_factor: 1.054
           sea_km: 99.0
           river: none
         state: {}
@@ -133,7 +131,7 @@ nodes:
           depth: 1.09
           base_fertility: 1.0
           position: slope
-          rain_factor: 0.943
+          rain_factor: 0.941
           sea_km: 99.0
           river: none
         holder: Marsh
@@ -149,6 +147,7 @@ nodes:
         - Eelmouth_1
         - Eelmouth_5
         - Eelmouth_6
+        - Eelmouth_9
         state:
           plants:
             K: 3.0
@@ -170,7 +169,7 @@ nodes:
           depth: 1.13
           base_fertility: 1.017
           position: slope
-          rain_factor: 0.983
+          rain_factor: 0.982
           sea_km: 99.0
           river: none
       Eelmouth_4:
@@ -182,9 +181,9 @@ nodes:
         text: grazing, on good loam
         adj:
         - Eelmouth_0
-        - Eelmouth_1
         - Eelmouth_2
         - Eelmouth_5
+        - Eelmouth_9
         state:
           plants:
             K: 1.0
@@ -206,7 +205,7 @@ nodes:
           depth: 1.19
           base_fertility: 1.0
           position: slope
-          rain_factor: 0.943
+          rain_factor: 0.941
           sea_km: 99.0
           river: none
       Eelmouth_5:
@@ -245,8 +244,8 @@ nodes:
           drain_rate: 0.25
           depth: 1.19
           base_fertility: 1.025
-          position: slope
-          rain_factor: 0.993
+          position: hollow
+          rain_factor: 0.991
           sea_km: 99.0
           river: none
       Eelmouth_6:
@@ -284,7 +283,7 @@ nodes:
           depth: 1.09
           base_fertility: 1.0
           position: slope
-          rain_factor: 0.943
+          rain_factor: 0.941
           sea_km: 99.0
           river: none
       Eelmouth_7:
@@ -323,7 +322,7 @@ nodes:
           depth: 1.19
           base_fertility: 1.188
           position: hollow
-          rain_factor: 1.04
+          rain_factor: 1.038
           sea_km: 99.0
           river: brook
         spring: brine
@@ -349,7 +348,7 @@ nodes:
           depth: 1.18
           base_fertility: 1.179
           position: hollow
-          rain_factor: 1.017
+          rain_factor: 1.015
           sea_km: 99.0
           river: river
           down: out
@@ -357,27 +356,30 @@ nodes:
       Eelmouth_9:
         name: Eelmouth Field
         cover: scrub
-        size: 6
+        size: 7
         side: west
         height: 0
         text: 'rough ground by the river: thorn, bramble and coarse grass, never ploughed'
         adj:
+        - Eelmouth_0
         - Eelmouth_1
+        - Eelmouth_3
+        - Eelmouth_4
         - Eelmouth_5
         - Eelmouth_7
         terrain: river floodplain
         soil: clay
         ecosystem: hay meadow
         land:
-          elevation: 42.3
+          elevation: 42.4
           exposure: 0.4
           texture: clay
           held_mm: 178.9
           drain_rate: 0.08
           depth: 1.19
-          base_fertility: 1.207
+          base_fertility: 1.185
           position: hollow
-          rain_factor: 1.02
+          rain_factor: 1.012
           sea_km: 99.0
           river: none
         state: {}
@@ -385,7 +387,7 @@ nodes:
     - 9.88
     - 14.71
     elevation: 43.5
-    rain_mm: 751.0
+    rain_mm: 752.0
   w1:
     name: Oakhurst
     text: old forest, far from any village in a clay vale
@@ -596,12 +598,11 @@ buildings:
       beds: 6
       hearth: 1
       bins: 1
-      smoke racks: 1
     stock:
       timber: 28
       firewood: 60
-      dried meat: 7
-      roots: 28
+      dried meat: 18
+      roots: 84
   marsh_house:
     name: Marsh House
     parcel: Eelmouth_0
@@ -612,12 +613,11 @@ buildings:
       beds: 6
       hearth: 1
       bins: 1
-      smoke racks: 1
     stock:
       timber: 28
       firewood: 60
-      dried meat: 7
-      roots: 28
+      dried meat: 18
+      roots: 84
   shepherd_house:
     name: Shepherd House
     parcel: Eelmouth_0
@@ -628,12 +628,11 @@ buildings:
       beds: 4
       hearth: 1
       bins: 1
-      smoke racks: 1
     stock:
       timber: 28
       firewood: 42
-      dried meat: 3
-      roots: 11
+      dried meat: 7
+      roots: 33
   brook_byre:
     name: the Brook Byre
     parcel: Eelmouth_0
@@ -644,6 +643,33 @@ buildings:
       bins: 1
     stock:
       dung: 10
+  brook_smokehouse:
+    parcel: Eelmouth_9
+    household: Brook
+    structure: wattle
+    name: the Brook Smokehouse
+    fittings:
+      smoke racks: 1
+    stock:
+      firewood: 6
+  marsh_smokehouse:
+    parcel: Eelmouth_1
+    household: Marsh
+    structure: wattle
+    name: the Marsh Smokehouse
+    fittings:
+      smoke racks: 1
+    stock:
+      firewood: 6
+  shepherd_smokehouse:
+    parcel: Eelmouth_9
+    household: Shepherd
+    structure: wattle
+    name: the Shepherd Smokehouse
+    fittings:
+      smoke racks: 1
+    stock:
+      firewood: 6
   marsh_weir:
     parcel: Eelmouth_8
     node: Eelmouth
@@ -655,9 +681,11 @@ buildings:
     fittings: {}
     rooms: []
     gap: shut
-    crew: []
+    crew:
+    - Nichola
+    - Peter
     sections:
-    - m: wattle
+    - m: timber
       foot: false
       level: 5
     - m: timber
@@ -698,13 +726,13 @@ wild:
         - Eelmouth_7
         - Eelmouth_8
         - Eelmouth_9
-        km2: 0.6975
+        km2: 0.72
         xy_km:
-        - 9.64
-        - 14.89
+        - 9.63
+        - 14.88
         cover:
           built: 0.1125
-          field: 0.27
+          field: 0.2925
           meadow: 0.0225
           pasture: 0.09
           forest: 0.09
@@ -712,18 +740,18 @@ wild:
           water: 0.045
         eco:
           grassland: 0.225
-          hay meadow: 0.27
+          hay meadow: 0.2925
           oak-ash wood: 0.09
           fen: 0.0675
           water: 0.045
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
-        wet: 0.479
+        wet: 0.478
         elevation: 43.5
         temp: 8.99
         texture:
-          loam: 0.452
-          clay: 0.548
+          loam: 0.438
+          clay: 0.562
         rock: 0.0
         river_km: 0.6
         big_river_km: 0.3
@@ -786,19 +814,19 @@ wild:
         kind: ring
         node: Eelmouth
         parcels: []
-        km2: 19.035
+        km2: 19.0125
         xy_km:
         - 9.91
         - 14.69
         cover:
           fen: 1.5075
-          meadow: 11.97
+          meadow: 11.9475
           pasture: 4.905
           water: 0.6525
         eco:
           fen: 1.5075
           grassland: 4.905
-          hay meadow: 11.61
+          hay meadow: 11.5875
           water: 0.6525
           wet grassland: 0.36
         old_wood_km2: 0.0
@@ -2550,7 +2578,7 @@ wild:
     links:
     - - a0
       - a3
-      - 8.1
+      - 8.4
     - - a1
       - a4
       - 1.8
