@@ -225,6 +225,7 @@ def ecology(w, years) -> dict:
     def totals():
         return {k: float(np.sum(np.array(st["pop"][k]) * m.km2)) for k in m.names}
     first = totals()
+    hunt = hunt_yield(w, m, st)
     dens0 = {k: np.array(st["pop"][k], dtype=float) for k in m.names}
     wx_next = WL.weather(w, nodes, off)
     for d in range(years * Y):
@@ -233,9 +234,9 @@ def ecology(w, years) -> dict:
         EC.step(m, st, k0 + d, wx, WL.draws(w, k0 + d, "suite"), history=True)
         if rivers:
             RU.advance(m, st, k0 + d, wx, wx_next, weather=WL._runs_cued(w))
-            for pu in (st.get("runs") or {}).get("pulses") or []:
+            for pu in (st.get("runs") or {}).get("pulses") or []:      # where each pulse stands tomorrow (`d`: its day there)
                 g = str(pu.get("g", ""))
-                if g.startswith("v:s") and int(pu.get("d", -1)) == k0 + d:
+                if g.startswith("v:s") and int(pu.get("d", -1)) == k0 + d + 1:
                     key = (g[2:], pu.get("k"))
                     runs_at[key] = runs_at.get(key, 0.0) + float(pu.get("n", 0.0))
         if d % (Y // 4) == 0:
@@ -268,8 +269,41 @@ def ecology(w, years) -> dict:
     runs = {}
     for (v, k), n in runs_at.items():
         runs.setdefault(v, {})[k] = round(n / years, 1)
-    return {"runs active": bool(rivers), "run heads at a village's water a year (summed a day)": runs, "kinds": kinds, "runaway": bad, "died out in range": gone, "slow to settle (the history too short)": slow,
+    return {"hunting a year (logistic MSY)": hunt, "runs active": bool(rivers), "run heads at a village's water a year (summed a day)": runs, "kinds": kinds, "runaway": bad, "died out in range": gone, "slow to settle (the history too short)": slow,
             "settles above three times its reference density": high, "years": years, "areas": int(m.n), "land km2": round(land_km2, 1)}
+
+
+HUNTED = ("red deer", "roe deer", "wild boar", "brown hare", "woodpigeon", "wildfowl", "eel")   # the hunt's, the nets' and traps' kinds
+FAR_KM = 8.0                                # far: the areas whose centre is within a long day's out and back (a presentation choice)
+
+
+def hunt_yield(w, m, st) -> dict:
+    """What the wild land could give a village's hunters a year for good, after the history: each hunted kind's heads in reach
+    (about its carrying level, so the logistic's most sustainable take r K / 4 with r = b - m, its births less its deaths a year,
+    an upper bound: b is the kind's best year) times its food a head (TAKEN goods). Near and the
+    wood around: the village's home and ring areas; far: areas with their centre within FAR_KM of its site. An estimate, named."""
+    land = w.s["wild"]["land"]
+    ids = m.ids
+    out = {}
+    for nid, node in w.spec["nodes"].items():
+        if not nid.startswith("s"):
+            continue
+        xy = np.array(node["xy"], dtype=float)
+        near = [i for i, a in enumerate(ids) if land["areas"][a].get("node") == nid and land["areas"][a]["kind"] in ("home", "ring")]
+        far = [i for i, a in enumerate(ids) if np.hypot(*(np.array(land["areas"][a].get("xy_km") or [1e9, 1e9]) - xy)) <= FAR_KM]
+        rec = {}
+        for key, idx in (("the wood around", near), ("far", sorted(set(far) | set(near)))):
+            food, by = 0.0, {}
+            for k in HUNTED:
+                kd = m.kinds[k]
+                heads = float(np.sum(np.array(st["pop"][k])[idx] * m.km2[idx]))
+                f = max(0.0, float(kd.get("b") or 0) - float(kd.get("m") or 0)) / 4 * heads * _food_of(k)
+                by[k] = round(f, 1)
+                food += f
+            rec[key] = round(food, 1)
+            rec[key + ", by kind"] = by
+        out[nid] = rec
+    return out
 
 
 # ---------------------------------------------------------------------- one world
@@ -628,7 +662,7 @@ def _food_of(kind) -> float:
     from cybertron2.engine.data import ITEMS
     from cybertron2.wild.kinds import TAKEN
     g = (TAKEN.get(kind) or {}).get("goods") or {}
-    return sum(float(q) * float((ITEMS.get(i) or {}).get("food", 0.0)) * (1.5 if i == "meat" else 1.0) for i, q in g.items())
+    return sum(float(q) * float((ITEMS.get(i) or {}).get("food", 0.0)) for i, q in g.items())     # ITEMS: meat 1.5, fish 1.0
 
 
 def _mean(xs):
@@ -679,21 +713,44 @@ def candidates(r) -> list:
     return [(n, v) for n, v in c if v is not None]
 
 
+VILLAGE = 9                                 # the suite's village: three households of three
+
+
+def need_year(r):
+    ly = (r.get("nutrition") or {}).get("land year") or {}
+    return ly["eats a day"] * MK.YEAR_DAYS if ly else None
+
+
 def alone(r) -> list:
-    """The sources that could feed a village by themselves: a return over the break-even, and (for the land's sources) food a year
-    for the village's nine people (three households of three, the suite's) or more. Hunting and gathering are read by return only:
-    what the wild land gives a year is the ecology's and is not summed here."""
-    be = break_even(r)
+    """The sources that could feed a village of nine by themselves, for good: food a year at full take for nine people or more,
+    at a return of the break-even or more. The land's sources from the capacity model (`worked`); hunting from the wild land's
+    yearly growth in reach (hunt_yield) at the master's return there; the runs from the heads that pass the villages."""
+    be, need = break_even(r), need_year(r)
     if be is None:
         return []
     out = []
     for k, v in _cap(r, "worked").items():
-        if v.get("food a unit") and v["food a unit"] >= be and (v.get("people fed alone") or 0) >= 9:
-            out.append(k)
-    for n, v in candidates(r):
-        if not n.endswith("(worked)") and v >= be:
-            out.append(n + ", by return")
+        if v.get("food a unit") and v["food a unit"] >= be and (v.get("people fed alone") or 0) >= VILLAGE:
+            out.append(f"{k} ({v['people fed alone']:.0f} fed)")
+    hy = (r.get("ecology") or {}).get("hunting a year (logistic MSY)") or {}
+    for rng in ("the wood around", "far"):
+        fed = _mean([x[rng] / need for x in hy.values()]) if hy else None
+        ret = _act(r, "hunt the wild", rng)
+        if fed is not None and fed >= VILLAGE and ret and ret >= be:
+            out.append(f"hunting {rng} ({fed:.0f} fed)")
+    runs = run_food(r)
+    if runs and runs / need >= VILLAGE:
+        out.append(f"the runs ({runs / need:.0f} fed)")
     return out
+
+
+def run_food(r):
+    e = r.get("ecology") or {}
+    runs = e.get("run heads at a village's water a year (summed a day)") or {}
+    vil = sorted(n for n in (r.get("villages") or {}))
+    if not vil:
+        return None
+    return sum(n * _food_of(k) for v in vil for k, n in (runs.get(v) or {}).items()) / len(vil)
 
 
 def md_overview(results) -> str:
@@ -774,12 +831,15 @@ def md_nutrition(results) -> str:
                  f"{trio('angle')} | {fmt(break_even(r))} |")
     L.append("")
     L.append("### Sources of nutrition: what could feed a village alone, and the runs\n")
-    L.append("A source of the land's year that returns the break-even or more and gives the village's nine people a year; an act that"
-             " returns the break-even or more (its land's yearly yield is not summed here: the hunt's is the ecology's). The runs: heads"
+    L.append("A source that returns the break-even or more and gives the village's nine people a year, for good: the land's"
+             " sources at `worked`; hunting from the wild land's yearly growth in reach (each hunted kind's heads after the history x"
+             " a quarter of its b - m x its food a head: the logistic's most sustainable take r K / 4, an upper bound) at the master's return there; the"
+             " runs from the food that passes the villages. The runs: heads"
              " at the villages' water a year (the sum over the days a run stands there, `wild/runs.py`) and the food they are worth"
-             " (salmon 2 fish, lamprey 0.3 meat, an eel 0.2 fish a head: `wild/kinds.py` TAKEN), the mean over the villages.\n")
-    L.append("| World | seed | could feed a village alone | the runs at the villages a year |")
-    L.append("|---|---|---|---|")
+             " (salmon 2 fish, lamprey 0.3 meat, an eel 0.2 fish a head: `wild/kinds.py` TAKEN; ITEMS food: meat 1.5, fish 1), the mean"
+             " over the villages.\n")
+    L.append("| World | seed | could feed a village of nine alone | hunting a year in reach, people fed (the wood around / far) | the runs at the villages a year |")
+    L.append("|---|---|---|---|---|")
     for r in results:
         e = r.get("ecology") or {}
         runs = e.get("run heads at a village's water a year (summed a day)") or {}
@@ -790,7 +850,10 @@ def md_nutrition(results) -> str:
                 tot[k] = tot.get(k, 0.0) + n / max(1, len(vil))
         rs = "; ".join(f"{k} {n:.0f} heads, {n * _food_of(k):.0f} food" for k, n in sorted(tot.items())) if tot else (
             "runs on, none at the villages" if e.get("runs active") else "no runs (no river the runs use)")
-        L.append(f"| {r['world']} {names[r['world']]} | {r['seed']} | {', '.join(alone(r)) or 'none'} | {rs} |")
+        hy = e.get("hunting a year (logistic MSY)") or {}
+        nd = need_year(r) or 1.0
+        hs = " / ".join(fmt(_mean([x[k] / nd for x in hy.values()])) for k in ("the wood around", "far")) if hy else "-"
+        L.append(f"| {r['world']} {names[r['world']]} | {r['seed']} | {', '.join(alone(r)) or 'none'} | {hs} | {rs} |")
     L.append("")
     L.append("### Arable by soil and ground, pooled over the suite (the capacity model, `worked`)\n")
     pool = {}
@@ -924,6 +987,13 @@ def main(argv=None):
     jobs = int(a[a.index("--jobs") + 1]) if "--jobs" in a else 4
     global NUTRITION
     NUTRITION = "--no-nutrition" not in a
+    if "--report-only" in a:                                              # the tables again from the saved results, no runs
+        d = json.load(open(OUT_JSON))
+        results = d["results"]
+        write_md(md_tables(results, d["ranges"], d["orderings"]))
+        write_block("overview", md_overview(results))
+        write_block("widened", "\n".join((md_nutrition(results), md_wildlife(results), md_weather(results), md_environment(results))))
+        return 0
     if "--make" in a or not os.path.exists(os.path.join(MK.SUMMARY_DIR, "index.json")):
         MK.make_all(ids, jobs=jobs)
     todo = [(w, s, years) for w, s in MK.made() if w in ids]

@@ -18,9 +18,26 @@ but see that our calibrations generalize in relatively expected ways ... Don't e
 
 ## At a glance
 
-A row per world, the two seeds side by side where they differ (section 7 has each in full). Measured.
+A row per world: the best food a unit of work by seed (seed 1; seed 2), the rest the mean of the two seeds (section 7 has each
+in full). Measured. The reading is in section 8.
 
 <!-- overview:begin (written by 02zzt_calibration_suite.py) -->
+
+| World | best food a unit of work (master where a skill) | share of land good arable | commonest kinds by mass a km² | wet days (engine) | frost nights (engine) | flood years (water) | rain mm, mean °C (generator) |
+|---|---|---|---|---|---|---|---|
+| w01 Lowland river country | angling (master) 2.33; angling (master) 2.43 | 0.958 | red deer, brown hare, roe deer | 140 | 70 | 0.675 | 750, 8.55 |
+| w02 Dry east | hunting the wood around (master) 3.02; hunting the wood around (master) 2.73 | 0.976 | red deer, brown hare, roe deer | 139 | 69 | 0.675 | 414, 9.46 |
+| w03 Wet west, maritime | hunting the wood around (master) 2.47; hunting the wood around (master) 3.06 | 0.932 | red deer, brown hare, roe deer | 140 | 69 | 0.683 | 1178, 9.51 |
+| w04 Coast under mountains | angling (master) 2.33; hunting the wood around (master) 2.69 | 0.775 | red deer, roe deer, brown hare | 142 | 70 | 0.65 | 1018, 8.56 |
+| w05 Upland and moor | hunting the wood around (master) 2.62; hunting the wood around (master) 2.60 | 0.774 | red deer, roe deer, brown hare | 144 | 71 | 0.558 | 936, 8.58 |
+| w06 High mountains | hunting the wood around (master) 2.89; hunting the wood around (master) 2.87 | 0.691 | red deer, roe deer, brown hare | 141 | 70 | 0.666 | 909, 8.3 |
+| w07 Cold north | hunting the wood around (master) 2.55; hunting the wood around (master) 2.88 | 0.959 | red deer, brown hare, roe deer | 140 | 70 | 0.667 | 712, 5.57 |
+| w08 Fen basin | hunting the wood around (master) 2.91; hunting the wood around (master) 2.93 | 0.806 | red deer, roe deer, brown hare | 136 | 67 | 0.692 | 490, 9.88 |
+| w09 Estuary and saltmarsh | hunting the wood around (master) 2.66; hunting the wood around (master) 3.19 | 0.863 | red deer, brown hare, roe deer | 137 | 68 | 0.666 | 652, 9.73 |
+| w10 Chalk and clay | hunting the wood around (master) 2.89; hunting the wood around (master) 2.89 | 0.968 | brown hare, red deer, roe deer | 143 | 71 | 0.542 | 724, 9.67 |
+| w11 Sand and heath | angling (master) 2.30; hunting the wood around (master) 2.72 | 0.976 | red deer, brown hare, roe deer | 140 | 70 | 0.675 | 533, 9.47 |
+| w12 Lake country | angling (master) 2.33; hunting the wood around (master) 2.76 | 0.752 | red deer, roe deer, brown hare | 143 | 71 | 0.584 | 1168, 8.64 |
+
 <!-- overview:end -->
 
 ## 1. What was made
@@ -550,6 +567,25 @@ built: only fault 9's small fix was built (section 1).
 - **Fix proposed:** a tarn's size limited by the hollow's catchment and depth (`lake_m` by area), and the cap's share lower in
   the uplands than in a fen or a lake district.
 
+**11. Every village farms the same plots of floodplain clay.**
+- **Evidence:**
+  - 69 of the suite's 72 villages farm river floodplain only, and 66 farm clay. Their fertility is 1.09 to 1.37, on the sand
+    country, on the chalk and in the fen alike.
+  - Each village has 6 plots, or 10 for the one village a seed draws more households for: the same village, seed 2's `s1`, in
+    every world.
+  - In the capacity model's `worked` level, 426 of the suite's 480 field plots are clay floodplain.
+- **Cause:**
+  - the site score weighs fertility (3.0) and water (2.0);
+  - the fields are taken by cost less twice the fertility, and the floodplain's silt (x 1.25) on clay (x 1.1) is the most
+    fertile ground anywhere;
+  - the plot count is fixed by the households (three of three people), not by the land.
+- **So:** the soils the suite varies never reach the arable. Sand, chalk and peat show only in the wild land; the arable's food a
+  plot does not tell the Brecks from the Midlands.
+- **Fix proposed:**
+  - sites spread over the land's kinds (a village of the downs on the chalk, of the sand on the sand);
+  - fields taken by a farmer's preference (a light soil that drains, near the village) rather than the most fertile ground;
+  - plots sized by the land's fertility.
+
 **Not a fault, for the record:**
 - The tree line in the uplands (550 to 625 m), the cold north's and the mountains' mean temperatures, and the sand's water held
   (79 mm against the clay's 171) all come out as expected.
@@ -573,4 +609,345 @@ and likelihood, different world environments (e.g. soil types etc.) all vary acr
 models offline (`02zzt_nutrition.py`: the capacity model, D4-102, and 02zzd's harness of the acts); the reading is in section 8.
 
 <!-- widened:begin (written by 02zzt_calibration_suite.py) -->
+
+### Sources of nutrition: the land's year at the villages (the capacity model)
+
+The mean over each world's three villages. People supported by level (bare: wild food only, raw; standing: the fields as they are; worked: the best crops and fallow, broken, weeded, manured; best: all the world's techniques reach). Food a unit of work and people fed by that source alone a year, at `worked` (the village's land is sized for nine people: D2-161's 60 to 70% of capacity). The share lost in store is preserving's effect, from the house store (standing) to the best store the world reaches.
+
+| World | seed | supported: bare / standing / worked / best | fields | herds | wild plants | game | fish | lost in store: standing → best |
+|---|---|---|---|---|---|---|---|---|
+| w01 Lowland river country | 1 | 0.78 / 6.04 / 23 / 30 | 0.89 a unit, 21.2 fed | 1.65 a unit, 1.5 fed | 0.65 a unit, 0.7 fed | 0.15 a unit, 0.2 fed | 0.82 a unit, 1.1 fed | 0.0493 → 0.0107 |
+| w01 Lowland river country | 2 | 0.953 / 7.28 / 23 / 31 | 0.77 a unit, 21.5 fed | 1.60 a unit, 1.7 fed | 0.61 a unit, 0.7 fed | 0.16 a unit, 0.2 fed | 0.82 a unit, 1.1 fed | 0.0453 → 0.00967 |
+| w02 Dry east | 1 | 0.71 / 5.87 / 22 / 30 | 0.89 a unit, 21.2 fed | 1.65 a unit, 1.5 fed | 0.64 a unit, 0.7 fed | 0.15 a unit, 0.2 fed | 0.83 a unit, 0.8 fed | 0.05 → 0.0107 |
+| w02 Dry east | 2 | 0.803 / 7.09 / 24 / 32 | 0.80 a unit, 22.2 fed | 1.60 a unit, 1.7 fed | 0.64 a unit, 0.7 fed | 0.14 a unit, 0.2 fed | 0.82 a unit, 1.1 fed | 0.0487 → 0.0103 |
+| w03 Wet west, maritime | 1 | 0.78 / 6.04 / 23 / 30 | 0.89 a unit, 21.2 fed | 1.65 a unit, 1.5 fed | 0.64 a unit, 0.7 fed | 0.15 a unit, 0.2 fed | 0.82 a unit, 1.1 fed | 0.049 → 0.0107 |
+| w03 Wet west, maritime | 2 | 0.883 / 7.28 / 24 / 32 | 0.80 a unit, 22.2 fed | 1.60 a unit, 1.7 fed | 0.61 a unit, 0.7 fed | 0.16 a unit, 0.2 fed | 0.83 a unit, 0.9 fed | 0.0477 → 0.0103 |
+| w04 Coast under mountains | 1 | 0.857 / 6.25 / 31 / 43 | 1.17 a unit, 30.2 fed | 1.65 a unit, 1.5 fed | 0.64 a unit, 0.7 fed | 0.17 a unit, 0.2 fed | 0.83 a unit, 0.9 fed | 0.0477 → 0.01 |
+| w04 Coast under mountains | 2 | 0.953 / 7.5 / 33 / 45 | 1.09 a unit, 31.7 fed | 1.60 a unit, 1.7 fed | 0.64 a unit, 0.7 fed | 0.20 a unit, 0.2 fed | 0.82 a unit, 1.1 fed | 0.0463 → 0.00967 |
+| w05 Upland and moor | 1 | 0.78 / 6.09 / 31 / 42 | 1.17 a unit, 30.2 fed | 1.65 a unit, 1.5 fed | 0.63 a unit, 0.7 fed | 0.17 a unit, 0.2 fed | 0.82 a unit, 1.1 fed | 0.0487 → 0.01 |
+| w05 Upland and moor | 2 | 0.803 / 7.07 / 32 / 44 | 1.07 a unit, 31.2 fed | 1.60 a unit, 1.7 fed | 0.63 a unit, 0.7 fed | 0.15 a unit, 0.2 fed | 0.83 a unit, 1.1 fed | 0.0483 → 0.01 |
+| w06 High mountains | 1 | 0.93 / 6.17 / 30 / 41 | 1.13 a unit, 28.7 fed | 1.65 a unit, 1.5 fed | 0.64 a unit, 0.7 fed | 0.17 a unit, 0.2 fed | 0.83 a unit, 1.1 fed | 0.0453 → 0.01 |
+| w06 High mountains | 2 | 0.803 / 7.16 / 33 / 45 | 1.09 a unit, 31.7 fed | 1.60 a unit, 1.7 fed | 0.62 a unit, 0.7 fed | 0.15 a unit, 0.2 fed | 0.83 a unit, 1.1 fed | 0.0487 → 0.01 |
+| w07 Cold north | 1 | 0.63 / 5.7 / 22 / 30 | 0.89 a unit, 21.2 fed | 1.65 a unit, 1.5 fed | 0.65 a unit, 0.7 fed | 0.15 a unit, 0.2 fed | 0.82 a unit, 1.1 fed | 0.0513 → 0.0107 |
+| w07 Cold north | 2 | 0.813 / 7.11 / 24 / 32 | 0.80 a unit, 22.2 fed | 1.60 a unit, 1.7 fed | 0.63 a unit, 0.7 fed | 0.16 a unit, 0.2 fed | 0.82 a unit, 1.1 fed | 0.049 → 0.0103 |
+| w08 Fen basin | 1 | 0.78 / 6.04 / 23 / 30 | 0.89 a unit, 21.2 fed | 1.65 a unit, 1.5 fed | 0.65 a unit, 0.7 fed | 0.15 a unit, 0.2 fed | 0.82 a unit, 1.1 fed | 0.049 → 0.0107 |
+| w08 Fen basin | 2 | 0.807 / 7.01 / 25 / 33 | 0.82 a unit, 23.3 fed | 1.60 a unit, 1.7 fed | 0.64 a unit, 0.7 fed | 0.16 a unit, 0.2 fed | 0.82 a unit, 1.1 fed | 0.048 → 0.01 |
+| w09 Estuary and saltmarsh | 1 | 0.93 / 6.37 / 23 / 30 | 0.89 a unit, 21.2 fed | 1.65 a unit, 1.5 fed | 0.64 a unit, 0.7 fed | 0.15 a unit, 0.2 fed | 0.82 a unit, 1.1 fed | 0.0467 → 0.0107 |
+| w09 Estuary and saltmarsh | 2 | 0.803 / 7.04 / 23 / 31 | 0.79 a unit, 22.0 fed | 1.60 a unit, 1.7 fed | 0.62 a unit, 0.7 fed | 0.14 a unit, 0.2 fed | 0.83 a unit, 1.1 fed | 0.0483 → 0.0103 |
+| w10 Chalk and clay | 1 | 0.93 / 6.37 / 23 / 30 | 0.89 a unit, 21.2 fed | 1.65 a unit, 1.5 fed | 0.65 a unit, 0.7 fed | 0.15 a unit, 0.2 fed | 0.82 a unit, 1.1 fed | 0.0467 → 0.0107 |
+| w10 Chalk and clay | 2 | 0.953 / 7.44 / 24 / 32 | 0.80 a unit, 22.2 fed | 1.60 a unit, 1.7 fed | 0.62 a unit, 0.7 fed | 0.16 a unit, 0.2 fed | 0.82 a unit, 1.1 fed | 0.0463 → 0.01 |
+| w11 Sand and heath | 1 | 0.62 / 5.61 / 22 / 29 | 0.87 a unit, 20.8 fed | 1.65 a unit, 1.5 fed | 0.63 a unit, 0.7 fed | 0.15 a unit, 0.2 fed | 0.82 a unit, 1.1 fed | 0.0513 → 0.0107 |
+| w11 Sand and heath | 2 | 0.783 / 7.01 / 23 / 31 | 0.79 a unit, 22.0 fed | 1.60 a unit, 1.7 fed | 0.59 a unit, 0.7 fed | 0.14 a unit, 0.2 fed | 0.83 a unit, 1.1 fed | 0.0487 → 0.0103 |
+| w12 Lake country | 1 | 0.78 / 6.05 / 31 / 42 | 1.17 a unit, 30.1 fed | 1.65 a unit, 1.5 fed | 0.64 a unit, 0.7 fed | 0.17 a unit, 0.2 fed | 0.82 a unit, 1.1 fed | 0.049 → 0.01 |
+| w12 Lake country | 2 | 0.67 / 6.75 / 32 / 44 | 1.07 a unit, 31.2 fed | 1.60 a unit, 1.7 fed | 0.64 a unit, 0.7 fed | 0.20 a unit, 0.2 fed | 0.82 a unit, 1.1 fed | 0.0507 → 0.01 |
+
+### Sources of nutrition: the acts, food a unit of work (02zzd's harness, autumn, a probe person, fresh copies)
+
+At one village a world (the one with the most water). Hunting the wild armed, at the hunt's curve: novice x1, capable x3, master x8 (20 tries a cell); gathering, fishing and the water traps at the basic curve's novice, middle and top (12 tries). n / c / m: novice / capable / master. `-`: no such ground at the village. The break-even is the food a unit that keeps a household (1.5 eaters a worker).
+
+| World | seed | village | hunt near | hunt the wood around | hunt far | gather (wood) | gather (open) | eel traps | nets | fish by hand | angle | break-even |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| w01 Lowland river country | 1 | s2 | 0.172 / 0.131 / 0.986 | 0.34 / 0.672 / 2.25 | 0.62 / 1.66 / 1.9 | 1.13 / 1.64 / 1.8 | 1.17 / 1.51 / 1.69 | 0.033 / 0.067 / 0.067 | 0.019 / 0 / 0.056 | 0.58 / 0.735 / 0.861 | 1.58 / 2.22 / 2.33 | 0.25 |
+| w01 Lowland river country | 2 | s1 | 0.079 / 0.172 / 0.949 | 0.14 / 0.622 / 2.42 | 0.897 / 1.39 / 1.85 | 1.17 / 1.39 / 1.95 | 1.19 / 1.41 / 1.69 | 0.017 / 0.1 / 0.05 | 0 / 0.037 / 0.025 | 0.611 / 0.866 / 0.848 | 1.73 / 1.45 / 2.43 | 0.25 |
+| w02 Dry east | 1 | s1 | 0.03 / 0.109 / 0.656 | 0.855 / 0.728 / 3.02 | 0.364 / 1.31 / 1.58 | 1.23 / 1.42 / 1.84 | 1.19 / 1.5 / 1.71 | 0 / 0.05 / 0.067 | 0.006 / 0.037 / 0.006 | 0.614 / 0.8 / 1.03 | 1.47 / 1.75 / 2.26 | 0.25 |
+| w02 Dry east | 2 | s1 | 0.131 / 0.229 / 1.03 | 0.157 / 0.66 / 2.73 | 0.657 / 1.08 / 1.72 | 1.17 / 1.39 / 1.95 | 1.19 / 1.41 / 1.7 | 0.017 / 0.067 / 0.05 | 0.006 / 0.037 / 0.05 | 0.611 / 0.866 / 0.848 | 1.73 / 1.45 / 2.43 | 0.25 |
+| w03 Wet west, maritime | 1 | s2 | 0.195 / 0.131 / 0.821 | 0.452 / 0.515 / 2.47 | 0.219 / 1.25 / 2.11 | 1.13 / 1.63 / 1.8 | 1.05 / 1.41 / 1.69 | 0.05 / 0.117 / 0.104 | 0.019 / 0 / 0.056 | 0.58 / 0.735 / 0.861 | 1.58 / 2.22 / 2.33 | 0.25 |
+| w03 Wet west, maritime | 2 | s1 | 0.131 / 0.199 / 0.983 | 0.14 / 0.415 / 3.06 | 0.882 / 1.39 / 1.81 | 1.17 / 1.39 / 1.95 | 1.19 / 1.41 / 1.69 | 0.033 / 0.083 / 0.05 | 0.006 / 0.037 / 0.05 | 0.611 / 0.866 / 0.848 | 1.73 / 1.45 / 2.43 | 0.25 |
+| w04 Coast under mountains | 1 | s2 | 0.008 / 0.131 / 1.12 | 0.375 / 0.84 / 2.23 | 0.42 / 1.36 / 1.8 | 1.13 / 1.63 / 1.8 | 1.05 / 1.41 / 1.68 | 0.033 / 0.067 / 0.067 | 0.019 / 0.006 / 0.081 | 0.58 / 0.735 / 0.861 | 1.58 / 2.22 / 2.33 | 0.25 |
+| w04 Coast under mountains | 2 | s1 | 0.079 / 0.172 / 0.949 | 0.157 / 0.467 / 2.69 | 0.986 / 1.34 / 1.81 | 1.17 / 1.39 / 1.95 | 1.19 / 1.41 / 1.69 | 0.017 / 0.033 / 0.067 | 0 / 0.037 / 0.025 | 0.611 / 0.866 / 0.848 | 1.73 / 1.45 / 2.43 | 0.25 |
+| w05 Upland and moor | 1 | s1 | 0.026 / 0.082 / 0.634 | 0.647 / 0.735 / 2.62 | 0.306 / 0.594 / 1.59 | 1.22 / 1.42 / 1.84 | 1.19 / 1.51 / 1.71 | 0.067 / 0.017 / 0 | 0.006 / 0.037 / 0.006 | 0.614 / 0.8 / 1.03 | 1.47 / 1.75 / 2.26 | 0.25 |
+| w05 Upland and moor | 2 | s1 | 0.105 / 0.086 / 1.04 | 0.07 / 0.682 / 2.6 | 0.621 / 1.33 / 1.77 | 1.21 / 1.5 / 1.75 | 1.18 / 1.4 / 1.68 | 0.033 / 0.017 / 0.05 | 0.031 / 0.037 / 0.05 | 0.611 / 0.866 / 0.848 | 1.73 / 1.45 / 2.43 | 0.25 |
+| w06 High mountains | 1 | s1 | 0.199 / 0.109 / 0.656 | 0.985 / 0.925 / 2.89 | 0.34 / 0.402 / 1.24 | 1.21 / 1.61 / 1.83 | 1.01 / 1.5 / 1.57 | 0.05 / 0.05 / 0.104 | 0.019 / 0 / 0.044 | 0.703 / 0.782 / 0.971 | 1.48 / 1.93 / 1.88 | 0.25 |
+| w06 High mountains | 2 | s1 | 0.03 / 0.382 / 1.34 | 0.525 / 1.11 / 2.87 | 0.469 / 1.22 / 1.73 | 1.12 / 1.41 / 1.72 | 1.17 / 1.36 / 1.46 | 0.017 / 0.017 / 0.05 | 0 / 0.037 / 0.038 | 0.611 / 0.866 / 0.848 | 1.73 / 1.45 / 2.43 | 0.25 |
+| w07 Cold north | 1 | s3 | 0.221 / 0.056 / 0.664 | 0.152 / 0.485 / 2.55 | 0.312 / 0.922 / 1.79 | 1.22 / 1.58 / 1.69 | 1.14 / 1.39 / 1.8 | 0.017 / 0.083 / 0.033 | 0.019 / 0.019 / 0.056 | 0.477 / 0.68 / 0.99 | 1.66 / 1.64 / 2.22 | 0.25 |
+| w07 Cold north | 2 | s1 | 0.079 / 0.416 / 1.35 | 0.182 / 0.868 / 2.88 | 0.368 / 1.22 / 2.12 | 1.2 / 1.55 / 1.72 | 1.23 / 1.42 / 1.68 | 0 / 0.033 / 0.033 | 0 / 0 / 0.044 | 0.623 / 0.771 / 1.13 | 1.44 / 1.92 / 2.31 | 0.25 |
+| w08 Fen basin | 1 | s1 | 0.199 / 0.082 / 0.817 | 0.647 / 0.612 / 2.91 | 0.471 / 0.913 / 1.67 | 1.23 / 1.42 / 1.84 | 1.19 / 1.51 / 1.71 | 0 / 0.05 / 0.067 | 0.006 / 0.037 / 0.006 | 0.614 / 0.8 / 1.03 | 1.47 / 1.75 / 2.26 | 0.25 |
+| w08 Fen basin | 2 | s2 | 0.026 / 0.101 / 0.945 | 0.393 / 0.835 / 2.93 | 0.412 / 0.975 / 1.79 | 1.14 / 1.53 / 1.94 | 1.11 / 1.28 / 1.73 | 0.133 / 0.133 / 0.2 | 0 / 0.025 / 0.081 | 0.546 / 0.819 / 0.792 | 1.64 / 2.2 / 2.03 | 0.25 |
+| w09 Estuary and saltmarsh | 1 | s1 | 0.026 / 0.109 / 0.656 | 0.665 / 1.04 / 2.66 | 0.344 / 1.06 / 1.34 | 1.23 / 1.42 / 1.84 | 1.19 / 1.51 / 1.71 | 0 / 0.05 / 0.087 | 0.006 / 0.056 / 0.006 | 0.614 / 0.8 / 1.03 | 1.47 / 1.75 / 2.26 | 0.25 |
+| w09 Estuary and saltmarsh | 2 | s1 | 0.079 / 0.131 / 0.818 | 0.07 / 0.652 / 3.19 | 0.46 / 1.35 / 1.67 | 1.2 / 1.55 / 1.98 | 1.11 / 1.3 / 1.56 | 0 / 0.033 / 0.017 | 0 / 0 / 0.019 | 0.631 / 0.703 / 0.811 | 1.56 / 1.97 / 2.22 | 0.25 |
+| w10 Chalk and clay | 1 | s1 | 0.052 / 0.165 / 0.96 | 0.95 / 0.807 / 2.89 | 0.375 / 1.36 / 1.99 | 1.23 / 1.42 / 1.84 | 1.19 / 1.51 / 1.71 | 0 / 0.033 / 0.05 | 0.006 / 0.006 / 0 | 0.614 / 0.8 / 1.03 | 1.47 / 1.75 / 2.26 | 0.25 |
+| w10 Chalk and clay | 2 | s1 | 0.03 / 0.33 / 0.836 | 0.395 / 0.83 / 2.89 | 0.508 / 1.09 / 1.82 | 1.11 / 1.41 / 1.71 | 1.17 / 1.42 / 1.73 | 0.017 / 0.067 / 0.05 | 0.006 / 0.037 / 0.044 | 0.611 / 0.866 / 0.848 | 1.73 / 1.45 / 2.43 | 0.25 |
+| w11 Sand and heath | 1 | s2 | 0.034 / 0.187 / 0.679 | 0.357 / 0.862 / 2.15 | 0.463 / 1.09 / 1.89 | 1.13 / 1.63 / 1.8 | 1.02 / 1.36 / 1.62 | 0.033 / 0.05 / 0.05 | 0 / 0.037 / 0.075 | 0.537 / 0.856 / 0.958 | 1.56 / 1.92 / 2.3 | 0.25 |
+| w11 Sand and heath | 2 | s1 | 0 / 0.412 / 1.32 | 0.68 / 0.75 / 2.72 | 0.538 / 1.16 / 2.18 | 1.28 / 1.47 / 1.76 | 1.19 / 1.34 / 1.45 | 0.017 / 0.067 / 0.067 | 0 / 0.044 / 0.062 | 0.574 / 0.547 / 0.98 | 1.39 / 1.81 / 1.95 | 0.25 |
+| w12 Lake country | 1 | s2 | 0.008 / 0.157 / 0.836 | 0.305 / 0.652 / 2.33 | 0.364 / 0.973 / 1.87 | 1.13 / 1.63 / 1.79 | 1.01 / 1.36 / 1.62 | 0.017 / 0.05 / 0.117 | 0.019 / 0.006 / 0.081 | 0.58 / 0.735 / 0.861 | 1.58 / 2.22 / 2.33 | 0.25 |
+| w12 Lake country | 2 | s1 | 0.086 / 0.094 / 1.15 | 0.18 / 0.822 / 2.76 | 0.235 / 1.44 / 1.59 | 1.16 / 1.37 / 1.74 | 1.16 / 1.4 / 1.72 | 0.05 / 0.017 / 0.05 | 0 / 0.044 / 0.075 | 0.574 / 0.547 / 0.98 | 1.39 / 1.81 / 1.95 | 0.25 |
+
+### Sources of nutrition: what could feed a village alone, and the runs
+
+A source that returns the break-even or more and gives the village's nine people a year, for good: the land's sources at `worked`; hunting from the wild land's yearly growth in reach (each hunted kind's heads after the history x a quarter of its b - m x its food a head: the logistic's most sustainable take r K / 4, an upper bound) at the master's return there; the runs from the food that passes the villages. The runs: heads at the villages' water a year (the sum over the days a run stands there, `wild/runs.py`) and the food they are worth (salmon 2 fish, lamprey 0.3 meat, an eel 0.2 fish a head: `wild/kinds.py` TAKEN; ITEMS food: meat 1.5, fish 1), the mean over the villages.
+
+| World | seed | could feed a village of nine alone | hunting a year in reach, people fed (the wood around / far) | the runs at the villages a year |
+|---|---|---|---|---|
+| w01 Lowland river country | 1 | fields (21 fed), hunting the wood around (28 fed), hunting far (446 fed) | 28 / 446 | eel 27 heads, 5 food; salmon 6 heads, 13 food |
+| w01 Lowland river country | 2 | fields (21 fed), hunting the wood around (34 fed), hunting far (336 fed) | 34 / 336 | eel 9 heads, 2 food; lamprey 18 heads, 8 food; salmon 6 heads, 13 food |
+| w02 Dry east | 1 | fields (21 fed), hunting the wood around (29 fed), hunting far (444 fed) | 29 / 444 | eel 8 heads, 2 food; salmon 3 heads, 7 food |
+| w02 Dry east | 2 | fields (22 fed), hunting the wood around (35 fed), hunting far (367 fed) | 35 / 367 | eel 9 heads, 2 food; lamprey 14 heads, 6 food; salmon 6 heads, 12 food |
+| w03 Wet west, maritime | 1 | fields (21 fed), hunting the wood around (29 fed), hunting far (406 fed) | 29 / 406 | eel 19 heads, 4 food; salmon 7 heads, 14 food |
+| w03 Wet west, maritime | 2 | fields (22 fed), hunting the wood around (34 fed), hunting far (413 fed) | 34 / 413 | eel 11 heads, 2 food; lamprey 21 heads, 10 food; salmon 7 heads, 14 food |
+| w04 Coast under mountains | 1 | fields (30 fed), hunting the wood around (28 fed), hunting far (316 fed) | 28 / 316 | eel 18 heads, 4 food; lamprey 9 heads, 4 food; salmon 9 heads, 17 food |
+| w04 Coast under mountains | 2 | fields (32 fed), hunting the wood around (31 fed), hunting far (321 fed) | 31 / 321 | eel 18 heads, 4 food; lamprey 16 heads, 7 food; salmon 7 heads, 15 food |
+| w05 Upland and moor | 1 | fields (30 fed), hunting the wood around (37 fed), hunting far (395 fed) | 37 / 395 | eel 13 heads, 3 food; salmon 4 heads, 9 food |
+| w05 Upland and moor | 2 | fields (31 fed), hunting the wood around (33 fed), hunting far (416 fed) | 33 / 416 | eel 141 heads, 28 food; lamprey 7 heads, 3 food; salmon 2 heads, 4 food |
+| w06 High mountains | 1 | fields (29 fed), hunting the wood around (29 fed), hunting far (357 fed) | 29 / 357 | eel 14 heads, 3 food; salmon 8 heads, 17 food |
+| w06 High mountains | 2 | fields (32 fed), hunting the wood around (33 fed), hunting far (401 fed) | 33 / 401 | eel 10 heads, 2 food; lamprey 14 heads, 6 food; salmon 7 heads, 14 food |
+| w07 Cold north | 1 | fields (21 fed), hunting the wood around (28 fed), hunting far (300 fed) | 28 / 300 | eel 17 heads, 3 food; salmon 9 heads, 17 food |
+| w07 Cold north | 2 | fields (22 fed), hunting the wood around (34 fed), hunting far (326 fed) | 34 / 326 | eel 10 heads, 2 food; lamprey 22 heads, 10 food; salmon 9 heads, 17 food |
+| w08 Fen basin | 1 | fields (21 fed), hunting the wood around (30 fed), hunting far (381 fed) | 30 / 381 | eel 9 heads, 2 food; lamprey 1 heads, 0 food; salmon 3 heads, 6 food |
+| w08 Fen basin | 2 | fields (23 fed), hunting the wood around (37 fed), hunting far (374 fed) | 37 / 374 | eel 95 heads, 19 food; lamprey 10 heads, 4 food; salmon 10 heads, 20 food |
+| w09 Estuary and saltmarsh | 1 | fields (21 fed), hunting the wood around (30 fed), hunting far (336 fed) | 30 / 336 | eel 13 heads, 3 food; salmon 4 heads, 8 food |
+| w09 Estuary and saltmarsh | 2 | fields (22 fed), hunting the wood around (34 fed), hunting far (347 fed) | 34 / 347 | eel 12 heads, 2 food; lamprey 6 heads, 3 food; salmon 6 heads, 13 food |
+| w10 Chalk and clay | 1 | fields (21 fed), hunting the wood around (28 fed), hunting far (310 fed) | 28 / 310 | eel 32 heads, 6 food; salmon 7 heads, 14 food |
+| w10 Chalk and clay | 2 | fields (22 fed), hunting the wood around (35 fed), hunting far (393 fed) | 35 / 393 | eel 22 heads, 4 food; lamprey 13 heads, 6 food; salmon 7 heads, 13 food |
+| w11 Sand and heath | 1 | fields (21 fed), hunting the wood around (29 fed), hunting far (268 fed) | 29 / 268 | eel 7 heads, 1 food; salmon 6 heads, 13 food |
+| w11 Sand and heath | 2 | fields (22 fed), hunting the wood around (34 fed), hunting far (317 fed) | 34 / 317 | eel 11 heads, 2 food; lamprey 19 heads, 8 food; salmon 6 heads, 13 food |
+| w12 Lake country | 1 | fields (30 fed), hunting the wood around (27 fed), hunting far (361 fed) | 27 / 361 | eel 18 heads, 4 food; salmon 11 heads, 22 food |
+| w12 Lake country | 2 | fields (31 fed), hunting the wood around (33 fed), hunting far (478 fed) | 33 / 478 | eel 148 heads, 30 food; lamprey 5 heads, 2 food; salmon 2 heads, 5 food |
+
+### Arable by soil and ground, pooled over the suite (the capacity model, `worked`)
+
+| Soil / ground | plots in the suite | food a plot a year | worlds |
+|---|---|---|---|
+| clay / clay vale | 18 | 132.9 | w01, w06 |
+| loam / river floodplain | 36 | 122.5 | w05, w08, w09, w11, w12 |
+| clay / river floodplain | 426 | 117.3 | w01, w02, w03, w04, w05, w06, w07, w08, w09, w10, w11, w12 |
+
+### Wildlife: densities a km² over the whole land (each year's highest season, the mean over the suite's years)
+
+Where: the share of a kind's heads (after the history) on wood, grass, heath, wet ground and water, by its areas' features (pooled over the suite in the last table). Flags: a kind absent where its range includes the land, or one running away (section Collapse and the ecology settling above).
+
+| World | seed | red deer | roe deer | wild boar | brown hare | wildfowl | eel | otter | fox | wolf | brown bear | flags |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| w01 Lowland river country | 1 | 2.33 | 8.03 | 1.27 | 55 | 7.59 | 5.72 | 0.183 | 1.28 | 0.0392 | 0.0636 | none |
+| w01 Lowland river country | 2 | 2.2 | 7.56 | 1.2 | 57 | 8.31 | 6.22 | 0.175 | 1.24 | 0.0372 | 0.0483 | none |
+| w02 Dry east | 1 | 2.29 | 7.86 | 1.2 | 57 | 4.28 | 3.27 | 0.181 | 1.26 | 0.0385 | 0.0579 | none |
+| w02 Dry east | 2 | 2.27 | 7.8 | 1.21 | 58 | 5.19 | 3.97 | 0.183 | 1.26 | 0.0382 | 0.0608 | none |
+| w03 Wet west, maritime | 1 | 2.25 | 7.76 | 1.25 | 55 | 10 | 7.87 | 0.178 | 1.25 | 0.0379 | 0.0571 | none |
+| w03 Wet west, maritime | 2 | 2.21 | 7.67 | 1.25 | 57 | 11 | 8.44 | 0.197 | 1.24 | 0.0374 | 0.0499 | none |
+| w04 Coast under mountains | 1 | 2.28 | 7.31 | 1.21 | 45 | 8.28 | 6.27 | 0.164 | 1.23 | 0.0408 | 0.0566 | none |
+| w04 Coast under mountains | 2 | 2.25 | 7.18 | 1.2 | 46 | 9.13 | 6.86 | 0.18 | 1.22 | 0.0405 | 0.049 | none |
+| w05 Upland and moor | 1 | 2.25 | 6.98 | 1.17 | 45 | 8.87 | 7.26 | 0.194 | 1.21 | 0.0412 | 0.0557 | none |
+| w05 Upland and moor | 2 | 2.31 | 7.26 | 1.21 | 44 | 13 | 11 | 0.209 | 1.23 | 0.0418 | 0.0606 | none |
+| w06 High mountains | 1 | 2.36 | 6.76 | 1.21 | 39 | 10 | 8.17 | 0.199 | 1.22 | 0.0453 | 0.0602 | none |
+| w06 High mountains | 2 | 2.33 | 6.96 | 1.2 | 38 | 14 | 11 | 0.223 | 1.21 | 0.044 | 0.0605 | none |
+| w07 Cold north | 1 | 2.31 | 7.94 | 1.25 | 56 | 7.44 | 5.65 | 0.18 | 1.27 | 0.039 | 0.0604 | none |
+| w07 Cold north | 2 | 2.21 | 7.59 | 1.2 | 56 | 8.19 | 6.15 | 0.174 | 1.24 | 0.0377 | 0.0472 | none |
+| w08 Fen basin | 1 | 2.15 | 6.9 | 1.65 | 41 | 48 | 36 | 0.221 | 1.21 | 0.038 | 0.0556 | none |
+| w08 Fen basin | 2 | 2.17 | 7.19 | 1.71 | 43 | 52 | 39 | 0.231 | 1.23 | 0.0382 | 0.0587 | none |
+| w09 Estuary and saltmarsh | 1 | 2.23 | 7.49 | 1.48 | 47 | 29 | 22 | 0.204 | 1.24 | 0.0389 | 0.0629 | none |
+| w09 Estuary and saltmarsh | 2 | 2.17 | 7.35 | 1.4 | 48 | 28 | 21 | 0.197 | 1.22 | 0.0372 | 0.0502 | none |
+| w10 Chalk and clay | 1 | 2.12 | 7.47 | 1.19 | 60 | 5.62 | 4.29 | 0.189 | 1.25 | 0.038 | 0.0645 | none |
+| w10 Chalk and clay | 2 | 2.18 | 7.67 | 1.22 | 60 | 6.48 | 4.89 | 0.185 | 1.26 | 0.0382 | 0.065 | none |
+| w11 Sand and heath | 1 | 2.18 | 7.14 | 1.12 | 48 | 4.18 | 3.23 | 0.172 | 1.23 | 0.0417 | 0.0525 | none |
+| w11 Sand and heath | 2 | 2.16 | 7.31 | 1.18 | 52 | 4.97 | 3.71 | 0.18 | 1.25 | 0.0419 | 0.0674 | none |
+| w12 Lake country | 1 | 2.26 | 7 | 1.2 | 44 | 12 | 9.33 | 0.209 | 1.21 | 0.0411 | 0.0562 | none |
+| w12 Lake country | 2 | 2.27 | 7.07 | 1.21 | 44 | 20 | 16 | 0.233 | 1.2 | 0.0412 | 0.0592 | none |
+
+| Kind | where its heads are (wood / grass / heath / wet / water / farmed), the mean over the suite |
+|---|---|
+| red deer | 0.293 / 0.579 / 0.0524 / 0.078 / 0.0168 / 0.0622 |
+| roe deer | 0.372 / 0.533 / 0.0303 / 0.0657 / 0.0134 / 0.0497 |
+| wild boar | 0.493 / 0.424 / 0.0322 / 0.082 / 0.0122 / 0.021 |
+| brown hare | 0.17 / 0.717 / 0.0157 / 0.0831 / 0.019 / 0.113 |
+| woodpigeon | 0.369 / 0.477 / 0.0208 / 0.0789 / 0.0224 / 0.179 |
+| rats | 0.103 / 0.51 / 0.00254 / 0.128 / 0.0467 / 0.686 |
+| wildfowl | 0 / 0 / 0 / 0 / 0 / 0 |
+| eel | 0.204 / 0.491 / 0.0407 / 0.193 / 0.0556 / 0.186 |
+| salmon | 0 / 0 / 0 / 0 / 0 / 0 |
+| lamprey | 0 / 0 / 0 / 0 / 0 / 0 |
+| otter | 0.264 / 0.578 / 0.0337 / 0.126 / 0.0314 / 0.0848 |
+| voles and mice | 0.255 / 0.577 / 0.0374 / 0.0899 / 0.0204 / 0.151 |
+| owls | 0.303 / 0.525 / 0.0317 / 0.0868 / 0.0212 / 0.183 |
+| fox | 0.294 / 0.58 / 0.0392 / 0.0824 / 0.017 / 0.0877 |
+| stoat | 0.289 / 0.568 / 0.0393 / 0.0855 / 0.0184 / 0.113 |
+| wolf | 0.366 / 0.518 / 0.0598 / 0.0721 / 0.016 / 0.0388 |
+| raven | 0.247 / 0.612 / 0.0455 / 0.0889 / 0.018 / 0.0853 |
+| brown bear | 0.663 / 0.301 / 0.0247 / 0.0302 / 0.00854 / 0.0621 |
+
+### Weather and its likelihood, a real year at the villages
+
+The engine's weather (`climate.py`): the share of days of each weather type (Lamb's), the days a year of each label it gives, and the storms. The water on the engine's weather (02zzn, two clocks). The generator's climate holds a year's rain and mean only. The engine reads only height, so the rows of one seed differ only by the villages' heights (the known gap, OPEN Q-56).
+
+| World | seed | types: settled / westerly / cyclonic / northerly / easterly / storm | clear / rain / heavy rain / fog / snow / gale days | wet days | frost nights | storm days | snow lying | rain between years (CV) | spates / floods a year | flood years | low water | ice days | generator: rain mm, mean °C |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| w01 Lowland river country | 1 | 0.463 / 0.261 / 0.089 / 0.058 / 0.094 / 0.036 | 187 / 123 / 12 / 18 / 13 / 12 | 129 | 71 | 17 | 10 | 0.47 | 1.67 / 0.85 | 0.7 | 0.428 | 8.73 | 747, 8.68 |
+| w01 Lowland river country | 2 | 0.4 / 0.28 / 0.183 / 0.066 / 0.036 / 0.036 | 155 / 137 / 20 / 22 / 17 / 15 | 150 | 68 | 26 | 13 | 0.54 | 1.75 / 0.75 | 0.65 | 0.404 | 9.13 | 752, 8.43 |
+| w02 Dry east | 1 | 0.463 / 0.261 / 0.089 / 0.058 / 0.094 / 0.036 | 188 / 122 / 11 / 17 / 14 / 13 | 129 | 70 | 17 | 9.87 | 0.46 | 1.58 / 0.9 | 0.683 | 0.423 | 8.93 | 400, 9.32 |
+| w02 Dry east | 2 | 0.4 / 0.28 / 0.183 / 0.066 / 0.036 / 0.036 | 156 / 136 / 20 / 22 / 16 / 15 | 148 | 68 | 26 | 13 | 0.54 | 1.68 / 0.8 | 0.667 | 0.405 | 8.57 | 428, 9.61 |
+| w03 Wet west, maritime | 1 | 0.463 / 0.261 / 0.089 / 0.058 / 0.094 / 0.036 | 187 / 122 / 12 / 18 / 14 / 12 | 129 | 71 | 16 | 10 | 0.47 | 1.6 / 0.933 | 0.717 | 0.416 | 9.13 | 1244, 9.57 |
+| w03 Wet west, maritime | 2 | 0.4 / 0.28 / 0.183 / 0.066 / 0.036 / 0.036 | 155 / 137 / 20 / 22 / 16 / 15 | 151 | 68 | 26 | 12 | 0.54 | 1.6 / 0.767 | 0.65 | 0.406 | 9.13 | 1112, 9.45 |
+| w04 Coast under mountains | 1 | 0.463 / 0.261 / 0.089 / 0.058 / 0.094 / 0.036 | 185 / 125 / 13 / 18 / 13 / 11 | 131 | 71 | 17 | 10 | 0.46 | 1.77 / 0.867 | 0.717 | 0.418 | 9.3 | 971, 8.7 |
+| w04 Coast under mountains | 2 | 0.4 / 0.28 / 0.183 / 0.066 / 0.036 / 0.036 | 156 / 137 / 20 / 20 / 17 / 16 | 152 | 69 | 26 | 13 | 0.55 | 1.5 / 0.55 | 0.583 | 0.405 | 9.9 | 1064, 8.42 |
+| w05 Upland and moor | 1 | 0.463 / 0.261 / 0.089 / 0.058 / 0.094 / 0.036 | 184 / 124 / 12 / 17 / 16 / 12 | 132 | 73 | 17 | 12 | 0.46 | 1.55 / 0.95 | 0.7 | 0.421 | 11 | 755, 8.6 |
+| w05 Upland and moor | 2 | 0.4 / 0.28 / 0.183 / 0.066 / 0.036 / 0.036 | 155 / 140 / 19 / 16 / 18 / 17 | 155 | 70 | 26 | 15 | 0.55 | 0.967 / 0.3 | 0.417 | 0.4 | 9.7 | 1118, 8.56 |
+| w06 High mountains | 1 | 0.463 / 0.261 / 0.089 / 0.058 / 0.094 / 0.036 | 181 / 122 / 12 / 24 / 14 / 13 | 130 | 70 | 17 | 10 | 0.46 | 1.57 / 0.917 | 0.7 | 0.42 | 8.57 | 897, 8.45 |
+| w06 High mountains | 2 | 0.4 / 0.28 / 0.183 / 0.066 / 0.036 / 0.036 | 154 / 138 / 20 / 20 / 17 / 15 | 152 | 70 | 26 | 14 | 0.53 | 1.78 / 0.667 | 0.633 | 0.417 | 9.7 | 921, 8.16 |
+| w07 Cold north | 1 | 0.463 / 0.261 / 0.089 / 0.058 / 0.094 / 0.036 | 183 / 122 / 12 / 23 / 12 / 13 | 128 | 71 | 17 | 10 | 0.47 | 1.78 / 0.9 | 0.683 | 0.434 | 8.93 | 774, 5.44 |
+| w07 Cold north | 2 | 0.4 / 0.28 / 0.183 / 0.066 / 0.036 / 0.036 | 160 / 137 / 20 / 15 / 17 / 16 | 151 | 69 | 27 | 13 | 0.54 | 1.75 / 0.817 | 0.65 | 0.408 | 8.97 | 649, 5.69 |
+| w08 Fen basin | 1 | 0.463 / 0.261 / 0.089 / 0.058 / 0.094 / 0.036 | 171 / 119 / 14 / 39 / 11 / 11 | 127 | 69 | 16 | 9.13 | 0.47 | 1.75 / 0.867 | 0.683 | 0.421 | 8.53 | 499, 9.94 |
+| w08 Fen basin | 2 | 0.4 / 0.28 / 0.183 / 0.066 / 0.036 / 0.036 | 148 / 134 / 19 / 35 / 15 / 14 | 146 | 65 | 27 | 12 | 0.54 | 1.57 / 0.633 | 0.7 | 0.402 | 7.2 | 481, 9.82 |
+| w09 Estuary and saltmarsh | 1 | 0.463 / 0.261 / 0.089 / 0.058 / 0.094 / 0.036 | 183 / 122 / 11 / 26 / 14 / 10 | 126 | 68 | 17 | 10 | 0.47 | 1.62 / 0.917 | 0.7 | 0.424 | 7.97 | 666, 9.62 |
+| w09 Estuary and saltmarsh | 2 | 0.4 / 0.28 / 0.183 / 0.066 / 0.036 / 0.036 | 149 / 135 / 20 / 32 / 16 / 14 | 148 | 68 | 26 | 11 | 0.55 | 1.62 / 0.667 | 0.633 | 0.41 | 7.63 | 638, 9.85 |
+| w10 Chalk and clay | 1 | 0.463 / 0.261 / 0.089 / 0.058 / 0.094 / 0.036 | 178 / 124 / 12 / 22 / 15 / 14 | 133 | 74 | 17 | 12 | 0.47 | 1.32 / 0.583 | 0.567 | 0.418 | 10 | 762, 9.47 |
+| w10 Chalk and clay | 2 | 0.4 / 0.28 / 0.183 / 0.066 / 0.036 / 0.036 | 157 / 137 / 19 / 20 / 17 / 15 | 152 | 68 | 26 | 13 | 0.56 | 1.58 / 0.45 | 0.517 | 0.405 | 7.8 | 685, 9.87 |
+| w11 Sand and heath | 1 | 0.463 / 0.261 / 0.089 / 0.058 / 0.094 / 0.036 | 186 / 123 / 11 / 18 / 15 / 12 | 130 | 71 | 17 | 12 | 0.46 | 1.45 / 0.917 | 0.733 | 0.42 | 9.33 | 518, 9.33 |
+| w11 Sand and heath | 2 | 0.4 / 0.28 / 0.183 / 0.066 / 0.036 / 0.036 | 151 / 137 / 20 / 27 / 16 / 14 | 149 | 68 | 25 | 13 | 0.54 | 1.5 / 0.617 | 0.617 | 0.413 | 8.37 | 548, 9.62 |
+| w12 Lake country | 1 | 0.463 / 0.261 / 0.089 / 0.058 / 0.094 / 0.036 | 184 / 124 / 12 / 17 / 15 / 12 | 132 | 73 | 17 | 12 | 0.46 | 1.53 / 0.95 | 0.7 | 0.422 | 11 | 1126, 8.61 |
+| w12 Lake country | 2 | 0.4 / 0.28 / 0.183 / 0.066 / 0.036 / 0.036 | 151 / 139 / 19 / 21 / 18 / 17 | 154 | 70 | 26 | 16 | 0.54 | 0.983 / 0.317 | 0.467 | 0.397 | 9.7 | 1209, 8.67 |
+
+At named places of the land (the engine's weather at each place's height; the generator's rain and mean there):
+
+| World | seed | place | generator rain mm (mean), mean °C | engine rain mm, wet days, frost nights, snow lying, wind m/s, ice days |
+|---|---|---|---|---|
+| w01 Lowland river country | 1 | tops | 764, 8.15 | 870, 134, 76, 18, 6.15, 16 |
+| w01 Lowland river country | 2 | tops | 762, 8.33 | 1184, 157, 70, 18, 7.09, 12 |
+| w02 Dry east | 1 | tops | 420, 9.36 | 864, 134, 76, 18, 6.18, 16 |
+| w02 Dry east | 2 | tops | 420, 9.11 | 1169, 157, 70, 18, 7, 12 |
+| w03 Wet west, maritime | 1 | coast | 3506, 9.58 | 821, 127, 71, 16, 5.65, 12 |
+| w03 Wet west, maritime | 1 | tops | 1188, 9.14 | 938, 140, 78, 11, 6.07, 11 |
+| w03 Wet west, maritime | 2 | coast | 3595, 9.64 | 1140, 152, 66, 14, 6.29, 8.6 |
+| w03 Wet west, maritime | 2 | tops | 1184, 9.33 | 1127, 162, 78, 16, 7.03, 12 |
+| w04 Coast under mountains | 1 | coast | 2985, 8.56 | 832, 127, 71, 16, 5.71, 12 |
+| w04 Coast under mountains | 1 | fells | 2185, 5.8 | 1063, 163, 119, 43, 9.27, 50 |
+| w04 Coast under mountains | 1 | lee | 1023, 8.39 | 844, 130, 71, 5.7, 5.79, 8.6 |
+| w04 Coast under mountains | 1 | tops | 1924, 4.84 | 1074, 166, 137, 56, 10, 71 |
+| w04 Coast under mountains | 1 | windward | 1939, 8.57 | 848, 129, 71, 12, 5.7, 11 |
+| w04 Coast under mountains | 2 | coast | 3079, 8.65 | 1140, 152, 66, 14, 6.32, 8.6 |
+| w04 Coast under mountains | 2 | fells | 2028, 5.85 | 1209, 180, 114, 40, 10, 34 |
+| w04 Coast under mountains | 2 | lee | 1010, 8.4 | 1096, 145, 70, 12, 6.63, 9.1 |
+| w04 Coast under mountains | 2 | tops | 1794, 4.95 | 1235, 187, 133, 69, 12, 62 |
+| w04 Coast under mountains | 2 | windward | 2117, 8.55 | 1148, 155, 66, 18, 6.49, 8 |
+| w05 Upland and moor | 1 | tops | 1159, 4 | 1033, 168, 156, 68, 11, 81 |
+| w05 Upland and moor | 2 | tops | 1234, 3.93 | 1292, 180, 138, 70, 13, 70 |
+| w06 High mountains | 1 | tops | 1678, 0.98 | 1076, 178, 216, 123, 14, 161 |
+| w06 High mountains | 2 | tops | 1712, 0.84 | 1341, 192, 199, 127, 17, 165 |
+| w07 Cold north | 1 | tops | 679, 5.15 | 869, 134, 76, 18, 6.15, 16 |
+| w07 Cold north | 2 | tops | 678, 5.33 | 1178, 157, 70, 18, 7.04, 12 |
+| w08 Fen basin | 1 | coast | 515, 9.72 | 803, 122, 70, 14, 5.47, 11 |
+| w08 Fen basin | 1 | tops | 586, 9.54 | 922, 135, 74, 11, 5.84, 8 |
+| w08 Fen basin | 2 | coast | 531, 9.79 | 1134, 149, 63, 14, 6.13, 6.8 |
+| w08 Fen basin | 2 | tops | 519, 9.43 | 1124, 159, 73, 14, 6.81, 12 |
+| w09 Estuary and saltmarsh | 1 | coast | 637, 9.63 | 833, 128, 72, 16, 5.71, 12 |
+| w09 Estuary and saltmarsh | 1 | tops | 640, 9.43 | 918, 137, 75, 14, 5.97, 8.6 |
+| w09 Estuary and saltmarsh | 2 | coast | 624, 9.65 | 1158, 153, 66, 15, 6.46, 8.6 |
+| w09 Estuary and saltmarsh | 2 | tops | 641, 9.36 | 1136, 160, 73, 15, 6.98, 14 |
+| w10 Chalk and clay | 1 | tops | 686, 7.74 | 934, 148, 92, 23, 7.38, 28 |
+| w10 Chalk and clay | 2 | tops | 684, 7.7 | 1217, 165, 84, 26, 8.47, 24 |
+| w11 Sand and heath | 1 | tops | 556, 8.97 | 885, 137, 78, 19, 6.42, 20 |
+| w11 Sand and heath | 2 | tops | 563, 8.87 | 1204, 160, 70, 21, 7.39, 15 |
+| w12 Lake country | 1 | tops | 1704, 4 | 1033, 168, 155, 67, 11, 81 |
+| w12 Lake country | 2 | tops | 1820, 3.92 | 1291, 180, 139, 70, 13, 72 |
+
+### Environments: soils, ground and cover
+
+Over the whole land, from the cells. Soil depth and water held as `landgen/write.py` gives a parcel (`depth` x 1.2, AWC by texture); drainage the texture's share a day; fertility the cells' multiplier.
+
+| World | seed | sand / loam / clay / chalk / peat | depth m | held mm | drain | fertility | slope p95° | over 10° | wet ground | floodplain / terrace | good arable | tree line m | commonest ecosystems |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| w01 Lowland river country | 1 | 0.124 / 0.665 / 0.148 / 0.0631 / 0 | 1.14 | 174 | 0.265 | 0.975 | 2.5 | 0 | 0.0573 | 0.121 / 0.0999 | 0.962 | above the land | grassland 0.58, oak-ash wood 0.17, birch and pine wood 0.07, hay meadow 0.05 |
+| w01 Lowland river country | 2 | 0.0875 / 0.673 / 0.177 / 0.0623 / 0 | 1.14 | 178 | 0.251 | 0.998 | 2.5 | 0 | 0.0675 | 0.167 / 0.0696 | 0.954 | above the land | grassland 0.54, oak-ash wood 0.21, hay meadow 0.08, birch and pine wood 0.05 |
+| w02 Dry east | 1 | 0.124 / 0.702 / 0.141 / 0.0333 / 0 | 1.14 | 175 | 0.262 | 0.983 | 2.5 | 0 | 0.0299 | 0.114 / 0.0757 | 0.979 | above the land | grassland 0.60, oak-ash wood 0.19, birch and pine wood 0.09, hay meadow 0.05 |
+| w02 Dry east | 2 | 0.088 / 0.714 / 0.127 / 0.0714 / 0 | 1.14 | 179 | 0.261 | 0.995 | 2.5 | 0 | 0.0372 | 0.168 / 0.0776 | 0.974 | above the land | grassland 0.58, oak-ash wood 0.18, hay meadow 0.08, beech wood 0.06 |
+| w03 Wet west, maritime | 1 | 0.0964 / 0.598 / 0.234 / 0.0718 / 0 | 1.14 | 174 | 0.245 | 0.988 | 2.7 | 0.0038 | 0.0855 | 0.13 / 0.131 | 0.935 | above the land | grassland 0.57, oak-ash wood 0.22, hay meadow 0.05, beech wood 0.04 |
+| w03 Wet west, maritime | 2 | 0.0888 / 0.592 / 0.263 / 0.0571 / 0 | 1.14 | 175 | 0.236 | 1 | 2.8 | 0.0039 | 0.0956 | 0.159 / 0.103 | 0.929 | above the land | grassland 0.53, oak-ash wood 0.24, hay meadow 0.07, chalk grassland 0.03 |
+| w04 Coast under mountains | 1 | 0.0967 / 0.643 / 0.182 / 0.0782 / 0 | 1.04 | 160 | 0.255 | 0.927 | 13 | 0.0955 | 0.0711 | 0.111 / 0.086 | 0.785 | 588 | grassland 0.46, oak-ash wood 0.15, moor 0.09, upland oak wood 0.07 |
+| w04 Coast under mountains | 2 | 0.088 / 0.644 / 0.205 / 0.0625 / 0 | 1.04 | 161 | 0.247 | 0.936 | 13 | 0.0935 | 0.0772 | 0.143 / 0.0815 | 0.765 | 592 | grassland 0.42, oak-ash wood 0.16, moor 0.10, hay meadow 0.08 |
+| w05 Upland and moor | 1 | 0.125 / 0.694 / 0.106 / 0.0758 / 0 | 1.01 | 156 | 0.275 | 0.894 | 13 | 0.0932 | 0.0504 | 0.0852 / 0.0756 | 0.78 | 624 | grassland 0.31, upland oak wood 0.19, hill pasture 0.19, moor 0.11 |
+| w05 Upland and moor | 2 | 0.0881 / 0.683 / 0.161 / 0.0676 / 0 | 1.01 | 158 | 0.255 | 0.916 | 14 | 0.0985 | 0.0543 | 0.112 / 0.0653 | 0.769 | 620 | grassland 0.27, upland oak wood 0.19, hill pasture 0.18, moor 0.11 |
+| w06 High mountains | 1 | 0.124 / 0.691 / 0.108 / 0.0768 / 0 | 0.96 | 148 | 0.274 | 0.852 | 18 | 0.153 | 0.0589 | 0.0969 / 0.0831 | 0.687 | 550 | grassland 0.30, upland oak wood 0.20, moor 0.18, hill pasture 0.10 |
+| w06 High mountains | 2 | 0.0878 / 0.684 / 0.16 / 0.0683 / 0 | 0.96 | 149 | 0.255 | 0.878 | 20 | 0.161 | 0.0622 | 0.124 / 0.0729 | 0.695 | 558 | grassland 0.27, upland oak wood 0.18, moor 0.16, hill pasture 0.12 |
+| w07 Cold north | 1 | 0.124 / 0.676 / 0.137 / 0.0631 / 0 | 1.14 | 175 | 0.267 | 0.974 | 2.5 | 0 | 0.0568 | 0.12 / 0.0939 | 0.963 | 104 | grassland 0.58, oak-ash wood 0.17, birch and pine wood 0.08, hay meadow 0.05 |
+| w07 Cold north | 2 | 0.0875 / 0.697 / 0.153 / 0.0623 / 0 | 1.14 | 179 | 0.255 | 0.995 | 2.5 | 0 | 0.0665 | 0.165 / 0.0684 | 0.955 | 103 | grassland 0.55, oak-ash wood 0.21, hay meadow 0.06, birch and pine wood 0.05 |
+| w08 Fen basin | 1 | 0.105 / 0.537 / 0.19 / 0.0018 / 0.167 | 1.15 | 206 | 0.211 | 1.04 | 2.2 | 0.0013 | 0.153 | 0.0771 / 0.0972 | 0.803 | above the land | grassland 0.37, oak-ash wood 0.23, fen 0.12, wet grassland 0.11 |
+| w08 Fen basin | 2 | 0.0814 / 0.522 / 0.222 / 0.0147 / 0.16 | 1.16 | 206 | 0.203 | 1.05 | 2.1 | 0.003 | 0.154 | 0.0972 / 0.102 | 0.81 | above the land | grassland 0.32, oak-ash wood 0.24, wet grassland 0.16, fen 0.10 |
+| w09 Estuary and saltmarsh | 1 | 0.113 / 0.591 / 0.183 / 0.0183 / 0.0951 | 1.14 | 191 | 0.231 | 1 | 2.7 | 0.0058 | 0.13 | 0.0704 / 0.0807 | 0.858 | above the land | grassland 0.47, oak-ash wood 0.20, birch and pine wood 0.06, reedbed 0.06 |
+| w09 Estuary and saltmarsh | 2 | 0.089 / 0.595 / 0.194 / 0.0336 / 0.0889 | 1.14 | 192 | 0.227 | 1.02 | 2.6 | 0.0051 | 0.126 | 0.13 / 0.0924 | 0.868 | above the land | grassland 0.45, oak-ash wood 0.22, hay meadow 0.06, reedbed 0.06 |
+| w10 Chalk and clay | 1 | 0.0098 / 0.0518 / 0.502 / 0.437 / 0 | 1.13 | 165 | 0.233 | 0.953 | 2.9 | 0 | 0.0441 | 0.121 / 0.0347 | 0.971 | above the land | chalk grassland 0.34, oak-ash wood 0.27, grassland 0.22, hay meadow 0.10 |
+| w10 Chalk and clay | 2 | 0.0067 / 0.0674 / 0.495 / 0.431 / 0 | 1.14 | 166 | 0.232 | 0.959 | 2.9 | 0.0001 | 0.0503 | 0.151 / 0.0408 | 0.965 | above the land | grassland 0.28, chalk grassland 0.25, oak-ash wood 0.21, hay meadow 0.13 |
+| w11 Sand and heath | 1 | 0.459 / 0.432 / 0.0848 / 0.0243 / 0 | 1.14 | 138 | 0.354 | 0.875 | 2.8 | 0 | 0.0319 | 0.106 / 0.0852 | 0.978 | above the land | grassland 0.44, birch and pine wood 0.23, lowland heath 0.13, hay meadow 0.09 |
+| w11 Sand and heath | 2 | 0.459 / 0.403 / 0.0909 / 0.0475 / 0 | 1.14 | 138 | 0.356 | 0.88 | 2.8 | 0 | 0.0383 | 0.158 / 0.071 | 0.973 | above the land | grassland 0.39, birch and pine wood 0.24, hay meadow 0.14, lowland heath 0.11 |
+| w12 Lake country | 1 | 0.125 / 0.681 / 0.119 / 0.0758 / 0 | 1.02 | 155 | 0.272 | 0.895 | 13 | 0.0922 | 0.0765 | 0.0955 / 0.101 | 0.755 | 622 | grassland 0.30, upland oak wood 0.19, hill pasture 0.18, moor 0.11 |
+| w12 Lake country | 2 | 0.0891 / 0.666 / 0.186 / 0.0584 / 0 | 1.01 | 157 | 0.249 | 0.919 | 14 | 0.1 | 0.0768 | 0.113 / 0.0835 | 0.75 | 619 | grassland 0.27, upland oak wood 0.19, hill pasture 0.17, moor 0.11 |
+
 <!-- widened:end -->
+
+
+## 8. Reading section 7 (measured, then inference)
+
+**Sources of nutrition.**
+
+- **The land's year is nearly the same everywhere:**
+  - At `worked` the fields feed 21 to 23 people a village in the lowland, dry, wet, cold, fen, estuary, chalk and sand worlds,
+    and 29 to 32 in the four upland worlds. The plots and soils are the same in all of them (fault 11); the upland's higher
+    figure is measured, but its cause is not traced.
+  - Herds return 1.6 a unit and feed 1.5 to 1.7; wild plants 0.6 a unit, 0.7 fed; the parcels' old game stock 0.14 to 0.20 a
+    unit, 0.2 fed; resident fish 0.82 a unit, about 1 fed.
+  - Fish are the same everywhere because the stocking is 8 a unit of water parcel in every world (brief 5's `water_stocks`),
+    not by the water body.
+  - The store loses 4.5 to 5% of food from the house store, and 1% in the best store the world reaches.
+  - Inference: the land's sources differ so little because a village's land is sized to its people (D2-161), the parcels'
+    stocks are set per unit of cover (vocab `PER_UNIT`), and the fields are always on floodplain clay. None of it reads the
+    climate.
+- **The acts (autumn, fresh ground):**
+  - **Hunting near:** novice 0 to 0.22, master 0.63 to 1.35. That is on 02zzd's targets (0.1 to 0.2 and 1 to 1.5).
+  - **The wood around:** master 2.2 to 3.2.
+  - **Far:** master 1.2 to 2.2, under the wood around's and well under the target of 4 to 5. Hunting far is no better than the
+    wood around on any world (the open finding of 02zzd, still open).
+  - **Gathering:** 1.0 to 2.0. **Angling:** 1.4 to 2.4. **By hand:** 0.5 to 1.1.
+  - **Eel traps (a night) and nets:** 0 to 0.2 at best, so the water's take is a rod's, not a trap's.
+  - **Break-even:** 0.25 a unit (a ration a day over 192 units a year, at 1.5 eaters a worker). Every master clears it four to
+    twelve times over, so return never limits a source here: its yearly yield does.
+- **What could feed a village of nine alone:**
+  - **The fields:** in every world.
+  - **Hunting, by the wild land's growth:** an upper bound (r K / 4, each hunted kind's births less deaths over four). It gives
+    27 to 37 people from the wood around and 270 to 480 from the land within 8 km, in every world. The brown hare is two-thirds
+    of it.
+  - **Inference:** that is ten times or more a temperate hunter's density (about 0.05 to 0.2 people a km² over the 20 km²
+    around a village and the 200 km² within 8 km). Two things inflate it:
+    - the hare stands at 38 to 60 a km² over the whole land, twice its reference of 25;
+    - a head's food is generous for the compressed year. A red deer gives 20 meat, 30 food, and an engine food is 365/32 real
+      person-days, so a deer is about 340 person-days; a real red deer's 50 to 60 kg of meat is about 40 to 50.
+    The wild layer's owner should check `TAKEN` goods against the year's compression before a hunting-only world (D2-242).
+  - **The runs:** 2 to 11 salmon, 0 to 22 lamprey and 7 to 148 eels at a village's water a year: 1 to 33 food, at most one
+    person's year. In no world can a village live off the runs. D2-242's runs-only world needs runs far larger, or a world
+    built for them (brief 5's runs world). The suite's villages sit on rivers of every class, and the runs are counted only
+    where a village's own stretch has them.
+
+**Wildlife.**
+- Red deer 2.1 to 2.4 a km² in every world, roe 6.8 to 8.0, boar 1.1 to 1.7, fox 1.2 to 1.3, wolf 0.037 to 0.045: flat across
+  the suite.
+- Hare is lower in the uplands (38 to 46) than the lowland (55 to 60).
+- Wildfowl and eel follow the water: fen 41 to 52 and 36 to 39, estuary 28 to 29 and 21 to 22, lake country 12 to 20 and 9 to
+  16, against the dry east's and the sand's 4 to 5 and 3 to 4.
+- Inference: the Highlands' red deer on the open hill run 5 to 15 a km², and a lowland's woods under 1. The deer read wood and
+  grass, not the hill, so the uplands get the lowland's deer.
+- The heads' "where" for migrant kinds (wildfowl) reads 0: they are measured at the run's start season, before they arrive.
+
+**Weather and its likelihood.**
+- The weather types and labels are the same in every world of a seed: seed 1 settled 46%, westerly 26%, cyclonic 9%; seed 2
+  settled 40%, cyclonic 18%.
+- Each year at the villages: clear 155 to 188 days, rain 122 to 137, heavy rain 11 to 20, fog 17 to 22, snow 13 to 17, gale 12
+  to 15. Storms touch a village on 17 to 26 days a year.
+- The generator's climate spans 400 to 1,250 mm and 5.4 to 9.9 °C over the same villages. The engine's column does not move
+  with it: the known gap.
+
+**Environments.**
+- The soils follow the configurations:
+  - the sand country is 46% sand and holds 138 mm;
+  - the chalk and clay is 43 to 44% chalk and 50% clay;
+  - the fen is 16 to 17% peat and holds 206 mm;
+  - every other world is about two-thirds loam.
+- Fertility runs from 0.85 (the high mountains) to 1.05 (the fen). Slopes: a p95 of 2 to 3° in the lowlands and 13 to 20° in the
+  uplands.
+- Good arable (the arable terrains under 8° and not waterlogged, a generous reading) is 0.69 to 0.98 of the land. The villages'
+  fields stand on none of the difference (fault 11).
+- The cold north's ecosystems are the lowland's (fault 5).
+
+## 9. What the widened sections could not measure
+
+- **Hunting's yearly yield as the engine takes it:** a hunter working a wood down day after day (02zzd's depletion test) was
+  not run on the suite. The yield above is an upper bound from the ecology's own rates.
+- **The acts in other seasons:** autumn only, to keep the suite at about 20 minutes.
+- **Preserving beyond the store:** smoking, salting and drying (`smoke racks`, `salt fish`) are not in the capacity model's
+  levels. Their effect is not measured.
+- **Expectations for the widened measures:** not written. A real place gives few numbers for food a unit of work; the 02zzd
+  targets are quoted where they apply.

@@ -11,7 +11,7 @@ Two parts, both the engine's own models offline:
 - **The acts** (02zzd's harness, docs/review/37_growth/02zzd_ev/ev_harness.py): one probe person added to a village's first
   house (the only person in the world: a small cast where the check needs one), on the world with the wild and water packs, in
   autumn; each act tried on a fresh copy of the world (nothing depletes between tries), at novice, capable and master. Hunting the
-  wild near, in the wood around and far, armed; gathering wild food in a wood and on open ground; eel traps and nets on the water;
+  wild near, in the wood around and far, armed; gathering wild food in a wood and on open ground; eel traps (set for a night) and nets on the water;
   fishing by hand and with a rod. Food is the edible goods gained (ITEMS food a unit), a unit of work the act's own units with
   its range's.
 
@@ -36,6 +36,7 @@ LEVELS_CAP = ("bare", "standing", "worked", "best")
 HARD = (("novice", 1.0, 0.35), ("capable", 3.0, 0.6), ("master", 8.0, 0.6))      # the hunt's curve (02zzd's ev_region; brief 4c §3.1)
 TRIES = 12                       # a try each, on a fresh copy; the hunt's cells take HUNT_TRIES (its luck is wider)
 HUNT_TRIES = 20
+SET_WORKS = ("trap in water",)   # set at dusk and taken in after the night (02zzd: "eel trap, one night")
 AUTUMN = {"season": "autumn", "day": 2, "season_days": 8}
 
 
@@ -136,7 +137,8 @@ def acts(spec: dict, nid: str, tries: int = TRIES) -> dict:
                 act = {"do": "gather", "what": method, "at": where}
                 if rng:
                     act["range"] = rng
-                g = H.attempt(w0, "Probe", act, method, sk, fam, f"{nid}{method}{rng}{where}{lvl}{s}", armed=armed)
+                g = H.attempt(w0, "Probe", act, method, sk, fam, f"{nid}{method}{rng}{where}{lvl}{s}", armed=armed,
+                              setwork=method in SET_WORKS)
                 if g is not None:
                     got.append(g)
             u = H.units(method, rng) if rng else int(__import__("cybertron2.engine.data", fromlist=["T"]).TECHNIQUES[method]["units"])
