@@ -10,14 +10,16 @@ Three arms on the same land and people, differing only in skill and capital (D2-
 - low: novices; hand fishing and traps in the water known roughly; no weir, no smoke racks, no salt: nothing can be kept but by
   eating it, so the test is whether a run's glut carries a winter (it should not);
 - medium: capable; traps and nets known; smoke racks at each house; no weir and no salt;
-- high: masters; traps, nets, the weir, smoking and salting known well; a weir of a wattle and two timber sections built on the
-  village's river water; smoke racks at each house; a salt house with a brine pan at the village's brine spring, and salt in store.
+- high: masters; traps, nets, the weir, smoking and salting known well; a weir of three timber sections built on the village's
+  river water (the first in timber too, as a master's village on a flood river would build it: position decides a section's share
+  and hold, material its wear, W-69), worked by its crew (the holding household's adults who know the weir, so its traps are known);
+  smoke racks at each house; a salt house with a brine pan at the village's brine spring, and salt in store.
 
     python3 cybertron2/specs/make_nutrition_runs.py [--seeds 5,7,9] [--out DIR]
 
 Generated, not run: a live run needs Zach's go. Two compressed years (64 days at 32 a year), from late summer, so two autumn runs
-and two winters. The run sizes, the weir's hold and the food values are today's (OPEN Q-70 would raise the runs and the holds and
-correct the food values); the arms are remade when it is answered.
+and two winters. The food values, the runs at a real river's size and the gear's holds in kg are applied (D2-258, D2-259), and the
+water fixes (W-69, 20 Nov: sections by position and material, gear sharing a run, the wear calibrated to D2-210's year).
 """
 from __future__ import annotations
 
@@ -44,7 +46,7 @@ ARMS = {
                "weir": None, "racks": True, "salt": False},
     "high": {"level": "known", "skill": 1.6, "crafts": ["trap in water", "net", "weir", "smoke fish", "tend the smoke", "salt fish",
                                                         "boil salt"],
-             "weir": ["wattle", "timber", "timber"], "racks": True, "salt": True},
+             "weir": ["timber", "timber", "timber"], "racks": True, "salt": True},   # the first section in timber too (W-69)
 }
 SALT_STORE = 10                               # the high arm's salt house: salt for about 40 fish (salt fish: 4 fish to 1 salt)
 LARDER_DAYS = 8                               # the larder carries the village to the autumn runs (the eels' set nights fall about days 5 to
@@ -104,11 +106,13 @@ def apply_arm(world: dict, arm: str) -> dict:
         pid = _river_water(world, nid)
         if pid is None:
             raise RuntimeError("no water parcel for the weir")
+        crew = sorted(n for n in hhs[lead] if world["agents"][n].get("stage") == "adult"
+                      and "weir" in (world["agents"][n].get("knows") or {}))     # the people who know it: its traps are known to them
         world["buildings"][f"{lead.lower()}_weir"] = {
             "parcel": pid, "node": nid, "household": lead, "name": "the weir", "structure": "timber", "monument": "weir",
-            "tier": "plain", "fittings": {}, "rooms": [], "gap": "shut", "crew": [],
+            "tier": "plain", "fittings": {}, "rooms": [], "gap": "shut", "crew": crew,
             "sections": [{"m": m, "foot": False, "level": 5} for m in a["weir"]]}
-        out["weir"] = {"parcel": pid, "sections": a["weir"], "held_by": lead}
+        out["weir"] = {"parcel": pid, "sections": a["weir"], "held_by": lead, "crew": crew}
     if a["salt"]:
         out["salt"] = _salt_house(world, nid, lead)
     else:

@@ -22,7 +22,9 @@ def test_seeded_weir_keeps_its_sections():
     w = _world("high")
     weirs = [b for b in w.s["buildings"].values() if b.get("monument") == "weir"]
     assert len(weirs) == 1
-    assert [s["m"] for s in WL.sections(weirs[0])] == ["wattle", "timber", "timber"]
+    assert [s["m"] for s in WL.sections(weirs[0])] == ["timber", "timber", "timber"]   # the first in timber too (W-69, 20 Nov)
+    crew = weirs[0]["crew"]                                                              # its crew: the holders' adults who know it
+    assert crew and all(w.s["know"][n].get("weir") and w.s["people"][n]["stage"] == "adult" for n in crew)
 
 
 def test_arms_differ_only_in_skill_and_capital():
