@@ -17,7 +17,6 @@ updated: "2026-11-20"
 
 ## Mentioned by
 - [[D2-243 The verbs and the livelihood archetypes are reshaped first, as their…|D2-243 · The verbs and the livelihood archetypes are reshaped first, as their…]]
-- [[W-63 An audit of what was started and left|W-63 · An audit of what was started and left]]
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70 · Verbs and livelihood archetypes, before the engine rework]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]
 - *and 2 index or audit notes*

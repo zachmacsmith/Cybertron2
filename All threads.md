@@ -25,7 +25,7 @@
 - [[W-34b Worlds for the population benchmark, the peoples variant|W-34b · Worlds for the population benchmark, the peoples variant]] (active)
 - [[W-31 Goal probe, round 3|W-31 · Goal probe, round 3]] (active)
 - [[W-30 Build brief 4b|W-30 · Build brief 4b]] (waiting)
-- [[W-29 A multi-village wild region and its live run|W-29 · A multi-village wild region and its live run]] (waiting)
+- [[W-29 A multi-village wild region and its live run|W-29 · A multi-village wild region and its live run]] (active)
 - [[W-28 The Cybertron 2 website|W-28 · The Cybertron 2 website]] (waiting)
 - [[W-27 Build brief 4|W-27 · Build brief 4]] (active)
 - [[W-25 The world keeps its land|W-25 · The world keeps its land]] (waiting)

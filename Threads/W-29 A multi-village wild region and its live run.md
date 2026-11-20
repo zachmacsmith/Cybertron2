@@ -1,15 +1,15 @@
 ---
 id: W-29
 kind: thread
-state: waiting
+state: active
 updated: "2026-11-20"
 ---
 
 # W-29 · A multi-village wild region and its live run
 
-*waiting · 37.2 (session "Thicker economy exploration") · touched 10 Nov (10 days ago)*
+*active · 37.2 (session "Thicker economy exploration") · touched 20 Nov (today)*
 
-> **Next:** the write-up against the bot null arm; engine gaps found (no loans of goods; hunting never killed); publish on Zach's go; the generator's speed (02zzf)
+> **Next:** an agent writing it up (02zzs: the world, the run, the null arm, the engine gaps and whether each is fixed now); then publish on Zach's go
 
 ## What it is
 A multi-village wild region and its live run (Zach, 10 Nov): four villages on three frontiers, Corneby feeding 2.6 times its people, the region 1.46; carriers with pack oxen; a water mill; a growth family's planted memory; a Haiku-only and an Opus-only household and a Fable 5.2 seat

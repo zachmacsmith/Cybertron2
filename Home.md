@@ -22,9 +22,11 @@
 - [[W-69 Subsistence worlds|W-69 · Subsistence worlds]]: revisit: soon (Zach, 20 Nov: something I want to revisit soon)
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70 · Verbs and livelihood archetypes, before the engine rework]]: revisit: soon (Zach, 20 Nov: 'that one sooner')
 
-## Active threads (13)
+## Active threads (14)
 
 **37.2**
+- [[W-29 A multi-village wild region and its live run|W-29 · A multi-village wild region and its live run]]  
+  next: an agent writing it up (02zzs: the world, the run, the null arm, the engine gaps and whether each is fixed…
 - [[W-51 The weather across conditions|W-51 · The weather across conditions]]  
   next: Zach's answers to Q-56; the generator's half (node temp_c, sea_km, wind) when he agrees; the flow-level rule…
 - [[W-54 The calibration worlds|W-54 · The calibration worlds]]  
@@ -32,7 +34,7 @@
 - [[W-60 The ecology's water measure counted each lake and the large river…|W-60 · The ecology's water measure counted each lake and the large river…]]  
   next: heron, otter, fish-taking fowl and the fish stock against their real densities, rescale or confirm; the 4c…
 - [[W-63 An audit of what was started and left|W-63 · An audit of what was started and left]]  
-  next: Zach's answers to the triage digest (02zzr); then apply each with the tool and send 37.4 its part (Q-27…
+  next: Zach's answers to the four explained asks (Q-58, Q-51, Q-53 a and b, Q-46 d and e); 37.4's own pass (Q-42…
 - [[W-65 Tracking threads automatically|W-65 · Tracking threads automatically]]  
   next: the header pass over the spec files and proposals; run threads labelled as such, with their branch (D2-238)…
 
@@ -53,13 +55,11 @@
 - [[W-57 The lake runs' seven engine faults|W-57 · The lake runs' seven engine faults]]  
   next: merge (Zach), a bot run to measure the new rows' chances, item 9 after W-56
 
-## Waiting threads (11)
+## Waiting threads (10)
 
 **37.2**
 - [[W-25 The world keeps its land|W-25 · The world keeps its land]]  
   next: Zach on the how (tile size, past runs); 37.2's generator part; 37.4's engine and record part
-- [[W-29 A multi-village wild region and its live run|W-29 · A multi-village wild region and its live run]]  
-  next: the write-up against the bot null arm; engine gaps found (no loans of goods; hunting never killed); publish…
 - [[W-39 The economy's layers and trees of dependence across the domains|W-39 · The economy's layers and trees of dependence across the domains]]  
   next: Zach's choices (its open questions); then briefs; 15 Nov: 02zzi, how the economy could scale beyond the…
 - [[W-49 Environment systems|W-49 · Environment systems]]  

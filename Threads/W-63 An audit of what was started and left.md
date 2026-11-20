@@ -9,7 +9,7 @@ updated: "2026-11-20"
 
 *active · 37.2 · touched 20 Nov (today)*
 
-> **Next:** Zach's answers to the triage digest (02zzr); then apply each with the tool and send 37.4 its part ([[Q-27 The verb list|Q-27]], [[Q-42 The peoples benchmark before any run|Q-42]], [[Q-43 Before the second peoples run|Q-43]], its own threads)
+> **Next:** Zach's answers to the four explained asks ([[Q-58 The calibration worlds|Q-58]], [[Q-51 Brief 5 (river and water)|Q-51]], [[Q-53 Brief 5 as built|Q-53]] a and b, [[Q-46 Brief 4c as built|Q-46]] d and e); 37.4's own pass ([[Q-42 The peoples benchmark before any run|Q-42]], [[Q-43 Before the second peoples run|Q-43]], its 13 threads)
 
 ## What it is
 An audit of what was started and left (Zach, 19 Nov: "what different paths of building things have we gone down and then ended up doing something else, and how much of this has been documented vs missed entirely? What sorts of mechanisms would help us better notice what is being missed"): every initiative since 22 Oct against its record, and mechanisms to catch what is missed
