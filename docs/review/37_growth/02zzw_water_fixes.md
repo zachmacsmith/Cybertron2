@@ -112,7 +112,7 @@ The year's band was taken.
   stores. On day 9 in the high arm, Marsh House, Brook House and the Brook Byre burned together. Lost to fire: 79 food in medium,
   and 253 to 283 food in high. In high the fires came on days 9 and 46, with one more on day 17 in the run with `weir_traps`; each spread to two or three
   houses, and the worst took the winter's store.
-  - Brief 5 §4a puts a smokehouse apart, on another parcel. The maker does not. For Zach.
+  - Brief 5 §4a puts a smokehouse apart, on another parcel. The maker did not; it does now (§7).
 
 ## 5. The bots
 
@@ -187,5 +187,51 @@ How to read the table:
   - Salt and salting work, together with the racks, are what stands between the weir's catch and a winter.
 - **The weir now pays.** It takes 408 to 825 food in two autumns (eels and salmon), against 43 before. It is the high arm's main
   gear, at a lift a day.
+
+## 7. The smokehouses apart (20 Nov, later)
+
+**The maker** (`make_nutrition_runs.py`, `_smokehouses`): the medium and high arms' racks are no longer a fitting in the houses.
+Each household has a wattle smokehouse with smoke racks, as brief 5 §4a builds it ("its own building, apart"; "whose: its
+builder's household"):
+- on a scrub parcel off the Street: Brook's and Shepherd's on Eelmouth Field, Marsh's alone on Clay Field;
+- with 6 firewood in its store.
+
+**In the engine** a fire spreads only to the buildings on its own parcel (`keeping.catch`: `parcel ==`), so a smokehouse fire takes
+that smokehouse and what hangs or lies in it, and at most the other smokehouse on its parcel; never a house. The test of it is in
+`tests/test_bots_livelihood.py`.
+
+**The bots** (`bots_livelihood.py`) find the household's smokehouse (`Day.smokehouse`: a household building with smoke racks,
+else racks in the house, as in older worlds). The keeper:
+- carries firewood to it from the house while it holds under 3 nights of fire (`smoke_fuel_nights`);
+- hangs and tends the batch there;
+- brings the smoked fish done there home to the house's store, out of the fire's way.
+
+**The bot runs on the remade arms**, as committed (no diagnostics), 64 days, `--bots runs`. Columns as in §6.
+
+| Arm | Catch by gear, food | Weir and trap heads | Kept made, kg: smoked / dried / salted | Fresh fish eaten / spoilt, kg | Lost: swept, kg / otters, kg / fire, food | Store at winter's start, food (alive) | First missed meal | Deaths (last) | Food a unit | Fed per fisher: caught / eaten |
+|---|---|---|---|---|---|---|---|---|---|---|
+| low | traps 341 | traps: eel 1,217, lamprey 17 | 0 / 50 / 0 | 297 / 11 | 240 / 92 / 0 | day 13: 101 (11) | 24 | all 12 (36) | 0.52 | 3.3 / 1.8 |
+| medium | traps 357, nets 7 | traps: eel 1,268, lamprey 15 | 102 / 18 / 0 | 174 / 2 | 292 / 81 / 0 | day 13: 97 (11) | 26 | all 12 (36) | 0.50 | 3.2 / 1.7 |
+| high | traps 342, weir 841, nets 14 | weir: eel 1,254, salmon 360; traps: eel 1,210 | 278 / 49 / 120 | 452 / 969 | 257 / 95 / 16 | day 13: 310 (11); day 45: 292 (5) | 30 | 7; 5 alive at day 64, 108 food left | 1.43 | 9.1 / 3.3 |
+
+**Fire losses, before and after.** Before, with the racks in the houses:
+- medium lost 79 food;
+- high lost 253 to 283 food, in two or three fires on days 9, 17 and 46, each spreading to two or three houses.
+
+Now there are no fires in medium. High has one, on day 53 in the Marsh Smokehouse, which lost 16 food (34 kg of fish hanging) and
+no house.
+
+**What binds now:**
+- **High has a bounded surplus.** It reaches both winters with about 300 food and ends with 5 alive and 108 food.
+  - The fed per fisher is 9.1 on the catch, inside the target of 6 to 15, and 3.3 on the fish eaten.
+  - It still loses 6 people at days 33 and 34, in the spring gap between the runs: the food sits in the weir's household, and the
+    bots do not share between households.
+  - **Salting binds (kept at 4 kg a unit, Q-73):** 120 kg salted against 969 kg of fresh fish spoilt. Salting all of it would
+    take about 240 more units of work and 240 salt.
+- **Medium still starves,** now in the spring rather than the first winter: all dead by day 36, first missed meal on day 26.
+  - Without the fires it keeps 120 kg (102 smoked, 18 dried) and reaches the first winter with 97 food. The gap to the next
+    autumn's run, days 13 to 36, needs about 300.
+  - The traps lose 292 kg to the river, more than the 174 kg eaten fresh.
+  - Medium needs more keeping (salt, or racks enough for a run), or fewer losses to the river, to survive.
 
 *Current as of 20 Nov 2026.*
