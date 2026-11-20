@@ -24,6 +24,7 @@ is, these rules wait for it.
 - D2-249: Wild kinds have birth windows of their own, and the year's young are a class of their own
 - D2-250: Boar raid fields into autumn, to autumn day 4, weaker in a mast year
 - D2-255: A very skilled hunter brings in a disproportionate amount of food, more still on longer trips out to other nodes, so hunting can keep a small group; the cost is the long learning (master after about half an adult life of steady hunting) and the work of the trips, and the limit is the game, not the hunter
+- D2-256: A hunting trip is travelling out to a wild node, camping there, hunting and bringing more food back; it is built from what exists (travel, camps, hunting at any node, the carry home, drying), and needs no forays
 
 ## Mechanics
 
