@@ -36,8 +36,9 @@ which Zach asked to have built, and a commit schema, which he asked about on 20 
 
 ### The commit schema (proposed, not built)
 
-**Trailers.** A commit ends with trailers, which git can parse (`git log --format='%(trailers:key=Thread)'`), before the
-attribution lines:
+**Trailers.** A commit ends with trailers, which git can parse (`git log --format='%(trailers:key=Thread)'`). Git reads trailers
+only from the last paragraph, so they go in one block with the attribution lines and no blank line between (found on 8825a36,
+whose trailers git does not see):
 
 ```
 WORK W-65: the registry and WORK.md rendered from it
@@ -49,6 +50,8 @@ Thread: W-65
 Opens: O-1, Q-63
 Closes: W-63
 Decides: D2-232
+Co-Authored-By: ...
+Claude-Session: ...
 ```
 
 | Trailer | Required | Holds | Checked against the diff |
@@ -125,6 +128,7 @@ session, CLAUDE.md's work rules, and the OPEN.md row layout (a parent-thread cel
 
 ## History
 
+- 20 Nov 2026: trailers must share the last paragraph with the attribution lines (git ignores them otherwise).
 - 20 Nov 2026: written by 37.2 after Zach's question on a commit schema, with the W-65 mechanisms then being built.
 
 ## Sources
