@@ -24,5 +24,6 @@ conversation ("Yes")
 - [[Proposal the first wild kinds (what lives on the land, what each is…|Proposal: the first wild kinds (what lives on the land, what each is…]]
 - [[Wildlife|Wildlife]]
 - [[02zr brief what the wildlife are for in Cybertron's societies|02zr brief: what the wildlife are for in Cybertron's societies]]
+- [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - *and 2 index or audit notes*

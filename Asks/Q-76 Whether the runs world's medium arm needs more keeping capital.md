@@ -21,3 +21,4 @@ Bots 20 Nov (02zzw): medium's smoke racks keep 58 to 109 kg against about 300 fo
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 - [[Why the villagers of the runs world did not fish|Why the villagers of the runs world did not fish]]
 - [[02zzz the runs world's three live runs, against the bots and the…|02zzz: the runs world's three live runs, against the bots and the…]]
+- [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]

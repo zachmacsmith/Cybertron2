@@ -1,6 +1,10 @@
 # All deferred
 
 ## Open
+- [[L-146 Peat as fuel where there is bog|Peat as fuel where there is bog (L-146)]] (open)
+- [[L-145 Offal's uses bait for set lines and traps, dog food|Offal's uses: bait for set lines and traps, dog food (L-145)]] (open)
+- [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]] (open)
+- [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]] (open)
 - [[L-142 Fallbacks as a person's standing setting|Fallbacks as a person's standing setting (L-142)]] (open)
 - [[L-141 How much seeded memory each livelihood starts with|How much seeded memory each livelihood starts with (L-141)]] (open)
 - [[L-140 A death in the day's work|A death in the day's work (L-140)]] (open)

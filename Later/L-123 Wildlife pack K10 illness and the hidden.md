@@ -24,4 +24,5 @@ rabies; the fen ague; the adder; murrain meat and milk; ergot; liver fluke; flie
 
 
 ## Mentioned by
+- [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - *and 1 index or audit notes*

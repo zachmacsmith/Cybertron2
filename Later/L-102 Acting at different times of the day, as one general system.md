@@ -23,5 +23,6 @@ updated: "2026-11-20"
 - [[L-107 Tallow's real uses|Tallow's real uses (L-107)]]
 - [[Forays going out from the village and coming back|Forays: going out from the village and coming back]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
+- [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - *and 2 index or audit notes*

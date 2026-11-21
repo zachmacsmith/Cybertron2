@@ -42,6 +42,7 @@ updated: "2026-11-20"
 - [[02zt dependences, and things that help other things (9 Nov)|02zt: dependences, and things that help other things (9 Nov)]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
 - [[14 War, force and the economy (16 Nov 2026)|14: War, force and the economy (16 Nov 2026)]]
+- [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[Review 38.14 cybertron2 M1 against cybertron 1 what was lost, and…|Review 38.14: cybertron2 M1 against cybertron 1: what was lost, and…]]
 - *and 1 index or audit notes*

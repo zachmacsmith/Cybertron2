@@ -25,4 +25,5 @@ updated: "2026-11-20"
 - [[Proposal the generator, stage 1 (a spec for review before it is…|Proposal: the generator, stage 1 (a spec for review before it is…]]
 - [[Proposal transport and lodging|Proposal: transport and lodging]]
 - [[Proposal water and wetland life, fishing, preservation, and boats|Proposal: water and wetland life, fishing, preservation, and boats]]
+- [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - *and 2 index or audit notes*

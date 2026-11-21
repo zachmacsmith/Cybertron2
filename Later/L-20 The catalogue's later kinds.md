@@ -20,4 +20,5 @@ The catalogue's later kinds (storm surge, locusts, anthrax, peat fires, the dark
 ## Mentioned by
 - [[Proposal what can happen (eras, weather, hazards that spread, and…|Proposal: what can happen (eras, weather, hazards that spread, and…]]
 - [[02r build brief for 37.4 fuse events, noticing, things in places…|02r: build brief for 37.4: fuse events, noticing, things in places…]]
+- [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - *and 2 index or audit notes*

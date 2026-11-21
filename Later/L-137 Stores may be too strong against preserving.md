@@ -18,3 +18,7 @@ Zach, 20 Nov: 'flag I do feel like stores are currently too overpowered rn poten
 ## Linked
 - parent: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 - relates: [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
+
+
+## Mentioned by
+- [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
