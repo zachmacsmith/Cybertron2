@@ -21,5 +21,5 @@ updated: "2026-11-21"
 ## Mentioned by
 - [[W-72 Signs of the river|Signs of the river (W-72)]]
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
-- [[Fishing, hunting and their materials, developed together|Fishing, hunting and their materials, developed together]]
+- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]

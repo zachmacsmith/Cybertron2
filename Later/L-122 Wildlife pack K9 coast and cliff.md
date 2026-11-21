@@ -25,5 +25,6 @@ seabird cliffs with the climber and the rope-holder; seals and the stranded whal
 
 ## Mentioned by
 - [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]]
+- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - *and 2 index or audit notes*

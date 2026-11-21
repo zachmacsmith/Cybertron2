@@ -78,7 +78,7 @@
 - [[W-72 Signs of the river|Signs of the river (W-72)]]  
   next: Zach: the proposal's seven questions; then a brief with the fishing bugs (Q-79), the shallows stock and the…
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]  
-  next: Zach: the proposal questions (the compressed year first), then phase 1 (mend what misleads)
+  next: Zach: the twelve open questions (the wild clock first), then phase 1 (mend what misleads)
 
 **37.4**
 - [[W-14 Claims and ownership by physics, part 2|Claims and ownership by physics, part 2 (W-14)]]  
