@@ -26,3 +26,4 @@ conversation (20 Nov: "conversation (20 Nov: "Iagree with u", to: anchor on real
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[02zzu lookup the food values checked against USDA FoodData Central|02zzu lookup: the food values checked against USDA FoodData Central]]
+- [[Withies, coppice and the other wood and wild materials for fishing…|Withies, coppice and the other wood and wild materials for fishing…]]
