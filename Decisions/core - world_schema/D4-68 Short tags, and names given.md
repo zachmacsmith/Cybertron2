@@ -17,6 +17,7 @@ conversation ("each subject that can be acted on [could] have a very short ident
 
 
 ## Mentioned by
+- [[Acts on held things take the thing as their target, and default to…|Acts on held things take the thing as their target, and default to…]]
 - [[Proposal crops grow by the season; can apart from works; what a…|Proposal: crops grow by the season; "can" apart from "works"; what a…]]
 - [[The engine as a small core and feature packages design specification|The engine as a small core and feature packages: design specification]]
 - [[Proposal the layout inside a node (parcels, features, and things on…|Proposal: the layout inside a node (parcels, features, and things on…]]
