@@ -1,6 +1,7 @@
 # All asks
 
 ## Open
+- [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]] (open)
 - [[Q-78 Whether to build the fishing legibility fixes|Whether to build the fishing legibility fixes (Q-78)]] (open)
 - [[Q-77 Whether to tune how often the river reads spate or flood now|Whether to tune how often the river reads spate or flood now (Q-77)]] (open)
 - [[Q-76 Whether the runs world's medium arm needs more keeping capital|Whether the runs world's medium arm needs more keeping capital (Q-76)]] (open)

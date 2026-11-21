@@ -4,8 +4,9 @@
 
 [The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.
 
-## Waiting on you (15)
+## Waiting on you (16)
 - [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)]]
+- [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
 - [[Q-78 Whether to build the fishing legibility fixes|Whether to build the fishing legibility fixes (Q-78)]]
 - [[Q-77 Whether to tune how often the river reads spate or flood now|Whether to tune how often the river reads spate or flood now (Q-77)]]
 - [[Q-76 Whether the runs world's medium arm needs more keeping capital|Whether the runs world's medium arm needs more keeping capital (Q-76)]]
@@ -16,7 +17,6 @@
 - [[Q-68 How high the surplus can go in the medieval worlds, against the…|How high the surplus can go in the medieval worlds, against the… (Q-68)]]
 - [[Q-67 Confirm three rules the sessions follow without your own words behind…|Confirm three rules the sessions follow without your own words behind… (Q-67)]]
 - [[Q-56 How the weather should follow each place's climate from the generated…|How the weather should follow each place's climate from the generated… (Q-56)]]
-- [[Q-47 Where the economy stops for now|Where the economy stops for now (Q-47)]]
 - … all of them: [[All asks]]
 
 ## To confirm or revisit
