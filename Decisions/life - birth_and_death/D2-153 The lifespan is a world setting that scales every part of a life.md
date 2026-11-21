@@ -36,6 +36,7 @@ youth 12 and adult 50 days fixed
 - [[02w build brief for 37.4 children and reproduction (Package D)|02w: build brief for 37.4: children and reproduction (Package D)]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
 - [[17 The household's own work, care and kinship (16 Nov 2026)|17: The household's own work, care and kinship (16 Nov 2026)]]
+- [[Fibre, cord, twine, line and net the supply chain (W-73)|Fibre, cord, twine, line and net: the supply chain (W-73)]]
 - [[38.27 Package D (children and reproduction) built; the Hollins world|38.27: Package D (children and reproduction) built; the Hollins world]]
 - [[38.36 Memory rewritten each stretch live tests of the instruction…|38.36: Memory rewritten each stretch: live tests of the instruction…]]
 - *and 1 index or audit notes*

@@ -29,4 +29,5 @@ the direction "clothing as a worn stock"
 - [[02zs the wild in a society's economy and development (9 Nov)|02zs: the wild in a society's economy and development (9 Nov)]]
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
+- [[Fibre, cord, twine, line and net the supply chain (W-73)|Fibre, cord, twine, line and net: the supply chain (W-73)]]
 - *and 1 index or audit notes*

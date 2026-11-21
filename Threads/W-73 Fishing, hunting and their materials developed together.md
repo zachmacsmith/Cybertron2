@@ -24,3 +24,4 @@ started
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
 - [[W-72 Signs of the river|Signs of the river (W-72)]]
 - [[L-111 The hunting and resources build, a soon follow-up|The hunting and resources build, a soon follow-up (L-111)]]
+- [[Fibre, cord, twine, line and net the supply chain (W-73)|Fibre, cord, twine, line and net: the supply chain (W-73)]]
