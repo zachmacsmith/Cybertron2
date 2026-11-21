@@ -15,7 +15,9 @@ updated: "2026-11-21"
 
 ## Linked
 - parent: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+- relates: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 
 
 ## Mentioned by
 - [[W-72 Signs of the river|Signs of the river (W-72)]]
+- [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
