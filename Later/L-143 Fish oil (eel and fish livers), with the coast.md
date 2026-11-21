@@ -15,3 +15,7 @@ Zach, 14 Nov: fish oil seems potentially valid. Proposed in economy_web.md and 0
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+
+
+## Mentioned by
+- [[Fishing, hunting and their materials, developed together|Fishing, hunting and their materials, developed together]]

@@ -21,4 +21,5 @@ Zach, 20 Nov: 'flag I do feel like stores are currently too overpowered rn poten
 
 
 ## Mentioned by
+- [[Fishing, hunting and their materials, developed together|Fishing, hunting and their materials, developed together]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]

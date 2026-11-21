@@ -110,6 +110,40 @@ Wildfowl numbers on wet ground checked against real winter counts (refuges 400 t
 - Lore and the trade line by livelihood ([[L-141 How much seeded memory each livelihood starts with|L-141]], with the archetypes, [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]]): a fisher's year, a fowler's winter, a hunter's
   seasons, the scale of each method, at the length farmers get; the farmers' own lore line mended (it is cut at the 25-word cap).
 
+### 5a. How the ladders meet (byproducts_and_substitutes, Part 4)
+
+The ladders are short, but they are not separate. Five ways they meet, each with what the engine already lets emerge:
+
+1. **Shared inputs merge them.** Cord, withies, the mill dam, boats, dogs, the smokehouse and salt each serve several livelihoods,
+   so one investment lowers the cost of others and makes a supplier (a flax village, a withy bed) others depend on.
+2. **Big works take a shared flow and push others out**, and brought law with them: Magna Carta c. 33 ordered fish weirs off the
+   Thames and Medway; the 1285 statute set a salmon close season, a gap in weirs, no taking young salmon at mill dams; London burned
+   fine-mesh nets in 1329, 1343 and 1349; townsmen broke Cambuskenneth Abbey's weirs in 1365; the decoy barred shooting around it;
+   warrens and dovecotes fed on neighbours' crops. *Emerges now:* a weir upstream takes an eel run first (a salmon run, downstream
+   first), between villages too; gear at one stretch shares the run.
+3. **Methods replace others, and the old one survives as the poor man's:** freshwater fish to sea fish in England around AD 1000
+   (Barrett, Locker and Roberts 2004), bone hooks to iron, open fowling and the moult drive to the decoy.
+4. **Methods harm other ladders:** retting fouls the water; flax takes grain land; rabbits and pigeons eat crops; mill weirs block
+   salmon (a 2016 study puts the salmon collapse to mills before overfishing).
+5. **They differ in sustainability:** the hook and a mesh minimum spare the young, the fry net and the shut weir do not;
+   escapement came from the gap, the weekly slop and close seasons; a withy bed lasts about 30 years where wild cutting runs the
+   bank down. *Emerges now:* salmon and lamprey return from the spawners that got through (wild/runs.py), so a weir with its gap
+   shut, or a mill holding half an up-run, shrinks next year's run; resident fish are one stock shared by every method ([[D2-229 One fish stock per water body|D2-229]]);
+   wariness carries one hunter's pressure to the next; next winter's fowl follow how many left in spring.
+
+*Missing* (none needed for phases 1 to 4): a close time or mesh rule that binds (the gap is only an act); fouling carried down the
+water; the disturbance a method leaves on a place (the decoy's quiet); gear that spares the small; kept stocks (park, warren, pond);
+land use competing between flax and grain, park and common.
+
+**Substitutes worth modelling as choices** (each a cheaper, worse way and a dearer, better way, or two ways needing different land
+or skills): cord by three paths as one good (wild bast and nettle: labour only; flax: land and a retting pond, about three times
+cheaper; rawhide thong: quick, rots in water, land snares only); traps of withies or nets of cord; butchering and gutting as one
+act with two layers of skill (anyone gets meat and a hide; the capable also tallow, bone and antler, a whole hide); hooks and
+points of bone from the kill or iron from the smith (a dependence on the forge); offal as bait ([[L-145 Offal's uses bait for set lines and traps, dog food|L-145]]); peat as fuel where there
+is bog ([[L-146 Peat as fuel where there is bog|L-146]]); keeping as built, recalibrated ([[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Q-73]], [[L-137 Stores may be too strong against preserving|L-137]]). Later: the barrel (its hoops a second buyer for withies), two boats
+(a coracle of withies and one hide, a logboat of one great oak and a crew), tanning as a threshold of months. Merged: bone with
+antler; rushlights into the tallow light. Flagged for later: fish oil with the coast ([[L-143 Fish oil (eel and fish livers), with the coast|L-143]]); eel skin and fish glue ([[L-144 Eel skin and fish glue|L-144]]).
+
 ### 6. The order the yields should keep (calibration targets)
 
 Against plough farming at 2.4 to 2.8 food a unit: hands and rod well below it (0.1 to 0.5); gear fishing and snares at or below
@@ -173,6 +207,10 @@ fowling, the wild clocks.
   thread developed together: recalibrating the fishing / hunting signs and mechanisms alongside the relevant parts of the
   economies and resources, including stuff like withies and cords, exploring the different potentially relevant techniques,
   capital, each of the resources and little relevant capital or supply chains etc."), from five research notes.
+- **21 Nov 2026:** §5a added (how the ladders meet, substitutes worth modelling) after Zach asked "do we only have many short
+  ladders, or do any ladders merge or replace other things? Are some high capital things much more efficient but push out others
+  etc? Do they differ in sustainability etc etc?" and "do any of these have multistage processes or different alternative
+  substitutes", from a sixth note (byproducts_and_substitutes.md).
 
 ## Sources
 
