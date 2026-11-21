@@ -1,6 +1,7 @@
 # All threads
 
 ## Open
+- [[W-72 Signs of the river|Signs of the river (W-72)]] (queued)
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]] (queued)
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]] (active)
 - [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|Writing 37.2's decisions into the spec (about 52 missing) (W-68)]] (queued)

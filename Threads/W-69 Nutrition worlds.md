@@ -40,6 +40,7 @@ updated: "2026-11-20"
 - under it: [[Q-76 Whether the runs world's medium arm needs more keeping capital|Whether the runs world's medium arm needs more keeping capital (Q-76)]] (open)
 - under it: [[Q-77 Whether to tune how often the river reads spate or flood now|Whether to tune how often the river reads spate or flood now (Q-77)]] (open)
 - under it: [[Q-78 Whether to build the fishing legibility fixes|Whether to build the fishing legibility fixes (Q-78)]] (open)
+- under it: [[W-72 Signs of the river|Signs of the river (W-72)]] (queued)
 
 
 ## Mentioned by
@@ -58,6 +59,7 @@ updated: "2026-11-20"
 - [[Q-77 Whether to tune how often the river reads spate or flood now|Whether to tune how often the river reads spate or flood now (Q-77)]]
 - [[Q-78 Whether to build the fishing legibility fixes|Whether to build the fishing legibility fixes (Q-78)]]
 - [[W-22 Hunting against farming and gathering in generated worlds|Hunting against farming and gathering in generated worlds (W-22)]]
+- [[W-72 Signs of the river|Signs of the river (W-72)]]
 - [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]]
 - [[O-2 Make the eleven bulk processes take up to their batch|Make the eleven bulk processes take up to their batch (O-2)]]
 - [[O-3 Build the switches that turn a food source off in a world|Build the switches that turn a food source off in a world (O-3)]]
