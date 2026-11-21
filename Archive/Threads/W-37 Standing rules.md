@@ -23,5 +23,10 @@ proposal written.
 - `docs/cybertron2/proposals/standing_rules.md`
 
 
+## Linked
+- under it: [[L-142 Fallbacks as a person's standing setting|Fallbacks as a person's standing setting (L-142)]] (open)
+
+
 ## Mentioned by
+- [[L-142 Fallbacks as a person's standing setting|Fallbacks as a person's standing setting (L-142)]]
 - *and 1 index or audit notes*

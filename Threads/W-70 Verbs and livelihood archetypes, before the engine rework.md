@@ -20,8 +20,10 @@ scope (20 Nov): the verb list ([[Q-27 Keep the 38 built verbs, or fold them back
 ## Linked
 - waits on: [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)]]
 - under it: [[D2-251 Every technique, fitting and thing to build says what it does and why…|Every technique, fitting and thing to build says what it does and why… (D2-251)]] (live)
+- under it: [[L-141 How much seeded memory each livelihood starts with|How much seeded memory each livelihood starts with (L-141)]] (open)
 
 
 ## Mentioned by
 - [[D2-251 Every technique, fitting and thing to build says what it does and why…|Every technique, fitting and thing to build says what it does and why… (D2-251)]]
 - [[L-133 The engine as feature packages postponed, kept in mind|The engine as feature packages: postponed, kept in mind (L-133)]]
+- [[L-141 How much seeded memory each livelihood starts with|How much seeded memory each livelihood starts with (L-141)]]

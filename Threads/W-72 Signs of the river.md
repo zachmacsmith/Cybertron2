@@ -18,3 +18,7 @@ started
 
 ## Linked
 - parent: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+
+
+## Mentioned by
+- [[L-141 How much seeded memory each livelihood starts with|How much seeded memory each livelihood starts with (L-141)]]

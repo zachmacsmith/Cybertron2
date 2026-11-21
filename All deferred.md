@@ -1,6 +1,8 @@
 # All deferred
 
 ## Open
+- [[L-142 Fallbacks as a person's standing setting|Fallbacks as a person's standing setting (L-142)]] (open)
+- [[L-141 How much seeded memory each livelihood starts with|How much seeded memory each livelihood starts with (L-141)]] (open)
 - [[L-140 A death in the day's work|A death in the day's work (L-140)]] (open)
 - [[L-139 A hen killed in a raid gives its meat|A hen killed in a raid gives its meat (L-139)]] (open)
 - [[L-138 Hens lay on the old clock|Hens lay on the old clock (L-138)]] (open)
