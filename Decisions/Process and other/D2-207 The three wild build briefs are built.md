@@ -26,4 +26,5 @@ conversation ("8 yes"; "Get the other agent to build this: send it the specs and
 - [[02zy test worlds for the wild build briefs 1 and 2 (9 Nov)|02zy: test worlds for the wild build briefs 1 and 2 (9 Nov)]]
 - [[14 War, force and the economy (16 Nov 2026)|14: War, force and the economy (16 Nov 2026)]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - *and 4 index or audit notes*

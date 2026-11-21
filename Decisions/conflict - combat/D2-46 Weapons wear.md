@@ -27,4 +27,5 @@ combat.py's weapon used up in every fight
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[14 War, force and the economy (16 Nov 2026)|14: War, force and the economy (16 Nov 2026)]]
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[Review 38.16 where M1 was built too narrowly, system by system…|Review 38.16: where M1 was built too narrowly, system by system…]]

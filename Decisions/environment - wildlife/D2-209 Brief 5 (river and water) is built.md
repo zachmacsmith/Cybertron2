@@ -34,6 +34,7 @@ conversation (16 Nov: "1. yes. 2. yes. 3. sure. 4. I'll be passing this to the o
 - [[Wildlife|Wildlife]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[Withies, coppice and the other wood and wild materials for fishing…|Withies, coppice and the other wood and wild materials for fishing…]]
 - [[Brief 5, the river part the runs, the weir, the mill's gap, salmon…|Brief 5, the river part: the runs, the weir, the mill's gap, salmon…]]
 - [[38.73 Brief 5 (river and water) as built the dry-run report for the…|38.73: Brief 5 (river and water) as built: the dry-run report for the…]]

@@ -19,4 +19,5 @@ updated: "2026-11-20"
 
 ## Mentioned by
 - [[L-117 Wildlife pack K3 forays, methods and knowing|Wildlife pack K3: forays, methods and knowing (L-117)]]
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - *and 3 index or audit notes*

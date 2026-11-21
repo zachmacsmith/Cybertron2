@@ -24,4 +24,5 @@ tanning and leather; parchment, seals, quills; sinew, gut, glue, bowstrings, the
 
 
 ## Mentioned by
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - *and 2 index or audit notes*

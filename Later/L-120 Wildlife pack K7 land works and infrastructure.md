@@ -21,3 +21,7 @@ hedges, banks, walls, pales and mesh as barriers with properties on parcel edges
 
 ## Linked
 - parent: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+
+
+## Mentioned by
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]

@@ -25,4 +25,5 @@ updated: "2026-11-20"
 - [[Proposal tools|Proposal: tools]]
 - [[Goods|Goods]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[Review 38.20 the decisions still open, by what they block|Review 38.20: the decisions still open, by what they block]]

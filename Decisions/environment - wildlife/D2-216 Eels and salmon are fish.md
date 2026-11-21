@@ -27,4 +27,5 @@ eel and salmon as meat (eel 0.2, salmon 2.0)
 - [[Wildlife|Wildlife]]
 - [[02zzu lookup the food values checked against USDA FoodData Central|02zzu lookup: the food values checked against USDA FoodData Central]]
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[38.74 The lake world's first live run (W-50) what came of the water|38.74: The lake world's first live run (W-50): what came of the water]]

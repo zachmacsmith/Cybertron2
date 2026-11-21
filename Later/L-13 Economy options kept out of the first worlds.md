@@ -26,5 +26,6 @@ Economy options kept out of the first worlds: slash and burn, armour, nets, boat
 - [[Proposal the first wild kinds (what lives on the land, what each is…|Proposal: the first wild kinds (what lives on the land, what each is…]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[02zzu lookup the food values checked against USDA FoodData Central|02zzu lookup: the food values checked against USDA FoodData Central]]
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[Fibre, cord, twine, line and net the supply chain (W-73)|Fibre, cord, twine, line and net: the supply chain (W-73)]]
 - *and 2 index or audit notes*

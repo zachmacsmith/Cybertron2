@@ -61,4 +61,5 @@ done 20 Nov: the six-part analysis (02zzu_shared_units.md); the USDA lookup (02z
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
 - [[02zzv carrying in the live runs|02zzv: carrying in the live runs]]
 - [[02zzx how fast fish and meat were salted by hand|02zzx: how fast fish and meat were salted by hand]]
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - *and 1 index or audit notes*

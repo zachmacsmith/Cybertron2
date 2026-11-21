@@ -19,4 +19,5 @@ updated: "2026-11-20"
 - [[D2-243 The verbs and the livelihood archetypes are reshaped first, as their…|The verbs and the livelihood archetypes are reshaped first, as their… (D2-243)]]
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - *and 2 index or audit notes*

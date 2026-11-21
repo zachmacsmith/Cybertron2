@@ -32,4 +32,5 @@ game as one generic stock; replaced in part by [[D2-204 People answer the wild b
 - [[02zp · Ecosystems that interact a deep dive, with models on…|02zp · Ecosystems that interact: a deep dive, with models on…]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
 - [[02zw the reviews' proposals against how the engine already works (9…|02zw: the reviews' proposals against how the engine already works (9…]]
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - *and 2 index or audit notes*

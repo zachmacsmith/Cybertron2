@@ -32,4 +32,5 @@ wave 1 as a model beside the engine (02zp part six)
 - [[02zq the wild layer audited against its design (9 Nov)|02zq: the wild layer audited against its design (9 Nov)]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[02zzp what was started and left, 22 Oct to 19 Nov, and how to notice…|02zzp: what was started and left, 22 Oct to 19 Nov, and how to notice…]]
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - *and 2 index or audit notes*

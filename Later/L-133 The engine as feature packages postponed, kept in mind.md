@@ -22,3 +22,4 @@ Zach, 20 Nov ([[D2-244 The engine's reworking into feature packages|D2-244]]): p
 
 ## Mentioned by
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]

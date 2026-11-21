@@ -15,3 +15,7 @@ Zach, 21 Nov: flag the fishers' seeded memory (the runs as a remembered year, si
 
 ## Linked
 - parent: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
+
+
+## Mentioned by
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]

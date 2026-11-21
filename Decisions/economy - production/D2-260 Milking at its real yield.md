@@ -25,3 +25,4 @@ conversation (20 Nov: "conversation (20 Nov: "Adjust milk yield. Change the old 
 - [[Q-72 Whether milking gets 02zzu's rate fix|Whether milking gets 02zzu's rate fix (Q-72)]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[02zzu lookup the food values checked against USDA FoodData Central|02zzu lookup: the food values checked against USDA FoodData Central]]
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]

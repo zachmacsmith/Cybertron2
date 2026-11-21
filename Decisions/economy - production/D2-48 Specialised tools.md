@@ -24,4 +24,5 @@ recipes.md §15
 - [[02zs the wild in a society's economy and development (9 Nov)|02zs: the wild in a society's economy and development (9 Nov)]]
 - [[02zt dependences, and things that help other things (9 Nov)|02zt: dependences, and things that help other things (9 Nov)]]
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - *and 1 index or audit notes*

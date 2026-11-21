@@ -25,4 +25,5 @@ dogs with types, training bonds and the kennel; hens, ducks and geese kept, gees
 
 ## Mentioned by
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - *and 3 index or audit notes*

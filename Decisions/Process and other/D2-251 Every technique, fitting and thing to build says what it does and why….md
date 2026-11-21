@@ -24,3 +24,4 @@ conversation (20 Nov: "I think different techniques / things to build should com
 - [[Q-69 The basis for food and work|The basis for food and work (Q-69)]]
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
+- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
