@@ -44,3 +44,4 @@ conversation (20 Nov: "1. I agree")
 - [[02zzx how fast fish and meat were salted by hand|02zzx: how fast fish and meat were salted by hand]]
 - [[02zzz the runs world's three live runs, against the bots and the…|02zzz: the runs world's three live runs, against the bots and the…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
+- [[Hunting, trapping, fowling and the kill techniques, capital and…|Hunting, trapping, fowling and the kill: techniques, capital and…]]

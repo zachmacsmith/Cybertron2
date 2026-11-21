@@ -32,4 +32,5 @@ habituation for every kind
 - [[02zr wild behaviour, an outside critique (9 Nov)|02zr: wild behaviour, an outside critique (9 Nov)]]
 - [[02zs the wild in a society's economy and development (9 Nov)|02zs: the wild in a society's economy and development (9 Nov)]]
 - [[02zw the reviews' proposals against how the engine already works (9…|02zw: the reviews' proposals against how the engine already works (9…]]
+- [[Hunting, trapping, fowling and the kill techniques, capital and…|Hunting, trapping, fowling and the kill: techniques, capital and…]]
 - *and 1 index or audit notes*
