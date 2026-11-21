@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Extending the wildlife economy (W-67)
 
-*queued · 37.2 · touched 20 Nov (today)*
+*queued · 37.2 · touched 20 Nov (1 day ago)*
 
 ## What it is
 **The wildlife economy extended: the packs not yet briefed, new resources and husbandry**: the remaining wildlife packs K3 (forays, methods, cord, nets, bows), K5 (wood and frontier), K6 (keeping: husbandry), K7 (land works), K8 (crafts and wild goods), K9 (coast), K10 (illness), K11 (lodgers), the fen half of brief 5, and the core mechanisms not built ([[L-117 Wildlife pack K3 forays, methods and knowing|L-117]] to [[L-126 The wildlife's core mechanisms not built|L-126]]); with the rod's line of cord or hair ([[Q-57 Fishing, from the lake run|Q-57]] b: neither cord nor hair is a resource yet). Zach, 20 Nov: 'what happened to the broader wildlife economy enriching and adding more resources, and adding husbandry etc.? ... That should be an open thread'

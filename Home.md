@@ -1,6 +1,6 @@
 # Cybertron 2
 
-*The records, rebuilt from main after every push (last 2026-11-20). Read only: ask a session to change anything.*
+*The records, rebuilt from main after every push (last 2026-11-21). Read only: ask a session to change anything.*
 
 [The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.
 
@@ -92,7 +92,7 @@
 ## Queued and paused (7)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
 
-## Decided this week (64)
+## Decided this week (60)
 - [[D2-262 The runs at a real river's size|The runs at a real river's size (D2-262)]]
 - [[D2-261 The older generic game stocks are counted in the new meat unit|The older generic game stocks are counted in the new meat unit (D2-261)]]
 - [[D2-260 Milking at its real yield|Milking at its real yield (D2-260)]]

@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Standing rules (W-37)
 
-*discussion · 37.4 · touched 13 Nov (7 days ago)*
+*discussion · 37.4 · touched 13 Nov (8 days ago)*
 
 > **Next:** Zach's answers to its open questions and his go; then build eating first
 

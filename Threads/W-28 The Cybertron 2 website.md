@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # The Cybertron 2 website (W-28)
 
-*waiting · site (c2viz, session "Cybertron website") · touched 10 Nov (10 days ago)*
+*waiting · site (c2viz, session "Cybertron website") · touched 10 Nov (11 days ago)*
 
 > **Next:** Zach sets up the Netlify site and the subdomain; `python -m c2viz.site.viewer_publish` after each publish (calling it from cybertron2/publish_hf.py is 37.4's to agree)
 

@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Floodplains in the generator (W-53)
 
-*done, by agent (provisional) · 37.2 · touched 20 Nov (today)*
+*done, by agent (provisional) · 37.2 · touched 20 Nov (1 day ago)*
 
 > **Next:** 37.4 merges and adapts its tests; LAKE_FISH calibrated across the calibration worlds ([[W-54 The twelve calibration worlds and an audit of the generator across…|W-54]])
 

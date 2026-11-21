@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # wild_behaviour.md v3 (W-4)
 
-*dropped, by zach · 37.2 · touched 9 Nov (11 days ago)*
+*dropped, by zach · 37.2 · touched 9 Nov (12 days ago)*
 
 ## What it is
 wild_behaviour.md v3 (the per-kind designs, from 02zv, 02zw and the briefs)

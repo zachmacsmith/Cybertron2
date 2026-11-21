@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # The records system (W-65)
 
-*active · 37.2 · touched 20 Nov (today)*
+*active · 37.2 · touched 20 Nov (1 day ago)*
 
 > **Next:** the header pass over the spec files and proposals; run threads labelled as such, with their branch ([[D2-238 Branches|D2-238]]); check the desk once opened, and after the 22 Nov refresh
 

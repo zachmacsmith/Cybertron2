@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Writing up the 10 Nov wild-region live run (W-29)
 
-*active · 37.2 (session "Thicker economy exploration") · touched 20 Nov (today)*
+*active · 37.2 (session "Thicker economy exploration") · touched 20 Nov (1 day ago)*
 
 > **Next:** a matched 30-day bot null arm on the same world (free; no models), then close
 

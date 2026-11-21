@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Food, weight and work on one basis (W-64)
 
-*active · 37.2 · touched 20 Nov (today)*
+*active · 37.2 · touched 20 Nov (1 day ago)*
 
 > **Next:** for Zach: the asks [[Q-71 Whether the older generic game stocks are counted in the new meat unit|Q-71]] to [[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Q-73]]; then merge w64-food-values to main (37.2's data; 37.4 the run nights)
 
