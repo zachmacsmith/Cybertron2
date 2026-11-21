@@ -28,10 +28,12 @@ started
 - under it: [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]] (open)
 - under it: [[L-145 Offal's uses bait for set lines and traps, dog food|Offal's uses: bait for set lines and traps, dog food (L-145)]] (open)
 - under it: [[L-146 Peat as fuel where there is bog|Peat as fuel where there is bog (L-146)]] (open)
+- under it: [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]] (open)
 
 
 ## Mentioned by
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
+- [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
 - [[W-72 Signs of the river|Signs of the river (W-72)]]
 - [[L-111 The hunting and resources build, a soon follow-up|The hunting and resources build, a soon follow-up (L-111)]]
 - [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]]

@@ -31,6 +31,7 @@ updated: "2026-11-20"
 - under it: [[D2-256 A hunting trip is travelling out to a wild node, camping there…|A hunting trip is travelling out to a wild node, camping there… (D2-256)]] (live)
 - under it: [[D2-257 The nutrition worlds|The nutrition worlds (D2-257)]] (live)
 - under it: [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]] (open)
+- under it: [[L-147 Live runs kept durably as soon as they finish|Live runs kept durably as soon as they finish (L-147)]] (open)
 - under it: [[O-2 Make the eleven bulk processes take up to their batch|Make the eleven bulk processes take up to their batch (O-2)]] (open)
 - under it: [[O-3 Build the switches that turn a food source off in a world|Build the switches that turn a food source off in a world (O-3)]] (accepted)
 - under it: [[Q-66 The nutrition worlds|The nutrition worlds (Q-66)]] (closed)
@@ -65,6 +66,7 @@ updated: "2026-11-20"
 - [[W-72 Signs of the river|Signs of the river (W-72)]]
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 - [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]]
+- [[L-147 Live runs kept durably as soon as they finish|Live runs kept durably as soon as they finish (L-147)]]
 - [[O-2 Make the eleven bulk processes take up to their batch|Make the eleven bulk processes take up to their batch (O-2)]]
 - [[O-3 Build the switches that turn a food source off in a world|Build the switches that turn a food source off in a world (O-3)]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
