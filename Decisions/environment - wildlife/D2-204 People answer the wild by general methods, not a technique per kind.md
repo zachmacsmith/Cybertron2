@@ -24,6 +24,7 @@ conversation ("bespoke single actions should in general usually instead be using
 - [[Q-32 02zv §6's decisions still open|02zv §6's decisions still open (Q-32)]]
 - [[W-1 Build brief 1|Build brief 1 (W-1)]]
 - [[W-4 wild_behaviour.md v3|wild_behaviour.md v3 (W-4)]]
+- [[Fishing, hunting and their materials, developed together|Fishing, hunting and their materials, developed together]]
 - [[Methods and encounters people answer the wild by general methods…|Methods and encounters: people answer the wild by general methods…]]
 - [[Wildlife|Wildlife]]
 - [[02zzp what was started and left, 22 Oct to 19 Nov, and how to notice…|02zzp: what was started and left, 22 Oct to 19 Nov, and how to notice…]]

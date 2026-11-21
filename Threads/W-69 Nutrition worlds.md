@@ -42,7 +42,7 @@ updated: "2026-11-20"
 - under it: [[Q-78 Whether to build the fishing legibility fixes|Whether to build the fishing legibility fixes (Q-78)]] (open)
 - under it: [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]] (open)
 - under it: [[W-72 Signs of the river|Signs of the river (W-72)]] (waiting)
-- under it: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]] (queued)
+- under it: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]] (waiting)
 
 
 ## Mentioned by
@@ -67,6 +67,7 @@ updated: "2026-11-20"
 - [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]]
 - [[O-2 Make the eleven bulk processes take up to their batch|Make the eleven bulk processes take up to their batch (O-2)]]
 - [[O-3 Build the switches that turn a food source off in a world|Build the switches that turn a food source off in a world (O-3)]]
+- [[Fishing, hunting and their materials, developed together|Fishing, hunting and their materials, developed together]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]

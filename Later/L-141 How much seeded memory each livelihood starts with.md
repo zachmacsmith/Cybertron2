@@ -18,4 +18,5 @@ Zach, 21 Nov: flag the fishers' seeded memory (the runs as a remembered year, si
 
 
 ## Mentioned by
+- [[Fishing, hunting and their materials, developed together|Fishing, hunting and their materials, developed together]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]

@@ -22,6 +22,7 @@ combat.py's weapon used up in every fight
 ## Mentioned by
 - [[C-11 Weapons specconflictcombat.md and D2-46 name a blade, but…|Weapons: spec/conflict/combat.md and D2-46 name a "blade", but… (C-11)]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
+- [[Fishing, hunting and their materials, developed together|Fishing, hunting and their materials, developed together]]
 - [[Proposal recipes for the first worlds|Proposal: recipes for the first worlds]]
 - [[Combat attacks on a person|Combat: attacks on a person]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
