@@ -2,7 +2,7 @@
 id: D2-258
 kind: decision
 state: live
-updated: "2026-11-20"
+updated: "2026-11-21"
 ---
 
 # The food values are put on one physical basis (D2-258)
@@ -18,6 +18,8 @@ conversation (20 Nov: "1. I agree")
 
 ## Linked
 - parent: [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
+- replaces: [[D2-210 The weir in sections, capped, with upkeep by the river|The weir in sections, capped, with upkeep by the river (D2-210)]]
+- replaces: [[D2-213 A set trap holds at most about 3 food a night|A set trap holds at most about 3 food a night (D2-213)]]
 - decides: [[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Adopt the food values on one basis, and fix the runs, the weir and… (Q-70)]]
 
 

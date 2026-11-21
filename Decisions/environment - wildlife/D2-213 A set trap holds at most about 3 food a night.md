@@ -20,6 +20,7 @@ a trap's take with no cap (the race trap up to 6.5 food a unit)
 
 
 ## Mentioned by
+- [[D2-258 The food values are put on one physical basis|The food values are put on one physical basis (D2-258)]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Wildlife|Wildlife]]
