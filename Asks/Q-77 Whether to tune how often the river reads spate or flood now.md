@@ -18,4 +18,6 @@ updated: "2026-11-20"
 
 
 ## Mentioned by
+- [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Why the villagers of the runs world did not fish|Why the villagers of the runs world did not fish]]
+- [[02zzz2 every state of the water, and what of it reaches a person|02zzz2: every state of the water, and what of it reaches a person]]

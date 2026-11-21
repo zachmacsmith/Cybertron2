@@ -24,6 +24,7 @@ the weir of [[D2-209 Brief 5 (river and water) is built|D2-209]] as one work wit
 - [[Q-75 Whether D2-210's yearly upkeep band wins over the river proposal's…|Whether D2-210's yearly upkeep band wins over the river proposal's… (Q-75)]]
 - [[W-26 Build brief 5 river and water (K4 without fen and boats)|Build brief 5: river and water (K4 without fen and boats) (W-26)]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
+- [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[Wildlife|Wildlife]]
 - [[02zzn the water half of the environment, prototyped on the river…|02zzn: the water half of the environment, prototyped on the river…]]

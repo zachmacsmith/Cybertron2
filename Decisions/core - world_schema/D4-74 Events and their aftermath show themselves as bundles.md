@@ -21,6 +21,7 @@ conversation ("Get the agent to add bundles for the 18 it ranked"; the four kind
 - [[Q-8 Which signs, incidents and eras first|Which signs, incidents and eras first (Q-8)]]
 - [[Every perceived line by the one noticing rule|Every perceived line by the one noticing rule]]
 - [[An attack on a house to hurt sets on the people inside|An attack on a house to hurt sets on the people inside]]
+- [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Proposal what an agent is shown each round, attention, and…|Proposal: what an agent is shown each round, attention, and…]]
 - [[Proposal the senses across every system|Proposal: the senses across every system]]
 - [[Events and their aftermath show themselves|Events and their aftermath show themselves]]

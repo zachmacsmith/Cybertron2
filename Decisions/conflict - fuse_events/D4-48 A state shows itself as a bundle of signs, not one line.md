@@ -30,6 +30,7 @@ one line per state (perceive.py as built)
 - [[Proposal life (partners, children, growing up, death, inheritance)|Proposal: life (partners, children, growing up, death, inheritance)]]
 - [[Proposal objects placed in the world|Proposal: objects placed in the world]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
+- [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Proposal the layout of a road (stretches and landmarks)|Proposal: the layout of a road (stretches and landmarks)]]
 - [[Proposal what an agent is shown each round, attention, and…|Proposal: what an agent is shown each round, attention, and…]]
 - [[Proposal the senses across every system|Proposal: the senses across every system]]

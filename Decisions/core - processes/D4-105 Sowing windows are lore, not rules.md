@@ -26,6 +26,7 @@ sowing refusal, the rules' crop line, phase 2's fade and wear values ([[D4-103 T
 - [[Economic calibration one time scale, and mechanics that make…|Economic calibration: one time scale, and mechanics that make…]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]
 - [[Proposal phase 3 of the engine overhaul, variance and risk (the…|Proposal: phase 3 of the engine overhaul, variance and risk (the…]]
+- [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Proposal what is physically possible is possible; the consequences…|Proposal: what is physically possible is possible; the consequences…]]
 - [[Proposal the wild layer, one general system for ecosystems and…|Proposal: the wild layer, one general system for ecosystems and…]]
 - [[Proposal wild systems, layered kinds that people can learn to read|Proposal: wild systems, layered kinds that people can learn to read]]

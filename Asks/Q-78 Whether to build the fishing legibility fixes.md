@@ -19,3 +19,4 @@ From the live runs (02zzz) and why they did not fish (02zzy): low and medium cau
 
 ## Mentioned by
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+- [[River signs the water as people sense it|River signs: the water as people sense it]]

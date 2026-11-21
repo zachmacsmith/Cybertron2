@@ -25,6 +25,7 @@ the older bundles (crops, fields, pastures, wild land, herds, buildings, people,
 - [[A beast one leads stays with one until let go|A beast one leads stays with one until let go]]
 - [[Signs for the newer systems|Signs for the newer systems]]
 - [[One noticing rule for every sign and event, each reaching as far as…|One noticing rule for every sign and event, each reaching as far as…]]
+- [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Proposal what an agent is shown each round, attention, and…|Proposal: what an agent is shown each round, attention, and…]]
 - [[Proposal the senses across every system|Proposal: the senses across every system]]
 - [[Events and their aftermath show themselves|Events and their aftermath show themselves]]

@@ -15,3 +15,7 @@ updated: "2026-11-21"
 
 ## Linked
 - parent: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+
+
+## Mentioned by
+- [[W-72 Signs of the river|Signs of the river (W-72)]]

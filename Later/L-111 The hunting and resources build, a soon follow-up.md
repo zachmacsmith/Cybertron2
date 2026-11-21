@@ -22,6 +22,7 @@ updated: "2026-11-20"
 ## Mentioned by
 - [[D2-209 Brief 5 (river and water) is built|Brief 5 (river and water) is built (D2-209)]]
 - [[W-45 Brief 5 revised from the economy research|Brief 5 revised from the economy research (W-45)]]
+- [[W-72 Signs of the river|Signs of the river (W-72)]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - *and 4 index or audit notes*

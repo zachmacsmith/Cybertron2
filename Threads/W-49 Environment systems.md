@@ -32,8 +32,10 @@ proposal accepted in part 17 Nov ([[D2-221 The land in three speeds|D2-221]] to 
 ## Mentioned by
 - [[W-8 Couple the food web to 37.4's weather and climate|Couple the food web to 37.4's weather and climate (W-8)]]
 - [[W-15 The land's fast stocks|The land's fast stocks (W-15)]]
+- [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
 - [[02zzn the water half of the environment, prototyped on the river…|02zzn: the water half of the environment, prototyped on the river…]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
+- [[02zzz2 every state of the water, and what of it reaches a person|02zzz2: every state of the water, and what of it reaches a person]]
 - *and 3 index or audit notes*

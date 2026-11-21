@@ -21,4 +21,5 @@ updated: "2026-11-20"
 
 ## Mentioned by
 - [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]]
+- [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[38.77 The lake runs' faults, fish on the hearth rack, and a signs…|38.77: The lake runs' faults, fish on the hearth rack, and a signs…]]
