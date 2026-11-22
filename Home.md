@@ -4,7 +4,7 @@
 
 [The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.
 
-## Waiting on you (19)
+## Waiting on you (18)
 - [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)]]
 - [[Q-82 Trying and learning|Trying and learning (Q-82)]]
 - [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]]
@@ -12,11 +12,11 @@
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
 - [[Q-78 Whether to build the fishing legibility fixes|Whether to build the fishing legibility fixes (Q-78)]]
 - [[Q-77 Whether to tune how often the river reads spate or flood now|Whether to tune how often the river reads spate or flood now (Q-77)]]
-- [[Q-76 Whether the runs world's medium arm needs more keeping capital|Whether the runs world's medium arm needs more keeping capital (Q-76)]]
 - [[Q-75 Whether D2-210's yearly upkeep band wins over the river proposal's…|Whether D2-210's yearly upkeep band wins over the river proposal's… (Q-75)]]
 - [[Q-74 Whether a weir's first section costs a base of 6 timber and 8 units…|Whether a weir's first section costs a base of 6 timber and 8 units… (Q-74)]]
 - [[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Whether salting fish and meat stays at 4 kg a unit of work (Q-73)]]
 - [[Q-69 The basis for food and work|The basis for food and work (Q-69)]]
+- [[Q-68 How high the surplus can go in the medieval worlds, against the…|How high the surplus can go in the medieval worlds, against the… (Q-68)]]
 - … all of them: [[All asks]]
 
 ## To confirm or revisit
@@ -97,7 +97,9 @@
 ## Queued and paused (7)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
 
-## Decided this week (65)
+## Decided this week (67)
+- [[D2-269 Experts' signs are observations of what is happening now, which may…|Experts' signs are observations of what is happening now, which may… (D2-269)]]
+- [[D2-268 The founders' starting knowledge|The founders' starting knowledge (D2-268)]]
 - [[D2-267 Practice and learning are set at a 64-day lifespan and scaled with a…|Practice and learning are set at a 64-day lifespan and scaled with a… (D2-267)]]
 - [[D2-266 Knowledge in their own words|Knowledge in their own words (D2-266)]]
 - [[D2-265 The river's signs|The river's signs (D2-265)]]
@@ -111,8 +113,6 @@
 - [[D2-257 The nutrition worlds|The nutrition worlds (D2-257)]]
 - [[D2-256 A hunting trip is travelling out to a wild node, camping there…|A hunting trip is travelling out to a wild node, camping there… (D2-256)]]
 - [[D2-255 A very skilled hunter brings in a disproportionate amount of food…|A very skilled hunter brings in a disproportionate amount of food… (D2-255)]]
-- [[D2-254 Everything shown to Zach names each question, proposal, thread or…|Everything shown to Zach names each question, proposal, thread or… (D2-254)]]
-- [[D2-253 Zach's decisions about the process and its mechanisms are kept…|Zach's decisions about the process and its mechanisms are kept… (D2-253)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]

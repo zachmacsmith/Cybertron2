@@ -178,6 +178,7 @@ makers.
 
 ## History
 
+- 22 Nov 2026: accepted in part: [[D2-268 The founders' starting knowledge|D2-268]] (The founders' starting knowledge (founders_knowledge.md): seeded lines are ordin).
 - 22 Nov 2026: accepted in part: [[D2-266 Knowledge in their own words|D2-266]] (Knowledge in their own words (proposals/knowledge_in_their_own_words.md), as ans).
 - **22 Nov 2026:** §6 added: standard starting memories as culture, an experimental parameter (Zach, quoted under Why).
 - **22 Nov 2026:** §6: common sets by practice added (Zach: "there will be different common sets eg different practitioners will start with more knowledge about their practice eg fishers know how to fish and stuff about which techniques are best etc compared to farmers or hunters. This connects with the archetypes sorta work").
