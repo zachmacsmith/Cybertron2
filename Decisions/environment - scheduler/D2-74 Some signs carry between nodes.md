@@ -31,3 +31,4 @@ conversation
 - [[The scheduler external change|The scheduler: external change]]
 - [[Visibility what a place and the day let the senses reach|Visibility: what a place and the day let the senses reach]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
+- *and 1 index or audit notes*

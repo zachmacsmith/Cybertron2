@@ -2,7 +2,7 @@
 id: L-24
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Fences on the borders between parcels (L-24)
@@ -19,6 +19,11 @@ Fences on the borders between parcels (rather than round a parcel); hedges; nigh
 **Waits on:** the parcel graph and fences round parcels built
 
 
+## Linked
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-76 The timber economy|The timber economy (W-76)]]
+
+
 ## Mentioned by
 - [[D2-130 Fences go round a parcel for now a parcel is fenced or not|Fences go round a parcel for now: a parcel is fenced or not (D2-130)]]
 - [[L-11 Fences, hedges and walls for herds|Fences, hedges and walls for herds (L-11)]]
@@ -30,4 +35,4 @@ Fences on the borders between parcels (rather than round a parcel); hedges; nigh
 - [[Livestock|Livestock]]
 - [[02s build brief for 37.4 the parcel graph, herds, fences, hidden…|02s: build brief for 37.4: the parcel graph, herds, fences, hidden…]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

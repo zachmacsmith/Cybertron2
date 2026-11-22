@@ -2,7 +2,7 @@
 id: L-49
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Automated supply-chain and dependence checks for generated worlds (L-49)
@@ -19,8 +19,13 @@ updated: "2026-11-20"
 **Waits on:** the economic checks built
 
 
+## Linked
+- bears on: [[W-54 The twelve calibration worlds and an audit of the generator across…|The twelve calibration worlds and an audit of the generator across… (W-54)]]
+- bears on: [[W-39 The economy's web of dependence and how far it should reach|The economy's web of dependence and how far it should reach (W-39)]]
+
+
 ## Mentioned by
 - [[Proposal the landscape generator (a world under the graph)|Proposal: the landscape generator (a world under the graph)]]
 - [[02zl · Can a world feed its people Past runs and the pre-run checks|02zl · Can a world feed its people? Past runs and the pre-run checks]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

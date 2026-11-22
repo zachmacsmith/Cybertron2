@@ -2,7 +2,7 @@
 id: Q-80
 kind: ask
 state: open
-updated: "2026-11-21"
+updated: "2026-11-22"
 ---
 
 # Whether acts on owned things default to one's own (Q-80)
@@ -17,6 +17,8 @@ Found 21 Nov: things.find picks the most recently known thing matching a place o
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+- bears on: [[W-14 Claims and ownership by physics, part 2|Claims and ownership by physics, part 2 (W-14)]]
+- bears on: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
 
 
 ## Mentioned by
@@ -35,4 +37,4 @@ Found 21 Nov: things.find picks the most recently known thing matching a place o
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

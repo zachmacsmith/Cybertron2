@@ -2,7 +2,7 @@
 id: L-119
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Wildlife pack K6: keeping (L-119)
@@ -21,6 +21,7 @@ dogs with types, training bonds and the kennel; hens, ducks and geese kept, gees
 
 ## Linked
 - parent: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 
 
 ## Mentioned by
@@ -28,4 +29,4 @@ dogs with types, training bonds and the kennel; hens, ducks and geese kept, gees
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

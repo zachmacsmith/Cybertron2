@@ -2,7 +2,7 @@
 id: L-68
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Crops grow by the weather, not only the season (L-68)
@@ -19,6 +19,11 @@ updated: "2026-11-20"
 **Waits on:** crop growth by season built; the environment scheduler (overhaul phase 3)
 
 
+## Linked
+- bears on: [[W-49 Environment systems|Environment systems (W-49)]]
+- bears on: [[W-51 Testing the weather across dry, cold, coastal and mountain worlds…|Testing the weather across dry, cold, coastal and mountain worlds… (W-51)]]
+
+
 ## Mentioned by
 - [[L-73 Phase 3's rest|Phase 3's rest (L-73)]]
 - [[Proposal crops grow by the season; can apart from works; what a…|Proposal: crops grow by the season; "can" apart from "works"; what a…]]
@@ -26,4 +31,4 @@ updated: "2026-11-20"
 - [[Proposal phase 3 of the engine overhaul, variance and risk (the…|Proposal: phase 3 of the engine overhaul, variance and risk (the…]]
 - [[Proposal the weather scheduler (eras, years, daily types, weather…|Proposal: the weather scheduler (eras, years, daily types, weather…]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

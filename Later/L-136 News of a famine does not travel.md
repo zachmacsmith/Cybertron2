@@ -2,7 +2,7 @@
 id: L-136
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # News of a famine does not travel (L-136)
@@ -17,3 +17,8 @@ Corneby never learned that Holtham starved; news does not spread between village
 
 ## Linked
 - parent: [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]
+- bears on: [[W-89 Trade between villages markets, carriage, what flows where|Trade between villages: markets, carriage, what flows where (W-89)]]
+
+
+## Mentioned by
+- *and 1 index or audit notes*

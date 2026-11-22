@@ -2,7 +2,7 @@
 id: L-76
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # The intermarried peoples world (L-76)
@@ -19,5 +19,11 @@ updated: "2026-11-20"
 **Waits on:** 37.4
 
 
+## Linked
+- bears on: [[W-34 Worlds for the peoples benchmark|Worlds for the peoples benchmark (W-34)]]
+- bears on: [[W-93 Demography and growth|Demography and growth (W-93)]]
+
+
 ## Mentioned by
 - [[W-34 Worlds for the peoples benchmark|Worlds for the peoples benchmark (W-34)]]
+- *and 1 index or audit notes*

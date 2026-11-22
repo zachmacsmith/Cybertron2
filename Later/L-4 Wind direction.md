@@ -2,7 +2,7 @@
 id: L-4
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Wind direction (L-4)
@@ -19,6 +19,11 @@ Wind direction (fire spreading by the wind; smell following it)
 **Waits on:** fire spreading
 
 
+## Linked
+- bears on: [[W-49 Environment systems|Environment systems (W-49)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+
+
 ## Mentioned by
 - [[Visibility what a place and the day let the senses reach|Visibility: what a place and the day let the senses reach]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

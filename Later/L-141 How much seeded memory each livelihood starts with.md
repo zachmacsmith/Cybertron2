@@ -16,6 +16,9 @@ Zach, 21 Nov: flag the fishers' seeded memory (the runs as a remembered year, si
 ## Linked
 - parent: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
 - relates: [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]]
+- bears on: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
+- bears on: [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]]
+- bears on: [[W-72 Signs of the river|Signs of the river (W-72)]]
 
 
 ## Mentioned by
@@ -26,4 +29,4 @@ Zach, 21 Nov: flag the fishers' seeded memory (the runs as a remembered year, si
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

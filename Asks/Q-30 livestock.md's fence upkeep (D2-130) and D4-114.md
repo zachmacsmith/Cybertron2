@@ -2,7 +2,7 @@
 id: Q-30
 kind: ask
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # livestock.md's fence upkeep (D2-130) and D4-114 (Q-30)
@@ -15,9 +15,14 @@ updated: "2026-11-20"
 **Where:** 37.2
 
 
+## Linked
+- bears on: [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|Writing 37.2's decisions into the spec (about 52 missing) (W-68)]]
+- bears on: [[W-76 The timber economy|The timber economy (W-76)]]
+
+
 ## Mentioned by
 - [[Proposal what is physically possible is possible; the consequences…|Proposal: what is physically possible is possible; the consequences…]]
 - [[U7 works and the building clock|U7: works and the building clock]]
 - [[The declared process model|The declared process model]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

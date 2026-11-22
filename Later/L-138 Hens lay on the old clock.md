@@ -2,7 +2,7 @@
 id: L-138
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Hens lay on the old clock (L-138)
@@ -17,6 +17,8 @@ found by the shared-units analysis (02zzu): laying still runs on node_ecology's 
 
 ## Linked
 - parent: [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
+- bears on: [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 
 
 ## Mentioned by
@@ -25,3 +27,4 @@ found by the shared-units analysis (02zzu): laying still runs on node_ecology's 
 - [[Shared units food value, weight and work on one basis|Shared units: food value, weight and work on one basis]]
 - [[02zzu lookup the food values checked against USDA FoodData Central|02zzu lookup: the food values checked against USDA FoodData Central]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
+- *and 1 index or audit notes*

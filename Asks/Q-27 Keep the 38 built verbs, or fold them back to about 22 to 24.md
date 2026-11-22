@@ -2,7 +2,7 @@
 id: Q-27
 kind: ask
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)
@@ -13,6 +13,10 @@ updated: "2026-11-20"
 **The verb list** (proposals/verbs.md, "ready for a decision" since 23 Oct): keep the 38 built verbs or fold them back to about 22-24 (host, grant, revoke, sleep, fire, order, withdraw into `set`; admit, name, release into `invoke`; membership verbs into one; learn as an accepted `teach`; drive into `move` or a method); the rules against swelling (a new verb needs Zach's yes; the count written in the spec), which meet, come, write and erase did not follow; whether to build a coverage test
 
 **Where:** proposals/verbs.md; agent_view.md point 4; 38.37 §7c
+
+
+## Linked
+- bears on: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
 
 
 ## Mentioned by
@@ -29,4 +33,4 @@ updated: "2026-11-20"
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
-- *and 4 index or audit notes*
+- *and 5 index or audit notes*

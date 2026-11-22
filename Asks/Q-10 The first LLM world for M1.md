@@ -17,4 +17,4 @@ The first LLM world for M1 (a small version of 02f §4's region)
 
 ## Mentioned by
 - [[38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

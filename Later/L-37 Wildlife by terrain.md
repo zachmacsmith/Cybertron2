@@ -2,7 +2,7 @@
 id: L-37
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Wildlife by terrain (L-37)
@@ -19,6 +19,10 @@ updated: "2026-11-20"
 **Waits on:** the generator
 
 
+## Linked
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+
+
 ## Mentioned by
 - [[Proposal environments, ecosystems and how they cluster|Proposal: environments, ecosystems and how they cluster]]
 - [[Proposal fences, hedges and walls|Proposal: fences, hedges and walls]]
@@ -29,4 +33,4 @@ updated: "2026-11-20"
 - [[Proposal the first wild kinds (what lives on the land, what each is…|Proposal: the first wild kinds (what lives on the land, what each is…]]
 - [[The next thread the woods and the wild (hunting, its tools, wildlife…|The next thread: the woods and the wild (hunting, its tools, wildlife…]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

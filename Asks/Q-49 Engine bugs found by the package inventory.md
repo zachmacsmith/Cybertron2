@@ -2,7 +2,7 @@
 id: Q-49
 kind: ask
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Engine bugs found by the package inventory (Q-49)
@@ -15,6 +15,12 @@ updated: "2026-11-20"
 **Where:** docs/review/40_feature_packages/inventory_B.md, _C.md §10, _E.md §10
 
 
+## Linked
+- bears on: [[W-43 The engine as feature packages|The engine as feature packages (W-43)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+
+
 ## Mentioned by
 - [[W-43 The engine as feature packages|The engine as feature packages (W-43)]]
 - [[The engine as a small core and feature packages design specification|The engine as a small core and feature packages: design specification]]
+- *and 1 index or audit notes*

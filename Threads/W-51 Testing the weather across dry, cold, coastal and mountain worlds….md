@@ -25,7 +25,10 @@ done: six condition worlds and heights tested (02zzo); the engine's weather read
 
 
 ## Mentioned by
+- [[Q-29 scheduler.md and the weather scheduler (D4-109)|scheduler.md and the weather scheduler (D4-109) (Q-29)]]
+- [[Q-56 How the weather should follow each place's climate from the generated…|How the weather should follow each place's climate from the generated… (Q-56)]]
+- [[L-68 Crops grow by the weather, not only the season|Crops grow by the weather, not only the season (L-68)]]
 - [[02zzo the weather across conditions, and what the engine leaves…|02zzo: the weather across conditions, and what the engine leaves…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[02zzp what was started and left, 22 Oct to 19 Nov, and how to notice…|02zzp: what was started and left, 22 Oct to 19 Nov, and how to notice…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

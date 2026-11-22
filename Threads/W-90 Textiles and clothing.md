@@ -14,3 +14,10 @@ Benched prospective thread ([[D2-300 Every item Zach defers or flags is tagged w
 
 ## Done so far, and what is left
 started
+
+
+## Mentioned by
+- [[L-14 Clothing|Clothing (L-14)]]
+- [[L-36 Livestock kinds beyond cattle and herds moved with the seasons|Livestock kinds beyond cattle and herds moved with the seasons (L-36)]]
+- [[L-121 Wildlife pack K8 crafts and wild goods|Wildlife pack K8: crafts and wild goods (L-121)]]
+- *and 1 index or audit notes*

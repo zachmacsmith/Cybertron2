@@ -2,7 +2,7 @@
 id: L-145
 kind: deferred
 state: open
-updated: "2026-11-21"
+updated: "2026-11-22"
 ---
 
 # Offal's uses: bait for set lines and traps, dog food (L-145)
@@ -15,6 +15,8 @@ Every kill makes offal and nothing uses it (02zzzh byproducts_and_substitutes, e
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+- bears on: [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 
 
 ## Mentioned by
@@ -23,4 +25,4 @@ Every kill makes offal and nothing uses it (02zzzh byproducts_and_substitutes, e
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

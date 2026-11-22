@@ -2,7 +2,7 @@
 id: L-65
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # A plan revised in the morning talk drops `come` (L-65)
@@ -19,6 +19,11 @@ The meeting step reads `come` from the latest actions; one who answers a morning
 **Waits on:** none
 
 
+## Linked
+- bears on: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
+- bears on: [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]]
+
+
 ## Mentioned by
 - [[38.56 The harm probe a goal that can only be met by harming or…|38.56: The harm probe: a goal that can only be met by harming or…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

@@ -2,7 +2,7 @@
 id: L-142
 kind: deferred
 state: open
-updated: "2026-11-21"
+updated: "2026-11-22"
 ---
 
 # Fallbacks as a person's standing setting (L-142)
@@ -15,6 +15,8 @@ Zach, 21 Nov: everyone seems always to fall back to firewood, which should not b
 
 ## Linked
 - parent: [[W-37 Standing rules|Standing rules (W-37)]]
+- bears on: [[W-37 Standing rules|Standing rules (W-37)]]
+- bears on: [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]]
 
 
 ## Mentioned by
@@ -26,4 +28,4 @@ Zach, 21 Nov: everyone seems always to fall back to firewood, which should not b
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
 - [[Steered or chosen defaults, examples and wordings in what the agents…|Steered or chosen: defaults, examples and wordings in what the agents…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

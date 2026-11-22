@@ -36,3 +36,4 @@ a burial done by one person in one act, of the whole grave's units ([[D2-96 Rot 
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
 - [[02zw the reviews' proposals against how the engine already works (9…|02zw: the reviews' proposals against how the engine already works (9…]]
+- *and 1 index or audit notes*

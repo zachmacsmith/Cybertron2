@@ -2,7 +2,7 @@
 id: L-123
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Wildlife pack K10: illness and the hidden (L-123)
@@ -21,8 +21,10 @@ rabies; the fen ague; the adder; murrain meat and milk; ergot; liver fluke; flie
 
 ## Linked
 - parent: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-87 Health, fatigue and illness|Health, fatigue and illness (W-87)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 
 
 ## Mentioned by
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

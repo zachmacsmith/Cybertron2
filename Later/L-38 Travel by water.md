@@ -2,7 +2,7 @@
 id: L-38
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Travel by water (L-38)
@@ -19,6 +19,11 @@ updated: "2026-11-20"
 **Waits on:** the generator's seas, lakes and rivers
 
 
+## Linked
+- bears on: [[W-92 Boats, barrels and the cooper|Boats, barrels and the cooper (W-92)]]
+- bears on: [[W-89 Trade between villages markets, carriage, what flows where|Trade between villages: markets, carriage, what flows where (W-89)]]
+
+
 ## Mentioned by
 - [[Proposal environments, ecosystems and how they cluster|Proposal: environments, ecosystems and how they cluster]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]
@@ -27,4 +32,4 @@ updated: "2026-11-20"
 - [[Proposal water and wetland life, fishing, preservation, and boats|Proposal: water and wetland life, fishing, preservation, and boats]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

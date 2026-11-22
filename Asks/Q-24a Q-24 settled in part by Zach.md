@@ -2,7 +2,7 @@
 id: Q-24a
 kind: ask
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Q-24 settled in part by Zach (Q-24a)
@@ -15,6 +15,10 @@ updated: "2026-11-20"
 **Where:** 2 Nov (37.4)
 
 
+## Linked
+- bears on: [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|Writing 37.2's decisions into the spec (about 52 missing) (W-68)]]
+
+
 ## Mentioned by
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

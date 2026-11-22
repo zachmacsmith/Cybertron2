@@ -2,7 +2,7 @@
 id: L-21
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Fire: house fire and wildfire in the scheduler, spreading along the… (L-21)
@@ -15,6 +15,11 @@ Fire: house fire and wildfire in the scheduler, spreading along the parcel graph
 **Decided:** 24 Oct
 
 **Designed in:** attacks_and_walls.md; environment.md
+
+
+## Linked
+- bears on: [[W-49 Environment systems|Environment systems (W-49)]]
+- bears on: [[W-16 The engine overhaul|The engine overhaul (W-16)]]
 
 
 ## Mentioned by
@@ -30,4 +35,4 @@ Fire: house fire and wildfire in the scheduler, spreading along the parcel graph
 - [[02s build brief for 37.4 the parcel graph, herds, fences, hidden…|02s: build brief for 37.4: the parcel graph, herds, fences, hidden…]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

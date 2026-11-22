@@ -2,7 +2,7 @@
 id: L-110
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Salt's fuel, to recalibrate (L-110)
@@ -19,6 +19,11 @@ updated: "2026-11-20"
 **Waits on:** Zach
 
 
+## Linked
+- bears on: [[W-76 The timber economy|The timber economy (W-76)]]
+- bears on: [[W-88 The coast and the sea|The coast and the sea (W-88)]]
+
+
 ## Mentioned by
 - [[D2-209 Brief 5 (river and water) is built|Brief 5 (river and water) is built (D2-209)]]
 - [[W-45 Brief 5 revised from the economy research|Brief 5 revised from the economy research (W-45)]]
@@ -29,4 +34,4 @@ updated: "2026-11-20"
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
 - [[38.73 Brief 5 (river and water) as built the dry-run report for the…|38.73: Brief 5 (river and water) as built: the dry-run report for the…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

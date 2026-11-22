@@ -22,4 +22,4 @@ Whether speech to the house is free in the morning too (the evening's last open 
 ## Mentioned by
 - [[When people talk, and what it costs by reach, with an evening at the…|When people talk, and what it costs: by reach, with an evening at the…]]
 - [[38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

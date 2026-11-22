@@ -2,7 +2,7 @@
 id: Q-68
 kind: ask
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # How high the surplus can go in the medieval worlds, against the… (Q-68)
@@ -21,7 +21,10 @@ Zach, 20 Nov: 'this isn't necessarily a ceiling just for the medieval, it might 
 
 ## Linked
 - parent: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+- bears on: [[W-39 The economy's web of dependence and how far it should reach|The economy's web of dependence and how far it should reach (W-39)]]
+- bears on: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 
 
 ## Mentioned by
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
+- *and 1 index or audit notes*

@@ -2,7 +2,7 @@
 id: L-103
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Crafting and discovering new things (L-103)
@@ -19,6 +19,11 @@ updated: "2026-11-20"
 **Waits on:** Zach returning to it
 
 
+## Linked
+- bears on: [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]]
+- bears on: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
+
+
 ## Mentioned by
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
@@ -26,4 +31,4 @@ updated: "2026-11-20"
 - [[18 Health, environment, luxury, crime and measures the economy's…|18: Health, environment, luxury, crime and measures: the economy's…]]
 - [[02zzk where to draw the border for now the medieval village and…|02zzk: where to draw the border for now: the medieval village and…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
-- *and 4 index or audit notes*
+- *and 5 index or audit notes*

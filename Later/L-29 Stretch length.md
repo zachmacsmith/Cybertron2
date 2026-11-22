@@ -20,4 +20,4 @@ how many days an agent's conversation runs before its memory is written and it r
 
 
 ## Mentioned by
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

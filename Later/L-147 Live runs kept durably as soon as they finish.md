@@ -2,7 +2,7 @@
 id: L-147
 kind: deferred
 state: open
-updated: "2026-11-21"
+updated: "2026-11-22"
 ---
 
 # Live runs kept durably as soon as they finish (L-147)
@@ -15,8 +15,10 @@ The three live runs of the runs world (low, medium, high; 20 Nov; about 63 dolla
 
 ## Linked
 - parent: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+- bears on: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 
 
 ## Mentioned by
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 - [[Steered or chosen defaults, examples and wordings in what the agents…|Steered or chosen: defaults, examples and wordings in what the agents…]]
+- *and 1 index or audit notes*

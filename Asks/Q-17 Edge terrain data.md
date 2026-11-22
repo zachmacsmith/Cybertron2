@@ -21,4 +21,4 @@ Edge terrain data (what an edge's land is: plain, woodland, ridge, river, marsh)
 - [[Proposal meetings on the road (travellers, lost herds, ambushes)|Proposal: meetings on the road (travellers, lost herds, ambushes)]]
 - [[Proposal the layout of a road (stretches and landmarks)|Proposal: the layout of a road (stretches and landmarks)]]
 - [[38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

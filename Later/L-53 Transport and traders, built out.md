@@ -2,7 +2,7 @@
 id: L-53
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Transport and traders, built out (L-53)
@@ -17,6 +17,11 @@ updated: "2026-11-20"
 **Designed in:** economy/transport.md; 02zl; engine_gaps G-35
 
 **Waits on:** the dependence ladder's transport arm ([[L-50 Calibrate the carrying burden|L-50]])
+
+
+## Linked
+- bears on: [[W-89 Trade between villages markets, carriage, what flows where|Trade between villages: markets, carriage, what flows where (W-89)]]
+- bears on: [[W-76 The timber economy|The timber economy (W-76)]]
 
 
 ## Mentioned by
@@ -35,4 +40,4 @@ updated: "2026-11-20"
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

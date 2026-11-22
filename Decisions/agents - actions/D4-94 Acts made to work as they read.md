@@ -26,3 +26,4 @@ timber-only open fires; bare-tag take; move refused when full; strict work legs;
 - [[What agents can do|What agents can do]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
 - [[38.50 Every refusal in every run, and the misunderstandings behind…|38.50: Every refusal in every run, and the misunderstandings behind…]]
+- *and 1 index or audit notes*

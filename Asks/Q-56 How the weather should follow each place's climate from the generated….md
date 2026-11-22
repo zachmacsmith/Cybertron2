@@ -2,7 +2,7 @@
 id: Q-56
 kind: ask
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # How the weather should follow each place's climate from the generated… (Q-56)
@@ -17,6 +17,12 @@ updated: "2026-11-20"
 **Where:** docs/cybertron2/proposals/climate_from_land.md; docs/review/37_growth/02zzo_weather_conditions.md
 
 
+## Linked
+- bears on: [[W-49 Environment systems|Environment systems (W-49)]]
+- bears on: [[W-51 Testing the weather across dry, cold, coastal and mountain worlds…|Testing the weather across dry, cold, coastal and mountain worlds… (W-51)]]
+- bears on: [[W-25 Keeping each world's full 150 m land with it|Keeping each world's full 150 m land with it (W-25)]]
+
+
 ## Mentioned by
 - [[D2-220 The weather takes each place's climate from the generated land|The weather takes each place's climate from the generated land (D2-220)]]
 - [[W-49 Environment systems|Environment systems (W-49)]]
@@ -28,4 +34,4 @@ updated: "2026-11-20"
 - [[02zzo the weather across conditions, and what the engine leaves…|02zzo: the weather across conditions, and what the engine leaves…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[02zzt the calibration suite, its first results, and the generator…|02zzt: the calibration suite, its first results, and the generator…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

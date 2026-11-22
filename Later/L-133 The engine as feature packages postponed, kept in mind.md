@@ -2,7 +2,7 @@
 id: L-133
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # The engine as feature packages: postponed, kept in mind (L-133)
@@ -18,6 +18,8 @@ Zach, 20 Nov ([[D2-244 The engine's reworking into feature packages|D2-244]]): p
 ## Linked
 - parent: [[W-43 The engine as feature packages|The engine as feature packages (W-43)]]
 - relates: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
+- bears on: [[W-43 The engine as feature packages|The engine as feature packages (W-43)]]
+- bears on: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
 
 
 ## Mentioned by
@@ -25,4 +27,4 @@ Zach, 20 Nov ([[D2-244 The engine's reworking into feature packages|D2-244]]): p
 - [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

@@ -65,6 +65,7 @@ updated: "2026-11-22"
 - [[W-22 Hunting against farming and gathering in generated worlds|Hunting against farming and gathering in generated worlds (W-22)]]
 - [[W-72 Signs of the river|Signs of the river (W-72)]]
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+- [[L-112 A farming pack|A `farming` pack (L-112)]]
 - [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]]
 - [[L-147 Live runs kept durably as soon as they finish|Live runs kept durably as soon as they finish (L-147)]]
 - [[O-2 Make the eleven bulk processes take up to their batch|Make the eleven bulk processes take up to their batch (O-2)]]
@@ -86,6 +87,5 @@ updated: "2026-11-22"
 - [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[The fishing ladder techniques, gear, works and the water's stocks|The fishing ladder: techniques, gear, works and the water's stocks]]
-- [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]
-- … and 3 more
-- *and 1 index or audit notes*
+- … and 4 more
+- *and 2 index or audit notes*

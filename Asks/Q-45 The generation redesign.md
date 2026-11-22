@@ -2,7 +2,7 @@
 id: Q-45
 kind: ask
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # The generation redesign (Q-45)
@@ -15,6 +15,11 @@ updated: "2026-11-20"
 **Where:** docs/cybertron2/proposals/generation_redesign.md §5, Open questions; the people prototype's results: proto/peoplegen/REPORT.md (both §5 risks settled for people)
 
 
+## Linked
+- bears on: [[W-93 Demography and growth|Demography and growth (W-93)]]
+- bears on: [[W-54 The twelve calibration worlds and an audit of the generator across…|The twelve calibration worlds and an audit of the generator across… (W-54)]]
+
+
 ## Mentioned by
 - [[Q-60 The water worlds' people, and the runs world for the…|The water worlds' people, and the runs world for the… (Q-60)]]
 - [[W-38 Generation redesign|Generation redesign (W-38)]]
@@ -22,4 +27,4 @@ updated: "2026-11-20"
 - [[L-108 Calibrating the backward people build|Calibrating the backward people build (L-108)]]
 - [[17 The household's own work, care and kinship (16 Nov 2026)|17: The household's own work, care and kinship (16 Nov 2026)]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

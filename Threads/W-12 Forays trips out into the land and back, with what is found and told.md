@@ -28,6 +28,13 @@ deferred 20 Nov: deferred as [[L-105 Forays as their own track|L-105]] (02zzr)
 
 
 ## Mentioned by
+- [[Q-18 D2-74 amends D4-35|D2-74 amends D4-35 (Q-18)]]
 - [[Q-33 forays.md's open questions|forays.md's open questions (Q-33)]]
+- [[L-1 Signs of slow change on long journeys|Signs of slow change on long journeys (L-1)]]
+- [[L-47 Camps built out, with harder weather|Camps built out, with harder weather (L-47)]]
 - [[L-105 Forays as their own track|Forays as their own track (L-105)]]
-- *and 5 index or audit notes*
+- [[L-117 Wildlife pack K3 forays, methods and knowing|Wildlife pack K3: forays, methods and knowing (L-117)]]
+- [[L-126 The wildlife's core mechanisms not built|The wildlife's core mechanisms not built (L-126)]]
+- [[L-152 Travel folded into the standing rules|Travel folded into the standing rules (L-152)]]
+- [[C-6 Danger on the road|Danger on the road (C-6)]]
+- *and 6 index or audit notes*

@@ -2,7 +2,7 @@
 id: Q-47
 kind: ask
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Where the economy stops for now (Q-47)
@@ -17,10 +17,15 @@ updated: "2026-11-20"
 **Revisit:** kept open on purpose with [[W-39 The economy's web of dependence and how far it should reach|W-39]] (Zach, 20 Nov)
 
 
+## Linked
+- bears on: [[W-39 The economy's web of dependence and how far it should reach|The economy's web of dependence and how far it should reach (W-39)]]
+- bears on: [[W-86 Households generalised into institutions and laws|Households generalised into institutions and laws (W-86)]]
+
+
 ## Mentioned by
 - [[W-42 Where to draw the border for now|Where to draw the border for now (W-42)]]
 - [[W-44 The missing domains and a linking pass|The missing domains and a linking pass (W-44)]]
 - [[14 War, force and the economy (16 Nov 2026)|14: War, force and the economy (16 Nov 2026)]]
 - [[15 Knowledge-making discovery, instruments, records and the…|15: Knowledge-making: discovery, instruments, records and the…]]
 - [[16 Religion, ritual and the economy (16 Nov 2026)|16: Religion, ritual and the economy (16 Nov 2026)]]
-- *and 4 index or audit notes*
+- *and 5 index or audit notes*

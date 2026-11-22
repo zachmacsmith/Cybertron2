@@ -2,7 +2,7 @@
 id: Q-42
 kind: ask
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # The peoples benchmark's design before any run (Q-42)
@@ -15,7 +15,12 @@ updated: "2026-11-20"
 **Where:** docs/review/38_space_engine/69_peoples_worlds.md
 
 
+## Linked
+- bears on: [[W-34 Worlds for the peoples benchmark|Worlds for the peoples benchmark (W-34)]]
+- bears on: [[W-34b Worlds for the population benchmark, the peoples variant|Worlds for the population benchmark, the peoples variant (W-34b)]]
+
+
 ## Mentioned by
 - [[W-34 Worlds for the peoples benchmark|Worlds for the peoples benchmark (W-34)]]
 - [[W-63 The audit of work started and left, and the triage of open asks and…|The audit of work started and left, and the triage of open asks and… (W-63)]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

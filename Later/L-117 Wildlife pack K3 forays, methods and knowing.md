@@ -2,7 +2,7 @@
 id: L-117
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Wildlife pack K3: forays, methods and knowing (L-117)
@@ -21,6 +21,9 @@ forays, places in memory and names, land features, cord and the coppice's produc
 
 ## Linked
 - parent: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]]
+- bears on: [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
 
 
 ## Mentioned by
@@ -33,4 +36,4 @@ forays, places in memory and names, land features, cord and the coppice's produc
 - [[Why the villagers of the runs world did not fish|Why the villagers of the runs world did not fish]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
-- *and 5 index or audit notes*
+- *and 6 index or audit notes*

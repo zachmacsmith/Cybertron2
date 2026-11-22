@@ -34,8 +34,12 @@ started
 ## Mentioned by
 - [[D2-265 The river's signs|The river's signs (D2-265)]]
 - [[D2-269 Experts' signs are observations of what is happening now, which may…|Experts' signs are observations of what is happening now, which may… (D2-269)]]
+- [[Q-77 Whether to tune how often the river reads spate or flood now|Whether to tune how often the river reads spate or flood now (Q-77)]]
+- [[Q-78 Whether to build the fishing legibility fixes|Whether to build the fishing legibility fixes (Q-78)]]
+- [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 - [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]
+- [[L-114 The river high or in spate as a sign|The river high or in spate as a sign (L-114)]]
 - [[L-141 How much seeded memory each livelihood starts with|How much seeded memory each livelihood starts with (L-141)]]
 - [[L-149 Gulls and other coastal birds, with the coast|Gulls and other coastal birds, with the coast (L-149)]]
 - [[L-150 Environmental effects on fishing refined after the rest works|Environmental effects on fishing refined after the rest works (L-150)]]
@@ -46,4 +50,4 @@ started
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

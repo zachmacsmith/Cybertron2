@@ -25,4 +25,4 @@ Riders who travel and strike in one round
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[Review 38.20 the decisions still open, by what they block|Review 38.20: the decisions still open, by what they block]]
 - [[38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

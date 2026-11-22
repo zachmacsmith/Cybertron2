@@ -40,3 +40,4 @@ fences on borders now
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
 - [[Review 38.25 Package C built and run (37.2's brief 02s) the parcel…|Review 38.25: Package C built and run (37.2's brief 02s): the parcel…]]
+- *and 1 index or audit notes*

@@ -2,7 +2,7 @@
 id: L-124
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Wildlife pack K11: lodgers of buildings (L-124)
@@ -21,7 +21,10 @@ jackdaws in chimneys; deathwatch beetle, woodworm, dry rot; black rats in thatch
 
 ## Linked
 - parent: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-76 The timber economy|The timber economy (W-76)]]
+- bears on: [[W-87 Health, fatigue and illness|Health, fatigue and illness (W-87)]]
 
 
 ## Mentioned by
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

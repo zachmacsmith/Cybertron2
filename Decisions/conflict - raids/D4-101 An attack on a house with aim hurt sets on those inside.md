@@ -24,3 +24,4 @@ an attack on a house was a raid for food whatever its aim (OPEN [[L-64 An attack
 - [[An attack on a house to hurt sets on the people inside|An attack on a house to hurt sets on the people inside]]
 - [[Raids on a building and on a whole node|Raids: on a building and on a whole node]]
 - [[14 War, force and the economy (16 Nov 2026)|14: War, force and the economy (16 Nov 2026)]]
+- *and 1 index or audit notes*

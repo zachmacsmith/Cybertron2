@@ -2,7 +2,7 @@
 id: L-72
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Phase 2's open decisions (L-72)
@@ -19,6 +19,10 @@ updated: "2026-11-20"
 **Waits on:** Zach
 
 
+## Linked
+- bears on: [[W-16 The engine overhaul|The engine overhaul (W-16)]]
+
+
 ## Mentioned by
 - [[W-16 The engine overhaul|The engine overhaul (W-16)]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

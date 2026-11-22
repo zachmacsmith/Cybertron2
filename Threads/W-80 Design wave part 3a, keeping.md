@@ -26,8 +26,10 @@ started
 
 
 ## Mentioned by
+- [[L-115 Dried fish in the economy spec|Dried fish in the economy spec (L-115)]]
+- [[L-154 The scale gap in stores|The scale gap in stores (L-154)]]
 - [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Design wave part 2 materials and making (withies, cord and flax…|Design wave part 2: materials and making (withies, cord and flax…]]
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

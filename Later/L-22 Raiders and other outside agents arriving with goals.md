@@ -25,4 +25,4 @@ Raiders and other outside agents arriving with goals ([[D2-76 Eras in four famil
 - [[02s build brief for 37.4 the parcel graph, herds, fences, hidden…|02s: build brief for 37.4: the parcel graph, herds, fences, hidden…]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

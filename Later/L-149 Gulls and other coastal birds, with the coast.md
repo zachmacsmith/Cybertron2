@@ -15,7 +15,9 @@ Zach, 22 Nov: gulls are just at the coast; bench them for when we add other coas
 
 ## Linked
 - parent: [[W-72 Signs of the river|Signs of the river (W-72)]]
+- bears on: [[W-88 The coast and the sea|The coast and the sea (W-88)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 
 
 ## Mentioned by
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

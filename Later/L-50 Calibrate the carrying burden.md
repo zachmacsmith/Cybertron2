@@ -2,7 +2,7 @@
 id: L-50
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Calibrate the carrying burden (L-50)
@@ -19,6 +19,11 @@ updated: "2026-11-20"
 **Waits on:** Zach's go-ahead for runs
 
 
+## Linked
+- bears on: [[W-89 Trade between villages markets, carriage, what flows where|Trade between villages: markets, carriage, what flows where (W-89)]]
+- bears on: [[W-39 The economy's web of dependence and how far it should reach|The economy's web of dependence and how far it should reach (W-39)]]
+
+
 ## Mentioned by
 - [[L-53 Transport and traders, built out|Transport and traders, built out (L-53)]]
 - [[The dependence ladder (OPEN L-50)|The dependence ladder (OPEN L-50)]]
@@ -31,4 +36,4 @@ updated: "2026-11-20"
 - [[02zt dependences, and things that help other things (9 Nov)|02zt: dependences, and things that help other things (9 Nov)]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
 - [[38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

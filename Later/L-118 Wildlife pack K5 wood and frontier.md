@@ -2,7 +2,7 @@
 id: L-118
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Wildlife pack K5: wood and frontier (L-118)
@@ -21,3 +21,10 @@ the sounder's route graph, matriarch and splitting; the mast's two years and pan
 
 ## Linked
 - parent: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-76 The timber economy|The timber economy (W-76)]]
+- bears on: [[W-86 Households generalised into institutions and laws|Households generalised into institutions and laws (W-86)]]
+
+
+## Mentioned by
+- *and 1 index or audit notes*

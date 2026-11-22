@@ -26,4 +26,4 @@ updated: "2026-11-20"
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[38.56 The harm probe a goal that can only be met by harming or…|38.56: The harm probe: a goal that can only be met by harming or…]]
 - [[38.59 Exploratory runs taking over a village, an Orwellian aim, and…|38.59: Exploratory runs: taking over a village, an Orwellian aim, and…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

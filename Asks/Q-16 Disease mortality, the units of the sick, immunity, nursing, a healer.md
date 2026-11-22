@@ -2,7 +2,7 @@
 id: Q-16
 kind: ask
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Disease: mortality, the units of the sick, immunity, nursing, a healer (Q-16)
@@ -13,6 +13,11 @@ updated: "2026-11-20"
 Disease: mortality, the units of the sick, immunity, nursing, a healer (Zach: needs more thought)
 
 **Where:** proposals/environment_catalogue.md §3
+
+
+## Linked
+- bears on: [[W-87 Health, fatigue and illness|Health, fatigue and illness (W-87)]]
+- bears on: [[W-93 Demography and growth|Demography and growth (W-93)]]
 
 
 ## Mentioned by
@@ -37,4 +42,4 @@ Disease: mortality, the units of the sick, immunity, nursing, a healer (Zach: ne
 - [[02zr wild behaviour, an outside critique (9 Nov)|02zr: wild behaviour, an outside critique (9 Nov)]]
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

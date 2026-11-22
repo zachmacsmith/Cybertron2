@@ -26,8 +26,12 @@ started
 
 
 ## Mentioned by
+- [[L-69 Work costs out of scale with a short year|Work costs out of scale with a short year (L-69)]]
+- [[L-138 Hens lay on the old clock|Hens lay on the old clock (L-138)]]
+- [[L-139 A hen killed in a raid gives its meat|A hen killed in a raid gives its meat (L-139)]]
+- [[L-154 The scale gap in stores|The scale gap in stores (L-154)]]
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

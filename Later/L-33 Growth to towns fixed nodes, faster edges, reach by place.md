@@ -2,7 +2,7 @@
 id: L-33
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Growth to towns: fixed nodes, faster edges, reach by place (L-33)
@@ -19,6 +19,11 @@ Nodes stay fixed pieces of geography (never re-drawn: claims, memories, seats an
 **Waits on:** transport shorter than a day becomes relevant
 
 
+## Linked
+- bears on: [[W-93 Demography and growth|Demography and growth (W-93)]]
+- bears on: [[W-89 Trade between villages markets, carriage, what flows where|Trade between villages: markets, carriage, what flows where (W-89)]]
+
+
 ## Mentioned by
 - [[Proposal the landscape generator (a world under the graph)|Proposal: the landscape generator (a world under the graph)]]
 - [[Proposal the economics of information|Proposal: the economics of information]]
@@ -27,4 +32,4 @@ Nodes stay fixed pieces of geography (never re-drawn: claims, memories, seats an
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
 - [[02zzq the records and the workflow as they are, and how Zach works…|02zzq: the records and the workflow as they are, and how Zach works…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

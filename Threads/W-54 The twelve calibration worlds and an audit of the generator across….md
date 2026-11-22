@@ -31,12 +31,19 @@ built and on main 20 Nov (merged with [[W-62 Merging the water work from its twe
 ## Mentioned by
 - [[D2-245 The calibration suite is all twelve worlds of…|The calibration suite is all twelve worlds of… (D2-245)]]
 - [[D2-252 The calibration suite measures how the worlds differ, world by world…|The calibration suite measures how the worlds differ, world by world… (D2-252)]]
+- [[Q-28 The economy check counts crops that winter will clear|The economy check counts crops that winter will clear (Q-28)]]
+- [[Q-45 The generation redesign|The generation redesign (Q-45)]]
 - [[W-7 The ecology branch's next steps|The ecology branch's next steps (W-7)]]
 - [[W-11 Landscapes still to tune|Landscapes still to tune (W-11)]]
 - [[W-53 Floodplains in the generator|Floodplains in the generator (W-53)]]
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+- [[L-49 Automated supply-chain and dependence checks for generated worlds|Automated supply-chain and dependence checks for generated worlds (L-49)]]
+- [[L-51 landgen.physical._spread reaches farther than its steps|`landgen.physical._spread` reaches farther than its steps (L-51)]]
+- [[L-75 The generator's lakes and heat target|The generator's lakes and heat target (L-75)]]
+- [[L-100 Landscapes still to tune|Landscapes still to tune (L-100)]]
+- [[L-101 Compile the generator into specworldgeneration.md|Compile the generator into spec/world/generation.md (L-101)]]
 - [[L-127 The ecology's calibration backlog|The ecology's calibration backlog (L-127)]]
 - [[Calibration worlds a suite of diverse places to calibrate against|Calibration worlds: a suite of diverse places to calibrate against]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[02zzt the calibration suite, its first results, and the generator…|02zzt: the calibration suite, its first results, and the generator…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

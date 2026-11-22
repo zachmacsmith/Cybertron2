@@ -2,7 +2,7 @@
 id: L-131
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # The wild layer's live points from briefs 1 to 3 (L-131)
@@ -18,6 +18,8 @@ kept from the asks closed in the triage (02zzr): houses break fast ([[D2-168 Wea
 ## Linked
 - parent: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 - relates: [[L-113 Briefs 4, 4b and 4c's deviations, to revisit|Briefs 4, 4b and 4c's deviations, to revisit (L-113)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-76 The timber economy|The timber economy (W-76)]]
 
 
 ## Mentioned by
@@ -35,3 +37,4 @@ kept from the asks closed in the triage (02zzr): houses break fast ([[D2-168 Wea
 - [[W-21 Proposals for Q-37|Proposals for Q-37 (W-21)]]
 - [[U5. Stores and containers a space and what is in it, each removing…|U5. Stores and containers: a space and what is in it, each removing…]]
 - [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
+- *and 1 index or audit notes*

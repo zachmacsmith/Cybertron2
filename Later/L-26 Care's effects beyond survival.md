@@ -2,7 +2,7 @@
 id: L-26
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Care's effects beyond survival (L-26)
@@ -19,6 +19,11 @@ Care's effects beyond survival: a cared-for child growing into a healthier (less
 **Waits on:** children built; with [[L-25 Beliefs, values and customs|L-25]]
 
 
+## Linked
+- bears on: [[W-93 Demography and growth|Demography and growth (W-93)]]
+- bears on: [[W-87 Health, fatigue and illness|Health, fatigue and illness (W-87)]]
+
+
 ## Mentioned by
 - [[D2-150 Care bears on survival only for now|Care bears on survival only for now (D2-150)]]
 - [[L-12 Children and life (we'll come back to this)|Children and life ("we'll come back to this") (L-12)]]
@@ -27,4 +32,4 @@ Care's effects beyond survival: a cared-for child growing into a healthier (less
 - [[Birth and death partners, children, growing up, old age, succession|Birth and death: partners, children, growing up, old age, succession]]
 - [[02w build brief for 37.4 children and reproduction (Package D)|02w: build brief for 37.4: children and reproduction (Package D)]]
 - [[17 The household's own work, care and kinship (16 Nov 2026)|17: The household's own work, care and kinship (16 Nov 2026)]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

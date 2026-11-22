@@ -26,6 +26,11 @@ started
 
 
 ## Mentioned by
+- [[L-16 Reflexes, fallbacks and policies as standing orders|Reflexes, fallbacks and policies as standing orders (L-16)]]
+- [[L-60 Should the store line give food in meals and fuel in nights, or leave…|Should the store line give food in meals and fuel in nights, or leave… (L-60)]]
+- [[L-65 A plan revised in the morning talk drops come|A plan revised in the morning talk drops `come` (L-65)]]
+- [[L-142 Fallbacks as a person's standing setting|Fallbacks as a person's standing setting (L-142)]]
+- [[C-12 The river run seeded a scored goal|The river run seeded a scored goal (C-12)]]
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Steered or chosen defaults, examples and wordings in what the agents…|Steered or chosen: defaults, examples and wordings in what the agents…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

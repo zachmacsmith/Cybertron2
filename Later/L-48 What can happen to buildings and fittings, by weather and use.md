@@ -2,7 +2,7 @@
 id: L-48
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # What can happen to buildings and fittings, by weather and use (L-48)
@@ -19,6 +19,12 @@ updated: "2026-11-20"
 **Waits on:** [[L-47 Camps built out, with harder weather|L-47]] (weather), the scheduler's house fire
 
 
+## Linked
+- bears on: [[W-49 Environment systems|Environment systems (W-49)]]
+- bears on: [[W-76 The timber economy|The timber economy (W-76)]]
+- bears on: [[W-87 Health, fatigue and illness|Health, fatigue and illness (W-87)]]
+
+
 ## Mentioned by
 - [[D4-97 Decisions on 38.51's list|Decisions on 38.51's list (D4-97)]]
 - [[What can happen to buildings and fittings, by weather and use…|What can happen to buildings and fittings, by weather and use…]]
@@ -33,4 +39,4 @@ updated: "2026-11-20"
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
 - [[38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

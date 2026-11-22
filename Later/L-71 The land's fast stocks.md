@@ -2,7 +2,7 @@
 id: L-71
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # The land's fast stocks (L-71)
@@ -19,8 +19,13 @@ updated: "2026-11-20"
 **Waits on:** Zach's go
 
 
+## Linked
+- bears on: [[W-49 Environment systems|Environment systems (W-49)]]
+- bears on: [[W-76 The timber economy|The timber economy (W-76)]]
+
+
 ## Mentioned by
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

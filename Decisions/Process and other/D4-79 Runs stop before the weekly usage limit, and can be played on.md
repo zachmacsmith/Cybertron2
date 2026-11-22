@@ -19,4 +19,4 @@ conversation ("don't go past 40% weekly usage"; a long run continued, c2_combe);
 ## Mentioned by
 - [[L-31 D4-79's rules|D4-79's rules (L-31)]]
 - [[Runs that stop before the weekly limit, and play on|Runs that stop before the weekly limit, and play on]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

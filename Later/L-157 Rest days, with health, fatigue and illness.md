@@ -15,6 +15,8 @@ Zach, 22 Nov: how would this even work? Wouldn't this be a cultural thing and re
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+- bears on: [[W-87 Health, fatigue and illness|Health, fatigue and illness (W-87)]]
+- bears on: [[W-94 Timed actions|Timed actions (W-94)]]
 
 
 ## Mentioned by
@@ -23,4 +25,4 @@ Zach, 22 Nov: how would this even work? Wouldn't this be a cultural thing and re
 - [[U7 works and the building clock|U7: works and the building clock]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

@@ -22,4 +22,4 @@ updated: "2026-11-20"
 ## Mentioned by
 - [[Graves dug by many, over days; a cairn after burial; an unfinished…|Graves dug by many, over days; a cairn after burial; an unfinished…]]
 - [[38.58 The most interesting episodes in the cybertron2 runs (a sweep…|38.58: The most interesting episodes in the cybertron2 runs (a sweep…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

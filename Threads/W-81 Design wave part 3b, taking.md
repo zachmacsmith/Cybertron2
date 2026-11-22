@@ -26,6 +26,11 @@ started
 
 
 ## Mentioned by
+- [[Q-74 Whether a weir's first section costs a base of 6 timber and 8 units…|Whether a weir's first section costs a base of 6 timber and 8 units… (Q-74)]]
+- [[Q-75 Whether D2-210's yearly upkeep band wins over the river proposal's…|Whether D2-210's yearly upkeep band wins over the river proposal's… (Q-75)]]
+- [[Q-78 Whether to build the fishing legibility fixes|Whether to build the fishing legibility fixes (Q-78)]]
+- [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
+- [[L-145 Offal's uses bait for set lines and traps, dog food|Offal's uses: bait for set lines and traps, dog food (L-145)]]
 - [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
 - [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
 - [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
@@ -33,4 +38,4 @@ started
 - [[Design wave part 2 materials and making (withies, cord and flax…|Design wave part 2: materials and making (withies, cord and flax…]]
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

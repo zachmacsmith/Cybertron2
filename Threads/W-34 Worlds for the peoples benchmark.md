@@ -25,7 +25,13 @@ W1 (two peoples) and W4 (three) ready on branch `peoples-worlds` (e54c722): gene
 
 
 ## Mentioned by
+- [[Q-42 The peoples benchmark's design before any run|The peoples benchmark's design before any run (Q-42)]]
+- [[Q-43 Fixes before a second peoples run|Fixes before a second peoples run (Q-43)]]
 - [[W-34b Worlds for the population benchmark, the peoples variant|Worlds for the population benchmark, the peoples variant (W-34b)]]
+- [[L-27 Replacement and fertility rates over lifespans against how often…|Replacement and fertility rates over lifespans against how often… (L-27)]]
+- [[L-75 The generator's lakes and heat target|The generator's lakes and heat target (L-75)]]
+- [[L-76 The intermarried peoples world|The intermarried peoples world (L-76)]]
+- [[L-104 MAJOR the descendants benchmark|MAJOR: the descendants benchmark (L-104)]]
 - [[Proposal world generation as one history, with pins met in the loop|Proposal: world generation as one history, with pins met in the loop]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

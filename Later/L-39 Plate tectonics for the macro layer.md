@@ -23,4 +23,4 @@ updated: "2026-11-20"
 - [[D2-178 The macro layer is templates and noise|The macro layer is templates and noise (D2-178)]]
 - [[Proposal environments, ecosystems and how they cluster|Proposal: environments, ecosystems and how they cluster]]
 - [[Proposal the generator, stage 1 (a spec for review before it is…|Proposal: the generator, stage 1 (a spec for review before it is…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

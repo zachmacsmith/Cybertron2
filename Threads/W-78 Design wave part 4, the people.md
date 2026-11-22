@@ -26,7 +26,13 @@ started
 
 
 ## Mentioned by
+- [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]]
+- [[Q-82 Trying and learning|Trying and learning (Q-82)]]
+- [[L-17 Aims (cybertron 1's goals, edited)|Aims (cybertron 1's goals, edited) (L-17)]]
+- [[L-103 Crafting and discovering new things|Crafting and discovering new things (L-103)]]
+- [[L-141 How much seeded memory each livelihood starts with|How much seeded memory each livelihood starts with (L-141)]]
+- [[C-12 The river run seeded a scored goal|The river run seeded a scored goal (C-12)]]
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

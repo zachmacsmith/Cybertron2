@@ -2,7 +2,7 @@
 id: L-106
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # MAJOR: what the engine remembers and settles for agents, and… (L-106)
@@ -20,6 +20,11 @@ updated: "2026-11-20"
 **Designed in:** proposals/agreements.md, spec/agents/memory.md, spec/economy/agreements.md, spec/information/perception.md; docs/review/38_space_engine/68_economy_forms.md; this session's notes on the wild region run (02zze)
 
 **Waits on:** Zach taking it up; a proposal by 37.2 with 37.4
+
+
+## Linked
+- bears on: [[W-86 Households generalised into institutions and laws|Households generalised into institutions and laws (W-86)]]
+- bears on: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
 
 
 ## Mentioned by
@@ -43,4 +48,4 @@ updated: "2026-11-20"
 - [[02zzk where to draw the border for now the medieval village and…|02zzk: where to draw the border for now: the medieval village and…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[02zzs the wild region's 30-day live run (10 Nov), written up|02zzs: the wild region's 30-day live run (10 Nov), written up]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

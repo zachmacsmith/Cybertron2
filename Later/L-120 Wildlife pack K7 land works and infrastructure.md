@@ -2,7 +2,7 @@
 id: L-120
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Wildlife pack K7: land works and infrastructure (L-120)
@@ -21,9 +21,13 @@ hedges, banks, walls, pales and mesh as barriers with properties on parcel edges
 
 ## Linked
 - parent: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-76 The timber economy|The timber economy (W-76)]]
+- bears on: [[W-49 Environment systems|Environment systems (W-49)]]
 
 
 ## Mentioned by
 - [[U7 works and the building clock|U7: works and the building clock]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
+- *and 1 index or audit notes*

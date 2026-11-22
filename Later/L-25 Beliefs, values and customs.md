@@ -2,7 +2,7 @@
 id: L-25
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Beliefs, values and customs (L-25)
@@ -19,6 +19,11 @@ updated: "2026-11-20"
 **Waits on:** children built; knowledge.md; law.md
 
 
+## Linked
+- bears on: [[W-86 Households generalised into institutions and laws|Households generalised into institutions and laws (W-86)]]
+- bears on: [[W-93 Demography and growth|Demography and growth (W-93)]]
+
+
 ## Mentioned by
 - [[D4-57 A custom can be held by households, not only by places|A custom can be held by households, not only by places (D4-57)]]
 - [[L-26 Care's effects beyond survival|Care's effects beyond survival (L-26)]]
@@ -33,4 +38,4 @@ updated: "2026-11-20"
 - [[02w build brief for 37.4 children and reproduction (Package D)|02w: build brief for 37.4: children and reproduction (Package D)]]
 - [[17 The household's own work, care and kinship (16 Nov 2026)|17: The household's own work, care and kinship (16 Nov 2026)]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

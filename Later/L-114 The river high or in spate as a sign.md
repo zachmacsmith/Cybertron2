@@ -2,7 +2,7 @@
 id: L-114
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # The river high or in spate as a sign (L-114)
@@ -19,8 +19,14 @@ updated: "2026-11-20"
 **Waits on:** Zach
 
 
+## Linked
+- bears on: [[W-72 Signs of the river|Signs of the river (W-72)]]
+- bears on: [[W-49 Environment systems|Environment systems (W-49)]]
+
+
 ## Mentioned by
 - [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
 - [[38.77 The lake runs' faults, fish on the hearth rack, and a signs…|38.77: The lake runs' faults, fish on the hearth rack, and a signs…]]
+- *and 1 index or audit notes*

@@ -2,7 +2,7 @@
 id: C-6
 kind: conflict
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Danger on the road (C-6)
@@ -17,6 +17,11 @@ Danger on the road
 **Where:** 38.05 §2 (a risk draw per night) vs 02g §3b-3c (danger per edge by terrain and season, per rung)
 
 
+## Linked
+- bears on: [[W-89 Trade between villages markets, carriage, what flows where|Trade between villages: markets, carriage, what flows where (W-89)]]
+- bears on: [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]]
+
+
 ## Mentioned by
 - [[Q-17 Edge terrain data|Edge terrain data (Q-17)]]
 - [[Proposal transport and lodging|Proposal: transport and lodging]]
@@ -27,4 +32,4 @@ Danger on the road
 - [[04 Exchange, money, credit, markets, information and transport, from…|04: Exchange, money, credit, markets, information and transport, from…]]
 - [[Review 38.20 the decisions still open, by what they block|Review 38.20: the decisions still open, by what they block]]
 - [[38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

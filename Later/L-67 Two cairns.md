@@ -22,4 +22,4 @@ updated: "2026-11-20"
 ## Mentioned by
 - [[Proposal objects placed in the world|Proposal: objects placed in the world]]
 - [[Things in places putting down, hiding, the dead, burial|Things in places: putting down, hiding, the dead, burial]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

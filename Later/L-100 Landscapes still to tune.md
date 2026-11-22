@@ -2,7 +2,7 @@
 id: L-100
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Landscapes still to tune (L-100)
@@ -19,9 +19,14 @@ updated: "2026-11-20"
 **Waits on:** none
 
 
+## Linked
+- bears on: [[W-54 The twelve calibration worlds and an audit of the generator across…|The twelve calibration worlds and an audit of the generator across… (W-54)]]
+- bears on: [[W-49 Environment systems|Environment systems (W-49)]]
+
+
 ## Mentioned by
 - [[W-11 Landscapes still to tune|Landscapes still to tune (W-11)]]
 - [[Proposal environments, ecosystems and how they cluster|Proposal: environments, ecosystems and how they cluster]]
 - [[Proposal landscapes that make sense, within one environmental…|Proposal: landscapes that make sense, within one environmental…]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
-- *and 4 index or audit notes*
+- *and 5 index or audit notes*

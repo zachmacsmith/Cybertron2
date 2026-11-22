@@ -52,4 +52,4 @@ built and on main 20 Nov (d2b130c to fdd1edb): tools/records.py and records_hook
 - [[O-1 A first wiki generated from the spec as it stands, as a private page…|A first wiki generated from the spec as it stands, as a private page… (O-1)]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

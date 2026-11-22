@@ -2,7 +2,7 @@
 id: L-11
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Fences, hedges and walls for herds (L-11)
@@ -17,8 +17,13 @@ Fences, hedges and walls for herds (fences and walls round a parcel decided [[D2
 **Designed in:** fences.md; livestock.md
 
 
+## Linked
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-76 The timber economy|The timber economy (W-76)]]
+
+
 ## Mentioned by
 - [[U7 works and the building clock|U7: works and the building clock]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

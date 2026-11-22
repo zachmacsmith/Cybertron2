@@ -2,7 +2,7 @@
 id: L-44
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # D4-93 (one room, one fire (L-44)
@@ -19,6 +19,10 @@ updated: "2026-11-20"
 **Waits on:** none
 
 
+## Linked
+- bears on: [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|Writing 37.2's decisions into the spec (about 52 missing) (W-68)]]
+
+
 ## Mentioned by
 - [[W-10 37.2's spec write-ups owed since 2 and 3 Nov|37.2's spec write-ups owed since 2 and 3 Nov (W-10)]]
 - [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|Writing 37.2's decisions into the spec (about 52 missing) (W-68)]]
@@ -26,4 +30,4 @@ updated: "2026-11-20"
 - [[One room, one fire; the night says what fuel was missing; a theft at…|One room, one fire; the night says what fuel was missing; a theft at…]]
 - [[02zl · Can a world feed its people Past runs and the pre-run checks|02zl · Can a world feed its people? Past runs and the pre-run checks]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
-- *and 4 index or audit notes*
+- *and 5 index or audit notes*

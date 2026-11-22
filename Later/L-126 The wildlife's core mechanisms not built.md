@@ -2,7 +2,7 @@
 id: L-126
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # The wildlife's core mechanisms not built (L-126)
@@ -21,10 +21,13 @@ C4 shared perception and wind direction; C8 kept populations with bonds and bree
 
 ## Linked
 - parent: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-43 The engine as feature packages|The engine as feature packages (W-43)]]
+- bears on: [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]]
 
 
 ## Mentioned by
 - [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 - [[The next thread the woods and the wild (hunting, its tools, wildlife…|The next thread: the woods and the wild (hunting, its tools, wildlife…]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

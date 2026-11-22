@@ -2,7 +2,7 @@
 id: L-111
 kind: deferred
 state: open
-updated: "2026-11-21"
+updated: "2026-11-22"
 ---
 
 # The hunting and resources build, a soon follow-up (L-111)
@@ -21,6 +21,9 @@ updated: "2026-11-21"
 
 ## Linked
 - relates: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+- bears on: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+- bears on: [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 
 
 ## Mentioned by
@@ -37,4 +40,4 @@ updated: "2026-11-21"
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Withies, coppice and the other wood and wild materials for fishing…|Withies, coppice and the other wood and wild materials for fishing…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
-- *and 5 index or audit notes*
+- *and 6 index or audit notes*

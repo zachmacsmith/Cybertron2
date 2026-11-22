@@ -14,3 +14,10 @@ Benched prospective thread ([[D2-300 Every item Zach defers or flags is tagged w
 
 ## Done so far, and what is left
 started
+
+
+## Mentioned by
+- [[L-13 Economy options kept out of the first worlds|Economy options kept out of the first worlds (L-13)]]
+- [[L-38 Travel by water|Travel by water (L-38)]]
+- [[L-125 Brief 5's fen and boats half (pack K4's rest)|Brief 5's fen and boats half (pack K4's rest) (L-125)]]
+- *and 1 index or audit notes*

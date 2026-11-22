@@ -33,3 +33,4 @@ outside raiders as scripted incidents
 - [[Proposal wild plants, and the slow ecosystems they make|Proposal: wild plants, and the slow ecosystems they make]]
 - [[Proposal the first wild kinds (what lives on the land, what each is…|Proposal: the first wild kinds (what lives on the land, what each is…]]
 - [[The scheduler external change|The scheduler: external change]]
+- *and 1 index or audit notes*

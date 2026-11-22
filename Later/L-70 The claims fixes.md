@@ -2,7 +2,7 @@
 id: L-70
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # The claims fixes (L-70)
@@ -19,7 +19,12 @@ updated: "2026-11-20"
 **Waits on:** Zach's go
 
 
+## Linked
+- bears on: [[W-14 Claims and ownership by physics, part 2|Claims and ownership by physics, part 2 (W-14)]]
+- bears on: [[W-86 Households generalised into institutions and laws|Households generalised into institutions and laws (W-86)]]
+
+
 ## Mentioned by
 - [[W-14 Claims and ownership by physics, part 2|Claims and ownership by physics, part 2 (W-14)]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

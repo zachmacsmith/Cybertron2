@@ -26,3 +26,4 @@ verb_modifiers.md
 - [[02s build brief for 37.4 the parcel graph, herds, fences, hidden…|02s: build brief for 37.4: the parcel graph, herds, fences, hidden…]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
 - [[Review 38.25 Package C built and run (37.2's brief 02s) the parcel…|Review 38.25: Package C built and run (37.2's brief 02s): the parcel…]]
+- *and 1 index or audit notes*

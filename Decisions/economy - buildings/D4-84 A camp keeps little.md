@@ -29,3 +29,4 @@ conversation ("camps should have very limited stores"; "You decide an appropriat
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
 - [[38.46 Wenbridge, a world to test whether people build (design, for…|38.46: Wenbridge, a world to test whether people build (design, for…]]
+- *and 1 index or audit notes*

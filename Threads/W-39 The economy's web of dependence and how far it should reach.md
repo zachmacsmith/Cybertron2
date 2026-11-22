@@ -28,8 +28,15 @@ analysis written; the web designed as a discussion proposal (economy_web.md), re
 
 ## Mentioned by
 - [[Q-47 Where the economy stops for now|Where the economy stops for now (Q-47)]]
+- [[Q-68 How high the surplus can go in the medieval worlds, against the…|How high the surplus can go in the medieval worlds, against the… (Q-68)]]
 - [[W-38 Generation redesign|Generation redesign (W-38)]]
 - [[W-39b Prototype of generation_redesign.md §4.3 and §4.5 for people|Prototype of generation_redesign.md §4.3 and §4.5 for people (W-39b)]]
+- [[L-13 Economy options kept out of the first worlds|Economy options kept out of the first worlds (L-13)]]
+- [[L-49 Automated supply-chain and dependence checks for generated worlds|Automated supply-chain and dependence checks for generated worlds (L-49)]]
+- [[L-50 Calibrate the carrying burden|Calibrate the carrying burden (L-50)]]
+- [[L-52 The carrying burden is an incomplete measure|The carrying burden is an incomplete measure (L-52)]]
+- [[L-107 Tallow's real uses|Tallow's real uses (L-107)]]
+- [[L-109 The full-history map is not a backlog|The full-history map is not a backlog (L-109)]]
 - [[L-121 Wildlife pack K8 crafts and wild goods|Wildlife pack K8: crafts and wild goods (L-121)]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
-- *and 5 index or audit notes*
+- *and 6 index or audit notes*

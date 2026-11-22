@@ -2,7 +2,7 @@
 id: L-105
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Forays as their own track (L-105)
@@ -22,6 +22,8 @@ updated: "2026-11-20"
 ## Linked
 - parent: [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]]
 - relates: [[Q-57 Fishing, from the lake run|Fishing, from the lake run (Q-57)]]
+- bears on: [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 
 
 ## Mentioned by
@@ -36,4 +38,4 @@ updated: "2026-11-20"
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[02zzq the records and the workflow as they are, and how Zach works…|02zzq: the records and the workflow as they are, and how Zach works…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
-- *and 4 index or audit notes*
+- *and 5 index or audit notes*

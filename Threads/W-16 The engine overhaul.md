@@ -24,4 +24,7 @@ phases 1 and 2 built; phase 3: the weather scheduler, storms, place-required wea
 
 
 ## Mentioned by
-- *and 1 index or audit notes*
+- [[L-21 Fire house fire and wildfire in the scheduler, spreading along the…|Fire: house fire and wildfire in the scheduler, spreading along the… (L-21)]]
+- [[L-72 Phase 2's open decisions|Phase 2's open decisions (L-72)]]
+- [[L-73 Phase 3's rest|Phase 3's rest (L-73)]]
+- *and 2 index or audit notes*

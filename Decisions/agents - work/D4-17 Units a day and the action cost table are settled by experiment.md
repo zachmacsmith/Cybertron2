@@ -34,3 +34,4 @@ devlog #13, 06 §6
 - [[16 Religion, ritual and the economy (16 Nov 2026)|16: Religion, ritual and the economy (16 Nov 2026)]]
 - [[Review 38.20 the decisions still open, by what they block|Review 38.20: the decisions still open, by what they block]]
 - [[38.37 Everything an agent is shown inventory, origins, what it does…|38.37: Everything an agent is shown: inventory, origins, what it does…]]
+- *and 1 index or audit notes*

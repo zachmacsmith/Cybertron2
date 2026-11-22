@@ -22,3 +22,4 @@ conversation (22 Nov: "Your own rule should overrun chores. They just by default
 
 ## Mentioned by
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
+- *and 1 index or audit notes*

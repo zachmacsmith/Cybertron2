@@ -29,3 +29,4 @@ hearths + rings each burning; "no timber in its store"; the store's theft wordin
 - [[38.49 The Wenbridge runs (wb1 paused at day 14, wb2 to day 30)|38.49: The Wenbridge runs (wb1 paused at day 14, wb2 to day 30)]]
 - [[38.50 Every refusal in every run, and the misunderstandings behind…|38.50: Every refusal in every run, and the misunderstandings behind…]]
 - [[38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]
+- *and 1 index or audit notes*

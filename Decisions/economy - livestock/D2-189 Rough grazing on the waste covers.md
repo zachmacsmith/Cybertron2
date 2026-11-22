@@ -29,4 +29,4 @@ waste land closed to herds
 - [[Proposal water and wetland life, fishing, preservation, and boats|Proposal: water and wetland life, fishing, preservation, and boats]]
 - [[Proposal wild plants, and the slow ecosystems they make|Proposal: wild plants, and the slow ecosystems they make]]
 - [[Livestock|Livestock]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

@@ -30,4 +30,4 @@ built and pushed (lake-fixes 47774a0): the seven faults, fish on the hearth rack
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[38.77 The lake runs' faults, fish on the hearth rack, and a signs…|38.77: The lake runs' faults, fish on the hearth rack, and a signs…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

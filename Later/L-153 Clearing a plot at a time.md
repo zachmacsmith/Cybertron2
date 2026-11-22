@@ -15,6 +15,8 @@ Found 22 Nov: clearing is all or nothing: a parcel becomes a field only when its
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+- bears on: [[W-76 The timber economy|The timber economy (W-76)]]
+- bears on: [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]]
 
 
 ## Mentioned by
@@ -24,4 +26,4 @@ Found 22 Nov: clearing is all or nothing: a parcel becomes a field only when its
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

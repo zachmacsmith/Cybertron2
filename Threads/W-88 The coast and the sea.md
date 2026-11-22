@@ -14,3 +14,14 @@ Benched prospective thread ([[D2-300 Every item Zach defers or flags is tagged w
 
 ## Done so far, and what is left
 started
+
+
+## Mentioned by
+- [[L-20 The catalogue's later kinds|The catalogue's later kinds (L-20)]]
+- [[L-110 Salt's fuel, to recalibrate|Salt's fuel, to recalibrate (L-110)]]
+- [[L-122 Wildlife pack K9 coast and cliff|Wildlife pack K9: coast and cliff (L-122)]]
+- [[L-128 'salt pan' names two things|'salt pan' names two things (L-128)]]
+- [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]]
+- [[L-146 Peat as fuel where there is bog|Peat as fuel where there is bog (L-146)]]
+- [[L-149 Gulls and other coastal birds, with the coast|Gulls and other coastal birds, with the coast (L-149)]]
+- *and 1 index or audit notes*

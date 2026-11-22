@@ -25,4 +25,4 @@ conversation (22 Nov: "Yes real weight makes sense but there is also the differe
 - [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
 - [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
 - [[U5. Stores and containers a space and what is in it, each removing…|U5. Stores and containers: a space and what is in it, each removing…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

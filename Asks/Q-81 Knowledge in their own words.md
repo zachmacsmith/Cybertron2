@@ -15,6 +15,8 @@ Proposal docs/cybertron2/proposals/knowledge_in_their_own_words.md (22 Nov). Tod
 
 ## Linked
 - parent: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
+- bears on: [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]]
+- bears on: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
 
 
 ## Mentioned by
@@ -24,4 +26,4 @@ Proposal docs/cybertron2/proposals/knowledge_in_their_own_words.md (22 Nov). Tod
 - [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]
 - [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

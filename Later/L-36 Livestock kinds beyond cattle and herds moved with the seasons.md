@@ -2,7 +2,7 @@
 id: L-36
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Livestock kinds beyond cattle and herds moved with the seasons (L-36)
@@ -17,6 +17,11 @@ updated: "2026-11-20"
 **Designed in:** generator.md §10
 
 **Waits on:** the generator's upland pasture; cattle as built
+
+
+## Linked
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-90 Textiles and clothing|Textiles and clothing (W-90)]]
 
 
 ## Mentioned by
@@ -34,4 +39,4 @@ updated: "2026-11-20"
 - [[Proposal the first wild kinds (what lives on the land, what each is…|Proposal: the first wild kinds (what lives on the land, what each is…]]
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

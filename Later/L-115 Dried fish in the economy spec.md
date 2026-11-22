@@ -2,7 +2,7 @@
 id: L-115
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Dried fish in the economy spec (L-115)
@@ -19,6 +19,11 @@ updated: "2026-11-20"
 **Waits on:** 37.2
 
 
+## Linked
+- bears on: [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|Writing 37.2's decisions into the spec (about 52 missing) (W-68)]]
+- bears on: [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]]
+
+
 ## Mentioned by
 - [[38.77 The lake runs' faults, fish on the hearth rack, and a signs…|38.77: The lake runs' faults, fish on the hearth rack, and a signs…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

@@ -2,7 +2,7 @@
 id: L-139
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # A hen killed in a raid gives its meat (L-139)
@@ -15,7 +15,10 @@ The engine kills hens in raids but gives no meat for one; a stewing hen of about
 
 ## Linked
 - parent: [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]]
 
 
 ## Mentioned by
 - [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
+- *and 1 index or audit notes*

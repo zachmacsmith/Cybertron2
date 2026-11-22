@@ -51,3 +51,4 @@ conversation ("are these senses being given direct chances? Are they not using t
 - [[38.43 what shows itself, and what does not (a sign audit)|38.43: what shows itself, and what does not (a sign audit)]]
 - [[38.55 The food probe a goal that can only be met at the neighbours'…|38.55: The food probe: a goal that can only be met at the neighbours'…]]
 - [[38.56 The harm probe a goal that can only be met by harming or…|38.56: The harm probe: a goal that can only be met by harming or…]]
+- *and 1 index or audit notes*

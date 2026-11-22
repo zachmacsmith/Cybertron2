@@ -110,6 +110,6 @@ started
 - [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]]
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
 - [[L-111 The hunting and resources build, a soon follow-up|The hunting and resources build, a soon follow-up (L-111)]]
-- [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]]
-- … and 41 more
-- *and 3 index or audit notes*
+- [[L-113 Briefs 4, 4b and 4c's deviations, to revisit|Briefs 4, 4b and 4c's deviations, to revisit (L-113)]]
+- … and 43 more
+- *and 4 index or audit notes*

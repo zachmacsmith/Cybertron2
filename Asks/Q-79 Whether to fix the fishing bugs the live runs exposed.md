@@ -2,7 +2,7 @@
 id: Q-79
 kind: ask
 state: open
-updated: "2026-11-21"
+updated: "2026-11-22"
 ---
 
 # Whether to fix the fishing bugs the live runs exposed (Q-79)
@@ -16,6 +16,8 @@ updated: "2026-11-21"
 ## Linked
 - parent: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 - relates: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+- bears on: [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]
+- bears on: [[W-72 Signs of the river|Signs of the river (W-72)]]
 
 
 ## Mentioned by
@@ -26,4 +28,4 @@ updated: "2026-11-21"
 - [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

@@ -2,7 +2,7 @@
 id: L-107
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Tallow's real uses (L-107)
@@ -19,6 +19,12 @@ updated: "2026-11-20"
 **Waits on:** K8 crafts; [[L-102 Acting at different times of the day, as one general system|L-102]] evening acts
 
 
+## Linked
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-94 Timed actions|Timed actions (W-94)]]
+- bears on: [[W-39 The economy's web of dependence and how far it should reach|The economy's web of dependence and how far it should reach (W-39)]]
+
+
 ## Mentioned by
 - [[Q-44 Brief 4c before the build|Brief 4c before the build (Q-44)]]
 - [[Hunting that pays a beginner, snares that are lifted, and predators…|Hunting that pays a beginner, snares that are lifted, and predators…]]
@@ -26,4 +32,4 @@ updated: "2026-11-20"
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

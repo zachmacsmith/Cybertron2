@@ -24,4 +24,4 @@ updated: "2026-11-20"
 - [[Roads stretches, landmarks, crossing and meetings|Roads: stretches, landmarks, crossing and meetings]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

@@ -2,7 +2,7 @@
 id: L-51
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # `landgen.physical._spread` reaches farther than its steps (L-51)
@@ -19,7 +19,11 @@ updated: "2026-11-20"
 **Waits on:** none
 
 
+## Linked
+- bears on: [[W-54 The twelve calibration worlds and an audit of the generator across…|The twelve calibration worlds and an audit of the generator across… (W-54)]]
+
+
 ## Mentioned by
 - [[W-11 Landscapes still to tune|Landscapes still to tune (W-11)]]
 - [[The dependence ladder (OPEN L-50)|The dependence ladder (OPEN L-50)]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

@@ -2,7 +2,7 @@
 id: Q-29
 kind: ask
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # scheduler.md and the weather scheduler (D4-109) (Q-29)
@@ -15,6 +15,12 @@ updated: "2026-11-20"
 **Where:** [[D4-109 The weather scheduler|D4-109]]; proposals/weather_scheduler.md
 
 
+## Linked
+- bears on: [[W-51 Testing the weather across dry, cold, coastal and mountain worlds…|Testing the weather across dry, cold, coastal and mountain worlds… (W-51)]]
+- bears on: [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|Writing 37.2's decisions into the spec (about 52 missing) (W-68)]]
+- bears on: [[W-49 Environment systems|Environment systems (W-49)]]
+
+
 ## Mentioned by
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

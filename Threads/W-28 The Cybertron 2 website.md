@@ -26,5 +26,6 @@ built and pushed; viewer files for all 64 published runs uploaded (c2viz code_ke
 
 ## Mentioned by
 - [[W-28b Build brief 4b written|Build brief 4b written (W-28b)]]
+- [[L-129 A wiki of the world's rules, generated from the development process…|A wiki of the world's rules, generated from the development process… (L-129)]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

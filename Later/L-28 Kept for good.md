@@ -2,7 +2,7 @@
 id: L-28
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Kept for good (L-28)
@@ -19,8 +19,12 @@ Kept for good ([[D4-64 Lines kept for good, passed on through care, replacing cu
 **Waits on:** a run with Haiku agents using it
 
 
+## Linked
+- bears on: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
+
+
 ## Mentioned by
 - [[Kept for good a few lines an agent keeps word for word|Kept for good: a few lines an agent keeps word for word]]
 - [[38.41 Combe, the first run of the belief-built message (c1_combe…|38.41: Combe, the first run of the belief-built message (c1_combe…]]
 - [[38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

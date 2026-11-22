@@ -2,7 +2,7 @@
 id: Q-35
 kind: ask
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Run findings with no owner yet (Q-35)
@@ -15,6 +15,10 @@ updated: "2026-11-20"
 **Where:** proposals/wild_layer.md History (runs 5, 6); docs/review/37_growth/02zy_wild_test_worlds.md
 
 
+## Linked
+- bears on: [[W-93 Demography and growth|Demography and growth (W-93)]]
+
+
 ## Mentioned by
 - [[Hunting that pays a beginner, snares that are lifted, and predators…|Hunting that pays a beginner, snares that are lifted, and predators…]]
 - [[02zza a Fable 5.2 probe in run 6's world (9 Nov)|02zza: a Fable 5.2 probe in run 6's world (9 Nov)]]
@@ -22,4 +26,4 @@ updated: "2026-11-20"
 - [[02zzc Fable 5.2, Fable 5.1 and Opus 5.5 in the same seats, with a…|02zzc: Fable 5.2, Fable 5.1 and Opus 5.5 in the same seats, with a…]]
 - [[02zze a wild region with dependence four villages, one rich…|02zze: a wild region with dependence: four villages, one rich…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

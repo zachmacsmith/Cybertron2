@@ -20,4 +20,4 @@ Speech at a node: one talk step
 ## Mentioned by
 - [[Proposal the economics of information|Proposal: the economics of information]]
 - [[38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

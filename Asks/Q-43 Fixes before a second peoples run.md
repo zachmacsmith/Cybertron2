@@ -2,7 +2,7 @@
 id: Q-43
 kind: ask
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Fixes before a second peoples run (Q-43)
@@ -15,6 +15,12 @@ updated: "2026-11-20"
 **Where:** docs/review/38_space_engine/70_peoples_run1.md
 
 
+## Linked
+- bears on: [[W-34 Worlds for the peoples benchmark|Worlds for the peoples benchmark (W-34)]]
+- bears on: [[W-14 Claims and ownership by physics, part 2|Claims and ownership by physics, part 2 (W-14)]]
+- bears on: [[W-89 Trade between villages markets, carriage, what flows where|Trade between villages: markets, carriage, what flows where (W-89)]]
+
+
 ## Mentioned by
 - [[Q-44 Brief 4c before the build|Brief 4c before the build (Q-44)]]
 - [[W-63 The audit of work started and left, and the triage of open asks and…|The audit of work started and left, and the triage of open asks and… (W-63)]]
@@ -23,4 +29,4 @@ updated: "2026-11-20"
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[02zzs the wild region's 30-day live run (10 Nov), written up|02zzs: the wild region's 30-day live run (10 Nov), written up]]
 - [[38.70b Twin Hollows run 1, what the agents said and did (qualitative)|38.70b: Twin Hollows run 1, what the agents said and did (qualitative)]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

@@ -2,7 +2,7 @@
 id: L-69
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Work costs out of scale with a short year (L-69)
@@ -19,7 +19,12 @@ updated: "2026-11-20"
 **Waits on:** Zach: scale the work or lengthen the year
 
 
+## Linked
+- bears on: [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]]
+- bears on: [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]]
+
+
 ## Mentioned by
 - [[W-13 Brookend survival world, rerun p2|Brookend survival world, rerun p2 (W-13)]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

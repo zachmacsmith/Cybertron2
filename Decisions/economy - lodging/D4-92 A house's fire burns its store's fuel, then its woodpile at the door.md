@@ -26,3 +26,4 @@ fuel from the store only
 - [[Lodging hosts and inns|Lodging: hosts and inns]]
 - [[38.46 Wenbridge, a world to test whether people build (design, for…|38.46: Wenbridge, a world to test whether people build (design, for…]]
 - [[38.49 The Wenbridge runs (wb1 paused at day 14, wb2 to day 30)|38.49: The Wenbridge runs (wb1 paused at day 14, wb2 to day 30)]]
+- *and 1 index or audit notes*

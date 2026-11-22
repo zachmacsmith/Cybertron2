@@ -24,4 +24,4 @@ Building limits: slots by land kind
 - [[Places nodes and sites|Places: nodes and sites]]
 - [[Review 38.20 the decisions still open, by what they block|Review 38.20: the decisions still open, by what they block]]
 - [[38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

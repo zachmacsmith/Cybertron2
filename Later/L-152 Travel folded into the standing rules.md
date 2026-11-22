@@ -15,9 +15,11 @@ Zach, 22 Nov: should households or individuals set defaults for standing rules f
 
 ## Linked
 - parent: [[W-37 Standing rules|Standing rules (W-37)]]
+- bears on: [[W-37 Standing rules|Standing rules (W-37)]]
+- bears on: [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]]
 
 
 ## Mentioned by
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
 - [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

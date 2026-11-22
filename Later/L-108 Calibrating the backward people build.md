@@ -2,7 +2,7 @@
 id: L-108
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Calibrating the backward people build (L-108)
@@ -19,6 +19,11 @@ updated: "2026-11-20"
 **Waits on:** Zach's decision on the present population as input ([[Q-45 The generation redesign|Q-45]], decision 3) and a build brief for generate.py
 
 
+## Linked
+- bears on: [[W-93 Demography and growth|Demography and growth (W-93)]]
+
+
 ## Mentioned by
 - [[W-39b Prototype of generation_redesign.md §4.3 and §4.5 for people|Prototype of generation_redesign.md §4.3 and §4.5 for people (W-39b)]]
 - [[Proposal world generation as one history, with pins met in the loop|Proposal: world generation as one history, with pins met in the loop]]
+- *and 1 index or audit notes*

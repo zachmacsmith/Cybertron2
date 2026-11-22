@@ -2,7 +2,7 @@
 id: L-6
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Overlapping fuse events in depth (L-6)
@@ -19,6 +19,11 @@ Overlapping fuse events in depth
 **Waits on:** fuse events built
 
 
+## Linked
+- bears on: [[W-49 Environment systems|Environment systems (W-49)]]
+- bears on: [[W-94 Timed actions|Timed actions (W-94)]]
+
+
 ## Mentioned by
 - [[Fuse events time to respond|Fuse events: time to respond]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

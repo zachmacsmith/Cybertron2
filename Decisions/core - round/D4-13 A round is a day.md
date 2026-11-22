@@ -29,3 +29,4 @@ conversation; 05 §1
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
 - [[16 Religion, ritual and the economy (16 Nov 2026)|16: Religion, ritual and the economy (16 Nov 2026)]]
 - [[Review 38.20 the decisions still open, by what they block|Review 38.20: the decisions still open, by what they block]]
+- *and 1 index or audit notes*

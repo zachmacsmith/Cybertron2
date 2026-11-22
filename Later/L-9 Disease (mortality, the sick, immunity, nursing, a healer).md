@@ -2,7 +2,7 @@
 id: L-9
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Disease (mortality, the sick, immunity, nursing, a healer) (L-9)
@@ -15,6 +15,11 @@ Disease (mortality, the sick, immunity, nursing, a healer); rot's risk feeds it 
 **Decided:** [[Q-16 Disease mortality, the units of the sick, immunity, nursing, a healer|Q-16]]
 
 **Designed in:** environment_catalogue.md §3
+
+
+## Linked
+- bears on: [[W-87 Health, fatigue and illness|Health, fatigue and illness (W-87)]]
+- bears on: [[W-93 Demography and growth|Demography and growth (W-93)]]
 
 
 ## Mentioned by
@@ -33,4 +38,4 @@ Disease (mortality, the sick, immunity, nursing, a healer); rot's risk feeds it 
 - [[02w build brief for 37.4 children and reproduction (Package D)|02w: build brief for 37.4: children and reproduction (Package D)]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
 - [[18 Health, environment, luxury, crime and measures the economy's…|18: Health, environment, luxury, crime and measures: the economy's…]]
-- *and 4 index or audit notes*
+- *and 5 index or audit notes*

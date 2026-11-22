@@ -15,9 +15,11 @@ Zach, 22 Nov: a freeze stops fishing, but revisit; after getting other things wo
 
 ## Linked
 - parent: [[W-72 Signs of the river|Signs of the river (W-72)]]
+- bears on: [[W-49 Environment systems|Environment systems (W-49)]]
+- bears on: [[W-72 Signs of the river|Signs of the river (W-72)]]
 
 
 ## Mentioned by
 - [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

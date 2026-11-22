@@ -40,3 +40,4 @@ conversation ("sure they can stay owned"; "the Hearnes should definitely be able
 - [[How a household manages its stores one book of standing rules, a few…|How a household manages its stores: one book of standing rules, a few…]]
 - [[38.46 Wenbridge, a world to test whether people build (design, for…|38.46: Wenbridge, a world to test whether people build (design, for…]]
 - [[38.49 The Wenbridge runs (wb1 paused at day 14, wb2 to day 30)|38.49: The Wenbridge runs (wb1 paused at day 14, wb2 to day 30)]]
+- *and 1 index or audit notes*

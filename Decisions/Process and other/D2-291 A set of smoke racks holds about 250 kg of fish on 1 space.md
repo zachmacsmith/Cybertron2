@@ -30,4 +30,4 @@ conversation (22 Nov: "250 kg a set, 1 space (Recommended)")
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
 - [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
 - [[U7 works and the building clock|U7: works and the building clock]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

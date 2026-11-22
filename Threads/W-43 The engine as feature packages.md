@@ -29,6 +29,10 @@ inventory written (five files); the proposal revised into a design specification
 ## Mentioned by
 - [[D2-243 The verbs and the livelihood archetypes are reshaped first, as their…|The verbs and the livelihood archetypes are reshaped first, as their… (D2-243)]]
 - [[D2-244 The engine's reworking into feature packages|The engine's reworking into feature packages (D2-244)]]
+- [[Q-49 Engine bugs found by the package inventory|Engine bugs found by the package inventory (Q-49)]]
+- [[L-112 A farming pack|A `farming` pack (L-112)]]
+- [[L-126 The wildlife's core mechanisms not built|The wildlife's core mechanisms not built (L-126)]]
+- [[L-128 'salt pan' names two things|'salt pan' names two things (L-128)]]
 - [[L-133 The engine as feature packages postponed, kept in mind|The engine as feature packages: postponed, kept in mind (L-133)]]
 - [[The engine as a small core and feature packages design specification|The engine as a small core and feature packages: design specification]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

@@ -2,7 +2,7 @@
 id: L-73
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Phase 3's rest (L-73)
@@ -19,7 +19,12 @@ updated: "2026-11-20"
 **Waits on:** Zach
 
 
+## Linked
+- bears on: [[W-16 The engine overhaul|The engine overhaul (W-16)]]
+- bears on: [[W-49 Environment systems|Environment systems (W-49)]]
+
+
 ## Mentioned by
 - [[W-16 The engine overhaul|The engine overhaul (W-16)]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

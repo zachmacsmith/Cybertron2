@@ -2,7 +2,7 @@
 id: L-144
 kind: deferred
 state: open
-updated: "2026-11-21"
+updated: "2026-11-22"
 ---
 
 # Eel skin and fish glue (L-144)
@@ -15,7 +15,8 @@ Zach, 14 Nov: some of these things might be somewhat TOO niche or irrelevant lik
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 
 
 ## Mentioned by
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

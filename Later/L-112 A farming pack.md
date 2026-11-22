@@ -2,7 +2,7 @@
 id: L-112
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # A `farming` pack (L-112)
@@ -19,8 +19,13 @@ updated: "2026-11-20"
 **Waits on:** Zach
 
 
+## Linked
+- bears on: [[W-43 The engine as feature packages|The engine as feature packages (W-43)]]
+- bears on: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+
+
 ## Mentioned by
 - [[W-47 Brief 5's worlds and the runs-only world|Brief 5's worlds and the runs-only world (W-47)]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

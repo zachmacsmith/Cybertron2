@@ -2,7 +2,7 @@
 id: L-47
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Camps built out, with harder weather (L-47)
@@ -19,6 +19,11 @@ updated: "2026-11-20"
 **Waits on:** a weather package
 
 
+## Linked
+- bears on: [[W-49 Environment systems|Environment systems (W-49)]]
+- bears on: [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]]
+
+
 ## Mentioned by
 - [[L-46 Levels of fire|Levels of fire (L-46)]]
 - [[L-48 What can happen to buildings and fittings, by weather and use|What can happen to buildings and fittings, by weather and use (L-48)]]
@@ -28,4 +33,4 @@ updated: "2026-11-20"
 - [[The hunt over time, and what briefs 1 to 3 left build brief 4|The hunt over time, and what briefs 1 to 3 left: build brief 4]]
 - [[Damage to shelter in levels, by structure and weather; camps as…|Damage to shelter in levels, by structure and weather; camps as…]]
 - [[02zx the wild layer's build log (37.4 building 37.2's briefs, D2-207)|02zx: the wild layer's build log (37.4 building 37.2's briefs, D2-207)]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

@@ -2,7 +2,7 @@
 id: L-109
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # The full-history map is not a backlog (L-109)
@@ -19,9 +19,13 @@ updated: "2026-11-20"
 **Waits on:** Zach
 
 
+## Linked
+- bears on: [[W-39 The economy's web of dependence and how far it should reach|The economy's web of dependence and how far it should reach (W-39)]]
+
+
 ## Mentioned by
 - [[Q-47 Where the economy stops for now|Where the economy stops for now (Q-47)]]
 - [[14 War, force and the economy (16 Nov 2026)|14: War, force and the economy (16 Nov 2026)]]
 - [[15 Knowledge-making discovery, instruments, records and the…|15: Knowledge-making: discovery, instruments, records and the…]]
 - [[16 Religion, ritual and the economy (16 Nov 2026)|16: Religion, ritual and the economy (16 Nov 2026)]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

@@ -2,7 +2,7 @@
 id: L-63
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # A herd in the place's layout (L-63)
@@ -19,6 +19,10 @@ updated: "2026-11-20"
 **Waits on:** none
 
 
+## Linked
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+
+
 ## Mentioned by
 - [[38.55 The food probe a goal that can only be met at the neighbours'…|38.55: The food probe: a goal that can only be met at the neighbours'…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

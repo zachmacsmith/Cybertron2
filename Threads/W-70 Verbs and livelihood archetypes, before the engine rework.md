@@ -34,8 +34,16 @@ scope (20 Nov): the verb list ([[Q-27 Keep the 38 built verbs, or fold them back
 - [[D2-266 Knowledge in their own words|Knowledge in their own words (D2-266)]]
 - [[D2-268 The founders' starting knowledge|The founders' starting knowledge (D2-268)]]
 - [[D2-270 Household skills|Household skills (D2-270)]]
+- [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)]]
+- [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
 - [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]]
 - [[Q-82 Trying and learning|Trying and learning (Q-82)]]
+- [[L-17 Aims (cybertron 1's goals, edited)|Aims (cybertron 1's goals, edited) (L-17)]]
+- [[L-19 Further verb modifiers (going quietly, working carefully)|Further verb modifiers (going quietly, working carefully) (L-19)]]
+- [[L-28 Kept for good|Kept for good (L-28)]]
+- [[L-65 A plan revised in the morning talk drops come|A plan revised in the morning talk drops `come` (L-65)]]
+- [[L-103 Crafting and discovering new things|Crafting and discovering new things (L-103)]]
+- [[L-106 MAJOR what the engine remembers and settles for agents, and…|MAJOR: what the engine remembers and settles for agents, and… (L-106)]]
 - [[L-133 The engine as feature packages postponed, kept in mind|The engine as feature packages: postponed, kept in mind (L-133)]]
 - [[L-141 How much seeded memory each livelihood starts with|How much seeded memory each livelihood starts with (L-141)]]
 - [[C-12 The river run seeded a scored goal|The river run seeded a scored goal (C-12)]]
@@ -51,4 +59,4 @@ scope (20 Nov): the verb list ([[Q-27 Keep the 38 built verbs, or fold them back
 - [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

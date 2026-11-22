@@ -2,7 +2,7 @@
 id: L-23
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Water as a need, and the land's hidden state (L-23)
@@ -15,6 +15,11 @@ Water as a need, and the land's hidden state (water table, wells, latrines, midd
 **Decided:** 24 Oct
 
 **Designed in:** environment_state.md
+
+
+## Linked
+- bears on: [[W-49 Environment systems|Environment systems (W-49)]]
+- bears on: [[W-87 Health, fatigue and illness|Health, fatigue and illness (W-87)]]
 
 
 ## Mentioned by
@@ -32,4 +37,4 @@ Water as a need, and the land's hidden state (water table, wells, latrines, midd
 - [[02s build brief for 37.4 the parcel graph, herds, fences, hidden…|02s: build brief for 37.4: the parcel graph, herds, fences, hidden…]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
-- *and 4 index or audit notes*
+- *and 5 index or audit notes*

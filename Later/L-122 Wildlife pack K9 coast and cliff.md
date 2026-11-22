@@ -2,7 +2,7 @@
 id: L-122
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Wildlife pack K9: coast and cliff (L-122)
@@ -21,10 +21,12 @@ seabird cliffs with the climber and the rope-holder; seals and the stranded whal
 
 ## Linked
 - parent: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- bears on: [[W-88 The coast and the sea|The coast and the sea (W-88)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 
 
 ## Mentioned by
 - [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]]
 - [[L-149 Gulls and other coastal birds, with the coast|Gulls and other coastal birds, with the coast (L-149)]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

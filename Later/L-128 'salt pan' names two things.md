@@ -2,7 +2,7 @@
 id: L-128
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # 'salt pan' names two things (L-128)
@@ -19,6 +19,12 @@ an alias of the brine-pan fitting and the key of the saltmarsh technique (sun-dr
 **Waits on:** a pass over TECHNIQUES and FITTING aliases for names used twice
 
 
+## Linked
+- bears on: [[W-88 The coast and the sea|The coast and the sea (W-88)]]
+- bears on: [[W-43 The engine as feature packages|The engine as feature packages (W-43)]]
+
+
 ## Mentioned by
 - [[A lesson is in the teacher's craft|A lesson is in the teacher's craft]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
+- *and 1 index or audit notes*

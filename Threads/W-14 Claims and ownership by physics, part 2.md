@@ -24,4 +24,8 @@ the audit written (ten refusals, two physical gaps).
 
 
 ## Mentioned by
-- *and 1 index or audit notes*
+- [[Q-43 Fixes before a second peoples run|Fixes before a second peoples run (Q-43)]]
+- [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
+- [[L-70 The claims fixes|The claims fixes (L-70)]]
+- [[L-156 The locked chest and its key|The locked chest and its key (L-156)]]
+- *and 2 index or audit notes*

@@ -2,7 +2,7 @@
 id: L-113
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Briefs 4, 4b and 4c's deviations, to revisit (L-113)
@@ -17,6 +17,11 @@ updated: "2026-11-20"
 **Designed in:** Zach (37.2's briefs, 37.4's build)
 
 
+## Linked
+- bears on: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+
+
 ## Mentioned by
 - [[Q-40 Brief 4 as built, and its gate|Brief 4 as built, and its gate (Q-40)]]
 - [[Q-41 Brief 4b as built, and its gate|Brief 4b as built, and its gate (Q-41)]]
@@ -24,4 +29,4 @@ updated: "2026-11-20"
 - [[W-36 Build brief 4c, then the merge of the wild layer|Build brief 4c, then the merge of the wild layer (W-36)]]
 - [[L-131 The wild layer's live points from briefs 1 to 3|The wild layer's live points from briefs 1 to 3 (L-131)]]
 - [[02zzs the wild region's 30-day live run (10 Nov), written up|02zzs: the wild region's 30-day live run (10 Nov), written up]]
-- *and 4 index or audit notes*
+- *and 5 index or audit notes*

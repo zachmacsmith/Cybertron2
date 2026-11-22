@@ -26,7 +26,10 @@ started
 
 
 ## Mentioned by
+- [[L-111 The hunting and resources build, a soon follow-up|The hunting and resources build, a soon follow-up (L-111)]]
+- [[L-117 Wildlife pack K3 forays, methods and knowing|Wildlife pack K3: forays, methods and knowing (L-117)]]
+- [[L-121 Wildlife pack K8 crafts and wild goods|Wildlife pack K8: crafts and wild goods (L-121)]]
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Design wave part 2 materials and making (withies, cord and flax…|Design wave part 2: materials and making (withies, cord and flax…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

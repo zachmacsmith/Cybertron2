@@ -2,7 +2,7 @@
 id: L-104
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # MAJOR: the descendants benchmark (L-104)
@@ -19,6 +19,11 @@ updated: "2026-11-20"
 **Waits on:** Zach returning to it; before it: the hunting calibration (02zzd), settling new land (forays.md's later steps), a descendants count by line, long-run operations
 
 
+## Linked
+- bears on: [[W-34 Worlds for the peoples benchmark|Worlds for the peoples benchmark (W-34)]]
+- bears on: [[W-93 Demography and growth|Demography and growth (W-93)]]
+
+
 ## Mentioned by
 - [[D4-115 The peoples benchmark's worlds|The peoples benchmark's worlds (D4-115)]]
 - [[W-23 A benchmark by living descendants on a ladder of worlds|A benchmark by living descendants on a ladder of worlds (W-23)]]
@@ -33,4 +38,4 @@ updated: "2026-11-20"
 - [[17 The household's own work, care and kinship (16 Nov 2026)|17: The household's own work, care and kinship (16 Nov 2026)]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[38.69 Worlds for the peoples benchmark (design, for discussion)|38.69: Worlds for the peoples benchmark (design, for discussion)]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

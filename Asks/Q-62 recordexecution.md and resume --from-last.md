@@ -13,3 +13,7 @@ updated: "2026-11-20"
 the spec says a resume loads the last committed checkpoint; the code's plain resume replays from day 1, and `--from-last` does what the spec says. Should the spec name both, and which is the default?
 
 **Where:** proposals/resume_from_last.md
+
+
+## Mentioned by
+- *and 1 index or audit notes*

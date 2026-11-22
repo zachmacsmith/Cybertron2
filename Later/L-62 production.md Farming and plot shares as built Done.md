@@ -19,4 +19,4 @@ updated: "2026-11-20"
 
 ## Mentioned by
 - [[38.52 Plot shares and a crop for each holding, as built|38.52: Plot shares and a crop for each holding, as built]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

@@ -24,6 +24,7 @@ decided and written.
 
 
 ## Mentioned by
+- [[Q-56 How the weather should follow each place's climate from the generated…|How the weather should follow each place's climate from the generated… (Q-56)]]
 - [[Proposal world generation as one history, with pins met in the loop|Proposal: world generation as one history, with pins met in the loop]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

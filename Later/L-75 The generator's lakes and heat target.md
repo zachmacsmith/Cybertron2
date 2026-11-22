@@ -2,7 +2,7 @@
 id: L-75
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # The generator's lakes and heat target (L-75)
@@ -19,6 +19,11 @@ updated: "2026-11-20"
 **Waits on:** 37.4
 
 
+## Linked
+- bears on: [[W-54 The twelve calibration worlds and an audit of the generator across…|The twelve calibration worlds and an audit of the generator across… (W-54)]]
+- bears on: [[W-34 Worlds for the peoples benchmark|Worlds for the peoples benchmark (W-34)]]
+
+
 ## Mentioned by
 - [[Q-57 Fishing, from the lake run|Fishing, from the lake run (Q-57)]]
 - [[W-34 Worlds for the peoples benchmark|Worlds for the peoples benchmark (W-34)]]
@@ -29,3 +34,4 @@ updated: "2026-11-20"
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
 - [[The fishing ladder techniques, gear, works and the water's stocks|The fishing ladder: techniques, gear, works and the water's stocks]]
 - [[38.71 From a world with these properties to a world what went…|38.71: From "a world with these properties" to a world: what went…]]
+- *and 1 index or audit notes*

@@ -2,7 +2,7 @@
 id: L-35
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Distance inside a node (L-35)
@@ -19,6 +19,10 @@ updated: "2026-11-20"
 **Waits on:** towns, or a world where near and far land should differ
 
 
+## Linked
+- bears on: [[W-93 Demography and growth|Demography and growth (W-93)]]
+
+
 ## Mentioned by
 - [[L-33 Growth to towns fixed nodes, faster edges, reach by place|Growth to towns: fixed nodes, faster edges, reach by place (L-33)]]
 - [[Economic calibration one time scale, and mechanics that make…|Economic calibration: one time scale, and mechanics that make…]]
@@ -27,4 +31,4 @@ updated: "2026-11-20"
 - [[Proposal the generator, stage 1 (a spec for review before it is…|Proposal: the generator, stage 1 (a spec for review before it is…]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[38.63 The engine overhaul, phases 1 and 2 what was built, the…|38.63: The engine overhaul, phases 1 and 2: what was built, the…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

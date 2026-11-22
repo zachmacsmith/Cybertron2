@@ -2,7 +2,7 @@
 id: Q-28
 kind: ask
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # The economy check counts crops that winter will clear (Q-28)
@@ -15,6 +15,10 @@ landgen/economy.py counts every standing crop whose `ripe_day` falls within the 
 **Where:** review 38.59 §5; cybertron2/landgen/economy.py
 
 
+## Linked
+- bears on: [[W-54 The twelve calibration worlds and an audit of the generator across…|The twelve calibration worlds and an audit of the generator across… (W-54)]]
+
+
 ## Mentioned by
 - [[D4-102 Carrying capacity is measured, by level, from the engine's own rules|Carrying capacity is measured, by level, from the engine's own rules (D4-102)]]
 - [[Carrying capacity what a world's land feeds and keeps warm, by…|Carrying capacity: what a world's land feeds and keeps warm, by…]]
@@ -22,4 +26,4 @@ landgen/economy.py counts every standing crop whose `ripe_day` falls within the 
 - [[A declared process model the engine says what its economy is, as…|A declared process model: the engine says what its economy is, as…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[38.59 Exploratory runs taking over a village, an Orwellian aim, and…|38.59: Exploratory runs: taking over a village, an Orwellian aim, and…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

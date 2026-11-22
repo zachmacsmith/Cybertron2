@@ -2,7 +2,7 @@
 id: L-34
 kind: deferred
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Works on the land's physical facts wait for the landscape generator (L-34)
@@ -19,6 +19,11 @@ updated: "2026-11-20"
 **Waits on:** the landscape generator built
 
 
+## Linked
+- bears on: [[W-49 Environment systems|Environment systems (W-49)]]
+- bears on: [[W-76 The timber economy|The timber economy (W-76)]]
+
+
 ## Mentioned by
 - [[Proposal environments, ecosystems and how they cluster|Proposal: environments, ecosystems and how they cluster]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]
@@ -31,4 +36,4 @@ updated: "2026-11-20"
 - [[02zh build brief for 37.4 the building package|02zh: build brief for 37.4: the building package]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*
