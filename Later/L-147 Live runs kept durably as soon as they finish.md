@@ -19,3 +19,4 @@ The three live runs of the runs world (low, medium, high; 20 Nov; about 63 dolla
 
 ## Mentioned by
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+- [[Steered or chosen defaults, examples and wordings in what the agents…|Steered or chosen: defaults, examples and wordings in what the agents…]]

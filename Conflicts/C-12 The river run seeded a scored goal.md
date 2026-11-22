@@ -15,3 +15,7 @@ Found 22 Nov (founders_knowledge.md): in runs/water_runs_models_r1 the seeded go
 
 ## Linked
 - parent: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
+
+
+## Mentioned by
+- [[Steered or chosen defaults, examples and wordings in what the agents…|Steered or chosen: defaults, examples and wordings in what the agents…]]

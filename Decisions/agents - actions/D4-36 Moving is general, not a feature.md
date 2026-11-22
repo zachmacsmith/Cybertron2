@@ -32,6 +32,7 @@ M1's household and house fixed at seeding
 - [[02zd cybertron2 as a response to cybertron 1|02zd: cybertron2 as a response to cybertron 1]]
 - [[05 Labour, property, institutions, the state, and population from…|05: Labour, property, institutions, the state, and population: from…]]
 - [[17 The household's own work, care and kinship (16 Nov 2026)|17: The household's own work, care and kinship (16 Nov 2026)]]
+- [[Steered or chosen defaults, examples and wordings in what the agents…|Steered or chosen: defaults, examples and wordings in what the agents…]]
 - [[Review 38.22 the first two worlds of the ladder, run with LLM agents|Review 38.22: the first two worlds of the ladder, run with LLM agents]]
 - [[38.37 Everything an agent is shown inventory, origins, what it does…|38.37: Everything an agent is shown: inventory, origins, what it does…]]
 - [[Review 38 development log of the 37.4 session (space, environment…|Review 38: development log of the 37.4 session (space, environment…]]
