@@ -28,7 +28,7 @@
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]: revisit: soon (Zach, 20 Nov: 'that one sooner')
 - [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]: closed by agent
 
-## Active threads (22)
+## Active threads (21)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -49,8 +49,6 @@
   next: after the first build (recipes shown with the batches, the gate check, the fishing bugs and the target rule)…
 - [[W-76 The timber economy|The timber economy (W-76)]]  
   next: overnight: a scouting note only (real ladder and what the engine holds), no design decisions; then its own…
-- [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]]  
-  next: agent running: wave1_physical_basis.md; then review, commit, write into the proposals
 - [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]]  
   next: overnight agent running; then review, commit, questions to Zach
 - [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]]  
@@ -77,7 +75,7 @@
 - [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]]  
   next: merge (Zach), a bot run to measure the new rows' chances, item 9 after W-56
 
-## Waiting threads (11)
+## Waiting threads (12)
 
 **37.2**
 - [[W-25 Keeping each world's full 150 m land with it|Keeping each world's full 150 m land with it (W-25)]]  
@@ -92,6 +90,8 @@
   next: Zach: the proposal's seven questions; then a brief with the fishing bugs (Q-79), the shallows stock and the…
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]  
   next: Zach: the racks (Q-83), salting (Q-73), storage asks, tanning and the packs, the building clock (Q-84) and…
+- [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]]  
+  next: Zach: the note's six questions (bulk goods to handling units with recipes in real kg; fuel a night at real…
 - [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]]  
   next: Zach: the note's seven questions (core states knowledge dies unless passed on; core length; ten shapes as the…
 

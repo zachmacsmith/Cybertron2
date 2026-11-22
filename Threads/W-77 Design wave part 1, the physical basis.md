@@ -1,15 +1,15 @@
 ---
 id: W-77
 kind: thread
-state: active
+state: waiting
 updated: "2026-11-22"
 ---
 
 # Design wave part 1, the physical basis (W-77)
 
-*active · 37.2 · touched 22 Nov (today)*
+*waiting · 37.2 · touched 22 Nov (today)*
 
-> **Next:** agent running: wave1_physical_basis.md; then review, commit, write into the proposals
+> **Next:** Zach: the note's six questions (bulk goods to handling units with recipes in real kg; fuel a night at real weight; the keeping curve for every shelf life; night-counted lives at 1/11.4; carrying building materials, real carry limits; field walls where the land gives stone); 28 inconsistencies in §5.4 for the build
 
 ## What it is
 [[D2-278 The next wave of the fishing, hunting and materials network|D2-278]]: the next wave designed in full before building; part 1 first, the others priced on it. Draft by an agent into docs/review/37_growth/02zzzh_hunt_fish/wave1_physical_basis.md; reviewed and written into the proposals.
