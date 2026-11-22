@@ -24,3 +24,4 @@ conversation (22 Nov: "1. yes")
 ## Mentioned by
 - [[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Whether salting fish and meat stays at 4 kg a unit of work (Q-73)]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
+- [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]

@@ -19,3 +19,4 @@ Zach, 22 Nov: a freeze stops fishing, but revisit; after getting other things wo
 
 ## Mentioned by
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
+- [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]

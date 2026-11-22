@@ -45,6 +45,7 @@ conversation ("are these senses being given direct chances? Are they not using t
 - [[Signs|Signs]]
 - [[15 Knowledge-making discovery, instruments, records and the…|15: Knowledge-making: discovery, instruments, records and the…]]
 - [[02zzz2 every state of the water, and what of it reaches a person|02zzz2: every state of the water, and what of it reaches a person]]
+- [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[38.43 what shows itself, and what does not (a sign audit)|38.43: what shows itself, and what does not (a sign audit)]]
 - [[38.55 The food probe a goal that can only be met at the neighbours'…|38.55: The food probe: a goal that can only be met at the neighbours'…]]
 - [[38.56 The harm probe a goal that can only be met by harming or…|38.56: The harm probe: a goal that can only be met by harming or…]]

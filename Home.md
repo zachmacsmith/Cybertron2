@@ -28,7 +28,7 @@
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]: revisit: soon (Zach, 20 Nov: 'that one sooner')
 - [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]: closed by agent
 
-## Active threads (21)
+## Active threads (20)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -50,8 +50,6 @@
 - [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]]  
   next: overnight agent running; then review, commit, questions to Zach
 - [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]]  
-  next: overnight agent running; then review, commit, questions to Zach
-- [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]  
   next: overnight agent running; then review, commit, questions to Zach
 - [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]]  
   next: overnight agent running; then review, commit, questions to Zach
@@ -75,7 +73,7 @@
 - [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]]  
   next: merge (Zach), a bot run to measure the new rows' chances, item 9 after W-56
 
-## Waiting threads (12)
+## Waiting threads (13)
 
 **37.2**
 - [[W-25 Keeping each world's full 150 m land with it|Keeping each world's full 150 m land with it (W-25)]]  
@@ -94,6 +92,8 @@
   next: Zach: the note's six questions (bulk goods to handling units with recipes in real kg; fuel a night at real…
 - [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]]  
   next: Zach: the note's seven questions (core states knowledge dies unless passed on; core length; ten shapes as the…
+- [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]  
+  next: Zach: the note's 14 questions (§8), chiefly set and tend as two acts on held gear, Q-80 recorded as a…
 
 **37.4**
 - [[W-14 Claims and ownership by physics, part 2|Claims and ownership by physics, part 2 (W-14)]]  

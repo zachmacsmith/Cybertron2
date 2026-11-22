@@ -24,3 +24,4 @@ conversation (22 Nov: "2. yes")
 ## Mentioned by
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
+- [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]

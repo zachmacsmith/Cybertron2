@@ -25,3 +25,4 @@ conversation (20 Nov: "By trips of several days I meant just travelling to anoth
 - [[Wildlife|Wildlife]]
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
 - [[Why the villagers of the runs world did not fish|Why the villagers of the runs world did not fish]]
+- [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]

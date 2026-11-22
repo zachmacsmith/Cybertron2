@@ -22,3 +22,4 @@ conversation (22 Nov: "3. by hand is fine for now")
 
 ## Mentioned by
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
+- [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
