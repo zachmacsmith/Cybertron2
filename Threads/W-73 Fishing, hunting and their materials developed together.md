@@ -44,6 +44,7 @@ started
 - under it: [[D2-293 One shared catch basis for every component of the wave|One shared catch basis for every component of the wave (D2-293)]] (live)
 - under it: [[D2-294 Going back to one's set gear is the act 'tend'|Going back to one's set gear is the act 'tend' (D2-294)]] (live)
 - under it: [[D2-295 Each depth of cure is its own good|Each depth of cure is its own good (D2-295)]] (live)
+- under it: [[D2-296 Fallbacks are assignable by the household's standing rules|Fallbacks are assignable by the household's standing rules (D2-296)]] (live)
 - under it: [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]] (open)
 - under it: [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]] (open)
 - under it: [[L-145 Offal's uses bait for set lines and traps, dog food|Offal's uses: bait for set lines and traps, dog food (L-145)]] (open)
@@ -90,6 +91,7 @@ started
 - [[D2-293 One shared catch basis for every component of the wave|One shared catch basis for every component of the wave (D2-293)]]
 - [[D2-294 Going back to one's set gear is the act 'tend'|Going back to one's set gear is the act 'tend' (D2-294)]]
 - [[D2-295 Each depth of cure is its own good|Each depth of cure is its own good (D2-295)]]
+- [[D2-296 Fallbacks are assignable by the household's standing rules|Fallbacks are assignable by the household's standing rules (D2-296)]]
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
 - [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]
@@ -109,6 +111,5 @@ started
 - [[L-111 The hunting and resources build, a soon follow-up|The hunting and resources build, a soon follow-up (L-111)]]
 - [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]]
 - [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]]
-- [[L-145 Offal's uses bait for set lines and traps, dog food|Offal's uses: bait for set lines and traps, dog food (L-145)]]
-- … and 29 more
+- … and 30 more
 - *and 1 index or audit notes*

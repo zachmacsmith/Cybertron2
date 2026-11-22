@@ -115,7 +115,8 @@
 ## Queued and paused (8)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework, [[W-76 The timber economy|W-76]] The timber economy
 
-## Decided this week (93)
+## Decided this week (94)
+- [[D2-296 Fallbacks are assignable by the household's standing rules|Fallbacks are assignable by the household's standing rules (D2-296)]]
 - [[D2-295 Each depth of cure is its own good|Each depth of cure is its own good (D2-295)]]
 - [[D2-294 Going back to one's set gear is the act 'tend'|Going back to one's set gear is the act 'tend' (D2-294)]]
 - [[D2-293 One shared catch basis for every component of the wave|One shared catch basis for every component of the wave (D2-293)]]
@@ -130,7 +131,6 @@
 - [[D2-284 A smokehouse's capacity comes from the racks fitted, about 250 kg of…|A smokehouse's capacity comes from the racks fitted, about 250 kg of… (D2-284)]]
 - [[D2-283 Salting fish runs at about 20 kg an hour with gutting, at 1 kg of…|Salting fish runs at about 20 kg an hour with gutting, at 1 kg of… (D2-283)]]
 - [[D2-282 Standing rules support conditional actions conditioned on state…|Standing rules support conditional actions conditioned on state… (D2-282)]]
-- [[D2-281 Tanning comes in this build, with bark as a new good|Tanning comes in this build, with bark as a new good (D2-281)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]
