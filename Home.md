@@ -4,8 +4,9 @@
 
 [The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.
 
-## Waiting on you (18)
+## Waiting on you (19)
 - [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)]]
+- [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]
 - [[Q-82 Trying and learning|Trying and learning (Q-82)]]
 - [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]]
 - [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
@@ -16,7 +17,6 @@
 - [[Q-74 Whether a weir's first section costs a base of 6 timber and 8 units…|Whether a weir's first section costs a base of 6 timber and 8 units… (Q-74)]]
 - [[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Whether salting fish and meat stays at 4 kg a unit of work (Q-73)]]
 - [[Q-69 The basis for food and work|The basis for food and work (Q-69)]]
-- [[Q-68 How high the surplus can go in the medieval worlds, against the…|How high the surplus can go in the medieval worlds, against the… (Q-68)]]
 - … all of them: [[All asks]]
 
 ## To confirm or revisit

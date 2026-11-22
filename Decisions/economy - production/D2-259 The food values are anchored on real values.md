@@ -30,4 +30,5 @@ conversation (20 Nov: "conversation (20 Nov: "Iagree with u", to: anchor on real
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[The fishing ladder techniques, gear, works and the water's stocks|The fishing ladder: techniques, gear, works and the water's stocks]]
 - [[Hunting, trapping, fowling and the kill techniques, capital and…|Hunting, trapping, fowling and the kill: techniques, capital and…]]
+- [[How much a smokehouse held, how long it took, and what the engine's…|How much a smokehouse held, how long it took, and what the engine's…]]
 - [[Withies, coppice and the other wood and wild materials for fishing…|Withies, coppice and the other wood and wild materials for fishing…]]

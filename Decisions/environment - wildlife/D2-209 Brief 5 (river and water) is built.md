@@ -39,6 +39,7 @@ conversation (16 Nov: "1. yes. 2. yes. 3. sure. 4. I'll be passing this to the o
 - [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[The fishing ladder techniques, gear, works and the water's stocks|The fishing ladder: techniques, gear, works and the water's stocks]]
+- [[How much a smokehouse held, how long it took, and what the engine's…|How much a smokehouse held, how long it took, and what the engine's…]]
 - [[Withies, coppice and the other wood and wild materials for fishing…|Withies, coppice and the other wood and wild materials for fishing…]]
 - [[Brief 5, the river part the runs, the weir, the mill's gap, salmon…|Brief 5, the river part: the runs, the weir, the mill's gap, salmon…]]
 - [[38.73 Brief 5 (river and water) as built the dry-run report for the…|38.73: Brief 5 (river and water) as built: the dry-run report for the…]]
