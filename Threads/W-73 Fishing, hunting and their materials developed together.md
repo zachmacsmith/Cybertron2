@@ -46,8 +46,8 @@ started
 - under it: [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]] (open)
 - under it: [[Q-84 The building scale|The building scale (Q-84)]] (closed)
 - under it: [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]] (done)
-- under it: [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]] (queued)
-- under it: [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]] (queued)
+- under it: [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]] (active)
+- under it: [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]] (active)
 
 
 ## Mentioned by
