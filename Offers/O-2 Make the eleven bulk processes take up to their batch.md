@@ -2,7 +2,7 @@
 id: O-2
 kind: offer
 state: open
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Make the eleven bulk processes take up to their batch (O-2)
@@ -19,3 +19,7 @@ add the existing up-to batch (brief 4c §6.1) to mill, water mill, grind, bread,
 
 ## Linked
 - parent: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+
+
+## Mentioned by
+- [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]

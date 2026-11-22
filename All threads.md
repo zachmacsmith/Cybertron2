@@ -1,6 +1,7 @@
 # All threads
 
 ## Open
+- [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]] (queued)
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]] (waiting)
 - [[W-72 Signs of the river|Signs of the river (W-72)]] (waiting)
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]] (queued)
