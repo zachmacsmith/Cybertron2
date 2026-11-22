@@ -41,6 +41,7 @@ decision, or the rule it was first written in. A new process decision is added h
 - D2-280: Commits carry no Claude-Session line (the repository is public and the link names a private session); the Co-Authored-By line stays
 - D2-285: The records brief is run by hand after each compaction for now, since the project hooks do not load when a session starts outside the repository.
 - D2-287: Reviewing past runs: every finding is checked against the fixes made since that run (the commits and decisions after its date, and the world's settings, e.g. view: beliefs) before it is taken as evidence of a current fault; a fault already fixed is reported as fixed, with the fix.
+- D2-298: Bot runs test interfaces and basic functioning only; they make no decisions except those built into them, so they are not read as evidence of behaviour or of whether a world is too rich or too poor. Live runs carry that signal (starving included).
 
 ## Sources
 

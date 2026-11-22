@@ -559,6 +559,7 @@ coast (L-149); environmental effects refined later (L-150); medium arm: a smokeh
 
 ## History
 
+- 22 Nov 2026: accepted in part: D2-297 (The catch stays as calibrated (traps true to a real night, the weir's share, the).
 - 22 Nov 2026: accepted in part: D2-295 (Each depth of cure is its own good (hot-smoked, smoked, hard-cured, salt and dri).
 - 22 Nov 2026: accepted in part: D2-294 (Going back to one's set gear is the act 'tend' (checking, emptying, re-setting, ).
 - 22 Nov 2026: accepted in part: D2-293 (One shared catch basis for every component of the wave: the calibrated bot runs ).
