@@ -49,6 +49,11 @@ answered; the component writes on the default shown and says so); **calibrate** 
 | Charcoal | 20 kg | decided: [[D2-288 Bulk goods are counted in handling units of a stated weight and every…|D2-288]] |
 | Withies, bark | 10 kg bundles | decided: [[D2-288 Bulk goods are counted in handling units of a stated weight and every…|D2-288]] |
 | Cord | 1 kg | default (wave2 §2) |
+| A unit of size | its area: the land generator's cell is about 2 ha, but a field plot yields like about 0.1 ha; the willow and shallows stocks move about twentyfold on the reading | **open** (u3; blocks the stocks' calibration) |
+| Gear lives | set gear counted in nights at 1/11.4: a wicker trap about 20 nights, a net about 25 barked, 10 unbarked; mending gives back half the uses for a tenth of the materials, never rot | default (u3; with §1's open row) |
+| Tanning | bark peeled on year days 4 to 9 only; lime from a hearth's ash (a condition, not a good); lime 2 nights, light hides 16, heavy 32; a hide unit takes 1.5 units, 2 bark, 0.1 tallow, gives 3 leather; pits of 20 hide units | default (u10) |
+| Shoes | behind a world setting, off by default; unshod outdoors on a frost day eat 0.25 more | open (u10; W2-7) |
+| Fouling | a unit = 1 kg of flax straw retting in water; loads by source, a fade a night, carried down each water parcel's down link | default, first values to calibrate (u10; G3) |
 | Hide | by the beast (a deer's about 6 kg green; a stoat's a pelt, not a hide) | default (wave2 §1, answering wave1's "one hide from a stoat or a deer alike") |
 | Every recipe | rewritten in real kilograms on these units | decided: [[D2-288 Bulk goods are counted in handling units of a stated weight and every…|D2-288]] |
 
