@@ -22,5 +22,6 @@ conversation (22 Nov: "3. by hand is fine for now")
 
 ## Mentioned by
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
+- [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - *and 1 index or audit notes*

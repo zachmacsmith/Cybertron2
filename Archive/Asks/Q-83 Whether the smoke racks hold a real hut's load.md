@@ -24,6 +24,7 @@ smokehouse_capacity.md (22 Nov): the racks hold about 40 kg on 3 spaces (about 2
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 - [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
+- [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - *and 1 index or audit notes*
