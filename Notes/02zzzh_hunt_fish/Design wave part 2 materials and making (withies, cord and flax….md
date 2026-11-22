@@ -33,6 +33,15 @@ design them.
 note, named, **[m]** measured from the engine or computed from it, **[k]** a standard figure as I know it, not re-checked, **[e]** my
 estimate with its reasoning. The probes and sums are in the scratchpad (`w2/gates_making.py`, `w2/calc.py`); they are read-only.
 
+**Checked against [[D2-286 The list of what one could do today|D2-286]] and [[D2-287 Reviewing past runs|D2-287]]** (Zach, 22 Nov, after this note was drafted). Nothing here uses or sorts the "Today you could"
+options list. What a person is shown of their crafts is part 4 §2, carried by §3.4 here. The two findings this note takes from past
+runs (crafts_evaluation.md) were checked against main at commit fdefff0d and the current worlds' settings, and both still hold:
+- the water mill takes 200 grain in one act with no batch (`TECHNIQUES["water mill"]`), so [[O-2 Make the eleven bulk processes take up to their batch|O-2]] is not built;
+- the make lines show no inputs (`prompt._craft_note`, `knowledge.crafts_lines`), so [[D2-263 A craft a person knows at capable or known shows, where they look|D2-263]] is not built.
+
+Every other fault named here comes from today's code, with file and line, or from this note's own probe of the world files as they
+stand, not from a run. No finding of a past run is reported here as already fixed: none of those cited has been fixed since.
+
 **The basis** (part 1, unchanged): a unit is 2 hours; a person's world year is 192 units (spring 6 a day, summer 7, autumn 6,
 winter 5, eight days each); two adults 384. Capital costs real hours × f ÷ 2, f = 1/7 (the target) or 1/15 (the stage before).
 Materials and things used up in a handful of uses cost real hours ÷ 2. Withies, bark and firewood come in 10 kg bundles, timber
@@ -684,7 +693,7 @@ With two beds (60 a year), the cutting falls to 12 units and the beds' holders s
 | shoes | in this build, worn by days walked | later, with clothing | shoes are three quarters of leather's demand; without them tanning has no steady buyer (W2-7) |
 | bone | a good from dressing, never binding | folded into the hook recipe from the carcass | [[D2-264 The fishing, hunting and materials network|D2-264]] lists it; it costs nothing to keep and serves later points and needles |
 | sacks | cord, with weaving folded in | a cloth good and a loom | the engine has no cloth; a sack is cord plus a few hours (W2-19) |
-| batches of whole things | "up to" the batch for the act's units | quantity × fractional units; a minimum batch | under a unit is free today; a minimum repeats the water mill's 200-grain fault (crafts_evaluation) (W2-6) |
+| batches of whole things | "up to" the batch for the act's units | quantity × fractional units; a minimum batch | under a unit is free today; a minimum repeats the water mill's 200-grain fault (crafts_evaluation; still in the data on 22 Nov) (W2-6) |
 | bark's season | about 5 nights | part 1's 2 to 3; the whole spring | real mid-April to June is about 6 nights at 1/11.4 (W2-5) |
 | the spear | now, a copper head | with the bow later | a hunting weapon from the smith, cheap to add; the bow wants sinew, feathers and seasoning |
 
@@ -701,7 +710,7 @@ With two beds (60 a year), the cutting falls to 12 units and the beds' holders s
 | `verbs.py:845` | a failed make spoils all its inputs | tanning, a batch over nights, would lose every hide; trying_and_learning's materials multipliers and crude results are not built |
 | `data.py:730` | TRY: one rule for every craft (rough 1.7 inputs at 0.5; capable 1.3 at 0.75) | the classes of part 4 §4.2 replace it |
 | `knowledge.py:381-383` | the card at rough shows inputs with amounts | part 4 §2.2 says main input only; [[D2-263 A craft a person knows at capable or known shows, where they look|D2-263]] says as the card (§3.4) |
-| `knowledge.py:389-409` | `crafts_lines` lists names and sources, never inputs | [[D2-263 A craft a person knows at capable or known shows, where they look|D2-263]] is not built; crafts_evaluation's finding 2 stands |
+| `knowledge.py:389-409` | `crafts_lines` lists names and sources, never inputs | [[D2-263 A craft a person knows at capable or known shows, where they look|D2-263]] is not built; crafts_evaluation's finding 2 still holds on main (checked 22 Nov, [[D2-287 Reviewing past runs|D2-287]]) |
 | `landgen/gates.py:45` | the gate probe tries only gather and work | no make or build chain has ever been probed (M8) |
 | `wild/methods.py:86`; `engine/wild.py:909-918` | sets have lives of 4 (snare) and 8 (trap) nights and cost nothing to place | gear has no existence, materials or uses; part 3b replaces sets with gear things |
 | `world.py:686-694` | items wear by a use count to `ITEMS[..]["life"]`, one break at a time, no rot | gear needs uses and rot (§3.3) |
