@@ -46,7 +46,7 @@
 - [[W-65 The records system|The records system (W-65)]]  
   next: the header pass over the spec files and proposals; run threads labelled as such, with their branch (D2-238)…
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]  
-  next: Zach: the legibility fixes (Q-78), salting rate (Q-73), medium keeping (Q-76); then the three live runs again
+  next: after the first build (recipes shown with the batches, the gate check, the fishing bugs and the target rule)…
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  
@@ -79,7 +79,7 @@
 - [[W-72 Signs of the river|Signs of the river (W-72)]]  
   next: Zach: the proposal's seven questions; then a brief with the fishing bugs (Q-79), the shallows stock and the…
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]  
-  next: Zach: the twelve open questions (the wild clock first), then phase 1 (mend what misleads)
+  next: Zach: the racks (Q-83), salting (Q-73), storage asks, tanning and the packs, the building clock (Q-84) and…
 
 **37.4**
 - [[W-14 Claims and ownership by physics, part 2|Claims and ownership by physics, part 2 (W-14)]]  

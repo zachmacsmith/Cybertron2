@@ -22,4 +22,5 @@ add the existing up-to batch (brief 4c §6.1) to mill, water mill, grind, bread,
 
 
 ## Mentioned by
+- [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 - [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]

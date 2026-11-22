@@ -25,7 +25,7 @@ updated: "2026-11-20"
 
 ## Mentioned by
 - [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
-- [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+- [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[02zzu lookup the food values checked against USDA FoodData Central|02zzu lookup: the food values checked against USDA FoodData Central]]

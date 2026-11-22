@@ -2,14 +2,14 @@
 id: W-69
 kind: thread
 state: active
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Nutrition worlds (W-69)
 
-*active · 37.2 · touched 20 Nov (2 days ago)*
+*active · 37.2 · touched 22 Nov (today)*
 
-> **Next:** Zach: the legibility fixes ([[Q-78 Whether to build the fishing legibility fixes|Q-78]]), salting rate ([[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Q-73]]), medium keeping ([[Q-76 Whether the runs world's medium arm needs more keeping capital|Q-76]]); then the three live runs again
+> **Next:** after the first build (recipes shown with the batches, the gate check, the fishing bugs and the target rule): the runs world remade and its three live runs again, kept durably ([[L-147 Live runs kept durably as soon as they finish|L-147]])
 
 ## What it is
 **Subsistence worlds: a village off the runs alone, and off hunting alone**: Zach, 20 Nov ([[D2-242 Subsistence test worlds|D2-242]]): the runs world did not test whether a village can live off runs alone (it has fields; fish looks badly calibrated). Build a set of calibration worlds: runs only, hunting only; each survivable at medium skill and capital, with a surplus up to a bound at more. Folded in: fish nutrition (the eel at a fifth of its real food, [[W-64 Food, weight and work on one basis|W-64]]), the run numbers, the river frequencies ([[Q-52 Environment systems|Q-52]] 6), the brook fished out ([[Q-57 Fishing, from the lake run|Q-57]] c), hunting against farming ([[Q-46 Brief 4c as built|Q-46]] b, c; [[W-22 Hunting against farming and gathering in generated worlds|W-22]]'s measured changes)
