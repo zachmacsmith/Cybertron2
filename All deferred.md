@@ -1,6 +1,7 @@
 # All deferred
 
 ## Open
+- [[L-153 Clearing a plot at a time|Clearing a plot at a time (L-153)]] (open)
 - [[L-152 Travel folded into the standing rules|Travel folded into the standing rules (L-152)]] (open)
 - [[L-151 A household as a shared book of standing rules people subscribe to|A household as a shared book of standing rules people subscribe to (L-151)]] (open)
 - [[L-150 Environmental effects on fishing refined after the rest works|Environmental effects on fishing refined after the rest works (L-150)]] (open)

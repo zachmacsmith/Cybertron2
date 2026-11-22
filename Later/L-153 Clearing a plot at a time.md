@@ -1,0 +1,17 @@
+---
+id: L-153
+kind: deferred
+state: open
+updated: "2026-11-22"
+---
+
+# Clearing a plot at a time (L-153)
+
+*open · 37.2*
+
+## Later
+Found 22 Nov: clearing is all or nothing: a parcel becomes a field only when its whole work is done (CLEARING x size; scrub 10 units a unit of size), so nothing can be sown until the end. Zach: would it not make more sense if they clear away plots at a time so they can start using their partial clearings for farming while clearing more. Real assarting was piecemeal. Waits on: the timber economy or the building clock.
+
+
+## Linked
+- parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
