@@ -97,7 +97,11 @@
 ## Queued and paused (7)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
 
-## Decided this week (61)
+## Decided this week (65)
+- [[D2-267 Practice and learning are set at a 64-day lifespan and scaled with a…|Practice and learning are set at a 64-day lifespan and scaled with a… (D2-267)]]
+- [[D2-266 Knowledge in their own words|Knowledge in their own words (D2-266)]]
+- [[D2-265 The river's signs|The river's signs (D2-265)]]
+- [[D2-264 The fishing, hunting and materials network|The fishing, hunting and materials network (D2-264)]]
 - [[D2-263 A craft a person knows at capable or known shows, where they look|A craft a person knows at capable or known shows, where they look (D2-263)]]
 - [[D2-262 The runs at a real river's size|The runs at a real river's size (D2-262)]]
 - [[D2-261 The older generic game stocks are counted in the new meat unit|The older generic game stocks are counted in the new meat unit (D2-261)]]
@@ -109,10 +113,6 @@
 - [[D2-255 A very skilled hunter brings in a disproportionate amount of food…|A very skilled hunter brings in a disproportionate amount of food… (D2-255)]]
 - [[D2-254 Everything shown to Zach names each question, proposal, thread or…|Everything shown to Zach names each question, proposal, thread or… (D2-254)]]
 - [[D2-253 Zach's decisions about the process and its mechanisms are kept…|Zach's decisions about the process and its mechanisms are kept… (D2-253)]]
-- [[D2-252 The calibration suite measures how the worlds differ, world by world…|The calibration suite measures how the worlds differ, world by world… (D2-252)]]
-- [[D2-251 Every technique, fitting and thing to build says what it does and why…|Every technique, fitting and thing to build says what it does and why… (D2-251)]]
-- [[D2-250 Boar raid fields into autumn, to autumn day 4, weaker in a mast year|Boar raid fields into autumn, to autumn day 4, weaker in a mast year (D2-250)]]
-- [[D2-249 Wild kinds have birth windows of their own, and the year's young are…|Wild kinds have birth windows of their own, and the year's young are… (D2-249)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]

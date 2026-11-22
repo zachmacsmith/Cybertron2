@@ -24,15 +24,18 @@ started
 
 ## Linked
 - parent: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+- under it: [[D2-264 The fishing, hunting and materials network|The fishing, hunting and materials network (D2-264)]] (live)
 - under it: [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]] (open)
 - under it: [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]] (open)
 - under it: [[L-145 Offal's uses bait for set lines and traps, dog food|Offal's uses: bait for set lines and traps, dog food (L-145)]] (open)
 - under it: [[L-146 Peat as fuel where there is bog|Peat as fuel where there is bog (L-146)]] (open)
+- under it: [[L-148 The wild's clock|The wild's clock (L-148)]] (open)
 - under it: [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]] (open)
 - under it: [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]] (done)
 
 
 ## Mentioned by
+- [[D2-264 The fishing, hunting and materials network|The fishing, hunting and materials network (D2-264)]]
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
 - [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
 - [[W-72 Signs of the river|Signs of the river (W-72)]]
@@ -42,6 +45,7 @@ started
 - [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]]
 - [[L-145 Offal's uses bait for set lines and traps, dog food|Offal's uses: bait for set lines and traps, dog food (L-145)]]
 - [[L-146 Peat as fuel where there is bog|Peat as fuel where there is bog (L-146)]]
+- [[L-148 The wild's clock|The wild's clock (L-148)]]
 - [[Acts on held things take the thing as their target, and default to…|Acts on held things take the thing as their target, and default to…]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]

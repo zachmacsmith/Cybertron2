@@ -20,6 +20,7 @@ scope (20 Nov): the verb list ([[Q-27 Keep the 38 built verbs, or fold them back
 ## Linked
 - waits on: [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)]]
 - under it: [[D2-251 Every technique, fitting and thing to build says what it does and why…|Every technique, fitting and thing to build says what it does and why… (D2-251)]] (live)
+- under it: [[D2-266 Knowledge in their own words|Knowledge in their own words (D2-266)]] (live)
 - under it: [[L-141 How much seeded memory each livelihood starts with|How much seeded memory each livelihood starts with (L-141)]] (open)
 - under it: [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]] (open)
 - under it: [[Q-82 Trying and learning|Trying and learning (Q-82)]] (open)
@@ -27,6 +28,7 @@ scope (20 Nov): the verb list ([[Q-27 Keep the 38 built verbs, or fold them back
 
 ## Mentioned by
 - [[D2-251 Every technique, fitting and thing to build says what it does and why…|Every technique, fitting and thing to build says what it does and why… (D2-251)]]
+- [[D2-266 Knowledge in their own words|Knowledge in their own words (D2-266)]]
 - [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]]
 - [[Q-82 Trying and learning|Trying and learning (Q-82)]]
 - [[L-133 The engine as feature packages postponed, kept in mind|The engine as feature packages: postponed, kept in mind (L-133)]]

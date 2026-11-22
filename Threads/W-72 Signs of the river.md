@@ -25,11 +25,17 @@ started
 ## Linked
 - parent: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 - relates: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+- under it: [[D2-265 The river's signs|The river's signs (D2-265)]] (live)
+- under it: [[L-149 Gulls and other coastal birds, with the coast|Gulls and other coastal birds, with the coast (L-149)]] (open)
+- under it: [[L-150 Environmental effects on fishing refined after the rest works|Environmental effects on fishing refined after the rest works (L-150)]] (open)
 
 
 ## Mentioned by
+- [[D2-265 The river's signs|The river's signs (D2-265)]]
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 - [[L-141 How much seeded memory each livelihood starts with|How much seeded memory each livelihood starts with (L-141)]]
+- [[L-149 Gulls and other coastal birds, with the coast|Gulls and other coastal birds, with the coast (L-149)]]
+- [[L-150 Environmental effects on fishing refined after the rest works|Environmental effects on fishing refined after the rest works (L-150)]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[02zzz2 every state of the water, and what of it reaches a person|02zzz2: every state of the water, and what of it reaches a person]]

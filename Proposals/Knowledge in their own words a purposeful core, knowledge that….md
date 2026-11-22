@@ -178,6 +178,7 @@ makers.
 
 ## History
 
+- 22 Nov 2026: accepted in part: [[D2-266 Knowledge in their own words|D2-266]] (Knowledge in their own words (proposals/knowledge_in_their_own_words.md), as ans).
 - **22 Nov 2026:** §6 added: standard starting memories as culture, an experimental parameter (Zach, quoted under Why).
 - **22 Nov 2026:** §6: common sets by practice added (Zach: "there will be different common sets eg different practitioners will start with more knowledge about their practice eg fishers know how to fish and stuff about which techniques are best etc compared to farmers or hunters. This connects with the archetypes sorta work").
 - **22 Nov 2026:** §6 corrected after Zach: "I didn't mean all children were seeded with it on birth, just I meant for us deciding a common set of knowledge that is good to seed the founders so that they have a good understanding of how to interact with the world, with that they still need to pass it on, but how well they pass it on is itself part of the challenge." Now: a common set seeded to the founders only; children have it only if passed on; cultural variants are a parameter beside the default.

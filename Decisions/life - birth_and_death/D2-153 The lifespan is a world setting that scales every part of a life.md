@@ -21,6 +21,7 @@ youth 12 and adult 50 days fixed
 
 ## Mentioned by
 - [[D2-162 Shorter waits for children, a higher chance|Shorter waits for children, a higher chance (D2-162)]]
+- [[D2-267 Practice and learning are set at a 64-day lifespan and scaled with a…|Practice and learning are set at a 64-day lifespan and scaled with a… (D2-267)]]
 - [[D4-116 Lifespan 64 in the peoples worlds; the year unchanged|Lifespan 64 in the peoples worlds; the year unchanged (D4-116)]]
 - [[Q-5 Rounds a youth lasts; lifespans in rounds|Rounds a youth lasts; lifespans in rounds (Q-5)]]
 - [[L-12 Children and life (we'll come back to this)|Children and life ("we'll come back to this") (L-12)]]

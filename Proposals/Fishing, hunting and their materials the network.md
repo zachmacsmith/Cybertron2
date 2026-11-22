@@ -1,7 +1,7 @@
 ---
 id: docs/cybertron2/proposals/hunt_fish_materials.md
 kind: proposal
-updated: "2026-11-21"
+updated: "2026-11-22"
 ---
 # Fishing, hunting and their materials: the network
 
@@ -410,6 +410,7 @@ sense without this"). The live runs showed all of these failing together (02zzz,
 
 ## History
 
+- 22 Nov 2026: accepted in part: [[D2-264 The fishing, hunting and materials network|D2-264]] (The fishing, hunting and materials network (proposals/hunt_fish_materials.md), a).
 - **21 Nov 2026:** drafted by 37.2 at Zach's request ("the next thing we work on should be bringing together these things into a
   thread developed together: recalibrating the fishing / hunting signs and mechanisms alongside the relevant parts of the
   economies and resources, including stuff like withies and cords, exploring the different potentially relevant techniques,

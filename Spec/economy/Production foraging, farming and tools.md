@@ -1,7 +1,7 @@
 ---
 id: docs/cybertron2/spec/economy/production.md
 kind: spec
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 # Production: foraging, farming and tools
 
@@ -45,6 +45,7 @@ is in proposals.
 - [[D2-260 Milking at its real yield|D2-260]]: Milking at its real yield ([[D2-258 The food values are put on one physical basis|D2-258]]): about 3 kg of milk a cow a day and six cows milked a unit of work, so milk at its real 0.256 food a kg keeps dairy near its real food a unit of work
 - [[D2-261 The older generic game stocks are counted in the new meat unit|D2-261]]: The older generic game stocks are counted in the new meat unit (x 2.5, [[D2-258 The food values are put on one physical basis|D2-258]]), so a wood keeps the food its game had
 - [[D2-262 The runs at a real river's size|D2-262]]: The runs at a real river's size ([[D2-258 The food values are put on one physical basis|D2-258]]): the salmon spawning along the whole river at a real river's density (12 to 40 times the old runs at the lower stations), and the weir's year at the lowest stations allowed to exceed [[D2-210 The weir in sections, capped, with upkeep by the river|D2-210]]'s by the larger runs and holds (about 3 to 4 times)
+- [[D2-264 The fishing, hunting and materials network|D2-264]]: The fishing, hunting and materials network (proposals/hunt_fish_materials.md), as answered: each piece of gear has its own life by what it is made of (some wear fast, some slowly); every good's weight is stated in kilograms and the carry limit read against it; the withy bed keeps its three world years to full yield; flax is grown in a close and retting it in water fouls that water; one set act lays up to about 6 traps; the water holds a shallows stock of its own, and the relative stocks of shallows, open water and runs vary with the kind of water the world generates, the signs following; fowling is split from fish nets; the snare redesign and edges are written into the design
 
 ## Mechanics
 
