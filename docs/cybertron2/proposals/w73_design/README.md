@@ -1,6 +1,6 @@
 # The fishing, hunting and materials wave: the integrated design
 
-**Status:** discussion; the architecture and the basis sheet written, the component specs to be written to them. Parts decided are
+**Status:** discussion; the architecture, the basis sheet and all eleven component specs written (u1 to u11, 22 Nov); the integration review by 37.2 next. Parts decided are
 cited (D2-263 to D2-298); nothing built.
 **Owner:** 37.2 (the design, the wild, the water, the materials, the worlds); 37.4 owns the engine's core where a component names it
 (the verbs and their registry, the prompt core, the standing rules, buildings and their costs, senses), named on any merge.
