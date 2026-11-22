@@ -22,7 +22,6 @@ conversation (20 Nov: "I think being very skilled at hunting should be able to s
 
 ## Mentioned by
 - [[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Adopt the food values on one basis, and fix the runs, the weir and… (Q-70)]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
 - [[Wildlife|Wildlife]]
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
@@ -30,3 +29,4 @@ conversation (20 Nov: "I think being very skilled at hunting should be able to s
 - [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]
 - [[Hunting, trapping, fowling and the kill techniques, capital and…|Hunting, trapping, fowling and the kill: techniques, capital and…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
+- *and 1 index or audit notes*

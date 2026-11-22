@@ -22,7 +22,6 @@ updated: "2026-11-21"
 - [[W-72 Signs of the river|Signs of the river (W-72)]]
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 - [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

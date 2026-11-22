@@ -39,7 +39,6 @@ scope (20 Nov): the verb list ([[Q-27 Keep the 38 built verbs, or fold them back
 - [[L-133 The engine as feature packages postponed, kept in mind|The engine as feature packages: postponed, kept in mind (L-133)]]
 - [[L-141 How much seeded memory each livelihood starts with|How much seeded memory each livelihood starts with (L-141)]]
 - [[C-12 The river run seeded a scored goal|The river run seeded a scored goal (C-12)]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Trying and learning crafts by difficulty, failures that teach…|Trying and learning: crafts by difficulty, failures that teach…]]
@@ -50,4 +49,4 @@ scope (20 Nov): the verb list ([[Q-27 Keep the 38 built verbs, or fold them back
 - [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

@@ -25,7 +25,6 @@ tanning and leather; parchment, seals, quills; sinew, gut, glue, bowstrings, the
 
 ## Mentioned by
 - [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

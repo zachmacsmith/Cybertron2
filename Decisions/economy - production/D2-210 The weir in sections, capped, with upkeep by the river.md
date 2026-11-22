@@ -24,7 +24,6 @@ the weir of [[D2-209 Brief 5 (river and water) is built|D2-209]] as one work wit
 - [[D2-262 The runs at a real river's size|The runs at a real river's size (D2-262)]]
 - [[Q-75 Whether D2-210's yearly upkeep band wins over the river proposal's…|Whether D2-210's yearly upkeep band wins over the river proposal's… (Q-75)]]
 - [[W-26 Build brief 5 river and water (K4 without fen and boats)|Build brief 5: river and water (K4 without fen and boats) (W-26)]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
@@ -44,4 +43,4 @@ the weir of [[D2-209 Brief 5 (river and water) is built|D2-209]] as one work wit
 - [[Design wave part 2 materials and making (withies, cord and flax…|Design wave part 2: materials and making (withies, cord and flax…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Withies, coppice and the other wood and wild materials for fishing…|Withies, coppice and the other wood and wild materials for fishing…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

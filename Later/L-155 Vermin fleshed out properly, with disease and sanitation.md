@@ -18,5 +18,5 @@ Zach, 22 Nov: the vermin system should definitely be flagged as something to ret
 
 
 ## Mentioned by
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
+- *and 1 index or audit notes*

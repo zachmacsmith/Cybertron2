@@ -21,5 +21,4 @@ Zach, 22 Nov: food does not seem too rich now; if anything it has not been rich 
 
 ## Mentioned by
 - [[D2-273 Three clocks, each system on one|Three clocks, each system on one (D2-273)]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

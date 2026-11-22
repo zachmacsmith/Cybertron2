@@ -32,8 +32,7 @@ from proposals/shared_units.md (37.4, 19 Nov), its open questions 1 to 3
 - [[D2-275 A unit of work is 2 hours|A unit of work is 2 hours (D2-275)]]
 - [[D2-292 The food unit|The food unit (D2-292)]]
 - [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Shared units food value, weight and work on one basis|Shared units: food value, weight and work on one basis]]
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

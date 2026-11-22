@@ -23,9 +23,8 @@ started
 ## Mentioned by
 - [[W-76 The timber economy|The timber economy (W-76)]]
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[02zzv carrying in the live runs|02zzv: carrying in the live runs]]
 - [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

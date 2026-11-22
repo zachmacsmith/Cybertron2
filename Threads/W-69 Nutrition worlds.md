@@ -69,7 +69,6 @@ updated: "2026-11-22"
 - [[L-147 Live runs kept durably as soon as they finish|Live runs kept durably as soon as they finish (L-147)]]
 - [[O-2 Make the eleven bulk processes take up to their batch|Make the eleven bulk processes take up to their batch (O-2)]]
 - [[O-3 Build the switches that turn a food source off in a world|Build the switches that turn a food source off in a world (O-3)]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
@@ -87,4 +86,5 @@ updated: "2026-11-22"
 - [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]
 - [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
-- … and 1 more
+- [[Withies, coppice and the other wood and wild materials for fishing…|Withies, coppice and the other wood and wild materials for fishing…]]
+- *and 1 index or audit notes*

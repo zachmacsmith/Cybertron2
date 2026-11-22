@@ -23,7 +23,6 @@ conversation (20 Nov: "conversation (20 Nov: "Iagree with u", to: anchor on real
 ## Mentioned by
 - [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Shared units food value, weight and work on one basis|Shared units: food value, weight and work on one basis]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
@@ -37,4 +36,4 @@ conversation (20 Nov: "conversation (20 Nov: "Iagree with u", to: anchor on real
 - [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - [[Withies, coppice and the other wood and wild materials for fishing…|Withies, coppice and the other wood and wild materials for fishing…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

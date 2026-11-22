@@ -28,7 +28,6 @@ updated: "2026-11-21"
 - [[W-45 Brief 5 revised from the economy research|Brief 5 revised from the economy research (W-45)]]
 - [[W-72 Signs of the river|Signs of the river (W-72)]]
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
@@ -37,4 +36,4 @@ updated: "2026-11-21"
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Withies, coppice and the other wood and wild materials for fishing…|Withies, coppice and the other wood and wild materials for fishing…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
-- *and 4 index or audit notes*
+- *and 5 index or audit notes*

@@ -22,4 +22,4 @@ conversation (22 Nov: "Separate goods (Recommended)")
 
 ## Mentioned by
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
+- *and 1 index or audit notes*

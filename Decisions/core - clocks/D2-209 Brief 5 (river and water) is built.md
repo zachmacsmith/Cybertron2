@@ -29,7 +29,6 @@ conversation (16 Nov: "1. yes. 2. yes. 3. sure. 4. I'll be passing this to the o
 - [[L-110 Salt's fuel, to recalibrate|Salt's fuel, to recalibrate (L-110)]]
 - [[L-111 The hunting and resources build, a soon follow-up|The hunting and resources build, a soon follow-up (L-111)]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Clocks which systems run on which time|Clocks: which systems run on which time]]
@@ -46,4 +45,4 @@ conversation (16 Nov: "1. yes. 2. yes. 3. sure. 4. I'll be passing this to the o
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
 - [[Brief 5, the river part the runs, the weir, the mill's gap, salmon…|Brief 5, the river part: the runs, the weir, the mill's gap, salmon…]]
 - [[38.73 Brief 5 (river and water) as built the dry-run report for the…|38.73: Brief 5 (river and water) as built: the dry-run report for the…]]
-- *and 5 index or audit notes*
+- *and 6 index or audit notes*

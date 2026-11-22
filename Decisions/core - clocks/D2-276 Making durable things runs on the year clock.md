@@ -26,7 +26,6 @@ conversation (22 Nov: "conversation (22 Nov: "Let's try this redesign tbh. I thi
 - [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
 - [[L-157 Rest days, with health, fatigue and illness|Rest days, with health, fatigue and illness (L-157)]]
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Clocks which systems run on which time|Clocks: which systems run on which time]]
 - [[The building clock's first stage, read with bots do bots still build…|The building clock's first stage, read with bots: do bots still build…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
@@ -34,4 +33,4 @@ conversation (22 Nov: "conversation (22 Nov: "Let's try this redesign tbh. I thi
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

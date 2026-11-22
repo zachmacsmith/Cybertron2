@@ -22,7 +22,6 @@ combat.py's weapon used up in every fight
 ## Mentioned by
 - [[C-11 Weapons specconflictcombat.md and D2-46 name a blade, but…|Weapons: spec/conflict/combat.md and D2-46 name a "blade", but… (C-11)]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Proposal recipes for the first worlds|Proposal: recipes for the first worlds]]
 - [[Combat attacks on a person|Combat: attacks on a person]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
@@ -32,3 +31,4 @@ combat.py's weapon used up in every fight
 - [[Design wave part 2 materials and making (withies, cord and flax…|Design wave part 2: materials and making (withies, cord and flax…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Review 38.16 where M1 was built too narrowly, system by system…|Review 38.16: where M1 was built too narrowly, system by system…]]
+- *and 1 index or audit notes*

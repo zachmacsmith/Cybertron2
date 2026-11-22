@@ -25,7 +25,6 @@ conversation (20 Nov: "This is still postponed but I think we should flag it so 
 - [[Q-48 The engine as feature packages|The engine as feature packages (Q-48)]]
 - [[L-133 The engine as feature packages postponed, kept in mind|The engine as feature packages: postponed, kept in mind (L-133)]]
 - [[O-3 Build the switches that turn a food source off in a world|Build the switches that turn a food source off in a world (O-3)]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
@@ -39,3 +38,4 @@ conversation (20 Nov: "This is still postponed but I think we should flag it so 
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
 - [[Withies, coppice and the other wood and wild materials for fishing…|Withies, coppice and the other wood and wild materials for fishing…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
+- *and 1 index or audit notes*

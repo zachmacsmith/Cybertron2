@@ -4,7 +4,7 @@
 
 > Every rule Zach has set about how the work is done, in one place (D2-253): how things are recorded and tracked, how he is asked and shown things, how code, commits and branches go, what may be built or run without him, where documents go. Each line cites its decision, or the rule it was first writte
 
-## Decided (17)
+## Decided (18)
 - [[D2-232 The records as items|The records as items (D2-232)]]
 - [[D2-233 One tool for the records|One tool for the records (D2-233)]]
 - [[D2-234 Documents in the web|Documents in the web (D2-234)]]
@@ -22,6 +22,7 @@
 - [[D2-280 Commits carry no Claude-Session line|Commits carry no Claude-Session line (D2-280)]]
 - [[D2-285 The records brief is run by hand after each compaction for now, since…|The records brief is run by hand after each compaction for now, since… (D2-285)]]
 - [[D2-287 Reviewing past runs|Reviewing past runs (D2-287)]]
+- [[D2-298 Bot runs test interfaces and basic functioning only|Bot runs test interfaces and basic functioning only (D2-298)]]
 
 ## Open here
 - [[Q-67 Confirm three rules the sessions follow without your own words behind…|Confirm three rules the sessions follow without your own words behind… (Q-67)]] (open)

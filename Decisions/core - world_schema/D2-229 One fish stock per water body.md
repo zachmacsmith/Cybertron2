@@ -26,7 +26,6 @@ a stock on each water parcel, sized by the lake within the village's own land ([
 - [[W-56 One fish stock per water body, the engine half|One fish stock per water body, the engine half (W-56)]]
 - [[L-116 The wild layer's fish and a water body, two ways|The wild layer's fish and a water body, two ways (L-116)]]
 - [[Luck in the catch, a lake's fish by its size, and a fishing household|Luck in the catch, a lake's fish by its size, and a fishing household]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[A model to each household in the runs world|A model to each household in the runs world]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]
 - [[A signs pass after the lake runs (17 Nov)|A signs pass after the lake runs (17 Nov)]]
@@ -38,4 +37,4 @@ a stock on each water parcel, sized by the lake within the village's own land ([
 - [[The fishing ladder techniques, gear, works and the water's stocks|The fishing ladder: techniques, gear, works and the water's stocks]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[38.76 One fish stock per water body, the engine half (D2-229), as…|38.76: One fish stock per water body, the engine half (D2-229), as…]]
-- *and 5 index or audit notes*
+- *and 6 index or audit notes*

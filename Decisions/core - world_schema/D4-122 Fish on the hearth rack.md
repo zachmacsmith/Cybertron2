@@ -23,8 +23,7 @@ conversation ("fish can go on the hearth rack")
 - [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]]
 - [[L-115 Dried fish in the economy spec|Dried fish in the economy spec (L-115)]]
 - [[Fish on the hearth rack|Fish on the hearth rack]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[38.77 The lake runs' faults, fish on the hearth rack, and a signs…|38.77: The lake runs' faults, fish on the hearth rack, and a signs…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

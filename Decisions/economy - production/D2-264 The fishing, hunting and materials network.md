@@ -23,7 +23,6 @@ conversation (22 Nov: "conversation (22 Nov, answers to the open questions)")
 ## Mentioned by
 - [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
 - [[The catch basis checked against real eel fisheries can a household…|The catch basis checked against real eel fisheries: can a household…]]
@@ -33,4 +32,4 @@ conversation (22 Nov: "conversation (22 Nov, answers to the open questions)")
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

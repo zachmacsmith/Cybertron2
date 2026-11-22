@@ -18,4 +18,4 @@ Zach, 14 Nov: fish oil seems potentially valid. Proposed in economy_web.md and 0
 
 
 ## Mentioned by
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
+- *and 1 index or audit notes*

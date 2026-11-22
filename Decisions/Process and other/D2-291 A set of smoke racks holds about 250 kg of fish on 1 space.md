@@ -26,4 +26,4 @@ conversation (22 Nov: "250 kg a set, 1 space (Recommended)")
 
 ## Mentioned by
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
+- *and 1 index or audit notes*

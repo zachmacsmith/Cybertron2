@@ -20,7 +20,11 @@ started
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+- under it: [[D2-297 The catch stays as calibrated|The catch stays as calibrated (D2-297)]] (live)
+- under it: [[D2-298 Bot runs test interfaces and basic functioning only|Bot runs test interfaces and basic functioning only (D2-298)]] (live)
 
 
 ## Mentioned by
+- [[D2-297 The catch stays as calibrated|The catch stays as calibrated (D2-297)]]
+- [[D2-298 Bot runs test interfaces and basic functioning only|Bot runs test interfaces and basic functioning only (D2-298)]]
 - [[The catch basis checked against real eel fisheries can a household…|The catch basis checked against real eel fisheries: can a household…]]

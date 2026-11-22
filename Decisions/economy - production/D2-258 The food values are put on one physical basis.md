@@ -36,7 +36,6 @@ conversation (20 Nov: "1. I agree")
 - [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 - [[L-139 A hen killed in a raid gives its meat|A hen killed in a raid gives its meat (L-139)]]
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Shared units food value, weight and work on one basis|Shared units: food value, weight and work on one basis]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
@@ -53,4 +52,4 @@ conversation (20 Nov: "1. I agree")
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - [[Steered or chosen defaults, examples and wordings in what the agents…|Steered or chosen: defaults, examples and wordings in what the agents…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

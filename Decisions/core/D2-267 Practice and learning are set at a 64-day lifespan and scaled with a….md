@@ -21,11 +21,10 @@ conversation (22 Nov: "conversation (22 Nov, answers to the open questions)")
 
 
 ## Mentioned by
-- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Trying and learning crafts by difficulty, failures that teach…|Trying and learning: crafts by difficulty, failures that teach…]]
 - [[Clocks which systems run on which time|Clocks: which systems run on which time]]
 - [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

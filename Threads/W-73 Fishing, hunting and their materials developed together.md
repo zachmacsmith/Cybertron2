@@ -111,5 +111,5 @@ started
 - [[L-111 The hunting and resources build, a soon follow-up|The hunting and resources build, a soon follow-up (L-111)]]
 - [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]]
 - [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]]
-- … and 30 more
-- *and 1 index or audit notes*
+- … and 29 more
+- *and 2 index or audit notes*
