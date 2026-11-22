@@ -38,10 +38,10 @@ TODAY = dt.date.today()
 
 ID_RE = r"(?:D\d|H|W|Q|L|O|C)-\d+[a-z]?"
 KINDS = {"W": "thread", "Q": "ask", "L": "deferred", "O": "offer", "C": "conflict", "D": "decision", "H": "decision"}
-EDGES = ["parent", "waits_on", "blocks", "replaces", "decides", "relates"]
+EDGES = ["parent", "waits_on", "blocks", "replaces", "decides", "relates", "bears_on"]   # bears_on: the prospective threads an item will matter to (D2-300)
 BY = ["zach", "agent", "default", "relayed"]
 LIST_FIELDS = set(EDGES) | {"sources", "threads", "describes", "relates_why", "builds"}
-OPEN_STATES = {"thread": {"queued", "active", "waiting", "paused"}, "ask": {"open"}, "deferred": {"open"}, "offer": {"open"},
+OPEN_STATES = {"thread": {"queued", "active", "waiting", "paused", "benched"},   # benched: a prospective thread, not begun (D2-300) "ask": {"open"}, "deferred": {"open"}, "offer": {"open"},
                "conflict": {"open"}, "decision": set()}
 TYPES = ["design", "decide", "build", "fix", "run", "record", "upkeep"]
 MONTHS = {m: i for i, m in enumerate(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], 1)}
@@ -787,6 +787,42 @@ def cmd_digest(web, limit=8):
     return 0
 
 
+def cmd_surface(web, ids, closed=False):
+    """Everything put off for a thread (D2-300): every open item that bears on it, waits on it, sits under it or names it,
+    and the same for its child threads; run it when work on the thread begins."""
+    want = set()
+    stack = list(ids)
+    while stack:                                             # the thread and its child threads
+        t = stack.pop()
+        if t in want:
+            continue
+        want.add(t)
+        stack += [c for c in web.children.get(t, []) if web.items.get(c, {}).get("kind") == "thread"]
+    groups = {}
+    for i, it in web.items.items():
+        if i in want or (is_closed(it) and not closed):
+            continue
+        how = [e for e in ("bears_on", "waits_on", "parent") if want & set(as_list(it.get(e)))]
+        if not how and want & {m for m in web.mentions if i in web.mentions[m]}:
+            how = ["named"]
+        if how:
+            groups.setdefault(it.get("kind", "?"), []).append((how[0], i))
+    print(f"# What bears on {', '.join(ids)} ({TODAY})" + (f"; with its child threads {', '.join(sorted(want - set(ids), key=num))}" if want - set(ids) else ""))
+    if not groups:
+        print("\nNothing is tagged to it yet.")
+    order = ["ask", "conflict", "deferred", "offer", "thread", "decision"]
+    for k in sorted(groups, key=lambda x: order.index(x) if x in order else 9):
+        rows = sorted(groups[k], key=lambda x: (["bears_on", "waits_on", "parent", "named"].index(x[0]), num(x[1])))
+        print(f"\n{k} ({len(rows)}):")
+        for how, i in rows:
+            print(web.line(i, how))
+    untagged = [i for i, it in web.items.items() if it.get("kind") == "deferred" and not is_closed(it)
+                and not as_list(it.get("bears_on"))]
+    if untagged:
+        print(f"\n({len(untagged)} open deferred items bear on no thread yet: `records.py check` lists them)")
+    return 0
+
+
 def cmd_pack(web, ids):
     """The context to hand over: each node in full, its links one line each, the files to read, the open asks under it."""
     print(f"# Context pack: {', '.join(ids)} ({TODAY})\n")
@@ -1484,6 +1520,9 @@ def main(argv=None) -> int:
     sub.add_parser("brief")
     sub.add_parser("digest").add_argument("--limit", type=int, default=8)
     sub.add_parser("pack").add_argument("ids", nargs="+")
+    s = sub.add_parser("surface")
+    s.add_argument("ids", nargs="+")
+    s.add_argument("--closed", action="store_true")
     s = sub.add_parser("new")
     s.add_argument("kind")
     s.add_argument("--title", required=True)
@@ -1596,6 +1635,8 @@ def main(argv=None) -> int:
         return cmd_digest(web, a.limit)
     if c == "pack":
         return cmd_pack(web, a.ids)
+    if c == "surface":
+        return cmd_surface(web, a.ids, a.closed)
     if c == "branches":
         return cmd_branches(web)
     if c == "export":

@@ -42,6 +42,7 @@ decision, or the rule it was first written in. A new process decision is added h
 - D2-285: The records brief is run by hand after each compaction for now, since the project hooks do not load when a session starts outside the repository.
 - D2-287: Reviewing past runs: every finding is checked against the fixes made since that run (the commits and decisions after its date, and the world's settings, e.g. view: beliefs) before it is taken as evidence of a current fault; a fault already fixed is reported as fixed, with the fix.
 - D2-298: Bot runs test interfaces and basic functioning only; they make no decisions except those built into them, so they are not read as evidence of behaviour or of whether a world is too rich or too poor. Live runs carry that signal (starving included).
+- D2-300: Every item Zach defers or flags is tagged with the prospective threads it most likely bears on (benched threads kept for that purpose), so that when work on a thread begins, every past item put off for it surfaces with one tool call.
 
 ## Sources
 

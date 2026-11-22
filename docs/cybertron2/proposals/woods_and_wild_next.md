@@ -44,6 +44,7 @@ forest rights), a second on the hunter's tools, kept beasts and the wild's other
 
 ## History
 
+- 22 Nov 2026: accepted in part: D2-299 (Forest law, hunting rights and the woods' other institutions come later: all ins).
 - **22 Nov 2026:** written as exploration by 37.2 at Zach's question ("We aren't fleshing out the hunting processes tools or
   wildlife or resources that come from in this update? ... That should likely be the next proper thread to build out after this one
   maybe alongside the timber?"), from the network's left-out table, the hunting ladder and the timber scouting.

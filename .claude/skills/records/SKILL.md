@@ -28,15 +28,16 @@ turn. A question you answered in the turn, an explanation, or a fix that is comm
 
 | Event | Call |
 |---|---|
-| Work starts | `new W --title "..." [--parent W-n]`, then `set W-n state=active next="..."` |
+| Work starts | `surface W-n` first (everything put off for it, D2-300); or `new W --title "..." [--parent W-n]`, then `set W-n state=active next="..."` |
+| A prospective thread (not begun, kept so things can be tagged to it) | `new W --title "..." ` then `set W-n state=benched` |
 | The next step changes, or the work is set aside | `set W-n next="..."`; `set W-n state=paused notes="done ...; left ..."` |
 | Work finishes | `close W-n --by agent --note "what it passed"`. It refuses while open children remain: move each (`set X parent=W-m`), close it, or `set X revisit="why"` |
 | You promise or offer something ("I'll ...", "shall I ...") | `new O --title "..." --parent W-n default="do it" default_on=YYYY-MM-DD` |
 | A question for Zach | `new Q --title "..." --parent W-n recommend="..." default="..." default_on=YYYY-MM-DD` |
-| Zach flags something for later | `new L --title "..." --parent W-n waits_on_text="..."` |
+| Zach flags or defers something | `new L --title "..." --parent W-n waits_on_text="..." bears_on=W-a,W-b`: tag every prospective thread it will most likely matter to (D2-300) |
 | Zach decides (his own words only) | `decide --rule "the rule, stated as a rule" --area economy/production --quote "his words" --closes Q-n [--replaces D2-k] [--parent W-n] [--proposal proposals/x.md]` |
 | Something resolved that Zach did not settle | `close Q-n --by agent --note "why"`, or `--by default` or `--by relayed`. These are provisional. Never `--by zach` without `--answer "his words"` |
-| Link two nodes | `link X waits_on Y`; `link X relates Y --reason "why"`. Edges: parent, waits_on, blocks, replaces, decides, relates |
+| Link two nodes | `link X waits_on Y`; `link X relates Y --reason "why"`. Edges: parent, waits_on, blocks, replaces, decides, relates, bears_on |
 | Commit | `commit -m "<what>" [--thread W-n] [--type build] [--builds D2-k W-n] [paths...]`. It stages the records and the paths and writes the type, subject and trailers. Typed `git commit` must carry `Agent:` and `Thread:` in the last paragraph (the hook checks) |
 
 ## Reading
@@ -46,6 +47,7 @@ turn. A question you answered in the turn, an explanation, or a fix that is comm
 | `status [--owner 37.2]` | the live threads with their next steps, asks, provisional closes, branches no thread names. **Every status answer comes from here, not from memory.** |
 | `show <id or path>` | the node in full (a document: its summary, outline, decided lines and open questions), its links one line each, what mentions it, and a "links newer" flag |
 | `ls <id> [--all]` | everything linked, one line each |
+| `surface <thread> [--closed]` | everything put off for a thread and its child threads: items that bear on it, wait on it, sit under it or name it (D2-300). Run it when work on a thread begins |
 | `tree W-n` | the thread's sub-threads and items |
 | `area <spec area>` | every decision in it, and the open items |
 | `find <words>` | search |
