@@ -25,4 +25,5 @@ add the existing up-to batch (brief 4c §6.1) to mill, water mill, grind, bread,
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 - [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]
 - [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
+- [[Design wave part 2 materials and making (withies, cord and flax…|Design wave part 2: materials and making (withies, cord and flax…]]
 - *and 1 index or audit notes*

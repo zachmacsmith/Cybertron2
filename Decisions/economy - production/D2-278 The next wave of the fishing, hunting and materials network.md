@@ -25,6 +25,7 @@ conversation (22 Nov: "conversation (22 Nov: "right now a deeper redesign and th
 - [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
+- [[Design wave part 2 materials and making (withies, cord and flax…|Design wave part 2: materials and making (withies, cord and flax…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
 - *and 1 index or audit notes*

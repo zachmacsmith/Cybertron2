@@ -35,6 +35,7 @@ one wood stock; woods sized only to last a run
 - [[02zb build brief for 37.4 forests, fuel and warmth, eating raw…|02zb: build brief for 37.4: forests, fuel and warmth, eating raw…]]
 - [[02zc the systems of cybertron2 as they stand|02zc: the systems of cybertron2 as they stand]]
 - [[02zt dependences, and things that help other things (9 Nov)|02zt: dependences, and things that help other things (9 Nov)]]
+- [[Design wave part 2 materials and making (withies, cord and flax…|Design wave part 2: materials and making (withies, cord and flax…]]
 - [[Withies, coppice and the other wood and wild materials for fishing…|Withies, coppice and the other wood and wild materials for fishing…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
 - [[38.28 Package F (forests, fuel in heat, eating raw, seeding below…|38.28: Package F (forests, fuel in heat, eating raw, seeding below…]]
