@@ -97,7 +97,8 @@
 ## Queued and paused (7)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
 
-## Decided this week (67)
+## Decided this week (68)
+- [[D2-270 Household skills|Household skills (D2-270)]]
 - [[D2-269 Experts' signs are observations of what is happening now, which may…|Experts' signs are observations of what is happening now, which may… (D2-269)]]
 - [[D2-268 The founders' starting knowledge|The founders' starting knowledge (D2-268)]]
 - [[D2-267 Practice and learning are set at a 64-day lifespan and scaled with a…|Practice and learning are set at a 64-day lifespan and scaled with a… (D2-267)]]
@@ -112,7 +113,6 @@
 - [[D2-258 The food values are put on one physical basis|The food values are put on one physical basis (D2-258)]]
 - [[D2-257 The nutrition worlds|The nutrition worlds (D2-257)]]
 - [[D2-256 A hunting trip is travelling out to a wild node, camping there…|A hunting trip is travelling out to a wild node, camping there… (D2-256)]]
-- [[D2-255 A very skilled hunter brings in a disproportionate amount of food…|A very skilled hunter brings in a disproportionate amount of food… (D2-255)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]
