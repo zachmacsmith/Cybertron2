@@ -25,6 +25,7 @@ started
 ## Linked
 - parent: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 - under it: [[D2-264 The fishing, hunting and materials network|The fishing, hunting and materials network (D2-264)]] (live)
+- under it: [[D2-271 Smoking in three depths|Smoking in three depths (D2-271)]] (live)
 - under it: [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]] (open)
 - under it: [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]] (open)
 - under it: [[L-145 Offal's uses bait for set lines and traps, dog food|Offal's uses: bait for set lines and traps, dog food (L-145)]] (open)
@@ -37,6 +38,7 @@ started
 
 ## Mentioned by
 - [[D2-264 The fishing, hunting and materials network|The fishing, hunting and materials network (D2-264)]]
+- [[D2-271 Smoking in three depths|Smoking in three depths (D2-271)]]
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
 - [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]

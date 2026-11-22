@@ -4,7 +4,7 @@
 
 > Food comes from foraging (the bottom rung) and from fields. Farming has a short minimum (sow, reap) and optional stages that cost work and raise the return. Crops ripen into a harvest window. Seed is kept back. Cattle pull the plough and dung the soil. Tools are a small set chosen by what each depen
 
-## Decided (46)
+## Decided (47)
 - [[D2-11 Farming's minimum is short, the other stages optional|Farming's minimum is short, the other stages optional (D2-11)]]
 - [[D2-12 A harvest window|A harvest window (D2-12)]]
 - [[D2-13 Worlds start with farming under way|Worlds start with farming under way (D2-13)]]
@@ -46,6 +46,7 @@
 - [[D2-261 The older generic game stocks are counted in the new meat unit|The older generic game stocks are counted in the new meat unit (D2-261)]]
 - [[D2-262 The runs at a real river's size|The runs at a real river's size (D2-262)]]
 - [[D2-264 The fishing, hunting and materials network|The fishing, hunting and materials network (D2-264)]]
+- [[D2-271 Smoking in three depths|Smoking in three depths (D2-271)]]
 - [[D4-19 Short childhoods counted in rounds|Short childhoods counted in rounds (D4-19)]]
 - [[D4-21 Worlds are seeded as a society with a past|Worlds are seeded as a society with a past (D4-21)]]
 - [[D4-23 Holding is a recognised claim|Holding is a recognised claim (D4-23)]]
