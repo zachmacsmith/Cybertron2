@@ -21,12 +21,15 @@ scope (20 Nov): the verb list ([[Q-27 Keep the 38 built verbs, or fold them back
 - waits on: [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)]]
 - under it: [[D2-251 Every technique, fitting and thing to build says what it does and why…|Every technique, fitting and thing to build says what it does and why… (D2-251)]] (live)
 - under it: [[L-141 How much seeded memory each livelihood starts with|How much seeded memory each livelihood starts with (L-141)]] (open)
+- under it: [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]] (open)
 
 
 ## Mentioned by
 - [[D2-251 Every technique, fitting and thing to build says what it does and why…|Every technique, fitting and thing to build says what it does and why… (D2-251)]]
+- [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]]
 - [[L-133 The engine as feature packages postponed, kept in mind|The engine as feature packages: postponed, kept in mind (L-133)]]
 - [[L-141 How much seeded memory each livelihood starts with|How much seeded memory each livelihood starts with (L-141)]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
+- [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]

@@ -4,8 +4,9 @@
 
 [The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.
 
-## Waiting on you (17)
+## Waiting on you (18)
 - [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)]]
+- [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]]
 - [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
 - [[Q-78 Whether to build the fishing legibility fixes|Whether to build the fishing legibility fixes (Q-78)]]
@@ -16,7 +17,6 @@
 - [[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Whether salting fish and meat stays at 4 kg a unit of work (Q-73)]]
 - [[Q-69 The basis for food and work|The basis for food and work (Q-69)]]
 - [[Q-68 How high the surplus can go in the medieval worlds, against the…|How high the surplus can go in the medieval worlds, against the… (Q-68)]]
-- [[Q-67 Confirm three rules the sessions follow without your own words behind…|Confirm three rules the sessions follow without your own words behind… (Q-67)]]
 - … all of them: [[All asks]]
 
 ## To confirm or revisit

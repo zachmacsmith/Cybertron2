@@ -30,6 +30,7 @@ conversation ("I would adopt it where ... whoever gives care that day ... whoeve
 - [[Forays going out from the village and coming back|Forays: going out from the village and coming back]]
 - [[Proposal the landscape generator (a world under the graph)|Proposal: the landscape generator (a world under the graph)]]
 - [[Customs held by households|Customs held by households]]
+- [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
 - [[Kept for good a few lines an agent keeps word for word|Kept for good: a few lines an agent keeps word for word]]
 - [[Proposal life (partners, children, growing up, death, inheritance)|Proposal: life (partners, children, growing up, death, inheritance)]]
 - [[Proposal livestock|Proposal: livestock]]

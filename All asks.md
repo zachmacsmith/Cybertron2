@@ -1,6 +1,7 @@
 # All asks
 
 ## Open
+- [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]] (open)
 - [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]] (open)
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]] (open)
 - [[Q-78 Whether to build the fishing legibility fixes|Whether to build the fishing legibility fixes (Q-78)]] (open)

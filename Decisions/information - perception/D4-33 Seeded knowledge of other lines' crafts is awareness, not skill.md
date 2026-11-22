@@ -22,6 +22,7 @@ the generator's 30% chance of a rough skill in another line's craft
 ## Mentioned by
 - [[Proposal beliefs, values and customs (flagged for later OPEN L-25)|Proposal: beliefs, values and customs (flagged for later: OPEN L-25)]]
 - [[Proposal what agents know they can do (actions, recipes, buildings)|Proposal: what agents know they can do (actions, recipes, buildings)]]
+- [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
 - [[Perception what an agent sees and knows|Perception: what an agent sees and knows]]
 - [[Birth and death partners, children, growing up, old age, succession|Birth and death: partners, children, growing up, old age, succession]]
 - [[Seeded populations|Seeded populations]]

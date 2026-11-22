@@ -22,5 +22,6 @@ the crafts named had to match exactly, and a mismatch was reported to each as th
 ## Mentioned by
 - [[W-58 The runs world with a model to each household|The runs world with a model to each household (W-58)]]
 - [[L-128 'salt pan' names two things|'salt pan' names two things (L-128)]]
+- [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
 - [[A lesson is in the teacher's craft|A lesson is in the teacher's craft]]
 - [[What agents can do|What agents can do]]

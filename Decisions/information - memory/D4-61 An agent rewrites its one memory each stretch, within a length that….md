@@ -24,6 +24,7 @@ conversation ("rather than forming a new memory every 3 days, they rewrite their
 - [[L-106 MAJOR what the engine remembers and settles for agents, and…|MAJOR: what the engine remembers and settles for agents, and… (L-106)]]
 - [[What an agent is shown the world and its rules, not choices made for…|What an agent is shown: the world and its rules, not choices made for…]]
 - [[Forays going out from the village and coming back|Forays: going out from the village and coming back]]
+- [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
 - [[Kept for good a few lines an agent keeps word for word|Kept for good: a few lines an agent keeps word for word]]
 - [[Memory rewritten, its length set by age|Memory rewritten, its length set by age]]
 - [[Proposal what an agent is shown each round, attention, and…|Proposal: what an agent is shown each round, attention, and…]]

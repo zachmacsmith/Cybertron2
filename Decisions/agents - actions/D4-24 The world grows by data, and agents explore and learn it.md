@@ -23,6 +23,7 @@ proposals/verbs.md, knowledge.md
 - [[The economy as a web of chains of different shapes|The economy as a web of chains of different shapes]]
 - [[The engine as a small core and feature packages design specification|The engine as a small core and feature packages: design specification]]
 - [[Proposal what agents know they can do (actions, recipes, buildings)|Proposal: what agents know they can do (actions, recipes, buildings)]]
+- [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
 - [[Proposal law in cybertron2|Proposal: law in cybertron2]]
 - [[Proposal the layout inside a node (parcels, features, and things on…|Proposal: the layout inside a node (parcels, features, and things on…]]
 - [[Methods and encounters people answer the wild by general methods…|Methods and encounters: people answer the wild by general methods…]]

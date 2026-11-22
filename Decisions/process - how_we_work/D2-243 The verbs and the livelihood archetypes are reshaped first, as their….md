@@ -22,4 +22,5 @@ conversation (20 Nov: "I think fixing verb list and engine should be distinct. I
 
 ## Mentioned by
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
+- [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]

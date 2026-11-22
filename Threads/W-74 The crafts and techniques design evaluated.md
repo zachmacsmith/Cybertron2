@@ -18,3 +18,7 @@ Zach, 22 Nov: evaluate overall what the intent was for the generalized and theor
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+
+
+## Mentioned by
+- [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]

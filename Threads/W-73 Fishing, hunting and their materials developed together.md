@@ -44,6 +44,7 @@ started
 - [[L-146 Peat as fuel where there is bog|Peat as fuel where there is bog (L-146)]]
 - [[Acts on held things take the thing as their target, and default to…|Acts on held things take the thing as their target, and default to…]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
+- [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[Fibre, cord, twine, line and net the supply chain (W-73)|Fibre, cord, twine, line and net: the supply chain (W-73)]]
