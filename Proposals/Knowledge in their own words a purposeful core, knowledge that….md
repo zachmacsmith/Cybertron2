@@ -97,9 +97,28 @@ One mechanism, its depth set by the time given; `watch` becomes a form of attent
 - Measured in every run: what is passed (identity, values, practical knowledge, places, warnings), how much of a parent's craft and
   lore reaches a child, what is lost or garbled across a generation.
 
+### 6. Standard starting memories, and culture as an experimental parameter
+
+A world seeds every person with a small **core set of starting memories**, in their own voice, as kept lines (the mechanism exists:
+a world's `customs` are lines kept for good, seeded to those alive at the start, `perceive.seed_knowledge`, [[D4-64 Lines kept for good, passed on through care, replacing customs|D4-64]]). They are not rules
+of the engine but what a people believes about knowledge itself, for example:
+- "What we know dies with us unless we teach it to our children."
+- "The world has its ways; watch them, try things, and remember what works."
+- "Ask the old ones before you try what you do not know."
+- "Keep the knowledge of your craft within the household" (or: "share what you know with any who ask").
+
+Each is a **parameter a world varies as a culture**: a culture that teaches its children against one that does not; one that
+explores against one that keeps to what it knows; one that shares crafts against one that guards them. Run side by side on the same
+land, they show what each orientation does to knowledge across generations, to specialisation and to survival. They keep to the
+scenario rule that goals are in-world aims, never scoring proxies (`docs/scenario_design.md`): a belief about knowledge, not an
+instruction to score. A world with none seeded is the null arm. (Brief 5's worlds took "no seeded customs", [[Q-51 Brief 5 (river and water)|Q-51]]; that was a choice
+for those worlds, not a rule against it.)
+
 ## Why
 
-Zach, 22 Nov: "we should reconsider how much of this should be in everyone's system prompts compared to maybe a richer layer of
+Zach, 22 Nov ("we should also think of core sets of standard starting memories: e.g that you must pass on knowledge about the world
+to your children or they will forget, or to remember and explore the mechanisms of the world etc. These themselves can be
+experimental parameters to vary as different cultures"): "we should reconsider how much of this should be in everyone's system prompts compared to maybe a richer layer of
 knowledge and recipes / crafts that learnt but more specialised and heterogeneous so not everyone knows ... the shared system prompt
 should be as minimal as possible, with verbs and techniques varying based on what they know, but likely growing a larger portion of
 space for them to keep their own knowledge of how the world works ... their memories should grow over time in their own words, from
@@ -134,6 +153,7 @@ lore line is cut at the 25-word cap; nothing practical has ever been passed to a
 4. Verbs shown by knowledge and stage?
 5. A told-knowledge arm beside every learnt-knowledge experiment?
 6. Built with the verbs and archetypes rework ([[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]]) and the verb list ([[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Q-27]]), or before it?
+7. The standard starting memories: which core set by default, and which cultural variants to run first?
 
 ## Affects
 
@@ -143,6 +163,7 @@ makers.
 
 ## History
 
+- **22 Nov 2026:** §6 added: standard starting memories as culture, an experimental parameter (Zach, quoted under Why).
 - **22 Nov 2026:** the crafts evaluation's memory measures added (02zzzh_hunt_fish/crafts_evaluation.md, Part 5).
 - **22 Nov 2026:** drafted by 37.2 at Zach's request (quoted under Why; and "Yes" to writing it), with the system prompt rendered for
   one agent in the runs world (high arm), the memory limits read from `memory.py` and `data.py`, and the `pass` sentences counted in
