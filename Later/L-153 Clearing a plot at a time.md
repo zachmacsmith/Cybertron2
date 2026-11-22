@@ -19,6 +19,7 @@ Found 22 Nov: clearing is all or nothing: a parcel becomes a field only when its
 
 ## Mentioned by
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[The building clock's first stage, read with bots do bots still build…|The building clock's first stage, read with bots: do bots still build…]]
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]

@@ -22,6 +22,8 @@ conversation (20 Nov: "conversation (20 Nov: "Adjust milk yield. Change the old 
 
 ## Mentioned by
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+- [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[02zzz the runs world's three live runs, against the bots and the…|02zzz: the runs world's three live runs, against the bots and the…]]
 - [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]

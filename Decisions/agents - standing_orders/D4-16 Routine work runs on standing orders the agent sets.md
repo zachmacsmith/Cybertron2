@@ -26,6 +26,7 @@ conversation; 06 §4, §6
 - [[Proposal fuse events (time to respond)|Proposal: fuse events (time to respond)]]
 - [[Standing rules how a household eats, and what it keeps back|Standing rules: how a household eats, and what it keeps back]]
 - [[Proposal the verbs, and what each agent is shown|Proposal: the verbs, and what each agent is shown]]
+- [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
 - [[Standing orders|Standing orders]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]

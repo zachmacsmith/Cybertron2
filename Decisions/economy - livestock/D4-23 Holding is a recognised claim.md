@@ -46,6 +46,8 @@ the old engine's holder field enforced by the engine
 - [[Proposal shelter|Proposal: shelter]]
 - [[Proposal things left in places, and who finds them|Proposal: things left in places, and who finds them]]
 - [[Proposal what is physically possible is possible; the consequences…|Proposal: what is physically possible is possible; the consequences…]]
+- [[U5. Stores and containers a space and what is in it, each removing…|U5. Stores and containers: a space and what is in it, each removing…]]
+- [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
 - [[Raiders, displacement and set works what every village meets|Raiders, displacement and set works: what every village meets]]
 - [[Livestock|Livestock]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
@@ -58,7 +60,5 @@ the old engine's holder field enforced by the engine
 - [[02zd cybertron2 as a response to cybertron 1|02zd: cybertron2 as a response to cybertron 1]]
 - [[02zi build brief for 37.4 plot shares and a crop for each holding|02zi: build brief for 37.4: plot shares and a crop for each holding]]
 - [[02zs the wild in a society's economy and development (9 Nov)|02zs: the wild in a society's economy and development (9 Nov)]]
-- [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
-- [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
-- … and 12 more
+- … and 14 more
 - *and 1 index or audit notes*

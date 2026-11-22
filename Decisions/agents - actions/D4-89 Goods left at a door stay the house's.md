@@ -28,6 +28,7 @@ conversation ("sure they can stay owned"; "the Hearnes should definitely be able
 - [[Proposal objects placed in the world|Proposal: objects placed in the world]]
 - [[Proposal phase 3 of the engine overhaul, variance and risk (the…|Proposal: phase 3 of the engine overhaul, variance and risk (the…]]
 - [[Proposal things left in places, and who finds them|Proposal: things left in places, and who finds them]]
+- [[U5. Stores and containers a space and what is in it, each removing…|U5. Stores and containers: a space and what is in it, each removing…]]
 - [[What agents can do|What agents can do]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[Buildings|Buildings]]

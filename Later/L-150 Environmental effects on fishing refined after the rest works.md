@@ -18,5 +18,6 @@ Zach, 22 Nov: a freeze stops fishing, but revisit; after getting other things wo
 
 
 ## Mentioned by
+- [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - *and 2 index or audit notes*

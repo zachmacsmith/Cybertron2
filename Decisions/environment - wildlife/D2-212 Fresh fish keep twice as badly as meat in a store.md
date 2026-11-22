@@ -23,6 +23,7 @@ fish kept as meat in a store
 - [[D2-216 Eels and salmon are fish|Eels and salmon are fish (D2-216)]]
 - [[Q-54 Fresh fish meat's rate in hand|Fresh fish: meat's rate in hand (Q-54)]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
+- [[U5. Stores and containers a space and what is in it, each removing…|U5. Stores and containers: a space and what is in it, each removing…]]
 - [[Wildlife|Wildlife]]
 - [[02zzq the records and the workflow as they are, and how Zach works…|02zzq: the records and the workflow as they are, and how Zach works…]]
 - [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]

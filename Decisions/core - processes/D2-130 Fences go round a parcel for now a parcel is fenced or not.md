@@ -28,6 +28,7 @@ fences on borders now
 - [[Proposal the layout inside a node (parcels, features, and things on…|Proposal: the layout inside a node (parcels, features, and things on…]]
 - [[Proposal livestock|Proposal: livestock]]
 - [[Proposal what is physically possible is possible; the consequences…|Proposal: what is physically possible is possible; the consequences…]]
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[The declared process model|The declared process model]]
 - [[Livestock|Livestock]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]

@@ -19,5 +19,6 @@ agreements.md, hiring.md
 ## Mentioned by
 - [[Proposal agreements and obligations (one system for trade, credit…|Proposal: agreements and obligations (one system for trade, credit…]]
 - [[Proposal hiring (work for someone else)|Proposal: hiring (work for someone else)]]
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[Agreements legs, settlement, ledgers and presets|Agreements: legs, settlement, ledgers and presets]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]

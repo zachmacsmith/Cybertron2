@@ -31,5 +31,13 @@ started
 - [[D2-297 The catch stays as calibrated|The catch stays as calibrated (D2-297)]]
 - [[D2-298 Bot runs test interfaces and basic functioning only|Bot runs test interfaces and basic functioning only (D2-298)]]
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
+- [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
+- [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
+- [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
+- [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
+- [[U5. Stores and containers a space and what is in it, each removing…|U5. Stores and containers: a space and what is in it, each removing…]]
+- [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[The catch basis checked against real eel fisheries can a household…|The catch basis checked against real eel fisheries: can a household…]]
 - [[spec_agents_brief.md|spec_agents_brief.md]]
+- *and 1 index or audit notes*

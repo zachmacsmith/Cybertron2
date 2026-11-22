@@ -21,4 +21,5 @@ conversation (22 Nov: "whenever I defer or flag something it should be tagged wh
 
 
 ## Mentioned by
+- [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]

@@ -19,6 +19,8 @@ Zach, 22 Nov: how would this even work? Wouldn't this be a cultural thing and re
 
 ## Mentioned by
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
+- [[U5. Stores and containers a space and what is in it, each removing…|U5. Stores and containers: a space and what is in it, each removing…]]
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
 - *and 1 index or audit notes*

@@ -15,3 +15,7 @@ Built 20 Nov (w69-water-fixes, 02zzw): position decides a section's share and ho
 
 ## Linked
 - parent: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+
+
+## Mentioned by
+- [[U7 works and the building clock|U7: works and the building clock]]

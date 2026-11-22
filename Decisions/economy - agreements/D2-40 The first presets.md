@@ -22,6 +22,7 @@ agreements.md §3, hiring.md §2
 - [[Proposal the economy plan for cybertron2|Proposal: the economy plan for cybertron2]]
 - [[Proposal hiring (work for someone else)|Proposal: hiring (work for someone else)]]
 - [[Proposal the verbs, and what each agent is shown|Proposal: the verbs, and what each agent is shown]]
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[Agreements legs, settlement, ledgers and presets|Agreements: legs, settlement, ledgers and presets]]
 - [[37.2 work log agriculture and a thicker economy|37.2 work log: agriculture and a thicker economy]]
 - [[02zc the systems of cybertron2 as they stand|02zc: the systems of cybertron2 as they stand]]

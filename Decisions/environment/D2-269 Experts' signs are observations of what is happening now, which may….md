@@ -22,6 +22,8 @@ conversation (22 Nov: "conversation (22 Nov)")
 
 ## Mentioned by
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
+- [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

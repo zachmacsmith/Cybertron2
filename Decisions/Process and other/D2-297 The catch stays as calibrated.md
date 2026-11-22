@@ -22,5 +22,10 @@ conversation (22 Nov: "I don't think we need to measure this or change rn I thin
 
 ## Mentioned by
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
+- [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
+- [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
+- [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
+- [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[spec_agents_brief.md|spec_agents_brief.md]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

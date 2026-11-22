@@ -21,6 +21,7 @@ one fine tier
 
 ## Mentioned by
 - [[Proposal buildings people make their own (descriptions and lines…|Proposal: buildings people make their own (descriptions and lines…]]
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[Buildings|Buildings]]
 - [[02zh build brief for 37.4 the building package|02zh: build brief for 37.4: the building package]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]

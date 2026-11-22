@@ -22,6 +22,7 @@ conversation (20 Nov: "By trips of several days I meant just travelling to anoth
 
 ## Mentioned by
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
+- [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
 - [[Wildlife|Wildlife]]
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
 - [[Why the villagers of the runs world did not fish|Why the villagers of the runs world did not fish]]

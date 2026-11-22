@@ -23,4 +23,5 @@ conversation (20 Nov: "I agree with your questions. 2. I'd the 12 first. 3. yes.
 ## Mentioned by
 - [[Q-66 The nutrition worlds|The nutrition worlds (Q-66)]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
+- [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]

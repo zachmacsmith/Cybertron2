@@ -42,4 +42,4 @@ youth 12 and adult 50 days fixed
 - [[How long crafts take to learn, how they fail at first, and three…|How long crafts take to learn, how they fail at first, and three…]]
 - [[38.27 Package D (children and reproduction) built; the Hollins world|38.27: Package D (children and reproduction) built; the Hollins world]]
 - [[38.36 Memory rewritten each stretch live tests of the instruction…|38.36: Memory rewritten each stretch: live tests of the instruction…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

@@ -18,6 +18,7 @@ Zach, 22 Nov: flag this lightly (not urgently) as something to revisit down the 
 
 
 ## Mentioned by
+- [[U5. Stores and containers a space and what is in it, each removing…|U5. Stores and containers: a space and what is in it, each removing…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - *and 2 index or audit notes*

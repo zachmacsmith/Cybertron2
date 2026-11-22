@@ -22,6 +22,7 @@ one crop record and one sower a field
 ## Mentioned by
 - [[Proposal crops grow by the season; can apart from works; what a…|Proposal: crops grow by the season; "can" apart from "works"; what a…]]
 - [[Proposal farming|Proposal: farming]]
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[Holding land and fixed things|Holding land and fixed things]]

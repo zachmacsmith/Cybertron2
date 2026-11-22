@@ -15,3 +15,7 @@ The wear calibration (02zzw): a full weir 0.31 of its build a year, in [[D2-210 
 
 ## Linked
 - parent: [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
+
+
+## Mentioned by
+- [[U7 works and the building clock|U7: works and the building clock]]

@@ -29,6 +29,7 @@ a stock on each water parcel, sized by the lake within the village's own land ([
 - [[A model to each household in the runs world|A model to each household in the runs world]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]
 - [[A signs pass after the lake runs (17 Nov)|A signs pass after the lake runs (17 Nov)]]
+- [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[The land and its stocks|The land and its stocks]]
 - [[02zzq the records and the workflow as they are, and how Zach works…|02zzq: the records and the workflow as they are, and how Zach works…]]

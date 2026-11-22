@@ -17,6 +17,7 @@ updated: "2026-11-20"
 
 ## Mentioned by
 - [[Proposal what is physically possible is possible; the consequences…|Proposal: what is physically possible is possible; the consequences…]]
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[The declared process model|The declared process model]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
 - *and 2 index or audit notes*

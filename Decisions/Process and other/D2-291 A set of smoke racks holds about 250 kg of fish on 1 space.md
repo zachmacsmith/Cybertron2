@@ -27,4 +27,7 @@ conversation (22 Nov: "250 kg a set, 1 space (Recommended)")
 ## Mentioned by
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
-- *and 1 index or audit notes*
+- [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
+- [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
+- [[U7 works and the building clock|U7: works and the building clock]]
+- *and 2 index or audit notes*

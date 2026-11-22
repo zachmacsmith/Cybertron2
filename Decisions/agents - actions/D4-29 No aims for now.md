@@ -36,3 +36,4 @@ in-world aims in every prompt (scenario_design §3, 38.11)
 - [[38.49 The Wenbridge runs (wb1 paused at day 14, wb2 to day 30)|38.49: The Wenbridge runs (wb1 paused at day 14, wb2 to day 30)]]
 - [[38.53 The goal probe does a goal, and how it is worded, change what…|38.53: The goal probe: does a goal, and how it is worded, change what…]]
 - [[Review 38 development log of the 37.4 session (space, environment…|Review 38: development log of the 37.4 session (space, environment…]]
+- *and 1 index or audit notes*

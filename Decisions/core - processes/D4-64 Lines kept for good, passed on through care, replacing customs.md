@@ -47,4 +47,4 @@ conversation ("I would adopt it where ... whoever gives care that day ... whoeve
 - [[38.41 Combe, the first run of the belief-built message (c1_combe…|38.41: Combe, the first run of the belief-built message (c1_combe…]]
 - [[38.53 The goal probe does a goal, and how it is worded, change what…|38.53: The goal probe: does a goal, and how it is worded, change what…]]
 - [[38.70b Twin Hollows run 1, what the agents said and did (qualitative)|38.70b: Twin Hollows run 1, what the agents said and did (qualitative)]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

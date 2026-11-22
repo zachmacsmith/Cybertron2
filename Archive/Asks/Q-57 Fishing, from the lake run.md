@@ -22,6 +22,7 @@ updated: "2026-11-20"
 - [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 - [[L-105 Forays as their own track|Forays as their own track (L-105)]]
+- [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - *and 1 index or audit notes*

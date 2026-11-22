@@ -36,3 +36,4 @@ M1's household and house fixed at seeding
 - [[Review 38.22 the first two worlds of the ladder, run with LLM agents|Review 38.22: the first two worlds of the ladder, run with LLM agents]]
 - [[38.37 Everything an agent is shown inventory, origins, what it does…|38.37: Everything an agent is shown: inventory, origins, what it does…]]
 - [[Review 38 development log of the 37.4 session (space, environment…|Review 38: development log of the 37.4 session (space, environment…]]
+- *and 1 index or audit notes*

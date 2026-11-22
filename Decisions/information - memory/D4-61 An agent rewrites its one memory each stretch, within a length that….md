@@ -39,3 +39,4 @@ conversation ("rather than forming a new memory every 3 days, they rewrite their
 - [[38.38 How agents have used their memory notes, pins, opening…|38.38: How agents have used their memory: notes, pins, opening…]]
 - [[38.39 Lines kept for good a small replay test|38.39: Lines kept for good: a small replay test]]
 - [[38.40 The agent's interface a taxonomy of what it knows, how each…|38.40: The agent's interface: a taxonomy of what it knows, how each…]]
+- *and 1 index or audit notes*

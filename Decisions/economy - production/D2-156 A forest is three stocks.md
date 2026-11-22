@@ -30,6 +30,8 @@ one wood stock; woods sized only to last a run
 - [[Signs for the newer systems|Signs for the newer systems]]
 - [[Proposal recipes for the first worlds|Proposal: recipes for the first worlds]]
 - [[Proposal shelter|Proposal: shelter]]
+- [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[Resources and how they come back|Resources and how they come back]]
 - [[02zb build brief for 37.4 forests, fuel and warmth, eating raw…|02zb: build brief for 37.4: forests, fuel and warmth, eating raw…]]

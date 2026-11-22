@@ -111,5 +111,5 @@ started
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
 - [[L-111 The hunting and resources build, a soon follow-up|The hunting and resources build, a soon follow-up (L-111)]]
 - [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]]
-- … and 31 more
-- *and 2 index or audit notes*
+- … and 38 more
+- *and 3 index or audit notes*

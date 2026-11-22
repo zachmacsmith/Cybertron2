@@ -36,6 +36,7 @@ M1's per-feature node filters
 - [[Short tags for things one can act on that have no unique name|Short tags for things one can act on that have no unique name]]
 - [[Proposal meetings on the road (travellers, lost herds, ambushes)|Proposal: meetings on the road (travellers, lost herds, ambushes)]]
 - [[Proposal things left in places, and who finds them|Proposal: things left in places, and who finds them]]
+- [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
 - [[What agents can do|What agents can do]]
 - [[Combat attacks on a person|Combat: attacks on a person]]
 - [[Raids on a building and on a whole node|Raids: on a building and on a whole node]]
@@ -56,3 +57,4 @@ M1's per-feature node filters
 - [[38.37 Everything an agent is shown inventory, origins, what it does…|38.37: Everything an agent is shown: inventory, origins, what it does…]]
 - [[38.41 Combe, the first run of the belief-built message (c1_combe…|38.41: Combe, the first run of the belief-built message (c1_combe…]]
 - [[Review 38 development log of the 37.4 session (space, environment…|Review 38: development log of the 37.4 session (space, environment…]]
+- *and 1 index or audit notes*

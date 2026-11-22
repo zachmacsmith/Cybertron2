@@ -24,6 +24,7 @@ the owners told the theft, with the thief's name if anyone else saw it, and a ce
 - [[How much lies there heaps seen by their bulk, counted when attended…|How much lies there: heaps seen by their bulk, counted when attended…]]
 - [[Who knows of a theft|Who knows of a theft]]
 - [[Proposal the verbs, and what each agent is shown|Proposal: the verbs, and what each agent is shown]]
+- [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
 - [[Perception what an agent sees and knows|Perception: what an agent sees and knows]]
 - [[Things in places putting down, hiding, the dead, burial|Things in places: putting down, hiding, the dead, burial]]
 - [[18 Health, environment, luxury, crime and measures the economy's…|18: Health, environment, luxury, crime and measures: the economy's…]]

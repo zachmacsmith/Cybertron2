@@ -24,6 +24,7 @@ conversation (Zach: "fix the ox lending, fences, lore and Green, then rerun"; "t
 - [[W-13 Brookend survival world, rerun p2|Brookend survival world, rerun p2 (W-13)]]
 - [[Proposal ecology designed from the node outward|Proposal: ecology designed from the node outward]]
 - [[Proposal what is physically possible is possible; the consequences…|Proposal: what is physically possible is possible; the consequences…]]
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[Raiders, displacement and set works what every village meets|Raiders, displacement and set works: what every village meets]]
 - [[The declared process model|The declared process model]]
 - [[Holding land and fixed things|Holding land and fixed things]]
@@ -36,4 +37,4 @@ conversation (Zach: "fix the ox lending, fences, lore and Green, then rerun"; "t
 - [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

@@ -26,3 +26,4 @@ conversation (20 Nov: "q51: half seems fine")
 - [[Wildlife|Wildlife]]
 - [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
+- *and 1 index or audit notes*

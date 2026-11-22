@@ -23,5 +23,7 @@ conversation (16 Nov: "5. Yeah")
 - [[Q-55 The weir as built, measured|The weir as built, measured (Q-55)]]
 - [[W-26 Build brief 5 river and water (K4 without fen and boats)|Build brief 5: river and water (K4 without fen and boats) (W-26)]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
+- [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
+- [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
 - [[Wildlife|Wildlife]]
 - *and 2 index or audit notes*

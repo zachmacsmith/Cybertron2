@@ -24,6 +24,7 @@ unlimited stores; a cellar of 8 stone and 8 units
 - [[Proposal buildings from parts|Proposal: buildings from parts]]
 - [[How much lies there heaps seen by their bulk, counted when attended…|How much lies there: heaps seen by their bulk, counted when attended…]]
 - [[Households and dwellings membership, use and home are data that…|Households and dwellings: membership, use and home are data that…]]
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[What agents can do|What agents can do]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[Buildings|Buildings]]

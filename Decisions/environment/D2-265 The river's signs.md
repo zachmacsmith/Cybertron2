@@ -23,6 +23,7 @@ conversation (22 Nov: "conversation (22 Nov, answers to the open questions)")
 ## Mentioned by
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
+- [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

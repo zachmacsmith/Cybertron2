@@ -28,6 +28,7 @@ fittings without space; capacity fixed by blueprint
 - [[Households and dwellings membership, use and home are data that…|Households and dwellings: membership, use and home are data that…]]
 - [[Proposal the layout inside a node (parcels, features, and things on…|Proposal: the layout inside a node (parcels, features, and things on…]]
 - [[Proposal shelter|Proposal: shelter]]
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[Buildings|Buildings]]
 - [[Places nodes and sites|Places: nodes and sites]]

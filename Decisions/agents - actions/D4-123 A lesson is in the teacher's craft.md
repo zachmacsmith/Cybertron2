@@ -28,3 +28,4 @@ the crafts named had to match exactly, and a mismatch was reported to each as th
 - [[What agents can do|What agents can do]]
 - [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
+- *and 1 index or audit notes*

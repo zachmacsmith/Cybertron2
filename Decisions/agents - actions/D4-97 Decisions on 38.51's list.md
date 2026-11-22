@@ -45,6 +45,7 @@ the old ladder, an oven anywhere, a common coppice, no fuel line, babies' risk b
 - [[Proposal recipes for the first worlds|Proposal: recipes for the first worlds]]
 - [[Proposal shelter|Proposal: shelter]]
 - [[Proposal the verbs, and what each agent is shown|Proposal: the verbs, and what each agent is shown]]
+- [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
 - [[What agents can do|What agents can do]]
 - [[The declared process model|The declared process model]]
 - [[Birth and death partners, children, growing up, old age, succession|Birth and death: partners, children, growing up, old age, succession]]

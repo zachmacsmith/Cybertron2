@@ -22,4 +22,5 @@ conversation (22 Nov: "tend (Recommended)")
 
 ## Mentioned by
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
-- *and 1 index or audit notes*
+- [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
+- *and 2 index or audit notes*

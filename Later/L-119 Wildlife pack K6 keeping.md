@@ -24,6 +24,7 @@ dogs with types, training bonds and the kennel; hens, ducks and geese kept, gees
 
 
 ## Mentioned by
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]

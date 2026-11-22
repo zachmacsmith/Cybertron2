@@ -25,6 +25,8 @@ updated: "2026-11-20"
 - [[Proposal what agents know they can do (actions, recipes, buildings)|Proposal: what agents know they can do (actions, recipes, buildings)]]
 - [[Methods and encounters people answer the wild by general methods…|Methods and encounters: people answer the wild by general methods…]]
 - [[Proposal modifiers on verbs (ways of doing an act that people know…|Proposal: modifiers on verbs (ways of doing an act that people know…]]
+- [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[Modifiers ways of doing an act|Modifiers: ways of doing an act]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[02t the next region world, designed from dependence and checked with…|02t: the next region world, designed from dependence and checked with…]]

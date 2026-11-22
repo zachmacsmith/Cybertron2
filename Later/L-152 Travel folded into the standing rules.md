@@ -19,4 +19,5 @@ Zach, 22 Nov: should households or individuals set defaults for standing rules f
 
 ## Mentioned by
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
+- [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
 - *and 1 index or audit notes*

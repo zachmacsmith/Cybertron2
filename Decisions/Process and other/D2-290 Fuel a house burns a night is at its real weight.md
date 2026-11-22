@@ -22,4 +22,6 @@ conversation (22 Nov: "Yes real weight makes sense but there is also the differe
 
 ## Mentioned by
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
-- *and 1 index or audit notes*
+- [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
+- [[U5. Stores and containers a space and what is in it, each removing…|U5. Stores and containers: a space and what is in it, each removing…]]
+- *and 2 index or audit notes*
