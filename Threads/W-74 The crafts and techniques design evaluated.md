@@ -13,7 +13,7 @@ updated: "2026-11-22"
 Zach, 22 Nov: evaluate overall what the intent was for the generalized and theoretically extensible design of crafts and techniques, how well it has held up, where it fails, and whether that points to new design choices; how well things have actually worked; the 28-day river run especially (asked of 37.4: water_runs_models_r1_d23 has gone from the dataset). An agent reads the design records, the code and the published runs; note 02zzzh_hunt_fish/crafts_evaluation.md.
 
 ## Done so far, and what is left
-started
+22 Nov: the river run is on the dataset in full: runs/water_runs_models_r1 holds days 0 to 29 (re-uploaded 20 Nov, replacing the 6-day version; the d23 snapshot removed as superseded); only its viewer pages stop at day 6
 
 
 ## Linked
