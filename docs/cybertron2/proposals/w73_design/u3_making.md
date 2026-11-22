@@ -263,7 +263,8 @@ handling units with kilograms (basis §2). Lives are §3.3's.
 | **shoes**, a pair (U10 §2.6, an option) | 0.5 leather; or 0.3 hide as rawhide | 4 | 1, up to 3 | 1, up to 7 | 0.6 | practised (leather work); make |
 | **sack** (holds 50 kg) | 0.6 cord (the weaving folded in, as the spindle is) | 4 | 1, up to 3 | 1, up to 7 | 0.6 | practised; make |
 | **chest** (holds 400 kg) | 4 timber of boards (100 kg) | 22 | 2, 1 | 1, 1 | 60 | skilled (the wright's); make |
-| **barrel** (holds 120 kg) | 7 timber of stave bolt, 0.3 withies of hoops | 9.5 | 1, 1 | 1, up to 3 | 25 | skilled (a cooper: the wright's specialism); make; whether barrels or a tub come now is U5's (G10) |
+| **barrel** (holds 120 kg) | 7 timber of stave bolt, 0.3 withies of hoops | 9.5 | 1, 1 | 1, up to 3 | 25 | skilled (a cooper: the wright's specialism, later); make; the data row now, the making with the cooper (U5) |
+| **salting tub** (holds 120 kg in brine; U4, U5 G10) | 2 timber (a hollowed log or boards, 50 kg), 0.1 withies (hoops) [e] | 6 [e] | 1, up to 2 | 1, up to 5 | 30 | practised (no cooper); make |
 | **spear** (copper head) | 0.5 copper, 0.08 timber (an ash shaft) | 3 | 1, up to 4 | 1, up to 10 | 2 | skilled (the smith's head); make, at an anvil |
 | **crude tool** | 0.04 timber, 0.04 stone (1 kg each) | 7 | 1, up to 2 | 1, up to 4 | 1.5 | simple; make |
 | **copper tool** | 1 copper, 0.02 timber | 6 | 1, up to 2 | 1, up to 5 | 1.5 | skilled; make, at an anvil |
@@ -334,11 +335,11 @@ Units on the day clock at real hours (basis §1; wave1 §3.1). Each takes **up t
 
 Today a container holds goods as `{item: qty}` and one wear count per item (`c["wear"][item]`, `world.py:686-694`), so six traps
 share one count and nothing rots. Made things get **pieces**: for every item with a life, the container keeps
-`c["pieces"][item] = [{"u": uses left, "rot": share of its rot life used, "of": the input it was made of ("leather" | "rawhide"),
+`c["pieces"][item] = [{"life": uses left, "rot": share of its rot life used, "of": the input it was made of ("leather" | "rawhide"),
 "barked": day barked or None, "tag": its tag when placed}]`, one entry a piece, the list as long as the count. The primitives that
 move goods (`create`, `destroy`, `move`, `give`, `take`, a set's laying and taking up in U2) move pieces with them, the most worn
-first out of a container (a rule, deterministic; a person names a tag to choose). U2's placed gear (`uses_left` a piece,
-wave3_taking §1.3) is the same record. A world saved before this has no `pieces`; loading builds them from the wear map (each piece
+first out of a container (a rule, deterministic; a person names a tag to choose). U2's placed gear (`set.pieces`, u2_taking.md)
+holds the same record, with U2's own `torn` flag added while a piece is placed. A world saved before this has no `pieces`; loading builds them from the wear map (each piece
 at the item's full life less the count), so an old run's replay stays exact under the old data.
 
 ### 3.2 The three counts of a use, and rot
@@ -378,7 +379,7 @@ Real uses from wave1 §3.2 and the notes; engine uses at 1/7 (acts) or 1/11.4 (n
 | hurdle | (standing) | none | / 7 dry | no |
 | harness | acts (days worked) | 100 (47); rawhide half | / 7; rawhide 2 | yes |
 | shoes | nights (days worn) | 12 (real 120 to 240 days: 11 to 21); rawhide 3 | / 5 | resoled: yes |
-| sack, chest, barrel | (standing) | none | / 3; 30; 10 (the barrel's leaking end of life, U5) | no |
+| sack, chest, barrel, salting tub | (standing) | none | / 3; 30; 10; 5 (U5: a barrel or tub leaks at the end of its life) | no |
 | spear | acts (hunts) | 45 (21) | none | yes (the smith's, D2-46) |
 | crude tool, copper tool | acts | 40 (19); 140 (65) | none | yes (copper: the smith's) |
 | crude weapon | acts | 14 (7); a fight as D2-46 | none | yes |
@@ -491,6 +492,9 @@ Profiles over the seven aptitudes (H hands, F fire, B beasts, W water, G growing
 | leather work (frame, harness, shoes) | practised, steady | H1 | leather wetted before it is shaped; stitch close at the strain; rawhide for a season only | a turnshoe (0.4): shoes; before it, straps and harness only |
 | bark nets | simple, shallow | F.6 W.4 | the bark boiled to a dark liquor (step); the net dried before it is barked (step) | |
 | mend | the thing's craft | the thing's | the thing's | |
+| boil salt (U11 P7) [e] | practised, steady | F.8 W.2 | the brine drawn from the spring, not the brook (input); a slow fire, not a roaring one (step); the pan kept topped up or it burns through (step) | |
+| tend the smoke (U4) [e] | practised, steady | F1 | a smoulder, not a flame (step); green or damp wood for the smoke (input); banked at night (step) | |
+| a weir section (U7) [e] | practised, steady | S.6 W.4 | stakes driven at low water (season); the wattle woven against the flow (step); the gap left open in high water (step) | a timber section (0.6): timber sections; before it, wattle only |
 
 **Summer rods:** a trap made of withies cut in summer is a crude result, not a failure: it lasts half its uses (green summer rods do
 weave, but crack sooner; learning_times §5). The state holds the cause (the withies' cut season, kept on the lot of withies as
