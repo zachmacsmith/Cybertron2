@@ -24,5 +24,6 @@ forests.md §4
 - [[Holding land and fixed things|Holding land and fixed things]]
 - [[02zb build brief for 37.4 forests, fuel and warmth, eating raw…|02zb: build brief for 37.4: forests, fuel and warmth, eating raw…]]
 - [[02zd cybertron2 as a response to cybertron 1|02zd: cybertron2 as a response to cybertron 1]]
+- [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
 - [[38.28 Package F (forests, fuel in heat, eating raw, seeding below…|38.28: Package F (forests, fuel in heat, eating raw, seeding below…]]
 - [[38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]

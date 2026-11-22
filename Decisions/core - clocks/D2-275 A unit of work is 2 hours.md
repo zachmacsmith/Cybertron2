@@ -26,3 +26,4 @@ conversation (22 Nov: "conversation (22 Nov: "Let's do 2 hours")")
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[Clocks which systems run on which time|Clocks: which systems run on which time]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
+- [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]

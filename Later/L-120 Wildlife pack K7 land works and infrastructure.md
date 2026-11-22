@@ -25,3 +25,4 @@ hedges, banks, walls, pales and mesh as barriers with properties on parcel edges
 
 ## Mentioned by
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
+- [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]

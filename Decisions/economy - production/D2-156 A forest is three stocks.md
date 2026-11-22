@@ -36,6 +36,7 @@ one wood stock; woods sized only to last a run
 - [[02zc the systems of cybertron2 as they stand|02zc: the systems of cybertron2 as they stand]]
 - [[02zt dependences, and things that help other things (9 Nov)|02zt: dependences, and things that help other things (9 Nov)]]
 - [[Withies, coppice and the other wood and wild materials for fishing…|Withies, coppice and the other wood and wild materials for fishing…]]
+- [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
 - [[38.28 Package F (forests, fuel in heat, eating raw, seeding below…|38.28: Package F (forests, fuel in heat, eating raw, seeding below…]]
 - [[38.37 Everything an agent is shown inventory, origins, what it does…|38.37: Everything an agent is shown: inventory, origins, what it does…]]
 - *and 2 index or audit notes*

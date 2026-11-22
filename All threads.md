@@ -8,7 +8,7 @@
 - [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]] (active)
 - [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]] (waiting)
 - [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]] (waiting)
-- [[W-76 The timber economy|The timber economy (W-76)]] (active)
+- [[W-76 The timber economy|The timber economy (W-76)]] (queued)
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]] (waiting)
 - [[W-72 Signs of the river|Signs of the river (W-72)]] (waiting)
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]] (queued)

@@ -28,7 +28,7 @@
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]: revisit: soon (Zach, 20 Nov: 'that one sooner')
 - [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]: closed by agent
 
-## Active threads (22)
+## Active threads (21)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -47,8 +47,6 @@
   next: the header pass over the spec files and proposals; run threads labelled as such, with their branch (D2-238)…
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]  
   next: after the first build (recipes shown with the batches, the gate check, the fishing bugs and the target rule)…
-- [[W-76 The timber economy|The timber economy (W-76)]]  
-  next: overnight: a scouting note only (real ladder and what the engine holds), no design decisions; then its own…
 - [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]]  
   next: overnight agent running; then review, commit, questions to Zach
 - [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]]  
@@ -110,8 +108,8 @@
 - [[W-28 The Cybertron 2 website|The Cybertron 2 website (W-28)]]  
   next: Zach sets up the Netlify site and the subdomain; `python -m c2viz.site.viewer_publish` after each publish…
 
-## Queued and paused (7)
-[[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
+## Queued and paused (8)
+[[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework, [[W-76 The timber economy|W-76]] The timber economy
 
 ## Decided this week (83)
 - [[D2-285 The records brief is run by hand after each compaction for now, since…|The records brief is run by hand after each compaction for now, since… (D2-285)]]
