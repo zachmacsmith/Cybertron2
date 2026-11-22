@@ -826,7 +826,7 @@ only a store; salting meat a 3-night lot in the tub; (b) both as lots of part 1'
 **9. A brine container before the cooper (W80-Q9).** Salt fish reaches its year only in brine (part 1 §5.4 item 20); on a dry floor it
 keeps at x1.5 on the hazard, out of salt at x2, and barrels wait for a cooper. Options: (a) a salting tub or trough of timber, basic,
 about 120 kg in brine, now; barrels later for trade; (b) nothing until barrels. **Recommend (a)**: in the walk brine adds about 2.5 food
-at spring and keeps half again as much salt fish over the year, and without it salt is hard to see the point of. Its making is part 2's.
+at spring and keeps about a third more salt fish over the year (52 kg of 100 against 38), and without it salt is hard to see the point of. Its making is part 2's.
 **Blocks:** salt's value in this build.
 
 **10. Drying racks (W80-Q10).** Options: (a) the hearth rack at 1 night (part 1) and its batch as now; an outdoor wind rack later, with
