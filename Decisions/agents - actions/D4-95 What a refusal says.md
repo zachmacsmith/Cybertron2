@@ -25,6 +25,7 @@ bare refusals with no next step
 - [[Proposal private notes (what an agent keeps in mind)|Proposal: private notes (what an agent keeps in mind)]]
 - [[A declared process model the engine says what its economy is, as…|A declared process model: the engine says what its economy is, as…]]
 - [[What a refusal says|What a refusal says]]
+- [[Trying and learning crafts by difficulty, failures that teach…|Trying and learning: crafts by difficulty, failures that teach…]]
 - [[Proposal the verbs, and what each agent is shown|Proposal: the verbs, and what each agent is shown]]
 - [[What agents can do|What agents can do]]
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]

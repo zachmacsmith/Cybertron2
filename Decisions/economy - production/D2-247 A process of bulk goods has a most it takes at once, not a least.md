@@ -23,4 +23,5 @@ conversation (20 Nov: "just as hearths should have 8 as a max for hanging meat, 
 ## Mentioned by
 - [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]
 - [[O-2 Make the eleven bulk processes take up to their batch|Make the eleven bulk processes take up to their batch (O-2)]]
+- [[Trying and learning crafts by difficulty, failures that teach…|Trying and learning: crafts by difficulty, failures that teach…]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]

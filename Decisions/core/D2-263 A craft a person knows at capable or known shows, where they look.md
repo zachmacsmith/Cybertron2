@@ -18,3 +18,7 @@ conversation (22 Nov: "conversation (22 Nov: "I agree with your 3. Recipes shown
 
 ## Linked
 - parent: [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]]
+
+
+## Mentioned by
+- [[Trying and learning crafts by difficulty, failures that teach…|Trying and learning: crafts by difficulty, failures that teach…]]
