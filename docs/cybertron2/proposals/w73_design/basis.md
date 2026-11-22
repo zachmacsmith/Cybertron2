@@ -73,8 +73,15 @@ answered; the component writes on the default shown and says so); **calibrate** 
 
 | Item | Value | Mark |
 |---|---|---|
-| The catch basis | as calibrated: a set trap holds 10 units a night; a weir's first section 30% of a run passing, up to 100 units, each added section 7%, up to 70, at most 3; runs sized to a real river x 32/365 | decided: D2-293, D2-297 (kept; calibrated in live runs with the rest of the wave) |
+| The catch basis | as calibrated: a set trap holds 10 kg a night; a weir's first section 30% of a run passing, up to 100 kg, each added section 7%, up to 70 kg, at most 3 (holds in kg, data.py:365); runs sized to a real river x 32/365 | decided: D2-293, D2-297 (kept; calibrated in live runs with the rest of the wave) |
 | A run's gluts | surplus for keeping, trade and growth; the run is a finite stock shared by every trap and weir on it | decided in intent: D2-297 |
+| The shallows | a stock on each water and fen parcel, per cell: brook 5, pool 4, fen 7, river 4, big river 2, lake 2; regrows on the year clock, fast in summer, near nil in winter, none under ice | default, estimates from fishing_ladder (u1; G6) |
+| Ice | `wild.ice` open, edges, over, by nights of frost and the water; set gear idle, edge and bank lines refused; eels held at any ice; salmon and lampreys pass under edge ice; the weir fishes at edge ice; the thaw wrecks 0.1 / 0.3 | default (u1; D2-265's refinement) |
+| A run's fish | learn no wariness; wariness and hunting pressure apply to resident animals only | default, a bug fix (u1) |
+| The fen trap | half a river trap's share of a run; wrecked 0.02 in spate, 0.05 in flood | default (u1) |
+| Hand fishing in a run | full below a weir or dam, 0.3 on a brook or small river, 0.1 on a big river | default (u1) |
+| Set and tend | set 1 unit (up to 6 traps or 25 snares); tend 1 unit a place, taking all of one's own of that technique there; a set never springs by age | default (u2) |
+| Run bands for signs | trickle, running, thick, glut at 2 / 8 / 20% of the run passing; the carried catch sign at 5 kg | default (u8) |
 | One set act | lays up to about 6 traps | decided: D2-264 |
 | The water's stocks | shallows, open water, runs; their relative sizes by kind of water | decided: D2-264; the numbers by water type: open (audit G6) |
 | A freeze | stops fishing (set gear idle, edge and bank lines refused, the weir icing and wearing, a run's night held over to the next open night) | decided: D2-265; the detail: default (audit q14) |
