@@ -39,4 +39,5 @@ proposal written.
 - [[L-152 Travel folded into the standing rules|Travel folded into the standing rules (L-152)]]
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
 - [[How a household manages its stores one book of standing rules, a few…|How a household manages its stores: one book of standing rules, a few…]]
+- [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - *and 1 index or audit notes*

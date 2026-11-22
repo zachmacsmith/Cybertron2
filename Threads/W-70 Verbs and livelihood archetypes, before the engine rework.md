@@ -50,3 +50,4 @@ scope (20 Nov): the verb list ([[Q-27 Keep the 38 built verbs, or fold them back
 - [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
+- *and 1 index or audit notes*

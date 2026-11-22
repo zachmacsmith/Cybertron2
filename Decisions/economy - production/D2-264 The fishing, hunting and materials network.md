@@ -28,5 +28,7 @@ conversation (22 Nov: "conversation (22 Nov, answers to the open questions)")
 - [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
 - [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
+- [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
+- *and 1 index or audit notes*

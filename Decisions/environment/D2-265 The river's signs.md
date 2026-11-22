@@ -24,3 +24,4 @@ conversation (22 Nov: "conversation (22 Nov, answers to the open questions)")
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
+- *and 1 index or audit notes*

@@ -25,3 +25,4 @@ conversation (22 Nov: "conversation (22 Nov: "I agree with your 3. Recipes shown
 - [[Trying and learning crafts by difficulty, failures that teach…|Trying and learning: crafts by difficulty, failures that teach…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
+- *and 1 index or audit notes*

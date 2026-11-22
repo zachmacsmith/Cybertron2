@@ -40,4 +40,4 @@ updated: "2026-11-20"
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - [[Review 38.21 a ladder of three worlds for the interconnected systems|Review 38.21: a ladder of three worlds for the interconnected systems]]
 - [[38.63 The engine overhaul, phases 1 and 2 what was built, the…|38.63: The engine overhaul, phases 1 and 2: what was built, the…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

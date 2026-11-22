@@ -43,4 +43,5 @@ started
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[02zzz2 every state of the water, and what of it reaches a person|02zzz2: every state of the water, and what of it reaches a person]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
+- [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]

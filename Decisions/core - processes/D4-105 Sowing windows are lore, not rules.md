@@ -38,3 +38,4 @@ sowing refusal, the rules' crop line, phase 2's fade and wear values ([[D4-103 T
 - [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]
 - [[How a household manages its stores one book of standing rules, a few…|How a household manages its stores: one book of standing rules, a few…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
+- *and 1 index or audit notes*

@@ -99,4 +99,5 @@ started
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
-- … and 14 more
+- … and 15 more
+- *and 1 index or audit notes*

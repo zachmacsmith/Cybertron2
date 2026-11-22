@@ -26,3 +26,4 @@ grain never spoiling (the engine as built)
 - [[Goods|Goods]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
+- *and 1 index or audit notes*

@@ -33,3 +33,4 @@ from proposals/shared_units.md (37.4, 19 Nov), its open questions 1 to 3
 - [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
 - [[Shared units food value, weight and work on one basis|Shared units: food value, weight and work on one basis]]
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
+- *and 1 index or audit notes*

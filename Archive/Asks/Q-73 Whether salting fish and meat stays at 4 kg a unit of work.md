@@ -39,4 +39,6 @@ updated: "2026-11-22"
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
+- [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
+- *and 1 index or audit notes*

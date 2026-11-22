@@ -25,3 +25,4 @@ Zach, 20 Nov ([[D2-244 The engine's reworking into feature packages|D2-244]]): p
 - [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
+- *and 1 index or audit notes*

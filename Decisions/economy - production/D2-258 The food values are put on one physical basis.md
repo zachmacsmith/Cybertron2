@@ -50,3 +50,5 @@ conversation (20 Nov: "1. I agree")
 - [[Hunting, trapping, fowling and the kill techniques, capital and…|Hunting, trapping, fowling and the kill: techniques, capital and…]]
 - [[How much a smokehouse held, how long it took, and what the engine's…|How much a smokehouse held, how long it took, and what the engine's…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
+- [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
+- *and 1 index or audit notes*

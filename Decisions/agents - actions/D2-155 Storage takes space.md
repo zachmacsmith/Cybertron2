@@ -32,4 +32,4 @@ unlimited stores; a cellar of 8 stone and 8 units
 - [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
 - [[38.45 the building package, as built (brief 02zh)|38.45: the building package, as built (brief 02zh)]]
 - [[38.46 Wenbridge, a world to test whether people build (design, for…|38.46: Wenbridge, a world to test whether people build (design, for…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

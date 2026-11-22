@@ -18,3 +18,4 @@ conversation (22 Nov: "conversation (22 Nov: "Stop adding the claude session lin
 
 ## Mentioned by
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
+- *and 1 index or audit notes*

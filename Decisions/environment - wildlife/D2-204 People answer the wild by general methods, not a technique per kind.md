@@ -33,4 +33,4 @@ conversation ("bespoke single actions should in general usually instead be using
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[The fishing ladder techniques, gear, works and the water's stocks|The fishing ladder: techniques, gear, works and the water's stocks]]
 - [[Hunting, trapping, fowling and the kill techniques, capital and…|Hunting, trapping, fowling and the kill: techniques, capital and…]]
-- *and 4 index or audit notes*
+- *and 5 index or audit notes*

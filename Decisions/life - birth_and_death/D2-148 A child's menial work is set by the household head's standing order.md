@@ -25,4 +25,5 @@ children.md
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
 - [[17 The household's own work, care and kinship (16 Nov 2026)|17: The household's own work, care and kinship (16 Nov 2026)]]
+- [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - [[38.27 Package D (children and reproduction) built; the Hollins world|38.27: Package D (children and reproduction) built; the Hollins world]]

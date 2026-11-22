@@ -26,4 +26,4 @@ fixed old-age numbers chosen for the run's length alone
 - [[02zl · Can a world feed its people Past runs and the pre-run checks|02zl · Can a world feed its people? Past runs and the pre-run checks]]
 - [[18 Health, environment, luxury, crime and measures the economy's…|18: Health, environment, luxury, crime and measures: the economy's…]]
 - [[38.27 Package D (children and reproduction) built; the Hollins world|38.27: Package D (children and reproduction) built; the Hollins world]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

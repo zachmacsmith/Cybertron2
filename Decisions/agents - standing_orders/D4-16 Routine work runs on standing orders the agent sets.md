@@ -30,4 +30,6 @@ conversation; 06 §4, §6
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
+- [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - [[Review 38.20 the decisions still open, by what they block|Review 38.20: the decisions still open, by what they block]]
+- *and 1 index or audit notes*

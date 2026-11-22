@@ -21,3 +21,4 @@ Found 22 Nov: clearing is all or nothing: a parcel becomes a field only when its
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
+- *and 1 index or audit notes*

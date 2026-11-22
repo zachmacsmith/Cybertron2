@@ -27,3 +27,4 @@ units left unused when an act was refused
 - [[What agents can do|What agents can do]]
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
 - [[How a household manages its stores one book of standing rules, a few…|How a household manages its stores: one book of standing rules, a few…]]
+- [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]

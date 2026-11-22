@@ -27,6 +27,8 @@ conversation (22 Nov: "conversation (22 Nov: "make principled distinctions betwe
 - [[Clocks which systems run on which time|Clocks: which systems run on which time]]
 - [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
+- [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
+- *and 1 index or audit notes*

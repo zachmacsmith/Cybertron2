@@ -36,3 +36,4 @@ conversation (20 Nov: "conversation (20 Nov: "Iagree with u", to: anchor on real
 - [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - [[Withies, coppice and the other wood and wild materials for fishing…|Withies, coppice and the other wood and wild materials for fishing…]]
+- *and 1 index or audit notes*

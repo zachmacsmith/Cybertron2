@@ -26,4 +26,4 @@ updated: "2026-11-20"
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*
