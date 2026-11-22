@@ -1,0 +1,24 @@
+---
+id: D2-286
+kind: decision
+state: live
+updated: "2026-11-22"
+---
+
+# The list of what one could do today (D2-286)
+
+*live · 22 Nov*
+
+## The rule
+**The list of what one could do today ('Today you could', 'Not yet') is removed from the code entirely, not only hidden by the beliefs view: no world can show it, including the fallback to the old prompt when a person is at no place (view.py:175-176, prompt.py:790-794); done in the crafts, archetypes and beliefs rebuild.**
+
+## Where it came from
+conversation (22 Nov: "the 10 things you could do list should have been removed so should not be in any new runs. I told you this already like five times. If it has not, the craftsmanship / arxhtwrgoes / belief is rebuild should remove it as even an option from the code.")
+
+
+## Linked
+- parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+
+
+## Mentioned by
+- [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]

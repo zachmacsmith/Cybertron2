@@ -28,7 +28,7 @@
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]: revisit: soon (Zach, 20 Nov: 'that one sooner')
 - [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]: closed by agent
 
-## Active threads (18)
+## Active threads (19)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -51,6 +51,8 @@
   next: overnight agent running; then review, commit, questions to Zach
 - [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]  
   next: overnight agent running; then review, commit, questions to Zach
+- [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]]  
+  next: overnight agent: survey, replay probes, report
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  
@@ -111,7 +113,9 @@
 ## Queued and paused (8)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework, [[W-76 The timber economy|W-76]] The timber economy
 
-## Decided this week (83)
+## Decided this week (85)
+- [[D2-287 Reviewing past runs|Reviewing past runs (D2-287)]]
+- [[D2-286 The list of what one could do today|The list of what one could do today (D2-286)]]
 - [[D2-285 The records brief is run by hand after each compaction for now, since…|The records brief is run by hand after each compaction for now, since… (D2-285)]]
 - [[D2-284 A smokehouse's capacity comes from the racks fitted, about 250 kg of…|A smokehouse's capacity comes from the racks fitted, about 250 kg of… (D2-284)]]
 - [[D2-283 Salting fish runs at about 20 kg an hour with gutting, at 1 kg of…|Salting fish runs at about 20 kg an hour with gutting, at 1 kg of… (D2-283)]]
@@ -125,8 +129,6 @@
 - [[D2-275 A unit of work is 2 hours|A unit of work is 2 hours (D2-275)]]
 - [[D2-274 One book of standing rules per household and per person covers both…|One book of standing rules per household and per person covers both… (D2-274)]]
 - [[D2-273 Three clocks, each system on one|Three clocks, each system on one (D2-273)]]
-- [[D2-272 A food's base rate of spoiling is its rate when well kept|A food's base rate of spoiling is its rate when well kept (D2-272)]]
-- [[D2-271 Smoking in three depths|Smoking in three depths (D2-271)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]
