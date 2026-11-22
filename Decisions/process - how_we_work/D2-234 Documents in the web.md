@@ -2,7 +2,7 @@
 id: D2-234
 kind: decision
 state: live
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Documents in the web (D2-234)

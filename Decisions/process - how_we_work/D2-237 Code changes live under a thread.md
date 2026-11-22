@@ -2,7 +2,7 @@
 id: D2-237
 kind: decision
 state: live
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Code changes live under a thread (D2-237)

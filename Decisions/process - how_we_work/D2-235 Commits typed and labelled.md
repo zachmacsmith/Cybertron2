@@ -2,7 +2,7 @@
 id: D2-235
 kind: decision
 state: live
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Commits typed and labelled (D2-235)

@@ -2,7 +2,7 @@
 id: D2-233
 kind: decision
 state: live
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # One tool for the records (D2-233)

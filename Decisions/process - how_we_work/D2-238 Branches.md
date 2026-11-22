@@ -2,7 +2,7 @@
 id: D2-238
 kind: decision
 state: live
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Branches (D2-238)

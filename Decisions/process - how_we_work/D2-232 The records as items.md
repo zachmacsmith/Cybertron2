@@ -2,7 +2,7 @@
 id: D2-232
 kind: decision
 state: live
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # The records as items (D2-232)

@@ -2,7 +2,7 @@
 id: D2-236
 kind: decision
 state: live
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Every resolution names who made it (D2-236)

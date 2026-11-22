@@ -2,7 +2,7 @@
 id: D2-239
 kind: decision
 state: live
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Zach's views and the hand-offs (D2-239)
