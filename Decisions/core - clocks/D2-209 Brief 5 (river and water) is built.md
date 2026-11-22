@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Brief 5 (river and water) is built (D2-209)
 
-*live · 16 Nov · spec: [[environment - wildlife|environment/wildlife]]*
+*live · 16 Nov · spec: [[core - clocks|core/clocks]], [[environment - wildlife|environment/wildlife]]*
 
 ## The rule
 (proposals/river_and_water.md, revised 16 Nov): runs along the river with their lag, the weir and its gap, the mill on the run's river, salt boiled inland ([[D2-56 Recipe changes from the chain analysis|D2-56]]), fuel as the shared draw, the kinds on the water and the smokehouse. Its answers: the salmon's three-year return is compressed to one world year (32 days), stated as a compression; nothing social is seeded (the weir's, the mill's and the spring's use are physical only); a run night at a sound, shut weir gives about 1 to 2 food a unit (calibrate); whether to wait for the merge of briefs 1 to 4c is the building session's call; boiling salt takes about 1 firewood for each salt for now (to revisit in calibration, OPEN [[L-110 Salt's fuel, to recalibrate|L-110]]); withies and cord stay with the hunting and resources build, a soon follow-up (OPEN [[L-111 The hunting and resources build, a soon follow-up|L-111]]); the runs-only world (§8) is designed by 37.2 while the build starts and handed to the building session to run after the gate. Open: the mill's rate with its gap open (question 5)
@@ -32,6 +32,7 @@ conversation (16 Nov: "1. yes. 2. yes. 3. sure. 4. I'll be passing this to the o
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
+- [[Clocks which systems run on which time|Clocks: which systems run on which time]]
 - [[Wildlife|Wildlife]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]

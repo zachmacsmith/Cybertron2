@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # The lifespan is a world setting that scales every part of a life (D2-153)
 
-*live · 24 Oct · spec: [[life - birth_and_death|life/birth_and_death]], [[life - life_stages|life/life_stages]]*
+*live · 24 Oct · spec: [[core - clocks|core/clocks]], [[life - birth_and_death|life/birth_and_death]], [[life - life_stages|life/life_stages]]*
 
 ## The rule
 **The lifespan is a world setting that scales every part of a life:** the days to old age (default 32), with each stage a fixed share of it (infant 1/16, child 1/8, youth 3/16, adult 5/8), and pregnancy, the nursing gap and the rise of old age's risk scaling with it; [[D4-19 Short childhoods counted in rounds|D4-19]]'s childhood spans are its default (amends [[D4-19 Short childhoods counted in rounds|D4-19]] and [[D2-139 All time is counted in days|D2-139]]'s youth 12 and adult 50)
@@ -32,6 +32,7 @@ youth 12 and adult 50 days fixed
 - [[Hunting that pays a beginner, snares that are lifted, and predators…|Hunting that pays a beginner, snares that are lifted, and predators…]]
 - [[Proposal life (partners, children, growing up, death, inheritance)|Proposal: life (partners, children, growing up, death, inheritance)]]
 - [[Livelihoods as archetypes what a household knows, seeded by how it…|Livelihoods as archetypes: what a household knows, seeded by how it…]]
+- [[Clocks which systems run on which time|Clocks: which systems run on which time]]
 - [[Birth and death partners, children, growing up, old age, succession|Birth and death: partners, children, growing up, old age, succession]]
 - [[Life stages|Life stages]]
 - [[02w build brief for 37.4 children and reproduction (Package D)|02w: build brief for 37.4: children and reproduction (Package D)]]

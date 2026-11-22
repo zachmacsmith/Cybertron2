@@ -27,11 +27,12 @@ started
 - under it: [[D2-264 The fishing, hunting and materials network|The fishing, hunting and materials network (D2-264)]] (live)
 - under it: [[D2-271 Smoking in three depths|Smoking in three depths (D2-271)]] (live)
 - under it: [[D2-272 A food's base rate of spoiling is its rate when well kept|A food's base rate of spoiling is its rate when well kept (D2-272)]] (live)
+- under it: [[D2-273 Three clocks, each system on one|Three clocks, each system on one (D2-273)]] (live)
 - under it: [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]] (open)
 - under it: [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]] (open)
 - under it: [[L-145 Offal's uses bait for set lines and traps, dog food|Offal's uses: bait for set lines and traps, dog food (L-145)]] (open)
 - under it: [[L-146 Peat as fuel where there is bog|Peat as fuel where there is bog (L-146)]] (open)
-- under it: [[L-148 The wild's clock|The wild's clock (L-148)]] (open)
+- under it: [[L-148 The wild's clock|The wild's clock (L-148)]] (closed)
 - under it: [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]] (open)
 - under it: [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]] (open)
 - under it: [[Q-84 The building scale|The building scale (Q-84)]] (open)
@@ -42,6 +43,7 @@ started
 - [[D2-264 The fishing, hunting and materials network|The fishing, hunting and materials network (D2-264)]]
 - [[D2-271 Smoking in three depths|Smoking in three depths (D2-271)]]
 - [[D2-272 A food's base rate of spoiling is its rate when well kept|A food's base rate of spoiling is its rate when well kept (D2-272)]]
+- [[D2-273 Three clocks, each system on one|Three clocks, each system on one (D2-273)]]
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
 - [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]

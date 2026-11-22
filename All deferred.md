@@ -3,7 +3,6 @@
 ## Open
 - [[L-150 Environmental effects on fishing refined after the rest works|Environmental effects on fishing refined after the rest works (L-150)]] (open)
 - [[L-149 Gulls and other coastal birds, with the coast|Gulls and other coastal birds, with the coast (L-149)]] (open)
-- [[L-148 The wild's clock|The wild's clock (L-148)]] (open)
 - [[L-147 Live runs kept durably as soon as they finish|Live runs kept durably as soon as they finish (L-147)]] (open)
 - [[L-146 Peat as fuel where there is bog|Peat as fuel where there is bog (L-146)]] (open)
 - [[L-145 Offal's uses bait for set lines and traps, dog food|Offal's uses: bait for set lines and traps, dog food (L-145)]] (open)
@@ -118,5 +117,6 @@
 - [[L-2 Scavengers, with wild animals that attack herds and hunters and are…|Scavengers, with wild animals that attack herds and hunters and are… (L-2)]] (open)
 - [[L-1 Signs of slow change on long journeys|Signs of slow change on long journeys (L-1)]] (open)
 
-## Closed (1)
+## Closed (2)
+- [[L-148 The wild's clock|The wild's clock (L-148)]]
 - [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]]

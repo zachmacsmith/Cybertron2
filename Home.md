@@ -97,7 +97,8 @@
 ## Queued and paused (7)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
 
-## Decided this week (70)
+## Decided this week (71)
+- [[D2-273 Three clocks, each system on one|Three clocks, each system on one (D2-273)]]
 - [[D2-272 A food's base rate of spoiling is its rate when well kept|A food's base rate of spoiling is its rate when well kept (D2-272)]]
 - [[D2-271 Smoking in three depths|Smoking in three depths (D2-271)]]
 - [[D2-270 Household skills|Household skills (D2-270)]]
@@ -112,12 +113,11 @@
 - [[D2-261 The older generic game stocks are counted in the new meat unit|The older generic game stocks are counted in the new meat unit (D2-261)]]
 - [[D2-260 Milking at its real yield|Milking at its real yield (D2-260)]]
 - [[D2-259 The food values are anchored on real values|The food values are anchored on real values (D2-259)]]
-- [[D2-258 The food values are put on one physical basis|The food values are put on one physical basis (D2-258)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]
 - **conflict**: [[conflict - combat|combat]], [[conflict - defence|defence]], [[conflict - fuse_events|fuse_events]], [[conflict - raids|raids]]
-- **core**: [[core - architecture|architecture]], [[core - processes|processes]], [[core - round|round]], [[core - world_schema|world_schema]]
+- **core**: [[core - architecture|architecture]], [[core - clocks|clocks]], [[core - processes|processes]], [[core - round|round]], [[core - world_schema|world_schema]]
 - **economy**: [[economy - agreements|agreements]], [[economy - buildings|buildings]], [[economy - goods|goods]], [[economy - livestock|livestock]], [[economy - lodging|lodging]], [[economy - money_and_markets|money_and_markets]], [[economy - production|production]], [[economy - transport|transport]]
 - **environment**: [[environment - calendar|calendar]], [[environment - land|land]], [[environment - resources|resources]], [[environment - scheduler|scheduler]], [[environment - visibility|visibility]], [[environment - wildlife|wildlife]]
 - **information**: [[information - letters_and_documents|letters_and_documents]], [[information - memory|memory]], [[information - noticing|noticing]], [[information - perception|perception]], [[information - prompts|prompts]], [[information - signs|signs]], [[information - speech|speech]]

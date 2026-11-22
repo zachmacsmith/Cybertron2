@@ -43,24 +43,19 @@ real values within about 20%, every departure named ([[D2-259 The food values ar
 
 By that test about 50 resources discussed since October come down to the ones below. Left out, each with its reason, in §10.
 
-## 1. The rule underneath: the wild's clock
+## 1. The rule underneath: the clocks (decided: [[D2-273 Three clocks, each system on one|D2-273]], spec/core/clocks.md)
 
-Breeding and regrowth now run on the 32-day year while people eat every day, so a wood feeds about 365/32 ≈ 11 times as many
-mouths as a real one (hunting_ladder; it explains brief 4c's master hunter holding 2 to 3 food a unit for 16 days on one wood). The
-same holds for resident fish (fishing_ladder) and for wild plants. The runs were already put on the real year by 32/365 ([[D2-258 The food values are put on one physical basis|D2-258]]).
+Every system runs on one of three clocks. **Day:** work done in an hour, food eaten a night, travel, at real rates. **Year** (32 days,
+real durations about 1/11): land and its yields, the seasons, harvests, **the wild's production and regrowth**, the runs, how long
+goods keep, process times in real days or weeks, the years a work takes to come into use. **Life:** ageing, learning, raising
+children, births. A duration of more than a few days compresses with its clock; one of a day or two keeps its real nights as a
+floor. All food is on the year clock, so food sources and keeping calibrate against each other.
 
-**Proposed rule:** every wild stock produces, each day of the compressed year, what it produces on a real day (its real yearly
-production ÷ 365). Calendars stay compressed (the seasons, the runs' windows, a withy bed's years); daily rates stay real (what an
-hour of work takes, what a night's trap holds). A departure is a named lever ([[D2-259 The food values are anchored on real values|D2-259]]).
-
-What follows from it, and is wanted: a village's ring of woods feeds a handful of people on game, not dozens; hunting pays as a
-trade and on trips to fresh ground ([[D2-255 A very skilled hunter brings in a disproportionate amount of food…|D2-255]]), not as everyone's living; the shallows strip in days and come back slowly; the runs
-and the keeping of their glut are where water food is rich. 37.4 to confirm the reading of the renewal code.
-
-Gear and works carry the same split: **their life is counted in uses**, sized so that ordinary use wears them out in two or three
-world years, and mending restores part of it. A withy bed's three real years to full yield become three world years (as the
-salmon's return, [[D2-209 Brief 5 (river and water) is built|D2-209]]). Processes measured in real weeks (retting, drying, the salt's cure) become nights at about 1/11, rounded
-to whole nights.
+The earlier proposal here, that the wild produce per real day (so that a wood feeds about 11 times fewer mouths), is replaced: fields
+yield a real year's harvest per world year, so the land is rich per day for farming and the wild alike, and hands, keeping and
+knowing how are what bind (Zach, 22 Nov: "this means wild should also be on the year clock"; [[L-148 The wild's clock|L-148]] closed). Gear's life is counted
+in uses, by what it is made of ([[D2-264 The fishing, hunting and materials network|D2-264]]); a withy bed's three real years are three world years; retting, tanning and smoking take
+their real weeks at about 1/11, at least a night.
 
 ## 2. The land and water the network draws on (environmental inputs)
 
@@ -561,6 +556,7 @@ coast ([[L-149 Gulls and other coastal birds, with the coast|L-149]]); environme
   pack and creel baskets (tying carrying, [[W-71 How carrying works in the live runs|W-71]], to withies) and the hurdle (tying herding); the works recosted; the methods with
   reach and takes; the network as a graph, its dependences, conflicts, substitutes and the year's work; what is left out and why;
   build units and phases. The earlier §5a is folded into §8.
+- **22 Nov 2026:** §1 replaced by the clock principle ([[D2-273 Three clocks, each system on one|D2-273]]): the wild on the year clock, as fields are.
 - **22 Nov 2026:** §7.3 to §7.8 written from the day's answers and research (Zach, 22 Nov: "yes write it all into the proposal"): keeping in three smoke depths by smokehouse kind with racks of withies ([[D2-271 Smoking in three depths|D2-271]]), the shelf-life order restored and its clock open; stores ([[D2-272 A food's base rate of spoiling is its rate when well kept|D2-272]]): the two layers, automatic sorting with manual control, the locked chest, the stores to have, vermin, capacity against the compressed year; pollution as one mechanism with specifics by source; tanning brought in with its uses; snares as gear on set and tend with edges from the land; the shallows by water type and the fen's traps. Open questions replaced by what is still open; the decided list added.
 
 ## Sources

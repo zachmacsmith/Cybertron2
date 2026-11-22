@@ -22,3 +22,4 @@ conversation (22 Nov: "conversation (22 Nov, answers to the open questions)")
 
 ## Mentioned by
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
+- [[Clocks which systems run on which time|Clocks: which systems run on which time]]
