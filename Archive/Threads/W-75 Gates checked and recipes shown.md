@@ -18,3 +18,7 @@ dropped 22 Nov: opened in error: Zach's go of 22 Nov was for the batch sizes onl
 
 ## Linked
 - parent: [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]]
+
+
+## Mentioned by
+- [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]

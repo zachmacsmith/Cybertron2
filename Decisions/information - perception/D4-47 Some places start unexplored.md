@@ -31,6 +31,7 @@ conversation ("can it have a few nodes that start unexplored, like e.g. a quarry
 - [[02s build brief for 37.4 the parcel graph, herds, fences, hidden…|02s: build brief for 37.4: the parcel graph, herds, fences, hidden…]]
 - [[02zd cybertron2 as a response to cybertron 1|02zd: cybertron2 as a response to cybertron 1]]
 - [[02zn · The first dry run of a generated world|02zn · The first dry run of a generated world]]
+- [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]
 - [[Review 38.22 the first two worlds of the ladder, run with LLM agents|Review 38.22: the first two worlds of the ladder, run with LLM agents]]
 - [[Review 38.23 the region run (the third world of the ladder)|Review 38.23: the region run (the third world of the ladder)]]
 - [[38.37 Everything an agent is shown inventory, origins, what it does…|38.37: Everything an agent is shown: inventory, origins, what it does…]]

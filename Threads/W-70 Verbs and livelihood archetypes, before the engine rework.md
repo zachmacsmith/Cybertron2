@@ -19,6 +19,7 @@ scope (20 Nov): the verb list ([[Q-27 Keep the 38 built verbs, or fold them back
 
 ## Linked
 - waits on: [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)]]
+- under it: [[C-12 The river run seeded a scored goal|The river run seeded a scored goal (C-12)]] (open)
 - under it: [[D2-251 Every technique, fitting and thing to build says what it does and why…|Every technique, fitting and thing to build says what it does and why… (D2-251)]] (live)
 - under it: [[D2-266 Knowledge in their own words|Knowledge in their own words (D2-266)]] (live)
 - under it: [[L-141 How much seeded memory each livelihood starts with|How much seeded memory each livelihood starts with (L-141)]] (open)
@@ -33,9 +34,11 @@ scope (20 Nov): the verb list ([[Q-27 Keep the 38 built verbs, or fold them back
 - [[Q-82 Trying and learning|Trying and learning (Q-82)]]
 - [[L-133 The engine as feature packages postponed, kept in mind|The engine as feature packages: postponed, kept in mind (L-133)]]
 - [[L-141 How much seeded memory each livelihood starts with|How much seeded memory each livelihood starts with (L-141)]]
+- [[C-12 The river run seeded a scored goal|The river run seeded a scored goal (C-12)]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Trying and learning crafts by difficulty, failures that teach…|Trying and learning: crafts by difficulty, failures that teach…]]
 - [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
+- [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]

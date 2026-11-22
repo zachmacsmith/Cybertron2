@@ -28,4 +28,5 @@ the proposal of 0.5 a night
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[The fishing ladder techniques, gear, works and the water's stocks|The fishing ladder: techniques, gear, works and the water's stocks]]
+- [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]
 - *and 1 index or audit notes*

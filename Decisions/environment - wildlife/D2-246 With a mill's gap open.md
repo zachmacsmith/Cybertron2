@@ -24,3 +24,4 @@ conversation (20 Nov: "q51: half seems fine")
 ## Mentioned by
 - [[Q-51 Brief 5 (river and water)|Brief 5 (river and water) (Q-51)]]
 - [[Wildlife|Wildlife]]
+- [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]

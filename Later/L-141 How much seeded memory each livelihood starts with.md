@@ -22,3 +22,4 @@ Zach, 21 Nov: flag the fishers' seeded memory (the runs as a remembered year, si
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
+- [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]

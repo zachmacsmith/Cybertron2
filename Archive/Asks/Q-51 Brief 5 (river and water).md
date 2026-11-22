@@ -23,6 +23,7 @@ updated: "2026-11-20"
 - [[W-63 The audit of work started and left, and the triage of open asks and…|The audit of work started and left, and the triage of open asks and… (W-63)]]
 - [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
 - [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
+- [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]
 - [[Brief 5, the river part the runs, the weir, the mill's gap, salmon…|Brief 5, the river part: the runs, the weir, the mill's gap, salmon…]]
 - [[38.73 Brief 5 (river and water) as built the dry-run report for the…|38.73: Brief 5 (river and water) as built: the dry-run report for the…]]
 - *and 2 index or audit notes*

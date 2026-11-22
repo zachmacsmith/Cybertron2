@@ -19,4 +19,5 @@ The lake world's live run: Meresby, 14 people, 14 days ($11.05)
 ## Mentioned by
 - [[Q-57 Fishing, from the lake run|Fishing, from the lake run (Q-57)]]
 - [[Livelihoods as archetypes what a household knows, seeded by how it…|Livelihoods as archetypes: what a household knows, seeded by how it…]]
+- [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]
 - [[38.74 The lake world's first live run (W-50) what came of the water|38.74: The lake world's first live run (W-50): what came of the water]]
