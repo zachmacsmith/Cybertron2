@@ -5,12 +5,15 @@ updated: "2026-11-22"
 ---
 # Fishing, hunting and their materials: the network
 
-*proposal · discussion (21 Nov 2026; revised the same day into the full design). Nothing dec · `docs/cybertron2/proposals/hunt_fish_materials.md`*
+*proposal · accepted in part: D2-264, D2-271, D2-272, D2-276, D2-279, D2-281, D2-283, D2-284 · `docs/cybertron2/proposals/hunt_fish_materials.md`*
 
 > One network of land, water, seasons, materials, techniques, gear and works for taking fish, game and fowl, built so that each piece is worth having only because of the others, and so that villages come to need each other. It adds **four goods** (withies, cord, flax, bone), **one crop** (flax), **abo
 
 
-**Status:** discussion (21 Nov 2026; revised the same day into the full design). Nothing decided, nothing built.
+**Status:** accepted in part: [[D2-264 The fishing, hunting and materials network|D2-264]], [[D2-271 Smoking in three depths|D2-271]], [[D2-272 A food's base rate of spoiling is its rate when well kept|D2-272]], [[D2-276 Making durable things runs on the year clock|D2-276]], [[D2-279 Stores, as answered|D2-279]], [[D2-281 Tanning comes in this build, with bark as a new good|D2-281]], [[D2-283 Salting fish runs at about 20 kg an hour with gutting, at 1 kg of…|D2-283]], [[D2-284 A smokehouse's capacity comes from the racks fitted, about 250 kg of…|D2-284]] (21 to 22 Nov 2026); the rest in
+discussion. Nothing built. **Prices pending:** the gear and works costs in §4 to §6 and the fuel figures in §7.3 are still on the
+old scale; they are re-priced from the design wave's part 1 (docs/review/37_growth/02zzzh_hunt_fish/wave1_physical_basis.md) once
+Zach answers its handling units and the keeping curve (wave_conflicts.md questions 1, 2 and 4).
 **Owner:** 37.2 (the wild, the water, the materials, the worlds); 37.4 for the core of senses, act results, wear and clocks.
 **Thread:** fishing, hunting and their materials developed together ([[W-73 Fishing, hunting and their materials developed together|W-73]]), under the nutrition worlds ([[W-69 Nutrition worlds|W-69]]).
 
@@ -20,8 +23,8 @@ One network of land, water, seasons, materials, techniques, gear and works for t
 piece is worth having only because of the others, and so that villages come to need each other. It adds **four goods** (withies,
 cord, flax, bone), **one crop** (flax), **about a dozen pieces of gear and four works** made from them, **one act** (dressing a
 kill), and reshapes the methods into **five for the water and seven for land and air**, with the water split into three stocks.
-It rests on one rule decided first: **the wild produces per day what it produces per real day** (§1). Everything is on the shared
-basis (1 food = 2,500 kcal, a unit of work = 2 hours; [[D2-258 The food values are put on one physical basis|D2-258]], [[D2-259 The food values are anchored on real values|D2-259]]) and the compressed year (32 days, seasons of 8; [[D2-209 Brief 5 (river and water) is built|D2-209]]).
+It rests on the three clocks ([[D2-273 Three clocks, each system on one|D2-273]], §1; the wild on the year clock, replacing the earlier "per real day" rule). Everything is on
+the shared basis (a unit of work = 2 hours, [[D2-275 A unit of work is 2 hours|D2-275]]; 1 food = 2,500 kcal, a default taken on [[Q-69 The basis for food and work|Q-69]] and not yet a decision) and the compressed year (32 days, seasons of 8; [[D2-209 Brief 5 (river and water) is built|D2-209]]).
 
 The research is in `docs/review/37_growth/02zzzh_hunt_fish/` (fishing_ladder, hunting_ladder, fibre_and_cord,
 withies_wood_materials, engine_audit, byproducts_and_substitutes). It gathers the signs of the river ([[W-72 Signs of the river|W-72]],
@@ -81,7 +84,8 @@ their real weeks at about 1/11, at least a night.
 | **The flow** (low to flood), **ice** | every water | rain, thaw, frost | | wrecks set gear in spate; ice stops set gear and crowds fowl to open water | river_signs.md |
 | **Brine and saltmarsh** (built) | springs, coasts | | endless | fuel for boiling | built |
 
-Two inputs are deliberately not added now: **peat** (fuel where there is bog; [[L-146 Peat as fuel where there is bog|L-146]]) and **oak bark** (with tanning). Each is a
+One input is deliberately not added now: **peat** (fuel where there is bog; [[L-146 Peat as fuel where there is bog|L-146]]). **Oak bark** comes in this build, with
+tanning ([[D2-281 Tanning comes in this build, with bark as a new good|D2-281]]). Each is a
 named next step (§10).
 
 ## 3. The goods
@@ -149,8 +153,8 @@ stand-in a hunter has without flax or nettle; not a cord good (it is part of mak
 | one who knows the craft | all the meat, the offal, a whole hide, the tallow of a fat beast (deer and boar in autumn, farm beasts), bone (about 5% of a deer's live weight, calibrate), antler from a stag in season | the same |
 
 Today a kill arrives dressed at no work (engine_audit): this makes the kill's by-products a skill, gives the hunter something to
-sell besides meat (hides for packs, bone for hooks), and makes a careless butcher waste. Fish stay gutted at no work until the
-salting rate ([[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Q-73]]) decides whether gutting is its own work (02zzx: gutting, not salting, was the labour).
+sell besides meat (hides for packs, bone for hooks), and makes a careless butcher waste. Gutting is
+folded into salting's rate ([[D2-283 Salting fish runs at about 20 kg an hour with gutting, at 1 kg of…|D2-283]]: about 20 kg an hour with gutting) and the hanging rate; a hard cure must not pay it twice.
 
 ## 5. Gear: made, held, set, lifted, worn, mended
 
@@ -254,7 +258,7 @@ fire, and, for what must last past a season, salt.
 against salt fish's 69 and dried fish's 35) and at twice the food a kilogram; with racks at a real load smoking would make salt
 pointless. Each kept form takes the shelf life in the table above.
 
-**Which clock shelf lives run on (open):** process times are compressed (a two-week smoke is one night) while how long goods keep
+**Which clock shelf lives run on (decided: [[D2-273 Three clocks, each system on one|D2-273]], the year clock; how a shelf life becomes a nightly loss is open):** process times are compressed (a two-week smoke is one night) while how long goods keep
 runs per night as if a night were a real day, so one night's smoking buys years of world time. Proposed: shelf lives compressed like
 other durations (about 1/11, with a floor of a night or two for fresh food): a keeping smoke about 8 to 10 nights, a hard cure about
 16 to 25, salt fish about 33; the gap between the autumn runs (about 250 real days) then needs salt or a hard cure. It changes how
@@ -444,7 +448,7 @@ before they are needed. A household that has not cut withies and spun cord by la
 | eel skin, fish glue | one use each (Zach, 14 Nov: "maybe later") | crafts and wild goods ([[L-144 Eel skin and fish glue|L-144]], [[L-121 Wildlife pack K8 crafts and wild goods|L-121]]) |
 | sinew, gut, horsehair | cord does their work; sinew matters only for the bow | with the bow |
 | feathers, down, quills | fletching (the bow), bedding, writing | with the bow; crafts ([[L-121 Wildlife pack K8 crafts and wild goods|L-121]]) |
-| bark and tanning, leather | months-long; needs pits, lime and oak bark | a tanning step after this |
+| bark and tanning, leather | months-long; needs pits, lime and oak bark | in this build ([[D2-281 Tanning comes in this build, with bark as a new good|D2-281]]; §7.6) |
 | pitch and tar, birch tar | boats and net preserving | with boats |
 | reeds, sedge, rushes | thatch and lights (tallow lights stand in) | building |
 | bird lime | one fowling method among several | if fowling needs it |
@@ -530,14 +534,16 @@ coast ([[L-149 Gulls and other coastal birds, with the coast|L-149]]); environme
 
 ## Open questions
 
-1. **The shelf-life clock** (§7.3): compressed like other durations (proposed), changing every stored food's life?
-2. **The racks** ([[Q-83 Whether the smoke racks hold a real hut's load|Q-83]]): a real hut's load (500 fish on 2 spaces, one night), or kept low on purpose; 2 spaces or 3; one tend a night?
+1. **The shelf-life clock** (§7.3): decided, the year clock ([[D2-273 Three clocks, each system on one|D2-273]]). Open: how "keeps d days" becomes a nightly loss (half, a
+   quarter or a tenth gone by then; wave_conflicts.md question 2).
+2. **The racks:** decided, about 250 kg a set, the building capping the sets ([[D2-284 A smokehouse's capacity comes from the racks fitted, about 250 kg of…|D2-284]]); [[Q-83 Whether the smoke racks hold a real hut's load|Q-83]]'s earlier "500 fish on 2 spaces" to be
+   reconciled (wave_conflicts.md question 4). Was ([[Q-83 Whether the smoke racks hold a real hut's load|Q-83]]): a real hut's load (500 fish on 2 spaces, one night), or kept low on purpose; 2 spaces or 3; one tend a night?
 3. **Stores' capacities and costs** (§7.4): from storage.md when it lands; the two layers as a fit-out (proposed); the locked chest.
-4. **Salting's rate** ([[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Q-73]]): about 20 kg an hour with gutting, 1 to 4 salt (proposed)?
-5. **Tanning in the same build as the frame, harness, bellows and shoes** (proposed; §7.6), with bark as a new good?
-6. **The pack:** the withy pack basket (carrying about +15, wears faster) and the leather-strapped frame (about +20, lasts), replacing
+4. **Salting's rate:** decided ([[D2-283 Salting fish runs at about 20 kg an hour with gutting, at 1 kg of…|D2-283]]).
+5. **Tanning:** decided, in this build with bark as a new good ([[D2-281 Tanning comes in this build, with bark as a new good|D2-281]]); shoes and lime open (wave2_making.md W2-7).
+6. **The pack:** decided ([[D2-281 Tanning comes in this build, with bark as a new good|D2-281]]): the withy pack basket (carrying about +15, wears faster) and the leather-strapped frame (about +20, lasts), replacing
    today's pack?
-7. **Pollution's first sources** (§7.5): retting and tanning now, middens later?
+7. **Pollution's first sources:** decided, retting and tanning now, middens later ([[D2-281 Tanning comes in this build, with bark as a new good|D2-281]]).
 8. **The hearth rack's 3 nights** (dry fish, dry meat): checked like the smokehouse's?
 9. **Next steps after phase 5:** peat, barrels, boats and the seine, then the bow, dogs and keeping (tanning moved into phase 3)?
 10. **The smokehouse as a store, its racks as containers** (exploration, 22 Nov; Zach: "should storing it in there mean its lifetime
@@ -563,6 +569,7 @@ coast ([[L-149 Gulls and other coastal birds, with the coast|L-149]]); environme
 
 ## History
 
+- 22 Nov 2026: brought up to the day's decisions after the conflicts audit (wave_conflicts.md C7, C19, C33, C34): status, the clocks rule replacing "per real day", gutting folded into salting, bark and tanning in this build, decided open questions marked; prices left pending the wave's part 1 answers.
 - 22 Nov 2026: accepted in part: [[D2-284 A smokehouse's capacity comes from the racks fitted, about 250 kg of…|D2-284]] (A smokehouse's capacity comes from the racks fitted, about 250 kg of fish a set;).
 - 22 Nov 2026: accepted in part: [[D2-283 Salting fish runs at about 20 kg an hour with gutting, at 1 kg of…|D2-283]] (Salting fish runs at about 20 kg an hour with gutting, at 1 kg of salt to 4 kg o).
 - 22 Nov 2026: explored (open question 10): the smokehouse as a store with racks as containers, capacity from racks and the hold time of each depth, hanging on as keeping or as the process, rules for racks, processing containers in general; from Zach's question.
