@@ -1,6 +1,9 @@
 # All deferred
 
 ## Open
+- [[L-156 The locked chest and its key|The locked chest and its key (L-156)]] (open)
+- [[L-155 Vermin fleshed out properly, with disease and sanitation|Vermin fleshed out properly, with disease and sanitation (L-155)]] (open)
+- [[L-154 The scale gap in stores|The scale gap in stores (L-154)]] (open)
 - [[L-153 Clearing a plot at a time|Clearing a plot at a time (L-153)]] (open)
 - [[L-152 Travel folded into the standing rules|Travel folded into the standing rules (L-152)]] (open)
 - [[L-151 A household as a shared book of standing rules people subscribe to|A household as a shared book of standing rules people subscribe to (L-151)]] (open)

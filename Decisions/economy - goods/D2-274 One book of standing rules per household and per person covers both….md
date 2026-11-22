@@ -22,6 +22,7 @@ conversation (22 Nov: "conversation (22 Nov, on store_management.md)")
 
 
 ## Mentioned by
+- [[D2-279 Stores, as answered|Stores, as answered (D2-279)]]
 - [[Q-85 One book of standing rules per household and person for eating and…|One book of standing rules per household and person for eating and… (Q-85)]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]

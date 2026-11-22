@@ -4,7 +4,7 @@
 
 > The goods decided so far, what each is for, and where it comes from. The first-world set is decided (D2-24, with D2-56 and the food goods since); this file lists only what decisions have fixed. Decided but not yet built: blades, traps, locks, the saddle, carts, parchment and documents; salt is a goo
 
-## Decided (30)
+## Decided (31)
 - [[D2-1 Coin is carried; debts move only as information|Coin is carried; debts move only as information (D2-1)]]
 - [[D2-3 Large buildings and buildings of 2-3 storeys must have stone|Large buildings and buildings of 2-3 storeys must have stone (D2-3)]]
 - [[D2-6 One livestock system, bred not made|One livestock system, bred not made (D2-6)]]
@@ -33,6 +33,7 @@
 - [[D2-160 Each food's value raw, as data|Each food's value raw, as data (D2-160)]]
 - [[D2-272 A food's base rate of spoiling is its rate when well kept|A food's base rate of spoiling is its rate when well kept (D2-272)]]
 - [[D2-274 One book of standing rules per household and per person covers both…|One book of standing rules per household and per person covers both… (D2-274)]]
+- [[D2-279 Stores, as answered|Stores, as answered (D2-279)]]
 - [[D4-9 Transport and communication between nodes are delayed and carried|Transport and communication between nodes are delayed and carried (D4-9)]]
 - [[H-6 Foraging is the degenerate case|Foraging is the degenerate case (H-6)]]
 
