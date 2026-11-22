@@ -22,3 +22,4 @@ a 64-day year (built in error, 13 Nov, and reversed the same day)
 ## Mentioned by
 - [[The peoples benchmark worlds where each model is a people|The peoples benchmark: worlds where each model is a people]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
+- [[How long crafts take to learn, how they fail at first, and three…|How long crafts take to learn, how they fail at first, and three…]]
