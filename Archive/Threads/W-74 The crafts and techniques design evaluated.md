@@ -18,10 +18,12 @@ Zach, 22 Nov: evaluate overall what the intent was for the generalized and theor
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+- under it: [[D2-263 A craft a person knows at capable or known shows, where they look|A craft a person knows at capable or known shows, where they look (D2-263)]] (live)
 - under it: [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]] (dropped)
 
 
 ## Mentioned by
+- [[D2-263 A craft a person knows at capable or known shows, where they look|A craft a person knows at capable or known shows, where they look (D2-263)]]
 - [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]
 - [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
 - [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
