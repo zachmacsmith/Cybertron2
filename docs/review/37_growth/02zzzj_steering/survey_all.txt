@@ -1,0 +1,183 @@
+
+==== water_runs_models_r1 (20 Nov)
+  why:decision: n 1255, words 62, starts 'today' 5%, says today 40%, tomorrow 11%, a long horizon 19%
+  why:evening: n 1984, words 61, starts 'today' 6%, says today 26%, tomorrow 87%, a long horizon 12%
+  why:talk: n 1051, words 59, starts 'today' 2%, says today 34%, tomorrow 12%, a long horizon 10%
+  counts: {'plans': 1256, 'acts': 4373, 'notes written': 547, 'pins': 428, 'opened notes': 82, 'look_up': 34, 'explain': 4, 'tell': 2502, 'say': 91, 'offers': 319}
+  attend: [('None', 160), ('the village', 84), ('Middleham Field', 49), ('Field House', 41), ('the Brook', 32), ('North Field Upper', 31)]
+  offers: {'n': 584, 'give ~ work N days': 228, 'get ~ 2 bread': 3, 'get ~ work N days': 9, 'get ~ copper tool by day': 2}
+  verbs: [('gather', 4814), ('work', 2824), ('sleep', 2237), ('move', 921), ('take', 902), ('give', 618), ('try', 547), ('rest', 354), ('set', 336), ('make', 283), ('host', 210), ('drive', 127), ('build', 90), ('travel', 82), ('partner', 74), ('accept', 56), ('teach', 45), ('learn', 42), ('come', 37), ('fire', 28), ('name', 26), ('withdraw', 22), ('grant', 21), ('order', 14), ('admit', 13), ('guard', 10), ('join', 6), ('watch', 6), ('claim', 6), ('meet', 3), ('release', 3), ('bury', 2), ('wait', 1), ('accompany', 1)]
+  travel on trouble: {'None': 22, 'push on': 55, 'turn back': 3, 'wait': 1, 'go round': 1}
+  travel meeting: {'None': 30, 'pass by': 21, 'stop': 31}
+  travel when: {'None': 10, 'morning': 47, 'nightfall': 25}
+  set: {'door -> barred': 335, 'door -> open': 1}
+  host feed: {'True': 196, 'None': 12, 'False': 2}
+  grant what: {'shelter and food': 20, 'shelter': 1}
+  order: {'firewood': 2, 'gather wild food': 4, 'herd': 4, 'hay': 4}
+  overwork: {'0': 941, '1': 29, '2': 23}
+
+==== water_lake_r2 (17 Nov)
+  why:decision: n 327, words 48, starts 'today' 1%, says today 10%, tomorrow 3%, a long horizon 22%
+  why:evening: n 584, words 44, starts 'today' 1%, says today 13%, tomorrow 81%, a long horizon 9%
+  why:talk: n 206, words 36, starts 'today' 0%, says today 10%, tomorrow 2%, a long horizon 4%
+  counts: {'plans': 327, 'acts': 667, 'notes written': 10, 'pins': 14, 'opened notes': 0, 'look_up': 1, 'explain': 1, 'tell': 325, 'say': 2, 'offers': 5}
+  attend: [('the village', 56), ('Meresby Field', 52), ('Meresby Water', 49), ('None', 47), ('the Leaze', 19), ('North Field', 18)]
+  offers: {'n': 10, 'give ~ work N days': 4, 'get ~ work N days': 1}
+  verbs: [('gather', 822), ('work', 652), ('sleep', 585), ('set', 138), ('move', 133), ('take', 62), ('give', 51), ('drive', 35), ('make', 30), ('travel', 26), ('build', 21), ('rest', 16), ('try', 7), ('fire', 6), ('name', 5), ('teach', 3), ('learn', 3), ('release', 3), ('host', 1), ('accept', 1)]
+  travel on trouble: {'turn back': 5, 'None': 12, 'push on': 8, 'go round': 1}
+  travel meeting: {'pass by': 14, 'None': 12}
+  travel when: {'morning': 24, 'None': 2}
+  set: {'door -> barred': 138}
+  host feed: {'False': 1}
+  overwork: {'0': 272, '1': 1}
+
+==== water_lake_r1 (16 Nov)
+  why:decision: n 188, words 49, starts 'today' 1%, says today 14%, tomorrow 3%, a long horizon 16%
+  why:evening: n 323, words 46, starts 'today' 2%, says today 12%, tomorrow 84%, a long horizon 6%
+  why:talk: n 133, words 39, starts 'today' 0%, says today 12%, tomorrow 0%, a long horizon 5%
+  counts: {'plans': 188, 'acts': 439, 'notes written': 7, 'pins': 5, 'opened notes': 0, 'look_up': 0, 'explain': 0, 'tell': 212, 'say': 1, 'offers': 3}
+  attend: [('Broad Field', 32), ('the Brook', 29), ('the village', 25), ('None', 16), ('Middle Field', 14), ('the Spinney', 11)]
+  offers: {'n': 6, 'give ~ work N days': 2}
+  verbs: [('gather', 588), ('work', 479), ('sleep', 329), ('set', 80), ('move', 65), ('take', 32), ('make', 26), ('drive', 26), ('give', 24), ('name', 5), ('accept', 3), ('learn', 2), ('withdraw', 2), ('build', 2), ('teach', 1), ('release', 1), ('travel', 1)]
+  travel on trouble: {'None': 1}
+  travel meeting: {'pass by': 1}
+  travel when: {'morning': 1}
+  set: {'door -> barred': 80}
+  overwork: {'0': 142}
+
+==== pw1_opus_sonnet_r1 (13 Nov)
+  why:decision: n 1637, words 32, starts 'today' 0%, says today 8%, tomorrow 2%, a long horizon 10%
+  why:talk: n 1169, words 31, starts 'today' 1%, says today 12%, tomorrow 8%, a long horizon 4%
+  counts: {'plans': 1637, 'acts': 6347, 'notes written': 126, 'pins': 51, 'opened notes': 2, 'look_up': 1, 'explain': 0, 'tell': 1266, 'say': 31, 'offers': 42}
+  attend: [('Reed House', 140), ('None', 118), ('Ashford Field', 108), ('Hale House', 90), ('Brockley Copse', 81), ('Wynn House', 80)]
+  offers: {'n': 59, 'give ~ work N days': 25, 'get ~ 2 bread': 2}
+  verbs: [('gather', 8220), ('work', 2768), ('give', 884), ('move', 695), ('make', 382), ('travel', 360), ('take', 318), ('sleep', 310), ('try', 219), ('fire', 146), ('build', 135), ('drive', 50), ('guard', 32), ('rest', 26), ('teach', 13), ('accept', 13), ('name', 11), ('learn', 10), ('withdraw', 9), ('claim', 9), ('release', 9), ('set', 2), ('grant', 1), ('accompany', 1), ('admit', 1)]
+  travel on trouble: {'push on': 272, 'turn back': 41, 'go round': 8, 'None': 17, 'wait': 22}
+  travel meeting: {'stop': 234, 'None': 86, 'pass by': 40}
+  travel when: {'None': 360}
+  set: {'door -> barred': 2}
+  grant what: {'shelter': 1}
+  overwork: {'0': 664}
+
+==== e2_labour (8 Nov)
+  why:decision: n 296, words 40, starts 'today' 1%, says today 14%, tomorrow 1%, a long horizon 7%
+  why:evening: n 500, words 34, starts 'today' 0%, says today 8%, tomorrow 73%, a long horizon 2%
+  why:talk: n 164, words 32, starts 'today' 0%, says today 15%, tomorrow 2%, a long horizon 2%
+  counts: {'plans': 296, 'acts': 690, 'notes written': 23, 'pins': 18, 'opened notes': 1, 'look_up': 0, 'explain': 4, 'tell': 213, 'say': 62, 'offers': 27}
+  attend: [('None', 113), ('the village', 44), ('the Mill House', 39), ('the Ardern Hall', 24), ('the Hearne hut', 13), ('the Long Field', 12)]
+  offers: {'n': 34, 'get ~ work N days': 2, 'give ~ work N days': 8}
+  verbs: [('gather', 661), ('sleep', 469), ('work', 360), ('build', 211), ('move', 135), ('give', 103), ('take', 60), ('travel', 42), ('accept', 37), ('set', 37), ('rest', 30), ('try', 26), ('fire', 26), ('make', 18), ('name', 7), ('release', 5), ('grant', 5), ('watch', 3), ('bury', 3), ('teach', 2), ('revoke', 2), ('learn', 1), ('withdraw', 1), ('guard', 1)]
+  travel on trouble: {'None': 22, 'push on': 20}
+  travel meeting: {'None': 30, 'pass by': 8, 'stop': 4}
+  travel when: {'None': 10, 'morning': 27, 'nightfall': 5}
+  set: {'door -> barred': 37}
+  grant what: {'shelter': 3, 'shelter and food': 2}
+  overwork: {'0': 155, '2': 1}
+
+==== p1_brookend (8 Nov)
+  why:decision: n 252, words 39, starts 'today' 1%, says today 15%, tomorrow 2%, a long horizon 16%
+  why:evening: n 467, words 34, starts 'today' 0%, says today 10%, tomorrow 79%, a long horizon 7%
+  why:talk: n 177, words 33, starts 'today' 1%, says today 12%, tomorrow 0%, a long horizon 6%
+  counts: {'plans': 252, 'acts': 655, 'notes written': 7, 'pins': 3, 'opened notes': 0, 'look_up': 0, 'explain': 0, 'tell': 225, 'say': 47, 'offers': 27}
+  attend: [('None', 64), ('the village', 36), ('the East Field', 29), ('Long Pasture', 16), ('the Mill House', 15), ('the West Field', 14)]
+  offers: {'n': 40, 'get ~ work N days': 5, 'give ~ work N days': 1, 'get ~ 2 bread': 3, 'give ~ 2 bread': 1}
+  verbs: [('work', 699), ('gather', 612), ('sleep', 484), ('move', 102), ('make', 100), ('set', 81), ('give', 63), ('build', 44), ('take', 27), ('accept', 19), ('drive', 16), ('withdraw', 12), ('fire', 6), ('name', 4), ('rest', 4), ('grant', 1), ('watch', 1), ('release', 1)]
+  set: {'door -> open': 4, 'door -> barred': 77}
+  grant what: {'shelter': 1}
+  overwork: {'0': 154}
+
+==== orwell (7 Nov)
+  why:decision: n 366, words 40, starts 'today' 1%, says today 12%, tomorrow 4%, a long horizon 9%
+  why:evening: n 589, words 36, starts 'today' 0%, says today 10%, tomorrow 78%, a long horizon 1%
+  why:talk: n 212, words 32, starts 'today' 0%, says today 8%, tomorrow 3%, a long horizon 2%
+  counts: {'plans': 366, 'acts': 991, 'notes written': 39, 'pins': 27, 'opened notes': 0, 'look_up': 0, 'explain': 1, 'tell': 270, 'say': 49, 'offers': 44}
+  attend: [('None', 157), ('the village', 37), ('the Mill House', 25), ('the Holm', 22), ('the Ardern Hall', 18), ("the Masons' cottage", 13)]
+  offers: {'n': 77, 'give ~ work N days': 18, 'get ~ work N days': 6}
+  verbs: [('gather', 1023), ('sleep', 541), ('work', 304), ('move', 252), ('give', 166), ('build', 137), ('take', 129), ('rest', 73), ('set', 64), ('travel', 57), ('accept', 48), ('make', 46), ('fire', 39), ('try', 29), ('withdraw', 9), ('release', 8), ('grant', 6), ('name', 6), ('learn', 3), ('bury', 2), ('watch', 1), ('host', 1), ('guard', 1)]
+  travel on trouble: {'push on': 52, 'turn back': 3, 'None': 2}
+  travel meeting: {'pass by': 38, 'None': 9, 'stop': 10}
+  travel when: {'morning': 36, 'None': 14, 'nightfall': 7}
+  set: {'door -> barred': 64}
+  host feed: {'True': 1}
+  grant what: {'shelter': 2, 'shelter and food': 4}
+
+==== takeover (7 Nov)
+  why:decision: n 408, words 41, starts 'today' 0%, says today 14%, tomorrow 2%, a long horizon 9%
+  why:evening: n 702, words 36, starts 'today' 0%, says today 8%, tomorrow 70%, a long horizon 2%
+  why:talk: n 240, words 34, starts 'today' 0%, says today 13%, tomorrow 4%, a long horizon 2%
+  counts: {'plans': 408, 'acts': 981, 'notes written': 29, 'pins': 16, 'opened notes': 0, 'look_up': 1, 'explain': 0, 'tell': 342, 'say': 55, 'offers': 38}
+  attend: [('None', 182), ('the village', 35), ('the Mill House', 29), ('the Long Field', 28), ("the Hearnes's new house", 17), ('the Ardern Hall', 13)]
+  offers: {'n': 63, 'give ~ work N days': 6, 'get ~ work N days': 9, 'get ~ 2 bread': 2}
+  verbs: [('gather', 963), ('sleep', 689), ('work', 564), ('move', 213), ('build', 167), ('give', 132), ('take', 95), ('set', 72), ('travel', 59), ('rest', 59), ('accept', 44), ('fire', 39), ('try', 35), ('make', 29), ('release', 16), ('host', 13), ('withdraw', 10), ('name', 5), ('grant', 4), ('learn', 3), ('bury', 3), ('watch', 2), ('teach', 1), ('join', 1)]
+  travel on trouble: {'None': 7, 'wait': 2, 'push on': 48, 'go round': 2}
+  travel meeting: {'None': 15, 'stop': 8, 'pass by': 36}
+  travel when: {'morning': 46, 'None': 7, 'nightfall': 6}
+  set: {'door -> barred': 72}
+  host feed: {'True': 12, 'None': 1}
+  grant what: {'shelter': 4}
+
+==== f1_frontier (4 Nov)
+  why:decision: n 334, words 31, starts 'today' 1%, says today 15%, tomorrow 6%, a long horizon 19%
+  why:evening: n 462, words 30, starts 'today' 0%, says today 5%, tomorrow 76%, a long horizon 6%
+  why:talk: n 174, words 22, starts 'today' 0%, says today 13%, tomorrow 4%, a long horizon 2%
+  counts: {'plans': 335, 'acts': 1151, 'notes written': 67, 'pins': 47, 'opened notes': 2, 'look_up': 6, 'explain': 4, 'tell': 191, 'say': 10, 'offers': 6}
+  attend: [('None', 129), ('the village', 27), ('Gorm Lea', 19), ('Bramley Lea', 17), ('Ashby Lea', 15), ('Ketil', 14)]
+  offers: {'n': 8}
+  verbs: [('gather', 844), ('work', 637), ('sleep', 476), ('move', 287), ('give', 141), ('build', 99), ('travel', 87), ('set', 81), ('try', 70), ('host', 54), ('make', 44), ('take', 44), ('rest', 42), ('fire', 28), ('teach', 8), ('watch', 4), ('grant', 3), ('name', 3), ('accept', 2), ('withdraw', 2), ('learn', 2)]
+  travel on trouble: {'turn back': 14, 'push on': 51, 'wait': 18, 'go round': 4}
+  travel meeting: {'stop': 63, 'None': 5, 'pass by': 19}
+  travel when: {'None': 15, 'morning': 66, 'nightfall': 6}
+  set: {'door -> barred': 81}
+  host feed: {'True': 54}
+  grant what: {'shelter': 3}
+
+==== wb2_wenbridge (4 Nov)
+  why:decision: n 292, words 38, starts 'today' 1%, says today 18%, tomorrow 3%, a long horizon 8%
+  why:evening: n 500, words 35, starts 'today' 0%, says today 7%, tomorrow 68%, a long horizon 3%
+  why:talk: n 168, words 28, starts 'today' 0%, says today 15%, tomorrow 3%, a long horizon 2%
+  counts: {'plans': 292, 'acts': 708, 'notes written': 44, 'pins': 27, 'opened notes': 0, 'look_up': 0, 'explain': 0, 'tell': 213, 'say': 37, 'offers': 42}
+  attend: [('None', 129), ('the village', 36), ('the Long Field', 18), ('the Ardern Hall', 16), ('the Holm', 14), ('the Hearne hut', 11)]
+  offers: {'n': 60, 'give ~ work N days': 8, 'get ~ work N days': 7}
+  verbs: [('gather', 643), ('work', 461), ('sleep', 437), ('move', 128), ('give', 105), ('rest', 93), ('travel', 71), ('build', 68), ('take', 68), ('make', 34), ('fire', 34), ('set', 31), ('accept', 24), ('try', 21), ('guard', 10), ('grant', 7), ('withdraw', 4), ('host', 4), ('release', 4), ('name', 2), ('bury', 2), ('watch', 1)]
+  travel on trouble: {'push on': 59, 'go round': 2, 'None': 4, 'turn back': 6}
+  travel meeting: {'pass by': 42, 'stop': 13, 'None': 16}
+  travel when: {'morning': 52, 'nightfall': 11, 'None': 8}
+  set: {'door -> barred': 31}
+  host feed: {'None': 4}
+  grant what: {'shelter': 2, 'shelter and food': 5}
+
+==== c3_combe_rich (4 Nov)
+  why:decision: n 251, words 36, starts 'today' 1%, says today 19%, tomorrow 6%, a long horizon 33%
+  why:talk: n 382, words 30, starts 'today' 0%, says today 17%, tomorrow 7%, a long horizon 10%
+  counts: {'plans': 251, 'acts': 1530, 'notes written': 49, 'pins': 30, 'opened notes': 3, 'look_up': 4, 'explain': 0, 'tell': 295, 'say': 0, 'offers': 0}
+  attend: [('the Hobb cattle', 80), ('the Infield', 54), ('Combe Moor', 38), ('the Common', 27), ('the Byre', 8), ('the sky', 8)]
+  offers: {}
+  verbs: [('work', 1886), ('gather', 1029), ('move', 345), ('give', 150), ('drive', 142), ('sleep', 65), ('take', 57), ('make', 43), ('try', 34), ('learn', 26), ('teach', 25), ('build', 24), ('travel', 20), ('fire', 17), ('name', 14), ('rest', 12), ('claim', 8), ('order', 3)]
+  travel on trouble: {'wait': 12, 'push on': 8}
+  travel meeting: {'stop': 17, 'None': 3}
+  travel when: {'None': 20}
+  order: {'herd': 3}
+
+==== violent_opus (7 Nov)
+  why:decision: n 48, words 40, starts 'today' 0%, says today 10%, tomorrow 2%, a long horizon 12%
+  why:evening: n 77, words 31, starts 'today' 0%, says today 13%, tomorrow 73%, a long horizon 1%
+  why:talk: n 32, words 27, starts 'today' 0%, says today 3%, tomorrow 9%, a long horizon 6%
+  counts: {'plans': 48, 'acts': 118, 'notes written': 1, 'pins': 0, 'opened notes': 0, 'look_up': 0, 'explain': 0, 'tell': 32, 'say': 6, 'offers': 0}
+  attend: [('None', 18), ('the Webb house', 10), ('the Green', 5), ('the village', 4), ('the Field', 3), ('the Croft house', 3)]
+  offers: {}
+  verbs: [('gather', 154), ('sleep', 79), ('work', 78), ('set', 50), ('move', 20), ('come', 12), ('attack', 11), ('guard', 6), ('give', 4), ('take', 3), ('name', 2), ('meet', 2), ('make', 2)]
+  set: {'door -> barred': 50}
+
+==== ALL RUNS
+  verbs: [('gather', 20373), ('work', 11712), ('sleep', 6701), ('move', 3296), ('give', 2441), ('take', 1797), ('make', 1037), ('build', 998), ('try', 988), ('set', 972), ('travel', 805), ('rest', 709), ('drive', 396), ('fire', 369), ('host', 283), ('accept', 247), ('teach', 98), ('learn', 92), ('name', 90), ('partner', 74), ('withdraw', 71), ('guard', 60), ('release', 50), ('come', 49), ('grant', 48), ('claim', 23), ('watch', 18), ('order', 17), ('admit', 14), ('bury', 12), ('attack', 11), ('join', 7), ('meet', 5), ('accompany', 2), ('revoke', 2), ('wait', 1)]
+  travel on trouble: [('push on', 573), ('None', 87), ('turn back', 72), ('wait', 55), ('go round', 18)]
+  travel meeting: [('stop', 380), ('pass by', 219), ('None', 206)]
+  travel when: [('None', 446), ('morning', 299), ('nightfall', 60)]
+  set: [('door -> barred', 967), ('door -> open', 5)]
+  host feed: [('True', 263), ('None', 17), ('False', 3)]
+  grant what: [('shelter and food', 31), ('shelter', 17)]
+  order: [('herd', 7), ('gather wild food', 4), ('hay', 4), ('firewood', 2)]
+  overwork: [('0', 2328), ('1', 30), ('2', 24)]
+  offers: [('n', 941), ('give ~ work N days', 300), ('get ~ work N days', 39), ('get ~ 2 bread', 10), ('get ~ copper tool by day', 2), ('give ~ 2 bread', 1)]
+  counts: [('acts', 18650), ('tell', 6086), ('plans', 5656), ('notes written', 949), ('pins', 666), ('offers', 553), ('say', 391), ('opened notes', 90), ('look_up', 47), ('explain', 14)]
+  why_long_by_model decision: [('claude-fable-5-2 long', 9), ('claude-fable-5-2 n', 144), ('claude-haiku-4-5 long', 41), ('claude-haiku-4-5 n', 125), ('claude-haiku-5-5 long', 182), ('claude-haiku-5-5 n', 1078), ('claude-opus-4-5 long', 48), ('claude-opus-4-5 n', 121), ('claude-opus-5 long', 35), ('claude-opus-5 n', 145), ('claude-opus-5-5 long', 308), ('claude-opus-5-5 n', 1917), ('claude-sonnet-4-5 long', 28), ('claude-sonnet-4-5 n', 166), ('claude-sonnet-5 long', 20), ('claude-sonnet-5 n', 160), ('claude-sonnet-5-5 long', 152), ('claude-sonnet-5-5 n', 1798)]

@@ -1,0 +1,9 @@
+claude-fable-5-2 122 units 5.0 work acts planned 2.6
+claude-haiku-4-5 110 units 5.0 work acts planned 3.4
+claude-haiku-5-5 116 units 5.3 work acts planned 1.8
+claude-opus-4-5 116 units 5.2 work acts planned 1.9
+claude-opus-5 125 units 4.9 work acts planned 2.6
+claude-opus-5-5 131 units 5.1 work acts planned 3.0
+claude-sonnet-4-5 134 units 5.1 work acts planned 2.9
+claude-sonnet-5 126 units 4.8 work acts planned 2.2
+claude-sonnet-5-5 127 units 5.0 work acts planned 2.2

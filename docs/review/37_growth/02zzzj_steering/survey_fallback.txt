@@ -1,0 +1,60 @@
+
+== water_runs_models_r1 (20 Nov): example in system text 42/42; plans 1256, with fallback 1227
+  first fallback act: [('gather firewood', 444), ('gather gather wild food', 297), ('gather fish by hand', 89), ('rest', 52), ('work herd', 30), ('work fence', 25), ('work reap', 25), ('work repair', 24)]
+  by model [plans, with fb, fb names firewood]: {'claude-fable-5-2': [144, 144, 75], 'claude-haiku-4-5': [126, 113, 62], 'claude-haiku-5-5': [120, 120, 75], 'claude-opus-4-5': [121, 120, 86], 'claude-opus-5': [145, 145, 86], 'claude-opus-5-5': [137, 134, 56], 'claude-sonnet-4-5': [166, 162, 105], 'claude-sonnet-5': [160, 157, 112], 'claude-sonnet-5-5': [137, 132, 52]}
+  day results (evening lists): 5955 done, 1979 by the fallback (33%): [('You took N firewood', 982), ('You gathered N acorns,', 216), ('You took N fish', 155), ('You gathered N greens,', 97), ('You gathered N greens', 81), ('You gathered N berries,', 67)]
+
+== water_lake_r2 (17 Nov): example in system text 16/16; plans 327, with fallback 320
+  first fallback act: [('gather gather wild food', 91), ('gather firewood', 84), ('gather fish by hand', 43), ('work herd', 17), ('work fence', 15), ('work reap', 15), ('work weed', 10), ('gather hay', 7)]
+  by model [plans, with fb, fb names firewood]: {'claude-haiku-5-5': [207, 207, 114], 'claude-opus-5-5': [72, 70, 14], 'claude-sonnet-5-5': [48, 43, 18]}
+  day results (evening lists): 1582 done, 944 by the fallback (60%): [('You took N firewood', 283), ('You took N fish', 136), ('You gathered N acorns,', 94), ('You gathered N berries,', 68), ('You gathered N greens,', 68), ('You worked on a', 45)]
+
+== water_lake_r1 (16 Nov): example in system text 19/19; plans 188, with fallback 187
+  first fallback act: [('gather gather wild food', 69), ('gather firewood', 38), ('gather fish by hand', 16), ('work herd', 12), ('gather hunt the wild', 11), ('work reap', 10), ('work pest work', 8), ('work plough', 5)]
+  by model [plans, with fb, fb names firewood]: {'claude-haiku-5-5': [118, 117, 71], 'claude-opus-5-5': [42, 42, 2], 'claude-sonnet-5-5': [28, 28, 12]}
+  day results (evening lists): 967 done, 548 by the fallback (57%): [('You took N firewood', 153), ('You gathered N berries,', 83), ('You gathered N acorns,', 75), ('You took N fish', 50), ('You worked on a', 27), ('You gathered N greens,', 26)]
+
+== pw1_opus_sonnet_r1 (13 Nov): example in system text 22/22; plans 1637, with fallback 1564
+  first fallback act: [('gather gather wild food', 858), ('gather firewood', 347), ('work weed', 67), ('gather fish by hand', 42), ('gather fell', 37), ('work hoe', 24), ('gather hunt the wild', 23), ('work repair', 22)]
+  by model [plans, with fb, fb names firewood]: {'claude-opus-5-5': [853, 831, 230], 'claude-sonnet-5-5': [784, 733, 191]}
+  day results (evening lists): 0 done, 0 by the fallback (0%): []
+
+== e2_labour (8 Nov): example in system text 14/14; plans 296, with fallback 285
+  first fallback act: [('gather firewood', 105), ('gather forage', 43), ('build water wheel', 32), ('gather fell', 23), ('work reap', 16), ('work repair', 14), ('gather hay', 13), ('gather quarry', 9)]
+  by model [plans, with fb, fb names firewood]: {'claude-haiku-5-5': [97, 96, 55], 'claude-opus-5-5': [73, 73, 14], 'claude-sonnet-5-5': [126, 116, 46]}
+  day results (evening lists): 1077 done, 419 by the fallback (39%): [('You took N firewood', 230), ('You took N hay', 56), ('You got N grain', 32), ('You took N wild', 26), ('You worked on a', 22), ('You took N timber', 14)]
+
+== p1_brookend (8 Nov): example in system text 8/8; plans 252, with fallback 252
+  first fallback act: [('gather firewood', 77), ('work fence', 34), ('work reap', 22), ('gather forage', 19), ('gather fell', 17), ('work weed', 14), ('work herd', 12), ('work clear for building', 8)]
+  by model [plans, with fb, fb names firewood]: {'claude-haiku-5-5': [92, 92, 61], 'claude-opus-5-5': [96, 96, 24], 'claude-sonnet-5-5': [64, 64, 32]}
+  day results (evening lists): 1244 done, 663 by the fallback (53%): [('You took N firewood', 279), ('You worked on a', 84), ('You took N wild', 82), ('You got N grain', 50), ('You took N timber', 32), ('You weeded the barley', 32)]
+
+== orwell (7 Nov): example in system text 16/16; plans 366, with fallback 350
+  first fallback act: [('gather firewood', 126), ('gather forage', 72), ('gather fell', 47), ('work repair', 18), ('rest', 17), ('gather quarry', 14), ('build water wheel', 13), ('work reap', 9)]
+  by model [plans, with fb, fb names firewood]: {'claude-haiku-5-5': [129, 128, 73], 'claude-opus-5-5': [84, 80, 19], 'claude-sonnet-5-5': [153, 142, 63]}
+  day results (evening lists): 1404 done, 546 by the fallback (39%): [('You took N firewood', 315), ('You took N timber', 54), ('You took N wild', 49), ('You worked on a', 39), ('You got N grain', 29), ('You mended the fence', 19)]
+
+== takeover (7 Nov): example in system text 15/15; plans 408, with fallback 399
+  first fallback act: [('gather firewood', 147), ('gather forage', 68), ('gather fell', 52), ('work weed', 22), ('build water wheel', 15), ('work reap', 14), ('rest', 14), ('work repair', 13)]
+  by model [plans, with fb, fb names firewood]: {'claude-haiku-5-5': [153, 151, 75], 'claude-opus-5-5': [79, 77, 34], 'claude-sonnet-5-5': [176, 171, 80]}
+  day results (evening lists): 1569 done, 634 by the fallback (40%): [('You took N firewood', 337), ('You weeded the barley', 65), ('You took N timber', 49), ('You took N wild', 48), ('You got N grain', 40), ('You took N hay', 33)]
+
+== f1_frontier (4 Nov): example in system text 10/10; plans 335, with fallback 296
+  first fallback act: [('gather firewood', 85), ('gather forage', 64), ('gather fell', 41), ('work clear', 24), ('work reap', 15), ('work weed', 14), ('gather hunt', 14), ('rest', 13)]
+  by model [plans, with fb, fb names firewood]: {'claude-haiku-5-5': [39, 37, 16], 'claude-opus-5-5': [162, 152, 81], 'claude-sonnet-5-5': [134, 107, 28]}
+  day results (evening lists): 1445 done, 505 by the fallback (35%): [('You took N firewood', 242), ('You took N wild', 61), ('You took N timber', 48), ('You cleared ground at', 43), ('You weeded the barley', 38), ('You hoed N of', 18)]
+
+== wb2_wenbridge (4 Nov): example in system text 17/17; plans 292, with fallback 269
+  first fallback act: [('gather firewood', 73), ('gather forage', 53), ('rest', 29), ('work repair', 16), ('work weed', 15), ('gather hay', 14), ('work clear for building', 12), ('gather quarry', 11)]
+  by model [plans, with fb, fb names firewood]: {'claude-haiku-5-5': [99, 96, 43], 'claude-opus-5-5': [63, 60, 22], 'claude-sonnet-5-5': [130, 113, 36]}
+  day results (evening lists): 857 done, 207 by the fallback (24%): [('You took N wild', 49), ('You weeded the barley', 46), ('You cleared ground for', 32), ('You took N firewood', 24), ('You took N hay', 17), ('You hoed N of', 10)]
+
+== c3_combe_rich (4 Nov): example in system text 0/6; plans 251, with fallback 0
+  first fallback act: []
+  by model [plans, with fb, fb names firewood]: {'claude-opus-5-5': [251, 0, 0]}
+  day results (evening lists): 0 done, 0 by the fallback (0%): []
+
+== violent_opus (7 Nov): example in system text 10/10; plans 48, with fallback 46
+  first fallback act: [('gather firewood', 25), ('work weed', 9), ('gather fell', 7), ('gather hay', 5)]
+  by model [plans, with fb, fb names firewood]: {'claude-haiku-5-5': [24, 24, 16], 'claude-opus-5-5': [6, 6, 1], 'claude-sonnet-5-5': [18, 16, 10]}
+  day results (evening lists): 239 done, 115 by the fallback (48%): [('You took N firewood', 72), ('You weeded the barley', 25), ('You took N timber', 9), ('You took N hay', 7), ('You took N wild', 2)]

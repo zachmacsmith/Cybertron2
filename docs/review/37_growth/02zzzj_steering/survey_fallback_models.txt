@@ -1,0 +1,26 @@
+water_runs_models_r1
+   claude-fable-5-2     done   726  by fallback  20%  of which firewood  40%
+   claude-haiku-4-5     done   520  by fallback  32%  of which firewood  68%
+   claude-haiku-5-5     done   596  by fallback  56%  of which firewood  52%
+   claude-opus-4-5      done   549  by fallback  45%  of which firewood  63%
+   claude-opus-5        done   954  by fallback  17%  of which firewood  22%
+   claude-opus-5-5      done   694  by fallback  32%  of which firewood  36%
+   claude-sonnet-4-5    done   640  by fallback  27%  of which firewood  68%
+   claude-sonnet-5      done   618  by fallback  33%  of which firewood  57%
+   claude-sonnet-5-5    done   658  by fallback  50%  of which firewood  42%
+water_lake_r2
+   claude-haiku-5-5     done   956  by fallback  66%  of which firewood  35%
+   claude-opus-5-5      done   380  by fallback  52%  of which firewood  10%
+   claude-sonnet-5-5    done   246  by fallback  48%  of which firewood  37%
+water_lake_r1
+   claude-haiku-5-5     done   587  by fallback  61%  of which firewood  30%
+   claude-opus-5-5      done   232  by fallback  36%  of which firewood   6%
+   claude-sonnet-5-5    done   148  by fallback  71%  of which firewood  37%
+takeover
+   claude-haiku-5-5     done   556  by fallback  47%  of which firewood  52%
+   claude-opus-5-5      done   365  by fallback  20%  of which firewood  52%
+   claude-sonnet-5-5    done   648  by fallback  46%  of which firewood  55%
+orwell
+   claude-haiku-5-5     done   435  by fallback  47%  of which firewood  59%
+   claude-opus-5-5      done   388  by fallback  21%  of which firewood  28%
+   claude-sonnet-5-5    done   581  by fallback  45%  of which firewood  66%

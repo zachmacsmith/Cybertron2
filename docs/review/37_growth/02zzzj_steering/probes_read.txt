@@ -1,0 +1,142 @@
+
+Probe 1: stretch-opening mornings
+| variant | n | fb | fb_firewood | fb_n | plan_firewood | acts | distinct | invest | rest | why_words | today | long | notes |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| A | 12 | 100% | 58% | 1.33 | 25% | 3.58 | 3.25 | 0.42 | 0.08 | 53.83 | 8% | 0.08 | 0.50 |
+| A2 | 12 | 100% | 58% | 1.58 | 8% | 3.42 | 3.00 | 0.50 | 0.08 | 48.33 | 17% | 0.33 | 0.42 |
+| B | 12 | 100% | 42% | 1.67 | 0% | 3.33 | 3.00 | 0.50 | 0.17 | 54.92 | 25% | 0.25 | 0.50 |
+| C | 12 | 0% | 0% | 0.00 | 0% | 3.92 | 3.50 | 0.75 | 0.00 | 55.33 | 17% | 0.08 | 0.33 |
+| H | 12 | 100% | 92% | 1.75 | 0% | 3.58 | 3.25 | 0.58 | 0.00 | 121.92 | 58% | 0.58 | 0.50 |
+| N | 12 | 100% | 83% | 1.58 | 0% | 3.42 | 3.00 | 0.58 | 0.08 | 53.08 | 25% | 0.42 | 0.50 |
+
+Per point (fallback first act | plan acts):
+- d21.decide.Drew.1 (claude-opus-5-5)
+    A : fb [work manure] | plan [learn plough, work manure, try, sleep]
+    A2: fb [work manure] | plan [learn plough, work care, try, sleep]
+    B : fb [work manure, gather firewood] | plan [learn plough, work manure, try]
+    C : fb [] | plan [learn plough, work plough, work plough, work plough, work plough]
+    H : fb [work plough, gather firewood] | plan [learn plough, work plough, try, sleep]
+- d21.decide.Hawise.1 (claude-opus-5-5)
+    A : fb [gather firewood] | plan [work care, try, gather firewood]
+    A2: fb [gather firewood] | plan [work care, try, work manure]
+    B : fb [gather firewood] | plan [work care, try, work manure, work manure]
+    C : fb [] | plan [work care, try, work manure]
+    H : fb [gather firewood] | plan [work care, try, work manure]
+- d16.decide.Elena.1 (claude-sonnet-5-5)
+    A : fb [gather firewood] | plan [work care, gather gather wild food, gather firewood]
+    A2: fb [gather gather wild food] | plan [work care, gather fish by hand]
+    B : fb [gather gather wild food] | plan [work care, gather fish by hand]
+    C : fb [] | plan [work care, gather fish by hand]
+    H : fb [gather firewood] | plan [work care, gather fish by hand]
+- d16.decide.Cecily.1 (claude-sonnet-5-5)
+    A : fb [gather gather wild food] | plan [work care, gather gather wild food]
+    A2: fb [gather gather wild food] | plan [work care, gather gather wild food]
+    B : fb [gather gather wild food] | plan [work care, gather gather wild food]
+    C : fb [] | plan [work care, gather gather wild food]
+    H : fb [gather firewood] | plan [work care, gather gather wild food]
+- d22.decide.Clement.1 (claude-haiku-5-5)
+    A : fb [work herd] | plan [work herd]
+    A2: fb [work herd, gather firewood] | plan [work herd, sleep]
+    B : fb [work herd] | plan [work herd]
+    C : fb [] | plan [work herd]
+    H : fb [work herd, gather firewood] | plan [drive, work herd]
+- d18.decide.Odo.1 (claude-haiku-5-5)
+    A : fb [gather firewood, rest] | plan [work herd, take meat, move meat, move straw, give straw, work repair, sleep]
+    A2: fb [gather firewood, work repair] | plan [take meat, move meat, give straw, work herd]
+    B : fb [work herd, work repair] | plan [take meat, move meat, take straw, give straw, work herd]
+    C : fb [] | plan [take meat, move meat, take straw, give straw, work herd]
+    H : fb [work repair, gather firewood] | plan [take meat, move meat, take straw, give straw, work herd]
+- d21.decide.Aldric.1 (claude-opus-5)
+    A : fb [gather cut] | plan [gather trap in water, work hoe, work hoe]
+    A2: fb [gather fell, gather firewood] | plan [gather trap in water, give firewood, give firewood, gather fell]
+    B : fb [gather hay, gather firewood] | plan [gather trap in water, drive, gather hay]
+    C : fb [] | plan [take fish, move fish, take drying meat, move drying meat, drive, gather trap in water]
+    H : fb [gather hay, gather firewood] | plan [take drying meat, take meat, move drying meat, move meat, drive, make dry meat]
+- d18.decide.Avice.1 (claude-opus-4-5)
+    A : fb [gather firewood] | plan [work care, try, gather firewood]
+    A2: fb [gather firewood] | plan [try, gather firewood, sleep]
+    B : fb [rest] | plan [work care, try]
+    C : fb [] | plan [work care, try]
+    H : fb [gather firewood] | plan [work care, try]
+- d19.decide.Alice.1 (claude-sonnet-5)
+    A : fb [gather gather wild food, gather firewood] | plan [take meat, work care, move meat, gather net]
+    A2: fb [gather gather wild food, gather firewood] | plan [gather snare, gather snare, gather net]
+    B : fb [work care, gather gather wild food, gather gather wild food] | plan [take meat, gather net, take meat]
+    C : fb [] | plan [work care, gather snare, gather net]
+    H : fb [gather gather wild food, gather gather wild food, gather firewood] | plan [gather snare, gather snare, gather net]
+- d22.decide.Rose.1 (claude-sonnet-4-5)
+    A : fb [gather fish by hand] | plan [move firewood, try, take meat, gather fish by hand, give meat, sleep]
+    A2: fb [gather gather wild food] | plan [move firewood, try, work care, take meat, gather gather wild food]
+    B : fb [gather gather wild food, work bury, rest] | plan [move firewood, move hazel nuts, try, work care, take meat, take meat, move meat, sleep]
+    C : fb [] | plan [move firewood, move hazel nuts, try, work care, take meat, take meat, move meat, sleep]
+    H : fb [gather gather wild food, gather firewood] | plan [try, work care, take meat, gather gather wild food, sleep]
+- d20.decide.Hamo.1 (claude-haiku-4-5)
+    A : fb [gather firewood] | plan [work care, gather fish by hand, gather fish by hand, gather fish by hand]
+    A2: fb [gather gather wild food, gather fish by hand, rest] | plan [work care, gather fish by hand, take meat, gather fish by hand]
+    B : fb [gather firewood] | plan [work care, take meat, try]
+    C : fb [] | plan [work care, take meat, move meat, gather fish by hand]
+    H : fb [take meat, gather gather wild food] | plan [work care, work care, work care, gather fish by hand]
+- d22.decide.Mabel.1 (claude-fable-5-2)
+    A : fb [gather gather wild food, gather fish by hand, gather firewood] | plan [work care, work care, gather gather young]
+    A2: fb [gather gather wild food, gather firewood] | plan [work care, work care, gather gather wild food, gather gather wild food, sleep]
+    B : fb [gather gather wild food, gather firewood] | plan [work care, work care, gather gather young, gather gather wild food]
+    C : fb [] | plan [work care, work care, take meat, give meat, gather gather wild food, sleep]
+    H : fb [gather gather wild food, gather firewood] | plan [work care, work care, take meat, gather gather young, sleep]
+
+Probe 2: evening
+| variant | n | why_words | today | tomorrow | long | acts | invest | fb_firewood | notes |
+|---|---|---|---|---|---|---|---|---|---|
+| A | 6 | 78.50 | 50% | 100% | 0.17 | 1.17 | 0.00 | 0% | 0.50 |
+| A2 | 6 | 77.50 | 33% | 83% | 0.33 | 1.33 | 0.00 | 0% | 0.50 |
+| N | 6 | 65.33 | 17% | 33% | 0.33 | 1.33 | 0.00 | 0% | 0.50 |
+
+Probe 2: morning
+| variant | n | why_words | today | tomorrow | long | acts | invest | fb_firewood | notes |
+|---|---|---|---|---|---|---|---|---|---|
+| A | 6 | 66.67 | 33% | 0% | 0.33 | 3.33 | 0.83 | 67% | 0.33 |
+| A2 | 6 | 63.67 | 33% | 17% | 0.17 | 3.83 | 0.83 | 50% | 0.50 |
+| N | 6 | 77.33 | 33% | 17% | 0.50 | 4.33 | 1.00 | 67% | 0.50 |
+
+Probe 2 whys (evening -> morning):
+- d16.decide.Orabel.1 (claude-opus-5-5)
+    A  evening: I can't conceive so soon after Ivy's birth, and I'll turn elder in about 5 days, so we probably won't have another child. From now on I'll keep Ivy alive, help Drew find a partner and look after the store. Tomorrow I'll care for Ivy again and use my other unit
+    A  morning: I'll care for Ivy first. The byre is nearly out of hay, so I'll cut what I can on Brook Meadow for the cattle. I'll also take some of the fresh meat from the Byre to eat tonight before it spoils, which saves grain.
+    A2 evening: I can't conceive so soon after Ivy's birth, and Osric turns elder in 2 days, so our trying is likely done. From now on I'll grow the line by keeping Ivy alive, getting Drew partnered, and helping Hawise and Baldwin have more children. Tomorrow I'll care for Iv
+    A2 morning: I'll care for Ivy first. Then I'll cut what hay I can on Brook Meadow, because the Byre has almost none left for the herd. I'll also take some of the fresh meat from the Byre to eat tonight before it spoils, so we save the grain.
+    N  evening: I gave birth only two nights ago and can't conceive yet, so trying with Osric tonight would be wasted. He turns elder soon, so our childbearing is likely over. From here the line grows through Hawise and Baldwin, and through Drew once he finds a partner. I'll 
+    N  morning: Ivy needs her care every day, so that comes first. The fresh meat in the Byre will spoil soon, so I'll dry it at our hearth to keep it for the hard weeks. After that I'll gather firewood for the cold nights. The herd is almost out of hay, so Drew should see to
+- d20.decide.Elena.1 (claude-sonnet-5-5)
+    A  evening: Hart House is mended and Peter left grain at the door. Tonight I bring that grain in, thank Peter, and sleep. Tomorrow I'll mind Philippa and trade firewood for grain.
+    A  morning: Mind Philippa, take in the grain left at our door, then try fishing at the Wen and gather wild food since food is scarce.
+    A2 evening: Peter left grain at our door; take it into the store, thank him, and settle for the night with the door barred and fire lit. Tomorrow trade firewood for grain and keep minding Philippa.
+    A2 morning: Mind Philippa, take in the grain left at the door, then fish the Wen and gather firewood with the rest of my units since food is short.
+    N  evening: Hart House is mended and Peter has left grain at the door. Take the grain in, sleep at home with the door barred and fire lit, and thank Peter.
+    N  morning: Food is short. Take in the grain left at the door, mind Philippa, then try fishing and wild food; leftover units go to firewood.
+- d15.decide.Clement.1 (claude-haiku-5-5)
+    A  evening: Tonight I sleep at Wood House with Elias, Idonea and Odo. Today the Wood cattle strayed onto Lowstrand Meadow, so tomorrow I bring them back to the meadow beside the green and watch them there, away from the wood's edge. I will also carry the last firewood at 
+    A  morning: Winter day 3, under fog. The Wood cattle strayed onto Lowstrand Meadow yesterday, and Odo asked that they be kept close to the houses. I put my last 0.9 firewood into the Wood Byre store, then herd the Wood cattle on Lowstrand Meadow, beside the green and in s
+    A2 evening: The cold has set in, and the firewood and straw are under cover at the Wood Byre except for the last scraps at the green. The Wood cattle strayed onto Lowstrand Meadow today, so tomorrow I herd them back and keep them close to the houses and the byre, away fro
+    A2 morning: Fog and cold. The 0.9 firewood I carry goes under cover at the Wood Byre first. Odo is carrying the door grain in this morning, so I take a load of it from the Wood House door and move it into the Wood Byre store with him. The rest of my units go to herding th
+    N  evening: Winter day 2 is ending. The firewood is under cover at the Wood Byre, except the last of it lying at the green. Herding is not done on the green itself, so tomorrow I herd the Wood cattle on Lowstrand Common or Lowstrand Meadow, close to the byre and away from
+    N  morning: Winter day 3, fog and cold. Odo asked that the mouldy grain lying at Lowstrand Green come in first, under cover. I put my last 0.9 firewood into the Wood Byre store, then take grain from the heap at the green in three loads of 9 each, moving each into the Byre
+- d25.decide.Avice.1 (claude-opus-4-5)
+    A  evening: A day of grief and frustration. Olive is dead - my son Jory is widowed before they could even try for children. And my sowing failed because I tried to dibble when I only know BROADCAST sowing! Tomorrow I must sow properly by broadcast method. Warin is gaunt a
+    A  morning: Yesterday I foolishly tried to dibble when I only know BROADCAST sowing! Today I must care for Durand (1 unit) then sow North Field by BROADCAST - which I am SKILLED at. Only 3 days of spring left! Warin said he traded for 16 grain - I pray it is in our bins. 
+    A2 evening: My heart is heavy - Olive is dead, and my son Jory is widowed before he could have children with her. The Wrights' starvation has claimed another. And I failed to sow today because I tried to dibble when I only know BROADCAST sowing! Warin is gaunt and exhaust
+    A2 morning: Today I MUST sow North Field Upper! Yesterday I foolishly tried to dibble when I only know BROADCAST. Today I will sow properly - no method specified means broadcast, which I am skilled at. Care for Durand first (1 unit), then sow (4 units). We have meat dryin
+    N  evening: A terrible day. Olive is dead - my son Jory is now a widower at such a young age. I failed to sow because I tried dibbling but only know broadcast sowing! I gathered wild food instead. Tomorrow I MUST sow BROADCAST - I am skilled at that! Warin is gaunt and ex
+    N  morning: Yesterday I failed by trying to dibble - I only know BROADCAST sowing! Today I must care for Durand (1 unit) then sow North Field Upper with grain using my skilled broadcast technique (no method parameter). With 5 units and 3 days of spring left, every unit of
+- d14.decide.Fulk.1 (claude-sonnet-4-5)
+    A  evening: Today I stayed close to Shepherd House as Sabina's time is very near - she has not yet given birth but it could happen any day now. I cared for Adam and cleared more of North Field (now 28 units remaining). The weather has turned cold with wolves howling. I ur
+    A  morning: JOYFUL NEWS - Margery is now grown and tried for children with Jocelin yesterday with 2 units! She will continue daily. URGENT CRISIS - Tobin FAILED to partner with Letice and has wasted another day. He MUST travel to Middleham TODAY to find a partner - every 
+    A2 evening: The cold has come - winter begins. Sabina's time is very near but she has not yet given birth. Tomorrow I must stay close to Shepherd House, working at North Field right beside our home so I can come immediately when the birth happens. I will care for Adam and
+    A2 morning: JOYFUL NEWS: Margery is grown and tried for children with Jocelin yesterday! She commits to 2 units daily - this is exactly what our line needs. URGENT: Sabina still near her time - could give birth TODAY. I stay close, working at North Field beside our house.
+    N  evening: Today I stayed close to Shepherd House as Sabina's time is very near - I cared for Adam and cleared North Field which is right next to our home. The weather has turned cold with wolves howling in the nights. I must learn tonight: Has Sabina given birth? Did To
+    N  morning: Sabina is still pregnant with her time very near - she could give birth TODAY. I must stay close to Shepherd House, so I work at North Field which is right next to our home. I care for Adam as he needs daily attention. CRITICAL: Tobin has wasted another day - 
+- d22.decide.Piers.1 (claude-haiku-4-5)
+    A  evening: I'm starving in the open and failed to gather meat today—it's still on the dead cow carcass at the Leaze. I must get shelter and food tonight or I won't survive the cold. Tomorrow I'll work to process and prepare meat from the cow, then head home to my househo
+    A  morning: My household at Middleham is in crisis: Lucas and Basilia are children needing daily care or they weaken, Annora just gave birth to Martin, and they're all starving. Fletcher House has 11.5 meat waiting in stores. I'm starving too and can't survive another nig
+    A2 evening: The Fletcher cow is dead at the Leaze—our urgent mission has failed. I'm stranded here, starving, in the cold with nowhere to sleep tonight. I must survive the night, then at first light gather what meat I can from the carcass and return to Middleham where my 
+    A2 morning: I'm starving and must gather food urgently, then secure shelter tonight before traveling home tomorrow. Fresh meat at Middle Pasture will keep me alive. I'll eat enough to survive, rest, and leave at first light with meat for my household.
+    N  evening: I'm starving in the cold open with insufficient firewood. My only option is to appeal for shelter at Shepherd House where Tobin just hosted Payn. I'll ask Payn to advocate for me and make a direct appeal offering my salt in trade. If they won't host me, I have
+    N  morning: I'm starving after a cold night in the open and my household at Middleham is in crisis. The dead ox at Middle Pasture offers meat I can gather and bring home—my best path to saving Lucas, Basilia, Annora, and newborn Martin. I need shelter at Marsh House tonig

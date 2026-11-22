@@ -1,0 +1,17 @@
+[('d21.decide.Drew.1', 'claude-opus-5-5'), ('d21.decide.Hawise.1', 'claude-opus-5-5'), ('d16.decide.Elena.1', 'claude-sonnet-5-5'), ('d16.decide.Cecily.1', 'claude-sonnet-5-5'), ('d22.decide.Clement.1', 'claude-haiku-5-5'), ('d18.decide.Odo.1', 'claude-haiku-5-5'), ('d21.decide.Aldric.1', 'claude-opus-5'), ('d18.decide.Avice.1', 'claude-opus-4-5'), ('d19.decide.Alice.1', 'claude-sonnet-5'), ('d22.decide.Rose.1', 'claude-sonnet-4-5'), ('d20.decide.Hamo.1', 'claude-haiku-4-5'), ('d22.decide.Mabel.1', 'claude-fable-5-2')]
+d22.decide.Rose.1 A claude-sonnet-4-5 weekly 0.81 5h 0.78 usd 0.153192
+d20.decide.Hamo.1 A claude-haiku-4-5 weekly 0.81 5h 0.8 usd 0.16210449999999998
+d22.decide.Mabel.1 A claude-fable-5-2 weekly 0.81 5h 0.8 usd 0.55052
+d21.decide.Drew.1 B claude-opus-5-5 weekly 0.82 5h 0.81 usd 0.1734036
+d21.decide.Hawise.1 B claude-opus-5-5 weekly 0.82 5h 0.81 usd 0.17614739999999998
+d16.decide.Elena.1 B claude-sonnet-5-5 weekly 0.82 5h 0.81 usd 0.0752485
+d16.decide.Cecily.1 B claude-sonnet-5-5 weekly 0.82 5h 0.81 usd 0.0691924
+d22.decide.Clement.1 B claude-haiku-5-5 weekly 0.82 5h 0.81 usd 0.00752686
+d18.decide.Odo.1 B claude-haiku-5-5 weekly 0.82 5h 0.81 usd 0.006959970000000001
+d21.decide.Aldric.1 B claude-opus-5 weekly 0.82 5h 0.82 usd 0.41747650000000003
+d18.decide.Avice.1 B claude-opus-4-5 weekly 0.82 5h 0.82 usd 0.22558250000000002
+d19.decide.Alice.1 B claude-sonnet-5 weekly 0.82 5h 0.83 usd 0.20258520000000002
+d22.decide.Rose.1 B claude-sonnet-4-5 weekly 0.82 5h 0.84 usd 0.2985912
+d20.decide.Hamo.1 B claude-haiku-4-5 weekly 0.82 5h 0.87 usd 0.20402299999999998
+d22.decide.Mabel.1 B claude-fable-5-2 weekly 0.82 5h 0.87 usd 0.4204482
+calls 15 stopped False

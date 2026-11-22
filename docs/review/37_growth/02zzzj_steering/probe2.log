@@ -1,0 +1,16 @@
+[('d15.evening.Orabel.1', 'd16.decide.Orabel.1', 'claude-opus-5-5'), ('d19.evening.Elena.1', 'd20.decide.Elena.1', 'claude-sonnet-5-5'), ('d14.evening.Clement.1', 'd15.decide.Clement.1', 'claude-haiku-5-5'), ('d24.evening.Avice.1', 'd25.decide.Avice.1', 'claude-opus-4-5'), ('d13.evening.Fulk.1', 'd14.decide.Fulk.1', 'claude-sonnet-4-5'), ('d21.evening.Piers.1', 'd22.decide.Piers.1', 'claude-haiku-4-5')]
+d16.decide.Orabel.1 A claude-opus-5-5 weekly 0.8 5h 0.72 usd 0.25768
+d20.decide.Elena.1 A claude-sonnet-5-5 weekly 0.8 5h 0.72 usd 0.0800385
+d15.decide.Clement.1 A claude-haiku-5-5 weekly 0.8 5h 0.72 usd 0.00651495
+d25.decide.Avice.1 A claude-opus-4-5 weekly 0.8 5h 0.72 usd 0.31757
+d14.decide.Fulk.1 A claude-sonnet-4-5 weekly 0.8 5h 0.73 usd 0.168192
+d22.decide.Piers.1 A claude-haiku-4-5 weekly 0.81 5h 0.73 usd 0.0838503
+d16.decide.Orabel.1 N claude-opus-5-5 weekly 0.81 5h 0.73 usd 0.1907604
+d20.decide.Elena.1 N claude-sonnet-5-5 weekly 0.81 5h 0.74 usd 0.07971450000000001
+d15.decide.Clement.1 N claude-haiku-5-5 weekly 0.81 5h 0.74 usd 0.00646225
+d25.decide.Avice.1 N claude-opus-4-5 weekly 0.81 5h 0.74 usd 0.30339
+d14.decide.Fulk.1 N claude-sonnet-4-5 weekly 0.81 5h 0.74 usd 0.1273998
+d22.decide.Piers.1 N claude-haiku-4-5 weekly 0.81 5h 0.75 usd 0.1349875
+d16.decide.Orabel.1 A2 claude-opus-5-5 weekly 0.81 5h 0.75 usd 0.023272800000000003
+d20.decide.Elena.1 A2 claude-sonnet-5-5 weekly 0.81 5h 0.75 usd 0.0053273
+d15.decide.Clement.1 A2 claude-haiku-5-5 weekly 0.81 5h 0.75 usd 0.00074701

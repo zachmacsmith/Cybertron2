@@ -1,0 +1,8 @@
+[('d15.evening.Orabel.1', 'd16.decide.Orabel.1', 'claude-opus-5-5'), ('d19.evening.Elena.1', 'd20.decide.Elena.1', 'claude-sonnet-5-5'), ('d14.evening.Clement.1', 'd15.decide.Clement.1', 'claude-haiku-5-5'), ('d24.evening.Avice.1', 'd25.decide.Avice.1', 'claude-opus-4-5'), ('d13.evening.Fulk.1', 'd14.decide.Fulk.1', 'claude-sonnet-4-5'), ('d21.evening.Piers.1', 'd22.decide.Piers.1', 'claude-haiku-4-5')]
+d16.decide.Orabel.1 N claude-opus-5-5 weekly 0.81 5h 0.76 usd 0.1204644
+d20.decide.Elena.1 N claude-sonnet-5-5 weekly 0.81 5h 0.76 usd 0.043796299999999996
+d15.decide.Clement.1 N claude-haiku-5-5 weekly 0.81 5h 0.76 usd 0.005941480000000001
+d25.decide.Avice.1 N claude-opus-4-5 weekly 0.81 5h 0.77 usd 0.2354615
+d14.decide.Fulk.1 N claude-sonnet-4-5 weekly 0.81 5h 0.78 usd 0.10640940000000002
+d22.decide.Piers.1 N claude-haiku-4-5 weekly 0.81 5h 0.79 usd 0.08165320000000001
+calls 6

@@ -1,0 +1,14 @@
+[('d21.decide.Drew.1', 'claude-opus-5-5'), ('d21.decide.Hawise.1', 'claude-opus-5-5'), ('d16.decide.Elena.1', 'claude-sonnet-5-5'), ('d16.decide.Cecily.1', 'claude-sonnet-5-5'), ('d22.decide.Clement.1', 'claude-haiku-5-5'), ('d18.decide.Odo.1', 'claude-haiku-5-5'), ('d21.decide.Aldric.1', 'claude-opus-5'), ('d18.decide.Avice.1', 'claude-opus-4-5'), ('d19.decide.Alice.1', 'claude-sonnet-5'), ('d22.decide.Rose.1', 'claude-sonnet-4-5'), ('d20.decide.Hamo.1', 'claude-haiku-4-5'), ('d22.decide.Mabel.1', 'claude-fable-5-2')]
+d21.decide.Drew.1 A2 claude-opus-5-5 weekly 0.81 5h 0.76 usd 0.0473624
+d21.decide.Hawise.1 A2 claude-opus-5-5 weekly 0.81 5h 0.76 usd 0.024065800000000005
+d16.decide.Elena.1 A2 claude-sonnet-5-5 weekly 0.81 5h 0.76 usd 0.006358600000000001
+d16.decide.Cecily.1 A2 claude-sonnet-5-5 weekly 0.81 5h 0.76 usd 0.004578700000000001
+d22.decide.Clement.1 A2 claude-haiku-5-5 weekly 0.81 5h 0.76 usd 0.00234978
+d18.decide.Odo.1 A2 claude-haiku-5-5 weekly 0.81 5h 0.76 usd 0.00217933
+d21.decide.Aldric.1 A2 claude-opus-5 weekly 0.81 5h 0.77 usd 0.225273
+d18.decide.Avice.1 A2 claude-opus-4-5 weekly 0.81 5h 0.79 usd 0.119611
+d19.decide.Alice.1 A2 claude-sonnet-5 weekly 0.82 5h 0.81 usd 0.09721959999999999
+d22.decide.Rose.1 A2 claude-sonnet-4-5 weekly 0.82 5h 0.81 usd 0.11602950000000001
+d20.decide.Hamo.1 A2 claude-haiku-4-5 weekly 0.82 5h 0.84 usd 0.1260402
+d22.decide.Mabel.1 A2 claude-fable-5-2 weekly 0.82 5h 0.84 usd 0.0572258
+calls 12 stopped False

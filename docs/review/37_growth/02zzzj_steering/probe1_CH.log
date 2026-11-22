@@ -1,0 +1,26 @@
+[('d21.decide.Drew.1', 'claude-opus-5-5'), ('d21.decide.Hawise.1', 'claude-opus-5-5'), ('d16.decide.Elena.1', 'claude-sonnet-5-5'), ('d16.decide.Cecily.1', 'claude-sonnet-5-5'), ('d22.decide.Clement.1', 'claude-haiku-5-5'), ('d18.decide.Odo.1', 'claude-haiku-5-5'), ('d21.decide.Aldric.1', 'claude-opus-5'), ('d18.decide.Avice.1', 'claude-opus-4-5'), ('d19.decide.Alice.1', 'claude-sonnet-5'), ('d22.decide.Rose.1', 'claude-sonnet-4-5'), ('d20.decide.Hamo.1', 'claude-haiku-4-5'), ('d22.decide.Mabel.1', 'claude-fable-5-2')]
+d21.decide.Drew.1 C claude-opus-5-5 weekly 0.81 5h 0.75 usd 0.217236
+d21.decide.Hawise.1 C claude-opus-5-5 weekly 0.81 5h 0.76 usd 0.220728
+d16.decide.Elena.1 C claude-sonnet-5-5 weekly 0.81 5h 0.76 usd 0.09625
+d16.decide.Cecily.1 C claude-sonnet-5-5 weekly 0.81 5h 0.76 usd 0.08983799999999999
+d22.decide.Clement.1 C claude-haiku-5-5 weekly 0.81 5h 0.76 usd 0.00849074
+d18.decide.Odo.1 C claude-haiku-5-5 weekly 0.81 5h 0.77 usd 0.00797005
+d21.decide.Aldric.1 C claude-opus-5 weekly 0.81 5h 0.77 usd 0.487095
+d18.decide.Avice.1 C claude-opus-4-5 weekly 0.81 5h 0.79 usd 0.28602
+d19.decide.Alice.1 C claude-sonnet-5 weekly 0.81 5h 0.8 usd 0.19390420000000003
+d22.decide.Rose.1 C claude-sonnet-4-5 weekly 0.82 5h 0.81 usd 0.23724900000000002
+d20.decide.Hamo.1 C claude-haiku-4-5 weekly 0.82 5h 0.83 usd 0.170009
+d22.decide.Mabel.1 C claude-fable-5-2 weekly 0.82 5h 0.83 usd 0.507488
+d21.decide.Drew.1 H claude-opus-5-5 weekly 0.82 5h 0.84 usd 0.1751836
+d21.decide.Hawise.1 H claude-opus-5-5 weekly 0.82 5h 0.84 usd 0.1774874
+d16.decide.Elena.1 H claude-sonnet-5-5 weekly 0.82 5h 0.84 usd 0.0760785
+d16.decide.Cecily.1 H claude-sonnet-5-5 weekly 0.82 5h 0.84 usd 0.06967240000000001
+d22.decide.Clement.1 H claude-haiku-5-5 weekly 0.82 5h 0.84 usd 0.00811201
+d18.decide.Odo.1 H claude-haiku-5-5 weekly 0.82 5h 0.84 usd 0.0067069700000000005
+d21.decide.Aldric.1 H claude-opus-5 weekly 0.82 5h 0.84 usd 0.4409015
+d18.decide.Avice.1 H claude-opus-4-5 weekly 0.82 5h 0.85 usd 0.2533725
+d19.decide.Alice.1 H claude-sonnet-5 weekly 0.82 5h 0.87 usd 0.2067302
+d22.decide.Rose.1 H claude-sonnet-4-5 weekly 0.82 5h 0.87 usd 0.18661650000000002
+d20.decide.Hamo.1 H claude-haiku-4-5 weekly 0.82 5h 0.87 usd 0.1451413
+d22.decide.Mabel.1 H claude-fable-5-2 weekly 0.82 5h 0.87 usd 0.4185682
+calls 24 stopped False

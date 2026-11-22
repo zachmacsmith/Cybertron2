@@ -1,0 +1,117 @@
+{
+ "water_runs_models_r1": {
+  "claude-opus-5-5": [
+   694,
+   222,
+   80
+  ],
+  "claude-fable-5-2": [
+   726,
+   144,
+   58
+  ],
+  "claude-sonnet-4-5": [
+   640,
+   170,
+   115
+  ],
+  "claude-haiku-4-5": [
+   520,
+   166,
+   113
+  ],
+  "claude-opus-5": [
+   954,
+   166,
+   36
+  ],
+  "claude-opus-4-5": [
+   549,
+   247,
+   156
+  ],
+  "claude-haiku-5-5": [
+   596,
+   331,
+   172
+  ],
+  "claude-sonnet-5": [
+   618,
+   205,
+   117
+  ],
+  "claude-sonnet-5-5": [
+   658,
+   328,
+   137
+  ]
+ },
+ "water_lake_r2": {
+  "claude-haiku-5-5": [
+   956,
+   628,
+   220
+  ],
+  "claude-opus-5-5": [
+   380,
+   197,
+   19
+  ],
+  "claude-sonnet-5-5": [
+   246,
+   119,
+   44
+  ]
+ },
+ "water_lake_r1": {
+  "claude-haiku-5-5": [
+   587,
+   359,
+   109
+  ],
+  "claude-opus-5-5": [
+   232,
+   84,
+   5
+  ],
+  "claude-sonnet-5-5": [
+   148,
+   105,
+   39
+  ]
+ },
+ "takeover": {
+  "claude-sonnet-5-5": [
+   648,
+   301,
+   165
+  ],
+  "claude-opus-5-5": [
+   365,
+   73,
+   38
+  ],
+  "claude-haiku-5-5": [
+   556,
+   260,
+   134
+  ]
+ },
+ "orwell": {
+  "claude-haiku-5-5": [
+   435,
+   203,
+   120
+  ],
+  "claude-sonnet-5-5": [
+   581,
+   262,
+   172
+  ],
+  "claude-opus-5-5": [
+   388,
+   81,
+   23
+  ]
+ }
+}

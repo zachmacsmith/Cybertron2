@@ -1,0 +1,47 @@
+water_runs_models_r1   nights of fuel: [mornings, fallback names firewood, plan names firewood]
+      0-10:    9  fallback firewood 78%  plan firewood 11%
+     10-20:   32  fallback firewood 66%  plan firewood 6%
+     20-40:  129  fallback firewood 70%  plan firewood 20%
+     40-80:  101  fallback firewood 58%  plan firewood 8%
+       80-:  259  fallback firewood 62%  plan firewood 6%
+water_lake_r2   nights of fuel: [mornings, fallback names firewood, plan names firewood]
+     10-20:   12  fallback firewood 67%  plan firewood 0%
+     20-40:   26  fallback firewood 69%  plan firewood 0%
+     40-80:    8  fallback firewood 62%  plan firewood 12%
+       80-:   71  fallback firewood 41%  plan firewood 0%
+water_lake_r1   nights of fuel: [mornings, fallback names firewood, plan names firewood]
+     40-80:    5  fallback firewood 80%  plan firewood 0%
+       80-:   66  fallback firewood 56%  plan firewood 3%
+pw1_opus_sonnet_r1   nights of fuel: [mornings, fallback names firewood, plan names firewood]
+      0-10:   50  fallback firewood 18%  plan firewood 12%
+     10-20:  242  fallback firewood 46%  plan firewood 13%
+     20-40:  297  fallback firewood 34%  plan firewood 5%
+     40-80:  646  fallback firewood 23%  plan firewood 4%
+       80-:  186  fallback firewood 17%  plan firewood 1%
+e2_labour   nights of fuel: [mornings, fallback names firewood, plan names firewood]
+      0-10:   28  fallback firewood 50%  plan firewood 25%
+     10-20:   36  fallback firewood 53%  plan firewood 14%
+     20-40:   19  fallback firewood 26%  plan firewood 5%
+     40-80:   11  fallback firewood 73%  plan firewood 27%
+       80-:   12  fallback firewood 42%  plan firewood 0%
+p1_brookend   nights of fuel: [mornings, fallback names firewood, plan names firewood]
+     10-20:    9  fallback firewood 33%  plan firewood 11%
+     20-40:   33  fallback firewood 67%  plan firewood 15%
+     40-80:   21  fallback firewood 57%  plan firewood 14%
+       80-:   27  fallback firewood 44%  plan firewood 0%
+orwell   nights of fuel: [mornings, fallback names firewood, plan names firewood]
+      0-10:   47  fallback firewood 51%  plan firewood 21%
+     10-20:   32  fallback firewood 59%  plan firewood 12%
+     20-40:   14  fallback firewood 50%  plan firewood 14%
+     40-80:   20  fallback firewood 60%  plan firewood 10%
+       80-:   17  fallback firewood 47%  plan firewood 6%
+takeover   nights of fuel: [mornings, fallback names firewood, plan names firewood]
+      0-10:   37  fallback firewood 78%  plan firewood 35%
+     10-20:   22  fallback firewood 68%  plan firewood 9%
+     20-40:   26  fallback firewood 46%  plan firewood 4%
+     40-80:   46  fallback firewood 63%  plan firewood 9%
+       80-:   25  fallback firewood 40%  plan firewood 12%
+violent_opus   nights of fuel: [mornings, fallback names firewood, plan names firewood]
+     10-20:   11  fallback firewood 82%  plan firewood 45%
+     20-40:    8  fallback firewood 50%  plan firewood 25%
+     40-80:    2  fallback firewood 50%  plan firewood 0%

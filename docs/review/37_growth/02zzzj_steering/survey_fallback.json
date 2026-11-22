@@ -1,0 +1,1369 @@
+{
+ "water_runs_models_r1": {
+  "date": "20 Nov",
+  "example_in_system": "42/42",
+  "plans": 1256,
+  "with_fallback": 1227,
+  "first_fallback_top": [
+   [
+    "gather firewood",
+    444
+   ],
+   [
+    "gather gather wild food",
+    297
+   ],
+   [
+    "gather fish by hand",
+    89
+   ],
+   [
+    "rest",
+    52
+   ],
+   [
+    "work herd",
+    30
+   ],
+   [
+    "work fence",
+    25
+   ],
+   [
+    "work reap",
+    25
+   ],
+   [
+    "work repair",
+    24
+   ]
+  ],
+  "any_fallback_top": [
+   [
+    "gather firewood",
+    710
+   ],
+   [
+    "gather gather wild food",
+    384
+   ],
+   [
+    "gather fish by hand",
+    136
+   ],
+   [
+    "rest",
+    99
+   ],
+   [
+    "work fence",
+    44
+   ],
+   [
+    "work herd",
+    40
+   ],
+   [
+    "work repair",
+    31
+   ],
+   [
+    "take meat",
+    30
+   ]
+  ],
+  "by_model": {
+   "claude-fable-5-2": [
+    144,
+    144,
+    75
+   ],
+   "claude-haiku-4-5": [
+    126,
+    113,
+    62
+   ],
+   "claude-haiku-5-5": [
+    120,
+    120,
+    75
+   ],
+   "claude-opus-4-5": [
+    121,
+    120,
+    86
+   ],
+   "claude-opus-5": [
+    145,
+    145,
+    86
+   ],
+   "claude-opus-5-5": [
+    137,
+    134,
+    56
+   ],
+   "claude-sonnet-4-5": [
+    166,
+    162,
+    105
+   ],
+   "claude-sonnet-5": [
+    160,
+    157,
+    112
+   ],
+   "claude-sonnet-5-5": [
+    137,
+    132,
+    52
+   ]
+  },
+  "evening_results_lines": 5955,
+  "of_which_fallback": 1979,
+  "fallback_results_top": [
+   [
+    "You took N firewood",
+    982
+   ],
+   [
+    "You gathered N acorns,",
+    216
+   ],
+   [
+    "You took N fish",
+    155
+   ],
+   [
+    "You gathered N greens,",
+    97
+   ],
+   [
+    "You gathered N greens",
+    81
+   ],
+   [
+    "You gathered N berries,",
+    67
+   ],
+   [
+    "You worked on a",
+    67
+   ],
+   [
+    "You got N grain",
+    41
+   ]
+  ]
+ },
+ "water_lake_r2": {
+  "date": "17 Nov",
+  "example_in_system": "16/16",
+  "plans": 327,
+  "with_fallback": 320,
+  "first_fallback_top": [
+   [
+    "gather gather wild food",
+    91
+   ],
+   [
+    "gather firewood",
+    84
+   ],
+   [
+    "gather fish by hand",
+    43
+   ],
+   [
+    "work herd",
+    17
+   ],
+   [
+    "work fence",
+    15
+   ],
+   [
+    "work reap",
+    15
+   ],
+   [
+    "work weed",
+    10
+   ],
+   [
+    "gather hay",
+    7
+   ]
+  ],
+  "any_fallback_top": [
+   [
+    "gather firewood",
+    146
+   ],
+   [
+    "gather gather wild food",
+    122
+   ],
+   [
+    "gather fish by hand",
+    45
+   ],
+   [
+    "work herd",
+    19
+   ],
+   [
+    "work fence",
+    19
+   ],
+   [
+    "work reap",
+    15
+   ],
+   [
+    "work weed",
+    10
+   ],
+   [
+    "gather hay",
+    8
+   ]
+  ],
+  "by_model": {
+   "claude-haiku-5-5": [
+    207,
+    207,
+    114
+   ],
+   "claude-opus-5-5": [
+    72,
+    70,
+    14
+   ],
+   "claude-sonnet-5-5": [
+    48,
+    43,
+    18
+   ]
+  },
+  "evening_results_lines": 1582,
+  "of_which_fallback": 944,
+  "fallback_results_top": [
+   [
+    "You took N firewood",
+    283
+   ],
+   [
+    "You took N fish",
+    136
+   ],
+   [
+    "You gathered N acorns,",
+    94
+   ],
+   [
+    "You gathered N berries,",
+    68
+   ],
+   [
+    "You gathered N greens,",
+    68
+   ],
+   [
+    "You worked on a",
+    45
+   ],
+   [
+    "You got N grain",
+    44
+   ],
+   [
+    "You weeded the barley",
+    40
+   ]
+  ]
+ },
+ "water_lake_r1": {
+  "date": "16 Nov",
+  "example_in_system": "19/19",
+  "plans": 188,
+  "with_fallback": 187,
+  "first_fallback_top": [
+   [
+    "gather gather wild food",
+    69
+   ],
+   [
+    "gather firewood",
+    38
+   ],
+   [
+    "gather fish by hand",
+    16
+   ],
+   [
+    "work herd",
+    12
+   ],
+   [
+    "gather hunt the wild",
+    11
+   ],
+   [
+    "work reap",
+    10
+   ],
+   [
+    "work pest work",
+    8
+   ],
+   [
+    "work plough",
+    5
+   ]
+  ],
+  "any_fallback_top": [
+   [
+    "gather gather wild food",
+    89
+   ],
+   [
+    "gather firewood",
+    85
+   ],
+   [
+    "gather fish by hand",
+    18
+   ],
+   [
+    "work herd",
+    14
+   ],
+   [
+    "gather hunt the wild",
+    11
+   ],
+   [
+    "work pest work",
+    11
+   ],
+   [
+    "work reap",
+    10
+   ],
+   [
+    "work fence",
+    9
+   ]
+  ],
+  "by_model": {
+   "claude-haiku-5-5": [
+    118,
+    117,
+    71
+   ],
+   "claude-opus-5-5": [
+    42,
+    42,
+    2
+   ],
+   "claude-sonnet-5-5": [
+    28,
+    28,
+    12
+   ]
+  },
+  "evening_results_lines": 967,
+  "of_which_fallback": 548,
+  "fallback_results_top": [
+   [
+    "You took N firewood",
+    153
+   ],
+   [
+    "You gathered N berries,",
+    83
+   ],
+   [
+    "You gathered N acorns,",
+    75
+   ],
+   [
+    "You took N fish",
+    50
+   ],
+   [
+    "You worked on a",
+    27
+   ],
+   [
+    "You gathered N greens,",
+    26
+   ],
+   [
+    "You picked the slugs",
+    19
+   ],
+   [
+    "You weeded the barley",
+    18
+   ]
+  ]
+ },
+ "pw1_opus_sonnet_r1": {
+  "date": "13 Nov",
+  "example_in_system": "22/22",
+  "plans": 1637,
+  "with_fallback": 1564,
+  "first_fallback_top": [
+   [
+    "gather gather wild food",
+    858
+   ],
+   [
+    "gather firewood",
+    347
+   ],
+   [
+    "work weed",
+    67
+   ],
+   [
+    "gather fish by hand",
+    42
+   ],
+   [
+    "gather fell",
+    37
+   ],
+   [
+    "work hoe",
+    24
+   ],
+   [
+    "gather hunt the wild",
+    23
+   ],
+   [
+    "work repair",
+    22
+   ]
+  ],
+  "any_fallback_top": [
+   [
+    "gather gather wild food",
+    886
+   ],
+   [
+    "gather firewood",
+    421
+   ],
+   [
+    "work weed",
+    71
+   ],
+   [
+    "gather fell",
+    43
+   ],
+   [
+    "gather fish by hand",
+    43
+   ],
+   [
+    "work hoe",
+    25
+   ],
+   [
+    "gather hunt the wild",
+    23
+   ],
+   [
+    "work repair",
+    22
+   ]
+  ],
+  "by_model": {
+   "claude-opus-5-5": [
+    853,
+    831,
+    230
+   ],
+   "claude-sonnet-5-5": [
+    784,
+    733,
+    191
+   ]
+  },
+  "evening_results_lines": 0,
+  "of_which_fallback": 0,
+  "fallback_results_top": []
+ },
+ "e2_labour": {
+  "date": "8 Nov",
+  "example_in_system": "14/14",
+  "plans": 296,
+  "with_fallback": 285,
+  "first_fallback_top": [
+   [
+    "gather firewood",
+    105
+   ],
+   [
+    "gather forage",
+    43
+   ],
+   [
+    "build water wheel",
+    32
+   ],
+   [
+    "gather fell",
+    23
+   ],
+   [
+    "work reap",
+    16
+   ],
+   [
+    "work repair",
+    14
+   ],
+   [
+    "gather hay",
+    13
+   ],
+   [
+    "gather quarry",
+    9
+   ]
+  ],
+  "any_fallback_top": [
+   [
+    "gather firewood",
+    117
+   ],
+   [
+    "gather forage",
+    53
+   ],
+   [
+    "build water wheel",
+    34
+   ],
+   [
+    "gather fell",
+    25
+   ],
+   [
+    "work reap",
+    17
+   ],
+   [
+    "gather hay",
+    16
+   ],
+   [
+    "work repair",
+    14
+   ],
+   [
+    "gather quarry",
+    9
+   ]
+  ],
+  "by_model": {
+   "claude-haiku-5-5": [
+    97,
+    96,
+    55
+   ],
+   "claude-opus-5-5": [
+    73,
+    73,
+    14
+   ],
+   "claude-sonnet-5-5": [
+    126,
+    116,
+    46
+   ]
+  },
+  "evening_results_lines": 1077,
+  "of_which_fallback": 419,
+  "fallback_results_top": [
+   [
+    "You took N firewood",
+    230
+   ],
+   [
+    "You took N hay",
+    56
+   ],
+   [
+    "You got N grain",
+    32
+   ],
+   [
+    "You took N wild",
+    26
+   ],
+   [
+    "You worked on a",
+    22
+   ],
+   [
+    "You took N timber",
+    14
+   ],
+   [
+    "You weeded the barley",
+    13
+   ],
+   [
+    "You took N stone",
+    8
+   ]
+  ]
+ },
+ "p1_brookend": {
+  "date": "8 Nov",
+  "example_in_system": "8/8",
+  "plans": 252,
+  "with_fallback": 252,
+  "first_fallback_top": [
+   [
+    "gather firewood",
+    77
+   ],
+   [
+    "work fence",
+    34
+   ],
+   [
+    "work reap",
+    22
+   ],
+   [
+    "gather forage",
+    19
+   ],
+   [
+    "gather fell",
+    17
+   ],
+   [
+    "work weed",
+    14
+   ],
+   [
+    "work herd",
+    12
+   ],
+   [
+    "work clear for building",
+    8
+   ]
+  ],
+  "any_fallback_top": [
+   [
+    "gather firewood",
+    117
+   ],
+   [
+    "work fence",
+    36
+   ],
+   [
+    "gather fell",
+    31
+   ],
+   [
+    "gather forage",
+    25
+   ],
+   [
+    "work reap",
+    23
+   ],
+   [
+    "work weed",
+    16
+   ],
+   [
+    "work herd",
+    13
+   ],
+   [
+    "work clear for building",
+    10
+   ]
+  ],
+  "by_model": {
+   "claude-haiku-5-5": [
+    92,
+    92,
+    61
+   ],
+   "claude-opus-5-5": [
+    96,
+    96,
+    24
+   ],
+   "claude-sonnet-5-5": [
+    64,
+    64,
+    32
+   ]
+  },
+  "evening_results_lines": 1244,
+  "of_which_fallback": 663,
+  "fallback_results_top": [
+   [
+    "You took N firewood",
+    279
+   ],
+   [
+    "You worked on a",
+    84
+   ],
+   [
+    "You took N wild",
+    82
+   ],
+   [
+    "You got N grain",
+    50
+   ],
+   [
+    "You took N timber",
+    32
+   ],
+   [
+    "You weeded the barley",
+    32
+   ],
+   [
+    "You took N hay",
+    22
+   ],
+   [
+    "You got N beans",
+    17
+   ]
+  ]
+ },
+ "orwell": {
+  "date": "7 Nov",
+  "example_in_system": "16/16",
+  "plans": 366,
+  "with_fallback": 350,
+  "first_fallback_top": [
+   [
+    "gather firewood",
+    126
+   ],
+   [
+    "gather forage",
+    72
+   ],
+   [
+    "gather fell",
+    47
+   ],
+   [
+    "work repair",
+    18
+   ],
+   [
+    "rest",
+    17
+   ],
+   [
+    "gather quarry",
+    14
+   ],
+   [
+    "build water wheel",
+    13
+   ],
+   [
+    "work reap",
+    9
+   ]
+  ],
+  "any_fallback_top": [
+   [
+    "gather firewood",
+    156
+   ],
+   [
+    "gather forage",
+    81
+   ],
+   [
+    "gather fell",
+    55
+   ],
+   [
+    "work repair",
+    20
+   ],
+   [
+    "rest",
+    17
+   ],
+   [
+    "gather quarry",
+    14
+   ],
+   [
+    "build water wheel",
+    13
+   ],
+   [
+    "work reap",
+    9
+   ]
+  ],
+  "by_model": {
+   "claude-haiku-5-5": [
+    129,
+    128,
+    73
+   ],
+   "claude-opus-5-5": [
+    84,
+    80,
+    19
+   ],
+   "claude-sonnet-5-5": [
+    153,
+    142,
+    63
+   ]
+  },
+  "evening_results_lines": 1404,
+  "of_which_fallback": 546,
+  "fallback_results_top": [
+   [
+    "You took N firewood",
+    315
+   ],
+   [
+    "You took N timber",
+    54
+   ],
+   [
+    "You took N wild",
+    49
+   ],
+   [
+    "You worked on a",
+    39
+   ],
+   [
+    "You got N grain",
+    29
+   ],
+   [
+    "You mended the fence",
+    19
+   ],
+   [
+    "You took N hay",
+    14
+   ],
+   [
+    "You took N stone",
+    8
+   ]
+  ]
+ },
+ "takeover": {
+  "date": "7 Nov",
+  "example_in_system": "15/15",
+  "plans": 408,
+  "with_fallback": 399,
+  "first_fallback_top": [
+   [
+    "gather firewood",
+    147
+   ],
+   [
+    "gather forage",
+    68
+   ],
+   [
+    "gather fell",
+    52
+   ],
+   [
+    "work weed",
+    22
+   ],
+   [
+    "build water wheel",
+    15
+   ],
+   [
+    "work reap",
+    14
+   ],
+   [
+    "rest",
+    14
+   ],
+   [
+    "work repair",
+    13
+   ]
+  ],
+  "any_fallback_top": [
+   [
+    "gather firewood",
+    192
+   ],
+   [
+    "gather forage",
+    79
+   ],
+   [
+    "gather fell",
+    56
+   ],
+   [
+    "work weed",
+    25
+   ],
+   [
+    "work reap",
+    17
+   ],
+   [
+    "rest",
+    16
+   ],
+   [
+    "build water wheel",
+    15
+   ],
+   [
+    "work repair",
+    15
+   ]
+  ],
+  "by_model": {
+   "claude-haiku-5-5": [
+    153,
+    151,
+    75
+   ],
+   "claude-opus-5-5": [
+    79,
+    77,
+    34
+   ],
+   "claude-sonnet-5-5": [
+    176,
+    171,
+    80
+   ]
+  },
+  "evening_results_lines": 1569,
+  "of_which_fallback": 634,
+  "fallback_results_top": [
+   [
+    "You took N firewood",
+    337
+   ],
+   [
+    "You weeded the barley",
+    65
+   ],
+   [
+    "You took N timber",
+    49
+   ],
+   [
+    "You took N wild",
+    48
+   ],
+   [
+    "You got N grain",
+    40
+   ],
+   [
+    "You took N hay",
+    33
+   ],
+   [
+    "You cleared ground for",
+    28
+   ],
+   [
+    "You hoed N of",
+    10
+   ]
+  ]
+ },
+ "f1_frontier": {
+  "date": "4 Nov",
+  "example_in_system": "10/10",
+  "plans": 335,
+  "with_fallback": 296,
+  "first_fallback_top": [
+   [
+    "gather firewood",
+    85
+   ],
+   [
+    "gather forage",
+    64
+   ],
+   [
+    "gather fell",
+    41
+   ],
+   [
+    "work clear",
+    24
+   ],
+   [
+    "work reap",
+    15
+   ],
+   [
+    "work weed",
+    14
+   ],
+   [
+    "gather hunt",
+    14
+   ],
+   [
+    "rest",
+    13
+   ]
+  ],
+  "any_fallback_top": [
+   [
+    "gather firewood",
+    125
+   ],
+   [
+    "gather forage",
+    68
+   ],
+   [
+    "gather fell",
+    47
+   ],
+   [
+    "work clear",
+    25
+   ],
+   [
+    "work weed",
+    19
+   ],
+   [
+    "work reap",
+    16
+   ],
+   [
+    "work sow",
+    15
+   ],
+   [
+    "gather hunt",
+    15
+   ]
+  ],
+  "by_model": {
+   "claude-haiku-5-5": [
+    39,
+    37,
+    16
+   ],
+   "claude-opus-5-5": [
+    162,
+    152,
+    81
+   ],
+   "claude-sonnet-5-5": [
+    134,
+    107,
+    28
+   ]
+  },
+  "evening_results_lines": 1445,
+  "of_which_fallback": 505,
+  "fallback_results_top": [
+   [
+    "You took N firewood",
+    242
+   ],
+   [
+    "You took N wild",
+    61
+   ],
+   [
+    "You took N timber",
+    48
+   ],
+   [
+    "You cleared ground at",
+    43
+   ],
+   [
+    "You weeded the barley",
+    38
+   ],
+   [
+    "You hoed N of",
+    18
+   ],
+   [
+    "You got N grain",
+    14
+   ],
+   [
+    "You weeded the beans",
+    14
+   ]
+  ]
+ },
+ "wb2_wenbridge": {
+  "date": "4 Nov",
+  "example_in_system": "17/17",
+  "plans": 292,
+  "with_fallback": 269,
+  "first_fallback_top": [
+   [
+    "gather firewood",
+    73
+   ],
+   [
+    "gather forage",
+    53
+   ],
+   [
+    "rest",
+    29
+   ],
+   [
+    "work repair",
+    16
+   ],
+   [
+    "work weed",
+    15
+   ],
+   [
+    "gather hay",
+    14
+   ],
+   [
+    "work clear for building",
+    12
+   ],
+   [
+    "gather quarry",
+    11
+   ]
+  ],
+  "any_fallback_top": [
+   [
+    "gather firewood",
+    101
+   ],
+   [
+    "gather forage",
+    62
+   ],
+   [
+    "rest",
+    29
+   ],
+   [
+    "work repair",
+    17
+   ],
+   [
+    "gather hay",
+    16
+   ],
+   [
+    "work weed",
+    16
+   ],
+   [
+    "work clear for building",
+    12
+   ],
+   [
+    "gather quarry",
+    11
+   ]
+  ],
+  "by_model": {
+   "claude-haiku-5-5": [
+    99,
+    96,
+    43
+   ],
+   "claude-opus-5-5": [
+    63,
+    60,
+    22
+   ],
+   "claude-sonnet-5-5": [
+    130,
+    113,
+    36
+   ]
+  },
+  "evening_results_lines": 857,
+  "of_which_fallback": 207,
+  "fallback_results_top": [
+   [
+    "You took N wild",
+    49
+   ],
+   [
+    "You weeded the barley",
+    46
+   ],
+   [
+    "You cleared ground for",
+    32
+   ],
+   [
+    "You took N firewood",
+    24
+   ],
+   [
+    "You took N hay",
+    17
+   ],
+   [
+    "You hoed N of",
+    10
+   ],
+   [
+    "You got N grain",
+    9
+   ],
+   [
+    "You stand guard tonight",
+    8
+   ]
+  ]
+ },
+ "c3_combe_rich": {
+  "date": "4 Nov",
+  "example_in_system": "0/6",
+  "plans": 251,
+  "with_fallback": 0,
+  "first_fallback_top": [],
+  "any_fallback_top": [],
+  "by_model": {
+   "claude-opus-5-5": [
+    251,
+    0,
+    0
+   ]
+  },
+  "evening_results_lines": 0,
+  "of_which_fallback": 0,
+  "fallback_results_top": []
+ },
+ "violent_opus": {
+  "date": "7 Nov",
+  "example_in_system": "10/10",
+  "plans": 48,
+  "with_fallback": 46,
+  "first_fallback_top": [
+   [
+    "gather firewood",
+    25
+   ],
+   [
+    "work weed",
+    9
+   ],
+   [
+    "gather fell",
+    7
+   ],
+   [
+    "gather hay",
+    5
+   ]
+  ],
+  "any_fallback_top": [
+   [
+    "gather firewood",
+    27
+   ],
+   [
+    "work weed",
+    9
+   ],
+   [
+    "gather fell",
+    7
+   ],
+   [
+    "gather hay",
+    5
+   ],
+   [
+    "gather forage",
+    2
+   ]
+  ],
+  "by_model": {
+   "claude-haiku-5-5": [
+    24,
+    24,
+    16
+   ],
+   "claude-opus-5-5": [
+    6,
+    6,
+    1
+   ],
+   "claude-sonnet-5-5": [
+    18,
+    16,
+    10
+   ]
+  },
+  "evening_results_lines": 239,
+  "of_which_fallback": 115,
+  "fallback_results_top": [
+   [
+    "You took N firewood",
+    72
+   ],
+   [
+    "You weeded the barley",
+    25
+   ],
+   [
+    "You took N timber",
+    9
+   ],
+   [
+    "You took N hay",
+    7
+   ],
+   [
+    "You took N wild",
+    2
+   ]
+  ]
+ }
+}

@@ -1,0 +1,4 @@
+A2 flips vs A 4 to firewood 2 from firewood 2 total 7
+B flips vs A 6 to firewood 2 from firewood 4 total 5
+H flips vs A 6 to firewood 5 from firewood 1 total 11
+N flips vs A 5 to firewood 4 from firewood 1 total 10
