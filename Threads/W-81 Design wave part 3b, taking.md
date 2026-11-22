@@ -17,6 +17,9 @@ Overnight agent, 22 Nov; [[Q-79 Whether to fix the fishing bugs the live runs ex
 ## Done so far, and what is left
 started
 
+## Where
+- `docs/review/37_growth/02zzzh_hunt_fish/wave3_taking.md`
+
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]

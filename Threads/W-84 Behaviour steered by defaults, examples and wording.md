@@ -17,6 +17,9 @@ Zach, 22 Nov: 'analysing runs to try and find other common behaviors of things t
 ## Done so far, and what is left
 started
 
+## Where
+- `docs/review/37_growth/02zzzj_steering/steering.md`
+
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]

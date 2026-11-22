@@ -17,6 +17,9 @@ updated: "2026-11-22"
 ## Done so far, and what is left
 started
 
+## Where
+- `docs/review/37_growth/02zzzh_hunt_fish/wave1_physical_basis.md`
+
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]

@@ -17,6 +17,9 @@ Overnight agent, 22 Nov, priced on part 1 (wave1_physical_basis.md). [[D2-263 A 
 ## Done so far, and what is left
 started
 
+## Where
+- `docs/review/37_growth/02zzzh_hunt_fish/wave2_making.md`
+
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]

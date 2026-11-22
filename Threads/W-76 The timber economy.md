@@ -18,9 +18,7 @@ Zach, 22 Nov: the next proper economy I want to focus on is the timber one; push
 started
 
 ## Where
-- not started
-- `the companions in proposals/building_clock.md (builders, felling) and hunt_fish_materials.md (withies, poles from coppice)`
-- to branch from W-73 after its design wave
+- `docs/review/37_growth/02zzzi_timber/scouting.md`
 
 
 ## Mentioned by

@@ -21,6 +21,7 @@ conversation (22 Nov: "conversation (22 Nov: "I agree with your 3. Recipes shown
 
 
 ## Mentioned by
+- [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 - [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
 - [[Trying and learning crafts by difficulty, failures that teach…|Trying and learning: crafts by difficulty, failures that teach…]]
 - [[Design wave part 2 materials and making (withies, cord and flax…|Design wave part 2: materials and making (withies, cord and flax…]]
