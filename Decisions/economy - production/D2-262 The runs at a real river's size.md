@@ -24,4 +24,5 @@ conversation (20 Nov: "conversation (20 Nov: "Adjust milk yield. Change the old 
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[02zzz the runs world's three live runs, against the bots and the…|02zzz: the runs world's three live runs, against the bots and the…]]
+- [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]

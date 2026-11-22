@@ -51,6 +51,7 @@ new
 - [[02zw the reviews' proposals against how the engine already works (9…|02zw: the reviews' proposals against how the engine already works (9…]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
 - [[02zzp what was started and left, 22 Oct to 19 Nov, and how to notice…|02zzp: what was started and left, 22 Oct to 19 Nov, and how to notice…]]
+- [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
 - [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
 - [[Hunting, trapping, fowling and the kill techniques, capital and…|Hunting, trapping, fowling and the kill: techniques, capital and…]]
 - [[38.63 The engine overhaul, phases 1 and 2 what was built, the…|38.63: The engine overhaul, phases 1 and 2: what was built, the…]]

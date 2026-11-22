@@ -23,3 +23,4 @@ started
 ## Mentioned by
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[02zzv carrying in the live runs|02zzv: carrying in the live runs]]
+- [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]

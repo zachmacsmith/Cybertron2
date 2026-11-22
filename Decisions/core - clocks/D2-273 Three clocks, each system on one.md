@@ -25,3 +25,4 @@ conversation (22 Nov: "conversation (22 Nov: "make principled distinctions betwe
 - [[L-148 The wild's clock|The wild's clock (L-148)]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Clocks which systems run on which time|Clocks: which systems run on which time]]
+- [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]

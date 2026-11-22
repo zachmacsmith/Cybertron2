@@ -31,5 +31,6 @@ conversation (Zach: "fix the ox lending, fences, lore and Green, then rerun"; "t
 - [[02zw the reviews' proposals against how the engine already works (9…|02zw: the reviews' proposals against how the engine already works (9…]]
 - [[02zzs the wild region's 30-day live run (10 Nov), written up|02zzs: the wild region's 30-day live run (10 Nov), written up]]
 - [[02zzv carrying in the live runs|02zzv: carrying in the live runs]]
+- [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
 - [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]
 - *and 1 index or audit notes*

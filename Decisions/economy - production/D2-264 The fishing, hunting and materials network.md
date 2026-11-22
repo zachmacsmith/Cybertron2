@@ -23,4 +23,5 @@ conversation (22 Nov: "conversation (22 Nov, answers to the open questions)")
 ## Mentioned by
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
+- [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
 - [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]

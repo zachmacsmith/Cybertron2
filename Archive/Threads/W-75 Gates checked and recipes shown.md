@@ -21,5 +21,6 @@ dropped 22 Nov: opened in error: Zach's go of 22 Nov was for the batch sizes onl
 
 
 ## Mentioned by
+- [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
 - [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]
 - [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]

@@ -78,6 +78,7 @@ updated: "2026-11-20"
 - [[Why the villagers of the runs world did not fish|Why the villagers of the runs world did not fish]]
 - [[02zzz2 every state of the water, and what of it reaches a person|02zzz2: every state of the water, and what of it reaches a person]]
 - [[02zzz the runs world's three live runs, against the bots and the…|02zzz: the runs world's three live runs, against the bots and the…]]
+- [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]

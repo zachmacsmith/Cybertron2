@@ -32,5 +32,6 @@ every rate real per engine day (one clock: no seasonal loops in a 24 to 40 day y
 - [[The land and its stocks|The land and its stocks]]
 - [[Wildlife|Wildlife]]
 - [[02zzo the weather across conditions, and what the engine leaves…|02zzo: the weather across conditions, and what the engine leaves…]]
+- [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
 - [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
 - *and 1 index or audit notes*
