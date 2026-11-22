@@ -60,5 +60,5 @@ the old engine's holder field enforced by the engine
 - [[02zs the wild in a society's economy and development (9 Nov)|02zs: the wild in a society's economy and development (9 Nov)]]
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
-- … and 11 more
+- … and 12 more
 - *and 1 index or audit notes*

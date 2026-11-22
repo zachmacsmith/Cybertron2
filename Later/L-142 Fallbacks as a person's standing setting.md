@@ -15,3 +15,7 @@ Zach, 21 Nov: everyone seems always to fall back to firewood, which should not b
 
 ## Linked
 - parent: [[W-37 Standing rules|Standing rules (W-37)]]
+
+
+## Mentioned by
+- [[How a household manages its stores one book of standing rules, a few…|How a household manages its stores: one book of standing rules, a few…]]

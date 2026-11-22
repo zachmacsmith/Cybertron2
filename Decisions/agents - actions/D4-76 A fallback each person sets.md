@@ -26,3 +26,4 @@ units left unused when an act was refused
 - [[Proposal the verbs, and what each agent is shown|Proposal: the verbs, and what each agent is shown]]
 - [[What agents can do|What agents can do]]
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
+- [[How a household manages its stores one book of standing rules, a few…|How a household manages its stores: one book of standing rules, a few…]]

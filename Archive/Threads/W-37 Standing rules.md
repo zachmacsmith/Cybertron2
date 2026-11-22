@@ -25,8 +25,11 @@ proposal written.
 
 ## Linked
 - under it: [[L-142 Fallbacks as a person's standing setting|Fallbacks as a person's standing setting (L-142)]] (open)
+- under it: [[Q-85 One book of standing rules per household and person for eating and…|One book of standing rules per household and person for eating and… (Q-85)]] (open)
 
 
 ## Mentioned by
+- [[Q-85 One book of standing rules per household and person for eating and…|One book of standing rules per household and person for eating and… (Q-85)]]
 - [[L-142 Fallbacks as a person's standing setting|Fallbacks as a person's standing setting (L-142)]]
+- [[How a household manages its stores one book of standing rules, a few…|How a household manages its stores: one book of standing rules, a few…]]
 - *and 1 index or audit notes*

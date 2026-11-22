@@ -26,4 +26,5 @@ give from hands only; draws from stores unspoken
 - [[What agents can do|What agents can do]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
+- [[How a household manages its stores one book of standing rules, a few…|How a household manages its stores: one book of standing rules, a few…]]
 - *and 1 index or audit notes*

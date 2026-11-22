@@ -26,4 +26,5 @@ fish kept as meat in a store
 - [[Wildlife|Wildlife]]
 - [[02zzq the records and the workflow as they are, and how Zach works…|02zzq: the records and the workflow as they are, and how Zach works…]]
 - [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
+- [[How a household manages its stores one book of standing rules, a few…|How a household manages its stores: one book of standing rules, a few…]]
 - *and 1 index or audit notes*

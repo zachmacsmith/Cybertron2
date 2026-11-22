@@ -31,5 +31,6 @@ devlog #9
 - [[Letters and documents|Letters and documents]]
 - [[02zd cybertron2 as a response to cybertron 1|02zd: cybertron2 as a response to cybertron 1]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
+- [[How a household manages its stores one book of standing rules, a few…|How a household manages its stores: one book of standing rules, a few…]]
 - [[Review 38.15 the valley, three villages over 20 days (run m2_V)|Review 38.15: the valley, three villages over 20 days (run m2_V)]]
 - [[Review 38.16 where M1 was built too narrowly, system by system…|Review 38.16: where M1 was built too narrowly, system by system…]]
