@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Generation redesign (W-38)
 
-*ready for a decision · c2viz session · touched 14 Nov (7 days ago)*
+*ready for a decision · c2viz session · touched 14 Nov (8 days ago)*
 
 ## What it is
 Generation redesign: the original pinned design against the built land and lineage generators; their flaws, measured; a design with one history and pins met in the loop (Zach, 14 Nov)

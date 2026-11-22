@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Nutrition worlds (W-69)
 
-*active · 37.2 · touched 20 Nov (1 day ago)*
+*active · 37.2 · touched 20 Nov (2 days ago)*
 
 > **Next:** Zach: the legibility fixes ([[Q-78 Whether to build the fishing legibility fixes|Q-78]]), salting rate ([[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Q-73]]), medium keeping ([[Q-76 Whether the runs world's medium arm needs more keeping capital|Q-76]]); then the three live runs again
 

@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # The runs world with a model to each household (W-58)
 
-*paused · 37.4 · touched 20 Nov (1 day ago)*
+*paused · 37.4 · touched 20 Nov (2 days ago)*
 
 > **Next:** Zach: stop here or play on
 
