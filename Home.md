@@ -97,7 +97,8 @@
 ## Queued and paused (8)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework, [[W-76 The timber economy|W-76]] The timber economy
 
-## Decided this week (77)
+## Decided this week (78)
+- [[D2-280 Commits carry no Claude-Session line|Commits carry no Claude-Session line (D2-280)]]
 - [[D2-279 Stores, as answered|Stores, as answered (D2-279)]]
 - [[D2-278 The next wave of the fishing, hunting and materials network|The next wave of the fishing, hunting and materials network (D2-278)]]
 - [[D2-277 Every idea explored in conversation is written down before moving on|Every idea explored in conversation is written down before moving on (D2-277)]]
@@ -112,7 +113,6 @@
 - [[D2-268 The founders' starting knowledge|The founders' starting knowledge (D2-268)]]
 - [[D2-267 Practice and learning are set at a 64-day lifespan and scaled with a…|Practice and learning are set at a 64-day lifespan and scaled with a… (D2-267)]]
 - [[D2-266 Knowledge in their own words|Knowledge in their own words (D2-266)]]
-- [[D2-265 The river's signs|The river's signs (D2-265)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]
