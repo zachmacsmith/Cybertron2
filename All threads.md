@@ -1,6 +1,7 @@
 # All threads
 
 ## Open
+- [[W-85 The wave's integrated design|The wave's integrated design (W-85)]] (active)
 - [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]] (waiting)
 - [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]] (waiting)
 - [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]] (waiting)

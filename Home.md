@@ -28,7 +28,7 @@
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]: revisit: soon (Zach, 20 Nov: 'that one sooner')
 - [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]: closed by agent
 
-## Active threads (16)
+## Active threads (17)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -47,6 +47,8 @@
   next: the header pass over the spec files and proposals; run threads labelled as such, with their branch (D2-238)…
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]  
   next: after the first build (recipes shown with the batches, the gate check, the fishing bugs and the target rule)…
+- [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]  
+  next: the basis sheet and the architecture by 37.2; then component specs to the basis, reviewed against it
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  
@@ -113,7 +115,15 @@
 ## Queued and paused (8)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework, [[W-76 The timber economy|W-76]] The timber economy
 
-## Decided this week (85)
+## Decided this week (93)
+- [[D2-295 Each depth of cure is its own good|Each depth of cure is its own good (D2-295)]]
+- [[D2-294 Going back to one's set gear is the act 'tend'|Going back to one's set gear is the act 'tend' (D2-294)]]
+- [[D2-293 One shared catch basis for every component of the wave|One shared catch basis for every component of the wave (D2-293)]]
+- [[D2-292 The food unit|The food unit (D2-292)]]
+- [[D2-291 A set of smoke racks holds about 250 kg of fish on 1 space|A set of smoke racks holds about 250 kg of fish on 1 space (D2-291)]]
+- [[D2-290 Fuel a house burns a night is at its real weight|Fuel a house burns a night is at its real weight (D2-290)]]
+- [[D2-289 A shelf life 'keeps d days' becomes a nightly loss read as about a…|A shelf life 'keeps d days' becomes a nightly loss read as about a… (D2-289)]]
+- [[D2-288 Bulk goods are counted in handling units of a stated weight and every…|Bulk goods are counted in handling units of a stated weight and every… (D2-288)]]
 - [[D2-287 Reviewing past runs|Reviewing past runs (D2-287)]]
 - [[D2-286 The list of what one could do today|The list of what one could do today (D2-286)]]
 - [[D2-285 The records brief is run by hand after each compaction for now, since…|The records brief is run by hand after each compaction for now, since… (D2-285)]]
@@ -121,14 +131,6 @@
 - [[D2-283 Salting fish runs at about 20 kg an hour with gutting, at 1 kg of…|Salting fish runs at about 20 kg an hour with gutting, at 1 kg of… (D2-283)]]
 - [[D2-282 Standing rules support conditional actions conditioned on state…|Standing rules support conditional actions conditioned on state… (D2-282)]]
 - [[D2-281 Tanning comes in this build, with bark as a new good|Tanning comes in this build, with bark as a new good (D2-281)]]
-- [[D2-280 Commits carry no Claude-Session line|Commits carry no Claude-Session line (D2-280)]]
-- [[D2-279 Stores, as answered|Stores, as answered (D2-279)]]
-- [[D2-278 The next wave of the fishing, hunting and materials network|The next wave of the fishing, hunting and materials network (D2-278)]]
-- [[D2-277 Every idea explored in conversation is written down before moving on|Every idea explored in conversation is written down before moving on (D2-277)]]
-- [[D2-276 Making durable things runs on the year clock|Making durable things runs on the year clock (D2-276)]]
-- [[D2-275 A unit of work is 2 hours|A unit of work is 2 hours (D2-275)]]
-- [[D2-274 One book of standing rules per household and per person covers both…|One book of standing rules per household and per person covers both… (D2-274)]]
-- [[D2-273 Three clocks, each system on one|Three clocks, each system on one (D2-273)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]

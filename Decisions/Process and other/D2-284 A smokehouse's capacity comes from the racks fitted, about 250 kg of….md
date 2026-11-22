@@ -22,6 +22,7 @@ conversation (22 Nov: "2. yes")
 
 
 ## Mentioned by
+- [[D2-291 A set of smoke racks holds about 250 kg of fish on 1 space|A set of smoke racks holds about 250 kg of fish on 1 space (D2-291)]]
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]
 - [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]

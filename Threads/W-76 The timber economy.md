@@ -22,6 +22,7 @@ started
 
 
 ## Mentioned by
+- [[D2-290 Fuel a house burns a night is at its real weight|Fuel a house burns a night is at its real weight (D2-290)]]
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]

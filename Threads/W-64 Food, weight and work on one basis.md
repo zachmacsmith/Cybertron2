@@ -31,6 +31,7 @@ done 20 Nov: the six-part analysis (02zzu_shared_units.md); the USDA lookup (02z
 - under it: [[D2-261 The older generic game stocks are counted in the new meat unit|The older generic game stocks are counted in the new meat unit (D2-261)]] (live)
 - under it: [[D2-262 The runs at a real river's size|The runs at a real river's size (D2-262)]] (live)
 - under it: [[D2-275 A unit of work is 2 hours|A unit of work is 2 hours (D2-275)]] (live)
+- under it: [[D2-292 The food unit|The food unit (D2-292)]] (live)
 - under it: [[L-138 Hens lay on the old clock|Hens lay on the old clock (L-138)]] (open)
 - under it: [[L-139 A hen killed in a raid gives its meat|A hen killed in a raid gives its meat (L-139)]] (open)
 - under it: [[Q-69 The basis for food and work|The basis for food and work (Q-69)]] (closed)
@@ -48,6 +49,7 @@ done 20 Nov: the six-part analysis (02zzu_shared_units.md); the USDA lookup (02z
 - [[D2-261 The older generic game stocks are counted in the new meat unit|The older generic game stocks are counted in the new meat unit (D2-261)]]
 - [[D2-262 The runs at a real river's size|The runs at a real river's size (D2-262)]]
 - [[D2-275 A unit of work is 2 hours|A unit of work is 2 hours (D2-275)]]
+- [[D2-292 The food unit|The food unit (D2-292)]]
 - [[Q-69 The basis for food and work|The basis for food and work (Q-69)]]
 - [[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Adopt the food values on one basis, and fix the runs, the weir and… (Q-70)]]
 - [[Q-71 Whether the older generic game stocks are counted in the new meat unit|Whether the older generic game stocks are counted in the new meat unit (Q-71)]]

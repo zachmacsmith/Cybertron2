@@ -37,6 +37,13 @@ started
 - under it: [[D2-284 A smokehouse's capacity comes from the racks fitted, about 250 kg of…|A smokehouse's capacity comes from the racks fitted, about 250 kg of… (D2-284)]] (live)
 - under it: [[D2-286 The list of what one could do today|The list of what one could do today (D2-286)]] (live)
 - under it: [[D2-287 Reviewing past runs|Reviewing past runs (D2-287)]] (live)
+- under it: [[D2-288 Bulk goods are counted in handling units of a stated weight and every…|Bulk goods are counted in handling units of a stated weight and every… (D2-288)]] (live)
+- under it: [[D2-289 A shelf life 'keeps d days' becomes a nightly loss read as about a…|A shelf life 'keeps d days' becomes a nightly loss read as about a… (D2-289)]] (live)
+- under it: [[D2-290 Fuel a house burns a night is at its real weight|Fuel a house burns a night is at its real weight (D2-290)]] (live)
+- under it: [[D2-291 A set of smoke racks holds about 250 kg of fish on 1 space|A set of smoke racks holds about 250 kg of fish on 1 space (D2-291)]] (live)
+- under it: [[D2-293 One shared catch basis for every component of the wave|One shared catch basis for every component of the wave (D2-293)]] (live)
+- under it: [[D2-294 Going back to one's set gear is the act 'tend'|Going back to one's set gear is the act 'tend' (D2-294)]] (live)
+- under it: [[D2-295 Each depth of cure is its own good|Each depth of cure is its own good (D2-295)]] (live)
 - under it: [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]] (open)
 - under it: [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]] (open)
 - under it: [[L-145 Offal's uses bait for set lines and traps, dog food|Offal's uses: bait for set lines and traps, dog food (L-145)]] (open)
@@ -48,7 +55,7 @@ started
 - under it: [[L-156 The locked chest and its key|The locked chest and its key (L-156)]] (open)
 - under it: [[L-157 Rest days, with health, fatigue and illness|Rest days, with health, fatigue and illness (L-157)]] (open)
 - under it: [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]] (open)
-- under it: [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]] (closed)
+- under it: [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]] (replaced)
 - under it: [[Q-84 The building scale|The building scale (Q-84)]] (closed)
 - under it: [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]] (done)
 - under it: [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]] (waiting)
@@ -59,6 +66,7 @@ started
 - under it: [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]] (waiting)
 - under it: [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]] (waiting)
 - under it: [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]] (waiting)
+- under it: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]] (active)
 
 
 ## Mentioned by
@@ -75,6 +83,13 @@ started
 - [[D2-284 A smokehouse's capacity comes from the racks fitted, about 250 kg of…|A smokehouse's capacity comes from the racks fitted, about 250 kg of… (D2-284)]]
 - [[D2-286 The list of what one could do today|The list of what one could do today (D2-286)]]
 - [[D2-287 Reviewing past runs|Reviewing past runs (D2-287)]]
+- [[D2-288 Bulk goods are counted in handling units of a stated weight and every…|Bulk goods are counted in handling units of a stated weight and every… (D2-288)]]
+- [[D2-289 A shelf life 'keeps d days' becomes a nightly loss read as about a…|A shelf life 'keeps d days' becomes a nightly loss read as about a… (D2-289)]]
+- [[D2-290 Fuel a house burns a night is at its real weight|Fuel a house burns a night is at its real weight (D2-290)]]
+- [[D2-291 A set of smoke racks holds about 250 kg of fish on 1 space|A set of smoke racks holds about 250 kg of fish on 1 space (D2-291)]]
+- [[D2-293 One shared catch basis for every component of the wave|One shared catch basis for every component of the wave (D2-293)]]
+- [[D2-294 Going back to one's set gear is the act 'tend'|Going back to one's set gear is the act 'tend' (D2-294)]]
+- [[D2-295 Each depth of cure is its own good|Each depth of cure is its own good (D2-295)]]
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
 - [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]
@@ -90,17 +105,10 @@ started
 - [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]]
 - [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
 - [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]]
+- [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
 - [[L-111 The hunting and resources build, a soon follow-up|The hunting and resources build, a soon follow-up (L-111)]]
 - [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]]
 - [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]]
 - [[L-145 Offal's uses bait for set lines and traps, dog food|Offal's uses: bait for set lines and traps, dog food (L-145)]]
-- [[L-146 Peat as fuel where there is bog|Peat as fuel where there is bog (L-146)]]
-- [[L-148 The wild's clock|The wild's clock (L-148)]]
-- [[L-153 Clearing a plot at a time|Clearing a plot at a time (L-153)]]
-- [[L-154 The scale gap in stores|The scale gap in stores (L-154)]]
-- [[L-155 Vermin fleshed out properly, with disease and sanitation|Vermin fleshed out properly, with disease and sanitation (L-155)]]
-- [[L-156 The locked chest and its key|The locked chest and its key (L-156)]]
-- [[L-157 Rest days, with health, fatigue and illness|Rest days, with health, fatigue and illness (L-157)]]
-- [[Acts on held things take the thing as their target, and default to…|Acts on held things take the thing as their target, and default to…]]
-- … and 21 more
+- … and 29 more
 - *and 1 index or audit notes*
