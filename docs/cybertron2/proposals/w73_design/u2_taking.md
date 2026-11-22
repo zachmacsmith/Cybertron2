@@ -219,7 +219,7 @@ The hunt is built (wild.hunt, briefs 4b and 4c) and its shape stays. Two changes
   the main kind's learned wariness at or past `WARY_SEEN` (wild.py:2211): "You came on {kind words} {n} times, and each time they were
   away before you were near: they are wary here." The "hunted too often here" sign fires on wariness against the area's heads, not on
   one kill against a small count (U8).
-- **The weapon wears:** a use a hunt for the leader's weapon (D2-46; today none in the wild hunts), at U3's lives.
+- **The weapon wears:** a use a hunt for the leader's weapon (D2-46's wear on use, extended from fights to hunts; today none in the wild hunts), at U3's lives.
 
 ### 5. Result wording rules (every act above)
 
@@ -243,7 +243,7 @@ The hunt is built (wild.hunt, briefs 4b and 4c) and its shape stays. Two changes
 | 1 | hand fishing and angling refused at a run where no resident fish live ("there is no fish at the Isel") | `knowledge.ready` refuses a technique whose `draws` stock is missing (knowledge.py:206) before `run_take` (verbs.py:610-611) | the edge draws U1's shallows; refused only at refuge with no run at a pinch; line fishing refused with the water's own reason (§4.5, §4.6). Phase-1 patch until the shallows are built: a `run: True` technique on a river parcel where a run passes today is not refused for a missing resident stock | `test_the_edge_reaches_a_run_where_the_water_holds_no_resident_fish` |
 | 2 | setting a trap mistaken for lifting it | `gather trap in water` always lays a new set (verbs.py:678-681 → wild.py:909-918); a set costs nothing and names nothing standing; the lift is a `take` by place (verbs.py:1625-1635) | gear in hand to set; tend its own act; the state rule for a technique named alone; the set names what stands (§3, §4.1) | `test_a_second_set_with_no_traps_in_hand_is_refused_and_points_to_the_tend`; `test_the_technique_named_alone_tends_what_stands` |
 | 3 | nets met 48 salmon and took none | the fowling net's table holds salmon at 3.0 by `social: flock` (methods.py:63-66, kinds.py:855); a run's salmon learn wariness (wild.py:2436) | fowling reaches what flies (§4.4); the gill net reaches swimming fish; a run's fish learn no wariness (U1 §7a) | `test_the_fowling_net_meets_no_fish`; `test_a_set_gill_net_takes_salmon_in_a_run`; U1's wariness test |
-| 4 | the weir known to everyone in every arm | MONUMENTS weir `"basic": True` (data.py:346) | not basic: building a section is a practised craft (trying_and_learning §1); anyone may work on a crew led by one who knows it (D2-66; `crew`, verbs.py:518) | `test_the_weir_is_not_everyones_craft` |
+| 4 | the weir known to everyone in every arm | MONUMENTS weir `"basic": True` (data.py:346) | not basic: building a section is a practised craft (trying_and_learning §1); anyone may work on a crew led by one who knows it (as `crew` allows now, verbs.py:518) | `test_the_weir_is_not_everyones_craft` |
 | 5 | "the Brook" read as Brook House | `here.building` strips "the" and matches a household's id (here.py:219-232); `_take` tries the parcel only if no building matches (verbs.py:1641, 1660) | a parcel's exact name resolves before any building; a household's name reaches its house only as "the Brooks", "Brook's" or "Brook House"; two answers: refused naming both | `test_a_place_named_like_a_household_is_the_place` |
 | 6 | "take from my snares" empties a neighbour's | `things.find` takes the most recently known set matching the words, no preference for one's own (things.py:622-655) | unnamed: one's own only; named: that thing (§1, §2) | `test_unnamed_acts_touch_only_ones_own` |
 | 7 | no theft wording on another's set | the theft path is the store's (verbs.py:1670-1676) | §2 theft; §5 rule 6 | `test_a_take_from_anothers_set_is_named_theft_and_seen` |
@@ -312,7 +312,7 @@ pay little.
 | Line fishing | a rod as today (base 1.5 a unit at full stock); a hand line alone 1.0 | default (today's rod value kept, a named departure of about 1.5 to 3 times the real central, fishing_ladder §4) |
 | Fowling | today's `net` rates with a fowling net; ×0.25 without | default |
 | The edge's gear | a dip net ×3 on the run's share at a pinch; a spear ×1.5 | default, est. |
-| Weapon wear | a use a hunt for the leader's weapon | default (D2-46; lives are U3's) |
+| Weapon wear | a use a hunt for the leader's weapon | default (D2-46 extended from fights to hunts; lives are U3's) |
 | A household's things | count as every living member's own, fixed to the setter's household at setting | default (basis §6) |
 
 ## Gaps
@@ -357,7 +357,7 @@ pay little.
   river_signs.md (§3), river_and_water.md (§3), w73_design/README.md, basis.md; `python3 tools/records.py show Q-80`.
 - docs/review/37_growth/02zzzh_hunt_fish/wave3_taking.md (§0 to §3, §6, §7, §8), wave_conflicts.md (C4 to C6, G12, E4b, E9, E13),
   wave4_people.md §5, fishing_ladder.md (§2, §4), hunting_ladder.md §1.2, catch_basis.md; docs/review/37_growth/02zzy2.
-- DECISIONS D2-46, D2-66, D2-210, D2-211, D2-213, D2-218, D2-219, D2-263, D2-264, D2-269, D2-276, D2-286, D2-289, D2-294, D2-297,
+- DECISIONS D2-46, D2-210, D2-211, D2-213, D2-218, D2-219, D2-263, D2-264, D2-269, D2-276, D2-286, D2-289, D2-294, D2-297,
   D2-298, D4-68, D4-81; OPEN Q-27, Q-79, Q-80, L-111, L-145; WORK W-70, W-81, W-85.
 
 *Current as of 22 Nov 2026.*

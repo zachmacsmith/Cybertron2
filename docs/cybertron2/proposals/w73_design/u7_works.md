@@ -296,17 +296,20 @@ about twice, a master about half). Medium rooms, halls and the water wheel need 
 missing.
 
 **5.1 One skill a trade, not one a blueprint.** Today skill is kept per technique: a carpenter's practice on medium rooms gives
-nothing on a hall or a timber smokehouse. The skill an act of building uses becomes the best of: the technique's own skill, and the
-builder's best skill among the techniques of the structure's trade (`trade: carpenter` for timber, `mason` for stone; wattle is
-basic). New: `KN.trade_skill(mind, trade)` (the best skill among the mind's records whose technique carries that trade); the build
-handlers take `max(KN.skill(mind, tech), KN.trade_skill(mind, trade_of(structure)))`. A seeded carpenter or mason (household_skills.md)
-then builds every timber or stone work at their trade's skill. Nothing new is seeded; the builder livelihood with wright and mason
-specialisms is U9's and U11's.
+nothing on a hall or a timber smokehouse. Two knowledge-only techniques hold a trade's skill: **carpentry** (`trade: carpenter`, the
+timber structure and the carpenter's fittings) and **masonry** (`trade: mason`, the stone structure, hearths, ovens, cellars,
+millstones, vaults, walls); wattle and camps stay basic. They have no verb of their own: an act of building uses
+`max(KN.skill(mind, tech), KN.skill(mind, craft))`, where `craft` is the work's structure's trade record. A person seeded knowing any
+carpenter's or mason's technique is given that craft at the same level and skill (as knowledge.py:99-103 already gives a seeded mason
+walling). Nothing else is seeded; the builder livelihood with wright and mason specialisms (household_skills.md addendum) is U9's and
+U11's.
 
 **5.2 Practice for every act** (D2-52: practice counts units of work). Each act of building, on a room, a fitting, a monument, a weir
-part, a tier or an upgrade, calls `KN.tried(here, mind, tech, True, units=<the act's units>)`; the finisher's and starter's single
-credits go (verbs.py:1279, 1338, 1396). A capable carpenter (practice about 35 units, skill about 1.3) who frames a timber smokehouse
-at 1/15 (16 to 26 units, about 10 acts) reaches about 1.55; a novice reaches capable's skill in about two small timber rooms.
+part, a tier or an upgrade, calls `KN.tried(here, mind, tech, True, units=<the act's units>)`, and the same units to the craft record
+for timber and stone work; the finisher's and starter's single credits go (verbs.py:1279, 1338, 1396). On the trade curve (0.5 to
+2.0, tau 50: D2-52's SKILL), a carpenter with about 35 units of practice (skill about 1.25) who frames a timber smokehouse at 1/15
+(16 to 26 units, about 10 acts of 2) reaches about 1.5; a novice (0.5) reaches 1.25 after about 35 units, two medium timber rooms at
+1/15.
 
 **5.3 Soundness from craftsmanship.** A building records `sound`, a multiplier on its wear and breaks, the work-weighted mean over the
 acts that built it of each act's multiplier from its builder's skill share s (0 at the curve's foot, 1 at its top, `knowledge.py`
