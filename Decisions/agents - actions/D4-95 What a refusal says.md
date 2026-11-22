@@ -31,6 +31,7 @@ bare refusals with no next step
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
 - [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
+- [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
 - [[38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]
 - [[38.59 Exploratory runs taking over a village, an Orwellian aim, and…|38.59: Exploratory runs: taking over a village, an Orwellian aim, and…]]
 - [[Brief 5, the river part the runs, the weir, the mill's gap, salmon…|Brief 5, the river part: the runs, the weir, the mill's gap, salmon…]]

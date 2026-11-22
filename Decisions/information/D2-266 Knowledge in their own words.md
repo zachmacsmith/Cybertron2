@@ -25,3 +25,4 @@ conversation (22 Nov: "conversation (22 Nov, answers to the open questions)")
 - [[A grammar of acting a few universal verbs, the thing as the target…|A grammar of acting: a few universal verbs, the thing as the target…]]
 - [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]
 - [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]
+- [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]

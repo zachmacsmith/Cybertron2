@@ -21,3 +21,4 @@ conversation (22 Nov: "conversation (22 Nov: "Even if not the main proposal they
 - [[Trying and learning crafts by difficulty, failures that teach…|Trying and learning: crafts by difficulty, failures that teach…]]
 - [[A grammar of acting a few universal verbs, the thing as the target…|A grammar of acting: a few universal verbs, the thing as the target…]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
+- [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]

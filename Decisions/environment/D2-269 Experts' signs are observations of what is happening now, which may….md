@@ -23,3 +23,4 @@ conversation (22 Nov: "conversation (22 Nov)")
 ## Mentioned by
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
+- [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]

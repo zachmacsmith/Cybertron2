@@ -50,6 +50,7 @@ M1's per-feature node filters
 - [[02zzi how an economy could scale beyond the medieval village (15 Nov…|02zzi: how an economy could scale beyond the medieval village (15 Nov…]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
 - [[14 War, force and the economy (16 Nov 2026)|14: War, force and the economy (16 Nov 2026)]]
+- [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
 - [[Review 38.20 the decisions still open, by what they block|Review 38.20: the decisions still open, by what they block]]
 - [[38.37 Everything an agent is shown inventory, origins, what it does…|38.37: Everything an agent is shown: inventory, origins, what it does…]]
 - [[38.41 Combe, the first run of the belief-built message (c1_combe…|38.41: Combe, the first run of the belief-built message (c1_combe…]]

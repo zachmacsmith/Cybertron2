@@ -28,3 +28,4 @@ conversation (22 Nov: "conversation (22 Nov, on store_management.md)")
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
 - [[Goods|Goods]]
+- [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]

@@ -29,3 +29,4 @@ the morning message with "Today you could" and the whole place each day (prompt.
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
 - [[02zw the reviews' proposals against how the engine already works (9…|02zw: the reviews' proposals against how the engine already works (9…]]
 - [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
+- [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]

@@ -31,6 +31,7 @@ in-world aims in every prompt (scenario_design §3, 38.11)
 - [[02t the next region world, designed from dependence and checked with…|02t: the next region world, designed from dependence and checked with…]]
 - [[02zc the systems of cybertron2 as they stand|02zc: the systems of cybertron2 as they stand]]
 - [[02zd cybertron2 as a response to cybertron 1|02zd: cybertron2 as a response to cybertron 1]]
+- [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
 - [[Review 38.14 cybertron2 M1 against cybertron 1 what was lost, and…|Review 38.14: cybertron2 M1 against cybertron 1: what was lost, and…]]
 - [[38.49 The Wenbridge runs (wb1 paused at day 14, wb2 to day 30)|38.49: The Wenbridge runs (wb1 paused at day 14, wb2 to day 30)]]
 - [[38.53 The goal probe does a goal, and how it is worded, change what…|38.53: The goal probe: does a goal, and how it is worded, change what…]]

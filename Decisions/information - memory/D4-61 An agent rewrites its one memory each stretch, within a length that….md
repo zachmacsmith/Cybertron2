@@ -33,6 +33,7 @@ conversation ("rather than forming a new memory every 3 days, they rewrite their
 - [[02zd cybertron2 as a response to cybertron 1|02zd: cybertron2 as a response to cybertron 1]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
+- [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
 - [[38.36 Memory rewritten each stretch live tests of the instruction…|38.36: Memory rewritten each stretch: live tests of the instruction…]]
 - [[38.37 Everything an agent is shown inventory, origins, what it does…|38.37: Everything an agent is shown: inventory, origins, what it does…]]
 - [[38.38 How agents have used their memory notes, pins, opening…|38.38: How agents have used their memory: notes, pins, opening…]]

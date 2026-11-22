@@ -29,4 +29,5 @@ the proposal of 0.5 a night
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[The fishing ladder techniques, gear, works and the water's stocks|The fishing ladder: techniques, gear, works and the water's stocks]]
 - [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]
+- [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
 - *and 1 index or audit notes*

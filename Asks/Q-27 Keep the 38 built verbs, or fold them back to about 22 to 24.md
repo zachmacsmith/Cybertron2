@@ -18,9 +18,11 @@ updated: "2026-11-20"
 ## Mentioned by
 - [[D2-243 The verbs and the livelihood archetypes are reshaped first, as their…|The verbs and the livelihood archetypes are reshaped first, as their… (D2-243)]]
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
+- [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]
 - [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
 - [[A grammar of acting a few universal verbs, the thing as the target…|A grammar of acting: a few universal verbs, the thing as the target…]]
 - [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
+- [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
 - *and 2 index or audit notes*

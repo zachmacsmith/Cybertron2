@@ -26,3 +26,4 @@ started
 ## Mentioned by
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]
+- [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
