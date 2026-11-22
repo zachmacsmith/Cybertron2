@@ -22,4 +22,5 @@ conversation (22 Nov: "I don't think we need to measure this or change rn I thin
 
 ## Mentioned by
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
+- [[spec_agents_brief.md|spec_agents_brief.md]]
 - *and 1 index or audit notes*
