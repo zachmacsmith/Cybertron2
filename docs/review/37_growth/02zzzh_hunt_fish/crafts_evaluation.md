@@ -216,7 +216,7 @@ agents did (27 to 34%) came from the system text's craft list instead.
    strong models compute chains from the food table instead (meal 1.0 against grain 0.7, "bread is thirteen meals to the ten",
    Payn, Opus 5, day 8); the weaker ones do not reach them.
 
-3. **The options list hid the crafts people use and advertised the ones they do not.** Every list in pw1 and wild_region_s7 was at
+3. **(Older view only.)** Current worlds use `view: beliefs` (review 38.40 §9, Zach 1 Nov; STANDARD in prompt.py since 38.70b), which shows no options list ("No computed choices"); the river run had none. This finding is about pw1 and wild_region_s7, which ran on the earlier view; the list survives in code for worlds without `view: beliefs` and in the bots. **The options list hid the crafts people use and advertised the ones they do not.** Every list in pw1 and wild_region_s7 was at
    the 10-row cut; milking was never listed in 1,637 mornings while agents milked 83 times; "make clappers" was listed 1,011 times.
    The near misses were mostly "work ditch, but Ashford Field is not wet ground" (1,405 of 1,637 mornings). The design's
    "near misses help planning" is right; the list built in table order, with no relevance, is not that design.
