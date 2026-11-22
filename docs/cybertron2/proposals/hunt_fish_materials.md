@@ -530,6 +530,20 @@ coast (L-149); environmental effects refined later (L-150); medium arm: a smokeh
 7. **Pollution's first sources** (§7.5): retting and tanning now, middens later?
 8. **The hearth rack's 3 nights** (dry fish, dry meat): checked like the smokehouse's?
 9. **Next steps after phase 5:** peat, barrels, boats and the seine, then the bow, dogs and keeping (tanning moved into phase 3)?
+10. **The smokehouse as a store, its racks as containers** (exploration, 22 Nov; Zach: "should storing it in there mean its lifetime
+    doesn't decay ... So smokehouses are a type of store as well? ... racks ... managed by standing rules like (take out after smoked)
+    or leave in etc. or manually?"). Explored: (a) **capacity from racks, not material:** each set of racks holds about 250 kg; the
+    building caps how many sets fit (a wattle hut 1; timber or stone by room size, with tiers and a loft); material sets the depths
+    allowed, the life and the fire risk. (b) **A deeper cure holds its racks longer:** a hard cure occupies them 2 to 3 nights against a
+    keeping smoke's 1, so a 750 kg house on hard cure passes about 250 to 375 kg a night, what a hut passes on a keeping smoke. (c)
+    **Hanging on is keeping, not slowing:** with no fire the house is a dry, fly-free store (§7.4: base rate, never below, D2-272);
+    with a fire, hanging on is still the process, deepening the cure along the path its salting allows (unsalted fish to the long end
+    of a keeping smoke; salted fish to a hard cure), at a night's fuel. (d) **Racks as containers under the book** (D2-274, D2-279):
+    go (fresh catch to the racks), keep, move (to the cellar once cured), drop; hanging is real work (about 30 fish a unit), so it is
+    a chore from spare units or an act, not a free move; tending the fire a chore while anything hangs; with no rule cured fish stay
+    hanging, kept, and the cost is full racks for the next catch. The grammar needs a condition on a good's state ("when cured").
+    (e) **Processing containers in general:** a brine tub, a drying rack, a tanning pit, a retting pond are the same shape: goods in
+    them change state over nights. Open: adopt (a) to (e); whether (e) is one engine unit.
 
 ## Affects
 
@@ -539,6 +553,7 @@ coast (L-149); environmental effects refined later (L-150); medium arm: a smokeh
 
 ## History
 
+- 22 Nov 2026: explored (open question 10): the smokehouse as a store with racks as containers, capacity from racks and the hold time of each depth, hanging on as keeping or as the process, rules for racks, processing containers in general; from Zach's question.
 - 22 Nov 2026: accepted in part: D2-281 (Tanning comes in this build, with bark as a new good; the withy pack basket and ).
 - 22 Nov 2026: accepted in part: D2-279 (Stores, as answered: goods are never kept at the rate of a building's best fitti).
 - 22 Nov 2026: accepted in part: D2-272 (A food's base rate of spoiling is its rate when well kept (covered, dry, out of ).
