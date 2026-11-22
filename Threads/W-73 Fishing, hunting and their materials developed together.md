@@ -51,7 +51,7 @@ started
 - under it: [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]] (done)
 - under it: [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]] (waiting)
 - under it: [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]] (waiting)
-- under it: [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]] (active)
+- under it: [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]] (waiting)
 - under it: [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]] (active)
 - under it: [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]] (waiting)
 - under it: [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]] (active)

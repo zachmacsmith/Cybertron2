@@ -20,6 +20,7 @@ Found 21 Nov: things.find picks the most recently known thing matching a place o
 
 
 ## Mentioned by
+- [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]]
 - [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]
 - [[Acts on held things take the thing as their target, and default to…|Acts on held things take the thing as their target, and default to…]]
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
