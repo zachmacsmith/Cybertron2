@@ -1,6 +1,6 @@
 # The morning of 23 Nov: what the overnight design wave found, and the questions for Zach
 
-Session 37.2. Eight notes landed overnight (thread W-73 and its parts). This page is the short version: what each found, then the
+Session 37.2. Nine notes landed overnight (thread W-73 and its parts). This page is the short version: what each found, then the
 questions ranked by how much of the build each one blocks, each with a recommendation. The full lists are in the notes (about 100
 questions in all; the conflicts audit ranks 24 of them).
 
@@ -15,6 +15,7 @@ questions in all; the conflicts audit ranks 24 of them).
 | wave4_people.md (W-78) | the core prompt cut to 12 lines, what each person is shown, the founders' seeded lines by livelihood, learning as one record, ten verb shapes, two worked villages | prompts fall from about 5,000 words to 860 to 1,300; Eelmouth fails the gate check (six "sowers" with no fields) |
 | wave_conflicts.md (W-79) | everything read against everything and the code | the notes disagree on firewood's weight (10 kg or 60, six times on every fuel cost) and on what "keeps a season" means |
 | building_clock_bots.md (W-82) | 69 bot runs at today's prices, 1/40, 1/15 and 1/7 | houses still get built; fences and clearing slip by weeks at 1/15 and miss the first year at 1/7; at 1/15 a fence's mending costs more than the herding it saves |
+| 02zzzj_steering/steering.md (W-84) | behaviour steered by defaults, examples and wording: 12 runs surveyed (5,656 mornings, checked against later fixes), two replay probes (111 model calls, about $17, weekly window 80% to 82%) | the fallback did a third of the river run's acts and up to two thirds of Haiku's, naming firewood whatever the store held; the example is not the cause; with no fallback about 40% of units go unused; answers copy the question's time word |
 | 02zzzi_timber/scouting.md (W-76) | the real timber ladder, what the engine lacks, leverage, a scope | a person carries 1.2 t of oak today; charcoal comes from felled timber, setting the wrong two trades against each other |
 
 Two corrections made overnight: the "Today you could" list is not in any current world (an agent's probe rendered the old prompt);
@@ -77,6 +78,19 @@ capacity from racks (D2-284), the records brief by hand after compaction (D2-285
     in old age. Recommend additive with a cap of about 30, measured for cost in the first runs.
 19. **Should the core prompt say knowledge dies unless passed on?** (W78 q1): recommend not, so it stays a cultural strand that can
     be run against its absence.
+
+**E. Steering** (02zzzj_steering/steering.md §5)
+
+20. **The fallback as a standing setting, shown and asked for** (L-142): one slot written once and repeated until the units run out
+    is the biggest live steer. Recommend a standing fallback shown each morning beside what it did yesterday and what the store holds,
+    asked for until set; not deleting it (that wastes about 40% of units). Dropping "(say, gather firewood)" costs nothing; do it too.
+21. **No-horizon wording for every line that asks for an intent:** "what you mean to do and why", "Decide what to do." The neutral
+    "today and further ahead" from 38.79 is a counter-lean, not neutral. This includes the why line of part 4's proposed core reply,
+    which still says "today". Recommend yes, with the memory types.
+22. **Examples in the prompt replaced by each person's own crafts** ("snares", "lift T12" now), and the smaller order steers ("the
+    village" the only attend target described; "push on" listed first and taken 80% of the time). Recommend yes.
+23. **A paired run to measure these** beyond single turns: two arms folded into the next runs-world run with a shared null arm.
+    Needs your go when that run is planned.
 
 ## Housekeeping
 
