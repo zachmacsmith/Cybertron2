@@ -54,6 +54,7 @@ is deferred (L-156).
 
 ## History
 
+- 22 Nov 2026: accepted in part: D2-301 (A person's own rules and standing fallback come before every household chore, ke).
 - 22 Nov 2026: accepted in part: D2-296 (Fallbacks are assignable by the household's standing rules: the head divides the).
 - 22 Nov 2026: accepted in part: D2-282 (Standing rules support conditional actions conditioned on state changes: a rule ).
 - **22 Nov 2026:** written by 37.2 as the proposal for D2-274 (Zach's answers: "1. yes. 2. yes. 3. I don't think default ... 4. sounds
