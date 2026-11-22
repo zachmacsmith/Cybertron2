@@ -46,6 +46,8 @@ started
 - under it: [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]] (open)
 - under it: [[Q-84 The building scale|The building scale (Q-84)]] (closed)
 - under it: [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]] (done)
+- under it: [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]] (queued)
+- under it: [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]] (queued)
 
 
 ## Mentioned by
@@ -64,6 +66,8 @@ started
 - [[W-72 Signs of the river|Signs of the river (W-72)]]
 - [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]]
 - [[W-76 The timber economy|The timber economy (W-76)]]
+- [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]]
+- [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]]
 - [[L-111 The hunting and resources build, a soon follow-up|The hunting and resources build, a soon follow-up (L-111)]]
 - [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]]
 - [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]]
@@ -87,5 +91,4 @@ started
 - [[The fishing ladder techniques, gear, works and the water's stocks|The fishing ladder: techniques, gear, works and the water's stocks]]
 - [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]
 - [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]
-- [[Hunting, trapping, fowling and the kill techniques, capital and…|Hunting, trapping, fowling and the kill: techniques, capital and…]]
-- [[Withies, coppice and the other wood and wild materials for fishing…|Withies, coppice and the other wood and wild materials for fishing…]]
+- … and 2 more

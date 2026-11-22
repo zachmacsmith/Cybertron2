@@ -21,4 +21,6 @@ conversation (22 Nov: "conversation (22 Nov: "right now a deeper redesign and th
 
 
 ## Mentioned by
+- [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]]
+- [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
