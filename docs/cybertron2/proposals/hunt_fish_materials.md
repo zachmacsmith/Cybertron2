@@ -559,6 +559,13 @@ coast (L-149); environmental effects refined later (L-150); medium arm: a smokeh
 
 ## History
 
+- 22 Nov 2026: accepted in part: D2-295 (Each depth of cure is its own good (hot-smoked, smoked, hard-cured, salt and dri).
+- 22 Nov 2026: accepted in part: D2-294 (Going back to one's set gear is the act 'tend' (checking, emptying, re-setting, ).
+- 22 Nov 2026: accepted in part: D2-293 (One shared catch basis for every component of the wave: the calibrated bot runs ).
+- 22 Nov 2026: accepted in part: D2-291 (A set of smoke racks holds about 250 kg of fish on 1 space (about 50 kg a m2); D).
+- 22 Nov 2026: accepted in part: D2-290 (Fuel a house burns a night is at its real weight: about 10 kg (one bundle) a nor).
+- 22 Nov 2026: accepted in part: D2-289 (A shelf life 'keeps d days' becomes a nightly loss read as about a quarter lost ).
+- 22 Nov 2026: accepted in part: D2-288 (Bulk goods are counted in handling units of a stated weight and every recipe is ).
 - 22 Nov 2026: brought up to the day's decisions after the conflicts audit (wave_conflicts.md C7, C19, C33, C34): status, the clocks rule replacing "per real day", gutting folded into salting, bark and tanning in this build, decided open questions marked; prices left pending the wave's part 1 answers.
 - 22 Nov 2026: accepted in part: D2-284 (A smokehouse's capacity comes from the racks fitted, about 250 kg of fish a set;).
 - 22 Nov 2026: accepted in part: D2-283 (Salting fish runs at about 20 kg an hour with gutting, at 1 kg of salt to 4 kg o).
