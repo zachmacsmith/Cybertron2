@@ -1,13 +1,13 @@
 ---
 id: Q-69
 kind: ask
-state: open
-updated: "2026-11-20"
+state: closed
+updated: "2026-11-22"
 ---
 
 # The basis for food and work (Q-69)
 
-*open · Zach (37.2, 37.4)*
+*closed, by zach · Zach (37.2, 37.4)*
 
 ## The question
 from proposals/shared_units.md (37.4, 19 Nov), its open questions 1 to 3
@@ -19,6 +19,8 @@ from proposals/shared_units.md (37.4, 19 Nov), its open questions 1 to 3
 
 **Default:** the analysis is done in kcal and hours, so the answers only set the conversion
 
+**Zach's answer:** conversation (22 Nov: "Let's do 2 hours")
+
 **Where:** docs/cybertron2/proposals/shared_units.md
 
 
@@ -27,6 +29,7 @@ from proposals/shared_units.md (37.4, 19 Nov), its open questions 1 to 3
 
 
 ## Mentioned by
+- [[D2-275 A unit of work is 2 hours|A unit of work is 2 hours (D2-275)]]
 - [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
 - [[Shared units food value, weight and work on one basis|Shared units: food value, weight and work on one basis]]
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]

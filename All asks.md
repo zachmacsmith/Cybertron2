@@ -1,7 +1,6 @@
 # All asks
 
 ## Open
-- [[Q-84 The building scale|The building scale (Q-84)]] (open)
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]] (open)
 - [[Q-82 Trying and learning|Trying and learning (Q-82)]] (open)
 - [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]] (open)
@@ -12,7 +11,6 @@
 - [[Q-75 Whether D2-210's yearly upkeep band wins over the river proposal's…|Whether D2-210's yearly upkeep band wins over the river proposal's… (Q-75)]] (open)
 - [[Q-74 Whether a weir's first section costs a base of 6 timber and 8 units…|Whether a weir's first section costs a base of 6 timber and 8 units… (Q-74)]] (open)
 - [[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Whether salting fish and meat stays at 4 kg a unit of work (Q-73)]] (open)
-- [[Q-69 The basis for food and work|The basis for food and work (Q-69)]] (open)
 - [[Q-68 How high the surplus can go in the medieval worlds, against the…|How high the surplus can go in the medieval worlds, against the… (Q-68)]] (open)
 - [[Q-67 Confirm three rules the sessions follow without your own words behind…|Confirm three rules the sessions follow without your own words behind… (Q-67)]] (open)
 - [[Q-62 recordexecution.md and resume --from-last|record/execution.md and `resume --from-last` (Q-62)]] (open)
@@ -47,12 +45,14 @@
 - [[Q-RR3 The human player's first interface|The human player's first interface (Q-RR3)]] (open)
 - [[Q-RR5 A replay test with shuffled completion order of model calls|A replay test with shuffled completion order of model calls (Q-RR5)]] (open)
 
-## Closed (49)
+## Closed (51)
 - [[Q-85 One book of standing rules per household and person for eating and…|One book of standing rules per household and person for eating and… (Q-85)]]
+- [[Q-84 The building scale|The building scale (Q-84)]]
 - [[Q-76 Whether the runs world's medium arm needs more keeping capital|Whether the runs world's medium arm needs more keeping capital (Q-76)]]
 - [[Q-72 Whether milking gets 02zzu's rate fix|Whether milking gets 02zzu's rate fix (Q-72)]]
 - [[Q-71 Whether the older generic game stocks are counted in the new meat unit|Whether the older generic game stocks are counted in the new meat unit (Q-71)]]
 - [[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Adopt the food values on one basis, and fix the runs, the weir and… (Q-70)]]
+- [[Q-69 The basis for food and work|The basis for food and work (Q-69)]]
 - [[Q-66 The nutrition worlds|The nutrition worlds (Q-66)]]
 - [[Q-65 Delete the 16 empty branches|Delete the 16 empty branches (Q-65)]]
 - [[Q-64 The records as items with rendered views, one tool and a skill…|The records as items with rendered views, one tool and a skill… (Q-64)]]

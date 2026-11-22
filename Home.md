@@ -4,9 +4,8 @@
 
 [The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.
 
-## Waiting on you (20)
+## Waiting on you (18)
 - [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)]]
-- [[Q-84 The building scale|The building scale (Q-84)]]
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]
 - [[Q-82 Trying and learning|Trying and learning (Q-82)]]
 - [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]]
@@ -17,6 +16,7 @@
 - [[Q-75 Whether D2-210's yearly upkeep band wins over the river proposal's…|Whether D2-210's yearly upkeep band wins over the river proposal's… (Q-75)]]
 - [[Q-74 Whether a weir's first section costs a base of 6 timber and 8 units…|Whether a weir's first section costs a base of 6 timber and 8 units… (Q-74)]]
 - [[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Whether salting fish and meat stays at 4 kg a unit of work (Q-73)]]
+- [[Q-68 How high the surplus can go in the medieval worlds, against the…|How high the surplus can go in the medieval worlds, against the… (Q-68)]]
 - … all of them: [[All asks]]
 
 ## To confirm or revisit
@@ -97,7 +97,11 @@
 ## Queued and paused (8)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework, [[W-76 The timber economy|W-76]] The timber economy
 
-## Decided this week (72)
+## Decided this week (76)
+- [[D2-278 The next wave of the fishing, hunting and materials network|The next wave of the fishing, hunting and materials network (D2-278)]]
+- [[D2-277 Every idea explored in conversation is written down before moving on|Every idea explored in conversation is written down before moving on (D2-277)]]
+- [[D2-276 Making durable things runs on the year clock|Making durable things runs on the year clock (D2-276)]]
+- [[D2-275 A unit of work is 2 hours|A unit of work is 2 hours (D2-275)]]
 - [[D2-274 One book of standing rules per household and per person covers both…|One book of standing rules per household and per person covers both… (D2-274)]]
 - [[D2-273 Three clocks, each system on one|Three clocks, each system on one (D2-273)]]
 - [[D2-272 A food's base rate of spoiling is its rate when well kept|A food's base rate of spoiling is its rate when well kept (D2-272)]]
@@ -109,10 +113,6 @@
 - [[D2-266 Knowledge in their own words|Knowledge in their own words (D2-266)]]
 - [[D2-265 The river's signs|The river's signs (D2-265)]]
 - [[D2-264 The fishing, hunting and materials network|The fishing, hunting and materials network (D2-264)]]
-- [[D2-263 A craft a person knows at capable or known shows, where they look|A craft a person knows at capable or known shows, where they look (D2-263)]]
-- [[D2-262 The runs at a real river's size|The runs at a real river's size (D2-262)]]
-- [[D2-261 The older generic game stocks are counted in the new meat unit|The older generic game stocks are counted in the new meat unit (D2-261)]]
-- [[D2-260 Milking at its real yield|Milking at its real yield (D2-260)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]

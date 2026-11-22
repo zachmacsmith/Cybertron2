@@ -28,6 +28,8 @@ started
 - under it: [[D2-271 Smoking in three depths|Smoking in three depths (D2-271)]] (live)
 - under it: [[D2-272 A food's base rate of spoiling is its rate when well kept|A food's base rate of spoiling is its rate when well kept (D2-272)]] (live)
 - under it: [[D2-273 Three clocks, each system on one|Three clocks, each system on one (D2-273)]] (live)
+- under it: [[D2-276 Making durable things runs on the year clock|Making durable things runs on the year clock (D2-276)]] (live)
+- under it: [[D2-278 The next wave of the fishing, hunting and materials network|The next wave of the fishing, hunting and materials network (D2-278)]] (live)
 - under it: [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]] (open)
 - under it: [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]] (open)
 - under it: [[L-145 Offal's uses bait for set lines and traps, dog food|Offal's uses: bait for set lines and traps, dog food (L-145)]] (open)
@@ -36,7 +38,7 @@ started
 - under it: [[L-153 Clearing a plot at a time|Clearing a plot at a time (L-153)]] (open)
 - under it: [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]] (open)
 - under it: [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]] (open)
-- under it: [[Q-84 The building scale|The building scale (Q-84)]] (open)
+- under it: [[Q-84 The building scale|The building scale (Q-84)]] (closed)
 - under it: [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]] (done)
 
 
@@ -45,6 +47,8 @@ started
 - [[D2-271 Smoking in three depths|Smoking in three depths (D2-271)]]
 - [[D2-272 A food's base rate of spoiling is its rate when well kept|A food's base rate of spoiling is its rate when well kept (D2-272)]]
 - [[D2-273 Three clocks, each system on one|Three clocks, each system on one (D2-273)]]
+- [[D2-276 Making durable things runs on the year clock|Making durable things runs on the year clock (D2-276)]]
+- [[D2-278 The next wave of the fishing, hunting and materials network|The next wave of the fishing, hunting and materials network (D2-278)]]
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
 - [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]
@@ -62,6 +66,7 @@ started
 - [[Acts on held things take the thing as their target, and default to…|Acts on held things take the thing as their target, and default to…]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
+- [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
