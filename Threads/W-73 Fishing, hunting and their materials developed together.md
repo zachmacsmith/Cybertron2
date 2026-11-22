@@ -56,7 +56,7 @@ started
 - under it: [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]] (waiting)
 - under it: [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]] (waiting)
 - under it: [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]] (waiting)
-- under it: [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]] (active)
+- under it: [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]] (waiting)
 - under it: [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]] (waiting)
 - under it: [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]] (active)
 
@@ -102,5 +102,5 @@ started
 - [[L-156 The locked chest and its key|The locked chest and its key (L-156)]]
 - [[L-157 Rest days, with health, fatigue and illness|Rest days, with health, fatigue and illness (L-157)]]
 - [[Acts on held things take the thing as their target, and default to…|Acts on held things take the thing as their target, and default to…]]
-- … and 19 more
+- … and 20 more
 - *and 1 index or audit notes*

@@ -79,6 +79,7 @@ updated: "2026-11-22"
 - [[02zzz2 every state of the water, and what of it reaches a person|02zzz2: every state of the water, and what of it reaches a person]]
 - [[02zzz the runs world's three live runs, against the bots and the…|02zzz: the runs world's three live runs, against the bots and the…]]
 - [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
+- [[The building clock's first stage, read with bots do bots still build…|The building clock's first stage, read with bots: do bots still build…]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
@@ -86,4 +87,4 @@ updated: "2026-11-22"
 - [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]
 - [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
-- [[Withies, coppice and the other wood and wild materials for fishing…|Withies, coppice and the other wood and wild materials for fishing…]]
+- … and 1 more

@@ -28,3 +28,4 @@ crops growing through winter (the engine as built)
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[02zzu lookup the food values checked against USDA FoodData Central|02zzu lookup: the food values checked against USDA FoodData Central]]
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
+- [[The building clock's first stage, read with bots do bots still build…|The building clock's first stage, read with bots: do bots still build…]]

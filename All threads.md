@@ -3,7 +3,7 @@
 ## Open
 - [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]] (active)
 - [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]] (waiting)
-- [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]] (active)
+- [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]] (waiting)
 - [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]] (waiting)
 - [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]] (waiting)
 - [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]] (waiting)

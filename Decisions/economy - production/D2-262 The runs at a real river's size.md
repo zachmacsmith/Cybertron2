@@ -25,6 +25,7 @@ conversation (20 Nov: "conversation (20 Nov: "Adjust milk yield. Change the old 
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[02zzz the runs world's three live runs, against the bots and the…|02zzz: the runs world's three live runs, against the bots and the…]]
 - [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
+- [[The building clock's first stage, read with bots do bots still build…|The building clock's first stage, read with bots: do bots still build…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - [[Design wave part 2 materials and making (withies, cord and flax…|Design wave part 2: materials and making (withies, cord and flax…]]
