@@ -514,3 +514,20 @@ Each arm keeps the same seed, so the people, households, holdings and bands are 
 8. Where the rows live: `engine/livelihoods.py` as one feature unit with its templates (D2-244 seams), or LIVELIHOODS in `data.py`?
 
 *Current as of 22 Nov 2026.*
+
+## Addendum, 22 Nov: changes to the livelihoods after Zach's review (exploration)
+
+- **Carpenter and mason become one builder livelihood** with two specialisms: the **wright** (timber framing, wheels, the plough
+  frame, the handcart) and the **mason** (hearths, ovens, millstones, walls). Neither lived by building alone in a village: work came
+  in lumps and they were usually a secondary trade beside farming, or travelled for big jobs (churches, mills, a lord's house).
+  Builders are faster (about half the units at master) and build sounder (craftsmanship sets a building's wear and breaks),
+  proposals/building_clock.md; the timber economy (W-76) carries them further.
+- **The charcoal burner becomes the woodsman:** coppice and poles, withies, firewood and charcoal; a real full-time living only
+  where a smith or a salter buys the fuel.
+- **A cottager added:** a household with a cottage and a garden and little or no land of its own, living by work for others (paid
+  in food or coin: work-for-pay offers exist), a few beasts on the common, gathering and by-crafts (spinning, basketry); a village's
+  labour supply, and a test of labour markets.
+- **The tanner row is added now** (D2-270), its uses (the pack frame's straps, harness, bellows, shoes) arriving in the same build
+  (hunt_fish_materials.md §7.6).
+- **Elders teach from their peak skill** (trying_and_learning.md §6), so an elder past their best still teaches what they knew.
+

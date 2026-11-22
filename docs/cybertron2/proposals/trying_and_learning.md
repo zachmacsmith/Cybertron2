@@ -74,6 +74,11 @@ knowledge of the hands, not a note.
   or use it; for a simple craft, a rough idea at once.
 - **Attending to someone at work** for a day (free): aware of the craft; one lesson of it.
 - **Working beside them** (today's `watch`, the costly form of attention): a rough idea and two or three lessons.
+- **Attention can be spent on** (exploration, Zach 22 Nov: "Spend more actions of attention? Maybe that would be a better mechanic,
+  for noticing nicher things, being more likely to consider/discover relevant techniques etc or pick things up from what others have
+  done"): one free attention a day as now, and units spent on more ("observe {thing or person}, 2 units"): rarer things noticed,
+  a craft's lessons picked up from watching someone work (with or without their consent; `watch` folds into this), a technique
+  discovered from a finished thing, the signs read more fully. Teaching stays its own act: a willing teacher passes more, faster.
 - **Hearing a craft named:** aware (as now), but only by the craft's own name, not common words (crafts_evaluation found awareness
   matched on common words).
 - **Aware may try** any craft, at aware's odds and waste: guessing the inputs from what one holds, wrong inputs wasted. Whether every
@@ -85,9 +90,49 @@ For skilled crafts practice alone stops at capable and halfway up the skill curv
 D4-123) or working beside a master takes one further. Teaching was the one path agents used in the river run (17 lessons against 4
 rough ideas from watching), so this puts weight where behaviour already is, and makes specialists and the dependence on them real.
 
-### 6. Each craft's row carries
+### 6. Teaching from the teacher's peak (exploration)
 
-class; what skill acts on; its lessons with their lines (2 to 3 drafted per craft in learning_times.md); a "what it does" sentence
+A lesson moves the learner part of the way toward the **teacher's lifetime peak skill** (the engine keeps `peak`, used today for
+relearning), not their present skill, so an elder past their best still teaches what they knew; a teacher at or near their peak
+teaches faster, their hands showing what their words describe (Zach, 22 Nov: "make teaching depend on their peak skill value
+rather than current one ... bridge the current learner and the teacher's lifetime peak, maybe with some benefit if they are
+currently at their peak"). The knowledge lines are the agent's own and cannot be read by the engine for this. Today teaching is the
+same for every craft: one session with one who knows it makes the learner capable.
+
+### 7. Each craft its own skill profile (exploration)
+
+Zach, 22 Nov: "different techniques could have completely different skill profiles, have much more depth where you could get
+better and better, or be very shallow, or quick learning to one level then get much better later ... Should it be discrete or
+continuous? Or continuous skill with discrete capability points unlocked along the way?" Proposed:
+- **Skill is continuous,** a number per craft that practice raises along that craft's own curve; it governs how well: yield, waste,
+  quality, how often a try works.
+- **Each craft's curve from a few shapes:** shallow and quick (snares level off early), steady (netting), slow and deep (smithing,
+  improving for years), stepped (quick to a basic level, then a long climb); each a start, a level-off point, a rate and a ceiling.
+  The difficulty classes (§1) are default shapes a craft may override.
+- **Capability points are discrete,** unlocked at thresholds on the curve; they change what one can do, not how well: a timber weir
+  section, reading a run a day early, a fine net, teaching the skilled half. A craft's ladder is its list of capability points, one
+  or two for some, many for others.
+
+### 8. Transfer through underlying skills (exploration)
+
+Zach, 22 Nov: "should we have techniques also sit on some multidimensional axis of the underlying types of skill needed so there can
+be some automatic transfer ... learn faster or have better baseline skill ... Could maybe go with genetic baselines passed on with
+some mix from birth tho idk if that would be too much?" Proposed, kept small:
+- **Six to eight underlying skills:** working with the hands (weaving, knotting, fine work); fire and heat (smoking, charcoal,
+  smelting, baking); reading animals (hunting, fowling, herding); reading water (fishing, the runs); plants and soil; building and
+  structure; strength and endurance; dealing with people (trade, teaching).
+- **Each craft has a small profile across them** (a net mostly hands; smoking mostly fire, some water).
+- **Practice feeds the craft first and its dimensions a little;** a new craft's starting skill and learning speed draw on related
+  dimensions: a basket maker takes to netting, a hunter to fowling, a charcoal burner to smoking. A head start of up to about a
+  third (calibrate).
+- **Inherited aptitude** (a baseline per dimension from a mix of the parents and chance) is an experiment knob, off by default: it
+  adds variance that makes runs harder to read, craft ability is mostly learnt, and transfer through practice already gives families
+  their trades through who teaches whom.
+- A real rebuild: every craft row needs a curve shape, capability points and a profile; best done with the archetypes rework (W-70).
+
+### 9. Each craft's row carries
+
+class (or curve shape), capability points, a profile across the underlying skills; what skill acts on; its lessons with their lines (2 to 3 drafted per craft in learning_times.md); a "what it does" sentence
 (D2-251's ladder); its inputs and batch (D2-263, D2-247). About 130 rows, best written with the archetypes rework (W-70), which
 touches every row.
 
@@ -117,7 +162,11 @@ only from refusals they must write down themselves.
 3. The crude result for simple and practised crafts: wanted?
 4. Lessons kept in `Mind.know` by the engine (proposed), beside what the agent writes?
 5. Attention as the one way of learning by looking, with watch its costly form (also Q-81, question 3)?
-6. The life clock: practice set at lifespan 96 and scaled with the lifespan?
+6. The life clock: decided (D2-267): practice set at a 64-day lifespan and scaled.
+7. Attention spent in units (§4), with `watch` folded in?
+8. Teaching toward the teacher's peak (§6), faster at their peak?
+9. Continuous skill with discrete capability points, per-craft curve shapes (§7)?
+10. Transfer through six to eight underlying skills (§8); inherited aptitude as an off-by-default knob?
 
 ## Affects
 
@@ -126,6 +175,8 @@ crafts_lines), `verbs.py` (make, the try's outcome and lines), `perceive.py` (at
 the world makers (seeded levels).
 
 ## History
+
+- **22 Nov 2026:** §4 (attention spent in units), §6 (teaching from peak), §7 (skill profiles and capability points), §8 (transfer through underlying skills; inherited aptitude) added as exploration, from the day's conversation (Zach quoted in each), under the rule that every explored idea is written down (D2-277).
 
 - **22 Nov 2026:** drafted by 37.2 at Zach's request (quoted under Why; "you can continue the learning times agent"), from
   docs/review/37_growth/02zzzh_hunt_fish/learning_times.md (18 crafts, the classes, the parameters, the life clock, failure lines;

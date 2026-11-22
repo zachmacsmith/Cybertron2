@@ -18,6 +18,12 @@ withies_wood_materials, engine_audit, byproducts_and_substitutes). It gathers th
 proposals/river_signs.md), the fishing bugs (Q-79), the hunting and resources build that was benched (L-111), the shallows stock
 (Zach, 16 Nov), fowling split from fish nets, and carrying (W-71).
 
+**Linked proposals** (each part of this design or explored beside it): building_clock.md (D2-276), store_rules.md (D2-274),
+trying_and_learning.md, knowledge_in_their_own_words.md, acts_on_owned_things.md, river_signs.md, verb_grammar.md (exploration);
+the research in docs/review/37_growth/02zzzh_hunt_fish/ (fishing_ladder, hunting_ladder, fibre_and_cord, withies_wood_materials,
+engine_audit, byproducts_and_substitutes, crafts_evaluation, learning_times, founders_knowledge, household_skills, smokehouse_capacity,
+storage, store_management, building_clock).
+
 ## What the design is for (the tests every piece must pass)
 
 A good, a technique or a work enters only if it does at least two of these:

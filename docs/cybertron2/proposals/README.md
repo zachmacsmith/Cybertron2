@@ -461,3 +461,6 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 17 Nov | a signs pass after the lake runs (11 built, 1 to follow, 1 deferred) | retrospective, accepted in conversation | [signs_pass_17nov.md](signs_pass_17nov.md) |
 | 20 Nov | the records as items in a small web of documents, one tool, typed commits, resolutions by whom, code under a thread, branches merged early | accepted: D2-232 to D2-239 | [records_and_workflow.md](records_and_workflow.md), [thread_tracking.md](thread_tracking.md) |
 | 20 Nov | food, weight and work on one basis; the runs, gear holds and fish stocks at real sizes; real values within about 20% kept, balance through named levers | partly accepted: D2-258 to D2-262 | [shared_units.md](shared_units.md) |
+| 22 Nov | making durable things at a real share of a year's work; a unit 2 hours | accepted in principle: D2-275, D2-276 | [building_clock.md](building_clock.md) |
+| 22 Nov | stores in the book of standing rules | accepted in part: D2-274 | [store_rules.md](store_rules.md) |
+| 22 Nov | a grammar of acting: few verbs, the thing as target, techniques as the how | exploration | [verb_grammar.md](verb_grammar.md) |
