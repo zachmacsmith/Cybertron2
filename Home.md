@@ -28,7 +28,7 @@
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]: revisit: soon (Zach, 20 Nov: 'that one sooner')
 - [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]: closed by agent
 
-## Active threads (21)
+## Active threads (22)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -56,6 +56,8 @@
 - [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]  
   next: overnight agent running; then review, commit, questions to Zach
 - [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]]  
+  next: overnight agent running; then review, commit, questions to Zach
+- [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]  
   next: overnight agent running; then review, commit, questions to Zach
 
 **37.4**

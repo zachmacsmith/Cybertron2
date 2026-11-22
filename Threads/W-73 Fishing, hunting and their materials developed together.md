@@ -55,6 +55,7 @@ started
 - under it: [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]] (active)
 - under it: [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]] (active)
 - under it: [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]] (active)
+- under it: [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]] (active)
 
 
 ## Mentioned by
@@ -82,6 +83,7 @@ started
 - [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]]
 - [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]
 - [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]]
+- [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
 - [[L-111 The hunting and resources build, a soon follow-up|The hunting and resources build, a soon follow-up (L-111)]]
 - [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]]
 - [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]]
@@ -97,5 +99,4 @@ started
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
-- [[Production foraging, farming and tools|Production: foraging, farming and tools]]
-- … and 11 more
+- … and 12 more

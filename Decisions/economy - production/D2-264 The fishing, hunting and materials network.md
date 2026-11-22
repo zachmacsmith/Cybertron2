@@ -21,6 +21,7 @@ conversation (22 Nov: "conversation (22 Nov, answers to the open questions)")
 
 
 ## Mentioned by
+- [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
