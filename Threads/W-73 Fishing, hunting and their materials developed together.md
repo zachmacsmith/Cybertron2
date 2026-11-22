@@ -31,6 +31,7 @@ started
 - under it: [[D2-276 Making durable things runs on the year clock|Making durable things runs on the year clock (D2-276)]] (live)
 - under it: [[D2-278 The next wave of the fishing, hunting and materials network|The next wave of the fishing, hunting and materials network (D2-278)]] (live)
 - under it: [[D2-279 Stores, as answered|Stores, as answered (D2-279)]] (live)
+- under it: [[D2-281 Tanning comes in this build, with bark as a new good|Tanning comes in this build, with bark as a new good (D2-281)]] (live)
 - under it: [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]] (open)
 - under it: [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]] (open)
 - under it: [[L-145 Offal's uses bait for set lines and traps, dog food|Offal's uses: bait for set lines and traps, dog food (L-145)]] (open)
@@ -40,6 +41,7 @@ started
 - under it: [[L-154 The scale gap in stores|The scale gap in stores (L-154)]] (open)
 - under it: [[L-155 Vermin fleshed out properly, with disease and sanitation|Vermin fleshed out properly, with disease and sanitation (L-155)]] (open)
 - under it: [[L-156 The locked chest and its key|The locked chest and its key (L-156)]] (open)
+- under it: [[L-157 Rest days, with health, fatigue and illness|Rest days, with health, fatigue and illness (L-157)]] (open)
 - under it: [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]] (open)
 - under it: [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]] (open)
 - under it: [[Q-84 The building scale|The building scale (Q-84)]] (closed)
@@ -54,6 +56,7 @@ started
 - [[D2-276 Making durable things runs on the year clock|Making durable things runs on the year clock (D2-276)]]
 - [[D2-278 The next wave of the fishing, hunting and materials network|The next wave of the fishing, hunting and materials network (D2-278)]]
 - [[D2-279 Stores, as answered|Stores, as answered (D2-279)]]
+- [[D2-281 Tanning comes in this build, with bark as a new good|Tanning comes in this build, with bark as a new good (D2-281)]]
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
 - [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]
@@ -71,6 +74,7 @@ started
 - [[L-154 The scale gap in stores|The scale gap in stores (L-154)]]
 - [[L-155 Vermin fleshed out properly, with disease and sanitation|Vermin fleshed out properly, with disease and sanitation (L-155)]]
 - [[L-156 The locked chest and its key|The locked chest and its key (L-156)]]
+- [[L-157 Rest days, with health, fatigue and illness|Rest days, with health, fatigue and illness (L-157)]]
 - [[Acts on held things take the thing as their target, and default to…|Acts on held things take the thing as their target, and default to…]]
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]

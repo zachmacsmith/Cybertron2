@@ -69,7 +69,7 @@ not built for want of one unit). Hence the stages and companions.
      rough), ditches and banks, living hedges grown over years. A fence priced by its length, so a small close costs less than a field.
    - **Clearing a plot at a time** ([[L-153 Clearing a plot at a time|L-153]]): today a parcel becomes a field only when all its clearing is done; real assarting was
      piecemeal, each cleared plot sown while the next is cleared.
-3. **Works raised part way** (to about 1/4), read with bots and a short live run: does building still happen; then further.
+3. **Works raised in stages** ([[D2-281 Tanning comes in this build, with bark as a new good|D2-281]]): from today's (about 1/40 of real hours) to about 1/15, read with bots and a short live run: does building still happen; then to the target of about 1/7. (A smaller factor is cheaper: at 1/7 a cottage of about 500 real hours costs about 36 units, at 1/4 about 63.)
 4. Timber and stone in kilograms ([[D2-264 The fishing, hunting and materials network|D2-264]]) and carrying ([[W-71 How carrying works in the live runs|W-71]]) **before** works are repriced: a timber is about 240 kg, so a small
    room's 8 timber is about 65 loads on foot, which could dwarf the building work itself.
 5. The weir sized to its take, then repriced; tool and plough lives (crude tool 20 to 70 uses, copper tool 70 to 200, plough 11 to 27
@@ -94,9 +94,9 @@ pottery, daub is mud and straw dug on the spot (work, no good); clay joins with 
 
 ## Open questions
 
-1. The factor: about 1/7 (the share of work at 2-hour units, no rest days), or nearer 1/4 to 1/5?
-2. Rest days: should some days be rest days (Sundays, feasts), lowering the year's work and the factor?
-3. The stages: works raised part way first (about 1/4), then further?
+1. The factor: decided, a target of about 1/7, staged ([[D2-281 Tanning comes in this build, with bark as a new good|D2-281]]).
+2. Rest days: flagged with health, fatigue and illness ([[L-157 Rest days, with health, fatigue and illness|L-157]]).
+3. The stages: decided ([[D2-281 Tanning comes in this build, with bark as a new good|D2-281]]).
 4. Builders' craftsmanship setting a building's wear and breaks, with the finish tiers?
 5. Which cheaper crop protections first: herding by children, dead hedges, folds, fences by length?
 6. Wattle of withies, posts, daub and thatch, and straw's unit and thatch's need in kilograms?
@@ -108,6 +108,7 @@ pottery, daub is mud and straw dug on the spot (work, no good); clay joins with 
   conversation: Zach's questions on 12-hour days, the fence at 47 units, a house's payback, builders as a trade ("push builders as a
   trade that are much faster at building, can build sturdier or better houses if more skilled (should buildings have craftsmanship at
   all that affects how much they break down or no?)"), wattle's materials, straw, clay, and clearing a plot at a time.
+- **22 Nov 2026:** the staging corrected: an earlier note said "part way, to about 1/4", which is the dearer end; staged instead through about 1/15 to the target of about 1/7 ([[D2-281 Tanning comes in this build, with bark as a new good|D2-281]]); rest days flagged ([[L-157 Rest days, with health, fatigue and illness|L-157]]).
 
 ## Sources
 

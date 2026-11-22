@@ -1,6 +1,7 @@
 # All deferred
 
 ## Open
+- [[L-157 Rest days, with health, fatigue and illness|Rest days, with health, fatigue and illness (L-157)]] (open)
 - [[L-156 The locked chest and its key|The locked chest and its key (L-156)]] (open)
 - [[L-155 Vermin fleshed out properly, with disease and sanitation|Vermin fleshed out properly, with disease and sanitation (L-155)]] (open)
 - [[L-154 The scale gap in stores|The scale gap in stores (L-154)]] (open)

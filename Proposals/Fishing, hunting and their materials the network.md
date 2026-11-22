@@ -549,6 +549,7 @@ coast ([[L-149 Gulls and other coastal birds, with the coast|L-149]]); environme
 
 ## History
 
+- 22 Nov 2026: accepted in part: [[D2-281 Tanning comes in this build, with bark as a new good|D2-281]] (Tanning comes in this build, with bark as a new good; the withy pack basket and ).
 - 22 Nov 2026: accepted in part: [[D2-279 Stores, as answered|D2-279]] (Stores, as answered: goods are never kept at the rate of a building's best fitti).
 - 22 Nov 2026: accepted in part: [[D2-272 A food's base rate of spoiling is its rate when well kept|D2-272]] (A food's base rate of spoiling is its rate when well kept (covered, dry, out of ).
 - 22 Nov 2026: accepted in part: [[D2-271 Smoking in three depths|D2-271]] (Smoking in three depths: a hot smoke (hours; keeps days to a couple of weeks) at).
