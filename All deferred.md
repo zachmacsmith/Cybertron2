@@ -14,7 +14,6 @@
 - [[L-140 A death in the day's work|A death in the day's work (L-140)]] (open)
 - [[L-139 A hen killed in a raid gives its meat|A hen killed in a raid gives its meat (L-139)]] (open)
 - [[L-138 Hens lay on the old clock|Hens lay on the old clock (L-138)]] (open)
-- [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]] (open)
 - [[L-136 News of a famine does not travel|News of a famine does not travel (L-136)]] (open)
 - [[L-135 Debts of the dead are never settled|Debts of the dead are never settled (L-135)]] (open)
 - [[L-134 No loans of goods|No loans of goods (L-134)]] (open)
@@ -118,3 +117,6 @@
 - [[L-3 Smell, simple own salience and short reach|Smell, simple: own salience and short reach (L-3)]] (open)
 - [[L-2 Scavengers, with wild animals that attack herds and hunters and are…|Scavengers, with wild animals that attack herds and hunters and are… (L-2)]] (open)
 - [[L-1 Signs of slow change on long journeys|Signs of slow change on long journeys (L-1)]] (open)
+
+## Closed (1)
+- [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]]

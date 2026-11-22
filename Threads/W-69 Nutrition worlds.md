@@ -30,7 +30,7 @@ updated: "2026-11-20"
 - under it: [[D2-255 A very skilled hunter brings in a disproportionate amount of food…|A very skilled hunter brings in a disproportionate amount of food… (D2-255)]] (live)
 - under it: [[D2-256 A hunting trip is travelling out to a wild node, camping there…|A hunting trip is travelling out to a wild node, camping there… (D2-256)]] (live)
 - under it: [[D2-257 The nutrition worlds|The nutrition worlds (D2-257)]] (live)
-- under it: [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]] (open)
+- under it: [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]] (closed)
 - under it: [[L-147 Live runs kept durably as soon as they finish|Live runs kept durably as soon as they finish (L-147)]] (open)
 - under it: [[O-2 Make the eleven bulk processes take up to their batch|Make the eleven bulk processes take up to their batch (O-2)]] (open)
 - under it: [[O-3 Build the switches that turn a food source off in a world|Build the switches that turn a food source off in a world (O-3)]] (accepted)

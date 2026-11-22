@@ -410,6 +410,7 @@ sense without this"). The live runs showed all of these failing together (02zzz,
 
 ## History
 
+- 22 Nov 2026: accepted in part: [[D2-272 A food's base rate of spoiling is its rate when well kept|D2-272]] (A food's base rate of spoiling is its rate when well kept (covered, dry, out of ).
 - 22 Nov 2026: accepted in part: [[D2-271 Smoking in three depths|D2-271]] (Smoking in three depths: a hot smoke (hours; keeps days to a couple of weeks) at).
 - 22 Nov 2026: accepted in part: [[D2-264 The fishing, hunting and materials network|D2-264]] (The fishing, hunting and materials network (proposals/hunt_fish_materials.md), a).
 - **21 Nov 2026:** drafted by 37.2 at Zach's request ("the next thing we work on should be bringing together these things into a
