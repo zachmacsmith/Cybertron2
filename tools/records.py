@@ -1036,7 +1036,9 @@ def cmd_commit(msg, typ, thread, paths, body, builds):
     main = threads[0] if threads else ""
     typed = re.match(r"(" + "|".join(TYPES) + r") (" + ID_RE + r"|[\w./-]+):", msg)
     subject = msg if typed else f"{typ} {main}: {msg}".replace(" : ", ": ")
-    agent = agent_name() or "unknown"
+    agent = agent_name()
+    if not agent:                                                         # never "Agent: unknown" (a rebuilt container loses .git/records-agent)
+        sys.exit("records: no agent name: run `python3 tools/records.py whoami <name>` (e.g. 37.2) or set RECORDS_AGENT, then commit")
     att = ATTRIBUTION or _attribution()
     text = subject + ("\n\n" + body if body else "") + "\n\n" + "\n".join(trailers(agent, threads, p) + att)
     r = subprocess.run(["git", "commit", "-q", "-F", "-"], cwd=ROOT, input=text, text=True, capture_output=True)
