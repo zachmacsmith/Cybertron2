@@ -1,0 +1,63 @@
+{
+ "run": "f15_s1",
+ "days": 64,
+ "alive": 4,
+ "people": 6,
+ "deaths": {
+  "starvation": 2
+ },
+ "households": {
+  "Ash": "housed",
+  "Bram": "gone",
+  "Cold": "housed"
+ },
+ "food_end": 186.1,
+ "missed_meals": 8,
+ "first_missed": 44,
+ "units": {
+  "build": 138,
+  "timber": 66,
+  "food": 633,
+  "fuel": 238,
+  "upkeep": 0,
+  "other": 0
+ },
+ "build_units_by": {
+  "work clear": 24,
+  "build small room": 78,
+  "build hearth": 6,
+  "build beds": 24,
+  "build granary": 6
+ },
+ "started": {
+  "Ash House": 2,
+  "Cold House": 2,
+  "Bram House": 2,
+  "a small room at Ash House": 9,
+  "a small room at Bram House": 9,
+  "a small room at Cold House": 9
+ },
+ "finished": {
+  "field cleared: Bramley Lea": 2,
+  "field cleared: Coldwell Lea": 2,
+  "field cleared: Ashby Lea": 2,
+  "Ash House": 4,
+  "Cold House": 4,
+  "Bram House": 4,
+  "a hearth in Ash House": 5,
+  "a hearth in Bram House": 5,
+  "a hearth in Cold House": 5,
+  "1 beds in Ash House": 6,
+  "1 beds in Cold House": 6,
+  "1 beds in Bram House": 6,
+  "a small room at Cold House": 15,
+  "a small room at Ash House": 15,
+  "a small room at Bram House": 15,
+  "a granary floor in Ash House": 19,
+  "a granary floor in Bram House": 19,
+  "a granary floor in Cold House": 19
+ },
+ "unfinished": {},
+ "fields": 3,
+ "refused": 32
+}

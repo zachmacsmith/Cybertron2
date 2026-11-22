@@ -1151,3 +1151,10 @@ LIFE = {
 # The wild methods (D2-204, cybertron2/wild/methods.py): general rows whose take tables are generated from the kinds' traits.
 from cybertron2.wild import methods as _WILD_METHODS                   # noqa: E402
 _WILD_METHODS.build(TECHNIQUES, RESOURCES)
+
+# W-82 (worktree only, never merged): the building clock's experiment switch, C2_CAPITAL_FACTOR (cybertron2/engine/capital_clock.py)
+import os as _os                                                        # noqa: E402
+CAPITAL_CLOCK = None
+if _os.environ.get("C2_CAPITAL_FACTOR"):
+    from cybertron2.engine import capital_clock as _CAPITAL_CLOCK      # noqa: E402
+    _CAPITAL_CLOCK.apply(_os.environ["C2_CAPITAL_FACTOR"])

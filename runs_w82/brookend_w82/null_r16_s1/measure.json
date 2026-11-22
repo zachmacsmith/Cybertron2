@@ -1,0 +1,33 @@
+{
+ "run": "null_r16_s1",
+ "days": 64,
+ "alive": 7,
+ "people": 10,
+ "deaths": {
+  "a sudden illness": 2,
+  "starvation": 1
+ },
+ "households": {
+  "Thorne": "housed",
+  "Croft": "housed",
+  "Miller": "housed",
+  "Wright": "unhoused"
+ },
+ "food_end": 76.5,
+ "missed_meals": 13,
+ "first_missed": 59,
+ "units": {
+  "build": 0,
+  "timber": 0,
+  "food": 961,
+  "fuel": 292,
+  "upkeep": 0,
+  "other": 0
+ },
+ "build_units_by": {},
+ "started": {},
+ "finished": {},
+ "unfinished": {},
+ "fields": 2,
+ "refused": 369
+}

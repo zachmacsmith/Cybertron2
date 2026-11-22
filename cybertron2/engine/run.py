@@ -1024,6 +1024,10 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                         continue
                     if not res.startswith("Refused"):
                         used[n] += c
+                        if os.environ.get("C2_W82_ACTLOG"):                    # W-82 (worktree only): each act done and its units
+                            with open(os.environ["C2_W82_ACTLOG"], "a") as _f:
+                                _f.write(json.dumps({"day": w.d, "who": n, "do": a.get("do"), "what": a.get("what"), "units": c,
+                                                     "res": res[:160]}) + "\n")
                         if n in today.get("travel_morning", {}):
                             used[n] = budget[n]                                 # the day spent walking
                         results[n].append(res)
@@ -1050,6 +1054,10 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                         if res.startswith("Refused"):
                             continue
                         used[n] += c
+                        if os.environ.get("C2_W82_ACTLOG"):                    # W-82 (worktree only)
+                            with open(os.environ["C2_W82_ACTLOG"], "a") as _f:
+                                _f.write(json.dumps({"day": w.d, "who": n, "do": a.get("do"), "what": a.get("what"), "units": c,
+                                                     "res": res[:160], "fallback": True}) + "\n")
                         results[n].append(res + " (your fallback)")
                         done = True
                         if used[n] >= budget[n]:

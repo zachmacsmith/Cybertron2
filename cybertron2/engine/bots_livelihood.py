@@ -92,6 +92,9 @@ def plan(w, name, talk=None, kind="decision") -> dict:
     p = Plan(day)
     _common_a(day, p)
     POLICIES[s["policy"]](day, p)
+    if s.get("build"):                                                    # W-82 (worktree only): the building layer
+        from cybertron2.engine import bots_build as BB
+        BB.layer(day, p)
     _common_b(day, p)
     return p.answer()
 
@@ -317,8 +320,31 @@ def _common_b(day, p) -> None:
         ps = day.parcels(TECHNIQUES["hunt the wild"]["at"]["covers"])
         if ps:
             p.fallback.append({"do": "gather", "what": "hunt the wild", "at": day.pname(ps[(day.role + len(day.name)) % len(ps)])})
-    for act, _ in _forage_plan(day, p.left()):
+    plan = _forage_plan(day, p.left())
+    for act, _ in plan:
         p.add("b", act, 1)
+    from cybertron2.engine import wild as WL
+    if not plan and not WL.on(day.w):
+        _legacy_forage(day, p)                                            # W-82: a world on the old wild food (forage, hunt)
+
+
+def _legacy_forage(day, p) -> None:
+    """W-82 (worktree only): in a world on the old wild food (`forage` draws a parcel's plants: 1.2 a unit at a full stand), forage
+    the fullest stand while it gives at least `forage_least` in food; with a weapon in hand, hunt instead when the wood is full."""
+    t = TECHNIQUES["forage"]
+    ps = [pid for pid in day.parcels(t["at"]["covers"]) if (day.w.s["parcels"][pid]["res"].get("plants") or {}).get("K", 0) > 0]
+    stand = {pid: [float(day.w.s["parcels"][pid]["res"]["plants"]["S"]), float(day.w.s["parcels"][pid]["res"]["plants"]["K"])] for pid in ps}
+    food = float(ITEMS["wild food"]["food"])
+    floor = float(day.here.p["refuge"])
+    while p.left() > 0 and stand:
+        pid = max(stand, key=lambda q: ((stand[q][0] - floor * stand[q][1]) / stand[q][1], stand[q][0], q))
+        S, K = stand[pid]
+        take = min(S - floor * K, 1.2 * min(1.0, S / K))
+        if take * food < float(day.s["forage_least"]):
+            break
+        if not p.add("b", {"do": "gather", "what": "forage", "at": day.pname(pid)}, 1):
+            break
+        stand[pid][0] = S - take
 
 
 # ---------------------------------------------------------------------- the runs (fishing the river)
@@ -694,3 +720,6 @@ def _set_traps(day, p, season, want, flow) -> None:
     for j in range(max(0, want - have)):
         if not ps or not p.add("b", {"do": "gather", "what": "trap in water", "at": day.pname(ps[(have + j) % len(ps)])}, 1):
             break
+
+
+from cybertron2.engine import bots_build as _BB  # noqa: E402,F401  (W-82, worktree only: registers the `farm` policy)

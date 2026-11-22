@@ -1,0 +1,32 @@
+{
+ "run": "null_s3",
+ "days": 64,
+ "alive": 9,
+ "people": 10,
+ "deaths": {
+  "old age": 1
+ },
+ "households": {
+  "Thorne": "housed",
+  "Croft": "housed",
+  "Miller": "housed",
+  "Wright": "unhoused"
+ },
+ "food_end": 36.4,
+ "missed_meals": 12,
+ "first_missed": 62,
+ "units": {
+  "build": 0,
+  "timber": 0,
+  "food": 1051,
+  "fuel": 349,
+  "upkeep": 0,
+  "other": 0
+ },
+ "build_units_by": {},
+ "started": {},
+ "finished": {},
+ "unfinished": {},
+ "fields": 2,
+ "refused": 468
+}

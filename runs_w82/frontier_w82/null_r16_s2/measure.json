@@ -1,0 +1,31 @@
+{
+ "run": "null_r16_s2",
+ "days": 40,
+ "alive": 0,
+ "people": 6,
+ "deaths": {
+  "starvation": 6
+ },
+ "households": {
+  "Ash": "gone",
+  "Bram": "gone",
+  "Cold": "gone"
+ },
+ "food_end": 0.0,
+ "missed_meals": 27,
+ "first_missed": 34,
+ "units": {
+  "build": 0,
+  "timber": 0,
+  "food": 236,
+  "fuel": 146,
+  "upkeep": 0,
+  "other": 0
+ },
+ "build_units_by": {},
+ "started": {},
+ "finished": {},
+ "unfinished": {},
+ "fields": 0,
+ "refused": 6
+}

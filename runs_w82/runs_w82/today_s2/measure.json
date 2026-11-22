@@ -1,0 +1,42 @@
+{
+ "run": "today_s2",
+ "days": 64,
+ "alive": 3,
+ "people": 12,
+ "deaths": {
+  "old age": 3,
+  "starvation": 4,
+  "a sudden illness": 1,
+  "neglect": 1
+ },
+ "households": {
+  "Brook": "gone",
+  "Marsh": "housed",
+  "Shepherd": "gone"
+ },
+ "food_end": 0.0,
+ "missed_meals": 25,
+ "first_missed": 32,
+ "units": {
+  "build": 72,
+  "timber": 2,
+  "food": 1158,
+  "fuel": 118,
+  "upkeep": 2,
+  "other": 0
+ },
+ "build_units_by": {
+  "build weir": 24,
+  "build weir section": 48
+ },
+ "started": {
+  "the weir on the Isel": 1
+ },
+ "finished": {
+  "the weir on the Isel": 2,
+  "a wattle section on the weir on the Isel": 4
+ },
+ "unfinished": {},
+ "fields": 0,
+ "refused": 47
+}

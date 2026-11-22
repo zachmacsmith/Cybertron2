@@ -1,0 +1,34 @@
+{
+ "run": "null_s3",
+ "days": 64,
+ "alive": 1,
+ "people": 12,
+ "deaths": {
+  "starvation": 8,
+  "old age": 1,
+  "a sudden illness": 1,
+  "neglect": 1
+ },
+ "households": {
+  "Brook": "gone",
+  "Marsh": "gone",
+  "Shepherd": "housed"
+ },
+ "food_end": 29.8,
+ "missed_meals": 33,
+ "first_missed": 28,
+ "units": {
+  "build": 0,
+  "timber": 0,
+  "food": 1217,
+  "fuel": 63,
+  "upkeep": 0,
+  "other": 0
+ },
+ "build_units_by": {},
+ "started": {},
+ "finished": {},
+ "unfinished": {},
+ "fields": 0,
+ "refused": 7
+}

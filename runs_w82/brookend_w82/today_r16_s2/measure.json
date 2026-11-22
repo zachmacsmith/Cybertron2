@@ -1,0 +1,55 @@
+{
+ "run": "today_r16_s2",
+ "days": 64,
+ "alive": 8,
+ "people": 10,
+ "deaths": {
+  "starvation": 2
+ },
+ "households": {
+  "Thorne": "housed",
+  "Croft": "housed",
+  "Miller": "housed",
+  "Wright": "gone"
+ },
+ "food_end": 118.6,
+ "missed_meals": 10,
+ "first_missed": 39,
+ "units": {
+  "build": 124,
+  "timber": 68,
+  "food": 1015,
+  "fuel": 322,
+  "upkeep": 0,
+  "other": 0
+ },
+ "build_units_by": {
+  "work clear": 45,
+  "build small room": 12,
+  "build hearth": 4,
+  "build beds": 4,
+  "work fence": 51,
+  "build granary": 8
+ },
+ "started": {
+  "Wright House": 2,
+  "a hearth in Wright House": 4,
+  "fence round Long Pasture": 11,
+  "a small room at Wright House": 17,
+  "a granary floor in Wright House": 21,
+  "a granary floor in Croft House": 34
+ },
+ "finished": {
+  "Wright House": 3,
+  "a hearth in Wright House": 4,
+  "2 beds in Wright House": 5,
+  "field cleared: the Brakes": 8,
+  "a small room at Wright House": 17,
+  "a granary floor in Wright House": 21,
+  "a granary floor in Croft House": 35,
+  "fence round Long Pasture": 21
+ },
+ "unfinished": {},
+ "fields": 3,
+ "refused": 310
+}
