@@ -87,22 +87,25 @@ One mechanism, its depth set by the time given; `watch` becomes a form of attent
 - Measured in every run: what is passed (identity, values, practical knowledge, places, warnings), how much of a parent's craft and
   lore reaches a child, what is lost or garbled across a generation.
 
-### 6. Standard starting memories, and culture as an experimental parameter
+### 6. The founders' starting knowledge, and passing it on as the challenge
 
-A world seeds every person with a small **core set of starting memories**, in their own voice, as kept lines (the mechanism exists:
-a world's `customs` are lines kept for good, seeded to those alive at the start, `perceive.seed_knowledge`, D4-64). They are not rules
-of the engine but what a people believes about knowledge itself, for example:
-- "What we know dies with us unless we teach it to our children."
-- "The world has its ways; watch them, try things, and remember what works."
-- "Ask the old ones before you try what you do not know."
-- "Keep the knowledge of your craft within the household" (or: "share what you know with any who ask").
+**Who it is for:** the founders, the people alive when a world starts, and no one else. Children are born knowing none of it; they
+have it only if someone passes it on, and how well that happens is part of the challenge (§5). (The mechanism exists: a world's
+`customs` are lines kept for good, seeded to those alive at the start, `perceive.seed_knowledge`, D4-64.)
 
-Each is a **parameter a world varies as a culture**: a culture that teaches its children against one that does not; one that
-explores against one that keeps to what it knows; one that shares crafts against one that guards them. Run side by side on the same
-land, they show what each orientation does to knowledge across generations, to specialisation and to survival. They keep to the
-scenario rule that goals are in-world aims, never scoring proxies (`docs/scenario_design.md`): a belief about knowledge, not an
-instruction to score. A world with none seeded is the null arm. (Brief 5's worlds took "no seeded customs", Q-51; that was a choice
-for those worlds, not a rule against it.)
+**What it is:** a **common set of knowledge** we decide is good to seed, so the founders start with a working understanding of how to
+live in and act on the world, in their own voice: how the year goes and what each season brings; which foods keep and how; what
+their household's crafts need and where those things are found; how knowledge is got (watching, trying, being taught) and lost (it
+dies with you unless taught). Each line is read from the engine's own state where it states a fact (the run windows, the crop
+calendar, the stocks), so it is true at the start; its length is set by the kept places (§3). A founder's livelihood adds its own
+lines (L-141, W-70).
+
+**What may vary, as a parameter of a world:** the common set is the default; a world may vary parts of it as a culture, for
+example a people that holds "what we know dies with us unless we teach it to our children" against one that does not, or one that
+keeps its crafts within the household against one that shares them. Run side by side on the same land, these show what each does
+to knowledge across generations. They keep to the scenario rule that goals are in-world aims, never scoring proxies
+(`docs/scenario_design.md`): beliefs a people holds, not instructions to score. (Brief 5's worlds took "no seeded customs", Q-51;
+that was a choice for those worlds, not a rule against it.)
 
 ## Why
 
@@ -143,7 +146,7 @@ lore line is cut at the 25-word cap; nothing practical has ever been passed to a
 4. Verbs shown by knowledge and stage?
 5. A told-knowledge arm beside every learnt-knowledge experiment?
 6. Built with the verbs and archetypes rework (W-70) and the verb list (Q-27), or before it?
-7. The standard starting memories: which core set by default, and which cultural variants to run first?
+7. The founders' common starting knowledge: which lines, and which cultural variants (if any) to run first?
 
 ## Affects
 
@@ -154,6 +157,7 @@ makers.
 ## History
 
 - **22 Nov 2026:** §6 added: standard starting memories as culture, an experimental parameter (Zach, quoted under Why).
+- **22 Nov 2026:** §6 corrected after Zach: "I didn't mean all children were seeded with it on birth, just I meant for us deciding a common set of knowledge that is good to seed the founders so that they have a good understanding of how to interact with the world, with that they still need to pass it on, but how well they pass it on is itself part of the challenge." Now: a common set seeded to the founders only; children have it only if passed on; cultural variants are a parameter beside the default.
 - **22 Nov 2026:** the crafts evaluation's memory measures added (02zzzh_hunt_fish/crafts_evaluation.md, Part 5).
 - **22 Nov 2026:** drafted by 37.2 at Zach's request (quoted under Why; and "Yes" to writing it), with the system prompt rendered for
   one agent in the runs world (high arm), the memory limits read from `memory.py` and `data.py`, and the `pass` sentences counted in
