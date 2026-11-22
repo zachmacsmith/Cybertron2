@@ -454,6 +454,7 @@ step 4).
 
 ## History
 
+- 22 Nov 2026: accepted in part: D2-269 (Experts' signs are observations of what is happening now, which may imply an act).
 - 22 Nov 2026: accepted in part: D2-265 (The river's signs (proposals/river_signs.md), as answered: herons at a run where).
 - **21 Nov 2026: drafted at Zach's request** (37.2, subagent), from the audit 02zzz2. Zach (21 Nov): "Fishing is currently
   terribly low right now. I think (a) we need to add a richer tapestry to potential signs. If they are in the rivers or near and in
