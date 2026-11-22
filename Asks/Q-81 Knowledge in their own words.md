@@ -15,3 +15,7 @@ Proposal docs/cybertron2/proposals/knowledge_in_their_own_words.md (22 Nov). Tod
 
 ## Linked
 - parent: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
+
+
+## Mentioned by
+- [[L-141 How much seeded memory each livelihood starts with|How much seeded memory each livelihood starts with (L-141)]]

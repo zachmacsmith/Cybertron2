@@ -2,7 +2,7 @@
 id: L-141
 kind: deferred
 state: open
-updated: "2026-11-21"
+updated: "2026-11-22"
 ---
 
 # How much seeded memory each livelihood starts with (L-141)
@@ -15,6 +15,7 @@ Zach, 21 Nov: flag the fishers' seeded memory (the runs as a remembered year, si
 
 ## Linked
 - parent: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
+- relates: [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]]
 
 
 ## Mentioned by

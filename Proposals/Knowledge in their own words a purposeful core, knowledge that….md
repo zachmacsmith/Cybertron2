@@ -107,8 +107,20 @@ have it only if someone passes it on, and how well that happens is part of the c
 live in and act on the world, in their own voice: how the year goes and what each season brings; which foods keep and how; what
 their household's crafts need and where those things are found; how knowledge is got (watching, trying, being taught) and lost (it
 dies with you unless taught). Each line is read from the engine's own state where it states a fact (the run windows, the crop
-calendar, the stocks), so it is true at the start; its length is set by the kept places (§3). A founder's livelihood adds its own
-lines ([[L-141 How much seeded memory each livelihood starts with|L-141]], [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]]).
+calendar, the stocks), so it is true at the start; its length is set by the kept places (§3).
+
+**Common sets by practice:** beside the base everyone shares, each practice has its own common set, and a founder starts with the
+set of what they practise (their livelihood archetype, [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]]; how much each starts with, [[L-141 How much seeded memory each livelihood starts with|L-141]]). Examples:
+- **fishers:** when the runs come and how long they last; which gear takes what (traps and the weir in a run, hands only in the
+  shallows); how to keep a glut (smoke, salt) and what it needs; where withies and cord come from;
+- **farmers:** the crops' calendar (when to sow wheat and rye, beans), what the soil needs, the harvest and its keeping;
+- **hunters:** where game lies by season, which methods suit which beasts, how far to go and what can be carried back, dressing a
+  kill;
+- **herders, salters, smiths and others** likewise, each with what its practice knows best, including which of its techniques
+  work best and when.
+So a fisher knows fishing well and farming only as a neighbour sees it, and the reverse: knowledge differs by practice from the
+first day, which is what makes asking, teaching and trading worth it. The sets are written once per practice and checked against
+the engine (§2), and the archetypes decide which practices a world's households have.
 
 **What may vary, as a parameter of a world:** the common set is the default; a world may vary parts of it as a culture, for
 example a people that holds "what we know dies with us unless we teach it to our children" against one that does not, or one that
@@ -167,6 +179,7 @@ makers.
 ## History
 
 - **22 Nov 2026:** §6 added: standard starting memories as culture, an experimental parameter (Zach, quoted under Why).
+- **22 Nov 2026:** §6: common sets by practice added (Zach: "there will be different common sets eg different practitioners will start with more knowledge about their practice eg fishers know how to fish and stuff about which techniques are best etc compared to farmers or hunters. This connects with the archetypes sorta work").
 - **22 Nov 2026:** §6 corrected after Zach: "I didn't mean all children were seeded with it on birth, just I meant for us deciding a common set of knowledge that is good to seed the founders so that they have a good understanding of how to interact with the world, with that they still need to pass it on, but how well they pass it on is itself part of the challenge." Now: a common set seeded to the founders only; children have it only if passed on; cultural variants are a parameter beside the default.
 - **22 Nov 2026:** the crafts evaluation's memory measures added (02zzzh_hunt_fish/crafts_evaluation.md, Part 5).
 - **22 Nov 2026:** drafted by 37.2 at Zach's request (quoted under Why; and "Yes" to writing it), with the system prompt rendered for
