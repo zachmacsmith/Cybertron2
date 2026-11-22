@@ -1,7 +1,6 @@
 # All asks
 
 ## Open
-- [[Q-85 One book of standing rules per household and person for eating and…|One book of standing rules per household and person for eating and… (Q-85)]] (open)
 - [[Q-84 The building scale|The building scale (Q-84)]] (open)
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]] (open)
 - [[Q-82 Trying and learning|Trying and learning (Q-82)]] (open)
@@ -48,7 +47,8 @@
 - [[Q-RR3 The human player's first interface|The human player's first interface (Q-RR3)]] (open)
 - [[Q-RR5 A replay test with shuffled completion order of model calls|A replay test with shuffled completion order of model calls (Q-RR5)]] (open)
 
-## Closed (48)
+## Closed (49)
+- [[Q-85 One book of standing rules per household and person for eating and…|One book of standing rules per household and person for eating and… (Q-85)]]
 - [[Q-76 Whether the runs world's medium arm needs more keeping capital|Whether the runs world's medium arm needs more keeping capital (Q-76)]]
 - [[Q-72 Whether milking gets 02zzu's rate fix|Whether milking gets 02zzu's rate fix (Q-72)]]
 - [[Q-71 Whether the older generic game stocks are counted in the new meat unit|Whether the older generic game stocks are counted in the new meat unit (Q-71)]]

@@ -1,0 +1,26 @@
+---
+id: D2-274
+kind: decision
+state: live
+updated: "2026-11-22"
+---
+
+# One book of standing rules per household and per person covers both… (D2-274)
+
+*live · 22 Nov · spec: [[economy - goods|economy/goods]]*
+
+## The rule
+**One book of standing rules per household and per person covers both eating and stores (go, keep, hold back, first, eat, move) with store_management.md's grammar; a store built for a kind writes its own droppable rule (a granary for grain); there is no default for putting carried goods away at night: people set their own rule for what they put away; the labour rates for moving between buildings are provisional; chores are done from spare units only; a person may override their own defaults. Agents must see their rules plainly: their current rules, how to change them, what they can set, and each time something is moved or drawn by a rule; and chores a rule would have done but no one did are shown**
+
+## Where it came from
+conversation (22 Nov: "conversation (22 Nov, on store_management.md)")
+
+
+## Linked
+- parent: [[W-37 Standing rules|Standing rules (W-37)]]
+- decides: [[Q-85 One book of standing rules per household and person for eating and…|One book of standing rules per household and person for eating and… (Q-85)]]
+
+
+## Mentioned by
+- [[Q-85 One book of standing rules per household and person for eating and…|One book of standing rules per household and person for eating and… (Q-85)]]
+- [[Goods|Goods]]

@@ -1,6 +1,8 @@
 # All deferred
 
 ## Open
+- [[L-152 Travel folded into the standing rules|Travel folded into the standing rules (L-152)]] (open)
+- [[L-151 A household as a shared book of standing rules people subscribe to|A household as a shared book of standing rules people subscribe to (L-151)]] (open)
 - [[L-150 Environmental effects on fishing refined after the rest works|Environmental effects on fishing refined after the rest works (L-150)]] (open)
 - [[L-149 Gulls and other coastal birds, with the coast|Gulls and other coastal birds, with the coast (L-149)]] (open)
 - [[L-147 Live runs kept durably as soon as they finish|Live runs kept durably as soon as they finish (L-147)]] (open)
