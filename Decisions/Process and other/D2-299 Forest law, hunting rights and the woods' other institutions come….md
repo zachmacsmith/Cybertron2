@@ -21,4 +21,5 @@ conversation (22 Nov: "Forest law def later. All institutions and laws and stuff
 
 
 ## Mentioned by
+- [[U7 works and the building clock|U7: works and the building clock]]
 - [[The next thread the woods and the wild (hunting, its tools, wildlife…|The next thread: the woods and the wild (hunting, its tools, wildlife…]]

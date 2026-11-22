@@ -30,6 +30,9 @@ answered; the component writes on the default shown and says so); **calibrate** 
 | Making capital | real hours times the capital factor; things used up in one go or a few uses at real hours; materials real | decided: [[D2-276 Making durable things runs on the year clock|D2-276]] |
 | The capital factor | target about 1/7, staged from today's about 1/40 through about 1/15 | decided: [[D2-281 Tanning comes in this build, with bark as a new good|D2-281]]; staging with its companions: open (§7) |
 | Lives | a life in acts of work at the capital factor; a life counted in nights (set gear, tents, bedrolls) at the calendar's 1/11.4 | open (wave1 q4; default as stated) |
+| The "world" capital factor | units a year x 2 h / a real working year of 2,700 h (1/7.03 for a 32-day world); a stage may set "1/15"; existing works held at today's units until their companions are in | decided in rule ([[D2-276 Making durable things runs on the year clock|D2-276]]); the hold: default (u7) |
+| Getting materials | fell 4 timber a unit (crude tool), quarry 4 stone, cut withies 4 (bed) or 1.5 (wild), brush 5 bundles (10 kg) | default (u7; wave1 §3.1) |
+| Material got at the site | field stone, brush and daub counted in the work; goods brought stay real | open (u7 question 1) |
 | The 1-unit floor | every act costs at least 1 unit; things under a unit are made in batches "up to" the batch | default ([[O-2 Make the eleven bulk processes take up to their batch|O-2]], Zach's conditional go; wave2 W2-6) |
 | Learning | practice set at a 64-day lifespan and scaled with a world's lifespan | decided: [[D2-267 Practice and learning are set at a 64-day lifespan and scaled with a…|D2-267]]; the engine's base (32) re-based to 64: default (audit q8) |
 

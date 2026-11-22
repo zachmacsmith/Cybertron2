@@ -160,7 +160,7 @@ is not part of the build's units; it is shown because for the heavy works it is 
 | **hut room, wattle** (2 spaces; new) | 90 to 180 | none | 3 to 6 | 6.4 to 13 | 12 timber, 16 withies, 30 straw | 7 to 14 | 10 to 20 world years | as wattle |
 | **wattle smoke hut** (a hut room and 1 set of racks; [[D2-271 Smoking in three depths|D2-271]]) | 96 to 190 | none | 3.2 to 6.3 | 6.9 to 14 | 14 timber, 18 withies, 30 straw | 8 to 16 | 10 to 20 world years | hot and keeping smokes; burns with its batch (U4) |
 | **timber smokehouse** (a small timber room and 4 tiered sets) | 490 to 776 | none | 16 to 26 | 35 to 55 | 172 timber, 60 stone, 27 withies, 75 straw; a carpenter | 65 to 76 | centuries; racks 5 years | all three smokes; seldom burns (U4) |
-| stone smokehouse (a small stone room and 3 to 4 tiered sets) | 660 to 1,316 | none | 22 to 44 | 48 to 94 | 1,600 stone, 49 to 52 timber, 9 to 12 withies, 75 straw; a mason | about 410 | centuries | almost never burns |
+| stone smokehouse (a small stone room and 3 to 4 tiered sets) | 660 to 1,316 | none | 22 to 44 | 48 to 94 | 1,600 stone, 49 to 52 timber, 9 to 12 withies, 75 straw; a mason | about 415 | centuries | almost never burns |
 | granary on staddles (U5's store) | 500 to 800 | none | 17 to 27 | 36 to 57 | 170 timber, 60 stone (9 staddles), 75 straw | 58 | centuries | |
 | camp (day clock: lasts 10 nights) | 3 to 5 | 1 | 2 (day clock, real hours / 2) | 2 | 3 timber | 1 | 10 nights | none |
 
@@ -215,7 +215,8 @@ converted units (SPACE, TIERS; `buildings.room_cost`).
 
 **Two checks.** [[D2-166 Large capital costs village-scale work|D2-166]] wants a hall and a water mill to be village-scale: a timber hall is 120 to 270 units at 1/15 and 257 to 579 at
 1/7, with 205 to 226 units of getting its materials; a water mill (wheel, leat and millstones) 54 to 168 and 116 to 360, with about
-125 of getting. Both land in or above [[D2-166 Large capital costs village-scale work|D2-166]]'s 300 to 500 in all. And a small wattle room plus its getting is 27 to 50 units at
+125 of getting. The hall lands in [[D2-166 Large capital costs village-scale work|D2-166]]'s 300 to 500 in all at 1/15 (325 to 496) and above it at 1/7; the water mill below it at
+1/15 (179 to 293) and in it at 1/7 (241 to 485). And a small wattle room plus its getting is 27 to 50 units at
 1/15 and 37 to 71 at 1/7, against 6 plus about 5 of felling today.
 
 **What the getting column shows.** Under [[D2-276 Making durable things runs on the year clock|D2-276]] as decided, the stone works cost several times their real share of a year: a small
@@ -316,8 +317,8 @@ U11's.
 part, a tier or an upgrade, calls `KN.tried(here, mind, tech, True, units=<the act's units>)`, and the same units to the craft record
 for timber and stone work; the finisher's and starter's single credits go (verbs.py:1279, 1338, 1396). On the trade curve (0.5 to
 2.0, tau 50: [[D2-52 Skill by practice on all work|D2-52]]'s SKILL), a carpenter with about 35 units of practice (skill about 1.25) who frames a timber smokehouse at 1/15
-(16 to 26 units, about 10 acts of 2) reaches about 1.5; a novice (0.5) reaches 1.25 after about 35 units, two medium timber rooms at
-1/15.
+(16 to 26 units, about 10 acts of 2) reaches about 1.5; a novice (0.5) reaches 1.25 after about 35 units of acts, within one medium
+timber room at 1/15.
 
 **5.3 Soundness from craftsmanship.** A building records `sound`, a multiplier on its wear and breaks, the work-weighted mean over the
 acts that built it of each act's multiplier from its builder's skill share s (0 at the curve's foot, 1 at its top, `knowledge.py`
@@ -505,7 +506,7 @@ senses, herds and fences' mechanism; **37.2** the rule, numbers and data rows of
 | `engine/verbs.py` | VERB `work` 19, `order` 77; `_order` 2452 | `along`; the order names a herd | 37.4 |
 | `engine/farm.py` | 861-900 | `fence_need` by length, round or along; `_fence` for borders and the hedge's brush drawn in place | 37.2 (farm), 37.4 (fences' mechanism) |
 | `engine/farm.py` | 922-1024, 1098-1126; 677-685 | sowing and breaking on a cleared part; a child herder's capacity | 37.2 |
-| `engine/knowledge.py` | 157-161, 448; seed 85-103; `where` 171 | `trade_skill`; practice credit; the cover check passing a cleared part | 37.4 |
+| `engine/knowledge.py` | 157-161, 448; seed 85-103; `where` 171 | the craft's skill read with the technique's; practice credit to both; seeding the craft; the cover check passing a cleared part | 37.4 |
 | `engine/herds.py` | 52-58, 60-89, 125-131, 152 | border odds in `through`, `target`, `wander`; borders' wear in `_fences`; the hedge's half-year decay | 37.4 |
 | `engine/life.py` | 236-257 | herding daily under the order | 37.2 ([[D2-148 A child's menial work is set by the household head's standing order|D2-148]]'s; owner to confirm) |
 | `engine/night.py` | 222, 622-626 | breaks and wear x `sound` | 37.4 |
@@ -523,7 +524,8 @@ senses, herds and fences' mechanism; **37.2** the rule, numbers and data rows of
 - Every capital row names `hours` and its clock (the clocks test fails on a row without).
 - The units shown for a build technique equal `capital_units` at the world's factor after the lever changes (fault 4).
 - A build act on a work with 0.6 units left costs 1 unit; a bed costs 1; a 2-unit act on a 12-unit room at skill 1.0 leaves 10.
-- Practice: ten acts on a timber smokehouse raise the carpenter's trade skill by the curve for 20 units of practice.
+- Practice: ten acts on a timber smokehouse raise the builder's `carpentry` by the curve for 20 units of practice; a hall then uses
+  that skill; a seeded carpenter starts with `carpentry`.
 - Soundness: a room built by a master wears at half a novice's chance, seeded at 1.0; the finish line matches its band.
 - A fine tier refused to a novice; a competent builder begins it; a novice's act on it puts in half.
 - The weir's first section on a beck, a lowland and a large river costs §3's units at 1/15 and 1/7; MONUMENTS carries no weir cost;
@@ -673,4 +675,4 @@ Ranked by what they block. Each stands alone.
 - **23 Nov 2026:** written by a 37.2 design subagent for [[W-85 The wave's integrated design|W-85]] from the sources above; the cost tables re-derived on basis units, the
   weir sized by its water, the three companions designed, the materials and thatch findings added.
 
-*Current as of 23 Nov 2026: [[D2-263 A craft a person knows at capable or known shows, where they look|D2-263]] to [[D2-298 Bot runs test interfaces and basic functioning only|D2-298]].*
+*Current as of 23 Nov 2026: [[D2-263 A craft a person knows at capable or known shows, where they look|D2-263]] to [[D2-300 Every item Zach defers or flags is tagged with the prospective…|D2-300]] ([[D2-299 Forest law, hunting rights and the woods' other institutions come…|D2-299]] and [[D2-300 Every item Zach defers or flags is tagged with the prospective…|D2-300]] touch nothing here).*
