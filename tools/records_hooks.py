@@ -182,7 +182,7 @@ def commit_check() -> int:
     probs = []
     if elsewhere and "Agent" not in tr:
         probs.append("the Agent/Thread trailers are not in the last paragraph, so git will not read them: put them in one "
-                     "block with the Co-Authored-By and Claude-Session lines, no blank line between")
+                     "block with the Co-Authored-By line, no blank line between")
     if "Agent" not in tr and not elsewhere:
         probs.append("no `Agent:` trailer")
     if "Thread" not in tr and not upkeep and not elsewhere:

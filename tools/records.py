@@ -1053,8 +1053,9 @@ def cmd_commit(msg, typ, thread, paths, body, builds):
 
 
 def _attribution() -> list:
-    """The attribution lines of the last commit by this agent, so the trailers sit in one block with them."""
-    out = git("log", "-1", "--format=%(trailers:key=Co-Authored-By)%(trailers:key=Claude-Session)").strip()
+    """The Co-Authored-By line of the last commit by this agent, so the trailers sit in one block with it. No session link (Zach,
+    22 Nov: stop adding the Claude session lines)."""
+    out = git("log", "-1", "--format=%(trailers:key=Co-Authored-By)").strip()
     return [l for l in out.split("\n") if l]
 
 
