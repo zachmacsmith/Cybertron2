@@ -115,7 +115,9 @@
 ## Queued and paused (8)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework, [[W-76 The timber economy|W-76]] The timber economy
 
-## Decided this week (96)
+## Decided this week (98)
+- [[D2-300 Every item Zach defers or flags is tagged with the prospective…|Every item Zach defers or flags is tagged with the prospective… (D2-300)]]
+- [[D2-299 Forest law, hunting rights and the woods' other institutions come…|Forest law, hunting rights and the woods' other institutions come… (D2-299)]]
 - [[D2-298 Bot runs test interfaces and basic functioning only|Bot runs test interfaces and basic functioning only (D2-298)]]
 - [[D2-297 The catch stays as calibrated|The catch stays as calibrated (D2-297)]]
 - [[D2-296 Fallbacks are assignable by the household's standing rules|Fallbacks are assignable by the household's standing rules (D2-296)]]
@@ -129,8 +131,6 @@
 - [[D2-288 Bulk goods are counted in handling units of a stated weight and every…|Bulk goods are counted in handling units of a stated weight and every… (D2-288)]]
 - [[D2-287 Reviewing past runs|Reviewing past runs (D2-287)]]
 - [[D2-286 The list of what one could do today|The list of what one could do today (D2-286)]]
-- [[D2-285 The records brief is run by hand after each compaction for now, since…|The records brief is run by hand after each compaction for now, since… (D2-285)]]
-- [[D2-284 A smokehouse's capacity comes from the racks fitted, about 250 kg of…|A smokehouse's capacity comes from the racks fitted, about 250 kg of… (D2-284)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]

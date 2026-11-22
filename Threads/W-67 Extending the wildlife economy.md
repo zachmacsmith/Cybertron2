@@ -25,6 +25,7 @@ started
 ## Linked
 - under it: [[D2-249 Wild kinds have birth windows of their own, and the year's young are…|Wild kinds have birth windows of their own, and the year's young are… (D2-249)]] (live)
 - under it: [[D2-250 Boar raid fields into autumn, to autumn day 4, weaker in a mast year|Boar raid fields into autumn, to autumn day 4, weaker in a mast year (D2-250)]] (live)
+- under it: [[D2-299 Forest law, hunting rights and the woods' other institutions come…|Forest law, hunting rights and the woods' other institutions come… (D2-299)]] (live)
 - under it: [[L-117 Wildlife pack K3 forays, methods and knowing|Wildlife pack K3: forays, methods and knowing (L-117)]] (open)
 - under it: [[L-118 Wildlife pack K5 wood and frontier|Wildlife pack K5: wood and frontier (L-118)]] (open)
 - under it: [[L-119 Wildlife pack K6 keeping|Wildlife pack K6: keeping (L-119)]] (open)
@@ -42,6 +43,7 @@ started
 ## Mentioned by
 - [[D2-249 Wild kinds have birth windows of their own, and the year's young are…|Wild kinds have birth windows of their own, and the year's young are… (D2-249)]]
 - [[D2-250 Boar raid fields into autumn, to autumn day 4, weaker in a mast year|Boar raid fields into autumn, to autumn day 4, weaker in a mast year (D2-250)]]
+- [[D2-299 Forest law, hunting rights and the woods' other institutions come…|Forest law, hunting rights and the woods' other institutions come… (D2-299)]]
 - [[Q-57 Fishing, from the lake run|Fishing, from the lake run (Q-57)]]
 - [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]]
 - [[L-117 Wildlife pack K3 forays, methods and knowing|Wildlife pack K3: forays, methods and knowing (L-117)]]
