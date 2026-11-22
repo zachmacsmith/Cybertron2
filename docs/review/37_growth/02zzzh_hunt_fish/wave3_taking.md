@@ -22,6 +22,13 @@ Marks: **[m]** measured in the engine or a probe; **[d]** a decision; **[w1]** p
 
 ---
 
+> **Correction by 37.2, 22 Nov (D2-286, D2-287):** the "Today you could" list (fault 9, question 14) is not shown in any current
+> world: the beliefs view (`view: beliefs`, every current world) has no options list (`engine/view.py:7`). The probe that found it
+> rendered the old prompt (`prompt.turn_prompt`). It survives in one path: the beliefs view falls back to the old prompt when a person
+> is at no place (`view.py:175-176`), so a traveller can still see it. Zach (22 Nov): the list is removed from the code entirely in the
+> crafts, archetypes and beliefs rebuild (D2-286); "sort by one's livelihood first" is withdrawn. It is not a cause of "agents rarely
+> fished" in current-view runs; any past run read for it is checked against its view setting first (D2-287).
+
 ## The short answer
 
 - **One model for every take.** An act of taking is a shape (set, tend, gather, work), a technique (the how: wicker traps, snares, a
