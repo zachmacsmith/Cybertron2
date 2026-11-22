@@ -32,6 +32,7 @@ built and on main 20 Nov (d2b130c to fdd1edb): tools/records.py and records_hook
 - under it: [[D2-240 The Obsidian vault is a local folder Zach opens whenever he likes…|The Obsidian vault is a local folder Zach opens whenever he likes… (D2-240)]] (live)
 - under it: [[D2-253 Zach's decisions about the process and its mechanisms are kept…|Zach's decisions about the process and its mechanisms are kept… (D2-253)]] (live)
 - under it: [[D2-254 Everything shown to Zach names each question, proposal, thread or…|Everything shown to Zach names each question, proposal, thread or… (D2-254)]] (live)
+- under it: [[D2-285 The records brief is run by hand after each compaction for now, since…|The records brief is run by hand after each compaction for now, since… (D2-285)]] (live)
 - under it: [[O-1 A first wiki generated from the spec as it stands, as a private page…|A first wiki generated from the spec as it stands, as a private page… (O-1)]] (open)
 - under it: [[Q-65 Delete the 16 empty branches|Delete the 16 empty branches (Q-65)]] (closed)
 - under it: [[Q-67 Confirm three rules the sessions follow without your own words behind…|Confirm three rules the sessions follow without your own words behind… (Q-67)]] (open)
@@ -41,6 +42,7 @@ built and on main 20 Nov (d2b130c to fdd1edb): tools/records.py and records_hook
 - [[D2-240 The Obsidian vault is a local folder Zach opens whenever he likes…|The Obsidian vault is a local folder Zach opens whenever he likes… (D2-240)]]
 - [[D2-253 Zach's decisions about the process and its mechanisms are kept…|Zach's decisions about the process and its mechanisms are kept… (D2-253)]]
 - [[D2-254 Everything shown to Zach names each question, proposal, thread or…|Everything shown to Zach names each question, proposal, thread or… (D2-254)]]
+- [[D2-285 The records brief is run by hand after each compaction for now, since…|The records brief is run by hand after each compaction for now, since… (D2-285)]]
 - [[Q-65 Delete the 16 empty branches|Delete the 16 empty branches (Q-65)]]
 - [[Q-67 Confirm three rules the sessions follow without your own words behind…|Confirm three rules the sessions follow without your own words behind… (Q-67)]]
 - [[W-3 Records restructure|Records restructure (W-3)]]

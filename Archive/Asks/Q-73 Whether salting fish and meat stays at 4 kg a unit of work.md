@@ -1,13 +1,13 @@
 ---
 id: Q-73
 kind: ask
-state: open
-updated: "2026-11-20"
+state: closed
+updated: "2026-11-22"
 ---
 
 # Whether salting fish and meat stays at 4 kg a unit of work (Q-73)
 
-*open · Zach (37.2)*
+*closed, by zach · Zach (37.2)*
 
 ## The question
 
@@ -18,12 +18,15 @@ updated: "2026-11-20"
 
 **Default applies on:** 2026-11-23
 
+**Zach's answer:** 1. yes
+
 
 ## Linked
 - parent: [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
 
 
 ## Mentioned by
+- [[D2-283 Salting fish runs at about 20 kg an hour with gutting, at 1 kg of…|Salting fish runs at about 20 kg an hour with gutting, at 1 kg of… (D2-283)]]
 - [[W-64 Food, weight and work on one basis|Food, weight and work on one basis (W-64)]]
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]

@@ -1,0 +1,26 @@
+---
+id: D2-283
+kind: decision
+state: live
+updated: "2026-11-22"
+---
+
+# Salting fish runs at about 20 kg an hour with gutting, at 1 kg of… (D2-283)
+
+*live · 22 Nov*
+
+## The rule
+
+
+## Where it came from
+conversation (22 Nov: "1. yes")
+
+
+## Linked
+- parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+- decides: [[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Whether salting fish and meat stays at 4 kg a unit of work (Q-73)]]
+
+
+## Mentioned by
+- [[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Whether salting fish and meat stays at 4 kg a unit of work (Q-73)]]
+- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]

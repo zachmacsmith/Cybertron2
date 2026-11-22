@@ -4,9 +4,8 @@
 
 [The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.
 
-## Waiting on you (18)
+## Waiting on you (16)
 - [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)]]
-- [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]
 - [[Q-82 Trying and learning|Trying and learning (Q-82)]]
 - [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]]
 - [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
@@ -15,8 +14,9 @@
 - [[Q-77 Whether to tune how often the river reads spate or flood now|Whether to tune how often the river reads spate or flood now (Q-77)]]
 - [[Q-75 Whether D2-210's yearly upkeep band wins over the river proposal's…|Whether D2-210's yearly upkeep band wins over the river proposal's… (Q-75)]]
 - [[Q-74 Whether a weir's first section costs a base of 6 timber and 8 units…|Whether a weir's first section costs a base of 6 timber and 8 units… (Q-74)]]
-- [[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Whether salting fish and meat stays at 4 kg a unit of work (Q-73)]]
 - [[Q-68 How high the surplus can go in the medieval worlds, against the…|How high the surplus can go in the medieval worlds, against the… (Q-68)]]
+- [[Q-67 Confirm three rules the sessions follow without your own words behind…|Confirm three rules the sessions follow without your own words behind… (Q-67)]]
+- [[Q-56 How the weather should follow each place's climate from the generated…|How the weather should follow each place's climate from the generated… (Q-56)]]
 - … all of them: [[All asks]]
 
 ## To confirm or revisit
@@ -111,7 +111,10 @@
 ## Queued and paused (7)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
 
-## Decided this week (80)
+## Decided this week (83)
+- [[D2-285 The records brief is run by hand after each compaction for now, since…|The records brief is run by hand after each compaction for now, since… (D2-285)]]
+- [[D2-284 A smokehouse's capacity comes from the racks fitted, about 250 kg of…|A smokehouse's capacity comes from the racks fitted, about 250 kg of… (D2-284)]]
+- [[D2-283 Salting fish runs at about 20 kg an hour with gutting, at 1 kg of…|Salting fish runs at about 20 kg an hour with gutting, at 1 kg of… (D2-283)]]
 - [[D2-282 Standing rules support conditional actions conditioned on state…|Standing rules support conditional actions conditioned on state… (D2-282)]]
 - [[D2-281 Tanning comes in this build, with bark as a new good|Tanning comes in this build, with bark as a new good (D2-281)]]
 - [[D2-280 Commits carry no Claude-Session line|Commits carry no Claude-Session line (D2-280)]]
@@ -124,9 +127,6 @@
 - [[D2-273 Three clocks, each system on one|Three clocks, each system on one (D2-273)]]
 - [[D2-272 A food's base rate of spoiling is its rate when well kept|A food's base rate of spoiling is its rate when well kept (D2-272)]]
 - [[D2-271 Smoking in three depths|Smoking in three depths (D2-271)]]
-- [[D2-270 Household skills|Household skills (D2-270)]]
-- [[D2-269 Experts' signs are observations of what is happening now, which may…|Experts' signs are observations of what is happening now, which may… (D2-269)]]
-- [[D2-268 The founders' starting knowledge|The founders' starting knowledge (D2-268)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]

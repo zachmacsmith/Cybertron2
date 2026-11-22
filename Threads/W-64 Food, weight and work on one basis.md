@@ -37,7 +37,7 @@ done 20 Nov: the six-part analysis (02zzu_shared_units.md); the USDA lookup (02z
 - under it: [[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Adopt the food values on one basis, and fix the runs, the weir and… (Q-70)]] (closed)
 - under it: [[Q-71 Whether the older generic game stocks are counted in the new meat unit|Whether the older generic game stocks are counted in the new meat unit (Q-71)]] (closed)
 - under it: [[Q-72 Whether milking gets 02zzu's rate fix|Whether milking gets 02zzu's rate fix (Q-72)]] (closed)
-- under it: [[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Whether salting fish and meat stays at 4 kg a unit of work (Q-73)]] (open)
+- under it: [[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Whether salting fish and meat stays at 4 kg a unit of work (Q-73)]] (closed)
 - under it: [[W-71 How carrying works in the live runs|How carrying works in the live runs (W-71)]] (done)
 
 

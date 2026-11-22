@@ -49,6 +49,7 @@ decision, or the rule it was first written in. A new process decision is added h
 - CLAUDE.md: senses are written to docs/cybertron2/guides/senses.md.
 - [[D2-277 Every idea explored in conversation is written down before moving on|D2-277]]: Every idea explored in conversation is written down before moving on: into its thread's proposal, or, if it is not part of it, into its own proposal marked exploration (or speculation), linked to the thread; nothing explored is left only in the conversation
 - [[D2-280 Commits carry no Claude-Session line|D2-280]]: Commits carry no Claude-Session line (the repository is public and the link names a private session); the Co-Authored-By line stays
+- [[D2-285 The records brief is run by hand after each compaction for now, since…|D2-285]]: The records brief is run by hand after each compaction for now, since the project hooks do not load when a session starts outside the repository.
 
 ## Sources
 
