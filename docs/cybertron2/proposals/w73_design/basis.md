@@ -57,6 +57,14 @@ answered; the component writes on the default shown and says so); **calibrate** 
 | Smoke racks | about 250 kg of fish a set, on 1 space; the building caps the sets (a wattle hut 1, timber or stone by room size); material sets depths, life, fire risk | decided: D2-284, D2-291 |
 | Hanging | about 30 kg a unit, splitting included | default (smokehouse_capacity; wave1 §3.1) |
 | Gutting | in salting's and hanging's rates, never paid twice | default (audit C25) |
+| Base rates a night (D2-289's arithmetic) | fresh fish 0.17, fresh meat 0.13, hot smoke 0.11, keeping smoke 0.029, hard cure 0.011, salt 0.0085, dried 0.0069 | follows D2-289 (u4 §2) |
+| A lot in the smoke | base 0.03 a night while the fire is tended; the fresh rate when it dies | default, calibrate (u4) |
+| Hard cure | 3 nights after salting; hard-cured meat 0.85 of the salt meat's weight, 0.67 food a kg | default (u4) |
+| Hanging salted or gutted fish; taking down | about 60 kg a unit; about 120 kg a unit | default, estimates (u4) |
+| The hearth rack | 1 night | default (u4; wave1 §2.4) |
+| The smokehouse's work floor | 1 space kept free in a hut room, 2 in any other room (a hut 1 set; a small room 4; a medium 10) | default (u4 §4) |
+| The salting tub | 120 kg in brine, 3 a space, a life of 5 world years; no cooper | default (u5; G10) |
+| Vermin's sudden illness | an adult's 0.001 a night x (1 + 2 x min(1, rats a km2 / 120) x the household's exposure, 0.2 to 1) | default, a first magnitude (u5; G11) |
 
 ## 4. The water and the wild
 
@@ -79,6 +87,7 @@ answered; the component writes on the default shown and says so); **calibrate** 
 | Moving between buildings | about 1 unit per 800 kg a parcel step, provisional | decided provisional: D2-274; re-set from the carry limit: open (audit q11) |
 | Moving within a building | free, except hanging and taking down (quantity work) | default (audit q11) |
 | Building materials to a site | carried on the day clock at these limits | open (wave1 q5) |
+| Chores | quantity work at the rates above; fractions carried until whole; at least 1 spare unit to start; cascades at most 3 rounds a day; "whoever has time" is the members at the node with spare units, most spare first | default (u6 §5) |
 
 ## 6. Words the prompt and the engine share
 
@@ -105,4 +114,4 @@ answered; the component writes on the default shown and says so); **calibrate** 
 - Several of one's own at a place (§6).
 - The shallows' stock by water type (§4).
 
-*Current as of 22 Nov 2026: D2-263 to D2-298.*
+*Current as of 22 Nov 2026: D2-263 to D2-300; rows from u4 to u6 added.*
