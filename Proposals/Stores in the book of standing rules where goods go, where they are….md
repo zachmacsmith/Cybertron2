@@ -49,6 +49,12 @@ Agents see their rules and what the rules did.
 - **A fault the design fixes:** work done for a household goes to its first-claimed building (`here.party_container`), so a granary
   built later never receives a harvest (pw1: 10 grain in the Reed Granary while 96 lay outside the house door).
 
+## Seeded knowledge ([[D2-279 Stores, as answered|D2-279]])
+
+The system prompt gives the rules' grammar and nothing more; how to manage a household (where to keep what, what to hold back, what
+to eat first in a hungry spring) is seeded as starting memories, chiefly for the head, who may pass them to the heir. The locked chest
+is deferred ([[L-156 The locked chest and its key|L-156]]).
+
 ## Open questions
 
 1. A cap on rules (about 12 a household and 6 a person proposed), or none?
@@ -61,6 +67,7 @@ Agents see their rules and what the rules did.
 - **22 Nov 2026:** written by 37.2 as the proposal for [[D2-274 One book of standing rules per household and per person covers both…|D2-274]] (Zach's answers: "1. yes. 2. yes. 3. I don't think default ... 4. sounds
   ok for now but don't mark as final 5. chores from spare sure, idk about the cap. There should be visibility into chores that usually
   would happen but no-one did ..."), from store_management.md, under [[D2-277 Every idea explored in conversation is written down before moving on|D2-277]].
+- **22 Nov 2026:** seeded knowledge added ([[D2-279 Stores, as answered|D2-279]]); the locked chest deferred.
 
 ## Sources
 

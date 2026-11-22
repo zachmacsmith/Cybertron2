@@ -280,7 +280,15 @@ loft; crocks wait for clay. **Goods are sorted automatically** into the best con
 sacks, then the floor), and the person sees a one-line summary of the store. **Manual control is there, never needed:** move named
 goods into or out of a named container, or hold one back from the sorting (seed grain apart).
 
-**A locked chest:** a chest with a lock (the smith's metal fittings); only those holding its key put in or take out; the key is an
+**As decided ([[D2-279 Stores, as answered|D2-279]]):** no good is kept at the rate of a building's best fitting; each kind of store removes risks for the food in
+it; every good has a place it is stored in, usually set behind the standing rules (store_rules.md) but visible and changeable by the
+agents in more detail if they want. Capacities stay real (the scale gap against the compressed year to revisit, [[L-154 The scale gap in stores|L-154]]). Vermin are a
+basic system for now: the share eaten a night by exposure, cats, owls and terriers against them, spilt food drawing more, and more
+vermin bringing signs and raising the baseline chance of sudden illness; fleshed out with disease and sanitation later ([[L-155 Vermin fleshed out properly, with disease and sanitation|L-155]]). The
+ways of managing a household are seeded as starting memories, chiefly for the head, who may pass them to the heir; the system
+prompt gives only the rules' grammar.
+
+**A locked chest (deferred, [[L-156 The locked chest and its key|L-156]]):** a chest with a lock (the smith's metal fittings); only those holding its key put in or take out; the key is an
 item that can be given, lent, stolen or copied (a smith's work); the sorting never touches its goods for others of the household;
 a lock can be broken, at a cost in work, with noise and a sign. It sits with the household's access (its members use its store; its
 head manages it), with theft (taking from a store that is not yours), and with the thing as the target (acts_on_owned_things.md).
@@ -565,6 +573,7 @@ coast ([[L-149 Gulls and other coastal birds, with the coast|L-149]]); environme
   build units and phases. The earlier §5a is folded into §8.
 - **22 Nov 2026:** §1 replaced by the clock principle ([[D2-273 Three clocks, each system on one|D2-273]]): the wild on the year clock, as fields are.
 - **22 Nov 2026:** §7.3 to §7.8 written from the day's answers and research (Zach, 22 Nov: "yes write it all into the proposal"): keeping in three smoke depths by smokehouse kind with racks of withies ([[D2-271 Smoking in three depths|D2-271]]), the shelf-life order restored and its clock open; stores ([[D2-272 A food's base rate of spoiling is its rate when well kept|D2-272]]): the two layers, automatic sorting with manual control, the locked chest, the stores to have, vermin, capacity against the compressed year; pollution as one mechanism with specifics by source; tanning brought in with its uses; snares as gear on set and tend with edges from the land; the shallows by water type and the fen's traps. Open questions replaced by what is still open; the decided list added.
+- **22 Nov 2026:** §7.4 brought to [[D2-279 Stores, as answered|D2-279]] (the storage answers); the locked chest deferred ([[L-156 The locked chest and its key|L-156]]).
 
 ## Sources
 
