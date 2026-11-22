@@ -27,6 +27,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | C-9 | **(Closed 2 Nov: settled by D4-19, D2-139 and D4-69: all time in days; ages shown.)** Ages: calendar years | 38.09 §2a-2b vs D4-19 | D4-19 wins | 37.4 |
 | ~~C-10~~ | Run files, checkpoints, replay, versioning | spec/core/README `records.md` (37.4, to compile) vs spec/record/ (37.1, D1-4) | `core/records.md` becomes a pointer to spec/record/; `core/events.md` keeps what an event is, record/journal.md how events are stored | 37.4 to confirm | resolved 24 Oct: confirmed by 37.4; spec/core/README points to spec/record/ |
 | C-11 | Weapons: spec/conflict/combat.md and D2-46 name a "blade", but `data.py` on `main` and the ecology branches has only `crude weapon` (1 timber); the boar hunt with spears is on `ecology` only | combat.md, DECISIONS D2-46, `cybertron2/engine/data.py` (found by the 02zzj part 14 research, §7, 16 Nov) | 37.4 to say whether the blade is built later or the spec should read "crude weapon" for now | 37.4 |
+| C-12 | **The river run seeded a scored goal ("YOUR GOAL, on which you will be graded"), against the rule that goals are in-world aims, never scoring proxies**: Found 22 Nov (founders_knowledge.md): in runs/water_runs_models_r1 the seeded goal line took 171 of 481 kept lines (36%) and 70 of 134 lines passed to children; scenario_design: goals are in-world aims, never scoring proxies. Whether that run's goal was a deliberate experiment arm, and whether its results are read as such. | | | 37.4, Zach to decide |
 
 ## Open questions (asks)
 
