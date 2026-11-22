@@ -2,14 +2,14 @@
 id: W-64
 kind: thread
 state: active
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Food, weight and work on one basis (W-64)
 
-*active · 37.2 · touched 20 Nov (2 days ago)*
+*active · 37.2 · touched 22 Nov (today)*
 
-> **Next:** for Zach: the asks [[Q-71 Whether the older generic game stocks are counted in the new meat unit|Q-71]] to [[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Q-73]]; then merge w64-food-values to main (37.2's data; 37.4 the run nights)
+> **Next:** the data change merged (49d6d49c); left: salting rate ([[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Q-73]]), the unit of work in hours ([[Q-69 The basis for food and work|Q-69]], default taken: 2 hours, to decide), hens laying clock ([[L-138 Hens lay on the old clock|L-138]]), a killed hen gives its meat ([[L-139 A hen killed in a raid gives its meat|L-139]])
 
 ## What it is
 Shared units for food, weight and work (Zach via 37.4, 19 Nov; proposals/shared_units.md §"The analysis asked of 37.2"): one basis (a unit about a kg, a food about a day's need, work a fixed share of a day), food values from energy density, yields from real weights, returns from historical rates; for the calibration worlds ([[D2-228 Calibrate across a distribution of worlds|D2-228]]). Found: an eel at a fifth of its real food
