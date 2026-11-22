@@ -9,7 +9,7 @@ updated: "2026-11-22"
 
 *active · 37.2 · touched 22 Nov (today)*
 
-> **Next:** five agents writing the component specs U1 to U11 to the basis sheet (brief: docs/review/37_growth/02zzzh_hunt_fish/spec_agents_brief.md); then 37.2 reviews each against basis.md and the earlier proposals
+> **Next:** 37.2's integration review across the eleven specs (cross-spec conflicts, basis rows reconciled); Zach's answers on the consolidated questions; then the staged build plan in detail
 
 ## What it is
 Zach, 23 Nov: 'Has all of the design been written up into one complete spec? ... One outline the overall architecture and purpose shape of all the changes and how they fit together and maybe with the different sections or linked specs for the break down of specific implementation details, data etc'. In docs/cybertron2/proposals/w73_design/. The basis answered first ([[D2-288 Bulk goods are counted in handling units of a stated weight and every…|D2-288]] to [[D2-295 Each depth of cure is its own good|D2-295]]).
