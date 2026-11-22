@@ -21,6 +21,7 @@ conversation (22 Nov: "conversation (22 Nov)")
 
 
 ## Mentioned by
+- [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]]
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]

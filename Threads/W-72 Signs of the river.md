@@ -35,6 +35,7 @@ started
 - [[D2-265 The river's signs|The river's signs (D2-265)]]
 - [[D2-269 Experts' signs are observations of what is happening now, which may…|Experts' signs are observations of what is happening now, which may… (D2-269)]]
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+- [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]
 - [[L-141 How much seeded memory each livelihood starts with|How much seeded memory each livelihood starts with (L-141)]]
 - [[L-149 Gulls and other coastal birds, with the coast|Gulls and other coastal birds, with the coast (L-149)]]
 - [[L-150 Environmental effects on fishing refined after the rest works|Environmental effects on fishing refined after the rest works (L-150)]]

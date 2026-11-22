@@ -28,7 +28,7 @@
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]: revisit: soon (Zach, 20 Nov: 'that one sooner')
 - [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]: closed by agent
 
-## Active threads (18)
+## Active threads (23)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -47,10 +47,20 @@
   next: the header pass over the spec files and proposals; run threads labelled as such, with their branch (D2-238)…
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]  
   next: after the first build (recipes shown with the batches, the gate check, the fishing bugs and the target rule)…
+- [[W-76 The timber economy|The timber economy (W-76)]]  
+  next: overnight: a scouting note only (real ladder and what the engine holds), no design decisions; then its own…
 - [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]]  
   next: agent running: wave1_physical_basis.md; then review, commit, write into the proposals
 - [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]]  
   next: agent running: wave4_people.md; then review, commit, write into the proposals
+- [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]]  
+  next: overnight agent running; then review, commit, questions to Zach
+- [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]]  
+  next: overnight agent running; then review, commit, questions to Zach
+- [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]  
+  next: overnight agent running; then review, commit, questions to Zach
+- [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]]  
+  next: overnight agent running; then review, commit, questions to Zach
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  
@@ -98,10 +108,11 @@
 - [[W-28 The Cybertron 2 website|The Cybertron 2 website (W-28)]]  
   next: Zach sets up the Netlify site and the subdomain; `python -m c2viz.site.viewer_publish` after each publish…
 
-## Queued and paused (8)
-[[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework, [[W-76 The timber economy|W-76]] The timber economy
+## Queued and paused (7)
+[[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
 
-## Decided this week (79)
+## Decided this week (80)
+- [[D2-282 Standing rules support conditional actions conditioned on state…|Standing rules support conditional actions conditioned on state… (D2-282)]]
 - [[D2-281 Tanning comes in this build, with bark as a new good|Tanning comes in this build, with bark as a new good (D2-281)]]
 - [[D2-280 Commits carry no Claude-Session line|Commits carry no Claude-Session line (D2-280)]]
 - [[D2-279 Stores, as answered|Stores, as answered (D2-279)]]
@@ -116,7 +127,6 @@
 - [[D2-270 Household skills|Household skills (D2-270)]]
 - [[D2-269 Experts' signs are observations of what is happening now, which may…|Experts' signs are observations of what is happening now, which may… (D2-269)]]
 - [[D2-268 The founders' starting knowledge|The founders' starting knowledge (D2-268)]]
-- [[D2-267 Practice and learning are set at a 64-day lifespan and scaled with a…|Practice and learning are set at a 64-day lifespan and scaled with a… (D2-267)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]

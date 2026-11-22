@@ -32,6 +32,7 @@ started
 - under it: [[D2-278 The next wave of the fishing, hunting and materials network|The next wave of the fishing, hunting and materials network (D2-278)]] (live)
 - under it: [[D2-279 Stores, as answered|Stores, as answered (D2-279)]] (live)
 - under it: [[D2-281 Tanning comes in this build, with bark as a new good|Tanning comes in this build, with bark as a new good (D2-281)]] (live)
+- under it: [[D2-282 Standing rules support conditional actions conditioned on state…|Standing rules support conditional actions conditioned on state… (D2-282)]] (live)
 - under it: [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]] (open)
 - under it: [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]] (open)
 - under it: [[L-145 Offal's uses bait for set lines and traps, dog food|Offal's uses: bait for set lines and traps, dog food (L-145)]] (open)
@@ -48,6 +49,10 @@ started
 - under it: [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]] (done)
 - under it: [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]] (active)
 - under it: [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]] (active)
+- under it: [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]] (active)
+- under it: [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]] (active)
+- under it: [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]] (active)
+- under it: [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]] (active)
 
 
 ## Mentioned by
@@ -59,6 +64,7 @@ started
 - [[D2-278 The next wave of the fishing, hunting and materials network|The next wave of the fishing, hunting and materials network (D2-278)]]
 - [[D2-279 Stores, as answered|Stores, as answered (D2-279)]]
 - [[D2-281 Tanning comes in this build, with bark as a new good|Tanning comes in this build, with bark as a new good (D2-281)]]
+- [[D2-282 Standing rules support conditional actions conditioned on state…|Standing rules support conditional actions conditioned on state… (D2-282)]]
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
 - [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]
@@ -68,6 +74,10 @@ started
 - [[W-76 The timber economy|The timber economy (W-76)]]
 - [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]]
 - [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]]
+- [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]]
+- [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]]
+- [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]
+- [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]]
 - [[L-111 The hunting and resources build, a soon follow-up|The hunting and resources build, a soon follow-up (L-111)]]
 - [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]]
 - [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]]
@@ -86,9 +96,4 @@ started
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
-- [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
-- [[Fibre, cord, twine, line and net the supply chain (W-73)|Fibre, cord, twine, line and net: the supply chain (W-73)]]
-- [[The fishing ladder techniques, gear, works and the water's stocks|The fishing ladder: techniques, gear, works and the water's stocks]]
-- [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]
-- [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]
-- … and 2 more
+- … and 7 more

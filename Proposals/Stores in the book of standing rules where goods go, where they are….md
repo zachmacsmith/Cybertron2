@@ -64,6 +64,7 @@ is deferred ([[L-156 The locked chest and its key|L-156]]).
 
 ## History
 
+- 22 Nov 2026: accepted in part: [[D2-282 Standing rules support conditional actions conditioned on state…|D2-282]] (Standing rules support conditional actions conditioned on state changes: a rule ).
 - **22 Nov 2026:** written by 37.2 as the proposal for [[D2-274 One book of standing rules per household and per person covers both…|D2-274]] (Zach's answers: "1. yes. 2. yes. 3. I don't think default ... 4. sounds
   ok for now but don't mark as final 5. chores from spare sure, idk about the cap. There should be visibility into chores that usually
   would happen but no-one did ..."), from store_management.md, under [[D2-277 Every idea explored in conversation is written down before moving on|D2-277]].

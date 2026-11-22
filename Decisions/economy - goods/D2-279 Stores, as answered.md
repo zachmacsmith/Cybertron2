@@ -21,6 +21,7 @@ conversation (22 Nov: "conversation (22 Nov, on the storage notes)")
 
 
 ## Mentioned by
+- [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
 - [[Goods|Goods]]
