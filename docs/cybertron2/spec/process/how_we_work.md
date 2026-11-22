@@ -37,6 +37,7 @@ decision, or the rule it was first written in. A new process decision is added h
 - D2-253: the rules about the process are kept together in this file.
 - CLAUDE.md (Zach, 24 Oct): visuals are drawn from how the engine works, at the state's own resolution.
 - CLAUDE.md: senses are written to docs/cybertron2/guides/senses.md.
+- D2-277: Every idea explored in conversation is written down before moving on: into its thread's proposal, or, if it is not part of it, into its own proposal marked exploration (or speculation), linked to the thread; nothing explored is left only in the conversation
 
 ## Sources
 

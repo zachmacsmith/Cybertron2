@@ -26,3 +26,9 @@ lasts, grows or keeps.
 - Goods' shelf lives to be set on the year clock (proposals/hunt_fish_materials.md §7.3; a first table there).
 
 *Current as of 22 Nov 2026: D2-273.*
+
+## Decided
+
+- D2-275: A unit of work is 2 hours: a day of 7 units in summer, 6 in autumn, 5 in winter
+- D2-276: Making durable things runs on the year clock: what ends a thing's life decides its clock; what is used up in one go or a handful of uses (food, fuel, salt, bait, lights, seed, a snare line) costs real hours; everything else is capital (buildings, works, gear, tools), its making real hours times about 1/7 (a share of work: about 384 engine hours a year against about 2,700 real, worked out from each world's own numbers, one named lever), its life its real years as world years or its real uses times the same factor; materials stay real in quantity and rate; upkeep is priced with the thing; brought in by stages with builders as a trade, cheaper ways to protect crops and clearing a plot at a time (proposals/building_clock.md)
+
