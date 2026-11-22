@@ -18,7 +18,7 @@ Zach, 22 Nov: evaluate overall what the intent was for the generalized and theor
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
-- under it: [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]] (queued)
+- under it: [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]] (dropped)
 
 
 ## Mentioned by

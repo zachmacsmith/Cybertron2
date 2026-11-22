@@ -26,6 +26,7 @@
 - [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]]: closed by agent
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]: revisit: soon (Zach, 20 Nov: something I want to revisit soon)
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]: revisit: soon (Zach, 20 Nov: 'that one sooner')
+- [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]: closed by agent
 
 ## Active threads (16)
 
@@ -93,8 +94,8 @@
 - [[W-28 The Cybertron 2 website|The Cybertron 2 website (W-28)]]  
   next: Zach sets up the Netlify site and the subdomain; `python -m c2viz.site.viewer_publish` after each publish…
 
-## Queued and paused (8)
-[[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework, [[W-75 Gates checked and recipes shown|W-75]] Gates checked and recipes shown
+## Queued and paused (7)
+[[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework
 
 ## Decided this week (60)
 - [[D2-262 The runs at a real river's size|The runs at a real river's size (D2-262)]]
