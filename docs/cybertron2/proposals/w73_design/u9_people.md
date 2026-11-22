@@ -309,7 +309,7 @@ What you can do. Name the craft or the act in "do", and what it acts on:
 **Universal crafts.** A field on the craft's row, `universal: {stages: [youth, adult, elder]}`, replaces `basic` as the mark of
 what every person of the time can do (livelihood_archetypes.md's "keep basic" group, about 35: firewood, fell, cut young growth,
 gather wild food, fish by hand, care for a child, herd, fence, gates, dung, repair, clear for building, a small room, beds, a camp, a
-fire ring, a pack basket's carrying (not its making), a crude tool, a crude weapon, bury, burn a carcass, a cairn, dry meat at a fire,
+fire ring, a crude tool, a crude weapon, bury, burn a carcass, a cairn, dry meat at a fire,
 boil acorns, slaughter, tallow lights, clappers, a horn, pest work, guard a field, shut the hens, bins, a hearth loaf). The four
 livelihood_archetypes left open (slaughter, drying meat, a hearth loaf, fishing by hand) are universal here (wave4's default; 37.4's
 question 1 there). A universal craft is shown by name under its shape; it needs no record until first used (as `knowledge.tried`
@@ -732,7 +732,7 @@ dealing aptitude, Nichola's peak; the rest follows §4.2.)
 
 ## 5. The founders' knowledge: templates, sets and the cap (D2-268, D2-279)
 
-Who gets what, and the matching of a holding to its family's lines, is U11's (`u11_worlds.md` §2, §4). This section is the lines.
+Who gets what, and the matching of a holding to its family's lines, is U11's (`u11_worlds.md` §2 to §4). This section is the lines.
 
 ### 5.1 How a line is written
 
@@ -779,8 +779,8 @@ the next and stopping as soon as the set fits: (1) neighbour lines beyond one; (
 people", `_kin_lines`); (3) HH5 (the rules block shows the book's defaults); (4) HH8 (core line 7 says chores exist); (5)
 capable-band lines a specialism line repeats (FI3 when FI16 is held); (6) the lines of a livelihood in which the person holds only
 the broad band, beyond its first, when they hold a deeper band in another (Oliver's fishing beside his salt); (7) BS9, then BS7,
-then BS6 (the least specific base lines); (8) the last neighbour line. A set still over the cap after (8) is a gate refusal (U11 §4:
-the templates are too long). Worked on the remade Eelmouth and Hollinford (U11 §6, §7): every founder fits by step 8; the heads with
+then BS6 (the least specific base lines); (8) the last neighbour line. A set still over the cap after (8) is a gate refusal (U11 §5,
+P5: the templates are too long). Worked on the remade Eelmouth and Hollinford (U11 §7, §8): every founder fits by step 8; the heads with
 two livelihoods and five neighbours reach step 8.
 
 **Kept places beside the seeded lines** (D2-266; departure 10): seeded lines are ordinary kept lines (D2-268: source "family lore",
@@ -791,11 +791,11 @@ places, about 30 days; a person born in the run reaches about 21 over a 64-day l
 measurement, never shown: they are the person's own memories. A person may rewrite a kept line at the cost of its place (Q-81 §3).
 
 **The told-knowledge arm** (D2-266: early testing, not for every experiment): every line of every set, for everyone, in the system
-text under "What everyone here knows", instead of seeded. **The depth knob** (D2-268's less-seeded arms; U11 §5): full (this
+text under "What everyone here knows", instead of seeded. **The depth knob** (D2-268's less-seeded arms; U11 §6): full (this
 table), half (base, broad core lines, the keeper lines and the household holdings line; no specialism lines), base (the base set,
 the keeper lines and the holdings line), none (no seeded lines; the crafts at their bands' levels only). The holdings' lines stay in
 half and base because they read the state the family holds (D2-270's coupling of capital with knowledge); none drops them too, and
-is reported as a coupling turned off (U11 §4).
+is reported as a coupling turned off (U11 §5.1).
 
 ### 5.3 The base set and the people lines
 
@@ -1072,7 +1072,7 @@ Zach, 22 Nov: a family given capital has seeded memories related to it. Two kind
 | tan pits ★ | "the pits by {parcel}, which {keeper} works" | "they turn hides to leather over many nights, and foul the water below" | U10's pits |
 | a flax close ★ | "the flax close by {parcel}" | "it gives the fibre for cord and nets" | the close |
 
-Example (the remade Marsh household, U11 §6): "We hold the weir on the Isel, which Peter keeps, and the Marsh Smokehouse on Clay
+Example (the remade Marsh household, U11 §7): "We hold the weir on the Isel, which Peter keeps, and the Marsh Smokehouse on Clay
 Field, which Nichola keeps. Its traps take the run when its gap is shut; it holds about 250 kilos of fish at a time." (37 words.)
 
 Gear held (traps, nets, a handcart) seeds no holding line; the livelihood's lines cover it (FI2, TR2).
