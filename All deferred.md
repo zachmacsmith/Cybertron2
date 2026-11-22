@@ -1,6 +1,7 @@
 # All deferred
 
 ## Open
+- [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]] (open)
 - [[L-157 Rest days, with health, fatigue and illness|Rest days, with health, fatigue and illness (L-157)]] (open)
 - [[L-156 The locked chest and its key|The locked chest and its key (L-156)]] (open)
 - [[L-155 Vermin fleshed out properly, with disease and sanitation|Vermin fleshed out properly, with disease and sanitation (L-155)]] (open)

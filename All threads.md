@@ -1,6 +1,15 @@
 # All threads
 
 ## Open
+- [[W-94 Timed actions|Timed actions (W-94)]] (benched)
+- [[W-93 Demography and growth|Demography and growth (W-93)]] (benched)
+- [[W-92 Boats, barrels and the cooper|Boats, barrels and the cooper (W-92)]] (benched)
+- [[W-91 Pottery and clay crocks, ovens, daub, bricks|Pottery and clay: crocks, ovens, daub, bricks (W-91)]] (benched)
+- [[W-90 Textiles and clothing|Textiles and clothing (W-90)]] (benched)
+- [[W-89 Trade between villages markets, carriage, what flows where|Trade between villages: markets, carriage, what flows where (W-89)]] (benched)
+- [[W-88 The coast and the sea|The coast and the sea (W-88)]] (benched)
+- [[W-87 Health, fatigue and illness|Health, fatigue and illness (W-87)]] (benched)
+- [[W-86 Households generalised into institutions and laws|Households generalised into institutions and laws (W-86)]] (benched)
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]] (active)
 - [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]] (waiting)
 - [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]] (waiting)

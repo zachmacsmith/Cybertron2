@@ -24,6 +24,7 @@ conversation (22 Nov: "conversation (22 Nov, on store_management.md)")
 ## Mentioned by
 - [[D2-279 Stores, as answered|Stores, as answered (D2-279)]]
 - [[D2-296 Fallbacks are assignable by the household's standing rules|Fallbacks are assignable by the household's standing rules (D2-296)]]
+- [[D2-301 A person's own rules and standing fallback come before every…|A person's own rules and standing fallback come before every… (D2-301)]]
 - [[Q-85 One book of standing rules per household and person for eating and…|One book of standing rules per household and person for eating and… (Q-85)]]
 - [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]]
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]

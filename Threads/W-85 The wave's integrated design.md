@@ -25,11 +25,15 @@ started
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 - under it: [[D2-297 The catch stays as calibrated|The catch stays as calibrated (D2-297)]] (live)
 - under it: [[D2-298 Bot runs test interfaces and basic functioning only|Bot runs test interfaces and basic functioning only (D2-298)]] (live)
+- under it: [[D2-301 A person's own rules and standing fallback come before every…|A person's own rules and standing fallback come before every… (D2-301)]] (live)
+- under it: [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]] (open)
 
 
 ## Mentioned by
 - [[D2-297 The catch stays as calibrated|The catch stays as calibrated (D2-297)]]
 - [[D2-298 Bot runs test interfaces and basic functioning only|Bot runs test interfaces and basic functioning only (D2-298)]]
+- [[D2-301 A person's own rules and standing fallback come before every…|A person's own rules and standing fallback come before every… (D2-301)]]
+- [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]]
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
 - [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]
 - [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
