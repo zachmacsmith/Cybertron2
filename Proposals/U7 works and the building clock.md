@@ -304,17 +304,20 @@ about twice, a master about half). Medium rooms, halls and the water wheel need 
 missing.
 
 **5.1 One skill a trade, not one a blueprint.** Today skill is kept per technique: a carpenter's practice on medium rooms gives
-nothing on a hall or a timber smokehouse. The skill an act of building uses becomes the best of: the technique's own skill, and the
-builder's best skill among the techniques of the structure's trade (`trade: carpenter` for timber, `mason` for stone; wattle is
-basic). New: `KN.trade_skill(mind, trade)` (the best skill among the mind's records whose technique carries that trade); the build
-handlers take `max(KN.skill(mind, tech), KN.trade_skill(mind, trade_of(structure)))`. A seeded carpenter or mason (household_skills.md)
-then builds every timber or stone work at their trade's skill. Nothing new is seeded; the builder livelihood with wright and mason
-specialisms is U9's and U11's.
+nothing on a hall or a timber smokehouse. Two knowledge-only techniques hold a trade's skill: **carpentry** (`trade: carpenter`, the
+timber structure and the carpenter's fittings) and **masonry** (`trade: mason`, the stone structure, hearths, ovens, cellars,
+millstones, vaults, walls); wattle and camps stay basic. They have no verb of their own: an act of building uses
+`max(KN.skill(mind, tech), KN.skill(mind, craft))`, where `craft` is the work's structure's trade record. A person seeded knowing any
+carpenter's or mason's technique is given that craft at the same level and skill (as knowledge.py:99-103 already gives a seeded mason
+walling). Nothing else is seeded; the builder livelihood with wright and mason specialisms (household_skills.md addendum) is U9's and
+U11's.
 
 **5.2 Practice for every act** ([[D2-52 Skill by practice on all work|D2-52]]: practice counts units of work). Each act of building, on a room, a fitting, a monument, a weir
-part, a tier or an upgrade, calls `KN.tried(here, mind, tech, True, units=<the act's units>)`; the finisher's and starter's single
-credits go (verbs.py:1279, 1338, 1396). A capable carpenter (practice about 35 units, skill about 1.3) who frames a timber smokehouse
-at 1/15 (16 to 26 units, about 10 acts) reaches about 1.55; a novice reaches capable's skill in about two small timber rooms.
+part, a tier or an upgrade, calls `KN.tried(here, mind, tech, True, units=<the act's units>)`, and the same units to the craft record
+for timber and stone work; the finisher's and starter's single credits go (verbs.py:1279, 1338, 1396). On the trade curve (0.5 to
+2.0, tau 50: [[D2-52 Skill by practice on all work|D2-52]]'s SKILL), a carpenter with about 35 units of practice (skill about 1.25) who frames a timber smokehouse at 1/15
+(16 to 26 units, about 10 acts of 2) reaches about 1.5; a novice (0.5) reaches 1.25 after about 35 units, two medium timber rooms at
+1/15.
 
 **5.3 Soundness from craftsmanship.** A building records `sound`, a multiplier on its wear and breaks, the work-weighted mean over the
 acts that built it of each act's multiplier from its builder's skill share s (0 at the curve's foot, 1 at its top, `knowledge.py`
@@ -349,7 +352,7 @@ it plain, or have one with the skill begin it." The tier's soundness is set as i
 **Left to [[W-76 The timber economy|W-76]]** (scouting T4, questions 11 to 13): the raising as crew work, a framed cottage needing a builder at capable, seasoning
 and boards, framing at the wood and carrying the frame, a builder's mending setting soundness. Nothing here forecloses them.
 
-**Hiring a builder** needs nothing new: anyone may carry on an unfinished building at their node (verbs.py:917-919), and work for
+**Hiring a builder** needs nothing new: anyone may carry on an unfinished building at their node (verbs.py:919-921), and work for
 another is an agreement ([[D2-36 Work can be a leg|D2-36]] to [[D2-40 The first presets|D2-40]]). Whether households hire builders is a live-run reading.
 
 ### 6. G8: cheaper ways to protect crops
@@ -492,12 +495,12 @@ senses, herds and fences' mechanism; **37.2** the rule, numbers and data rows of
 | `engine/data.py` | FENCES 963-971 | hours and materials a 100 m; `hedge` kind; `decays_every` (years) and `rots`; border length constants | 37.2 (numbers), 37.4 (mechanism) |
 | `engine/data.py` | HERDS (973); LIFE 1146 | `capacity.child` 15; `children_daily: ["herd"]` | 37.2 |
 | `engine/data.py` | PHYSICS 825; clocks.py:25 | remove the dead `cattle.stray` (fault 5) | 37.4 |
-| `engine/data.py` | new beside SKILL (732) | `SOUND = {"trade": [1.5, 0.5], "basic": [1.0, 0.5]}` | 37.4 |
+| `engine/data.py` | new beside SKILL (732); TECHNIQUES | `SOUND = {"trade": [1.5, 0.5], "basic": [1.0, 0.5]}`; the knowledge-only `carpentry` and `masonry` (§5.1) | 37.4 |
 | `engine/buildings.py` | 261-274, 276-291, 293-308 | `room_cost`, `upgrade_cost`, `base_cost` read units through `capital_units(w)` (they take the world) | 37.4 |
 | `engine/verbs.py` | 116-158 | `cost` for `build`: what is left, 1 to 2 units (§5.4); `make`'s floor in place of `int()` at 142 is U0's | 37.4 |
 | `engine/verbs.py` | 869-877, 1254-1286, 1347-1375, 1377-1400 | the trade skill (§5.1); practice for every act (§5.2); `sound` accumulated (§5.3); the finish line; the tier's skill (§5.5) | 37.4 |
 | `engine/verbs.py` | 992-1030, 1153-1200, 1225-1240 | the weir's first section and parts by water kind; one act mends several levels | 37.4 (reads 37.2's data) |
-| `engine/verbs.py` | `_consume` callers in `_new_building` 966, `_fitting` 1335, `_monument` 1023 | materials from another parcel add moving units (§8) | 37.4 |
+| `engine/verbs.py` | `_consume` calls at 967, 1015, 1073, 1108, 1127, 1336 | materials from another parcel add moving units (§8) | 37.4 |
 | `engine/verbs.py` | 2257-2284 | `_clear` a plot at a time (§7) | 37.4 |
 | `engine/verbs.py` | VERB `work` 19, `order` 77; `_order` 2452 | `along`; the order names a herd | 37.4 |
 | `engine/farm.py` | 861-900 | `fence_need` by length, round or along; `_fence` for borders and the hedge's brush drawn in place | 37.2 (farm), 37.4 (fences' mechanism) |
