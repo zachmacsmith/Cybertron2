@@ -34,6 +34,7 @@ proposals/transport_and_lodging.md; conversation
 - [[02zw the reviews' proposals against how the engine already works (9…|02zw: the reviews' proposals against how the engine already works (9…]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
+- [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - [[Review 38.21 a ladder of three worlds for the interconnected systems|Review 38.21: a ladder of three worlds for the interconnected systems]]
 - [[Review 38.23 the region run (the third world of the ladder)|Review 38.23: the region run (the third world of the ladder)]]
 - *and 1 index or audit notes*

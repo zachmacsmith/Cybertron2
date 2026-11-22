@@ -49,3 +49,4 @@ conversation (20 Nov: "1. I agree")
 - [[The fishing ladder techniques, gear, works and the water's stocks|The fishing ladder: techniques, gear, works and the water's stocks]]
 - [[Hunting, trapping, fowling and the kill techniques, capital and…|Hunting, trapping, fowling and the kill: techniques, capital and…]]
 - [[How much a smokehouse held, how long it took, and what the engine's…|How much a smokehouse held, how long it took, and what the engine's…]]
+- [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]

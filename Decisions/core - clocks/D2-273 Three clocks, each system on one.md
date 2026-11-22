@@ -26,4 +26,5 @@ conversation (22 Nov: "conversation (22 Nov: "make principled distinctions betwe
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Clocks which systems run on which time|Clocks: which systems run on which time]]
 - [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
+- [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]

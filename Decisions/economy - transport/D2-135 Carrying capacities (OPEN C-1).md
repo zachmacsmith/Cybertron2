@@ -30,4 +30,5 @@ review 02u
 - [[04 Exchange, money, credit, markets, information and transport, from…|04: Exchange, money, credit, markets, information and transport, from…]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
 - [[02zzv carrying in the live runs|02zzv: carrying in the live runs]]
+- [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - *and 1 index or audit notes*

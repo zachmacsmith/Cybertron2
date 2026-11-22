@@ -33,5 +33,6 @@ conversation (Zach: "fix the ox lending, fences, lore and Green, then rerun"; "t
 - [[02zzv carrying in the live runs|02zzv: carrying in the live runs]]
 - [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
 - [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]
+- [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
 - *and 1 index or audit notes*

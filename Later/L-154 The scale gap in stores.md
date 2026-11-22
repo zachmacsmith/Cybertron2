@@ -19,3 +19,4 @@ Zach, 22 Nov: flag this lightly (not urgently) as something to revisit down the 
 
 ## Mentioned by
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
+- [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
