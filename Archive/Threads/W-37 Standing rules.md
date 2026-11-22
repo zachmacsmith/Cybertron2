@@ -37,5 +37,6 @@ proposal written.
 - [[L-142 Fallbacks as a person's standing setting|Fallbacks as a person's standing setting (L-142)]]
 - [[L-151 A household as a shared book of standing rules people subscribe to|A household as a shared book of standing rules people subscribe to (L-151)]]
 - [[L-152 Travel folded into the standing rules|Travel folded into the standing rules (L-152)]]
+- [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
 - [[How a household manages its stores one book of standing rules, a few…|How a household manages its stores: one book of standing rules, a few…]]
 - *and 1 index or audit notes*

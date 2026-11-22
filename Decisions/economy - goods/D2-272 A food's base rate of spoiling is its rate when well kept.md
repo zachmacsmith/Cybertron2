@@ -24,5 +24,6 @@ conversation (22 Nov: "conversation (22 Nov: "remove the stores and bins baselin
 ## Mentioned by
 - [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
+- [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
 - [[Goods|Goods]]
 - [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]

@@ -23,4 +23,5 @@ conversation (22 Nov: "conversation (22 Nov: "Let's do 2 hours")")
 
 ## Mentioned by
 - [[Q-69 The basis for food and work|The basis for food and work (Q-69)]]
+- [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[Clocks which systems run on which time|Clocks: which systems run on which time]]

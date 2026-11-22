@@ -64,6 +64,7 @@ started
 - [[L-148 The wild's clock|The wild's clock (L-148)]]
 - [[L-153 Clearing a plot at a time|Clearing a plot at a time (L-153)]]
 - [[Acts on held things take the thing as their target, and default to…|Acts on held things take the thing as their target, and default to…]]
+- [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]

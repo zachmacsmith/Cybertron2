@@ -15,3 +15,7 @@ Found 22 Nov: clearing is all or nothing: a parcel becomes a field only when its
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+
+
+## Mentioned by
+- [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]

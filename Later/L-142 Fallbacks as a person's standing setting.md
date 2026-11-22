@@ -18,4 +18,5 @@ Zach, 21 Nov: everyone seems always to fall back to firewood, which should not b
 
 
 ## Mentioned by
+- [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
 - [[How a household manages its stores one book of standing rules, a few…|How a household manages its stores: one book of standing rules, a few…]]

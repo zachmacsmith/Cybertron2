@@ -22,6 +22,7 @@ started
 
 ## Mentioned by
 - [[W-76 The timber economy|The timber economy (W-76)]]
+- [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[02zzv carrying in the live runs|02zzv: carrying in the live runs]]
 - [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]

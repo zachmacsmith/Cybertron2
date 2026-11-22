@@ -15,3 +15,7 @@ Zach, 22 Nov: should households or individuals set defaults for standing rules f
 
 ## Linked
 - parent: [[W-37 Standing rules|Standing rules (W-37)]]
+
+
+## Mentioned by
+- [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]

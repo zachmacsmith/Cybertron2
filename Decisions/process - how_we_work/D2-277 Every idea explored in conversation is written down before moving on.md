@@ -17,4 +17,7 @@ conversation (22 Nov: "conversation (22 Nov: "Even if not the main proposal they
 
 
 ## Mentioned by
+- [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
+- [[Trying and learning crafts by difficulty, failures that teach…|Trying and learning: crafts by difficulty, failures that teach…]]
+- [[A grammar of acting a few universal verbs, the thing as the target…|A grammar of acting: a few universal verbs, the thing as the target…]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]

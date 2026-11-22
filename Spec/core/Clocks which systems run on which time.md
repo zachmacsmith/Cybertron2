@@ -9,34 +9,34 @@ updated: "2026-11-22"
 
 
 Owner: 37.2 (the rule, [[D2-273 Three clocks, each system on one|D2-273]]); each system's owner keeps its system on its clock. Read this before deciding how long anything takes,
-lasts, grows or keeps.
+lasts, grows or keeps, or what it costs to make.
 
 ## The three clocks ([[D2-273 Three clocks, each system on one|D2-273]])
 
 | Clock | One step | Real against engine | Systems on it |
 |---|---|---|---|
-| **Day** | a night; about 6 units of work a day, a unit 2 hours | real rates | work done in an hour (a craft's rate, a catch per hour), food eaten a night, walking and travel |
-| **Year** | 32 days, seasons of 8 ([[D2-209 Brief 5 (river and water) is built|D2-209]]) | real durations compressed about 1/11 | land and its yields, the seasons, harvests, the wild's production and regrowth, the runs, how long goods keep, process times measured in real days or weeks (smoking, retting, tanning, drying), the years a work takes to come into use (a withy bed, a coppice) |
+| **Day** | a night; a unit of work is 2 hours, 7 units a day in summer, 6 in autumn, 5 in winter ([[D2-275 A unit of work is 2 hours|D2-275]]) | real rates | work done in an hour (a craft's rate, a catch per hour), food eaten a night, walking and travel, making what is used up in one go or a handful of uses |
+| **Year** | 32 days, seasons of 8 ([[D2-209 Brief 5 (river and water) is built|D2-209]]) | real durations compressed about 1/11; real work for durable things about 1/7 ([[D2-276 Making durable things runs on the year clock|D2-276]]) | land and its yields, the seasons, harvests, the wild's production and regrowth, the runs, how long goods keep, process times measured in real days or weeks (smoking, retting, tanning, drying), the years a work takes to come into use (a withy bed, a coppice), making durable things and their lives |
 | **Life** | a world's lifespan ([[D2-153 The lifespan is a world setting that scales every part of a life|D2-153]]; 64 days in current worlds) | a human life compressed to the lifespan | ageing, learning and practice ([[D2-267 Practice and learning are set at a 64-day lifespan and scaled with a…|D2-267]]: set at a 64-day lifespan, scaled), raising children, births |
 
-## The rules ([[D2-273 Three clocks, each system on one|D2-273]])
+## The rules
 
-- Every system runs on one clock, named in its spec.
+- Every system runs on one clock, named in its spec ([[D2-273 Three clocks, each system on one|D2-273]]).
 - A duration of more than a few real days compresses with its clock; a duration of a day or two keeps its real nights as a floor
-  (fresh fish or meat about 1 to 2 nights, milk the same day).
+  (fresh fish or meat about 1 to 2 nights, milk the same day) ([[D2-273 Three clocks, each system on one|D2-273]]).
 - All food runs on the year clock (what land and water yield, how long food keeps, how long it takes to keep it), so food sources and
-  keeping are calibrated against each other.
-- Rates per hour of work and food per night are never compressed.
+  keeping are calibrated against each other ([[D2-273 Three clocks, each system on one|D2-273]]).
+- Rates per hour of work and food per night are never compressed ([[D2-273 Three clocks, each system on one|D2-273]]).
+- **Making things ([[D2-276 Making durable things runs on the year clock|D2-276]]):** what ends a thing's life decides its clock. What is used up in one go or a handful of uses (food, fuel,
+  salt, bait, lights, seed, a snare line) costs real hours. Everything else is capital (buildings, works, gear, tools): its making
+  costs real hours times about 1/7, a share of a year's work (about 384 engine hours a year against about 2,700 real), worked out from
+  each world's own numbers as one named lever; its life is its real years counted as world years, or its real uses times the same
+  factor. Materials stay real in quantity and rate; upkeep is priced with the thing. `calibrate`: the factor.
 
-## Open against this rule
+## Open against these rules
 
-- The building scale: works are built at about 1/30 to 1/70 of real hours while crafts take real hours (OPEN [[Q-84 The building scale|Q-84]]).
 - Goods' shelf lives to be set on the year clock (proposals/hunt_fish_materials.md §7.3; a first table there).
+- The building clock's staging and its companions (builders as a trade, cheaper ways to protect crops, clearing a plot at a time):
+  proposals/building_clock.md.
 
-*Current as of 22 Nov 2026: [[D2-273 Three clocks, each system on one|D2-273]].*
-
-## Decided
-
-- [[D2-275 A unit of work is 2 hours|D2-275]]: A unit of work is 2 hours: a day of 7 units in summer, 6 in autumn, 5 in winter
-- [[D2-276 Making durable things runs on the year clock|D2-276]]: Making durable things runs on the year clock: what ends a thing's life decides its clock; what is used up in one go or a handful of uses (food, fuel, salt, bait, lights, seed, a snare line) costs real hours; everything else is capital (buildings, works, gear, tools), its making real hours times about 1/7 (a share of work: about 384 engine hours a year against about 2,700 real, worked out from each world's own numbers, one named lever), its life its real years as world years or its real uses times the same factor; materials stay real in quantity and rate; upkeep is priced with the thing; brought in by stages with builders as a trade, cheaper ways to protect crops and clearing a plot at a time (proposals/building_clock.md)
-
+*Current as of 22 Nov 2026: [[D2-273 Three clocks, each system on one|D2-273]], [[D2-275 A unit of work is 2 hours|D2-275]], [[D2-276 Making durable things runs on the year clock|D2-276]].*

@@ -21,6 +21,7 @@ conversation (22 Nov: "conversation (22 Nov, answers to the open questions)")
 
 
 ## Mentioned by
+- [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]

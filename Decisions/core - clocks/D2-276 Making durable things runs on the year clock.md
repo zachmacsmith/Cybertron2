@@ -23,4 +23,6 @@ conversation (22 Nov: "conversation (22 Nov: "Let's try this redesign tbh. I thi
 
 ## Mentioned by
 - [[Q-84 The building scale|The building scale (Q-84)]]
+- [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
+- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Clocks which systems run on which time|Clocks: which systems run on which time]]

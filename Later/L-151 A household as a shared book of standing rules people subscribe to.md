@@ -15,3 +15,7 @@ Zach, 22 Nov: we will definitely revisit later when we generalise households eve
 
 ## Linked
 - parent: [[W-37 Standing rules|Standing rules (W-37)]]
+
+
+## Mentioned by
+- [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]

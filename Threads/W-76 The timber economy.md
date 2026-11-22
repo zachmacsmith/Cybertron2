@@ -14,3 +14,8 @@ Zach, 22 Nov: the next proper economy I want to focus on is the timber one; push
 
 ## Done so far, and what is left
 started
+
+
+## Mentioned by
+- [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
+- [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]
