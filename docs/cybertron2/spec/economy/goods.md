@@ -24,6 +24,7 @@ documents; salt is a good with no source in any world yet (making it, D2-56, is 
 - D2-56: charcoal is a good; shore salt sun-dried, inland salt boiled; fields yield some fieldstone.
 - D2-60, D2-62: flour, bread and dried meat.
 - D4-9: every good crosses between nodes only by being carried.
+- D2-272: A food's base rate of spoiling is its rate when well kept (covered, dry, out of the sun), the rate its preserving gives it; stores and bins remove the outside penalties (rain, sun, heat, damp, open ground) but never slow a food below its base; better stores each remove a particular risk (a cellar's cool for the foods heat ruins, a granary's dryness and height against damp and vermin, smoke against flies, brine in a barrel), not a blanket multiplier
 
 ## Mechanics
 
