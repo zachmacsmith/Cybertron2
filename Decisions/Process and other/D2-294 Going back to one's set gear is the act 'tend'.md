@@ -21,4 +21,5 @@ conversation (22 Nov: "tend (Recommended)")
 
 
 ## Mentioned by
+- [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
 - *and 1 index or audit notes*

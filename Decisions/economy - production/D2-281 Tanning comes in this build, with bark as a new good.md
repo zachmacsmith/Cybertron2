@@ -24,6 +24,7 @@ conversation (22 Nov: "conversation (22 Nov)")
 - [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]]
 - [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
+- [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[The building clock's first stage, read with bots do bots still build…|The building clock's first stage, read with bots: do bots still build…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]

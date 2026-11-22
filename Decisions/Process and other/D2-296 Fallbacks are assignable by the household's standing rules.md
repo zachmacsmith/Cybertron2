@@ -22,3 +22,4 @@ conversation (22 Nov: "Fallbacks should be assignable by the family's standing r
 
 ## Mentioned by
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
+- [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]

@@ -21,4 +21,5 @@ conversation (22 Nov: "Stop overcorrecting on bot runs they can test basic inter
 
 
 ## Mentioned by
+- [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]

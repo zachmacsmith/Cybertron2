@@ -23,6 +23,7 @@ conversation (22 Nov: "conversation (22 Nov: "make principled distinctions betwe
 
 ## Mentioned by
 - [[L-148 The wild's clock|The wild's clock (L-148)]]
+- [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
 - [[Clocks which systems run on which time|Clocks: which systems run on which time]]
 - [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]

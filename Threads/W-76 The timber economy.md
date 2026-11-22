@@ -24,6 +24,7 @@ started
 ## Mentioned by
 - [[D2-290 Fuel a house burns a night is at its real weight|Fuel a house burns a night is at its real weight (D2-290)]]
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
+- [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
 - [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]

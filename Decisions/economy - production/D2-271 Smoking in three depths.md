@@ -21,6 +21,7 @@ conversation (22 Nov: "conversation (22 Nov: "I agree with your perception of bo
 
 
 ## Mentioned by
+- [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]

@@ -48,7 +48,7 @@
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]  
   next: after the first build (recipes shown with the batches, the gate check, the fishing bugs and the target rule)…
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]  
-  next: the basis sheet and the architecture by 37.2; then component specs to the basis, reviewed against it
+  next: the component specs U1 to U11 to the basis sheet, each opening with what it extends and its departures…
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  
