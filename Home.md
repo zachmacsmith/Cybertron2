@@ -28,7 +28,7 @@
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]: revisit: soon (Zach, 20 Nov: 'that one sooner')
 - [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]: closed by agent
 
-## Active threads (19)
+## Active threads (18)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -47,8 +47,6 @@
   next: the header pass over the spec files and proposals; run threads labelled as such, with their branch (D2-238)…
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]  
   next: after the first build (recipes shown with the batches, the gate check, the fishing bugs and the target rule)…
-- [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]]  
-  next: overnight agent running; then review, commit, questions to Zach
 - [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]]  
   next: overnight agent running; then review, commit, questions to Zach
 - [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]  
@@ -71,7 +69,7 @@
 - [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]]  
   next: merge (Zach), a bot run to measure the new rows' chances, item 9 after W-56
 
-## Waiting threads (14)
+## Waiting threads (15)
 
 **37.2**
 - [[W-25 Keeping each world's full 150 m land with it|Keeping each world's full 150 m land with it (W-25)]]  
@@ -92,6 +90,8 @@
   next: Zach: the note's seven questions (core states knowledge dies unless passed on; core length; ten shapes as the…
 - [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]]  
   next: Zach: the note's 24 questions ranked by what they block (the firewood unit 10 or 60 kg; 'keeps a season' as…
+- [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]]  
+  next: Zach: the note's 13 questions, chiefly what 'keeps d days' means as a nightly loss (half, quarter, tenth)…
 - [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]  
   next: Zach: the note's 14 questions (§8), chiefly set and tend as two acts on held gear, Q-80 recorded as a…
 
