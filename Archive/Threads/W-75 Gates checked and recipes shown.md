@@ -22,3 +22,4 @@ dropped 22 Nov: opened in error: Zach's go of 22 Nov was for the batch sizes onl
 
 ## Mentioned by
 - [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]
+- [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]

@@ -21,3 +21,4 @@ conversation
 - [[02zj the landscape generator, stage 1, as built|02zj: the landscape generator, stage 1, as built]]
 - [[02zn · The first dry run of a generated world|02zn · The first dry run of a generated world]]
 - [[What the founders should know knowledge from the runs, the…|What the founders should know: knowledge from the runs, the…]]
+- [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]

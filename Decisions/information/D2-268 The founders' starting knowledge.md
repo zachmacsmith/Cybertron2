@@ -22,3 +22,4 @@ conversation (22 Nov: "conversation (22 Nov)")
 
 ## Mentioned by
 - [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
+- [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]

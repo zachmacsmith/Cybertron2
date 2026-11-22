@@ -19,3 +19,4 @@ Every kill makes offal and nothing uses it (02zzzh byproducts_and_substitutes, e
 
 ## Mentioned by
 - [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
+- [[Household skills livelihoods as data, who in a house knows what and…|Household skills: livelihoods as data, who in a house knows what and…]]
