@@ -28,3 +28,4 @@ from the shared-units analysis (02zzu, 20 Nov), on 1 food = 2,500 kcal and a uni
 - [[L-138 Hens lay on the old clock|Hens lay on the old clock (L-138)]]
 - [[Shared units food value, weight and work on one basis|Shared units: food value, weight and work on one basis]]
 - [[02zzu lookup the food values checked against USDA FoodData Central|02zzu lookup: the food values checked against USDA FoodData Central]]
+- [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]

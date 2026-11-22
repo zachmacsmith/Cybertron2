@@ -25,3 +25,4 @@ grain never spoiling (the engine as built)
 - [[Proposal things left in places, and who finds them|Proposal: things left in places, and who finds them]]
 - [[Goods|Goods]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
+- [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]

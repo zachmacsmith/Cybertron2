@@ -32,5 +32,6 @@ Built for the building package (02zh, 3 Nov), readings of the brief and what cou
 - [[Q-24a Q-24 settled in part by Zach|Q-24 settled in part by Zach (Q-24a)]]
 - [[Proposal how buildings fit the other systems (before Package E is…|Proposal: how buildings fit the other systems (before Package E is…]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
+- [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
 - [[38.45 the building package, as built (brief 02zh)|38.45: the building package, as built (brief 02zh)]]
 - *and 3 index or audit notes*

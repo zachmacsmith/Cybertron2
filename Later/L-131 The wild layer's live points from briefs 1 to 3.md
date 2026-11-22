@@ -33,3 +33,4 @@ kept from the asks closed in the triage (02zzr): houses break fast ([[D2-168 Wea
 - [[Q-38 Brief 3 as built, and its gate|Brief 3 as built, and its gate (Q-38)]]
 - [[Q-39 Brief 4's open questions|Brief 4's open questions (Q-39)]]
 - [[W-21 Proposals for Q-37|Proposals for Q-37 (W-21)]]
+- [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]

@@ -23,4 +23,5 @@ conversation ("It could arrive by itself or they find it")
 - [[Wildlife|Wildlife]]
 - [[02zy test worlds for the wild build briefs 1 and 2 (9 Nov)|02zy: test worlds for the wild build briefs 1 and 2 (9 Nov)]]
 - [[14 War, force and the economy (16 Nov 2026)|14: War, force and the economy (16 Nov 2026)]]
+- [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
 - *and 1 index or audit notes*

@@ -27,4 +27,5 @@ proposals/buildings.md; conversation
 - [[Buildings|Buildings]]
 - [[02zh build brief for 37.4 the building package|02zh: build brief for 37.4: the building package]]
 - [[14 War, force and the economy (16 Nov 2026)|14: War, force and the economy (16 Nov 2026)]]
+- [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
 - *and 1 index or audit notes*

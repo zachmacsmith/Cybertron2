@@ -28,3 +28,4 @@ recipes.md §12
 - [[Proposal recipes for the first worlds|Proposal: recipes for the first worlds]]
 - [[Buildings|Buildings]]
 - [[37.2o Livestock numbers kinds, breeding, fodder, work, products…|37.2o Livestock numbers: kinds, breeding, fodder, work, products…]]
+- [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]

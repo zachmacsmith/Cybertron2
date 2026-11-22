@@ -29,4 +29,5 @@ conversation ("each subject that can be acted on [could] have a very short ident
 - [[Prompts|Prompts]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
 - [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
+- [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
 - [[38.42 the paired Combe run, as now against the evening…|38.42: the paired Combe run, as now against the evening…]]

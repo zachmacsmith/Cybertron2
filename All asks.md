@@ -1,6 +1,7 @@
 # All asks
 
 ## Open
+- [[Q-84 The building scale|The building scale (Q-84)]] (open)
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]] (open)
 - [[Q-82 Trying and learning|Trying and learning (Q-82)]] (open)
 - [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]] (open)
