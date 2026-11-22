@@ -24,5 +24,6 @@ a trap's take with no cap (the race trap up to 6.5 food a unit)
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Wildlife|Wildlife]]
+- [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - *and 1 index or audit notes*

@@ -34,3 +34,4 @@ sowing refusal, the rules' crop line, phase 2's fade and wear values ([[D4-103 T
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
+- [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]

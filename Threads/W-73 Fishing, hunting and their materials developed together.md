@@ -29,7 +29,7 @@ started
 - under it: [[L-145 Offal's uses bait for set lines and traps, dog food|Offal's uses: bait for set lines and traps, dog food (L-145)]] (open)
 - under it: [[L-146 Peat as fuel where there is bog|Peat as fuel where there is bog (L-146)]] (open)
 - under it: [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]] (open)
-- under it: [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]] (queued)
+- under it: [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]] (done)
 
 
 ## Mentioned by

@@ -24,5 +24,6 @@ recipes.md §5
 - [[Proposal recipes for the first worlds|Proposal: recipes for the first worlds]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[37.2o Livestock numbers kinds, breeding, fodder, work, products…|37.2o Livestock numbers: kinds, breeding, fodder, work, products…]]
+- [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
 - [[Review 38.14 cybertron2 M1 against cybertron 1 what was lost, and…|Review 38.14: cybertron2 M1 against cybertron 1: what was lost, and…]]
 - [[Review 38.20 the decisions still open, by what they block|Review 38.20: the decisions still open, by what they block]]

@@ -33,4 +33,5 @@ paused after day 30 (20 Nov, Zach: 'Let it finish day 29 and 30'): 42 alive, 22 
 - [[Shared units food value, weight and work on one basis|Shared units: food value, weight and work on one basis]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
+- [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
 - *and 2 index or audit notes*

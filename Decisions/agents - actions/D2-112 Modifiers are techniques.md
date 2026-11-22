@@ -27,4 +27,5 @@ modifiers as a separate kind of knowledge
 - [[Modifiers ways of doing an act|Modifiers: ways of doing an act]]
 - [[02r build brief for 37.4 fuse events, noticing, things in places…|02r: build brief for 37.4: fuse events, noticing, things in places…]]
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
+- [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
 - *and 1 index or audit notes*

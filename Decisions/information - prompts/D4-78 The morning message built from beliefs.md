@@ -28,3 +28,4 @@ the morning message with "Today you could" and the whole place each day (prompt.
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
 - [[02zw the reviews' proposals against how the engine already works (9…|02zw: the reviews' proposals against how the engine already works (9…]]
+- [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]

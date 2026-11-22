@@ -25,3 +25,4 @@ the crafts named had to match exactly, and a mismatch was reported to each as th
 - [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
 - [[A lesson is in the teacher's craft|A lesson is in the teacher's craft]]
 - [[What agents can do|What agents can do]]
+- [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]

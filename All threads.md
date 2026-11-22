@@ -1,7 +1,6 @@
 # All threads
 
 ## Open
-- [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]] (queued)
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]] (waiting)
 - [[W-72 Signs of the river|Signs of the river (W-72)]] (waiting)
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]] (queued)
@@ -36,7 +35,8 @@
 - [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]] (queued)
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]] (active)
 
-## Closed (44)
+## Closed (45)
+- [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]]
 - [[W-71 How carrying works in the live runs|How carrying works in the live runs (W-71)]]
 - [[W-66 The design of the records and the workflow|The design of the records and the workflow (W-66)]]
 - [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]]

@@ -21,3 +21,4 @@ Found 21 Nov: things.find picks the most recently known thing matching a place o
 
 ## Mentioned by
 - [[Acts on held things take the thing as their target, and default to…|Acts on held things take the thing as their target, and default to…]]
+- [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]

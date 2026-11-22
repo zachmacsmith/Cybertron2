@@ -43,7 +43,7 @@ records the order things were built in, not a choice.**
 `life.care_gifts`). In three past runs: peoples world (pw1, 100 days) 24 entries in 417 care acts, about half a dozen distinct
 sentences; wild region 7 entries, one sentence; the second lake run none in 7. Every sentence passed is identity and values ("We are
 the Ashford folk: keep the kin together, the field sown and the store full"; "Keep the store full through winter, and our blood must
-outlast every hard frost"); **none is how the world works**, which agents have no reason to pass when the prompt tells everyone.
+outlast every hard frost"); **none is how the world works**, which agents have no reason to pass when the prompt tells everyone. The 30-day river run passes more (crafts_evaluation, Part 5): 134 of 487 care acts passed a line, 21 of them about how the world works, one a false belief ("Middleham Water is fished out", kept from day 12 to 29 and passed to the child Hob). Memories fill 0.6 to 1.0 of their budgets; rules, recipes and prices are 6 to 16% of memory words but about a third of kept lines (155 of 481), mostly lessons from refusals.
 
 **Learning by observation** is two mechanisms: `attend` (free; one thing seen in detail next morning; gives sight, not craft) and
 `watch` (4 units beside someone; a rough idea of their craft). The **look-up** of a craft's card is used in 0.1 to 0.3% of replies.
@@ -143,6 +143,7 @@ makers.
 
 ## History
 
+- **22 Nov 2026:** the crafts evaluation's memory measures added (02zzzh_hunt_fish/crafts_evaluation.md, Part 5).
 - **22 Nov 2026:** drafted by 37.2 at Zach's request (quoted under Why; and "Yes" to writing it), with the system prompt rendered for
   one agent in the runs world (high arm), the memory limits read from `memory.py` and `data.py`, and the `pass` sentences counted in
   three published runs (pw1_opus_sonnet_r1, wild_region_s7, water_lake_r2).

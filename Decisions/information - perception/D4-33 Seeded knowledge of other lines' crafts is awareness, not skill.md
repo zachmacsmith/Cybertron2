@@ -32,6 +32,7 @@ the generator's 30% chance of a rough skill in another line's craft
 - [[02zd cybertron2 as a response to cybertron 1|02zd: cybertron2 as a response to cybertron 1]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
 - [[15 Knowledge-making discovery, instruments, records and the…|15: Knowledge-making: discovery, instruments, records and the…]]
+- [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
 - [[Review 38.15 the valley, three villages over 20 days (run m2_V)|Review 38.15: the valley, three villages over 20 days (run m2_V)]]
 - [[38.37 Everything an agent is shown inventory, origins, what it does…|38.37: Everything an agent is shown: inventory, origins, what it does…]]
 - [[38.70b Twin Hollows run 1, what the agents said and did (qualitative)|38.70b: Twin Hollows run 1, what the agents said and did (qualitative)]]

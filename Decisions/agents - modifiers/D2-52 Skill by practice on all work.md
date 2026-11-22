@@ -35,6 +35,7 @@ updated: "2026-11-20"
 - [[02zzh the economy's layers and trees of dependence, across the…|02zzh: the economy's layers and trees of dependence, across the…]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
 - [[15 Knowledge-making discovery, instruments, records and the…|15: Knowledge-making: discovery, instruments, records and the…]]
+- [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
 - [[Review 38.21 a ladder of three worlds for the interconnected systems|Review 38.21: a ladder of three worlds for the interconnected systems]]
 - [[38.63 The engine overhaul, phases 1 and 2 what was built, the…|38.63: The engine overhaul, phases 1 and 2: what was built, the…]]
 - *and 1 index or audit notes*
