@@ -38,6 +38,7 @@ one line per state (perceive.py as built)
 - [[A slaughter shows itself|A slaughter shows itself]]
 - [[Proposal things left in places, and who finds them|Proposal: things left in places, and who finds them]]
 - [[Proposal visibility (what a place and the day let the senses reach)|Proposal: visibility (what a place and the day let the senses reach)]]
+- [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
 - [[Fuse events time to respond|Fuse events: time to respond]]
 - [[Noticing things at a place, and on the road|Noticing things at a place, and on the road]]
 - [[Perception what an agent sees and knows|Perception: what an agent sees and knows]]

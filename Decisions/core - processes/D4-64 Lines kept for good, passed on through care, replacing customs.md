@@ -36,6 +36,7 @@ conversation ("I would adopt it where ... whoever gives care that day ... whoeve
 - [[Proposal livestock|Proposal: livestock]]
 - [[Proposal living populations on the land (a generalised ecology layer)|Proposal: living populations on the land (a generalised ecology layer)]]
 - [[Proposal what an agent is shown each round, attention, and…|Proposal: what an agent is shown each round, attention, and…]]
+- [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
 - [[The declared process model|The declared process model]]
 - [[Memory and reasoning|Memory and reasoning]]
 - [[Birth and death partners, children, growing up, old age, succession|Birth and death: partners, children, growing up, old age, succession]]

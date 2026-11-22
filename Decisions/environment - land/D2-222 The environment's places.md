@@ -22,5 +22,6 @@ stepping the cells
 ## Mentioned by
 - [[D2-229 One fish stock per water body|One fish stock per water body (D2-229)]]
 - [[Environment systems the land at three speeds, on the places the…|Environment systems: the land at three speeds, on the places the…]]
+- [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]
 - [[The land and its stocks|The land and its stocks]]
 - *and 1 index or audit notes*

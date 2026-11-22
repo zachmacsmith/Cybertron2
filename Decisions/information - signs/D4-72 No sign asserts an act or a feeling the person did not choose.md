@@ -23,5 +23,6 @@ those signs as written (signs.py)
 - [[Proposal the senses across every system|Proposal: the senses across every system]]
 - [[Events and their aftermath show themselves|Events and their aftermath show themselves]]
 - [[No invented acts in signs; one's beasts kept short|No invented acts in signs; one's beasts kept short]]
+- [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
 - [[Signs|Signs]]
 - [[38.43 what shows itself, and what does not (a sign audit)|38.43: what shows itself, and what does not (a sign audit)]]

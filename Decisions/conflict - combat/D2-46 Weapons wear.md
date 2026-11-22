@@ -23,6 +23,7 @@ combat.py's weapon used up in every fight
 - [[C-11 Weapons specconflictcombat.md and D2-46 name a blade, but…|Weapons: spec/conflict/combat.md and D2-46 name a "blade", but… (C-11)]]
 - [[Proposal the environment over time (one scheduler for eras, years…|Proposal: the environment over time (one scheduler for eras, years…]]
 - [[Proposal recipes for the first worlds|Proposal: recipes for the first worlds]]
+- [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]
 - [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
 - [[Combat attacks on a person|Combat: attacks on a person]]

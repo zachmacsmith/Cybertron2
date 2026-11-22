@@ -114,6 +114,10 @@ answered; the component writes on the default shown and says so); **calibrate** 
 | Fallbacks | assignable by the household's book as chores; a person's own standing fallback first | decided: [[D2-296 Fallbacks are assignable by the household's standing rules|D2-296]] |
 | The options list | gone from the code | decided: [[D2-286 The list of what one could do today|D2-286]] |
 | Recipes shown | at capable and known: inputs with batch, what it gives, units, place or fitting | decided: [[D2-263 A craft a person knows at capable or known shows, where they look|D2-263]] |
+| The act shapes | go, gather, set, tend, make, work, build, move, change, agree, force; a technique named alone resolves by what stands | open ([[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Q-27]]; u9 §3) |
+| Kept lines over a life | about 40 words a line, one place a stretch (decided, [[D2-266 Knowledge in their own words|D2-266]]); founders seeded up to 20 on top; about 30 in all | open (audit q10; u9 B9-2) |
+| A youth's food a night | not named by [[D2-292 The food unit|D2-292]] | open (u11 B11-7) |
+| Learning's scale | every learning increment x 64 / lifespan; fading on the life clock (16 days at lifespan 64) | default (u9 §4.3; [[D2-267 Practice and learning are set at a 64-day lifespan and scaled with a…|D2-267]]) |
 | Intent wording | no horizon word ("what you mean to do and why", "Decide what to do.") | open (steering.md §4; default as stated) |
 
 ## 7. Open at the basis level

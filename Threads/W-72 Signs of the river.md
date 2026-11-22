@@ -41,6 +41,7 @@ started
 - [[L-150 Environmental effects on fishing refined after the rest works|Environmental effects on fishing refined after the rest works (L-150)]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
+- [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
 - [[02zzz2 every state of the water, and what of it reaches a person|02zzz2: every state of the water, and what of it reaches a person]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]

@@ -39,6 +39,8 @@ conversation ("are these senses being given direct chances? Are they not using t
 - [[When people talk, and what it costs by reach, with an evening at the…|When people talk, and what it costs: by reach, with an evening at the…]]
 - [[Who knows of a theft|Who knows of a theft]]
 - [[Proposal things left in places, and who finds them|Proposal: things left in places, and who finds them]]
+- [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]
+- [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
 - [[Proposal wild systems, layered kinds that people can learn to read|Proposal: wild systems, layered kinds that people can learn to read]]
 - [[Noticing things at a place, and on the road|Noticing things at a place, and on the road]]
 - [[Perception what an agent sees and knows|Perception: what an agent sees and knows]]

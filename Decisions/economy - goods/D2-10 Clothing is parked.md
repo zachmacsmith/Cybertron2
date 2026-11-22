@@ -25,6 +25,7 @@ the direction "clothing as a worn stock"
 - [[Proposal options kept for later (goods, tools, methods)|Proposal: options kept for later (goods, tools, methods)]]
 - [[Proposal resources and goods|Proposal: resources and goods]]
 - [[Proposal shelter|Proposal: shelter]]
+- [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
 - [[Goods|Goods]]
 - [[02zs the wild in a society's economy and development (9 Nov)|02zs: the wild in a society's economy and development (9 Nov)]]

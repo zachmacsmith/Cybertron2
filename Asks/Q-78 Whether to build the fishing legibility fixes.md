@@ -19,3 +19,4 @@ From the live runs (02zzz) and why they did not fish (02zzy): low and medium cau
 
 ## Mentioned by
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
+- [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]

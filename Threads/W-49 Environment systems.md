@@ -34,6 +34,7 @@ proposal accepted in part 17 Nov ([[D2-221 The land in three speeds|D2-221]] to 
 - [[W-15 The land's fast stocks|The land's fast stocks (W-15)]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
+- [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
 - [[02zzn the water half of the environment, prototyped on the river…|02zzn: the water half of the environment, prototyped on the river…]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]

@@ -29,6 +29,7 @@ conversation ("Get the agent to add bundles for the 18 it ranked"; the four kind
 - [[Who knows of a theft|Who knows of a theft]]
 - [[Proposal the verbs, and what each agent is shown|Proposal: the verbs, and what each agent is shown]]
 - [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
+- [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[Perception what an agent sees and knows|Perception: what an agent sees and knows]]
 - [[Signs|Signs]]

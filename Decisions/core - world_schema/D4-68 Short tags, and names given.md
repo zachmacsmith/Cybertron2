@@ -27,6 +27,7 @@ conversation ("each subject that can be acted on [could] have a very short ident
 - [[Proposal the verbs, and what each agent is shown|Proposal: the verbs, and what each agent is shown]]
 - [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
 - [[U5. Stores and containers a space and what is in it, each removing…|U5. Stores and containers: a space and what is in it, each removing…]]
+- [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[Prompts|Prompts]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]

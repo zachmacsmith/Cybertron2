@@ -24,6 +24,7 @@ in-world aims in every prompt (scenario_design §3, 38.11)
 - [[L-17 Aims (cybertron 1's goals, edited)|Aims (cybertron 1's goals, edited) (L-17)]]
 - [[Proposal children as a choice, counted in days (costs, care, growing…|Proposal: children as a choice, counted in days (costs, care, growing…]]
 - [[Customs held by households|Customs held by households]]
+- [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
 - [[What agents can do|What agents can do]]
 - [[Aims|Aims]]
 - [[Prompts|Prompts]]

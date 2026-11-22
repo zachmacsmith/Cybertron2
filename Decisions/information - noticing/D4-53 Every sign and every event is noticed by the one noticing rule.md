@@ -30,6 +30,8 @@ the older bundles (crops, fields, pastures, wild land, herds, buildings, people,
 - [[Proposal the senses across every system|Proposal: the senses across every system]]
 - [[Events and their aftermath show themselves|Events and their aftermath show themselves]]
 - [[A slaughter shows itself|A slaughter shows itself]]
+- [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]
+- [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
 - [[Proposal wild systems, layered kinds that people can learn to read|Proposal: wild systems, layered kinds that people can learn to read]]
 - [[Noticing things at a place, and on the road|Noticing things at a place, and on the road]]
 - [[02zc the systems of cybertron2 as they stand|02zc: the systems of cybertron2 as they stand]]

@@ -23,6 +23,7 @@ conversation ("slaughter and related should have some pretty visceral senses for
 - [[Proposal the senses across every system|Proposal: the senses across every system]]
 - [[Events and their aftermath show themselves|Events and their aftermath show themselves]]
 - [[A slaughter shows itself|A slaughter shows itself]]
+- [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[Signs|Signs]]
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]

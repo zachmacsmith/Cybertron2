@@ -25,4 +25,5 @@ wind direction now
 - [[Every perceived line by the one noticing rule|Every perceived line by the one noticing rule]]
 - [[Proposal the parcel graph (where things are inside a node)|Proposal: the parcel graph (where things are inside a node)]]
 - [[Proposal visibility (what a place and the day let the senses reach)|Proposal: visibility (what a place and the day let the senses reach)]]
+- [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
 - [[Visibility what a place and the day let the senses reach|Visibility: what a place and the day let the senses reach]]

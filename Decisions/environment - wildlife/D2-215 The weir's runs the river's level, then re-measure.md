@@ -28,6 +28,7 @@ a looser rain cue; runs three to five times larger now; a wetter era
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[A signs pass after the lake runs (17 Nov)|A signs pass after the lake runs (17 Nov)]]
 - [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
+- [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
 - [[Wildlife|Wildlife]]
 - [[The water fixes the weir by position and material, gear sharing a…|The water fixes: the weir by position and material, gear sharing a…]]
 - [[Why the villagers of the runs world did not fish|Why the villagers of the runs world did not fish]]

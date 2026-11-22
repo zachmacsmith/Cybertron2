@@ -37,6 +37,7 @@ M1's per-feature node filters
 - [[Proposal meetings on the road (travellers, lost herds, ambushes)|Proposal: meetings on the road (travellers, lost herds, ambushes)]]
 - [[Proposal things left in places, and who finds them|Proposal: things left in places, and who finds them]]
 - [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
+- [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
 - [[What agents can do|What agents can do]]
 - [[Combat attacks on a person|Combat: attacks on a person]]
 - [[Raids on a building and on a whole node|Raids: on a building and on a whole node]]

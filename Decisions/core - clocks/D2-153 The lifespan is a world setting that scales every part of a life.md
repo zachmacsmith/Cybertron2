@@ -32,6 +32,7 @@ youth 12 and adult 50 days fixed
 - [[Hunting that pays a beginner, snares that are lifted, and predators…|Hunting that pays a beginner, snares that are lifted, and predators…]]
 - [[Proposal life (partners, children, growing up, death, inheritance)|Proposal: life (partners, children, growing up, death, inheritance)]]
 - [[Livelihoods as archetypes what a household knows, seeded by how it…|Livelihoods as archetypes: what a household knows, seeded by how it…]]
+- [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
 - [[Clocks which systems run on which time|Clocks: which systems run on which time]]
 - [[Birth and death partners, children, growing up, old age, succession|Birth and death: partners, children, growing up, old age, succession]]
 - [[Life stages|Life stages]]
