@@ -553,6 +553,8 @@ coast (L-149); environmental effects refined later (L-150); medium arm: a smokeh
 
 ## History
 
+- 22 Nov 2026: accepted in part: D2-284 (A smokehouse's capacity comes from the racks fitted, about 250 kg of fish a set;).
+- 22 Nov 2026: accepted in part: D2-283 (Salting fish runs at about 20 kg an hour with gutting, at 1 kg of salt to 4 kg o).
 - 22 Nov 2026: explored (open question 10): the smokehouse as a store with racks as containers, capacity from racks and the hold time of each depth, hanging on as keeping or as the process, rules for racks, processing containers in general; from Zach's question.
 - 22 Nov 2026: accepted in part: D2-281 (Tanning comes in this build, with bark as a new good; the withy pack basket and ).
 - 22 Nov 2026: accepted in part: D2-279 (Stores, as answered: goods are never kept at the rate of a building's best fitti).
