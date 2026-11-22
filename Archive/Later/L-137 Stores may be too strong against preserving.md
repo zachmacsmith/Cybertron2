@@ -24,4 +24,5 @@ Zach, 20 Nov: 'flag I do feel like stores are currently too overpowered rn poten
 
 ## Mentioned by
 - [[D2-272 A food's base rate of spoiling is its rate when well kept|A food's base rate of spoiling is its rate when well kept (D2-272)]]
+- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]

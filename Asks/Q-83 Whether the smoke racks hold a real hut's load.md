@@ -15,3 +15,7 @@ smokehouse_capacity.md (22 Nov): the racks hold about 40 kg on 3 spaces (about 2
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+
+
+## Mentioned by
+- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]

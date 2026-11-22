@@ -18,6 +18,7 @@ conversation ("It could arrive by itself or they find it")
 
 ## Mentioned by
 - [[Cats that choose where to live|Cats that choose where to live]]
+- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[Raiders, displacement and set works what every village meets|Raiders, displacement and set works: what every village meets]]
 - [[Wildlife|Wildlife]]
 - [[02zy test worlds for the wild build briefs 1 and 2 (9 Nov)|02zy: test worlds for the wild build briefs 1 and 2 (9 Nov)]]

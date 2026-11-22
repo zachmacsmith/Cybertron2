@@ -224,11 +224,135 @@ salmon in open water; a net meets both; hands meet the shallows.
 on wet ground go to real winter counts (refuges hold 400 to 1,500 waterbirds a km², a wet district 50 to 300; the engine's 4 to 52
 an area is low; hunting_ladder).
 
-### 7.3 Keeping (built; recalibrated)
+### 7.3 Keeping: smoking in three depths, salting, drying (decided in part: [[D2-271 Smoking in three depths|D2-271]], [[D2-272 A food's base rate of spoiling is its rate when well kept|D2-272]])
 
-Smoking (fuel and a smokehouse), salting (salt; [[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Q-73]]'s rate; barrels later), drying at the hearth or in the wind. The keeping, not
-the catching, is what turns a run's glut into a winter's food, and its rates are the binding limit ([[D2-258 The food values are put on one physical basis|D2-258]]). [[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Q-73]] proposes salting
-at about 20 kg an hour (02zzx).
+The keeping, not the catching, turns a run's glut into a winter's food. Every path starts with gutting, whose work is folded into
+each keeping technique (and into cooking for fresh fish); none needs salt except salting:
+
+| Path | Needs | Keeps (real) | Use |
+|---|---|---|---|
+| eaten fresh | nothing | a day or two | |
+| gutted and kept alive or cool | a keep box (later) | about a day longer | |
+| **hot smoke** | a hearth or an open fire; hours; little fuel | days to a couple of weeks | eaten soon, sold nearby |
+| **keeping smoke** | a smoke hut with racks; one night at a real hut's load; fuel; tending | about a season | the winter's food at home |
+| **hard cure** | salted first, then a long cold smoke of 2 to 3 nights; a timber or stone smokehouse only | most of a year; travels | trade; the long gap between runs |
+| **salting** | salt at about 1 to 4 (fish), 1 to 8 (meat); about 20 kg an hour with gutting ([[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Q-73]], 02zzx) | about a year | the long keeper; salt from elsewhere |
+| drying | a hearth rack, or wind and cold (stockfish) | months; stockfish years | where the climate allows |
+
+**The smokehouse by structure** ([[D2-271 Smoking in three depths|D2-271]]): a hearth or open fire takes a hot smoke only; a **wattle smoke hut** with racks takes hot
+and keeping smokes and can burn with its batch; a **timber or stone smokehouse** takes all three, holds more a space (tiers to the
+roof, an upper storey) and seldom burns. **Racks** are made with withies and a timber; a smokehouse without racks smokes nothing.
+
+**Racks at a real hut's load** (smokehouse_capacity.md; OPEN [[Q-83 Whether the smoke racks hold a real hut's load|Q-83]]): about 500 fish a set of racks on 2 spaces (about 50 kg a m²,
+against 2.7 today); a keeping smoke of one night (about 11 real days against about two weeks); hanging about 30 fish a unit; about
+1 firewood per 60 fish; tending 1 unit a night (a named departure). The fitting needs its own `holds`, and fuel scales with what
+hangs. A glut stays bound by the hands (a 333 kg run night takes about 11 units to hang), the wood, the number of racks and houses,
+fire, and, for what must last past a season, salt.
+
+**The order of keeping is restored:** in the engine today smoked fish keeps longest of all (half gone after about 139 nights,
+against salt fish's 69 and dried fish's 35) and at twice the food a kilogram; with racks at a real load smoking would make salt
+pointless. Each kept form takes the shelf life in the table above.
+
+**Which clock shelf lives run on (open):** process times are compressed (a two-week smoke is one night) while how long goods keep
+runs per night as if a night were a real day, so one night's smoking buys years of world time. Proposed: shelf lives compressed like
+other durations (about 1/11, with a floor of a night or two for fresh food): a keeping smoke about 8 to 10 nights, a hard cure about
+16 to 25, salt fish about 33; the gap between the autumn runs (about 250 real days) then needs salt or a hard cure. It changes how
+long every stored food lasts and is decided with the stores (§7.4).
+
+### 7.4 Stores (decided in part: [[D2-272 A food's base rate of spoiling is its rate when well kept|D2-272]]; numbers in storage.md, in hand)
+
+**The rule ([[D2-272 A food's base rate of spoiling is its rate when well kept|D2-272]]):** a food's base rate of spoiling is its rate when well kept (covered, dry, out of the sun), the rate its
+preserving gives it; stores remove the outside penalties (rain, sun, heat, damp, open ground) but never slow a food below its base;
+better stores each remove a particular risk, not a blanket multiplier. Today a house's store takes every rate to 0.3 of base and a
+cellar to about 0.075, so storage itself preserved and salting barely paid ([[L-137 Stores may be too strong against preserving|L-137]], now closed).
+
+**What is wrong now** (measured 22 Nov): stores are far too small. Wild region, day 10: nine houses over their bins (Holt House 560
+food against 60, Carter House 539 against 60); by day 29 about 800 food in piles; the river run, day 10: two houses at about three
+times their bins. Costs sit wrong against other works: a cellar (4 stone, 6 units) costs less than a wattle fence (4 timber, 10
+units) or a dry-stone wall (8 stone, 20 units).
+
+**Two layers: the space and its containers.** The **space** (a room's floor, a cellar, a granary floor, a loft, a clamp) holds goods
+loose, exposed. The **containers** in it are a store's fit-out, made separately: **sacks** (cord or flax; cheap; rats get in),
+**baskets** (withies; roots, dried and smoked goods; little against vermin), **chests and bins** (timber, a carpenter; vermin- and
+damp-proof), **barrels** (a cooper: timber staves, withy hoops; brine for salt goods; later); shelves and hooks fold into the room or
+loft; crocks wait for clay. **Goods are sorted automatically** into the best container for each (grain in the chest first, then
+sacks, then the floor), and the person sees a one-line summary of the store. **Manual control is there, never needed:** move named
+goods into or out of a named container, or hold one back from the sorting (seed grain apart).
+
+**A locked chest:** a chest with a lock (the smith's metal fittings); only those holding its key put in or take out; the key is an
+item that can be given, lent, stolen or copied (a smith's work); the sorting never touches its goods for others of the household;
+a lock can be broken, at a cost in work, with noise and a sign. It sits with the household's access (its members use its store; its
+head manages it), with theft (taking from a store that is not yours), and with the thing as the target (acts_on_owned_things.md).
+
+**The stores to have** (capacities and costs in storage.md):
+
+| Store | Removes | For | Requires (to price realistically: the good options costly, the cheap ones worse at something) |
+|---|---|---|---|
+| a sound house's floor | rain, sun, the open | anything at its base rate; vermin reach it | the house |
+| sacks, baskets | spilling; air (baskets) | grain and dried goods; roots | cord or flax; withies |
+| chests and bins | vermin, damp | grain, meal | timber, a carpenter |
+| a granary on staddle stones | damp, vermin, in bulk | grain | timber, stone for the staddles, a builder |
+| a root clamp | frost and heat, cheaply | roots through winter | straw and a little digging |
+| a cellar | heat (slows heat-ruined foods below the house rate) | cheese, milk, fresh meat and fish, roots | digging out and a stone or timber lining: a large work, several times a fence |
+| a smokehouse loft | flies, damp | smoked and dried goods | the smokehouse |
+| barrels in brine | air, flies | salt fish and meat, longer and for trade | a cooper (later) |
+| a hay barn or rick | rain | hay, straw | timber and thatch, or a thatched rick |
+| a woodshed | rain | fuel | as now |
+| a vault, a locked chest | theft | goods of worth | stone and a mason; a lock |
+| an ice house | heat, deeply | the rich man's store | later |
+
+**Vermin** (design in storage.md): food on a floor, in sacks or baskets is open to the wild layer's rats and mice, a share a night
+by exposure and their numbers; chests, bins and a granary on staddles keep them off; cats and owl holes ([[D2-206 The cat comes by itself or is found|D2-206]]) cut them; signs
+(droppings, gnawed sacks); spilt grain lying open draws their numbers up.
+
+**Capacity against the compressed year:** a real store is sized for a real year's food, about 11 world years of eating; stores are
+sized against what households actually hold in the runs and against the clock decided for shelf lives (§7.3).
+
+### 7.5 Pollution: one mechanism, specifics by source
+
+A **fouling record on each stretch of water** (and on parcels), fed by its sources, carried downstream, fading with the flow; each
+harm reads the kind of fouling that matters to it (the environment proposal's "cleanness and fouling" of a reach):
+
+| Source | Puts in | When | Lasts | Harms | Handled by |
+|---|---|---|---|---|---|
+| water retting of flax | rotting plant matter: oxygen used up | a pulse in late summer, while a batch is in (about 3 nights) | clears soon after | fish suffocate there and below; stink | dew retting on grass; a retting pit |
+| tanning | lime (caustic), dung, flesh and hair, bark liquor (toxic to fish), stain | all year | lingers; the ground about the pits stays foul | fish die further down; water unfit to drink; stink; disease from hides | siting at the downstream edge; settling pits; rules |
+| middens and slaughter waste | rot, filth | steady, near houses | while fed | drinking water, disease, stink | keeping them from wells and water |
+
+### 7.6 Tanning and leather (brought in with its uses)
+
+Leather earns its place only with uses agents feel, so tanning comes in the same build as: **the pack frame's straps** (a frame of
+timber and leather, carrying more and lasting longer than the withy pack basket), **the ox's harness** (an item now; harness, plough
+traces and the pack ox), **the smith's bellows** (the anvil and bellows fitting: a tie between the tannery and the forge), and
+**shoes** (less cost to walking and the cold), with buckets and water bags later. **The process:** soak; lime in pits (days to
+weeks) to loosen the hair; scrape hair and flesh; bate in dung; tan in pits of oak-bark liquor, stronger by stages, for 6 to 18
+months (about 16 to 50 nights compressed); dry and curry with grease. **Needs:** tan pits (a work) by water; lime (burnt limestone or
+chalk, or wood ash); oak bark (peeled in late spring, from coppice: a new good, bark); many hides (hunters, herders); a skilled
+tanner ([[D2-270 Household skills|D2-270]]: the tanner livelihood row added now). **Pollution:** §7.5. **Later:** parchment and vellum (limed, stretched,
+scraped, never tanned) branch from the liming step when books come; rawhide stays the poor stand-in.
+
+### 7.7 Snares, and edges as a quality of the land
+
+**Snares as gear and a line** (decided in principle, [[D2-264 The fishing, hunting and materials network|D2-264]]): a bundle of about 25 snares (about 0.15 cord, or horsehair, or
+rawhide that rots when wet), each used up when torn or rotten; **set** lays up to about 25 on runs one knows (fewer on strange
+ground); **tend** walks a line: takes the catch, resets the sprung snares, may move the line, at a cost per line walked; the lines in
+an area share its game (all draw on the same numbers, returns falling); most animals are dead by morning, a few alive; each night
+unchecked, scavengers take a share, and meat spoils by the weather; cover decides the target (hares on open ground, woodcock in
+winter and roe in strong snares on woodland paths, grouse on heath, rabbits at field edges once added); heavy snaring makes the game
+shy there; in worlds with lords, snaring their game is poaching. The same set-and-tend shape serves traps and set lines (§5).
+
+**Edges** (no new feature of the land): a parcel's edge quality is derived from what the land already holds: its borders with
+other covers (the parcel graph), the wood's edge band (the generator's depth: edge, interior, core), fences and their gates, roads
+and tracks, water margins. It limits how many good places for snares a parcel has, and serves game seen at the wood's edge at dusk,
+fowl at water margins, nesting birds, hedge fruit and signs.
+
+### 7.8 The shallows by water type, and the fen's traps
+
+The relative stocks of shallows, open water and runs follow the kind of water the generator writes ([[D2-229 One fish stock per water body|D2-229]]'s bodies, the river's
+class and slope, lakes, fens): a brook rich shallows and little open water; a big river thin shallows, deep water and the runs; a
+lake open water and edges; a fen eels and shallows. The signs follow the same state. **A trap in the fen** meets a run only where
+its fen joins the river, at a smaller share, and is wrecked by floods at a lower rate (today it meets the run fully and is never
+wrecked: a loophole, [[L-150 Environmental effects on fishing refined after the rest works|L-150]]).
 
 ## 8. The network: who needs whom, what fights what
 
@@ -387,20 +511,26 @@ sense without this"). The live runs showed all of these failing together (02zzz,
   and flax a rival to grain everywhere. A close keeps it small and makes the flax household a supplier.
 - **Cord and twine as two goods:** fine twine is three to four times the spinning a kilogram; folded into the net's work instead.
 
+## Decided so far (22 Nov)
+
+[[D2-264 The fishing, hunting and materials network|D2-264]] (gear life by gear and material; weights in kilograms; the withy bed's three years; flax in a close, retting in water fouls it;
+up to about 6 traps a set; the shallows by water type; fowling split; snares and edges written in), [[D2-265 The river's signs|D2-265]] (the river's signs),
+[[D2-267 Practice and learning are set at a 64-day lifespan and scaled with a…|D2-267]] (practice at a 64-day lifespan), [[D2-269 Experts' signs are observations of what is happening now, which may…|D2-269]] (experts' signs as observations), [[D2-271 Smoking in three depths|D2-271]] (smoking in three depths by smokehouse kind;
+racks of withies), [[D2-272 A food's base rate of spoiling is its rate when well kept|D2-272]] (stores never slow a food below its base); the wild's clock flagged to revisit last ([[L-148 The wild's clock|L-148]]); gulls with the
+coast ([[L-149 Gulls and other coastal birds, with the coast|L-149]]); environmental effects refined later ([[L-150 Environmental effects on fishing refined after the rest works|L-150]]); medium arm: a smokehouse, no salt ([[Q-76 Whether the runs world's medium arm needs more keeping capital|Q-76]] closed).
+
 ## Open questions
 
-1. **The wild's clock** (§1): production on the real day, as the runs are, or the 32-day year kept as a named lever?
-2. **Gear life:** two or three world years of ordinary use, mended (proposed), or real lives (a net hundreds of uses)?
-3. **The withy bed's three years:** kept as three world years (proposed), or shorter?
-4. **Flax as a close** (proposed), and water retting fouling the parcel for about 3 nights and the next downstream?
-5. **One set act lays up to about 6 traps** (proposed)?
-6. **The shallows as a stock of their own** (proposed)?
-7. **Fowling split with a `flies` trait, and wildfowl at real winter numbers** (proposed)?
-8. **Dressing the kill:** with two layers of skill now (proposed), tanning later?
-9. **Gutting as its own work,** settled with the salting rate ([[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Q-73]])?
-10. **The pack basket** replacing today's pack (1 withies, 0.1 hide; carrying about +15), with [[W-71 How carrying works in the live runs|W-71]]'s carrying changes?
-11. **The materials' weights in kilograms** (timber, firewood, hide), and the carry limit read against them?
-12. **Next steps after phase 5:** peat, barrels, boats and the seine (proposed), then tanning, then the bow, dogs and keeping?
+1. **The shelf-life clock** (§7.3): compressed like other durations (proposed), changing every stored food's life?
+2. **The racks** ([[Q-83 Whether the smoke racks hold a real hut's load|Q-83]]): a real hut's load (500 fish on 2 spaces, one night), or kept low on purpose; 2 spaces or 3; one tend a night?
+3. **Stores' capacities and costs** (§7.4): from storage.md when it lands; the two layers as a fit-out (proposed); the locked chest.
+4. **Salting's rate** ([[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Q-73]]): about 20 kg an hour with gutting, 1 to 4 salt (proposed)?
+5. **Tanning in the same build as the frame, harness, bellows and shoes** (proposed; §7.6), with bark as a new good?
+6. **The pack:** the withy pack basket (carrying about +15, wears faster) and the leather-strapped frame (about +20, lasts), replacing
+   today's pack?
+7. **Pollution's first sources** (§7.5): retting and tanning now, middens later?
+8. **The hearth rack's 3 nights** (dry fish, dry meat): checked like the smokehouse's?
+9. **Next steps after phase 5:** peat, barrels, boats and the seine, then the bow, dogs and keeping (tanning moved into phase 3)?
 
 ## Affects
 
@@ -431,6 +561,7 @@ sense without this"). The live runs showed all of these failing together (02zzz,
   pack and creel baskets (tying carrying, [[W-71 How carrying works in the live runs|W-71]], to withies) and the hurdle (tying herding); the works recosted; the methods with
   reach and takes; the network as a graph, its dependences, conflicts, substitutes and the year's work; what is left out and why;
   build units and phases. The earlier §5a is folded into §8.
+- **22 Nov 2026:** §7.3 to §7.8 written from the day's answers and research (Zach, 22 Nov: "yes write it all into the proposal"): keeping in three smoke depths by smokehouse kind with racks of withies ([[D2-271 Smoking in three depths|D2-271]]), the shelf-life order restored and its clock open; stores ([[D2-272 A food's base rate of spoiling is its rate when well kept|D2-272]]): the two layers, automatic sorting with manual control, the locked chest, the stores to have, vermin, capacity against the compressed year; pollution as one mechanism with specifics by source; tanning brought in with its uses; snares as gear on set and tend with edges from the land; the shallows by water type and the fen's traps. Open questions replaced by what is still open; the decided list added.
 
 ## Sources
 

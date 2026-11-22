@@ -15,3 +15,7 @@ Zach, 22 Nov: a freeze stops fishing, but revisit; after getting other things wo
 
 ## Linked
 - parent: [[W-72 Signs of the river|Signs of the river (W-72)]]
+
+
+## Mentioned by
+- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]

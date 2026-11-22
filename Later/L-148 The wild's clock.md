@@ -15,3 +15,7 @@ Zach, 22 Nov: food does not seem too rich now; if anything it has not been rich 
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+
+
+## Mentioned by
+- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]

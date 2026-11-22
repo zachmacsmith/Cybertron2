@@ -18,3 +18,7 @@ conversation (22 Nov: "conversation (22 Nov, on household_skills.md)")
 
 ## Linked
 - parent: [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
+
+
+## Mentioned by
+- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]

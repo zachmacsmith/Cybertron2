@@ -21,4 +21,5 @@ conversation (22 Nov: "conversation (22 Nov, answers to the open questions)")
 
 
 ## Mentioned by
+- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]

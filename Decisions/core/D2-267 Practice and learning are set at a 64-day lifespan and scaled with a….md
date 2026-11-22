@@ -18,3 +18,7 @@ conversation (22 Nov: "conversation (22 Nov, answers to the open questions)")
 
 ## Linked
 - parent: [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]]
+
+
+## Mentioned by
+- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]

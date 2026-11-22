@@ -15,3 +15,7 @@ Zach, 22 Nov: gulls are just at the coast; bench them for when we add other coas
 
 ## Linked
 - parent: [[W-72 Signs of the river|Signs of the river (W-72)]]
+
+
+## Mentioned by
+- [[Fishing, hunting and their materials the network|Fishing, hunting and their materials: the network]]
