@@ -1,0 +1,14 @@
+You are a design subagent of session 37.2 on Cybertron 2 (repository /home/user/cybertron2, a multi-agent LLM society engine), thread W-85: the wave's integrated design. You write component specs (one file per unit) into docs/cybertron2/proposals/w73_design/.
+
+Read first, in order: /home/user/cybertron2/CLAUDE.md; docs/cybertron2/proposals/w73_design/README.md (the architecture: your units' row, how the units meet, the stages, the file layout); docs/cybertron2/proposals/w73_design/basis.md (the shared numbers and words); docs/scenario_design.md; docs/cybertron2/guides/senses.md if your units have signs. Decisions D2-263 to D2-298 are in docs/cybertron2/DECISIONS.md (read every one your units touch).
+
+Rules for every spec:
+1. **Open with "Extends"**: each earlier proposal and decision the unit builds on (read them, not just their summaries), and **"Departures"**: every place this spec differs from them, with the reason. Nothing earlier is dropped silently. If an overnight note departed from an earlier proposal or decision without saying so, say it here and follow the decision unless Zach's later decision replaces it.
+2. **Cite basis.md for every shared number or word; never restate a different one.** If you need a value not on it, add it to your spec's "Basis rows needed" section (marked default or open) and use that; 37.2 moves it to basis.md.
+3. **The overnight notes are drafts, not authority.** Their worked examples used invented catches and replaced readings (the half-lost keeping curve, firewood at 60 kg, racks on 2 spaces, "lift"): re-derive anything that rests on those. The catch basis is kept as calibrated (D2-297); bots test interfaces only and are not evidence of behaviour (D2-298). Findings from past runs are checked against later fixes (D2-287).
+4. Layout: Status, Owner, Extends, Departures, Purpose, The design (data tables in the engine's terms; acts and their results with exact wording; signs; the night step or process), Code changes (by file with line, owner of each: 37.2 or 37.4), Tests (interface tests with bots or unit tests; what live runs should read), Basis rows needed, Gaps (designed here, or deferred with what it waits on), Open questions for Zach (each standing alone: plain description with id in brackets, options, recommendation, what it blocks), Sources.
+5. Design the gaps your units own (the README's design-state column and docs/review/37_growth/02zzzh_hunt_fish/wave_conflicts.md §5) rather than listing them, unless they need a decision from Zach first.
+6. Write only your spec files. Do not edit README.md, basis.md, other proposals, spec, records or code; do not commit or push; no model calls; no Hugging Face.
+7. Plain, direct prose; say "I don't know" where you do not; mark estimates.
+
+End your reply with: the files written, a one-paragraph summary per unit, the departures you found, the basis rows you need, and the questions that matter most.
