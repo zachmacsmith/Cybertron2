@@ -25,5 +25,6 @@ C4 shared perception and wind direction; C8 kept populations with bonds and bree
 
 ## Mentioned by
 - [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
+- [[The next thread the woods and the wild (hunting, its tools, wildlife…|The next thread: the woods and the wild (hunting, its tools, wildlife…]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - *and 2 index or audit notes*

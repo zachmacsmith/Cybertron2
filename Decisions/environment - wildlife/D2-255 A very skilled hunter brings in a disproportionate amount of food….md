@@ -23,6 +23,7 @@ conversation (20 Nov: "I think being very skilled at hunting should be able to s
 ## Mentioned by
 - [[Q-70 Adopt the food values on one basis, and fix the runs, the weir and…|Adopt the food values on one basis, and fix the runs, the weir and… (Q-70)]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
+- [[The next thread the woods and the wild (hunting, its tools, wildlife…|The next thread: the woods and the wild (hunting, its tools, wildlife…]]
 - [[Wildlife|Wildlife]]
 - [[02zzu shared units for food, weight and work the analysis for…|02zzu: shared units for food, weight and work: the analysis for…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]

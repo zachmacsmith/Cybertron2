@@ -2,12 +2,14 @@
 id: W-67
 kind: thread
 state: queued
-updated: "2026-11-20"
+updated: "2026-11-22"
 ---
 
 # Extending the wildlife economy (W-67)
 
-*queued · 37.2 · touched 20 Nov (2 days ago)*
+*queued · 37.2 · touched 22 Nov (today)*
+
+> **Next:** after [[W-73 Fishing, hunting and their materials developed together|W-73]]: with the timber economy as one thread on the woods (exploration: proposals/woods_and_wild_next.md)
 
 ## What it is
 **The wildlife economy extended: the packs not yet briefed, new resources and husbandry**: the remaining wildlife packs K3 (forays, methods, cord, nets, bows), K5 (wood and frontier), K6 (keeping: husbandry), K7 (land works), K8 (crafts and wild goods), K9 (coast), K10 (illness), K11 (lodgers), the fen half of brief 5, and the core mechanisms not built ([[L-117 Wildlife pack K3 forays, methods and knowing|L-117]] to [[L-126 The wildlife's core mechanisms not built|L-126]]); with the rod's line of cord or hair ([[Q-57 Fishing, from the lake run|Q-57]] b: neither cord nor hair is a resource yet). Zach, 20 Nov: 'what happened to the broader wildlife economy enriching and adding more resources, and adding husbandry etc.? ... That should be an open thread'
@@ -54,5 +56,6 @@ started
 - [[L-126 The wildlife's core mechanisms not built|The wildlife's core mechanisms not built (L-126)]]
 - [[L-131 The wild layer's live points from briefs 1 to 3|The wild layer's live points from briefs 1 to 3 (L-131)]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
+- [[The next thread the woods and the wild (hunting, its tools, wildlife…|The next thread: the woods and the wild (hunting, its tools, wildlife…]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]

@@ -27,5 +27,6 @@ updated: "2026-11-20"
 - [[Proposal living populations on the land (a generalised ecology layer)|Proposal: living populations on the land (a generalised ecology layer)]]
 - [[Proposal water and wetland life, fishing, preservation, and boats|Proposal: water and wetland life, fishing, preservation, and boats]]
 - [[Proposal the first wild kinds (what lives on the land, what each is…|Proposal: the first wild kinds (what lives on the land, what each is…]]
+- [[The next thread the woods and the wild (hunting, its tools, wildlife…|The next thread: the woods and the wild (hunting, its tools, wildlife…]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - *and 2 index or audit notes*

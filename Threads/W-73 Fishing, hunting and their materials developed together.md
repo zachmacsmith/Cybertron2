@@ -96,6 +96,7 @@ started
 - [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]
 - [[Q-84 The building scale|The building scale (Q-84)]]
+- [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 - [[W-72 Signs of the river|Signs of the river (W-72)]]
 - [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]]
 - [[W-76 The timber economy|The timber economy (W-76)]]
@@ -110,6 +111,5 @@ started
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
 - [[L-111 The hunting and resources build, a soon follow-up|The hunting and resources build, a soon follow-up (L-111)]]
 - [[L-143 Fish oil (eel and fish livers), with the coast|Fish oil (eel and fish livers), with the coast (L-143)]]
-- [[L-144 Eel skin and fish glue|Eel skin and fish glue (L-144)]]
-- … and 30 more
+- … and 31 more
 - *and 2 index or audit notes*

@@ -28,6 +28,7 @@ forays, places in memory and names, land features, cord and the coppice's produc
 - [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
 - [[Proposal the wild layer, one general system for ecosystems and…|Proposal: the wild layer, one general system for ecosystems and…]]
+- [[The next thread the woods and the wild (hunting, its tools, wildlife…|The next thread: the woods and the wild (hunting, its tools, wildlife…]]
 - [[02zzp what was started and left, 22 Oct to 19 Nov, and how to notice…|02zzp: what was started and left, 22 Oct to 19 Nov, and how to notice…]]
 - [[Why the villagers of the runs world did not fish|Why the villagers of the runs world did not fish]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
