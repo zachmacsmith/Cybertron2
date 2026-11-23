@@ -133,7 +133,7 @@ def spec(key: str, seed: int) -> dict:
         "llm": {"week_stop": 0.9}, "cold_days": [], "incidents": [], "customs": [],
         "generate": {
             "seed": seed, "size_km": float(w["size_km"]), "settlements": len(w["places"]), "spacing_km": 7.0, "household_size": 4,
-            "wild_nodes": 0, "warn_only": ["capacity", "dependence"], "settled": "frontier",
+            "wild_nodes": 0, "warn_only": ["capacity", "dependence", "laid rivers run where laid"], "settled": "frontier",
             "bounds": {"per_min": 1, "per_spread": 10, "children_max": 40}, "sim": {"start": -10},
             "roads": [[a, b] for a, b, _, _ in w["roads"]],
             "features": MP.features(key, w),
@@ -196,7 +196,8 @@ def founders(world: dict, key: str) -> dict:
                      "partner": partner, "line": hh, "origin": None, "children": [], "left": None})
     for home, hhs in FOUNDERS[key].items():
         for hh, ms in hhs.items():
-            history.append({"text": f"{ms[0][0]} {hh} came to {home} and built the {hh} household", "who": [ms[0][0]], "day": -20})
+            pair = [ms[0][0], ms[0][3] or next(n for n, _, age, _ in ms[1:] if age >= 24)]   # the line's two founders (PE1 names two)
+            history.append({"text": f"{pair[0]} and {pair[1]} {hh} came to {home} and built the {hh} house", "who": pair, "day": -20})
     world["agents"], world["tree"], world["history"] = agents, tree, history
     for b in list(world["buildings"]):                                      # a household with no house: a tent (design §6)
         if world["buildings"][b].get("household") in NO_HOUSE:
