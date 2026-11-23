@@ -59,11 +59,11 @@ FOUNDERS = {
         "Hartsmoot": {"Holt": [("Gilbert", "m", 38, None), ("Adam", "m", 34, "Sabina"), ("Sabina", "f", 30, "Adam"),
                                ("Lucy", "f", 10, None)]}},
 }
-KIN = {   # who is whose child, sibling (within a household, by position): parents of the young
-    "M1": {"Walter": ["Robert", "Agnes"], "Joan": ["Robert", "Agnes"], "Hugh": ["Robert", "Agnes"], "Alice": ["Maud"], "Tom": ["Maud"],
-           "Roger": ["Geoffrey", "Emma"], "Simon": None},
-    "M5": {"Nicholas": ["Stephen", "Margery"], "Isolda": ["Stephen", "Margery"], "Ralph": ["Avice"], "Hob": ["Avice"],
-           "John": ["Henry", "Cecily"], "Rose": ["Henry", "Cecily"], "Lucy": ["Gilbert"]},
+KIN = {   # parents of the young; a widowed head's late spouse named (dead before the run: Wat, Osmund, Edith)
+    "M1": {"Walter": ["Robert", "Agnes"], "Joan": ["Robert", "Agnes"], "Hugh": ["Robert", "Agnes"], "Alice": ["Maud", "Wat"],
+           "Tom": ["Maud", "Wat"], "Roger": ["Geoffrey", "Emma"], "Simon": None},
+    "M5": {"Nicholas": ["Stephen", "Margery"], "Isolda": ["Stephen", "Margery"], "Ralph": ["Avice", "Osmund"], "Hob": ["Avice", "Osmund"],
+           "John": ["Henry", "Cecily"], "Rose": ["Henry", "Cecily"], "Lucy": ["Gilbert", "Edith"]},
 }
 SIBLINGS = {"M1": [("Maud", "Simon")], "M5": [("Gilbert", "Adam"), ("Stephen", "Avice"), ("Henry", "Gilbert")]}   # M5: the four
                                                                            # families are one people: heads are brothers and sisters
@@ -136,7 +136,8 @@ def spec(key: str, seed: int) -> dict:
             "wild_nodes": 0, "warn_only": ["capacity", "dependence", "laid rivers run where laid"], "settled": "frontier",
             "bounds": {"per_min": 1, "per_spread": 10, "children_max": 40}, "sim": {"start": -10},
             "roads": [[a, b] for a, b, _, _ in w["roads"]],
-            "features": MP.features(key, w),
+            "features": [dict(f, flow="big") if f.get("kind") == "river" else f for f in MP.features(key, w)],   # a big river,
+                                                                           # so the carved channel holds (M1's medium one ran off it)
             "places": {p["name"]: pin(key, p) for p in w["places"]}}}
 
 

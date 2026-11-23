@@ -244,7 +244,7 @@ for _w in WORLDS.values():
     _w["fit_err_km"] = round(fit(_w), 1)
 
 FEATURES = {
-    "M1": [("river", ["Upper Hollins", "Hollins", "Fallowmere", "The Ford", "Broadwater", "Kingsmead", "Eastmarch"]),
+    "M1": [("river", ["Hollins", "Fallowmere", "The Ford", "Broadwater", "Kingsmead", "Eastmarch"]),
            ("oldwood", ["Hartwood", "Wolfcombe"]), ("fen", ["Greenhythe"]), ("massif", ["Stonebarrow", "Highbarrow"])],
     "M2": [("coast", "south"), ("river", ["Highreach", "Upper Reach", "Kingsford", "Eelmouth"]), ("fen", ["Withy Holt", "Reedmere"]),
            ("massif", ["Coldstone"])],
