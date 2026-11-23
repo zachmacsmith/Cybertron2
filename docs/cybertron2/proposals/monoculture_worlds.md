@@ -3,7 +3,7 @@
 **Status:** exploration (23 Nov 2026). Nothing decided or built.
 **Owner:** bench (session "monoculture worlds"). The generator and the wild are 37.2's; the life rules and runs 37.4's; this file
 proposes worlds on them and names every engine gap it would need, for those owners.
-**Thread:** monocultural benchmark worlds (W-103); relates the peoples benchmark (W-34), demography and growth (W-93), the deferred
+**Thread:** monocultural benchmark worlds (W-105); relates the peoples benchmark (W-34), demography and growth (W-93), the deferred
 descendants benchmark (L-104).
 
 ## Summary

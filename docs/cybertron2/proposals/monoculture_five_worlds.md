@@ -2,7 +2,7 @@
 
 **Status:** discussion (23 Nov 2026). Designs only: nothing generated or built.
 **Owner:** bench. Generation and the wild are 37.2's; the life rules are 37.4's.
-**Thread:** monocultural benchmark worlds (W-103); the frame is proposals/monoculture_worlds.md; the aim is D5-1.
+**Thread:** monocultural benchmark worlds (W-105); the frame is proposals/monoculture_worlds.md; the aim is D5-1.
 
 ## Summary
 
