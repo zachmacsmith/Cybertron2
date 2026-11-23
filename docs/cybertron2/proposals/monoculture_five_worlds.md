@@ -106,7 +106,7 @@ brine spring, a mill. It is small, known and already run (pw1's runs world; W-58
 | Hartcliffe | Middleham 1 | river flats: forest, meadow, rock | rock, wood | unexplored, vacant |
 | Thornholt | Highpool 1; w1 1; w4 1 | clay vale: forest, meadow, pasture, rock | wood, pasture | unexplored, vacant |
 | w1 to w3 | 1 day beyond Thornholt and Stanwood | old forest | game, timber | unexplored (as generated) |
-| w4 | Highpool 1, Thornholt 1 | broken hill country: rock, scrub | stone | unexplored (as generated) |
+| w4 | Highpool 1, Thornholt 1 | broken hill country: rock, scrub | stone, **copper** (a seam: the only one) | unexplored (as generated); the forge's copper is a day from Highpool, unknown to it |
 
 The land is small (two villages, an empty one, three vacant places, four wild). Its ceiling may bind before day 200. In a first run
 that is a finding about the dependence, not a fault; the five larger worlds are where room to expand is the test.
@@ -423,7 +423,7 @@ Each family is small and mostly kin, so its children have few partners but cousi
 others.
 
 **Land.**
-- A region of about 140 km, following peoples W5 ("Three Countries", designed and generated once, `peoples_design.py`) with a
+- A region of about 110 km, on the idea of peoples W5 ("Three Countries", designed and generated once, `peoples_design.py`) with a
   fourth country added.
 - A wet west coast with saltmarsh; a great wood in the centre; moor and rock hills to the north with copper; a rich river vale to
   the east.
@@ -455,7 +455,8 @@ others.
 | Vale | Lowbury (home), Millbrook (mill site), Wheatley, Southmere (fen), Longacre | rich soil, mill sites, fish; no stone, little wood |
 | Between | Threeways (the ford, rich vale, room 4), Marchmead, Midwold, two stops | the meeting ground; the best vacant land in the middle |
 
-- Roads run as peoples W5: each home is 2 days from Threeways and 4 from each other home by the roads.
+- Drawn new on W5's idea (the map: docs/review/39_monoculture/M5.png): each home has a gate place a day out, the gates meet at
+  Threeways, and a ring of four vacant places joins neighbouring gates. Each home is 2 days from Threeways and 4 from each other home.
 - Every way out of a home's country is unexplored but walkable.
 
 **Capacity.**
@@ -520,6 +521,15 @@ At lifespan 64 the acting people (youths, adults and elders) are about 70% of th
     systems).
   - *Default:* World 1.
 
+## Maps
+
+docs/review/39_monoculture/ (made by `world0_map.py` and `draw.py` from `design.py`):
+- `world0_map.png`: World 0 from the engine's own state (runs.yaml): each place's parcels by cover, its resources, the wild layer's
+  land between places, the rivers' drainage, the roads; the design's households laid over it. `world0_flows.png`: its dependencies.
+- `M1.png` to `M5.png`: the five worlds as designed, in the form of the peoples maps (38.69): land, soil, resources, room, what is
+  known at the start, the rumours, the feral herd, the elders' places. The maps name the places §2 to §6 left unnamed and fit every
+  road to its days (World 3's worst road is 3.3 km off).
+
 ## Alternatives considered
 
 - **The grid of monoculture_worlds.md §5** (one land, four starts; one start, eight lands): it reads one axis at a time. Zach asked
@@ -530,6 +540,8 @@ At lifespan 64 the acting people (youths, adults and elders) are about 70% of th
 
 ## History
 
+- 23 Nov 2026 (later): maps drawn (§Maps). World 0's map found copper at w4, a day from Highpool; World 5's map drawn new
+  (110 km) rather than on W5's roads, which put the wood a day from the coast.
 - 23 Nov 2026 (later): Zach asked that the first world be small, with two connected villages, fishing and farming, to test the
   dependencies (Q-95 answered). World 0, Highpool and Middleham, added in §1a, on the runs world's land.
 - 23 Nov 2026: written by session bench at Zach's request; five worlds, after D5-1 (the graded line).
