@@ -17,7 +17,7 @@ untracked, and so does a stage that exists only in `build_plan.md` (stage 5 and 
 **Counts** (79 items, numbered G1 to G79 in the tables): 74 design gaps, of which **partly 11, later 16, nowhere 40, decided 7**;
 and 5 items from the runs and records (§13). Of the 79, **47 are untracked** (listed at the end with a proposed record each). While this audit
 was written, stage 5 and live run 2 got their thread (W-106, after D2-345), O-4 offered the backward tree into generation, and Q-89
-(the spring gap) was opened and answered (D2-347); the tracking below counts them. W-106's `next` is to fold this audit's gaps into
+(the spring gap) was opened and answered (D2-347, with Q-91 on how); the tracking below counts them. W-106's `next` is to fold this audit's gaps into
 its brief: G24, G45 to G49 are stage 5's own and not yet named on it. Stages 1 to 4 built the core of every unit they covered (u0 to u6, u8, u9's core,
 shapes and learning record, u11's pinned fill, gate check and Eelmouth); what is missing is mostly what Eelmouth did not need.
 
@@ -210,7 +210,7 @@ drafts are folded into the design; W-102's four defaults taken are on no record.
 | # | Item | Where | Status | Tracked by |
 |---|---|---|---|---|
 | G74 | the four defaults W-102 took (go to a building here at nightfall is sleeping there; `agree` with a craft teaches if known, else learns; D2-339's rule fields, three cascade rounds, an unreadable old record dropped; moving goods out of a store costs 1 unit) | `fix_shapes_report.md:250-257` | built; never asked | untracked (CLAUDE.md: a default taken is a row in OPEN) |
-| G75 | live run 1's question: should a water-only village last the year, or is the spring gap the point | `live1_report.md` "For after the runs" | answered while this was written | Q-89, closed by D2-347 (a water-only village should be able to last the year): work implied, on no thread yet |
+| G75 | live run 1's question: should a water-only village last the year, or is the spring gap the point | `live1_report.md` "For after the runs" | answered while this was written | Q-89, closed by D2-347 (a water-only village should be able to last the year); how: Q-91 (under W-106) |
 | G76 | the wording bugs ("the Marshs household", "which the Brooks holds", crumbs in the meal line) | `after_run1_report.md` "Seen in passing" | open | L-178 |
 | G77 | noticing within the day; the signs survey and design | `live1_report.md` | open | L-176; W-103 |
 | G78 | the A/B replay of a worked conditional rule | `live1_report.md`; D2-344 | open | L-177 |
@@ -248,7 +248,6 @@ Stage 5 first: its thread (W-106) now exists, so its gaps go into W-106's brief;
 | G53, G54 | **Add to W-103's design questions** (the moon as state, news from upriver, remembered years past two, smell's visibility). Waits on: W-103 |
 | G6, G13 | **One low row**, or none: a brook through a land parcel, lending gear and a snare line across parcels. Waits on: the agreements (lending) |
 | G74 | **An ask row (default taken)** listing W-102's four defaults, to tell Zach |
-| (G75) | Tracked now (Q-89, D2-347). D2-347 implies work on no thread: what Eelmouth lacks to carry a water-only village through the spring gap; a row under W-101 or W-85, and W-101's `next` updated |
 
 ## Sources
 
