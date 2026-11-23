@@ -215,6 +215,27 @@ TREE_BY_DESIGN = {   # where a branch is left without a way round, and why
     "M3": "the heights are valley heads joined only by the pass: in winter the way round is through the lowland, 8 days",
     "M5": "each country is reached from the middle by its gate, with one side door; the homes stay 4 days apart",
 }
+# Room (Zach, 23 Nov: "why do so many of these places have so much small room?"). `room` is the households' worth of land the generator
+# lays out at a vacant place (settle.py: 12 cells of about 2 ha each a household, nearest first, within field_km 2.5 km): it becomes
+# the place's parcels, and no field can ever be made outside them. The first draft copied the peoples worlds' 1 to 4. Now by land and
+# soil, with each world's deepest lush land larger, and each home with room to grow at home: a household of room is about 27 ha.
+ROOM_BY_LAND = {("rich vale", "rich"): 8, ("rich vale", "fair"): 6, ("farmland", "rich"): 6, ("farmland", "fair"): 5,
+                ("farmland", "poor"): 3, ("forest", "fair"): 3, ("old forest", "fair"): 2, ("lake", "fair"): 3, ("lake", "poor"): 2,
+                ("lake", "rich"): 4, ("fen", "fair"): 2, ("coast", "fair"): 3, ("coast", "poor"): 1, ("chalk down", "poor"): 2,
+                ("heath", "poor"): 1, ("moor", "poor"): 2, ("rock hills", "poor"): 1}
+ROOM_SET = {   # the lush lands deep in the unexplored, and homes with room to grow
+    "M1": {"Fallowmere": 6, "Far Meadows": 14, "Broadwater": 10},
+    "M2": {"Eelmouth": 5, "Upper Reach": 12, "Highreach": 10},
+    "M3": {"Highfold": 4, "Coldwell": 3, "Lowdale": 14, "Greendale": 8},
+    "M4": {"Oldbury": 10, "Brookfield": 12, "Westcot": 4},
+    "M5": {"Threeways": 12, "Holtmouth": 4, "Highcairn": 4, "Lowbury": 6, "Hartsmoot": 3},
+}
+for _k, _w in WORLDS.items():
+    for _p in _w["places"]:
+        _p["room_draft"] = _p["room"]
+        if _p["room"] or _p["name"] in ROOM_SET.get(_k, {}):
+            _p["room"] = ROOM_SET.get(_k, {}).get(_p["name"], ROOM_BY_LAND.get((_p["land"], _p["soil"]), _p["room"]))
+
 for _k, _r in CROSS.items():
     WORLDS[_k]["tree_roads"] = list(WORLDS[_k]["roads"])
     WORLDS[_k]["roads"] = WORLDS[_k]["roads"] + _r

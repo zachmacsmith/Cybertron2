@@ -52,7 +52,7 @@ def draw(key, w):
                 bbox=dict(boxstyle="round,pad=0.15", fc="white", ec="none", alpha=0.85))
     for p in w["places"]:
         col = D.LAND[p["land"]][1]
-        size = {"rich": 520, "fair": 400, "poor": 300}[p["soil"]]
+        size = 160 + 70 * max(p["room"], 0)
         home = p["kind"].startswith("home:")
         g = p["kind"].split(":")[1] if home else None
         if home:
@@ -73,6 +73,8 @@ def draw(key, w):
         res = " ".join(RES[r] for r in p["res"] if r in RES)
         if p["room"]:
             res += f"  room {p['room']}"
+        if p["soil"] != "fair":
+            res += f"  {p['soil']}"
         ax.text(p["x"], p["y"] - 3.2, p["name"], fontsize=9, weight="bold" if home else "normal", ha="center", va="top", zorder=4)
         if res:
             ax.text(p["x"], p["y"] - 5.4, res, fontsize=7.2, color="#444", ha="center", va="top", zorder=4)
@@ -105,8 +107,8 @@ def draw(key, w):
            Line2D([], [], color="#b8a88a", lw=8, alpha=0.4, label="hills, downs"), Line2D([], [], color="#5d9cd6", lw=2, label="river"),
            Line2D([], [], color="#5d9cd6", lw=8, alpha=0.3, label="sea")]
     leg = ax.legend(handles=h1 + h2, loc="upper left", bbox_to_anchor=(1.01, 1.0), frameon=False, fontsize=8,
-                    title="Circle size: soil (rich, fair, poor)\nCu copper  St stone  Sa salt  Fi fish  Run river runs\n"
-                          "Gm game  Ti timber  Gr grazing  Wi withies  Mill mill site\nroom: households a vacant place has land for",
+                    title="Circle size: room (households a place has land for, about 27 ha each)\nCu copper  St stone  Sa salt  Fi fish  Run river runs\n"
+                          "Gm game  Ti timber  Gr grazing  Wi withies  Mill mill site\nrich, poor: the soil (fair unmarked)",
                     title_fontsize=8)
     leg._legend_box.align = "left"
     ax.set_title(w["title"], loc="left", fontsize=12)

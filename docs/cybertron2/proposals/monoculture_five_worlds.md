@@ -199,24 +199,24 @@ food through winter, have children, found households and settle new land.
 
 | Place | Days from home | Land | Resources | Room (households) | Note |
 |---|---|---|---|---|---|
-| **Fallowmere** (home) | 0 | farmland | grass, wood, fish (shallows) | 3 | known |
-| Fallow Wood | 1 | forest | wood, game | 1 | known |
-| Southmead | 1 | rich vale | grass, fish | 2 | known; vacant meadow, the first easy step |
-| The Ford | 1 | farmland | grass | 1 | known; the way across the river |
-| Broadwater | 2 | rich vale | grass, fish, mill site | 4 | the best land; a rumour line to Ashby's head |
-| Hollins | 2 | farmland | grass, wood | 3 | |
-| Greenhythe | 2 | fen | fish, grass | 1 | eels and withies; wet |
-| Hartwood | 2 | old forest | wood, game | 1 | wolves and boar; the legendary boar |
+| **Fallowmere** (home) | 0 | farmland | grass, wood, fish (shallows) | 6 | known |
+| Fallow Wood | 1 | forest | wood, game | 3 | known |
+| Southmead | 1 | rich vale | grass, fish | 8 | known; vacant meadow, the first easy step |
+| The Ford | 1 | farmland | grass | 5 | known; the way across the river |
+| Broadwater | 2 | rich vale | grass, fish, mill site | 10 | the best land; a rumour line to Ashby's head |
+| Hollins | 2 | farmland | grass, wood | 5 | |
+| Greenhythe | 2 | fen | fish, grass | 2 | eels and withies; wet |
+| Hartwood | 2 | old forest | wood, game | 2 | wolves and boar; the legendary boar |
 | Thornheath | 2 | heath | grass | 1 | poor |
-| Longmere | 3 | lake | fish, grass | 2 | a lake stock that can be fished down |
+| Longmere | 3 | lake | fish, grass | 3 | a lake stock that can be fished down |
 | Stonebarrow | 3 | rock hills | quarry, grass | 1 | stone |
-| Upper Hollins | 3 | farmland | grass | 3 | |
-| Kingsmead | 3 | rich vale | grass, fish | 3 | |
+| Upper Hollins | 3 | farmland | grass | 5 | |
+| Kingsmead | 3 | rich vale | grass, fish | 8 | |
 | Ashen Down | 3 | chalk down | grass | 2 | sheep country without sheep: pasture for cattle |
-| Wolfcombe | 4 | forest | wood, game | 1 | the wolves' ground |
-| Far Meadows | 4 | rich vale | grass, fish | 4 | |
-| Highbarrow | 4 | moor | grass | 1 | |
-| Eastmarch | 4 | farmland | grass, wood | 3 | |
+| Wolfcombe | 4 | forest | wood, game | 3 | the wolves' ground |
+| Far Meadows | 4 | rich vale | grass, fish | 14 | |
+| Highbarrow | 4 | moor | grass | 2 | |
+| Eastmarch | 4 | farmland | grass, wood | 5 | |
 
 **Capacity (to check with the ladder).**
 - Home at "standing" feeds about 15, and "worked" (manure, rotation, the plough) about 25.
@@ -258,22 +258,22 @@ farm, which one founder knows from her childhood, and finding cattle.
 
 | Place | Days from home | Land | Resources | Room | Note |
 |---|---|---|---|---|---|
-| **Eelmouth** (home) | 0 | coast | salt (brine spring), fish (runs, shallows) | 3 | known; the weir's reach |
+| **Eelmouth** (home) | 0 | coast | salt (brine spring), fish (runs, shallows) | 5 | known; the weir's reach |
 | The Saltings | 1 | coast | salt, fish | 1 | known |
-| Withy Holt | 1 | fen | fish, grass | 1 | known; willow |
-| Kingsford | 2 | farmland | grass, fish | 3 | the first good field land; the Brook wife's rumour |
-| Reedmere | 2 | fen | fish, grass | 1 | fowl and eels |
-| Middlemere | 2 | lake | fish, grass | 2 | a second fishery, its own stock (one stock per water body) |
-| Oakhanger | 2 | forest | wood, game | 1 | timber for the weir's sections |
-| Upper Reach | 3 | rich vale | grass, fish, mill site | 4 | the best farm land, on the river; runs pass it |
+| Withy Holt | 1 | fen | fish, grass | 2 | known; willow |
+| Kingsford | 2 | farmland | grass, fish | 5 | the first good field land; the Brook wife's rumour |
+| Reedmere | 2 | fen | fish, grass | 2 | fowl and eels |
+| Middlemere | 2 | lake | fish, grass | 3 | a second fishery, its own stock (one stock per water body) |
+| Oakhanger | 2 | forest | wood, game | 3 | timber for the weir's sections |
+| Upper Reach | 3 | rich vale | grass, fish, mill site | 12 | the best farm land, on the river; runs pass it |
 | Barrow Down | 3 | chalk down | grass | 2 | the feral herd |
-| Ashcombe | 3 | forest | wood, game | 1 | |
+| Ashcombe | 3 | forest | wood, game | 3 | |
 | Greyhythe | 3 | coast | fish, salt | 1 | a second salt shore along the coast |
-| Long Acre | 3 | farmland | grass | 3 | |
+| Long Acre | 3 | farmland | grass | 5 | |
 | Fernhill | 4 | heath | grass | 1 | |
-| Highreach | 4 | rich vale | grass, fish | 3 | the salmon's spawning reach |
+| Highreach | 4 | rich vale | grass, fish | 10 | the salmon's spawning reach |
 | Coldstone | 4 | rock hills | quarry, seam | 1 | copper; nobody knows smelting |
-| Mere End | 4 | lake | fish | 1 | |
+| Mere End | 4 | lake | fish | 2 | |
 | (four stops and wild nodes on the long roads) | 1 to 3 | mixed | | 0 | |
 
 **Capacity.**
@@ -324,22 +324,22 @@ Down the valleys, three to four days off and unexplored, lies the lowland.
 
 | Place | Days | Land | Resources | Room | Note |
 |---|---|---|---|---|---|
-| **Highfold** (home A) | 0 | upland pasture | grass | 2 | known |
-| **Coldwell** (home B) | 1 over the pass | rock hills | quarry, grass | 2 | known |
+| **Highfold** (home A) | 0 | upland pasture | grass | 4 | known |
+| **Coldwell** (home B) | 1 over the pass | rock hills | quarry, grass | 3 | known |
 | The Pass | between them | mountain | | 0 | known; dangerous in winter |
-| High Shieling | 1 from Highfold | moor | grass | 1 | known; summer grazing |
+| High Shieling | 1 from Highfold | moor | grass | 2 | known; summer grazing |
 | Copper Gill | 1 from Coldwell | rock hills | seam | 0 | known |
-| Tarn Beck | 1 | lake | fish | 1 | known |
-| Lower Fold | 2 down valley A | hills | grass, wood | 2 | |
-| Birkdale | 2 down valley B | forest | wood, game | 1 | wolves, bear |
+| Tarn Beck | 1 | lake | fish | 2 | known |
+| Lower Fold | 2 down valley A | hills | grass, wood | 3 | |
+| Birkdale | 2 down valley B | forest | wood, game | 3 | wolves, bear |
 | Wolf Scar | 2 | rock hills | game | 0 | |
-| Greendale | 3 down valley A | rich vale | grass, fish | 3 | the first good farm land; rumour line to Fell |
-| Mill Foss | 3 down valley B | river terrace | grass, fish, mill site | 3 | |
-| Oak Clough | 3 | forest | wood, game | 1 | |
-| Lowdale | 4 | rich vale | grass, fish | 4 | where both valleys' rivers meet: the lowland's heart |
-| Fordham | 4 | farmland | grass | 3 | |
-| Mosslake | 4 | lake | fish, grass | 2 | |
-| Southmoss | 4 | fen | fish | 1 | |
+| Greendale | 3 down valley A | rich vale | grass, fish | 8 | the first good farm land; rumour line to Fell |
+| Mill Foss | 3 down valley B | river terrace | grass, fish, mill site | 5 | |
+| Oak Clough | 3 | forest | wood, game | 3 | |
+| Lowdale | 4 | rich vale | grass, fish | 14 | where both valleys' rivers meet: the lowland's heart |
+| Fordham | 4 | farmland | grass | 5 | |
+| Mosslake | 4 | lake | fish, grass | 3 | |
+| Southmoss | 4 | fen | fish | 2 | |
 
 **Capacity.**
 - The two hamlets at "standing" feed about 17, if the hay is made.
@@ -388,15 +388,15 @@ elders know dies with them unless they pass it on.
 
 | Place | Days | Land | Resources | Room | Known to |
 |---|---|---|---|---|---|
-| **Oldbury** (home) | 0 | farmland | grass, fish, mill site | 8 (4 held, 4 empty houses) | all |
-| Oldbury Down | 1 | chalk down | grass | 1 | all |
-| Clay Wood | 1 | forest | wood, game | 1 | all |
-| Springhead | 1 | rich vale | grass, fish | 2 | all |
-| Netherby | 2 | farmland | grass | 3 | elders: an empty hamlet, two standing houses |
+| **Oldbury** (home) | 0 | farmland | grass, fish, mill site | 10 | all |
+| Oldbury Down | 1 | chalk down | grass | 2 | all |
+| Clay Wood | 1 | forest | wood, game | 3 | all |
+| Springhead | 1 | rich vale | grass, fish | 8 | all |
+| Netherby | 2 | farmland | grass | 5 | elders: an empty hamlet, two standing houses |
 | Chalkpit | 2 | chalk down | quarry | 0 | elders |
-| Hamwell | 3 | farmland | grass, fish | 3 | elders: empty, a ruined mill |
+| Hamwell | 3 | farmland | grass, fish | 5 | elders: empty, a ruined mill |
 | Coldharbour | 3 | heath | grass | 1 | elders |
-| **Westcot** | 3 | river terrace | grass, fish | 2 | **nobody**: a second remnant family of 3 (a couple and a youth son) survives here, the same people under the same model, unexplored to Oldbury and Oldbury to them |
+| **Westcot** | 3 | river terrace | grass, fish | 4 | **nobody**: a second remnant family of 3 (a couple and a youth son) survives here, the same people under the same model, unexplored to Oldbury and Oldbury to them |
 | (8 more vacant places at 2 to 4 days) | | vale, wood, down, fen | | 1 to 3 | nobody |
 
 **Capacity.**
@@ -521,6 +521,56 @@ At lifespan 64 the acting people (youths, adults and elders) are about 70% of th
     systems).
   - *Default:* World 1.
 
+## Room: how much land each place has
+
+`room` is the households' worth of land the generator lays out at a vacant place (`landgen/settle.py` `allocate_vacant`: 12 cells of
+about 2.25 ha each per household, about 27 ha, nearest first within `field_km` 2.5 km of the place). That land becomes the place's
+parcels, and **no field can ever be made outside them**: clearing changes the cover of a parcel that exists, never adds one. So a
+place's room is the most households it can ever farm. Hunting and foraging reach further, into the wild layer's ring and blocks.
+
+The first draft gave most places room 1 to 4, copied from the peoples worlds without a reason of its own. Land does not limit it:
+2.5 km of reach is about 870 cells, room for about 50 households less water and rock. A place a day's walk from the next would in
+fact hold a village of 10 to 40 households. Zach (23 Nov): "why do so many of these places have so much small room? Could there not
+be more unexplored lush or larger places".
+
+**Room now** (design.py `ROOM_BY_LAND`, `ROOM_SET`):
+
+| Land | Room |
+|---|---|
+| rich vale, rich soil | 8 |
+| rich vale, fair soil; farmland, rich soil | 6 |
+| farmland, fair soil | 5 |
+| forest (wood to clear), lake, coast with fair soil | 3 |
+| old forest, fen, chalk down, moor | 2 |
+| heath, rock hills, coast with poor soil | 1 |
+
+Each world also has its deepest lush lands larger:
+- World 1: Far Meadows 14, Broadwater 10;
+- World 2: Upper Reach 12, Highreach 10;
+- World 3: Lowdale 14, Greendale 8;
+- World 4: Brookfield 12;
+- World 5: Threeways 12.
+
+Each home has room to grow at home: Fallowmere 6, Eelmouth 5, Oldbury 10, and so on.
+
+| World | Households of room: draft → now |
+|---|---|
+| 1 Fallowmere | 37 → 85 |
+| 2 Eelmouth Reach | 29 → 58 |
+| 3 Highfold | 26 → 57 |
+| 4 Oldbury | 35 → 74 |
+| 5 The Scattering | 44 → 93 |
+
+What this changes:
+- Land no longer caps growth within 200 days. What a people grows to is set by its practice: food, keeping, labour and the
+  winter. That is the intent (descendants_benchmark.md §3: the headroom is reached by practice).
+- A people can grow by filling one rich place, not only by scattering over many small ones. Whether they concentrate or spread is
+  now their choice.
+- **The open cost** (Q-97): a place of room 12 to 14 could hold 60 or more people at one node. The engine's proposed limit is about
+  15 to 20 people a node (spec/world/places.md), not enforced, and talk at a node grows with the square of those present.
+- The capacity figures in §2 to §6 ("the whole map holds about 130") were guessed on the draft's room. They are to be redone with
+  the capacity ladder before any run.
+
 ## Road networks: meshes by default, trees only by design
 
 Zach (23 Nov): "This feels a lot like a tree or things traveling away from a root node ... with no ways to travel between other nodes
@@ -567,6 +617,8 @@ docs/review/39_monoculture/ (made by `world0_map.py` and `draw.py` from `design.
 
 ## History
 
+- 23 Nov 2026 (later): Zach asked why so many places had so little room. Room explained and rescaled by land and soil, with
+  each world's deepest lush land larger (§Room); the map circles now show room. Every world's room about doubled.
 - 23 Nov 2026 (later): Zach noted the maps were trees from home. Cross-roads added to every world (§Road networks); trees kept only
   where the land is the reason, and named.
 - 23 Nov 2026 (later): maps drawn (§Maps). World 0's map found copper at w4, a day from Highpool; World 5's map drawn new
