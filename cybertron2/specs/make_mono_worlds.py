@@ -270,11 +270,37 @@ def arm(world: dict, model: str) -> dict:
 
 
 def make(key: str, seed: int, models) -> dict:
+    from cybertron2.landgen.settle import Refused
     s = spec(key, seed)
-    with contextlib.redirect_stdout(io.StringIO()):
-        world, cells, report = W.generate(copy.deepcopy(s), people=True)
+    relaxed = []
+    for _ in range(40):                                                    # a place no site meets: its pins eased one step at a time,
+        try:                                                               # each step reported (the design against what the land allows)
+            with contextlib.redirect_stdout(io.StringIO()):
+                world, cells, report = W.generate(copy.deepcopy(s), people=True)
+            break
+        except Refused as e:
+            name = str(e).split(":", 1)[0]
+            p = s["generate"]["places"].get(name)
+            if p is None:
+                raise
+            if p.get("within", 3.0) < 9.0:
+                p["within"] = p.get("within", 3.0) + 3.0
+                relaxed.append(f"{name}: within {p['within']} km")
+            elif p.get("soil") in ("rich", "poor"):
+                relaxed.append(f"{name}: soil {p.pop('soil')} not required")
+            elif p.get("has"):
+                relaxed.append(f"{name}: {p.pop('has')} not required")
+            elif p.get("on"):
+                relaxed.append(f"{name}: on {p.pop('on')} not required")
+            elif p.get("resources"):
+                relaxed.append(f"{name}: {p.pop('resources')} not required")
+            else:
+                raise
+    else:
+        raise SystemExit(f"{key}: still refused after easing {relaxed}")
     if report.get("refused"):
         raise SystemExit(f"{key}: refused: {report['refused']}")
+    print(key, "pins eased:", relaxed or "none", flush=True)
     world = MP.water_stocks(founders(world, key))
     world = explore(world, key)
     fill = seed_lines(world, key)
@@ -289,7 +315,7 @@ def make(key: str, seed: int, models) -> dict:
     W.write(world, cells, report, path, picture=os.path.join(OUT, f"{key.lower()}.png"))
     cmp_ = MP.compare(key, world)
     bad = [x for x in cmp_["roads"] if x["generated"] != x["designed"]]
-    json.dump({"refused": report.get("refused"), "gate": gate, "fill": fill, "capacity": cap, "roads_off": bad, "compare": cmp_},
+    json.dump({"refused": report.get("refused"), "pins_eased": relaxed, "gate": gate, "fill": fill, "capacity": cap, "roads_off": bad, "compare": cmp_},
               open(os.path.join(OUT, f"{key.lower()}.check.json"), "w"), indent=1, default=str)
     for m in models:
         a = arm(world, m)

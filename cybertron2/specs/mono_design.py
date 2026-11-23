@@ -163,7 +163,7 @@ WORLDS["M5"] = {
         M("Threeways", 0, 0, "rich vale", "rich", ["grass", "fish"], room=4, note="the ford: the meeting ground"),
         M("Westmere", -1, 0, "farmland", "fair", ["grass", "fish"], room=2, note="the coast's gate"),
         M("Tarn", 0, 1, "lake", "fair", ["fish", "grass"], room=1, note="the moor's gate"),
-        M("Longacre", 1, 0, "rich vale", "rich", ["grass", "mill site"], room=3, note="the vale's gate"),
+        M("Longacre", 1, 0, "rich vale", "rich", ["grass"], room=3, note="the vale's gate"),
         M("Border Wood", 0, -1, "forest", "fair", ["wood", "game"], room=1, note="the wood's gate"),
         M("Midwold", -1.2, 1.2, "farmland", "fair", ["grass"], room=3),
         M("Fernmoor", 1.2, 1.2, "heath", "poor", ["grass"], room=1),
