@@ -231,6 +231,8 @@ same; at 1/7 they are wave1 §3.2's figures.
 
 ### 3. The weir sized to its take
 
+> **Replaced 23 Nov by D2-302** (Zach: "Record weir cost as you put for now"): the weir's cost is set directly, from what it returns, not from the hours model below; see basis.md ("The weir's cost"). The model is kept as the reasoning it replaced.
+
 **The rule.** The take is fixed by the catch basis (basis §4: the first section 30% of a run passing up to 100 kg a night, each added
 section 7% up to 70, at most three; D2-293, D2-297). What varies is the work: a weir that takes that share must reach across a share
 of its channel, so its size, materials and hours follow the river it stands in. The engine already names three kinds of weir water

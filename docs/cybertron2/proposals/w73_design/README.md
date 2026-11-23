@@ -91,6 +91,8 @@ measured as the units come in together (D2-297).
 
 ## Open across the design
 
+**All the specs' open questions, deduplicated and ranked, are in `questions.md`.**
+
 The questions that span units are on basis.md §7. Each component spec carries its own. The morning brief
 (docs/review/37_growth/02zzzh_hunt_fish/morning_23nov.md) ranks those asked so far; the decisions since (D2-288 to D2-298) answer its
 section A.

@@ -87,6 +87,8 @@ answered; the component writes on the default shown and says so); **calibrate** 
 | Hand fishing in a run | full below a weir or dam, 0.3 on a brook or small river, 0.1 on a big river | default (u1) |
 | Set and tend | set 1 unit (up to 6 traps or 25 snares); tend 1 unit a place, taking all of one's own of that technique there; a set never springs by age | default (u2) |
 | Run bands for signs | trickle, running, thick, glut at 2 / 8 / 20% of the run passing; the carried catch sign at 5 kg | default (u8) |
+| The weir's cost | lowland: wattle first section 12 units, 20 timber, 10 withies; each added (up to 3) 6 units, 8 timber, 5 withies; timber first 20 units, 40 timber, added 10 units, 15 timber; wears 1.0 and 0.5; upkeep a quarter and an eighth of the build a year; a beck x0.3, a large river x2.5 | decided for now: D2-302 (calibrate) |
+| Poles | timber for now; a good of their own with the timber thread | decided: D2-303 (L-159) |
 | One set act | lays up to about 6 traps | decided: D2-264 |
 | The water's stocks | shallows, open water, runs; their relative sizes by kind of water | decided: D2-264; the numbers by water type: open (audit G6) |
 | A freeze | stops fishing (set gear idle, edge and bank lines refused, the weir icing and wearing, a run's night held over to the next open night) | decided: D2-265; the detail: default (audit q14) |
