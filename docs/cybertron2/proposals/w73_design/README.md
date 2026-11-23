@@ -1,6 +1,6 @@
 # The fishing, hunting and materials wave: the integrated design
 
-**Status:** discussion; the architecture, the basis sheet and all eleven component specs written (u1 to u11, 22 Nov); the integration review by 37.2 next. Parts decided are
+**Status:** ready to build: the architecture, the basis sheet, u0 to u11, the integration review and every open question answered (D2-263 to D2-330, 23 Nov). Each spec opens with a binding table of the decisions taken after it was written. The build plan: build_plan.md. Parts decided are
 cited (D2-263 to D2-298); nothing built.
 **Owner:** 37.2 (the design, the wild, the water, the materials, the worlds); 37.4 owns the engine's core where a component names it
 (the verbs and their registry, the prompt core, the standing rules, buildings and their costs, senses), named on any merge.
@@ -55,7 +55,7 @@ silently.
 | U7 | **Works and the building clock** | capital at real hours times the factor, staged; the weir sized to its take; builders, cheaper crop protection, plot clearing | building_clock.md, D2-276, D2-281, L-153 | wave1 §3; building_clock_bots.md | the cost tables designed; the companions gaps (G7, G8, G9) |
 | U8 | **Signs and senses** | the river's signs with leads (lore, dawn cue, the run, the catch carried home); keeping's signs; experts' signs as observations | river_signs.md (W-72), guides/senses.md, D2-265, D2-269 | wave3_taking §4; wave3_keeping §2.6 | designed |
 | U9 | **People** | the core prompt, what each person is shown, the act shapes, seeded founders' knowledge by livelihood, learning as one record | knowledge_in_their_own_words.md, trying_and_learning.md, livelihood_archetypes.md (37.4's), verbs.md (37.4's), D2-266 to D2-270, D2-286 | wave4_people; steering.md §4 | designed; verb shapes corrected by U2's rule |
-| U10 | **Tanning and pollution** | bark, lime from ash, tan pits, leather and its uses (frame, harness, bellows, shoes); retting and tanning fouling the water | hunt_fish_materials §7.5, §7.6, D2-281 | wave2 §2; wave3_keeping §2.2 | partly; pollution in numbers a gap (G3); shoes open (W2-7) |
+| U10 | **Tanning and pollution** (tanning deferred, D2-327; retting's fouling only) | bark, lime from ash, tan pits, leather and its uses (frame, harness, bellows, shoes); retting and tanning fouling the water | hunt_fish_materials §7.5, §7.6, D2-281 | wave2 §2; wave3_keeping §2.2 | partly; pollution in numbers a gap (G3); shoes open (W2-7) |
 | U11 | **Worlds and gates** | generation of the seeded capital matched to seeded memory; the gate check at world build; the runs world remade | household_skills.md, founders_knowledge.md, D2-268, D2-270 | wave2 §4; wave4 §6 | designed; the gate check written, not run |
 
 ## How the units meet
@@ -86,7 +86,7 @@ measured as the units come in together (D2-297).
 | 2 | U2 taking, U3 making (recipes shown, D2-263; batches, O-2), U1's fixes | gear must exist and be set and tended before keeping matters |
 | 3 | U4 processing, U5 stores, U6 the book | the glut has somewhere to go, and someone to see to it |
 | 4 | U8 signs, U9 people, U11 worlds and gates | the people learn of the run in time and know what to do with it; worlds remade to match |
-| 5 | U7 works staged to 1/15 with their companions; U10 tanning and pollution | the dearer works wait on the companions that make them buildable |
+| 5 | U7 works staged to 1/15 with their companions (clearing a plot at a time, fences along a border, the watch act; builders' craftsmanship and the dead hedge deferred) | the dearer works wait on the companions that make them buildable; tanning (U10) deferred until the wave is tested (D2-327) |
 | — | live runs: the remade runs world and a farm world, each with its null arm, read with a qualitative end-state reading | calibration of the catch, the keeping and the signs together |
 
 ## Open across the design

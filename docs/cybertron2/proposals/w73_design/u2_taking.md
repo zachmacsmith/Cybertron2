@@ -5,6 +5,15 @@ open as marked; nothing built. **Owner:** 37.2 (the wild's acts, the water's met
 their registry, the things core and the prompt (engine/verbs.py, things.py, tags.py, here.py, knowledge.py, prompt.py) and is named
 on every merge there. **Thread:** W-85, under W-73; the fishing bugs are Q-79's (W-69).
 
+
+> **Decisions since this spec was written (binding over its text; the build reads this table first):**
+> - **D2-304:** unnamed acts on several of one's own: a yield-taking act (tend) takes all; an act that uses up, kills, destroys or gives away needs a named target.
+> - **D2-305:** acts on held things take the thing as target; unnamed, only one's own; household things are every member's own.
+> - **D2-313:** 37.2 owns every engine file this wave changes (read every '37.4' in the code tables as 37.2 for this wave).
+> - **D2-314:** the eleven act shapes are the verb list.
+> - **D2-318:** fowling postponed to the hunting build-out (no fowling net, no fowling method in this wave).
+> - **D2-320:** crop protection as it is (dead hedge postponed); a rough watch act (units watching over a field, herd or building, by day or night), widening `guard`.
+
 ## Extends
 
 Read in full:

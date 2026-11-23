@@ -8,6 +8,17 @@ act and `make` in `verbs.py`, the craft lines in `knowledge.py`, item wear in `w
 
 ---
 
+
+> **Decisions since this spec was written (binding over its text; the build reads this table first):**
+> - **D2-303:** poles are timber until the timber thread.
+> - **D2-309:** one capital factor for every lasting thing; existing works held until their companions.
+> - **D2-310:** lives in nights at 1/11.4; lives in acts at the factor.
+> - **D2-312:** materials that feed lasting things stay at real hours (a named departure; L-162).
+> - **D2-313:** 37.2 owns every engine file this wave changes (read every '37.4' in the code tables as 37.2 for this wave).
+> - **D2-318:** fowling postponed to the hunting build-out (no fowling net, no fowling method in this wave).
+> - **D2-327:** tanning and leather deferred until the wave is tested (frame, harness and bellows in leather, tanning's pollution with it).
+> - **D2-329:** nets live about 16 nights in the water until barking returns with tanning.
+
 ## Extends
 
 Read in full for this spec, and built on:

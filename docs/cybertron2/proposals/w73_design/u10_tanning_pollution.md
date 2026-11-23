@@ -8,6 +8,13 @@ write on, marked, or open questions at the end. Nothing built.
 
 ---
 
+
+> **Deferred from this wave (D2-327):** tanning and leather wait until the rest is built and tested. This spec is kept as the design for then; only retting's fouling (flax) is in this wave.
+
+> **Decisions since this spec was written (binding over its text; the build reads this table first):**
+> - **D2-327:** tanning and leather deferred until the wave is tested (frame, harness and bellows in leather, tanning's pollution with it).
+> - **D2-313:** 37.2 owns every engine file this wave changes (read every '37.4' in the code tables as 37.2 for this wave).
+
 ## Extends
 
 Read in full for this spec, and built on:

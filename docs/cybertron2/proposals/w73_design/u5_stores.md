@@ -5,6 +5,10 @@
 areas: `buildings.py` (stores, `alloc`, the floor), the fittings' and rooms' costs (U7), the store lines in the prompt.
 **Thread:** the integrated design (W-85), under the network (W-73).
 
+
+> **Decisions since this spec was written (binding over its text; the build reads this table first):**
+> - **D2-313:** 37.2 owns every engine file this wave changes (read every '37.4' in the code tables as 37.2 for this wave).
+
 ## Extends
 
 - **D2-272** (a food's base rate is its rate well kept; stores remove outside penalties and never slow below base; better stores

@@ -9,6 +9,16 @@ calls its core (the knowledge record, kept lines, the cast's models) (`engine/ge
 **holdings** (the capital-knowledge registry and its two-way fill), **the gate check** (one runner over the people, making and dry
 checks). The founders' line templates are U9's (`u9_people.md` §5); this unit places them.
 
+
+> **Decisions since this spec was written (binding over its text; the build reads this table first):**
+> - **D2-308:** kept lines: founders' seeded lines on top of the places opened each stretch, about 30 in all, for now.
+> - **D2-311:** seeded memory of a household's capital is inside the 20-line budget, written with the livelihood it belongs to (not an extra line).
+> - **D2-313:** 37.2 owns every engine file this wave changes (read every '37.4' in the code tables as 37.2 for this wave).
+> - **D2-316:** a runs world is water-only: small resident and shallows stocks always present, the runs the main part (no 'no resident fish' switch).
+> - **D2-318:** fowling postponed to the hunting build-out (no fowling net, no fowling method in this wave).
+> - **D2-327:** tanning and leather deferred until the wave is tested (frame, harness and bellows in leather, tanning's pollution with it).
+> - **D2-330:** the worlds' defaults (questions C1 to C7).
+
 ## Extends
 
 | Earlier | What this spec takes from it |

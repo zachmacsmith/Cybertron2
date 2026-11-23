@@ -5,6 +5,13 @@
 the senses core (engine/signs.py, perceive.py, the PERSON rows) and reviews and is named on every merge there. **Thread:** W-85,
 under W-73; the river's signs are W-72's.
 
+
+> **Decisions since this spec was written (binding over its text; the build reads this table first):**
+> - **D2-313:** 37.2 owns every engine file this wave changes (read every '37.4' in the code tables as 37.2 for this wave).
+> - **D2-317:** shallows one stock per parcel, with their own signs for their own creatures.
+> - **D2-318:** fowling postponed to the hunting build-out (no fowling net, no fowling method in this wave).
+> - **D2-325:** some river signs are for anyone at, passing or attending a full river; finer ones for any water craft from rough up.
+
 ## Extends
 
 Read in full:

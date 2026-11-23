@@ -4,6 +4,14 @@
 built. **Owner:** 37.2 (the wild, the water). 37.4 is named on the merge of the core files listed under "Code changes" (world.py,
 renewal.py, knowledge.py). **Thread:** the wave's integrated design (W-85), under the network (W-73) and the nutrition worlds (W-69).
 
+
+> **Decisions since this spec was written (binding over its text; the build reads this table first):**
+> - **D2-313:** 37.2 owns every engine file this wave changes (read every '37.4' in the code tables as 37.2 for this wave).
+> - **D2-315:** wild rates still on the day clock stay as calibrated, read in live runs.
+> - **D2-316:** a runs world is water-only: small resident and shallows stocks always present, the runs the main part (no 'no resident fish' switch).
+> - **D2-317:** shallows one stock per parcel, with their own signs for their own creatures.
+> - **D2-318:** fowling postponed to the hunting build-out (no fowling net, no fowling method in this wave).
+
 ## Extends
 
 Read in full for this spec, not only their summaries:

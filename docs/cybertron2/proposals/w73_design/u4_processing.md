@@ -5,6 +5,12 @@
 loading branch (`verbs.py`), the building cap on sets (`buildings.py`), the fittings' costs (U7), and the house lines in the prompt.
 **Thread:** the integrated design (W-85), under the network (W-73); the earlier note's thread is W-80 (keeping).
 
+
+> **Decisions since this spec was written (binding over its text; the build reads this table first):**
+> - **D2-313:** 37.2 owns every engine file this wave changes (read every '37.4' in the code tables as 37.2 for this wave).
+> - **D2-327:** tanning and leather deferred until the wave is tested (frame, harness and bellows in leather, tanning's pollution with it).
+> - **Default corrected (B10):** hard-cured meat keeps the salt meat's food: 0.6 / 0.85 = about 0.71 food a kg.
+
 ## Extends
 
 Each read in full, not from a summary:

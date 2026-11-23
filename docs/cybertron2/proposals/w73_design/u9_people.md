@@ -10,6 +10,22 @@ is named on any merge (README, owners). **Thread:** the wave's integrated design
 **the prompt core** (§1, §2), **the act shapes** (§3), **knowing and learning** (§4, §5: the record, its five events, the founders'
 templates). Generation and the gate check that place the founders' lines are U11's (`u11_worlds.md`).
 
+
+> **Decisions since this spec was written (binding over its text; the build reads this table first):**
+> - **D2-301:** own rules and standing fallback before every household chore; none at the start, nothing pushing; units left are rest.
+> - **D2-304:** unnamed acts on several of one's own: a yield-taking act (tend) takes all; an act that uses up, kills, destroys or gives away needs a named target.
+> - **D2-305:** acts on held things take the thing as target; unnamed, only one's own; household things are every member's own.
+> - **D2-307:** learning scaled with lifespan in every part; fading on the life clock.
+> - **D2-308:** kept lines: founders' seeded lines on top of the places opened each stretch, about 30 in all, for now.
+> - **D2-311:** seeded memory of a household's capital is inside the 20-line budget, written with the livelihood it belongs to (not an extra line).
+> - **D2-313:** 37.2 owns every engine file this wave changes (read every '37.4' in the code tables as 37.2 for this wave).
+> - **D2-314:** the eleven act shapes are the verb list.
+> - **D2-318:** fowling postponed to the hunting build-out (no fowling net, no fowling method in this wave).
+> - **D2-319:** rules changed any time and in the evening talk; a seeded line on evenings as the time to revisit rules.
+> - **D2-320:** crop protection as it is (dead hedge postponed); a rough watch act (units watching over a field, herd or building, by day or night), widening `guard`.
+> - **D2-326:** practice alone can reach known (slower); teaching far more efficient; replaces 'the last lesson only from a teacher'.
+> - **D2-327:** tanning and leather deferred until the wave is tested (frame, harness and bellows in leather, tanning's pollution with it).
+
 ## Extends
 
 Each read in full, not from its summary.
