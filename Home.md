@@ -21,6 +21,7 @@
 
 ## To confirm or revisit
 - [[Q-47 Where the economy stops for now|Where the economy stops for now (Q-47)]]: revisit: kept open on purpose with W-39 (Zach, 20 Nov)
+- [[W-100 Build stage 4, signs, people and worlds|Build stage 4, signs, people and worlds (W-100)]]: closed by agent
 - [[W-39 The economy's web of dependence and how far it should reach|The economy's web of dependence and how far it should reach (W-39)]]: revisit: kept open on purpose (Zach, 20 Nov: 'this should be another thread of its own purposefully kept open')
 - [[W-53 Floodplains in the generator|Floodplains in the generator (W-53)]]: closed by agent
 - [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]]: closed by agent
@@ -31,7 +32,7 @@
 - [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]]: closed by agent
 - [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]]: closed by agent
 
-## Active threads (18)
+## Active threads (17)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -52,8 +53,6 @@
   next: after the first build (recipes shown with the batches, the gate check, the fishing bugs and the target rule)…
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]  
   next: stages 1 to 4 built one after another without stopping (Zach 23 Nov: 'as the stage finish continue until…
-- [[W-100 Build stage 4, signs, people and worlds|Build stage 4, signs, people and worlds (W-100)]]  
-  next: build; renders and checks; review by 37.2; merge; then live run 1 (D2-333)
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  

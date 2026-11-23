@@ -27,4 +27,5 @@ conversation (23 Nov: "I meant the general idea yes but I think this should be c
 - [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
 - [[Live run 1 the plan (D2-333, D2-334, D2-335)|Live run 1: the plan (D2-333, D2-334, D2-335)]]
 - [[Brief build stage 4, taking and making (thread W-100)|Brief: build stage 4, taking and making (thread W-100)]]
+- [[Stage 4 of the fishing, hunting and materials wave signs, people and…|Stage 4 of the fishing, hunting and materials wave: signs, people and…]]
 - *and 1 index or audit notes*

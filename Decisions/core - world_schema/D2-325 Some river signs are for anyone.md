@@ -7,7 +7,7 @@ updated: "2026-11-23"
 
 # Some river signs are for anyone (D2-325)
 
-*live · 23 Nov*
+*live · 23 Nov · spec: [[core - world_schema|core/world_schema]]*
 
 ## The rule
 **Some river signs are for anyone: when the river is full enough, anyone at it, passing by it or attending to it can tell; the finer signs are read by anyone with a water craft from a rough idea up.**
@@ -25,4 +25,6 @@ conversation (23 Nov: "B25: yes and somne should be anyone, if the river is full
 - [[The build plan|The build plan]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
+- [[The world record's shape and its version|The world record's shape and its version]]
 - [[Brief build stage 4, taking and making (thread W-100)|Brief: build stage 4, taking and making (thread W-100)]]
+- [[Stage 4 of the fishing, hunting and materials wave signs, people and…|Stage 4 of the fishing, hunting and materials wave: signs, people and…]]

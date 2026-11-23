@@ -1,13 +1,13 @@
 ---
 id: W-100
 kind: thread
-state: active
+state: done
 updated: "2026-11-23"
 ---
 
 # Build stage 4, signs, people and worlds (W-100)
 
-*active · 37.2 · touched 23 Nov (today)*
+*done, by agent (provisional) · 37.2 · touched 23 Nov (today)*
 
 > **Next:** build; renders and checks; review by 37.2; merge; then live run 1 ([[D2-333 Zach's go for live run 1|D2-333]])
 
@@ -15,7 +15,9 @@ updated: "2026-11-23"
 Brief: docs/review/37_growth/02zzzh_hunt_fish/stage4_brief.md. Branch w85-s4-people.
 
 ## Done so far, and what is left
-started
+done 23 Nov: built and merged: u8, u9, u11, Eelmouth remade and small; 835 passed, 2 skipped; report stage4_report.md.
+
+**left:** lessons and failure lines, capability points, aptitudes, attention in units, children learning at home, goods by familiarity, own things with tags, the generator for unpinned households, the Hollinford maker
 
 ## Where
 - `branch w85-s4-people (worktree /home/user/c2-w85s4)`
@@ -26,4 +28,6 @@ started
 
 
 ## Mentioned by
+- [[The world record's shape and its version|The world record's shape and its version]]
 - [[Brief build stage 4, taking and making (thread W-100)|Brief: build stage 4, taking and making (thread W-100)]]
+- [[Stage 4 of the fishing, hunting and materials wave signs, people and…|Stage 4 of the fishing, hunting and materials wave: signs, people and…]]

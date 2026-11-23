@@ -25,3 +25,4 @@ conversation (23 Nov: "Can we do a null arm where the same world lacks the new s
 - [[D2-335 Live run 1 is a set of small runs, not one big run|Live run 1 is a set of small runs, not one big run (D2-335)]]
 - [[The build plan|The build plan]]
 - [[Brief build stage 4, taking and making (thread W-100)|Brief: build stage 4, taking and making (thread W-100)]]
+- [[Stage 4 of the fishing, hunting and materials wave signs, people and…|Stage 4 of the fishing, hunting and materials wave: signs, people and…]]

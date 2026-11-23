@@ -23,3 +23,4 @@ conversation (23 Nov: "Stop if you reach weekly 99% usage tho")
 ## Mentioned by
 - [[Live run 1 the plan (D2-333, D2-334, D2-335)|Live run 1: the plan (D2-333, D2-334, D2-335)]]
 - [[Brief build stage 4, taking and making (thread W-100)|Brief: build stage 4, taking and making (thread W-100)]]
+- [[Stage 4 of the fishing, hunting and materials wave signs, people and…|Stage 4 of the fishing, hunting and materials wave: signs, people and…]]
