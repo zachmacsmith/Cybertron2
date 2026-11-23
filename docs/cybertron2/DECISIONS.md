@@ -480,6 +480,7 @@ and correct them in place.**
 | D2-331 | 23 Nov | **Live run 1 has a comparison arm: the same world without the new seeded memories and with the old system prompt (today's core and verb list, under the beliefs view; the options list stays removed, D2-286), run for a shorter span than the main arm (through the first autumn run).** | conversation (23 Nov: "Can we do a null arm where the same world lacks the new seeded memories but has the old system prompt? But only for a shorter portion.") | |
 | D2-332 | 23 Nov | **Live run 1 (each of its arms) is published to the Hugging Face dataset as soon as it finishes.** | conversation (23 Nov: "when the live run finishes I would publish it to hugging face straight away: better upload than not and almost lose it.") | |
 | D2-333 | 23 Nov | **Zach's go for live run 1 (D2-331's arms, D2-332's publishing) when stages 1 to 4 are built and checked, without waiting for him.** | conversation (23 Nov: "But I also give you permission to do live run 1 when you reach it since I'm going to sleep now") | |
+| D2-334 | 23 Nov | **Live run 1 and the overnight work stop if the weekly usage window reaches 99% (the run's week_stop set to 0.99 for this run).** | conversation (23 Nov: "Stop if you reach weekly 99% usage tho") | |
 
 ## Directions (Zach's stated aims recorded in the notes; designs follow them; checked by 37.2, 22 Oct)
 
