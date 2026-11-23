@@ -74,7 +74,8 @@ started
 - under it: [[L-172 Limestone and lime|Limestone and lime (L-172)]] (open)
 - under it: [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]] (open)
 - under it: [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]] (done)
-- under it: [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]] (active)
+- under it: [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]] (done)
+- under it: [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]] (active)
 
 
 ## Mentioned by
@@ -116,7 +117,7 @@ started
 - [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]]
 - [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]]
 - [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]]
+- [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]]
 - [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]]
-- [[L-160 Kept lines over a life|Kept lines over a life (L-160)]]
-- … and 27 more
+- … and 28 more
 - *and 3 index or audit notes*

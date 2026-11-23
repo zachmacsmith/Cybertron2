@@ -26,6 +26,6 @@ conversation (22 Nov: "And yes: standing rules should support ocnditional action
 - [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
 - [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
-- [[Brief build stage 3, taking and making (thread W-THREAD)|Brief: build stage 3, taking and making (thread W-THREAD)]]
+- [[Brief build stage 3, taking and making (thread W-99)|Brief: build stage 3, taking and making (thread W-99)]]
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - *and 3 index or audit notes*

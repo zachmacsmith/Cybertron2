@@ -3,7 +3,7 @@ id: docs/review/37_growth/02zzzh_hunt_fish/stage3_brief.md
 kind: note
 updated: "2026-11-23"
 ---
-# Brief: build stage 3, taking and making (thread W-THREAD)
+# Brief: build stage 3, taking and making (thread W-99)
 
 *note · `docs/review/37_growth/02zzzh_hunt_fish/stage3_brief.md`*
 
@@ -14,7 +14,7 @@ push or merge. Commit on the branch in small commits; each message's last paragr
 
 ```
 Agent: 37.2
-Thread: W-THREAD
+Thread: [[W-99 Build stage 3, keeping, stores and the household book|W-99]]
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 ```
 

@@ -23,5 +23,5 @@ conversation (22 Nov: "Fallbacks should be assignable by the family's standing r
 ## Mentioned by
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
 - [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
-- [[Brief build stage 3, taking and making (thread W-THREAD)|Brief: build stage 3, taking and making (thread W-THREAD)]]
+- [[Brief build stage 3, taking and making (thread W-99)|Brief: build stage 3, taking and making (thread W-99)]]
 - *and 2 index or audit notes*

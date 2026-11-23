@@ -1,13 +1,13 @@
 ---
 id: W-98
 kind: thread
-state: active
+state: done
 updated: "2026-11-23"
 ---
 
 # Build stage 2, taking and making (W-98)
 
-*active · 37.2 · touched 23 Nov (today)*
+*done, by agent (provisional) · 37.2 · touched 23 Nov (today)*
 
 > **Next:** build on the branch; tests; review by 37.2; merge
 
@@ -15,7 +15,9 @@ updated: "2026-11-23"
 Brief: docs/review/37_growth/02zzzh_hunt_fish/stage2_brief.md. Branch w85-s2-taking.
 
 ## Done so far, and what is left
-started
+done 23 Nov: built and merged: u1, u2, u3; 784 passed, 2 skipped; report stage2_report.md.
+
+**left:** snare places and sprung nooses, the net fouling in a spate, bone and dressing a kill, older tools as pieces, retting and spinning, the gate check wired into world build
 
 ## Where
 - `branch w85-s2-taking (worktree /home/user/c2-w85s2)`

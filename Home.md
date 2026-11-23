@@ -28,6 +28,7 @@
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]: revisit: soon (Zach, 20 Nov: 'that one sooner')
 - [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]: closed by agent
 - [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]]: closed by agent
+- [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]]: closed by agent
 
 ## Active threads (18)
 
@@ -50,8 +51,8 @@
   next: after the first build (recipes shown with the batches, the gate check, the fishing bugs and the target rule)…
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]  
   next: stages 1 to 4 built one after another without stopping (Zach 23 Nov: 'as the stage finish continue until…
-- [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]]  
-  next: build on the branch; tests; review by 37.2; merge
+- [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]]  
+  next: build; tests; review; merge
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  

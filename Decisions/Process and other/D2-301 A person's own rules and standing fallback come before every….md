@@ -26,6 +26,6 @@ conversation (22 Nov: "Your own rule should overrun chores. They just by default
 - [[The integration review (23 Nov 2026)|The integration review (23 Nov 2026)]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
-- [[Brief build stage 3, taking and making (thread W-THREAD)|Brief: build stage 3, taking and making (thread W-THREAD)]]
+- [[Brief build stage 3, taking and making (thread W-99)|Brief: build stage 3, taking and making (thread W-99)]]
 - [[Brief build stage 4, taking and making (thread W-THREAD)|Brief: build stage 4, taking and making (thread W-THREAD)]]
 - *and 3 index or audit notes*

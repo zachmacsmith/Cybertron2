@@ -33,5 +33,5 @@ conversation (23 Nov: "3. You get ownership of these files for all of this wave.
 - [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
 - [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
-- [[Brief build stage 3, taking and making (thread W-THREAD)|Brief: build stage 3, taking and making (thread W-THREAD)]]
+- [[Brief build stage 3, taking and making (thread W-99)|Brief: build stage 3, taking and making (thread W-99)]]
 - *and 2 index or audit notes*
