@@ -43,9 +43,10 @@ def test_the_edge_reaches_a_run_where_the_water_holds_no_resident_fish(river, mo
     node = "Saltwell"
     pid = water(w, node)
     w.s["parcels"][pid]["res"].pop("fish", None)
+    w.s["parcels"][pid]["res"]["shallows"]["S"] = 0.0                               # the edge draws the shallows (u1 §2, stage 2)
     who = adults(w, node)[0]
     r = do(w, who, {"do": "gather", "what": "fish by hand", "at": w.s["parcels"][pid]["name"]})
-    assert r.startswith("Refused") and "no fish" in r                            # no run: the water's own reason
+    assert r.startswith("Refused") and "fished out for now, and nothing is running" in r   # no run: the water's own reason
     pulse(w, node, kind="eel", n=400.0)
     assert WL.run_here(w, node, pid)
     r = do(w, who, {"do": "gather", "what": "fish by hand", "at": w.s["parcels"][pid]["name"]})
@@ -117,6 +118,7 @@ def test_the_technique_named_alone_tends_what_stands(river):
     pid = water(w, node)
     who = adults(w, node)[0]
     _knows(w, who, "trap in water")
+    w.apply("create", node, dst=w.hands(who), item="wicker trap", qty=6.0, why="test")   # laid from the hands (u2 §3, stage 2)
     pname = w.s["parcels"][pid]["name"]
     r = do(w, who, {"do": "gather", "what": "trap in water", "at": pname})
     assert r.startswith("You set"), r
@@ -125,7 +127,7 @@ def test_the_technique_named_alone_tends_what_stands(river):
     cid = next(k for k, c in w.s["containers"].items() if c is sets[0])
     w.apply("create", node, dst=cid, item="fish", qty=2.0, why="test")
     r = do(w, who, {"do": "gather", "what": "trap in water", "at": pname})
-    assert r.startswith("You tended your wicker traps") and "2 fish" in r, r
+    assert r.startswith("You tended your wicker traps") and "about 2 kg of fish" in r, r
     assert len([c for c in w.s["containers"].values() if c.get("kind") == "set" and c.get("by") == who]) == 1
     assert Here(w, who).carried().get("fish", 0) >= 2
 

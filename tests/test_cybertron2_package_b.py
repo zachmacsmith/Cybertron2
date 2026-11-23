@@ -171,6 +171,8 @@ def test_an_edge_with_no_landmarks_behaves_exactly_as_before(tmp_path, monkeypat
     import yaml
     p = tmp_path / "s.yaml"
     p.write_text(yaml.safe_dump(spec))
+    from cybertron2.engine.world import World                                 # the bots travel unladen (they gather withies and
+    monkeypatch.setattr(World, "capacity", lambda self, name, track=False, oxen=None: 1e9)   # timber first since u3's willow)
     R.run(str(p), str(tmp_path / "a"), workers=2)
     monkeypatch.setattr(RD, "night", lambda w, today: {"trouble": [], "meetings": [], "finds": [], "good": []})
     R.run(str(p), str(tmp_path / "b"), workers=2)

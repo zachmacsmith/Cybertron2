@@ -73,7 +73,7 @@ def pulse(w, node, kind="eel", n=40.0, dir_="down", **kw):
 def no_new_runs(monkeypatch):
     """Hold the cue off (so only the pulses put by hand move), the rest of the rule as built."""
     adv = RU.advance
-    monkeypatch.setattr(RU, "advance", lambda m, st, day, wx, ahead, stops=None, weather=True: adv(m, st, day, wx, None, stops, weather))
+    monkeypatch.setattr(RU, "advance", lambda m, st, day, wx, ahead, stops=None, weather=True, **kw: adv(m, st, day, wx, None, stops, weather, **kw))
 
 
 # ---------------------------------------------------------------------- the run along the river (§2)
@@ -294,7 +294,8 @@ def test_a_trap_in_the_race_takes_the_weirs_share_of_a_run_going_down(river, mon
         bid, mill = WL.mills(w, "Millham")[0]
         w.s["wild"]["state"]["pop"]["otter"] = [0.0] * WL.model(w).n
         who = adults(w, "Millham")[0]
-        if trap:
+        if trap:                                                                   # one trap, laid from the hands (u2 §3)
+            w.apply("create", "Millham", dst=w.hands(who), item="wicker trap", qty=1.0, why="test")
             do(w, who, {"do": "gather", "what": "trap in water", "at": w.s["parcels"][WL.mill_water(w, mill)]["name"]})
         pulse(w, "Millham", n=60.0)
         rec = N.night(w)
@@ -652,6 +653,7 @@ def test_a_flood_very_likely_and_a_spate_half_the_time_wrecks_a_trap_in_the_rive
             w.rng = lambda *k, o=o, s_=s_: o(*k, "wreck", s_)
             no_robbers(w)
             who = adults(w, "Saltwell")[0]
+            w.apply("create", "Saltwell", dst=w.hands(who), item="wicker trap", qty=1.0, why="test")   # one trap (u2 §3)
             do(w, who, {"do": "gather", "what": "trap in water", "at": w.s["parcels"][water(w, "Saltwell")]["name"]})
             rec = N.night(w)
             n += bool(rec["wild"]["runs"].get("wrecked"))
@@ -680,6 +682,7 @@ def test_a_set_trap_holds_about_ten_kg_in_the_river_or_the_race(river, monkeypat
     no_robbers(w)
     bid, mill = WL.mills(w, "Millham")[0]
     who = adults(w, "Millham")[0]
+    w.apply("create", "Millham", dst=w.hands(who), item="wicker trap", qty=1.0, why="test")   # one trap (u2 §3)
     do(w, who, {"do": "gather", "what": "trap in water", "at": w.s["parcels"][WL.mill_water(w, mill)]["name"]})
     pulse(w, "Millham", n=200.0)
     rec = N.night(w)

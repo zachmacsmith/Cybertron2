@@ -168,9 +168,9 @@ def test_on_the_river_a_trap_beside_the_weir_does_not_take_before_it(river, monk
         no_robbers(w)
         bid = put_weir(w, "Saltwell")
         if traps:
-            for who in adults(w, "Saltwell")[:3]:
-                for _ in range(3):
-                    do(w, who, {"do": "gather", "what": "trap in water", "at": w.s["parcels"][w.s["buildings"][bid]["parcel"]]["name"]})
+            for who in adults(w, "Saltwell")[:3]:                                   # three traps each, laid from the hands (u2 §3)
+                w.apply("create", "Saltwell", dst=w.hands(who), item="wicker trap", qty=3.0, why="test")
+                do(w, who, {"do": "set", "what": "wicker traps", "at": w.s["parcels"][w.s["buildings"][bid]["parcel"]]["name"]})
         pulse(w, "Saltwell", n=200.0)
         rec = N.night(w)
         runs = rec["wild"]["runs"]

@@ -84,8 +84,9 @@ def test_a_set_snare_catches_with_nobody_there_can_be_robbed_and_ends_after_its_
     m, ri = _ring(w, WL)
     w.s["wild"]["state"]["pop"]["brown hare"][ri] = 400.0 / m.km2[ri]
     par = next(p for p in w.s["parcels"].values() if p["node"] == "s1" and p["cover"] in ("pasture", "meadow", "field"))
+    w.apply("create", "s1", dst=w.hands("Ann"), item="snare", qty=5.0, why="test")   # a line of five, laid from the hands (u2 §3)
     r = _do(w, "Ann", {"do": "gather", "what": "snare", "at": par["name"]})
-    assert "set a line of snares" in r
+    assert r.startswith("You set 5 snares on the runs of"), r
     cid = next(c for c, x in w.s["containers"].items() if x.get("kind") == "set")
     caught = False
     for _ in range(6):
