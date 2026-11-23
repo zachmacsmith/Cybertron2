@@ -58,7 +58,6 @@ started
 - [[L-107 Tallow's real uses|Tallow's real uses (L-107)]]
 - [[L-111 The hunting and resources build, a soon follow-up|The hunting and resources build, a soon follow-up (L-111)]]
 - [[L-113 Briefs 4, 4b and 4c's deviations, to revisit|Briefs 4, 4b and 4c's deviations, to revisit (L-113)]]
-- [[L-116 The wild layer's fish and a water body, two ways|The wild layer's fish and a water body, two ways (L-116)]]
 - [[L-117 Wildlife pack K3 forays, methods and knowing|Wildlife pack K3: forays, methods and knowing (L-117)]]
 - [[L-118 Wildlife pack K5 wood and frontier|Wildlife pack K5: wood and frontier (L-118)]]
 - [[L-119 Wildlife pack K6 keeping|Wildlife pack K6: keeping (L-119)]]
@@ -81,5 +80,6 @@ started
 - [[L-159 Poles and cordwood as their own good|Poles and cordwood as their own good (L-159)]]
 - [[L-167 The dead hedge and cheaper crop protection, thought through|The dead hedge and cheaper crop protection, thought through (L-167)]]
 - [[L-170 Fowling the methods|Fowling: the methods (L-170)]]
-- … and 7 more
+- [[L-171 Tanning and leather|Tanning and leather (L-171)]]
+- … and 6 more
 - *and 1 index or audit notes*

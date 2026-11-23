@@ -40,7 +40,6 @@ built and on main 20 Nov (merged with [[W-62 Merging the water work from its twe
 - [[L-49 Automated supply-chain and dependence checks for generated worlds|Automated supply-chain and dependence checks for generated worlds (L-49)]]
 - [[L-51 landgen.physical._spread reaches farther than its steps|`landgen.physical._spread` reaches farther than its steps (L-51)]]
 - [[L-75 The generator's lakes and heat target|The generator's lakes and heat target (L-75)]]
-- [[L-100 Landscapes still to tune|Landscapes still to tune (L-100)]]
 - [[L-101 Compile the generator into specworldgeneration.md|Compile the generator into spec/world/generation.md (L-101)]]
 - [[L-127 The ecology's calibration backlog|The ecology's calibration backlog (L-127)]]
 - [[Calibration worlds a suite of diverse places to calibrate against|Calibration worlds: a suite of diverse places to calibrate against]]

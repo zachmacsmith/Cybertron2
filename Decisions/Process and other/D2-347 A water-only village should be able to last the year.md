@@ -26,4 +26,5 @@ conversation (23 Nov: "It should be possible for a water only village to last th
 - [[Q-91 How a water-only village is made able to last the year|How a water-only village is made able to last the year (Q-91)]]
 - [[The build plan|The build plan]]
 - [[Where live run 1's spring gap lies (set B, the rebuilt arm)|Where live run 1's spring gap lies (set B, the rebuilt arm)]]
+- [[Brief the waters calibrated across many generated environments…|Brief: the waters calibrated across many generated environments…]]
 - *and 1 index or audit notes*

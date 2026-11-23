@@ -32,7 +32,7 @@
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]: revisit: soon (Zach, 20 Nov: something I want to revisit soon)
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]: revisit: soon (Zach, 20 Nov: 'that one sooner')
 
-## Active threads (19)
+## Active threads (20)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -57,6 +57,8 @@
   next: survey and design written (c101c75d); 37.2 reviewed the counts; eight design questions and seven survey…
 - [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]]  
   next: builder agent on branch w105-lines in /home/user/c2-lines; then 37.2 reviews and merges
+- [[W-108 The waters calibrated across many generated environments|The waters calibrated across many generated environments (W-108)]]  
+  next: two agents: the calibration sweep, and an independent read of the code's generality; then 37.2 brings Zach…
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  
@@ -115,7 +117,8 @@
 ## Queued and paused (19)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework, [[W-76 The timber economy|W-76]] The timber economy, [[W-86 Households generalised into institutions and laws|W-86]] Households generalised into institutions and laws, [[W-87 Health, fatigue and illness|W-87]] Health, fatigue and illness, [[W-88 The coast and the sea|W-88]] The coast and the sea, [[W-89 Trade between villages markets, carriage, what flows where|W-89]] Trade between villages: markets, carriage, what flows where, [[W-90 Textiles and clothing|W-90]] Textiles and clothing, [[W-91 Pottery and clay crocks, ovens, daub, bricks|W-91]] Pottery and clay: crocks, ovens, daub, bricks, [[W-92 Boats, barrels and the cooper|W-92]] Boats, barrels and the cooper, [[W-93 Demography and growth|W-93]] Demography and growth, [[W-94 Timed actions|W-94]] Timed actions, [[W-95 Stone and quarrying|W-95]] Stone and quarrying, [[W-96 Space unified everywhere|W-96]] Space unified everywhere
 
-## Decided this week (145)
+## Decided this week (146)
+- [[D2-348 A water-only village is made able to last the year by|A water-only village is made able to last the year by (D2-348)]]
 - [[D2-347 A water-only village should be able to last the year|A water-only village should be able to last the year (D2-347)]]
 - [[D2-346 The signs design|The signs design (D2-346)]]
 - [[D2-345 Zach's go for stage 5|Zach's go for stage 5 (D2-345)]]
@@ -130,7 +133,6 @@
 - [[D2-336 A shelf life is stated one of two ways|A shelf life is stated one of two ways (D2-336)]]
 - [[D2-335 Live run 1 is a set of small runs, not one big run|Live run 1 is a set of small runs, not one big run (D2-335)]]
 - [[D2-334 Live run 1 and the overnight work stop if the weekly usage window…|Live run 1 and the overnight work stop if the weekly usage window… (D2-334)]]
-- [[D2-333 Zach's go for live run 1|Zach's go for live run 1 (D2-333)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]

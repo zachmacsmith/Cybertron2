@@ -1,6 +1,7 @@
 # All threads
 
 ## Open
+- [[W-108 The waters calibrated across many generated environments|The waters calibrated across many generated environments (W-108)]] (active)
 - [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]] (waiting)
 - [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]] (waiting)
 - [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]] (active)

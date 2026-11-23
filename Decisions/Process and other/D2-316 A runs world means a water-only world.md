@@ -21,6 +21,7 @@ conversation (23 Nov: "by runs only what I really care about is water only. ... 
 
 
 ## Mentioned by
+- [[D2-348 A water-only village is made able to last the year by|A water-only village is made able to last the year by (D2-348)]]
 - [[Q-91 How a water-only village is made able to last the year|How a water-only village is made able to last the year (Q-91)]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
@@ -31,4 +32,5 @@ conversation (23 Nov: "by runs only what I really care about is water only. ... 
 - [[Stage 2 of the fishing, hunting and materials wave taking and making…|Stage 2 of the fishing, hunting and materials wave: taking and making…]]
 - [[Brief build stage 4, taking and making (thread W-100)|Brief: build stage 4, taking and making (thread W-100)]]
 - [[Stage 4 of the fishing, hunting and materials wave signs, people and…|Stage 4 of the fishing, hunting and materials wave: signs, people and…]]
+- [[Brief the waters calibrated across many generated environments…|Brief: the waters calibrated across many generated environments…]]
 - *and 2 index or audit notes*

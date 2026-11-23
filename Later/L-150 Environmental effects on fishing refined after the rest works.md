@@ -2,7 +2,7 @@
 id: L-150
 kind: deferred
 state: open
-updated: "2026-11-22"
+updated: "2026-11-23"
 ---
 
 # Environmental effects on fishing refined after the rest works (L-150)
@@ -15,11 +15,11 @@ Zach, 22 Nov: a freeze stops fishing, but revisit; after getting other things wo
 
 ## Linked
 - parent: [[W-72 Signs of the river|Signs of the river (W-72)]]
-- bears on: [[W-49 Environment systems|Environment systems (W-49)]]
-- bears on: [[W-72 Signs of the river|Signs of the river (W-72)]]
+- bears on: [[W-108 The waters calibrated across many generated environments|The waters calibrated across many generated environments (W-108)]]
 
 
 ## Mentioned by
 - [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
+- [[Brief the waters calibrated across many generated environments…|Brief: the waters calibrated across many generated environments…]]
 - *and 3 index or audit notes*

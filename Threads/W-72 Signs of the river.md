@@ -39,7 +39,6 @@ started
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 - [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]
-- [[L-114 The river high or in spate as a sign|The river high or in spate as a sign (L-114)]]
 - [[L-141 How much seeded memory each livelihood starts with|How much seeded memory each livelihood starts with (L-141)]]
 - [[L-149 Gulls and other coastal birds, with the coast|Gulls and other coastal birds, with the coast (L-149)]]
 - [[L-150 Environmental effects on fishing refined after the rest works|Environmental effects on fishing refined after the rest works (L-150)]]

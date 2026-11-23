@@ -2,7 +2,7 @@
 id: L-116
 kind: deferred
 state: open
-updated: "2026-11-22"
+updated: "2026-11-23"
 ---
 
 # The wild layer's fish and a water body, two ways (L-116)
@@ -20,12 +20,12 @@ updated: "2026-11-22"
 
 
 ## Linked
-- bears on: [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
-- bears on: [[W-49 Environment systems|Environment systems (W-49)]]
+- bears on: [[W-108 The waters calibrated across many generated environments|The waters calibrated across many generated environments (W-108)]]
 
 
 ## Mentioned by
 - [[W-56 One fish stock per water body, the engine half|One fish stock per water body, the engine half (W-56)]]
 - [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
+- [[Brief the waters calibrated across many generated environments…|Brief: the waters calibrated across many generated environments…]]
 - [[38.76 One fish stock per water body, the engine half (D2-229), as…|38.76: One fish stock per water body, the engine half (D2-229), as…]]
 - *and 4 index or audit notes*
