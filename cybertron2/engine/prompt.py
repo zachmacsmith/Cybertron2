@@ -110,7 +110,7 @@ def schema_for(here, mind) -> dict:
     if here.setting("evening"):
         a["when"] = {"type": "string", "enum": ["morning", "nightfall"]}
     from cybertron2.engine import core as CORE
-    if CORE.on(here._w):                                                       # u9 §1.3: "do" free (a craft or an act, the shapes
+    if CORE.on(here):                                                          # u9 §1.3: "do" free (a craft or an act, the shapes
         for k in ("do", "what"):                                               # resolve it); look_up gone; on trouble in the alphabet's
             a[k].pop("enum", None)                                             # order; rule a free act
         s["properties"].pop("look_up", None)
@@ -496,7 +496,7 @@ def weights_text() -> str:
 
 def system_prompt(here, mind) -> str:
     from cybertron2.engine import core as CORE
-    if CORE.on(here._w):                                                       # the core prompt and the shapes (u9; D2-314, D2-331)
+    if CORE.on(here):                                                          # the core prompt and the shapes (u9; D2-314, D2-331)
         return CORE.system_prompt(here, mind)
     a = mind.person
     stage = {"youth": "a youth, not yet grown", "adult": "a grown adult", "elder": "an elder"}.get(a["stage"], a["stage"])
@@ -797,7 +797,7 @@ def turn_prompt(here, mind, opening=True) -> str:
             nl.append("Other notes (open them to read): " + "; ".join(f"“{k}”" for k in rest))
         L.append("## Your notes\n" + "\n".join(nl))
     from cybertron2.engine import core as CORE
-    L.append(CORE.closing(here._w))
+    L.append(CORE.closing(here))
     return "\n\n".join(L)
 
 

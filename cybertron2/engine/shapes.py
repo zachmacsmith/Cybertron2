@@ -71,10 +71,9 @@ KEEP = ("rest", "watch", "meet", "give", "take", "travel", "sleep", "come", "fir
 
 def on(w_or_here) -> bool:
     """The shapes and the core prompt are on in a world with `prompt: core` (u9; D2-314, D2-331)."""
-    spec = getattr(w_or_here, "spec", None)
-    if spec is None:
-        spec = getattr(getattr(w_or_here, "_w", None), "spec", None) or {}
-    return str((spec or {}).get("prompt") or "old") == "core"
+    if hasattr(w_or_here, "setting"):                                        # a Here: through its settings (D4-35)
+        return str(w_or_here.setting("prompt") or "old") == "core"
+    return str(((getattr(w_or_here, "spec", None) or {}).get("prompt")) or "old") == "core"
 
 
 def _known_first(mind, cands) -> str | None:

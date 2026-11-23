@@ -52,6 +52,9 @@ MEMORY_APPEND = "what you want to remember of them"                 # steering ย
 
 
 def on(w) -> bool:
+    """A world (or a Here, through its settings: D4-35) with `prompt: core`."""
+    if hasattr(w, "setting"):
+        return str(w.setting("prompt") or "old") == "core"
     return str(((getattr(w, "spec", None) or {}).get("prompt")) or "old") == "core"
 
 
@@ -123,7 +126,7 @@ def system_prompt(here, mind) -> str:
     lines = [f"You are {mind.name}, {stage}, of {mind.household_name or 'no household'} in {hn}.{head}" + (f" {liv}" if liv else "")]
     lines.append(f"{hn}: {str(mind.places()[home]['text']).split('; its people know')[0].rstrip('.')}.")   # without the list (u9 ยง2.1)
     lines += ["", "Your people:"] + PR._kin_lines(mind)
-    lines += ["", core_text(here._w.spec)]
+    lines += ["", core_text({k: here.setting(k) for k in ("evening", "children", "view", "households")})]
     rb = [x for x in here.rules_block()]
     from cybertron2.engine import book as BK
     rb = [GRAMMAR if x == BK.GRAMMAR else x for x in rb]

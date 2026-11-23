@@ -160,6 +160,10 @@ def record(w, m, st, day, before, flows, out) -> None:
 
 
 # ---------------------------------------------------------------------- the rows (u8 §2 to §4; the chances: §6, checked in the tests)
+# `own` was set by u8 §6's hand reckoning (presence 0.5 on a worked parcel, 0.3 next door) and moved until the rule lands there
+# (guides/senses.md item 4): the engine's presence is about 1 on a worked parcel and 0.125 next door for a row seen "around", so the
+# around rows carry about 2.4 times u8's own (next door lands on u8's figure; on the parcel they are near certain), and the roar,
+# the night's splashing and the eels on the fen grass were raised to land from the Street (stage 4 report §3).
 def _row(read, sense, own, text, reach=None, night=False, when=None, who=None):
     return {"read": read, "sense": sense, "own": own, "text": text, "reach": reach, "night": night, "when": when, "who": who}
 
@@ -172,10 +176,10 @@ DAWN = {
     "eel_night_rain": _row("expert", "sight", 0.3, "the first heavy rain of the autumn after the dry weeks, and the night coming on dark: an eel night"),
     "eel_night_set": _row("expert", "sight", 0.3, "the dark nights of the autumn come, and the river full: an eel night"),
     "herons": _row("all", "sight", 2.5, "herons flying down to {water} from first light, one after another"),
-    "roar": _row("all", "sound", 2.5, "the roar of {water} in spate, heard from the houses"),
-    "spate_traps": _row("fish", "sound", 2.5, "{water} roaring in spate: wicker traps in its main stream are torn away in water like this, {share}"),
-    "splash": _row("all", "sound", 2.0, "heavy splashing from {water} all night, fish throwing themselves at the shallows", night=True),
-    "fen_eels": _row("all", "sight", 1.2, "eels on the wet grass of {fen} at first light, working their way through it toward {water}"),
+    "roar": _row("all", "sound", 3.3, "the roar of {water} in spate, heard from the houses"),
+    "spate_traps": _row("fish", "sound", 3.3, "{water} roaring in spate: wicker traps in its main stream are torn away in water like this, {share}"),
+    "splash": _row("all", "sound", 2.7, "heavy splashing from {water} all night, fish throwing themselves at the shallows", night=True),
+    "fen_eels": _row("all", "sight", 2.4, "eels on the wet grass of {fen} at first light, working their way through it toward {water}"),
     "upriver": _row("expert", "sound", 0.8, "{water} louder this morning than the rain here explains: it is raining hard upriver"),
     "gap_spate": _row("crew", "sight", 1.2, "the gap shut in a spate: the river is piling against the wattle"),
     "fen_ice": _row("all", "sight", 1.0, "{fen}'s pools skinned with ice, the reeds stiff with rime"),
@@ -187,11 +191,11 @@ DAWN = {
 }
 # the run itself, the flow, the slackening, the otters and the fen (u8 §2.3, §3): rolled in the evening at the water
 DAY = [
-    _row("all", "sight", 1.2, "dark eels moving in the slack water under the banks of {water}, all one way, downstream", "around",
+    _row("all", "sight", 2.9, "dark eels moving in the slack water under the banks of {water}, all one way, downstream", "around",
          when=lambda x: x.eel == "running"),
-    _row("all", "sight", 1.6, "the shallows of {water} thick with eels, sliding over one another, all going down", "around",
+    _row("all", "sight", 3.8, "the shallows of {water} thick with eels, sliding over one another, all going down", "around",
          when=lambda x: x.eel == "thick"),
-    _row("all", "sight", 2.0, "eels everywhere in {water}, in the weed, under the banks, against the stakes: more than any hands could take",
+    _row("all", "sight", 4.8, "eels everywhere in {water}, in the weed, under the banks, against the stakes: more than any hands could take",
          "around", when=lambda x: x.eel == "glut"),
     _row("all", "sight", 0.6, "the water at {water} alive with eels in the dark, all going downstream", night=True,
          when=lambda x: at_least(x.eel, "running")),
@@ -205,26 +209,26 @@ DAY = [
          when=lambda x: at_least(x.eel, "thick")),
     _row("expert", "sight", 0.7, "a run like this is most of a year's eels in a few nights", "near", when=lambda x: x.eel == "glut"),
     _row("all", "sight", 0.9, "salmon going up through {water}, leaping at the shallows", when=lambda x: x.salmon_n >= 3),
-    _row("all", "sight", 1.6, "salmon lying close in the pool below the shallows of {water}, their backs out of the water", "around",
+    _row("all", "sight", 3.8, "salmon lying close in the pool below the shallows of {water}, their backs out of the water", "around",
          when=lambda x: at_least(x.salmon, "thick")),
     _row("expert", "sight", 0.6, "salmon come up behind a spate and lie in the pools: a shut weir takes them; hands and nets seldom do", "near",
          when=lambda x: x.salmon_n >= 1 and x.was in ("spate", "flood") and x.flow not in ("spate", "flood")),
     _row("all", "sight", 1.0, "lampreys on the stones of the shallows, clinging by their mouths against the current",
          when=lambda x: x.lamprey_n >= 3),
-    _row("all", "sight", 1.5, "the first silver eels of the year in {water}, fat and dark-backed, going down", "around",
+    _row("all", "sight", 3.6, "the first silver eels of the year in {water}, fat and dark-backed, going down", "around",
          when=lambda x: "eel" in x.first),
     # the flow (u8 §3.1; replacing the sky's two river rows)
     _row("all", "sight", 0.8, "{water} low and clear, stones showing at the edges and weed trailing in the current",
          when=lambda x: x.flow == "low" and x.was != "low"),
     _row("expert", "sight", 0.6, "the river too low and clear for the eels to move: they wait for rain", "near",
          when=lambda x: x.flow == "low" and x.eel_window and x.weathered),
-    _row("all", "sight", 1.2, "{water} up and coloured, reed and sticks coming down on it", "around", when=lambda x: x.flow == "high" and x.was in ("low", "normal")),
+    _row("all", "sight", 2.9, "{water} up and coloured, reed and sticks coming down on it", "around", when=lambda x: x.flow == "high" and x.was in ("low", "normal")),
     _row("all", "sight", 2.0, "{water} in spate, brown and roaring, tearing at its banks", when=lambda x: x.flow == "spate"),
     _row("all", "sight", 2.5, "{water} in flood, the whole width of it moving, whole branches turning in it", when=lambda x: x.flow == "flood"),
-    _row("all", "sound", 2.5, "the roar of {water} in spate, heard from the houses", when=lambda x: x.flow in ("spate", "flood")),
+    _row("all", "sound", 3.3, "the roar of {water} in spate, heard from the houses", when=lambda x: x.flow in ("spate", "flood")),
     _row("all", "touch", 2.0, "the current drags at your legs: you can barely keep your feet in it", who="doer",
          when=lambda x: x.flow in ("high", "spate", "flood")),
-    _row("all", "sight", 1.0, "{water} dropping and clearing, wrack and torn reed left high along its banks", "around",
+    _row("all", "sight", 2.4, "{water} dropping and clearing, wrack and torn reed left high along its banks", "around",
          when=lambda x: x.was in ("spate", "flood") and x.flow not in ("spate", "flood")),
     _row("fish", "sight", 0.7, "{water} falling and clearing: traps in its main stream stand in water like this", "near",
          when=lambda x: x.was in ("spate", "flood") and x.flow not in ("spate", "flood")),
@@ -235,11 +239,11 @@ DAY = [
     # otters, the weir, the fen, the resident fish (u8 §3.4)
     _row("all", "sight", 0.6, "otter tracks in the mud below the bank of {water}, webbed, with the drag of a tail", "near",
          when=lambda x: x.otters and (x.traps or x.eel_n + x.salmon_n >= 1)),
-    _row("all", "sight", 1.0, "an otter rolling and diving in {water} in broad day, eating as it swims", "around",
+    _row("all", "sight", 2.4, "an otter rolling and diving in {water} in broad day, eating as it swims", "around",
          when=lambda x: x.otters and at_least(x.eel, "thick")),
     _row("fish", "sight", 0.8, "otters working this stretch: they go to traps with fish in them", "near",
          when=lambda x: x.otters and (x.traps or x.eel_n + x.salmon_n >= 1)),
-    _row("all", "sight", 1.2, "scales and torn weed piled against the weir's wattle: more came down in the night than its traps would hold",
+    _row("all", "sight", 2.9, "scales and torn weed piled against the weir's wattle: more came down in the night than its traps would hold",
          "around", when=lambda x: x.turned),
     _row("all", "sight", 1.0, "the fen's dykes brim but lie still while {water} tears past", when=lambda x: x.fen and x.flow in ("spate", "flood")),
     _row("fish", "sight", 0.7, "traps in the fen's dykes stand when the river tears the rest away", "near",

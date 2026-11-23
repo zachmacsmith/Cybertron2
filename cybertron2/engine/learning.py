@@ -55,10 +55,9 @@ CLASS_OF = {
 
 
 def on(w) -> bool:
-    spec = getattr(w, "spec", None)
-    if spec is None:
-        spec = getattr(getattr(w, "_w", None), "spec", None) or {}
-    return str((spec or {}).get("learning") or "") == "record"
+    if hasattr(w, "setting"):                                                # a Here: through its settings (D4-35)
+        return str(w.setting("learning") or "") == "record"
+    return str(((getattr(w, "spec", None) or {}).get("learning")) or "") == "record"
 
 
 def scale(lifespan) -> float:

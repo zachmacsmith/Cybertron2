@@ -851,11 +851,11 @@ BUILDING = [
          text=lambda x: f"mallets knocking at {x.nm}'s walls"),
     # the smokehouse (brief 5 §4a; keeping.py): its fire last night with a batch on the racks, or the racks hung and the fire dead.
     # Nearby: the smoke through the thatch, the smell (carries). Conditional: fog holds the smoke down. A change: the fire gone out.
-    dict(when=lambda x: x.smoking and x.weather != "fog", own=1.5, sense="sight", tags=["food", "fuel"],
+    dict(when=lambda x: x.smoking and x.weather != "fog", own=3.6, sense="sight", tags=["food", "fuel"],   # u8 §5, §6: 0.45 next door
          text=lambda x: f"smoke rising from {x.nm} this morning"),
-    dict(when=lambda x: x.smoking, own=1.2, reach="around", sense="smell", tags=["food"],
+    dict(when=lambda x: x.smoking, own=1.2, reach="around", sense="smell", tags=["food"],                  # smell carries by steps
          text=lambda x: f"the smell of smoke and {'fish' if 'fish' in x.smoking else 'meat'} about {x.nm}"),
-    dict(when=lambda x: x.smoking and x.weather == "fog", own=1.0, reach="around", sense="sight", tags=["food"],
+    dict(when=lambda x: x.smoking and x.weather == "fog", own=2.4, reach="around", sense="sight", tags=["food"],
          text=lambda x: f"smoke lying low about {x.nm} in the fog"),
     dict(when=lambda x: x.smoke_out, reach="near", own=0.8, sense="sight", tags=["food", "fuel"],
          text=lambda x: f"no smoke from {x.nm} this morning, though {x.smoke_out} hang on its racks: its fire has gone out"),

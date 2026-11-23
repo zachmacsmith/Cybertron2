@@ -99,7 +99,7 @@ def _self(here, mind, a, full) -> str:
     if age:
         you.append(age)
     from cybertron2.engine import core as CORE
-    if CORE.on(here._w):                                                       # units left yesterday were rest (u9 §1.5; D2-301)
+    if CORE.on(here):                                                       # units left yesterday were rest (u9 §1.5; D2-301)
         rest = CORE.rest_line(mind)
         if rest:
             you.append(rest)
@@ -225,6 +225,6 @@ def turn(here, mind, opening=True) -> str:
             nl.append("Other notes (open them to read): " + "; ".join(f"“{k}”" for k in rest))
         L.append("## Your notes\n" + "\n".join(nl))
     from cybertron2.engine import core as CORE
-    L.append(CORE.closing(here._w))
+    L.append(CORE.closing(here))
     mind.store["view_next"] = _snapshot(here, mind)
     return "\n\n".join(L)
