@@ -115,6 +115,7 @@ def _nearest(mind, word) -> str:
 # the words a reply may put first in "do" before the craft or what it acts on ("learn boil salt", "make wicker trap", "set the
 # door"): a shape, a face or a kept verb (fault 5 of live run 1, W-102)
 RULE_DO = {"first": "first", "eat first": "first", "hold back": "hold back", "keep back": "hold back", "fallback": "fallback"}
+BOOK_KINDS = ("go", "keep", "hold back", "first", "eat", "move", "tend", "chore", "drop", "fallback", "eat first")   # book.KINDS
 PEOPLE_KEYS = ("with", "person", "to", "from", "target", "who")
 CRAFT_KEYS = ("what", "craft", "line", "thing", "technique", "skill", "describe", "description", "text")
 DOOR_TO = {"shut": "barred", "closed": "barred", "close": "barred", "set shut": "barred", "locked": "barred", "lock": "barred",
@@ -227,8 +228,8 @@ def _sleep(a) -> dict:
 
 
 def _rule(a, kind=None) -> dict:
-    """A standing rule (the change shape's face, or a rule word in "do"): the act passes to book.act, which reads its kind and its
-    words from what the reply wrote (fault 1, W-102)."""
+    """A standing rule (the change shape's face, or a rule's kind put in "do"): the act passes to book.act, which reads its fields in
+    the stated grammar (D2-337)."""
     out = {**a, "do": "rule"}
     if kind and not out.get("rule"):
         out["rule"] = kind
@@ -300,11 +301,9 @@ def normalize(here, mind, a) -> dict:
         faces = SHAPES[do].get("faces") or {}
         for key in ("what", "thing", "as"):                                  # the face in "what", else "thing" or "as"
             f = str(a.get(key) or "").strip().lower()
-            if do == "change" and f in RULE_DO:
-                return _rule({k: x for k, x in a.items() if k != key}, RULE_DO[f])
-            if do == "change" and f in ("rule", "a rule", "the rule", "rules", "eat", "keep", "go", "move", "tend", "chore", "drop"):
-                rest = {k: x for k, x in a.items() if k != key}
-                return _rule(rest, None if f.startswith(("rule", "a rule", "the rule")) else f)
+            if do == "change" and (f in ("rule", "a rule", "the rule", "rules", "a standing rule") or f in BOOK_KINDS):   # the rule
+                # face (or a rule's kind named in its place): the rule's own fields
+                return _rule({k: x for k, x in a.items() if k != key})               # are read by book.read (D2-337)
             if do == "change" and f in ("heir", "the heir") and a.get("heir"):
                 return {**{k: x for k, x in a.items() if k != key}, "do": "name"}
             if f and f in faces:

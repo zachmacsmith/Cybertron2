@@ -257,15 +257,8 @@ REFUSE_TRADE = ("Refused: a rule keeps, moves and tends what is your household's
 def act(here, a) -> str:
     """The `rule` act (u6 §2, §9; free, at any time and at the evening: D2-319): set, change (with `n`) or drop a rule in one's own book
     or the household's (the head's; a member's is a proposal to the head). Returns the engine's reading beside their words, or why not.
-    The rule is read from the fields the reply gave and from its words (`read`, W-102); several sentences, several rules."""
-    out = []
-    for r in read(here, a):
-        if r.get("rule") == "fallback":
-            out.append(_set_fallback_words(here, r))
-        else:
-            out.append(_act_one(here, r) + (f" (Not read as a state the household can see: \"{'; '.join(r['_left'])}\".)"
-                                            if r.get("_left") else ""))
-    return " ".join(out)
+    The rule is read from its fields in the stated grammar, never from its words (`read`, D2-337)."""
+    return _act_one(here, read(here, a))
 
 
 def _act_one(here, a) -> str:
@@ -333,310 +326,89 @@ def _act_one(here, a) -> str:
 
 
 # ---------------------------------------------------------------------------------------------------------------------- reading a rule
-# A rule as the reply writes it (W-102, live run 1: no rule was ever set, 23 refused): its kind in "rule", or in "what", "as",
-# "thing" or "do"; its sentence in "words", "text", "line", "to", "thing" or "what". The words are read for what the fields leave
-# out: the kind, the goods (in order), where they go, how much, by whom, "when" and "unless"; the engine's reading is shown back
-# beside the words, so a rule read wrongly is seen and changed.
-KIND_WORDS = {"first": "first", "eat first": "first", "go first": "first", "eaten first": "first", "order": "first", "eat": "eat",
-              "ration": "eat", "rations": "eat", "keep": "keep", "kept": "keep", "hold back": "hold back", "hold": "hold back",
-              "keep back": "hold back", "go": "go", "goes": "go", "store": "go", "where": "go", "move": "move", "carry": "move",
-              "tend": "tend", "fire": "tend", "chore": "chore", "chores": "chore", "fallback": "fallback", "drop": "drop",
-              "remove": "drop", "cancel": "drop"}
-WORD_FIELDS = ("words", "text", "line", "to", "thing", "what", "rule", "describe", "description", "say", "sentence")
-KIND_FIELDS = ("rule", "kind", "as", "what", "thing", "type")
+# A rule in the stated grammar (D2-337; core.GRAMMAR gives it in full): the engine reads its fields, never its words. A field's
+# value is mapped to its canonical name ("salted fish" in "goods" is salt fish; "eggs" is egg); "words" is the person's own
+# sentence, kept and shown beside the engine's reading. A rule missing a field its kind needs, or with a value that cannot be read,
+# is refused naming the field and its allowed form.
 GOOD_SYNONYMS = {"fresh fish": "fish", "fresh meat": "meat", "eggs": "egg", "hens": "hen", "root": "roots", "salted fish": "salt fish",
                  "salted meat": "salt meat", "dry fish": "dried fish", "dry meat": "dried meat", "eels": "fish", "eel": "fish",
-                 "the catch": "fish", "catch": "fish", "soft wild food": "wild food", "dried food": "keeping food",
-                 "salted food": "keeping food", "smoked food": "keeping food", "food that keeps": "keeping food",
-                 "anything that keeps": "keeping food", "fresh food": "fresh food", "keeping food": "keeping food",
-                 "wood": "firewood", "fuel": "fuel", "grain": "grain"}
-EXAMPLE = '{"do": "rule", "rule": "first", "goods": "fish", "words": "we eat the fresh fish first"}'
+                 "dried food": "keeping food", "salted food": "keeping food", "smoked food": "keeping food", "wood": "firewood"}
+NEEDS = {"first": ("goods",), "go": ("goods", "to"), "keep": (), "hold back": (), "move": ("goods", "to"),   # keep, hold back: all goods
+         "tend": (), "eat": (), "chore": ("acts",), "drop": ("n",)}
+GOODS_FORM = "an item or a kind: fish, meat, grain, fuel, fodder, fresh food, keeping food, food, everything, or a good by its name"
+PLACE_FORM = "a building here, a store, a container (the racks in <building>, the salting tub in <building>, the hearth in <building>) or hands"
+STATE_FORM = ("a lot is done | anything is smoking | <a store or container> is full | has room | holds under <n> | holds over <n> | "
+              "<goods> come in | the fire died | we have seen the run, frost, the river rising or rats | in <season> | <a member> is "
+              "home or away | someone is starving")
+EXAMPLE = '{"do": "rule", "rule": "first", "goods": "fish", "before": "dried meat", "words": "we eat the fresh fish first"}'
 
 
-def _good_words():
-    from cybertron2.engine import packs as PK
-    vocab = {i: i for i in PK.items()}
-    vocab.update({k: k for k in KIND_GOODS})
-    vocab.update(GOOD_SYNONYMS)
-    return sorted(vocab.items(), key=lambda kv: -len(kv[0]))
+def _wrote(a) -> str:
+    import json
+    return json.dumps({k: v for k, v in a.items() if not str(k).startswith("_")}, ensure_ascii=False)[:300]
 
 
-def goods_in(t) -> list:
-    """The goods named in words, in the order they come (longest names first: "salt fish" before "fish")."""
-    t = f" {str(t).lower()} "
-    found = []
-    for k, g in _good_words():
-        for m in re.finditer(rf"(?<![a-z\-]){re.escape(k)}(?![a-z\-])", t):
-            if not any(a <= m.start() < b for a, b, _ in found):
-                found.append((m.start(), m.end(), g))
+def canon_goods(x):
+    """A "goods" or "before" field's value in canonical names: a good, a kind, or several (a list, or "fish, meat and roots")."""
+    if isinstance(x, (list, tuple)):
+        parts = [str(y) for y in x]
+    else:
+        parts = [y for y in re.split(r",|\band\b|\bor\b|;", str(x or "")) if y.strip()]
     out = []
-    for _, _, g in sorted(found):
-        if g not in out:
-            out.append(g)
-    return out
+    for y in parts:
+        t = re.sub(r"^(the|our|my|all|any|some)\s+", "", y.strip().lower()).strip(" .")
+        t = GOOD_SYNONYMS.get(t, t)
+        if not _goods(t):
+            return None
+        if t not in out:
+            out.append(t)
+    return (out[0] if len(out) == 1 else out) if out else None
 
 
-def _kind_of(x) -> str | None:
-    t = str(x or "").strip().lower().strip(".:")
-    for pre in ("a ", "the ", "rule ", "rule: ", "set ", "new "):
-        t = t.removeprefix(pre)
-    return KIND_WORDS.get(t) or (t if t in KINDS else None)
-
-
-def _kind_in(t) -> str | None:
-    """The kind a sentence says (W-102)."""
-    if re.search(r"\b(drop|cancel|remove) (the |my |our )?rule\b", t):
-        return "drop"
-    if re.search(r"\b(fallback|units left over|with spare units|when i have time)\b", t) and not re.search(r"\bfirst\b", t):
-        return "fallback"
-    if re.search(r"\b(tend|keep the fire|keep its fire|fire (going|lit|alight))\b", t):
-        return "tend"
-    if re.search(r"\b(carried|moved?|brought|taken?|fetched) from\b", t) or re.search(r"\bmove\b.*\bto\b", t):
-        return "move"
-    if re.search(r"\b(go(es)?|goes|put|is put|are put|carried|taken) (in)?to\b|\binto the\b|\b(hung|hang|hangs|smoked|dried|salts?|"
-                 r"salted) (it |them )?(to dry |to smoke )?(at|in|on|with)\b|\bsalts? (it|them)\b|\bto the salting\b", t) \
-            and not re.search(r"^(eat|we eat|i eat)\b", t):
-        return "go"
-    if re.search(r"\bfirst\b|\bbefore\b|\bthen\b.*\blast\b|\blast\b", t):
-        return "first"
-    if re.search(r"\b(hold back|keep back|kept back|do not (eat|touch)|don't (eat|touch)|never (eat|touch)|not to be eaten)\b", t):
-        return "hold back"
-    if re.search(r"\bkeeps? (at least )?\d", t) or re.search(r"\bkeep\b.*\bin\b", t):
-        return "keep"
-    if re.search(r"\b(half rations?|rations?|eat less|eat half)\b", t):
-        return "eat"
-    return None
-
-
-def _dest(here, t) -> str | None:
-    """Where goods go in words: a building here, with its racks, hearth or tub; or the salting tub, the racks, the hearth."""
-    w = here._w
-    bid = _building(w, here.node, t)
-    bn = w.s["buildings"][bid]["name"] if bid else None
-    if re.search(r"\bsalt(s|ed|ing)?\b|\btub\b|\bbrine\b", t) and not re.search(r"\bsalt (fish|meat)\b", t.split(" to ")[-1]):
-        return f"the salting tub in {bn}" if bn else "the salting tub"
-    if "hearth" in t or "dry" in t and "smoke" not in t:
-        return f"the hearth in {bn}" if bn else "the hearth"
-    if "rack" in t or "smoke" in t:
-        return f"the racks in {bn}" if bn else "the racks"
-    return bn
-
-
-def _clauses(t) -> list:
-    return [x.strip() for x in re.split(r";|:(?=\s)", t) if x.strip()]
-
-
-def _when_unless(t) -> tuple:
-    """A "when", "if" or "unless" part of a sentence, read as a state only when it says one the household can see; else left out,
-    with the words left out said back (a words state never fires)."""
-    when = unless = None
-    left = []
-    first = re.split(r";", t)[0]
-    for part in re.split(r",|;|\band\b(?= (?:when|if|unless|only when|whenever)\b)", t):
-        p = part.strip()
-        m = re.match(r"^(only when|whenever|when|while|if|so long as|as long as|unless|except when)\b\s*(.*)$", p)
-        if not m:
-            continue
-        if m.group(1) not in ("unless", "except when") and p not in first:     # a "when" belongs to the clause it is in
-            continue
-        st = _state_of(p) if m.group(1) != "while" else (_state_of(p) or {"state": "in process"})
-        if st and st.get("state") in ("under", "over") and not re.search(r"\d", p):
-            st = None                                                         # "under three nights": no number read
-        if st and st.get("state") != "words":
-            if any(k in p for k in ("rack", "tub", "smoke")):
-                st["of"] = p
-            st["text"] = p
-            if m.group(1) in ("unless", "except when"):
-                unless = unless or st
-            else:
-                when = when or st
-        else:
-            left.append(p)
-    return when, unless, left
-
-
-def _member(here, t) -> str | None:
-    w = here._w
-    hh = here.household()
-    for m in (w.members(hh) if hh else []):
-        if re.search(rf"\b{re.escape(m.lower())}\b", t):
-            return m
-    return None
-
-
-def _from_words(here, kind, t, a) -> dict:
-    """A rule's fields from one sentence of its words, for the kind given or read (W-102)."""
-    r = {"rule": kind}
-    when, unless, left = _when_unless(t)
-    main = re.split(r",\s*(?:only when|whenever|when|if|unless|except when)\b", t)[0]
-    main_g = re.sub(r"\b(?:with|from) [^,;.]*", " ", main)                    # "salts them with salt from the Salt House"
-    gs = goods_in(main_g)
-    if kind == "first":
-        firsts, later, late = [], [], False
-        for part in re.split(r"[,;:]", t):                                    # in order: what comes first, and what is kept back
-            p = part.strip()
-            if not p or re.match(r"^(only when|whenever|when|if|unless|except when)\b", p):
-                continue
-            m = re.search(r"\bbefore\b", p)
-            if m:
-                firsts += goods_in(p[:m.start()])
-                later += goods_in(p[m.end():])
-                late = True
-            elif late or re.search(r"\b(keep|keeping|kept|save|saving|last|for (the )?winter|hungry|back)\b", p):
-                later += goods_in(p)
-                late = True
-            else:
-                firsts += goods_in(p)
-        firsts = list(dict.fromkeys(firsts))
-        later = [g for g in dict.fromkeys(later) if g not in firsts]
-        if firsts:
-            r["goods"] = firsts if len(firsts) > 1 else firsts[0]
-        if later:
-            r["before"] = later if len(later) > 1 else later[0]
-    elif kind in ("go", "keep", "hold back", "move", "tend"):
-        if gs:
-            r["goods"] = gs if len(gs) > 1 else gs[0]
-        if kind == "go":
-            if re.search(r"\bsalt(s|ed)? (it|them)\b|\bsalting\b|\btub\b|\bbrine\b", main_g):
-                b = _building(here._w, here.node, main_g)
-                d = f"the salting tub in {here._w.s['buildings'][b]['name']}" if b else "the salting tub"
-            else:
-                d = _dest(here, re.split(r"\b(?:go(?:es)?|put|carried|taken|hung|hang|salts?|salted)\b", main_g, maxsplit=1)[-1])
-            if d:
-                r["to"] = d
-        if kind == "move":
-            fm = re.search(r"\bfrom ([^,;]+)", t)
-            src = _building(here._w, here.node, fm.group(1)) if fm else None
-            if src:
-                r["from"] = here._w.s["buildings"][src]["name"]
-            rest = t.replace(fm.group(0), " ") if fm else t
-            dst = _building(here._w, here.node, rest)
-            if dst and dst != src:
-                r["to"] = here._w.s["buildings"][dst]["name"]
-            q = re.search(r"\b(?:at least|keeps?|up to)\s+(\d+(?:\.\d+)?)", t)
-            if q and r.get("to"):                                             # "keeps at least 6 in X": while X holds under 6
-                r["qty"] = float(q.group(1))
-                when = {"state": "under", "n": float(q.group(1)), "of": r["to"], "text": f"{r['to']} holds under {q.group(1)}"}
-        if kind == "keep":
-            b = _building(here._w, here.node, t)
-            if b:
-                r["in"] = here._w.s["buildings"][b]["name"]
-            q = re.search(r"(\d+(?:\.\d+)?)", main)
-            if q:
-                r["qty"] = float(q.group(1))
-        if kind == "tend":
-            b = _building(here._w, here.node, t)
-            if b:
-                r["at"] = here._w.s["buildings"][b]["name"]
-    elif kind == "eat":
-        r["qty"] = "half" if "half" in t else (re.search(r"(\d+(?:\.\d+)?)", t).group(1) if re.search(r"(\d+(?:\.\d+)?)", t) else "full")
-    elif kind == "drop":
-        q = re.search(r"(\d+)", t)
-        if q:
-            r["n"] = int(q.group(1))
-    if when:
-        r["when"] = when
-    if unless:
-        r["unless"] = unless
-    by = _member(here, main.split(" ")[0]) if main else None                 # "Nichola keeps ...": by her
-    if by and kind in ("go", "move", "tend", "keep"):
-        r["by"] = by
-    if left:
-        r["_left"] = left
-    return r
-
-
-def read(here, a) -> list:
-    """The `rule` act's fields as the book's records (u6 §2), from the fields the reply gave and the words it wrote (W-102). Several
-    sentences that each say a rule give several. Raises Refused, with an example, when no rule can be read."""
+def read(here, a) -> dict:
+    """The `rule` act's fields as the book's record (u6 §2; D2-337): its kind in "rule", its goods, places, qty, by, when and unless
+    from their own fields. Raises Refused naming the field, its allowed form and what was written."""
     from cybertron2.engine.world import Refused
     a = {str(k).strip(): v for k, v in dict(a or {}).items()}
-    kind = None
-    used = set()
-    for f in KIND_FIELDS:                                                     # the kind, where a short word gives it
-        k = _kind_of(a.get(f)) if isinstance(a.get(f), str) else None
-        if k:
-            kind, used = k, used | {f}
-            break
-    words = ""
-    for f in WORD_FIELDS:                                                     # the sentence: the longest of the word fields
-        v = a.get(f)
-        if f in used or not isinstance(v, str) or not v.strip():
+    r = dict(a)
+    if "goods" not in r and r.get("item"):                                    # the schema's own field for a good
+        r["goods"] = r.pop("item")
+    if not r.get("words") and isinstance(r.get("text"), str):                 # the person's sentence, in the schema's text field
+        r["words"] = r["text"]
+    kind = str(r.get("rule") or "").strip().lower()
+    kind = {"fallback": "chore", "hold": "hold back", "keep back": "hold back", "eat first": "first"}.get(kind, kind)
+    if kind not in KINDS:
+        raise Refused(f"a rule names its kind in \"rule\": {' | '.join(KINDS)}; you wrote {_wrote(a)}. As {EXAMPLE}")
+    r["rule"] = kind
+    for f in NEEDS[kind]:
+        if r.get(f) in (None, "", []):
+            form = {"goods": GOODS_FORM, "acts": "[acts] for units left, in order", "n": "the rule's number"}.get(f, PLACE_FORM)
+            raise Refused(f"'{kind}' needs \"{f}\" ({form}); you wrote {_wrote(a)}")
+    for f in ("goods", "before"):
+        if r.get(f) not in (None, "", []):
+            g = canon_goods(r[f])
+            if g is None:
+                raise Refused(f"could not read \"{f}\": {r[f]!r} ({GOODS_FORM})")
+            r[f] = g
+    w = here._w
+    hh = here.household()
+    for f in ("to", "from", "in", "at"):
+        v = r.get(f)
+        if v in (None, "", []) or kind in ("first", "eat", "hold back", "drop", "chore"):
             continue
-        if f == "to" and (here.building(v) is not None or len(v.split()) < 3):
-            continue                                                          # a "to" that names a place is where goods go
-        if f == "what" and len(v.split()) < 2 and kind:
+        tg = target(w, hh, here.node, v, names(r))
+        if tg["kind"] != "hands" and tg["bid"] is None and _building(w, here.node, v) is None:
+            raise Refused(f"could not read \"{f}\": {v!r} names no building, store or container here ({PLACE_FORM})")
+    for f in ("when", "unless"):
+        v = r.get(f)
+        if v in (None, "") or isinstance(v, dict):
             continue
-        if len(v) > len(words):
-            words, wf = v.strip(), f
-    if words:
-        used.add(wf)
-    t = words.lower()
-    if kind == "eat" and re.search(r"\bfirst\b", f"{t} {str(a.get('line') or '').lower()}"):
-        kind = "first"                                                        # {"what": "eat", "line": "first"}
-    if kind is None and str(a.get("line") or "").strip().lower() in KIND_WORDS:
-        kind, used = KIND_WORDS[str(a["line"]).strip().lower()], used | {"line"}
-    given = {k: v for k, v in a.items() if k not in used and k not in ("do", "rule", "kind", "as", "type")}
-    if "item" in given and "goods" not in given:
-        given["goods"] = given.pop("item")
-    sentences = [x.strip() for x in re.split(r"(?<=[.!?])\s+", t) if x.strip()] or [""]
-    out = []
-    for snt in sentences:
-        k = kind or _kind_in(snt)
-        if k is None:
-            continue
-        r = _from_words(here, k, snt, a) if snt else {"rule": k}
-        for f, v in given.items():                                            # the fields the reply gave win over the words
-            if v not in (None, "", []):
-                r[f] = v
-        r.pop("words", None)
-        if snt:
-            r["words"] = [x for x in re.split(r"(?<=[.!?])\s+", words.strip()) if x.strip()][sentences.index(snt)] \
-                if len(sentences) > 1 else words
-        out.append(r)
-        if kind:                                                              # a kind given: one rule, from all the words
-            break
-    if not out:
-        raise Refused(f"could not read a rule from {words or 'what you wrote'!r}: say its kind in \"rule\" ({', '.join(KINDS)}) "
-                      f"and what it is about, as {EXAMPLE}")
-    if kind and len(sentences) > 1:                                           # the kind given: the whole sentence read once
-        r = _from_words(here, kind, t, a)
-        r.update({f: v for f, v in given.items() if v not in (None, "", [])})
-        r["words"] = words
-        out = [r]
-    for r in out:
-        if r["rule"] in ("first", "go", "keep", "hold back", "move") and not r.get("goods") and r["rule"] != "move":
-            if r["rule"] in ("first", "go"):
-                raise Refused(f"could not read which goods the rule is about from {words or 'what you wrote'!r}: name them in "
-                              f"\"goods\", as {EXAMPLE}")
-    return out
-
-
-def _set_fallback_words(here, r) -> str:
-    """A fallback written as a rule ("fallback": "angle the Isel; firewood the Spinney"): its acts read from the words, a craft and
-    a place each, and set as one's standing fallback (L-142), as the reply's "fallback" field sets it."""
-    from cybertron2.engine.world import Refused
-    from cybertron2.engine import shapes as SH
-    acts = r.get("acts") if isinstance(r.get("acts"), list) else []
-    words = str(r.get("words") or "")
-    if not acts:
-        for part in re.split(r";|,|\belse\b|\bthen\b|\bor\b", words.lower()):
-            p = re.split(r"\b(only when|when|if|unless)\b", part)[0].strip()
-            if not p:
-                continue
-            tech = SH.craft_in(here.mind(), p) or SH.craft_in(here.mind(), p.split(" ")[0])
-            if not tech:
-                continue
-            at = next((x["name"] for x in sorted(here.parcels().values(), key=lambda q: -len(q["name"]))
-                       if x["name"].lower().removeprefix("the ") in p), None)
-            acts.append({"do": tech, **({"at": at} if at else {})})
-    if not acts:
-        raise Refused('a fallback is acts for units left over: send them in the reply\'s "fallback" field, as [{"do": a craft, "at": '
-                      'a place}]')
-    set_fallback(here._w, here.name, acts)
-    said = [p.strip() for p in re.findall(r"\b(?:only when|when|if|unless)\b[^;,]*", words.lower())]
-    return ("Your fallback: " + "; else ".join(_act_words(x) for x in acts[:3]) + ", for units your plan leaves, every day until you "
-            "change it." + (f" (Not read: \"{'; '.join(said)}\": a fallback runs whenever units are left.)" if said else ""))
+        st = state_of(v)
+        if not st or st.get("state") == "words":
+            raise Refused(f"could not read \"{f}\": {v!r} is not a state the household can see ({STATE_FORM})")
+    if r.get("qty") not in (None, "", "all") and _num(r.get("qty")) is None and not str(r.get("qty")).strip().lower().startswith(("half", "full")):
+        raise Refused(f"could not read \"qty\": {r['qty']!r} (a number, \"all\", \"up to <n>\" or \"leave <n>\")")
+    return r
 
 
 def _when_fires(r) -> str:
