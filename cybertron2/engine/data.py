@@ -113,6 +113,43 @@ ITEMS = {
     "rotting meat": {"weight": 1, "food": 0.0, "spoil": 0.3, "rot": True},  # what fresh meat becomes in the open (D2-87); signs, no health yet
 }
 
+# The cured depths as goods of their own (D2-295; u4 §3): food a kg conserved through the weight each loses; their processes are u4's
+# (stage 3). Hard-cured meat keeps the salt meat's food: 0.6 / 0.85 = 0.71 a kg (u4, B10).
+ITEMS.update({
+    "hot-smoked fish": {"pack": "water", "weight": 1, "food": 0.69, "spoil": 0.0, "decay": "dried meat"},    # 1 kg from 1.5 fresh
+    "hard-cured fish": {"pack": "water", "weight": 1, "food": 1.15, "spoil": 0.0, "decay": "dried meat"},    # from 2.5 kg fresh, salted
+    "hot-smoked meat": {"weight": 1, "food": 0.9, "spoil": 0.0, "decay": "dried meat"},
+    "hard-cured meat": {"weight": 1, "food": 0.71, "spoil": 0.0, "decay": "dried meat"},                       # bacon, ham
+})
+# The keeping curve (D2-289; basis §3; wave1 §2.2): a food that keeps d real days well kept loses about a quarter by
+# nights = min(d, 2) + (d - 2) / 11.4, so its base rate a night (`spoil`: well kept, D2-272) is 1 - 0.75 ** (1 / nights). The real
+# days are wave1 §2.2's. A lot in the smoke or at the hearth spoils at 0.12 out of it, 0.03 in it (DECAY smoke 0.25; basis §3).
+KEEP_DAYS = {
+    "fish": 1.5, "offal": 1, "milk": 1, "meat": 3, "green grain": 1.5, "green rye": 1.5, "green beans": 1.5, "greens": 2,
+    "watercress": 2, "mushrooms": 2, "berries": 2, "samphire": 4, "hot-smoked fish": 7, "hot-smoked meat": 7, "bread": 5,
+    "wild food": 14, "egg": 30, "hedge fruit": 30, "roots": 60, "flour": 90, "meal": 90, "smoked fish": 90, "smoked meat": 90,
+    "cheese": 120, "acorn meal": 120, "beech nuts": 120, "acorns": 180, "hard-cured fish": 270, "salt fish": 365, "salt meat": 365,
+    "hard-cured meat": 365, "hazel nuts": 365, "tallow": 365, "hide": 365, "withies": 365, "dried fish": 450, "dried meat": 450,
+    "grain": 2500, "rye": 2500, "beans": 2500, "hay": 4900, "straw": 4900,
+}
+IN_PROCESS_SPOIL = 0.12                 # smoking and drying fish and meat out of the smoke; x0.25 in it: 0.03 a night (basis §3)
+
+
+def keep_nights(d) -> float:
+    """The keeping curve (D2-289): real days kept to nights, the first two whole, the rest at the calendar's 1/11.4."""
+    return min(float(d), 2.0) + max(0.0, float(d) - 2.0) / 11.4
+
+
+def base_spoil(d) -> float:
+    """A quarter lost by the curve's nights (D2-289)."""
+    return round(1.0 - 0.75 ** (1.0 / keep_nights(d)), 4)
+
+
+for _i, _d in KEEP_DAYS.items():
+    ITEMS[_i]["spoil"] = base_spoil(_d)
+for _i in ("smoking fish", "drying fish", "smoking meat", "drying meat"):
+    ITEMS[_i]["spoil"] = IN_PROCESS_SPOIL
+
 # Decay by condition (economy/goods.md "Decay", D2-87; calibrate): multipliers on an item's rate in a house, for a thing at a spot
 # (open, dry or wet; buried), and for the season and the frost; `abs` is a share lost a day where the house rate is none (hides);
 # `becomes` is what the lost share turns into in the open.
@@ -125,8 +162,8 @@ DECAY = {
     "drying meat": {"open_dry": 1.0, "open_wet": 3.0, "buried": 1, "warm": 1.5, "frozen": 0.2, "smoke": 0.25},   # rain spoils it; smoke keeps flies off
     "cheese": {"open_dry": 3, "open_wet": 5, "buried": 1, "warm": 1.5, "frozen": 0.3},
     "hide": {"abs": {"open_dry": 0.01, "open_wet": 0.03, "buried": 0.02}},
-    "fresh fish": {"open_dry": 2, "open_wet": 2.5, "buried": 1, "warm": 1.5, "frozen": 0.1,        # as fresh meat (calibrate),
-                   "store": 2.0},                                         # but twice as badly in a store (D2-212)
+    "fresh fish": {"open_dry": 2, "open_wet": 2.5, "buried": 1, "warm": 1.5, "frozen": 0.1},       # as fresh meat; its base already
+                                                                          # holds D2-212's faster store (wave1 §2.3: the x2 dropped)
     "default": {"open_dry": 2, "open_wet": 4, "buried": 1, "warm": 1.2, "frozen": 0.5},   # goods the table does not name (37.4; calibrate)
 }
 
@@ -841,7 +878,7 @@ PHYSICS = {
                          "snow": {"fuel": 1.25, "out": 0.0}},
              "snow_lying_fuel": 1.15, "ring_keeps": 0.8},   # D2-157, D2-159     # D4-49: a camp's fire 1 a night; a fire in the open 2 (calibrate)
     "land_blind": 0.25,                                                  # D4-50: share with no eye for how bare a place is (calibrate)
-    "house_spoil": 0.3,
+    "house_spoil": 1.0,                 # the base rate is the well-kept rate (D2-272, D2-289); stores' own penalties: u5 (stage 3)
     "cellar_spoil": 0.25,                                                # D2-45: a quarter of the house rate
     "breaks": {"p": 0.02, "cold": 0.08, "structure": {"wattle": 1.5, "timber": 1.0, "stone": 0.4, "camp": 1.0}},   # D2-168 (proposed)
     # shelter in levels (brief 4 §3; shelter_damage.md §1 to §4; calibrate), in worlds with the wild pack or `shelter_levels`:

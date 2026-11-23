@@ -292,3 +292,16 @@ def test_a_build_act_costs_what_is_left_and_every_act_practises():
     bdo(w, "Ivo", do="build", what="small room", at="Test Hut")
     sk1 = float(w.s["know"]["Ivo"]["small room"]["skill"])
     assert sk1 > sk0                                                                 # practised on an act that did not finish it
+
+
+# ---------------------------------------------------------------------- the keeping curve (D2-289, D2-295; basis §3)
+def test_spoil_rates_match_the_keeping_curve_and_the_cured_depths_are_goods():
+    from cybertron2.engine.data import ITEMS
+    base = {"fish": 0.17, "meat": 0.13, "hot-smoked fish": 0.11, "smoked fish": 0.029, "hard-cured fish": 0.011, "salt fish": 0.0085,
+            "dried fish": 0.0069}                                                     # basis §3's base rates a night
+    for good, r in base.items():
+        assert ITEMS[good]["spoil"] == pytest.approx(r, rel=0.04), good
+    order = ["fish", "hot-smoked fish", "smoked fish", "hard-cured fish", "salt fish", "dried fish"]
+    assert [ITEMS[g]["spoil"] for g in order] == sorted((ITEMS[g]["spoil"] for g in order), reverse=True)   # the order holds
+    assert ITEMS["hard-cured meat"]["food"] == pytest.approx(0.71) and ITEMS["hot-smoked meat"]["food"] == pytest.approx(0.9)
+    assert ITEMS["hot-smoked fish"]["food"] == pytest.approx(0.69) and ITEMS["hard-cured fish"]["food"] == pytest.approx(1.15)
