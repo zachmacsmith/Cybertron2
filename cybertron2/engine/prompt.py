@@ -846,13 +846,14 @@ def _family_lines(here, mind) -> list:
         out.append(f"Looking after a child is work: work {{what: care, at: <the child>}}, a unit; a baby needs {need} a day or it may "
                    "not live, and it eats from its household's store or the hands of its family beside it.")
         out.append('While caring for a child you may give it food from your hands, "item" and "qty" (whoever gives the most food that '
-                   'day feeds it all of theirs), and pass on something for it to keep for good, "pass": "a sentence" (of those who '
-                   'pass something on, the one giving the most food is kept).')
+                   'day feeds it all of theirs), and pass a sentence on, "pass": "a sentence". What you pass on while caring for a '
+                   'child becomes theirs to keep for good, word for word, for life, as one of their kept lines, while they have room.')                              # D2-340
         for x in young:                                                         # what each holds so far (D4-64)
             k = here.kept_of(x)
             held = "; ".join(f"“{t}”" + (f" ({src})" if src not in ("family lore", "a holding", "a custom") else "")   # seeded lines'
                              for t, src in k["lines"]) or "nothing yet"                                             # sources unshown (u9 §5.2)
-            out.append(f"{x} holds to keep for good: {held}" + (f" ({k['room']} more can be added)." if k["room"] else " (no more can be added)."))
+            out.append(f"{x} holds to keep for good: {held}" + (f" ({x} has room for {k['room']} more)." if k["room"]
+                                                                  else f" ({x} has no room for more)."))
         order = life.get("order")
         out.append("The household's children are set to " + (KN.label(order["what"]) if order else "no work") + " each day"
                    + (" (the head sets it: order)" if mind.head != mind.name else " (you set it: order)") + ".")

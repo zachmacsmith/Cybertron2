@@ -659,10 +659,12 @@ def night_lines(w, rec) -> dict:
         for x in care.get("passed") or []:                                     # what one passed on to a child (D4-64)
             if x["by"] != n:
                 continue
-            if x["kept"]:
+            if x["kept"] and x["why"] != "held":
                 L.append(f"{x['child']} will keep what you passed on: “{x['text']}”.")
             elif x["why"] == "full":
                 L.append(f"{x['child']} holds as much as a child can; what you passed on was not kept.")
+            elif x["why"] == "held":
+                L.append(f"{x['child']} already holds what you passed on: “{x['text']}”.")
             else:
                 L.append(f"{x['child']} will keep what {x['why']} passed on today, not yours.")
         if n in ((rec.get("life") or {}).get("lost") or []):

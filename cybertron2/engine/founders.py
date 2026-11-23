@@ -148,7 +148,7 @@ def BS7(c):
 
 def BS8(c):
     return ("What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth "
-            "many tries alone. What I do not teach my children dies with me.")
+            "many tries alone.")                                         # its passing-on half is HH10's (D2-340)
 
 
 def BS9(c):
@@ -238,6 +238,35 @@ def HH9(c):
     """D2-319: the evening as a time to revisit the household's rules (a seeded custom, tried)."""
     return ("In the evening, under one roof, we look again at the household's rules: what goes where, what is eaten first, who sees to "
             "which chore. What no longer serves we change then.")
+
+
+def HH10(c):
+    """D2-340: passing on through care, for heads and parents: children know only what they are told; a line given while minding a
+    child is kept for good; what is never passed on is lost. The things to pass are filled from the household's own water and living,
+    in order, while the line stays within 40 words."""
+    head = "Our children know only what we tell them. Minding a child, I can give it a line to keep for good: "
+    tail = " What I never pass on dies with me."
+    water = c.water()
+    fisher = "fisher" in ((c.h or {}).get("livelihoods") or [])
+    bits = []
+    if water and fisher:
+        bits.append(f"when the eels run in {water}")
+    elif water:
+        bits.append(f"where we fish on {water}")
+    bits += ["what keeps", "who to trust"] + (["where we fish"] if water and fisher else [])
+    got = []
+    for b in bits:
+        if _words(head + ", ".join(got + [b]) + "." + tail) <= LINE_WORDS:
+            got.append(b)
+    return head + ", ".join(got) + "." + tail
+
+
+def _parent(world, name) -> bool:
+    """One with a living child or youth among the world's people (the family tree, else the children's parents)."""
+    t = next((x for x in world.get("tree") or [] if x.get("name") == name), {})
+    kids = set(t.get("children") or []) | {n for n, a in world["agents"].items() if name in (a.get("parents") or [])}
+    return any((world["agents"].get(k) or {}).get("stage") in ("infant", "child", "youth") and world["agents"][k].get("alive", True)
+               is not False for k in kids)
 
 
 # the fisher (u9 §5.5.1)
@@ -509,7 +538,8 @@ DROP = [("neighbours beyond one", lambda ids: [i for i in ids if i.startswith("N
         ("BS9", lambda ids: [i for i in ids if i == "BS9"]),
         ("BS7", lambda ids: [i for i in ids if i == "BS7"]),
         ("BS6", lambda ids: [i for i in ids if i == "BS6"]),
-        ("the last neighbour line", lambda ids: [i for i in ids if i.startswith("NB")])]
+        ("the last neighbour line", lambda ids: [i for i in ids if i.startswith("NB")]),
+        ("BS8, when HH10 is held", lambda ids: ["BS8"] if "HH10" in ids and "BS8" in ids else [])]   # D2-340: the line split in two
 
 
 def wanted(world, name, rep) -> list:
@@ -547,6 +577,8 @@ def wanted(world, name, rep) -> list:
         ids += ["HH1", "HH3", "HH5", "HH6", "HH7", "HH8", "HH9"]
     elif partner:
         ids += ["HH1", "HH3"]
+    if head or _parent(world, name):                                      # passing on through care (D2-340)
+        ids.append("HH10")
     for j, lv in enumerate(livs[:1]):
         r = ROWS[lv]
         ids += r["lines"].get("broad") or []
@@ -601,7 +633,7 @@ def render(world, name, rep, ids=None) -> dict:
 
 def protected(world, name, ids) -> set:
     a = world["agents"][name]
-    keep = {"PE1", "HL"} | (KEEPER & set(ids))
+    keep = {"PE1", "HL"} | (KEEPER & set(ids)) | ({"HH10"} & set(ids))       # D2-340
     if a.get("role") == "head":
         keep |= {"HH1", "HH3", "HH7", "HH9"}
     else:

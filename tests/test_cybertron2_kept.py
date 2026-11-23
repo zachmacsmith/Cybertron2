@@ -86,7 +86,7 @@ def test_keep_fills_empty_places_refuses_past_them_and_the_request_says_when_a_p
     assert out["refused"] == ["Fourth."] and MEM.kept_lines_text(w, n) == []    # the per-run option: free only from next time
 
 
-def test_the_most_food_feeds_the_child_and_its_giver_passes_on_the_line():
+def test_the_most_food_feeds_the_child_and_every_carer_passes_on_a_line_while_it_has_room():
     w = world()
     kid = None
     for n, a in w.s["people"].items():
@@ -106,9 +106,39 @@ def test_the_most_food_feeds_the_child_and_its_giver_passes_on_the_line():
     assert abs(rec["care"]["fed"][kid] - 3.0 * ITEMS["bread"]["food"]) < 1e-9     # all of the largest care's food, and only it
     assert w.goods(w.hands(big)).get("bread", 0) < 1e-9
     assert MEM.kept(w, kid)["lines"][0]["text"] == "Big says this." and MEM.kept(w, kid)["lines"][0]["source"] == f"from {big}"
-    lines = R.night_lines(w, rec)
+    assert MEM.kept(w, kid)["lines"][1]["text"] == "Small says this." and MEM.kept(w, kid)["lines"][1]["source"] == f"from {small}"
+    lines = R.night_lines(w, rec)                                              # every carer's pass is kept while there is room (D2-340)
     assert any("will keep what you passed on" in x for x in lines[big])
-    assert any(f"what {big} passed on" in x for x in lines[small])
+    assert any("will keep what you passed on: “Small says this.”" in x for x in lines[small])
+
+
+def test_a_pass_beyond_the_childs_room_is_not_kept_and_its_giver_is_told():
+    w = world()
+    mom = next(n for n, a in w.s["people"].items() if a["stage"] == "adult" and a.get("sex") == "f")
+    kid = w.apply("born", w.place_of(("person", mom)), mother=mom)
+    w.s["people"][kid]["stage"] = "infant"
+    for i in range(MEM.KEPT["childhood"] - 1):
+        MEM.seed_line(w, kid, f"Old {i}.", f"from {mom}")
+    other = next(x for x in w.present(w.at(kid)) if x not in (mom, kid) and w.s["people"][x]["stage"] == "adult")
+    do(w, mom, do="work", what="care", at=kid, **{"pass": "Mother's line."})
+    do(w, other, do="work", what="care", at=kid, **{"pass": "Other's line."})
+    got = LF.care_gifts(w, w.s["today"])
+    kept = {x["by"]: x for x in got["passed"]}
+    assert sum(1 for x in kept.values() if x["kept"]) == 1 and sum(1 for x in kept.values() if x["why"] == "full") == 1
+    assert len(MEM.kept(w, kid)["lines"]) == MEM.KEPT["childhood"]
+
+
+def test_the_care_paragraph_says_what_a_pass_does_and_the_room_left():
+    from cybertron2.engine import prompt as PR
+    w = world()
+    mom = next(n for n, a in w.s["people"].items() if a["stage"] == "adult" and a.get("sex") == "f")
+    kid = w.apply("born", w.place_of(("person", mom)), mother=mom)
+    MEM.seed_line(w, kid, "The ford floods in spring.", f"from {mom}")
+    lines = PR._family_lines(Here(w, mom), Mind(w, mom))
+    care = next(x for x in lines if x.startswith("While caring for a child"))
+    assert "becomes theirs to keep for good, word for word, for life, as one of their kept lines" in care     # D2-340
+    held = next(x for x in lines if x.startswith(f"{kid} holds to keep for good"))
+    assert held.endswith(f"({kid} has room for {MEM.KEPT['childhood'] - 1} more).")
 
 
 def test_childhood_lines_add_places_up_to_the_limit_and_coming_of_age_counts_from_them():
