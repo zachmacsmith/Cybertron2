@@ -120,7 +120,7 @@
     "skipped": [],
     "steps": [],
     "seeded": 19,
-    "words": 567,
+    "words": 557,
     "over": false,
     "long": [],
     "ids": [
@@ -146,8 +146,8 @@
     ]
    },
    "Hamon": {
-    "wanted": 28,
-    "rendered": 26,
+    "wanted": 29,
+    "rendered": 27,
     "skipped": [
      "PE2",
      "HL"
@@ -158,10 +158,11 @@
      "HH8",
      "capable lines a specialism repeats",
      "BS9",
-     "BS7"
+     "BS7",
+     "BS6"
     ],
     "seeded": 20,
-    "words": 651,
+    "words": 642,
     "over": false,
     "long": [],
     "ids": [
@@ -170,7 +171,6 @@
      "BS3",
      "BS4",
      "BS5",
-     "BS6",
      "BS8",
      "PE1",
      "HH1",
@@ -178,6 +178,7 @@
      "HH6",
      "HH7",
      "HH9",
+     "HH10",
      "FI1",
      "FI2",
      "FI16",
@@ -202,16 +203,17 @@
     ]
    },
    "Katherine": {
-    "wanted": 22,
-    "rendered": 21,
+    "wanted": 23,
+    "rendered": 22,
     "skipped": [
      "PE2"
     ],
     "steps": [
-     "neighbours beyond one"
+     "neighbours beyond one",
+     "broad lines of a second living beyond its first"
     ],
-    "seeded": 20,
-    "words": 664,
+    "seeded": 18,
+    "words": 581,
     "over": false,
     "long": [],
     "ids": [
@@ -227,12 +229,10 @@
      "PE1",
      "HH1",
      "HH3",
+     "HH10",
      "SA1",
      "FI17",
      "FI1",
-     "FI2",
-     "FI3",
-     "FI5",
      "HL",
      "NB-fisher:Marsh"
     ]
@@ -252,17 +252,18 @@
     ]
    },
    "Nichola": {
-    "wanted": 23,
-    "rendered": 22,
+    "wanted": 24,
+    "rendered": 23,
     "skipped": [
      "PE2"
     ],
     "steps": [
      "neighbours beyond one",
-     "BS9"
+     "BS9",
+     "BS7"
     ],
     "seeded": 20,
-    "words": 669,
+    "words": 684,
     "over": false,
     "long": [],
     "ids": [
@@ -272,11 +273,11 @@
      "BS4",
      "BS5",
      "BS6",
-     "BS7",
      "BS8",
      "PE1",
      "HH1",
      "HH3",
+     "HH10",
      "FI1",
      "FI2",
      "FI3",
@@ -294,7 +295,7 @@
     "skipped": [],
     "steps": [],
     "seeded": 10,
-    "words": 350,
+    "words": 340,
     "over": false,
     "long": [],
     "ids": [
@@ -311,8 +312,8 @@
     ]
    },
    "Oliver": {
-    "wanted": 29,
-    "rendered": 29,
+    "wanted": 30,
+    "rendered": 30,
     "skipped": [],
     "steps": [
      "neighbours beyond one",
@@ -321,10 +322,11 @@
      "HH8",
      "broad lines of a second living beyond its first",
      "BS9",
-     "BS7"
+     "BS7",
+     "BS6"
     ],
     "seeded": 20,
-    "words": 642,
+    "words": 633,
     "over": false,
     "long": [],
     "ids": [
@@ -333,7 +335,6 @@
      "BS3",
      "BS4",
      "BS5",
-     "BS6",
      "BS8",
      "PE1",
      "HH1",
@@ -341,6 +342,7 @@
      "HH6",
      "HH7",
      "HH9",
+     "HH10",
      "SA1",
      "SA2",
      "SA3",
@@ -351,8 +353,8 @@
     ]
    },
    "Peter": {
-    "wanted": 28,
-    "rendered": 28,
+    "wanted": 29,
+    "rendered": 29,
     "skipped": [],
     "steps": [
      "neighbours beyond one",
@@ -362,10 +364,11 @@
      "BS9",
      "BS7",
      "BS6",
-     "the last neighbour line"
+     "the last neighbour line",
+     "BS8, when HH10 is held"
     ],
     "seeded": 20,
-    "words": 676,
+    "words": 677,
     "over": false,
     "long": [],
     "ids": [
@@ -374,13 +377,13 @@
      "BS3",
      "BS4",
      "BS5",
-     "BS8",
      "PE1",
      "HH1",
      "HH3",
      "HH6",
      "HH7",
      "HH9",
+     "HH10",
      "FI1",
      "FI2",
      "FI3",
@@ -397,7 +400,7 @@
     "skipped": [],
     "steps": [],
     "seeded": 8,
-    "words": 274,
+    "words": 264,
     "over": false,
     "long": [],
     "ids": [

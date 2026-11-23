@@ -3409,10 +3409,7 @@ agents:
       source: family lore
     - text: A grown person eats about one food a night, more after a hard day or a night in the cold. A household of 5 wants about 32 food to see a winter through, and more if the frost comes early.
       source: family lore
-    - text: 'Our household eats from one store and keeps one hearth. Other houses hold their own land, beasts and stores and live by other crafts than ours: what we lack, a neighbour may make, and what
-        they lack, we may.'
-      source: family lore
-    - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone. What I do not teach my children dies with me.
+    - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone.
       source: family lore
     - text: Our line's founders, Oliver and Katherine Brook, came to Eelmouth and built the first Brook house.
       source: family lore
@@ -3425,6 +3422,8 @@ agents:
     - text: The household's rules and stores pass to whoever heads it after me. I should name an heir, and tell them where things are kept, and why.
       source: family lore
     - text: 'In the evening, under one roof, we look again at the household''s rules: what goes where, what is eaten first, who sees to which chore. What no longer serves we change then.'
+      source: family lore
+    - text: 'Our children know only what we tell them. A child I mind keeps for good a line I give it: when the eels run in the Isel, what keeps, who to trust. What I never pass on dies with me.'
       source: family lore
     - text: A kilo of salt keeps four of fish or eight of meat for about a year. Every house that kills, fishes or makes cheese needs it, and few can make it.
       source: family lore
@@ -3557,7 +3556,7 @@ agents:
       source: family lore
     - text: Heavy rain raises the rivers and a flood carries off what is set in them.
       source: family lore
-    - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone. What I do not teach my children dies with me.
+    - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone.
       source: family lore
     - text: 'What is made wears: gear with use, fittings with work, houses with the weather. Mended in time it costs a little; left, it costs the whole.'
       source: family lore
@@ -3567,18 +3566,14 @@ agents:
       source: family lore
     - text: 'Fresh fish and meat go first or go off; what is dried, smoked, salted or in grain keeps. In a hungry spring the keeping food is what is left: eat the soft first, by rule if need be.'
       source: family lore
+    - text: 'Our children know only what we tell them. A child I mind keeps for good a line I give it: when the eels run in the Isel, what keeps, who to trust. What I never pass on dies with me.'
+      source: family lore
     - text: A kilo of salt keeps four of fish or eight of meat for about a year. Every house that kills, fishes or makes cheese needs it, and few can make it.
       source: family lore
     - text: Our smokehouse on Eelmouth Field holds 1 set of racks, about 250 kilos of fish; a keeping smoke takes a night. Its fire wants tending each night it holds fish, and a wattle hut can catch and
         burn.
       source: a holding
     - text: The eels go down to the sea in autumn, on the dark nights of the season. The Isel can look empty all summer and still run thick then.
-      source: family lore
-    - text: One wicker trap takes a few eels on a run night and holds no more than about 10 kilos. A house that means to eat from the run sets many before the nights come, and tends every one each morning.
-      source: family lore
-    - text: Fresh fish goes off in a night or two in the hand. Dry it at the hearth, up to 8 kilos at a time, or salt it the day it is caught, a kilo of salt to four of fish.
-      source: family lore
-    - text: In summer the fish lie in the warm shallows and pools, where a hand or a rod takes them. A water fished hard thins in days and comes back when it is rested.
       source: family lore
     - text: We hold the Salt House on Eelmouth Fen, where Oliver boils salt, and the Brook Smokehouse on Eelmouth Field, which Katherine keeps. The pan wants copper when it wears through; it holds about
         250 kilos of fish at a time.
@@ -3706,8 +3701,6 @@ agents:
       source: family lore
     - text: A grown person eats about one food a night, more after a hard day or a night in the cold. A household of 5 wants about 32 food to see a winter through, and more if the frost comes early.
       source: family lore
-    - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone. What I do not teach my children dies with me.
-      source: family lore
     - text: Our line's founders, Peter and Nichola Marsh, came to Eelmouth and built the first Marsh house.
       source: family lore
     - text: Our store at Marsh House holds about 11 nights' food for the 5 of us as it stands; winter is 8 nights, and the hungry time is its end and the first days of spring.
@@ -3719,6 +3712,8 @@ agents:
     - text: The household's rules and stores pass to whoever heads it after me. I should name an heir, and tell them where things are kept, and why.
       source: family lore
     - text: 'In the evening, under one roof, we look again at the household''s rules: what goes where, what is eaten first, who sees to which chore. What no longer serves we change then.'
+      source: family lore
+    - text: 'Our children know only what we tell them. A child I mind keeps for good a line I give it: when the eels run in the Isel, what keeps, who to trust. What I never pass on dies with me.'
       source: family lore
     - text: The eels go down to the sea in autumn, on the dark nights of the season. The Isel can look empty all summer and still run thick then.
       source: family lore
@@ -3853,15 +3848,15 @@ agents:
     - text: 'Our household eats from one store and keeps one hearth. Other houses hold their own land, beasts and stores and live by other crafts than ours: what we lack, a neighbour may make, and what
         they lack, we may.'
       source: family lore
-    - text: Heavy rain raises the rivers and a flood carries off what is set in them.
-      source: family lore
-    - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone. What I do not teach my children dies with me.
+    - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone.
       source: family lore
     - text: I came to Eelmouth from Ashby when I married Peter.
       source: family lore
     - text: Our store at Marsh House holds about 11 nights' food for the 5 of us as it stands; winter is 8 nights, and the hungry time is its end and the first days of spring.
       source: family lore
     - text: 'Fresh fish and meat go first or go off; what is dried, smoked, salted or in grain keeps. In a hungry spring the keeping food is what is left: eat the soft first, by rule if need be.'
+      source: family lore
+    - text: 'Our children know only what we tell them. A child I mind keeps for good a line I give it: when the eels run in the Isel, what keeps, who to trust. What I never pass on dies with me.'
       source: family lore
     - text: The eels go down to the sea in autumn, on the dark nights of the season. The Isel can look empty all summer and still run thick then.
       source: family lore
@@ -3989,10 +3984,7 @@ agents:
       source: family lore
     - text: A grown person eats about one food a night, more after a hard day or a night in the cold. A household of 2 wants about 16 food to see a winter through, and more if the frost comes early.
       source: family lore
-    - text: 'Our household eats from one store and keeps one hearth. Other houses hold their own land, beasts and stores and live by other crafts than ours: what we lack, a neighbour may make, and what
-        they lack, we may.'
-      source: family lore
-    - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone. What I do not teach my children dies with me.
+    - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone.
       source: family lore
     - text: Our line's founders, Hamon and Gunnild Shepherd, came to Eelmouth and built the first Shepherd house.
       source: family lore
@@ -4005,6 +3997,8 @@ agents:
     - text: The household's rules and stores pass to whoever heads it after me. I should name an heir, and tell them where things are kept, and why.
       source: family lore
     - text: 'In the evening, under one roof, we look again at the household''s rules: what goes where, what is eaten first, who sees to which chore. What no longer serves we change then.'
+      source: family lore
+    - text: 'Our children know only what we tell them. A child I mind keeps for good a line I give it: when the eels run in the Isel, what keeps, who to trust. What I never pass on dies with me.'
       source: family lore
     - text: The eels go down to the sea in autumn, on the dark nights of the season. The Isel can look empty all summer and still run thick then.
       source: family lore
@@ -4102,7 +4096,7 @@ agents:
       source: family lore
     - text: Heavy rain raises the rivers and a flood carries off what is set in them.
       source: family lore
-    - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone. What I do not teach my children dies with me.
+    - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone.
       source: family lore
     - text: 'What is made wears: gear with use, fittings with work, houses with the weather. Mended in time it costs a little; left, it costs the whole.'
       source: family lore
@@ -4222,7 +4216,7 @@ agents:
       source: family lore
     - text: A grown person eats about one food a night, more after a hard day or a night in the cold. A household of 5 wants about 32 food to see a winter through, and more if the frost comes early.
       source: family lore
-    - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone. What I do not teach my children dies with me.
+    - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone.
       source: family lore
     - text: My parents, Peter and Nichola, built our house at Eelmouth, and I was born in it.
       source: family lore
@@ -4318,7 +4312,7 @@ agents:
       source: family lore
     - text: A grown person eats about one food a night, more after a hard day or a night in the cold. A household of 5 wants about 32 food to see a winter through, and more if the frost comes early.
       source: family lore
-    - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone. What I do not teach my children dies with me.
+    - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone.
       source: family lore
     - text: My parents, Oliver and Katherine, built our house at Eelmouth, and I was born in it.
       source: family lore

@@ -244,7 +244,7 @@ def HH10(c):
     """D2-340: passing on through care, for heads and parents: children know only what they are told; a line given while minding a
     child is kept for good; what is never passed on is lost. The things to pass are filled from the household's own water and living,
     in order, while the line stays within 40 words."""
-    head = "Our children know only what we tell them. Minding a child, I can give it a line to keep for good: "
+    head = "Our children know only what we tell them. A child I mind keeps for good a line I give it: "
     tail = " What I never pass on dies with me."
     water = c.water()
     fisher = "fisher" in ((c.h or {}).get("livelihoods") or [])
