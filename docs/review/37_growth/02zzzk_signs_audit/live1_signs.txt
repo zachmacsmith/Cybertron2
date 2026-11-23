@@ -1,0 +1,253 @@
+# live1_A_pre
+turns 171; attend given 151 (88%); attended at the hearth 150, of them 'nothing out of the ordinary' 17; lines an attended day 5.21; acts that spend units to look (watch, search, look) 0
+attend resolved to: named 100, the village (its layout) 40, none 21, not found: the place in general 10
+named targets by kind: a parcel 55, a building 43, a person 2
+raw attend, most common: 'the village' x40; 'the Isel' x25; 'the weir' x22; 'the Spinney' x18; 'Hazel Copse' x7; 'the Brook Smokehouse' x6; 'the Shepherd Smokehouse' x5; 'Brook House' x5; 'Marsh House' x2; 'Eelmouth Fen' x2; 'the Street' x2; 'the Marsh Smokehouse' x2; 'Shepherd House' x1; 'Peter' x1; 'the weir gap at the Isel' x1
+lines by section: stood out 796, attended 782, next morning 435, in passing 288, concerned 22, felt or learned 6
+by mechanism (section: lines, acted-on share):
+  people: body and care: in passing 288 (0.26); stood out 62 (0.34); next morning 11 (0.55); attended 5 (0.40)
+  racks, lots, fires, salt: stood out 196 (0.69); next morning 114 (0.61); attended 37 (0.92); concerned 1 (1.00)
+  wild: game, predators, fowl: attended 184 (0.71); stood out 83 (0.41); next morning 72 (0.43)
+  fields, crops, herds: attended 170 (0.35); next morning 38 (0.13); stood out 36 (0.47); concerned 1 (0.00)
+  set gear: stood out 100 (0.82); next morning 80 (0.61); attended 44 (0.93); concerned 3 (1.00)
+  river and runs: attended 107 (0.33); stood out 96 (0.42)
+  woods and willow: attended 80 (0.75); next morning 26 (0.19); stood out 17 (0.65); concerned 9 (0.89)
+  other: stood out 46 (0.30); attended 31 (0.42); next morning 25 (0.24); felt or learned 6 (0.33); concerned 5 (0.40)
+  weir: attended 59 (0.69); stood out 28 (0.43); next morning 9 (0.22); concerned 3 (1.00)
+  buildings: next morning 53 (0.62); stood out 24 (0.29); attended 5 (1.00)
+  stores and vermin: stood out 56 (0.36); next morning 7 (0.29)
+  weather and ice: stood out 52 (0.37); attended 3 (0.33)
+  travel and roads: attended 36 (0.03)
+  place, ambient: attended 21 (0.05)
+most repeated lines:
+    48  an otter's spraint on the stones by the Isel, and fish scales
+    45  an otter has been at the traps at the Isel in the night: it will be back while there are fish in them
+    42  the fish and salt fish in Marsh House's store going soft and starting to smell: it will not keep
+    40  the smell of smoking fish from the Marsh Smokehouse
+    40  Eelmouth Fen (fen) lies on the north side, down by the water; next to the Isel and Eelmouth Field
+    40  the Isel (water) lies on the north side, down by the water; next to Eelmouth Fen
+    40  Clay Field (scrub) lies on the west side, down by the water; next to Eelmouth Common, the Spinney and Eelmouth Field
+    40  Eelmouth Field (scrub) lies on the west side, down by the water; next to the Street, Clay Field, Eelmouth Common, the Leaze, the Spinney and Eelmouth 
+    40  Eelmouth Common (pasture); next to the Street, Clay Field, the Spinney, Hazel Copse and Eelmouth Field
+    40  the Street (built ground); next to Brook Meadow, Eelmouth Common, the Leaze, the Spinney, Hazel Copse and Eelmouth Field
+    40  the Leaze (pasture) lies on the north side; next to the Street, Brook Meadow, the Spinney and Eelmouth Field
+    40  Brook Meadow (meadow) lies on the east side; next to the Street, the Leaze and Hazel Copse
+    40  Hazel Copse (woodland) lies on the south side; next to the Street, Brook Meadow and Eelmouth Common
+    40  the Spinney (woodland) lies on the west side; next to the Street, Clay Field, Eelmouth Common, the Leaze and Eelmouth Field
+    36  the way to the open road leaves from Eelmouth Field, on the west side
+    36  the way to the open road leaves from the Street, on the north side
+    35  smoke seeping through the thatch of the Marsh Smokehouse: fish hanging in it to cure
+    31  the eels are running at the Isel tonight: the traps and the weirs on the river will fill
+    29  stakes torn out of the weir, a stretch of wattle gone: the river runs through the hole
+    26  Peter was about the houses
+    24  Nigel spent the day at the Spinney
+    24  a fresh crack down Marsh House's wall, fallen daub at its foot
+meal lines (numbers as N): "Your hard day's work left you ravenous: you ate N, where a lighter day would have needed N" x60; 'You went to bed without enough to eat: a missed mealN' x2
+'store since you last looked' lines in morning prompts: 162
+replies reading the store's draw as things vanishing: 0
+
+# live1_A_old
+turns 179; attend given 157 (88%); attended at the hearth 157, of them 'nothing out of the ordinary' 21; lines an attended day 4.54; acts that spend units to look (watch, search, look) 0
+attend resolved to: named 109, the village (its layout) 26, none 22, not found: the place in general 22
+named targets by kind: a parcel 60, a building 43, a person 6
+raw attend, most common: 'Eelmouth Fen' x31; 'the village' x26; 'the Isel' x16; 'the weir' x15; 'the Marsh Smokehouse' x12; 'Brook House' x5; 'the Shepherd Smokehouse fire' x5; 'the Spinney' x4; 'Eelmouth Common' x3; 'Denise' x3; 'Hazel Copse' x3; 'the Salt House' x3; 'the Shepherd Smokehouse' x3; 'Marsh House' x3; 'Shepherd House' x2
+lines by section: stood out 916, attended 712, next morning 673, in passing 325, concerned 38, felt or learned 3
+by mechanism (section: lines, acted-on share):
+  racks, lots, fires, salt: stood out 279 (0.58); next morning 153 (0.67); attended 90 (0.86); concerned 6 (1.00)
+  people: body and care: in passing 325 (0.29); stood out 69 (0.36); next morning 21 (0.24); attended 3 (0.33)
+  river and runs: stood out 172 (0.36); attended 102 (0.42); next morning 79 (0.28)
+  wild: game, predators, fowl: attended 146 (0.69); next morning 94 (0.48); stood out 83 (0.25); concerned 17 (0.76)
+  set gear: next morning 128 (0.69); stood out 38 (0.84); attended 16 (1.00); concerned 8 (1.00); felt or learned 3 (0.67)
+  fields, crops, herds: attended 118 (0.44); next morning 36 (0.50); stood out 32 (0.22)
+  stores and vermin: stood out 83 (0.30); next morning 28 (0.32); attended 6 (0.33)
+  woods and willow: attended 79 (0.70); next morning 33 (0.24); stood out 3 (0.33); concerned 1 (0.00)
+  weir: attended 41 (0.59); stood out 40 (0.53); next morning 27 (0.37)
+  other: attended 47 (0.04); next morning 30 (0.33); stood out 23 (0.13); concerned 5 (0.40)
+  buildings: next morning 42 (0.38); stood out 37 (0.32); attended 5 (0.80)
+  weather and ice: stood out 48 (0.44); attended 11 (0.18); next morning 2 (0.00); concerned 1 (1.00)
+  place, ambient: attended 26 (0.00)
+  travel and roads: attended 21 (0.14)
+  shallows and resident fish: stood out 9 (0.56); attended 1 (0.00)
+most repeated lines:
+    42  the roar of the Isel in spate, heard from the houses
+    32  the smell of smoke and fish about the Marsh Smokehouse
+    32  a fresh crack down Marsh House's wall, fallen daub at its foot
+    29  smoke rising from the Marsh Smokehouse this morning
+    26  Eelmouth Fen (fen) lies on the north side, down by the water; next to the Isel and Eelmouth Field
+    26  the Isel (water) lies on the north side, down by the water; next to Eelmouth Fen
+    26  Clay Field (scrub) lies on the west side, down by the water; next to Eelmouth Common, the Spinney and Eelmouth Field
+    26  Eelmouth Field (scrub) lies on the west side, down by the water; next to the Street, Clay Field, Eelmouth Common, the Leaze, the Spinney and Eelmouth 
+    26  Eelmouth Common (pasture); next to the Street, Clay Field, the Spinney, Hazel Copse and Eelmouth Field
+    26  the Street (built ground); next to Brook Meadow, Eelmouth Common, the Leaze, the Spinney, Hazel Copse and Eelmouth Field
+    26  the Leaze (pasture) lies on the north side; next to the Street, Brook Meadow, the Spinney and Eelmouth Field
+    26  Brook Meadow (meadow) lies on the east side; next to the Street, the Leaze and Hazel Copse
+    26  Hazel Copse (woodland) lies on the south side; next to the Street, the Scar, Brook Meadow and Eelmouth Common
+    26  the Spinney (woodland) lies on the west side; next to the Street, Clay Field, the Scar, Eelmouth Common, the Leaze and Eelmouth Field
+    26  the Scar (rock) lies on the south side, on the slope; next to the Spinney and Hazel Copse
+    24  a crack from Marsh House in the night, and the patter of falling daub
+    24  the smell of smoke and fish about the Shepherd Smokehouse
+    23  the Isel in flood, the whole width of it moving, whole branches turning in it
+    22  Oliver spent the day at Eelmouth Fen
+    21  nothing out of the ordinary
+    21  mallets knocking at Marsh House's walls
+    21  the way to the open road leaves from Eelmouth Field, on the west side
+meal lines (numbers as N): "Your hard day's work left you ravenous: you ate N, where a lighter day would have needed N" x69
+'store since you last looked' lines in morning prompts: 186
+replies reading the store's draw as things vanishing: 0
+
+# live1_A_new
+turns 179; attend given 60 (34%); attended at the hearth 60, of them 'nothing out of the ordinary' 2; lines an attended day 3.87; acts that spend units to look (watch, search, look) 0
+attend resolved to: none 119, not found: the place in general 33, named 27
+named targets by kind: a building 13, a parcel 10, a person 4
+raw attend, most common: 'the Isel' x8; 'the Salt House' x4; 'the Brook Smokehouse' x2; 'Brook House' x2; 'the soft salt fish in our Marsh House store' x2; 'Hazel Copse' x2; 'Hamon' x1; 'Peter' x1; 'Basilia, my baby sister, fed and sleeping in Brook House.' x1; 'the Isel, high and coloured, with the current dragging at the water' x1; 'Shepherd House' x1; 'Marsh House store' x1; 'Basilia' x1; "Oliver's offers of salt, to see whether any of them suit what we can s" x1; 'Eelmouth Fen: the wicker traps and the water by the brine spring, and ' x1
+lines by section: stood out 928, next morning 679, in passing 385, attended 232, concerned 55, felt or learned 4
+by mechanism (section: lines, acted-on share):
+  racks, lots, fires, salt: next morning 297 (0.73); stood out 201 (0.68); attended 30 (0.70); concerned 7 (1.00)
+  people: body and care: in passing 385 (0.20); stood out 50 (0.38); next morning 13 (0.54); attended 6 (0.33)
+  river and runs: stood out 252 (0.54); next morning 92 (0.34); attended 43 (0.63)
+  wild: game, predators, fowl: next morning 72 (0.38); stood out 70 (0.24); concerned 31 (0.26); attended 19 (0.32)
+  set gear: next morning 65 (0.66); stood out 47 (0.66); attended 12 (0.83); concerned 4 (1.00); felt or learned 4 (0.75)
+  stores and vermin: stood out 97 (0.22); next morning 24 (0.54); attended 3 (0.33)
+  other: attended 56 (0.02); stood out 23 (0.17); next morning 14 (0.43); concerned 4 (0.25)
+  buildings: stood out 52 (0.46); next morning 37 (0.35)
+  weir: next morning 38 (0.39); stood out 37 (0.51); attended 5 (0.40); concerned 5 (1.00)
+  fields, crops, herds: stood out 28 (0.39); next morning 23 (0.22); attended 20 (0.05)
+  weather and ice: stood out 54 (0.52); attended 6 (0.17)
+  woods and willow: attended 18 (0.33); stood out 5 (0.40); next morning 4 (0.75); concerned 4 (0.75)
+  place, ambient: attended 14 (0.07)
+  shallows and resident fish: stood out 12 (0.42)
+most repeated lines:
+    60  the dried fish and fish and salt fish in Shepherd House's store going soft and starting to smell: it will not keep
+    44  the salt fish in Brook House's store going soft and starting to smell: it will not keep
+    40  eels against your legs in the water, cold and strong, all going the one way
+    38  the roar of the Isel in spate, heard from the houses
+    34  a fresh crack down Marsh House's wall, fallen daub at its foot
+    33  dark eels moving in the slack water under the banks of the Isel, all one way, downstream
+    33  the fish and salt fish in Brook House's store going soft and starting to smell: it will not keep
+    33  the dried fish and fish and salt fish in Marsh House's store going soft and starting to smell: it will not keep
+    27  Margery spent the day at the Isel
+    26  Peter spent the day at the Isel
+    26  Katherine spent the day at the Isel
+    25  Nichola spent the day at Eelmouth Common
+    24  a crack from Marsh House in the night, and the patter of falling daub
+    23  the Isel in flood, the whole width of it moving, whole branches turning in it
+    22  mallets knocking at Marsh House's walls
+    22  Oliver spent the day at the Isel
+    20  the dried fish and salt fish in Marsh House's store going soft and starting to smell: it will not keep
+    19  scales and torn weed piled against the weir's wattle: more came down in the night than its traps would hold
+    18  steam rising from the pan at the Salt House, and a smell of salt and wood smoke
+    18  wolves howling from the woods at night: a pack ranging near
+    18  grain scattered and trodden into the floor of Shepherd House, mouse droppings in it
+    18  Hamon spent the day at Eelmouth Fen
+meal lines (numbers as N): "Your hard day's work left you ravenous: you ate N, where a lighter day would have needed N" x52
+'store since you last looked' lines in morning prompts: 189
+replies reading the store's draw as things vanishing: 5
+  day 2 Oliver: The Salt House now holds about 39 salt, which is plenty for trade and for curing. What we need more is keeping food for winter, since the roots are going fast. 
+  day 3 Hamon: The roots are going fast, so we need fish coming in. First I'll mend the cracked wall. Then I'll set our 7 wicker traps in the Fen dykes, which lie still while 
+  day 3 Peter: The roots are going fast, about 16 a night to rats and rot, and only 31 are left, so we need food more than anything. I'll repair the weir before the spate wide
+  day 5 Nigel: The gale may have torn the weir, and the eels start running on the dark nights, so I go with Peter to look at the weir and mend any torn section with timber. Ro
+  day 14 Denise: The fresh fish is all gone from the store, so there is nothing left to salt; I will keep my 3 salt for later salting. Firewood is short: the house store has onl
+
+# live1_B_pre
+turns 301; attend given 266 (88%); attended at the hearth 266, of them 'nothing out of the ordinary' 45; lines an attended day 4.52; acts that spend units to look (watch, search, look) 0
+attend resolved to: named 183, the village (its layout) 56, none 35, not found: the place in general 27
+named targets by kind: a building 110, a parcel 66, a person 7
+raw attend, most common: 'the village' x56; 'the weir' x43; 'the Marsh Smokehouse' x30; 'the Isel' x21; 'Hazel Copse' x17; 'Brook House' x13; 'the Brook Smokehouse' x10; 'Eelmouth Field' x9; 'the Spinney' x8; 'Marsh House' x7; 'the Salt House' x5; 'Eelmouth Common' x4; 'the Isel and the traps' x3; 'the Marsh Smokehouse fire and the fish on the racks' x3; '"the village"' x3
+lines by section: stood out 1491, attended 1201, next morning 611, in passing 438, concerned 32, felt or learned 3
+by mechanism (section: lines, acted-on share):
+  wild: game, predators, fowl: attended 280 (0.78); stood out 253 (0.37); next morning 82 (0.49); concerned 4 (1.00)
+  people: body and care: in passing 438 (0.41); stood out 100 (0.45); next morning 49 (0.49); attended 10 (0.30)
+  racks, lots, fires, salt: stood out 359 (0.75); next morning 113 (0.67); attended 102 (0.95); concerned 11 (1.00)
+  fields, crops, herds: attended 235 (0.49); stood out 35 (0.37); next morning 30 (0.00)
+  set gear: stood out 152 (0.74); next morning 92 (0.63); attended 40 (0.95); concerned 3 (0.67)
+  river and runs: attended 145 (0.37); stood out 87 (0.41); next morning 2 (0.00)
+  other: next morning 103 (0.31); stood out 60 (0.20); attended 55 (0.16); concerned 10 (0.90); felt or learned 3 (0.33)
+  stores and vermin: stood out 177 (0.39); next morning 30 (0.33); attended 13 (0.54)
+  weir: attended 98 (0.67); stood out 68 (0.22); next morning 17 (0.76); concerned 4 (1.00)
+  woods and willow: attended 104 (0.84); stood out 40 (0.85); next morning 37 (0.41)
+  buildings: stood out 59 (0.61); next morning 52 (0.62); attended 14 (0.71)
+  weather and ice: stood out 101 (0.22); attended 7 (0.29); next morning 4 (0.00)
+  place, ambient: attended 53 (0.00)
+  travel and roads: attended 45 (0.04)
+most repeated lines:
+    57  smoke seeping through the thatch of the Marsh Smokehouse: fish hanging in it to cure
+    56  stakes torn out of the weir, a stretch of wattle gone: the river runs through the hole
+    56  Eelmouth Fen (fen) lies on the north side, down by the water; next to the Isel and Eelmouth Field
+    56  the Isel (water) lies on the north side, down by the water; next to Eelmouth Fen
+    56  Clay Field (scrub) lies on the west side, down by the water; next to Eelmouth Common, the Spinney and Eelmouth Field
+    56  Eelmouth Field (scrub) lies on the west side, down by the water; next to the Street, Clay Field, Eelmouth Common, the Leaze, the Spinney and Eelmouth 
+    56  Eelmouth Common (pasture); next to the Street, Clay Field, the Spinney, Hazel Copse and Eelmouth Field
+    56  the Street (built ground); next to Brook Meadow, Eelmouth Common, the Leaze, the Spinney, Hazel Copse and Eelmouth Field
+    56  the Leaze (pasture) lies on the north side; next to the Street, Brook Meadow, the Spinney and Eelmouth Field
+    56  Brook Meadow (meadow) lies on the east side; next to the Street, the Leaze and Hazel Copse
+    56  Hazel Copse (woodland) lies on the south side; next to the Street, Brook Meadow and Eelmouth Common
+    56  the Spinney (woodland) lies on the west side; next to the Street, Clay Field, Eelmouth Common, the Leaze and Eelmouth Field
+    55  mallets knocking at the weir's walls
+    54  the smell of smoking fish from the Marsh Smokehouse
+    51  an otter has been at the traps at the Isel in the night: it will be back while there are fish in them
+    45  nothing out of the ordinary
+    45  the way to the open road leaves from Eelmouth Field, on the west side
+    45  the way to the open road leaves from the Street, on the north side
+    45  a fresh crack down Marsh House's wall, fallen daub at its foot
+    43  steam rising from the pan at the Salt House, and a smell of salt and wood smoke
+    42  an otter's spraint on the stones by the Isel, and fish scales
+    35  wolves howling from the woods at night: a pack ranging near
+meal lines (numbers as N): "Your hard day's work left you ravenous: you ate N, where a lighter day would have needed N" x86; 'You went to bed without enough to eat: a missed mealN' x26; 'You ate N, less than a cold night asksN' x2; "You ate a ration's worth, but after the day's work it was not enough: you went to bed hungry, a missed mealN A" x2
+'store since you last looked' lines in morning prompts: 311
+replies reading the store's draw as things vanishing: 3
+  day 2 Oliver: Food is short and the roots are going fast. I'll set snares for hares and net fowl at the Isel. The Marsh weir is torn; I'm a master at weirs, so I'll offer to 
+  day 3 Peter: Our roots are going fast. I'll empty the weir, set fresh traps in the Isel, then hunt the land around the village for game.
+  day 32 Katherine: I am starving, and the Brook store has no food left since the last hens and egg went. Basilia is bringing in the hare from Eelmouth Field, so I gather wild food
+
+# live1_B_new
+turns 344; attend given 153 (44%); attended at the hearth 153, of them 'nothing out of the ordinary' 14; lines an attended day 3.33; acts that spend units to look (watch, search, look) 0
+attend resolved to: none 191, not found: the place in general 95, named 56, a thing by its tag 2
+named targets by kind: a building 26, a parcel 21, a person 9
+raw attend, most common: 'the weir' x15; 'the Isel' x13; 'the Marsh Smokehouse' x4; 'Katherine' x3; 'Petronel' x3; 'Basilia' x2; 'the roots and grain in Marsh House, where the mouse droppings are' x2; 'Brook House store roots' x2; 'Oliver, and how he sets his hands to fish by hand' x2; 'the smoke racks at the Marsh Smokehouse, and the tags on each heap' x2; 'the Salt House' x2; 'Brook House' x2; 'the Spinney' x2; 'Peter, lifting the wicker traps at the Isel in the flood.' x1; 'the grain scattered and trodden into the floor of the Salt House, with' x1
+lines by section: stood out 1828, next morning 1170, in passing 664, attended 510, concerned 29, felt or learned 6
+by mechanism (section: lines, acted-on share):
+  people: body and care: in passing 664 (0.31); stood out 153 (0.46); next morning 95 (0.40); attended 13 (0.54)
+  river and runs: stood out 410 (0.53); next morning 161 (0.27); attended 82 (0.38)
+  racks, lots, fires, salt: stood out 361 (0.61); next morning 218 (0.73); attended 32 (0.91); concerned 9 (1.00)
+  wild: game, predators, fowl: stood out 206 (0.29); next morning 188 (0.51); attended 18 (0.28); concerned 10 (0.50)
+  other: attended 153 (0.10); stood out 108 (0.25); next morning 82 (0.51); felt or learned 5 (0.40); concerned 4 (0.50)
+  stores and vermin: stood out 174 (0.34); next morning 63 (0.52); attended 8 (1.00)
+  set gear: next morning 137 (0.72); stood out 77 (0.84); attended 7 (1.00); concerned 2 (1.00); felt or learned 1 (1.00)
+  weir: stood out 101 (0.21); next morning 48 (0.54); attended 26 (0.62)
+  buildings: stood out 83 (0.52); next morning 81 (0.37); attended 1 (0.00)
+  woods and willow: attended 69 (0.16); next morning 43 (0.35); stood out 18 (0.61); concerned 4 (1.00)
+  weather and ice: stood out 101 (0.40); attended 17 (0.00); next morning 10 (0.10)
+  fields, crops, herds: next morning 43 (0.05); attended 41 (0.15); stood out 30 (0.13)
+  place, ambient: attended 43 (0.00); next morning 1 (0.00)
+  shallows and resident fish: stood out 6 (0.50)
+most repeated lines:
+    89  the roar of the Isel in spate, heard from the houses
+    64  a fresh crack down Marsh House's wall, fallen daub at its foot
+    53  mallets knocking at the weir's walls
+    52  Katherine spent the day at Eelmouth Fen
+    48  wolves howling from the woods at night: a pack ranging near
+    47  cattle lowing on the Leaze
+    46  water running over stones in the Isel
+    46  the smell of smoke and fish about the Marsh Smokehouse
+    44  a crack from Marsh House in the night, and the patter of falling daub
+    41  the Isel in spate, brown and roaring, tearing at its banks
+    41  cattle lowing on Eelmouth Common
+    39  stakes torn out of the weir, a stretch of wattle gone: the river runs through the hole
+    38  the ring of picks from the Scar
+    35  Basilia spent the day at Eelmouth Common
+    34  Peter spent the day at the weir
+    34  Nichola spent the day at the Street
+    33  steam rising from the pan at the Salt House, and a smell of salt and wood smoke
+    33  white crusts of salt on the rim of the pan at the Salt House
+    33  the shallows of the Isel are fished over: turned stones and stirred mud, a few minnows darting
+    31  dark eels moving in the slack water under the banks of the Isel, all one way, downstream
+    30  a fresh crack down Brook House's wall, fallen daub at its foot
+    30  nothing darts in the margins of the Isel: the stones are turned, the minnows and crayfish gone from the shallows
+meal lines (numbers as N): "Your hard day's work left you ravenous: you ate N, where a lighter day would have needed N" x90; 'You went to bed without enough to eat: a missed mealN' x28; "You ate a ration's worth, but after the day's work it was not enough: you went to bed hungry, a missed mealN A" x1; 'You pushed past your strength today: you ate N, where a lighter day would have needed N, and you will be worn ' x1
+'store since you last looked' lines in morning prompts: 294
+replies reading the store's draw as things vanishing: 4
+  day 2 Oliver: Nobody looked after Basilia yesterday, so I'll care for her first myself. Then I'll teach Petronel the pan properly, boil once, and cut firewood for the Salt Ho
+  day 3 Oliver: Roots are vanishing from the store, about 19 gone yesterday, so they may be rotting or mice are at them. I'll look closely. We have over 30 salt between my hand
+  day 3 Peter: The roots are going fast, about 19 a night, far more than we eat. That must be rot or mice, so it's right that the household eats them first. We need food in. I
+  day 6 Oliver: The gale damaged the Salt House and left its door open, with about 19 salt and 34 firewood inside, so I'll repair it and shut it first. After that I'll fish by 
+
