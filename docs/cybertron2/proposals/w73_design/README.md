@@ -45,7 +45,7 @@ silently.
 
 | # | Unit | What it does | Extends | Designed in | Design state |
 |---|---|---|---|---|---|
-| U0 | **The basis** | handling units, weights, the keeping curve, the clocks' factors, the words | clocks.md (D2-273), D2-275, D2-276, D2-288 to D2-295 | basis.md | written |
+| U0 | **The basis** | handling units, weights, the keeping curve, the clocks' factors, the words; in code, stage 1 | clocks.md (D2-273), D2-275, D2-276, D2-288 to D2-295 | basis.md; u0_basis.md | written |
 | U1 | **Water and wild stocks** | the shallows stock, the runs, the freeze, the fixes to the run take (a run's fish learn no wariness) | river_and_water.md (D2-209), D2-229, D2-264, D2-265 | wave3_taking §1.2, §3; catch_basis.md | designed; the shallows by water type a gap (G6) |
 | U2 | **Taking** | set and tend on placed gear as one's own tagged things; every act of taking as shape, technique, gear, target; the fishing bugs | acts_on_owned_things.md (Q-80), verb_grammar.md, hunt_fish_materials §5, §7, D2-294 | wave3_taking §1, §2, §3 | designed |
 | U3 | **Materials and making** | the material chains, about 25 made things with recipes in kg, batches, two lives (uses and rot), mending, what each level is shown | hunt_fish_materials §3 to §6, trying_and_learning.md, D2-263, D2-264, D2-276, D2-281, O-2 | wave2_making §2, §3, §4 | designed; flax below a plot open (W2-2) |
@@ -106,6 +106,8 @@ section A.
   file, with line, and the owner of each; tests; open questions; sources (the notes it draws on).
 
 ## History
+
+- **23 Nov 2026: integration review** by 37.2 (integration.md): the fallback order corrected to D2-301 in u6 and u9; `tend` widened to one act on placed things (gear and processing containers); one gear-piece record for u2 and u3; u0_basis.md written for stage 1's code, which every spec deferred to; tanning's nights aligned (u4 to u10); the weir's cost set by D2-302.
 
 - **22 Nov 2026:** written by 37.2 at Zach's ask ("Has all of the design been written up into one complete spec? ... One outline the
   overall architecture and purpose shape of all the changes and how they fit together and maybe with the different sections or
