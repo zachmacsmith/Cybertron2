@@ -2338,9 +2338,15 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
     pressure0 = {k: list(v) for k, v in pressure.items()}
     wary = {k: [float(x) for x in ((st.get("wary") or {}).get(k) or [0.0] * m.n)] for k in takes if k in st["pop"]}
     wary0 = {k: list(v) for k, v in wary.items()}
+    parts = {(k, i): (float(st["pop"][k][i]) * pushed(w, m, here.node, key, k, i) * SW.resident(w.spec, k),   # resident heads, and
+                      run[k][i] if k in run else 0.0) for k in pressure for i in areas}                      # a run passing (W-69)
+
+    def resident_share(k, i):                                             # wariness and pressure are the residents' only (u1 §7a)
+        rd, rr = parts.get((k, i), (0.0, 0.0))
+        return 1.0 if rr <= 0 else (rd / (rd + rr) if rd + rr > 0 else 0.0)
     for kk in pressure:                                                   # the hunt disturbs the ground it covers (§2.8), and the
         for ii in areas:                                                  # game there learns it (brief 4b §2.1)
-            share = min(1.0, ground[ii] / float(m.km2[ii]))
+            share = min(1.0, ground[ii] / float(m.km2[ii])) * resident_share(kk, ii)
             pressure[kk][ii] = round(pressure[kk][ii] + float(HUNTED["hunt"]) * share * (1 + float(HUNTED["crew"]) * (crew - 1)), 4)
             wary[kk][ii] = round(wary[kk][ii] + float(WARY["hunt"]) * share, 4)
     fam = lambda mb, k: MT.factor(mb["mind"], k)
@@ -2353,10 +2359,11 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
         focus = (3.0 if k in want else 0.4) if want else 1.0
         x = when_for(k) * max(fam(mb, k) for mb in members) * focus * float(tw) * finds   # familiarity with the kind (D2-204 §5): the party's best
         for i in areas:
-            dens = float(st["pop"][k][i]) * pushed(w, m, here.node, key, k, i) * SW.resident(w.spec, k) \
-                + (run[k][i] if k in run else 0.0)   # the cold's push onto open water (brief 5 §4); a run passing today (§2.4); W-69
+            rd, rr = parts[(k, i)]               # the cold's push onto open water (brief 5 §4); a run passing today (§2.4); W-69
+            dens = rd + rr
             shy = 1.0 + float(WARY["detect"]) * learned(wary0[k][i])        # game that has learned people is harder to come on (4b §2.1)
-            lam = dens * float(tk.get("detect", 0.2)) * efx[k]["detect"] * x / (1.0 + 0.5 * min(4.0, pressure0[k][i])) / shy \
+            press = 1.0 + 0.5 * min(4.0, pressure0[k][i])                  # on the resident share only: a run's fish learn nothing (u1 §7a)
+            lam = (rd / (press * shy) + rr) * float(tk.get("detect", 0.2)) * efx[k]["detect"] * x \
                 * ground[i] * float(HUNT["meet"]) * (float(LEAD["seen"]) if led else 1.0)   # a beast led: the game knows them sooner
             if lam > 0 and dens * float(m.km2[i]) >= 1.0:                  # one met is a whole one
                 cand.append((k, i, lam))
@@ -2419,8 +2426,15 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
             ev.append((tau, found + "; it turned on {subj}, and {subj} {was} hurt before it broke away, and came home", best["name"], True))
             hurt.add(best["name"])
             continue
+        pop = pops.setdefault(k, [float(v) for v in st["pop"][k]])
+        r_ = run[k][i] if k in run else 0.0
+        of_run = False
+        if r_ > 0:                                                          # one of the run's, drawn before its flight (u1 §7a; W-69)
+            rd = pop[i] * SW.resident(w.spec, k) / ((1.0 + 0.5 * min(4.0, pressure0[k][i])) * (1.0 + float(WARY["detect"]) * learned(wary0[k][i])))
+            of_run = rng.random() < r_ / (r_ + rd)
         flee = min(0.95, float(tk.get("flee", 0.5)) * efx[k]["flee"])
-        flee = 1.0 - (1.0 - flee) / (1.0 + float(WARY["flee"]) * learned(wary0[k][i]))   # and quicker to flee
+        if not of_run:                                                      # a run's fish flee at the kind's own rate
+            flee = 1.0 - (1.0 - flee) / (1.0 + float(WARY["flee"]) * learned(wary0[k][i]))   # and quicker to flee
         if led:
             flee = 1.0 - (1.0 - flee) * (1.0 - float(LEAD["flee"]))
         p_take = take_chance(tech, best["skill"], wpn, flee, fam(best, k), n_out)
@@ -2431,11 +2445,10 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
             else:
                 ev.append((tau, found + ", but it got away", best["name"], False))
             continue
-        pressure[k][i] = round(pressure[k][i] + float(HUNTED["kill"]) * min(1.0, ground[i] / float(m.km2[i])), 4)   # on the ground hunted
-        pop = pops.setdefault(k, [float(v) for v in st["pop"][k]])
-        wary[k][i] = round(wary[k][i] + float(WARY["take"]) / max(1.0, pop[i] * float(m.km2[i])), 4)   # the share of them taken
-        r_ = run[k][i] if k in run else 0.0
-        if r_ > 0 and rng.random() < r_ / (r_ + pop[i] * SW.resident(w.spec, k)):   # one of the run's (brief 5 §2.4; W-69)
+        if not of_run:                                                      # only a resident head taken teaches the rest (u1 §7a)
+            pressure[k][i] = round(pressure[k][i] + float(HUNTED["kill"]) * min(1.0, ground[i] / float(m.km2[i])), 4)   # on the ground hunted
+            wary[k][i] = round(wary[k][i] + float(WARY["take"]) / max(1.0, pop[i] * float(m.km2[i])), 4)   # the share of them taken
+        if of_run:                                                          # one of the run's (brief 5 §2.4; W-69)
             from cybertron2.wild import runs as RU
             import copy
             runs = runs if runs is not None else {"runs": copy.deepcopy(st["runs"])}
@@ -2523,7 +2536,7 @@ def hunt(here, members, tech, key, place_name, y, a) -> dict:
             pool = [float(v) for v in st["carrion"]]
             pool[far_i] = round(pool[far_i] + (flesh_left + float(left.get("offal", 0.0))) * float(THINGS["carcass_kg"]) / float(m.km2[far_i]), 2)
             here.apply("set_wild", path=["state", "carrion"], value=pool)
-    r = _hunt_lines(members, ts, ev, held, flesh_left, where, looked, food, tails, extra, dead, hurt)
+    r = _hunt_lines(members, ts, ev, held, flesh_left, where, looked, food, tails, extra, dead, hurt, tech=tech)
     r.update(kills=kills, t={mb["name"]: t_ for mb, t_ in zip(members, ts)}, dead=sorted(dead))
     return r
 
@@ -2546,9 +2559,13 @@ def practise(members, tech, r) -> None:
         KN.tried(mb["here"], mb["mind"], tech, True, units=u)
 
 
-def _hunt_lines(members, ts, ev, held, flesh_left, where, looked, food, tails, extra, dead, hurt) -> dict:
+HUNT_WORDS = {"net": ("You spread your nets", "Netting")}   # the net's own words, not "You hunted" (u2 §6 fault 11)
+
+
+def _hunt_lines(members, ts, ev, held, flesh_left, where, looked, food, tails, extra, dead, hurt, tech=None) -> dict:
     """Each member's account of the hunt (brief 4b §3.1): the events in order up to when they turned back (those who stayed learn all
     of it), worded from where they stood; who turned back and when; and what each carried home."""
+    did, doing = HUNT_WORDS.get(tech, ("You hunted", "Hunting"))
     solo = len(members) == 1
     others = lambda me: [mb["name"] for mb in members if mb["name"] != me]
     lines = {}
@@ -2570,7 +2587,7 @@ def _hunt_lines(members, ts, ev, held, flesh_left, where, looked, food, tails, e
             if who == me and ends:                                          # hurt or killed: the hunt ended there for them
                 break
         if not ev and solo:
-            lines[me] = f"You hunted {where}{looked} and came on nothing."
+            lines[me] = f"{did} {where}{looked} and came on nothing."
             continue
         if not story:
             story = ["nothing was met"]
@@ -2582,7 +2599,7 @@ def _hunt_lines(members, ts, ev, held, flesh_left, where, looked, food, tails, e
             tail_ = "; you carried home " + (", ".join(f"{q:g} {it}" for it, q in sorted(carried.items())) or "nothing")
         if flesh_left > 0 and (me not in dead) and (t_ >= max(ts) - 1e-9 or solo):
             tail_ += f"; {'you' if solo else 'the party'} could carry no more, and left {flesh_left:g} meat"
-        lines[me] = f"Hunting {where}{party}{looked if not solo else ''}, " + "; ".join(story) + tail_ + "." + extra
+        lines[me] = f"{doing} {where}{party}{looked if not solo else ''}, " + "; ".join(story) + tail_ + "." + extra
     return {"food": food, "lines": lines, "tails": tails}
 
 

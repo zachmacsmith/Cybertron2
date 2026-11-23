@@ -840,20 +840,21 @@ OWL = {"take_p": 0.4, "fitting": "owl hole", "season": "spring", "record": "nest
 
 # What a kind is like to those who hunt it (D2-204, methods_and_encounters.md §2; calibrate): the methods' needs and favours are read
 # against these at load to build each method's take table (engine/methods.py). A kind without traits is no method's target.
+# `flies` (what a fowling net reaches) and `swims` (a fish): u2 §6 fault 3 (the net met 48 salmon), W-97
 TRAITS = {
     "red deer":   {"size": "large", "runs": True, "social": "group", "home": "none", "water": False},
     "roe deer":   {"size": "medium", "runs": True, "social": "solitary", "home": "none", "water": False},
     "wild boar":  {"size": "large", "runs": True, "social": "group", "home": "none", "water": False},
     "brown hare": {"size": "small", "runs": True, "social": "solitary", "home": "form", "water": False},
-    "woodpigeon": {"size": "small", "runs": False, "social": "flock", "home": "none", "water": False},
+    "woodpigeon": {"size": "small", "runs": False, "social": "flock", "home": "none", "water": False, "flies": True},
     "fox":        {"size": "medium", "runs": True, "social": "solitary", "home": "den", "water": False},
     "stoat":      {"size": "small", "runs": True, "social": "solitary", "home": "burrow", "water": False},
     "wolf":       {"size": "large", "runs": True, "social": "group", "home": "den", "water": False},
     "brown bear": {"size": "large", "runs": False, "social": "solitary", "home": "den", "water": False},
-    "wildfowl":   {"size": "small", "runs": False, "social": "flock", "home": "none", "water": True},
-    "eel":        {"size": "small", "runs": False, "social": "solitary", "home": "none", "water": True, "mover": "run"},
-    "salmon":     {"size": "medium", "runs": False, "social": "flock", "home": "none", "water": True, "mover": "run"},   # a run is a shoal
-    "lamprey":    {"size": "small", "runs": False, "social": "solitary", "home": "none", "water": True, "mover": "run"},
+    "wildfowl":   {"size": "small", "runs": False, "social": "flock", "home": "none", "water": True, "flies": True},
+    "eel":        {"size": "small", "runs": False, "social": "solitary", "home": "none", "water": True, "mover": "run", "swims": True},
+    "salmon":     {"size": "medium", "runs": False, "social": "flock", "home": "none", "water": True, "mover": "run", "swims": True},   # a run is a shoal
+    "lamprey":    {"size": "small", "runs": False, "social": "solitary", "home": "none", "water": True, "mover": "run", "swims": True},
     "otter":      {"size": "medium", "runs": True, "social": "solitary", "home": "holt", "water": True},
 }
 # The runs along the river (brief 5 §2, §4; wild/runs.py; calibrate): a kind with `mover: run` runs `dir` (down to the sea, up to

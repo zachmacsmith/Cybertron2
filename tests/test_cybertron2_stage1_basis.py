@@ -50,3 +50,47 @@ def test_the_edge_reaches_a_run_where_the_water_holds_no_resident_fish(river, mo
     assert WL.run_here(w, node, pid)
     r = do(w, who, {"do": "gather", "what": "fish by hand", "at": w.s["parcels"][pid]["name"]})
     assert not r.startswith("Refused"), r
+
+
+def test_the_fowling_net_meets_no_fish():
+    """u2 §6 fault 3: the net's table held salmon at 3.0 by `social: flock`; it reaches what flies."""
+    from cybertron2.engine.data import TECHNIQUES
+    takes = TECHNIQUES["net"]["yield"]["takes"]
+    assert "salmon" not in takes and "eel" not in takes and "lamprey" not in takes and "wildfowl" in takes
+
+
+def test_snares_meet_no_otters_and_den_work_reaches_the_holt():
+    """u2 §6 fault 14: snare covers included water, and the otter was taken in snares."""
+    from cybertron2.engine.data import TECHNIQUES
+    assert "otter" not in TECHNIQUES["snare"]["yield"]["takes"] and "water" not in TECHNIQUES["snare"]["at"]["covers"]
+    assert "otter" in TECHNIQUES["den work"]["yield"]["takes"]
+
+
+def test_a_runs_fish_learn_no_wariness(river, monkeypatch):
+    """u1 §7a: a hunt-path method meeting a run's eels on several days; their learned wariness and pressure stay 0, and the take does
+    not fall off; a resident kind's wariness still rises."""
+    from cybertron2.engine.data import TECHNIQUES
+    no_new_runs(monkeypatch)
+    monkeypatch.setitem(TECHNIQUES["net"]["yield"], "takes", {"eel": 3.0, "wildfowl": 3.0})   # a guard: no method meets a run now
+    w = fresh(river)
+    node = "Saltwell"
+    pid = water(w, node)
+    st = w.s["wild"]["state"]
+    st["pop"]["eel"] = [0.0 for _ in st["pop"]["eel"]]                         # no resident eels: the run's only
+    who = adults(w, node)
+    for x in who:
+        w.s["know"].setdefault(x, {})["net"] = {"level": "known", "skill": 1.0, "seen": 0, "wins": 0, "fails": 0, "source": "", "since": 0}
+    wary0 = {k: list(v) for k, v in (st.get("wary") or {}).items()}
+    press0 = {k: list(v) for k, v in (st.get("pressure") or {}).items()}
+    got = 0
+    for n in range(6):
+        pulse(w, node, kind="eel", n=2000.0)
+        r = do(w, who[n % len(who)], {"do": "gather", "what": "net", "at": w.s["parcels"][pid]["name"]})
+        assert not r.startswith("Refused"), r
+        assert not r.startswith(("You hunted", "Hunting")), r                     # the net's own words (u2 §6 fault 11)
+        got += r.count("eel")
+    assert got > 0
+    zero = [0.0] * len(st["pop"]["eel"])
+    assert ((st.get("wary") or {}).get("eel") or zero) == (wary0.get("eel") or zero)        # nothing learned from the run
+    assert ((st.get("pressure") or {}).get("eel") or zero) == (press0.get("eel") or zero)
+    assert (st.get("wary") or {}).get("wildfowl") != wary0.get("wildfowl")         # a resident kind learns as before
