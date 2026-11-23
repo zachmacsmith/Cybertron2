@@ -60,6 +60,9 @@ started
 - under it: [[D2-334 Live run 1 and the overnight work stop if the weekly usage window…|Live run 1 and the overnight work stop if the weekly usage window… (D2-334)]] (live)
 - under it: [[D2-335 Live run 1 is a set of small runs, not one big run|Live run 1 is a set of small runs, not one big run (D2-335)]] (live)
 - under it: [[D2-336 A shelf life is stated one of two ways|A shelf life is stated one of two ways (D2-336)]] (live)
+- under it: [[D2-337 Standing rules are written in a stated grammar the prompt gives in…|Standing rules are written in a stated grammar the prompt gives in… (D2-337)]] (live)
+- under it: [[D2-338 The household book has named sets as a primitive|The household book has named sets as a primitive (D2-338)]] (live)
+- under it: [[D2-339 The household book's grammar|The household book's grammar (D2-339)]] (live)
 - under it: [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]] (open)
 - under it: [[L-160 Kept lines over a life|Kept lines over a life (L-160)]] (open)
 - under it: [[L-161 Ice and the freeze|Ice and the freeze (L-161)]] (open)
@@ -120,8 +123,8 @@ started
 - [[D2-334 Live run 1 and the overnight work stop if the weekly usage window…|Live run 1 and the overnight work stop if the weekly usage window… (D2-334)]]
 - [[D2-335 Live run 1 is a set of small runs, not one big run|Live run 1 is a set of small runs, not one big run (D2-335)]]
 - [[D2-336 A shelf life is stated one of two ways|A shelf life is stated one of two ways (D2-336)]]
-- [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]]
-- [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]]
-- [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]]
-- … and 34 more
+- [[D2-337 Standing rules are written in a stated grammar the prompt gives in…|Standing rules are written in a stated grammar the prompt gives in… (D2-337)]]
+- [[D2-338 The household book has named sets as a primitive|The household book has named sets as a primitive (D2-338)]]
+- [[D2-339 The household book's grammar|The household book's grammar (D2-339)]]
+- … and 37 more
 - *and 3 index or audit notes*

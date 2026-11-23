@@ -20,7 +20,7 @@ conversation (23 Nov: "How are the rules written? surely they are told the gramm
 
 
 ## Linked
-- parent: [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]]
+- parent: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
 
 
 ## Mentioned by
