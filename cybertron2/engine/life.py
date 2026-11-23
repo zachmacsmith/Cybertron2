@@ -267,6 +267,8 @@ def ration_factor(w, name) -> tuple:
     if a["stage"] == "child":
         return float(dial(w)["child_eats"]), 0.0
     extra = float(LIFE["pregnancy"]["food"]) if a.get("pregnant") is not None else 0.0
+    if a["stage"] == "youth":                                               # D2-330 (C6): a youth eats about 0.8 a night
+        return float(LIFE.get("youth", {}).get("eats", 0.8)), extra
     return 1.0, extra
 
 

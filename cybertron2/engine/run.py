@@ -19,6 +19,7 @@ from pathlib import Path
 from cybertron2.engine import forests as FO
 from cybertron2.engine import agreements as AG, fuse as FU, knowledge as KN, life as LF, night as N, perceive as PC, prompt as PR, roads as RD, settle as ST, verbs as V
 from cybertron2.engine import branch as BR, evening as EVN, journal as JN, memory as MEM, tags as TG, view as VW
+from cybertron2.engine import core as CORE
 from cybertron2.engine.converse import Conversations
 from cybertron2.engine.data import EDIBLE, TECHNIQUES
 from cybertron2.engine.here import Here, Mind
@@ -415,6 +416,8 @@ def dawn(w) -> None:
             continue
         if t and t["arrive"] <= w.d:
             arrive(w, name, t, dawn=True)
+    from cybertron2.wild import river as RV                                # the river's dawn cue (u8 §2.2): before the day's acts
+    RV.dawn_events(w)
     for sg in w.spec.get("signs") or []:
         if int(sg["day"]) - 1 == w.d:
             for node in (list(w.s["nodes"]) if sg.get("node") in (None, "all") else [sg["node"]]):
@@ -498,7 +501,8 @@ def evening_step(w, names, results, budget, used, talk_log, openings, systems, b
                                                      "with JSON only.")
         skipped = (w.s["today"].get("skipped_morning") or {}).get(n)
         if skipped:                                                              # what the morning would have shown, not asked then
-            t = skipped.replace("Plan your day. Reply with JSON only.", "").rstrip() + "\n\n" + t
+            from cybertron2.engine import core as CORE
+            t = skipped.replace(CORE.closing(w), "").rstrip() + "\n\n" + t
         if n in mem_texts:
             t = t.replace(" Reply with JSON only.", "") + "\n\n" + mem_texts[n] + "\n\nReply with JSON only."
         texts[n] = TG.render(w, n, t)
@@ -914,8 +918,9 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                 for n in names:
                     blk = EVN.meeting_block(w, n)
                     if blk:
-                        users[n] = users[n].replace("Plan your day. Reply with JSON only.", blk + "\n\nPlan your day. Reply with JSON only.")
-                        openings[n] = openings[n].replace("Plan your day. Reply with JSON only.", blk + "\n\nPlan your day. Reply with JSON only.")
+                        cl = CORE.closing(w)
+                        users[n] = users[n].replace(cl, blk + "\n\n" + cl)
+                        openings[n] = openings[n].replace(cl, blk + "\n\n" + cl)
             planned = {}
             if EVN.plans_at_hearth(w):                                          # planned at the hearth: asked at dawn only if needed
                 for n in names:
@@ -998,6 +1003,9 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                         continue
                     here, mind = Here(w, n), Mind(w, n)
                     a = plans[n][i]
+                    if CORE.on(w):                                              # the shapes: a craft or an act in "do" (D2-314)
+                        from cybertron2.engine import shapes as SH
+                        a = SH.quiet(here, a)
                     morning = EVN.on(w) and str(a.get("do", "")).lower() == "travel" and str(a.get("when") or "").lower() == "morning"
                     if morning and used[n] > 0:                                # setting off in the morning: the day's first act (D4-67)
                         results[n].append("Refused: travel: to set off in the morning, make it your first act; to go after the day's "

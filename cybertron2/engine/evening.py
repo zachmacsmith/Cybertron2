@@ -72,6 +72,7 @@ def _requests(w, n, since=None) -> list:
 
 
 def prompt(w, n, results, left, place, others, arrived, saw=None) -> str:
+    from cybertron2.engine import core as CORE
     here, mind = Here(w, n), Mind(w, n)
     L = ["## This evening"]
     L.append(f"You are {place} for the evening" + (f", having come in at nightfall from {arrived}" if arrived else "") + ". "
@@ -94,8 +95,9 @@ def prompt(w, n, results, left, place, others, arrived, saw=None) -> str:
              "nothing (to ask someone something, name them, and they may answer tonight); \"tell\" is a private word to one person at "
              "this place. In \"actions\" put only what settles the night, which takes no work: sleep, host, grant, admit, join, partner, "
              f"try (with units you kept back: you have {left} left today), fire, set the door, accept an offer, give or move goods, "
-             "name, travel (to set off at nightfall), rule (a standing rule set, changed or dropped). Work, gathering and making wait for tomorrow. \"why\": what you make of the day and "
-             "what you mean to do tomorrow. Reply with JSON only.")
+             "name, travel (to set off at nightfall), rule (a standing rule set, changed or dropped). Work, gathering and making wait for tomorrow. "
+             + (CORE.EVENING_STANDS + " " + CORE.EVENING_WHY if CORE.on(w) else "\"why\": what you make of the day and what you mean to do "
+                "tomorrow.") + " Reply with JSON only.")
     return "\n\n".join(L)
 
 

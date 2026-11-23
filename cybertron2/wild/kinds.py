@@ -548,7 +548,7 @@ WATCH_SIGNS = {
     "watched": [R("all", "sight", 2.0, (0, 0), "you watched {place} through the night with the {scare}; nothing came near it", who="watcher")],
     "failed": [R("all", "sight", 2.0, (0, 0), "in the dark something came at {place} for all the {scare}, and you could not turn it", who="watcher")],
 }
-SCARE_WORDS = {"fire": "fire", "clapper": "clappers", "horn": "horn", "dog": "dog", "herding": "herders"}
+SCARE_WORDS = {"fire": "fire", "clapper": "clappers", "horn": "horn", "dog": "dog", "herding": "herders", "watch": "a watcher"}
 # signs of what the wild kinds ate of the people's crops and stores (the bridge): on the fields and in the stores
 EATEN_SIGNS = {
     "crops": [R("lay", "sight", 0.6, (0, 1), "the corn in {place} pecked and nibbled along its edges"),

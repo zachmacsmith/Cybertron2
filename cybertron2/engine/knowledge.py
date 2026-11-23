@@ -161,9 +161,12 @@ def skill(mind, tech) -> float:
     return max(curve(tech)[0], sk) if hard(tech) else sk                    # never below the bare-handed novice (brief 4c §3.1)
 
 
-def skill_word(x, tech=None) -> str:
+def skill_word(x, tech=None, w=None) -> str:
     lo, hi = curve(tech) if tech else SKILL["trade"]
-    share = (x - lo) / (hi - lo)
+    from cybertron2.engine import learning as LR
+    if tech and w is not None and LR.on(w) and not hard(tech):                # the class's range (u9 §4.2)
+        lo, hi = LR.curve_range(tech)
+    share = max(0.0, (x - lo) / (hi - lo))
     word = next(word for t, word in SKILL_WORDS if share >= t)
     return "ordinary" if word == "novice" and tech and basic(tech) else word
 
@@ -481,7 +484,7 @@ def craft_line(tech, lvl, rec=None, w=None) -> str:
     bits = [x for x in (body, place if place != "anywhere" or ins else "", life, season if lvl == "known" else "") if x]
     head = "known" if lvl == "known" else "capable"
     if lvl == "known" and rec.get("skill") is not None:
-        head += f", {skill_word(float(rec['skill']), tech)}"
+        head += f", {skill_word(float(rec['skill']), tech, w)}"
     if lvl == "capable":
         bits.append(f"works about {int(round(TRY['capable']['chance'] * 4))} times in 4, with about "
                     f"{'a third' if abs(TRY['capable']['inputs'] - 1.3) < 0.05 else str(round((TRY['capable']['inputs'] - 1) * 100)) + '%'} more materials")
@@ -550,7 +553,10 @@ def mentions(text) -> list:
 # ---------------------------------------------------------------------- rising (through the learn primitive)
 def tried(here, mind, tech, ok, units=1) -> str:
     """Practice: two successes a level (a failure counts half) from rough to capable to known; skill grows with the units of work
-    spent at it, on all work (D2-52)."""
+    spent at it, on all work (D2-52). In a world with `learning: record`, learning.py's one record (u9 §4; D2-307, D2-326)."""
+    from cybertron2.engine import learning as LR
+    if LR.on(here) and not hard(tech):
+        return LR.tried(here, mind, tech, ok, units)
     r = rec(mind, tech)
     if r is None and basic(tech):
         mind.know[tech] = r = {"level": "known", "skill": curve(tech)[0], "seen": 0, "wins": 0, "fails": 0, "source": "", "since": here.day}

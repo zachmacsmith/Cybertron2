@@ -72,7 +72,9 @@ VERB = {
     "learn": {"args": '{"from", "what"}', "cost": ["teach", "units_learner"], "doc": "one session, if they set aside time to teach the same day"},
     "attack": {"args": '{"target": person or building, "aim": rob | hurt}', "cost": ["combat", "units"],
                "doc": "settled tonight; a house with aim rob: break in for its food; with aim hurt: break in and set on those inside"},
-    "guard": {"args": '{"at"?: building}', "cost": 1, "doc": "stand guard tonight over a building here and anyone set upon"},
+    "guard": {"args": '{"at"?: a building, a place or a herd here, "when"?: night | day, "units"?: by day}', "cost": 1,
+              "doc": "stand guard tonight over a building here and anyone set upon; or watch over a place or a herd tonight (losing "
+                     "the night's sleep), or by day (the units you give it)"},
     "fire": {"args": "", "cost": 0, "doc": "light a fire in the open tonight if you sleep out (on the road, or with no bed), from timber in your "
                                             "hands, so grain and flour can be boiled; say it before you set off"},
     "partner": {"args": '{"with": a person here}', "cost": 0, "doc": "become partners with someone here, if they choose it too today"},
@@ -124,9 +126,17 @@ def verb_units(p, verb):
 
 
 def cost(here, a) -> int:
+    from cybertron2.engine import shapes as SH
+    if SH.on(here):
+        a = SH.quiet(here, a)
     v = str((a or {}).get("do", "")).lower().strip()
     if v not in VERB:
         return 0
+    if v == "guard" and str(a.get("when") or "").strip().lower() == "day":     # a day's watch: the units given to it (D2-320)
+        try:
+            return max(1, int(float(a.get("units") or 2)))
+        except (TypeError, ValueError):
+            return 2
     if v == "set" and str(a.get("thing") or "").strip().lower() in ("gap", "the gap", "hatches", "sluice", "weir", "the weir"):
         from cybertron2.engine.data import WATER_WORKS                         # the traps or hatches put in or out (brief 5 §3)
         to = {"closed": "shut", "close": "shut"}.get(str(a.get("to") or "").strip().lower(), str(a.get("to") or "").strip().lower())
@@ -367,6 +377,12 @@ def _thing_site(here, at, graves=False, kinds=("body",)):
 
 
 def do(here, mind, a) -> str:
+    from cybertron2.engine import shapes as SH
+    if SH.on(here):                                                           # the shapes (u9 §3; D2-314): a craft or an act in "do"
+        try:
+            a = SH.normalize(here, mind, a)
+        except Refused as e:
+            return f"Refused: {str((a or {}).get('do') or 'action').strip()}: {e}"
     v = str((a or {}).get("do", "")).lower().strip()
     if v in ALIASES:                                                          # leaving, putting down and hiding are giving (D2-111)
         a = ALIASES[v](a)
@@ -982,10 +998,11 @@ def _load_lot(here, mind, a, party, tech, lvl):
         raise Refused(f"there is no {item} to hand" + _short_note(here, item) if have <= 1e-9 else
                       f"there is too little to make a batch ({round(have, 2):g} {item}): it takes at least {BATCH_LEAST:g}")
     used_units = max(1, int(math.ceil(kg / float(need) - 1e-9)))
-    mult = TRY[lvl]["inputs"]
+    from cybertron2.engine import learning as LR
+    mult = LR.try_row(here, tech, lvl)["inputs"]
     start = _drew_reset(here)
     _consume(here, {item: kg}, 1.0, extra)
-    ok = here.rng("make", here.day, here.name, tech, 0).random() < TRY[lvl]["chance"]
+    ok = here.rng("make", here.day, here.name, tech, 0).random() < LR.try_row(here, tech, lvl)["chance"]
     rose = KN.tried(here, mind, tech, ok, units=used_units)
     here.event("make", f"{here.name} was {KN.label(tech)}" + ("" if ok else ", and it went wrong"), actor=here.name,
                about=[f"{site[0]}:{site[1]}"], salience=0.2, tags=t["tags"], tech=tech)
@@ -1054,7 +1071,8 @@ def _make(here, mind, a, party):
         if b is not None and "water wheel" in fits:                            # its gap open: the head of water lost (brief 5 §3a)
             from cybertron2.engine import wild as WL
             fac *= here.mill_rate(b)
-        mult = TRY[lvl]["inputs"] if fac == 1.0 else TRY[lvl]["inputs"] * fac
+        from cybertron2.engine import learning as LR
+        mult = LR.try_row(here, tech, lvl)["inputs"] * (1.0 if fac == 1.0 else fac)
         while k > 1 and KN.shortfall(here, mind, tech, mult * k, extra=extra):   # as many pieces as the materials to hand allow
             k -= 1
         mult *= k
@@ -1072,7 +1090,7 @@ def _make(here, mind, a, party):
         _consume(here, t.get("inputs") or {}, mult * share, extra)
         if b is not None and fits and WE.on(here.p):
             WE.use(here, site[1], fits, sum(v for v in (t.get("inputs") or {}).values() if isinstance(v, (int, float))) * fac * share)
-        ok = here.rng("make", here.day, here.name, tech, i).random() < TRY[lvl]["chance"]
+        ok = here.rng("make", here.day, here.name, tech, i).random() < LR.try_row(here, tech, lvl)["chance"]
         rose = KN.tried(here, mind, tech, ok, units=CK.act_units(t, here) if t.get("hours") else t["units"])
         if ok:
             full = ""
@@ -2540,6 +2558,38 @@ def _attack(here, mind, a, party):
 
 
 def _guard(here, mind, a, party):
+    """Guard (D2-320: the rough watch act, widening guard): over a building by night as before; over a field or another place, or a
+    herd, by night (beasts that come are met by a watcher, read by the night's groups: the kind's answer to a scare, D2-198; the
+    night's sleep given up, D2-21) or by day ("when": "day": the units given to watching there; one is at that place all day, for
+    what can be seen there, D4-75)."""
+    at = a.get("at") or a.get("thing")
+    when = str(a.get("when") or "night").strip().lower()
+    if at and not here.building(at):
+        hid = here.herd(at)
+        pid = _parcel_named(here, at) if hid is None else here.herds()[hid].get("parcel")
+        if pid is None:
+            raise Refused(f"there is no building, place or herd called {at!r} here to watch over")
+        name = here.herds()[hid]["name"] if hid else here.parcels()[pid]["name"]
+        if when == "day":
+            w_ = here.today()["worked"].setdefault(here.name, [])
+            if pid not in w_:
+                w_.append(pid)
+            here.today().setdefault("day_watch", {})[here.name] = {"parcel": pid, "herd": hid}
+            return f"You keep watch over {name} by day, at {here.parcels()[pid]['name']}."
+        if hid:
+            here.apply("set", ref=("herd", hid), field="watched", value=here.day)
+        else:
+            here.apply("set_wild", path=["watch", pid], value={"day": here.day, "by": here.name, "scare": "watch"})
+        here.today().setdefault("night_watch", {})[here.name] = pid
+        return f"You will sit up tonight watching over {name}, and lose the night's sleep."
+    if when == "day" and at:
+        bid = here.building(at)
+        here.today().setdefault("day_watch", {})[here.name] = {"building": bid}
+        w_ = here.today()["worked"].setdefault(here.name, [])
+        pid = here.buildings()[bid]["parcel"]
+        if pid not in w_:
+            w_.append(pid)
+        return f"You keep watch over {here.buildings()[bid]['name']} by day."
     bid = here.building(a.get("at")) if a.get("at") else (here.homes_here() or [None])[0]
     here.today()["guards"][here.name] = bid
     here.apply("set", ref=("person", here.name), field="guarded", value={"day": here.day, "at": bid})   # for its signs (D4-74)

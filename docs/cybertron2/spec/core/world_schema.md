@@ -110,6 +110,7 @@ authority.
 | one fish stock a water body: top-level `waters` {body: {kind, parcels, fish}}; each parcel on it holds the same record (version 11) | D2-229 |
 | gear as goods with two lives and placed gear (version 13): containers `pieces` {item: [{life, rot, of, barked, torn}]} and a set thing's `household` (with the set fields `catch`, `caught`, `crew`, `robbed`, `robbed_by` listed); a set's `set` holds `gear`, `pieces`, `state`, `tended`, `lost`, `night`, `full`; parcels (and field holdings) `strips` and `strip_dug` for the flax strip | D2-305, D2-310 |
 | keeping, stores and the book (version 14): containers `lot` (a loading in a processing container: process, item, wait, into, ratio, by, household, day, kg, nights, had, out, done, got) in place of `rack`; buildings `smoke` (the smokehouse's fire: tended, by, night, lit, had, fuel), `boiled` (a brine pan's last boiling), `vermin` (where last night's vermin took most); top-level `books` ({"household:<id>" or "person:<name>": {rules, n, proposals}}); people `chore_carry` (a chore's fraction carried until whole); `today.book` (what the book did) | D2-282, D2-284, D2-295, D2-296, D2-301, D2-279 |
+| signs, people and worlds (version 15): `today.day_watch` (a day's watch over a place, a herd or a building: D2-320); people `livelihood` (the livelihood line, written by the world's fill: u9 §2.2, u11 §1) and `crafts_first` (the household's livelihood crafts, shown first: u9 §2.3); buildings `keeper` (a holding's keeper: u11 §2.3); `wild.river` ({node: the river's night record}: u8 §1) | D2-314, D2-320, D2-325, D2-330 |
 
 ## What readers should do
 
@@ -122,4 +123,4 @@ authority.
 proposals/run_data_interface.md; cybertron2/engine/schema.py; spec/record/journal.md (the journal's own `schema`, which versions
 its tables, not the world inside them).
 
-*Current as of 17 Nov 2026: D4-100, D4-103 (version 2), D4-104, D4-106 (version 3), D4-112 (version 4), D4-117 (version 10), D2-229 (version 11, 17 Nov), D2-305 and D2-310 (version 13, 23 Nov), u4 to u6 (version 14, 23 Nov, W-99); versions 5 to 9 from the wild layer's branches, merged to main 16 Nov.*
+*Current as of 17 Nov 2026: D4-100, D4-103 (version 2), D4-104, D4-106 (version 3), D4-112 (version 4), D4-117 (version 10), D2-229 (version 11, 17 Nov), D2-305 and D2-310 (version 13, 23 Nov), u4 to u6 (version 14, 23 Nov, W-99), u8, u9 and u11 (version 15, 23 Nov, W-100); versions 5 to 9 from the wild layer's branches, merged to main 16 Nov.*

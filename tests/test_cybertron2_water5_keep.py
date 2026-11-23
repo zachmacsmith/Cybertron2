@@ -414,14 +414,14 @@ def test_the_smokehouse_and_the_salt_pan_are_seen_and_smelt():
     do(w, "Odo", do="make", what="smoke meat")
     night(w)
     got = _signs(w, "Hamo")
-    assert any("the smell of smoking meat from the Smokehouse" == t for t, _, s in got), got
-    assert any(t.startswith("smoke seeping through the thatch of the Smokehouse") for t, _, s in got), got
+    assert any("the smell of smoke and meat about the Smokehouse" == t for t, _, s in got), got   # u8 §5's words (W-100)
+    assert any(t.startswith("smoke rising from the Smokehouse") for t, _, s in got), got
     hand(w, "Odo", meat=30)
     do(w, "Odo", do="make", what="smoke meat")
     w.s["buildings"]["smokehouse"]["smoke"]["tended"] = -1                    # untended: the fire out
     night(w)
     got = _signs(w, "Hamo")
-    assert any("its fire has gone out" in t for t, _, s in got) and not any("smell of smoking" in t for t, _, s in got), got
+    assert any("its fire has gone out" in t for t, _, s in got) and not any("smell of smoke and" in t for t, _, s in got), got
     w = world(RIVER, salthouse(RP["spring"], RP["household"]))
     salter(w, RP["salter"])
     do(w, RP["salter"], do="make", what="boil salt", qty=3)

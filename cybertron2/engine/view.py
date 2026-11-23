@@ -98,6 +98,11 @@ def _self(here, mind, a, full) -> str:
     age = here.age_line()                                                      # one's age and what lies ahead (D4-69)
     if age:
         you.append(age)
+    from cybertron2.engine import core as CORE
+    if CORE.on(here):                                                       # units left yesterday were rest (u9 §1.5; D2-301)
+        rest = CORE.rest_line(mind)
+        if rest:
+            you.append(rest)
     fam = PR._family_lines(here, mind)
     if not full:                                                               # the standing instructions only at the opening
         fam = [x for x in fam if not x.startswith(("Looking after a child is work", "While caring for a child"))]
@@ -219,6 +224,7 @@ def turn(here, mind, opening=True) -> str:
         if rest:
             nl.append("Other notes (open them to read): " + "; ".join(f"“{k}”" for k in rest))
         L.append("## Your notes\n" + "\n".join(nl))
-    L.append("Plan your day. Reply with JSON only.")
+    from cybertron2.engine import core as CORE
+    L.append(CORE.closing(here))
     mind.store["view_next"] = _snapshot(here, mind)
     return "\n\n".join(L)

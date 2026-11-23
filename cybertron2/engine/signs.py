@@ -572,9 +572,10 @@ SKY = [
          text=lambda x: {"spring": "a mild, bright day", "summer": "a warm, settled day",
                          "autumn": "a cool, bright day, the nights drawing in", "winter": "a still, grey day"}[x.season]),
     # the day's weather and the days before it (environment.py)
-    dict(when=lambda x: x.weather == "heavy rain" and x.water, sense="sight", p=0.3, tags=["season", "travel"],
+    dict(when=lambda x: x.weather == "heavy rain" and x.water and not x.river, sense="sight", p=0.3, tags=["season", "travel"],
          text=lambda x: f"{x.water} is up and running brown"),
-    dict(when=lambda x: x.since_heavy == 1 and x.weather != "heavy rain" and x.water, sense="sight", p=0.2, tags=["season", "travel"],
+    dict(when=lambda x: x.since_heavy == 1 and x.weather != "heavy rain" and x.water and not x.river, sense="sight", p=0.2,
+         tags=["season", "travel"],
          text=lambda x: f"{x.water} is still high from yesterday's rain"),
     dict(when=lambda x: x.weather == "rain" and x.season == "summer", sense="smell", p=0.08, tags=["season"],
          text=lambda x: "warm rain, and the smell of wet earth everywhere"),
@@ -850,12 +851,12 @@ BUILDING = [
          text=lambda x: f"mallets knocking at {x.nm}'s walls"),
     # the smokehouse (brief 5 §4a; keeping.py): its fire last night with a batch on the racks, or the racks hung and the fire dead.
     # Nearby: the smoke through the thatch, the smell (carries). Conditional: fog holds the smoke down. A change: the fire gone out.
-    dict(when=lambda x: x.smoking, own=0.9, sense="sight", tags=["food", "fuel"],
-         text=lambda x: f"smoke seeping through the thatch of {x.nm}: {x.smoking} hanging in it to cure"),
-    dict(when=lambda x: x.smoking, own=1.6, sense="smell", tags=["food"],
-         text=lambda x: f"the smell of smoking {x.smoking} from {x.nm}"),
-    dict(when=lambda x: x.smoking and x.weather == "fog", own=0.8, sense="sight", tags=["food"],
-         text=lambda x: f"smoke from {x.nm} lying low and heavy in the fog"),
+    dict(when=lambda x: x.smoking and x.weather != "fog", own=3.6, sense="sight", tags=["food", "fuel"],   # u8 §5, §6: 0.45 next door
+         text=lambda x: f"smoke rising from {x.nm} this morning"),
+    dict(when=lambda x: x.smoking, own=1.2, reach="around", sense="smell", tags=["food"],                  # smell carries by steps
+         text=lambda x: f"the smell of smoke and {'fish' if 'fish' in x.smoking else 'meat'} about {x.nm}"),
+    dict(when=lambda x: x.smoking and x.weather == "fog", own=2.4, reach="around", sense="sight", tags=["food"],
+         text=lambda x: f"smoke lying low about {x.nm} in the fog"),
     dict(when=lambda x: x.smoke_out, reach="near", own=0.8, sense="sight", tags=["food", "fuel"],
          text=lambda x: f"no smoke from {x.nm} this morning, though {x.smoke_out} hang on its racks: its fire has gone out"),
     # boiling salt at a brine pan (brief 5 §4b.5): today, the steam and the smell of the pan, the salter's fire, all day if long at
@@ -1190,7 +1191,8 @@ def sky_context(here):
                            weather=here.weather(), snow=here.snow_lying(), since_heavy=here.since_heavy_rain(),
                            tomorrow=here.weather(d + 1), storm_coming=_storm_coming(w, here.place, d),
                            dry_before=dry if d >= 5 else 0, wet_days=sum(1 for k in range(max(0, d - 4), d + 1) if here.wet(k)),
-                           water=names("water"), wood=names("forest"))
+                           water=names("water"), wood=names("forest"),
+                           river=bool((((w.s.get("wild") or {}).get("river")) or {}).get(here.node)))   # u8 §3.1: the river's own rows
 
 
 def _herds_out(here, add) -> None:
@@ -1281,6 +1283,8 @@ def facts(here, add) -> None:
         hh = w.household_of(who)
         home = [m for m in here.people() if hh and w.household_of(m) == hh]
         emit(PERSON, person_context(here, who), [f"person:{who}"], parcel=TH.spot_of(w, who), inside=home, concerns=[who])
+    from cybertron2.wild import river as RV                                    # the catch carried home (u8 §2.4)
+    RV.carried(here, add)
 
 
 # =====================================================================================================================================
@@ -2466,8 +2470,10 @@ def _wild_river(here, add) -> None:
         if p["g"] == g:
             key = "held" if p.get("held") else p["dir"]
             now[(p["k"], key)] = now.get((p["k"], key), 0.0) + float(p["n"])
+    from cybertron2.wild import river as RV                                    # the run itself in bands, the flow, slackening,
+    RV.day_signs(here, add)                                                    # otters and the fen (u8 §2.3, §3)
     for (k, key), n in sorted(now.items()):
-        if n < 3.0:                                                            # a few fish are no run
+        if n < 3.0 or key in ("down", "up"):                                   # a few fish are no run; the run's own rows are u8's
             continue
         at = spot
         if key == "held":
