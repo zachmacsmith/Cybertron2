@@ -137,6 +137,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | Q-93 | **Whether people born in a monoculture run are given the graded goal line at coming of age, or get it only if someone passes it on** | | bench |
 | Q-94 | **A kin rule: no partnering or trying for children between parent and child or between siblings (not in the engine; the Scattering world rests on it)** | | bench |
 | ~~Q-95~~ | **(Closed 23 Nov: World 0 (Highpool and Middleham) designed in monoculture_five_worlds.md §1a.)** **Which of the five monoculture worlds to build first (Fallowmere, Eelmouth Reach, Highfold, Oldbury, the Scattering)** | | bench |
+| Q-96 | **Whether 'road networks are meshes by default, a tree or dead end only where the land is the reason, and named' becomes a rule for every world designed, in docs/scenario_design.md** | | bench |
 
 ## Offers and promises
 
