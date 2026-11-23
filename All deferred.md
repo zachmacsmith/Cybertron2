@@ -1,6 +1,8 @@
 # All deferred
 
 ## Open
+- [[L-176 Noticing in parts of the day, so what is seen at mid-morning can…|Noticing in parts of the day, so what is seen at mid-morning can… (L-176)]] (open)
+- [[L-175 Teaching, partnerships and joins settled before the evening, so a…|Teaching, partnerships and joins settled before the evening, so a… (L-175)]] (open)
 - [[L-174 Remove the engine's automatic detection and telling of breaches and…|Remove the engine's automatic detection and telling of breaches and… (L-174)]] (open)
 - [[L-173 Rules as the grammar of norms|Rules as the grammar of norms (L-173)]] (open)
 - [[L-172 Limestone and lime|Limestone and lime (L-172)]] (open)

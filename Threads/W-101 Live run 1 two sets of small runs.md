@@ -24,9 +24,13 @@ started
 ## Linked
 - parent: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
 - under it: [[D2-340 Passing on through care|Passing on through care (D2-340)]] (live)
+- under it: [[L-175 Teaching, partnerships and joins settled before the evening, so a…|Teaching, partnerships and joins settled before the evening, so a… (L-175)]] (open)
+- under it: [[L-176 Noticing in parts of the day, so what is seen at mid-morning can…|Noticing in parts of the day, so what is seen at mid-morning can… (L-176)]] (open)
 - under it: [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]] (done)
 
 
 ## Mentioned by
 - [[D2-340 Passing on through care|Passing on through care (D2-340)]]
 - [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]]
+- [[L-175 Teaching, partnerships and joins settled before the evening, so a…|Teaching, partnerships and joins settled before the evening, so a… (L-175)]]
+- [[L-176 Noticing in parts of the day, so what is seen at mid-morning can…|Noticing in parts of the day, so what is seen at mid-morning can… (L-176)]]

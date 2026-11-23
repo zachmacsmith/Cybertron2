@@ -25,4 +25,6 @@ started
 - [[L-157 Rest days, with health, fatigue and illness|Rest days, with health, fatigue and illness (L-157)]]
 - [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]]
 - [[L-166 Herding for as long as it takes|Herding for as long as it takes (L-166)]]
+- [[L-176 Noticing in parts of the day, so what is seen at mid-morning can…|Noticing in parts of the day, so what is seen at mid-morning can… (L-176)]]
+- [[When signs and outcomes reach people (a survey of the engine, 23 Nov…|When signs and outcomes reach people (a survey of the engine, 23 Nov…]]
 - *and 1 index or audit notes*
