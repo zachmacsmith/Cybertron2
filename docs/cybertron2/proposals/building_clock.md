@@ -93,6 +93,7 @@ pottery, daub is mud and straw dug on the spot (work, no good); clay joins with 
 
 ## History
 
+- 23 Nov 2026: accepted in part: D2-328 (A wattle house's default roof is turf or brush got at the site (counted in the w).
 - 23 Nov 2026: accepted in part: D2-324 (A build act costs what is left of the work (1 or 2 units), not a flat 2.).
 - 23 Nov 2026: accepted in part: D2-323 (A cleared plot becomes a field part of its parcel, sown while the rest is still ).
 - 23 Nov 2026: accepted in part: D2-322 (Fences can be built along one border between two parcels, in sections a person c).
