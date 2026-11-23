@@ -653,7 +653,8 @@ def _house_lines(here, mind) -> list:
         b = here.buildings()[bid]
         st = here.stock(bid)
         who = [x for x in here.people(me=False) if bid in here.homes_here(x)]
-        stock = ", ".join(f"{show(q)} {i}" for i, q in sorted(st.items()) if q > 0.05) or "empty"
+        from cybertron2.engine import stores as SR                             # by portion: where each good lies (u5 §7)
+        stock = SR.store_line(b, st) or "empty"
         beds = int(b['fittings'].get('beds', 0))
         need = sum(float(here.p["beds"].get(here.person_stage(x), 1.0)) for x in [here.name] + who)
         from cybertron2.engine import buildings as BL

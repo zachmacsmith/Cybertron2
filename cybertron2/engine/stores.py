@@ -396,8 +396,8 @@ def store_line(b, goods, book=None) -> str:
             else:
                 where = SPACES[k]["words"]
             parts.append((x["qty"], where))
-        if len(parts) == 1:
-            bits.append(f"{show(round(tot, 1))} {item} {parts[0][1]}")
+        if len(parts) == 1:                                                   # all loose on the floor: the plain case, unsaid
+            bits.append(f"{show(round(tot, 1))} {item}" + ("" if parts[0][1] == SPACES["floor"]["words"] else f" {parts[0][1]}"))
         else:
             bits.append(f"{show(round(tot, 1))} {item} (" + ", ".join(f"{show(round(q, 1))} {wh}" for q, wh in parts) + ")")
     return ", ".join(bits)

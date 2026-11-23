@@ -271,6 +271,7 @@ def test_the_sort_puts_grain_in_the_bins_the_chest_the_sacks_and_then_loose_and_
     assert SR.rate(PHYSICS, "grain", "chest", "autumn", False) == pytest.approx(base)
     assert SR.factor("grain", "sack") == 1.5 and SR.factor("grain", "floor") == 2.0
     assert "1170 grain (400 in the chest, 300 in the bins, 200 in 4 sacks, 270 loose on the floor)" in SR.store_line(b, g), SR.store_line(b, g)
+    assert SR.store_line(b, {"timber": 3}) == "3 timber"
     assert not SR.portions(b, {**g, "grain": 1200})["left"] == {}                # 30 more find no room
 
 
