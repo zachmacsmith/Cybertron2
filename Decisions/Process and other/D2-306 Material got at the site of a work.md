@@ -26,4 +26,4 @@ conversation (23 Nov: "4. Sure.")
 - [[The build plan|The build plan]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[Stage 1 of the fishing, hunting and materials wave the basis in code…|Stage 1 of the fishing, hunting and materials wave: the basis in code…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

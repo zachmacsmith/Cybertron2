@@ -21,4 +21,4 @@ Proposal docs/cybertron2/proposals/trying_and_learning.md (22 Nov), from learnin
 
 ## Mentioned by
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

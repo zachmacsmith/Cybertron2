@@ -33,3 +33,4 @@ survey.md and design.md done; awaiting Zach's choices on the ten ranked addition
 - [[Live run 1 the rebuilt fishing world against the old prompt and the…|Live run 1: the rebuilt fishing world against the old prompt and the…]]
 - [[What more people could be shown when they observe a thing a design|What more people could be shown when they observe a thing: a design]]
 - [[Signs survey every mechanism's signs, by sense and by the way a…|Signs survey: every mechanism's signs, by sense and by the way a…]]
+- *and 1 index or audit notes*

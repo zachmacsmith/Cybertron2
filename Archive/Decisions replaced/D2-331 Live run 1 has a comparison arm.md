@@ -26,3 +26,4 @@ conversation (23 Nov: "Can we do a null arm where the same world lacks the new s
 - [[The build plan|The build plan]]
 - [[Brief build stage 4, taking and making (thread W-100)|Brief: build stage 4, taking and making (thread W-100)]]
 - [[Stage 4 of the fishing, hunting and materials wave signs, people and…|Stage 4 of the fishing, hunting and materials wave: signs, people and…]]
+- *and 1 index or audit notes*

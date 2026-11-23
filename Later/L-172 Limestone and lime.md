@@ -23,4 +23,4 @@ Zach 23 Nov: 'I agree limestone will be connecting both the quarrying and leathe
 
 ## Mentioned by
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

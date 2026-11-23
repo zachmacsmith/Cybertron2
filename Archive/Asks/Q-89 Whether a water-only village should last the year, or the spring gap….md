@@ -27,3 +27,4 @@ updated: "2026-11-23"
 
 ## Mentioned by
 - [[D2-347 A water-only village should be able to last the year|A water-only village should be able to last the year (D2-347)]]
+- *and 1 index or audit notes*

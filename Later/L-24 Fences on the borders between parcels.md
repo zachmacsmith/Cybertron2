@@ -35,4 +35,4 @@ Fences on the borders between parcels (rather than round a parcel); hedges; nigh
 - [[Livestock|Livestock]]
 - [[02s build brief for 37.4 the parcel graph, herds, fences, hidden…|02s: build brief for 37.4: the parcel graph, herds, fences, hidden…]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
-- *and 5 index or audit notes*
+- *and 6 index or audit notes*

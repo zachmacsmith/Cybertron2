@@ -22,3 +22,4 @@ sign_timing.md gap 1; Zach 23 Nov: signs seen during the day should reach people
 
 ## Mentioned by
 - [[Live run 1 the rebuilt fishing world against the old prompt and the…|Live run 1: the rebuilt fishing world against the old prompt and the…]]
+- *and 1 index or audit notes*

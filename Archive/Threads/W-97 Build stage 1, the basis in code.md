@@ -27,3 +27,4 @@ done 23 Nov: built and merged (26cc29aa): u0 stage 1; 748 passed, 2 skipped; rep
 
 ## Mentioned by
 - [[Stage 1 of the fishing, hunting and materials wave the basis in code…|Stage 1 of the fishing, hunting and materials wave: the basis in code…]]
+- *and 1 index or audit notes*

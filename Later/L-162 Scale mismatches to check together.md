@@ -23,3 +23,4 @@ Zach, 23 Nov: 'flag it against other scale mismatches to check in on again later
 
 ## Mentioned by
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
+- *and 1 index or audit notes*

@@ -26,4 +26,4 @@ Every kill makes offal and nothing uses it (02zzzh byproducts_and_substitutes, e
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

@@ -31,4 +31,4 @@ updated: "2026-11-22"
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[Stage 1 of the fishing, hunting and materials wave the basis in code…|Stage 1 of the fishing, hunting and materials wave: the basis in code…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

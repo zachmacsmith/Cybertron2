@@ -33,4 +33,4 @@ conversation (23 Nov: "on leather: I think it has a one way dependnecy where it 
 - [[Stage 2 of the fishing, hunting and materials wave taking and making…|Stage 2 of the fishing, hunting and materials wave: taking and making…]]
 - [[Brief build stage 3, taking and making (thread W-99)|Brief: build stage 3, taking and making (thread W-99)]]
 - [[Stage 3 of the fishing, hunting and materials wave keeping, stores…|Stage 3 of the fishing, hunting and materials wave: keeping, stores…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

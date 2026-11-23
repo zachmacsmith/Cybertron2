@@ -47,3 +47,4 @@ started
 - [[L-175 Teaching, partnerships and joins settled before the evening, so a…|Teaching, partnerships and joins settled before the evening, so a… (L-175)]]
 - [[L-176 Noticing in parts of the day, so what is seen at mid-morning can…|Noticing in parts of the day, so what is seen at mid-morning can… (L-176)]]
 - [[Live run 1 the rebuilt fishing world against the old prompt and the…|Live run 1: the rebuilt fishing world against the old prompt and the…]]
+- *and 1 index or audit notes*

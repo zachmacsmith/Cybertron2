@@ -29,3 +29,4 @@ done 23 Nov: merged 034e61ea: [[D2-340 Passing on through care|D2-340]] care's p
 - [[L-177 AB prompt replay|A/B prompt replay (L-177)]]
 - [[After live run 1 the build (W-104)|After live run 1: the build (W-104)]]
 - [[Signs survey every mechanism's signs, by sense and by the way a…|Signs survey: every mechanism's signs, by sense and by the way a…]]
+- *and 1 index or audit notes*

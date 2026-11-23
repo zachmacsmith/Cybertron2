@@ -19,4 +19,4 @@ started
 ## Mentioned by
 - [[L-162 Scale mismatches to check together|Scale mismatches to check together (L-162)]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

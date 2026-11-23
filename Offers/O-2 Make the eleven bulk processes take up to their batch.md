@@ -29,4 +29,4 @@ add the existing up-to batch (brief 4c §6.1) to mill, water mill, grind, bread,
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
 - [[Stage 3 of the fishing, hunting and materials wave keeping, stores…|Stage 3 of the fishing, hunting and materials wave: keeping, stores…]]
 - [[Design wave part 2 materials and making (withies, cord and flax…|Design wave part 2: materials and making (withies, cord and flax…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

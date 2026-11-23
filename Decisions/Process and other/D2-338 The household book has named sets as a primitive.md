@@ -23,3 +23,4 @@ conversation (23 Nov: "they should be able to define groups as sets of people wi
 ## Mentioned by
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
 - [[The act shapes' interface faults from live run 1 (W-102)|The act shapes' interface faults from live run 1 (W-102)]]
+- *and 1 index or audit notes*

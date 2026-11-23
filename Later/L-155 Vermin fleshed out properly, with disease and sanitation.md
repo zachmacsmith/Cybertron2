@@ -22,4 +22,4 @@ Zach, 22 Nov: the vermin system should definitely be flagged as something to ret
 ## Mentioned by
 - [[U5. Stores and containers a space and what is in it, each removing…|U5. Stores and containers: a space and what is in it, each removing…]]
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

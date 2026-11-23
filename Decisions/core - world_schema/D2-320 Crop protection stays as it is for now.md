@@ -28,4 +28,4 @@ conversation (23 Nov: "tbh let's put off the dead hedge ... Maybe cop protection
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[Brief build stage 4, taking and making (thread W-100)|Brief: build stage 4, taking and making (thread W-100)]]
 - [[Stage 4 of the fishing, hunting and materials wave signs, people and…|Stage 4 of the fishing, hunting and materials wave: signs, people and…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

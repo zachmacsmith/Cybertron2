@@ -30,4 +30,4 @@ conversation (22 Nov: "Handling units (Recommended)")
 - [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
 - [[U5. Stores and containers a space and what is in it, each removing…|U5. Stores and containers: a space and what is in it, each removing…]]
 - [[Stage 1 of the fishing, hunting and materials wave the basis in code…|Stage 1 of the fishing, hunting and materials wave: the basis in code…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

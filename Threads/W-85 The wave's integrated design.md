@@ -130,4 +130,4 @@ started
 - [[D2-338 The household book has named sets as a primitive|The household book has named sets as a primitive (D2-338)]]
 - [[D2-339 The household book's grammar|The household book's grammar (D2-339)]]
 - … and 41 more
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

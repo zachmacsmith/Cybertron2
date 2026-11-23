@@ -28,3 +28,4 @@ conversation (23 Nov: "B25: yes and somne should be anyone, if the river is full
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[Brief build stage 4, taking and making (thread W-100)|Brief: build stage 4, taking and making (thread W-100)]]
 - [[Stage 4 of the fishing, hunting and materials wave signs, people and…|Stage 4 of the fishing, hunting and materials wave: signs, people and…]]
+- *and 1 index or audit notes*

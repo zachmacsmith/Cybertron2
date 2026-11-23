@@ -25,3 +25,4 @@ Zach, 23 Nov: 'ice should be flagged to revisit when we next flesh out weather a
 - [[L-163 Fishing through ice|Fishing through ice (L-163)]]
 - [[Brief build stage 2, taking and making (thread W-98)|Brief: build stage 2, taking and making (thread W-98)]]
 - [[Stage 2 of the fishing, hunting and materials wave taking and making…|Stage 2 of the fishing, hunting and materials wave: taking and making…]]
+- *and 1 index or audit notes*

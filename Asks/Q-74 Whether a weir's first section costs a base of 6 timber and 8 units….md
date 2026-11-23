@@ -20,4 +20,4 @@ Built 20 Nov (w69-water-fixes, 02zzw): position decides a section's share and ho
 
 
 ## Mentioned by
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

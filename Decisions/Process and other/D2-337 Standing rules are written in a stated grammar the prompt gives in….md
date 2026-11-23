@@ -28,3 +28,4 @@ conversation (23 Nov: "How are the rules written? surely they are told the gramm
 - [[Rules as the grammar of norms claims, access and laws in the same…|Rules as the grammar of norms: claims, access and laws in the same…]]
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
 - [[The act shapes' interface faults from live run 1 (W-102)|The act shapes' interface faults from live run 1 (W-102)]]
+- *and 1 index or audit notes*

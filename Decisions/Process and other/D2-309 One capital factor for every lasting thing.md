@@ -26,4 +26,4 @@ conversation (23 Nov: "On one factor 5 sure yes.")
 - [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
 - [[Stage 1 of the fishing, hunting and materials wave the basis in code…|Stage 1 of the fishing, hunting and materials wave: the basis in code…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

@@ -22,4 +22,4 @@ Zach 23 Nov (B36): 'shoes deferred for now to be put wiht clothing in general, m
 
 
 ## Mentioned by
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

@@ -24,4 +24,4 @@ conversation (23 Nov: "B17: tbh let's put this off for now. Flag to return to bu
 - [[L-164 Builders' craftsmanship|Builders' craftsmanship (L-164)]]
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

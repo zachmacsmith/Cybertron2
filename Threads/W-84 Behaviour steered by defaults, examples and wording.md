@@ -33,4 +33,4 @@ started
 - [[C-12 The river run seeded a scored goal|The river run seeded a scored goal (C-12)]]
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Steered or chosen defaults, examples and wordings in what the agents…|Steered or chosen: defaults, examples and wordings in what the agents…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

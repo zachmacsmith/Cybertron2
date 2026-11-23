@@ -117,4 +117,4 @@ started
 - [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
 - [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]]
 - … and 48 more
-- *and 6 index or audit notes*
+- *and 7 index or audit notes*

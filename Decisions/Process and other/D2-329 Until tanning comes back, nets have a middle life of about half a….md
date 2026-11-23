@@ -26,4 +26,4 @@ conversation (23 Nov: "for the barked nets: do (b) for now until we add tanning 
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
 - [[Brief build stage 2, taking and making (thread W-98)|Brief: build stage 2, taking and making (thread W-98)]]
 - [[Stage 2 of the fishing, hunting and materials wave taking and making…|Stage 2 of the fishing, hunting and materials wave: taking and making…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

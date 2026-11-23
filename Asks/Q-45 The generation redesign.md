@@ -28,4 +28,4 @@ updated: "2026-11-22"
 - [[O-4 Bridge the backward family-tree build into world generation as an…|Bridge the backward family-tree build into world generation as an… (O-4)]]
 - [[17 The household's own work, care and kinship (16 Nov 2026)|17: The household's own work, care and kinship (16 Nov 2026)]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

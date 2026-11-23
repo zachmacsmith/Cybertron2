@@ -33,4 +33,4 @@ started
 - [[The building clock's first stage, read with bots do bots still build…|The building clock's first stage, read with bots: do bots still build…]]
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Steered or chosen defaults, examples and wordings in what the agents…|Steered or chosen: defaults, examples and wordings in what the agents…]]
-- *and 4 index or audit notes*
+- *and 5 index or audit notes*

@@ -21,4 +21,4 @@ Zach 23 Nov (B30): 'flag strength to be added alter.'
 
 
 ## Mentioned by
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

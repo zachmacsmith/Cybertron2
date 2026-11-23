@@ -23,4 +23,4 @@ updated: "2026-11-23"
 
 ## Mentioned by
 - [[L-172 Limestone and lime|Limestone and lime (L-172)]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

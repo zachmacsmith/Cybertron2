@@ -27,3 +27,4 @@ started
 ## Mentioned by
 - [[Q-91 How a water-only village is made able to last the year|How a water-only village is made able to last the year (Q-91)]]
 - [[L-179 Every take's line says 'food worth about 1 meal' at the least|Every take's line says 'food worth about 1 meal' at the least (L-179)]]
+- *and 1 index or audit notes*
