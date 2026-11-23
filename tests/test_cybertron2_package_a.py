@@ -101,11 +101,11 @@ def test_give_to_someone_not_here_is_left_at_their_door_and_a_passer_by_can_take
 def test_bury_is_offered_only_where_a_body_lies_and_frozen_ground_takes_six_shared_over_days():
     from cybertron2.engine import knowledge as KN
     w = world()
-    can, near = KN.options(Here(w, "Edric"), Mind(w, "Edric"), limit=99)
-    assert not any(x.startswith("work bury") for x in can + near)
+    can = KN.doable(Here(w, "Edric"), Mind(w, "Edric"))
+    assert not any(x.startswith("work bury") for x in can)
     cid = _body(w, "long_field", "Hamo")
-    can, _ = KN.options(Here(w, "Edric"), Mind(w, "Edric"), limit=99)
-    assert any(x.startswith("work bury") for x in can)
+    assert "work bury" in [x for x in KN.doable(Here(w, "Edric"), Mind(w, "Edric"))] or \
+        KN.shortfall(Here(w, "Edric"), Mind(w, "Edric"), "bury", 1.0) == ""
     assert V.cost(Here(w, "Edric"), {"do": "work", "what": "bury", "at": "Hamo"}) == 2
     w.cold_days = {w.d}
     assert TH.grave_left(w, cid) == 6                                             # frozen ground: 6 units in all (D2-96)

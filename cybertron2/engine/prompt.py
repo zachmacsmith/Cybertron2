@@ -787,13 +787,8 @@ def turn_prompt(here, mind, opening=True) -> str:
               "with you until you turn it out: drive {thing, to: a pasture here}; set off without leading it and it is left here)."
               for _, nm, ox in here.led()] + _beast_lines(here, mind)
     L.append("## You\n" + "\n".join(you + _family_lines(here, mind) + beasts + _house_lines(here, mind)))
-    can, near = KN.options(here, mind)
-    opt = ["Today you could: " + "; ".join(can) + "." if can else "Of your crafts, none can be done here today with what you have."]
-    if near:
-        opt.append("Not yet: " + "; ".join(near) + ".")
-    if not opening:
-        opt.append("What you know how to do: " + " ".join(x.removeprefix("- ") for x in KN.crafts_lines(mind)))
-    L.append("## Your crafts today\n" + "\n".join(opt))
+    if not opening:                                                        # no list of what one could do today (D2-286)
+        L.append("## Your crafts\nWhat you know how to do: " + " ".join(x.removeprefix("- ") for x in KN.crafts_lines(mind)))
     offers = [AG.offer_text(here, oid) for oid, o in here.offers().items() if o["by"] != here.name and o["to"] in (None, here.name)]
     mine = [AG.offer_text(here, oid) for oid, o in here.offers().items() if o["by"] == here.name]
     if offers or mine:

@@ -47,7 +47,7 @@ def bot_plan(w, name, talk=None, kind="decision") -> dict:
     if BLV.on(w):                                                         # a world's livelihood bots (W-69, D2-256)
         return BLV.plan(w, name, talk, kind)
     here, mind = Here(w, name), Mind(w, name)
-    can, _ = KN.options(here, mind)
+    can = KN.doable(here, mind)                                         # the bots' own candidates; no prompt shows them (D2-286)
     acts = []
     can = sorted(can, key=lambda x: (not x.startswith(("work reap", "work milk")), x))
     if w.spec.get("bot_reap") == "ripe":                                  # a world's test bots leave a green crop standing
@@ -58,7 +58,6 @@ def bot_plan(w, name, talk=None, kind="decision") -> dict:
     scripted = any(int(sc["day"]) - 1 == w.d and sc["who"] == name for sc in w.spec.get("script") or [])
     for line in can[:4]:
         verb, tech = line.split(" ", 1)
-        tech = tech.split(" at ")[0].split(" (")[0]
         acts.append({"do": verb, "what": tech})
     for item in ("wild food", "grain", "timber", "meat", "milk"):
         acts.append({"do": "move", "item": item, "qty": 2, "to": "store"})
