@@ -123,13 +123,13 @@ ITEMS.update({
     "hot-smoked fish": {"pack": "water", "weight": 1, "food": 0.69, "spoil": 0.0, "decay": "dried meat"},    # 1 kg from 1.5 fresh
     "hard-cured fish": {"pack": "water", "weight": 1, "food": 1.15, "spoil": 0.0, "decay": "dried meat"},    # from 2.5 kg fresh, salted
     "hot-smoked meat": {"weight": 1, "food": 0.9, "spoil": 0.0, "decay": "dried meat"},
-    "hard-cured meat": {"weight": 1, "food": 0.71, "spoil": 0.0, "decay": "dried meat"},                       # bacon, ham
+    "hard-cured meat": {"weight": 1, "food": 0.67, "spoil": 0.0, "decay": "dried meat"},                       # bacon, ham
 })
 # The keeping curve (D2-289; basis §3; wave1 §2.2): a food that keeps d real days well kept loses about a quarter by
 # nights = min(d, 2) + (d - 2) / 11.4, so its base rate a night (`spoil`: well kept, D2-272) is 1 - 0.75 ** (1 / nights). The real
 # days are wave1 §2.2's. A lot in the smoke or at the hearth spoils at 0.12 out of it, 0.03 in it (DECAY smoke 0.25; basis §3).
 KEEP_DAYS = {
-    "fish": 1.5, "offal": 1, "milk": 1, "meat": 3, "green grain": 1.5, "green rye": 1.5, "green beans": 1.5, "greens": 2,
+    "fish": 1.5, "offal": 1, "meat": 3, "green grain": 1.5, "green rye": 1.5, "green beans": 1.5, "greens": 2,
     "watercress": 2, "mushrooms": 2, "berries": 2, "samphire": 4, "hot-smoked fish": 7, "hot-smoked meat": 7, "bread": 5,
     "wild food": 14, "egg": 30, "hedge fruit": 30, "roots": 60, "flour": 90, "meal": 90, "smoked fish": 90, "smoked meat": 90,
     "cheese": 120, "acorn meal": 120, "beech nuts": 120, "acorns": 180, "hard-cured fish": 270, "salt fish": 365, "salt meat": 365,
@@ -151,6 +151,7 @@ def base_spoil(d) -> float:
 
 for _i, _d in KEEP_DAYS.items():
     ITEMS[_i]["spoil"] = base_spoil(_d)
+# Milk is not on the curve: it is gone the same day (D2-273's floor, "milk the same day"; D2-42), its row's 1.0 kept.
 for _i in ("smoking fish", "drying fish", "smoking meat", "drying meat"):
     ITEMS[_i]["spoil"] = IN_PROCESS_SPOIL
 
