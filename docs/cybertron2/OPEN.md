@@ -139,6 +139,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | ~~Q-95~~ | **(Closed 23 Nov: World 0 (Highpool and Middleham) designed in monoculture_five_worlds.md §1a.)** **Which of the five monoculture worlds to build first (Fallowmere, Eelmouth Reach, Highfold, Oldbury, the Scattering)** | | bench |
 | Q-96 | **Whether 'road networks are meshes by default, a tree or dead end only where the land is the reason, and named' becomes a rule for every world designed, in docs/scenario_design.md** | | bench |
 | Q-97 | **How many people one place may hold: the engine's proposed 15 to 20 a node (talk grows with the square of those present) against monoculture places with room for 12 to 14 households (60 or more people)** | | bench |
+| Q-98 | **Whether to keep World 0's Haiku 4.5 arm running: it costs about 13 times Haiku 5.5 a day (its fixed thinking budget), about 5.5 minutes a day against 1.4, so 200 days is about 18 hours and a large share of the weekly window** | | bench |
 
 ## Offers and promises
 
