@@ -136,7 +136,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | Q-92 | **Whether the 'never an all-Haiku society' rule is noted as not applying to monoculture benchmarks, where an inert society is the result** | | bench |
 | Q-93 | **Whether people born in a monoculture run are given the graded goal line at coming of age, or get it only if someone passes it on** | | bench |
 | Q-94 | **A kin rule: no partnering or trying for children between parent and child or between siblings (not in the engine; the Scattering world rests on it)** | | bench |
-| Q-95 | **Which of the five monoculture worlds to build first (Fallowmere, Eelmouth Reach, Highfold, Oldbury, the Scattering)** | | bench |
+| ~~Q-95~~ | **(Closed 23 Nov: World 0 (Highpool and Middleham) designed in monoculture_five_worlds.md §1a.)** **Which of the five monoculture worlds to build first (Fallowmere, Eelmouth Reach, Highfold, Oldbury, the Scattering)** | | bench |
 
 ## Offers and promises
 
@@ -148,6 +148,7 @@ unanswered is neither lost nor re-asked. Written by `python3 tools/records.py ne
 | O-1 | **A first wiki generated from the spec as it stands, as a private page, to judge how far it is from readable** | wait for Zach's go | 2026-12-04 | 37.2 |
 | O-2 | **Make the eleven bulk processes take up to their batch (D2-247): a data change**: add the existing up-to batch (brief 4c §6.1) to mill, water mill, grind, bread, oven bread, salt fish, salt meat, dry fodder, leach acorns, charcoal and cheese; the work stays the same, so a small batch is less worth it; tests for each; on main (37.4 named on the merge, D2-237) | wait for Zach's go | 2026-11-27 | 37.2 |
 | ~~O-3~~ | **(Closed 20 Nov: accepted: the switches, after the merge.)** **Build the switches that turn a food source off in a world: farming as a pack on by default, and wild game, plants and resident fish off by class**: about a day: packs on by default with packs_off (farming's rows tagged), a world setting turning off wild kinds by class read where the wildlife model and its history are built, tests that every existing world and replay is unchanged; kept to the feature-package seams (D2-244), 37.4 named on the merge (D2-237); best after the water work is merged (Q-53), on main | wait for Zach's go | 2026-11-27 | 37.2 |
+| O-4 | **Build World 0's maker (Highpool and Middleham from the runs world), its checks and a 200-day bot arm, with the farming acts checked on the rebuilt engine** | wait for Zach's go | 2026-11-30 | bench |
 
 ## Flagged for later (deferred)
 

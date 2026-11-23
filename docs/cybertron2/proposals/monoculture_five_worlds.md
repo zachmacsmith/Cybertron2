@@ -84,6 +84,94 @@ most of them unexplored.
 - The largest world generated so far was 95 km, and generation took about 60 s (02zzf). A 140 km window has about twice the cells.
   It is untested and may need cells of 0.2 to 0.3 km.
 
+## 1a. World 0: Highpool and Middleham, the first run (two villages, fishing and farming)
+
+Zach (23 Nov): "Can the first one we do be relatively small, but two connected villages with both fishing and farming since I haven't
+[tested] the dependencies yet". This world goes before the five. Its point is the dependence between a fishing village and a farming
+village, a day apart, under one model. That has not been run on the rebuilt engine: live run 1 is water-only (D2-316).
+
+**Reading taken:** one village fishes and boils salt, the other farms and mills. Each can do a little of the other's work (the
+fishers can clear scrub to a plot; the farmers can fish the shallows), so the dependence binds without being absolute (scenario_design
+§4). The other reading, both villages mixed, would test less dependence; it is kept as a later mirror arm.
+
+**Land.** The runs world's land (`specs/water/runs.yaml`; generated, its seed kept): one river with eel, salmon and lamprey runs, a
+brine spring, a mill. It is small, known and already run (pw1's runs world; W-58's 30 days). Ten places:
+
+| Place | Roads | Land | What it holds | At the start |
+|---|---|---|---|---|
+| **Highpool** | Middleham 1; Thornholt 1; Stanwood 1; w4 1 | fen, meadow, pasture, scrub, forest, water; **no field** | the brine spring and the Salt House; Brook's Forge; the river's runs | the fishing village, known |
+| **Middleham** | Highpool 1; Lowstrand 1; Hartcliffe 1 | field, meadow, pasture, fen, forest, water | three fields; the water mill | the farming village, known |
+| Lowstrand | Middleham 1 | field, meadow, pasture, fen, forest, water | two fields and three houses, empty | **unexplored**; an empty village to take over |
+| Stanwood | Highpool 1; w2 1; w3 1 | river flats: forest, heath, meadow, pasture, rock | rock (stone), wood | unexplored, vacant |
+| Hartcliffe | Middleham 1 | river flats: forest, meadow, rock | rock, wood | unexplored, vacant |
+| Thornholt | Highpool 1; w1 1; w4 1 | clay vale: forest, meadow, pasture, rock | wood, pasture | unexplored, vacant |
+| w1 to w3 | 1 day beyond Thornholt and Stanwood | old forest | game, timber | unexplored (as generated) |
+| w4 | Highpool 1, Thornholt 1 | broken hill country: rock, scrub | stone | unexplored (as generated) |
+
+The land is small (two villages, an empty one, three vacant places, four wild). Its ceiling may bind before day 200. In a first run
+that is a finding about the dependence, not a fault; the five larger worlds are where room to expand is the test.
+
+**Founders: 14 in 4 households, all one model.**
+
+| Village | Household | People (age in days) | Livelihoods (u11 rows) | Capital | Holds the chokepoint |
+|---|---|---|---|---|---|
+| Highpool | Brook | head 50 (m), wife 40, son 20 (youth), daughter 9 | salter (the pan); fisher (hand, rod) | the Salt House and brine pan, salting tub, Brook's Forge, copper tools | **salt**, the forge |
+| Highpool | Marsh | head 44 (m), wife 36, daughter 18 (youth) | fisher (weir and nets; keeping) | the weir (wattle), gill net, wicker traps, smokehouse | **the weir** |
+| Middleham | Field | head 46 (f, widowed), brother 34, son 21 (youth), daughter 15 (youth) | farmer (ploughman; seed and harvest); herder | 2 fields, bins, ox pair and plough, the Field Byre, 4 cows and a bull, hay | **the plough team**, the cattle |
+| Middleham | Fletcher | head 56 (m, elder about day 8), daughter 30, her son 6 | miller; farmer (broad) | the mill, oven, 1 field | **the mill** |
+
+- Partners cross the villages: Brook's son with Field's daughter, Field's son with Marsh's daughter.
+- Within each village the two households are rough in each other's broad crafts (u11 §5.7's neighbours).
+- Across the villages, each knows the other's trade by name only, plus one seeded line each of the old exchange ("Middleham sends
+  grain at harvest for salt and smoked eels"). This seeds that trade has happened, not what to do now.
+- The miller is old: the mill's knowledge passes to his daughter or is lost.
+
+**The dependencies under test.**
+
+| Flow | From | To | Why it matters |
+|---|---|---|---|
+| Salt | Highpool (the pan) | Middleham | salting beef and the farmers' share of the fish; without it meat keeps days, not a season |
+| Grain and flour | Middleham (fields, mill) | Highpool | food between the runs; shallows alone do not feed the fishers (D2-316) |
+| Smoked and salted fish | Highpool (the weir, the runs) | Middleham | the farmers' winter and their lean spring |
+| Hides | Middleham (cattle) | Highpool | rods and leather; angling is 1.5 a unit against 0.6 by hand (75_lake_run2 §run 2) |
+| Tools mended | Highpool (the forge) | Middleham | copper tools and the plough wear |
+| Oxen hired | Middleham | Highpool | carrying (a pack ox), clearing scrub to a first plot |
+
+Each village can survive the first year alone, poorly: the fishers on the runs and the shallows, the farmers on grain and milk. The
+headroom (more children, a third household, taking Lowstrand) needs the exchange. Every link has a person who can withhold it, so
+terms, debts and agreements are possible but not seeded.
+
+**Start and length.** Summer day 4 of the runs world, with grain standing and the harvest soon. The eel run comes in autumn, so both
+villages put food by before the first winter. Stores at home last to the harvest and the run at about 1.15 times need. 200 days.
+
+**What it reads.**
+- Whether the flows above happen, how often, and on what terms (the agreements, gives and trades in `days.jsonl`).
+- The population of each village and in all; who holds food at the end.
+- Whether the empty village (Lowstrand) is found and taken, and by whom.
+- The share of acts on food.
+- The mill's and the forge's knowledge after their keepers die.
+
+**Arms.** This model's run, plus:
+- the 200-day bot arm, the null arm;
+- a cut arm with the road between the villages closed. It is free with bots, and with a model it is the cleanest test that the
+  dependence binds. *Recommend:* run it with bots only at first.
+
+**How it would be built.** A maker beside `make_eelmouth.py` and `make_runs_models.py`:
+1. Start from `water/runs.yaml`.
+2. Keep two households a village and trim them to the table. Take Lowstrand's people out and leave its houses and fields empty.
+3. Mark the other places unexplored, and pin the skills by u11 (`skills.households`).
+4. Couple capital with memory (D2-311), set the cast to one model, and seed the goal line (D5-1).
+5. Settings: `memory.kept.words` 80 so the goal is whole, `days: 200`, `calendar.season_days: 8`.
+
+**Gaps.**
+- **The farming half has not run on the rebuilt engine.** Live run 1 is water-only. The eleven act shapes, the household book and
+  the core prompt must be checked on farming work (sow, reap, plough, herd, mill, bake) with bots first.
+- The goal line needs 80 words; the rebuilt worlds keep lines at 40 (D2-308). Either the goal is a protected line of its own length,
+  or the cap is raised for this world.
+- Where the weir stands against the runs (D2-210: weirs take in order up the river) is to be checked in the land, so that Highpool's
+  weir is not left with what Middleham's shallows take first.
+- The action fixes (W-102) first, as for every world.
+
 ## 2. World 1: Fallowmere (the baseline; the fewest systems)
 
 **Idea.** A farming village of three households on a river, at the edge of wild wood. The land at home feeds them with a little to
@@ -442,6 +530,8 @@ At lifespan 64 the acting people (youths, adults and elders) are about 70% of th
 
 ## History
 
+- 23 Nov 2026 (later): Zach asked that the first world be small, with two connected villages, fishing and farming, to test the
+  dependencies (Q-95 answered). World 0, Highpool and Middleham, added in §1a, on the runs world's land.
 - 23 Nov 2026: written by session bench at Zach's request; five worlds, after D5-1 (the graded line).
 
 ## Sources
