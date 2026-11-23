@@ -193,6 +193,18 @@ def water_tonight(here, mind, key) -> str:
 
 
 # ---------------------------------------------------------------------------------------------------------------------- tend
+def tended(here, c) -> None:
+    """The parcel of a set thing one tended today (W-102): the river's signs read who was at the water (the catch carried home, u8
+    §2.4), kept apart from `worked` so the day's act draws are as they were."""
+    pid = c.get("parcel")
+    try:
+        today = here.today()
+    except KeyError:
+        return
+    if pid and pid not in today.setdefault("tended", {}).setdefault(here.name, []):
+        today["tended"][here.name].append(pid)
+
+
 def tend_one(here, mind, cid, up=False, to=None, theft=False) -> str:
     """Tend one set thing (u2 §3, §4.1): the catch into hand; the sound pieces set again (or, `up`, all brought home); the broken
     brought home to mend; what the night did to it said. Another's named: emptied as theft, not set again."""
@@ -204,6 +216,7 @@ def tend_one(here, mind, cid, up=False, to=None, theft=False) -> str:
     goods = {i: float(q) for i, q in c["goods"].items() if float(q) > 1e-9}
     catch = count_words(here, c)
     kg, food = _kg(goods), _food(goods)
+    tended(here, c)
     for it, q in sorted(goods.items()):
         here.apply("transfer", src=cid, dst=here.hands, item=it, qty=q)
     here.apply("set_thing", cid=cid, field="catch", value=[])
@@ -349,6 +362,7 @@ def tend_weir(here, mind, cid) -> str:
         holders = ", ".join(c.get("crew") or []) or "its crew"
         raise Refused(f"the weir's traps at {name} are {holders}'" + (f" ({tag})" if tag else "") + "; you are not of its crew")
     catch = here.catch_words(c)
+    tended(here, c)
     for it, q in sorted(goods.items()):
         here.apply("transfer", src=cid, dst=here.hands, item=it, qty=q)
     here.apply("set_thing", cid=cid, field="catch", value=[])
