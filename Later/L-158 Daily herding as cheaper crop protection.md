@@ -22,4 +22,5 @@ Zach, 22 Nov: 'For the cheaper crop protection wdym herd every day? This could b
 
 
 ## Mentioned by
+- [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - *and 1 index or audit notes*

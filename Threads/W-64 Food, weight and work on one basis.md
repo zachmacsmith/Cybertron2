@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # Food, weight and work on one basis (W-64)
 
-*active · 37.2 · touched 22 Nov (today)*
+*active · 37.2 · touched 22 Nov (1 day ago)*
 
 > **Next:** the data change merged (49d6d49c); left: salting rate ([[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Q-73]]), the unit of work in hours ([[Q-69 The basis for food and work|Q-69]], default taken: 2 hours, to decide), hens laying clock ([[L-138 Hens lay on the old clock|L-138]]), a killed hen gives its meat ([[L-139 A hen killed in a raid gives its meat|L-139]])
 

@@ -21,6 +21,7 @@ conversation (22 Nov: "conversation (22 Nov, on household_skills.md)")
 
 
 ## Mentioned by
+- [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]
 - [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]

@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # Design wave, conflicts and consistency (W-79)
 
-*waiting · 37.2 · touched 22 Nov (today)*
+*waiting · 37.2 · touched 22 Nov (1 day ago)*
 
 > **Next:** Zach: the note's 24 questions ranked by what they block (the firewood unit 10 or 60 kg; 'keeps a season' as half-life or quarter; racks 1 or 2 spaces; [[Q-83 Whether the smoke racks hold a real hut's load|Q-83]]'s 500 fish against [[D2-284 A smokehouse's capacity comes from the racks fitted, about 250 kg of…|D2-284]]'s 250 kg; the food energy basis undecided; [[Q-80 Whether acts on owned things default to one's own|Q-80]] unrecorded); then 37.2 brings hunt_fish_materials up to the day's decisions and posts the 37.4 hand-offs
 

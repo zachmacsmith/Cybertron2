@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # Design wave part 4, the people (W-78)
 
-*waiting · 37.2 · touched 22 Nov (today)*
+*waiting · 37.2 · touched 22 Nov (1 day ago)*
 
 > **Next:** Zach: the note's seven questions (core states knowledge dies unless passed on; core length; ten shapes as the verb list [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Q-27]]; cap of 20 seeded lines; known needs every lesson; seven aptitudes; children's awareness); reviewed by 37.2 with the morning digest
 

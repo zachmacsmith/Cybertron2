@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Couple the food web to 37.4's weather and climate (W-8)
 
-*merged, by zach · 37.2 · touched 8 Nov (14 days ago)*
+*merged, by zach · 37.2 · touched 8 Nov (15 days ago)*
 
 ## Done so far, and what is left
 merged 20 Nov: merged into [[W-49 Environment systems|W-49]] (climate from the land)

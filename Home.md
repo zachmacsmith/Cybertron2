@@ -1,6 +1,6 @@
 # Cybertron 2
 
-*The records, rebuilt from main after every push (last 2026-11-22). Read only: ask a session to change anything.*
+*The records, rebuilt from main after every push (last 2026-11-23). Read only: ask a session to change anything.*
 
 [The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.
 
@@ -115,7 +115,9 @@
 ## Queued and paused (17)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework, [[W-76 The timber economy|W-76]] The timber economy, [[W-86 Households generalised into institutions and laws|W-86]] Households generalised into institutions and laws, [[W-87 Health, fatigue and illness|W-87]] Health, fatigue and illness, [[W-88 The coast and the sea|W-88]] The coast and the sea, [[W-89 Trade between villages markets, carriage, what flows where|W-89]] Trade between villages: markets, carriage, what flows where, [[W-90 Textiles and clothing|W-90]] Textiles and clothing, [[W-91 Pottery and clay crocks, ovens, daub, bricks|W-91]] Pottery and clay: crocks, ovens, daub, bricks, [[W-92 Boats, barrels and the cooper|W-92]] Boats, barrels and the cooper, [[W-93 Demography and growth|W-93]] Demography and growth, [[W-94 Timed actions|W-94]] Timed actions
 
-## Decided this week (99)
+## Decided this week (101)
+- [[D2-303 Poles are timber for now|Poles are timber for now (D2-303)]]
+- [[D2-302 The weir's cost for now, to calibrate in live runs, on a lowland river|The weir's cost for now, to calibrate in live runs, on a lowland river (D2-302)]]
 - [[D2-301 A person's own rules and standing fallback come before every…|A person's own rules and standing fallback come before every… (D2-301)]]
 - [[D2-300 Every item Zach defers or flags is tagged with the prospective…|Every item Zach defers or flags is tagged with the prospective… (D2-300)]]
 - [[D2-299 Forest law, hunting rights and the woods' other institutions come…|Forest law, hunting rights and the woods' other institutions come… (D2-299)]]
@@ -129,8 +131,6 @@
 - [[D2-291 A set of smoke racks holds about 250 kg of fish on 1 space|A set of smoke racks holds about 250 kg of fish on 1 space (D2-291)]]
 - [[D2-290 Fuel a house burns a night is at its real weight|Fuel a house burns a night is at its real weight (D2-290)]]
 - [[D2-289 A shelf life 'keeps d days' becomes a nightly loss read as about a…|A shelf life 'keeps d days' becomes a nightly loss read as about a… (D2-289)]]
-- [[D2-288 Bulk goods are counted in handling units of a stated weight and every…|Bulk goods are counted in handling units of a stated weight and every… (D2-288)]]
-- [[D2-287 Reviewing past runs|Reviewing past runs (D2-287)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]

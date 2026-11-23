@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # Extending the wildlife economy (W-67)
 
-*queued · 37.2 · touched 22 Nov (today)*
+*queued · 37.2 · touched 22 Nov (1 day ago)*
 
 > **Next:** after [[W-73 Fishing, hunting and their materials developed together|W-73]]: with the timber economy as one thread on the woods (exploration: proposals/woods_and_wild_next.md)
 
@@ -78,8 +78,8 @@ started
 - [[L-145 Offal's uses bait for set lines and traps, dog food|Offal's uses: bait for set lines and traps, dog food (L-145)]]
 - [[L-149 Gulls and other coastal birds, with the coast|Gulls and other coastal birds, with the coast (L-149)]]
 - [[L-155 Vermin fleshed out properly, with disease and sanitation|Vermin fleshed out properly, with disease and sanitation (L-155)]]
+- [[L-159 Poles and cordwood as their own good|Poles and cordwood as their own good (L-159)]]
 - [[C-11 Weapons specconflictcombat.md and D2-46 name a blade, but…|Weapons: spec/conflict/combat.md and D2-46 name a "blade", but… (C-11)]]
 - [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
-- [[The next thread the woods and the wild (hunting, its tools, wildlife…|The next thread: the woods and the wild (hunting, its tools, wildlife…]]
-- … and 2 more
+- … and 3 more
 - *and 1 index or audit notes*

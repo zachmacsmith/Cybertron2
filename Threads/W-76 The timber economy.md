@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # The timber economy (W-76)
 
-*queued · 37.2 · touched 22 Nov (today)*
+*queued · 37.2 · touched 22 Nov (1 day ago)*
 
 > **Next:** scouting note done (02zzzi_timber/scouting.md: real ladder, engine gaps, leverage, candidate units T1 to T5, 15 questions); its own design wave after [[W-73 Fishing, hunting and their materials developed together|W-73]]; web figures from search summaries to check against the pages
 
@@ -21,8 +21,14 @@ started
 - `docs/review/37_growth/02zzzi_timber/scouting.md`
 
 
+## Linked
+- under it: [[D2-303 Poles are timber for now|Poles are timber for now (D2-303)]] (live)
+- under it: [[L-159 Poles and cordwood as their own good|Poles and cordwood as their own good (L-159)]] (open)
+
+
 ## Mentioned by
 - [[D2-290 Fuel a house burns a night is at its real weight|Fuel a house burns a night is at its real weight (D2-290)]]
+- [[D2-303 Poles are timber for now|Poles are timber for now (D2-303)]]
 - [[Q-30 livestock.md's fence upkeep (D2-130) and D4-114|livestock.md's fence upkeep (D2-130) and D4-114 (Q-30)]]
 - [[Q-74 Whether a weir's first section costs a base of 6 timber and 8 units…|Whether a weir's first section costs a base of 6 timber and 8 units… (Q-74)]]
 - [[L-5 Building on landmarks|Building on landmarks (L-5)]]
@@ -40,6 +46,7 @@ started
 - [[L-131 The wild layer's live points from briefs 1 to 3|The wild layer's live points from briefs 1 to 3 (L-131)]]
 - [[L-146 Peat as fuel where there is bog|Peat as fuel where there is bog (L-146)]]
 - [[L-153 Clearing a plot at a time|Clearing a plot at a time (L-153)]]
+- [[L-159 Poles and cordwood as their own good|Poles and cordwood as their own good (L-159)]]
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
 - [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]

@@ -22,6 +22,7 @@ conversation (22 Nov: "conversation (22 Nov)")
 
 ## Mentioned by
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
+- [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]
 - [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
 - [[U7 works and the building clock|U7: works and the building clock]]

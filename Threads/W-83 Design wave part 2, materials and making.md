@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # Design wave part 2, materials and making (W-83)
 
-*waiting · 37.2 · touched 22 Nov (today)*
+*waiting · 37.2 · touched 22 Nov (1 day ago)*
 
 > **Next:** Zach: the note's 19 questions, chiefly materials at real hours against making at 1/7 (W2-1), flax strips smaller than a plot (W2-2), gear with two lives (W2-4), batches made up to their size with a 1-unit floor (W2-6), shoes in this build (W2-7)
 

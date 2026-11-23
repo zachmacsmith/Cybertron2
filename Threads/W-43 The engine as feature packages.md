@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # The engine as feature packages (W-43)
 
-*waiting · lead session (C1 wrap-up) · touched 16 Nov (6 days ago)*
+*waiting · lead session (C1 wrap-up) · touched 16 Nov (7 days ago)*
 
 ## What it is
 The engine as feature packages (Zach, 16 Nov): a dig into every core object, primitive and extension point of `cybertron2/engine/`, and a design where each feature is a folder that registers its data, primitives, verbs, signs and processes on a small core

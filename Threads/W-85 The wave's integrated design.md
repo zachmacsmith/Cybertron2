@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # The wave's integrated design (W-85)
 
-*active · 37.2 · touched 22 Nov (today)*
+*active · 37.2 · touched 22 Nov (1 day ago)*
 
 > **Next:** 37.2's integration review across the eleven specs (cross-spec conflicts, basis rows reconciled); Zach's answers on the consolidated questions; then the staged build plan in detail
 
@@ -26,6 +26,7 @@ started
 - under it: [[D2-297 The catch stays as calibrated|The catch stays as calibrated (D2-297)]] (live)
 - under it: [[D2-298 Bot runs test interfaces and basic functioning only|Bot runs test interfaces and basic functioning only (D2-298)]] (live)
 - under it: [[D2-301 A person's own rules and standing fallback come before every…|A person's own rules and standing fallback come before every… (D2-301)]] (live)
+- under it: [[D2-302 The weir's cost for now, to calibrate in live runs, on a lowland river|The weir's cost for now, to calibrate in live runs, on a lowland river (D2-302)]] (live)
 - under it: [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]] (open)
 
 
@@ -33,6 +34,7 @@ started
 - [[D2-297 The catch stays as calibrated|The catch stays as calibrated (D2-297)]]
 - [[D2-298 Bot runs test interfaces and basic functioning only|Bot runs test interfaces and basic functioning only (D2-298)]]
 - [[D2-301 A person's own rules and standing fallback come before every…|A person's own rules and standing fallback come before every… (D2-301)]]
+- [[D2-302 The weir's cost for now, to calibrate in live runs, on a lowland river|The weir's cost for now, to calibrate in live runs, on a lowland river (D2-302)]]
 - [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]]
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
 - [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]

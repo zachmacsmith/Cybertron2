@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # Fishing, hunting and their materials developed together (W-73)
 
-*waiting · 37.2 · touched 22 Nov (today)*
+*waiting · 37.2 · touched 22 Nov (1 day ago)*
 
 > **Next:** Zach: the morning brief's 23 questions (docs/review/37_growth/02zzzh_hunt_fish/morning_23nov.md); then the proposals written from his answers, an integration pass and a staged build plan with the batches ([[O-2 Make the eleven bulk processes take up to their batch|O-2]]) and recipes shown ([[D2-263 A craft a person knows at capable or known shows, where they look|D2-263]])
 

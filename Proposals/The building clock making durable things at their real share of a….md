@@ -1,7 +1,7 @@
 ---
 id: docs/cybertron2/proposals/building_clock.md
 kind: proposal
-updated: "2026-11-22"
+updated: "2026-11-23"
 ---
 # The building clock: making durable things at their real share of a year, and what has to come with it
 
@@ -103,6 +103,7 @@ pottery, daub is mud and straw dug on the spot (work, no good); clay joins with 
 
 ## History
 
+- 23 Nov 2026: accepted in part: [[D2-302 The weir's cost for now, to calibrate in live runs, on a lowland river|D2-302]] (The weir's cost for now, to calibrate in live runs, on a lowland river: wattle f).
 - **22 Nov 2026:** written by 37.2 after Zach decided the unit ([[D2-275 A unit of work is 2 hours|D2-275]]: "Let's do 2 hours") and the redesign ([[D2-276 Making durable things runs on the year clock|D2-276]]: "Let's try this
   redesign tbh. I think being more expensive makes sense"), from building_clock.md (the audit), storage.md (room costs), and the day's
   conversation: Zach's questions on 12-hour days, the fence at 47 units, a house's payback, builders as a trade ("push builders as a

@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # Design wave part 3a, keeping (W-80)
 
-*waiting · 37.2 · touched 22 Nov (today)*
+*waiting · 37.2 · touched 22 Nov (1 day ago)*
 
 > **Next:** Zach: the note's 13 questions, chiefly what 'keeps d days' means as a nightly loss (half, quarter, tenth), processing containers as one unit, how conditional rules fire, quantity-versus-duration work in the clocks spec, a salting tub before the cooper
 

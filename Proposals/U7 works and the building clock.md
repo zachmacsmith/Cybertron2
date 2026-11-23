@@ -1,7 +1,7 @@
 ---
 id: docs/cybertron2/proposals/w73_design/u7_works.md
 kind: proposal
-updated: "2026-11-22"
+updated: "2026-11-23"
 ---
 # U7: works and the building clock
 
@@ -238,6 +238,8 @@ roughly halves its batches (a unit gives 10 hurdles, 6 traps, 4 crude tools) and
 same; at 1/7 they are wave1 §3.2's figures.
 
 ### 3. The weir sized to its take
+
+> **Replaced 23 Nov by [[D2-302 The weir's cost for now, to calibrate in live runs, on a lowland river|D2-302]]** (Zach: "Record weir cost as you put for now"): the weir's cost is set directly, from what it returns, not from the hours model below; see basis.md ("The weir's cost"). The model is kept as the reasoning it replaced.
 
 **The rule.** The take is fixed by the catch basis (basis §4: the first section 30% of a run passing up to 100 kg a night, each added
 section 7% up to 70, at most three; [[D2-293 One shared catch basis for every component of the wave|D2-293]], [[D2-297 The catch stays as calibrated|D2-297]]). What varies is the work: a weir that takes that share must reach across a share

@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # Behaviour steered by defaults, examples and wording (W-84)
 
-*waiting · 37.2 · touched 22 Nov (today)*
+*waiting · 37.2 · touched 22 Nov (1 day ago)*
 
 > **Next:** Zach: the note's 6 questions (a standing fallback shown each morning with what it did and the store, asked until set, [[L-142 Fallbacks as a person's standing setting|L-142]]; the no-horizon wording for every intent line incl. the new core's why; examples replaced by each person's own crafts; the smaller steers); a paired run folded into the next runs world run
 
