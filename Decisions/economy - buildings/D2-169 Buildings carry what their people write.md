@@ -32,4 +32,5 @@ a church as a designed building
 - [[02zh build brief for 37.4 the building package|02zh: build brief for 37.4: the building package]]
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
 - [[18 Health, environment, luxury, crime and measures the economy's…|18: Health, environment, luxury, crime and measures: the economy's…]]
+- [[Signs survey every mechanism's signs, by sense and by the way a…|Signs survey: every mechanism's signs, by sense and by the way a…]]
 - [[38.46 Wenbridge, a world to test whether people build (design, for…|38.46: Wenbridge, a world to test whether people build (design, for…]]

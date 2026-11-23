@@ -23,3 +23,4 @@ Zach, 23 Nov: 'automatically detecting and notifying of breaches should later be
 
 ## Mentioned by
 - [[Rules as the grammar of norms claims, access and laws in the same…|Rules as the grammar of norms: claims, access and laws in the same…]]
+- [[Signs survey every mechanism's signs, by sense and by the way a…|Signs survey: every mechanism's signs, by sense and by the way a…]]

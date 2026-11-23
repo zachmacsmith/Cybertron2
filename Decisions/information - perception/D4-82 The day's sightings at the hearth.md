@@ -26,3 +26,4 @@ the day's sightings shown only next morning, as "What you saw yesterday"
 - [[Perception what an agent sees and knows|Perception: what an agent sees and knows]]
 - [[Speech at a node|Speech at a node]]
 - [[When signs and outcomes reach people (a survey of the engine, 23 Nov…|When signs and outcomes reach people (a survey of the engine, 23 Nov…]]
+- [[Signs survey every mechanism's signs, by sense and by the way a…|Signs survey: every mechanism's signs, by sense and by the way a…]]

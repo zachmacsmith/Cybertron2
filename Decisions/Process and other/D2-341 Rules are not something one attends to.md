@@ -22,3 +22,4 @@ conversation (23 Nov: "Rules shouldn't be attendable.")
 
 ## Mentioned by
 - [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]]
+- [[Signs survey every mechanism's signs, by sense and by the way a…|Signs survey: every mechanism's signs, by sense and by the way a…]]

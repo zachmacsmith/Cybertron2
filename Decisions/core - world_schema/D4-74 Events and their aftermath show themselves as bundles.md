@@ -34,4 +34,5 @@ conversation ("Get the agent to add bundles for the 18 it ranked"; the four kind
 - [[Perception what an agent sees and knows|Perception: what an agent sees and knows]]
 - [[Signs|Signs]]
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
+- [[Signs survey every mechanism's signs, by sense and by the way a…|Signs survey: every mechanism's signs, by sense and by the way a…]]
 - [[38.43 what shows itself, and what does not (a sign audit)|38.43: what shows itself, and what does not (a sign audit)]]

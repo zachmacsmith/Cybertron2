@@ -27,3 +27,4 @@ started
 - [[D2-341 Rules are not something one attends to|Rules are not something one attends to (D2-341)]]
 - [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]]
 - [[Live run 1 the rebuilt fishing world against the old prompt and the…|Live run 1: the rebuilt fishing world against the old prompt and the…]]
+- [[Signs survey every mechanism's signs, by sense and by the way a…|Signs survey: every mechanism's signs, by sense and by the way a…]]
