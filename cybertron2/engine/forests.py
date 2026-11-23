@@ -4,7 +4,8 @@ fire": D2-156, D2-157, D2-159). Engine side.
 A forest or scrub parcel holds three stocks: its trees (`wood`, in timber), young growth (`young`) and dead wood (`dead`), both in
 firewood. The trees grow slowly toward their capacity and shed dead wood in proportion to their number; felling takes trees and
 leaves brash as dead wood; young growth regrows fast but not while beasts are on the parcel; dead wood rots. Under 40% of its trees
-a forest's cover turns to scrub. Fuel is counted in heat: timber 2, firewood 0.5, charcoal 6; a fire draws by the household's order.
+a forest's cover turns to scrub. Fuel is counted in heat: timber 1.25, firewood 0.5, charcoal 2 (D2-288, D2-290); a fire draws by the
+household's order.
 """
 from __future__ import annotations
 
@@ -32,7 +33,8 @@ def seed(cover: str, size: int, state: dict, year: float = 24.0) -> dict:
         return out
     if isinstance(w, dict) and "K" in w:                                       # an older world: its trees as given
         c = KINDS["copse"]
-        K = float(w["K"])
+        from cybertron2.engine.data import RESOURCES
+        K = float(w["K"]) * float(RESOURCES["wood"].get("spec_unit", 1.0))   # its old timber in 25 kg ones (D2-288)
         out["young"] = {"S": round(K * c["young"] / c["trees"], 4), "K": round(K * c["young"] / c["trees"], 4), "r": c["regrow"] / year}
         out["dead"] = {"S": round(K * c["dead"] / c["trees"], 4), "K": round(K * c["dead"] / c["trees"], 4), "r": 0.0}
         return out

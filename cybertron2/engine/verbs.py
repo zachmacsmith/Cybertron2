@@ -11,6 +11,8 @@ from cybertron2.engine import renewal as RN, yields as YD
 from cybertron2.engine import buildings as BL, farm as FM, knowledge as KN, modifiers as MOD, perceive as PC, things as TH
 from cybertron2.engine.data import BLUEPRINTS, COVERS, FITTINGS, ITEMS, LINES, MONUMENTS, ROOMS, SPACE, TECHNIQUES, THINGS, TIERS, TRY
 from cybertron2.engine.here import Refused, show
+from cybertron2.engine import clocks as CK
+from cybertron2.engine.data import CAPITAL
 
 # The registry (cybertron 1's action_registry): arguments, cost (units, a physics path, or "craft"), the line in the manual, and
 # `when` (only in a world with roads). The prompt's verb list and the reply schema are generated from it.
@@ -50,11 +52,12 @@ VERB = {
     "drive": {"args": '{"thing": a herd here, "item"?: cows | oxen | bulls | calves | all, "qty"?, "to": a place here}', "cost": 1,
               "when": "herds", "doc": "move beasts to another place here (a bull kept apart from the cows does not breed)"},
     "sleep": {"args": '{"at": building}', "cost": 0, "doc": "sleep there tonight, if you can get in and a bed is free"},
-    "set": {"args": '{"thing": door | gap, "to": open | barred (a door) or open | shut (a gap), "at"?: building}', "cost": 0,
+    "set": {"args": '{"thing": door | gap, "to": open | barred (a door) or open | shut (a gap), "at"?: building} or {"what": snares | trap in water, "at": place}', "cost": 0,
             "doc": "the door of a building you manage; or the gap of a fish weir you work or a water mill you manage on a river where "
                    "fish run (shut: the weir's traps take the runs passing, and a mill grinds at full but holds back the fish going "
-                   "up; open: the run passes, and the mill grinds at half)"},
-    "travel": {"args": '{"to": a place, or a way from here as the roads name it, "on trouble"?: push on | wait | turn back | go round, "days"?: how long to wait or stop, "stop at"?: a good place you know on the way, "gather"?: true, "meeting"?: stop | pass by, "searching"?: a herd or a person lost on that road, "lead"?: a herd of yours here with an ox, to lead an ox as a pack ox (a harness in hands; it carries 60)}',
+                   "up; open: the run passes, and the mill grinds at half); or snares or traps laid anew at a place, beside any of "
+                   "yours there (named alone, a way of trapping tends yours standing there)"},
+    "travel": {"args": '{"to": a place, or a way from here as the roads name it, "on trouble"?: push on | wait | turn back | go round, "days"?: how long to wait or stop, "stop at"?: a good place you know on the way, "gather"?: true, "meeting"?: stop | pass by, "searching"?: a herd or a person lost on that road, "lead"?: a herd of yours here with an ox, to lead an ox as a pack ox (a harness in hands; it carries 100)}',
                "cost": 0, "when": "roads", "doc": "the day's last act: you leave at nightfall and arrive on a later morning. On the road "
                                                  "you decide nothing unless something happens (trouble, a meeting, a find); what you "
                                                  "choose here is what you do if the road gives trouble, and whether you stop for "
@@ -128,6 +131,11 @@ def cost(here, a) -> int:
             return int(WATER_WORKS["weir" if WL.is_weir(b) else "mill"]["units"].get(to, 1))
         except Refused:
             return 0
+    if v == "set" and a.get("what") and not a.get("thing"):                  # gear laid anew: the technique's units (u2 §3)
+        tech = KN.resolve(a.get("what"), "gather")
+        return int(TECHNIQUES[tech]["units"]) if tech and TECHNIQUES[tech].get("set") else 0
+    if v == "build":                                                         # what is left of the work, 1 or 2 units (D2-324)
+        return _build_cost(here, a)
     n = verb_units(here.p, v)
     if n is not None:
         return n
@@ -139,7 +147,11 @@ def cost(here, a) -> int:
     if tech is None:
         return 1
     tech, a = _as_modified(tech, v, a)
-    n = int(TECHNIQUES[tech]["units"])
+    t_ = TECHNIQUES[tech]
+    u_ = float(t_["units"])
+    n = 0 if u_ <= 0 else max(int(CAPITAL["floor"]), int(round(u_)))         # no act under the floor is free (O-2; u3 §2.1)
+    if v == "make" and t_.get("hours"):                                     # a piece's real hours at the factor (u3 §2.1)
+        n = CK.act_units(t_, here)
     if TECHNIQUES[tech].get("units_by") == "bury":                            # by the ground and the cold (D2-96)
         cairn = str(a.get("method", "")).lower() == "cairn"
         cid = _thing_site(here, a.get("at"), graves=cairn, kinds=_dead_kinds(tech))
@@ -153,10 +165,66 @@ def cost(here, a) -> int:
             n = int(THINGS["carcass_sizes"][here.carcass_size(cid)]["burn"]["units"])
     elif v == "make":
         try:
-            n *= max(1, int(_qty(a.get("qty"), 1)))
+            q_ = max(1, int(_qty(a.get("qty"), 1)))                             # pieces wanted (with hours), else acts
+            n *= math.ceil(q_ / CK.batch_of(t_, here)) if t_.get("hours") else q_
         except Refused:                                                        # a bad qty is refused by the act itself, not by its cost
             pass
     return n + MOD.units(a, v, tech)
+
+
+def build_units(left, sk, ym=1.0) -> int:
+    """A build act's units (D2-324; u7 §5.4): what is left of the work at one's skill, at least 1 and at most 2."""
+    return max(1, min(2, math.ceil(float(left) / max(1e-9, float(sk) * float(ym)) - 1e-9)))
+
+
+def _build_left(here, a):
+    """(units left, technique whose skill builds it) of the work a build act would carry on, or None for a work begun now."""
+    what = str(a.get("what") or "").strip().lower()
+    what = MONUMENT_ALIAS.get(what, what)
+    if what not in BLUEPRINTS and what not in FITTINGS and what not in MONUMENTS:
+        from cybertron2.engine.data import FITTING_ALIAS
+        what = FITTING_ALIAS.get(what, what)
+    bid = here.building(a.get("at")) if a.get("at") else None
+    if what in WEIR_PARTS:
+        from cybertron2.engine import wild as WL
+        if bid is None:
+            bid = next((x for x, b in sorted(here.buildings().items()) if WL.is_weir(b) and not b.get("unfinished")), None)
+        wk = (here.buildings().get(bid) or {}).get("weir_work") if bid else None
+        return (float(wk["units_left"]), "weir") if wk else None
+    if what in FITTINGS:
+        if bid is None:
+            bid = (here.homes_here() or [None])[0]
+        u = ((here.buildings().get(bid) or {}).get("fitting_work") or {}).get(what) if bid else None
+        return (float(u["units_left"]), what) if u else None
+    if bid is None:
+        return None
+    b = here.buildings()[bid]
+    if b.get("unfinished"):
+        return float(b["unfinished"]["units_left"]), b["unfinished"]["blueprint"]
+    wk = b.get("works")
+    if wk:
+        return float(wk["units_left"]), wk.get("tech") or "small room"
+    return None
+
+
+def _build_cost(here, a) -> int:
+    try:
+        got = _build_left(here, a)
+    except Refused:
+        got = None
+    if got is None:
+        return 2
+    left, tech = got
+    return build_units(left, KN.skill(here.mind(), tech), here.yield_mult())
+
+
+def _build_act(here, mind, tech, left):
+    """One act on a work (D2-324, u7 §5.2): its units (what is left, 1 or 2), the work it puts in (units x skill), and its practice
+    (every act counts its units, not only the finishing one)."""
+    sk, ym = KN.skill(mind, tech), here.yield_mult()
+    n = build_units(left, sk, ym)
+    KN.tried(here, mind, tech, True, units=n)
+    return round(n * sk * ym, 2)
 
 
 def _as_modified(tech, verb, a):
@@ -603,9 +671,12 @@ def _technique(here, mind, a, party, verb):
     holding = None
     after = ""                                                                 # what was noticed on the way, after the outcome
     if y["kind"] == "stock":
-        r = here.parcels()[key]["res"][t["draws"]]
-        got = here.apply("draw", parcel=key, key=t["draws"], qty=round(YD.dist(y, r, m, tm, refuge=here.p["refuge"],
-                                                                                           b=RN.response(t["draws"], r)).sample(rng), 2))
+        r = here.parcels()[key]["res"].get(t["draws"])
+        if r is None or (t.get("run") and r["S"] <= (here.p["refuge"] + 0.02) * r["K"]):
+            got = 0.0                                                           # no resident fish to take: only the run (Q-79 bug 1)
+        else:
+            got = here.apply("draw", parcel=key, key=t["draws"], qty=round(YD.dist(y, r, m, tm, refuge=here.p["refuge"],
+                                                                                               b=RN.response(t["draws"], r)).sample(rng), 2))
         if t.get("run"):                                                        # a run in the water there (brief 5 §3a.2)
             from cybertron2.engine import wild as WL
             _, run_words = WL.run_take(here, mind, tech, key, int(t["units"]))
@@ -633,8 +704,9 @@ def _technique(here, mind, a, party, verb):
             q *= float(t["by_season"].get(here.calendar()["season"], 1.0))
         got = here.apply("draw", parcel=key, key=t["draws"], qty=round(q, 2)) if t["draws"] in here.parcels()[key]["res"] and \
             here.parcels()[key]["res"][t["draws"]]["K"] > 0 and RN.of(t["draws"], here.parcels()[key]["res"][t["draws"]]) != "endless" else round(q, 2)
-        if tech == "fell" and got > 0:                                         # its branches left as dead wood (D2-156)
-            here.apply("add_res", parcel=key, key="dead", qty=got)
+        if tech == "fell" and got > 0:                                         # its branches left as dead wood (D2-156), a quarter
+            from cybertron2.engine.data import FORESTS                         # of its mass (D2-288)
+            here.apply("add_res", parcel=key, key="dead", qty=round(got * float(FORESTS["brash"]), 2))
     elif y["kind"] == "clear":                                                # new ground for a field (CLEARING)
         word = _clear(here, key, place_name, m * tm, party)
     elif y["kind"] == "pool":                                                 # dead wood: less to find as it thins (D2-156)
@@ -677,7 +749,11 @@ def _technique(here, mind, a, party, verb):
         thing = ("building", key)
     elif y["kind"] == "wild_take" and t.get("set"):                           # set and left: it catches by night (brief 2 §4)
         from cybertron2.engine import wild as WL
-        word = WL.set_work(here, mind, tech, key, place_name)
+        mine = None if a.get("_new_set") else _own_set_at(here, tech, key)
+        if mine:                                                               # named alone, one's own standing: tended (u2 §6 fault 2)
+            word = _tend(here, mind, mine, place_name)
+        else:
+            word = WL.set_work(here, mind, tech, key, place_name)
         gives = None
     elif y["kind"] == "wild_take" and lead:                                  # a party's hunt: settled after the day's acts (4b §3.1)
         word = HP.record(here, mind, tech, key, place_name, out, m, a)
@@ -747,6 +823,8 @@ def _technique(here, mind, a, party, verb):
         return (word if not for_txt else word.rstrip(".") + for_txt + ".") + after
     if y["kind"] == "chance" and got <= 0:
         return f"You hunted in {place_name}{note} and caught nothing{extra_got}." + after
+    if y["kind"] == "stock" and t.get("run") and got <= 0 and suffix:            # only the run gave (Q-79 bug 1)
+        return f"You fished at {place_name}{note}: the water's own fish gave nothing.{suffix}" + after
     via = f" with your {tool}" if tool else (" with your bare hands" if t.get("tools") else "")
     dest = "" if out == here.hands else f" into {here.buildings()[out[len('stock:'):]]['name']}" if out.startswith("stock:") else f" to {party}"
     return (f"You {verb}ed {show(got)} {gives}{extra_got} at {place_name}{note}{via}{dest}.{suffix}".replace("You gathered", "You took")
@@ -771,7 +849,10 @@ def _make(here, mind, a, party):
     res = []
     from cybertron2.engine import wear as WE
     fits = WE.worked((t.get("at") or {}).get("fittings") or [])
-    for i in range(qty):
+    per = CK.batch_of(t, here) if t.get("hours") else 1                   # pieces an act makes, up to its batch (u3 §2.1)
+    acts = math.ceil(qty / per) if t.get("hours") else qty                   # `qty` is pieces for a row with hours, else acts
+    for i in range(acts):
+        k = min(per, qty - i * per) if t.get("hours") else 1
         sites = KN.where(here, tech)                                           # one's own house's fitting first, of those
         sites = [x for x in sites if not KN.ready(here, tech, x[0], x[1])] or sites   # ready (racks with room: brief 5 §4a)
         site = sorted(sites, key=lambda x: (x[0] != "building" or x[1] not in here.homes_here(),
@@ -783,6 +864,9 @@ def _make(here, mind, a, party):
             from cybertron2.engine import wild as WL
             fac *= here.mill_rate(b)
         mult = TRY[lvl]["inputs"] if fac == 1.0 else TRY[lvl]["inputs"] * fac
+        while k > 1 and KN.shortfall(here, mind, tech, mult * k, extra=extra):   # as many pieces as the materials to hand allow
+            k -= 1
+        mult *= k
         why = KN.shortfall(here, mind, tech, mult, extra=extra)
         if why:
             res.append(f"Refused: make {tech}: {why}")
@@ -800,10 +884,10 @@ def _make(here, mind, a, party):
         if b is not None and fits and WE.on(here.p):
             WE.use(here, site[1], fits, sum(v for v in (t.get("inputs") or {}).values() if isinstance(v, (int, float))) * fac * share)
         ok = here.rng("make", here.day, here.name, tech, i).random() < TRY[lvl]["chance"]
-        rose = KN.tried(here, mind, tech, ok, units=t["units"])
+        rose = KN.tried(here, mind, tech, ok, units=CK.act_units(t, here) if t.get("hours") else t["units"])
         if ok:
             full = ""
-            gives = {item: (q if fac == 1.0 else round(q * fac, 2)) for item, q in t["gives"].items()}
+            gives = {item: (q * k if fac == 1.0 else round(q * k * fac, 2)) for item, q in t["gives"].items()}
             if share < 1.0:
                 gives = {item: round(q * share, 4) for item, q in gives.items()}
             rk = t.get("rack")
@@ -918,6 +1002,8 @@ def _build(here, mind, a, party):
         bid = here.building(at) if at else None
         if bid and here.buildings()[bid].get("unfinished"):                      # carry on
             u = here.buildings()[bid]["unfinished"]
+            if here.name in (here.buildings()[bid].get("crew") or []):           # crew work, led by one who knows it (u2 §6 bug 4)
+                return _build_work(here, mind, bid, KN.level(mind, u["blueprint"]) or "rough")
             return _build_work(here, mind, bid, _lvl_for(mind, u["blueprint"], here.buildings()[bid]["structure"]))
         if bid and what in BLUEPRINTS and what != "camp":
             return _add_room(here, mind, a, party, bid, what)
@@ -1005,12 +1091,12 @@ def _monument(here, mind, a, party, pid, what):
         _ground_check(here, pid, int(SPACE["monument_ground"]), d["label"])
     t = TIERS[how]
     mats, units, first = dict(d["materials"]), float(d["units"]), None
-    if d.get("site") == "river" and (a.get("structure") or a.get("material")):  # a weir's first section in either material (W-69)
-        from cybertron2.wild import gear as GR
-        first = STRUCTURE_WORDS.get(str(a.get("structure") or a.get("material")).strip().lower())
+    if d.get("site") == "river":                                              # a weir's first section in either material (W-69),
+        from cybertron2.wild import gear as GR                                # its cost by its water (D2-302)
+        first = STRUCTURE_WORDS.get(str(a.get("structure") or a.get("material") or "wattle").strip().lower())
         if first not in GR.MATERIALS:
             raise Refused(f"a weir's section is wattle or timber, not {a.get('structure') or a.get('material')!r}")
-        c = GR.cost(0, first)
+        c = GR.cost(0, first, water=_weir_water(here, pid))
         mats, units = c["materials"], float(c["units"])
     _consume(here, {i: q * float(t["materials"]) for i, q in mats.items()}, TRY[lvl]["inputs"],
              here.party_container(party) if party else None)
@@ -1167,14 +1253,15 @@ def _weir_part(here, mind, a, party, part):
         part = STRUCTURE_WORDS.get(str(a.get("structure") or a.get("material") or "timber").strip().lower())
         if part not in GR.MATERIALS:
             raise Refused(f"a weir's section is wattle or timber, not {a.get('structure') or a.get('material')!r}")
-    _level(mind, "weir")
+    if here.name not in (b.get("crew") or []):                                # its crew works on it under one who knows it (bug 4)
+        _level(mind, "weir")
     wk = dict(b.get("weir_work") or {})
     secs = WL.sections(b)
     if not wk:
         if part in GR.MATERIALS:
             if len(secs) - 1 >= GR.most_added():
                 raise Refused(f"{b['name']} has all its sections: {len(secs)}")
-            c = GR.cost(len(secs), part)
+            c = GR.cost(len(secs), part, water=_weir_water(here, b["parcel"]))
         elif part == "footing":
             if all(sc.get("foot") for sc in secs):
                 raise Refused(f"every section of {b['name']} stands on a stone footing")
@@ -1183,13 +1270,14 @@ def _weir_part(here, mind, a, party, part):
         else:
             if not any(sc["m"] == "wattle" for sc in secs):
                 raise Refused(f"every section of {b['name']} is timber already")
-            c = GR.upgrade_cost("wattle", "timber")
+            c = GR.upgrade_cost("wattle", "timber", j=next(i for i, sc in enumerate(secs) if sc["m"] == "wattle"),
+                                water=_weir_water(here, b["parcel"]))
         _consume(here, c["materials"], 1.0, here.party_container(party) if party else None)
         wk = {"part": part, "units_left": float(c["units"])}
     elif wk["part"] != part:
         raise Refused(f"{b['name']} has {WEIR_PART_WORDS.get(wk['part'], 'a part')} under way: finish that first")
     _at_work(here, bid)
-    wk["units_left"] = round(max(0.0, float(wk["units_left"]) - 2 * KN.skill(mind, "weir") * here.yield_mult()), 2)
+    wk["units_left"] = round(max(0.0, float(wk["units_left"]) - _build_act(here, mind, "weir", wk["units_left"])), 2)
     what = WEIR_PART_WORDS[part]
     if wk["units_left"] > 1e-9:
         here.apply("set", ref=("building", bid), field="weir_work", value=wk)
@@ -1209,6 +1297,10 @@ def _weir_part(here, mind, a, party, part):
     return f"You finished {what} on {b['name']}: it now has {len(secs)} section{'s' if len(secs) != 1 else ''}."
 
 
+def _weir_water(here, pid) -> str:
+    return here.weir_water(pid)
+
+
 def _weir_mend(here, bid, m) -> str:
     """Mending a weir (D2-210): its worst section a level, for `mend` of that section's build (by its place and material, with its
     footing: wild/gear.py) in materials (at least one of each) when the mending starts, and its work, two units an action."""
@@ -1225,7 +1317,7 @@ def _weir_mend(here, bid, m) -> str:
         if int(secs[j]["level"]) >= 5:
             return f"{b['name']} is sound: there is nothing to mend."
         sc = secs[j]
-        c = GR.cost(j, sc["m"], bool(sc.get("foot")))
+        c = GR.cost(j, sc["m"], bool(sc.get("foot")), water=_weir_water(here, b["parcel"]))
         build, units = c["materials"], float(c["units"])
         need = {k: max(1, _m.ceil(float(v) * float(W["mend"]) - 1e-9)) for k, v in build.items()}
         _consume(here, need, extra=b["stock"] if here.may_take(b["stock"]) else None)
@@ -1256,7 +1348,7 @@ def _works_progress(here, mind, bid, started=False):
     _at_work(here, bid)
     b = here.buildings()[bid]
     wk = dict(b["works"])
-    done = round(2 * KN.skill(mind, wk.get("tech") or "small room") * here.yield_mult(), 2)
+    done = _build_act(here, mind, wk.get("tech") or "small room", wk["units_left"])
     wk["units_left"] = round(max(0.0, float(wk["units_left"]) - done), 2)
     words = _works_words(wk)
     if wk["units_left"] > 1e-9:
@@ -1276,7 +1368,6 @@ def _works_progress(here, mind, bid, started=False):
     else:
         here.apply("set", ref=("building", bid), field="tier", value=wk["to"])
         out = f"You finished the work on {b['name']}: it is {TIERS[wk['to']]['words']} now."
-    KN.tried(here, mind, wk.get("tech") or "small room", True)
     here.event("build", f"{here.name} finished {words} at {b['name']}", actor=here.name, about=[f"building:{bid}"], salience=0.5,
                tags=["building"])
     return out
@@ -1335,8 +1426,8 @@ def _fitting(here, mind, a, party, what):
         _ground_check(here, b["parcel"], int(f.get("ground", 0)) + int(f.get("room", 0)) * n, f["label"])
     _consume(here, f["materials"], TRY[lvl]["inputs"] * n, b["stock"] if here.may_take(b["stock"]) else None)
     ok = here.rng("build", here.day, here.name, what).random() < TRY[lvl]["chance"]
-    KN.tried(here, mind, what, ok)
-    if not ok:
+    if not ok:                                                                 # a spoilt start is a try that failed (its practice)
+        KN.tried(here, mind, what, False)
         return f"Your try at {f['label']} went wrong; the materials are spoilt."
     under[what] = {"n": n, "units_left": float(f["units"]) * n}                  # its work charged over days, as a building's
     here.apply("set", ref=("building", bid), field="fitting_work", value=under)
@@ -1351,7 +1442,7 @@ def _fitting_work(here, mind, bid, what, lvl, started=False):
     b = here.buildings()[bid]
     under = dict(b.get("fitting_work") or {})
     u = dict(under[what])
-    done = round(2 * KN.skill(mind, what) * here.yield_mult(), 2)
+    done = _build_act(here, mind, what, u["units_left"])
     u["units_left"] = round(max(0.0, float(u["units_left"]) - done), 2)
     n = int(u["n"])
     words = f"{str(n) + ' ' if f.get('per') else ''}{f['label']}"
@@ -1378,7 +1469,7 @@ def _build_work(here, mind, bid, lvl, started=False):
     _at_work(here, bid)
     b = here.buildings()[bid]
     u = dict(b["unfinished"])
-    done = round(2 * KN.skill(mind, u["blueprint"]) * here.yield_mult(), 2)
+    done = _build_act(here, mind, u["blueprint"], u["units_left"])
     u["units_left"] = round(max(0.0, u["units_left"] - done), 2)
     here.record("build", u["blueprint"], None)
     if u["units_left"] > 1e-9:                                                 # heard and seen at work (signs.BUILDING)
@@ -1393,7 +1484,6 @@ def _build_work(here, mind, bid, lvl, started=False):
         if bp.get("lasts"):
             here.apply("set", ref=("building", bid), field="lasts_until", value=here.day + int(bp["lasts"]))
         here.event("build", f"{here.name} finished {b['name']}", actor=here.name, about=[f"building:{bid}"], salience=0.6, tags=["building", "shelter"])
-        KN.tried(here, mind, u["blueprint"], True)
         if bp.get("fittings"):
             return f"You made {b['name']}: shelter for {bp['size']} with a fire, for about {bp['lasts']} nights."
         if b.get("monument"):
@@ -1605,11 +1695,34 @@ def _parcel_named(here, x):
     return max(hits, key=lambda p: len(here.parcels()[p]["name"])) if hits else None
 
 
+def _own_set_at(here, tech, key):
+    """One's own (or one's household's) set thing of this technique standing at this parcel, the newest (u2 §3; D2-305)."""
+    return here.own_set_at(tech, key)
+
+
+def _tend(here, mind, cid, place_name):
+    """Tending one's set gear (D2-294; u2 §3): its catch into hand, and the gear set again where it stands."""
+    c = here.thing(cid)
+    noun = TH.trap_noun(c)
+    took = []
+    for it, q in sorted(c["goods"].items()):
+        if q > 1e-9:
+            here.apply("transfer", src=cid, dst=here.hands, item=it, qty=q)
+            took.append(f"{show(q)} {it}")
+    here.apply("set_thing", cid=cid, field="catch", value=[])
+    here.apply("set_thing", cid=cid, field="caught", value=0)
+    here.apply("set_thing", cid=cid, field="set", value=dict(c["set"], set_day=here.day, sprung=None))
+    here.remember_thing(cid, "put")
+    tag = f" ({c['tag']})" if c.get("tag") and here.setting("tags") else ""
+    got = ("took " + ", ".join(took) + " from them") if took else "nothing was in them"
+    return f"You tended your {noun} at {place_name}{tag}: {got}, and set them again where they stand."
+
+
 def _lift(here, mind, rem):
     """Lifting a set thing one knows (brief 4c §4.4): everything in it into hand, or a look that it holds nothing."""
     c = here.thing(rem)
     noun = TH.trap_noun(c)
-    whose = "your" if TH.owns_set(c, here.name) else "the"
+    whose = "your" if here.owns_set(c) else "the"
     took = []
     for it, q in sorted(c["goods"].items()):
         if q > 1e-9:
@@ -1659,7 +1772,7 @@ def _take(here, mind, a, party):
         bid = door
         label = f"what {c['of']} left" if c.get("body") else f"what lay at {here.spot_name(c)}"
         if c.get("kind") == "set":
-            label = (f"{'your' if TH.owns_set(c, here.name) else 'the'} {TH.trap_noun(c)} "
+            label = (f"{'your' if here.owns_set(c) else 'the'} {TH.trap_noun(c)} "
                      f"at {here.spot_name(c)}")
         have = c["goods"].get(item, 0.0)
         if c.get("by") != here.name:
@@ -1689,13 +1802,18 @@ def _take(here, mind, a, party):
     if c["kind"] == "set":                                                     # emptied: its catch gone; another's emptying it shows
         if not any(x > 1e-9 for x in c["goods"].values()):                     # to those who know the line (brief 4c §4.2)
             here.apply("set_thing", cid=src, field="catch", value=[])
-        if c.get("by") not in (here.name, None) and not TH.owns_set(c, here.name):
+        if c.get("by") not in (here.name, None) and not here.owns_set(c):
             here.apply("set_thing", cid=src, field="robbed", value={"day": here.day, "by": here.name})
-    if c["kind"] == "set" and c.get("by") not in (here.name, None) and not TH.owns_set(c, here.name):   # another's robbed: seen
+    if c["kind"] == "set" and c.get("by") not in (here.name, None) and not here.owns_set(c):   # another's robbed: seen
         whose = (f"the weir {', '.join(c.get('crew') or [c['by']])} work" if TH.is_weir(c) else f"the "
                  f"{'traps' if (c.get('set') or {}).get('method') == 'trap in water' else 'snares'} {c['by']} set")
         here.event("take", f"{here.name} took {item} from {whose} at {here.spot_name(c)}", actor=here.name, salience=0.55,
                    about=[f"parcel:{c['parcel']}"], tags=["food", "hunting"], concerns=list(c.get("crew") or [c["by"]]))
+        here.today()["thefts"].append({"by": here.name, "thing": src, "item": item, "qty": round(q, 2)})   # theft (u2 §6 fault 7)
+        here.record("take", None, None, theft=True)
+        here.remember_thing(src, "took")
+        return (f"You took {show(q)} {item} from {whose} at {here.spot_name(c)}, which are not yours to take from. Whether anyone "
+                "saw, you will learn.")
     here.event("take", f"{here.name} took {item} from {label}", actor=here.name, salience=0.4 if c["kind"] in TH.KINDS else 0.3,
                about=[f"parcel:{c['parcel']}"] if c.get("parcel") else [], tags=["food"] if ITEMS[item]["food"] else [])
     if c["kind"] in TH.KINDS:
@@ -1992,6 +2110,11 @@ def _sleep(here, mind, a, party):
 def _set(here, mind, a, party):
     if str(a.get("thing") or "").strip().lower() in ("gap", "the gap", "hatches", "sluice", "weir", "the weir"):
         return _set_gap(here, mind, a)
+    if a.get("what") and not a.get("thing"):                                  # lay set gear anew, beside one's own standing there
+        tech = KN.resolve(a.get("what"), "gather")                            # (u2 §3; the gear in hand comes with u3, stage 2)
+        if tech is None or not TECHNIQUES[tech].get("set"):
+            raise Refused(f"{a.get('what')!r} is not set gear: set snares or traps in the water, or a door or a gap")
+        return _technique(here, mind, {**a, "what": tech, "_new_set": True}, party, "gather")
     bid = here.building(a.get("at")) if a.get("at") else (here.homes_here() or [None])[0]
     if bid is None:
         raise Refused("say which building")

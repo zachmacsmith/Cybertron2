@@ -692,5 +692,5 @@ def _set_traps(day, p, season, want, flow) -> None:
     have = len(traps(day, live=True))
     ps = river_parcels(day)
     for j in range(max(0, want - have)):
-        if not ps or not p.add("b", {"do": "gather", "what": "trap in water", "at": day.pname(ps[(have + j) % len(ps)])}, 1):
+        if not ps or not p.add("b", {"do": "set", "what": "trap in water", "at": day.pname(ps[(have + j) % len(ps)])}, 1):   # laid anew
             break

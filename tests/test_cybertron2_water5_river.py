@@ -187,7 +187,8 @@ def test_a_worn_weir_takes_less(river, monkeypatch):
 def test_the_weir_is_crew_work_built_on_a_river_and_its_gap_set_by_its_crew(river):
     w = fresh(river)
     a, b, c = adults(w, "Saltwell")[:3]
-    w.s["containers"][Here(w, a).hands]["goods"]["timber"] = 30
+    w.s["know"].setdefault(a, {})["weir"] = {"level": "known", "skill": 1.0}       # a craft, not everyone's (W-97, u2 §6 bug 4);
+    w.s["containers"][Here(w, a).hands]["goods"].update(timber=60, withies=30)       # b works on its crew under a (D2-302's cost)
     refused(w, a, {"do": "build", "what": "weir", "at": w.s["parcels"][water(w, "Saltwell")]["name"]}, "crew work")
     refused(w, a, {"do": "build", "what": "weir", "at": "the Brine Meadow", "with": b}, "across a river")
     do(w, a, {"do": "build", "what": "weir", "at": w.s["parcels"][water(w, "Saltwell")]["name"], "with": b})
@@ -211,7 +212,8 @@ def test_a_weirs_traps_emptied_by_another_leave_a_trace(river, monkeypatch):
     no_new_runs(monkeypatch)
     w = fresh(river)
     crew = adults(w, "Saltwell")[:2]
-    other = adults(w, "Saltwell")[2]
+    other = next(x for x in adults(w, "Saltwell")[2:] if w.household_of(x) not in {w.household_of(y) for y in crew})   # another
+    # household's: a household's things are every member's own (D2-305, W-97)
     bid = put_weir(w, "Saltwell", crew=crew)
     pulse(w, "Saltwell", n=40.0)
     w.s["wild"]["state"]["pop"]["otter"] = [0.0] * WL.model(w).n
@@ -252,16 +254,15 @@ def test_a_shut_dam_holds_about_its_share_of_a_run_going_up_and_they_can_be_take
             ps = [p for p in RU.today(m, w.s["wild"]["state"], WL.eco_day(w)) if p["g"] == "v:Millham"]
             if ps:
                 held[gap] = {bool(p.get("held")): round(float(p["n"])) for p in ps}
-                if gap == "shut":                                                  # the held fish taken below the dam by net
-                    who = adults(w, "Millham")[0]
-                    w.s["know"].setdefault(who, {})["net"] = {"level": "known", "skill": 1.0}
+                if gap == "shut":                                                  # the held fish taken below the dam by hand
+                    who = adults(w, "Millham")[0]                                  # (the net reaches what flies: W-97, u2 §6 fault 3)
                     tries = 0
                     for s_ in range(12):
                         w2 = copy.deepcopy(w)
                         o = w2.rng
                         w2.rng = lambda *k, o=o, s_=s_: o(*k, "t", s_)
                         before = float(w2.s["containers"][Here(w2, who).hands]["goods"].get("fish", 0.0))
-                        do(w2, who, {"do": "gather", "what": "net", "at": w2.s["parcels"][WL.mill_water(w2, mill)]["name"]})
+                        do(w2, who, {"do": "gather", "what": "fish by hand", "at": w2.s["parcels"][WL.mill_water(w2, mill)]["name"]})
                         tries += float(w2.s["containers"][Here(w2, who).hands]["goods"].get("fish", 0.0)) > before
                     assert tries >= 3
                 break
@@ -378,10 +379,12 @@ def test_an_otter_takes_from_an_unwatched_weir_and_not_from_a_watched_one_or_wit
     assert res["unwatched"] >= 4 and res["watched"] == 0 and res["none"] == 0
 
 
-def test_the_otter_is_a_kind_of_the_water_trapped_by_a_snare_set_at_water():
+def test_the_otter_is_a_kind_of_the_water_taken_at_its_holt():
+    """W-97 (u2 §6 faults 3, 14): the otter by den work at its holt, never in a snare; the net reaches what flies, never salmon."""
     from cybertron2.engine.data import TECHNIQUES
-    assert "otter" in TECHNIQUES["snare"]["yield"]["takes"] and "water" in TECHNIQUES["snare"]["at"]["covers"]
-    assert "salmon" in TECHNIQUES["net"]["yield"]["takes"] and "lamprey" in TECHNIQUES["trap in water"]["yield"]["takes"]
+    assert "otter" not in TECHNIQUES["snare"]["yield"]["takes"] and "water" not in TECHNIQUES["snare"]["at"]["covers"]
+    assert "otter" in TECHNIQUES["den work"]["yield"]["takes"]
+    assert "salmon" not in TECHNIQUES["net"]["yield"]["takes"] and "lamprey" in TECHNIQUES["trap in water"]["yield"]["takes"]
 
 
 # ---------------------------------------------------------------------- signs (§3.5, §3a.5)
@@ -456,7 +459,9 @@ def test_the_weirs_ladder_adds_share_and_hold_a_section_at_a_time(river):
     assert WL.weir_share(b) == pytest.approx(0.30) and WL.weir_hold(b) == pytest.approx(100.0)    # kg (D2-258; was 10 food)
     a, c = b["crew"]
     hands = w.s["containers"][Here(w, a).hands]["goods"]
-    hands["timber"], hands["stone"] = 40, 20
+    from cybertron2.wild import gear as GR
+    x = GR.water_x(WL.water_kind(w, WL.model(w), b["parcel"]))                       # D2-302's cost by the water (W-97)
+    hands["timber"], hands["stone"] = 3 * 15 * x + 10, 20
     for part, n in (("weir section", 3), ("stone footing", 1)):
         for _ in range(n):
             for i in range(30):
@@ -592,12 +597,13 @@ def test_a_full_weirs_upkeep_on_a_lowland_river_is_a_quarter_to_a_third_of_its_c
     # made; the remade world's Saltwell catchment (floodplains, D2-226) gave about 0.95 (a full weir 0.75). Re-pinned to the band
     # with the wear calibrated on the runs world (W-69, 20 Nov; test_cybertron2_water_fixes, 02zzw_water_fixes.md): Saltwell's
     # wattle about 0.47, a full weir about 0.29, the gap open all year (this expectation leaves out the cap of 5 levels a night).
+    # D2-302 (W-97): a year's upkeep a quarter of the build (wattle), an eighth (timber): `mend` halved to 0.03, wattle about 0.24.
     assert share["timber"] == pytest.approx(0.5 * share["wattle"]) and share["foot"] == pytest.approx(0.1 * share["wattle"])
-    assert 0.35 <= share["wattle"] <= 0.55, share
+    assert 0.18 <= share["wattle"] <= 0.28, share
     c1 = MONUMENTS["weir"]["units"]
-    c2 = WW["material"]["timber"]["units"]
+    c2 = WW["cost"]["added"]["timber"]["units"]
     full = (share["wattle"] * c1 + 3 * share["timber"] * c2) / (c1 + 3 * c2)
-    assert 0.25 <= full <= 0.34, full
+    assert 0.11 <= full <= 0.18, full
 
 
 def test_a_weir_is_mended_a_section_and_a_level_at_a_time(river):
@@ -610,7 +616,10 @@ def test_a_weir_is_mended_a_section_and_a_level_at_a_time(river):
     w.s["know"].setdefault(a, {})
     r = do(w, a, {"do": "work", "what": "repair", "at": b["name"]})
     assert "mended a section" in r and WL.sections(w.s["buildings"][bid])[1]["level"] == 3
-    assert w.s["containers"][Here(w, a).hands]["goods"]["timber"] == pytest.approx(4)   # 6% of 10 timber: one
+    import math
+    from cybertron2.wild import gear as GR
+    need = max(1, math.ceil(GR.cost(1, "timber", water=WL.water_kind(w, WL.model(w), b["parcel"]))["materials"]["timber"] * WW["mend"] - 1e-9))
+    assert w.s["containers"][Here(w, a).hands]["goods"]["timber"] == pytest.approx(5 - need)   # 3% of its timber, at least one (D2-302)
 
 
 def test_fish_alive_in_a_weir_or_a_trap_do_not_spoil_until_lifted(river, monkeypatch):
@@ -651,18 +660,17 @@ def test_a_flood_very_likely_and_a_spate_half_the_time_wrecks_a_trap_in_the_rive
     assert share["spate"] == pytest.approx(0.5, abs=0.2) and share["normal"] == 0.0
 
 
-def test_fresh_fish_keep_twice_as_badly_as_meat_in_a_store_and_alike_in_hand(river):
-    """D2-212: x2 on the store's rate for fresh fish; in hand as meat."""
+def test_fresh_fish_keep_worse_than_meat_by_their_base_rates(river):
+    """D2-212 within D2-289 (W-97; wave1 §2.3): fresh fish's faster spoiling is in its base rate (keeps 1.5 days against meat's 3),
+    the store's x2 dropped; in a store and in hand alike."""
     from cybertron2.engine import night as NI
     p = river.p
     for fit in ([], ["bins"]):
         fish = NI.spoil_rate(p, "fish", "store", "autumn", False, fittings=fit)
         meat = NI.spoil_rate(p, "meat", "store", "autumn", False, fittings=fit)
-        assert fish == pytest.approx(2 * meat)
-    assert NI.spoil_rate(p, "fish", "hand", "autumn", False) == pytest.approx(NI.spoil_rate(p, "meat", "hand", "autumn", False))
-    assert NI.spoil_rate(p, "fish", "store", "autumn", False) == pytest.approx(0.18, abs=0.01)
-    assert set(WK.TAKEN["eel"]["goods"]) == {"fish"} and WK.TAKEN["salmon"]["goods"] == {"fish": 3.06}  # so it reaches them (D2-216)
-    assert ITEMS["fish"]["food"] * WK.TAKEN["salmon"]["goods"]["fish"] == pytest.approx(1.41, abs=0.01)   # a salmon's 1.41 (D2-258)
+        assert fish == pytest.approx(meat * 0.1745 / 0.1287, rel=0.01)
+    assert NI.spoil_rate(p, "fish", "hand", "autumn", False) > NI.spoil_rate(p, "meat", "hand", "autumn", False)
+    assert NI.spoil_rate(p, "fish", "store", "autumn", False) == pytest.approx(0.17, abs=0.01)
 
 
 def test_a_set_trap_holds_about_ten_kg_in_the_river_or_the_race(river, monkeypatch):

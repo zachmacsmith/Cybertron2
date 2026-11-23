@@ -222,9 +222,13 @@ class Here:
             nm = b["name"].lower()
             if x in (bid.lower(), nm, nm.removeprefix("the ")):
                 return bid
+        if any(x in (p["name"].lower(), p["name"].lower().removeprefix("the ")) for p in self.parcels().values()):
+            return None                                                       # a place's own name is the place (u2 §6 bug 5)
         hh = {iid: h for iid, h in self._w.s["institutions"].items() if h["kind"] == "household"}
-        for iid, h in hh.items():                                             # "the Fenns" or "Fenn": that household's house here
-            if x in (iid.lower(), iid.lower() + "s", h["name"].lower(), h["name"].lower().removeprefix("the ")):
+        for iid, h in hh.items():                                             # "the Fenns", "Fenns" or "Fenn's": that household's house
+            hn = h["name"].lower().removeprefix("the ")                         # here; never the bare "Fenn" (u2 §6 bug 5)
+            if x in (iid.lower() + "s", iid.lower() + "'s", h["name"].lower(), hn, hn + "'s", hn.removesuffix("s") + "'s",
+                     iid.lower() + " house", hn.removesuffix("s") + " house"):
                 hb = [bid for bid in self.buildings() if any(c["claimant"] == iid for c in self._w.claims_on(("building", bid)))]
                 if hb:
                     return hb[0]
@@ -443,6 +447,36 @@ class Here:
         """Whether a parcel here is water on a river (brief 5 §3)."""
         from cybertron2.engine import wild as WL
         return bool(WL._river_parcel(self._w, pid))
+
+    def run_here(self, pid) -> bool:
+        """A run passes this place's water at that parcel today (Q-79 bug 1; W-97)."""
+        from cybertron2.engine import wild as WL
+        return WL.run_here(self._w, self.node, pid)
+
+    def owns_set(self, c) -> bool:
+        """A set thing one's own or one's household's (D2-305; W-97)."""
+        from cybertron2.engine import things as TH
+        return TH.owns_set(c, self.name, self._w)
+
+    def own_set_at(self, tech, pid):
+        """One's own (or household's) set thing of a technique standing at a parcel here, the newest (u2 §3; W-97)."""
+        from cybertron2.engine import things as TH
+        hits = [(int((c.get("set") or {}).get("set_day", 0)), cid) for cid, c in self._w.s["containers"].items()
+                if c.get("kind") == "set" and c.get("parcel") == pid and not (c.get("set") or {}).get("weir")
+                and (c.get("set") or {}).get("method") == tech and TH.owns_set(c, self.name, self._w) and TH.set_about(self._w, c)]
+        return max(hits)[1] if hits else None
+
+    def weir_water(self, pid) -> str:
+        """A weir's water for its cost (D2-302): beck, lowland or large (wild.water_kind); lowland without the wild layer."""
+        from cybertron2.engine import wild as WL
+        try:
+            return WL.water_kind(self._w, WL.model(self._w), pid) if WL.on(self._w) else "lowland"
+        except Exception:                                                      # a world with no river network: as lowland
+            return "lowland"
+
+    def mind(self):
+        from cybertron2.engine.here import Mind
+        return Mind(self._w, self.name)
 
     def has_gap(self, b) -> bool:
         """Whether a building is a weir or a water mill with a gap (brief 5 §3, §3a)."""

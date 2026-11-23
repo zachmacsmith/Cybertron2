@@ -83,26 +83,31 @@ def _add(a, b, k=1.0) -> dict:
     return out
 
 
-def cost(j, material, foot=False) -> dict:
-    """A section's build: {"materials": {...}, "units": n}: its material's, the first's with the weir's stakes and trap, a footing's
-    added under it."""
+def water_x(water=None) -> float:
+    """The cost's multiplier by the weir's water (D2-302): a beck 0.3, a lowland river 1, a large river 2.5."""
+    return float(_W()["cost"]["water"].get(water or "lowland", 1.0))
+
+
+def _scaled(c, x) -> dict:
+    return {"materials": {i: round(float(q) * x, 1) for i, q in c["materials"].items()}, "units": round(float(c["units"]) * x, 1)}
+
+
+def cost(j, material, foot=False, water=None) -> dict:
+    """A section's build (D2-302): {"materials": {...}, "units": n}, the first's or an added one's in its material, by the water; a
+    footing's added under it."""
     W = _W()
-    mat = W["material"][material]
-    mats, units = dict(mat["materials"]), float(mat["units"])
-    if int(j) == 0:
-        mats = _add(mats, W["position"]["first"]["materials"])
-        units += float(W["position"]["first"]["units"])
+    c = W["cost"]["first" if int(j) == 0 else "added"][material]
+    out = _scaled(c, water_x(water))
     if foot:
-        mats = _add(mats, W["footing"]["materials"])
-        units += float(W["footing"]["units"])
-    return {"materials": mats, "units": units}
+        out = {"materials": _add(out["materials"], W["footing"]["materials"]), "units": out["units"] + float(W["footing"]["units"])}
+    return out
 
 
-def upgrade_cost(frm="wattle", to="timber") -> dict:
-    """Rebuilding a section in a better material: the difference of the two materials' costs (D2-210), none below nothing."""
-    M = _W()["material"]
-    mats = {i: max(0.0, float(q) - float(M[frm]["materials"].get(i, 0))) for i, q in M[to]["materials"].items()}
-    return {"materials": {i: q for i, q in mats.items() if q > 0}, "units": max(0.0, float(M[to]["units"]) - float(M[frm]["units"]))}
+def upgrade_cost(frm="wattle", to="timber", j=0, water=None) -> dict:
+    """Rebuilding a section in a better material: the difference of the two materials' costs (D2-210, D2-302), none below nothing."""
+    a, b = cost(j, frm, water=water), cost(j, to, water=water)
+    mats = {i: round(max(0.0, float(q) - float(a["materials"].get(i, 0))), 1) for i, q in b["materials"].items()}
+    return {"materials": {i: q for i, q in mats.items() if q > 0}, "units": round(max(0.0, b["units"] - a["units"]), 1)}
 
 
 # ---------------------------------------------------------------------- gear sharing a run

@@ -37,15 +37,15 @@ COPSE = {"cover": "forest", "size": 1, "state": {"wood": {"kind": "copse"}}}
 def test_a_copse_left_alone_keeps_its_trees_and_sheds_firewood_felled_it_turns_to_scrub():
     w = world(alder_copse=COPSE)
     res = w.s["parcels"]["alder_copse"]["res"]
-    assert res["wood"]["S"] == 300 and res["young"]["K"] == 40 and res["dead"]["S"] == 50
-    assert abs(CP.wood_flow(w.s["parcels"]["alder_copse"]) - 18) < 0.5                # about 18 firewood a year
+    assert res["wood"]["S"] == 2880 and res["young"]["K"] == 240 and res["dead"]["S"] == 300   # x 9.6 and x 6 (D2-288, W-97)
+    assert abs(CP.wood_flow(w.s["parcels"]["alder_copse"]) - 108) < 3                 # about 108 bundles a year (18 of the old 60 kg)
     days(w, 24)
-    assert res["wood"]["S"] >= 299
+    assert res["wood"]["S"] >= 2870
     w2 = world(alder_copse=COPSE)
     p2 = w2.s["parcels"]["alder_copse"]
-    p2["res"]["wood"]["S"] = 90                                                        # felled to 30%
+    p2["res"]["wood"]["S"] = 864                                                       # felled to 30%
     days(w2, 1)
-    assert p2["cover"] == "scrub" and CP.wood_flow(p2) < CP.wood_flow(w.s["parcels"]["alder_copse"]) - 6
+    assert p2["cover"] == "scrub" and CP.wood_flow(p2) < CP.wood_flow(w.s["parcels"]["alder_copse"]) - 36
 
 
 def test_young_growth_regrows_ungrazed_and_not_under_a_herd():
@@ -67,19 +67,20 @@ def test_young_growth_regrows_ungrazed_and_not_under_a_herd():
 def test_a_hearth_burns_heat_by_the_order():
     w = world()
     cid = w.s["buildings"]["reed_house"]["stock"]
+    h = w.p["heat"]                                                            # a bundle a night, three on a cold one (D2-290, W-97)
     w.s["containers"][cid]["goods"] = {"firewood": 10.0, "timber": 5.0}
-    assert FO.burn(w, "millbrook", cid, 1.0) and abs(w.goods(cid)["firewood"] - 8.0) < 1e-6            # a normal night: 2 firewood
+    assert FO.burn(w, "millbrook", cid, h["normal"]) and abs(w.goods(cid)["firewood"] - 9.0) < 1e-6    # a normal night: 1 firewood
     w.s["containers"][cid]["goods"] = {"timber": 5.0}
-    assert FO.burn(w, "millbrook", cid, 4.0) and abs(w.goods(cid)["timber"] - 3.0) < 1e-6              # a cold one: 2 timber
-    w.s["containers"][cid]["goods"] = {"firewood": 8.0}
-    assert FO.burn(w, "millbrook", cid, 4.0) and w.goods(cid)["firewood"] < 1e-6                         # or 8 firewood
+    assert FO.burn(w, "millbrook", cid, h["cold"]) and abs(w.goods(cid)["timber"] - 3.8) < 1e-6        # a cold one: 1.2 timber
+    w.s["containers"][cid]["goods"] = {"firewood": 3.0}
+    assert FO.burn(w, "millbrook", cid, h["cold"]) and w.goods(cid)["firewood"] < 1e-6                   # or 3 firewood
 
 
-def test_charcoal_gives_six_heat():
+def test_charcoal_gives_two_heat():
     w = world()
     cid = w.s["buildings"]["reed_house"]["stock"]
     w.s["containers"][cid]["goods"] = {"charcoal": 1.0}
-    assert FO.burn(w, "millbrook", cid, 4.0) and abs(w.goods(cid)["charcoal"] - 1 / 3) < 1e-6            # two-thirds of one
+    assert FO.burn(w, "millbrook", cid, 1.5) and abs(w.goods(cid)["charcoal"] - 0.25) < 1e-6             # a 20 kg sack (W-97)
 
 
 def test_travellers_sleeping_out_share_a_fire_of_two_timber_five_need_two():
@@ -137,10 +138,10 @@ def test_firewood_needs_no_tool_and_a_child_may_gather_it_felling_bare_handed_is
     before = w.s["parcels"]["alder_copse"]["res"]["dead"]["S"]
     w.s["containers"][w.hands(n)]["goods"] = {"crude tool": 1.0}
     r = do(w, n, do="gather", what="fell", at="Alder Copse")
-    assert "3 timber" in r and w.s["parcels"]["alder_copse"]["res"]["dead"]["S"] > before - 0.01            # brash left
+    assert "8 timber" in r and w.s["parcels"]["alder_copse"]["res"]["dead"]["S"] > before - 0.01            # brash left (4 a unit)
     w.s["containers"][w.hands(n)]["goods"] = {}
     r = do(w, n, do="gather", what="fell", at="Alder Copse")                                              # bare hands: a quarter
-    assert float(r.split("You took ")[1].split(" timber")[0]) < 1.0
+    assert float(r.split("You took ")[1].split(" timber")[0]) <= 2.0                                       # (of 8 with a tool)
     assert do(w, n, do="gather", what="cut", at="Alder Copse").startswith("Refused")                        # young growth: a tool
 
 
@@ -154,7 +155,8 @@ def test_the_capacity_check_for_a_small_village():
     s["roads"], s["buildings"], s["herds"], s["agents"], s["households"] = [], {}, {}, {}, {}
     s.pop("claims", None)
     c = CP.node(World(s), "vill")
-    assert abs(c["food_people"] - 17) < 1 and abs(c["heat_people"] - 14) < 1
+    assert abs(c["food_people"] - 17) < 1 and abs(c["heat_people"] - 199.5) < 2       # 14 before a bundle a night and the woods' real mass
+    # (D2-288, D2-290: W-97): the woods keep the fires of many times the village
 
 
 def test_every_sign_row_reads_its_context_and_the_new_ones_fire():

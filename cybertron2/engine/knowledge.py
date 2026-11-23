@@ -203,6 +203,9 @@ def ready(here, tech, kind, key, a=None) -> str:
     if kind == "parcel":
         p = here.parcels()[key]
         d = t.get("draws")
+        if d == "fish" and t.get("run"):                                      # a run passing there today (Q-79 bug 1, u2 §6: the
+            if here.run_here(key):                                            # phase-1 patch until the shallows are built)
+                return ""
         if d in RESOURCES and d not in p["res"]:                              # any stock the data names (D4-103)
             return f"there is no {({'plants': 'wild food', 'grass': 'grass to cut', 'dead': 'dead wood', 'young': 'young growth'}).get(d, d)} at {p['name']}"
         if d in ("dead", "young") and p["res"][d]["S"] < 0.5:
@@ -408,27 +411,22 @@ def crafts_lines(mind) -> list:
     return out
 
 
-def options(here, mind, limit=10):
-    """Today's options: techniques one could do here now, and near misses."""
-    can, near = [], []
+def doable(here, mind) -> list:
+    """The scripted bots' candidates: "verb technique" for each technique one could do here now (smoke tests only). Never shown to a
+    person: the list of what one could do today is gone from every prompt (D2-286)."""
+    out = []
     for tech, t in TECHNIQUES.items():
-        if t.get("modifies"):                                                  # modifiers show on their verbs' lines
+        if t.get("modifies"):
             continue
         lvl = level(mind, tech)
         from cybertron2.engine import packs as PK
         if t.get("crew") and lvl not in ("rough", "capable", "known") and PK.on(t, getattr(mind, "packs", None)):
             lvl = "known"                                                     # anyone can work on a crew (D2-66), of this world's packs
         if lvl not in ("rough", "capable", "known") or t["verb"] == "build" or (t.get("yield") or {}).get("kind") == "clear_built":
-            continue                                                          # building: the build verb's own line (02zh §9)
-        why = shortfall(here, mind, tech, TRY[lvl]["inputs"])
-        sites = [s for s in where(here, tech) if s[0] == "anywhere" or not ready(here, tech, s[0], s[1])]
-        places = ", ".join(sorted({s[2] for s in sites}))
-        tag = "" if lvl == "known" else (" (a try)" if lvl == "rough" else " (not yet sure of hand)")
-        if not why:
-            can.append(f"{t['verb']} {tech}{tag}" + (f" at {places}" if places and places != "anywhere" else "") + f" ({t['units']} units)")
-        elif len(near) < 4 and not why.startswith(("there is no", "there are no")):
-            near.append(f"{t['verb']} {tech}{tag}, but {why}")
-    return can[:limit], near[:4]
+            continue
+        if not shortfall(here, mind, tech, TRY[lvl]["inputs"]):
+            out.append(f"{t['verb']} {tech}")
+    return out[:10]
 
 
 def mentions(text) -> list:

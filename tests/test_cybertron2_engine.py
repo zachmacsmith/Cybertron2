@@ -156,7 +156,7 @@ def test_farming_sow_ripen_reap_and_rot():
 def test_building_a_house_and_living_in_it():
     w = world()
     me = w.hands("Osric")
-    w.s["containers"][me]["goods"].update({"timber": 20, "hide": 2, "straw": 4})
+    w.s["containers"][me]["goods"].update({"timber": 40, "withies": 40, "hide": 2, "straw": 4})   # a wattle room in kg (u7 §2.1, W-97)
     assert do(w, "Osric", do="found", name="Osric").startswith("You are now the head")
     assert w.homes("Osric") == []
     r = do(w, "Osric", do="build", what="small room", at="the Yard", name="Osric's House")
@@ -241,9 +241,9 @@ def test_work_legs_are_met_by_work_done_for_the_payee():
 # ---------------------------------------------------------------------- travel, talk, a run
 def test_travel_arrive_and_leave_goods_when_too_heavy():
     w = world()
-    w.s["containers"][w.hands("Simkin")]["goods"]["timber"] = 6
+    w.s["containers"][w.hands("Simkin")]["goods"]["timber"] = 1                        # a 25 kg timber (D2-288, W-97)
     assert do(w, "Simkin", do="travel", to="Coppergate").startswith("Refused: travel: you carry")
-    assert do(w, "Simkin", do="leave", item="timber", qty=3, at="Fenn House").startswith("You left")
+    assert do(w, "Simkin", do="leave", item="timber", qty=1, at="Fenn House").startswith("You left")
     assert do(w, "Simkin", do="travel", to="Coppergate").startswith("You set off")
     w.s["left"] = [{**x, "day": w.d} for x in w.s["today"]["left"]]
     next_day(w)

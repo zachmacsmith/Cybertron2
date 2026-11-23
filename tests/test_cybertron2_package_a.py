@@ -101,11 +101,11 @@ def test_give_to_someone_not_here_is_left_at_their_door_and_a_passer_by_can_take
 def test_bury_is_offered_only_where_a_body_lies_and_frozen_ground_takes_six_shared_over_days():
     from cybertron2.engine import knowledge as KN
     w = world()
-    can, near = KN.options(Here(w, "Edric"), Mind(w, "Edric"), limit=99)
-    assert not any(x.startswith("work bury") for x in can + near)
+    can = KN.doable(Here(w, "Edric"), Mind(w, "Edric"))
+    assert not any(x.startswith("work bury") for x in can)
     cid = _body(w, "long_field", "Hamo")
-    can, _ = KN.options(Here(w, "Edric"), Mind(w, "Edric"), limit=99)
-    assert any(x.startswith("work bury") for x in can)
+    assert "work bury" in [x for x in KN.doable(Here(w, "Edric"), Mind(w, "Edric"))] or \
+        KN.shortfall(Here(w, "Edric"), Mind(w, "Edric"), "bury", 1.0) == ""
     assert V.cost(Here(w, "Edric"), {"do": "work", "what": "bury", "at": "Hamo"}) == 2
     w.cold_days = {w.d}
     assert TH.grave_left(w, cid) == 6                                             # frozen ground: 6 units in all (D2-96)
@@ -117,13 +117,15 @@ def test_bury_is_offered_only_where_a_body_lies_and_frozen_ground_takes_six_shar
 
 
 # ---------------------------------------------------------------------- decay by condition (D2-87)
-def test_grain_in_the_open_on_a_wet_day_loses_five_percent():
+def test_grain_in_the_open_on_a_wet_day_loses_ten_times_its_base():
     w = world(weather={1: "rain"})
     w.s["seq"] += 1
     cid = "pile:x"
     w.s["containers"][cid] = {"kind": "pile", "node": "millbrook", "parcel": "long_field", "goods": {"grain": 100.0}, "wear": {}}
     share, becomes = N.decay_rate(w, w.s["containers"][cid], "grain")
-    assert abs(share - 0.005 * 10 * 1.2) < 1e-3 or abs(share - 0.05) < 1e-3     # 0.5% x10 (and x1.2 in summer)
+    from cybertron2.engine.data import ITEMS
+    g = ITEMS["grain"]["spoil"]                                                # its base on the keeping curve (D2-289, W-97)
+    assert abs(share - g * 10 * 1.2) < 1e-4 or abs(share - g * 10) < 1e-4       # x10 in the open wet (and x1.2 in summer)
     meat = {"kind": "pile", "node": "millbrook", "parcel": "long_field", "goods": {"meat": 10.0}, "wear": {}}
     assert N.decay_rate(w, meat, "meat")[1] == "rotting meat"
 

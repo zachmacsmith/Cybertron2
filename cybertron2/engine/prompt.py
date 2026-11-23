@@ -510,7 +510,8 @@ def system_prompt(here, mind) -> str:
                                                       for i, v in ITEMS.items() if v["food"] > 0 and PK.on(v))
               + ". Spoils fastest in your hands: " + ", ".join(i for i, v in sorted(((i, v) for i, v in ITEMS.items() if PK.on(v)), key=lambda kv: -kv[1]["spoil"])
                                                            if v["food"] > 0 and v["spoil"] >= 0.15)
-              + f"; a store keeps food {1 / p['house_spoil']:.0f} times better.",
+              + ("; under a roof it keeps as well as it can be kept, and faster spoils in the open, the wet and the warm." if p["house_spoil"] >= 1
+                 else f"; a store keeps food {1 / p['house_spoil']:.0f} times better."),
               "- Fuel, as heat: " + ", ".join(f"{i} {ITEMS[i]['heat']:g}" for i in p["heat"]["order"]) + " a unit (firewood is dead wood "
               f"gathered by hand, or young growth cut with a tool; timber is felled). A hearth needs {p['heat']['normal']:g} heat a night "
               f"to cook, {p['heat']['cold']:g} on a cold one, from its building's store, burning firewood first, then timber, then "
@@ -787,13 +788,8 @@ def turn_prompt(here, mind, opening=True) -> str:
               "with you until you turn it out: drive {thing, to: a pasture here}; set off without leading it and it is left here)."
               for _, nm, ox in here.led()] + _beast_lines(here, mind)
     L.append("## You\n" + "\n".join(you + _family_lines(here, mind) + beasts + _house_lines(here, mind)))
-    can, near = KN.options(here, mind)
-    opt = ["Today you could: " + "; ".join(can) + "." if can else "Of your crafts, none can be done here today with what you have."]
-    if near:
-        opt.append("Not yet: " + "; ".join(near) + ".")
-    if not opening:
-        opt.append("What you know how to do: " + " ".join(x.removeprefix("- ") for x in KN.crafts_lines(mind)))
-    L.append("## Your crafts today\n" + "\n".join(opt))
+    if not opening:                                                        # no list of what one could do today (D2-286)
+        L.append("## Your crafts\nWhat you know how to do: " + " ".join(x.removeprefix("- ") for x in KN.crafts_lines(mind)))
     offers = [AG.offer_text(here, oid) for oid, o in here.offers().items() if o["by"] != here.name and o["to"] in (None, here.name)]
     mine = [AG.offer_text(here, oid) for oid, o in here.offers().items() if o["by"] == here.name]
     if offers or mine:

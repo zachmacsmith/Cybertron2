@@ -240,4 +240,4 @@ def test_meat_hung_on_a_rack_dries_in_three_nights_and_salt_meat_needs_salt(gene
     stored = w.s["containers"][w.s["buildings"][bid]["stock"]]["goods"].get("dried meat", 0)   # dry after its third night, and
     assert c["rack"]["dried"] > 2.5 and c["goods"].get("drying meat", 0) < 1e-6              # into the store (brief 4c §6.3):
     assert stored + c["goods"].get("dried meat", 0) > 2.5                                     # about 4 from 8, less what spoiled
-    assert TECHNIQUES["salt meat"]["inputs"] == {"meat": 4, "salt": 1}
+    assert TECHNIQUES["salt meat"]["inputs"] == {"meat": 40, "salt": 5}                   # 40 kg a unit, salt 1 to 8 (D2-283, W-97)

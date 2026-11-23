@@ -191,7 +191,7 @@ def test_without_resident_fish_traps_take_only_from_a_run():
         for _ in range(4):                                                    # late summer: no run yet
             w.s["today"] = R.blank_today()
             for n in sorted(n for n in w.living() if w.s["people"][n]["stage"] == "adult"):
-                _do(w, n, {"do": "gather", "what": "trap in water", "at": water})
+                _do(w, n, {"do": "set", "what": "trap in water", "at": water})   # laid anew each day (named alone they are tended: W-97)
             N.night(w)
             w.s["day"] += 1
         caught[arm] = sum(sum(c.get("goods", {}).values()) for c in w.s["containers"].values() if c.get("kind") == "set")

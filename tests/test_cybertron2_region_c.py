@@ -41,7 +41,7 @@ def test_barleyfield_cannot_fell_more_than_its_copse():
         if r.startswith("Refused"):
             break
         got = w.goods(w.hands(n)).get("timber", 0.0)
-    assert got <= 14 and r.startswith("Refused")
+    assert got <= 135 and r.startswith("Refused")                        # 14 old timber x 9.6 (D2-288, W-97)
 
 
 def test_ashwood_has_no_field_to_farm():
@@ -68,11 +68,12 @@ def test_the_pass_is_snowed_in_deep_winter():
     assert RD.challenge(w, rid, pos, lm) == "snowed"
 
 
-def test_the_merchant_can_lead_the_pack_ox_and_carry_60():
+def test_the_merchant_can_lead_the_pack_ox_and_carry_100():
     w = world()
     m = adult_at(w, "millford", "Merchant")
-    w.s["containers"][w.hands(m)]["goods"].update({"harness": 1.0, "grain": 55.0})
-    assert do(w, m, do="travel", to="Barleyfield").startswith("Refused")       # 55 is too heavy without the ox
+    w.s["containers"][w.hands(m)]["goods"].update({"harness": 1.0, "grain": 80.0})
+    w.s["containers"][w.hands(m)]["goods"].pop("handcart", None)                # his cart left at home (it takes 125 on a track)
+    assert do(w, m, do="travel", to="Barleyfield").startswith("Refused")       # 80 grain is too heavy without the ox (W-97: kg)
     assert do(w, m, do="travel", to="Barleyfield", lead="the ox").startswith("You set off")
 
 

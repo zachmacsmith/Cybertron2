@@ -145,7 +145,7 @@ def test_a_stranger_who_takes_the_catch_leaves_a_trace_for_the_setter():
     w.s["mind"][STRANGER].setdefault("things", {})
     TH.remember(w, STRANGER, cid, "saw", text="a brown hare caught in a snare at Mill Mead")
     r = _do(w, STRANGER, {"do": "take", "item": "meat", "from": "Mill Mead"})
-    assert "took 0.7 meat from the snares at Mill Mead" in r
+    assert "took 0.7 meat from the snares Ellen set at Mill Mead, which are not yours" in r       # named theft (W-97, u2 §6 fault 7)
     assert w.s["containers"][cid]["robbed"]["by"] == STRANGER and not w.s["containers"][cid]["catch"]
     look = [f["text"] for f in _facts(w, cid, SETTER) if f.get("who") == "setter"]
     assert look == ["your snares at Mill Mead have been emptied by someone: a noose pulled open, the grass trodden round it"]
@@ -164,15 +164,16 @@ def test_a_remembered_set_thing_never_says_empty_unless_seen_so_and_says_when_it
     w.s["day"] = 4
     cid = _line(w, set_day=4)
     day = lambda d: f"{w.calendar(d)['season']} day {w.calendar(d)['day']}"     # noqa: E731
-    assert _lying(w, SETTER) == [f"a line of snares you set at Mill Mead ({day(4)})"]
+    tag = f" ({w.s['containers'][cid]['tag']})" if w.s["containers"][cid].get("tag") else ""   # with its tag (W-97, u2 §6 fault 8)
+    assert _lying(w, SETTER) == [f"a line of snares you set at Mill Mead{tag} ({day(4)})"]
     w.s["day"] = 6
     _catch(w, cid, day=5)
-    assert _lying(w, SETTER) == [f"a line of snares you set at Mill Mead ({day(4)})"]   # caught, unseen: no word of it
+    assert _lying(w, SETTER) == [f"a line of snares you set at Mill Mead{tag} ({day(4)})"]   # caught, unseen: no word of it
     TH.look(w, SETTER, cid)                                                     # seen on day 6
-    assert _lying(w, SETTER) == [f"a line of snares you set at Mill Mead, with a brown hare caught in them (as you saw it on {day(6)})"]
+    assert _lying(w, SETTER) == [f"a line of snares you set at Mill Mead{tag}, with a brown hare caught in them (as you saw it on {day(6)})"]
     w.s["day"] = 7
     _do(w, SETTER, {"do": "take", "from": "the snares at Mill Mead"})
-    assert _lying(w, SETTER) == [f"a line of snares you set at Mill Mead, nothing caught in them (as you saw it on {day(7)})"]
+    assert _lying(w, SETTER) == [f"a line of snares you set at Mill Mead{tag}, nothing caught in them (as you saw it on {day(7)})"]
     _catch(w, cid, day=7)
     w.s["day"] = 8
     assert "nothing caught in them" in _lying(w, SETTER)[0]                    # as it was then, not as it is
@@ -214,7 +215,7 @@ def test_a_stranger_may_lift_a_line_found_by_naming_its_place():
     _catch(w, cid, goods={"meat": 0.7})
     _catch(w, cid, goods={"meat": 0.7})
     r = _do(w, STRANGER, {"do": "take", "from": "the snares at Mill Mead"})     # a search, a catch plain to find (own 0.4 x 5)
-    assert "took 1.4 meat from the snares at Mill Mead" in r
+    assert "took 1.4 meat from the snares Ellen set at Mill Mead, which are not yours" in r       # named theft (W-97, u2 §6 fault 7)
     assert w.s["containers"][cid]["robbed"]["by"] == STRANGER
 
 

@@ -270,7 +270,7 @@ def test_smelting_with_charcoal_or_timber():
     for c in [b for b in w.s["buildings"] if w.s["buildings"][b]["node"] == "coppergate"]:
         w.s["containers"][w.s["buildings"][c]["stock"]]["goods"]["timber"] = 0.0
     assert do(w, "Osric", do="make", what="smelt").startswith("You made 1 copper")     # charcoal (D4-46)
-    st["timber"] = 4.0
+    st["timber"] = 6.0                                                         # 150 kg of wood (W-97: fuel by energy)
     assert do(w, "Osric", do="make", what="smelt").startswith("You made 1 copper")     # or timber
 
 
@@ -426,19 +426,19 @@ def test_a_bare_place_is_a_sign_some_never_read_and_trying_it_tells_anyone():
     assert any("Brook Meadow" in x and "you found it picked bare of wild food" in x for x in lines)
 
 
-def test_a_fire_in_the_open_cooks_for_two_timber_and_a_camp_burns_one():
+def test_a_fire_in_the_open_cooks_for_its_heat_and_a_camp_burns_less():
     w = world()
     w.s["people"]["Edric"]["at"] = "grey_crag"
     hands = w.s["containers"][w.hands("Edric")]["goods"]
     for k in list(hands):
         hands[k] = 0.0
-    give(w, "Edric", grain=5, timber=1)
-    assert "takes 4 heat from what you carry (8 firewood or 2 timber)" in do(w, "Edric", do="fire")   # D4-94
-    give(w, "Edric", grain=5, timber=2.5)
+    give(w, "Edric", grain=5, timber=1)                                       # 1.25 heat: short of a fire in the open's 1.5 (D2-290)
+    assert "takes 1.5 heat from what you carry (3 firewood or 1.2 timber)" in do(w, "Edric", do="fire")   # D4-94
+    give(w, "Edric", grain=5, timber=1.5)
     assert "fire tonight" in do(w, "Edric", do="fire")
     rec = N.night(w)
     assert "Edric" in rec["open_fire"] and rec["ate"].get("Edric", 0) > 0 and "Edric" not in rec["missed"]
-    assert abs(w.goods(w.hands("Edric"))["timber"] - 0.5) < 1e-6
+    assert abs(w.goods(w.hands("Edric"))["timber"] - 0.3) < 1e-6                   # 2.5 less the night in the open, in its weather (W-97)
     w2 = world()
     give(w2, "Edric", timber=3)
     do(w2, "Edric", do="build", what="camp", at="Alder Copse")
@@ -446,16 +446,16 @@ def test_a_fire_in_the_open_cooks_for_two_timber_and_a_camp_burns_one():
     w2.s["containers"][w2.s["buildings"][bid]["stock"]]["goods"]["timber"] = 3.0
     w2.s["today"]["sleep"]["Edric"] = bid
     N.night(w2)
-    assert abs(w2.goods(w2.s["buildings"][bid]["stock"])["timber"] - 2.0) < 1e-6
+    assert abs(w2.goods(w2.s["buildings"][bid]["stock"])["timber"] - 2.2) < 1e-6   # a camp's 1 heat: 0.8 timber (D2-290, W-97)
 
 
 def test_one_who_dies_on_the_road_leaves_what_they_carried_on_the_road():
     w = world()
-    give(w, "Warin", timber=4)
+    give(w, "Warin", firewood=0.4)                                             # light enough to travel with (25 kg timber: W-97)
     assert do(w, "Warin", do="travel", to="the goat path up into the crags").startswith("You set off")
     N.night(w)
     assert w.s["people"]["Warin"]["at"] is None
     road = w.place_of(("person", "Warin"))
     w.apply("die", road, person="Warin", cause="starvation")
     rem = [c for c in w.s["containers"].values() if c["kind"] == "remains" and c["of"] == "Warin"]
-    assert rem and rem[0]["on_road"] and rem[0]["node"] == road and rem[0]["goods"]["timber"] == 4
+    assert rem and rem[0]["on_road"] and rem[0]["node"] == road and abs(rem[0]["goods"]["firewood"] - 0.4) < 1e-9

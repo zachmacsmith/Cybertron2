@@ -286,9 +286,15 @@ def is_weir(c) -> bool:
     return bool((c.get("set") or {}).get("weir"))
 
 
-def owns_set(c, name) -> bool:
-    """Whether one set this thing (or works the weir it belongs to): taking from it is no robbery."""
-    return c.get("by") == name or (is_weir(c) and name in (c.get("crew") or []))
+def owns_set(c, name, w=None) -> bool:
+    """Whether one set this thing (or works the weir it belongs to), or one's household did (D2-305: a household's things are every
+    member's own, given the world `w`): taking from it is no robbery."""
+    if c.get("by") == name or (is_weir(c) and name in (c.get("crew") or [])):
+        return True
+    if w is not None and c.get("by"):
+        hh = w.household_of(name)
+        return bool(hh) and w.household_of(c["by"]) == hh
+    return False
 
 
 def trap_noun(c) -> str:
@@ -387,7 +393,9 @@ def set_line(w, name, c, r, daystr) -> str:
     """The remembered line of a set thing (brief 4c §4.3), never "empty" unless seen so: 'a line of snares you set at the Ham
     (winter day 4)'; seen again, as it was then: '..., with a brown hare caught in them (as you saw it on winter day 6)'."""
     where = parcel_name(w, c)
-    mine = owns_set(c, name)
+    mine = owns_set(c, name, w)
+    tag = c.get("tag")
+    where = f"{where} ({tag})" if tag and on_tags(w) else where              # one's own sets with their tags (u2 §6 fault 8)
     if is_weir(c):
         base = f"the traps of the weir you work at {where}" if mine else f"the traps of the weir at {where}"
     elif is_trap(c):
@@ -400,6 +408,10 @@ def set_line(w, name, c, r, daystr) -> str:
     if mine:
         return f"{base} ({daystr(int((c.get('set') or {}).get('set_day', r['day'])))})"
     return None
+
+
+def on_tags(w) -> bool:
+    return bool((w.spec or {}).get("tags"))
 
 
 def set_words(c) -> tuple:
@@ -646,6 +658,8 @@ def find(w, name, where, item=None):
             other = [p for p, x in w.s["parcels"].items() if x["node"] == c.get("node") and p != c.get("parcel")
                      and len(x["name"]) > 3 and x["name"].lower().removeprefix("the ") in low]
             said = not other                                                   # unless it names another place (brief 4c §4.4)
+            if said and not owns_set(c, name, w) and str(c.get("by") or "").lower() not in low:
+                continue                                                       # unnamed: one's own only (u2 §6 fault 6; D2-305)
         if low and not said and (c.get("of") or "").lower() not in low:
             continue
         if item and c["goods"].get(item, 0.0) <= 1e-9:

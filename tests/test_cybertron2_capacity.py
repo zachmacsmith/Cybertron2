@@ -24,6 +24,8 @@ def test_every_edible_good_has_a_source_or_a_route():
     for t in FD.FOOD_TECHS:
         made |= set(TECHNIQUES[t]["gives"])
     made |= {d["rack"]["into"] for d in TECHNIQUES.values() if d.get("rack")}   # dried on a rack after its nights (brief 4 §5)
+    made |= {"hot-smoked fish", "hot-smoked meat", "hard-cured fish", "hard-cured meat"}   # the cured depths as goods (D2-295, W-97):
+    # their processes are u4's, stage 3 of the wave (docs/cybertron2/proposals/w73_design/build_plan.md)
     assert set(FD.EDIBLE) <= made, f"edible goods no source makes: {set(FD.EDIBLE) - made}"
 
 

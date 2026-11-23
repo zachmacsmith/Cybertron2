@@ -35,14 +35,14 @@ def test_hollin_wood_runs_out_and_ockley_has_almost_no_wood():
     n = adult_at(w, "hollins")
     w.s["containers"][w.hands(n)]["goods"]["crude tool"] = 1.0
     got = 0.0
-    for d in range(60):
+    for d in range(250):
         w.s["day"] = d
         r = do(w, n, do="gather", what="fell", at="Hollin Wood")
         if r.startswith("Refused"):
             break
         got = w.goods(w.hands(n)).get("timber", 0.0)
-    assert 50 <= got <= 72 and r.startswith("Refused")
-    assert w.s["parcels"]["ok_copse"]["res"]["wood"]["S"] <= 10
+    assert 480 <= got <= 700 and r.startswith("Refused")                 # 50 to 72 of the old 240 kg timber, x 9.6 in 25 kg ones
+    assert w.s["parcels"]["ok_copse"]["res"]["wood"]["S"] <= 96          # (D2-288, W-97)
 
 
 def test_the_deep_forest_is_reached_only_from_hollins_and_shows_its_next_way_on_arrival():
