@@ -92,6 +92,11 @@ RUMOUR = {   # true but vague lines, inside the founders' 20 (monoculture_five_w
 }
 
 
+KEEPER_LINE = {"forge": "I keep {name}: copper ore smelted with charcoal here makes the tools that wear; the hearth and bellows want "
+                         "mending now and then.",
+               "mill": "I keep {name}: it grinds grain to flour on the river's water; its stones want dressing and its leat clearing."}
+
+
 def _stage(age: int) -> str:
     return "infant" if age < 4 else "child" if age < 12 else "youth" if age < 24 else "adult" if age < 64 else "elder"
 
@@ -219,9 +224,27 @@ def founders(world: dict, key: str) -> dict:
             else:
                 st["grain"], st["beans"] = round(FIRST * k * 0.8), round(FIRST * k * 0.2)
             st["firewood"] = max(int(st.get("firewood") or 0), 6 * k)
-    for n, a in agents.items():                                             # the Holt's food in hand: no house to keep it in
-        if a["household"] in NO_HOUSE and a["stage"] not in ("infant", "child"):
-            a["holdings"]["dried meat"] = FIRST
+    for n, a in agents.items():                                             # the Holt's food in hand: no house to keep it in, and
+        if a["household"] in NO_HOUSE:                                      # their place is their home (no house to place them by)
+            a["at"] = everyone[n][0]
+            if a["stage"] not in ("infant", "child"):
+                a["holdings"]["dried meat"] = FIRST
+    for home, hhs in FOUNDERS[key].items():                                 # the salters' shore: a saltmarsh parcel if the land gave none
+        if not any("salter" in (SKILLS[key].get(hh) or {}).get("livelihoods", []) for hh in hhs):
+            continue
+        parcels = world["nodes"][home]["parcels"]
+        if any(p["cover"] == "saltmarsh" for p in parcels.values()):
+            continue
+        wet = {pid for pid, p in parcels.items() if p["cover"] == "water"}
+        cand = sorted((pid for pid, p in parcels.items() if p["cover"] in ("pasture", "meadow", "scrub", "fen") and set(p.get("adj") or []) & wet),
+                      key=lambda pid: (-int(parcels[pid].get("size", 1)), pid)) or \
+               sorted(pid for pid, p in parcels.items() if p["cover"] in ("pasture", "meadow", "scrub", "fen"))
+        if cand:
+            p = parcels[cand[0]]
+            p.update({"cover": "saltmarsh", "ecosystem": "saltmarsh", "terrain": "saltmarsh",
+                      "text": "saltmarsh by the shore, its pools crusted white in summer"})
+            p.setdefault("state", {})["salt"] = {"K": 1000, "S": 1000, "r": 0.0}
+            world.setdefault("made_by_maker", []).append(f"{home}: {cand[0]} made saltmarsh (the generator gave the salters' shore none)")
     return world
 
 
@@ -250,6 +273,18 @@ def seed_lines(world: dict, key: str) -> dict:
     world["skills"] = {"depth": "full", "households": copy.deepcopy(SKILLS[key]),
                        "couple": {"capital_knowledge": True, "livelihood_land": True, "crafts_capital": True, "gates": True}}
     report = LV.fill(world)
+    for n, a in world["agents"].items():                                    # trap-setting without a maker in reach (gate): only fishers
+        if "fisher" not in (SKILLS[key].get(a["household"]) or {}).get("livelihoods", []):
+            for c in ("trap in water", "wicker trap", "wicker traps"):
+                (a.get("knows") or {}).pop(c, None)
+    keeper_of = {b.get("keeper"): b for b in world["buildings"].values() if b.get("keeper")}
+    for n, b in keeper_of.items():                                          # a holding's keeper line where founders.py has no template
+        a = world["agents"].get(n)                                          # (smith, miller, farmer: L-179)
+        if a is None or any(k.get("source") == "a holding" for k in a.get("kept") or []):
+            continue
+        kind = next((k for k in KEEPER_LINE if k in b["name"].lower() or (b.get("fittings") or {}).get(k)), None)
+        if kind:
+            a.setdefault("kept", []).insert(0, {"text": KEEPER_LINE[kind].format(name=b["name"]), "source": "a holding"})
     for n, a in world["agents"].items():
         a.pop("memories", None)
         extra = [{"text": RUMOUR[key][n], "source": "family lore"}] if n in RUMOUR.get(key, {}) else []
@@ -279,6 +314,13 @@ def make(key: str, seed: int, models) -> dict:
         try:                                                               # each step reported (the design against what the land allows)
             with contextlib.redirect_stdout(io.StringIO()):
                 world, cells, report = W.generate(copy.deepcopy(s), people=True)
+            if "laid rivers run where laid" in (report.get("refused") or []):
+                rivers = [f for f in s["generate"]["features"] if f.get("kind") == "river" and len(f["through"]) > 2]
+                if rivers:
+                    for f in rivers:
+                        f["through"] = f["through"][1:]
+                    relaxed.append("rivers shortened from their sources by a place: the land turned the laid channel aside")
+                    continue
             break
         except Refused as e:
             name = str(e).split(":", 1)[0]
