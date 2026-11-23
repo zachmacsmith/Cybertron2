@@ -1,4 +1,4 @@
-# Brief: build stage 4, taking and making (thread W-THREAD)
+# Brief: build stage 4, taking and making (thread W-100)
 
 You are a build subagent of session 37.2 on Cybertron 2. Build stage 4 of the wave: **signs, people and worlds**, and the world for live run 1. Work ONLY in the git
 worktree named in your prompt (branch `w85-s4-people`, made from `main` after stage 3 merged). Never edit the main checkout. Do not
@@ -6,7 +6,7 @@ push or merge. Commit on the branch in small commits; each message's last paragr
 
 ```
 Agent: 37.2
-Thread: W-THREAD
+Thread: W-100
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 ```
 
