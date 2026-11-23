@@ -350,6 +350,65 @@ range); that is calibration, not design risk.
    households, sized to their ground.
 7. **Split write.py by stage;** pins on rivers, fords and roads by name.
 
+## 6. The bridge: the backward build as an opt-in people stage (W-107, 23 Nov)
+
+Zach, 23 Nov: "Scope this and then implement on your own branch." This is built before Q-45 is decided (README step 3a). It
+stays opt-in and off main until he says otherwise; the spec's "the tree is simulated forward" (seeded populations, D4-21's
+mechanics) stays as written. Branch `w107-people-backward`; 37.4 is named on any merge (D2-237).
+
+**What it does:** a world that sets `population: {build: backward}` gets its people from the backward build (§4.3, §4.5). Every
+other world is generated exactly as today. Its people come out in `generate.build`'s outputs (agents, tree, history, generated),
+so the pipeline around it runs unchanged:
+- landgen's two passes (the land sized for planned people, then for the people made);
+- the capacity and economy checks;
+- `livelihoods.fill` and the founders' lines;
+- the gate check;
+- births during a run, which name a child from the tree's `line` and `line_born`.
+
+**The steps:**
+1. **Split `generate.build`** into making the tree (`tree_forward`: the forward simulation and its fitting) and writing the world
+   from a tree (`spec_from_tree`: kin, memories, feud, debts, friendships, crafts, tools, models, aims, beds and stores).
+   - Today's worlds must come out byte-identical; a test checks it.
+2. **Move the prototype into the engine** as its own feature unit, `cybertron2/peoplegen/` (D2-244). The prototype's report and
+   results stay in `proto/peoplegen/`.
+3. **Read the world:**
+   - households are the world's `lines` with their houses;
+   - villages are the nodes those houses stand in;
+   - distances between villages are the shortest road route, in travel days;
+   - the world's own lifespan and calendar date everything, through `generate.to_days` (D2-153);
+   - an off-map place exists only if the world names one (`population.off`).
+4. **The present:**
+   - `population.households` pins any household's members (ages, sexes, roles);
+   - `population.forms` gives a mix of household forms;
+   - otherwise each household is drawn from a default mix by keyed draws, sized from `population.size` or the house's beds.
+5. **The tree in `generate.py`'s form:**
+   - in years, with `line` (the household, for the living) and `line_born` (the father's line, so a wife married in keeps her
+     birth house);
+   - `origin` is the village a married-in spouse was born in;
+   - names are unique given names, the dead's free for the newborn;
+   - the agents' `partner` is a living partner only, and a dead one is written as `widowed_of`, which the engine reads at load
+     (a one-line change in world.py).
+6. **Tests:**
+   - every existing generator output unchanged, and the test suite green;
+   - a calibration world and an Eelmouth-shaped world built with `population: {build: backward}`: no refusal, the tree's
+     invariants, the capacity checks, `livelihoods.fill`'s report and the gate check, set beside the forward build of the same
+     world;
+   - three days run with bots; the same world twice, identical.
+
+**Out of scope:**
+- the calibration gaps (L-108);
+- births and deaths read from the land and food;
+- lines carrying livelihoods through the tree (u11 §4.2's step 5);
+- the land's decision graph;
+- changing the spec;
+- merging to main.
+
+**Defaults taken (to tell Zach):**
+- the history spans 80 years, unless `population.span` says otherwise (Q-45 asks 80 or 200);
+- the off-map place is used only when named (Q-45's question, taken as asked);
+- the household mix, when none is given, is couples with children 70%, old couples 10% and three generations 20%, sized 3 to 7;
+- unconnected villages are taken as 6 days apart.
+
 ## Why
 
 - Every refusal or seed search Zach has hit in the land traces to item 2.1 or 2.2; every complaint about samey worlds to 2.3 or 2.4.
@@ -443,6 +502,9 @@ fitted to people; capacity is tunable through a holistic richness, not one lever
     village 12% → 85%. Kin across villages now matches.
   - **Also fixed:** unrecorded children could live long without marrying.
   - **What it exposed:** ancestors marry only once, so adults die four years too old (L-108).
+
+- **23 Nov 2026:** §6 added, the bridge's scope (W-107), at Zach's request ("Scope this and then implement on your own branch").
+  It is to be built before Q-45 is decided, opt-in, on branch `w107-people-backward`.
 
 ## Sources
 
