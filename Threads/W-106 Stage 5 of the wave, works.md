@@ -20,3 +20,10 @@ started
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+- under it: [[L-179 Every take's line says 'food worth about 1 meal' at the least|Every take's line says 'food worth about 1 meal' at the least (L-179)]] (open)
+- under it: [[Q-91 How a water-only village is made able to last the year|How a water-only village is made able to last the year (Q-91)]] (open)
+
+
+## Mentioned by
+- [[Q-91 How a water-only village is made able to last the year|How a water-only village is made able to last the year (Q-91)]]
+- [[L-179 Every take's line says 'food worth about 1 meal' at the least|Every take's line says 'food worth about 1 meal' at the least (L-179)]]

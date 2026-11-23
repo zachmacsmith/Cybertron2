@@ -21,3 +21,7 @@ updated: "2026-11-23"
 
 ## Linked
 - parent: [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]]
+
+
+## Mentioned by
+- [[D2-346 The signs design|The signs design (D2-346)]]

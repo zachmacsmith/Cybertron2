@@ -21,11 +21,13 @@ survey.md and design.md done; awaiting Zach's choices on the ten ranked addition
 ## Linked
 - parent: [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]]
 - under it: [[D2-341 Rules are not something one attends to|Rules are not something one attends to (D2-341)]] (live)
+- under it: [[D2-346 The signs design|The signs design (D2-346)]] (live)
 - under it: [[Q-90 The signs design's eight choices|The signs design's eight choices (Q-90)]] (open)
 
 
 ## Mentioned by
 - [[D2-341 Rules are not something one attends to|Rules are not something one attends to (D2-341)]]
+- [[D2-346 The signs design|The signs design (D2-346)]]
 - [[Q-90 The signs design's eight choices|The signs design's eight choices (Q-90)]]
 - [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]]
 - [[Live run 1 the rebuilt fishing world against the old prompt and the…|Live run 1: the rebuilt fishing world against the old prompt and the…]]

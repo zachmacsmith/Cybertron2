@@ -128,7 +128,9 @@
 ## Queued and paused (19)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework, [[W-76 The timber economy|W-76]] The timber economy, [[W-86 Households generalised into institutions and laws|W-86]] Households generalised into institutions and laws, [[W-87 Health, fatigue and illness|W-87]] Health, fatigue and illness, [[W-88 The coast and the sea|W-88]] The coast and the sea, [[W-89 Trade between villages markets, carriage, what flows where|W-89]] Trade between villages: markets, carriage, what flows where, [[W-90 Textiles and clothing|W-90]] Textiles and clothing, [[W-91 Pottery and clay crocks, ovens, daub, bricks|W-91]] Pottery and clay: crocks, ovens, daub, bricks, [[W-92 Boats, barrels and the cooper|W-92]] Boats, barrels and the cooper, [[W-93 Demography and growth|W-93]] Demography and growth, [[W-94 Timed actions|W-94]] Timed actions, [[W-95 Stone and quarrying|W-95]] Stone and quarrying, [[W-96 Space unified everywhere|W-96]] Space unified everywhere
 
-## Decided this week (143)
+## Decided this week (145)
+- [[D2-347 A water-only village should be able to last the year|A water-only village should be able to last the year (D2-347)]]
+- [[D2-346 The signs design|The signs design (D2-346)]]
 - [[D2-345 Zach's go for stage 5|Zach's go for stage 5 (D2-345)]]
 - [[D2-344 No worked example of a conditional rule is added to the rules block|No worked example of a conditional rule is added to the rules block (D2-344)]]
 - [[D2-343 Teaching is settled before the evening, so a lesson's outcome can be…|Teaching is settled before the evening, so a lesson's outcome can be… (D2-343)]]
@@ -142,8 +144,6 @@
 - [[D2-335 Live run 1 is a set of small runs, not one big run|Live run 1 is a set of small runs, not one big run (D2-335)]]
 - [[D2-334 Live run 1 and the overnight work stop if the weekly usage window…|Live run 1 and the overnight work stop if the weekly usage window… (D2-334)]]
 - [[D2-333 Zach's go for live run 1|Zach's go for live run 1 (D2-333)]]
-- [[D2-332 Live run 1 (each of its arms) is published to the Hugging Face…|Live run 1 (each of its arms) is published to the Hugging Face… (D2-332)]]
-- [[D2-331 Live run 1 has a comparison arm|Live run 1 has a comparison arm (D2-331)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]

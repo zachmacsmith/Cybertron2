@@ -1,6 +1,7 @@
 # All deferred
 
 ## Open
+- [[L-179 Every take's line says 'food worth about 1 meal' at the least|Every take's line says 'food worth about 1 meal' at the least (L-179)]] (open)
 - [[L-178 Wording bugs|Wording bugs (L-178)]] (open)
 - [[L-177 AB prompt replay|A/B prompt replay (L-177)]] (open)
 - [[L-176 Noticing in parts of the day, so what is seen at mid-morning can…|Noticing in parts of the day, so what is seen at mid-morning can… (L-176)]] (open)

@@ -1,8 +1,8 @@
 # All asks
 
 ## Open
+- [[Q-91 How a water-only village is made able to last the year|How a water-only village is made able to last the year (Q-91)]] (open)
 - [[Q-90 The signs design's eight choices|The signs design's eight choices (Q-90)]] (open)
-- [[Q-89 Whether a water-only village should last the year, or the spring gap…|Whether a water-only village should last the year, or the spring gap… (Q-89)]] (open)
 - [[Q-88 Whether a chore that yields a trivial amount|Whether a chore that yields a trivial amount (Q-88)]] (open)
 - [[Q-87 Whether the passing-on seeded line for heads and parents|Whether the passing-on seeded line for heads and parents (Q-87)]] (open)
 - [[Q-82 Trying and learning|Trying and learning (Q-82)]] (open)
@@ -45,7 +45,8 @@
 - [[Q-RR3 The human player's first interface|The human player's first interface (Q-RR3)]] (open)
 - [[Q-RR5 A replay test with shuffled completion order of model calls|A replay test with shuffled completion order of model calls (Q-RR5)]] (open)
 
-## Closed (56)
+## Closed (57)
+- [[Q-89 Whether a water-only village should last the year, or the spring gap…|Whether a water-only village should last the year, or the spring gap… (Q-89)]]
 - [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]]
 - [[Q-85 One book of standing rules per household and person for eating and…|One book of standing rules per household and person for eating and… (Q-85)]]
 - [[Q-84 The building scale|The building scale (Q-84)]]
