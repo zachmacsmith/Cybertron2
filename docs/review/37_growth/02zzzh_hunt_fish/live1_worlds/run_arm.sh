@@ -6,7 +6,7 @@ set -u
 CODE="$1"; WORLD="$2"; NAME="$3"; DAYS="$4"; shift 4
 OUT=/home/user/live1/$NAME
 MAIN=/home/user/cybertron2
-export LLM_BACKEND=claude_code CYBERTRON2_WEEK_STOP=0.99
+export LLM_BACKEND=claude_code CYBERTRON2_WEEK_STOP=0.99 HF_HUB_DISABLE_XET=1
 cd "$CODE" || exit 2
 echo "$(date -u +%FT%TZ) start $NAME ($WORLD, $DAYS days, $*)" >> /home/user/live1/log.txt
 python3 -m cybertron2.engine run "$WORLD" --days "$DAYS" --out "$OUT" "$@" > "$OUT.log" 2>&1
