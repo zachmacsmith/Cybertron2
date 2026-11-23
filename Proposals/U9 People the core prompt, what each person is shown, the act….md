@@ -1,7 +1,7 @@
 ---
 id: docs/cybertron2/proposals/w73_design/u9_people.md
 kind: proposal
-updated: "2026-11-22"
+updated: "2026-11-23"
 ---
 # U9 People: the core prompt, what each person is shown, the act shapes, the founders' seeded knowledge, learning as one record
 
@@ -222,7 +222,7 @@ phase, its order against the fallback: U6's gap G4) is U6's. What a person reads
 |---|---|
 | own fallback set | `Your fallback: <acts, in order>. Yesterday it took <n> units: <what it did, in the day's words>.` |
 | no own fallback; a chore from the book applies | `Your chores, from <the household>'s rules (set by <head>): <chore words>. Yesterday they took <n> units: <what was done>. Your own fallback, if you set one, comes first.` |
-| neither | `You have no fallback and no chore: units your plan leaves go unused. Yesterday <n> went unused.` (the last sentence only when n > 0) |
+| neither | `You rested <n> units yesterday.` (only when n > 0; corrected 23 Nov to [[D2-301 A person's own rules and standing fallback come before every…|D2-301]]: units left are rest, and the morning does not push for a fallback) |
 | a chore missed ([[D2-274 One book of standing rules per household and per person covers both…|D2-274]]: shown) | `Not done yesterday: <chore> (no one had units left).` |
 
 Beside it, the house line already says how many nights of food and fuel the store holds (`prompt.py:582-587`), so the filler is

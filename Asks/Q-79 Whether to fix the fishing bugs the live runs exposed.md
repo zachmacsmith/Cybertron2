@@ -24,6 +24,7 @@ updated: "2026-11-22"
 - [[W-72 Signs of the river|Signs of the river (W-72)]]
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 - [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]
+- [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]
 - [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
 - [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]

@@ -48,7 +48,7 @@
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]  
   next: after the first build (recipes shown with the batches, the gate check, the fishing bugs and the target rule)…
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]  
-  next: 37.2's integration review across the eleven specs (cross-spec conflicts, basis rows reconciled); Zach's…
+  next: Zach: questions.md section A (12 blocking); then the hand-off post to 37.4 and the staged build plan in detail
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  

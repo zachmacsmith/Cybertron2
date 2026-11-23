@@ -23,6 +23,7 @@ conversation (22 Nov: "Separate goods (Recommended)")
 ## Mentioned by
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
+- [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]
 - [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]
 - [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
 - [[The next thread the woods and the wild (hunting, its tools, wildlife…|The next thread: the woods and the wild (hunting, its tools, wildlife…]]

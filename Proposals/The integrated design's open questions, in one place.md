@@ -28,6 +28,8 @@ to confirm or numbers to read in live runs. Answered ones are kept at the end wi
 | A10 | The mill rule read as: each holding seeds its keeper a line; each household gets one line naming all it holds and who keeps each | yes | u11 q1 |
 | A11 | Materials made only to feed lasting things (cord, withies, bark, leather) stay at real hours, so a net's cord costs about eight times its knotting | keep, named as a departure | u3; W2-1 |
 
+| A12 | The wild's rates still on the day clock (u0 §7): leave as calibrated and read in live runs, or re-derive on the year clock in stage 1 ([[D2-273 Three clocks, each system on one|D2-273]] against [[D2-297 The catch stays as calibrated|D2-297]]) | leave, read in live runs | u0 §7; u1 |
+
 ## B. Defaults to confirm (the specs are written on them)
 
 | # | Question | Default | Source |
@@ -71,6 +73,8 @@ to confirm or numbers to read in live runs. Answered ones are kept at the end wi
 | B37 | A failed tanning lot loses a share of its hides, drawn when laid | yes | u10; W2-8 |
 | B38 | Lime from a hearth's wood ash until lime burning | yes | u10; W2-10 |
 | B39 | Barking nets in this build | yes | u10; W2-16 |
+| B41 | `tend` widened: one act on any placed thing that runs over nights, set gear and a processing container's fire or pit | yes | integration |
+| B42 | One gear-piece record shared by placed and made gear (life, rot, of, barked, torn) | yes | integration |
 | B40 | The core keeps "Any units you do not use are wasted" until fatigue is built, then is reworded for rest ([[D2-301 A person's own rules and standing fallback come before every…|D2-301]]) | keep until fatigue | 37.2, 23 Nov |
 
 ## C. The worlds

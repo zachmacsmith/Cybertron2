@@ -119,13 +119,15 @@ answered; the component writes on the default shown and says so); **calibrate** 
 | Word | Meaning | Mark |
 |---|---|---|
 | **tend** | going back to one's set gear: check, empty, re-set, take up; lift, check, empty, walk and collect read as tend | decided: [[D2-294 Going back to one's set gear is the act 'tend'|D2-294]] |
+| **tend**, widened | the one act on a placed thing that runs over nights: one's set gear (take the catch, re-set, take up) and a processing container (keep its fire, feed its pit). The book's `tend` rule and U4's `tend the smoke` are this act | default (integration, 23 Nov: u2, u4, u6 and u9 used the word two ways) |
+| A piece of gear | one record shared by U2 (placed) and U3 (made): `life` (uses left), `rot` (share of its rot life used), `of` (made of), `barked`, `torn` | default (integration: u2 had life and torn, u3 life, rot, of) |
 | **set** | lay gear from one's hands; refused with no gear in hand, naming one's gear already standing | default (wave3_taking §0) |
 | A technique named alone | tends if one's own gear stands at the place, sets if not | default (wave3_taking; corrects wave4 §5.2) |
 | The target | the thing, by tag or known name; unnamed, only one's own; another's only when named | Zach's 21 Nov answer in [[Q-80 Whether acts on owned things default to one's own|Q-80]]'s notes; to be recorded (audit q9) |
 | Several of one's own at a place | a tend takes all of one's own of that kind; an act that uses a thing up asks | open (Zach said "several: asked"; audit q9) |
 | A household's things | count as every member's own | default (audit q9; G12) |
 | Rules | one book per household and per person: go, keep, hold back, first, eat, move, drop; `when` on lasting states the household knows | decided: [[D2-274 One book of standing rules per household and per person covers both…|D2-274]], [[D2-282 Standing rules support conditional actions conditioned on state…|D2-282]] |
-| Fallbacks | assignable by the household's book as chores; a person's own standing fallback first | decided: [[D2-296 Fallbacks are assignable by the household's standing rules|D2-296]] |
+| Fallbacks | assignable by the household's book as chores; a person's own rules and standing fallback before every household chore, keeping chores included; none at the start and nothing pushing for one; units left are rest | decided: [[D2-296 Fallbacks are assignable by the household's standing rules|D2-296]], [[D2-301 A person's own rules and standing fallback come before every…|D2-301]] |
 | The options list | gone from the code | decided: [[D2-286 The list of what one could do today|D2-286]] |
 | Recipes shown | at capable and known: inputs with batch, what it gives, units, place or fitting | decided: [[D2-263 A craft a person knows at capable or known shows, where they look|D2-263]] |
 | The act shapes | go, gather, set, tend, make, work, build, move, change, agree, force; a technique named alone resolves by what stands | open ([[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Q-27]]; u9 §3) |

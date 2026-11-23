@@ -23,5 +23,7 @@ conversation (23 Nov: "Record weir cost as you put for now.")
 ## Mentioned by
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
+- [[The integration review (23 Nov 2026)|The integration review (23 Nov 2026)]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
+- [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]
 - [[U7 works and the building clock|U7: works and the building clock]]

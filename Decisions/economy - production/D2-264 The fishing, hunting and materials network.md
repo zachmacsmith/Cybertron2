@@ -24,6 +24,7 @@ conversation (22 Nov: "conversation (22 Nov, answers to the open questions)")
 - [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
+- [[The integration review (23 Nov 2026)|The integration review (23 Nov 2026)]]
 - [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]
 - [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
 - [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]

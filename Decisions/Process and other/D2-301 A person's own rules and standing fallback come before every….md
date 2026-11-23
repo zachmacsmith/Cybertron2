@@ -22,5 +22,8 @@ conversation (22 Nov: "Your own rule should overrun chores. They just by default
 
 ## Mentioned by
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
+- [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
+- [[The integration review (23 Nov 2026)|The integration review (23 Nov 2026)]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
-- *and 1 index or audit notes*
+- [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
+- *and 2 index or audit notes*

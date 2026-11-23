@@ -49,6 +49,7 @@ started
 - [[L-159 Poles and cordwood as their own good|Poles and cordwood as their own good (L-159)]]
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
+- [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]
 - [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]
 - [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]

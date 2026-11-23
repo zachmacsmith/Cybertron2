@@ -22,6 +22,7 @@ conversation (22 Nov: "Stop overcorrecting on bot runs they can test basic inter
 
 ## Mentioned by
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
+- [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]
 - [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]
 - [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
 - [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]

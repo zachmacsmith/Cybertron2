@@ -20,5 +20,6 @@ proposals/records_and_workflow.md §4, §6; conversation (20 Nov, ask 8: "Yes th
 - [[Q-64 The records as items with rendered views, one tool and a skill…|The records as items with rendered views, one tool and a skill… (Q-64)]]
 - [[W-66 The design of the records and the workflow|The design of the records and the workflow (W-66)]]
 - [[Records and workflow how the documents, the scripts and git carry…|Records and workflow: how the documents, the scripts and git carry…]]
+- [[The integration review (23 Nov 2026)|The integration review (23 Nov 2026)]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
 - *and 1 index or audit notes*

@@ -23,6 +23,7 @@ conversation (22 Nov: "Record as is (Recommended)")
 ## Mentioned by
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
+- [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]
 - [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]
 - [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
 - [[The catch basis checked against real eel fisheries can a household…|The catch basis checked against real eel fisheries: can a household…]]

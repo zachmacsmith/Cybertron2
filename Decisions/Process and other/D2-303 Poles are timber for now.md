@@ -23,4 +23,5 @@ conversation (23 Nov: "I agree we can fold poles into the later timber thread an
 ## Mentioned by
 - [[L-159 Poles and cordwood as their own good|Poles and cordwood as their own good (L-159)]]
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
+- [[The integration review (23 Nov 2026)|The integration review (23 Nov 2026)]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]

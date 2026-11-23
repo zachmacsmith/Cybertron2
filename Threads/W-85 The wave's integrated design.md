@@ -2,14 +2,14 @@
 id: W-85
 kind: thread
 state: active
-updated: "2026-11-22"
+updated: "2026-11-23"
 ---
 
 # The wave's integrated design (W-85)
 
-*active · 37.2 · touched 22 Nov (1 day ago)*
+*active · 37.2 · touched 23 Nov (today)*
 
-> **Next:** 37.2's integration review across the eleven specs (cross-spec conflicts, basis rows reconciled); Zach's answers on the consolidated questions; then the staged build plan in detail
+> **Next:** Zach: questions.md section A (12 blocking); then the hand-off post to 37.4 and the staged build plan in detail
 
 ## What it is
 Zach, 23 Nov: 'Has all of the design been written up into one complete spec? ... One outline the overall architecture and purpose shape of all the changes and how they fit together and maybe with the different sections or linked specs for the break down of specific implementation details, data etc'. In docs/cybertron2/proposals/w73_design/. The basis answered first ([[D2-288 Bulk goods are counted in handling units of a stated weight and every…|D2-288]] to [[D2-295 Each depth of cure is its own good|D2-295]]).
