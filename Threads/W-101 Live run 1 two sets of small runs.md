@@ -23,3 +23,8 @@ started
 
 ## Linked
 - parent: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
+- under it: [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]] (active)
+
+
+## Mentioned by
+- [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]]

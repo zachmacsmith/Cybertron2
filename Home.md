@@ -32,7 +32,7 @@
 - [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]]: closed by agent
 - [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]]: closed by agent
 
-## Active threads (18)
+## Active threads (19)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -55,6 +55,8 @@
   next: stages 1 to 4 built one after another without stopping (Zach 23 Nov: 'as the stage finish continue until…
 - [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]]  
   next: bot arms, then set A's three model arms, then set B's two; reading
+- [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]]  
+  next: fix, test with replays of the run's own replies, merge; then restart A_new and set B
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  

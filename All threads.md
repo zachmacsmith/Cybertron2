@@ -1,6 +1,7 @@
 # All threads
 
 ## Open
+- [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]] (active)
 - [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]] (active)
 - [[W-96 Space unified everywhere|Space unified everywhere (W-96)]] (benched)
 - [[W-95 Stone and quarrying|Stone and quarrying (W-95)]] (benched)
