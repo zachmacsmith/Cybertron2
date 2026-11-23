@@ -35,6 +35,10 @@ the person's own crafts); docs/scenario_design.md (the live-run world); feature_
    seeded a capable setter and a net to the weir expert, a youth 0.8 food a night), as a world file under cybertron2/specs/, with
    its two live arms (main; `prompt: old` without the new seeded lines) and a bot null arm. Models by scenario_design: Opus at the
    poles (the weir keeper, the salter), Sonnet the middle, Haiku the bulk; the weekly stop at 0.99 (D2-334).
+   **From stage 2's gate check (stage2_report.md):** in the runs worlds no one can make a gill net (the weir expert's net cannot
+   be remade), there is no stone within a day (M4), and nothing produces bone, so lines need a smith's copper hooks. The remade
+   Eelmouth must pass M1 to M8: give a household the net-making craft with cord within reach, the rock source (C2), and seed hand
+   lines with hooks where a livelihood fishes by line; list any making check that still warns and why.
 4. **Render and check, without model calls:** the gate check on remade Eelmouth (it must pass; list warnings); a bot dry run of 40
    days; every founder's rendered system prompt and first morning message, for both live arms, written to
    docs/review/37_growth/02zzzh_hunt_fish/live1_renders/ for 37.2 to read.
