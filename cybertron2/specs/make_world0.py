@@ -31,9 +31,10 @@ sys.path.insert(0, ROOT)
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "water", "runs.yaml")
 OUT = os.path.join(HERE, "mono")
+TAG = "world0b"
 KEEP = ("Brook", "Marsh", "Field", "Fletcher")
 VILLAGES = ("Highpool", "Middleham")
-MODELS = ["claude-haiku-4-5", "claude-haiku-5-5", "claude-sonnet-4-5", "claude-sonnet-5"]
+MODELS = ["claude-haiku-4-5", "claude-haiku-5-5", "claude-sonnet-4-5", "claude-sonnet-5", "claude-sonnet-5-5"]
 DAYS = 200
 BORN = {   # mixed ages at lifespan 64 (elder at 64 days old): founders elder from day 6 to 28; youths adult (24) on days 8 to 12
     "Hamo": -58, "Jocelin": -52, "Lambert": -46, "Osric": -40, "Annora": -40, "Mabel": -38, "Orabel": -38, "Alice": -36,
@@ -47,6 +48,8 @@ SKILLS = {
                    "Fletcher": {"livelihoods": ["miller", "farmer"], "experts": ["the_mill"]}},
     "couple": {"capital_knowledge": True, "livelihood_land": True, "crafts_capital": True, "gates": True},
 }
+BUFFER = {"marsh_house": {"smoked fish": 60}, "brook_house": {"smoked fish": 40}}   # World 0b (W-106, Q-99): Highpool's stores
+# carry it through a run lost to spate (the first world 0's run came in a week of flood, and its 5 to 7 days of food did not)
 MILL_LINE = ("I keep Middleham Mill: it grinds grain to flour on the river's water. Its stones want dressing and its leat clearing "
              "now and then, or it grinds slow.")
 CAP = 20                                                                # seeded lines a founder (D2-308, D2-311)
@@ -64,7 +67,7 @@ def _stage(age: int) -> str:
 def remake(src=SRC) -> tuple:
     from cybertron2.engine import livelihoods as LV
     w = yaml.safe_load(open(src))
-    w["name"] = "world0"
+    w["name"] = "world0b"
     w["days"] = DAYS
     w["prompt"] = "core"
     w["learning"] = "record"
@@ -100,6 +103,10 @@ def remake(src=SRC) -> tuple:
         w["tree"] = [t for t in w["tree"] if not (isinstance(t, dict) and t.get("name") in gone)]
     if isinstance(w.get("history"), list):
         w["history"] = [h for h in w["history"] if not any(g in yaml.safe_dump(h) for g in gone | gone_hh)]
+    for bid, add in BUFFER.items():
+        st = w["buildings"][bid].setdefault("stock", {})
+        for k, q in add.items():
+            st[k] = st.get(k, 0) + q
     report = LV.fill(w)
     for a in w["agents"].values():
         if a.get("kept"):
@@ -116,7 +123,7 @@ def remake(src=SRC) -> tuple:
 def arm(world: dict, model: str) -> dict:
     w = copy.deepcopy(world)
     short = model.replace("claude-", "").replace("-", "")
-    w["name"] = f"world0_{short}"
+    w["name"] = f"world0b_{short}"
     hhs = sorted({a["household"] for a in w["agents"].values() if a.get("household")})
     w["household_models"] = {h: model for h in hhs}
     w["cast"] = {"head": model, "middle": model, "rest": model, "youth": model}
@@ -137,7 +144,7 @@ def main():
     world["days"] = days
     from cybertron2.landgen import gate_check as GC
     gate = GC.check(world)
-    with open(os.path.join(OUT, "world0.report.json"), "w") as f:
+    with open(os.path.join(OUT, "world0b.report.json"), "w") as f:
         json.dump({"fill": report, "gate": gate}, f, indent=1, default=str)
     print("gate:", gate["verdict"], "refusals", len(gate["refuse"]), "warnings", len(gate["warn"]), flush=True)
     for m in models:

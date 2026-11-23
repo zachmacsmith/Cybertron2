@@ -1332,7 +1332,7 @@ def _run(w, d, r, n, own, fallback=False) -> bool:
 # ---------------------------------------------------------------------------------------------------------------------- what each sees
 GRAMMAR = ('Standing rules go in "rules": [...], free, at any time or in the evening, each {"rule": a kind, its fields, "words"?: your '
            'sentence, "for"?: household | me, "n"?: a rule\'s number to change}: set {"name", "people"?, "goods"?, "places"?}; keep '
-           '{"goods", "in"?, "at least"?}; first {"goods": [in order]}; share {"order"?: [fed first when short], "who"?, "qty"?: full | '
+           '{"goods", "in"?: where it is stored, "at least"?: an amount never eaten or used}; first {"goods": [in order]}; share {"order"?: [fed first when short], "who"?, "qty"?: full | '
            'half | a fraction, "goods"?}; do {"who"?, "act": an act, "when"?, "unless"?} (with no condition, a fallback); drop {"n"}. '
            'A condition is {"goods"?, "in"?, "under" | "over": n | "full" | "room": true}, {"in", "state": done | in process | fire '
            'out}, {"arrives": goods}, {"season"}, {"seen": the run | frost | rats}, {"starving": who} or {"home": who}. Yours come '
