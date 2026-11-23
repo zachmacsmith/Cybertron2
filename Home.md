@@ -55,7 +55,7 @@
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]  
   next: stages 1 to 4 built one after another without stopping (Zach 23 Nov: 'as the stage finish continue until…
 - [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]]  
-  next: agent survey and design; then 37.2 reviews and brings Zach the proposals
+  next: survey and design written (c101c75d); 37.2 reviewed the counts; eight design questions and seven survey…
 - [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]]  
   next: build; tests; review; merge
 
