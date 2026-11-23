@@ -1,0 +1,3806 @@
+name: pre_small
+seed: 5
+days: 40
+calendar:
+  season: summer
+  day: 4
+  season_days: 8
+climate:
+  era: steady
+children:
+  'on': true
+  dial: low
+packs:
+- wild
+- water
+view: beliefs
+evening: true
+tags: true
+ages: true
+llm:
+  week_stop: 0.99
+bot_travel: false
+bot_reap: ripe
+cast:
+  head: claude-opus-5-5
+  middle: claude-sonnet-5-5
+  rest: claude-haiku-5-5
+  youth: claude-haiku-5-5
+  sonnet_extra: 2
+lifespan: 64
+runs_set_nights: true
+generated:
+  by: cybertron2.landgen
+  seed: 5
+  configuration: null
+  people:
+    seed: 5
+    try: 0
+nodes:
+  Eelmouth:
+    name: Eelmouth
+    text: a village of 3 households on a terrace above the river
+    parcels:
+      Eelmouth_0:
+        name: the Street
+        cover: built
+        size: 5
+        side: centre
+        height: 1
+        text: houses round a trodden green
+        adj:
+        - Eelmouth_2
+        - Eelmouth_3
+        - Eelmouth_4
+        - Eelmouth_5
+        - Eelmouth_6
+        - Eelmouth_9
+        terrain: river terrace
+        soil: loam
+        ecosystem: grassland
+        land:
+          elevation: 46.0
+          exposure: 0.49
+          texture: loam
+          held_mm: 186.7
+          drain_rate: 0.25
+          depth: 1.1
+          base_fertility: 1.0
+          position: slope
+          rain_factor: 0.952
+          sea_km: 99.0
+          river: none
+      Eelmouth_1:
+        name: Clay Field
+        cover: scrub
+        size: 6
+        side: west
+        height: 0
+        text: 'rough ground by the river: thorn, bramble and coarse grass, never ploughed'
+        adj:
+        - Eelmouth_3
+        - Eelmouth_5
+        - Eelmouth_9
+        terrain: river floodplain
+        soil: clay
+        ecosystem: hay meadow
+        land:
+          elevation: 42.5
+          exposure: 0.39
+          texture: clay
+          held_mm: 179.0
+          drain_rate: 0.08
+          depth: 1.19
+          base_fertility: 1.207
+          position: slope
+          rain_factor: 1.054
+          sea_km: 99.0
+          river: none
+        state: {}
+      Eelmouth_2:
+        name: Brook Meadow
+        cover: meadow
+        size: 1
+        side: east
+        height: 1
+        text: hay meadow, on good loam
+        adj:
+        - Eelmouth_0
+        - Eelmouth_4
+        - Eelmouth_6
+        state:
+          plants:
+            K: 1.3
+            S: 1.3
+            r: 0.3
+          grass:
+            K: 27.0
+            S: 27.0
+            r: 0.32
+        terrain: river terrace
+        soil: loam
+        ecosystem: grassland
+        land:
+          elevation: 43.7
+          exposure: 0.47
+          texture: loam
+          held_mm: 184.8
+          drain_rate: 0.25
+          depth: 1.09
+          base_fertility: 1.0
+          position: slope
+          rain_factor: 0.941
+          sea_km: 99.0
+          river: none
+        holder: Marsh
+      Eelmouth_3:
+        name: Eelmouth Common
+        cover: pasture
+        size: 3
+        side: centre
+        height: 1
+        text: grazing, on good loam
+        adj:
+        - Eelmouth_0
+        - Eelmouth_1
+        - Eelmouth_5
+        - Eelmouth_6
+        - Eelmouth_9
+        state:
+          plants:
+            K: 3.0
+            S: 3.0
+            r: 0.3
+          grass:
+            K: 90.0
+            S: 90.0
+            r: 0.32
+        terrain: river terrace
+        soil: loam
+        ecosystem: grassland
+        land:
+          elevation: 45.3
+          exposure: 0.46
+          texture: loam
+          held_mm: 191.9
+          drain_rate: 0.25
+          depth: 1.13
+          base_fertility: 1.017
+          position: slope
+          rain_factor: 0.982
+          sea_km: 99.0
+          river: none
+      Eelmouth_4:
+        name: the Leaze
+        cover: pasture
+        size: 1
+        side: north
+        height: 1
+        text: grazing, on good loam
+        adj:
+        - Eelmouth_0
+        - Eelmouth_2
+        - Eelmouth_5
+        - Eelmouth_9
+        state:
+          plants:
+            K: 1.0
+            S: 1.0
+            r: 0.3
+          grass:
+            K: 30.0
+            S: 30.0
+            r: 0.32
+        terrain: river terrace
+        soil: loam
+        ecosystem: grassland
+        land:
+          elevation: 43.2
+          exposure: 0.41
+          texture: loam
+          held_mm: 202.8
+          drain_rate: 0.25
+          depth: 1.19
+          base_fertility: 1.0
+          position: slope
+          rain_factor: 0.941
+          sea_km: 99.0
+          river: none
+      Eelmouth_5:
+        name: the Spinney
+        cover: forest
+        size: 2
+        side: west
+        height: 1
+        text: coppiced, oak and ash over hazel
+        adj:
+        - Eelmouth_0
+        - Eelmouth_1
+        - Eelmouth_3
+        - Eelmouth_4
+        - Eelmouth_9
+        state:
+          plants:
+            K: 2.9
+            S: 2.9
+            r: 0.3
+          wood:
+            kind: managed wood
+          game:
+            K: 2.1
+            S: 2.1
+            r: 0.25
+        terrain: clay vale
+        soil: clay
+        ecosystem: oak-ash wood
+        depth: edge
+        land:
+          elevation: 42.8
+          exposure: 0.4
+          texture: loam
+          held_mm: 202.8
+          drain_rate: 0.25
+          depth: 1.19
+          base_fertility: 1.025
+          position: hollow
+          rain_factor: 0.991
+          sea_km: 99.0
+          river: none
+      Eelmouth_6:
+        name: Hazel Copse
+        cover: forest
+        size: 2
+        side: south
+        height: 1
+        text: coppiced, oak and ash over hazel
+        adj:
+        - Eelmouth_0
+        - Eelmouth_2
+        - Eelmouth_3
+        state:
+          plants:
+            K: 2.9
+            S: 2.9
+            r: 0.3
+          wood:
+            kind: managed wood
+          game:
+            K: 2.1
+            S: 2.1
+            r: 0.25
+        terrain: lowland loam
+        soil: loam
+        ecosystem: oak-ash wood
+        depth: edge
+        land:
+          elevation: 48.5
+          exposure: 0.52
+          texture: loam
+          held_mm: 184.6
+          drain_rate: 0.25
+          depth: 1.09
+          base_fertility: 1.0
+          position: slope
+          rain_factor: 0.941
+          sea_km: 99.0
+          river: none
+      Eelmouth_7:
+        name: Eelmouth Fen
+        cover: fen
+        size: 3
+        side: north
+        height: 0
+        text: 'reed and sedge over standing water, low by the water. A brine spring wells up here: the water tastes of salt, and the grass round it is thin and white-crusted.'
+        adj:
+        - Eelmouth_8
+        - Eelmouth_9
+        state:
+          plants:
+            K: 3.0
+            S: 3.0
+            r: 0.3
+          grass:
+            K: 45.0
+            S: 45.0
+            r: 0.32
+          brine:
+            S: 1000
+            K: 1000
+            r: 0.0
+        terrain: river floodplain
+        soil: clay
+        ecosystem: fen
+        land:
+          elevation: 41.1
+          exposure: 0.38
+          texture: clay
+          held_mm: 179.0
+          drain_rate: 0.08
+          depth: 1.19
+          base_fertility: 1.188
+          position: hollow
+          rain_factor: 1.038
+          sea_km: 99.0
+          river: brook
+        spring: brine
+        holder: Marsh
+      Eelmouth_8:
+        name: the Isel
+        cover: water
+        size: 2
+        side: north
+        height: 0
+        text: a broad slow river
+        adj:
+        - Eelmouth_7
+        terrain: water
+        soil: clay
+        ecosystem: water
+        land:
+          elevation: 40.7
+          exposure: 0.39
+          texture: loam
+          held_mm: 201.3
+          drain_rate: 0.25
+          depth: 1.18
+          base_fertility: 1.179
+          position: hollow
+          rain_factor: 1.015
+          sea_km: 99.0
+          river: river
+          down: out
+          water_body: reach:Eelmouth
+      Eelmouth_9:
+        name: Eelmouth Field
+        cover: scrub
+        size: 7
+        side: west
+        height: 0
+        text: 'rough ground by the river: thorn, bramble and coarse grass, never ploughed'
+        adj:
+        - Eelmouth_0
+        - Eelmouth_1
+        - Eelmouth_3
+        - Eelmouth_4
+        - Eelmouth_5
+        - Eelmouth_7
+        terrain: river floodplain
+        soil: clay
+        ecosystem: hay meadow
+        land:
+          elevation: 42.4
+          exposure: 0.4
+          texture: clay
+          held_mm: 178.9
+          drain_rate: 0.08
+          depth: 1.19
+          base_fertility: 1.185
+          position: hollow
+          rain_factor: 1.012
+          sea_km: 99.0
+          river: none
+        state: {}
+    xy:
+    - 9.88
+    - 14.71
+    elevation: 43.5
+    rain_mm: 752.0
+  w1:
+    name: Oakhurst
+    text: old forest, far from any village in a clay vale
+    parcels:
+      w1_0:
+        name: Oakhurst Meadow
+        cover: meadow
+        size: 1
+        side: south
+        height: 1
+        text: hay meadow, on good loam
+        adj:
+        - w1_1
+        state:
+          plants:
+            K: 1.3
+            S: 1.3
+            r: 0.3
+          grass:
+            K: 27.0
+            S: 27.0
+            r: 0.32
+        terrain: clay vale
+        soil: loam
+        ecosystem: grassland
+        land:
+          elevation: 83.7
+          exposure: 0.44
+          texture: clay
+          held_mm: 175.9
+          drain_rate: 0.08
+          depth: 1.17
+          base_fertility: 1.05
+          position: slope
+          rain_factor: 1.0
+          sea_km: 99.0
+          river: none
+      w1_1:
+        name: Oakhurst Wood
+        cover: forest
+        size: 6
+        side: centre
+        height: 2
+        text: oak and ash over hazel, deep and dim, on the slope
+        adj:
+        - w1_0
+        state:
+          plants:
+            K: 4.3
+            S: 4.3
+            r: 0.3
+          wood:
+            kind: old forest
+          game:
+            K: 31.5
+            S: 31.5
+            r: 0.25
+        terrain: clay vale
+        soil: loam
+        ecosystem: oak-ash wood
+        depth: core
+        land:
+          elevation: 83.5
+          exposure: 0.45
+          texture: clay
+          held_mm: 174.4
+          drain_rate: 0.08
+          depth: 1.16
+          base_fertility: 1.05
+          position: slope
+          rain_factor: 1.0
+          sea_km: 99.0
+          river: none
+    unexplored: true
+    xy:
+    - 10.65
+    - 39.01
+    elevation: 83.5
+    rain_mm: 707.0
+  w2:
+    name: Cragton
+    text: old forest, far from any village in rolling lowland
+    parcels:
+      w2_0:
+        name: Mill Meadow
+        cover: meadow
+        size: 1
+        side: south
+        height: 1
+        text: hay meadow, on good loam
+        adj:
+        - w2_1
+        state:
+          plants:
+            K: 1.3
+            S: 1.3
+            r: 0.3
+          grass:
+            K: 27.0
+            S: 27.0
+            r: 0.32
+        terrain: lowland loam
+        soil: loam
+        ecosystem: grassland
+        land:
+          elevation: 220.9
+          exposure: 0.32
+          texture: loam
+          held_mm: 172.7
+          drain_rate: 0.25
+          depth: 1.02
+          base_fertility: 1.0
+          position: slope
+          rain_factor: 1.0
+          sea_km: 99.0
+          river: none
+      w2_1:
+        name: the Deep Wood
+        cover: forest
+        size: 6
+        side: centre
+        height: 2
+        text: small oak and birch on the valley sides, deep and dim, on the slope
+        adj:
+        - w2_0
+        state:
+          plants:
+            K: 4.3
+            S: 4.3
+            r: 0.3
+          wood:
+            kind: old forest
+          game:
+            K: 25.2
+            S: 25.2
+            r: 0.25
+        terrain: lowland loam
+        soil: loam
+        ecosystem: upland oak wood
+        depth: core
+        land:
+          elevation: 219.5
+          exposure: 0.34
+          texture: loam
+          held_mm: 165.2
+          drain_rate: 0.25
+          depth: 0.97
+          base_fertility: 1.0
+          position: slope
+          rain_factor: 1.0
+          sea_km: 99.0
+          river: none
+    unexplored: true
+    xy:
+    - 28.77
+    - 41.74
+    elevation: 219.7
+    rain_mm: 707.0
+roads:
+- - Eelmouth
+  - w1
+  - 1
+  - terrain: plain
+    way: the open road
+    ends:
+      Eelmouth:
+        parcels:
+        - Eelmouth_9
+        side: west
+      w1:
+        parcels:
+        - w1_1
+        side: north
+    stretches:
+      1:
+        landmarks:
+        - meadow
+- - Eelmouth
+  - w2
+  - 2
+  - terrain: plain
+    way: the open road
+    ends:
+      Eelmouth:
+        parcels:
+        - Eelmouth_0
+        side: north
+      w2:
+        parcels:
+        - w2_1
+        side: north
+    stretches:
+      1:
+        landmarks:
+        - meadow
+      2:
+        landmarks:
+        - pass
+        - meadow
+buildings:
+  brook_house:
+    name: Brook House
+    parcel: Eelmouth_0
+    household: Brook
+    structure: wattle
+    size: 6
+    fittings:
+      beds: 6
+      hearth: 1
+      bins: 1
+    stock:
+      timber: 28
+      firewood: 60
+      dried meat: 18
+      roots: 84
+  marsh_house:
+    name: Marsh House
+    parcel: Eelmouth_0
+    household: Marsh
+    structure: wattle
+    size: 6
+    fittings:
+      beds: 6
+      hearth: 1
+      bins: 1
+    stock:
+      timber: 28
+      firewood: 60
+      dried meat: 18
+      roots: 84
+  brook_byre:
+    name: the Brook Byre
+    parcel: Eelmouth_0
+    household: Brook
+    structure: wattle
+    size: 4
+    fittings:
+      bins: 1
+    stock:
+      dung: 10
+  brook_smokehouse:
+    parcel: Eelmouth_9
+    household: Brook
+    structure: wattle
+    name: the Brook Smokehouse
+    fittings:
+      smoke racks: 1
+    stock:
+      firewood: 6
+  marsh_smokehouse:
+    parcel: Eelmouth_1
+    household: Marsh
+    structure: wattle
+    name: the Marsh Smokehouse
+    fittings:
+      smoke racks: 1
+    stock:
+      firewood: 6
+  marsh_weir:
+    parcel: Eelmouth_8
+    node: Eelmouth
+    household: Marsh
+    name: the weir
+    structure: timber
+    monument: weir
+    tier: plain
+    fittings: {}
+    rooms: []
+    gap: shut
+    crew:
+    - Nichola
+    - Peter
+    sections:
+    - m: timber
+      foot: false
+      level: 5
+    - m: timber
+      foot: false
+      level: 5
+    - m: timber
+      foot: false
+      level: 5
+  marsh_salthouse:
+    parcel: Eelmouth_7
+    household: Marsh
+    structure: wattle
+    name: the Salt House
+    fittings:
+      brine pan: 1
+    stock:
+      firewood: 20
+      salt: 10
+herds: {}
+wild:
+  land:
+    version: 1
+    km: 0.15
+    ring_km: 2.5
+    block_km: 8.0
+    areas:
+      a0:
+        kind: home
+        node: Eelmouth
+        parcels:
+        - Eelmouth_0
+        - Eelmouth_1
+        - Eelmouth_2
+        - Eelmouth_3
+        - Eelmouth_4
+        - Eelmouth_5
+        - Eelmouth_6
+        - Eelmouth_7
+        - Eelmouth_8
+        - Eelmouth_9
+        km2: 0.72
+        xy_km:
+        - 9.63
+        - 14.88
+        cover:
+          built: 0.1125
+          field: 0.2925
+          meadow: 0.0225
+          pasture: 0.09
+          forest: 0.09
+          fen: 0.0675
+          water: 0.045
+        eco:
+          grassland: 0.225
+          hay meadow: 0.2925
+          oak-ash wood: 0.09
+          fen: 0.0675
+          water: 0.045
+        old_wood_km2: 0.0
+        wood_edge_km2: 0.0
+        wet: 0.478
+        elevation: 43.5
+        temp: 8.99
+        texture:
+          loam: 0.438
+          clay: 0.562
+        rock: 0.0
+        river_km: 0.6
+        big_river_km: 0.3
+        lake_km2: 0.0
+      a1:
+        kind: home
+        node: w1
+        parcels:
+        - w1_0
+        - w1_1
+        km2: 0.1575
+        xy_km:
+        - 10.63
+        - 38.96
+        cover:
+          meadow: 0.0225
+          forest: 0.135
+        eco:
+          grassland: 0.0225
+          oak-ash wood: 0.135
+        old_wood_km2: 0.1575
+        wood_edge_km2: 0.0
+        wet: 0.404
+        elevation: 83.5
+        temp: 8.04
+        texture:
+          clay: 1.0
+        rock: 0.0
+        river_km: 0.0
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a2:
+        kind: home
+        node: w2
+        parcels:
+        - w2_0
+        - w2_1
+        km2: 0.1575
+        xy_km:
+        - 28.78
+        - 41.66
+        cover:
+          meadow: 0.0225
+          forest: 0.135
+        eco:
+          grassland: 0.0225
+          upland oak wood: 0.135
+        old_wood_km2: 0.1575
+        wood_edge_km2: 0.0
+        wet: 0.147
+        elevation: 219.7
+        temp: 7.07
+        texture:
+          loam: 1.0
+        rock: 0.0
+        river_km: 0.0
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a3:
+        kind: ring
+        node: Eelmouth
+        parcels: []
+        km2: 19.0125
+        xy_km:
+        - 9.91
+        - 14.69
+        cover:
+          fen: 1.5075
+          meadow: 11.9475
+          pasture: 4.905
+          water: 0.6525
+        eco:
+          fen: 1.5075
+          grassland: 4.905
+          hay meadow: 11.5875
+          water: 0.6525
+          wet grassland: 0.36
+        old_wood_km2: 0.0
+        wood_edge_km2: 0.0
+        wet: 0.483
+        elevation: 43.9
+        temp: 9.03
+        texture:
+          loam: 0.544
+          clay: 0.456
+        rock: 0.0
+        river_km: 9.3
+        big_river_km: 4.35
+        lake_km2: 0.0
+      a4:
+        kind: ring
+        node: w1
+        parcels: []
+        km2: 19.575
+        xy_km:
+        - 10.65
+        - 39.0
+        cover:
+          fen: 0.045
+          forest: 18.225
+          meadow: 0.1575
+          pasture: 1.1475
+        eco:
+          alder carr: 0.495
+          fen: 0.045
+          grassland: 1.1475
+          oak-ash wood: 10.1925
+          upland oak wood: 7.5375
+          wet grassland: 0.1575
+        old_wood_km2: 8.4825
+        wood_edge_km2: 1.305
+        wet: 0.361
+        elevation: 80.8
+        temp: 8.05
+        texture:
+          loam: 0.069
+          clay: 0.931
+        rock: 0.0
+        river_km: 2.85
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a5:
+        kind: ring
+        node: w2
+        parcels: []
+        km2: 19.575
+        xy_km:
+        - 28.8
+        - 41.7
+        cover:
+          forest: 19.17
+          pasture: 0.405
+        eco:
+          alder carr: 0.0225
+          hill pasture: 0.405
+          upland oak wood: 19.1475
+        old_wood_km2: 9.1125
+        wood_edge_km2: 1.6425
+        wet: 0.139
+        elevation: 233.0
+        temp: 6.99
+        texture:
+          sand: 0.04
+          loam: 0.96
+        rock: 0.0
+        river_km: 0.0
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a6:
+        kind: wild
+        node: Eelmouth
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 3.9
+        - 3.9
+        cover:
+          fen: 0.9225
+          forest: 18.9225
+          heath: 1.3725
+          meadow: 2.2725
+          pasture: 39.7125
+        eco:
+          alder carr: 0.495
+          beech wood: 0.8325
+          birch and pine wood: 9.2475
+          fen: 0.9225
+          grassland: 39.7125
+          lowland heath: 1.3725
+          oak-ash wood: 8.3475
+          wet grassland: 2.2725
+        old_wood_km2: 0.945
+        wood_edge_km2: 7.245
+        wet: 0.374
+        elevation: 67.4
+        temp: 9.19
+        texture:
+          sand: 0.176
+          loam: 0.671
+          clay: 0.14
+          chalk: 0.013
+        rock: 0.0
+        river_km: 2.4
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a7:
+        kind: wild
+        node: Eelmouth
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 11.85
+        - 3.9
+        cover:
+          fen: 0.6525
+          forest: 7.56
+          heath: 0.3825
+          meadow: 1.89
+          pasture: 52.7175
+        eco:
+          alder carr: 0.045
+          birch and pine wood: 7.515
+          fen: 0.6525
+          grassland: 52.7175
+          lowland heath: 0.3825
+          wet grassland: 1.89
+        old_wood_km2: 0.0
+        wood_edge_km2: 4.095
+        wet: 0.268
+        elevation: 74.2
+        temp: 9.15
+        texture:
+          sand: 0.344
+          loam: 0.656
+        rock: 0.0
+        river_km: 3.6
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a8:
+        kind: wild
+        node: Eelmouth
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 19.8
+        - 3.9
+        cover:
+          fen: 0.18
+          forest: 17.37
+          heath: 0.045
+          meadow: 1.215
+          pasture: 44.3925
+        eco:
+          alder carr: 0.4725
+          beech wood: 4.3425
+          birch and pine wood: 4.185
+          fen: 0.18
+          grassland: 44.3925
+          lowland heath: 0.045
+          oak-ash wood: 8.37
+          wet grassland: 1.215
+        old_wood_km2: 0.0225
+        wood_edge_km2: 8.6625
+        wet: 0.254
+        elevation: 83.3
+        temp: 9.09
+        texture:
+          sand: 0.072
+          loam: 0.721
+          clay: 0.139
+          chalk: 0.069
+        rock: 0.0
+        river_km: 2.1
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a9:
+        kind: wild
+        node: Eelmouth
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 27.75
+        - 3.9
+        cover:
+          fen: 0.63
+          forest: 9.3375
+          meadow: 1.4625
+          pasture: 51.7725
+        eco:
+          alder carr: 0.5175
+          fen: 0.63
+          grassland: 51.7725
+          hay meadow: 0.09
+          oak-ash wood: 8.82
+          wet grassland: 1.3725
+        old_wood_km2: 0.0
+        wood_edge_km2: 8.5275
+        wet: 0.267
+        elevation: 60.6
+        temp: 9.23
+        texture:
+          loam: 0.993
+          clay: 0.007
+        rock: 0.0
+        river_km: 9.0
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a10:
+        kind: wild
+        node: Eelmouth
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 35.7
+        - 3.9
+        cover:
+          fen: 0.81
+          forest: 15.3225
+          meadow: 4.68
+          pasture: 42.2325
+          water: 0.1575
+        eco:
+          alder carr: 2.0475
+          beech wood: 0.18
+          fen: 0.81
+          grassland: 42.2325
+          hay meadow: 4.005
+          oak-ash wood: 13.095
+          water: 0.1575
+          wet grassland: 0.675
+        old_wood_km2: 0.0
+        wood_edge_km2: 11.9025
+        wet: 0.324
+        elevation: 70.3
+        temp: 9.18
+        texture:
+          loam: 0.979
+          clay: 0.019
+          chalk: 0.003
+        rock: 0.0
+        river_km: 12.0
+        big_river_km: 1.05
+        lake_km2: 0.0
+      a11:
+        kind: wild
+        node: Eelmouth
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 43.65
+        - 3.9
+        cover:
+          fen: 0.1125
+          forest: 25.83
+          meadow: 1.4625
+          pasture: 35.7975
+        eco:
+          alder carr: 0.27
+          beech wood: 2.7675
+          birch and pine wood: 20.655
+          fen: 0.1125
+          grassland: 35.7975
+          hay meadow: 0.135
+          oak-ash wood: 2.1375
+          wet grassland: 1.3275
+        old_wood_km2: 1.0125
+        wood_edge_km2: 10.8225
+        wet: 0.262
+        elevation: 107.6
+        temp: 8.93
+        texture:
+          sand: 0.361
+          loam: 0.58
+          clay: 0.015
+          chalk: 0.044
+        rock: 0.0
+        river_km: 1.35
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a12:
+        kind: wild
+        node: Eelmouth
+        parcels: []
+        km2: 19.08
+        xy_km:
+        - 48.82
+        - 3.9
+        cover:
+          forest: 1.53
+          meadow: 0.405
+          pasture: 17.145
+        eco:
+          alder carr: 0.09
+          grassland: 17.145
+          oak-ash wood: 1.44
+          wet grassland: 0.405
+        old_wood_km2: 0.0
+        wood_edge_km2: 1.035
+        wet: 0.279
+        elevation: 115.4
+        temp: 8.88
+        texture:
+          loam: 0.92
+          clay: 0.08
+        rock: 0.0
+        river_km: 0.0
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a13:
+        kind: wild
+        node: Eelmouth
+        parcels: []
+        km2: 62.28
+        xy_km:
+        - 3.84
+        - 11.81
+        cover:
+          fen: 1.6875
+          forest: 0.225
+          heath: 0.1575
+          meadow: 16.0425
+          pasture: 42.7725
+          water: 1.395
+        eco:
+          alder carr: 0.045
+          fen: 1.6875
+          grassland: 42.7725
+          hay meadow: 13.455
+          lowland heath: 0.1575
+          oak-ash wood: 0.18
+          water: 1.395
+          wet grassland: 2.5875
+        old_wood_km2: 0.0
+        wood_edge_km2: 0.225
+        wet: 0.414
+        elevation: 48.1
+        temp: 9.07
+        texture:
+          sand: 0.15
+          loam: 0.819
+          clay: 0.031
+        rock: 0.0
+        river_km: 19.35
+        big_river_km: 9.3
+        lake_km2: 0.0
+      a14:
+        kind: wild
+        node: Eelmouth
+        parcels: []
+        km2: 48.825
+        xy_km:
+        - 12.38
+        - 11.16
+        cover:
+          fen: 1.035
+          forest: 0.0675
+          heath: 0.6525
+          meadow: 6.84
+          pasture: 40.14
+          water: 0.09
+        eco:
+          fen: 1.035
+          grassland: 40.14
+          hay meadow: 5.76
+          lowland heath: 0.6525
+          oak-ash wood: 0.0675
+          water: 0.09
+          wet grassland: 1.08
+        old_wood_km2: 0.0
+        wood_edge_km2: 0.0675
+        wet: 0.333
+        elevation: 69.5
+        temp: 8.96
+        texture:
+          sand: 0.016
+          loam: 0.766
+          clay: 0.218
+        rock: 0.0
+        river_km: 4.5
+        big_river_km: 0.6
+        lake_km2: 0.0
+      a15:
+        kind: wild
+        node: Eelmouth
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 19.8
+        - 11.85
+        cover:
+          fen: 2.115
+          forest: 22.8825
+          heath: 0.6975
+          meadow: 10.62
+          pasture: 26.8875
+        eco:
+          alder carr: 0.7425
+          fen: 2.115
+          grassland: 26.8875
+          hay meadow: 9.945
+          lowland heath: 0.6975
+          oak-ash wood: 22.14
+          wet grassland: 0.675
+        old_wood_km2: 0.225
+        wood_edge_km2: 7.6725
+        wet: 0.341
+        elevation: 58.2
+        temp: 9.02
+        texture:
+          sand: 0.018
+          loam: 0.545
+          clay: 0.437
+        rock: 0.0
+        river_km: 13.35
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a16:
+        kind: wild
+        node: Eelmouth
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 27.75
+        - 11.85
+        cover:
+          fen: 0.1575
+          forest: 31.3875
+          meadow: 0.5175
+          pasture: 31.14
+        eco:
+          alder carr: 0.9225
+          beech wood: 1.35
+          fen: 0.1575
+          grassland: 31.14
+          hay meadow: 0.1575
+          oak-ash wood: 29.115
+          wet grassland: 0.36
+        old_wood_km2: 3.51
+        wood_edge_km2: 6.7275
+        wet: 0.305
+        elevation: 96.5
+        temp: 8.77
+        texture:
+          loam: 0.515
+          clay: 0.464
+          chalk: 0.021
+        rock: 0.0
+        river_km: 2.85
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a17:
+        kind: wild
+        node: Eelmouth
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 35.7
+        - 11.85
+        cover:
+          fen: 0.765
+          forest: 19.4175
+          meadow: 4.0275
+          pasture: 38.9925
+        eco:
+          alder carr: 2.16
+          beech wood: 2.16
+          birch and pine wood: 4.275
+          fen: 0.765
+          grassland: 38.9925
+          hay meadow: 3.51
+          oak-ash wood: 10.8225
+          wet grassland: 0.5175
+        old_wood_km2: 0.0
+        wood_edge_km2: 15.8175
+        wet: 0.307
+        elevation: 88.2
+        temp: 8.83
+        texture:
+          sand: 0.123
+          loam: 0.764
+          clay: 0.079
+          chalk: 0.034
+        rock: 0.0
+        river_km: 6.6
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a18:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 43.65
+        - 11.85
+        cover:
+          fen: 0.765
+          forest: 40.7025
+          meadow: 1.395
+          pasture: 20.34
+        eco:
+          alder carr: 2.7225
+          beech wood: 9.585
+          fen: 0.765
+          grassland: 20.34
+          hay meadow: 0.9225
+          oak-ash wood: 28.395
+          wet grassland: 0.4725
+        old_wood_km2: 3.1275
+        wood_edge_km2: 12.6
+        wet: 0.35
+        elevation: 94.8
+        temp: 8.78
+        texture:
+          loam: 0.379
+          clay: 0.467
+          chalk: 0.155
+        rock: 0.0
+        river_km: 5.55
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a19:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 19.08
+        xy_km:
+        - 48.82
+        - 11.85
+        cover:
+          fen: 0.1575
+          forest: 1.1925
+          meadow: 0.7425
+          pasture: 16.9875
+        eco:
+          fen: 0.1575
+          grassland: 16.9875
+          oak-ash wood: 1.1925
+          wet grassland: 0.7425
+        old_wood_km2: 0.0
+        wood_edge_km2: 0.8325
+        wet: 0.294
+        elevation: 103.9
+        temp: 8.72
+        texture:
+          loam: 0.938
+          clay: 0.062
+        rock: 0.0
+        river_km: 0.0
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a20:
+        kind: wild
+        node: Eelmouth
+        parcels: []
+        km2: 63.1575
+        xy_km:
+        - 3.9
+        - 19.8
+        cover:
+          fen: 2.2725
+          forest: 4.7475
+          meadow: 8.235
+          pasture: 47.9025
+        eco:
+          alder carr: 0.405
+          fen: 2.2725
+          grassland: 47.9025
+          hay meadow: 5.7375
+          oak-ash wood: 4.3425
+          wet grassland: 2.4975
+        old_wood_km2: 0.0
+        wood_edge_km2: 3.06
+        wet: 0.415
+        elevation: 54.1
+        temp: 8.81
+        texture:
+          sand: 0.0
+          loam: 0.871
+          clay: 0.129
+        rock: 0.0
+        river_km: 7.8
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a21:
+        kind: wild
+        node: Eelmouth
+        parcels: []
+        km2: 58.815
+        xy_km:
+        - 11.99
+        - 20.05
+        cover:
+          fen: 1.755
+          forest: 0.045
+          heath: 4.2975
+          meadow: 20.835
+          pasture: 30.7575
+          water: 1.125
+        eco:
+          birch and pine wood: 0.045
+          chalk grassland: 1.98
+          fen: 1.755
+          grassland: 28.7775
+          hay meadow: 19.3275
+          lowland heath: 4.2975
+          water: 1.125
+          wet grassland: 1.5075
+        old_wood_km2: 0.0
+        wood_edge_km2: 0.045
+        wet: 0.359
+        elevation: 52.8
+        temp: 8.81
+        texture:
+          sand: 0.157
+          loam: 0.808
+          clay: 0.002
+          chalk: 0.034
+        rock: 0.0
+        river_km: 15.15
+        big_river_km: 7.5
+        lake_km2: 0.0
+      a22:
+        kind: wild
+        node: Eelmouth
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 19.8
+        - 19.8
+        cover:
+          fen: 2.5875
+          forest: 7.4475
+          heath: 0.4275
+          meadow: 31.9275
+          pasture: 19.26
+          water: 1.5525
+        eco:
+          alder carr: 0.0225
+          fen: 2.5875
+          grassland: 19.26
+          hay meadow: 29.8575
+          lowland heath: 0.4275
+          oak-ash wood: 7.425
+          water: 1.5525
+          wet grassland: 2.07
+        old_wood_km2: 0.0
+        wood_edge_km2: 4.1625
+        wet: 0.447
+        elevation: 47.8
+        temp: 8.87
+        texture:
+          sand: 0.043
+          loam: 0.821
+          clay: 0.135
+        rock: 0.0
+        river_km: 10.35
+        big_river_km: 10.35
+        lake_km2: 0.0
+      a23:
+        kind: wild
+        node: Eelmouth
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 27.75
+        - 19.8
+        cover:
+          fen: 0.36
+          forest: 12.7575
+          meadow: 1.6425
+          pasture: 48.4425
+        eco:
+          alder carr: 0.72
+          beech wood: 1.1475
+          birch and pine wood: 1.5525
+          fen: 0.36
+          grassland: 48.4425
+          oak-ash wood: 9.3375
+          wet grassland: 1.6425
+        old_wood_km2: 0.0
+        wood_edge_km2: 5.895
+        wet: 0.305
+        elevation: 102.4
+        temp: 8.49
+        texture:
+          sand: 0.025
+          loam: 0.802
+          clay: 0.155
+          chalk: 0.018
+        rock: 0.0
+        river_km: 3.45
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a24:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 35.7
+        - 19.8
+        cover:
+          fen: 0.6975
+          forest: 14.1975
+          meadow: 2.4525
+          pasture: 45.855
+        eco:
+          alder carr: 0.72
+          beech wood: 0.81
+          birch and pine wood: 6.12
+          fen: 0.6975
+          grassland: 45.855
+          hay meadow: 1.35
+          oak-ash wood: 6.5475
+          wet grassland: 1.1025
+        old_wood_km2: 0.0
+        wood_edge_km2: 9.5175
+        wet: 0.278
+        elevation: 97.9
+        temp: 8.52
+        texture:
+          sand: 0.097
+          loam: 0.816
+          clay: 0.074
+          chalk: 0.013
+        rock: 0.0
+        river_km: 7.65
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a25:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 43.65
+        - 19.8
+        cover:
+          fen: 0.72
+          forest: 26.01
+          meadow: 1.08
+          pasture: 35.3925
+        eco:
+          alder carr: 2.1825
+          birch and pine wood: 6.57
+          fen: 0.72
+          grassland: 35.3925
+          hay meadow: 0.36
+          oak-ash wood: 17.2575
+          wet grassland: 0.72
+        old_wood_km2: 0.045
+        wood_edge_km2: 14.8725
+        wet: 0.321
+        elevation: 86.5
+        temp: 8.6
+        texture:
+          sand: 0.145
+          loam: 0.719
+          clay: 0.136
+        rock: 0.0
+        river_km: 13.35
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a26:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 19.08
+        xy_km:
+        - 48.82
+        - 19.8
+        cover:
+          meadow: 0.27
+          pasture: 18.81
+        eco:
+          grassland: 18.81
+          wet grassland: 0.27
+        old_wood_km2: 0.0
+        wood_edge_km2: 0.0
+        wet: 0.256
+        elevation: 99.8
+        temp: 8.51
+        texture:
+          loam: 1.0
+        rock: 0.0
+        river_km: 0.0
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a27:
+        kind: wild
+        node: w1
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 3.9
+        - 27.75
+        cover:
+          fen: 0.6525
+          forest: 20.52
+          meadow: 2.565
+          pasture: 39.465
+        eco:
+          alder carr: 1.7775
+          fen: 0.6525
+          grassland: 39.465
+          hay meadow: 0.5175
+          oak-ash wood: 18.7425
+          wet grassland: 2.0475
+        old_wood_km2: 1.1475
+        wood_edge_km2: 7.2675
+        wet: 0.412
+        elevation: 59.9
+        temp: 8.53
+        texture:
+          sand: 0.02
+          loam: 0.684
+          clay: 0.297
+        rock: 0.0
+        river_km: 11.1
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a28:
+        kind: wild
+        node: w1
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 11.85
+        - 27.75
+        cover:
+          fen: 0.7425
+          forest: 6.6375
+          meadow: 1.6875
+          pasture: 54.135
+        eco:
+          alder carr: 0.0225
+          birch and pine wood: 3.6
+          chalk grassland: 0.2925
+          fen: 0.7425
+          grassland: 53.8425
+          hay meadow: 0.2925
+          oak-ash wood: 3.015
+          wet grassland: 1.395
+        old_wood_km2: 0.0
+        wood_edge_km2: 4.9275
+        wet: 0.27
+        elevation: 77.3
+        temp: 8.41
+        texture:
+          sand: 0.057
+          loam: 0.897
+          clay: 0.042
+          chalk: 0.005
+        rock: 0.0
+        river_km: 1.5
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a29:
+        kind: wild
+        node: w1
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 19.8
+        - 27.75
+        cover:
+          fen: 0.81
+          forest: 22.68
+          meadow: 9.585
+          pasture: 27.945
+          water: 2.1825
+        eco:
+          alder carr: 0.945
+          birch and pine wood: 2.115
+          fen: 0.81
+          grassland: 27.945
+          hay meadow: 9.18
+          oak-ash wood: 19.62
+          water: 2.1825
+          wet grassland: 0.405
+        old_wood_km2: 0.0
+        wood_edge_km2: 18.6075
+        wet: 0.372
+        elevation: 61.0
+        temp: 8.51
+        texture:
+          sand: 0.074
+          loam: 0.746
+          clay: 0.18
+        rock: 0.0
+        river_km: 14.55
+        big_river_km: 14.55
+        lake_km2: 0.0
+      a30:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 27.75
+        - 27.75
+        cover:
+          fen: 1.08
+          forest: 10.98
+          meadow: 2.3625
+          pasture: 47.8575
+          water: 0.9225
+        eco:
+          alder carr: 0.135
+          birch and pine wood: 0.1125
+          fen: 1.08
+          grassland: 47.8575
+          hay meadow: 0.45
+          oak-ash wood: 10.7325
+          water: 0.9225
+          wet grassland: 1.9125
+        old_wood_km2: 0.09
+        wood_edge_km2: 8.3475
+        wet: 0.34
+        elevation: 98.7
+        temp: 8.27
+        texture:
+          sand: 0.002
+          loam: 0.892
+          clay: 0.106
+        rock: 0.0
+        river_km: 9.6
+        big_river_km: 6.15
+        lake_km2: 0.0
+      a31:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 35.7
+        - 27.75
+        cover:
+          fen: 0.1125
+          forest: 23.13
+          meadow: 1.08
+          pasture: 38.88
+        eco:
+          alder carr: 0.36
+          birch and pine wood: 10.3275
+          fen: 0.1125
+          grassland: 38.88
+          oak-ash wood: 12.4425
+          wet grassland: 1.08
+        old_wood_km2: 1.7325
+        wood_edge_km2: 7.2
+        wet: 0.267
+        elevation: 116.2
+        temp: 8.16
+        texture:
+          sand: 0.166
+          loam: 0.632
+          clay: 0.203
+        rock: 0.0
+        river_km: 0.0
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a32:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 43.65
+        - 27.75
+        cover:
+          fen: 0.585
+          forest: 41.1525
+          meadow: 6.6375
+          pasture: 14.5125
+          water: 0.315
+        eco:
+          alder carr: 4.3875
+          birch and pine wood: 10.98
+          fen: 0.585
+          grassland: 14.5125
+          hay meadow: 5.6475
+          oak-ash wood: 25.785
+          water: 0.315
+          wet grassland: 0.99
+        old_wood_km2: 0.0
+        wood_edge_km2: 23.6475
+        wet: 0.404
+        elevation: 72.3
+        temp: 8.49
+        texture:
+          sand: 0.459
+          loam: 0.541
+        rock: 0.0
+        river_km: 20.7
+        big_river_km: 2.1
+        lake_km2: 0.0
+      a33:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 19.08
+        xy_km:
+        - 48.82
+        - 27.75
+        cover:
+          fen: 0.3375
+          forest: 6.525
+          meadow: 1.62
+          pasture: 10.08
+          water: 0.5175
+        eco:
+          alder carr: 0.3825
+          birch and pine wood: 1.26
+          fen: 0.3375
+          grassland: 10.08
+          hay meadow: 1.5075
+          oak-ash wood: 4.8825
+          water: 0.5175
+          wet grassland: 0.1125
+        old_wood_km2: 0.0
+        wood_edge_km2: 5.1525
+        wet: 0.378
+        elevation: 76.6
+        temp: 8.42
+        texture:
+          sand: 0.1
+          loam: 0.9
+        rock: 0.0
+        river_km: 5.55
+        big_river_km: 3.45
+        lake_km2: 0.0
+      a34:
+        kind: wild
+        node: w1
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 3.9
+        - 35.7
+        cover:
+          fen: 0.5175
+          forest: 16.3125
+          meadow: 2.8125
+          pasture: 43.56
+        eco:
+          alder carr: 0.045
+          birch and pine wood: 13.3425
+          fen: 0.5175
+          grassland: 43.56
+          oak-ash wood: 2.925
+          wet grassland: 2.8125
+        old_wood_km2: 0.2025
+        wood_edge_km2: 5.6925
+        wet: 0.371
+        elevation: 74.3
+        temp: 8.2
+        texture:
+          sand: 0.26
+          loam: 0.695
+          clay: 0.045
+        rock: 0.0
+        river_km: 1.35
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a35:
+        kind: wild
+        node: w1
+        parcels: []
+        km2: 49.995
+        xy_km:
+        - 12.17
+        - 35.02
+        cover:
+          fen: 0.1575
+          forest: 15.255
+          meadow: 1.575
+          pasture: 33.0075
+        eco:
+          alder carr: 1.35
+          birch and pine wood: 2.3175
+          fen: 0.1575
+          grassland: 32.76
+          hay meadow: 0.855
+          hill pasture: 0.2475
+          oak-ash wood: 10.5525
+          upland oak wood: 1.035
+          wet grassland: 0.72
+        old_wood_km2: 0.0
+        wood_edge_km2: 10.5975
+        wet: 0.301
+        elevation: 79.8
+        temp: 8.17
+        texture:
+          sand: 0.108
+          loam: 0.8
+          clay: 0.093
+        rock: 0.0
+        river_km: 9.0
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a36:
+        kind: wild
+        node: w1
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 19.8
+        - 35.7
+        cover:
+          fen: 0.405
+          forest: 21.6225
+          meadow: 2.6775
+          pasture: 38.34
+          water: 0.1575
+        eco:
+          alder carr: 1.53
+          fen: 0.405
+          grassland: 37.125
+          hay meadow: 1.7325
+          hill pasture: 1.215
+          oak-ash wood: 19.305
+          upland oak wood: 0.7875
+          water: 0.1575
+          wet grassland: 0.945
+        old_wood_km2: 0.0
+        wood_edge_km2: 15.2325
+        wet: 0.324
+        elevation: 92.1
+        temp: 8.08
+        texture:
+          sand: 0.002
+          loam: 0.904
+          clay: 0.093
+        rock: 0.0
+        river_km: 6.75
+        big_river_km: 1.05
+        lake_km2: 0.0
+      a37:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 62.235
+        xy_km:
+        - 27.73
+        - 35.64
+        cover:
+          fen: 0.135
+          forest: 27.9
+          meadow: 2.3625
+          pasture: 30.6225
+          water: 1.215
+        eco:
+          alder carr: 0.54
+          fen: 0.135
+          grassland: 25.74
+          hay meadow: 1.53
+          hill pasture: 4.8825
+          oak-ash wood: 23.715
+          upland oak wood: 3.645
+          water: 1.215
+          wet grassland: 0.8325
+        old_wood_km2: 1.89
+        wood_edge_km2: 15.4125
+        wet: 0.316
+        elevation: 124.2
+        temp: 7.86
+        texture:
+          sand: 0.004
+          loam: 0.709
+          clay: 0.287
+        rock: 0.0
+        river_km: 8.1
+        big_river_km: 8.1
+        lake_km2: 0.0
+      a38:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 35.7
+        - 35.7
+        cover:
+          fen: 0.405
+          forest: 35.8425
+          meadow: 0.495
+          pasture: 25.4925
+          water: 0.9675
+        eco:
+          alder carr: 2.16
+          birch and pine wood: 1.98
+          fen: 0.405
+          grassland: 24.2325
+          hill pasture: 1.26
+          oak-ash wood: 31.455
+          upland oak wood: 0.2475
+          water: 0.9675
+          wet grassland: 0.495
+        old_wood_km2: 9.5175
+        wood_edge_km2: 8.955
+        wet: 0.333
+        elevation: 99.9
+        temp: 8.03
+        texture:
+          sand: 0.142
+          loam: 0.406
+          clay: 0.449
+          chalk: 0.002
+        rock: 0.0
+        river_km: 7.65
+        big_river_km: 0.0
+        lake_km2: 0.9675
+      a39:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 43.65
+        - 35.7
+        cover:
+          fen: 0.495
+          forest: 29.3175
+          meadow: 5.0175
+          pasture: 27.4725
+          water: 0.9
+        eco:
+          alder carr: 3.6225
+          birch and pine wood: 5.265
+          fen: 0.495
+          grassland: 27.4725
+          hay meadow: 4.005
+          oak-ash wood: 19.755
+          upland oak wood: 0.675
+          water: 0.9
+          wet grassland: 1.0125
+        old_wood_km2: 0.0
+        wood_edge_km2: 19.4175
+        wet: 0.389
+        elevation: 83.9
+        temp: 8.15
+        texture:
+          sand: 0.313
+          loam: 0.577
+          clay: 0.11
+        rock: 0.0
+        river_km: 18.75
+        big_river_km: 6.0
+        lake_km2: 0.0
+      a40:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 19.08
+        xy_km:
+        - 48.82
+        - 35.7
+        cover:
+          fen: 0.09
+          forest: 7.875
+          meadow: 0.4275
+          pasture: 10.6875
+        eco:
+          alder carr: 0.18
+          birch and pine wood: 7.2675
+          fen: 0.09
+          grassland: 10.6875
+          hay meadow: 0.18
+          oak-ash wood: 0.4275
+          wet grassland: 0.2475
+        old_wood_km2: 0.36
+        wood_edge_km2: 2.88
+        wet: 0.276
+        elevation: 94.1
+        temp: 8.07
+        texture:
+          sand: 0.446
+          loam: 0.554
+        rock: 0.0
+        river_km: 0.0
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a41:
+        kind: wild
+        node: w1
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 3.9
+        - 43.65
+        cover:
+          fen: 0.63
+          forest: 16.695
+          meadow: 1.7775
+          pasture: 44.1
+        eco:
+          alder carr: 1.4175
+          birch and pine wood: 4.0275
+          fen: 0.63
+          grassland: 41.1525
+          hill pasture: 2.9475
+          oak-ash wood: 11.16
+          upland oak wood: 0.09
+          wet grassland: 1.7775
+        old_wood_km2: 2.4975
+        wood_edge_km2: 7.335
+        wet: 0.387
+        elevation: 70.6
+        temp: 7.98
+        texture:
+          sand: 0.246
+          loam: 0.559
+          clay: 0.195
+        rock: 0.0
+        river_km: 6.6
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a42:
+        kind: wild
+        node: w1
+        parcels: []
+        km2: 56.6775
+        xy_km:
+        - 11.99
+        - 44.02
+        cover:
+          fen: 0.1575
+          forest: 47.61
+          meadow: 0.0675
+          pasture: 8.8425
+        eco:
+          alder carr: 0.1575
+          fen: 0.1575
+          grassland: 0.1575
+          hill pasture: 8.685
+          oak-ash wood: 0.8325
+          upland oak wood: 46.62
+          wet grassland: 0.0675
+        old_wood_km2: 31.0275
+        wood_edge_km2: 3.87
+        wet: 0.378
+        elevation: 87.3
+        temp: 7.86
+        texture:
+          loam: 0.181
+          clay: 0.819
+        rock: 0.0
+        river_km: 9.75
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a43:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 19.8
+        - 43.65
+        cover:
+          forest: 59.355
+          moor: 0.0225
+          pasture: 2.7225
+          water: 1.1025
+        eco:
+          alder carr: 0.1125
+          grassland: 0.3375
+          hill pasture: 2.385
+          moor: 0.0225
+          oak-ash wood: 0.225
+          upland oak wood: 59.0175
+          water: 1.1025
+        old_wood_km2: 27.765
+        wood_edge_km2: 7.7625
+        wet: 0.249
+        elevation: 214.1
+        temp: 7.03
+        texture:
+          sand: 0.364
+          loam: 0.548
+          clay: 0.088
+        rock: 0.0
+        river_km: 7.2
+        big_river_km: 1.65
+        lake_km2: 0.855
+      a44:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 44.4375
+        xy_km:
+        - 27.31
+        - 44.43
+        cover:
+          forest: 36.63
+          meadow: 0.0675
+          moor: 4.05
+          pasture: 1.6875
+          rock: 0.045
+          water: 1.9575
+        eco:
+          alder carr: 0.2025
+          bare rock: 0.045
+          hill pasture: 1.6875
+          moor: 4.05
+          upland oak wood: 36.4275
+          water: 1.9575
+          wet grassland: 0.0675
+        old_wood_km2: 10.53
+        wood_edge_km2: 12.375
+        wet: 0.189
+        elevation: 306.9
+        temp: 6.39
+        texture:
+          sand: 0.16
+          loam: 0.634
+          clay: 0.005
+          chalk: 0.201
+        rock: 0.007
+        river_km: 7.05
+        big_river_km: 6.3
+        lake_km2: 1.0125
+      a45:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 35.7
+        - 43.65
+        cover:
+          fen: 0.1575
+          forest: 52.8975
+          meadow: 0.18
+          pasture: 3.5775
+          water: 6.39
+        eco:
+          alder carr: 0.4275
+          fen: 0.1575
+          grassland: 0.3375
+          hill pasture: 3.24
+          oak-ash wood: 0.3825
+          upland oak wood: 52.0875
+          water: 6.39
+          wet grassland: 0.18
+        old_wood_km2: 29.835
+        wood_edge_km2: 6.255
+        wet: 0.28
+        elevation: 115.9
+        temp: 7.69
+        texture:
+          sand: 0.116
+          loam: 0.376
+          clay: 0.038
+          chalk: 0.47
+        rock: 0.0
+        river_km: 5.7
+        big_river_km: 0.0
+        lake_km2: 6.39
+      a46:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 63.2025
+        xy_km:
+        - 43.65
+        - 43.65
+        cover:
+          fen: 0.5175
+          forest: 14.805
+          meadow: 1.8675
+          pasture: 46.0125
+        eco:
+          alder carr: 0.9675
+          birch and pine wood: 1.3275
+          fen: 0.5175
+          grassland: 30.2625
+          hay meadow: 0.4275
+          hill pasture: 15.75
+          oak-ash wood: 4.455
+          upland oak wood: 8.055
+          wet grassland: 1.44
+        old_wood_km2: 0.0
+        wood_edge_km2: 10.17
+        wet: 0.317
+        elevation: 109.0
+        temp: 7.73
+        texture:
+          sand: 0.043
+          loam: 0.87
+          clay: 0.088
+        rock: 0.0
+        river_km: 6.6
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a47:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 19.08
+        xy_km:
+        - 48.82
+        - 43.65
+        cover:
+          forest: 1.8675
+          meadow: 0.81
+          pasture: 16.4025
+        eco:
+          birch and pine wood: 1.8675
+          grassland: 16.4025
+          wet grassland: 0.81
+        old_wood_km2: 0.0
+        wood_edge_km2: 1.305
+        wet: 0.278
+        elevation: 116.2
+        temp: 7.69
+        texture:
+          sand: 0.098
+          loam: 0.902
+        rock: 0.0
+        river_km: 0.0
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a48:
+        kind: wild
+        node: w1
+        parcels: []
+        km2: 19.08
+        xy_km:
+        - 3.9
+        - 48.82
+        cover:
+          fen: 0.3375
+          forest: 8.82
+          meadow: 0.2925
+          moor: 0.27
+          pasture: 9.36
+        eco:
+          alder carr: 0.2025
+          birch and pine wood: 8.6175
+          blanket bog: 0.225
+          fen: 0.3375
+          grassland: 6.8625
+          hill pasture: 2.4975
+          moor: 0.045
+          wet grassland: 0.2925
+        old_wood_km2: 0.0
+        wood_edge_km2: 4.1625
+        wet: 0.345
+        elevation: 67.8
+        temp: 7.84
+        texture:
+          sand: 0.623
+          loam: 0.377
+        rock: 0.0
+        river_km: 1.95
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a49:
+        kind: wild
+        node: w1
+        parcels: []
+        km2: 19.08
+        xy_km:
+        - 11.85
+        - 48.82
+        cover:
+          fen: 0.135
+          forest: 16.8525
+          pasture: 2.0925
+        eco:
+          fen: 0.135
+          hill pasture: 2.0925
+          upland oak wood: 16.8525
+        old_wood_km2: 10.9125
+        wood_edge_km2: 1.1025
+        wet: 0.332
+        elevation: 81.0
+        temp: 7.76
+        texture:
+          loam: 0.303
+          clay: 0.697
+        rock: 0.0
+        river_km: 1.8
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a50:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 19.08
+        xy_km:
+        - 19.8
+        - 48.82
+        cover:
+          forest: 18.3825
+          pasture: 0.0225
+          water: 0.675
+        eco:
+          alder carr: 0.0675
+          hill pasture: 0.0225
+          oak-ash wood: 2.115
+          upland oak wood: 16.2
+          water: 0.675
+        old_wood_km2: 7.4475
+        wood_edge_km2: 2.655
+        wet: 0.299
+        elevation: 236.6
+        temp: 6.73
+        texture:
+          sand: 0.309
+          loam: 0.691
+        rock: 0.001
+        river_km: 1.65
+        big_river_km: 1.65
+        lake_km2: 0.4275
+      a51:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 19.08
+        xy_km:
+        - 27.75
+        - 48.82
+        cover:
+          fen: 0.0675
+          forest: 15.795
+          meadow: 0.0225
+          moor: 2.43
+          pasture: 0.495
+          rock: 0.27
+        eco:
+          alder carr: 0.09
+          bare rock: 0.27
+          fen: 0.0675
+          grassland: 0.0675
+          hill pasture: 0.4275
+          moor: 2.43
+          oak-ash wood: 1.125
+          upland oak wood: 14.58
+          wet grassland: 0.0225
+        old_wood_km2: 0.495
+        wood_edge_km2: 7.3575
+        wet: 0.125
+        elevation: 369.2
+        temp: 5.83
+        texture:
+          loam: 0.994
+          chalk: 0.006
+        rock: 0.022
+        river_km: 0.0
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a52:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 19.08
+        xy_km:
+        - 35.7
+        - 48.82
+        cover:
+          forest: 18.945
+          pasture: 0.135
+        eco:
+          beech wood: 1.2825
+          grassland: 0.045
+          hill pasture: 0.09
+          oak-ash wood: 0.225
+          upland oak wood: 17.4375
+        old_wood_km2: 15.3225
+        wood_edge_km2: 0.63
+        wet: 0.226
+        elevation: 145.8
+        temp: 7.34
+        texture:
+          loam: 0.18
+          clay: 0.318
+          chalk: 0.501
+        rock: 0.0
+        river_km: 1.35
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a53:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 19.08
+        xy_km:
+        - 43.65
+        - 48.82
+        cover:
+          forest: 18.495
+          pasture: 0.585
+        eco:
+          alder carr: 0.27
+          grassland: 0.1125
+          hill pasture: 0.4725
+          oak-ash wood: 9.7425
+          upland oak wood: 8.4825
+        old_wood_km2: 8.64
+        wood_edge_km2: 1.215
+        wet: 0.33
+        elevation: 109.8
+        temp: 7.57
+        texture:
+          loam: 0.031
+          clay: 0.969
+        rock: 0.0
+        river_km: 0.15
+        big_river_km: 0.0
+        lake_km2: 0.0
+      a54:
+        kind: wild
+        node: w2
+        parcels: []
+        km2: 5.76
+        xy_km:
+        - 48.82
+        - 48.82
+        cover:
+          fen: 0.0225
+          forest: 2.295
+          meadow: 0.1125
+          pasture: 3.33
+        eco:
+          alder carr: 0.2025
+          fen: 0.0225
+          grassland: 3.33
+          oak-ash wood: 2.0925
+          wet grassland: 0.1125
+        old_wood_km2: 0.045
+        wood_edge_km2: 0.8325
+        wet: 0.303
+        elevation: 93.8
+        temp: 7.68
+        texture:
+          loam: 0.602
+          clay: 0.398
+        rock: 0.0
+        river_km: 0.6
+        big_river_km: 0.0
+        lake_km2: 0.0
+    links:
+    - - a0
+      - a3
+      - 8.4
+    - - a1
+      - a4
+      - 1.8
+    - - a2
+      - a5
+      - 1.8
+    - - a3
+      - a13
+      - 3.3
+    - - a3
+      - a14
+      - 9.15
+    - - a3
+      - a20
+      - 0.75
+    - - a3
+      - a21
+      - 6.6
+    - - a4
+      - a35
+      - 11.25
+    - - a4
+      - a42
+      - 8.55
+    - - a5
+      - a37
+      - 4.05
+    - - a5
+      - a44
+      - 15.75
+    - - a6
+      - a7
+      - 7.95
+    - - a6
+      - a13
+      - 7.95
+    - - a7
+      - a8
+      - 7.95
+    - - a7
+      - a14
+      - 7.95
+    - - a8
+      - a9
+      - 7.95
+    - - a8
+      - a15
+      - 7.95
+    - - a9
+      - a10
+      - 7.95
+    - - a9
+      - a16
+      - 7.95
+    - - a10
+      - a11
+      - 7.95
+    - - a10
+      - a17
+      - 7.95
+    - - a11
+      - a12
+      - 7.95
+    - - a11
+      - a18
+      - 7.95
+    - - a12
+      - a19
+      - 2.4
+    - - a13
+      - a14
+      - 5.25
+    - - a13
+      - a20
+      - 7.65
+    - - a14
+      - a15
+      - 7.95
+    - - a14
+      - a21
+      - 3.6
+    - - a15
+      - a16
+      - 7.95
+    - - a15
+      - a22
+      - 7.95
+    - - a16
+      - a17
+      - 7.95
+    - - a16
+      - a23
+      - 7.95
+    - - a17
+      - a18
+      - 7.95
+    - - a17
+      - a24
+      - 7.95
+    - - a18
+      - a19
+      - 7.95
+    - - a18
+      - a25
+      - 7.95
+    - - a19
+      - a26
+      - 2.4
+    - - a20
+      - a21
+      - 7.5
+    - - a20
+      - a27
+      - 7.95
+    - - a21
+      - a22
+      - 7.95
+    - - a21
+      - a28
+      - 7.95
+    - - a22
+      - a23
+      - 7.95
+    - - a22
+      - a29
+      - 7.95
+    - - a23
+      - a24
+      - 7.95
+    - - a23
+      - a30
+      - 7.95
+    - - a24
+      - a25
+      - 7.95
+    - - a24
+      - a31
+      - 7.95
+    - - a25
+      - a26
+      - 7.95
+    - - a25
+      - a32
+      - 7.95
+    - - a26
+      - a33
+      - 2.4
+    - - a27
+      - a28
+      - 7.95
+    - - a27
+      - a34
+      - 7.95
+    - - a28
+      - a29
+      - 7.95
+    - - a28
+      - a35
+      - 7.95
+    - - a29
+      - a30
+      - 7.95
+    - - a29
+      - a36
+      - 7.95
+    - - a30
+      - a31
+      - 7.95
+    - - a30
+      - a37
+      - 7.95
+    - - a31
+      - a32
+      - 7.95
+    - - a31
+      - a38
+      - 7.95
+    - - a32
+      - a33
+      - 7.95
+    - - a32
+      - a39
+      - 7.95
+    - - a33
+      - a40
+      - 2.4
+    - - a34
+      - a35
+      - 7.95
+    - - a34
+      - a41
+      - 7.95
+    - - a35
+      - a36
+      - 7.95
+    - - a35
+      - a42
+      - 3.0
+    - - a36
+      - a37
+      - 7.95
+    - - a36
+      - a43
+      - 7.95
+    - - a37
+      - a38
+      - 7.95
+    - - a37
+      - a44
+      - 4.8
+    - - a38
+      - a39
+      - 7.95
+    - - a38
+      - a45
+      - 7.95
+    - - a39
+      - a40
+      - 7.95
+    - - a39
+      - a46
+      - 7.95
+    - - a40
+      - a47
+      - 2.4
+    - - a41
+      - a42
+      - 7.95
+    - - a41
+      - a48
+      - 7.95
+    - - a42
+      - a43
+      - 7.95
+    - - a42
+      - a49
+      - 7.95
+    - - a43
+      - a44
+      - 7.95
+    - - a43
+      - a50
+      - 7.95
+    - - a44
+      - a45
+      - 7.95
+    - - a44
+      - a51
+      - 7.95
+    - - a45
+      - a46
+      - 7.95
+    - - a45
+      - a52
+      - 7.95
+    - - a46
+      - a47
+      - 7.95
+    - - a46
+      - a53
+      - 7.95
+    - - a47
+      - a54
+      - 2.4
+    - - a48
+      - a49
+      - 2.4
+    - - a49
+      - a50
+      - 2.4
+    - - a50
+      - a51
+      - 2.4
+    - - a51
+      - a52
+      - 2.4
+    - - a52
+      - a53
+      - 2.4
+    - - a53
+      - a54
+      - 2.4
+    down:
+      a0: a3
+      a3: a14
+      a4: a42
+      a6: a13
+      a7: out
+      a8: a15
+      a9: out
+      a10: out
+      a11: a10
+      a13: out
+      a14: a13
+      a15: a14
+      a16: a15
+      a17: a18
+      a18: a11
+      a20: a13
+      a21: a3
+      a22: a21
+      a23: a16
+      a24: a25
+      a25: a32
+      a27: out
+      a28: a21
+      a29: a22
+      a30: a29
+      a32: a33
+      a33: out
+      a34: out
+      a35: a36
+      a36: a29
+      a37: a30
+      a38: a39
+      a39: a32
+      a41: out
+      a42: a35
+      a43: a44
+      a44: a37
+      a45: a46
+      a46: a39
+      a48: out
+      a49: a48
+      a50: a43
+      a52: out
+      a53: a54
+      a54: out
+    home:
+      Eelmouth: a0
+      w1: a1
+      w2: a2
+    waters:
+      lake:L1:
+        kind: lake
+        km2: 7.3575
+        areas:
+          a38: 0.9675
+          a45: 6.39
+        parcels: []
+      lake:L2:
+        kind: lake
+        km2: 1.0125
+        areas:
+          a44: 1.0125
+        parcels: []
+      lake:L3:
+        kind: lake
+        km2: 1.2825
+        areas:
+          a43: 0.855
+          a50: 0.4275
+        parcels: []
+      reach:Eelmouth:
+        kind: reach
+        river_km: 9.9
+        big_river_km: 4.65
+        areas:
+          a0: 0.6
+          a3: 9.3
+        parcels:
+        - Eelmouth_8
+      reach:w1:
+        kind: reach
+        river_km: 2.85
+        big_river_km: 0.0
+        areas:
+          a4: 2.85
+        parcels: []
+      reach:a6:
+        kind: reach
+        river_km: 2.4
+        big_river_km: 0.0
+        areas:
+          a6: 2.4
+        parcels: []
+      reach:a7:
+        kind: reach
+        river_km: 3.6
+        big_river_km: 0.0
+        areas:
+          a7: 3.6
+        parcels: []
+      reach:a8:
+        kind: reach
+        river_km: 2.1
+        big_river_km: 0.0
+        areas:
+          a8: 2.1
+        parcels: []
+      reach:a9:
+        kind: reach
+        river_km: 9.0
+        big_river_km: 0.0
+        areas:
+          a9: 9.0
+        parcels: []
+      reach:a10:
+        kind: reach
+        river_km: 12.0
+        big_river_km: 1.05
+        areas:
+          a10: 12.0
+        parcels: []
+      reach:a11:
+        kind: reach
+        river_km: 1.35
+        big_river_km: 0.0
+        areas:
+          a11: 1.35
+        parcels: []
+      reach:a13:
+        kind: reach
+        river_km: 19.35
+        big_river_km: 9.3
+        areas:
+          a13: 19.35
+        parcels: []
+      reach:a14:
+        kind: reach
+        river_km: 4.5
+        big_river_km: 0.6
+        areas:
+          a14: 4.5
+        parcels: []
+      reach:a15:
+        kind: reach
+        river_km: 13.35
+        big_river_km: 0.0
+        areas:
+          a15: 13.35
+        parcels: []
+      reach:a16:
+        kind: reach
+        river_km: 2.85
+        big_river_km: 0.0
+        areas:
+          a16: 2.85
+        parcels: []
+      reach:a17:
+        kind: reach
+        river_km: 6.6
+        big_river_km: 0.0
+        areas:
+          a17: 6.6
+        parcels: []
+      reach:a18:
+        kind: reach
+        river_km: 5.55
+        big_river_km: 0.0
+        areas:
+          a18: 5.55
+        parcels: []
+      reach:a20:
+        kind: reach
+        river_km: 7.8
+        big_river_km: 0.0
+        areas:
+          a20: 7.8
+        parcels: []
+      reach:a21:
+        kind: reach
+        river_km: 15.15
+        big_river_km: 7.5
+        areas:
+          a21: 15.15
+        parcels: []
+      reach:a22:
+        kind: reach
+        river_km: 10.35
+        big_river_km: 10.35
+        areas:
+          a22: 10.35
+        parcels: []
+      reach:a23:
+        kind: reach
+        river_km: 3.45
+        big_river_km: 0.0
+        areas:
+          a23: 3.45
+        parcels: []
+      reach:a24:
+        kind: reach
+        river_km: 7.65
+        big_river_km: 0.0
+        areas:
+          a24: 7.65
+        parcels: []
+      reach:a25:
+        kind: reach
+        river_km: 13.35
+        big_river_km: 0.0
+        areas:
+          a25: 13.35
+        parcels: []
+      reach:a27:
+        kind: reach
+        river_km: 11.1
+        big_river_km: 0.0
+        areas:
+          a27: 11.1
+        parcels: []
+      reach:a28:
+        kind: reach
+        river_km: 1.5
+        big_river_km: 0.0
+        areas:
+          a28: 1.5
+        parcels: []
+      reach:a29:
+        kind: reach
+        river_km: 14.55
+        big_river_km: 14.55
+        areas:
+          a29: 14.55
+        parcels: []
+      reach:a30:
+        kind: reach
+        river_km: 9.6
+        big_river_km: 6.15
+        areas:
+          a30: 9.6
+        parcels: []
+      reach:a32:
+        kind: reach
+        river_km: 20.7
+        big_river_km: 2.1
+        areas:
+          a32: 20.7
+        parcels: []
+      reach:a33:
+        kind: reach
+        river_km: 5.55
+        big_river_km: 3.45
+        areas:
+          a33: 5.55
+        parcels: []
+      reach:a34:
+        kind: reach
+        river_km: 1.35
+        big_river_km: 0.0
+        areas:
+          a34: 1.35
+        parcels: []
+      reach:a35:
+        kind: reach
+        river_km: 9.0
+        big_river_km: 0.0
+        areas:
+          a35: 9.0
+        parcels: []
+      reach:a36:
+        kind: reach
+        river_km: 6.75
+        big_river_km: 1.05
+        areas:
+          a36: 6.75
+        parcels: []
+      reach:a37:
+        kind: reach
+        river_km: 8.1
+        big_river_km: 8.1
+        areas:
+          a37: 8.1
+        parcels: []
+      reach:a38:
+        kind: reach
+        river_km: 7.65
+        big_river_km: 0.0
+        areas:
+          a38: 7.65
+        parcels: []
+      reach:a39:
+        kind: reach
+        river_km: 18.75
+        big_river_km: 6.0
+        areas:
+          a39: 18.75
+        parcels: []
+      reach:a41:
+        kind: reach
+        river_km: 6.6
+        big_river_km: 0.0
+        areas:
+          a41: 6.6
+        parcels: []
+      reach:a42:
+        kind: reach
+        river_km: 9.75
+        big_river_km: 0.0
+        areas:
+          a42: 9.75
+        parcels: []
+      reach:a43:
+        kind: reach
+        river_km: 7.2
+        big_river_km: 1.65
+        areas:
+          a43: 7.2
+        parcels: []
+      reach:a44:
+        kind: reach
+        river_km: 7.05
+        big_river_km: 6.3
+        areas:
+          a44: 7.05
+        parcels: []
+      reach:a45:
+        kind: reach
+        river_km: 5.7
+        big_river_km: 0.0
+        areas:
+          a45: 5.7
+        parcels: []
+      reach:a46:
+        kind: reach
+        river_km: 6.6
+        big_river_km: 0.0
+        areas:
+          a46: 6.6
+        parcels: []
+      reach:a48:
+        kind: reach
+        river_km: 1.95
+        big_river_km: 0.0
+        areas:
+          a48: 1.95
+        parcels: []
+      reach:a49:
+        kind: reach
+        river_km: 1.8
+        big_river_km: 0.0
+        areas:
+          a49: 1.8
+        parcels: []
+      reach:a50:
+        kind: reach
+        river_km: 1.65
+        big_river_km: 1.65
+        areas:
+          a50: 1.65
+        parcels: []
+      reach:a52:
+        kind: reach
+        river_km: 1.35
+        big_river_km: 0.0
+        areas:
+          a52: 1.35
+        parcels: []
+      reach:a53:
+        kind: reach
+        river_km: 0.15
+        big_river_km: 0.0
+        areas:
+          a53: 0.15
+        parcels: []
+      reach:a54:
+        kind: reach
+        river_km: 0.6
+        big_river_km: 0.0
+        areas:
+          a54: 0.6
+        parcels: []
+claims: []
+agents:
+  Oliver:
+    household: Brook
+    born: -42
+    stage: adult
+    sex: m
+    relations:
+      Katherine: your wife
+      Peter: of the Marsh household; there is bad blood between your households since last winter, over a pig that went missing
+      Nichola: of the Marsh household
+      Nigel: of the Marsh household
+      Petronel: your daughter
+      Margery: your daughter
+      Henry: of the Marsh household
+      Basilia: your daughter
+      Denise: of the Marsh household
+    memories:
+    - 'Your line''s founders: Oliver and Katherine Brook came to Eelmouth and built the first Brook house.'
+    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
+    - Last winter you and Peter came to blows over a pig that went missing; it was never settled.
+    knows:
+      medium room:
+        level: known
+        skill: 1.28
+      trap in water:
+        level: known
+        skill: 1.6
+      net:
+        level: known
+        skill: 1.6
+      weir:
+        level: known
+        skill: 1.6
+      smoke fish:
+        level: known
+        skill: 1.6
+      tend the smoke:
+        level: known
+        skill: 1.6
+      salt fish:
+        level: known
+        skill: 1.6
+      boil salt:
+        level: known
+        skill: 1.6
+    aware_of:
+      hunt: you have seen the Marshs at it all your life
+    holdings:
+      crude tool: 1
+      coin: 2
+    concerns:
+    - farming
+    - building
+    - shelter
+    - food
+    partner: Katherine
+    role: head
+    model: claude-opus-5-5
+    born_line: Brook
+    trade: sowing a field broadcast and reaping a crop
+    aim: See the Brook household through the winter, fed and warm. You will not be shamed by Peter again.
+  Katherine:
+    household: Brook
+    born: -41
+    stage: adult
+    sex: f
+    relations:
+      Oliver: your husband
+      Peter: of the Marsh household; he courted you once, before you married
+      Nichola: of the Marsh household
+      Nigel: of the Marsh household
+      Petronel: your daughter
+      Margery: your daughter
+      Henry: of the Marsh household
+      Basilia: your daughter
+      Denise: of the Marsh household
+    memories:
+    - 'Your line''s founders: Oliver and Katherine Brook came to Eelmouth and built the first Brook house.'
+    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
+    knows:
+      medium room:
+        level: known
+        skill: 1.25
+      trap in water:
+        level: known
+        skill: 1.6
+      net:
+        level: known
+        skill: 1.6
+      weir:
+        level: known
+        skill: 1.6
+      smoke fish:
+        level: known
+        skill: 1.6
+      tend the smoke:
+        level: known
+        skill: 1.6
+      salt fish:
+        level: known
+        skill: 1.6
+      boil salt:
+        level: known
+        skill: 1.6
+    aware_of:
+      hunt: you have seen the Marshs at it all your life
+    holdings: {}
+    concerns:
+    - farming
+    - building
+    - shelter
+    - food
+    partner: Oliver
+    model: claude-haiku-5-5
+    born_line: Brook
+    trade: sowing a field broadcast and reaping a crop
+    aim: Keep your household fed and its house sound.
+  Peter:
+    household: Marsh
+    born: -44
+    stage: adult
+    sex: m
+    relations:
+      Oliver: of the Brook household; there is bad blood between your households since last winter, over a pig that went missing
+      Katherine: of the Brook household; you courted her once, before she married
+      Nichola: your wife
+      Nigel: your son
+      Petronel: of the Brook household
+      Margery: of the Brook household
+      Henry: your son
+      Basilia: of the Brook household
+      Denise: your daughter
+    memories:
+    - 'Your line''s founders: Peter and Nichola Marsh came to Eelmouth and built the first Marsh house.'
+    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
+    - Last winter Oliver struck you in a quarrel over a pig that went missing; you have not forgotten.
+    knows:
+      hunt:
+        level: known
+        skill: 1.26
+      trap in water:
+        level: known
+        skill: 1.6
+      net:
+        level: known
+        skill: 1.6
+      weir:
+        level: known
+        skill: 1.6
+      smoke fish:
+        level: known
+        skill: 1.6
+      tend the smoke:
+        level: known
+        skill: 1.6
+      salt fish:
+        level: known
+        skill: 1.6
+      boil salt:
+        level: known
+        skill: 1.6
+    aware_of:
+      medium room: you have seen the Brooks at it all your life
+    holdings:
+      crude tool: 1
+      coin: 2
+    concerns:
+    - farming
+    - food
+    - hunting
+    - animals
+    partner: Nichola
+    role: head
+    model: claude-opus-5-5
+    born_line: Marsh
+    trade: sowing a field broadcast and reaping a crop
+    aim: See the Marsh household through the winter, fed and warm. You will not be shamed by Oliver again.
+    places:
+    - w1
+    - w2
+  Nichola:
+    household: Marsh
+    born: -45
+    stage: adult
+    sex: f
+    relations:
+      Oliver: of the Brook household
+      Katherine: of the Brook household
+      Peter: your husband
+      Nigel: your son
+      Petronel: of the Brook household
+      Margery: of the Brook household
+      Henry: your son
+      Basilia: of the Brook household
+      Denise: your daughter
+    memories:
+    - 'Your line''s founders: Peter and Nichola Marsh came to Eelmouth and built the first Marsh house.'
+    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
+    knows:
+      hunt:
+        level: known
+        skill: 1.27
+      trap in water:
+        level: known
+        skill: 1.6
+      net:
+        level: known
+        skill: 1.6
+      weir:
+        level: known
+        skill: 1.6
+      smoke fish:
+        level: known
+        skill: 1.6
+      tend the smoke:
+        level: known
+        skill: 1.6
+      salt fish:
+        level: known
+        skill: 1.6
+      boil salt:
+        level: known
+        skill: 1.6
+    aware_of:
+      medium room: you have seen the Brooks at it all your life
+    holdings: {}
+    concerns:
+    - farming
+    - food
+    - hunting
+    - animals
+    partner: Peter
+    model: claude-sonnet-5-5
+    born_line: Marsh
+    trade: sowing a field broadcast and reaping a crop
+    aim: Keep your household fed and its house sound.
+    places:
+    - w1
+    - w2
+  Nigel:
+    household: Marsh
+    born: -18
+    stage: youth
+    sex: m
+    relations:
+      Oliver: of the Brook household
+      Katherine: of the Brook household
+      Peter: your father
+      Nichola: your mother
+      Petronel: of the Brook household; your closest friend
+      Margery: of the Brook household
+      Henry: your brother
+      Basilia: of the Brook household
+      Denise: your sister
+    memories:
+    - 'Your line''s founders: Peter and Nichola Marsh came to Eelmouth and built the first Marsh house.'
+    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
+    knows:
+      hunt: capable
+    aware_of:
+      medium room: you have seen the Brooks at it all your life
+    holdings: {}
+    concerns:
+    - farming
+    - food
+    - hunting
+    - animals
+    parents:
+    - Peter
+    - Nichola
+    model: claude-haiku-5-5
+    born_line: Marsh
+    trade: ''
+    aim: Prove yourself to your family, and learn building a medium room as the Brooks do it.
+    places:
+    - w1
+    - w2
+  Petronel:
+    household: Brook
+    born: -14
+    stage: youth
+    sex: f
+    relations:
+      Oliver: your father
+      Katherine: your mother
+      Peter: of the Marsh household
+      Nichola: of the Marsh household
+      Nigel: of the Marsh household; a close friend
+      Margery: your sister
+      Henry: of the Marsh household
+      Basilia: your sister
+      Denise: of the Marsh household
+    memories:
+    - 'Your line''s founders: Oliver and Katherine Brook came to Eelmouth and built the first Brook house.'
+    - 'Hard winters you remember, when the frost came early and the stores ran out: last winter.'
+    knows:
+      medium room: rough
+    aware_of:
+      hunt: you have seen the Marshs at it all your life
+    holdings: {}
+    concerns:
+    - farming
+    - building
+    - shelter
+    - food
+    parents:
+    - Oliver
+    - Katherine
+    model: claude-haiku-5-5
+    born_line: Brook
+    trade: ''
+    aim: Prove yourself to your family, and learn hunting game as the Marshs do it.
+  Margery:
+    household: Brook
+    born: -5
+    stage: child
+    sex: f
+    relations:
+      Oliver: your father
+      Katherine: your mother
+      Peter: of the Marsh household
+      Nichola: of the Marsh household
+      Nigel: of the Marsh household
+      Petronel: your sister
+      Henry: of the Marsh household
+      Basilia: your sister
+      Denise: of the Marsh household
+    memories:
+    - 'Your line''s founders: Oliver and Katherine Brook came to Eelmouth and built the first Brook house.'
+    knows: {}
+    aware_of: {}
+    holdings: {}
+    concerns: []
+    parents:
+    - Oliver
+    - Katherine
+    model: null
+    born_line: Brook
+    trade: ''
+  Henry:
+    household: Marsh
+    born: -5
+    stage: child
+    sex: m
+    relations:
+      Oliver: of the Brook household
+      Katherine: of the Brook household
+      Peter: your father
+      Nichola: your mother
+      Nigel: your brother
+      Petronel: of the Brook household
+      Margery: of the Brook household
+      Basilia: of the Brook household
+      Denise: your sister
+    memories:
+    - 'Your line''s founders: Peter and Nichola Marsh came to Eelmouth and built the first Marsh house.'
+    knows: {}
+    aware_of: {}
+    holdings: {}
+    concerns: []
+    parents:
+    - Peter
+    - Nichola
+    model: null
+    born_line: Marsh
+    trade: ''
+  Basilia:
+    household: Brook
+    born: -1
+    stage: infant
+    sex: f
+    relations:
+      Oliver: your father
+      Katherine: your mother
+      Peter: of the Marsh household
+      Nichola: of the Marsh household
+      Nigel: of the Marsh household
+      Petronel: your sister
+      Margery: your sister
+      Henry: of the Marsh household
+      Denise: of the Marsh household
+    memories:
+    - 'Your line''s founders: Oliver and Katherine Brook came to Eelmouth and built the first Brook house.'
+    knows: {}
+    aware_of: {}
+    holdings: {}
+    concerns: []
+    parents:
+    - Oliver
+    - Katherine
+    model: null
+    born_line: Brook
+    trade: ''
+  Denise:
+    household: Marsh
+    born: 0
+    stage: infant
+    sex: f
+    relations:
+      Oliver: of the Brook household
+      Katherine: of the Brook household
+      Peter: your father
+      Nichola: your mother
+      Nigel: your brother
+      Petronel: of the Brook household
+      Margery: of the Brook household
+      Henry: your brother
+      Basilia: of the Brook household
+    memories:
+    - 'Your line''s founders: Peter and Nichola Marsh came to Eelmouth and built the first Marsh house.'
+    knows: {}
+    aware_of: {}
+    holdings: {}
+    concerns: []
+    parents:
+    - Peter
+    - Nichola
+    model: null
+    born_line: Marsh
+    trade: ''
+tree:
+- name: Oliver
+  sex: m
+  born: -42
+  died: null
+  cause: null
+  parents: []
+  partner: Katherine
+  line: Brook
+  origin: null
+  children:
+  - Petronel
+  - Margery
+  - Basilia
+  left: null
+- name: Katherine
+  sex: f
+  born: -41
+  died: null
+  cause: null
+  parents: []
+  partner: Oliver
+  line: Brook
+  origin: Ashby
+  children:
+  - Petronel
+  - Margery
+  - Basilia
+  left: null
+- name: Peter
+  sex: m
+  born: -44
+  died: null
+  cause: null
+  parents: []
+  partner: Nichola
+  line: Marsh
+  origin: null
+  children:
+  - Nigel
+  - Henry
+  - Denise
+  left: null
+- name: Nichola
+  sex: f
+  born: -45
+  died: null
+  cause: null
+  parents: []
+  partner: Peter
+  line: Marsh
+  origin: Ashby
+  children:
+  - Nigel
+  - Henry
+  - Denise
+  left: null
+- name: Nigel
+  sex: m
+  born: -18
+  died: null
+  cause: null
+  parents:
+  - Peter
+  - Nichola
+  partner: null
+  line: Marsh
+  origin: null
+  children: []
+  left: null
+- name: Petronel
+  sex: f
+  born: -14
+  died: null
+  cause: null
+  parents:
+  - Oliver
+  - Katherine
+  partner: null
+  line: Brook
+  origin: null
+  children: []
+  left: null
+- name: Margery
+  sex: f
+  born: -5
+  died: null
+  cause: null
+  parents:
+  - Oliver
+  - Katherine
+  partner: null
+  line: Brook
+  origin: null
+  children: []
+  left: null
+- name: Henry
+  sex: m
+  born: -5
+  died: null
+  cause: null
+  parents:
+  - Peter
+  - Nichola
+  partner: null
+  line: Marsh
+  origin: null
+  children: []
+  left: null
+- name: Basilia
+  sex: f
+  born: -1
+  died: null
+  cause: null
+  parents:
+  - Oliver
+  - Katherine
+  partner: null
+  line: Brook
+  origin: null
+  children: []
+  left: null
+- name: Denise
+  sex: f
+  born: 0
+  died: null
+  cause: null
+  parents:
+  - Peter
+  - Nichola
+  partner: null
+  line: Marsh
+  origin: null
+  children: []
+  left: null
+history:
+- text: Oliver and Katherine Brook came to Eelmouth and built the first Brook house
+  who:
+  - Oliver
+  - Katherine
+  day: -20
+- text: Peter and Nichola Marsh came to Eelmouth and built the first Marsh house
+  who:
+  - Peter
+  - Nichola
+  day: -20
+- text: 'a hard winter: the frost came early and the stores ran out'
+  kind: winter
+  who: []
+  day: -6
+- text: 'a hard winter: the frost came early and the stores ran out'
+  kind: winter
+  who: []
+  day: -4
+- text: 'a hard winter: the frost came early and the stores ran out'
+  kind: winter
+  who: []
+  day: -3
+- text: 'a hard winter: the frost came early and the stores ran out'
+  kind: winter
+  who: []
+  day: -2
+- day: -4
+  text: Oliver and Peter came to blows over a pig that went missing
+  kind: feud
+  who:
+  - Oliver
+  - Peter
