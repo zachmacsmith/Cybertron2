@@ -2,6 +2,8 @@
 gates of briefs 2 and 3 found, and keeping meat at the new scale."""
 import copy
 
+import pytest
+
 from cybertron2.engine import buildings as BL, knowledge as KN, night as N, run as R, things as TH, wild as WL
 from cybertron2.engine.data import ITEMS, PHYSICS, TECHNIQUES
 from cybertron2.wild import kinds as WK
@@ -239,5 +241,8 @@ def test_meat_hung_on_a_rack_dries_in_three_nights_and_salt_meat_needs_salt(gene
     N.night(w)                                                                # u4 §2 (W-99): a night of the hearth's fire; nobody
     w.s["day"] += 1                                                           # slept by it here, so it was cold and the night does
     assert c["lot"]["had"] == 0 and c["lot"]["out"] == 0 and c["lot"]["done"] is None   # not count: the meat waits as fresh
-    assert 8.0 * (1 - 0.2) < c["goods"]["drying meat"] < 8.0
+    NI = N                                                                     # the cold night spoils it as fresh meat at the decided
+    lost = NI.spoil_rate(w.p, "meat", "hand", w.calendar()["season"], False)  # rate (D2-336: 0.28 a night, the summer's warmth on it)
+    assert c["goods"]["drying meat"] == pytest.approx(8.0 * (1 - lost), rel=0.02)
+    assert 8.0 * (1 - 0.5) < c["goods"]["drying meat"] < 8.0
     assert TECHNIQUES["salt meat"]["inputs"] == {"meat": 40, "salt": 5}                   # 40 kg a unit, salt 1 to 8 (D2-283, W-97)

@@ -154,6 +154,11 @@ def cost(here, a) -> int:
         return int(TECHNIQUES[tech]["units"]) if tech and TECHNIQUES[tech].get("set") else 0
     if v == "build":                                                         # what is left of the work, 1 or 2 units (D2-324)
         return _build_cost(here, a)
+    mf = move_from(here, a) if v == "move" else None                         # out of a store or off a thing: as taking (W-102)
+    if mf and mf[0] in ("store", "thing"):
+        return int(VERB["take"]["cost"])
+    if mf:
+        a = mf[1]
     if v == "move" and a.get("from"):                                         # taking a done lot down: 120 kg a unit (u4 §6)
         bid = _container_at(here, {"from": a.get("from")}, kinds=("smoke racks", "hearth", "fire ring"))
         if bid is None:
@@ -1882,12 +1887,110 @@ def _take_down(here, a, party):
     return words
 
 
+HOME_WORDS = ("my household", "our household", "household", "home", "my house", "our house", "the house", "house", "the store",
+              "store", "our store", "my store")
+RACK_WORDS = ("rack", "the rack", "racks", "the racks", "hearth", "the hearth", "drying rack", "the drying rack", "hearth rack",
+              "the hearth rack", "the rack by the hearth", "the racks by the hearth", "the rack at the hearth")
+
+
+def _from_store(here, a):
+    """`move` "from" a building's store, not a container's done lot (W-102: the move shape's "from" names a store as well as racks):
+    the building, or None when the words name racks or a thing."""
+    frm = str(a.get("from") or "").strip()
+    bid = here.building(frm)
+    if bid is None and frm.lower() in HOME_WORDS:
+        bid = (here.homes_here() or [None])[0]
+    if bid is None:
+        return None
+    kinds = ("smoke racks", "hearth", "fire ring")
+    if any((here.buildings()[bid].get("fittings") or {}).get(f) for f in kinds):
+        done = here.done_lots(bid)
+        it = str(a.get("item") or "").strip().lower()
+        if done and (it in ("", "all", "everything", "it") or any(float((c.get("goods") or {}).get(it, 0.0)) > 1e-9
+                                                                  or (c.get("lot") or {}).get("into") == it for c in done.values())):
+            return None                                                         # a done lot there of that good: taken down
+    return bid
+
+
+def _move_from_store(here, a, src_bid):
+    """Goods moved out of a store here: into another building's store (`to`) or into one's hands, as taking them is (theft from a
+    store not one's own, as `take` says)."""
+    item = item_of(a.get("item") or a.get("what"))
+    to = str(a.get("to") or "").strip()
+    dst = None
+    if to and to.lower() not in ("hands", "hand", "me", "myself", "carry", "carried", "pack"):
+        dst = here.building(to)
+        if dst is None and to.lower() in HOME_WORDS:
+            dst = (here.homes_here() or [None])[0]
+        if dst is None:
+            raise Refused(f"there is no building called {to!r} here")
+    b = here.buildings()[src_bid]
+    if not here.may_take(b["stock"]):
+        return _take(here, here.mind(), {"item": item, "qty": a.get("qty"), "from": b["name"]}, None)
+    have = max(0.0, here.stock(src_bid).get(item, 0.0) - here.held_back(b["stock"], item))
+    if have <= 1e-9:
+        raise Refused(f"there is no {item} in {b['name']}" + _short_note(here, item))
+    if dst == src_bid:
+        return f"The {item} is already in {b['name']}."
+    q = round(min(_qty(a.get("qty"), have), have), 6)
+    if dst is None:
+        here.apply("transfer", src=b["stock"], dst=here.hands, item=item, qty=q)
+        _drawn(here, b["stock"], item, q)
+        return f"You took {show(q)} {item} from {b['name']} (it holds {show(here.stock(src_bid).get(item, 0.0))})."
+    d = here.buildings()[dst]
+    full = _full_note(here, d["stock"], item, q)
+    here.apply("transfer", src=b["stock"], dst=d["stock"], item=item, qty=q)
+    _drawn(here, b["stock"], item, q)
+    here.event("store", f"{here.name} carried {item} from {b['name']} to {d['name']}", actor=here.name,
+               about=[f"building:{src_bid}", f"building:{dst}"], salience=0.1, tags=["food"] if ITEMS[item]["food"] else [])
+    return f"You moved {show(q)} {item} from {b['name']} to {d['name']}{full} (it holds {show(here.stock(dst).get(item, 0.0))})."
+
+
+def move_from(here, a):
+    """What a `move` "from" names (W-102: the move shape's "from" names a store or a thing as well as racks; D2-339's rules move
+    goods between stores with it): ("store", building id) | ("thing", its words) | ("racks", the act with its racks named)."""
+    if not a.get("from"):
+        return None
+    frm = str(a.get("from")).strip()
+    if frm.lower() in RACK_WORDS:                                               # "the rack", "the hearth": one's own here
+        own = [b for b in here.homes_here() if any((here.buildings()[b].get("fittings") or {}).get(f)
+                                                 for f in ("smoke racks", "hearth", "fire ring"))]
+        if own:
+            a = {**a, "from": here.buildings()[sorted(own)[0]]["name"]}
+    elif here.building(frm) is None and frm.lower() not in HOME_WORDS and here.find_thing(frm) is not None:
+        return ("thing", frm)
+    sb = _from_store(here, a)
+    return ("store", sb) if sb is not None else ("racks", a)
+
+
 def _move(here, mind, a, party):
+    mf = move_from(here, a)
+    if mf and mf[0] == "thing":
+        return _take(here, mind, {"item": a.get("item"), "qty": a.get("qty"), "from": mf[1]}, party)
+    if mf and mf[0] == "store":
+        return _move_from_store(here, a, mf[1])
+    if mf:
+        a = mf[1]
     if a.get("from"):                                                          # taking a done lot down (u4 §6)
         return _take_down(here, a, party)
     item = item_of(a.get("item"))
     to = str(a.get("to") or "store").strip().lower()
-    bid = _store_here(here, a.get("at"))
+    at = a.get("at")
+    from cybertron2.engine import shapes as SH
+    if SH.on(here) and not at and to not in ("hands", "hand", "me", "myself", "carry", "carried", "pack", "store"):
+        if to in HOME_WORDS:                                                   # "to" a building put into (W-102: "to" was dropped)
+            at = None
+        elif here.building(to) is not None:
+            at = to
+        if here.carried().get(item, 0.0) <= 1e-9:                             # not in hand: from one's own store here to the one named
+            dst = here.building(at) if at else (here.homes_here() or [None])[0]
+            src = next((b for b in here.homes_here() if b != dst and here.stock(b).get(item, 0.0) > 1e-9
+                        and here.may_take(here.buildings()[b]["stock"])), None)
+            if dst is not None and here.stock(dst).get(item, 0.0) > 1e-9 and src is None:
+                return f"The {item} is already in {here.buildings()[dst]['name']}'s store."
+            if src is not None and dst is not None:
+                return _move_from_store(here, {**a, "to": here.buildings()[dst]["name"]}, src)
+    bid = _store_here(here, at)
     b = here.buildings()[bid]
     if to in ("hands", "hand", "me", "myself", "carry", "carried", "pack"):
         src, dst, verb, have = b["stock"], here.hands, "took", here.stock(bid).get(item, 0.0)
@@ -2465,6 +2568,13 @@ def _travel(here, mind, a, party):
     r = here.road_to(a.get("to"))
     if r is None:
         pid = here.parcel(a.get("to"))
+        from cybertron2.engine import shapes as SH
+        if SH.on(here):                                                         # the shapes (u9 §3.1; W-102 fault 3): going to a part
+            spot = SH._place_here(here, a.get("to"))                            # of this place is no move and no refusal: the day's
+            if spot is not None:                                                # acts take one where they name with "at"
+                nm = here.parcels()[spot[1]]["name"] if spot[0] == "parcel" else here.buildings()[spot[1]]["name"]
+                return (f"{nm} is here at {here.node_name}: you need not go there. Each act takes you where it names with \"at\" "
+                        f"(\"at\": \"{nm}\"); go is for another place along a road.")
         if pid is not None:                                                     # a place in this village, not a road away (38.75)
             nm = here.parcels()[pid]["name"]
             raise Refused(f"{nm} is here at {here.node_name}, not a road away: name it as where you work in the act itself "

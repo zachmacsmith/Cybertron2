@@ -644,22 +644,26 @@ KEPT = ("smoked fish", "smoked meat")
 
 
 def book_rules(day, sh) -> list:
-    """The keeper's household rules (u6 §10's worked sentences, as the bot keeps them); each rule's words are its key."""
+    """The keeper's household rules (u6 §10's worked sentences, in D2-339's kinds, as the bot keeps them); each rule's words are its
+    key."""
     house = day.bname(day.home)
     out = []
     if sh:
         hut = day.bname(sh)
-        out += [{"rule": "go", "goods": "fish", "to": f"the racks in {hut}", "when": f"the racks in {hut} have room",
+        out += [{"rule": "do", "who": "whoever has time", "act": {"do": "make", "what": "smoke fish", "at": hut},
+                 "when": {"arrives": "fish"}, "unless": {"in": hut, "full": True},
                  "words": f"fish that comes in goes to the racks in {hut} when they have room"},
-                {"rule": "tend", "at": hut, "when": "while anything is smoking", "words": f"keep the fire in {hut} going while anything hangs"},
-                {"rule": "move", "goods": "smoked fish", "from": f"the racks in {hut}", "to": house, "when": "a lot is done",
-                 "words": f"when the fish are smoked, take them down into {house}"},
-                {"rule": "move", "goods": "firewood", "from": house, "to": hut, "qty": 25, "when": f"{hut} holds under 15",
-                 "words": f"carry firewood to {hut} when it runs low"}]
+                {"rule": "do", "who": "whoever has time", "act": {"do": "tend", "at": hut}, "when": {"in": hut, "state": "in process"},
+                 "words": f"keep the fire in {hut} going while anything hangs"},
+                {"rule": "do", "who": "whoever has time", "act": {"do": "move", "item": "smoked fish", "from": hut, "to": house},
+                 "when": {"in": hut, "state": "done"}, "words": f"when the fish are smoked, take them down into {house}"},
+                {"rule": "do", "who": "whoever has time", "act": {"do": "move", "item": "firewood", "qty": 25, "from": house, "to": hut},
+                 "when": {"goods": "firewood", "in": hut, "under": 15}, "words": f"carry firewood to {hut} when it runs low"}]
     if day.knows("salt fish"):
-        out.append({"rule": "go", "goods": "fish", "to": "the salting tub", "when": f"the racks in {day.bname(sh)} are full" if sh else None,
+        out.append({"rule": "do", "who": "whoever has time", "act": {"do": "make", "what": "salt fish"}, "when": {"arrives": "fish"},
+                    **({"unless": {"in": day.bname(sh), "room": True}} if sh else {}),
                     "words": "salt the fish the racks have no room for, while there is salt"})
-    return [{k: v for k, v in r.items() if v is not None} for r in out]
+    return out
 
 
 def _book(day, p, sh) -> None:

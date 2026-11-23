@@ -79,8 +79,9 @@ def test_the_shapes_resolve_a_craft_or_an_act_to_its_handler(eel):
     assert SH.normalize(here, mind, {"do": "agree", "what": "teach", "to": "Nigel"})["do"] == "teach"
     assert SH.normalize(here, mind, {"do": "lift", "thing": "T1"})["do"] == "tend"
     assert SH.normalize(here, mind, {"do": "gather", "what": "firewood"}) == {"do": "gather", "what": "firewood"}   # old verbs read
+    assert SH.normalize(here, mind, {"do": "go eeling"})["what"] == "trap in water"   # a shape word first, the rest a craft (W-102)
     with pytest.raises(Refused) as e:
-        SH.normalize(here, mind, {"do": "go eeling"})
+        SH.normalize(here, mind, {"do": "eel dancing"})
     assert "You know no craft" not in str(e.value) and "Your crafts:" in str(e.value)
 
 
