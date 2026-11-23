@@ -569,6 +569,7 @@ coast ([[L-149 Gulls and other coastal birds, with the coast|L-149]]); environme
 
 ## History
 
+- 23 Nov 2026: accepted in part: [[D2-329 Until tanning comes back, nets have a middle life of about half a…|D2-329]] (Until tanning comes back, nets have a middle life of about half a world year (ab).
 - 23 Nov 2026: accepted in part: [[D2-327 Tanning and leather are deferred from this wave until the rest is…|D2-327]] (Tanning and leather are deferred from this wave until the rest is built and the ).
 - 23 Nov 2026: accepted in part: [[D2-318 Fowling is postponed from this wave to the hunting build-out|D2-318]] (Fowling is postponed from this wave to the hunting build-out (the woods and the ).
 - 23 Nov 2026: accepted in part: [[D2-317 The shallows are one stock per parcel, distinct from the resident…|D2-317]] (The shallows are one stock per parcel, distinct from the resident fish of a whol).

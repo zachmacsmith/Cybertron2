@@ -51,6 +51,9 @@ started
 - under it: [[D2-325 Some river signs are for anyone|Some river signs are for anyone (D2-325)]] (live)
 - under it: [[D2-326 Practice alone can bring a person to known in any craft|Practice alone can bring a person to known in any craft (D2-326)]] (live)
 - under it: [[D2-327 Tanning and leather are deferred from this wave until the rest is…|Tanning and leather are deferred from this wave until the rest is… (D2-327)]] (live)
+- under it: [[D2-328 A wattle house's default roof is turf or brush got at the site|A wattle house's default roof is turf or brush got at the site (D2-328)]] (live)
+- under it: [[D2-329 Until tanning comes back, nets have a middle life of about half a…|Until tanning comes back, nets have a middle life of about half a… (D2-329)]] (live)
+- under it: [[D2-330 The worlds' defaults as proposed|The worlds' defaults as proposed (D2-330)]] (live)
 - under it: [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]] (open)
 - under it: [[L-160 Kept lines over a life|Kept lines over a life (L-160)]] (open)
 - under it: [[L-161 Ice and the freeze|Ice and the freeze (L-161)]] (open)
@@ -64,6 +67,7 @@ started
 - under it: [[L-169 Shoes, with clothing in general, and their health effects|Shoes, with clothing in general, and their health effects (L-169)]] (open)
 - under it: [[L-170 Fowling the methods|Fowling: the methods (L-170)]] (open)
 - under it: [[L-171 Tanning and leather|Tanning and leather (L-171)]] (open)
+- under it: [[L-172 Limestone and lime|Limestone and lime (L-172)]] (open)
 
 
 ## Mentioned by
@@ -95,6 +99,9 @@ started
 - [[D2-325 Some river signs are for anyone|Some river signs are for anyone (D2-325)]]
 - [[D2-326 Practice alone can bring a person to known in any craft|Practice alone can bring a person to known in any craft (D2-326)]]
 - [[D2-327 Tanning and leather are deferred from this wave until the rest is…|Tanning and leather are deferred from this wave until the rest is… (D2-327)]]
+- [[D2-328 A wattle house's default roof is turf or brush got at the site|A wattle house's default roof is turf or brush got at the site (D2-328)]]
+- [[D2-329 Until tanning comes back, nets have a middle life of about half a…|Until tanning comes back, nets have a middle life of about half a… (D2-329)]]
+- [[D2-330 The worlds' defaults as proposed|The worlds' defaults as proposed (D2-330)]]
 - [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]]
 - [[L-160 Kept lines over a life|Kept lines over a life (L-160)]]
 - [[L-161 Ice and the freeze|Ice and the freeze (L-161)]]
@@ -104,8 +111,5 @@ started
 - [[L-165 Unfinished things generalised|Unfinished things generalised (L-165)]]
 - [[L-166 Herding for as long as it takes|Herding for as long as it takes (L-166)]]
 - [[L-167 The dead hedge and cheaper crop protection, thought through|The dead hedge and cheaper crop protection, thought through (L-167)]]
-- [[L-168 Strength as an aptitude|Strength as an aptitude (L-168)]]
-- [[L-169 Shoes, with clothing in general, and their health effects|Shoes, with clothing in general, and their health effects (L-169)]]
-- [[L-170 Fowling the methods|Fowling: the methods (L-170)]]
-- … and 15 more
+- … and 19 more
 - *and 1 index or audit notes*
