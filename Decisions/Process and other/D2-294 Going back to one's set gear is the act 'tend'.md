@@ -23,4 +23,5 @@ conversation (22 Nov: "tend (Recommended)")
 ## Mentioned by
 - [[The integration review (23 Nov 2026)|The integration review (23 Nov 2026)]]
 - [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
+- [[Brief build stage 2, taking and making (thread W-98)|Brief: build stage 2, taking and making (thread W-98)]]
 - *and 3 index or audit notes*

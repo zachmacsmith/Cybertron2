@@ -34,4 +34,5 @@ conversation (22 Nov: "Stop overcorrecting on bot runs they can test basic inter
 - [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
 - [[spec_agents_brief.md|spec_agents_brief.md]]
+- [[Brief build stage 2, taking and making (thread W-98)|Brief: build stage 2, taking and making (thread W-98)]]
 - *and 2 index or audit notes*

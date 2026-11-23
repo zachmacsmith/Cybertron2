@@ -24,4 +24,5 @@ conversation (23 Nov: "for the barked nets: do (b) for now until we add tanning 
 - [[The build plan|The build plan]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
+- [[Brief build stage 2, taking and making (thread W-98)|Brief: build stage 2, taking and making (thread W-98)]]
 - *and 2 index or audit notes*

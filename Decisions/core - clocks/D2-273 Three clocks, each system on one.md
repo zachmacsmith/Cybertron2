@@ -22,6 +22,7 @@ conversation (22 Nov: "conversation (22 Nov: "make principled distinctions betwe
 
 
 ## Mentioned by
+- [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]]
 - [[L-148 The wild's clock|The wild's clock (L-148)]]
 - [[The integration review (23 Nov 2026)|The integration review (23 Nov 2026)]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]

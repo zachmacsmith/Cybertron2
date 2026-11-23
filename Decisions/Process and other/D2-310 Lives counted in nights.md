@@ -25,4 +25,5 @@ conversation (23 Nov: "6. Sure.")
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
+- [[Brief build stage 2, taking and making (thread W-98)|Brief: build stage 2, taking and making (thread W-98)]]
 - *and 1 index or audit notes*

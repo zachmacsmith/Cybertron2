@@ -23,3 +23,4 @@ Zach, 23 Nov: 'ice should be flagged to revisit when we next flesh out weather a
 
 ## Mentioned by
 - [[L-163 Fishing through ice|Fishing through ice (L-163)]]
+- [[Brief build stage 2, taking and making (thread W-98)|Brief: build stage 2, taking and making (thread W-98)]]

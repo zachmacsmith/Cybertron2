@@ -1,6 +1,7 @@
 # All asks
 
 ## Open
+- [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]] (open)
 - [[Q-82 Trying and learning|Trying and learning (Q-82)]] (open)
 - [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]] (open)
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]] (open)

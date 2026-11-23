@@ -25,3 +25,4 @@ conversation (23 Nov: "11. We can have this but flag it against other scale mism
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
+- [[Brief build stage 2, taking and making (thread W-98)|Brief: build stage 2, taking and making (thread W-98)]]
