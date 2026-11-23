@@ -1067,25 +1067,37 @@ def meal(w, name) -> dict:
     share keeps for them}. One's own rules before the household's (D2-339)."""
     hh = w.household_of(name)
     node = w.at(name)
-    first, ration, skip, set_ration = [], 1.0, [], False
-    rs = _ranked(w, own_rules(w, name)) + _ranked(w, household_rules(w, hh))
+    first, ration, skip, set_ration, used = [], 1.0, [], False, []
+    mine_rs = _ranked(w, own_rules(w, name))
+    own = {id(r) for r in mine_rs}
+    rs = mine_rs + _ranked(w, household_rules(w, hh))
+
+    def by(r, goods=(), ration=False):                                        # which rule shaped the meal, for the morning (D2-342)
+        used.append({"n": r.get("n"), "own": id(r) in own, "words": str(r.get("words") or "").strip() or reading(w, r),
+                     "goods": list(goods), "ration": ration})
     for r in rs:
         if not _applies(w, hh, node, r, name, who=name):
             continue
         if r["rule"] == "first":
-            first += [i for i in goods_of(w, name, r.get("goods")) if i not in first and i != "*"]
+            gs = [i for i in goods_of(w, name, r.get("goods")) if i not in first and i != "*"]
+            first += gs
+            by(r, gs)
         elif r["rule"] == "share":
             who = people_of(w, name, r.get("who")) if r.get("who") else None
             mine = who is None or name in (who or [])
-            if r.get("qty") not in (None, "") and mine and not set_ration:
+            sets = r.get("qty") not in (None, "") and mine and not set_ration
+            if sets:
                 ration, set_ration = (1.0 if r["qty"] == "full" else float(r["qty"])), True
+            gs = []
             if r.get("goods"):
                 gs = [i for i in goods_of(w, name, r["goods"]) if i != "*"]
                 if mine:
                     first = [i for i in gs if i not in first] + first
                 else:
                     skip += [i for i in gs if i not in skip]
-    return {"first": first, "ration": ration, "skip": [i for i in skip if i not in first]}
+            if mine and (sets or gs):
+                by(r, gs, ration=sets and ration < 1 - 1e-9)
+    return {"first": first, "ration": ration, "skip": [i for i in skip if i not in first], "rules": used}
 
 
 def meal_order(w, people) -> list:

@@ -11,7 +11,7 @@ from cybertron2.engine import life as LF, needs as NE
 from cybertron2.engine.data import DECAY, EDIBLE, FITTINGS, ITEMS, THINGS
 
 FIRE = tuple(f for f, d in FITTINGS.items() if d.get("fire"))
-from cybertron2.engine.world import Refused
+from cybertron2.engine.world import Refused, show_fine
 
 GOING_OFF = ("fish", "dried fish", "salt fish")   # store goods whose going off is smelt the morning after (signs pass, 17 Nov)
 GOING_OFF_LEAST = 0.2                                # at least this much lost in the night to be smelt (calibrate)
@@ -128,7 +128,8 @@ def night(w) -> dict:
         rawf = sorted({i for cid in stores for i, q in w.goods(cid).items() if q > 1e-9 and ITEMS.get(i, {}).get("cook")}) if not hearth else []
         from cybertron2.engine import book as BK                                # the book at the meal: what first, the rations,
         bm = BK.meal(w, name) if w.s.get("books") else {"first": [], "ration": 1.0, "skip": []}   # what is kept back (moment 4)
-        ate = _eat(w, place, stores, need * float(bm["ration"]), hearth, first=bm["first"], who=name, skip=bm.get("skip") or ())
+        took = []                                                               # what was eaten, from where: the morning's line (D2-342)
+        ate = _eat(w, place, stores, need * float(bm["ration"]), hearth, first=bm["first"], who=name, skip=bm.get("skip") or (), log=took)
         if rawf and ate + 1e-9 < need:                                         # food that wants a fire, eaten raw or not (D2-160)
             rec.setdefault("uncooked", {})[name] = rawf
         me = ("person", name)
@@ -156,6 +157,7 @@ def night(w) -> dict:
             rec["missed"].append(name)
             if ate:
                 rec["ate"][name] = round(ate, 2)
+        _meal_record(w, rec, name, took, bm, need, full, ate, stores, hearth)  # the morning's meal line (D2-342)
         soaked = name in (today.get("soaked") or [])                           # soaked at a ford: the cold's fall (world/roads.md)
         if (cold or soaked) and state == "unsheltered" and w.rng("cold", w.d, name).random() < float(p["cold_starving"]) * max(fall, 0.5 if soaked else 0):
             w.apply("harm", place, person=name, hunger=-2)
@@ -491,10 +493,104 @@ def eat_order(items, hearth=True) -> list:
     return sorted(items, key=lambda i: (eaten_worth(i, hearth) < ITEMS[i]["food"], -ITEMS[i]["spoil"]))
 
 
-def _eat(w, place, stores, need, hearth=True, first=(), who=None, skip=()) -> float:
+def _meal_record(w, rec, name, took, bm, need, full, ate, stores, hearth) -> None:
+    """What one ate tonight, for the morning (D2-342): the goods and how much, from which store, by which rule or the usual order,
+    how well it met one's hunger; and what each store gave the meal, in all by good. Facts of one's own body and house."""
+    from cybertron2.engine import book as BK
+    eaten = sorted({i for _, i, _ in took})
+    rules = [r for r in bm.get("rules") or [] if r.get("ration") or set(r.get("goods") or ()) & set(eaten)]
+    how = "full" if ate + 1e-9 >= need else ("short" if ate + 1e-9 >= full else "hungry")
+    why = ""
+    if how == "hungry":
+        others = {cid for cid in stores if cid != w.hands(name)}
+        left = sum(max(0.0, float(q) - (BK.held(w, name, cid, i) if w.s.get("books") else 0.0)) for cid in stores
+                   for i, q in w.goods(cid).items() if i in EDIBLE and i not in (bm.get("skip") or ()) and eaten_worth(i, hearth) > 0)
+        shared = any(cid in others for x in (rec.get("meal") or {}).values() for cid, _, _ in x["ate"]) if others else False
+        if float(bm.get("ration", 1.0)) < 1 - 1e-9:
+            why = "ration"
+        elif left > 1e-6:
+            why = "kept back"
+        else:
+            why = "not enough for everyone" if shared else "nothing more"
+    rec.setdefault("meal", {})[name] = {"ate": [[cid, i, round(q, 3)] for cid, i, q in took], "rules": rules, "how": how, "why": why,
+                                        "ration": float(bm.get("ration", 1.0))}
+    hands = w.hands(name)
+    for cid, i, q in took:
+        if cid != hands and cid in w.s["containers"]:
+            d = rec.setdefault("drawn", {}).setdefault(cid, {})
+            d[i] = round(d.get(i, 0.0) + q, 3)
+
+
+HUNGER_WHY = {"kept back": "the rest was kept back", "not enough for everyone": "there was not enough for everyone",
+              "nothing more": "there was nothing more you could eat"}
+
+
+def _goods_words(pairs) -> str:
+    xs = [f"{show_fine(q)} {i}" for i, q in pairs]
+    return xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " and " + xs[-1]
+
+
+def meal_lines(w, name, rec) -> list:
+    """The morning's meal line (D2-342), from last night's record: what one ate, from which store, by which rule or the usual order,
+    and how well it fed; then what one's household's stores gave the meal in all, by good. At most two lines."""
+    m = ((rec or {}).get("meal") or {}).get(name)
+    if not m:
+        return []
+    by_store = {}
+    for cid, i, q in m["ate"]:
+        by_store.setdefault(cid, {})
+        by_store[cid][i] = by_store[cid].get(i, 0.0) + float(q)
+    if by_store:
+        what = "; ".join(f"{_goods_words(sorted(g.items(), key=lambda kv: -kv[1]))} from {store_name(w, cid, name)}"
+                         for cid, g in by_store.items())
+        rules = m.get("rules") or []
+        how = (" and ".join(f"{'your' if r['own'] else 'the household' + chr(39) + 's'} rule {r['n']} (“{r['words']}”)" for r in rules)
+               if rules else "")
+        line = f"Last night you ate {what}, " + (f"by {how}" if how else "in the usual order (what needs no fire, then what spoils soonest)")
+    else:
+        line = "Last night you ate nothing"
+    if m["how"] == "full":
+        line += ": you ate your fill."
+    elif m["how"] == "short":
+        line += ": enough to keep you, short of your fill."
+    else:
+        r = m["ration"]
+        share = "half" if abs(r - 0.5) < 1e-6 else f"{r:g} of a full meal"
+        line += ": you were still hungry; " + (f"the rule gave you a {share} share." if m["why"] == "ration"
+                                                else HUNGER_WHY.get(m["why"], "there was not enough") + ".")
+    out = [line]
+    from cybertron2.engine import book as BK
+    hh = w.household_of(name)
+    gave = []
+    for cid, g in sorted(((rec or {}).get("drawn") or {}).items()):
+        c = w.s["containers"].get(cid) or {}
+        bid = c.get("of") if c.get("kind") == "stock" else (c.get("door") or c.get("in"))
+        if bid in w.s["buildings"] and BK._holds(w, hh, bid) and g:
+            gave.append(f"{store_name(w, cid, name)} gave {_goods_words(sorted(g.items(), key=lambda kv: -kv[1]))}")
+    if gave:
+        out.append("For the whole household's meal, " + "; ".join(gave) + " in all.")
+    return out
+
+
+def store_name(w, cid, who=None) -> str:
+    """A store eaten from, in words: what one carried, a house's store, its door or what hangs in it."""
+    c = w.s["containers"].get(cid) or {}
+    bname = lambda b: (w.s["buildings"].get(b) or {}).get("name", b)            # noqa: E731
+    if c.get("kind") == "hands":
+        return "what you carried" if c.get("of") == who else f"what {c.get('of')} carried"
+    if c.get("kind") == "stock":
+        return f"{bname(c['of'])}'s store"
+    if c.get("door"):
+        return f"what lay at {bname(c['door'])}'s door"
+    if c.get("in"):
+        return f"what hung in {bname(c['in'])}"
+    return "a store"
+
+
+def _eat(w, place, stores, need, hearth=True, first=(), who=None, skip=(), log=None) -> float:
     """Up to `need` in food value, from the stores in order, most perishable first; what is better cooked is eaten raw, for less,
     without a lit fire (D2-160: grain 0.2, flour 0.5, beans nothing, fresh meat 0.8), after what needs no fire. The book's `first`
-    goes before (u6 §4), and what it holds back is not eaten."""
+    goes before (u6 §4), and what it holds back is not eaten. `log` gets (store, good, qty) for each good eaten (D2-342)."""
     got = 0.0
     order = [i for i in first if i in EDIBLE] + [i for i in eat_order(EDIBLE, hearth) if i not in first]
     order = [i for i in order if i not in skip]                               # goods a share keeps for others (D2-339)
@@ -509,7 +605,10 @@ def _eat(w, place, stores, need, hearth=True, first=(), who=None, skip=()) -> fl
             have = g.get(item, 0.0) - (BK.held(w, who, cid, item) if books else 0.0)
             if got + 1e-9 < need and have > 1e-9:
                 q = min(have, (need - got) / v)
-                got += w.apply("destroy", place, src=cid, item=item, qty=q, why="eaten") * v
+                gone = w.apply("destroy", place, src=cid, item=item, qty=q, why="eaten")
+                got += gone * v
+                if log is not None and gone > 1e-9:
+                    log.append((cid, item, float(gone)))
     return round(got, 6)
 
 

@@ -771,6 +771,7 @@ def turn_prompt(here, mind, opening=True) -> str:
     you = [f"You are {STAGES[a['hunger']]}" + (", and hurt" if a["wounded"] else "") + f". You carry: {hold}"
            + (f" (weight {show(here.load())} of the {here.capacity():g} you can travel with"
               + (f", {here.capacity(True):g} on a road with a track" if here.capacity(True) > here.capacity() else "") + ")" if here.roads() else "") + "."]
+    you += here.meal_lines()                                                   # what one ate last night, and how well (D2-342)
     worn = here.gear_words()                                                   # one's own gear and its state (u3 §3.5: shown, not sensed)
     if worn:
         you.append("Of your gear: " + "; ".join(worn) + ".")
