@@ -30,5 +30,6 @@ the engine's hall (60 units) and water wheel (30)
 - [[Proposal shelter|Proposal: shelter]]
 - [[Buildings|Buildings]]
 - [[02zh build brief for 37.4 the building package|02zh: build brief for 37.4: the building package]]
+- [[Stage 1 of the fishing, hunting and materials wave the basis in code…|Stage 1 of the fishing, hunting and materials wave: the basis in code…]]
 - [[38.46 Wenbridge, a world to test whether people build (design, for…|38.46: Wenbridge, a world to test whether people build (design, for…]]
 - *and 3 index or audit notes*

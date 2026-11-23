@@ -23,3 +23,7 @@ started
 
 ## Linked
 - parent: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
+
+
+## Mentioned by
+- [[Stage 1 of the fishing, hunting and materials wave the basis in code…|Stage 1 of the fishing, hunting and materials wave: the basis in code…]]

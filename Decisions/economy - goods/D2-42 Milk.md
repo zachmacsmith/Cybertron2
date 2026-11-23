@@ -23,4 +23,5 @@ recipes.md §11
 - [[Goods|Goods]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[37.2o Livestock numbers kinds, breeding, fodder, work, products…|37.2o Livestock numbers: kinds, breeding, fodder, work, products…]]
+- [[Stage 1 of the fishing, hunting and materials wave the basis in code…|Stage 1 of the fishing, hunting and materials wave: the basis in code…]]
 - [[Review 38.14 cybertron2 M1 against cybertron 1 what was lost, and…|Review 38.14: cybertron2 M1 against cybertron 1: what was lost, and…]]
