@@ -118,12 +118,12 @@ ITEMS = {
 }
 
 # The cured depths as goods of their own (D2-295; u4 §3): food a kg conserved through the weight each loses; their processes are u4's
-# (stage 3). Hard-cured meat keeps the salt meat's food: 0.6 / 0.85 = 0.71 a kg (u4, B10).
+# (stage 3). Hard-cured meat keeps the salt meat's food: 0.57 / 0.85 = 0.67 a kg (salt meat is 0.57; u4, B10 as corrected).
 ITEMS.update({
     "hot-smoked fish": {"pack": "water", "weight": 1, "food": 0.69, "spoil": 0.0, "decay": "dried meat"},    # 1 kg from 1.5 fresh
     "hard-cured fish": {"pack": "water", "weight": 1, "food": 1.15, "spoil": 0.0, "decay": "dried meat"},    # from 2.5 kg fresh, salted
     "hot-smoked meat": {"weight": 1, "food": 0.9, "spoil": 0.0, "decay": "dried meat"},
-    "hard-cured meat": {"weight": 1, "food": 0.71, "spoil": 0.0, "decay": "dried meat"},                       # bacon, ham
+    "hard-cured meat": {"weight": 1, "food": 0.67, "spoil": 0.0, "decay": "dried meat"},                       # bacon, ham
 })
 # The wave's made gear and its materials in real kilograms (u3 §2.2, §10; the gear unit, engine/gear.py, D2-244)
 from cybertron2.engine import gear as _GEAR                             # noqa: E402

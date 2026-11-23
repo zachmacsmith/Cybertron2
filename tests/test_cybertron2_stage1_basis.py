@@ -305,7 +305,7 @@ def test_spoil_rates_match_the_keeping_curve_and_the_cured_depths_are_goods():
         assert ITEMS[good]["spoil"] == pytest.approx(r, rel=0.04), good
     order = ["fish", "hot-smoked fish", "smoked fish", "hard-cured fish", "salt fish", "dried fish"]
     assert [ITEMS[g]["spoil"] for g in order] == sorted((ITEMS[g]["spoil"] for g in order), reverse=True)   # the order holds
-    assert ITEMS["hard-cured meat"]["food"] == pytest.approx(0.71) and ITEMS["hot-smoked meat"]["food"] == pytest.approx(0.9)
+    assert ITEMS["hard-cured meat"]["food"] == pytest.approx(0.67) and ITEMS["hot-smoked meat"]["food"] == pytest.approx(0.9)
     assert ITEMS["hot-smoked fish"]["food"] == pytest.approx(0.69) and ITEMS["hard-cured fish"]["food"] == pytest.approx(1.15)
 
 
