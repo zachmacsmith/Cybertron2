@@ -1,7 +1,7 @@
 # All threads
 
 ## Open
-- [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]] (active)
+- [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]] (active)
 - [[W-96 Space unified everywhere|Space unified everywhere (W-96)]] (benched)
 - [[W-95 Stone and quarrying|Stone and quarrying (W-95)]] (benched)
 - [[W-94 Timed actions|Timed actions (W-94)]] (benched)
@@ -57,7 +57,8 @@
 - [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]] (queued)
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]] (active)
 
-## Closed (46)
+## Closed (47)
+- [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]]
 - [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]
 - [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]]
 - [[W-71 How carrying works in the live runs|How carrying works in the live runs (W-71)]]

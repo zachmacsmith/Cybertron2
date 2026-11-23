@@ -1,13 +1,13 @@
 ---
 id: W-97
 kind: thread
-state: active
+state: done
 updated: "2026-11-23"
 ---
 
 # Build stage 1, the basis in code (W-97)
 
-*active · 37.2 · touched 23 Nov (today)*
+*done, by agent (provisional) · 37.2 · touched 23 Nov (today)*
 
 > **Next:** build u0 on the branch; tests; journals re-taken; review by 37.2; merge
 
@@ -15,7 +15,7 @@ updated: "2026-11-23"
 Zach 23 Nov: 'before you do the final pass and start building'. Spec: docs/cybertron2/proposals/w73_design/u0_basis.md and build_plan.md stage 1. Branch w85-s1-basis.
 
 ## Done so far, and what is left
-started
+done 23 Nov: built and merged (26cc29aa): u0 stage 1; 748 passed, 2 skipped; report docs/review/37_growth/02zzzh_hunt_fish/stage1_report.md; left for later stages: gear as goods (stage 2), stores' penalties (stage 3), fences' materials (stage 5)
 
 ## Where
 - `branch w85-s1-basis (worktree /home/user/c2-w85s1)`

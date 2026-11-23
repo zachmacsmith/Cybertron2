@@ -73,7 +73,8 @@ started
 - under it: [[L-171 Tanning and leather|Tanning and leather (L-171)]] (open)
 - under it: [[L-172 Limestone and lime|Limestone and lime (L-172)]] (open)
 - under it: [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]] (open)
-- under it: [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]] (active)
+- under it: [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]] (done)
+- under it: [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]] (active)
 
 
 ## Mentioned by
@@ -114,8 +115,8 @@ started
 - [[D2-334 Live run 1 and the overnight work stop if the weekly usage window…|Live run 1 and the overnight work stop if the weekly usage window… (D2-334)]]
 - [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]]
 - [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]]
+- [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]]
 - [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]]
 - [[L-160 Kept lines over a life|Kept lines over a life (L-160)]]
-- [[L-161 Ice and the freeze|Ice and the freeze (L-161)]]
-- … and 25 more
+- … and 26 more
 - *and 3 index or audit notes*

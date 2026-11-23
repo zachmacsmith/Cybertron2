@@ -14,7 +14,7 @@ push or merge. Commit on the branch in small commits; each message's last paragr
 
 ```
 Agent: 37.2
-Thread: W-98
+Thread: [[W-98 Build stage 2, taking and making|W-98]]
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 ```
 
