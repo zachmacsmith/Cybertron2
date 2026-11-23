@@ -1,13 +1,13 @@
 ---
 id: W-80
 kind: thread
-state: waiting
-updated: "2026-11-22"
+state: done
+updated: "2026-11-23"
 ---
 
 # Design wave part 3a, keeping (W-80)
 
-*waiting · 37.2 · touched 22 Nov (1 day ago)*
+*done, by agent (provisional) · 37.2 · touched 22 Nov (1 day ago)*
 
 > **Next:** Zach: the note's 13 questions, chiefly what 'keeps d days' means as a nightly loss (half, quarter, tenth), processing containers as one unit, how conditional rules fire, quantity-versus-duration work in the clocks spec, a salting tub before the cooper
 
@@ -15,7 +15,7 @@ updated: "2026-11-22"
 Overnight agent, 22 Nov; [[D2-282 Standing rules support conditional actions conditioned on state…|D2-282]], [[D2-279 Stores, as answered|D2-279]], [[D2-274 One book of standing rules per household and per person covers both…|D2-274]], open question 10 of hunt_fish_materials.md. Output wave3_keeping.md.
 
 ## Done so far, and what is left
-started
+done 23 Nov: the design part is carried into the integrated design set (proposals/w73_design/, [[W-85 The wave's integrated design|W-85]]) and built in stages 1 to 4; what is left is in build_gaps.md and [[W-105 The founders' seeded lines for every built livelihood|W-105]] to [[W-107 Stage 5b of the wave, the gaps closed|W-107]]
 
 ## Where
 - `docs/review/37_growth/02zzzh_hunt_fish/wave3_keeping.md`

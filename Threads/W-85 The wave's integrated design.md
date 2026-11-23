@@ -9,7 +9,7 @@ updated: "2026-11-23"
 
 *active · 37.2 · touched 23 Nov (today)*
 
-> **Next:** stages 1 to 4 built one after another without stopping (Zach 23 Nov: 'as the stage finish continue until first live run time is reached'): each reviewed by 37.2, merged to main, the next started; then live run 1 on Zach's go
+> **Next:** the build continues under [[W-105 The founders' seeded lines for every built livelihood|W-105]] to [[W-107 Stage 5b of the wave, the gaps closed|W-107]]; live run 2 after stage 5b
 
 ## What it is
 Zach, 23 Nov: 'Has all of the design been written up into one complete spec? ... One outline the overall architecture and purpose shape of all the changes and how they fit together and maybe with the different sections or linked specs for the break down of specific implementation details, data etc'. In docs/cybertron2/proposals/w73_design/. The basis answered first ([[D2-288 Bulk goods are counted in handling units of a stated weight and every…|D2-288]] to [[D2-295 Each depth of cure is its own good|D2-295]]).
@@ -81,6 +81,7 @@ started
 - under it: [[L-172 Limestone and lime|Limestone and lime (L-172)]] (open)
 - under it: [[L-177 AB prompt replay|A/B prompt replay (L-177)]] (open)
 - under it: [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]] (closed)
+- under it: [[Q-92 W-102's four defaults taken while fixing the prompt's shapes, never…|W-102's four defaults taken while fixing the prompt's shapes, never… (Q-92)]] (open)
 - under it: [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]] (done)
 - under it: [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]] (done)
 - under it: [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]] (done)
@@ -129,5 +130,5 @@ started
 - [[D2-337 Standing rules are written in a stated grammar the prompt gives in…|Standing rules are written in a stated grammar the prompt gives in… (D2-337)]]
 - [[D2-338 The household book has named sets as a primitive|The household book has named sets as a primitive (D2-338)]]
 - [[D2-339 The household book's grammar|The household book's grammar (D2-339)]]
-- … and 41 more
+- … and 50 more
 - *and 4 index or audit notes*

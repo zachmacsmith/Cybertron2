@@ -16,8 +16,9 @@ updated: "2026-11-23"
 
 
 ## Linked
-- parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+- parent: [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]]
 
 
 ## Mentioned by
+- [[The build plan|The build plan]]
 - *and 1 index or audit notes*

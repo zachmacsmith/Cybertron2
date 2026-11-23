@@ -1,17 +1,16 @@
 # All asks
 
 ## Open
+- [[Q-92 W-102's four defaults taken while fixing the prompt's shapes, never…|W-102's four defaults taken while fixing the prompt's shapes, never… (Q-92)]] (open)
 - [[Q-91 How a water-only village is made able to last the year|How a water-only village is made able to last the year (Q-91)]] (open)
 - [[Q-90 The signs design's eight choices|The signs design's eight choices (Q-90)]] (open)
 - [[Q-88 Whether a chore that yields a trivial amount|Whether a chore that yields a trivial amount (Q-88)]] (open)
 - [[Q-87 Whether the passing-on seeded line for heads and parents|Whether the passing-on seeded line for heads and parents (Q-87)]] (open)
 - [[Q-82 Trying and learning|Trying and learning (Q-82)]] (open)
 - [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]] (open)
-- [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]] (open)
 - [[Q-78 Whether to build the fishing legibility fixes|Whether to build the fishing legibility fixes (Q-78)]] (open)
 - [[Q-77 Whether to tune how often the river reads spate or flood now|Whether to tune how often the river reads spate or flood now (Q-77)]] (open)
 - [[Q-75 Whether D2-210's yearly upkeep band wins over the river proposal's…|Whether D2-210's yearly upkeep band wins over the river proposal's… (Q-75)]] (open)
-- [[Q-74 Whether a weir's first section costs a base of 6 timber and 8 units…|Whether a weir's first section costs a base of 6 timber and 8 units… (Q-74)]] (open)
 - [[Q-68 How high the surplus can go in the medieval worlds, against the…|How high the surplus can go in the medieval worlds, against the… (Q-68)]] (open)
 - [[Q-67 Confirm three rules the sessions follow without your own words behind…|Confirm three rules the sessions follow without your own words behind… (Q-67)]] (open)
 - [[Q-62 recordexecution.md and resume --from-last|record/execution.md and `resume --from-last` (Q-62)]] (open)
@@ -45,14 +44,16 @@
 - [[Q-RR3 The human player's first interface|The human player's first interface (Q-RR3)]] (open)
 - [[Q-RR5 A replay test with shuffled completion order of model calls|A replay test with shuffled completion order of model calls (Q-RR5)]] (open)
 
-## Closed (57)
+## Closed (59)
 - [[Q-89 Whether a water-only village should last the year, or the spring gap…|Whether a water-only village should last the year, or the spring gap… (Q-89)]]
 - [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]]
 - [[Q-85 One book of standing rules per household and person for eating and…|One book of standing rules per household and person for eating and… (Q-85)]]
 - [[Q-84 The building scale|The building scale (Q-84)]]
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]
 - [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
+- [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
 - [[Q-76 Whether the runs world's medium arm needs more keeping capital|Whether the runs world's medium arm needs more keeping capital (Q-76)]]
+- [[Q-74 Whether a weir's first section costs a base of 6 timber and 8 units…|Whether a weir's first section costs a base of 6 timber and 8 units… (Q-74)]]
 - [[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Whether salting fish and meat stays at 4 kg a unit of work (Q-73)]]
 - [[Q-72 Whether milking gets 02zzu's rate fix|Whether milking gets 02zzu's rate fix (Q-72)]]
 - [[Q-71 Whether the older generic game stocks are counted in the new meat unit|Whether the older generic game stocks are counted in the new meat unit (Q-71)]]

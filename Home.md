@@ -4,23 +4,25 @@
 
 [The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.
 
-## Waiting on you (14)
+## Waiting on you (12)
 - [[Q-82 Trying and learning|Trying and learning (Q-82)]]
 - [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]]
-- [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
 - [[Q-78 Whether to build the fishing legibility fixes|Whether to build the fishing legibility fixes (Q-78)]]
 - [[Q-77 Whether to tune how often the river reads spate or flood now|Whether to tune how often the river reads spate or flood now (Q-77)]]
 - [[Q-75 Whether D2-210's yearly upkeep band wins over the river proposal's…|Whether D2-210's yearly upkeep band wins over the river proposal's… (Q-75)]]
-- [[Q-74 Whether a weir's first section costs a base of 6 timber and 8 units…|Whether a weir's first section costs a base of 6 timber and 8 units… (Q-74)]]
 - [[Q-68 How high the surplus can go in the medieval worlds, against the…|How high the surplus can go in the medieval worlds, against the… (Q-68)]]
 - [[Q-67 Confirm three rules the sessions follow without your own words behind…|Confirm three rules the sessions follow without your own words behind… (Q-67)]]
 - [[Q-56 How the weather should follow each place's climate from the generated…|How the weather should follow each place's climate from the generated… (Q-56)]]
 - [[Q-47 Where the economy stops for now|Where the economy stops for now (Q-47)]]
 - [[Q-45 The generation redesign|The generation redesign (Q-45)]]
-- … all of them: [[All asks]]
+- [[Q-43 Fixes before a second peoples run|Fixes before a second peoples run (Q-43)]]
+- [[Q-42 The peoples benchmark's design before any run|The peoples benchmark's design before any run (Q-42)]]
 
 ## To confirm or revisit
+- [[O-2 Make the eleven bulk processes take up to their batch|Make the eleven bulk processes take up to their batch (O-2)]]: closed by agent
 - [[Q-47 Where the economy stops for now|Where the economy stops for now (Q-47)]]: revisit: kept open on purpose with W-39 (Zach, 20 Nov)
+- [[Q-74 Whether a weir's first section costs a base of 6 timber and 8 units…|Whether a weir's first section costs a base of 6 timber and 8 units… (Q-74)]]: closed by agent
+- [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]: closed by agent
 - [[W-100 Build stage 4, signs, people and worlds|Build stage 4, signs, people and worlds (W-100)]]: closed by agent
 - [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]]: closed by agent
 - [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]]: closed by agent
@@ -29,9 +31,6 @@
 - [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]]: closed by agent
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]: revisit: soon (Zach, 20 Nov: something I want to revisit soon)
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]: revisit: soon (Zach, 20 Nov: 'that one sooner')
-- [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]: closed by agent
-- [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]]: closed by agent
-- [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]]: closed by agent
 
 ## Active threads (19)
 
@@ -53,7 +52,7 @@
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]  
   next: after the first build (recipes shown with the batches, the gate check, the fishing bugs and the target rule)…
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]  
-  next: stages 1 to 4 built one after another without stopping (Zach 23 Nov: 'as the stage finish continue until…
+  next: the build continues under W-105 to W-107; live run 2 after stage 5b
 - [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]]  
   next: survey and design written (c101c75d); 37.2 reviewed the counts; eight design questions and seven survey…
 - [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]]  
@@ -76,7 +75,7 @@
 - [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]]  
   next: merge (Zach), a bot run to measure the new rows' chances, item 9 after W-56
 
-## Waiting threads (20)
+## Waiting threads (14)
 
 **37.2**
 - [[W-25 Keeping each world's full 150 m land with it|Keeping each world's full 150 m land with it (W-25)]]  
@@ -90,27 +89,15 @@
 - [[W-72 Signs of the river|Signs of the river (W-72)]]  
   next: Zach: the proposal's seven questions; then a brief with the fishing bugs (Q-79), the shallows stock and the…
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]  
-  next: Zach: the morning brief's 23 questions (docs/review/37_growth/02zzzh_hunt_fish/morning_23nov.md); then the…
-- [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]]  
-  next: Zach: the note's six questions (bulk goods to handling units with recipes in real kg; fuel a night at real…
-- [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]]  
-  next: Zach: the note's seven questions (core states knowledge dies unless passed on; core length; ten shapes as the…
-- [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]]  
-  next: Zach: the note's 24 questions ranked by what they block (the firewood unit 10 or 60 kg; 'keeps a season' as…
-- [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]]  
-  next: Zach: the note's 13 questions, chiefly what 'keeps d days' means as a nightly loss (half, quarter, tenth)…
-- [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]  
-  next: Zach: the note's 14 questions (§8), chiefly set and tend as two acts on held gear, Q-80 recorded as a…
-- [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]]  
-  next: Zach: the note's 8 questions (houses, fittings and the weir to 1/15 first, fences and clearing held for their…
-- [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]  
-  next: Zach: the note's 19 questions, chiefly materials at real hours against making at 1/7 (W2-1), flax strips…
+  next: the build: W-105 (the livelihoods' lines), W-106 (stage 5), W-107 (stage 5b), then live run 2 (D2-345)
 - [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]]  
-  next: Zach: the note's 6 questions (a standing fallback shown each morning with what it did and the store, asked…
+  next: the A/B replays it holds (L-177's conditional-rule example)
 - [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]]  
   next: Zach: whether a water-only village should last the year or the spring gap is the point; then the after-runs…
 - [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]]  
-  next: after W-105 merges: the stage 5 brief, folding in the gaps Hollinford needs from the audit (build_gaps.md)
+  next: after W-105 merges: the stage 5 brief, with the audit's additions (G24, G45 to G49); then stage 5b (W-107)
+- [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]]  
+  next: after stage 5 (W-106) merges: a brief and builder for each part
 
 **37.4**
 - [[W-14 Claims and ownership by physics, part 2|Claims and ownership by physics, part 2 (W-14)]]  

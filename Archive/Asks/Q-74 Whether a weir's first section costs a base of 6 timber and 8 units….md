@@ -1,13 +1,13 @@
 ---
 id: Q-74
 kind: ask
-state: open
-updated: "2026-11-22"
+state: closed
+updated: "2026-11-23"
 ---
 
 # Whether a weir's first section costs a base of 6 timber and 8 units… (Q-74)
 
-*open · Zach*
+*closed, by agent (provisional) · Zach*
 
 ## The question
 Built 20 Nov (w69-water-fixes, 02zzw): position decides a section's share and hold, material its wear and cost; the literal split (wattle at today's 12 timber, timber 10) made timber cheaper. Default taken: the base split.

@@ -20,8 +20,9 @@ updated: "2026-11-23"
 
 
 ## Linked
-- parent: [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]]
+- parent: [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]]
 
 
 ## Mentioned by
+- [[The build plan|The build plan]]
 - *and 1 index or audit notes*

@@ -1,6 +1,8 @@
 # All deferred
 
 ## Open
+- [[L-181 Designed but sent later by the design itself|Designed but sent later by the design itself (L-181)]] (open)
+- [[L-180 Signs to design before building|Signs to design before building (L-180)]] (open)
 - [[L-179 Every take's line says 'food worth about 1 meal' at the least|Every take's line says 'food worth about 1 meal' at the least (L-179)]] (open)
 - [[L-178 Wording bugs|Wording bugs (L-178)]] (open)
 - [[L-177 AB prompt replay|A/B prompt replay (L-177)]] (open)

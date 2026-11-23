@@ -1,13 +1,13 @@
 ---
 id: O-2
 kind: offer
-state: open
-updated: "2026-11-22"
+state: closed
+updated: "2026-11-23"
 ---
 
 # Make the eleven bulk processes take up to their batch (O-2)
 
-*open · 37.2*
+*closed, by agent (provisional) · 37.2*
 
 ## The offer
 add the existing up-to batch (brief 4c §6.1) to mill, water mill, grind, bread, oven bread, salt fish, salt meat, dry fodder, leach acorns, charcoal and cheese; the work stays the same, so a small batch is less worth it; tests for each; on main (37.4 named on the merge, [[D2-237 Code changes live under a thread|D2-237]])
@@ -22,7 +22,6 @@ add the existing up-to batch (brief 4c §6.1) to mill, water mill, grind, bread,
 
 
 ## Mentioned by
-- [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 - [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]
 - [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
 - [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]

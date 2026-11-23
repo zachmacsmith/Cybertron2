@@ -1,6 +1,7 @@
 # All threads
 
 ## Open
+- [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]] (waiting)
 - [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]] (waiting)
 - [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]] (active)
 - [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]] (active)
@@ -18,13 +19,6 @@
 - [[W-86 Households generalised into institutions and laws|Households generalised into institutions and laws (W-86)]] (benched)
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]] (active)
 - [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]] (waiting)
-- [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]] (waiting)
-- [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]] (waiting)
-- [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]] (waiting)
-- [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]] (waiting)
-- [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]] (waiting)
-- [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]] (waiting)
-- [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]] (waiting)
 - [[W-76 The timber economy|The timber economy (W-76)]] (queued)
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]] (waiting)
 - [[W-72 Signs of the river|Signs of the river (W-72)]] (waiting)
@@ -60,13 +54,20 @@
 - [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]] (queued)
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]] (active)
 
-## Closed (52)
+## Closed (59)
 - [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]]
 - [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]]
 - [[W-100 Build stage 4, signs, people and worlds|Build stage 4, signs, people and worlds (W-100)]]
 - [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]]
 - [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]]
 - [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]]
+- [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
+- [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]]
+- [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]
+- [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]]
+- [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]]
+- [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]]
+- [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]]
 - [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]
 - [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]]
 - [[W-71 How carrying works in the live runs|How carrying works in the live runs (W-71)]]

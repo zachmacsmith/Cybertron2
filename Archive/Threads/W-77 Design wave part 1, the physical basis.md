@@ -1,13 +1,13 @@
 ---
 id: W-77
 kind: thread
-state: waiting
-updated: "2026-11-22"
+state: done
+updated: "2026-11-23"
 ---
 
 # Design wave part 1, the physical basis (W-77)
 
-*waiting · 37.2 · touched 22 Nov (1 day ago)*
+*done, by agent (provisional) · 37.2 · touched 22 Nov (1 day ago)*
 
 > **Next:** Zach: the note's six questions (bulk goods to handling units with recipes in real kg; fuel a night at real weight; the keeping curve for every shelf life; night-counted lives at 1/11.4; carrying building materials, real carry limits; field walls where the land gives stone); 28 inconsistencies in §5.4 for the build
 
@@ -15,7 +15,7 @@ updated: "2026-11-22"
 [[D2-278 The next wave of the fishing, hunting and materials network|D2-278]]: the next wave designed in full before building; part 1 first, the others priced on it. Draft by an agent into docs/review/37_growth/02zzzh_hunt_fish/wave1_physical_basis.md; reviewed and written into the proposals.
 
 ## Done so far, and what is left
-started
+done 23 Nov: the design part is carried into the integrated design set (proposals/w73_design/, [[W-85 The wave's integrated design|W-85]]) and built in stages 1 to 4; what is left is in build_gaps.md and [[W-105 The founders' seeded lines for every built livelihood|W-105]] to [[W-107 Stage 5b of the wave, the gaps closed|W-107]]
 
 ## Where
 - `docs/review/37_growth/02zzzh_hunt_fish/wave1_physical_basis.md`

@@ -62,6 +62,7 @@ proposal accepted in part 17 Nov ([[D2-221 The land in three speeds|D2-221]] to 
 - [[L-163 Fishing through ice|Fishing through ice (L-163)]]
 - [[River signs the water as people sense it|River signs: the water as people sense it]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
+- [[The build plan|The build plan]]
 - [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
 - [[02zzn the water half of the environment, prototyped on the river…|02zzn: the water half of the environment, prototyped on the river…]]

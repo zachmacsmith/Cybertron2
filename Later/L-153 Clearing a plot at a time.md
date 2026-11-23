@@ -2,7 +2,7 @@
 id: L-153
 kind: deferred
 state: open
-updated: "2026-11-22"
+updated: "2026-11-23"
 ---
 
 # Clearing a plot at a time (L-153)
@@ -14,7 +14,7 @@ Found 22 Nov: clearing is all or nothing: a parcel becomes a field only when its
 
 
 ## Linked
-- parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+- parent: [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]]
 - bears on: [[W-76 The timber economy|The timber economy (W-76)]]
 - bears on: [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]]
 

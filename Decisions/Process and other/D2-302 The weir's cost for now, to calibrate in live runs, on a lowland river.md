@@ -21,6 +21,7 @@ conversation (23 Nov: "Record weir cost as you put for now.")
 
 
 ## Mentioned by
+- [[Q-74 Whether a weir's first section costs a base of 6 timber and 8 units…|Whether a weir's first section costs a base of 6 timber and 8 units… (Q-74)]]
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[The build plan|The build plan]]
 - [[The integration review (23 Nov 2026)|The integration review (23 Nov 2026)]]

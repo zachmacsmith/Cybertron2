@@ -25,3 +25,4 @@ updated: "2026-11-23"
 
 ## Mentioned by
 - [[D2-346 The signs design|The signs design (D2-346)]]
+- [[L-180 Signs to design before building|Signs to design before building (L-180)]]

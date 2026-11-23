@@ -1,13 +1,13 @@
 ---
 id: Q-79
 kind: ask
-state: open
-updated: "2026-11-22"
+state: closed
+updated: "2026-11-23"
 ---
 
 # Whether to fix the fishing bugs the live runs exposed (Q-79)
 
-*open · Zach*
+*closed, by agent (provisional) · Zach*
 
 ## The question
 02zzy2 (21 Nov): knowledge.ready refuses hand fishing and angling (there is no fish at the Isel) before the run's take is reached, though hand fishing is meant to take from a run (brief 5 3a.2); agents lift by writing gather trap in water, which sets a new trap (about 38 of 97 trap acts in the river run, 19 of 36 in medium); nets met 48 salmon and took none; the prompt lists the weir as known to everyone in all three arms; take fish from the Brook resolved to Brook House. Recommended: fix the first three and the name match as bugs on a branch; the lift wording touches the prompt (37.4).

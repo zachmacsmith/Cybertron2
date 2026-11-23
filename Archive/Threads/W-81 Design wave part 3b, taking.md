@@ -1,13 +1,13 @@
 ---
 id: W-81
 kind: thread
-state: waiting
-updated: "2026-11-22"
+state: done
+updated: "2026-11-23"
 ---
 
 # Design wave part 3b, taking (W-81)
 
-*waiting · 37.2 · touched 22 Nov (1 day ago)*
+*done, by agent (provisional) · 37.2 · touched 22 Nov (1 day ago)*
 
 > **Next:** Zach: the note's 14 questions (§8), chiefly set and tend as two acts on held gear, [[Q-80 Whether acts on owned things default to one's own|Q-80]] recorded as a decision, a run's fish learning no wariness, own livelihood's crafts first in 'Today you could', the fen dyke in flood and freeze; 17 conflicts in §7
 
@@ -15,7 +15,7 @@ updated: "2026-11-22"
 Overnight agent, 22 Nov; [[Q-79 Whether to fix the fishing bugs the live runs exposed|Q-79]], [[Q-80 Whether acts on owned things default to one's own|Q-80]], [[W-72 Signs of the river|W-72]], verb_grammar.md. Output wave3_taking.md.
 
 ## Done so far, and what is left
-started
+done 23 Nov: the design part is carried into the integrated design set (proposals/w73_design/, [[W-85 The wave's integrated design|W-85]]) and built in stages 1 to 4; what is left is in build_gaps.md and [[W-105 The founders' seeded lines for every built livelihood|W-105]] to [[W-107 Stage 5b of the wave, the gaps closed|W-107]]
 
 ## Where
 - `docs/review/37_growth/02zzzh_hunt_fish/wave3_taking.md`

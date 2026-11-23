@@ -20,5 +20,6 @@ Proposal docs/cybertron2/proposals/trying_and_learning.md (22 Nov), from learnin
 
 
 ## Mentioned by
+- [[The build plan|The build plan]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
 - *and 4 index or audit notes*

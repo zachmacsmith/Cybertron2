@@ -2,14 +2,14 @@
 id: W-73
 kind: thread
 state: waiting
-updated: "2026-11-22"
+updated: "2026-11-23"
 ---
 
 # Fishing, hunting and their materials developed together (W-73)
 
-*waiting · 37.2 · touched 22 Nov (1 day ago)*
+*waiting · 37.2 · touched 23 Nov (today)*
 
-> **Next:** Zach: the morning brief's 23 questions (docs/review/37_growth/02zzzh_hunt_fish/morning_23nov.md); then the proposals written from his answers, an integration pass and a staged build plan with the batches ([[O-2 Make the eleven bulk processes take up to their batch|O-2]]) and recipes shown ([[D2-263 A craft a person knows at capable or known shows, where they look|D2-263]])
+> **Next:** the build: [[W-105 The founders' seeded lines for every built livelihood|W-105]] (the livelihoods' lines), [[W-106 Stage 5 of the wave, works|W-106]] (stage 5), [[W-107 Stage 5b of the wave, the gaps closed|W-107]] (stage 5b), then live run 2 ([[D2-345 Zach's go for stage 5|D2-345]])
 
 ## What it is
 Zach, 21 Nov: the next thing is to bring these together into one thread developed together: recalibrating the fishing and hunting signs and mechanisms alongside the relevant parts of the economy and resources, withies and cords included, exploring the techniques, capital, each resource and the small relevant capital and supply chains, because calibrating does not make sense without this; send agents to explore the levels, granularities, ladders, supply chains and developmental processes of techniques, tools and capital for hunting and fishing and the missing resources (cord, withies and the others benched); the larger economic web for reference, and extra research. Gathers: signs of the river ([[W-72 Signs of the river|W-72]]), the fishing bugs ([[Q-79 Whether to fix the fishing bugs the live runs exposed|Q-79]]), the hunting and resources build ([[L-111 The hunting and resources build, a soon follow-up|L-111]]), the shallows stock for hand fishing, fowling split from fish nets, gear costs. Research notes in docs/review/37_growth/02zzzh_hunt_fish/.
@@ -50,29 +50,29 @@ started
 - under it: [[L-145 Offal's uses bait for set lines and traps, dog food|Offal's uses: bait for set lines and traps, dog food (L-145)]] (open)
 - under it: [[L-146 Peat as fuel where there is bog|Peat as fuel where there is bog (L-146)]] (open)
 - under it: [[L-148 The wild's clock|The wild's clock (L-148)]] (closed)
-- under it: [[L-153 Clearing a plot at a time|Clearing a plot at a time (L-153)]] (open)
 - under it: [[L-154 The scale gap in stores|The scale gap in stores (L-154)]] (open)
 - under it: [[L-155 Vermin fleshed out properly, with disease and sanitation|Vermin fleshed out properly, with disease and sanitation (L-155)]] (open)
 - under it: [[L-156 The locked chest and its key|The locked chest and its key (L-156)]] (open)
 - under it: [[L-157 Rest days, with health, fatigue and illness|Rest days, with health, fatigue and illness (L-157)]] (open)
-- under it: [[L-178 Wording bugs|Wording bugs (L-178)]] (open)
+- under it: [[L-181 Designed but sent later by the design itself|Designed but sent later by the design itself (L-181)]] (open)
 - under it: [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]] (closed)
 - under it: [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]] (replaced)
 - under it: [[Q-84 The building scale|The building scale (Q-84)]] (closed)
 - under it: [[Q-87 Whether the passing-on seeded line for heads and parents|Whether the passing-on seeded line for heads and parents (Q-87)]] (open)
 - under it: [[Q-88 Whether a chore that yields a trivial amount|Whether a chore that yields a trivial amount (Q-88)]] (open)
 - under it: [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]] (done)
-- under it: [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]] (waiting)
-- under it: [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]] (waiting)
-- under it: [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]] (waiting)
-- under it: [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]] (waiting)
-- under it: [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]] (waiting)
-- under it: [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]] (waiting)
-- under it: [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]] (waiting)
+- under it: [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]] (done)
+- under it: [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]] (done)
+- under it: [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]] (done)
+- under it: [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]] (done)
+- under it: [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]] (done)
+- under it: [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]] (done)
+- under it: [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]] (done)
 - under it: [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]] (waiting)
 - under it: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]] (active)
 - under it: [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]] (active)
 - under it: [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]] (waiting)
+- under it: [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]] (waiting)
 
 
 ## Mentioned by

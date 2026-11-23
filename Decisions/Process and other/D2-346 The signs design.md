@@ -18,3 +18,7 @@ conversation (23 Nov: "I agree about sequencing for 2 signs design.")
 
 ## Linked
 - parent: [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]]
+
+
+## Mentioned by
+- [[The build plan|The build plan]]

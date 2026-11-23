@@ -1,13 +1,13 @@
 ---
 id: W-78
 kind: thread
-state: waiting
-updated: "2026-11-22"
+state: done
+updated: "2026-11-23"
 ---
 
 # Design wave part 4, the people (W-78)
 
-*waiting · 37.2 · touched 22 Nov (1 day ago)*
+*done, by agent (provisional) · 37.2 · touched 22 Nov (1 day ago)*
 
 > **Next:** Zach: the note's seven questions (core states knowledge dies unless passed on; core length; ten shapes as the verb list [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Q-27]]; cap of 20 seeded lines; known needs every lesson; seven aptitudes; children's awareness); reviewed by 37.2 with the morning digest
 
@@ -15,7 +15,7 @@ updated: "2026-11-22"
 [[D2-278 The next wave of the fishing, hunting and materials network|D2-278]]; depends little on part 1's numbers, so it runs beside it. Draft by an agent into docs/review/37_growth/02zzzh_hunt_fish/wave4_people.md; includes the core prompt brainstorm owed to Zach.
 
 ## Done so far, and what is left
-started
+done 23 Nov: the design part is carried into the integrated design set (proposals/w73_design/, [[W-85 The wave's integrated design|W-85]]) and built in stages 1 to 4; what is left is in build_gaps.md and [[W-105 The founders' seeded lines for every built livelihood|W-105]] to [[W-107 Stage 5b of the wave, the gaps closed|W-107]]
 
 ## Where
 - `docs/review/37_growth/02zzzh_hunt_fish/wave4_people.md`
