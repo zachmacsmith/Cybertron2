@@ -18,3 +18,7 @@ sign_timing.md gap 1; Zach 23 Nov: signs seen during the day should reach people
 ## Linked
 - parent: [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]]
 - bears on: [[W-94 Timed actions|Timed actions (W-94)]]
+
+
+## Mentioned by
+- [[Live run 1 the rebuilt fishing world against the old prompt and the…|Live run 1: the rebuilt fishing world against the old prompt and the…]]

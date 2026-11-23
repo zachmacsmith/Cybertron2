@@ -33,7 +33,7 @@
 - [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]]: closed by agent
 - [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]]: closed by agent
 
-## Active threads (19)
+## Active threads (18)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -54,8 +54,6 @@
   next: after the first build (recipes shown with the batches, the gate check, the fishing bugs and the target rule)…
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]  
   next: stages 1 to 4 built one after another without stopping (Zach 23 Nov: 'as the stage finish continue until…
-- [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]]  
-  next: bot arms, then set A's three model arms, then set B's two; reading
 - [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]]  
   next: agent survey and design; then 37.2 reviews and brings Zach the proposals
 
@@ -76,7 +74,7 @@
 - [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]]  
   next: merge (Zach), a bot run to measure the new rows' chances, item 9 after W-56
 
-## Waiting threads (18)
+## Waiting threads (19)
 
 **37.2**
 - [[W-25 Keeping each world's full 150 m land with it|Keeping each world's full 150 m land with it (W-25)]]  
@@ -107,6 +105,8 @@
   next: Zach: the note's 19 questions, chiefly materials at real hours against making at 1/7 (W2-1), flax strips…
 - [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]]  
   next: Zach: the note's 6 questions (a standing fallback shown each morning with what it did and the store, asked…
+- [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]]  
+  next: Zach: whether a water-only village should last the year or the spring gap is the point; then the after-runs…
 
 **37.4**
 - [[W-14 Claims and ownership by physics, part 2|Claims and ownership by physics, part 2 (W-14)]]  

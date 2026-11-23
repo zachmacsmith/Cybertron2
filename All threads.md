@@ -2,7 +2,7 @@
 
 ## Open
 - [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]] (active)
-- [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]] (active)
+- [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]] (waiting)
 - [[W-96 Space unified everywhere|Space unified everywhere (W-96)]] (benched)
 - [[W-95 Stone and quarrying|Stone and quarrying (W-95)]] (benched)
 - [[W-94 Timed actions|Timed actions (W-94)]] (benched)

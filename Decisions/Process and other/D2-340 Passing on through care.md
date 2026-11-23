@@ -18,3 +18,8 @@ conversation (23 Nov: "I agree with this after the arms finish.")
 
 ## Linked
 - parent: [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]]
+
+
+## Mentioned by
+- [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]]
+- [[Live run 1 the rebuilt fishing world against the old prompt and the…|Live run 1: the rebuilt fishing world against the old prompt and the…]]

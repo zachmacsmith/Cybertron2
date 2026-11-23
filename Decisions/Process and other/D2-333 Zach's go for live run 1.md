@@ -24,4 +24,5 @@ conversation (23 Nov: "But I also give you permission to do live run 1 when you 
 - [[W-100 Build stage 4, signs, people and worlds|Build stage 4, signs, people and worlds (W-100)]]
 - [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]]
 - [[Live run 1 the plan (D2-333, D2-334, D2-335)|Live run 1: the plan (D2-333, D2-334, D2-335)]]
+- [[Live run 1 the rebuilt fishing world against the old prompt and the…|Live run 1: the rebuilt fishing world against the old prompt and the…]]
 - [[Stage 4 of the fishing, hunting and materials wave signs, people and…|Stage 4 of the fishing, hunting and materials wave: signs, people and…]]

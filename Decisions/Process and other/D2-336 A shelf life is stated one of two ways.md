@@ -24,4 +24,5 @@ conversation (23 Nov: "Fix [[Q-86 Fresh food on the keeping curve|Q-86]] I agree
 ## Mentioned by
 - [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]]
 - [[The act shapes' interface faults from live run 1 (W-102)|The act shapes' interface faults from live run 1 (W-102)]]
+- [[Live run 1 the rebuilt fishing world against the old prompt and the…|Live run 1: the rebuilt fishing world against the old prompt and the…]]
 - *and 1 index or audit notes*

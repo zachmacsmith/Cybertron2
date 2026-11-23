@@ -82,7 +82,7 @@ started
 - under it: [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]] (done)
 - under it: [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]] (done)
 - under it: [[W-100 Build stage 4, signs, people and worlds|Build stage 4, signs, people and worlds (W-100)]] (done)
-- under it: [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]] (active)
+- under it: [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]] (waiting)
 
 
 ## Mentioned by

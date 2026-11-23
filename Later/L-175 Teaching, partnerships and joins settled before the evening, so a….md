@@ -18,3 +18,8 @@ sign_timing.md gap 2; live1_A_new: Peter told Nigel the lesson had not happened,
 ## Linked
 - parent: [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]]
 - bears on: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
+
+
+## Mentioned by
+- [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]]
+- [[Live run 1 the rebuilt fishing world against the old prompt and the…|Live run 1: the rebuilt fishing world against the old prompt and the…]]
