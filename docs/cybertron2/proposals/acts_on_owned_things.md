@@ -62,6 +62,8 @@ A choice made by the agent is a finding; a theft the engine made for them is a b
 
 ## History
 
+- 23 Nov 2026: accepted in part: D2-305 (Acts on held things take the thing as their target, by tag or a known name, said).
+- 23 Nov 2026: accepted in part: D2-304 (An unnamed act on several of one's own things at a place: an act that takes what).
 - **21 Nov 2026:** drafted by 37.2 at Zach's request (21 Nov: "they seem perpetually confused about which snares to check and
   accidentally taking from each others snares (same as killing herds?), so maybe I should revise how the identity / target for
   these acts are selected? Requires an actual target and without it defaults to only their own? Meaning killing another's cattle or

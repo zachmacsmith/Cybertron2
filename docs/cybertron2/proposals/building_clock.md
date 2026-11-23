@@ -93,6 +93,7 @@ pottery, daub is mud and straw dug on the spot (work, no good); clay joins with 
 
 ## History
 
+- 23 Nov 2026: accepted in part: D2-306 (Material got at the site of a work (field stone, brush, daub) is counted as part).
 - 23 Nov 2026: accepted in part: D2-302 (The weir's cost for now, to calibrate in live runs, on a lowland river: wattle f).
 - **22 Nov 2026:** written by 37.2 after Zach decided the unit (D2-275: "Let's do 2 hours") and the redesign (D2-276: "Let's try this
   redesign tbh. I think being more expensive makes sense"), from building_clock.md (the audit), storage.md (room costs), and the day's

@@ -168,6 +168,7 @@ makers.
 
 ## History
 
+- 23 Nov 2026: accepted in part: D2-308 (Kept lines over a life: about 40 words a line, one place a stretch; founders' se).
 - 22 Nov 2026: accepted in part: D2-268 (The founders' starting knowledge (founders_knowledge.md): seeded lines are ordin).
 - 22 Nov 2026: accepted in part: D2-266 (Knowledge in their own words (proposals/knowledge_in_their_own_words.md), as ans).
 - **22 Nov 2026:** §6 added: standard starting memories as culture, an experimental parameter (Zach, quoted under Why).
