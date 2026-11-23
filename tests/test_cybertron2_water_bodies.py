@@ -45,8 +45,9 @@ def test_fishing_at_either_parcel_lowers_the_one_stock(lake):
     bid, b, pids = _mere(w)
     who = next(n for n in sorted(w.living()) if w.s["people"][n]["stage"] == "adult" and w.s["people"][n]["at"] == w.s["parcels"][pids[0]]["node"])
     before = b["fish"]["S"]
-    for p in pids:
-        r = V.do(Here(w, who), Mind(w, who), {"do": "gather", "what": "fish by hand", "at": w.s["parcels"][p]["name"]})
+    w.apply("create", w.s["people"][who]["at"], dst=w.s["people"][who]["hands"], item="hand line", qty=1.0, why="test")
+    for p in pids:                                             # a line reaches the body's fish; the edge, the parcel's shallows (u1)
+        r = V.do(Here(w, who), Mind(w, who), {"do": "gather", "what": "angle", "at": w.s["parcels"][p]["name"]})
         assert "fish" in r, r
     assert b["fish"]["S"] < before
     assert all(w.s["parcels"][p]["res"]["fish"]["S"] == b["fish"]["S"] for p in pids)

@@ -262,6 +262,9 @@ class World:
         if "wild" in PK.of(self):                                              # the wild layer (wild_layer.md, D2-199): its land
             from cybertron2.engine import wild as WL                           # summary and starting populations; no other world
             WL.seed(self)                                                      # holds the key
+        from cybertron2.wild import water as WT, willow as WI
+        WT.seed_shallows(self)                                                 # the shallows on every water and fen parcel, by its
+        WI.seed(self)                                                          # water type (D2-316, D2-317); wild willow (u3 §1.1)
 
     def _person(self, name, a):
         """A person's record and hands (D2-139: `born` a day, negative before the run; the stage follows it when given)."""
@@ -647,8 +650,12 @@ def p_transfer(w, src, dst, item, qty):
     g = w.goods(src)
     if g.get(item, 0.0) + 1e-9 < qty:
         raise Refused(f"there is only {show(g.get(item, 0.0))} {item} there")
+    b_src, b_dst = g[item], w.goods(dst).get(item, 0.0)
     g[item] = round(g[item] - qty, 6)
     _add(w.goods(dst), item, qty)
+    from cybertron2.engine import gear as GE                              # gear's pieces go with it (u3 §3.1)
+    if GE.pieced(item):
+        GE.on_transfer(w, w.s["containers"][src], w.s["containers"][dst], item, b_src, b_dst, qty)
     wear = w.s["containers"][src]["wear"]
     if item in wear and g[item] < 1 - 1e-9:                                # the worn tool goes with the last of them
         w.s["containers"][dst]["wear"][item] = wear.pop(item)
@@ -656,14 +663,22 @@ def p_transfer(w, src, dst, item, qty):
 
 
 def p_create(w, dst, item, qty, why=""):
+    before = w.goods(dst).get(item, 0.0)
     _add(w.goods(dst), item, qty)
+    from cybertron2.engine import gear as GE                              # new gear at full life (u3 §3.1)
+    if GE.pieced(item):
+        GE.on_create(w, w.s["containers"][dst], item, before, w.goods(dst)[item])
     return qty
 
 
 def p_destroy(w, src, item, qty, why=""):
     g = w.goods(src)
     q = min(qty, g.get(item, 0.0))
+    before = g.get(item, 0.0)
     g[item] = round(g.get(item, 0.0) - q, 6)
+    from cybertron2.engine import gear as GE                              # the most worn pieces go first (u3 §3.1)
+    if GE.pieced(item):
+        GE.on_destroy(w, w.s["containers"][src], item, before, g[item])
     return q
 
 
@@ -684,10 +699,14 @@ def p_draw(w, parcel, key, qty, holder=None):
 
 
 def p_wear(w, container, item, uses):
-    """Wear on a tool or weapon (D2-46): a use's wear in standard uses; at its life the tool breaks and one is gone."""
+    """Wear on a tool or weapon (D2-46): a use's wear in standard uses; at its life the tool breaks and one is gone. Pieced gear wears
+    its piece in use, which at 0 uses is broken and kept, wanting mending (u3 §3.2); the older tools' lives are converted (D2-310)."""
     c = w.s["containers"][container]
+    from cybertron2.engine import gear as GE
+    if GE.pieced(item):
+        return GE.wear(w, c, item, uses)
     c["wear"][item] = round(c["wear"].get(item, 0.0) + uses, 4)
-    if c["wear"][item] >= ITEMS[item]["life"] - 1e-9:
+    if c["wear"][item] >= GE.life_of(item, w) - 1e-9:
         c["wear"][item] = 0.0
         p_destroy(w, container, item, 1, "worn out")
         return True
@@ -1113,3 +1132,11 @@ PRIMITIVES = {
     "traces": (p_traces, lambda kw: []),                                   # at the road the party is on (checked by the caller)
     "set_wild": (p_set_wild, lambda kw: []),                               # the wild layer's state (D2-199), at the area's node
 }
+from cybertron2.engine import gear as _GE                                      # noqa: E402  gear laid and taken up, worn, rotted and
+PRIMITIVES.update({                                                            # mended (u2 §3, u3 §3; the gear unit, D2-244)
+    "lay": (_GE.p_lay, _rc("src", "dst")),
+    "unlay": (_GE.p_unlay, _rc("src", "dst")),
+    "gear_night": (_GE.p_gear_night, _rc("cid")),
+    "rot": (_GE.p_rot, _rc("container")),
+    "mend": (_GE.p_mend, _rc("container")),
+})

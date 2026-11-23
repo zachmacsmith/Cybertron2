@@ -199,13 +199,16 @@ def test_lift_the_snares_at_the_parcel_takes_the_catch_into_hand_and_its_aliases
         hands = w.s["people"][SETTER]["hands"]
         before = w.s["containers"][hands]["goods"].get("meat", 0.0)
         r = _do(w, SETTER, act)
-        assert "You took 0.7 meat from your snares at Mill Mead" in r, (act, r)
+        if act["do"] == "take":
+            assert "You took 0.7 meat from your snares at Mill Mead" in r, (act, r)
+        else:                                                                       # lift, check, empty, walk: tend (D2-294)
+            assert r.startswith("You tended your snares in Mill Mead") and "0.7" in r, (act, r)
         assert abs(w.s["containers"][hands]["goods"].get("meat", 0.0) - before - 0.7) < 1e-6
         assert not any(q > 1e-9 for q in w.s["containers"][cid]["goods"].values()) and w.s["containers"][cid]["catch"] == []
     w = _w()
     _line(w)
     r = _do(w, SETTER, {"do": "check the snares"})
-    assert r == "You looked over your snares at Mill Mead: nothing is caught in them."
+    assert r.startswith("You tended your snares in Mill Mead") and "nothing in them" in r, r
     assert "Refused" in _do(w, STRANGER, {"do": "lift the snares"})              # one who knows of no snares here
 
 
@@ -237,6 +240,7 @@ def test_a_night_catch_is_recorded_with_its_night_and_its_chance_has_no_clip(gen
     m, ri = _ring(w, WL)
     w.s["wild"]["state"]["pop"]["brown hare"][ri] = 400.0 / m.km2[ri]
     par = next(pid for pid, p in sorted(w.s["parcels"].items()) if p["node"] == "s1" and p["cover"] in ("pasture", "meadow", "field"))
+    w.apply("create", "s1", dst=w.hands("Ann"), item="snare", qty=5.0, why="test")   # a line of five, laid from the hands (u2 §3)
     _do(w, "Ann", {"do": "gather", "what": "snare", "at": w.s["parcels"][par]["name"]})
     cid = next(c for c, x in w.s["containers"].items() if x.get("kind") == "set")
     for _ in range(8):

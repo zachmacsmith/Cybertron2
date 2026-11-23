@@ -342,5 +342,12 @@
   "households": 3,
   "people": 12
  },
- "craft_gates": []
+ "craft_gates": [],
+ "water_only": {
+  "fish": {
+   "Eelmouth_8": 8.8
+  },
+  "traps": {},
+  "net": null
+ }
 }

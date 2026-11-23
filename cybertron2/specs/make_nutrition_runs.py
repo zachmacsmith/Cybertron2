@@ -124,6 +124,44 @@ def apply_arm(world: dict, arm: str) -> dict:
     return out
 
 
+RESIDENT_SHARE = 0.25                          # D2-316: the runs world is water-only, its resident fish small: a quarter of a river's
+                                              # open water a unit of size (make_water_worlds: 8 x RESIDENT_FISH), the shallows seeded
+                                              # by the engine (wild/water.py); together far short of the village's need
+SEEDED_TRAPS = 6                              # D2-330 (C5): six wicker traps for each capable or known trap-setter, a gill net to
+                                              # the weir's expert; the making known at the setting's level (u3: gear made, set, tended)
+
+
+def water_only(world: dict, arm: str) -> dict:
+    """D2-316 and D2-330's C5 on a made arm: a small resident fish stock on the village's river water (no switch takes the fish
+    away: the shallows come with the water pack), each trap-setter's craft of making the traps at their level, six traps in the
+    hands of each who is capable or knows the setting, and a gill net to the weir's expert."""
+    from cybertron2.specs import make_peoples as MP
+    nid = _node(world)
+    out = {"fish": {}, "traps": {}, "net": None}
+    for pid, p in world["nodes"][nid]["parcels"].items():
+        if p["cover"] == "water" and (p.get("land") or {}).get("river") in ("river", "brook"):
+            k = round(RESIDENT_SHARE * 8 * MP.RESIDENT_FISH * int(p.get("size", 1)), 2)
+            p.setdefault("state", {})["fish"] = {"K": k, "S": k, "r": 0.3, "renewal": "fast"}
+            out["fish"][pid] = k
+    for n, a in sorted(world["agents"].items()):
+        k = (a.get("knows") or {}).get("trap in water")
+        if not k:
+            continue
+        a["knows"]["wicker trap"] = {"level": k["level"], "skill": k["skill"]}
+        if k["level"] in ("capable", "known"):
+            a.setdefault("holdings", {})["wicker trap"] = SEEDED_TRAPS
+            out["traps"][n] = SEEDED_TRAPS
+    weir = next((b for b in world["buildings"].values() if b.get("monument") == "weir"), None)
+    if weir and weir.get("crew"):
+        who = sorted(weir["crew"])[0]
+        a = world["agents"][who]
+        lvl = (a.get("knows") or {}).get("weir") or {"level": "known", "skill": 1.0}
+        a["knows"]["gill net"] = {"level": lvl["level"], "skill": lvl["skill"]}
+        a.setdefault("holdings", {})["gill net"] = 1
+        out["net"] = who
+    return out
+
+
 SMOKEHOUSE_FUEL = 6                            # firewood in a new smokehouse's store: its first batch's nights and a little over
 
 
@@ -233,6 +271,7 @@ def main():
             wa = copy.deepcopy(world)
             ra = copy.deepcopy(report)
             ra["arm"] = apply_arm(wa, arm)
+            ra["water_only"] = water_only(wa, arm)
             ra["craft_gates"] = WW.craft_gates(wa)
             wa["name"] = f"nutrition_runs_{arm}"
             W.write(wa, cells, ra, os.path.join(out, f"runs_{arm}.yaml"), picture=os.path.join(out, f"runs_{arm}.png") if arm == "low" else None)

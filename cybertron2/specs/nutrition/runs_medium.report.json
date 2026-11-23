@@ -347,5 +347,19 @@
    "shepherd_smokehouse": "Eelmouth_9"
   }
  },
- "craft_gates": []
+ "craft_gates": [],
+ "water_only": {
+  "fish": {
+   "Eelmouth_8": 8.8
+  },
+  "traps": {
+   "Gunnild": 6,
+   "Hamon": 6,
+   "Katherine": 6,
+   "Nichola": 6,
+   "Oliver": 6,
+   "Peter": 6
+  },
+  "net": null
+ }
 }

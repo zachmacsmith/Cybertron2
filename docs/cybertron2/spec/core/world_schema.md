@@ -108,6 +108,7 @@ authority.
 | what an act drew from the stores: `today.drawn` | D4-96 |
 | graves dug over days and cairns after burial: containers `grave`, `cairn_day`, `cairn_by` | D4-99 |
 | one fish stock a water body: top-level `waters` {body: {kind, parcels, fish}}; each parcel on it holds the same record (version 11) | D2-229 |
+| gear as goods with two lives and placed gear (version 13): containers `pieces` {item: [{life, rot, of, barked, torn}]} and a set thing's `household` (with the set fields `catch`, `caught`, `crew`, `robbed`, `robbed_by` listed); a set's `set` holds `gear`, `pieces`, `state`, `tended`, `lost`, `night`, `full`; parcels (and field holdings) `strips` and `strip_dug` for the flax strip | D2-305, D2-310 |
 
 ## What readers should do
 
@@ -120,4 +121,4 @@ authority.
 proposals/run_data_interface.md; cybertron2/engine/schema.py; spec/record/journal.md (the journal's own `schema`, which versions
 its tables, not the world inside them).
 
-*Current as of 17 Nov 2026: D4-100, D4-103 (version 2), D4-104, D4-106 (version 3), D4-112 (version 4), D4-117 (version 10), D2-229 (version 11, 17 Nov); versions 5 to 9 from the wild layer's branches, merged to main 16 Nov.*
+*Current as of 17 Nov 2026: D4-100, D4-103 (version 2), D4-104, D4-106 (version 3), D4-112 (version 4), D4-117 (version 10), D2-229 (version 11, 17 Nov), D2-305 and D2-310 (version 13, 23 Nov); versions 5 to 9 from the wild layer's branches, merged to main 16 Nov.*

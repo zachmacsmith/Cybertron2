@@ -60,7 +60,7 @@ METHODS = {
         "beat a wood with others to drive a herd or sounder onto waiting spears; dangerous alone", untaught=False, crew=True),
     "snare": _take_row(
         "setting snares on the runs",
-        ["snaring", "set snares", "snare hares", "snare the runs"],
+        ["snaring", "set snares", "snare hares", "snare the runs", "snares", "my snares", "the snares"],
         ["pasture", "meadow", "heath", "field", "scrub"], {"runs": True, "size": ("small", "medium"), "water": False},   # land only:
         [({"home": "form"}, 1.5)],                                                         # no otters in snares (u2 §6 fault 14)
         2.0, {}, 1, "set nooses where small beasts run, and come back for what is caught", basic=True),
@@ -72,9 +72,22 @@ METHODS = {
         2.0, {}, 2, "spread nets and decoys where flocks come down, best at the water"),   # never fish (u2 §6 fault 3)
     "trap in water": _take_row(
         "setting wicker traps in the water overnight",
-        ["set eel traps", "eel traps", "trap eels", "set traps for eels", "eeling", "set traps in the water"],
+        ["set eel traps", "eel traps", "trap eels", "set traps for eels", "eeling", "set traps in the water", "wicker traps", "traps",
+         "my traps", "the traps"],
         ["water", "fen"], {"water": True, "size": ("small", "small")}, [], 3.0, {}, 1,
         "set wicker traps in the water overnight and lift them in the morning; best on the nights things run", when=EEL_NIGHTS),
+    # set gear in the water (u2 §4.4, §4.5): a gill net meets what swims at a salmon's size in a run, and draws the water's own fish
+    # (wild._set_night); a set line the eels at the edge, as a trap does, and the open water too
+    "gill net": _take_row(
+        "setting a gill net in open water overnight",
+        ["gill net", "gill nets", "set a gill net", "set the net", "set nets", "a gill net"],
+        ["water"], {"swims": True, "size": ("medium", "medium")}, [], 3.0, {}, 1,
+        "set a gill net across open water at dusk; it takes the water's own fish and the bigger fish running, and stays until you take it up"),
+    "set line": _take_row(
+        "setting a line of baited hooks in the water overnight",
+        ["set line", "set lines", "a set line", "long line", "set a line", "night lines"],
+        ["water", "fen"], {"water": True, "swims": True, "size": ("small", "small")}, [], 3.0, {}, 1,
+        "set a line of hooks in the water at dusk; it takes what feeds at the edge and the water's own fish by night, until you take it up"),
     "den work": _take_row(
         "digging out a den or trapping at a lodge (spades and a dog help)",
         ["dig out the fox earth", "dig out the earth", "dig out the foxes", "dig out the cubs", "earth stopping",
@@ -86,7 +99,9 @@ METHODS = {
 METHODS["den work"]["yield"]["kind"] = "wild_den"
 # nights a set lasts; its chance against a hunter's; how many sets one act lays (a snare line, brief 4 §2.10); what one set holds
 SETS = {"snare": {"life": 4, "base": 0.5, "line": 5, "holds": 1, "meet": 0.08},
-        "trap in water": {"life": 8, "base": 0.5, "line": 1, "holds": 20, "meet": 0.3}}    # meet: a night's meetings (calibrate)
+        "trap in water": {"life": 8, "base": 0.5, "line": 1, "holds": 20, "meet": 0.3},    # meet: a night's meetings (calibrate)
+        "gill net": {"life": 16, "base": 0.5, "line": 1, "holds": 8, "meet": 0.3},         # placed gear never springs by age (u2 §2):
+        "set line": {"life": 6, "base": 0.5, "line": 1, "holds": 6, "meet": 0.15}}          # `life` is read only by an older world's sets
 # a wicker trap's heads: 20 (was 6), so its 10 kg (WATER_WORKS trap hold, D2-258) binds and not the count
 for _k, _v in SETS.items():
     METHODS[_k]["set"] = dict(_v)
@@ -152,6 +167,7 @@ LOAD_NAMES = {"moles": ("moles", "mole", "molehills"), "leatherjackets": ("leath
               "ladybirds": ("grubs", "the grubs", "spiny grubs", "grey grubs", "ladybirds", "ladybird grubs")}   # a pest's names (§7)
 
 TAKE_METHODS = [m for m, r in METHODS.items() if (r.get("yield") or {}).get("kind") in ("wild_take", "wild_den")]
+NOT_BY_LAND = ("gill net", "set line")          # the wave's set gear (u2 §4.4, §4.5): known as seeded or learned (D2-268), not by the land
 OLD_NAMES = {a: m for m, r in METHODS.items() for a in r["aliases"]}           # for one release: recorded runs and older worlds
 
 
@@ -295,7 +311,7 @@ def seed_by_land(w) -> None:
         else:
             methods = set()
             here_covers = {p["cover"] for p in w.s["parcels"].values() if p.get("node") == node}
-            for meth in TAKE_METHODS:                                          # a method its land holds: one of its main kinds
+            for meth in [x for x in TAKE_METHODS if x not in NOT_BY_LAND]:     # a method its land holds: one of its main kinds
                 tk = TECHNIQUES[meth]["yield"].get("takes") or {}              # (at least half its largest weight) about, and
                 top = max(tk.values(), default=0.0)                            # ground of the kind it is worked on at the village
                 main = {k for k, x in tk.items() if float(x) >= 0.5 * float(top) and float(x) > 0}

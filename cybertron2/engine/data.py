@@ -125,6 +125,9 @@ ITEMS.update({
     "hot-smoked meat": {"weight": 1, "food": 0.9, "spoil": 0.0, "decay": "dried meat"},
     "hard-cured meat": {"weight": 1, "food": 0.67, "spoil": 0.0, "decay": "dried meat"},                       # bacon, ham
 })
+# The wave's made gear and its materials in real kilograms (u3 §2.2, §10; the gear unit, engine/gear.py, D2-244)
+from cybertron2.engine import gear as _GEAR                             # noqa: E402
+_GEAR.register_items(ITEMS)
 # The keeping curve (D2-289; basis §3; wave1 §2.2): a food that keeps d real days well kept loses about a quarter by
 # nights = min(d, 2) + (d - 2) / 11.4, so its base rate a night (`spoil`: well kept, D2-272) is 1 - 0.75 ** (1 / nights). The real
 # days are wave1 §2.2's. A lot in the smoke or at the hearth spoils at 0.12 out of it, 0.03 in it (DECAY smoke 0.25; basis §3).
@@ -188,6 +191,11 @@ CROPS = {
     "legumes": {"pack": "farming", "seed": "beans", "gives": "beans", "share": 0.17, "growth": {"spring": 0.8, "summer": 1.0, "autumn": 0.4, "winter": 0.0},
                 "green": "green beans", "yield": 0.6, "hardy": False, "takes": 0.0, "restores": [0.40, 1.0], "straw": False,
                 "names": ["beans", "peas", "legumes"]},
+    # flax (u3 §1.2, §1.3; D2-264): sown in a strip of a holding (up to a quarter of a plot, B35) or as a whole plot's crop; pulled,
+    # not reaped (engine/strips.py); its straw (kg) for retting and spinning, its seed rippled from it
+    "flax": {"pack": "farming", "seed": "flax seed", "gives": "flax", "share": 0.27, "growth": {"spring": 1.0, "summer": 1.0, "autumn": 0.5, "winter": 0.0},
+             "green": "flax", "yield": 5.5, "hardy": False, "takes": 0.15, "restores": [0.10, 1.0], "straw": False, "strip": 0.25,
+             "seed_kg": 11, "names": ["flax", "linseed"]},
 }
 CROP_OF = {n: c for c, d in CROPS.items() for n in d["names"]}
 TURF = ["meadow", "pasture", "heath", "scrub"]     # ground with turf: seed thrown on it takes poorly (D4-106: PHYSICS farming turf)
@@ -235,6 +243,11 @@ RESOURCES = {
     "grass": {"renewal": "fast", "low": "{name} is grazed bare", "high": "good grass on {name}"},             # D4-45
     # fish in a water parcel (D4-103; water_and_preservation.md §3): resident fish regrow; a river's run comes in its seasons
     "fish": {"pack": "water", "renewal": "periodic", "low": "the water at {name} is quiet: few fish rising", "high": "fish rising all along {name}"},
+    # the shallows of a water or fen parcel (u1 §2; D2-317): small fish, crayfish and yellow eels at the edge, one stock a parcel; its
+    # signs are its own rows (signs.WILD)
+    "shallows": {"pack": "water", "renewal": "shallows", "low": "", "high": ""},
+    # wild willow's rods on fen and bank parcels (u3 §1.1): cut as withies
+    "willow": {"renewal": "willow", "low": "", "high": ""},
     "salt": {"pack": "water", "renewal": "endless", "low": "", "high": "white crusts of salt drying in the pans at {name}"},   # a saltmarsh's pans
     "brine": {"pack": "water", "renewal": "endless", "low": "", "high": "a spring at {name} whose water tastes of salt"},   # a brine spring (brief 5 §4b)
     "dung": {"renewal": "accrues", "low": "", "high": "dung lies thick where the beasts have been on {name}"},
@@ -501,13 +514,21 @@ TECHNIQUES = {
             "aliases": ["cut young growth", "coppice", "coppicing", "cut brush", "cut poles"],
             "at": {"covers": ["forest", "scrub"]}, "draws": "young", "yield": {"kind": "fixed", "base": 5.0},
             "tools": {"crude": 1.0, "copper": 1.5}, "wear": 0.5, "units": 1, "gives": "firewood", "tags": ["timber", "woodland", "fuel"]},
-    # withies (u3 §1.1; D2-288: a 10 kg bundle of green rods): cut from young growth in a wood or scrub, 1.5 bundles a unit with a
-    # crude tool, by the season; a stage-1 bridge for the weir's withies (D2-302) until u3's willow stock and withy bed (stage 2)
+    # withies (u3 §1.1; D2-288: a 10 kg bundle of green rods): cut from the wild willow on the fen and the banks (wild/willow.py), or
+    # where none grows from young growth in a wood or scrub (crooked rods), 1.5 bundles a unit with a crude tool, by the season
     "cut withies": {"verb": "gather", "label": "cutting withies (green rods for wattle and wicker)", "basic": True,
-                    "aliases": ["withies", "cut rods", "cut wands", "cut osiers"], "at": {"covers": ["forest", "scrub"]}, "draws": "young",
+                    "aliases": ["withies", "cut rods", "cut wands", "cut osiers", "cut willow"],
+                    "at": {"covers": ["fen", "meadow", "pasture", "forest", "scrub"]}, "draws": "willow", "draws_else": "young",
                     "yield": {"kind": "fixed", "base": 1.5}, "tools": {"bare": 0.33, "crude": 1.0, "copper": 1.33}, "wear": 0.25,
                     "by_season": {"winter": 1.0, "autumn": 0.8, "spring": 0.5, "summer": 0.3}, "units": 1, "gives": "withies",
                     "tags": ["timber", "woodland", "craft"]},
+    # wild cord (u3 §1.2): nettle and bast twisted by hand, no stock; 0.04 kg a unit in summer and autumn, less in spring, little in
+    # winter (stems retted standing)
+    "twist cord": {"verb": "gather", "label": "twisting cord from nettle and bast", "basic": True,
+                   "aliases": ["cord", "make cord", "twist nettles", "nettle cord", "gather nettles for cord"],
+                   "at": {"covers": ["built", "forest", "scrub", "fen", "field", "meadow", "pasture"]}, "yield": {"kind": "fixed", "base": 0.04},
+                   "by_season": {"summer": 1.0, "autumn": 1.0, "spring": 0.75, "winter": 0.25}, "units": 1, "gives": "cord",
+                   "tags": ["craft"]},
     "mine": {"verb": "gather", "label": "mining copper ore", "aliases": ["mining", "dig ore"], "at": {"covers": ["rock"]}, "draws": "seam",
              "yield": {"kind": "fixed", "base": 2.0}, "tools": {"crude": 1.0, "copper": 1.5}, "wear": 2, "units": 2, "gives": "copper ore",
              "tags": ["mining", "craft"], "trade": "miner"},
@@ -618,6 +639,12 @@ TECHNIQUES = {
              "draws": "herd", "yield": {"kind": "milk", "cows": 6, "each": 3.0}, "units": 1, "gives": "milk", "tags": ["food", "animals"],
              "trade": "herder"},   # a medieval cow's 3 kg a day (Trow-Smith), six cows a unit by hand (D2-260; 02zzu): 4.6 food a unit
                                    # at milk's 0.256 a kg (was 3 cows at 1.6 milk; a cow's day 0.77 food, 0.8 on the old values)
+    "pull flax": {"pack": "farming", "verb": "work", "label": "pulling flax by the root", "aliases": ["pull the flax", "pulling flax", "flax"],
+                  "basic": True, "at": {"covers": ["field", "meadow", "pasture"]}, "draws": "crop", "yield": {"kind": "pull"}, "units": 1,
+                  "gives": "flax", "tags": ["farming", "craft"]},
+    "dig a strip": {"pack": "farming", "verb": "work", "label": "digging a strip of turf for flax", "aliases": ["dig a flax strip", "dig strip"],
+                    "basic": True, "at": {"covers": ["meadow", "pasture"]}, "yield": {"kind": "dig_strip"}, "units": 1, "gives": "",
+                    "tags": ["farming"]},
     "slaughter": {"verb": "work", "label": "slaughtering a beast", "aliases": ["butcher", "kill a cow"], "basic": True,
                   "at": {"covers": ["pasture", "meadow", "field", "heath", "moor", "fen", "saltmarsh", "built"]}, "draws": "herd",
                   # meat a head (D2-258; 02zzu): live weight x dressing x a medieval carcass's edible share 0.70 (Albarella), at 1,500
@@ -667,14 +694,18 @@ TECHNIQUES = {
                    "at": {"fittings": ["oven"]}, "inputs": {"flour": 100, "firewood": 3}, "units": 4, "gives": {"bread": 100},   # a firing (D4-97; u3 §2.4)
                    "tags": ["food", "cooking"]},
     # Fishing and salt (D4-103's acceptance test; water_and_preservation.md §4, §5: the gear ladder's first rungs; calibrate)
-    "fish by hand": {"pack": "water", "verb": "gather", "label": "fishing by hand (tickling trout, groping under the banks)", "basic": True,
-                     "aliases": ["fish", "fishing", "tickle trout", "catch fish"], "at": {"covers": ["water"]}, "draws": "fish",
-                     "yield": {"kind": "stock", "base": 0.6, "spread": 0.5}, "units": 1, "gives": "fish", "tags": ["food", "fishing"],
-                     "run": True},                                     # and from a run in the water, where one is (brief 5 §3a.2)
-    "angle": {"pack": "water", "verb": "gather", "label": "fishing with a rod and line", "basic": True,
-              "aliases": ["angling", "rod fishing", "fish with a rod", "fish with rod and line"], "at": {"covers": ["water"]},
-              "draws": "fish", "yield": {"kind": "stock", "base": 1.5, "spread": 0.5}, "uses": {"fishing rod": 1}, "units": 1, "gives": "fish",
-              "tags": ["food", "fishing"]},
+    # the edge (u2 §4.6; u1 §2): the shallows of a water or fen parcel by hand (a dip net helps at a run's pinch), and a run passing
+    # by the parcel's pinch (u1 §5); "fish" and "fishing" are no longer its aliases (a bare "fish" names no one way)
+    "fish by hand": {"pack": "water", "verb": "gather", "label": "fishing at the edge (by hand, with a spear or a hand net)", "basic": True,
+                     "aliases": ["fishing by hand", "hand fishing", "the edge", "fish the edge", "fish the shallows", "tickle trout",
+                                 "catch fish by hand", "fishing at the edge"], "at": {"covers": ["water", "fen"]}, "draws": "shallows",
+                     "draws_else": "fish", "yield": {"kind": "stock", "base": 0.6, "spread": 0.5}, "units": 1, "gives": "fish",
+                     "tags": ["food", "fishing"], "run": True, "ice": "edge", "run_gear": {"dip net": 3.0}},
+    # line fishing (u2 §4.5): the open water's fish with a hand line, a rod raising it x1.5 (today's 1.5 a unit is the rod's)
+    "angle": {"pack": "water", "verb": "gather", "label": "fishing with a line (a hand line, or a rod and line)", "basic": True,
+              "aliases": ["angling", "rod fishing", "fish with a rod", "fish with rod and line", "line fishing", "fish with a line"],
+              "at": {"covers": ["water"]}, "draws": "fish", "yield": {"kind": "stock", "base": 1.0, "spread": 0.5},
+              "gear_x": {"fishing rod": 1.5, "hand line": 1.0}, "units": 1, "gives": "fish", "tags": ["food", "fishing"], "ice": "bank"},
     "fishing rod": {"pack": "water", "verb": "make", "label": "making a fishing rod and line", "aliases": ["make a rod", "rod and line"], "basic": True,
                     "inputs": {"withies": 0.1}, "units": 1, "gives": {"fishing rod": 1}, "tags": ["fishing", "craft"]},   # a 1 kg pole (u3 §2.3)
     "salt pan": {"pack": "water", "verb": "gather", "label": "making salt in the saltmarsh pans (dried by the sun)", "basic": True,
@@ -730,6 +761,9 @@ TECHNIQUES = {
     "wooden plough": {"pack": "farming", "verb": "make", "label": "making a plough", "aliases": ["make a plough"], "inputs": {"timber": 1.2, "copper": 1},
                       "tools": {"crude": 1.0, "copper": 1.0}, "units": 4, "gives": {"wooden plough": 1}, "tags": ["farming", "craft"],
                       "trade": "carpenter"},
+    "dress and spin": {"verb": "make", "label": "dressing and spinning flax into cord", "aliases": ["spin flax", "spin", "spinning"],
+                       "basic": False, "at": {"building": True}, "inputs": {"retted flax": 1}, "units": 1, "gives": {"cord": 0.125},
+                       "batch": True, "tags": ["craft"]},                     # u3 §1.2: 8 units a kg; the retting is U4's (stage 3)
     "bedroll": {"verb": "make", "label": "making a bedroll", "aliases": ["blanket roll"], "basic": True, "inputs": {"hide": 0.5}, "units": 1,
                 "gives": {"bedroll": 1}, "tags": ["travel"]},                                                           # D2-68
     "tent": {"verb": "make", "label": "making a tent", "aliases": [], "basic": True, "inputs": {"hide": 1.5, "timber": 0.4}, "units": 2,
@@ -1279,6 +1313,8 @@ LIFE = {
 }
 
 
+# The wave's recipes in kg at real hours (u3 §2.2), and mending (u3 §3.4): the gear unit's (engine/gear.py)
+_GEAR.register_techniques(TECHNIQUES)
 # The wild methods (D2-204, cybertron2/wild/methods.py): general rows whose take tables are generated from the kinds' traits.
 from cybertron2.wild import methods as _WILD_METHODS                   # noqa: E402
 _WILD_METHODS.build(TECHNIQUES, RESOURCES)

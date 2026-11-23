@@ -81,21 +81,34 @@ def test_the_flag_selects_the_policy_and_a_run_without_it_keeps_the_smoke_test_b
     assert R.bot_plan(w, "Oliver", kind="evening")["actions"] == []                     # nothing at the hearth
 
 
+def _sets(acts):
+    return [a for a in acts if a.get("do") == "set" and a.get("what") == "wicker traps"]
+
+
 def test_traps_are_set_on_the_rivers_water_in_a_run_window_and_not_before(arms):
-    w = at_day(arms["low"], 0)                                                          # summer: no run due
-    assert not any(a.get("what") == "trap in water" for a in plan(w, fisher(w)))
-    w = at_day(arms["low"], AUTUMN)
+    w = at_day(arms["medium"], 0)                                                       # summer: no run due
+    assert not _sets(plan(w, fisher(w)))
+    w = at_day(arms["medium"], AUTUMN)
     assert "eel" in BLV.run_season(BLV.Day(w, fisher(w), BLV.setting(w)))
-    acts = [a for a in plan(w, fisher(w)) if a.get("what") == "trap in water"]
-    assert 0 < len(acts) <= min(BLV.setting(w)["traps"], w.units_for(fisher(w)))          # as many as her units allow
+    acts = _sets(plan(w, fisher(w)))                                                    # laid from the hands, up to six a
+    assert 0 < sum(int(a["qty"]) for a in acts) <= 6                                    # setting (u2 §3; fault 12)
     river = {w.s["parcels"][p]["name"] for p in w.s["parcels"] if WL._river_parcel(w, p)}
     assert {a["at"] for a in acts} <= river
     res = play(w, household(w, "Brook"))
-    assert sum("You set traps in the water" in r for r in res[fisher(w)]) == len(acts)
+    assert sum(r.startswith("You set") and "wicker traps" in r for r in res[fisher(w)]) == len(acts)
+
+
+def test_a_fisher_short_of_traps_makes_them_and_cuts_withies_for_them(arms):
+    w = at_day(arms["low"], AUTUMN)                                                     # the low arm holds no traps (D2-330 C5)
+    acts = plan(w, fisher(w))
+    assert any(a.get("do") == "gather" and a.get("what") == "cut withies" for a in acts) or \
+        any(a.get("do") == "make" and a.get("what") == "wicker trap" for a in acts)
 
 
 def test_the_morning_lifts_ones_own_traps_into_the_store_and_not_a_neighbours(arms):
-    w = at_day(arms["low"], AUTUMN)
+    w = at_day(arms["medium"], AUTUMN)
+    for n in (fisher(w, "Brook"), fisher(w, "Shepherd")):                               # two settings each (u2 §3: six a setting)
+        w.apply("create", "Eelmouth", dst=w.hands(n), item="wicker trap", qty=6.0, why="test")
     play(w, w.agents_acting())
     w = at_day(w, AUTUMN + 1)
     me, other = fisher(w, "Brook"), fisher(w, "Shepherd")
@@ -107,7 +120,7 @@ def test_the_morning_lifts_ones_own_traps_into_the_store_and_not_a_neighbours(ar
     for cid in theirs[:1]:
         TH.remember(w, me, cid, "found")                                           # seen, but not hers to lift
     acts = plan(w, me)
-    assert [a["do"] for a in acts[:2]] == ["take", "take"]
+    assert [a["do"] for a in acts[:2]] == ["tend", "tend"]                              # tend (D2-294), one act a set
     home = w.s["buildings"][w.dwellings(me)[0]]
     before = w.goods(home["stock"]).get("fish", 0.0)
     play(w, [me])
@@ -257,11 +270,11 @@ def test_the_weirs_traps_are_lifted_once_by_its_household(arms):
 
 
 def test_traps_are_set_whatever_the_river_unless_the_knob_says(arms, monkeypatch):
-    w = at_day(arms["low"], AUTUMN)
+    w = at_day(arms["medium"], AUTUMN)
     monkeypatch.setattr(BLV, "river_tonight", lambda day: "flood")
-    assert any(a.get("what") == "trap in water" for m in w.agents_acting() for a in plan(w, m))
+    assert any(_sets(plan(w, m)) for m in w.agents_acting())
     w.spec = dict(w.spec, bot_livelihood={"policy": "runs", "trap_stop": ["spate", "flood"]})
-    assert not any(a.get("what") == "trap in water" for m in w.agents_acting() for a in plan(w, m))
+    assert not any(_sets(plan(w, m)) for m in w.agents_acting())
 
 
 def test_wild_food_is_gathered_only_where_it_is_worth_the_work(arms):
@@ -284,6 +297,6 @@ def test_a_week_of_the_run_played_by_the_engine(tmp_path):
     import json
     R.run(os.path.join(DIR, "runs_medium.yaml"), str(tmp_path), days=7, workers=1, bots="runs")
     lines = [r for x in map(json.loads, open(tmp_path / "turns.jsonl")) for r in x["results"]]
-    assert sum("You set traps in the water" in r for r in lines) >= 10
-    assert any(r.startswith("You took") and "from your wicker traps" in r for r in lines)
-    assert not any("from the wicker traps" in r for r in lines)                       # nobody's traps but one's own
+    assert sum(r.startswith("You set") and "wicker traps" in r for r in lines) >= 6      # each setter's seeded six, laid
+    assert any(r.startswith("You tended your wicker traps") for r in lines)
+    assert not any("not yours to take from" in r for r in lines)                       # nobody's traps but one's own

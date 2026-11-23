@@ -353,6 +353,12 @@ nodes:
           river: river
           down: out
           water_body: reach:Eelmouth
+        state:
+          fish:
+            K: 8.8
+            S: 8.8
+            r: 0.3
+            renewal: fast
       Eelmouth_9:
         name: Eelmouth Field
         cover: scrub
@@ -3291,11 +3297,15 @@ agents:
       boil salt:
         level: known
         skill: 1.6
+      wicker trap:
+        level: known
+        skill: 1.6
     aware_of:
       hunt: you have seen the Marshs at it all your life
     holdings:
       crude tool: 1
       coin: 2
+      wicker trap: 6
     concerns:
     - farming
     - building
@@ -3352,9 +3362,13 @@ agents:
       boil salt:
         level: known
         skill: 1.6
+      wicker trap:
+        level: known
+        skill: 1.6
     aware_of:
       hunt: you have seen the Marshs at it all your life
-    holdings: {}
+    holdings:
+      wicker trap: 6
     concerns:
     - farming
     - building
@@ -3411,11 +3425,15 @@ agents:
       boil salt:
         level: known
         skill: 1.6
+      wicker trap:
+        level: known
+        skill: 1.6
     aware_of:
       medium room: you have seen the Brooks at it all your life
     holdings:
       crude tool: 1
       coin: 2
+      wicker trap: 6
     concerns:
     - farming
     - food
@@ -3475,9 +3493,17 @@ agents:
       boil salt:
         level: known
         skill: 1.6
+      wicker trap:
+        level: known
+        skill: 1.6
+      gill net:
+        level: known
+        skill: 1.6
     aware_of:
       medium room: you have seen the Brooks at it all your life
-    holdings: {}
+    holdings:
+      wicker trap: 6
+      gill net: 1
     concerns:
     - farming
     - food
@@ -3533,12 +3559,16 @@ agents:
       boil salt:
         level: known
         skill: 1.6
+      wicker trap:
+        level: known
+        skill: 1.6
     aware_of:
       medium room: you have seen the Brooks at it all your life
       hunt: you have seen the Marshs at it all your life
     holdings:
       crude tool: 1
       coin: 2
+      wicker trap: 6
     concerns:
     - farming
     - food
@@ -3593,10 +3623,14 @@ agents:
       boil salt:
         level: known
         skill: 1.6
+      wicker trap:
+        level: known
+        skill: 1.6
     aware_of:
       medium room: you have seen the Brooks at it all your life
       hunt: you have seen the Marshs at it all your life
-    holdings: {}
+    holdings:
+      wicker trap: 6
     concerns:
     - farming
     - food

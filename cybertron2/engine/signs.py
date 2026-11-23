@@ -689,6 +689,22 @@ WILD = [
          text=lambda x: f"the fish at {x.nm} have been fished hard: fewer of them, and slow to come back"),
     dict(when=lambda x: x.r("fish") is not None and x.r("fish") > 0.75, sense="sight", p=0.06, tags=["food", "fishing"],
          land=("fish", "good"), text=lambda x: f"fish rising all along {x.nm}"),
+    # the shallows (u1 §2; D2-317: their own signs for their own creatures): small fish, loach and crayfish at the margins, read from
+    # the parcel's own stock; changes, not standing facts (guides/senses.md): stripped, coming back, the ice on the margins
+    dict(when=lambda x: _bare(x, "shallows"), own=0.7, sense="sight", tags=["food", "fishing"], eye=True, land=("shallows", "bare"),
+         text=lambda x: f"nothing darts in the margins of {x.nm}: the stones are turned, the minnows and crayfish gone from the shallows"),
+    dict(when=lambda x: x.r("shallows") is not None and x.r("shallows") < 0.35 and not _bare(x, "shallows"), own=0.5, sense="sight",
+         tags=["food", "fishing"], eye=True, land=("shallows", "thin"),
+         text=lambda x: f"the shallows of {x.nm} are fished over: turned stones and stirred mud, a few minnows darting"),
+    dict(when=lambda x: x.r("shallows") is not None and x.r("shallows") < 0.35 and x.season in ("spring", "summer"), own=0.3,
+         sense="sight", tags=["food", "fishing"], knack="fish by hand", land=("shallows", "thin"),
+         text=lambda x: f"fry are back in the warm margins of {x.nm}, too small yet to be worth the taking"),
+    dict(when=lambda x: x.r("shallows") is not None and x.r("shallows") < 0.35 and x.season == "winter", own=0.3, sense="sight",
+         tags=["food", "fishing"], knack="fish by hand", land=("shallows", "thin"),
+         text=lambda x: f"the cold margins of {x.nm} are still: what was taken from the shallows will not come back till spring"),
+    dict(when=lambda x: x.ice in ("edges", "over") and x.r("shallows") is not None, own=1.2, sense="sight", tags=["fishing", "season"],
+         text=lambda x: (f"ice along the margins of {x.nm}: nothing stirs in the shallows" if x.ice == "edges" else
+                         f"{x.nm} is frozen over from bank to bank")),
     dict(when=lambda x: _bare(x, "wood"), sense="sight", p=0.6, tags=["timber"], eye=True, land=("timber", "bare"),
          text=lambda x: f"no standing timber left in {x.nm}: stumps and brush only"),
     dict(when=lambda x: x.r("wood") is not None and x.r("wood") < 0.35 and not _bare(x, "wood"), sense="sight", p=lambda x: _thin(x.r("wood")),
@@ -1025,6 +1041,7 @@ def context(here, pid, h=None, holder=_MAIN):
     g = p["res"].get("grass")
     x.grass = g["S"] / g["K"] if g and g["K"] > 0 else None
     x.r = lambda key: (p["res"][key]["S"] / p["res"][key]["K"]) if key in p["res"] and p["res"][key]["K"] > 0 else None
+    x.ice = here.ice(pid) if p["cover"] in ("water", "fen") and "shallows" in p["res"] else "open"   # the shallows' signs (u1 §4)
     x.dung = (p["res"].get("dung") or {}).get("S", 0.0)
     return x
 
