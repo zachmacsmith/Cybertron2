@@ -59,6 +59,7 @@ started
 - under it: [[D2-333 Zach's go for live run 1|Zach's go for live run 1 (D2-333)]] (live)
 - under it: [[D2-334 Live run 1 and the overnight work stop if the weekly usage window…|Live run 1 and the overnight work stop if the weekly usage window… (D2-334)]] (live)
 - under it: [[D2-335 Live run 1 is a set of small runs, not one big run|Live run 1 is a set of small runs, not one big run (D2-335)]] (live)
+- under it: [[D2-336 A shelf life is stated one of two ways|A shelf life is stated one of two ways (D2-336)]] (live)
 - under it: [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]] (open)
 - under it: [[L-160 Kept lines over a life|Kept lines over a life (L-160)]] (open)
 - under it: [[L-161 Ice and the freeze|Ice and the freeze (L-161)]] (open)
@@ -73,7 +74,7 @@ started
 - under it: [[L-170 Fowling the methods|Fowling: the methods (L-170)]] (open)
 - under it: [[L-171 Tanning and leather|Tanning and leather (L-171)]] (open)
 - under it: [[L-172 Limestone and lime|Limestone and lime (L-172)]] (open)
-- under it: [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]] (open)
+- under it: [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]] (closed)
 - under it: [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]] (done)
 - under it: [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]] (done)
 - under it: [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]] (done)
@@ -118,9 +119,9 @@ started
 - [[D2-333 Zach's go for live run 1|Zach's go for live run 1 (D2-333)]]
 - [[D2-334 Live run 1 and the overnight work stop if the weekly usage window…|Live run 1 and the overnight work stop if the weekly usage window… (D2-334)]]
 - [[D2-335 Live run 1 is a set of small runs, not one big run|Live run 1 is a set of small runs, not one big run (D2-335)]]
+- [[D2-336 A shelf life is stated one of two ways|A shelf life is stated one of two ways (D2-336)]]
 - [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]]
 - [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]]
 - [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]]
-- [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]]
-- … and 33 more
+- … and 34 more
 - *and 3 index or audit notes*

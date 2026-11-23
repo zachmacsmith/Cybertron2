@@ -21,6 +21,7 @@ conversation (22 Nov: "A quarter lost by then (Recommended)")
 
 
 ## Mentioned by
+- [[D2-336 A shelf life is stated one of two ways|A shelf life is stated one of two ways (D2-336)]]
 - [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]
