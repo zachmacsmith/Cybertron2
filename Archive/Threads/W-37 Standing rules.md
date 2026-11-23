@@ -24,7 +24,7 @@ proposal written.
 
 
 ## Linked
-- under it: [[D2-274 One book of standing rules per household and per person covers both…|One book of standing rules per household and per person covers both… (D2-274)]] (replaced)
+- under it: [[D2-274 One book of standing rules per household and per person covers both…|One book of standing rules per household and per person covers both… (D2-274)]] (live)
 - under it: [[L-142 Fallbacks as a person's standing setting|Fallbacks as a person's standing setting (L-142)]] (open)
 - under it: [[L-151 A household as a shared book of standing rules people subscribe to|A household as a shared book of standing rules people subscribe to (L-151)]] (open)
 - under it: [[L-152 Travel folded into the standing rules|Travel folded into the standing rules (L-152)]] (open)

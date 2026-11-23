@@ -21,7 +21,6 @@ conversation (23 Nov: "How are the rules written? surely they are told the gramm
 
 ## Linked
 - parent: [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]]
-- replaces: [[D2-274 One book of standing rules per household and per person covers both…|One book of standing rules per household and per person covers both… (D2-274)]]
 
 
 ## Mentioned by
