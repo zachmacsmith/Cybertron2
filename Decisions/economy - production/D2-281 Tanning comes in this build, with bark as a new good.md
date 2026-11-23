@@ -21,6 +21,7 @@ conversation (22 Nov: "conversation (22 Nov)")
 
 
 ## Mentioned by
+- [[D2-327 Tanning and leather are deferred from this wave until the rest is…|Tanning and leather are deferred from this wave until the rest is… (D2-327)]]
 - [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]]
 - [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]

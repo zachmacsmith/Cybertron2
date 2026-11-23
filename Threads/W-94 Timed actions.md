@@ -24,4 +24,5 @@ started
 - [[L-107 Tallow's real uses|Tallow's real uses (L-107)]]
 - [[L-157 Rest days, with health, fatigue and illness|Rest days, with health, fatigue and illness (L-157)]]
 - [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]]
+- [[L-166 Herding for as long as it takes|Herding for as long as it takes (L-166)]]
 - *and 1 index or audit notes*

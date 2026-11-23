@@ -29,4 +29,7 @@ started
 - [[L-155 Vermin fleshed out properly, with disease and sanitation|Vermin fleshed out properly, with disease and sanitation (L-155)]]
 - [[L-157 Rest days, with health, fatigue and illness|Rest days, with health, fatigue and illness (L-157)]]
 - [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]]
+- [[L-166 Herding for as long as it takes|Herding for as long as it takes (L-166)]]
+- [[L-168 Strength as an aptitude|Strength as an aptitude (L-168)]]
+- [[L-169 Shoes, with clothing in general, and their health effects|Shoes, with clothing in general, and their health effects (L-169)]]
 - *and 1 index or audit notes*

@@ -1,6 +1,15 @@
 # All deferred
 
 ## Open
+- [[L-171 Tanning and leather|Tanning and leather (L-171)]] (open)
+- [[L-170 Fowling the methods|Fowling: the methods (L-170)]] (open)
+- [[L-169 Shoes, with clothing in general, and their health effects|Shoes, with clothing in general, and their health effects (L-169)]] (open)
+- [[L-168 Strength as an aptitude|Strength as an aptitude (L-168)]] (open)
+- [[L-167 The dead hedge and cheaper crop protection, thought through|The dead hedge and cheaper crop protection, thought through (L-167)]] (open)
+- [[L-166 Herding for as long as it takes|Herding for as long as it takes (L-166)]] (open)
+- [[L-165 Unfinished things generalised|Unfinished things generalised (L-165)]] (open)
+- [[L-164 Builders' craftsmanship|Builders' craftsmanship (L-164)]] (open)
+- [[L-163 Fishing through ice|Fishing through ice (L-163)]] (open)
 - [[L-162 Scale mismatches to check together|Scale mismatches to check together (L-162)]] (open)
 - [[L-161 Ice and the freeze|Ice and the freeze (L-161)]] (open)
 - [[L-160 Kept lines over a life|Kept lines over a life (L-160)]] (open)

@@ -19,3 +19,7 @@ Zach, 23 Nov: 'ice should be flagged to revisit when we next flesh out weather a
 - parent: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
 - bears on: [[W-49 Environment systems|Environment systems (W-49)]]
 - bears on: [[W-51 Testing the weather across dry, cold, coastal and mountain worlds…|Testing the weather across dry, cold, coastal and mountain worlds… (W-51)]]
+
+
+## Mentioned by
+- [[L-163 Fishing through ice|Fishing through ice (L-163)]]

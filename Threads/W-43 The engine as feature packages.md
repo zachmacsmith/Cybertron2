@@ -34,5 +34,6 @@ inventory written (five files); the proposal revised into a design specification
 - [[L-126 The wildlife's core mechanisms not built|The wildlife's core mechanisms not built (L-126)]]
 - [[L-128 'salt pan' names two things|'salt pan' names two things (L-128)]]
 - [[L-133 The engine as feature packages postponed, kept in mind|The engine as feature packages: postponed, kept in mind (L-133)]]
+- [[L-165 Unfinished things generalised|Unfinished things generalised (L-165)]]
 - [[The engine as a small core and feature packages design specification|The engine as a small core and feature packages: design specification]]
 - *and 2 index or audit notes*

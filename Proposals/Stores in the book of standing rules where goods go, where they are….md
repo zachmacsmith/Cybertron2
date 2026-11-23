@@ -1,7 +1,7 @@
 ---
 id: docs/cybertron2/proposals/store_rules.md
 kind: proposal
-updated: "2026-11-22"
+updated: "2026-11-23"
 ---
 # Stores in the book of standing rules: where goods go, where they are kept, what is taken first, what is moved
 
@@ -64,6 +64,7 @@ is deferred ([[L-156 The locked chest and its key|L-156]]).
 
 ## History
 
+- 23 Nov 2026: accepted in part: [[D2-319 Rules can be changed at any time by a free act and also in the…|D2-319]] (Rules can be changed at any time by a free act and also in the evening talk unde).
 - 22 Nov 2026: accepted in part: [[D2-301 A person's own rules and standing fallback come before every…|D2-301]] (A person's own rules and standing fallback come before every household chore, ke).
 - 22 Nov 2026: accepted in part: [[D2-296 Fallbacks are assignable by the household's standing rules|D2-296]] (Fallbacks are assignable by the household's standing rules: the head divides the).
 - 22 Nov 2026: accepted in part: [[D2-282 Standing rules support conditional actions conditioned on state…|D2-282]] (Standing rules support conditional actions conditioned on state changes: a rule ).

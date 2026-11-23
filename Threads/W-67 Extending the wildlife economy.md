@@ -79,7 +79,7 @@ started
 - [[L-149 Gulls and other coastal birds, with the coast|Gulls and other coastal birds, with the coast (L-149)]]
 - [[L-155 Vermin fleshed out properly, with disease and sanitation|Vermin fleshed out properly, with disease and sanitation (L-155)]]
 - [[L-159 Poles and cordwood as their own good|Poles and cordwood as their own good (L-159)]]
-- [[C-11 Weapons specconflictcombat.md and D2-46 name a blade, but…|Weapons: spec/conflict/combat.md and D2-46 name a "blade", but… (C-11)]]
-- [[Subsistence worlds can each livelihood keep a village on its own|Subsistence worlds: can each livelihood keep a village on its own?]]
-- … and 3 more
+- [[L-167 The dead hedge and cheaper crop protection, thought through|The dead hedge and cheaper crop protection, thought through (L-167)]]
+- [[L-170 Fowling the methods|Fowling: the methods (L-170)]]
+- … and 6 more
 - *and 1 index or audit notes*

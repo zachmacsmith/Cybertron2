@@ -39,10 +39,31 @@ started
 - under it: [[D2-313 For this wave|For this wave (D2-313)]] (live)
 - under it: [[D2-314 The eleven act shapes are the verb list|The eleven act shapes are the verb list (D2-314)]] (live)
 - under it: [[D2-315 The wild's rates still on the day clock are left as calibrated for…|The wild's rates still on the day clock are left as calibrated for… (D2-315)]] (live)
+- under it: [[D2-316 A runs world means a water-only world|A runs world means a water-only world (D2-316)]] (live)
+- under it: [[D2-317 The shallows are one stock per parcel, distinct from the resident…|The shallows are one stock per parcel, distinct from the resident… (D2-317)]] (live)
+- under it: [[D2-318 Fowling is postponed from this wave to the hunting build-out|Fowling is postponed from this wave to the hunting build-out (D2-318)]] (live)
+- under it: [[D2-319 Rules can be changed at any time by a free act and also in the…|Rules can be changed at any time by a free act and also in the… (D2-319)]] (live)
+- under it: [[D2-320 Crop protection stays as it is for now|Crop protection stays as it is for now (D2-320)]] (live)
+- under it: [[D2-321 Builders' craftsmanship setting a building's soundness is postponed|Builders' craftsmanship setting a building's soundness is postponed (D2-321)]] (live)
+- under it: [[D2-322 Fences can be built along one border between two parcels, in sections…|Fences can be built along one border between two parcels, in sections… (D2-322)]] (live)
+- under it: [[D2-323 A cleared plot becomes a field part of its parcel, sown while the…|A cleared plot becomes a field part of its parcel, sown while the… (D2-323)]] (live)
+- under it: [[D2-324 A build act costs what is left of the work|A build act costs what is left of the work (D2-324)]] (live)
+- under it: [[D2-325 Some river signs are for anyone|Some river signs are for anyone (D2-325)]] (live)
+- under it: [[D2-326 Practice alone can bring a person to known in any craft|Practice alone can bring a person to known in any craft (D2-326)]] (live)
+- under it: [[D2-327 Tanning and leather are deferred from this wave until the rest is…|Tanning and leather are deferred from this wave until the rest is… (D2-327)]] (live)
 - under it: [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]] (open)
 - under it: [[L-160 Kept lines over a life|Kept lines over a life (L-160)]] (open)
 - under it: [[L-161 Ice and the freeze|Ice and the freeze (L-161)]] (open)
 - under it: [[L-162 Scale mismatches to check together|Scale mismatches to check together (L-162)]] (open)
+- under it: [[L-163 Fishing through ice|Fishing through ice (L-163)]] (open)
+- under it: [[L-164 Builders' craftsmanship|Builders' craftsmanship (L-164)]] (open)
+- under it: [[L-165 Unfinished things generalised|Unfinished things generalised (L-165)]] (open)
+- under it: [[L-166 Herding for as long as it takes|Herding for as long as it takes (L-166)]] (open)
+- under it: [[L-167 The dead hedge and cheaper crop protection, thought through|The dead hedge and cheaper crop protection, thought through (L-167)]] (open)
+- under it: [[L-168 Strength as an aptitude|Strength as an aptitude (L-168)]] (open)
+- under it: [[L-169 Shoes, with clothing in general, and their health effects|Shoes, with clothing in general, and their health effects (L-169)]] (open)
+- under it: [[L-170 Fowling the methods|Fowling: the methods (L-170)]] (open)
+- under it: [[L-171 Tanning and leather|Tanning and leather (L-171)]] (open)
 
 
 ## Mentioned by
@@ -62,22 +83,29 @@ started
 - [[D2-313 For this wave|For this wave (D2-313)]]
 - [[D2-314 The eleven act shapes are the verb list|The eleven act shapes are the verb list (D2-314)]]
 - [[D2-315 The wild's rates still on the day clock are left as calibrated for…|The wild's rates still on the day clock are left as calibrated for… (D2-315)]]
+- [[D2-316 A runs world means a water-only world|A runs world means a water-only world (D2-316)]]
+- [[D2-317 The shallows are one stock per parcel, distinct from the resident…|The shallows are one stock per parcel, distinct from the resident… (D2-317)]]
+- [[D2-318 Fowling is postponed from this wave to the hunting build-out|Fowling is postponed from this wave to the hunting build-out (D2-318)]]
+- [[D2-319 Rules can be changed at any time by a free act and also in the…|Rules can be changed at any time by a free act and also in the… (D2-319)]]
+- [[D2-320 Crop protection stays as it is for now|Crop protection stays as it is for now (D2-320)]]
+- [[D2-321 Builders' craftsmanship setting a building's soundness is postponed|Builders' craftsmanship setting a building's soundness is postponed (D2-321)]]
+- [[D2-322 Fences can be built along one border between two parcels, in sections…|Fences can be built along one border between two parcels, in sections… (D2-322)]]
+- [[D2-323 A cleared plot becomes a field part of its parcel, sown while the…|A cleared plot becomes a field part of its parcel, sown while the… (D2-323)]]
+- [[D2-324 A build act costs what is left of the work|A build act costs what is left of the work (D2-324)]]
+- [[D2-325 Some river signs are for anyone|Some river signs are for anyone (D2-325)]]
+- [[D2-326 Practice alone can bring a person to known in any craft|Practice alone can bring a person to known in any craft (D2-326)]]
+- [[D2-327 Tanning and leather are deferred from this wave until the rest is…|Tanning and leather are deferred from this wave until the rest is… (D2-327)]]
 - [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]]
 - [[L-160 Kept lines over a life|Kept lines over a life (L-160)]]
 - [[L-161 Ice and the freeze|Ice and the freeze (L-161)]]
 - [[L-162 Scale mismatches to check together|Scale mismatches to check together (L-162)]]
-- [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
-- [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]
-- [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
-- [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
-- [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
-- [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
-- [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
-- [[U5. Stores and containers a space and what is in it, each removing…|U5. Stores and containers: a space and what is in it, each removing…]]
-- [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
-- [[U7 works and the building clock|U7: works and the building clock]]
-- [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
-- [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
-- [[The catch basis checked against real eel fisheries can a household…|The catch basis checked against real eel fisheries: can a household…]]
-- [[spec_agents_brief.md|spec_agents_brief.md]]
+- [[L-163 Fishing through ice|Fishing through ice (L-163)]]
+- [[L-164 Builders' craftsmanship|Builders' craftsmanship (L-164)]]
+- [[L-165 Unfinished things generalised|Unfinished things generalised (L-165)]]
+- [[L-166 Herding for as long as it takes|Herding for as long as it takes (L-166)]]
+- [[L-167 The dead hedge and cheaper crop protection, thought through|The dead hedge and cheaper crop protection, thought through (L-167)]]
+- [[L-168 Strength as an aptitude|Strength as an aptitude (L-168)]]
+- [[L-169 Shoes, with clothing in general, and their health effects|Shoes, with clothing in general, and their health effects (L-169)]]
+- [[L-170 Fowling the methods|Fowling: the methods (L-170)]]
+- … and 15 more
 - *and 1 index or audit notes*

@@ -1,7 +1,7 @@
 ---
 id: docs/cybertron2/proposals/hunt_fish_materials.md
 kind: proposal
-updated: "2026-11-22"
+updated: "2026-11-23"
 ---
 # Fishing, hunting and their materials: the network
 
@@ -569,6 +569,10 @@ coast ([[L-149 Gulls and other coastal birds, with the coast|L-149]]); environme
 
 ## History
 
+- 23 Nov 2026: accepted in part: [[D2-327 Tanning and leather are deferred from this wave until the rest is…|D2-327]] (Tanning and leather are deferred from this wave until the rest is built and the ).
+- 23 Nov 2026: accepted in part: [[D2-318 Fowling is postponed from this wave to the hunting build-out|D2-318]] (Fowling is postponed from this wave to the hunting build-out (the woods and the ).
+- 23 Nov 2026: accepted in part: [[D2-317 The shallows are one stock per parcel, distinct from the resident…|D2-317]] (The shallows are one stock per parcel, distinct from the resident fish of a whol).
+- 23 Nov 2026: accepted in part: [[D2-316 A runs world means a water-only world|D2-316]] (A runs world means a water-only world: small resident and shallows stocks are al).
 - 22 Nov 2026: accepted in part: [[D2-297 The catch stays as calibrated|D2-297]] (The catch stays as calibrated (traps true to a real night, the weir's share, the).
 - 22 Nov 2026: accepted in part: [[D2-295 Each depth of cure is its own good|D2-295]] (Each depth of cure is its own good (hot-smoked, smoked, hard-cured, salt and dri).
 - 22 Nov 2026: accepted in part: [[D2-294 Going back to one's set gear is the act 'tend'|D2-294]] (Going back to one's set gear is the act 'tend' (checking, emptying, re-setting, ).
