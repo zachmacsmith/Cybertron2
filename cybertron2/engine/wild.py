@@ -2885,8 +2885,8 @@ def _stops(b, kind, w=None) -> float:
     """What a building's beasts leave of a kind's take from its store (u5 §5; STORE_STOPS, storage §6 from Elton 1953, est.): a cat
     mice x0.4 and rats x0.7, a barn owl in its hole mice x0.6 and rats x0.9, a dog rats x0.5 and mice x0.8 (what the granary and the
     bins stop is in their exposure now, so it is not counted twice)."""
-    from cybertron2.wild.kinds import STORE_STOPS
-    col = "mice" if "mice" in str(kind) else "rats" if "rat" in str(kind) else "other"
+    from cybertron2.wild.kinds import STORE_KIND, STORE_STOPS
+    col = STORE_KIND.get(kind, "other")
     keep = 1.0
     for f_, row in STORE_STOPS.items():
         if row.get("in_store"):                                            # a cat: a beast in the store, not a fitting (D2-206)
@@ -2981,7 +2981,7 @@ def _stores(w, node, share) -> float:
     factor with it) x what its beasts stop x a plague; at the doors x1.5, dry goods too. Each building keeps where it lost most, for
     its signs (`vermin`)."""
     from cybertron2.engine import stores as SR
-    from cybertron2.wild.kinds import LEFT_OUT
+    from cybertron2.wild.kinds import LEFT_OUT, STORE_KIND
     shares = share if isinstance(share, dict) else {None: share}
     total = 0.0
     plague = 1.0 + sum(float(r.get("stores", 0.0)) for name, r in REGIMES_ON(w, node).items())
@@ -2992,7 +2992,7 @@ def _stores(w, node, share) -> float:
         lost_by = {}
         racks = {r: c for r, c in _racks_in(w, node) if c["in"] == bid}
         for item, q, kind in SR.vermin_portions(w, bid):
-            f = sum(sh * SR.exposure(kind, k) * _stops(dict(b, _id=bid), k, w) for k, sh in shares.items())
+            f = sum(sh * SR.exposure(kind, STORE_KIND.get(k, "other")) * _stops(dict(b, _id=bid), k, w) for k, sh in shares.items())
             take = round(float(q) * f * plague, 4)
             if take <= 1e-6:
                 continue

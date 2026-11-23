@@ -118,9 +118,11 @@ def test_doors_and_fences_stop_what_their_gaps_stop(generated):  # noqa: F811
 
 
 def test_stores_keep_out_what_their_fittings_stop():
+    # u5 §5 (W-99): what a granary keeps off is its space's exposure now (stores.SPACES), not a stop, so it is not counted twice
+    from cybertron2.engine import stores as SR
     gran = {"fittings": {"granary": 1}}
     dog = {"fittings": {"dog": 1}}
-    assert WL._stops(gran, "rats") < 1.0 and WL._stops(gran, "wild boar") == 1.0
+    assert WL._stops(gran, "rats") == 1.0 and SR.exposure("granary", "rats") < SR.exposure("floor", "rats")
     assert WL._stops(dog, "rats") < 1.0 and WL._stops(dog, "wild boar") < 1.0
 
 

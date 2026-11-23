@@ -23,9 +23,8 @@ def test_every_edible_good_has_a_source_or_a_route():
     made |= {v["item"] for v in PL.PLANTS.values()}      # the wild plant kinds' goods, gathered (D2-200; not yet in the capacity model)
     for t in FD.FOOD_TECHS:
         made |= set(TECHNIQUES[t]["gives"])
-    made |= {d["rack"]["into"] for d in TECHNIQUES.values() if d.get("rack")}   # dried on a rack after its nights (brief 4 §5)
-    made |= {"hot-smoked fish", "hot-smoked meat", "hard-cured fish", "hard-cured meat"}   # the cured depths as goods (D2-295, W-97):
-    # their processes are u4's, stage 3 of the wave (docs/cybertron2/proposals/w73_design/build_plan.md)
+    from cybertron2.engine import process as PROC                    # what the processing containers give after their nights, and
+    made |= {x[1] for r in PROC.PROCESSES.values() for x in r["in"].values()}   # salting and the hot smoke (u4 §2, stage 3, W-99)
     assert set(FD.EDIBLE) <= made, f"edible goods no source makes: {set(FD.EDIBLE) - made}"
 
 

@@ -78,13 +78,14 @@ def test_a_small_room_takes_four_beds_a_hearth_and_bins_and_refuses_a_hand_mill_
 
 
 def test_a_farm_households_200_grain_does_not_fit_a_cottages_bins_and_fits_a_family_house_with_a_granary_floor():
-    w = world(grain=200)
+    # u5 (W-99): the bins hold 300 kg of dry goods (D2-279's real capacities; storage.md §3), so the cottage's grain is 400
+    w = world(grain=400)
     house(w, "Cottage", ["small room"], fittings={"beds": 4, "hearth": 1, "bins": 1})
-    r = do(w, "Ivo", do="move", item="grain", qty=200, to="store", at="Cottage")
-    assert r.startswith("You put 200 grain into Cottage (60 grain went into Cottage; it is full (the bins hold 60 food; 0 are in them; "
+    r = do(w, "Ivo", do="move", item="grain", qty=400, to="store", at="Cottage")
+    assert r.startswith("You put 400 grain into Cottage (300 grain went into Cottage; it is full (the bins hold 300 kg; 0 are in them; "
                         "no floor is free"), r                                  # the rest at its door (D4-94)
     door = [c for c in w.s["containers"].values() if c.get("kind") == "pile" and c.get("door")]
-    assert len(door) == 1 and abs(door[0]["goods"]["grain"] - 140) < 1e-6                 # the rest at the door, the house's (D4-89)
+    assert len(door) == 1 and abs(door[0]["goods"]["grain"] - 100) < 1e-6                 # the rest at the door, the house's (D4-89)
     w2 = world(grain=200)
     w2.s["parcels"]["cb_green"]["size"] = 2
     house(w2, "Family House", ["medium room"], structure="timber", fittings={"beds": 4, "hearth": 1, "bins": 1, "granary": 1})
@@ -95,8 +96,8 @@ def test_what_does_not_fit_is_left_outside_the_door():
     w = world()
     bid = house(w, "Cottage", ["small room"], fittings={"beds": 4, "hearth": 1, "bins": 1})
     stock = w.s["buildings"][bid]["stock"]
-    w.apply("create", "combe", dst=stock, item="grain", qty=100, why="harvest")
-    assert abs(w.goods(stock)["grain"] - 60) < 1e-6
+    w.apply("create", "combe", dst=stock, item="grain", qty=340, why="harvest")          # the bins' 300 kg (u5, W-99)
+    assert abs(w.goods(stock)["grain"] - 300) < 1e-6
     pile = [c for c in w.s["containers"].values() if c.get("door") == bid]
     assert pile and abs(pile[0]["goods"]["grain"] - 40) < 1e-6
 

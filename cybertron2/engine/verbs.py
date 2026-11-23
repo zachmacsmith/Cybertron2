@@ -153,7 +153,7 @@ def cost(here, a) -> int:
             q = None if a.get("qty") in (None, "all") else _qty(a.get("qty"), None)
         except Refused:
             q = None
-        return PROC.take_down_units(here._w, bid, it, q)
+        return here.take_down_units(bid, it, q)
     n = verb_units(here.p, v)
     if n is not None:
         return n
@@ -203,7 +203,7 @@ def _load_units(here, tech, a) -> int:
     units = max(1, int(_qty(a.get("qty"), 1)))
     item, need = next(iter(t["inputs"].items()))
     kg = min(float(need) * units, KN.available(here, item))
-    rooms = [PROC.room(here._w, x[1], t["process"]) for x in KN.where(here, tech) if x[0] == "building"]
+    rooms = [here.lot_room(x[1], t["process"]) for x in KN.where(here, tech) if x[0] == "building"]
     if rooms:
         kg = min(kg, max(rooms))
     return max(1, min(units, int(math.ceil(kg / float(need) - 1e-9))))
@@ -483,8 +483,7 @@ def _consume(here, needs: dict, mult=1.0, extra=None):
             if left <= 1e-9:
                 break
             have = here.contents(cid).get(item, 0.0)                         # hands, a store, or what lies at its door (D4-89),
-            if here._w.s.get("books"):                                         # less what the book holds back (u6 §4 moment 3)
-                have = max(0.0, have - here.held_back(cid, item))
+            have = max(0.0, have - here.held_back(cid, item))                # less what the book holds back (u6 §4 moment 3)
             take = min(have, left)
             if take > 1e-9:
                 here.apply("destroy", src=cid, item=item, qty=take, why="used")
@@ -977,7 +976,7 @@ def _load_lot(here, mind, a, party, tech, lvl):
     have = KN.available(here, item, extra=extra)
     kg = min(float(need) * units, have, float(a.get("_kg") or 1e12))         # a chore's load: as much as its spare work (u6 §5)
     if site[0] == "building":
-        kg = min(kg, PROC.room(here._w, site[1], proc))
+        kg = min(kg, here.lot_room(site[1], proc))
     if kg < float(BATCH_LEAST) - 1e-9:
         raise Refused(f"there is no {item} to hand" + _short_note(here, item) if have <= 1e-9 else
                       f"there is too little to make a batch ({round(have, 2):g} {item}): it takes at least {BATCH_LEAST:g}")
@@ -999,7 +998,7 @@ def _load_lot(here, mind, a, party, tech, lvl):
         return words[:-1] + f" ({used_units} unit{'s' if used_units != 1 else ''})." + (f" (You are now {rose} at it.)" if rose else "")
     cid, head, tail = PROC.load(here, tech, site[1], gives, site[2])
     rest = max(0.0, min(float(need) * units, have) - kg)
-    more = (f" The rest ({_n1(rest)} kg) is still to hand: the racks have no more room." if rest > 1e-6 and PROC.room(here._w, site[1], proc) <= 1e-6 else "")
+    more = (f" The rest ({_n1(rest)} kg) is still to hand: the racks have no more room." if rest > 1e-6 and here.lot_room(site[1], proc) <= 1e-6 else "")
     work = (f"{round(kg / float(need), 2):g} units of work" if a.get("_kg") else f"{used_units} unit{'s' if used_units != 1 else ''}")
     return (f"You hung {head} ({work}){tail}" + _drew_words(here, start) + more
             + (f" (You are now {rose} at it.)" if rose else ""))

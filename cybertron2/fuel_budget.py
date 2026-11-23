@@ -32,7 +32,7 @@ import json
 import os
 import sys
 
-from cybertron2.engine import agreements as AG, keeping as KP, labour as LA, night as N, run as R, verbs as V
+from cybertron2.engine import agreements as AG, labour as LA, night as N, process as PROC, run as R, verbs as V
 from cybertron2.engine.data import FITTINGS, ITEMS, TECHNIQUES
 from cybertron2.engine.here import Here, Mind
 from cybertron2.engine.world import World, load_spec
@@ -97,7 +97,7 @@ def _woods(w) -> dict:
 def _house_fuel(w, bid) -> float:
     """A house's fuel, in firewood, in its store and its woodpile at the door."""
     b = w.s["buildings"][bid]
-    cids = [b["stock"]] + [cid for cid, c in w.s["containers"].items() if c.get("kind") == "pile" and c.get("door") == bid and not c.get("rack")]
+    cids = [b["stock"]] + [cid for cid, c in w.s["containers"].items() if c.get("kind") == "pile" and c.get("door") == bid and not c.get("lot")]
     return sum(_fw(i, w.goods(cid).get(i, 0.0)) for cid in cids for i in FUELS)
 
 
@@ -199,11 +199,13 @@ def run(world_path, days=None, smokehouse=None, salter=None, glut=40.0, every=8,
                 made["gluts"] += 1
             name = w.s["buildings"][bid]["name"]
             acts = []
-            if KP.active_racks(w, bid):
+            if PROC.lots(w, bid, done=True):                                   # a done lot taken down (u4: it stays on the racks)
+                acts.append({"do": "move", "item": f"smoked {catch}", **{"from": name}})
+            if PROC.lots(w, bid, done=False):
                 acts.append({"do": "work", "what": "tend the smoke"})
             elif w.goods(w.hands(who)).get(catch, 0.0) > 1e-6:
                 acts.append({"do": "make", "what": f"smoke {catch}"})
-            if KP.fuel_nights(w, bid) < 4:
+            if PROC.fuel_have(w, bid) < 4 * max(PROC.fuel_tonight(w, bid), 1.0):
                 acts += [{"do": "gather", "what": "firewood"}, {"do": "gather", "what": "firewood"},
                          {"do": "move", "item": "firewood", "to": "store", "at": name}]
             plans[who] = acts + plans[who]
@@ -246,9 +248,9 @@ def run(world_path, days=None, smokehouse=None, salter=None, glut=40.0, every=8,
             made["fire_out"] += 0 if x["lit"] else 1
         made["fires"] += len(rec.get("smokehouse_fires") or [])
         for c in w.s["containers"].values():
-            rk = c.get("rack") or {}
-            if rk.get("smokehouse") and rk.get("done") == d:
-                made["smoked"] += float(rk.get("dried", 0.0))
+            lt = c.get("lot") or {}
+            if lt.get("process") == "keeping smoke" and lt.get("done") == d:
+                made["smoked"] += float(lt.get("got") or 0.0)
         log.append({"day": d, **{k: round(v, 2) for k, v in burned.items()}})
     for actor, xs in pending.items():                                          # a make that failed: its goods spoilt
         for item, q in xs:

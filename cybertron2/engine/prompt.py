@@ -541,8 +541,8 @@ def system_prompt(here, mind) -> str:
                   f"{p['shelter']['unsheltered']:g} meals, {p['shelter_cold']['unsheltered']:g} in the cold, unless someone takes you in; "
                   f"on foot you carry at most {p['carry']['foot']:g} weight, more with a pack, more again with a cart on a road with a track; {weights_text()}):"] + _map_lines(mind)
     from cybertron2.wild import methods as MT
-    from cybertron2.engine import book as BK                                    # the rules block (u6 §9; D2-274's visibility)
-    lines += [""] + BK.rules_block(here._w, here.name)
+                                                                                # the rules block (u6 §9; D2-274's visibility)
+    lines += [""] + here.rules_block()
     lines += ["", "What you know how to do:"] + KN.crafts_lines(mind, here) + [x for x in [MT.familiar_line(mind)] if x]   # D2-204 §7
     reply = REPLY_LINES
     if int((p.get("labour") or {}).get("over_units", 0) or 0):
@@ -671,16 +671,8 @@ def _house_lines(here, mind) -> list:
                       f"{int(heat // max(_heat(here, b), 1e-9))} such nights" + (" with the woodpile at its door" if pile > 1e-9 else "")
                       if fire else "") + ").")                                   # fuel shown as food is (D4-97; OPEN L-60)
         out += [_cap(x) + "." for x in house_known(here, bid)]                   # known without a roll (brief 4c §6.4)
-    if here._w.s.get("books"):                                                  # what waits by the book, what was missed (u6 §9)
-        from cybertron2.engine import book as BK
-        out += BK.morning_lines(here._w, here.name) + BK.day_lines(here._w, _last_book(here), here.name)
+    out += here.book_lines()                                                    # what waits by the book, what was missed (u6 §9)
     return out
-
-
-def _last_book(here) -> dict:
-    """Yesterday's record of the book (u6 §9): kept in the night's log."""
-    log = here._w.s.get("log") or []
-    return (log[-1].get("book") if log else None) or {}
 
 
 def written_lines(here, mind) -> str:

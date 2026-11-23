@@ -161,7 +161,9 @@ def _scenario(monkeypatch):
 
 # the scenario's digest on the code before brief 4c (8158674, ecology-hunt3): 16 raids in 12 nights by boar, wolves (two cows, a calf,
 # the dead), the fox, deer, stoats and the flock. Regenerate it on that commit if the ecology's data change (kinds.py, methods.py).
-BEFORE_4C = "bc8de82f08183a2b"   # re-pinned 23 Nov on the wave's basis (W-97: the keeping curve's base rates, D2-289, and the goods
+BEFORE_4C = "2439a37296fc4718"   # re-pinned 23 Nov on stage 3 (W-99: u5's vermin by exposure, the exposed store the ecology draws,
+                                  # the stores' penalties by portion, u4's lots on the racks); was "bc8de82f08183a2b",
+                                  # re-pinned 23 Nov on the wave's basis (W-97: the keeping curve's base rates, D2-289, and the goods
                                   # in kg, D2-288, change what the stores and the dead hold); was "9c6148c378e7257d":
                                   # re-pinned 20 Nov on the food values (D2-258, W-64): the eel's recruitment, the kills' and the
                                   # slaughtered beasts' meat and the hens' laying change what the dead and the hen-houses hold; with

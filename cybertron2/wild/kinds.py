@@ -815,6 +815,7 @@ GAPS = {"structure": {"wattle": "small", "timber": "small", "stone": "tiny", "ca
 # What stops which kinds in a store (brief 2 §4): each fitting cuts the share the kinds it stops eat there (keep), by their body
 # what a store's beasts leave of a vermin kind's take, by kind (u5 §5; storage §6 from Elton 1953, est.): the granary and the bins are
 # in the stores' exposures now (stores.SPACES, CONTAINERS), so they are not counted twice
+STORE_KIND = {"rats": "rats", "voles and mice": "mice"}     # which column of the stores' exposures and stops a kind reads (u5 §2, §5)
 STORE_STOPS = {"dog": {"keep": {"rats": 0.5, "mice": 0.8, "other": 0.5}},
                "cat": {"keep": {"rats": 0.7, "mice": 0.4, "other": 1.0}, "in_store": True},
                "owl": {"keep": {"rats": 0.9, "mice": 0.6, "other": 1.0}, "occupied": "nests"}}

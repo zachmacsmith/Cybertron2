@@ -43,9 +43,9 @@ def test_take_by_a_tag_in_a_phrase_or_by_the_door_named_and_a_clear_refusal():
 
 def test_move_into_a_full_store_leaves_the_rest_at_its_door():
     w = _w()
-    w.apply("create", "wenbridge", dst=w.hands("Tom"), item="grain", qty=40, why="test")
-    out = do(w, "Tom", do="move", item="grain", qty=40, to="store", at="the Hearne hut")
-    assert out.startswith("You put 40 grain into the Hearne hut") and "the rest lies outside its door" in out
+    w.apply("create", "wenbridge", dst=w.hands("Tom"), item="grain", qty=900, why="test")     # u5's real capacities (W-99)
+    out = do(w, "Tom", do="move", item="grain", qty=900, to="store", at="the Hearne hut")
+    assert out.startswith("You put 900 grain into the Hearne hut") and "the rest lies outside its door" in out, out
     assert any(c.get("door") == "hearne_hut" and c["goods"].get("grain", 0) > 0 for c in w.s["containers"].values())
 
 

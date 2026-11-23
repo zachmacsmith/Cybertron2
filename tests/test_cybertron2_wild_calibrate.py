@@ -167,7 +167,9 @@ def test_mending_raises_a_level(generated):  # noqa: F811
 
 # ---------------------------------------------------------------------------------------------------------------- stage C
 def test_bins_cut_store_losses_by_about_a_third():
-    assert abs(float(WK.STORE_STOPS["bins"]["keep"]) - 0.7) < 1e-9
+    # u5 §2, §5 (W-99): what the bins keep off is their exposure now (rats 0.5, mice 0.4 against loose 1.0), not a stop
+    from cybertron2.engine import stores as SR
+    assert SR.exposure("bins", "rats") == 0.5 and SR.exposure("bins", "mice") == 0.4 and "bins" not in WK.STORE_STOPS
 
 
 def test_food_left_out_draws_the_fox_and_rats(generated):  # noqa: F811
@@ -230,14 +232,12 @@ def test_meat_hung_on_a_rack_dries_in_three_nights_and_salt_meat_needs_salt(gene
     h = Here(w, "P0")
     w.s["containers"][h.hands]["goods"]["meat"] = 8.0
     r = _do(w, "P0", {"do": "make", "what": "dry meat", "at": w.s["buildings"][bid]["name"]})
-    racks = [cid for cid, c in w.s["containers"].items() if c.get("rack")]
+    racks = [cid for cid, c in w.s["containers"].items() if c.get("lot")]
     assert racks and "rack" in r, r
     c = w.s["containers"][racks[0]]
     assert abs(c["goods"].get("drying meat", 0) - 8.0) < 1e-6
-    for _ in range(3):
-        N.night(w)
-        w.s["day"] += 1
-    stored = w.s["containers"][w.s["buildings"][bid]["stock"]]["goods"].get("dried meat", 0)   # dry after its third night, and
-    assert c["rack"]["dried"] > 2.5 and c["goods"].get("drying meat", 0) < 1e-6              # into the store (brief 4c §6.3):
-    assert stored + c["goods"].get("dried meat", 0) > 2.5                                     # about 4 from 8, less what spoiled
+    N.night(w)                                                                # u4 §2 (W-99): a night of the hearth's fire; nobody
+    w.s["day"] += 1                                                           # slept by it here, so it was cold and the night does
+    assert c["lot"]["had"] == 0 and c["lot"]["out"] == 0 and c["lot"]["done"] is None   # not count: the meat waits as fresh
+    assert 8.0 * (1 - 0.2) < c["goods"]["drying meat"] < 8.0
     assert TECHNIQUES["salt meat"]["inputs"] == {"meat": 40, "salt": 5}                   # 40 kg a unit, salt 1 to 8 (D2-283, W-97)

@@ -3,7 +3,7 @@ from the same stores. The smokehouse on the valley world (meat) and the river wo
 Saltwell's brine spring) and on a world with a spring placed by hand."""
 import copy
 
-from cybertron2.engine import agreements as AG, keeping as KP, knowledge as KN, night as N, prompt as PR, run as R, verbs as V
+from cybertron2.engine import agreements as AG, knowledge as KN, night as N, process as PROC, prompt as PR, run as R, verbs as V
 from cybertron2.engine.data import ITEMS, PHYSICS, TECHNIQUES
 from cybertron2.engine.here import Here, Mind
 from cybertron2.engine.world import World, load_spec
@@ -40,7 +40,8 @@ def store(w, bid):
 
 
 def racks(w, bid=None):
-    return {cid: c for cid, c in w.s["containers"].items() if c.get("rack") and (bid is None or c.get("in") == bid)}
+    """The lots in the processing containers (u4, W-99: a lot record in place of the rack)."""
+    return PROC.lots(w, bid)
 
 
 def night(w):
@@ -79,26 +80,26 @@ RP = river_places()
 
 # ---------------------------------------------------------------------- §4a.6: a glut kept, and not
 def test_a_40_meat_glut_loses_under_10_percent_through_a_smokehouse():
+    # u4 (W-99): hung at 30 kg a unit, a keeping smoke of 1 night of fire (D2-284), fuel 0.15 bundles a kg; done, it stays on the racks
     w = world(VALLEY, smokehouse(), calendar=AUTUMN)
     fed(w, "Reed")
     hand(w, "Odo", meat=40)
-    r = do(w, "Odo", do="make", what="smoke meat")
-    assert "40 smoking meat" in r and "smoke racks in the Smokehouse for 3 nights of fire" in r, r
-    for d in range(3):
-        if d:
-            assert "You tended the fire" in do(w, "Odo", do="work", what="tend the smoke")
-        night(w)
-    smoked = store(w, "smokehouse").get("smoked meat", 0.0)
+    r = do(w, "Odo", do="make", what="smoke meat", qty=2)
+    assert "40 kg of meat on the smoke racks in the Smokehouse (2 units): a keeping smoke, done after 1 night of fire" in r, r
+    night(w)
+    smoked = sum(c["goods"].get("smoked meat", 0.0) for c in racks(w).values())
     assert 18.0 < smoked < 20.0, smoked                                        # half the weight, less the smoked rate's loss
     assert 1 - smoked / 20.0 < 0.10
-    assert abs(store(w, "smokehouse").get("firewood", 0) - 7.0) < 1e-6        # 1 firewood a night of fire
+    assert abs(store(w, "smokehouse").get("firewood", 0) - 4.0) < 1e-6        # 6 bundles for 40 kg
 
 
 def test_a_40_meat_glut_loses_far_more_with_only_the_hearth_rack():
     w = world(VALLEY, calendar=AUTUMN)
     fed(w, "Reed")
     store(w, "reed_house").update({"meat": 40.0})
-    for d in range(12):                                                        # a batch of 8 every 3 nights, as the rack allows
+    for d in range(12):                                                        # a batch of 8 a night, as the rack allows, taken down
+        if PROC.lots(w, "reed_house", done=True):                              # each morning (u4: a done lot stays on its rack)
+            do(w, "Odo", do="move", item="dried meat", **{"from": "Reed House"})
         if KN.available(Here(w, "Odo"), "meat") > 1e-6:
             do(w, "Odo", do="make", what="dry meat")
         night(w)
@@ -114,7 +115,7 @@ def test_the_hearth_rack_holds_a_batch_at_a_time():
     hand(w, "Odo", meat=20)
     do(w, "Odo", do="make", what="dry meat")
     r = do(w, "Odo", do="make", what="dry meat")
-    assert r.startswith("Refused") and "full" in r and "another batch goes up when this one is done" in r, r
+    assert r.startswith("Refused") and "the rack at its fire in Reed House is full: 8 kg of meat drying, done tomorrow" in r, r   # u4
     assert abs(w.goods(w.hands("Odo"))["meat"] - 12.0) < 1e-9
 
 
@@ -122,12 +123,9 @@ def test_fish_smoke_in_the_river_world_and_keep_four_times_as_long_as_dried_meat
     w = world(RIVER, smokehouse(parcel=RP["house_parcel"], household=RP["household"]), calendar=AUTUMN)
     fed(w, RP["household"])
     hand(w, RP["salter"], fish=40)
-    assert "40 smoking fish" in do(w, RP["salter"], do="make", what="smoke fish")
-    for d in range(3):
-        if d:
-            do(w, RP["salter"], do="work", what="tend the smoke")
-        night(w)
-    assert 1 - store(w, "smokehouse").get("smoked fish", 0.0) / 20.0 < 0.10
+    assert "40 kg of fish on the smoke racks" in do(w, RP["salter"], do="make", what="smoke fish", qty=2)
+    night(w)
+    assert 1 - sum(c["goods"].get("smoked fish", 0.0) for c in racks(w).values()) / 20.0 < 0.10
     # the keeping curve (D2-289, W-97): a keeping smoke about a season (9.7 nights), dried a year and more (41.3): dried keeps longer
     assert ITEMS["dried meat"]["spoil"] < ITEMS["smoked fish"]["spoil"] < ITEMS["fish"]["spoil"]
     assert ITEMS["smoked meat"]["spoil"] == ITEMS["smoked fish"]["spoil"]
@@ -135,26 +133,23 @@ def test_fish_smoke_in_the_river_world_and_keep_four_times_as_long_as_dried_meat
 
 
 def test_a_day_untended_pauses_the_batch_and_it_spoils_that_night_at_the_open_rate():
+    # u4 §5 (W-99): a night not tended is not counted, and the lot keeps at its input's base that night (fresh meat's)
     w = world(VALLEY, smokehouse(), calendar=AUTUMN)
     fed(w, "Reed")
-    hand(w, "Odo", meat=40)
+    hand(w, "Odo", meat=30)
     do(w, "Odo", do="make", what="smoke meat")
     (cid, c), = racks(w).items()
-    night(w)                                                                  # night 0: lit
-    a = w.s["containers"][cid]["goods"]["smoking meat"]
-    night(w)                                                                  # night 1: nobody tended it: out
-    rk = w.s["containers"][cid]["rack"]
+    w.s["buildings"]["smokehouse"]["smoke"]["tended"] = -1                    # nobody tended it after all: out
+    night(w)
+    lt = w.s["containers"][cid]["lot"]
     b = w.s["containers"][cid]["goods"]["smoking meat"]
-    assert rk["lit"] == 1 and rk.get("out") == 1
-    assert (a - b) / a > 3 * (40 - a) / 40                                     # the open rate, well above the smoked
+    assert lt["had"] == 0 and lt.get("out") == 0 and lt.get("done") is None
+    assert abs((30 - b) / 30 - ITEMS["meat"]["spoil"]) < 1e-6                  # fresh meat's base, well above the smoke's 0.03
     kn = PR.house_known(Here(w, "Odo"), "smokehouse")
     assert any("the fire died last night" in x for x in kn), kn
     do(w, "Odo", do="work", what="tend the smoke")
     night(w)
-    assert not w.s["containers"][cid]["rack"].get("done")                      # three nights gone, two of fire: not done
-    do(w, "Odo", do="work", what="tend the smoke")
-    night(w)
-    assert w.s["containers"][cid]["rack"].get("done") == 3
+    assert w.s["containers"][cid]["lot"].get("done") == 1
 
 
 def test_no_firewood_and_the_fire_dies_however_tended():
@@ -162,12 +157,12 @@ def test_no_firewood_and_the_fire_dies_however_tended():
     fed(w, "Reed")
     hand(w, "Odo", meat=10)
     r = do(w, "Odo", do="make", what="smoke meat")
-    assert "no firewood" in r, r
+    assert "no firewood in it or at its door" in r, r
     rec = night(w)
     assert rec["smokehouse"]["smokehouse"]["lit"] is False
-    hand(w, "Odo", firewood=3)                                                # tending with fuel in hand puts a night's worth in
+    hand(w, "Odo", firewood=3)                                                # tending with fuel in hand puts in what is short
     r = do(w, "Odo", do="work", what="tend the smoke")
-    assert "you put 1 firewood from your hands on it" in r, r
+    assert "you put 1.5 firewood from your hands on it" in r, r                # 10 kg at 0.15 bundles a kg (u4 §4)
     assert night(w)["smokehouse"]["smokehouse"]["lit"] is True
 
 
@@ -182,11 +177,13 @@ def _lit_nights(structure, nights=300):
         for cid in list(racks(w)):
             w.s["containers"].pop(cid)
         pile = w.apply("new_thing", "millbrook", node="millbrook", parcel="mb_green", kind="pile", by="Odo", **{"in": "smokehouse"},
-                       rack={"day": d, "nights": 3, "into": "smoked meat", "ratio": 0.5, "smoke": True, "smokehouse": True, "lit": 0})
+                       lot={"process": "keeping smoke", "item": "meat", "wait": "smoking meat", "into": "smoked meat", "ratio": 0.5,
+                            "by": "Odo", "household": "Reed", "day": d, "kg": 10.0, "nights": 1, "had": 0, "out": None, "done": None,
+                            "got": None})
         w.s["containers"][pile]["goods"]["smoking meat"] = 10.0
         w.s["buildings"]["smokehouse"]["smoke"] = {"tended": d}
         rec = {}
-        KP.night(w, rec)
+        PROC.night(w, rec)
         caught += len(rec.get("smokehouse_fires", []))
     return caught
 
@@ -205,13 +202,13 @@ def test_a_fire_in_the_smokehouse_burns_its_batch_and_reaches_only_buildings_on_
     hit = set()
     for d in range(12):                                                      # the spread is keyed by the night: try several
         w.s["day"] = d
-        hit |= set(KP.catch(w, "smokehouse")["burnt"])
+        hit |= set(PROC.catch(w, "smokehouse")["burnt"])
     assert "smokehouse" in hit and hit & {"reed_house", "hale_house"}
-    assert sum(c["goods"].get("smoking meat", 0) for c in racks(w).values()) < 40 * 0.2
+    assert sum(c["goods"].get("smoking meat", 0) for c in racks(w).values()) < 30 * 0.2
     w2 = world(VALLEY, smokehouse(parcel="long_field"), calendar=AUTUMN)   # apart, on another parcel: no house reached
     for d in range(12):
         w2.s["day"] = d
-        assert KP.catch(w2, "smokehouse")["burnt"] == ["smokehouse"]
+        assert PROC.catch(w2, "smokehouse")["burnt"] == ["smokehouse"]
 
 
 # ---------------------------------------------------------------------- §4a.5: whose, by agreement, robbed, seen
@@ -228,20 +225,19 @@ def test_a_neighbour_pays_to_use_it_and_its_batch_waits_for_them():
     r = do(w, "Hamo", do="accept", offer=oid)
     assert not r.startswith("Refused"), r
     assert abs(w.goods(w.hands("Hamo"))["meat"] - 36.0) < 1e-9
-    assert "may now use the Smokehouse" in do(w, "Odo", do="grant", to="Hamo", at="the Smokehouse", days=4)
-    r = do(w, "Hamo", do="make", what="smoke meat")
-    assert "36 smoking meat" in r, r
+    assert "may now use the Smokehouse" in do(w, "Hamo" if False else "Odo", do="grant", to="Hamo", at="the Smokehouse", days=4)
+    r = do(w, "Hamo", do="make", what="smoke meat", qty=2)
+    assert "36 kg of meat on the smoke racks" in r, r
     kn = PR.house_known(Here(w, "Odo"), "smokehouse")
-    assert any("36 meat curing" in x and "hung by Hamo" in x for x in kn), kn
-    for d in range(3):
-        if d:
-            do(w, "Hamo", do="work", what="tend the smoke")
-        night(w)
-    assert store(w, "smokehouse").get("smoked meat", 0) < 1e-9               # not into the Reeds' store: it waits for Hamo
+    assert any("36 kg of meat smoking" in x and "hung by Hamo" in x for x in kn), kn
+    night(w)
+    assert store(w, "smokehouse").get("smoked meat", 0) < 1e-9               # a done lot stays on the racks (u4 Departure 6)
     kn = PR.house_known(Here(w, "Odo"), "smokehouse")
-    assert any("for Hamo, who hung it" in x for x in kn), kn
-    r = do(w, "Hamo", do="take", item="smoked meat", qty=17, **{"from": "the Smokehouse"})
-    assert not r.startswith("Refused") and w.goods(w.hands("Hamo")).get("smoked meat", 0) > 16.0, r   # 0.03 a night in the smoke (W-97)
+    assert any("waiting to be taken down (hung by Hamo)" in x for x in kn), kn
+    r = do(w, "Odo", do="move", item="smoked meat", **{"from": "the Smokehouse"})
+    assert r.startswith("Refused") and "is Hamo's" in r, r                    # another's lot: unnamed, refused, naming whose (Q-80)
+    r = do(w, "Hamo", do="move", item="smoked meat", to="hands", **{"from": "the Smokehouse"})
+    assert r.startswith("You took down") and w.goods(w.hands("Hamo")).get("smoked meat", 0) > 17.0, r
 
 
 def test_it_can_be_robbed_while_a_batch_is_in():
@@ -259,13 +255,13 @@ def test_its_household_sees_its_state_and_a_stranger_does_not():
     hand(w, "Odo", meat=30)
     do(w, "Odo", do="make", what="smoke meat")
     mine = "\n".join(PR._house_lines(Here(w, "Isolde"), Mind(w, "Isolde")))
-    assert "on the smoke racks: 30 meat curing, 3 nights left" in mine and "the fire tended today" in mine, mine
-    assert "firewood for 10 nights" in mine
+    assert "on the smoke racks: 30 kg of meat smoking, done tomorrow" in mine and "the fire tended today" in mine, mine
+    assert "firewood for tonight's fire (4.5 bundles needed, 10 there)" in mine, mine
     theirs = "\n".join(PR._house_lines(Here(w, "Hamo"), Mind(w, "Hamo")))
-    assert "smoke racks" not in theirs and "curing" not in theirs, theirs
+    assert "smoke racks" not in theirs and "smoking" not in theirs, theirs
     night(w)
     mine = "\n".join(PR._house_lines(Here(w, "Isolde"), Mind(w, "Isolde")))
-    assert "2 nights left" in mine and "the fire not tended today: it dies tonight unless someone tends it" in mine, mine
+    assert "kg of smoked meat, done last night, waiting to be taken down" in mine, mine
 
 
 def test_a_smokehouse_stands_apart():
@@ -372,16 +368,16 @@ def test_an_inland_village_without_a_spring_has_no_salt():
 
 def test_salted_fish_keep_as_built():
     assert TECHNIQUES["salt fish"]["inputs"] == {"fish": 40, "salt": 10} and TECHNIQUES["salt fish"]["gives"] == {"salt fish": 40}
-    assert TECHNIQUES["salt fish"]["batch"]                                            # up to 40 kg a unit (D2-283, O-2: W-97)
+    assert TECHNIQUES["salt fish"]["process"] == "salting"                               # up to 40 kg a unit (D2-283; u4 §6)
     assert abs(ITEMS["salt fish"]["spoil"] - 0.0085) < 1e-4 and ITEMS["salt fish"]["decay"] == "dried meat"   # D2-289
     w = world(RIVER, salthouse(RP["spring"], RP["household"]), calendar=AUTUMN)       # salt boiled, then fish salted with it
     salter(w, RP["salter"])
     do(w, RP["salter"], do="make", what="boil salt")
     assert KN.available(Here(w, RP["salter"]), "salt") >= 4 - 1e-9
     hand(w, RP["salter"], fish=4)
-    assert "You made 4 salt fish" in do(w, RP["salter"], do="make", what="salt fish")
+    assert "You salted 4 kg of fish with 1 kg of salt" in do(w, RP["salter"], do="make", what="salt fish")
     r = N.spoil_rate(w.p, "salt fish", "store", "autumn", False)
-    assert abs(r - ITEMS["salt fish"]["spoil"] * w.p["house_spoil"]) < 1e-12
+    assert abs(r - ITEMS["salt fish"]["spoil"]) < 1e-12                                   # well kept: its base (D2-272)
 
 
 def test_coastal_salt_is_unchanged():
@@ -420,7 +416,10 @@ def test_the_smokehouse_and_the_salt_pan_are_seen_and_smelt():
     got = _signs(w, "Hamo")
     assert any("the smell of smoking meat from the Smokehouse" == t for t, _, s in got), got
     assert any(t.startswith("smoke seeping through the thatch of the Smokehouse") for t, _, s in got), got
-    night(w)                                                                  # untended: the fire out
+    hand(w, "Odo", meat=30)
+    do(w, "Odo", do="make", what="smoke meat")
+    w.s["buildings"]["smokehouse"]["smoke"]["tended"] = -1                    # untended: the fire out
+    night(w)
     got = _signs(w, "Hamo")
     assert any("its fire has gone out" in t for t, _, s in got) and not any("smell of smoking" in t for t, _, s in got), got
     w = world(RIVER, salthouse(RP["spring"], RP["household"]))
@@ -434,3 +433,5 @@ def test_the_smokehouse_and_the_salt_pan_are_seen_and_smelt():
     got = _signs(w, RP["neighbour"])
     assert any("white crusts of salt on the rim of the pan" in t for t, _, s in got) and not any("steam" in t for t, _, s in got), got
     assert any("a white rim of salt dried on the stones" in t for t, _, s in got), got
+
+

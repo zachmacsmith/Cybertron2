@@ -221,7 +221,7 @@ def target(w, hh, node, words, goods=()) -> dict:
         return {"bid": bid or (smoke[0] if smoke else None), "kind": "racks", "proc": "hard cure"}
     if "hearth" in t or "drying rack" in t:
         return {"bid": bid or _home(w, hh, node), "kind": "hearth", "proc": "hearth rack"}
-    if "rack" in t or "smoke" in t or (b is not None and (b.get("fittings") or {}).get("smoke racks") and "store" not in t):
+    if ("rack" in t or "smoke" in t or (b is not None and (b.get("fittings") or {}).get("smoke racks"))) and "store" not in t:
         return {"bid": bid if b is not None and (b.get("fittings") or {}).get("smoke racks") else (smoke[0] if smoke else None),
                 "kind": "racks", "proc": "hard cure" if salted else "keeping smoke"}
     if t in ("hands", "my hands", "me"):

@@ -432,8 +432,26 @@ class Here:
 
     def held_back(self, cid, item) -> float:
         """What the household's book holds back of a good in a store, from this person's drawing (u6 §4)."""
+        if not self._w.s.get("books"):
+            return 0.0
         from cybertron2.engine import book as BK
         return BK.held(self._w, self.name, cid, item)
+
+    def rules_block(self) -> list:
+        from cybertron2.engine import book as BK
+        return BK.rules_block(self._w, self.name)
+
+    def book_lines(self) -> list:
+        """What waits today by the book, and what was missed or gone against yesterday (u6 §9)."""
+        if not self._w.s.get("books"):
+            return []
+        from cybertron2.engine import book as BK
+        log = self._w.s.get("log") or []
+        return BK.morning_lines(self._w, self.name) + BK.day_lines(self._w, (log[-1].get("book") if log else None) or {}, self.name)
+
+    def take_down_units(self, bid, item=None, qty=None) -> int:
+        from cybertron2.engine import process as PROC
+        return PROC.take_down_units(self._w, bid, item, qty)
 
     # the processing containers (u4; process.py) and the brine spring (brief 5 §4b; keeping.py)
     def lot_room(self, bid, proc) -> float:

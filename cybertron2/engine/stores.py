@@ -70,7 +70,7 @@ WORDS = {"sack": ("sack", "sacks"), "basket": ("basket", "baskets"), "chest": ("
 ITEMS = {"chest": {"weight": 40, "food": 0.0, "spoil": 0.0}}
 FITTINGS = {
     "smoke loft": {"label": "a smoke loft (hooks in the roof over the hearth)", "materials": {"timber": 2}, "units": 1, "basic": True,
-                   "spaces": 0, "needs": "hearth", "does": "hooks in the roof over the hearth: cured, salt and dried goods hung out of the "
+                   "spaces": 0, "needs": "hearth", "capital": "fittings", "hours": 4, "does": "hooks in the roof over the hearth: cured, salt and dried goods hung out of the "
                    "damp and the flies (40 kg a space of the room's floor)"},
 }
 TECHNIQUES = {
