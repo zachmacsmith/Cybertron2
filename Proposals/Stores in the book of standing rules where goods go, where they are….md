@@ -64,6 +64,7 @@ is deferred ([[L-156 The locked chest and its key|L-156]]).
 
 ## History
 
+- 23 Nov 2026: accepted in part: [[D2-338 The household book has named sets as a primitive|D2-338]] (The household book has named sets as a primitive: a household (or a person) name).
 - 23 Nov 2026: accepted in part: [[D2-337 Standing rules are written in a stated grammar the prompt gives in…|D2-337]] (Standing rules are written in a stated grammar the prompt gives in full (each ki).
 - 23 Nov 2026: accepted in part: [[D2-319 Rules can be changed at any time by a free act and also in the…|D2-319]] (Rules can be changed at any time by a free act and also in the evening talk unde).
 - 22 Nov 2026: accepted in part: [[D2-301 A person's own rules and standing fallback come before every…|D2-301]] (A person's own rules and standing fallback come before every household chore, ke).

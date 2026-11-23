@@ -24,7 +24,9 @@ started
 ## Linked
 - parent: [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]]
 - under it: [[D2-337 Standing rules are written in a stated grammar the prompt gives in…|Standing rules are written in a stated grammar the prompt gives in… (D2-337)]] (live)
+- under it: [[D2-338 The household book has named sets as a primitive|The household book has named sets as a primitive (D2-338)]] (live)
 
 
 ## Mentioned by
 - [[D2-337 Standing rules are written in a stated grammar the prompt gives in…|Standing rules are written in a stated grammar the prompt gives in… (D2-337)]]
+- [[D2-338 The household book has named sets as a primitive|The household book has named sets as a primitive (D2-338)]]
