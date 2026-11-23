@@ -3,7 +3,6 @@
 ## Open
 - [[Q-82 Trying and learning|Trying and learning (Q-82)]] (open)
 - [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]] (open)
-- [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]] (open)
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]] (open)
 - [[Q-78 Whether to build the fishing legibility fixes|Whether to build the fishing legibility fixes (Q-78)]] (open)
 - [[Q-77 Whether to tune how often the river reads spate or flood now|Whether to tune how often the river reads spate or flood now (Q-77)]] (open)
@@ -43,10 +42,11 @@
 - [[Q-RR3 The human player's first interface|The human player's first interface (Q-RR3)]] (open)
 - [[Q-RR5 A replay test with shuffled completion order of model calls|A replay test with shuffled completion order of model calls (Q-RR5)]] (open)
 
-## Closed (53)
+## Closed (54)
 - [[Q-85 One book of standing rules per household and person for eating and…|One book of standing rules per household and person for eating and… (Q-85)]]
 - [[Q-84 The building scale|The building scale (Q-84)]]
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]
+- [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
 - [[Q-76 Whether the runs world's medium arm needs more keeping capital|Whether the runs world's medium arm needs more keeping capital (Q-76)]]
 - [[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Whether salting fish and meat stays at 4 kg a unit of work (Q-73)]]
 - [[Q-72 Whether milking gets 02zzu's rate fix|Whether milking gets 02zzu's rate fix (Q-72)]]

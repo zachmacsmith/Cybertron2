@@ -21,6 +21,7 @@ fittings without space; capacity fixed by blueprint
 
 ## Mentioned by
 - [[Q-6 Settlement limit a hard cap or a crowding cost|Settlement limit: a hard cap or a crowding cost (Q-6)]]
+- [[W-96 Space unified everywhere|Space unified everywhere (W-96)]]
 - [[C-2 Building limits slots by land kind|Building limits: slots by land kind (C-2)]]
 - [[What can happen to buildings and fittings, by weather and use…|What can happen to buildings and fittings, by weather and use…]]
 - [[Proposal buildings from parts|Proposal: buildings from parts]]

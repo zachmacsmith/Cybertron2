@@ -27,7 +27,13 @@ started
 - under it: [[D2-298 Bot runs test interfaces and basic functioning only|Bot runs test interfaces and basic functioning only (D2-298)]] (live)
 - under it: [[D2-301 A person's own rules and standing fallback come before every…|A person's own rules and standing fallback come before every… (D2-301)]] (live)
 - under it: [[D2-302 The weir's cost for now, to calibrate in live runs, on a lowland river|The weir's cost for now, to calibrate in live runs, on a lowland river (D2-302)]] (live)
+- under it: [[D2-304 An unnamed act on several of one's own things at a place|An unnamed act on several of one's own things at a place (D2-304)]] (live)
+- under it: [[D2-305 Acts on held things take the thing as their target, by tag or a known…|Acts on held things take the thing as their target, by tag or a known… (D2-305)]] (live)
+- under it: [[D2-306 Material got at the site of a work|Material got at the site of a work (D2-306)]] (live)
+- under it: [[D2-307 Learning is scaled with the lifespan in every part|Learning is scaled with the lifespan in every part (D2-307)]] (live)
+- under it: [[D2-308 Kept lines over a life|Kept lines over a life (D2-308)]] (live)
 - under it: [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]] (open)
+- under it: [[L-160 Kept lines over a life|Kept lines over a life (L-160)]] (open)
 
 
 ## Mentioned by
@@ -35,7 +41,13 @@ started
 - [[D2-298 Bot runs test interfaces and basic functioning only|Bot runs test interfaces and basic functioning only (D2-298)]]
 - [[D2-301 A person's own rules and standing fallback come before every…|A person's own rules and standing fallback come before every… (D2-301)]]
 - [[D2-302 The weir's cost for now, to calibrate in live runs, on a lowland river|The weir's cost for now, to calibrate in live runs, on a lowland river (D2-302)]]
+- [[D2-304 An unnamed act on several of one's own things at a place|An unnamed act on several of one's own things at a place (D2-304)]]
+- [[D2-305 Acts on held things take the thing as their target, by tag or a known…|Acts on held things take the thing as their target, by tag or a known… (D2-305)]]
+- [[D2-306 Material got at the site of a work|Material got at the site of a work (D2-306)]]
+- [[D2-307 Learning is scaled with the lifespan in every part|Learning is scaled with the lifespan in every part (D2-307)]]
+- [[D2-308 Kept lines over a life|Kept lines over a life (D2-308)]]
 - [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]]
+- [[L-160 Kept lines over a life|Kept lines over a life (L-160)]]
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
 - [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]
 - [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]

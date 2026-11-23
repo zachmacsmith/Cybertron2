@@ -1,7 +1,7 @@
 ---
 id: docs/cybertron2/proposals/knowledge_in_their_own_words.md
 kind: proposal
-updated: "2026-11-22"
+updated: "2026-11-23"
 ---
 # Knowledge in their own words: a purposeful core, knowledge that differs by person, memory that grows, and passing it on
 
@@ -178,6 +178,7 @@ makers.
 
 ## History
 
+- 23 Nov 2026: accepted in part: [[D2-308 Kept lines over a life|D2-308]] (Kept lines over a life: about 40 words a line, one place a stretch; founders' se).
 - 22 Nov 2026: accepted in part: [[D2-268 The founders' starting knowledge|D2-268]] (The founders' starting knowledge (founders_knowledge.md): seeded lines are ordin).
 - 22 Nov 2026: accepted in part: [[D2-266 Knowledge in their own words|D2-266]] (Knowledge in their own words (proposals/knowledge_in_their_own_words.md), as ans).
 - **22 Nov 2026:** §6 added: standard starting memories as culture, an experimental parameter (Zach, quoted under Why).

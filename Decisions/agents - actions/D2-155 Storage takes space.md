@@ -20,6 +20,7 @@ unlimited stores; a cellar of 8 stone and 8 units
 
 
 ## Mentioned by
+- [[W-96 Space unified everywhere|Space unified everywhere (W-96)]]
 - [[L-40 (Done 3 Nov D4-89 and D4-91 written into economybuildings.md, D4-92…|(Done 3 Nov: D4-89 and D4-91 written into economy/buildings.md, D4-92… (L-40)]]
 - [[Proposal buildings from parts|Proposal: buildings from parts]]
 - [[How much lies there heaps seen by their bulk, counted when attended…|How much lies there: heaps seen by their bulk, counted when attended…]]

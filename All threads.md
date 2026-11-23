@@ -1,6 +1,8 @@
 # All threads
 
 ## Open
+- [[W-96 Space unified everywhere|Space unified everywhere (W-96)]] (benched)
+- [[W-95 Stone and quarrying|Stone and quarrying (W-95)]] (benched)
 - [[W-94 Timed actions|Timed actions (W-94)]] (benched)
 - [[W-93 Demography and growth|Demography and growth (W-93)]] (benched)
 - [[W-92 Boats, barrels and the cooper|Boats, barrels and the cooper (W-92)]] (benched)

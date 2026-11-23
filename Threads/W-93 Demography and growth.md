@@ -31,4 +31,5 @@ started
 - [[L-108 Calibrating the backward people build|Calibrating the backward people build (L-108)]]
 - [[L-135 Debts of the dead are never settled|Debts of the dead are never settled (L-135)]]
 - [[L-151 A household as a shared book of standing rules people subscribe to|A household as a shared book of standing rules people subscribe to (L-151)]]
+- [[L-160 Kept lines over a life|Kept lines over a life (L-160)]]
 - *and 1 index or audit notes*

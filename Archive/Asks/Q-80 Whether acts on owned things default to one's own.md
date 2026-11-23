@@ -1,16 +1,18 @@
 ---
 id: Q-80
 kind: ask
-state: open
-updated: "2026-11-22"
+state: closed
+updated: "2026-11-23"
 ---
 
 # Whether acts on owned things default to one's own (Q-80)
 
-*open · Zach*
+*closed, by zach · Zach*
 
 ## The question
 Found 21 Nov: things.find picks the most recently known thing matching a place or set words (the snares, my traps) with no preference for one's own, so a take from my snares can empty a neighbour's; farm._herd_on prefers one's own herd but falls back to anyone's ((own or hs)[0]), so a slaughter with no herd of one's own on the parcel kills a neighbour's beast; stores already refuse (not yours to use). Proposed general rule across sets, herds, piles, plots and buildings. Touches 37.4's things.py and verbs.py and 37.2's farm.py.
+
+**Zach's answer:** several should depend on if reversible or obvious. Tending traps should tend all of yours. Killing herds shouldn't and should need target.
 
 **Where:** docs/cybertron2/proposals/acts_on_owned_things.md
 
@@ -22,6 +24,8 @@ Found 21 Nov: things.find picks the most recently known thing matching a place o
 
 
 ## Mentioned by
+- [[D2-304 An unnamed act on several of one's own things at a place|An unnamed act on several of one's own things at a place (D2-304)]]
+- [[D2-305 Acts on held things take the thing as their target, by tag or a known…|Acts on held things take the thing as their target, by tag or a known… (D2-305)]]
 - [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]]
 - [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]
 - [[Acts on held things take the thing as their target, and default to…|Acts on held things take the thing as their target, and default to…]]

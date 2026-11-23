@@ -17,6 +17,7 @@ conversation ("yes counts")
 
 
 ## Mentioned by
+- [[W-96 Space unified everywhere|Space unified everywhere (W-96)]]
 - [[C-2 Building limits slots by land kind|Building limits: slots by land kind (C-2)]]
 - [[Proposal buildings from parts|Proposal: buildings from parts]]
 - [[Proposal farming|Proposal: farming]]

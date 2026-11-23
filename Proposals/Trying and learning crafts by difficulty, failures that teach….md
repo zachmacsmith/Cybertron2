@@ -1,7 +1,7 @@
 ---
 id: docs/cybertron2/proposals/trying_and_learning.md
 kind: proposal
-updated: "2026-11-22"
+updated: "2026-11-23"
 ---
 # Trying and learning: crafts by difficulty, failures that teach, awareness that is easy to come by
 
@@ -186,6 +186,7 @@ the world makers (seeded levels).
 
 ## History
 
+- 23 Nov 2026: accepted in part: [[D2-307 Learning is scaled with the lifespan in every part|D2-307]] (Learning is scaled with the lifespan in every part (each increment times 64 / li).
 - **22 Nov 2026:** §4 (attention spent in units), §6 (teaching from peak), §7 (skill profiles and capability points), §8 (transfer through underlying skills; inherited aptitude) added as exploration, from the day's conversation (Zach quoted in each), under the rule that every explored idea is written down ([[D2-277 Every idea explored in conversation is written down before moving on|D2-277]]).
 
 - **22 Nov 2026:** drafted by 37.2 at Zach's request (quoted under Why; "you can continue the learning times agent"), from
