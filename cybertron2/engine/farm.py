@@ -748,6 +748,9 @@ def act(here, mind, tech, key, place_name, out, m, tm, a) -> tuple:
         return _fence(here, mind, tech, key, place_name, out, m * tm, a, y)
     if k == "gate":
         return _gate(here, key, place_name, y["gate"])
+    if k in ("pull", "dig_strip"):                                              # the strip (u3 §1.3; engine/strips.py)
+        from cybertron2.engine import strips as STR
+        return STR.pull(here, mind, tech, key, place_name, out, m * tm, a, f) if k == "pull" else STR.dig(here, mind, tech, key, place_name, m * tm, a, f)
     if k in ("select", "break", "tend", "manure", "crop"):                      # on whose holding (D2-172)
         h = target(here, key, k, a, f)
         a["_on"] = h
@@ -804,7 +807,7 @@ def act(here, mind, tech, key, place_name, out, m, tm, a) -> tuple:
     raise Refused(f"{tech} cannot be done that way")
 
 
-def _herd_on(here, key, a, role=None):
+def _herd_on(here, key, a, role=None, consume=False):
     hs = [hid for hid, h in here.herds().items() if h["parcel"] == key and head(h) > 0 and (role is None or int(h.get(role, 0)) > 0)]
     want = str(a.get("thing") or "").strip().lower()
     pick = next((hid for hid in hs if want and (want in (hid.lower(), here.herds()[hid]["name"].lower())
@@ -815,6 +818,9 @@ def _herd_on(here, key, a, role=None):
         return pick
     mine = here.household()                                                   # unnamed: one's own household's beasts first (38.75)
     own = [hid for hid in hs if any(c["claimant"] in (here.name, mine) for c in here.claims(("herd", hid)))]
+    if consume and len(own) > 1:                                              # a kill on several of one's own needs its target (D2-304)
+        raise Refused("you have more than one herd here: say which (\"thing\"): "
+                      + ", ".join(here.herds()[x]["name"] for x in own))
     return (own or hs)[0]
 
 
@@ -928,10 +934,16 @@ def _sow(here, mind, tech, key, place_name, out, m, a, f):
     if fam is None:
         raise Refused(f"{seed_good!r} is not seed; one sows {', '.join(sorted(SEED_CROP))}")
     seed_good = CROPS[fam]["seed"]
+    if CROPS[fam].get("strip"):                                                # a strip's worth or less: a strip (u3 §1.3; engine/strips.py)
+        from cybertron2.engine import strips as STR
+        from cybertron2.engine.verbs import _party as _p, _src as _s
+        amount = float(a["qty"]) if a.get("qty") not in (None, "") else KN.available(here, seed_good, extra=_s(here, _p(here, a["for"]) if a.get("for") else None, out))
+        if STR.is_strip(fam, amount):
+            return STR.sow(here, mind, tech, key, place_name, out, fam, a, f)
     mods = a.get("_mods") or {}
     y = {**TECHNIQUES[tech]["yield"], **(mods.get("yield") or {})}           # the sowing method (a modifier: D2-94)
-    worth = float(y["worth"])
     ps = float(f["plot_seed"])
+    worth = float(y["worth"]) * (ps / float(CROPS[fam]["seed_kg"]) if CROPS[fam].get("seed_kg") else 1.0)   # flax by its kg a plot
     targets = sow_targets(here, key, a)
     phys = float(par["size"]) * ps - sum(float(c["seed"]) for _, _, c in standing(par))   # the field's ground, all holdings
     cap = float(a["plots"]) * ps if a.get("plots") not in (None, "") else float("inf")
@@ -1046,6 +1058,10 @@ def _sow_why(here, key, a) -> str:
         return str(e)
     why = ""
     fam = SEED_CROP.get(str(a.get("item") or "").lower())
+    if fam and CROPS[fam].get("strip") and a.get("qty") not in (None, ""):      # a strip beside the main crop (u3 §1.3)
+        from cybertron2.engine import strips as STR
+        if STR.is_strip(fam, float(a["qty"])) and any(plots_of(par, h) > 0 for h in targets):
+            return ""
     for h in targets:
         c = record(par, h).get("crop")
         n = plots_of(par, h)
@@ -1167,7 +1183,7 @@ def _reap(here, tech, key, place_name, out, mult, f, y, h=None):
 
 
 def _slaughter(here, key, out, a, y):
-    hid = _herd_on(here, key, a)
+    hid = _herd_on(here, key, a, consume=True)
     h = here.herds()[hid]
     want = ROLE_OF.get(str(a.get("item") or "").lower().strip()) or ROLE_OF.get(str(a.get("thing") or "").lower().strip())
     role = want or next(r for r in ("young", "cows", "oxen", "bulls") if int(h.get(r, 0)) > 0)
@@ -1197,6 +1213,9 @@ def ready(here, tech, key, a=None) -> str:
     a = a or {}
     if t.get("seasons") and here.calendar()["season"] not in t["seasons"]:
         return f"{KN.label(tech)} is done in {' and '.join(t['seasons'])}"
+    if y in ("pull", "dig_strip"):                                              # the strip (u3 §1.3)
+        from cybertron2.engine import strips as STR
+        return STR.ready(here, tech, key, a)
     if y == "sow" and (p["cover"] == "field" or p["cover"] in TURF):
         return _sow_why(here, key, a)
     if y in ("break", "crop", "tend", "manure") and (p["cover"] == "field" or (p["cover"] in TURF and y in ("crop", "tend"))):
@@ -1321,6 +1340,8 @@ def night(w) -> dict:
     """Crops grow, fail, die of the cold, ripen and rot; fields rest; herds graze, eat fodder, breed, drop dung and stray."""
     rec = {"crops": [], "herds": []}
     _crops(w, rec)
+    from cybertron2.engine import strips as STR                              # strips below a plot (u3 §1.3)
+    STR.night(w, rec)
     from cybertron2.engine import herds as HD
     HD.night(w, rec)                                                         # fences, splitting, wandering, roads (D2-117 to D2-131)
     from cybertron2.engine import layout as LY

@@ -51,7 +51,7 @@ def sowing_times(season_days=8, well=0.75) -> dict:
     year = 4 * season_days
     season_of = lambda d: ORDER[(d // season_days) % 4]                # noqa: E731
     out = {}
-    for fam in CROPS:
+    for fam in [f for f in CROPS if not CROPS[f].get("strip")]:          # the field crops; flax's own lore with its growers (u3 §5)
         g = FM.grow_days(year, fam)
         mean = {}
         for i, s in enumerate(ORDER):
