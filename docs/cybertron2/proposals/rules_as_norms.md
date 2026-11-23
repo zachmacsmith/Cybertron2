@@ -43,7 +43,8 @@ institutions grow out of households (D2-299) by widening who a book belongs to a
 
 1. Are claims re-expressed as `may` rules, or do claims stay and permissions sit beside them?
 2. Who may write a book wider than a household, and how is it agreed?
-3. What does the engine do with a breach beyond recording it and letting people see it?
+3. What signs make a taking or a breach perceivable (seen entering and taking, known or not; tracks; the store lower), and how
+   much of who did it a witness can tell?
 4. How much of this a prompt can carry: a household's book is about 90 words of grammar; laws would add authors, scope and
    permissions.
 
