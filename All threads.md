@@ -1,7 +1,6 @@
 # All threads
 
 ## Open
-- [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]] (active)
 - [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]] (active)
 - [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]] (waiting)
 - [[W-96 Space unified everywhere|Space unified everywhere (W-96)]] (benched)
@@ -59,7 +58,8 @@
 - [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]] (queued)
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]] (active)
 
-## Closed (51)
+## Closed (52)
+- [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]]
 - [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]]
 - [[W-100 Build stage 4, signs, people and worlds|Build stage 4, signs, people and worlds (W-100)]]
 - [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]]

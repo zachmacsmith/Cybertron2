@@ -17,7 +17,7 @@ conversation (23 Nov: "Do everything else but not this one don't add the example
 
 
 ## Linked
-- parent: [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]]
+- parent: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
 
 
 ## Mentioned by

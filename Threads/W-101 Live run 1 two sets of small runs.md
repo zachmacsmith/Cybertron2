@@ -30,7 +30,7 @@ started
 - under it: [[L-176 Noticing in parts of the day, so what is seen at mid-morning can…|Noticing in parts of the day, so what is seen at mid-morning can… (L-176)]] (open)
 - under it: [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]] (done)
 - under it: [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]] (active)
-- under it: [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]] (active)
+- under it: [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]] (done)
 
 
 ## Mentioned by

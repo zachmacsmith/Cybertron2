@@ -55,9 +55,12 @@ started
 - under it: [[L-155 Vermin fleshed out properly, with disease and sanitation|Vermin fleshed out properly, with disease and sanitation (L-155)]] (open)
 - under it: [[L-156 The locked chest and its key|The locked chest and its key (L-156)]] (open)
 - under it: [[L-157 Rest days, with health, fatigue and illness|Rest days, with health, fatigue and illness (L-157)]] (open)
+- under it: [[L-178 Wording bugs|Wording bugs (L-178)]] (open)
 - under it: [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]] (closed)
 - under it: [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]] (replaced)
 - under it: [[Q-84 The building scale|The building scale (Q-84)]] (closed)
+- under it: [[Q-87 Whether the passing-on seeded line for heads and parents|Whether the passing-on seeded line for heads and parents (Q-87)]] (open)
+- under it: [[Q-88 Whether a chore that yields a trivial amount|Whether a chore that yields a trivial amount (Q-88)]] (open)
 - under it: [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]] (done)
 - under it: [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]] (waiting)
 - under it: [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]] (waiting)
@@ -97,6 +100,8 @@ started
 - [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]
 - [[Q-84 The building scale|The building scale (Q-84)]]
+- [[Q-87 Whether the passing-on seeded line for heads and parents|Whether the passing-on seeded line for heads and parents (Q-87)]]
+- [[Q-88 Whether a chore that yields a trivial amount|Whether a chore that yields a trivial amount (Q-88)]]
 - [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 - [[W-72 Signs of the river|Signs of the river (W-72)]]
 - [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]]
@@ -109,7 +114,5 @@ started
 - [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]]
 - [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
 - [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]]
-- [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
-- [[L-111 The hunting and resources build, a soon follow-up|The hunting and resources build, a soon follow-up (L-111)]]
-- … and 43 more
+- … and 46 more
 - *and 6 index or audit notes*

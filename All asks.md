@@ -1,6 +1,8 @@
 # All asks
 
 ## Open
+- [[Q-88 Whether a chore that yields a trivial amount|Whether a chore that yields a trivial amount (Q-88)]] (open)
+- [[Q-87 Whether the passing-on seeded line for heads and parents|Whether the passing-on seeded line for heads and parents (Q-87)]] (open)
 - [[Q-82 Trying and learning|Trying and learning (Q-82)]] (open)
 - [[Q-81 Knowledge in their own words|Knowledge in their own words (Q-81)]] (open)
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]] (open)

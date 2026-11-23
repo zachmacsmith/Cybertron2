@@ -63,6 +63,7 @@ started
 - under it: [[D2-337 Standing rules are written in a stated grammar the prompt gives in…|Standing rules are written in a stated grammar the prompt gives in… (D2-337)]] (live)
 - under it: [[D2-338 The household book has named sets as a primitive|The household book has named sets as a primitive (D2-338)]] (live)
 - under it: [[D2-339 The household book's grammar|The household book's grammar (D2-339)]] (live)
+- under it: [[D2-344 No worked example of a conditional rule is added to the rules block|No worked example of a conditional rule is added to the rules block (D2-344)]] (live)
 - under it: [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]] (open)
 - under it: [[L-160 Kept lines over a life|Kept lines over a life (L-160)]] (open)
 - under it: [[L-161 Ice and the freeze|Ice and the freeze (L-161)]] (open)
@@ -77,6 +78,7 @@ started
 - under it: [[L-170 Fowling the methods|Fowling: the methods (L-170)]] (open)
 - under it: [[L-171 Tanning and leather|Tanning and leather (L-171)]] (open)
 - under it: [[L-172 Limestone and lime|Limestone and lime (L-172)]] (open)
+- under it: [[L-177 AB prompt replay|A/B prompt replay (L-177)]] (open)
 - under it: [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]] (closed)
 - under it: [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]] (done)
 - under it: [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]] (done)
@@ -126,5 +128,5 @@ started
 - [[D2-337 Standing rules are written in a stated grammar the prompt gives in…|Standing rules are written in a stated grammar the prompt gives in… (D2-337)]]
 - [[D2-338 The household book has named sets as a primitive|The household book has named sets as a primitive (D2-338)]]
 - [[D2-339 The household book's grammar|The household book's grammar (D2-339)]]
-- … and 39 more
+- … and 40 more
 - *and 3 index or audit notes*
