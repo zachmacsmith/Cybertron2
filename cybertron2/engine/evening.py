@@ -116,6 +116,9 @@ def apply(w, n, reply, gather, names, results, left, box) -> int:
     """One evening reply: speech to the hearth (free), private words, the night's acts. Returns units spent (trying for a child)."""
     here, mind = Here(w, n), Mind(w, n)
     results.extend(PC.apply_notes(mind, {k: reply.get(k) for k in ("note", "pin", "forget")}))
+    if reply.get("rules"):                                                     # the evening is a time to set rules (D2-319, D2-339)
+        from cybertron2.engine import book as BK
+        results.extend(BK.apply_rules(here, reply["rules"]))
     hearth = [m for m in names if m != n and gather.get(m) == gather.get(n)]
     for x in [x for x in (reply.get("say") or []) if isinstance(x, dict) and str(x.get("text", "")).strip()][:MAX]:
         text = str(x["text"])[:600]

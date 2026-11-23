@@ -45,6 +45,11 @@ SCHEMA = {
         "forget": {"type": "array", "items": {"type": "string"}},
         "open": {"type": "array", "items": {"type": "string"}},
         "look_up": {"type": "array", "items": {"type": "string"}},
+        "rules": {"type": "array", "items": {"type": "object", "properties": {          # standing rules, records in their own
+            "rule": {"type": "string"}, "name": {"type": "string"}, "people": {}, "goods": {}, "places": {}, "in": {"type": "string"},
+            "at least": {}, "order": {}, "who": {"type": "string"}, "qty": {}, "act": {"type": "object"}, "when": {"type": "object"},
+            "unless": {"type": "object"}, "for": {"type": "string"}, "words": {"type": "string"}, "n": {"type": "number"}},
+            "required": ["rule"]}},                                                  # field (D2-339)
         "memory": {"type": "string"},
         "keep": {"type": "array", "items": {"type": "string"}},
         "drop": {"type": "array", "items": {"type": "integer"}},
@@ -115,9 +120,6 @@ def schema_for(here, mind) -> dict:
             a[k].pop("enum", None)                                             # order; rule a free act
         s["properties"].pop("look_up", None)
         a["on trouble"]["enum"] = sorted(a["on trouble"]["enum"])
-        for k in ("rule", "goods", "words", "before", "when", "unless"):          # a rule's own fields (u6 §2; W-102: no rule was
-            a.setdefault(k, {"type": "string"})                                # set in live run 1, its fields not in the schema)
-        a.setdefault("n", {"type": "number"})
         s["properties"]["fallback"] = copy.deepcopy(s["properties"]["actions"])
     _drop_empty_enums(s)                                                       # one who knows nobody: the name is free text
     return s

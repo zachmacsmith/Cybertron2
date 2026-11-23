@@ -62,14 +62,20 @@ def evening(w, who, a, left=4):
     return out[-1]
 
 
-# ---------------------------------------------------------------------- fault 1: rules, in the stated grammar (D2-337)
-def test_a_rule_without_its_kind_in_rule_is_refused_naming_the_field():
-    """The run's own rules (none carried "rule"): each refused saying which field, its form, and what was written."""
+# ---------------------------------------------------------------------- fault 1: rules, D2-339's grammar (fields, not words)
+def rules(w, who, *xs):
+    """Rules as the reply's own field sets them (D2-339), at the evening."""
+    out = []
+    EVN.apply(w, who, {"rules": list(xs)}, {who: "x"}, [who], out, 0, {})
+    return out
+
+
+def test_the_runs_rule_attempts_are_refused_naming_the_field():
+    """The run's own rules (none carried its kind in "rule"): each refused saying which field, its form, and what was written."""
     w = at(NEW, "d0.work")
     a = the(0, "Hamon", {"do": "rule", "text": "Eat fresh fish and meat first, before roots, dried meat or anything that keeps."}, "evening")
     r = evening(w, "Hamon", a)
-    assert r.startswith('Refused: rule: a rule names its kind in "rule": go | keep | hold back | first') and "you wrote" in r, r
-    assert '"rule": "first", "goods": "fish"' in r                             # with the example
+    assert r.startswith('Refused: rule: a rule names its kind in "rule": set | keep | first | share | do | drop') and "you wrote" in r, r
     w = at(NEW, "d4.talk.0")
     a = the(4, "Oliver", {"do": "change", "what": "rule", "line": "first: roots, then egg, then salt fish; keep dried meat for winter"})
     r, c = work(w, "Oliver", a)
@@ -77,43 +83,100 @@ def test_a_rule_without_its_kind_in_rule_is_refused_naming_the_field():
     assert BK.household_rules(w, w.household_of("Oliver")) == []
 
 
-def test_a_rule_in_its_fields_is_set_with_its_words_beside_the_reading():
+def test_each_kind_set_in_the_rules_field_with_its_words_beside_the_reading():
     w = at(NEW, "d0.work")
-    r = evening(w, "Hamon", {"do": "rule", "rule": "first", "goods": "fresh fish and fresh meat", "before": "roots, dried meat",
-                             "words": "Eat fresh fish and meat first, before roots, dried meat or anything that keeps."})
-    assert r.startswith("Rule 1 (the household): take or eat fish and meat first, before roots and dried meat (your words: "), r
-    r = evening(w, "Hamon", {"do": "rule", "rule": "go", "goods": "fish", "to": "the racks in the Shepherd Smokehouse",
-                             "when": "the racks have room", "words": "fresh fish goes to the racks to be smoked"})
-    assert r.startswith("Rule 2 (the household): fish that comes in goes to the racks in the Shepherd Smokehouse, when"), r
-    assert BK.meal(w, "Gunnild")["first"] == ["fish", "meat"]                 # the household eats by it tonight
-    w = at(NEW, "d2.work")
-    r = evening(w, "Oliver", the(2, "Oliver", {"do": "first", "item": "fish"}, "evening"))   # the kind in "do", the good in "item"
-    assert r.startswith("Rule 1 (the household): take or eat fish first"), r
-    r = evening(w, "Oliver", {"do": "rule", "rule": "hold back", "goods": "salted fish", "unless": "someone is starving"})
-    assert "hold back salt fish" in r, r                                       # a field's value to its canonical name
+    out = rules(w, "Hamon",
+                {"rule": "set", "name": "the catch", "goods": ["fish", "meat"], "words": "what we catch"},
+                {"rule": "first", "goods": ["the catch", "roots", "keeping food"], "words": "eat the catch first, then roots"},
+                {"rule": "keep", "goods": "salted fish", "at least": 10, "unless": {"starving": "anyone"}},
+                {"rule": "do", "act": {"do": "smoke fish", "at": "the Shepherd Smokehouse"}, "when": {"arrives": "fish"},
+                 "unless": {"in": "the Shepherd Smokehouse", "full": True}, "words": "fresh fish goes to the racks"},
+                {"rule": "share", "order": ["children", "Hamon"], "qty": "full"})
+    assert out[0].startswith('Rule 1 (the household): the set "the catch": fish and meat (your words: "what we catch")'), out
+    assert out[1].startswith("Rule 2 (the household): take or eat the catch, then roots, then keeping food first"), out
+    assert out[2].startswith("Rule 3 (the household): at least 10 salt fish not eaten, drawn or used, unless someone is starving"), out
+    assert out[3].startswith("Rule 4 (the household): whoever has time: make smoke fish at the Shepherd Smokehouse, when fish comes in, "
+                             "unless the Shepherd Smokehouse is full"), out
+    assert out[4].startswith("Rule 5 (the household): when food is short, children and Hamon are fed first"), out
+    assert BK.meal(w, "Gunnild")["first"][:3] == ["fish", "meat", "roots"]    # the set expanded, in order
+    r = rules(w, "Hamon", {"rule": "drop", "n": 5})
+    assert r[0].startswith("Rule 5 (the household) dropped"), r
+
+
+def test_the_meal_goes_by_the_shares_order_its_rations_and_its_goods():
+    w = at(NEW, "d0.work")
+    hh = w.household_of("Oliver")
+    kids = [m for m in w.members(hh) if w.s["people"][m]["stage"] in ("infant", "child", "youth")]
+    rules(w, "Oliver", {"rule": "share", "order": ["children"]},
+          {"rule": "share", "who": "Oliver", "qty": "half"},
+          {"rule": "share", "who": "children", "goods": "fish"})
+    from cybertron2.engine import night as N
+    order = BK.meal_order(w, w.living())
+    assert kids and all(order.index(k) < order.index("Oliver") for k in kids)   # the children fed first
+    assert BK.meal(w, "Oliver")["ration"] == 0.5 and "fish" in BK.meal(w, "Oliver")["skip"]   # fish kept for the children
+    assert BK.meal(w, kids[0])["first"][0] == "fish"
+    stk = w.s["buildings"][w.dwellings("Oliver")[0]]["stock"]
+    w.s["containers"][stk]["goods"] = {"fish": 5.0, "roots": 5.0}
+    N._eat(w, w.at("Oliver"), [stk], 0.5, True, who="Oliver", skip=BK.meal(w, "Oliver")["skip"])
+    assert w.s["containers"][stk]["goods"]["fish"] == pytest.approx(5.0)       # he ate the roots, not the children's fish
 
 
 def test_a_rule_missing_a_field_or_with_an_unreadable_value_says_which():
     w = at(NEW, "d0.work")
-    r = evening(w, "Hamon", {"do": "rule", "rule": "first", "words": "eat the fish first"})
-    assert r.startswith("Refused: rule: 'first' needs \"goods\" (an item or a kind: fish"), r
-    r = evening(w, "Hamon", {"do": "rule", "rule": "go", "goods": "fish"})
-    assert r.startswith("Refused: rule: 'go' needs \"to\" (a building here, a store, a container"), r
-    r = evening(w, "Hamon", {"do": "rule", "rule": "go", "goods": "fish", "to": "the moon"})
-    assert r.startswith("Refused: rule: could not read \"to\": 'the moon' names no building"), r
-    r = evening(w, "Hamon", {"do": "rule", "rule": "first", "goods": "moonbeams"})
-    assert r.startswith("Refused: rule: could not read \"goods\": 'moonbeams'"), r
-    r = evening(w, "Hamon", {"do": "rule", "rule": "first", "goods": "fish", "when": "the neighbours are kind"})
-    assert r.startswith("Refused: rule: could not read \"when\": 'the neighbours are kind' is not a state"), r
-    a = the(2, "Katherine", {"do": "rule", "thing": "fallback",
-                             "to": "angle the Isel; firewood the Spinney only when the house store runs short"}, "evening")
-    assert evening(at(NEW, "d2.work"), "Katherine", a).startswith('Refused: rule: a rule names its kind in "rule"')
+    r = rules(w, "Hamon", {"rule": "first", "words": "eat the fish first"},
+              {"rule": "do", "when": {"arrives": "fish"}},
+              {"rule": "keep", "goods": "fish", "in": "the moon"},
+              {"rule": "first", "goods": ["moonbeams"]},
+              {"rule": "do", "act": {"do": "tend", "at": "the Shepherd Smokehouse"}, "when": "the eels are fat"},
+              {"rule": "do", "act": {"do": "tend", "at": "the Shepherd Smokehouse"}, "when": {"state": "smoking", "in": "the Shepherd Smokehouse"}},
+              {"rule": "share", "qty": "lots"})
+    assert r[0].startswith("Refused: rule: 'first' needs \"goods\" (an item, a kind"), r
+    assert r[1].startswith("Refused: rule: 'do' needs \"act\""), r
+    assert r[2].startswith("Refused: rule: could not read \"in\": 'the moon'"), r
+    assert r[3].startswith("Refused: rule: could not read \"goods\": 'moonbeams'"), r
+    assert r[4].startswith("Refused: rule: could not read") and "the eels are fat" in r[4] or "a rule names" in r[4], r
+    assert r[5].startswith("Refused: rule: could not read \"when\"") and "done, in process or fire out" in r[5], r
+    assert r[6].startswith("Refused: rule: could not read \"qty\": 'lots'"), r
 
 
-def test_the_rules_block_shows_a_rules_fields():
-    """The rules paragraph ends with one example of a rule's fields (its final grammar, D2-337 and D2-338, follows)."""
+def test_a_do_rule_runs_in_the_spare_units_own_first_and_while_its_condition_holds():
+    w = at(NEW, "d0.talk.0")
+    head = w.head(w.household_of("Hamon"))
+    rules(w, head, {"rule": "do", "act": {"do": "tend", "at": "the Shepherd Smokehouse"},
+                    "when": {"in": "the Shepherd Smokehouse", "state": "in process"}})
+    rules(w, "Gunnild", {"rule": "do", "act": {"do": "firewood", "at": "the Spinney"}})   # her own: a fallback
+    rec = BK.spare_units(w, ["Gunnild", "Hamon"], ["Gunnild", "Hamon"], {"Gunnild": 3, "Hamon": 3}, {"Gunnild": 0, "Hamon": 3},
+                         {"Gunnild": [], "Hamon": []})
+    mine = [x for x in rec["fired"] if x["person"] == "Gunnild"]
+    assert mine and all(x["own"] for x in mine)                               # her own fallback took her units first (D2-301)
+
+
+def test_old_records_on_the_book_are_converted_or_dropped():
+    w = at(NEW, "d0.work")
+    hh = w.household_of("Hamon")
+    old = [{"n": 1, "rule": "hold back", "goods": "salt fish", "qty": 20, "unless": {"state": "starving", "text": "unless someone is starving"}},
+           {"n": 2, "rule": "tend", "at": "the Shepherd Smokehouse", "when": {"state": "in process", "text": "while anything is smoking"}},
+           {"n": 3, "rule": "go", "goods": "fish", "to": "the racks in the Shepherd Smokehouse", "when": {"state": "room", "text": "when they have room"}},
+           {"n": 4, "rule": "eat", "qty": "half"},
+           {"n": 5, "rule": "first", "goods": "fish", "before": "dried meat"},
+           {"n": 6, "rule": "go", "goods": "fish", "to": "the moon"}]
+    w.s.setdefault("books", {})[f"household:{hh}"] = {"rules": old, "n": 7, "proposals": []}
+    got = {r["n"]: r for r in BK.household_rules(w, hh)}
+    assert got[1]["rule"] == "keep" and got[1]["at least"] == 20.0 and got[1]["unless"] == {"starving": "anyone"}
+    assert got[2] == {**got[2], "rule": "do", "act": {"do": "tend", "at": "the Shepherd Smokehouse"},
+                      "when": {"in": "the Shepherd Smokehouse", "state": "in process"}}
+    assert got[3]["rule"] == "do" and got[3]["act"]["what"] == "smoke fish" and got[3]["when"] == {"in": "the Shepherd Smokehouse", "room": True}
+    assert got[4]["rule"] == "share" and got[4]["qty"] == 0.5
+    assert got[5]["rule"] == "first" and got[5]["goods"] == ["fish", "dried meat"]
+    assert 6 not in got                                                        # nowhere to read it as: dropped
+
+
+def test_the_rules_block_gives_the_grammar_and_two_examples():
     from cybertron2.engine import core as CORE
-    assert '{"do": "rule", "rule": "first", "goods": "fish", "words": "we eat the fresh fish first"}' in CORE.GRAMMAR
+    for x in ('"rules": [...]', "set {", "keep {", "first {", "share {", "do {", 'drop {"n"}', '"state": done | in process | fire out',
+              '{"rule": "set", "name": "the young"', '{"rule": "do", "act": {"do": "tend"'):
+        assert x in CORE.GRAMMAR, x
+    assert 90 <= len(CORE.GRAMMAR.split()) <= 160
 
 
 # ---------------------------------------------------------------------- fault 2: free acts at the evening
@@ -123,7 +186,7 @@ def test_free_acts_run_at_the_evening_whatever_their_shape_word():
     assert r == "Shepherd House's door is now barred.", r
     r = evening(w, "Nigel", the(1, "Nigel", {"do": "put", "item": "firewood", "qty": 7.9, "to": "Marsh House"}, "evening"), left=0)
     assert r.startswith("You put 7.9 firewood into Marsh House"), r
-    r = evening(w, "Hamon", {"do": "rule", "rule": "first", "goods": "fish"}, left=0)
+    r = evening(w, "Hamon", {"do": "rule", "rule": "first", "goods": ["fish"]}, left=0)
     assert r.startswith("Rule 1 (the household): take or eat fish first"), r
     w = at(NEW, "d1.work")
     r = evening(w, "Hamon", {"do": "set the door", "thing": "shut"}, left=0)      # Gunnild's words, by the one who manages it
@@ -179,7 +242,7 @@ def test_the_move_shape_reads_from_and_to_a_store_and_a_rack_by_its_words():
     assert r.startswith("You took down 0.5 kg of dried fish"), r
     w = at(NEW, "d8.talk.0")
     r, _ = work(w, "Peter", the(8, "Peter", {"do": "move", "item": "firewood", "qty": 5, "from": "Marsh House", "to": "the Marsh Smokehouse"}))
-    assert r.startswith("You carried 5 firewood from Marsh House to the Marsh Smokehouse"), r
+    assert r.startswith("You moved 5 firewood from Marsh House to the Marsh Smokehouse"), r
 
 
 def test_other_arguments_read_where_the_reply_put_them():

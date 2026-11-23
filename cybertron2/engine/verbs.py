@@ -1906,7 +1906,8 @@ def _from_store(here, a):
     if any((here.buildings()[bid].get("fittings") or {}).get(f) for f in kinds):
         done = here.done_lots(bid)
         it = str(a.get("item") or "").strip().lower()
-        if done and (it in ("", "all", "everything", "it") or any(float((c.get("goods") or {}).get(it, 0.0)) > 1e-9 for c in done.values())):
+        if done and (it in ("", "all", "everything", "it") or any(float((c.get("goods") or {}).get(it, 0.0)) > 1e-9
+                                                                  or (c.get("lot") or {}).get("into") == it for c in done.values())):
             return None                                                         # a done lot there of that good: taken down
     return bid
 
@@ -1942,14 +1943,13 @@ def _move_from_store(here, a, src_bid):
     _drawn(here, b["stock"], item, q)
     here.event("store", f"{here.name} carried {item} from {b['name']} to {d['name']}", actor=here.name,
                about=[f"building:{src_bid}", f"building:{dst}"], salience=0.1, tags=["food"] if ITEMS[item]["food"] else [])
-    return f"You carried {show(q)} {item} from {b['name']} to {d['name']}{full} (it holds {show(here.stock(dst).get(item, 0.0))})."
+    return f"You moved {show(q)} {item} from {b['name']} to {d['name']}{full} (it holds {show(here.stock(dst).get(item, 0.0))})."
 
 
 def move_from(here, a):
-    """What a `move` "from" names, with the shapes on (W-102: the move shape's "from" names a store or a thing as well as racks):
-    ("store", building id) | ("thing", its words) | ("racks", the act with its racks named), else None (the shapes off: racks)."""
-    from cybertron2.engine import shapes as SH
-    if not a.get("from") or not SH.on(here):
+    """What a `move` "from" names (W-102: the move shape's "from" names a store or a thing as well as racks; D2-339's rules move
+    goods between stores with it): ("store", building id) | ("thing", its words) | ("racks", the act with its racks named)."""
+    if not a.get("from"):
         return None
     frm = str(a.get("from")).strip()
     if frm.lower() in RACK_WORDS:                                               # "the rack", "the hearth": one's own here

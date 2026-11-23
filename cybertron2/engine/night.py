@@ -80,7 +80,8 @@ def night(w) -> dict:
     fires = open_fires(w, today, where, rec)                                  # fires in the open, shared by 4 (D2-159)
     rec["care"] = LF.care_gifts(w, today)                                       # the largest care's food, and what is passed on (D4-64)
     tents = {}                                                                  # a tent sleeps two (D2-68): who shares whose
-    for name in w.living():
+    from cybertron2.engine import book as BK
+    for name in BK.meal_order(w, w.living()):                                   # a share's order: fed first when short (D2-339)
         a = s["people"][name]
         bid = where.get(name)
         b = s["buildings"][bid] if bid else None
@@ -126,8 +127,8 @@ def night(w) -> dict:
             hearth = True
         rawf = sorted({i for cid in stores for i, q in w.goods(cid).items() if q > 1e-9 and ITEMS.get(i, {}).get("cook")}) if not hearth else []
         from cybertron2.engine import book as BK                                # the book at the meal: what first, the rations,
-        bm = BK.meal(w, name) if w.s.get("books") else {"first": [], "ration": 1.0}   # what is held back (u6 §4 moment 4)
-        ate = _eat(w, place, stores, need * float(bm["ration"]), hearth, first=bm["first"], who=name)
+        bm = BK.meal(w, name) if w.s.get("books") else {"first": [], "ration": 1.0, "skip": []}   # what is kept back (moment 4)
+        ate = _eat(w, place, stores, need * float(bm["ration"]), hearth, first=bm["first"], who=name, skip=bm.get("skip") or ())
         if rawf and ate + 1e-9 < need:                                         # food that wants a fire, eaten raw or not (D2-160)
             rec.setdefault("uncooked", {})[name] = rawf
         me = ("person", name)
@@ -490,12 +491,13 @@ def eat_order(items, hearth=True) -> list:
     return sorted(items, key=lambda i: (eaten_worth(i, hearth) < ITEMS[i]["food"], -ITEMS[i]["spoil"]))
 
 
-def _eat(w, place, stores, need, hearth=True, first=(), who=None) -> float:
+def _eat(w, place, stores, need, hearth=True, first=(), who=None, skip=()) -> float:
     """Up to `need` in food value, from the stores in order, most perishable first; what is better cooked is eaten raw, for less,
     without a lit fire (D2-160: grain 0.2, flour 0.5, beans nothing, fresh meat 0.8), after what needs no fire. The book's `first`
     goes before (u6 §4), and what it holds back is not eaten."""
     got = 0.0
     order = [i for i in first if i in EDIBLE] + [i for i in eat_order(EDIBLE, hearth) if i not in first]
+    order = [i for i in order if i not in skip]                               # goods a share keeps for others (D2-339)
     from cybertron2.engine import book as BK
     books = bool(w.s.get("books")) and who is not None
     for cid in stores:

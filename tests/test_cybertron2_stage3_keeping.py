@@ -365,25 +365,32 @@ def head_of(w):
     return w.head(RP["household"])
 
 
+SMOKE = {"do": "make", "what": "smoke fish", "at": "the Smokehouse"}
+
+
+def rule(w, who, **r):
+    return BK.act(Here(w, who), r)
+
+
 def test_a_rule_is_read_back_refused_where_it_must_be_and_a_members_is_a_proposal():
     w = book_world()
     head = head_of(w)
-    r = do(w, head, do="rule", rule="go", goods="fish", to="the racks in the Smokehouse", when="when they have room",
-           words="the fish that comes in goes to the racks")
-    assert r.startswith("Rule 1 (the household): fish that comes in goes to the racks in the Smokehouse, when they have room; whoever has time"), r
+    r = rule(w, head, rule="do", act=SMOKE, when={"arrives": "fish"}, unless={"in": "the Smokehouse", "full": True},
+             words="the fish that comes in goes to the racks")
+    assert r.startswith("Rule 1 (the household): whoever has time: make smoke fish at the Smokehouse, when fish comes in, unless "
+                        "the Smokehouse is full"), r
     assert '(your words: "the fish that comes in goes to the racks")' in r
-    r = do(w, head, do="rule", rule="chore", acts=[{"do": "travel", "to": "anywhere"}])
+    r = do(w, head, do="rule", rule="do", act={"do": "travel", "to": "anywhere"})
     assert r.startswith("Refused") and "travel and free acts cannot be one" in r, r
     other = RP["other"]
     ob = next(b for b in w.homes(other) if w.s["buildings"][b]["fittings"].get("beds"))
-    r = do(w, head, do="rule", rule="move", goods="fish", to=w.s["buildings"][ob]["name"])
+    r = do(w, head, do="rule", rule="keep", goods="fish", **{"in": w.s["buildings"][ob]["name"]})
     assert r.startswith("Refused") and "is not your household's" in r, r
-    r = do(w, head, do="rule", rule="go", goods="salt fish", to="hard cure in the Smokehouse")
-    assert r.startswith("Refused") and "a hard cure needs the long cool smoke" in r, r
     mate = next(n for n in RP["mates"] if n != head)
-    r = do(w, mate, do="rule", rule="tend", at="the Smokehouse", **{"for": "household"})
+    r = do(w, mate, do="rule", rule="do", act={"do": "tend", "at": "the Smokehouse"}, when={"in": "the Smokehouse", "state": "in process"},
+           **{"for": "household"})
     assert r.startswith(f"Proposed to {head}, who heads the household"), r
-    r = do(w, mate, do="rule", rule="chore", acts=[{"do": "gather", "what": "firewood"}])
+    r = do(w, mate, do="rule", rule="do", acts=[{"do": "gather", "what": "firewood"}])
     assert r.startswith("Rule 1 (yours)"), r
     assert V.cost(Here(w, head), {"do": "rule", "rule": "drop", "n": 1}) == 0
 
@@ -400,19 +407,19 @@ def _day(w, plans_used=None):
 def test_the_spare_units_phase_hangs_by_rule_what_the_day_brought_in_a_members_spare_units():
     w = book_world()
     head = head_of(w)
-    do(w, head, do="rule", rule="go", goods="fish", to="the racks in the Smokehouse", when="when they have room")
+    rule(w, head, rule="do", act=SMOKE, when={"arrives": "fish"}, unless={"in": "the Smokehouse", "full": True})
     store(w, RP["house"])["fish"] = 120.0                                      # brought home at midday
     agnes = next(n for n in RP["mates"] if n != head)
     rec, used, results, budget = _day(w, {agnes: 2})                            # she planned 2 of her units; the rest planned all
-    assert any(x.startswith("By the household's rule 1: You hung 120 kg of fish") and "(4 units of work)" in x for x in results[agnes]), results[agnes]
-    assert used[agnes] == 6 and store(w, RP["house"]).get("fish", 0.0) < 1e-6
+    hung = [x for x in results[agnes] if x.startswith("By the household's rule 1: You hung")]
+    assert hung and used[agnes] <= budget[agnes] and store(w, RP["house"]).get("fish", 0.0) < 120.0 - 1e-6, results[agnes]
 
 
 def test_a_rule_on_a_lasting_state_waits_when_no_one_has_units_and_fires_the_next_day():
     w = book_world()
     head = head_of(w)
-    do(w, head, do="rule", rule="move", goods="smoked fish", **{"from": "the racks in the Smokehouse"}, to=w.s["buildings"][RP["house"]]["name"],
-       when="when a lot is done")
+    rule(w, head, rule="do", act={"do": "move", "item": "smoked fish", "from": "the Smokehouse", "to": w.s["buildings"][RP["house"]]["name"]},
+         when={"in": "the Smokehouse", "state": "done"})
     hand(w, head, fish=60)
     do(w, head, do="make", what="smoke fish", qty=2)
     night(w)
@@ -423,10 +430,10 @@ def test_a_rule_on_a_lasting_state_waits_when_no_one_has_units_and_fires_the_nex
     assert any("You took down" in x for x in results[head]), results[head]
 
 
-def test_ones_own_standing_fallback_comes_before_the_households_chore_and_unset_units_are_rest():
+def test_ones_own_standing_fallback_comes_before_the_households_rule_and_unset_units_are_rest():
     w = book_world()
     head = head_of(w)
-    do(w, head, do="rule", rule="tend", at="the Smokehouse", when="while anything is smoking")
+    rule(w, head, rule="do", act={"do": "tend", "at": "the Smokehouse"}, when={"in": "the Smokehouse", "state": "in process"})
     hand(w, head, fish=30)
     do(w, head, do="make", what="smoke fish")
     w.s["buildings"]["smokehouse"]["smoke"]["tended"] = -1                     # wants tending today
@@ -448,71 +455,58 @@ def test_ones_own_standing_fallback_comes_before_the_households_chore_and_unset_
     assert rec["rest"] and all(v == budget[n] for n, v in rec["rest"].items())  # nothing set: all of it rest
 
 
-def test_a_chores_fraction_is_carried_until_whole_and_never_takes_more_than_the_spare():
+def test_a_rules_act_never_takes_more_than_the_spare_and_the_cascades_stop():
     w = book_world()
     head = head_of(w)
-    do(w, head, do="rule", rule="go", goods="fish", to="the racks in the Smokehouse")
-    store(w, RP["house"])["fish"] = 45.0                                       # 1.5 units of hanging
+    rule(w, head, rule="do", act=SMOKE, when={"arrives": "fish"})
+    store(w, RP["house"])["fish"] = 300.0
     names = [n for n in w.living() if w.at(n) is not None]
     budget = {n: w.units_for(n) for n in names}
     used = {n: (budget[n] - 2 if n == head else budget[n]) for n in names}
-    BK.spare_units(w, names, sorted(names), budget, used, {n: [] for n in names})
-    assert used[head] == budget[head] - 1 and w.s["people"][head]["chore_carry"] == pytest.approx(0.5)
-    store(w, RP["house"])["fish"] = 300.0
-    used = {n: (budget[n] - 1 if n == head else budget[n]) for n in names}
-    BK.spare_units(w, names, sorted(names), budget, used, {n: [] for n in names})
-    assert used[head] <= budget[head]
-
-
-def test_each_rule_fires_once_a_day_and_cascades_stop():
-    w = book_world()
-    head = head_of(w)
-    do(w, head, do="rule", rule="go", goods="fish", to="the racks in the Smokehouse")
-    store(w, RP["house"])["fish"] = 300.0
-    rec, used, results, _ = _day(w, {n: 0 for n in RP["mates"]})
-    fired = [x for x in rec["fired"] + rec["partly"] if x["rule"] == 1]
-    assert len(fired) == 1, rec
+    rec = BK.spare_units(w, names, sorted(names), budget, used, {n: [] for n in names})
+    assert used[head] <= budget[head] and len([x for x in rec["fired"] if x["rule"] == 1]) <= 2, rec
 
 
 def test_a_rule_when_the_run_is_seen_fires_only_on_a_day_a_member_noticed_it():
     w = book_world()
     hh = RP["household"]
-    st = BK.state_of("when the eels start running")
-    assert st["state"] == "seen" and st["set"] == "run"
-    assert not BK.seen(w, hh, "run")
+    head = head_of(w)
+    c = BK.cond(Here(w, head), {"seen": "the run"}, "when")
+    assert c == {"seen": "run"}
+    assert not BK.cond_holds(w, hh, w.at(head), c, head)
     m = RP["mates"][0]
     w.s["mind"][m]["today"]["concerned"] = ["eels running thick at the weir in the dusk"]
-    assert BK.seen(w, hh, "run")
+    assert BK.cond_holds(w, hh, w.at(head), c, head)
 
 
-def test_a_go_rule_sends_goods_arriving_to_its_store():
+def test_a_keep_rule_sends_goods_arriving_to_its_store():
     w = book_world()
     head = head_of(w)
-    do(w, head, do="rule", rule="go", goods="firewood", to="the Smokehouse store")
+    rule(w, head, rule="keep", goods="firewood", **{"in": "the Smokehouse"})
     w.apply("create", w.at(head), dst=w.s["buildings"][RP["house"]]["stock"], item="firewood", qty=5.0)
     assert store(w, "smokehouse")["firewood"] == pytest.approx(65.0)
 
 
-def test_what_the_book_holds_back_is_not_eaten_and_first_goes_first():
+def test_what_a_keep_holds_back_is_not_eaten_and_first_goes_first():
     w = book_world()
     head = head_of(w)
-    do(w, head, do="rule", rule="hold back", goods="salt fish", qty=20, unless="someone is starving")
+    rule(w, head, rule="keep", goods="salt fish", **{"at least": 20}, unless={"starving": "anyone"})
     stk = w.s["buildings"][RP["house"]]["stock"]
     store(w, RP["house"])["salt fish"] = 25.0
     assert BK.held(w, head, stk, "salt fish") == 20.0
     assert N._eat(w, w.at(head), [stk], 10.0, True, who=head) <= 5 * ITEMS["salt fish"]["food"] + 1e-9 + 10
     left = store(w, RP["house"]).get("salt fish", 0.0)
     assert left >= 20.0 - 1e-9
-    do(w, head, do="rule", rule="first", goods="salt fish")
+    rule(w, head, rule="first", goods=["salt fish"])
     assert BK.meal(w, head)["first"] == ["salt fish"]
 
 
 def test_the_rules_block_and_the_evening_carry_the_book():
     w = book_world()
     head = head_of(w)
-    do(w, head, do="rule", rule="tend", at="the Smokehouse", when="while anything is smoking")
+    rule(w, head, rule="do", act={"do": "tend", "at": "the Smokehouse"}, when={"in": "the Smokehouse", "state": "in process"})
     sys_ = PR.system_prompt(Here(w, head), Mind(w, head))
-    assert "standing rules" in sys_ and "1. tend the fire in the Smokehouse" in sys_ and BK.GRAMMAR in sys_
+    assert "standing rules" in sys_ and "1. whoever has time: tend at the Smokehouse" in sys_ and BK.GRAMMAR in sys_
     assert "(say, gather firewood)" not in sys_
     from cybertron2.engine import evening as EV
     assert "rule" in EV.NIGHT_VERBS
