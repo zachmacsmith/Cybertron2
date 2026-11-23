@@ -1281,6 +1281,7 @@ LIFE = {
     "infant": {"eats": 0.5, "dies": {"cared": 0.02, "not": 0.08}, "hungry": 2.0, "cold": 2.0, "weight": 2,
                "shelter": {"house": 1.0, "camp": 1.5, "out": 2.0}},             # a baby's night by where it sleeps (D4-97; calibrate)
     "child": {"dies": 0.005, "unminded": 4.0},
+    "youth": {"eats": 0.8},                                                 # D2-330 (questions C6): between child and adult
     "dial": {"low": {"infant_care": 1, "child_eats": 0.7, "child_works": 1.0, "child_minding": 0},
              "high": {"infant_care": 3, "child_eats": 1.0, "child_works": 0.5, "child_minding": 1}},   # D2-145, D2-151
     "old_age": {"adult": 0.001, "elder": 0.01, "doubling": 20},            # D2-149; the doubling scaled

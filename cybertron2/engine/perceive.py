@@ -84,8 +84,13 @@ def seed_knowledge(w) -> None:
                 from cybertron2.engine import layout as LY
                 LY.learn_way(w, name, rid, wy["end"], "seeded")
         for x in ((w.spec.get("agents") or {}).get(name) or {}).get("kept") or []:   # one's own seeded lines
-            MEM.seed_line(w, name, x if isinstance(x, str) else x.get("text"), "seeded", isinstance(x, dict) and x.get("fixed"))
-        if a.get("stage") not in LF.MINOR and a.get("born") is not None:          # grown already: places counted from its coming of age
+            MEM.seed_line(w, name, x if isinstance(x, str) else x.get("text"),
+                          (x.get("source") if isinstance(x, dict) else None) or "seeded", isinstance(x, dict) and x.get("fixed"))
+        founder = any(isinstance(x, dict) and x.get("source") in ("family lore", "a holding", "a custom")
+                      for x in ((w.spec.get("agents") or {}).get(name) or {}).get("kept") or [])
+        if founder and a.get("stage") not in LF.MINOR:                         # a founder's seeded lines (D2-308): the places that
+            MEM.come_of_age(w, name, 0)                                         # open each stretch are counted from the start, on top
+        elif a.get("stage") not in LF.MINOR and a.get("born") is not None:      # grown already: places counted from its coming of age
             MEM.come_of_age(w, name, int(a["born"]) + sum(n for st, n in LF.spans(LF.lifespan(w)) if st in LF.MINOR))
         dist = {home: 0}
         todo = [home]

@@ -1,0 +1,610 @@
+{
+ "fill": {
+  "households": {
+   "Brook": {
+    "livelihoods": [
+     "salter",
+     "fisher"
+    ],
+    "experts": {
+     "the_pan": "Oliver"
+    },
+    "bands": {
+     "Oliver": "expert",
+     "Katherine": "broad",
+     "Petronel": "broad"
+    },
+    "apprentices": {},
+    "keepers": {
+     "brook_salthouse": "Oliver",
+     "brook_smokehouse": "Katherine"
+    },
+    "holds": {
+     "smokehouse": [
+      "brook_smokehouse"
+     ],
+     "salt house": [
+      "brook_salthouse"
+     ]
+    },
+    "second_hands": [
+     "Katherine",
+     "Oliver"
+    ]
+   },
+   "Marsh": {
+    "livelihoods": [
+     "fisher"
+    ],
+    "experts": {
+     "weir_and_nets": "Peter"
+    },
+    "bands": {
+     "Nichola": "capable",
+     "Peter": "expert",
+     "Nigel": "broad"
+    },
+    "apprentices": {
+     "Nigel": "weir_and_nets"
+    },
+    "keepers": {
+     "marsh_weir": "Peter",
+     "marsh_smokehouse": "Nichola"
+    },
+    "holds": {
+     "weir": [
+      "marsh_weir"
+     ],
+     "smokehouse": [
+      "marsh_smokehouse"
+     ]
+    },
+    "second_hands": []
+   },
+   "Shepherd": {
+    "livelihoods": [
+     "fisher"
+    ],
+    "experts": {
+     "keeping": "Hamon"
+    },
+    "bands": {
+     "Hamon": "expert",
+     "Gunnild": "broad"
+    },
+    "apprentices": {},
+    "keepers": {
+     "shepherd_smokehouse": "Hamon"
+    },
+    "holds": {
+     "smokehouse": [
+      "shepherd_smokehouse"
+     ]
+    },
+    "second_hands": []
+   }
+  },
+  "people": {},
+  "skipped": [
+   "Marsh: Nichola raised to capable to keep the smokehouse (u11 \u00a72.3)",
+   "C2: each head given a rough idea of quarrying, so the Scar's stone can be had (no mason here)"
+  ],
+  "refused": [],
+  "capital": {},
+  "lines": {
+   "Basilia": {
+    "wanted": 0,
+    "rendered": 0,
+    "skipped": [],
+    "steps": [],
+    "seeded": 0,
+    "words": 0,
+    "over": false,
+    "long": [],
+    "ids": []
+   },
+   "Denise": {
+    "wanted": 0,
+    "rendered": 0,
+    "skipped": [],
+    "steps": [],
+    "seeded": 0,
+    "words": 0,
+    "over": false,
+    "long": [],
+    "ids": []
+   },
+   "Gunnild": {
+    "wanted": 19,
+    "rendered": 19,
+    "skipped": [],
+    "steps": [],
+    "seeded": 19,
+    "words": 567,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS6",
+     "BS7",
+     "BS8",
+     "BS9",
+     "PE1",
+     "PE2",
+     "HH1",
+     "HH3",
+     "FI1",
+     "FI2",
+     "FI3",
+     "HL",
+     "NB-salter:Brook",
+     "NB-fisher:Marsh"
+    ]
+   },
+   "Hamon": {
+    "wanted": 28,
+    "rendered": 26,
+    "skipped": [
+     "PE2",
+     "HL"
+    ],
+    "steps": [
+     "neighbours beyond one",
+     "HH5",
+     "HH8",
+     "capable lines a specialism repeats",
+     "BS9",
+     "BS7"
+    ],
+    "seeded": 20,
+    "words": 651,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS6",
+     "BS8",
+     "PE1",
+     "HH1",
+     "HH3",
+     "HH6",
+     "HH7",
+     "HH9",
+     "FI1",
+     "FI2",
+     "FI16",
+     "FI17",
+     "FI18",
+     "FI19",
+     "NB-salter:Brook"
+    ]
+   },
+   "Henry": {
+    "wanted": 2,
+    "rendered": 2,
+    "skipped": [],
+    "steps": [],
+    "seeded": 2,
+    "words": 68,
+    "over": false,
+    "long": [],
+    "ids": [
+     "FI1",
+     "HL"
+    ]
+   },
+   "Katherine": {
+    "wanted": 22,
+    "rendered": 21,
+    "skipped": [
+     "PE2"
+    ],
+    "steps": [
+     "neighbours beyond one"
+    ],
+    "seeded": 20,
+    "words": 664,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS6",
+     "BS7",
+     "BS8",
+     "BS9",
+     "PE1",
+     "HH1",
+     "HH3",
+     "SA1",
+     "FI17",
+     "FI1",
+     "FI2",
+     "FI3",
+     "FI5",
+     "HL",
+     "NB-fisher:Marsh"
+    ]
+   },
+   "Margery": {
+    "wanted": 2,
+    "rendered": 2,
+    "skipped": [],
+    "steps": [],
+    "seeded": 2,
+    "words": 71,
+    "over": false,
+    "long": [],
+    "ids": [
+     "SA1",
+     "HL"
+    ]
+   },
+   "Nichola": {
+    "wanted": 23,
+    "rendered": 22,
+    "skipped": [
+     "PE2"
+    ],
+    "steps": [
+     "neighbours beyond one",
+     "BS9"
+    ],
+    "seeded": 20,
+    "words": 669,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS6",
+     "BS7",
+     "BS8",
+     "PE1",
+     "HH1",
+     "HH3",
+     "FI1",
+     "FI2",
+     "FI3",
+     "FI4",
+     "FI5",
+     "FI9",
+     "FI17",
+     "HL",
+     "NB-salter:Brook"
+    ]
+   },
+   "Nigel": {
+    "wanted": 10,
+    "rendered": 10,
+    "skipped": [],
+    "steps": [],
+    "seeded": 10,
+    "words": 350,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS5",
+     "BS8",
+     "PE1",
+     "FI1",
+     "FI2",
+     "FI9",
+     "HL"
+    ]
+   },
+   "Oliver": {
+    "wanted": 29,
+    "rendered": 29,
+    "skipped": [],
+    "steps": [
+     "neighbours beyond one",
+     "PE2",
+     "HH5",
+     "HH8",
+     "broad lines of a second living beyond its first",
+     "BS9",
+     "BS7"
+    ],
+    "seeded": 20,
+    "words": 642,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS6",
+     "BS8",
+     "PE1",
+     "HH1",
+     "HH3",
+     "HH6",
+     "HH7",
+     "HH9",
+     "SA1",
+     "SA2",
+     "SA3",
+     "SA4",
+     "FI1",
+     "HL",
+     "NB-fisher:Marsh"
+    ]
+   },
+   "Peter": {
+    "wanted": 28,
+    "rendered": 28,
+    "skipped": [],
+    "steps": [
+     "neighbours beyond one",
+     "PE2",
+     "HH5",
+     "HH8",
+     "BS9",
+     "BS7",
+     "BS6",
+     "the last neighbour line"
+    ],
+    "seeded": 20,
+    "words": 676,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS8",
+     "PE1",
+     "HH1",
+     "HH3",
+     "HH6",
+     "HH7",
+     "HH9",
+     "FI1",
+     "FI2",
+     "FI3",
+     "FI9",
+     "FI10",
+     "FI11",
+     "FI12",
+     "HL"
+    ]
+   },
+   "Petronel": {
+    "wanted": 8,
+    "rendered": 8,
+    "skipped": [],
+    "steps": [],
+    "seeded": 8,
+    "words": 274,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS5",
+     "BS8",
+     "PE1",
+     "SA1",
+     "HL"
+    ]
+   }
+  }
+ },
+ "gate": {
+  "refuse": [],
+  "warn": [
+   {
+    "check": "P10",
+    "level": "warn",
+    "who": null,
+    "text": "the Salt House: the brine pan wears and wants copper to mend; no smith in reach"
+   },
+   {
+    "check": "P11",
+    "level": "warn",
+    "who": null,
+    "text": "copper: needed by a living here and made by none in reach (a designed scarcity, or not)"
+   },
+   {
+    "check": "P18",
+    "level": "warn",
+    "who": null,
+    "text": "the village rule: 2 livelihoods hold capital; 1 village(s) in the world, so a need from outside has no village in reach to meet it"
+   },
+   {
+    "check": "P7",
+    "level": "warn",
+    "who": null,
+    "text": "crafts held at capable or above with no lesson rows (their failures say only \"your hands\"): boil salt, gill net, gill nets, medium room, trap in water, weir, wicker trap"
+   },
+   {
+    "check": "M3",
+    "level": "warn",
+    "who": "Brook",
+    "text": "the Brooks: 12 wicker traps needed by the first run in 5 days; about 25 units to make them, the summer rods at 0.45 bundles a unit"
+   }
+  ],
+  "report": [
+   {
+    "check": "probe",
+    "level": "report",
+    "who": null,
+    "text": "break a dam: shut everywhere in the dry probe"
+   },
+   {
+    "check": "probe",
+    "level": "report",
+    "who": null,
+    "text": "gather young: shut everywhere in the dry probe"
+   },
+   {
+    "check": "probe",
+    "level": "report",
+    "who": null,
+    "text": "milk: shut everywhere in the dry probe"
+   },
+   {
+    "check": "probe",
+    "level": "report",
+    "who": null,
+    "text": "net: shut everywhere in the dry probe"
+   },
+   {
+    "check": "probe",
+    "level": "report",
+    "who": null,
+    "text": "reap: shut everywhere in the dry probe"
+   },
+   {
+    "check": "probe",
+    "level": "report",
+    "who": null,
+    "text": "slaughter: shut everywhere in the dry probe"
+   },
+   {
+    "check": "probe",
+    "level": "report",
+    "who": null,
+    "text": "sow: shut everywhere in the dry probe"
+   },
+   {
+    "check": "probe",
+    "level": "report",
+    "who": null,
+    "text": "weed: shut everywhere in the dry probe"
+   }
+  ],
+  "verdict": "pass",
+  "probe": {
+   "works": {
+    "Eelmouth": [
+     "angle",
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "fence",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "gill net",
+     "guard the field",
+     "hay",
+     "hunt the wild",
+     "pest work",
+     "quarry",
+     "shut",
+     "stalk",
+     "trap in water",
+     "twist cord"
+    ],
+    "Oakhurst": [
+     "clear",
+     "clear for building",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Cragton": [
+     "clear",
+     "clear for building",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ]
+   },
+   "shut everywhere": [
+    "break a dam",
+    "gather young",
+    "milk",
+    "net",
+    "reap",
+    "slaughter",
+    "sow",
+    "weed"
+   ],
+   "only the moment or inputs": [
+    "burn",
+    "burn the stubble",
+    "bury",
+    "clear the leat",
+    "dig a strip",
+    "ditch",
+    "dress millstones",
+    "drive",
+    "dung",
+    "hoe",
+    "manure",
+    "mend the brine pan",
+    "mine",
+    "open the gate",
+    "plough",
+    "pull flax",
+    "reline oven",
+    "repair",
+    "salt pan",
+    "select seed",
+    "set line",
+    "shut the gate",
+    "snare",
+    "tend the smoke",
+    "terrace",
+    "wall"
+   ],
+   "crashes": [],
+   "roads refused": [
+    [
+     "Eelmouth",
+     "Oakhurst",
+     "Oakhurst",
+     "Refused: travel: you carry 20.6 weight; you can carry 10 on this road, so set down at least 10.6"
+    ],
+    [
+     "Eelmouth",
+     "Cragton",
+     "Cragton",
+     "Refused: travel: you carry 20.6 weight; you can carry 10 on this road, so set down at least 10.6"
+    ]
+   ]
+  }
+ }
+}

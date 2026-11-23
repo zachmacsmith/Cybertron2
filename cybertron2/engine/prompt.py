@@ -845,7 +845,8 @@ def _family_lines(here, mind) -> list:
                    'pass something on, the one giving the most food is kept).')
         for x in young:                                                         # what each holds so far (D4-64)
             k = here.kept_of(x)
-            held = "; ".join(f"“{t}” ({src})" for t, src in k["lines"]) or "nothing yet"
+            held = "; ".join(f"“{t}”" + (f" ({src})" if src not in ("family lore", "a holding", "a custom") else "")   # seeded lines'
+                             for t, src in k["lines"]) or "nothing yet"                                             # sources unshown (u9 §5.2)
             out.append(f"{x} holds to keep for good: {held}" + (f" ({k['room']} more can be added)." if k["room"] else " (no more can be added)."))
         order = life.get("order")
         out.append("The household's children are set to " + (KN.label(order["what"]) if order else "no work") + " each day"
