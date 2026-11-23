@@ -38,6 +38,7 @@ proposal written.
 - [[L-142 Fallbacks as a person's standing setting|Fallbacks as a person's standing setting (L-142)]]
 - [[L-151 A household as a shared book of standing rules people subscribe to|A household as a shared book of standing rules people subscribe to (L-151)]]
 - [[L-152 Travel folded into the standing rules|Travel folded into the standing rules (L-152)]]
+- [[L-174 Remove the engine's automatic detection and telling of breaches and…|Remove the engine's automatic detection and telling of breaches and… (L-174)]]
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
 - [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
 - [[Stage 3 of the fishing, hunting and materials wave keeping, stores…|Stage 3 of the fishing, hunting and materials wave: keeping, stores…]]

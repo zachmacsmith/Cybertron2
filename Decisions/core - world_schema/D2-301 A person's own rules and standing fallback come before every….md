@@ -21,6 +21,7 @@ conversation (22 Nov: "Your own rule should overrun chores. They just by default
 
 
 ## Mentioned by
+- [[Rules as the grammar of norms claims, access and laws in the same…|Rules as the grammar of norms: claims, access and laws in the same…]]
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
 - [[The build plan|The build plan]]
 - [[The integration review (23 Nov 2026)|The integration review (23 Nov 2026)]]

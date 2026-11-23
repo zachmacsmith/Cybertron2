@@ -18,6 +18,7 @@ started
 
 ## Linked
 - under it: [[L-173 Rules as the grammar of norms|Rules as the grammar of norms (L-173)]] (open)
+- under it: [[L-174 Remove the engine's automatic detection and telling of breaches and…|Remove the engine's automatic detection and telling of breaches and… (L-174)]] (open)
 
 
 ## Mentioned by
@@ -34,6 +35,7 @@ started
 - [[L-151 A household as a shared book of standing rules people subscribe to|A household as a shared book of standing rules people subscribe to (L-151)]]
 - [[L-156 The locked chest and its key|The locked chest and its key (L-156)]]
 - [[L-173 Rules as the grammar of norms|Rules as the grammar of norms (L-173)]]
+- [[L-174 Remove the engine's automatic detection and telling of breaches and…|Remove the engine's automatic detection and telling of breaches and… (L-174)]]
 - [[C-4 Letters and channels|Letters and channels (C-4)]]
 - [[Rules as the grammar of norms claims, access and laws in the same…|Rules as the grammar of norms: claims, access and laws in the same…]]
 - *and 1 index or audit notes*
