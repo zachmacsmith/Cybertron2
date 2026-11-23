@@ -3,7 +3,7 @@ id: docs/review/37_growth/02zzzh_hunt_fish/stage4_brief.md
 kind: note
 updated: "2026-11-23"
 ---
-# Brief: build stage 4, taking and making (thread W-THREAD)
+# Brief: build stage 4, taking and making (thread W-100)
 
 *note · `docs/review/37_growth/02zzzh_hunt_fish/stage4_brief.md`*
 
@@ -14,7 +14,7 @@ push or merge. Commit on the branch in small commits; each message's last paragr
 
 ```
 Agent: 37.2
-Thread: W-THREAD
+Thread: [[W-100 Build stage 4, signs, people and worlds|W-100]]
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 ```
 

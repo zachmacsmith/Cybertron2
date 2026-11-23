@@ -43,4 +43,3 @@
 
 ## Open here
 - [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]] (active)
-- [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]] (active)

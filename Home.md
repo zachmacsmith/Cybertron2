@@ -29,6 +29,7 @@
 - [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]: closed by agent
 - [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]]: closed by agent
 - [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]]: closed by agent
+- [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]]: closed by agent
 
 ## Active threads (18)
 
@@ -51,8 +52,8 @@
   next: after the first build (recipes shown with the batches, the gate check, the fishing bugs and the target rule)…
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]  
   next: stages 1 to 4 built one after another without stopping (Zach 23 Nov: 'as the stage finish continue until…
-- [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]]  
-  next: build; tests; review; merge
+- [[W-100 Build stage 4, signs, people and worlds|Build stage 4, signs, people and worlds (W-100)]]  
+  next: build; renders and checks; review by 37.2; merge; then live run 1 (D2-333)
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  

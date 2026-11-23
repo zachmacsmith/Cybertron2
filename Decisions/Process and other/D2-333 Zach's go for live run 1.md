@@ -18,3 +18,7 @@ conversation (23 Nov: "But I also give you permission to do live run 1 when you 
 
 ## Linked
 - parent: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
+
+
+## Mentioned by
+- [[W-100 Build stage 4, signs, people and worlds|Build stage 4, signs, people and worlds (W-100)]]

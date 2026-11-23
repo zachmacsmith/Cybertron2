@@ -1,13 +1,13 @@
 ---
 id: W-99
 kind: thread
-state: active
+state: done
 updated: "2026-11-23"
 ---
 
 # Build stage 3, keeping, stores and the household book (W-99)
 
-*active · 37.2 · touched 23 Nov (today)*
+*done, by agent (provisional) · 37.2 · touched 23 Nov (today)*
 
 > **Next:** build; tests; review; merge
 
@@ -15,7 +15,9 @@ updated: "2026-11-23"
 Brief: docs/review/37_growth/02zzzh_hunt_fish/stage3_brief.md. Branch w85-s3-keeping.
 
 ## Done so far, and what is left
-started
+done 23 Nov: built and merged: u4, u5, u6; 814 passed, 2 skipped; report stage3_report.md.
+
+**left:** staddle granary, sealed pit and door pile as portions, the store's attending view, vermin signs' chances checked, who eats first and guests, adopting a member's proposal, hot smoke in the open, retting's fouling
 
 ## Where
 - `branch w85-s3-keeping (worktree /home/user/c2-w85s3)`

@@ -1,7 +1,7 @@
 # All threads
 
 ## Open
-- [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]] (active)
+- [[W-100 Build stage 4, signs, people and worlds|Build stage 4, signs, people and worlds (W-100)]] (active)
 - [[W-96 Space unified everywhere|Space unified everywhere (W-96)]] (benched)
 - [[W-95 Stone and quarrying|Stone and quarrying (W-95)]] (benched)
 - [[W-94 Timed actions|Timed actions (W-94)]] (benched)
@@ -57,7 +57,8 @@
 - [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]] (queued)
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]] (active)
 
-## Closed (48)
+## Closed (49)
+- [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]]
 - [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]]
 - [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]]
 - [[W-75 Gates checked and recipes shown|Gates checked and recipes shown (W-75)]]

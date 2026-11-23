@@ -23,4 +23,4 @@ conversation (23 Nov: "Can we do a null arm where the same world lacks the new s
 ## Mentioned by
 - [[D2-333 Zach's go for live run 1|Zach's go for live run 1 (D2-333)]]
 - [[The build plan|The build plan]]
-- [[Brief build stage 4, taking and making (thread W-THREAD)|Brief: build stage 4, taking and making (thread W-THREAD)]]
+- [[Brief build stage 4, taking and making (thread W-100)|Brief: build stage 4, taking and making (thread W-100)]]
