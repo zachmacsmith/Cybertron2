@@ -30,6 +30,7 @@ started
 - under it: [[L-176 Noticing in parts of the day, so what is seen at mid-morning can…|Noticing in parts of the day, so what is seen at mid-morning can… (L-176)]] (open)
 - under it: [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]] (done)
 - under it: [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]] (active)
+- under it: [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]] (active)
 
 
 ## Mentioned by
@@ -38,6 +39,7 @@ started
 - [[D2-343 Teaching is settled before the evening, so a lesson's outcome can be…|Teaching is settled before the evening, so a lesson's outcome can be… (D2-343)]]
 - [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]]
 - [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]]
+- [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]]
 - [[L-175 Teaching, partnerships and joins settled before the evening, so a…|Teaching, partnerships and joins settled before the evening, so a… (L-175)]]
 - [[L-176 Noticing in parts of the day, so what is seen at mid-morning can…|Noticing in parts of the day, so what is seen at mid-morning can… (L-176)]]
 - [[Live run 1 the rebuilt fishing world against the old prompt and the…|Live run 1: the rebuilt fishing world against the old prompt and the…]]

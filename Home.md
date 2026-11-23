@@ -33,7 +33,7 @@
 - [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]]: closed by agent
 - [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]]: closed by agent
 
-## Active threads (18)
+## Active threads (19)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -56,6 +56,8 @@
   next: stages 1 to 4 built one after another without stopping (Zach 23 Nov: 'as the stage finish continue until…
 - [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]]  
   next: agent survey and design; then 37.2 reviews and brings Zach the proposals
+- [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]]  
+  next: build; tests; review; merge
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  

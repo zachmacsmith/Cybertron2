@@ -18,3 +18,7 @@ conversation (23 Nov: "Rules shouldn't be attendable.")
 
 ## Linked
 - parent: [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]]
+
+
+## Mentioned by
+- [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]]
