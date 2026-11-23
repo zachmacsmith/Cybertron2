@@ -39,6 +39,10 @@ the person's own crafts); docs/scenario_design.md (the live-run world); feature_
    be remade), there is no stone within a day (M4), and nothing produces bone, so lines need a smith's copper hooks. The remade
    Eelmouth must pass M1 to M8: give a household the net-making craft with cord within reach, the rock source (C2), and seed hand
    lines with hooks where a livelihood fishes by line; list any making check that still warns and why.
+   **From stage 3 (stage3_report.md):** there is no hut room kind yet, so a seeded smokehouse can take up to 4 sets: Eelmouth's
+   smoke hut must be a wattle hut of 1 set (D2-284, D2-291), a timber house by its room size. The book's `when` and `unless` read
+   states by keywords; tie the run and river states to u8's record where u6 names them. The rules grammar adds about 105 words to
+   every prompt: keep it inside the core's budget (u9 §2.5).
 4. **Render and check, without model calls:** the gate check on remade Eelmouth (it must pass; list warnings); a bot dry run of 40
    days; every founder's rendered system prompt and first morning message, for both live arms, written to
    docs/review/37_growth/02zzzh_hunt_fish/live1_renders/ for 37.2 to read.
