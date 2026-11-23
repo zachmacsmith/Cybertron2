@@ -22,4 +22,11 @@ conversation (23 Nov: "Can we actually just postpone fowling for the hunting bui
 
 ## Mentioned by
 - [[L-170 Fowling the methods|Fowling: the methods (L-170)]]
-- *and 1 index or audit notes*
+- [[The build plan|The build plan]]
+- [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
+- [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
+- [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
+- [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
+- [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
+- [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
+- *and 3 index or audit notes*

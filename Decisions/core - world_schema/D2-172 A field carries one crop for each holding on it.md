@@ -22,10 +22,9 @@ one crop record and one sower a field
 ## Mentioned by
 - [[Proposal crops grow by the season; can apart from works; what a…|Proposal: crops grow by the season; "can" apart from "works"; what a…]]
 - [[Proposal farming|Proposal: farming]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[Holding land and fixed things|Holding land and fixed things]]
 - [[02zi build brief for 37.4 plot shares and a crop for each holding|02zi: build brief for 37.4: plot shares and a crop for each holding]]
 - [[38.52 Plot shares and a crop for each holding, as built|38.52: Plot shares and a crop for each holding, as built]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

@@ -25,7 +25,6 @@ unlimited stores; a cellar of 8 stone and 8 units
 - [[Proposal buildings from parts|Proposal: buildings from parts]]
 - [[How much lies there heaps seen by their bulk, counted when attended…|How much lies there: heaps seen by their bulk, counted when attended…]]
 - [[Households and dwellings membership, use and home are data that…|Households and dwellings: membership, use and home are data that…]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[What agents can do|What agents can do]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[Buildings|Buildings]]
@@ -34,4 +33,4 @@ unlimited stores; a cellar of 8 stone and 8 units
 - [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
 - [[38.45 the building package, as built (brief 02zh)|38.45: the building package, as built (brief 02zh)]]
 - [[38.46 Wenbridge, a world to test whether people build (design, for…|38.46: Wenbridge, a world to test whether people build (design, for…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

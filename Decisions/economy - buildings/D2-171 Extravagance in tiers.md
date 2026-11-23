@@ -21,10 +21,10 @@ one fine tier
 
 ## Mentioned by
 - [[Proposal buildings people make their own (descriptions and lines…|Proposal: buildings people make their own (descriptions and lines…]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[Buildings|Buildings]]
 - [[02zh build brief for 37.4 the building package|02zh: build brief for 37.4: the building package]]
 - [[09 Mapping economic layers onto the engine, from foragers to the…|09: Mapping economic layers onto the engine, from foragers to the…]]
 - [[18 Health, environment, luxury, crime and measures the economy's…|18: Health, environment, luxury, crime and measures: the economy's…]]
 - [[38.45 the building package, as built (brief 02zh)|38.45: the building package, as built (brief 02zh)]]
 - [[38.46 Wenbridge, a world to test whether people build (design, for…|38.46: Wenbridge, a world to test whether people build (design, for…]]
+- *and 1 index or audit notes*

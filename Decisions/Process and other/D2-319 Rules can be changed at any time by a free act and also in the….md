@@ -22,3 +22,7 @@ conversation (23 Nov: "rules can also be changed in the evenings as a large part
 
 ## Mentioned by
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
+- [[The build plan|The build plan]]
+- [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
+- [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
+- *and 1 index or audit notes*

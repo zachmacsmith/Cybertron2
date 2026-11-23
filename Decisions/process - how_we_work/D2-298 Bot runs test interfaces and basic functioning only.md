@@ -21,6 +21,7 @@ conversation (22 Nov: "Stop overcorrecting on bot runs they can test basic inter
 
 
 ## Mentioned by
+- [[The build plan|The build plan]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]
 - [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]
@@ -31,7 +32,6 @@ conversation (22 Nov: "Stop overcorrecting on bot runs they can test basic inter
 - [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
 - [[U5. Stores and containers a space and what is in it, each removing…|U5. Stores and containers: a space and what is in it, each removing…]]
 - [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
 - [[spec_agents_brief.md|spec_agents_brief.md]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

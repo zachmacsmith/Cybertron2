@@ -16,6 +16,21 @@ and wear), the verbs and their registry, the knowledge and skill code, the sense
 fences.md's author) and clearing's holding rules (clearing.md); each code change below names its owner, and 37.4 is named on any
 merge that touches its files. **Thread:** [[W-85 The wave's integrated design|W-85]], under [[W-73 Fishing, hunting and their materials developed together|W-73]]; the timber economy ([[W-76 The timber economy|W-76]]) extends the builders designed here.
 
+
+> **Decisions since this spec was written (binding over its text; the build reads this table first):**
+> - **[[D2-302 The weir's cost for now, to calibrate in live runs, on a lowland river|D2-302]]:** the weir's cost set directly (basis §4).
+> - **[[D2-303 Poles are timber for now|D2-303]]:** poles are timber until the timber thread.
+> - **[[D2-306 Material got at the site of a work|D2-306]]:** material got at the site (field stone, brush, daub, turf) counted in the work at the factor.
+> - **[[D2-309 One capital factor for every lasting thing|D2-309]]:** one capital factor for every lasting thing; existing works held until their companions.
+> - **[[D2-313 For this wave|D2-313]]:** 37.2 owns every engine file this wave changes (read every '37.4' in the code tables as 37.2 for this wave).
+> - **[[D2-320 Crop protection stays as it is for now|D2-320]]:** crop protection as it is (dead hedge postponed); a rough watch act (units watching over a field, herd or building, by day or night), widening `guard`.
+> - **[[D2-321 Builders' craftsmanship setting a building's soundness is postponed|D2-321]]:** builders' craftsmanship postponed: all wear the same.
+> - **[[D2-322 Fences can be built along one border between two parcels, in sections…|D2-322]]:** fences along one border, in targetable sections; attending shows where fences stand.
+> - **[[D2-323 A cleared plot becomes a field part of its parcel, sown while the…|D2-323]]:** a cleared plot becomes a field part of its parcel.
+> - **[[D2-324 A build act costs what is left of the work|D2-324]]:** a build act costs what is left (1 or 2 units).
+> - **[[D2-328 A wattle house's default roof is turf or brush got at the site|D2-328]]:** a wattle house's default roof is turf or brush got at the site; straw thatch the better roof.
+> - **[[D2-330 The worlds' defaults as proposed|D2-330]]:** the worlds' defaults (questions C1 to C7).
+
 ## Extends
 
 Each read in full, not only its summary.

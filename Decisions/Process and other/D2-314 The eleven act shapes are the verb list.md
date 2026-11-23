@@ -24,3 +24,7 @@ conversation (23 Nov: "1. A3 yes")
 ## Mentioned by
 - [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)]]
 - [[A grammar of acting a few universal verbs, the thing as the target…|A grammar of acting: a few universal verbs, the thing as the target…]]
+- [[The build plan|The build plan]]
+- [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
+- [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
+- *and 2 index or audit notes*

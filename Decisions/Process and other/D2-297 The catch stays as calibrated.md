@@ -22,7 +22,7 @@ conversation (22 Nov: "I don't think we need to measure this or change rn I thin
 
 ## Mentioned by
 - [[D2-315 The wild's rates still on the day clock are left as calibrated for…|The wild's rates still on the day clock are left as calibrated for… (D2-315)]]
-- [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
+- [[The build plan|The build plan]]
 - [[The integration review (23 Nov 2026)|The integration review (23 Nov 2026)]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]
@@ -32,7 +32,6 @@ conversation (22 Nov: "I don't think we need to measure this or change rn I thin
 - [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
 - [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
 - [[spec_agents_brief.md|spec_agents_brief.md]]
-- *and 2 index or audit notes*
+- *and 4 index or audit notes*

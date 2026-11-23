@@ -22,3 +22,6 @@ conversation (23 Nov: "2. Sure for now")
 
 ## Mentioned by
 - [[Acts on held things take the thing as their target, and default to…|Acts on held things take the thing as their target, and default to…]]
+- [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
+- [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
+- *and 2 index or audit notes*

@@ -22,10 +22,9 @@ gates as something to work every time
 ## Mentioned by
 - [[Proposal fences, hedges and walls|Proposal: fences, hedges and walls]]
 - [[Proposal livestock|Proposal: livestock]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[Livestock|Livestock]]
 - [[02s build brief for 37.4 the parcel graph, herds, fences, hidden…|02s: build brief for 37.4: the parcel graph, herds, fences, hidden…]]
 - [[02zc the systems of cybertron2 as they stand|02zc: the systems of cybertron2 as they stand]]
 - [[Review 38.25 Package C built and run (37.2's brief 02s) the parcel…|Review 38.25: Package C built and run (37.2's brief 02s): the parcel…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

@@ -22,3 +22,6 @@ conversation (23 Nov: "B20: yes.")
 
 ## Mentioned by
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
+- [[The build plan|The build plan]]
+- [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
+- *and 1 index or audit notes*

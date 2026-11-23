@@ -13,6 +13,15 @@ updated: "2026-11-23"
 **Owner:** 37.2 for the numbers and the goods' table; 37.4 for the engine files named (clocks.py, verbs.py, night.py, prompt.py,
 view.py, buildings.py), named on any merge.
 
+
+> **Decisions since this spec was written (binding over its text; the build reads this table first):**
+> - **[[D2-309 One capital factor for every lasting thing|D2-309]]:** one capital factor for every lasting thing; existing works held until their companions.
+> - **[[D2-310 Lives counted in nights|D2-310]]:** lives in nights at 1/11.4; lives in acts at the factor.
+> - **[[D2-313 For this wave|D2-313]]:** 37.2 owns every engine file this wave changes (read every '37.4' in the code tables as 37.2 for this wave).
+> - **[[D2-315 The wild's rates still on the day clock are left as calibrated for…|D2-315]]:** wild rates still on the day clock stay as calibrated, read in live runs.
+> - **[[D2-324 A build act costs what is left of the work|D2-324]]:** a build act costs what is left (1 or 2 units).
+> - **[[D2-327 Tanning and leather are deferred from this wave until the rest is…|D2-327]]:** tanning and leather deferred until the wave is tested (frame, harness and bellows in leather, tanning's pollution with it).
+
 ## Extends
 
 basis.md (every row); spec/core/clocks.md ([[D2-273 Three clocks, each system on one|D2-273]], [[D2-275 A unit of work is 2 hours|D2-275]], [[D2-276 Making durable things runs on the year clock|D2-276]]); [[D2-281 Tanning comes in this build, with bark as a new good|D2-281]] (the factor staged); [[D2-288 Bulk goods are counted in handling units of a stated weight and every…|D2-288]] (handling units); [[D2-289 A shelf life 'keeps d days' becomes a nightly loss read as about a…|D2-289]] (the

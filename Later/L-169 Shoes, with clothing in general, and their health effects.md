@@ -19,3 +19,7 @@ Zach 23 Nov (B36): 'shoes deferred for now to be put wiht clothing in general, m
 - parent: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
 - bears on: [[W-90 Textiles and clothing|Textiles and clothing (W-90)]]
 - bears on: [[W-87 Health, fatigue and illness|Health, fatigue and illness (W-87)]]
+
+
+## Mentioned by
+- *and 1 index or audit notes*

@@ -22,3 +22,7 @@ conversation (23 Nov: "I meant the general idea yes but I think this should be c
 
 ## Mentioned by
 - [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
+- [[The build plan|The build plan]]
+- [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
+- [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
+- *and 1 index or audit notes*

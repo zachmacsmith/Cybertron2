@@ -26,7 +26,6 @@ proposals/farming.md; conversation
 - [[Proposal fences, hedges and walls|Proposal: fences, hedges and walls]]
 - [[Proposal the landscape generator (a world under the graph)|Proposal: the landscape generator (a world under the graph)]]
 - [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[Proposal wild plants, and the slow ecosystems they make|Proposal: wild plants, and the slow ecosystems they make]]
 - [[Livestock|Livestock]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
@@ -37,4 +36,4 @@ proposals/farming.md; conversation
 - [[02zzo the weather across conditions, and what the engine leaves…|02zzo: the weather across conditions, and what the engine leaves…]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

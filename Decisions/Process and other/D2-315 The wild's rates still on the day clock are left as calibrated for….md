@@ -18,3 +18,9 @@ conversation (23 Nov: "A12 keep for now as default.")
 
 ## Linked
 - parent: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
+
+
+## Mentioned by
+- [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
+- [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]
+- [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]

@@ -22,5 +22,5 @@ Zach 22 Nov ([[D2-303 Poles are timber for now|D2-303]]): folded into timber for
 
 
 ## Mentioned by
-- [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
+- *and 1 index or audit notes*

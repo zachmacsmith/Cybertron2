@@ -21,9 +21,7 @@ conversation (22 Nov: "The bot runs, checked (Recommended)")
 
 
 ## Mentioned by
-- [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
 - [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
 - [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[The catch basis checked against real eel fisheries can a household…|The catch basis checked against real eel fisheries: can a household…]]
-- *and 1 index or audit notes*
+- *and 3 index or audit notes*

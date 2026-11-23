@@ -28,8 +28,7 @@ the engine's hall (60 units) and water wheel (30)
 - [[Proposal recipes for the first worlds|Proposal: recipes for the first worlds]]
 - [[River and water the runs, the weir, the mill, salt and what lives by…|River and water: the runs, the weir, the mill, salt and what lives by…]]
 - [[Proposal shelter|Proposal: shelter]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[Buildings|Buildings]]
 - [[02zh build brief for 37.4 the building package|02zh: build brief for 37.4: the building package]]
 - [[38.46 Wenbridge, a world to test whether people build (design, for…|38.46: Wenbridge, a world to test whether people build (design, for…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

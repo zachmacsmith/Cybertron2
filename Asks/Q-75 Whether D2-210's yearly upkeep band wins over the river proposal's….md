@@ -20,5 +20,4 @@ The wear calibration (02zzw): a full weir 0.31 of its build a year, in [[D2-210 
 
 
 ## Mentioned by
-- [[U7 works and the building clock|U7: works and the building clock]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

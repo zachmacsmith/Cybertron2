@@ -21,4 +21,7 @@ conversation (23 Nov: "by runs only what I really care about is water only. ... 
 
 
 ## Mentioned by
-- *and 1 index or audit notes*
+- [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
+- [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
+- [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
+- *and 2 index or audit notes*

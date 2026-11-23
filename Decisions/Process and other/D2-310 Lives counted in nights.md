@@ -22,3 +22,7 @@ conversation (23 Nov: "6. Sure.")
 
 ## Mentioned by
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
+- [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
+- [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]
+- [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
+- *and 1 index or audit notes*

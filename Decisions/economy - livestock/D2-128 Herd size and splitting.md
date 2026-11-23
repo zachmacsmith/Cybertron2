@@ -19,7 +19,7 @@ livestock.md
 ## Mentioned by
 - [[Proposal what people make of wild things economies, husbandry…|Proposal: what people make of wild things: economies, husbandry…]]
 - [[Proposal livestock|Proposal: livestock]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[Livestock|Livestock]]
 - [[02s build brief for 37.4 the parcel graph, herds, fences, hidden…|02s: build brief for 37.4: the parcel graph, herds, fences, hidden…]]
 - [[Review 38.25 Package C built and run (37.2's brief 02s) the parcel…|Review 38.25: Package C built and run (37.2's brief 02s): the parcel…]]
+- *and 1 index or audit notes*

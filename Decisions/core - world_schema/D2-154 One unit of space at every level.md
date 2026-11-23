@@ -29,7 +29,6 @@ fittings without space; capacity fixed by blueprint
 - [[Households and dwellings membership, use and home are data that…|Households and dwellings: membership, use and home are data that…]]
 - [[Proposal the layout inside a node (parcels, features, and things on…|Proposal: the layout inside a node (parcels, features, and things on…]]
 - [[Proposal shelter|Proposal: shelter]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[Buildings|Buildings]]
 - [[Places nodes and sites|Places: nodes and sites]]
@@ -40,4 +39,4 @@ fittings without space; capacity fixed by blueprint
 - [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
 - [[38.45 the building package, as built (brief 02zh)|38.45: the building package, as built (brief 02zh)]]
 - [[38.46 Wenbridge, a world to test whether people build (design, for…|38.46: Wenbridge, a world to test whether people build (design, for…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

@@ -28,7 +28,6 @@ fences on borders now
 - [[Proposal the layout inside a node (parcels, features, and things on…|Proposal: the layout inside a node (parcels, features, and things on…]]
 - [[Proposal livestock|Proposal: livestock]]
 - [[Proposal what is physically possible is possible; the consequences…|Proposal: what is physically possible is possible; the consequences…]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[The declared process model|The declared process model]]
 - [[Livestock|Livestock]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
@@ -40,4 +39,4 @@ fences on borders now
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
 - [[Review 38.25 Package C built and run (37.2's brief 02s) the parcel…|Review 38.25: Package C built and run (37.2's brief 02s): the parcel…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

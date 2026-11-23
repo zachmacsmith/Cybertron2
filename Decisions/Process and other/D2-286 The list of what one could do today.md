@@ -21,7 +21,7 @@ conversation (22 Nov: "the 10 things you could do list should have been removed 
 
 
 ## Mentioned by
-- [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
+- [[The build plan|The build plan]]
 - [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]
 - [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
 - [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
@@ -30,4 +30,4 @@ conversation (22 Nov: "the 10 things you could do list should have been removed 
 - [[Design wave part 2 materials and making (withies, cord and flax…|Design wave part 2: materials and making (withies, cord and flax…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Steered or chosen defaults, examples and wordings in what the agents…|Steered or chosen: defaults, examples and wordings in what the agents…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

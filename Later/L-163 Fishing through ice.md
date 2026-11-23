@@ -19,3 +19,8 @@ Zach 23 Nov (B1): 'is there any way to cut the ice or fish in a forzen river or 
 - parent: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
 - bears on: [[W-49 Environment systems|Environment systems (W-49)]]
 - bears on: [[W-51 Testing the weather across dry, cold, coastal and mountain worlds…|Testing the weather across dry, cold, coastal and mountain worlds… (W-51)]]
+
+
+## Mentioned by
+- [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
+- *and 1 index or audit notes*

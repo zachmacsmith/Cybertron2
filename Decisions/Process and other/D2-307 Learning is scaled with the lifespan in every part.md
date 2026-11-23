@@ -22,3 +22,6 @@ conversation (23 Nov: "9. Sure.")
 
 ## Mentioned by
 - [[Trying and learning crafts by difficulty, failures that teach…|Trying and learning: crafts by difficulty, failures that teach…]]
+- [[The build plan|The build plan]]
+- [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
+- *and 2 index or audit notes*

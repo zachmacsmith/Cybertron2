@@ -19,3 +19,7 @@ Zach, 23 Nov: 'flag it against other scale mismatches to check in on again later
 - parent: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
 - bears on: [[W-96 Space unified everywhere|Space unified everywhere (W-96)]]
 - bears on: [[W-93 Demography and growth|Demography and growth (W-93)]]
+
+
+## Mentioned by
+- [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]

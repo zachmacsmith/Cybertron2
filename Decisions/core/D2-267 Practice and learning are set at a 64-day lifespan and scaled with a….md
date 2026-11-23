@@ -22,7 +22,6 @@ conversation (22 Nov: "conversation (22 Nov, answers to the open questions)")
 
 ## Mentioned by
 - [[Trying and learning crafts by difficulty, failures that teach…|Trying and learning: crafts by difficulty, failures that teach…]]
-- [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
 - [[Clocks which systems run on which time|Clocks: which systems run on which time]]
@@ -30,4 +29,4 @@ conversation (22 Nov: "conversation (22 Nov, answers to the open questions)")
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

@@ -48,7 +48,7 @@
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]  
   next: after the first build (recipes shown with the batches, the gate check, the fishing bugs and the target rule)…
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]  
-  next: Zach: questions.md section A (12 blocking); then the hand-off post to 37.4 and the staged build plan in detail
+  next: build stage 1 (u0, the basis) on branch w85-s1-basis; then stages 2 to 4, live run 1 on Zach's go, stage 5…
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  

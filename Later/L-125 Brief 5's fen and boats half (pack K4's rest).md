@@ -27,7 +27,6 @@ punts and coracles; the decoy pond and its quiet zone; crane, bittern and draina
 
 ## Mentioned by
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[By-products, multistage chains, substitutes, and how the ladders meet…|By-products, multistage chains, substitutes, and how the ladders meet…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
-- *and 4 index or audit notes*
+- *and 5 index or audit notes*

@@ -26,7 +26,6 @@ updated: "2026-11-20"
 - [[Methods and encounters people answer the wild by general methods…|Methods and encounters: people answer the wild by general methods…]]
 - [[Proposal modifiers on verbs (ways of doing an act that people know…|Proposal: modifiers on verbs (ways of doing an act that people know…]]
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[Modifiers ways of doing an act|Modifiers: ways of doing an act]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[02t the next region world, designed from dependence and checked with…|02t: the next region world, designed from dependence and checked with…]]
@@ -43,4 +42,4 @@ updated: "2026-11-20"
 - [[Design wave part 2 materials and making (withies, cord and flax…|Design wave part 2: materials and making (withies, cord and flax…]]
 - [[Review 38.21 a ladder of three worlds for the interconnected systems|Review 38.21: a ladder of three worlds for the interconnected systems]]
 - [[38.63 The engine overhaul, phases 1 and 2 what was built, the…|38.63: The engine overhaul, phases 1 and 2: what was built, the…]]
-- *and 2 index or audit notes*
+- *and 3 index or audit notes*

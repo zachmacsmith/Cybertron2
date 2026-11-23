@@ -25,3 +25,7 @@ conversation (23 Nov: "several should depend on if reversible or obvious. Tendin
 - [[D2-305 Acts on held things take the thing as their target, by tag or a known…|Acts on held things take the thing as their target, by tag or a known… (D2-305)]]
 - [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
 - [[Acts on held things take the thing as their target, and default to…|Acts on held things take the thing as their target, and default to…]]
+- [[The build plan|The build plan]]
+- [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
+- [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
+- *and 2 index or audit notes*

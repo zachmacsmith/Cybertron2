@@ -21,4 +21,4 @@ started
 - [[L-36 Livestock kinds beyond cattle and herds moved with the seasons|Livestock kinds beyond cattle and herds moved with the seasons (L-36)]]
 - [[L-121 Wildlife pack K8 crafts and wild goods|Wildlife pack K8: crafts and wild goods (L-121)]]
 - [[L-169 Shoes, with clothing in general, and their health effects|Shoes, with clothing in general, and their health effects (L-169)]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

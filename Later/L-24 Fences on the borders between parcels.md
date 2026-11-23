@@ -32,8 +32,7 @@ Fences on the borders between parcels (rather than round a parcel); hedges; nigh
 - [[Proposal what people make of wild things economies, husbandry…|Proposal: what people make of wild things: economies, husbandry…]]
 - [[Proposal livestock|Proposal: livestock]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[Livestock|Livestock]]
 - [[02s build brief for 37.4 the parcel graph, herds, fences, hidden…|02s: build brief for 37.4: the parcel graph, herds, fences, hidden…]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
-- *and 4 index or audit notes*
+- *and 5 index or audit notes*

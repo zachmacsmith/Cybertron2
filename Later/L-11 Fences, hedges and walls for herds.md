@@ -23,7 +23,6 @@ Fences, hedges and walls for herds (fences and walls round a parcel decided [[D2
 
 
 ## Mentioned by
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[02zo · What is open in 37.2's area, after sweeping every proposal (5…|02zo · What is open in 37.2's area, after sweeping every proposal (5…]]
 - [[38.51 The decisions now open, in one list (2 Nov)|38.51: The decisions now open, in one list (2 Nov)]]
-- *and 3 index or audit notes*
+- *and 4 index or audit notes*

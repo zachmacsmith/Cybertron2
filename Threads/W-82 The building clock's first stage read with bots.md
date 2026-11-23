@@ -29,10 +29,8 @@ started
 ## Mentioned by
 - [[L-69 Work costs out of scale with a short year|Work costs out of scale with a short year (L-69)]]
 - [[L-153 Clearing a plot at a time|Clearing a plot at a time (L-153)]]
-- [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
 - [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[The building clock's first stage, read with bots do bots still build…|The building clock's first stage, read with bots: do bots still build…]]
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Steered or chosen defaults, examples and wordings in what the agents…|Steered or chosen: defaults, examples and wordings in what the agents…]]
-- *and 2 index or audit notes*
+- *and 4 index or audit notes*

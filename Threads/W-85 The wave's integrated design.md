@@ -9,7 +9,7 @@ updated: "2026-11-23"
 
 *active · 37.2 · touched 23 Nov (today)*
 
-> **Next:** Zach: questions.md section A (12 blocking); then the hand-off post to 37.4 and the staged build plan in detail
+> **Next:** build stage 1 (u0, the basis) on branch w85-s1-basis; then stages 2 to 4, live run 1 on Zach's go, stage 5, live run 2
 
 ## What it is
 Zach, 23 Nov: 'Has all of the design been written up into one complete spec? ... One outline the overall architecture and purpose shape of all the changes and how they fit together and maybe with the different sections or linked specs for the break down of specific implementation details, data etc'. In docs/cybertron2/proposals/w73_design/. The basis answered first ([[D2-288 Bulk goods are counted in handling units of a stated weight and every…|D2-288]] to [[D2-295 Each depth of cure is its own good|D2-295]]).
@@ -111,5 +111,5 @@ started
 - [[L-165 Unfinished things generalised|Unfinished things generalised (L-165)]]
 - [[L-166 Herding for as long as it takes|Herding for as long as it takes (L-166)]]
 - [[L-167 The dead hedge and cheaper crop protection, thought through|The dead hedge and cheaper crop protection, thought through (L-167)]]
-- … and 19 more
-- *and 1 index or audit notes*
+- … and 18 more
+- *and 3 index or audit notes*

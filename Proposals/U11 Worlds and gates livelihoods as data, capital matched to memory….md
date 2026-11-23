@@ -1,7 +1,7 @@
 ---
 id: docs/cybertron2/proposals/w73_design/u11_worlds.md
 kind: proposal
-updated: "2026-11-22"
+updated: "2026-11-23"
 ---
 # U11 Worlds and gates: livelihoods as data, capital matched to memory, pin and fill, the gate check, the worked villages
 
@@ -16,6 +16,16 @@ calls its core (the knowledge record, kept lines, the cast's models) (`engine/ge
 **Feature units** ([[D2-244 The engine's reworking into feature packages|D2-244]]): **livelihoods** (the rows, their keeper and household lines' ids, the fill steps that read them),
 **holdings** (the capital-knowledge registry and its two-way fill), **the gate check** (one runner over the people, making and dry
 checks). The founders' line templates are U9's (`u9_people.md` §5); this unit places them.
+
+
+> **Decisions since this spec was written (binding over its text; the build reads this table first):**
+> - **[[D2-308 Kept lines over a life|D2-308]]:** kept lines: founders' seeded lines on top of the places opened each stretch, about 30 in all, for now.
+> - **[[D2-311 Seeded memory of a household's capital is part of the founders'…|D2-311]]:** seeded memory of a household's capital is inside the 20-line budget, written with the livelihood it belongs to (not an extra line).
+> - **[[D2-313 For this wave|D2-313]]:** 37.2 owns every engine file this wave changes (read every '37.4' in the code tables as 37.2 for this wave).
+> - **[[D2-316 A runs world means a water-only world|D2-316]]:** a runs world is water-only: small resident and shallows stocks always present, the runs the main part (no 'no resident fish' switch).
+> - **[[D2-318 Fowling is postponed from this wave to the hunting build-out|D2-318]]:** fowling postponed to the hunting build-out (no fowling net, no fowling method in this wave).
+> - **[[D2-327 Tanning and leather are deferred from this wave until the rest is…|D2-327]]:** tanning and leather deferred until the wave is tested (frame, harness and bellows in leather, tanning's pollution with it).
+> - **[[D2-330 The worlds' defaults as proposed|D2-330]]:** the worlds' defaults (questions C1 to C7).
 
 ## Extends
 

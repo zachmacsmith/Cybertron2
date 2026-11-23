@@ -111,5 +111,5 @@ started
 - [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]]
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
 - [[L-111 The hunting and resources build, a soon follow-up|The hunting and resources build, a soon follow-up (L-111)]]
-- … and 45 more
-- *and 4 index or audit notes*
+- … and 43 more
+- *and 6 index or audit notes*

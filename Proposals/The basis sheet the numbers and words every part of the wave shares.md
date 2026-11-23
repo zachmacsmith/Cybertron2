@@ -28,13 +28,13 @@ answered; the component writes on the default shown and says so); **calibrate** 
 | Process times | compressed whole at 1/11.4, at least one night (a keeping smoke 1 night; a hard cure 2 to 3; liming 2 to 4; tanning 16 to 48; retting in water 1, dew 3 to 4) | decided in rule ([[D2-273 Three clocks, each system on one|D2-273]]); the nights default (wave1 §2.4) |
 | Quantity work and duration work | work that scales with what is handled (hanging, salting, scraping) is at real hours; work that scales with a process's length (tending a fire, feeding a pit) is its real hours over the real days times 1/11.4 | default (wave3_keeping §2.5; W80-Q4) |
 | Making capital | real hours times the capital factor; things used up in one go or a few uses at real hours; materials real | decided: [[D2-276 Making durable things runs on the year clock|D2-276]] |
-| The capital factor | target about 1/7, staged from today's about 1/40 through about 1/15 | decided: [[D2-281 Tanning comes in this build, with bark as a new good|D2-281]]; staging with its companions: open (§7) |
-| Lives | a life in acts of work at the capital factor; a life counted in nights (set gear, tents, bedrolls) at the calendar's 1/11.4 | open (wave1 q4; default as stated) |
+| The capital factor | target about 1/7, staged from today's about 1/40 through about 1/15 | decided: [[D2-281 Tanning comes in this build, with bark as a new good|D2-281]], [[D2-309 One capital factor for every lasting thing|D2-309]] (one factor for every lasting thing; existing works held until their companions) |
+| Lives | a life in acts of work at the capital factor; a life counted in nights (set gear, tents, bedrolls) at the calendar's 1/11.4 | decided: [[D2-310 Lives counted in nights|D2-310]] |
 | The "world" capital factor | units a year x 2 h / a real working year of 2,700 h (1/7.03 for a 32-day world); a stage may set "1/15"; existing works held at today's units until their companions are in | decided in rule ([[D2-276 Making durable things runs on the year clock|D2-276]]); the hold: default (u7) |
 | Getting materials | fell 4 timber a unit (crude tool), quarry 4 stone, cut withies 4 (bed) or 1.5 (wild), brush 5 bundles (10 kg) | default (u7; wave1 §3.1) |
-| Material got at the site | field stone, brush and daub counted in the work; goods brought stay real | open (u7 question 1) |
-| The 1-unit floor | every act costs at least 1 unit; things under a unit are made in batches "up to" the batch | default ([[O-2 Make the eleven bulk processes take up to their batch|O-2]], Zach's conditional go; wave2 W2-6) |
-| Learning | practice set at a 64-day lifespan and scaled with a world's lifespan | decided: [[D2-267 Practice and learning are set at a 64-day lifespan and scaled with a…|D2-267]]; the engine's base (32) re-based to 64: default (audit q8) |
+| Material got at the site | field stone, brush and daub counted in the work; goods brought stay real | decided: [[D2-306 Material got at the site of a work|D2-306]] |
+| The 1-unit floor | every act costs at least 1 unit; things under a unit are made in batches "up to" the batch | decided: [[O-2 Make the eleven bulk processes take up to their batch|O-2]] (Zach's conditional go), [[D2-324 A build act costs what is left of the work|D2-324]] (a build act costs what is left) |
+| Learning | practice set at a 64-day lifespan and scaled with a world's lifespan | decided: [[D2-267 Practice and learning are set at a 64-day lifespan and scaled with a…|D2-267]], [[D2-307 Learning is scaled with the lifespan in every part|D2-307]] (every increment x 64 / lifespan; fading on the life clock) |
 
 ## 2. Weights and handling units
 
@@ -49,11 +49,11 @@ answered; the component writes on the default shown and says so); **calibrate** 
 | Charcoal | 20 kg | decided: [[D2-288 Bulk goods are counted in handling units of a stated weight and every…|D2-288]] |
 | Withies, bark | 10 kg bundles | decided: [[D2-288 Bulk goods are counted in handling units of a stated weight and every…|D2-288]] |
 | Cord | 1 kg | default (wave2 §2) |
-| A unit of size | its area: the land generator's cell is about 2 ha, but a field plot yields like about 0.1 ha; the willow and shallows stocks move about twentyfold on the reading | default for now: new stocks set per cell read the cell as about 2 ha (the generator's and u7's reading); field yields left as calibrated; unified in the space thread ([[W-96 Space unified everywhere|W-96]]) |
-| Gear lives | set gear counted in nights at 1/11.4: a wicker trap about 20 nights, a net about 25 barked, 10 unbarked; mending gives back half the uses for a tenth of the materials, never rot | default (u3; with §1's open row) |
-| Tanning | bark peeled on year days 4 to 9 only; lime from a hearth's ash (a condition, not a good); lime 2 nights, light hides 16, heavy 32; a hide unit takes 1.5 units, 2 bark, 0.1 tallow, gives 3 leather; pits of 20 hide units | default (u10) |
-| Shoes | behind a world setting, off by default; unshod outdoors on a frost day eat 0.25 more | open (u10; W2-7) |
-| Fouling | a unit = 1 kg of flax straw retting in water; loads by source, a fade a night, carried down each water parcel's down link | default, first values to calibrate (u10; G3) |
+| A unit of size | its area: the land generator's cell is about 2 ha, but a field plot yields like about 0.1 ha; the willow and shallows stocks move about twentyfold on the reading | default for now (2 ha cell for new stocks); unified in the space thread ([[W-96 Space unified everywhere|W-96]]) |
+| Gear lives | set gear counted in nights at 1/11.4: a wicker trap about 20 nights; a net about 16 nights until barking returns with tanning; mending gives back half the uses for a tenth of the materials, never rot | decided: [[D2-310 Lives counted in nights|D2-310]]; nets about 16 nights until barking returns ([[D2-329 Until tanning comes back, nets have a middle life of about half a…|D2-329]]) |
+| Tanning | bark peeled on year days 4 to 9 only; lime from a hearth's ash (a condition, not a good); lime 2 nights, light hides 16, heavy 32; a hide unit takes 1.5 units, 2 bark, 0.1 tallow, gives 3 leather; pits of 20 hide units | deferred: [[D2-327 Tanning and leather are deferred from this wave until the rest is…|D2-327]] ([[L-171 Tanning and leather|L-171]]); kept as the design for then |
+| Shoes | behind a world setting, off by default; unshod outdoors on a frost day eat 0.25 more | deferred: [[L-169 Shoes, with clothing in general, and their health effects|L-169]] (with clothing, [[W-90 Textiles and clothing|W-90]]) |
+| Fouling | a unit = 1 kg of flax straw retting in water; loads by source, a fade a night, carried down each water parcel's down link | default for retting (flax) only; tanning's deferred with it ([[D2-327 Tanning and leather are deferred from this wave until the rest is…|D2-327]]) |
 | Hide | by the beast (a deer's about 6 kg green; a stoat's a pelt, not a hide) | default (wave2 §1, answering wave1's "one hide from a stoat or a deer alike") |
 | Every recipe | rewritten in real kilograms on these units | decided: [[D2-288 Bulk goods are counted in handling units of a stated weight and every…|D2-288]] |
 
@@ -75,7 +75,7 @@ answered; the component writes on the default shown and says so); **calibrate** 
 | Gutting | in salting's and hanging's rates, never paid twice | default (audit C25) |
 | Base rates a night ([[D2-289 A shelf life 'keeps d days' becomes a nightly loss read as about a…|D2-289]]'s arithmetic) | fresh fish 0.17, fresh meat 0.13, hot smoke 0.11, keeping smoke 0.029, hard cure 0.011, salt 0.0085, dried 0.0069 | follows [[D2-289 A shelf life 'keeps d days' becomes a nightly loss read as about a…|D2-289]] (u4 §2) |
 | A lot in the smoke | base 0.03 a night while the fire is tended; the fresh rate when it dies | default, calibrate (u4) |
-| Hard cure | 3 nights after salting; hard-cured meat 0.85 of the salt meat's weight, 0.67 food a kg | default (u4) |
+| Hard cure | 3 nights after salting; hard-cured meat 0.85 of the salt meat's weight, 0.67 food a kg | default (u4); hard-cured meat corrected to 0.71 food a kg (keeps the salt meat's food) |
 | Hanging salted or gutted fish; taking down | about 60 kg a unit; about 120 kg a unit | default, estimates (u4) |
 | The hearth rack | 1 night | default (u4; wave1 §2.4) |
 | The smokehouse's work floor | 1 space kept free in a hut room, 2 in any other room (a hut 1 set; a small room 4; a medium 10) | default (u4 §4) |
@@ -98,7 +98,7 @@ answered; the component writes on the default shown and says so); **calibrate** 
 | The weir's cost | lowland: wattle first section 12 units, 20 timber, 10 withies; each added (up to 3) 6 units, 8 timber, 5 withies; timber first 20 units, 40 timber, added 10 units, 15 timber; wears 1.0 and 0.5; upkeep a quarter and an eighth of the build a year; a beck x0.3, a large river x2.5 | decided for now: [[D2-302 The weir's cost for now, to calibrate in live runs, on a lowland river|D2-302]] (calibrate) |
 | Poles | timber for now; a good of their own with the timber thread | decided: [[D2-303 Poles are timber for now|D2-303]] ([[L-159 Poles and cordwood as their own good|L-159]]) |
 | One set act | lays up to about 6 traps | decided: [[D2-264 The fishing, hunting and materials network|D2-264]] |
-| The water's stocks | shallows, open water, runs; their relative sizes by kind of water | decided: [[D2-264 The fishing, hunting and materials network|D2-264]]; the numbers by water type: open (audit G6) |
+| The water's stocks | shallows (one stock per parcel, its own signs: [[D2-317 The shallows are one stock per parcel, distinct from the resident…|D2-317]]), open water (a body's resident fish), runs; a runs world is water-only, small resident and shallows stocks always present ([[D2-316 A runs world means a water-only world|D2-316]]) | decided: [[D2-264 The fishing, hunting and materials network|D2-264]], [[D2-316 A runs world means a water-only world|D2-316]], [[D2-317 The shallows are one stock per parcel, distinct from the resident…|D2-317]] |
 | A freeze | stops fishing (set gear idle, edge and bank lines refused, the weir icing and wearing, a run's night held over to the next open night) | decided: [[D2-265 The river's signs|D2-265]]; the detail: default (audit q14) |
 | The wild's clock | on the year clock | decided: [[D2-273 Three clocks, each system on one|D2-273]] |
 
@@ -123,18 +123,18 @@ answered; the component writes on the default shown and says so); **calibrate** 
 | A piece of gear | one record shared by U2 (placed) and U3 (made): `life` (uses left), `rot` (share of its rot life used), `of` (made of), `barked`, `torn` | default (integration: u2 had life and torn, u3 life, rot, of) |
 | **set** | lay gear from one's hands; refused with no gear in hand, naming one's gear already standing | default (wave3_taking §0) |
 | A technique named alone | tends if one's own gear stands at the place, sets if not | default (wave3_taking; corrects wave4 §5.2) |
-| The target | the thing, by tag or known name; unnamed, only one's own; another's only when named | Zach's 21 Nov answer in [[Q-80 Whether acts on owned things default to one's own|Q-80]]'s notes; to be recorded (audit q9) |
-| Several of one's own at a place | a tend takes all of one's own of that kind; an act that uses a thing up asks | open (Zach said "several: asked"; audit q9) |
-| A household's things | count as every member's own | default (audit q9; G12) |
+| The target | the thing, by tag or known name; unnamed, only one's own; another's only when named | decided: [[D2-305 Acts on held things take the thing as their target, by tag or a known…|D2-305]] |
+| Several of one's own at a place | a yield-taking act (tend) takes all of one's own of that kind; an act that uses up, kills, destroys or gives away needs a named target | decided: [[D2-304 An unnamed act on several of one's own things at a place|D2-304]] |
+| A household's things | count as every member's own | decided: [[D2-305 Acts on held things take the thing as their target, by tag or a known…|D2-305]] |
 | Rules | one book per household and per person: go, keep, hold back, first, eat, move, drop; `when` on lasting states the household knows | decided: [[D2-274 One book of standing rules per household and per person covers both…|D2-274]], [[D2-282 Standing rules support conditional actions conditioned on state…|D2-282]] |
 | Fallbacks | assignable by the household's book as chores; a person's own rules and standing fallback before every household chore, keeping chores included; none at the start and nothing pushing for one; units left are rest | decided: [[D2-296 Fallbacks are assignable by the household's standing rules|D2-296]], [[D2-301 A person's own rules and standing fallback come before every…|D2-301]] |
 | The options list | gone from the code | decided: [[D2-286 The list of what one could do today|D2-286]] |
 | Recipes shown | at capable and known: inputs with batch, what it gives, units, place or fitting | decided: [[D2-263 A craft a person knows at capable or known shows, where they look|D2-263]] |
-| The act shapes | go, gather, set, tend, make, work, build, move, change, agree, force; a technique named alone resolves by what stands | open ([[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Q-27]]; u9 §3) |
-| Kept lines over a life | about 40 words a line, one place a stretch (decided, [[D2-266 Knowledge in their own words|D2-266]]); founders seeded up to 20 on top; about 30 in all | open (audit q10; u9 B9-2) |
+| The act shapes | go, gather, set, tend, make, work, build, move, change, agree, force; a technique named alone resolves by what stands | decided: [[D2-314 The eleven act shapes are the verb list|D2-314]] |
+| Kept lines over a life | about 40 words a line, one place a stretch (decided, [[D2-266 Knowledge in their own words|D2-266]]); founders seeded up to 20 on top; about 30 in all | decided for now: [[D2-266 Knowledge in their own words|D2-266]], [[D2-308 Kept lines over a life|D2-308]] (calibrate later with demography, [[L-160 Kept lines over a life|L-160]]) |
 | A youth's food a night | not named by [[D2-292 The food unit|D2-292]] | open (u11 B11-7) |
-| Learning's scale | every learning increment x 64 / lifespan; fading on the life clock (16 days at lifespan 64) | default (u9 §4.3; [[D2-267 Practice and learning are set at a 64-day lifespan and scaled with a…|D2-267]]) |
-| Intent wording | no horizon word ("what you mean to do and why", "Decide what to do.") | open (steering.md §4; default as stated) |
+| Learning's scale | every learning increment x 64 / lifespan; fading on the life clock (16 days at lifespan 64) | decided: [[D2-307 Learning is scaled with the lifespan in every part|D2-307]] |
+| Intent wording | no horizon word ("what you mean to do and why", "Decide what to do.") | default (steering.md §4); with [[D2-301 A person's own rules and standing fallback come before every…|D2-301]]'s rest for unused units |
 
 ## 7. Open at the basis level
 
@@ -145,4 +145,10 @@ answered; the component writes on the default shown and says so); **calibrate** 
 - Several of one's own at a place (§6).
 - The shallows' stock by water type (§4).
 
-*Current as of 22 Nov 2026: [[D2-263 A craft a person knows at capable or known shows, where they look|D2-263]] to [[D2-300 Every item Zach defers or flags is tagged with the prospective…|D2-300]]; rows from u4 to u6 added.*
+*Current as of 23 Nov 2026: [[D2-263 A craft a person knows at capable or known shows, where they look|D2-263]] to [[D2-330 The worlds' defaults as proposed|D2-330]].*
+
+## Not in this wave
+
+Fowling ([[D2-318 Fowling is postponed from this wave to the hunting build-out|D2-318]], [[L-170 Fowling the methods|L-170]]); tanning and leather, with lime, bark and tanning's pollution ([[D2-327 Tanning and leather are deferred from this wave until the rest is…|D2-327]], [[L-171 Tanning and leather|L-171]], [[L-172 Limestone and lime|L-172]]); shoes ([[L-169 Shoes, with clothing in general, and their health effects|L-169]]);
+builders' craftsmanship ([[D2-321 Builders' craftsmanship setting a building's soundness is postponed|D2-321]], [[L-164 Builders' craftsmanship|L-164]]); the dead hedge ([[L-167 The dead hedge and cheaper crop protection, thought through|L-167]]); daily herding ([[L-158 Daily herding as cheaper crop protection|L-158]], [[L-166 Herding for as long as it takes|L-166]]); ice fishing ([[L-163 Fishing through ice|L-163]]); strength
+([[L-168 Strength as an aptitude|L-168]]); poles as their own good ([[D2-303 Poles are timber for now|D2-303]], [[L-159 Poles and cordwood as their own good|L-159]]).

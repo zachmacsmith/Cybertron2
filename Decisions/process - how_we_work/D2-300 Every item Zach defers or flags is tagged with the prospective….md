@@ -30,7 +30,5 @@ conversation (22 Nov: "whenever I defer or flag something it should be tagged wh
 - [[W-92 Boats, barrels and the cooper|Boats, barrels and the cooper (W-92)]]
 - [[W-93 Demography and growth|Demography and growth (W-93)]]
 - [[W-94 Timed actions|Timed actions (W-94)]]
-- [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

@@ -22,5 +22,5 @@ conversation (22 Nov: "Forest law def later. All institutions and laws and stuff
 
 ## Mentioned by
 - [[W-86 Households generalised into institutions and laws|Households generalised into institutions and laws (W-86)]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[The next thread the woods and the wild (hunting, its tools, wildlife…|The next thread: the woods and the wild (hunting, its tools, wildlife…]]
+- *and 1 index or audit notes*

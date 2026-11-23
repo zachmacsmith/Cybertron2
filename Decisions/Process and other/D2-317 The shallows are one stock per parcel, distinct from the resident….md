@@ -21,4 +21,7 @@ conversation (23 Nov: "Yes per parcel makes sense which I think is also a good d
 
 
 ## Mentioned by
-- *and 1 index or audit notes*
+- [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
+- [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
+- [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
+- *and 2 index or audit notes*

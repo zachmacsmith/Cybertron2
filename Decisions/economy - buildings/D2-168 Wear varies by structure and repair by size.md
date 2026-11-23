@@ -29,10 +29,9 @@ one break rate and a 2-timber repair for every building
 - [[Proposal phase 3 of the engine overhaul, variance and risk (the…|Proposal: phase 3 of the engine overhaul, variance and risk (the…]]
 - [[Proposal shelter|Proposal: shelter]]
 - [[Damage to shelter in levels, by structure and weather; camps as…|Damage to shelter in levels, by structure and weather; camps as…]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[Buildings|Buildings]]
 - [[02zh build brief for 37.4 the building package|02zh: build brief for 37.4: the building package]]
 - [[02zw the reviews' proposals against how the engine already works (9…|02zw: the reviews' proposals against how the engine already works (9…]]
 - [[02zx the wild layer's build log (37.4 building 37.2's briefs, D2-207)|02zx: the wild layer's build log (37.4 building 37.2's briefs, D2-207)]]
 - [[38.46 Wenbridge, a world to test whether people build (design, for…|38.46: Wenbridge, a world to test whether people build (design, for…]]
-- *and 1 index or audit notes*
+- *and 2 index or audit notes*

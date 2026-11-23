@@ -22,7 +22,6 @@ fields only where a world file put them
 ## Mentioned by
 - [[Clearing new ground for fields|Clearing new ground for fields]]
 - [[Proposal the layout inside a node (parcels, features, and things on…|Proposal: the layout inside a node (parcels, features, and things on…]]
-- [[U7 works and the building clock|U7: works and the building clock]]
 - [[Proposal wild plants, and the slow ecosystems they make|Proposal: wild plants, and the slow ecosystems they make]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[Holding land and fixed things|Holding land and fixed things]]
@@ -32,3 +31,4 @@ fields only where a world file put them
 - [[02zt dependences, and things that help other things (9 Nov)|02zt: dependences, and things that help other things (9 Nov)]]
 - [[38.30 Hollins 2 (h2) three households with their own ways, Package…|38.30: Hollins 2 (h2): three households with their own ways, Package…]]
 - [[38.31 the Wide Country, run w1 (24 good days, then the usage limit)|38.31: the Wide Country, run w1 (24 good days, then the usage limit)]]
+- *and 1 index or audit notes*
