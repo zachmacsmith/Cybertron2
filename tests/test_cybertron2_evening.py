@@ -282,3 +282,26 @@ def test_the_days_sightings_are_shown_at_the_hearth_and_not_again_next_morning(t
     assert "## Since last evening" in morning and "## What you saw yesterday" not in morning
     assert not any(x in morning for x in day_lines if len(x) > 12)               # what the hearth showed is not shown again
     assert R.run(None, out, mode="replay")["mismatches"] == []
+
+
+def test_a_lesson_is_settled_before_the_evening_and_its_outcome_is_in_that_evenings_day(tmp_path):
+    """D2-343: teaching is settled before the evening, so the lesson's outcome is among the day's results at the hearth."""
+    s = load_spec(SPEC)
+    agents = s["agents"]
+    agents["Ivo"]["knows"]["ditch"] = {"level": "known", "skill": 1.2}
+
+    def reply(key, who, msg):
+        if ".decide." in key and key.startswith("d0."):
+            if who == "Ivo":
+                return {"why": "x", "actions": [{"do": "teach", "to": "Margery", "what": "ditch"}]}
+            return {"why": "x", "actions": [{"do": "learn", "from": "Ivo", "what": "weed"}]}   # named otherwise: the teacher's (D4-123)
+        if ".decide." in key:
+            return {"why": "x", "actions": []}
+        if ".evening." in key:
+            return {"why": "x", "actions": []}
+        return {"why": "", "actions": [], "memory": "A day."}
+    out, seen = _evening_run(tmp_path, 2, reply, agents=agents)
+    eve = {who: seen[k] for k in seen if k.startswith("d0.evening.") for who in ("Ivo", "Margery") if f".{who}." in k}
+    assert "You taught Margery " in eve["Ivo"].split("## Your day", 1)[1].split("\n\n")[0], eve["Ivo"][:2000]
+    assert "Ivo taught you " in eve["Margery"].split("## Your day", 1)[1].split("\n\n")[0]
+    assert R.run(None, out, mode="replay")["mismatches"] == []
