@@ -559,6 +559,10 @@ coast (L-149); environmental effects refined later (L-150); medium arm: a smokeh
 
 ## History
 
+- 23 Nov 2026: accepted in part: D2-327 (Tanning and leather are deferred from this wave until the rest is built and the ).
+- 23 Nov 2026: accepted in part: D2-318 (Fowling is postponed from this wave to the hunting build-out (the woods and the ).
+- 23 Nov 2026: accepted in part: D2-317 (The shallows are one stock per parcel, distinct from the resident fish of a whol).
+- 23 Nov 2026: accepted in part: D2-316 (A runs world means a water-only world: small resident and shallows stocks are al).
 - 22 Nov 2026: accepted in part: D2-297 (The catch stays as calibrated (traps true to a real night, the weir's share, the).
 - 22 Nov 2026: accepted in part: D2-295 (Each depth of cure is its own good (hot-smoked, smoked, hard-cured, salt and dri).
 - 22 Nov 2026: accepted in part: D2-294 (Going back to one's set gear is the act 'tend' (checking, emptying, re-setting, ).

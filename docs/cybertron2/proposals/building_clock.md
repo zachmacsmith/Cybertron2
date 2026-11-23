@@ -93,6 +93,11 @@ pottery, daub is mud and straw dug on the spot (work, no good); clay joins with 
 
 ## History
 
+- 23 Nov 2026: accepted in part: D2-324 (A build act costs what is left of the work (1 or 2 units), not a flat 2.).
+- 23 Nov 2026: accepted in part: D2-323 (A cleared plot becomes a field part of its parcel, sown while the rest is still ).
+- 23 Nov 2026: accepted in part: D2-322 (Fences can be built along one border between two parcels, in sections a person c).
+- 23 Nov 2026: accepted in part: D2-321 (Builders' craftsmanship setting a building's soundness is postponed: for now all).
+- 23 Nov 2026: accepted in part: D2-320 (Crop protection stays as it is for now (fences and walls; the dead hedge postpon).
 - 23 Nov 2026: accepted in part: D2-312 (Materials made to feed lasting things (cord, withies, bark, leather) stay at rea).
 - 23 Nov 2026: accepted in part: D2-310 (Lives counted in nights (set gear, bedrolls, tents, shoes) run on the calendar's).
 - 23 Nov 2026: accepted in part: D2-309 (One capital factor for every lasting thing (gear, tools, works, buildings); exis).
