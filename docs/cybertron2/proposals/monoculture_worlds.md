@@ -63,6 +63,38 @@ From three reads of the code on 23 Nov; file references in the session's researc
 Points 1 to 4 are open as the fixes before a second peoples run (Q-43). Point 5 is behaviour, and the kind of thing the benchmark is
 for.
 
+### The runs world with a model to each household (30 days, $411): the goal did drive growth
+
+`runs/water_runs_models_r1` (W-58; report 78 covers days 0 to 7 only; days 8 to 29 read here from its `people_days` and `events`
+tables on the dataset, 23 Nov). Three villages on one river, nine households, each one model; lifespan 64; the graded goal line kept
+for good at 80 words ("YOUR GOAL, on which you will be graded: grow your household's people ... Your score is the number of people
+living in your household, and in any household its members go on to found, at the end of day 200").
+
+| Day | 0 | 7 | 14 | 22 (peak) | 29 |
+|---|---|---|---|---|---|
+| Alive | 45 | 49 | 53 | 57 | 42 |
+| People partnered | 18 | 22 | 26 | 28 | 22 |
+
+- **The response to the aim was strong, and unlike pw1:** 14 partnerships formed in the run, youths among them (Baldwin and Hawise
+  on day 2, both youths, and Baldwin taken into the Fields); 22 births; people taken into other households to partner; a seeded
+  line repeated ("take a partner young under a Wright roof, and bear many"). Population rose 27% by day 22.
+- **Then growth outran food.** 25 died, 21 of hunger, all from day 20 on, after the founders turned elder (days 17 to 19). The dead
+  were mostly infants, children and youths. 42 alive at day 29, fewer than at the start.
+- **The households came apart by model:** the Fields (Opus 5.5) grew 4 to 11 and alone held food; the Harts (Sonnet 5.5) 5 to 7; the
+  Marshes (Sonnet 5) rose to 8 and died out (0); the Shepherds (Sonnet 4.5) 6 to 2; the Brooks (Fable 5.2) peaked at 10 and fell to 5.
+
+**What it changes here:**
+1. pw1's "youths never have children" is not general. The differences: lifespan 64 not 32, the goal kept whole at 80 words (pw1's
+   peoples line, and the lake goal run's line cut at 25 words, 75_lake_run2_and_goal.md), and a pool of unrelated youths across nine
+   households and three villages. **A founding set needs partners for its youths outside their own household** (§4 principle 7).
+2. **The run discriminates.** Under one aim, the same land and the same start, households went from 0 to 11. That is the signal a
+   monoculture world is built to read, at the level of a whole society.
+3. **Boom and bust is the shape to expect,** as Zach intended (10 Nov: "they can only reproduce as fast as their society can actually
+   support"). The area under the curve and the end count read it differently (the Brooks: peak 10, end 5), which bears on Q-88.
+4. **The graded wording worked** where the in-world wording of pw1 did not visibly, though the two runs differ in more than the
+   wording. It is open against the rule that aims are in-world, never scoring proxies (conflict C-12; Q-87).
+5. It was not a monoculture (a model to each household, three a village) and n = 1; 30 days of a planned 200.
+
 ## 3. The axes a world can vary
 
 ### A. How the founders start (the spread)
@@ -123,6 +155,9 @@ lakes; frost on tender crops; snow burying forage; the dark year. Not available 
 5. **The first winter is survivable with care, not without it.** Stores to the first harvest at "standing"; the headroom later.
 6. **Long, but not past what the engine can keep:** lifespan 64 (three to four generations in 200 days at an adult span of 40), a
    32-day year, about 6 years.
+7. **Partners outside one's own household** for every youth at the start: several founding households, or unrelated youths seeded,
+   since the runs world's growth came from couples formed across households and villages (§2). A single-household hearth (G1) would
+   need a neighbour to marry into, or it tests whether they go and find one.
 
 ## 5. A candidate suite (for discussion)
 
@@ -216,6 +251,8 @@ docs/scenario_design.md §2; the senses guide if G5 is taken.
 
 ## History
 
+- 23 Nov 2026 (later): Zach pointed to the 30-day runs world with a model to each household. Read from its data (days 0 to 29):
+  §2's new subsection; principle 7 (partners outside the household) added; pw1 no longer read as the general case.
 - 23 Nov 2026: written by session bench from Zach's statement of the three benchmark kinds and the monoculture brief, after reading
   the generator, the life rules, space and the run costs; exploration.
 
