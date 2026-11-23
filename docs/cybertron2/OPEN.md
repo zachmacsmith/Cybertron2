@@ -130,6 +130,8 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | ~~Q-86~~ | **(Closed 23 Nov: D2-336.)** **Fresh food on the keeping curve: read as a quarter lost by its time (D2-289), fresh fish loses only 17% a night and is half gone after about 4 nights, against D2-273's floor of 'fresh fish or meat about 1 to 2 nights'; should perishables (keeping a day or two) be read as mostly gone by then instead?** | | 37.2 |
 | Q-87 | **Whether the passing-on seeded line for heads and parents (HH10) is protected under the 20-line cap, dropping BS8's craft half last when HH10 is held; one side effect: Katherine's next drop takes three lines of her second livelihood at once (18 lines)** | | 37.2 |
 | Q-88 | **Whether a chore that yields a trivial amount (twist cord, 0.04 kg a unit) should count as giving nothing and stop, since the yield rule only stops true zeros and the 130 repeats of live run 1 would still happen** | | 37.2 |
+| Q-89 | **Whether a water-only village should last the year, or the spring gap is the point (live run 1 set B: both households lived through the winter on traded and preserved fish; the salt household starved at the end of the spring gap, days 33 to 37, while Marsh House rationed its own)** | | 37.2 |
+| Q-90 | **The signs design's eight choices (docs/review/37_growth/02zzzk_signs_audit/design.md): a close look as its own act at a unit; a store portion's keeping known daily or on a close look; members seeing what each other ate; the store change naming spoilage; a run's size in rough heads; one's gear's remaining nights daily; the covers' false background lines grounded or removed; an attend naming only a rule** | | 37.2 |
 
 ## Offers and promises
 
