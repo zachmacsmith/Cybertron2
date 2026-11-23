@@ -290,6 +290,17 @@ def practised(mind) -> set:
     """The techniques one reads signs by (a row's `knows`): trades one knows, and basic work long practised, with the work a
     technique `reads_as` (one who stalks deer reads a hunter's signs)."""
     out = {"elder"} if (getattr(mind, "person", None) or {}).get("stage") == "elder" else set()   # the old remember (L4)
+    from cybertron2.wild import river as RV                                    # one who fishes: any water craft from a rough idea up
+    for t in RV.WATER_CRAFTS:                                                  # (D2-325); a basic one only practised; the expert's
+        r = mind.know.get(t)                                                   # reading at the expert's skill (u8 §0)
+        if t not in TECHNIQUES or not isinstance(r, dict) or r.get("level") not in ("rough", "capable", "known"):
+            continue
+        lo, hi = KN.curve(t)
+        if KN.basic(t) and float(r.get("skill", lo)) < lo + 0.1:
+            continue
+        out.add("fish")
+        if r.get("level") == "known" and float(r.get("skill", lo)) >= lo + float(NOTICING.get("expert_at", 0.8)) * (hi - lo):
+            out.add("expert:fish")
     for t, r in mind.know.items():
         if t not in TECHNIQUES or not isinstance(r, dict) or r.get("level") != "known":
             continue
@@ -354,7 +365,16 @@ def dawn(w) -> None:
         here, mind = Here(w, name), Mind(w, name)
         rng = here.rng("dawn", here.day, name)
         t = mind.store["today"]
+        know = None
         for e in [e for e in here.events() if e.get("dawn")]:                # by the one rule (D4-75)
+            if e.get("only") is not None and name not in e["only"]:
+                continue
+            if e.get("knows") or e.get("lay"):                                 # a dawn row read by those who know (u8 §2.2)
+                know = practised(mind) if know is None else know
+                if not SG.readable(e, know):
+                    continue
+            if e["text"] in t["dawn"]:
+                continue
             about = list(e.get("about") or [])
             if e.get("actor"):
                 about.insert(0, f"person:{e['actor']}")

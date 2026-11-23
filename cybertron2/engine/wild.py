@@ -3237,6 +3237,8 @@ def _runs_night(w, m) -> dict:
     day = eco_day(w)
     out = {}
     nt = RU.net(m)
+    from cybertron2.wild import river as RV                               # the river's record (u8 §1): what passed, before any take
+    before = {nd: RV.passing(m, st, nd, day) for nd in sorted({p_["node"] for p_ in w.s["parcels"].values()}) if f"v:{nd}" in nt.members}
     wants = getattr(w, "_set_run_wants", None) or {}                     # the set things' draws on the run tonight (_set_night)
     w._set_run_wants = {}
     worth = {k: _kg_of(k) for k in RU.runners_of(m)}                       # the holds in kg (D2-258)
@@ -3364,6 +3366,7 @@ def _runs_night(w, m) -> dict:
             iced[f"v:{node}"] = ic
     if iced:
         out["iced"] = iced
+    RV.record(w, m, st, day, before, flows, out)                          # the river's night record (u8 §1), before the runs move on
     eff = RU.advance(m, st, day, wx_today, weather(w, nodes, w.d + 1), stops=_dam_stops(w, m), weather=_runs_cued(w), iced=iced)
     if any(eff.values()):
         out["moved"] = eff
