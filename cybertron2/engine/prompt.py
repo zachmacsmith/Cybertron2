@@ -542,7 +542,7 @@ def system_prompt(here, mind) -> str:
                   f"{p['shelter']['unsheltered']:g} meals, {p['shelter_cold']['unsheltered']:g} in the cold, unless someone takes you in; "
                   f"on foot you carry at most {p['carry']['foot']:g} weight, more with a pack, more again with a cart on a road with a track; {weights_text()}):"] + _map_lines(mind)
     from cybertron2.wild import methods as MT
-    lines += ["", "What you know how to do:"] + KN.crafts_lines(mind) + [x for x in [MT.familiar_line(mind)] if x]   # D2-204 §7
+    lines += ["", "What you know how to do:"] + KN.crafts_lines(mind, here) + [x for x in [MT.familiar_line(mind)] if x]   # D2-204 §7
     reply = REPLY_LINES
     if int((p.get("labour") or {}).get("over_units", 0) or 0):
         reply = reply.replace('''- "tell":''', f'''- "overwork": 0 to {p["labour"]["over_units"]}: units to push on past your day's if your plan needs them.
@@ -782,6 +782,9 @@ def turn_prompt(here, mind, opening=True) -> str:
     you = [f"You are {STAGES[a['hunger']]}" + (", and hurt" if a["wounded"] else "") + f". You carry: {hold}"
            + (f" (weight {show(here.load())} of the {here.capacity():g} you can travel with"
               + (f", {here.capacity(True):g} on a road with a track" if here.capacity(True) > here.capacity() else "") + ")" if here.roads() else "") + "."]
+    worn = here.gear_words()                                                   # one's own gear and its state (u3 §3.5: shown, not sensed)
+    if worn:
+        you.append("Of your gear: " + "; ".join(worn) + ".")
     if here.age_line():                                                        # one's age and what lies ahead (D4-69)
         you.append(here.age_line())
     beasts = [f"Leading: {nm} ({'it carries ' + format(HERDS['pack_ox']['carry'], 'g') + ' for you on the road; ' if ox else ''}it stays "
@@ -789,7 +792,7 @@ def turn_prompt(here, mind, opening=True) -> str:
               for _, nm, ox in here.led()] + _beast_lines(here, mind)
     L.append("## You\n" + "\n".join(you + _family_lines(here, mind) + beasts + _house_lines(here, mind)))
     if not opening:                                                        # no list of what one could do today (D2-286)
-        L.append("## Your crafts\nWhat you know how to do: " + " ".join(x.removeprefix("- ") for x in KN.crafts_lines(mind)))
+        L.append("## Your crafts\nWhat you know how to do: " + " ".join(x.removeprefix("- ") for x in KN.crafts_lines(mind, here)))
     offers = [AG.offer_text(here, oid) for oid, o in here.offers().items() if o["by"] != here.name and o["to"] in (None, here.name)]
     mine = [AG.offer_text(here, oid) for oid, o in here.offers().items() if o["by"] == here.name]
     if offers or mine:
