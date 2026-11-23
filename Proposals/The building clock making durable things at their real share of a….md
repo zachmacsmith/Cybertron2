@@ -103,6 +103,9 @@ pottery, daub is mud and straw dug on the spot (work, no good); clay joins with 
 
 ## History
 
+- 23 Nov 2026: accepted in part: [[D2-312 Materials made to feed lasting things|D2-312]] (Materials made to feed lasting things (cord, withies, bark, leather) stay at rea).
+- 23 Nov 2026: accepted in part: [[D2-310 Lives counted in nights|D2-310]] (Lives counted in nights (set gear, bedrolls, tents, shoes) run on the calendar's).
+- 23 Nov 2026: accepted in part: [[D2-309 One capital factor for every lasting thing|D2-309]] (One capital factor for every lasting thing (gear, tools, works, buildings); exis).
 - 23 Nov 2026: accepted in part: [[D2-306 Material got at the site of a work|D2-306]] (Material got at the site of a work (field stone, brush, daub) is counted as part).
 - 23 Nov 2026: accepted in part: [[D2-302 The weir's cost for now, to calibrate in live runs, on a lowland river|D2-302]] (The weir's cost for now, to calibrate in live runs, on a lowland river: wattle f).
 - **22 Nov 2026:** written by 37.2 after Zach decided the unit ([[D2-275 A unit of work is 2 hours|D2-275]]: "Let's do 2 hours") and the redesign ([[D2-276 Making durable things runs on the year clock|D2-276]]: "Let's try this

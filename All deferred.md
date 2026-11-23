@@ -1,6 +1,8 @@
 # All deferred
 
 ## Open
+- [[L-162 Scale mismatches to check together|Scale mismatches to check together (L-162)]] (open)
+- [[L-161 Ice and the freeze|Ice and the freeze (L-161)]] (open)
 - [[L-160 Kept lines over a life|Kept lines over a life (L-160)]] (open)
 - [[L-159 Poles and cordwood as their own good|Poles and cordwood as their own good (L-159)]] (open)
 - [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]] (open)

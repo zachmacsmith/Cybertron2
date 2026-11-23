@@ -32,8 +32,14 @@ started
 - under it: [[D2-306 Material got at the site of a work|Material got at the site of a work (D2-306)]] (live)
 - under it: [[D2-307 Learning is scaled with the lifespan in every part|Learning is scaled with the lifespan in every part (D2-307)]] (live)
 - under it: [[D2-308 Kept lines over a life|Kept lines over a life (D2-308)]] (live)
+- under it: [[D2-309 One capital factor for every lasting thing|One capital factor for every lasting thing (D2-309)]] (live)
+- under it: [[D2-310 Lives counted in nights|Lives counted in nights (D2-310)]] (live)
+- under it: [[D2-311 Seeded memory of a household's capital is part of the founders'…|Seeded memory of a household's capital is part of the founders'… (D2-311)]] (live)
+- under it: [[D2-312 Materials made to feed lasting things|Materials made to feed lasting things (D2-312)]] (live)
 - under it: [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]] (open)
 - under it: [[L-160 Kept lines over a life|Kept lines over a life (L-160)]] (open)
+- under it: [[L-161 Ice and the freeze|Ice and the freeze (L-161)]] (open)
+- under it: [[L-162 Scale mismatches to check together|Scale mismatches to check together (L-162)]] (open)
 
 
 ## Mentioned by
@@ -46,8 +52,14 @@ started
 - [[D2-306 Material got at the site of a work|Material got at the site of a work (D2-306)]]
 - [[D2-307 Learning is scaled with the lifespan in every part|Learning is scaled with the lifespan in every part (D2-307)]]
 - [[D2-308 Kept lines over a life|Kept lines over a life (D2-308)]]
+- [[D2-309 One capital factor for every lasting thing|One capital factor for every lasting thing (D2-309)]]
+- [[D2-310 Lives counted in nights|Lives counted in nights (D2-310)]]
+- [[D2-311 Seeded memory of a household's capital is part of the founders'…|Seeded memory of a household's capital is part of the founders'… (D2-311)]]
+- [[D2-312 Materials made to feed lasting things|Materials made to feed lasting things (D2-312)]]
 - [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]]
 - [[L-160 Kept lines over a life|Kept lines over a life (L-160)]]
+- [[L-161 Ice and the freeze|Ice and the freeze (L-161)]]
+- [[L-162 Scale mismatches to check together|Scale mismatches to check together (L-162)]]
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
 - [[U10. Tanning and pollution bark, lime from ash, the tan pits…|U10. Tanning and pollution: bark, lime from ash, the tan pits…]]
 - [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]

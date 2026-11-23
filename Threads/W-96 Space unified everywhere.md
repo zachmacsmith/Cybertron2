@@ -17,4 +17,5 @@ started
 
 
 ## Mentioned by
+- [[L-162 Scale mismatches to check together|Scale mismatches to check together (L-162)]]
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
