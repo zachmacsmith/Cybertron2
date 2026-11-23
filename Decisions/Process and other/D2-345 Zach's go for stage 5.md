@@ -18,3 +18,7 @@ conversation (23 Nov: "Ok after you have merged these livelihood prompts kick of
 
 ## Linked
 - parent: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
+
+
+## Mentioned by
+- [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]]

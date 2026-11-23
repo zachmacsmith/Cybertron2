@@ -72,6 +72,7 @@ started
 - under it: [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]] (waiting)
 - under it: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]] (active)
 - under it: [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]] (active)
+- under it: [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]] (waiting)
 
 
 ## Mentioned by
@@ -115,5 +116,5 @@ started
 - [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]]
 - [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
 - [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]]
-- … and 47 more
+- … and 48 more
 - *and 6 index or audit notes*

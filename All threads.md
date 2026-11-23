@@ -1,6 +1,7 @@
 # All threads
 
 ## Open
+- [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]] (waiting)
 - [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]] (active)
 - [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]] (active)
 - [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]] (waiting)

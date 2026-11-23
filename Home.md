@@ -76,7 +76,7 @@
 - [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]]  
   next: merge (Zach), a bot run to measure the new rows' chances, item 9 after W-56
 
-## Waiting threads (19)
+## Waiting threads (20)
 
 **37.2**
 - [[W-25 Keeping each world's full 150 m land with it|Keeping each world's full 150 m land with it (W-25)]]  
@@ -109,6 +109,8 @@
   next: Zach: the note's 6 questions (a standing fallback shown each morning with what it did and the store, asked…
 - [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]]  
   next: Zach: whether a water-only village should last the year or the spring gap is the point; then the after-runs…
+- [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]]  
+  next: after W-105 merges: the stage 5 brief, folding in the gaps Hollinford needs from the audit (build_gaps.md)
 
 **37.4**
 - [[W-14 Claims and ownership by physics, part 2|Claims and ownership by physics, part 2 (W-14)]]  
