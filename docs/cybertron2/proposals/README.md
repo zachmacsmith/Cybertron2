@@ -165,6 +165,7 @@ Rebuilt from the files on 5 Nov (status and owner as each file states them; 37.2
 | [wild_layer.md](wild_layer.md) | the wild layer, one general system for ecosystems and wildlife, built from the generated land into the engine | 37.2 | accepted to build on the `ecology` branch: D2-199 (9 Nov); open questions 2 to 7 still open. Nothing on main. |
 | [feature_packages.md](feature_packages.md) | the engine as a small core and one folder per feature, each registering its data, kinds, primitives, phases, verbs, signs and prompt lines in a manifest; the object model (six categories); `requires` on every registration; the work estimated | lead session, for 37.4 | ready for a decision (16 Nov). Nothing decided, nothing built. |
 | [monoculture_worlds.md](monoculture_worlds.md) | monocultural benchmark worlds: small founders in large land over long runs; axes of start, land, capacity, endowment and the wild; a core grid and a diversity set; the gaps and cost | bench | exploration (23 Nov). Nothing decided, nothing built. |
+| [monoculture_five_worlds.md](monoculture_five_worlds.md) | five monoculture worlds for 200-day runs: Fallowmere (farming baseline), Eelmouth Reach (fishing start), Highfold (mountain herding), Oldbury (the remnant), the Scattering (four groups unexplored to each other) | bench | discussion (23 Nov). Designs only. |
 
 ## Log of ideas and their outcomes
 

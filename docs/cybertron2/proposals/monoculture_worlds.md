@@ -251,6 +251,9 @@ docs/scenario_design.md §2; the senses guide if G5 is taken.
 
 ## History
 
+- 23 Nov 2026 (later): Zach decided the graded goal line for monoculture runs (D5-1). Five concrete worlds designed at his request in
+  proposals/monoculture_five_worlds.md; §5's grid is kept for pairwise comparisons (Q-89).
+- 23 Nov 2026: accepted in part: D5-1 (Monoculture benchmark runs seed the graded goal line, in the same wording as the).
 - 23 Nov 2026 (later): Zach pointed to the 30-day runs world with a model to each household. Read from its data (days 0 to 29):
   §2's new subsection; principle 7 (partners outside the household) added; pw1 no longer read as the general case.
 - 23 Nov 2026: written by session bench from Zach's statement of the three benchmark kinds and the monoculture brief, after reading
