@@ -22,5 +22,6 @@ conversation (23 Nov: "people should be told in the morning what they ate and if
 
 ## Mentioned by
 - [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]]
+- [[After live run 1 the build (W-104)|After live run 1: the build (W-104)]]
 - [[What more people could be shown when they observe a thing a design|What more people could be shown when they observe a thing: a design]]
 - [[Signs survey every mechanism's signs, by sense and by the way a…|Signs survey: every mechanism's signs, by sense and by the way a…]]
