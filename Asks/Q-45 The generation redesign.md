@@ -25,6 +25,7 @@ updated: "2026-11-22"
 - [[W-38 Generation redesign|Generation redesign (W-38)]]
 - [[W-39b Prototype of generation_redesign.md §4.3 and §4.5 for people|Prototype of generation_redesign.md §4.3 and §4.5 for people (W-39b)]]
 - [[L-108 Calibrating the backward people build|Calibrating the backward people build (L-108)]]
+- [[O-4 Bridge the backward family-tree build into world generation as an…|Bridge the backward family-tree build into world generation as an… (O-4)]]
 - [[17 The household's own work, care and kinship (16 Nov 2026)|17: The household's own work, care and kinship (16 Nov 2026)]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - *and 3 index or audit notes*

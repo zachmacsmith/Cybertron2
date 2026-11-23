@@ -21,7 +21,12 @@ consolidated design, ready for a decision (four decisions, §5); both prototypes
 - `docs/cybertron2/proposals/generation_redesign.md`
 
 
+## Linked
+- under it: [[O-4 Bridge the backward family-tree build into world generation as an…|Bridge the backward family-tree build into world generation as an… (O-4)]] (open)
+
+
 ## Mentioned by
 - [[W-38b What went wrong building the peoples worlds, from properties to a…|What went wrong building the peoples worlds, from properties to a… (W-38b)]]
+- [[O-4 Bridge the backward family-tree build into world generation as an…|Bridge the backward family-tree build into world generation as an… (O-4)]]
 - [[Thread tracking a registry, hooks, checks and a commit schema|Thread tracking: a registry, hooks, checks and a commit schema]]
 - *and 4 index or audit notes*
