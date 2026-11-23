@@ -448,6 +448,36 @@ class Here:
         from cybertron2.engine import wild as WL
         return bool(WL._river_parcel(self._w, pid))
 
+    def run_here(self, pid) -> bool:
+        """A run passes this place's water at that parcel today (Q-79 bug 1; W-97)."""
+        from cybertron2.engine import wild as WL
+        return WL.run_here(self._w, self.node, pid)
+
+    def owns_set(self, c) -> bool:
+        """A set thing one's own or one's household's (D2-305; W-97)."""
+        from cybertron2.engine import things as TH
+        return TH.owns_set(c, self.name, self._w)
+
+    def own_set_at(self, tech, pid):
+        """One's own (or household's) set thing of a technique standing at a parcel here, the newest (u2 §3; W-97)."""
+        from cybertron2.engine import things as TH
+        hits = [(int((c.get("set") or {}).get("set_day", 0)), cid) for cid, c in self._w.s["containers"].items()
+                if c.get("kind") == "set" and c.get("parcel") == pid and not (c.get("set") or {}).get("weir")
+                and (c.get("set") or {}).get("method") == tech and TH.owns_set(c, self.name, self._w) and TH.set_about(self._w, c)]
+        return max(hits)[1] if hits else None
+
+    def weir_water(self, pid) -> str:
+        """A weir's water for its cost (D2-302): beck, lowland or large (wild.water_kind); lowland without the wild layer."""
+        from cybertron2.engine import wild as WL
+        try:
+            return WL.water_kind(self._w, WL.model(self._w), pid) if WL.on(self._w) else "lowland"
+        except Exception:                                                      # a world with no river network: as lowland
+            return "lowland"
+
+    def mind(self):
+        from cybertron2.engine.here import Mind
+        return Mind(self._w, self.name)
+
     def has_gap(self, b) -> bool:
         """Whether a building is a weir or a water mill with a gap (brief 5 §3, §3a)."""
         from cybertron2.engine import wild as WL

@@ -23,8 +23,9 @@ def test_a_fire_in_the_open_burns_firewood_by_its_heat():
     w.apply("create", "wenbridge", dst=w.hands("Rob"), item="firewood", qty=8, why="test")
     assert do(w, "Rob", do="fire").startswith("You mean to light a fire tonight")
     w2 = _w()
-    w2.apply("create", "wenbridge", dst=w2.hands("Rob"), item="firewood", qty=3, why="test")
-    assert "takes 4 heat from what you carry (8 firewood or 2 timber); you carry 1.5 heat" in do(w2, "Rob", do="fire")
+    w2.apply("create", "wenbridge", dst=w2.hands("Rob"), item="firewood", qty=2, why="test")   # a cold night's 30 kg (D2-290, W-97)
+    r = do(w2, "Rob", do="fire")
+    assert "takes 1.5 heat from what you carry (3 firewood or 1.2 timber); you carry 1 heat" in r, r
 
 
 def test_take_by_a_tag_in_a_phrase_or_by_the_door_named_and_a_clear_refusal():
@@ -119,7 +120,7 @@ def test_d4_97_mills_ovens_coppice_babies_repeats_and_walling():
     from cybertron2.engine import knowledge as KN
     assert TECHNIQUES["water mill"]["inputs"] == {"grain": 200} and TECHNIQUES["water mill"]["units"] == 2
     assert TECHNIQUES["mill"]["inputs"] == {"grain": 64} and TECHNIQUES["oven bread"]["gives"] == {"bread": 100}
-    assert FITTINGS["oven"]["materials"] == {"stone": 20, "timber": 2} and FITTINGS["oven"]["structure"] == "stone"
+    assert FITTINGS["oven"]["materials"] == {"stone": 60, "timber": 0.4} and FITTINGS["oven"]["structure"] == "stone"
     w = _w()
     assert w.claims_on(("parcel", "wb_coppice"))                                # the lord's coppice
     assert KN.level(Mind(w, "Wat"), "wall") in ("rough", "capable", "known")   # a seeded mason walls

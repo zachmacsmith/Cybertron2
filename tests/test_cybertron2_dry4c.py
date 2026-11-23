@@ -63,7 +63,8 @@ def test_dry_meat_hangs_3_meat_and_gives_about_1_5_dried_meat_in_the_store_on_th
         assert store(w, "reed_house").get("dried meat", 0) < 1e-9
         night(w)
     rk = w.s["containers"][cid]["rack"]                                        # the fourth morning (day 3): dry, in the store
-    assert rk["done"] == 2 and 1.5 * 0.95 < rk["dried"] < 1.5                   # half its weight, less the smoked rate's loss
+    assert rk["done"] == 2 and 1.5 * 0.85 < rk["dried"] < 1.5                   # half its weight, less the smoked rate's loss
+    # (0.03 a night in the smoke: basis §3, W-97; was about 1%)
     assert abs(store(w, "reed_house").get("dried meat", 0) - rk["dried"]) < 1e-6
     assert w.s["containers"][cid]["goods"].get("dried meat", 0) < 1e-9
 
@@ -77,7 +78,7 @@ def test_the_smoked_rate_is_about_3_percent_over_three_nights():
     for _ in range(3):
         night(w)
     lost = 1 - w.s["containers"][cid]["rack"]["dried"] / 4.0
-    assert 0.025 < lost < 0.04, lost                                           # about 3.3%
+    assert 0.07 < lost < 0.10, lost                                            # about 8.7%: 0.03 a night (basis §3, W-97)
 
 
 def test_any_batch_up_to_8_and_refused_only_with_no_meat():
@@ -116,7 +117,7 @@ def test_a_full_store_leaves_the_dry_batch_on_the_rack_until_taken():
     store(w, "reed_house")["stone"] = round(BL.room_for(b, store(w, "reed_house"), "stone") - 1e-3, 3)   # its floor full
     for _ in range(3):
         night(w)
-    assert w.s["containers"][cid]["goods"].get("dried meat", 0) > 3.5          # on the rack still
+    assert w.s["containers"][cid]["goods"].get("dried meat", 0) > 3.4          # on the rack still
     kn = PR.house_known(Here(w, "Odo"), "reed_house")
     assert any("left on the rack by the hearth" in x for x in kn), kn
     r = do(w, "Odo", do="take", item="dried meat", **{"from": "Reed House"})   # known without a roll: taken from the rack
@@ -169,9 +170,9 @@ def test_a_household_member_sees_the_racks_state_each_morning_and_a_stranger_doe
         night(w)
         seen.append(PR.turn_prompt(Here(w, "Isolde"), Mind(w, "Isolde")))     # of the household, not the maker
         assert "rack" not in PR.turn_prompt(Here(w, "Hamo"), Mind(w, "Hamo"))  # of the village, another house
-    assert "On the rack by the hearth: 5.8 meat drying, 2 nights left." in seen[0], seen[0]   # summer: 0.017 a night
+    assert "On the rack by the hearth: 5.7 meat drying, 2 nights left." in seen[0], seen[0]   # summer: 0.045 a night (W-97)
     assert "meat drying, 1 night left." in seen[1]
-    assert "Dry overnight: about 2.9 dried meat, put in the store." in seen[2], seen[2]
+    assert "Dry overnight: about 2.6 dried meat, put in the store." in seen[2], seen[2]
 
 
 def test_the_belief_view_shows_the_house_every_day_to_its_household_only():
@@ -185,7 +186,7 @@ def test_the_belief_view_shows_the_house_every_day_to_its_household_only():
         m.store["view"] = m.store["view_next"]
     night(w)
     mine = VW.turn(Here(w, "Isolde"), Mind(w, "Isolde"), opening=False)
-    assert "Reed House this morning: the fire lit last night; on the rack by the hearth: 5.8 meat drying, 2 nights left." in mine, mine
+    assert "Reed House this morning: the fire lit last night; on the rack by the hearth: 5.7 meat drying, 2 nights left." in mine, mine
     assert "rack" not in VW.turn(Here(w, "Hamo"), Mind(w, "Hamo"), opening=False)
 
 

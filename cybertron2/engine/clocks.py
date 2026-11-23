@@ -82,7 +82,13 @@ def capital_factor(w=None) -> float:
     """The world's capital factor: a world spec's `capital_factor`, else CAPITAL's; "world" is units a year x 2 hours over a real
     working year (1/7.03 in a 32-day world with PHYSICS' units)."""
     from cybertron2.engine.data import CAPITAL, PHYSICS
-    f = ((getattr(w, "spec", None) or {}).get("capital_factor") if w is not None else None) or CAPITAL["factor"]
+    if w is None:
+        f = None
+    elif hasattr(w, "setting"):                                           # a Here: the world's setting, read through it (D4-35)
+        f = w.setting("capital_factor")
+    else:
+        f = (getattr(w, "spec", None) or {}).get("capital_factor")
+    f = f or CAPITAL["factor"]
     if str(f).strip().lower() == "world":
         year = w.year_days() if w is not None else 32
         units = sum(float(v) for v in PHYSICS["units"].values()) / len(PHYSICS["units"]) * year

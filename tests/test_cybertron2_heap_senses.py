@@ -110,9 +110,9 @@ def test_a_hearth_and_a_ring_in_one_room_are_one_fire_and_the_prompt_says_what_i
     w = _w()
     b = w.s["buildings"]["mason_cottage"]
     b["fittings"] = {**b["fittings"], "hearth": 1, "fire ring": 1}
-    assert N.house_heat(w.p, b, cold=False) == 1.0 and N.house_heat(w.p, b, cold=True) == 4.0     # one room, one fire (D4-93)
-    assert N.house_heat(w.p, {"fittings": {"fire ring": 1}}, cold=False) == 1.0
-    assert PR._heat(Here(w, "Wat"), b) == 1.0
+    assert N.house_heat(w.p, b, cold=False) == 0.5 and N.house_heat(w.p, b, cold=True) == 1.5     # one room, one fire (D4-93); a
+    assert N.house_heat(w.p, {"fittings": {"fire ring": 1}}, cold=False) == 0.5                    # bundle a night (D2-290, W-97)
+    assert PR._heat(Here(w, "Wat"), b) == 0.5
 
 
 def test_an_unlit_fire_names_the_fuel_it_lacked_and_a_theft_at_a_door_is_told_as_one():

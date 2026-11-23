@@ -660,18 +660,17 @@ def test_a_flood_very_likely_and_a_spate_half_the_time_wrecks_a_trap_in_the_rive
     assert share["spate"] == pytest.approx(0.5, abs=0.2) and share["normal"] == 0.0
 
 
-def test_fresh_fish_keep_twice_as_badly_as_meat_in_a_store_and_alike_in_hand(river):
-    """D2-212: x2 on the store's rate for fresh fish; in hand as meat."""
+def test_fresh_fish_keep_worse_than_meat_by_their_base_rates(river):
+    """D2-212 within D2-289 (W-97; wave1 §2.3): fresh fish's faster spoiling is in its base rate (keeps 1.5 days against meat's 3),
+    the store's x2 dropped; in a store and in hand alike."""
     from cybertron2.engine import night as NI
     p = river.p
     for fit in ([], ["bins"]):
         fish = NI.spoil_rate(p, "fish", "store", "autumn", False, fittings=fit)
         meat = NI.spoil_rate(p, "meat", "store", "autumn", False, fittings=fit)
-        assert fish == pytest.approx(2 * meat)
-    assert NI.spoil_rate(p, "fish", "hand", "autumn", False) == pytest.approx(NI.spoil_rate(p, "meat", "hand", "autumn", False))
-    assert NI.spoil_rate(p, "fish", "store", "autumn", False) == pytest.approx(0.18, abs=0.01)
-    assert set(WK.TAKEN["eel"]["goods"]) == {"fish"} and WK.TAKEN["salmon"]["goods"] == {"fish": 3.06}  # so it reaches them (D2-216)
-    assert ITEMS["fish"]["food"] * WK.TAKEN["salmon"]["goods"]["fish"] == pytest.approx(1.41, abs=0.01)   # a salmon's 1.41 (D2-258)
+        assert fish == pytest.approx(meat * 0.1745 / 0.1287, rel=0.01)
+    assert NI.spoil_rate(p, "fish", "hand", "autumn", False) > NI.spoil_rate(p, "meat", "hand", "autumn", False)
+    assert NI.spoil_rate(p, "fish", "store", "autumn", False) == pytest.approx(0.17, abs=0.01)
 
 
 def test_a_set_trap_holds_about_ten_kg_in_the_river_or_the_race(river, monkeypatch):

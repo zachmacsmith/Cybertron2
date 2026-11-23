@@ -177,7 +177,8 @@ def test_a_party_of_four_brings_a_red_deer_home_whole_and_one_alone_leaves_most_
     first = whole["lines"]["H0"].split("took it: ")[1].split(";")[0]
     assert "33 meat" in first, whole["lines"]["H0"]                              # four hands carry it all
     assert sum(whole["food"].values()) >= 33 - 1e-6
-    assert 8 <= alone["food"]["H0"] <= 10 and "left" in alone["lines"]["H0"], alone["lines"]["H0"]
+    assert 6 <= alone["food"]["H0"] <= 10 and "left" in alone["lines"]["H0"], alone["lines"]["H0"]   # a 3 kg hide in the 10
+    # (wave1 §1.5, W-97)
 
 
 def test_hunting_the_same_wood_without_a_party_makes_no_crew_and_the_second_finds_it_harder(generated):  # noqa: F811

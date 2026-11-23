@@ -128,8 +128,9 @@ def test_fish_smoke_in_the_river_world_and_keep_four_times_as_long_as_dried_meat
             do(w, RP["salter"], do="work", what="tend the smoke")
         night(w)
     assert 1 - store(w, "smokehouse").get("smoked fish", 0.0) / 20.0 < 0.10
-    assert abs(ITEMS["smoked fish"]["spoil"] * 4 - ITEMS["dried meat"]["spoil"]) < 1e-12
-    assert abs(ITEMS["smoked meat"]["spoil"] * 4 - ITEMS["dried meat"]["spoil"]) < 1e-12
+    # the keeping curve (D2-289, W-97): a keeping smoke about a season (9.7 nights), dried a year and more (41.3): dried keeps longer
+    assert ITEMS["dried meat"]["spoil"] < ITEMS["smoked fish"]["spoil"] < ITEMS["fish"]["spoil"]
+    assert ITEMS["smoked meat"]["spoil"] == ITEMS["smoked fish"]["spoil"]
     assert ITEMS["smoked fish"]["food"] == 2 * ITEMS["fish"]["food"] and ITEMS["smoked meat"]["food"] == 2 * ITEMS["meat"]["food"]
 
 
@@ -240,7 +241,7 @@ def test_a_neighbour_pays_to_use_it_and_its_batch_waits_for_them():
     kn = PR.house_known(Here(w, "Odo"), "smokehouse")
     assert any("for Hamo, who hung it" in x for x in kn), kn
     r = do(w, "Hamo", do="take", item="smoked meat", qty=17, **{"from": "the Smokehouse"})
-    assert not r.startswith("Refused") and w.goods(w.hands("Hamo")).get("smoked meat", 0) > 16.5, r
+    assert not r.startswith("Refused") and w.goods(w.hands("Hamo")).get("smoked meat", 0) > 16.0, r   # 0.03 a night in the smoke (W-97)
 
 
 def test_it_can_be_robbed_while_a_batch_is_in():
@@ -370,8 +371,9 @@ def test_an_inland_village_without_a_spring_has_no_salt():
 
 
 def test_salted_fish_keep_as_built():
-    assert TECHNIQUES["salt fish"]["inputs"] == {"fish": 4, "salt": 1} and TECHNIQUES["salt fish"]["gives"] == {"salt fish": 4}
-    assert ITEMS["salt fish"]["spoil"] == 0.01 and ITEMS["salt fish"]["decay"] == "dried meat"
+    assert TECHNIQUES["salt fish"]["inputs"] == {"fish": 40, "salt": 10} and TECHNIQUES["salt fish"]["gives"] == {"salt fish": 40}
+    assert TECHNIQUES["salt fish"]["batch"]                                            # up to 40 kg a unit (D2-283, O-2: W-97)
+    assert abs(ITEMS["salt fish"]["spoil"] - 0.0085) < 1e-4 and ITEMS["salt fish"]["decay"] == "dried meat"   # D2-289
     w = world(RIVER, salthouse(RP["spring"], RP["household"]), calendar=AUTUMN)       # salt boiled, then fish salted with it
     salter(w, RP["salter"])
     do(w, RP["salter"], do="make", what="boil salt")
@@ -379,7 +381,7 @@ def test_salted_fish_keep_as_built():
     hand(w, RP["salter"], fish=4)
     assert "You made 4 salt fish" in do(w, RP["salter"], do="make", what="salt fish")
     r = N.spoil_rate(w.p, "salt fish", "store", "autumn", False)
-    assert abs(r - 0.01 * w.p["house_spoil"]) < 1e-12
+    assert abs(r - ITEMS["salt fish"]["spoil"] * w.p["house_spoil"]) < 1e-12
 
 
 def test_coastal_salt_is_unchanged():

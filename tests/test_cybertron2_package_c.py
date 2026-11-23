@@ -464,7 +464,7 @@ def test_a_trampled_field_shows_it_after_the_beasts_have_gone_home():
 
 
 # ---------------------------------------------------------------------- the pack ox (D2-135, D2-136)
-def test_a_pack_ox_carries_60_goes_with_its_leader_grazes_or_eats_hay_and_comes_in_with_it():
+def test_a_pack_ox_carries_100_goes_with_its_leader_grazes_or_eats_hay_and_comes_in_with_it():
     from cybertron2.engine import herds as HD, roads as RD
     w = world(roads=[["millbrook", "ashwood", 2, {"terrain": "woodland", "stretches": {2: {"terrain": "farmland"}}}]])
     holder = w.claims_on(("herd", "cattle"))[0]["claimant"]
@@ -479,7 +479,7 @@ def test_a_pack_ox_carries_60_goes_with_its_leader_grazes_or_eats_hay_and_comes_
     N.departures(w, w.s["today"])
     ox = next(hid for hid, h in w.s["herds"].items() if h.get("pack"))
     assert w.s["herds"]["cattle"]["oxen"] == oxen_before - 1 and w.s["herds"][ox]["with"] == lead
-    assert w.capacity(lead) == 60
+    assert w.capacity(lead) == 100                                         # a pack ox about 100 kg (basis §5, W-97)
     RD.night(w, w.s["today"])                                                       # woodland: no grass, so 1 hay
     assert abs(w.goods(w.hands(lead))["hay"] - 1.0) < 1e-9
     next_day(w)
@@ -488,7 +488,7 @@ def test_a_pack_ox_carries_60_goes_with_its_leader_grazes_or_eats_hay_and_comes_
     assert abs(w.goods(w.hands(lead))["hay"] - 1.0) < 1e-9
     next_day(w)
     assert w.at(lead) == "ashwood" and w.s["herds"][ox]["node"] == "ashwood" and w.s["herds"][ox]["with"] == lead   # still led
-    assert w.capacity(lead) == 60 and any("Leading:" in x for x in PR.turn_prompt(Here(w, lead), Mind(w, lead)).split("\n"))
+    assert w.capacity(lead) == 100                                         # a pack ox about 100 kg (basis §5, W-97) and any("Leading:" in x for x in PR.turn_prompt(Here(w, lead), Mind(w, lead)).split("\n"))
     rec = {}
     HD.night(w, rec)                                                                # held: it does not wander off
     assert w.s["herds"][ox]["with"] == lead

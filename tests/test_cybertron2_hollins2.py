@@ -37,7 +37,9 @@ def test_firewood_is_had_in_ockley_and_its_woods_keep_it_at_about_two_thirds():
     n = next(x for x in w.members("Webb") if w.s["people"][x]["stage"] == "adult")
     assert do(w, n, do="gather", what="firewood", at="the Hanger").startswith("You took 3 firewood")
     c = CP.node(w, "ockley")
-    assert 0.5 <= c["people"] / c["keeps"] <= 0.75
+    # a house burns a 10 kg bundle a night (D2-290) and the woods hold their real mass (D2-288, W-97): its woods keep far more
+    # than its people, and food binds (was: heat bound it, at about two thirds)
+    assert c["binds"] == "food" and c["heat_people"] >= 2 * c["people"] and 0.4 <= c["people"] / c["keeps"] <= 0.75
 
 
 def test_couples_can_try_and_the_deep_forest_is_reached_from_hollins():

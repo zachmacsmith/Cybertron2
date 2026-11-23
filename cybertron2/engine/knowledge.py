@@ -204,8 +204,7 @@ def ready(here, tech, kind, key, a=None) -> str:
         p = here.parcels()[key]
         d = t.get("draws")
         if d == "fish" and t.get("run"):                                      # a run passing there today (Q-79 bug 1, u2 §6: the
-            from cybertron2.engine import wild as WL                          # phase-1 patch until the shallows are built)
-            if WL.run_here(here._w, here.node, key):
+            if here.run_here(key):                                            # phase-1 patch until the shallows are built)
                 return ""
         if d in RESOURCES and d not in p["res"]:                              # any stock the data names (D4-103)
             return f"there is no {({'plants': 'wild food', 'grass': 'grass to cut', 'dead': 'dead wood', 'young': 'young growth'}).get(d, d)} at {p['name']}"
