@@ -902,7 +902,8 @@ def _technique(here, mind, a, party, verb):
         return f"You fished the shallows of {place_name}{note} and took nothing.{suffix}" + after
     via = f" with your {tool}" if tool else (" with your bare hands" if t.get("tools") else "")
     dest = "" if out == here.hands else f" into {here.buildings()[out[len('stock:'):]]['name']}" if out.startswith("stock:") else f" to {party}"
-    return (f"You {verb}ed {show(got)} {gives}{extra_got} at {place_name}{note}{via}{dest}.{suffix}".replace("You gathered", "You took")
+    from cybertron2.engine.world import show_fine                            # a small yield shown, not "0" (W-104)
+    return (f"You {verb}ed {show_fine(got)} {gives}{extra_got} at {place_name}{note}{via}{dest}.{suffix}".replace("You gathered", "You took")
             .replace("You worked", "You got")) + after
 
 
@@ -957,7 +958,8 @@ def _mend_gear(here, mind, a):
     unit = "nights set" if (GE.LIVES[it].get("count") == "nights") else "days' use"
     here.event("make", f"{here.name} was mending {GE.plural(it)}", actor=here.name, salience=0.15, tags=["craft"], tech=craft or "mend gear")
     here.record("make", "mend gear", None)
-    return (f"You mended your {GE.named(it, n)} with {mats} (1 unit): each is good for about {int(min(lives))} more {unit}."
+    mine = it if n == 1 else f"{n} {GE.plural(it)}"                            # "your hand line", never "your a hand line" (W-104)
+    return (f"You mended your {mine} with {mats} (1 unit): {'it is' if n == 1 else 'each is'} good for about {int(min(lives))} more {unit}."
             + (f" (You are now {rose} at it.)" if rose else ""))
 
 

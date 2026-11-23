@@ -60,6 +60,14 @@ def show(x) -> str:
     return f"{math.floor(float(x) * 10 + 1e-9) / 10:g}"
 
 
+def show_fine(x) -> str:
+    """As `show`, but an amount under a tenth is shown to its first figure (0.04), not as 0 (W-104)."""
+    x = float(x)
+    if x <= 1e-9 or x >= 0.1:
+        return show(x)
+    return f"{float(f'{x:.1g}'):g}"
+
+
 def merge(base, over):
     out = copy.deepcopy(base)
     for k, v in (over or {}).items():

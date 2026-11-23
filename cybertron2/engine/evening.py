@@ -83,7 +83,7 @@ def prompt(w, n, results, left, place, others, arrived, saw=None) -> str:
         L.append("## What you saw today\n" + ("\n".join(saw) if saw else "Nothing stood out today."))
     from cybertron2.engine import book as BK                                   # the book, with what it did today (u6 §9; D2-319)
     rl = [x for x in BK.rules_block(w, n) if x != BK.GRAMMAR]
-    did_b = BK.day_lines(w, (w.s.get("today") or {}).get("book"), n)
+    did_b = BK.day_lines(w, (w.s.get("today") or {}).get("book"), n, when="today")
     if BK.household_rules(w, w.household_of(n)) or BK.own_rules(w, n) or did_b:
         L.append("## The standing rules\n" + "\n".join(rl + did_b) + "\nThe evening is a time to look at them again: \"rule\" sets, "
                  "changes or drops one, and costs nothing.")

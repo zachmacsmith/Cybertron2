@@ -659,10 +659,12 @@ def night_lines(w, rec) -> dict:
         for x in care.get("passed") or []:                                     # what one passed on to a child (D4-64)
             if x["by"] != n:
                 continue
-            if x["kept"]:
+            if x["kept"] and x["why"] != "held":
                 L.append(f"{x['child']} will keep what you passed on: “{x['text']}”.")
             elif x["why"] == "full":
                 L.append(f"{x['child']} holds as much as a child can; what you passed on was not kept.")
+            elif x["why"] == "held":
+                L.append(f"{x['child']} already holds what you passed on: “{x['text']}”.")
             else:
                 L.append(f"{x['child']} will keep what {x['why']} passed on today, not yours.")
         if n in ((rec.get("life") or {}).get("lost") or []):
@@ -1076,6 +1078,8 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                                       "it costs double food tonight, and you will be tired tomorrow.")
             for n, lines in HP.settle(w).items():                              # the parties' hunts, after the day's acts (4b §3.1)
                 results.setdefault(n, []).extend(lines)
+            for n, lines in ST.settle_teaching(w, today).items():              # lessons, before the evening: talked over at it (D2-343)
+                results.setdefault(n, []).extend(lines)
             if today.get("travel_morning"):                                    # set off this morning: in by nightfall (D4-67)
                 morning_departures(w, today)
             from cybertron2.engine import layout as LY
@@ -1097,7 +1101,7 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
             today["partners"] = LF.settle(w, today)                             # partnerships both chose (D2-140)
             today["children_work"] = LF.children_work(w)                        # the head's standing order (D2-148)
             settled = AG.settle(w)
-            for n, lines in list(ST.settle_teaching(w, today).items()) + list(ST.settle_joins(w, today).items()):
+            for n, lines in ST.settle_joins(w, today).items():                 # joins and partnerships after the evening (D2-343)
                 results.setdefault(n, []).extend(lines)
             ST.settle_thefts(w, today, attend)
             w.s["left"] = [x for x in w.s.get("left", []) if x["day"] >= day - 1] + [{**x, "day": day} for x in today["left"]]

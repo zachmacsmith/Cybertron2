@@ -11,6 +11,8 @@ places {node: {name, days, text, seen}}.
 """
 from __future__ import annotations
 
+import json
+import re
 from types import SimpleNamespace
 
 from cybertron2.engine import farm as FM, knowledge as KN, signs as SG
@@ -656,11 +658,18 @@ def _shut_gate(w, name, pid) -> bool:
     return True
 
 
+RULE_WORDS = re.compile(r"\b(rules?|the book|book of rules|standing orders?|fallbacks?)\b")   # D2-341: a rule is known as set, never attended
+
+
 def resolve_target(here, x):
     if not x:
         return None, None
+    if isinstance(x, dict) and ({"rule", "n", "rules"} & set(x)):              # a rule named as a rule's fields (D2-341)
+        return "place", f"the place in general (you could not find {json.dumps(x)[:80]!r} to attend to)"
     s = str(x).strip()
     low = s.lower()
+    if RULE_WORDS.search(low) and not here.building(s) and not here.parcel(s) and not here.person(s):
+        return "place", f"the place in general (you could not find {s!r} to attend to)"   # rules are not attendable (D2-341)
     if low in ("the village", "village", "the hamlet", "the layout", "how the village fits together", "the lie of the land",
                here.node_name.lower()):
         return "village", f"how {here.node_name} fits together"                    # D2-116

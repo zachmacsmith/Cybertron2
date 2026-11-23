@@ -308,3 +308,18 @@ def test_the_gate_check_passes_eelmouth_and_refuses_todays_runs_world():
 def test_a_youth_eats_eight_tenths(eel):
     from cybertron2.engine import life as LF
     assert LF.ration_factor(eel, "Nigel") == (0.8, 0.0)
+
+
+def test_heads_and_parents_hold_the_passing_on_line_and_bs8_is_the_craft_half_alone():
+    """D2-340: the seeded line on passing on through care, for heads and parents, its places filled from the world; BS8 keeps only
+    the craft half; within the 20-line cap by its drop order (the craft half last, when the passing-on line is held)."""
+    for n in ("Peter", "Oliver", "Hamon", "Nichola", "Katherine"):
+        k = [x["text"] for x in EEL["agents"][n]["kept"]]
+        line = next((t for t in k if t.startswith("Our children know only what we tell them.")), None)
+        assert line and "the Isel" in line and line.endswith("What I never pass on dies with me."), n
+        assert len(line.split()) <= FD.LINE_WORDS and len(k) <= FD.CAP_LINES
+    assert not any("Our children know only" in x["text"] for x in EEL["agents"]["Nigel"]["kept"])       # a youth, no child
+    nigel = [x["text"] for x in EEL["agents"]["Nigel"]["kept"]]
+    bs8 = next(t for t in nigel if t.startswith("What I know of a craft"))
+    assert bs8.endswith("many tries alone.") and "dies with me" not in bs8
+    assert FD.DROP[-1][0] == "BS8, when HH10 is held"

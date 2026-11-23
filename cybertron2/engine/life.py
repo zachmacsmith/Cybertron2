@@ -176,9 +176,9 @@ def come_of_age(w, name) -> None:
 # ---------------------------------------------------------------------- care: the largest care's food, and passing on (D4-64)
 def care_gifts(w, today) -> dict:
     """At nightfall, before anyone eats: for each child, of those who cared for it today and are with it, the one who gives the most
-    food (in meals, from what they still carry) gives all of it, into the child's hands, and the child eats it all tonight; of those
-    who passed a sentence on, the one giving the most food has theirs kept as the child's line (a tie by a keyed draw); each line adds
-    a place, up to the world's limit. Returns {fed: {child: meals}, passed: [{child, by, text, kept, why}]}."""
+    food (in meals, from what they still carry) gives all of it, into the child's hands, and the child eats it all tonight; every
+    sentence passed on is kept as one of the child's lines while it has room (D2-340), the most food's first (a tie by a keyed draw);
+    each line adds a place, up to the world's limit. Returns {fed: {child: meals}, passed: [{child, by, text, kept, why}]}."""
     from cybertron2.engine import memory as MEM
     from cybertron2.engine.data import ITEMS
     out = {"fed": {}, "passed": []}
@@ -204,17 +204,15 @@ def care_gifts(w, today) -> dict:
             w.apply("transfer", here, src=w.hands(top["by"]), dst=w.hands(child), item=top["item"], qty=top["have"])
             out["fed"][child] = top["meals"]
         said = [o for o in offers if str(o.get("pass") or "").strip()]
-        if said:
-            win = max(said, key=lambda o: (o["meals"], o["draw"]))
-            passed = sum(1 for x in MEM.kept(w, child)["lines"] if str(x.get("source", "")).startswith("from "))
+        for o in sorted(said, key=lambda o: (-o["meals"], -o["draw"])):       # every carer's, while the child has room (D2-340);
+            passed = sum(1 for x in MEM.kept(w, child)["lines"] if str(x.get("source", "")).startswith("from "))   # the most food first
             room = passed < int(MEM.kept_settings(w)["childhood"])                 # the limit counts lines passed on, not seeded ones
-            text = MEM.line(win["pass"], MEM.kept_settings(w)["words"])
-            if room:
-                MEM.seed_line(w, child, text, f"from {win['by']}")
-            out["passed"].append({"child": child, "by": win["by"], "text": text, "kept": room, "why": "" if room else "full"})
-            for o in said:
-                if o is not win:
-                    out["passed"].append({"child": child, "by": o["by"], "text": MEM.line(o["pass"]), "kept": False, "why": win["by"]})
+            text = MEM.line(o["pass"], MEM.kept_settings(w)["words"])
+            held = text in [x["text"] for x in MEM.kept(w, child)["lines"]]
+            if room and not held:
+                MEM.seed_line(w, child, text, f"from {o['by']}")
+            out["passed"].append({"child": child, "by": o["by"], "text": text, "kept": room or held,
+                                  "why": "held" if held else ("" if room else "full")})
     return out
 
 

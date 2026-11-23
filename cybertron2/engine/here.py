@@ -441,6 +441,25 @@ class Here:
         from cybertron2.engine import book as BK
         return BK.rules_block(self._w, self.name)
 
+    def book_empty_lines(self) -> list:
+        """Yesterday's chores and fallbacks that gave nothing and stopped after one try (W-104)."""
+        if not self._w.s.get("books"):
+            return []
+        from cybertron2.engine import book as BK
+        log = self._w.s.get("log") or []
+        rec = (log[-1].get("book") if log else None) or {}
+        hh = self._w.household_of(self.name)
+        return BK.empty_lines(rec, self.name, hh if hh and self._w.head(hh) == self.name else None)
+
+    def meal_lines(self) -> list:
+        """What one ate last night and what one's household's stores gave the meal (D2-342): one's own body and house, known."""
+        from cybertron2.engine import night as N
+        log = self._w.s.get("log") or []
+        rec = log[-1] if log else None
+        if not rec or int(rec.get("day", -9)) != self.day - 1:
+            return []
+        return N.meal_lines(self._w, self.name, rec)
+
     def book_lines(self) -> list:
         """What waits today by the book, and what was missed or gone against yesterday (u6 §9)."""
         if not self._w.s.get("books"):

@@ -90,9 +90,9 @@ living in your household, and in any household its members go on to found, at th
 2. **The run discriminates.** Under one aim, the same land and the same start, households went from 0 to 11. That is the signal a
    monoculture world is built to read, at the level of a whole society.
 3. **Boom and bust is the shape to expect,** as Zach intended (10 Nov: "they can only reproduce as fast as their society can actually
-   support"). The area under the curve and the end count read it differently (the Brooks: peak 10, end 5), which bears on Q-88.
+   support"). The area under the curve and the end count read it differently (the Brooks: peak 10, end 5), which bears on Q-101.
 4. **The graded wording worked** where the in-world wording of pw1 did not visibly, though the two runs differ in more than the
-   wording. It is open against the rule that aims are in-world, never scoring proxies (conflict C-12; Q-87).
+   wording. It is open against the rule that aims are in-world, never scoring proxies (conflict C-12; Q-100).
 5. It was not a monoculture (a model to each household, three a village) and n = 1; 30 days of a planned 200.
 
 ## 3. The axes a world can vary

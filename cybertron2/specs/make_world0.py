@@ -113,7 +113,7 @@ def remake(src=SRC) -> tuple:
             a.pop("memories", None)                                     # the seeded lines are kept lines (as make_eelmouth.arms)
         a["kept"] = [{"text": GOAL, "fixed": True}] + [k for k in (a.get("kept") or []) if k.get("text") != GOAL]
         if a is w["agents"].get("Hamo"):                                # founders.py has no miller, farmer or herder templates yet,
-            a["kept"].insert(1, {"text": MILL_LINE, "source": "a holding"})  # so the mill's keeper line is written here (L-178)
+            a["kept"].insert(1, {"text": MILL_LINE, "source": "a holding"})  # so the mill's keeper line is written here (L-179)
         while len(a["kept"]) > CAP:                                     # the goal is inside the founders' 20 (D2-311): the last seeded
             a["kept"].pop()                                             # line goes, as U9's drop order takes the last first
     report["skipped"].append("the gone households: " + ", ".join(sorted(gone_hh)) + f" ({len(gone)} people)")
