@@ -235,7 +235,7 @@ def test_the_containers_states_read_true_and_false_on_the_right_nights():
     do(w, me, do="tend", at="the Smokehouse")
     night(w)
     s3 = PROC.states(w, hh, "smokehouse")
-    assert s3["done"] > 100 and not s3["fire out"] and s3["in process"] == 0
+    assert 60 < s3["done"] < 100 and not s3["fire out"] and s3["in process"] == 0   # a dead fire's night at the fresh rate (D2-336)
 
 
 def test_flax_rets_in_water_a_night_and_on_the_grass_three():

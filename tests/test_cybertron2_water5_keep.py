@@ -97,7 +97,7 @@ def test_a_40_meat_glut_loses_far_more_with_only_the_hearth_rack():
     w = world(VALLEY, calendar=AUTUMN)
     fed(w, "Reed")
     store(w, "reed_house").update({"meat": 40.0})
-    for d in range(12):                                                        # a batch of 8 a night, as the rack allows, taken down
+    for d in range(6):                                                         # a batch of 8 a night, as the rack allows, taken down
         if PROC.lots(w, "reed_house", done=True):                              # each morning (u4: a done lot stays on its rack)
             do(w, "Odo", do="move", item="dried meat", **{"from": "Reed House"})
         if KN.available(Here(w, "Odo"), "meat") > 1e-6:
@@ -105,8 +105,8 @@ def test_a_40_meat_glut_loses_far_more_with_only_the_hearth_rack():
         night(w)
     kept = sum(c["goods"].get("dried meat", 0) for c in racks(w).values()) + store(w, "reed_house").get("dried meat", 0)
     lost = 1 - 2 * kept / 40.0
-    assert 0.18 < lost < 0.40, lost                                           # about 23% in autumn, 30% in summer: the store's
-                                                                              # fresh rate (9% a night) as built, not the brief's half
+    assert 0.30 < lost < 0.55, lost                                           # fresh meat goes off at about 28% a night (D2-336);
+                                                                              # read by day 6, before the household eats the dried meat
 
 
 def test_the_hearth_rack_holds_a_batch_at_a_time():

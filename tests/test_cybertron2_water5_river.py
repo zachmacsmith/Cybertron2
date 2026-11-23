@@ -670,9 +670,9 @@ def test_fresh_fish_keep_worse_than_meat_by_their_base_rates(river):
     for fit in ([], ["bins"]):
         fish = NI.spoil_rate(p, "fish", "store", "autumn", False, fittings=fit)
         meat = NI.spoil_rate(p, "meat", "store", "autumn", False, fittings=fit)
-        assert fish == pytest.approx(meat * 0.1745 / 0.1287, rel=0.01)
+        assert fish == pytest.approx(meat * 0.37 / 0.2825, rel=0.01)   # D2-336: both go off, half by their days
     assert NI.spoil_rate(p, "fish", "hand", "autumn", False) > NI.spoil_rate(p, "meat", "hand", "autumn", False)
-    assert NI.spoil_rate(p, "fish", "store", "autumn", False) == pytest.approx(0.17, abs=0.01)
+    assert NI.spoil_rate(p, "fish", "store", "autumn", False) == pytest.approx(0.37, abs=0.01)   # D2-336
 
 
 def test_a_set_trap_holds_about_ten_kg_in_the_river_or_the_race(river, monkeypatch):

@@ -299,8 +299,8 @@ def test_a_build_act_costs_what_is_left_and_every_act_practises():
 # ---------------------------------------------------------------------- the keeping curve (D2-289, D2-295; basis §3)
 def test_spoil_rates_match_the_keeping_curve_and_the_cured_depths_are_goods():
     from cybertron2.engine.data import ITEMS
-    base = {"fish": 0.17, "meat": 0.13, "hot-smoked fish": 0.11, "smoked fish": 0.029, "hard-cured fish": 0.011, "salt fish": 0.0085,
-            "dried fish": 0.0069}                                                     # basis §3's base rates a night
+    base = {"fish": 0.37, "meat": 0.28, "hot-smoked fish": 0.25, "smoked fish": 0.029, "hard-cured fish": 0.011, "salt fish": 0.0085,
+            "dried fish": 0.0069}                                                     # basis §3 (D2-336: fresh goes off, half by its days)
     for good, r in base.items():
         assert ITEMS[good]["spoil"] == pytest.approx(r, rel=0.04), good
     order = ["fish", "hot-smoked fish", "smoked fish", "hard-cured fish", "salt fish", "dried fish"]

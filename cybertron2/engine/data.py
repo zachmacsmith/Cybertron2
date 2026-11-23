@@ -153,13 +153,21 @@ def keep_nights(d) -> float:
     return min(float(d), 2.0) + max(0.0, float(d) - 2.0) / 11.4
 
 
-def base_spoil(d) -> float:
-    """A quarter lost by the curve's nights (D2-289)."""
-    return round(1.0 - 0.75 ** (1.0 / keep_nights(d)), 4)
+# "Keeps for d days" against "goes off after d days" (D2-336): a preserved good keeps for its days, about a quarter lost by then
+# (D2-289); a fresh, perishable food goes off after its days, about half gone by then, so fresh fish and meat go off within a few
+# nights as before the rebuild. GOES_OFF names the perishables.
+GOES_OFF = {"fish", "offal", "meat", "green grain", "green rye", "green beans", "greens", "watercress", "mushrooms", "berries",
+            "samphire", "bread", "hot-smoked fish", "hot-smoked meat"}
+
+
+def base_spoil(d, goes_off=False) -> float:
+    """A night's base rate from the curve's nights: a quarter lost by then for what keeps (D2-289), half for what goes off
+    (D2-336)."""
+    return round(1.0 - (0.5 if goes_off else 0.75) ** (1.0 / keep_nights(d)), 4)
 
 
 for _i, _d in KEEP_DAYS.items():
-    ITEMS[_i]["spoil"] = base_spoil(_d)
+    ITEMS[_i]["spoil"] = base_spoil(_d, _i in GOES_OFF)
 # Milk is not on the curve: it is gone the same day (D2-273's floor, "milk the same day"; D2-42), its row's 1.0 kept.
 for _i, _of in IN_PROCESS_OF.items():
     ITEMS[_i]["spoil"] = ITEMS[_of]["spoil"]
