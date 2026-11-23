@@ -550,7 +550,10 @@ def mentions(text) -> list:
 # ---------------------------------------------------------------------- rising (through the learn primitive)
 def tried(here, mind, tech, ok, units=1) -> str:
     """Practice: two successes a level (a failure counts half) from rough to capable to known; skill grows with the units of work
-    spent at it, on all work (D2-52)."""
+    spent at it, on all work (D2-52). In a world with `learning: record`, learning.py's one record (u9 §4; D2-307, D2-326)."""
+    from cybertron2.engine import learning as LR
+    if LR.on(here) and not hard(tech):
+        return LR.tried(here, mind, tech, ok, units)
     r = rec(mind, tech)
     if r is None and basic(tech):
         mind.know[tech] = r = {"level": "known", "skill": curve(tech)[0], "seen": 0, "wins": 0, "fails": 0, "source": "", "since": here.day}

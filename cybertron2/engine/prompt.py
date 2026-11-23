@@ -109,6 +109,13 @@ def schema_for(here, mind) -> dict:
         s["properties"]["overwork"] = {"type": "integer", "enum": list(range(over + 1))}
     if here.setting("evening"):
         a["when"] = {"type": "string", "enum": ["morning", "nightfall"]}
+    from cybertron2.engine import core as CORE
+    if CORE.on(here._w):                                                       # u9 §1.3: "do" free (a craft or an act, the shapes
+        for k in ("do", "what"):                                               # resolve it); look_up gone; on trouble in the alphabet's
+            a[k].pop("enum", None)                                             # order; rule a free act
+        s["properties"].pop("look_up", None)
+        a["on trouble"]["enum"] = sorted(a["on trouble"]["enum"])
+        s["properties"]["fallback"] = copy.deepcopy(s["properties"]["actions"])
     _drop_empty_enums(s)                                                       # one who knows nobody: the name is free text
     return s
 
@@ -488,6 +495,9 @@ def weights_text() -> str:
 
 
 def system_prompt(here, mind) -> str:
+    from cybertron2.engine import core as CORE
+    if CORE.on(here._w):                                                       # the core prompt and the shapes (u9; D2-314, D2-331)
+        return CORE.system_prompt(here, mind)
     a = mind.person
     stage = {"youth": "a youth, not yet grown", "adult": "a grown adult", "elder": "an elder"}.get(a["stage"], a["stage"])
     home = next((nid for nid, x in mind.places().items() if x["days"] == 0), here.node)
@@ -786,7 +796,8 @@ def turn_prompt(here, mind, opening=True) -> str:
         if rest:
             nl.append("Other notes (open them to read): " + "; ".join(f"“{k}”" for k in rest))
         L.append("## Your notes\n" + "\n".join(nl))
-    L.append("Plan your day. Reply with JSON only.")
+    from cybertron2.engine import core as CORE
+    L.append(CORE.closing(here._w))
     return "\n\n".join(L)
 
 
@@ -977,6 +988,6 @@ def memory_prompt(mind, did: list, night: list, span: str) -> str:
         L.append("In the night: " + " ".join(night))
     L.append(f"This is the end of a stretch of days ({span}). Tomorrow you start afresh: you will keep what you write now, your notes, "
              "what you keep for good and what you have always remembered, but not the detail of these days. In \"memory\", write in your own words what you "
-             "want to remember of them (at most 150 words): what happened, what was agreed or promised, who owes what, what you mean "
-             "to do. Leave \"actions\" empty. Reply with JSON only.")
+             "want to remember of them (at most 150 words)" + ("" if getattr(mind, "core", False) else ": what happened, what was agreed or "
+             "promised, who owes what, what you mean to do") + ". Leave \"actions\" empty. Reply with JSON only.")
     return "\n\n".join(L)

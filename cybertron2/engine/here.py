@@ -747,6 +747,7 @@ class Mind:
         self._cal = w.calendar
         self.day = w.d
         self.p = w.p
+        self.core = str((w.spec or {}).get("prompt") or "old") == "core"           # the prompt core (u9; D2-331)
         from cybertron2.engine import memory as MEM
         self.memory_mode = MEM.mode_for(w, name)                               # D4-61: rewrite, or append for weak models
         self.household = w.household_of(name)

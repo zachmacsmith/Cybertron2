@@ -190,7 +190,21 @@ def settle_teaching(w, today) -> dict:
 
 def _teach_day(w, t, label, out) -> None:
     """A craft taught in a day: the learner rises to a working level (capable; a youth to known) and `skill_share` of the gap to the
-    teacher's skill (twice for a youth); once at that level, a day's teaching gives no more."""
+    teacher's skill (twice for a youth); once at that level, a day's teaching gives no more. With `learning: record`, a lesson
+    session by learning.py (u9 §4.6; D2-326)."""
+    from cybertron2.engine import learning as LR
+    if LR.on(w):
+        r = LR.taught(w, t["by"], t["to"], t["tech"])
+        from cybertron2.wild import methods as MT
+        MT.teach_familiar(w, t["by"], t["to"], t["tech"])
+        node = w.at(t["by"])
+        rose = f" ({r['before']} -> {r['after']})" if r["after"] != r["before"] else ""
+        out.setdefault(t["by"], []).append(f"You taught {t['to']} {label}.")
+        out.setdefault(t["to"], []).append(f"{t['by']} taught you {label}{rose}" + ("." if rose or r["gain"] > 1e-3 else
+                                           ": you had all a session could give; practice is what you need now."))
+        w.event(node, "teach", f"{t['by']} spent the day teaching {t['to']} {label}", actor=t["by"], target=t["to"], salience=0.3,
+                tags=TECHNIQUES[t["tech"]]["tags"], concerns=[t["to"]])
+        return
     target = "known" if w.s["people"][t["to"]]["stage"] == "youth" else "capable"
     k = w.s["know"].setdefault(t["to"], {})
     before = k.get(t["tech"], {}).get("level") or "aware"

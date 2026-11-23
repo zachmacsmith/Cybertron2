@@ -79,12 +79,16 @@ def fade(w) -> None:
     from cybertron2.engine import knowledge as KN
     year = float(w.year_days())
     after = float(lb.get("fade_after", 0.5)) * year
+    from cybertron2.engine import learning as LR
+    if LR.on(w):                                                               # on the life clock (u9 §4.3; D2-307)
+        after, nightly = LR.fade_params(w)
+        rate, year = nightly, 1.0
     keep = float(lb.get("fade_keep", 0.6))
     for name in w.living():
         for tech, r in sorted((w.s["know"].get(name) or {}).items()):
             if not isinstance(r, dict) or r.get("skill") is None:
                 continue
-            lo = KN.curve(tech)[0]
+            lo = LR.curve_range(tech)[0] if LR.on(w) and not KN.hard(tech) else KN.curve(tech)[0]
             sk = float(r["skill"])
             best = max(float(r.get("peak", sk)), sk)
             floor = lo + keep * (best - lo)
