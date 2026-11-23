@@ -1,6 +1,8 @@
 # All asks
 
 ## Open
+- [[Q-90 The signs design's eight choices|The signs design's eight choices (Q-90)]] (open)
+- [[Q-89 Whether a water-only village should last the year, or the spring gap…|Whether a water-only village should last the year, or the spring gap… (Q-89)]] (open)
 - [[Q-88 Whether a chore that yields a trivial amount|Whether a chore that yields a trivial amount (Q-88)]] (open)
 - [[Q-87 Whether the passing-on seeded line for heads and parents|Whether the passing-on seeded line for heads and parents (Q-87)]] (open)
 - [[Q-82 Trying and learning|Trying and learning (Q-82)]] (open)
