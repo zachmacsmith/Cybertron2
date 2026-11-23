@@ -603,9 +603,12 @@ def _technique(here, mind, a, party, verb):
     holding = None
     after = ""                                                                 # what was noticed on the way, after the outcome
     if y["kind"] == "stock":
-        r = here.parcels()[key]["res"][t["draws"]]
-        got = here.apply("draw", parcel=key, key=t["draws"], qty=round(YD.dist(y, r, m, tm, refuge=here.p["refuge"],
-                                                                                           b=RN.response(t["draws"], r)).sample(rng), 2))
+        r = here.parcels()[key]["res"].get(t["draws"])
+        if r is None or (t.get("run") and r["S"] <= (here.p["refuge"] + 0.02) * r["K"]):
+            got = 0.0                                                           # no resident fish to take: only the run (Q-79 bug 1)
+        else:
+            got = here.apply("draw", parcel=key, key=t["draws"], qty=round(YD.dist(y, r, m, tm, refuge=here.p["refuge"],
+                                                                                               b=RN.response(t["draws"], r)).sample(rng), 2))
         if t.get("run"):                                                        # a run in the water there (brief 5 §3a.2)
             from cybertron2.engine import wild as WL
             _, run_words = WL.run_take(here, mind, tech, key, int(t["units"]))
@@ -747,6 +750,8 @@ def _technique(here, mind, a, party, verb):
         return (word if not for_txt else word.rstrip(".") + for_txt + ".") + after
     if y["kind"] == "chance" and got <= 0:
         return f"You hunted in {place_name}{note} and caught nothing{extra_got}." + after
+    if y["kind"] == "stock" and t.get("run") and got <= 0 and suffix:            # only the run gave (Q-79 bug 1)
+        return f"You fished at {place_name}{note}: the water's own fish gave nothing.{suffix}" + after
     via = f" with your {tool}" if tool else (" with your bare hands" if t.get("tools") else "")
     dest = "" if out == here.hands else f" into {here.buildings()[out[len('stock:'):]]['name']}" if out.startswith("stock:") else f" to {party}"
     return (f"You {verb}ed {show(got)} {gives}{extra_got} at {place_name}{note}{via}{dest}.{suffix}".replace("You gathered", "You took")

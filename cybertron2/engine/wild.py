@@ -3239,6 +3239,19 @@ def run_density(w, m=None, st=None) -> dict:
     return {k: [x * float(RUN["dense"]) for x in v] for k, v in RU.density(m, st, eco_day(w)).items()}
 
 
+def run_here(w, node, pid) -> bool:
+    """A run passes this village's water at this river parcel today (Q-79 bug 1: the edge reaches a run where no resident fish live)."""
+    from cybertron2.wild import runs as RU
+    if not on(w) or not (w.s.get("wild") or {}).get("state") or not _river_parcel(w, pid):
+        return False
+    st = w.s["wild"]["state"]
+    if not st.get("runs"):
+        return False
+    m = model(w)
+    i = RU.net(m).area.get(f"v:{node}")
+    return i is not None and any(v[i] > 0 for v in run_density(w, m, st).values())
+
+
 def run_take(here, mind, tech, key, units) -> tuple:
     """Fishing by hand where a run is (brief 5 §3a.2: the fish held below a dam, or a run passing): the take's rule at the run's
     density on the village's water (meetings over `units`, a fifth of a km2 a unit; each taken at the method's chance). Returns

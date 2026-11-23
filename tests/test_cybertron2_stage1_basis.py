@@ -29,3 +29,24 @@ def test_no_prompt_contains_the_options_list(hamlet):
         for opening in (True, False):
             text = PR.turn_prompt(Here(w, name), Mind(w, name), opening)
             assert "Today you could" not in text and "Not yet:" not in text
+
+
+# ---------------------------------------------------------------------- the fishing faults (u2 §6)
+from cybertron2.engine import verbs as V, wild as WL                                     # noqa: E402
+from tests.test_cybertron2_water5_river import adults, do, fresh, no_new_runs, pulse, river, water   # noqa: E402,F401
+
+
+def test_the_edge_reaches_a_run_where_the_water_holds_no_resident_fish(river, monkeypatch):
+    """Q-79 bug 1: hand fishing was refused at a run with no resident fish ("there is no fish at ...")."""
+    no_new_runs(monkeypatch)
+    w = fresh(river)
+    node = "Saltwell"
+    pid = water(w, node)
+    w.s["parcels"][pid]["res"].pop("fish", None)
+    who = adults(w, node)[0]
+    r = do(w, who, {"do": "gather", "what": "fish by hand", "at": w.s["parcels"][pid]["name"]})
+    assert r.startswith("Refused") and "no fish" in r                            # no run: the water's own reason
+    pulse(w, node, kind="eel", n=400.0)
+    assert WL.run_here(w, node, pid)
+    r = do(w, who, {"do": "gather", "what": "fish by hand", "at": w.s["parcels"][pid]["name"]})
+    assert not r.startswith("Refused"), r
