@@ -15,8 +15,8 @@ guides/senses.md; feature_packages.md §9.1 and §10. No model calls, no live ru
   a household and a person, the `rule` act, `when` and `unless` on states the household knows, the spare-units phase person by
   person, units left as rest, the rules block, the morning's and the evening's lines). The old files are touched at their seams.
 - **Out, as decided:** tanning, liming and their rows (D2-327). Retting stays, since u3's flax is built.
-- **Tests:** before (21530516) 784 passed, 2 skipped; after (the branch head) 815 passed, 2 skipped (30 new in
-  `tests/test_cybertron2_stage3_keeping.py`, one assertion added since). Sixteen test files pinned the rack, the stores' multipliers or
+- **Tests:** before (21530516) 784 passed, 2 skipped; after (the branch head) 814 passed, 2 skipped (30 new in
+  `tests/test_cybertron2_stage3_keeping.py`). Twelve test files pinned the rack, the stores' multipliers or
   the keeper by hand; each is listed in §4.
 - **Bots:** `runs_high` with `--bots runs` for 40 days runs with no errors, and its replay has no mismatches (320 steps checked).
   Every household's head set five rules on day 0, and the spare-units phase did the keeping by them: 30 hangings on the racks, 20
@@ -170,7 +170,7 @@ All new tests are in `tests/test_cybertron2_stage3_keeping.py`.
 
 ## 7. Results
 
-**Tests (`python3 -m pytest -q`, six shards):** before (21530516) 784 passed, 2 skipped; after (the branch head) 815 passed, 2 skipped.
+**Tests (`python3 -m pytest -q`, six shards):** before (21530516) 784 passed, 2 skipped; after (the branch head) 814 passed, 2 skipped.
 
 **Bots:** `python3 -m cybertron2.engine run cybertron2/specs/nutrition/runs_high.yaml --bots runs --days 40`: 40 days, no errors;
 the same seeded death on day 1, deaths on days 24 to 26 and on day 39, 4 alive on day 40 (stage 2: deaths from day 24 to 32, 5 alive).
