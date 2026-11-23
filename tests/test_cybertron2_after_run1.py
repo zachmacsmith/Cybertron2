@@ -134,3 +134,15 @@ def test_a_household_chore_that_gives_nothing_is_told_to_its_doer_and_the_head(m
     assert len([x for x in results["Nigel"] if "0 cord" in x]) == 1
     assert BK.day_lines(w, rec, "Nigel") == ["The household's rule 1, gather twist cord at Eelmouth Fen, gave nothing yesterday; it stopped after one try."]
     assert "The household's rule 1, gather twist cord at Eelmouth Fen, gave Nigel nothing yesterday; it stopped after one try." in BK.day_lines(w, rec, "Peter")
+
+
+# ---------------------------------------------------------------------------------------------------------------------- W-104 item 7
+def test_mending_one_piece_says_your_hand_line_not_your_a_hand_line():
+    from cybertron2.engine import gear as GE, verbs as V
+    w = eel()
+    h = w.s["containers"][w.hands("Peter")]
+    p = GE.pieces(h, "hand line", w)
+    h["pieces"] = {**(h.get("pieces") or {}), "hand line": [dict(x, life=1.0) for x in p]}
+    h["goods"]["copper hook"] = 2.0
+    r = V.do(Here(w, "Peter"), Mind(w, "Peter"), {"do": "make", "what": "mend"})
+    assert r.startswith("You mended your hand line with ") and "your a " not in r and ": it is good for about" in r, r

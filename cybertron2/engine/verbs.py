@@ -958,7 +958,8 @@ def _mend_gear(here, mind, a):
     unit = "nights set" if (GE.LIVES[it].get("count") == "nights") else "days' use"
     here.event("make", f"{here.name} was mending {GE.plural(it)}", actor=here.name, salience=0.15, tags=["craft"], tech=craft or "mend gear")
     here.record("make", "mend gear", None)
-    return (f"You mended your {GE.named(it, n)} with {mats} (1 unit): each is good for about {int(min(lives))} more {unit}."
+    mine = it if n == 1 else f"{n} {GE.plural(it)}"                            # "your hand line", never "your a hand line" (W-104)
+    return (f"You mended your {mine} with {mats} (1 unit): {'it is' if n == 1 else 'each is'} good for about {int(min(lives))} more {unit}."
             + (f" (You are now {rose} at it.)" if rose else ""))
 
 
