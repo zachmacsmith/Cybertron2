@@ -23,3 +23,10 @@ started
 
 ## Linked
 - parent: [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]]
+- under it: [[D2-344 No worked example of a conditional rule is added to the rules block|No worked example of a conditional rule is added to the rules block (D2-344)]] (live)
+- under it: [[L-177 AB prompt replay|A/B prompt replay (L-177)]] (open)
+
+
+## Mentioned by
+- [[D2-344 No worked example of a conditional rule is added to the rules block|No worked example of a conditional rule is added to the rules block (D2-344)]]
+- [[L-177 AB prompt replay|A/B prompt replay (L-177)]]

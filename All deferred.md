@@ -1,6 +1,7 @@
 # All deferred
 
 ## Open
+- [[L-177 AB prompt replay|A/B prompt replay (L-177)]] (open)
 - [[L-176 Noticing in parts of the day, so what is seen at mid-morning can…|Noticing in parts of the day, so what is seen at mid-morning can… (L-176)]] (open)
 - [[L-174 Remove the engine's automatic detection and telling of breaches and…|Remove the engine's automatic detection and telling of breaches and… (L-174)]] (open)
 - [[L-173 Rules as the grammar of norms|Rules as the grammar of norms (L-173)]] (open)
