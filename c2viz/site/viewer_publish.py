@@ -1,6 +1,6 @@
 """Build the website's files for published runs and put them on the Hub, beside each run's journal.
 
-    python -m c2viz.site.viewer_publish                 # the published runs that have no viewer files yet
+    python -m c2viz.site.viewer_publish                 # the published runs with no viewer files yet, or published again since
     python -m c2viz.site.viewer_publish --refresh       # ... and those built by an older c2viz (after the viewer's code changed)
     python -m c2viz.site.viewer_publish --only p1_brookend --force
     python -m c2viz.site.viewer_publish --no-upload --out /tmp/viewer   # build only, to look at
@@ -148,7 +148,8 @@ def main(argv=None) -> None:
             continue
         if not a.local and not a.force:
             old = published_index(repo, folder, r["name"], cat.sha)
-            if old and (old.get("code_key") == key or not a.refresh):  # built already (by this code, or an older one unless --refresh)
+            republished = bool(r.get("exported") and old and old.get("built") and r["exported"] > old["built"])   # run replaced since
+            if old and not republished and (old.get("code_key") == key or not a.refresh):  # built already (by this code, or an older one unless --refresh)
                 print(f"  {r['name']}: up to date" if old.get("code_key") == key else f"  {r['name']}: built (older c2viz {old.get('code_key')}; --refresh rebuilds)", flush=True)
                 if r["name"] in catalog:                                    # its summary and dates, fresh; the journal's own date
                     have = mine.get(rid)                                    # if it is on this machine
