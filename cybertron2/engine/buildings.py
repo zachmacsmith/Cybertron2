@@ -435,7 +435,7 @@ def overflow(w, cid, item) -> float:
     if out <= 1e-6:
         return 0.0
     pile = next((k for k, x in w.s["containers"].items() if x.get("kind") == "pile" and x.get("door") == c["of"] and not x.get("hidden")
-                 and x.get("day") == w.d and not x.get("rack")), None)                # not onto a drying rack (brief 4c §6)
+                 and x.get("day") == w.d and not x.get("lot")), None)                 # not onto a rack's lot (u4)
     if pile is None:
         pile = w.apply("new_thing", b["node"], node=b["node"], parcel=b["parcel"], kind="pile", by=None, door=c["of"])
     w.apply("transfer", b["node"], src=cid, dst=pile, item=item, qty=out)

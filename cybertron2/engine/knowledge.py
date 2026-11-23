@@ -281,8 +281,9 @@ def ready(here, tech, kind, key, a=None) -> str:
             return f"{c['of']} is already buried" + ("" if c.get("cairn") else "; a cairn of stones can still be raised over the grave "
                                                       "(method cairn, 3 stone)")
         return ""
-    if kind == "building" and t.get("rack"):                                  # its racks full (brief 5 §4a: a batch a fitting)
-        why = here.rack_full(key, tech)
+    if kind == "building" and t.get("process") and t["process"] in ("keeping smoke", "hard cure", "hearth rack"):   # u4: the room,
+        from cybertron2.engine import process as PROC                                                              # the structure
+        why = PROC.refuse_load(here, tech, key)
         if why:
             return why
     if kind == "building" and any(FITTINGS[f].get("spring") for f in (t.get("at") or {}).get("fittings") or [] if f in FITTINGS):

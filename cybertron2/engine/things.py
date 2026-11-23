@@ -166,7 +166,12 @@ def _describe(w, c) -> str:
         if (c.get("set") or {}).get("sprung") is not None:
             return f"{what} at {where}, spent" + (f", with {cw} in them" if cw else "")
         return f"{what} at {where}" + (f", with {cw} caught in them" if cw else "")
-    if c.get("rack") and not c.get("hidden"):                                  # meat hung to dry (brief 4 §5, 4c §6.2)
+    if c.get("lot") and not c.get("hidden"):                                   # a lot in a container (u4; brief 4c §6.2)
+        lt = c["lot"]
+        if lt["process"] == "retting":
+            return f"flax {'laid in the water' if lt.get('ground') == 'water' else 'spread on the grass'} to ret at {where}" + (f": {g}" if g else "")
+        if lt["process"] in ("keeping smoke", "hard cure"):
+            return f"{g or 'nothing'} hanging on the smoke racks in {where}"
         return (f"a rack of {g or 'nothing'} hanging in the smoke of the hearth in {where}" if c.get("in") else
                 f"a rack of {g or 'nothing'} drying by the fire at {where}")
     if c.get("hidden") == "buried" and not c.get("body"):

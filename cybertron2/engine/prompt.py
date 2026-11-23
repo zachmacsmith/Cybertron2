@@ -593,7 +593,7 @@ def _cap(x) -> str:
 
 def house_known(here, bid, daily=False) -> list:
     """What anyone of the household in the house knows of it without a roll (brief 4c §6.4; the noticing rule stays for everything
-    else): its rack (drying, and how many nights are left; dry overnight, and whether it went into the store), goods left at its
+    else): its containers' lots (u4 §7: what waits and its nights, what is done and waiting to be taken down, a fire's state), goods left at its
     door and the food among them, a new building with no beds where no one can sleep yet; and, with `daily` (the belief-built
     message, which shows the house in full only at the opening), its fire and its cat. Lines in lower case, without a full stop."""
     b = here.buildings()[bid]
@@ -604,40 +604,11 @@ def house_known(here, bid, daily=False) -> list:
         out.append("a cat in the store")
     door = {}
     for cid, c in sorted(here.house_things(bid).items()):
-        rk = c.get("rack")
-        if not rk:
+        if not c.get("lot"):
             for i, q in c["goods"].items():
                 door[i] = door.get(i, 0.0) + float(q)
-            continue
-        house = bool(rk.get("smokehouse"))                                     # a smokehouse's racks (brief 5 §4a.5): below
-        at = "on the smoke racks" if house else "on the rack by the hearth" if c.get("in") == bid else "on the rack by the fire at its door"
-        dry = "smoked" if house else "dry"
-        if not rk.get("done") and house:
-            continue
-        if not rk.get("done"):
-            q = sum(float(v) for i, v in c["goods"].items() if ITEMS.get(i, {}).get("decay") == "drying meat")
-            if q > 1e-6:
-                left = max(1, int(rk["day"]) + int(rk["nights"]) - here.day)
-                out.append(f"{at}: {show(q)} meat drying, {left} night{'s' if left != 1 else ''} left")
-            continue
-        into, dried, stored = rk["into"], float(rk.get("dried", 0.0)), float(rk.get("stored", 0.0))
-        rest = float(c["goods"].get(into, 0.0))
-        if int(rk["done"]) == here.day - 1 and dried > 1e-6:
-            theirs = house and not here.hung_by_household(c, bid)
-            if rest <= 1e-6:
-                out.append(f"{dry} overnight: about {show(round(dried, 1))} {into}, put in the store")
-            elif theirs:
-                out.append(f"{dry} overnight: about {show(round(dried, 1))} {into}, {at} for {c['by']}, who hung it")
-            elif stored > 1e-6:
-                out.append(f"{dry} overnight: about {show(round(dried, 1))} {into}; {show(round(stored, 1))} put in the store, and "
-                           f"{show(round(rest, 1))} left {at}: the store is full")
-            else:
-                out.append(f"{dry} overnight: about {show(round(dried, 1))} {into}, left {at}: the store has no room for it")
-        elif rest > 1e-6:
-            out.append(f"{at}: {show(round(rest, 1))} {into}, {dry}, waiting to be taken")
-    if b["fittings"].get("smoke racks"):                                       # what cures, its fire and fuel (brief 5 §4a.5)
-        from cybertron2.engine import keeping as KP
-        out += KP.house_lines(here, bid)
+    from cybertron2.engine import process as PROC                              # its containers: what waits, what is done, the fire
+    out += PROC.house_lines(here, bid)                                         # and its fuel, the room (u4 §7)
     door = {i: q for i, q in door.items() if q > 0.05}
     if door:
         food = _meals(door)

@@ -12,6 +12,7 @@ from cybertron2.engine import buildings as BL, farm as FM, knowledge as KN, modi
 from cybertron2.engine.data import BLUEPRINTS, COVERS, FITTINGS, ITEMS, LINES, MONUMENTS, ROOMS, SPACE, TECHNIQUES, THINGS, TIERS, TRY
 from cybertron2.engine.here import Refused, show
 from cybertron2.engine import clocks as CK
+from cybertron2.engine import process as PROC
 from cybertron2.engine.data import CAPITAL
 
 # The registry (cybertron 1's action_registry): arguments, cost (units, a physics path, or "craft"), the line in the manual, and
@@ -24,8 +25,9 @@ VERB = {
              "doc": "a recipe; the inputs come from what you carry, then from stores here you may take from: {crafts}"},
     "build": {"args": '{"what", "at": a place on built ground or scrub (a new building or a monument; a camp: any place here but water) or a building here (a room added, a fitting), "structure"?: wattle | timber | stone, "storey"?: 2 | 3, "qty"?: beds or stalls, "name"?, "describe"?: a sentence in your words, "how"?: fine | rich | grand, "for"?: party}',
               "cost": 2, "doc": "start or carry on a building, a room, a monument or a fitting: its materials when you start, then the work over days: {crafts}"},
-    "move": {"args": '{"item", "qty", "to": store | hands, "at"?: building}', "cost": 0,
-             "doc": "between your hands and a store here you may use (your household's)"},
+    "move": {"args": '{"item", "qty", "to": store | hands | a building, "at"?: building, "from"?: racks (a smokehouse, a hearth\'s rack)}', "cost": 0,
+             "doc": "between your hands and a store here you may use (your household's); from racks, a done lot taken down into the "
+                    "store (120 kg a unit of work)"},
     "take": {"args": '{"item", "qty", "from": a building, someone\'s remains, or a place where you know something lies}', "cost": 1,
              "doc": "from any store you can get into (without the right to it, it is theft, and you may be seen), or from what lies in the "
                     "open (nobody's: whoever takes it holds it)"},
@@ -57,9 +59,9 @@ VERB = {
                    "snares); or the door of a building you manage; or the gap of a fish weir you work or a water mill you manage on a "
                    "river where fish run (shut: the weir's traps take the runs passing, and a mill grinds at full but holds back the "
                    "fish going up; open: the run passes, and the mill grinds at half)"},
-    "tend": {"args": '{"thing"?: a tag (T7), "what"?: the gear (traps, snares, net, set line, weir), "at"?: place, "up"?: true, "to"?: a place to move snares to}', "cost": 1,
+    "tend": {"args": '{"thing"?: a tag (T7), "what"?: the gear (traps, snares, net, set line, weir) or the fire, "at"?: place or a smokehouse, "up"?: true, "to"?: a place to move snares to}', "cost": 1,
              "doc": "go back to your set gear there: take what it caught and set again what was sprung; up: bring it home. With no "
-                    "tag, all of yours of that kind there (1 unit a place)"},
+                    "tag, all of yours of that kind there (1 unit a place). Or keep a smokehouse's fire for tonight"},
     "travel": {"args": '{"to": a place, or a way from here as the roads name it, "on trouble"?: push on | wait | turn back | go round, "days"?: how long to wait or stop, "stop at"?: a good place you know on the way, "gather"?: true, "meeting"?: stop | pass by, "searching"?: a herd or a person lost on that road, "lead"?: a herd of yours here with an ox, to lead an ox as a pack ox (a harness in hands; it carries 100)}',
                "cost": 0, "when": "roads", "doc": "the day's last act: you leave at nightfall and arrive on a later morning. On the road "
                                                  "you decide nothing unless something happens (trouble, a meeting, a find); what you "
@@ -140,6 +142,16 @@ def cost(here, a) -> int:
         return int(TECHNIQUES[tech]["units"]) if tech and TECHNIQUES[tech].get("set") else 0
     if v == "build":                                                         # what is left of the work, 1 or 2 units (D2-324)
         return _build_cost(here, a)
+    if v == "move" and a.get("from"):                                         # taking a done lot down: 120 kg a unit (u4 §6)
+        bid = _container_at(here, {"from": a.get("from")}, kinds=("smoke racks", "hearth", "fire ring"))
+        if bid is None:
+            return 0
+        it = item_of(a.get("item")) if a.get("item") and str(a.get("item")).strip().lower() not in ("all", "everything", "it") else None
+        try:
+            q = None if a.get("qty") in (None, "all") else _qty(a.get("qty"), None)
+        except Refused:
+            q = None
+        return PROC.take_down_units(here._w, bid, it, q)
     n = verb_units(here.p, v)
     if n is not None:
         return n
@@ -169,6 +181,11 @@ def cost(here, a) -> int:
         cid = _thing_site(here, a.get("at"), kinds=_dead_kinds(tech))
         if cid:
             n = int(THINGS["carcass_sizes"][here.carcass_size(cid)]["burn"]["units"])
+    elif v == "make" and t_.get("process") and PROC.PROCESSES[t_["process"]].get("lot"):   # a loading: the units of what will hang
+        try:                                                                   # (u4 §6), at least 1
+            n = _load_units(here, tech, a)
+        except Refused:
+            pass
     elif v == "make":
         try:
             q_ = max(1, int(_qty(a.get("qty"), 1)))                             # pieces wanted (with hours), else acts
@@ -176,6 +193,18 @@ def cost(here, a) -> int:
         except Refused:                                                        # a bad qty is refused by the act itself, not by its cost
             pass
     return n + MOD.units(a, v, tech)
+
+
+def _load_units(here, tech, a) -> int:
+    """A loading's units (u4 §6): ceil of what one has to hand and the room takes, over the row's load, at most `qty`, at least 1."""
+    t = TECHNIQUES[tech]
+    units = max(1, int(_qty(a.get("qty"), 1)))
+    item, need = next(iter(t["inputs"].items()))
+    kg = min(float(need) * units, KN.available(here, item))
+    rooms = [PROC.room(here._w, x[1], t["process"]) for x in KN.where(here, tech) if x[0] == "building"]
+    if rooms:
+        kg = min(kg, max(rooms))
+    return max(1, min(units, int(math.ceil(kg / float(need) - 1e-9))))
 
 
 def build_units(left, sk, ym=1.0) -> int:
@@ -757,8 +786,8 @@ def _technique(here, mind, a, party, verb):
             here.apply("destroy", src=here.hands, item=i, qty=q, why=tech)
         word = f"You worked on the {y['fitting']} at {place_name}: {WE.mend(here, key, y['fitting'])}."
     elif y["kind"] == "smoke_tend":                                          # a smokehouse's fire, once a day (brief 5 §4a.3)
-        from cybertron2.engine import keeping as KP
-        word = KP.tend(here, key, place_name)
+        from cybertron2.engine import process as PROC
+        word = PROC.tend(here, key)
         thing = ("building", key)
     elif y["kind"] == "repair":                                              # by its size and structure (D2-168)
         if here.buildings()[key]["structure"] == "stone":
@@ -907,6 +936,74 @@ def _mend_gear(here, mind, a):
             + (f" (You are now {rose} at it.)" if rose else ""))
 
 
+def _load_lot(here, mind, a, party, tech, lvl):
+    """Loading a processing container (u4 §6; process.py): `qty` units of the row's load rate (hanging 30 kg a unit, a salted lot 60,
+    a hearth's rack 8, retting 50), as much as one has and the container has room for, as one lot; a part batch still costs its
+    unit (the floor, O-2). Refused by the row: the structure a hard cure needs (D2-271), no room, nothing to hang."""
+    t = TECHNIQUES[tech]
+    proc = t["process"]
+    r = PROC.PROCESSES[proc]
+    out = _out(here, party)
+    extra = _src(here, party, out)
+    units = max(1, int(_qty(a.get("qty"), 1)))
+    sites = KN.where(here, tech)
+    if not sites:
+        why = KN.shortfall(here, mind, tech, 1.0, extra=extra)
+        raise Refused(why)
+    if sites[0][0] == "building":
+        sites = sorted(sites, key=lambda x: (bool(PROC.refuse_load(here, tech, x[1])), x[1] not in here.homes_here(),
+                                             not here.may_take(here.buildings()[x[1]]["stock"]), x[1]))
+        why = PROC.refuse_load(here, tech, sites[0][1])
+        if why:
+            raise Refused(why)
+    site = sites[0]
+    if a.get("at"):                                                            # a place or building named
+        named = _parcel_named(here, a["at"]) if site[0] == "parcel" else next((x[1] for x in sites if x[2].lower() == str(a["at"]).strip().lower()
+                                                                               or str(a["at"]).strip().lower() in x[2].lower()), None)
+        hit = [x for x in sites if x[1] == named]
+        if hit:
+            site = hit[0]
+            if site[0] == "building":
+                why = PROC.refuse_load(here, tech, site[1])
+                if why:
+                    raise Refused(why)
+    if site[0] == "parcel" and not r.get("covers", {}).get(here.parcels()[site[1]]["cover"]):
+        raise Refused(f"{KN.label(tech)} is done in still water or on the grass")
+    item, need = next(iter(t["inputs"].items()))
+    have = KN.available(here, item, extra=extra)
+    kg = min(float(need) * units, have)
+    if site[0] == "building":
+        kg = min(kg, PROC.room(here._w, site[1], proc))
+    if kg < float(BATCH_LEAST) - 1e-9:
+        raise Refused(f"there is no {item} to hand" + _short_note(here, item) if have <= 1e-9 else
+                      f"there is too little to make a batch ({round(have, 2):g} {item}): it takes at least {BATCH_LEAST:g}")
+    used_units = max(1, int(math.ceil(kg / float(need) - 1e-9)))
+    mult = TRY[lvl]["inputs"]
+    start = _drew_reset(here)
+    _consume(here, {item: kg}, 1.0, extra)
+    ok = here.rng("make", here.day, here.name, tech, 0).random() < TRY[lvl]["chance"]
+    rose = KN.tried(here, mind, tech, ok, units=used_units)
+    here.event("make", f"{here.name} was {KN.label(tech)}" + ("" if ok else ", and it went wrong"), actor=here.name,
+               about=[f"{site[0]}:{site[1]}"], salience=0.2, tags=t["tags"], tech=tech)
+    here.record("make", tech, party)
+    if not ok:
+        return f"Your try at {KN.label(tech)} failed and the {round(kg, 2):g} {item} is spoilt." + (f" (You are now {rose} at it.)" if rose else "")
+    wait = next(iter(t["gives"]))
+    gives = {wait: round(kg / mult if mult > 1 else kg, 4)}
+    if site[0] == "parcel":
+        words = PROC.lay_ground(here, tech, site[1], gives)
+        return words[:-1] + f" ({used_units} unit{'s' if used_units != 1 else ''})." + (f" (You are now {rose} at it.)" if rose else "")
+    cid, head, tail = PROC.load(here, tech, site[1], gives, site[2])
+    rest = max(0.0, min(float(need) * units, have) - kg)
+    more = (f" The rest ({_n1(rest)} kg) is still to hand: the racks have no more room." if rest > 1e-6 and PROC.room(here._w, site[1], proc) <= 1e-6 else "")
+    return (f"You hung {head} ({used_units} unit{'s' if used_units != 1 else ''}){tail}" + _drew_words(here, start) + more
+            + (f" (You are now {rose} at it.)" if rose else ""))
+
+
+def _n1(q) -> str:
+    return f"{round(float(q), 1):g}"
+
+
 def _make(here, mind, a, party):
     tech = KN.resolve(a.get("what"), "make")
     if tech is None or TECHNIQUES[tech]["verb"] != "make":
@@ -917,6 +1014,8 @@ def _make(here, mind, a, party):
         return _mend_gear(here, mind, a)
     lvl = _level(mind, tech)
     t = TECHNIQUES[tech]
+    if t.get("process") and PROC.PROCESSES[t["process"]].get("lot"):          # a loading of a processing container (u4 §6)
+        return _load_lot(here, mind, a, party, tech, lvl)
     out = _out(here, party)
     extra = _src(here, party, out)
     qty = max(1, int(_qty(a.get("qty"), 1)))
@@ -946,8 +1045,6 @@ def _make(here, mind, a, party):
             res.append(f"Refused: make {tech}: {why}")
             break
         share = KN.batch_share(here, tech, mult, extra)                        # whatever one has, up to the batch (brief 4c §6.1)
-        if t.get("rack") and b is not None:                                    # as much as the racks there have room for (5 §4a)
-            share = min(share, here.rack_room(site[1], tech) / max(1e-12, sum(float(q) for q in t["gives"].values())))
         if t.get("batch"):                                                     # not a batch of almost nothing (38.75): a hare's
             ins = {i: float(q) * mult * share for i, q in (t.get("inputs") or {}).items() if isinstance(q, (int, float))}
             if ins and sum(ins.values()) < float(BATCH_LEAST) - 1e-9:          # meat (0.7) still hangs (brief 4c §6.1)
@@ -964,30 +1061,7 @@ def _make(here, mind, a, party):
             gives = {item: (q * k if fac == 1.0 else round(q * k * fac, 2)) for item, q in t["gives"].items()}
             if share < 1.0:
                 gives = {item: round(q * share, 4) for item, q in gives.items()}
-            rk = t.get("rack")
-            if rk and b is not None:                                           # hung on a rack at the fire, for its nights (brief 4 §5)
-                house = bool(rk.get("tended"))                                 # a smokehouse's racks: nights of a tended fire (5 §4a)
-                smoke = house or bool((b.get("fittings") or {}).get("hearth"))   # at a hearth: inside, in its smoke (brief 4c §6.2)
-                dst = here.apply("new_thing", node=here.node, parcel=b["parcel"], kind="pile", by=here.name,
-                                 **({"in": site[1]} if smoke else {"door": site[1]}),
-                                 rack={"day": here.day, "nights": int(rk["nights"]), "into": rk["into"], "ratio": float(rk["ratio"]),
-                                       "smoke": smoke, **({"smokehouse": True, "lit": 0} if house else {})})
-                if site[1] not in here.homes_here():                           # one's own house is known without it (4c §6.4)
-                    here.remember_thing(dst, "put")
-                for item, q in gives.items():
-                    here.apply("create", dst=dst, item=item, qty=q, why=tech)
-                if house:
-                    from cybertron2.engine import keeping as KP
-                    KP.light(here, site[1])                                    # hung and the fire lit: it burns tonight
-                    n = here.smoke_fuel_nights(site[1])
-                    full = (f"; it hangs on the smoke racks in {b['name']} for {int(rk['nights'])} nights of fire, the fire lit for tonight "
-                            "and to be tended each day after (tend the smoke), or the batch waits and spoils"
-                            + (f"; firewood there for {n} night{'s' if n != 1 else ''}" if n else
-                               "; but there is no firewood in it or at its door: the fire will die tonight unless some is brought"))
-                else:
-                    full = (f"; it hangs on the rack in the smoke of the hearth inside {b['name']} for {int(rk['nights'])} nights" if smoke else
-                            f"; it hangs on a rack by the fire outside {b['name']} for {int(rk['nights'])} nights")
-            for item, q in ({} if rk and b is not None else gives).items():
+            for item, q in gives.items():
                 full += _full_note(here, out, item, q)
                 here.apply("create", dst=out, item=item, qty=q, why=tech)
             if b is not None and any(FITTINGS.get(f, {}).get("spring") for f in fits):   # the pan's rim, for its signs (5 §4b.5)
@@ -1496,7 +1570,12 @@ def _fitting(here, mind, a, party, what):
     sp = int(f.get("spaces", 0)) - int(f.get("room", 0))                       # a vault brings its own room
     free = BL.free_floor(b, here.stock(bid)) if not camp else 99
     n = max(1, int(_qty(a.get("qty"), 1))) if f.get("per") else 1
-    if f.get("per"):
+    if what == "smoke racks":                                                  # the building caps the sets: its work floor kept (u4 §4)
+        n = min(n, PROC.sets_fit(b, free))
+        if n <= 0:
+            raise Refused(f"{b['name']}'s floor takes no more sets of racks: it needs {PROC.work_floor(b)} space"
+                          f"{'s' if PROC.work_floor(b) != 1 else ''} free to work and keep the fire ({BL.space_words(b, here.stock(bid))})")
+    elif f.get("per"):
         n = min(n, free // sp) if sp > 0 else n
         if n <= 0:
             raise Refused(f"{b['name']} has no free floor for {f['label']} ({sp} space{'s' if sp != 1 else ''} a {f['per']}): "
@@ -1742,7 +1821,34 @@ def _store_here(here, at=None) -> str:
     return bid
 
 
+def _take_down(here, a, party):
+    """`move` from a container (u4 §6): a done lot taken down into its building's store, or to hands or another building of one's
+    household here (`to`), at 120 kg a unit (quantity work)."""
+    src = _container_at(here, {"from": a.get("from")}, kinds=("smoke racks", "hearth", "fire ring"))
+    if src is None:
+        raise Refused(f"there are no racks called {a.get('from')!r} here")
+    item = item_of(a.get("item")) if a.get("item") and str(a.get("item")).strip().lower() not in ("all", "everything", "it") else None
+    to = str(a.get("to") or "").strip()
+    dst = None
+    if to.lower() in ("hands", "hand", "me", "carry"):
+        dst = "hands"
+    elif to and to.lower() not in ("store", "its store", "the store"):
+        dst = here.building(to)
+        if dst is None:
+            raise Refused(f"there is no building called {to!r} here")
+        if not here.may_take(here.buildings()[dst]["stock"]):
+            raise Refused(f"{here.buildings()[dst]['name']}'s store is not yours to use")
+    qty = None if a.get("qty") in (None, "all") else _qty(a.get("qty"), None)
+    units = a.get("_units_cap")
+    got, words = PROC.take_down(here, src, item, qty, dst, units=units)
+    here.event("store", f"{here.name} took down what hung on the racks in {here.buildings()[src]['name']}", actor=here.name,
+               about=[f"building:{src}"], salience=0.1, tags=["food"])
+    return words
+
+
 def _move(here, mind, a, party):
+    if a.get("from"):                                                          # taking a done lot down (u4 §6)
+        return _take_down(here, a, party)
     item = item_of(a.get("item"))
     to = str(a.get("to") or "store").strip().lower()
     bid = _store_here(here, a.get("at"))
@@ -1786,8 +1892,40 @@ def _own_set_at(here, tech, key):
     return here.own_set_at(tech, key)
 
 
+CONTAINER_WORDS = ("fire", "the fire", "smoke", "the smoke", "smokehouse", "the smokehouse", "racks", "the racks", "smoke racks",
+                   "the smoke racks", "smoke fire", "the smoke fire")
+
+
+def _container_at(here, a, kinds=("smoke racks",)):
+    """A building here with a processing container that an act names (`at`, or `thing`/`what` naming the fire or the racks): its
+    id, else None. "the fire" alone means one's own smokehouse here (u4; basis §6: `tend` is one act on any placed thing)."""
+    words = [str(a.get(k) or "").strip() for k in ("at", "thing", "what", "from")]
+    for x in words:
+        if not x:
+            continue
+        bid = here.building(x)
+        if bid is not None and any((here.buildings()[bid].get("fittings") or {}).get(f) for f in kinds):
+            return bid
+        low = x.lower()
+        hit = [b for b, d in here.buildings().items() if any((d.get("fittings") or {}).get(f) for f in kinds)
+               and d["name"].lower().removeprefix("the ") in low]
+        if hit:
+            return sorted(hit, key=lambda b: -len(here.buildings()[b]["name"]))[0]
+    if any(x.lower() in CONTAINER_WORDS or x.lower().endswith(("'s fire", " fire", " racks", " smokehouse")) for x in words if x):
+        own = [b for b in here.homes_here() if any((here.buildings()[b].get("fittings") or {}).get(f) for f in kinds)]
+        if own:
+            return sorted(own)[0]
+    return None
+
+
 def _tend(here, mind, a, party):
-    """Tending one's placed gear (D2-294; u2 §3): placed.tend_verb."""
+    """Tending a placed thing (basis §6): one's set gear (D2-294; u2 §3: placed.tend_verb), or a processing container's fire (u4 §6:
+    process.tend), named by its building or as the fire, the smoke, the racks."""
+    bid = _container_at(here, a)
+    if bid is not None and not a.get("up"):
+        out = PROC.tend(here, bid)
+        here.record("tend", "tend the smoke", party)
+        return out
     from cybertron2.engine import placed as PL
     tech = PL.method_of(a.get("what")) if a.get("what") else None              # one's own gear is tended by its owners, craft or none
     out = PL.tend_verb(here, mind, a)

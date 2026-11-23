@@ -1105,10 +1105,10 @@ def building_context(here, bid):
     sp = b.get("spoilt") or {}
     x.going_off = " and ".join(i for i in (sp.get("items") or {}) if i in st and st.get(i, 0.0) > 0.05) \
         if sp.get("day") is not None and here.day - int(sp["day"]) == 0 else ""
-    from cybertron2.engine import keeping as KP                                # the smokehouse and the brine pan (brief 5 §4)
-    sm, rs = b.get("smoke") or {}, KP.active_racks(here._w, bid) if b["fittings"].get("smoke racks") else {}
-    what = " and ".join(sorted({i.replace("smoking ", "") for c in rs.values() for i, q in c["goods"].items() if q > 1e-9
-                                and ITEMS.get(i, {}).get("decay") == "drying meat"}))
+    from cybertron2.engine import process as PROC                              # the smokehouse (u4's lots) and the brine pan (5 §4)
+    sm, rs = b.get("smoke") or {}, PROC.lots(here._w, bid, done=False) if b["fittings"].get("smoke racks") else {}
+    what = PROC.what_of([c for c in rs.values() if PROC.waiting_kg(c) > 1e-9]) if rs else ""
+    what = "" if what == "nothing" else what
     x.smoking = what if what and sm.get("night") == here.day - 1 and sm.get("lit") else ""
     x.smoke_out = what if what and sm.get("night") == here.day - 1 and not sm.get("lit") else ""
     x.salt_n = sum(1 for e in here.events() if e.get("kind") == "make" and f"building:{bid}" in (e.get("about") or [])

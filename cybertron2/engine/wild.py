@@ -2909,7 +2909,7 @@ def _racks_in(w, node) -> list:
     for them comes as for its store."""
     from cybertron2.wild.kinds import LEFT_OUT
     return [(cid, c) for cid, c in sorted(w.s["containers"].items()) if c.get("kind") == "pile" and c.get("node") == node
-            and c.get("in") in w.s["buildings"] and c.get("rack")
+            and c.get("in") in w.s["buildings"] and c.get("lot")
             and any(float((c.get("goods") or {}).get(i, 0.0)) > 1e-9 for i in LEFT_OUT["items"])]
 
 
