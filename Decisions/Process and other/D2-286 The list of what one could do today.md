@@ -21,6 +21,7 @@ conversation (22 Nov: "the 10 things you could do list should have been removed 
 
 
 ## Mentioned by
+- [[D2-331 Live run 1 has a comparison arm|Live run 1 has a comparison arm (D2-331)]]
 - [[The build plan|The build plan]]
 - [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]
 - [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
