@@ -701,8 +701,9 @@ def _technique(here, mind, a, party, verb):
             q *= float(t["by_season"].get(here.calendar()["season"], 1.0))
         got = here.apply("draw", parcel=key, key=t["draws"], qty=round(q, 2)) if t["draws"] in here.parcels()[key]["res"] and \
             here.parcels()[key]["res"][t["draws"]]["K"] > 0 and RN.of(t["draws"], here.parcels()[key]["res"][t["draws"]]) != "endless" else round(q, 2)
-        if tech == "fell" and got > 0:                                         # its branches left as dead wood (D2-156)
-            here.apply("add_res", parcel=key, key="dead", qty=got)
+        if tech == "fell" and got > 0:                                         # its branches left as dead wood (D2-156), a quarter
+            from cybertron2.engine.data import FORESTS                         # of its mass (D2-288)
+            here.apply("add_res", parcel=key, key="dead", qty=round(got * float(FORESTS["brash"]), 2))
     elif y["kind"] == "clear":                                                # new ground for a field (CLEARING)
         word = _clear(here, key, place_name, m * tm, party)
     elif y["kind"] == "pool":                                                 # dead wood: less to find as it thins (D2-156)

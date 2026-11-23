@@ -305,3 +305,34 @@ def test_spoil_rates_match_the_keeping_curve_and_the_cured_depths_are_goods():
     assert [ITEMS[g]["spoil"] for g in order] == sorted((ITEMS[g]["spoil"] for g in order), reverse=True)   # the order holds
     assert ITEMS["hard-cured meat"]["food"] == pytest.approx(0.71) and ITEMS["hot-smoked meat"]["food"] == pytest.approx(0.9)
     assert ITEMS["hot-smoked fish"]["food"] == pytest.approx(0.69) and ITEMS["hard-cured fish"]["food"] == pytest.approx(1.15)
+
+
+# ---------------------------------------------------------------------- fuel a night and the handling units (D2-288, D2-290)
+def test_the_goods_are_in_handling_units_and_a_house_burns_a_bundle_a_night():
+    from cybertron2.engine.data import ITEMS, PHYSICS
+    kg = {"timber": 25, "stone": 25, "firewood": 10, "straw": 16, "hay": 10, "charcoal": 20, "withies": 10, "bread": 1.4}
+    for good, w in kg.items():
+        assert ITEMS[good]["weight"] == w, good
+    h = PHYSICS["heat"]
+    assert h["normal"] / ITEMS["firewood"]["heat"] == pytest.approx(1.0)             # 10 kg a normal night
+    assert h["cold"] / ITEMS["firewood"]["heat"] == pytest.approx(3.0)               # about 30 kg a cold one
+    assert ITEMS["timber"]["heat"] / ITEMS["timber"]["weight"] == pytest.approx(ITEMS["firewood"]["heat"] / ITEMS["firewood"]["weight"])
+
+
+def test_every_recipe_resolves_in_the_new_units():
+    from cybertron2.engine.data import BLUEPRINTS, FITTINGS, ITEMS, MONUMENTS, ROOMS, TECHNIQUES
+    def goods(d):
+        for i, q in (d or {}).items():
+            if isinstance(q, dict):
+                yield from goods(q)
+            elif i != "green crop":
+                yield i
+    for tech, t in TECHNIQUES.items():
+        for i in list(goods(t.get("inputs"))) + list((t.get("gives") or {}) if isinstance(t.get("gives"), dict) else []):
+            assert i in ITEMS, (tech, i)
+    for row in list(FITTINGS.values()) + list(MONUMENTS.values()) + list(BLUEPRINTS.values()) + \
+            [r[st] for r in ROOMS.values() for st in ("wattle", "timber", "stone") if st in r]:
+        for i in row["materials"]:
+            assert i in ITEMS, i
+    assert ROOMS["small room"]["wattle"]["materials"] == {"timber": 36, "withies": 35}   # u7 §2.1; the roof at the site (D2-328)
+    assert TECHNIQUES["crude tool"]["inputs"] == {"timber": 0.04, "stone": 0.04}          # 1 kg of each (u3 §2.3)

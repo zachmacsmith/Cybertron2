@@ -27,28 +27,29 @@ ITEMS = {
     # kept under D2-259: 0.6 is -20% of FDC's 0.75 on grain's rung (split peas, broad beans), a design factor of about 0.8 (D2-53's "less food")
     "flour": {"weight": 1, "food": 1.0, "spoil": 0.0167, "cook": True, "raw": 0.5, "decay": "grain"},  # mill flour: porridge, and bread (D2-60, D2-167)
     "meal": {"weight": 1, "food": 1.0, "spoil": 0.0167, "cook": True, "raw": 0.5, "decay": "grain"},   # hand-ground: porridge only, no bread (D2-167)
-    "bread": {"weight": 1, "food": 1.3, "spoil": 0.05, "decay": "bread"},                # keeps, eaten without a hearth (D2-60)
+    "bread": {"weight": 1.4, "food": 1.3, "spoil": 0.05, "decay": "bread"},                # keeps, eaten without a hearth (D2-60)
     "dried meat": {"weight": 1, "food": 1.2, "spoil": 0.02, "decay": "dried meat"},           # meat dried to half its weight (D2-62): 2 x meat (D2-258)
     "cheese": {"weight": 1, "food": 1.61, "spoil": 0.02, "decay": "cheese"},              # 6 milk (D2-47, D2-56); a kg of hard cheese, FDC 403 kcal (D2-258)
     "salt": {"weight": 1, "food": 0.0, "spoil": 0.0},                  # D2-24, D2-56
-    "hay": {"weight": 1, "food": 0.0, "spoil": 0.0, "fodder": 1.0},    # cut from pasture in summer (D4-42)
+    "hay": {"weight": 10, "food": 0.0, "spoil": 0.0, "fodder": 1.0},   # cut from pasture in summer (D4-42); 10 kg, a beast's day (D2-288)
     # A crop reaped green (D4-106): little food (the green ears roasted), good fodder; heats and spoils unless dried to hay
     # 0.24: no FDC figure for an immature cereal; 02zzu's estimate (40 to 90 kcal a 100 g) (D2-258)
     "green grain": {"pack": "farming", "weight": 1, "food": 0.24, "spoil": 0.2, "fodder": 0.8, "decay": "green crop"},
     "green rye": {"pack": "farming", "weight": 1, "food": 0.24, "spoil": 0.2, "fodder": 0.8, "decay": "green crop"},
     # green beans kept under D2-259 (-12% of FDC's young broad beans in the pod)
     "green beans": {"pack": "farming", "weight": 1, "food": 0.3, "spoil": 0.2, "fodder": 0.6, "decay": "green crop"},
-    "straw": {"weight": 1, "food": 0.0, "spoil": 0.0, "fodder": 1.0},  # from the grain harvest (D4-42)
+    "straw": {"weight": 16, "food": 0.0, "spoil": 0.0, "fodder": 1.0},  # from the grain harvest (D4-42); a 16 kg truss (D2-288)
     "dung": {"weight": 1, "food": 0.0, "spoil": 0.0},                  # manure (D2-18, D4-39)
-    "charcoal": {"weight": 2, "food": 0.0, "spoil": 0.0, "heat": 6.0},  # from 5 timber, made at the wood (D2-56); burns in a hearth (D2-157)
-    "firewood": {"weight": 1, "food": 0.0, "spoil": 0.0, "heat": 0.5},  # dead wood or young growth; burns only (D2-157)
+    "charcoal": {"weight": 20, "food": 0.0, "spoil": 0.0, "heat": 2.0},  # a 20 kg sack from 5 timber (D2-56, D2-288); heat by mass,
+                                                                        # 29 MJ a kg against wood's 15 (wave1 §1.3; was 6)
+    "firewood": {"weight": 10, "food": 0.0, "spoil": 0.0, "heat": 0.5},  # a 10 kg bundle of dead wood or young growth (D2-157, D2-288)
     "wild food": {"weight": 1, "food": 0.41, "spoil": 0.15},       # the legacy forage's mix: 02zzu's autumn mix on the checked values (D2-258)
     # fishing and salt (D4-103's acceptance test; content: proposals/water_and_preservation.md, calibrate)
     # fish: a unit is 1,150 kcal of flesh, about 1 kg gutted and headed (an eel's 0.63 kg, a pike's 1.3; 02zzu, D2-258); raw at the
     # game's raw/cooked 0.6 (fire matters: a design factor, kept)
     "fish": {"pack": "water", "weight": 1, "food": 0.46, "spoil": 0.30, "cook": True, "raw": 0.28, "decay": "fresh fish"},   # fresh: spoils as meat does
     "salt fish": {"pack": "water", "weight": 1, "food": 0.46, "spoil": 0.01, "cook": True, "raw": 0.28, "decay": "dried meat"},   # keeps for months
-    "fishing rod": {"pack": "water", "weight": 1, "food": 0.0, "spoil": 0.0, "life": 30, "seen": True},              # a rod, a line of hair or gut
+    "fishing rod": {"pack": "water", "weight": 0.8, "food": 0.0, "spoil": 0.0, "life": 30, "seen": True},              # a rod, a line of hair or gut
     # the smokehouse (brief 5 §4a; calibrate): a batch curing on its racks (as meat drying on a hearth's rack), then smoked: half the
     # weight, the same food, keeping four times as long as dried meat
     "smoking fish": {"pack": "water", "weight": 1, "food": 0.46, "spoil": 0.15, "cook": True, "raw": 0.28, "decay": "drying meat"},
@@ -60,8 +61,8 @@ ITEMS = {
     # 0.53 (fire matters: a design factor, kept)
     "meat": {"weight": 1, "food": 0.6, "spoil": 0.30, "cook": True, "raw": 0.32, "decay": "fresh meat"},                # dense, spoils fresh (D2-41)
     "milk": {"weight": 1, "food": 0.256, "spoil": 1.0},                # the same day (D2-42); a kg, FDC 64 kcal (D2-258)
-    "hen": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": ["wild", "farming"]},
-    "cat": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # a cat in a store keeps the mice down (D2-206; brief 2 K1)   # kept hens in a house's store: they lay (wild_layer.md, wave 2)
+    "hen": {"weight": 2, "food": 0.0, "spoil": 0.0, "pack": ["wild", "farming"]},
+    "cat": {"weight": 3.5, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # a cat in a store keeps the mice down (D2-206; brief 2 K1)   # kept hens in a house's store: they lay (wild_layer.md, wave 2)
     # a kg of eggs in shell (wild.EGG_KG an egg, D2-258): 0.6 kept under D2-259 (+19% of FDC's 0.50, borderline)
     "egg": {"weight": 1, "food": 0.6, "spoil": 0.05, "cook": True, "raw": 0.5, "pack": "wild"},
     # wild plants' goods (wild_plants.md §2, D2-200): fresh ones spoil fast, nuts keep for months; acorns are bitter until leached
@@ -79,16 +80,17 @@ ITEMS = {
     # raw acorns: FDC's 0.96 x 0.035, a design factor for the tannin (inedible unleached), so leaching is the way in (02zzu)
     "acorns": {"weight": 1, "food": 0.034, "spoil": 0.01, "pack": "wild"},
     "acorn meal": {"weight": 1, "food": 1.0, "spoil": 0.02, "cook": True, "raw": 0.3, "pack": "wild"},       # kept: -18% of 1.22 (borderline)
-    "antler": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # a cast antler: horn for handles and combs
-    "beaver pelt": {"weight": 1, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # a fine fur for trade
+    "antler": {"weight": 1.5, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # a cast antler: horn for handles and combs
+    "beaver pelt": {"weight": 0.7, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # a fine fur for trade
     "clappers": {"weight": 0.5, "food": 0.0, "spoil": 0.0, "pack": "wild"},
     "horn": {"weight": 0.5, "food": 0.0, "spoil": 0.0, "pack": "wild"},
     "castoreum": {"weight": 0.2, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # the beaver's scent glands: a physician's good
-    "timber": {"weight": 2, "food": 0.0, "spoil": 0.0, "heat": 2.0},   # D2-24; 2 heat (D2-157)
-    "stone": {"weight": 3, "food": 0.0, "spoil": 0.0},                 # D2-3, D2-24
+    "timber": {"weight": 25, "food": 0.0, "spoil": 0.0, "heat": 1.25},  # a 25 kg pole or hewn length (D2-288, D2-303); heat by mass
+                                                                        # as firewood (wave1 §1.3; was 2 at "240 kg")
+    "stone": {"weight": 25, "food": 0.0, "spoil": 0.0},                # a 25 kg building stone (D2-288; was 3)
     "withies": {"weight": 10, "food": 0.0, "spoil": 0.0085},            # a 10 kg bundle of green rods (D2-288; u3 §1.1: a quarter lost
                                                                         # by about 34 nights on the keeping curve, D2-289)
-    "hide": {"weight": 1, "food": 0.0, "spoil": 0.0, "decay": "hide"},                  # D2-24
+    "hide": {"weight": 3, "food": 0.0, "spoil": 0.0, "decay": "hide"},                  # a red deer's, dried (wave1 §1.5; D2-24)
     "tallow": {"weight": 1, "food": 0.0, "spoil": 0.0},                                  # a beast's fat, rendered or not (brief 3 §5);
     # food 0 against FDC's 3.6 a kg: a design choice, the lights' good (02zzu choice 6; whether it is famine food is for Zach)
     "drying meat": {"weight": 1, "food": 0.6, "spoil": 0.15, "cook": True, "raw": 0.32, "decay": "drying meat"},  # on a rack: the flies
@@ -101,15 +103,17 @@ ITEMS = {
     "copper ore": {"weight": 3, "food": 0.0, "spoil": 0.0},
     "copper": {"weight": 1, "food": 0.0, "spoil": 0.0},                # D2-19, D2-24
     "coin": {"weight": 0, "food": 0.0, "spoil": 0.0},                  # copper coin, carried (D2-1, D2-28)
-    "crude tool": {"weight": 1, "food": 0.0, "spoil": 0.0, "tool": "crude", "life": 10, "seen": True},      # D2-23; recipes.md §6
-    "copper tool": {"weight": 1, "food": 0.0, "spoil": 0.0, "tool": "copper", "life": 40, "seen": True},
-    "crude weapon": {"weight": 1, "food": 0.0, "spoil": 0.0, "weapon": 2.0, "life": 10, "seen": True},     # D2-46: about 3 fights
-    "pack": {"weight": 1, "food": 0.0, "spoil": 0.0, "carry": 10, "seen": True},      # on foot 10, with a pack 20 (02g §3; calibrate)
-    "handcart": {"weight": 0, "food": 0.0, "spoil": 0.0, "carry": 30, "track": True, "seen": True},   # 40 in all, on a track (02g §3)
-    "wooden plough": {"pack": "farming", "weight": 4, "food": 0.0, "spoil": 0.0, "life": 60, "seen": True},       # D2-23; recipes.md §2 (60 plots)
-    "harness": {"weight": 1, "food": 0.0, "spoil": 0.0, "life": 80, "seen": True},             # D2-23; 80 days' use
-    "bedroll": {"weight": 1, "food": 0.0, "spoil": 0.0, "life": 40, "seen": True, "camp": "bedroll"},    # D2-68: about 40 nights
-    "tent": {"weight": 6, "food": 0.0, "spoil": 0.0, "life": 30, "seen": True, "camp": "tent"},          # D2-68: sleeps 2
+    "crude tool": {"weight": 1.5, "food": 0.0, "spoil": 0.0, "tool": "crude", "life": 10, "seen": True},      # D2-23; recipes.md §6
+    "copper tool": {"weight": 1.5, "food": 0.0, "spoil": 0.0, "tool": "copper", "life": 40, "seen": True},
+    "crude weapon": {"weight": 1.5, "food": 0.0, "spoil": 0.0, "weapon": 2.0, "life": 10, "seen": True},     # D2-46: about 3 fights
+    "pack": {"weight": 2, "food": 0.0, "spoil": 0.0, "carry": 15, "seen": True},      # read as the withy pack basket: +15 kg (D2-281;
+                                                                                       # basis §5; u3 §2.3: the pack's own rows stage 2)
+    "handcart": {"weight": 0, "food": 0.0, "spoil": 0.0, "carry": 115, "track": True, "seen": True},   # 125 kg in all on a track
+                                                                       # (basis §5: 100 to 150); its own 40 kg borne on its wheels
+    "wooden plough": {"pack": "farming", "weight": 25, "food": 0.0, "spoil": 0.0, "life": 60, "seen": True},       # D2-23; recipes.md §2 (60 plots)
+    "harness": {"weight": 12, "food": 0.0, "spoil": 0.0, "life": 80, "seen": True},             # D2-23; 80 days' use
+    "bedroll": {"weight": 3, "food": 0.0, "spoil": 0.0, "life": 40, "seen": True, "camp": "bedroll"},    # D2-68: about 40 nights
+    "tent": {"weight": 18, "food": 0.0, "spoil": 0.0, "life": 30, "seen": True, "camp": "tent"},          # D2-68: sleeps 2
     "rotting meat": {"weight": 1, "food": 0.0, "spoil": 0.3, "rot": True},  # what fresh meat becomes in the open (D2-87); signs, no health yet
 }
 
@@ -221,9 +225,10 @@ RESOURCES = {
              # a spec counts its game in the old meat unit (1.5 food, 3,750 kcal): its K and S are x 2.5 into the meat unit (0.6 food)
              # when the world is built (D2-261), so the hand-made specs, the makers and the generator keep their woods' food unedited
              "spec_unit": 2.5},
-    "wood": {"renewal": "slow", "low": "{name} is thinned out: stumps where the big trees stood", "high": ""},     # the trees (D2-156)
-    "young": {"renewal": "young", "low": "", "high": ""},                 # young growth: cut for firewood (D2-156)
-    "dead": {"renewal": "dead", "low": "", "high": ""},                   # dead wood: gathered for firewood (D2-156)
+    "wood": {"renewal": "slow", "low": "{name} is thinned out: stumps where the big trees stood", "high": "",     # the trees (D2-156)
+             "spec_unit": 9.6},                                         # a world file's old 240 kg timber in 25 kg ones (D2-288)
+    "young": {"renewal": "young", "low": "", "high": "", "spec_unit": 6.0},   # young growth: cut for firewood (D2-156); old 60 kg
+    "dead": {"renewal": "dead", "low": "", "high": "", "spec_unit": 6.0},     # dead wood: gathered for firewood (D2-156)
     "seam": {"renewal": "finite", "low": "the seam at {name} is nearly worked out", "high": "a green-stained seam in {name}"},
     "quarry": {"renewal": "endless", "low": "", "high": "a face of good stone at {name}"},
     "grass": {"renewal": "fast", "low": "{name} is grazed bare", "high": "good grass on {name}"},             # D4-45
@@ -245,15 +250,17 @@ RESOURCES.update({k: {"renewal": "seasonal", "pack": "wild", "plant": True, "low
 # read as its trees, with young growth and dead wood in a copse's proportions.
 FORESTS = {
     "kinds": {
-        "old forest": {"trees": 2500, "young": 50, "dead": 300, "grow": 0.005, "regrow": 0.5},
-        "managed wood": {"trees": 600, "young": 400, "dead": 100, "grow": 0.01, "regrow": 1.0},
-        "copse": {"trees": 300, "young": 40, "dead": 50, "grow": 0.01, "regrow": 0.6},
-        "scrub": {"trees": 0, "young": 60, "dead": 10, "grow": 0.0, "regrow": 0.6},
+        # in the handling units (D2-288): the trees' timber x 9.6 of the count at the old 240 kg reading, young growth and dead wood
+        # x 6 of the old 60 kg firewood (wave1 §1.8); a world file's counts are in the old units (RESOURCES spec_unit)
+        "old forest": {"trees": 24000, "young": 300, "dead": 1800, "grow": 0.005, "regrow": 0.5},
+        "managed wood": {"trees": 5760, "young": 2400, "dead": 600, "grow": 0.01, "regrow": 1.0},
+        "copse": {"trees": 2880, "young": 240, "dead": 300, "grow": 0.01, "regrow": 0.6},
+        "scrub": {"trees": 0, "young": 360, "dead": 60, "grow": 0.0, "regrow": 0.6},
     },
     "shed": 0.01,                  # of the trees' timber a year, as dead wood
-    "per_timber": 4,               # firewood to a timber's mass
+    "per_timber": 2.5,             # firewood to a timber's mass (10 kg bundles to a 25 kg timber; was 4 at 60 and 240)
     "rot": 0.3,                    # of the dead wood a year
-    "brash": 1.0,                  # firewood left as dead wood for each timber felled
+    "brash": 0.625,                # firewood left as dead wood for each timber felled: a quarter of its mass, as before
     "scrub_below": 0.4,            # under this share of its trees a forest's cover is scrub
     "gale": 0.002,                 # of the trees thrown in a gale (as dead wood: a windfall, D2-79)
 }
@@ -271,72 +278,73 @@ CLEARING = {"meadow": 6.0, "pasture": 6.0, "scrub": 10.0,      # units of work a
 # Spaces: D2-154 (decided; calibrate); stores: D2-155; the cellar's cost D2-155; beds, stalls, woodshed, vault: proposed (02zh §4);
 # the water wheel's cost D2-166.
 FITTINGS = {
-    "beds": {"label": "beds", "materials": {"timber": 1, "straw": 2}, "units": 1, "per": "bed", "basic": True, "spaces": 1,
+    "beds": {"label": "beds", "materials": {"timber": 1, "straw": 1}, "units": 1, "per": "bed", "basic": True, "spaces": 1,
              "does": "housed when sleeping here, one a bed"},                                                  # D2-56; 02zh §4 (proposed)
-    "hearth": {"label": "a hearth", "materials": {"stone": 4}, "units": 3, "basic": False, "trade": "mason", "fire": True, "spaces": 1,
+    "hearth": {"label": "a hearth", "materials": {"stone": 20}, "units": 3, "basic": False, "trade": "mason", "fire": True, "spaces": 1,
                "racks": 1,                                          # one batch drying at a time (brief 5 §4a: 8 every 3 nights)
                "does": "warmth (burns timber), porridge and baking"},
-    "owl hole": {"label": "an owl hole (a gap left high in a barn's gable)", "materials": {"timber": 1}, "units": 1, "basic": True,
+    "owl hole": {"label": "an owl hole (a gap left high in a barn's gable)", "materials": {"timber": 0.1}, "units": 1, "basic": True,
                  "spaces": 0, "pack": "wild", "does": "a way in for a barn owl, which keeps the mice in the store down"},   # brief 2 K1
     "bins": {"label": "bins", "materials": {"timber": 3}, "units": 1, "basic": True, "does": "a store for food (60)", "spoil": 0.5,
              "spaces": 1, "holds": {"food": 60}},
     "hand mill": {"label": "a hand mill", "materials": {"stone": 2}, "units": 2, "basic": True, "spaces": 1,
                   "does": "grinding grain by hand into meal (porridge, not bread)", "aliases": ["quern"]},          # D2-61, D2-167
-    "granary": {"label": "a granary floor", "materials": {"timber": 6}, "units": 4, "basic": True, "spoil": 0.2, "spaces": 3,
+    "granary": {"label": "a granary floor", "materials": {"timber": 20}, "units": 4, "basic": True, "spoil": 0.2, "spaces": 3,
                 "holds": {"grain": 300}, "does": "grain keeps longest, raised and dry (300)"},                         # D2-58, D2-155
-    "fire ring": {"label": "a fire ring", "materials": {"stone": 1}, "units": 1, "basic": True, "fire": True, "spaces": 1, "racks": 1,
+    "fire ring": {"label": "a fire ring", "materials": {"stone": 4}, "units": 1, "basic": True, "fire": True, "spaces": 1, "racks": 1,
                   "does": "a fire in the open for warmth and cooking (burns timber)"},                              # D2-68: a camp's fire
-    "oven": {"label": "a stone oven", "materials": {"stone": 20, "timber": 2}, "units": 12, "basic": False, "trade": "mason", "spaces": 2,
+    "oven": {"label": "a stone oven", "materials": {"stone": 60, "timber": 0.4}, "units": 12, "basic": False, "trade": "mason", "spaces": 2,
              "structure": "stone",                                                 # only in a stone building (D4-97)
              "wear": {"life": 10, "count": "act", "mend": "reline oven"},           # firings; then half a batch (D4-103 phase 2)
              "does": "baking bread in batches"},                                                             # D2-60
-    "anvil": {"label": "an anvil and bellows", "materials": {"stone": 6, "hide": 2, "timber": 1}, "units": 4, "needs": "hearth",
+    "anvil": {"label": "an anvil and bellows", "materials": {"stone": 4, "hide": 2, "timber": 0.4}, "units": 4, "needs": "hearth",
               "basic": False, "trade": "smith", "spaces": 2, "heavy": True, "does": "a smithy: smelting and smithing"},
-    "cellar": {"label": "a cellar", "materials": {"stone": 4}, "units": 6, "basic": False, "trade": "mason", "spoil": 0.25, "spaces": 0,
+    "cellar": {"label": "a cellar", "materials": {"timber": 9}, "units": 6, "basic": False, "trade": "mason", "spoil": 0.25, "spaces": 0,
                "heavy": True, "holds": {"food": 40}, "by": "footprint",
                "does": "food keeps at a quarter of the house rate (40 a space of the building's ground)"},          # D2-45, D2-155
-    "millstones": {"label": "dressed millstones", "materials": {"stone": 10}, "units": 10, "basic": False, "trade": "mason", "spaces": 3,
+    "millstones": {"label": "dressed millstones", "materials": {"stone": 60}, "units": 10, "basic": False, "trade": "mason", "spaces": 3,
                    "heavy": True, "wear": {"life": 2000, "count": "inputs", "mend": "dress millstones"},  # grain ground, by an ox or the river (D4-105)
                    "does": "an ox mill: an ox turns them (D2-61)"},
-    "water wheel": {"label": "a water wheel and leat", "materials": {"timber": 60, "stone": 20, "copper": 2}, "units": 250,
+    "water wheel": {"label": "a water wheel and leat", "materials": {"timber": 300, "stone": 140, "copper": 2}, "units": 250,
                     "needs": "millstones", "site": "water", "basic": False, "trade": "carpenter", "spaces": 0, "heavy": True,
                     "wear": {"years": 1.0, "mend": "clear the leat"},                   # silts in a year; then half as much (D4-105)
                     "does": "a water mill: the river turns the millstones (D2-61); where fish run the river, its hatches (the gap) "
                             "are set shut (full grinding, the fish held back) or open (half, the fish let past)"},                                  # D2-166
-    "stalls": {"label": "stalls", "materials": {"timber": 1}, "units": 1, "per": "stall", "basic": True, "spaces": 2, "heavy": True,
+    "stalls": {"label": "stalls", "materials": {"timber": 2}, "units": 1, "per": "stall", "basic": True, "spaces": 2, "heavy": True,
                "fodder": 0.8, "dung": 1.5,
                "does": "beasts housed in winter, one a stall: less fodder, dung kept, not driven off without coming in"},   # D2-45
-    "woodshed": {"label": "a woodshed", "materials": {"timber": 2}, "units": 1, "basic": True, "spaces": 0, "ground": 2,
-                 "holds": {"timber": 40}, "does": "a lean-to against the building: 40 timber kept dry"},
+    "woodshed": {"label": "a woodshed", "materials": {"timber": 20, "straw": 15}, "units": 1, "basic": True, "spaces": 0, "ground": 2,
+                 "holds": {"timber": 9600}, "does": "a lean-to against the building: about 9,600 kg of timber and firewood kept dry"},   # in kg (storage §3.13)
     # brief 5 §4a: a smokehouse is a building of its own (`apart`: no beds or hearth in it) with smoke racks; one batch of up to
     # 40 a fitting at a time (`racks`). Brief 5 §4b: a brine pan over a furnace at or beside a brine spring (`spring`), boiling
     # salt; it wears like other fittings (calibrate)
-    "smoke racks": {"label": "smoke racks (hurdles over a smouldering fire)", "materials": {"timber": 2}, "units": 2, "basic": True,
+    "smoke racks": {"label": "smoke racks (hurdles over a smouldering fire)", "materials": {"withies": 2, "timber": 2}, "units": 2, "basic": True,
                     "spaces": 3, "apart": True, "racks": 1, "aliases": ["smokehouse racks", "smoking racks"],
                     "does": "a smokehouse: a batch of up to 40 fish or meat smoked over 3 nights, the fire tended daily"},
-    "brine pan": {"label": "a brine pan (a shallow pan over a furnace, for boiling salt)", "materials": {"copper": 1, "timber": 2},
+    "brine pan": {"label": "a brine pan (a shallow pan over a furnace, for boiling salt)", "materials": {"copper": 10, "stone": 4},
                   "units": 4, "basic": False, "trade": "salter", "spaces": 2, "heavy": True, "spring": "brine",
                   "aliases": ["salt pan", "lead pan", "salt boiling pan"],
                   "wear": {"life": 60, "count": "act", "mend": "mend the brine pan"},     # boilings; then half (D4-103 phase 2)
                   "does": "boiling brine from the spring beside it into salt (about 1 firewood a salt)"},
-    "vault": {"label": "a vault", "materials": {"stone": 40}, "units": 30, "basic": False, "trade": "mason", "spaces": 4, "room": 4,
+    "vault": {"label": "a vault", "materials": {"stone": 3000}, "units": 30, "basic": False, "trade": "mason", "spaces": 4, "room": 4,
               "heavy": True, "holds": {"weight": 30}, "by": "space", "fireproof": True,
               "does": "a stone room of its own on the ground floor: 30 weight a space kept, safe from fire (D2-49)"},
 }
 FITTING_ALIAS = {a: f for f, d in FITTINGS.items() for a in d.get("aliases", [])}
 # Rooms by structure (spec/economy/buildings.md "Rooms and structures"; D2-154 floors, D2-166 the large and stone ones; calibrate).
+# Materials in real kilograms on the handling units (D2-288; u7 §2.1, wave1 §3.5); units held at today's (D2-309).
 # A building's structure is one material for all its rooms; wattle takes a small room only; stone is a mason's work (D2-3).
 ROOMS = {
     "small room": {"floor": 6, "places": 2,
-                   "wattle": {"materials": {"timber": 8}, "units": 6},
-                   "timber": {"materials": {"timber": 8, "stone": 2}, "units": 6},
-                   "stone": {"materials": {"stone": 30, "timber": 4}, "units": 40, "trade": "mason"}},
+                   "wattle": {"materials": {"timber": 36, "withies": 35}, "units": 6},   # roof at the site (D2-328)
+                   "timber": {"materials": {"timber": 160, "stone": 60, "withies": 15, "straw": 75}, "units": 6},
+                   "stone": {"materials": {"stone": 1600, "timber": 40, "straw": 75}, "units": 40, "trade": "mason"}},
     "medium room": {"floor": 12, "places": 4,
-                    "timber": {"materials": {"timber": 15, "stone": 4}, "units": 15, "trade": "carpenter"},
-                    "stone": {"materials": {"stone": 60, "timber": 8}, "units": 90, "trade": "mason"}},
+                    "timber": {"materials": {"timber": 270, "stone": 100, "withies": 25, "straw": 130}, "units": 15, "trade": "carpenter"},
+                    "stone": {"materials": {"stone": 2700, "timber": 70, "straw": 130}, "units": 90, "trade": "mason"}},
     "hall": {"floor": 30, "places": 8,
-             "timber": {"materials": {"timber": 80, "stone": 20}, "units": 200, "trade": "carpenter"},
-             "stone": {"materials": {"stone": 150, "timber": 20}, "units": 250, "trade": "mason"}},
+             "timber": {"materials": {"timber": 560, "stone": 210, "withies": 50, "straw": 260}, "units": 200, "trade": "carpenter"},
+             "stone": {"materials": {"stone": 5600, "timber": 140, "straw": 260}, "units": 250, "trade": "mason"}},
 }
 BLUEPRINTS = {
     "small room": {"label": "a small room (wattle, timber or stone)", "materials": dict(ROOMS["small room"]["wattle"]["materials"]),
@@ -355,16 +363,21 @@ SPACE = {
     "upgrade": 0.75,                  # 02zh §2: the new structure's materials for its rooms, less a quarter, and the work (proposed)
     "order": ["wattle", "timber", "stone"],
     "camp_floor": 4,                  # a camp's lean-to (D2-68): its ground on built ground or scrub
-    "camp_store": 10,                 # D2-176, D4-84: what a lean-to keeps, in weight (a few days' food or fuel), under cover
+    "camp_store": 30,                 # D2-176, D4-84: what a lean-to keeps, in weight (a few days' food or fuel), under cover; 30 kg
+                                      # in the handling units (a space's loose weight; was 10 when a tent weighed 6: W-97)
     "monument_ground": 1,             # building_lines.md §2 (proposed): on built ground or scrub; none elsewhere
     "seed_free": 3,                   # D4-85: free floor a seeded building is given beyond its contents, unless its file says (`free`)
     "seed_keep_ground": 6,            # D4-85: ...only while its parcel keeps this much ground for building (a small room)
 }
 # Storage (D2-155): what each kind of store takes, in the order goods are put away; free floor holds 30 weight a space of any goods.
 STORES = {
-    "kinds": {"grain": ["grain", "rye", "beans"], "timber": ["timber", "firewood"]},   # "food": every edible good; "weight": any good
+    "kinds": {"grain": ["grain", "rye", "beans"], "timber": ["timber", "firewood", "charcoal"]},   # "food": every edible good; "weight": any good
+    "by_weight": ["timber"],          # kinds whose stores hold kilograms, not counts (D2-288: timber and firewood alike by weight)
     "order": ["granary", "cellar", "bins", "woodshed", "vault"],
     "floor": 30,                      # weight a space of free floor
+    # stacked by the wall, kg a space (W-97 default, with the handling units, D2-288): hay and straw to the roof (storage.md §3.10:
+    # 1,000 kg); fuel and timber stacked, stone piled (est.)
+    "stack": {"timber": 300, "firewood": 300, "charcoal": 300, "hay": 1000, "straw": 1000, "stone": 1000},
     "words": {"granary": ("the granary floor holds", "are on it"), "cellar": ("the cellar holds", "are in it"),
               "bins": ("the bins hold", "are in them"), "woodshed": ("the woodshed holds", "are in it"),
               "vault": ("the vault holds", "are in it")},
@@ -373,9 +386,9 @@ STORES = {
 MONUMENTS = {
     "carved post": {"label": "a carved post", "materials": {"timber": 2}, "units": 2, "basic": True, "structure": "timber",
                     "aliases": ["post", "a post", "carved pole"]},
-    "standing stone": {"label": "a standing stone", "materials": {"stone": 4}, "units": 4, "basic": False, "trade": "mason",
+    "standing stone": {"label": "a standing stone", "materials": {"stone": 60}, "units": 4, "basic": False, "trade": "mason",   # about 1.5 t
                        "structure": "stone", "aliases": ["stone", "a stone", "menhir"]},
-    "cairn": {"label": "a cairn", "materials": {"stone": 6}, "units": 3, "basic": True, "structure": "stone",
+    "cairn": {"label": "a cairn", "materials": {}, "units": 3, "basic": True, "structure": "stone",   # stones got on the spot (D2-306)
               "aliases": ["a cairn", "heap of stones"]},
     # a fish weir (brief 5 §3, D2-209; calibrate): a standing work across a river at a water parcel, built by a declared crew
     # (`with`), with a condition (floods and ice wear it, mended like a building) and a gap set open or shut (WATER_WORKS); its
@@ -471,8 +484,8 @@ TECHNIQUES = {
              # x 2.5 too (RESOURCES game spec_unit, D2-261): a kill takes the share of the wood's game it took, as often, for the food
              "weapon": {"none": 0.3, "armed": 1.0}, "wear": 0.3, "units": 2, "gives": "meat", "tags": ["food", "hunting", "animals"]},
     "fell": {"verb": "gather", "label": "felling timber", "aliases": ["felling", "chop timber", "cut wood"], "basic": True,
-             "at": {"covers": ["forest"]}, "draws": "wood", "yield": {"kind": "fixed", "base": 3.0},
-             "tools": {"bare": 0.25, "crude": 1.0, "copper": 2.0}, "wear": 1, "units": 2, "gives": "timber", "tags": ["timber", "woodland"]},
+             "at": {"covers": ["forest"]}, "draws": "wood", "yield": {"kind": "fixed", "base": 8.0},   # 4 timber a unit with a crude tool
+             "tools": {"bare": 0.25, "crude": 1.0, "copper": 2.0}, "wear": 1, "units": 2, "gives": "timber", "tags": ["timber", "woodland"]},   # (basis §1; was 3 an act)
     "firewood": {"verb": "gather", "label": "gathering firewood (dead wood, by hand)", "basic": True,
                  "aliases": ["gather firewood", "gathering firewood", "sticks", "dead wood", "kindling"],
                  "at": {"covers": ["forest", "scrub"]}, "draws": "dead", "yield": {"kind": "pool", "base": 3.0}, "units": 1,
@@ -498,7 +511,7 @@ TECHNIQUES = {
              "yield": {"kind": "fixed", "base": 2.0}, "tools": {"crude": 1.0, "copper": 1.5}, "wear": 2, "units": 2, "gives": "copper ore",
              "tags": ["mining", "craft"], "trade": "miner"},
     "quarry": {"verb": "gather", "label": "quarrying stone", "aliases": ["quarrying", "cut stone"], "at": {"covers": ["rock"]},
-               "draws": "quarry", "yield": {"kind": "fixed", "base": 2.0}, "tools": {"crude": 1.0, "copper": 1.5}, "wear": 2, "units": 2,
+               "draws": "quarry", "yield": {"kind": "fixed", "base": 8.0}, "tools": {"crude": 1.0, "copper": 1.5}, "wear": 2, "units": 2,   # 4 a unit (basis §1)
                "gives": "stone", "tags": ["building", "craft"], "trade": "mason"},
     # Farming (D2-53, D2-54, D2-59, D4-38 to D4-40; 02l §2 scaled to the plot of about 16 seed, calibrate)
     "sow": {"pack": "farming", "verb": "work", "label": "sowing a field broadcast (seed thrown)", "aliases": ["sowing", "plant", "broadcast"], "basic": True,
@@ -532,7 +545,7 @@ TECHNIQUES = {
              "draws": "crop", "yield": {"kind": "crop", "plots": 0.125, "straw": 4.7}, "tools": {"bare": 0.6, "crude": 1.0, "copper": 1.5},
              "wear": 0.25, "units": 1, "gives": "grain", "tags": ["food", "farming", "harvest"]},
     "hay": {"pack": "farming", "verb": "gather", "label": "cutting hay", "aliases": ["cut hay", "haymaking", "mow"], "basic": True, "at": {"covers": ["pasture", "meadow"]},
-                "draws": "grass", "yield": {"kind": "fixed", "base": 3.0}, "tools": {"bare": 0.3, "crude": 1.0, "copper": 1.5}, "wear": 0.5,
+                "draws": "grass", "yield": {"kind": "fixed", "base": 7.0}, "tools": {"bare": 0.3, "crude": 1.0, "copper": 1.5}, "wear": 0.5,   # 7 of 10 kg a unit (u3 §10)
                 "by_season": {"spring": 0.5, "summer": 1.0, "autumn": 0.3, "winter": 0.0}, "units": 1, "gives": "hay", "tags": ["animals", "farming"]},
     # Cattle (D2-63, D4-41, D4-44, D4-45; 02o, calibrate)
     "herd": {"verb": "work", "label": "herding (watching the beasts)", "aliases": ["herding", "watch the herd", "tend the herd"], "basic": True,
@@ -548,7 +561,7 @@ TECHNIQUES = {
                          "at": {"covers": ["forest", "meadow", "pasture", "scrub", "heath", "moor", "fen", "saltmarsh"]}, "draws": "wild plants",
                          "yield": {"kind": "wild_forage", "base": 1.2}, "units": 1, "gives": "", "tags": ["food"]},
     "make clappers": {"verb": "make", "label": "making clappers (two boards on a cord) for scaring beasts off a field", "basic": True, "pack": "wild",
-                      "aliases": ["clappers", "make a clapper"], "inputs": {"timber": 0.5}, "units": 1, "gives": {"clappers": 1}, "tags": ["farming"]},
+                      "aliases": ["clappers", "make a clapper"], "inputs": {"timber": 0.04}, "units": 1, "gives": {"clappers": 1}, "tags": ["farming"]},   # two boards, 1 kg
     "make tallow lights": {"verb": "make", "label": "dipping rushes in tallow for lights to work by at night", "basic": True,
                            "aliases": ["tallow lights", "make lights", "make a light", "rushlights", "dip rushes"],
                            "inputs": {"tallow": 1}, "units": 1, "gives": {"tallow light": 4}, "tags": ["light"]},   # brief 3 §5
@@ -609,8 +622,8 @@ TECHNIQUES = {
                   # meat a head (D2-258; 02zzu): live weight x dressing x a medieval carcass's edible share 0.70 (Albarella), at 1,500
                   # kcal a unit: a cow 300 kg (91 food), an ox or bull 400 kg (126), a young beast 120 kg (29, the lookup's veal);
                   # USDA's modern carcass (20% bone) would give 12% more, within D2-259's 20%
-                  "yield": {"kind": "slaughter", "gives": {"cows": {"meat": 150, "hide": 2, "tallow": 4}, "oxen": {"meat": 210, "hide": 2, "tallow": 4},
-                                                          "bulls": {"meat": 210, "hide": 2, "tallow": 4},
+                  "yield": {"kind": "slaughter", "gives": {"cows": {"meat": 150, "hide": 3.5, "tallow": 4}, "oxen": {"meat": 210, "hide": 4, "tallow": 4},
+                                                          "bulls": {"meat": 210, "hide": 4, "tallow": 4},   # hide by weight (u3 §2.3)
                                                           "young": {"meat": 48, "hide": 1, "tallow": 1}}},   # tallow: brief 3 §5 (calibrate)
                   "units": 2, "gives": "meat", "tags": ["food", "animals"]},
     # Mending a worn fitting (D4-103 phase 2; building_risks.md: capital has upkeep): it works at full again (calibrate)
@@ -618,7 +631,7 @@ TECHNIQUES = {
                          "basic": True, "at": {"fittings": ["millstones"]}, "yield": {"kind": "mend", "fitting": "millstones"},
                          "units": 2, "gives": "", "tags": ["building", "food"]},
     "reline oven": {"verb": "work", "label": "relining a cracked oven", "aliases": ["mend the oven"], "basic": True,
-                    "at": {"fittings": ["oven"]}, "yield": {"kind": "mend", "fitting": "oven", "inputs": {"stone": 2}}, "units": 2,
+                    "at": {"fittings": ["oven"]}, "yield": {"kind": "mend", "fitting": "oven", "inputs": {"stone": 4}}, "units": 2,
                     "gives": "", "tags": ["building", "food"]},
     "clear the leat": {"verb": "work", "label": "clearing the mill leat of silt and weed", "aliases": ["clear the mill race"],
                        "basic": True, "at": {"fittings": ["water wheel"]}, "yield": {"kind": "mend", "fitting": "water wheel"},
@@ -643,14 +656,14 @@ TECHNIQUES = {
     "dry fodder": {"pack": "farming", "verb": "make", "label": "drying a green crop into hay", "aliases": ["dry hay", "make hay of", "dry green crop"],
                    "basic": True, "inputs": {"green crop": {"green grain": 30, "green rye": 30, "green beans": 30}}, "units": 1,
                    "gives": {"hay": 1}, "tags": ["animals", "farming"]},       # D4-106; 30 kg green dries to a 10 kg hay (u3 §2.4; was 10 to 8)
-    "pack": {"verb": "make", "label": "making a pack", "aliases": ["backpack"], "basic": True, "inputs": {"hide": 1, "timber": 1},
-             "units": 1, "gives": {"pack": 1}, "tags": ["travel"]},                                                    # recipes.md §2
-    "handcart": {"verb": "make", "label": "making a handcart", "aliases": ["cart"], "inputs": {"timber": 6}, "tools": {"crude": 1.0, "copper": 1.0},
+    "pack": {"verb": "make", "label": "making a pack basket", "aliases": ["backpack", "pack basket"], "basic": True,
+             "inputs": {"withies": 0.4, "hide": 0.1}, "units": 1, "gives": {"pack": 1}, "tags": ["travel"]},   # u3 §2.2: withies, rawhide straps
+    "handcart": {"verb": "make", "label": "making a handcart", "aliases": ["cart"], "inputs": {"timber": 2}, "tools": {"crude": 1.0, "copper": 1.0},
                  "units": 3, "gives": {"handcart": 1}, "tags": ["travel", "craft"], "trade": "carpenter"},              # recipes.md §2
     "bread": {"verb": "make", "label": "baking bread at a hearth", "aliases": ["baking", "bake"], "basic": True, "at": {"fittings": ["hearth"]},
-              "inputs": {"flour": 10, "timber": 1}, "units": 1, "gives": {"bread": 10}, "tags": ["food", "cooking"]},          # D2-60
+              "inputs": {"flour": 10, "firewood": 0.5}, "units": 2, "gives": {"bread": 10}, "tags": ["food", "cooking"]},   # D2-60; u3 §2.4
     "oven bread": {"verb": "make", "label": "baking bread in a stone oven", "aliases": ["oven baking"], "basic": True,
-                   "at": {"fittings": ["oven"]}, "inputs": {"flour": 100, "timber": 4}, "units": 3, "gives": {"bread": 100},   # one firing (D4-97)
+                   "at": {"fittings": ["oven"]}, "inputs": {"flour": 100, "firewood": 3}, "units": 4, "gives": {"bread": 100},   # a firing (D4-97; u3 §2.4)
                    "tags": ["food", "cooking"]},
     # Fishing and salt (D4-103's acceptance test; water_and_preservation.md §4, §5: the gear ladder's first rungs; calibrate)
     "fish by hand": {"pack": "water", "verb": "gather", "label": "fishing by hand (tickling trout, groping under the banks)", "basic": True,
@@ -662,7 +675,7 @@ TECHNIQUES = {
               "draws": "fish", "yield": {"kind": "stock", "base": 1.5, "spread": 0.5}, "uses": {"fishing rod": 1}, "units": 1, "gives": "fish",
               "tags": ["food", "fishing"]},
     "fishing rod": {"pack": "water", "verb": "make", "label": "making a fishing rod and line", "aliases": ["make a rod", "rod and line"], "basic": True,
-                    "inputs": {"timber": 0.5, "hide": 0.1}, "units": 1, "gives": {"fishing rod": 1}, "tags": ["fishing", "craft"]},
+                    "inputs": {"withies": 0.1}, "units": 1, "gives": {"fishing rod": 1}, "tags": ["fishing", "craft"]},   # a 1 kg pole (u3 §2.3)
     "salt pan": {"pack": "water", "verb": "gather", "label": "making salt in the saltmarsh pans (dried by the sun)", "basic": True,
                  "aliases": ["make salt", "salt pans", "gather salt"], "at": {"covers": ["saltmarsh"]}, "draws": "salt",
                  "yield": {"kind": "fixed", "base": 1.0}, "by_season": {"spring": 0.4, "summer": 1.0, "autumn": 0.2, "winter": 0.0}, "units": 1, "gives": "salt", "tags": ["salt"]},
@@ -713,24 +726,24 @@ TECHNIQUES = {
     # cheese takes about 10, 02zzu; 1.2 food a unit of the chain against 1.1 on the old values)
     "charcoal": {"verb": "make", "label": "burning charcoal", "aliases": ["charcoal burning"], "at": {"covers": ["forest"]},
                  "inputs": {"timber": 5}, "units": 1, "gives": {"charcoal": 1}, "tags": ["timber", "craft"], "trade": "woodsman"},   # 125 kg to 20 (u3 §2.4)
-    "wooden plough": {"pack": "farming", "verb": "make", "label": "making a plough", "aliases": ["make a plough"], "inputs": {"timber": 4, "copper": 1},
+    "wooden plough": {"pack": "farming", "verb": "make", "label": "making a plough", "aliases": ["make a plough"], "inputs": {"timber": 1.2, "copper": 1},
                       "tools": {"crude": 1.0, "copper": 1.0}, "units": 4, "gives": {"wooden plough": 1}, "tags": ["farming", "craft"],
                       "trade": "carpenter"},
-    "bedroll": {"verb": "make", "label": "making a bedroll", "aliases": ["blanket roll"], "basic": True, "inputs": {"hide": 1}, "units": 1,
+    "bedroll": {"verb": "make", "label": "making a bedroll", "aliases": ["blanket roll"], "basic": True, "inputs": {"hide": 0.5}, "units": 1,
                 "gives": {"bedroll": 1}, "tags": ["travel"]},                                                           # D2-68
-    "tent": {"verb": "make", "label": "making a tent", "aliases": [], "basic": True, "inputs": {"hide": 3, "timber": 2}, "units": 2,
+    "tent": {"verb": "make", "label": "making a tent", "aliases": [], "basic": True, "inputs": {"hide": 1.5, "timber": 0.4}, "units": 2,
              "gives": {"tent": 1}, "tags": ["travel"]},                                                                 # D2-68
-    "harness": {"verb": "make", "label": "making a harness", "aliases": ["yoke"], "inputs": {"timber": 2, "hide": 1}, "units": 2,
+    "harness": {"verb": "make", "label": "making a harness", "aliases": ["yoke"], "inputs": {"timber": 0.4, "hide": 0.5}, "units": 2,   # rawhide until tanning (D2-327)
                 "gives": {"harness": 1}, "tags": ["animals", "craft"], "trade": "leatherworker"},
-    "crude tool": {"verb": "make", "label": "making a crude hand tool", "aliases": ["tool"], "basic": True, "inputs": {"timber": 1, "stone": 0.5},
+    "crude tool": {"verb": "make", "label": "making a crude hand tool", "aliases": ["tool"], "basic": True, "inputs": {"timber": 0.04, "stone": 0.04},
                    "units": 1, "gives": {"crude tool": 1}, "tags": ["craft"]},
     "crude weapon": {"verb": "make", "label": "making a crude weapon", "aliases": ["club", "spear", "weapon"], "basic": True,
-                     "inputs": {"timber": 1}, "units": 1, "gives": {"crude weapon": 1}, "tags": ["weapons"]},
+                     "inputs": {"timber": 0.06}, "units": 1, "gives": {"crude weapon": 1}, "tags": ["weapons"]},
     "smelt": {"verb": "make", "label": "smelting copper", "aliases": ["smelting"], "at": {"fittings": ["anvil"]},
-              "inputs": {"copper ore": 3, "fuel": {"charcoal": 1, "timber": 4}}, "units": 3, "gives": {"copper": 1}, "tags": ["mining", "craft"],
+              "inputs": {"copper ore": 3, "fuel": {"charcoal": 1, "timber": 6}}, "units": 3, "gives": {"copper": 1}, "tags": ["mining", "craft"],   # 20 kg of charcoal, or 150 kg of wood
               "trade": "smelter"},                                  # one of the fuels (D4-46): charcoal, or timber as before
     "copper tool": {"verb": "make", "label": "making a copper hand tool", "aliases": ["hand tool", "metal tool"], "at": {"fittings": ["anvil"]},
-                    "inputs": {"copper": 1, "timber": 0.5}, "units": 3, "gives": {"copper tool": 1}, "tags": ["craft", "smithing"], "trade": "smith"},
+                    "inputs": {"copper": 1, "timber": 0.02}, "units": 3, "gives": {"copper tool": 1}, "tags": ["craft", "smithing"], "trade": "smith"},
     "coin": {"verb": "make", "label": "striking coin", "aliases": ["strike coin", "minting"], "at": {"fittings": ["anvil"]},
              "inputs": {"copper": 1}, "units": 1, "gives": {"coin": 10}, "tags": ["craft", "smithing"], "trade": "smith"},
 }
@@ -868,9 +881,11 @@ PHYSICS = {
     "shelter": {"housed": 1.0, "worn": 1.05, "gappy": 1.1, "damaged": 1.2, "unsheltered": 1.5},     # D4-12, H-5; worn, gappy: brief 4 §3
     "shelter_cold": {"housed": 1.0, "worn": 1.1, "gappy": 1.2, "no_fuel": 1.3, "damaged": 1.5, "unsheltered": 2.0},
     "cold_starving": 0.3,                                                # H-5
-    "fuel": {"normal": 0.5, "cold": 2.0, "camp": 1.0, "open": 2.0},     # in timber; in heat (D2-157): below
+    "fuel": {"normal": 0.4, "cold": 1.2, "camp": 0.8, "open": 1.2},     # in timber (heat / 1.25); in heat (D2-157): below
     "camping_fire": {"out": 1.6, "bedroll": 1.5, "tent": 1.25},            # in the cold by a fire in the open (D2-159)
-    "heat": {"normal": 1.0, "cold": 4.0, "camp": 2.0, "open": 4.0, "order": ["firewood", "timber", "charcoal"],
+    # a house burns its real weight a night (D2-290): a 10 kg bundle (0.5 heat) a normal night, about 30 kg (1.5) a cold one; a
+    # camp twice a house's normal night, a fire in the open a cold night's (was 1, 4, 2 and 4: 20 to 80 kg at the new bundle)
+    "heat": {"normal": 0.5, "cold": 1.5, "camp": 1.0, "open": 1.5, "order": ["firewood", "timber", "charcoal"],
              "share": 4, "hearth_spaces": 12, "ring_spaces": 6, "ring_cold": 1.15,
              # D4-83: the night's weather on a fire under no roof (a camp, or in the open): more fuel, and a chance it goes out in the
              # night, taking its warmth (a fire ring keeps it in a little better); a sound house's hearth is not touched (calibrate)
@@ -1093,7 +1108,7 @@ HERDS = {
     "call": {"share": 0.25, "head": 3},          # a split while driving calls a drover who notices it, if this big (D2-127)
     # the pack ox (transport.md, D2-136; D2-135 capacity): led on a road by someone of its household, with a harness; it grazes on
     # stretches that pass grass, else eats hay from the load
-    "pack_ox": {"carry": 60, "hay": 1.0, "graze": ["farmland", "plain", "river valley"], "graze_landmarks": ["meadow"]},
+    "pack_ox": {"carry": 100, "hay": 1.0, "graze": ["farmland", "plain", "river valley"], "graze_landmarks": ["meadow"]},
 }
 
 # The parcel graph (world/parcel_graph.md; D2-114 to D2-116): heights in words; the fittings that strike an arriving eye; the overview's

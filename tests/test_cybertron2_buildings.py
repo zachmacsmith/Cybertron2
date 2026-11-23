@@ -12,7 +12,8 @@ SPEC = "cybertron2/specs/combe.yaml"
 def world(spec=None, **give):
     w = World(spec or load_spec(SPEC))
     w.s["today"] = R.blank_today()
-    stuff = {"timber": 2000, "stone": 2000, "straw": 100, "copper": 10, "crude tool": 2, **give}
+    stuff = {"timber": 4000, "stone": 20000, "straw": 1000, "withies": 1000, "copper": 30, "crude tool": 2, **give}   # in the
+    # handling units (D2-288, W-97): a timber room's 160 timber, a stone one's 1,600 stone
     for n in ("Ivo", "Margery"):
         for item, q in stuff.items():
             w.apply("create", "combe", dst=w.hands(n), item=item, qty=q, why="test")
@@ -125,8 +126,8 @@ def test_an_added_room_costs_a_quarter_less_and_a_second_storey_is_refused_unles
     before = dict(w.goods(w.hands("Ivo")))
     r = do(w, "Ivo", do="build", what="small room", at="Hut")
     assert r.startswith("You began a small room at Hut: about 2.5 units"), r                     # 6 x 0.75 = 4.5, less 2 done
-    used = {i: before[i] - w.goods(w.hands("Ivo")).get(i, 0) for i in ("timber", "stone")}
-    assert used == {"timber": 6.0, "stone": 1.5}
+    used = {i: before[i] - w.goods(w.hands("Ivo")).get(i, 0) for i in ("timber", "stone", "withies", "straw")}
+    assert used == {"timber": 120.0, "stone": 45.0, "withies": 11.25, "straw": 56.25}   # x 0.75 of u7 §2.1's kg (D2-288, W-97)
     house(w, "Shed", ["small room"], structure="timber")
     r = do(w, "Ivo", do="build", what="small room", at="Shed", storey=2)
     assert r.startswith("Refused: build: only a stone building takes an upper storey"), r
@@ -162,12 +163,16 @@ def test_upgrading_a_wattle_house_to_timber_keeps_its_beds_fittings_stores_and_l
     assert w.goods(b["stock"]) == stock                                       # its stores as they were
 
 
-def test_a_hall_costs_about_270_units_in_all_and_a_water_mill_about_350():
+def test_a_hall_and_a_water_mill_cost_d2_166s_300_to_500_units_in_all():
     def per(item):                                                           # units of work a unit of each material (a crude tool)
         if item == "timber":
             return TECHNIQUES["fell"]["units"] / TECHNIQUES["fell"]["yield"]["base"]
         if item == "stone":
             return TECHNIQUES["quarry"]["units"] / TECHNIQUES["quarry"]["yield"]["base"]
+        if item == "withies":                                                # cut withies (W-97's bridge, u3 §1.1)
+            return TECHNIQUES["cut withies"]["units"] / TECHNIQUES["cut withies"]["yield"]["base"]
+        if item == "straw":
+            return 0.0                                                       # a by-product of reaping
         if item == "copper":
             ore = TECHNIQUES["mine"]["units"] / TECHNIQUES["mine"]["yield"]["base"]
             return TECHNIQUES["smelt"]["units"] + TECHNIQUES["smelt"]["inputs"]["copper ore"] * ore
@@ -177,8 +182,8 @@ def test_a_hall_costs_about_270_units_in_all_and_a_water_mill_about_350():
         return c["units"] + sum(q * per(i) for i, q in c["materials"].items())
     hall = total(BL.room_cost("hall", "timber"))
     mill = total(FITTINGS["water wheel"]) + total(FITTINGS["millstones"])
-    assert 250 <= hall <= 300, hall
-    assert 300 <= mill <= 400, mill
+    assert 300 <= hall <= 500, hall                                          # D2-166's 300 to 500 in all, with u7 §2's kg (W-97)
+    assert 300 <= mill <= 500, mill
 
 
 # ---------------------------------------------------------------------- §4, §6: fittings and the mill ladder
@@ -382,7 +387,7 @@ def test_tiers_multiply_materials_and_work_and_a_rich_building_is_named_on_arriv
     before = w.goods(w.hands("Ivo"))["timber"]
     r = do(w, "Ivo", do="build", what="small room", at="Combe Moor", name="Fine Hut", how="fine")
     assert r.startswith("You began Fine Hut: about 10 units"), r                  # 6 x 2 = 12, less 2 done
-    assert before - w.goods(w.hands("Ivo"))["timber"] == 12                     # 8 x 1.5
+    assert before - w.goods(w.hands("Ivo"))["timber"] == 54                     # 36 x 1.5 (u7 §2.1's kg, W-97)
     bid = next(b for b, x in w.s["buildings"].items() if x["name"] == "Fine Hut")
     assert w.s["buildings"][bid]["tier"] == "fine"
     w.s["buildings"][bid]["unfinished"] = None

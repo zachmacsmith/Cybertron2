@@ -3,7 +3,7 @@
 One unit of space at every level: a parcel's ground for buildings (built ground 24 a unit of size, scrub 16), a building's rooms and
 their floor (small 6, medium 12, hall 30; upper storeys in stone take no ground), and every fitting and store taking floor. People
 housed are the beds. A store holds so much by its kind (bins 60 food, a granary floor 300 grain, a cellar 40 food a space of the
-building's footprint, a woodshed 40 timber, a vault 30 weight a space); what is left over lies on free floor, 30 weight a space.
+building's footprint, a woodshed about 9,600 kg of timber and fuel, a vault 30 weight a space); what is left over lies on free floor, 30 weight a space.
 
 The functions here read records (a building, a parcel, its goods), never the world, so the agent-facing modules (verbs, prompts) may
 call them with what `Here` gives them (D4-35). The engine side (`overflow`, `read`, `seed_rooms`) takes the world.
@@ -121,6 +121,13 @@ def _weight(item) -> float:
     return float(ITEMS.get(item, {}).get("weight", 1))
 
 
+def _floor_weight(item) -> float:
+    """What a unit of a good takes of free floor, as loose weight: goods stacked by the wall (fuel, straw, hay, stone) take less than
+    their kilograms (STORES `stack`: kg a space stacked, against `floor` loose; D2-288's handling units, W-97)."""
+    st = (STORES.get("stack") or {}).get(item)
+    return _weight(item) * (float(STORES["floor"]) / float(st) if st else 1.0)
+
+
 def stores(b) -> list:
     """[(store, kind, capacity)] in the order goods are put away: a qty for a kind of good, or weight for any."""
     if exempt(b):
@@ -155,7 +162,7 @@ def alloc(b, goods) -> dict:
                 break
             if allowed is not None and item not in allowed:
                 continue
-            if kind == "weight":
+            if kind == "weight" or kind in STORES.get("by_weight", ()):          # held in kilograms (D2-288)
                 wt = _weight(item)
                 take = left[item] if wt <= 0 else min(left[item], room / wt)
                 room -= take * wt
@@ -163,9 +170,9 @@ def alloc(b, goods) -> dict:
                 take = min(left[item], room)
                 room -= take
             left[item] -= take
-            used[name] = used.get(name, 0.0) + (take * _weight(item) if kind == "weight" else take)
+            used[name] = used.get(name, 0.0) + (take * _weight(item) if kind == "weight" or kind in STORES.get("by_weight", ()) else take)
         left = {i: q for i, q in left.items() if q > 1e-9}
-    weight = sum(q * _weight(i) for i, q in left.items())
+    weight = sum(q * _floor_weight(i) for i, q in left.items())
     return {"stores": used, "floor_weight": round(weight, 6), "floor_spaces": int(math.ceil(weight / float(STORES["floor"]) - 1e-9)),
             "on_floor": left}
 
@@ -178,7 +185,7 @@ def free_floor(b, goods=None) -> int:
 
 
 def camp_weight(goods) -> float:
-    return sum(float(q) * _weight(i) for i, q in (goods or {}).items() if q > 1e-9)
+    return sum(float(q) * _floor_weight(i) for i, q in (goods or {}).items() if q > 1e-9)
 
 
 def fits(b, goods) -> bool:
@@ -192,7 +199,7 @@ def fits(b, goods) -> bool:
 def room_for(b, goods, item) -> float:
     """How much more of a good its stores and free floor can take."""
     if b.get("structure") == "camp":                                        # D4-84
-        wt = _weight(item)
+        wt = _floor_weight(item)
         return max(0.0, float(SPACE["camp_store"]) - camp_weight(goods)) / wt if wt > 0 else float("inf")
     if exempt(b):
         return float("inf")
@@ -223,7 +230,7 @@ def full_words(b, goods, item) -> str:
         if allowed is not None and item not in allowed:
             continue
         say, where = STORES["words"][name]
-        unit = "weight" if kind == "weight" else ("food" if kind == "food" else kind)
+        unit = "weight" if kind in ("weight", *STORES.get("by_weight", ())) else ("food" if kind == "food" else kind)
         bits.append(f"{say} {show(cap)} {unit}; {show(a['stores'].get(name, 0.0))} {where}")
     open_ = floor(b) - fitting_spaces(b)
     if open_ > 0:
