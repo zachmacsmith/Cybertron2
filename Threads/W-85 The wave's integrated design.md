@@ -68,6 +68,7 @@ started
 - under it: [[L-170 Fowling the methods|Fowling: the methods (L-170)]] (open)
 - under it: [[L-171 Tanning and leather|Tanning and leather (L-171)]] (open)
 - under it: [[L-172 Limestone and lime|Limestone and lime (L-172)]] (open)
+- under it: [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]] (active)
 
 
 ## Mentioned by
@@ -102,6 +103,7 @@ started
 - [[D2-328 A wattle house's default roof is turf or brush got at the site|A wattle house's default roof is turf or brush got at the site (D2-328)]]
 - [[D2-329 Until tanning comes back, nets have a middle life of about half a…|Until tanning comes back, nets have a middle life of about half a… (D2-329)]]
 - [[D2-330 The worlds' defaults as proposed|The worlds' defaults as proposed (D2-330)]]
+- [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]]
 - [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]]
 - [[L-160 Kept lines over a life|Kept lines over a life (L-160)]]
 - [[L-161 Ice and the freeze|Ice and the freeze (L-161)]]
@@ -110,6 +112,5 @@ started
 - [[L-164 Builders' craftsmanship|Builders' craftsmanship (L-164)]]
 - [[L-165 Unfinished things generalised|Unfinished things generalised (L-165)]]
 - [[L-166 Herding for as long as it takes|Herding for as long as it takes (L-166)]]
-- [[L-167 The dead hedge and cheaper crop protection, thought through|The dead hedge and cheaper crop protection, thought through (L-167)]]
-- … and 18 more
+- … and 19 more
 - *and 3 index or audit notes*

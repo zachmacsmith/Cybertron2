@@ -1,6 +1,7 @@
 # All threads
 
 ## Open
+- [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]] (active)
 - [[W-96 Space unified everywhere|Space unified everywhere (W-96)]] (benched)
 - [[W-95 Stone and quarrying|Stone and quarrying (W-95)]] (benched)
 - [[W-94 Timed actions|Timed actions (W-94)]] (benched)
