@@ -34,4 +34,5 @@ conversation (23 Nov: "3. You get ownership of these files for all of this wave.
 - [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
 - [[Brief build stage 3, taking and making (thread W-99)|Brief: build stage 3, taking and making (thread W-99)]]
+- [[Stage 3 of the fishing, hunting and materials wave keeping, stores…|Stage 3 of the fishing, hunting and materials wave: keeping, stores…]]
 - *and 2 index or audit notes*

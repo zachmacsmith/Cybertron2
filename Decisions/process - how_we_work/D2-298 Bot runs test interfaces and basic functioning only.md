@@ -38,5 +38,6 @@ conversation (22 Nov: "Stop overcorrecting on bot runs they can test basic inter
 - [[Brief build stage 2, taking and making (thread W-98)|Brief: build stage 2, taking and making (thread W-98)]]
 - [[Stage 2 of the fishing, hunting and materials wave taking and making…|Stage 2 of the fishing, hunting and materials wave: taking and making…]]
 - [[Brief build stage 3, taking and making (thread W-99)|Brief: build stage 3, taking and making (thread W-99)]]
+- [[Stage 3 of the fishing, hunting and materials wave keeping, stores…|Stage 3 of the fishing, hunting and materials wave: keeping, stores…]]
 - [[Brief build stage 4, taking and making (thread W-THREAD)|Brief: build stage 4, taking and making (thread W-THREAD)]]
 - *and 2 index or audit notes*

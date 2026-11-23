@@ -4,7 +4,7 @@
 
 > The world record (`World.s`) has a version, `world_schema`. - It is stored in every world, and so in every checkpoint of the journal. - It is stored in the journal's meta. - `cybertron2/engine/schema.py` declares the shape that version means: the top-level keys, the keys of the day's record, and the
 
-## Decided (29)
+## Decided (35)
 - [[D2-21 The watch|The watch (D2-21)]]
 - [[D2-117 Herds can wander far|Herds can wander far (D2-117)]]
 - [[D2-132 Gates open and close by themselves|Gates open and close by themselves (D2-132)]]
@@ -14,6 +14,12 @@
 - [[D2-172 A field carries one crop for each holding on it|A field carries one crop for each holding on it (D2-172)]]
 - [[D2-199 The wild layer is built on 37.2's own ecology branch|The wild layer is built on 37.2's own `ecology` branch (D2-199)]]
 - [[D2-229 One fish stock per water body|One fish stock per water body (D2-229)]]
+- [[D2-279 Stores, as answered|Stores, as answered (D2-279)]]
+- [[D2-282 Standing rules support conditional actions conditioned on state…|Standing rules support conditional actions conditioned on state… (D2-282)]]
+- [[D2-284 A smokehouse's capacity comes from the racks fitted, about 250 kg of…|A smokehouse's capacity comes from the racks fitted, about 250 kg of… (D2-284)]]
+- [[D2-295 Each depth of cure is its own good|Each depth of cure is its own good (D2-295)]]
+- [[D2-296 Fallbacks are assignable by the household's standing rules|Fallbacks are assignable by the household's standing rules (D2-296)]]
+- [[D2-301 A person's own rules and standing fallback come before every…|A person's own rules and standing fallback come before every… (D2-301)]]
 - [[D2-305 Acts on held things take the thing as their target, by tag or a known…|Acts on held things take the thing as their target, by tag or a known… (D2-305)]]
 - [[D2-310 Lives counted in nights|Lives counted in nights (D2-310)]]
 - [[D4-60 New ground can be cleared for fields|New ground can be cleared for fields (D4-60)]]
@@ -37,3 +43,4 @@
 
 ## Open here
 - [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]] (active)
+- [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]] (active)

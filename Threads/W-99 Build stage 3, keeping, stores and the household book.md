@@ -26,4 +26,6 @@ started
 
 
 ## Mentioned by
+- [[The world record's shape and its version|The world record's shape and its version]]
 - [[Brief build stage 3, taking and making (thread W-99)|Brief: build stage 3, taking and making (thread W-99)]]
+- [[Stage 3 of the fishing, hunting and materials wave keeping, stores…|Stage 3 of the fishing, hunting and materials wave: keeping, stores…]]

@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # A smokehouse's capacity comes from the racks fitted, about 250 kg of… (D2-284)
 
-*live · 22 Nov*
+*live · 22 Nov · spec: [[core - world_schema|core/world_schema]]*
 
 ## The rule
 **A smokehouse's capacity comes from the racks fitted, about 250 kg of fish a set; the building caps how many sets fit (a wattle hut one; timber or stone by room size, with tiers and a loft); material sets the depths allowed, the building's life and its fire risk; a deeper cure holds its racks longer (a keeping smoke 1 night, a hard cure 2 to 3 after salting).**
@@ -29,6 +29,7 @@ conversation (22 Nov: "2. yes")
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
 - [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
 - [[U5. Stores and containers a space and what is in it, each removing…|U5. Stores and containers: a space and what is in it, each removing…]]
+- [[The world record's shape and its version|The world record's shape and its version]]
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Brief build stage 3, taking and making (thread W-99)|Brief: build stage 3, taking and making (thread W-99)]]
 - [[Brief build stage 4, taking and making (thread W-THREAD)|Brief: build stage 4, taking and making (thread W-THREAD)]]

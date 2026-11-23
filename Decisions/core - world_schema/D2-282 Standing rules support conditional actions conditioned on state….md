@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # Standing rules support conditional actions conditioned on state… (D2-282)
 
-*live · 22 Nov*
+*live · 22 Nov · spec: [[core - world_schema|core/world_schema]]*
 
 ## The rule
 **Standing rules support conditional actions conditioned on state changes: a rule may fire when a good, container or place changes state (a cure finished, a store full, a run begun), e.g. move smoked fish to the cellar once cured.**
@@ -25,6 +25,7 @@ conversation (22 Nov: "And yes: standing rules should support ocnditional action
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
 - [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
 - [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
+- [[The world record's shape and its version|The world record's shape and its version]]
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
 - [[Brief build stage 3, taking and making (thread W-99)|Brief: build stage 3, taking and making (thread W-99)]]
 - [[Design wave part 3a, keeping processing containers, the smokehouse…|Design wave part 3a, keeping: processing containers, the smokehouse…]]
