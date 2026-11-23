@@ -189,3 +189,15 @@ def test_a_trap_set_turns_up_no_antler(river):
     for n in range(30):
         out = WL.work_notices(Here(w, who), Mind(w, who), "trap in water", pid)
         assert "antler" not in out and "cat" not in out
+
+
+# ---------------------------------------------------------------------- signs as observations (D2-269; u8 §4)
+def test_the_five_signs_that_directed_acts_are_observations():
+    import inspect
+    from cybertron2.engine import signs as SG
+    from cybertron2.wild import kinds as WK
+    text = inspect.getsource(WK) + inspect.getsource(SG)
+    for order in ("set the traps tonight", "net them, or draw the hatches", "the traps and the weirs on the river will fill",
+                  "watch it or bring it in", "it must be cut tomorrow or lost"):
+        assert order not in text
+    assert "an eel night" in text and "unable to get up past it" in text and "a day or two more and it will be lost" in text

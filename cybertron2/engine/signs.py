@@ -101,7 +101,7 @@ CROP = [
          tags=["farming", "harvest"], text=lambda x: f"{'wind' if x.weather == 'gale' else 'rain'} beating on the ripe {x.c['kind']} in {x.nm}: "
                                                       "it wants cutting"),
     dict(when=lambda x: x.ripe and not x.rotting and x.window_left <= 0, sense="sight", p=0.5, tags=["farming", "harvest", "food"],
-         knack="reap", text=lambda x: f"{x.the} in {x.nm} cannot stand much longer: it must be cut tomorrow or lost"),
+         knack="reap", text=lambda x: f"{x.the} in {x.nm} cannot stand much longer: a day or two more and it will be lost"),
     dict(when=lambda x: x.c is not None and x.c.get("reaped") and x.c["area_left"] > 1e-6, sense="sight", p=0.25,
          tags=["farming", "harvest"], text=lambda x: f"sheaves stooked in {x.nm}, the rest of {x.the} still standing"),
     # rotting

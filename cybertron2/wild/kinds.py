@@ -386,7 +386,7 @@ EXPERT_SIGNS = {
                  "raid": [R("expert", "sight", 0.6, (1, 2), "they'll be back to the young corn while it's tender; hunting the wood by day keeps them off it")]},
     "wolf": {"edge": [R("lay", "sight", 0.5, (1, 2), "a big dog's tracks along the wood's edge"),
                       R("expert", "sight", 0.6, (1, 2), "wolf tracks, not a dog's: four toes in a straight line and the scat full of hair and bone")],
-             "raid": [R("expert", "sight", 0.6, (1, 2), "the wolves will come back to the herd that fed them: watch it or bring it in")]},
+             "raid": [R("expert", "sight", 0.6, (1, 2), "the wolves will come back to the herd that fed them")]},
     "fox": {"raid": [R("expert", "sight", 0.6, (1, 2), "a fox that found the hens will be back tomorrow night, to the same place")]},
 }
 # the cold's push (brief 5 §4, D2-209): frost on the land drives a kind of the wet ground and the water (PUSHED) onto the water still
@@ -409,7 +409,7 @@ WEATHER_LEADS = [
               R("knows", "sight", 0.6, (0, 0), "the swallows low over the grass: the flies are down, and rain is coming")], "read": "sow"},
     {"if": {"rain_after_dry": 2, "seasons": {2: (0, 7)}}, "kind": "eel",
      "rows": [R("all", "sight", 0.6, (0, 0), "the first heavy rain after the dry weeks: the river rising and dark"),
-              R("expert", "sight", 0.6, (0, 0), "an eel night: dark, wet and the water rising after the dry weeks; set the traps tonight")],
+              R("expert", "sight", 0.6, (0, 0), "the first heavy rain of the autumn after the dry weeks, and the night coming on dark: an eel night")],
      "read": "trap in water"},
 ]
 # what one notices while working, by the technique (the hunt's own are HUNT_NOTICES): each with the kind that must be about (in the
@@ -887,13 +887,14 @@ ROB_SETS = {"rob": 0.1, "share": 0.3, "most": 4, "least": 0.5}
 # the practised read it), fish held below a shut dam (plain to anyone there), a weir's or a mill's gap set (lingering a day), the
 # year's run thinner or better than last year's (for the practised, the day after its window), a robber's traces at the traps.
 # {kind}: the kind's plural; {place}: the water.
+# observations, never directions (D2-269; u8 §4: four rows reworded by W-97; the run's banded rows are U8's, stage 4)
 RUN_SIGNS = {
     "down": [R("all", "sight", 0.6, (0, 0), "the water at {place} alive with {kind} in the dark, all going downstream", cond="night"),
-             R("knows", "sight", 0.8, (0, 0), "the {kind} are running at {place} tonight: the traps and the weirs on the river will fill")],
+             R("knows", "sight", 0.8, (0, 0), "the {kind} are running at {place} tonight, all going downstream past the stakes")],
     "up": [R("all", "sight", 0.9, (0, 0), "{kind} going up through {place}, leaping at the shallows"),
            R("knows", "sight", 0.7, (0, 0), "the {kind} are running up the river at {place}: a run night")],
     "held": [R("all", "sight", 1.2, (0, 0), "{kind} leaping at the dam by {place} and falling back: they cannot get up past it"),
-             R("knows", "sight", 0.7, (0, 0), "{kind} crowding in the pool below the dam at {place}: net them, or draw the hatches and let them up")],
+             R("knows", "sight", 0.7, (0, 0), "{kind} crowding in the pool below the dam at {place}, more each hour, unable to get up past it")],
     "thin": [R("knows", "sight", 0.7, (0, 0), "the {kind} run was thin this year at {place}: about {share} of last year's")],
     "good": [R("knows", "sight", 0.6, (0, 0), "a good {kind} run this year at {place}, more than last year's")],
     "gap": {"weir": {"shut": [R("all", "sight", 0.9, (0, 1), "the gap of {work} shut, the wicker traps in it")],
