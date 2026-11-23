@@ -3469,7 +3469,8 @@ agents:
         skill: 0.899
     aware_of:
       hunt: you have seen the Marshs at it all your life
-    holdings: {}
+    holdings:
+      wicker trap: 6
     concerns:
     - farming
     - building

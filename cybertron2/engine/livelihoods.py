@@ -372,8 +372,7 @@ def fill(world: dict, skills: dict | None = None, seed=None, lines=True) -> dict
             h = a.setdefault("holdings", {})
             for g in ("wicker trap", "gill net", "hand line"):                 # the fill places the gear
                 h.pop(g, None)
-            if (kn.get("trap in water") or {}).get("level") in ("capable", "known") and a.get("stage") != "youth" \
-                    and bands.get(n) in ("expert", "capable"):
+            if (kn.get("trap in water") or {}).get("level") in ("capable", "known") and a.get("stage") != "youth":
                 h["wicker trap"] = SEEDED_TRAPS
             if (kn.get("angle") or {}) and a.get("stage") != "youth" and core and core[0] == "fisher":
                 h["hand line"] = 1

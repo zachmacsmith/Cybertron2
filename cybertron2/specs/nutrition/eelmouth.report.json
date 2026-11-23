@@ -439,12 +439,6 @@
     "level": "warn",
     "who": null,
     "text": "crafts held at capable or above with no lesson rows (their failures say only \"your hands\"): boil salt, gill net, gill nets, medium room, trap in water, weir, wicker trap"
-   },
-   {
-    "check": "M3",
-    "level": "warn",
-    "who": "Brook",
-    "text": "the Brooks: 12 wicker traps needed by the first run in 5 days; about 25 units to make them, the summer rods at 0.45 bundles a unit"
    }
   ],
   "report": [

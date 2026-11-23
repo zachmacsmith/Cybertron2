@@ -161,9 +161,12 @@ def skill(mind, tech) -> float:
     return max(curve(tech)[0], sk) if hard(tech) else sk                    # never below the bare-handed novice (brief 4c §3.1)
 
 
-def skill_word(x, tech=None) -> str:
+def skill_word(x, tech=None, w=None) -> str:
     lo, hi = curve(tech) if tech else SKILL["trade"]
-    share = (x - lo) / (hi - lo)
+    from cybertron2.engine import learning as LR
+    if tech and w is not None and LR.on(w) and not hard(tech):                # the class's range (u9 §4.2)
+        lo, hi = LR.curve_range(tech)
+    share = max(0.0, (x - lo) / (hi - lo))
     word = next(word for t, word in SKILL_WORDS if share >= t)
     return "ordinary" if word == "novice" and tech and basic(tech) else word
 
@@ -481,7 +484,7 @@ def craft_line(tech, lvl, rec=None, w=None) -> str:
     bits = [x for x in (body, place if place != "anywhere" or ins else "", life, season if lvl == "known" else "") if x]
     head = "known" if lvl == "known" else "capable"
     if lvl == "known" and rec.get("skill") is not None:
-        head += f", {skill_word(float(rec['skill']), tech)}"
+        head += f", {skill_word(float(rec['skill']), tech, w)}"
     if lvl == "capable":
         bits.append(f"works about {int(round(TRY['capable']['chance'] * 4))} times in 4, with about "
                     f"{'a third' if abs(TRY['capable']['inputs'] - 1.3) < 0.05 else str(round((TRY['capable']['inputs'] - 1) * 100)) + '%'} more materials")

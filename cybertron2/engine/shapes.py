@@ -223,6 +223,7 @@ def crafts_by_shape(here, mind, first=()) -> dict:
     from cybertron2.engine import knowledge as KN, packs as PK
     from cybertron2.engine.data import TECHNIQUES
     stage = (mind.person or {}).get("stage", "adult")
+    first = tuple(first or (mind.person or {}).get("crafts_first") or ())
     out = {}
     for t in TECHNIQUES:
         if not PK.on(TECHNIQUES[t], getattr(mind, "packs", None)):
@@ -298,13 +299,15 @@ def example(here, mind, first=()) -> str:
     that place; else their first universal craft; never a craft of another's living by construction."""
     from cybertron2.engine import knowledge as KN
     by = crafts_by_shape(here, mind, first)
-    for sh in ("set", "gather", "make", "work"):
-        for t, lvl, uni in by.get(sh) or []:
-            if uni or lvl == "aware":
-                continue
+    first = tuple(first or (mind.person or {}).get("crafts_first") or ())
+    cands = [(sh, t, lvl) for sh in ("set", "gather", "make", "work") for t, lvl, uni in by.get(sh) or [] if not uni and lvl != "aware"
+             and not KN.basic(t)]
+    cands.sort(key=lambda x: (first.index(x[1]) if x[1] in first else len(first), LEVEL_ORDER.get(x[2], 9)))   # one's own living first
+    for sh, t, lvl in cands:
+        if t:
             sites = [s for s in KN.where(here, t) if s[0] in ("parcel", "building")]
             from cybertron2.engine import placed as PL
-            name = PL.NOUN[t][1] if sh == "set" and t in PL.NOUN else KN.label(t)
+            name = PL.NOUN[t][1] if sh == "set" and t in PL.NOUN else t
             if sites:
                 return '{"do": "%s", "at": "%s"}' % (name, sites[0][2])
             return '{"do": "%s"}' % name
