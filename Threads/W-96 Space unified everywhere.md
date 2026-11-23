@@ -14,3 +14,7 @@ Zach, 23 Nov: 'another follow up thread is unifying all space everywhere which w
 
 ## Done so far, and what is left
 started
+
+
+## Mentioned by
+- [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
