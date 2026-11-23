@@ -32,3 +32,4 @@ started
 - [[D2-337 Standing rules are written in a stated grammar the prompt gives in…|Standing rules are written in a stated grammar the prompt gives in… (D2-337)]]
 - [[D2-338 The household book has named sets as a primitive|The household book has named sets as a primitive (D2-338)]]
 - [[D2-339 The household book's grammar|The household book's grammar (D2-339)]]
+- [[The act shapes' interface faults from live run 1 (W-102)|The act shapes' interface faults from live run 1 (W-102)]]
