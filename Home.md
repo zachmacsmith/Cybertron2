@@ -124,7 +124,8 @@
 ## Queued and paused (19)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework, [[W-76 The timber economy|W-76]] The timber economy, [[W-86 Households generalised into institutions and laws|W-86]] Households generalised into institutions and laws, [[W-87 Health, fatigue and illness|W-87]] Health, fatigue and illness, [[W-88 The coast and the sea|W-88]] The coast and the sea, [[W-89 Trade between villages markets, carriage, what flows where|W-89]] Trade between villages: markets, carriage, what flows where, [[W-90 Textiles and clothing|W-90]] Textiles and clothing, [[W-91 Pottery and clay crocks, ovens, daub, bricks|W-91]] Pottery and clay: crocks, ovens, daub, bricks, [[W-92 Boats, barrels and the cooper|W-92]] Boats, barrels and the cooper, [[W-93 Demography and growth|W-93]] Demography and growth, [[W-94 Timed actions|W-94]] Timed actions, [[W-95 Stone and quarrying|W-95]] Stone and quarrying, [[W-96 Space unified everywhere|W-96]] Space unified everywhere
 
-## Decided this week (140)
+## Decided this week (141)
+- [[D2-343 Teaching is settled before the evening, so a lesson's outcome can be…|Teaching is settled before the evening, so a lesson's outcome can be… (D2-343)]]
 - [[D2-342 Each morning a person is told what they ate the night before|Each morning a person is told what they ate the night before (D2-342)]]
 - [[D2-341 Rules are not something one attends to|Rules are not something one attends to (D2-341)]]
 - [[D2-340 Passing on through care|Passing on through care (D2-340)]]
@@ -139,7 +140,6 @@
 - [[D2-331 Live run 1 has a comparison arm|Live run 1 has a comparison arm (D2-331)]]
 - [[D2-330 The worlds' defaults as proposed|The worlds' defaults as proposed (D2-330)]]
 - [[D2-329 Until tanning comes back, nets have a middle life of about half a…|Until tanning comes back, nets have a middle life of about half a… (D2-329)]]
-- [[D2-328 A wattle house's default roof is turf or brush got at the site|A wattle house's default roof is turf or brush got at the site (D2-328)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]

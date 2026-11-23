@@ -25,7 +25,8 @@ started
 - parent: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
 - under it: [[D2-340 Passing on through care|Passing on through care (D2-340)]] (live)
 - under it: [[D2-342 Each morning a person is told what they ate the night before|Each morning a person is told what they ate the night before (D2-342)]] (live)
-- under it: [[L-175 Teaching, partnerships and joins settled before the evening, so a…|Teaching, partnerships and joins settled before the evening, so a… (L-175)]] (open)
+- under it: [[D2-343 Teaching is settled before the evening, so a lesson's outcome can be…|Teaching is settled before the evening, so a lesson's outcome can be… (D2-343)]] (live)
+- under it: [[L-175 Teaching, partnerships and joins settled before the evening, so a…|Teaching, partnerships and joins settled before the evening, so a… (L-175)]] (closed)
 - under it: [[L-176 Noticing in parts of the day, so what is seen at mid-morning can…|Noticing in parts of the day, so what is seen at mid-morning can… (L-176)]] (open)
 - under it: [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]] (done)
 - under it: [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]] (active)
@@ -34,6 +35,7 @@ started
 ## Mentioned by
 - [[D2-340 Passing on through care|Passing on through care (D2-340)]]
 - [[D2-342 Each morning a person is told what they ate the night before|Each morning a person is told what they ate the night before (D2-342)]]
+- [[D2-343 Teaching is settled before the evening, so a lesson's outcome can be…|Teaching is settled before the evening, so a lesson's outcome can be… (D2-343)]]
 - [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]]
 - [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]]
 - [[L-175 Teaching, partnerships and joins settled before the evening, so a…|Teaching, partnerships and joins settled before the evening, so a… (L-175)]]

@@ -2,7 +2,6 @@
 
 ## Open
 - [[L-176 Noticing in parts of the day, so what is seen at mid-morning can…|Noticing in parts of the day, so what is seen at mid-morning can… (L-176)]] (open)
-- [[L-175 Teaching, partnerships and joins settled before the evening, so a…|Teaching, partnerships and joins settled before the evening, so a… (L-175)]] (open)
 - [[L-174 Remove the engine's automatic detection and telling of breaches and…|Remove the engine's automatic detection and telling of breaches and… (L-174)]] (open)
 - [[L-173 Rules as the grammar of norms|Rules as the grammar of norms (L-173)]] (open)
 - [[L-172 Limestone and lime|Limestone and lime (L-172)]] (open)
@@ -143,6 +142,7 @@
 - [[L-2 Scavengers, with wild animals that attack herds and hunters and are…|Scavengers, with wild animals that attack herds and hunters and are… (L-2)]] (open)
 - [[L-1 Signs of slow change on long journeys|Signs of slow change on long journeys (L-1)]] (open)
 
-## Closed (2)
+## Closed (3)
+- [[L-175 Teaching, partnerships and joins settled before the evening, so a…|Teaching, partnerships and joins settled before the evening, so a… (L-175)]]
 - [[L-148 The wild's clock|The wild's clock (L-148)]]
 - [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]]

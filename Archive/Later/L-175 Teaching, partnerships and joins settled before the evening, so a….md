@@ -1,16 +1,18 @@
 ---
 id: L-175
 kind: deferred
-state: open
+state: closed
 updated: "2026-11-23"
 ---
 
 # Teaching, partnerships and joins settled before the evening, so a… (L-175)
 
-*open · 37.2*
+*closed, by zach · 37.2*
 
 ## Later
 sign_timing.md gap 2; live1_A_new: Peter told Nigel the lesson had not happened, then 'You taught Nigel making a gill net'.
+
+**Zach's answer:** I agree we should move teaching before the evenings tho not partnerships.
 
 **Waits on:** after live run 1's running arms
 
@@ -21,5 +23,6 @@ sign_timing.md gap 2; live1_A_new: Peter told Nigel the lesson had not happened,
 
 
 ## Mentioned by
+- [[D2-343 Teaching is settled before the evening, so a lesson's outcome can be…|Teaching is settled before the evening, so a lesson's outcome can be… (D2-343)]]
 - [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]]
 - [[Live run 1 the rebuilt fishing world against the old prompt and the…|Live run 1: the rebuilt fishing world against the old prompt and the…]]
