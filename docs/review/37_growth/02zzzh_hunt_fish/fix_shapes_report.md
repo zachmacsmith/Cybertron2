@@ -81,7 +81,7 @@ D2-339 set the final grammar, built here (`book.py`, rewritten as one feature un
   travel or free), is refused naming the field, its form and what was written: `Refused: rule: 'first' needs "goods" (an item, a
   kind (...) or a set you named); you wrote {...}`. A rule with no kind in `rule` is refused with the six kinds and an example.
 - **The prompt.** The rules block (`book.GRAMMAR`, the core's the same) states the form, the five kinds and drop with their
-  fields, the condition forms and the precedence in 119 words, with two examples (a set, and a do with a when).
+  fields, the condition forms and the precedence in 126 words, and two examples (a set, and a do with a when): 149 in all.
 - **Old records** on a book (go, keep, hold back, first with before, eat, move, tend, chore; conditions as sentences or u6 §3's
   state dicts) are converted as they are read (`book.convert`): a go into racks, a tub or a hearth is a `do` of the loading act; a
   go into a store, a keep and a hold back a `keep`; a tend and a move a `do` of that act with its condition; an eat a `share`; a
