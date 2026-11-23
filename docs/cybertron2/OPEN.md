@@ -140,6 +140,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | Q-96 | **Whether 'road networks are meshes by default, a tree or dead end only where the land is the reason, and named' becomes a rule for every world designed, in docs/scenario_design.md** | | bench |
 | Q-97 | **How many people one place may hold: the engine's proposed 15 to 20 a node (talk grows with the square of those present) against monoculture places with room for 12 to 14 households (60 or more people)** | | bench |
 | Q-98 | **Whether to keep World 0's Haiku 4.5 arm running: it costs about 13 times Haiku 5.5 a day (its fixed thinking budget), about 5.5 minutes a day against 1.4, so 200 days is about 18 hours and a large share of the weekly window** | | bench |
+| Q-99 | **World 0 is hard: the eel run reaches Highpool on day 5 but days 6 to 10 are spate and flood (traps wrecked), winter starts on day 13, and Highpool's stores last 5 to 7 days; keep it as the hard world, or add a gentler World 0b (start in spring, stores to the first harvest and catch through a bad run) for the next arms** | | bench |
 
 ## Offers and promises
 
