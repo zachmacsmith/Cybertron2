@@ -23,8 +23,10 @@ started
 
 ## Linked
 - parent: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
+- under it: [[D2-340 Passing on through care|Passing on through care (D2-340)]] (live)
 - under it: [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]] (done)
 
 
 ## Mentioned by
+- [[D2-340 Passing on through care|Passing on through care (D2-340)]]
 - [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]]
