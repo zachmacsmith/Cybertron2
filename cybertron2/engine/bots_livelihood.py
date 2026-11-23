@@ -168,6 +168,7 @@ class Plan:
         self.a, self.b, self.fallback = [], [], []
         self.a_len = {}                                   # phase a's length for each member of the household (to align b)
         self.cost = 0
+        self.made = {}                                    # gear made earlier in the plan, to be laid later in it
 
     def left(self) -> int:
         return self.day.units[self.day.name] - self.cost
@@ -398,17 +399,26 @@ def river_parcels(day) -> list:
 
 
 def traps(day, who=None, live=False) -> list:
-    """A person's traps in the water here (not a weir's), [(cid, thing)]; `live`: those still fishing tonight."""
+    """A person's traps in the water here (not a weir's), [(cid, thing)]; `live`: those still fishing tonight (placed gear: with a
+    sound piece standing, u2 §3; an older world's set: within its life)."""
+    from cybertron2.engine import gear as GE
     who = who or day.name
     out = []
     for cid, c in sorted(day.w.s["containers"].items()):
         sp = c.get("set") or {}
         if c.get("kind") != "set" or c.get("by") != who or c.get("node") != day.node or sp.get("method") != "trap in water" or sp.get("weir"):
             continue
-        if live and (sp.get("sprung") is not None or day.w.d - int(sp["set_day"]) >= int(sp["life"])):
+        if live and (sp.get("sprung") is not None or sp.get("state") in ("up", "spent") or GE.fishing(c) <= 0
+                     or ("gear" not in sp and day.w.d - int(sp["set_day"]) >= int(sp.get("life", 8)))):
             continue
         out.append((cid, c))
     return out
+
+
+def traps_standing(day, who=None) -> int:
+    """The sound wicker traps a person has standing in the water here."""
+    from cybertron2.engine import gear as GE
+    return sum(GE.fishing(c) for _, c in traps(day, who, live=True))
 
 
 def known_sets(day, who) -> list:
@@ -421,6 +431,10 @@ def known_sets(day, who) -> list:
             continue
         if c.get("by") == who or (TH.is_weir(c) and cid in known and (TH.owns_set(c, who) or not c.get("by"))):
             out.append((cid, c))
+        elif not TH.is_weir(c) and c.get("household") and TH.owns_set(c, who, day.w) and c.get("by") not in day.members \
+                and who == next((m for m in day.members if TH.owns_set(c, m, day.w)), None):
+            out.append((cid, c))                                               # the household's, its setter gone: tended by the first
+                                                                               # of the household here (D2-305)
     return out
 
 
@@ -428,11 +442,22 @@ def _lifts(day, who) -> list:
     """The takes that lift a person's catch this morning: one for each set thing and food item in it, named by its tag where the
     world has tags (so it is that thing, not a neighbour's at the same place); a weir's traps by the first of the household who
     knows them. [(act, item, qty)]."""
-    from cybertron2.engine import tags as TG, things as TH
+    from cybertron2.engine import gear as GE, tags as TG, things as TH
     out = []
     before = day.members[:day.members.index(who)] if who in day.members else []
     for cid, c in known_sets(day, who):
         if TH.is_weir(c) and any(c.get("by") != m and cid in TH.known_here(day.w, m, day.node) for m in before):
+            continue
+        sp = c.get("set") or {}
+        if "gear" in sp and not TH.is_weir(c):                                  # placed gear: tended, one act for all it holds, the
+            if sp.get("state") == "up":                                         # broken brought home, the rest set again (u2 §3)
+                continue
+            q = sum(float(x) for i, x in c["goods"].items() if i in EDIBLE)
+            fresh = sp.get("state") == "spent" and int(sp.get("tended", -1)) < int(sp.get("sprung", -1) or -1)
+            if q > 1e-6 or fresh or any(not GE.sound(x) for x in GE.laid_pieces(c, "wicker trap")):
+                act = {"do": "tend", "thing": c["tag"]} if TG.on(day.w) and c.get("tag") else \
+                    {"do": "tend", "what": "wicker traps", "at": day.pname(c["parcel"])}
+                out.append((act, "fish", q))
             continue
         for item, q in sorted(c["goods"].items()):
             if float(q) > 1e-6 and item in EDIBLE:
@@ -526,7 +551,7 @@ def runs(day, p) -> None:
             coming_all[i] = coming_all.get(i, 0.0) + q
         if m == day.name:
             for act in acts:
-                p.add("a", act, 1 if act.get("do") == "take" else 0)
+                p.add("a", act, 1 if act.get("do") in ("take", "tend") else 0)
     # phase b
     if day.role == 0:
         _gap(day, p, season, run, flow)
@@ -652,8 +677,19 @@ def _fisher(day, p, season, run, flow) -> None:
         for pid in river_parcels(day)[:1]:
             p.add("b", {"do": "gather", "what": "net", "at": day.pname(pid)}, 2)
     _set_traps(day, p, season, int(s["weir_traps"] if _weir(day, day.members[0])[0] else s["traps"]), flow)
+    _set_net(day, p, season, flow)
     if day.role == 1:
         _gather_wood(day, p, _wood_units(day))
+
+
+def _set_net(day, p, season, flow) -> None:
+    """A gill net held is set in the river's water while a run's window is open and the river is not in flood (a flood tears it,
+    u2 §4.4); tended with the traps (`_lifts`)."""
+    if not season or flow == "flood" or not day.knows("gill net") or day.here.sound_held("gill net") <= 0:
+        return
+    ps = river_parcels(day)
+    if ps:
+        p.add("b", {"do": "set", "what": "gill net", "at": day.pname(ps[0])}, 1)
 
 
 def _mend_weir(day, p, flow) -> None:
@@ -685,12 +721,65 @@ def _set_traps(day, p, season, want, flow) -> None:
     """Traps kept in the river's water through the windows (and the day before), `want` a person, spread over its river parcels; none
     set on a night the river runs as `trap_stop` says (a spate smashes half the traps in the river with their catch, a flood most:
     WATER_WORKS trap wreck; but the eels run on the rain, so a trap set into the rising water still fishes the run: by default
-    they are set whatever the river)."""
-    if not day.knows("trap in water") or flow in (day.s.get("trap_stop") or ()):
+    they are set whatever the river). Traps are laid from the hands, up to six a setting (u2 §3; fault 12); short of them, the
+    fisher mends the broken, makes more from withies, and cuts withies (`_trap_gear`)."""
+    if not day.knows("trap in water"):
         return
     want = want if season else int(day.s.get("off_season_traps") or 0)
-    have = len(traps(day, live=True))
+    if want <= 0:
+        return
+    _trap_gear(day, p, want, ahead=season or bool(run_season(day, ahead=3)))
+    if flow in (day.s.get("trap_stop") or ()):
+        return
+    have = traps_standing(day)
+    held = day.here.sound_held("wicker trap") + p.made.get("wicker trap", 0)
     ps = river_parcels(day)
-    for j in range(max(0, want - have)):
-        if not ps or not p.add("b", {"do": "set", "what": "trap in water", "at": day.pname(ps[(have + j) % len(ps)])}, 1):   # laid anew
+    j = 0
+    while have < want and held > 0 and ps:
+        n = min(6, want - have, held)
+        if not p.add("b", {"do": "set", "what": "wicker traps", "qty": n, "at": day.pname(ps[j % len(ps)])}, 1):
             break
+        have += n
+        held -= n
+        j += 1
+
+
+def _trap_gear(day, p, want, ahead=True) -> None:
+    """A fisher's traps kept in repair (u3 §3.4) and made (u3 §2.2): the broken in hand mended when withies are to hand; more traps
+    made, up to the batch a unit, while those standing and in hand fall short of `want` and the run is near; withies cut on the
+    willow when short (wild/willow.py), else from young growth."""
+    from cybertron2.engine import gear as GE
+    hands = day.w.s["containers"][day.here.hands]
+    broken = sum(1 for x in GE.pieces(hands, "wicker trap", day.w) if not GE.sound(x))
+    withies = day.reach("withies")
+    if broken and withies >= 0.05 * broken and day.knows("wicker trap"):
+        p.add("b", {"do": "make", "what": "mend", "item": "wicker trap"}, 1)
+        withies -= 0.045 * broken
+    if not ahead or not day.knows("wicker trap"):
+        return
+    short = want - traps_standing(day) - day.here.sound_held("wicker trap") - broken
+    if short <= 0:
+        return
+    from cybertron2.engine import clocks as CK
+    batch = CK.batch_of(TECHNIQUES["wicker trap"], day.here)
+    lvl = ((day.w.s["know"].get(day.name) or {}).get("wicker trap") or {}).get("level", "known")
+    need = 0.45 * (1.7 if lvl == "rough" else 1.3 if lvl == "capable" else 1.0)
+    k = int(min(short, batch, withies // need))
+    if k >= 1:
+        if p.add("b", {"do": "make", "what": "wicker trap", "qty": k}, 1):
+            p.made["wicker trap"] = p.made.get("wicker trap", 0) + k
+        return
+    cut = _willow_parcel(day)
+    if cut:
+        p.add("b", {"do": "gather", "what": "cut withies", "at": day.pname(cut)}, 1)
+
+
+def _willow_parcel(day):
+    """The parcel here with the most willow to cut, else a wood or scrub with young growth."""
+    best = sorted(((float(par["res"]["willow"]["S"]), pid) for pid, par in day.here.parcels().items() if "willow" in par["res"]
+                   and float(par["res"]["willow"]["S"]) >= 1.0), reverse=True)
+    if best:
+        return best[0][1]
+    young = sorted(((float(par["res"]["young"]["S"]), pid) for pid, par in day.here.parcels().items() if "young" in par["res"]
+                    and par["cover"] in ("forest", "scrub") and float(par["res"]["young"]["S"]) >= 1.0), reverse=True)
+    return young[0][1] if young else None

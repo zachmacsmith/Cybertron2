@@ -912,28 +912,81 @@ def _site_at(w, key, homes) -> tuple:
 
 
 def set_work(here, mind, tech, key, place_name) -> str:
-    """Setting a snare line or traps (brief 2 §4): a thing at the parcel that catches by night for its life; the setter knows it."""
-    from cybertron2.engine.data import TECHNIQUES
-    sp = TECHNIQUES[tech]["set"]
-    cid = here.apply("new_thing", node=here.node, parcel=key, kind="set", by=here.name,
-                     set={"method": tech, "life": int(sp["life"]), "base": float(sp["base"]), "set_day": here.day,
-                          "line": int(sp.get("line", 1)), "holds": int(sp.get("holds", 1)) * int(sp.get("line", 1))})
-    here.remember_thing(cid, "put")
-    what = "traps in the water" if tech == "trap in water" else "a line of snares"
-    tag = (here._w.s["containers"].get(cid) or {}).get("tag") if here.setting("tags") else None
-    return (f"You set {what} at {place_name}" + (f" ({tag})" if tag else "") + f"; they will catch by night for about "
-            f"{int(sp['life'])} nights. Named again here, they are tended: what they caught taken and they set again.")
+    """Setting gear (u2 §3): laid from the hands, placed.lay (fault 12: no set is made from nothing)."""
+    from cybertron2.engine import placed as PL
+    return PL.lay(here, mind, tech, key, place_name)
+
+
+SET_HOLD_KG = {"trap in water": None, "gill net": {"run": 15.0, "open": 6.0}, "set line": {"run": 3.0, "open": 1.0}}   # u2 §4.4, §4.5
+SNARE_NIGHT = {"dead": 0.8, "free": 1 / 3, "scavenged": 0.25, "scavenged_frost": 1 / 3}   # u2 §4.2 (default, est.; calibrate)
+
+
+def _head_goods(k) -> dict:
+    from cybertron2.engine.data import RESOURCES
+    return dict((((RESOURCES.get(k) or {}).get("taken") or {}).get("goods")) or {})
+
+
+def _snare_untended(w, cid, c) -> dict:
+    """A snare line's untended night (u2 §4.2): a catch still alive breaks free 1 in 3, tearing its noose; a dead one is taken by a
+    fox, crows or a stoat 1 in 4 a night (1 in 3 in a hard frost). Returns {"freed": n, "scavenged": n}."""
+    from cybertron2.engine import gear as GE
+    out = {"freed": 0, "scavenged": 0}
+    catch = list(c.get("catch") or [])
+    if not catch or not any(float(q) > 1e-9 for q in c["goods"].values()):
+        return out
+    node = c["node"]
+    rng = w.rng("snare-night", w.d, cid)
+    frost = w.cold(node)
+    keep = []
+    for x in catch:
+        if int(x.get("day", w.d)) >= w.d:
+            keep.append(x)
+            continue
+        gone = None
+        if x.get("alive") and rng.random() < SNARE_NIGHT["free"]:
+            gone = "freed"
+        elif rng.random() < (SNARE_NIGHT["scavenged_frost"] if frost else SNARE_NIGHT["scavenged"]):
+            gone = "scavenged"
+        if gone is None:
+            keep.append(dict(x, alive=False))
+            continue
+        out[gone] += 1
+        for item, q in sorted(_head_goods(x["kind"]).items()):
+            have = float(w.s["containers"][cid]["goods"].get(item, 0.0))
+            if have > 1e-9:
+                w.apply("destroy", node, src=cid, item=item, qty=round(min(have, float(q) * int(x.get("n", 1))), 4),
+                        why="taken from the snare in the night" if gone == "scavenged" else "broke free")
+    if out["freed"]:                                                      # the noose torn as it broke free
+        gear = GE.laid(c)
+        gear["snare"] = max(0, int(gear.get("snare", 0)) - out["freed"])
+        if not gear["snare"]:
+            gear.pop("snare")
+        w.apply("gear_night", node, cid=cid, field="gear", value=gear)
+    if out["freed"] or out["scavenged"]:
+        w.apply("set_thing", node, cid=cid, field="catch", value=keep)
+        note = dict(w.s["containers"][cid]["set"].get("lost") or {})
+        for k_, v in out.items():
+            if v:
+                note[k_] = int(note.get(k_, 0)) + v
+        w.apply("gear_night", node, cid=cid, field="lost", value=note)
+    return out
 
 
 def _set_night(w, m, st) -> dict:
     """Each set thing draws once a night by the take's rule (brief 2 §4): the kinds in its village's home area and ring, the method's
     table and cue rows, the setter's skill and familiarity, at a lower chance than a hunter there; a catch goes into it as the kind's
-    goods; a spent one is sprung. A head met that is one of a run passing is not taken here: the set thing's draws on the run are
-    kept (`w._set_run_wants`, {cid: {kind: heads}}, its room kept for them) and shared with the weirs and the race in the river's
-    night (wild/gear.py, W-69: within a parcel no gear stands before another)."""
-    from cybertron2.engine import knowledge as KN
-    from cybertron2.engine.data import RESOURCES, TECHNIQUES
-    from cybertron2.wild import methods as MT
+    goods. A head met that is one of a run passing is not taken here: the set thing's draws on the run are kept (`w._set_run_wants`,
+    {cid: {kind: heads}}, its room kept for them) and shared with the weirs and the race in the river's night (wild/gear.py, W-69:
+    within a parcel no gear stands before another).
+
+    Placed gear (u2 §2, §4; u1 §4, §6; u3 §3): a set stands until taken up, never springing by age; its `line` is its sound pieces;
+    under ice it is idle (takes nothing, robbed by nothing, its pieces' nights still run); a trap meets a run by its parcel's reach
+    (the fen beside the river half); a gill net and a set line draw the water's own fish too; a snare line's catch is dead by morning
+    4 in 5 and is scavenged or breaks free while untended; each night set is a night of its pieces' lives. A set with no gear record
+    (a world saved before this) springs by age as before."""
+    from cybertron2.engine import gear as GE, knowledge as KN
+    from cybertron2.engine.data import RESOURCES, TECHNIQUES, WATER_WORKS
+    from cybertron2.wild import methods as MT, water as WT
     from cybertron2.wild.kinds import HUNT
     land = w.s["wild"]["land"]
     out = {}
@@ -946,16 +999,41 @@ def _set_night(w, m, st) -> dict:
         if c.get("kind") != "set" or not sp or sp.get("sprung") is not None or sp.get("weir"):   # a weir's traps: its own rule
             continue
         node = c["node"]
-        if w.d - int(sp["set_day"]) >= int(sp["life"]):
-            w.apply("set_thing", node, cid=cid, field="set", value=dict(sp, sprung=w.d))
-            continue
+        placed = "gear" in sp
         tech = sp["method"]
+        if not placed:
+            if w.d - int(sp["set_day"]) >= int(sp.get("life", 8)):
+                w.apply("set_thing", node, cid=cid, field="set", value=dict(sp, sprung=w.d))
+                continue
+            line = int(sp.get("line", 1))
+        else:
+            if sp.get("state") in ("up", "spent"):
+                continue
+            line = GE.fishing(c)
+            if line <= 0:
+                w.apply("set_thing", node, cid=cid, field="set", value=dict(sp, state="spent", sprung=w.d))
+                continue
+            if tech in ("trap in water", "gill net", "set line") and WT.iced(w, c.get("parcel")):   # idle under ice (u1 §4)
+                if sp.get("state") != "idle":
+                    w.apply("set_thing", node, cid=cid, field="set", value=dict(sp, state="idle"))
+                GE.worn_night(w, cid)
+                continue
+            if sp.get("state") == "idle":
+                w.apply("set_thing", node, cid=cid, field="set", value=dict(sp, state="fishing"))
+            if tech == "snare":
+                _snare_untended(w, cid, c)
+                c = w.s["containers"][cid]
+                sp = c["set"]
+                line = GE.fishing(c)
+                if line <= 0:
+                    continue
         y = TECHNIQUES[tech]["yield"]
         areas = [i for i, a in enumerate(m.ids) if land.get("home", {}).get(node) == a
                  or (land["areas"][a]["kind"] == "ring" and land["areas"][a].get("node") == node)]
         ri = next((i for i in areas if land["areas"][m.ids[i]]["kind"] == "ring"), areas[0] if areas else None)
         if ri is None:
             continue
+        reach = WT.run_reach(w, c.get("parcel")) if placed and tech != "snare" else 1.0   # a run by the parcel's reach (u1 §6)
         rows = [r for r in (y.get("when") or []) if cond(w, node, r.get("if"), None, m, st, ri)]
         mind = SimpleMind(w, c.get("by"))
         cand = []
@@ -969,8 +1047,8 @@ def _set_night(w, m, st) -> dict:
                 if all(tr.get(t) == v for t, v in (r.get("for") or {}).items()):
                     x *= float(r.get("x", 1.0))
             for i in areas:                                                # by density on the ground the sets cover (brief 4 §2.10):
-                dens = pop[k][i] * SW.resident(w.spec, k) + (run[k][i] if k in run else 0.0)   # the village's own land, and half that
-                                                                            # from the ring (no resident fish: a run's only, W-69)
+                dens = pop[k][i] * SW.resident(w.spec, k) + (run[k][i] * reach if k in run else 0.0)   # the village's own land, and half
+                                                                            # that from the ring (no resident fish: a run's only, W-69)
                 cnt = dens * float(m.km2[i])
                 gr = min(float(m.km2[i]), float(sp.get("ground", 0.2)) * (1.0 if m.home[i] else 0.5))
                 wgt = dens * gr * float(tk.get("detect", 0.2)) * float(tw) * x * MT.factor(mind, k)
@@ -978,17 +1056,21 @@ def _set_night(w, m, st) -> dict:
                     cand.append((k, i, wgt))
         total = sum(x[2] for x in cand)
         rng = w.rng("wild-set", w.d, cid)
-        effort = float(TECHNIQUES[tech]["units"]) / 2.0 * float(sp["base"]) * int(sp.get("line", 1))
+        effort = float(TECHNIQUES[tech]["units"]) / 2.0 * float(sp["base"]) * line
         held = int(c.get("caught", 0) or 0) if any(float(q) > 1e-9 for q in c["goods"].values()) else 0   # emptied: room again
-        room = int(sp.get("holds", 1)) - held                               # a snare holds one beast, a wicker trap several
+        per = int(TECHNIQUES[tech].get("set", {}).get("holds", 1))
+        room = (per * line if placed else int(sp.get("holds", 1))) - held   # a snare holds one beast, a wicker trap several
         meet = float(TECHNIQUES[tech].get("set", {}).get("meet", HUNT["set_meet"]))
         tries = _poisson(rng, meet * total * effort, max(0, room)) if total > 0 else 0   # (brief 4 §2.10:
         skill = float(((w.s["know"].get(c.get("by")) or {}).get(tech) or {}).get("skill", KN.curve(tech)[0]))   # the run shows)
         got = []
         cap = None
+        passing = any(any(v[i] > 0 for i in areas) for k, v in run.items()) and reach > 0
         if tech == "trap in water":                                       # a set trap in water holds about 10 kg (D2-213, D2-258)
-            from cybertron2.engine.data import WATER_WORKS
-            cap = float(WATER_WORKS["trap"]["hold"]) - held_kg(c)
+            cap = float(WATER_WORKS["trap"]["hold"]) * (line if placed else 1) - held_kg(c)
+        elif tech in SET_HOLD_KG and SET_HOLD_KG[tech]:
+            cap = float(SET_HOLD_KG[tech]["run"]) * line - held_kg(c)
+        cap0 = cap
         for _ in range(tries):
             u, acc = rng.random() * total, 0.0
             for k, i, wgt in cand:
@@ -1003,7 +1085,7 @@ def _set_night(w, m, st) -> dict:
                 if _kg_of(k) > cap + 1e-9:
                     continue
                 cap -= _kg_of(k)
-            r_ = run[k][i] if k in run else 0.0
+            r_ = run[k][i] * reach if k in run else 0.0
             if r_ > 0 and rng.random() < r_ / (r_ + pop[k][i] * SW.resident(w.spec, k)):   # one of the run's: drawn on the run in
                 wants.setdefault(cid, {})[k] = wants.get(cid, {}).get(k, 0) + 1           # the river's night, shared (gear.py)
                 continue
@@ -1012,11 +1094,35 @@ def _set_night(w, m, st) -> dict:
             for item, q in sorted((tk.get("goods") or {}).items()):
                 w.apply("create", node, dst=cid, item=item, qty=float(q), why="caught in a set")
             got.append(k)
+        drew = 0.0
+        if placed and tech in ("gill net", "set line"):                  # the water's own fish (u2 §4.4, §4.5): up to a night's draw
+            fr = (w.s["parcels"].get(c.get("parcel")) or {}).get("res", {}).get("fish")   # at full stock, falling with S/K
+            if fr and float(fr["K"]) > 0:
+                q = float(SET_HOLD_KG[tech]["open"]) * line * max(0.0, min(1.0, float(fr["S"]) / float(fr["K"])))
+                q *= 0.5 + rng.random()                                    # a night's luck about its mean
+                q = min(q, max(0.0, (cap if cap is not None else q)), max(0.0, float(fr["S"]) - (w.p["refuge"] + 0.02) * float(fr["K"])))
+                if q > 0.01:
+                    drew = w.apply("draw", node, parcel=c["parcel"], key="fish", qty=round(q, 2))
+                    if drew > 0:
+                        w.apply("create", node, dst=cid, item="fish", qty=round(drew, 2), why="caught in a set")
+                        if cap is not None:
+                            cap -= drew
         if got:
             w.apply("set_thing", node, cid=cid, field="caught", value=held + len(got))
             had = list(c.get("catch") or []) if held else []                   # what it holds, by the night caught (brief 4c §4)
-            w.apply("set_thing", node, cid=cid, field="catch", value=had + [{"kind": k, "day": w.d} for k in got])
+            new = [{"kind": k, "day": w.d} for k in got]
+            if tech == "snare":                                               # dead by morning 4 in 5 (u2 §4.2)
+                new = [dict(x, alive=rng.random() >= SNARE_NIGHT["dead"]) for x in new]
+            w.apply("set_thing", node, cid=cid, field="catch", value=had + new)
             out[cid] = got[0] if len(got) == 1 else got
+        elif drew > 0:
+            out[cid] = "fish"
+        if placed:
+            sp = w.s["containers"][cid]["set"]
+            full = cap is not None and cap0 is not None and cap0 > 0 and cap < 0.5 * min([_kg_of(k) for k, _, _ in cand] or [1.0])
+            w.apply("set_thing", node, cid=cid, field="set", value=dict(sp, night={"day": w.d, "run": bool(passing)},
+                                                                        **({"full": w.d} if full else {})))
+            GE.worn_night(w, cid)
     return out
 
 
@@ -3146,11 +3252,18 @@ def _runs_night(w, m) -> dict:
         if sh:
             gear_at.setdefault(c["node"], []).append({"id": ("set", cid), "parcel": c.get("parcel"), "pos": _upstream(w, c.get("parcel")),
                                                       "share": sh, "dirs": ("down", "up"), "worth": worth, "room": None, "cid": cid})
-    from cybertron2.wild import gear as GR
+    from cybertron2.wild import gear as GR, water as WT_
     why = {"weir": "the weir", "race": "the mill race", "set": "caught in a set"}
     for node, gear in sorted(gear_at.items()):
         g = f"v:{node}"
         if g not in nt.members:
+            continue
+        ic = WT_.stretch_ice(w, node)                                     # under ice (u1 §4): at the edges only the weir's gap fishes,
+        if ic == "edges":                                                  # for the fish going up under the ice; frozen over, nothing
+            gear = [dict(x, dirs=("up",)) for x in gear if x["id"][0] == "weir"]
+        elif ic == "over":
+            gear = []
+        if not gear:
             continue
         pulses = [p for p in RU.today(m, st, day) if p["g"] == g]          # (the state's own pulses: thinned in place)
         got = GR.share_run(pulses, gear)
@@ -3177,12 +3290,33 @@ def _runs_night(w, m) -> dict:
             if any(lost):
                 out.setdefault("wear", {})[bid] = {"flow": fl, "lost": lost}
         wreck = float((WATER_WORKS["trap"]["wreck"]).get(fl, 0.0))
-        if wreck > 0:                                                     # a spate wrecks the traps in the river (D2-211)
+        if wreck > 0:                                                     # placed gear torn away piece by piece, its share of the
+            from cybertron2.engine import gear as GE                      # catch with it: in the river at D2-218's rate, in the fen
+            from cybertron2.wild import water as WT                       # beside it at its own (u2 §4.1; u1 §6)
             for cid, c in sorted(w.s["containers"].items()):
                 sp = c.get("set") or {}
-                if c.get("kind") != "set" or c.get("node") != node or sp.get("method") != "trap in water" or sp.get("weir") \
-                        or sp.get("sprung") is not None or not _river_parcel(w, c.get("parcel")):
+                if c.get("kind") != "set" or c.get("node") != node or "gear" not in sp or sp.get("weir") \
+                        or sp.get("state") in ("up", "spent", "idle") or sp.get("method") not in ("trap in water", "gill net", "set line"):
                     continue
+                cover = (w.s["parcels"].get(c.get("parcel")) or {}).get("cover")
+                rate = wreck if _river_parcel(w, c.get("parcel")) else (WT.fen_wreck(fl) if cover == "fen" and WT.run_reach(w, c["parcel"]) > 0 else 0.0)
+                if sp.get("method") == "gill net":                         # a net fouls in a spate, is torn in a flood (u2 §4.4)
+                    rate = 0.3 if fl == "flood" and rate > 0 else 0.0
+                if rate <= 0:
+                    continue
+                n0 = sum(GE.laid(c).values())
+                lost = GE.tear(w, cid, (rate, w.rng("trap-wreck", w.d, cid)), fl)
+                if lost:
+                    share = lost / max(1, n0)
+                    for item, q in sorted(w.s["containers"][cid]["goods"].items()):
+                        if float(q) > 1e-9:
+                            w.apply("destroy", node, src=cid, item=item, qty=round(float(q) * share, 4), why=f"swept away in the {fl}")
+                    out.setdefault("wrecked", []).append(cid)
+            for cid, c in sorted(w.s["containers"].items()):
+                sp = c.get("set") or {}
+                if c.get("kind") != "set" or c.get("node") != node or "gear" in sp or sp.get("method") != "trap in water" or sp.get("weir") \
+                        or sp.get("sprung") is not None or not _river_parcel(w, c.get("parcel")):
+                    continue                                              # an older world's trap: all or nothing, as before
                 if w.rng("trap-wreck", w.d, cid).random() < wreck:
                     for item, q in sorted(c["goods"].items()):
                         if float(q) > 1e-9:
@@ -3190,9 +3324,26 @@ def _runs_night(w, m) -> dict:
                     w.apply("set_thing", node, cid=cid, field="catch", value=[])
                     w.apply("set_thing", node, cid=cid, field="set", value=dict(sp, sprung=w.d, wrecked=fl))
                     out.setdefault("wrecked", []).append(cid)
+    from cybertron2.engine import gear as GE                              # the thaw: traps crushed or torn as the ice goes out (u1 §4)
+    from cybertron2.wild import water as WT
+    for cid, c in sorted(w.s["containers"].items()):
+        sp = c.get("set") or {}
+        if c.get("kind") != "set" or "gear" not in sp or sp.get("weir") or sp.get("state") in ("up", "spent") \
+                or sp.get("method") not in ("trap in water", "gill net", "set line"):
+            continue
+        rate = WT.thaw_wreck(w, c.get("parcel"))
+        if rate > 0 and GE.tear(w, cid, (rate, w.rng("thaw-wreck", w.d, cid)), "thaw"):
+            out.setdefault("thaw", []).append(cid)
     if flows:
         out["flow"] = flows
-    eff = RU.advance(m, st, day, wx_today, weather(w, nodes, w.d + 1), stops=_dam_stops(w, m), weather=_runs_cued(w))
+    iced = {}                                                             # a run held at an iced stretch (u1 §4)
+    for node in sorted({p_["node"] for p_ in w.s["parcels"].values()}):
+        ic = WT.stretch_ice(w, node)
+        if ic != "open":
+            iced[f"v:{node}"] = ic
+    if iced:
+        out["iced"] = iced
+    eff = RU.advance(m, st, day, wx_today, weather(w, nodes, w.d + 1), stops=_dam_stops(w, m), weather=_runs_cued(w), iced=iced)
     if any(eff.values()):
         out["moved"] = eff
     held = {p["g"]: True for p in RU.today(m, st, day + 1) if p.get("held")}
@@ -3219,7 +3370,8 @@ def _robbers(w, m, st) -> dict:
     watch = {pid for pid, v in (w.s["wild"].get("watch") or {}).items() if int(v.get("day", -9)) == w.d}
     for cid, c in sorted(w.s["containers"].items()):
         sp = c.get("set")
-        if c.get("kind") != "set" or not sp or sp.get("method") != "trap in water" or c.get("parcel") in watch:
+        if c.get("kind") != "set" or not sp or sp.get("method") != "trap in water" or c.get("parcel") in watch \
+                or sp.get("state") in ("idle", "up", "spent"):                    # nothing robs gear frozen in (u1 §4)
             continue
         caught = [x for x in (c.get("catch") or []) if any(float(q) > 1e-9 for q in c["goods"].values())]
         if not caught:
@@ -3276,7 +3428,43 @@ def run_here(w, node, pid) -> bool:
     return i is not None and any(v[i] > 0 for v in run_density(w, m, st).values())
 
 
-def run_take(here, mind, tech, key, units) -> tuple:
+def run_kinds(w, node, pid) -> list:
+    """The kinds of a run passing this village's water at a river parcel today (u2 §4.1's water axis)."""
+    from cybertron2.wild import runs as RU
+    if not on(w) or not (w.s.get("wild") or {}).get("state") or not _river_parcel(w, pid):
+        return []
+    st = w.s["wild"]["state"]
+    if not st.get("runs"):
+        return []
+    m = model(w)
+    i = RU.net(m).area.get(f"v:{node}")
+    return sorted(k for k, v in run_density(w, m, st).items() if i is not None and v[i] > 0)
+
+
+def flow_tonight(w, node) -> str:
+    """The river's flow tonight at a village (normal, high, spate, flood), from the catchment's rain today and before (as
+    `_runs_night` reads it); normal where no river runs."""
+    from cybertron2.engine.data import WATER_WORKS
+    from cybertron2.wild import runs as RU
+    try:
+        if not on(w) or not (w.s.get("wild") or {}).get("state"):
+            return "normal"
+        m = model(w)
+        if not RU.active(m):
+            return "normal"
+        st = w.s["wild"]["state"]
+        nodes = sorted(set(m.nodes))
+        wx = weather(w, nodes, w.d)
+        rain = (st.get("runs") or {}).get("rain") or {}
+        mem = {nd: [float((wx.get(nd) or {}).get("rain", 0.0))] + list(rain.get(nd) or []) for nd in sorted(set(nodes) | set(rain))}
+        nt = RU.net(m)
+        g = f"v:{node}"
+        return RU.flow(nt, g, mem, WATER_WORKS["weir"]["wear"]["flow_at"]) if g in nt.members else "normal"
+    except Exception:
+        return "normal"
+
+
+def run_take(here, mind, tech, key, units, x=1.0) -> tuple:
     """Fishing by hand where a run is (brief 5 §3a.2: the fish held below a dam, or a run passing): the take's rule at the run's
     density on the village's water (meetings over `units`, a fifth of a km2 a unit; each taken at the method's chance). Returns
     (food, words)."""
@@ -3302,7 +3490,7 @@ def run_take(here, mind, tech, key, units) -> tuple:
     got = {}
     for k in sorted(rd):
         tk = (RESOURCES.get(k) or {}).get("taken") or {}
-        lam = rd[k][i] * float(tk.get("detect", 0.2)) * ground * float(HUNT["meet"]) * MT.factor(mind, k)
+        lam = rd[k][i] * float(tk.get("detect", 0.2)) * ground * float(HUNT["meet"]) * MT.factor(mind, k) * float(x)   # the pinch (u1 §5)
         for _ in range(_poisson(rng, lam, int(HUNT["most"]))):
             if rng.random() >= chance(float(HUNT["take_k"]) * skill * (1 - float(tk.get("flee", 0.5))) * MT.factor(mind, k)):
                 continue

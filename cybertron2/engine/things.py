@@ -161,7 +161,7 @@ def _describe(w, c) -> str:
     if c.get("beast"):
         return f"a dead {c['beast']} lies at {where}" + (": past eating" if not carcass_fresh(w, c) else "")
     if c.get("kind") == "set":                                              # never "empty": only a look says so (4c §4.3)
-        what = "the weir's traps" if is_weir(c) else ("wicker traps set in the water" if is_trap(c) else "a line of snares set")
+        what = "the weir's traps" if is_weir(c) else SET_WHAT.get((c.get("set") or {}).get("method"), "a line of snares set")
         cw = catch_words(w, c) or g
         if (c.get("set") or {}).get("sprung") is not None:
             return f"{what} at {where}, spent" + (f", with {cw} in them" if cw else "")
@@ -287,9 +287,14 @@ def is_weir(c) -> bool:
 
 
 def owns_set(c, name, w=None) -> bool:
-    """Whether one set this thing (or works the weir it belongs to), or one's household did (D2-305: a household's things are every
-    member's own, given the world `w`): taking from it is no robbery."""
-    if c.get("by") == name or (is_weir(c) and name in (c.get("crew") or [])):
+    """Whether a set thing is one's own (D2-305; u2 §2): one works the weir it belongs to; or it is one's household's, fixed at the
+    setting (`household`: every living member's own; one who has left it owns it no more, its setter too); or, for a set with no
+    household record, one set it, or one's household did (given the world `w`). Taking from it is no robbery."""
+    if is_weir(c) and name in (c.get("crew") or []):
+        return True
+    if c.get("household") and w is not None:
+        return w.household_of(name) == c["household"]
+    if c.get("by") == name:
         return True
     if w is not None and c.get("by"):
         hh = w.household_of(name)
@@ -297,14 +302,19 @@ def owns_set(c, name, w=None) -> bool:
     return False
 
 
+SET_NOUN = {"trap in water": "wicker traps", "snare": "snares", "gill net": "gill net", "set line": "set line"}
+SET_WHAT = {"trap in water": "wicker traps set in the water", "snare": "a line of snares set", "gill net": "a gill net set in the water",
+            "set line": "a set line of hooks in the water"}
+
+
 def trap_noun(c) -> str:
-    return "weir's traps" if is_weir(c) else ("wicker traps" if is_trap(c) else "snares")
+    return "weir's traps" if is_weir(c) else SET_NOUN.get((c.get("set") or {}).get("method"), "snares")
 
 
 def set_about(w, c) -> bool:
     """A set thing still lying where it was set, to be looked over: live, or spent within `spent_days`."""
     sp = c.get("set") if c.get("kind") == "set" else None
-    if not sp:
+    if not sp or sp.get("state") == "up":                                     # taken up: nothing lies there (u2 §3)
         return False
     return sp.get("sprung") is None or w.d - int(sp["sprung"]) <= int(THINGS["set"]["spent_days"])
 
@@ -396,7 +406,22 @@ def set_line(w, name, c, r, daystr) -> str:
     mine = owns_set(c, name, w)
     tag = c.get("tag")
     where = f"{where} ({tag})" if tag and on_tags(w) else where              # one's own sets with their tags (u2 §6 fault 8)
-    if is_weir(c):
+    sp = c.get("set") or {}
+    if sp.get("gear") is not None and not is_weir(c):                         # placed gear: its count and whose (u2 §3)
+        from cybertron2.engine import gear as GE
+        n = GE.fishing(c)
+        noun = SET_NOUN.get(sp.get("method"), "snares")
+        hh = c.get("household")
+        by = c.get("by")
+        if hh and by != name and mine:
+            base = f"your household's {noun} at {where} ({n} set by {by})"
+        elif mine:
+            base = f"your {noun} at {where} ({n} {'standing' if n else 'left'})"
+        else:
+            base = f"{noun} set at {where}" + (f" ({by}'s)" if by else "")
+        if sp.get("state") == "idle":
+            base += ", frozen in"
+    elif is_weir(c):
         base = f"the traps of the weir you work at {where}" if mine else f"the traps of the weir at {where}"
     elif is_trap(c):
         base = f"wicker traps you set in the water at {where}" if mine else f"wicker traps set in the water at {where}"
@@ -418,7 +443,8 @@ def set_words(c) -> tuple:
     """The words a set thing is named by in an act ('the snares', 'my traps'), loosely."""
     if is_weir(c):
         return ("weir", "trap", "wicker", "eel", "salmon")
-    return ("trap", "wicker", "eel") if is_trap(c) else ("snare", "noose")
+    m = (c.get("set") or {}).get("method")
+    return {"trap in water": ("trap", "wicker", "eel"), "gill net": ("net",), "set line": ("set line", "line", "hooks")}.get(m, ("snare", "noose"))
 
 
 # ---------------------------------------------------------------------- the eye for the land (D4-50, D2-91)

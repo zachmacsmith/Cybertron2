@@ -466,6 +466,72 @@ class Here:
                 and (c.get("set") or {}).get("method") == tech and TH.owns_set(c, self.name, self._w) and TH.set_about(self._w, c)]
         return max(hits)[1] if hits else None
 
+    # placed gear and the water's states (u1, u2; W-98): the reads the placed-gear acts make
+    def sets(self) -> dict:
+        """The set things standing here (not taken up or spent past `spent_days`): {thing id: thing}."""
+        from cybertron2.engine import things as TH
+        def live(sp):                                                          # spent and not yet looked at since: still there to
+            return sp.get("state") != "up" and not (sp.get("state") == "spent" and int(sp.get("tended", -1)) >= int(sp.get("sprung", -1) or -1))
+        return {cid: c for cid, c in self._w.s["containers"].items() if c.get("kind") == "set" and c.get("node") == self.node
+                and TH.set_about(self._w, c) and live(c.get("set") or {})}             # be tended and found gone
+
+    def gear_words(self) -> list:
+        """One's own gear in hand and its state: ['6 wicker traps: 2 broken, wanting mending; the rest good for about 8 more nights set']."""
+        from cybertron2.engine import gear as GE
+        return GE.held_words(self._w, self.hands)
+
+    def owns_thing(self, c) -> bool:
+        """A thing lying somewhere one's own: put there by oneself or one's household (D2-305)."""
+        by = c.get("by")
+        if not by:
+            return False
+        hh = self._w.household_of(self.name)
+        return by == self.name or (bool(hh) and self._w.household_of(by) == hh)
+
+    def sound_held(self, item) -> int:
+        """Whole pieces of a good in one's hands fit to use (gear worn past use is not; u3 §3.2)."""
+        from cybertron2.engine import gear as GE
+        return GE.sound_count(self._w.s["containers"][self.hands], item, self._w)
+
+    def pieces(self, cid, item) -> list:
+        from cybertron2.engine import gear as GE
+        return GE.pieces(self._w.s["containers"][cid], item, self._w)
+
+    def ice(self, pid) -> str:
+        """The ice on a water or fen parcel here today: open, edges or over (u1 §4)."""
+        from cybertron2.wild import water as WT
+        return WT.ice(self._w, pid)
+
+    def water_type(self, pid):
+        from cybertron2.wild import water as WT
+        return WT.water_type(self._w, pid)
+
+    def pinch(self, pid) -> float:
+        from cybertron2.wild import water as WT
+        return WT.pinch(self._w, pid)
+
+    def day_words(self, day) -> str:
+        c = self._w.calendar(day)
+        return f"{c['season']} day {c['day']}"
+
+    def catch_words(self, c) -> str:
+        from cybertron2.engine import things as TH
+        return TH.catch_words(self._w, c)
+
+    def plural(self, kind) -> str:
+        from cybertron2.engine import things as TH
+        return TH._plural(kind)
+
+    def run_kinds(self, pid) -> list:
+        """The kinds of a run passing this place's water at that parcel today (u2 §4.1's water axis)."""
+        from cybertron2.engine import wild as WL
+        return WL.run_kinds(self._w, self.node, pid)
+
+    def flow_tonight(self) -> str:
+        """The river's flow tonight at this place, from the catchment's rain (normal, high, spate, flood; normal without a river)."""
+        from cybertron2.engine import wild as WL
+        return WL.flow_tonight(self._w, self.node)
+
     def weir_water(self, pid) -> str:
         """A weir's water for its cost (D2-302): beck, lowland or large (wild.water_kind); lowland without the wild layer."""
         from cybertron2.engine import wild as WL
