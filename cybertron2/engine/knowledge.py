@@ -191,23 +191,39 @@ def where(here, tech, graves=False) -> list:
     return out
 
 
+def draws_at(here, tech, pid) -> str | None:
+    """The stock a technique draws at a parcel: its own, else its `draws_else` where its own is not there (withies: the willow, else
+    young growth, u3 §1.1); the edge draws the shallows where they are, else the water's fish (u1 §2)."""
+    t = TECHNIQUES[tech]
+    d = t.get("draws")
+    res = (here.parcels().get(pid) or {}).get("res") or {}
+    if d not in res and t.get("draws_else") and t["draws_else"] in res:
+        return t["draws_else"]
+    return d
+
+
 def ready(here, tech, kind, key, a=None) -> str:
     """'' if the site can be worked by this technique now, else why not (what it draws on, in its state)."""
     t = TECHNIQUES[tech]
     y = (t.get("yield") or {}).get("kind")
     if t.get("seasons") and here.calendar()["season"] not in t["seasons"]:
         return f"{label(tech)} is done in {' and '.join(t['seasons'])}"
-    if kind == "parcel" and y in ("sow", "break", "tend", "manure", "crop", "herd", "milk", "slaughter", "works", "select", "fence", "gate"):
+    if kind == "parcel" and y in ("sow", "break", "tend", "manure", "crop", "herd", "milk", "slaughter", "works", "select", "fence", "gate",
+                                  "pull", "dig_strip"):
         from cybertron2.engine import farm as FM
         return FM.ready(here, tech, key, a)                                  # on whose holding (D2-172)
     if kind == "parcel":
         p = here.parcels()[key]
-        d = t.get("draws")
-        if d == "fish" and t.get("run"):                                      # a run passing there today (Q-79 bug 1, u2 §6: the
-            if here.run_here(key):                                            # phase-1 patch until the shallows are built)
-                return ""
+        d = draws_at(here, tech, key)
+        if t.get("ice") and here.ice(key) != "open":                          # a freeze (u1 §4; D2-265)
+            return (f"the edges of {p['name']} are ice" if t["ice"] == "edge" else
+                    f"{p['name']} is frozen at its edges: there is no open water to fish from the bank")
+        if t.get("run") and here.run_here(key) and here.pinch(key) > 0:      # a run passing there today (Q-79 bug 1; u1 §5)
+            return ""
         if d in RESOURCES and d not in p["res"]:                              # any stock the data names (D4-103)
-            return f"there is no {({'plants': 'wild food', 'grass': 'grass to cut', 'dead': 'dead wood', 'young': 'young growth'}).get(d, d)} at {p['name']}"
+            return f"there is no {({'plants': 'wild food', 'grass': 'grass to cut', 'dead': 'dead wood', 'young': 'young growth', 'willow': 'willow to cut', 'shallows': 'shallow water to fish'}).get(d, d)} at {p['name']}"
+        if d == "willow" and p["res"][d]["S"] < 0.5:
+            return f"the willow at {p['name']} is cut back: no rods left worth cutting until spring"
         if d in ("dead", "young") and p["res"][d]["S"] < 0.5:
             return f"there is no {'dead wood' if d == 'dead' else 'young growth'} left to take at {p['name']}"
         if d == "grass" and p["res"][d]["S"] <= 0.2 * p["res"][d]["K"]:
@@ -224,6 +240,8 @@ def ready(here, tech, kind, key, a=None) -> str:
             return f"{p['name']} is picked bare"
         if d == "fish" and p["res"][d]["S"] <= (here.p["refuge"] + 0.02) * p["res"][d]["K"]:
             return f"the fish at {p['name']} are fished out for now"
+        if d == "shallows" and p["res"][d]["S"] <= (here.p["refuge"] + 0.02) * p["res"][d]["K"]:   # never "no fish" (u2 §4.6)
+            return f"the shallows of {p['name']} are fished out for now, and nothing is running"
         if d == "wood" and p["res"][d]["S"] <= 0.5:
             return f"there is no standing timber left in {p['name']}"
         if y == "sow" and p.get("crop") and p["crop"].get("left", 0) > 1e-9:
@@ -341,6 +359,8 @@ def shortfall(here, mind, tech, mult=1.0, at=None, extra=None, a=None) -> str:
     for f_ in t.get("home_fittings") or []:                                   # kept at one's home (a dog for a watch)
         if not any((here.buildings()[b].get("fittings") or {}).get(f_) for b in here.homes_here() if b in here.buildings()):
             return f"you keep no {f_} at your home here"
+    if t.get("gear_x") and not any(here.sound_held(g) > 0 for g in t["gear_x"]):   # a line to fish with (u2 §4.5)
+        return "you have no line to fish with (a hand line, or a rod and line)"
     if t.get("animals") or t.get("uses"):
         from cybertron2.engine import farm as FM
         why = FM.team_shortfall(here, t)
@@ -389,15 +409,98 @@ def card(here, mind, tech) -> str:
     return line
 
 
-def crafts_lines(mind) -> list:
+def _place_words(t) -> str:
+    """Where a craft is done, from the data (u3 §4.1): 'at a smoke racks', 'at a house', 'on water or fen', 'anywhere'."""
+    at = t.get("at") or {}
+    if at.get("fittings"):
+        labs = [FITTINGS.get(f, {}).get("label", f).split(" (")[0].removeprefix("a ").removeprefix("an ").removeprefix("the ")
+                for f in at["fittings"]]
+        return "at " + " or ".join(("an " if x[:1] in "aeiou" else "a ") + x for x in labs)
+    if at.get("building"):
+        return "at a house"
+    if at.get("covers"):
+        return "on " + " or ".join(at["covers"])
+    if at.get("things"):
+        return "at " + " or ".join(at["things"])
+    return "anywhere"
+
+
+def _ins_words(ins, mult=1.0) -> str:
+    return " and ".join(" or ".join(f"{round(float(n) * mult, 3):g} {i}" for i, n in q.items()) if isinstance(q, dict)
+                        else f"{round(float(q) * mult, 3):g} {item}" for item, q in (ins or {}).items())
+
+
+def _gives_words(t) -> str:
+    g = t.get("gives")
+    if not g:
+        return ""
+    return g if isinstance(g, str) else " and ".join(f"{q:g} {i}" for i, q in g.items())
+
+
+def craft_line(tech, lvl, rec=None, w=None) -> str:
+    """A craft as one at `lvl` is shown it (D2-263; u3 §4): at known and capable its inputs with their batch, what it gives, its units
+    and where; at known also its life and its season (D2-251); at capable the odds and the extra materials; at rough its inputs as
+    the card has them; aware, its name and where one heard of it. Numbers come from the data at the world's factor (`w`)."""
+    from cybertron2.engine import clocks as CK, gear as GE
+    t = TECHNIQUES[tech]
+    lab = label(tech)
+    rec = rec or {}
+    if lvl == "aware":
+        return f"{lab} ({rec.get('source') or 'you know of it'})"
+    ins = t.get("inputs") or {}
+    place = _place_words(t)
+    gives = _gives_words(t)
+    hours = bool(t.get("hours"))
+    units = CK.act_units(t, w) if hours else int(t.get("units", 1) or 0)
+    season = ""
+    if t.get("by_season"):
+        best = max(t["by_season"].items(), key=lambda kv: (kv[1], kv[0]))[0]
+        season = f"best in {best}"
+    if lvl == "rough":
+        body = _ins_words(ins) or "no materials"
+        return f"{lab} (a rough idea: {body}" + (f", {place}" if place != "anywhere" or ins else "") + ")"
+    if hours and isinstance(t.get("gives"), dict) and len(t["gives"]) == 1:
+        item = next(iter(t["gives"]))
+        b = CK.batch_of(t, w)
+        thing = GE.plural(item) if b != 1 else item
+        body = (f"up to {b} {thing} a unit, each from {_ins_words(ins)}" if b > 1 else
+                f"{_ins_words(ins) or 'no materials'}, {units} unit{'s' if units != 1 else ''}; gives a {item}") if ins else \
+            f"{units} unit{'s' if units != 1 else ''}; gives {gives}"
+        life = GE.life_words(item, w) if lvl == "known" else ""
+    elif t.get("batch") and ins:
+        body = f"up to {_ins_words(ins)}, {units} unit{'s' if units != 1 else ''}" + (f"; gives as much {gives.split(' ', 1)[-1]}" if gives else "")
+        life = ""
+    elif ins:
+        body = f"{_ins_words(ins)}, {units} unit{'s' if units != 1 else ''}" + (f"; gives {gives}" if gives else "")
+        life = ""
+    else:
+        body = f"{units} unit{'s' if units != 1 else ''}" if units else ""
+        life = ""
+    bits = [x for x in (body, place if place != "anywhere" or ins else "", life, season if lvl == "known" else "") if x]
+    head = "known" if lvl == "known" else "capable"
+    if lvl == "known" and rec.get("skill") is not None:
+        head += f", {skill_word(float(rec['skill']), tech)}"
+    if lvl == "capable":
+        bits.append(f"works about {int(round(TRY['capable']['chance'] * 4))} times in 4, with about "
+                    f"{'a third' if abs(TRY['capable']['inputs'] - 1.3) < 0.05 else str(round((TRY['capable']['inputs'] - 1) * 100)) + '%'} more materials")
+    return f"{lab} ({head}" + (": " + "; ".join(bits) if bits else "") + ")"
+
+
+def crafts_lines(mind, here=None) -> list:
+    """The crafts one knows, each as one's level shows it (D2-263; u3 §4). `here` gives the world's capital factor for the units."""
     k = mind.know
-    known = [f"{TECHNIQUES[t]['label']} ({skill_word(r['skill'], t)})" for t, r in sorted(k.items()) if r["level"] == "known" and not basic(t)]
+    w = here
+    known = [craft_line(t, "known", r, w) for t, r in sorted(k.items()) if r["level"] == "known" and not basic(t)]
     practised = [f"{label(t)} ({skill_word(r['skill'], t)})" for t, r in sorted(k.items()) if basic(t) and r.get("skill", 1.0) >= 1.1]
-    capable = [f"{TECHNIQUES[t]['label']} ({r['source']})" for t, r in sorted(k.items()) if r["level"] == "capable"]
-    rough = [f"{TECHNIQUES[t]['label']} ({r['source']})" for t, r in sorted(k.items()) if r["level"] == "rough"]
+    capable = [craft_line(t, "capable", r, w) for t, r in sorted(k.items()) if r["level"] == "capable"]
+    rough = [craft_line(t, "rough", r, w) for t, r in sorted(k.items()) if r["level"] == "rough"]
     aware = [f"{TECHNIQUES[t]['label']} ({r['source']})" for t, r in sorted(k.items()) if r["level"] == "aware"]
     basics = ", ".join(label(t) for t in TECHNIQUES if basic(t) and not TECHNIQUES[t].get("modifies"))
+    makes = [craft_line(t, "known", None, w) for t in TECHNIQUES if basic(t) and TECHNIQUES[t]["verb"] == "make"
+             and (TECHNIQUES[t].get("inputs") or TECHNIQUES[t].get("hours")) and not TECHNIQUES[t].get("modifies")]
     out = [f"- Everyone knows: {basics}."]
+    if makes:
+        out.append("- Everyone's makings: " + "; ".join(makes) + ".")
     if practised:
         out.append("- Long practice has made you better than most at: " + "; ".join(practised) + ".")
     if known:

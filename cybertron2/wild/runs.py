@@ -313,7 +313,7 @@ def _calendar_cue(m, day, seasons) -> bool:
     return k in tuple(WK.RUN.get("no_weather", (1, 4)))
 
 
-def advance(m, st, day, wx, ahead, stops=None, weather=True) -> dict:
+def advance(m, st, day, wx, ahead, stops=None, weather=True, iced=None) -> dict:
     """The night of ecology day `day`, after the day's takes: the pulses there today move on (or reach the sea, or spawn); the cue on
     `day + 1` (`ahead`, tomorrow's weather by node; `weather` False: a world without the climate, on set nights) starts new pulses; a shut dam (`stops`: {stretch: share}) holds its share of an
     up-run arriving tomorrow. Returns what happened, for the engine: {"sea": {k: n}, "spawned": {k: n}, "started": {k: n}}."""
@@ -327,10 +327,15 @@ def advance(m, st, day, wx, ahead, stops=None, weather=True) -> dict:
     for nd in sorted({n_ for g in nt.catch for n_ in nt.catch[g]}):        # today's rain into the memory
         mem[nd] = [round(float((wx.get(nd) or {}).get("rain", 0.0)), 3)] + list(mem.get(nd) or [])[:MEMORY - 1]
     keep = []
+    iced = iced or {}
     for p in R["pulses"]:
         if int(p["d"]) > day:
             keep.append(p)
             continue
+        ice_ = iced.get(p["g"])                                             # held at an iced stretch to the next open night (u1 §4):
+        if int(p["d"]) == day and float(p["n"]) > 1e-6 and not p.get("held") and ice_ and (p["dir"] == "down" or ice_ == "over"):
+            keep.append(dict(p, d=day + 1))                                  # eels at any ice, salmon and lampreys when frozen over;
+            continue                                                         # tallied once, the night it moves on
         if int(p["d"]) == day and float(p["n"]) > 1e-6:                     # what passed the stretch this year (its signs)
             ty = R.setdefault("tally", {}).setdefault(p["k"], {}).setdefault(p["g"], {})
             ty[str(day // m.Y)] = round(float(ty.get(str(day // m.Y), 0.0)) + float(p["n"]), 4)
@@ -382,7 +387,7 @@ def advance(m, st, day, wx, ahead, stops=None, weather=True) -> dict:
                 pop = st["pop"].get(k)
                 cal = _calendar_cue(m, d1, r["seasons"]) if not weather else False
                 for g in sorted(nt.members):
-                    if not (cal if not weather else cued(nt, g, r["cue"], cue_mem)):
+                    if not (cal if not weather else cued(nt, g, r["cue"], cue_mem)) or g in iced:   # no eel starts at an iced stretch
                         continue
                     for a in nt.members[g]:
                         left = float(q.get(a, 0.0))

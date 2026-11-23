@@ -21,7 +21,7 @@ forests.seed as a night's rate (proposals/process_model.md, "Clocks").
 from __future__ import annotations
 
 RULES = {}
-NIGHTLY = ("fast", "threshold", "periodic", "seasonal")          # regrown by night._grow; the woods' three by forests.night
+NIGHTLY = ("fast", "threshold", "periodic", "seasonal", "shallows", "willow")          # regrown by night._grow; the woods' three by forests.night
 RESPONSES = {"proportional": 1.0, "hyperstable": 0.4, "hyperdepleted": 2.0}     # calibrate
 
 
@@ -61,6 +61,22 @@ def periodic(p, res, ctx):
     if target > K:                                         # the run arriving
         return round(min(target, S + rr * (target - S)), 4)
     return NI.regrow(p, "fast", S, K, float(res.get("r", 0.3)), ctx.get("winter", False))
+
+
+@rule("shallows")
+def shallows(p, res, ctx):
+    """The shallows of a water or fen parcel (u1 §2; D2-317): logistic toward K at the season's rate on the year clock, with a
+    stripped margin's refill; nothing on a night the parcel is iced (`iced` in the context, night._grow)."""
+    from cybertron2.wild import water as WT
+    return WT.renew(res, ctx.get("season"), bool(ctx.get("iced")))
+
+
+@rule("willow")
+def willow(p, res, ctx):
+    """Wild willow's rods (u3 §1.1): a yearly crop on the stools, back to its K on the first night of spring and not before; summer
+    cutting lowers K (verbs), which comes back a tenth of the loss each spring."""
+    from cybertron2.wild import willow as WI
+    return WI.renew(res, ctx)
 
 
 @rule("seasonal")

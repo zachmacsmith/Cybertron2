@@ -238,6 +238,10 @@ def night(w) -> dict:
     rec["farm"] = FM.night(w)
     from cybertron2.engine import wild as WL                                    # the wild layer, with its pack only (D2-199)
     WL.night(w, rec)
+    from cybertron2.engine import gear as GE                                    # gear rots by time and condition (u3 §3.2)
+    gone = GE.rot_night(w)
+    if gone:
+        rec["gear"] = gone
     for oid, o in s["offers"].items():                                          # offers lapse (money_and_markets.md)
         if not o["open"]:
             continue
@@ -551,7 +555,18 @@ def _grow(w):
             if rule not in RN.NIGHTLY or r["K"] <= 0 or id(r) in done:
                 continue
             done.add(id(r))
-            S = RN.RULES[rule](p, r, RN.context(w, par, winter=winter, season=season))   # with its place's weather (D4-113)
+            extra = {}
+            if rule == "shallows":                                                       # none under ice (u1 §4)
+                from cybertron2.wild import water as WT
+                extra["iced"] = WT.iced(w, pid)
+            elif rule == "willow":                                                       # the rods' year (u3 §1.1)
+                extra["first_spring"] = season == "spring" and int(w.calendar()["day"]) == 1
+                extra["grazed"] = any(h.get("parcel") == pid and int(h.get("count", 0)) > 0 for h in w.s["herds"].values())
+            S = RN.RULES[rule](p, r, RN.context(w, par, winter=winter, season=season, **extra))   # with its place's weather (D4-113)
+            if rule == "willow" and extra.get("first_spring"):
+                from cybertron2.wild import willow as WI
+                if WI.spring_K(r) != r["K"]:
+                    w.apply("set_res", par["node"], parcel=pid, key=key, fields={"K": WI.spring_K(r)})
             if S != r["S"]:
                 w.apply("set_res", par["node"], parcel=pid, key=key, fields={"S": S})
         # crops: farm.night (D2-53, D4-39)
