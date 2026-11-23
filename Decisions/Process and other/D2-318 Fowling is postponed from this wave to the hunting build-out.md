@@ -21,6 +21,7 @@ conversation (23 Nov: "Can we actually just postpone fowling for the hunting bui
 
 
 ## Mentioned by
+- [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]]
 - [[L-170 Fowling the methods|Fowling: the methods (L-170)]]
 - [[The build plan|The build plan]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]

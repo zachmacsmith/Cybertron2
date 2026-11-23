@@ -33,7 +33,7 @@
 - [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]]: closed by agent
 - [[W-98 Build stage 2, taking and making|Build stage 2, taking and making (W-98)]]: closed by agent
 
-## Active threads (18)
+## Active threads (19)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -56,6 +56,8 @@
   next: stages 1 to 4 built one after another without stopping (Zach 23 Nov: 'as the stage finish continue until…
 - [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]]  
   next: survey and design written (c101c75d); 37.2 reviewed the counts; eight design questions and seven survey…
+- [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]]  
+  next: builder agent on branch w105-lines in /home/user/c2-lines; then 37.2 reviews and merges
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  

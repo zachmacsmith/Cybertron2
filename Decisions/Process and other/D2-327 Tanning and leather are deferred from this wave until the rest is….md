@@ -21,6 +21,7 @@ conversation (23 Nov: "on leather: I think it has a one way dependnecy where it 
 
 
 ## Mentioned by
+- [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]]
 - [[L-171 Tanning and leather|Tanning and leather (L-171)]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]
