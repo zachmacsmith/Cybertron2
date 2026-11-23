@@ -48,15 +48,19 @@ def test_an_old_list_of_sections_means_what_it_did():
 
 
 def test_a_sections_cost_is_its_materials_and_the_firsts_adds_the_weirs_stakes():
-    assert GR.cost(0, "wattle") == {"materials": MONUMENTS["weir"]["materials"], "units": MONUMENTS["weir"]["units"]}   # as built
-    assert GR.cost(1, "timber") == {"materials": {"timber": 10}, "units": 25}                                              # as before
-    assert GR.cost(0, "timber")["materials"]["timber"] > GR.cost(0, "wattle")["materials"]["timber"]                      # timber dearer
-    assert GR.cost(2, "wattle")["materials"]["timber"] < GR.cost(2, "timber")["materials"]["timber"]
+    """D2-302 (W-97): the weir's cost set directly, in one place (WATER_WORKS), by its water."""
+    assert GR.cost(0, "wattle") == {"materials": MONUMENTS["weir"]["materials"], "units": MONUMENTS["weir"]["units"]}   # one copy
+    assert GR.cost(0, "wattle") == {"materials": {"timber": 20, "withies": 10}, "units": 12}
+    assert GR.cost(1, "wattle") == {"materials": {"timber": 8, "withies": 5}, "units": 6}
+    assert GR.cost(0, "timber") == {"materials": {"timber": 40}, "units": 20}
+    assert GR.cost(1, "timber") == {"materials": {"timber": 15}, "units": 10}
+    assert GR.cost(0, "wattle", water="beck")["units"] == pytest.approx(3.6)                                             # x 0.3
+    assert GR.cost(0, "wattle", water="large") == {"materials": {"timber": 50, "withies": 25}, "units": 30}             # x 2.5
     up = GR.upgrade_cost("wattle", "timber")
-    assert up == {"materials": {"timber": 4.0}, "units": 9.0}
+    assert up == {"materials": {"timber": 20.0}, "units": 8.0}
     assert up["materials"]["timber"] == GR.cost(0, "timber")["materials"]["timber"] - GR.cost(0, "wattle")["materials"]["timber"]
     foot = GR.cost(1, "timber", foot=True)
-    assert foot["materials"] == {"timber": 10, "stone": 10} and foot["units"] == 40
+    assert foot["materials"] == {"timber": 15, "stone": 10} and foot["units"] == 25
 
 
 def _work_until_done(w, who, act, most=40):
@@ -76,22 +80,26 @@ def test_a_weir_built_in_timber_and_a_wattle_section_upgraded_for_the_difference
     a, c = adults(w, node)[:2]
     w.s["know"].setdefault(a, {})["weir"] = {"level": "known", "skill": 1.0}       # a craft, not everyone's (W-97, u2 §6 bug 4)
     hands = w.s["containers"][Here(w, a).hands]["goods"]
-    hands["timber"] = 60
+    hands["timber"] = 200
+    hands["withies"] = 20
     pid = water(w, node)
+    x = GR.water_x(WL.water_kind(w, WL.model(w), pid))                                 # Saltwell's water (D2-302: x 2.5 on a large river)
     r = do(w, a, {"do": "build", "what": "weir", "at": w.s["parcels"][pid]["name"], "with": c, "structure": "timber"})
     assert not r.startswith("Refused"), r
-    assert hands["timber"] == pytest.approx(60 - 16)                                   # the first section in timber: 6 + 10
-    bid = next(x for x, b in w.s["buildings"].items() if WL.is_weir(b) and b["parcel"] == pid)
+    assert hands["timber"] == pytest.approx(200 - 40 * x)                              # the first section in timber (D2-302)
+    bid = next(x_ for x_, b in w.s["buildings"].items() if WL.is_weir(b) and b["parcel"] == pid)
     b = w.s["buildings"][bid]
-    assert MONUMENTS["weir"]["units"] < b["unfinished"]["units_left"] <= 33.0          # 33 units, less the first action's work
+    assert b["unfinished"]["units_left"] < 20 * x                                     # its units, less the first action's work
     b["unfinished"] = None
     assert WL.sections(b)[0]["m"] == "timber" and WL.weir_share(b) == pytest.approx(0.30)
+    t0 = hands["timber"]
     r = _work_until_done(w, (a, c), {"do": "build", "what": "wattle section", "at": b["name"]})
-    assert hands["timber"] == pytest.approx(44 - 6)                                    # an added wattle section: 6 timber
+    assert hands["timber"] == pytest.approx(t0 - 8 * x)                                # an added wattle section: 8 timber, 5 withies
     assert [sc["m"] for sc in WL.sections(w.s["buildings"][bid])] == ["timber", "wattle"]
     w.s["buildings"][bid]["sections"][1]["level"] = 3
+    t0 = hands["timber"]
     r = _work_until_done(w, (a, c), {"do": "build", "what": "section upgrade", "at": b["name"]})
-    assert hands["timber"] == pytest.approx(38 - 4)                                    # the difference: 10 - 6
+    assert hands["timber"] == pytest.approx(t0 - 7 * x)                                # the difference: 15 - 8
     secs = WL.sections(w.s["buildings"][bid])
     assert [sc["m"] for sc in secs] == ["timber", "timber"] and secs[1]["level"] == 3   # rebuilt in timber, its wear kept
     refused(w, a, {"do": "build", "what": "section upgrade", "at": b["name"]}, "timber already")
@@ -104,10 +112,11 @@ def test_the_upgrade_verb_rebuilds_a_weirs_wattle_section_in_timber(river):
     bid = put_weir(w, "Saltwell")
     b = w.s["buildings"][bid]
     a, c = b["crew"]
-    w.s["containers"][Here(w, a).hands]["goods"]["timber"] = 10
+    w.s["containers"][Here(w, a).hands]["goods"]["timber"] = 60
+    up = GR.upgrade_cost("wattle", "timber", water=WL.water_kind(w, WL.model(w), b["parcel"]))   # the difference (D2-302)
     _work_until_done(w, (a, c), {"do": "build", "what": "upgrade", "at": b["name"], "to": "timber"})
     assert WL.sections(w.s["buildings"][bid])[0]["m"] == "timber"
-    assert w.s["containers"][Here(w, a).hands]["goods"]["timber"] == pytest.approx(6)
+    assert w.s["containers"][Here(w, a).hands]["goods"]["timber"] == pytest.approx(60 - up["materials"]["timber"])
 
 
 # ---------------------------------------------------------------------- 2. gear sharing a run
@@ -187,8 +196,8 @@ def runs_world():
 
 
 def test_a_full_weirs_yearly_upkeep_on_the_runs_world_is_in_d2_210s_band(runs_world):
-    """D2-210: a full weir costs a quarter to a third of its building a year to keep (wattle about 40 to 50%, timber 20 to 25%,
-    stone-footed 5 to 10%), on Eelmouth's large river and its own weather, frost and floods, the gap kept right (open in high water);
+    """D2-302 (replacing D2-210's band, W-97): a wattle section costs about a quarter of its building a year to keep, timber an
+    eighth (stone-footed under 5%), on Eelmouth's large river and its own weather, frost and floods, the gap kept right (open in high water);
     with it shut in high water the year costs clearly more."""
     w = copy.deepcopy(runs_world)
     m = WL.model(w)
@@ -211,9 +220,9 @@ def test_a_full_weirs_yearly_upkeep_on_the_runs_world_is_in_d2_210s_band(runs_wo
         return tot / yrs * WW["mend"]
 
     wattle, timber, foot = year(1.0, False), year(0.5, False), year(0.1, False)
-    assert 0.40 <= wattle <= 0.55 and 0.20 <= timber <= 0.28 and foot <= 0.10, (wattle, timber, foot)
+    assert 0.20 <= wattle <= 0.28 and 0.10 <= timber <= 0.14 and foot <= 0.05, (wattle, timber, foot)   # D2-302: a quarter, an eighth
     c1, c2 = GR.cost(0, "wattle")["units"], GR.cost(1, "timber")["units"]
     full = (wattle * c1 + 3 * timber * c2) / (c1 + 3 * c2)
-    assert 0.25 <= full <= 0.34, full
+    assert 0.12 <= full <= 0.18, full                                            # between D2-302's eighth and quarter
     shut = (year(1.0, True) * c1 + 3 * year(0.5, True) * c2) / (c1 + 3 * c2)
     assert shut > 1.4 * full, (shut, full)

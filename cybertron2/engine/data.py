@@ -86,6 +86,8 @@ ITEMS = {
     "castoreum": {"weight": 0.2, "food": 0.0, "spoil": 0.0, "pack": "wild"},   # the beaver's scent glands: a physician's good
     "timber": {"weight": 2, "food": 0.0, "spoil": 0.0, "heat": 2.0},   # D2-24; 2 heat (D2-157)
     "stone": {"weight": 3, "food": 0.0, "spoil": 0.0},                 # D2-3, D2-24
+    "withies": {"weight": 10, "food": 0.0, "spoil": 0.0085},            # a 10 kg bundle of green rods (D2-288; u3 §1.1: a quarter lost
+                                                                        # by about 34 nights on the keeping curve, D2-289)
     "hide": {"weight": 1, "food": 0.0, "spoil": 0.0, "decay": "hide"},                  # D2-24
     "tallow": {"weight": 1, "food": 0.0, "spoil": 0.0},                                  # a beast's fat, rendered or not (brief 3 §5);
     # food 0 against FDC's 3.6 a kg: a design choice, the lights' good (02zzu choice 6; whether it is famine food is for Zach)
@@ -342,8 +344,8 @@ MONUMENTS = {
     # (`with`), with a condition (floods and ice wear it, mended like a building) and a gap set open or shut (WATER_WORKS); its
     # materials and units are its first section's in wattle (WATER_WORKS weir: position.first + material.wattle, W-69); built with
     # "structure": timber, the first section is timber and costs the difference more (wild/gear.py)
-    "weir": {"label": "a fish weir (stakes and wattle across the river, wicker traps in its gap)", "materials": {"timber": 12},
-             "units": 24, "basic": False, "structure": "timber", "site": "river", "crew": 2, "pack": "wild",   # a craft (u2 §6 bug 4)
+    "weir": {"label": "a fish weir (stakes and wattle across the river, wicker traps in its gap)",   # its cost: WATER_WORKS (D2-302)
+             "basic": False, "structure": "timber", "site": "river", "crew": 2, "pack": "wild",   # a craft (u2 §6 bug 4)
              "aliases": ["fish weir", "a weir", "a fish weir", "eel weir", "build a weir", "build weir"]},
 }
 # The river's works (brief 5 §3, §3a, §3b; D2-209, D2-210; calibrate). A weir is built in sections (D2-210). **Position decides a
@@ -373,20 +375,33 @@ MONUMENTS = {
 # year there, timber 0.67, a full weir 0.82, and a flood night took a wattle section with the gap open or shut. A level a week of
 # normal flow on a lowland river (`base`) is kept. Now a spate costs a wattle section about 0.4 levels with the gap open and 0.9
 # shut, a flood 0.9 and 1.7 (D2-210's "a flood with the gap shut usually takes the section" gives way to its year's upkeep).
-WATER_WORKS = {"weir": {"position": {"first": {"share": 0.30, "hold": 100.0, "materials": {"timber": 6}, "units": 8},
+# The weir's cost (D2-302, 23 Nov; calibrate in live runs): set directly, here and nowhere else (MONUMENTS["weir"] reads it), on a
+# lowland river: a wattle first section 12 units, 20 timber (poles, D2-303), 10 withies; each added one (up to 3) 6 units, 8 timber,
+# 5 withies; a timber first section 20 units, 40 timber, each added 10 units and 15 timber; a beck 0.3 times these, a large river
+# 2.5 times (`water`); upgrading costs the difference. Upkeep a year a quarter of the build (wattle), an eighth (timber): the
+# measured year's wear (wattle about 8 levels a year, timber about 4, on the runs world's river) at `mend` 0.03 of a section's build a
+# level (was 0.06: half a wattle section's cost a year). Was: a wattle first section 12 timber and 24 units, a timber added one 10
+# timber and 25 units (the old 2 kg timber).
+WATER_WORKS = {"weir": {"position": {"first": {"share": 0.30, "hold": 100.0},
                                      "added": {"share": 0.07, "hold": 70.0, "most": 3}},
-                        "material": {"wattle": {"wear": 1.0, "materials": {"timber": 6}, "units": 16},
-                                     "timber": {"wear": 0.5, "materials": {"timber": 10}, "units": 25}},
+                        "material": {"wattle": {"wear": 1.0}, "timber": {"wear": 0.5}},
+                        "cost": {"first": {"wattle": {"materials": {"timber": 20, "withies": 10}, "units": 12},
+                                           "timber": {"materials": {"timber": 40}, "units": 20}},
+                                 "added": {"wattle": {"materials": {"timber": 8, "withies": 5}, "units": 6},
+                                           "timber": {"materials": {"timber": 15}, "units": 10}},
+                                 "water": {"beck": 0.3, "lowland": 1.0, "large": 2.5}},
                         "footing": {"wear": 0.1, "materials": {"stone": 10}, "units": 15},
                         "open": 0.1, "by_level": {5: 1.0, 4: 0.8, 3: 0.6, 2: 0.3, 1: 0.1, 0: 0.0},
                         "wear": {"base": 0.143, "water": {"lowland": 1.0, "large": 1.2, "beck": 2.0}, "beck_m": 150.0,
                                  "flow": {"low": 0.5, "normal": 1.0, "high": 1.5, "spate": 2.5, "flood": 5.0},
                                  "flow_at": [[0.3, "low"], [1.5, "normal"], [3.0, "high"], [5.0, "spate"]], "gap_high": 2.0,
                                  "ice": 1.5, "thaw": 2.0},
-                        "mend": 0.06, "units": {"shut": 2, "open": 1}},
+                        "mend": 0.03, "units": {"shut": 2, "open": 1}},
                "trap": {"wreck": {"spate": 0.5, "flood": 0.85},           # a flood very likely, not always (D2-218)
                         "hold": 10.0},                      # a set trap in water, in the river or a race, holds this many kg (D2-213, D2-258)
                "mill": {"stop": 0.5, "race": 0.5, "open_rate": 0.5, "units": {"shut": 1, "open": 1}}}
+MONUMENTS["weir"].update(materials=dict(WATER_WORKS["weir"]["cost"]["first"]["wattle"]["materials"]),   # read from the one copy
+                         units=WATER_WORKS["weir"]["cost"]["first"]["wattle"]["units"])             # (D2-302), never held twice
 # Extravagance in tiers (D2-171; calibrate): materials and work multiplied; noticed further (signs.BUILDING, layout, roads).
 TIERS = {
     "plain": {"materials": 1.0, "work": 1.0, "words": ""},
@@ -435,6 +450,13 @@ TECHNIQUES = {
             "aliases": ["cut young growth", "coppice", "coppicing", "cut brush", "cut poles"],
             "at": {"covers": ["forest", "scrub"]}, "draws": "young", "yield": {"kind": "fixed", "base": 5.0},
             "tools": {"crude": 1.0, "copper": 1.5}, "wear": 0.5, "units": 1, "gives": "firewood", "tags": ["timber", "woodland", "fuel"]},
+    # withies (u3 §1.1; D2-288: a 10 kg bundle of green rods): cut from young growth in a wood or scrub, 1.5 bundles a unit with a
+    # crude tool, by the season; a stage-1 bridge for the weir's withies (D2-302) until u3's willow stock and withy bed (stage 2)
+    "cut withies": {"verb": "gather", "label": "cutting withies (green rods for wattle and wicker)", "basic": True,
+                    "aliases": ["withies", "cut rods", "cut wands", "cut osiers"], "at": {"covers": ["forest", "scrub"]}, "draws": "young",
+                    "yield": {"kind": "fixed", "base": 1.5}, "tools": {"bare": 0.33, "crude": 1.0, "copper": 1.33}, "wear": 0.25,
+                    "by_season": {"winter": 1.0, "autumn": 0.8, "spring": 0.5, "summer": 0.3}, "units": 1, "gives": "withies",
+                    "tags": ["timber", "woodland", "craft"]},
     "mine": {"verb": "gather", "label": "mining copper ore", "aliases": ["mining", "dig ore"], "at": {"covers": ["rock"]}, "draws": "seam",
              "yield": {"kind": "fixed", "base": 2.0}, "tools": {"crude": 1.0, "copper": 1.5}, "wear": 2, "units": 2, "gives": "copper ore",
              "tags": ["mining", "craft"], "trade": "miner"},

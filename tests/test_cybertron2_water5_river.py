@@ -188,7 +188,7 @@ def test_the_weir_is_crew_work_built_on_a_river_and_its_gap_set_by_its_crew(rive
     w = fresh(river)
     a, b, c = adults(w, "Saltwell")[:3]
     w.s["know"].setdefault(a, {})["weir"] = {"level": "known", "skill": 1.0}       # a craft, not everyone's (W-97, u2 §6 bug 4);
-    w.s["containers"][Here(w, a).hands]["goods"]["timber"] = 30                     # b works on its crew under a
+    w.s["containers"][Here(w, a).hands]["goods"].update(timber=60, withies=30)       # b works on its crew under a (D2-302's cost)
     refused(w, a, {"do": "build", "what": "weir", "at": w.s["parcels"][water(w, "Saltwell")]["name"]}, "crew work")
     refused(w, a, {"do": "build", "what": "weir", "at": "the Brine Meadow", "with": b}, "across a river")
     do(w, a, {"do": "build", "what": "weir", "at": w.s["parcels"][water(w, "Saltwell")]["name"], "with": b})
@@ -459,7 +459,9 @@ def test_the_weirs_ladder_adds_share_and_hold_a_section_at_a_time(river):
     assert WL.weir_share(b) == pytest.approx(0.30) and WL.weir_hold(b) == pytest.approx(100.0)    # kg (D2-258; was 10 food)
     a, c = b["crew"]
     hands = w.s["containers"][Here(w, a).hands]["goods"]
-    hands["timber"], hands["stone"] = 40, 20
+    from cybertron2.wild import gear as GR
+    x = GR.water_x(WL.water_kind(w, WL.model(w), b["parcel"]))                       # D2-302's cost by the water (W-97)
+    hands["timber"], hands["stone"] = 3 * 15 * x + 10, 20
     for part, n in (("weir section", 3), ("stone footing", 1)):
         for _ in range(n):
             for i in range(30):
@@ -595,12 +597,13 @@ def test_a_full_weirs_upkeep_on_a_lowland_river_is_a_quarter_to_a_third_of_its_c
     # made; the remade world's Saltwell catchment (floodplains, D2-226) gave about 0.95 (a full weir 0.75). Re-pinned to the band
     # with the wear calibrated on the runs world (W-69, 20 Nov; test_cybertron2_water_fixes, 02zzw_water_fixes.md): Saltwell's
     # wattle about 0.47, a full weir about 0.29, the gap open all year (this expectation leaves out the cap of 5 levels a night).
+    # D2-302 (W-97): a year's upkeep a quarter of the build (wattle), an eighth (timber): `mend` halved to 0.03, wattle about 0.24.
     assert share["timber"] == pytest.approx(0.5 * share["wattle"]) and share["foot"] == pytest.approx(0.1 * share["wattle"])
-    assert 0.35 <= share["wattle"] <= 0.55, share
+    assert 0.18 <= share["wattle"] <= 0.28, share
     c1 = MONUMENTS["weir"]["units"]
-    c2 = WW["material"]["timber"]["units"]
+    c2 = WW["cost"]["added"]["timber"]["units"]
     full = (share["wattle"] * c1 + 3 * share["timber"] * c2) / (c1 + 3 * c2)
-    assert 0.25 <= full <= 0.34, full
+    assert 0.11 <= full <= 0.18, full
 
 
 def test_a_weir_is_mended_a_section_and_a_level_at_a_time(river):
@@ -613,7 +616,10 @@ def test_a_weir_is_mended_a_section_and_a_level_at_a_time(river):
     w.s["know"].setdefault(a, {})
     r = do(w, a, {"do": "work", "what": "repair", "at": b["name"]})
     assert "mended a section" in r and WL.sections(w.s["buildings"][bid])[1]["level"] == 3
-    assert w.s["containers"][Here(w, a).hands]["goods"]["timber"] == pytest.approx(4)   # 6% of 10 timber: one
+    import math
+    from cybertron2.wild import gear as GR
+    need = max(1, math.ceil(GR.cost(1, "timber", water=WL.water_kind(w, WL.model(w), b["parcel"]))["materials"]["timber"] * WW["mend"] - 1e-9))
+    assert w.s["containers"][Here(w, a).hands]["goods"]["timber"] == pytest.approx(5 - need)   # 3% of its timber, at least one (D2-302)
 
 
 def test_fish_alive_in_a_weir_or_a_trap_do_not_spoil_until_lifted(river, monkeypatch):

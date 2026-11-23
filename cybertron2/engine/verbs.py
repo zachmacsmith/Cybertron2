@@ -1016,12 +1016,12 @@ def _monument(here, mind, a, party, pid, what):
         _ground_check(here, pid, int(SPACE["monument_ground"]), d["label"])
     t = TIERS[how]
     mats, units, first = dict(d["materials"]), float(d["units"]), None
-    if d.get("site") == "river" and (a.get("structure") or a.get("material")):  # a weir's first section in either material (W-69)
-        from cybertron2.wild import gear as GR
-        first = STRUCTURE_WORDS.get(str(a.get("structure") or a.get("material")).strip().lower())
+    if d.get("site") == "river":                                              # a weir's first section in either material (W-69),
+        from cybertron2.wild import gear as GR                                # its cost by its water (D2-302)
+        first = STRUCTURE_WORDS.get(str(a.get("structure") or a.get("material") or "wattle").strip().lower())
         if first not in GR.MATERIALS:
             raise Refused(f"a weir's section is wattle or timber, not {a.get('structure') or a.get('material')!r}")
-        c = GR.cost(0, first)
+        c = GR.cost(0, first, water=_weir_water(here, pid))
         mats, units = c["materials"], float(c["units"])
     _consume(here, {i: q * float(t["materials"]) for i, q in mats.items()}, TRY[lvl]["inputs"],
              here.party_container(party) if party else None)
@@ -1186,7 +1186,7 @@ def _weir_part(here, mind, a, party, part):
         if part in GR.MATERIALS:
             if len(secs) - 1 >= GR.most_added():
                 raise Refused(f"{b['name']} has all its sections: {len(secs)}")
-            c = GR.cost(len(secs), part)
+            c = GR.cost(len(secs), part, water=_weir_water(here, b["parcel"]))
         elif part == "footing":
             if all(sc.get("foot") for sc in secs):
                 raise Refused(f"every section of {b['name']} stands on a stone footing")
@@ -1195,7 +1195,8 @@ def _weir_part(here, mind, a, party, part):
         else:
             if not any(sc["m"] == "wattle" for sc in secs):
                 raise Refused(f"every section of {b['name']} is timber already")
-            c = GR.upgrade_cost("wattle", "timber")
+            c = GR.upgrade_cost("wattle", "timber", j=next(i for i, sc in enumerate(secs) if sc["m"] == "wattle"),
+                                water=_weir_water(here, b["parcel"]))
         _consume(here, c["materials"], 1.0, here.party_container(party) if party else None)
         wk = {"part": part, "units_left": float(c["units"])}
     elif wk["part"] != part:
@@ -1221,6 +1222,15 @@ def _weir_part(here, mind, a, party, part):
     return f"You finished {what} on {b['name']}: it now has {len(secs)} section{'s' if len(secs) != 1 else ''}."
 
 
+def _weir_water(here, pid) -> str:
+    """A weir's water for its cost (D2-302): beck, lowland or large (wild.water_kind); lowland without the wild layer."""
+    from cybertron2.engine import wild as WL
+    try:
+        return WL.water_kind(here._w, WL.model(here._w), pid) if WL.on(here._w) else "lowland"
+    except Exception:                                                          # a world with no river network: as lowland
+        return "lowland"
+
+
 def _weir_mend(here, bid, m) -> str:
     """Mending a weir (D2-210): its worst section a level, for `mend` of that section's build (by its place and material, with its
     footing: wild/gear.py) in materials (at least one of each) when the mending starts, and its work, two units an action."""
@@ -1237,7 +1247,7 @@ def _weir_mend(here, bid, m) -> str:
         if int(secs[j]["level"]) >= 5:
             return f"{b['name']} is sound: there is nothing to mend."
         sc = secs[j]
-        c = GR.cost(j, sc["m"], bool(sc.get("foot")))
+        c = GR.cost(j, sc["m"], bool(sc.get("foot")), water=_weir_water(here, b["parcel"]))
         build, units = c["materials"], float(c["units"])
         need = {k: max(1, _m.ceil(float(v) * float(W["mend"]) - 1e-9)) for k, v in build.items()}
         _consume(here, need, extra=b["stock"] if here.may_take(b["stock"]) else None)
