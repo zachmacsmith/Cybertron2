@@ -92,6 +92,7 @@ started
 - [[D2-294 Going back to one's set gear is the act 'tend'|Going back to one's set gear is the act 'tend' (D2-294)]]
 - [[D2-295 Each depth of cure is its own good|Each depth of cure is its own good (D2-295)]]
 - [[D2-296 Fallbacks are assignable by the household's standing rules|Fallbacks are assignable by the household's standing rules (D2-296)]]
+- [[D2-313 For this wave|For this wave (D2-313)]]
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]
 - [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]
@@ -110,6 +111,5 @@ started
 - [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]]
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
 - [[L-111 The hunting and resources build, a soon follow-up|The hunting and resources build, a soon follow-up (L-111)]]
-- [[L-113 Briefs 4, 4b and 4c's deviations, to revisit|Briefs 4, 4b and 4c's deviations, to revisit (L-113)]]
-- … and 43 more
+- … and 45 more
 - *and 4 index or audit notes*

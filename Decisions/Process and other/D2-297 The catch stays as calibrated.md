@@ -21,6 +21,7 @@ conversation (22 Nov: "I don't think we need to measure this or change rn I thin
 
 
 ## Mentioned by
+- [[D2-315 The wild's rates still on the day clock are left as calibrated for…|The wild's rates still on the day clock are left as calibrated for… (D2-315)]]
 - [[The basis sheet the numbers and words every part of the wave shares|The basis sheet: the numbers and words every part of the wave shares]]
 - [[The integration review (23 Nov 2026)|The integration review (23 Nov 2026)]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]

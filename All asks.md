@@ -21,7 +21,6 @@
 - [[Q-30 livestock.md's fence upkeep (D2-130) and D4-114|livestock.md's fence upkeep (D2-130) and D4-114 (Q-30)]] (open)
 - [[Q-29 scheduler.md and the weather scheduler (D4-109)|scheduler.md and the weather scheduler (D4-109) (Q-29)]] (open)
 - [[Q-28 The economy check counts crops that winter will clear|The economy check counts crops that winter will clear (Q-28)]] (open)
-- [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)]] (open)
 - [[Q-24a Q-24 settled in part by Zach|Q-24 settled in part by Zach (Q-24a)]] (open)
 - [[Q-19 Overlapping fuse events in more depth|Overlapping fuse events in more depth (Q-19)]] (open)
 - [[Q-18 D2-74 amends D4-35|D2-74 amends D4-35 (Q-18)]] (open)
@@ -42,7 +41,7 @@
 - [[Q-RR3 The human player's first interface|The human player's first interface (Q-RR3)]] (open)
 - [[Q-RR5 A replay test with shuffled completion order of model calls|A replay test with shuffled completion order of model calls (Q-RR5)]] (open)
 
-## Closed (54)
+## Closed (55)
 - [[Q-85 One book of standing rules per household and person for eating and…|One book of standing rules per household and person for eating and… (Q-85)]]
 - [[Q-84 The building scale|The building scale (Q-84)]]
 - [[Q-83 Whether the smoke racks hold a real hut's load|Whether the smoke racks hold a real hut's load (Q-83)]]
@@ -81,6 +80,7 @@
 - [[Q-33 forays.md's open questions|forays.md's open questions (Q-33)]]
 - [[Q-32 02zv §6's decisions still open|02zv §6's decisions still open (Q-32)]]
 - [[Q-31 Does guard the field become D2-21's watch|Does `guard the field` become D2-21's watch? (Q-31)]]
+- [[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)]]
 - [[Q-26 Built without decisions, found by the 5 Nov sweep of 37.4's proposals|Built without decisions, found by the 5 Nov sweep of 37.4's proposals (Q-26)]]
 - [[Q-25 Zach's decisions now open, in one list|Zach's decisions now open, in one list (Q-25)]]
 - [[Q-24 Built for the building package|Built for the building package (Q-24)]]

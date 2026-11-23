@@ -1,16 +1,18 @@
 ---
 id: Q-27
 kind: ask
-state: open
-updated: "2026-11-22"
+state: closed
+updated: "2026-11-23"
 ---
 
 # Keep the 38 built verbs, or fold them back to about 22 to 24 (Q-27)
 
-*open · 37.4, Zach to decide*
+*closed, by zach · 37.4, Zach to decide*
 
 ## The question
 **The verb list** (proposals/verbs.md, "ready for a decision" since 23 Oct): keep the 38 built verbs or fold them back to about 22-24 (host, grant, revoke, sleep, fire, order, withdraw into `set`; admit, name, release into `invoke`; membership verbs into one; learn as an accepted `teach`; drive into `move` or a method); the rules against swelling (a new verb needs Zach's yes; the count written in the spec), which meet, come, write and erase did not follow; whether to build a coverage test
+
+**Zach's answer:** 1. A3 yes
 
 **Where:** proposals/verbs.md; agent_view.md point 4; 38.37 §7c
 
@@ -21,6 +23,7 @@ updated: "2026-11-22"
 
 ## Mentioned by
 - [[D2-243 The verbs and the livelihood archetypes are reshaped first, as their…|The verbs and the livelihood archetypes are reshaped first, as their… (D2-243)]]
+- [[D2-314 The eleven act shapes are the verb list|The eleven act shapes are the verb list (D2-314)]]
 - [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]
 - [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]]
 - [[The engine overhaul the process model, its calibration, and the…|The engine overhaul: the process model, its calibration, and the…]]

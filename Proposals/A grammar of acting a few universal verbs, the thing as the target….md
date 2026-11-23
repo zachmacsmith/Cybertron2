@@ -1,7 +1,7 @@
 ---
 id: docs/cybertron2/proposals/verb_grammar.md
 kind: proposal
-updated: "2026-11-22"
+updated: "2026-11-23"
 ---
 # A grammar of acting: a few universal verbs, the thing as the target, techniques as the how
 
@@ -65,6 +65,7 @@ say a verb just to say a technique what is the verb actually doing?"
 
 ## History
 
+- 23 Nov 2026: accepted in part: [[D2-314 The eleven act shapes are the verb list|D2-314]] (The eleven act shapes are the verb list: go, gather, set, tend, make, work, buil).
 - **22 Nov 2026:** written as exploration by 37.2 from the day's conversation (Zach quoted under Why), under [[D2-277 Every idea explored in conversation is written down before moving on|D2-277]] (every explored idea
   written down), with the crafts evaluation's counts.
 

@@ -36,6 +36,9 @@ started
 - under it: [[D2-310 Lives counted in nights|Lives counted in nights (D2-310)]] (live)
 - under it: [[D2-311 Seeded memory of a household's capital is part of the founders'…|Seeded memory of a household's capital is part of the founders'… (D2-311)]] (live)
 - under it: [[D2-312 Materials made to feed lasting things|Materials made to feed lasting things (D2-312)]] (live)
+- under it: [[D2-313 For this wave|For this wave (D2-313)]] (live)
+- under it: [[D2-314 The eleven act shapes are the verb list|The eleven act shapes are the verb list (D2-314)]] (live)
+- under it: [[D2-315 The wild's rates still on the day clock are left as calibrated for…|The wild's rates still on the day clock are left as calibrated for… (D2-315)]] (live)
 - under it: [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]] (open)
 - under it: [[L-160 Kept lines over a life|Kept lines over a life (L-160)]] (open)
 - under it: [[L-161 Ice and the freeze|Ice and the freeze (L-161)]] (open)
@@ -56,6 +59,9 @@ started
 - [[D2-310 Lives counted in nights|Lives counted in nights (D2-310)]]
 - [[D2-311 Seeded memory of a household's capital is part of the founders'…|Seeded memory of a household's capital is part of the founders'… (D2-311)]]
 - [[D2-312 Materials made to feed lasting things|Materials made to feed lasting things (D2-312)]]
+- [[D2-313 For this wave|For this wave (D2-313)]]
+- [[D2-314 The eleven act shapes are the verb list|The eleven act shapes are the verb list (D2-314)]]
+- [[D2-315 The wild's rates still on the day clock are left as calibrated for…|The wild's rates still on the day clock are left as calibrated for… (D2-315)]]
 - [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]]
 - [[L-160 Kept lines over a life|Kept lines over a life (L-160)]]
 - [[L-161 Ice and the freeze|Ice and the freeze (L-161)]]
@@ -71,6 +77,7 @@ started
 - [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
 - [[U7 works and the building clock|U7: works and the building clock]]
 - [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
+- [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
 - [[The catch basis checked against real eel fisheries can a household…|The catch basis checked against real eel fisheries: can a household…]]
 - [[spec_agents_brief.md|spec_agents_brief.md]]
 - *and 1 index or audit notes*
