@@ -44,9 +44,10 @@ SKILLS = {
     "households": {"Brook": {"livelihoods": ["salter", "fisher"], "experts": ["the_pan"]},
                    "Marsh": {"livelihoods": ["fisher"], "experts": ["weir_and_nets", "keeping"]},
                    "Field": {"livelihoods": ["farmer", "herder"], "experts": ["ploughman"]},
-                   "Fletcher": {"livelihoods": ["miller", "farmer"]}},
+                   "Fletcher": {"livelihoods": ["miller", "farmer"], "experts": ["the_mill"]}},
     "couple": {"capital_knowledge": True, "livelihood_land": True, "crafts_capital": True, "gates": True},
 }
+CAP = 20                                                                # seeded lines a founder (D2-308, D2-311)
 MEMORY = {"kept": {"words": 80, "schedule": "every", "every": 3, "most": 30}}
 GOAL = ("YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household's founders, to be as many as "
         "you can, and see them survive and spread over as many generations as you can. Your score is the number of people descended "
@@ -102,6 +103,8 @@ def remake(src=SRC) -> tuple:
         if a.get("kept"):
             a.pop("memories", None)                                     # the seeded lines are kept lines (as make_eelmouth.arms)
         a["kept"] = [{"text": GOAL, "fixed": True}] + [k for k in (a.get("kept") or []) if k.get("text") != GOAL]
+        while len(a["kept"]) > CAP:                                     # the goal is inside the founders' 20 (D2-311): the last seeded
+            a["kept"].pop()                                             # line goes, as U9's drop order takes the last first
     report["skipped"].append("the gone households: " + ", ".join(sorted(gone_hh)) + f" ({len(gone)} people)")
     return w, report
 
