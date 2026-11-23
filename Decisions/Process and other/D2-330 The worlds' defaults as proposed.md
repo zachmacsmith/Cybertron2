@@ -24,5 +24,6 @@ conversation (23 Nov: "If I didn;t abswer any C I took degaults")
 - [[The build plan|The build plan]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
+- [[Stage 2 of the fishing, hunting and materials wave taking and making…|Stage 2 of the fishing, hunting and materials wave: taking and making…]]
 - [[Brief build stage 4, taking and making (thread W-THREAD)|Brief: build stage 4, taking and making (thread W-THREAD)]]
 - *and 2 index or audit notes*

@@ -29,5 +29,6 @@ conversation (23 Nov: "on leather: I think it has a one way dependnecy where it 
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
 - [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
 - [[Brief build stage 2, taking and making (thread W-98)|Brief: build stage 2, taking and making (thread W-98)]]
+- [[Stage 2 of the fishing, hunting and materials wave taking and making…|Stage 2 of the fishing, hunting and materials wave: taking and making…]]
 - [[Brief build stage 3, taking and making (thread W-THREAD)|Brief: build stage 3, taking and making (thread W-THREAD)]]
 - *and 3 index or audit notes*
