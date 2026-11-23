@@ -54,6 +54,7 @@ is deferred (L-156).
 
 ## History
 
+- 23 Nov 2026: accepted in part: D2-337 (Standing rules are written in a stated grammar the prompt gives in full (each ki).
 - 23 Nov 2026: accepted in part: D2-319 (Rules can be changed at any time by a free act and also in the evening talk unde).
 - 22 Nov 2026: accepted in part: D2-301 (A person's own rules and standing fallback come before every household chore, ke).
 - 22 Nov 2026: accepted in part: D2-296 (Fallbacks are assignable by the household's standing rules: the head divides the).
