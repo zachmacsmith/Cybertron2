@@ -1,4 +1,4 @@
-# Brief: build stage 3, taking and making (thread W-THREAD)
+# Brief: build stage 3, taking and making (thread W-99)
 
 You are a build subagent of session 37.2 on Cybertron 2. Build stage 3 of the wave: **keeping, stores and the household book**. Work ONLY in the git
 worktree named in your prompt (branch `w85-s3-keeping`, made from `main` after stage 2 merged). Never edit the main checkout. Do not
@@ -6,7 +6,7 @@ push or merge. Commit on the branch in small commits; each message's last paragr
 
 ```
 Agent: 37.2
-Thread: W-THREAD
+Thread: W-99
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 ```
 
