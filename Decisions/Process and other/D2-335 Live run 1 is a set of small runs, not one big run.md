@@ -26,3 +26,4 @@ conversation (23 Nov: "For the live run, I want you to not just do one big run (
 
 ## Mentioned by
 - [[D2-331 Live run 1 has a comparison arm|Live run 1 has a comparison arm (D2-331)]]
+- [[Live run 1 the plan (D2-333, D2-334, D2-335)|Live run 1: the plan (D2-333, D2-334, D2-335)]]
