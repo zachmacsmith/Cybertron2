@@ -415,6 +415,7 @@ WEATHER_LEADS = [
 # what one notices while working, by the technique (the hunt's own are HUNT_NOTICES): each with the kind that must be about (in the
 # village's ring), a condition, its rows, and a find (a good one may pick up)
 WORK_NOTICES = {
+    "water": [],          # set gear in water and the edge: the water's own rows (u2 §6 fault 15; U8 writes them)
     "hay": [{"kind": "roe deer", "if": {"seasons": {0: (5, 7), 1: (0, 3)}}, "find": None,
              "rows": [R("all", "sight", 0.6, (0, 0), "a roe kid lying flat in the long grass ahead of the scythe")]},
             {"kind": "voles and mice", "if": {}, "least": 2400, "rows": [R("all", "sight", 0.6, (0, 0), "voles running from the swathes as you mow")]}],

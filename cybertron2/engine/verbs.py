@@ -680,7 +680,11 @@ def _technique(here, mind, a, party, verb):
         thing = ("building", key)
     elif y["kind"] == "wild_take" and t.get("set"):                           # set and left: it catches by night (brief 2 §4)
         from cybertron2.engine import wild as WL
-        word = WL.set_work(here, mind, tech, key, place_name)
+        mine = _own_set_at(here, tech, key)
+        if mine:                                                               # named alone, one's own standing: tended (u2 §6 fault 2)
+            word = _tend(here, mind, mine, place_name)
+        else:
+            word = WL.set_work(here, mind, tech, key, place_name)
         gives = None
     elif y["kind"] == "wild_take" and lead:                                  # a party's hunt: settled after the day's acts (4b §3.1)
         word = HP.record(here, mind, tech, key, place_name, out, m, a)
@@ -923,6 +927,8 @@ def _build(here, mind, a, party):
         bid = here.building(at) if at else None
         if bid and here.buildings()[bid].get("unfinished"):                      # carry on
             u = here.buildings()[bid]["unfinished"]
+            if here.name in (here.buildings()[bid].get("crew") or []):           # crew work, led by one who knows it (u2 §6 bug 4)
+                return _build_work(here, mind, bid, KN.level(mind, u["blueprint"]) or "rough")
             return _build_work(here, mind, bid, _lvl_for(mind, u["blueprint"], here.buildings()[bid]["structure"]))
         if bid and what in BLUEPRINTS and what != "camp":
             return _add_room(here, mind, a, party, bid, what)
@@ -1172,7 +1178,8 @@ def _weir_part(here, mind, a, party, part):
         part = STRUCTURE_WORDS.get(str(a.get("structure") or a.get("material") or "timber").strip().lower())
         if part not in GR.MATERIALS:
             raise Refused(f"a weir's section is wattle or timber, not {a.get('structure') or a.get('material')!r}")
-    _level(mind, "weir")
+    if here.name not in (b.get("crew") or []):                                # its crew works on it under one who knows it (bug 4)
+        _level(mind, "weir")
     wk = dict(b.get("weir_work") or {})
     secs = WL.sections(b)
     if not wk:
@@ -1610,11 +1617,37 @@ def _parcel_named(here, x):
     return max(hits, key=lambda p: len(here.parcels()[p]["name"])) if hits else None
 
 
+def _own_set_at(here, tech, key):
+    """One's own (or one's household's) set thing of this technique standing at this parcel, the newest (u2 §3; D2-305)."""
+    hits = [(int((c.get("set") or {}).get("set_day", 0)), cid) for cid, c in here._w.s["containers"].items()
+            if c.get("kind") == "set" and c.get("parcel") == key and not (c.get("set") or {}).get("weir")
+            and (c.get("set") or {}).get("method") == tech and TH.owns_set(c, here.name, here._w) and TH.set_about(here._w, c)]
+    return max(hits)[1] if hits else None
+
+
+def _tend(here, mind, cid, place_name):
+    """Tending one's set gear (D2-294; u2 §3): its catch into hand, and the gear set again where it stands."""
+    c = here.thing(cid)
+    noun = TH.trap_noun(c)
+    took = []
+    for it, q in sorted(c["goods"].items()):
+        if q > 1e-9:
+            here.apply("transfer", src=cid, dst=here.hands, item=it, qty=q)
+            took.append(f"{show(q)} {it}")
+    here.apply("set_thing", cid=cid, field="catch", value=[])
+    here.apply("set_thing", cid=cid, field="caught", value=0)
+    here.apply("set_thing", cid=cid, field="set", value=dict(c["set"], set_day=here.day, sprung=None))
+    here.remember_thing(cid, "put")
+    tag = f" ({c['tag']})" if c.get("tag") and here.setting("tags") else ""
+    got = ("took " + ", ".join(took) + " from them") if took else "nothing was in them"
+    return f"You tended your {noun} at {place_name}{tag}: {got}, and set them again where they stand."
+
+
 def _lift(here, mind, rem):
     """Lifting a set thing one knows (brief 4c §4.4): everything in it into hand, or a look that it holds nothing."""
     c = here.thing(rem)
     noun = TH.trap_noun(c)
-    whose = "your" if TH.owns_set(c, here.name) else "the"
+    whose = "your" if TH.owns_set(c, here.name, here._w) else "the"
     took = []
     for it, q in sorted(c["goods"].items()):
         if q > 1e-9:
@@ -1664,7 +1697,7 @@ def _take(here, mind, a, party):
         bid = door
         label = f"what {c['of']} left" if c.get("body") else f"what lay at {here.spot_name(c)}"
         if c.get("kind") == "set":
-            label = (f"{'your' if TH.owns_set(c, here.name) else 'the'} {TH.trap_noun(c)} "
+            label = (f"{'your' if TH.owns_set(c, here.name, here._w) else 'the'} {TH.trap_noun(c)} "
                      f"at {here.spot_name(c)}")
         have = c["goods"].get(item, 0.0)
         if c.get("by") != here.name:
@@ -1694,13 +1727,18 @@ def _take(here, mind, a, party):
     if c["kind"] == "set":                                                     # emptied: its catch gone; another's emptying it shows
         if not any(x > 1e-9 for x in c["goods"].values()):                     # to those who know the line (brief 4c §4.2)
             here.apply("set_thing", cid=src, field="catch", value=[])
-        if c.get("by") not in (here.name, None) and not TH.owns_set(c, here.name):
+        if c.get("by") not in (here.name, None) and not TH.owns_set(c, here.name, here._w):
             here.apply("set_thing", cid=src, field="robbed", value={"day": here.day, "by": here.name})
-    if c["kind"] == "set" and c.get("by") not in (here.name, None) and not TH.owns_set(c, here.name):   # another's robbed: seen
+    if c["kind"] == "set" and c.get("by") not in (here.name, None) and not TH.owns_set(c, here.name, here._w):   # another's robbed: seen
         whose = (f"the weir {', '.join(c.get('crew') or [c['by']])} work" if TH.is_weir(c) else f"the "
                  f"{'traps' if (c.get('set') or {}).get('method') == 'trap in water' else 'snares'} {c['by']} set")
         here.event("take", f"{here.name} took {item} from {whose} at {here.spot_name(c)}", actor=here.name, salience=0.55,
                    about=[f"parcel:{c['parcel']}"], tags=["food", "hunting"], concerns=list(c.get("crew") or [c["by"]]))
+        here.today()["thefts"].append({"by": here.name, "thing": src, "item": item, "qty": round(q, 2)})   # theft (u2 §6 fault 7)
+        here.record("take", None, None, theft=True)
+        here.remember_thing(src, "took")
+        return (f"You took {show(q)} {item} from {whose} at {here.spot_name(c)}, which are not yours to take from. Whether anyone "
+                "saw, you will learn.")
     here.event("take", f"{here.name} took {item} from {label}", actor=here.name, salience=0.4 if c["kind"] in TH.KINDS else 0.3,
                about=[f"parcel:{c['parcel']}"] if c.get("parcel") else [], tags=["food"] if ITEMS[item]["food"] else [])
     if c["kind"] in TH.KINDS:

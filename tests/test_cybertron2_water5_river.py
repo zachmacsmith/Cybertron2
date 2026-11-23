@@ -187,7 +187,8 @@ def test_a_worn_weir_takes_less(river, monkeypatch):
 def test_the_weir_is_crew_work_built_on_a_river_and_its_gap_set_by_its_crew(river):
     w = fresh(river)
     a, b, c = adults(w, "Saltwell")[:3]
-    w.s["containers"][Here(w, a).hands]["goods"]["timber"] = 30
+    w.s["know"].setdefault(a, {})["weir"] = {"level": "known", "skill": 1.0}       # a craft, not everyone's (W-97, u2 §6 bug 4);
+    w.s["containers"][Here(w, a).hands]["goods"]["timber"] = 30                     # b works on its crew under a
     refused(w, a, {"do": "build", "what": "weir", "at": w.s["parcels"][water(w, "Saltwell")]["name"]}, "crew work")
     refused(w, a, {"do": "build", "what": "weir", "at": "the Brine Meadow", "with": b}, "across a river")
     do(w, a, {"do": "build", "what": "weir", "at": w.s["parcels"][water(w, "Saltwell")]["name"], "with": b})
@@ -211,7 +212,8 @@ def test_a_weirs_traps_emptied_by_another_leave_a_trace(river, monkeypatch):
     no_new_runs(monkeypatch)
     w = fresh(river)
     crew = adults(w, "Saltwell")[:2]
-    other = adults(w, "Saltwell")[2]
+    other = next(x for x in adults(w, "Saltwell")[2:] if w.household_of(x) not in {w.household_of(y) for y in crew})   # another
+    # household's: a household's things are every member's own (D2-305, W-97)
     bid = put_weir(w, "Saltwell", crew=crew)
     pulse(w, "Saltwell", n=40.0)
     w.s["wild"]["state"]["pop"]["otter"] = [0.0] * WL.model(w).n
@@ -252,16 +254,15 @@ def test_a_shut_dam_holds_about_its_share_of_a_run_going_up_and_they_can_be_take
             ps = [p for p in RU.today(m, w.s["wild"]["state"], WL.eco_day(w)) if p["g"] == "v:Millham"]
             if ps:
                 held[gap] = {bool(p.get("held")): round(float(p["n"])) for p in ps}
-                if gap == "shut":                                                  # the held fish taken below the dam by net
-                    who = adults(w, "Millham")[0]
-                    w.s["know"].setdefault(who, {})["net"] = {"level": "known", "skill": 1.0}
+                if gap == "shut":                                                  # the held fish taken below the dam by hand
+                    who = adults(w, "Millham")[0]                                  # (the net reaches what flies: W-97, u2 §6 fault 3)
                     tries = 0
                     for s_ in range(12):
                         w2 = copy.deepcopy(w)
                         o = w2.rng
                         w2.rng = lambda *k, o=o, s_=s_: o(*k, "t", s_)
                         before = float(w2.s["containers"][Here(w2, who).hands]["goods"].get("fish", 0.0))
-                        do(w2, who, {"do": "gather", "what": "net", "at": w2.s["parcels"][WL.mill_water(w2, mill)]["name"]})
+                        do(w2, who, {"do": "gather", "what": "fish by hand", "at": w2.s["parcels"][WL.mill_water(w2, mill)]["name"]})
                         tries += float(w2.s["containers"][Here(w2, who).hands]["goods"].get("fish", 0.0)) > before
                     assert tries >= 3
                 break
@@ -378,10 +379,12 @@ def test_an_otter_takes_from_an_unwatched_weir_and_not_from_a_watched_one_or_wit
     assert res["unwatched"] >= 4 and res["watched"] == 0 and res["none"] == 0
 
 
-def test_the_otter_is_a_kind_of_the_water_trapped_by_a_snare_set_at_water():
+def test_the_otter_is_a_kind_of_the_water_taken_at_its_holt():
+    """W-97 (u2 §6 faults 3, 14): the otter by den work at its holt, never in a snare; the net reaches what flies, never salmon."""
     from cybertron2.engine.data import TECHNIQUES
-    assert "otter" in TECHNIQUES["snare"]["yield"]["takes"] and "water" in TECHNIQUES["snare"]["at"]["covers"]
-    assert "salmon" in TECHNIQUES["net"]["yield"]["takes"] and "lamprey" in TECHNIQUES["trap in water"]["yield"]["takes"]
+    assert "otter" not in TECHNIQUES["snare"]["yield"]["takes"] and "water" not in TECHNIQUES["snare"]["at"]["covers"]
+    assert "otter" in TECHNIQUES["den work"]["yield"]["takes"]
+    assert "salmon" not in TECHNIQUES["net"]["yield"]["takes"] and "lamprey" in TECHNIQUES["trap in water"]["yield"]["takes"]
 
 
 # ---------------------------------------------------------------------- signs (§3.5, §3a.5)

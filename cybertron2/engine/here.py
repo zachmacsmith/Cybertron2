@@ -222,9 +222,13 @@ class Here:
             nm = b["name"].lower()
             if x in (bid.lower(), nm, nm.removeprefix("the ")):
                 return bid
+        if any(x in (p["name"].lower(), p["name"].lower().removeprefix("the ")) for p in self.parcels().values()):
+            return None                                                       # a place's own name is the place (u2 §6 bug 5)
         hh = {iid: h for iid, h in self._w.s["institutions"].items() if h["kind"] == "household"}
-        for iid, h in hh.items():                                             # "the Fenns" or "Fenn": that household's house here
-            if x in (iid.lower(), iid.lower() + "s", h["name"].lower(), h["name"].lower().removeprefix("the ")):
+        for iid, h in hh.items():                                             # "the Fenns", "Fenns" or "Fenn's": that household's house
+            hn = h["name"].lower().removeprefix("the ")                         # here; never the bare "Fenn" (u2 §6 bug 5)
+            if x in (iid.lower() + "s", iid.lower() + "'s", h["name"].lower(), hn, hn + "'s", hn.removesuffix("s") + "'s",
+                     iid.lower() + " house", hn.removesuffix("s") + " house"):
                 hb = [bid for bid in self.buildings() if any(c["claimant"] == iid for c in self._w.claims_on(("building", bid)))]
                 if hb:
                     return hb[0]

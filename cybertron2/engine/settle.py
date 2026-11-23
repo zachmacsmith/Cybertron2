@@ -273,6 +273,9 @@ def settle_thefts(w, today, attend) -> None:
     """Who saw a theft: those of the house at home, anyone attending to it or the place, a small chance for the rest."""
     from cybertron2.engine import perceive as PC
     for st in today["thefts"]:
+        if st.get("thing"):                                                 # from another's set gear (u2 §6 fault 7)
+            _set_theft_seen(w, today, attend, st)
+            continue
         b = w.s["buildings"][st["building"]]
         node = b["node"]
         w.apply("set", node, ref=("building", st["building"]), field="theft", value={"day": w.d, "item": st["item"]})   # D4-74
@@ -296,3 +299,27 @@ def settle_thefts(w, today, attend) -> None:
             PC.store(w, st["by"])["today"]["heard"].append(f"You think you were seen at the door of {b['name']}." if st.get("door")
                                                             else f"You think you were seen coming out of {b['name']}.")
         # the loss itself is found by those of the house as anything is: the store's signs (D4-74) and its count when they look
+
+
+def _set_theft_seen(w, today, attend, st) -> None:
+    """Who saw one take from another's set gear: anyone at the place, or attending to it, by the one rule (D4-75); the setter learns
+    of the robbing from the gear itself (its `robbed` mark), the thief's name only if seen."""
+    from cybertron2.engine import things as TH
+    from cybertron2.engine.data import NOTICING
+    c = w.s["containers"].get(st["thing"]) or {}
+    node, pid = c.get("node"), c.get("parcel")
+    if node is None:
+        return
+    pname = (w.s["parcels"].get(pid) or {}).get("name", "")
+    seen = []
+    for x in w.agents_acting():
+        if x == st["by"] or w.at(x) != node:
+            continue
+        tgt = str(today["watch"].get(x) or attend.get(x) or "").lower()
+        p = TH.spot_chance(w, x, node, pid, float(NOTICING["theft"]), tgt,
+                           attending=bool(pname) and pname.lower() in tgt or tgt in ("place", "the place"))
+        if w.rng("steal-seen", w.d, x, st["by"], st["thing"]).random() < p:
+            seen.append(x)
+    if seen:
+        w.event(node, "theft", f"{st['by']} took {st['qty']:g} {st['item']} from the {TH.trap_noun(c)} {c.get('by')} set at {pname}",
+                actor=st["by"], about=[f"parcel:{pid}"], salience=0.9, tags=["danger", "food"], concerns=seen)

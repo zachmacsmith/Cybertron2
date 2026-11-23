@@ -343,7 +343,7 @@ MONUMENTS = {
     # materials and units are its first section's in wattle (WATER_WORKS weir: position.first + material.wattle, W-69); built with
     # "structure": timber, the first section is timber and costs the difference more (wild/gear.py)
     "weir": {"label": "a fish weir (stakes and wattle across the river, wicker traps in its gap)", "materials": {"timber": 12},
-             "units": 24, "basic": True, "structure": "timber", "site": "river", "crew": 2, "pack": "wild",
+             "units": 24, "basic": False, "structure": "timber", "site": "river", "crew": 2, "pack": "wild",   # a craft (u2 §6 bug 4)
              "aliases": ["fish weir", "a weir", "a fish weir", "eel weir", "build a weir", "build weir"]},
 }
 # The river's works (brief 5 §3, §3a, §3b; D2-209, D2-210; calibrate). A weir is built in sections (D2-210). **Position decides a

@@ -74,6 +74,7 @@ def test_a_weir_built_in_timber_and_a_wattle_section_upgraded_for_the_difference
     w = fresh(river)
     node = "Saltwell"
     a, c = adults(w, node)[:2]
+    w.s["know"].setdefault(a, {})["weir"] = {"level": "known", "skill": 1.0}       # a craft, not everyone's (W-97, u2 §6 bug 4)
     hands = w.s["containers"][Here(w, a).hands]["goods"]
     hands["timber"] = 60
     pid = water(w, node)

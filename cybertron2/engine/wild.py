@@ -391,6 +391,9 @@ def _thin(here, pid, load, share) -> None:
     here.apply("set_wild", path=["state", "loads", "level", load], value=lv)
 
 
+WATER_COVERS = ("water", "fen", "saltmarsh")
+
+
 def work_notices(here, mind, tech, key) -> str:
     """What one notices while working a parcel (kinds.WORK_NOTICES): by the technique (any wild hunt reads "hunt"), for a kind about
     the village (in its ring), under a condition; each row by the one rule (D4-75: own x visibility x the eye), read by the practised,
@@ -403,13 +406,15 @@ def work_notices(here, mind, tech, key) -> str:
     if not on(w) or not (w.s.get("wild") or {}).get("state"):
         return ""
     y = (TECHNIQUES[tech].get("yield") or {}).get("kind")
+    par = here.parcels()[key]
     group = tech if tech in WORK_NOTICES else ("hunt" if y == "wild_take" else None)
-    if group is None:
+    if group == "hunt" and par.get("cover") in WATER_COVERS:               # set gear in water and the edge: the water's own rows,
+        group = "water"                                                    # never the wood's finds (u2 §6 fault 15)
+    if group is None or not WORK_NOTICES.get(group):
         return ""
     st, land = w.s["wild"]["state"], w.s["wild"]["land"]
     m = model(w)
     ri = next((i for i, a in enumerate(m.ids) if land["areas"][a]["kind"] == "ring" and land["areas"][a]["node"] == here.node), None)
-    par = here.parcels()[key]
     rng = here.rng("wild-work-notice", here.day, here.name, tech)
     eye = TH.eye(w, here.name)
     know = PC.practised(mind)
@@ -915,7 +920,9 @@ def set_work(here, mind, tech, key, place_name) -> str:
                           "line": int(sp.get("line", 1)), "holds": int(sp.get("holds", 1)) * int(sp.get("line", 1))})
     here.remember_thing(cid, "put")
     what = "traps in the water" if tech == "trap in water" else "a line of snares"
-    return f"You set {what} at {place_name}; they will catch by night for about {int(sp['life'])} nights, for whoever comes to them."
+    tag = (here._w.s["containers"].get(cid) or {}).get("tag") if here.setting("tags") else None
+    return (f"You set {what} at {place_name}" + (f" ({tag})" if tag else "") + f"; they will catch by night for about "
+            f"{int(sp['life'])} nights. Named again here, they are tended: what they caught taken and they set again.")
 
 
 def _set_night(w, m, st) -> dict:
