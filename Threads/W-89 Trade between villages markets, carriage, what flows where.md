@@ -26,6 +26,7 @@ started
 - [[L-74 What Cybertron 2 lacks for a society richer than Cybertron 1's|What Cybertron 2 lacks for a society richer than Cybertron 1's (L-74)]]
 - [[L-134 No loans of goods|No loans of goods (L-134)]]
 - [[L-136 News of a famine does not travel|News of a famine does not travel (L-136)]]
+- [[L-173 Rules as the grammar of norms|Rules as the grammar of norms (L-173)]]
 - [[C-4 Letters and channels|Letters and channels (C-4)]]
 - [[C-6 Danger on the road|Danger on the road (C-6)]]
 - *and 1 index or audit notes*

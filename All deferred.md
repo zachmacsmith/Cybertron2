@@ -1,6 +1,7 @@
 # All deferred
 
 ## Open
+- [[L-173 Rules as the grammar of norms|Rules as the grammar of norms (L-173)]] (open)
 - [[L-172 Limestone and lime|Limestone and lime (L-172)]] (open)
 - [[L-171 Tanning and leather|Tanning and leather (L-171)]] (open)
 - [[L-170 Fowling the methods|Fowling: the methods (L-170)]] (open)

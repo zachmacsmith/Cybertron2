@@ -28,6 +28,7 @@ conversation (22 Nov: "conversation (22 Nov, on store_management.md)")
 - [[D2-337 Standing rules are written in a stated grammar the prompt gives in…|Standing rules are written in a stated grammar the prompt gives in… (D2-337)]]
 - [[Q-85 One book of standing rules per household and person for eating and…|One book of standing rules per household and person for eating and… (Q-85)]]
 - [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]]
+- [[Rules as the grammar of norms claims, access and laws in the same…|Rules as the grammar of norms: claims, access and laws in the same…]]
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
 - [[U5. Stores and containers a space and what is in it, each removing…|U5. Stores and containers: a space and what is in it, each removing…]]
 - [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]

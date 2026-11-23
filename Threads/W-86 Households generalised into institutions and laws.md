@@ -16,6 +16,10 @@ Benched prospective thread ([[D2-300 Every item Zach defers or flags is tagged w
 started
 
 
+## Linked
+- under it: [[L-173 Rules as the grammar of norms|Rules as the grammar of norms (L-173)]] (open)
+
+
 ## Mentioned by
 - [[Q-47 Where the economy stops for now|Where the economy stops for now (Q-47)]]
 - [[L-7 Waiting on a road for camps, tolls, patrols and ambushes|Waiting on a road for camps, tolls, patrols and ambushes (L-7)]]
@@ -29,5 +33,7 @@ started
 - [[L-135 Debts of the dead are never settled|Debts of the dead are never settled (L-135)]]
 - [[L-151 A household as a shared book of standing rules people subscribe to|A household as a shared book of standing rules people subscribe to (L-151)]]
 - [[L-156 The locked chest and its key|The locked chest and its key (L-156)]]
+- [[L-173 Rules as the grammar of norms|Rules as the grammar of norms (L-173)]]
 - [[C-4 Letters and channels|Letters and channels (C-4)]]
+- [[Rules as the grammar of norms claims, access and laws in the same…|Rules as the grammar of norms: claims, access and laws in the same…]]
 - *and 1 index or audit notes*
