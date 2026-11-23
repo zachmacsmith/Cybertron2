@@ -21,6 +21,7 @@ conversation (23 Nov: "If I didn;t abswer any C I took degaults")
 
 
 ## Mentioned by
+- [[D2-345 Zach's go for stage 5|Zach's go for stage 5 (D2-345)]]
 - [[The build plan|The build plan]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]

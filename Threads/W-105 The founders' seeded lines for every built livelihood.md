@@ -20,3 +20,7 @@ started
 
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
+
+
+## Mentioned by
+- [[D2-345 Zach's go for stage 5|Zach's go for stage 5 (D2-345)]]

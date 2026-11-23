@@ -64,6 +64,7 @@ started
 - under it: [[D2-338 The household book has named sets as a primitive|The household book has named sets as a primitive (D2-338)]] (live)
 - under it: [[D2-339 The household book's grammar|The household book's grammar (D2-339)]] (live)
 - under it: [[D2-344 No worked example of a conditional rule is added to the rules block|No worked example of a conditional rule is added to the rules block (D2-344)]] (live)
+- under it: [[D2-345 Zach's go for stage 5|Zach's go for stage 5 (D2-345)]] (live)
 - under it: [[L-158 Daily herding as cheaper crop protection|Daily herding as cheaper crop protection (L-158)]] (open)
 - under it: [[L-160 Kept lines over a life|Kept lines over a life (L-160)]] (open)
 - under it: [[L-161 Ice and the freeze|Ice and the freeze (L-161)]] (open)
@@ -128,5 +129,5 @@ started
 - [[D2-337 Standing rules are written in a stated grammar the prompt gives in…|Standing rules are written in a stated grammar the prompt gives in… (D2-337)]]
 - [[D2-338 The household book has named sets as a primitive|The household book has named sets as a primitive (D2-338)]]
 - [[D2-339 The household book's grammar|The household book's grammar (D2-339)]]
-- … and 40 more
+- … and 41 more
 - *and 3 index or audit notes*
