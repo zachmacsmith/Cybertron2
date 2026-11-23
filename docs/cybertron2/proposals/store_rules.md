@@ -54,6 +54,7 @@ is deferred (L-156).
 
 ## History
 
+- 23 Nov 2026: accepted in part: D2-339 (The household book's grammar: five kinds and drop. set (name; people, goods or p).
 - 23 Nov 2026: accepted in part: D2-338 (The household book has named sets as a primitive: a household (or a person) name).
 - 23 Nov 2026: accepted in part: D2-337 (Standing rules are written in a stated grammar the prompt gives in full (each ki).
 - 23 Nov 2026: accepted in part: D2-319 (Rules can be changed at any time by a free act and also in the evening talk unde).
