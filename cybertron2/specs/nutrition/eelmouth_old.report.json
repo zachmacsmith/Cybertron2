@@ -146,15 +146,17 @@
     ]
    },
    "Hamon": {
-    "wanted": 29,
-    "rendered": 27,
+    "wanted": 31,
+    "rendered": 28,
     "skipped": [
      "PE2",
+     "HH2",
      "HL"
     ],
     "steps": [
      "neighbours beyond one",
      "HH5",
+     "HH4",
      "HH8",
      "capable lines a specialism repeats",
      "BS9",
@@ -203,10 +205,11 @@
     ]
    },
    "Katherine": {
-    "wanted": 23,
+    "wanted": 24,
     "rendered": 22,
     "skipped": [
-     "PE2"
+     "PE2",
+     "SA7"
     ],
     "steps": [
      "neighbours beyond one",
@@ -312,13 +315,17 @@
     ]
    },
    "Oliver": {
-    "wanted": 30,
-    "rendered": 30,
-    "skipped": [],
+    "wanted": 33,
+    "rendered": 31,
+    "skipped": [
+     "HH2",
+     "SA7"
+    ],
     "steps": [
      "neighbours beyond one",
      "PE2",
      "HH5",
+     "HH4",
      "HH8",
      "broad lines of a second living beyond its first",
      "BS9",
@@ -353,13 +360,16 @@
     ]
    },
    "Peter": {
-    "wanted": 29,
-    "rendered": 29,
-    "skipped": [],
+    "wanted": 31,
+    "rendered": 30,
+    "skipped": [
+     "HH2"
+    ],
     "steps": [
      "neighbours beyond one",
      "PE2",
      "HH5",
+     "HH4",
      "HH8",
      "BS9",
      "BS7",
