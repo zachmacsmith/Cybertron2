@@ -43,6 +43,7 @@ decision, or the rule it was first written in. A new process decision is added h
 - D2-287: Reviewing past runs: every finding is checked against the fixes made since that run (the commits and decisions after its date, and the world's settings, e.g. view: beliefs) before it is taken as evidence of a current fault; a fault already fixed is reported as fixed, with the fix.
 - D2-298: Bot runs test interfaces and basic functioning only; they make no decisions except those built into them, so they are not read as evidence of behaviour or of whether a world is too rich or too poor. Live runs carry that signal (starving included).
 - D2-300: Every item Zach defers or flags is tagged with the prospective threads it most likely bears on (benched threads kept for that purpose), so that when work on a thread begins, every past item put off for it surfaces with one tool call.
+- D2-313: For this wave (W-73, W-85), 37.2 owns every engine file its design changes, including those 37.4 owns (verbs and their registry, the standing rules, the prompt core, clocks, spoilage, buildings and their cost code, senses); 37.4 is told on the board.
 
 ## Sources
 
